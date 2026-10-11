@@ -399,45 +399,46 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   // Inhoud per niveau: havo volgt Biologie voor jou, vwo volgt Nectar, onderbouw volgt de kerndoelen.
   var perLevel={
     havo:{intro:'Kies het PTA-onderdeel waar je aan werkt en daarin je thema. Je vindt er de films op volgorde, de tools om het zelf te proberen en een oefentoets.',methode:'Biologie voor jou · thema 1–7 in 4 havo, 8–13 in 5 havo',ond:[
-      {code:'OND1',subs:[
+      {code:'OND1',w:15,subs:[
         ['Thema 1','Cellen','Inleiding in de biologie · 4 havo','2 films · Schaallab','#cellen'],
         ['Thema 2','Voortplanting','4 havo','Precies op tijd · celdeling · zwangerschap','#voortplanting'],
         ['Thema 3','Erfelijkheid','Genetica · 4 havo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid']]},
-      {code:'OND2',subs:[
+      {code:'OND2',w:15,subs:[
         ['Thema 4','Evolutie','4 havo','9 films · Resistentielab','#evolutie'],
         ['Thema 5 + 6','Regeling en waarneming','Regeling · Waarneming en gedrag · 4 havo','Regelkring · zenuwstelsel volgt',''],
         ['Thema 7','Ecologie','Ecologie en milieu · 4 havo','Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab','']]},
-      {code:'OND3',subs:[
+      {code:'OND3',w:25,subs:[
         ['Eigen pakket','Gedrag','psychologie-experimenten','',''],
         ['Thema 8','Stofwisseling','Stofwisseling in de cel · 5 havo','3 films · Aardappellab','#stofwisseling'],
         ['Thema 9','DNA','5 havo','Eiwitfabriek · DNA-reeks volgt','#dna']]},
-      {code:'OND4',subs:[
+      {code:'OND4',w:25,subs:[
         ['Thema 10','Voeding','Vertering · 5 havo','reeks volgt',''],
         ['Thema 11','Transport','5 havo','',''],
         ['Thema 12','Gaswisseling en uitscheiding','5 havo','',''],
         ['Thema 13','Bescherming en evenwicht','Afweer · 5 havo','','']]}
     ]},
-    vwo:{intro:'Kies het PTA-onderdeel waar je aan werkt en daarin je onderwerp. De Nectar-hoofdstukken staan erbij; films, tools, begrippen en examenvragen staan bij elkaar.',methode:'Nectar 4.1 · boek 4, 5 en 6 vwo',ond:[
-      {code:'OND1',subs:[
-        ['H2 + H3','Cellen','Cel en leven · Wetenschappelijk onderzoek · 4 vwo','Onderzoek doen · Onderzoekskeuring · Schaallab','#cellen'],
+    vwo:{intro:'Kies het PTA-onderdeel waar je aan werkt en daarin je onderwerp. De Nectar-hoofdstukken staan erbij; films, tools, begrippen en examenvragen staan bij elkaar.',methode:'Nectar 4.1 · PTA vwo (sept. 2026) · jaar 1 = OND1 + OND2, jaar 2 = OND3 + OND4 · H3 Wetenschappelijk onderzoek ondersteunt alle onderdelen',ond:[
+      {code:'OND1',w:15,subs:[
+        ['H2','Cellen','Cel en leven · 4 vwo · met H3 onderzoek','Onderzoek doen · Onderzoekskeuring · Schaallab','#cellen'],
         ['H4','Voortplanting','4 vwo','Precies op tijd','#voortplanting'],
         ['H5','Genetica','Erfelijkheid · 4 vwo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],
-        ['H7','Evolutie','4 vwo','9 films · Resistentielab','#evolutie']]},
-      {code:'OND2',subs:[
-        ['H6 + H8','Ecologie','Soorten en populaties · Kenmerken van ecosystemen · 4 vwo','Plek genoeg · Alles gaat rond · Terrariumlab',''],
-        ['H18–20','Stofwisseling','Eiwitten · Sport · Planten · 6 vwo','3 films · Aardappellab','#stofwisseling'],
-        ['H17 + H18','DNA','DNA · Eiwitten · 6 vwo','Eiwitfabriek · DNA-reeks · examenatlas','#dna']]},
-      {code:'OND3',subs:[
-        ['H20','Planten','6 vwo','Alles in het groen','#stofwisseling'],
-        ['H12–15','Regeling en waarneming','Regeling intern milieu · Hormonen · Zenuwstelsel · Waarnemen · 5 vwo','Regelkring · zenuwstelsel volgt',''],
-        ['Eigen pakket + H19','Gedrag en beweging','Gedrag (i.p.v. H1) · Sport · 6 vwo','','']]},
-      {code:'OND4',subs:[
+        ['H7','Evolutie','4 vwo','9 films · Resistentielab','#evolutie'],
+        ['H6 + H8','Ecologie','Soorten en populaties · Kenmerken van ecosystemen · 4 vwo','Plek genoeg · Alles gaat rond · Terrariumlab','']]},
+      {code:'OND2',w:25,subs:[
+        ['H9','Mens en milieu','Systeem Aarde en de mens · 5 vwo','',''],
+        ['H17','DNA','6 vwo','Eiwitfabriek · DNA-reeks · examenatlas','#dna'],
+        ['H18–20','Stofwisseling','Eiwitten · Sport · Planten · 6 vwo','3 films · Aardappellab','#stofwisseling']]},
+      {code:'OND3',w:15,subs:[
+        ['H12–15','Regeling en waarneming','Regeling intern milieu · Hormonen · Zenuwstelsel · Waarnemen (§ 15.5) · 5 vwo','Regelkring · zenuwstelsel volgt',''],
+        ['H1 + H19','Gedrag en beweging','posteropdracht psychologische experimenten · Sport · 4 + 6 vwo','',''],
+        ['H20','Planten','6 vwo','Alles in het groen','#stofwisseling']]},
+      {code:'OND4',w:25,subs:[
         ['H11','Voeding','Voeding en vertering · 5 vwo','reeks volgt',''],
         ['H10','Transport','Bloedsomloop · 5 vwo','',''],
         ['H12','Gaswisseling','Regeling intern milieu § 12.3–12.4 · 5 vwo','',''],
         ['H16','Bescherming','Afweer · 5 vwo','','']]},
-      {code:'OND5',subs:[
-        ['Keuze','Keuzeonderdeel','uit het CE: eiwitsynthese, stofwisseling, zelfregulatie, afweer, ecosystemen, soortvorming …','Examenatlas','']]}
+      {code:'OND5',w:20,subs:[
+        ['Keuze','Keuzeonderdeel','vrij te kiezen, wordt later geplaatst','Examenatlas','']]}
     ]},
     onderbouw:{intro:'Kies je thema. Bij elk thema vind je een korte video, een onderzoekje om zelf te doen en een opdracht.',methode:'nieuwe kerndoelen mens en natuur',ond:[
       {code:'Kerndoelen',subs:[
@@ -462,7 +463,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
         var inner='<span class="nr">'+esc(c[0])+'</span><span class="t">'+esc(c[1])+'</span>'+(c[2]?'<span class="h">'+esc(c[2])+'</span>':'')+'<span class="s">'+esc(c[3]||(href?'':'materiaal volgt'))+'</span>';
         return href?'<a class="'+cls+'" href="'+esc(href)+'">'+inner+'</a>':'<div class="'+cls+'">'+inner+'</div>';
       }).join('');
-      return '<section class="ond"><h2 class="ond-h"><span class="code">'+esc(o.code)+'</span></h2><div class="grid ch">'+tiles+'</div></section>';
+      return '<section class="ond"><h2 class="ond-h"><span class="code">'+esc(o.code)+'</span>'+(o.w?'<span>weging '+o.w+'%</span>':'')+'</h2><div class="grid ch">'+tiles+'</div></section>';
     }).join('');
     var m=document.getElementById('methode'); if(m) m.textContent=cur.methode||'';
   }
