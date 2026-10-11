@@ -391,6 +391,44 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   </div>
 </main>
 
+<main id="regeling" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#regeling-films">Video's</a><a href="#regeling-tools">Tools en practica</a><a href="#regeling-oefenen">Begrippen</a><a href="#regeling-oefenen">Binas</a><a href="#regeling-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Thema</span>
+        <h1>Regeling</h1>
+        <small>havo · vwo · hormonen en negatieve terugkoppeling</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="regeling-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="tools/regelkring.html"><i>R</i><span><b>Regelkring</b><small>Verstoor de glucoseregulatie of de HPA-as (vwo) en kijk hoe het lichaam zichzelf herstelt: voorspel, test en lees de registratie</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="regeling-films">
+      <div class="sec-h"><h2>Video's</h2><small>de reeks over het zenuwstelsel volgt</small></div>
+    </section>
+
+    <section class="sec" id="regeling-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#regeling-oefenen"><span class="t">Begrippen trainen</span><span class="m">Homeostase, setpoint, negatieve terugkoppeling, insuline, glucagon, hypofyse… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#regeling-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over hormonale regulatie, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
 <footer>Biologie bij Kamiel · <a href="#home">home</a></footer>
 
 <script>
@@ -405,7 +443,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
         ['Thema 3','Erfelijkheid','Genetica · 4 havo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid']]},
       {code:'OND2',w:15,subs:[
         ['Thema 4','Evolutie','4 havo','9 films · Resistentielab','#evolutie'],
-        ['Thema 5 + 6','Regeling en waarneming','Regeling · Waarneming en gedrag · 4 havo','Regelkring · zenuwstelsel volgt',''],
+        ['Thema 5 + 6','Regeling en waarneming','Regeling · Waarneming en gedrag · 4 havo','Regelkring · zenuwstelsel volgt','#regeling'],
         ['Thema 7','Ecologie','Ecologie en milieu · 4 havo','Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab','']]},
       {code:'OND3',w:25,subs:[
         ['Eigen pakket','Gedrag','psychologie-experimenten','',''],
@@ -429,7 +467,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
         ['H17','DNA','6 vwo','Eiwitfabriek · DNA-reeks · examenatlas','#dna'],
         ['H18–20','Stofwisseling','Eiwitten · Sport · Planten · 6 vwo','3 films · Aardappellab','#stofwisseling']]},
       {code:'OND3',w:15,subs:[
-        ['H12–15','Regeling en waarneming','Regeling intern milieu · Hormonen · Zenuwstelsel · Waarnemen (§ 15.5) · 5 vwo','Regelkring · zenuwstelsel volgt',''],
+        ['H12–15','Regeling en waarneming','Regeling intern milieu · Hormonen · Zenuwstelsel · Waarnemen (§ 15.5) · 5 vwo','Regelkring · zenuwstelsel volgt','#regeling'],
         ['H1 + H19','Gedrag en beweging','posteropdracht psychologische experimenten · Sport · 4 + 6 vwo','',''],
         ['H20','Planten','6 vwo','Alles in het groen','#stofwisseling']]},
       {code:'OND4',w:25,subs:[
@@ -480,8 +518,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   // Routes: #home, #erfelijkheid en #stofwisseling (ankers binnen een pagina laten die pagina staan)
   function route(){
     var h=(location.hash||'#home').slice(1);
-    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':'home';
-    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna'].forEach(function(id){document.getElementById(id).hidden=page!==id});
+    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':h.indexOf('regeling')===0?'regeling':'home';
+    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna','regeling'].forEach(function(id){document.getElementById(id).hidden=page!==id});
     if(h===page) window.scrollTo(0,0);
     else{var el=document.getElementById(h); if(el) el.scrollIntoView();}
   }

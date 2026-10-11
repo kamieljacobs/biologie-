@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Regelkring · Biologie bij Kamiel</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: lab-monitor. Links het regelschema dat live meebeweegt + verstoringsknoppen, rechts de registratie (grafiek) en het logboek. Opdrachten eronder. */
+:root{
+  --bg:#f3f5f6; --panel:#ffffff; --panel-2:#e9eef0; --fg:#15232a; --muted:#5a6b73; --line:#cfd8dc;
+  --accent:#0e6f7a; --accent-ink:#ffffff;
+  --glucose:#d97a06; --insulin:#1f66c2; --glucagon:#b2359b;
+  --crh:#c2415f; --acth:#1a8a7d; --cort:#6b45c9; --stress:#d9534f;
+  --ok:#2f8f5b; --warn:#d99a06; --crit:#c73a3a; --band:rgba(47,143,91,.12);
+  --display:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1719; --panel:#162124; --panel-2:#1e2c30; --fg:#e6edf0; --muted:#9bb0b8; --line:#2c3b41;
+  --accent:#3fb3bf; --accent-ink:#06191c;
+  --glucose:#f0a040; --insulin:#6aa6ec; --glucagon:#e072ca;
+  --crh:#f07a93; --acth:#4fc9b8; --cort:#a98cf2; --stress:#f27f7b;
+  --ok:#5cc08a; --warn:#f0bb3a; --crit:#f06a6a; --band:rgba(92,192,138,.14);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1719; --panel:#162124; --panel-2:#1e2c30; --fg:#e6edf0; --muted:#9bb0b8; --line:#2c3b41;
+  --accent:#3fb3bf; --accent-ink:#06191c;
+  --glucose:#f0a040; --insulin:#6aa6ec; --glucagon:#e072ca;
+  --crh:#f07a93; --acth:#4fc9b8; --cort:#a98cf2; --stress:#f27f7b;
+  --ok:#5cc08a; --warn:#f0bb3a; --crit:#f06a6a; --band:rgba(92,192,138,.14);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:20px 48px;padding-inline:16px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:2rem;line-height:1.1;font-weight:700}
+h2{font-size:1.25rem;font-weight:700}
+h3{font-size:1.05rem;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer}
+button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:8px 14px;border-radius:999px;display:flex;gap:8px;align-items:center}
+.tab[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.badge{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;padding:1px 6px;border-radius:4px;background:var(--panel-2);color:var(--muted)}
+.tab[aria-selected="true"] .badge{background:rgba(255,255,255,.22);color:inherit}
+.niveau{display:flex;align-items:center;gap:8px;font-size:.85rem}
+.niveau button{border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:5px 10px;border-radius:var(--r)}
+.niveau button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+.intro{margin-bottom:18px;max-width:70ch}
+
+.module{display:none}
+.module.active{display:block}
+.grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:18px}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-width:0}
+.panel-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.stack{display:flex;flex-direction:column;gap:18px;min-width:0}
+
+/* readouts */
+.readouts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px}
+.ro{background:var(--panel-2);border-radius:var(--r);padding:10px 12px;border-left:4px solid var(--c,var(--line))}
+.ro .lbl{font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.ro .val{font-family:var(--mono);font-size:1.45rem;font-weight:500;line-height:1.2;font-variant-numeric:tabular-nums}
+.ro .unit{font-size:.75rem;color:var(--muted);font-family:var(--mono)}
+.status{display:inline-block;font-size:.72rem;font-family:var(--mono);padding:1px 7px;border-radius:999px;margin-top:4px;background:var(--panel);border:1px solid var(--line)}
+.status.ok{color:var(--ok);border-color:var(--ok)}
+.status.warn{color:var(--warn);border-color:var(--warn)}
+.status.crit{color:var(--crit);border-color:var(--crit)}
+
+canvas.graph{width:100%;height:280px;display:block;max-width:100%}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;margin-top:8px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:14px;height:3px;border-radius:2px;background:var(--c);margin-right:6px;vertical-align:middle}
+
+/* transport */
+.transport{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.transport button{border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:5px 10px;border-radius:var(--r);font-family:var(--mono);font-size:.8rem}
+.transport button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.clock{font-family:var(--mono);font-size:.9rem;min-width:5ch}
+
+/* diagram */
+svg.diagram{width:100%;height:auto;display:block;max-width:100%}
+svg.diagram text{font-family:var(--sans);fill:var(--fg)}
+svg.diagram .node rect{fill:var(--panel-2);stroke:var(--line);stroke-width:1.2;rx:6}
+svg.diagram .node .title{font-weight:600;font-size:12.5px}
+svg.diagram .node .sub{font-size:11px;fill:var(--muted)}
+svg.diagram .node .lvl{font-family:var(--mono);font-size:12px;font-weight:500}
+svg.diagram .edge{stroke-width:2.2;fill:none;stroke-linecap:round}
+svg.diagram .sign{font-family:var(--mono);font-size:13px;font-weight:600}
+svg.diagram .sign.plus{fill:var(--ok)} svg.diagram .sign.min{fill:var(--crit)}
+svg.diagram .lbl{font-size:10.5px;fill:var(--muted)}
+.bar{transition:width .2s linear}
+
+/* controls */
+.ctl-group{margin-top:14px}
+.ctl-group h3{font-size:.8rem;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin-bottom:8px}
+.btns{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:8px 12px;border-radius:var(--r);text-align:left;line-height:1.25}
+.btn small{display:block;color:var(--muted);font-size:.74rem;margin-top:2px}
+.btn:hover{border-color:var(--accent)}
+.btn.toggle[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.toggle[aria-pressed="true"] small{color:inherit;opacity:.85}
+.btn.reset{border-style:dashed}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* prediction */
+.predict{display:none;margin-top:12px;border:1px solid var(--accent);border-radius:var(--r);padding:12px;background:var(--panel-2)}
+.predict.show{display:block}
+.predict .q{font-weight:600;margin-bottom:8px}
+.predict .opts{display:flex;flex-wrap:wrap;gap:8px}
+.predict .opts button{border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:6px 12px;border-radius:999px}
+.predict .skip{margin-top:8px;font-size:.8rem;color:var(--muted);background:none;border:none;text-decoration:underline;padding:0}
+
+/* log */
+.log{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;max-height:230px;overflow:auto;font-size:.86rem}
+.log li{display:grid;grid-template-columns:5ch 1fr;gap:10px;padding:6px 8px;border-radius:4px;background:var(--panel-2)}
+.log li .t{font-family:var(--mono);color:var(--muted)}
+.log li.good{border-left:3px solid var(--ok)}
+.log li.bad{border-left:3px solid var(--crit)}
+.log li.info{border-left:3px solid var(--line)}
+.log li.alarm{border-left:3px solid var(--crit);background:color-mix(in srgb,var(--crit) 10%,var(--panel-2))}
+.log-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.score{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+/* opdrachten */
+.opdr{margin-top:22px}
+.opdr ol{margin:10px 0 0;padding-left:0;list-style:none;display:grid;gap:10px}
+.opdr li{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;background:var(--panel)}
+.opdr li .num{font-family:var(--mono);color:var(--accent);font-size:.78rem;letter-spacing:.06em}
+.opdr li p{margin-top:4px}
+details{margin-top:6px}
+summary{cursor:pointer;color:var(--accent);font-size:.9rem}
+details div{margin-top:6px;font-size:.92rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px}
+.vwo{display:none}
+body.vwo .vwo{display:block}
+li.vwo{display:none}
+body.vwo li.vwo{display:block}
+.vwo-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--accent);margin-left:6px}
+
+.mc{margin-top:22px}
+.mc .q{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;background:var(--panel);margin-top:10px}
+.mc .q .opts{display:grid;gap:6px;margin-top:8px}
+.mc .q .opts button{border:1px solid var(--line);background:var(--panel-2);color:var(--fg);padding:7px 10px;border-radius:4px;text-align:left}
+.mc .q .opts button[data-state="right"]{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--panel-2))}
+.mc .q .opts button[data-state="wrong"]{border-color:var(--crit);background:color-mix(in srgb,var(--crit) 12%,var(--panel-2))}
+.mc .fb{margin-top:8px;font-size:.9rem;color:var(--muted);min-height:1.2em}
+
+.note{font-size:.84rem;color:var(--muted);margin-top:10px}
+@media (prefers-reduced-motion: reduce){.bar{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow">Hormonale regulatie · negatieve terugkoppeling</div>
+    <h1>Regelkring</h1>
+    <p class="muted" style="margin-top:4px">Verstoor het systeem en kijk hoe het lichaam zichzelf herstelt.</p>
+  </div>
+  <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-mod="glu" id="tab-glu">Glucoseregulatie <span class="badge">havo · vwo</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-mod="hpa" id="tab-hpa">HPA-as <span class="badge">vwo</span></button>
+    </div>
+    <div class="niveau" aria-label="Niveau">
+      <span class="muted">Niveau</span>
+      <button id="niv-havo" aria-pressed="true">havo</button>
+      <button id="niv-vwo" aria-pressed="false">vwo</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= GLUCOSE ================= -->
+<section class="module active" id="mod-glu">
+  <p class="intro">De bloedglucose wordt rond <span class="mono">5 mmol/L</span> gehouden door twee hormonen uit de alvleesklier die elkaars tegenpool zijn: insuline verlaagt, glucagon verhoogt. Elke verstoring die je hieronder aanbrengt, zet de regelkring aan het werk. Voorspel eerst wat er gebeurt, kijk dan of het klopt.</p>
+  <div class="grid">
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-h"><h2>Regelschema</h2><span class="muted" style="font-size:.8rem">balkjes = actuele hoeveelheid</span></div>
+        <svg class="diagram" id="glu-svg" viewBox="0 0 520 400" role="img" aria-label="Regelschema glucoseregulatie">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker>
+          </defs>
+          <!-- Bloed (centrum) -->
+          <g class="node" transform="translate(170,160)">
+            <rect width="180" height="78"/>
+            <text class="title" x="12" y="22">Bloed</text>
+            <text class="sub" x="12" y="40">glucoseconcentratie</text>
+            <text class="lvl" x="168" y="22" text-anchor="end" id="g-lvl">5.0 mmol/L</text>
+            <rect x="12" y="52" width="156" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="39" height="12" rx="3" fill="var(--glucose)" class="bar" id="g-bar"/>
+            <rect x="12" y="52" width="1" height="12" fill="none"/>
+          </g>
+          <!-- Beta -->
+          <g class="node" transform="translate(20,20)">
+            <rect width="200" height="78"/>
+            <text class="title" x="12" y="22">Alvleesklier · β-cellen</text>
+            <text class="sub" x="12" y="40">maken insuline</text>
+            <text class="lvl" x="188" y="22" text-anchor="end" id="i-lvl">1.0×</text>
+            <rect x="12" y="52" width="176" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="22" height="12" rx="3" fill="var(--insulin)" class="bar" id="i-bar"/>
+          </g>
+          <!-- Alpha -->
+          <g class="node" transform="translate(300,20)">
+            <rect width="200" height="78"/>
+            <text class="title" x="12" y="22">Alvleesklier · α-cellen</text>
+            <text class="sub" x="12" y="40">maken glucagon</text>
+            <text class="lvl" x="188" y="22" text-anchor="end" id="gg-lvl">1.0×</text>
+            <rect x="12" y="52" width="176" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="22" height="12" rx="3" fill="var(--glucagon)" class="bar" id="gg-bar"/>
+          </g>
+          <!-- Lever -->
+          <g class="node" transform="translate(20,300)">
+            <rect width="220" height="78"/>
+            <text class="title" x="12" y="22">Lever</text>
+            <text class="sub" x="12" y="40">glycogeen ⇄ glucose</text>
+            <text class="lbl" x="12" y="60" id="lever-txt">afgifte 0.05 mmol/L/min</text>
+          </g>
+          <!-- Spier/vet -->
+          <g class="node" transform="translate(280,300)">
+            <rect width="220" height="78"/>
+            <text class="title" x="12" y="22">Spier- en vetcellen</text>
+            <text class="sub" x="12" y="40">nemen glucose op via GLUT4</text>
+            <text class="lbl" x="12" y="60" id="opname-txt">opname 0.05 mmol/L/min</text>
+          </g>
+          <!-- edges: bloed -> beta (+) -->
+          <path class="edge" id="e-gb" d="M200 160 C 180 135, 150 120, 125 100" stroke="var(--glucose)" marker-end="url(#ah)"/>
+          <text class="sign plus" x="146" y="128">+</text>
+          <text class="lbl" x="150" y="140">hoge glucose</text>
+          <!-- bloed -> alpha (−) -->
+          <path class="edge" id="e-ga" d="M320 160 C 340 135, 370 120, 395 100" stroke="var(--glucose)" marker-end="url(#ah)"/>
+          <text class="sign min" x="360" y="128">−</text>
+          <text class="lbl" x="330" y="140">lage glucose stimuleert</text>
+          <!-- beta -> spier/vet (+) : insuline -->
+          <path class="edge" id="e-is" d="M60 98 C 40 200, 120 290, 300 300" stroke="var(--insulin)" marker-end="url(#ah)"/>
+          <text class="sign plus" x="68" y="222">+</text>
+          <text class="lbl" x="78" y="222">insuline: opname</text>
+          <!-- beta -> lever (−): insuline remt afgifte -->
+          <path class="edge" id="e-il" d="M100 98 C 95 200, 90 250, 80 300" stroke="var(--insulin)" marker-end="url(#ah)"/>
+          <text class="sign min" x="104" y="262">−</text>
+          <text class="lbl" x="114" y="262">insuline: opslag</text>
+          <!-- alpha -> lever (+): glucagon -->
+          <path class="edge" id="e-gl" d="M420 98 C 440 200, 360 290, 240 310" stroke="var(--glucagon)" marker-end="url(#ah)"/>
+          <text class="sign plus" x="402" y="236">+</text>
+          <text class="lbl" x="412" y="236">glucagon: afgifte</text>
+          <!-- lever -> bloed -->
+          <path class="edge" d="M150 300 C 160 270, 170 255, 190 240" stroke="var(--glucose)" marker-end="url(#ah)" opacity=".6"/>
+          <!-- bloed -> spier -->
+          <path class="edge" d="M330 240 C 350 255, 360 270, 370 300" stroke="var(--glucose)" marker-end="url(#ah)" opacity=".6"/>
+        </svg>
+        <p class="note" id="glu-state-note">Nuchter, in rust. Afgifte door de lever en opname door de cellen zijn in evenwicht.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-h"><h2>Verstoringen</h2></div>
+        <div class="ctl-group" style="margin-top:0">
+          <h3>Eenmalige gebeurtenis</h3>
+          <div class="btns">
+            <button class="btn" data-ev="meal">Maaltijd<small>60 g koolhydraten (bord pasta)</small></button>
+            <button class="btn" data-ev="snack">Dextro<small>10 g snelle suikers</small></button>
+            <button class="btn" data-ev="exercise">Sporten<small>45 min hardlopen</small></button>
+            <button class="btn" data-ev="insulin">Insuline-injectie<small>snelwerkend, zonder te eten</small></button>
+            <button class="btn" data-ev="glucagonshot">Glucagon-injectie<small>noodspuit bij hypo</small></button>
+          </div>
+        </div>
+        <div class="ctl-group">
+          <h3>Blijvende aandoening (aan/uit)</h3>
+          <div class="btns">
+            <button class="btn toggle" data-tg="t1" aria-pressed="false">Diabetes type 1<small>β-cellen vernietigd: geen insuline</small></button>
+            <button class="btn toggle" data-tg="t2" aria-pressed="false">Insulineresistentie<small>cellen reageren 70% minder op insuline</small></button>
+            <button class="btn toggle" data-tg="noglg" aria-pressed="false">Glucagon geblokkeerd<small>α-cellen uitgeschakeld</small></button>
+          </div>
+        </div>
+        <div class="ctl-group">
+          <div class="btns"><button class="btn reset" data-ev="reset">Reset: terug naar nuchter 08:00</button></div>
+        </div>
+        <div class="predict" id="glu-predict">
+          <div class="q" id="glu-predict-q">Wat gebeurt er met de bloedglucose in de komende 30 minuten?</div>
+          <div class="opts">
+            <button data-p="up">Stijgt</button>
+            <button data-p="down">Daalt</button>
+            <button data-p="flat">Blijft ongeveer gelijk</button>
+          </div>
+          <button class="skip" data-p="skip">Geen voorspelling, gewoon toepassen</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-h">
+          <h2>Registratie</h2>
+          <div class="transport">
+            <span class="clock" id="glu-clock">08:00</span>
+            <button data-speed="0" aria-pressed="false">⏸</button>
+            <button data-speed="1" aria-pressed="true">▶ 1×</button>
+            <button data-speed="3" aria-pressed="false">▶▶ 3×</button>
+            <button data-speed="10" aria-pressed="false">▶▶▶ 10×</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro" style="--c:var(--glucose)"><div class="lbl">Bloedglucose</div><div class="val" id="glu-ro-g">5.0 <span class="unit">mmol/L</span></div><span class="status ok" id="glu-ro-status">normaal</span></div>
+          <div class="ro" style="--c:var(--insulin)"><div class="lbl">Insuline</div><div class="val" id="glu-ro-i">1.0 <span class="unit">× basaal</span></div></div>
+          <div class="ro" style="--c:var(--glucagon)"><div class="lbl">Glucagon</div><div class="val" id="glu-ro-gg">1.0 <span class="unit">× basaal</span></div></div>
+        </div>
+        <canvas class="graph" id="glu-canvas"></canvas>
+        <div class="legend">
+          <span style="--c:var(--glucose)">glucose (mmol/L, linkeras)</span>
+          <span style="--c:var(--insulin)">insuline (× basaal, rechteras)</span>
+          <span style="--c:var(--glucagon)">glucagon (× basaal, rechteras)</span>
+          <span style="--c:var(--ok)">normaalgebied 4–8</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="log-h"><h2>Logboek</h2><span class="score" id="glu-score">voorspellingen: 0 / 0 goed</span></div>
+        <ul class="log" id="glu-log"><li class="info"><span class="t">08:00</span><span>Start: nuchter, in rust.</span></li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="opdrachten opdr">
+    <h2>Opdrachten</h2>
+    <p class="muted" style="margin-top:4px;max-width:70ch">Werk ze in volgorde af. Voorspel vóór elke verstoring wat er gebeurt; het logboek houdt bij of je het goed had.</p>
+    <ol>
+      <li><span class="num">OPDRACHT 1</span><p>Klik op <b>Maaltijd</b>. Beschrijf in stappen wat er gebeurt met glucose, insuline en glucagon. Hoe lang duurt het voordat de glucose weer onder 8 mmol/L zit? Waarom schiet de glucose eerst even "te hoog" voordat de insuline het overneemt?</p>
+        <details><summary>Modelantwoord</summary><div>Glucose wordt uit de darm opgenomen en stijgt. De β-cellen meten dat en geven meer insuline af; de α-cellen geven minder glucagon af. Insuline zet spier- en vetcellen aan tot opname en de lever tot opslag als glycogeen. De glucose daalt weer, meestal binnen 1,5–2 uur onder 8. De "overshoot" komt doordat insulineafgifte en de werking ervan tijd kosten (vertraging in de regelkring): de correctie loopt altijd iets achter op de verstoring.</div></details></li>
+      <li><span class="num">OPDRACHT 2</span><p>Reset en geef een <b>insuline-injectie</b> zonder te eten. Wat gebeurt er, en welk hormoon redt de situatie? Vanaf welke waarde noem je het een hypo en wat merkt iemand dan?</p>
+        <details><summary>Modelantwoord</summary><div>De glucose daalt snel, omdat cellen glucose opnemen terwijl er niets bijkomt. Onder ~3,9 mmol/L spreekt men van een hypo: trillen, zweten, hartkloppingen, concentratieverlies; onder ~2,5 dreigt bewustzijnsverlies. De α-cellen reageren op de lage glucose met glucagon, waardoor de lever glycogeen afbreekt en glucose afgeeft. Zodra de geïnjecteerde insuline is afgebroken, herstelt de glucose.</div></details></li>
+      <li><span class="num">OPDRACHT 3</span><p>Zet <b>Diabetes type 1</b> aan en geef een maaltijd. Vergelijk de curve met opdracht 1. Verklaar waarom de glucose niet terugkeert naar 5 én waarom hij toch niet oneindig blijft stijgen. Wat is de nierdrempel (stippellijn bij 10)?</p>
+        <details><summary>Modelantwoord</summary><div>Zonder insuline nemen spier- en vetcellen weinig glucose op en blijft de lever glucose afgeven (glucagon wordt niet meer geremd door insuline). De regelkring is aan één kant doorgeknipt: de "verlaag"-tak ontbreekt. Boven ~10 mmol/L kunnen de nieren niet alle glucose terugresorberen en verlies je glucose via de urine (glucosurie, veel plassen, dorst). Dat is geen regeling maar een lek, en het verklaart waarom de waarde ergens rond 15–18 blijft hangen in plaats van door te stijgen.</div></details></li>
+      <li><span class="num">OPDRACHT 4</span><p>Zet type 1 uit en <b>Insulineresistentie</b> aan. Wacht tot het systeem een nieuw evenwicht vindt. Welke waarde stelt zich in voor glucose en voor insuline? Leg uit waarom dit het begin van diabetes type 2 beschrijft.</p>
+        <details><summary>Modelantwoord</summary><div>De glucose stijgt licht (naar ongeveer 6,5–7) en de insuline stijgt sterk (ruim 3× basaal). De β-cellen compenseren de verminderde gevoeligheid door méér insuline te maken: het setpoint wordt niet exact meer gehaald, maar het systeem houdt stand. Bij type 2 raken de β-cellen op den duur uitgeput, waarna de glucose verder oploopt.</div></details></li>
+      <li><span class="num">OPDRACHT 5</span><p>Ga <b>sporten</b> bij gezonde regulatie, en daarna bij type 1 zonder maaltijd. Waarom adviseren artsen mensen met type 1 om vóór het sporten iets te eten of de insulinedosis te verlagen?</p>
+        <details><summary>Modelantwoord</summary><div>Spieren nemen tijdens inspanning glucose op onafhankelijk van insuline (contractie activeert GLUT4). Bij een gezond persoon daalt de insulineafgifte en stijgt glucagon, zodat de lever het verbruik aanvult. Iemand met type 1 heeft geïnjecteerde insuline in het bloed die niet "uit" kan: samen met de inspanning dreigt een hypo.</div></details></li>
+      <li class="vwo"><span class="num">OPDRACHT 6 <span class="vwo-tag">vwo</span></span><p>Blokkeer <b>glucagon</b> en geef daarna een insuline-injectie. Vergelijk het herstel met opdracht 2. Wat leert dit over het nut van twee antagonistische hormonen in plaats van één?</p>
+        <details><summary>Modelantwoord</summary><div>Zonder glucagon duurt de hypo veel langer en is hij dieper: het systeem kan alleen "wachten" tot de insuline is afgebroken. Met twee antagonistische hormonen kan het lichaam actief in beide richtingen bijsturen; met één hormoon kun je maar één kant op regelen en moet de andere kant passief verlopen. Dit heet antagonistische (tegengestelde) regulatie en komt ook voor bij bijvoorbeeld calcitonine/PTH.</div></details></li>
+    </ol>
+  </div>
+
+  <div class="mc">
+    <h2>Check je begrip</h2>
+    <div id="glu-mc"></div>
+  </div>
+</section>
+
+<!-- ================= HPA ================= -->
+<section class="module" id="mod-hpa">
+  <p class="intro">De <b>HPA-as</b> (hypothalamus – hypofyse – bijnierschors) regelt de afgifte van het stresshormoon <b>cortisol</b>. Drie klieren in serie, en cortisol remt de twee bovenste: negatieve terugkoppeling. Alle waarden staan ten opzichte van het rustniveau (1,0×).</p>
+  <div class="grid">
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-h"><h2>Regelschema</h2><span class="muted" style="font-size:.8rem">balkjes = actuele hoeveelheid</span></div>
+        <svg class="diagram" id="hpa-svg" viewBox="0 0 520 440" role="img" aria-label="Regelschema HPA-as">
+          <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="context-stroke"/></marker></defs>
+          <!-- stressor -->
+          <g class="node" transform="translate(20,20)" id="hpa-stress-node">
+            <rect width="150" height="56" stroke-dasharray="4 3"/>
+            <text class="title" x="12" y="22">Stressor</text>
+            <text class="sub" x="12" y="40" id="stress-txt">geen</text>
+          </g>
+          <path class="edge" id="e-sh" d="M170 48 C 200 48, 220 60, 250 70" stroke="var(--stress)" marker-end="url(#ah2)"/>
+          <text class="sign plus" x="200" y="42">+</text>
+          <!-- hypothalamus -->
+          <g class="node" transform="translate(250,40)">
+            <rect width="250" height="78"/>
+            <text class="title" x="12" y="22">Hypothalamus</text>
+            <text class="sub" x="12" y="40">geeft CRH af</text>
+            <text class="lvl" x="238" y="22" text-anchor="end" id="crh-lvl">1.0×</text>
+            <rect x="12" y="52" width="226" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="45" height="12" rx="3" fill="var(--crh)" class="bar" id="crh-bar"/>
+          </g>
+          <path class="edge" d="M375 118 L375 158" stroke="var(--crh)" marker-end="url(#ah2)"/>
+          <text class="sign plus" x="384" y="142">+</text><text class="lbl" x="396" y="142">CRH via poortader</text>
+          <!-- hypofyse -->
+          <g class="node" transform="translate(250,160)">
+            <rect width="250" height="78"/>
+            <text class="title" x="12" y="22">Hypofysevoorkwab</text>
+            <text class="sub" x="12" y="40">geeft ACTH af</text>
+            <text class="lvl" x="238" y="22" text-anchor="end" id="acth-lvl">1.0×</text>
+            <rect x="12" y="52" width="226" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="45" height="12" rx="3" fill="var(--acth)" class="bar" id="acth-bar"/>
+          </g>
+          <path class="edge" d="M375 238 L375 278" stroke="var(--acth)" marker-end="url(#ah2)"/>
+          <text class="sign plus" x="384" y="262">+</text><text class="lbl" x="396" y="262">ACTH via bloed</text>
+          <!-- bijnier -->
+          <g class="node" transform="translate(250,280)">
+            <rect width="250" height="78"/>
+            <text class="title" x="12" y="22">Bijnierschors</text>
+            <text class="sub" x="12" y="40">geeft cortisol af</text>
+            <text class="lvl" x="238" y="22" text-anchor="end" id="cort-lvl">1.0×</text>
+            <rect x="12" y="52" width="226" height="12" rx="3" fill="var(--panel)" stroke="var(--line)"/>
+            <rect x="12" y="52" width="45" height="12" rx="3" fill="var(--cort)" class="bar" id="cort-bar"/>
+          </g>
+          <!-- effects -->
+          <g class="node" transform="translate(250,392)">
+            <rect width="250" height="40"/>
+            <text class="sub" x="12" y="25">↑ bloedglucose · ↓ ontsteking · ↓ afweer · alertheid</text>
+          </g>
+          <path class="edge" d="M375 358 L375 390" stroke="var(--cort)" marker-end="url(#ah2)" opacity=".6"/>
+          <!-- feedback arrows -->
+          <path class="edge" id="e-fb1" d="M250 330 C 150 330, 130 230, 150 180 C 160 150, 200 100, 250 90" stroke="var(--cort)" marker-end="url(#ah2)"/>
+          <path class="edge" id="e-fb2" d="M250 318 C 190 300, 180 240, 250 205" stroke="var(--cort)" marker-end="url(#ah2)"/>
+          <text class="sign min" x="118" y="250">−</text>
+          <text class="lbl" x="28" y="250">cortisol remt</text>
+          <text class="lbl" x="28" y="264">hypothalamus én hypofyse</text>
+          <text class="sign min" x="196" y="258">−</text>
+          <!-- dex -->
+          <g id="dex-node" style="display:none">
+            <g class="node" transform="translate(20,340)">
+              <rect width="150" height="56" stroke-dasharray="4 3"/>
+              <text class="title" x="12" y="22">Dexamethason</text>
+              <text class="sub" x="12" y="40" id="dex-txt">synthetisch cortisol</text>
+            </g>
+            <path class="edge" d="M110 340 C 110 310, 125 290, 140 265" stroke="var(--cort)" stroke-dasharray="5 4" marker-end="url(#ah2)"/>
+          </g>
+        </svg>
+        <p class="note" id="hpa-state-note">Rust. Cortisol remt zijn eigen productie precies genoeg om op 1,0× te blijven.</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-h"><h2>Verstoringen</h2></div>
+        <div class="ctl-group" style="margin-top:0">
+          <h3>Eenmalige gebeurtenis</h3>
+          <div class="btns">
+            <button class="btn" data-ev="acute">Acute stress<small>presentatie van 20 min</small></button>
+            <button class="btn" data-ev="dex">Dexamethason<small>synthetisch glucocorticoïd, 1 tablet</small></button>
+            <button class="btn" data-ev="acthshot">ACTH-injectie<small>stimulatietest</small></button>
+          </div>
+        </div>
+        <div class="ctl-group">
+          <h3>Blijvende toestand (aan/uit)</h3>
+          <div class="btns">
+            <button class="btn toggle" data-tg="chronic" aria-pressed="false">Chronische stress<small>aanhoudende belasting</small></button>
+            <button class="btn toggle" data-tg="addison" aria-pressed="false">Bijnierschors uitgevallen<small>ziekte van Addison</small></button>
+            <button class="btn toggle" data-tg="pit" aria-pressed="false">Hypofysetumor<small>maakt ongeremd ACTH (ziekte van Cushing)</small></button>
+            <button class="btn toggle" data-tg="adr" aria-pressed="false">Bijniertumor<small>maakt ongeremd cortisol</small></button>
+            <button class="btn toggle" data-tg="nofb" aria-pressed="false">Terugkoppeling doorgeknipt<small>cortisol remt niets meer</small></button>
+            <button class="btn toggle" data-tg="circ" aria-pressed="false">Dagritme aan<small>hypothalamus volgt de biologische klok</small></button>
+          </div>
+        </div>
+        <div class="ctl-group">
+          <div class="btns"><button class="btn reset" data-ev="reset">Reset: terug naar rust 08:00</button></div>
+        </div>
+        <div class="predict" id="hpa-predict">
+          <div class="q" id="hpa-predict-q">Wat gebeurt er met de cortisolconcentratie in het komende uur?</div>
+          <div class="opts">
+            <button data-p="up">Stijgt</button>
+            <button data-p="down">Daalt</button>
+            <button data-p="flat">Blijft ongeveer gelijk</button>
+          </div>
+          <button class="skip" data-p="skip">Geen voorspelling, gewoon toepassen</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-h">
+          <h2>Registratie</h2>
+          <div class="transport">
+            <span class="clock" id="hpa-clock">08:00</span>
+            <button data-speed="0" aria-pressed="false">⏸</button>
+            <button data-speed="1" aria-pressed="true">▶ 1×</button>
+            <button data-speed="3" aria-pressed="false">▶▶ 3×</button>
+            <button data-speed="10" aria-pressed="false">▶▶▶ 10×</button>
+          </div>
+        </div>
+        <div class="readouts">
+          <div class="ro" style="--c:var(--crh)"><div class="lbl">CRH</div><div class="val" id="hpa-ro-crh">1.0 <span class="unit">× rust</span></div></div>
+          <div class="ro" style="--c:var(--acth)"><div class="lbl">ACTH</div><div class="val" id="hpa-ro-acth">1.0 <span class="unit">× rust</span></div></div>
+          <div class="ro" style="--c:var(--cort)"><div class="lbl">Cortisol</div><div class="val" id="hpa-ro-cort">1.0 <span class="unit">× rust</span></div><span class="status ok" id="hpa-ro-status">normaal</span></div>
+        </div>
+        <canvas class="graph" id="hpa-canvas"></canvas>
+        <div class="legend">
+          <span style="--c:var(--crh)">CRH</span>
+          <span style="--c:var(--acth)">ACTH</span>
+          <span style="--c:var(--cort)">cortisol</span>
+          <span style="--c:var(--stress)">stressor actief</span>
+        </div>
+        <p class="note">Let op de verschillende snelheden: CRH reageert in minuten, cortisol heeft een halfwaardetijd van ruim een uur. Tijdas: 24 uur.</p>
+      </div>
+      <div class="panel">
+        <div class="log-h"><h2>Logboek</h2><span class="score" id="hpa-score">voorspellingen: 0 / 0 goed</span></div>
+        <ul class="log" id="hpa-log"><li class="info"><span class="t">08:00</span><span>Start: rust, geen stressor.</span></li></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="opdr">
+    <h2>Opdrachten</h2>
+    <p class="muted" style="margin-top:4px;max-width:70ch">Zet de snelheid op 3× of 10× als je het herstel over meerdere uren wilt zien.</p>
+    <ol>
+      <li><span class="num">OPDRACHT 1</span><p>Klik op <b>Acute stress</b>. In welke volgorde stijgen CRH, ACTH en cortisol, en in welke volgorde dalen ze weer? Verklaar het verschil in snelheid uit de bouw van de regelkring.</p>
+        <details><summary>Modelantwoord</summary><div>CRH stijgt als eerste (de hypothalamus krijgt het signaal uit de hersenen), daarna ACTH, daarna cortisol. Elke stap kost tijd: het hormoon moet worden aangemaakt, via het bloed de volgende klier bereiken en daar inwerken. Cortisol wordt ook langzaam afgebroken, zodat het nog hoog is als CRH al weer daalt. Juist dat hoge cortisol remt daarna CRH en ACTH tot even ónder rustniveau: een kleine onderschieting, typisch voor negatieve terugkoppeling met vertraging.</div></details></li>
+      <li><span class="num">OPDRACHT 2</span><p>Zet <b>Chronische stress</b> aan en wacht enkele uren. Keert cortisol terug naar 1,0×? Waarom lukt het de terugkoppeling niet om de verstoring volledig weg te regelen?</p>
+        <details><summary>Modelantwoord</summary><div>Nee, cortisol blijft verhoogd (rond 1,5–2×). De terugkoppeling dempt de verstoring wel, maar kan hem niet opheffen zolang de prikkel op de hypothalamus blijft bestaan: er is een nieuw, hoger evenwicht. Langdurig verhoogd cortisol verklaart de gevolgen van chronische stress: hoge bloedglucose, onderdrukte afweer, slecht slapen.</div></details></li>
+      <li><span class="num">OPDRACHT 3</span><p>Reset. Geef <b>dexamethason</b>. Dit synthetische hormoon werkt als cortisol, maar wordt in de grafiek níet als cortisol gemeten. Wat gebeurt er met CRH, ACTH en het eigen cortisol? Leg uit waarom dit een test is voor de werking van de terugkoppeling.</p>
+        <details><summary>Modelantwoord</summary><div>Dexamethason bezet de cortisolreceptoren in hypothalamus en hypofyse. Die "denken" dat er veel cortisol is en stoppen met CRH en ACTH. Daardoor maakt de bijnier nauwelijks nog eigen cortisol: de waarde zakt diep. Bij een gezonde as daalt het eigen cortisol dus sterk na dexamethason (dexamethason-suppressietest). Blijft het cortisol hoog, dan werkt de terugkoppeling niet of produceert iets buiten de regelkring cortisol.</div></details></li>
+      <li><span class="num">OPDRACHT 4</span><p>Zet <b>Bijnierschors uitgevallen</b> aan. Voorspel eerst: wat gebeurt er met ACTH? Controleer. Patiënten met de ziekte van Addison krijgen een donkerder huid; ACTH stimuleert ook pigmentcellen. Verklaar.</p>
+        <details><summary>Modelantwoord</summary><div>Cortisol daalt sterk. Daardoor valt de remming op hypothalamus en hypofyse weg: CRH en ACTH stijgen juist flink (2–3×). De hypofyse "schreeuwt" tegen een bijnier die niet kan antwoorden. Het hoge ACTH stimuleert melanocyten, waardoor de huid bruiner wordt. Hoog ACTH mét laag cortisol wijst dus op een probleem in de bijnier zelf (primaire bijnierschorsinsufficiëntie).</div></details></li>
+      <li><span class="num">OPDRACHT 5</span><p>Vergelijk een <b>hypofysetumor</b> met een <b>bijniertumor</b>. Beide geven te veel cortisol (syndroom van Cushing). Met welke meting onderscheid je ze, en wat doet dexamethason in elk geval?</p>
+        <details><summary>Modelantwoord</summary><div>Hypofysetumor: ACTH hoog én cortisol hoog; CRH laag (wordt wél geremd). Bijniertumor: cortisol hoog, maar ACTH en CRH juist laag, omdat de terugkoppeling nog werkt en de hypofyse wordt onderdrukt. Een ACTH-meting onderscheidt ze dus. Dexamethason onderdrukt bij de hypofysetumor het ACTH gedeeltelijk (afhankelijk van de dosis), bij de bijniertumor verandert het cortisol niet: de tumor luistert niet naar ACTH.</div></details></li>
+      <li><span class="num">OPDRACHT 6</span><p>Knip de <b>terugkoppeling door</b>. Wat gebeurt er met alle drie hormonen? Geef daarna acute stress. Vergelijk met opdracht 1: waarom keert het systeem nu niet meer terug naar het oude niveau?</p>
+        <details><summary>Modelantwoord</summary><div>Zonder remming stijgen CRH, ACTH en cortisol allemaal naar een hoger plateau (elke stap versterkt). Na een stressprikkel daalt het wel weer (het hormoon wordt immers afgebroken), maar er is geen signaal meer dat de productie actief terugdraait: het systeem heeft geen setpoint meer waarnaar het terug "wil". Negatieve terugkoppeling is wat een hormoonsysteem tot een regelkring maakt.</div></details></li>
+      <li><span class="num">OPDRACHT 7</span><p>Zet het <b>dagritme</b> aan en laat een etmaal lopen op 10×. Wanneer is cortisol het hoogst, en waarom is dat functioneel? Wat betekent dit voor het tijdstip waarop je bij een patiënt cortisol zou moeten meten?</p>
+        <details><summary>Modelantwoord</summary><div>Cortisol piekt in de vroege ochtend (rond het opstaan) en is 's nachts het laagst. De piek maakt glucose vrij en verhoogt de alertheid voor de dag. Omdat de waarde zo sterk schommelt, moet een cortisolmeting altijd op een vast tijdstip (vaak 8:00 uur) of als dagprofiel worden gedaan; een losse waarde zonder tijdstip zegt weinig. Het dagritme is géén verstoring maar een verschuivend setpoint, aangestuurd door de biologische klok (SCN).</div></details></li>
+    </ol>
+  </div>
+
+  <div class="mc">
+    <h2>Check je begrip</h2>
+    <div id="hpa-mc"></div>
+  </div>
+</section>
+
+<p class="note" style="margin-top:28px;max-width:75ch">Het model is didactisch vereenvoudigd: hormoonhoeveelheden staan als veelvoud van het rustniveau, tijdsconstanten en gevoeligheden zijn gekozen om het gedrag van de regelkring herkenbaar te maken, niet als exacte fysiologie. Glucosewaarden zijn wel in echte eenheden (mmol/L) en volgen realistische grenzen: hypo &lt; 3,9, normaal nuchter 4–6, na de maaltijd &lt; 8, nierdrempel ≈ 10.</p>
+</div>
+
+<script>
+(function(){
+'use strict';
+const $ = (s,root=document)=>root.querySelector(s);
+const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const fmtClock=m=>{m=((m%1440)+1440)%1440;const h=Math.floor(m/60),mm=Math.floor(m%60);return String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0');};
+const cssVar=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+/* ---------- tabs & niveau ---------- */
+$$('.tab').forEach(t=>t.addEventListener('click',()=>{
+  $$('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));
+  $$('.module').forEach(m=>m.classList.toggle('active',m.id==='mod-'+t.dataset.mod));
+  requestAnimationFrame(()=>{GLU.draw();HPA.draw();});
+}));
+function setNiveau(v){document.body.classList.toggle('vwo',v==='vwo');$('#niv-havo').setAttribute('aria-pressed',String(v==='havo'));$('#niv-vwo').setAttribute('aria-pressed',String(v==='vwo'));try{localStorage.setItem('rk-niveau',v);}catch(e){}}
+$('#niv-havo').addEventListener('click',()=>setNiveau('havo'));
+$('#niv-vwo').addEventListener('click',()=>setNiveau('vwo'));
+try{const v=localStorage.getItem('rk-niveau');if(v)setNiveau(v);}catch(e){}
+
+/* ---------- generic module scaffold ---------- */
+function makeModule(cfg){
+  const M={cfg, speed:1, pending:null, score:[0,0], checks:[]};
+  const log=$(cfg.logSel), scoreEl=$(cfg.scoreSel), clockEl=$(cfg.clockSel);
+  M.addLog=(cls,text)=>{const li=document.createElement('li');li.className=cls;li.innerHTML=`<span class="t">${fmtClock(M.s.t)}</span><span>${text}</span>`;log.appendChild(li);log.scrollTop=log.scrollHeight;};
+  M.updScore=()=>{scoreEl.textContent=`voorspellingen: ${M.score[0]} / ${M.score[1]} goed`;};
+  // transport
+  $$(cfg.rootSel+' .transport button').forEach(b=>b.addEventListener('click',()=>{M.speed=+b.dataset.speed;$$(cfg.rootSel+' .transport button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));}));
+  // prediction UI
+  const pred=$(cfg.predSel);
+  function askPrediction(label,apply,question,horizon){
+    M.pending={label,apply,horizon:horizon||cfg.horizon};
+    $(cfg.predSel+' .q').textContent=question;
+    pred.classList.add('show');pred.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
+  $$(cfg.predSel+' button').forEach(b=>b.addEventListener('click',()=>{
+    if(!M.pending)return;const p=b.dataset.p;const {label,apply,horizon}=M.pending;M.pending=null;pred.classList.remove('show');
+    const before=cfg.watch(M.s);
+    apply();
+    if(p==='skip'){M.addLog('info',`<b>${label}</b> toegepast.`);return;}
+    const words={up:'stijgt',down:'daalt',flat:'blijft ongeveer gelijk'};
+    M.addLog('info',`<b>${label}</b> toegepast. Jouw voorspelling: ${cfg.watchName} ${words[p]} (check na ${horizon} min).`);
+    M.checks.push({at:M.s.t+horizon,before,p,label,horizon});
+  }));
+  M.runChecks=()=>{
+    for(let i=M.checks.length-1;i>=0;i--){const c=M.checks[i];if(M.s.t>=c.at){M.checks.splice(i,1);
+      const after=cfg.watch(M.s);const d=after-c.before;const actual=d>cfg.thresh?'up':d<-cfg.thresh?'down':'flat';
+      const ok=actual===c.p;M.score[1]++;if(ok)M.score[0]++;M.updScore();
+      const w={up:'steeg',down:'daalde',flat:'bleef ongeveer gelijk'}[actual];
+      M.addLog(ok?'good':'bad',`${ok?'✔':'✘'} Na ${c.label.toLowerCase()}: ${cfg.watchName} ${w} van ${cfg.fmt(c.before)} naar ${cfg.fmt(after)}. ${ok?'Goed voorspeld.':'Anders dan je voorspelde.'}`);
+    }}
+  };
+  // buttons
+  $$(cfg.rootSel+' .btn[data-ev]').forEach(b=>b.addEventListener('click',()=>{
+    const ev=b.dataset.ev;
+    if(ev==='reset'){M.reset();return;}
+    const e=cfg.events[ev];askPrediction(e.label,()=>e.apply(M.s,M),e.horizon?cfg.question.replace(/komende .*?\?/,'komende '+e.horizon+' minuten?'):cfg.question,e.horizon);
+  }));
+  $$(cfg.rootSel+' .btn[data-tg]').forEach(b=>b.addEventListener('click',()=>{
+    const tg=b.dataset.tg;const on=b.getAttribute('aria-pressed')!=='true';
+    const t=cfg.toggles[tg];
+    const apply=()=>{b.setAttribute('aria-pressed',String(on));t.apply(M.s,on,M);};
+    if(on)askPrediction(t.label,apply,cfg.question);
+    else{apply();M.addLog('info',`<b>${t.label}</b> uitgezet.`);}
+  }));
+  M.reset=()=>{M.s=cfg.init();M.checks=[];M.pending=null;pred.classList.remove('show');
+    $$(cfg.rootSel+' .btn[data-tg]').forEach(b=>b.setAttribute('aria-pressed','false'));
+    log.innerHTML='';M.addLog('info',cfg.startText);cfg.afterReset&&cfg.afterReset(M.s);};
+  M.s=cfg.init();
+  M.tick=(realSec)=>{if(M.speed===0)return;let budget=realSec*cfg.minPerSec*M.speed;const dt=cfg.dt;
+    while(budget>0){const step=Math.min(dt,budget);cfg.step(M.s,step);M.s.t+=step;budget-=step;
+      M.s.hist.push(cfg.sample(M.s));if(M.s.hist.length>cfg.histMax)M.s.hist.shift();}
+    M.runChecks();};
+  M.render=()=>{clockEl.textContent=fmtClock(M.s.t);cfg.render(M.s,M);};
+  M.draw=()=>cfg.draw(M.s);
+  return M;
+}
+
+/* ---------- canvas helpers ---------- */
+function setupCanvas(c){const dpr=window.devicePixelRatio||1;const w=c.clientWidth,h=c.clientHeight;if(c.width!==Math.round(w*dpr)||c.height!==Math.round(h*dpr)){c.width=Math.round(w*dpr);c.height=Math.round(h*dpr);}const ctx=c.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);return {ctx,w,h};}
+function drawFrame(ctx,w,h,pad,tStart,tEnd,yMax,yTicks,yLabel,yRight){
+  const col=cssVar('--muted'),line=cssVar('--line');
+  ctx.font='11px "IBM Plex Mono", monospace';ctx.fillStyle=col;ctx.strokeStyle=line;ctx.lineWidth=1;
+  const x0=pad.l,x1=w-pad.r,y0=pad.t,y1=h-pad.b;
+  const X=t=>x0+(t-tStart)/(tEnd-tStart)*(x1-x0);
+  const Y=v=>y1-(v/yMax)*(y1-y0);
+  for(const v of yTicks){ctx.beginPath();ctx.moveTo(x0,Y(v));ctx.lineTo(x1,Y(v));ctx.globalAlpha=.6;ctx.stroke();ctx.globalAlpha=1;ctx.textAlign='right';ctx.fillText(String(v),x0-6,Y(v)+4);}
+  if(yRight){for(const v of yRight.ticks){ctx.textAlign='left';ctx.fillStyle=yRight.color;ctx.fillText(String(v),x1+6,y1-(v/yRight.max)*(y1-y0)+4);}ctx.fillStyle=col;}
+  // x ticks every hour
+  const firstHour=Math.ceil(tStart/60)*60;
+  for(let t=firstHour;t<=tEnd;t+=60){const x=X(t);ctx.beginPath();ctx.moveTo(x,y1);ctx.lineTo(x,y1+4);ctx.stroke();if(((t/60)%yLabel.every)===0){ctx.textAlign='center';ctx.fillText(fmtClock(t),x,y1+16);}}
+  ctx.textAlign='left';ctx.fillText(yLabel.left,x0,y0-8);
+  if(yRight){ctx.textAlign='right';ctx.fillStyle=yRight.color;ctx.fillText(yRight.label,x1,y0-8);ctx.fillStyle=col;}
+  return {X,Y,x0,x1,y0,y1};
+}
+function drawSeries(ctx,hist,X,Y,key,color,width,tStart){ctx.beginPath();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.lineJoin='round';let started=false;for(const p of hist){if(p.t<tStart)continue;const x=X(p.t),y=Y(p[key]);if(!started){ctx.moveTo(x,y);started=true;}else ctx.lineTo(x,y);}ctx.stroke();}
+function drawEvents(ctx,evs,X,y0,y1,tStart){ctx.font='10px "IBM Plex Mono", monospace';ctx.fillStyle=cssVar('--muted');ctx.strokeStyle=cssVar('--muted');ctx.setLineDash([2,3]);for(const e of evs){if(e.t<tStart)continue;const x=X(e.t);ctx.beginPath();ctx.moveTo(x,y0);ctx.lineTo(x,y1);ctx.globalAlpha=.6;ctx.stroke();ctx.globalAlpha=1;ctx.save();ctx.translate(x+3,y0+4);ctx.rotate(Math.PI/2);ctx.textAlign='left';ctx.fillText(e.label,0,0);ctx.restore();}ctx.setLineDash([]);}
+
+/* ================= GLUCOSE MODEL ================= */
+const gammaRate=(s,tau)=>s<=0?0:(s/(tau*tau))*Math.exp(-s/tau);
+const GLU=makeModule({
+  rootSel:'#mod-glu',logSel:'#glu-log',scoreSel:'#glu-score',clockSel:'#glu-clock',predSel:'#glu-predict',
+  question:'Wat gebeurt er met de bloedglucose in de komende 30 minuten?',
+  watch:s=>s.G,watchName:'de glucose',fmt:v=>v.toFixed(1)+' mmol/L',horizon:30,thresh:0.8,
+  minPerSec:6,dt:0.5,histMax:2000,startText:'Start: nuchter, in rust.',
+  init:()=>({t:480,G:5,I:1,Gg:1,beta:1,sens:1,glg:true,meals:[],exEnd:0,hist:[],evs:[],hypoWarned:false,hyperWarned:false,_H:0.05,_U:0.05,_R:0,_M:0,_ex:0}),
+  events:{
+    meal:{label:'Maaltijd',apply:(s,M)=>{s.meals.push({t0:s.t,total:22,tau:30});s.evs.push({t:s.t,label:'maaltijd'});}},
+    snack:{label:'Dextro',horizon:15,apply:(s,M)=>{s.meals.push({t0:s.t,total:4,tau:8});s.evs.push({t:s.t,label:'dextro'});}},
+    exercise:{label:'Sporten',apply:(s,M)=>{s.exEnd=s.t+45;s.evs.push({t:s.t,label:'sport 45 min'});}},
+    insulin:{label:'Insuline-injectie',apply:(s,M)=>{s.I+=4;s.evs.push({t:s.t,label:'insuline'});}},
+    glucagonshot:{label:'Glucagon-injectie',horizon:15,apply:(s,M)=>{s.Gg+=4;s.evs.push({t:s.t,label:'glucagon'});}},
+  },
+  toggles:{
+    t1:{label:'Diabetes type 1',apply:(s,on)=>{s.beta=on?0:1;if(on)s.I=0;s.evs.push({t:s.t,label:on?'type 1 aan':'type 1 uit'});}},
+    t2:{label:'Insulineresistentie',apply:(s,on)=>{s.sens=on?0.3:1;s.evs.push({t:s.t,label:on?'resistentie aan':'resistentie uit'});}},
+    noglg:{label:'Glucagon geblokkeerd',apply:(s,on)=>{s.glg=!on;if(on)s.Gg=0;s.evs.push({t:s.t,label:on?'glucagon uit':'glucagon aan'});}},
+  },
+  step:(s,dt)=>{
+    const ex=s.t<s.exEnd?1:0;
+    let M=0;for(const m of s.meals)M+=m.total*gammaRate(s.t-m.t0,m.tau);
+    const Ieff=s.I*s.sens;
+    let S=s.beta*clamp(Math.pow(Math.max(0,s.G-3)/2,2),0,15);if(ex)S*=0.6;
+    s.I+=((S-s.I)/15)*dt;
+    let Ggs=s.glg?((1+2/(1+Math.exp(2*(s.G-4.5))))/(0.5+0.5*Ieff))/1.54:0;if(ex)Ggs*=1.2;
+    s.Gg+=((Ggs-s.Gg)/10)*dt;
+    const H=(0.012+0.076*s.Gg/(1+Ieff))*(1+0.3*ex);
+    const U=0.02*(s.G/5)*(1+3*ex)+0.03*Ieff*(s.G/5);
+    const R=s.G>10?0.01*(s.G-10):0;
+    s.G=Math.max(0.6,s.G+(M+H-U-R)*dt);
+    s._H=H;s._U=U;s._R=R;s._M=M;s._ex=ex;
+  },
+  sample:s=>({t:s.t,G:s.G,I:s.I,Gg:s.Gg}),
+  render:(s,M)=>{
+    $('#glu-ro-g').innerHTML=s.G.toFixed(1)+' <span class="unit">mmol/L</span>';
+    $('#glu-ro-i').innerHTML=s.I.toFixed(1)+' <span class="unit">× basaal</span>';
+    $('#glu-ro-gg').innerHTML=s.Gg.toFixed(1)+' <span class="unit">× basaal</span>';
+    const st=$('#glu-ro-status');let cls='ok',txt='normaal';
+    if(s.G<2.5){cls='crit';txt='ernstige hypo';}else if(s.G<3.9){cls='warn';txt='hypo';}else if(s.G>10){cls='crit';txt='boven nierdrempel';}else if(s.G>8){cls='warn';txt='verhoogd';}
+    st.className='status '+cls;st.textContent=txt;
+    if(s.G<2.5&&!s.hypoWarned){s.hypoWarned=true;M.addLog('alarm','Alarm: glucose onder 2,5 mmol/L. Hersenen krijgen te weinig brandstof: verwardheid, bewustzijnsverlies dreigt.');}
+    if(s.G>=3.9)s.hypoWarned=false;
+    if(s.G>10&&!s.hyperWarned){s.hyperWarned=true;M.addLog('alarm','Glucose boven de nierdrempel (10 mmol/L): glucose verschijnt in de urine, veel plassen en dorst.');}
+    if(s.G<=9)s.hyperWarned=false;
+    $('#g-lvl').textContent=s.G.toFixed(1)+' mmol/L';$('#g-bar').setAttribute('width',String(clamp(s.G/25,0,1)*156));
+    $('#i-lvl').textContent=s.I.toFixed(1)+'×';$('#i-bar').setAttribute('width',String(clamp(s.I/8,0,1)*176));
+    $('#gg-lvl').textContent=s.Gg.toFixed(1)+'×';$('#gg-bar').setAttribute('width',String(clamp(s.Gg/8,0,1)*176));
+    $('#lever-txt').textContent='afgifte '+s._H.toFixed(2)+' mmol/L/min';
+    $('#opname-txt').textContent='opname '+s._U.toFixed(2)+' mmol/L/min'+(s._ex?' · sport':'');
+    const op=(v,max)=>String(clamp(0.25+v/max,0.25,1));
+    $('#e-is').setAttribute('opacity',op(s.I*s.sens,4));$('#e-il').setAttribute('opacity',op(s.I*s.sens,4));
+    $('#e-gl').setAttribute('opacity',op(s.Gg,3));
+    $('#e-gb').setAttribute('opacity',op(Math.max(0,s.G-5),4));$('#e-ga').setAttribute('opacity',op(Math.max(0,5-s.G),2));
+    let note='';
+    if(s._M>0.03)note='Glucose stroomt vanuit de darm het bloed in. ';
+    if(s.beta===0)note+='Geen insuline: cellen nemen weinig op, de lever blijft afgeven. ';
+    if(s.sens<1)note+='Cellen reageren zwak op insuline; de β-cellen compenseren met meer insuline. ';
+    if(!s.glg)note+='Zonder glucagon kan de lever niet worden aangezet tot extra afgifte. ';
+    if(s._ex)note+='Spieren nemen glucose op, ook zonder insuline. ';
+    if(s._R>0)note+='Nieren lekken glucose weg in de urine. ';
+    if(!note)note=Math.abs(s.G-5)<0.4?'In evenwicht: afgifte door de lever en opname door de cellen houden elkaar in balans.':(s.G>5?'Insuline hoog, glucagon laag: het systeem brengt de glucose omlaag.':'Glucagon hoog, insuline laag: de lever vult het bloed aan.');
+    $('#glu-state-note').textContent=note.trim();
+  },
+  draw:s=>{
+    const c=$('#glu-canvas');if(!c.clientWidth)return;const {ctx,w,h}=setupCanvas(c);ctx.clearRect(0,0,w,h);
+    const win=360;const tEnd=Math.max(s.t,480+win),tStart=tEnd-win;
+    const pad={l:34,r:34,t:22,b:26};
+    const f=drawFrame(ctx,w,h,pad,tStart,tEnd,25,[0,5,10,15,20,25],{left:'mmol/L',every:1},{max:8,ticks:[0,2,4,6,8],label:'× basaal',color:cssVar('--muted')});
+    // band
+    ctx.fillStyle=cssVar('--band');ctx.fillRect(f.x0,f.Y(8),f.x1-f.x0,f.Y(4)-f.Y(8));
+    ctx.setLineDash([4,4]);ctx.strokeStyle=cssVar('--crit');ctx.globalAlpha=.7;ctx.beginPath();ctx.moveTo(f.x0,f.Y(10));ctx.lineTo(f.x1,f.Y(10));ctx.stroke();
+    ctx.strokeStyle=cssVar('--warn');ctx.beginPath();ctx.moveTo(f.x0,f.Y(3.9));ctx.lineTo(f.x1,f.Y(3.9));ctx.stroke();ctx.globalAlpha=1;ctx.setLineDash([]);
+    ctx.font='10px "IBM Plex Mono", monospace';ctx.fillStyle=cssVar('--crit');ctx.textAlign='left';ctx.fillText('nierdrempel',f.x0+4,f.Y(10)-3);ctx.fillStyle=cssVar('--warn');ctx.fillText('hypo',f.x0+4,f.Y(3.9)+11);
+    drawEvents(ctx,s.evs,f.X,f.y0,f.y1,tStart);
+    const Yr=v=>f.y1-(clamp(v,0,8)/8)*(f.y1-f.y0);
+    drawSeries(ctx,s.hist,f.X,Yr,'I',cssVar('--insulin'),1.6,tStart);
+    drawSeries(ctx,s.hist,f.X,Yr,'Gg',cssVar('--glucagon'),1.6,tStart);
+    drawSeries(ctx,s.hist,f.X,v=>f.Y(clamp(v,0,25)),'G',cssVar('--glucose'),2.6,tStart);
+  },
+});
+
+/* ================= HPA MODEL ================= */
+const HPA=makeModule({
+  rootSel:'#mod-hpa',logSel:'#hpa-log',scoreSel:'#hpa-score',clockSel:'#hpa-clock',predSel:'#hpa-predict',
+  question:'Wat gebeurt er met de cortisolconcentratie in het komende uur?',
+  watch:s=>s.C,watchName:'cortisol',fmt:v=>v.toFixed(2)+'×',horizon:60,thresh:0.2,
+  minPerSec:10,dt:1,histMax:3000,startText:'Start: rust, geen stressor.',
+  init:()=>({t:480,CRH:1,ACTH:1,C:1,dex:0,S:0,acuteEnd:0,chronic:false,adrenal:1,pit:0,adr:0,fb:true,circ:false,hist:[],evs:[],stressHist:[]}),
+  events:{
+    acute:{label:'Acute stress',apply:(s)=>{s.acuteEnd=s.t+20;s.evs.push({t:s.t,label:'stress'});}},
+    dex:{label:'Dexamethason',apply:(s)=>{s.dex+=3;s.evs.push({t:s.t,label:'dexamethason'});}},
+    acthshot:{label:'ACTH-injectie',apply:(s)=>{s.ACTH+=6;s.evs.push({t:s.t,label:'ACTH-injectie'});}},
+  },
+  toggles:{
+    chronic:{label:'Chronische stress',apply:(s,on)=>{s.chronic=on;s.evs.push({t:s.t,label:on?'chron. stress aan':'chron. stress uit'});}},
+    addison:{label:'Bijnierschors uitgevallen',apply:(s,on)=>{s.adrenal=on?0.1:1;s.evs.push({t:s.t,label:on?'Addison aan':'Addison uit'});}},
+    pit:{label:'Hypofysetumor',apply:(s,on)=>{s.pit=on?3:0;s.evs.push({t:s.t,label:on?'hypofysetumor':'tumor weg'});}},
+    adr:{label:'Bijniertumor',apply:(s,on)=>{s.adr=on?2.5:0;s.evs.push({t:s.t,label:on?'bijniertumor':'tumor weg'});}},
+    nofb:{label:'Terugkoppeling doorgeknipt',apply:(s,on)=>{s.fb=!on;s.evs.push({t:s.t,label:on?'feedback uit':'feedback aan'});}},
+    circ:{label:'Dagritme aan',apply:(s,on)=>{s.circ=on;s.evs.push({t:s.t,label:on?'dagritme aan':'dagritme uit'});}},
+  },
+  step:(s,dt)=>{
+    const acute=s.t<s.acuteEnd?4:0;s.S=acute+(s.chronic?1.5:0);
+    const fb=s.fb?(s.C+s.dex):0;
+    const clock=s.circ?(1+0.7*Math.cos(2*Math.PI*(s.t-420)/1440)):1;
+    const crhTarget=2*(1+s.S)*clock/(1+fb);
+    s.CRH+=((crhTarget-s.CRH)/5)*dt;
+    const acthTarget=2*s.CRH/(1+fb)+s.pit;
+    s.ACTH+=((acthTarget-s.ACTH)/10)*dt;
+    const cTarget=s.adrenal*s.ACTH+s.adr;
+    s.C+=((cTarget-s.C)/60)*dt;
+    s.dex+=(-s.dex/240)*dt;if(s.dex<0.01)s.dex=0;
+    s.CRH=Math.max(0,s.CRH);s.ACTH=Math.max(0,s.ACTH);s.C=Math.max(0,s.C);
+  },
+  sample:s=>({t:s.t,CRH:s.CRH,ACTH:s.ACTH,C:s.C,S:s.S}),
+  render:(s,M)=>{
+    const u=' <span class="unit">× rust</span>';
+    $('#hpa-ro-crh').innerHTML=s.CRH.toFixed(2)+u;$('#hpa-ro-acth').innerHTML=s.ACTH.toFixed(2)+u;$('#hpa-ro-cort').innerHTML=s.C.toFixed(2)+u;
+    const st=$('#hpa-ro-status');let cls='ok',txt='normaal';
+    if(s.C<0.4){cls='crit';txt='te laag';}else if(s.C<0.75){cls='warn';txt='laag';}else if(s.C>3){cls='crit';txt='sterk verhoogd';}else if(s.C>1.5){cls='warn';txt='verhoogd';}
+    st.className='status '+cls;st.textContent=txt;
+    const bar=(id,v,max,wmax)=>{$(id).setAttribute('width',String(clamp(v/max,0,1)*wmax));};
+    $('#crh-lvl').textContent=s.CRH.toFixed(2)+'×';bar('#crh-bar',s.CRH,5,226);
+    $('#acth-lvl').textContent=s.ACTH.toFixed(2)+'×';bar('#acth-bar',s.ACTH,5,226);
+    $('#cort-lvl').textContent=s.C.toFixed(2)+'×';bar('#cort-bar',s.C,5,226);
+    $('#stress-txt').textContent=s.S>2?'acuut':s.S>0?'chronisch':'geen';
+    $('#e-sh').setAttribute('opacity',s.S>0?'1':'0.2');
+    const fbOp=s.fb?String(clamp(0.25+(s.C+s.dex)/4,0.25,1)):'0.12';
+    $('#e-fb1').setAttribute('opacity',fbOp);$('#e-fb2').setAttribute('opacity',fbOp);
+    $('#e-fb1').setAttribute('stroke-dasharray',s.fb?'':'3 6');$('#e-fb2').setAttribute('stroke-dasharray',s.fb?'':'3 6');
+    $('#dex-node').style.display=s.dex>0.05?'':'none';if(s.dex>0.05)$('#dex-txt').textContent='werkzaam: '+s.dex.toFixed(1)+'× cortisolwerking';
+    let note='';
+    if(s.S>2)note+='Acute stressor: de hypothalamus geeft een stoot CRH af. ';
+    else if(s.S>0)note+='Aanhoudende prikkel op de hypothalamus; de terugkoppeling dempt, maar heft hem niet op. ';
+    if(s.dex>0.05)note+='Dexamethason remt hypothalamus en hypofyse alsof er veel cortisol is. ';
+    if(s.adrenal<1)note+='De bijnierschors kan nauwelijks reageren op ACTH. ';
+    if(s.pit)note+='De hypofysetumor maakt ACTH zonder naar CRH of cortisol te luisteren. ';
+    if(s.adr)note+='De bijniertumor maakt cortisol zonder ACTH nodig te hebben. ';
+    if(!s.fb)note+='Zonder terugkoppeling is er geen setpoint meer; alle stappen lopen vrij op. ';
+    if(s.circ)note+='De biologische klok verschuift het setpoint over de dag (piek rond 7:00). ';
+    if(!note)note=Math.abs(s.C-1)<0.1?'Rust. Cortisol remt zijn eigen productie precies genoeg om op 1,0× te blijven.':(s.C>1?'Cortisol te hoog: CRH en ACTH worden extra geremd, het systeem zakt terug.':'Cortisol te laag: de rem valt weg, CRH en ACTH lopen op.');
+    $('#hpa-state-note').textContent=note.trim();
+  },
+  draw:s=>{
+    const c=$('#hpa-canvas');if(!c.clientWidth)return;const {ctx,w,h}=setupCanvas(c);ctx.clearRect(0,0,w,h);
+    const win=1440;const tEnd=Math.max(s.t,480+win),tStart=tEnd-win;
+    const pad={l:34,r:14,t:22,b:26};
+    const f=drawFrame(ctx,w,h,pad,tStart,tEnd,5,[0,1,2,3,4,5],{left:'× rustniveau',every:3},null);
+    // baseline
+    ctx.setLineDash([4,4]);ctx.strokeStyle=cssVar('--muted');ctx.globalAlpha=.8;ctx.beginPath();ctx.moveTo(f.x0,f.Y(1));ctx.lineTo(f.x1,f.Y(1));ctx.stroke();ctx.globalAlpha=1;ctx.setLineDash([]);
+    // stress shading
+    ctx.fillStyle=cssVar('--stress');ctx.globalAlpha=.12;let prev=null;
+    for(const p of s.hist){if(p.t<tStart)continue;if(p.S>0){const x=f.X(p.t);const x2=prev?f.X(prev.t):x;ctx.fillRect(Math.min(x,x2),f.y0,Math.abs(x-x2)+1,f.y1-f.y0);}prev=p;}
+    ctx.globalAlpha=1;
+    drawEvents(ctx,s.evs,f.X,f.y0,f.y1,tStart);
+    const Yc=v=>f.Y(clamp(v,0,5));
+    drawSeries(ctx,s.hist,f.X,Yc,'CRH',cssVar('--crh'),1.6,tStart);
+    drawSeries(ctx,s.hist,f.X,Yc,'ACTH',cssVar('--acth'),1.8,tStart);
+    drawSeries(ctx,s.hist,f.X,Yc,'C',cssVar('--cort'),2.6,tStart);
+  },
+});
+
+/* ---------- MC ---------- */
+const MC={
+  glu:[
+    {q:'Na een maaltijd stijgt de bloedglucose. Welke stap komt daarna als eerste?',o:['De lever breekt glycogeen af','De β-cellen geven meer insuline af','Spiercellen sluiten hun glucosetransporters','De α-cellen geven meer glucagon af'],a:1,fb:'De β-cellen meten de hoge glucose en reageren met insuline; glucagon neemt juist af en de lever gaat glucose opslaan.'},
+    {q:'Waarom spreken we bij glucoseregulatie van negatieve terugkoppeling?',o:['Omdat insuline een negatief effect op cellen heeft','Omdat het resultaat van de reactie de oorzaak ervan tegenwerkt','Omdat glucagon de werking van insuline opheft','Omdat de glucose na een maaltijd altijd daalt tot onder de startwaarde'],a:1,fb:'Hoge glucose → meer insuline → lagere glucose. Het gevolg (lagere glucose) remt de prikkel die het veroorzaakte. Dat is het kenmerk van negatieve terugkoppeling.'},
+    {q:'Bij insulineresistentie zie je in het model een hoge insulinewaarde bij een licht verhoogde glucose. Wat verklaart dit?',o:['De β-cellen zijn vernietigd','De lever maakt extra insuline aan','De β-cellen compenseren de verminderde gevoeligheid door meer insuline te maken','Glucagon stimuleert de insulineafgifte'],a:2,fb:'Hetzelfde effect vraagt nu meer insuline. De β-cellen "duwen harder" om de glucose toch omlaag te krijgen; vandaar hyperinsulinemie bij beginnende type 2.'},
+    {q:'Iemand met diabetes type 1 spuit insuline en gaat daarna onverwacht lang sporten zonder te eten. Grootste risico?',o:['Hyperglycemie door glucagon','Hypoglycemie: de geïnjecteerde insuline kan niet worden "uitgezet" terwijl spieren veel glucose opnemen','Glucose in de urine','Geen risico: sporten verlaagt glucose altijd veilig'],a:1,fb:'Bij een gezond persoon daalt de insulineafgifte tijdens sport. Geïnjecteerde insuline doet dat niet; samen met de spieropname geeft dat een hypo.'},
+  ],
+  hpa:[
+    {q:'Welke volgorde is juist voor de HPA-as?',o:['ACTH → CRH → cortisol','CRH → ACTH → cortisol','Cortisol → ACTH → CRH','CRH → cortisol → ACTH'],a:1,fb:'Hypothalamus (CRH) → hypofysevoorkwab (ACTH) → bijnierschors (cortisol). Cortisol koppelt terug op de eerste twee.'},
+    {q:'Een patiënt heeft een laag cortisol en een hoog ACTH. Waar zit het probleem waarschijnlijk?',o:['In de hypothalamus','In de hypofyse','In de bijnierschors','In de terugkoppeling'],a:2,fb:'De hypofyse doet zijn werk (veel ACTH), maar de bijnier antwoordt niet: primaire bijnierschorsinsufficiëntie (Addison). Bij een hypofyseprobleem zou ACTH juist laag zijn.'},
+    {q:'Na dexamethason daalt bij een gezond persoon het eigen cortisol sterk. Hoe komt dat?',o:['Dexamethason breekt cortisol af','Dexamethason remt de bijnier rechtstreeks','Dexamethason bezet de cortisolreceptoren in hypothalamus en hypofyse, waardoor CRH en ACTH wegvallen','Dexamethason verlaagt de bloedglucose'],a:2,fb:'Het lichaam "denkt" dat er veel cortisol is en zet de aansturing stil. Zonder ACTH maakt de bijnier nauwelijks cortisol. Blijft cortisol hoog, dan is de bron onafhankelijk van de as.'},
+    {q:'Waarom keert cortisol bij chronische stress niet terug naar het rustniveau, terwijl de terugkoppeling intact is?',o:['De terugkoppeling is bij stress uitgeschakeld','Negatieve terugkoppeling dempt een blijvende prikkel wel, maar heft hem niet op: er ontstaat een nieuw, hoger evenwicht','Cortisol wordt bij stress niet afgebroken','De bijnier raakt uitgeput en maakt juist minder cortisol'],a:1,fb:'Een regelkring met negatieve terugkoppeling reageert op een verschil met het setpoint. Zolang de hypothalamus geprikkeld blijft, is er een blijvend verschil nodig om de rem in balans te houden met de extra aandrijving.'},
+  ]
+};
+function buildMC(id,items){const root=$(id);items.forEach((it,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML=`<div><span class="num mono" style="color:var(--accent);font-size:.78rem">VRAAG ${i+1}</span><p>${it.q}</p></div><div class="opts"></div><div class="fb"></div>`;const opts=$('.opts',d),fb=$('.fb',d);it.o.forEach((o,j)=>{const b=document.createElement('button');b.textContent=o;b.id=`${id.slice(1)}-${i}-${j}`;b.addEventListener('click',()=>{$$('button',opts).forEach(x=>x.removeAttribute('data-state'));if(j===it.a){b.dataset.state='right';fb.textContent='Goed. '+it.fb;}else{b.dataset.state='wrong';fb.textContent='Niet juist. '+it.fb;}});opts.appendChild(b);});root.appendChild(d);});}
+buildMC('#glu-mc',MC.glu);buildMC('#hpa-mc',MC.hpa);
+
+/* ---------- loop ---------- */
+let last=performance.now();
+function loop(now){const dt=Math.min(0.1,(now-last)/1000);last=now;
+  const active=$('.module.active').id;
+  try{
+    GLU.tick(dt);HPA.tick(dt);
+    if(active==='mod-glu'){GLU.render();GLU.draw();}else{HPA.render();HPA.draw();}
+  }catch(e){console.error(e);}
+  requestAnimationFrame(loop);}
+try{GLU.render();HPA.render();}catch(e){console.error(e);}
+window.addEventListener('resize',()=>{GLU.draw();HPA.draw();});
+requestAnimationFrame(loop);
+})();
+</script>
+
+
+</body>
+</html>
