@@ -345,6 +345,44 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   </div>
 </main>
 
+<main id="dna" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#dna-films">Video's</a><a href="#dna-tools">Tools en practica</a><a href="#dna-oefenen">Begrippen</a><a href="#dna-oefenen">Binas</a><a href="#dna-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Thema</span>
+        <h1>DNA</h1>
+        <small>havo · vwo · van gen tot eiwit</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="dna-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="tools/eiwitfabriek.html"><i>E</i><span><b>De Eiwitfabriek</b><small>Oefen transcriptie en translatie: kies de matrijsstreng, bouw het mRNA, lees de codontabel en maak het eiwit</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="dna-films">
+      <div class="sec-h"><h2>Video's</h2><small>de DNA-videoserie volgt</small></div>
+    </section>
+
+    <section class="sec" id="dna-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#dna-oefenen"><span class="t">Begrippen trainen</span><span class="m">Nucleotide, matrijsstreng, mRNA, codon, anticodon, ribosoom… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#dna-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over DNA en eiwitsynthese, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
 <footer>Biologie bij Kamiel · <a href="#home">home</a></footer>
 
 <script>
@@ -353,9 +391,9 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   // Inhoud per niveau: havo volgt Biologie voor jou, vwo volgt Nectar, onderbouw volgt de kerndoelen.
   var perLevel={
     havo:{intro:'Kies je hoofdstuk. Je vindt er de films op volgorde, de simulatie om het zelf te proberen en een oefentoets om te checken of je het snapt.',chapters:[
-      ['H1','Cellen','2 films · Schaallab · oefentoets','#cellen'],['H2','Voortplanting','Precies op tijd · oefentoets','#voortplanting'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab · muizensimulatie','#evolutie'],['H5','Regeling','1 film · Regelkring'],['H7','Ecologie en milieu','2 films · oefentoets'],['Thema','Stofwisseling','3 vwo-films: Alles versneld, Alles op adem, Alles in het groen','#stofwisseling'],['Thema','DNA','videoserie']]},
+      ['H1','Cellen','2 films · Schaallab · oefentoets','#cellen'],['H2','Voortplanting','Precies op tijd · oefentoets','#voortplanting'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab · muizensimulatie','#evolutie'],['H5','Regeling','1 film · Regelkring'],['H7','Ecologie en milieu','2 films · oefentoets'],['Thema','Stofwisseling','3 vwo-films: Alles versneld, Alles op adem, Alles in het groen','#stofwisseling'],['Thema','DNA','Eiwitfabriek · videoserie volgt','#dna']]},
     vwo:{intro:'Kies je hoofdstuk uit Nectar. Films, tools, begrippen en examenvragen die bij dat hoofdstuk horen staan bij elkaar.',chapters:[
-      ['H1','Cellen','2 films · Schaallab · oefentoets','#cellen'],['H2','Voortplanting','Precies op tijd · oefentoets','#voortplanting'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab','#evolutie'],['H5','Regeling','Regelkring · zenuwstelsel'],['H6','Soorten en populaties','Plek genoeg · oefentoets'],['H8','Kenmerken van ecosystemen','Alles gaat rond · oefentoets'],['PTA','Stofwisseling','3 films · Alles versneld, Alles op adem, Alles in het groen','#stofwisseling'],['Thema','DNA','videoserie · examenatlas'],['Thema','Onderzoek doen','film · Onderzoekskeuring']]},
+      ['H1','Cellen','2 films · Schaallab · oefentoets','#cellen'],['H2','Voortplanting','Precies op tijd · oefentoets','#voortplanting'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab','#evolutie'],['H5','Regeling','Regelkring · zenuwstelsel'],['H6','Soorten en populaties','Plek genoeg · oefentoets'],['H8','Kenmerken van ecosystemen','Alles gaat rond · oefentoets'],['PTA','Stofwisseling','3 films · Alles versneld, Alles op adem, Alles in het groen','#stofwisseling'],['Thema','DNA','Eiwitfabriek · videoserie · examenatlas','#dna'],['Thema','Onderzoek doen','film · Onderzoekskeuring']]},
     onderbouw:{intro:'Kies je thema. Bij elk thema vind je een korte video, een onderzoekje om zelf te doen en een opdracht.',chapters:[
       ['32A','[titel kerndoel 32A]','video · onderzoekje · opdracht'],['32B','[titel kerndoel 32B]','video · onderzoekje · opdracht'],['32C','[titel kerndoel 32C]','video · onderzoekje · opdracht'],['32D','[titel kerndoel 32D]','video · onderzoekje · opdracht'],['33C','[titel kerndoel 33C]','video · onderzoekje · opdracht']]}
   };
@@ -387,8 +425,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   // Routes: #home, #erfelijkheid en #stofwisseling (ankers binnen een pagina laten die pagina staan)
   function route(){
     var h=(location.hash||'#home').slice(1);
-    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':'home';
-    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie'].forEach(function(id){document.getElementById(id).hidden=page!==id});
+    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':'home';
+    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna'].forEach(function(id){document.getElementById(id).hidden=page!==id});
     if(h===page) window.scrollTo(0,0);
     else{var el=document.getElementById(h); if(el) el.scrollIntoView();}
   }
