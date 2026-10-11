@@ -115,7 +115,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
       <tr><td>1b De cel van dichtbij</td><td>B</td><td>Micro</td><td>Cel kantelt kort tot "blokje" (misconceptie plat); labels membraan, cytoplasma, organellen</td></tr>
       <tr><td>2 Kern</td><td>B</td><td>Micro</td><td>Werkkopieën door kernporiën; DNA blijft binnen; kaart "de kern bestuurt" weerlegd; replicatie vóór deling</td></tr>
       <tr><td>3 Ribosomen, ER, golgi</td><td>B/C</td><td>Micro</td><td>Gesimuleerd blaasjestransport ER → golgi → membraan; vwo: één enzym gevolgd, adreslabel, exo- en endocytose</td></tr>
-      <tr><td>4 Mitochondrium</td><td>B</td><td>Micro → Schema</td><td>Glad vs geplooid membraan met oppervlakbalk; hartspiercel vs huidcel</td></tr>
+      <tr><td>4 Mitochondrium</td><td>B</td><td>Micro → Schema</td><td>Glucosebrokstukken en zuurstof in, ATP en koolstofdioxide uit; glad vs geplooid membraan met oppervlakbalk; hartspiercel vs huidcel</td></tr>
       <tr><td>5 Lysosomen, vacuole</td><td>B/D</td><td>Micro</td><td>Lysosoom versmelt met afvalblaasje; pH-balk; vacuole bouwt druk op, plant zakt in bij waterverlies</td></tr>
       <tr><td>6 Membraan, cytoskelet</td><td>B/D</td><td>Micro</td><td>Selectief membraan, ontvanger-eiwit; timelapse (misconceptie stilstaand); vwo: motoreiwit op rails</td></tr>
       <tr><td>7 Plant vs dier</td><td>B</td><td>Schema</td><td>Vergelijking op één grondlijn; wand als zeef; nachtscenario zonder mitochondriën</td></tr>
@@ -551,6 +551,7 @@ s14(ctx,t,q,st){
   const ai=ramp(t,q.at('verbranding',1),0.5);
   if(ai>0){ particleFlow(ctx,[[300,700],[M.x-300,M.y+40]],6,t,70,C.oker,10,100,ai); particleFlow(ctx,[[300,520],[M.x-300,M.y-20]],6,t,80,C.teal,8,200,ai);
     label(ctx,'brokstukken van glucose','',330,700,330,790,ai); label(ctx,'zuurstof','',300,520,280,440,ai);
+    particleFlow(ctx,[[M.x+280,M.y+90],[1650,760]],6,t,80,C.mens,8,350,ai); label(ctx,'koolstofdioxide','komt vrij bij de verbranding',1600,730,1380,820,ai,C.text,'left');
     const ao=ramp(t,q.at('atp'),0.5); particleFlow(ctx,[[M.x+300,M.y],[1600,330]],8,t,90,C.koraal,9,300,ao); label(ctx,'ATP','energiedrager van de cel',1560,345,1380,230,ao,C.text,'left'); }
   // cristae highlight
   const ac=ramp(t,q.at('cristae'),0.5); if(ac>0){ ctx.save(); ctx.globalAlpha=ac; ctx.strokeStyle=C.goud; ctx.lineWidth=3; const len=M.len,h=len*0.42,k=len/110,inset=6*k; for(let i=0;i<6;i++){ const px=M.x-len/2+inset+10*k+(len-2*inset-20*k)*(i+0.5)/6; const dir=i%2?1:-1; const y0=M.y+dir*(h/2-inset), depth=h*0.6, w=len/40; ctx.beginPath(); ctx.moveTo(px-w,y0); ctx.lineTo(px-w,y0-dir*depth); ctx.arc(px,y0-dir*depth,w,Math.PI,0,dir>0); ctx.lineTo(px+w,y0); ctx.stroke(); } ctx.restore(); label(ctx,'cristae','plooien van het binnenmembraan',M.x+60,M.y-100,1180,760,ac); }
@@ -748,7 +749,7 @@ const GLOSSARY=[
  {t:'blaasje',d:'Klein membraanblaasje dat stoffen vervoert in de cel (vakterm: vesikel).'},
  {t:'exocytose',d:'Een blaasje versmelt met het celmembraan en de inhoud komt buiten de cel.',vwo:true},
  {t:'endocytose',d:'Een stuk celmembraan stulpt in en haalt iets de cel binnen.',vwo:true},
- {t:'mitochondrium (mv. mitochondriën)',d:'Organel waar de verbranding van glucose wordt afgemaakt en ATP ontstaat; binnenmembraan geplooid tot cristae.'},
+ {t:'mitochondrium (mv. mitochondriën)',d:'Organel waar de verbranding van glucose met zuurstof wordt afgemaakt: er ontstaat ATP en er komt koolstofdioxide vrij; binnenmembraan geplooid tot cristae.'},
  {t:'cristae',d:'Plooien van het binnenmembraan van een mitochondrium; vergroten het oppervlak voor de eiwitten die ATP maken.'},
  {t:'ATP',d:'Energiedrager van de cel.'},
  {t:'stofwisseling',d:'Alle omzettingen van stoffen in de cel: opbouw (assimilatie) en afbraak (dissimilatie).'},
