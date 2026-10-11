@@ -1133,25 +1133,27 @@ window.LIB = (function () {
     let LHf = 0.3, FSHf = 0.8;
     for (let i = 0; i < n; i++) {
       const t = i * dt; out.t[i] = t;
-      const exo = opts.exo && t >= (opts.exoFrom ?? 0) && t < (opts.exoTo ?? 1e9) ? opts.exo : null;
-      const CL = CLage >= 0 && CLage < 14 ? Math.sin(Math.PI * Math.min(1, CLage / 14)) ** 1.2 * (CLage < 12 ? 1 : Math.max(0, 1 - (CLage - 12) / 2.2)) : 0;
+      const exo = opts.exo && ((t >= (opts.exoFrom ?? 0) && t < (opts.exoTo ?? 1e9)) || (opts.exoFrom2 != null && t >= opts.exoFrom2)) ? opts.exo : null;
+      const CL = CLage >= 0 && CLage < 14 ? Math.sin(Math.PI * Math.min(1, CLage / 14)) ** 0.8 * (CLage < 13 ? 1 : Math.max(0, 1 - (CLage - 13) / 2.2)) : 0;
       const hcgBoost = opts.hcgFrom != null && CLage >= 0 && t >= opts.hcgFrom ? 1 : 0;
       const CLeff = hcgBoost ? Math.max(CL, 0.85) : CL;
-      let E2 = 0.12 + 1.9 * Math.pow(F, 2.2) + 0.55 * CLeff; let P4 = 0.04 + 1.0 * CLeff;
+      // na het begin van de LH-piek maakt de follikel minder oestrogeen (luteïnisatie): de oestrogeenpiek ligt vóór de LH-piek
+      const lut = (surgeT > 0 && t >= surgeT) ? Math.max(0.2, 0.85 - 0.45 * (t - surgeT)) : Math.max(0.85, 1 - 0.15 * Math.max(0, hiE - 1));
+      let E2 = 0.12 + 1.9 * Math.pow(F, 2.2) * lut + 0.55 * CLeff; let P4 = 0.04 + 1.0 * CLeff + (surgeT > 0 && t > surgeT && CLage < 0 ? 0.12 * Math.min(1, t - surgeT) : 0);
       if (exo) { E2 = Math.max(E2, exo.E2); P4 = Math.max(P4, exo.P4); }
       // hypofyse: negatieve terugkoppeling door E2 (laag/middel) en P4; inhibine met de follikel
-      const inh = 0.3 * F;
+      const inh = 0.3 * F + (CLage >= 0 && CLage < 13 ? 0.35 : 0);   // inhibine uit follikel en (inhibine A) uit het gele lichaam
       const surge0 = Math.exp(-Math.pow((t - surgeT) / 0.7, 2));
       const FSHt = E.clamp(1.05 - 0.4 * Math.min(E2, 1.2) - 0.6 * P4 - inh + (mensLeft > 0 ? 0.12 : 0), 0.15, 1.6) + 0.55 * surge0;
       FSHf += (FSHt - FSHf) * dt * 2.2;
       // LH: basis met negatieve terugkoppeling; positieve terugkoppeling als E2 ≥ 2 dagen hoog is (en geen P4)
-      if (E2 > 1.25 && P4 < 0.35 && !exo) hiE += dt; else hiE = Math.max(0, hiE - dt * 2);
+      if (E2 > 1.1 && P4 < 0.35 && !exo) hiE += dt; else hiE = Math.max(0, hiE - dt * 2);
       if (hiE >= 2.0 && t - surgeT > 10) { surgeT = t; out.surge.push(t); hiE = 0; }
       const surge = Math.exp(-Math.pow((t - surgeT) / 0.7, 2)) * 3.2;
       const LHt = E.clamp(0.42 - 0.12 * Math.min(E2, 1.0) - 0.3 * P4 + 0.1 * F, 0.12, 1.0) + surge;
       LHf += (LHt - LHf) * dt * 4;
       // follikel: groeit met FSH boven een drempel; de dominante follikel heeft meer receptoren (gevoeliger)
-      if (CLage < 0 || CLage > 13.5) { const drive = Math.max(0, FSHf - 0.40 + 0.75 * F); F += dt * (0.14 * drive * (1 - F) * (1 + 1.2 * F)); } else F += dt * (0.02 * Math.max(0, FSHf - 0.6) * (1 - F));
+      if (CLage < 0 || CLage > 13.5) { const drive = Math.max(0, FSHf - 0.40 + 0.75 * F); F += dt * (0.127 * drive * (1 - F) * (1 + 1.2 * F)); } else F += dt * (0.02 * Math.max(0, FSHf - 0.6) * (1 - F));
       F = Math.max(0.06, F - dt * 0.004);
       // eisprong ± 36 uur na het begin van de piek
       if (surgeT > 0 && t - surgeT >= 1.5 && t - surgeT < 1.5 + dt && F > 0.5) { out.ov.push(t); CLage = 0; F = 0.08; }
@@ -1669,7 +1671,7 @@ SCENES['4'] = function ({ TL }) {
     geel: W(16, 'gele'), progesteron: W(17, 'progesteron'), dikker: W(18, 'dikker'), bloedvaten: W(19, 'bloedvaten'), remt2: W(20, 'remt'), geen: W(21, 'geen'), sterft: W(22, 'sterft'), twaalf: W(22, 'twaalf'), zakt: W(23, 'zakt'),
     slagaders: W(24, 'slagaders'), afgestoten: W(25, 'afgestoten'), menstruatie: W(25, 'menstruatie'), stijgt: W(26, 'stijgt'), opnieuw: W(27, 'opnieuw'), end: TL.E(27) };
   // dagklok: narratietijd → dag van de cyclus (stuksgewijs lineair)
-  const KF = [[TL.card.t1, 6], [T.remt, 9], [T.hoog, 11], [T.piek - 0.5, 12.5], [T.piek + 1.5, 13.3], [T.scheurt, 14.0], [T.eisprong + 0.5, 14.5], [T.geel, 16], [T.dikker, 19], [T.remt2, 21], [T.sterft, 24], [T.zakt, 26], [T.menstruatie, 28.2], [T.stijgt, 29.5], [T.end, 31]];
+  const S0 = M.surge[0], O0 = M.ov[0]; const KF = [[TL.card.t1, 6], [T.remt, 9], [T.hoog, S0 - 2], [T.piek - 0.5, S0 - 0.3], [T.piek + 1.5, S0 + 0.5], [T.scheurt, O0 - 0.4], [T.eisprong + 0.5, O0 + 0.1], [T.geel, 16], [T.dikker, 19], [T.remt2, 21], [T.sterft, 24], [T.zakt, 26], [T.menstruatie, 28.2], [T.stijgt, 29.5], [T.end, 31]];
   const dayAt = (t) => { if (t <= KF[0][0]) return KF[0][1]; for (let i = 1; i < KF.length; i++) if (t <= KF[i][0]) return E.lerp(KF[i - 1][1], KF[i][1], (t - KF[i - 1][0]) / (KF[i][0] - KF[i - 1][0])); return KF[KF.length - 1][1]; };
   TL.cue('action', 'grafiek tekent zich tot de dag van de klok', TL.card.t1, T.end, { anchor: 'r1 groeit' });
   TL.cue('action', 'remlijn (−) wordt stimuleerlijn (+)', T.omslaat, T.piek, { anchor: 'r4 om' });
@@ -1730,8 +1732,8 @@ SCENES['4'] = function ({ TL }) {
     const aLH = a * E.vis(t, T.stimuleren, T.drie); g.arrow(270, 262, 270, fy - fr - 20, { color: HC.LH, alpha: aLH, lw: 2.5 }); g.text('LH', 230, 420, { size: 36, w: 600, color: HC.LH, align: 'right', alpha: aLH });
     g.annot(140, 560, 790, 'positieve terugkoppeling: het signaal versterkt zichzelf', { alpha: a * E.vis(t, T.positief, T.drie), color: C.green, maxW: 520 });
     g.annot(140, 560, 790, 'ongeveer twee dagen hoog: dan slaat het effect om', { alpha: a * E.vis(t, T.hoog, T.omslaat + 1.5), color: C.coral, maxW: 520 });
-    g.text('LH-piek', dx(12.9) + 16, B.y + 60, { size: 36, w: 600, color: HC.LH, alpha: a * E.vis(t, T.piek, null) });
-    g.text('eisprong', dx(14.4) + 10, B.y + 120, { size: 36, w: 600, color: C.gold, alpha: a * E.vis(t, T.eisprong, null) });
+    g.text('LH-piek', dx(M.surge[0]) + 16, B.y + 60, { size: 36, w: 600, color: HC.LH, alpha: a * E.vis(t, T.piek, null) });
+    g.text('eisprong', dx(M.ov[0]) + 10, B.y + 120, { size: 36, w: 600, color: C.gold, alpha: a * E.vis(t, T.eisprong, null) });
     g.text('menstruatie', dx(28.3) - 160, B.y + 60, { size: 36, w: 600, color: C.coral, alpha: a * E.vis(t, T.menstruatie, null) });
     g.annot(140, 560, 790, 'geen embryo: na ± 12 dagen sterft het gele lichaam af', { alpha: a * E.vis(t, T.sterft, T.stijgt), color: C.coral, maxW: 520 });
     g.annot(140, 560, 790, 'de rem valt weg: FSH stijgt, de cyclus begint opnieuw', { alpha: a * E.vis(t, T.stijgt, null), color: C.green, maxW: 520 });
@@ -2180,7 +2182,7 @@ SCENES['10'] = function ({ TL }) {
   TL.cue('action', 'mifepriston blokkeert de progesteronreceptor', T.abortus, T.soa, { anchor: 'r17 abortuspil' });
   TL.cue('look-change', 'zoomcirkel: hiv in een T-helpercel (Micro)', T.hiv, T.antibiotica, { anchor: 'r22 hiv' });
   TL.cue('action', 'antibiotica: bacterie heeft celwand en eigen ribosomen; virus niet', T.antibiotica, T.end + 1, { anchor: 'r29 Antibiotica' });
-  const PIL = L.cycle({ days: 35, exo: { E2: 0.9, P4: 0.8 }, exoFrom: 0, exoTo: 21 });   // 21 dagen pil, dan stopweek
+  const PIL = L.cycle({ days: 35, exo: { E2: 0.9, P4: 0.8 }, exoFrom: 0, exoTo: 21, exoFrom2: 28 });   // 21 dagen pil, stopweek, dan de volgende strip
   function draw(g, t) {
     const aScene = CM.fixed(g, t, TL, 10, 11, 'Als je de signalen kent, kun je ze nadoen, blokkeren of uitstellen. Hoe?');
     if (aScene <= 0.01) return; const c = g.ctx; const a = aScene;
