@@ -442,27 +442,43 @@ s05(ctx,t,q,st){
 },
 // ---------- H2: kern ----------
 s07(ctx,t,q,st){
-  bg(ctx,'micro'); const K={x:700,y:520,r:230};
-  // other organelles dimmed small on the right
-  dim(ctx,()=>{ roughER(ctx,1250,560,220,2); golgi(ctx,1180,720,110); mitochondrion(ctx,1420,760,100,0.4); },0.35);
+  bg(ctx,'micro'); const K={x:560,y:540,r:210};
   nucleus(ctx,K.x,K.y,K.r,1,t);
-  // DNA inside: paars tangled line
-  ctx.save(); ctx.strokeStyle=lighten(C.kernR,0.45); ctx.lineWidth=2.5; ctx.beginPath(); for(let i=0;i<=160;i++){ const w=wander(i*0.5+1000,0,1,1); const x=K.x+(hash(i*2+5)*2-1)*K.r*0.62, y=K.y+(hash(i*2+6)*2-1)*K.r*0.58; i?ctx.quadraticCurveTo(K.x+(hash(i*3+9)*2-1)*K.r*0.5,K.y+(hash(i*3+1)*2-1)*K.r*0.5,x,y):ctx.moveTo(x,y);} ctx.stroke(); ctx.restore();
-  label(ctx,'celkern','grootste losse organel',K.x,K.y-K.r,K.x+60,250,ramp(t,q.at('celkern'),0.5));
-  label(ctx,'DNA','bouwtekening van bijna elk eiwit',K.x-130,K.y-110,120,250,ramp(t,q.at('dna',1),0.5),C.text,'left');
-  // pores + mRNA copies leaving
+  // chromatin: a few loose coiled threads (not a tangle)
+  ctx.save(); ctx.strokeStyle=lighten(C.kernR,0.45); ctx.lineWidth=2.2;
+  for(let th=0;th<4;th++){ ctx.beginPath(); const a0=th*1.6, r0=K.r*0.35+th*18; for(let i=0;i<=90;i++){ const a=a0+i/90*2.6; const r=r0+Math.sin(i*0.9+th)*9; const x=K.x+Math.cos(a)*r, y=K.y+Math.sin(a)*r*0.9; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); }
+  ctx.restore();
+  // pores
   const ap=ramp(t,q.at('kernporiën'),0.5);
-  for(let i=0;i<10;i++){ const a=i/10*6.283; const px=K.x+Math.cos(a)*(K.r+7), py=K.y+Math.sin(a)*(K.r+7)*0.92; ctx.save(); ctx.globalAlpha=ap; ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(px,py,8,0,6.283); ctx.stroke(); ctx.restore(); }
-  const am=ramp(t,q.at('werkkopieën'),0.5)*(1-ramp(t,q.at('deelt'),0.8));
-  if(am>0){ ctx.save(); ctx.globalAlpha=am; ctx.strokeStyle=C.teal; ctx.lineWidth=3; for(let k=0;k<6;k++){ const a=(k*1.7)%6.283; const u=((t*0.35+hash(k+40))%1); const r=lerp(K.r*0.5,K.r+200,u); const x=K.x+Math.cos(a)*r, y=K.y+Math.sin(a)*r*0.92; ctx.beginPath(); ctx.moveTo(x-10,y); ctx.lineTo(x+10,y); ctx.stroke(); } ctx.restore(); }
-  label(ctx,'kernporiën','werkkopieën gaan de kern uit',K.x+K.r*0.75,K.y-K.r*0.6,1080,540,ap);
+  const pores=[]; for(let i=0;i<10;i++){ const a=i/10*6.283; pores.push({x:K.x+Math.cos(a)*(K.r+7), y:K.y+Math.sin(a)*(K.r+7)*0.92, a}); ctx.save(); ctx.globalAlpha=ap; ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(pores[i].x,pores[i].y,8,0,6.283); ctx.stroke(); ctx.restore(); }
+  label(ctx,'celkern','grootste losse organel',K.x-60,K.y-K.r+10,120,260,ramp(t,q.at('celkern'),0.5),C.text,'left');
+  // ---- zoom circle: a piece of DNA as a double helix ----
+  const az=ramp(t,q.at('dna',1),0.8); const Z={x:1300,y:520,r:230};
+  const tm=q.at('werkkopieën'), tblijft=q.at('blijft'), trep=q.at('gekopieerd');
+  const copy=ramp(t,tm,2.5)*(1-ramp(t,q.at('bestuurt'),0.6)); // mRNA being read off
+  const rep=ramp(t,trep,2.2);
+  zoomCircle(ctx,Z.x,Z.y,Z.r,K.x+40,K.y-20,'een stukje DNA · vereenvoudigd',az,()=>{
+    ctx.fillStyle=C.bgMicro; ctx.fillRect(Z.x-Z.r,Z.y-Z.r,2*Z.r,2*Z.r); ctx.save(); ctx.globalAlpha=0.5; grain(ctx); ctx.restore();
+    const x0=Z.x-Z.r+30, x1=Z.x+Z.r-30, n=60, amp=44;
+    const strand=(sign,dy,col,lw)=>{ ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.beginPath(); for(let i=0;i<=n;i++){ const u=i/n; const x=lerp(x0,x1,u); const y=Z.y+dy+sign*amp*Math.sin(u*6.283*1.6); i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); };
+    const rungs=(dy,alpha)=>{ ctx.save(); ctx.globalAlpha*=alpha; for(let i=1;i<n;i+=3){ const u=i/n; const x=lerp(x0,x1,u); const ya=Z.y+dy+amp*Math.sin(u*6.283*1.6), yb=Z.y+dy-amp*Math.sin(u*6.283*1.6); const col=[C.koraal,C.teal,C.groen,C.oker][i%4]; ctx.strokeStyle=col; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(x,ya); ctx.lineTo(x,(ya+yb)/2); ctx.stroke(); const col2=[C.teal,C.koraal,C.oker,C.groen][i%4]; ctx.strokeStyle=col2; ctx.beginPath(); ctx.moveTo(x,yb); ctx.lineTo(x,(ya+yb)/2); ctx.stroke(); } ctx.restore(); };
+    if(rep<0.02){ rungs(0,1); strand(1,0,C.kernR,5); strand(-1,0,lighten(C.kernR,0.35),5);
+      // mRNA copied along the lower strand, then slides right (out of the frame → toward a pore)
+      if(copy>0){ const len=ramp(t,tm,2.6); const slide=ramp(t,tm+4.2,1.6)*(Z.r*2+120); const drop=ramp(t,tm+2.8,1.0)*26; ctx.save(); ctx.globalAlpha=copy; ctx.strokeStyle=C.teal; ctx.lineWidth=5; ctx.beginPath(); for(let i=0;i<=n*len;i++){ const u=i/n; const x=lerp(x0,x1,u)+slide; const y=Z.y+amp+34+drop+Math.sin(u*6.283*4)*7; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); if(len<1){ const rx=lerp(x0,x1,len); ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(rx,Z.y-amp*Math.sin(len*6.283*1.6)); ctx.lineTo(rx,Z.y+amp+34); ctx.stroke(); ctx.fillStyle=C.goud; ctx.beginPath(); ctx.arc(rx,Z.y-amp*Math.sin(len*6.283*1.6),7,0,6.283); ctx.fill(); } ctx.restore(); metaText(ctx,'werkkopie (RNA)',Z.x,Z.y+Z.r-30,C.teal,'center',22); }
+    } else { // replication: two helices drift apart, each gets a new partner strand
+      const sep=ease(rep)*95; rungs(-sep,0.3+0.7*rep); rungs(sep,0.3+0.7*rep); strand(1,-sep,C.kernR,5); ctx.save(); ctx.globalAlpha*=rep; strand(-1,-sep,lighten(C.kernR,0.35),5); strand(1,sep,lighten(C.kernR,0.35),5); ctx.restore(); strand(-1,sep,C.kernR,5); }
+  });
+  if(az>0){ label(ctx,'DNA','dubbele helix · basenparen als sporten',Z.x-Z.r*0.6,Z.y-Z.r*0.8,1000,228,az,C.text,'left'); }
+  // mRNA strands leaving through pores into the cytoplasm (single wavy teal threads)
+  const am=ramp(t,tm+4.5,0.8)*(1-ramp(t,q.at('bestuurt'),0.8));
+  if(am>0){ ctx.save(); ctx.globalAlpha=am; ctx.strokeStyle=C.teal; ctx.lineWidth=4; for(let k=0;k<5;k++){ const p=pores[(k*3)%10]; const u=((t*0.22+hash(k+40))%1); const d=lerp(-60,220,u); const x=p.x+Math.cos(p.a)*d, y=p.y+Math.sin(p.a)*d*0.92; ctx.beginPath(); for(let i=0;i<=14;i++){ const s=i/14; const px=x+Math.cos(p.a)*(s*64-32)-Math.sin(p.a)*Math.sin(s*12.6+t*4)*8, py=y+Math.sin(p.a)*(s*64-32)*0.92+Math.cos(p.a)*Math.sin(s*12.6+t*4)*8; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.stroke(); } ctx.restore(); }
+  label(ctx,'kernporiën','werkkopieën (RNA) gaan de kern uit',K.x-K.r*0.75,K.y+K.r*0.6,120,830,ap,C.text,'left');
+  const ab=ramp(t,tblijft,0.5)*(1-ramp(t,q.at('bestuurt'),0.6)); if(ab>0) haak(ctx,Z.x-Z.r,Z.x+Z.r,Z.y+Z.r+60,'het DNA zelf blijft in de kern',C.groen,ab);
   // misconception card
   const mc=ramp(t,q.at('bestuurt'),0.5)*(1-ramp(t,q.at('deelt'),0.6));
-  card(ctx,1150,600,700,230,'"De kern bestuurt de cel"','Nee. Hij bewaart bouwtekeningen; welke kopieën uitgaan bepaalt wat de cel doet.',mc,C.koraal);
-  // replication at 'gekopieerd'
-  const rep=ramp(t,q.at('gekopieerd'),1.2);
-  if(rep>0){ ctx.save(); ctx.globalAlpha=rep; ctx.strokeStyle=lighten(C.kernR,0.3); ctx.lineWidth=2.5; ctx.beginPath(); for(let i=0;i<=120;i++){ const a=i/120*6.283*3+0.5; const r=K.r*0.6*(0.5+0.5*Math.sin(i*0.37+1)); const x=K.x+Math.cos(a)*r+18*rep, y=K.y+Math.sin(a)*r*0.9+14*rep; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); ctx.restore(); haak(ctx,K.x-K.r,K.x+K.r+30,K.y+K.r+16,'al het DNA gekopieerd → de cel kan delen',C.groen,rep); }
-  // rode bloedcel hint
+  card(ctx,1100,640,760,170,'"De kern bestuurt de cel"','Nee. Hij bewaart bouwtekeningen; welke kopieën uitgaan bepaalt wat de cel doet.',mc,C.koraal);
+  if(rep>0) haak(ctx,Z.x-Z.r,Z.x+Z.r,Z.y+Z.r+60,'al het DNA gekopieerd → de cel kan delen',C.groen,rep);
+  // rode bloedcel
   const rb=ramp(t,q.at('rode'),0.6); if(rb>0){ ctx.save(); ctx.globalAlpha=rb*0.85; ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,CAPTION_Y); ctx.restore(); ctx.save(); ctx.globalAlpha=rb; ctx.beginPath(); ctx.ellipse(1500,600,120,80,0,0,6.283); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); ctx.beginPath(); ctx.ellipse(1500,600,60,30,0,0,6.283); ctx.fillStyle=rgba(C.bgMicro,0.5); ctx.fill(); ctx.restore(); label(ctx,'rode bloedcel','geen kern · leeft ongeveer 120 dagen',1400,560,1000,420,rb,C.text,'right'); board(ctx,st.board,rb*0.9); }
   scaleBar(ctx);
 },
