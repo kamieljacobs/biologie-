@@ -8,7 +8,7 @@
 <body>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
-/* Layout: donkere kopbalk met niveau- en themaknoppen; daaronder hoofdstuktegels als hoofdingang, materiaalsoorten als tweede ingang. Hash-routes: #home en #erfelijkheid. */
+/* Layout: donkere kopbalk met niveau- en themaknoppen; daaronder hoofdstuktegels als hoofdingang, materiaalsoorten als tweede ingang. Hash-routes: #home, #erfelijkheid en #stofwisseling. */
 :root{
   --bg:#ffffff; --fg:#13202b; --muted:#5c6b77; --card:#ffffff; --line:#dde3e8; --band:#f6f8f9;
   --accent:#0b6e6e; --accent-text:#0b6e6e; --accent-soft:#e6f2f2; --shadow:0 2px 6px rgba(19,32,43,.08);
@@ -191,6 +191,40 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   </div>
 </main>
 
+<!-- ===== HOOFDSTUKPAGINA PTA STOFWISSELING (VWO) ===== -->
+<main id="stofwisseling" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#stofwisseling-films">Video's</a><a href="#stofwisseling-tools">Tools en practica</a><a href="#stofwisseling-oefenen">Begrippen</a><a href="#stofwisseling-oefenen">Binas</a><a href="#stofwisseling-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">PTA</span>
+        <h1>Stofwisseling</h1>
+        <small>6 vwo · Nectar 4.1 · 3 films, kijk ze op volgorde · film 4 (de lever) volgt</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="stofwisseling-films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/stofwisseling/1-alles-versneld.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · § 18.2 – 18.3</span><span class="t">Alles versneld</span><span class="s">Eiwitten en enzymen: hoe een enzym een reactie versnelt, en wat het remt</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/stofwisseling/2-alles-op-adem.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · § 19.3 – 19.4</span><span class="t">Alles op adem</span><span class="s">Dissimilatie: ATP vormen, met en zonder zuurstof</span></a>
+      <a class="film" style="--thumb:#2b4a3a" href="films/stofwisseling/3-alles-in-het-groen.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 3 · § 20.3 – 20.4</span><span class="t">Alles in het groen</span><span class="s">Fotosynthese en voortgezette assimilatie: waar de massa van een eik vandaan komt</span></a>
+    </div>
+
+        <section class="sec" id="stofwisseling-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#stofwisseling-oefenen"><span class="t">Begrippen trainen</span><span class="m">Enzym, actief centrum, ATP, glycolyse, calvincyclus… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#stofwisseling-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over stofwisseling, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
 <footer>Biologie bij Kamiel · <a href="#home">home</a></footer>
 
 <script>
@@ -201,7 +235,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
     havo:{intro:'Kies je hoofdstuk. Je vindt er de films op volgorde, de simulatie om het zelf te proberen en een oefentoets om te checken of je het snapt.',chapters:[
       ['H1','Cellen','1 tool · oefentoets'],['H2','Voortplanting','2 films · oefentoets'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab · muizensimulatie'],['H5','Regeling','1 film · Regelkring'],['H7','Ecologie en milieu','2 films · oefentoets'],['Thema','Stofwisseling','3 films · oefentoets'],['Thema','DNA','videoserie']]},
     vwo:{intro:'Kies je hoofdstuk uit Nectar. Films, tools, begrippen en examenvragen die bij dat hoofdstuk horen staan bij elkaar.',chapters:[
-      ['H1','Cellen','Schaallab · oefentoets'],['H2','Voortplanting','Precies op tijd · oefentoets'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab'],['H5','Regeling','Regelkring · zenuwstelsel'],['H6','Soorten en populaties','Plek genoeg · oefentoets'],['H8','Kenmerken van ecosystemen','Alles gaat rond · oefentoets'],['PTA','Stofwisseling','Alles versneld · 3 films'],['Thema','DNA','videoserie · examenatlas'],['Thema','Onderzoek doen','film · Onderzoekskeuring']]},
+      ['H1','Cellen','Schaallab · oefentoets'],['H2','Voortplanting','Precies op tijd · oefentoets'],['H3','Erfelijkheid','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],['H4','Evolutie','9 films · Resistentielab'],['H5','Regeling','Regelkring · zenuwstelsel'],['H6','Soorten en populaties','Plek genoeg · oefentoets'],['H8','Kenmerken van ecosystemen','Alles gaat rond · oefentoets'],['PTA','Stofwisseling','3 films · Alles versneld, Alles op adem, Alles in het groen','#stofwisseling'],['Thema','DNA','videoserie · examenatlas'],['Thema','Onderzoek doen','film · Onderzoekskeuring']]},
     onderbouw:{intro:'Kies je thema. Bij elk thema vind je een korte video, een onderzoekje om zelf te doen en een opdracht.',chapters:[
       ['32A','[titel kerndoel 32A]','video · onderzoekje · opdracht'],['32B','[titel kerndoel 32B]','video · onderzoekje · opdracht'],['32C','[titel kerndoel 32C]','video · onderzoekje · opdracht'],['32D','[titel kerndoel 32D]','video · onderzoekje · opdracht'],['33C','[titel kerndoel 33C]','video · onderzoekje · opdracht']]}
   };
@@ -230,12 +264,11 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   var saved=get('thema'); if(saved==='dark'||saved==='light') root.setAttribute('data-theme',saved);
   document.querySelectorAll('.theme-btn').forEach(function(b){b.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);set('thema',n);paintTheme()})});
 
-  // Routes: #home en #erfelijkheid (ankers binnen een pagina laten die pagina staan)
+  // Routes: #home, #erfelijkheid en #stofwisseling (ankers binnen een pagina laten die pagina staan)
   function route(){
     var h=(location.hash||'#home').slice(1);
-    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':'home';
-    document.getElementById('home').hidden=page!=='home';
-    document.getElementById('erfelijkheid').hidden=page!=='erfelijkheid';
+    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':'home';
+    ['home','erfelijkheid','stofwisseling'].forEach(function(id){document.getElementById(id).hidden=page!==id});
     if(h===page) window.scrollTo(0,0);
     else{var el=document.getElementById(h); if(el) el.scrollIntoView();}
   }
