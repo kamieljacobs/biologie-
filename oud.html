@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Biologie bij Kamiel</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: donkere kopbalk met niveau- en themaknoppen; daaronder hoofdstuktegels als hoofdingang, materiaalsoorten als tweede ingang. Hash-routes: #home, #erfelijkheid en #stofwisseling. */
+:root{
+  --bg:#ffffff; --fg:#13202b; --muted:#5c6b77; --card:#ffffff; --line:#dde3e8; --band:#f6f8f9;
+  --accent:#0b6e6e; --accent-text:#0b6e6e; --accent-soft:#e6f2f2; --shadow:0 2px 6px rgba(19,32,43,.08);
+  --head-bg:#13202b; --head-fg:#ffffff; --head-muted:#b8c4cd; --head-line:#3a4c5a; --head-field:#1c2d3a; --accent-on-head:#7fd1cf;
+  --display:"Plus Jakarta Sans",system-ui,sans-serif; --body:"Source Sans 3",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#13202b; --fg:#eef2f5; --muted:#9fb0bd; --card:#1c2d3a; --line:#2d3f4c; --band:#0f1a22;
+  --accent:#0b6e6e; --accent-text:#7fd1cf; --accent-soft:#15383a; --shadow:none;
+  --head-bg:#0f1a22; --head-fg:#eef2f5; --head-muted:#9fb0bd; --head-line:#2d3f4c; --head-field:#13202b; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13202b; --fg:#eef2f5; --muted:#9fb0bd; --card:#1c2d3a; --line:#2d3f4c; --band:#0f1a22;
+  --accent:#0b6e6e; --accent-text:#7fd1cf; --accent-soft:#15383a; --shadow:none;
+  --head-bg:#0f1a22; --head-fg:#eef2f5; --head-muted:#9fb0bd; --head-line:#2d3f4c; --head-field:#13202b; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--body)}
+a{color:var(--accent-text);text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent-text)}
+
+/* Kopbalk */
+.head{background:var(--head-bg);color:var(--head-fg)}
+.nav{display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap;padding-block:16px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:21px;color:var(--head-fg)}
+.brand i{width:32px;height:32px;border-radius:9px;background:var(--accent);display:inline-flex;align-items:center;justify-content:center}
+.menu{display:flex;gap:16px;flex-wrap:wrap;font-weight:600;font-size:15px}
+.menu a{color:var(--head-fg)}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--head-field);border:1.5px solid var(--head-line);border-radius:999px;padding:0 14px;min-height:44px;flex:0 1 300px;color:var(--head-muted)}
+.search input{background:transparent;border:0;color:var(--head-fg);font:inherit;min-width:0;flex:1;outline:none}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--head-line);background:transparent;color:var(--head-fg);font-weight:600;font-size:15px}
+.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.pill:focus-visible,.menu a:focus-visible,.tile:focus-visible{outline:2px solid var(--accent-on-head);outline-offset:2px}
+.hero{display:flex;flex-direction:column;gap:16px;align-items:flex-start;padding-block:36px 58px}
+.hero h1{font-size:clamp(34px,5vw,54px);line-height:1.06;font-weight:800;max-width:20ch}
+.hero p{margin:0;font-size:19px;color:var(--head-muted);max-width:56ch}
+.hero .eyebrow{color:var(--accent-on-head)}
+.levels{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:4px}
+.levels span{font-size:14px;color:var(--head-muted);margin-right:4px}
+.crumb{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px 22px}
+.crumb a{font-size:14px;font-weight:600;color:var(--accent-on-head)}
+.crumb .chip{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:7px;background:var(--accent);color:#fff;font-weight:700;font-size:14px}
+.crumb h1{font-size:34px;line-height:1.1;font-weight:800}
+.crumb small{font-size:14px;color:var(--head-muted)}
+
+/* Tegels */
+.grid{display:grid;gap:16px}
+.grid.ch{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+#chapters{display:flex;flex-direction:column;gap:28px;margin-top:-30px;padding-bottom:44px}
+.ond-h{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.ond-h .code{display:inline-flex;align-items:center;height:28px;padding:0 10px;border-radius:7px;background:var(--fg);color:var(--bg);font-family:var(--display);font-size:13px;letter-spacing:.04em}
+#chapters .ond:first-child .ond-h .code{background:var(--accent);color:#fff}
+.tile .h{color:var(--muted);font-size:13px;line-height:1.35}
+.tile.soon{opacity:.72}
+.methode{margin:0;font-size:14px;color:var(--head-muted)}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px;color:var(--fg);box-shadow:var(--shadow);min-width:0}
+.tile .nr{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:28px;padding:0 10px;border-radius:7px;background:var(--accent-soft);color:var(--accent-text);font-weight:700;font-size:13px;align-self:flex-start}
+.tile .t{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.01em;line-height:1.2}
+.tile .s{color:var(--muted);font-size:14px;margin-top:auto}
+.sec{display:flex;flex-direction:column;gap:16px;padding-bottom:44px}
+.sec-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sec-h h2{font-size:26px;font-weight:700}
+.sec-h small{color:var(--muted);font-size:15px}
+.grid.cats{grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:12px}
+.cat{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:12px;background:var(--accent-soft);color:var(--fg);min-height:110px}
+.cat i{width:36px;height:36px;border-radius:9px;background:var(--accent);color:#fff;display:inline-flex;align-items:center;justify-content:center;font:800 16px var(--display);font-style:normal}
+.cat b{font-size:17px}
+.cat small{color:var(--muted);font-size:13px;line-height:1.35}
+.grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:8px;color:var(--fg);box-shadow:var(--shadow)}
+.card.accent{background:var(--accent);border-color:var(--accent);color:#fff}
+.card.accent .m{color:#d7ecec}.card.accent .go{color:#fff}
+.card.soft{background:var(--accent-soft);border-color:var(--accent-soft);box-shadow:none}
+.card .t{font-family:var(--display);font-weight:700;font-size:22px}
+.card .m{color:var(--muted)}
+.card .go{margin-top:6px;font-weight:600;color:var(--accent-text)}
+
+/* Films */
+.grid.films{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));padding-block:24px 8px}
+.film{display:flex;flex-direction:column;gap:9px;color:var(--fg);min-width:0}
+.thumb{aspect-ratio:16/9;max-width:100%;border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;background:var(--thumb,#1f3a3a)}
+.thumb .n{position:absolute;top:8px;left:12px;font:800 40px var(--display);color:rgba(255,255,255,.35)}
+.thumb .play{width:56px;height:56px;border-radius:999px;background:#fff;display:inline-flex;align-items:center;justify-content:center}
+.film .t{font-family:var(--display);font-weight:700;font-size:18px;line-height:1.25}
+.film .s{color:var(--muted);font-size:14px;line-height:1.4}
+.tool{display:flex;gap:14px;align-items:center;padding:16px}
+.tool i{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent-text);display:inline-flex;align-items:center;justify-content:center;flex:none;font:800 18px var(--display);font-style:normal}
+.tool b{font-size:17px}.tool small{color:var(--muted);font-size:14px;display:block}
+footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font-size:14px;color:var(--muted)}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:no-preference){.tile,.cat,.film .thumb{transition:transform .15s}.tile:hover,.cat:hover{transform:translateY(-2px)}.film:hover .thumb{transform:scale(1.01)}}
+</style>
+
+<!-- ===== HOMEPAGE ===== -->
+<main id="home">
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#home">Video's</a><a href="#home">Tools en practica</a><a href="#home">Begrippen</a><a href="#home">Binas</a><a href="#home">Examens</a><a href="#home">Planner</a></div>
+        <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="zoek" type="search" placeholder="Zoek een onderwerp of begrip…" aria-label="Zoeken"></label>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker"></button>
+      </nav>
+      <section class="hero">
+        <span class="eyebrow">biologie · <span class="level-name">havo</span></span>
+        <h1>Wat ga je vandaag leren?</h1>
+        <p id="intro"></p>
+        <p id="methode" class="methode"></p>
+        <div class="levels"><span>Ik zit op:</span>
+          <button class="pill lvl" type="button" data-level="havo">havo</button>
+          <button class="pill lvl" type="button" data-level="vwo">vwo</button>
+          <button class="pill lvl" type="button" data-level="onderbouw">onderbouw</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="chapters"></div>
+
+    <section class="sec">
+      <div class="sec-h"><h2>Of kies een soort materiaal</h2><small>alles van <span class="level-name">havo</span>, over alle hoofdstukken heen</small></div>
+      <div class="grid cats">
+        <a class="cat" href="#home"><i>V</i><b>Video's</b><small>uitlegfilms per reeks</small></a>
+        <a class="cat" href="#home"><i>T</i><b>Tools en practica</b><small>simulaties en virtuele proeven</small></a>
+        <a class="cat" href="#home"><i>B</i><b>Begrippen</b><small>begrippen trainen per hoofdstuk</small></a>
+        <a class="cat" href="#home"><i>N</i><b>Binas</b><small>tabellen opzoeken en aflezen</small></a>
+        <a class="cat" href="#home"><i>E</i><b>Examens</b><small>examentraining en -analyse</small></a>
+        <a class="cat" href="#home"><i>P</i><b>Planner</b><small>wat doen we deze week</small></a>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="grid three">
+        <a class="card accent" href="#home"><span class="t">Jaarplanner</span><span class="m">Wat doen we deze week? Paragrafen, huiswerk en het materiaal erbij.</span><span class="go">Open de planner →</span></a>
+        <a class="card" href="#home"><span class="t">Examentraining</span><span class="m">Oude examens bespreken, vraag voor vraag, met de examenatlas erbij.</span><span class="go">Naar de examens →</span></a>
+        <a class="card" href="#home"><span class="t">Voor docenten</span><span class="m">Leerdoelen, syllabuscodes en misvattingen per film. Vrij te gebruiken.</span><span class="go">Lees meer →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ===== HOOFDSTUKPAGINA H3 ERFELIJKHEID ===== -->
+<main id="erfelijkheid" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#erfelijkheid-films">Video's</a><a href="#erfelijkheid-tools">Tools en practica</a><a href="#erfelijkheid-oefenen">Begrippen</a><a href="#erfelijkheid-oefenen">Binas</a><a href="#erfelijkheid-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">H3</span>
+        <h1>Erfelijkheid</h1>
+        <small>havo · vwo · Biologie voor jou H3 · Nectar H3 · 6 films, kijk ze op volgorde</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="erfelijkheid-films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/erfelijkheid/1-chromosomen.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · § 3.1 – 3.2</span><span class="t">Chromosomen</span><span class="s">Waar erfelijke informatie zit en hoe die wordt doorgegeven</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/erfelijkheid/2-monohybride-kruisingen.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · § 3.3</span><span class="t">Monohybride kruisingen</span><span class="s">Eén eigenschap, twee allelen, het kruisingsschema</span></a>
+      <a class="film" style="--thumb:#4a3a2b" href="films/erfelijkheid/3-voorbij-dominant-en-recessief.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 3 · § 3.3</span><span class="t">Voorbij dominant en recessief</span><span class="s">Intermediair, codominantie en meerdere allelen (bloedgroepen)</span></a>
+      <a class="film" style="--thumb:#2b4a3a" href="films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"><span class="thumb"><span class="n">4</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 4 · § 3.5</span><span class="t">Dihybride kruising en gekoppelde overerving</span><span class="s">Twee eigenschappen tegelijk, en genen die op één chromosoom liggen</span></a>
+      <a class="film" style="--thumb:#3a2b4a" href="films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"><span class="thumb"><span class="n">5</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 5 · § 3.4</span><span class="t">Overerving via X-chromosomen en mitochondriën</span><span class="s">Waarom sommige eigenschappen vaker bij jongens voorkomen</span></a>
+      <a class="film" style="--thumb:#1e3340" href="films/erfelijkheid/6-stambomen-en-kansrekenen.html"><span class="thumb"><span class="n">6</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 6 · § 3.5</span><span class="t">Stambomen en kansrekenen</span><span class="s">Van stamboom naar genotype, en de kans op een nakomeling met een eigenschap</span></a>
+    </div>
+
+    <section class="sec" id="erfelijkheid-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="tools/kruisingslab.html"><i>K</i><span><b>Kruisingslab</b><small>Voer kruisingen stap voor stap uit: genotypen, gameten, kruisingsschema en verhouding, daarna kruist het lab écht · bij film 2 t/m 5</small></span></a>
+        <a class="card tool" href="tools/bloedgroepenlab.html"><i>B</i><span><b>Bloedgroepenlab</b><small>Bepaal bloedgroepen met antisera en redeneer terug naar het genotype · bij film 3</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="erfelijkheid-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#erfelijkheid-oefenen"><span class="t">Begrippen trainen</span><span class="m">Genotype, fenotype, allel, homozygoot, X-chromosomaal… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#erfelijkheid-oefenen"><span class="t">Oefentoets H3</span><span class="m">Check of je het snapt voordat de echte toets komt.</span><span class="go">Maak de toets →</span></a>
+        <a class="card" href="#erfelijkheid-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over erfelijkheid, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- ===== HOOFDSTUKPAGINA PTA STOFWISSELING (VWO) ===== -->
+<main id="stofwisseling" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#stofwisseling-films">Video's</a><a href="#stofwisseling-tools">Tools en practica</a><a href="#stofwisseling-oefenen">Begrippen</a><a href="#stofwisseling-oefenen">Binas</a><a href="#stofwisseling-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">PTA</span>
+        <h1>Stofwisseling</h1>
+        <small>6 vwo · Nectar 4.1 · 3 films, kijk ze op volgorde · film 4 (de lever) volgt</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="stofwisseling-films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/stofwisseling/1-alles-versneld.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · § 18.2 – 18.3</span><span class="t">Alles versneld</span><span class="s">Eiwitten en enzymen: hoe een enzym een reactie versnelt, en wat het remt</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/stofwisseling/2-alles-op-adem.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · § 19.3 – 19.4</span><span class="t">Alles op adem</span><span class="s">Dissimilatie: ATP vormen, met en zonder zuurstof</span></a>
+      <a class="film" style="--thumb:#2b4a3a" href="films/stofwisseling/3-alles-in-het-groen.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 3 · § 20.3 – 20.4</span><span class="t">Alles in het groen</span><span class="s">Fotosynthese en voortgezette assimilatie: waar de massa van een eik vandaan komt</span></a>
+    </div>
+
+        <section class="sec" id="stofwisseling-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#stofwisseling-oefenen"><span class="t">Begrippen trainen</span><span class="m">Enzym, actief centrum, ATP, glycolyse, calvincyclus… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#stofwisseling-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over stofwisseling, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="voortplanting" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#voortplanting-films">Video's</a><a href="#voortplanting-tools">Tools en practica</a><a href="#voortplanting-oefenen">Begrippen</a><a href="#voortplanting-oefenen">Binas</a><a href="#voortplanting-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">H4</span>
+        <h1>Voortplanting</h1>
+        <small>vwo bovenbouw · Nectar 4.1 H4 · Biologie voor jou thema 2 · 1 film in 11 hoofdstukken</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="voortplanting-films">
+      <a class="film" style="--thumb:#3a2b4a" href="films/voortplanting/1-precies-op-tijd.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · § 4.1 – 4.5 · 19:45</span><span class="t">Van bevruchting tot baby</span><span class="s">Voortplanting als regelsysteem: van de eicel bij je oma tot de geboorte, met hormonen, terugkoppeling, bevruchting, placenta, anticonceptie en ivf</span></a>
+    </div>
+
+        <section class="sec" id="voortplanting-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#voortplanting-oefenen"><span class="t">Begrippen trainen</span><span class="m">Follikel, LH-piek, geel lichaam, hCG, acrosoomreactie, trofoblast… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#voortplanting-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over voortplanting, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="cellen" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#cellen-films">Video's</a><a href="#cellen-tools">Tools en practica</a><a href="#cellen-oefenen">Begrippen</a><a href="#cellen-oefenen">Binas</a><a href="#cellen-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">H1</span>
+        <h1>Cellen</h1>
+        <small>havo · vwo · start van het jaar</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="cellen-films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/cellen/onderzoek-doen/index.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · onderzoeksvaardigheden</span><span class="t">Onderzoek doen in de biologie</span><span class="s">Hoe je een goed onderzoek opzet: vraag, hypothese, variabelen, controle, betrouwbaarheid en validiteit</span></a>
+      <a class="film" style="--thumb:#22364a" href="films/cellen/diffusie-osmose/index.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · diffusie en osmose · havo + vwo</span><span class="t">Diffusie en osmose</span><span class="s">Alles beweegt: diffusie, het celmembraan, waarom osmose werkt (een drukverschil bij het membraan) en actief transport</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/cellen/celorganellen/index.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · celorganellen · havo + vwo</span><span class="t">Celorganellen</span><span class="s">Een fabriek die leeft: hoe één cel enzymen maakt, verpakt en naar buiten brengt, en welk organel welk levenskenmerk draagt</span></a>
+      <a class="film" style="--thumb:#2a2448" href="films/cellen/celdeling/index.html"><span class="thumb"><span class="n">4</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · celdeling · havo + vwo</span><span class="t">Celdeling</span><span class="s">Eerst kopiëren, dan verdelen: celcyclus, chromosomen tellen, mitose en meiose, en wat er misgaat bij kanker en non-disjunctie. Met een extra uitdaging: hoe de cel controleert of alle trekdraden goed vastzitten</span></a>
+    </div>
+
+    <section class="sec" id="cellen-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="#cellen-tools"><i>S</i><span><b>Schaallab</b><small>Oppervlakte-inhoudverhouding: waarom cellen klein zijn</small></span></a>
+        <a class="card tool" href="#cellen-tools"><i>O</i><span><b>Onderzoekskeuring</b><small>Negen onderzoekjes beoordelen: goed, twijfelachtig of slecht opgezet · bij de film</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="cellen-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#cellen-oefenen"><span class="t">Begrippen trainen</span><span class="m">Celmembraan, organel, diffusie, osmose, hypothese, controlegroep… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#cellen-oefenen"><span class="t">Oefentoets H1</span><span class="m">Check of je het snapt voordat de echte toets komt.</span><span class="go">Maak de toets →</span></a>
+        <a class="card" href="#cellen-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over cellen en onderzoek, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="evolutie" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#evolutie-films">Video's</a><a href="#evolutie-tools">Tools en practica</a><a href="#evolutie-oefenen">Begrippen</a><a href="#evolutie-oefenen">Binas</a><a href="#evolutie-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">H4</span>
+        <h1>Evolutie</h1>
+        <small>havo · vwo · Biologie voor jou H4 · 9 films van 6 à 8 minuten, kijk ze op volgorde</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="evolutie-films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/evolutie/1-het-raadsel-van-de-eilanden.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · § 4.3 · 7 min</span><span class="t">Het raadsel van de eilanden</span><span class="s">Darwin op de Galápagos: waarom lijken eilandsoorten op het vasteland, maar net niet helemaal?</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/evolutie/2-verrassend-simpel.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · § 4.3 · 7 min</span><span class="t">Verrassend simpel</span><span class="s">Natuurlijke selectie in vier stappen: variatie, erfelijkheid, overproductie, selectie</span></a>
+      <a class="film" style="--thumb:#4a3a2b" href="films/evolutie/3-hoe-weten-we-dat.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 3 · § 4.3 · 6 min</span><span class="t">Hoe weten we dat?</span><span class="s">Fossielen, homologie, DNA en biogeografie: het bewijs voor evolutie</span></a>
+      <a class="film" style="--thumb:#2b4a3a" href="films/evolutie/4-van-niet-leven-naar-leven.html"><span class="thumb"><span class="n">4</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 4 · § 4.2 · 8 min</span><span class="t">Van niet-leven naar leven</span><span class="s">Hoe uit moleculen de eerste cellen ontstonden, en wat LUCA was</span></a>
+      <a class="film" style="--thumb:#3a2b4a" href="films/evolutie/5-de-grote-lijn.html"><span class="thumb"><span class="n">5</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 5 · § 4.1 · 7 min</span><span class="t">De grote lijn</span><span class="s">Vier miljard jaar in één verhaal: van bacteriën tot de indeling van de levende natuur</span></a>
+      <a class="film" style="--thumb:#1e3340" href="films/evolutie/6-selectie-van-dichtbij.html"><span class="thumb"><span class="n">6</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 6 · § 4.4 · 6 min</span><span class="t">Selectie van dichtbij</span><span class="s">Selectie in populaties: gericht, stabiliserend en uiteenlopend, en antibioticaresistentie</span></a>
+      <a class="film" style="--thumb:#3a3a1f" href="films/evolutie/7-hoe-een-soort-er-twee-wordt.html"><span class="thumb"><span class="n">7</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 7 · § 4.4 · 6 min</span><span class="t">Hoe één soort er twee wordt</span><span class="s">Isolatie, soortvorming en de vraag wat een soort eigenlijk is</span></a>
+      <a class="film" style="--thumb:#4a2b2b" href="films/evolutie/8-toeval.html"><span class="thumb"><span class="n">8</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 8 · § 4.4 · 6 min · vwo</span><span class="t">Toeval</span><span class="s">Genetische drift, de flessenhals en Hardy-Weinberg: evolutie zonder selectie</span></a>
+      <a class="film" style="--thumb:#1f3a2b" href="films/evolutie/9-veertig-jaar-daphne-major.html"><span class="thumb"><span class="n">9</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 9 · § 4.5 · 6½ min</span><span class="t">Veertig jaar Daphne Major</span><span class="s">De vinken van de Grants: evolutie gemeten, jaar na jaar</span></a>
+    </div>
+
+    <section class="sec" id="evolutie-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="#evolutie-tools"><i>R</i><span><b>Resistentielab</b><small>Virtueel practicum: zie antibioticaresistentie ontstaan · bij film 6</small></span></a>
+        <a class="card tool" href="#evolutie-tools"><i>M</i><span><b>Muizensimulatie</b><small>Natuurlijke selectie op vachtkleur, generatie na generatie · bij film 2</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="evolutie-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#evolutie-oefenen"><span class="t">Begrippen trainen</span><span class="m">Natuurlijke selectie, fitness, homologie, genetische drift, soortvorming… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#evolutie-oefenen"><span class="t">Oefentoets H4</span><span class="m">Check of je het snapt voordat de echte toets komt.</span><span class="go">Maak de toets →</span></a>
+        <a class="card" href="#evolutie-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over evolutie, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="kerndoelen" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#kerndoelen-films">Video's</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Onderbouw</span>
+        <h1>Kerndoelen onderbouw</h1>
+        <small>vmbo-t · havo · vwo · nieuwe kerndoelen mens en natuur</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="kerndoelen-films">
+      <div class="sec-h"><h2>32A Organismen</h2><small>video's · elke film heeft een basislijn en een extra blok voor havo/vwo</small></div>
+    <div class="grid films">
+      <a class="film" style="--thumb:#1f3a2c" href="films/onderbouw/32a/1-alles-is-cel/index.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · Kerndoelen onderbouw · 32A</span><span class="t">Alles is cel</span><span class="s">Waarom slappe sla in koud water weer stevig wordt: cellen, celkern, mitochondriën, celwand, bladgroenkorrels en vacuole</span></a>
+    </div>
+    </section>
+  </div>
+</main>
+
+<main id="dna" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#dna-films">Video's</a><a href="#dna-tools">Tools en practica</a><a href="#dna-oefenen">Begrippen</a><a href="#dna-oefenen">Binas</a><a href="#dna-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Thema</span>
+        <h1>DNA</h1>
+        <small>havo · vwo · van gen tot eiwit</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="dna-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="tools/dna-profielen/index.html"><i>P</i><span><b>DNA-profielen vergelijken</b><small>Practicum: werk als analist in een forensisch lab, van PCR en gel tot een conclusie voor de rechter</small></span></a>
+        <a class="card tool" href="tools/waarom-u-in-rna.html"><i>U</i><span><b>Waarom U in RNA</b><small>Simulatie: waarom DNA thymine gebruikt en RNA uracil</small></span></a>
+        <a class="card tool" href="tools/eiwitfabriek.html"><i>E</i><span><b>De Eiwitfabriek</b><small>Oefen transcriptie en translatie: kies de matrijsstreng, bouw het mRNA, lees de codontabel en maak het eiwit</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="dna-films">
+      <div class="sec-h"><h2>Video's</h2><small>de DNA-reeks · aflevering 3 volgt</small></div>
+    <div class="grid films">
+      <a class="film" style="--thumb:#2b2f4a" href="films/dna/1-wat-is-dna.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-reeks · havo + vwo</span><span class="t">Wat is DNA?</span><span class="s">Twee meter DNA in elke cel: nucleotiden, basenparing, genen en het genoom</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/dna/2-dna-kopieren.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-reeks · havo + vwo</span><span class="t">DNA kopiëren</span><span class="s">Van één DNA-molecuul twee: semiconservatieve replicatie en de enzymen die het doen</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/dna/3-van-dna-naar-eiwit.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-reeks · havo + vwo</span><span class="t">Van DNA naar eiwit</span><span class="s">Hoe een mRNA-vaccin werkt: transcriptie, translatie, codons en tRNA</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/dna/4-de-genetische-code-lezen.html"><span class="thumb"><span class="n">4</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-reeks · havo + vwo</span><span class="t">De genetische code lezen</span><span class="s">tRNA als werktuig, de codontabel en terugredeneren met echte examenvragen</span></a>
+      <a class="film" style="--thumb:#1f2f45" href="films/dna-technieken/1-op-maat-gekopieerd/index.html"><span class="thumb"><span class="n">5</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-technieken</span><span class="t">Op maat gekopieerd · PCR</span><span class="s">Hoe je een stukje DNA miljarden keren kopieert: primers, temperatuurcycli en polymerase</span></a>
+      <a class="film" style="--thumb:#1f2f45" href="films/dna-technieken/2-op-lengte-gesorteerd/index.html"><span class="thumb"><span class="n">6</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · DNA-technieken</span><span class="t">Op lengte gesorteerd · gelelektroforese</span><span class="s">Hoe een gel DNA-stukjes op lengte sorteert en hoe je een DNA-profiel afleest</span></a>
+    </div>
+    </section>
+
+    <section class="sec" id="dna-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#dna-oefenen"><span class="t">Begrippen trainen</span><span class="m">Nucleotide, matrijsstreng, mRNA, codon, anticodon, ribosoom… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#dna-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over DNA en eiwitsynthese, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="regeling" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#regeling-films">Video's</a><a href="#regeling-tools">Tools en practica</a><a href="#regeling-oefenen">Begrippen</a><a href="#regeling-oefenen">Binas</a><a href="#regeling-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Thema</span>
+        <h1>Regeling</h1>
+        <small>havo · vwo · hormonen, negatieve terugkoppeling en het zenuwstelsel</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="sec" id="regeling-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2></div>
+      <div class="grid three">
+        <a class="card tool" href="tools/regelkring.html"><i>R</i><span><b>Regelkring</b><small>Verstoor de glucoseregulatie of de HPA-as (vwo) en kijk hoe het lichaam zichzelf herstelt: voorspel, test en lees de registratie</small></span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="regeling-films">
+      <div class="sec-h"><h2>Video's</h2><small>reeks Zenuwstelsel · 6 films, kijk ze op volgorde</small></div>
+      <div class="grid films">
+      <a class="film" style="--thumb:#1f3a3a" href="films/zenuwstelsel/1-een-seconde.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 1</span><span class="t">Eén seconde</span><span class="s">Het zenuwstelsel in vogelvlucht: wat er gebeurt in één seconde</span></a>
+      <a class="film" style="--thumb:#2b2f4a" href="films/zenuwstelsel/2-het-kabelnetwerk.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 2</span><span class="t">Het kabelnetwerk</span><span class="s">Hoe een zenuwcel een bericht verstuurt: de impuls</span></a>
+      <a class="film" style="--thumb:#4a3a2b" href="films/zenuwstelsel/3-de-spleet.html"><span class="thumb"><span class="n">3</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 3</span><span class="t">De spleet</span><span class="s">Hoe het bericht van cel naar cel springt: de synaps</span></a>
+      <a class="film" style="--thumb:#2b4a3a" href="films/zenuwstelsel/4-knoeien-met-de-spleet.html"><span class="thumb"><span class="n">4</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 4</span><span class="t">Knoeien met de spleet</span><span class="s">Wat koffie, wijn en medicijnen doen in de synaps</span></a>
+      <a class="film" style="--thumb:#3a2b4a" href="films/zenuwstelsel/5-het-hoofdkantoor.html"><span class="thumb"><span class="n">5</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 5</span><span class="t">Het hoofdkantoor</span><span class="s">Wat je hersenen doen als je een nummer hoort</span></a>
+      <a class="film" style="--thumb:#1e3340" href="films/zenuwstelsel/6-leren-en-onthouden.html"><span class="thumb"><span class="n">6</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Zenuwstelsel · film 6</span><span class="t">Leren en onthouden</span><span class="s">Hoe je hersenen veranderen als je iets leert</span></a>
+      </div>
+    </section>
+
+    <section class="sec" id="regeling-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#regeling-oefenen"><span class="t">Begrippen trainen</span><span class="m">Homeostase, setpoint, negatieve terugkoppeling, insuline, glucagon, hypofyse… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#regeling-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over hormonale regulatie, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="ecologie" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#ecologie-films">Video's</a><a href="#ecologie-tools">Tools en practica</a><a href="#ecologie-oefenen">Begrippen</a><a href="#ecologie-oefenen">Binas</a><a href="#ecologie-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Ecologie</span>
+        <h1>Ecologie</h1>
+        <small>havo thema 7 · vwo H6 + H8 · 2 films, kijk ze op volgorde</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="ecologie-films">
+      <a class="film" style="--thumb:#2b4a3a" href="films/ecologie/plek-genoeg/index.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · populaties</span><span class="t">Plek genoeg?</span><span class="s">De wolf terug op de Veluwe: hoe populaties groeien, wat ze begrenst en hoe soorten elkaar beïnvloeden</span></a>
+      <a class="film" style="--thumb:#1e3340" href="films/ecologie/alles-gaat-rond/index.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · ecosystemen</span><span class="t">Alles gaat rond</span><span class="s">Atomen en energie van een ree: voedselketens, energiestroom en kringlopen</span></a>
+    </div>
+
+    <section class="sec" id="ecologie-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2><small>komen hier te staan</small></div>
+    </section>
+
+    <section class="sec" id="ecologie-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#ecologie-oefenen"><span class="t">Begrippen trainen</span><span class="m">Populatie, draagkracht, niche, voedselweb, producent, kringloop… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#ecologie-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over ecologie, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="voeding" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>B
+        <div class="menu"><a href="#voeding-films">Video's</a><a href="#voeding-oefenen">Begrippen</a><a href="#voeding-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">OND4</span>
+        <h1>Voeding</h1>
+        <small>havo thema 10 · vwo H11 · voeding en vertering</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="voeding-films">
+      <a class="film" style="--thumb:#3a3324" href="films/voeding/1-wat-zit-er-in-je-eten.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · voeding 1/6</span><span class="t">Wat zit er in je eten?</span><span class="s">Voedingsstoffen en hun taken, vet als reserve, essentiële aminozuren, vezels en het etiket</span></a>
+      <a class="film" style="--thumb:#2b3a3a" href="films/voeding/2-de-reis-door-je-buik.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film · voeding 2/6</span><span class="t">De reis door je buik</span><span class="s">Van mond tot anus: mechanische en chemische vertering, maagzuur en gastrine, gal, de dunne darm als hoofdplek, water in de dikke darm</span></a>
+      <div class="film" style="--thumb:#3a2f2a;opacity:.6"><span class="thumb"><span class="n">3</span></span><span class="eyebrow">Film · voeding 3/6 · volgt</span><span class="t">Knippen op maat</span><span class="s">Verteringsenzymen, pH en gal</span></div>
+      <div class="film" style="--thumb:#24324a;opacity:.6"><span class="thumb"><span class="n">4</span></span><span class="eyebrow">Film · voeding 4/6 · volgt</span><span class="t">Van darm naar bloed</span><span class="s">Darmvlokken, opname, poortader en lymfe</span></div>
+      <div class="film" style="--thumb:#3a2a2f;opacity:.6"><span class="thumb"><span class="n">5</span></span><span class="eyebrow">Film · voeding 5/6 · volgt</span><span class="t">De lever als fabriek</span><span class="s">Glycogeen, ureum, ontgiften en gal</span></div>
+      <div class="film" style="--thumb:#24383a;opacity:.6"><span class="thumb"><span class="n">6</span></span><span class="eyebrow">Film · voeding 6/6 · volgt</span><span class="t">Je darmbewoners</span><span class="s">Darmbacteriën, vezels en antibiotica</span></div>
+    </div>
+
+    <section class="sec" id="voeding-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#voeding-oefenen"><span class="t">Begrippen trainen</span><span class="m">Bouwstof, brandstof, essentiële aminozuren, peristaltiek, emulgeren, darmvlok, poortader… komt hier.</span><span class="go">Volgt →</span></a>
+        <a class="card" href="#voeding-oefenen"><span class="t">Uit het examen</span><span class="m">Voeding en vertering is een vast havo-examenonderwerp: 54 vragen in 15 van de 16 examens sinds 2018.</span><span class="go">Volgt →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>Biologie bij Kamiel · <a href="#home">home</a></footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  // Inhoud per niveau: havo volgt Biologie voor jou, vwo volgt Nectar, onderbouw volgt de kerndoelen.
+  var perLevel={
+    havo:{intro:'Kies het PTA-onderdeel waar je aan werkt en daarin je thema. Je vindt er de films op volgorde, de tools om het zelf te proberen en een oefentoets.',methode:'Biologie voor jou · thema 1–7 in 4 havo, 8–13 in 5 havo',ond:[
+      {code:'OND1',w:15,subs:[
+        ['Thema 1','Cellen','Inleiding in de biologie · 4 havo','4 films · Schaallab','#cellen'],
+        ['Thema 2','Voortplanting','4 havo','Van bevruchting tot baby · celdeling · zwangerschap','#voortplanting'],
+        ['Thema 3','Erfelijkheid','Genetica · 4 havo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid']]},
+      {code:'OND2',w:15,subs:[
+        ['Thema 4','Evolutie','4 havo','9 films · Resistentielab','#evolutie'],
+        ['Thema 5 + 6','Regeling en waarneming','Regeling · Waarneming en gedrag · 4 havo','Regelkring · zenuwstelsel volgt','#regeling'],
+        ['Thema 7','Ecologie','Ecologie en milieu · 4 havo','Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab','#ecologie']]},
+      {code:'OND3',w:25,subs:[
+        ['Eigen pakket','Gedrag','psychologie-experimenten','',''],
+        ['Thema 8','Stofwisseling','Stofwisseling in de cel · 5 havo','3 films · Aardappellab','#stofwisseling'],
+        ['Thema 9','DNA','5 havo','Eiwitfabriek · DNA-reeks volgt','#dna']]},
+      {code:'OND4',w:25,subs:[
+        ['Thema 10','Voeding','Vertering · 5 havo','Wat zit er in je eten? · reeks van 6','#voeding'],
+        ['Thema 11','Transport','5 havo','',''],
+        ['Thema 12','Gaswisseling en uitscheiding','5 havo','',''],
+        ['Thema 13','Bescherming en evenwicht','Afweer · 5 havo','','']]}
+    ]},
+    vwo:{intro:'Kies het PTA-onderdeel waar je aan werkt en daarin je onderwerp. De Nectar-hoofdstukken staan erbij; films, tools, begrippen en examenvragen staan bij elkaar.',methode:'Nectar 4.1 · PTA vwo (sept. 2026) · jaar 1 = OND1 + OND2, jaar 2 = OND3 + OND4 · H3 Wetenschappelijk onderzoek ondersteunt alle onderdelen',ond:[
+      {code:'OND1',w:15,subs:[
+        ['H2','Cellen','Cel en leven · 4 vwo · met H3 onderzoek','Onderzoek doen · Onderzoekskeuring · Schaallab','#cellen'],
+        ['H4','Voortplanting','4 vwo','Van bevruchting tot baby','#voortplanting'],
+        ['H5','Genetica','Erfelijkheid · 4 vwo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],
+        ['H7','Evolutie','4 vwo','9 films · Resistentielab','#evolutie'],
+        ['H6 + H8','Ecologie','Soorten en populaties · Kenmerken van ecosystemen · 4 vwo','Plek genoeg · Alles gaat rond · Terrariumlab','#ecologie']]},
+      {code:'OND2',w:25,subs:[
+        ['H9','Mens en milieu','Systeem Aarde en de mens · 5 vwo','',''],
+        ['H17','DNA','6 vwo','Eiwitfabriek · DNA-reeks · examenatlas','#dna'],
+        ['H18–20','Stofwisseling','Eiwitten · Sport · Planten · 6 vwo','3 films · Aardappellab','#stofwisseling']]},
+      {code:'OND3',w:15,subs:[
+        ['H12–15','Regeling en waarneming','Regeling intern milieu · Hormonen · Zenuwstelsel · Waarnemen (§ 15.5) · 5 vwo','Regelkring · zenuwstelsel volgt','#regeling'],
+        ['H1 + H19','Gedrag en beweging','posteropdracht psychologische experimenten · Sport · 4 + 6 vwo','',''],
+        ['H20','Planten','6 vwo','Alles in het groen','#stofwisseling']]},
+      {code:'OND4',w:25,subs:[
+        ['H11','Voeding','Voeding en vertering · 5 vwo','Wat zit er in je eten? · reeks van 6','#voeding'],
+        ['H10','Transport','Bloedsomloop · 5 vwo','',''],
+        ['H12','Gaswisseling','Regeling intern milieu § 12.3–12.4 · 5 vwo','',''],
+        ['H16','Bescherming','Afweer · 5 vwo','','']]},
+      {code:'OND5',w:20,subs:[
+        ['Keuze','Keuzeonderdeel','vrij te kiezen, wordt later geplaatst','Examenatlas','']]}
+    ]},
+    onderbouw:{intro:'Kies je thema. Bij elk thema vind je een korte video, een onderzoekje om zelf te doen en een opdracht.',methode:'nieuwe kerndoelen mens en natuur',ond:[
+      {code:'Kerndoelen',subs:[
+        ['32A','Organismen','cellen, organen en orgaanstelsels','1 film · Alles is cel','#kerndoelen'],['32B','Voortbestaan','voortplanting, erfelijkheid en evolutie','',''],['32C','Gezond leven','voeding, beweging, slaap en ziekte','',''],['32D','Relaties en seksualiteit','','',''],['33C','Ecosystemen','wie woont waar en wie eet wie','','']]}
+    ]}
+  };
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+  // Niveau
+  var level=get('niveau')||'havo';
+  function renderLevel(){
+    var cur=perLevel[level]||perLevel.havo;
+    document.getElementById('intro').textContent=cur.intro;
+    document.querySelectorAll('.level-name').forEach(function(e){e.textContent=level});
+    document.querySelectorAll('.lvl').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.level===level))});
+    document.getElementById('chapters').innerHTML=cur.ond.map(function(o){
+      var tiles=o.subs.map(function(c){
+        var href=c[4]||'', cls='tile'+(href?'':' soon');
+        var inner='<span class="nr">'+esc(c[0])+'</span><span class="t">'+esc(c[1])+'</span>'+(c[2]?'<span class="h">'+esc(c[2])+'</span>':'')+'<span class="s">'+esc(c[3]||(href?'':'materiaal volgt'))+'</span>';
+        return href?'<a class="'+cls+'" href="'+esc(href)+'">'+inner+'</a>':'<div class="'+cls+'">'+inner+'</div>';
+      }).join('');
+      return '<section class="ond"><h2 class="ond-h"><span class="code">'+esc(o.code)+'</span>'+(o.w?'<span>weging '+o.w+'%</span>':'')+'</h2><div class="grid ch">'+tiles+'</div></section>';
+    }).join('');
+    var m=document.getElementById('methode'); if(m) m.textContent=cur.methode||'';
+  }
+  document.querySelectorAll('.lvl').forEach(function(b){b.addEventListener('click',function(){level=b.dataset.level;set('niveau',level);renderLevel()})});
+
+  // Thema licht/donker: eigen keuze wint, anders volgt de site het apparaat.
+  function isDark(){var t=root.getAttribute('data-theme');if(t)return t==='dark';return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches}
+  function paintTheme(){var d=isDark();document.querySelectorAll('.theme-btn').forEach(function(b){b.innerHTML=d
+    ?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Licht'
+    :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>Donker'})}
+  var saved=get('thema'); if(saved==='dark'||saved==='light') root.setAttribute('data-theme',saved);
+  document.querySelectorAll('.theme-btn').forEach(function(b){b.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);set('thema',n);paintTheme()})});
+
+  // Routes: #home, #erfelijkheid en #stofwisseling (ankers binnen een pagina laten die pagina staan)
+  function route(){
+    var h=(location.hash||'#home').slice(1);
+    var page=h.indexOf('voeding')===0?'voeding':h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':h.indexOf('regeling')===0?'regeling':h.indexOf('ecologie')===0?'ecologie':h.indexOf('kerndoelen')===0?'kerndoelen':'home';
+    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna','regeling','ecologie','voeding','kerndoelen'].forEach(function(id){document.getElementById(id).hidden=page!==id});
+    if(h===page) window.scrollTo(0,0);
+    else{var el=document.getElementById(h); if(el) el.scrollIntoView();}
+  }
+  window.addEventListener('hashchange',route);
+  renderLevel(); paintTheme(); route();
+})();
+</script>
+
+</body>
+</html>
