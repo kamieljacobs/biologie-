@@ -58,6 +58,16 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 .notes ul{padding-left:18px;margin:0}
 .legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted);margin:0 0 18px}
 @media (max-width:720px){.sub-onderdeel{grid-template-columns:1fr}}
+
+/* PTA-route als blokken */
+.ond{background:transparent;border:0;border-radius:0;margin:0 0 28px;overflow:visible}
+.ond header{background:transparent;border:0;border-bottom:2px solid var(--line);padding:0 0 8px;margin:0 0 12px}
+.ond-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.ond-grid .sub-onderdeel{display:flex;flex-direction:column;gap:10px;background:var(--row);border:1px solid var(--line);border-radius:10px;padding:14px 16px;align-items:stretch}
+.ond-grid .sub-onderdeel:last-child{border-bottom:1px solid var(--line)}
+.ond-grid .sub-onderdeel.done{border-color:var(--accent);background:var(--accent-soft)}
+.ond-grid .sub-onderdeel h3{font-size:17px}
+.ond-grid .sub-onderdeel .af{margin-left:26px}
 </style>
 </head>
 <body>
@@ -167,17 +177,17 @@ function render(level){
   const P=DATA[level]; let out="";
   for(const o of P.ond){
     const total=o.subs.length, done=o.subs.filter(s=>getDone(key(level,o.code,s.n))).length;
-    out+=`<section class="ond" data-ond="${o.code}"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} af</span></header>`;
+    out+=`<section class="ond" data-ond="${o.code}"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} af</span></header><div class="ond-grid">`;
     for(const s of o.subs){
       const k=key(level,o.code,s.n), d=getDone(k);
       const hs=s.h.map(([h,b])=>`<li>${esc(h)}${b?` <small>· ${esc(b)}</small>`:""}</li>`).join("");
-      const ms=s.m.map(([t,n,u,fl])=>{
+      const ms=s.m.slice().sort((a,b)=>(a[3]==="ext")-(b[3]==="ext")).map(([t,n,u,fl])=>{
         const cls=`chip ${t}${fl?" "+fl:""}`;
         return u?`<a class="${cls}" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`:`<span class="${cls}">${esc(n)}</span>`;
       }).join("")||`<span class="leeg">nog geen materiaal</span>`;
       out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${esc(k)}" ${d?"checked":""} aria-label="Afgerond: ${esc(s.n)}"><span>${esc(s.n)}</span></h3>${s.af?`<p class="af"><b>${esc(s.af[0])}</b> · af vóór ${esc(s.af[1])}</p>`:""}</div><div><p class="k">Hoofdstukken</p><ul class="hs">${hs}</ul></div><div><p class="k">Films en tools</p>${ms}</div></div>`;
     }
-    out+=`</section>`;
+    out+=`</div></section>`;
   }
   document.getElementById("route").innerHTML=out;
   document.getElementById("meta").innerHTML=`<span><b>${esc(P.methode)}</b></span><span>${esc(P.pta)}</span>`;
