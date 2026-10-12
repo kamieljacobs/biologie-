@@ -304,8 +304,13 @@ function blobPath(cx,cy,rx,ry,rot,seed,waves,amp,from,to){
   ctx.beginPath(); pts.forEach((q,i)=>{ const n=pts[(i+1)%N], m=[(q[0]+n[0])/2,(q[1]+n[1])/2]; if(!i) ctx.moveTo(m[0],m[1]); else ctx.quadraticCurveTo(q[0],q[1],m[0],m[1]); }); ctx.closePath();
   return pts;
 }
+let FLAT=false;
 function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,cols,opt){
   opt=opt||{};
+  if(FLAT){ blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); shape(ctx,cols[1],lighten(cols[1],0.32),2);
+    ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); ctx.clip(); ctx.strokeStyle=rgba(cols[4],0.35); ctx.lineWidth=2; ctx.lineCap='round';
+    for(let k=0;k<3;k++){ const a=rot+(k-1)*0.45; const ex=cx+Math.cos(a-1.57)*rx*0.85, ey=cy+Math.sin(a-1.57)*ry*0.85; ctx.beginPath(); ctx.moveTo(lx,ly); ctx.quadraticCurveTo((lx+ex)/2,(ly+ey)/2+8,ex,ey); ctx.stroke(); }
+    ctx.restore(); return; }
   ctx.save();
   ctx.shadowColor=SHADOW; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
   blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07);
@@ -355,21 +360,22 @@ function slappeKrop(x,y,s){
     for(let i=0;i<=N;i++) pts.push(edge(xa,-1,i/N));
     for(let i=0;i<=N;i++){ const t=i/N, hx=xa+(xb-xa)*t; pts.push([hx, hemY+(Math.sin(t*14+k*2)*11+Math.abs(Math.sin(t*37+k))*7)*s-(front?0:14*s)]); }
     for(let i=N;i>=0;i--) pts.push(edge(xb,1,i/N));
-    ctx.save(); ctx.shadowColor='rgba(40,40,10,0.32)'; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
+    if(FLAT){ leafPath(pts); shape(ctx,c[1],lighten(c[1],0.3),2); ctx.save(); leafPath(pts); ctx.clip(); }
+    else { ctx.save(); ctx.shadowColor='rgba(40,40,10,0.32)'; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
     leafPath(pts); const g=ctx.createLinearGradient(0,top[1],0,hemY); g.addColorStop(0,c[0]); g.addColorStop(0.5,c[1]); g.addColorStop(1,c[2]); ctx.fillStyle=g; ctx.fill(); ctx.restore();
     ctx.save(); leafPath(pts); ctx.clip();
-    ctx.strokeStyle=c[3]; ctx.globalAlpha=0.5; ctx.lineWidth=18*s; ctx.filter='blur(6px)'; leafPath(pts); ctx.stroke(); ctx.filter='none';
+    ctx.strokeStyle=c[3]; ctx.globalAlpha=0.5; ctx.lineWidth=18*s; ctx.filter='blur(6px)'; leafPath(pts); ctx.stroke(); ctx.filter='none'; }
     // a light, tapering midrib on the front drapes only
     if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle=RIB; ctx.lineCap='round';
       for(let i=0;i<12;i++){ const t1=i/12, t2=(i+1)/12; ctx.lineWidth=(7-5*t1)*s; ctx.beginPath();
         ctx.moveTo(top[0]+(mx-top[0])*t1+Math.sin(t1*3)*12*s, top[1]+(hemY-top[1])*t1); ctx.lineTo(top[0]+(mx-top[0])*t2+Math.sin(t2*3)*12*s, top[1]+(hemY-top[1])*t2); ctx.stroke(); } }
     // wrinkles: short curved creases near the hem
-    ctx.globalAlpha=0.32; ctx.strokeStyle=c[3]; ctx.lineWidth=2.2;
-    for(let w=0;w<9;w++){ const t=0.45+0.5*hash(k*9+w), u=hash(k*13+w*3); const p1=edge(xa,-1,t), p2=edge(xb,1,t); const px=p1[0]+(p2[0]-p1[0])*u, py=p1[1]+(p2[1]-p1[1])*u;
+    ctx.globalAlpha=FLAT?0.25:0.32; ctx.strokeStyle=FLAT?lighten(c[1],0.35):c[3]; ctx.lineWidth=2;
+    for(let w=0;w<(FLAT?5:9);w++){ const t=0.45+0.5*hash(k*9+w), u=hash(k*13+w*3); const p1=edge(xa,-1,t), p2=edge(xb,1,t); const px=p1[0]+(p2[0]-p1[0])*u, py=p1[1]+(p2[1]-p1[1])*u;
       ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+(hash(w+k)-0.5)*30*s,py+20*s,px+(hash(w*2+k)-0.5)*24*s,py+42*s); ctx.stroke(); }
     ctx.restore();
   });
-  ctx.fillStyle='#E9E2B8'; ctx.beginPath(); ctx.ellipse(top[0],top[1]+4*s,18*s,9*s,0,0,6.283); ctx.fill(); ctx.strokeStyle='#B8AD78'; ctx.lineWidth=2; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(top[0],top[1]+4*s,18*s,9*s,0,0,6.283); shape(ctx,FLAT?C.oker:'#E9E2B8',FLAT?lighten(C.oker,0.3):'#B8AD78',2);
 }
 function treeLine(X,Wd,base,hMin,hVar,step,seed){
   // silhouette of many tree tops merged into one path
@@ -514,6 +520,43 @@ function frameKeuken4(){
   caption('Nu hangen de blaadjes slap.');
 }
 
+
+// ================= keuken v5: zo dicht mogelijk bij de Part C-films (vlak, veel ruimte, dunne lijnen) =================
+function frameKeuken5(){
+  const keep=[BOT,BOT2,HART,SLAPF,SLAPB,RIB];
+  FLAT=true;
+  BOT=[0,'#5FA86E',0,0,'#D8EBCF']; BOT2=[0,'#6FB57C',0,0,'#E0F0D8']; HART=[0,'#9ACB8E',0,0,'#F2F8E8'];
+  SLAPF=[[0,'#9AA068'],[0,'#939A62']]; SLAPB=[[0,'#7C8452'],[0,'#81894F']]; RIB='#D8D6B8';
+  bg(ctx,'schema');
+  // window as a thin line drawing with a flat landscape inside
+  const X=1160,Y=110,Wd=640,Hd=420;
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  ctx.fillStyle=C.bgMacroSky; ctx.fillRect(X,Y,Wd,Hd);
+  ctx.beginPath(); ctx.arc(X+520,Y+80,22,0,6.283); ctx.fillStyle=C.goud; ctx.fill();
+  const m=[[X,Y+300],[X+90,Y+240],[X+170,Y+270],[X+290,Y+150],[X+350,Y+120],[X+430,Y+190],[X+520,Y+230],[X+590,Y+210],[X+Wd,Y+240],[X+Wd,Y+Hd],[X,Y+Hd]];
+  leafPath(m); ctx.fillStyle=C.berg; ctx.fill();
+  leafPath([[X+350,Y+120],[X+400,Y+165],[X+380,Y+172],[X+362,Y+160],[X+345,Y+182],[X+325,Y+160],[X+305,Y+170],[X+290,Y+150]]); ctx.fillStyle=C.bergTop; ctx.fill();
+  ctx.fillStyle=C.bgMacroHill; leafPath(treeLine(X,Wd,Y+330,26,30,18,3)); ctx.fill();
+  ctx.fillStyle=C.bgMacroFront; leafPath(treeLine(X,Wd,Y+385,40,50,30,8)); ctx.fill();
+  ctx.restore();
+  ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.strokeRect(X,Y,Wd,Hd); ctx.beginPath(); ctx.moveTo(X+Wd/2,Y); ctx.lineTo(X+Wd/2,Y+Hd); ctx.stroke();
+  // counter: one flat band
+  ctx.beginPath(); ctx.rect(0,790,W,26); shape(ctx,C.bruin,lighten(C.bruin,0.3),2);
+  stevigeKrop(560,660,0.82);
+  slappeKrop(1000,782,0.82);
+  // glass bowl, drawn like the beakers in the other films
+  const bx=1500, top=640, bot=788;
+  ctx.beginPath(); ctx.moveTo(bx-150,top+40); ctx.lineTo(bx+150,top+40); ctx.lineTo(bx+118,bot-4); ctx.lineTo(bx-118,bot-4); ctx.closePath(); ctx.fillStyle=rgba(C.water,0.35); ctx.fill();
+  ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(bx-165,top); ctx.lineTo(bx-120,bot); ctx.lineTo(bx+120,bot); ctx.lineTo(bx+165,top); ctx.stroke();
+  for(let k=0;k<5;k++){ ctx.strokeStyle=rgba(C.teal,0.5); ctx.lineWidth=2; ctx.beginPath(); for(let x=bx-140;x<=bx+140;x+=10){ const y=top+40+Math.sin(x/30+k)*2; x>bx-140?ctx.lineTo(x,y):ctx.moveTo(x,y);} if(!k) ctx.stroke(); }
+  FLAT=false; [BOT,BOT2,HART,SLAPF,SLAPB,RIB]=keep;
+  label(ctx,'stevig','net uit de koelkast',540,560,420,340,1);
+  label(ctx,'slap','een dag op het aanrecht',1000,700,900,420,1);
+  label(ctx,'koud water','',1560,700,1640,590,1);
+  metaTop('onderbouw · kerndoelen · film 1');
+  caption('Nu hangen de blaadjes slap.');
+}
+
 let FOTO=null;
 function frameFoto(){
   ctx.drawImage(FOTO,0,0,W,H);
@@ -522,7 +565,7 @@ function frameFoto(){
   pillLabel('koud water','',1500,720,1560,860,true);
   caption('Nu hangen de blaadjes slap.');
 }
-window.FRAMES={keuken4:frameKeuken4,keuken3:frameKeuken3,foto:frameFoto,keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
+window.FRAMES={keuken5:frameKeuken5,keuken4:frameKeuken4,keuken3:frameKeuken3,foto:frameFoto,keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
 window.loadFoto=(src)=>new Promise(r=>{FOTO=new Image(); FOTO.onload=r; FOTO.src=src;});
 window.draw=(k)=>{ ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H); FRAMES[k](); };
 </script></body></html>
