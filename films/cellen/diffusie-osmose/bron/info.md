@@ -95,7 +95,7 @@ Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 **Op de site zetten:** `film/index.html` → `films/cellen/diffusie-osmose/index.html`, mp3's → `audio/`, en de gewijzigde bron mee in dezelfde commit.
 
 ## Aandachtspunten
-- Kamiel heeft de uitspraak niet kunnen beluisteren; respellings volgen de Nederlandse regels (zie `stem/uitspraaklijst.md`). Eerst luisteren bij plasmolyse, hemolyse, hypo-/hypertonisch, koolstofdioxide.
+- Uitspraak van de risicowoorden is door Kamiel goedgekeurd (12 okt 2026, zie `stem/risicowoorden.mp3`).
 - De diffusiesimulatie is vooraf berekend (vaste seed) en dus bij elke weergave en bij terugspoelen identiek. H2 loopt door in s06 en s08 (simulatietijd = speeltijd sinds "dwaalt" + 8 s voor de vraag).
 - Fonts komen van Google Fonts (zoals Celorganellen); zonder internet valt de film terug op systeemletters.
 - Geen MP4-export.

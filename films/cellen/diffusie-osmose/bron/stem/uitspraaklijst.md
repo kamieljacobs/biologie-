@@ -16,4 +16,4 @@ Deze vervangingen zitten in `bouw/make_segments.py` (lijst `subs`) en staan per 
 
 Open vragen eindigen met "Wat denk je?" (niet "Voorspel").
 
-Controle: Kamiel kon de uitspraaktest (`uitspraaktest.mp3`, A/B-varianten 1–6) niet beluisteren. De keuzes hierboven volgen de Nederlandse uitspraakregels; een terug-transcriptie met Scribe gaf alleen de invoertekst terug en zegt dus niets over de uitspraak. Klinkt een woord fout: pas `subs` aan, draai `make_segments.py` en spreek alleen dat segment opnieuw in.
+Controle: Kamiel heeft op 12 oktober 2026 alle twaalf risicowoorden in `risicowoorden.mp3` (fragmenten uit de echte takes) beluisterd en goedgekeurd. De respellings hierboven zijn dus de goedgekeurde stem-invoer.
