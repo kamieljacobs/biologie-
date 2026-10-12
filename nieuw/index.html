@@ -7,191 +7,179 @@
 <meta name="description" content="Uitlegfilms, tools en practica voor biologie in havo, vwo en onderbouw.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <script>
-/* Thema vóór het tekenen zetten, zodat er geen flits is. Standaard donker, net als de films. */
 (function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
 </script>
 <style>
-/* Ontwerp: de stijlkaart van de films (navy, goud, Fraunces) als huisstijl van de site.
-   Hoofdstuk = hoofdingang; de film-still is het beeld; mono-labels voor codes en tijden. */
+/* Ontwerp: rustig en enkelkolommig, zoals een goed opgemaakt naslagwerk.
+   Huisstijl van de films (navy, goud, Fraunces). Beeld = eigen lijntekeningen per hoofdstuk, als platen in een biologieboek. */
 :root{
-  --bg:#0F1726; --bg2:#0B1220; --surface:#16213A; --surface2:#1C2944; --line:rgba(143,160,181,.18); --line2:rgba(143,160,181,.32);
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.30);
   --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
-  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.14);
-  --groen:#7FC48F; --koraal:#E07A5F; --paars:#9C8BD0; --teal:#5BA4C9; --oker:#C9A35C;
-  --shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 12px 32px -18px rgba(0,0,0,.7);
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --koraal:#E8876C; --paars:#A897DB; --teal:#6DB3D6; --oker:#D2AE66;
   --titel:"Fraunces",Georgia,"Times New Roman",serif;
   --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
   --meta:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
   color-scheme:dark;
 }
 :root[data-theme="light"]{
-  --bg:#F3F5F8; --bg2:#E9EDF2; --surface:#FFFFFF; --surface2:#F6F8FB; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.20);
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.22);
   --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
-  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#8F6A0E; --goud-soft:rgba(224,182,74,.18);
-  --groen:#2F8A47; --koraal:#C0503A; --paars:#6A55B0; --teal:#2C7AA6; --oker:#94701F;
-  --shadow:0 1px 2px rgba(18,28,46,.06), 0 10px 28px -16px rgba(18,28,46,.25);
+  --goud:#D9AC3C; --goud-ink:#1A1405; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --groen:#2F8A47; --koraal:#B9502F; --paars:#6550AD; --teal:#25729C; --oker:#8C6A1C;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-html{scroll-padding-top:88px}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst);-webkit-font-smoothing:antialiased}
+html{scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--tekst);-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;cursor:pointer}
-img{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1180px;margin:0 auto;padding-inline:20px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+.smal{max-width:1080px}
 h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
-.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 [hidden]{display:none!important}
+.kunst{color:var(--c,var(--goud))}
+.kunst .acc{color:var(--goud)}
 
 /* Kopbalk */
-.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
-.bar .wrap{display:flex;align-items:center;gap:10px 22px;min-height:64px;flex-wrap:wrap;padding-block:8px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
 .merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
-.merk svg{flex:none}
-.nav{display:flex;gap:2px;flex-wrap:wrap}
-.nav a{padding:8px 12px;border-radius:999px;color:var(--text2);font-weight:600;font-size:15px}
-.nav a:hover{color:var(--text);background:var(--surface)}
-.nav a[aria-current="page"]{color:var(--text);background:var(--surface2)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:7px 12px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud);border-radius:0}
 .rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
-.seg{display:inline-flex;padding:3px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
-.seg button{border:0;background:none;padding:7px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--text2);min-height:36px}
+.seg{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line2)}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--text2);min-height:34px}
 .seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
-.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);display:inline-flex;align-items:center;justify-content:center;color:var(--text2)}
+.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text2)}
 .icoon:hover{color:var(--text)}
 
 /* Homepage */
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:56px 40px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center;padding-block:72px 64px}
 .hero .mono{color:var(--goud-text)}
-.hero h1{font-size:clamp(40px,5.4vw,64px);line-height:1.02;margin:14px 0 18px}
-.hero p.intro{margin:0;color:var(--text2);font-size:19px;max-width:52ch}
-.telling{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;color:var(--text3)}
-.telling b{display:block;font:700 30px/1 var(--titel);color:var(--text);letter-spacing:0;text-transform:none;margin-bottom:6px}
-.uitgelicht{position:relative;display:block;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
-.uitgelicht .still{aspect-ratio:16/9;max-width:100%;position:relative;background:var(--bg2)}
-.uitgelicht .still img{width:100%;height:100%;object-fit:cover}
-.uitgelicht .still::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(8,13,23,.88))}
-.uitgelicht .op{position:absolute;left:0;right:0;bottom:0;padding:22px 24px;z-index:1;color:#F2F2EE}
-.uitgelicht .op .mono{color:#E8C266}
-.uitgelicht .op h2{font-size:30px;margin:6px 0 4px;color:#F2F2EE}
-.uitgelicht .op p{margin:0;color:#C9CFD8;font-size:16px}
-.speel{position:absolute;right:20px;top:20px;z-index:1;width:56px;height:56px;border-radius:999px;background:var(--goud);color:var(--goud-ink);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px -8px rgba(0,0,0,.6);transition:transform .2s}
-.uitgelicht:hover .speel{transform:scale(1.06)}
+.hero h1{font-size:clamp(40px,5.2vw,62px);line-height:1.03;margin:16px 0 20px;font-weight:700}
+.hero p{margin:0;color:var(--text2);font-size:19px;max-width:48ch}
+.hero .knoppen{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.knop{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;background:var(--goud);color:var(--goud-ink);font-weight:700;font-size:15px;border:0}
+.knop:hover{filter:brightness(1.06)}
+.knop.stil{background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+.knop.stil:hover{box-shadow:inset 0 0 0 1px var(--text3)}
 
-.sec{padding-block:28px 12px}
-.sec-kop{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
-.sec-kop h2{font-size:30px}
-.sec-kop p{margin:0;color:var(--text3);font-size:15px}
+.plaat{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line2);border-radius:4px;background:var(--surface)}
+.plaat figure{margin:0;padding:20px 18px 14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.plaat figure:nth-child(odd){border-right:1px solid var(--line)}
+.plaat figure:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.plaat figcaption{color:var(--text3);font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.plaat svg{width:100%;max-width:130px;height:auto}
 
-.ond{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding-block:26px;border-top:1px solid var(--line)}
-.ond-kop .code{font:700 13px/1 var(--meta);letter-spacing:.1em;color:var(--goud-text)}
-.ond-kop .weging{font:700 34px/1 var(--titel);margin-top:10px}
-.ond-kop .weging small{font:600 13px var(--tekst);color:var(--text3);margin-left:4px}
-.ond-kop .jaar{color:var(--text3);font-size:14px;margin-top:6px}
-.kaarten{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.hk{display:flex;flex-direction:column;border-radius:16px;background:var(--surface);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow);transition:transform .18s,border-color .18s;min-width:0}
-a.hk:hover{transform:translateY(-3px);border-color:var(--line2)}
-.hk .mozaiek{aspect-ratio:16/9;max-width:100%;position:relative;background:var(--bg2);display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:2px}
-.hk .mozaiek img{width:100%;height:100%;object-fit:cover}
-.hk .mozaiek img:first-child{grid-row:1/3}
-.hk .mozaiek.een{grid-template-columns:1fr;grid-template-rows:1fr}
-.hk .mozaiek.een img:first-child{grid-row:auto}
-.hk .mozaiek.twee img:first-child{grid-row:1/3}
-.hk .mozaiek.twee img:nth-child(2){grid-row:1/3}
-.badge{position:absolute;left:10px;bottom:10px;padding:5px 9px;border-radius:7px;background:rgba(8,13,23,.78);color:#F2F2EE;font:600 11px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase}
-.hk .lijf{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.hk .lbl{display:flex;align-items:center;gap:8px;color:var(--text3)}
-.dot{width:8px;height:8px;border-radius:99px;background:var(--c,var(--goud));flex:none}
-.hk h3{font-size:22px;line-height:1.15}
-.hk .hfd{color:var(--text2);font-size:14px}
-.hk .mat{color:var(--text3);font-size:14px;margin-top:auto;padding-top:6px}
-.hk.leeg{background:transparent;border-style:dashed;box-shadow:none;align-self:start}
-.hk.leeg .lijf{opacity:.78}
-.volgt{align-self:flex-start;margin-top:auto;padding:4px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--text3);font:600 11px/1.2 var(--meta);letter-spacing:.08em;text-transform:uppercase}
+.blok{padding-block:8px 48px}
+.blok-kop{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.blok-kop h2{font-size:32px}
+.blok-kop p{margin:0;color:var(--text3);font-size:15px}
 
-.binnenkort{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:56px}
-.bk{padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),transparent)}
-.bk h3{font-size:19px;margin:8px 0 4px}
-.bk p{margin:0;color:var(--text3);font-size:14px}
-.bk .mono{color:var(--text3)}
+.ond{padding-top:30px}
+.ond-kop{display:flex;align-items:baseline;gap:14px;padding-bottom:8px}
+.ond-kop .code{color:var(--goud-text)}
+.ond-kop .rest{color:var(--text3);font-size:14px}
+.rij{display:grid;grid-template-columns:64px minmax(0,1fr) auto 20px;gap:20px;align-items:center;padding:14px 4px;border-top:1px solid var(--line)}
+.rij:last-child{border-bottom:1px solid var(--line)}
+a.rij:hover{background:linear-gradient(90deg,var(--goud-soft),transparent 70%)}
+.rij .embleem{width:64px;height:64px;border-radius:999px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.rij .embleem svg{width:46px;height:46px}
+.rij .lbl{color:var(--text3)}
+.rij h3{font-size:22px;line-height:1.2;margin-top:2px}
+.rij .hfd{color:var(--text2);font-size:15px}
+.rij .mat{color:var(--text2);font-size:14px;text-align:right;white-space:nowrap}
+.rij .pijl{color:var(--text3);transition:transform .2s,color .2s}
+a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
+.rij.leeg{opacity:.55}
+.rij.leeg .embleem{background:none;border-style:dashed}
+
+.binnenkort{display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:16px;color:var(--text2)}
+.binnenkort span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:9px;background:var(--text3);margin-right:10px;vertical-align:middle}
 
 /* Hoofdstukpagina */
-.kop{padding-block:40px 30px;border-bottom:1px solid var(--line);background:radial-gradient(900px 300px at 10% -40%,color-mix(in srgb,var(--c,var(--goud)) 22%,transparent),transparent)}
+.kop{border-bottom:1px solid var(--line)}
+.kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
 .terug{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-weight:600;font-size:15px}
 .terug:hover{color:var(--text)}
-.kop .lbl{display:flex;align-items:center;gap:10px;margin:22px 0 10px;color:var(--text3)}
-.kop h1{font-size:clamp(38px,5vw,58px);line-height:1.02}
-.kop p{margin:12px 0 0;color:var(--text2);max-width:62ch}
+.kop .lbl{color:var(--c,var(--goud-text));margin:26px 0 8px}
+.kop h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
+.kop p{margin:12px 0 0;color:var(--text2);max-width:58ch}
+.kop .groot{justify-self:end;width:220px;height:220px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);display:flex;align-items:center;justify-content:center}
+.kop .groot svg{width:150px;height:150px}
 .voortgang{display:flex;align-items:center;gap:12px;margin-top:22px;color:var(--text3);font-size:14px}
-.voortgang .balk{width:180px;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
-.voortgang .balk i{display:block;height:100%;background:var(--goud);border-radius:99px;transition:width .3s}
+.voortgang .balk{width:160px;height:4px;border-radius:99px;background:var(--line2);overflow:hidden}
+.voortgang .balk i{display:block;height:100%;background:var(--goud)}
 
-.films{display:flex;flex-direction:column;gap:14px;padding-block:28px 8px}
-.film{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px;align-items:center;padding:12px;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:border-color .18s}
-.film:hover{border-color:var(--line2)}
-.film .still{position:relative;display:block;aspect-ratio:16/9;max-width:100%;border-radius:12px;overflow:hidden;background:var(--bg2)}
-.film .still img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
-.film:hover .still img{transform:scale(1.03)}
-.film .nr{position:absolute;left:10px;top:10px;width:30px;height:30px;border-radius:99px;background:rgba(8,13,23,.8);color:#F2F2EE;font:600 13px/30px var(--meta);text-align:center}
-.film .tijd{position:absolute;right:10px;bottom:10px;padding:4px 8px;border-radius:6px;background:rgba(8,13,23,.8);color:#F2F2EE;font:600 12px/1 var(--meta)}
-.film .gezien-balk{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--goud);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.film.is-gezien .gezien-balk{transform:scaleX(1)}
-.film .info{display:flex;flex-direction:column;gap:6px;min-width:0;padding-right:10px}
-.film .bij{color:var(--text3)}
-.film h3{font-size:26px;line-height:1.12}
-.film .vraag{margin:0;color:var(--text);font-size:18px}
-.film .tekst{margin:0;color:var(--text2);font-size:15px}
-.film .acties{display:flex;align-items:center;gap:12px;margin-top:8px;flex-wrap:wrap}
-.knop{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 18px;border-radius:999px;background:var(--goud);color:var(--goud-ink);font-weight:700;font-size:15px;border:0}
-.knop:hover{filter:brightness(1.06)}
-.vink{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--text3);font-size:14px;font-weight:600}
-.film.is-gezien .vink{color:var(--goud-text);border-color:color-mix(in srgb,var(--goud) 45%,transparent);background:var(--goud-soft)}
+.lijst{padding-block:12px 8px}
+.lijst h2{font-size:26px;margin:36px 0 6px}
+.film{display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:20px;align-items:start;padding:22px 4px;border-top:1px solid var(--line)}
+.film:last-child{border-bottom:1px solid var(--line)}
+.film .nr{font:500 34px/1 var(--titel);color:var(--text3);padding-top:2px;font-variant-numeric:tabular-nums}
+.film.is-gezien .nr{color:var(--goud-text)}
+.film h3{font-size:24px;line-height:1.15}
+.film h3 a:hover{color:var(--goud-text)}
+.film .vraag{margin:6px 0 0;font-size:18px;color:var(--text)}
+.film .tekst{margin:4px 0 0;color:var(--text2);font-size:15px}
+.film .meta{margin-top:8px;color:var(--text3);display:flex;gap:14px;flex-wrap:wrap}
+.film .acties{display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding-top:4px}
+.vink{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--text3);font-size:14px;font-weight:600;padding:4px 2px;min-height:32px}
+.vink .box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--text3);display:inline-flex;align-items:center;justify-content:center}
+.film.is-gezien .vink{color:var(--goud-text)}
+.film.is-gezien .vink .box{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
 
-.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.tool{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .18s,border-color .18s;min-width:0}
-a.tool:hover{transform:translateY(-3px);border-color:var(--line2)}
-.tool .still{aspect-ratio:16/9;max-width:100%;background:var(--bg2);border-bottom:1px solid var(--line);overflow:hidden}
-.tool .still img{width:100%;height:100%;object-fit:cover;object-position:top left}
-.tool .lijf{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}
-.tool h3{font-size:20px}
-.tool p{margin:0;color:var(--text2);font-size:14px}
-.tool .naar{margin-top:auto;padding-top:10px;color:var(--goud-text);font-weight:700;font-size:14px}
-.tool.leeg{background:transparent;border-style:dashed;box-shadow:none}
-.tool.leeg .still{display:none}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0 32px}
+.tool{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;padding:16px 4px;border-top:1px solid var(--line);align-items:start}
+.tool .ik{width:40px;height:40px;border-radius:10px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font:700 17px var(--titel);color:var(--goud-text)}
+.tool h3{font-size:19px;line-height:1.25}
+a.tool:hover h3{color:var(--goud-text)}
+.tool p{margin:2px 0 0;color:var(--text2);font-size:14px}
+.tool.leeg{opacity:.55}
+.tool.leeg .ik{border-style:dashed;color:var(--text3)}
 
-/* Alle films */
-.reeks{padding-block:22px;border-top:1px solid var(--line)}
-.reeks-kop{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.reeks{padding-top:34px}
+.reeks-kop{display:flex;align-items:center;gap:14px;padding-bottom:6px}
+.reeks-kop .embleem{width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center}
+.reeks-kop .embleem svg{width:30px;height:30px}
 .reeks-kop h2{font-size:24px}
-.reeks-kop a{color:var(--goud-text);font-weight:700;font-size:14px;margin-left:auto}
-.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
-.mini{display:flex;flex-direction:column;gap:8px;min-width:0}
-.mini .still{position:relative;aspect-ratio:16/9;max-width:100%;border-radius:12px;overflow:hidden;background:var(--bg2);border:1px solid var(--line)}
-.mini .still img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
-.mini:hover .still img{transform:scale(1.04)}
-.mini .tijd{position:absolute;right:8px;bottom:8px;padding:3px 7px;border-radius:6px;background:rgba(8,13,23,.8);color:#F2F2EE;font:600 11px/1 var(--meta)}
-.mini b{font:700 17px/1.2 var(--titel)}
-.mini span{color:var(--text3);font-size:14px;line-height:1.35}
+.reeks-kop a{margin-left:auto;color:var(--goud-text);font-weight:700;font-size:14px}
+.kort{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:11px 4px;border-top:1px solid var(--line)}
+.kort .n{font:500 18px/1 var(--titel);color:var(--text3)}
+.kort b{font:600 18px/1.3 var(--titel)}
+.kort:hover b{color:var(--goud-text)}
+.kort span{display:block;color:var(--text3);font-size:14px}
+.kort .t{color:var(--text3);font-family:var(--meta);font-size:12px}
 
-footer{margin-top:40px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
-footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 40px;align-items:center}
-footer a{color:var(--text2)}
+footer{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
+footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
 footer a:hover{color:var(--text)}
 
-@media (max-width:860px){
-  .hero{grid-template-columns:1fr;gap:28px;padding-block:36px 24px}
-  .ond{grid-template-columns:1fr;gap:14px}
-  .ond-kop{display:flex;align-items:baseline;gap:14px}
-  .ond-kop .weging{margin:0;font-size:24px}
-  .film{grid-template-columns:1fr;gap:12px}
-  .film .info{padding:0 6px 6px}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-block:44px 40px}
+  .plaat{max-width:420px}
+  .kop .wrap{grid-template-columns:1fr}
+  .kop .groot{justify-self:start;width:120px;height:120px;order:-1}
+  .kop .groot svg{width:84px;height:84px}
   .rechts{margin-left:0}
 }
-@media (max-width:520px){
-  .nav a{padding:6px 9px;font-size:14px}
-  .film h3{font-size:22px}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .bar .wrap{gap:6px 12px}
+  .nav a{padding:6px 8px;font-size:14px}
+  .rij{grid-template-columns:48px minmax(0,1fr) 16px;gap:14px}
+  .rij .embleem{width:48px;height:48px}.rij .embleem svg{width:34px;height:34px}
+  .rij .mat{grid-column:2;text-align:left;white-space:normal}
+  .rij .pijl{grid-row:1;grid-column:3}
+  .film{grid-template-columns:40px minmax(0,1fr)}
+  .film .nr{font-size:26px}
+  .film .acties{grid-column:2;flex-direction:row;align-items:center;justify-content:flex-start;gap:16px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -201,7 +189,7 @@ footer a:hover{color:var(--text)}
 <header class="bar">
   <div class="wrap">
     <a class="merk" href="#home" aria-label="Biologie bij Kamiel, naar de homepage">
-      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.6"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="var(--goud)"/><path d="M8 19.5l7-7" stroke="var(--bg)" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
       Biologie bij Kamiel
     </a>
     <nav class="nav" aria-label="Hoofdmenu">
@@ -233,16 +221,8 @@ footer a:hover{color:var(--text)}
 </footer>
 
 <script>
-/* ===== INHOUD — hier voeg je films, tools en hoofdstukken toe ===== */
+/* ===== INHOUD — films, tools en hoofdstukken. Een nieuwe film: voeg hem toe aan films[] van het hoofdstuk. ===== */
 const BASE = "../";
-const UITGELICHT = {
- "href": "films/cellen/diffusie-osmose/index.html",
- "poster": "img/films/cellen-diffusie-osmose.jpg",
- "titel": "Diffusie en osmose",
- "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
- "duur": 12,
- "reeks": "Cel 1"
-};
 const HOOFDSTUKKEN = {
  "erfelijkheid": {
   "label": "H3",
@@ -251,71 +231,63 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/erfelijkheid/1-chromosomen.html",
-    "poster": "img/films/erfelijkheid-1-chromosomen.jpg",
     "titel": "Chromosomen",
     "vraag": "Hoeveel chromosomen zitten er in één cel, en waarom in paren?",
     "tekst": "Waar erfelijke informatie zit en hoe die wordt doorgegeven",
     "duur": 7,
-    "bij": "§ 3.1 – 3.2"
+    "bij": "Film 1 · § 3.1 – 3.2"
    },
    {
     "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
-    "poster": "img/films/erfelijkheid-2-monohybride-kruisingen.jpg",
     "titel": "Monohybride kruisingen",
     "vraag": "Hoe weet je welke allelen een plant heeft, zonder DNA-test?",
     "tekst": "Eén eigenschap, twee allelen, het kruisingsschema",
     "duur": 5,
-    "bij": "§ 3.3"
+    "bij": "Film 2 · § 3.3"
    },
    {
     "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
-    "poster": "img/films/erfelijkheid-3-voorbij-dominant-en-recessief.jpg",
     "titel": "Voorbij dominant en recessief",
     "vraag": "Mengen allelen zich, zoals verf?",
     "tekst": "Intermediair, codominantie en meerdere allelen (bloedgroepen)",
     "duur": 5,
-    "bij": "§ 3.3"
+    "bij": "Film 3 · § 3.3"
    },
    {
     "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
-    "poster": "img/films/erfelijkheid-4-dihybride-kruising-en-gekoppelde-overerving.jpg",
     "titel": "Dihybride kruising en gekoppelde overerving",
     "vraag": "Wat gebeurt er als je op twee eigenschappen tegelijk kruist?",
     "tekst": "Twee eigenschappen tegelijk, en genen die op één chromosoom liggen",
     "duur": 4,
-    "bij": "§ 3.5"
+    "bij": "Film 4 · § 3.5"
    },
    {
     "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
-    "poster": "img/films/erfelijkheid-5-overerving-via-x-chromosomen-en-mitochondrien.jpg",
     "titel": "Overerving via X-chromosomen en mitochondriën",
     "vraag": "Hoe kan een eigenschap zo verschillen tussen mannen en vrouwen?",
     "tekst": "Waarom sommige eigenschappen vaker bij jongens voorkomen",
     "duur": 4,
-    "bij": "§ 3.4"
+    "bij": "Film 5 · § 3.4"
    },
    {
     "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
-    "poster": "img/films/erfelijkheid-6-stambomen-en-kansrekenen.jpg",
     "titel": "Stambomen en kansrekenen",
     "vraag": "Is zij drager? Wat een stamboom je vertelt.",
     "tekst": "Van stamboom naar genotype, en de kans op een nakomeling met een eigenschap",
     "duur": 4,
-    "bij": "§ 3.5"
+    "bij": "Film 6 · § 3.5"
    }
   ],
   "tools": [
    {
     "href": "tools/kruisingslab.html",
     "naam": "Kruisingslab",
-    "tekst": "Voer kruisingen stap voor stap uit: genotypen, gameten, kruisingsschema en verhouding, daarna kruist het lab écht · bij film 2 t/m 5",
-    "img": "img/tools/kruisingslab.jpg"
+    "tekst": "Voer kruisingen stap voor stap uit: genotypen, gameten, kruisingsschema en verhouding, daarna kruist het lab écht · bij film 2 t/m 5"
    },
    {
     "href": "tools/bloedgroepenlab.html",
     "naam": "Bloedgroepenlab",
-    "tekst": "Bepaal bloedgroepen met antisera en redeneer terug naar het genotype · bij film 3",
-    "img": "img/tools/bloedgroepenlab.jpg"
+    "tekst": "Bepaal bloedgroepen met antisera en redeneer terug naar het genotype · bij film 3"
    }
   ],
   "oefenen": [
@@ -331,30 +303,27 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/stofwisseling/1-alles-versneld.html",
-    "poster": "img/films/stofwisseling-1-alles-versneld.jpg",
     "titel": "Alles versneld",
     "vraag": "Wat is er kapot in een gekookte aardappel?",
     "tekst": "Eiwitten en enzymen: hoe een enzym een reactie versnelt, en wat het remt",
     "duur": 12,
-    "bij": "§ 18.2 – 18.3"
+    "bij": "Film 1 · § 18.2 – 18.3"
    },
    {
     "href": "films/stofwisseling/2-alles-op-adem.html",
-    "poster": "img/films/stofwisseling-2-alles-op-adem.jpg",
     "titel": "Alles op adem",
     "vraag": "Waarom houd je een sprint zo kort vol, en een duurloop zo lang?",
     "tekst": "Dissimilatie: ATP vormen, met en zonder zuurstof",
     "duur": 13,
-    "bij": "§ 19.3 – 19.4"
+    "bij": "Film 2 · § 19.3 – 19.4"
    },
    {
     "href": "films/stofwisseling/3-alles-in-het-groen.html",
-    "poster": "img/films/stofwisseling-3-alles-in-het-groen.jpg",
     "titel": "Alles in het groen",
     "vraag": "Waar komt de massa van een eik vandaan?",
     "tekst": "Fotosynthese en voortgezette assimilatie: waar de massa van een eik vandaan komt",
     "duur": 15,
-    "bij": "§ 20.3 – 20.4"
+    "bij": "Film 3 · § 20.3 – 20.4"
    }
   ],
   "tools": [],
@@ -370,12 +339,11 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/voortplanting/1-precies-op-tijd.html",
-    "poster": "img/films/voortplanting-1-precies-op-tijd.jpg",
     "titel": "Van bevruchting tot baby",
     "vraag": "Hoe regelt je lichaam dat alles precies op tijd gebeurt?",
     "tekst": "Voortplanting als regelsysteem: van de eicel bij je oma tot de geboorte, met hormonen, terugkoppeling, bevruchting, placenta, anticonceptie en ivf",
     "duur": 20,
-    "bij": "§ 4.1 – 4.5 · 19:45"
+    "bij": "Film 1 · § 4.1 – 4.5 · 19:45"
    }
   ],
   "tools": [],
@@ -391,7 +359,6 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/cellen/onderzoek-doen/index.html",
-    "poster": "img/films/cellen-onderzoek-doen.jpg",
     "titel": "Onderzoek doen in de biologie",
     "vraag": "Hoe weet je eigenlijk of iets waar is?",
     "tekst": "Hoe je een goed onderzoek opzet: vraag, hypothese, variabelen, controle, betrouwbaarheid en validiteit",
@@ -400,35 +367,39 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/cellen/diffusie-osmose/index.html",
-    "poster": "img/films/cellen-diffusie-osmose.jpg",
     "titel": "Diffusie en osmose",
     "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
     "tekst": "Alles beweegt: diffusie, het celmembraan, waarom osmose werkt (een drukverschil bij het membraan) en actief transport",
-    "duur": 12,
+    "duur": 9,
     "bij": "Film · diffusie en osmose · havo + vwo"
    },
    {
     "href": "films/cellen/celorganellen/index.html",
-    "poster": "img/films/cellen-celorganellen.jpg",
     "titel": "Celorganellen",
     "vraag": "Hoe krijgt één cel dat allemaal voor elkaar?",
     "tekst": "Een fabriek die leeft: hoe één cel enzymen maakt, verpakt en naar buiten brengt, en welk organel welk levenskenmerk draagt",
     "duur": 11,
     "bij": "Film · celorganellen · havo + vwo"
+   },
+   {
+    "href": "films/cellen/celdeling/index.html",
+    "titel": "Celdeling",
+    "vraag": "Hoe krijgen twee nieuwe cellen precies hetzelfde DNA?",
+    "tekst": "Eerst kopiëren, dan verdelen: celcyclus, chromosomen tellen, mitose en meiose, en wat er misgaat bij kanker en non-disjunctie",
+    "duur": 10,
+    "bij": "Film · celdeling · havo + vwo"
    }
   ],
   "tools": [
    {
     "href": null,
     "naam": "Schaallab",
-    "tekst": "Oppervlakte-inhoudverhouding: waarom cellen klein zijn",
-    "img": null
+    "tekst": "Oppervlakte-inhoudverhouding: waarom cellen klein zijn"
    },
    {
     "href": null,
     "naam": "Onderzoekskeuring",
-    "tekst": "Negen onderzoekjes beoordelen: goed, twijfelachtig of slecht opgezet · bij de film",
-    "img": null
+    "tekst": "Negen onderzoekjes beoordelen: goed, twijfelachtig of slecht opgezet · bij de film"
    }
   ],
   "oefenen": [
@@ -444,98 +415,87 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/evolutie/1-het-raadsel-van-de-eilanden.html",
-    "poster": "img/films/evolutie-1-het-raadsel-van-de-eilanden.jpg",
     "titel": "Het raadsel van de eilanden",
     "vraag": "Waarom lijken eilanddieren op het vasteland, maar net niet helemaal?",
     "tekst": "Darwin op de Galápagos: waarom lijken eilandsoorten op het vasteland, maar net niet helemaal?",
     "duur": 7,
-    "bij": "§ 4.3 · 7 min"
+    "bij": "Film 1 · § 4.3 · 7 min"
    },
    {
     "href": "films/evolutie/2-verrassend-simpel.html",
-    "poster": "img/films/evolutie-2-verrassend-simpel.jpg",
     "titel": "Verrassend simpel",
     "vraag": "Hoe wordt een snavel hier een notenkraker en daar een pincet?",
     "tekst": "Natuurlijke selectie in vier stappen: variatie, erfelijkheid, overproductie, selectie",
     "duur": 7,
-    "bij": "§ 4.3 · 7 min"
+    "bij": "Film 2 · § 4.3 · 7 min"
    },
    {
     "href": "films/evolutie/3-hoe-weten-we-dat.html",
-    "poster": "img/films/evolutie-3-hoe-weten-we-dat.jpg",
     "titel": "Hoe weten we dat?",
     "vraag": "Hoe bewijs je evolutie, zonder tijdmachine?",
     "tekst": "Fossielen, homologie, DNA en biogeografie: het bewijs voor evolutie",
     "duur": 6,
-    "bij": "§ 4.3 · 6 min"
+    "bij": "Film 3 · § 4.3 · 6 min"
    },
    {
     "href": "films/evolutie/4-van-niet-leven-naar-leven.html",
-    "poster": "img/films/evolutie-4-van-niet-leven-naar-leven.jpg",
     "titel": "Van niet-leven naar leven",
     "vraag": "Kan leven ontstaan uit iets wat niet leeft?",
     "tekst": "Hoe uit moleculen de eerste cellen ontstonden, en wat LUCA was",
     "duur": 8,
-    "bij": "§ 4.2 · 8 min"
+    "bij": "Film 4 · § 4.2 · 8 min"
    },
    {
     "href": "films/evolutie/5-de-grote-lijn.html",
-    "poster": "img/films/evolutie-5-de-grote-lijn.jpg",
     "titel": "De grote lijn",
     "vraag": "Vier miljard jaar: wanneer verschijnt de mens?",
     "tekst": "Vier miljard jaar in één verhaal: van bacteriën tot de indeling van de levende natuur",
     "duur": 7,
-    "bij": "§ 4.1 · 7 min"
+    "bij": "Film 5 · § 4.1 · 7 min"
    },
    {
     "href": "films/evolutie/6-selectie-van-dichtbij.html",
-    "poster": "img/films/evolutie-6-selectie-van-dichtbij.jpg",
     "titel": "Selectie van dichtbij",
     "vraag": "Hoe verandert een soort zo snel van kleur?",
     "tekst": "Selectie in populaties: gericht, stabiliserend en uiteenlopend, en antibioticaresistentie",
     "duur": 6,
-    "bij": "§ 4.4 · 6 min"
+    "bij": "Film 6 · § 4.4 · 6 min"
    },
    {
     "href": "films/evolutie/7-hoe-een-soort-er-twee-wordt.html",
-    "poster": "img/films/evolutie-7-hoe-een-soort-er-twee-wordt.jpg",
     "titel": "Hoe één soort er twee wordt",
     "vraag": "Eén soort, of twee?",
     "tekst": "Isolatie, soortvorming en de vraag wat een soort eigenlijk is",
     "duur": 6,
-    "bij": "§ 4.4 · 6 min"
+    "bij": "Film 7 · § 4.4 · 6 min"
    },
    {
     "href": "films/evolutie/8-toeval.html",
-    "poster": "img/films/evolutie-8-toeval.jpg",
     "titel": "Toeval",
     "vraag": "Hoe wordt een allel vaak zonder dat het iets oplevert?",
     "tekst": "Genetische drift, de flessenhals en Hardy-Weinberg: evolutie zonder selectie",
     "duur": 6,
-    "bij": "§ 4.4 · 6 min · vwo"
+    "bij": "Film 8 · § 4.4 · 6 min · vwo"
    },
    {
     "href": "films/evolutie/9-veertig-jaar-daphne-major.html",
-    "poster": "img/films/evolutie-9-veertig-jaar-daphne-major.jpg",
     "titel": "Veertig jaar Daphne Major",
     "vraag": "Kun je evolutie zien gebeuren?",
     "tekst": "De vinken van de Grants: evolutie gemeten, jaar na jaar",
     "duur": 7,
-    "bij": "§ 4.5 · 6½ min"
+    "bij": "Film 9 · § 4.5 · 6½ min"
    }
   ],
   "tools": [
    {
     "href": null,
     "naam": "Resistentielab",
-    "tekst": "Virtueel practicum: zie antibioticaresistentie ontstaan · bij film 6",
-    "img": null
+    "tekst": "Virtueel practicum: zie antibioticaresistentie ontstaan · bij film 6"
    },
    {
     "href": null,
     "naam": "Muizensimulatie",
-    "tekst": "Natuurlijke selectie op vachtkleur, generatie na generatie · bij film 2",
-    "img": null
+    "tekst": "Natuurlijke selectie op vachtkleur, generatie na generatie · bij film 2"
    }
   ],
   "oefenen": [
@@ -551,25 +511,30 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/dna/1-wat-is-dna.html",
-    "poster": "img/films/dna-1-wat-is-dna.jpg",
     "titel": "Wat is DNA?",
     "vraag": "Twee meter DNA in één celkern. Hoe past dat?",
     "tekst": "Twee meter DNA in elke cel: nucleotiden, basenparing, genen en het genoom",
-    "duur": 7,
+    "duur": 6,
     "bij": "Film · DNA-reeks · havo + vwo"
    },
    {
     "href": "films/dna/2-dna-kopieren.html",
-    "poster": "img/films/dna-2-dna-kopieren.jpg",
     "titel": "DNA kopiëren",
     "vraag": "Twee meter DNA, foutloos gekopieerd in een paar uur. Hoe?",
     "tekst": "Van één DNA-molecuul twee: semiconservatieve replicatie en de enzymen die het doen",
+    "duur": 6,
+    "bij": "Film · DNA-reeks · havo + vwo"
+   },
+   {
+    "href": "films/dna/3-van-dna-naar-eiwit.html",
+    "titel": "Van DNA naar eiwit",
+    "vraag": "Hoe wordt een gen een eiwit?",
+    "tekst": "Hoe een mRNA-vaccin werkt: transcriptie, translatie, codons en tRNA",
     "duur": 7,
     "bij": "Film · DNA-reeks · havo + vwo"
    },
    {
     "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
-    "poster": "img/films/dna-technieken-1-op-maat-gekopieerd.jpg",
     "titel": "Op maat gekopieerd · PCR",
     "vraag": "Hoe maak je van een spoortje DNA genoeg om te onderzoeken?",
     "tekst": "Hoe je een stukje DNA miljarden keren kopieert: primers, temperatuurcycli en polymerase",
@@ -578,7 +543,6 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
-    "poster": "img/films/dna-technieken-2-op-lengte-gesorteerd.jpg",
     "titel": "Op lengte gesorteerd · gelelektroforese",
     "vraag": "Hoe lees je een DNA-profiel, en kun je het vertrouwen?",
     "tekst": "Hoe een gel DNA-stukjes op lengte sorteert en hoe je een DNA-profiel afleest",
@@ -590,20 +554,17 @@ const HOOFDSTUKKEN = {
    {
     "href": "tools/dna-profielen/index.html",
     "naam": "DNA-profielen vergelijken",
-    "tekst": "Practicum: werk als analist in een forensisch lab, van PCR en gel tot een conclusie voor de rechter",
-    "img": "img/tools/dna-profielen.jpg"
+    "tekst": "Practicum: werk als analist in een forensisch lab, van PCR en gel tot een conclusie voor de rechter"
    },
    {
     "href": "tools/waarom-u-in-rna.html",
     "naam": "Waarom U in RNA",
-    "tekst": "Simulatie: waarom DNA thymine gebruikt en RNA uracil",
-    "img": "img/tools/waarom-u-in-rna.jpg"
+    "tekst": "Simulatie: waarom DNA thymine gebruikt en RNA uracil"
    },
    {
     "href": "tools/eiwitfabriek.html",
     "naam": "De Eiwitfabriek",
-    "tekst": "Oefen transcriptie en translatie: kies de matrijsstreng, bouw het mRNA, lees de codontabel en maak het eiwit",
-    "img": "img/tools/eiwitfabriek.jpg"
+    "tekst": "Oefen transcriptie en translatie: kies de matrijsstreng, bouw het mRNA, lees de codontabel en maak het eiwit"
    }
   ],
   "oefenen": [
@@ -618,56 +579,50 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/zenuwstelsel/1-een-seconde.html",
-    "poster": "img/films/zenuwstelsel-1-een-seconde.jpg",
     "titel": "Eén seconde",
     "vraag": "Hoe kan je lichaam al reageren voordat jij het weet?",
     "tekst": "Het zenuwstelsel in vogelvlucht: wat er gebeurt in één seconde",
-    "duur": 7,
+    "duur": 6,
     "bij": "Zenuwstelsel · film 1"
    },
    {
     "href": "films/zenuwstelsel/2-het-kabelnetwerk.html",
-    "poster": "img/films/zenuwstelsel-2-het-kabelnetwerk.jpg",
     "titel": "Het kabelnetwerk",
     "vraag": "Twee berichten van één klap. Waarom komen ze niet tegelijk aan?",
     "tekst": "Hoe een zenuwcel een bericht verstuurt: de impuls",
-    "duur": 6,
+    "duur": 5,
     "bij": "Zenuwstelsel · film 2"
    },
    {
     "href": "films/zenuwstelsel/3-de-spleet.html",
-    "poster": "img/films/zenuwstelsel-3-de-spleet.jpg",
     "titel": "De spleet",
     "vraag": "Tussen twee zenuwcellen zit een spleet. Hoe komt het bericht erover?",
     "tekst": "Hoe het bericht van cel naar cel springt: de synaps",
-    "duur": 6,
+    "duur": 5,
     "bij": "Zenuwstelsel · film 3"
    },
    {
     "href": "films/zenuwstelsel/4-knoeien-met-de-spleet.html",
-    "poster": "img/films/zenuwstelsel-4-knoeien-met-de-spleet.jpg",
     "titel": "Knoeien met de spleet",
     "vraag": "Hoe kan dezelfde spleet zo verschillend reageren?",
     "tekst": "Wat koffie, wijn en medicijnen doen in de synaps",
-    "duur": 6,
+    "duur": 5,
     "bij": "Zenuwstelsel · film 4"
    },
    {
     "href": "films/zenuwstelsel/5-het-hoofdkantoor.html",
-    "poster": "img/films/zenuwstelsel-5-het-hoofdkantoor.jpg",
     "titel": "Het hoofdkantoor",
     "vraag": "Waar in je hoofd zit de baas?",
     "tekst": "Wat je hersenen doen als je een nummer hoort",
-    "duur": 6,
+    "duur": 5,
     "bij": "Zenuwstelsel · film 5"
    },
    {
     "href": "films/zenuwstelsel/6-leren-en-onthouden.html",
-    "poster": "img/films/zenuwstelsel-6-leren-en-onthouden.jpg",
     "titel": "Leren en onthouden",
     "vraag": "Wat verandert er in je hoofd als je iets leert?",
     "tekst": "Hoe je hersenen veranderen als je iets leert",
-    "duur": 7,
+    "duur": 6,
     "bij": "Zenuwstelsel · film 6"
    }
   ],
@@ -675,8 +630,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "tools/regelkring.html",
     "naam": "Regelkring",
-    "tekst": "Verstoor de glucoseregulatie of de HPA-as (vwo) en kijk hoe het lichaam zichzelf herstelt: voorspel, test en lees de registratie",
-    "img": "img/tools/regelkring.jpg"
+    "tekst": "Verstoor de glucoseregulatie of de HPA-as (vwo) en kijk hoe het lichaam zichzelf herstelt: voorspel, test en lees de registratie"
    }
   ],
   "oefenen": [
@@ -691,21 +645,39 @@ const HOOFDSTUKKEN = {
   "films": [
    {
     "href": "films/ecologie/plek-genoeg/index.html",
-    "poster": "img/films/ecologie-plek-genoeg.jpg",
     "titel": "Plek genoeg?",
     "vraag": "De wolf is terug. Is er plek genoeg?",
     "tekst": "De wolf terug op de Veluwe: hoe populaties groeien, wat ze begrenst en hoe soorten elkaar beïnvloeden",
     "duur": 20,
-    "bij": "populaties"
+    "bij": "Film 1 · populaties"
    },
    {
     "href": "films/ecologie/alles-gaat-rond/index.html",
-    "poster": "img/films/ecologie-alles-gaat-rond.jpg",
     "titel": "Alles gaat rond",
     "vraag": "Waar blijft een dood ree?",
     "tekst": "Atomen en energie van een ree: voedselketens, energiestroom en kringlopen",
     "duur": 25,
-    "bij": "ecosystemen"
+    "bij": "Film 2 · ecosystemen"
+   }
+  ],
+  "tools": [],
+  "oefenen": [
+   "Begrippen trainen",
+   "Uit het examen"
+  ]
+ },
+ "voeding": {
+  "label": "OND4",
+  "titel": "Voeding",
+  "meta": "havo thema 10 · vwo H11 · voeding en vertering",
+  "films": [
+   {
+    "href": "films/voeding/1-wat-zit-er-in-je-eten.html",
+    "titel": "Wat zit er in je eten?",
+    "vraag": "",
+    "tekst": "Voedingsstoffen en hun taken, vet als reserve, essentiële aminozuren, vezels en het etiket",
+    "duur": 9,
+    "bij": "Film · voeding 1/6"
    }
   ],
   "tools": [],
@@ -728,7 +700,7 @@ const NIVEAUS = {
       "Thema 1",
       "Cellen",
       "Inleiding in de biologie · 4 havo",
-      "3 films · Schaallab",
+      "4 films · Schaallab",
       "#cellen"
      ],
      [
@@ -809,8 +781,8 @@ const NIVEAUS = {
       "Thema 10",
       "Voeding",
       "Vertering · 5 havo",
-      "reeks volgt",
-      ""
+      "Wat zit er in je eten? · reeks van 6",
+      "#voeding"
      ],
      [
       "Thema 11",
@@ -944,8 +916,8 @@ const NIVEAUS = {
       "H11",
       "Voeding",
       "Voeding en vertering · 5 vwo",
-      "reeks volgt",
-      ""
+      "Wat zit er in je eten? · reeks van 6",
+      "#voeding"
      ],
      [
       "H10",
@@ -1032,8 +1004,47 @@ const NIVEAUS = {
   ]
  }
 };
-const KLEUR = {cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal'};
+/* Kleur en tekening per hoofdstuk (tekeningen staan in KUNST hieronder). */
+const KLEUR = {cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker'};
 /* ===== einde inhoud ===== */
+
+/* Lijntekeningen (viewBox 0 0 120 120). currentColor = kleur van het hoofdstuk, .acc = goud. */
+const KUNST = {
+cellen:`<ellipse cx="60" cy="60" rx="46" ry="38" stroke-width="1.6"/><ellipse cx="60" cy="60" rx="41" ry="33" stroke-width=".8" opacity=".5"/>
+ <circle cx="52" cy="56" r="13" stroke-width="1.6"/><circle cx="50" cy="54" r="3.6" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M70 40c6-3 12 0 14 4M68 45c6-3 13 0 15 5M70 72c5 2 10 1 13-3" stroke-width="1.2"/>
+ <ellipse cx="78" cy="66" rx="9" ry="5" transform="rotate(-25 78 66)" stroke-width="1.4"/><path d="M71 68c2-3 3 2 5-1s3 2 5-1 3 2 5-1" transform="rotate(-25 78 66)" stroke-width="1"/>
+ <circle cx="36" cy="78" r="2.4" stroke-width="1.2"/><circle cx="44" cy="84" r="1.8" stroke-width="1.2"/><circle cx="74" cy="84" r="2" stroke-width="1.2"/>`,
+voortplanting:`<circle cx="70" cy="62" r="30" stroke-width="1.6"/><circle cx="70" cy="62" r="24" stroke-width=".8" opacity=".5"/><circle cx="70" cy="62" r="8" stroke-width="1.4"/><circle cx="70" cy="62" r="2.5" class="acc" fill="currentColor" stroke="none"/>
+ ${Array.from({length:18},(_,i)=>{const a=i/18*Math.PI*2;return `<circle cx="${(70+35*Math.cos(a)).toFixed(1)}" cy="${(62+35*Math.sin(a)).toFixed(1)}" r="1.6" stroke-width="1"/>`}).join('')}
+ <ellipse cx="28" cy="40" rx="5" ry="3.4" transform="rotate(30 28 40)" stroke-width="1.4"/><path d="M24 37c-5-3-7 2-12-1s-6 1-10-2" stroke-width="1.1"/>`,
+erfelijkheid:`<g stroke-width="1.6"><rect x="34" y="18" width="14" height="84" rx="7" transform="rotate(-18 41 60)"/><rect x="66" y="18" width="14" height="84" rx="7" transform="rotate(18 73 60)"/></g>
+ <g stroke-width="1" transform="rotate(-18 41 60)"><path d="M35 34h12M35 44h12M35 74h12M35 84h12"/></g><g stroke-width="1" transform="rotate(18 73 60)"><path d="M67 34h12M67 44h12M67 74h12M67 84h12"/></g>
+ <circle cx="57" cy="60" r="4" class="acc" fill="currentColor" stroke="none"/>`,
+evolutie:`<path d="M60 104V72M60 72L34 46M60 72l24-22M34 46L20 26M34 46l12-22M84 50l-8-24M84 50l16-18" stroke-width="1.6" stroke-linecap="round"/>
+ <g stroke-width="1.4"><circle cx="20" cy="22" r="4"/><circle cx="46" cy="20" r="4"/><circle cx="76" cy="22" r="4"/><circle cx="102" cy="28" r="4"/></g>
+ <circle cx="60" cy="72" r="3" class="acc" fill="currentColor" stroke="none"/><circle cx="34" cy="46" r="2.4" class="acc" fill="currentColor" stroke="none"/><circle cx="84" cy="50" r="2.4" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M44 104h32" stroke-width="1" opacity=".5"/>`,
+ecologie:`<path d="M10 92c20-10 40-12 56-6s30 4 44-4" stroke-width="1.4"/>
+ <g stroke-width="1.5" stroke-linejoin="round"><path d="M30 86V70M30 30l-12 22h7l-9 18h28l-9-18h7z"/><path d="M84 82V68M84 36l-10 18h6l-8 14h24l-8-14h6z"/></g>
+ <circle cx="62" cy="26" r="9" class="acc" stroke="currentColor" stroke-width="1.4"/>
+ <path d="M50 102c8 6 22 6 30-1M78 99l3 2-1 3" stroke-width="1.1" opacity=".7"/>`,
+stofwisseling:`<path d="M24 98C22 58 46 26 96 20c4 44-22 76-72 78z" stroke-width="1.6" stroke-linejoin="round"/><path d="M24 98L86 32" stroke-width="1.3"/>
+ <path d="M44 76l-4-18M44 76l18 2M56 62l-3-17M56 62l17 2M68 49l-2-14M68 49l14 1" stroke-width="1" opacity=".8"/>
+ <circle cx="88" cy="88" r="12" class="acc" stroke="currentColor" stroke-width="1.3"/><path d="M82 84l4-4 4 4M94 92l-4 4-4-4" class="acc" stroke="currentColor" stroke-width="1.2"/>`,
+dna:`${Array.from({length:9},(_,i)=>{const y=14+i*11.5,ph=i/8*Math.PI*2.2,x1=60+26*Math.sin(ph),x2=60-26*Math.sin(ph);return `<path d="M${x1.toFixed(1)} ${y}H${x2.toFixed(1)}" stroke-width="1" ${i%3===1?'class="acc"':''} opacity=".85"/>`}).join('')}
+ <path d="${Array.from({length:41},(_,i)=>{const y=10+i*2.5,ph=(y-14)/92*Math.PI*2.2;return (i?'L':'M')+(60+26*Math.sin(ph)).toFixed(1)+' '+y}).join('')}" stroke-width="1.7"/>
+ <path d="${Array.from({length:41},(_,i)=>{const y=10+i*2.5,ph=(y-14)/92*Math.PI*2.2;return (i?'L':'M')+(60-26*Math.sin(ph)).toFixed(1)+' '+y}).join('')}" stroke-width="1.7"/>`,
+regeling:`<circle cx="34" cy="56" r="11" stroke-width="1.6"/><circle cx="34" cy="56" r="3.4" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M26 48L14 34M14 34l-6 2M14 34l1-7M24 64L12 76M12 76l-6-1M27 46l-3-16M40 46l6-14M46 32l6-2" stroke-width="1.3" stroke-linecap="round"/>
+ <path d="M45 58h10" stroke-width="1.4"/><g stroke-width="1.4"><rect x="55" y="54" width="12" height="8" rx="4"/><rect x="70" y="54" width="12" height="8" rx="4"/><rect x="85" y="54" width="12" height="8" rx="4"/></g>
+ <path d="M97 58h5M102 58l8-8M102 58l9 0M102 58l8 8" stroke-width="1.3" stroke-linecap="round"/><g class="acc" fill="currentColor" stroke="none"><circle cx="111" cy="49" r="2.4"/><circle cx="112" cy="58" r="2.4"/><circle cx="111" cy="67" r="2.4"/></g>`,
+voeding:`<path d="M44 14c0 14 22 12 22 26s-26 10-26 26 30 10 30 24-18 10-18 18" stroke-width="1.8" stroke-linecap="round"/>
+ <path d="M34 14c0 18 22 14 22 28s-26 10-26 26 30 12 30 22" stroke-width="1" opacity=".5"/>
+ <g class="acc" fill="currentColor" stroke="none"><circle cx="78" cy="40" r="2.6"/><circle cx="86" cy="46" r="2"/><circle cx="80" cy="54" r="1.6"/></g>
+ <path d="M76 70h22M76 78h16" stroke-width="1.2" opacity=".7"/>`
+};
+const kunst=(id,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="${label||''}" style="--c:var(--${KLEUR[id]||'goud'})">${KUNST[id]||KUNST.cellen}</svg>`;
 
 (function(){
 const root=document.documentElement, app=document.getElementById('app');
@@ -1042,148 +1053,123 @@ const lees=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
 const schrijf=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 let niveau=lees('niveau'); if(!NIVEAUS[niveau]) niveau='havo';
 let gezien={}; try{gezien=JSON.parse(lees('gezien')||'{}')||{}}catch(e){gezien={}}
-const kleur=id=>`var(--${KLEUR[id]||'goud'})`;
 const alleFilms=Object.values(HOOFDSTUKKEN).flatMap(h=>h.films);
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
-const minuten=m=>m?`${m} min`:'';
-const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min$/,'').replace(/\s*·\s*\d+:\d+$/,'');
-const play='<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>';
-const vinkSvg='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?$/,'').replace(/\s*·\s*\d+:\d+$/,'');
+const pijl='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const play='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
 
 function themaKnop(){
-  const d=root.getAttribute('data-theme')!=='light';
-  const b=document.getElementById('thema');
+  const d=root.getAttribute('data-theme')!=='light', b=document.getElementById('thema');
   b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>';
   b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
 }
 document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
-
 document.querySelectorAll('[data-niveau]').forEach(b=>b.addEventListener('click',()=>{niveau=b.dataset.niveau;schrijf('niveau',niveau);render()}));
 
-function mozaiek(id){
-  const h=HOOFDSTUKKEN[id]; if(!h||!h.films.length) return '';
-  const p=h.films.slice(0,3).map(f=>`<img src="${BASE+esc(f.poster)}" alt="" loading="lazy">`).join('');
-  const cls=h.films.length===1?' een':h.films.length===2?' twee':'';
-  const n=h.films.length, t=h.tools.filter(x=>x.href).length;
-  return `<div class="mozaiek${cls}">${p}<span class="badge">${n} ${n===1?'film':'films'}${t?` · ${t} ${t===1?'tool':'tools'}`:''}</span></div>`;
+function telling(id){
+  const h=HOOFDSTUKKEN[id]; if(!h) return '';
+  const n=h.films.length, t=h.tools.filter(x=>x.href).length, d=[];
+  if(n) d.push(`${n} ${n===1?'film':'films'}`); if(t) d.push(`${t} ${t===1?'tool':'tools'}`);
+  return d.join(' · ');
 }
 
 function home(){
   const N=NIVEAUS[niveau];
-  const nTools=alleTools.filter(t=>t.href).length;
-  const u=UITGELICHT;
   let out=`<section class="wrap hero">
     <div>
       <span class="mono">Biologie · ${esc(niveau)}</span>
       <h1>Wat ga je vandaag leren?</h1>
-      <p class="intro">${esc(N.intro)}</p>
-      <div class="telling mono">
-        <span><b>${alleFilms.length}</b>uitlegfilms</span>
-        <span><b>${nTools}</b>tools en practica</span>
-        <span><b>${N.ond.length}</b>${niveau==='onderbouw'?'kerndoelgroep':'PTA-onderdelen'}</span>
-      </div>
+      <p>${esc(N.intro)}</p>
+      <div class="knoppen"><a class="knop" href="#hoofdstukken">Kies je hoofdstuk</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
     </div>
-    ${u?`<a class="uitgelicht" href="${BASE+esc(u.href)}">
-      <div class="still"><img src="${BASE+esc(u.poster)}" alt=""></div>
-      <span class="speel">${play}</span>
-      <div class="op"><span class="mono">Nieuw · ${esc(u.reeks)} · ${minuten(u.duur)}</span><h2>${esc(u.titel)}</h2><p>${esc(u.vraag)}</p></div>
-    </a>`:''}
+    <div class="plaat" aria-hidden="true">
+      <figure>${kunst('cellen')}<figcaption>Fig. 1 · cel</figcaption></figure>
+      <figure>${kunst('dna')}<figcaption>Fig. 2 · DNA</figcaption></figure>
+      <figure>${kunst('regeling')}<figcaption>Fig. 3 · neuron</figcaption></figure>
+      <figure>${kunst('evolutie')}<figcaption>Fig. 4 · stamboom</figcaption></figure>
+    </div>
   </section>
-  <section class="wrap sec" aria-labelledby="h-pta">
-    <div class="sec-kop"><h2 id="h-pta">${niveau==='onderbouw'?'Kerndoelen':'Per PTA-onderdeel'}</h2><p>${esc(N.methode)}</p></div>`;
+  <section class="wrap smal blok" id="hoofdstukken" aria-labelledby="h-pta">
+    <div class="blok-kop"><h2 id="h-pta">${niveau==='onderbouw'?'Kerndoelen':'Hoofdstukken per PTA-onderdeel'}</h2><p>${esc(N.methode)}</p></div>`;
   for(const o of N.ond){
     const jaar=niveau==='vwo'&&/^OND[12]$/.test(o.code)?'jaar 1':niveau==='vwo'&&/^OND[34]$/.test(o.code)?'jaar 2':'';
-    out+=`<div class="ond"><div class="ond-kop"><div class="code">${esc(o.code)}</div>${o.w?`<div class="weging">${o.w}%<small>weging</small></div>`:''}${jaar?`<div class="jaar">${jaar}</div>`:''}</div><div class="kaarten">`;
+    const rest=[o.w?`weging ${o.w}%`:'',jaar].filter(Boolean).join(' · ');
+    out+=`<div class="ond"><div class="ond-kop"><span class="code mono">${esc(o.code)}</span>${rest?`<span class="rest">${rest}</span>`:''}</div><div>`;
     for(const [lbl,naam,hfd,mat,href] of o.subs){
       const id=hoofdstukVan(href), echt=href&&HOOFDSTUKKEN[id];
       const titel=niveau==='onderbouw'&&/^\[/.test(naam)?`Kerndoel ${lbl}`:naam;
-      if(echt){
-        out+=`<a class="hk" href="${esc(href)}" style="--c:${kleur(id)}">${mozaiek(id)}<div class="lijf"><span class="lbl mono"><i class="dot"></i>${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}${mat?`<span class="mat">${esc(mat)}</span>`:''}</div></a>`;
-      } else {
-        out+=`<div class="hk leeg"><div class="lijf"><span class="lbl mono"><i class="dot" style="--c:var(--text3)"></i>${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}<span class="volgt">materiaal volgt</span></div></div>`;
-      }
+      if(echt) out+=`<a class="rij" href="${esc(href)}"><span class="embleem">${kunst(id)}</span><span><span class="lbl mono">${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}</span><span class="mat">${esc(telling(id))}</span><span class="pijl">${pijl}</span></a>`;
+      else out+=`<div class="rij leeg"><span class="embleem"></span><span><span class="lbl mono">${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}</span><span class="mat">materiaal volgt</span><span></span></div>`;
     }
     out+=`</div></div>`;
   }
-  out+=`</section>
-  <section class="wrap sec" aria-labelledby="h-bk">
-    <div class="sec-kop"><h2 id="h-bk">Binnenkort</h2><p>Hier wordt aan gewerkt</p></div>
-    <div class="binnenkort">
-      <div class="bk"><span class="mono">Oefenen</span><h3>Begrippen trainen</h3><p>Per hoofdstuk de begrippen oefenen tot je ze kent.</p></div>
-      <div class="bk"><span class="mono">Oefenen</span><h3>Binas oefenen</h3><p>Tabellen opzoeken en aflezen, zoals op het examen.</p></div>
-      <div class="bk"><span class="mono">Examen</span><h3>Examentraining</h3><p>Oude examens vraag voor vraag, met de examenatlas.</p></div>
-    </div>
-  </section>`;
+  out+=`<div class="ond"><div class="ond-kop"><span class="code mono">Binnenkort</span></div><div class="binnenkort"><span>Begrippen trainen</span><span>Binas oefenen</span><span>Examentraining</span></div></div></section>`;
   return out;
 }
 
-function filmRij(f,i,id){
-  const g=gezien[f.href];
-  return `<article class="film${g?' is-gezien':''}" data-href="${esc(f.href)}">
-    <a class="still" href="${BASE+esc(f.href)}" aria-label="Bekijk ${esc(f.titel)}"><img src="${BASE+esc(f.poster)}" alt="" loading="lazy"><span class="nr">${i+1}</span>${f.duur?`<span class="tijd">${minuten(f.duur)}</span>`:''}<i class="gezien-balk"></i></a>
-    <div class="info">
-      <span class="bij mono">${esc(bijLabel(f.bij))}</span>
-      <h3>${esc(f.titel)}</h3>
-      <p class="vraag">${esc(f.vraag)}</p>
-      <p class="tekst">${esc(f.tekst)}</p>
-      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} ${g?'Opnieuw kijken':'Bekijk film'}</a><button class="vink" type="button" aria-pressed="${g?'true':'false'}">${vinkSvg} ${g?'Gezien':'Markeer als gezien'}</button></div>
-    </div>
-  </article>`;
-}
-
-function toolKaart(t){
-  if(!t.href) return `<div class="tool leeg"><div class="lijf"><h3>${esc(t.naam)}</h3><p>${esc(t.tekst)}</p><span class="volgt">volgt</span></div></div>`;
-  return `<a class="tool" href="${BASE+esc(t.href)}">${t.img?`<div class="still"><img src="${BASE+esc(t.img)}" alt="" loading="lazy"></div>`:''}<div class="lijf"><h3>${esc(t.naam)}</h3><p>${esc(t.tekst)}</p><span class="naar">Open →</span></div></a>`;
-}
-
 function hoofdstuk(id){
-  const h=HOOFDSTUKKEN[id];
-  const n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
-  let out=`<section class="kop" style="--c:${kleur(id)}"><div class="wrap">
-    <a class="terug" href="#home">← Alle hoofdstukken</a>
-    <div class="lbl mono"><i class="dot"></i>${esc(h.label)}</div>
-    <h1>${esc(h.titel)}</h1>
-    <p>${esc(h.meta)}</p>
-    ${n>1?`<div class="voortgang"><div class="balk"><i style="width:${Math.round(100*k/n)}%"></i></div><span>${k} van ${n} films gezien</span></div>`:''}
+  const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
+  let out=`<section class="kop"><div class="wrap">
+    <div>
+      <a class="terug" href="#home">← Alle hoofdstukken</a>
+      <div class="lbl mono" style="--c:var(--${KLEUR[id]||'goud'})">${esc(h.label)}</div>
+      <h1>${esc(h.titel)}</h1>
+      <p>${esc(h.meta)}</p>
+      ${n>1?`<div class="voortgang"><div class="balk"><i style="width:${Math.round(100*k/n)}%"></i></div><span>${k} van ${n} films gezien</span></div>`:''}
+    </div>
+    <div class="groot">${kunst(id,h.titel)}</div>
   </div></section>
-  <div class="wrap">
-    <section id="${id}-films" class="films" aria-label="Films">${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
-  if(h.tools.length) out+=`<section id="${id}-tools" class="sec"><div class="sec-kop"><h2>Tools en practica</h2></div><div class="tools">${h.tools.map(toolKaart).join('')}</div></section>`;
-  if(h.oefenen.length) out+=`<section id="${id}-oefenen" class="sec"><div class="sec-kop"><h2>Oefenen</h2><p>Binnenkort</p></div><div class="binnenkort">${h.oefenen.map(o=>`<div class="bk"><span class="mono">volgt</span><h3>${esc(o)}</h3></div>`).join('')}</div></section>`;
+  <div class="wrap smal">`;
+  if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}" data-href="${esc(f.href)}">
+      <span class="nr">${i+1}</span>
+      <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div></div>
+      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a><button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
+    </article>`}).join('')}</section>`;
+  if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
+  if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
 }
 
+function toolRij(t){
+  const ik=esc((t.naam.replace(/^(De|Het)\s+/,'')[0]||'?').toUpperCase());
+  if(!t.href) return `<div class="tool leeg"><span class="ik">${ik}</span><div><h3>${esc(t.naam)}</h3><p>${esc(t.tekst)} · volgt</p></div></div>`;
+  return `<a class="tool" href="${BASE+esc(t.href)}"><span class="ik">${ik}</span><div><h3>${esc(t.naam)}</h3><p>${esc(t.tekst)}</p></div></a>`;
+}
+
+function kopPagina(lbl,titel,tekst,id){
+  return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle hoofdstukken</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
+}
 function films(){
-  let out=`<section class="kop"><div class="wrap"><a class="terug" href="#home">← Alle hoofdstukken</a><div class="lbl mono"><i class="dot"></i>Alle films</div><h1>Uitlegfilms</h1><p>${alleFilms.length} films die bij een vraag beginnen. Per hoofdstuk, in kijkvolgorde.</p></div></section><div class="wrap sec">`;
+  let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen. Per hoofdstuk, in kijkvolgorde.`,'dna')+`<div class="wrap smal">`;
   for(const [id,h] of Object.entries(HOOFDSTUKKEN)){
-    out+=`<section class="reeks"><div class="reeks-kop"><span class="lbl mono" style="--c:${kleur(id)}"><i class="dot"></i> ${esc(h.label)}</span><h2>${esc(h.titel)}</h2><a href="#${id}">Naar het hoofdstuk →</a></div><div class="strip">${h.films.map(f=>`<a class="mini" href="${BASE+esc(f.href)}"><span class="still"><img src="${BASE+esc(f.poster)}" alt="" loading="lazy">${f.duur?`<span class="tijd">${minuten(f.duur)}</span>`:''}</span><b>${esc(f.titel)}</b><span>${esc(f.vraag)}</span></a>`).join('')}</div></section>`;
+    if(!h.films.length) continue;
+    out+=`<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2><a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="n">${i+1}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}</section>`;
   }
   return out+`</div>`;
 }
-
 function tools(){
-  return `<section class="kop"><div class="wrap"><a class="terug" href="#home">← Alle hoofdstukken</a><div class="lbl mono"><i class="dot"></i>Alle tools</div><h1>Tools en practica</h1><p>Simulaties en virtuele practica om het zelf te proberen.</p></div></section><div class="wrap sec"><div class="tools">${alleTools.filter(t=>t.href).map(toolKaart).join('')}</div>${alleTools.some(t=>!t.href)?`<div class="sec-kop" style="margin-top:36px"><h2>In de maak</h2></div><div class="tools">${alleTools.filter(t=>!t.href).map(toolKaart).join('')}</div>`:''}</div>`;
+  return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
 }
 
 function render(){
   document.querySelectorAll('[data-niveau]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.niveau===niveau)));
-  const h=(location.hash||'#home').slice(1);
-  const id=h.split('-')[0];
+  const h=(location.hash||'#home').slice(1), id=h.split('-')[0];
   let pagina='home';
-  if(h==='films') {app.innerHTML=films();pagina='films'}
-  else if(h==='tools') {app.innerHTML=tools();pagina='tools'}
-  else if(HOOFDSTUKKEN[id]) {app.innerHTML=hoofdstuk(id);pagina=id}
+  if(h==='films'){app.innerHTML=films();pagina='films'}
+  else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
+  else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id);pagina=id}
   else app.innerHTML=home();
   document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(pagina==='films'||pagina==='tools'?pagina:'home')));
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
-  const el=h&&h!==pagina?document.getElementById(h):null;
+  const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
 app.addEventListener('click',e=>{
-  const v=e.target.closest('.vink'); const f=e.target.closest('.film');
-  if(v&&f){const k=f.dataset.href; if(gezien[k]) delete gezien[k]; else gezien[k]=1; schrijf('gezien',JSON.stringify(gezien)); render(); return;}
-  const l=e.target.closest('.film a'); if(l&&f){gezien[f.dataset.href]=1; schrijf('gezien',JSON.stringify(gezien));}
+  const f=e.target.closest('.film'); if(!f) return;
+  if(e.target.closest('.vink')){const k=f.dataset.href; if(gezien[k]) delete gezien[k]; else gezien[k]=1; schrijf('gezien',JSON.stringify(gezien)); render(); return;}
+  if(e.target.closest('a')){gezien[f.dataset.href]=1; schrijf('gezien',JSON.stringify(gezien));}
 });
 window.addEventListener('hashchange',render);
 themaKnop(); render();
