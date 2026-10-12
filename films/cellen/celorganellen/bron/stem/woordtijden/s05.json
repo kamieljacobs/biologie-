@@ -1,0 +1,455 @@
+{
+ "text": "Dit is een cel uit de alvleesklier. Ongeveer een honderdste millimeter groot. Op papier lijkt een cel plat. Hij is een blokje: organellen liggen ook vóór en achter elkaar. Wij tekenen hem plat, dat kijkt makkelijker. Dit is vereenvoudigd en niet op schaal. Dat geldt voor alles in deze film. Eromheen zit een dun vlies: het celmembraan. Daarbinnen een stroperige vulling: het cytoplasma. Daarin liggen onderdelen met eigen bouw en taak: de organellen. Deze cel maakt heel veel eiwitten. Welk onderdeel heeft hij daarvoor het hardst nodig? Wat denk je?",
+ "words": [
+  {
+   "text": "Dit",
+   "start": 0,
+   "end": 0.24
+  },
+  {
+   "text": "is",
+   "start": 0.32,
+   "end": 0.4
+  },
+  {
+   "text": "een",
+   "start": 0.48,
+   "end": 0.56
+  },
+  {
+   "text": "cel",
+   "start": 0.64,
+   "end": 0.88
+  },
+  {
+   "text": "uit",
+   "start": 0.96,
+   "end": 1.04
+  },
+  {
+   "text": "de",
+   "start": 1.12,
+   "end": 1.2
+  },
+  {
+   "text": "alvleesklier.",
+   "start": 1.32,
+   "end": 2.28
+  },
+  {
+   "text": "Ongeveer",
+   "start": 2.48,
+   "end": 2.88
+  },
+  {
+   "text": "een",
+   "start": 2.96,
+   "end": 3.04
+  },
+  {
+   "text": "honderdste",
+   "start": 3.12,
+   "end": 3.6
+  },
+  {
+   "text": "millimeter",
+   "start": 3.68,
+   "end": 4.16
+  },
+  {
+   "text": "groot.",
+   "start": 4.24,
+   "end": 4.88
+  },
+  {
+   "text": "Op",
+   "start": 5.12,
+   "end": 5.2
+  },
+  {
+   "text": "papier",
+   "start": 5.28,
+   "end": 5.68
+  },
+  {
+   "text": "lijkt",
+   "start": 5.76,
+   "end": 5.92
+  },
+  {
+   "text": "een",
+   "start": 6,
+   "end": 6.08
+  },
+  {
+   "text": "cel",
+   "start": 6.2,
+   "end": 6.32
+  },
+  {
+   "text": "plat.",
+   "start": 6.4,
+   "end": 6.88
+  },
+  {
+   "text": "Hij",
+   "start": 7.12,
+   "end": 7.24
+  },
+  {
+   "text": "is",
+   "start": 7.28,
+   "end": 7.36
+  },
+  {
+   "text": "een",
+   "start": 7.4,
+   "end": 7.44
+  },
+  {
+   "text": "blokje:",
+   "start": 7.52,
+   "end": 8.24
+  },
+  {
+   "text": "organellen",
+   "start": 8.32,
+   "end": 8.88
+  },
+  {
+   "text": "liggen",
+   "start": 8.96,
+   "end": 9.2
+  },
+  {
+   "text": "ook",
+   "start": 9.28,
+   "end": 9.36
+  },
+  {
+   "text": "vóór",
+   "start": 9.52,
+   "end": 9.76
+  },
+  {
+   "text": "en",
+   "start": 9.84,
+   "end": 9.92
+  },
+  {
+   "text": "achter",
+   "start": 10,
+   "end": 10.24
+  },
+  {
+   "text": "elkaar.",
+   "start": 10.32,
+   "end": 10.72
+  },
+  {
+   "text": "Wij",
+   "start": 11.04,
+   "end": 11.2
+  },
+  {
+   "text": "tekenen",
+   "start": 11.28,
+   "end": 11.6
+  },
+  {
+   "text": "hem",
+   "start": 11.68,
+   "end": 11.76
+  },
+  {
+   "text": "plat,",
+   "start": 11.84,
+   "end": 12.32
+  },
+  {
+   "text": "dat",
+   "start": 12.4,
+   "end": 12.48
+  },
+  {
+   "text": "kijkt",
+   "start": 12.52,
+   "end": 12.72
+  },
+  {
+   "text": "makkelijker.",
+   "start": 12.8,
+   "end": 13.36
+  },
+  {
+   "text": "Dit",
+   "start": 13.76,
+   "end": 13.84
+  },
+  {
+   "text": "is",
+   "start": 13.92,
+   "end": 14
+  },
+  {
+   "text": "vereenvoudigd",
+   "start": 14.08,
+   "end": 14.84
+  },
+  {
+   "text": "en",
+   "start": 14.88,
+   "end": 15.04
+  },
+  {
+   "text": "niet",
+   "start": 15.12,
+   "end": 15.28
+  },
+  {
+   "text": "op",
+   "start": 15.36,
+   "end": 15.44
+  },
+  {
+   "text": "schaal.",
+   "start": 15.52,
+   "end": 15.92
+  },
+  {
+   "text": "Dat",
+   "start": 16.16,
+   "end": 16.24
+  },
+  {
+   "text": "geldt",
+   "start": 16.32,
+   "end": 16.56
+  },
+  {
+   "text": "voor",
+   "start": 16.64,
+   "end": 16.72
+  },
+  {
+   "text": "alles",
+   "start": 16.84,
+   "end": 16.96
+  },
+  {
+   "text": "in",
+   "start": 17.04,
+   "end": 17.12
+  },
+  {
+   "text": "deze",
+   "start": 17.16,
+   "end": 17.36
+  },
+  {
+   "text": "film.",
+   "start": 17.44,
+   "end": 17.76
+  },
+  {
+   "text": "Eromheen",
+   "start": 18.24,
+   "end": 18.8
+  },
+  {
+   "text": "zit",
+   "start": 18.84,
+   "end": 18.96
+  },
+  {
+   "text": "een",
+   "start": 19.04,
+   "end": 19.2
+  },
+  {
+   "text": "dun",
+   "start": 19.24,
+   "end": 19.44
+  },
+  {
+   "text": "vlies:",
+   "start": 19.52,
+   "end": 20.16
+  },
+  {
+   "text": "het",
+   "start": 20.24,
+   "end": 20.32
+  },
+  {
+   "text": "celmembraan.",
+   "start": 20.4,
+   "end": 21.36
+  },
+  {
+   "text": "Daarbinnen",
+   "start": 21.52,
+   "end": 22
+  },
+  {
+   "text": "een",
+   "start": 22.08,
+   "end": 22.24
+  },
+  {
+   "text": "stroperige",
+   "start": 22.4,
+   "end": 22.96
+  },
+  {
+   "text": "vulling:",
+   "start": 23.04,
+   "end": 23.68
+  },
+  {
+   "text": "het",
+   "start": 23.72,
+   "end": 23.76
+  },
+  {
+   "text": "cytoplasma.",
+   "start": 23.84,
+   "end": 24.64
+  },
+  {
+   "text": "Daarin",
+   "start": 25.04,
+   "end": 25.52
+  },
+  {
+   "text": "liggen",
+   "start": 25.6,
+   "end": 25.84
+  },
+  {
+   "text": "onderdelen",
+   "start": 25.96,
+   "end": 26.4
+  },
+  {
+   "text": "met",
+   "start": 26.52,
+   "end": 26.64
+  },
+  {
+   "text": "eigen",
+   "start": 26.68,
+   "end": 26.96
+  },
+  {
+   "text": "bouw",
+   "start": 27.04,
+   "end": 27.28
+  },
+  {
+   "text": "en",
+   "start": 27.36,
+   "end": 27.44
+  },
+  {
+   "text": "taak:",
+   "start": 27.52,
+   "end": 28.16
+  },
+  {
+   "text": "de",
+   "start": 28.2,
+   "end": 28.24
+  },
+  {
+   "text": "organellen.",
+   "start": 28.32,
+   "end": 28.96
+  },
+  {
+   "text": "Deze",
+   "start": 29.44,
+   "end": 29.68
+  },
+  {
+   "text": "cel",
+   "start": 29.76,
+   "end": 30
+  },
+  {
+   "text": "maakt",
+   "start": 30.08,
+   "end": 30.32
+  },
+  {
+   "text": "heel",
+   "start": 30.4,
+   "end": 30.64
+  },
+  {
+   "text": "veel",
+   "start": 30.8,
+   "end": 30.96
+  },
+  {
+   "text": "eiwitten.",
+   "start": 31.04,
+   "end": 31.8
+  },
+  {
+   "text": "Welk",
+   "start": 32,
+   "end": 32.24
+  },
+  {
+   "text": "onderdeel",
+   "start": 32.32,
+   "end": 32.72
+  },
+  {
+   "text": "heeft",
+   "start": 32.76,
+   "end": 32.88
+  },
+  {
+   "text": "hij",
+   "start": 32.96,
+   "end": 33.04
+  },
+  {
+   "text": "daarvoor",
+   "start": 33.08,
+   "end": 33.36
+  },
+  {
+   "text": "het",
+   "start": 33.44,
+   "end": 33.52
+  },
+  {
+   "text": "hardst",
+   "start": 33.64,
+   "end": 33.84
+  },
+  {
+   "text": "nodig?",
+   "start": 33.92,
+   "end": 34.72
+  },
+  {
+   "text": "Wat",
+   "start": 34.8,
+   "end": 34.88
+  },
+  {
+   "text": "denk",
+   "start": 34.96,
+   "end": 35.12
+  },
+  {
+   "text": "je?",
+   "start": 35.2,
+   "end": 35.6
+  }
+ ]
+}

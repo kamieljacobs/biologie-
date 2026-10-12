@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Celorganellen · Een fabriek die leeft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.havo .term.vwo,body.havo #transcript p.vwo,body.havo .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  /*NAV*/
+  <div class="meta">Biologie bij Kamiel · reeks Cel · film 2 van 3</div>
+  <h1>Celorganellen</h1>
+  <p>Een fabriek die leeft. Hoe krijgt één cel het voor elkaar om enzymen te maken en netjes naar buiten te brengen?</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Celorganellen"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Organellen en celfunctie</b> <span class="pts">2 punten</span><p>Van twee menselijke celtypen is een elektronenmicroscoopopname gemaakt. In cel P zijn veel ruw endoplasmatisch reticulum en een groot golgisysteem zichtbaar. In cel Q zijn opvallend veel mitochondriën zichtbaar, maar weinig ruw ER. Eén van beide is een alvleeskliercel die verteringsenzymen maakt, de andere een hartspiercel. Welke cel is de alvleeskliercel? Leg je antwoord uit met de functie van de genoemde organellen.</p>
+      <details><summary>Antwoord</summary><p>Cel P is de alvleeskliercel (1), omdat verteringsenzymen eiwitten zijn die aan ribosomen op het ruw ER worden gemaakt en in het golgisysteem worden bewerkt en verpakt voor uitscheiding; een hartspiercel heeft juist veel ATP nodig en dus veel mitochondriën (1).</p></details></div>
+    <div class="q"><b>2. Plantencel en dierlijke cel</b> <span class="pts">2 punten</span><p>Een leerling stelt: "Plantencellen hebben geen mitochondriën nodig, want ze hebben chloroplasten voor hun energie." Leg uit dat deze uitspraak onjuist is. Gebruik de functie van beide organellen.</p>
+      <details><summary>Antwoord</summary><p>Chloroplasten leggen lichtenergie vast in glucose (fotosynthese), alleen bij licht (1). Mitochondriën breken glucose af waarbij ATP vrijkomt; dat is ook nodig in het donker en in cellen zonder chloroplasten, zoals wortelcellen (1).</p></details></div>
+    <div class="q"><b>3. Kern en levenskenmerken</b> <span class="pts">2 punten</span><p>Rode bloedcellen van de mens hebben geen celkern. Ze leven ongeveer 120 dagen en worden daarna afgebroken. a. Leg uit, met de functie van de celkern, waarom een rode bloedcel niet onbeperkt kan blijven functioneren. b. Een rode bloedcel kan zich niet delen. Noem het levenskenmerk dat een rode bloedcel daardoor mist.</p>
+      <details><summary>Antwoord</summary><p>a. In de kern ligt het DNA met de bouwtekeningen voor eiwitten; zonder kern komen er geen nieuwe werkkopieën, dus kan de cel versleten eiwitten niet vervangen (1). b. Zich voortplanten (1).</p></details></div>
+    <div class="q vwo-only"><b>4. Eiwitroute</b> <span class="vwo-badge">vwo</span> <span class="pts">3 punten</span><p>Insuline is een eiwit dat door bètacellen in de alvleesklier wordt gemaakt en aan het bloed wordt afgegeven. Beschrijf de route van insuline in de bètacel vanaf het ribosoom tot buiten de cel. Noem de organellen in de juiste volgorde en het proces waarmee het eiwit de cel verlaat.</p>
+      <details><summary>Antwoord</summary><p>Het ribosoom zit op het ruw ER; het eiwit komt in het ER en wordt gevouwen (1). Een blaasje snoert af van het ER en versmelt met het golgisysteem, waar het eiwit bewerkt, gesorteerd en opnieuw verpakt wordt (1). Het blaasje gaat (langs het cytoskelet) naar het celmembraan, versmelt ermee en de inhoud komt buiten: exocytose (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Bouw en functie</b> <span class="vwo-badge">vwo</span> <span class="pts">3 punten</span><p>Mitochondriën in hartspiercellen hebben een binnenmembraan met veel, dicht opeengepakte cristae; in witte vetcellen veel minder. a. Leg uit hoe hieruit volgt dat een hartspiercel per tijdseenheid meer ATP vormt dan een vetcel (2). b. Het kernmembraan bevat kernporiën. Leg uit waarom kernporiën noodzakelijk zijn voor de eiwitsynthese (1).</p>
+      <details><summary>Antwoord</summary><p>a. Cristae vergroten het oppervlak van het binnenmembraan (1); op dat membraan zitten de eiwitten die ATP vormen, dus meer oppervlak geeft meer ATP per tijdseenheid (1). b. De werkkopie (mRNA) van het DNA moet de kern uit naar de ribosomen in het cytoplasma of op het ruw ER; dat kan alleen door de kernporiën (1).</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>I/B · toepassing</td><td>Schema → Macro-lichaam → zoomcirkel Micro</td><td>Alvleesklier; één kliercel die blaasjes naar buiten brengt</td></tr>
+      <tr><td>1 Levenskenmerken</td><td>B · structuur en functie</td><td>Schema</td><td>Bacterie (één ruimte) naast eukaryote cel; bord met zes vaste plekken</td></tr>
+      <tr><td>1b De cel van dichtbij</td><td>B</td><td>Micro</td><td>Cel kantelt kort tot "blokje" (misconceptie plat); labels membraan, cytoplasma, organellen</td></tr>
+      <tr><td>2 Kern</td><td>B</td><td>Micro</td><td>Werkkopieën door kernporiën; DNA blijft binnen; kaart "de kern bestuurt" weerlegd; replicatie vóór deling</td></tr>
+      <tr><td>3 Ribosomen, ER, golgi</td><td>B/C</td><td>Micro</td><td>Gesimuleerd blaasjestransport ER → golgi → membraan; vwo: één enzym gevolgd, adreslabel, exo- en endocytose</td></tr>
+      <tr><td>4 Mitochondrium</td><td>B</td><td>Micro → Schema</td><td>Glucosebrokstukken en zuurstof in, ATP en koolstofdioxide uit; glad vs geplooid membraan met oppervlakbalk; hartspiercel vs huidcel</td></tr>
+      <tr><td>5 Lysosomen, vacuole</td><td>B/D</td><td>Micro</td><td>Lysosoom versmelt met afvalblaasje; pH-balk; vacuole bouwt druk op, plant zakt in bij waterverlies</td></tr>
+      <tr><td>6 Membraan, cytoskelet</td><td>B/D</td><td>Micro</td><td>Selectief membraan, ontvanger-eiwit; timelapse (misconceptie stilstaand); vwo: motoreiwit op rails</td></tr>
+      <tr><td>7 Plant vs dier</td><td>B</td><td>Schema</td><td>Vergelijking op één grondlijn; wand als zeef; nachtscenario zonder mitochondriën</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>De cel is plat (H1b: kanteling).</li><li>Organellen staan stil (H6: timelapse).</li><li>Chloroplasten vervangen mitochondriën (H7: nachtscenario).</li><li>De celwand vervangt het celmembraan (H7: zeef).</li><li>De kern bestuurt de cel (H2).</li><li>Je hebt organellen nodig om te leven (H1: bacterie).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Acht voorspelvragen (zeven basis, één vwo) met 8 s denktijd. In Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de oppervlakbalk (H4) en vraag leerlingen eerst zelf de factor te schatten; pauzeer bij de wand-als-zeef (H7) en laat ze voorspellen welke deeltjes stoppen.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th><th>Afronding</th></tr>
+      <tr><td>Verteringssap alvleesklier</td><td>ruim 1 L/dag (1–1,5 L; ~10–20 g enzym-eiwit)</td><td>Guyton & Hall, Textbook of Medical Physiology 14e ed., h. 65</td><td>ja</td></tr>
+      <tr><td>Grootte alvleeskliercel</td><td>10–15 µm → "ongeveer een honderdste millimeter"</td><td>Ross & Pawlina, Histology 8e ed., h. 18</td><td>ja</td></tr>
+      <tr><td>Eukaryote cel vs bacterie</td><td>10× in lengte/breedte (10–30 µm vs 1–2 µm); ~1000× in volume</td><td>Alberts e.a., Molecular Biology of the Cell 7e ed., h. 1</td><td>orde van grootte</td></tr>
+      <tr><td>Ribosomen per cel</td><td>miljoenen (10⁶–10⁷)</td><td>Alberts 7e ed., h. 6</td><td>ja</td></tr>
+      <tr><td>Oppervlak binnenmembraan / buitenmembraan</td><td>≈ 5× in een levercel (32 % vs 7 % van alle celmembraan); hartspier hoger</td><td>Alberts 7e ed., h. 12, tabel 12-2</td><td>ja, celtype genoemd</td></tr>
+      <tr><td>Mitochondriën</td><td>hartspiercel ~1/3 van celvolume, duizenden; huidcel/fibroblast orde 10²–10³</td><td>Alberts 7e ed., h. 14; Barth e.a., J Mol Cell Cardiol 1992</td><td>ja</td></tr>
+      <tr><td>Rode bloedcel</td><td>levensduur ~120 dagen (4 maanden); geen kern, ribosomen of mitochondriën bij rijpe zoogdiercel</td><td>Guyton & Hall 14e ed., h. 33</td><td>ja</td></tr>
+      <tr><td>pH lysosoom / cytoplasma</td><td>≈ 4,5–5 / ≈ 7,2</td><td>Alberts 7e ed., h. 13; Mindell, Annu Rev Physiol 2012</td><td>ja</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>Alles is plat getekend en niet op schaal; de cel is in werkelijkheid driedimensionaal (H1b zegt dat expliciet).</li><li>"Brokstukken van glucose" staat voor pyruvaat; glycolyse in het cytoplasma blijft buiten beeld (film Dissimilatie).</li><li>Het "adreslabel" staat voor sorteersignalen zoals mannose-6-fosfaat; "suikerlabel" voor glycosylering.</li><li>"Een chloroplast maakt glucose": het directe product is triosefosfaat, verwerkt tot zetmeel of sacharose; de methodeformulering is gehandhaafd.</li><li>De timelapse in H6 is een gestileerde versnelling, geen echte opname.</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
+      <tr><td>0 Zes levenskenmerken noemen en elk aan een celonderdeel koppelen</td><td>basis</td><td>1, bord door de hele film, recap</td><td>check 3b</td></tr>
+      <tr><td>1 Cel = afgesloten ruimte met membraan, cytoplasma, organellen</td><td>basis</td><td>1b</td><td>voorspel cold open</td></tr>
+      <tr><td>2 Bouw en functie kern, mitochondrium, ribosoom, ER, golgisysteem, lysosoom, vacuole</td><td>basis</td><td>2–5</td><td>voorspel H1b, H2, H5; check 1, 3a</td></tr>
+      <tr><td>3 Verschillen plant/dier en koppeling aan levenswijze</td><td>basis</td><td>7</td><td>voorspel H7; check 2</td></tr>
+      <tr><td>4 Uit organellen afleiden wat een cel doet</td><td>basis</td><td>3, 4</td><td>voorspel H3; check 1</td></tr>
+      <tr><td>5 Cristae vergroten oppervlak → meer ATP</td><td>basis</td><td>4</td><td>voorspel H4</td></tr>
+      <tr><td>6 Eiwitroute incl. exo- en endocytose</td><td>vwo</td><td>3 (vwo-blok)</td><td>voorspel H3-vwo; check 4</td></tr>
+      <tr><td>7 Bouw → functie bij kernporiën en grana</td><td>vwo</td><td>2, 7 (vwo-blok)</td><td>check 5b</td></tr>
+      <tr><td>8 Cytoskelet: vorm, transport, beweging</td><td>vwo</td><td>6 (vwo-blok)</td><td>check 4 (optioneel)</td></tr>
+    </table>
+    <h3>Practicumsuggesties</h3>
+    <ul><li>Ui-cellen kleuren en kern zoeken; waterpest voor chloroplasten en cytoplasmastroming (bewegen!).</li><li>Aardappelstaafjes in zout- en zoet water: turgor zichtbaar maken (koppeling met film 1).</li><li>Elektronenmicroscoopfoto's van alvleeskliercel, hartspiercel en huidcel vergelijken: tel organellen, voorspel functie.</li></ul>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.2 · 11 oktober 2026.</footer>
+<script>window.FILMDATA=/*FILMDATA*/;</script>
+<script>/*LIB*/</script>
+<script>/*SCENES*/</script>
+<script>
+const GLOSSARY=[
+ {t:'levenskenmerken',d:'Wat levende wezens doen: stoffen omzetten, groeien, zich voortplanten, bewegen, reageren op de omgeving, zichzelf in evenwicht houden.'},
+ {t:'prokaryoot',d:'Cel zonder kern en zonder membraanorganellen, met losse ribosomen, zoals een bacterie.'},
+ {t:'eukaryoot',d:'Cel met een kern en organellen, zoals je eigen cellen en plantencellen.'},
+ {t:'organel',d:'Onderdeel van de cel met een eigen bouw en eigen taken.'},
+ {t:'celmembraan',d:'Dun vlies om de cel dat sommige stoffen doorlaat en andere niet, en signalen van buiten opvangt.'},
+ {t:'cytoplasma',d:'De stroperige vulling van de cel binnen het membraan, waarin de organellen liggen.'},
+ {t:'celkern (kern)',d:'Grootste losse organel; bevat het DNA. Omgeven door een dubbel kernmembraan met kernporiën.'},
+ {t:'kernmembraan',d:'Dubbel membraan om de kern.'},
+ {t:'kernporiën',d:'Openingen in het kernmembraan waardoor werkkopieën van het DNA de kern uit gaan.',vwo:true},
+ {t:'DNA',d:'Bouwtekening van bijna elk eiwit dat de cel maakt; blijft in de kern.'},
+ {t:'ribosoom',d:'Klein deeltje dat eiwitten maakt; los in het cytoplasma of op het ruw ER.'},
+ {t:'endoplasmatisch reticulum (ER)',d:'Netwerk van membranen. Ruw ER heeft ribosomen; eiwitten voor buiten de cel worden erin gevouwen en gecontroleerd.'},
+ {t:'golgisysteem',d:'Stapel platte zakjes die eiwitten bewerkt, sorteert en in blaasjes verpakt.'},
+ {t:'blaasje',d:'Klein membraanblaasje dat stoffen vervoert in de cel (vakterm: vesikel).'},
+ {t:'exocytose',d:'Een blaasje versmelt met het celmembraan en de inhoud komt buiten de cel.',vwo:true},
+ {t:'endocytose',d:'Een stuk celmembraan stulpt in en haalt iets de cel binnen.',vwo:true},
+ {t:'mitochondrium (mv. mitochondriën)',d:'Organel waar de verbranding van glucose met zuurstof wordt afgemaakt: er ontstaat ATP en er komt koolstofdioxide vrij; binnenmembraan geplooid tot cristae.'},
+ {t:'cristae',d:'Plooien van het binnenmembraan van een mitochondrium; vergroten het oppervlak voor de eiwitten die ATP maken.'},
+ {t:'ATP',d:'Energiedrager van de cel.'},
+ {t:'stofwisseling',d:'Alle omzettingen van stoffen in de cel: opbouw (assimilatie) en afbraak (dissimilatie).'},
+ {t:'lysosoom',d:'Blaasje vol afbraakenzymen; binnenin zuur. Breekt afval af tot bouwstenen die de cel opnieuw gebruikt.'},
+ {t:'homeostase',d:'Zichzelf in evenwicht houden.'},
+ {t:'vacuole',d:'Holte vol water in een plantencel; bouwt druk op tegen de celwand en houdt de plant stevig.'},
+ {t:'celwand',d:'Stevige laag cellulose buiten het celmembraan van een plantencel; werkt als zeef.'},
+ {t:'chloroplast (bladgroenkorrel)',d:'Groen organel waar fotosynthese plaatsvindt: met lichtenergie wordt uit water en koolstofdioxide glucose gemaakt.'},
+ {t:'grana',d:'Stapels schijfjes in een chloroplast met de eiwitten die licht vangen.',vwo:true},
+ {t:'cytoskelet (celskelet)',d:'Netwerk van eiwitdraden in de cel: geeft vorm en werkt als rails voor transport; sommige cellen bewegen ermee.'},
+ {t:'motoreiwit',d:'Eiwit dat met een blaasje over een draad van het cytoskelet loopt.',vwo:true},
+ {t:'ontvanger-eiwit (receptor)',d:'Eiwit in het membraan waarop een hormoon of ander signaal past.'},
+];
+/*PLAYER*/
+</script>
+</body>
+</html>

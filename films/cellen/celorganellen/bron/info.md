@@ -5,12 +5,36 @@
 | Bestand | films/cellen/celorganellen/index.html (audio in films/cellen/celorganellen/audio/) |
 | Reeks / nummer | Cel, film 2 van 3 ("Biologie bij Kamiel · reeks Cel · film 2 van 3") |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo) |
-| Versie / datum | Versie 1.0 · 11 oktober 2026 (footer) |
+| Versie / datum | Versie 1.2 · 11 oktober 2026 (footer). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij |
 | Stem / model | Roos (ElevenLabs, model eleven_v4) |
 | Duur | 10:52 (som van de 18 mp3's: 652,3 s). Speeltijd met titel-, hoofdstuk- en eindkaarten en vragen: Vwo 13:30, Havo 10:58 |
 | Beeldstijl | Part C-stijlkaart: Micro (donkere celwereld #121A26), Schema (navy #1A2740), één keer Macro (lichaam in de cold open); vaste UI-laag (paarse vwo-balk links, meta linksboven, ondertitels onder CAPTION_Y = 900). Canvas 1920×1080 |
 | Audio-opslag | 18 losse mp3's in audio/ (s01, s04, s05, s07, s09, s11, s13, s14, s16, s17, s18, s20, s21, s22, s23, s25, s26, s27), één per gesproken segment; niet in de HTML ingebed |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Bronbestanden | Echte bronnen uit de bouwsessie staan in deze map (zie hieronder); de rest van dit bestand is op 2026-10-12 gereconstrueerd uit de HTML en daarna aangevuld |
+
+## Echte bronbestanden (in deze map)
+
+Deze film is niet met `filmbron.py` gemaakt maar met een eigen bouwstraat. Pas hem bij voorkeur zo aan, niet via uitpakken/inpakken:
+
+| Map / bestand | Inhoud |
+|---|---|
+| `script_v2.md` | Het definitieve script met leerdoelen, misconcepties en [VWO-START]/[VWO-END]-markeringen (bron voor alles). `script_v1.md` = versie vóór de reviews |
+| `stem/segmenten_stem-invoer.json` | Per segment de schermtekst (`display`) én de letterlijke stem-invoer (`voice`, met respellings: ER → "ee-er", DNA → "dee-en-aa") |
+| `stem/woordtijden/sNN.json` | Woordtijden per take (ElevenLabs Scribe) |
+| `stem/uitspraaktest.mp3`, `stem/risicowoorden.md` | Uitspraaktest-clip en risicowoorden met tijdstempels per take |
+| `src/lib.js` | Part C-tokens en tekenbibliotheek (cel, kern, mitochondrium, golgi, ER, labels, zoomcirkel, bord) |
+| `src/scenes.js` | Eén scènefunctie per segment (`s01` … `s27`) |
+| `src/player.js` | Speler: tijdlijn, vragen, Havo/Vwo, Leerling/Klas, ondertitels |
+| `src/page.html` | Pagina-sjabloon: kop, begrippen, checkvragen, docentdeel; placeholders `/*FILMDATA*/`, `/*LIB*/`, `/*SCENES*/`, `/*PLAYER*/`, `/*NAV*/` |
+| `bouw/make_segments.py` | script_v2.md → segments.json (+ stem-invoer) |
+| `bouw/build_data.py` | segments.json + woordtijden + vragen/antwoorden → filmdata.json |
+| `bouw/build.py` | sjabloon + data + js → `film/index.html` (site, met navigatie) en `film/standalone.html` |
+| `bouw/shots.py`, `contact.py`, `test_play.py`, `test_mobile.py` | Stills per segment/tijd, contactsheets, speler- en telefoontest (Playwright) |
+| `reviews/` | De vier reviewpasses (expert, didactiek + taal, curriculum) en de beeldreview |
+
+**Werkmap opzetten:** kopieer `bron/src`, `bron/bouw/*.py`, `bron/script_v2.md` naar een werkmap; zet `stem/segmenten_stem-invoer.json` daar als `segments.json` en `stem/woordtijden/` als `words/`; zet de mp3's uit `../audio/` in `master/` en `film/audio/`. Daarna: `python3 build_data.py && python3 build.py`.
+
+**Tekst wijzigen:** pas `script_v2.md` aan → `make_segments.py` (zet daarna in segments.json `s03` op `kind: title` en `s28` op `kind: card`) → alleen gewijzigde segmenten opnieuw inspreken (Roos, eleven_v4, één take, stem-invoer uit `voice`) → woordtijden met Scribe → mastering −16 LUFS → `build_data.py` → `build.py` → controleer met het cue-script in `info.md` (stap 2 hieronder) dat elke `q.at('woord')` nog bestaat.
 
 ## Opbouw
 Begintijden in de stand Vwo (tussen haakjes Havo waar anders). Type en look zoals in de docenttabel op de pagina.
@@ -21,9 +45,9 @@ Begintijden in de stand Vwo (tussen haakjes Havo waar anders). Type en look zoal
 | 0:36 | Titel (5 s) | — · Micro | "Celorganellen — Een fabriek die leeft" met bewegende cel |
 | 0:41 | H1 Wat moet één cel allemaal kunnen? | B · Schema | Bacterie (één ruimte) naast eukaryote cel; bord met zes levenskenmerken |
 | 1:38 | H1b Een cel van dichtbij | B · Micro | Cel kantelt kort tot "blokje"; membraan, cytoplasma, organellen |
-| 2:32 | H2 De bouwtekening: de kern | B · Micro | Werkkopieën door kernporiën; DNA blijft binnen; replicatie vóór deling |
+| 2:32 | H2 De bouwtekening: de kern | B · Micro | Kern met losse chromatinedraden; zoomcirkel: DNA als dubbele helix met basenparen; RNA-werkkopie (teal, enkele streng) wordt afgelezen en gaat door een kernporie naar buiten; DNA blijft binnen; bij replicatie splitst de helix in twee |
 | 3:46 | H3 De werkvloer: ribosomen, ER en golgisysteem (+ vwo-blok) | B/C · Micro | Blaasjestransport ER → golgi → membraan; vwo: één enzym gevolgd, adreslabel, exo-/endocytose |
-| 6:36 (5:06) | H4 De krachtcentrale: het mitochondrium (+ vwo-blok) | B · Micro → Schema | In/uit-stromen, cristae met oppervlakbalk; vwo: hartspiercel vs vetcel |
+| 6:36 (5:06) | H4 De krachtcentrale: het mitochondrium (+ vwo-blok) | B · Micro → Schema | Glucosebrokstukken en zuurstof in, ATP en koolstofdioxide uit; cristae met oppervlakbalk; vwo: hartspiercel vs vetcel |
 | 8:34 (6:34) | H5 Opruimen en in evenwicht blijven: lysosomen en vacuolen | B/D · Micro | Lysosoom versmelt met afvalblaasje; pH-balk; vacuole en turgor |
 | 9:48 (7:48) | H6 De grens en het skelet: celmembraan en cytoskelet (+ vwo-blok) | B/D · Micro | Selectief membraan, ontvanger-eiwit; timelapse; vwo: motoreiwit op rails |
 | 10:53 (8:35) | H7 Plantencel en dierlijke cel (+ vwo-blok) | B · Schema | Vergelijking op één grondlijn; wand als zeef; nachtscenario; vwo: grana |
@@ -116,7 +140,8 @@ Regelnummers verwijzen naar film.src.html (= index.html; er zijn geen blobs, dus
 
 ## Aandachtspunten
 - Volgt Part C en de v3/v4-opzet (Havo/Vwo, Leerling/Klas, voorspelvragen, typekolom). Het enige gemengde: lettertypen komen van Google Fonts (extern) in plaats van ingebed; offline of bij een blokkade vallen ze terug op Georgia/system-ui.
+- H2 en H4 zijn op 11 oktober 's avonds herzien (zie versie 1.2); de regelnummers hierboven kunnen daardoor iets verschoven zijn.
 - De voorspelvragen worden niet ingesproken (alleen "Wat denk je?" aan het eind van de alinea); de leerling moet de vraag zelf lezen.
-- `chunks()` en de transcriptopbouw bevatten nog respelling-vervangingen (`ee-er`, `dee-en-aa`) die in de huidige data niet voorkomen; onschuldig, maar wijst erop dat de stem-invoer andere spelling had dan de ondertitels. De echte stem-invoer staat niet in de HTML.
+- `chunks()` en de transcriptopbouw bevatten nog respelling-vervangingen (`ee-er`, `dee-en-aa`) die in de huidige data niet voorkomen; onschuldig, maar wijst erop dat de stem-invoer andere spelling had dan de ondertitels. De echte stem-invoer staat in `stem/segmenten_stem-invoer.json`.
 - De audio staat als losse bestanden naast index.html (de andere films van de site zijn vaak één bestand met ingebedde audio); de map audio/ moet dus altijd mee gekopieerd worden.
 - Op de site-index staat deze film als nummer 2 van de cellen-rij, met "Onderzoek doen in de biologie" als nummer 1; in de reeks Cel is film 1 bedoeld als Diffusie, osmose en membraantransport.
