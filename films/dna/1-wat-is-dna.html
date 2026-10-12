@@ -423,6 +423,33 @@ function clock(ctx,cx,cy,r,angle,hl,alpha=1){ if(alpha<=0.01) return; ctx.save()
   ctx.restore(); }
 // line-cue helper: progress p for line li (1 after the line)
 const at=(li,L,lf)=> li>L?1: li<L?0: lf;
+
+// ---- film 3 library: mRNA, ribosome, tRNA, amino-acid chain, lipid particle ----
+// mRNA: single teal strand; bases point down (dir=+1) or up (dir=-1) from the backbone at y
+function mrna(ctx,x0,y,seq,o={}){ const dx=o.dx||90, s=o.s||0.8, dir=o.dir||1, a=o.alpha==null?1:o.alpha; if(a<=0.01||!seq.length) return;
+  backbone(ctx,x0-dx/2,y,seq.length*dx,{rna:true,dx,alpha:a,h:o.h||36});
+  for(let i=0;i<seq.length;i++) base(ctx,x0+i*dx,y+dir*16,seq[i],dir,{rna:true,s,alpha:a*(o.focus!=null&&(i<o.focus[0]||i>=o.focus[1])?0.35:1),mark:o.marks&&o.marks[i]?o.marks[i]:null}); }
+// ribosome (Part C ribosome colour, drawn enlarged): small and large subunit
+function ribosomeBig(ctx,x,y,w=300,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c='#C9B896', d=lighten(c,0.35);
+  blob(ctx,x,y-w*0.18,w*0.55,w*0.36,0.04,3); shape(ctx,rgba(c,0.9),d,1.5);
+  blob(ctx,x,y+w*0.30,w*0.5,w*0.2,0.04,7); shape(ctx,rgba(c,0.75),d,1.5);
+  ctx.restore(); }
+// amino acid bead (oker family); k picks a tint so neighbours differ
+const AAT=['#C9A35C','#B08A5C','#D9B97A','#9C7A4A','#E0C98F'];
+function aa(ctx,x,y,r,k,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c=AAT[k%AAT.length]; circ(ctx,x,y,r,c,lighten(c,0.35),1.5); if(lab) T(ctx,lab,x,y+r*0.36,Math.round(r*0.9),{w:700,align:'center',color:C.bgMicro}); ctx.restore(); }
+// tRNA: teal body (simplified L-shape seen as a T), anticodon of 3 bases at the bottom, amino acid on top
+function trna(ctx,x,y,anti,o={}){ // y = backbone line of the anticodon; bases point down (dir +1) to meet the codon
+  const a=o.alpha==null?1:o.alpha, dx=o.dx||96, bs=o.bs||0.8; if(a<=0.01) return {top:y-150-40-30}; ctx.save(); ctx.globalAlpha*=a;
+  const w=3*dx-20, h=150, top=y-h;
+  ctx.beginPath(); ctx.moveTo(x-w/2,y+14); ctx.lineTo(x-w/2,y-60); ctx.quadraticCurveTo(x-w/2,top+10,x-34,top); ctx.lineTo(x-22,top-40); ctx.lineTo(x+22,top-40); ctx.lineTo(x+34,top); ctx.quadraticCurveTo(x+w/2,top+10,x+w/2,y-60); ctx.lineTo(x+w/2,y+14); ctx.closePath();
+  ctx.fillStyle=rgba(RBB,0.95); ctx.fill(); ctx.strokeStyle=RBBR; ctx.lineWidth=1.5; ctx.stroke();
+  M(ctx,'trna',x,y-56,{align:'center',color:RC.A,px:24});
+  for(let i=0;i<3;i++) base(ctx,x+(i-1)*dx,y+12,anti[i],1,{rna:true,s:bs});
+  if(o.aa!==false) aa(ctx,x,top-40-30,36,o.k||0,o.aa||'',1);
+  ctx.restore(); return {top:top-40-30}; }
+// lipid nanoparticle with mRNA inside (vaccine): membrane ring in line colour, teal strand inside
+function lnp(ctx,x,y,r,alpha=1,t=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,r,rgba(C.fill,0.9),C.er,2); circ(ctx,x,y,r-6,null,C.er,1);
+  ctx.beginPath(); for(let k=0;k<=40;k++){ const u=k/40, ang=u*Math.PI*5+t*0.5; const rr=r*0.55*(0.4+0.6*Math.sin(u*Math.PI)); const X=x+Math.cos(ang)*rr, Y=y+Math.sin(ang)*rr; k?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.strokeStyle=C.teal; ctx.lineWidth=Math.max(2,r/14); ctx.lineCap='round'; ctx.stroke(); ctx.restore(); }
 </script>
 <script>// ===== DNA 1 · Wat is DNA? — scenes (Part C) =====
 const SCENES={};
@@ -671,7 +698,7 @@ function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=FILM.endLines||[]; lin
   metaText(ctx,FILM.footer,W/2,CAPTION_Y-20+120,C.text2,'center',22); }
 function drawQuestion(ctx,it,t){
   bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
-  text(ctx,'Wat denk je?',120,190,fTitel(64),C.text); ctx.font=fTekst(48,600); ctx.fillStyle=C.text; ctx.textAlign='left'; const yq=wrapText(ctx,seg.q,120,290,1680,60);
+  text(ctx,'Wat denk je?',120,190,fTitel(64),C.text); if(seg.source) metaText(ctx,seg.source,1800,190,C.text2,'right',28); ctx.font=fTekst(48,600); ctx.fillStyle=C.text; ctx.textAlign='left'; const yq=wrapText(ctx,seg.q,120,290,1680,60);
   const revealed=ph.phase==='reveal'; const y0=Math.max(400,yq+70); const n=seg.options.length; const hgt=n>3?86:96, gap=n>3?100:112;
   seg.options.forEach((o,i)=>{ const y=y0+i*gap; const chosen=ph.chosen===i; const correct=i===seg.correct;
     roundRect(ctx,120,y,1680,hgt,14); let fill=C.fill, stroke=C.line;
@@ -690,9 +717,19 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:y0+i*gap,w:1680,h:hgt,i}));
 }
 // captions: phrase chunks, at most two lines, in the ondertitelkast
-function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[], len=0;
-  for(const w of seg.words){ cur.push(w); len+=w.t.length+1; const endS=/[.?!:]$/.test(w.t); if(len>78||(endS&&len>28)){ out.push(cur); cur=[]; len=0; } }
-  if(cur.length) out.push(cur); seg._chunks=out; return out; }
+function chunks(seg){ if(seg._chunks) return seg._chunks; const MAX=112, L=w=>w.reduce((a,x)=>a+x.t.length+1,0);
+  // 1. sentences
+  const sents=[]; let cur=[]; for(const w of seg.words){ cur.push(w); if(/[.?!]$/.test(w.t)){ sents.push(cur); cur=[]; } } if(cur.length) sents.push(cur);
+  // 2. split long sentences at the best break: clause mark near the middle, else a balanced word break that never ends on a small word
+  const weak=/^(de|het|een|en|van|naar|in|op|of|aan|met|tot|bij|voor|uit|door|om|te|dan|die|dat|als|tegenover|zijn|je)$/i;
+  const split=ws=>{ if(L(ws)<=MAX||ws.length<4) return [ws]; const tot=L(ws); let best=-1, bs=1e9, acc=0;
+    for(let k=0;k<ws.length-1;k++){ acc+=ws[k].t.length+1; const bal=Math.abs(acc-tot/2)/tot; const clause=/[,:;]$/.test(ws[k].t); const bad=weak.test(ws[k].t.replace(/[^\wÀ-ÿ]/g,'')) || /^[\d'′]/.test(ws[k+1].t) || /^(naar|en)$/i.test(ws[k+1].t)&&/[\d'′]$/.test(ws[k].t);
+      const sc=bal+(clause?0:0.25)+(bad?1:0); if(sc<bs){ bs=sc; best=k; } }
+    return [...split(ws.slice(0,best+1)),...split(ws.slice(best+1))]; };
+  const parts=[]; for(const st of sents) parts.push(...split(st));
+  // 3. merge short neighbours
+  const out=[]; for(const p of parts){ const last=out[out.length-1]; if(last&&(L(last)<30||L(p)<30)&&L(last)+L(p)<=MAX) last.push(...p); else out.push([...p]); }
+  seg._chunks=out; return out; }
 function drawCaption(ctx,seg,t){ const cs=chunks(seg); let ch=null; for(const c of cs){ if(t>=c[0].s-0.15) ch=c; } if(!ch||t>ch[ch.length-1].e+0.8) return;
   const s=ch.map(w=>w.t).join(' '); ctx.font=fTekst(44,700); const words=s.split(' '); const lines=[]; let line='';
   for(const w of words){ const tst=line?line+' '+w:w; if(ctx.measureText(tst).width>1500&&line){ lines.push(line); line=w; } else line=tst; } if(line) lines.push(line);

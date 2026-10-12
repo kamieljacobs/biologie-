@@ -82,9 +82,19 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:y0+i*gap,w:1680,h:hgt,i}));
 }
 // captions: phrase chunks, at most two lines, in the ondertitelkast
-function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[], len=0;
-  for(const w of seg.words){ cur.push(w); len+=w.t.length+1; const endS=/[.?!:]$/.test(w.t); if(len>78||(endS&&len>28)){ out.push(cur); cur=[]; len=0; } }
-  if(cur.length) out.push(cur); seg._chunks=out; return out; }
+function chunks(seg){ if(seg._chunks) return seg._chunks; const MAX=112, L=w=>w.reduce((a,x)=>a+x.t.length+1,0);
+  // 1. sentences
+  const sents=[]; let cur=[]; for(const w of seg.words){ cur.push(w); if(/[.?!]$/.test(w.t)){ sents.push(cur); cur=[]; } } if(cur.length) sents.push(cur);
+  // 2. split long sentences at the best break: clause mark near the middle, else a balanced word break that never ends on a small word
+  const weak=/^(de|het|een|en|van|naar|in|op|of|aan|met|tot|bij|voor|uit|door|om|te|dan|die|dat|als|tegenover|zijn|je)$/i;
+  const split=ws=>{ if(L(ws)<=MAX||ws.length<4) return [ws]; const tot=L(ws); let best=-1, bs=1e9, acc=0;
+    for(let k=0;k<ws.length-1;k++){ acc+=ws[k].t.length+1; const bal=Math.abs(acc-tot/2)/tot; const clause=/[,:;]$/.test(ws[k].t); const bad=weak.test(ws[k].t.replace(/[^\wÀ-ÿ]/g,'')) || /^[\d'′]/.test(ws[k+1].t) || /^(naar|en)$/i.test(ws[k+1].t)&&/[\d'′]$/.test(ws[k].t);
+      const sc=bal+(clause?0:0.25)+(bad?1:0); if(sc<bs){ bs=sc; best=k; } }
+    return [...split(ws.slice(0,best+1)),...split(ws.slice(best+1))]; };
+  const parts=[]; for(const st of sents) parts.push(...split(st));
+  // 3. merge short neighbours
+  const out=[]; for(const p of parts){ const last=out[out.length-1]; if(last&&(L(last)<30||L(p)<30)&&L(last)+L(p)<=MAX) last.push(...p); else out.push([...p]); }
+  seg._chunks=out; return out; }
 function drawCaption(ctx,seg,t){ const cs=chunks(seg); let ch=null; for(const c of cs){ if(t>=c[0].s-0.15) ch=c; } if(!ch||t>ch[ch.length-1].e+0.8) return;
   const s=ch.map(w=>w.t).join(' '); ctx.font=fTekst(44,700); const words=s.split(' '); const lines=[]; let line='';
   for(const w of words){ const tst=line?line+' '+w:w; if(ctx.measureText(tst).width>1500&&line){ lines.push(line); line=w; } else line=tst; } if(line) lines.push(line);

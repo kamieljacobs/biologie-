@@ -102,4 +102,5 @@ Regelnummers in 3-van-dna-naar-eiwit.html (de base64-audio staat binnen FILMDATA
 - Het mRNA-vaccin wordt alleen in de opening, vraag 5 en de samenvatting gebruikt; claims: niet in de kern, wordt geen DNA, wordt afgebroken.
 
 ## Wijzigingen
+- 1.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma.
 - 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA's, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon). Dezelfde dag: n17 opnieuw ingesproken, de wiebelbase is de derde base van het codon (niet van het anticodon).
