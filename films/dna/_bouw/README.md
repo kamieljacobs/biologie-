@@ -6,7 +6,7 @@ Gedeeld door alle DNA-films. Elke film is één zelfstandig HTML-bestand in `fil
 |---|---|
 | `src/lib.js` | Part C-tokens en tekenbibliotheek (overgenomen van Celorganellen) + `metaCase` (kapitalen behalve eenheden) |
 | `src/dnalib.js` | DNA-bibliotheek: basen met paarrand (A punt / T inkeping, C nok / G sleuf), RNA-tinten (teal), ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok, schaalbalk |
-| `src/scenes<n>.js` | scènes per film; `SCENES.<naam>=(ctx,li,lf,t,q)` |
+| `src/scenes<n>.js` | scènes per film; `SCENES.<naam>=(ctx,li,lf,t,q)` (film 3: transcriptie, translatie met mRNA/ribosoom/tRNA, vaccin) |
 | `src/player.js` | reeksspeler: ingesproken vragen, Havo/Vwo, Leerling/Klas, toetsen (spatie, ← → ±5 s, Shift ±30 s, ↑ ↓ hoofdstuk, A/B/C/1/2/3, Enter) |
 | `src/page.tpl` | paginasjabloon |
 | `films.py` | per film: titels, hoofdstukvragen, eindkaart, legenda, docenttabel "Hoe de film het uitlegt" (met look-kolom) |
@@ -14,6 +14,7 @@ Gedeeld door alle DNA-films. Elke film is één zelfstandig HTML-bestand in `fil
 | `data/afl<n>_words.json` | woordtijden en regelgrenzen per segment |
 | `data/afl<n>_stem.json` | letterlijke stem-invoer (respellings) en model |
 | `data/afl<n>_docent.htmlfrag` | docentdeel (pauzes, vereenvoudigingen, leerdoelen) |
+| `make_words3.py` | woordtijden en regelgrenzen uit Scribe-transcripten (film 3; regelgrens = midden tussen laatste woord en eerste woord van de volgende regel) |
 | `fonts/` | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 (woff2-subsets) |
 
 Bouwen (in een werkmap buiten de repo):

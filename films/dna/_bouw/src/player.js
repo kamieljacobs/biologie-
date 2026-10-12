@@ -63,7 +63,7 @@ function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=FILM.endLines||[]; lin
   metaText(ctx,FILM.footer,W/2,CAPTION_Y-20+120,C.text2,'center',22); }
 function drawQuestion(ctx,it,t){
   bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
-  text(ctx,'Wat denk je?',120,190,fTitel(64),C.text); ctx.font=fTekst(48,600); ctx.fillStyle=C.text; ctx.textAlign='left'; const yq=wrapText(ctx,seg.q,120,290,1680,60);
+  text(ctx,'Wat denk je?',120,190,fTitel(64),C.text); if(seg.source) metaText(ctx,seg.source,1800,190,C.text2,'right',28); ctx.font=fTekst(48,600); ctx.fillStyle=C.text; ctx.textAlign='left'; const yq=wrapText(ctx,seg.q,120,290,1680,60);
   const revealed=ph.phase==='reveal'; const y0=Math.max(400,yq+70); const n=seg.options.length; const hgt=n>3?86:96, gap=n>3?100:112;
   seg.options.forEach((o,i)=>{ const y=y0+i*gap; const chosen=ph.chosen===i; const correct=i===seg.correct;
     roundRect(ctx,120,y,1680,hgt,14); let fill=C.fill, stroke=C.line;

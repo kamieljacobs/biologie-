@@ -19,6 +19,17 @@ def timeline(segs,niv):
     for k,s,d in items: out.append((k,s,t,d)); t+=d
     return out,t
 fmt=lambda x:f'{int(x//60)}:{int(x%60):02d}'
+VWO={1:'hoofdstuk 4 is een vwo-blok',2:'hoofdstuk 4 is een vwo-blok',3:'vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag)'}
+VERSIE={1:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',2:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',3:'1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin)'}
+_W12='- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: {}\n- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.'
+WIJZ={1:_W12.format('schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.'),2:_W12.format('de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'),
+ 3:'- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA\'s, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon).'}
+AANDACHT={1:'- Stem-invoer van film 1 is gereconstrueerd volgens de uitspraaklijst; de letterlijke invoer van 8 oktober is niet bewaard.',2:'- Uitspraak van helicase, primase, ligase en Okazaki (takes n7, n17) is nog niet door Kamiel beoordeeld.',
+ 3:"""- Uitspraak in context nog door Kamiel te beluisteren: tRNA als “tee-er-en-aa” (n12 ≈ 0:40, n15 ≈ 0:03, n17 ≈ 0:18, n23 ≈ 0:18), TATA-box als “taata-box” (n10 ≈ 0:13), exons als “eksons” (n10 ≈ 0:34), 3′/5′ als “drie-accent/vijf-accent” (n10 ≈ 0:19, n15 ≈ 0:08). Tijden zijn binnen de take.
+- De wiebelbase-zin volgt Nectar (“derde base van het anticodon”, anticodon 3′→5′ onder het codon). Het beeld zet 3′/5′ erbij; het docentdeel legt de 5′→3′-notatie uit.
+- “Daar bindt RNA-polymerase” bij de TATA-box is vereenvoudigd (transcriptiefactoren); zie docentdeel.
+- De kegelslakvraag is geparafraseerd naar CvTE havo 2021-I; de bron staat op de vraagkaart (`source` in het vraagsegment, rechtsboven in Meta).
+- Het mRNA-vaccin wordt alleen in de opening, vraag 5 en de samenvatting gebruikt; claims: niet in de kern, wordt geen DNA, wordt afgebroken."""}
 def main(n,dest):
     F=FILMS[n]; d,page=segs_of(n); segs=d['segments']; S=json.load(open(f'{HERE}/data/afl{n}_script.json')); stem=json.load(open(f'{HERE}/data/afl{n}_stem.json'))
     tv,TV=timeline(segs,'vwo'); th,TH=timeline(segs,'havo')
@@ -34,19 +45,21 @@ def main(n,dest):
     I.append('| Veld | Waarde |\n|---|---|')
     I+= [f"| Bestand | films/dna/{F['file']} (één zelfstandig bestand; audio en lettertypen ingebed) |",
          f"| Reeks / nummer | DNA, film {n} van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |",
-         "| Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |",
-         "| Versie / datum | 2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd |",
+         f"| Doelgroep / niveau | havo + vwo; {VWO[n]} (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |",
+         f"| Versie / datum | {VERSIE[n]} |",
          f"| Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_multilingual_v2); één take per alinea of vraag |",
          f"| Duur | gesproken {fmt(spoken)}; speeltijd (zonder wachten bij vragen) vwo {fmt(TV)}, havo {fmt(TH)} |",
          "| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |",
          "| Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |",
-         "| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1/2, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |\n"]
+         "| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1/2/3, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |\n"]
     I.append('## Opbouw\nBegintijden in de speler (hoofdstukkaart), vwo en havo.\n')
     I.append('| Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |\n|---|---|---|---|---|---|')
     for ci,ch in enumerate(chs):
         ss=[s for s in segs if s['chapter']==ch and s['kind'] in('speech','question')]
         kv=[t for k,s,t,_ in tv if s['chapter']==ch]; kh=[t for k,s,t,_ in th if s['chapter']==ch]
-        r=rows[ci] if ci<len(rows) else ['','','','','']
+        m=re.match(r'Hoofdstuk (\d+)',ch); key=m.group(1)+' ' if m else ch.split(' ')[0]
+        rr=[x for x in rows if re.sub('<.*?>','',x[0]).startswith(key)] or [['','','','','']]
+        r=['',' + '.join(dict.fromkeys(x[1] for x in rr)),' + '.join(dict.fromkeys(x[2] for x in rr)),' / '.join(x[3] for x in rr),'']
         I.append(f"| {fmt(min(kv)) if kv else '—'} | {fmt(min(kh)) if kh else '—'} | {ch} | {', '.join(s['id'] for s in ss)} | {re.sub('<.*?>','',r[1])} · {r[2]} | {r[3]} |")
     I.append('\n## Voorspelvragen\nDe vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling; het antwoord wordt in het volgende segment uitgesproken.\n')
     I.append('| Segment | Niveau | Vraag | Opties (juist vet) |\n|---|---|---|---|')
@@ -75,12 +88,11 @@ Regelnummers in {F['file']} (de base64-audio staat binnen FILMDATA op één rege
 - Alle tekst moet boven y = 892 blijven: de speler knipt scènes daar af (ondertitelzone).
 - Meta-tekst staat in kapitalen, behalve eenheden (`metaCase` in de bibliotheek): µm, nm, °C blijven correct.
 - De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
-- Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2), eiwit oker (histonen in film 1).
-- {'Stem-invoer van film 1 is gereconstrueerd volgens de uitspraaklijst; de letterlijke invoer van 8 oktober is niet bewaard.' if n==1 else 'Uitspraak van helicase, primase, ligase en Okazaki (takes n7, n17) is nog niet door Kamiel beoordeeld.'}
+- Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
+{AANDACHT[n]}
 
 ## Wijzigingen
-- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: {'schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.' if n==1 else 'de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'}
-- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.
+{WIJZ[n]}
 """)
     open(f'{b}/info.md','w',encoding='utf-8').write('\n'.join(I))
     # script.md

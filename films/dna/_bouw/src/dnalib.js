@@ -112,3 +112,30 @@ function clock(ctx,cx,cy,r,angle,hl,alpha=1){ if(alpha<=0.01) return; ctx.save()
   ctx.restore(); }
 // line-cue helper: progress p for line li (1 after the line)
 const at=(li,L,lf)=> li>L?1: li<L?0: lf;
+
+// ---- film 3 library: mRNA, ribosome, tRNA, amino-acid chain, lipid particle ----
+// mRNA: single teal strand; bases point down (dir=+1) or up (dir=-1) from the backbone at y
+function mrna(ctx,x0,y,seq,o={}){ const dx=o.dx||90, s=o.s||0.8, dir=o.dir||1, a=o.alpha==null?1:o.alpha; if(a<=0.01||!seq.length) return;
+  backbone(ctx,x0-dx/2,y,seq.length*dx,{rna:true,dx,alpha:a,h:o.h||36});
+  for(let i=0;i<seq.length;i++) base(ctx,x0+i*dx,y+dir*16,seq[i],dir,{rna:true,s,alpha:a*(o.focus!=null&&(i<o.focus[0]||i>=o.focus[1])?0.35:1),mark:o.marks&&o.marks[i]?o.marks[i]:null}); }
+// ribosome (Part C ribosome colour, drawn enlarged): small and large subunit
+function ribosomeBig(ctx,x,y,w=300,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c='#C9B896', d=lighten(c,0.35);
+  blob(ctx,x,y-w*0.18,w*0.55,w*0.36,0.04,3); shape(ctx,rgba(c,0.9),d,1.5);
+  blob(ctx,x,y+w*0.30,w*0.5,w*0.2,0.04,7); shape(ctx,rgba(c,0.75),d,1.5);
+  ctx.restore(); }
+// amino acid bead (oker family); k picks a tint so neighbours differ
+const AAT=['#C9A35C','#B08A5C','#D9B97A','#9C7A4A','#E0C98F'];
+function aa(ctx,x,y,r,k,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c=AAT[k%AAT.length]; circ(ctx,x,y,r,c,lighten(c,0.35),1.5); if(lab) T(ctx,lab,x,y+r*0.36,Math.round(r*0.9),{w:700,align:'center',color:C.bgMicro}); ctx.restore(); }
+// tRNA: teal body (simplified L-shape seen as a T), anticodon of 3 bases at the bottom, amino acid on top
+function trna(ctx,x,y,anti,o={}){ // y = backbone line of the anticodon; bases point down (dir +1) to meet the codon
+  const a=o.alpha==null?1:o.alpha, dx=o.dx||96, bs=o.bs||0.8; if(a<=0.01) return {top:y-150-40-30}; ctx.save(); ctx.globalAlpha*=a;
+  const w=3*dx-20, h=150, top=y-h;
+  ctx.beginPath(); ctx.moveTo(x-w/2,y+14); ctx.lineTo(x-w/2,y-60); ctx.quadraticCurveTo(x-w/2,top+10,x-34,top); ctx.lineTo(x-22,top-40); ctx.lineTo(x+22,top-40); ctx.lineTo(x+34,top); ctx.quadraticCurveTo(x+w/2,top+10,x+w/2,y-60); ctx.lineTo(x+w/2,y+14); ctx.closePath();
+  ctx.fillStyle=rgba(RBB,0.95); ctx.fill(); ctx.strokeStyle=RBBR; ctx.lineWidth=1.5; ctx.stroke();
+  M(ctx,'trna',x,y-56,{align:'center',color:RC.A,px:24});
+  for(let i=0;i<3;i++) base(ctx,x+(i-1)*dx,y+12,anti[i],1,{rna:true,s:bs});
+  if(o.aa!==false) aa(ctx,x,top-40-30,36,o.k||0,o.aa||'',1);
+  ctx.restore(); return {top:top-40-30}; }
+// lipid nanoparticle with mRNA inside (vaccine): membrane ring in line colour, teal strand inside
+function lnp(ctx,x,y,r,alpha=1,t=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,r,rgba(C.fill,0.9),C.er,2); circ(ctx,x,y,r-6,null,C.er,1);
+  ctx.beginPath(); for(let k=0;k<=40;k++){ const u=k/40, ang=u*Math.PI*5+t*0.5; const rr=r*0.55*(0.4+0.6*Math.sin(u*Math.PI)); const X=x+Math.cos(ang)*rr, Y=y+Math.sin(ang)*rr; k?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.strokeStyle=C.teal; ctx.lineWidth=Math.max(2,r/14); ctx.lineCap='round'; ctx.stroke(); ctx.restore(); }

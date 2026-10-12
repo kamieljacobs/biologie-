@@ -1,0 +1,463 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Een prik in je bovenarm. In het vaccin zit geen virus, en ook geen eiwit van het virus.",
+    "De werkzame stof is een stukje mRNA, verpakt in vetbolletjes. Een recept.",
+    "Een dag later maken je eigen spiercellen een eiwit van het virus.",
+    "Een eiwit dat ze nog nooit hebben gemaakt.",
+    "Hoe kan een cel een recept volgen dat niet in haar eigen DNA staat?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Van DNA naar eiwit",
+   "sub": "DNA · aflevering 3"
+  },
+  {
+   "kind": "card",
+   "title": "Een gen is een recept",
+   "sub": "Hoofdstuk 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "Je cellen maken de hele dag eiwitten. Enzymen, receptoren, antistoffen, spiereiwit.",
+    "Het recept voor een eiwit staat in je DNA, in een gen. Dat zag je in aflevering één.",
+    "Maar het DNA ligt in de kern. En eiwitten worden gemaakt door ribosomen, in het cytoplasma.",
+    "Het DNA blijft in de kern."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h1q",
+   "text": "Hoe komt het recept van één gen dan bij de ribosomen? Wat denk je?",
+   "opts": [
+    "het DNA gaat zelf de kern uit",
+    "er gaat een afschrift van dat ene gen naar buiten",
+    "het eiwit wordt in de kern gemaakt en naar buiten gebracht"
+   ],
+   "correct": 1
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "B. De cel maakt een afschrift van één gen. Dat afschrift is van RNA.",
+    "Het DNA blijft veilig in de kern. Alleen het afschrift gaat naar buiten.",
+    "RNA lijkt op DNA, met drie verschillen.",
+    "RNA is enkelstrengs: één streng, geen ladder.",
+    "De suiker is ribose, in plaats van desoxyribose.",
+    "En in plaats van thymine heeft RNA uracil. U in plaats van T.",
+    "Het RNA dat het recept naar de ribosomen brengt, heet messenger-RNA. Kort: mRNA.",
+    "De weg van gen naar eiwit heet eiwitsynthese. Die gaat in twee stappen."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Transcriptie: het gen overschrijven",
+   "sub": "Hoofdstuk 2"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Stap één gebeurt in de kern.",
+    "Een enzym, RNA-polymerase, gaat op het begin van een gen zitten.",
+    "Het haalt de twee DNA-strengen daar uit elkaar, net als bij het kopiëren.",
+    "Nu wordt maar één streng gelezen, en alleen dat ene gen.",
+    "Langs die streng zweven vrije RNA-nucleotiden. Een passende blijft hangen, en RNA-polymerase koppelt hem vast.",
+    "Dezelfde basenparing als altijd, met één verschil: tegenover een A in het DNA komt geen T, maar een U.",
+    "Achter het enzym gaat het DNA weer dicht."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h2q",
+   "text": "Het DNA heeft hier T A C. Welk stukje mRNA ontstaat ertegenover? Wat denk je?",
+   "opts": [
+    "T A C",
+    "A T G",
+    "A U G"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "C. A U G. Tegenover T een A, tegenover A een U, tegenover C een G.",
+    "Onthoud dit stukje: A U G. Je komt het zo weer tegen.",
+    "De vorming van mRNA langs het DNA heet transcriptie."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h2v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Waar begint RNA-polymerase aan een gen? Vóór elk gen ligt een stuk DNA dat zelf niet wordt overgeschreven: de promotor.",
+    "In de promotor zit vaak een vaste volgorde, de TATA-box. Daar bindt RNA-polymerase.",
+    "Het enzym leest één streng, de matrijsstreng, van 3' naar 5'.",
+    "Het mRNA groeit dus van 5' naar 3'. Net als nieuw DNA bij het kopiëren.",
+    "En het eerste mRNA is nog niet af. Het heet pre-mRNA.",
+    "Bij eukaryoten bestaat een gen uit exons en introns. Alleen de exons komen in het mRNA.",
+    "De introns worden uit het pre-mRNA geknipt en de exons komen achter elkaar te liggen. Dat heet splicing.",
+    "Soms worden niet steeds dezelfde exons gebruikt: alternatieve splicing. Zo levert één gen meer dan één eiwit op.",
+    "Pas als het mRNA af is, gaat het de kern uit."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Translatie: het recept lezen",
+   "sub": "Hoofdstuk 3"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Het mRNA laat los en gaat door een opening in het kernmembraan naar buiten.",
+    "Stap twee gebeurt in het cytoplasma, bij een ribosoom.",
+    "Het ribosoom gaat op het mRNA zitten en schuift erlangs.",
+    "Het leest het mRNA steeds per drie nucleotiden. Zo'n groepje van drie heet een codon.",
+    "Elk codon codeert voor één aminozuur, op drie stopcodons na.",
+    "Welk codon bij welk aminozuur hoort, heet de genetische code. Jij zoekt hem op in een codontabel.",
+    "Het ribosoom begint bij het codon A U G: het startcodon. Volgens de tabel staat A U G voor het aminozuur methionine.",
+    "De aminozuren worden aangevoerd door kleine RNA-moleculen: transfer-RNA, of tRNA.",
+    "Elk tRNA draagt één soort aminozuur. Alleen het tRNA dat past, blijft aan het codon hangen.",
+    "Het ribosoom koppelt de aminozuren aan elkaar, codon na codon. Zo groeit een keten.",
+    "Tot het ribosoom een stopcodon tegenkomt. Dat codeert niet voor een aminozuur: de eiwitsynthese stopt en de keten laat los.",
+    "Het koppelen van aminozuren in een ribosoom, in de volgorde die het mRNA bepaalt, heet translatie."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h3q",
+   "text": "Een kegelslak maakt een gif van 17 aminozuren. Hoeveel nucleotiden van het mRNA coderen voor die 17 aminozuren? Wat denk je?",
+   "opts": [
+    "17",
+    "51",
+    "54"
+   ],
+   "correct": 1,
+   "source": "naar CvTE, examen biologie havo 2021, tijdvak 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "B. Eenenvijftig. Drie nucleotiden per aminozuur, dus drie keer zeventien.",
+    "Antwoord C telt het stopcodon mee. Maar dat codeert niet voor een aminozuur."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h3v",
+   "lines": [
+    "Voor vwo nog een stap verder: hoe komt het juiste tRNA bij het juiste codon?",
+    "Het ribosoom leest het mRNA van 5' naar 3'.",
+    "Elk tRNA heeft aan één kant drie basen: het anticodon. Die passen tegenover het codon.",
+    "Tegenover het codon A U G staat het anticodon U A C.",
+    "Er zijn vierenzestig codons, en maar twintig aminozuren."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "v",
+   "scene": "h3vq",
+   "text": "Vierenzestig codons, twintig aminozuren. Wat volgt daaruit? Wat denk je?",
+   "opts": [
+    "de meeste codons doen niets",
+    "de meeste aminozuren hebben meer dan één codon",
+    "elk codon staat voor een ander aminozuur"
+   ],
+   "correct": 1
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h3w",
+   "lines": [
+    "B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren.",
+    "Bijna elk aminozuur heeft er dus meer dan één.",
+    "Vaak verschillen die codons alleen in de derde base.",
+    "De derde base van het anticodon paart minder streng dan de andere twee. Die noem je de wiebelbase.",
+    "Zo kan één tRNA aan meer dan één codon binden.",
+    "Terug naar de keten die van het ribosoom komt."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Van keten naar vorm",
+   "sub": "Hoofdstuk 4"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4a",
+   "lines": [
+    "Een keten van aminozuren is nog geen werkend eiwit.",
+    "De keten vouwt zich op tot een vaste vorm. Welke vorm, hangt af van de volgorde van de aminozuren.",
+    "En de vorm bepaalt wat het eiwit kan. Een enzym past op zijn substraat. Een receptor past op zijn signaalstof.",
+    "Verander je één aminozuur, dan kan de vorm veranderen, en daarmee de werking. Daar gaat aflevering vijf over.",
+    "Dus: de volgorde van de nucleotiden bepaalt de volgorde van de aminozuren. En die bepaalt de vorm van het eiwit."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q",
+   "text": "Na de prik: waar wordt het eiwit van het virus gemaakt? Wat denk je?",
+   "opts": [
+    "in het vaccin, vóór de prik",
+    "in de celkern van je spiercel",
+    "in de ribosomen van je eigen cellen"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4b",
+   "lines": [
+    "C. In je eigen cellen. Het vaccin-mRNA komt in het cytoplasma terecht, bij de ribosomen.",
+    "Die lezen het recept, net als elk ander mRNA, en maken het eiwit van het virus.",
+    "Afweercellen komen dat eiwit tegen en leren het herkennen, zonder dat je het virus zelf krijgt.",
+    "Het vaccin-mRNA komt niet in de kern en wordt geen DNA. Na een tijdje breekt de cel het af."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar de prik",
+   "sub": "Samenvatting"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Terug naar de prik.",
+    "Een ribosoom leest elk mRNA op dezelfde manier, waar het ook vandaan komt.",
+    "Normaal komt dat mRNA uit de kern. Daar schrijft RNA-polymerase een gen over: transcriptie.",
+    "In het cytoplasma lezen ribosomen het mRNA per codon, en brengen tRNA's de aminozuren. Translatie.",
+    "Bijna alle levende wezens gebruiken dezelfde genetische code. Een codon betekent in een bacterie hetzelfde aminozuur als in jouw cellen.",
+    "Hoe je de codontabel zelf gebruikt, oefen je in aflevering vier."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Een gen is een recept",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "Transcriptie: het gen overschrijven",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Translatie: het recept lezen",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Van keten naar vorm",
+   "level": "b"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "gen",
+   "Stuk DNA met de informatie (het recept) voor één eiwit.",
+   "b"
+  ],
+  [
+   "eiwitsynthese",
+   "Het maken van een eiwit aan de hand van een gen, in twee stappen: transcriptie en translatie.",
+   "b"
+  ],
+  [
+   "RNA",
+   "Nucleïnezuur van één streng, met de suiker ribose en de base uracil (U) in plaats van thymine (T).",
+   "b"
+  ],
+  [
+   "mRNA (messenger-RNA)",
+   "RNA-afschrift van een gen dat de informatie van de kern naar de ribosomen brengt.",
+   "b"
+  ],
+  [
+   "RNA-polymerase",
+   "Enzym dat bij transcriptie vrije RNA-nucleotiden koppelt langs één DNA-streng.",
+   "b"
+  ],
+  [
+   "transcriptie",
+   "Vorming van mRNA langs het DNA van een gen, in de kern.",
+   "b"
+  ],
+  [
+   "ribosoom",
+   "Celorganel waarin aminozuren in de volgorde van het mRNA aan elkaar worden gekoppeld.",
+   "b"
+  ],
+  [
+   "codon",
+   "Drie opeenvolgende nucleotiden van het mRNA die samen één aminozuur (of stop) coderen.",
+   "b"
+  ],
+  [
+   "startcodon",
+   "Het codon AUG, waar de translatie begint; codeert voor methionine.",
+   "b"
+  ],
+  [
+   "stopcodon",
+   "Codon (UAA, UAG of UGA) zonder aminozuur; hier stopt de translatie.",
+   "b"
+  ],
+  [
+   "genetische code",
+   "Welk codon bij welk aminozuur hoort; je zoekt het op in een codontabel.",
+   "b"
+  ],
+  [
+   "tRNA (transfer-RNA)",
+   "Klein RNA-molecuul dat één soort aminozuur naar het ribosoom brengt.",
+   "b"
+  ],
+  [
+   "translatie",
+   "Het koppelen van aminozuren in een ribosoom, in de volgorde die het mRNA bepaalt.",
+   "b"
+  ],
+  [
+   "promotor",
+   "Stuk DNA vóór een gen waar RNA-polymerase bindt; wordt zelf niet overgeschreven.",
+   "v"
+  ],
+  [
+   "TATA-box",
+   "Vaste basenvolgorde in veel promotors; hier binden hulpeiwitten die RNA-polymerase op zijn plek zetten. De transcriptie begint iets verderop.",
+   "v"
+  ],
+  [
+   "matrijsstreng",
+   "De DNA-streng die bij transcriptie wordt afgelezen (van 3' naar 5').",
+   "v"
+  ],
+  [
+   "pre-mRNA",
+   "Het eerste, nog onbewerkte RNA-afschrift bij eukaryoten, met introns.",
+   "v"
+  ],
+  [
+   "exon / intron",
+   "Exons komen in het mRNA terecht; introns worden eruit geknipt.",
+   "v"
+  ],
+  [
+   "splicing",
+   "Het verwijderen van introns uit pre-mRNA; bij alternatieve splicing levert één gen verschillende mRNA's.",
+   "v"
+  ],
+  [
+   "anticodon",
+   "Drie basen van een tRNA die complementair zijn aan een codon.",
+   "v"
+  ],
+  [
+   "wiebelbase",
+   "Derde base van een codon (eerste van het anticodon) die minder streng paart; daardoor herkent één tRNA soms meer codons.",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Noem drie verschillen tussen DNA en RNA.",
+    "RNA is enkelstrengs, heeft de suiker ribose (DNA: desoxyribose) en de base uracil (U) in plaats van thymine (T)."
+   ],
+   [
+    "Een stukje van de afgelezen DNA-streng is T A C G G A. Welk mRNA ontstaat ertegenover?",
+    "A U G C C U"
+   ],
+   [
+    "Een eiwit bestaat uit 120 aminozuren. Uit hoeveel nucleotiden bestaat het coderende deel van het mRNA minstens, met het stopcodon erbij?",
+    "120 × 3 = 360 nucleotiden voor de aminozuren, plus 3 voor het stopcodon: 363."
+   ],
+   [
+    "Leg uit waarom het vaccin-mRNA geen invloed heeft op je eigen DNA.",
+    "Het mRNA komt alleen in het cytoplasma bij de ribosomen, niet in de kern. Het wordt niet omgezet in DNA en wordt na een tijdje afgebroken."
+   ]
+  ],
+  "v": [
+   [
+    "Een gen heeft drie exons en twee introns. Leg uit hoe dit ene gen twee verschillende eiwitten kan opleveren.",
+    "Door alternatieve splicing: in het ene mRNA komen bijvoorbeeld exon 1, 2 en 3, in het andere alleen exon 1 en 3. Zo ontstaan verschillende aminozuurvolgordes."
+   ],
+   [
+    "Een tRNA heeft het anticodon CCU (3'→5', geschreven onder het codon). Aan welke codons kan het binden, als de wiebelbase U ook met G paart?",
+    "GGA en GGG (beide glycine)."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "Aantal codons",
+   "64 (4³)",
+   "4 basen, 3 per codon"
+  ],
+  [
+   "Stopcodons",
+   "3: UAA, UAG, UGA",
+   "standaard genetische code"
+  ],
+  [
+   "Aminozuren in de code",
+   "20",
+   "standaard genetische code"
+  ],
+  [
+   "Gif kegelslak",
+   "17 aminozuren → 51 nucleotiden",
+   "naar CvTE havo 2021-I; 17 × 3"
+  ],
+  [
+   "Afbraak vaccin-mRNA",
+   "na een tijdje (dagen)",
+   "orde-schatting; de film noemt geen precies getal"
+  ]
+ ]
+}
