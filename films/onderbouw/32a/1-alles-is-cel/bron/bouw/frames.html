@@ -307,7 +307,7 @@ function blobPath(cx,cy,rx,ry,rot,seed,waves,amp,from,to){
 function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,cols,opt){
   opt=opt||{};
   ctx.save();
-  ctx.shadowColor='rgba(30,50,10,0.28)'; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
+  ctx.shadowColor=SHADOW; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
   blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07);
   const g=ctx.createRadialGradient(lx,ly,8,lx,ly,Math.max(rx,ry)*1.6);
   g.addColorStop(0,cols[0]); g.addColorStop(0.45,cols[1]); g.addColorStop(1,cols[2]);
@@ -323,8 +323,10 @@ function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,cols,opt){
   ctx.restore();
   ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); ctx.strokeStyle=cols[3]; ctx.globalAlpha=0.6; ctx.lineWidth=1.4; ctx.stroke(); ctx.restore();
 }
-const BOT=['#F2F7C6','#A6D45A','#5E9E2E','#3F7A1E','#FFFFFF'];   // fresh butterhead
-const BOT2=['#F7FADA','#C2E27A','#7DB842','#4E8A26','#FFFFFF'];
+let BOT=['#F2F7C6','#A6D45A','#5E9E2E','#3F7A1E','#FFFFFF'];   // fresh butterhead
+let BOT2=['#F7FADA','#C2E27A','#7DB842','#4E8A26','#FFFFFF'];
+let HART=['#FBFDE6','#DDEFA4','#A8D468','#6FA83A','#FFFFFF'];
+let SLAPF=[['#F1F3CF','#CBD98F','#9DB45F','#6E8838'],['#ECF0C4','#C1D383','#93AC55','#647F32']], SLAPB=[['#DCE3AE','#A7BC6A','#7C9744','#58702D'],['#E2E6B4','#B2C474','#86A04C','#5E7630']], RIB='#F7F8E6', SHADOW='rgba(30,50,10,0.28)';
 function stevigeKrop(x,y,s){
   const L=(cx,cy,rx,ry,rot,seed,c,o)=>lettuceLeaf(x+cx*s,y+cy*s,rx*s,ry*s,rot,seed,x,y+40*s,c,o);
   // outer leaves, splayed down and out onto the counter
@@ -334,8 +336,8 @@ function stevigeKrop(x,y,s){
   // middle ring
   L(-80,-30,115,120,-0.25,10,BOT2,{amp:0.06}); L(85,-30,115,120,0.25,11,BOT2,{amp:0.06}); L(0,-60,120,110,0,12,BOT2,{amp:0.06});
   // the heart: cupped pale leaves
-  L(-35,10,85,95,-0.15,13,['#FBFDE6','#DDEFA4','#A8D468','#6FA83A','#FFFFFF'],{amp:0.05,waves:9});
-  L(40,15,85,92,0.15,14,['#FBFDE6','#DDEFA4','#A8D468','#6FA83A','#FFFFFF'],{amp:0.05,waves:9});
+  L(-35,10,85,95,-0.15,13,HART,{amp:0.05,waves:9});
+  L(40,15,85,92,0.15,14,HART,{amp:0.05,waves:9});
   L(0,55,120,70,0,15,BOT,{amp:0.06});
   L(-40,110,135,55,-0.05,16,BOT); L(55,112,130,52,0.08,17,BOT);
 }
@@ -344,7 +346,7 @@ function slappeKrop(x,y,s){
   const top=[x+4*s,y-165*s], hemY=y+10*s;
   const drapes=[[-275,-120,0,0],[110,280,1,0],[-230,-20,2,0],[40,235,3,0],[-170,30,4,1],[-40,170,5,1],[-110,0,6,1],[-5,105,7,1]];
   drapes.forEach(([a,b,k,front])=>{
-    const h=hash(k*4.7+1), c= front? [['#F1F3CF','#CBD98F','#9DB45F','#6E8838'],['#ECF0C4','#C1D383','#93AC55','#647F32']][k%2] : [['#DCE3AE','#A7BC6A','#7C9744','#58702D'],['#E2E6B4','#B2C474','#86A04C','#5E7630']][k%2];
+    const h=hash(k*4.7+1), c= front? SLAPF[k%2] : SLAPB[k%2];
     const xa=x+a*s, xb=x+b*s, bulge=(32+30*h)*s;
     const edge=(xe,dir,t)=>{ // point on a bulging side edge, t 0..1 from top to hem
       const bx=top[0]+(xe-top[0])*t, by=top[1]+(hemY-top[1])*Math.pow(t,0.9);
@@ -358,7 +360,7 @@ function slappeKrop(x,y,s){
     ctx.save(); leafPath(pts); ctx.clip();
     ctx.strokeStyle=c[3]; ctx.globalAlpha=0.5; ctx.lineWidth=18*s; ctx.filter='blur(6px)'; leafPath(pts); ctx.stroke(); ctx.filter='none';
     // a light, tapering midrib on the front drapes only
-    if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle='#F7F8E6'; ctx.lineCap='round';
+    if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle=RIB; ctx.lineCap='round';
       for(let i=0;i<12;i++){ const t1=i/12, t2=(i+1)/12; ctx.lineWidth=(7-5*t1)*s; ctx.beginPath();
         ctx.moveTo(top[0]+(mx-top[0])*t1+Math.sin(t1*3)*12*s, top[1]+(hemY-top[1])*t1); ctx.lineTo(top[0]+(mx-top[0])*t2+Math.sin(t2*3)*12*s, top[1]+(hemY-top[1])*t2); ctx.stroke(); } }
     // wrinkles: short curved creases near the hem
@@ -451,6 +453,67 @@ function frameKeuken3(){
   caption('Nu hangen de blaadjes slap.');
 }
 
+
+// ================= keuken v4: v3-vormen in de Part C-stijl van de andere films =================
+function frameKeuken4(){
+  const keep=[BOT,BOT2,HART,SLAPF,SLAPB,RIB,SHADOW];
+  // muted Part C greens: flat-ish leaves, small value steps
+  BOT=['#A9D49A','#7FC48F','#5FA86E','#3E7A50','#D8EBCF']; BOT2=['#BBDDA6','#8FCB93','#6BB078','#468458','#E0F0D8'];
+  HART=['#E3F0C8','#C2E0A8','#9ACB8E','#6FA878','#F2F8E8'];
+  SLAPF=[['#C9C99A','#A9AE78','#8E9862','#5E6844'],['#C2C494','#A2A872','#88925C','#59633F']];
+  SLAPB=[['#A9AC80','#8C9464','#737E52','#4C5638'],['#B0B286','#93996A','#7A8456','#505A3A']];
+  RIB='#E4E2C8'; SHADOW='rgba(0,0,0,0.45)';
+  // dark room, as in the other films
+  ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle=C.kast; ctx.fillRect(760,0,1160,640);
+  // window: Part C macro landscape (dusk sky, grey-blue mountains, dark green forest)
+  const X=820,Y=0,Wd=1100,Hd=560;
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  let g=ctx.createLinearGradient(0,0,0,Hd); g.addColorStop(0,'#2E4A74'); g.addColorStop(1,'#5B7598'); ctx.fillStyle=g; ctx.fillRect(X,Y,Wd,Hd);
+  ctx.fillStyle=rgba(C.goud,0.9); ctx.beginPath(); ctx.arc(X+870,Y+95,26,0,6.283); ctx.fill();
+  const far=[[X,Y+330],[X+60,Y+300],[X+140,Y+255],[X+230,Y+290],[X+330,Y+260],[X+430,Y+190],[X+500,Y+150],[X+560,Y+120],[X+640,Y+175],[X+720,Y+230],[X+820,Y+200],[X+900,Y+260],[X+1000,Y+240],[X+Wd,Y+290],[X+Wd,Y+Hd],[X,Y+Hd]];
+  ctx.fillStyle=C.berg; leafPath(far); ctx.fill();
+  ctx.fillStyle=C.bergTop; leafPath([[X+560,Y+120],[X+640,Y+175],[X+700,Y+215],[X+660,Y+230],[X+620,Y+205],[X+600,Y+250],[X+570,Y+215],[X+540,Y+240],[X+520,Y+200],[X+500,Y+150]]); ctx.fill();
+  ctx.fillStyle=rgba(C.bergTop,0.7); leafPath([[X+560,Y+120],[X+500,Y+150],[X+430,Y+190],[X+470,Y+215],[X+500,Y+200],[X+520,Y+235],[X+545,Y+195]]); ctx.fill();
+  ctx.fillStyle=C.bergTop; leafPath([[X+330,Y+260],[X+380,Y+225],[X+430,Y+190],[X+415,Y+225],[X+390,Y+240],[X+370,Y+275]]); ctx.fill();
+  leafPath([[X+820,Y+200],[X+870,Y+235],[X+850,Y+250],[X+830,Y+240],[X+800,Y+262],[X+790,Y+225]]); ctx.fill();
+  ctx.fillStyle='#3E5470'; leafPath(ridge(X,X+Wd,Y+370,40,4.2,10).concat([[X+Wd,Y+Hd],[X,Y+Hd]])); ctx.fill();
+  ctx.fillStyle='#35503F'; leafPath(treeLine(X,Wd,Y+400,30,40,16,3)); ctx.fill();
+  ctx.fillStyle=C.bgMacroHill; leafPath(treeLine(X,Wd,Y+470,50,70,28,8)); ctx.fill();
+  for(let x=X+10;x<X+Wd;x+=60+50*hash(x*0.21)) bigPine(x, Y+Hd+10, 150+100*hash(x*0.53), '#223A2C','#2C4A38');
+  bigPine(X+Wd-60,Y+Hd+30,420,'#1C3226','#264232'); bigPine(X+Wd-170,Y+Hd+30,330,'#1E3529','#28463A');
+  ctx.restore();
+  // window frame in the line colour of the film, a muted sill
+  ctx.fillStyle='#2C3B55'; ctx.fillRect(760,0,62,600); ctx.fillRect(1530,0,108,560); ctx.fillRect(705,560,1215,70);
+  ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.strokeRect(822,-2,708,562); ctx.strokeRect(1638,-2,290,562);
+  ctx.beginPath(); ctx.moveTo(705,630); ctx.lineTo(W,630); ctx.stroke();
+  // counter and cupboards: muted oker / brown, flat
+  ctx.fillStyle=C.okerD; ctx.fillRect(0,660,W,220);
+  ctx.strokeStyle=rgba(C.bruin,0.35); ctx.lineWidth=1.3; for(let i=0;i<22;i++){ const yy=668+i*10; ctx.beginPath(); ctx.moveTo(0,yy); for(let x=0;x<=W;x+=40) ctx.lineTo(x,yy+Math.sin(x*0.003+i*0.9)*3); ctx.stroke(); }
+  ctx.fillStyle=C.bruin; ctx.fillRect(0,880,W,30);
+  ctx.fillStyle=C.kast; ctx.fillRect(0,910,W,H-910);
+  // shadows
+  ctx.save(); ctx.filter='blur(12px)'; ctx.fillStyle='rgba(0,0,0,0.35)';
+  ctx.beginPath(); ctx.ellipse(470,800,290,30,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(960,800,320,28,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(1480,780,220,24,0,0,6.283); ctx.fill(); ctx.restore();
+  stevigeKrop(525,640,1.0);
+  slappeKrop(1005,770,1.0);
+  // glass bowl: line drawing + water in the film's water blue
+  const bx=1500, by=705;
+  ctx.beginPath(); ctx.ellipse(bx,by-45,178,22,0,0,Math.PI); ctx.lineTo(bx-150,by+60); ctx.ellipse(bx,by+60,150,22,0,Math.PI,0,true); ctx.closePath(); ctx.fillStyle=rgba(C.water,0.55); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(bx,by-45,178,22,0,0,6.283); ctx.fillStyle=rgba(C.teal,0.55); ctx.fill();
+  ctx.strokeStyle=C.text; ctx.globalAlpha=0.85; ctx.lineWidth=2;
+  ctx.beginPath(); ctx.ellipse(bx,by-100,190,26,0,0,6.283); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bx-190,by-100); ctx.quadraticCurveTo(bx-185,by+40,bx-150,by+60); ctx.moveTo(bx+190,by-100); ctx.quadraticCurveTo(bx+185,by+40,bx+150,by+60); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bx,by+60,150,22,0,0,Math.PI); ctx.stroke(); ctx.globalAlpha=1;
+  ctx.fillStyle=rgba(C.text,0.35); ctx.fillRect(bx-165,by-70,5,105);
+  [BOT,BOT2,HART,SLAPF,SLAPB,RIB,SHADOW]=keep;
+  label(ctx,'stevig','net uit de koelkast',470,520,440,300,1);
+  label(ctx,'slap','een dag op het aanrecht',1000,650,980,330,1);
+  label(ctx,'koud water','',1440,690,1300,520,1);
+  metaTop('onderbouw · kerndoelen · film 1');
+  caption('Nu hangen de blaadjes slap.');
+}
+
 let FOTO=null;
 function frameFoto(){
   ctx.drawImage(FOTO,0,0,W,H);
@@ -459,7 +522,7 @@ function frameFoto(){
   pillLabel('koud water','',1500,720,1560,860,true);
   caption('Nu hangen de blaadjes slap.');
 }
-window.FRAMES={keuken3:frameKeuken3,foto:frameFoto,keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
+window.FRAMES={keuken4:frameKeuken4,keuken3:frameKeuken3,foto:frameFoto,keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
 window.loadFoto=(src)=>new Promise(r=>{FOTO=new Image(); FOTO.onload=r; FOTO.src=src;});
 window.draw=(k)=>{ ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H); FRAMES[k](); };
 </script></body></html>
