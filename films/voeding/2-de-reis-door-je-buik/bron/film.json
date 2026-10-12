@@ -1,0 +1,142 @@
+{
+ "slug": "2-de-reis-door-je-buik",
+ "hoofdstuk": "voeding",
+ "hoofdstukNaam": "Voeding",
+ "title": "De reis door je buik",
+ "sub": "Van mond tot anus",
+ "puzzle": "Na een gastric bypass gaat het eten langs de maag. Toch verteren mensen nog bijna al hun eiwit. Hoe kan dat?",
+ "meta": "voeding 2/6",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Voeding · film 2 van 6",
+ "lead": "Het broodje kaas uit film 1 reist door je spijsverteringskanaal: seconden in de mond, uren in maag en dunne darm, dagen in de dikke darm. Waarom verteren mensen na een gastric bypass hun eiwit toch?",
+ "endHaak": "één buis, vier haltes",
+ "minis": {
+  "Hoofdstuk 1": "Waarom kun je ondersteboven slikken?",
+  "Hoofdstuk 2": "Waarvoor is maagzuur nodig?",
+  "Hoofdstuk 3": "Waar gebeurt het meeste werk?",
+  "Hoofdstuk 4": "Waar blijft al het water?",
+  "Recap": "Hoe wordt het eiwit na een bypass verteerd?"
+ },
+ "questions": {
+  "q02": {
+   "q": "Na een gastric bypass gaat het eten langs de maag. Toch wordt bijna al het eiwit verteerd. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."
+  },
+  "q08": {
+   "q": "Kun je slikken als je op je hoofd staat?",
+   "correct": 1,
+   "explain": "Ja. Kringspieren in de slokdarm duwen de hap naar de maag, ook tegen de zwaartekracht in."
+  },
+  "q13": {
+   "q": "Gieren eten rottend vlees. Waarom is hun extreem zure maag handig?",
+   "correct": 1,
+   "explain": "Het zuur doodt de bacteriën uit het rottende vlees. Opnemen doet de maag bijna niet."
+  },
+  "q18": {
+   "q": "Waar wordt het meeste van je eten verteerd?",
+   "correct": 1,
+   "explain": "In de dunne darm. Daar komen alvleessap, gal en darmsap bij het eten."
+  },
+  "q22": {
+   "q": "Gal verdeelt vet in kleine druppeltjes. Is dat mechanische of chemische vertering?",
+   "correct": 0,
+   "explain": "Mechanisch: de druppels worden kleiner, de vetmoleculen blijven heel. Gal is geen enzym."
+  },
+  "q26": {
+   "q": "In het alvleessap zit bicarbonaat, een base. Wat doet het met de zure brij uit de maag?",
+   "correct": 1,
+   "explain": "Het neutraliseert het zuur. Bij een pH van ongeveer zeven of acht werken de darmenzymen het best."
+  },
+  "q32": {
+   "q": "Bij een darminfectie gaat de peristaltiek in de dikke darm veel sneller. Wat gebeurt er met de ontlasting?",
+   "correct": 1,
+   "explain": "Die wordt waterig: er is te weinig tijd om het water terug te nemen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "spijsverteringskanaal",
+   "d": "De buis van mond tot anus: mond, slokdarm, maag, dunne darm, dikke darm en endeldarm."
+  },
+  {
+   "t": "spijsverteringsstelsel",
+   "d": "Het spijsverteringskanaal samen met de verteringsklieren (speekselklieren, maagklieren, lever, alvleesklier, darmwandklieren)."
+  },
+  {
+   "t": "mechanische vertering",
+   "d": "Voedsel kleiner maken zonder de moleculen te veranderen: kauwen, kneden, emulgeren."
+  },
+  {
+   "t": "chemische vertering",
+   "d": "Grote moleculen met enzymen in kleinere moleculen knippen."
+  },
+  {
+   "t": "enzym",
+   "d": "Eiwit dat een reactie versnelt, bijvoorbeeld het knippen van een molecuul. Meer in film 3."
+  },
+  {
+   "t": "amylase",
+   "d": "Enzym dat zetmeel knipt. Zit in speeksel en in alvleessap."
+  },
+  {
+   "t": "lysozymen",
+   "d": "Eiwitten in speeksel (en traanvocht) die bacteriën doden."
+  },
+  {
+   "t": "peristaltiek",
+   "d": "Een golf van samentrekkende kringspieren die de inhoud door het spijsverteringskanaal duwt."
+  },
+  {
+   "t": "maagsap",
+   "d": "Sap van de maagklieren met zoutzuur, pepsine en slijm."
+  },
+  {
+   "t": "pepsine",
+   "d": "Enzym in de maag dat eiwitten in kortere stukken knipt. Werkt alleen in een zure omgeving."
+  },
+  {
+   "t": "gastrine",
+   "d": "Hormoon uit het onderste deel van de maag. Komt vrij als er eiwit in de maag is en zet de maagklieren aan tot zoutzuur maken."
+  },
+  {
+   "t": "maagportier",
+   "d": "Kringspier aan het eind van de maag die de brij in kleine porties doorlaat."
+  },
+  {
+   "t": "twaalfvingerige darm",
+   "d": "Eerste stuk van de dunne darm. Hier komen gal en alvleessap bij de brij."
+  },
+  {
+   "t": "alvleessap",
+   "d": "Sap uit de alvleesklier met enzymen voor koolhydraten, eiwitten en vetten (en, vwo, bicarbonaat)."
+  },
+  {
+   "t": "gal",
+   "d": "Wordt gemaakt door de lever en bewaard in de galblaas. Gal is geen enzym: het emulgeert vet."
+  },
+  {
+   "t": "emulgeren",
+   "d": "Vet in kleine druppeltjes verdelen, zodat vetverterende enzymen er beter bij kunnen."
+  },
+  {
+   "t": "darmsap",
+   "d": "Enzymen van de wand van de dunne darm die het knipwerk afmaken."
+  },
+  {
+   "t": "waterresorptie",
+   "d": "Het terugnemen van water uit de darminhoud, vooral in de dunne en de dikke darm."
+  },
+  {
+   "t": "blinde darm",
+   "d": "Doodlopend stuk bij de overgang van dunne naar dikke darm, met het wormvormig aanhangsel."
+  },
+  {
+   "t": "bicarbonaat (vwo)",
+   "d": "Base (HCO₃⁻) in het alvleessap die het zuur uit de maag neutraliseert."
+  }
+ ],
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "sections": "\n  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Een galsteen</b> <span class=\"pts\">3 punten</span><p>Bij Jeroen zit een galsteen vast in de buis tussen de galblaas en de twaalfvingerige darm. Na een vette maaltijd heeft hij last van vette, lichte ontlasting.</p><p>a (1p) In welk orgaan wordt gal gemaakt?<br>b (2p) Leg uit waardoor bij Jeroen minder vet wordt verteerd, terwijl gal zelf geen enzym is.</p>\n      <details><summary>Antwoord</summary><p>a In de lever (1).<br>b Er komt geen/minder gal in de darm, waardoor het vet niet geëmulgeerd wordt / in grote druppels blijft (1). Daardoor is het oppervlak klein en kunnen de vetverterende enzymen er minder goed bij (1).</p></details></div>\n    <div class=\"q\"><b>2. Zetmeel op de route</b> <span class=\"pts\">2 punten</span><p>Het zetmeel uit een broodje wordt in twee delen van het spijsverteringskanaal verteerd.</p><p>Noem deze twee delen, en noem voor elk deel de klier(en) die het zetmeelverterende enzym maken.</p>\n      <details><summary>Antwoord</summary><p>Mond: speekselklieren (1). Dunne darm: alvleesklier en darmwand(klieren) (1).</p></details></div>\n    <div class=\"q\"><b>3. Maagzuurremmers</b> <span class=\"pts\">3 punten</span><p>Sommige mensen slikken een medicijn dat de productie van zoutzuur in de maag sterk remt.</p><p>a (2p) Noem twee functies van maagzuur die daardoor minder goed uitgevoerd worden.<br>b (1p) Toch krijgen deze mensen geen tekort aan aminozuren. Leg uit hoe dat kan.</p>\n      <details><summary>Antwoord</summary><p>a Bacteriën/ziekteverwekkers doden (1); pepsine laten werken / eiwitvertering in de maag (1).<br>b Eiwitten worden in de dunne darm verteerd door enzymen uit het alvleessap en het darmsap (1).</p></details></div>\n    <div class=\"q\"><b>4. Diarree</b> <span class=\"pts\">2 punten</span><p>Bij een darminfectie heeft Lotte drie dagen waterige diarree.</p><p>Leg uit hoe een snellere peristaltiek van de dikke darm leidt tot waterige ontlasting.</p>\n      <details><summary>Antwoord</summary><p>De inhoud wordt sneller door de dikke darm geduwd (1), waardoor er minder tijd is voor waterresorptie / minder water wordt teruggenomen (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>5. Zuur onder controle</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">3 punten</span><p>Als de brij in de maag erg zuur wordt, remt dat de afgifte van gastrine.</p><p>a (2p) Leg uit dat dit een voorbeeld is van negatieve terugkoppeling.<br>b (1p) Bij een ziekte van de alvleesklier wordt er te weinig bicarbonaat gemaakt. Leg uit waardoor de vertering in de dunne darm dan minder goed verloopt.</p>\n      <details><summary>Antwoord</summary><p>a Gastrine zorgt voor meer zoutzuur / een lagere pH (1); een lage pH remt de gastrine-afgifte, waardoor de zuurproductie weer afneemt (1).<br>b De brij blijft zuur; de enzymen in de dunne darm werken het best bij pH 7–8, dus ze werken minder goed (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>I toepassing · Schema</td><td>Schema van de gastric bypass: maagzakje en nieuw stuk darm</td></tr>\n      <tr><td>1 Mond en slokdarm</td><td>C proces in tijd · Schema</td><td>Lijnenkaart met haltes en een klok; kauwen (meer oppervlak); speeksel; peristaltiek</td></tr>\n      <tr><td>2 De maag</td><td>C · Schema-doorsnede</td><td>pH-schaal; twee functies van zuur; slijmlaag; gastrine via het bloed; maagportier</td></tr>\n      <tr><td>3 De dunne darm</td><td>C · Schema-doorsnede</td><td>Twaalfvingerige darm met twee afvoerbuizen; emulgeren; vwo: bicarbonaat op de pH-schaal</td></tr>\n      <tr><td>4 Dikke darm en endeldarm</td><td>C · Schema</td><td>Blinde darm; negen liter vocht; diarree</td></tr>\n    </table>\n    <h3>Misconcepties die de film aanpakt</h3>\n    <ul><li>Vertering gebeurt vooral in de maag → het meeste gebeurt in de dunne darm (vraag in H3).</li><li>De maag neemt voedsel op → de maag neemt bijna niets op.</li><li>De dikke darm verteert → de dikke darm resorbeert vooral water.</li><li>Slikken gaat door de zwaartekracht → peristaltiek (vraag in H1).</li><li>Gal is een enzym → gal emulgeert; dat is mechanische vertering (vraag in H3).</li></ul>\n    <h3>Examenaansluiting (havo)</h3>\n    <p>De cold open en de recap sluiten aan op havo 2026-I vr 29–31 (gastric bypass, met gastrine). Verder: gieren 2022-I vr 42; peristaltiek en diarree 2022-II vr 17; gal en emulgeren 2021-I vr 18, 2023-II vr 21, 2024-II vr 32; amylase in de maag 2021-I vr 36, 2026-II vr 40; lysozymen 2022-II vr 27; klieren met zetmeelverterende enzymen 2018-II vr 17; eiwitverterende enzymen per deel 2026-II vr 21. Bicarbonaat staat in geen enkel havo-examen en is daarom vwo.</p>\n    <h3>Pauze- en bespreekmomenten</h3>\n    <p>Zeven voorspelvragen (zes basis, één vwo). In de stand Klas wacht de film op \"verder\". Goede extra pauzes: de lijnenkaart in H3 (\"Even op de kaart\") en het bypass-schema in de recap (laat leerlingen eerst zelf de route van de sappen aanwijzen).</p>\n    <h3>Getallen in de film</h3>\n    <table><tr><th>Getal</th><th>Waarde</th><th>Afronding</th></tr>\n      <tr><td>Inhoud maag</td><td>ruim 1 liter (rekt tot 1–1,5 L)</td><td>\"ruim een liter\"</td></tr>\n      <tr><td>pH maagsap</td><td>≈ 1,5–2 (Binas)</td><td>\"ongeveer twee\"</td></tr>\n      <tr><td>Maag leeg</td><td>2–4 uur na een gewone maaltijd</td><td>vet eten langer</td></tr>\n      <tr><td>Dunne darm</td><td>lengte enkele meters; doorlooptijd 3–5 uur</td><td>\"een paar meter\"</td></tr>\n      <tr><td>Dikke darm</td><td>doorlooptijd 1–2 dagen (spreiding groot)</td><td>\"een dag of twee\"</td></tr>\n      <tr><td>Vocht in de darmen</td><td>≈ 9 L per dag (≈ 2 L via eten en drinken, ≈ 7 L sappen); ≈ 0,1 L in de ontlasting</td><td>\"op een klein glas na\"</td></tr>\n      <tr><td>Optimum darmenzymen</td><td>pH ≈ 7–8</td><td>vwo-blok</td></tr>\n    </table>\n    <h3>Bewust weggelaten</h3>\n    <p>Enzymnamen behalve amylase en pepsine, pepsinogeen en de werking van enzymen (film 3); darmvlokken en opname via bloed en lymfe (film 4); de lever als orgaan (film 5); darmbacteriën en osmotische diarree (film 6).</p>\n  </section>\n"
+}
