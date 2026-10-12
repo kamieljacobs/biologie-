@@ -1,7 +1,7 @@
 import json, re
 segs = json.load(open('segments.json'))
 answers = {  # question id -> (correct index, explanation shown after reveal)
- 'q02': (2, 'Niemand duwt. Alle deeltjes bewegen kriskras door elkaar, en daardoor raakt de kleurstof vanzelf verspreid.'),
+ 'q02': (2, 'Niemand duwt. Alle deeltjes bewegen kriskras door elkaar, en daardoor raakt de kleurstof vanzelf verspreid. (In een echt glas helpen stromingen mee; met alleen diffusie duurt egaal kleuren weken.)'),
  'q07': (1, 'Ze bewegen gewoon door. Er gaan evenveel heen als terug: netto nul. Dat is evenwicht.'),
  'q10': (1, 'Dubbele afstand kost bij diffusie ongeveer vier keer zoveel tijd. Daarom zijn cellen klein.'),
  'q13': (0, 'Zuurstof is klein en lost goed op in vet. Een ion heeft een lading, glucose lost slecht op in vet.'),

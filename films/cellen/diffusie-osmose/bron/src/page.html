@@ -95,7 +95,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
   <section><h2>Checkvragen</h2>
     <p class="meta">examenstijl · antwoorden ingeklapt</p>
     <div class="q"><b>1. Thee zetten</b> <span class="pts">2 punten</span><p>Een theezakje in koud water geeft veel langzamer kleur af dan in heet water. a. Leg dit uit met de beweging van deeltjes (1). b. Na een tijd verandert de kleur van de thee niet meer. Een leerling zegt: "Dan bewegen de deeltjes niet meer." Leg uit waarom dit niet klopt (1).</p>
-      <details><summary>Antwoord</summary><p>a. In heet water bewegen de deeltjes sneller, waardoor de kleurstof sneller van hoge naar lage concentratie verspreidt (1). b. De deeltjes blijven bewegen; er gaan even veel deeltjes heen als terug, dus netto verandert er niets (evenwicht) (1).</p></details></div>
+      <details><summary>Antwoord</summary><p>a. In heet water bewegen de deeltjes sneller, waardoor de kleurstof zich sneller van hoge naar lage concentratie verspreidt (1). b. De deeltjes blijven bewegen; er gaan even veel deeltjes heen als terug, dus netto verandert er niets (evenwicht) (1).</p></details></div>
     <div class="q"><b>2. Longblaasjes</b> <span class="pts">2 punten</span><p>Bij de ziekte longfibrose wordt de wand tussen longblaasje en haarvat dikker. Leg uit waarom iemand met longfibrose bij inspanning sneller kortademig is. Gebruik het begrip diffusie.</p>
       <details><summary>Antwoord</summary><p>Zuurstof gaat door diffusie van het longblaasje naar het bloed (1). Een dikkere wand betekent een grotere afstand, dus diffusie gaat trager en er komt per seconde minder zuurstof in het bloed (1).</p></details></div>
     <div class="q"><b>3. Aardappelstaafjes</b> <span class="pts">3 punten</span><p>Een leerling legt gelijke staafjes aardappel in suikeroplossingen van verschillende concentratie. Na een uur weegt ze de staafjes opnieuw. In zuiver water is een staafje zwaarder geworden, in een geconcentreerde suikeroplossing lichter. a. Leg uit waardoor het staafje in zuiver water zwaarder is geworden (2). b. Bij welke oplossing verandert de massa niet? Leg uit (1).</p>
@@ -155,10 +155,10 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
       <tr><td>9 Natrium-kaliumpomp</td><td>vwo</td><td>6 (vwo-blok)</td><td>(film Zenuwstelsel)</td></tr>
     </table>
     <h3>Practicumsuggesties</h3>
-    <ul><li>Kleurstof in koud en warm water, zonder roeren: foto elke minuut.</li><li>Aardappelstaafjes in een reeks suikeroplossingen: massaverandering tegen concentratie, isotonisch punt aflezen (ook als Aardappellab op de site).</li><li>Rode ui-opperhuid onder de microscoop in zout water: plasmolyse, daarna terug in kraanwater.</li><li>Komkommer of sla met zout: massa voor en na.</li></ul>
+    <ul><li>Kleurstof of kaliumpermanganaat in agar (petrischaal, één koud en één warm): meet elke 10 minuten de diameter van de gekleurde kring. In een glas water zie je vooral stroming (convectie); in agar zie je alleen diffusie.</li><li>Aardappelstaafjes in een reeks suikeroplossingen: massaverandering tegen concentratie, isotonisch punt aflezen (ook als Aardappellab op de site).</li><li>Rode ui-opperhuid onder de microscoop in zout water: plasmolyse, daarna terug in kraanwater.</li><li>Komkommer of sla met zout: massa voor en na.</li></ul>
   </section>
 </main>
-<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 12 oktober 2026.</footer>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 12 oktober 2026.</footer>
 <script>window.FILMDATA=/*FILMDATA*/;</script>
 <script>/*LIB*/</script>
 <script>/*SCENES*/</script>
@@ -176,16 +176,17 @@ const GLOSSARY=[
  {t:'kanaaleiwit',d:'Eiwit in het membraan dat een tunnel vormt voor een bepaald soort deeltje, zoals een waterkanaal.',vwo:true},
  {t:'dragereiwit',d:'Eiwit in het membraan dat een deeltje vastpakt en aan de andere kant afzet.',vwo:true},
  {t:'gefaciliteerde diffusie',d:'Diffusie via een kanaal- of dragereiwit, van hoog naar laag, zonder ATP.',vwo:true},
- {t:'osmose',d:'Water gaat door een semipermeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen: de hoogste osmotische waarde.'},
- {t:'osmotische waarde',d:'Maat voor hoeveel opgeloste deeltjes er in een oplossing zitten. Water gaat naar de kant met de hoogste osmotische waarde.'},
+ {t:'osmose',d:'Water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen: de hoogste osmotische waarde.'},
+ {t:'osmotische waarde',d:'Maat voor de concentratie opgeloste deeltjes in een oplossing. Water gaat naar de kant met de hoogste osmotische waarde.'},
+ {t:'osmotische druk',d:'De druk die nodig is om osmose precies tegen te houden, bijvoorbeeld door een hogere waterkolom in een U-buis.',vwo:false},
  {t:'plasmolyse',d:'In een geconcentreerde oplossing verliest een plantencel water; het celmembraan laat los van de celwand.'},
  {t:'turgor',d:'De druk van de celinhoud tegen de celwand; maakt een plant stevig.'},
  {t:'hemolyse',d:'Het barsten van rode bloedcellen, bijvoorbeeld in zuiver water.'},
  {t:'isotonisch',d:'Oplossing met dezelfde osmotische waarde als de cel: netto geen water in of uit.'},
  {t:'hypotonisch',d:'Oplossing met een lagere osmotische waarde dan de cel: water gaat de cel in.'},
  {t:'hypertonisch',d:'Oplossing met een hogere osmotische waarde dan de cel: water gaat de cel uit.'},
- {t:'passief transport',d:'Transport dat vanzelf gaat, zonder energie van de cel: diffusie, gefaciliteerde diffusie, osmose.'},
- {t:'actief transport',d:'Transport tegen het concentratieverschil in, met een pomp (dragereiwit) die ATP kost.'},
+ {t:'passief transport',d:'Transport dat vanzelf gaat, zonder energie van de cel: diffusie en osmose (vwo: ook gefaciliteerde diffusie).'},
+ {t:'actief transport',d:'Transport tegen het concentratieverschil in, met een pomp (een eiwit in het membraan) die ATP kost.'},
  {t:'ATP',d:'Energiedrager van de cel.'},
  {t:'natrium-kaliumpomp',d:'Pomp in het celmembraan die met ATP natrium naar buiten en kalium naar binnen pompt.',vwo:true},
 ];

@@ -96,7 +96,7 @@ function beaker(ctx,x,y,w,h,fill=0.75,liquid=rgba(C.teal,0.18),alpha=1,label){ i
 function pill(ctx,x,y,s,color=C.goud,alpha=1,size=30){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.font=fTekst(size,600); const w=ctx.measureText(s).width+44; roundRect(ctx,x-w/2,y-size*0.95,w,size*1.65,size*0.8); shape(ctx,rgba(C.bgSchema,0.94),color,1.5); text(ctx,s,x,y+size*0.32,fTekst(size,600),color,'center'); ctx.restore(); }
 function atp(ctx,x,y,alpha=1,s=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x-36*s,y-20*s,72*s,40*s,20*s); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); text(ctx,'ATP',x,y+1,fMeta(Math.round(20*s)),C.bgMicro,'center','middle'); ctx.restore(); }
 function card(ctx, x, y, w, h, title, body, alpha=1, accent=C.goud){
-  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x,y,w,h,12); shape(ctx,rgba(C.bgSchema,0.95),C.line,1);
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x,y,w,h,12); shape(ctx,C.bgSchema,C.line,1);
   if(title) text(ctx,title,x+28,y+52,fTekst(36,600),accent);
   if(body){ ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; ctx.textBaseline='alphabetic'; wrap(ctx,body,x+28,y+(title?100:52),w-56,42); }
   ctx.restore();

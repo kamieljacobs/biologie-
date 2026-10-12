@@ -42,7 +42,7 @@ Hoe warmer het water, hoe sneller ze bewegen. Kijk: koud, en warm.
 Zet nu veel kleurstof links en geen rechts. Er staat een streep in het midden.
 Elk deeltje dwaalt willekeurig. Links zijn er veel, dus gaan er links veel toevallig over de streep naar rechts.
 Rechts zijn er weinig, dus gaan er weinig terug.
-Ons gevolgde deeltje weet niet dat het rechts leeg is. Het gaat net zo vaak terug.
+Ons gevolgde deeltje weet niet dat het rechts leger is. Het gaat net zo vaak naar links als naar rechts.
 Toch gaan er netto meer van links naar rechts. Dat heet diffusie.
 Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie.
 Het verschil tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt.
@@ -101,13 +101,13 @@ Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaa
 Bij dat terugkaatsen nemen ze water mee, weg van het gaatje.
 Daardoor is de druk in de opening van het gaatje aan de zoute kant lager.
 Links duwt het water harder. Dus stroomt het water door het gaatje naar rechts, als door een rietje.
-Dat heet osmose. Water gaat door een semipermeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen.
+Dat heet osmose. Water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen.
 Je boek zegt: naar de kant met de hoogste osmotische waarde. En vaak noemt het osmose diffusie van water.
 De richting klopt altijd. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Jij weet nu ook waarom.
 
 Zet het membraan in een U-buis. Het water rechts stijgt.
 Maar hoe hoger de kolom, hoe harder die terugduwt.
-Op een bepaalde hoogte duwt de kolom precies even hard terug als de osmose. Netto stroomt er dan geen water meer.
+Op een bepaalde hoogte duwt de kolom precies even hard terug als het water dat door osmose naar rechts wil. Netto stroomt er dan geen water meer.
 Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt.
 
 Zet een plantencel in zout water. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolyse.
@@ -133,7 +133,7 @@ Alles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat 
 Maar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten.
 Hoe kan dat? Wat denk je?
 [VRAAG] (a) door diffusie: buiten zit genoeg · (b) door osmose: het water neemt de mineralen mee · (c) een eiwit in het membraan pompt ze naar binnen
-Met een pomp. Een dragereiwit in het membraan brengt de deeltjes tegen het concentratieverschil in naar binnen.
+Met een pomp. Een eiwit in het membraan pakt de deeltjes vast en brengt ze tegen het concentratieverschil in naar binnen.
 Dat kost energie, in de vorm van ATP. Dat heet actief transport.
 Zonder ATP staat de pomp stil, en lekken de deeltjes langzaam weer naar buiten.
 

@@ -5,9 +5,9 @@
 | Bestand | films/cellen/diffusie-osmose/index.html (audio in films/cellen/diffusie-osmose/audio/) |
 | Reeks / nummer | Cel, film 1 van 3 ("Biologie bij Kamiel · reeks Cel · film 1 van 3"); film 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Vwo-blokken: gefaciliteerde diffusie (H4) en natrium-kaliumpomp (H6). Iso-/hypo-/hypertonisch staat op verzoek van Kamiel in het havo-deel |
-| Versie / datum | Versie 1.0 · 12 oktober 2026 |
+| Versie / datum | Versie 1.1 · 12 oktober 2026 (na de onafhankelijke review, zie `reviews/review_v2.md`) |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
-| Duur | 9:02 gesproken (som van 24 mp3's: 542 s). Speeltijd met kaarten en vragen: Vwo 12:00, Havo 10:56 |
+| Duur | 9:02 gesproken (som van 24 mp3's: 542 s). Speeltijd met kaarten en vragen (versie 1.1): Vwo 12:04, Havo 11:00. Hoofdstuktijden in de tabel hieronder kunnen een paar seconden afwijken; `script.md` heeft de actuele begintijden |
 | Beeldstijl | Part C-stijlkaart: Micro (#121A26 met grain), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
 | Audio-opslag | 24 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s11, s12, s14, s15, s17, s18, s20, s21, s22, s23, s25, s27, s28, s29, s31, s32, s33, s35), gemasterd op −16 LUFS / −1,5 dBTP (ffmpeg loudnorm, twee passes, lineair) |
 | Herkomst | Gemaakt door Claude met Kamiel in één sessie (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Remake in Part C van een film van Kamiels broer |
@@ -100,3 +100,9 @@ Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 - Fonts komen van Google Fonts (zoals Celorganellen); zonder internet valt de film terug op systeemletters.
 - Geen MP4-export.
 - Rendertijd per frame bij 4× vertraagde CPU: max ± 6 ms per scène (s25), speler gemiddeld 16,7 ms.
+
+## Versie 1.1 (review)
+- Opnieuw ingesproken (Roos, eleven_v4, één take, flow OjSx1NJI3a7cn7PXOtMf): s05 ("rechts leger", "net zo vaak naar links als naar rechts"), s21 ("hoogste concentratie opgeloste deeltjes"), s22 ("even hard terug als het water dat door osmose naar rechts wil"), s31 ("een eiwit in het membraan", zodat havo geen onbekend begrip "dragereiwit" krijgt; cue in `SCENES.s31` is nu 'eiwit').
+- Beeld: celwand-label bij plasmolyse "stevig, blijft staan", pas bij turgor "duwt terug"; koud/warm-panelen al bij "Hoe warmer"; paneel 1 in s09 bij "sneller bewegen"; pill "de tellers schommelen" in s08; passief transport langer in beeld (s29) en in havo zonder "gefaciliteerde diffusie"; nier als boon; kaarten in s21 dekkend (`card` in scenes_lib.js zonder transparantie).
+- Docent/pagina: practicum met kleurstof in agar (convectie vs diffusie), uitleg q02 met nuance over stroming, begrippen osmose/osmotische waarde/passief/actief transport aangepast, begrip osmotische druk toegevoegd, taalfout checkvraag 1a.
+- Niet aangepast: kleur van de celkern (paars), afbreekpunten van ondertitels, kleine overlappen in s01, s06, s11, s15 en s28 (zie review_v2.md).

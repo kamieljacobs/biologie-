@@ -17,3 +17,6 @@ Deze vervangingen zitten in `bouw/make_segments.py` (lijst `subs`) en staan per 
 Open vragen eindigen met "Wat denk je?" (niet "Voorspel").
 
 Controle: Kamiel heeft op 12 oktober 2026 alle twaalf risicowoorden in `risicowoorden.mp3` (fragmenten uit de echte takes) beluisterd en goedgekeurd. De respellings hierboven zijn dus de goedgekeurde stem-invoer.
+
+## Versie 1.1 (review)
+Opnieuw ingesproken in flow OjSx1NJI3a7cn7PXOtMf: s05, s21, s22, s31. Zelfde respellings (o.a. "semi-permeabel" in s21).
