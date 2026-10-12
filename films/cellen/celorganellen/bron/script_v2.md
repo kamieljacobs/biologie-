@@ -13,7 +13,7 @@ Leerdoelen (v2)
 7. vwo — bouw → functie bij kernporiën en grana uitleggen
 8. vwo — het cytoskelet koppelen aan vorm, transport van blaasjes (motoreiwitten) en beweging
 
-Misconcepties en waar ze falen: (1) cel is plat → H1 draai; (2) organellen staan stil → H6 timelapse; (3) chloroplast vervangt mitochondrium → H7 nachtscenario; (4) celwand vervangt membraan → H7 zeef; (5) kern bestuurt → H2; (6) organellen nodig om te leven → H1 bacterie.
+Misconcepties en waar ze falen: (1) cel is plat → H1 draai; (2) organellen staan stil → H6 timelapse; (3) chloroplast vervangt mitochondrium → H7 nachtscenario; (4) celwand vervangt membraan → H7 zeef; (5) kern bestuurt met bevelen → H2 (de kern stuurt wél, via welke werkkopieën eruit gaan); (6) organellen nodig om te leven → H1 bacterie.
 
 ---
 
@@ -30,9 +30,9 @@ Celorganellen. Een fabriek die leeft.
 
 ## Hoofdstuk 1 — Wat moet één cel allemaal kunnen? [Schema-bord; Micro bacterie naast cel]
 Je zou denken dat je al die onderdelen nodig hebt om te leven.
-Toch niet. Een bacterie is één cel zonder organellen, en die leeft.
+Toch niet. Een bacterie is één cel zonder kern en zonder organellen met een membraan, en die leeft.
 Dus één cel kan alles wat leven vraagt. Biologen hebben daar een lijst voor: de levenskenmerken.
-Dat zijn er zes. Stoffen omzetten. Groeien. Zich voortplanten. Bewegen. Reageren op de omgeving. Zichzelf in evenwicht houden.
+In deze film gebruiken we er zes. Stoffen omzetten. Groeien. Zich voortplanten. Bewegen. Reageren op de omgeving. Zichzelf in evenwicht houden.
 Een bacterie doet dat allemaal in één ruimte, zonder aparte kamers. Alleen losse ribosomen.
 Zo'n cel zonder kern heet prokaryoot.
 Jouw cellen zijn tien keer zo lang en breed. Ze hebben een kern en delen het werk op in afdelingen.
@@ -45,7 +45,7 @@ Op papier lijkt een cel plat. Hij is een blokje: organellen liggen ook vóór en
 Wij tekenen hem plat, dat kijkt makkelijker. Dit is vereenvoudigd en niet op schaal. Dat geldt voor alles in deze film.
 Eromheen zit een dun vlies: het celmembraan. Daarbinnen een stroperige vulling: het cytoplasma.
 Daarin liggen onderdelen met eigen bouw en taak: de organellen.
-Deze cel maakt heel veel eiwitten. Welk onderdeel heeft hij daarvoor het hardst nodig? Wat denk je?
+Deze cel maakt heel veel eiwitten. Waar begint het maken van elk eiwit? Wat denk je?
 [VRAAG] (a) veel mitochondriën · (b) de bouwtekeningen in de kern · (c) een dikke celwand
 
 ## Hoofdstuk 2 — De bouwtekening: de kern [Micro]
@@ -53,8 +53,8 @@ Het grootste losse organel is de celkern, kortweg kern.
 In de kern ligt het DNA: de bouwtekening van bijna elk eiwit dat de cel maakt.
 Om de kern zit een dubbel kernmembraan met gaten erin: kernporiën.
 Door die poriën gaan werkkopieën van één tekening de kern uit, het cytoplasma in. Het DNA zelf blijft binnen.
-Vaak hoor je: de kern bestuurt de cel. Maar een kern geeft geen bevelen.
-Hij bewaart de bouwtekeningen. Wat de cel doet, hangt af van welke kopieën er op dat moment uitgaan.
+Vaak hoor je: de kern bestuurt de cel. Dat klopt, maar niet met bevelen.
+De kern bepaalt welke werkkopieën eruit gaan, en dat bepaalt wat de cel doet.
 Voordat een cel zich deelt, wordt eerst al het DNA gekopieerd. Dat gebeurt in de kern.
 Zich voortplanten: eerste kenmerk licht op.
 Hoe het kopiëren werkt, zie je in de film over DNA.
@@ -65,7 +65,7 @@ Een rode bloedcel van een mens heeft geen kern. Na vier maanden is hij versleten
 Een werkkopie komt aan bij een klein deeltje: een ribosoom.
 Een ribosoom maakt eiwitten. Miljoenen ribosomen tegelijk.
 Die verteringsenzymen uit het begin? Dat zijn eiwitten.
-Meer eiwitten, meer cel. Groeien: ook op het bord.
+Eiwitten die de cel zelf houdt, maken hem groter. Groeien: ook op het bord.
 Veel ribosomen zitten vast op een netwerk van membranen: het endoplasmatisch reticulum, kortweg ER.
 Zitten er ribosomen op, dan heet het ruw ER.
 Eiwitten voor buiten de cel gaan het ER in. Daar worden ze gevouwen en gecontroleerd.
@@ -84,7 +84,7 @@ Een stuk ER-membraan snoert af tot een blaasje, met het eiwit erin.
 Het blaasje versmelt met het golgisysteem aan de ene kant.
 Het eiwit schuift van zakje naar zakje. Onderweg wordt het bijgewerkt: suikers aangepast, een adreslabel erop.
 Aan de andere kant snoert weer een blaasje af.
-Het adreslabel past alleen op het celmembraan. Daar gaat het blaasje dus heen.
+Het golgisysteem sorteert op die labels: dit blaasje gaat naar het celmembraan.
 Het blaasje versmelt met het celmembraan. De inhoud komt buiten. Dat heet exocytose.
 Een ander adreslabel stuurt een blaasje naar de opruimdienst van de cel. Die zie je in hoofdstuk vijf.
 En andersom kan ook: een stuk celmembraan stulpt in en haalt iets binnen. Dat heet endocytose.
@@ -98,7 +98,7 @@ Die energie komt vrij in boonvormige organellen: mitochondriën.
 Op plaatjes zijn het bonen. In een levende cel vaak buizen die splitsen en samensmelten.
 Hier wordt de verbranding van glucose afgemaakt, met zuurstof. Daarbij ontstaat ATP, de energiedrager van de cel.
 Hoe die verbranding precies gaat, zie je in de film over dissimilatie.
-Let op de binnenkant: het binnenmembraan is geplooid tot cristae.
+Een mitochondrium heeft twee membranen. Let op de binnenkant: het binnenmembraan is geplooid tot cristae.
 Wat gebeurt er als die plooien er niet waren? Wat denk je?
 [VRAAG] (a) niets, verbranden gaat net zo goed · (b) de cel maakt minder ATP · (c) het mitochondrium wordt groter
 Vergelijk: een glad membraan en een geplooid membraan in een even groot mitochondrium.
@@ -108,9 +108,9 @@ Meer plooien, meer ATP. De bouw maakt de functie mogelijk.
 Een hartspiercel zit voor een derde vol mitochondriën, duizenden. Een huidcel heeft er een paar honderd.
 Energie vrijmaken is ook stofwisseling: de afbraakkant. Opbouw heet assimilatie, afbraak dissimilatie.
 
-[VWO-START] Voor vwo nog één stap. Een mitochondrium heeft twee membranen; alleen het binnenste is geplooid.
+[VWO-START] Voor vwo nog één stap. Alleen het binnenste membraan is geplooid.
 Hoe sneller een cel ATP nodig heeft, hoe meer cristae je ziet.
-Een hartspiercel heeft mitochondriën vol dicht opeengepakte cristae. Een witte vetcel heeft er maar een paar.
+Een hartspiercel heeft mitochondriën vol dicht opeengepakte cristae. De mitochondriën van een witte vetcel hebben maar een paar cristae.
 Dus uit de bouw van één mitochondrium kun je al raden hoe hard de cel werkt.
 Terug naar de hoofdlijn: cristae vergroten het oppervlak, meer oppervlak is meer ATP. [VWO-END]
 
@@ -122,7 +122,7 @@ De bouwstenen gebruikt de cel opnieuw.
 Binnenin een lysosoom is het zuur. Daar werken deze enzymen het best.
 Wat gebeurt er als er een enzym uit lekt? Wat denk je?
 [VRAAG] (a) het breekt de hele cel af · (b) weinig: in het cytoplasma is het niet zuur genoeg · (c) de cel maakt meteen een nieuw lysosoom
-Een volgroeide plantencel heeft daarnaast één grote vacuole: een holte vol water.
+Een volgroeide plantencel heeft daarnaast één grote vacuole: een blaas met een membraan, gevuld met celvocht.
 Water stroomt erin en bouwt druk op. Die druk perst van binnen tegen de stevige wand om de plantencel. Die wand zie je straks.
 Verliest de vacuole water, dan valt de druk weg en zakt de plant in.
 Afval opruimen en water vasthouden: zo houdt een cel zichzelf in evenwicht. Dat heet homeostase. Op het bord.
@@ -150,7 +150,7 @@ Lysosomen vind je vooral in dierlijke cellen; bij planten doet de vacuole dat we
 Een plant zit vast en maakt zelf zijn voedsel. Dat zie je aan zijn cel: drie dingen extra.
 Een celwand van cellulose buiten het membraan, voor stevigheid.
 Je zou denken: met zo'n stevige wand heeft de plantencel geen membraan nodig.
-Maar kijk: de wand is een zeef, alles stroomt er doorheen. Alleen het membraan kiest wat erin en eruit gaat.
+Maar kijk: de wand is een zeef: water en opgeloste stoffen gaan er vrij doorheen. Alleen het membraan kiest wat erin en eruit gaat.
 Dus: wand eromheen, membraan ertegenaan, allebei.
 Chloroplasten, ook wel bladgroenkorrels: groene organellen. Daar gebeurt fotosynthese.
 Met lichtenergie wordt uit water en koolstofdioxide glucose gemaakt.

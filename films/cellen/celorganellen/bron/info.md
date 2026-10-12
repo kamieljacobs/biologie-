@@ -5,9 +5,9 @@
 | Bestand | films/cellen/celorganellen/index.html (audio in films/cellen/celorganellen/audio/) |
 | Reeks / nummer | Cel, film 2 van 3 ("Biologie bij Kamiel · reeks Cel · film 2 van 3") |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo) |
-| Versie / datum | Versie 1.2 · 11 oktober 2026 (footer). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij |
+| Versie / datum | Versie 1.2 · 11 oktober 2026 (footer). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij; 1.3 (12 okt 2026) na de onafhankelijke review, zie `reviews/review_v2.md` |
 | Stem / model | Roos (ElevenLabs, model eleven_v4) |
-| Duur | 10:52 (som van de 18 mp3's: 652,3 s). Speeltijd met titel-, hoofdstuk- en eindkaarten en vragen: Vwo 13:30, Havo 10:58 |
+| Duur | 10:52 (som van de 18 mp3's: 652,3 s). Speeltijd met titel-, hoofdstuk- en eindkaarten en vragen: Vwo 13:30, Havo 10:58 (versie 1.3: Vwo 13:41, Havo 11:07; zie `script.md` voor actuele begintijden) |
 | Beeldstijl | Part C-stijlkaart: Micro (donkere celwereld #121A26), Schema (navy #1A2740), één keer Macro (lichaam in de cold open); vaste UI-laag (paarse vwo-balk links, meta linksboven, ondertitels onder CAPTION_Y = 900). Canvas 1920×1080 |
 | Audio-opslag | 18 losse mp3's in audio/ (s01, s04, s05, s07, s09, s11, s13, s14, s16, s17, s18, s20, s21, s22, s23, s25, s26, s27), één per gesproken segment; niet in de HTML ingebed |
 | Bronbestanden | Echte bronnen uit de bouwsessie staan in deze map (zie hieronder); de rest van dit bestand is op 2026-10-12 gereconstrueerd uit de HTML en daarna aangevuld |
@@ -145,3 +145,11 @@ Regelnummers verwijzen naar film.src.html (= index.html; er zijn geen blobs, dus
 - `chunks()` en de transcriptopbouw bevatten nog respelling-vervangingen (`ee-er`, `dee-en-aa`) die in de huidige data niet voorkomen; onschuldig, maar wijst erop dat de stem-invoer andere spelling had dan de ondertitels. De echte stem-invoer staat in `stem/segmenten_stem-invoer.json`.
 - De audio staat als losse bestanden naast index.html (de andere films van de site zijn vaak één bestand met ingebedde audio); de map audio/ moet dus altijd mee gekopieerd worden.
 - Op de site-index staat deze film als nummer 2 van de cellen-rij, met "Onderzoek doen in de biologie" als nummer 1; in de reeks Cel is film 1 bedoeld als Diffusie, osmose en membraantransport.
+
+## Versie 1.3 (review)
+- Opnieuw ingesproken (Roos, eleven_v4, één take, nieuwe flow pugAiMuwBeN2wn4hgU9z): s04 (bacterie "zonder kern en zonder organellen met een membraan"; "in deze film gebruiken we er zes"), s05 (vraag q06 nu "Waar begint het maken van elk eiwit?"), s07 ("de kern bestuurt de cel: dat klopt, maar niet met bevelen"), s09 (groeien: "eiwitten die de cel zelf houdt"), s11 (golgisysteem sorteert op labels), s14 ("een mitochondrium heeft twee membranen" nu in de basis), s17 (cue nu 'binnenste'; vetcel-zin eenduidig), s20 (vacuole "blaas met een membraan, gevuld met celvocht"), s23 (celwand-zeef "water en opgeloste stoffen").
+- In de nieuwe takes is DNA ingevoerd als "deeënaa" (vaste voorkeur sinds 12 okt 2026; oudere takes hebben "dee-en-aa") en koolstofdioxide als "koolstofdie-oxide".
+- Beeld: kaart kern groen en positief ("klopt, maar niet met bevelen"), lager zodat hij het DNA-label niet bedekt; mitochondrium-label "hier wordt ATP gemaakt"; s17 wijslijnen buiten-/binnenmembraan; vacuole-labels aangepast.
+- Pagina: kernporiën niet meer vwo-only, antwoord checkvraag 2 (ATP wordt gemaakt), misconceptie 5 en dekkingstabel (leerdoel 8 basis), footer 1.3.
+- `bouw/checkcues.js` toegevoegd (uit Diffusie).
+- Open: kleinere overlappen en afgesneden labels (s01, s04, s11, s14, s16, s18, s20, s21, s23), werkkopie in beeld bij s09, plantje s20 begint slap (zie review_v2.md).

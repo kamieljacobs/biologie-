@@ -12,7 +12,7 @@ answers = {  # question id -> (correct index, explanation shown after reveal)
 }
 questions_text = {
  'q02': 'Hoe krijgt één cel dat voor elkaar?',
- 'q06': 'Deze cel maakt heel veel eiwitten. Welk onderdeel heeft hij daarvoor het hardst nodig?',
+ 'q06': 'Deze cel maakt heel veel eiwitten. Waar begint het maken van elk eiwit?',
  'q08': 'Een rode bloedcel heeft geen kern. Na vier maanden is hij versleten. Waarom?',
  'q10': 'Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat?',
  'q12': 'Twee eiwitten verlaten het golgisysteem: één voor buiten de cel, één voor de opruimdienst. Wat bepaalt waar elk heen gaat?',

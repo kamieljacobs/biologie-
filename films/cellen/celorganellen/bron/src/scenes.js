@@ -125,7 +125,7 @@ s07(ctx,t,q,st){
   const ab=ramp(t,tblijft,0.5)*(1-ramp(t,q.at('bestuurt'),0.6)); if(ab>0) haak(ctx,Z.x-Z.r,Z.x+Z.r,Z.y+Z.r+60,'het DNA zelf blijft in de kern',C.groen,ab);
   // misconception card
   const mc=ramp(t,q.at('bestuurt'),0.5)*(1-ramp(t,q.at('deelt'),0.6));
-  card(ctx,1100,640,760,170,'"De kern bestuurt de cel"','Nee. Hij bewaart bouwtekeningen; welke kopieën uitgaan bepaalt wat de cel doet.',mc,C.koraal);
+  card(ctx,1100,690,760,170,'"De kern bestuurt de cel"','Klopt, maar niet met bevelen: de kern bepaalt welke werkkopieën uitgaan.',mc,C.groen);
   if(rep>0) haak(ctx,Z.x-Z.r,Z.x+Z.r,Z.y+Z.r+60,'al het DNA gekopieerd → de cel kan delen',C.groen,rep);
   // rode bloedcel
   const rb=ramp(t,q.at('rode'),0.6); if(rb>0){ ctx.save(); ctx.globalAlpha=rb*0.85; ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,CAPTION_Y); ctx.restore(); ctx.save(); ctx.globalAlpha=rb; ctx.beginPath(); ctx.ellipse(1500,600,120,80,0,0,6.283); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); ctx.beginPath(); ctx.ellipse(1500,600,60,30,0,0,6.283); ctx.fillStyle=rgba(C.bgMicro,0.5); ctx.fill(); ctx.restore(); label(ctx,'rode bloedcel','geen kern · leeft ongeveer 120 dagen',1400,560,1000,420,rb,C.text,'right'); board(ctx,st.board,rb*0.9); }
@@ -195,7 +195,7 @@ s14(ctx,t,q,st){
   const tub=ramp(t,q.at('buizen'),0.8)*(1-ramp(t,q.at('verbranding',1),0.8));
   if(tub>0){ ctx.save(); ctx.globalAlpha=tub*0.9; const s=Math.sin(t*0.8); mitochondrion(ctx,1500,250+ s*10,300,0.15,1,8); mitochondrion(ctx,1400+lerp(0,110,ramp(t,q.at('samensmelten'),1.0)),360,150,0.0,1,5); mitochondrion(ctx,1620-lerp(0,110,ramp(t,q.at('samensmelten'),1.0)),360,150,0,1,5); metaText(ctx,'levende cel: buizen splitsen en smelten samen',1500,450,C.grain,'center',20); ctx.restore(); }
   mitochondrion(ctx,M.x,M.y,M.len,0,1,6,t);
-  label(ctx,'mitochondrium','energie komt hier vrij als ATP',M.x-200,M.y-150,420,210,ramp(t,q.at('mitochondriën'),0.5),C.text,'left');
+  label(ctx,'mitochondrium','hier wordt ATP gemaakt',M.x-200,M.y-150,420,210,ramp(t,q.at('mitochondriën'),0.5),C.text,'left');
   // inputs: glucose fragments (oker) + O2 (teal) in, ATP (koraal) out
   const ai=ramp(t,q.at('verbranding',1),0.5);
   if(ai>0){ particleFlow(ctx,[[300,700],[M.x-300,M.y+40]],6,t,70,C.oker,10,100,ai); particleFlow(ctx,[[300,520],[M.x-300,M.y-20]],6,t,80,C.teal,8,200,ai);
@@ -230,7 +230,7 @@ s17(ctx,t,q,st){
   const y=500; mitochondrion(ctx,560,y,520,0,1,16); mitochondrion(ctx,1360,y,520,0,1,3);
   label(ctx,'hartspiercel','dicht opeengepakte cristae',560,y-110,330,240,ramp(t,q.at('hartspiercel'),0.5),C.text,'left');
   label(ctx,'witte vetcel','maar een paar cristae',1360,y-110,1130,240,ramp(t,q.at('vetcel'),0.5),C.text,'left');
-  const a2=ramp(t,q.at('twee'),0.5); if(a2>0){ metaText(ctx,'buitenmembraan · binnenmembraan (geplooid)',960,700,C.grain,'center',24); }
+  const a2=ramp(t,q.at('binnenste'),0.5); label(ctx,'buitenmembraan','glad',500,y+104,330,690,a2,C.text,'right'); label(ctx,'binnenmembraan','geplooid tot cristae',640,y+60,800,690,a2,C.goud,'left');
   haak(ctx,300,1620,760,'uit de bouw van één mitochondrium lees je af hoe hard de cel werkt',C.groen,ramp(t,q.at('raden'),0.5));
 },
 // ---------- H5: lysosomen en vacuole ----------
@@ -272,7 +272,7 @@ s20(ctx,t,q,st){
   const aw=ramp(t,tw,0.5)*(t<tv?1:0); if(aw>0){ particleFlow(ctx,[[cx-rx-120,cy+60],[cx-rx*0.6,cy+40]],6,t,70,C.teal,5,700,aw); particleFlow(ctx,[[cx+rx+120,cy-60],[cx+rx*0.6,cy-40]],6,t,70,C.teal,5,800,aw); }
   // pressure arrows
   if(press>0){ ctx.save(); ctx.globalAlpha=press; ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; for(let i=0;i<8;i++){ const a=i/8*6.283; const x0=cx+Math.cos(a)*rx*0.5, y0=cy+Math.sin(a)*ry*0.5, x1=cx+Math.cos(a)*rx*0.82, y1=cy+Math.sin(a)*ry*0.82; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.stroke(); const an=Math.atan2(y1-y0,x1-x0); ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x1-12*Math.cos(an-0.5),y1-12*Math.sin(an-0.5)); ctx.moveTo(x1,y1); ctx.lineTo(x1-12*Math.cos(an+0.5),y1-12*Math.sin(an+0.5)); ctx.stroke(); } ctx.restore(); }
-  label(ctx,'vacuole','holte vol water',cx-150,cy-120,140,300,ramp(t,q.at('vacuole'),0.5),C.text,'left');
+  label(ctx,'vacuole','blaas met celvocht',cx-150,cy-120,140,300,ramp(t,q.at('vacuole'),0.5),C.text,'left');
   label(ctx,'celwand','stevig · die zie je straks',cx+rx*0.7+10,cy+ry*0.72,1250,820,ramp(t,q.at('wand',1),0.5));
   // plant turgid / wilted pictogram (Schema icon) right
   const px=1500, py=620; ctx.save(); ctx.strokeStyle=C.groen; ctx.lineWidth=8; ctx.lineCap='round'; const droop=1-press; ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+40*droop,py-150+40*droop,px+120*droop,py-220+120*droop); ctx.stroke(); ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(px+10*droop,py-120+30*droop); ctx.quadraticCurveTo(px-60,py-170+60*droop,px-80+40*droop,py-130+90*droop); ctx.stroke(); ctx.restore(); metaText(ctx,press>0.5?'druk → stevig':'druk weg → slap',px,py+50,C.grain,'center',24);
@@ -332,7 +332,7 @@ s23(ctx,t,q,st){
   // extras labels
   label(ctx,'celwand','van cellulose',P.cx+P.rx+16,P.cy-120,1400,300,aw);
   label(ctx,'chloroplasten','bladgroenkorrels',P.cx+190,P.cy-20,1400,520,ac);
-  label(ctx,'grote vacuole','holte vol water',P.cx+120,P.cy+120,1400,720,av);
+  label(ctx,'grote vacuole','blaas met celvocht',P.cx+120,P.cy+120,1400,720,av);
   // sieve demo: particles stream through wall, membrane selects
   const az=ramp(t,tz,0.5)*(1-ramp(t,tc,0.5)); if(az>0){ ctx.save(); ctx.globalAlpha=az; for(let k=0;k<12;k++){ const u=((t*0.5+hash(k+900))%1); const x=lerp(P.cx-P.rx-140,P.cx-P.rx+60,u); const y=P.cy+ (hash(k)*2-1)*120; const stop = k%2 && u>0.78; ctx.fillStyle=k%2?C.oker:C.teal; ctx.beginPath(); ctx.arc(stop?P.cx-P.rx-6:x,y,k%2?12:8,0,6.283); ctx.fill(); } ctx.restore(); card(ctx,1300,560,560,170,'wand = zeef, membraan kiest','Alles stroomt door de celwand; alleen het membraan laat selectief door.',az,C.goud); }
   const aj=ramp(t,q.at('allebei',2),0.5)*(1-ramp(t,tc,0.5)); haak(ctx,P.cx-P.rx-30,P.cx+P.rx+30,base+70,'wand eromheen, membraan ertegenaan: allebei',C.groen,aj);
