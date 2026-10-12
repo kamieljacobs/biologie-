@@ -158,7 +158,7 @@ SCENES.h3a=(ctx,li,lf,t,inset)=>{ const label=inset===true?()=>{}:window.label, 
   const nBr=li<3?0: li===3? Math.ceil(ease(lf)*5) : 5;
   for(let c=0;c<nBr;c++){ const cx=x0+c*3*dx; const hot=(li===6&&c===0)||(li>=7&&c===step)||(li===4&&c===4); ctx.save(); ctx.strokeStyle=hot?C.goud:rgba(C.line,0.7); ctx.lineWidth=hot?2.5:1.2; ctx.beginPath(); ctx.moveTo(cx-40,Ym+40); ctx.lineTo(cx-40,Ym+52); ctx.lineTo(cx+2*dx+40,Ym+52); ctx.lineTo(cx+2*dx+40,Ym+40); ctx.stroke(); ctx.restore();
     M(ctx,(li>=6&&c===0)?'start':(li>=4&&c===4)?'stop':'codon',cx+dx,Ym+90,{align:'center',color:hot?C.goud:C.text2}); }
-  const names=['Met','Ala','Ser','Gly']; const TY=Ym-16-104-12-104-8;
+  const names=['Met','Ala','Ser','Gly']; const TY=trnaY(Ym,0.8);
   if(li===4) M(ctx,'1 codon → 1 aminozuur',x0+6*dx,Ym-560,{align:'center',color:C.goud,alpha:ease(lf*2)});
   if(li===5){ const p=ease(lf*2); panel(ctx,1340,90,480,330,p); M(ctx,'codontabel (deel)',1370,140,{alpha:p}); [['AUG','Met · start'],['GCU','Ala'],['UCA','Ser'],['GGA','Gly'],['UAA','stop']].forEach((r,i)=>{ T(ctx,r[0],1380,200+i*46,36,{w:700,color:C.teal,alpha:p}); T(ctx,r[1],1520,200+i*46,36,{alpha:p}); }); }
   if(li===6){ const p=ease(lf*2); T(ctx,'AUG = methionine (Met)',x0,170,48,{w:700,color:C.goud,alpha:p}); }
@@ -188,7 +188,7 @@ SCENES.h3v=(ctx,li,lf,t)=>{
   mrna(ctx,x0-3*dx,Ym,'GCAUGGCU',{dx,dir:-1,s:1.1,focus:li>=2?[2,5]:null});
   T(ctx,"5'",x0-3*dx-110,Ym+14,40,{w:700,align:'right'}); T(ctx,"3'",x0+5*dx-20,Ym+14,40,{w:700});
   if(li>=1){ const p=li===1?ease(lf):1; arrow(ctx,x0-3*dx,Ym+90,x0-3*dx+(8*dx-60)*p,Ym+90,C.goud,3,1); M(ctx,"ribosoom leest 5' → 3'",x0-3*dx,Ym+140,{color:C.goud}); }
-  if(li>=2){ const p=li===2?ease(lf):1; const TY=Ym-16-143-12-143-8+40; trna(ctx,x0,TY-(1-p)*200,'UAC',{dx,bs:1.1,aa:'Met',k:0,alpha:clamp(p*1.5,0,1)});
+  if(li>=2){ const p=li===2?ease(lf):1; const TY=trnaY(Ym,1.1); trna(ctx,x0,TY-(1-p)*200,'UAC',{dx,bs:1.1,aa:'Met',k:0,alpha:clamp(p*1.5,0,1)});
     label(ctx,'anticodon','drie basen van het trna',x0+dx+40,TY+80,x0+3*dx+100,TY-40,p,C.text,'left'); label(ctx,'codon','',x0+dx+40,Ym-60,x0+3*dx+120,Ym-180,p,C.text,'left'); M(ctx,"anticodon 3' → 5'",x0-dx*1.6,TY+90,{align:'right',color:C.text2,alpha:p}); }
   if(li===3){ const p=ease(lf*2); T(ctx,'AUG ↔ UAC',1500,250,52,{w:700,color:C.goud,alpha:p,align:'center'}); }
   speed(ctx,'schematisch · niet op schaal');

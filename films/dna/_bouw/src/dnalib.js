@@ -126,6 +126,8 @@ function ribosomeBig(ctx,x,y,w=300,alpha=1){ if(alpha<=0.01) return; ctx.save();
 // amino acid bead (oker family); k picks a tint so neighbours differ
 const AAT=['#C9A35C','#B08A5C','#D9B97A','#9C7A4A','#E0C98F'];
 function aa(ctx,x,y,r,k,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c=AAT[k%AAT.length]; circ(ctx,x,y,r,c,lighten(c,0.35),1.5); if(lab) T(ctx,lab,x,y+r*0.36,Math.round(r*0.9),{w:700,align:'center',color:C.bgMicro}); ctx.restore(); }
+// trnaY: anticodon backbone y so the anticodon interlocks exactly with the codon of an mRNA (bases up, dir -1) at backbone y=mY; s = base scale of both
+const trnaY=(mY,s)=>mY-28-244*s;
 // tRNA: teal body (simplified L-shape seen as a T), anticodon of 3 bases at the bottom, amino acid on top
 function trna(ctx,x,y,anti,o={}){ // y = backbone line of the anticodon; bases point down (dir +1) to meet the codon
   const a=o.alpha==null?1:o.alpha, dx=o.dx||96, bs=o.bs||0.8; if(a<=0.01) return {top:y-150-40-30}; ctx.save(); ctx.globalAlpha*=a;

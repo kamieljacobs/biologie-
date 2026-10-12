@@ -39,7 +39,7 @@ function codonTable(ctx,x,y,o={}){ const B='UCAG', cw=o.cw||300, lh=o.lh||42, ph
   for(let i=0;i<4;i++) for(let k=0;k<4;k++) T(ctx,B[k],x+60+cw*4+44,y+i*ph+12+lh*k+lh*0.72,30,{align:'center',color:C.text2});
   ctx.restore(); }
 
-SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1330,140); ctx.scale(0.62,0.62); bigTrna(ctx,300,700,'CAC','Val',{k:1}); mrna(ctx,170,820,'GUG',{dx:130,dir:-1,s:1.15}); ctx.restore(); };
+SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1330,140); ctx.scale(0.62,0.62); bigTrna(ctx,300,560,'CAC','Val',{k:1}); mrna(ctx,170,560+28+244*1.15,'GUG',{dx:130,dir:-1,s:1.15}); ctx.restore(); };
 
 // ---- cold open: Macro person with insulin pen → zoomcirkel → tank with bacteria ----
 SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx); const pa=li===0?ease(lf*2):1;
@@ -54,30 +54,56 @@ SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx); const pa=li===0?ease(lf*2):1;
 
 // ---- H1: the tRNA as a tool ----
 SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
-  const cx=760, Ya=560; // anticodon backbone
-  if(li<=5){ const g=bigTrna(ctx,cx,Ya,'CAC','Val',{k:1});
+  const cx=760, Ya=500, MY=Ya+28+244*1.15; // anticodon backbone; mRNA backbone so the bases interlock
+  if(li<=6){ const g=bigTrna(ctx,cx,Ya,'CAC','Val',{k:1});
     if(li===2){ const p=ease(lf*2); ctx.save(); ctx.globalAlpha*=p; ctx.setLineDash([8,8]); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; circ(ctx,cx,g.top,82,null,C.goud,2.5); roundRect(ctx,cx-220,Ya-10,440,190,20); ctx.stroke(); ctx.restore(); M(ctx,'kant 1',cx+250,Ya+90,{color:C.goud,alpha:p}); M(ctx,'kant 2',cx+110,g.top+10,{color:C.goud,alpha:p}); }
-    if(li>=1) M(ctx,'trna · rna als werktuig',cx,Ya-300,{align:'center',color:C.teal,alpha:li===1?ease(lf*2):1});
-    if(li>=3){ const p=li===3?ease(lf*2):1; mrna(ctx,cx-130*2,Ya+260,'GGUGC',{dx:130,dir:-1,s:1.15,alpha:p,focus:[1,4]}); if(li<=4) label(ctx,'drie basen','passen op één codon',cx+200,Ya+120,1300,Ya+40,p,C.text,'left'); if(li<=4) label(ctx,'codon','op het mrna',cx+200,Ya+230,1300,Ya+200,p,C.text,'left'); }
-    if(li===4) label(ctx,'één soort aminozuur','valine',cx+60,g.top,1300,g.top-20,li===4?ease(lf*2):1,C.text,'left');
-    if(li===5){ const p=ease(lf*1.5); [['GGU','CCA','Gly',3],['UUU','AAA','Phe',0],['AUG','UAC','Met',2]].forEach(([cod,an,n,k],i)=>{ ctx.save(); ctx.globalAlpha*=clamp(p*3-i,0,1); ctx.translate(1550,170+i*230); ctx.scale(0.42,0.42); trna(ctx,0,300,an,{dx:130,bs:1.15,aa:n,k}); ctx.restore(); }); M(ctx,'veel soorten · elk eigen aminozuur',1550,815,{align:'center',color:C.text2,alpha:p}); }
+    if(li>=1) M(ctx,'trna · rna als werktuig',cx,g.top-110,{align:'center',color:C.teal,alpha:li===1?ease(lf*2):1});
+    if(li>=3){ const p=li===3?ease(lf*1.6):1; const drop=(1-p)*160; // the mRNA rises until the bases click into each other
+      mrna(ctx,cx-130*2,MY+drop,'GGUGC',{dx:130,dir:-1,s:1.15,alpha:clamp(p*2,0,1),focus:[1,4]});
+      if(li===3&&lf>0.55){ const q=ease((lf-0.55)*4); ctx.save(); ctx.globalAlpha*=q; for(let i=-1;i<=1;i++) roundRect(ctx,cx+i*130-36,Ya+120,72,64,12), ctx.strokeStyle=C.goud, ctx.lineWidth=3, ctx.stroke(); ctx.restore(); }
+      if(li<=4) label(ctx,'drie basen','passen op één codon',cx+200,Ya+90,1300,Ya+20,p,C.text,'left'); if(li<=4) label(ctx,'codon','op het mrna',cx+200,MY-60,1300,MY-30,p,C.text,'left'); }
+    // li 5–6: the anticodon decides which amino acid hangs on top — a fixed pair
+    if(li>=5){ const p=li===5?ease(lf*1.6):1; ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.goud; ctx.lineWidth=3;
+      roundRect(ctx,cx-200,Ya+4,400,170,18); ctx.stroke(); circ(ctx,cx,g.top,70,null,C.goud,3);
+      ctx.setLineDash([10,8]); ctx.beginPath(); ctx.moveTo(cx-200,Ya+90); ctx.bezierCurveTo(cx-420,Ya+40,cx-380,g.top,cx-72,g.top); ctx.stroke(); ctx.setLineDash([]); arrow(ctx,cx-110,g.top,cx-74,g.top,C.goud,3,1); ctx.restore();
+      T(ctx,'vaste combinatie',120,Ya-120,40,{w:700,color:C.goud,alpha:p}); T(ctx,'anticodon C A C',120,Ya-70,36,{alpha:p}); T(ctx,'→ altijd valine',120,Ya-25,36,{alpha:p}); }
+    if(li===4) label(ctx,'één soort aminozuur','valine',cx+60,g.top,1300,g.top-20,ease(lf*2),C.text,'left');
+    if(li===6){ const p=ease(lf*1.3); M(ctx,'anticodon  →  aminozuur',1500,150,{align:'center',color:C.text2,alpha:p});
+      [['CAC','Val',1],['CCA','Gly',3],['AAA','Phe',0],['UAC','Met',2]].forEach(([an,n,k],i)=>{ const a=clamp(p*4-i,0,1), y=250+i*150;
+        tileRow(ctx,1260,y,an,{dx:72,w:62,h:72,px:40,alpha:a,mark:i===0?(()=>C.goud):null}); arrow(ctx,1470,y,1570,y,i===0?C.goud:C.line,2.5,a); aaBead(ctx,1640,y,n,k,a); });
+      M(ctx,'eigen anticodon → eigen aminozuur',1460,820,{align:'center',color:C.goud,alpha:p}); }
     speed(ctx,'schematisch · niet op schaal'); return; }
-  // li 6..9: the cycle in three stations; the active station is bright
-  ribosomeBig(ctx,960,640,460,0.32); mrna(ctx,750,720,'AUGGUGGCU',{dx:56,dir:-1,s:0.5});
-  const st=li===6?0: li===7?1: li===8?(lf<0.45?1:2): -1; const A=k=> st<0?1:(st===k?1:0.4);
-  // 1: loaded tRNA in the cytoplasm, free valine nearby
-  ctx.save(); ctx.globalAlpha*=A(0); ctx.translate(330,470); ctx.scale(0.55,0.55); trna(ctx,0,0,'CAC',{dx:130,bs:1.15,aa:'Val',k:1}); ctx.restore();
-  // 2: at the ribosome, on the codon GUG, valine joins the chain
-  ctx.save(); ctx.globalAlpha*=A(1); ctx.translate(890,700-16-60); ctx.scale(0.5,0.5); trna(ctx,0,0,'CAC',{dx:112,bs:1.0,aa:false}); ctx.restore();
-  ctx.save(); ctx.globalAlpha*=A(1); for(let k=0;k<4;k++){ const bx=890-k*58, by=478-k*26; if(k) ln(ctx,bx,by,bx+58,by+26,C.oker,4); aa(ctx,bx,by,22,(4-k)%5,k===0?'':'',1); } ctx.restore();
-  // 3: empty tRNA leaving
-  ctx.save(); ctx.globalAlpha*=A(2); ctx.translate(1560,470); ctx.scale(0.55,0.55); trna(ctx,0,0,'CAC',{dx:130,bs:1.15,aa:false}); ctx.restore();
-  arrow(ctx,470,420,760,520,C.line,2,1); arrow(ctx,1040,520,1420,420,C.line,2,1);
+  // li 7..10: one tRNA goes round the cycle.  7 = picks up valine, 8 = travels to the ribosome and clicks onto GUG,
+  // 9 = valine is linked to the chain, then the EMPTY tRNA leaves, 10 = back to the start, reused.
+  const RX=960, MYc=720; ribosomeBig(ctx,RX,640,460,0.32); mrna(ctx,750,MYc,'AUGGUGGCU',{dx:56,dir:-1,s:0.5,focus:[3,6]});
+  const S1={x:330,y:470,k:0.55}, S2={x:750+4*56,y:MYc-16-122-6,k:0.5}, S3={x:1560,y:470,k:0.55};
+  const L=(P,Q,u)=>({x:P.x+(Q.x-P.x)*u,y:P.y+(Q.y-P.y)*u,k:P.k+(Q.k-P.k)*u});
+  const st=li===7?0: li===8?1: li===9?(lf<0.5?1:2): 3;
+  const drawT=(pos,withAA,alpha=1)=>{ ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(pos.x,pos.y); ctx.scale(pos.k,pos.k); trna(ctx,0,0,'CAC',{dx:112,bs:1.0,aa:withAA?'Val':false,k:1}); ctx.restore(); };
+  const topOf=pos=>({x:pos.x,y:pos.y-220*pos.k});
+  // the growing chain (Met-Ala-Gly…) hangs in the ribosome, its end next to the A-site
+  const chain=[[RX-60,S2.y-150],[RX-110,S2.y-185],[RX-160,S2.y-215],[RX-210,S2.y-240]];
+  ctx.save(); for(let k=chain.length-1;k>=0;k--){ if(k) ln(ctx,chain[k][0],chain[k][1],chain[k-1][0],chain[k-1][1],C.oker,4); aa(ctx,chain[k][0],chain[k][1],20,(k+2)%5,'',1); } ctx.restore();
+  // where is our tRNA, and does it still carry valine?
+  let pos, carry=true, linkP=0, valAt=null;
+  if(li===7){ pos=S1; const u=ease(clamp(lf*1.8,0,1)); const free={x:180,y:250}, tp=topOf(S1); valAt={x:free.x+(tp.x-free.x)*u,y:free.y+(tp.y-free.y)*u}; carry=false; }
+  else if(li===8){ pos=L(S1,S2,ease(clamp(lf*1.4,0,1))); }
+  else if(li===9){ if(lf<0.5){ pos=S2; linkP=ease(clamp(lf*2.4,0,1)); } else { pos=L(S2,S3,ease(clamp((lf-0.5)*2.2,0,1))); carry=false; linkP=1; } }
+  else { pos=S3; carry=false; linkP=1; }
+  // valine already in the chain once linked
+  const vTop=topOf(S2);
+  if(linkP>0){ const c0=chain[0]; ln(ctx,c0[0],c0[1],c0[0]+(vTop.x-c0[0])*linkP,c0[1]+(vTop.y-c0[1])*linkP,C.goud,4); if(!(li===9&&lf<0.5)) aa(ctx,vTop.x,vTop.y,18,1,'',1), T(ctx,'Val',vTop.x,vTop.y-28,24,{w:700,align:'center',color:C.goud}); }
+  drawT(pos,carry&&!(li===9&&lf>=0.5));
+  if(valAt){ aa(ctx,valAt.x,valAt.y,20,1,'',1); T(ctx,'Val',valAt.x,valAt.y-30,24,{w:700,align:'center',color:C.goud}); }
+  // empty tRNA: show the empty hook explicitly
+  if(!carry&&li>=9&&!(li===9&&lf<0.5)){ const tp=topOf(pos); ctx.save(); ctx.setLineDash([6,6]); circ(ctx,tp.x,tp.y,18,null,C.text2,2); ctx.restore(); M(ctx,'leeg',tp.x+34,tp.y+8,{color:C.goud}); }
+  if(li===10){ const p=ease(lf*2); ctx.save(); ctx.globalAlpha*=0.35+0.65*p; drawT(S1,false); ctx.restore(); const tp=topOf(S1); aa(ctx,tp.x-110+110*p,tp.y-70+70*p,20,1,'',p); }
+  arrow(ctx,470,420,760,520,C.line,2,1); arrow(ctx,1040,520,1440,440,C.line,2,1);
   ctx.save(); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.setLineDash([10,8]); ctx.beginPath(); ctx.moveTo(1560,250); ctx.quadraticCurveTo(960,40,360,250); ctx.stroke(); ctx.restore(); arrow(ctx,400,235,360,250,C.goud,2.5,1);
   M(ctx,'1 · pakt een aminozuur',330,600,{align:'center',color:st===0?C.goud:C.text2}); M(ctx,'2 · past op het codon',960,850,{align:'center',color:st===1?C.goud:C.text2});
-  M(ctx,'3 · laat leeg los',1560,600,{align:'center',color:st===2?C.goud:C.text2}); M(ctx,'en wordt opnieuw gebruikt',960,120,{align:'center',color:C.goud,alpha:li>=8?(li===8?ease(lf*2-0.8):1):0.35});
-  label(ctx,'keten','',832,452,700,330,A(1),C.text,'right');
-  if(li===9){ panel(ctx,1380,690,460,150,ease(lf*2)); T(ctx,'recept: mRNA',1420,750,40,{w:700,color:C.teal,alpha:ease(lf*2)}); T(ctx,'werktuig: tRNA',1420,805,40,{w:700,color:C.goud,alpha:ease(lf*2)}); }
+  M(ctx,'3 · laat leeg los',1560,600,{align:'center',color:st===2?C.goud:C.text2}); M(ctx,'en wordt opnieuw gebruikt',960,120,{align:'center',color:C.goud,alpha:li>=9?(li===9?ease(lf*2-0.8):1):0.35});
+  label(ctx,'keten','',chain[2][0],chain[2][1],chain[2][0]-150,chain[2][1]-90,1,C.text,'right');
+  if(li===10){ panel(ctx,1380,690,460,150,ease(lf*2)); T(ctx,'recept: mRNA',1420,750,40,{w:700,color:C.teal,alpha:ease(lf*2)}); T(ctx,'werktuig: tRNA',1420,805,40,{w:700,color:C.goud,alpha:ease(lf*2)}); }
 };
 
 // ---- H2: the codon table ----
@@ -116,10 +142,10 @@ SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const x0=330, dx=96, Ym=640;
 };
 
 // ---- H1 vwo: anticodon, loading enzymes, ribosomal RNA ----
-SCENES.h1v=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const cx=700, Ya=560;
-  if(li<=1){ bigTrna(ctx,cx,Ya,'CAC','Val',{k:1}); mrna(ctx,cx-130*2,Ya+260,'GGUGC',{dx:130,dir:-1,s:1.15,focus:[1,4]});
+SCENES.h1v=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const cx=700, Ya=500, MY=Ya+28+244*1.15;
+  if(li<=1){ bigTrna(ctx,cx,Ya,'CAC','Val',{k:1}); mrna(ctx,cx-130*2,MY,'GGUGC',{dx:130,dir:-1,s:1.15,focus:[1,4]});
     if(li===0) T(ctx,'Voor vwo: een stap verder',1200,200,48,{w:700,alpha:ease(lf*2)});
-    if(li===1){ const p=ease(lf*2); label(ctx,'anticodon',"3′ → 5′ · complementair",cx+200,Ya+120,1200,Ya+40,p,C.goud,'left'); label(ctx,'codon',"5′ → 3′",cx+200,Ya+230,1200,Ya+200,p,C.text,'left'); }
+    if(li===1){ const p=ease(lf*2); label(ctx,'anticodon',"3′ → 5′ · complementair",cx+200,Ya+90,1200,Ya+20,p,C.goud,'left'); label(ctx,'codon',"5′ → 3′",cx+200,MY-60,1200,MY-30,p,C.text,'left'); }
     speed(ctx,'schematisch · niet op schaal'); return; }
   if(li<=4){ const g=bigTrna(ctx,cx,Ya,'CAC',li===4?'Ala':'Val',{k:li===4?0:1});
     if(li===2){ const p=ease(lf); enzyme(ctx,cx+250-p*80,g.top-40,0.9,1); label(ctx,'enzym','koppelt het juiste aminozuur',cx+330,g.top+80,1250,g.top+170,ease(lf*2),C.text,'left'); M(ctx,'één enzym per aminozuur',1250,820,{color:C.text2}); }

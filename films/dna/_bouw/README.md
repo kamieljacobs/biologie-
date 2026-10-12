@@ -25,3 +25,9 @@ python3 build.py 1                                 # → out/1-wat-is-dna.html (
 node grab.js $PWD/out/1-wat-is-dna.standalone.html qa/a 6 && python3 sheet.py qa/a qa/a.png 7   # contactsheet (puppeteer nodig)
 python3 mkbron.py 1 <repo>/films/dna               # bron/info.md en bron/script.md bijwerken
 ```
+
+## Afl. 4 — audio-nabewerking (12 okt 2026)
+De audio staat niet in deze map maar in de film zelf (`python3 scripts/filmbron.py uitpakken`). Volgorde na een nieuwe opname van n5, n6 of n23 (werkmap `afl4/v3/` buiten de repo):
+1. `splice_trna.py` — plakt de goedgekeurde tRNA-uitspraak (n5 ≈ 7,6 s) over alle andere keren; tijdkaart in `afl4_v3/splice.json`.
+2. `insert_n5.py` — voegt de extra zin over anticodon ↔ aminozuur in n5 in (woordtijden in `afl4_v3/n5_ins_words.json`).
+3. `make_words4v3.py` → kopieer naar `data/afl4_audio/` → `python3 build.py 4` → `python3 mkbron.py 4 <repo>/films/dna`.
