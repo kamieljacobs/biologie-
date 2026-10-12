@@ -1,0 +1,387 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<nav class="sitenav" style="display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;max-width:1180px;margin:0 auto;padding:14px 16px 0;font:600 15px/1.3 system-ui,sans-serif"><a href="../index.html#home" style="color:inherit;opacity:.65;text-decoration:none">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a href="../index.html#dna" style="color:inherit;text-decoration:none">← Terug naar DNA</a></nav>
+<title>Waarom U in RNA</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: één kolom; bovenaan de simulatie met drie scenario-tabs, daaronder de moleculen. */
+:root{
+  --bg:#f7f8f6; --surface:#ffffff; --fg:#1d2420; --muted:#5f6a64; --line:#d9ded9;
+  --accent:#1f6f8b;
+  --A:#6b7f93; --G:#8a7a5c; --C:#2e7bb8; --T:#2a8a6e; --U:#d9822b; --Udmg:#c9452c;
+  --warn-bg:#fff3e6; --ok-bg:#e6f4ee; --bad-bg:#fbe9e5;
+  --display:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#151a18; --surface:#1e2522; --fg:#e8ebe8; --muted:#9aa49e; --line:#333c38;
+  --accent:#6fb6cf; --A:#9aa9b8; --G:#b8a884; --C:#6fb0e6; --T:#5fc3a1; --U:#f0a24a; --Udmg:#ef6a4b;
+  --warn-bg:#3a2a16; --ok-bg:#16332a; --bad-bg:#3d1f19; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#151a18; --surface:#1e2522; --fg:#e8ebe8; --muted:#9aa49e; --line:#333c38;
+  --accent:#6fb6cf; --A:#9aa9b8; --G:#b8a884; --C:#6fb0e6; --T:#5fc3a1; --U:#f0a24a; --Udmg:#ef6a4b;
+  --warn-bg:#3a2a16; --ok-bg:#16332a; --bad-bg:#3d1f19; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16px;line-height:1.5;padding-inline:16px;padding-block:28px 48px}
+.wrap{max-width:900px;margin:0 auto;display:grid;gap:28px}
+h1{font-size:clamp(26px,4vw,34px);font-weight:600;margin:0;line-height:1.15;text-wrap:balance}
+h2{font-size:18px;font-weight:600;margin:0}
+p{margin:0;max-width:68ch}
+.lead{color:var(--muted)}
+.muted{color:var(--muted);font-size:14px}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:8px 14px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.tab:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:grid;gap:16px}
+.scenario-desc{display:grid;gap:4px}
+
+.strands{overflow-x:auto;padding-block:6px}
+.strand{display:grid;grid-template-columns:repeat(24,28px);gap:4px;font-family:var(--mono);font-weight:600;font-size:15px}
+.strand + .strand{margin-top:4px}
+.bond{display:grid;grid-template-columns:repeat(24,28px);gap:4px;height:10px}
+.bond span{border-left:2px dotted var(--line);justify-self:center}
+.base{height:30px;display:grid;place-items:center;border-radius:6px;color:#fff;position:relative;transition:background .25s,transform .25s}
+.base.A{background:var(--A)} .base.G{background:var(--G)} .base.C{background:var(--C)} .base.T{background:var(--T)} .base.U{background:var(--U)}
+.base.U.dmg.show{background:var(--Udmg)}
+.base.U.dmg.show::after{content:"!";position:absolute;top:-7px;right:-4px;background:var(--surface);color:var(--Udmg);border:1px solid var(--Udmg);border-radius:999px;width:14px;height:14px;font-size:10px;line-height:12px;text-align:center}
+.base.gap{background:transparent;border:2px dashed var(--line);color:var(--muted)}
+.base.mut{box-shadow:0 0 0 2px var(--Udmg)}
+.base.pulse{animation:pulse .5s}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.18)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.base{transition:none;animation:none}}
+
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{font:inherit;font-size:14px;font-weight:500;padding:9px 14px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.toggle{display:flex;align-items:center;gap:6px;font-size:14px;margin-left:auto;color:var(--muted)}
+
+.status{border-radius:8px;padding:12px 14px;font-size:15px;display:grid;gap:4px}
+.status.neutral{background:var(--bg)}
+.status.warn{background:var(--warn-bg)}
+.status.ok{background:var(--ok-bg)}
+.status.bad{background:var(--bad-bg)}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.stats b{color:var(--fg);font-variant-numeric:tabular-nums}
+
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+.legend .lC::before{background:var(--C)} .legend .lU::before{background:var(--U)} .legend .lT::before{background:var(--T)} .legend .lD::before{background:var(--Udmg)}
+
+.deam{display:grid;gap:12px}
+.deam svg{width:100%;max-width:560px;height:auto;display:block}
+#deamSvg g{transition:transform 1.1s ease-in-out,opacity .6s}
+@media (prefers-reduced-motion:reduce){#deamSvg g{transition:none}}
+.mols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.mol{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface);display:grid;gap:8px}
+.mol h3{margin:0;font-size:15px;font-weight:600;display:flex;align-items:center;gap:8px}
+.mol h3 i{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:6px;color:#fff;font-style:normal;font-family:var(--mono);font-size:13px}
+.mol svg{width:100%;height:auto;max-width:100%}
+.mol p{font-size:14px;color:var(--muted)}
+.arrowrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.conclusie{display:grid;gap:10px}
+.conclusie li{margin-bottom:6px}
+.conclusie ul{margin:0;padding-left:20px;max-width:68ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Waarom zit er uracil in RNA en thymine in DNA?</h1>
+    <p class="lead">Cytosine verandert vanzelf in uracil. Speel de drie situaties door en kijk wat de cel daaraan kan doen.</p>
+  </header>
+
+  <section class="panel" aria-labelledby="sim-h">
+    <h2 id="sim-h">Simulatie</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-s="dna-t" aria-selected="true">1 · DNA met thymine (echt)</button>
+      <button class="tab" role="tab" data-s="dna-u" aria-selected="false">2 · DNA met uracil (stel dat…)</button>
+      <button class="tab" role="tab" data-s="rna" aria-selected="false">3 · RNA</button>
+    </div>
+    <div class="scenario-desc">
+      <p id="desc"></p>
+    </div>
+
+    <div class="strands">
+      <div class="strand" id="top"></div>
+      <div class="bond" id="bond"></div>
+      <div class="strand" id="bot"></div>
+    </div>
+    <div class="legend">
+      <span class="lC">cytosine</span><span class="lU">uracil</span><span class="lT">thymine</span><span class="lD">uracil dat ooit cytosine was (alleen zichtbaar met de schakelaar)</span>
+    </div>
+
+    <div class="controls">
+      <button class="btn primary" id="bTime">Laat tijd verstrijken</button>
+      <button class="btn" id="bRepair">Reparatie-enzym</button>
+      <button class="btn" id="bCopy">Kopieer (replicatie)</button>
+      <button class="btn" id="bFresh" hidden>Afbreken en opnieuw maken</button>
+      <button class="btn" id="bReset">Opnieuw</button>
+      <label class="toggle"><input type="checkbox" id="showOrigin"> toon herkomst (docentmodus)</label>
+    </div>
+
+    <div class="status neutral" id="status"><span>Klik op <b>Laat tijd verstrijken</b>.</span></div>
+    <div class="stats">
+      <span>Rondes: <b id="stRounds">0</b></span>
+      <span>Spontane C → U: <b id="stDeam">0</b></span>
+      <span>Gerepareerd: <b id="stRep">0</b></span>
+      <span>Blijvende mutaties in DNA: <b id="stMut">0</b></span>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="deam-h">
+    <h2 id="deam-h">Hoe C in U verandert</h2>
+    <p class="muted">Deaminering: een watermolecuul valt de aminogroep aan. De NH₂ vertrekt als ammoniak, de zuurstof van het water blijft achter.</p>
+    <div class="deam">
+      <svg viewBox="0 0 520 240" role="img" aria-label="Animatie van de deaminering van cytosine tot uracil" id="deamSvg">
+        <!-- ring -->
+        <g fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="170,50 236,88 236,164 170,202 104,164 104,88"/>
+          <line x1="110" y1="96" x2="110" y2="156" opacity=".5"/>
+          <line x1="230" y1="96" x2="230" y2="156" opacity=".5"/>
+        </g>
+        <text x="94" y="94" text-anchor="end" font-size="15" fill="currentColor">N</text>
+        <text x="246" y="170" text-anchor="start" font-size="15" fill="currentColor">N</text>
+        <text x="170" y="214" text-anchor="middle" font-size="13" fill="currentColor" opacity=".6">naar de suiker</text>
+        <!-- bond to C4 substituent -->
+        <line x1="170" y1="50" x2="170" y2="22" stroke="currentColor" stroke-width="2.5"/>
+        <!-- NH2 group (leaves) -->
+        <g id="nh2" transform="translate(170,16)">
+          <circle r="20" fill="var(--C)"/>
+          <text y="5" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">NH₂</text>
+        </g>
+        <!-- O group (appears) -->
+        <g id="oxy" transform="translate(170,16)" opacity="0">
+          <circle r="20" fill="var(--U)"/>
+          <text y="5" text-anchor="middle" font-size="15" font-weight="600" fill="#fff">O</text>
+        </g>
+        <!-- water (arrives) -->
+        <g id="water" transform="translate(470,60)">
+          <circle r="18" fill="var(--accent)" opacity=".9"/>
+          <text y="5" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">H₂O</text>
+        </g>
+        <!-- ammonia (leaves) -->
+        <g id="nh3" transform="translate(170,16)" opacity="0">
+          <circle r="18" fill="var(--muted)"/>
+          <text y="5" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">NH₃</text>
+        </g>
+        <!-- labels -->
+        <text id="molName" x="400" y="150" text-anchor="middle" font-size="22" font-weight="600" fill="var(--C)">cytosine</text>
+        <text id="pairs" x="400" y="178" text-anchor="middle" font-size="14" fill="currentColor" opacity=".7">paart met G</text>
+        <text id="caption" x="400" y="210" text-anchor="middle" font-size="13" fill="currentColor" opacity=".7"></text>
+      </svg>
+      <div class="controls">
+        <button class="btn primary" id="bDeam">Speel deaminering af</button>
+        <span class="muted" id="deamNote">Gebeurt spontaan, zonder enzym, honderden keren per dag in elke cel.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="mol-h">
+    <h2 id="mol-h">De moleculen</h2>
+    <p class="muted">Alle drie zijn pyrimidines met dezelfde ring. Het verschil zit op twee plekken.</p>
+    <div class="mols">
+      <div class="mol">
+        <h3><i style="background:var(--C)">C</i> Cytosine</h3>
+        <svg viewBox="0 0 200 150" role="img" aria-label="Cytosine: ring met NH2-groep bovenaan">
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="100,28 143,53 143,103 100,128 57,103 57,53"/>
+          </g>
+          <circle cx="100" cy="28" r="14" fill="var(--C)"/>
+          <text x="100" y="33" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">NH₂</text>
+          <text x="48" y="58" text-anchor="end" font-size="12" fill="currentColor">N</text>
+          <text x="152" y="108" text-anchor="start" font-size="12" fill="currentColor">N</text>
+          <circle cx="143" cy="53" r="4" fill="var(--line)"/>
+          <text x="156" y="48" font-size="11" fill="currentColor" opacity=".55">H</text>
+        </svg>
+        <p>Een aminogroep (NH₂). Die valt spontaan af in reactie met water: <b>deaminering</b>, enkele honderden keren per dag per cel.</p>
+      </div>
+      <div class="mol">
+        <h3><i style="background:var(--U)">U</i> Uracil</h3>
+        <svg viewBox="0 0 200 150" role="img" aria-label="Uracil: ring met zuurstof bovenaan, geen methylgroep">
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="100,28 143,53 143,103 100,128 57,103 57,53"/>
+          </g>
+          <circle cx="100" cy="28" r="14" fill="var(--U)"/>
+          <text x="100" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">O</text>
+          <text x="48" y="58" text-anchor="end" font-size="12" fill="currentColor">N</text>
+          <text x="152" y="108" text-anchor="start" font-size="12" fill="currentColor">N</text>
+          <circle cx="143" cy="53" r="4" fill="var(--line)"/>
+          <text x="156" y="48" font-size="11" fill="currentColor" opacity=".55">H</text>
+        </svg>
+        <p>NH₂ is vervangen door =O. Dit is precies wat je overhoudt als cytosine deamineert. Uracil paart met <b>A</b>, niet meer met G.</p>
+      </div>
+      <div class="mol">
+        <h3><i style="background:var(--T)">T</i> Thymine</h3>
+        <svg viewBox="0 0 200 150" role="img" aria-label="Thymine: uracil met een extra methylgroep">
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="100,28 143,53 143,103 100,128 57,103 57,53"/>
+          </g>
+          <circle cx="100" cy="28" r="14" fill="var(--U)"/>
+          <text x="100" y="33" text-anchor="middle" font-size="13" font-weight="600" fill="#fff">O</text>
+          <text x="48" y="58" text-anchor="end" font-size="12" fill="currentColor">N</text>
+          <text x="152" y="108" text-anchor="start" font-size="12" fill="currentColor">N</text>
+          <line x1="143" y1="53" x2="178" y2="38" stroke="var(--T)" stroke-width="3"/>
+          <circle cx="182" cy="36" r="15" fill="var(--T)"/>
+          <text x="182" y="40" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">CH₃</text>
+        </svg>
+        <p>Uracil plus een <b>methylgroep</b>. Dat label zegt tegen het reparatie-enzym: "ik hoor hier, laat me staan." Elke U in DNA is dus per definitie schade.</p>
+      </div>
+    </div>
+    <div class="arrowrow"><span>C</span><span>→ deaminering (spontaan, gratis) →</span><span>U</span><span>+ CH₃ (kost energie en een enzym) →</span><span>T</span></div>
+  </section>
+
+  <section class="panel conclusie" aria-labelledby="c-h">
+    <h2 id="c-h">Wat je hieruit haalt</h2>
+    <ul>
+      <li><b>DNA</b> moet tientallen jaren foutloos blijven en wordt steeds gekopieerd. Een ongerepareerde C → U wordt bij de volgende replicatie een blijvende mutatie (C–G wordt T–A). Met thymine als "echte" base mag het enzym uracil-DNA-glycosylase élke U verwijderen.</li>
+      <li><b>Als DNA uracil gebruikte</b>, zou het enzym een beschadigde C niet van een gewone U kunnen onderscheiden. Reparatie is dan onmogelijk en mutaties stapelen zich op.</li>
+      <li><b>RNA</b> leeft kort, wordt niet gekopieerd en niet gerepareerd. Een fout in één mRNA verdwijnt vanzelf als het molecuul wordt afgebroken. De methylgroep zou daar alleen energie kosten, dus RNA houdt het bij de goedkopere uracil.</li>
+    </ul>
+    <p class="muted">Thymine kán wel in RNA: in tRNA zit op één vaste plek ribothymidine. Het is dus geen "kan niet" maar een "loont niet".</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  const N=24;
+  const SEQ="ATGCCGTACGGATCCAGCTTGCAC"; // 24 basen, 8 C's in de bovenste streng
+  const comp={A:'T',T:'A',G:'C',C:'G',U:'A'};
+  const scen={
+    'dna-t':{desc:'De echte situatie. DNA gebruikt thymine. Het reparatie-enzym (uracil-DNA-glycosylase) knipt elke U die het tegenkomt uit het DNA en vervangt hem door C.',
+             repair:true,copy:true,fresh:false,useU:false},
+    'dna-u':{desc:'Gedachte-experiment: stel dat DNA uracil gebruikt in plaats van thymine. Laat tijd verstrijken en probeer daarna te repareren.',
+             repair:true,copy:true,fresh:false,useU:true},
+    'rna':{desc:'Een mRNA-molecuul. Het gebruikt uracil, leeft een paar uur en wordt daarna afgebroken en opnieuw overgeschreven van het DNA.',
+             repair:false,copy:false,fresh:true,useU:true}
+  };
+  let cur='dna-t', top=[], bot=[], st={rounds:0,deam:0,rep:0,mut:0}, ended=false;
+  const $=id=>document.getElementById(id);
+
+  function tBase(b,useU){ return (b==='T'&&useU)?'U':b; }
+  function reset(){
+    const useU=scen[cur].useU;
+    top=[...SEQ].map(b=>({b:tBase(b,useU),dmg:false,mut:false}));
+    bot=[...SEQ].map(b=>({b:tBase(comp[b],useU),dmg:false,mut:false}));
+    st={rounds:0,deam:0,rep:0,mut:0}; ended=false;
+    setStatus('neutral','Klik op <b>Laat tijd verstrijken</b>.');
+    render();
+  }
+  function setStatus(kind,html){ const s=$('status'); s.className='status '+kind; s.innerHTML='<span>'+html+'</span>'; }
+  function renderStrand(el,arr){
+    el.innerHTML='';
+    arr.forEach(x=>{
+      const d=document.createElement('div');
+      d.className='base '+(x.b==='_'?'gap':x.b)+(x.dmg?' dmg':'')+(x.mut?' mut':'');
+      if($('showOrigin').checked) d.classList.add('show');
+      d.textContent=x.b==='_'?'':x.b;
+      el.appendChild(d);
+    });
+  }
+  function render(){
+    const sc=scen[cur];
+    $('desc').textContent=sc.desc;
+    renderStrand($('top'),top); renderStrand($('bot'),bot);
+    const bond=$('bond'); if(!bond.children.length){ for(let i=0;i<N;i++){bond.appendChild(document.createElement('span'));} }
+    $('bRepair').hidden=!sc.repair; $('bCopy').hidden=!sc.copy; $('bFresh').hidden=!sc.fresh;
+    const anyU=top.some(x=>x.b==='U')||bot.some(x=>x.b==='U');
+    $('bRepair').disabled=ended||!anyU;
+    $('bCopy').disabled=ended;
+    $('bTime').disabled=ended;
+    $('stRounds').textContent=st.rounds; $('stDeam').textContent=st.deam; $('stRep').textContent=st.rep; $('stMut').textContent=st.mut;
+  }
+  function pulse(){ document.querySelectorAll('.base.dmg').forEach(e=>e.classList.add('pulse')); }
+
+  function timePass(){
+    let n=0;
+    [top,bot].forEach(arr=>arr.forEach(x=>{ if(x.b==='C'&&Math.random()<0.3){x.b='U';x.dmg=true;n++;} }));
+    if(n===0){ [top,bot].forEach(arr=>{const i=arr.findIndex(x=>x.b==='C'); if(n===0&&i>=0){arr[i].b='U';arr[i].dmg=true;n=1;}}); }
+    st.rounds++; st.deam+=n;
+    const useU=scen[cur].useU;
+    if(cur==='dna-t') setStatus('warn',`${n} cytosine${n===1?'':'s'} verloren hun aminogroep en werden uracil. In dit DNA hoort géén U, dus alles wat U is, is schade.`);
+    else if(cur==='dna-u') setStatus('warn',`${n} cytosine${n===1?'':'s'} werden uracil. Maar dit DNA zat al vol met U. Zie jij welke U's schade zijn? Het enzym ook niet.`);
+    else setStatus('warn',`${n} cytosine${n===1?'':'s'} in dit mRNA werden uracil. Vervelend voor dit ene molecuul, maar het DNA in de kern is onaangetast.`);
+    render(); pulse();
+  }
+  function repair(){
+    if(cur==='dna-t'){
+      let n=0;
+      [top,bot].forEach(arr=>arr.forEach(x=>{ if(x.b==='U'){x.b='C';x.dmg=false;n++;} }));
+      st.rep+=n;
+      setStatus('ok',`Het enzym vond ${n} U's, knipte ze eruit en zette er C voor terug (de tegenoverliggende G verraadt wat er hoorde). Nul mutaties.`);
+    } else {
+      const dmg=top.filter(x=>x.dmg).length+bot.filter(x=>x.dmg).length;
+      const real=top.filter(x=>x.b==='U'&&!x.dmg).length+bot.filter(x=>x.b==='U'&&!x.dmg).length;
+      setStatus('bad',`Het enzym ziet ${dmg+real} U's en kan niet zeggen welke ${dmg} schade zijn en welke ${real} echt horen. Alles weghalen vernielt het DNA; niets doen laat de schade staan. Reparatie mislukt.`);
+    }
+    render();
+  }
+  function copy(){
+    let n=0;
+    [top,bot].forEach(arr=>arr.forEach(x=>{ if(x.dmg){ x.b=scen[cur].useU?'U':'T'; x.dmg=false; x.mut=true; n++; } }));
+    // partner strand follows: the U now pairs with A
+    top.forEach((x,i)=>{ if(x.mut&&bot[i].b==='G'){bot[i].b='A';bot[i].mut=true;} });
+    bot.forEach((x,i)=>{ if(x.mut&&top[i].b==='G'){top[i].b='A';top[i].mut=true;} });
+    st.mut+=n; ended=n>0&&cur==='dna-u'?false:ended;
+    if(n===0) setStatus('ok','Gekopieerd zonder fouten. Er stond geen onherstelde schade meer in.');
+    else setStatus('bad',`Bij het kopiëren werd tegenover elke beschadigde base een A gezet. ${n} C–G-paren zijn nu blijvend ${scen[cur].useU?'U':'T'}–A-paren: mutaties die niet meer terug kunnen.`);
+    render();
+  }
+  function fresh(){
+    const had=top.filter(x=>x.dmg).length+bot.filter(x=>x.dmg).length;
+    reset();
+    setStatus('ok',`Het oude mRNA is afgebroken, inclusief ${had} beschadigde base${had===1?'':'n'}. Er is een nieuw, foutloos exemplaar overgeschreven van het DNA. Reparatie was nergens voor nodig.`);
+  }
+
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected','false'));
+    t.setAttribute('aria-selected','true'); cur=t.dataset.s; reset();
+  }));
+  $('bTime').addEventListener('click',timePass);
+  $('bRepair').addEventListener('click',repair);
+  $('bCopy').addEventListener('click',copy);
+  $('bFresh').addEventListener('click',fresh);
+  $('bReset').addEventListener('click',reset);
+  $('showOrigin').addEventListener('change',render);
+  reset();
+
+  // Deaminerings-animatie
+  const dq=id=>document.getElementById(id);
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  let playing=false;
+  function deamReset(){
+    dq('nh2').setAttribute('transform','translate(170,16)'); dq('nh2').setAttribute('opacity','1');
+    dq('oxy').setAttribute('opacity','0');
+    dq('water').setAttribute('transform','translate(470,60)'); dq('water').setAttribute('opacity','1');
+    dq('nh3').setAttribute('transform','translate(170,16)'); dq('nh3').setAttribute('opacity','0');
+    dq('molName').textContent='cytosine'; dq('molName').setAttribute('fill','var(--C)');
+    dq('pairs').textContent='paart met G'; dq('caption').textContent='';
+  }
+  async function playDeam(){
+    if(playing) return; playing=true; dq('bDeam').disabled=true;
+    deamReset(); await wait(150);
+    dq('caption').textContent='een watermolecuul komt langs…';
+    dq('water').setAttribute('transform','translate(215,16)'); await wait(1300);
+    dq('caption').textContent='…en valt de aminogroep aan';
+    await wait(500);
+    // swap: water's O stays, NH2 leaves as NH3
+    dq('water').setAttribute('opacity','0');
+    dq('oxy').setAttribute('opacity','1');
+    dq('nh2').setAttribute('opacity','0');
+    dq('nh3').setAttribute('opacity','1');
+    dq('nh3').setAttribute('transform','translate(330,-10)');
+    dq('caption').textContent='NH₂ vertrekt als ammoniak, de O blijft';
+    await wait(1200);
+    dq('nh3').setAttribute('opacity','0');
+    dq('molName').textContent='uracil'; dq('molName').setAttribute('fill','var(--U)');
+    dq('pairs').textContent='paart nu met A';
+    dq('caption').textContent='zelfde ring, andere letter';
+    await wait(400);
+    dq('bDeam').textContent='Nog eens'; dq('bDeam').disabled=false; playing=false;
+  }
+  dq('bDeam').addEventListener('click',playDeam);
+})();
+</script>
+
+</body></html>

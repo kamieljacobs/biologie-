@@ -10,7 +10,7 @@ Elke film heeft naast zich een map `bron/` met twee bestanden:
 | `films/<hoofdstuk>/<n>-<slug>.html` | `films/<hoofdstuk>/<n>-<slug>/bron/` |
 | `films/<hoofdstuk>/<slug>/index.html` | `films/<hoofdstuk>/<slug>/bron/` |
 
-De bronmappen van de 28 films die er op 12 oktober 2026 stonden zijn achteraf gereconstrueerd uit de gepubliceerde HTML. Wat niet in de HTML stond (stem-invoer met respellings, ElevenLabs-model bij sommige films, versiegeschiedenis) staat als "onbekend". Uitzondering: Celorganellen heeft daarnaast de echte bronbestanden (script, stem-invoer, woordtijden, broncode, bouwscripts, reviews) in `bron/`. Nieuwe films krijgen hun bronmap **in dezelfde commit** als de film zelf (zie `CLAUDE.md`). *Plek genoeg?* kwam op 2026-10-12 van een artifact en kreeg zijn bronmap met `scripts/maakbron_uitgelegd.py`.
+De bronmappen van de 28 films die er op 12 oktober 2026 stonden zijn achteraf gereconstrueerd uit de gepubliceerde HTML. Wat niet in de HTML stond (stem-invoer met respellings, ElevenLabs-model bij sommige films, versiegeschiedenis) staat als "onbekend". Uitzondering: Celorganellen heeft daarnaast de echte bronbestanden (script, stem-invoer, woordtijden, broncode, bouwscripts, reviews) in `bron/`. Nieuwe films krijgen hun bronmap **in dezelfde commit** als de film zelf (zie `CLAUDE.md`). *Plek genoeg?* kwam op 2026-10-12 van een artifact en kreeg zijn bronmap met `scripts/maakbron_uitgelegd.py`. Ook op 12 oktober zijn DNA 1–2 en DNA-technieken 1–2 van artifacts naar de site verhuisd en gereconstrueerd uit de artifact-versie.
 
 ## Een film aanpassen (werkwijze voor Claude)
 
@@ -38,6 +38,8 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 | Evolutie 1–9 | één mp3 per film met stiltes, base64 | `const TL`, geschatte woordtijden | alle latere tijden schuiven |
 | Stofwisseling 1–3, Voortplanting | één mp3 per hoofdstuk, base64 | `window.FILM`, zinstijden | dat hoofdstuk opnieuw |
 | Zenuwstelsel 1–6 | één mp3 per alinea, base64 | `window.FILM`, woordtijden | alleen die alinea opnieuw |
+| DNA 1–2 | één mp3 per alinea of vraag, base64 | zinstijden per segment | alleen dat segment opnieuw |
+| DNA-technieken 1–2 | één doorlopende take naast de HTML (`narration.mp3`, `gelfilm.mp3`) | geschatte woordtijden (`OMG_TL`, `OLG_TL`) of globale tijden | alle latere tijden schuiven; PCR- en gelfilm zitten ook in het practicum `tools/dna-profielen/` |
 
 ## Gevonden bij de reconstructie
 
