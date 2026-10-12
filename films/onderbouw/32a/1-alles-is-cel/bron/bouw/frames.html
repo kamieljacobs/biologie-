@@ -84,32 +84,121 @@ function krop(x,y,s,slap){
       const a0=u*r.spread, curl=u*r.curl ;
       blad2(x+u*r.dx*s, y-4*s, r.len*s*(0.9+0.2*h), r.wid*s*(0.9+0.15*h), a0, curl, i*2.3+k*5, P[k], slap?0.035:0.05); }); });
 }
+// ---------- realistic leaf ----------
+function blad3(x,y,len,wid,a0,curl,seed,pal,opt){
+  opt=opt||{};
+  const N=80, sp=[]; let px=x,py=y;
+  for(let i=0;i<=N;i++){ const t=i/N, a=a0+curl*t*t*(opt.droopLate?t:1); sp.push([px,py,a,t]); px+=Math.sin(a)*len/N; py-=Math.cos(a)*len/N; }
+  const Wf=t=>wid*Math.pow(Math.sin(Math.PI*Math.min(t,0.995)),0.5)*(0.28+0.72*Math.pow(t,0.55));
+  const edge=(t,side)=>{ const k=opt.crinkle||0.06, ph=seed*3.1+side*1.7;
+    return wid*k*Math.pow(t,0.6)*(0.5*Math.abs(Math.sin(t*52+ph))+0.35*Math.sin(t*13+ph*0.7)+0.25*Math.abs(Math.sin(t*131+ph*1.3))); };
+  const L=[],R=[];
+  sp.forEach(([sx,sy,a,t])=>{ const nx=Math.cos(a), ny=Math.sin(a), wl=Wf(t)*(1+(opt.asym||0))+edge(t,0), wr=Wf(t)*(1-(opt.asym||0))+edge(t,1);
+    L.push([sx-nx*wl,sy-ny*wl]); R.push([sx+nx*wr,sy+ny*wr]); });
+  const out=L.concat(R.slice().reverse());
+  const tip=sp[N];
+  // drop shadow for depth between overlapping leaves
+  ctx.save(); ctx.shadowColor='rgba(20,35,15,0.35)'; ctx.shadowBlur=18; ctx.shadowOffsetY=6;
+  leafPath(out); const g=ctx.createLinearGradient(x,y,tip[0],tip[1]);
+  g.addColorStop(0,pal[0]); g.addColorStop(0.35,pal[1]); g.addColorStop(1,pal[2]); ctx.fillStyle=g; ctx.fill(); ctx.restore();
+  // darker, cupped rim + soft highlight band (clipped inside the leaf)
+  ctx.save(); leafPath(out); ctx.clip();
+  ctx.strokeStyle=pal[3]; ctx.globalAlpha=0.55; ctx.lineWidth=wid*0.32; ctx.filter='blur(6px)'; leafPath(out); ctx.stroke(); ctx.filter='none';
+  ctx.globalAlpha=0.35; ctx.strokeStyle='#FFFFF0'; ctx.lineWidth=wid*0.22; ctx.filter='blur(10px)';
+  ctx.beginPath(); sp.slice(6,N-10).forEach(([sx,sy,a],i)=>{ const o=Wf(0.5)*0.35; const X=sx-Math.cos(a)*o, Y=sy-Math.sin(a)*o; i?ctx.lineTo(X,Y):ctx.moveTo(X,Y); }); ctx.stroke(); ctx.filter='none';
+  if(opt.wilt){ ctx.globalAlpha=0.6; ctx.strokeStyle=opt.wilt; ctx.lineWidth=wid*0.09; ctx.filter='blur(2px)'; leafPath(out); ctx.stroke(); ctx.filter='none'; }
+  // veins: tapered pale midrib + branching side veins
+  ctx.globalAlpha=0.9; ctx.strokeStyle=pal[4]; ctx.lineCap='round';
+  for(let i=0;i<N-8;i+=2){ const [x1,y1]=sp[i], [x2,y2]=sp[i+2], t=i/N; ctx.lineWidth=wid*0.11*(1-t)+1.2; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); }
+  ctx.globalAlpha=0.45; ctx.lineWidth=1.6;
+  for(let i=10;i<N-6;i+=6){ const [sx,sy,a,t]=sp[i], w=Wf(t); for(const d of [-1,1]){
+      const ex=sx+d*Math.cos(a)*w*0.92+Math.sin(a)*w*0.55, ey=sy+d*Math.sin(a)*w*0.92-Math.cos(a)*w*0.55;
+      ctx.beginPath(); ctx.moveTo(sx,sy); ctx.quadraticCurveTo(sx+d*Math.cos(a)*w*0.45+Math.sin(a)*w*0.05, sy+d*Math.sin(a)*w*0.45-Math.cos(a)*w*0.05, ex, ey); ctx.stroke(); } }
+  ctx.restore();
+}
+// palettes: [base, middle, tip, rim, vein]
+const SF=[['#C9DCA0','#4E8A3A','#2F6A2A','#1E4A1C','#E4F0CF'],['#D3E3A8','#5E9C44','#3C7A30','#24561F','#E8F3D4'],['#E2EDBA','#86BD5E','#5C9C3F','#3A7428','#F0F7DF'],['#EEF4C9','#B5DA86','#8CC060','#5C9440','#F7FBEA']];
+const SS=[['#D6D4A2','#8EA05A','#7C8A48','#5A6634','#E6E4C4'],['#DCDAA8','#9AAC64','#86944E','#606C38','#ECEACC'],['#E4E0B2','#ADBC74','#98A45C','#6C7840','#F0EED4'],['#EAE6BE','#C2CC88','#AEB66E','#7E884C','#F4F2DE']];
+function krop2(x,y,s,slap){
+  const P=slap?SS:SF;
+  const rings= slap
+   ? [{n:8,spread:1.5,curl:0.55,len:270,wid:96,dx:85},{n:6,spread:1.15,curl:0.6,len:215,wid:86,dx:55},{n:5,spread:0.8,curl:0.7,len:160,wid:72,dx:30},{n:4,spread:0.45,curl:0.6,len:110,wid:54,dx:14}]
+   : [{n:8,spread:1.05,curl:-0.15,len:225,wid:118,dx:70},{n:7,spread:0.8,curl:-0.32,len:205,wid:108,dx:48},{n:5,spread:0.52,curl:-0.42,len:178,wid:96,dx:28},{n:3,spread:0.22,curl:-0.38,len:142,wid:80,dx:10}];
+  rings.forEach((r,k)=>{ const order=[...Array(r.n).keys()].sort((a,b)=>Math.abs(b-(r.n-1)/2)-Math.abs(a-(r.n-1)/2));
+    order.forEach(i=>{ const u=r.n>1? i/(r.n-1)*2-1:0, h=hash(i*7.3+k*13.1);
+      blad3(x+u*r.dx*s, y-4*s, r.len*s*(0.88+0.24*h), r.wid*s*(0.88+0.2*h), u*r.spread+(h-0.5)*0.3, u*r.curl+(slap?(hash(i+k*3)-0.5)*0.5:0), i*2.3+k*5.1, P[k],
+        {crinkle: slap?0.1:0.13, asym:(h-0.5)*0.2, wilt: slap&&k<2?'#9A8448':null, droopLate:slap}); }); });
+}
+// ---------- window view: mountains + pine forest ----------
+function pine(x,y,h,col){
+  ctx.fillStyle=col; ctx.beginPath(); const tiers=7; ctx.moveTo(x,y-h);
+  for(let i=1;i<=tiers;i++){ const t=i/tiers, w=h*0.24*t+2; ctx.lineTo(x+w,y-h+h*t*0.92); ctx.lineTo(x+w*0.45,y-h+h*t*0.92-h*0.03); }
+  ctx.lineTo(x+2,y); ctx.lineTo(x-2,y);
+  for(let i=tiers;i>=1;i--){ const t=i/tiers, w=h*0.24*t+2; ctx.lineTo(x-w*0.45,y-h+h*t*0.92-h*0.03); ctx.lineTo(x-w,y-h+h*t*0.92); }
+  ctx.closePath(); ctx.fill();
+}
+function ridge(x0,x1,base,amp,seed,step){ const pts=[]; for(let x=x0;x<=x1+step;x+=step){ const u=x*0.004+seed; pts.push([x, base-amp*(0.55*Math.abs(Math.sin(u))+0.3*Math.sin(u*2.3+1)+0.15*Math.sin(u*5.1))]); } return pts; }
+function landscape(X,Y,Wd,Hd){
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  let g=ctx.createLinearGradient(0,Y,0,Y+Hd); g.addColorStop(0,'#6FA6D6'); g.addColorStop(0.55,'#BCD8EA'); g.addColorStop(1,'#E9EFE6'); ctx.fillStyle=g; ctx.fillRect(X,Y,Wd,Hd);
+  const sun=ctx.createRadialGradient(X+Wd*0.78,Y+70,5,X+Wd*0.78,Y+70,220); sun.addColorStop(0,'rgba(255,248,220,0.95)'); sun.addColorStop(0.15,'rgba(255,244,210,0.5)'); sun.addColorStop(1,'rgba(255,244,210,0)'); ctx.fillStyle=sun; ctx.fillRect(X,Y,Wd,Hd);
+  // far mountains with snow
+  const m1=[[X,Y+260],[X+90,Y+150],[X+170,Y+205],[X+290,Y+95],[X+380,Y+175],[X+470,Y+120],[X+560,Y+190],[X+Wd,Y+150],[X+Wd,Y+Hd],[X,Y+Hd]];
+  ctx.fillStyle='#93A9C2'; leafPath(m1); ctx.fill();
+  ctx.fillStyle='#F4F7FA'; [[90,150,40],[290,95,62],[470,120,46]].forEach(([dx,dy,w])=>{ ctx.beginPath(); ctx.moveTo(X+dx,Y+dy); ctx.lineTo(X+dx+w*0.7,Y+dy+w*0.55); ctx.lineTo(X+dx+w*0.35,Y+dy+w*0.45); ctx.lineTo(X+dx+w*0.1,Y+dy+w*0.62); ctx.lineTo(X+dx-w*0.25,Y+dy+w*0.4); ctx.lineTo(X+dx-w*0.6,Y+dy+w*0.5); ctx.closePath(); ctx.fill(); });
+  // shaded side of far mountains
+  ctx.fillStyle='rgba(70,90,120,0.25)'; [[290,95,380,175,300,230],[90,150,170,205,110,240],[470,120,560,190,480,230]].forEach(q=>{ ctx.beginPath(); ctx.moveTo(X+q[0],Y+q[1]); ctx.lineTo(X+q[2],Y+q[3]); ctx.lineTo(X+q[4],Y+q[5]); ctx.closePath(); ctx.fill(); });
+  // haze
+  g=ctx.createLinearGradient(0,Y+170,0,Y+270); g.addColorStop(0,'rgba(225,235,240,0)'); g.addColorStop(1,'rgba(225,235,240,0.75)'); ctx.fillStyle=g; ctx.fillRect(X,Y+170,Wd,100);
+  // nearer mountain ridge
+  ctx.fillStyle='#6E8A86'; leafPath(ridge(X,X+Wd,Y+275,55,2.1,12).concat([[X+Wd,Y+Hd],[X,Y+Hd]])); ctx.fill();
+  // three forest layers, far to near (atmospheric perspective)
+  [['#5E7F70',Y+300,26,40,7],['#3F6450',Y+340,36,58,9],['#284A36',Y+392,52,86,13]].forEach(([c,base,sp,h,seed],li)=>{
+    ctx.fillStyle=c; ctx.fillRect(X,base-6,Wd,Hd);
+    for(let x=X-20;x<X+Wd+20;x+=sp*(0.7+0.5*hash(x*0.37+seed))) pine(x, base+4, h*(0.7+0.6*hash(x*0.91+seed)), c); });
+  // meadow in front + two big pines framing the view
+  ctx.fillStyle='#5F8F42'; ctx.beginPath(); ctx.moveTo(X,Y+Hd-34); ctx.quadraticCurveTo(X+Wd*0.5,Y+Hd-58,X+Wd,Y+Hd-30); ctx.lineTo(X+Wd,Y+Hd); ctx.lineTo(X,Y+Hd); ctx.fill();
+  pine(X+40,Y+Hd-20,230,'#1E3A29'); pine(X+Wd-55,Y+Hd-16,260,'#1B3626');
+  ctx.restore();
+}
 function frameKeuken(){
-  // wall + window with daylight garden
-  ctx.fillStyle='#8EA7BE'; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle='#9BB2C7'; for(let r=0;r<6;r++) for(let c=0;c<16;c++){ const tx=c*124+(r%2)*62-30, ty=60+r*96; roundRect(ctx,tx,ty,118,90,3); ctx.fill(); }
-  ctx.fillStyle='#E9EEF2'; roundRect(ctx,1230,40,560,420,6); ctx.fill();
-  ctx.fillStyle='#A9CBE4'; ctx.fillRect(1250,60,520,380);
-  ctx.fillStyle='#6F9F63'; ctx.beginPath(); ctx.moveTo(1250,330); for(let i=0;i<=26;i++){ ctx.lineTo(1250+i*20, 300+Math.sin(i*0.9)*22+hash(i)*18); } ctx.lineTo(1770,440); ctx.lineTo(1250,440); ctx.closePath(); ctx.fill();
-  ctx.fillStyle='#5A8752'; ctx.beginPath(); ctx.arc(1360,290,70,0,6.283); ctx.arc(1440,270,60,0,6.283); ctx.fill();
-  ctx.fillStyle='#E9EEF2'; ctx.fillRect(1505,60,10,380); ctx.fillRect(1250,245,520,10);
+  // warm plastered wall with soft light from the window
+  let g=ctx.createLinearGradient(0,0,W,0); g.addColorStop(0,'#CBBBA2'); g.addColorStop(0.65,'#DCCFB8'); g.addColorStop(1,'#E6DCC8'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  // tiled splashback behind the counter
+  ctx.fillStyle='#E9E4DA'; ctx.fillRect(0,430,W,175);
+  ctx.strokeStyle='rgba(160,150,135,0.55)'; ctx.lineWidth=2; for(let r=0;r<4;r++){ ctx.beginPath(); ctx.moveTo(0,430+r*44); ctx.lineTo(W,430+r*44); ctx.stroke(); for(let c=0;c<26;c++){ const tx=c*88+(r%2)*44; ctx.beginPath(); ctx.moveTo(tx,430+r*44); ctx.lineTo(tx,474+r*44); ctx.stroke(); } }
+  // window: deep reveal, frame, mullions, sill
+  ctx.fillStyle='#BFAE94'; roundRect(ctx,1180,30,660,420,4); ctx.fill();
+  landscape(1205,52,610,380);
+  ctx.fillStyle='#F3F1EC'; ctx.fillRect(1196,40,628,14); ctx.fillRect(1196,430,628,14); ctx.fillRect(1196,40,14,404); ctx.fillRect(1810,40,14,404); ctx.fillRect(1503,40,12,404);
+  ctx.fillStyle='rgba(255,255,255,0.18)'; ctx.beginPath(); ctx.moveTo(1240,60); ctx.lineTo(1330,60); ctx.lineTo(1230,250); ctx.lineTo(1215,250); ctx.closePath(); ctx.fill();
+  // light patch from the window falling on the counter
   // wooden counter top + front
-  ctx.fillStyle='#B98B5A'; ctx.fillRect(0,600,W,70);
-  ctx.strokeStyle='#A47648'; ctx.lineWidth=1.2; for(let i=0;i<9;i++){ ctx.beginPath(); ctx.moveTo(0,608+i*7); for(let x=0;x<=W;x+=60) ctx.lineTo(x,608+i*7+Math.sin(x*0.004+i)*2.5); ctx.stroke(); }
-  ctx.fillStyle='#8C6440'; ctx.fillRect(0,670,W,H-670);
-  ctx.fillStyle='#7A5636'; for(let i=0;i<6;i++){ roundRect(ctx,60+i*320,700,290,170,6); ctx.fill(); }
-  ctx.fillStyle='#C9B896'; for(let i=0;i<6;i++){ roundRect(ctx,175+i*320,715,60,8,4); ctx.fill(); }
-  // shadows under the heads (flat, darker wood)
-  ctx.fillStyle='rgba(60,40,20,0.25)'; ctx.beginPath(); ctx.ellipse(520,628,230,22,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(1075,630,280,20,0,0,6.283); ctx.fill();
-  krop(520,625,1.0,false); krop(1075,625,0.95,true);
-  // glass bowl of water on the right
-  ctx.fillStyle='rgba(90,164,201,0.35)'; ctx.beginPath(); ctx.moveTo(1480,545); ctx.lineTo(1730,545); ctx.lineTo(1705,625); ctx.lineTo(1505,625); ctx.closePath(); ctx.fill();
-  ctx.strokeStyle='#DCEAF3'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(1465,500); ctx.lineTo(1490,628); ctx.lineTo(1720,628); ctx.lineTo(1745,500); ctx.stroke();
-  ctx.strokeStyle='rgba(220,234,243,0.8)'; ctx.beginPath(); ctx.moveTo(1474,545); ctx.lineTo(1736,545); ctx.stroke();
-  pillLabel('stevig','net uit de koelkast',520,450,130,230,true);
-  pillLabel('slap','een dag op het aanrecht',1075,520,720,300,true);
-  pillLabel('koud water','',1600,590,1500,760,true);
-  metaText(ctx,'onderbouw · kerndoelen · film 1',60,46,'#1A2740','left',20);
+  g=ctx.createLinearGradient(0,600,0,670); g.addColorStop(0,'#C49A68'); g.addColorStop(1,'#A97E4E'); ctx.fillStyle=g; ctx.fillRect(0,600,W,70);
+  ctx.strokeStyle='rgba(120,80,40,0.35)'; ctx.lineWidth=1.2; for(let i=0;i<9;i++){ ctx.beginPath(); ctx.moveTo(0,606+i*7); for(let x=0;x<=W;x+=40) ctx.lineTo(x,606+i*7+Math.sin(x*0.004+i*1.3)*2.5); ctx.stroke(); }
+  g=ctx.createRadialGradient(1450,630,10,1450,630,520); g.addColorStop(0,'rgba(255,240,200,0.35)'); g.addColorStop(1,'rgba(255,240,200,0)'); ctx.fillStyle=g; ctx.fillRect(0,600,W,70);
+  ctx.fillStyle='#6E4D30'; ctx.fillRect(0,666,W,6);
+  ctx.fillStyle='#8A6542'; ctx.fillRect(0,672,W,H-672);
+  ctx.fillStyle='#7B5838'; for(let i=0;i<6;i++){ roundRect(ctx,40+i*320,700,300,190,6); ctx.fill(); }
+  ctx.fillStyle='#C8C2B4'; for(let i=0;i<6;i++){ roundRect(ctx,160+i*320,716,60,8,4); ctx.fill(); }
+  // soft shadows under the heads
+  ctx.save(); ctx.filter='blur(10px)'; ctx.fillStyle='rgba(50,30,10,0.45)'; ctx.beginPath(); ctx.ellipse(520,632,240,20,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(1060,634,300,22,0,0,6.283); ctx.fill(); ctx.restore();
+  krop2(520,628,1.0,false);
+  krop2(1060,630,0.95,true);
+  // a single fallen limp leaf
+  blad3(1290,640,150,62,1.75,0.25,9,SS[1],{crinkle:0.05,wilt:'#9A8448'});
+  // glass bowl of water
+  const bx=1560;
+  ctx.fillStyle='rgba(120,175,205,0.45)'; ctx.beginPath(); ctx.moveTo(bx-125,545); ctx.lineTo(bx+125,545); ctx.lineTo(bx+102,626); ctx.lineTo(bx-102,626); ctx.closePath(); ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.moveTo(bx-140,498); ctx.lineTo(bx+140,498); ctx.lineTo(bx+110,628); ctx.lineTo(bx-110,628); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,0.85)'; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(bx-140,498); ctx.lineTo(bx-110,628); ctx.lineTo(bx+110,628); ctx.lineTo(bx+140,498); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bx,498,140,9,0,0,6.283); ctx.strokeStyle='rgba(255,255,255,0.7)'; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bx,545,124,7,0,0,6.283); ctx.strokeStyle='rgba(230,245,250,0.9)'; ctx.stroke();
+  ctx.fillStyle='rgba(255,255,255,0.5)'; ctx.fillRect(bx-118,512,6,100);
+  pillLabel('stevig','net uit de koelkast',520,450,130,250,true);
+  pillLabel('slap','een dag op het aanrecht',1060,530,640,300,true);
+  pillLabel('koud water','',bx,590,bx-60,770,true);
+  metaText(ctx,'onderbouw · kerndoelen · film 1',60,46,'#3A3024','left',20);
   caption('Nu hangen de blaadjes slap.');
 }
 
@@ -202,6 +291,175 @@ function frameModel(){
   scaleBar(ctx,'model · vereenvoudigd · niet op schaal');
   caption('Zo\'n tekening is een model.');
 }
-window.FRAMES={keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
+
+// ================= keuken v3: animatiestijl naar het voorbeeld van de foto =================
+function blobPath(cx,cy,rx,ry,rot,seed,waves,amp,from,to){
+  // closed blob; ruffle only applies on the arc [from,to] (radians, local), elsewhere smooth
+  const N=140, pts=[];
+  for(let i=0;i<N;i++){ const th=i/N*6.283;
+    let inArc = from===undefined ? 1 : (((th-from+6.283)%6.283) < ((to-from+6.283)%6.283) ? 1 : 0);
+    const r=1+inArc*(amp*Math.sin(th*waves+seed)+amp*0.5*Math.sin(th*waves*2.2+seed*1.7)+amp*0.35*Math.abs(Math.sin(th*waves*4.1+seed)));
+    const x=Math.cos(th)*rx*r, y=Math.sin(th)*ry*r;
+    pts.push([cx+x*Math.cos(rot)-y*Math.sin(rot), cy+x*Math.sin(rot)+y*Math.cos(rot)]); }
+  ctx.beginPath(); pts.forEach((q,i)=>{ const n=pts[(i+1)%N], m=[(q[0]+n[0])/2,(q[1]+n[1])/2]; if(!i) ctx.moveTo(m[0],m[1]); else ctx.quadraticCurveTo(q[0],q[1],m[0],m[1]); }); ctx.closePath();
+  return pts;
+}
+function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,cols,opt){
+  opt=opt||{};
+  ctx.save();
+  ctx.shadowColor='rgba(30,50,10,0.28)'; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
+  blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07);
+  const g=ctx.createRadialGradient(lx,ly,8,lx,ly,Math.max(rx,ry)*1.6);
+  g.addColorStop(0,cols[0]); g.addColorStop(0.45,cols[1]); g.addColorStop(1,cols[2]);
+  ctx.fillStyle=g; ctx.fill(); ctx.restore();
+  ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); ctx.clip();
+  // darker ruffled rim
+  ctx.strokeStyle=cols[3]; ctx.globalAlpha=0.55; ctx.lineWidth=Math.min(rx,ry)*0.18; ctx.filter='blur(5px)';
+  blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); ctx.stroke(); ctx.filter='none';
+  // fold lines radiating from the light point
+  ctx.globalAlpha=0.35; ctx.strokeStyle=cols[4]; ctx.lineWidth=2.2; ctx.lineCap='round';
+  for(let k=0;k<5;k++){ const a=rot+(k-2)*0.38+(hash(seed+k)-0.5)*0.2; const ex=cx+Math.cos(a-1.57)*rx*0.9, ey=cy+Math.sin(a-1.57)*ry*0.9;
+    ctx.beginPath(); ctx.moveTo(lx,ly); ctx.quadraticCurveTo((lx+ex)/2+(hash(seed*3+k)-0.5)*30,(ly+ey)/2,ex,ey); ctx.stroke(); }
+  ctx.restore();
+  ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,opt.waves||11,opt.amp||0.07); ctx.strokeStyle=cols[3]; ctx.globalAlpha=0.6; ctx.lineWidth=1.4; ctx.stroke(); ctx.restore();
+}
+const BOT=['#F2F7C6','#A6D45A','#5E9E2E','#3F7A1E','#FFFFFF'];   // fresh butterhead
+const BOT2=['#F7FADA','#C2E27A','#7DB842','#4E8A26','#FFFFFF'];
+function stevigeKrop(x,y,s){
+  const L=(cx,cy,rx,ry,rot,seed,c,o)=>lettuceLeaf(x+cx*s,y+cy*s,rx*s,ry*s,rot,seed,x,y+40*s,c,o);
+  // outer leaves, splayed down and out onto the counter
+  L(-150,60,150,95,-0.35,1,BOT); L(150,60,150,95,0.35,2,BOT); L(-90,95,140,80,-0.1,3,BOT); L(95,98,140,80,0.12,4,BOT);
+  L(-175,-20,120,120,-0.6,5,BOT); L(175,-20,120,120,0.6,6,BOT);
+  L(-110,-95,120,105,-0.4,7,BOT); L(110,-95,120,105,0.4,8,BOT); L(0,-140,140,90,0,9,BOT);
+  // middle ring
+  L(-80,-30,115,120,-0.25,10,BOT2,{amp:0.06}); L(85,-30,115,120,0.25,11,BOT2,{amp:0.06}); L(0,-60,120,110,0,12,BOT2,{amp:0.06});
+  // the heart: cupped pale leaves
+  L(-35,10,85,95,-0.15,13,['#FBFDE6','#DDEFA4','#A8D468','#6FA83A','#FFFFFF'],{amp:0.05,waves:9});
+  L(40,15,85,92,0.15,14,['#FBFDE6','#DDEFA4','#A8D468','#6FA83A','#FFFFFF'],{amp:0.05,waves:9});
+  L(0,55,120,70,0,15,BOT,{amp:0.06});
+  L(-40,110,135,55,-0.05,16,BOT); L(55,112,130,52,0.08,17,BOT);
+}
+function slappeKrop(x,y,s){
+  // a limp head that has slumped: separate drapes bulge out from the stem and spread in a wrinkled hem on the counter
+  const top=[x+4*s,y-165*s], hemY=y+10*s;
+  const drapes=[[-275,-120,0,0],[110,280,1,0],[-230,-20,2,0],[40,235,3,0],[-170,30,4,1],[-40,170,5,1],[-110,0,6,1],[-5,105,7,1]];
+  drapes.forEach(([a,b,k,front])=>{
+    const h=hash(k*4.7+1), c= front? [['#F1F3CF','#CBD98F','#9DB45F','#6E8838'],['#ECF0C4','#C1D383','#93AC55','#647F32']][k%2] : [['#DCE3AE','#A7BC6A','#7C9744','#58702D'],['#E2E6B4','#B2C474','#86A04C','#5E7630']][k%2];
+    const xa=x+a*s, xb=x+b*s, bulge=(32+30*h)*s;
+    const edge=(xe,dir,t)=>{ // point on a bulging side edge, t 0..1 from top to hem
+      const bx=top[0]+(xe-top[0])*t, by=top[1]+(hemY-top[1])*Math.pow(t,0.9);
+      return [bx+dir*bulge*Math.sin(Math.PI*t)*0.9, by-bulge*0.35*Math.sin(Math.PI*t)]; };
+    const pts=[], N=40;
+    for(let i=0;i<=N;i++) pts.push(edge(xa,-1,i/N));
+    for(let i=0;i<=N;i++){ const t=i/N, hx=xa+(xb-xa)*t; pts.push([hx, hemY+(Math.sin(t*14+k*2)*11+Math.abs(Math.sin(t*37+k))*7)*s-(front?0:14*s)]); }
+    for(let i=N;i>=0;i--) pts.push(edge(xb,1,i/N));
+    ctx.save(); ctx.shadowColor='rgba(40,40,10,0.32)'; ctx.shadowBlur=14; ctx.shadowOffsetY=5;
+    leafPath(pts); const g=ctx.createLinearGradient(0,top[1],0,hemY); g.addColorStop(0,c[0]); g.addColorStop(0.5,c[1]); g.addColorStop(1,c[2]); ctx.fillStyle=g; ctx.fill(); ctx.restore();
+    ctx.save(); leafPath(pts); ctx.clip();
+    ctx.strokeStyle=c[3]; ctx.globalAlpha=0.5; ctx.lineWidth=18*s; ctx.filter='blur(6px)'; leafPath(pts); ctx.stroke(); ctx.filter='none';
+    // a light, tapering midrib on the front drapes only
+    if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle='#F7F8E6'; ctx.lineCap='round';
+      for(let i=0;i<12;i++){ const t1=i/12, t2=(i+1)/12; ctx.lineWidth=(7-5*t1)*s; ctx.beginPath();
+        ctx.moveTo(top[0]+(mx-top[0])*t1+Math.sin(t1*3)*12*s, top[1]+(hemY-top[1])*t1); ctx.lineTo(top[0]+(mx-top[0])*t2+Math.sin(t2*3)*12*s, top[1]+(hemY-top[1])*t2); ctx.stroke(); } }
+    // wrinkles: short curved creases near the hem
+    ctx.globalAlpha=0.32; ctx.strokeStyle=c[3]; ctx.lineWidth=2.2;
+    for(let w=0;w<9;w++){ const t=0.45+0.5*hash(k*9+w), u=hash(k*13+w*3); const p1=edge(xa,-1,t), p2=edge(xb,1,t); const px=p1[0]+(p2[0]-p1[0])*u, py=p1[1]+(p2[1]-p1[1])*u;
+      ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+(hash(w+k)-0.5)*30*s,py+20*s,px+(hash(w*2+k)-0.5)*24*s,py+42*s); ctx.stroke(); }
+    ctx.restore();
+  });
+  ctx.fillStyle='#E9E2B8'; ctx.beginPath(); ctx.ellipse(top[0],top[1]+4*s,18*s,9*s,0,0,6.283); ctx.fill(); ctx.strokeStyle='#B8AD78'; ctx.lineWidth=2; ctx.stroke();
+}
+function treeLine(X,Wd,base,hMin,hVar,step,seed){
+  // silhouette of many tree tops merged into one path
+  const pts=[[X-20,base+400]]; for(let x=X-20;x<=X+Wd+20;x+=step*(0.7+0.6*hash(x*0.11+seed))){ const h=hMin+hVar*hash(x*0.37+seed); pts.push([x-step*0.45,base-h*0.35]); pts.push([x,base-h]); pts.push([x+step*0.45,base-h*0.35]); }
+  pts.push([X+Wd+20,base+400]); return pts; }
+function bigPine(x,y,h,c1,c2){
+  // layered drooping branches, light from the right
+  const tiers=Math.round(h/22);
+  for(let i=0;i<tiers;i++){ const t=i/(tiers-1), ty=y-h+t*h*0.95, w=4+h*0.2*t*(0.85+0.3*hash(x+i));
+    const g=ctx.createLinearGradient(x-w,0,x+w,0); g.addColorStop(0,c1); g.addColorStop(1,c2); ctx.fillStyle=g;
+    ctx.beginPath(); ctx.moveTo(x,ty-h*0.06); ctx.quadraticCurveTo(x+w*0.6,ty,x+w,ty+h*0.05); ctx.lineTo(x+w*0.2,ty+h*0.03); ctx.lineTo(x-w*0.2,ty+h*0.03); ctx.lineTo(x-w,ty+h*0.05); ctx.quadraticCurveTo(x-w*0.6,ty,x,ty-h*0.06); ctx.fill(); }
+}
+function bergland(X,Y,Wd,Hd){
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  let g=ctx.createLinearGradient(0,Y,0,Y+Hd); g.addColorStop(0,'#5E9BD8'); g.addColorStop(0.5,'#A9CDEB'); g.addColorStop(1,'#DCEAF2'); ctx.fillStyle=g; ctx.fillRect(X,Y,Wd,Hd);
+  // far range
+  const far=[[X,Y+330],[X+60,Y+300],[X+140,Y+255],[X+230,Y+290],[X+330,Y+260],[X+430,Y+190],[X+500,Y+150],[X+560,Y+120],[X+640,Y+175],[X+720,Y+230],[X+820,Y+200],[X+900,Y+260],[X+1000,Y+240],[X+Wd,Y+290],[X+Wd,Y+Hd],[X,Y+Hd]];
+  ctx.fillStyle='#8EA7C4'; leafPath(far); ctx.fill();
+  // snow on the big peak: lit face white, shade face pale blue
+  ctx.fillStyle='#F7FAFD'; leafPath([[X+560,Y+120],[X+640,Y+175],[X+700,Y+215],[X+660,Y+230],[X+620,Y+205],[X+600,Y+250],[X+570,Y+215],[X+540,Y+240],[X+520,Y+200],[X+500,Y+150]]); ctx.fill();
+  ctx.fillStyle='#C8D7EA'; leafPath([[X+560,Y+120],[X+500,Y+150],[X+430,Y+190],[X+470,Y+215],[X+500,Y+200],[X+520,Y+235],[X+545,Y+195]]); ctx.fill();
+  ctx.fillStyle='#EEF3F9'; leafPath([[X+330,Y+260],[X+380,Y+225],[X+430,Y+190],[X+415,Y+225],[X+390,Y+240],[X+370,Y+275]]); ctx.fill();
+  ctx.fillStyle='#EEF3F9'; leafPath([[X+820,Y+200],[X+870,Y+235],[X+850,Y+250],[X+830,Y+240],[X+800,Y+262],[X+790,Y+225]]); ctx.fill();
+  ctx.strokeStyle='rgba(90,110,140,0.35)'; ctx.lineWidth=2; [[560,120,585,260],[560,120,520,250],[640,175,660,260]].forEach(([a,b,c,d])=>{ ctx.beginPath(); ctx.moveTo(X+a,Y+b); ctx.lineTo(X+c,Y+d); ctx.stroke(); });
+  // haze
+  g=ctx.createLinearGradient(0,Y+250,0,Y+370); g.addColorStop(0,'rgba(220,232,242,0)'); g.addColorStop(1,'rgba(220,232,242,0.85)'); ctx.fillStyle=g; ctx.fillRect(X,Y+250,Wd,120);
+  // forested foothills
+  ctx.fillStyle='#5F7F86'; leafPath(ridge(X,X+Wd,Y+370,40,4.2,10).concat([[X+Wd,Y+Hd],[X,Y+Hd]])); ctx.fill();
+  // forest in depth: hazy far tree line, mid tree line, then single nearer pines
+  let gf=ctx.createLinearGradient(0,Y+340,0,Y+460); gf.addColorStop(0,'#6E8E8C'); gf.addColorStop(1,'#4D7066');
+  ctx.fillStyle=gf; leafPath(treeLine(X,Wd,Y+400,30,40,16,3)); ctx.fill();
+  gf=ctx.createLinearGradient(0,Y+380,0,Y+560); gf.addColorStop(0,'#3E6652'); gf.addColorStop(1,'#2A4A39');
+  ctx.fillStyle=gf; leafPath(treeLine(X,Wd,Y+470,50,70,28,8)); ctx.fill();
+  for(let x=X+10;x<X+Wd;x+=60+50*hash(x*0.21)) bigPine(x, Y+Hd+10, 150+100*hash(x*0.53), '#1E3D2B','#3A6747');
+  // two tall pines framing the right side
+  bigPine(X+Wd-60,Y+Hd+30,420,'#1C3A28','#335F40'); bigPine(X+Wd-170,Y+Hd+30,330,'#1F3F2C','#38654A');
+  ctx.restore();
+}
+function frameKeuken3(){
+  // bright wall, sunlit from the window on the right
+  let g=ctx.createLinearGradient(0,0,800,0); g.addColorStop(0,'#CFCCC6'); g.addColorStop(1,'#E9E6E0'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  // window: deep white reveal + frame + mullion
+  ctx.fillStyle='#E4E2DD'; ctx.fillRect(705,0,1215,650);
+  bergland(820,0,1100,560);
+  ctx.fillStyle='#F7F6F3'; ctx.fillRect(760,0,62,600); ctx.fillRect(1530,0,50,560); ctx.fillRect(1580,0,58,560);
+  ctx.fillStyle='#D6D3CC'; ctx.fillRect(818,0,6,560); ctx.fillRect(1526,0,6,560); ctx.fillRect(1636,0,4,560);
+  ctx.fillStyle='#F1EFEB'; ctx.fillRect(705,560,1215,70); ctx.fillStyle='#DAD6CF'; ctx.fillRect(705,620,1215,10);
+  ctx.fillStyle='rgba(255,255,255,0.10)'; ctx.beginPath(); ctx.moveTo(900,0); ctx.lineTo(1050,0); ctx.lineTo(860,560); ctx.lineTo(824,560); ctx.closePath(); ctx.fill();
+  // oak counter
+  g=ctx.createLinearGradient(0,660,0,880); g.addColorStop(0,'#D9B98E'); g.addColorStop(1,'#C79E6C'); ctx.fillStyle=g; ctx.fillRect(0,660,W,220);
+  ctx.strokeStyle='rgba(150,105,60,0.22)'; ctx.lineWidth=1.3; for(let i=0;i<22;i++){ const yy=668+i*10; ctx.beginPath(); ctx.moveTo(0,yy); for(let x=0;x<=W;x+=40) ctx.lineTo(x,yy+Math.sin(x*0.003+i*0.9)*3); ctx.stroke(); }
+  // sunlight patch on the counter
+  g=ctx.createRadialGradient(1450,760,20,1450,760,700); g.addColorStop(0,'rgba(255,246,215,0.55)'); g.addColorStop(1,'rgba(255,246,215,0)'); ctx.fillStyle=g; ctx.fillRect(0,660,W,220);
+  g=ctx.createLinearGradient(0,880,0,910); g.addColorStop(0,'#B88C5C'); g.addColorStop(1,'#9C7448'); ctx.fillStyle=g; ctx.fillRect(0,880,W,30);
+  // white cabinets
+  ctx.fillStyle='#ECEBE7'; ctx.fillRect(0,910,W,H-910); ctx.fillStyle='#CFCCC5'; [445,450,1310,1316].forEach(x=>ctx.fillRect(x,910,3,H-910));
+  ctx.fillStyle='rgba(0,0,0,0.08)'; ctx.fillRect(0,910,W,14);
+  // long soft shadows to the left (light comes from the window)
+  ctx.save(); ctx.filter='blur(14px)'; ctx.fillStyle='rgba(80,50,20,0.38)';
+  ctx.beginPath(); ctx.ellipse(380,790,300,34,-0.04,0,6.283); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(880,795,330,30,-0.03,0,6.283); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(1400,775,240,26,0,0,6.283); ctx.fill(); ctx.restore();
+  stevigeKrop(525,640,1.0);
+  slappeKrop(1005,770,1.0);
+  // glass bowl with cold water
+  const bx=1500, by=705;
+  ctx.save();
+  ctx.beginPath(); ctx.ellipse(bx,by-100,190,26,0,0,Math.PI); ctx.ellipse(bx,by+60,150,22,0,Math.PI,0,true); ctx.closePath();
+  ctx.fillStyle='rgba(235,245,250,0.18)'; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(bx,by-45,178,22,0,0,Math.PI); ctx.lineTo(bx-150,by+60); ctx.ellipse(bx,by+60,150,22,0,Math.PI,0,true); ctx.closePath();
+  g=ctx.createLinearGradient(bx-180,0,bx+180,0); g.addColorStop(0,'rgba(170,205,230,0.65)'); g.addColorStop(0.5,'rgba(215,235,248,0.55)'); g.addColorStop(1,'rgba(160,200,228,0.7)'); ctx.fillStyle=g; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(bx,by-45,178,22,0,0,6.283); ctx.fillStyle='rgba(225,240,250,0.65)'; ctx.fill(); ctx.strokeStyle='rgba(255,255,255,0.9)'; ctx.lineWidth=2; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bx,by-100,190,26,0,0,6.283); ctx.strokeStyle='rgba(255,255,255,0.95)'; ctx.lineWidth=3; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(bx-190,by-100); ctx.quadraticCurveTo(bx-185,by+40,bx-150,by+60); ctx.moveTo(bx+190,by-100); ctx.quadraticCurveTo(bx+185,by+40,bx+150,by+60); ctx.strokeStyle='rgba(255,255,255,0.8)'; ctx.lineWidth=2.5; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bx,by+60,150,22,0,0,Math.PI); ctx.strokeStyle='rgba(255,255,255,0.7)'; ctx.stroke();
+  ctx.fillStyle='rgba(255,255,255,0.7)'; ctx.beginPath(); ctx.moveTo(bx-160,by-80); ctx.quadraticCurveTo(bx-158,by+10,bx-128,by+45); ctx.lineTo(bx-138,by+46); ctx.quadraticCurveTo(bx-170,by+10,bx-170,by-80); ctx.fill();
+  ctx.restore();
+  pillLabel('stevig','net uit de koelkast',520,560,150,250,true);
+  pillLabel('slap','een dag op het aanrecht',1000,640,640,330,true);
+  pillLabel('koud water','',1500,720,1560,860,true);
+  caption('Nu hangen de blaadjes slap.');
+}
+
+let FOTO=null;
+function frameFoto(){
+  ctx.drawImage(FOTO,0,0,W,H);
+  pillLabel('stevig','net uit de koelkast',520,560,150,250,true);
+  pillLabel('slap','een dag op het aanrecht',1000,640,640,330,true);
+  pillLabel('koud water','',1500,720,1560,860,true);
+  caption('Nu hangen de blaadjes slap.');
+}
+window.FRAMES={keuken3:frameKeuken3,foto:frameFoto,keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
+window.loadFoto=(src)=>new Promise(r=>{FOTO=new Image(); FOTO.onload=r; FOTO.src=src;});
 window.draw=(k)=>{ ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H); FRAMES[k](); };
 </script></body></html>
