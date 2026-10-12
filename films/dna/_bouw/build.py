@@ -23,7 +23,7 @@ def build(n):
             segs.append({'id':key,'kind':'speech','level':lev,'chapter':chapter,'scene':s['scene'],'audio':audio,'dur':round(w['dur']+0.6,3),'bounds':w['bounds'],'words':w['words']})
         else:
             qtext=re.sub(r'\s*Wat denk je\?\s*$','',s['text'])
-            segs.append({'id':key,'kind':'question','level':lev,'chapter':chapter,'q':qtext,'options':s['opts'],'correct':s['correct'],**({'source':s['source']} if s.get('source') else {}),'audio':audio,'adur':round(w['dur']+0.3,3),'words':w['words']})
+            segs.append({'id':key,'kind':'question','level':lev,'chapter':chapter,'q':qtext,'options':s['opts'],'correct':s['correct'],**({'source':s['source']} if s.get('source') else {}),**({'think':s['think']} if s.get('think') else {}),'audio':audio,'adur':round(w['dur']+0.3,3),'words':w['words']})
     chapters=[]; [chapters.append(x['chapter']) for x in segs if x['chapter'] not in chapters]
     data={'segments':segs,'chapters':chapters,'film':F['film']}
     gl=[{'t':g[0],'d':g[1],'vwo':g[2]=='v'} for g in S['GLOSSARY']]

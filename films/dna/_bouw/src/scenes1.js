@@ -1,5 +1,6 @@
 // ===== DNA 1 · Wat is DNA? — scenes (Part C) =====
 const SCENES={};
+const PERSON_LOOK={skin:SKINS[3],hair:'#14100E',shirt:'#4E8A74',trousers:'#34425A',hairStyle:'curly'};
 const HIST=C.oker; // histonen = eiwit (oker)
 function macroBg(ctx){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); ctx.fillStyle=C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0,720); ctx.quadraticCurveTo(480,640,960,700); ctx.quadraticCurveTo(1440,760,1920,680); ctx.lineTo(1920,H); ctx.lineTo(0,H); ctx.fill(); ctx.fillStyle=C.bgMacroFront; ctx.fillRect(0,820,W,H-820); }
 function cheekCells(ctx,cx,cy,t,hl=-1){ const R=seeded(5); for(let i=0;i<14;i++){ const a=R()*6.283, d=Math.sqrt(R())*230, x=cx+Math.cos(a)*d, y=cy+Math.sin(a)*d*0.8, rot=R()*3;

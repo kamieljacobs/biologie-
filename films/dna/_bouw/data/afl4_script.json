@@ -1,0 +1,423 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Mensen met diabetes spuiten elke dag insuline.",
+    "Die insuline is een menselijk eiwit. Toch maken bacteriën hem, in grote tanks.",
+    "Onderzoekers hebben de code van het menselijke insulinegen in die bacteriën gezet.",
+    "De bacterie maakt daarmee dezelfde keten van aminozuren als jouw alvleesklier.",
+    "Hoe kan een bacterie het recept van een mens lezen?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "De genetische code lezen",
+   "sub": "DNA · aflevering 4"
+  },
+  {
+   "kind": "card",
+   "title": "Wie vertaalt de code?",
+   "sub": "Hoofdstuk 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "In aflevering drie zag je: het mRNA is het recept. Het ribosoom leest het per codon.",
+    "Een codon is een rijtje van drie nucleotiden. Je herkent ze aan hun basen.",
+    "Maar een aminozuur is een heel ander molecuul dan drie basen.",
+    "Er moet dus iets zijn dat die twee aan elkaar koppelt."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h1q",
+   "text": "Hoe komt het juiste aminozuur bij een codon? Wat denk je?",
+   "opts": [
+    "het mRNA trekt het juiste aminozuur aan",
+    "het ribosoom herkent elk aminozuur",
+    "een ander RNA-molecuul brengt het aminozuur mee"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "Antwoord C. Dat andere RNA-molecuul heet transfer-RNA, kort tRNA.",
+    "Ook tRNA is RNA. Maar het is geen recept. Het is een werktuig.",
+    "Een tRNA heeft twee kanten.",
+    "Aan de ene kant zitten drie basen. Die passen op één codon.",
+    "Aan de andere kant draagt het tRNA één soort aminozuur.",
+    "Er zijn veel soorten tRNA. Elke soort past op een ander codon, en draagt altijd hetzelfde aminozuur.",
+    "Een tRNA pakt zijn aminozuur op in het cytoplasma, en brengt het naar het ribosoom.",
+    "Daar blijft het alleen hangen als zijn drie basen op het codon passen.",
+    "Het ribosoom koppelt het aminozuur aan de keten. Het lege tRNA laat los en haalt een nieuw aminozuur.",
+    "Zo gebruikt de cel elk tRNA steeds opnieuw. Een recept lees je. Een werktuig gebruik je."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h1v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "De drie basen van het tRNA heten samen het anticodon. Het anticodon is complementair aan het codon.",
+    "Enzymen koppelen elk tRNA aan het juiste aminozuur. Voor elk aminozuur is er zo'n enzym.",
+    "Het ribosoom controleert alleen of het anticodon past, niet welk aminozuur eraan hangt.",
+    "Koppelt zo'n enzym een verkeerd aminozuur, dan komt dat dus gewoon in het eiwit.",
+    "Ook het ribosoom bestaat voor een groot deel uit RNA. Juist dat RNA koppelt de aminozuren aan elkaar. Ook dat is een werktuig.",
+    "Terug naar de code."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "De codontabel lezen",
+   "sub": "Hoofdstuk 2"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Je hebt een rij basen. Welke aminozuren horen erbij?",
+    "Welk codon bij welk aminozuur hoort, staat in de codontabel in je informatieboek.",
+    "Daarin zoek je eerst de eerste base op, dan de tweede, dan de derde.",
+    "Neem het codon G U G. Eerste base G, tweede base U, derde base G. Dat is valine.",
+    "Een mRNA lees je per drie."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h2q",
+   "text": "Dit mRNA begint zo: G C A U G U U U G U G. Wat is het eerste aminozuur? Wat denk je?",
+   "opts": [
+    "alanine",
+    "methionine",
+    "valine"
+   ],
+   "correct": 1
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "Antwoord B, methionine. Je begint niet bij de eerste base, maar bij het startcodon, A U G.",
+    "Daarna lees je per drie verder. U U U is fenylalanine, G U G is valine.",
+    "Zo ga je door tot een stopcodon: U A A, U A G of U G A. Daar hoort geen aminozuur bij.",
+    "Elk aminozuur kost drie nucleotiden. Honderd aminozuren zijn dus driehonderd nucleotiden.",
+    "Het stopcodon zit wel in het mRNA. Daarom heeft het mRNA er minstens drie meer: driehonderddrie."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Beginnen bij het DNA",
+   "sub": "Hoofdstuk 3"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "In een examenvraag krijg je vaak niet het mRNA, maar het DNA.",
+    "Dan doe je eerst zelf de transcriptie. Tegenover elke base in het DNA zet je de complementaire base.",
+    "Let op: tegenover een A komt in het mRNA geen T, maar een U."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h3q",
+   "text": "Een stukje van de afgelezen DNA-streng is T A C A A A. Welke codons staan in het mRNA? Wat denk je?",
+   "opts": [
+    "TAC en AAA",
+    "ATG en TTT",
+    "AUG en UUU"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "Antwoord C: A U G en U U U.",
+    "Daarna pak je pas de codontabel. Dat geeft methionine en fenylalanine.",
+    "Zoek dus nooit met een T in de codontabel. In een codon staat een U."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h3v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Een gen heeft twee strengen. Alleen de matrijsstreng wordt afgelezen.",
+    "De andere streng heet de coderende streng. Die heeft dezelfde volgorde als het mRNA, maar met T in plaats van U.",
+    "Krijg je de coderende streng, dan vervang je alleen elke T door een U.",
+    "Let ook op de richting. Het mRNA lees je van het vijf-accent-uiteinde naar het drie-accent-uiteinde.",
+    "In de vraag van net liep de matrijsstreng van drie-accent naar vijf-accent. Daarom kon je het mRNA van links naar rechts lezen.",
+    "Staat hij andersom, dan loopt het mRNA ook andersom. Schrijf de codons dan eerst in de goede volgorde op.",
+    "Terug naar de codontabel, maar nu andersom."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terugredeneren",
+   "sub": "Hoofdstuk 4"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4a",
+   "lines": [
+    "Op het examen moet je vaak terugredeneren.",
+    "Je weet welk aminozuur is veranderd. Jij zoekt welke base is veranderd.",
+    "Een voorbeeld uit het examen. Een schimmel wordt ongevoelig voor een medicijn.",
+    "In een enzym van de schimmel is leucine vervangen door histidine. Dat komt door één veranderde base."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q",
+   "text": "Leucine werd histidine. Welke base van het codon is veranderd? Zoek het op in de codontabel. Wat denk je?",
+   "opts": [
+    "de eerste base",
+    "de tweede base",
+    "de derde base"
+   ],
+   "correct": 1,
+   "source": "naar CvTE, examen biologie havo 2025, tijdvak 1",
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4b",
+   "lines": [
+    "Antwoord B, de tweede base.",
+    "Zet de codons naast elkaar. Histidine is C A U of C A C.",
+    "Leucine heeft zes codons. Alleen C U U en C U C verschillen in één base van histidine.",
+    "In beide gevallen is de tweede base veranderd: een U werd een A.",
+    "Zo werk je altijd. Schrijf de codons van beide aminozuren op, en zoek het paar dat in één base verschilt."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q2",
+   "text": "Cysteïne werd serine. Welke verandering in het codon past daarbij? Wat denk je?",
+   "opts": [
+    "een A werd een U",
+    "een C werd een A",
+    "een G werd een C",
+    "een U werd een G"
+   ],
+   "correct": 2,
+   "source": "naar CvTE, examen biologie havo 2024, tijdvak 2",
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4c",
+   "lines": [
+    "Antwoord C. Cysteïne is U G U of U G C. Serine kan U C U of U C C zijn.",
+    "Dan werd de G in het midden een C.",
+    "Serine kan ook A G U zijn. Dan werd de eerste U een A. Maar die keuze stond er niet bij.",
+    "Het kan dus elke plek zijn. Zoek altijd zelf het paar, en let op wat de base was en wat hij werd.",
+    "Soms verandert er een base zonder dat het aminozuur verandert. Bij valine maakt de derde base niets uit."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar de insuline",
+   "sub": "Samenvatting"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Terug naar de bacterie die menselijke insuline maakt.",
+    "De bacterie maakt een mRNA van het insulinegen.",
+    "Haar ribosomen lezen dat mRNA per codon. Haar tRNA's brengen de aminozuren.",
+    "Die tRNA's gebruiken bijna precies dezelfde code als de tRNA's in jouw cellen.",
+    "Daarom krijgt het eiwit dezelfde volgorde van aminozuren.",
+    "Het mRNA is het recept. Het tRNA is het werktuig dat de code vertaalt."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "recapv",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "De onderzoekers gaven de bacterie een versie van het gen zonder introns. Een bacterie kan geen introns wegknippen.",
+    "Terug naar het recept."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap2",
+   "lines": [
+    "Wat gebeurt er als er één base in het recept verandert? Dat zie je in aflevering vijf."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Wie vertaalt de code?",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "De codontabel lezen",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Beginnen bij het DNA",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Terugredeneren",
+   "level": "b"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "RNA",
+   "Enkelstrengs nucleïnezuur met ribose en de basen A, C, G en U. RNA kan informatie zijn (mRNA, het recept) maar ook een werktuig (tRNA, ribosomaal RNA).",
+   "b"
+  ],
+  [
+   "transfer-RNA (tRNA)",
+   "RNA dat aminozuren uit het cytoplasma naar het ribosoom vervoert. Aan de ene kant drie basen die op één codon passen, aan de andere kant één soort aminozuur; wordt steeds opnieuw gebruikt.",
+   "b"
+  ],
+  [
+   "codon",
+   "Drie opeenvolgende nucleotiden in het mRNA die coderen voor één aminozuur.",
+   "b"
+  ],
+  [
+   "codontabel",
+   "Tabel met welk codon bij welk aminozuur hoort; je zoekt eerst de eerste, dan de tweede, dan de derde base op.",
+   "b"
+  ],
+  [
+   "startcodon",
+   "Codon AUG, waarmee de synthese van een aminozuurketen start; codeert voor methionine.",
+   "b"
+  ],
+  [
+   "stopcodons",
+   "Codons (UAA, UAG, UGA) die niet coderen voor een aminozuur, waardoor de eiwitsynthese stopt. Ze zitten wel in het mRNA.",
+   "b"
+  ],
+  [
+   "transcriptie",
+   "Vorming van mRNA langs DNA; tegenover A komt U.",
+   "b"
+  ],
+  [
+   "anticodon",
+   "De drie basen van een tRNA die complementair zijn aan een codon (3′→5′ onder het codon).",
+   "v"
+  ],
+  [
+   "matrijsstreng",
+   "De DNA-streng die bij transcriptie wordt afgelezen.",
+   "v"
+  ],
+  [
+   "coderende streng",
+   "De andere DNA-streng; zelfde volgorde als het mRNA, met T in plaats van U.",
+   "v"
+  ],
+  [
+   "ribosomaal RNA",
+   "RNA waaruit het ribosoom voor een groot deel bestaat; het koppelt de aminozuren aan elkaar.",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Leg uit waarom tRNA een werktuig is en mRNA een recept.",
+    "mRNA bevat de informatie (de volgorde van codons). Een tRNA brengt een aminozuur naar het ribosoom, past met drie basen op het codon, laat leeg los en wordt opnieuw gebruikt."
+   ],
+   [
+    "Een mRNA begint met C C A U G G C U U U G A. Geef de aminozuurvolgorde.",
+    "Begin bij AUG: AUG GCU UUG A… → methionine – alanine – leucine (daarna verder tot een stopcodon)."
+   ],
+   [
+    "Een eiwit bestaat uit 250 aminozuren. Uit hoeveel nucleotiden bestaat het coderende deel van het mRNA minstens, met het stopcodon erbij?",
+    "250 × 3 + 3 = 753."
+   ],
+   [
+    "(naar CvTE havo 2022-II) Door één veranderde base wordt serine ingebouwd in plaats van leucine. Welk codon in het oorspronkelijke RNA is veranderd? A CUA of CUG · B CUU of CUC · C UUA of UUG",
+    "C: UUA → UCA en UUG → UCG (serine) verschillen in één base; CUx → UCx zou twee veranderingen vragen. (Eigen uitwerking; correctievoorschrift niet ingezien.)"
+   ]
+  ],
+  "v": [
+   [
+    "Waarom zou een fout in een enzym dat tRNA met aminozuren laadt gevolgen hebben voor veel eiwitten tegelijk?",
+    "Het ribosoom controleert alleen of het anticodon past, niet het aminozuur. Een verkeerd geladen tRNA brengt dus overal waar zijn codon voorkomt het verkeerde aminozuur in."
+   ],
+   [
+    "De coderende streng van een stukje DNA is 5′-ATG GCA-3′. Geef de matrijsstreng (met 5′ en 3′) en het mRNA.",
+    "Matrijsstreng 3′-TAC CGT-5′; mRNA 5′-AUG GCA-3′ (gelijk aan de coderende streng, met U)."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "Codons / aminozuren / stopcodons",
+   "64 / 20 / 3",
+   "standaard genetische code"
+  ],
+  [
+   "Codons voor leucine",
+   "6",
+   "standaard genetische code"
+  ],
+  [
+   "100 aminozuren",
+   "300 + 3 nucleotiden",
+   "3 per aminozuur + stopcodon"
+  ],
+  [
+   "Insuline uit micro-organismen",
+   "bacteriën (en gisten)",
+   "sinds de jaren tachtig; de film noemt alleen bacteriën"
+  ]
+ ]
+}

@@ -1,6 +1,7 @@
 // ===== DNA 3 · Van DNA naar eiwit — scenes (Part C) =====
 // signature: SCENES[name](ctx, li, lf, t, q)   li = line index, lf = 0..1 within the line
 const SCENES={};
+const PERSON_LOOK={skin:SKINS[2],hair:'#1E1814',shirt:'#B07A5A',trousers:'#2E3A4E',hairStyle:'bun'};
 function macroBg(ctx){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); ctx.fillStyle=C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0,720); ctx.quadraticCurveTo(480,640,960,700); ctx.quadraticCurveTo(1440,760,1920,680); ctx.lineTo(1920,H); ctx.lineTo(0,H); ctx.fill(); ctx.fillStyle=C.bgMacroFront; ctx.fillRect(0,820,W,H-820); }
 function syringe(ctx,x,y,rot,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
   box(ctx,0,-18,200,36,8,rgba(C.fill,0.9),'#AFC0D0',1.5); box(ctx,8,-12,120,24,4,rgba(C.teal,0.35)); box(ctx,200,-6,40,12,3,null,'#AFC0D0',1.5); ln(ctx,240,0,300,0,'#AFC0D0',2); box(ctx,-60,-6,60,12,3,null,'#AFC0D0',1.5); box(ctx,-72,-26,14,52,4,'#AFC0D0'); ctx.restore(); }
@@ -17,8 +18,6 @@ function eiwit(ctx,x,y,r,alpha=1,seed=3,col=C.oker){ if(alpha<=0.01) return; ctx
 // spike-protein icon (virus eiwit): stalk + head, oker
 function spike(ctx,x,y,s=1,alpha=1,rot=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); ln(ctx,0,0,0,-22*s,C.oker,5*s); circ(ctx,0,-30*s,11*s,C.oker,lighten(C.oker,0.35),1.2); ctx.restore(); }
 // letter tile (Schema): one nucleotide as a letter in its colour
-function tile(ctx,x,y,b,o={}){ const a=o.alpha==null?1:o.alpha; if(a<=0.01) return; const rna=o.rna!==false; const w=o.w||64, h=o.h||72; const c=(rna?RC:BC)[b]||C.fill; ctx.save(); ctx.globalAlpha*=a;
-  box(ctx,x-w/2,y-h/2,w,h,10,c,o.mark||lighten(c,0.3),o.mark?4:1.2); ctx.font=fTekst(o.px||44,700); ctx.fillStyle=(rna?RCL:BCL)[b]||C.text; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(b,x,y+2); ctx.restore(); }
 const ANTI=c=>c.split('').map(b=>({A:'U',U:'A',G:'C',C:'G'})[b]).join('');
 
 SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1180,300); ctx.scale(0.45,0.45); SCENES.h3a(ctx,9,0.45,0,true); ctx.restore(); };

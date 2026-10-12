@@ -7,7 +7,7 @@ const state = {
   auto:false, captions:true, started:false,
   playing:false, items:[], idx:0, local:0, qPhase:null
 };
-const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8;
+const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8; const CD=seg=>(seg&&seg.think)||COUNTDOWN;
 const revealDur=seg=>seg.explain?6:2.5;
 
 // ---- timeline ----
@@ -19,7 +19,7 @@ function buildTimeline(){
     if(seg.kind==='end'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Opening'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:seg.level}); prevChapter=seg.chapter; }
     if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
-    else if(seg.kind==='question') items.push({type:'question',seg,dur:(seg.adur||0)+COUNTDOWN+revealDur(seg),level:seg.level,chapter:seg.chapter});
+    else if(seg.kind==='question') items.push({type:'question',seg,dur:(seg.adur||0)+CD(seg)+revealDur(seg),level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
 }
@@ -75,7 +75,7 @@ function drawQuestion(ctx,it,t){
   });
   const yb=y0+n*gap+10;
   if(ph.phase==='ask'){ metaText(ctx,'luister…',120,yb+30,C.grain,'left',28); }
-  else if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/COUNTDOWN,0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,yb+40); ctx.lineTo(120+1680*(1-u),yb+40); ctx.stroke(); metaText(ctx,'denk na · tik of druk A, B, C',120,yb+20,C.grain,'left',28); }
+  else if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/CD(seg),0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,yb+40); ctx.lineTo(120+1680*(1-u),yb+40); ctx.stroke(); metaText(ctx,'denk na · tik of druk A, B, C',120,yb+20,C.grain,'left',28); }
   else if(ph.phase==='wait'){ metaText(ctx, state.modus==='klas'?'klas: druk op verder (enter)':'tik op een antwoord',120,yb+30,C.goud,'left',28); }
   else if(seg.explain){ roundRect(ctx,120,yb,1680,110,14); shape(ctx,rgba(C.groen,0.12),C.groen,1.5); ctx.font=fTekst(36); ctx.fillStyle=C.text; wrapText(ctx,seg.explain,150,yb+48,1620,44); }
   else { const mine=ph.chosen; metaText(ctx, mine==null?'het antwoord volgt':(mine===seg.correct?'goed!':'niet goed: het antwoord volgt'),120,yb+30,mine===seg.correct?C.groen:C.grain,'left',28); }
@@ -105,7 +105,7 @@ function drawCaption(ctx,seg,t){ const cs=chunks(seg); let ch=null; for(const c 
 // ---- transport ----
 const audio=document.getElementById('narration'); let clockStart=0, clockBase=0, curAudio=null;
 function setAudio(seg){ if(curAudio!==seg.id){ audio.src=seg.audio; curAudio=seg.id; } }
-function qPhaseAt(seg,local){ const ad=seg.adur||0; if(local<ad) return {phase:'ask',start:0,chosen:null}; if(local<ad+COUNTDOWN) return {phase:'countdown',start:ad,chosen:null}; return {phase:'reveal',start:ad+COUNTDOWN,chosen:null}; }
+function qPhaseAt(seg,local){ const ad=seg.adur||0; if(local<ad) return {phase:'ask',start:0,chosen:null}; if(local<ad+CD(seg)) return {phase:'countdown',start:ad,chosen:null}; return {phase:'reveal',start:ad+COUNTDOWN,chosen:null}; }
 function gotoItem(i,local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx];
   state.qPhase= it.type==='question'? qPhaseAt(it.seg,local):null;
   if(it.type==='speech' || (it.type==='question'&&it.seg.audio&&local<(it.seg.adur||0))){ setAudio(it.seg); try{ audio.currentTime=local; }catch(e){} if(state.playing) audio.play().catch(()=>{}); }
@@ -123,7 +123,7 @@ function tick(){
       if(ph.phase==='ask'){ state.local=audio.currentTime; if(audio.ended||state.local>=(it.seg.adur||0)-0.02){ ph.phase='countdown'; ph.start=it.seg.adur||0; state.local=ph.start; clockBase=state.local; clockStart=performance.now()/1000; } }
       else if(ph.phase==='wait'){ /* hold */ }
       else { state.local=clockBase+(performance.now()/1000-clockStart);
-        if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
+        if(ph.phase==='countdown' && state.local-ph.start>=CD(it.seg)){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
         else if(ph.phase==='reveal' && state.local-ph.start>=revealDur(it.seg)) next(); } }
     else { state.local=clockBase+(performance.now()/1000-clockStart); if(state.local>=it.dur) next(); }
   }

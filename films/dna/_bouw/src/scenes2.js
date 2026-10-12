@@ -1,6 +1,7 @@
 // ===== DNA 2 · DNA kopiëren — scenes (Part C) =====
 // signature: SCENES[name](ctx, li, lf, t, q)   li = line index, lf = 0..1 within the line
 const SCENES={};
+const PERSON_LOOK={skin:SKINS[0],hair:'#7A5236',shirt:'#8A6A9A',trousers:'#34425A',hairStyle:'long'};
 // ---- shared pieces for this film ----
 function macroBg(ctx){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); ctx.fillStyle=C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0,700); ctx.quadraticCurveTo(480,610,960,680); ctx.quadraticCurveTo(1440,750,1920,660); ctx.lineTo(1920,H); ctx.lineTo(0,H); ctx.fill(); ctx.fillStyle=C.bgMacroFront; ctx.fillRect(0,800,W,H-800); }
 function leg(ctx,x,y,heal,alpha=1){ // Macro: bent leg seen from the side, neutral, wound in koraal

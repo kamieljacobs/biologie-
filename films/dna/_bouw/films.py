@@ -8,12 +8,12 @@ def old_teacher(fname):  # docentdeel (pauzes, vereenvoudigingen, leerdoelen) st
 def how(rows):
     return ('<details open><summary>Hoe de film het uitlegt</summary><table><tr><th>Hoofdstuk</th><th>Type</th><th>Look (Part C)</th><th>Kernbeeld</th><th>Misconceptie</th></tr>'
             + ''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in rows) + '</table></details>')
-SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit')]
+SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen')]
 def seriesline(cur):
     parts=[]
     for k,(f,t) in enumerate(SERIES,1):
         parts.append(f'<b>{k} {t}</b>' if k==cur else f'<a href="{f}" style="color:var(--text2)">{k} {t}</a>')
-    parts.append('<span>4–8 volgen</span>')
+    parts.append('<span>'+str(len(SERIES)+1)+'–8 volgen</span>')
     return '<div class="meta" style="margin:-4px 0 10px;letter-spacing:.06em;text-transform:none;font-size:13px">Reeks DNA: '+' · '.join(parts)+'</div>'
 LEGEND=[('#C9BEEB','adenine (A) · punt'),('#9F90D4','thymine (T) · inkeping'),('#6C5BA8','cytosine (C) · nok'),('#4F3F86','guanine (G) · sleuf'),('#3E3366','suiker-fosfaatruggengraat'),('#7A8BA8','enzym (goud = actief centrum)'),('#E07A5F','let op / mutatie'),('#E0B64A','focus')]
 FOOT='Stem: Roos (ElevenLabs, eleven_multilingual_v2). Script, animatie en speler: Kamiel met Claude; illustraties door Claude volgens de stijlkaart (Part C). Bronnen: Biologie voor Jou havo thema 9, Nectar vwo H17, Alberts <em>Molecular Biology of the Cell</em>{extra}. Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).'
@@ -62,4 +62,20 @@ FILMS={
       ['4 Van keten naar vorm','B structuur-functie','Micro + Schema','keten die opvouwt; enzym en receptor die passen; één ander aminozuur verandert de vorm','een keten is meteen een werkend eiwit'],
       ['Samenvatting','—','Macro → Schema','terug naar de prik; DNA → mRNA → eiwit op één kaart','mRNA-vaccin verandert je DNA']]),
     'teacher_rest':old_teacher('3-van-dna-naar-eiwit.html')},
+ 4:{'file':'4-de-genetische-code-lezen.html','title':'De genetische code lezen · DNA aflevering 4','headmeta':'Biologie bij Kamiel · reeks DNA · film 4 van 8 · havo + vwo','lead':'Hoe leest een bacterie het recept van een mens? Over het tRNA als werktuig, de codontabel en terugredeneren met echte examenvragen. Onderdelen met <span class="tag">vwo</span> zijn alleen vwo-stof; in de havo-stand worden ze overgeslagen.',
+    'film':{'title':'De genetische code lezen','sub':'DNA · aflevering 4','puzzle':'Mensen met diabetes spuiten insuline die bacteriën maken: een menselijk eiwit, gemaakt in een bacterie. Hoe kan een bacterie het recept van een mens lezen?','meta':'dna 4/8','titleLook':'micro',
+            'mini':{'Hoofdstuk 1 — Wie vertaalt de code?':'Hoe komt het juiste aminozuur bij een codon?','Hoofdstuk 2 — De codontabel lezen':'Welke aminozuren horen bij een rij basen?','Hoofdstuk 3 — Beginnen bij het DNA':'Wat doe je als je het DNA krijgt?','Hoofdstuk 4 — Terugredeneren':'Welke base is veranderd?','Samenvatting — Terug naar de insuline':'Hoe leest een bacterie een menselijk gen?'},
+            'endLines':['Het mRNA is het recept; het tRNA is het werktuig dat de code vertaalt.','Lees vanaf AUG per drie tot een stopcodon; zoek altijd met U, nooit met T.','Terugredeneren: schrijf alle codons op en zoek het paar met één verschil.'],'endHaak':'recept: mRNA · werktuig: tRNA','next':'Volgende: mutaties',
+            'footer':'biologie bij kamiel · reeks dna 4/8 · stem: roos (elevenlabs) · versie 1.0 · oktober 2026'},
+    'legend':LEGEND+[('#5BA4C9','RNA (mRNA, tRNA)'),('#C9A35C','aminozuur / eiwit'),('#C9B896','ribosoom'),('#7FC48F','bacterie')],'seriesline':seriesline(4),'footer':FOOT.format(extra=', CvTE havo 2022-II, 2024-II en 2025-I (geparafraseerd)').replace('Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).','Versie 1.0 · 12 oktober 2026.'),
+    'teacher_how':how([
+      ['Opening','I toepassing','Macro → zoomcirkel → Micro','iemand met een insulinepen; fabriekstank met bacteriën die insuline maken','—'],
+      ['1 Wie vertaalt de code?','A mechanisme','Micro','groot tRNA met twee kanten; kringloop pakt · past · laat leeg los; recept tegenover werktuig','RNA is alleen informatie; het mRNA of ribosoom kiest het aminozuur'],
+      ['1 vwo: anticodon en laadenzymen <span class="tag">vwo</span>','A + B','Micro','anticodon 3′→5′; enzym laadt tRNA; ribosoom controleert alleen het anticodon; ribosomaal RNA','het ribosoom controleert het aminozuur'],
+      ['2 De codontabel lezen','G redeneerstappen','Schema','codontabel als vaste kaart; lezen vanaf AUG; stop; rekenen 300 + 3','lezen vanaf de eerste base; stopcodon zit niet in het mRNA'],
+      ['3 Beginnen bij het DNA','G','Schema','DNA-streng → mRNA met U → tabel','met T in de tabel zoeken'],
+      ['3 vwo: coderende en matrijsstreng <span class="tag">vwo</span>','G','Schema','beide strengen met 5′/3′; mRNA = coderende streng met U; andersom lezen','mRNA = complement van de coderende streng'],
+      ['4 Terugredeneren','G','Schema','CE-vragen in twee kolommen codons; passend paar licht op','het is altijd de tweede base; richting omdraaien'],
+      ['Samenvatting','—','Macro → Micro → Schema','zelfde tRNA in bacterie en mens; zelfde keten','—']]),
+    'teacher_rest':old_teacher('4-de-genetische-code-lezen.html')},
 }

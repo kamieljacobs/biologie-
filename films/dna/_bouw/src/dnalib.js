@@ -84,7 +84,7 @@ function threads(ctx,cx,cy,r,count=46,alpha=1,seed=11){ if(alpha<=0.01) return; 
     _thr[key]=im; }
   ctx.save(); ctx.globalAlpha*=alpha; ctx.drawImage(im,cx-im.width/2,cy-im.height/2); ctx.restore(); }
 // simple Macro person with a face (Part C: neutral #9AA3B2, eyes + mouth in a few lines)
-function person(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c=C.mens;
+function personFlat(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const c=C.mens;
   const hr=h*0.11, hy=y-h+hr; circ(ctx,x,hy,hr,c,lighten(c,0.3),1.5);
   // face: two eyes, a mouth
   ctx.fillStyle=C.bgMicro; ctx.beginPath(); ctx.arc(x-hr*0.35,hy-hr*0.1,hr*0.09,0,6.283); ctx.arc(x+hr*0.35,hy-hr*0.1,hr*0.09,0,6.283); ctx.fill();
@@ -139,3 +139,60 @@ function trna(ctx,x,y,anti,o={}){ // y = backbone line of the anticodon; bases p
 // lipid nanoparticle with mRNA inside (vaccine): membrane ring in line colour, teal strand inside
 function lnp(ctx,x,y,r,alpha=1,t=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,r,rgba(C.fill,0.9),C.er,2); circ(ctx,x,y,r-6,null,C.er,1);
   ctx.beginPath(); for(let k=0;k<=40;k++){ const u=k/40, ang=u*Math.PI*5+t*0.5; const rr=r*0.55*(0.4+0.6*Math.sin(u*Math.PI)); const X=x+Math.cos(ang)*rr, Y=y+Math.sin(ang)*rr; k?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.strokeStyle=C.teal; ctx.lineWidth=Math.max(2,r/14); ctx.lineCap='round'; ctx.stroke(); ctx.restore(); }
+// letter tile (Schema): one nucleotide as a letter in its colour (film 3, 4)
+function tile(ctx,x,y,b,o={}){ const a=o.alpha==null?1:o.alpha; if(a<=0.01) return; const rna=o.rna!==false; const w=o.w||64, h=o.h||72; const c=(rna?RC:BC)[b]||C.fill; ctx.save(); ctx.globalAlpha*=a;
+  box(ctx,x-w/2,y-h/2,w,h,10,c,o.mark||lighten(c,0.3),o.mark?4:1.2); ctx.font=fTekst(o.px||44,700); ctx.fillStyle=(rna?RCL:BCL)[b]||C.text; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(b,x,y+2); ctx.restore(); }
+// friendly Macro person (12 Oct 2026, Kamiel: "veel echter", met huidskleur, minder hoekig, zachte vriendelijke uitstraling).
+// Soft rounded shapes, head ≈ 1/6.6 of height, skin tone and hair per figure, clothing with one soft shadow side, friendly face.
+// o: {skin, hair, shirt, trousers, shoes, hairStyle:'short'|'long'|'bun'|'curly', armR:{a1,a2,hold}, armL}; a = angle, 0 hanging, + outward
+const SKINS=['#E8C2A4','#C99A78','#A3745A','#7A5440','#5A3C2E'];
+function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save(); ctx.globalAlpha*=alpha;
+  const skin=o.skin||SKINS[1], hair=o.hair||'#3B2E28', shirt=o.shirt||'#5A7FA0', trous=o.trousers||'#34425A', shoe=o.shoes||'#262C3A';
+  const dark=(hex,k)=>{ const n=parseInt(hex.slice(1),16); let r=n>>16,g=(n>>8)&255,b=n&255; return `rgb(${Math.round(r*(1-k))},${Math.round(g*(1-k))},${Math.round(b*(1-k))})`; };
+  const top=y-h, hh=h/6.6, hw=hh*0.86, cx=x;
+  const shY=top+hh*1.38, shW=hh*1.85, waistY=top+hh*3.1, hipY=top+hh*3.55, hipW=hh*1.5, footY=y;
+  ctx.lineCap='round'; ctx.lineJoin='round';
+  // legs: soft capsules, slightly tapered; shoes as rounded pebbles
+  for(const s2 of [-1,1]){ const lx=cx+s2*hipW*0.24; ctx.strokeStyle=s2<0?trous:dark(trous,0.1); ctx.lineWidth=hh*0.62; ctx.beginPath(); ctx.moveTo(lx,hipY); ctx.lineTo(lx+s2*hh*0.04,footY-hh*0.35); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(lx+s2*hh*0.1,footY-hh*0.14,hh*0.4,hh*0.17,0,0,6.283); ctx.fillStyle=shoe; ctx.fill(); }
+  // torso: one soft rounded shape
+  ctx.beginPath(); ctx.moveTo(cx,shY-hh*0.12);
+  ctx.bezierCurveTo(cx+shW*0.45,shY-hh*0.14,cx+shW*0.56,shY+hh*0.1,cx+shW*0.5,shY+hh*0.6);
+  ctx.bezierCurveTo(cx+shW*0.44,waistY-hh*0.4,cx+hipW*0.5,hipY-hh*0.2,cx+hipW*0.52,hipY+hh*0.2);
+  ctx.quadraticCurveTo(cx,hipY+hh*0.36,cx-hipW*0.52,hipY+hh*0.2);
+  ctx.bezierCurveTo(cx-hipW*0.5,hipY-hh*0.2,cx-shW*0.44,waistY-hh*0.4,cx-shW*0.5,shY+hh*0.6);
+  ctx.bezierCurveTo(cx-shW*0.56,shY+hh*0.1,cx-shW*0.45,shY-hh*0.14,cx,shY-hh*0.12); ctx.closePath();
+  ctx.fillStyle=shirt; ctx.fill(); ctx.save(); ctx.clip(); ctx.fillStyle=dark(shirt,0.09); ctx.beginPath(); ctx.ellipse(cx+shW*0.62,waistY,shW*0.34,hh*2.6,0,0,6.283); ctx.fill(); ctx.restore();
+  // arms: soft tapered sleeve + forearm + round hand
+  const arm=(s2,cfg)=>{ const a1=(cfg&&cfg.a1!=null)?cfg.a1:0.12, a2=(cfg&&cfg.a2!=null)?cfg.a2:a1*0.5; const L1=hh*1.38, L2=hh*1.25; const sx=cx+s2*shW*0.4, sy=shY+hh*0.28;
+    const ex=sx+s2*Math.sin(a1)*L1, ey=sy+Math.cos(a1)*L1, hx=ex+s2*Math.sin(a2)*L2, hy=ey+Math.cos(a2)*L2;
+    ctx.strokeStyle=skin; ctx.lineWidth=hh*0.3; ctx.beginPath(); ctx.moveTo(ex,ey); ctx.lineTo(hx,hy); ctx.stroke();
+    ctx.strokeStyle=s2<0?shirt:dark(shirt,0.07); ctx.lineWidth=hh*0.44; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(ex,ey); ctx.lineTo(ex+(hx-ex)*0.15,ey+(hy-ey)*0.15); ctx.stroke();
+    const ang=Math.atan2(hy-ey,hx-ex); circ(ctx,hx+Math.cos(ang)*hh*0.06,hy+Math.sin(ang)*hh*0.06,hh*0.2,skin);
+    return {hx:hx+Math.cos(ang)*hh*0.08,hy:hy+Math.sin(ang)*hh*0.08,a:ang,cfg}; };
+  const rA=arm(1,o.armR), lA=arm(-1,o.armL); for(const A of [rA,lA]) if(A.cfg&&A.cfg.hold) A.cfg.hold(ctx,A.hx,A.hy,A.a);
+  // neck + soft collar
+  const hy=top+hh*0.56; ctx.fillStyle=dark(skin,0.1); box(ctx,cx-hh*0.17,hy+hh*0.3,hh*0.34,shY-hy-hh*0.25,hh*0.12,dark(skin,0.1));
+  ctx.strokeStyle=dark(shirt,0.2); ctx.lineWidth=Math.max(2,hh*0.04); ctx.beginPath(); ctx.moveTo(cx-hh*0.26,shY-hh*0.1); ctx.quadraticCurveTo(cx,shY+hh*0.18,cx+hh*0.26,shY-hh*0.1); ctx.stroke();
+  // hair behind
+  const st=o.hairStyle||'short'; ctx.fillStyle=hair;
+  if(st==='long'){ ctx.beginPath(); ctx.ellipse(cx,hy-hh*0.05,hw*0.62,hh*0.55,0,Math.PI,0); ctx.fill(); for(const s2 of [-1,1]) box(ctx,cx+s2*hw*0.48-hw*0.17,hy-hh*0.15,hw*0.34,hh*1.05,hw*0.17,hair); }
+  if(st==='curly'){ for(let k=0;k<11;k++){ const a=Math.PI*(1.0+k/10); circ(ctx,cx+Math.cos(a)*hw*0.56,hy-hh*0.04+Math.sin(a)*hh*0.56,hh*0.2,hair); } }
+  if(st==='bun') circ(ctx,cx,hy-hh*0.62,hh*0.22,hair);
+  // ears + face (round)
+  for(const s2 of [-1,1]) circ(ctx,cx+s2*hw*0.5,hy+hh*0.04,hh*0.11,dark(skin,0.05));
+  ctx.beginPath(); ctx.ellipse(cx,hy,hw*0.5,hh*0.52,0,0,6.283); ctx.fillStyle=skin; ctx.fill();
+  // hair front: soft cap
+  ctx.fillStyle=hair; ctx.beginPath(); ctx.moveTo(cx-hw*0.52,hy-hh*0.02); ctx.bezierCurveTo(cx-hw*0.58,hy-hh*0.66,cx+hw*0.58,hy-hh*0.7,cx+hw*0.52,hy-hh*0.02);
+  ctx.bezierCurveTo(cx+hw*0.44,hy-hh*0.26,cx+hw*0.2,hy-hh*0.32,cx-hw*0.05,hy-hh*0.3); ctx.bezierCurveTo(cx-hw*0.3,hy-hh*0.28,cx-hw*0.46,hy-hh*0.2,cx-hw*0.52,hy-hh*0.02); ctx.fill();
+  // friendly face: soft brows, round dark eyes with a tiny highlight, small nose, smile, light cheeks
+  const ink=dark(skin,0.62); ctx.strokeStyle=ink; ctx.fillStyle=ink;
+  for(const s2 of [-1,1]){ ctx.lineWidth=Math.max(1.5,hh*0.035); ctx.beginPath(); ctx.moveTo(cx+s2*hw*0.11,hy-hh*0.13); ctx.quadraticCurveTo(cx+s2*hw*0.2,hy-hh*0.17,cx+s2*hw*0.3,hy-hh*0.13); ctx.stroke();
+    circ(ctx,cx+s2*hw*0.2,hy+hh*0.01,hh*0.055,ink); circ(ctx,cx+s2*hw*0.2+hh*0.018,hy-hh*0.012,hh*0.016,rgba('#FFFFFF',0.7));
+    circ(ctx,cx+s2*hw*0.3,hy+hh*0.17,hh*0.07,rgba('#E07A5F',0.18)); }
+  ctx.lineWidth=Math.max(1.2,hh*0.028); ctx.beginPath(); ctx.moveTo(cx,hy+hh*0.06); ctx.quadraticCurveTo(cx+hw*0.05,hy+hh*0.14,cx-hw*0.01,hy+hh*0.16); ctx.stroke();
+  if(o.open){ ctx.beginPath(); ctx.ellipse(cx,hy+hh*0.29,hw*0.11,hh*0.08,0,0,6.283); ctx.fillStyle=dark(skin,0.55); ctx.fill(); } else { ctx.lineWidth=Math.max(1.6,hh*0.034); ctx.beginPath(); ctx.moveTo(cx-hw*0.15,hy+hh*0.25); ctx.quadraticCurveTo(cx,hy+hh*0.35,cx+hw*0.15,hy+hh*0.25); ctx.stroke(); }
+  ctx.restore(); return {rHand:{x:rA.hx,y:rA.hy},lHand:{x:lA.hx,y:lA.hy},head:{x:cx,y:hy,r:hh*0.5},hip:{x:cx,y:hipY},knee:{y:top+hh*4.9}}; }
+
+// series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
+function person(ctx,x,y,h,alpha=1,o={}){ const look=(typeof PERSON_LOOK!=='undefined')?PERSON_LOOK:{}; return personReal(ctx,x,y,h,alpha,Object.assign({},look,o)); }
