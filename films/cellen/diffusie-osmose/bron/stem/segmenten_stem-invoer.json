@@ -1,0 +1,468 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een glas stil water. Eén druppel kleurstof erin.",
+   "Na een uur zie je een gekleurde wolk. Uiteindelijk is het hele glas egaal gekleurd.",
+   "Niemand heeft geroerd. Hoe komt de kleurstof dan overal? Wat denk je?"
+  ],
+  "display": "Een glas stil water. Eén druppel kleurstof erin. Na een uur zie je een gekleurde wolk. Uiteindelijk is het hele glas egaal gekleurd. Niemand heeft geroerd. Hoe komt de kleurstof dan overal? Wat denk je?",
+  "voice": "Een glas stil water. Eén druppel kleurstof erin. Na een uur zie je een gekleurde wolk. Uiteindelijk is het hele glas egaal gekleurd. Niemand heeft geroerd. Hoe komt de kleurstof dan overal? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) de kleurstofdeeltjes duwen elkaar weg",
+   "(b) de deeltjes gaan naar de plek waar nog geen kleurstof is",
+   "(c) alle deeltjes bewegen kriskras, en zo raken ze vanzelf verspreid"
+  ]
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "title",
+  "lines": [
+   "Diffusie en osmose. Alles beweegt."
+  ],
+  "display": "Diffusie en osmose. Alles beweegt.",
+  "voice": "Diffusie en osmose. Alles beweegt."
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Alles beweegt",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zoom in op het water. Het zit vol deeltjes, en ze staan nooit stil.",
+   "Elk deeltje schiet een stukje op, botst, en schiet een andere kant op. Biljoenen keren per seconde.",
+   "Volg er één. Hij gaat alle kanten op, zonder plan.",
+   "De kleurstofdeeltjes duwen elkaar niet weg. Ze worden alle kanten op gestoten door watermoleculen.",
+   "Niemand stuurt ze ergens heen. Ze dwalen gewoon rond.",
+   "Hoe warmer het water, hoe sneller ze bewegen. Kijk: koud, en warm."
+  ],
+  "display": "Zoom in op het water. Het zit vol deeltjes, en ze staan nooit stil. Elk deeltje schiet een stukje op, botst, en schiet een andere kant op. Biljoenen keren per seconde. Volg er één. Hij gaat alle kanten op, zonder plan. De kleurstofdeeltjes duwen elkaar niet weg. Ze worden alle kanten op gestoten door watermoleculen. Niemand stuurt ze ergens heen. Ze dwalen gewoon rond. Hoe warmer het water, hoe sneller ze bewegen. Kijk: koud, en warm.",
+  "voice": "Zoom in op het water. Het zit vol deeltjes, en ze staan nooit stil. Elk deeltje schiet een stukje op, botst, en schiet een andere kant op. Biljoenen keren per seconde. Volg er één. Hij gaat alle kanten op, zonder plan. De kleurstofdeeltjes duwen elkaar niet weg. Ze worden alle kanten op gestoten door watermoleculen. Niemand stuurt ze ergens heen. Ze dwalen gewoon rond. Hoe warmer het water, hoe sneller ze bewegen. Kijk: koud, en warm."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 2 — Van veel naar weinig",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zet nu veel kleurstof links en geen rechts. Er staat een streep in het midden.",
+   "Elk deeltje dwaalt willekeurig. Links zijn er veel, dus gaan er links veel toevallig over de streep naar rechts.",
+   "Rechts zijn er weinig, dus gaan er weinig terug.",
+   "Ons gevolgde deeltje weet niet dat het rechts leeg is. Het gaat net zo vaak terug.",
+   "Toch gaan er netto meer van links naar rechts. Dat heet diffusie.",
+   "Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie.",
+   "Het verschil tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt."
+  ],
+  "display": "Zet nu veel kleurstof links en geen rechts. Er staat een streep in het midden. Elk deeltje dwaalt willekeurig. Links zijn er veel, dus gaan er links veel toevallig over de streep naar rechts. Rechts zijn er weinig, dus gaan er weinig terug. Ons gevolgde deeltje weet niet dat het rechts leeg is. Het gaat net zo vaak terug. Toch gaan er netto meer van links naar rechts. Dat heet diffusie. Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie. Het verschil tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt.",
+  "voice": "Zet nu veel kleurstof links en geen rechts. Er staat een streep in het midden. Elk deeltje dwaalt willekeurig. Links zijn er veel, dus gaan er links veel toevallig over de streep naar rechts. Rechts zijn er weinig, dus gaan er weinig terug. Ons gevolgde deeltje weet niet dat het rechts leeg is. Het gaat net zo vaak terug. Toch gaan er netto meer van links naar rechts. Dat heet diffusie. Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie. Het verschil tussen links en rechts heet het concentratieverschil. In je boek heet dat soms de concentratiegradiënt."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Van veel naar weinig",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Kijk naar de grafiek. Het verschil wordt kleiner, en de netto stroom ook.",
+   "Tot links en rechts evenveel hebben. Wat doen de deeltjes dan? Wat denk je?"
+  ],
+  "display": "Kijk naar de grafiek. Het verschil wordt kleiner, en de netto stroom ook. Tot links en rechts evenveel hebben. Wat doen de deeltjes dan? Wat denk je?",
+  "voice": "Kijk naar de grafiek. Het verschil wordt kleiner, en de netto stroom ook. Tot links en rechts evenveel hebben. Wat doen de deeltjes dan? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Van veel naar weinig",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) ze staan stil",
+   "(b) ze bewegen door, maar er gaan evenveel heen als terug",
+   "(c) ze verzamelen zich in het midden"
+  ]
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Van veel naar weinig",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ze bewegen gewoon door. Ons gevolgde deeltje gaat nog steeds heen en weer.",
+   "Maar er gaan nu evenveel van links naar rechts als terug. Netto nul. Dat heet evenwicht."
+  ],
+  "display": "Ze bewegen gewoon door. Ons gevolgde deeltje gaat nog steeds heen en weer. Maar er gaan nu evenveel van links naar rechts als terug. Netto nul. Dat heet evenwicht.",
+  "voice": "Ze bewegen gewoon door. Ons gevolgde deeltje gaat nog steeds heen en weer. Maar er gaan nu evenveel van links naar rechts als terug. Netto nul. Dat heet evenwicht."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 3 — Wat maakt het sneller?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Diffusie gaat sneller als de deeltjes sneller bewegen. Dus bij een hogere temperatuur.",
+   "Ook een groter concentratieverschil helpt: dan steken er netto meer over.",
+   "En een groter oppervlak: meer plek waar ze over kunnen steken.",
+   "De vierde is de afstand. Diffusie is snel over korte afstanden en traag over lange.",
+   "Een cel wordt twee keer zo dik. Hoe lang duurt het dan voor zuurstof het midden bereikt? Wat denk je?"
+  ],
+  "display": "Diffusie gaat sneller als de deeltjes sneller bewegen. Dus bij een hogere temperatuur. Ook een groter concentratieverschil helpt: dan steken er netto meer over. En een groter oppervlak: meer plek waar ze over kunnen steken. De vierde is de afstand. Diffusie is snel over korte afstanden en traag over lange. Een cel wordt twee keer zo dik. Hoe lang duurt het dan voor zuurstof het midden bereikt? Wat denk je?",
+  "voice": "Diffusie gaat sneller als de deeltjes sneller bewegen. Dus bij een hogere temperatuur. Ook een groter concentratieverschil helpt: dan steken er netto meer over. En een groter oppervlak: meer plek waar ze over kunnen steken. De vierde is de afstand. Diffusie is snel over korte afstanden en traag over lange. Een cel wordt twee keer zo dik. Hoe lang duurt het dan voor zuurstof het midden bereikt? Wat denk je?"
+ },
+ {
+  "id": "q10",
+  "chapter": "Hoofdstuk 3 — Wat maakt het sneller?",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) twee keer zo lang",
+   "(b) ongeveer vier keer zo lang",
+   "(c) even lang"
+  ]
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Wat maakt het sneller?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, dus hoe verder het moet, hoe trager het opschiet.",
+   "Zuurstof komt in een paar honderdste seconde door een cel. Over een centimeter duurt het uren.",
+   "Daarom zijn cellen klein. En daarom zijn je longblaasjes zo gebouwd.",
+   "Een flinterdunne wand, dus een korte afstand. En honderden miljoenen longblaasjes, samen ongeveer zo groot als een badmintonveld.",
+   "Zuurstof gaat het bloed in, koolstofdioxide eruit. Allebei door diffusie."
+  ],
+  "display": "Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, dus hoe verder het moet, hoe trager het opschiet. Zuurstof komt in een paar honderdste seconde door een cel. Over een centimeter duurt het uren. Daarom zijn cellen klein. En daarom zijn je longblaasjes zo gebouwd. Een flinterdunne wand, dus een korte afstand. En honderden miljoenen longblaasjes, samen ongeveer zo groot als een badmintonveld. Zuurstof gaat het bloed in, koolstofdioxide eruit. Allebei door diffusie.",
+  "voice": "Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, dus hoe verder het moet, hoe trager het opschiet. Zuurstof komt in een paar honderdste seconde door een cel. Over een centimeter duurt het uren. Daarom zijn cellen klein. En daarom zijn je longblaasjes zo gebouwd. Een flinterdunne wand, dus een korte afstand. En honderden miljoenen longblaasjes, samen ongeveer zo groot als een badmintonveld. Zuurstof gaat het bloed in, koolstofdie-oxide eruit. Allebei door diffusie."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen.",
+   "Het membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel.",
+   "Welke stof komt het makkelijkst door? Wat denk je?"
+  ],
+  "display": "Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen. Het membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel. Welke stof komt het makkelijkst door? Wat denk je?",
+  "voice": "Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen. Het membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel. Welke stof komt het makkelijkst door? Wat denk je?"
+ },
+ {
+  "id": "q13",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) zuurstof",
+   "(b) een natriumion",
+   "(c) glucose"
+  ]
+ },
+ {
+  "id": "s14",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zuurstof. Kleine stoffen die goed in vet oplossen glippen er zo doorheen: zuurstof en koolstofdioxide.",
+   "Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet door de vetlaag.",
+   "Glucose ook niet: dat lost slecht op in vet.",
+   "Het membraan is dus geen zeef die alleen naar grootte kijkt.",
+   "Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes.",
+   "Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag."
+  ],
+  "display": "Zuurstof. Kleine stoffen die goed in vet oplossen glippen er zo doorheen: zuurstof en koolstofdioxide. Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet. Het membraan is dus geen zeef die alleen naar grootte kijkt. Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes. Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag.",
+  "voice": "Zuurstof. Kleine stoffen die goed in vet oplossen glippen er zo doorheen: zuurstof en koolstofdie-oxide. Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet. Het membraan is dus geen zeef die alleen naar grootte kijkt. Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes. Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag."
+ },
+ {
+  "id": "s15",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Voor vwo nog een stap. Die doorgangen zijn eiwitten in het membraan.",
+   "Kanaaleiwitten vormen een tunnel voor een bepaald soort deeltje. Zo zijn er waterkanalen.",
+   "Dragereiwitten pakken een deeltje vast, zoals glucose, en zetten het aan de andere kant af.",
+   "Gaat dat via zo'n eiwit van hoog naar laag, dan heet het gefaciliteerde diffusie.",
+   "Kost gefaciliteerde diffusie ATP? Wat denk je?"
+  ],
+  "display": "Voor vwo nog een stap. Die doorgangen zijn eiwitten in het membraan. Kanaaleiwitten vormen een tunnel voor een bepaald soort deeltje. Zo zijn er waterkanalen. Dragereiwitten pakken een deeltje vast, zoals glucose, en zetten het aan de andere kant af. Gaat dat via zo'n eiwit van hoog naar laag, dan heet het gefaciliteerde diffusie. Kost gefaciliteerde diffusie ATP? Wat denk je?",
+  "voice": "Voor vwo nog een stap. Die doorgangen zijn eiwitten in het membraan. Kanaaleiwitten vormen een tunnel voor een bepaald soort deeltje. Zo zijn er waterkanalen. Dragereiwitten pakken een deeltje vast, zoals glucose, en zetten het aan de andere kant af. Gaat dat via zo'n eiwit van hoog naar laag, dan heet het gefaciliteerde diffusie. Kost gefaciliteerde diffusie ATP? Wat denk je?"
+ },
+ {
+  "id": "q16",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "vwo",
+  "kind": "question",
+  "options": [
+   "(a) ja, het eiwit moet werken",
+   "(b) nee, het gaat vanzelf van hoog naar laag"
+  ]
+ },
+ {
+  "id": "s17",
+  "chapter": "Hoofdstuk 4 — De grens: het celmembraan",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurig rondschieten.",
+   "Terug naar de hoofdlijn."
+  ],
+  "display": "Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurig rondschieten. Terug naar de hoofdlijn.",
+  "voice": "Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurig rondschieten. Terug naar de hoofdlijn."
+ },
+ {
+  "id": "s18",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nu een membraan dat water doorlaat, maar zout niet. Zo'n membraan heet semipermeabel.",
+   "Links zuiver water, rechts zout water. Het zout kan er niet door.",
+   "Wat gebeurt er met het water? Wat denk je?"
+  ],
+  "display": "Nu een membraan dat water doorlaat, maar zout niet. Zo'n membraan heet semipermeabel. Links zuiver water, rechts zout water. Het zout kan er niet door. Wat gebeurt er met het water? Wat denk je?",
+  "voice": "Nu een membraan dat water doorlaat, maar zout niet. Zo'n membraan heet semi-permeabel. Links zuiver water, rechts zout water. Het zout kan er niet door. Wat gebeurt er met het water? Wat denk je?"
+ },
+ {
+  "id": "q19",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) het water gaat naar links",
+   "(b) het water gaat naar rechts, naar het zout",
+   "(c) er gebeurt niets, want het zout kan er niet door"
+  ]
+ },
+ {
+  "id": "s20",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het water gaat naar rechts. Maar waarom?",
+   "Je hoort vaak: het zout trekt water aan. Maar zout trekt niet.",
+   "Of: rechts is minder water, dus gaat water erheen. Rechts is wel iets minder water. Maar dat verschil is veel te klein voor zo'n sterke stroom."
+  ],
+  "display": "Het water gaat naar rechts. Maar waarom? Je hoort vaak: het zout trekt water aan. Maar zout trekt niet. Of: rechts is minder water, dus gaat water erheen. Rechts is wel iets minder water. Maar dat verschil is veel te klein voor zo'n sterke stroom.",
+  "voice": "Het water gaat naar rechts. Maar waarom? Je hoort vaak: het zout trekt water aan. Maar zout trekt niet. Of: rechts is minder water, dus gaat water erheen. Rechts is wel iets minder water. Maar dat verschil is veel te klein voor zo'n sterke stroom."
+ },
+ {
+  "id": "s21",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Kijk naar een gaatje in het membraan, van dichtbij.",
+   "Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug.",
+   "Bij dat terugkaatsen nemen ze water mee, weg van het gaatje.",
+   "Daardoor is de druk in de opening van het gaatje aan de zoute kant lager.",
+   "Links duwt het water harder. Dus stroomt het water door het gaatje naar rechts, als door een rietje.",
+   "Dat heet osmose. Water gaat door een semipermeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen.",
+   "Je boek zegt: naar de kant met de hoogste osmotische waarde. En vaak noemt het osmose diffusie van water.",
+   "De richting klopt altijd. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Jij weet nu ook waarom."
+  ],
+  "display": "Kijk naar een gaatje in het membraan, van dichtbij. Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug. Bij dat terugkaatsen nemen ze water mee, weg van het gaatje. Daardoor is de druk in de opening van het gaatje aan de zoute kant lager. Links duwt het water harder. Dus stroomt het water door het gaatje naar rechts, als door een rietje. Dat heet osmose. Water gaat door een semipermeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen. Je boek zegt: naar de kant met de hoogste osmotische waarde. En vaak noemt het osmose diffusie van water. De richting klopt altijd. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Jij weet nu ook waarom.",
+  "voice": "Kijk naar een gaatje in het membraan, van dichtbij. Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug. Bij dat terugkaatsen nemen ze water mee, weg van het gaatje. Daardoor is de druk in de opening van het gaatje aan de zoute kant lager. Links duwt het water harder. Dus stroomt het water door het gaatje naar rechts, als door een rietje. Dat heet osmose. Water gaat door een semi-permeabel membraan naar de kant met de meeste opgeloste deeltjes die er niet door kunnen. Je boek zegt: naar de kant met de hoogste osmotische waarde. En vaak noemt het osmose diffusie van water. De richting klopt altijd. Op een toets schrijf je: water gaat naar de kant met de hoogste osmotische waarde. Jij weet nu ook waarom."
+ },
+ {
+  "id": "s22",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zet het membraan in een U-buis. Het water rechts stijgt.",
+   "Maar hoe hoger de kolom, hoe harder die terugduwt.",
+   "Op een bepaalde hoogte duwt de kolom precies even hard terug als de osmose. Netto stroomt er dan geen water meer.",
+   "Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt."
+  ],
+  "display": "Zet het membraan in een U-buis. Het water rechts stijgt. Maar hoe hoger de kolom, hoe harder die terugduwt. Op een bepaalde hoogte duwt de kolom precies even hard terug als de osmose. Netto stroomt er dan geen water meer. Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt.",
+  "voice": "Zet het membraan in een U-buis. Het water rechts stijgt. Maar hoe hoger de kolom, hoe harder die terugduwt. Op een bepaalde hoogte duwt de kolom precies even hard terug als de osmose. Netto stroomt er dan geen water meer. Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt."
+ },
+ {
+  "id": "s23",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zet een plantencel in zout water. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolyse.",
+   "In zuiver water gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug.",
+   "De druk in de cel heet turgor. Die maakt een plant stevig. Barsten doet de plantencel niet.",
+   "Strooi zout op plakjes komkommer. Na tien minuten liggen ze in een plasje. Waar komt dat water vandaan? Wat denk je?"
+  ],
+  "display": "Zet een plantencel in zout water. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolyse. In zuiver water gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug. De druk in de cel heet turgor. Die maakt een plant stevig. Barsten doet de plantencel niet. Strooi zout op plakjes komkommer. Na tien minuten liggen ze in een plasje. Waar komt dat water vandaan? Wat denk je?",
+  "voice": "Zet een plantencel in zout water. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolieze. In zuiver water gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug. De druk in de cel heet turgor. Die maakt een plant stevig. Barsten doet de plantencel niet. Strooi zout op plakjes komkommer. Na tien minuten liggen ze in een plasje. Waar komt dat water vandaan? Wat denk je?"
+ },
+ {
+  "id": "q24",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) uit de cellen van de komkommer",
+   "(b) het zout trekt water uit de lucht",
+   "(c) het zout smelt tot water"
+  ]
+ },
+ {
+  "id": "s25",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Uit de cellen. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht. De plakjes worden slap.",
+   "Een rode bloedcel heeft geen celwand. Wat gebeurt er in zuiver water? Wat denk je?"
+  ],
+  "display": "Uit de cellen. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht. De plakjes worden slap. Een rode bloedcel heeft geen celwand. Wat gebeurt er in zuiver water? Wat denk je?",
+  "voice": "Uit de cellen. Buiten de cellen is de osmotische waarde nu hoger dan in het celvocht. De plakjes worden slap. Een rode bloedcel heeft geen celwand. Wat gebeurt er in zuiver water? Wat denk je?"
+ },
+ {
+  "id": "q26",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) hij krimpt",
+   "(b) hij zwelt en barst",
+   "(c) er gebeurt niets"
+  ]
+ },
+ {
+  "id": "s27",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Hij zwelt en barst. Er is geen wand die terugduwt. Dat barsten heet hemolyse.",
+   "In zout water krimpt hij en wordt hij gekarteld."
+  ],
+  "display": "Hij zwelt en barst. Er is geen wand die terugduwt. Dat barsten heet hemolyse. In zout water krimpt hij en wordt hij gekarteld.",
+  "voice": "Hij zwelt en barst. Er is geen wand die terugduwt. Dat barsten heet heemolieze. In zout water krimpt hij en wordt hij gekarteld."
+ },
+ {
+  "id": "s28",
+  "chapter": "Hoofdstuk 5 — Osmose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Daar zijn woorden voor.",
+   "Een oplossing met dezelfde osmotische waarde als de cel heet isotonisch. Er gaat netto geen water in of uit.",
+   "Een lagere osmotische waarde: hypotonisch. Water gaat de cel in.",
+   "Een hogere osmotische waarde: hypertonisch. Water gaat de cel uit.",
+   "Daarom krijg je in het ziekenhuis een infuus met zout water: negen gram zout per liter. Dat is ongeveer even zout als je bloed.",
+   "Zuiver water in je bloed zou je rode bloedcellen laten barsten."
+  ],
+  "display": "Daar zijn woorden voor. Een oplossing met dezelfde osmotische waarde als de cel heet isotonisch. Er gaat netto geen water in of uit. Een lagere osmotische waarde: hypotonisch. Water gaat de cel in. Een hogere osmotische waarde: hypertonisch. Water gaat de cel uit. Daarom krijg je in het ziekenhuis een infuus met zout water: negen gram zout per liter. Dat is ongeveer even zout als je bloed. Zuiver water in je bloed zou je rode bloedcellen laten barsten.",
+  "voice": "Daar zijn woorden voor. Een oplossing met dezelfde osmotische waarde als de cel heet isotonisch. Er gaat netto geen water in of uit. Een lagere osmotische waarde: hiepotonisch. Water gaat de cel in. Een hogere osmotische waarde: hiepertonisch. Water gaat de cel uit. Daarom krijg je in het ziekenhuis een infuus met zout water: negen gram zout per liter. Dat is ongeveer even zout als je bloed. Zuiver water in je bloed zou je rode bloedcellen laten barsten."
+ },
+ {
+  "id": "s29",
+  "chapter": "Hoofdstuk 6 — Bergop: actief transport",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Alles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat heet passief transport.",
+   "Maar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten.",
+   "Hoe kan dat? Wat denk je?"
+  ],
+  "display": "Alles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat heet passief transport. Maar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten. Hoe kan dat? Wat denk je?",
+  "voice": "Alles tot nu toe ging vanzelf, zonder dat de cel er energie voor gebruikte. Dat heet passief transport. Maar een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten. Hoe kan dat? Wat denk je?"
+ },
+ {
+  "id": "q30",
+  "chapter": "Hoofdstuk 6 — Bergop: actief transport",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) door diffusie: buiten zit genoeg",
+   "(b) door osmose: het water neemt de mineralen mee",
+   "(c) een eiwit in het membraan pompt ze naar binnen"
+  ]
+ },
+ {
+  "id": "s31",
+  "chapter": "Hoofdstuk 6 — Bergop: actief transport",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Met een pomp. Een dragereiwit in het membraan brengt de deeltjes tegen het concentratieverschil in naar binnen.",
+   "Dat kost energie, in de vorm van ATP. Dat heet actief transport.",
+   "Zonder ATP staat de pomp stil, en lekken de deeltjes langzaam weer naar buiten."
+  ],
+  "display": "Met een pomp. Een dragereiwit in het membraan brengt de deeltjes tegen het concentratieverschil in naar binnen. Dat kost energie, in de vorm van ATP. Dat heet actief transport. Zonder ATP staat de pomp stil, en lekken de deeltjes langzaam weer naar buiten.",
+  "voice": "Met een pomp. Een dragereiwit in het membraan brengt de deeltjes tegen het concentratieverschil in naar binnen. Dat kost energie, in de vorm van ATP. Dat heet actief transport. Zonder ATP staat de pomp stil, en lekken de deeltjes langzaam weer naar buiten."
+ },
+ {
+  "id": "s32",
+  "chapter": "Hoofdstuk 6 — Bergop: actief transport",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Voor vwo: het bekendste voorbeeld is de natrium-kaliumpomp.",
+   "Die pompt in al je cellen natrium naar buiten en kalium naar binnen, steeds met ATP.",
+   "Je komt hem weer tegen bij zenuwimpulsen.",
+   "Terug naar de hoofdlijn."
+  ],
+  "display": "Voor vwo: het bekendste voorbeeld is de natrium-kaliumpomp. Die pompt in al je cellen natrium naar buiten en kalium naar binnen, steeds met ATP. Je komt hem weer tegen bij zenuwimpulsen. Terug naar de hoofdlijn.",
+  "voice": "Voor vwo: het bekendste voorbeeld is de natrium-kaliumpomp. Die pompt in al je cellen natrium naar buiten en kalium naar binnen, steeds met ATP. Je komt hem weer tegen bij zenuwimpulsen. Terug naar de hoofdlijn."
+ },
+ {
+  "id": "s33",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Alles beweegt, en niemand stuurt. Uit dat willekeurige bewegen volgt diffusie: van veel naar weinig.",
+   "Het celmembraan is selectief doorlatend: niet alles kan erdoor.",
+   "Kan water erdoor en een opgeloste stof niet, dan kaatst die stof terug. De druk bij de gaatjes aan die kant wordt lager, en het water stroomt erheen. Dat is osmose: naar de hoogste osmotische waarde.",
+   "En moet een cel iets bergop krijgen, dan pompt hij het, met ATP.",
+   "Dan nog één vraag. Je zit in een bootje op zee en je hebt dorst. Waarom mag je geen zeewater drinken? Wat denk je?"
+  ],
+  "display": "Alles beweegt, en niemand stuurt. Uit dat willekeurige bewegen volgt diffusie: van veel naar weinig. Het celmembraan is selectief doorlatend: niet alles kan erdoor. Kan water erdoor en een opgeloste stof niet, dan kaatst die stof terug. De druk bij de gaatjes aan die kant wordt lager, en het water stroomt erheen. Dat is osmose: naar de hoogste osmotische waarde. En moet een cel iets bergop krijgen, dan pompt hij het, met ATP. Dan nog één vraag. Je zit in een bootje op zee en je hebt dorst. Waarom mag je geen zeewater drinken? Wat denk je?",
+  "voice": "Alles beweegt, en niemand stuurt. Uit dat willekeurige bewegen volgt diffusie: van veel naar weinig. Het celmembraan is selectief doorlatend: niet alles kan erdoor. Kan water erdoor en een opgeloste stof niet, dan kaatst die stof terug. De druk bij de gaatjes aan die kant wordt lager, en het water stroomt erheen. Dat is osmose: naar de hoogste osmotische waarde. En moet een cel iets bergop krijgen, dan pompt hij het, met ATP. Dan nog één vraag. Je zit in een bootje op zee en je hebt dorst. Waarom mag je geen zeewater drinken? Wat denk je?"
+ },
+ {
+  "id": "q34",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) je cellen verliezen er water door",
+   "(b) je cellen nemen te veel water op",
+   "(c) zeewater bevat bacteriën"
+  ]
+ },
+ {
+  "id": "s35",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is.",
+   "Om het zout kwijt te raken, plas je meer water uit dan je dronk. Je bloed wordt zouter, en je cellen verliezen water door osmose."
+  ],
+  "display": "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je meer water uit dan je dronk. Je bloed wordt zouter, en je cellen verliezen water door osmose.",
+  "voice": "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je meer water uit dan je dronk. Je bloed wordt zouter, en je cellen verliezen water door osmose."
+ },
+ {
+  "id": "s36",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "card",
+  "lines": [
+   "Deeltjes bewegen willekeurig; netto gaan ze van veel naar weinig. · Osmose: water gaat naar de hoogste osmotische waarde, door een drukverschil bij het membraan. · Passief transport gaat vanzelf; actief transport gaat bergop en kost ATP."
+  ],
+  "display": "Deeltjes bewegen willekeurig; netto gaan ze van veel naar weinig. · Osmose: water gaat naar de hoogste osmotische waarde, door een drukverschil bij het membraan. · Passief transport gaat vanzelf; actief transport gaat bergop en kost ATP.",
+  "voice": "Deeltjes bewegen willekeurig; netto gaan ze van veel naar weinig. · Osmose: water gaat naar de hoogste osmotische waarde, door een drukverschil bij het membraan. · Passief transport gaat vanzelf; actief transport gaat bergop en kost ATP."
+ }
+]
