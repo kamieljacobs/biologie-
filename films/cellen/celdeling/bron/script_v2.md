@@ -65,14 +65,14 @@ In de interfase ligt het DNA als lange, losse draden door de kern. Zo los heet h
 Elke draad is een chromosoom. Een mens heeft er zesenveertig: drieëntwintig paren.
 Van elk paar komt er één van je moeder en één van je vader. De twee van een paar heten homologe chromosomen: ze dragen dezelfde soort genen.
 
-Tweeëntwintig paren zijn gewone chromosomen. Het drieëntwintigste paar zijn de geslachtschromosomen: XX bij een vrouw, XY bij een man. X en Y zijn de enige twee van een paar die echt verschillen.
+Tweeëntwintig paren zijn gewone chromosomen. Het drieëntwintigste paar zijn de geslachtschromosomen: XX bij een vrouw, XY bij een man. Bij een man zijn X en Y de enige twee van een paar die echt verschillen.
 
 Aan het begin van de deling rolt elk chromosoom zich heel strak op. Pas dan zie je ze onder de microscoop.
-Omdat het DNA al gekopieerd is, bestaat elk chromosoom dan uit twee gelijke kopieën: twee chromatiden. Ze zitten aan elkaar vast bij het centromeer. Zo krijgt het de vorm van een X.
-Let op: dat zijn twee soorten twee. Een paar is twee chromosomen, één van je vader en één van je moeder. Een X is één chromosoom, met twee gelijke chromatiden.
-Deze cel heeft vier X'en. Hoeveel chromosomen zie je? Wat denk je?
+Omdat het DNA al gekopieerd is, bestaat elk chromosoom dan uit twee gelijke kopieën: twee chromatiden. Ze zitten aan elkaar vast bij het centromeer. Zo krijgt het de vorm van een kruisje: een X-vorm.
+Let op: dat zijn twee soorten twee. Een paar is twee chromosomen, één van je vader en één van je moeder. Een X-vorm is één chromosoom, met twee gelijke chromatiden.
+Deze cel heeft vier X-vormen. Hoeveel chromosomen zie je? Wat denk je?
 [VRAAG] (a) 2 · (b) 4 · (c) 8
-Vier. Elke X is één chromosoom. Tel de centromeren.
+Vier. Elke X-vorm is één chromosoom. Tel de centromeren.
 Bij een mens zie je zo zesenveertig chromosomen, met samen tweeënnegentig chromatiden.
 
 ## Hoofdstuk 4 — Mitose [Micro]
@@ -85,10 +85,10 @@ Bij elk centromeer zitten twee eiwitplaatjes, één per chromatide. Daar haken d
 Zit het goed, dan hangt het ene kinetochoor aan de ene pool en het andere aan de andere pool. De trekdraden van beide polen trekken tegen elkaar in, en het centromeer komt onder spanning.
 Hangen beide kinetochoren aan dezelfde pool, dan is er geen spanning. Een enzym in het centromeer zorgt dan dat de trekdraden loslaten, en het chromosoom krijgt een nieuwe kans.
 Zo'n los kinetochoor geeft een wachtsignaal. Zolang er nog één kinetochoor los is, wacht de cel. De anafase begint pas als alle chromosomen goed vastzitten en onder spanning staan.
-Dan knipt een enzym de eiwitring door die de chromatiden bij elkaar hield. Die ring heet cohesine.
-Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel? Wat denk je?
-[VRAAG] (a) de cel begint toch aan de anafase · (b) de cel wacht en maakt de foute verbinding los · (c) de cel knipt het chromosoom door
-De cel wacht. De foute verbinding gaat los, tot het chromosoom goed vastzit.
+Dan knipt een ander enzym de eiwitring door die de chromatiden bij elkaar hield. Die ring heet cohesine.
+Een gif zorgt dat de trekdraden niet aan de kinetochoren kunnen haken. Wat doet de cel dan? Wat denk je?
+[VRAAG] (a) de cel gaat toch door naar de anafase · (b) de cel blijft wachten in de metafase · (c) de cel knipt meteen de cohesine door
+De cel blijft wachten. Zonder trekdraden is elk kinetochoor los, en geeft het een wachtsignaal. Zo werken ook sommige middelen tegen kanker: de deling stopt.
 En hoe trekken de draden straks? Ze worden korter, doordat ze vooral aan het uiteinde bij het kinetochoor worden afgebroken. Het kinetochoor houdt het krimpende uiteinde vast, en wordt zo meegetrokken naar de pool.
 Terug naar de hoofdlijn. [EXTRA-END]
 
@@ -120,13 +120,13 @@ Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef
 In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p.
 
 Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen.
-Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze soms stukken uit. Dat heet crossing-over.
+Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze stukken uit, bij elk paar meestal één of twee keer. Dat heet crossing-over.
 Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder.
 Daarom verschilt bijna elke geslachtscel van een persoon van de andere.
 Bij de bevruchting komen n en n samen: weer twee n, zesenveertig.
 
 ## Hoofdstuk 6 — Mitose en meiose naast elkaar [Schema]
-Zet de twee delingen naast elkaar.
+Zet de mitose en de twee delingen van de meiose naast elkaar.
 Bij welke deling liggen homologe chromosomen als paren in het equatorvlak? Wat denk je?
 [VRAAG] (a) mitose · (b) meiose één · (c) meiose twee
 Alleen bij meiose één. Bij de mitose en bij meiose twee liggen de chromosomen los, elk met twee chromatiden.
@@ -136,7 +136,7 @@ Meiose is dus niet gewoon twee keer mitose. In meiose één gaan hele paren uit 
 
 [VWO-START] Voor vwo nog één stap: wat als het misgaat?
 Normaal deelt een cel alleen als het nodig is, en alleen als de controlepunten groen licht geven.
-Raken door fouten in het DNA de remmen kapot, meestal meerdere tegelijk, dan blijft de cel delen. Zo ontstaat een tumor. Bij kanker dringen die cellen ook andere weefsels binnen.
+Raken door fouten in het DNA meerdere remmen kapot, één voor één in de loop van jaren, dan blijft de cel delen. Zo ontstaat een tumor. Bij kanker dringen die cellen ook andere weefsels binnen.
 Ook bij de meiose kan het misgaan. Soms gaan de twee chromosomen van een paar, of twee chromatiden, niet uit elkaar. Dat heet non-disjunctie.
 Dan krijgt de ene geslachtscel een chromosoom te veel, en de andere een te weinig.
 Een eicel heeft door non-disjunctie vierentwintig chromosomen. Een normale zaadcel bevrucht hem. Hoeveel chromosomen heeft het kind? Wat denk je?

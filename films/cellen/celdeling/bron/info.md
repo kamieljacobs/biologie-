@@ -5,9 +5,9 @@
 | Bestand | films/cellen/celdeling/index.html (audio in films/cellen/celdeling/audio/) |
 | Reeks / nummer | Cel, film 3 van 3 ("Biologie bij Kamiel · reeks Cel · film 3 van 3"); 1 = Diffusie en osmose, 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Mitose, meiose, G1/S/G2 en crossing-over staan in het basisdeel (besluit Kamiel 12 okt 2026, na de curriculumreview). Vwo-blokken: controlepunten (H2), kanker + non-disjunctie + trisomie 21 (H6). Daarnaast één **extra-uitdagingblok** (H4, tussen metafase en anafase) voor havo én vwo: verdieping, geen examenstof; schakelaar Extra aan/uit, standaard aan |
-| Versie / datum | Versie 1.1 · 12 oktober 2026 (1.0 zonder extra uitdaging) |
+| Versie / datum | Versie 1.2 · 12 oktober 2026 (1.0 zonder extra uitdaging; 1.1 met extra uitdaging; 1.2 na de onafhankelijke review, zie `reviews/review_v2.md`) |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
-| Duur | 11:33 gesproken (som van 28 mp3's: 693 s, waarvan 80 s extra uitdaging). Speeltijd met kaarten en vragen: Vwo 14:17, Havo 12:48; met Extra uit: Vwo 12:43, Havo 11:14 |
+| Duur | 11:45 gesproken (som van 28 mp3's: 705 s, waarvan 86 s extra uitdaging). Speeltijd met kaarten en vragen: Vwo 14:30, Havo 12:59; met Extra uit: Vwo 12:50, Havo 11:19 |
 | Beeldstijl | Part C-stijlkaart: Micro, Schema, één Macro-figuur. Modelcel 2n = 4 (lang en kort paar). Kleuren: blauw = chromosoom van vader, roze = van moeder, paars = DNA/kern (en vwo-balk), goud = focus/telling, koraal = fout/te veel, groen = conclusie, oker = extra uitdaging (balk en label) |
 | Audio-opslag | 28 losse mp3's in audio/ (s01, s04, s05, s06, s08–s13, s15–s17, s19–s22, s24–s27, s29, s30, s32, s33, s35, plus e01 en e03 voor de extra uitdaging), gemasterd op −16 LUFS / −1,5 dBTP |
 | Herkomst | Gemaakt door Claude met Kamiel in één sessie (12 okt 2026), met dezelfde bouwstraat als Diffusie en osmose. Remake in Part C van een film van Kamiels broer |
@@ -38,13 +38,13 @@
 | 0:39 | Titel | "Celdeling — Eerst kopiëren, dan verdelen" met een delende cel |
 | 0:44 | H1 Waarom delen? | Groeien, herstellen, vervangen (darmvlok, 2 miljoen rode bloedcellen/s); bacterie; grote cel en diffusie |
 | 1:34 | H2 De celcyclus (+ vwo-blok) | Ring: interfase (geen rustfase), mitose, cytokinese; kerndeling vs celdeling; G1/S/G2; vwo: controlepunten |
-| 3:15 (3:00) | H3 Chromosomen tellen | Chromatine; karyogram (23 paren, XX/XY); oprollen; chromatiden en centromeer; "twee soorten twee"; modelcel met vier X'en |
-| 4:59 (4:44) | H4 Mitose | Profase, metafase, anafase (even 92), telofase, cytokinese; celplaat; DNA-grafiek p → 2p → p |
-| 5:31 (5:17) | ↳ Extra uitdaging | Kinetochoren; spanning op het centromeer; foute verbinding (beide aan één pool) → enzym laat los → nieuwe kans; wachtsignaal per chromosoom (rood → groen); cohesine doorgeknipt; vraag eq02; trekdraad als rijtje eiwitblokjes die bij het kinetochoor afbreken |
-| 8:25 (8:10) | H5 Meiose | Bevruchting; diploïd/haploïd; meiose I (paren), meiose II; 4 zaadcellen / 1 eicel; DNA-grafiek tot ½p; toeval 2²³; crossing-over; n + n = 2n |
-| 10:50 (10:36) | H6 Mitose en meiose naast elkaar (+ vwo-blok) | Drie metafasen; vergelijkingstabel; vwo: kanker, non-disjunctie, trisomie 21 |
-| 13:06 (11:37) | Recap | Vier panelen; huidcel vs zaadcel |
-| 14:08 (12:38) | Eindkaart | Drie kernzinnen |
+| 3:15 (3:00) | H3 Chromosomen tellen | Chromatine; karyogram (23 paren, XX/XY); oprollen (dubbele draad); chromatiden en centromeer; "X-vorm" (niet "een X", om verwarring met het X-chromosoom te voorkomen); "twee soorten twee"; modelcel met vier X-vormen |
+| 5:01 (4:46) | H4 Mitose | Profase, metafase, anafase (even 92), telofase, cytokinese; celplaat; DNA-grafiek p → 2p → p |
+| 5:33 (5:18) | ↳ Extra uitdaging | Kinetochoren; spanning op het centromeer; foute verbinding (beide aan één pool) → enzym laat los → los kinetochoor knippert rood (wachtsignaal); overzichtscel: lampje per chromosoom rood → groen; een ánder enzym knipt de cohesineringen; transfervraag eq02 (gif, trekdraden haken niet aan); middelen tegen kanker; trekdraad als rijtje eiwitblokjes die bij het kinetochoor afbreken |
+| 8:33 (8:18) | H5 Meiose | Bevruchting; diploïd/haploïd; meiose I (paren), meiose II; 4 zaadcellen / 1 eicel; DNA-grafiek tot ½p; toeval 2²³; crossing-over; n + n = 2n |
+| 11:00 (10:46) | H6 Mitose en meiose naast elkaar (+ vwo-blok) | Drie metafasen; vergelijkingstabel; vwo: kanker, non-disjunctie, trisomie 21 |
+| 13:19 (11:48) | Recap | Vier panelen; huidcel vs zaadcel |
+| 14:20 (12:50) | Eindkaart | Drie kernzinnen |
 
 ## Vragen (juiste antwoord vet)
 
@@ -52,11 +52,11 @@
 |---|---|---|---|
 | q02 | basis | Hoe verdeelt een cel zijn DNA eerlijk? | knippen in helften · **eerst kopiëren, dan verdelen** · elke cel maakt nieuw DNA |
 | q07 | basis | Wanneer wordt het DNA gekopieerd? | tijdens de mitose · **in de interfase** · na de cytokinese |
-| q14 | basis | Cel met vier X'en: hoeveel chromosomen? | 2 · **4** · 8 |
+| q14 | basis | Cel met vier X-vormen: hoeveel chromosomen? | 2 · **4** · 8 |
 | q18 | basis | Chromosomen per dochtercel (mens)? | 23 · **46** · 92 |
 | q23 | basis | Chromosomen per cel na meiose I (mens)? | 46 · **23** · 92 |
 | q28 | basis | Waar liggen homologe chromosomen als paren in het equatorvlak? | mitose · **meiose I** · meiose II |
-| eq02 | extra | Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel? | toch anafase · **wachten en foute verbinding los** · chromosoom doorknippen |
+| eq02 | extra | Een gif zorgt dat de trekdraden niet aan de kinetochoren kunnen haken. Wat doet de cel dan? | toch door naar de anafase · **blijft wachten in de metafase** · knipt meteen de cohesine door |
 | q31 | vwo | Eicel 24 + normale zaadcel: hoeveel? | 45 · 46 · **47** |
 | q34 | basis | Huidcel (deelt niet) of zaadcel: meer DNA in de kern? | evenveel · **de huidcel** · de zaadcel |
 
@@ -66,7 +66,7 @@ celdeling, celcyclus, interfase, G1/S/G2, chromatine, chromosoom, homologe chrom
 ## Docentdeel
 Op de pagina: tabel "Hoe de film het uitlegt", uitleg modelcel en kleuren, misconcepties, pauzemomenten, getallen met bron, vereenvoudigingen, leerdoelen en dekking, practicumsuggesties; zes checkvragen (vier basis, twee vwo).
 
-## Waar wat in de HTML zit (`index.html`, versie 1.1)
+## Waar wat in de HTML zit (`index.html`, versie 1.2; regelnummers kunnen een paar regels verschoven zijn, zoek op de functienaam)
 
 | Regel | Inhoud |
 |---|---|
@@ -89,7 +89,7 @@ Pas nooit `index.html` direct aan: wijzig `src/` en bouw opnieuw.
 
 **Beeld:** scènes in `src/scenes.js`; cue-woorden via `q.at('woord', n)` (n telt alle woorden die het woord bevatten: "Elke" vindt ook "elke"). Mitosefasen stuur je met de getallen in `mitosisCell(…, {cond, sp, nm, meta, ana, telo, cyto})`. Controleer met `python3 shots.py uit s17:10`.
 
-**Extra uitdaging:** de segmenten e01, eq02 en e03 (niveau `extra`) zijn met de hand in `segments.json` gezet, na s16. Draai `make_segments.py` dus **niet** opnieuw zonder te controleren: het nummert alles na het extra blok door (s17 → s20 enz.) en dan kloppen de mp3-namen niet meer. Pas e01/e03 liever direct aan in `segments.json` (velden `display`, `voice`, `lines`). Beeld: `SCENES.e01` (kinetochoren → spanning → foute verbinding → enzym → wachtsignaal in overzichtscel → cohesine → vraagbeeld) en `SCENES.e03` (los en weer vast → krimpende trekdraad). Cues gebruiken 'plaatjes' (2e) en 'heet' in plaats van 'kinetochoren'/'cohesine'.
+**Extra uitdaging:** de segmenten e01, eq02 en e03 (niveau `extra`) zijn met de hand in `segments.json` gezet, na s16. Draai `make_segments.py` dus **niet** opnieuw zonder te controleren: het nummert alles na het extra blok door (s17 → s20 enz.) en dan kloppen de mp3-namen niet meer. Pas e01/e03 liever direct aan in `segments.json` (velden `display`, `voice`, `lines`). Beeld: `SCENES.e01` (kinetochoren → spanning → foute verbinding → enzym → wachtsignaal in overzichtscel → cohesine → vraagbeeld) en `SCENES.e03` (los en weer vast → krimpende trekdraad). Cues gebruiken 'plaatjes' (2e), 'heet', 'los' (2e) en 'gif' in plaats van 'kinetochoren'/'cohesine'. `bigChrom` tekent de zusterchromatiden altijd verbonden; spanning = het centromeer rekt iets op; cohesine = okergele ringen langs de armen.
 
 **Tekst:** `script_v2.md` → `make_segments.py` → in `segments.json` `s03` op `kind: title` en `s36` op `kind: card` → alleen gewijzigde segmenten opnieuw inspreken (Roos, eleven_v4, één take, invoer uit `voice`) → Scribe → mastering (`loudnorm=I=-16:TP=-1.5:LRA=11`, twee passes, `linear=true`) → `build_data.py` → `build.py`.
 

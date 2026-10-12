@@ -3,23 +3,23 @@ segs = json.load(open('segments.json'))
 answers = {
  'q02': (1, 'Eerst kopiëren, dan verdelen. Zo krijgt elke nieuwe cel al het DNA.'),
  'q07': (1, 'In de interfase (de S-fase). Als de mitose begint, is het DNA al dubbel.'),
- 'q14': (1, 'Vier: elke X is één chromosoom met twee chromatiden. Tel de centromeren.'),
+ 'q14': (1, 'Vier: elke X-vorm is één chromosoom met twee chromatiden. Tel de centromeren.'),
  'q18': (1, '46, net als de moedercel: elke dochtercel krijgt van elk chromosoom één chromatide.'),
  'q23': (1, '23: de paren gaan in meiose I uit elkaar. Elk chromosoom heeft nog twee chromatiden.'),
  'q28': (1, 'Alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak.'),
  'q31': (2, '24 + 23 = 47. Is het extra chromosoom nummer 21, dan heeft het kind trisomie 21.'),
- 'eq02': (1, 'De cel wacht: de foute verbinding gaat los, tot het chromosoom goed vastzit en onder spanning staat.'),
+ 'eq02': (1, 'De cel blijft wachten: elk los kinetochoor geeft een wachtsignaal, dus de anafase begint niet.'),
  'q34': (1, 'De huidcel: 46 chromosomen tegen 23 in de zaadcel, dus ongeveer twee keer zoveel DNA.'),
 }
 questions_text = {
  'q02': 'Hoe verdeelt een cel zijn DNA eerlijk over twee nieuwe cellen?',
  'q07': 'Wanneer wordt het DNA gekopieerd?',
- 'q14': 'Deze cel heeft vier X\'en. Hoeveel chromosomen zie je?',
+ 'q14': 'Deze cel heeft vier X-vormen. Hoeveel chromosomen zie je?',
  'q18': 'Hoeveel chromosomen heeft elke dochtercel na de mitose (mens)?',
  'q23': 'Hoeveel chromosomen heeft elke cel na meiose I (mens)?',
  'q28': 'Bij welke deling liggen homologe chromosomen als paren in het equatorvlak?',
  'q31': 'Een eicel met 24 chromosomen wordt bevrucht door een normale zaadcel. Hoeveel chromosomen heeft het kind?',
- 'eq02': 'Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel?',
+ 'eq02': 'Een gif zorgt dat de trekdraden niet aan de kinetochoren kunnen haken. Wat doet de cel dan?',
  'q34': 'Een huidcel die niet deelt en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern?',
 }
 chapters = []  # ordered unique chapters

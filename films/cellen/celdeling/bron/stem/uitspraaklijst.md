@@ -17,3 +17,9 @@ Op het scherm en in de ondertitels wordt "meiose één/twee" automatisch "meiose
 ## Extra uitdaging (e01, e03)
 
 Uitspraaktest `uitspraaktest_extra.mp3` (flow G9H4qGFv1wgBMnnLpTBa), door Kamiel gekozen op 12 oktober 2026: kinetochoor/kinetochoren en cohesine **zoals geschreven** (keuze A; B was "kie-ne-to-choor" en "ko-hee-zie-ne"); eiwitplaatjes, centromeer en wachtsignaal goedgekeurd. Stem-invoer van e01 en e03 is daardoor gelijk aan de schermtekst. Opgenomen in dezelfde flow (eleven_v4, Roos, één take), woordtijden met eleven_scribe_v1.
+
+## Versie 1.2 (na review)
+
+Opnieuw ingesproken in flow G9H4qGFv1wgBMnnLpTBa: s12, s13, s15, s26, s27, s30, e01, e03.
+- "X-vorm" / "X-vormen" → stem-invoer "iks-vorm" / "iks-vormen" (volgt de bestaande regel X = "iks").
+- "DNA" in s13 en s30 → "deeënaa" (Kamiels vaste voorkeur sinds de uitspraaktest van 12 oktober 2026). De oudere segmenten hebben nog "DNA"; neem bij opnieuw inspreken ook daar "deeënaa".

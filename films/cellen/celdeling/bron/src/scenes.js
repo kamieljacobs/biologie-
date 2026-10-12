@@ -44,8 +44,8 @@ s04(ctx,t,q){
     if(i===2){ // intestinal villus: cells move up and are shed
       ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x+170,y+480); ctx.quadraticCurveTo(x+170,y+170,x+260,y+160); ctx.quadraticCurveTo(x+350,y+170,x+350,y+480); ctx.stroke();
       for(let k=0;k<10;k++){ const u=((tt*0.12+k/10)%1); const side=k%2?1:-1; const py=lerp(y+470,y+190,u), px=x+260+side*lerp(90,70,u); dot0(ctx,px,py,11,rgba(C.koraal,0.6*(1-Math.max(0,(u-0.85)/0.15)))); }
-      const bm=ramp(t,q.at('beenmerg'),0.4); ctx.save(); ctx.globalAlpha*=1-bm; metaText(ctx,'darmvlok: cellen om de paar dagen nieuw',x+w/2,y+h-30,C.grain,'center',18); ctx.restore();
-      if(bm>0){ ctx.save(); ctx.globalAlpha*=bm; ctx.fillStyle=rgba(C.bgSchema,0.92); ctx.fillRect(x+2,y+90,w-4,h-92); text(ctx,'2 miljoen',x+w/2,y+300,fTitel(60),C.bloed,'center'); metaText(ctx,'nieuwe rode bloedcellen per seconde',x+w/2,y+350,C.bloedR,'center',20); metaText(ctx,'in je beenmerg',x+w/2,y+385,C.grain,'center',20); ctx.restore(); } }
+      const bm=ramp(t,q.at('beenmerg'),0.4); ctx.save(); ctx.globalAlpha*=1-bm; metaText(ctx,'darmvlok: om de paar dagen nieuw',x+w/2,y+h-30,C.grain,'center',18); ctx.restore();
+      if(bm>0){ ctx.save(); ctx.globalAlpha*=bm; ctx.fillStyle=rgba(C.bgSchema,0.92); ctx.fillRect(x+2,y+90,w-4,h-92); text(ctx,'2 miljoen',x+w/2,y+300,fTitel(60),C.bloed,'center'); metaText(ctx,'rode bloedcellen per seconde',x+w/2,y+350,C.bloedR,'center',20); metaText(ctx,'in je beenmerg',x+w/2,y+385,C.grain,'center',20); ctx.restore(); } }
     ctx.restore(); });
 },
 s05(ctx,t,q){
@@ -58,7 +58,7 @@ s05(ctx,t,q){
   if(big>0){ ctx.save(); ctx.globalAlpha=big; const r=lerp(140,320,ramp(t,q.at('groter'),2.5));
     blob(ctx,960,480,r,r*0.95,0.03,2); shape(ctx,rgba(C.fill,0.7),C.er,3); dot0(ctx,960,480,8,C.text2);
     const ox=ramp(t,q.at('weg'),0.5); if(ox>0){ for(let k=0;k<6;k++){ const a=k/6*6.2832; const u=((t*0.25+k/6)%1); o2(ctx,960+Math.cos(a)*lerp(r+60,r*0.35,u),480+Math.sin(a)*lerp(r+60,r*0.35,u)*0.95,1,ox*(1-u*0.6)); } }
-    const mid=ramp(t,q.at('midden'),0.5); if(mid>0){ ctx.save(); ctx.globalAlpha*=mid; ctx.beginPath(); ctx.arc(960,480,r*0.3,0,6.2832); ctx.fillStyle=rgba(C.koraal,0.25); ctx.fill(); ctx.restore(); label(ctx,'het midden','krijgt te laat zuurstof',960,480,1500,250,mid,C.koraal); }
+    const mid=ramp(t,q.at('midden'),0.5); if(mid>0){ ctx.save(); ctx.globalAlpha*=mid; ctx.beginPath(); ctx.arc(960,480,r*0.3,0,6.2832); ctx.fillStyle=rgba(C.koraal,0.25); ctx.fill(); ctx.restore(); label(ctx,'het midden','krijgt te laat zuurstof',960,480,1340,250,mid,C.koraal); }
     pill(ctx,960,130,'hoe groter de cel, hoe verder de weg voor diffusie',C.teal,ramp(t,q.at('Hoe'),0.4)*(1-ramp(t,q.at('midden'),0.3)),26); ctx.restore(); }
   const two=ramp(t,q.at('Daarom'),0.6); if(two>0){ ctx.save(); ctx.globalAlpha=two; cellBody(ctx,960,480,300,210,ramp(t,q.at('Daarom')+0.6,1.4)); ctx.restore(); pill(ctx,960,800,'liever twee kleine cellen',C.groen,ramp(t,q.at('liever'),0.4),28); }
   scaleBar(ctx);
@@ -79,12 +79,12 @@ s11(ctx,t,q){
   micro(ctx);
   const kar=ramp(t,q.at('zesenveertig'),0.8);
   const nA=1-kar;
-  if(nA>0){ ctx.save(); ctx.globalAlpha=nA; nucMembrane(ctx,960,470,330,1);
+  if(nA>0){ ctx.save(); ctx.globalAlpha=nA; nucMembrane(ctx,960,470,330,1); ctx.beginPath(); ctx.ellipse(960,470,320,288,0,0,6.2832); ctx.clip();
     const hl=ramp(t,q.at('draad'),0.5);
     for(let i=0;i<12;i++){ const col=i%2?C.vader:C.moeder; ctx.save(); if(hl>0&&i!==3) ctx.globalAlpha*=1-0.65*hl; chromatin(ctx,760+hash(i*3)*380,330+hash(i*3+1)*260,360,col,i+40,t,1,i===3?3+3*hl:3); ctx.restore(); }
     ctx.restore();
     label(ctx,'chromatine','DNA los in de kern',1200,330,1500,200,fadeIO(t,q.at('chromatine'),q.at('draad'),0.4)*nA);
-    label(ctx,'één draad = één chromosoom','',1000,470,1450,700,hl*nA); }
+    label(ctx,'één draad = één chromosoom','',1000,470,1300,700,hl*nA); }
   if(kar>0){ karyo(ctx,280,220,1360,420,{alpha:kar,hl:ramp(t,q.at('homologe'),0.4)>0?[2]:null,sex:'XX'});
     pill(ctx,960,150,'46 chromosomen = 23 paren',C.goud,kar*(1-ramp(t,q.at('moeder'),0.4)),32);
     const mv=ramp(t,q.at('moeder'),0.4); if(mv>0){ ctx.save(); ctx.globalAlpha=mv*(1-ramp(t,q.at('homologe'),0.4)); dot0(ctx,720,150,12,C.moeder); text(ctx,'van je moeder',744,160,fTekst(30,600),C.text,'left'); dot0(ctx,1040,150,12,C.vader); text(ctx,'van je vader',1064,160,fTekst(30,600),C.text,'left'); ctx.restore(); }
@@ -106,17 +106,18 @@ s13(ctx,t,q){
   const p1=1-part2;
   if(p1>0){ ctx.save(); ctx.globalAlpha=p1; const c=ramp(t,q.at('rolt'),2.5), dup=ramp(t,q.at('gekopieerd'),1.0);
     const x=960,y=470;
-    if(dup<0.05) condensing(ctx,x,y,260,C.paars,c,9,t,false); else { ctx.save(); ctx.globalAlpha*=1-dup; chromatid(ctx,x,y,260,C.paars,{w:30}); ctx.restore(); chromX(ctx,x,y,260,C.paars,{w:30,gap:dup,alpha:dup}); }
+    chromatin(ctx,x-110,y-80,560,C.paars,9,t,1-c,3); chromatin(ctx,x-100,y-72,560,lighten(C.paars,0.25),9,t,1-c,3);
+    if(c>0) chromX(ctx,x,y,260*(0.6+0.4*c),C.paars,{w:30,gap:0.7+0.3*dup,alpha:c});
     label(ctx,'chromatide','',x-24,y-90,600,230,ramp(t,q.at('chromatiden'),0.5),C.text,'right'); label(ctx,'chromatide','',x+24,y-90,1320,230,ramp(t,q.at('chromatiden'),0.5),C.text,'left');
     label(ctx,'centromeer','',x,y,1320,640,ramp(t,q.at('centromeer'),0.5),C.text,'left');
     pill(ctx,960,800,'twee gelijke kopieën van hetzelfde DNA',C.goud,fadeIO(t,q.at('kopieën'),q.at('vorm'),0.4),28);
-    pill(ctx,960,800,'de vorm van een X: één chromosoom',C.goud,ramp(t,q.at('vorm'),0.4),28);
+    pill(ctx,960,800,'X-vorm: één chromosoom met twee chromatiden',C.goud,ramp(t,q.at('vorm'),0.4),28);
     metaText(ctx,'onder de microscoop zichtbaar',960,150,C.grain,'center',24*1); ctx.restore(); }
   if(part2>0 && part3<1){ ctx.save(); ctx.globalAlpha=part2*(1-part3);
     pill(ctx,960,150,'twee soorten twee',C.goud,1,34);
     const pa=ramp(t,q.at('paar'),0.5), xa=ramp(t,q.at('X',2),0.5);
     ctx.save(); ctx.globalAlpha*=pa; roundRect(ctx,180,240,700,520,16); shape(ctx,rgba(C.fill,0.55),C.line,1); chromX(ctx,440,480,220,C.moeder,{w:24}); chromX(ctx,620,480,220,C.vader,{w:24}); text(ctx,'een paar = 2 chromosomen',530,700,fTekst(32,600),C.text,'center'); metaText(ctx,'één van moeder, één van vader',530,735,C.grain,'center',20); ctx.restore();
-    ctx.save(); ctx.globalAlpha*=xa; roundRect(ctx,1040,240,700,520,16); shape(ctx,rgba(C.fill,0.55),C.line,1); chromX(ctx,1390,480,220,C.vader,{w:24}); text(ctx,'een X = 1 chromosoom',1390,700,fTekst(32,600),C.text,'center'); metaText(ctx,'met 2 gelijke chromatiden',1390,735,C.grain,'center',20); ctx.restore();
+    ctx.save(); ctx.globalAlpha*=xa; roundRect(ctx,1040,240,700,520,16); shape(ctx,rgba(C.fill,0.55),C.line,1); chromX(ctx,1390,480,220,C.vader,{w:24}); text(ctx,'een X-vorm = 1 chromosoom',1390,700,fTekst(32,600),C.text,'center'); metaText(ctx,'met 2 gelijke chromatiden',1390,735,C.grain,'center',20); ctx.restore();
     ctx.restore(); }
   if(part3>0){ ctx.save(); ctx.globalAlpha=part3; cellBody(ctx,960,480,420,300); const pos=[[-170,-60],[-40,70],[90,-80],[190,60]]; MODEL.forEach((m,i)=>chromX(ctx,960+pos[i][0],480+pos[i][1],m.len,m.color,{w:16})); ctx.restore(); }
   scaleBar(ctx);
@@ -138,7 +139,7 @@ s16(ctx,t,q){
   const ph=(name,cue)=>ramp(t,q.at(cue),0.4);
   const pro=ph('profase','Profase')*(1-ramp(t,q.at('Metafase'),0.3)), met=ph('metafase','Metafase');
   pill(ctx,960,100,'profase',C.goud,pro,34); pill(ctx,960,100,'metafase',C.goud,met,34);
-  label(ctx,'spoelfiguur','trekdraden vanuit de twee polen',960+460,470,1500,250,ramp(t,q.at('spoelfiguur'),0.5)*(1-met),C.text,'right');
+  label(ctx,'spoelfiguur','trekdraden vanuit de twee polen',960+460,470,1880,200,ramp(t,q.at('spoelfiguur'),0.5)*(1-met),C.text,'right');
   label(ctx,'pool','',960-460,470,330,250,ramp(t,q.at('polen'),0.5)*(1-ramp(t,q.at('spoelfiguur'),0.4)));
   label(ctx,'kernmembraan','valt uit elkaar',960+190,470-180,1500,250,fadeIO(t,q.at('kernmembraan'),q.at('Metafase'),0.4));
   const eq=ramp(t,q.at('equatorvlak'),0.5); if(eq>0){ ctx.save(); ctx.globalAlpha=eq; ctx.setLineDash([10,10]); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(960,150); ctx.lineTo(960,800); ctx.stroke(); ctx.restore(); metaText(ctx,'equatorvlak',990,800,C.goud,'left',24*1); }
@@ -149,60 +150,63 @@ s16(ctx,t,q){
 e01(ctx,t,q){
   micro(ctx);
   const PL=[250,470], PR=[1670,470];
-  // fasen
-  const tTD=q.at('trekdraden'), tSp=q.at('spanning'), tH=q.at('Hangen'), tEnz=q.at('enzym'), tLos=q.at('loslaten'), tNw=q.at('nieuwe');
-  const tWs=q.at('wachtsignaal'), tAna=q.at('anafase'), tKn=q.at('knipt'), tDoor=q.at('door'), tHeet=q.at('heet'), tVr=q.at('beide',3);
-  const close=1-ramp(t,tWs-0.2,0.6)+ramp(t,tKn-0.3,0.6); // grote chromosoom vs overzicht
+  const tTD=q.at('trekdraden'), tTg=q.at('tegen'), tH=q.at('Hangen'), tEnz=q.at('enzym'), tLos=q.at('loslaten'), tNw=q.at('nieuwe'), tL2=q.at('los',2);
+  const tWs=q.at('wachtsignaal'), tAna=q.at('anafase'), tKn=q.at('knipt'), tDoor=q.at('door'), tHeet=q.at('heet'), tGif=q.at('gif');
+  const close=1-ramp(t,tWs+0.6,0.6)+ramp(t,tKn-0.4,0.6);
   const over=1-close;
-  // ---- grote chromosoom ----
   if(close>0.01){ ctx.save(); ctx.globalAlpha*=clamp(close,0,1);
-    const wrong=fadeIO(t,tH,tEnz+0.2,0.6)*(t<tKn?1:0) + (t>=tKn?ramp(t,tVr,0.7):0);
-    const relCurve=1-ramp(t,tLos,1.2)*(t<tKn?1:0); // foute draden laten los
-    const back=t<tKn?ramp(t,tNw,1.4):0; // opnieuw goed vast
-    let rightAtt, curveAtt;
-    if(t<tKn){ rightAtt=ramp(t,tTD+0.6,1.4)*(1-ramp(t,tH,0.6))+back; curveAtt=ramp(t,tH+0.3,1.0)*relCurve; }
-    else { rightAtt=1-ramp(t,tVr,0.6); curveAtt=ramp(t,tVr+0.3,1.0); }
-    const leftAtt=ramp(t,tTD,1.4);
-    const tens=t<tKn ? ramp(t,q.at('tegen'),1.2)*(1-ramp(t,tH,0.6))+ramp(t,tNw+1.0,1.0) : (1-ramp(t,tVr,0.6));
-    const cut=t>=tKn?ramp(t,tDoor,0.8):0, coh=t>=tKn?ramp(t,tKn-0.3,0.6):(t<tWs?1:0)*0;
-    const shift=-160*clamp(wrong,0,1)*(1-tens); // zonder spanning drijft hij naar de linkerpool
+    let leftAtt, rightAtt, curveAtt, tens, shift=0, cut=0, ez=0, kn=0, gif=0;
+    if(t<tKn){
+      leftAtt=ramp(t,tTD,1.4);
+      rightAtt=ramp(t,tTD+0.6,1.4)*(1-ramp(t,tH,0.6)) + 0.55*ramp(t,tNw,1.0)*(1-ramp(t,tWs,0.6));
+      curveAtt=ramp(t,tH+0.3,1.0)*(1-ramp(t,tLos,1.2));
+      tens=ramp(t,tTg,1.0)*(1-ramp(t,tH,0.6));
+      shift=-150*ramp(t,tH+0.3,1.0);
+      ez=fadeIO(t,tEnz,tNw,0.5);
+    } else {
+      gif=ramp(t,tGif,0.8);
+      leftAtt=1-gif; rightAtt=1-gif; curveAtt=0; tens=1-gif;
+      cut=ramp(t,tDoor,0.8)*(1-gif); kn=fadeIO(t,tKn,tHeet,0.4);
+    }
     const cx=960+shift, cy=470;
     const poles=ramp(t,tTD-0.2,0.6);
     spindle(ctx,PL,[],poles); spindle(ctx,PR,[],poles);
-    const g=bigChrom(ctx,cx,cy,{sep:clamp(tens,0,1)*(1+0.6*cut),kin:ramp(t,q.at('eiwitplaatjes'),0.6),coh:clamp(coh,0,1),cut});
-    fibres(ctx,PL,g.kL,leftAtt,{});
+    const g=bigChrom(ctx,cx,cy,{sep:clamp(tens,0,1),kin:ramp(t,q.at('eiwitplaatjes'),0.6),coh:1,cut});
+    fibres(ctx,PL,g.kL,clamp(leftAtt,0,1),{});
     fibres(ctx,PR,g.kR,clamp(rightAtt,0,1),{});
     fibres(ctx,PL,g.kR,clamp(curveAtt,0,1),{curve:-230,color:C.koraal});
-    // pijlen trekken tegen elkaar in
-    const pa=fadeIO(t,q.at('tegen'),tH,0.4); arrow(ctx,g.kL[0]-30,cy+120,g.kL[0]-150,cy+120,C.goud,5,18,pa); arrow(ctx,g.kR[0]+30,cy+120,g.kR[0]+150,cy+120,C.goud,5,18,pa);
+    const pa=fadeIO(t,tTg,tH,0.4); arrow(ctx,g.kL[0]-30,cy+150,g.kL[0]-150,cy+150,C.goud,5,18,pa); arrow(ctx,g.kR[0]+30,cy+150,g.kR[0]+150,cy+150,C.goud,5,18,pa);
     label(ctx,'kinetochoor','eiwitplaatje, één per chromatide',g.kL[0],cy-30,g.kL[0]-120,240,fadeIO(t,q.at('plaatjes',2),q.at('goed'),0.5));
     label(ctx,'kinetochoor','',g.kR[0],cy-30,g.kR[0]+120,240,fadeIO(t,q.at('plaatjes',2),q.at('goed'),0.5));
-    // enzym in het centromeer
-    const ez=t<tKn?fadeIO(t,tEnz,tNw+0.6,0.5):ramp(t,tKn,0.5)*(1-ramp(t,tDoor+1.2,0.6));
+    label(ctx,'centromeer onder spanning','',cx,cy,cx+260,cy+260,fadeIO(t,q.at('spanning')-0.4,tH,0.4),C.groen,'left');
     if(ez>0.01){ ctx.save(); ctx.globalAlpha*=ez; const pr=1+0.12*Math.sin(t*6); dot0(ctx,cx,cy,22*pr,rgba(C.paars,0.35)); dot0(ctx,cx,cy,13,C.paars); ctx.restore();
-      label(ctx,'enzym','in het centromeer',cx,cy+14,cx+150,cy+250,ez,C.paars); }
-    // spanning-meter
-    const sp=t<tKn?fadeIO(t,tSp-0.4,tWs,0.4):0;
-    pill(ctx,960,820,'spanning: goed vast',C.groen,sp*clamp(tens,0,1),28);
-    pill(ctx,960,820,'geen spanning: fout',C.koraal,sp*clamp(1-tens,0,1)*ramp(t,tH,0.5),28);
-    pill(ctx,960,820,'cohesine: eiwitring tussen de chromatiden',C.oker,t>=tKn?fadeIO(t,tKn,tVr,0.4):0,28);
-    label(ctx,'cohesine','',cx+40,cy-90,cx+260,cy-200,t>=tKn?fadeIO(t,tHeet,tVr,0.5):0,C.oker);
-    if(t>=tKn){ const qa=ramp(t,tVr+0.6,0.5); if(qa>0) text(ctx,'?',1250,360,fTitel(160),rgba(C.goud,qa),'center'); }
+      label(ctx,'enzym','maakt foute trekdraden los',cx,cy+14,cx+170,cy+250,ez,C.paars,'left'); }
+    // los kinetochoor knippert rood
+    const lk=t<tKn?fadeIO(t,tL2-0.3,tWs+0.8,0.3):0; if(lk>0.01){ const w=(t*1.6)%1; ctx.save(); ctx.globalAlpha*=lk; ctx.strokeStyle=rgba(C.koraal,1-w); ctx.lineWidth=4; ctx.beginPath(); ctx.arc(g.kR[0],cy,20+w*80,0,6.2832); ctx.stroke(); ctx.restore(); }
+    // knip-enzym (ander enzym) bij de cohesine
+    if(kn>0.01){ ctx.save(); ctx.globalAlpha*=kn; for(const yy of [cy-58,cy+83,cy+150]){ const x0=cx+g.off+30; ctx.beginPath(); ctx.moveTo(x0,yy); ctx.arc(x0,yy,14,0.5,5.8); ctx.closePath(); ctx.fillStyle=C.groen; ctx.fill(); } ctx.restore();
+      label(ctx,'ander enzym','knipt de ringen door',cx+g.off+44,cy+90,cx+260,cy+250,kn,C.groen,'left'); }
+    pill(ctx,960,820,'spanning: goed vast',C.groen,t<tKn?fadeIO(t,tTg+0.6,tH,0.4):0,28);
+    pill(ctx,960,820,'geen spanning: fout',C.koraal,t<tKn?fadeIO(t,tH+0.4,tL2-0.3,0.4):0,28);
+    pill(ctx,960,820,'los kinetochoor: wachtsignaal',C.koraal,t<tKn?fadeIO(t,tL2-0.3,tWs+0.8,0.4):0,28);
+    pill(ctx,960,820,'cohesine: eiwitringen tussen de chromatiden',C.oker,t>=tKn?fadeIO(t,tHeet,tGif,0.4):0,28);
+    label(ctx,'cohesine','eiwitring',cx+g.off+20,cy-58,cx+260,cy-220,t>=tKn?fadeIO(t,tHeet,tGif,0.5):0,C.oker,'left');
+    if(gif>0.01){ ctx.save(); ctx.globalAlpha*=gif; const r=rng(5); for(let k=0;k<26;k++){ const a=r()*6.2832, d=60+r()*80; for(const P of [PL,PR]) dot0(ctx,P[0]+Math.cos(a+t*0.3)*d,P[1]+Math.sin(a+t*0.3)*d,4,C.koraal); } ctx.restore();
+      pill(ctx,960,820,'gif: trekdraden kunnen niet aanhaken',C.koraal,gif,28);
+      const qa=ramp(t,tGif+2.5,0.5); if(qa>0) text(ctx,'?',1250,360,fTitel(160),rgba(C.goud,qa),'center'); }
     ctx.restore(); }
-  // ---- overzicht: wachtsignaal per chromosoom ----
   if(over>0.01){ ctx.save(); ctx.globalAlpha*=clamp(over,0,1);
     cellBody(ctx,960,470,620,340); const P1=[430,470],P2=[1490,470]; spindle(ctx,P1,[],1); spindle(ctx,P2,[],1);
     const ys=[250,390,550,690]; const late=2; const fix=ramp(t,tAna-0.6,1.0);
     MODEL.forEach((m,i)=>{ const y=ys[i], x=960; const ok=i!==late||fix>0.5;
-      const sep=ok?6:0; chromX(ctx,x,y,m.len*0.62,m.color,{w:11,gap:1+sep*0.05});
+      chromX(ctx,x,y,m.len*0.62,m.color,{w:11,gap:ok?1.15:1});
       const kl=[x-16,y], kr=[x+16,y];
       fibres(ctx,P1,kl,1,{n:3,spread:5,lw:1.6});
       fibres(ctx,P2,kr,i===late?fix:1,{n:3,spread:5,lw:1.6});
-      // lampje
       const lx=x+120, ly=y-26; const red=i===late && fix<0.5;
       if(red){ const w=(t*1.6)%1; ctx.save(); ctx.strokeStyle=rgba(C.koraal,1-w); ctx.lineWidth=3; ctx.beginPath(); ctx.arc(kr[0],kr[1],14+w*60,0,6.2832); ctx.stroke(); ctx.restore(); }
       dot0(ctx,lx,ly,13,red?C.koraal:C.groen); });
-    label(ctx,'los kinetochoor','geeft een wachtsignaal',976,ys[late],1180,860-60,fadeIO(t,tWs+0.3,tAna-0.6,0.4),C.koraal,'left');
+    label(ctx,'los kinetochoor','geeft een wachtsignaal',976,ys[late],1180,800,fadeIO(t,tWs+0.8,tAna-0.6,0.4),C.koraal,'left');
     pill(ctx,960,110,'de cel wacht',C.koraal,fadeIO(t,q.at('wacht',2),tAna-0.4,0.4),30);
     pill(ctx,960,110,'alles vast en onder spanning → anafase',C.groen,ramp(t,tAna+0.4,0.5),30);
     ctx.restore(); }
@@ -212,24 +216,23 @@ e03(ctx,t,q){
   micro(ctx);
   const tTr=q.at('trekken'), tKo=q.at('korter'), tAf=q.at('afgebroken'), tHo=q.at('houdt'), tMe=q.at('meegetrokken'), tTe=q.at('Terug');
   const close=1-ramp(t,tTr,0.7);
-  if(close>0.01){ ctx.save(); ctx.globalAlpha*=close; const PL=[250,470],PR=[1670,470]; spindle(ctx,PL,[],1); spindle(ctx,PR,[],1);
-    const rel=ramp(t,q.at('foute'),1.0), back=ramp(t,q.at('vastzit')-0.8,1.2);
-    const g=bigChrom(ctx,960-160*(1-back),470,{sep:back,kin:1,coh:1,cut:0});
-    fibres(ctx,PL,g.kL,1,{}); fibres(ctx,PL,g.kR,1-rel,{curve:-230,color:C.koraal}); fibres(ctx,PR,g.kR,back,{});
-    pill(ctx,960,110,'de cel wacht',C.koraal,1-ramp(t,q.at('vastzit'),0.5),30);
-    pill(ctx,960,820,'spanning: goed vast',C.groen,ramp(t,q.at('vastzit'),0.5),28);
+  if(close>0.01){ ctx.save(); ctx.globalAlpha*=close;
+    cellBody(ctx,960,470,620,340); const P1=[430,470],P2=[1490,470]; spindle(ctx,P1,[],1); spindle(ctx,P2,[],1);
+    const sc=[[-90,-170],[110,-60],[-60,90],[80,200]];
+    MODEL.forEach((m,i)=>{ const x=960+sc[i][0], y=470+sc[i][1]; chromX(ctx,x,y,m.len*0.62,m.color,{w:11});
+      const w=((t*1.4)+i*0.25)%1; ctx.save(); ctx.strokeStyle=rgba(C.koraal,1-w); ctx.lineWidth=3; ctx.beginPath(); ctx.arc(x,y,14+w*50,0,6.2832); ctx.stroke(); ctx.restore();
+      dot0(ctx,x+70,y-26,12,C.koraal); });
+    pill(ctx,960,110,'de cel blijft wachten',C.koraal,1,30);
+    pill(ctx,960,830,'middelen tegen kanker: de deling stopt',C.paars,ramp(t,q.at('kanker'),0.5),28);
     ctx.restore(); }
   const ana=ramp(t,tTr,0.7);
   if(ana>0.01){ ctx.save(); ctx.globalAlpha*=ana*(1-ramp(t,tTe+0.2,0.6));
     const P=[220,470]; spindle(ctx,P,[],1); metaText(ctx,'pool',220,560,C.grain,'center',24);
     const x0=1180, x1=560, T0=tKo, T1=tTe; const u=clamp((t-T0)/(T1-T0),0,1); const xk=x0+(x1-x0)*u;
-    // chromatide met armen naar achteren (naar het equatorvlak)
     chromatid(ctx,xk+30,470,300,C.moeder,{w:30,lean:120,bend:30});
     roundRect(ctx,xk+2,470-30,12,60,5); shape(ctx,C.goud,null);
-    // drie microtubuli als rijtjes eiwitblokjes
     const B=24; const ys=[452,470,488];
     ys.forEach((y,j)=>{ const n=Math.floor((xk-P[0]-10)/B); for(let i=0;i<n;i++){ const bx=P[0]+12+i*B; roundRect(ctx,bx,y-6,B-4,12,4); shape(ctx,rgba(C.spoel,0.9),null); }
-      // brokstukken: blokje i verdween toen xk voorbij P[0]+10+(i+1)*B kwam
       const nMax=Math.floor((x0-P[0]-10)/B); for(let i=n;i<nMax;i++){ const xr=P[0]+10+(i+1)*B; const ur=(xr-x0)/(x1-x0); const tr=T0+ur*(T1-T0); const age=t-tr; if(age<0||age>1.6) continue;
         const r=rng(i*7+j*101); const dx=(r()-0.3)*60*age, dy=(r()-0.5)*90*age; dot0(ctx,P[0]+12+i*B+dx+8,y+dy,5,rgba(C.spoel,0.8*(1-age/1.6))); } });
     const goldEnd=fadeIO(t,tAf-0.6,tHo+1.0,0.4); if(goldEnd>0){ ctx.save(); ctx.globalAlpha*=goldEnd; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(xk-12,470,44,0,6.2832); ctx.stroke(); ctx.restore(); }
@@ -266,7 +269,7 @@ s19(ctx,t,q){
   const sp=[[-60,-55],[-20,40],[30,-50],[60,45]];
   [-1,1].forEach(s=>cellWith(ctx,960+s*330,460,230,MODEL.map((m,i)=>({x:sp[i][0],y:sp[i][1],len:m.len*0.62,color:m.color,dup:false})),{nuc:true,label:'dochtercel: 4 chromosomen'}));
   pill(ctx,960,130,'mens: 46 → twee cellen met elk 46',C.goud,ramp(t,0.2,0.5),30);
-  pill(ctx,960,820,'van elk chromosoom één chromatide',C.text,ramp(t,q.at('chromatide'),0.4),28); metaText(ctx,'opgerold getekend om te kunnen tellen',960,740,C.text2,'center',20);
+  pill(ctx,960,820,'van elk chromosoom één chromatide',C.text,ramp(t,q.at('chromatide'),0.4),28); metaText(ctx,'opgerold getekend om te kunnen tellen',960,185,C.text2,'center',20);
   scaleBar(ctx);
 },
 s20(ctx,t,q){
@@ -297,12 +300,13 @@ s22(ctx,t,q){
   const cellA=ramp(t,q.at('meiose',3),0.6); // 'In meiose I'
   const intro=1-cellA;
   if(intro>0){ ctx.save(); ctx.globalAlpha=intro; human(ctx,560,830,560,1,C.mens);
-    pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,ramp(t,q.at('teelballen'),0.4),28);
+    const org=ramp(t,q.at('teelballen'),0.4); if(org>0){ ctx.save(); ctx.globalAlpha*=org; ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(560,600,46,0,6.2832); ctx.stroke(); ctx.restore(); label(ctx,'teelballen / eierstokken','hier vindt meiose plaats',606,600,860,660,org,C.goud,'left'); }
+    pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,org,28);
     pill(ctx,1240,420,'reductiedeling: 46 → 23',C.goud,ramp(t,q.at('reductiedeling'),0.4),28);
     pill(ctx,1240,540,'twee delingen, één keer kopiëren',C.text,ramp(t,q.at('delingen'),0.4),28); ctx.restore(); }
   if(cellA>0){ ctx.save(); ctx.globalAlpha=cellA; const pair=ramp(t,q.at('zoeken'),2.0), sep=ramp(t,q.at('uit'),2.0)*0; cellBody(ctx,960,470,560,330);
     const scat=[[-160,-90],[120,60],[60,-110],[-120,90]]; const rowsY=[400,560];
-    MODEL.forEach((m,i)=>{ const tx=960+(m.color===C.vader?-34:34), ty=rowsY[m.pair]; const x=lerp(960+scat[i][0],tx,pair), y=lerp(470+scat[i][1],ty,pair); chromX(ctx,x,y,m.len*0.9,m.color,{w:16}); });
+    MODEL.forEach((m,i)=>{ const tx=960+((m.color===C.vader)===(m.pair===0)?-34:34), ty=rowsY[m.pair]; const x=lerp(960+scat[i][0],tx,pair), y=lerp(470+scat[i][1],ty,pair); chromX(ctx,x,y,m.len*0.9,m.color,{w:16}); });
     if(pair>0.5){ spindle(ctx,[960-470,470],[[960-50,400],[960-50,560]],pair); spindle(ctx,[960+470,470],[[960+50,400],[960+50,560]],pair); }
     const eq=ramp(t,q.at('equatorvlak'),0.5); if(eq>0){ ctx.save(); ctx.globalAlpha*=eq; ctx.setLineDash([10,10]); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(960,170); ctx.lineTo(960,780); ctx.stroke(); ctx.restore(); }
     pill(ctx,960,100,'meiose I: homologe chromosomen als paren',C.goud,ramp(t,q.at('zoeken'),0.4),30);
@@ -312,12 +316,12 @@ s22(ctx,t,q){
 s24(ctx,t,q){
   micro(ctx);
   const m2=ramp(t,q.at('meiose',2),0.6); // 'In meiose II'
-  const gam=ramp(t,q.at('man'),0.6);
+  const gam=ramp(t,q.at('man')+0.1,0.5);
   if(m2<1){ ctx.save(); ctx.globalAlpha=1-m2; const sep=ramp(t,0.2,2.0), cy=ramp(t,1.6,1.6);
     cellBody(ctx,960,470,560,330,cy);
     MODEL.forEach(m=>{ const side=(m.id==='Av'||m.id==='Bm')?-1:1; const y=m.pair?560:400; chromX(ctx,960+side*lerp(34,300,sep),y,m.len*0.9,m.color,{w:16}); });
     pill(ctx,960,100,'na meiose I: elke cel 2 chromosomen (mens: 23), elk met 2 chromatiden',C.goud,ramp(t,0.3,0.5),26); ctx.restore(); }
-  if(m2>0 && gam<1){ ctx.save(); ctx.globalAlpha=m2*(1-gam); const sp=ramp(t,q.at('chromatiden',2),1.8);
+  if(m2>0 && gam<1){ ctx.save(); ctx.globalAlpha=m2*(1-ramp(t,q.at('man')-0.3,0.3)); const sp=ramp(t,q.at('chromatiden',2),1.8);
     const cells=[[-1,['Av','Bm']],[1,['Am','Bv']]];
     cells.forEach(([s,ids])=>{ const cx=960+s*400; cellBody(ctx,cx,470,300,250,ramp(t,q.at('mitose'),1.2));
       ids.forEach((id,j)=>{ const m=MODEL.find(z=>z.id===id); const y=j?560:390; if(sp<0.05) chromX(ctx,cx,y,m.len*0.85,m.color,{w:14}); else for(const d of [-1,1]){ chromatid(ctx,cx+d*lerp(10,150,sp),y,m.len*0.85,m.color,{w:14}); dot0(ctx,cx+d*lerp(10,150,sp),y,5,'#2A2140'); } }); });
@@ -366,7 +370,7 @@ s29(ctx,t,q){
   bg(ctx,'schema'); const tab=ramp(t,q.at('Mitose:',2),0.6);
   comparePanels(ctx,t,1,1-tab, ramp(t,0.1,0.5));
   if(tab>0){ ctx.save(); ctx.globalAlpha=tab;
-    const rows=[['','mitose','meiose'],['delingen','1','2'],['dochtercellen','2','4 geslachtscellen'],['chromosomen','2n (diploïd)','n (haploïd)'],['genetisch','gelijk','verschillend'],['doel','groei, herstel, vervanging','voortplanting']];
+    const rows=[['','mitose','meiose'],['delingen','1','2'],['dochtercellen','2','4 zaadcellen / 1 eicel'],['chromosomen','2n (diploïd)','n (haploïd)'],['genetisch','gelijk','verschillend'],['doel','groei, herstel, vervanging','voortplanting']];
     const cues=[null,'deling','dochtercellen','diploïd','genetisch','groei'];
     rows.forEach((r,i)=>{ const a=i===0?1:Math.max(ramp(t,q.at(cues[i]),0.4), ramp(t,q.at('Meiose:',3),0.4)*0.0); const am=i===0?1:ramp(t,q.at('Meiose:',3),0.4); const y=180+i*95;
       if(i>0){ ctx.save(); ctx.strokeStyle=rgba(C.line,0.3); ctx.beginPath(); ctx.moveTo(220,y-60); ctx.lineTo(1700,y-60); ctx.stroke(); ctx.restore(); }
@@ -412,7 +416,7 @@ s33(ctx,t,q){
   bg(ctx,'schema'); const quiz=ramp(t,q.at('vraag'),0.6); const pa=1-quiz;
   if(pa>0){ ctx.save(); ctx.globalAlpha=pa;
     const P=[['groeien · herstellen · vervangen','groeien'],['eerst kopiëren','kopieert'],['mitose: 2 × 46, gelijk','mitose'],['meiose: n = 23, verschillend','meiose']];
-    P.forEach((p,i)=>{ const a=ramp(t,q.at(p[1]),0.5); if(a<=0) return; const x=110+i*430, y=220, w=400, h=480; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y,w,h,14); shape(ctx,rgba(C.fill,0.55),C.line,1); const cx=x+w/2, cy=y+200;
+    P.forEach((p,i)=>{ const a=i===0?ramp(t,0.1,0.5):ramp(t,q.at(p[1]),0.5); if(a<=0) return; const x=110+i*430, y=220, w=400, h=480; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y,w,h,14); shape(ctx,rgba(C.fill,0.55),C.line,1); const cx=x+w/2, cy=y+200;
       if(i===0) cellSwarm(ctx,cx,cy,3+((t*0.5)%2),110,1);
       if(i===1){ chromatid(ctx,cx-70,cy,120,C.paars,{w:18}); arrow(ctx,cx-30,cy,cx+20,cy,C.goud,4,14); chromX(ctx,cx+80,cy,120,C.paars,{w:18}); }
       if(i===2){ for(const s of [-1,1]) cellWith(ctx,cx+s*90,cy,75,MODEL.map((m,j)=>({x:-30+j*20,y:0,len:m.len*0.4,color:m.color,dup:false,w:8}))); }
@@ -436,17 +440,16 @@ s35(ctx,t,q){
 // ---- helpers extra uitdaging ----
 // groot chromosoom in het equatorvlak; armen boven/onder, kinetochoren links en rechts van het centromeer
 function bigChrom(ctx,cx,cy,{sep=0,kin=1,coh=0,cut=0,len=320,w=34,color=C.moeder}={}){
-  const off=w*0.55+sep*26, lean=w*0.55+sep*10;
-  chromatid(ctx,cx-off,cy,len,color,{w,lean:-lean+sep*36,bend:-off*0.15});
-  chromatid(ctx,cx+off,cy,len,color,{w,lean:lean-sep*36,bend:off*0.15});
-  // centromeer: veer tussen de zusterchromatiden
-  if(sep>0.05){ ctx.save(); ctx.strokeStyle=sep>0.5?C.groen:C.grain; ctx.lineWidth=3; ctx.beginPath(); const x0=cx-off+w*0.3, x1=cx+off-w*0.3; const n=6; ctx.moveTo(x0,cy); for(let k=1;k<n;k++){ ctx.lineTo(x0+(x1-x0)*k/n,cy+(k%2?-9:9)); } ctx.lineTo(x1,cy); ctx.stroke(); ctx.restore(); }
-  else dot0(ctx,cx,cy,w*0.42,'#2A2140');
-  // cohesine-ringen
-  if(coh>0.01){ ctx.save(); ctx.globalAlpha*=coh*(1-0.85*cut); const top=-len*0.38, bot=len*0.62; for(const f of [0.2,0.42,0.64,0.85]){ const y=cy+top+(bot-top)*f; if(Math.abs(y-cy)<30) continue; ctx.strokeStyle=C.oker; ctx.lineWidth=4; ctx.beginPath(); const a0=cut*0.9; ctx.ellipse(cx,y,off+w*0.55,11,0,a0,6.2832-a0); ctx.stroke(); } ctx.restore(); }
+  const l0=w*0.55, off=l0+sep*14;
+  chromatid(ctx,cx-off,cy,len,color,{w,lean:-l0+sep*14,bend:-off*0.1});
+  chromatid(ctx,cx+off,cy,len,color,{w,lean:l0-sep*14,bend:off*0.1});
+  // centromeer: verbinding tussen de zusterchromatiden (onder spanning uitgerekt)
+  ctx.save(); ctx.fillStyle='#2A2140'; roundRect(ctx,cx-off,cy-7+sep*2,off*2,14-sep*4,5); ctx.fill(); ctx.restore();
+  // cohesine-ringen langs de armen
+  if(coh>0.01){ ctx.save(); ctx.globalAlpha*=coh*(1-0.85*cut); const top=-len*0.38, bot=len*0.62; for(const f of [0.2,0.64,0.85]){ const y=cy+top+(bot-top)*f; ctx.strokeStyle=C.oker; ctx.lineWidth=4; ctx.beginPath(); const a0=cut*0.9; ctx.ellipse(cx,y,l0+w*0.6,11,0,a0,6.2832-a0); ctx.stroke(); } ctx.restore(); }
   const kL=[cx-off-w*0.5-10,cy], kR=[cx+off+w*0.5+10,cy];
   if(kin>0.01){ ctx.save(); ctx.globalAlpha*=kin; roundRect(ctx,kL[0]-4,cy-28,12,56,5); shape(ctx,C.goud,null); roundRect(ctx,kR[0]-8,cy-28,12,56,5); shape(ctx,C.goud,null); ctx.restore(); }
-  return {kL,kR};
+  return {kL,kR,off:l0+w*0.6};
 }
 // bundel trekdraden van een pool naar een kinetochoor; att = 0..1 deel van de lengte vanaf de pool
 function fibres(ctx,pole,k,att,{n=5,spread=10,curve=0,color=C.spoel,lw=2.2}={}){
