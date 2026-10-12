@@ -110,6 +110,6 @@ Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:00n.woff2@@`; in in
 ## Aandachtspunten
 - Ouder ontwerp, wijkt af van de huidige prompt (v4/Part C): eigen look (geen Part C-tokens, geen vaste UI-laag), geen voorspelvragen met opties, geen Leerling/Klas, geen Havo/Vwo, geen typekolom en geen getallentabel met bronnen per getal in het docentdeel, geen checkvragen in examenstijl, geen versie/datum en geen ElevenLabs-model vermeld.
 - De pauzemomenten stoppen de film niet vanzelf; zonder klik op "Pauzeer hier" loopt de film na ~15–20 s stilte door.
-- De terugknop wijst naar `../../../index.html#home` (er staat geen ecologie-hoofdstuk op de site-index; in het jaaroverzicht heeft "Ecologie" een lege link). Deel 1 *Plek genoeg?* zit niet in de repo.
+- De terugknop wijst sinds 2026-10-12 naar de hoofdstukpagina Ecologie (`../../../index.html#ecologie`). Deel 1 *Plek genoeg?* staat ernaast in `films/ecologie/plek-genoeg/`.
 - De voetregel noemt zusterfilms *Alles beweegt*, *Alles op zijn plek*, *Eén wordt twee* en *Precies op tijd*; alleen *Precies op tijd* (nu *Van bevruchting tot baby*) staat in de repo.
 - `TIMELINE.duration` (1484,055 s) is 0,04 s korter dan het mp3-bestand; onschuldig.
