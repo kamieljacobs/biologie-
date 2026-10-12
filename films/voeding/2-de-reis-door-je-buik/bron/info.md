@@ -83,5 +83,5 @@ Regelnummers in `2-de-reis-door-je-buik.html` (er zijn geen blobs; de audio staa
 - Kamiel kon de uitspraaktest niet beluisteren; zie `uitspraak.md`.
 - De klok zegt "zo'n zes tot negen uur" na de eerste hap (mond + maag + dunne darm); los opgeteld geeft de tijdlijn in de recap 5–9 uur. Bewust zo gelaten ("zo'n").
 - Diarree: de film noemt snellere peristaltiek (vraag) én een aangetaste darmwand die extra vocht maakt. Osmotische diarree door bacteriën komt in film 6.
-- Kwaliteitscontrole 12 okt: transcripten 100% gelijk aan de tekst; 0 cue-problemen; frametijd bij 4× CPU-vertraging mediaan ≤ 4 ms, p95 ≤ 18 ms; eindreview (6 moet-punten en 7 kan-punten) verwerkt.
+- Kwaliteitscontrole 12 okt: de woordtijden komen uit Scribe gekoppeld aan de opname (die schrijft de ingevoerde tekst terug, dus geen uitspraakcontrole); de uitspraak is daarna blind gecontroleerd (losse transcriptie van s01, s10, s15, s25: gastric bypass, pH, gastrine, HCO₃⁻ en amylase komen goed terug); 0 cue-problemen; frametijd bij 4× CPU-vertraging mediaan ≤ 4 ms, p95 ≤ 18 ms; eindreview (6 moet-punten en 7 kan-punten) verwerkt.
 - Versiegeschiedenis: 1.0 (12 okt 2026).
