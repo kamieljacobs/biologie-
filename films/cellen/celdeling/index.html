@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Celdeling · Eerst kopiëren, dan verdelen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.havo .term.vwo,body.havo #transcript p.vwo,body.havo .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  <nav class="sitenav nav"><a href="../../../index.html#home">Biologie bij Kamiel</a><a href="../../../index.html#cellen" id="back" class="terug">← Terug naar Cellen</a></nav><script>document.getElementById("back").addEventListener("click",function(e){ try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ e.preventDefault(); history.back(); } }catch(_){} });</script>
+  <div class="meta">Biologie bij Kamiel · reeks Cel · film 3 van 3</div>
+  <h1>Celdeling</h1>
+  <p>Eerst kopiëren, dan verdelen. De celcyclus, chromosomen tellen, mitose en meiose, en wat er misgaat bij kanker en non-disjunctie.</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Celdeling"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Tellen</b> <span class="pts">2 punten</span><p>Een cel van een paard heeft 64 chromosomen. a. Hoeveel chromatiden heeft deze cel in de metafase van de mitose (1)? b. Hoeveel chromosomen heeft een eicel van een paard (1)?</p>
+      <details><summary>Antwoord</summary><p>a. 128: 64 chromosomen met elk twee chromatiden (1). b. 32: geslachtscellen zijn haploïd (1).</p></details></div>
+    <div class="q"><b>2. DNA per kern</b> <span class="pts">3 punten</span><p>De hoeveelheid DNA in de kern van een cel uit de wortelpunt van een ui wordt gevolgd. Vlak na een deling is die p. a. Hoeveel DNA zit er in de kern in de G2-fase (1)? b. In welke fase van de celcyclus verdubbelt de hoeveelheid DNA (1)? c. Hoeveel DNA zit er in de kern van een cel na meiose II (1)?</p>
+      <details><summary>Antwoord</summary><p>a. 2p (1). b. In de interfase, in de S-fase (1). c. ½p (1).</p></details></div>
+    <div class="q"><b>3. Mitose of meiose</b> <span class="pts">2 punten</span><p>Op een foto zie je een cel waarin homologe chromosomen als paren in het equatorvlak liggen. Welke deling en welke fase is dit? Leg uit hoe je dat ziet.</p>
+      <details><summary>Antwoord</summary><p>Meiose I, metafase (1): alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak; bij mitose en meiose II liggen de chromosomen los (1).</p></details></div>
+    <div class="q"><b>4. Variatie</b> <span class="pts">2 punten</span><p>Twee broers hebben dezelfde ouders, maar zien er verschillend uit. Noem twee processen tijdens de meiose die ervoor zorgen dat geslachtscellen van één persoon verschillen.</p>
+      <details><summary>Antwoord</summary><p>De toevallige verdeling van de homologe chromosomen over de dochtercellen in meiose I (1) en crossing-over (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Non-disjunctie</b> <span class="vwo-badge">vwo</span> <span class="pts">2 punten</span><p>Bij een vader gaan in meiose I de twee geslachtschromosomen niet uit elkaar. a. Welke twee soorten zaadcellen ontstaan wat betreft geslachtschromosomen (1)? b. Een eicel wordt bevrucht door een zaadcel met beide geslachtschromosomen. Hoeveel chromosomen heeft het kind (1)?</p>
+      <details><summary>Antwoord</summary><p>a. Zaadcellen met X én Y, en zaadcellen zonder geslachtschromosoom (1). b. 47 (XXY) (1).</p></details></div>
+    <div class="q vwo-only"><b>6. Kanker</b> <span class="vwo-badge">vwo</span> <span class="pts">2 punten</span><p>Veel middelen tegen kanker remmen de vorming van de spoelfiguur. Leg uit waarom dit de groei van een tumor afremt, en waarom haarzakjes en darmwand last hebben van deze behandeling.</p>
+      <details><summary>Antwoord</summary><p>Zonder spoelfiguur kunnen de chromatiden niet uit elkaar worden getrokken, dus stopt de mitose van tumorcellen (1). Haarzakjes en darmwand bevatten ook snel delende cellen en worden dus ook geremd (1).</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>Schema → zoomcirkel Micro</td><td>Eén bevruchte eicel → 37 biljoen cellen; 2 m DNA in een kern; hoe verdeel je eerlijk?</td></tr>
+      <tr><td>1 Waarom delen?</td><td>Schema, Micro</td><td>Groeien, herstellen (wond sluit), vervangen (darmvlok, 2 miljoen rode bloedcellen/s); bacterie deelt; grote cel → diffusieafstand</td></tr>
+      <tr><td>2 Celcyclus</td><td>Schema</td><td>Ring met interfase (G1, S, G2), mitose, cytokinese; geen rustfase; vwo: controlepunten als stoplichten</td></tr>
+      <tr><td>3 Chromosomen tellen</td><td>Micro</td><td>Chromatine → chromosoom; karyogram 23 paren, XX/XY; oprollen; twee chromatiden + centromeer; "twee soorten twee"; telvraag met modelcel 2n = 4</td></tr>
+      <tr><td>4 Mitose</td><td>Micro, Schema</td><td>Modelcel door profase, metafase, anafase, telofase, cytokinese; celplaat bij plantencel; DNA-grafiek p → 2p → p</td></tr>
+      <tr><td>5 Meiose</td><td>Schema, Micro</td><td>Bevruchting 46 + 46?; diploïd/haploïd; meiose I (paren), meiose II (chromatiden); 4 zaadcellen, 1 eicel; DNA-grafiek tot ½p; toevallige verdeling; crossing-over; n + n = 2n</td></tr>
+      <tr><td>6 Mitose en meiose naast elkaar (+ vwo)</td><td>Schema, Micro</td><td>Drie metafasen naast elkaar; vergelijkingstabel; vwo: kapotte rem → tumor; non-disjunctie; trisomie 21</td></tr>
+    </table>
+    <h3>Modelcel en kleuren</h3>
+    <p>De animaties gebruiken een modelcel met 2n = 4 (één lang en één kort paar). Blauw = chromosoom van vader, roze = van moeder. Zo kunnen leerlingen tellen en zien ze na meiose I in elke cel één van elk paar. De film vertaalt de telling steeds naar de mens (46 → 23).</p>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Chromosomen bestaan alleen tijdens de deling (H3: chromatine = dezelfde draden).</li><li>Een X is twee chromosomen (H3: "twee soorten twee", telvraag).</li><li>DNA wordt tijdens de mitose gekopieerd (H2-vraag).</li><li>In de interfase rust de cel (H2).</li><li>Na mitose heeft elke cel de helft van het DNA (H4-vraag + grafiek).</li><li>Meiose is twee keer mitose (H6).</li><li>Na meiose I zijn er nog 46 (H5-vraag).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Acht voorspelvragen (zeven basis, één vwo) met 8 s denktijd. In Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de drie metafasen (H6) en laat leerlingen per paneel chromosomen en chromatiden tellen.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Cellen in een mens</td><td>≈ 37 biljoen (3,7·10¹³)</td><td>Bianconi e.a. 2013, Annals of Human Biology</td></tr>
+      <tr><td>DNA per cel</td><td>≈ 2 m (diploïd)</td><td>Alberts, Molecular Biology of the Cell</td></tr>
+      <tr><td>Darmepitheel</td><td>vernieuwd in 3–5 dagen</td><td>Alberts (NCBI Bookshelf NBK26885)</td></tr>
+      <tr><td>Rode bloedcellen</td><td>≈ 2 miljoen per seconde</td><td>standaardwaarde fysiologie</td></tr>
+      <tr><td>Celcyclus / mitose</td><td>≈ 24 h / ≈ 1 h bij snel delende cellen</td><td>Alberts, h. 17</td></tr>
+      <tr><td>Combinaties door toevallige verdeling</td><td>2²³ ≈ 8,4 miljoen</td><td>berekend</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>"Het kernmembraan valt uit elkaar aan het eind van de profase": de prometafase wordt niet apart genoemd.</li><li>"De centromeren splitsen": eigenlijk wordt het eiwit cohesine tussen de zusterchromatiden geknipt.</li><li>Bij de vrouw ontstaat één eicel; de kleine cellen (poollichaampjes) en het pas na de bevruchting afmaken van meiose II worden niet uitgewerkt.</li><li>Kanker: de film noemt fouten in het DNA die de rem kapot maken; oncogenen, tumorsuppressorgenen en apoptose blijven buiten beeld.</li><li>Trisomie 21 is de oorzaak van het syndroom van Down in ±95 % van de gevallen (rest: translocatie, mozaïek).</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
+      <tr><td>1 Waarom celdeling</td><td>basis</td><td>1</td><td>—</td></tr>
+      <tr><td>2 Celcyclus, kerndeling vs celdeling</td><td>basis</td><td>2</td><td>H2; check 2</td></tr>
+      <tr><td>3 Chromosomen en chromatiden tellen</td><td>basis</td><td>3</td><td>H3; check 1</td></tr>
+      <tr><td>4 Fasen van de mitose; DNA-grafiek</td><td>basis</td><td>4</td><td>H4; check 2</td></tr>
+      <tr><td>5 Meiose, diploïd/haploïd, variatie</td><td>basis</td><td>5</td><td>H5; check 1b, 4</td></tr>
+      <tr><td>6 Mitose en meiose vergelijken</td><td>basis</td><td>6</td><td>H6; check 3</td></tr>
+      <tr><td>7 G1, S, G2 (basis); controlepunten (vwo)</td><td>basis/vwo</td><td>2</td><td>check 2b</td></tr>
+      <tr><td>8 Crossing-over</td><td>basis</td><td>5</td><td>check 4</td></tr>
+      <tr><td>9 Kanker, non-disjunctie, trisomie 21</td><td>vwo</td><td>6 (vwo-blok)</td><td>vwo-vraag; check 5, 6</td></tr>
+    </table>
+    <h3>Practicumsuggesties</h3>
+    <ul><li>Worteltopje van een ui kleuren (orceïne): fasen van de mitose zoeken en tellen hoe vaak elke fase voorkomt.</li><li>Chromosomen nabootsen met pijpenragers of klei: mitose en meiose naspelen met 2n = 4, ook crossing-over.</li><li>Karyogram knippen en ordenen (normaal, trisomie 21, XXY).</li></ul>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 12 oktober 2026.</footer>
+<script>window.FILMDATA={"segments": [{"id": "s01", "kind": "speech", "level": "basis", "chapter": "Cold open", "words": [{"t": "Je", "s": 0, "e": 0.16}, {"t": "begon", "s": 0.24, "e": 0.56}, {"t": "als", "s": 0.72, "e": 0.88}, {"t": "één", "s": 0.96, "e": 1.12}, {"t": "cel:", "s": 1.28, "e": 2}, {"t": "een", "s": 2.04, "e": 2.08}, {"t": "bevruchte", "s": 2.16, "e": 2.64}, {"t": "eicel.", "s": 2.72, "e": 3.52}, {"t": "Nu", "s": 3.84, "e": 4}, {"t": "besta", "s": 4.08, "e": 4.4}, {"t": "je", "s": 4.48, "e": 4.56}, {"t": "uit", "s": 4.64, "e": 4.72}, {"t": "zo'n", "s": 4.76, "e": 4.96}, {"t": "zevenendertig", "s": 5.04, "e": 5.88}, {"t": "biljoen", "s": 6, "e": 6.56}, {"t": "cellen.", "s": 6.72, "e": 7.52}, {"t": "In", "s": 7.6, "e": 7.68}, {"t": "bijna", "s": 7.72, "e": 8}, {"t": "elke", "s": 8.08, "e": 8.32}, {"t": "cel", "s": 8.4, "e": 8.64}, {"t": "zit", "s": 8.72, "e": 8.88}, {"t": "hetzelfde", "s": 9, "e": 9.52}, {"t": "DNA:", "s": 9.6, "e": 10.48}, {"t": "twee", "s": 10.52, "e": 10.72}, {"t": "meter", "s": 10.88, "e": 11.12}, {"t": "draad,", "s": 11.2, "e": 11.76}, {"t": "opgevouwen", "s": 11.84, "e": 12.4}, {"t": "in", "s": 12.48, "e": 12.56}, {"t": "een", "s": 12.64, "e": 12.72}, {"t": "kern", "s": 12.76, "e": 13.04}, {"t": "van", "s": 13.08, "e": 13.12}, {"t": "een", "s": 13.24, "e": 13.36}, {"t": "paar", "s": 13.4, "e": 13.68}, {"t": "duizendste", "s": 13.76, "e": 14.32}, {"t": "millimeter.", "s": 14.4, "e": 15.52}, {"t": "Elke", "s": 15.6, "e": 15.84}, {"t": "keer", "s": 15.92, "e": 16.08}, {"t": "dat", "s": 16.16, "e": 16.24}, {"t": "een", "s": 16.32, "e": 16.4}, {"t": "cel", "s": 16.52, "e": 16.64}, {"t": "deelt,", "s": 16.72, "e": 17.28}, {"t": "moet", "s": 17.32, "e": 17.44}, {"t": "dat", "s": 17.52, "e": 17.6}, {"t": "DNA", "s": 17.68, "e": 18.16}, {"t": "eerlijk", "s": 18.28, "e": 18.56}, {"t": "verdeeld", "s": 18.64, "e": 18.96}, {"t": "worden.", "s": 19.04, "e": 19.6}, {"t": "Geen", "s": 19.64, "e": 19.76}, {"t": "stukje", "s": 19.84, "e": 20.08}, {"t": "te", "s": 20.16, "e": 20.24}, {"t": "veel,", "s": 20.32, "e": 20.88}, {"t": "geen", "s": 20.92, "e": 21.12}, {"t": "stukje", "s": 21.16, "e": 21.44}, {"t": "te", "s": 21.52, "e": 21.56}, {"t": "weinig.", "s": 21.6, "e": 22.56}, {"t": "Hoe", "s": 22.6, "e": 22.72}, {"t": "doet", "s": 22.8, "e": 22.96}, {"t": "een", "s": 23.04, "e": 23.12}, {"t": "cel", "s": 23.24, "e": 23.36}, {"t": "dat?", "s": 23.52, "e": 23.88}, {"t": "Wat", "s": 24.08, "e": 24.16}, {"t": "denk", "s": 24.24, "e": 24.48}, {"t": "je?", "s": 24.56, "e": 24.96}], "audio": "audio/s01.mp3", "dur": 25.31}, {"id": "q02", "kind": "question", "level": "basis", "chapter": "Cold open", "q": "Hoe verdeelt een cel zijn DNA eerlijk over twee nieuwe cellen?", "options": ["knippen in twee helften", "eerst kopiëren, dan verdelen", "elke cel maakt nieuw DNA"], "correct": 1, "explain": "Eerst kopiëren, dan verdelen. Zo krijgt elke nieuwe cel al het DNA."}, {"id": "s03", "kind": "title", "level": "basis", "chapter": "Titel", "text": "Celdeling", "sub": "Eerst kopiëren, dan verdelen"}, {"id": "s04", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Waarom delen?", "words": [{"t": "Eerst", "s": 0, "e": 0.32}, {"t": "kopiëren,", "s": 0.36, "e": 1.36}, {"t": "dan", "s": 1.48, "e": 1.6}, {"t": "verdelen.", "s": 1.68, "e": 2.44}, {"t": "Maar", "s": 2.64, "e": 2.96}, {"t": "waarom", "s": 3.04, "e": 3.44}, {"t": "deelt", "s": 3.48, "e": 3.68}, {"t": "een", "s": 3.76, "e": 3.84}, {"t": "cel", "s": 3.92, "e": 4.16}, {"t": "eigenlijk?", "s": 4.2, "e": 4.72}, {"t": "Om", "s": 5.12, "e": 5.2}, {"t": "te", "s": 5.28, "e": 5.36}, {"t": "groeien:", "s": 5.44, "e": 6.24}, {"t": "zo", "s": 6.32, "e": 6.4}, {"t": "werd", "s": 6.44, "e": 6.64}, {"t": "jij", "s": 6.68, "e": 6.96}, {"t": "van", "s": 7.04, "e": 7.28}, {"t": "één", "s": 7.32, "e": 7.52}, {"t": "cel", "s": 7.6, "e": 7.92}, {"t": "een", "s": 8, "e": 8.08}, {"t": "heel", "s": 8.2, "e": 8.32}, {"t": "mens.", "s": 8.56, "e": 9}, {"t": "Om", "s": 9.2, "e": 9.28}, {"t": "te", "s": 9.36, "e": 9.44}, {"t": "herstellen:", "s": 9.56, "e": 10.48}, {"t": "bij", "s": 10.56, "e": 10.64}, {"t": "een", "s": 10.72, "e": 10.8}, {"t": "wond", "s": 10.84, "e": 11.2}, {"t": "delen", "s": 11.28, "e": 11.52}, {"t": "de", "s": 11.6, "e": 11.68}, {"t": "cellen", "s": 11.76, "e": 12}, {"t": "eromheen,", "s": 12.08, "e": 12.72}, {"t": "tot", "s": 12.8, "e": 12.88}, {"t": "het", "s": 12.96, "e": 13.04}, {"t": "gat", "s": 13.12, "e": 13.28}, {"t": "dicht", "s": 13.36, "e": 13.52}, {"t": "is.", "s": 13.6, "e": 14.24}, {"t": "En", "s": 14.36, "e": 14.48}, {"t": "om", "s": 14.56, "e": 14.64}, {"t": "te", "s": 14.72, "e": 14.8}, {"t": "vervangen.", "s": 14.92, "e": 15.76}, {"t": "De", "s": 15.84, "e": 15.92}, {"t": "cellen", "s": 16.04, "e": 16.2}, {"t": "aan", "s": 16.24, "e": 16.32}, {"t": "de", "s": 16.4, "e": 16.48}, {"t": "binnenkant", "s": 16.56, "e": 16.88}, {"t": "van", "s": 16.96, "e": 17.04}, {"t": "je", "s": 17.12, "e": 17.2}, {"t": "darm", "s": 17.307, "e": 17.52}, {"t": "slijten", "s": 17.56, "e": 18}, {"t": "zo", "s": 18.12, "e": 18.24}, {"t": "snel,", "s": 18.32, "e": 18.88}, {"t": "dat", "s": 18.96, "e": 19.04}, {"t": "ze", "s": 19.12, "e": 19.2}, {"t": "om", "s": 19.28, "e": 19.44}, {"t": "de", "s": 19.52, "e": 19.6}, {"t": "paar", "s": 19.64, "e": 19.76}, {"t": "dagen", "s": 19.84, "e": 20.16}, {"t": "nieuw", "s": 20.24, "e": 20.4}, {"t": "zijn.", "s": 20.48, "e": 21.12}, {"t": "En", "s": 21.16, "e": 21.2}, {"t": "in", "s": 21.28, "e": 21.32}, {"t": "je", "s": 21.36, "e": 21.44}, {"t": "beenmerg", "s": 21.52, "e": 22.08}, {"t": "ontstaan", "s": 22.16, "e": 22.56}, {"t": "elke", "s": 22.64, "e": 22.88}, {"t": "seconde", "s": 22.96, "e": 23.36}, {"t": "zo'n", "s": 23.44, "e": 23.76}, {"t": "twee", "s": 23.8, "e": 24}, {"t": "miljoen", "s": 24.16, "e": 24.8}, {"t": "nieuwe", "s": 24.88, "e": 25.12}, {"t": "rode", "s": 25.2, "e": 25.44}, {"t": "bloedcellen.", "s": 25.52, "e": 26.32}], "audio": "audio/s04.mp3", "dur": 26.67}, {"id": "s05", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Waarom delen?", "words": [{"t": "Een", "s": 0, "e": 0.067}, {"t": "bacterie", "s": 0.08, "e": 0.64}, {"t": "deelt", "s": 0.72, "e": 1.04}, {"t": "om", "s": 1.12, "e": 1.28}, {"t": "zich", "s": 1.333, "e": 1.44}, {"t": "voort", "s": 1.52, "e": 1.76}, {"t": "te", "s": 1.8, "e": 1.84}, {"t": "planten:", "s": 1.92, "e": 2.72}, {"t": "uit", "s": 2.84, "e": 2.96}, {"t": "één", "s": 3, "e": 3.12}, {"t": "bacterie", "s": 3.2, "e": 3.76}, {"t": "worden", "s": 3.92, "e": 4.12}, {"t": "er", "s": 4.16, "e": 4.24}, {"t": "twee.", "s": 4.32, "e": 4.72}, {"t": "Waarom", "s": 5.2, "e": 5.52}, {"t": "wordt", "s": 5.6, "e": 5.72}, {"t": "een", "s": 5.76, "e": 5.84}, {"t": "cel", "s": 5.92, "e": 6.08}, {"t": "niet", "s": 6.16, "e": 6.32}, {"t": "gewoon", "s": 6.4, "e": 6.56}, {"t": "steeds", "s": 6.64, "e": 6.88}, {"t": "groter?", "s": 7.04, "e": 7.76}, {"t": "Denk", "s": 8, "e": 8.24}, {"t": "aan", "s": 8.28, "e": 8.32}, {"t": "de", "s": 8.4, "e": 8.48}, {"t": "film", "s": 8.56, "e": 8.8}, {"t": "over", "s": 8.88, "e": 8.96}, {"t": "diffusie.", "s": 9.04, "e": 9.8}, {"t": "Hoe", "s": 10, "e": 10.16}, {"t": "groter", "s": 10.28, "e": 10.56}, {"t": "de", "s": 10.64, "e": 10.72}, {"t": "cel,", "s": 10.88, "e": 11.28}, {"t": "hoe", "s": 11.36, "e": 11.44}, {"t": "verder", "s": 11.52, "e": 11.84}, {"t": "de", "s": 11.88, "e": 11.92}, {"t": "weg", "s": 12, "e": 12.16}, {"t": "voor", "s": 12.24, "e": 12.32}, {"t": "diffusie.", "s": 12.44, "e": 12.96}, {"t": "Het", "s": 13.36, "e": 13.52}, {"t": "midden", "s": 13.6, "e": 13.84}, {"t": "krijgt", "s": 13.92, "e": 14.16}, {"t": "dan", "s": 14.2, "e": 14.24}, {"t": "te", "s": 14.4, "e": 14.48}, {"t": "laat", "s": 14.56, "e": 14.8}, {"t": "zuurstof.", "s": 14.88, "e": 15.72}, {"t": "Daarom", "s": 15.92, "e": 16.32}, {"t": "blijven", "s": 16.373, "e": 16.64}, {"t": "cellen", "s": 16.72, "e": 16.96}, {"t": "klein,", "s": 17.04, "e": 17.52}, {"t": "en", "s": 17.56, "e": 17.6}, {"t": "maken", "s": 17.64, "e": 17.84}, {"t": "ze", "s": 17.92, "e": 18}, {"t": "er", "s": 18.04, "e": 18.08}, {"t": "liever", "s": 18.16, "e": 18.4}, {"t": "twee", "s": 18.48, "e": 18.72}, {"t": "van.", "s": 18.8, "e": 19.36}], "audio": "audio/s05.mp3", "dur": 19.71}, {"id": "s06", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — De celcyclus", "words": [{"t": "Een", "s": 0, "e": 0.12}, {"t": "cel", "s": 0.16, "e": 0.347}, {"t": "die", "s": 0.4, "e": 0.587}, {"t": "deelt,", "s": 0.64, "e": 1.12}, {"t": "doorloopt", "s": 1.28, "e": 1.68}, {"t": "steeds", "s": 1.8, "e": 2.08}, {"t": "dezelfde", "s": 2.16, "e": 2.64}, {"t": "kringloop:", "s": 2.72, "e": 3.6}, {"t": "de", "s": 3.68, "e": 3.76}, {"t": "celcyclus.", "s": 3.84, "e": 4.92}, {"t": "Het", "s": 5.2, "e": 5.36}, {"t": "grootste", "s": 5.44, "e": 5.84}, {"t": "deel", "s": 5.88, "e": 6.08}, {"t": "van", "s": 6.12, "e": 6.16}, {"t": "de", "s": 6.24, "e": 6.32}, {"t": "tijd", "s": 6.4, "e": 6.64}, {"t": "zit", "s": 6.72, "e": 6.88}, {"t": "de", "s": 6.92, "e": 6.96}, {"t": "cel", "s": 7.04, "e": 7.28}, {"t": "in", "s": 7.36, "e": 7.44}, {"t": "de", "s": 7.52, "e": 7.6}, {"t": "interfase.", "s": 7.8, "e": 8.48}, {"t": "Dat", "s": 8.88, "e": 8.96}, {"t": "is", "s": 9.04, "e": 9.2}, {"t": "geen", "s": 9.28, "e": 9.44}, {"t": "rustfase:", "s": 9.52, "e": 10.64}, {"t": "de", "s": 10.72, "e": 10.8}, {"t": "cel", "s": 10.92, "e": 11.04}, {"t": "groeit,", "s": 11.12, "e": 11.76}, {"t": "en", "s": 11.8, "e": 11.84}, {"t": "maakt", "s": 11.88, "e": 12.16}, {"t": "eiwitten", "s": 12.28, "e": 12.64}, {"t": "en", "s": 12.72, "e": 12.8}, {"t": "organellen", "s": 12.88, "e": 13.36}, {"t": "bij.", "s": 13.44, "e": 13.96}, {"t": "Daarna", "s": 14.24, "e": 14.64}, {"t": "volgt", "s": 14.72, "e": 14.96}, {"t": "de", "s": 15, "e": 15.04}, {"t": "mitose:", "s": 15.12, "e": 16.08}, {"t": "de", "s": 16.16, "e": 16.24}, {"t": "kern", "s": 16.28, "e": 16.56}, {"t": "deelt.", "s": 16.64, "e": 17.04}, {"t": "Tot", "s": 17.52, "e": 17.68}, {"t": "slot", "s": 17.84, "e": 18}, {"t": "deelt", "s": 18.08, "e": 18.32}, {"t": "de", "s": 18.36, "e": 18.4}, {"t": "rest", "s": 18.56, "e": 18.72}, {"t": "van", "s": 18.8, "e": 18.88}, {"t": "de", "s": 18.92, "e": 18.96}, {"t": "cel.", "s": 19.04, "e": 19.36}, {"t": "Dat", "s": 19.68, "e": 19.84}, {"t": "heet", "s": 19.92, "e": 20.16}, {"t": "cytokinese.", "s": 20.32, "e": 21.28}, {"t": "Mitose", "s": 21.76, "e": 22.4}, {"t": "is", "s": 22.48, "e": 22.56}, {"t": "dus", "s": 22.64, "e": 22.8}, {"t": "de", "s": 22.88, "e": 22.96}, {"t": "kerndeling.", "s": 23.04, "e": 23.76}, {"t": "Mitose", "s": 24.16, "e": 24.72}, {"t": "en", "s": 24.8, "e": 24.88}, {"t": "cytokinese", "s": 24.96, "e": 25.68}, {"t": "samen", "s": 25.76, "e": 26.24}, {"t": "zijn", "s": 26.4, "e": 26.56}, {"t": "de", "s": 26.64, "e": 26.72}, {"t": "celdeling.", "s": 26.76, "e": 27.52}, {"t": "Bij", "s": 28, "e": 28.16}, {"t": "snel", "s": 28.24, "e": 28.48}, {"t": "delende", "s": 28.56, "e": 28.96}, {"t": "cellen", "s": 29.04, "e": 29.36}, {"t": "duurt", "s": 29.44, "e": 29.68}, {"t": "zo'n", "s": 29.72, "e": 29.84}, {"t": "rondje", "s": 29.92, "e": 30.24}, {"t": "ongeveer", "s": 30.32, "e": 30.72}, {"t": "een", "s": 30.8, "e": 30.96}, {"t": "dag.", "s": 31.12, "e": 31.36}, {"t": "De", "s": 31.76, "e": 31.8}, {"t": "mitose", "s": 31.84, "e": 32.24}, {"t": "zelf", "s": 32.32, "e": 32.72}, {"t": "duurt", "s": 32.76, "e": 32.96}, {"t": "maar", "s": 33, "e": 33.12}, {"t": "een", "s": 33.2, "e": 33.28}, {"t": "uur.", "s": 33.44, "e": 33.88}, {"t": "Veel", "s": 34.16, "e": 34.4}, {"t": "cellen,", "s": 34.48, "e": 34.96}, {"t": "zoals", "s": 35.04, "e": 35.28}, {"t": "zenuwcellen,", "s": 35.32, "e": 36.32}, {"t": "stoppen", "s": 36.44, "e": 36.72}, {"t": "helemaal", "s": 36.8, "e": 37.28}, {"t": "met", "s": 37.36, "e": 37.44}, {"t": "delen.", "s": 37.48, "e": 38.04}, {"t": "De", "s": 38.24, "e": 38.4}, {"t": "twee", "s": 38.427, "e": 38.56}, {"t": "nieuwe", "s": 38.64, "e": 38.88}, {"t": "cellen", "s": 38.96, "e": 39.28}, {"t": "krijgen", "s": 39.36, "e": 39.76}, {"t": "allebei", "s": 39.88, "e": 40.24}, {"t": "al", "s": 40.4, "e": 40.56}, {"t": "het", "s": 40.64, "e": 40.72}, {"t": "DNA.", "s": 40.8, "e": 41.28}, {"t": "Wanneer", "s": 41.92, "e": 42.24}, {"t": "wordt", "s": 42.32, "e": 42.44}, {"t": "het", "s": 42.48, "e": 42.56}, {"t": "DNA", "s": 42.64, "e": 42.96}, {"t": "gekopieerd?", "s": 43.04, "e": 44.04}, {"t": "Wat", "s": 44.24, "e": 44.4}, {"t": "denk", "s": 44.48, "e": 44.64}, {"t": "je?", "s": 44.72, "e": 45.12}], "audio": "audio/s06.mp3", "dur": 45.47}, {"id": "q07", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 2 — De celcyclus", "q": "Wanneer wordt het DNA gekopieerd?", "options": ["tijdens de mitose", "in de interfase", "na de cytokinese"], "correct": 1, "explain": "In de interfase (de S-fase). Als de mitose begint, is het DNA al dubbel."}, {"id": "s08", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — De celcyclus", "words": [{"t": "In", "s": 0, "e": 0.16}, {"t": "de", "s": 0.2, "e": 0.24}, {"t": "interfase.", "s": 0.32, "e": 1.36}, {"t": "Als", "s": 1.6, "e": 1.76}, {"t": "de", "s": 1.8, "e": 1.84}, {"t": "mitose", "s": 1.96, "e": 2.32}, {"t": "begint,", "s": 2.4, "e": 3.04}, {"t": "is", "s": 3.12, "e": 3.2}, {"t": "het", "s": 3.24, "e": 3.28}, {"t": "DNA", "s": 3.36, "e": 3.84}, {"t": "al", "s": 3.92, "e": 4.08}, {"t": "dubbel.", "s": 4.16, "e": 4.8}, {"t": "Hoe", "s": 5.04, "e": 5.16}, {"t": "dat", "s": 5.2, "e": 5.36}, {"t": "kopiëren", "s": 5.4, "e": 5.92}, {"t": "werkt,", "s": 6, "e": 6.48}, {"t": "zie", "s": 6.56, "e": 6.64}, {"t": "je", "s": 6.68, "e": 6.72}, {"t": "in", "s": 6.8, "e": 6.88}, {"t": "de", "s": 6.96, "e": 7.04}, {"t": "film", "s": 7.16, "e": 7.28}, {"t": "DNA", "s": 7.6, "e": 8.08}, {"t": "kopiëren.", "s": 8.16, "e": 9.12}], "audio": "audio/s08.mp3", "dur": 9.47}, {"id": "s09", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — De celcyclus", "words": [{"t": "De", "s": 0, "e": 0.12}, {"t": "interfase", "s": 0.16, "e": 0.773}, {"t": "heeft", "s": 0.88, "e": 1.12}, {"t": "drie", "s": 1.2, "e": 1.387}, {"t": "delen.", "s": 1.44, "e": 1.92}, {"t": "In", "s": 2.32, "e": 2.4}, {"t": "de", "s": 2.48, "e": 2.52}, {"t": "G1-fase", "s": 2.56, "e": 3.52}, {"t": "groeit", "s": 3.68, "e": 3.92}, {"t": "de", "s": 4, "e": 4.08}, {"t": "cel.", "s": 4.24, "e": 4.6}, {"t": "In", "s": 4.8, "e": 4.96}, {"t": "de", "s": 5.04, "e": 5.12}, {"t": "S-fase", "s": 5.2, "e": 5.84}, {"t": "wordt", "s": 5.92, "e": 6.08}, {"t": "het", "s": 6.12, "e": 6.16}, {"t": "DNA", "s": 6.24, "e": 6.64}, {"t": "gekopieerd.", "s": 6.72, "e": 7.6}, {"t": "S", "s": 8, "e": 8.24}, {"t": "staat", "s": 8.4, "e": 8.64}, {"t": "voor", "s": 8.72, "e": 8.88}, {"t": "synthese.", "s": 8.96, "e": 9.92}, {"t": "In", "s": 10.16, "e": 10.24}, {"t": "de", "s": 10.28, "e": 10.32}, {"t": "G2-fase", "s": 10.4, "e": 11.36}, {"t": "maakt", "s": 11.52, "e": 11.76}, {"t": "de", "s": 11.8, "e": 11.84}, {"t": "cel", "s": 11.96, "e": 12.08}, {"t": "zich", "s": 12.12, "e": 12.32}, {"t": "klaar", "s": 12.36, "e": 12.64}, {"t": "voor", "s": 12.72, "e": 12.8}, {"t": "de", "s": 12.84, "e": 12.88}, {"t": "deling.", "s": 12.96, "e": 13.68}], "audio": "audio/s09.mp3", "dur": 14.03}, {"id": "s10", "kind": "speech", "level": "vwo", "chapter": "Hoofdstuk 2 — De celcyclus", "words": [{"t": "Voor", "s": 0, "e": 0.24}, {"t": "vwo:", "s": 0.4, "e": 1.76}, {"t": "op", "s": 1.84, "e": 1.92}, {"t": "een", "s": 2, "e": 2.16}, {"t": "paar", "s": 2.2, "e": 2.32}, {"t": "momenten", "s": 2.4, "e": 2.88}, {"t": "controleert", "s": 2.96, "e": 3.52}, {"t": "de", "s": 3.6, "e": 3.68}, {"t": "cel", "s": 3.8, "e": 3.92}, {"t": "of", "s": 4, "e": 4.16}, {"t": "alles", "s": 4.32, "e": 4.48}, {"t": "klopt.", "s": 4.52, "e": 5.12}, {"t": "Is", "s": 5.36, "e": 5.44}, {"t": "de", "s": 5.52, "e": 5.6}, {"t": "cel", "s": 5.72, "e": 5.84}, {"t": "groot", "s": 5.92, "e": 6.16}, {"t": "genoeg?", "s": 6.24, "e": 7.04}, {"t": "Is", "s": 7.12, "e": 7.2}, {"t": "het", "s": 7.28, "e": 7.36}, {"t": "DNA", "s": 7.44, "e": 7.84}, {"t": "goed", "s": 7.92, "e": 8.08}, {"t": "gekopieerd?", "s": 8.16, "e": 9.16}, {"t": "Pas", "s": 9.36, "e": 9.6}, {"t": "dan", "s": 9.68, "e": 9.92}, {"t": "gaat", "s": 10, "e": 10.16}, {"t": "hij", "s": 10.213, "e": 10.32}, {"t": "verder.", "s": 10.4, "e": 11.04}, {"t": "Dat", "s": 11.12, "e": 11.2}, {"t": "zijn", "s": 11.28, "e": 11.44}, {"t": "controlepunten.", "s": 11.56, "e": 12.96}, {"t": "Terug", "s": 13.04, "e": 13.2}, {"t": "naar", "s": 13.28, "e": 13.4}, {"t": "de", "s": 13.44, "e": 13.48}, {"t": "hoofdlijn.", "s": 13.52, "e": 14.32}], "audio": "audio/s10.mp3", "dur": 14.67}, {"id": "s11", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Chromosomen tellen", "words": [{"t": "In", "s": 0, "e": 0.16}, {"t": "de", "s": 0.24, "e": 0.32}, {"t": "interfase", "s": 0.48, "e": 1.12}, {"t": "ligt", "s": 1.2, "e": 1.36}, {"t": "het", "s": 1.44, "e": 1.52}, {"t": "DNA", "s": 1.6, "e": 2.08}, {"t": "als", "s": 2.2, "e": 2.32}, {"t": "lange,", "s": 2.4, "e": 2.88}, {"t": "losse", "s": 3, "e": 3.2}, {"t": "draden", "s": 3.28, "e": 3.68}, {"t": "door", "s": 3.76, "e": 3.84}, {"t": "de", "s": 3.92, "e": 4}, {"t": "kern.", "s": 4.107, "e": 4.72}, {"t": "Zo", "s": 4.76, "e": 4.96}, {"t": "los", "s": 5.04, "e": 5.44}, {"t": "heet", "s": 5.56, "e": 5.68}, {"t": "het", "s": 5.72, "e": 5.76}, {"t": "chromatine.", "s": 5.84, "e": 6.88}, {"t": "Te", "s": 6.96, "e": 7.04}, {"t": "dun", "s": 7.12, "e": 7.28}, {"t": "om", "s": 7.36, "e": 7.44}, {"t": "te", "s": 7.48, "e": 7.52}, {"t": "zien,", "s": 7.6, "e": 8.16}, {"t": "maar", "s": 8.2, "e": 8.32}, {"t": "de", "s": 8.36, "e": 8.4}, {"t": "draden", "s": 8.48, "e": 8.88}, {"t": "zijn", "s": 8.92, "e": 9.12}, {"t": "er", "s": 9.16, "e": 9.2}, {"t": "wel.", "s": 9.28, "e": 9.92}, {"t": "Elke", "s": 10, "e": 10.24}, {"t": "draad", "s": 10.32, "e": 10.72}, {"t": "is", "s": 10.76, "e": 10.8}, {"t": "een", "s": 10.88, "e": 10.96}, {"t": "chromosoom.", "s": 11.08, "e": 12}, {"t": "Een", "s": 12.053, "e": 12.16}, {"t": "mens", "s": 12.32, "e": 12.48}, {"t": "heeft", "s": 12.52, "e": 12.64}, {"t": "er", "s": 12.72, "e": 12.8}, {"t": "zesenveertig:", "s": 12.88, "e": 14.08}, {"t": "drieëntwintig", "s": 14.12, "e": 14.72}, {"t": "paren.", "s": 14.8, "e": 15.6}, {"t": "Van", "s": 15.72, "e": 15.84}, {"t": "elk", "s": 15.92, "e": 16.08}, {"t": "paar", "s": 16.16, "e": 16.4}, {"t": "komt", "s": 16.48, "e": 16.64}, {"t": "er", "s": 16.72, "e": 16.8}, {"t": "één", "s": 16.88, "e": 17.04}, {"t": "van", "s": 17.12, "e": 17.2}, {"t": "je", "s": 17.28, "e": 17.36}, {"t": "moeder", "s": 17.4, "e": 17.76}, {"t": "en", "s": 17.84, "e": 18}, {"t": "één", "s": 18.08, "e": 18.32}, {"t": "van", "s": 18.36, "e": 18.4}, {"t": "je", "s": 18.48, "e": 18.56}, {"t": "vader.", "s": 18.6, "e": 19.36}, {"t": "De", "s": 19.44, "e": 19.52}, {"t": "twee", "s": 19.573, "e": 19.72}, {"t": "van", "s": 19.76, "e": 19.92}, {"t": "een", "s": 20, "e": 20.08}, {"t": "paar", "s": 20.12, "e": 20.4}, {"t": "heten", "s": 20.56, "e": 20.72}, {"t": "homologe", "s": 20.84, "e": 21.44}, {"t": "chromosomen:", "s": 21.56, "e": 22.56}, {"t": "ze", "s": 22.64, "e": 22.72}, {"t": "dragen", "s": 22.76, "e": 23.04}, {"t": "dezelfde", "s": 23.12, "e": 23.6}, {"t": "soort", "s": 23.68, "e": 23.92}, {"t": "genen.", "s": 24, "e": 24.64}], "audio": "audio/s11.mp3", "dur": 24.99}, {"id": "s12", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Chromosomen tellen", "words": [{"t": "Tweeëntwintig", "s": 0, "e": 0.6}, {"t": "paren", "s": 0.64, "e": 1.04}, {"t": "zijn", "s": 1.12, "e": 1.333}, {"t": "gewone", "s": 1.36, "e": 1.84}, {"t": "chromosomen.", "s": 1.92, "e": 2.64}, {"t": "Het", "s": 3.04, "e": 3.173}, {"t": "drieëntwintigste", "s": 3.2, "e": 4}, {"t": "paar", "s": 4.08, "e": 4.32}, {"t": "zijn", "s": 4.48, "e": 4.64}, {"t": "de", "s": 4.68, "e": 4.72}, {"t": "geslachtschromosomen:", "s": 4.84, "e": 6.4}, {"t": "XX", "s": 6.48, "e": 7.04}, {"t": "bij", "s": 7.12, "e": 7.2}, {"t": "een", "s": 7.28, "e": 7.36}, {"t": "vrouw,", "s": 7.4, "e": 8.08}, {"t": "XY", "s": 8.2, "e": 8.72}, {"t": "bij", "s": 8.8, "e": 8.96}, {"t": "een", "s": 9, "e": 9.04}, {"t": "man.", "s": 9.12, "e": 9.68}, {"t": "X", "s": 9.92, "e": 10.16}, {"t": "en", "s": 10.24, "e": 10.32}, {"t": "Y", "s": 10.48, "e": 10.72}, {"t": "zijn", "s": 10.8, "e": 10.96}, {"t": "de", "s": 11.04, "e": 11.12}, {"t": "enige", "s": 11.2, "e": 11.52}, {"t": "twee", "s": 11.56, "e": 11.76}, {"t": "van", "s": 11.84, "e": 11.92}, {"t": "een", "s": 12, "e": 12.08}, {"t": "paar", "s": 12.12, "e": 12.32}, {"t": "die", "s": 12.44, "e": 12.56}, {"t": "echt", "s": 12.64, "e": 12.88}, {"t": "verschillen.", "s": 12.96, "e": 13.68}], "audio": "audio/s12.mp3", "dur": 14.03}, {"id": "s13", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Chromosomen tellen", "words": [{"t": "Aan", "s": 0, "e": 0.16}, {"t": "het", "s": 0.2, "e": 0.24}, {"t": "begin", "s": 0.32, "e": 0.64}, {"t": "van", "s": 0.72, "e": 0.8}, {"t": "de", "s": 0.88, "e": 0.96}, {"t": "deling", "s": 1.08, "e": 1.44}, {"t": "rolt", "s": 1.52, "e": 1.84}, {"t": "elk", "s": 1.92, "e": 2.08}, {"t": "chromosoom", "s": 2.2, "e": 2.64}, {"t": "zich", "s": 2.72, "e": 2.96}, {"t": "heel", "s": 3.08, "e": 3.2}, {"t": "strak", "s": 3.36, "e": 3.68}, {"t": "op.", "s": 3.76, "e": 4.24}, {"t": "Pas", "s": 4.48, "e": 4.72}, {"t": "dan", "s": 4.84, "e": 4.96}, {"t": "zie", "s": 5.04, "e": 5.2}, {"t": "je", "s": 5.24, "e": 5.28}, {"t": "ze", "s": 5.36, "e": 5.44}, {"t": "onder", "s": 5.52, "e": 5.6}, {"t": "de", "s": 5.64, "e": 5.68}, {"t": "microscoop.", "s": 5.76, "e": 6.96}, {"t": "Omdat", "s": 7, "e": 7.2}, {"t": "het", "s": 7.28, "e": 7.36}, {"t": "DNA", "s": 7.44, "e": 7.84}, {"t": "al", "s": 7.88, "e": 7.92}, {"t": "gekopieerd", "s": 8, "e": 8.64}, {"t": "is,", "s": 8.72, "e": 9.04}, {"t": "bestaat", "s": 9.16, "e": 9.52}, {"t": "elk", "s": 9.6, "e": 9.76}, {"t": "chromosoom", "s": 9.88, "e": 10.4}, {"t": "dan", "s": 10.48, "e": 10.56}, {"t": "uit", "s": 10.68, "e": 10.8}, {"t": "twee", "s": 10.84, "e": 11.12}, {"t": "gelijke", "s": 11.2, "e": 11.68}, {"t": "kopieën:", "s": 11.76, "e": 12.64}, {"t": "twee", "s": 12.693, "e": 12.88}, {"t": "chromatiden.", "s": 13.04, "e": 14.04}, {"t": "Ze", "s": 14.32, "e": 14.4}, {"t": "zitten", "s": 14.48, "e": 14.64}, {"t": "aan", "s": 14.72, "e": 14.8}, {"t": "elkaar", "s": 14.84, "e": 15.04}, {"t": "vast", "s": 15.12, "e": 15.44}, {"t": "bij", "s": 15.52, "e": 15.6}, {"t": "het", "s": 15.64, "e": 15.68}, {"t": "centromeer.", "s": 15.76, "e": 16.72}, {"t": "Zo", "s": 16.96, "e": 17.2}, {"t": "krijgt", "s": 17.28, "e": 17.52}, {"t": "het", "s": 17.56, "e": 17.6}, {"t": "de", "s": 17.68, "e": 17.76}, {"t": "vorm", "s": 17.8, "e": 18}, {"t": "van", "s": 18.08, "e": 18.24}, {"t": "een", "s": 18.28, "e": 18.32}, {"t": "X.", "s": 18.48, "e": 18.88}, {"t": "Let", "s": 19.44, "e": 19.6}, {"t": "op:", "s": 19.68, "e": 20.16}, {"t": "dat", "s": 20.24, "e": 20.32}, {"t": "zijn", "s": 20.4, "e": 20.64}, {"t": "twee", "s": 20.72, "e": 20.96}, {"t": "soorten", "s": 21.12, "e": 21.44}, {"t": "twee.", "s": 21.52, "e": 21.92}, {"t": "Een", "s": 22.4, "e": 22.56}, {"t": "paar", "s": 22.64, "e": 22.96}, {"t": "is", "s": 23.04, "e": 23.28}, {"t": "twee", "s": 23.36, "e": 23.6}, {"t": "chromosomen,", "s": 23.68, "e": 24.72}, {"t": "één", "s": 24.76, "e": 24.88}, {"t": "van", "s": 24.96, "e": 25.04}, {"t": "je", "s": 25.12, "e": 25.2}, {"t": "vader", "s": 25.24, "e": 25.6}, {"t": "en", "s": 25.76, "e": 25.92}, {"t": "één", "s": 25.96, "e": 26.08}, {"t": "van", "s": 26.16, "e": 26.24}, {"t": "je", "s": 26.32, "e": 26.36}, {"t": "moeder.", "s": 26.4, "e": 27}, {"t": "Een", "s": 27.28, "e": 27.44}, {"t": "X", "s": 27.52, "e": 27.92}, {"t": "is", "s": 28.08, "e": 28.32}, {"t": "één", "s": 28.36, "e": 28.48}, {"t": "chromosoom,", "s": 28.56, "e": 29.36}, {"t": "met", "s": 29.48, "e": 29.6}, {"t": "twee", "s": 29.68, "e": 29.92}, {"t": "gelijke", "s": 30, "e": 30.4}, {"t": "chromatiden.", "s": 30.48, "e": 31.4}, {"t": "Deze", "s": 31.68, "e": 32}, {"t": "cel", "s": 32.08, "e": 32.32}, {"t": "heeft", "s": 32.4, "e": 32.56}, {"t": "vier", "s": 32.72, "e": 32.96}, {"t": "X'en.", "s": 33.12, "e": 33.52}, {"t": "Hoeveel", "s": 34.08, "e": 34.32}, {"t": "chromosomen", "s": 34.44, "e": 34.96}, {"t": "zie", "s": 35.04, "e": 35.12}, {"t": "je?", "s": 35.2, "e": 35.76}, {"t": "Wat", "s": 35.84, "e": 35.92}, {"t": "denk", "s": 36, "e": 36.24}, {"t": "je?", "s": 36.32, "e": 36.72}], "audio": "audio/s13.mp3", "dur": 37.07}, {"id": "q14", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 3 — Chromosomen tellen", "q": "Deze cel heeft vier X'en. Hoeveel chromosomen zie je?", "options": ["2", "4", "8"], "correct": 1, "explain": "Vier: elke X is één chromosoom met twee chromatiden. Tel de centromeren."}, {"id": "s15", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Chromosomen tellen", "words": [{"t": "Vier.", "s": 0, "e": 0.48}, {"t": "Elke", "s": 0.96, "e": 1.2}, {"t": "X", "s": 1.28, "e": 1.6}, {"t": "is", "s": 1.68, "e": 1.92}, {"t": "één", "s": 1.96, "e": 2.08}, {"t": "chromosoom.", "s": 2.16, "e": 2.88}, {"t": "Tel", "s": 3.2, "e": 3.44}, {"t": "de", "s": 3.52, "e": 3.6}, {"t": "centromeren.", "s": 3.72, "e": 4.68}, {"t": "Bij", "s": 4.96, "e": 5.12}, {"t": "een", "s": 5.2, "e": 5.28}, {"t": "mens", "s": 5.44, "e": 5.6}, {"t": "zie", "s": 5.76, "e": 5.84}, {"t": "je", "s": 5.88, "e": 5.92}, {"t": "zo", "s": 6, "e": 6.24}, {"t": "zesenveertig", "s": 6.36, "e": 6.92}, {"t": "chromosomen,", "s": 6.96, "e": 7.84}, {"t": "met", "s": 7.92, "e": 8}, {"t": "samen", "s": 8.08, "e": 8.4}, {"t": "tweeënnegentig", "s": 8.56, "e": 9.28}, {"t": "chromatiden.", "s": 9.36, "e": 10.32}], "audio": "audio/s15.mp3", "dur": 10.67}, {"id": "s16", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 4 — Mitose", "words": [{"t": "Nu", "s": 0, "e": 0.16}, {"t": "de", "s": 0.2, "e": 0.24}, {"t": "mitose,", "s": 0.36, "e": 1.2}, {"t": "in", "s": 1.28, "e": 1.44}, {"t": "vier", "s": 1.52, "e": 1.68}, {"t": "stappen.", "s": 1.84, "e": 2.56}, {"t": "Profase.", "s": 2.88, "e": 3.92}, {"t": "De", "s": 4.16, "e": 4.24}, {"t": "chromosomen", "s": 4.32, "e": 5.04}, {"t": "rollen", "s": 5.12, "e": 5.36}, {"t": "zich", "s": 5.4, "e": 5.52}, {"t": "op", "s": 5.68, "e": 5.84}, {"t": "en", "s": 6, "e": 6.08}, {"t": "worden", "s": 6.16, "e": 6.32}, {"t": "zichtbaar.", "s": 6.4, "e": 7.2}, {"t": "Vanuit", "s": 7.44, "e": 7.76}, {"t": "de", "s": 7.84, "e": 7.92}, {"t": "twee", "s": 7.973, "e": 8.16}, {"t": "polen", "s": 8.24, "e": 8.56}, {"t": "van", "s": 8.64, "e": 8.72}, {"t": "de", "s": 8.76, "e": 8.8}, {"t": "cel", "s": 8.88, "e": 9.2}, {"t": "groeien", "s": 9.36, "e": 9.68}, {"t": "trekdraden.", "s": 9.76, "e": 10.72}, {"t": "Samen", "s": 10.96, "e": 11.36}, {"t": "heten", "s": 11.44, "e": 11.68}, {"t": "ze", "s": 11.72, "e": 11.76}, {"t": "de", "s": 11.84, "e": 11.88}, {"t": "spoelfiguur.", "s": 11.92, "e": 13.04}, {"t": "Aan", "s": 13.28, "e": 13.4}, {"t": "het", "s": 13.44, "e": 13.6}, {"t": "eind", "s": 13.64, "e": 13.84}, {"t": "van", "s": 13.88, "e": 13.92}, {"t": "de", "s": 14, "e": 14.08}, {"t": "profase", "s": 14.28, "e": 14.8}, {"t": "valt", "s": 14.96, "e": 15.12}, {"t": "het", "s": 15.2, "e": 15.28}, {"t": "kernmembraan", "s": 15.32, "e": 16}, {"t": "uit", "s": 16.08, "e": 16.16}, {"t": "elkaar.", "s": 16.24, "e": 16.96}, {"t": "Metafase.", "s": 17.28, "e": 18.16}, {"t": "De", "s": 18.64, "e": 18.8}, {"t": "trekdraden", "s": 18.88, "e": 19.52}, {"t": "trekken", "s": 19.6, "e": 19.84}, {"t": "de", "s": 19.88, "e": 19.92}, {"t": "chromosomen", "s": 20, "e": 20.56}, {"t": "naar", "s": 20.64, "e": 20.72}, {"t": "het", "s": 20.8, "e": 20.88}, {"t": "midden.", "s": 20.96, "e": 21.28}, {"t": "Daar", "s": 21.68, "e": 21.92}, {"t": "liggen", "s": 22, "e": 22.16}, {"t": "ze", "s": 22.24, "e": 22.32}, {"t": "op", "s": 22.44, "e": 22.56}, {"t": "één", "s": 22.64, "e": 22.8}, {"t": "lijn:", "s": 22.88, "e": 23.44}, {"t": "het", "s": 23.52, "e": 23.6}, {"t": "equatorvlak.", "s": 23.72, "e": 24.56}, {"t": "Aan", "s": 24.96, "e": 25.12}, {"t": "elk", "s": 25.2, "e": 25.44}, {"t": "centromeer", "s": 25.56, "e": 26.08}, {"t": "zitten", "s": 26.16, "e": 26.48}, {"t": "trekdraden", "s": 26.56, "e": 27.12}, {"t": "van", "s": 27.24, "e": 27.36}, {"t": "beide", "s": 27.4, "e": 27.6}, {"t": "polen.", "s": 27.68, "e": 28.32}], "audio": "audio/s16.mp3", "dur": 28.67}, {"id": "s17", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 4 — Mitose", "words": [{"t": "Anafase.", "s": 0, "e": 0.8}, {"t": "De", "s": 1, "e": 1.24}, {"t": "centromeren", "s": 1.28, "e": 2.02}, {"t": "splitsen.", "s": 2.08, "e": 2.84}, {"t": "De", "s": 3.04, "e": 3.12}, {"t": "trekdraden", "s": 3.2, "e": 3.84}, {"t": "trekken", "s": 3.92, "e": 4.16}, {"t": "de", "s": 4.2, "e": 4.24}, {"t": "chromatiden", "s": 4.36, "e": 4.88}, {"t": "uit", "s": 4.96, "e": 5.12}, {"t": "elkaar,", "s": 5.2, "e": 5.68}, {"t": "naar", "s": 5.72, "e": 5.84}, {"t": "de", "s": 5.92, "e": 6}, {"t": "twee", "s": 6.053, "e": 6.24}, {"t": "polen.", "s": 6.32, "e": 6.88}, {"t": "Vanaf", "s": 7.04, "e": 7.36}, {"t": "nu", "s": 7.48, "e": 7.6}, {"t": "noemen", "s": 7.68, "e": 7.92}, {"t": "we", "s": 8, "e": 8.08}, {"t": "elke", "s": 8.16, "e": 8.32}, {"t": "chromatide", "s": 8.4, "e": 9.04}, {"t": "een", "s": 9.12, "e": 9.28}, {"t": "chromosoom.", "s": 9.4, "e": 10.2}, {"t": "Even", "s": 10.4, "e": 10.72}, {"t": "zitten", "s": 10.8, "e": 10.96}, {"t": "er", "s": 11.04, "e": 11.12}, {"t": "dus", "s": 11.16, "e": 11.36}, {"t": "tweeënnegentig", "s": 11.4, "e": 12.12}, {"t": "chromosomen", "s": 12.16, "e": 12.8}, {"t": "in", "s": 12.88, "e": 13.12}, {"t": "één", "s": 13.2, "e": 13.36}, {"t": "cel.", "s": 13.44, "e": 13.84}, {"t": "Telofase.", "s": 14.4, "e": 15.28}, {"t": "Aan", "s": 15.6, "e": 15.76}, {"t": "elke", "s": 15.84, "e": 16.08}, {"t": "pool", "s": 16.16, "e": 16.4}, {"t": "ontstaat", "s": 16.48, "e": 16.88}, {"t": "een", "s": 16.96, "e": 17.04}, {"t": "nieuw", "s": 17.12, "e": 17.28}, {"t": "kernmembraan,", "s": 17.36, "e": 18.32}, {"t": "en", "s": 18.4, "e": 18.48}, {"t": "de", "s": 18.52, "e": 18.56}, {"t": "chromosomen", "s": 18.68, "e": 19.28}, {"t": "rollen", "s": 19.36, "e": 19.52}, {"t": "zich", "s": 19.6, "e": 19.68}, {"t": "weer", "s": 19.76, "e": 19.84}, {"t": "uit.", "s": 19.92, "e": 20.44}, {"t": "Ondertussen", "s": 20.64, "e": 21.28}, {"t": "snoert", "s": 21.36, "e": 21.68}, {"t": "de", "s": 21.72, "e": 21.76}, {"t": "cel", "s": 21.84, "e": 22.08}, {"t": "in", "s": 22.12, "e": 22.16}, {"t": "het", "s": 22.24, "e": 22.32}, {"t": "midden", "s": 22.4, "e": 22.64}, {"t": "in.", "s": 22.76, "e": 22.96}, {"t": "Zo", "s": 23.28, "e": 23.52}, {"t": "ontstaan", "s": 23.6, "e": 24.08}, {"t": "twee", "s": 24.12, "e": 24.32}, {"t": "dochtercellen:", "s": 24.48, "e": 25.44}, {"t": "de", "s": 25.48, "e": 25.52}, {"t": "cytokinese.", "s": 25.6, "e": 26.56}, {"t": "Een", "s": 26.88, "e": 27.04}, {"t": "plantencel", "s": 27.12, "e": 27.68}, {"t": "kan", "s": 27.76, "e": 27.92}, {"t": "niet", "s": 27.96, "e": 28.16}, {"t": "insnoeren", "s": 28.32, "e": 28.72}, {"t": "door", "s": 28.8, "e": 28.88}, {"t": "zijn", "s": 28.92, "e": 29.12}, {"t": "celwand.", "s": 29.24, "e": 29.76}, {"t": "Die", "s": 30.08, "e": 30.24}, {"t": "bouwt", "s": 30.28, "e": 30.48}, {"t": "in", "s": 30.56, "e": 30.64}, {"t": "het", "s": 30.72, "e": 30.8}, {"t": "midden", "s": 30.88, "e": 31.04}, {"t": "een", "s": 31.12, "e": 31.2}, {"t": "celplaat,", "s": 31.36, "e": 32}, {"t": "die", "s": 32.04, "e": 32.08}, {"t": "een", "s": 32.16, "e": 32.24}, {"t": "nieuwe", "s": 32.32, "e": 32.48}, {"t": "celwand", "s": 32.56, "e": 32.96}, {"t": "wordt.", "s": 33.04, "e": 33.36}, {"t": "Hoeveel", "s": 33.76, "e": 34.08}, {"t": "chromosomen", "s": 34.2, "e": 34.8}, {"t": "heeft", "s": 34.88, "e": 35.12}, {"t": "elke", "s": 35.2, "e": 35.36}, {"t": "dochtercel?", "s": 35.44, "e": 36.08}, {"t": "Wat", "s": 36.48, "e": 36.56}, {"t": "denk", "s": 36.64, "e": 36.88}, {"t": "je?", "s": 36.96, "e": 37.36}], "audio": "audio/s17.mp3", "dur": 37.71}, {"id": "q18", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 4 — Mitose", "q": "Hoeveel chromosomen heeft elke dochtercel na de mitose (mens)?", "options": ["23", "46", "92"], "correct": 1, "explain": "46, net als de moedercel: elke dochtercel krijgt van elk chromosoom één chromatide."}, {"id": "s19", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 4 — Mitose", "words": [{"t": "Zesenveertig,", "s": 0, "e": 1.28}, {"t": "net", "s": 1.36, "e": 1.6}, {"t": "als", "s": 1.68, "e": 1.76}, {"t": "de", "s": 1.84, "e": 1.92}, {"t": "moedercel.", "s": 1.96, "e": 2.84}, {"t": "Elke", "s": 3.12, "e": 3.44}, {"t": "dochtercel", "s": 3.48, "e": 4.08}, {"t": "krijgt", "s": 4.16, "e": 4.4}, {"t": "van", "s": 4.52, "e": 4.64}, {"t": "elk", "s": 4.72, "e": 4.88}, {"t": "chromosoom", "s": 5, "e": 5.52}, {"t": "één", "s": 5.76, "e": 5.92}, {"t": "chromatide.", "s": 6, "e": 6.96}], "audio": "audio/s19.mp3", "dur": 7.31}, {"id": "s20", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 4 — Mitose", "words": [{"t": "Volg", "s": 0, "e": 0.32}, {"t": "de", "s": 0.36, "e": 0.4}, {"t": "hoeveelheid", "s": 0.48, "e": 1.04}, {"t": "DNA", "s": 1.12, "e": 1.68}, {"t": "in", "s": 1.76, "e": 2}, {"t": "één", "s": 2.04, "e": 2.16}, {"t": "kern.", "s": 2.32, "e": 2.72}, {"t": "Noem", "s": 3.12, "e": 3.28}, {"t": "die", "s": 3.36, "e": 3.52}, {"t": "na", "s": 3.6, "e": 3.68}, {"t": "de", "s": 3.76, "e": 3.84}, {"t": "deling", "s": 3.92, "e": 4.24}, {"t": "p.", "s": 4.4, "e": 4.72}, {"t": "In", "s": 5.2, "e": 5.28}, {"t": "de", "s": 5.32, "e": 5.36}, {"t": "interfase", "s": 5.44, "e": 6.16}, {"t": "verdubbelt", "s": 6.24, "e": 6.8}, {"t": "het", "s": 6.84, "e": 6.88}, {"t": "DNA", "s": 6.96, "e": 7.44}, {"t": "tot", "s": 7.52, "e": 7.68}, {"t": "twee", "s": 7.76, "e": 8}, {"t": "p.", "s": 8.08, "e": 8.4}, {"t": "Na", "s": 8.88, "e": 9.04}, {"t": "de", "s": 9.08, "e": 9.12}, {"t": "mitose", "s": 9.2, "e": 9.76}, {"t": "heeft", "s": 9.8, "e": 10.08}, {"t": "elke", "s": 10.16, "e": 10.4}, {"t": "kern", "s": 10.48, "e": 10.72}, {"t": "weer", "s": 10.8, "e": 11.04}, {"t": "p.", "s": 11.2, "e": 11.52}, {"t": "Het", "s": 11.92, "e": 12}, {"t": "DNA", "s": 12.08, "e": 12.56}, {"t": "is", "s": 12.64, "e": 12.72}, {"t": "dus", "s": 12.76, "e": 12.96}, {"t": "niet", "s": 13.04, "e": 13.2}, {"t": "gehalveerd.", "s": 13.28, "e": 14.12}, {"t": "Het", "s": 14.32, "e": 14.4}, {"t": "is", "s": 14.48, "e": 14.64}, {"t": "eerst", "s": 14.72, "e": 14.88}, {"t": "verdubbeld,", "s": 14.96, "e": 15.68}, {"t": "en", "s": 15.8, "e": 15.92}, {"t": "toen", "s": 15.96, "e": 16.32}, {"t": "eerlijk", "s": 16.44, "e": 16.72}, {"t": "verdeeld.", "s": 16.8, "e": 17.68}, {"t": "De", "s": 17.72, "e": 17.76}, {"t": "twee", "s": 17.84, "e": 18}, {"t": "dochtercellen", "s": 18.08, "e": 18.72}, {"t": "zijn", "s": 18.773, "e": 18.88}, {"t": "genetisch", "s": 19, "e": 19.44}, {"t": "gelijk.", "s": 19.52, "e": 20.16}], "audio": "audio/s20.mp3", "dur": 20.51}, {"id": "s21", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "words": [{"t": "Voor", "s": 0, "e": 0.16}, {"t": "geslachtscellen", "s": 0.28, "e": 0.96}, {"t": "werkt", "s": 1.04, "e": 1.2}, {"t": "het", "s": 1.28, "e": 1.36}, {"t": "anders.", "s": 1.64, "e": 2.16}, {"t": "Bij", "s": 2.4, "e": 2.48}, {"t": "de", "s": 2.52, "e": 2.56}, {"t": "bevruchting", "s": 2.64, "e": 3.2}, {"t": "versmelten", "s": 3.28, "e": 3.84}, {"t": "een", "s": 3.92, "e": 4}, {"t": "zaadcel", "s": 4.08, "e": 4.64}, {"t": "en", "s": 4.72, "e": 4.8}, {"t": "een", "s": 4.88, "e": 4.96}, {"t": "eicel.", "s": 5, "e": 5.76}, {"t": "Hadden", "s": 6, "e": 6.16}, {"t": "die", "s": 6.24, "e": 6.4}, {"t": "allebei", "s": 6.52, "e": 6.88}, {"t": "zesenveertig", "s": 6.96, "e": 7.6}, {"t": "chromosomen,", "s": 7.68, "e": 8.56}, {"t": "dan", "s": 8.64, "e": 8.72}, {"t": "had", "s": 8.8, "e": 8.88}, {"t": "het", "s": 8.92, "e": 8.96}, {"t": "kind", "s": 9.04, "e": 9.28}, {"t": "er", "s": 9.36, "e": 9.44}, {"t": "tweeënnegentig.", "s": 9.48, "e": 10.48}, {"t": "Een", "s": 11.04, "e": 11.12}, {"t": "gewone", "s": 11.2, "e": 11.52}, {"t": "lichaamscel", "s": 11.6, "e": 12.24}, {"t": "heeft", "s": 12.28, "e": 12.56}, {"t": "paren", "s": 12.76, "e": 12.96}, {"t": "chromosomen.", "s": 13.08, "e": 13.88}, {"t": "Zo'n", "s": 14.08, "e": 14.24}, {"t": "cel", "s": 14.32, "e": 14.56}, {"t": "heet", "s": 14.68, "e": 14.8}, {"t": "diploïd:", "s": 14.96, "e": 16}, {"t": "twee", "s": 16.08, "e": 16.24}, {"t": "n", "s": 16.48, "e": 16.72}, {"t": "is", "s": 16.8, "e": 16.88}, {"t": "zesenveertig.", "s": 16.96, "e": 18.32}, {"t": "Een", "s": 18.4, "e": 18.48}, {"t": "geslachtscel", "s": 18.6, "e": 19.28}, {"t": "heeft", "s": 19.32, "e": 19.52}, {"t": "van", "s": 19.64, "e": 19.76}, {"t": "elk", "s": 19.84, "e": 20}, {"t": "paar", "s": 20.08, "e": 20.32}, {"t": "er", "s": 20.4, "e": 20.48}, {"t": "maar", "s": 20.52, "e": 20.72}, {"t": "één.", "s": 20.8, "e": 21.44}, {"t": "Die", "s": 21.52, "e": 21.6}, {"t": "heet", "s": 21.72, "e": 21.84}, {"t": "haploïd:", "s": 22, "e": 23.12}, {"t": "n", "s": 23.2, "e": 23.44}, {"t": "is", "s": 23.52, "e": 23.68}, {"t": "drieëntwintig.", "s": 23.76, "e": 24.88}], "audio": "audio/s21.mp3", "dur": 25.23}, {"id": "s22", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "words": [{"t": "Geslachtscellen", "s": 0, "e": 0.88}, {"t": "ontstaan", "s": 0.96, "e": 1.36}, {"t": "door", "s": 1.44, "e": 1.6}, {"t": "meiose,", "s": 1.68, "e": 2.64}, {"t": "in", "s": 2.68, "e": 2.72}, {"t": "de", "s": 2.8, "e": 2.88}, {"t": "teelballen", "s": 2.96, "e": 3.6}, {"t": "en", "s": 3.68, "e": 3.76}, {"t": "de", "s": 3.8, "e": 3.84}, {"t": "eierstokken.", "s": 3.92, "e": 4.64}, {"t": "Meiose", "s": 5.12, "e": 5.76}, {"t": "halveert", "s": 5.84, "e": 6.4}, {"t": "het", "s": 6.48, "e": 6.56}, {"t": "aantal", "s": 6.6, "e": 6.88}, {"t": "chromosomen.", "s": 7, "e": 7.88}, {"t": "Daarom", "s": 8.08, "e": 8.4}, {"t": "heet", "s": 8.48, "e": 8.64}, {"t": "het", "s": 8.68, "e": 8.72}, {"t": "ook", "s": 8.8, "e": 8.96}, {"t": "reductiedeling.", "s": 9.04, "e": 10.28}, {"t": "Meiose", "s": 10.56, "e": 11.04}, {"t": "bestaat", "s": 11.12, "e": 11.44}, {"t": "uit", "s": 11.52, "e": 11.68}, {"t": "twee", "s": 11.76, "e": 12}, {"t": "delingen", "s": 12.08, "e": 12.56}, {"t": "achter", "s": 12.64, "e": 12.88}, {"t": "elkaar.", "s": 12.96, "e": 13.48}, {"t": "Het", "s": 13.68, "e": 13.84}, {"t": "DNA", "s": 13.92, "e": 14.4}, {"t": "wordt", "s": 14.48, "e": 14.64}, {"t": "maar", "s": 14.68, "e": 14.88}, {"t": "één", "s": 14.96, "e": 15.12}, {"t": "keer", "s": 15.2, "e": 15.28}, {"t": "gekopieerd.", "s": 15.36, "e": 16.44}, {"t": "In", "s": 16.72, "e": 16.88}, {"t": "meiose", "s": 16.96, "e": 17.44}, {"t": "I", "s": 17.52, "e": 17.84}, {"t": "zoeken", "s": 18, "e": 18.16}, {"t": "de", "s": 18.24, "e": 18.32}, {"t": "homologe", "s": 18.44, "e": 18.92}, {"t": "chromosomen", "s": 18.96, "e": 19.68}, {"t": "elkaar", "s": 19.76, "e": 20}, {"t": "op.", "s": 20.08, "e": 20.52}, {"t": "Ze", "s": 20.72, "e": 20.8}, {"t": "gaan", "s": 20.88, "e": 21.04}, {"t": "als", "s": 21.12, "e": 21.2}, {"t": "paren", "s": 21.36, "e": 21.76}, {"t": "in", "s": 21.8, "e": 21.84}, {"t": "het", "s": 21.92, "e": 22}, {"t": "equatorvlak", "s": 22.12, "e": 22.8}, {"t": "liggen.", "s": 22.88, "e": 23.4}, {"t": "Dan", "s": 23.68, "e": 23.92}, {"t": "gaan", "s": 24, "e": 24.12}, {"t": "de", "s": 24.16, "e": 24.24}, {"t": "paren", "s": 24.32, "e": 24.64}, {"t": "uit", "s": 24.76, "e": 24.88}, {"t": "elkaar.", "s": 24.92, "e": 25.56}, {"t": "Hoeveel", "s": 25.84, "e": 26.16}, {"t": "chromosomen", "s": 26.28, "e": 26.88}, {"t": "heeft", "s": 26.92, "e": 27.12}, {"t": "elke", "s": 27.2, "e": 27.44}, {"t": "cel", "s": 27.52, "e": 27.76}, {"t": "na", "s": 27.92, "e": 28.08}, {"t": "meiose", "s": 28.16, "e": 28.64}, {"t": "I?", "s": 28.72, "e": 29.2}, {"t": "Wat", "s": 29.44, "e": 29.52}, {"t": "denk", "s": 29.6, "e": 29.84}, {"t": "je?", "s": 29.92, "e": 30.32}], "audio": "audio/s22.mp3", "dur": 30.67}, {"id": "q23", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "q": "Hoeveel chromosomen heeft elke cel na meiose I (mens)?", "options": ["46", "23", "92"], "correct": 1, "explain": "23: de paren gaan in meiose I uit elkaar. Elk chromosoom heeft nog twee chromatiden."}, {"id": "s24", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "words": [{"t": "Drieëntwintig.", "s": 0, "e": 1.36}, {"t": "Van", "s": 1.48, "e": 1.6}, {"t": "elk", "s": 1.68, "e": 1.92}, {"t": "paar", "s": 2, "e": 2.24}, {"t": "gaat", "s": 2.32, "e": 2.64}, {"t": "één", "s": 2.68, "e": 2.8}, {"t": "chromosoom", "s": 2.88, "e": 3.44}, {"t": "naar", "s": 3.48, "e": 3.68}, {"t": "elke", "s": 3.76, "e": 3.92}, {"t": "kant,", "s": 4.08, "e": 4.72}, {"t": "elk", "s": 4.8, "e": 5.04}, {"t": "nog", "s": 5.08, "e": 5.2}, {"t": "met", "s": 5.32, "e": 5.44}, {"t": "twee", "s": 5.493, "e": 5.64}, {"t": "chromatiden.", "s": 5.68, "e": 6.64}, {"t": "Het", "s": 6.88, "e": 6.96}, {"t": "halveren", "s": 7.04, "e": 7.6}, {"t": "gebeurt", "s": 7.68, "e": 8}, {"t": "dus", "s": 8.04, "e": 8.16}, {"t": "al", "s": 8.24, "e": 8.4}, {"t": "in", "s": 8.48, "e": 8.56}, {"t": "meiose", "s": 8.64, "e": 9.12}, {"t": "I.", "s": 9.2, "e": 9.52}, {"t": "In", "s": 10, "e": 10.08}, {"t": "meiose", "s": 10.16, "e": 10.56}, {"t": "II", "s": 10.64, "e": 10.96}, {"t": "gaan", "s": 11.04, "e": 11.2}, {"t": "de", "s": 11.24, "e": 11.28}, {"t": "chromatiden", "s": 11.4, "e": 11.92}, {"t": "uit", "s": 12, "e": 12.08}, {"t": "elkaar,", "s": 12.16, "e": 12.72}, {"t": "net", "s": 12.8, "e": 12.96}, {"t": "als", "s": 13, "e": 13.04}, {"t": "bij", "s": 13.12, "e": 13.2}, {"t": "de", "s": 13.24, "e": 13.28}, {"t": "mitose.", "s": 13.36, "e": 14.16}, {"t": "Bij", "s": 14.4, "e": 14.48}, {"t": "een", "s": 14.56, "e": 14.64}, {"t": "man", "s": 14.72, "e": 14.96}, {"t": "ontstaan", "s": 15.04, "e": 15.44}, {"t": "zo", "s": 15.56, "e": 15.68}, {"t": "vier", "s": 15.76, "e": 16}, {"t": "zaadcellen.", "s": 16.08, "e": 16.72}, {"t": "Bij", "s": 17.12, "e": 17.2}, {"t": "een", "s": 17.28, "e": 17.36}, {"t": "vrouw", "s": 17.44, "e": 17.76}, {"t": "verloopt", "s": 17.84, "e": 18.16}, {"t": "de", "s": 18.2, "e": 18.24}, {"t": "deling", "s": 18.36, "e": 18.56}, {"t": "scheef:", "s": 18.64, "e": 19.44}, {"t": "er", "s": 19.52, "e": 19.6}, {"t": "ontstaat", "s": 19.68, "e": 20}, {"t": "maar", "s": 20.04, "e": 20.24}, {"t": "één", "s": 20.32, "e": 20.48}, {"t": "eicel.", "s": 20.56, "e": 21.12}, {"t": "De", "s": 21.52, "e": 21.6}, {"t": "andere", "s": 21.68, "e": 21.92}, {"t": "cellen", "s": 22, "e": 22.24}, {"t": "zijn", "s": 22.28, "e": 22.48}, {"t": "klein", "s": 22.56, "e": 22.88}, {"t": "en", "s": 23.04, "e": 23.12}, {"t": "sterven", "s": 23.2, "e": 23.52}, {"t": "af.", "s": 23.6, "e": 24.16}], "audio": "audio/s24.mp3", "dur": 24.51}, {"id": "s25", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "words": [{"t": "In", "s": 0, "e": 0.16}, {"t": "de", "s": 0.2, "e": 0.24}, {"t": "grafiek:", "s": 0.36, "e": 1.2}, {"t": "het", "s": 1.28, "e": 1.36}, {"t": "DNA", "s": 1.44, "e": 2}, {"t": "gaat", "s": 2.08, "e": 2.32}, {"t": "van", "s": 2.4, "e": 2.48}, {"t": "p", "s": 2.64, "e": 2.96}, {"t": "naar", "s": 3.2, "e": 3.28}, {"t": "twee", "s": 3.44, "e": 3.68}, {"t": "p,", "s": 3.76, "e": 4.4}, {"t": "na", "s": 4.48, "e": 4.56}, {"t": "meiose", "s": 4.64, "e": 5.04}, {"t": "I", "s": 5.2, "e": 5.44}, {"t": "terug", "s": 5.52, "e": 5.84}, {"t": "naar", "s": 5.88, "e": 6}, {"t": "p,", "s": 6.08, "e": 6.72}, {"t": "en", "s": 6.8, "e": 6.96}, {"t": "na", "s": 7.04, "e": 7.2}, {"t": "meiose", "s": 7.28, "e": 7.68}, {"t": "II", "s": 7.76, "e": 8}, {"t": "naar", "s": 8.24, "e": 8.32}, {"t": "een", "s": 8.4, "e": 8.48}, {"t": "half", "s": 8.56, "e": 8.88}, {"t": "p.", "s": 8.96, "e": 9.44}], "audio": "audio/s25.mp3", "dur": 9.79}, {"id": "s26", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 5 — Meiose", "words": [{"t": "Welk", "s": 0, "e": 0.28}, {"t": "chromosoom", "s": 0.32, "e": 0.96}, {"t": "van", "s": 1.04, "e": 1.12}, {"t": "een", "s": 1.2, "e": 1.28}, {"t": "paar", "s": 1.32, "e": 1.52}, {"t": "naar", "s": 1.56, "e": 1.76}, {"t": "welke", "s": 1.84, "e": 2.08}, {"t": "kant", "s": 2.12, "e": 2.32}, {"t": "gaat,", "s": 2.4, "e": 2.8}, {"t": "is", "s": 2.88, "e": 2.96}, {"t": "toeval.", "s": 3, "e": 3.92}, {"t": "Met", "s": 4, "e": 4.08}, {"t": "drieëntwintig", "s": 4.12, "e": 4.72}, {"t": "paren", "s": 4.8, "e": 5.2}, {"t": "geeft", "s": 5.28, "e": 5.44}, {"t": "dat", "s": 5.52, "e": 5.68}, {"t": "twee", "s": 5.76, "e": 5.92}, {"t": "tot", "s": 6.08, "e": 6.16}, {"t": "de", "s": 6.2, "e": 6.24}, {"t": "macht", "s": 6.32, "e": 6.56}, {"t": "drieëntwintig", "s": 6.6, "e": 7.28}, {"t": "combinaties:", "s": 7.36, "e": 8.48}, {"t": "zo'n", "s": 8.52, "e": 8.8}, {"t": "acht", "s": 8.88, "e": 9.04}, {"t": "miljoen.", "s": 9.2, "e": 10.04}, {"t": "Er", "s": 10.32, "e": 10.4}, {"t": "komt", "s": 10.48, "e": 10.72}, {"t": "nog", "s": 10.8, "e": 10.96}, {"t": "meer", "s": 11.04, "e": 11.12}, {"t": "variatie", "s": 11.2, "e": 11.68}, {"t": "bij.", "s": 11.76, "e": 12.24}, {"t": "In", "s": 12.48, "e": 12.56}, {"t": "meiose", "s": 12.64, "e": 13.12}, {"t": "I", "s": 13.2, "e": 13.44}, {"t": "liggen", "s": 13.52, "e": 13.68}, {"t": "de", "s": 13.76, "e": 13.84}, {"t": "homologe", "s": 13.92, "e": 14.4}, {"t": "chromosomen", "s": 14.48, "e": 15.2}, {"t": "dicht", "s": 15.24, "e": 15.52}, {"t": "tegen", "s": 15.6, "e": 15.76}, {"t": "elkaar.", "s": 15.84, "e": 16.48}, {"t": "Daarbij", "s": 16.72, "e": 17.12}, {"t": "wisselen", "s": 17.16, "e": 17.52}, {"t": "ze", "s": 17.6, "e": 17.68}, {"t": "soms", "s": 17.76, "e": 17.92}, {"t": "stukken", "s": 17.96, "e": 18.24}, {"t": "uit.", "s": 18.32, "e": 18.64}, {"t": "Dat", "s": 18.96, "e": 19.12}, {"t": "heet", "s": 19.24, "e": 19.36}, {"t": "crossing-over.", "s": 19.52, "e": 20.64}, {"t": "Daardoor", "s": 20.88, "e": 21.28}, {"t": "zijn", "s": 21.32, "e": 21.6}, {"t": "veel", "s": 21.64, "e": 21.76}, {"t": "chromosomen", "s": 21.84, "e": 22.48}, {"t": "in", "s": 22.52, "e": 22.56}, {"t": "een", "s": 22.64, "e": 22.68}, {"t": "geslachtscel", "s": 22.72, "e": 23.44}, {"t": "een", "s": 23.56, "e": 23.68}, {"t": "nieuwe", "s": 23.72, "e": 23.92}, {"t": "mengeling", "s": 24, "e": 24.4}, {"t": "van", "s": 24.48, "e": 24.56}, {"t": "het", "s": 24.64, "e": 24.72}, {"t": "chromosoom", "s": 24.84, "e": 25.2}, {"t": "van", "s": 25.28, "e": 25.36}, {"t": "je", "s": 25.44, "e": 25.52}, {"t": "vader", "s": 25.6, "e": 26}, {"t": "en", "s": 26.16, "e": 26.32}, {"t": "dat", "s": 26.4, "e": 26.48}, {"t": "van", "s": 26.56, "e": 26.64}, {"t": "je", "s": 26.68, "e": 26.72}, {"t": "moeder.", "s": 26.8, "e": 27.36}, {"t": "Daarom", "s": 27.6, "e": 28}, {"t": "verschilt", "s": 28.08, "e": 28.48}, {"t": "bijna", "s": 28.56, "e": 28.88}, {"t": "elke", "s": 28.96, "e": 29.2}, {"t": "geslachtscel", "s": 29.32, "e": 29.84}, {"t": "van", "s": 29.92, "e": 30}, {"t": "een", "s": 30.04, "e": 30.08}, {"t": "persoon", "s": 30.2, "e": 30.56}, {"t": "van", "s": 30.64, "e": 30.72}, {"t": "de", "s": 30.76, "e": 30.8}, {"t": "andere.", "s": 30.88, "e": 31.56}, {"t": "Bij", "s": 31.84, "e": 32}, {"t": "de", "s": 32.04, "e": 32.08}, {"t": "bevruchting", "s": 32.16, "e": 32.72}, {"t": "komen", "s": 32.8, "e": 33.12}, {"t": "n", "s": 33.2, "e": 33.44}, {"t": "en", "s": 33.52, "e": 33.76}, {"t": "n", "s": 33.88, "e": 34}, {"t": "samen:", "s": 34.08, "e": 34.88}, {"t": "weer", "s": 34.92, "e": 35.2}, {"t": "twee", "s": 35.28, "e": 35.56}, {"t": "n,", "s": 35.68, "e": 36.32}, {"t": "zesenveertig.", "s": 36.44, "e": 37.44}], "audio": "audio/s26.mp3", "dur": 37.79}, {"id": "s27", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "words": [{"t": "Zet", "s": 0, "e": 0.08}, {"t": "de", "s": 0.08, "e": 0.16}, {"t": "twee", "s": 0.16, "e": 0.24}, {"t": "delingen", "s": 0.32, "e": 1.008}, {"t": "naast", "s": 1.056, "e": 1.32}, {"t": "elkaar.", "s": 1.36, "e": 1.76}, {"t": "Bij", "s": 1.84, "e": 2.28}, {"t": "welke", "s": 2.56, "e": 2.853}, {"t": "deling", "s": 2.907, "e": 3.6}, {"t": "liggen", "s": 3.68, "e": 3.92}, {"t": "homologe", "s": 4.04, "e": 4.52}, {"t": "chromosomen", "s": 4.56, "e": 5.28}, {"t": "als", "s": 5.36, "e": 5.52}, {"t": "paren", "s": 5.6, "e": 6}, {"t": "in", "s": 6.04, "e": 6.08}, {"t": "het", "s": 6.16, "e": 6.24}, {"t": "equatorvlak?", "s": 6.36, "e": 7.36}, {"t": "Wat", "s": 7.6, "e": 7.68}, {"t": "denk", "s": 7.76, "e": 8}, {"t": "je?", "s": 8.08, "e": 8.48}], "audio": "audio/s27.mp3", "dur": 8.83}, {"id": "q28", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "q": "Bij welke deling liggen homologe chromosomen als paren in het equatorvlak?", "options": ["mitose", "meiose I", "meiose II"], "correct": 1, "explain": "Alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak."}, {"id": "s29", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "words": [{"t": "Alleen", "s": 0, "e": 0.4}, {"t": "bij", "s": 0.48, "e": 0.64}, {"t": "meiose", "s": 0.72, "e": 1.2}, {"t": "I.", "s": 1.28, "e": 1.8}, {"t": "Bij", "s": 2, "e": 2.12}, {"t": "de", "s": 2.16, "e": 2.24}, {"t": "mitose", "s": 2.32, "e": 2.96}, {"t": "en", "s": 3.12, "e": 3.2}, {"t": "bij", "s": 3.28, "e": 3.44}, {"t": "meiose", "s": 3.52, "e": 3.92}, {"t": "II", "s": 4, "e": 4.32}, {"t": "liggen", "s": 4.48, "e": 4.72}, {"t": "de", "s": 4.76, "e": 4.8}, {"t": "chromosomen", "s": 4.92, "e": 5.44}, {"t": "los,", "s": 5.52, "e": 6.16}, {"t": "elk", "s": 6.28, "e": 6.48}, {"t": "met", "s": 6.56, "e": 6.72}, {"t": "twee", "s": 6.76, "e": 6.96}, {"t": "chromatiden.", "s": 7.04, "e": 7.76}, {"t": "Mitose:", "s": 8.4, "e": 9.44}, {"t": "één", "s": 9.48, "e": 9.6}, {"t": "deling,", "s": 9.68, "e": 10.4}, {"t": "twee", "s": 10.44, "e": 10.64}, {"t": "dochtercellen,", "s": 10.72, "e": 11.68}, {"t": "diploïd,", "s": 11.76, "e": 12.64}, {"t": "genetisch", "s": 12.76, "e": 13.2}, {"t": "gelijk.", "s": 13.28, "e": 13.84}, {"t": "Voor", "s": 14, "e": 14.16}, {"t": "groei,", "s": 14.24, "e": 14.72}, {"t": "herstel", "s": 14.84, "e": 15.28}, {"t": "en", "s": 15.44, "e": 15.52}, {"t": "vervanging.", "s": 15.6, "e": 16.16}, {"t": "Meiose:", "s": 16.72, "e": 17.76}, {"t": "twee", "s": 17.8, "e": 18}, {"t": "delingen,", "s": 18.08, "e": 18.72}, {"t": "geslachtscellen,", "s": 18.8, "e": 19.92}, {"t": "haploïd,", "s": 20, "e": 20.88}, {"t": "genetisch", "s": 20.96, "e": 21.44}, {"t": "verschillend.", "s": 21.56, "e": 22.16}, {"t": "Voor", "s": 22.48, "e": 22.56}, {"t": "de", "s": 22.64, "e": 22.72}, {"t": "voortplanting.", "s": 22.76, "e": 23.84}, {"t": "Meiose", "s": 24.16, "e": 24.72}, {"t": "is", "s": 24.8, "e": 24.88}, {"t": "dus", "s": 24.96, "e": 25.12}, {"t": "niet", "s": 25.2, "e": 25.36}, {"t": "gewoon", "s": 25.44, "e": 25.76}, {"t": "twee", "s": 25.84, "e": 26}, {"t": "keer", "s": 26.08, "e": 26.24}, {"t": "mitose.", "s": 26.32, "e": 27.16}, {"t": "In", "s": 27.36, "e": 27.44}, {"t": "meiose", "s": 27.52, "e": 27.92}, {"t": "I", "s": 28, "e": 28.24}, {"t": "gaan", "s": 28.32, "e": 28.56}, {"t": "hele", "s": 28.64, "e": 28.88}, {"t": "paren", "s": 29.04, "e": 29.36}, {"t": "uit", "s": 29.44, "e": 29.52}, {"t": "elkaar,", "s": 29.6, "e": 30.24}, {"t": "en", "s": 30.32, "e": 30.48}, {"t": "tussen", "s": 30.56, "e": 30.72}, {"t": "de", "s": 30.8, "e": 30.88}, {"t": "twee", "s": 30.92, "e": 31.08}, {"t": "delingen", "s": 31.12, "e": 31.6}, {"t": "wordt", "s": 31.68, "e": 31.84}, {"t": "het", "s": 31.88, "e": 31.92}, {"t": "DNA", "s": 32, "e": 32.48}, {"t": "niet", "s": 32.56, "e": 32.72}, {"t": "opnieuw", "s": 32.8, "e": 33.12}, {"t": "gekopieerd.", "s": 33.2, "e": 34.16}], "audio": "audio/s29.mp3", "dur": 34.51}, {"id": "s30", "kind": "speech", "level": "vwo", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "words": [{"t": "Voor", "s": 0, "e": 0.24}, {"t": "vwo", "s": 0.32, "e": 0.72}, {"t": "nog", "s": 0.8, "e": 1.36}, {"t": "één", "s": 1.44, "e": 1.52}, {"t": "stap:", "s": 1.68, "e": 2.48}, {"t": "wat", "s": 2.64, "e": 2.8}, {"t": "als", "s": 2.88, "e": 2.96}, {"t": "het", "s": 3.04, "e": 3.12}, {"t": "misgaat?", "s": 3.2, "e": 4.12}, {"t": "Normaal", "s": 4.4, "e": 4.8}, {"t": "deelt", "s": 4.88, "e": 5.04}, {"t": "een", "s": 5.12, "e": 5.2}, {"t": "cel", "s": 5.28, "e": 5.52}, {"t": "alleen", "s": 5.68, "e": 6}, {"t": "als", "s": 6.08, "e": 6.16}, {"t": "het", "s": 6.24, "e": 6.32}, {"t": "nodig", "s": 6.44, "e": 6.72}, {"t": "is,", "s": 6.84, "e": 7.12}, {"t": "en", "s": 7.2, "e": 7.28}, {"t": "alleen", "s": 7.44, "e": 7.76}, {"t": "als", "s": 7.84, "e": 7.92}, {"t": "de", "s": 7.96, "e": 8}, {"t": "controlepunten", "s": 8.12, "e": 8.88}, {"t": "groen", "s": 8.96, "e": 9.12}, {"t": "licht", "s": 9.2, "e": 9.44}, {"t": "geven.", "s": 9.52, "e": 10.32}, {"t": "Raken", "s": 10.4, "e": 10.72}, {"t": "door", "s": 10.8, "e": 10.88}, {"t": "fouten", "s": 10.96, "e": 11.28}, {"t": "in", "s": 11.32, "e": 11.36}, {"t": "het", "s": 11.44, "e": 11.52}, {"t": "DNA", "s": 11.6, "e": 12}, {"t": "de", "s": 12.08, "e": 12.16}, {"t": "remmen", "s": 12.24, "e": 12.4}, {"t": "kapot,", "s": 12.48, "e": 13.2}, {"t": "meestal", "s": 13.24, "e": 13.68}, {"t": "meerdere", "s": 13.72, "e": 14}, {"t": "tegelijk,", "s": 14.08, "e": 14.96}, {"t": "dan", "s": 15.04, "e": 15.28}, {"t": "blijft", "s": 15.32, "e": 15.6}, {"t": "de", "s": 15.68, "e": 15.76}, {"t": "cel", "s": 15.88, "e": 16}, {"t": "delen.", "s": 16.08, "e": 16.96}, {"t": "Zo", "s": 17.04, "e": 17.36}, {"t": "ontstaat", "s": 17.44, "e": 17.76}, {"t": "een", "s": 17.84, "e": 18}, {"t": "tumor.", "s": 18.133, "e": 18.8}, {"t": "Bij", "s": 18.84, "e": 18.96}, {"t": "kanker", "s": 19.04, "e": 19.44}, {"t": "dringen", "s": 19.52, "e": 19.76}, {"t": "die", "s": 19.84, "e": 19.92}, {"t": "cellen", "s": 20.04, "e": 20.2}, {"t": "ook", "s": 20.24, "e": 20.48}, {"t": "andere", "s": 20.56, "e": 20.8}, {"t": "weefsels", "s": 20.84, "e": 21.28}, {"t": "binnen.", "s": 21.36, "e": 22.16}, {"t": "Ook", "s": 22.2, "e": 22.4}, {"t": "bij", "s": 22.44, "e": 22.48}, {"t": "de", "s": 22.56, "e": 22.64}, {"t": "meiose", "s": 22.72, "e": 23.2}, {"t": "kan", "s": 23.28, "e": 23.36}, {"t": "het", "s": 23.4, "e": 23.44}, {"t": "misgaan.", "s": 23.52, "e": 24.4}, {"t": "Soms", "s": 24.48, "e": 24.72}, {"t": "gaan", "s": 24.8, "e": 24.92}, {"t": "de", "s": 24.96, "e": 25.04}, {"t": "twee", "s": 25.08, "e": 25.24}, {"t": "chromosomen", "s": 25.28, "e": 25.92}, {"t": "van", "s": 26, "e": 26.08}, {"t": "een", "s": 26.16, "e": 26.24}, {"t": "paar,", "s": 26.32, "e": 26.72}, {"t": "of", "s": 26.84, "e": 26.96}, {"t": "twee", "s": 27.12, "e": 27.28}, {"t": "chromatiden,", "s": 27.36, "e": 28.24}, {"t": "niet", "s": 28.32, "e": 28.48}, {"t": "uit", "s": 28.56, "e": 28.72}, {"t": "elkaar.", "s": 28.8, "e": 29.52}, {"t": "Dat", "s": 29.64, "e": 29.76}, {"t": "heet", "s": 29.88, "e": 30}, {"t": "non-disjunctie.", "s": 30.24, "e": 31.6}, {"t": "Dan", "s": 31.68, "e": 31.84}, {"t": "krijgt", "s": 31.88, "e": 32.08}, {"t": "de", "s": 32.16, "e": 32.24}, {"t": "ene", "s": 32.32, "e": 32.48}, {"t": "geslachtscel", "s": 32.56, "e": 33.2}, {"t": "een", "s": 33.24, "e": 33.28}, {"t": "chromosoom", "s": 33.4, "e": 33.84}, {"t": "te", "s": 33.92, "e": 34}, {"t": "veel,", "s": 34.08, "e": 34.56}, {"t": "en", "s": 34.6, "e": 34.64}, {"t": "de", "s": 34.72, "e": 34.8}, {"t": "andere", "s": 34.92, "e": 35.2}, {"t": "een", "s": 35.28, "e": 35.44}, {"t": "te", "s": 35.48, "e": 35.52}, {"t": "weinig.", "s": 35.6, "e": 36.56}, {"t": "Een", "s": 36.6, "e": 36.72}, {"t": "eicel", "s": 36.8, "e": 37.28}, {"t": "heeft", "s": 37.32, "e": 37.44}, {"t": "door", "s": 37.52, "e": 37.6}, {"t": "non-disjunctie", "s": 37.68, "e": 38.48}, {"t": "vierentwintig", "s": 38.72, "e": 39.4}, {"t": "chromosomen.", "s": 39.44, "e": 40.56}, {"t": "Een", "s": 40.587, "e": 40.64}, {"t": "normale", "s": 40.76, "e": 41.12}, {"t": "zaadcel", "s": 41.2, "e": 41.68}, {"t": "bevrucht", "s": 41.76, "e": 42.16}, {"t": "hem.", "s": 42.28, "e": 42.8}, {"t": "Hoeveel", "s": 42.853, "e": 43.12}, {"t": "chromosomen", "s": 43.24, "e": 43.76}, {"t": "heeft", "s": 43.8, "e": 43.92}, {"t": "het", "s": 44, "e": 44.08}, {"t": "kind?", "s": 44.16, "e": 44.96}, {"t": "Wat", "s": 45, "e": 45.04}, {"t": "denk", "s": 45.12, "e": 45.36}, {"t": "je?", "s": 45.44, "e": 45.84}], "audio": "audio/s30.mp3", "dur": 46.19}, {"id": "q31", "kind": "question", "level": "vwo", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "q": "Een eicel met 24 chromosomen wordt bevrucht door een normale zaadcel. Hoeveel chromosomen heeft het kind?", "options": ["45", "46", "47"], "correct": 2, "explain": "24 + 23 = 47. Is het extra chromosoom nummer 21, dan heeft het kind trisomie 21."}, {"id": "s32", "kind": "speech", "level": "vwo", "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar", "words": [{"t": "Zevenenveertig.", "s": 0, "e": 1.52}, {"t": "Is", "s": 1.56, "e": 1.6}, {"t": "het", "s": 1.68, "e": 1.84}, {"t": "extra", "s": 2, "e": 2.16}, {"t": "chromosoom", "s": 2.24, "e": 2.8}, {"t": "nummer", "s": 2.88, "e": 3.12}, {"t": "eenentwintig,", "s": 3.2, "e": 4.4}, {"t": "dan", "s": 4.48, "e": 4.56}, {"t": "heeft", "s": 4.6, "e": 4.72}, {"t": "het", "s": 4.8, "e": 4.88}, {"t": "kind", "s": 4.96, "e": 5.28}, {"t": "drie", "s": 5.32, "e": 5.44}, {"t": "keer", "s": 5.6, "e": 5.76}, {"t": "chromosoom", "s": 5.84, "e": 6.4}, {"t": "eenentwintig.", "s": 6.48, "e": 7.68}, {"t": "Dat", "s": 7.76, "e": 7.92}, {"t": "heet", "s": 8.04, "e": 8.16}, {"t": "trisomie", "s": 8.32, "e": 9.04}, {"t": "eenentwintig.", "s": 9.16, "e": 10.32}, {"t": "Het", "s": 10.4, "e": 10.48}, {"t": "kind", "s": 10.56, "e": 10.8}, {"t": "heeft", "s": 10.88, "e": 11.04}, {"t": "dan", "s": 11.12, "e": 11.2}, {"t": "het", "s": 11.24, "e": 11.28}, {"t": "syndroom", "s": 11.36, "e": 11.84}, {"t": "van", "s": 11.92, "e": 12}, {"t": "Down.", "s": 12.08, "e": 12.48}, {"t": "Terug", "s": 13.12, "e": 13.36}, {"t": "naar", "s": 13.4, "e": 13.52}, {"t": "de", "s": 13.56, "e": 13.6}, {"t": "hoofdlijn.", "s": 13.68, "e": 14.48}], "audio": "audio/s32.mp3", "dur": 14.83}, {"id": "s33", "kind": "speech", "level": "basis", "chapter": "Recap", "words": [{"t": "Een", "s": 0, "e": 0.16}, {"t": "cel", "s": 0.24, "e": 0.48}, {"t": "deelt", "s": 0.64, "e": 0.96}, {"t": "om", "s": 1.04, "e": 1.12}, {"t": "te", "s": 1.16, "e": 1.2}, {"t": "groeien,", "s": 1.28, "e": 1.84}, {"t": "te", "s": 1.88, "e": 1.92}, {"t": "herstellen", "s": 2.04, "e": 2.56}, {"t": "en", "s": 2.64, "e": 2.8}, {"t": "te", "s": 2.84, "e": 2.88}, {"t": "vervangen.", "s": 2.96, "e": 3.52}, {"t": "Eerst", "s": 4, "e": 4.32}, {"t": "kopieert", "s": 4.44, "e": 4.88}, {"t": "hij", "s": 4.907, "e": 4.96}, {"t": "zijn", "s": 5.04, "e": 5.2}, {"t": "DNA,", "s": 5.28, "e": 5.92}, {"t": "in", "s": 5.96, "e": 6}, {"t": "de", "s": 6.08, "e": 6.16}, {"t": "interfase.", "s": 6.24, "e": 7.04}, {"t": "Bij", "s": 7.52, "e": 7.6}, {"t": "de", "s": 7.64, "e": 7.68}, {"t": "mitose", "s": 7.76, "e": 8.32}, {"t": "gaan", "s": 8.48, "e": 8.56}, {"t": "de", "s": 8.6, "e": 8.64}, {"t": "chromatiden", "s": 8.72, "e": 9.36}, {"t": "uit", "s": 9.44, "e": 9.52}, {"t": "elkaar.", "s": 9.6, "e": 10.24}, {"t": "Zo", "s": 10.48, "e": 10.64}, {"t": "ontstaan", "s": 10.72, "e": 11.2}, {"t": "twee", "s": 11.24, "e": 11.44}, {"t": "dochtercellen", "s": 11.52, "e": 12.24}, {"t": "met", "s": 12.32, "e": 12.4}, {"t": "precies", "s": 12.48, "e": 12.96}, {"t": "hetzelfde", "s": 13.04, "e": 13.52}, {"t": "DNA:", "s": 13.6, "e": 14.4}, {"t": "zesenveertig", "s": 14.48, "e": 15.12}, {"t": "chromosomen.", "s": 15.2, "e": 16.16}, {"t": "Bij", "s": 16.4, "e": 16.48}, {"t": "de", "s": 16.56, "e": 16.64}, {"t": "meiose", "s": 16.72, "e": 17.36}, {"t": "gaan", "s": 17.44, "e": 17.68}, {"t": "eerst", "s": 17.76, "e": 18}, {"t": "de", "s": 18.08, "e": 18.16}, {"t": "paren", "s": 18.32, "e": 18.48}, {"t": "uit", "s": 18.56, "e": 18.64}, {"t": "elkaar", "s": 18.72, "e": 19.04}, {"t": "en", "s": 19.28, "e": 19.44}, {"t": "dan", "s": 19.52, "e": 19.6}, {"t": "de", "s": 19.68, "e": 19.76}, {"t": "chromatiden.", "s": 19.88, "e": 20.48}, {"t": "Zo", "s": 20.96, "e": 21.12}, {"t": "ontstaan", "s": 21.2, "e": 21.6}, {"t": "haploïde", "s": 21.68, "e": 22.32}, {"t": "geslachtscellen", "s": 22.44, "e": 23.12}, {"t": "met", "s": 23.2, "e": 23.36}, {"t": "drieëntwintig", "s": 23.44, "e": 24.04}, {"t": "chromosomen,", "s": 24.08, "e": 25.04}, {"t": "bijna", "s": 25.12, "e": 25.44}, {"t": "allemaal", "s": 25.56, "e": 25.84}, {"t": "verschillend.", "s": 25.96, "e": 26.8}, {"t": "Nog", "s": 27.12, "e": 27.28}, {"t": "één", "s": 27.36, "e": 27.44}, {"t": "vraag.", "s": 27.52, "e": 28}, {"t": "Een", "s": 28.4, "e": 28.56}, {"t": "huidcel", "s": 28.64, "e": 29.12}, {"t": "die", "s": 29.2, "e": 29.28}, {"t": "niet", "s": 29.44, "e": 29.6}, {"t": "aan", "s": 29.68, "e": 29.76}, {"t": "het", "s": 29.84, "e": 29.92}, {"t": "delen", "s": 29.96, "e": 30.24}, {"t": "is,", "s": 30.32, "e": 30.8}, {"t": "en", "s": 30.92, "e": 31.04}, {"t": "een", "s": 31.12, "e": 31.2}, {"t": "zaadcel", "s": 31.28, "e": 31.76}, {"t": "van", "s": 31.8, "e": 31.84}, {"t": "dezelfde", "s": 31.92, "e": 32.4}, {"t": "man.", "s": 32.56, "e": 32.96}, {"t": "Welke", "s": 33.2, "e": 33.52}, {"t": "heeft", "s": 33.6, "e": 33.84}, {"t": "meer", "s": 33.92, "e": 34.16}, {"t": "DNA", "s": 34.24, "e": 34.64}, {"t": "in", "s": 34.72, "e": 34.8}, {"t": "de", "s": 34.84, "e": 34.88}, {"t": "kern?", "s": 34.96, "e": 35.48}, {"t": "Wat", "s": 35.68, "e": 35.76}, {"t": "denk", "s": 35.84, "e": 36.08}, {"t": "je?", "s": 36.16, "e": 36.56}], "audio": "audio/s33.mp3", "dur": 36.91}, {"id": "q34", "kind": "question", "level": "basis", "chapter": "Recap", "q": "Een huidcel die niet deelt en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern?", "options": ["evenveel", "de huidcel", "de zaadcel"], "correct": 1, "explain": "De huidcel: 46 chromosomen tegen 23 in de zaadcel, dus ongeveer twee keer zoveel DNA."}, {"id": "s35", "kind": "speech", "level": "basis", "chapter": "Recap", "words": [{"t": "De", "s": 0, "e": 0.16}, {"t": "huidcel:", "s": 0.2, "e": 1.2}, {"t": "zesenveertig", "s": 1.28, "e": 1.88}, {"t": "chromosomen", "s": 1.92, "e": 2.64}, {"t": "tegen", "s": 2.72, "e": 3.04}, {"t": "drieëntwintig.", "s": 3.12, "e": 4.48}, {"t": "Ongeveer", "s": 4.56, "e": 4.88}, {"t": "twee", "s": 5.12, "e": 5.36}, {"t": "keer", "s": 5.44, "e": 5.6}, {"t": "zoveel", "s": 5.64, "e": 6}, {"t": "DNA.", "s": 6.08, "e": 6.88}], "audio": "audio/s35.mp3", "dur": 7.23}, {"id": "s36", "kind": "card", "level": "basis", "chapter": "Eindkaart", "lines": ["Eerst kopiëren, dan verdelen.", "Mitose: twee gelijke dochtercellen, 2n = 46.", "Meiose: geslachtscellen, n = 23, steeds een andere combinatie."]}], "chapters": ["Cold open", "Titel", "Hoofdstuk 1 — Waarom delen?", "Hoofdstuk 2 — De celcyclus", "Hoofdstuk 3 — Chromosomen tellen", "Hoofdstuk 4 — Mitose", "Hoofdstuk 5 — Meiose", "Hoofdstuk 6 — Mitose en meiose naast elkaar", "Recap", "Eindkaart"]};</script>
+<script>// ===== Part C tokens =====
+const C = {
+  bgMicro:'#121A26', bgMacroSky:'#1E2E4A', bgMacroHill:'#2F4A3A', bgMacroFront:'#3A5540', bgSchema:'#1A2740',
+  goud:'#E0B64A', koraal:'#E07A5F', groen:'#7FC48F', teal:'#5BA4C9', paars:'#8C7BBF', oker:'#C9A35C',
+  text:'#F2F2EE', text2:'#9AA3B2', line:'#8FA0B5', grain:'#C9B896', fill:'#2A3A58', kast:'#0D1420',
+  mito:'#D88E7A', mitoR:'#F0B8A6', golgi:'#C98A3E', er:'#AFC0D0', lyso:'#3E9A78', ves:'#D4A83C', vesR:'#F0CC7A',
+  kern:'#6E5A9E', kernR:'#A392D6', chloro:'#5FA86E', ribo:'#C9B896', enzym:'#7A8BA8', mens:'#9AA3B2',
+  berg:'#4B5878', bergTop:'#B8C0D0', water:'#2E6FBF', bruin:'#8C5A3A', okerD:'#B08A5C'
+};
+const F = { titel:'"Fraunces","Playfair Display",Georgia,serif', tekst:'"Source Sans 3","Inter",system-ui,sans-serif', meta:'"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace' };
+const W = 1920, H = 1080, CAPTION_Y = 900; // nothing below CAPTION_Y except captions
+
+// ===== deterministic helpers =====
+function hash(n){ let x = Math.sin(n*127.1+311.7)*43758.5453; return x - Math.floor(x); }
+// smooth pseudo-random wander for particle i at time t (deterministic for any t)
+function wander(i, t, amp, speed){
+  const a = hash(i*3+1)*6.283, b = hash(i*3+2)*6.283, c = hash(i*3+3)*6.283;
+  const s = speed*(0.7+0.6*hash(i*7+5));
+  return { x: amp*(Math.sin(t*s+a)*0.6+Math.sin(t*s*2.3+b)*0.3+Math.sin(t*s*5.1+c)*0.1),
+           y: amp*(Math.cos(t*s*1.1+b)*0.6+Math.cos(t*s*2.7+c)*0.3+Math.cos(t*s*4.3+a)*0.1) };
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,u)=>a+(b-a)*clamp(u,0,1);
+const ease=(u)=>{u=clamp(u,0,1);return u*u*(3-2*u);};
+// ramp: 0→1 between t0 and t0+d
+const ramp=(t,t0,d=0.6)=>ease((t-t0)/d);
+function lighten(hex, k){ const n=parseInt(hex.slice(1),16); let r=n>>16,g=(n>>8)&255,b=n&255; r=Math.round(r+(255-r)*k); g=Math.round(g+(255-g)*k); b=Math.round(b+(255-b)*k); return `rgb(${r},${g},${b})`; }
+function rgba(hex,a){ const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; }
+
+// ===== grain texture (cached once) =====
+let grainCanvas=null;
+function grain(ctx){
+  if(!grainCanvas){
+    grainCanvas=document.createElement('canvas'); grainCanvas.width=W; grainCanvas.height=H;
+    const g=grainCanvas.getContext('2d');
+    for(let i=0;i<9000;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
+      g.fillStyle=rgba(C.grain,0.18+0.22*hash(i*5)); g.beginPath(); g.arc(x,y,0.9+1.6*hash(i*9),0,6.283); g.fill(); }
+  }
+  ctx.drawImage(grainCanvas,0,0);
+}
+function bg(ctx, look){
+  ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
+  ctx.fillRect(0,0,W,H);
+  if(look==='micro') grain(ctx);
+}
+
+// ===== shape primitives =====
+function shape(ctx, fill, stroke, lw=1.5){ ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
+  ctx.beginPath();
+  for(let i=0;i<=40;i++){ const a=i/40*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    const px=x+Math.cos(a)*rx*r, py=y+Math.sin(a)*ry*r; i?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+  ctx.closePath();
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
+const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+
+// ===== UI layer =====
+// two-line label with leader line ending in dot; alpha for fade
+function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  if(alpha<=0.01) return;
+  ctx.save(); ctx.globalAlpha=alpha;
+  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
+  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
+  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
+  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
+  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
+  ctx.restore();
+}
+function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo((x1+x2)/2,y+14); ctx.lineTo((x1+x2)/2,y+26); ctx.stroke();
+  text(ctx,msg,(x1+x2)/2,y+66,fTekst(36,600),color,'center'); ctx.restore();
+}
+function zoomCircle(ctx, x, y, r, sx, sy, caption, alpha=1, drawInside){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha;
+  ctx.strokeStyle=C.goud; ctx.lineWidth=1.5;
+  // two straight leader lines from source to circle tangents
+  const ang=Math.atan2(y-sy,x-sx); for(const d of [-1,1]){ const a=ang+d*Math.PI/2; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r); ctx.stroke(); }
+  ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); drawInside&&drawInside(); ctx.restore();
+  ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.stroke();
+  if(caption) metaText(ctx,caption,x,y+r+40,C.grain,'center',26);
+  ctx.restore();
+}
+function dim(ctx, fn, a=0.35){ ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
+function scaleBar(ctx, txt='schematisch · niet op schaal'){ metaText(ctx,txt,W-40,H-22,C.text2,'right',22); }
+
+// ===== organelle library (Part C2) =====
+function membrane(ctx, x, y, rx, ry, color=C.er, wob=0.04, seed=1, t=0){
+  blob(ctx,x,y,rx,ry,wob,seed,t); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke();
+  blob(ctx,x,y,rx-7,ry-7,wob,seed,t); ctx.lineWidth=1.2; ctx.stroke();
+  // phospholipid heads as regular dots
+  ctx.fillStyle=color; const n=Math.round((rx+ry)/9);
+  for(let i=0;i<n;i++){ const a=i/n*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    ctx.beginPath(); ctx.arc(x+Math.cos(a)*(rx-3.5)*r, y+Math.sin(a)*(ry-3.5)*r, 1.6,0,6.283); ctx.fill(); }
+}
+const _nucCache={};
+function nucleus(ctx,x,y,r,alpha=1,t=0){
+  const key=Math.round(r); let c=_nucCache[key];
+  if(!c){ c=document.createElement('canvas'); const pad=14; c.width=Math.ceil(2*(r+pad)); c.height=c.width; const g=c.getContext('2d'); const cx=r+pad, cy=r+pad;
+    blob(g,cx,cy,r,r*0.92,0.03,4,0); shape(g,C.kern,C.kernR,1.5);
+    for(let i=0;i<Math.round(r*1.2);i++){ const a=hash(i*11+3)*6.283, d=Math.sqrt(hash(i*11+7))*r*0.85; g.fillStyle=rgba(C.kernR,0.35); g.beginPath(); g.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d*0.92,1.4,0,6.283); g.fill(); }
+    g.strokeStyle=C.kernR; g.lineWidth=1.2; const pores=10;
+    for(let i=0;i<pores;i++){ const a0=i/pores*6.283+0.08, a1=(i+1)/pores*6.283-0.08; g.beginPath(); g.ellipse(cx,cy,r+7,(r+7)*0.92,0,a0,a1); g.stroke(); }
+    _nucCache[key]=c; }
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.drawImage(c,x-c.width/2,y-c.height/2); ctx.restore();
+}
+function mitochondrion(ctx,x,y,len,rot=0,alpha=1,cristae=5,t=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  const h=len*0.42, k=Math.max(1,len/110);
+  roundRect(ctx,-len/2,-h/2,len,h,h/2); shape(ctx,C.mito,C.mitoR,1.5*k);
+  const inset=6*k; roundRect(ctx,-len/2+inset,-h/2+inset,len-2*inset,h-2*inset,(h-2*inset)/2); ctx.fillStyle=rgba(C.bgMicro,0.18); ctx.fill(); ctx.strokeStyle=C.mitoR; ctx.lineWidth=1.2*k; ctx.stroke();
+  // cristae: folds of the inner membrane, drawn as narrow loops
+  ctx.strokeStyle=lighten(C.mitoR,0.15); ctx.lineWidth=1.3*k; ctx.fillStyle=C.mito;
+  for(let i=0;i<cristae;i++){ const px=-len/2+inset+10*k+(len-2*inset-20*k)*(i+0.5)/cristae; const dir=i%2?1:-1; const y0=dir*(h/2-inset), depth=h*0.6, w=Math.max(3,len/40);
+    ctx.beginPath(); ctx.moveTo(px-w,y0); ctx.lineTo(px-w,y0-dir*depth); ctx.arc(px,y0-dir*depth,w,Math.PI,0,dir>0); ctx.lineTo(px+w,y0); ctx.fill(); ctx.stroke(); }
+  ctx.restore();
+}
+function golgi(ctx,x,y,w,alpha=1){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=lighten(C.golgi,0.25); ctx.fillStyle=C.golgi; const gap=Math.max(12,w*0.075), th=Math.max(8,w*0.05);
+  for(let i=0;i<5;i++){ const ww=w*(1-i*0.12), yy=y-i*gap; ctx.beginPath(); ctx.moveTo(x-ww/2,yy); ctx.quadraticCurveTo(x,yy-th*2.2,x+ww/2,yy); ctx.quadraticCurveTo(x,yy-th*0.6,x-ww/2,yy); ctx.closePath(); ctx.fill(); ctx.lineWidth=1; ctx.stroke(); }
+  ctx.restore();
+}
+function roughER(ctx,x,y,w,rows=3,alpha=1,ribos=true){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.er; ctx.lineWidth=1.5;
+  for(let r=0;r<rows;r++){ const yy=y+r*26;
+    for(const off of [0,8]){ ctx.beginPath(); for(let i=0;i<=24;i++){ const px=x-w/2+w*i/24, py=yy+off+Math.sin(i/24*6.283*1.5+r)*7; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.stroke(); }
+    if(ribos){ ctx.fillStyle=C.ribo; for(let i=0;i<14;i++){ const px=x-w/2+w*(i+0.5)/14, py=yy-5+Math.sin((i+0.5)/14*6.283*1.5+r)*7; ctx.beginPath(); ctx.arc(px,py,3,0,6.283); ctx.fill(); } }
+  }
+  ctx.restore();
+}
+function vesicle(ctx,x,y,r=9,alpha=1,fill=C.ves,ring=C.vesR){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,fill,ring,1.2); ctx.restore(); }
+function lysosome(ctx,x,y,r=12,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,C.lyso,lighten(C.lyso,0.3),1.2); ctx.restore(); }
+function ribosome(ctx,x,y,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.ribo; ctx.beginPath(); ctx.arc(x,y,3.2,0,6.283); ctx.fill(); ctx.restore(); }
+function chloroplast(ctx,x,y,len,alpha=1,rot=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  ctx.beginPath(); ctx.ellipse(0,0,len/2,len*0.3,0,0,6.283); shape(ctx,C.chloro,lighten(C.chloro,0.3),1.5);
+  ctx.fillStyle=lighten(C.chloro,0.4); ctx.strokeStyle=rgba(C.bgMicro,0.7); ctx.lineWidth=Math.max(0.8,len/120);
+  for(let g=0;g<3;g++){ const gx=-len*0.28+g*len*0.28; for(let k=0;k<5;k++){ roundRect(ctx,gx-len*0.1,-len*0.11+k*len*0.045,len*0.2,len*0.035,len*0.012); ctx.fill(); ctx.stroke(); } }
+  ctx.restore();
+}
+function vacuole(ctx,x,y,rx,ry,alpha=1,fill=0.9){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx*fill,ry*fill,0.03,9); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),1.5); ctx.restore(); }
+function cellWall(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx,ry,0.0,0); ctx.strokeStyle=C.groen; ctx.lineWidth=14; ctx.stroke(); ctx.strokeStyle=lighten(C.groen,0.3); ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+function cytoskeleton(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.line; ctx.lineWidth=0.75;
+  for(let i=0;i<14;i++){ const a=hash(i*13)*6.283, a2=a+2.2+hash(i*13+1)*1.5; ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*rx*0.95,y+Math.sin(a)*ry*0.95); ctx.quadraticCurveTo(x+(hash(i)*2-1)*rx*0.4,y+(hash(i+9)*2-1)*ry*0.4,x+Math.cos(a2)*rx*0.95,y+Math.sin(a2)*ry*0.95); ctx.stroke(); }
+  ctx.restore(); }
+
+// ===== the standard cell (series library: fixed in film 2) =====
+// returns organelle positions so scenes can reference them
+function cellLayout(cx=960, cy=520, rx=560, ry=330){
+  const sx=rx/560, sy=ry/330, s=Math.min(sx,sy);
+  return { cx,cy,rx,ry,
+    kern:{x:cx-180*sx,y:cy-30*sy,r:118*s},
+    er:{x:cx+40*sx,y:cy-150*sy,w:420*sx},
+    golgi:{x:cx+300*sx,y:cy+40*sy,w:170*s},
+    mitos:[{x:cx-430*sx,y:cy+90*sy,len:120*s,rot:-0.5},{x:cx+120*sx,y:cy+190*sy,len:110*s,rot:0.3},{x:cx-120*sx,y:cy+200*sy,len:100*s,rot:0.1},{x:cx+420*sx,y:cy-170*sy,len:95*s,rot:0.9}],
+    lysos:[{x:cx+230*sx,y:cy+220*sy},{x:cx+470*sx,y:cy+150*sy}],
+    vesicles:[{x:cx+170*sx,y:cy-40*sy},{x:cx+200*sx,y:cy-10*sy},{x:cx+395*sx,y:cy+10*sy},{x:cx+440*sx,y:cy-60*sy}],
+    s
+  };
+}
+function drawCell(ctx, L, t, opts={}){
+  const {alpha=1, focus=null, showER=true, showGolgi=true, showMito=true, showLyso=true, showVes=true, showKern=true, showRibo=true, showSkel=false, motion=0} = opts;
+  const dimOthers = focus? 0.35 : 1;
+  const A = (name)=> (focus===null||focus===name||(Array.isArray(focus)&&focus.includes(name)))?alpha:alpha*dimOthers;
+  ctx.save();
+  if(showSkel) cytoskeleton(ctx,L.cx,L.cy,L.rx,L.ry,A('skel'));
+  if(showRibo){ for(let i=0;i<120;i++){ const a=hash(i*17)*6.283, d=Math.sqrt(hash(i*17+1)); const px=L.cx+Math.cos(a)*d*L.rx*0.9, py=L.cy+Math.sin(a)*d*L.ry*0.9; const dk=Math.hypot(px-L.kern.x,py-L.kern.y); if(dk<L.kern.r+20) continue; const w=wander(i,t,10*motion,0.8); ribosome(ctx,px+w.x,py+w.y,A('ribo')*0.8); } }
+  if(showER) roughER(ctx,L.er.x,L.er.y,L.er.w,(L.s||1)<0.7?2:3,A('er'));
+  if(showKern) nucleus(ctx,L.kern.x,L.kern.y,L.kern.r,A('kern'),t);
+  if(showGolgi) golgi(ctx,L.golgi.x,L.golgi.y,L.golgi.w,A('golgi'));
+  if(showMito) L.mitos.forEach((m,i)=>{ const w=wander(i+50,t,40*motion,0.5); mitochondrion(ctx,m.x+w.x,m.y+w.y,m.len,m.rot+ (motion?Math.sin(t*0.4+i)*0.1:0),A('mito')); });
+  if(showLyso) L.lysos.forEach((l,i)=>{ const w=wander(i+70,t,50*motion,0.9); lysosome(ctx,l.x+w.x,l.y+w.y,12*(L.s||1),A('lyso')); });
+  if(showVes) L.vesicles.forEach((v,i)=>{ const w=wander(i+90,t,90*motion,1.3); vesicle(ctx,v.x+w.x,v.y+w.y,9*(L.s||1),A('ves')); });
+  membrane(ctx,L.cx,L.cy,L.rx,L.ry,C.er,0.04,1,t*motion);
+  ctx.restore();
+}
+
+// ===== levenskenmerken bord (Schema card, top-right; six fixed slots) =====
+const KENMERKEN=['stoffen omzetten','groeien','zich voortplanten','bewegen','reageren op de omgeving','in evenwicht houden'];
+function board(ctx, lit, alpha=1, x=60, y=76, w=1800){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const cw=(w-2*12)/3, ch=50;
+  KENMERKEN.forEach((k,i)=>{ const col=i%3,row=Math.floor(i/3); const xx=x+col*(cw+12), yy=y+row*(ch+8); const u=lit[i]||0;
+    roundRect(ctx,xx,yy,cw,ch,10); ctx.fillStyle = u>0? rgba(C.groen,0.16*u+0.06): rgba(C.bgSchema,0.85); ctx.fill(); ctx.strokeStyle = u>0? rgba(C.groen,0.45+0.55*u): rgba(C.line,0.45); ctx.lineWidth=1; ctx.stroke();
+    text(ctx,k,xx+18,yy+34,fTekst(28,u>0?600:400),u>0?C.text:C.text2,'left');
+    if(u>0){ ctx.save(); ctx.globalAlpha*=u; ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(xx+cw-22,yy+25,6,0,6.283); ctx.fill(); ctx.restore(); }
+  });
+  ctx.restore();
+}
+</script>
+<script>// Film: Diffusie, osmose en membraantransport (Cel 1/3). Scene helpers.
+// Colour meaning in this film: goud = opgeloste stof / kleurstof (focus), teal = water en zuurstof, koraal = energie/ATP,
+// groen = conclusie/celwand, grijs (text2) = koolstofdioxide, oker = glucose/mineralen, paars = vwo.
+
+C.bloed='#C0564B'; C.bloedR='#E08A80';
+const DUR=(id)=>{ const s=(window.FILMDATA.segments||[]).find(x=>x.id===id); return s&&s.dur||0; };
+
+// ===== deterministic particle simulation (precomputed once, seekable) =====
+function rng(seed){ let a=seed>>>0; return ()=>{ a=(a+0x6D2B79F5)|0; let t=Math.imul(a^(a>>>15),1|a); t=(t+Math.imul(t^(t>>>7),61|t))^t; return ((t^(t>>>14))>>>0)/4294967296; }; }
+function gauss(r){ const u=Math.max(1e-9,r()), v=r(); return Math.sqrt(-2*Math.log(u))*Math.cos(6.2832*v); }
+const _sims={};
+// box:[x0,y0,x1,y1]; init(i,r)->[x,y]; sigma: number or fn(t,i); keep: velocity persistence (smooth paths);
+// wall: {x, pass(i,y)->bool} vertical wall that particles may only cross where pass() is true
+function sim(key,o){
+  if(_sims[key]) return _sims[key];
+  const n=o.n, [x0,y0,x1,y1]=o.box, fps=o.fps||20, dur=o.dur||60, keep=o.keep==null?0.8:o.keep, F=Math.ceil(dur*fps)+2;
+  const P=new Float32Array(n*F*2), r=rng(o.seed||7), vx=new Float32Array(n), vy=new Float32Array(n), px=new Float32Array(n), py=new Float32Array(n);
+  for(let i=0;i<n;i++){ const p=o.init(i,r); px[i]=p[0]; py[i]=p[1]; }
+  for(let f=0;f<F;f++){ const t=f/fps;
+    for(let i=0;i<n;i++){ const k=(f*n+i)*2; P[k]=px[i]; P[k+1]=py[i];
+      const s=typeof o.sigma==='function'? o.sigma(t,i): o.sigma;
+      vx[i]=keep*vx[i]+s*gauss(r); vy[i]=keep*vy[i]+s*gauss(r);
+      let nx=px[i]+vx[i], ny=py[i]+vy[i];
+      if(nx<x0){ nx=2*x0-nx; vx[i]=-vx[i]; } if(nx>x1){ nx=2*x1-nx; vx[i]=-vx[i]; }
+      if(ny<y0){ ny=2*y0-ny; vy[i]=-vy[i]; } if(ny>y1){ ny=2*y1-ny; vy[i]=-vy[i]; }
+      nx=clamp(nx,x0,x1); ny=clamp(ny,y0,y1);
+      if(o.wall){ const w=o.wall; if((px[i]-w.x)*(nx-w.x)<0 && !w.pass(i,(py[i]+ny)/2)){ nx=px[i]; vx[i]=-vx[i]; } }
+      px[i]=nx; py[i]=ny; } }
+  return _sims[key]={n,F,fps, pos(i,t){ const f=clamp(t*fps,0,F-1.001), f0=Math.floor(f), u=f-f0, a=(f0*n+i)*2, b=a+n*2; return [P[a]+(P[b]-P[a])*u, P[a+1]+(P[b+1]-P[a+1])*u]; } };
+}
+function trail(ctx,S,i,t,len,color,lw=2,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineJoin='round';
+  const steps=Math.max(2,Math.round(len*S.fps)); ctx.beginPath(); for(let k=0;k<=steps;k++){ const tt=Math.max(0,t-len+len*k/steps); const p=S.pos(i,tt); k?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]); }
+  ctx.stroke(); ctx.restore(); }
+
+// ===== drawing helpers =====
+function dot(ctx,x,y,r,fill,stroke,lw=1.2){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function arrow(ctx,x1,y1,x2,y2,color,lw=4,head=16,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw; ctx.lineCap='round';
+  const a=Math.atan2(y2-y1,x2-x1), bx=x2-Math.cos(a)*head*0.8, by=y2-Math.sin(a)*head*0.8; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(bx,by); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-Math.cos(a-0.45)*head,y2-Math.sin(a-0.45)*head); ctx.lineTo(x2-Math.cos(a+0.45)*head,y2-Math.sin(a+0.45)*head); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function crossOut(ctx,x,y,s,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.koraal; ctx.lineWidth=6; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-s,y-s); ctx.lineTo(x+s,y+s); ctx.moveTo(x+s,y-s); ctx.lineTo(x-s,y+s); ctx.stroke(); ctx.restore(); }
+function micro(ctx){ bg(ctx,'micro'); }
+function fadeIO(t,a,b,d=0.5){ return ramp(t,a,d)*(1-ramp(t,b,d)); }
+// water molecule field (decorative, deterministic wander) inside rect
+function waterField(ctx,x0,y0,x1,y1,n,t,speed=1.6,alpha=0.55,seed=0,r=3.2){ ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.teal;
+  for(let i=0;i<n;i++){ const bx=x0+hash(i*2+seed)*(x1-x0), by=y0+hash(i*2+1+seed)*(y1-y0); const w=wander(i+seed,t,18,speed); ctx.beginPath(); ctx.arc(clamp(bx+w.x,x0,x1),clamp(by+w.y,y0,y1),r,0,6.2832); ctx.fill(); }
+  ctx.restore(); }
+function o2(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; dot(ctx,x-6*s,y,8*s,C.teal,lighten(C.teal,0.3)); dot(ctx,x+6*s,y,8*s,C.teal,lighten(C.teal,0.3)); ctx.restore(); }
+function co2(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; dot(ctx,x-13*s,y,7*s,C.text2,lighten(C.text2,0.3)); dot(ctx,x+13*s,y,7*s,C.text2,lighten(C.text2,0.3)); dot(ctx,x,y,8*s,'#5E6878',lighten(C.text2,0.2)); ctx.restore(); }
+function ion(ctx,x,y,s=1,alpha=1,mantle=true,color=C.oker,sign='+'){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; if(mantle){ for(let k=0;k<6;k++){ const a=k/6*6.2832; dot(ctx,x+Math.cos(a)*19*s,y+Math.sin(a)*19*s,5*s,rgba(C.teal,0.8)); } }
+  dot(ctx,x,y,11*s,color,lighten(color,0.3)); text(ctx,sign,x,y+1,fTekst(Math.round((sign.length>1?13:18)*s),700),C.bgMicro,'center','middle'); ctx.restore(); }
+function glucose(ctx,x,y,s=1,alpha=1,rot=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); ctx.beginPath(); for(let k=0;k<6;k++){ const a=k/6*6.2832+Math.PI/6; const px=Math.cos(a)*18*s, py=Math.sin(a)*18*s; k?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.closePath(); shape(ctx,C.oker,lighten(C.oker,0.35),1.5); ctx.restore(); }
+function salt(ctx,x,y,r=14,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; dot(ctx,x,y,r,C.goud,lighten(C.goud,0.35),1.5); ctx.restore(); }
+// horizontal lipid bilayer from x0..x1 centred on y; gaps: [[xa,xb],...] left open for proteins
+function bilayerH(ctx,x0,x1,y,gaps=[],alpha=1,th=90){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const step=22;
+  for(let x=x0+step/2;x<x1;x+=step){ if(gaps.some(g=>x>g[0]-step/2&&x<g[1]+step/2)) continue;
+    for(const side of [-1,1]){ const hy=y+side*(th/2-9); ctx.strokeStyle=rgba(C.oker,0.7); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x-3,hy-side*8); ctx.lineTo(x-3,y-side*3); ctx.moveTo(x+3,hy-side*8); ctx.lineTo(x+3,y-side*3); ctx.stroke(); dot(ctx,x,hy,9,C.er,lighten(C.er,0.3),1); } }
+  ctx.restore(); }
+function bilayerV(ctx,x,y0,y1,gaps=[],alpha=1,th=70){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const step=22;
+  for(let y=y0+step/2;y<y1;y+=step){ if(gaps.some(g=>y>g[0]-step/2&&y<g[1]+step/2)) continue;
+    for(const side of [-1,1]){ const hx=x+side*(th/2-9); ctx.strokeStyle=rgba(C.oker,0.7); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(hx-side*8,y-3); ctx.lineTo(x-side*3,y-3); ctx.moveTo(hx-side*8,y+3); ctx.lineTo(x-side*3,y+3); ctx.stroke(); dot(ctx,hx,y,9,C.er,lighten(C.er,0.3),1); } }
+  ctx.restore(); }
+// channel protein (two halves) through a horizontal membrane at x, opening ow
+function channelH(ctx,x,y,ow=34,alpha=1,color=C.enzym,th=110){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; for(const s of [-1,1]){ roundRect(ctx,s<0?x-ow/2-44:x+ow/2,y-th/2,44,th,18); shape(ctx,color,lighten(color,0.3),1.5); } ctx.restore(); }
+function gauge(ctx,x,y,r,val,label,alpha=1,color=C.teal){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  ctx.beginPath(); ctx.arc(x,y,r,Math.PI,0); ctx.closePath(); shape(ctx,rgba(C.bgSchema,0.95),C.line,1.5);
+  for(let k=0;k<=8;k++){ const a=Math.PI+k/8*Math.PI; ctx.strokeStyle=C.line; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*r*0.82,y+Math.sin(a)*r*0.82); ctx.lineTo(x+Math.cos(a)*r*0.95,y+Math.sin(a)*r*0.95); ctx.stroke(); }
+  const a=Math.PI+clamp(val,0,1)*Math.PI; ctx.strokeStyle=color; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+Math.cos(a)*r*0.78,y+Math.sin(a)*r*0.78); ctx.stroke(); dot(ctx,x,y,6,color);
+  if(label) metaText(ctx,label,x,y+34,C.grain,'center',22); ctx.restore(); }
+function thermometer(ctx,x,y,h,level,color,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x-10,y-h,20,h,10); shape(ctx,rgba(C.bgSchema,0.9),C.line,1.5); dot(ctx,x,y+8,18,color,C.line,1.5);
+  roundRect(ctx,x-5,y-h*level,10,h*level+6,5); ctx.fillStyle=color; ctx.fill(); ctx.restore(); }
+// plant cell: wall (w,h), membrane pulled in by plasmolysis p (0..1), vacuole fraction v, bulge = turgor
+function plantCell(ctx,x,y,w,h,p=0,v=0.6,alpha=1,bulge=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const bw=w*(1+bulge*0.04), bh=h*(1+bulge*0.04);
+  if(p>0){ roundRect(ctx,x-bw/2,y-bh/2,bw,bh,26); ctx.fillStyle=rgba(C.goud,0.10*p); ctx.fill(); }
+  const mw=(bw-24)*(1-0.42*p), mh=(bh-24)*(1-0.36*p);
+  const rr=lerp(20,Math.min(mw,mh)*0.45,ease(p)); roundRect(ctx,x-mw/2,y-mh/2,mw,mh,rr); shape(ctx,rgba(C.fill,0.95),C.er,2.5);
+  const vr=v*(1-0.55*p); blob(ctx,x+mw*0.06,y,mw/2*vr,mh/2*vr,0.04,9); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),1.5);
+  nucleus(ctx,x-mw*0.36,y-mh*0.24,Math.min(mw,mh)*0.085,1,0);
+  for(let k=0;k<5;k++){ const a=k/5*6.2832+0.4; chloroplast(ctx,x+Math.cos(a)*mw*0.40,y+Math.sin(a)*mh*0.38,Math.min(mw,mh)*0.14,0.95,a+1.57); }
+  roundRect(ctx,x-bw/2,y-bh/2,bw,bh,26); ctx.strokeStyle=C.groen; ctx.lineWidth=14; ctx.stroke(); ctx.strokeStyle=lighten(C.groen,0.3); ctx.lineWidth=1; ctx.stroke();
+  ctx.restore(); }
+// red blood cell: swell 0..1 (round, bigger), cren 0..1 (shrunk, spiky), burst 0..1
+function rbc(ctx,x,y,r,swell=0,cren=0,burst=0,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  if(burst>0){
+    for(let k=0;k<7;k++){ const a=k/7*6.2832+0.3, d=r*(1.1+burst*0.8); ctx.save(); ctx.translate(x+Math.cos(a)*d,y+Math.sin(a)*d); ctx.rotate(a); ctx.strokeStyle=C.bloedR; ctx.lineWidth=4; ctx.globalAlpha*=1-burst*0.5; ctx.beginPath(); ctx.arc(-r,0,r,-0.32,0.32); ctx.stroke(); ctx.restore(); }
+    for(let k=0;k<30;k++){ const a=hash(k*5)*6.2832, d=r*1.7*burst*Math.sqrt(hash(k*5+1)); dot(ctx,x+Math.cos(a)*d,y+Math.sin(a)*d,3.5,rgba(C.bloed,0.75*(1-burst*0.4))); }
+    ctx.restore(); return; }
+  const rr=r*(1+0.2*swell)*(1-0.2*cren);
+  ctx.beginPath(); for(let i=0;i<=96;i++){ const a=i/96*6.2832; const sp=1+cren*0.14*Math.pow(Math.max(0,Math.sin(a*12)),3); const px=x+Math.cos(a)*rr*sp, py=y+Math.sin(a)*rr*sp*(1-0.12*(1-swell)); i?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.closePath(); shape(ctx,C.bloed,C.bloedR,2);
+  if(swell<0.9&&cren<0.6){ ctx.beginPath(); ctx.ellipse(x,y,rr*0.42*(1-swell),rr*0.34*(1-swell),0,0,6.2832); ctx.fillStyle=rgba(C.bloedR,0.45*(1-swell)); ctx.fill(); }
+  ctx.restore(); }
+function beaker(ctx,x,y,w,h,fill=0.75,liquid=rgba(C.teal,0.18),alpha=1,label){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  ctx.fillStyle=liquid; ctx.fillRect(x-w/2+3,y+h/2-h*fill,w-6,h*fill-3);
+  ctx.strokeStyle=C.line; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x-w/2,y-h/2); ctx.lineTo(x-w/2,y+h/2); ctx.lineTo(x+w/2,y+h/2); ctx.lineTo(x+w/2,y-h/2); ctx.stroke();
+  if(label) metaText(ctx,label,x,y+h/2+40,C.grain,'center',24); ctx.restore(); }
+function pill(ctx,x,y,s,color=C.goud,alpha=1,size=30){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.font=fTekst(size,600); const w=ctx.measureText(s).width+44; roundRect(ctx,x-w/2,y-size*0.95,w,size*1.65,size*0.8); shape(ctx,rgba(C.bgSchema,0.94),color,1.5); text(ctx,s,x,y+size*0.32,fTekst(size,600),color,'center'); ctx.restore(); }
+function atp(ctx,x,y,alpha=1,s=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x-36*s,y-20*s,72*s,40*s,20*s); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); text(ctx,'ATP',x,y+1,fMeta(Math.round(20*s)),C.bgMicro,'center','middle'); ctx.restore(); }
+function card(ctx, x, y, w, h, title, body, alpha=1, accent=C.goud){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x,y,w,h,12); shape(ctx,rgba(C.bgSchema,0.95),C.line,1);
+  if(title) text(ctx,title,x+28,y+52,fTekst(36,600),accent);
+  if(body){ ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; ctx.textBaseline='alphabetic'; wrap(ctx,body,x+28,y+(title?100:52),w-56,42); }
+  ctx.restore();
+}
+function wrap(ctx, s, x, y, maxW, lh){ const words=s.split(' '); let line=''; for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW&&line){ ctx.fillText(line,x,y); y+=lh; line=w; } else line=test; } if(line) ctx.fillText(line,x,y); return y; }
+function human(ctx,x,y,h,alpha=1,color=C.mens){ // simple flat figure with a plain face (Part C)
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=color; const u=h/8;
+  ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();
+  roundRect(ctx,x-u*1.3,y-h+u*2.1,u*2.6,u*3.6,u*0.8); ctx.fill();
+  roundRect(ctx,x-u*1.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill(); roundRect(ctx,x+u*0.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x-u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.arc(x+u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.fill();
+  ctx.strokeStyle=C.bgSchema; ctx.lineWidth=u*0.08; ctx.beginPath(); ctx.arc(x,y-h+u*1.1,u*0.3,0.3,2.84); ctx.stroke();
+  ctx.restore();
+}
+
+// Film: Celdeling (Cel 3/3). Chromosome kit.
+// Kleurbetekenis in deze film: chromosoom van vader = teal-blauw, van moeder = roze; paars = kern/DNA en vwo;
+// goud = focus (telling, pijlen), koraal = fout/te veel, groen = conclusie.
+C.vader='#5BA4C9'; C.moeder='#D98BB0'; C.spoel='#8FA0B5';
+
+// one chromatid as a thick rounded stroke, centromere at (x,y); arms up (len*cen) and down; seg = crossing-over piece {from,to,color} along the length (0 = top)
+function chromatidPath(ctx,x,y,len,cen,bend,lean){ // lean: x-offset of the ends (for X shape)
+  const top=-len*cen, bot=len*(1-cen);
+  ctx.beginPath(); ctx.moveTo(x+lean,y+top); ctx.quadraticCurveTo(x+bend,y+top*0.5,x,y); ctx.quadraticCurveTo(x+bend,y+bot*0.5,x+lean,y+bot); }
+function chromatid(ctx,x,y,len,color,{w=14,cen=0.38,lean=0,bend=0,seg=null,alpha=1}={}){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.strokeStyle=color; ctx.lineWidth=w; chromatidPath(ctx,x,y,len,cen,bend,lean); ctx.stroke();
+  if(seg){ ctx.save(); const top=-len*cen; ctx.beginPath(); ctx.rect(x-60,y+top+len*seg.from,120,len*(seg.to-seg.from)); ctx.clip(); ctx.strokeStyle=seg.color; ctx.lineWidth=w; chromatidPath(ctx,x,y,len,cen,bend,lean); ctx.stroke(); ctx.restore(); }
+  // light bands for texture
+  ctx.strokeStyle=rgba('#FFFFFF',0.18); ctx.lineWidth=w*0.35; chromatidPath(ctx,x,y,len*0.86,cen,bend,lean*0.86); ctx.stroke();
+  ctx.restore(); }
+// duplicated chromosome (X): two sister chromatids side by side (left/right), joined at the centromere
+function chromX(ctx,x,y,len,color,{w=14,cen=0.38,gap=1,seg=null,segSide=1,alpha=1,dot=true}={}){
+  if(alpha<=0.01) return; const off=(w*0.55)*gap, lean=w*0.75*gap;
+  chromatid(ctx,x-off,y,len,color,{w,cen,lean:-lean,bend:-off*0.2,seg:segSide<0?seg:null,alpha});
+  chromatid(ctx,x+off,y,len,color,{w,cen,lean:lean,bend:off*0.2,seg:segSide>0?seg:null,alpha});
+  if(dot){ ctx.save(); ctx.globalAlpha*=alpha; dot0(ctx,x,y,w*0.42,'#2A2140'); ctx.restore(); } }
+function dot0(ctx,x,y,r,fill){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fillStyle=fill; ctx.fill(); }
+// loose chromatin thread (interphase), deterministic squiggle
+function chromatin(ctx,x,y,len,color,seed,t=0,alpha=1,w=3){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=w; ctx.lineCap='round';
+  ctx.beginPath(); let px=x, py=y, a=hash(seed)*6.28; ctx.moveTo(px,py);
+  for(let k=0;k<26;k++){ a+= (hash(seed*31+k)-0.5)*1.6 + Math.sin(t*0.6+k+seed)*0.05; px+=Math.cos(a)*len/26; py+=Math.sin(a)*len/26; ctx.lineTo(px,py); }
+  ctx.stroke(); ctx.restore(); }
+// morph from chromatin squiggle (c=0) to condensed chromosome (c=1): crossfade + scale
+function condensing(ctx,x,y,len,color,c,seed,t,dup=true){ chromatin(ctx,x-len*0.4,y-len*0.3,len*2.2,color,seed,t,1-c,3); if(c>0){ ctx.save(); ctx.globalAlpha*=c; if(dup) chromX(ctx,x,y,len*(0.6+0.4*c),color); else chromatid(ctx,x,y,len*(0.6+0.4*c),color); ctx.restore(); } }
+// a cell outline (Micro look); pinch = 0..1 splits it into two along x around cx
+function cellBody(ctx,cx,cy,rx,ry,pinch=0,alpha=1,stroke=C.er,fill=rgba(C.fill,0.75)){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  if(pinch<=0.001){ blob(ctx,cx,cy,rx,ry,0.03,2); shape(ctx,fill,stroke,3); ctx.restore(); return; }
+  const d=rx*0.52*pinch, r2x=rx*(1-0.45*pinch), r2y=ry*(1-0.12*pinch);
+  for(const s of [-1,1]){ blob(ctx,cx+s*d,cy,r2x,r2y,0.03,s+5); ctx.strokeStyle=stroke; ctx.lineWidth=5; ctx.stroke(); }
+  for(const s of [-1,1]){ blob(ctx,cx+s*d,cy,r2x,r2y,0.03,s+5); ctx.fillStyle=fill; ctx.fill(); }
+  ctx.restore(); }
+function nucMembrane(ctx,cx,cy,r,alpha=1,dash=false){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.kernR; ctx.lineWidth=3; if(dash) ctx.setLineDash([14,12]); ctx.beginPath(); ctx.ellipse(cx,cy,r,r*0.9,0,0,6.2832); ctx.fillStyle=rgba(C.kern,0.25); ctx.fill(); ctx.stroke(); ctx.restore(); }
+function spindle(ctx,pole,targets,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=rgba(C.spoel,0.7); ctx.lineWidth=1.4;
+  for(const t of targets){ ctx.beginPath(); ctx.moveTo(pole[0],pole[1]); ctx.lineTo(t[0],t[1]); ctx.stroke(); }
+  // astral rays
+  for(let k=0;k<10;k++){ const a=k/10*6.2832; ctx.beginPath(); ctx.moveTo(pole[0],pole[1]); ctx.lineTo(pole[0]+Math.cos(a)*34,pole[1]+Math.sin(a)*34); ctx.stroke(); }
+  dot0(ctx,pole[0],pole[1],7,C.goud); ctx.restore(); }
+
+// The model cell 2n = 4: two pairs (long A, short B), one of each from vader and moeder
+const MODEL=[ {id:'Av',len:130,color:C.vader,pair:0}, {id:'Am',len:130,color:C.moeder,pair:0}, {id:'Bv',len:82,color:C.vader,pair:1}, {id:'Bm',len:82,color:C.moeder,pair:1} ];
+
+// Mitosis of the model cell. st: cond (0..1), nm (nuclear membrane 1..0), spindle (0..1), meta (0..1), ana (0..1), telo (0..1), cyto (0..1)
+function mitosisCell(ctx,cx,cy,rx,ry,st,t,alpha=1){
+  const {cond=0,nm=1,sp=0,meta=0,ana=0,telo=0,cyto=0}=st; if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  cellBody(ctx,cx,cy,rx,ry,cyto);
+  const poleD=rx*0.82*(1-0.08*cyto); const PL=[cx-poleD,cy], PR=[cx+poleD,cy];
+  const nucR=ry*0.62; nucMembrane(ctx,cx,cy,nucR,nm*(1-telo));
+  // positions
+  const scat=[[-70,-60],[60,40],[50,-70],[-40,60]];
+  const rows=[-1.5,-0.5,0.5,1.5].map(k=>cy+k*ry*0.36);
+  const sep=ana*poleD*0.72; const targets=[];
+  MODEL.forEach((m,i)=>{ const sx=cx+scat[i][0]*(1-meta), sy=lerp(cy+scat[i][1],rows[i],meta);
+    if(ana<=0.001){ condensing(ctx,sx,sy,m.len*0.62,m.color,cond,i+3,t,true); if(sp>0){ targets.push([sx-8,sy]); } }
+    else { const tc=1-telo*0.9; for(const s of [-1,1]){ const x=sx+s*sep, y=sy*(1-0.25*ana)+cy*0.25*ana; if(telo>0) chromatin(ctx,x-30,y-20,m.len*1.4,m.color,i*7+(s>0?50:0),t,telo*0.9,3); chromatid(ctx,x,y,m.len*0.62,m.color,{lean:-s*10*ana,bend:-s*14*ana,alpha:tc}); dot0(ctx,x,y,5,'#2A2140'); if(sp>0) targets.push([x,y]); } } });
+  if(sp>0){ const reach=1-0.75*clamp(nm,0,1); const part=(P,arr)=>arr.map(p=>[lerp(P[0],p[0],reach),lerp(P[1],p[1],reach)]); if(ana<=0.001){ spindle(ctx,PL,part(PL,targets.map(p=>[p[0]-6,p[1]])),sp*(1-telo)); spindle(ctx,PR,part(PR,targets.map(p=>[p[0]+6,p[1]])),sp*(1-telo)); } else { spindle(ctx,PL,targets.filter(p=>p[0]<cx),sp*(1-telo)); spindle(ctx,PR,targets.filter(p=>p[0]>cx),sp*(1-telo)); } }
+  if(telo>0){ for(const s of [-1,1]) nucMembrane(ctx,cx+s*poleD*0.72,cy,ry*0.42,telo); }
+  ctx.restore();
+  return {PL,PR};
+}
+// generic small cell with a list of chromosomes drawn inside
+function cellWith(ctx,cx,cy,r,chs,{alpha=1,nuc=false,label=null,lc=C.grain}={}){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; cellBody(ctx,cx,cy,r,r*0.9);
+  if(nuc) nucMembrane(ctx,cx,cy,r*0.62,1);
+  chs.forEach(c=>{ if(c.dup) chromX(ctx,cx+c.x,cy+c.y,c.len,c.color,{w:c.w||12,seg:c.seg,segSide:c.segSide||1}); else { chromatid(ctx,cx+c.x,cy+c.y,c.len,c.color,{w:c.w||12,seg:c.seg}); dot0(ctx,cx+c.x,cy+c.y,4.5,'#2A2140'); } });
+  if(label) metaText(ctx,label,cx,cy+r+44,lc,'center',22); ctx.restore(); }
+// DNA amount graph: points [[x,yLevel],...] where yLevel in p units (0.5,1,2); progress 0..1 draws partial
+function dnaGraph(ctx,x,y,w,h,pts,progress,{labels=[],alpha=1,title='DNA per kern'}={}){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  roundRect(ctx,x,y,w,h,14); shape(ctx,rgba(C.bgSchema,0.94),C.line,1);
+  const gx=x+110, gy=y+h-70, gw=w-150, gh=h-130; const Y=(v)=>gy-v/2*gh;
+  ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(gx,gy-gh-10); ctx.lineTo(gx,gy); ctx.lineTo(gx+gw,gy); ctx.stroke();
+  for(const [v,l] of [[2,'2p'],[1,'p'],[0.5,'½p']]){ if(!pts.some(p=>Math.abs(p[1]-v)<0.01)) continue; ctx.save(); ctx.setLineDash([4,6]); ctx.strokeStyle=rgba(C.line,0.4); ctx.beginPath(); ctx.moveTo(gx,Y(v)); ctx.lineTo(gx+gw,Y(v)); ctx.stroke(); ctx.restore(); text(ctx,l,gx-16,Y(v)+10,fTekst(28,600),C.text,'right'); }
+  metaText(ctx,title,x+24,y+40,C.grain,'left',22); metaText(ctx,'tijd →',gx+gw,gy+44,C.grain,'right',20);
+  // path
+  const total=pts.length-1; const upto=progress*total; ctx.strokeStyle=C.paars; ctx.lineWidth=5; ctx.lineJoin='round'; ctx.beginPath();
+  for(let k=0;k<=Math.floor(upto)&&k<pts.length;k++){ const P=pts[k]; const px=gx+P[0]*gw, py=Y(P[1]); k?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+  const k0=Math.floor(upto); if(k0<total){ const A=pts[k0], B=pts[k0+1], u=upto-k0; ctx.lineTo(gx+lerp(A[0],B[0],u)*gw, Y(lerp(A[1],B[1],u))); }
+  ctx.stroke();
+  labels.forEach(L=>{ if(L.a>0.01){ ctx.save(); ctx.globalAlpha*=L.a; metaText(ctx,L.s,gx+L.x*gw,gy+24,C.text2,'center',18); ctx.restore(); } });
+  ctx.restore(); }
+// tiny karyogram: 23 pairs as small bars; highlight set; sex pair XX or XY
+function karyo(ctx,x,y,w,h,{alpha=1,hl=null,sex='XY',tris=null,count=23}={}){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const cols=12, cw=w/cols, rh=h/2;
+  for(let i=0;i<count;i++){ const col=i%cols, row=Math.floor(i/cols); const px=x+col*cw+cw/2, py=y+row*rh+rh*0.55; const L=(i<22? lerp(78,26,i/21) : (sex==='XY'?60:60));
+    const dim=hl!=null && !hl.includes(i); ctx.save(); if(dim) ctx.globalAlpha*=0.3;
+    const mk=(dx,col2,len)=>{ chromatid(ctx,px+dx,py,len,col2,{w:9,cen:0.4}); };
+    if(i===22){ mk(-9,C.moeder,60); if(sex==='XY') mk(9,C.vader,26); else mk(9,C.vader,60); }
+    else { mk(-9,C.moeder,L); mk(9,C.vader,L); if(tris===i) mk(25,C.moeder,L); }
+    metaText(ctx,i===22?(sex==='XY'?'XY':'XX'):String(i+1),px,py+rh*0.48,C.text,'center',18); ctx.restore(); }
+  ctx.restore(); }
+function sperm(ctx,x,y,s=1,alpha=1,ang=0,t=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(ang); ctx.beginPath(); ctx.ellipse(0,0,14*s,10*s,0,0,6.2832); ctx.fillStyle=C.text; ctx.fill(); ctx.strokeStyle=C.text; ctx.lineWidth=2*s; ctx.beginPath(); ctx.moveTo(-14*s,0); for(let k=0;k<=20;k++){ ctx.lineTo(-14*s-k*4*s,Math.sin(k*0.7+t*10)*5*s); } ctx.stroke(); ctx.restore(); }
+function egg(ctx,x,y,r,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r+10,0,6.2832); ctx.fillStyle=rgba(C.moeder,0.15); ctx.fill(); ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); shape(ctx,rgba(C.fill,0.9),C.moeder,3); nucMembrane(ctx,x,y,r*0.32,1); ctx.restore(); }
+
+// Scenes Celdeling: one per narrated segment. draw(ctx, t, q): t = seconds into the take;
+// q.at('woord', n) = start of the n-th word containing 'woord'; q.on('woord', n, d) = ramp 0..1 from that moment.
+
+// helper: grid of dividing cells (1 → 2 → 4 → … ) driven by generation g (float)
+function cellSwarm(ctx,cx,cy,g,maxR,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const gen=Math.floor(g), f=g-gen, n=Math.pow(2,gen); const cols=Math.ceil(Math.sqrt(n)), rows=Math.ceil(n/cols); const r=Math.max(5,maxR/Math.max(cols,rows));
+  for(let i=0;i<n;i++){ const c=i%cols, rr=Math.floor(i/cols); const x=cx+(c-(cols-1)/2)*r*2.05, y=cy+(rr-(rows-1)/2)*r*2.05;
+    if(f>0.5&&gen<9){ const s=ease((f-0.5)*2); for(const d of [-1,1]){ ctx.beginPath(); ctx.arc(x+d*r*0.45*s,y,r*(1-0.3*s),0,6.2832); shape(ctx,rgba(C.fill,0.9),C.er,1.2); } }
+    else { ctx.beginPath(); ctx.arc(x,y,r*0.95,0,6.2832); shape(ctx,rgba(C.fill,0.9),C.er,1.2); if(r>14) dot0(ctx,x,y,r*0.3,rgba(C.kern,0.9)); } }
+  ctx.restore(); }
+
+const SCENES = {
+// ---------- Cold open ----------
+s01(ctx,t,q){
+  bg(ctx,'schema');
+  const human1=ramp(t,q.at('zevenendertig'),0.8);
+  const g=clamp((t-q.at('Nu'))/2.2,0,1)*6; // one cell until 'Nu besta', then 1 -> 64
+  cellSwarm(ctx,600,470,g,180,1-human1);
+  if(t<q.at('bevruchte')+2) pill(ctx,600,820,'een bevruchte eicel',C.grain,fadeIO(t,q.at('bevruchte'),q.at('Nu'),0.4),26);
+  if(human1>0){ ctx.save(); ctx.globalAlpha=human1; human(ctx,600,830,600,1,C.mens); ctx.restore(); pill(ctx,600,170,'± 37 biljoen cellen',C.goud,human1*(1-ramp(t,q.at('Elke',2),0.4)),32); }
+  // zoom into one cell: nucleus with a long thread of DNA
+  const z=ramp(t,q.at('bijna'),0.7);
+  zoomCircle(ctx,1360,440,300,640,520,'één cel, één kern',z,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1060,140,600,600); ctx.save(); ctx.globalAlpha=0.6; grain(ctx); ctx.restore();
+    nucMembrane(ctx,1360,440,190,1);
+    const dl=ramp(t,q.at('draad'),1.2); for(let i=0;i<8;i++) chromatin(ctx,1260+hash(i)*180,350+hash(i+9)*170,220,i%2?C.vader:C.moeder,i+20,t,0.5+0.5*dl,2.5); });
+  if(z>0){ pill(ctx,1360,845,'2 meter DNA in een kern van een paar µm',C.paars,ramp(t,q.at('meter'),0.5)*(1-ramp(t,q.at('Elke',2),0.5)),26); }
+  // dividing with a question: how to share it fairly?
+  const dv=ramp(t,q.at('Elke',2),0.6); if(dv>0){ ctx.save(); ctx.globalAlpha=dv; ctx.fillStyle=C.bgSchema; ctx.fillRect(1000,120,800,760); ctx.restore();
+    cellBody(ctx,1360,470,330,230,ramp(t,q.at('Elke',2)+0.3,1.6),dv); for(const s of [-1,1]){ ctx.save(); ctx.globalAlpha=dv; text(ctx,'?',1360+s*150,500,fTitel(90),C.goud,'center'); ctx.restore(); }
+    pill(ctx,1360,800,'geen stukje te veel, geen stukje te weinig',C.goud,ramp(t,q.at('Geen'),0.4),26); }
+},
+// ---------- H1 Waarom delen? ----------
+s04(ctx,t,q){
+  bg(ctx,'schema');
+  const P=[[110,'groeien','groeien'],[700,'herstellen','herstellen'],[1290,'vervangen','vervangen']];
+  pill(ctx,960,150,'eerst kopiëren, dan verdelen',C.goud,fadeIO(t,0,q.at('waarom'),0.4),32);
+  P.forEach((p,i)=>{ const a=ramp(t,q.at(p[2]),0.5); if(a<=0) return; const x=p[0], y=240, w=520, h=560; ctx.save(); ctx.globalAlpha=a; roundRect(ctx,x,y,w,h,16); shape(ctx,rgba(C.fill,0.55),C.line,1); text(ctx,p[1],x+w/2,y+60,fTekst(40,600),C.text,'center');
+    const tt=t-q.at(p[2]);
+    if(i===0){ cellSwarm(ctx,x+w/2,y+300,clamp(tt/3,0,1)*5,150,1); metaText(ctx,'van één cel naar een mens',x+w/2,y+h-30,C.grain,'center',20); }
+    if(i===1){ // skin layer with a wound closing
+      const close=clamp(tt/3.5,0,1); for(let k=0;k<9;k++){ const cx=x+40+k*52; const inGap=k>=3&&k<=5; if(inGap && (k-3)/3>=close) continue; roundRect(ctx,cx,y+270,46,56,10); shape(ctx,inGap?rgba(C.groen,0.35):rgba(C.koraal,0.25),inGap?C.groen:C.koraal,1.5); }
+      for(let k=0;k<9;k++){ roundRect(ctx,x+40+k*52,y+332,46,56,10); shape(ctx,rgba(C.koraal,0.18),rgba(C.koraal,0.6),1.2); }
+      metaText(ctx,'cellen rond de wond delen',x+w/2,y+h-30,C.grain,'center',20); }
+    if(i===2){ // intestinal villus: cells move up and are shed
+      ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x+170,y+480); ctx.quadraticCurveTo(x+170,y+170,x+260,y+160); ctx.quadraticCurveTo(x+350,y+170,x+350,y+480); ctx.stroke();
+      for(let k=0;k<10;k++){ const u=((tt*0.12+k/10)%1); const side=k%2?1:-1; const py=lerp(y+470,y+190,u), px=x+260+side*lerp(90,70,u); dot0(ctx,px,py,11,rgba(C.koraal,0.6*(1-Math.max(0,(u-0.85)/0.15)))); }
+      const bm=ramp(t,q.at('beenmerg'),0.4); ctx.save(); ctx.globalAlpha*=1-bm; metaText(ctx,'darmvlok: cellen om de paar dagen nieuw',x+w/2,y+h-30,C.grain,'center',18); ctx.restore();
+      if(bm>0){ ctx.save(); ctx.globalAlpha*=bm; ctx.fillStyle=rgba(C.bgSchema,0.92); ctx.fillRect(x+2,y+90,w-4,h-92); text(ctx,'2 miljoen',x+w/2,y+300,fTitel(60),C.bloed,'center'); metaText(ctx,'nieuwe rode bloedcellen per seconde',x+w/2,y+350,C.bloedR,'center',20); metaText(ctx,'in je beenmerg',x+w/2,y+385,C.grain,'center',20); ctx.restore(); } }
+    ctx.restore(); });
+},
+s05(ctx,t,q){
+  bg(ctx,'micro');
+  const bac=1-ramp(t,q.at('Waarom'),0.5);
+  if(bac>0){ ctx.save(); ctx.globalAlpha=bac; const s=ramp(t,q.at('bacterie',2),1.4);
+    for(const d of (s<0.05?[0]:[-1,1])){ const cx=960+d*95*s; ctx.save(); ctx.translate(cx,470); roundRect(ctx,-(130-60*s),-48,(260-120*s),96,48); shape(ctx,rgba(C.teal,0.45),lighten(C.teal,0.3),2); ctx.restore(); chromatin(ctx,cx-30,450,90,C.paars,d+7,t,1,3); }
+    pill(ctx,960,780,'bacterie: één cel wordt er twee',C.teal,ramp(t,q.at('bacterie'),0.4),28); ctx.restore(); }
+  const big=ramp(t,q.at('Waarom'),0.5)*(1-ramp(t,q.at('Daarom'),0.6));
+  if(big>0){ ctx.save(); ctx.globalAlpha=big; const r=lerp(140,320,ramp(t,q.at('groter'),2.5));
+    blob(ctx,960,480,r,r*0.95,0.03,2); shape(ctx,rgba(C.fill,0.7),C.er,3); dot0(ctx,960,480,8,C.text2);
+    const ox=ramp(t,q.at('weg'),0.5); if(ox>0){ for(let k=0;k<6;k++){ const a=k/6*6.2832; const u=((t*0.25+k/6)%1); o2(ctx,960+Math.cos(a)*lerp(r+60,r*0.35,u),480+Math.sin(a)*lerp(r+60,r*0.35,u)*0.95,1,ox*(1-u*0.6)); } }
+    const mid=ramp(t,q.at('midden'),0.5); if(mid>0){ ctx.save(); ctx.globalAlpha*=mid; ctx.beginPath(); ctx.arc(960,480,r*0.3,0,6.2832); ctx.fillStyle=rgba(C.koraal,0.25); ctx.fill(); ctx.restore(); label(ctx,'het midden','krijgt te laat zuurstof',960,480,1500,250,mid,C.koraal); }
+    pill(ctx,960,130,'hoe groter de cel, hoe verder de weg voor diffusie',C.teal,ramp(t,q.at('Hoe'),0.4)*(1-ramp(t,q.at('midden'),0.3)),26); ctx.restore(); }
+  const two=ramp(t,q.at('Daarom'),0.6); if(two>0){ ctx.save(); ctx.globalAlpha=two; cellBody(ctx,960,480,300,210,ramp(t,q.at('Daarom')+0.6,1.4)); ctx.restore(); pill(ctx,960,800,'liever twee kleine cellen',C.groen,ramp(t,q.at('liever'),0.4),28); }
+  scaleBar(ctx);
+},
+// ---------- H2 Celcyclus ----------
+s06(ctx,t,q){
+  bg(ctx,'schema'); cycleRing(ctx,t,q,{phase:'intro'});
+},
+s08(ctx,t,q){
+  bg(ctx,'schema'); cycleRing(ctx,t,q,{phase:'copy'});
+  const a=ramp(t,q.at('dubbel'),0.5); if(a>0){ ctx.save(); ctx.globalAlpha=a; for(const [x,dup] of [[1380,false],[1620,true]]){ if(dup) chromX(ctx,x,480,120,C.paars,{w:16}); else { chromatid(ctx,x,480,120,C.paars,{w:16}); dot0(ctx,x,480,6,'#2A2140'); } } arrow(ctx,1440,480,1550,480,C.goud,4,16); metaText(ctx,'na het kopiëren: dubbel',1500,620,C.grain,'center',22); ctx.restore(); }
+  pill(ctx,1500,760,'zie de film DNA kopiëren',C.paars,ramp(t,q.at('film'),0.4),26);
+},
+s09(ctx,t,q){ bg(ctx,'schema'); cycleRing(ctx,t,q,{phase:'g1sg2'}); },
+s10(ctx,t,q){ bg(ctx,'schema'); cycleRing(ctx,t,q,{phase:'check'}); },
+// ---------- H3 Chromosomen tellen ----------
+s11(ctx,t,q){
+  micro(ctx);
+  const kar=ramp(t,q.at('zesenveertig'),0.8);
+  const nA=1-kar;
+  if(nA>0){ ctx.save(); ctx.globalAlpha=nA; nucMembrane(ctx,960,470,330,1);
+    const hl=ramp(t,q.at('draad'),0.5);
+    for(let i=0;i<12;i++){ const col=i%2?C.vader:C.moeder; ctx.save(); if(hl>0&&i!==3) ctx.globalAlpha*=1-0.65*hl; chromatin(ctx,760+hash(i*3)*380,330+hash(i*3+1)*260,360,col,i+40,t,1,i===3?3+3*hl:3); ctx.restore(); }
+    ctx.restore();
+    label(ctx,'chromatine','DNA los in de kern',1200,330,1500,200,fadeIO(t,q.at('chromatine'),q.at('draad'),0.4)*nA);
+    label(ctx,'één draad = één chromosoom','',1000,470,1450,700,hl*nA); }
+  if(kar>0){ karyo(ctx,280,220,1360,420,{alpha:kar,hl:ramp(t,q.at('homologe'),0.4)>0?[2]:null,sex:'XX'});
+    pill(ctx,960,150,'46 chromosomen = 23 paren',C.goud,kar*(1-ramp(t,q.at('moeder'),0.4)),32);
+    const mv=ramp(t,q.at('moeder'),0.4); if(mv>0){ ctx.save(); ctx.globalAlpha=mv*(1-ramp(t,q.at('homologe'),0.4)); dot0(ctx,720,150,12,C.moeder); text(ctx,'van je moeder',744,160,fTekst(30,600),C.text,'left'); dot0(ctx,1040,150,12,C.vader); text(ctx,'van je vader',1064,160,fTekst(30,600),C.text,'left'); ctx.restore(); }
+    const ho=ramp(t,q.at('homologe'),0.4); if(ho>0){ pill(ctx,960,150,'homologe chromosomen: een paar met dezelfde soort genen',C.goud,ho,28); } }
+  scaleBar(ctx);
+},
+s12(ctx,t,q){
+  micro(ctx); const xy=ramp(t,q.at('XY'),0.6);
+  karyo(ctx,280,220,1360,420,{alpha:1,hl:ramp(t,q.at('geslachtschromosomen'),0.4)>0?[22]:null,sex:xy>0.5?'XY':'XX'});
+  pill(ctx,960,150,'22 paren gewone chromosomen',C.grain,fadeIO(t,0,q.at('drieëntwintigste'),0.4),28);
+  const g=ramp(t,q.at('geslachtschromosomen'),0.5); if(g>0){ ctx.save(); ctx.globalAlpha=g; const x0=1180,y0=760;
+    text(ctx,'vrouw: XX',x0-380,y0,fTekst(34,600),xy>0.5?C.text2:C.text,'left'); text(ctx,'man: XY',x0,y0,fTekst(34,600),xy>0.5?C.text:C.text2,'left'); ctx.restore(); }
+  pill(ctx,960,150,'X en Y: het enige paar dat echt verschilt',C.goud,ramp(t,q.at('verschillen'),0.4),28);
+  scaleBar(ctx);
+},
+s13(ctx,t,q){
+  micro(ctx);
+  const part2=ramp(t,q.at('Let'),0.6), part3=ramp(t,q.at('Deze'),0.6);
+  const p1=1-part2;
+  if(p1>0){ ctx.save(); ctx.globalAlpha=p1; const c=ramp(t,q.at('rolt'),2.5), dup=ramp(t,q.at('gekopieerd'),1.0);
+    const x=960,y=470;
+    if(dup<0.05) condensing(ctx,x,y,260,C.paars,c,9,t,false); else { ctx.save(); ctx.globalAlpha*=1-dup; chromatid(ctx,x,y,260,C.paars,{w:30}); ctx.restore(); chromX(ctx,x,y,260,C.paars,{w:30,gap:dup,alpha:dup}); }
+    label(ctx,'chromatide','',x-24,y-90,600,230,ramp(t,q.at('chromatiden'),0.5),C.text,'right'); label(ctx,'chromatide','',x+24,y-90,1320,230,ramp(t,q.at('chromatiden'),0.5),C.text,'left');
+    label(ctx,'centromeer','',x,y,1320,640,ramp(t,q.at('centromeer'),0.5),C.text,'left');
+    pill(ctx,960,800,'twee gelijke kopieën van hetzelfde DNA',C.goud,fadeIO(t,q.at('kopieën'),q.at('vorm'),0.4),28);
+    pill(ctx,960,800,'de vorm van een X: één chromosoom',C.goud,ramp(t,q.at('vorm'),0.4),28);
+    metaText(ctx,'onder de microscoop zichtbaar',960,150,C.grain,'center',24*1); ctx.restore(); }
+  if(part2>0 && part3<1){ ctx.save(); ctx.globalAlpha=part2*(1-part3);
+    pill(ctx,960,150,'twee soorten twee',C.goud,1,34);
+    const pa=ramp(t,q.at('paar'),0.5), xa=ramp(t,q.at('X',2),0.5);
+    ctx.save(); ctx.globalAlpha*=pa; roundRect(ctx,180,240,700,520,16); shape(ctx,rgba(C.fill,0.55),C.line,1); chromX(ctx,440,480,220,C.moeder,{w:24}); chromX(ctx,620,480,220,C.vader,{w:24}); text(ctx,'een paar = 2 chromosomen',530,700,fTekst(32,600),C.text,'center'); metaText(ctx,'één van moeder, één van vader',530,735,C.grain,'center',20); ctx.restore();
+    ctx.save(); ctx.globalAlpha*=xa; roundRect(ctx,1040,240,700,520,16); shape(ctx,rgba(C.fill,0.55),C.line,1); chromX(ctx,1390,480,220,C.vader,{w:24}); text(ctx,'een X = 1 chromosoom',1390,700,fTekst(32,600),C.text,'center'); metaText(ctx,'met 2 gelijke chromatiden',1390,735,C.grain,'center',20); ctx.restore();
+    ctx.restore(); }
+  if(part3>0){ ctx.save(); ctx.globalAlpha=part3; cellBody(ctx,960,480,420,300); const pos=[[-170,-60],[-40,70],[90,-80],[190,60]]; MODEL.forEach((m,i)=>chromX(ctx,960+pos[i][0],480+pos[i][1],m.len,m.color,{w:16})); ctx.restore(); }
+  scaleBar(ctx);
+},
+s15(ctx,t,q){
+  micro(ctx); const hum=ramp(t,q.at('mens'),0.6);
+  const pos=[[-170,-60],[-40,70],[90,-80],[190,60]];
+  ctx.save(); ctx.globalAlpha=1-hum; cellBody(ctx,960,480,420,300); MODEL.forEach((m,i)=>chromX(ctx,960+pos[i][0],480+pos[i][1],m.len,m.color,{w:16}));
+  const tc=q.at('centromeren'); pos.forEach((p,i)=>{ const a=ramp(t,tc+0.3+i*0.35,0.25); if(a>0){ ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(960+p[0],480+p[1],16,0,6.2832); ctx.stroke(); text(ctx,String(i+1),960+p[0]+26,480+p[1]-18,fTekst(34,700),C.goud,'left'); ctx.restore(); } });
+  pill(ctx,960,820,'4 centromeren = 4 chromosomen (8 chromatiden)',C.goud,ramp(t,q.at('centromeren'),0.4),28); ctx.restore();
+  if(hum>0){ ctx.save(); ctx.globalAlpha=hum; text(ctx,'46',720,470,fTitel(150),C.goud,'center'); metaText(ctx,'chromosomen',720,540,C.grain,'center',28); text(ctx,'92',1200,470,fTitel(150),C.paars,'center'); metaText(ctx,'chromatiden',1200,540,C.grain,'center',28); metaText(ctx,'een menselijke cel, begin van de mitose',960,700,C.text2,'center',24); ctx.restore(); }
+  scaleBar(ctx);
+},
+// ---------- H4 Mitose ----------
+s16(ctx,t,q){
+  micro(ctx);
+  const st={cond:ramp(t,q.at('rollen'),2.0), sp:ramp(t,q.at('trekdraden'),1.5), nm:1-ramp(t,q.at('kernmembraan'),1.2), meta:ramp(t,q.at('trekken'),2.2)};
+  mitosisCell(ctx,960,470,560,330,st,t);
+  const ph=(name,cue)=>ramp(t,q.at(cue),0.4);
+  const pro=ph('profase','Profase')*(1-ramp(t,q.at('Metafase'),0.3)), met=ph('metafase','Metafase');
+  pill(ctx,960,100,'profase',C.goud,pro,34); pill(ctx,960,100,'metafase',C.goud,met,34);
+  label(ctx,'spoelfiguur','trekdraden vanuit de twee polen',960+460,470,1500,250,ramp(t,q.at('spoelfiguur'),0.5)*(1-met),C.text,'right');
+  label(ctx,'pool','',960-460,470,330,250,ramp(t,q.at('polen'),0.5)*(1-ramp(t,q.at('spoelfiguur'),0.4)));
+  label(ctx,'kernmembraan','valt uit elkaar',960+190,470-180,1500,250,fadeIO(t,q.at('kernmembraan'),q.at('Metafase'),0.4));
+  const eq=ramp(t,q.at('equatorvlak'),0.5); if(eq>0){ ctx.save(); ctx.globalAlpha=eq; ctx.setLineDash([10,10]); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(960,150); ctx.lineTo(960,800); ctx.stroke(); ctx.restore(); metaText(ctx,'equatorvlak',990,800,C.goud,'left',24*1); }
+  pill(ctx,960,860,'aan elk centromeer trekdraden van beide polen',C.text,ramp(t,q.at('centromeer'),0.4),26);
+  scaleBar(ctx);
+},
+s17(ctx,t,q){
+  micro(ctx);
+  const plant=ramp(t,q.at('plantencel'),0.6);
+  const st={cond:1,sp:1,nm:0,meta:1,ana:ramp(t,q.at('trekken'),2.5),telo:ramp(t,q.at('kernmembraan'),2.0),cyto:ramp(t,q.at('snoert'),2.5)};
+  ctx.save(); ctx.globalAlpha=1-0.85*plant; mitosisCell(ctx,960,470,560,330,st,t); ctx.restore();
+  pill(ctx,960,100,'anafase',C.goud,fadeIO(t,0,q.at('Telofase'),0.3),34);
+  pill(ctx,960,100,'telofase',C.goud,fadeIO(t,q.at('Telofase'),q.at('Ondertussen'),0.3),34);
+  pill(ctx,960,100,'cytokinese',C.goud,fadeIO(t,q.at('Ondertussen'),q.at('plantencel'),0.3),34);
+  pill(ctx,960,860,'centromeren splitsen',C.text,fadeIO(t,q.at('splitsen'),q.at('chromatide'),0.4),26);
+  pill(ctx,960,860,'elke chromatide heet nu een chromosoom',C.text,fadeIO(t,q.at('chromatide')+0.4,q.at('Even'),0.4),26);
+  pill(ctx,960,860,'even 92 chromosomen in één cel (mens)',C.goud,fadeIO(t,q.at('Even')+0.4,q.at('Telofase'),0.4),26);
+  pill(ctx,960,860,'twee dochtercellen',C.groen,fadeIO(t,q.at('dochtercellen'),q.at('plantencel'),0.4),28);
+  if(plant>0){ ctx.save(); ctx.globalAlpha=plant; const x0=960,y0=470; roundRect(ctx,x0-420,y0-240,840,480,22); ctx.fillStyle=rgba(C.fill,0.8); ctx.fill(); ctx.strokeStyle=C.groen; ctx.lineWidth=14; ctx.stroke();
+    for(const s of [-1,1]) nucMembrane(ctx,x0+s*220,y0,90,1);
+    const cp=ramp(t,q.at('celplaat'),1.4); ctx.strokeStyle=C.groen; ctx.lineWidth=10; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x0,y0-200*cp); ctx.lineTo(x0,y0+200*cp); ctx.stroke();
+    for(let k=0;k<8;k++){ const yy=y0-180+k*52; if(Math.abs(yy-y0)<200*cp) continue; dot0(ctx,x0+(hash(k)*2-1)*14,yy,7,rgba(C.groen,0.8)); }
+    label(ctx,'celplaat','wordt een nieuwe celwand',x0,y0-120,1500,170,ramp(t,q.at('celplaat'),0.5),C.groen,'right'); metaText(ctx,'plantencel',x0,y0+290,C.grain,'center',24); ctx.restore(); }
+  scaleBar(ctx);
+},
+s19(ctx,t,q){
+  micro(ctx);
+  const sp=[[-60,-55],[-20,40],[30,-50],[60,45]];
+  [-1,1].forEach(s=>cellWith(ctx,960+s*330,460,230,MODEL.map((m,i)=>({x:sp[i][0],y:sp[i][1],len:m.len*0.62,color:m.color,dup:false})),{nuc:true,label:'dochtercel: 4 chromosomen'}));
+  pill(ctx,960,130,'mens: 46 → twee cellen met elk 46',C.goud,ramp(t,0.2,0.5),30);
+  pill(ctx,960,820,'van elk chromosoom één chromatide',C.text,ramp(t,q.at('chromatide'),0.4),28); metaText(ctx,'opgerold getekend om te kunnen tellen',960,740,C.text2,'center',20);
+  scaleBar(ctx);
+},
+s20(ctx,t,q){
+  bg(ctx,'schema');
+  const pts=[[0,1],[0.22,1],[0.42,2],[0.72,2],[0.74,1],[1,1]];
+  const pr=clamp((t-q.at('Noem'))/ (q.at('weer')+0.6-q.at('Noem')),0,1);
+  dnaGraph(ctx,260,180,1400,520,pts,pr,{labels:[{s:'G1',x:0.11,a:ramp(t,q.at('Noem'),0.4)},{s:'S: kopiëren',x:0.32,a:ramp(t,q.at('verdubbelt'),0.4)},{s:'G2',x:0.57,a:ramp(t,q.at('verdubbelt'),0.4)},{s:'mitose',x:0.73,a:ramp(t,q.at('mitose'),0.4)},{s:'G1',x:0.87,a:ramp(t,q.at('mitose'),0.4)}]});
+  pill(ctx,960,800,'niet gehalveerd: eerst verdubbeld, dan eerlijk verdeeld',C.groen,ramp(t,q.at('gehalveerd'),0.4),28);
+  pill(ctx,960,800,'twee genetisch gelijke dochtercellen',C.groen,ramp(t,q.at('genetisch'),0.4),28);
+},
+// ---------- H5 Meiose ----------
+s21(ctx,t,q){
+  bg(ctx,'schema');
+  const dip=ramp(t,q.at('lichaamscel'),0.6); const a1=1-dip;
+  if(a1>0){ ctx.save(); ctx.globalAlpha=a1; const meet=ramp(t,q.at('versmelten'),1.6);
+    egg(ctx,1100,470,150,1); sperm(ctx,lerp(500,930,meet),470,2,1,0,t);
+    text(ctx,'46',lerp(500,930,meet),400,fTekst(36,700),C.text,'center'); text(ctx,'46',1100,330,fTekst(36,700),C.text,'center');
+    const k=ramp(t,q.at('kind'),0.5); if(k>0){ ctx.save(); ctx.globalAlpha*=k; text(ctx,'= 92 ?',1400,490,fTitel(70),C.koraal,'left'); crossOut(ctx,1500,470,70,ramp(t,q.at('tweeënnegentig'),0.3)); ctx.restore(); }
+    ctx.restore(); }
+  if(dip>0){ ctx.save(); ctx.globalAlpha=dip; const hap=ramp(t,q.at('geslachtscel'),0.6);
+    cellWith(ctx,560,470,220,[{x:-70,y:-40,len:85,color:C.vader,dup:false},{x:-40,y:-40,len:85,color:C.moeder,dup:false},{x:40,y:40,len:55,color:C.vader,dup:false},{x:70,y:40,len:55,color:C.moeder,dup:false}],{nuc:true});
+    text(ctx,'diploïd',560,190,fTekst(40,600),C.text,'center'); text(ctx,'2n = 46',560,800,fTitel(48),C.goud,'center');
+    ctx.save(); ctx.globalAlpha*=hap; cellWith(ctx,1360,470,170,[{x:-30,y:-30,len:85,color:C.moeder,dup:false},{x:35,y:35,len:55,color:C.vader,dup:false}],{nuc:true}); text(ctx,'haploïd',1360,190,fTekst(40,600),C.text,'center'); text(ctx,'n = 23',1360,800,fTitel(48),C.goud,'center'); metaText(ctx,'van elk paar één',1360,700,C.grain,'center',22); ctx.restore();
+    metaText(ctx,'paren chromosomen',560,710,C.grain,'center',22); ctx.restore(); }
+},
+s22(ctx,t,q){
+  micro(ctx);
+  const cellA=ramp(t,q.at('meiose',3),0.6); // 'In meiose I'
+  const intro=1-cellA;
+  if(intro>0){ ctx.save(); ctx.globalAlpha=intro; human(ctx,560,830,560,1,C.mens);
+    pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,ramp(t,q.at('teelballen'),0.4),28);
+    pill(ctx,1240,420,'reductiedeling: 46 → 23',C.goud,ramp(t,q.at('reductiedeling'),0.4),28);
+    pill(ctx,1240,540,'twee delingen, één keer kopiëren',C.text,ramp(t,q.at('delingen'),0.4),28); ctx.restore(); }
+  if(cellA>0){ ctx.save(); ctx.globalAlpha=cellA; const pair=ramp(t,q.at('zoeken'),2.0), sep=ramp(t,q.at('uit'),2.0)*0; cellBody(ctx,960,470,560,330);
+    const scat=[[-160,-90],[120,60],[60,-110],[-120,90]]; const rowsY=[400,560];
+    MODEL.forEach((m,i)=>{ const tx=960+(m.color===C.vader?-34:34), ty=rowsY[m.pair]; const x=lerp(960+scat[i][0],tx,pair), y=lerp(470+scat[i][1],ty,pair); chromX(ctx,x,y,m.len*0.9,m.color,{w:16}); });
+    if(pair>0.5){ spindle(ctx,[960-470,470],[[960-50,400],[960-50,560]],pair); spindle(ctx,[960+470,470],[[960+50,400],[960+50,560]],pair); }
+    const eq=ramp(t,q.at('equatorvlak'),0.5); if(eq>0){ ctx.save(); ctx.globalAlpha*=eq; ctx.setLineDash([10,10]); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(960,170); ctx.lineTo(960,780); ctx.stroke(); ctx.restore(); }
+    pill(ctx,960,100,'meiose I: homologe chromosomen als paren',C.goud,ramp(t,q.at('zoeken'),0.4),30);
+    ctx.restore(); }
+  scaleBar(ctx);
+},
+s24(ctx,t,q){
+  micro(ctx);
+  const m2=ramp(t,q.at('meiose',2),0.6); // 'In meiose II'
+  const gam=ramp(t,q.at('man'),0.6);
+  if(m2<1){ ctx.save(); ctx.globalAlpha=1-m2; const sep=ramp(t,0.2,2.0), cy=ramp(t,1.6,1.6);
+    cellBody(ctx,960,470,560,330,cy);
+    MODEL.forEach(m=>{ const side=(m.id==='Av'||m.id==='Bm')?-1:1; const y=m.pair?560:400; chromX(ctx,960+side*lerp(34,300,sep),y,m.len*0.9,m.color,{w:16}); });
+    pill(ctx,960,100,'na meiose I: elke cel 2 chromosomen (mens: 23), elk met 2 chromatiden',C.goud,ramp(t,0.3,0.5),26); ctx.restore(); }
+  if(m2>0 && gam<1){ ctx.save(); ctx.globalAlpha=m2*(1-gam); const sp=ramp(t,q.at('chromatiden',2),1.8);
+    const cells=[[-1,['Av','Bm']],[1,['Am','Bv']]];
+    cells.forEach(([s,ids])=>{ const cx=960+s*400; cellBody(ctx,cx,470,300,250,ramp(t,q.at('mitose'),1.2));
+      ids.forEach((id,j)=>{ const m=MODEL.find(z=>z.id===id); const y=j?560:390; if(sp<0.05) chromX(ctx,cx,y,m.len*0.85,m.color,{w:14}); else for(const d of [-1,1]){ chromatid(ctx,cx+d*lerp(10,150,sp),y,m.len*0.85,m.color,{w:14}); dot0(ctx,cx+d*lerp(10,150,sp),y,5,'#2A2140'); } }); });
+    pill(ctx,960,100,'meiose II: de chromatiden gaan uit elkaar',C.goud,1,30); ctx.restore(); }
+  if(gam>0){ ctx.save(); ctx.globalAlpha=gam; const vrouw=ramp(t,q.at('vrouw'),0.6);
+    const G=[['Av','Bm'],['Av','Bm'],['Am','Bv'],['Am','Bv']];
+    G.forEach((ids,i)=>{ const cx=330+i*420, cy=330; ctx.save(); ctx.globalAlpha*=1; cellWith(ctx,cx,cy,95,ids.map((id,j)=>{ const m=MODEL.find(z=>z.id===id); return {x:j?25:-25,y:0,len:m.len*0.55,color:m.color,dup:false,w:10}; })); ctx.strokeStyle=C.text; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(cx+95,cy); for(let k=0;k<=24;k++) ctx.lineTo(cx+95+k*5,cy+Math.sin(k*0.7+t*8)*6); ctx.stroke(); ctx.restore(); });
+    metaText(ctx,'man: vier zaadcellen',960,470,C.grain,'center',24);
+    if(vrouw>0){ ctx.save(); ctx.globalAlpha*=vrouw; egg(ctx,620,700,120,1); chromatid(ctx,600,700,40,C.vader,{w:8}); chromatid(ctx,640,700,26,C.moeder,{w:8}); for(let k=0;k<3;k++){ ctx.beginPath(); ctx.arc(900+k*110,720,30,0,6.2832); shape(ctx,rgba(C.fill,0.7),C.er,2); } metaText(ctx,'vrouw: één eicel',620,860,C.grain,'center',22); metaText(ctx,'kleine cellen sterven af',1010,800,C.grain,'center',20); ctx.restore(); } ctx.restore(); }
+  scaleBar(ctx);
+},
+s25(ctx,t,q){
+  bg(ctx,'schema');
+  const pts=[[0,1],[0.15,1],[0.32,2],[0.45,2],[0.47,1],[0.7,1],[0.72,0.5],[1,0.5]];
+  const pr=clamp((t-q.at('van'))/(q.at('half')+0.8-q.at('van')),0,1);
+  dnaGraph(ctx,260,180,1400,560,pts,pr,{labels:[{s:'kopiëren',x:0.24,a:ramp(t,q.at('van'),0.3)},{s:'meiose I',x:0.46,a:ramp(t,q.at('meiose'),0.3)},{s:'meiose II',x:0.71,a:ramp(t,q.at('meiose',2),0.3)}],title:'DNA per kern bij de meiose'});
+},
+s26(ctx,t,q){
+  micro(ctx);
+  const co=ramp(t,q.at('variatie'),0.6); const fert=ramp(t,q.at('bevruchting'),0.6);
+  const ia=1-co;
+  if(ia>0){ ctx.save(); ctx.globalAlpha=ia; // two orientations of the pairs -> 4 combinations
+    for(const [k,flip] of [[0,false],[1,true]]){ const cx=520+k*880, cy=420; cellBody(ctx,cx,cy,300,240);
+      const L=flip?C.moeder:C.vader, R=flip?C.vader:C.moeder; chromX(ctx,cx-30,cy-60,110,L,{w:14}); chromX(ctx,cx+30,cy-60,110,R,{w:14}); chromX(ctx,cx-30,cy+70,70,C.vader,{w:14}); chromX(ctx,cx+30,cy+70,70,C.moeder,{w:14});
+      metaText(ctx,k?'of zo':'zo',cx,cy+290,C.grain,'center',24); }
+    pill(ctx,960,100,'welk chromosoom naar welke kant: toeval',C.goud,ramp(t,q.at('toeval'),0.4),30);
+    const n=ramp(t,q.at('macht'),0.5); if(n>0){ ctx.save(); ctx.globalAlpha*=n; text(ctx,'2²³ ≈ 8 miljoen combinaties',960,820,fTitel(52),C.goud,'center'); ctx.restore(); }
+    ctx.restore(); }
+  if(co>0 && fert<1){ ctx.save(); ctx.globalAlpha=co*(1-fert); const close=ramp(t,q.at('dicht'),1.0), swap=ramp(t,q.at('wisselen'),1.4), out=ramp(t,q.at('Daardoor'),1.2);
+    const cx=960, cy=460, gapX=lerp(90,30,close)+lerp(0,140,out);
+    chromX(ctx,cx-gapX,cy,300,C.vader,{w:28,seg:swap>0?{from:0.62,to:1,color:C.moeder}:null,segSide:1,alpha:1});
+    chromX(ctx,cx+gapX,cy,300,C.moeder,{w:28,seg:swap>0?{from:0.62,to:1,color:C.vader}:null,segSide:-1,alpha:1});
+    if(swap>0&&out<0.5){ ctx.save(); ctx.globalAlpha*=swap*(1-out*2); ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(cx,cy+70,40,0,6.2832); ctx.stroke(); ctx.restore(); }
+    pill(ctx,960,100,'crossing-over: stukken uitwisselen',C.goud,ramp(t,q.at('crossing'),0.4),30);
+    pill(ctx,960,830,'nieuwe mengeling van vader en moeder',C.groen,ramp(t,q.at('mengeling'),0.4)*(1-ramp(t,q.at('verschilt'),0.3)),28);
+    pill(ctx,960,830,'bijna elke geslachtscel is anders',C.groen,ramp(t,q.at('verschilt'),0.4),28);
+    ctx.restore(); }
+  if(fert>0){ ctx.save(); ctx.globalAlpha=fert; const m=ramp(t,q.at('samen'),1.2); egg(ctx,1120,470,150,1); sperm(ctx,lerp(520,960,m),470,2,1,0,t);
+    text(ctx,'n',lerp(520,960,m),400,fTekst(40,700),C.text,'center'); text(ctx,'n',1120,330,fTekst(40,700),C.text,'center');
+    const r=ramp(t,q.at('weer'),0.5); if(r>0){ ctx.save(); ctx.globalAlpha*=r; text(ctx,'= 2n = 46',1320,490,fTitel(64),C.goud,'left'); ctx.restore(); } ctx.restore(); }
+  scaleBar(ctx);
+},
+// ---------- H6 Vergelijking ----------
+s27(ctx,t,q){ bg(ctx,'schema'); comparePanels(ctx,t,0,ramp(t,0.2,0.5)); },
+s29(ctx,t,q){
+  bg(ctx,'schema'); const tab=ramp(t,q.at('Mitose:',2),0.6);
+  comparePanels(ctx,t,1,1-tab, ramp(t,0.1,0.5));
+  if(tab>0){ ctx.save(); ctx.globalAlpha=tab;
+    const rows=[['','mitose','meiose'],['delingen','1','2'],['dochtercellen','2','4 geslachtscellen'],['chromosomen','2n (diploïd)','n (haploïd)'],['genetisch','gelijk','verschillend'],['doel','groei, herstel, vervanging','voortplanting']];
+    const cues=[null,'deling','dochtercellen','diploïd','genetisch','groei'];
+    rows.forEach((r,i)=>{ const a=i===0?1:Math.max(ramp(t,q.at(cues[i]),0.4), ramp(t,q.at('Meiose:',3),0.4)*0.0); const am=i===0?1:ramp(t,q.at('Meiose:',3),0.4); const y=180+i*95;
+      if(i>0){ ctx.save(); ctx.strokeStyle=rgba(C.line,0.3); ctx.beginPath(); ctx.moveTo(220,y-60); ctx.lineTo(1700,y-60); ctx.stroke(); ctx.restore(); }
+      text(ctx,r[0],240,y,fTekst(32,600),C.text2,'left');
+      ctx.save(); ctx.globalAlpha*=a; text(ctx,r[1],820,y,fTekst(i?32:38,600),i?C.text:C.teal,'left'); ctx.restore();
+      ctx.save(); ctx.globalAlpha*=am; text(ctx,r[2],1280,y,fTekst(i?32:38,600),i?C.text:C.moeder,'left'); ctx.restore(); });
+    pill(ctx,960,820,'meiose is niet twee keer mitose',C.koraal,ramp(t,q.at('gewoon'),0.4),30);
+    ctx.restore(); }
+},
+// ---------- vwo: als het misgaat ----------
+s30(ctx,t,q){
+  micro(ctx); const nd=ramp(t,q.at('meiose'),0.6); const k1=1-nd;
+  if(k1>0){ ctx.save(); ctx.globalAlpha=k1;
+    const brk=ramp(t,q.at('Raken'),0.6), tum=ramp(t,q.at('tumor'),2.0), inv=ramp(t,q.at('kanker'),1.5);
+    // tissue: neat row of cells
+    for(let k=0;k<12;k++){ roundRect(ctx,180+k*130,620,120,90,14); shape(ctx,rgba(C.koraal,0.2),rgba(C.koraal,0.6),1.5); }
+    if(tum>0){ const n=Math.floor(4+tum*40); for(let k=0;k<n;k++){ const a=hash(k*3)*6.28, d=Math.sqrt(hash(k*3+1))*lerp(40,200,tum); dot0(ctx,900+Math.cos(a)*d*1.3,430+Math.sin(a)*d*0.8,22,rgba(C.koraal,0.55)); } }
+    if(inv>0){ for(let k=0;k<6;k++){ const u=clamp(inv*1.2-k*0.1,0,1); dot0(ctx,900+(k-2.5)*70,lerp(560,680,u),18,rgba(C.koraal,0.75)); } }
+    // brake light
+    const gx=1500, gy=250; roundRect(ctx,gx-50,gy-110,100,220,20); shape(ctx,rgba(C.bgSchema,0.9),C.line,1.5); dot0(ctx,gx,gy-50,30,C.groen); dot0(ctx,gx,gy+50,30,rgba(C.koraal,0.25)); if(brk>0.5) crossOut(ctx,gx,gy+50,26,brk); metaText(ctx,brk>0.5?'rem kapot: altijd groen':'controlepunt',gx,gy+150,C.grain,'center',22);
+    pill(ctx,700,150,'normaal: alleen delen als het nodig is',C.groen,fadeIO(t,q.at('Normaal'),q.at('Raken'),0.4),28);
+    pill(ctx,700,150,'fouten in het DNA: de rem gaat kapot',C.koraal,fadeIO(t,q.at('Raken'),q.at('tumor'),0.4),28);
+    pill(ctx,700,150,'tumor: cellen blijven delen',C.koraal,fadeIO(t,q.at('tumor'),q.at('kanker'),0.4),28);
+    pill(ctx,700,150,'kanker: cellen dringen andere weefsels binnen',C.koraal,ramp(t,q.at('kanker'),0.4),28); ctx.restore(); }
+  if(nd>0){ ctx.save(); ctx.globalAlpha=nd; const sep=ramp(t,q.at('Soms'),2.5), res=ramp(t,q.at('ene'),0.6);
+    cellBody(ctx,960,430,520,280,ramp(t,q.at('ene'),1.0));
+    // pair A fails to separate (both go left), pair B separates normally
+    const y1=360, y2=520; chromX(ctx,960-34-sep*300,y1,110,C.vader,{w:16}); chromX(ctx,960+34-sep*240,y1,110,C.moeder,{w:16}); chromX(ctx,960-34-sep*300,y2,70,C.vader,{w:16}); chromX(ctx,960+34+sep*300,y2,70,C.moeder,{w:16});
+    pill(ctx,960,100,'non-disjunctie: een paar gaat niet uit elkaar',C.koraal,ramp(t,q.at('disjunctie'),0.4),28);
+    if(res>0){ ctx.save(); ctx.globalAlpha*=res; text(ctx,'één te veel',640,780,fTekst(34,700),C.koraal,'center'); text(ctx,'één te weinig',1280,780,fTekst(34,700),C.koraal,'center'); ctx.restore(); }
+    const e=ramp(t,q.at('eicel'),0.5); if(e>0){ ctx.save(); ctx.globalAlpha*=e; bg(ctx,'micro'); egg(ctx,1100,470,150,1); text(ctx,'24',1100,330,fTekst(40,700),C.koraal,'center'); sperm(ctx,560,470,2,ramp(t,q.at('zaadcel'),0.4),0,t); ctx.save(); ctx.globalAlpha*=ramp(t,q.at('zaadcel'),0.4); text(ctx,'23',560,400,fTekst(40,700),C.text,'center'); ctx.restore(); text(ctx,'?',1400,500,fTitel(90),C.goud,'center'); ctx.restore(); } ctx.restore(); }
+  scaleBar(ctx);
+},
+s32(ctx,t,q){
+  micro(ctx);
+  text(ctx,'24 + 23 = 47',960,200,fTitel(70),C.goud,'center');
+  karyo(ctx,280,300,1360,420,{alpha:ramp(t,q.at('nummer'),0.6),hl:[20],sex:'XX',tris:20});
+  pill(ctx,960,800,'trisomie 21: het syndroom van Down',C.paars,ramp(t,q.at('trisomie'),0.4),30);
+  scaleBar(ctx);
+},
+// ---------- Recap ----------
+s33(ctx,t,q){
+  bg(ctx,'schema'); const quiz=ramp(t,q.at('vraag'),0.6); const pa=1-quiz;
+  if(pa>0){ ctx.save(); ctx.globalAlpha=pa;
+    const P=[['groeien · herstellen · vervangen','groeien'],['eerst kopiëren','kopieert'],['mitose: 2 × 46, gelijk','mitose'],['meiose: n = 23, verschillend','meiose']];
+    P.forEach((p,i)=>{ const a=ramp(t,q.at(p[1]),0.5); if(a<=0) return; const x=110+i*430, y=220, w=400, h=480; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y,w,h,14); shape(ctx,rgba(C.fill,0.55),C.line,1); const cx=x+w/2, cy=y+200;
+      if(i===0) cellSwarm(ctx,cx,cy,3+((t*0.5)%2),110,1);
+      if(i===1){ chromatid(ctx,cx-70,cy,120,C.paars,{w:18}); arrow(ctx,cx-30,cy,cx+20,cy,C.goud,4,14); chromX(ctx,cx+80,cy,120,C.paars,{w:18}); }
+      if(i===2){ for(const s of [-1,1]) cellWith(ctx,cx+s*90,cy,75,MODEL.map((m,j)=>({x:-30+j*20,y:0,len:m.len*0.4,color:m.color,dup:false,w:8}))); }
+      if(i===3){ for(let k=0;k<4;k++){ const ids=k<2?['Av','Bm']:['Am','Bv']; cellWith(ctx,cx-120+k*80,cy,36,ids.map((id,j)=>{ const m=MODEL.find(z=>z.id===id); return {x:j?8:-8,y:0,len:m.len*0.3,color:m.color,dup:false,w:6}; })); } }
+      ctx.font=fTekst(28,600); ctx.fillStyle=C.text; ctx.textAlign='center'; wrap(ctx,p[0],cx,y+h-90,w-40,34); ctx.restore(); });
+    ctx.restore(); }
+  if(quiz>0){ ctx.save(); ctx.globalAlpha=quiz; const hc=ramp(t,q.at('huidcel'),0.5), zc=ramp(t,q.at('zaadcel'),0.5);
+    ctx.save(); ctx.globalAlpha*=hc; roundRect(ctx,420,320,280,240,30); shape(ctx,rgba(C.koraal,0.25),C.koraal,2); nucMembrane(ctx,560,440,70,1); metaText(ctx,'huidcel (deelt niet)',560,620,C.grain,'center',22); ctx.restore();
+    ctx.save(); ctx.globalAlpha*=zc; sperm(ctx,1360,440,3,1,0,t); metaText(ctx,'zaadcel',1300,620,C.grain,'center',22); ctx.restore();
+    text(ctx,'meer DNA in de kern?',960,200,fTekst(44,600),C.text,'center'); ctx.restore(); }
+},
+s35(ctx,t,q){
+  bg(ctx,'schema');
+  const bars=[['huidcel',46,C.paars,'46 chromosomen (2n)'],['zaadcel',23,C.text2,'23 chromosomen (n)']];
+  bars.forEach((b,i)=>{ const y=320+i*170; const w=b[1]/46*1000*ramp(t,0.3+i*0.6,0.8); roundRect(ctx,520,y,Math.max(4,w),90,12); ctx.fillStyle=rgba(b[2],0.75); ctx.fill(); text(ctx,b[0],490,y+60,fTekst(38,600),C.text,'right'); metaText(ctx,b[3],540+w,y+56,C.grain,'left',22); });
+  pill(ctx,960,800,'ongeveer twee keer zoveel DNA in de kern',C.goud,ramp(t,q.at('Ongeveer'),0.4),30);
+}
+};
+
+// ===== cell-cycle ring (H2) =====
+function cycleRing(ctx,t,q,{phase}){
+  const cx=620, cy=480, R=270, th=70; const A0=-Math.PI/2; const ang=(f)=>A0+f*6.2832;
+  const segs=[['interfase',0,0.88,C.paars],['mitose',0.88,0.96,C.goud],['cytokinese',0.96,1,C.groen]];
+  const show=(cue)=> phase==='intro'? ramp(t,q.at(cue),0.5) : 1;
+  const ringA=phase==='intro'? ramp(t,q.at('celcyclus'),0.6):1;
+  ctx.save(); ctx.globalAlpha=ringA; ctx.lineWidth=th; ctx.strokeStyle=rgba(C.line,0.25); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.2832); ctx.stroke(); ctx.restore();
+  const cues={interfase:'interfase',mitose:'mitose',cytokinese:'cytokinese'};
+  segs.forEach(([n,f0,f1,col])=>{ const a=show(cues[n]); if(a<=0) return; ctx.save(); ctx.globalAlpha=a; ctx.lineWidth=th; ctx.strokeStyle=rgba(col,0.75); ctx.beginPath(); ctx.arc(cx,cy,R,ang(f0)+0.01,ang(f1)-0.01); ctx.stroke();
+    const fm=(f0+f1)/2, lx=cx+Math.cos(ang(fm))*(R+th/2+40), ly=cy+Math.sin(ang(fm))*(R+th/2+40); if(n==='interfase') text(ctx,'interfase',cx,cy-10,fTekst(44,600),C.text,'center'); else text(ctx,n,lx,ly,fTekst(30,600),C.text,lx<cx?'right':'left'); ctx.restore(); });
+  if(phase==='g1sg2'||phase==='check'){ const subs=[['G1',0,0.4,'G1'],['S',0.4,0.7,'S-fase'],['G2',0.7,0.88,'G2']];
+    subs.forEach(([n,f0,f1,cue])=>{ const a=phase==='g1sg2'?ramp(t,q.at(cue),0.4):1; if(a<=0) return; ctx.save(); ctx.globalAlpha=a; ctx.strokeStyle=C.bgSchema; ctx.lineWidth=6; for(const f of [f0,f1]){ ctx.beginPath(); ctx.moveTo(cx+Math.cos(ang(f))*(R-th/2),cy+Math.sin(ang(f))*(R-th/2)); ctx.lineTo(cx+Math.cos(ang(f))*(R+th/2),cy+Math.sin(ang(f))*(R+th/2)); ctx.stroke(); }
+      const fm=(f0+f1)/2; text(ctx,n,cx+Math.cos(ang(fm))*R,cy+Math.sin(ang(fm))*R+12,fTekst(34,700),C.text,'center'); ctx.restore(); });
+    const desc=[['G1: de cel groeit','G1'],['S: het DNA wordt gekopieerd','S-fase'],['G2: klaarmaken voor de deling','G2']];
+    if(phase==='g1sg2') desc.forEach((d,i)=>{ const a=ramp(t,q.at(d[1]),0.4); if(a>0){ ctx.save(); ctx.globalAlpha=a; text(ctx,d[0],1060,330+i*110,fTekst(36,600),C.text,'left'); ctx.restore(); } }); }
+  if(phase==='check'){ const lights=[[0.4,'groot'],[0.88,'gekopieerd']]; lights.forEach(([f,cue],i)=>{ const a=ramp(t,q.at(cue),0.4); const x=cx+Math.cos(ang(f))*(R+th/2+40), y=cy+Math.sin(ang(f))*(R+th/2+40); ctx.save(); ctx.globalAlpha=Math.max(0.25,a); roundRect(ctx,x-22,y-40,44,80,12); shape(ctx,rgba(C.bgSchema,0.95),C.line,1.2); dot0(ctx,x,y-17,12,a>0.5?C.groen:rgba(C.groen,0.3)); dot0(ctx,x,y+17,12,a>0.5?rgba(C.koraal,0.3):C.koraal); ctx.restore(); });
+    const q1=[['is de cel groot genoeg?','groot'],['is het DNA goed gekopieerd?','gekopieerd'],['pas dan gaat hij verder','verder']]; q1.forEach((d,i)=>{ const a=ramp(t,q.at(d[1]),0.4); if(a>0){ ctx.save(); ctx.globalAlpha=a; text(ctx,d[0],1060,330+i*100,fTekst(34,600),C.text,'left'); ctx.restore(); } });
+    pill(ctx,1350,700,'controlepunten',C.paars,ramp(t,q.at('controlepunten'),0.4),30); }
+  // rotating marker
+  if(phase==='intro'||phase==='copy'){ const f=(t*0.06)%1; dot0(ctx,cx+Math.cos(ang(f))*R,cy+Math.sin(ang(f))*R,12,C.text); }
+  if(phase==='intro'){
+    const rp=ramp(t,q.at('rustfase'),0.5); if(rp>0){ ctx.save(); ctx.globalAlpha=rp*(1-ramp(t,q.at('Daarna'),0.4)); text(ctx,'"rustfase"',1260,300,fTekst(40,600),C.text2,'center'); crossOut(ctx,1260,290,80,1); text(ctx,'de cel groeit, maakt eiwitten en organellen',1260,420,fTekst(30,600),C.text,'center'); ctx.restore(); }
+    const kd=ramp(t,q.at('kerndeling'),0.4); if(kd>0){ ctx.save(); ctx.globalAlpha=kd*(1-ramp(t,q.at('Bij'),0.4)); text(ctx,'mitose = kerndeling',1060,320,fTekst(36,600),C.goud,'left'); text(ctx,'mitose + cytokinese = celdeling',1060,400,fTekst(36,600),C.groen,'left'); ctx.restore(); }
+    const dg=ramp(t,q.at('dag'),0.4); if(dg>0){ ctx.save(); ctx.globalAlpha=dg*(1-ramp(t,q.at('zenuwcellen'),0.4)); text(ctx,'rondje: ± 1 dag',1060,320,fTekst(36,600),C.text,'left'); ctx.globalAlpha=ramp(t,q.at('uur'),0.4)*(1-ramp(t,q.at('zenuwcellen'),0.4)); text(ctx,'mitose: ± 1 uur',1060,400,fTekst(36,600),C.goud,'left'); ctx.restore(); }
+    const zc=ramp(t,q.at('zenuwcellen'),0.5); if(zc>0){ ctx.save(); ctx.globalAlpha=zc*(1-ramp(t,q.at('twee'),0.4)); const x=cx+Math.cos(ang(0.2))*(R+th/2), y=cy+Math.sin(ang(0.2))*(R+th/2); arrow(ctx,x,y,x+260,y-60,C.text2,4,18); text(ctx,'zenuwcellen: stoppen met delen',x+280,y-50,fTekst(32,600),C.text2,'left'); ctx.restore(); }
+    const qq=ramp(t,q.at('Wanneer'),0.5); if(qq>0){ ctx.save(); ctx.globalAlpha=qq; text(ctx,'DNA kopiëren: wanneer?',1060,400,fTekst(40,600),C.goud,'left'); ctx.restore(); }
+    const al=ramp(t,q.at('allebei'),0.4); if(al>0){ ctx.save(); ctx.globalAlpha=al*(1-qq); text(ctx,'beide nieuwe cellen krijgen al het DNA',1060,320,fTekst(32,600),C.text,'left'); ctx.restore(); } }
+  if(phase==='copy'){ const a=ramp(t,0.1,0.5); ctx.save(); ctx.globalAlpha=a; ctx.lineWidth=6; ctx.strokeStyle=C.goud; ctx.beginPath(); ctx.arc(cx,cy,R+th/2+12,ang(0)+0.01,ang(0.88)-0.01); ctx.stroke(); ctx.restore(); text(ctx,'in de interfase: DNA kopiëren',1500,300,fTekst(36,600),C.goud,'center'); }
+}
+
+// ===== three metaphases side by side (H6) =====
+function comparePanels(ctx,t,reveal,alpha=1,labelsA=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha;
+  const P=[['mitose',0],['meiose I',1],['meiose II',2]];
+  P.forEach(([n,k],i)=>{ const x=110+i*580, y=170, w=540, h=600, cx=x+w/2, cy=y+300; roundRect(ctx,x,y,w,h,16); shape(ctx,rgba(C.fill,0.5),C.line,1); text(ctx,n,cx,y+60,fTekst(40,600),C.text,'center');
+    cellBody(ctx,cx,cy,220,200); ctx.save(); ctx.setLineDash([8,8]); ctx.strokeStyle=rgba(C.goud,0.6); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,cy-180); ctx.lineTo(cx,cy+180); ctx.stroke(); ctx.restore();
+    if(reveal<0.5){ text(ctx,'?',cx,cy+30,fTitel(100),C.goud,'center'); }
+    else { ctx.save(); ctx.globalAlpha*=ramp(t,0.2,0.5);
+      if(k===0) MODEL.forEach((m,j)=>chromX(ctx,cx,cy-120+j*80,m.len*0.55,m.color,{w:12}));
+      if(k===1) MODEL.forEach((m)=>chromX(ctx,cx+(m.color===C.vader?-24:24),cy+(m.pair?60:-60),m.len*0.55,m.color,{w:12}));
+      if(k===2) ['Av','Bm'].forEach((id,j)=>{ const m=MODEL.find(z=>z.id===id); chromX(ctx,cx,cy-50+j*100,m.len*0.55,m.color,{w:12}); });
+      metaText(ctx,k===1?'paren in het equatorvlak':'losse chromosomen',cx,y+h-40,k===1?C.goud:C.grain,'center',20); ctx.restore(); } });
+  ctx.restore(); }
+</script>
+<script>
+const GLOSSARY=[
+ {t:'celdeling',d:'Uit één cel ontstaan twee cellen: kerndeling (mitose) plus cytokinese.'},
+ {t:'celcyclus',d:'De kringloop van een delende cel: interfase, mitose en cytokinese.'},
+ {t:'interfase',d:'De fase tussen twee delingen: de cel groeit en kopieert zijn DNA. Geen rustfase.'},
+ {t:'G1-, S- en G2-fase',d:'Delen van de interfase: groeien (G1), DNA kopiëren (S, synthese), klaarmaken voor de deling (G2).'},
+ {t:'controlepunt',d:'Moment in de celcyclus waarop de cel controleert of alles klopt voordat hij verdergaat.',vwo:true},
+ {t:'chromatine',d:'DNA dat los in de kern ligt, tijdens de interfase.'},
+ {t:'chromosoom',d:'Eén lange DNA-draad met eiwitten. Een mens heeft er 46 per lichaamscel.'},
+ {t:'homologe chromosomen',d:'De twee chromosomen van een paar: één van je vader, één van je moeder, met dezelfde soort genen.'},
+ {t:'geslachtschromosomen',d:'Het 23e paar: XX bij een vrouw, XY bij een man. De andere 22 paren heten autosomen.'},
+ {t:'karyogram',d:'Alle chromosomen van een cel, op paren en op grootte gelegd.'},
+ {t:'chromatide',d:'Eén van de twee gelijke kopieën van een gekopieerd chromosoom.'},
+ {t:'centromeer',d:'Plek waar de twee chromatiden van een chromosoom aan elkaar vastzitten.'},
+ {t:'mitose',d:'Kerndeling waarbij elke dochtercel van elk chromosoom één chromatide krijgt: twee genetisch gelijke cellen.'},
+ {t:'profase, metafase, anafase, telofase',d:'De vier fasen van de mitose: oprollen, op één lijn in het midden, uit elkaar trekken, nieuwe kernen.'},
+ {t:'spoelfiguur',d:'Trekdraden van eiwit vanuit de twee polen van de cel die de chromosomen verplaatsen.'},
+ {t:'equatorvlak',d:'Het vlak in het midden van de cel waar de chromosomen in de metafase liggen.'},
+ {t:'cytokinese',d:'Het delen van de rest van de cel na de kerndeling; bij planten met een celplaat.'},
+ {t:'diploïd (2n)',d:'Met paren chromosomen, zoals een lichaamscel: 2n = 46.'},
+ {t:'haploïd (n)',d:'Met van elk paar één chromosoom, zoals een geslachtscel: n = 23.'},
+ {t:'meiose (reductiedeling)',d:'Twee delingen na één keer kopiëren: van diploïd naar haploïde geslachtscellen.'},
+ {t:'crossing-over',d:'In meiose I wisselen homologe chromosomen stukken uit: meer variatie.'},
+ {t:'non-disjunctie',d:'Chromosomen of chromatiden gaan bij de deling niet uit elkaar; een cel krijgt er een te veel of te weinig.',vwo:true},
+ {t:'trisomie 21',d:'Drie keer chromosoom 21; het kind heeft dan het syndroom van Down.',vwo:true},
+ {t:'tumor / kanker',d:'Cellen die blijven delen omdat de rem op de celcyclus kapot is; bij kanker dringen ze andere weefsels binnen.',vwo:true},
+];
+// ===== Player =====
+const DATA = window.FILMDATA;
+const params = new URLSearchParams(location.search);
+const state = {
+  niveau: params.get('niveau')==='havo' ? 'havo' : 'vwo',
+  modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
+  auto: false, captions: true,
+  playing:false, t:0, items:[], idx:0, local:0,
+  qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
+  board:null
+};
+const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
+
+// ---- build timeline ----
+function buildTimeline(){
+  const items=[]; let prevChapter=null;
+  for(const seg of DATA.segments){
+    if(state.niveau==='havo' && seg.level==='vwo') continue;
+    if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
+    if(seg.kind==='card'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
+    if(seg.chapter!==prevChapter && seg.chapter!=='Cold open'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
+    if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
+    else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
+  }
+  let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
+}
+function makeQ(seg){
+  const words=seg.words||[]; const norm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,'');
+  const cache={};
+  return { at(w,n=1){ const key=w+'|'+n; if(key in cache) return cache[key]; let c=0; const nw=norm(w); for(const x of words){ if(norm(x.t).includes(nw)){ c++; if(c===n){ cache[key]=x.s; return x.s; } } } cache[key]=Infinity; return Infinity; },
+           on(w,n=1,d=0.6){ return ramp(this.localT, this.at(w,n), d); }, localT:0 };
+}
+
+// ---- canvas ----
+const canvas=document.getElementById('stage'); const ctx=canvas.getContext('2d');
+canvas.width=W; canvas.height=H;
+function render(){
+  const it=state.items[state.idx]; if(!it) return; const t=state.local; const gt=it.start+t;
+  ctx.save();
+  if(it.type==='title') drawTitle(ctx,t);
+  else if(it.type==='card') drawChapterCard(ctx,it,t);
+  else if(it.type==='end') drawEnd(ctx,it,t);
+  else if(it.type==='question') drawQuestion(ctx,it,t);
+  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
+  // UI layer: vwo marker
+  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'vwo',60,46,C.paars,'left',24); }
+  // series/level meta top-left (non-vwo items)
+  else if(it.type!=='title') metaText(ctx, (state.niveau==='havo'?'havo':'havo · vwo')+' · cel 3/3',60,46,C.text2,'left',20);
+  // captions
+  if(state.captions && it.type==='speech') drawCaption(ctx,it.seg,t);
+  ctx.restore();
+}
+function drawTitle(ctx,t){ bg(ctx,'micro'); const a=ramp(t,0.2,0.8);
+  // background: one cell dividing into two (loops)
+  const u=(t%5)/5, split=ease(clamp((u-0.25)/0.5,0,1)); ctx.save(); ctx.globalAlpha=ramp(t,0.4,1.0)*0.9;
+  for(const sgn of [-1,1]){ const cx=1420+sgn*170*split, r=lerp(230,165,split); blob(ctx,cx,540,r,r*0.95,0.03,sgn+3,t); shape(ctx,rgba(C.fill,0.7),C.er,2.5); nucleus(ctx,cx,540,r*0.32,1,t); }
+  ctx.restore();
+  ctx.save(); ctx.globalAlpha=a; text(ctx,'Celdeling',120,360,fTitel(120),C.text); text(ctx,'Eerst kopiëren, dan verdelen',120,440,fTekst(44),C.text2);
+  ctx.font=fTekst(34); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'Hoe deelt een cel zijn DNA eerlijk, en waarom halveert het bij geslachtscellen?',120,540,760,44);
+  metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · CEL 3/3',W-80,60,C.text2,'right',24); ctx.restore(); }
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+  const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
+  if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
+  const mini={'Hoofdstuk 1':'Waarom deelt een cel?','Hoofdstuk 2':'Wat gebeurt er tussen twee delingen?','Hoofdstuk 3':'Hoe tel je chromosomen?','Hoofdstuk 4':'Hoe verdeelt een cel zijn DNA eerlijk?','Hoofdstuk 5':'Waarom halveert het bij geslachtscellen?','Hoofdstuk 6':'Wat is het verschil?','Recap':'Wat hebben we gezien?'}[num||it.chapter];
+  if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
+function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=it.seg.lines; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,380+i*120,fTekst(44,600),C.text,'center'); ctx.restore(); });
+  haak(ctx,400,1520,740,'eerst kopiëren, dan verdelen',C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · voice: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-20,C.text2,'center',22); }
+function drawQuestion(ctx,it,t){
+  bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
+  text(ctx,'Wat denk je?',120,200,fTitel(64),C.text); ctx.font=fTekst(40,600); ctx.fillStyle=C.text; wrap(ctx,seg.q,120,290,1680,52);
+  const revealed = ph.phase==='reveal';
+  seg.options.forEach((o,i)=>{ const y=430+i*112; const chosen=ph.chosen===i; const correct=i===seg.correct;
+    roundRect(ctx,120,y,1680,96,14); let fill=C.fill, stroke=C.line;
+    if(revealed){ if(correct){ fill=rgba(C.groen,0.25); stroke=C.groen; } else if(chosen){ fill=rgba(C.koraal,0.25); stroke=C.koraal; } }
+    else if(chosen){ stroke=C.goud; }
+    shape(ctx,fill,stroke,1.5); text(ctx,String.fromCharCode(97+i),160,y+62,fMeta(32),C.grain); text(ctx,o,220,y+62,fTekst(36),C.text);
+    if(revealed&&correct){ ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(1750,y+48,12,0,6.283); ctx.fill(); }
+  });
+  if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/COUNTDOWN,0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,CAPTION_Y-40); ctx.lineTo(120+1680*(1-u),CAPTION_Y-40); ctx.stroke(); metaText(ctx,'denk na…',120,CAPTION_Y-60,C.grain,'left',24); }
+  else if(ph.phase==='wait'){ metaText(ctx, state.modus==='klas'?'klas: druk op verder':'tik op een antwoord',120,CAPTION_Y-50,C.goud,'left',26); }
+  else { ctx.save(); roundRect(ctx,120,H-150,1680,110,14); shape(ctx,rgba(C.groen,0.12),C.groen,1.5); ctx.font=fTekst(32); ctx.fillStyle=C.text; wrap(ctx,seg.explain,150,H-105,1620,40); ctx.restore(); }
+  // option hit zones stored
+  state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
+}
+// captions: phrase chunks of ≤ 2 lines ≤ 44 chars
+function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+  for(const w of seg.words){ const t=w.t; cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+    if(len>80||(endS&&len>30)){ out.push(cur); cur=[]; len=0; } }
+  if(cur.length) out.push(cur); seg._chunks=out; return out; }
+function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && t<=c[c.length-1].e+0.6); if(!ch) return;
+  const s=ch.map(w=>w.t).join(' '); ctx.font=fTekst(44,700); const words=s.split(' '); const lines=[]; let line='';
+  for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>1500&&line){ lines.push(line); line=w; } else line=test; } if(line) lines.push(line);
+  const wmax=Math.max(...lines.map(l=>ctx.measureText(l).width)); const bh=lines.length*54+30, bw=wmax+60; const x=W/2-bw/2, y=H-40-bh;
+  roundRect(ctx,x,y,bw,bh,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill();
+  lines.forEach((l,i)=>text(ctx,l,W/2,y+54+i*54-8,fTekst(44,700),C.text,'center')); }
+
+// ---- transport ----
+const audio=document.getElementById('narration'); let clockStart=0, clockBase=0; let raf=0;
+function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx]; state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+  if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
+  else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
+  updateChapterUI(); }
+function seekGlobal(g){ g=clamp(g,0,state.total-0.01); const i=state.items.findIndex(it=>g<it.start+it.dur); gotoItem(i, g-state.items[i].start); }
+function play(){ state.playing=true; document.getElementById('play').textContent='❚❚'; const it=state.items[state.idx]; if(it.type==='speech'){ audio.play().catch(()=>{}); } else { clockBase=state.local; clockStart=performance.now()/1000; } }
+function pause(){ state.playing=false; document.getElementById('play').textContent='▶'; audio.pause(); }
+function tick(){
+  const it=state.items[state.idx];
+  if(state.playing && it){
+    if(it.type==='speech'){ state.local=audio.currentTime; if(audio.ended || state.local>=it.dur-0.02){ next(); } }
+    else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart); const ph=state.qPhase;
+      if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
+      else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
+    } else { state.local=clockBase+(performance.now()/1000-clockStart); if(state.local>=it.dur) next(); }
+  }
+  render(); updateTimeUI(); raf=requestAnimationFrame(tick);
+}
+function next(){ if(state.idx>=state.items.length-1){ pause(); state.local=state.items[state.idx].dur-0.01; return; } gotoItem(state.idx+1,0); }
+function answer(i){ const ph=state.qPhase; if(!ph||ph.phase==='reveal') return; ph.chosen=i; if(state.modus==='leerling'){ ph.phase='reveal'; ph.start=state.local; } }
+function verder(){ const ph=state.qPhase; if(!ph) return; if(ph.phase!=='reveal'){ ph.phase='reveal'; ph.start=state.local; } else next(); }
+
+// ---- UI wiring ----
+function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
+function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
+  for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
+    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='vwo'?'<em>vwo-blok</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
+function init(){
+  buildTimeline(); buildChapterList(); gotoItem(0,0);
+  document.getElementById('play').onclick=()=>state.playing?pause():play();
+  document.getElementById('seek').oninput=e=>seekGlobal(e.target.value/1000*state.total);
+  document.getElementById('verder').onclick=verder;
+  document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
+  document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+        const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
+  setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('havo',state.niveau==='havo');
+  document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
+  canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
+  document.addEventListener('keydown',e=>{ if(e.code==='Space'){ e.preventDefault(); state.playing?pause():play(); } if(e.code==='ArrowRight') seekGlobal(state.items[state.idx].start+state.local+5); if(e.code==='ArrowLeft') seekGlobal(state.items[state.idx].start+state.local-5); });
+  // glossary + transcript
+  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>vwo</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
+  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>vwo</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
+  tick();
+}
+window.addEventListener('load',init);
+
+</script>
+</body>
+</html>

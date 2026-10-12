@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Celdeling · Eerst kopiëren, dan verdelen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.havo .term.vwo,body.havo #transcript p.vwo,body.havo .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  /*NAV*/
+  <div class="meta">Biologie bij Kamiel · reeks Cel · film 3 van 3</div>
+  <h1>Celdeling</h1>
+  <p>Eerst kopiëren, dan verdelen. De celcyclus, chromosomen tellen, mitose en meiose, en wat er misgaat bij kanker en non-disjunctie.</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Celdeling"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Tellen</b> <span class="pts">2 punten</span><p>Een cel van een paard heeft 64 chromosomen. a. Hoeveel chromatiden heeft deze cel in de metafase van de mitose (1)? b. Hoeveel chromosomen heeft een eicel van een paard (1)?</p>
+      <details><summary>Antwoord</summary><p>a. 128: 64 chromosomen met elk twee chromatiden (1). b. 32: geslachtscellen zijn haploïd (1).</p></details></div>
+    <div class="q"><b>2. DNA per kern</b> <span class="pts">3 punten</span><p>De hoeveelheid DNA in de kern van een cel uit de wortelpunt van een ui wordt gevolgd. Vlak na een deling is die p. a. Hoeveel DNA zit er in de kern in de G2-fase (1)? b. In welke fase van de celcyclus verdubbelt de hoeveelheid DNA (1)? c. Hoeveel DNA zit er in de kern van een cel na meiose II (1)?</p>
+      <details><summary>Antwoord</summary><p>a. 2p (1). b. In de interfase, in de S-fase (1). c. ½p (1).</p></details></div>
+    <div class="q"><b>3. Mitose of meiose</b> <span class="pts">2 punten</span><p>Op een foto zie je een cel waarin homologe chromosomen als paren in het equatorvlak liggen. Welke deling en welke fase is dit? Leg uit hoe je dat ziet.</p>
+      <details><summary>Antwoord</summary><p>Meiose I, metafase (1): alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak; bij mitose en meiose II liggen de chromosomen los (1).</p></details></div>
+    <div class="q"><b>4. Variatie</b> <span class="pts">2 punten</span><p>Twee broers hebben dezelfde ouders, maar zien er verschillend uit. Noem twee processen tijdens de meiose die ervoor zorgen dat geslachtscellen van één persoon verschillen.</p>
+      <details><summary>Antwoord</summary><p>De toevallige verdeling van de homologe chromosomen over de dochtercellen in meiose I (1) en crossing-over (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Non-disjunctie</b> <span class="vwo-badge">vwo</span> <span class="pts">2 punten</span><p>Bij een vader gaan in meiose I de twee geslachtschromosomen niet uit elkaar. a. Welke twee soorten zaadcellen ontstaan wat betreft geslachtschromosomen (1)? b. Een eicel wordt bevrucht door een zaadcel met beide geslachtschromosomen. Hoeveel chromosomen heeft het kind (1)?</p>
+      <details><summary>Antwoord</summary><p>a. Zaadcellen met X én Y, en zaadcellen zonder geslachtschromosoom (1). b. 47 (XXY) (1).</p></details></div>
+    <div class="q vwo-only"><b>6. Kanker</b> <span class="vwo-badge">vwo</span> <span class="pts">2 punten</span><p>Veel middelen tegen kanker remmen de vorming van de spoelfiguur. Leg uit waarom dit de groei van een tumor afremt, en waarom haarzakjes en darmwand last hebben van deze behandeling.</p>
+      <details><summary>Antwoord</summary><p>Zonder spoelfiguur kunnen de chromatiden niet uit elkaar worden getrokken, dus stopt de mitose van tumorcellen (1). Haarzakjes en darmwand bevatten ook snel delende cellen en worden dus ook geremd (1).</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>Schema → zoomcirkel Micro</td><td>Eén bevruchte eicel → 37 biljoen cellen; 2 m DNA in een kern; hoe verdeel je eerlijk?</td></tr>
+      <tr><td>1 Waarom delen?</td><td>Schema, Micro</td><td>Groeien, herstellen (wond sluit), vervangen (darmvlok, 2 miljoen rode bloedcellen/s); bacterie deelt; grote cel → diffusieafstand</td></tr>
+      <tr><td>2 Celcyclus</td><td>Schema</td><td>Ring met interfase (G1, S, G2), mitose, cytokinese; geen rustfase; vwo: controlepunten als stoplichten</td></tr>
+      <tr><td>3 Chromosomen tellen</td><td>Micro</td><td>Chromatine → chromosoom; karyogram 23 paren, XX/XY; oprollen; twee chromatiden + centromeer; "twee soorten twee"; telvraag met modelcel 2n = 4</td></tr>
+      <tr><td>4 Mitose</td><td>Micro, Schema</td><td>Modelcel door profase, metafase, anafase, telofase, cytokinese; celplaat bij plantencel; DNA-grafiek p → 2p → p</td></tr>
+      <tr><td>5 Meiose</td><td>Schema, Micro</td><td>Bevruchting 46 + 46?; diploïd/haploïd; meiose I (paren), meiose II (chromatiden); 4 zaadcellen, 1 eicel; DNA-grafiek tot ½p; toevallige verdeling; crossing-over; n + n = 2n</td></tr>
+      <tr><td>6 Mitose en meiose naast elkaar (+ vwo)</td><td>Schema, Micro</td><td>Drie metafasen naast elkaar; vergelijkingstabel; vwo: kapotte rem → tumor; non-disjunctie; trisomie 21</td></tr>
+    </table>
+    <h3>Modelcel en kleuren</h3>
+    <p>De animaties gebruiken een modelcel met 2n = 4 (één lang en één kort paar). Blauw = chromosoom van vader, roze = van moeder. Zo kunnen leerlingen tellen en zien ze na meiose I in elke cel één van elk paar. De film vertaalt de telling steeds naar de mens (46 → 23).</p>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Chromosomen bestaan alleen tijdens de deling (H3: chromatine = dezelfde draden).</li><li>Een X is twee chromosomen (H3: "twee soorten twee", telvraag).</li><li>DNA wordt tijdens de mitose gekopieerd (H2-vraag).</li><li>In de interfase rust de cel (H2).</li><li>Na mitose heeft elke cel de helft van het DNA (H4-vraag + grafiek).</li><li>Meiose is twee keer mitose (H6).</li><li>Na meiose I zijn er nog 46 (H5-vraag).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Acht voorspelvragen (zeven basis, één vwo) met 8 s denktijd. In Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de drie metafasen (H6) en laat leerlingen per paneel chromosomen en chromatiden tellen.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Cellen in een mens</td><td>≈ 37 biljoen (3,7·10¹³)</td><td>Bianconi e.a. 2013, Annals of Human Biology</td></tr>
+      <tr><td>DNA per cel</td><td>≈ 2 m (diploïd)</td><td>Alberts, Molecular Biology of the Cell</td></tr>
+      <tr><td>Darmepitheel</td><td>vernieuwd in 3–5 dagen</td><td>Alberts (NCBI Bookshelf NBK26885)</td></tr>
+      <tr><td>Rode bloedcellen</td><td>≈ 2 miljoen per seconde</td><td>standaardwaarde fysiologie</td></tr>
+      <tr><td>Celcyclus / mitose</td><td>≈ 24 h / ≈ 1 h bij snel delende cellen</td><td>Alberts, h. 17</td></tr>
+      <tr><td>Combinaties door toevallige verdeling</td><td>2²³ ≈ 8,4 miljoen</td><td>berekend</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>"Het kernmembraan valt uit elkaar aan het eind van de profase": de prometafase wordt niet apart genoemd.</li><li>"De centromeren splitsen": eigenlijk wordt het eiwit cohesine tussen de zusterchromatiden geknipt.</li><li>Bij de vrouw ontstaat één eicel; de kleine cellen (poollichaampjes) en het pas na de bevruchting afmaken van meiose II worden niet uitgewerkt.</li><li>Kanker: de film noemt fouten in het DNA die de rem kapot maken; oncogenen, tumorsuppressorgenen en apoptose blijven buiten beeld.</li><li>Trisomie 21 is de oorzaak van het syndroom van Down in ±95 % van de gevallen (rest: translocatie, mozaïek).</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
+      <tr><td>1 Waarom celdeling</td><td>basis</td><td>1</td><td>—</td></tr>
+      <tr><td>2 Celcyclus, kerndeling vs celdeling</td><td>basis</td><td>2</td><td>H2; check 2</td></tr>
+      <tr><td>3 Chromosomen en chromatiden tellen</td><td>basis</td><td>3</td><td>H3; check 1</td></tr>
+      <tr><td>4 Fasen van de mitose; DNA-grafiek</td><td>basis</td><td>4</td><td>H4; check 2</td></tr>
+      <tr><td>5 Meiose, diploïd/haploïd, variatie</td><td>basis</td><td>5</td><td>H5; check 1b, 4</td></tr>
+      <tr><td>6 Mitose en meiose vergelijken</td><td>basis</td><td>6</td><td>H6; check 3</td></tr>
+      <tr><td>7 G1, S, G2 (basis); controlepunten (vwo)</td><td>basis/vwo</td><td>2</td><td>check 2b</td></tr>
+      <tr><td>8 Crossing-over</td><td>basis</td><td>5</td><td>check 4</td></tr>
+      <tr><td>9 Kanker, non-disjunctie, trisomie 21</td><td>vwo</td><td>6 (vwo-blok)</td><td>vwo-vraag; check 5, 6</td></tr>
+    </table>
+    <h3>Practicumsuggesties</h3>
+    <ul><li>Worteltopje van een ui kleuren (orceïne): fasen van de mitose zoeken en tellen hoe vaak elke fase voorkomt.</li><li>Chromosomen nabootsen met pijpenragers of klei: mitose en meiose naspelen met 2n = 4, ook crossing-over.</li><li>Karyogram knippen en ordenen (normaal, trisomie 21, XXY).</li></ul>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 12 oktober 2026.</footer>
+<script>window.FILMDATA=/*FILMDATA*/;</script>
+<script>/*LIB*/</script>
+<script>/*SCENES*/</script>
+<script>
+const GLOSSARY=[
+ {t:'celdeling',d:'Uit één cel ontstaan twee cellen: kerndeling (mitose) plus cytokinese.'},
+ {t:'celcyclus',d:'De kringloop van een delende cel: interfase, mitose en cytokinese.'},
+ {t:'interfase',d:'De fase tussen twee delingen: de cel groeit en kopieert zijn DNA. Geen rustfase.'},
+ {t:'G1-, S- en G2-fase',d:'Delen van de interfase: groeien (G1), DNA kopiëren (S, synthese), klaarmaken voor de deling (G2).'},
+ {t:'controlepunt',d:'Moment in de celcyclus waarop de cel controleert of alles klopt voordat hij verdergaat.',vwo:true},
+ {t:'chromatine',d:'DNA dat los in de kern ligt, tijdens de interfase.'},
+ {t:'chromosoom',d:'Eén lange DNA-draad met eiwitten. Een mens heeft er 46 per lichaamscel.'},
+ {t:'homologe chromosomen',d:'De twee chromosomen van een paar: één van je vader, één van je moeder, met dezelfde soort genen.'},
+ {t:'geslachtschromosomen',d:'Het 23e paar: XX bij een vrouw, XY bij een man. De andere 22 paren heten autosomen.'},
+ {t:'karyogram',d:'Alle chromosomen van een cel, op paren en op grootte gelegd.'},
+ {t:'chromatide',d:'Eén van de twee gelijke kopieën van een gekopieerd chromosoom.'},
+ {t:'centromeer',d:'Plek waar de twee chromatiden van een chromosoom aan elkaar vastzitten.'},
+ {t:'mitose',d:'Kerndeling waarbij elke dochtercel van elk chromosoom één chromatide krijgt: twee genetisch gelijke cellen.'},
+ {t:'profase, metafase, anafase, telofase',d:'De vier fasen van de mitose: oprollen, op één lijn in het midden, uit elkaar trekken, nieuwe kernen.'},
+ {t:'spoelfiguur',d:'Trekdraden van eiwit vanuit de twee polen van de cel die de chromosomen verplaatsen.'},
+ {t:'equatorvlak',d:'Het vlak in het midden van de cel waar de chromosomen in de metafase liggen.'},
+ {t:'cytokinese',d:'Het delen van de rest van de cel na de kerndeling; bij planten met een celplaat.'},
+ {t:'diploïd (2n)',d:'Met paren chromosomen, zoals een lichaamscel: 2n = 46.'},
+ {t:'haploïd (n)',d:'Met van elk paar één chromosoom, zoals een geslachtscel: n = 23.'},
+ {t:'meiose (reductiedeling)',d:'Twee delingen na één keer kopiëren: van diploïd naar haploïde geslachtscellen.'},
+ {t:'crossing-over',d:'In meiose I wisselen homologe chromosomen stukken uit: meer variatie.'},
+ {t:'non-disjunctie',d:'Chromosomen of chromatiden gaan bij de deling niet uit elkaar; een cel krijgt er een te veel of te weinig.',vwo:true},
+ {t:'trisomie 21',d:'Drie keer chromosoom 21; het kind heeft dan het syndroom van Down.',vwo:true},
+ {t:'tumor / kanker',d:'Cellen die blijven delen omdat de rem op de celcyclus kapot is; bij kanker dringen ze andere weefsels binnen.',vwo:true},
+];
+/*PLAYER*/
+</script>
+</body>
+</html>

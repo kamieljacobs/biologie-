@@ -1,0 +1,453 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je begon als één cel: een bevruchte eicel.",
+   "Nu besta je uit zo'n zevenendertig biljoen cellen.",
+   "In bijna elke cel zit hetzelfde DNA: twee meter draad, opgevouwen in een kern van een paar duizendste millimeter.",
+   "Elke keer dat een cel deelt, moet dat DNA eerlijk verdeeld worden. Geen stukje te veel, geen stukje te weinig.",
+   "Hoe doet een cel dat? Wat denk je?"
+  ],
+  "display": "Je begon als één cel: een bevruchte eicel. Nu besta je uit zo'n zevenendertig biljoen cellen. In bijna elke cel zit hetzelfde DNA: twee meter draad, opgevouwen in een kern van een paar duizendste millimeter. Elke keer dat een cel deelt, moet dat DNA eerlijk verdeeld worden. Geen stukje te veel, geen stukje te weinig. Hoe doet een cel dat? Wat denk je?",
+  "voice": "Je begon als één cel: een bevruchte eicel. Nu besta je uit zo'n zevenendertig biljoen cellen. In bijna elke cel zit hetzelfde DNA: twee meter draad, opgevouwen in een kern van een paar duizendste millimeter. Elke keer dat een cel deelt, moet dat DNA eerlijk verdeeld worden. Geen stukje te veel, geen stukje te weinig. Hoe doet een cel dat? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) knippen in twee helften",
+   "(b) eerst kopiëren, dan verdelen",
+   "(c) elke cel maakt nieuw DNA"
+  ]
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "title",
+  "lines": [
+   "Celdeling. Eerst kopiëren, dan verdelen."
+  ],
+  "display": "Celdeling. Eerst kopiëren, dan verdelen.",
+  "voice": "Celdeling. Eerst kopiëren, dan verdelen."
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Waarom delen?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Eerst kopiëren, dan verdelen. Maar waarom deelt een cel eigenlijk?",
+   "Om te groeien: zo werd jij van één cel een heel mens.",
+   "Om te herstellen: bij een wond delen de cellen eromheen, tot het gat dicht is.",
+   "En om te vervangen. De cellen aan de binnenkant van je darm slijten zo snel, dat ze om de paar dagen nieuw zijn. En in je beenmerg ontstaan elke seconde zo'n twee miljoen nieuwe rode bloedcellen."
+  ],
+  "display": "Eerst kopiëren, dan verdelen. Maar waarom deelt een cel eigenlijk? Om te groeien: zo werd jij van één cel een heel mens. Om te herstellen: bij een wond delen de cellen eromheen, tot het gat dicht is. En om te vervangen. De cellen aan de binnenkant van je darm slijten zo snel, dat ze om de paar dagen nieuw zijn. En in je beenmerg ontstaan elke seconde zo'n twee miljoen nieuwe rode bloedcellen.",
+  "voice": "Eerst kopiëren, dan verdelen. Maar waarom deelt een cel eigenlijk? Om te groeien: zo werd jij van één cel een heel mens. Om te herstellen: bij een wond delen de cellen eromheen, tot het gat dicht is. En om te vervangen. De cellen aan de binnenkant van je darm slijten zo snel, dat ze om de paar dagen nieuw zijn. En in je beenmerg ontstaan elke seconde zo'n twee miljoen nieuwe rode bloedcellen."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Waarom delen?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een bacterie deelt om zich voort te planten: uit één bacterie worden er twee.",
+   "Waarom wordt een cel niet gewoon steeds groter? Denk aan de film over diffusie. Hoe groter de cel, hoe verder de weg voor diffusie. Het midden krijgt dan te laat zuurstof.",
+   "Daarom blijven cellen klein, en maken ze er liever twee van."
+  ],
+  "display": "Een bacterie deelt om zich voort te planten: uit één bacterie worden er twee. Waarom wordt een cel niet gewoon steeds groter? Denk aan de film over diffusie. Hoe groter de cel, hoe verder de weg voor diffusie. Het midden krijgt dan te laat zuurstof. Daarom blijven cellen klein, en maken ze er liever twee van.",
+  "voice": "Een bacterie deelt om zich voort te planten: uit één bacterie worden er twee. Waarom wordt een cel niet gewoon steeds groter? Denk aan de film over diffusie. Hoe groter de cel, hoe verder de weg voor diffusie. Het midden krijgt dan te laat zuurstof. Daarom blijven cellen klein, en maken ze er liever twee van."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — De celcyclus",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een cel die deelt, doorloopt steeds dezelfde kringloop: de celcyclus.",
+   "Het grootste deel van de tijd zit de cel in de interfase. Dat is geen rustfase: de cel groeit, en maakt eiwitten en organellen bij.",
+   "Daarna volgt de mitose: de kern deelt. Tot slot deelt de rest van de cel. Dat heet cytokinese.",
+   "Mitose is dus de kerndeling. Mitose en cytokinese samen zijn de celdeling.",
+   "Bij snel delende cellen duurt zo'n rondje ongeveer een dag. De mitose zelf duurt maar een uur.",
+   "Veel cellen, zoals zenuwcellen, stoppen helemaal met delen.",
+   "De twee nieuwe cellen krijgen allebei al het DNA. Wanneer wordt het DNA gekopieerd? Wat denk je?"
+  ],
+  "display": "Een cel die deelt, doorloopt steeds dezelfde kringloop: de celcyclus. Het grootste deel van de tijd zit de cel in de interfase. Dat is geen rustfase: de cel groeit, en maakt eiwitten en organellen bij. Daarna volgt de mitose: de kern deelt. Tot slot deelt de rest van de cel. Dat heet cytokinese. Mitose is dus de kerndeling. Mitose en cytokinese samen zijn de celdeling. Bij snel delende cellen duurt zo'n rondje ongeveer een dag. De mitose zelf duurt maar een uur. Veel cellen, zoals zenuwcellen, stoppen helemaal met delen. De twee nieuwe cellen krijgen allebei al het DNA. Wanneer wordt het DNA gekopieerd? Wat denk je?",
+  "voice": "Een cel die deelt, doorloopt steeds dezelfde kringloop: de celcyclus. Het grootste deel van de tijd zit de cel in de interfase. Dat is geen rustfase: de cel groeit, en maakt eiwitten en organellen bij. Daarna volgt de mitose: de kern deelt. Tot slot deelt de rest van de cel. Dat heet cytokinese. Mitose is dus de kerndeling. Mitose en cytokinese samen zijn de celdeling. Bij snel delende cellen duurt zo'n rondje ongeveer een dag. De mitose zelf duurt maar een uur. Veel cellen, zoals zenuwcellen, stoppen helemaal met delen. De twee nieuwe cellen krijgen allebei al het DNA. Wanneer wordt het DNA gekopieerd? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — De celcyclus",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) tijdens de mitose",
+   "(b) in de interfase",
+   "(c) na de cytokinese"
+  ]
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — De celcyclus",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de interfase. Als de mitose begint, is het DNA al dubbel. Hoe dat kopiëren werkt, zie je in de film DNA kopiëren."
+  ],
+  "display": "In de interfase. Als de mitose begint, is het DNA al dubbel. Hoe dat kopiëren werkt, zie je in de film DNA kopiëren.",
+  "voice": "In de interfase. Als de mitose begint, is het DNA al dubbel. Hoe dat kopiëren werkt, zie je in de film DNA kopiëren."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — De celcyclus",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "De interfase heeft drie delen.",
+   "In de G1-fase groeit de cel. In de S-fase wordt het DNA gekopieerd. S staat voor synthese. In de G2-fase maakt de cel zich klaar voor de deling."
+  ],
+  "display": "De interfase heeft drie delen. In de G1-fase groeit de cel. In de S-fase wordt het DNA gekopieerd. S staat voor synthese. In de G2-fase maakt de cel zich klaar voor de deling.",
+  "voice": "De interfase heeft drie delen. In de G1-fase groeit de cel. In de S-fase wordt het DNA gekopieerd. S staat voor synthese. In de G2-fase maakt de cel zich klaar voor de deling."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 2 — De celcyclus",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Voor vwo: op een paar momenten controleert de cel of alles klopt. Is de cel groot genoeg? Is het DNA goed gekopieerd? Pas dan gaat hij verder. Dat zijn controlepunten.",
+   "Terug naar de hoofdlijn."
+  ],
+  "display": "Voor vwo: op een paar momenten controleert de cel of alles klopt. Is de cel groot genoeg? Is het DNA goed gekopieerd? Pas dan gaat hij verder. Dat zijn controlepunten. Terug naar de hoofdlijn.",
+  "voice": "Voor vwo: op een paar momenten controleert de cel of alles klopt. Is de cel groot genoeg? Is het DNA goed gekopieerd? Pas dan gaat hij verder. Dat zijn controlepunten. Terug naar de hoofdlijn."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Chromosomen tellen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de interfase ligt het DNA als lange, losse draden door de kern. Zo los heet het chromatine. Te dun om te zien, maar de draden zijn er wel.",
+   "Elke draad is een chromosoom. Een mens heeft er zesenveertig: drieëntwintig paren.",
+   "Van elk paar komt er één van je moeder en één van je vader. De twee van een paar heten homologe chromosomen: ze dragen dezelfde soort genen."
+  ],
+  "display": "In de interfase ligt het DNA als lange, losse draden door de kern. Zo los heet het chromatine. Te dun om te zien, maar de draden zijn er wel. Elke draad is een chromosoom. Een mens heeft er zesenveertig: drieëntwintig paren. Van elk paar komt er één van je moeder en één van je vader. De twee van een paar heten homologe chromosomen: ze dragen dezelfde soort genen.",
+  "voice": "In de interfase ligt het DNA als lange, losse draden door de kern. Zo los heet het chromatine. Te dun om te zien, maar de draden zijn er wel. Elke draad is een chromosoom. Een mens heeft er zesenveertig: drieëntwintig paren. Van elk paar komt er één van je moeder en één van je vader. De twee van een paar heten homologe chromosomen: ze dragen dezelfde soort genen."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Chromosomen tellen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Tweeëntwintig paren zijn gewone chromosomen. Het drieëntwintigste paar zijn de geslachtschromosomen: XX bij een vrouw, XY bij een man. X en Y zijn de enige twee van een paar die echt verschillen."
+  ],
+  "display": "Tweeëntwintig paren zijn gewone chromosomen. Het drieëntwintigste paar zijn de geslachtschromosomen: XX bij een vrouw, XY bij een man. X en Y zijn de enige twee van een paar die echt verschillen.",
+  "voice": "Tweeëntwintig paren zijn gewone chromosomen. Het drieëntwintigste paar zijn de geslachtschromosomen: iks-iks bij een vrouw, iks-ei bij een man. Iks en ei zijn de enige twee van een paar die echt verschillen."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Chromosomen tellen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Aan het begin van de deling rolt elk chromosoom zich heel strak op. Pas dan zie je ze onder de microscoop.",
+   "Omdat het DNA al gekopieerd is, bestaat elk chromosoom dan uit twee gelijke kopieën: twee chromatiden. Ze zitten aan elkaar vast bij het centromeer. Zo krijgt het de vorm van een X.",
+   "Let op: dat zijn twee soorten twee. Een paar is twee chromosomen, één van je vader en één van je moeder. Een X is één chromosoom, met twee gelijke chromatiden.",
+   "Deze cel heeft vier X'en. Hoeveel chromosomen zie je? Wat denk je?"
+  ],
+  "display": "Aan het begin van de deling rolt elk chromosoom zich heel strak op. Pas dan zie je ze onder de microscoop. Omdat het DNA al gekopieerd is, bestaat elk chromosoom dan uit twee gelijke kopieën: twee chromatiden. Ze zitten aan elkaar vast bij het centromeer. Zo krijgt het de vorm van een X. Let op: dat zijn twee soorten twee. Een paar is twee chromosomen, één van je vader en één van je moeder. Een X is één chromosoom, met twee gelijke chromatiden. Deze cel heeft vier X'en. Hoeveel chromosomen zie je? Wat denk je?",
+  "voice": "Aan het begin van de deling rolt elk chromosoom zich heel strak op. Pas dan zie je ze onder de microscoop. Omdat het DNA al gekopieerd is, bestaat elk chromosoom dan uit twee gelijke kopieën: twee chromatiden. Ze zitten aan elkaar vast bij het centromeer. Zo krijgt het de vorm van een iks. Let op: dat zijn twee soorten twee. Een paar is twee chromosomen, één van je vader en één van je moeder. Een iks is één chromosoom, met twee gelijke chromatiden. Deze cel heeft vier iksen. Hoeveel chromosomen zie je? Wat denk je?"
+ },
+ {
+  "id": "q14",
+  "chapter": "Hoofdstuk 3 — Chromosomen tellen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) 2",
+   "(b) 4",
+   "(c) 8"
+  ]
+ },
+ {
+  "id": "s15",
+  "chapter": "Hoofdstuk 3 — Chromosomen tellen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Vier. Elke X is één chromosoom. Tel de centromeren.",
+   "Bij een mens zie je zo zesenveertig chromosomen, met samen tweeënnegentig chromatiden."
+  ],
+  "display": "Vier. Elke X is één chromosoom. Tel de centromeren. Bij een mens zie je zo zesenveertig chromosomen, met samen tweeënnegentig chromatiden.",
+  "voice": "Vier. Elke iks is één chromosoom. Tel de centromeren. Bij een mens zie je zo zesenveertig chromosomen, met samen tweeën-neguntig chromatiden."
+ },
+ {
+  "id": "s16",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nu de mitose, in vier stappen.",
+   "Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar.",
+   "Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen."
+  ],
+  "display": "Nu de mitose, in vier stappen. Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar. Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen.",
+  "voice": "Nu de mitose, in vier stappen. Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar. Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen."
+ },
+ {
+  "id": "s17",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaar, naar de twee polen. Vanaf nu noemen we elke chromatide een chromosoom. Even zitten er dus tweeënnegentig chromosomen in één cel.",
+   "Telofase. Aan elke pool ontstaat een nieuw kernmembraan, en de chromosomen rollen zich weer uit.",
+   "Ondertussen snoert de cel in het midden in. Zo ontstaan twee dochtercellen: de cytokinese. Een plantencel kan niet insnoeren door zijn celwand. Die bouwt in het midden een celplaat, die een nieuwe celwand wordt.",
+   "Hoeveel chromosomen heeft elke dochtercel? Wat denk je?"
+  ],
+  "display": "Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaar, naar de twee polen. Vanaf nu noemen we elke chromatide een chromosoom. Even zitten er dus tweeënnegentig chromosomen in één cel. Telofase. Aan elke pool ontstaat een nieuw kernmembraan, en de chromosomen rollen zich weer uit. Ondertussen snoert de cel in het midden in. Zo ontstaan twee dochtercellen: de cytokinese. Een plantencel kan niet insnoeren door zijn celwand. Die bouwt in het midden een celplaat, die een nieuwe celwand wordt. Hoeveel chromosomen heeft elke dochtercel? Wat denk je?",
+  "voice": "Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaar, naar de twee polen. Vanaf nu noemen we elke chromatide een chromosoom. Even zitten er dus tweeën-neguntig chromosomen in één cel. Telofase. Aan elke pool ontstaat een nieuw kernmembraan, en de chromosomen rollen zich weer uit. Ondertussen snoert de cel in het midden in. Zo ontstaan twee dochtercellen: de cytokinese. Een plantencel kan niet insnoeren door zijn celwand. Die bouwt in het midden een celplaat, die een nieuwe celwand wordt. Hoeveel chromosomen heeft elke dochtercel? Wat denk je?"
+ },
+ {
+  "id": "q18",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) 23",
+   "(b) 46",
+   "(c) 92"
+  ]
+ },
+ {
+  "id": "s19",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom één chromatide."
+  ],
+  "display": "Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom één chromatide.",
+  "voice": "Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom één chromatide."
+ },
+ {
+  "id": "s20",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p.",
+   "Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk."
+  ],
+  "display": "Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p. Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk.",
+  "voice": "Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p. Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk."
+ },
+ {
+  "id": "s21",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel.",
+   "Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeënnegentig.",
+   "Een gewone lichaamscel heeft paren chromosomen. Zo'n cel heet diploïd: twee n is zesenveertig.",
+   "Een geslachtscel heeft van elk paar er maar één. Die heet haploïd: n is drieëntwintig."
+  ],
+  "display": "Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel. Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeënnegentig. Een gewone lichaamscel heeft paren chromosomen. Zo'n cel heet diploïd: twee n is zesenveertig. Een geslachtscel heeft van elk paar er maar één. Die heet haploïd: n is drieëntwintig.",
+  "voice": "Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel. Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeën-neguntig. Een gewone lichaamscel heeft paren chromosomen. Zo'n cel heet diploïd: twee n is zesenveertig. Een geslachtscel heeft van elk paar er maar één. Die heet haaploïd: n is drieëntwintig."
+ },
+ {
+  "id": "s22",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Geslachtscellen ontstaan door meiose, in de teelballen en de eierstokken. Meiose halveert het aantal chromosomen. Daarom heet het ook reductiedeling.",
+   "Meiose bestaat uit twee delingen achter elkaar. Het DNA wordt maar één keer gekopieerd.",
+   "In meiose één zoeken de homologe chromosomen elkaar op. Ze gaan als paren in het equatorvlak liggen.",
+   "Dan gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?"
+  ],
+  "display": "Geslachtscellen ontstaan door meiose, in de teelballen en de eierstokken. Meiose halveert het aantal chromosomen. Daarom heet het ook reductiedeling. Meiose bestaat uit twee delingen achter elkaar. Het DNA wordt maar één keer gekopieerd. In meiose één zoeken de homologe chromosomen elkaar op. Ze gaan als paren in het equatorvlak liggen. Dan gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?",
+  "voice": "Geslachtscellen ontstaan door meiose, in de teelballen en de eierstokken. Meiose halveert het aantal chromosomen. Daarom heet het ook reductiedeling. Meiose bestaat uit twee delingen achter elkaar. Het DNA wordt maar één keer gekopieerd. In meiose één zoeken de homologe chromosomen elkaar op. Ze gaan als paren in het equatorvlak liggen. Dan gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?"
+ },
+ {
+  "id": "q23",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) 46",
+   "(b) 23",
+   "(c) 92"
+  ]
+ },
+ {
+  "id": "s24",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Drieëntwintig. Van elk paar gaat één chromosoom naar elke kant, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één.",
+   "In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose.",
+   "Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel. De andere cellen zijn klein en sterven af."
+  ],
+  "display": "Drieëntwintig. Van elk paar gaat één chromosoom naar elke kant, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één. In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose. Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel. De andere cellen zijn klein en sterven af.",
+  "voice": "Drieëntwintig. Van elk paar gaat één chromosoom naar elke kant, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één. In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose. Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel. De andere cellen zijn klein en sterven af."
+ },
+ {
+  "id": "s25",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p."
+  ],
+  "display": "In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p.",
+  "voice": "In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p."
+ },
+ {
+  "id": "s26",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen.",
+   "Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze soms stukken uit. Dat heet crossing-over.",
+   "Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder.",
+   "Daarom verschilt bijna elke geslachtscel van een persoon van de andere.",
+   "Bij de bevruchting komen n en n samen: weer twee n, zesenveertig."
+  ],
+  "display": "Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen. Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze soms stukken uit. Dat heet crossing-over. Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder. Daarom verschilt bijna elke geslachtscel van een persoon van de andere. Bij de bevruchting komen n en n samen: weer twee n, zesenveertig.",
+  "voice": "Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen. Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze soms stukken uit. Dat heet crossing-over. Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder. Daarom verschilt bijna elke geslachtscel van een persoon van de andere. Bij de bevruchting komen n en n samen: weer twee n, zesenveertig."
+ },
+ {
+  "id": "s27",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zet de twee delingen naast elkaar.",
+   "Bij welke deling liggen homologe chromosomen als paren in het equatorvlak? Wat denk je?"
+  ],
+  "display": "Zet de twee delingen naast elkaar. Bij welke deling liggen homologe chromosomen als paren in het equatorvlak? Wat denk je?",
+  "voice": "Zet de twee delingen naast elkaar. Bij welke deling liggen homologe chromosomen als paren in het equatorvlak? Wat denk je?"
+ },
+ {
+  "id": "q28",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) mitose",
+   "(b) meiose één",
+   "(c) meiose twee"
+  ]
+ },
+ {
+  "id": "s29",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Alleen bij meiose één. Bij de mitose en bij meiose twee liggen de chromosomen los, elk met twee chromatiden.",
+   "Mitose: één deling, twee dochtercellen, diploïd, genetisch gelijk. Voor groei, herstel en vervanging.",
+   "Meiose: twee delingen, geslachtscellen, haploïd, genetisch verschillend. Voor de voortplanting.",
+   "Meiose is dus niet gewoon twee keer mitose. In meiose één gaan hele paren uit elkaar, en tussen de twee delingen wordt het DNA niet opnieuw gekopieerd."
+  ],
+  "display": "Alleen bij meiose één. Bij de mitose en bij meiose twee liggen de chromosomen los, elk met twee chromatiden. Mitose: één deling, twee dochtercellen, diploïd, genetisch gelijk. Voor groei, herstel en vervanging. Meiose: twee delingen, geslachtscellen, haploïd, genetisch verschillend. Voor de voortplanting. Meiose is dus niet gewoon twee keer mitose. In meiose één gaan hele paren uit elkaar, en tussen de twee delingen wordt het DNA niet opnieuw gekopieerd.",
+  "voice": "Alleen bij meiose één. Bij de mitose en bij meiose twee liggen de chromosomen los, elk met twee chromatiden. Mitose: één deling, twee dochtercellen, diploïd, genetisch gelijk. Voor groei, herstel en vervanging. Meiose: twee delingen, geslachtscellen, haaploïd, genetisch verschillend. Voor de voortplanting. Meiose is dus niet gewoon twee keer mitose. In meiose één gaan hele paren uit elkaar, en tussen de twee delingen wordt het DNA niet opnieuw gekopieerd."
+ },
+ {
+  "id": "s30",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Voor vwo nog één stap: wat als het misgaat?",
+   "Normaal deelt een cel alleen als het nodig is, en alleen als de controlepunten groen licht geven.",
+   "Raken door fouten in het DNA de remmen kapot, meestal meerdere tegelijk, dan blijft de cel delen. Zo ontstaat een tumor. Bij kanker dringen die cellen ook andere weefsels binnen.",
+   "Ook bij de meiose kan het misgaan. Soms gaan de twee chromosomen van een paar, of twee chromatiden, niet uit elkaar. Dat heet non-disjunctie.",
+   "Dan krijgt de ene geslachtscel een chromosoom te veel, en de andere een te weinig.",
+   "Een eicel heeft door non-disjunctie vierentwintig chromosomen. Een normale zaadcel bevrucht hem. Hoeveel chromosomen heeft het kind? Wat denk je?"
+  ],
+  "display": "Voor vwo nog één stap: wat als het misgaat? Normaal deelt een cel alleen als het nodig is, en alleen als de controlepunten groen licht geven. Raken door fouten in het DNA de remmen kapot, meestal meerdere tegelijk, dan blijft de cel delen. Zo ontstaat een tumor. Bij kanker dringen die cellen ook andere weefsels binnen. Ook bij de meiose kan het misgaan. Soms gaan de twee chromosomen van een paar, of twee chromatiden, niet uit elkaar. Dat heet non-disjunctie. Dan krijgt de ene geslachtscel een chromosoom te veel, en de andere een te weinig. Een eicel heeft door non-disjunctie vierentwintig chromosomen. Een normale zaadcel bevrucht hem. Hoeveel chromosomen heeft het kind? Wat denk je?",
+  "voice": "Voor vwo nog één stap: wat als het misgaat? Normaal deelt een cel alleen als het nodig is, en alleen als de controlepunten groen licht geven. Raken door fouten in het DNA de remmen kapot, meestal meerdere tegelijk, dan blijft de cel delen. Zo ontstaat een tumor. Bij kanker dringen die cellen ook andere weefsels binnen. Ook bij de meiose kan het misgaan. Soms gaan de twee chromosomen van een paar, of twee chromatiden, niet uit elkaar. Dat heet non-disjunctie. Dan krijgt de ene geslachtscel een chromosoom te veel, en de andere een te weinig. Een eicel heeft door non-disjunctie vierentwintig chromosomen. Een normale zaadcel bevrucht hem. Hoeveel chromosomen heeft het kind? Wat denk je?"
+ },
+ {
+  "id": "q31",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "vwo",
+  "kind": "question",
+  "options": [
+   "(a) 45",
+   "(b) 46",
+   "(c) 47"
+  ]
+ },
+ {
+  "id": "s32",
+  "chapter": "Hoofdstuk 6 — Mitose en meiose naast elkaar",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Zevenenveertig. Is het extra chromosoom nummer eenentwintig, dan heeft het kind drie keer chromosoom eenentwintig. Dat heet trisomie eenentwintig. Het kind heeft dan het syndroom van Down.",
+   "Terug naar de hoofdlijn."
+  ],
+  "display": "Zevenenveertig. Is het extra chromosoom nummer eenentwintig, dan heeft het kind drie keer chromosoom eenentwintig. Dat heet trisomie eenentwintig. Het kind heeft dan het syndroom van Down. Terug naar de hoofdlijn.",
+  "voice": "Zevenenveertig. Is het extra chromosoom nummer eenentwintig, dan heeft het kind drie keer chromosoom eenentwintig. Dat heet trisomie eenentwintig. Het kind heeft dan het syndroom van Down. Terug naar de hoofdlijn."
+ },
+ {
+  "id": "s33",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een cel deelt om te groeien, te herstellen en te vervangen.",
+   "Eerst kopieert hij zijn DNA, in de interfase.",
+   "Bij de mitose gaan de chromatiden uit elkaar. Zo ontstaan twee dochtercellen met precies hetzelfde DNA: zesenveertig chromosomen.",
+   "Bij de meiose gaan eerst de paren uit elkaar en dan de chromatiden. Zo ontstaan haploïde geslachtscellen met drieëntwintig chromosomen, bijna allemaal verschillend.",
+   "Nog één vraag. Een huidcel die niet aan het delen is, en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern? Wat denk je?"
+  ],
+  "display": "Een cel deelt om te groeien, te herstellen en te vervangen. Eerst kopieert hij zijn DNA, in de interfase. Bij de mitose gaan de chromatiden uit elkaar. Zo ontstaan twee dochtercellen met precies hetzelfde DNA: zesenveertig chromosomen. Bij de meiose gaan eerst de paren uit elkaar en dan de chromatiden. Zo ontstaan haploïde geslachtscellen met drieëntwintig chromosomen, bijna allemaal verschillend. Nog één vraag. Een huidcel die niet aan het delen is, en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern? Wat denk je?",
+  "voice": "Een cel deelt om te groeien, te herstellen en te vervangen. Eerst kopieert hij zijn DNA, in de interfase. Bij de mitose gaan de chromatiden uit elkaar. Zo ontstaan twee dochtercellen met precies hetzelfde DNA: zesenveertig chromosomen. Bij de meiose gaan eerst de paren uit elkaar en dan de chromatiden. Zo ontstaan haaploïde geslachtscellen met drieëntwintig chromosomen, bijna allemaal verschillend. Nog één vraag. Een huidcel die niet aan het delen is, en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern? Wat denk je?"
+ },
+ {
+  "id": "q34",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) evenveel",
+   "(b) de huidcel",
+   "(c) de zaadcel"
+  ]
+ },
+ {
+  "id": "s35",
+  "chapter": "Recap",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "De huidcel: zesenveertig chromosomen tegen drieëntwintig. Ongeveer twee keer zoveel DNA."
+  ],
+  "display": "De huidcel: zesenveertig chromosomen tegen drieëntwintig. Ongeveer twee keer zoveel DNA.",
+  "voice": "De huidcel: zesenveertig chromosomen tegen drieëntwintig. Ongeveer twee keer zoveel DNA."
+ },
+ {
+  "id": "s36",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "card",
+  "lines": [
+   "Eerst kopiëren, dan verdelen. · Mitose: twee gelijke dochtercellen, 2n = 46. · Meiose: geslachtscellen, n = 23, steeds een andere combinatie."
+  ],
+  "display": "Eerst kopiëren, dan verdelen. · Mitose: twee gelijke dochtercellen, 2n = 46. · Meiose: geslachtscellen, n = 23, steeds een andere combinatie.",
+  "voice": "Eerst kopiëren, dan verdelen. · Mitose: twee gelijke dochtercellen, 2n = 46. · Meiose: geslachtscellen, n = 23, steeds een andere combinatie."
+ }
+]
