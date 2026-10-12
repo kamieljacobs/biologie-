@@ -6,7 +6,7 @@ Film 1 van de reeks Kerndoelen onderbouw (kerndoel 32A, eerste bullet). Gemaakt 
 Checkpointpagina: https://claude.ai/artifact/Qmriu6MBGVCAZ9BVy6m4sV
 
 - `script_v2.md` — script na drie reviews (`reviews/`); `script_v1.md` de versie ervoor.
-- `stem/uitspraaktest.mp3` — uitspraaktest (Roos, eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt); keuzes nog open: "dertigduizend miljard" en "vacuolen" (gewone spelling of "vaa-kuu-oo-len").
+- `stem/uitspraaktest.mp3` — uitspraaktest (Roos, eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt); goedgekeurd door Kamiel (12-10): "dertigduizend" als stem-invoer "dertig-duizend" (nr. 2); "vacuole" (nr. 3), cytoplasma (nr. 6), celmembraan (nr. 9) en de binnenband-zin goed. Meervoud "vacuolen" niet goedgekeurd: gesproken tekst gebruikt alleen enkelvoud.
 - `stem/segmenten_stem-invoer.json` — segmenten uit `bouw/make_segments.py` (witregel = nieuwe take).
 - `stijlframes/` en `bouw/frames.html` — vijf stijlframes, getekend met de bibliotheek van Celorganellen (`films/cellen/celorganellen/bron/src/lib.js`).
 

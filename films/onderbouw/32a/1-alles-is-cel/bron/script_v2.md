@@ -1,6 +1,6 @@
 # Alles is cel — script v2 (na drie reviewpasses)
 
-Reeks Kerndoelen onderbouw, film 1. Onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Kerndoel 32A, eerste bullet: bouw en basale functie van cellen en de celorganellen celkern, celmembraan, celwand, cytoplasma, bladgroenkorrel, vacuole en mitochondrium. Basislijn op vmbo-t-niveau; havo/vwo-blok gemarkeerd [VWO-START] … [VWO-END] (label HAVO/VWO). Stem Roos, eleven_v4. Rode draad: de krop sla. Pronomen voor de cel: hij. Meervoud: vacuolen. Lege regel = nieuwe take.
+Reeks Kerndoelen onderbouw, film 1. Onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Kerndoel 32A, eerste bullet: bouw en basale functie van cellen en de celorganellen celkern, celmembraan, celwand, cytoplasma, bladgroenkorrel, vacuole en mitochondrium. Basislijn op vmbo-t-niveau; havo/vwo-blok gemarkeerd [VWO-START] … [VWO-END] (label HAVO/VWO). Stem Roos, eleven_v4. Rode draad: de krop sla. Pronomen voor de cel: hij. Gesproken altijd enkelvoud "vacuole" (uitspraaktest nr. 3 goedgekeurd; meervoud niet getest). Lege regel = nieuwe take.
 
 Leerdoelen
 0. basis — uitleggen dat alle organismen uit cellen bestaan en dat een cel de kleinste bouwsteen is die zelf leeft
@@ -79,11 +79,11 @@ Een bladgroenkorrel vangt licht. Daarmee maakt de plant zijn eigen voedsel.
 Het grootste onderdeel van een plantencel is de vacuole. Een grote blaas met water.
 In dat water zitten opgeloste stoffen, zoals suikers. Daardoor neemt de vacuole water op.
 De sla ligt nu op het aanrecht. Wat gebeurt er in de cellen van het blad? Wat denk je?
-[VRAAG] (a) de cellen gaan dood · (b) de celwanden scheuren · (c) de vacuolen verliezen water
+[VRAAG] (a) de cellen gaan dood · (b) de celwanden scheuren · (c) de vacuole in elke cel verliest water
 
-De vacuolen verliezen water. Het water verdampt uit het blad.
-De vacuolen worden kleiner. Ze drukken minder hard tegen de celwand. Het blaadje wordt slap.
-In koud water nemen de vacuolen weer water op. Ze worden groter.
+De vacuole in elke cel verliest water. Het water verdampt uit het blad.
+Elke vacuole wordt kleiner. Hij drukt minder hard tegen de celwand. Het blaadje wordt slap.
+In koud water neemt elke vacuole weer water op. Hij wordt groter.
 Elke vacuole duwt het celmembraan strak tegen de celwand. Net als een binnenband in een fietsband.
 De celwand houdt tegen. Zo knapt de cel niet. Miljoenen strakke cellen samen maken een stevig blad.
 
@@ -91,7 +91,7 @@ De celwand houdt tegen. Zo knapt de cel niet. Miljoenen strakke cellen samen mak
 Een dierlijke cel heeft een celmembraan, cytoplasma, een celkern en mitochondriën.
 Een plantencel heeft dat ook. Daarbij een celwand en een grote vacuole. En in de groene delen bladgroenkorrels.
 Zie je een celwand of bladgroenkorrels? Dan kijk je naar een plantencel.
-En de slappe sla? Het water was uit de vacuolen verdampt. In koud water liepen ze weer vol.
+En de slappe sla? Het water was uit elke vacuole verdampt. In koud water liep hij weer vol.
 
 ## Eindkaart [Schema]
 Probeer het zelf.

@@ -44,6 +44,7 @@ subs = [
  (r'\bER\b', 'ee-er'), (r'\bER-', 'ee-er-'),
  (r'\bDNA\b', 'dee-en-aa'),
  (r"'s nachts", 'snachts'),
+ (r'dertigduizend', 'dertig-duizend'),
  (r'\bWat denk je\?', 'Wat denk je?'),
 ]
 def voice(t):
