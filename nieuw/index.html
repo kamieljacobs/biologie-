@@ -61,7 +61,7 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .icoon:hover{color:var(--text)}
 
 /* Homepage */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:56px;align-items:center;padding-block:72px 64px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:56px;align-items:center;padding-block:52px 40px}
 .hero .mono{color:var(--goud-text)}
 .hero h1{font-size:clamp(40px,5.2vw,62px);line-height:1.03;margin:16px 0 20px;font-weight:700}
 .hero p{margin:0;color:var(--text2);font-size:19px;max-width:48ch}
@@ -103,6 +103,32 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 
 .binnenkort{display:flex;flex-wrap:wrap;gap:8px 28px;padding-top:16px;color:var(--text2)}
 .binnenkort span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:9px;background:var(--text3);margin-right:10px;vertical-align:middle}
+
+
+/* PTA-onderdelen als blokken */
+.ondgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ondblok{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;min-width:0}
+.ondblok header{padding:22px 22px 16px;border-bottom:1px solid var(--line);background:radial-gradient(260px 120px at 100% 0,var(--goud-soft),transparent)}
+.ondtitel{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.ondtitel h2{font-size:38px;line-height:1;letter-spacing:-.02em}
+.weging{font:600 13px/1 var(--meta);color:var(--goud-ink);background:var(--goud);padding:6px 9px;border-radius:999px}
+.ondsub{color:var(--text3);margin-top:8px;min-height:15px}
+.ondkunst{display:flex;gap:8px;margin-top:16px}
+.ondkunst span{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.ondkunst svg{width:32px;height:32px}
+.ondblok ul{list-style:none;margin:0;padding:6px 0 10px}
+.ondblok li a,.ondblok li.leeg{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;padding:10px 22px}
+.ondblok li .lbl{grid-column:1/-1;color:var(--text3);font-size:11px}
+.ondblok li b{font:700 19px/1.25 var(--titel)}
+.ondblok li .mat{color:var(--text3);font-size:13px;align-self:end;white-space:nowrap}
+.ondblok li a:hover{background:var(--goud-soft)}
+.ondblok li a:hover b{color:var(--goud-text)}
+.ondblok li.leeg{opacity:.5}
+.ondblok li + li{border-top:1px solid var(--line)}
+.blok .binnenkort{margin-top:22px;align-items:baseline}
+.binnenkort .bk-lbl::before{display:none}
+@media (max-width:1040px){.ondgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.ondgrid{grid-template-columns:1fr}}
 
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
@@ -1081,8 +1107,7 @@ function home(){
     <div>
       <span class="mono">Biologie · ${esc(niveau)}</span>
       <h1>Wat ga je vandaag leren?</h1>
-      <p>${esc(N.intro)}</p>
-      <div class="knoppen"><a class="knop" href="#hoofdstukken">Kies je hoofdstuk</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+      <div class="knoppen"><a class="knop" href="#hoofdstukken">Kies je onderdeel</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
     </div>
     <div class="plaat" aria-hidden="true">
       <figure>${kunst('cellen')}<figcaption>Fig. 1 · cel</figcaption></figure>
@@ -1091,21 +1116,30 @@ function home(){
       <figure>${kunst('evolutie')}<figcaption>Fig. 4 · stamboom</figcaption></figure>
     </div>
   </section>
-  <section class="wrap smal blok" id="hoofdstukken" aria-labelledby="h-pta">
-    <div class="blok-kop"><h2 id="h-pta">${niveau==='onderbouw'?'Kerndoelen':'Hoofdstukken per PTA-onderdeel'}</h2><p>${esc(N.methode)}</p></div>`;
+  <section class="wrap blok" id="hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
+    <div class="ondgrid">`;
   for(const o of N.ond){
     const jaar=niveau==='vwo'&&/^OND[12]$/.test(o.code)?'jaar 1':niveau==='vwo'&&/^OND[34]$/.test(o.code)?'jaar 2':'';
-    const rest=[o.w?`weging ${o.w}%`:'',jaar].filter(Boolean).join(' · ');
-    out+=`<div class="ond"><div class="ond-kop"><span class="code mono">${esc(o.code)}</span>${rest?`<span class="rest">${rest}</span>`:''}</div><div>`;
+    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]);
+    const nf=ids.reduce((s,id)=>s+HOOFDSTUKKEN[id].films.length,0);
+    out+=`<article class="ondblok${o.subs.length===1?' smal1':''}">
+      <header>
+        <div class="ondtitel"><h2>${esc(o.code.replace(/^OND/,'OND '))}</h2>${o.w?`<span class="weging">${o.w}%</span>`:''}</div>
+        <div class="ondsub mono">${[jaar,nf?`${nf} ${nf===1?"film":"films"}`:''].filter(Boolean).join(' · ')||'&nbsp;'}</div>
+        <div class="ondkunst">${ids.slice(0,4).map(id=>`<span>${kunst(id)}</span>`).join('')}</div>
+      </header>
+      <ul>`;
     for(const [lbl,naam,hfd,mat,href] of o.subs){
       const id=hoofdstukVan(href), echt=href&&HOOFDSTUKKEN[id];
       const titel=niveau==='onderbouw'&&/^\[/.test(naam)?`Kerndoel ${lbl}`:naam;
-      if(echt) out+=`<a class="rij" href="${esc(href)}"><span class="embleem">${kunst(id)}</span><span><span class="lbl mono">${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}</span><span class="mat">${esc(telling(id))}</span><span class="pijl">${pijl}</span></a>`;
-      else out+=`<div class="rij leeg"><span class="embleem"></span><span><span class="lbl mono">${esc(lbl)}</span><h3>${esc(titel)}</h3>${hfd?`<span class="hfd">${esc(hfd)}</span>`:''}</span><span class="mat">materiaal volgt</span><span></span></div>`;
+      out+=echt?`<li><a href="${esc(href)}"><span class="lbl mono">${esc(lbl)}</span><b>${esc(titel)}</b><span class="mat">${esc(telling(id))}</span></a></li>`
+               :`<li class="leeg"><span class="lbl mono">${esc(lbl)}</span><b>${esc(titel)}</b><span class="mat">volgt</span></li>`;
     }
-    out+=`</div></div>`;
+    out+=`</ul></article>`;
   }
-  out+=`<div class="ond"><div class="ond-kop"><span class="code mono">Binnenkort</span></div><div class="binnenkort"><span>Begrippen trainen</span><span>Binas oefenen</span><span>Examentraining</span></div></div></section>`;
+  out+=`</div>
+    <div class="binnenkort"><span class="mono bk-lbl" style="color:var(--text3)">Binnenkort</span><span>Begrippen trainen</span><span>Binas oefenen</span><span>Examentraining</span></div>
+  </section>`;
   return out;
 }
 
