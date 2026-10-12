@@ -4,6 +4,7 @@ const params = new URLSearchParams(location.search);
 const state = {
   niveau: params.get('niveau')==='havo' ? 'havo' : 'vwo',
   modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
+  extra: params.get('extra')==='uit' ? 'uit' : 'aan',
   auto: false, captions: true,
   playing:false, t:0, items:[], idx:0, local:0,
   qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
@@ -16,6 +17,7 @@ function buildTimeline(){
   const items=[]; let prevChapter=null;
   for(const seg of DATA.segments){
     if(state.niveau==='havo' && seg.level==='vwo') continue;
+    if(state.extra==='uit' && seg.level==='extra') continue;
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='card'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Cold open'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
@@ -44,6 +46,7 @@ function render(){
   else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
   // UI layer: vwo marker
   if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'vwo',60,46,C.paars,'left',24); }
+  else if(it.level==='extra'){ ctx.fillStyle=C.oker; ctx.fillRect(0,0,6,H); metaText(ctx,'extra uitdaging',60,46,C.oker,'left',24); }
   // series/level meta top-left (non-vwo items)
   else if(it.type!=='title') metaText(ctx, (state.niveau==='havo'?'havo':'havo · vwo')+' · cel 3/3',60,46,C.text2,'left',20);
   // captions
@@ -123,8 +126,8 @@ function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String
 function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
 function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
 function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
-  for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
-    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='vwo'?'<em>vwo-blok</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
+  for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo'); const hasE=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='extra');
+    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='vwo'?'<em>vwo-blok</em>':''}${hasE&&state.extra==='aan'?'<em class="ex">extra uitdaging</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
 function init(){
   buildTimeline(); buildChapterList(); gotoItem(0,0);
   document.getElementById('play').onclick=()=>state.playing?pause():play();
@@ -132,15 +135,15 @@ function init(){
   document.getElementById('verder').onclick=verder;
   document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
-  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'||key==='extra'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
         const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
-  setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('havo',state.niveau==='havo');
+  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('extra','extra'); document.body.classList.toggle('havo',state.niveau==='havo');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
   canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
   document.addEventListener('keydown',e=>{ if(e.code==='Space'){ e.preventDefault(); state.playing?pause():play(); } if(e.code==='ArrowRight') seekGlobal(state.items[state.idx].start+state.local+5); if(e.code==='ArrowLeft') seekGlobal(state.items[state.idx].start+state.local-5); });
   // glossary + transcript
-  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>vwo</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
-  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>vwo</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
+  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>vwo</i>':''}${g.extra?' <i class="ex">extra uitdaging</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
+  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>vwo</i> ':s.level==='extra'?'<i class="ex">extra uitdaging</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
   tick();
 }
 window.addEventListener('load',init);

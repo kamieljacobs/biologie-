@@ -13,3 +13,7 @@ Kamiel heeft de uitspraaktest op 12 oktober 2026 beluisterd en gekozen. Vervangi
 | profase t/m telofase, centromeer, equatorvlak, spoelfiguur, chromatine, homologe chromosomen, "twee tot de macht drieëntwintig", "twee n", "een half p", reductiedeling | ongewijzigd (goedgekeurd) | |
 
 Op het scherm en in de ondertitels wordt "meiose één/twee" automatisch "meiose I/II" (in `bouw/build_data.py`); de stem zegt "één" en "twee".
+
+## Extra uitdaging (e01, e03)
+
+Uitspraaktest `uitspraaktest_extra.mp3` (flow G9H4qGFv1wgBMnnLpTBa), door Kamiel gekozen op 12 oktober 2026: kinetochoor/kinetochoren en cohesine **zoals geschreven** (keuze A; B was "kie-ne-to-choor" en "ko-hee-zie-ne"); eiwitplaatjes, centromeer en wachtsignaal goedgekeurd. Stem-invoer van e01 en e03 is daardoor gelijk aan de schermtekst. Opgenomen in dezelfde flow (eleven_v4, Roos, één take), woordtijden met eleven_scribe_v1.

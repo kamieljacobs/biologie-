@@ -26,9 +26,11 @@ for s in secs:
             flush(); continue
         if l.startswith('[VWO-START]'):
             flush(); level = 'vwo'; l = l.replace('[VWO-START]','').strip()
+        if l.startswith('[EXTRA-START]'):
+            flush(); level = 'extra'; l = l.replace('[EXTRA-START]','').strip()
         end = False
-        if l.endswith('[VWO-END]'):
-            end = True; l = l.replace('[VWO-END]','').strip()
+        if l.endswith('[VWO-END]') or l.endswith('[EXTRA-END]'):
+            end = True; l = l.replace('[VWO-END]','').replace('[EXTRA-END]','').strip()
         if l.startswith('[VRAAG]'):
             flush()
             opts = [o.strip() for o in l.replace('[VRAAG]','').split('·')]

@@ -1,6 +1,6 @@
 # Celdeling — gesproken tekst
 
-Stem Roos (ElevenLabs, model eleven_v4, één take per segment). Tijden: begin in de speler, stand Vwo. "Stem-invoer" staat er alleen bij als die afwijkt van de schermtekst (respellings).
+Stem Roos (ElevenLabs, model eleven_v4, één take per segment). Tijden: begin in de speler, stand Vwo met Extra aan. "Stem-invoer" staat er alleen bij als die afwijkt van de schermtekst (respellings).
 
 ## Cold open
 
@@ -82,7 +82,21 @@ Vier. Elke X is één chromosoom. Tel de centromeren. Bij een mens zie je zo zes
 
 Nu de mitose, in vier stappen. Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar. Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen.
 
-**s17** · 5:31 · duur 37.7 s · audio/s17.mp3
+### Extra uitdaging (in havo én vwo; uit te zetten met "Extra uit")
+
+**e01** · 5:31 · duur 59.79 s · audio/e01.mp3 · extra
+
+Extra uitdaging: hoe weet de cel dat alles klopt? Bij elk centromeer zitten twee eiwitplaatjes, één per chromatide. Daar haken de trekdraden aan. Die plaatjes heten kinetochoren. Zit het goed, dan hangt het ene kinetochoor aan de ene pool en het andere aan de andere pool. De trekdraden van beide polen trekken tegen elkaar in, en het centromeer komt onder spanning. Hangen beide kinetochoren aan dezelfde pool, dan is er geen spanning. Een enzym in het centromeer zorgt dan dat de trekdraden loslaten, en het chromosoom krijgt een nieuwe kans. Zo'n los kinetochoor geeft een wachtsignaal. Zolang er nog één kinetochoor los is, wacht de cel. De anafase begint pas als alle chromosomen goed vastzitten en onder spanning staan. Dan knipt een enzym de eiwitring door die de chromatiden bij elkaar hield. Die ring heet cohesine. Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel? Wat denk je?
+
+**eq02** · vraag op scherm (8 s + 6 s): Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel?  
+Opties: de cel begint toch aan de anafase · **de cel wacht en maakt de foute verbinding los** · de cel knipt het chromosoom door  
+Uitleg na antwoord: De cel wacht: de foute verbinding gaat los, tot het chromosoom goed vastzit en onder spanning staat.
+
+**e03** · 6:45 · duur 20.43 s · audio/e03.mp3 · extra
+
+De cel wacht. De foute verbinding gaat los, tot het chromosoom goed vastzit. En hoe trekken de draden straks? Ze worden korter, doordat ze vooral aan het uiteinde bij het kinetochoor worden afgebroken. Het kinetochoor houdt het krimpende uiteinde vast, en wordt zo meegetrokken naar de pool. Terug naar de hoofdlijn.
+
+**s17** · 7:05 · duur 37.7 s · audio/s17.mp3
 
 Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaar, naar de twee polen. Vanaf nu noemen we elke chromatide een chromosoom. Even zitten er dus tweeënnegentig chromosomen in één cel. Telofase. Aan elke pool ontstaat een nieuw kernmembraan, en de chromosomen rollen zich weer uit. Ondertussen snoert de cel in het midden in. Zo ontstaan twee dochtercellen: de cytokinese. Een plantencel kan niet insnoeren door zijn celwand. Die bouwt in het midden een celplaat, die een nieuwe celwand wordt. Hoeveel chromosomen heeft elke dochtercel? Wat denk je?
 
@@ -92,23 +106,23 @@ Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaa
 Opties: 23 · **46** · 92  
 Uitleg: 46, net als de moedercel: elke dochtercel krijgt van elk chromosoom één chromatide.
 
-**s19** · 6:23 · duur 7.3 s · audio/s19.mp3
+**s19** · 7:57 · duur 7.3 s · audio/s19.mp3
 
 Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom één chromatide.
 
-**s20** · 6:30 · duur 20.5 s · audio/s20.mp3
+**s20** · 8:05 · duur 20.5 s · audio/s20.mp3
 
 Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p. Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk.
 
 ## Hoofdstuk 5 — Meiose
 
-**s21** · 6:54 · duur 25.2 s · audio/s21.mp3
+**s21** · 8:29 · duur 25.2 s · audio/s21.mp3
 
 Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel. Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeënnegentig. Een gewone lichaamscel heeft paren chromosomen. Zo'n cel heet diploïd: twee n is zesenveertig. Een geslachtscel heeft van elk paar er maar één. Die heet haploïd: n is drieëntwintig.
 
 > Stem-invoer: Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel. Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeën-neguntig. Een gewone lichaamscel heeft paren chromosomen. Zo'n cel heet diploïd: twee n is zesenveertig. Een geslachtscel heeft van elk paar er maar één. Die heet haaploïd: n is drieëntwintig.
 
-**s22** · 7:20 · duur 30.7 s · audio/s22.mp3
+**s22** · 8:54 · duur 30.7 s · audio/s22.mp3
 
 Geslachtscellen ontstaan door meiose, in de teelballen en de eierstokken. Meiose halveert het aantal chromosomen. Daarom heet het ook reductiedeling. Meiose bestaat uit twee delingen achter elkaar. Het DNA wordt maar één keer gekopieerd. In meiose één zoeken de homologe chromosomen elkaar op. Ze gaan als paren in het equatorvlak liggen. Dan gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?
 
@@ -116,21 +130,21 @@ Geslachtscellen ontstaan door meiose, in de teelballen en de eierstokken. Meiose
 Opties: 46 · **23** · 92  
 Uitleg: 23: de paren gaan in meiose I uit elkaar. Elk chromosoom heeft nog twee chromatiden.
 
-**s24** · 8:04 · duur 24.5 s · audio/s24.mp3
+**s24** · 9:38 · duur 24.5 s · audio/s24.mp3
 
 Drieëntwintig. Van elk paar gaat één chromosoom naar elke kant, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één. In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose. Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel. De andere cellen zijn klein en sterven af.
 
-**s25** · 8:29 · duur 9.8 s · audio/s25.mp3
+**s25** · 10:03 · duur 9.8 s · audio/s25.mp3
 
 In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p.
 
-**s26** · 8:38 · duur 37.8 s · audio/s26.mp3
+**s26** · 10:13 · duur 37.8 s · audio/s26.mp3
 
 Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen. Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze soms stukken uit. Dat heet crossing-over. Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder. Daarom verschilt bijna elke geslachtscel van een persoon van de andere. Bij de bevruchting komen n en n samen: weer twee n, zesenveertig.
 
 ## Hoofdstuk 6 — Mitose en meiose naast elkaar
 
-**s27** · 9:20 · duur 8.8 s · audio/s27.mp3
+**s27** · 10:54 · duur 8.8 s · audio/s27.mp3
 
 Zet de twee delingen naast elkaar. Bij welke deling liggen homologe chromosomen als paren in het equatorvlak? Wat denk je?
 
@@ -138,7 +152,7 @@ Zet de twee delingen naast elkaar. Bij welke deling liggen homologe chromosomen 
 Opties: mitose · **meiose I** · meiose II  
 Uitleg: Alleen in meiose I liggen homologe chromosomen als paren in het equatorvlak.
 
-**s29** · 9:43 · duur 34.5 s · audio/s29.mp3
+**s29** · 11:17 · duur 34.5 s · audio/s29.mp3
 
 Alleen bij meiose één. Bij de mitose en bij meiose twee liggen de chromosomen los, elk met twee chromatiden. Mitose: één deling, twee dochtercellen, diploïd, genetisch gelijk. Voor groei, herstel en vervanging. Meiose: twee delingen, geslachtscellen, haploïd, genetisch verschillend. Voor de voortplanting. Meiose is dus niet gewoon twee keer mitose. In meiose één gaan hele paren uit elkaar, en tussen de twee delingen wordt het DNA niet opnieuw gekopieerd.
 
@@ -158,7 +172,7 @@ Zevenenveertig. Is het extra chromosoom nummer eenentwintig, dan heeft het kind 
 
 ## Recap
 
-**s33** · 11:36 · duur 36.9 s · audio/s33.mp3
+**s33** · 13:10 · duur 36.9 s · audio/s33.mp3
 
 Een cel deelt om te groeien, te herstellen en te vervangen. Eerst kopieert hij zijn DNA, in de interfase. Bij de mitose gaan de chromatiden uit elkaar. Zo ontstaan twee dochtercellen met precies hetzelfde DNA: zesenveertig chromosomen. Bij de meiose gaan eerst de paren uit elkaar en dan de chromatiden. Zo ontstaan haploïde geslachtscellen met drieëntwintig chromosomen, bijna allemaal verschillend. Nog één vraag. Een huidcel die niet aan het delen is, en een zaadcel van dezelfde man. Welke heeft meer DNA in de kern? Wat denk je?
 
@@ -168,7 +182,7 @@ Een cel deelt om te groeien, te herstellen en te vervangen. Eerst kopieert hij z
 Opties: evenveel · **de huidcel** · de zaadcel  
 Uitleg: De huidcel: 46 chromosomen tegen 23 in de zaadcel, dus ongeveer twee keer zoveel DNA.
 
-**s35** · 12:27 · duur 7.2 s · audio/s35.mp3
+**s35** · 14:01 · duur 7.2 s · audio/s35.mp3
 
 De huidcel: zesenveertig chromosomen tegen drieëntwintig. Ongeveer twee keer zoveel DNA.
 

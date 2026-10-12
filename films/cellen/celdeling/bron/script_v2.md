@@ -2,7 +2,7 @@
 
 Film 3 van de reeks Cel. Publiek: havo + vwo bovenbouw. Niveau: havo + vwo, vwo-blokken gelabeld [VWO-START] … [VWO-END]. Voice Roos (ElevenLabs, eleven_v4). Rode draad: je begon als één cel en bent nu biljoenen cellen, elk met dezelfde 2 meter DNA. Hoe deelt een cel zonder dat er iets kwijtraakt of dubbel komt? Eerst kopiëren, dan eerlijk verdelen (mitose); voor geslachtscellen halveren (meiose).
 
-Besluiten Kamiel (12 okt 2026): mitose én meiose in het basisdeel; G1/S/G2 en crossing-over ook in het basisdeel (na curriculumreview); vwo-blokken: controlepunten, kanker, non-disjunctie; alle vier mitosefasen bij naam.
+Besluiten Kamiel (12 okt 2026): mitose én meiose in het basisdeel; G1/S/G2 en crossing-over ook in het basisdeel (na curriculumreview); vwo-blokken: controlepunten, kanker, non-disjunctie; extra-uitdagingblok (havo én vwo, overslaanbaar): spoelcontrolepunt met spanning (12 okt 2026, op verzoek van Kamiel); alle vier mitosefasen bij naam.
 v2 verwerkt drie reviews (vakexpert, didactiek + taal, curriculum). Zie reviews_v1.md.
 
 Leerdoelen
@@ -79,6 +79,18 @@ Bij een mens zie je zo zesenveertig chromosomen, met samen tweeënnegentig chrom
 Nu de mitose, in vier stappen.
 Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar.
 Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen.
+
+[EXTRA-START] Extra uitdaging: hoe weet de cel dat alles klopt?
+Bij elk centromeer zitten twee eiwitplaatjes, één per chromatide. Daar haken de trekdraden aan. Die plaatjes heten kinetochoren.
+Zit het goed, dan hangt het ene kinetochoor aan de ene pool en het andere aan de andere pool. De trekdraden van beide polen trekken tegen elkaar in, en het centromeer komt onder spanning.
+Hangen beide kinetochoren aan dezelfde pool, dan is er geen spanning. Een enzym in het centromeer zorgt dan dat de trekdraden loslaten, en het chromosoom krijgt een nieuwe kans.
+Zo'n los kinetochoor geeft een wachtsignaal. Zolang er nog één kinetochoor los is, wacht de cel. De anafase begint pas als alle chromosomen goed vastzitten en onder spanning staan.
+Dan knipt een enzym de eiwitring door die de chromatiden bij elkaar hield. Die ring heet cohesine.
+Eén chromosoom hangt met beide kinetochoren aan dezelfde pool. Wat doet de cel? Wat denk je?
+[VRAAG] (a) de cel begint toch aan de anafase · (b) de cel wacht en maakt de foute verbinding los · (c) de cel knipt het chromosoom door
+De cel wacht. De foute verbinding gaat los, tot het chromosoom goed vastzit.
+En hoe trekken de draden straks? Ze worden korter, doordat ze vooral aan het uiteinde bij het kinetochoor worden afgebroken. Het kinetochoor houdt het krimpende uiteinde vast, en wordt zo meegetrokken naar de pool.
+Terug naar de hoofdlijn. [EXTRA-END]
 
 Anafase. De centromeren splitsen. De trekdraden trekken de chromatiden uit elkaar, naar de twee polen. Vanaf nu noemen we elke chromatide een chromosoom. Even zitten er dus tweeënnegentig chromosomen in één cel.
 Telofase. Aan elke pool ontstaat een nieuw kernmembraan, en de chromosomen rollen zich weer uit.
