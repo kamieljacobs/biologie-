@@ -23,3 +23,5 @@ Uitspraaktest `uitspraaktest_extra.mp3` (flow G9H4qGFv1wgBMnnLpTBa), door Kamiel
 Opnieuw ingesproken in flow G9H4qGFv1wgBMnnLpTBa: s12, s13, s15, s26, s27, s30, e01, e03.
 - "X-vorm" / "X-vormen" → stem-invoer "iks-vorm" / "iks-vormen" (volgt de bestaande regel X = "iks").
 - "DNA" in s13 en s30 → "deeënaa" (Kamiels vaste voorkeur sinds de uitspraaktest van 12 oktober 2026). De oudere segmenten hebben nog "DNA"; neem bij opnieuw inspreken ook daar "deeënaa".
+
+- 12 okt 2026: Kamiel heeft "iks-vorm"/"iks-vormen" en het verschil tussen oude ("DNA") en nieuwe ("deeënaa") takes beluisterd (uitspraakcheck_review.mp3) en goedgekeurd; oude takes blijven zoals ze zijn.
