@@ -196,7 +196,7 @@
     "B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren.",
     "Bijna elk aminozuur heeft er dus meer dan één.",
     "Vaak verschillen die codons alleen in de derde base.",
-    "De derde base van het anticodon paart minder streng dan de andere twee. Die noem je de wiebelbase.",
+    "Die derde base van het codon paart minder streng met het anticodon. Die base noem je de wiebelbase.",
     "Zo kan één tRNA aan meer dan één codon binden.",
     "Terug naar de keten die van het ribosoom komt."
    ]
@@ -399,7 +399,7 @@
   ],
   [
    "wiebelbase",
-   "Derde base van een codon (eerste van het anticodon) die minder streng paart; daardoor herkent één tRNA soms meer codons.",
+   "Derde base van een codon op het mRNA; die paart minder streng met het anticodon (met de eerste, 5'-base van het anticodon). Daardoor herkent één tRNA soms meer codons.",
    "v"
   ]
  ],
@@ -428,7 +428,7 @@
     "Door alternatieve splicing: in het ene mRNA komen bijvoorbeeld exon 1, 2 en 3, in het andere alleen exon 1 en 3. Zo ontstaan verschillende aminozuurvolgordes."
    ],
    [
-    "Een tRNA heeft het anticodon CCU (3'→5', geschreven onder het codon). Aan welke codons kan het binden, als de wiebelbase U ook met G paart?",
+    "Een tRNA heeft het anticodon CCU (3'→5', geschreven onder het codon). Aan welke codons kan het binden, als op de wiebelplek ook G tegenover U kan paren?",
     "GGA en GGG (beide glycine)."
    ]
   ]

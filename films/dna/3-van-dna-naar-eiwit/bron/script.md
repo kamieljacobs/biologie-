@@ -1,6 +1,6 @@
 # Van DNA naar eiwit — script
 
-Stem: Roos, eleven_multilingual_v2 · stem-invoer: letterlijke stem-invoer van de opname (12 oktober 2026); uitspraakkeuzes Kamiel: mRNA, A U G, splicing, messenger-RNA zoals geschreven; tRNA → tee-er-en-aa; TATA-box → taata-box; exons → eksons. Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
+Stem: Roos, eleven_multilingual_v2 · stem-invoer: letterlijke stem-invoer van de opname (12 oktober 2026); uitspraakkeuzes Kamiel: mRNA, A U G, splicing, messenger-RNA zoals geschreven; tRNA → tee-er-en-aa; TATA-box → taata-box; exons → eksons; n17 opnieuw ingesproken op 12 oktober 2026 (wiebelbase = derde base van het codon). Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
 
 ## n0 · Opening · basis
 *begin 0:00 / 0:00 · 20.3 s*
@@ -74,14 +74,14 @@ Voor vwo nog een stap verder: hoe komt het juiste tRNA bij het juiste codon? Het
 Vierenzestig codons, twintig aminozuren. Wat volgt daaruit? Wat denk je?
 
 ## n17 · Hoofdstuk 3 — Translatie: het recept lezen · vwo
-*begin 5:58 / — · 23.1 s*
+*begin 5:58 / — · 23.6 s*
 
-B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren. Bijna elk aminozuur heeft er dus meer dan één. Vaak verschillen die codons alleen in de derde base. De derde base van het anticodon paart minder streng dan de andere twee. Die noem je de wiebelbase. Zo kan één tRNA aan meer dan één codon binden. Terug naar de keten die van het ribosoom komt.
+B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren. Bijna elk aminozuur heeft er dus meer dan één. Vaak verschillen die codons alleen in de derde base. Die derde base van het codon paart minder streng met het anticodon. Die base noem je de wiebelbase. Zo kan één tRNA aan meer dan één codon binden. Terug naar de keten die van het ribosoom komt.
 
-> stem-invoer: B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren. Bijna elk aminozuur heeft er dus meer dan één. Vaak verschillen die codons alleen in de derde base. De derde base van het anticodon paart minder streng dan de andere twee. Die noem je de wiebelbase. Zo kan één tee-er-en-aa aan meer dan één codon binden. Terug naar de keten die van het ribosoom komt.
+> stem-invoer: B. Drie codons zijn stopcodons. De andere eenenzestig horen bij twintig aminozuren. Bijna elk aminozuur heeft er dus meer dan één. Vaak verschillen die codons alleen in de derde base. Die derde base van het codon paart minder streng met het anticodon. Die base noem je de wiebelbase. Zo kan één tee-er-en-aa aan meer dan één codon binden. Terug naar de keten die van het ribosoom komt.
 
 ## n19 · Hoofdstuk 4 — Van keten naar vorm · basis
-*begin 6:24 / 4:25 · 28.3 s*
+*begin 6:25 / 4:25 · 28.3 s*
 
 Een keten van aminozuren is nog geen werkend eiwit. De keten vouwt zich op tot een vaste vorm. Welke vorm, hangt af van de volgorde van de aminozuren. En de vorm bepaalt wat het eiwit kan. Een enzym past op zijn substraat. Een receptor past op zijn signaalstof. Verander je één aminozuur, dan kan de vorm veranderen, en daarmee de werking. Daar gaat aflevering vijf over. Dus: de volgorde van de nucleotiden bepaalt de volgorde van de aminozuren. En die bepaalt de vorm van het eiwit.
 
@@ -96,7 +96,7 @@ Na de prik: waar wordt het eiwit van het virus gemaakt? Wat denk je?
 C. In je eigen cellen. Het vaccin-mRNA komt in het cytoplasma terecht, bij de ribosomen. Die lezen het recept, net als elk ander mRNA, en maken het eiwit van het virus. Afweercellen komen dat eiwit tegen en leren het herkennen, zonder dat je het virus zelf krijgt. Het vaccin-mRNA komt niet in de kern en wordt geen DNA. Na een tijdje breekt de cel het af.
 
 ## n23 · Samenvatting — Terug naar de prik · basis
-*begin 7:34 / 5:36 · 32.0 s*
+*begin 7:35 / 5:36 · 32.0 s*
 
 Terug naar de prik. Een ribosoom leest elk mRNA op dezelfde manier, waar het ook vandaan komt. Normaal komt dat mRNA uit de kern. Daar schrijft RNA-polymerase een gen over: transcriptie. In het cytoplasma lezen ribosomen het mRNA per codon, en brengen tRNA's de aminozuren. Translatie. Bijna alle levende wezens gebruiken dezelfde genetische code. Een codon betekent in een bacterie hetzelfde aminozuur als in jouw cellen. Hoe je de codontabel zelf gebruikt, oefen je in aflevering vier.
 

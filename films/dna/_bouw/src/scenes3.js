@@ -203,10 +203,10 @@ SCENES.h3w=(ctx,li,lf,t)=>{ bg(ctx,'schema');
     return; }
   if(li===5){ const p=ease(lf*2); T(ctx,'terug naar de keten',120,160,52,{w:700,alpha:p}); for(let k=0;k<8;k++){ const x=300+k*150, y=470+Math.sin(k*0.9)*40; if(k){ ctx.save(); ctx.globalAlpha*=p; ln(ctx,x-150,470+Math.sin((k-1)*0.9)*40,x,y,C.oker,4); ctx.restore(); } aa(ctx,x,y,44,k,'',p); } return; }
   T(ctx,'De wiebelbase',120,160,52,{w:700}); M(ctx,"codon 5' → 3' · anticodon eronder",120,215);
-  const cols=[['GGA','CCU'],['GGG','CCU']]; cols.forEach(([cod,anti],k)=>{ const x=320+k*720; const show=k===0||li>=4; const a=k===0?1:(li===4?ease(lf*2):1); if(!show) return;
-    for(let j=0;j<3;j++){ tile(ctx,x+j*120,370,cod[j],{alpha:a,w:96,h:104,px:56}); tile(ctx,x+j*120,580,anti[j],{alpha:a,w:96,h:104,px:56,mark:j===2&&li>=3?C.goud:null}); if(j<2) ln(ctx,x+j*120,424,x+j*120,526,C.line,2); else ln(ctx,x+j*120,424,x+j*120,526,C.goud,3,[8,8]); }
+  const cols=[['GGA','CCU'],['GGG','CCU']]; cols.forEach(([cod,anti],k)=>{ const x=380+k*700; const show=k===0||li>=4; const a=k===0?1:(li===4?ease(lf*2):1); if(!show) return;
+    for(let j=0;j<3;j++){ tile(ctx,x+j*120,370,cod[j],{alpha:a,w:96,h:104,px:56,mark:j===2&&li>=3?C.goud:null}); tile(ctx,x+j*120,580,anti[j],{alpha:a,w:96,h:104,px:56}); if(j<2) ln(ctx,x+j*120,424,x+j*120,526,C.line,2); else ln(ctx,x+j*120,424,x+j*120,526,C.goud,3,[8,8]); }
     M(ctx,"codon 5'",x-70,380,{align:'right',alpha:a}); M(ctx,"anticodon 3'",x-70,590,{align:'right',alpha:a}); M(ctx,"3'",x+310,380,{alpha:a}); M(ctx,"5'",x+310,590,{alpha:a}); aa(ctx,x+120,740,46,3,'Gly',a); });
-  if(li>=3) label(ctx,'wiebelbase',"derde base codon · 5'-base anticodon",608,620,700,800,li===3?ease(lf*2):1,C.goud,'left');
+  if(li>=3) label(ctx,'wiebelbase',"derde base van het codon",668,400,760,800,li===3?ease(lf*2):1,C.goud,'left');
   if(li===4) M(ctx,'één trna · twee codons',1160,860,{align:'center',color:C.goud,alpha:ease(lf*2)});
 };
 

@@ -7,7 +7,7 @@
 | Doelgroep / niveau | havo + vwo; vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
 | Versie / datum | 1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin) |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_multilingual_v2); één take per alinea of vraag |
-| Duur | gesproken 6:42; speeltijd (zonder wachten bij vragen) vwo 8:14, havo 6:16 |
+| Duur | gesproken 6:43; speeltijd (zonder wachten bij vragen) vwo 8:15, havo 6:16 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
 | Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
 | Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1/2/3, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
@@ -56,7 +56,7 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 - exon / intron *vwo* — Exons komen in het mRNA terecht; introns worden eruit geknipt.
 - splicing *vwo* — Het verwijderen van introns uit pre-mRNA; bij alternatieve splicing levert één gen verschillende mRNA's.
 - anticodon *vwo* — Drie basen van een tRNA die complementair zijn aan een codon.
-- wiebelbase *vwo* — Derde base van een codon (eerste van het anticodon) die minder streng paart; daardoor herkent één tRNA soms meer codons.
+- wiebelbase *vwo* — Derde base van een codon op het mRNA; die paart minder streng met het anticodon (met de eerste, 5'-base van het anticodon). Daardoor herkent één tRNA soms meer codons.
 
 ## Checkvragen
 - (basis) Noem drie verschillen tussen DNA en RNA. — *RNA is enkelstrengs, heeft de suiker ribose (DNA: desoxyribose) en de base uracil (U) in plaats van thymine (T).*
@@ -64,7 +64,7 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 - (basis) Een eiwit bestaat uit 120 aminozuren. Uit hoeveel nucleotiden bestaat het coderende deel van het mRNA minstens, met het stopcodon erbij? — *120 × 3 = 360 nucleotiden voor de aminozuren, plus 3 voor het stopcodon: 363.*
 - (basis) Leg uit waarom het vaccin-mRNA geen invloed heeft op je eigen DNA. — *Het mRNA komt alleen in het cytoplasma bij de ribosomen, niet in de kern. Het wordt niet omgezet in DNA en wordt na een tijdje afgebroken.*
 - (vwo) Een gen heeft drie exons en twee introns. Leg uit hoe dit ene gen twee verschillende eiwitten kan opleveren. — *Door alternatieve splicing: in het ene mRNA komen bijvoorbeeld exon 1, 2 en 3, in het andere alleen exon 1 en 3. Zo ontstaan verschillende aminozuurvolgordes.*
-- (vwo) Een tRNA heeft het anticodon CCU (3'→5', geschreven onder het codon). Aan welke codons kan het binden, als de wiebelbase U ook met G paart? — *GGA en GGG (beide glycine).*
+- (vwo) Een tRNA heeft het anticodon CCU (3'→5', geschreven onder het codon). Aan welke codons kan het binden, als op de wiebelplek ook G tegenover U kan paren? — *GGA en GGG (beide glycine).*
 
 ## Getallen
 | Getal | In de film | Bron |
@@ -96,10 +96,10 @@ Regelnummers in 3-van-dna-naar-eiwit.html (de base64-audio staat binnen FILMDATA
 - De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
 - Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
 - Uitspraak in context nog door Kamiel te beluisteren: tRNA als “tee-er-en-aa” (n12 ≈ 0:40, n15 ≈ 0:03, n17 ≈ 0:18, n23 ≈ 0:18), TATA-box als “taata-box” (n10 ≈ 0:13), exons als “eksons” (n10 ≈ 0:34), 3′/5′ als “drie-accent/vijf-accent” (n10 ≈ 0:19, n15 ≈ 0:08). Tijden zijn binnen de take.
-- De wiebelbase-zin volgt Nectar (“derde base van het anticodon”, anticodon 3′→5′ onder het codon). Het beeld zet 3′/5′ erbij; het docentdeel legt de 5′→3′-notatie uit.
+- Wiebelbase = derde base van het codon (n17 op 12 okt opnieuw ingesproken; de eerste versie zei per abuis “van het anticodon”). Het beeld markeert de derde codonbase in goud, met het anticodon 3′→5′ eronder.
 - “Daar bindt RNA-polymerase” bij de TATA-box is vereenvoudigd (transcriptiefactoren); zie docentdeel.
 - De kegelslakvraag is geparafraseerd naar CvTE havo 2021-I; de bron staat op de vraagkaart (`source` in het vraagsegment, rechtsboven in Meta).
 - Het mRNA-vaccin wordt alleen in de opening, vraag 5 en de samenvatting gebruikt; claims: niet in de kern, wordt geen DNA, wordt afgebroken.
 
 ## Wijzigingen
-- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA's, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon).
+- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA's, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon). Dezelfde dag: n17 opnieuw ingesproken, de wiebelbase is de derde base van het codon (niet van het anticodon).
