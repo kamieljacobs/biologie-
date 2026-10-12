@@ -38,7 +38,7 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 | Evolutie 1–9 | één mp3 per film met stiltes, base64 | `const TL`, geschatte woordtijden | alle latere tijden schuiven |
 | Stofwisseling 1–3, Voortplanting | één mp3 per hoofdstuk, base64 | `window.FILM`, zinstijden | dat hoofdstuk opnieuw |
 | Zenuwstelsel 1–6 | één mp3 per alinea, base64 | `window.FILM`, woordtijden | alleen die alinea opnieuw |
-| DNA 1–2 | één mp3 per alinea of vraag, base64 | zinstijden per segment | alleen dat segment opnieuw |
+| DNA 1–2 (Part C, v2.0) | één mp3 per alinea of vraag, base64 in `FILMDATA` | woordtijden + regelgrenzen per segment; bouwstraat `films/dna/_bouw/` | alleen dat segment opnieuw (zie `_bouw/README.md`) |
 | DNA-technieken 1–2 | één doorlopende take naast de HTML (`narration.mp3`, `gelfilm.mp3`) | geschatte woordtijden (`OMG_TL`, `OLG_TL`) of globale tijden | alle latere tijden schuiven; PCR- en gelfilm zitten ook in het practicum `tools/dna-profielen/` |
 
 ## Gevonden bij de reconstructie
@@ -57,6 +57,6 @@ Nog open (vraagt een nieuwe opname of het verschuiven van de hele tijdlijn):
 - Zenuwstelsel 1–2: vragen openen met "Voorspel." in de audio (moet "Wat denk je?" zijn).
 - Evolutie 7 en 8: hoofdstukkaart `card4` staat niet in de tijdlijn; toevoegen betekent stilte in de mp3 invoegen en alle latere tijden verschuiven.
 - Zenuwstelsel 6: de slotzin noemt film 7 "Slaap en stress", die er nog niet is.
-- Ouder ontwerp: Onderzoek doen, Alles gaat rond, Erfelijkheid, Evolutie, Stofwisseling en Zenuwstelsel volgen nog niet de stijlkaart (Part C); alleen Celorganellen doet dat.
+- Ouder ontwerp: Onderzoek doen, Alles gaat rond, Erfelijkheid, Evolutie, Stofwisseling en Zenuwstelsel volgen nog niet de stijlkaart (Part C); Celorganellen, Diffusie en DNA 1–2 (sinds 12 oktober) wel.
 
 Details per film staan onder "Aandachtspunten" in de bijbehorende `info.md`.

@@ -1,0 +1,541 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "ch": 0,
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Een schaafwond op je knie. Na een week is hij dicht.",
+    "Daarvoor heeft je huid honderdduizenden nieuwe cellen gemaakt.",
+    "Elke nieuwe cel kreeg zijn eigen twee meter DNA.",
+    "Twee meter, foutloos gekopieerd, in een paar uur.",
+    "Hoe doe je dat?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "DNA kopiëren",
+   "sub": "DNA · aflevering 2",
+   "dur": 3.5
+  },
+  {
+   "kind": "card",
+   "title": "Wanneer en waarom",
+   "sub": "Hoofdstuk 1",
+   "dur": 2.5,
+   "ch": 1
+  },
+  {
+   "kind": "narr",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "Een cel die gaat delen, moet eerst haar DNA kopiëren.",
+    "Anders zou elke dochtercel maar de helft krijgen.",
+    "Kijk naar de klok van de cel: de celcyclus.",
+    "Het kopiëren gebeurt in de S-fase. De S staat voor synthese: maken.",
+    "Pas daarna, in de M-fase, deelt de cel. De kopieën worden verdeeld over twee dochtercellen.",
+    "Het kopiëren zelf noem je DNA-replicatie. In sommige boeken heet het DNA-verdubbeling."
+   ],
+   "terms": [
+    {
+     "w": "celcyclus",
+     "label": "celcyclus"
+    },
+    {
+     "w": "S-fase",
+     "label": "S-fase"
+    },
+    {
+     "w": "M-fase",
+     "label": "M-fase"
+    },
+    {
+     "w": "DNA-replicatie",
+     "label": "DNA-replicatie"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1q",
+   "text": "In welke fase kopieert de cel haar DNA? Wat denk je?",
+   "opts": [
+    "tijdens de deling, in de M-fase",
+    "vóór de deling, in de S-fase",
+    "na de deling, in de nieuwe cel"
+   ],
+   "correct": 1,
+   "misconception": 0
+  },
+  {
+   "kind": "narr",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "B. Vóór de deling. Als de cel begint te delen, is het DNA al dubbel."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Eén streng is genoeg",
+   "sub": "Hoofdstuk 2",
+   "dur": 2.5,
+   "ch": 2
+  },
+  {
+   "kind": "narr",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Terug naar het molecuul. De dubbele ketting uit aflevering één.",
+    "Onthoud wat we daar zagen: tegenover A staat altijd T, tegenover C altijd G.",
+    "Ken je één streng, dan ken je de andere.",
+    "En precies dat gebruikt de cel.",
+    "Een enzym, helicase, trekt de twee strengen uit elkaar. Het lijkt op een rits die opengaat.",
+    "Nu liggen de basen vrij. Elke streng is een voorbeeld voor een nieuwe.",
+    "In het kernplasma zweven vrije nucleotiden. Losse bouwstenen, A, T, C en G.",
+    "Ze botsen tegen de open streng. Past een base niet, dan stuitert hij weg.",
+    "Past hij wel, dan blijft hij hangen.",
+    "En dan komt het enzym: DNA-polymerase.",
+    "Het schuift langs de streng en koppelt elke passende nucleotide vast aan de vorige.",
+    "Zo groeit langs elke oude streng een nieuwe streng.",
+    "Let op: het enzym zoekt niets uit. De basenparing bepaalt wat past. Het enzym maakt alleen de verbinding."
+   ],
+   "terms": [
+    {
+     "w": "helicase",
+     "label": "helicase"
+    },
+    {
+     "w": "vrije nucleotiden",
+     "label": "vrije nucleotiden"
+    },
+    {
+     "w": "DNA-polymerase",
+     "label": "DNA-polymerase"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2q",
+   "text": "De oude streng is A C G T. Welke nieuwe streng bouwt DNA-polymerase ernaast? Wat denk je?",
+   "opts": [
+    "A C G T",
+    "T G C A",
+    "U G C A"
+   ],
+   "correct": 1,
+   "misconception": 0
+  },
+  {
+   "kind": "narr",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "B. Tegenover A een T, tegenover C een G, tegenover G een C, tegenover T een A.",
+    "Antwoord C klopt niet: U hoort bij RNA, niet bij DNA. Daar gaat aflevering drie over."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Twee uit één",
+   "sub": "Hoofdstuk 3",
+   "dur": 2.5,
+   "ch": 3
+  },
+  {
+   "kind": "narr",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Als de polymerase klaar is, liggen er twee dubbele kettingen.",
+    "Allebei precies gelijk aan het origineel. Want elke oude streng heeft zijn eigen partner opnieuw gekregen.",
+    "Twee identieke DNA-moleculen. Klaar voor twee dochtercellen.",
+    "Hoe snel gaat dat? Eén polymerase koppelt ongeveer vijftig nucleotiden per seconde.",
+    "Dat lijkt snel, maar voor drie miljard basenparen zou één enzym bijna twee jaar nodig hebben.",
+    "Daarom begint het kopiëren op duizenden plekken tegelijk. Dan is het in een paar uur klaar.",
+    "Aan de uiteinden van elk chromosoom zit een stuk dat niet codeert: de telomeer.",
+    "Het beschermt de uiteinden, een beetje zoals het plastic uiteinde van een veter."
+   ],
+   "terms": [
+    {
+     "w": "identieke",
+     "label": "2 identieke moleculen"
+    },
+    {
+     "w": "vijftig",
+     "label": "≈ 50 nucleotiden per seconde"
+    },
+    {
+     "w": "telomeer",
+     "label": "telomeer"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3q",
+   "text": "Vijftig nucleotiden per seconde, en toch klaar in een paar uur. Hoe kan dat? Wat denk je?",
+   "opts": [
+    "de polymerase gaat sneller als het moet",
+    "het kopiëren begint op heel veel plekken tegelijk",
+    "de cel kopieert alleen de genen die ze nodig heeft"
+   ],
+   "correct": 1,
+   "misconception": 2
+  },
+  {
+   "kind": "narr",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "B. Duizenden startpunten tegelijk. En nee, de cel kopieert alles, ook wat ze niet gebruikt.",
+    "Gaat het altijd goed?",
+    "Bijna altijd. Maar heel af en toe wordt een verkeerde nucleotide ingebouwd.",
+    "Zo'n kopieerfout die blijft staan, noem je een mutatie.",
+    "Hoe dat verder gaat, zie je in aflevering vijf."
+   ],
+   "terms": [
+    {
+     "w": "mutatie",
+     "label": "kopieerfout → mutatie"
+    }
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Richting en halfnieuw",
+   "sub": "Hoofdstuk 4 · vwo",
+   "dur": 2.5,
+   "ch": 4,
+   "level": "v"
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4a",
+   "lines": [
+    "Voor vwo gaan we hier drie stappen verder.",
+    "Eerst: wat zit er in de twee nieuwe moleculen?",
+    "Elk nieuw molecuul bestaat uit één oude streng en één nieuwe. Half oud, half nieuw.",
+    "Dat noem je semiconservatief: de helft wordt bewaard.",
+    "Hoe weten we dat? Twee onderzoekers, Meselson en Stahl, lieten bacteriën eerst groeien op zware stikstof.",
+    "Al hun DNA werd zwaar. Daarna kregen de bacteriën lichte stikstof."
+   ],
+   "terms": [
+    {
+     "w": "semiconservatief",
+     "label": "semiconservatief"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4q",
+   "text": "Na één keer kopiëren op lichte stikstof: wat zie je als je het DNA op gewicht sorteert? Wat denk je?",
+   "opts": [
+    "alleen zwaar DNA",
+    "alleen licht DNA",
+    "alles even zwaar, precies tussen zwaar en licht in",
+    "half zwaar, half licht"
+   ],
+   "correct": 2,
+   "misconception": 3
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4b",
+   "lines": [
+    "C. Alle moleculen zijn half zwaar, half licht: één oude zware streng en één nieuwe lichte.",
+    "Na een tweede ronde zie je twee groepen: half-zwaar en helemaal licht. Precies wat semiconservatief voorspelt.",
+    "Tweede stap: de richting.",
+    "In aflevering één zag je dat de twee strengen antiparallel lopen. De ene van 5' naar 3', de andere andersom.",
+    "DNA-polymerase kan maar één kant op bouwen. Het plakt een nieuwe nucleotide altijd aan het 3'-uiteinde.",
+    "Het bouwt dus altijd van 5' naar 3'.",
+    "En het kan niet zelf beginnen. Het heeft een startstukje nodig: een primer. Dat korte stukje wordt gemaakt door een ander enzym, primase.",
+    "Kijk nu naar de vork waar de strengen uit elkaar gaan.",
+    "Langs de ene streng bouwt het enzym gewoon met de vork mee. In één lange keten. Dat is de leidende streng.",
+    "Langs de andere streng loopt de richting van de vork af. Daar bouwt het enzym steeds een stukje terug, in korte fragmenten.",
+    "Die fragmenten heten Okazaki-fragmenten. Een derde enzym, ligase, plakt ze later aan elkaar. Dat is de volgende streng."
+   ],
+   "terms": [
+    {
+     "w": "antiparallel",
+     "label": "antiparallel · 5'→3'"
+    },
+    {
+     "w": "primer",
+     "label": "primer · primase"
+    },
+    {
+     "w": "leidende streng",
+     "label": "leidende streng"
+    },
+    {
+     "w": "Okazaki",
+     "label": "Okazaki-fragmenten · ligase · volgende streng"
+    }
+   ]
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4c",
+   "lines": [
+    "Derde stap: drie polymerasen die je uit elkaar moet houden.",
+    "DNA-polymerase kopieert DNA naar DNA. Dat is replicatie, en ook PCR, in aflevering zeven.",
+    "RNA-polymerase schrijft een gen over naar RNA. Dat is transcriptie, in aflevering drie.",
+    "Reverse transcriptase doet het omgekeerde: van RNA naar DNA. Dat doen sommige virussen.",
+    "En de fouten? Er zijn DNA-repair-enzymen die langs het nieuwe DNA gaan en verkeerde nucleotiden vervangen.",
+    "Daardoor blijft van elke miljard gekopieerde basenparen hooguit één fout over.",
+    "Dat waren de drie stappen voor vwo: semiconservatief, de richting, en de polymerasen."
+   ],
+   "terms": [
+    {
+     "w": "DNA-polymerase",
+     "label": "DNA-polymerase: DNA → DNA"
+    },
+    {
+     "w": "RNA-polymerase",
+     "label": "RNA-polymerase: DNA → RNA"
+    },
+    {
+     "w": "Reverse",
+     "label": "reverse transcriptase: RNA → DNA"
+    },
+    {
+     "w": "repair",
+     "label": "DNA-repair-enzymen"
+    }
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar de schaafwond",
+   "sub": "Samenvatting",
+   "dur": 2.5,
+   "ch": 5
+  },
+  {
+   "kind": "narr",
+   "ch": 5,
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Terug naar de schaafwond.",
+    "Elke nieuwe huidcel kreeg een complete kopie, omdat de cel haar DNA kopieerde vóór de deling.",
+    "Helicase trekt de strengen uit elkaar, elke streng is een voorbeeld, en DNA-polymerase koppelt de passende nucleotiden aan elkaar.",
+    "Zo worden het twee moleculen die precies gelijk zijn aan het origineel. Ken je één streng, dan ken je de andere.",
+    "En die paar fouten die blijven staan? Daar begint aflevering vijf.",
+    "Maar eerst: hoe leest een cel haar DNA eigenlijk? Aflevering drie."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Wanneer en waarom",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "Eén streng is genoeg",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Twee uit één",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Richting en halfnieuw",
+   "level": "v"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "celcyclus",
+   "De opeenvolging van fasen die een cel doorloopt tussen twee delingen.",
+   "b"
+  ],
+  [
+   "S-fase",
+   "Fase van de celcyclus waarin het DNA wordt gekopieerd.",
+   "b"
+  ],
+  [
+   "M-fase",
+   "Fase waarin de celdeling plaatsvindt en de kopieën van de chromosomen worden verdeeld over de dochtercellen.",
+   "b"
+  ],
+  [
+   "DNA-replicatie",
+   "Kopiëren van het DNA voor de celdeling (ook: DNA-verdubbeling).",
+   "b"
+  ],
+  [
+   "vrije DNA-nucleotiden",
+   "DNA-nucleotiden die los in het kernplasma voorkomen.",
+   "b"
+  ],
+  [
+   "DNA-polymerase",
+   "Enzym dat langs een enkelvoudige DNA-keten schuift en vrije nucleotiden uit het kernplasma verbindt met de vrijgekomen basen.",
+   "b"
+  ],
+  [
+   "helicase",
+   "Enzym dat de twee strengen van het DNA uit elkaar trekt (aanvulling op de methode).",
+   "b"
+  ],
+  [
+   "telomeer",
+   "Niet-coderend repetitief DNA aan de uiteinden van een DNA-molecuul, ingekapseld in beschermende eiwitten.",
+   "b"
+  ],
+  [
+   "mutatie",
+   "Verandering in de nucleotidevolgorde van het DNA, bijvoorbeeld een kopieerfout die blijft staan.",
+   "b"
+  ],
+  [
+   "semiconservatief",
+   "Elk nieuw DNA-molecuul bestaat uit één oude en één nieuwe streng.",
+   "v"
+  ],
+  [
+   "primer",
+   "Kort startstukje waaraan DNA-polymerase kan beginnen; gemaakt door primase.",
+   "v"
+  ],
+  [
+   "leidende streng",
+   "De nieuwe streng die continu, met de vork mee, wordt gebouwd.",
+   "v"
+  ],
+  [
+   "volgende streng",
+   "De nieuwe streng die in korte stukken (Okazaki-fragmenten) van de vork af wordt gebouwd; ligase plakt de stukken aan elkaar.",
+   "v"
+  ],
+  [
+   "Okazaki-fragmenten",
+   "Korte stukken nieuw DNA op de volgende streng.",
+   "v"
+  ],
+  [
+   "RNA-polymerase",
+   "Enzym dat een gen overschrijft naar RNA (transcriptie).",
+   "v"
+  ],
+  [
+   "reverse transcriptase",
+   "Enzym dat uit RNA een DNA-kopie maakt.",
+   "v"
+  ],
+  [
+   "DNA-repair-enzymen",
+   "Enzymen die verkeerd ingebouwde nucleotiden opsporen en vervangen.",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Een cel bevat 6 miljard basenparen. Hoeveel vrije nucleotiden moet zij uit het kernplasma halen om haar DNA te kopiëren? Leg uit.",
+    "6 miljard: tegenover elke oude streng komt één nieuwe nucleotide per basenpaar, dus 2 × 3 miljard per set, 6 miljard in totaal."
+   ],
+   [
+    "Leg uit waardoor de twee DNA-moleculen na replicatie precies gelijk zijn aan het origineel.",
+    "Elke oude streng dient als voorbeeld; door de vaste basenparing (A–T, C–G) krijgt elke streng exact dezelfde partner als eerst."
+   ],
+   [
+    "Een stof remt DNA-polymerase. In welke fase van de celcyclus blijft een cel dan steken, en waarom?",
+    "In de S-fase: het DNA kan niet gekopieerd worden, dus de cel kan niet door naar de M-fase."
+   ]
+  ],
+  "v": [
+   [
+    "Teken een replicatievork en geef aan welke streng continu wordt gebouwd en welke in fragmenten. Leg uit waarom.",
+    "DNA-polymerase bouwt alleen 5'→3'. Langs de streng die 3'→5' de vork in loopt kan het met de vork mee bouwen (leidende streng); langs de andere moet het telkens van de vork af bouwen, in Okazaki-fragmenten (volgende streng)."
+   ],
+   [
+    "Een virus heeft RNA als erfelijk materiaal en bouwt zijn informatie in het DNA van de gastheer in. Welk enzym heeft het daarvoor nodig, en waarom niet DNA-polymerase?",
+    "Reverse transcriptase: dat maakt DNA met RNA als matrijs. DNA-polymerase gebruikt alleen DNA als matrijs."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "Snelheid DNA-polymerase (eukaryoot)",
+   "≈ 50 nucleotiden/s",
+   "Alberts, Molecular Biology of the Cell"
+  ],
+  [
+   "Tijd voor één enzym, 3,2 miljard nt",
+   "≈ 2 jaar",
+   "3,2·10⁹ ÷ 50 = 6,4·10⁷ s ≈ 740 dagen"
+  ],
+  [
+   "Startpunten per replicatie (mens)",
+   "duizenden",
+   "30 000–50 000 (Alberts)"
+  ],
+  [
+   "Duur S-fase",
+   "een paar uur",
+   "≈ 8 uur in een typische zoogdiercel (Alberts)"
+  ],
+  [
+   "Foutkans na herstel",
+   "≈ 1 op 10⁹",
+   "Alberts"
+  ],
+  [
+   "Nieuwe cellen bij een schaafwond",
+   "honderdduizenden",
+   "orde-schatting, niet gecontroleerd in een primaire bron"
+  ],
+  [
+   "Meselson & Stahl",
+   "1958, ¹⁵N/¹⁴N, E. coli",
+   "Meselson & Stahl, PNAS 44 (1958)"
+  ]
+ ]
+}

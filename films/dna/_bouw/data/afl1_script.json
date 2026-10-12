@@ -1,0 +1,579 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "ch": 0,
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Een wattenstaafje langs de binnenkant van je wang. Meer is er niet nodig.",
+    "In het slijm aan dat staafje zitten een paar duizend cellen.",
+    "In elke cel zit ongeveer twee meter DNA.",
+    "Twee meter, in een kern die je niet eens met het blote oog ziet.",
+    "Hoe past dat? En hoe leest een lab daar jouw naam uit?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Wat is DNA?",
+   "sub": "DNA · aflevering 1",
+   "dur": 3.5
+  },
+  {
+   "kind": "card",
+   "title": "Van wang tot molecuul",
+   "sub": "Hoofdstuk 1",
+   "dur": 2.5,
+   "ch": 1
+  },
+  {
+   "kind": "narr",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "We zoomen in op één wangcel.",
+    "Door het celmembraan, langs de organellen, de kern in.",
+    "Daar ligt het DNA. Niet als een kluwen touw, maar netjes verdeeld over 46 lange moleculen.",
+    "Elk van die moleculen noem je een chromosoom.",
+    "In de kern zie je ze meestal niet als losse staafjes. Ze liggen uitgerold door elkaar.",
+    "Het langste, chromosoom 1, is uitgerold ongeveer acht centimeter."
+   ],
+   "terms": [
+    {
+     "w": "chromosoom",
+     "label": "chromosoom"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1q",
+   "text": "Als je alle 46 chromosomen van één cel achter elkaar legt, hoe lang is dat dan? Wat denk je?",
+   "opts": [
+    "ongeveer twee millimeter",
+    "ongeveer twee centimeter",
+    "ongeveer twee meter"
+   ],
+   "correct": 2,
+   "misconception": 0
+  },
+  {
+   "kind": "narr",
+   "ch": 1,
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "Twee meter. Dat is C.",
+    "En dat zit in een kern van ongeveer zes micrometer. Zes duizendste millimeter.",
+    "Om te snappen hoe dat kan, moeten we verder inzoomen. Tot op het molecuul."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "De bouwsteen en de ladder",
+   "sub": "Hoofdstuk 2",
+   "dur": 2.5,
+   "ch": 2
+  },
+  {
+   "kind": "narr",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Zoom in op één chromosoom.",
+    "Steeds verder, tot je ziet dat het een draad is. Een draad van twee strengen.",
+    "En elke streng is een ketting van bouwstenen: nucleotiden.",
+    "Eén nucleotide bestaat uit drie delen.",
+    "Een fosfaatgroep. Een suiker, desoxyribose. En een stikstofbase.",
+    "Het fosfaat en de suiker vormen de rug van de ketting. Ze zitten vast aan de volgende nucleotide.",
+    "De base steekt naar binnen uit.",
+    "Van die base zijn er vier: adenine, thymine, cytosine en guanine. A, T, C en G."
+   ],
+   "terms": [
+    {
+     "w": "nucleotiden",
+     "label": "nucleotide"
+    },
+    {
+     "w": "fosfaatgroep",
+     "label": "fosfaatgroep"
+    },
+    {
+     "w": "desoxyribose",
+     "label": "desoxyribose (suiker)"
+    },
+    {
+     "w": "stikstofbase",
+     "label": "stikstofbase"
+    }
+   ]
+  },
+  {
+   "kind": "narr",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "Nu de tweede streng.",
+    "Die ligt ernaast, met zijn basen ook naar binnen.",
+    "En hier zit de truc.",
+    "Een A kan alleen tegenover een T. Een C alleen tegenover een G.",
+    "Kijk: een G drijft langs een A. Past niet. Hij drijft door.",
+    "Een T komt langs. Past wel. Hij blijft hangen.",
+    "Dat heet basenparing. A met T, C met G. Altijd.",
+    "Twee strengen die zo aan elkaar zitten noem je dubbelstrengs DNA.",
+    "En die dubbele ketting draait om zijn eigen as. Dat is de helixstructuur."
+   ],
+   "terms": [
+    {
+     "w": "basenparing",
+     "label": "basenparing: A–T, C–G"
+    },
+    {
+     "w": "dubbelstrengs",
+     "label": "dubbelstrengs DNA"
+    },
+    {
+     "w": "helixstructuur",
+     "label": "helixstructuur"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2q",
+   "text": "Je kent van één streng de volgorde: A T T G C. Wat is dan de andere streng? Wat denk je?",
+   "opts": [
+    "A T T G C",
+    "T A A C G",
+    "C G T T A"
+   ],
+   "correct": 1,
+   "misconception": 0
+  },
+  {
+   "kind": "narr",
+   "ch": 2,
+   "level": "b",
+   "scene": "h2c",
+   "lines": [
+    "B. Tegenover elke A een T, tegenover elke G een C.",
+    "Ken je één streng, dan ken je de andere. Onthoud dat. Daar draait de volgende aflevering om.",
+    "Nog één ding over de bouwstenen.",
+    "Het fosfaat bevat fosfor. De basen bevatten stikstof.",
+    "Daarom heeft een cel fosfor én stikstof nodig om DNA te maken. Een plant haalt die uit de bodem."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Van volgorde tot gen tot genoom",
+   "sub": "Hoofdstuk 3",
+   "dur": 2.5,
+   "ch": 3
+  },
+  {
+   "kind": "narr",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Vier basen. Meer letters heeft DNA niet.",
+    "Toch verschilt jouw DNA van dat van iedereen om je heen.",
+    "Dat zit niet in de letters. Het zit in de volgorde.",
+    "De volgorde van de nucleotiden noem je de nucleotidenvolgorde, of de DNA-sequentie.",
+    "Jouw cel heeft ongeveer drie komma twee miljard basenparen, in één set van 23 chromosomen.",
+    "Een stukje van die volgorde dat de informatie bevat voor één eiwit, noem je een gen.",
+    "Hoe een cel die informatie leest, zie je in aflevering drie.",
+    "Alle DNA in een cel samen noem je het genoom.",
+    "Dus: base, nucleotide, streng, gen, chromosoom, genoom."
+   ],
+   "terms": [
+    {
+     "w": "nucleotidenvolgorde",
+     "label": "nucleotidenvolgorde / DNA-sequentie"
+    },
+    {
+     "w": "gen",
+     "label": "gen"
+    },
+    {
+     "w": "genoom",
+     "label": "genoom"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3q",
+   "text": "Welk deel van jouw DNA bestaat uit genen die voor eiwitten coderen? Wat denk je?",
+   "opts": [
+    "bijna alles",
+    "ongeveer de helft",
+    "ongeveer twee procent"
+   ],
+   "correct": 2,
+   "misconception": 0
+  },
+  {
+   "kind": "narr",
+   "ch": 3,
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "C. Ongeveer twee procent. Dat noem je coderend DNA.",
+    "De rest heet niet-coderend DNA.",
+    "Nutteloos is het niet. Een deel regelt wanneer genen aan of uit staan. Daar gaat aflevering zes over.",
+    "En een deel is simpelweg uniek voor jou. Precies het deel dat een lab gebruikt om jou te herkennen.",
+    "Zit al dat DNA in de kern? Bijna.",
+    "Mitochondriën hebben hun eigen kleine, cirkelvormige DNA.",
+    "En bacteriën hebben naast hun grote DNA-molecuul vaak nog losse ringetjes: plasmiden."
+   ],
+   "terms": [
+    {
+     "w": "coderend",
+     "label": "coderend DNA"
+    },
+    {
+     "w": "niet-coderend",
+     "label": "niet-coderend DNA"
+    },
+    {
+     "w": "plasmiden",
+     "label": "plasmiden"
+    }
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Richting, bruggen en verpakking",
+   "sub": "Hoofdstuk 4 · vwo",
+   "dur": 2.5,
+   "ch": 4,
+   "level": "v"
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4a",
+   "lines": [
+    "Voor vwo gaan we hier drie stappen verder.",
+    "Eerst de twee strengen.",
+    "Ze zijn niet alleen elkaars tegenpool, ze lopen ook tegengesteld.",
+    "Kijk naar de suiker. Elke suiker heeft genummerde koolstofatomen.",
+    "Aan de ene kant van een streng zit een vrije fosfaatgroep aan het vijfde koolstofatoom. Dat is het 5'-uiteinde.",
+    "Aan de andere kant een vrije OH-groep aan het derde koolstofatoom. Het 3'-uiteinde.",
+    "De ene streng loopt van 5' naar 3'. De andere ernaast van 3' naar 5'.",
+    "Dat noem je antiparallel.",
+    "Een volgorde schrijf je altijd op van 5' naar 3'."
+   ],
+   "terms": [
+    {
+     "w": "5'-uiteinde",
+     "label": "5'-uiteinde"
+    },
+    {
+     "w": "3'-uiteinde",
+     "label": "3'-uiteinde"
+    },
+    {
+     "w": "antiparallel",
+     "label": "antiparallel"
+    }
+   ]
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4b",
+   "lines": [
+    "Dan de basenparing.",
+    "De basen houden elkaar vast met waterstofbruggen.",
+    "A en T maken er twee. C en G maken er drie.",
+    "Waterstofbruggen zijn zwak. Verwarm je DNA tot ongeveer 95 graden, dan laten de strengen los.",
+    "Koel je het weer af, dan vinden ze elkaar terug. Alleen een passende volgorde blijft plakken."
+   ],
+   "terms": [
+    {
+     "w": "waterstofbruggen",
+     "label": "waterstofbruggen: A=T 2, C≡G 3"
+    }
+   ]
+  },
+  {
+   "kind": "q",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4q",
+   "text": "Twee stukjes DNA, even lang. Het ene heeft veel C en G, het andere veel A en T. Welk stukje laat bij verwarmen het eerst los? Wat denk je?",
+   "opts": [
+    "het stuk met veel C en G",
+    "het stuk met veel A en T",
+    "ze laten tegelijk los"
+   ],
+   "correct": 1,
+   "misconception": 2
+  },
+  {
+   "kind": "narr",
+   "ch": 4,
+   "level": "v",
+   "scene": "h4c",
+   "lines": [
+    "B. Twee bruggen per paar laten eerder los dan drie.",
+    "Dit uit elkaar en weer aan elkaar gaan heet hybridisatie. Daar draait alle DNA-onderzoek op. Aflevering zeven.",
+    "Als laatste de verpakking. Terug naar de puzzel.",
+    "Twee meter in zes micrometer lukt alleen met opwikkelen.",
+    "Het DNA windt zich om eiwitten: histonen.",
+    "Eén kluwen van DNA om acht histonen noem je een nucleosoom.",
+    "Een kralenketting van nucleosomen, verder opgevouwen, noem je chromatine.",
+    "Pas vlak voor een celdeling wordt het zo strak opgerold dat je de chromosomen als staafjes ziet.",
+    "Dat waren de drie stappen voor vwo: antiparallel, waterstofbruggen, chromatine."
+   ],
+   "terms": [
+    {
+     "w": "hybridisatie",
+     "label": "hybridisatie"
+    },
+    {
+     "w": "histonen",
+     "label": "histonen"
+    },
+    {
+     "w": "nucleosoom",
+     "label": "nucleosoom"
+    },
+    {
+     "w": "chromatine",
+     "label": "chromatine"
+    }
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar het wattenstaafje",
+   "sub": "Samenvatting",
+   "dur": 2.5,
+   "ch": 5
+  },
+  {
+   "kind": "narr",
+   "ch": 5,
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Terug naar het wattenstaafje.",
+    "Twee meter DNA per cel past, omdat het strak is opgewikkeld in de kern.",
+    "Het is een dubbele ketting van nucleotiden, met basen die altijd in paren zitten: A met T, C met G.",
+    "De volgorde van die basen is de informatie. Een gen is een stuk van die volgorde. Alles samen is je genoom.",
+    "En het lab? Dat leest een paar stukjes van die volgorde die bij niemand anders precies zo zijn.",
+    "Hoe het lab dat doet, en hoe een cel die twee meter foutloos kopieert, zie je in de volgende afleveringen."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Van wang tot molecuul",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "De bouwsteen en de ladder",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Van volgorde tot gen tot genoom",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Richting, bruggen en verpakking",
+   "level": "v"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "DNA",
+   "Desoxyribonucleïnezuur; bevat de informatie voor alle erfelijke eigenschappen van een organisme.",
+   "b"
+  ],
+  [
+   "nucleotide",
+   "Bouwsteen van DNA: een fosfaatgroep, de suiker desoxyribose en een stikstofbase (A, T, C of G).",
+   "b"
+  ],
+  [
+   "basenparing",
+   "Stikstofbasen verbinden twee nucleotideketens met een vaste partner: A met T, C met G.",
+   "b"
+  ],
+  [
+   "dubbelstrengs DNA",
+   "Twee nucleotideketens die door basenparing bij elkaar worden gehouden.",
+   "b"
+  ],
+  [
+   "helixstructuur",
+   "De twee ketens zijn in een spiraal om elkaar heen gedraaid.",
+   "b"
+  ],
+  [
+   "chromosoom",
+   "Een zeer lang dubbelstrengs DNA-molecuul.",
+   "b"
+  ],
+  [
+   "nucleotidenvolgorde / DNA-sequentie",
+   "De volgorde waarin de nucleotiden in een DNA-molecuul staan.",
+   "b"
+  ],
+  [
+   "gen",
+   "Een stuk DNA dat de informatie bevat voor één eiwit.",
+   "b"
+  ],
+  [
+   "genoom",
+   "Alle DNA-moleculen in een cel van een organisme.",
+   "b"
+  ],
+  [
+   "coderend / niet-coderend DNA",
+   "DNA dat wel, respectievelijk niet, codeert voor eiwitten.",
+   "b"
+  ],
+  [
+   "plasmiden",
+   "Korte stukjes circulair DNA in het cytoplasma van sommige prokaryoten.",
+   "b"
+  ],
+  [
+   "complementair",
+   "Elke base in de ene streng heeft een vaste partner in de andere; ken je één streng, dan ken je de andere.",
+   "v"
+  ],
+  [
+   "antiparallel",
+   "De twee strengen lopen in tegengestelde richting: 5'→3' naast 3'→5'.",
+   "v"
+  ],
+  [
+   "5'- en 3'-uiteinde",
+   "Uiteinden van een streng: aan het 5'-uiteinde een vrije fosfaatgroep, aan het 3'-uiteinde een vrije OH-groep.",
+   "v"
+  ],
+  [
+   "waterstofbrug",
+   "Zwakke binding tussen de basen: twee bij A–T, drie bij C–G.",
+   "v"
+  ],
+  [
+   "hybridisatie",
+   "Het weer paren van losse strengen met een passende volgorde na verhitten en afkoelen.",
+   "v"
+  ],
+  [
+   "histonen / nucleosoom / chromatine",
+   "Eiwitten waar DNA omheen windt; één wikkeling om acht histonen is een nucleosoom; de verder opgevouwen kralenketting is chromatine.",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Een plant neemt uit de bodem fosfaat en nitraat op. Welke van beide heeft hij nodig voor de fosfaatgroep van een nucleotide, en welke voor de stikstofbase?",
+    "Fosfaat voor de fosfaatgroep; nitraat (stikstof) voor de stikstofbase."
+   ],
+   [
+    "Een stukje DNA bevat 30% adenine. Hoeveel procent guanine bevat het? Leg uit.",
+    "20%. A paart met T, dus ook 30% T; samen 60%. De overige 40% is C en G, die paren, dus 20% G."
+   ],
+   [
+    "Zet in volgorde van klein naar groot: chromosoom, gen, genoom, nucleotide.",
+    "nucleotide → gen → chromosoom → genoom"
+   ]
+  ],
+  "v": [
+   [
+    "Van een DNA-streng is de volgorde 5'-ATGCCA-3'. Noteer de complementaire streng met de juiste uiteinden.",
+    "3'-TACGGT-5', wat je van 5' naar 3' schrijft als 5'-TGGCAT-3'."
+   ],
+   [
+    "Vóór een celdeling worden chromosomen zichtbaar als staafjes. Leg uit met de begrippen nucleosoom en chromatine waardoor dat komt.",
+    "Het DNA is om histonen gewikkeld tot nucleosomen; die kralenketting (chromatine) wordt vóór de deling verder opgevouwen en gecondenseerd tot een compact staafje."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "DNA-lengte per cel",
+   "≈ 2 m",
+   "6,4·10⁹ basenparen (diploïd) × 0,34 nm ≈ 2,2 m (Alberts, Molecular Biology of the Cell)"
+  ],
+  [
+   "Kerndiameter",
+   "≈ 6 µm",
+   "typische zoogdiercel 5–10 µm (Alberts)"
+  ],
+  [
+   "Chromosoom 1 uitgerold",
+   "≈ 8 cm",
+   "248,9·10⁶ bp × 0,34 nm ≈ 8,5 cm (Ensembl GRCh38)"
+  ],
+  [
+   "Basenparen per set",
+   "3,2 miljard",
+   "GRCh38 ≈ 3,1·10⁹; methodes noemen 3,2 miljard"
+  ],
+  [
+   "Coderend DNA",
+   "≈ 2 %",
+   "1–2 % exonisch (Alberts; Nectar H17)"
+  ],
+  [
+   "Waterstofbruggen",
+   "2 (A–T), 3 (C–G)",
+   "Alberts"
+  ],
+  [
+   "Strengen laten los",
+   "≈ 95 °C",
+   "denaturatiestap PCR (Nectar H17)"
+  ],
+  [
+   "Histonen per nucleosoom",
+   "8",
+   "histon-octameer (Alberts)"
+  ],
+  [
+   "Cellen aan een wattenstaaf",
+   "enkele duizenden",
+   "niet gecontroleerd in een primaire bron"
+  ]
+ ]
+}
