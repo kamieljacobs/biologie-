@@ -205,6 +205,10 @@ a.tool:hover h3{color:var(--goud-text)}
 .kort .beeld{width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:var(--surface);display:flex;align-items:center;justify-content:center}
 .kort .beeld svg{width:30px;height:30px}
 @media (max-width:600px){.film{grid-template-columns:56px minmax(0,1fr)}.film .nr .beeld{width:52px;height:52px}.film .nr .beeld svg{width:34px;height:34px}.kort{grid-template-columns:40px minmax(0,1fr) auto}.kort .n{display:none}}
+.ond-scheiding{display:flex;align-items:baseline;gap:14px;margin:52px 0 0;padding-bottom:10px;border-bottom:2px solid var(--goud)}
+.ond-scheiding .mono{color:var(--goud-text)}
+.ond-scheiding h2{font-size:30px}
+.ond-scheiding + .reeks{padding-top:20px}
 footer{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
 footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
 footer a:hover{color:var(--text)}
@@ -434,7 +438,7 @@ const HOOFDSTUKKEN = {
     "titel": "Celdeling",
     "vraag": "Hoe krijgen twee nieuwe cellen precies hetzelfde DNA?",
     "tekst": "Eerst kopiëren, dan verdelen: celcyclus, chromosomen tellen, mitose en meiose, en wat er misgaat bij kanker en non-disjunctie",
-    "duur": 10,
+    "duur": 12,
     "bij": "Film · celdeling · havo + vwo"
    }
   ],
@@ -1283,11 +1287,19 @@ function kopPagina(lbl,titel,tekst,id){
   return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle hoofdstukken</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
 }
 function films(){
-  let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen. Per hoofdstuk, in kijkvolgorde.`,'dna')+`<div class="wrap smal">`;
-  for(const [id,h] of Object.entries(HOOFDSTUKKEN)){
-    if(!h.films.length) continue;
-    out+=`<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2>${fries(id)}<a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}</section>`;
+  let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
+  const reeks=(id)=>{const h=HOOFDSTUKKEN[id];
+    return `<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2>${fries(id)}<a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}</section>`;
   }
+  const gehad=new Set();
+  for(const o of NIVEAUS[niveau].ond){
+    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&HOOFDSTUKKEN[id].films.length&&!gehad.has(id));
+    if(!ids.length) continue;
+    out+=`<div class="ond-scheiding"><span class="mono">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.naam?`<h2>${esc(o.naam)}</h2>`:''}</div>`;
+    for(const id of ids){gehad.add(id);out+=reeks(id)}
+  }
+  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&HOOFDSTUKKEN[id].films.length);
+  if(rest.length){out+=`<div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Alle films":"Ook bij "+esc(niveau)}</h2></div>`;for(const id of rest) out+=reeks(id)}
   return out+`</div>`;
 }
 function tools(){
