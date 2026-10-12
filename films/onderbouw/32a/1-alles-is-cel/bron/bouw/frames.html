@@ -16,24 +16,100 @@ function caption(s){ ctx.save(); ctx.font=fTekst(44,700); const w=Math.min(1600,
 function metaTop(s){ metaText(ctx,s,60,46,C.text2,'left',20); }
 function hvBar(){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
 
-// ---- lettuce (Macro, flat, geometric) ----
+// ---- lettuce v2: naturalistic leaves along a curved spine, ruffled edge, veins ----
+function leafPath(pts){ ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath(); }
+function slaBlad(x,y,len,wid,a0,curl,seed,col,vit){
+  // spine: start at base (x,y), direction a0 (rad, 0=up), curvature curl (rad over length)
+  const N=40, spine=[]; let px=x, py=y;
+  for(let i=0;i<=N;i++){ const t=i/N, a=a0+curl*t*t; spine.push([px,py,a,t]); px+=Math.sin(a)*len/N; py-=Math.cos(a)*len/N; }
+  const L=[],R=[];
+  spine.forEach(([sx,sy,a,t],i)=>{ const prof=Math.sqrt(Math.max(0,1-Math.pow((t-0.58)/0.58,2)));
+    const base=prof*wid*(0.45+0.55*t);
+    const ruf=wid*0.07*prof*(0.4+t)*(Math.sin(t*24+seed)+0.45*Math.sin(t*47+seed*2));
+    const nx=Math.cos(a), ny=Math.sin(a);
+    L.push([sx-nx*(base+ruf), sy-ny*(base+ruf)]); R.push([sx+nx*(base-ruf*0.8), sy+ny*(base-ruf*0.8)]); });
+  const outline=L.concat(R.reverse());
+  leafPath(outline); ctx.fillStyle=col.blad; ctx.fill(); ctx.strokeStyle=col.rand; ctx.lineWidth=1.4; ctx.stroke();
+  // lighter inner zone near the midrib (flat, no gradient)
+  const inner=[]; spine.forEach(([sx,sy,a,t])=>{ const w=Math.sqrt(Math.max(0,1-Math.pow((t-0.58)/0.58,2)))*wid*(0.45+0.55*t)*0.42; inner.push([sx-Math.cos(a)*w, sy-Math.sin(a)*w]); });
+  const inner2=[]; spine.slice().reverse().forEach(([sx,sy,a,t])=>{ const w=Math.sqrt(Math.max(0,1-Math.pow((t-0.58)/0.58,2)))*wid*(0.45+0.55*t)*0.42; inner2.push([sx+Math.cos(a)*w, sy+Math.sin(a)*w]); });
+  leafPath(inner.concat(inner2)); ctx.fillStyle=col.licht; ctx.fill();
+  // midrib
+  ctx.beginPath(); spine.forEach(([sx,sy],i)=>i?ctx.lineTo(sx,sy):ctx.moveTo(sx,sy)); ctx.strokeStyle=col.nerf; ctx.lineWidth=3.2*vit; ctx.stroke();
+  // side veins
+  ctx.lineWidth=1.1; ctx.strokeStyle=col.nerf;
+  for(let i=4;i<N-2;i+=4){ const [sx,sy,a,t]=spine[i]; const w=Math.sqrt(Math.max(0,1-Math.pow((t-0.58)/0.58,2)))*wid*(0.45+0.55*t)*0.8;
+    for(const d of [-1,1]){ const va=a+d*0.9; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.quadraticCurveTo(sx+Math.sin(a)*w*0.25+d*Math.cos(a)*w*0.5, sy-Math.cos(a)*w*0.25+d*Math.sin(a)*w*0.5, sx+Math.sin(va)*w*0.55*1+d*Math.cos(a)*w*0.35, sy-Math.cos(va)*w*0.55+d*Math.sin(a)*w*0.35); ctx.stroke(); } }
+}
+function pillLabel(name,meta,ax,ay,lx,ly,boxRight){
+  ctx.save(); ctx.font=fTekst(36,600); const w1=ctx.measureText(name).width; ctx.font=fMeta(24); const w2=meta?ctx.measureText(meta.toUpperCase()).width+meta.length*3:0;
+  const w=Math.max(w1,w2)+36, h=meta?92:56, right=lx<ax&&!boxRight, x=right?lx-w:lx, y=ly-40;
+  const ex=Math.min(Math.max(ax,x),x+w), ey=Math.min(Math.max(ay,y),y+h);
+  ctx.strokeStyle='#1A2740'; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(ex,ey); ctx.stroke();
+  ctx.fillStyle='#1A2740'; ctx.beginPath(); ctx.arc(ax,ay,4,0,6.283); ctx.fill();
+  roundRect(ctx,x,y,w,h,6); ctx.fillStyle='rgba(18,26,38,0.88)'; ctx.fill();
+  text(ctx,name,x+18,y+40,fTekst(36,600),C.text,'left'); if(meta) metaText(ctx,meta,x+18,y+76,C.grain,'left',24); ctx.restore(); }
+const FRIS={blad:'#5E9E4F',licht:'#8DC46F',rand:'#A9D88A',nerf:'#CDE8B0'};
+const FRIS2={blad:'#4F8C44',licht:'#79B562',rand:'#97CB7C',nerf:'#C2E0A6'};
+const SLAP={blad:'#7E9A57',licht:'#A2B874',rand:'#B5C68C',nerf:'#D3DDB4'};
+function blad2(x,y,len,wid,a0,curl,seed,col,crinkle){
+  // broad, rounded lettuce leaf: obovate outline with a fine crinkled edge
+  const N=60, sp=[]; let px=x,py=y;
+  for(let i=0;i<=N;i++){ const t=i/N, a=a0+curl*t*t; sp.push([px,py,a,t]); px+=Math.sin(a)*len/N; py-=Math.cos(a)*len/N; }
+  const W=t=>wid*Math.pow(Math.sin(Math.PI*Math.min(t,0.999)),0.55)*(0.35+0.65*Math.pow(t,0.6));
+  const L=[],R=[];
+  sp.forEach(([sx,sy,a,t])=>{ const w=W(t), c=wid*crinkle*Math.pow(t,0.8)*(Math.sin(t*90+seed)*0.6+Math.sin(t*37+seed*1.7)*0.4);
+    const nx=Math.cos(a), ny=Math.sin(a); L.push([sx-nx*(w+c),sy-ny*(w+c)]); R.push([sx+nx*(w-c*0.9),sy+ny*(w-c*0.9)]); });
+  leafPath(L.concat(R.slice().reverse())); ctx.fillStyle=col.blad; ctx.fill(); ctx.strokeStyle=col.rand; ctx.lineWidth=1.6; ctx.stroke();
+  // light band along the midrib (flat second tone)
+  const I=[],J=[]; sp.forEach(([sx,sy,a,t])=>{ const w=W(t)*0.38*(1-t*0.4); I.push([sx-Math.cos(a)*w,sy-Math.sin(a)*w]); J.push([sx+Math.cos(a)*w,sy+Math.sin(a)*w]); });
+  leafPath(I.concat(J.reverse())); ctx.fillStyle=col.licht; ctx.fill();
+  ctx.beginPath(); sp.slice(0,N-6).forEach(([sx,sy],i)=>i?ctx.lineTo(sx,sy):ctx.moveTo(sx,sy)); ctx.strokeStyle=col.nerf; ctx.lineWidth=4; ctx.stroke();
+  ctx.lineWidth=1.2; ctx.globalAlpha=0.7;
+  for(let i=8;i<N-8;i+=7){ const [sx,sy,a,t]=sp[i], w=W(t)*0.85; for(const d of [-1,1]){ const ex=sx+d*Math.cos(a)*w+Math.sin(a)*w*0.45, ey=sy+d*Math.sin(a)*w-Math.cos(a)*w*0.45;
+    ctx.beginPath(); ctx.moveTo(sx,sy); ctx.quadraticCurveTo(sx+d*Math.cos(a)*w*0.5, sy+d*Math.sin(a)*w*0.5, ex, ey); ctx.stroke(); } }
+  ctx.globalAlpha=1;
+}
+const KROP_F=[{blad:'#3F7F3A',licht:'#5E9C4C',rand:'#77B060',nerf:'#B9DB9C'},{blad:'#4E9443',licht:'#71B058',rand:'#8CC470',nerf:'#C8E6AA'},{blad:'#73B356',licht:'#9CCD75',rand:'#B5DD8E',nerf:'#E0F2C8'},{blad:'#A2D27A',licht:'#C3E59C',rand:'#D4EDB4',nerf:'#EEF8DC'}];
+const KROP_S=[{blad:'#6F8A4A',licht:'#8CA35F',rand:'#A0B577',nerf:'#CBD6A8'},{blad:'#7E9A55',licht:'#9BB06C',rand:'#AEC083',nerf:'#D4DDB2'},{blad:'#97AE68',licht:'#B2C483',rand:'#C2D097',nerf:'#E1E8C6'},{blad:'#B4C682',licht:'#CAD89E',rand:'#D6E1B0',nerf:'#ECF1D8'}];
 function krop(x,y,s,slap){
-  const leaves=[[-1,0.9],[1,0.9],[-0.55,1.1],[0.55,1.1],[0,1.2]];
-  leaves.forEach(([d,hh],i)=>{ ctx.save(); ctx.translate(x,y);
-    const tip = slap? {x:d*150*s, y:-hh*40*s+60*s} : {x:d*70*s, y:-hh*150*s};
-    ctx.beginPath(); ctx.moveTo(-40*s+d*20*s,0); ctx.quadraticCurveTo(tip.x*0.6-50*s, (tip.y)*0.8, tip.x, tip.y);
-    ctx.quadraticCurveTo(tip.x*0.6+50*s, tip.y*0.8, 40*s+d*20*s,0); ctx.closePath();
-    shape(ctx, i%2? '#6FB57F':'#5FA86E', lighten('#5FA86E',0.35), 1.5); ctx.restore(); });
-  ctx.beginPath(); ctx.ellipse(x,y,70*s,26*s,0,0,6.283); shape(ctx,'#8FCB9B',lighten('#8FCB9B',0.3),1.5);
+  const P=slap?KROP_S:KROP_F;
+  // rings from outside (back) to inside (front/top)
+  const rings = slap
+    ? [{n:7,spread:1.45,curl:0.5,len:230,wid:118,dx:70},{n:6,spread:1.15,curl:0.45,len:190,wid:104,dx:50},{n:5,spread:0.8,curl:0.4,len:140,wid:84,dx:30},{n:3,spread:0.4,curl:0.35,len:90,wid:60,dx:12}]
+    : [{n:7,spread:0.95,curl:-0.25,len:215,wid:112,dx:62},{n:6,spread:0.72,curl:-0.35,len:200,wid:104,dx:44},{n:5,spread:0.5,curl:-0.45,len:175,wid:92,dx:26},{n:3,spread:0.22,curl:-0.4,len:140,wid:78,dx:10}];
+  rings.forEach((r,k)=>{ const order=[]; for(let i=0;i<r.n;i++) order.push(i);
+    order.sort((a,b)=>Math.abs(b-(r.n-1)/2)-Math.abs(a-(r.n-1)/2)); // sides first, centre leaf last
+    order.forEach(i=>{ const u=r.n>1? i/(r.n-1)*2-1 : 0, h=hash(i*7+k*13);
+      const a0=u*r.spread, curl=u*r.curl ;
+      blad2(x+u*r.dx*s, y-4*s, r.len*s*(0.9+0.2*h), r.wid*s*(0.9+0.15*h), a0, curl, i*2.3+k*5, P[k], slap?0.035:0.05); }); });
 }
 function frameKeuken(){
-  ctx.fillStyle=DAY.sky; ctx.fillRect(0,0,W,H);
-  ctx.fillStyle='#7E9AB4'; for(let i=0;i<7;i++){ ctx.fillRect(140+i*250,120,180,4); } // tegelvoegen, subtiel
-  ctx.fillStyle=DAY.sand; ctx.fillRect(0,640,W,40); ctx.fillStyle='#B08A5C'; ctx.fillRect(0,680,W,CAPTION_Y-680+200);
-  krop(620,640,1.25,false); krop(1300,640,1.25,true);
-  label(ctx,'stevig','net uit de koelkast',660,470,860,300,1);
-  label(ctx,'slap','een dag op het aanrecht',1330,600,1460,380,1);
-  metaTop('onderbouw · kerndoelen · film 1');
+  // wall + window with daylight garden
+  ctx.fillStyle='#8EA7BE'; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#9BB2C7'; for(let r=0;r<6;r++) for(let c=0;c<16;c++){ const tx=c*124+(r%2)*62-30, ty=60+r*96; roundRect(ctx,tx,ty,118,90,3); ctx.fill(); }
+  ctx.fillStyle='#E9EEF2'; roundRect(ctx,1230,40,560,420,6); ctx.fill();
+  ctx.fillStyle='#A9CBE4'; ctx.fillRect(1250,60,520,380);
+  ctx.fillStyle='#6F9F63'; ctx.beginPath(); ctx.moveTo(1250,330); for(let i=0;i<=26;i++){ ctx.lineTo(1250+i*20, 300+Math.sin(i*0.9)*22+hash(i)*18); } ctx.lineTo(1770,440); ctx.lineTo(1250,440); ctx.closePath(); ctx.fill();
+  ctx.fillStyle='#5A8752'; ctx.beginPath(); ctx.arc(1360,290,70,0,6.283); ctx.arc(1440,270,60,0,6.283); ctx.fill();
+  ctx.fillStyle='#E9EEF2'; ctx.fillRect(1505,60,10,380); ctx.fillRect(1250,245,520,10);
+  // wooden counter top + front
+  ctx.fillStyle='#B98B5A'; ctx.fillRect(0,600,W,70);
+  ctx.strokeStyle='#A47648'; ctx.lineWidth=1.2; for(let i=0;i<9;i++){ ctx.beginPath(); ctx.moveTo(0,608+i*7); for(let x=0;x<=W;x+=60) ctx.lineTo(x,608+i*7+Math.sin(x*0.004+i)*2.5); ctx.stroke(); }
+  ctx.fillStyle='#8C6440'; ctx.fillRect(0,670,W,H-670);
+  ctx.fillStyle='#7A5636'; for(let i=0;i<6;i++){ roundRect(ctx,60+i*320,700,290,170,6); ctx.fill(); }
+  ctx.fillStyle='#C9B896'; for(let i=0;i<6;i++){ roundRect(ctx,175+i*320,715,60,8,4); ctx.fill(); }
+  // shadows under the heads (flat, darker wood)
+  ctx.fillStyle='rgba(60,40,20,0.25)'; ctx.beginPath(); ctx.ellipse(520,628,230,22,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(1075,630,280,20,0,0,6.283); ctx.fill();
+  krop(520,625,1.0,false); krop(1075,625,0.95,true);
+  // glass bowl of water on the right
+  ctx.fillStyle='rgba(90,164,201,0.35)'; ctx.beginPath(); ctx.moveTo(1480,545); ctx.lineTo(1730,545); ctx.lineTo(1705,625); ctx.lineTo(1505,625); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle='#DCEAF3'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(1465,500); ctx.lineTo(1490,628); ctx.lineTo(1720,628); ctx.lineTo(1745,500); ctx.stroke();
+  ctx.strokeStyle='rgba(220,234,243,0.8)'; ctx.beginPath(); ctx.moveTo(1474,545); ctx.lineTo(1736,545); ctx.stroke();
+  pillLabel('stevig','net uit de koelkast',520,450,130,230,true);
+  pillLabel('slap','een dag op het aanrecht',1075,520,720,300,true);
+  pillLabel('koud water','',1600,590,1500,760,true);
+  metaText(ctx,'onderbouw · kerndoelen · film 1',60,46,'#1A2740','left',20);
   caption('Nu hangen de blaadjes slap.');
 }
 
@@ -82,19 +158,46 @@ function frameVraag(){
 
 // ---- havo/vwo: de tekening is een model ----
 function tile(x,y,w,h,seed){ blob(ctx,x,y,w,h,0.08,seed,0); shape(ctx,rgba('#C9A3B0',0.28),'#D9B8C2',1.5); }
+function wangcel(x,y,r,rot,seed,tilt){
+  // flattened, irregular polygon like a squamous cheek cell stained with methylene blue
+  const n=7+Math.floor(hash(seed)*3), pts=[];
+  for(let i=0;i<n;i++){ const a=rot+i/n*6.283+(hash(seed+i*1.3)-0.5)*0.5, rr=r*(0.78+0.35*hash(seed*2+i));
+    pts.push([x+Math.cos(a)*rr, y+Math.sin(a)*rr*(tilt||1)]); }
+  ctx.beginPath(); pts.forEach((p,i)=>{ const q=pts[(i+1)%n], m=[(p[0]+q[0])/2,(p[1]+q[1])/2]; if(!i){ const l=pts[n-1]; ctx.moveTo((l[0]+p[0])/2,(l[1]+p[1])/2); } ctx.quadraticCurveTo(p[0],p[1],m[0],m[1]); });
+  ctx.closePath(); ctx.fillStyle='rgba(120,155,205,0.22)'; ctx.fill(); ctx.strokeStyle='rgba(55,85,145,0.55)'; ctx.lineWidth=1.6; ctx.stroke();
+  // a fold / crease
+  ctx.beginPath(); const f=hash(seed+9)*6.283; ctx.moveTo(x+Math.cos(f)*r*0.75,y+Math.sin(f)*r*0.75*(tilt||1));
+  ctx.quadraticCurveTo(x+Math.cos(f+1.4)*r*0.25,y+Math.sin(f+1.4)*r*0.25,x+Math.cos(f+2.4)*r*0.7,y+Math.sin(f+2.4)*r*0.7*(tilt||1));
+  ctx.strokeStyle='rgba(55,85,145,0.28)'; ctx.lineWidth=2.2; ctx.stroke();
+  // granules
+  ctx.fillStyle='rgba(60,90,150,0.25)'; for(let i=0;i<26;i++){ const a=hash(seed+i*2.1)*6.283, d=Math.sqrt(hash(seed*3+i))*r*0.7; ctx.beginPath(); ctx.arc(x+Math.cos(a)*d,y+Math.sin(a)*d*(tilt||1),1.4,0,6.283); ctx.fill(); }
+  // nucleus: small, dark, slightly off-centre
+  const nx=x+(hash(seed+4)-0.5)*r*0.3, ny=y+(hash(seed+5)-0.5)*r*0.3*(tilt||1);
+  ctx.beginPath(); ctx.ellipse(nx,ny,r*0.13,r*0.1*(tilt||1),rot,0,6.283); ctx.fillStyle='rgba(42,62,128,0.85)'; ctx.fill();
+}
 function frameModel(){
   bg(ctx,'micro');
-  for(let i=0;i<5;i++) for(let j=0;j<3;j++){ const x=170+i*190+(j%2)*90, y=270+j*190; tile(x,y,95,80,i*3+j); ctx.save(); ctx.globalAlpha=0.9; nucleus(ctx,x+(hash(i+j)*20-10),y+(hash(i*j+3)*16-8),18,1,0); ctx.restore(); }
-  label(ctx,'wangcellen','plat, als tegeltjes',540,460,620,150,1);
-  // right: 3D block vs flat drawing
-  const x0=1300,y0=360;
-  ctx.strokeStyle=C.text2; ctx.lineWidth=1.5; ctx.fillStyle=rgba(C.teal,0.18);
-  ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0+260,y0); ctx.lineTo(x0+340,y0-80); ctx.lineTo(x0+80,y0-80); ctx.closePath(); ctx.fill(); ctx.stroke();
-  ctx.beginPath(); ctx.rect(x0,y0,260,200); ctx.fill(); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(x0+260,y0); ctx.lineTo(x0+340,y0-80); ctx.lineTo(x0+340,y0+120); ctx.lineTo(x0+260,y0+200); ctx.closePath(); ctx.fill(); ctx.stroke();
-  metaText(ctx,'echte cel: heeft dikte',x0+170,y0+250,C.grain,'center',24);
-  ctx.beginPath(); ctx.ellipse(x0+170,y0+400,140,80,0,0,6.283); ctx.strokeStyle=C.text; ctx.setLineDash([8,6]); ctx.stroke(); ctx.setLineDash([]);
-  metaText(ctx,'tekening: plat model',x0+170,y0+520,C.grain,'center',24);
+  // microscope field of view: bright circle, as through the eyepiece
+  const cx=560, cy=470, R=390;
+  ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.clip();
+  ctx.fillStyle='#E6ECEF'; ctx.fillRect(cx-R,cy-R,2*R,2*R);
+  const cells=[[380,300,92,0.2],[560,250,100,1.1],[730,330,95,2.0],[300,470,90,0.7],[470,430,105,2.6],[660,500,98,1.7],[820,470,85,0.4],[390,640,96,1.9],[570,660,92,0.9],[750,660,88,2.9],[230,330,80,1.5],[880,300,78,0.8],[240,610,76,2.2],[540,90,90,0.1],[900,640,80,1.2]];
+  cells.forEach(([x,y,r,rot],i)=>wangcel(x,y,r,rot,i*5.7+2));
+  // a few bacteria from the mouth
+  ctx.fillStyle='rgba(42,62,128,0.7)'; for(let i=0;i<40;i++){ const a=hash(i*3.3)*6.283, d=Math.sqrt(hash(i*7.1))*R; ctx.beginPath(); ctx.ellipse(cx+Math.cos(a)*d,cy+Math.sin(a)*d,2.6,1.5,a,0,6.283); ctx.fill(); }
+  ctx.restore();
+  ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.strokeStyle='#05080D'; ctx.lineWidth=10; ctx.stroke();
+  label(ctx,'wangcellen','plat, als tegeltjes',886,296,1010,150,1);
+  // right: one cheek cell tilted so you see its thickness, versus the flat drawing
+  const x0=1470,y0=430;
+  ctx.save(); ctx.translate(0,14); ctx.fillStyle='#7F9CC4';
+  ctx.beginPath(); ctx.ellipse(x0,y0+6,180,62,0,0,Math.PI); ctx.lineTo(x0-180,y0-6); ctx.ellipse(x0,y0-6,180,62,0,Math.PI,0,true); ctx.closePath(); ctx.fill(); ctx.restore();
+  ctx.save(); ctx.fillStyle='#C9D6E6'; ctx.beginPath(); ctx.ellipse(x0,y0,180,62,0,0,6.283); ctx.fill(); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.ellipse(x0,y0,180,62,0,0,6.283); ctx.clip(); wangcel(x0,y0,190,0.3,77,0.36); ctx.restore();
+  metaText(ctx,'echte cel: dun, maar wel dik',x0,y0+130,C.grain,'center',24);
+  ctx.beginPath(); ctx.ellipse(x0,y0+300,150,95,0,0,6.283); ctx.strokeStyle=C.text; ctx.setLineDash([8,6]); ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
+  ctx.beginPath(); ctx.arc(x0+10,y0+295,14,0,6.283); ctx.strokeStyle=C.text; ctx.stroke();
+  metaText(ctx,'tekening: plat model',x0,y0+440,C.grain,'center',24);
   hvBar();
   scaleBar(ctx,'model · vereenvoudigd · niet op schaal');
   caption('Zo\'n tekening is een model.');
