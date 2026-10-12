@@ -31,7 +31,7 @@ Type en look uit de tabel "Hoe de film het uitlegt" op de pagina.
 | 17:11 | H11 Als het niet vanzelf gaat | I · Schema | Keten met schakels; chlamydia en de eileider; ivf-tijdlijn met ICSI; recap; eindkaart |
 
 ## Vragen
-Zeven voorspelvragen (basis = vwo; geen aparte niveaus). De vraag wordt ingesproken, daarna 8 s bedenktijd met keuzes op het scherm, dan de onthulling (9 s). Leerling: de film wacht op een antwoord; Klas: wacht op Verder. In de data is bij elke vraag **A** het juiste antwoord (`mis: false`); de opties worden niet geschud.
+Zeven voorspelvragen (basis = vwo; geen aparte niveaus). De vraag wordt ingesproken, daarna 8 s bedenktijd met keuzes op het scherm, dan de onthulling (9 s). Leerling: de film wacht op een antwoord; Klas: wacht op Verder. Het juiste antwoord staat op een wisselende plek (sinds 12-10-2026: B, C, A, C, B, A, C); de opties worden niet geschud tijdens het afspelen.
 
 | Plek (globaal) | Vraag | Opties (juist vet) | Uitleg op het scherm |
 |---|---|---|---|
@@ -130,7 +130,7 @@ Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:nnn@@`; in het echt
 
 ## Aandachtspunten
 - Bestandsnaam en index-link heten nog `1-precies-op-tijd`, titel is "Van bevruchting tot baby"; de poster in de speler zegt nog "Precies op tijd" en "Een uitlegfilm in elf hoofdstukken". De index-tegel noemt 19:45, de pagina 19:43.
-- Bij alle zeven voorspelvragen is A het juiste antwoord en de opties worden niet geschud: leerlingen kunnen het patroon leren.
+- ~~Bij alle zeven voorspelvragen is A het juiste antwoord.~~ Verbeterd 12-10-2026: opties gedraaid in `FILM` en in het transcript; volgorde juiste antwoorden B, C, A, C, B, A, C.
 - Geen Havo/Vwo-schakelaar en geen verdiepingsblokken (`hasV` overal false), terwijl het docentdeel leerdoel 3 (eiwit- vs steroïdhormoon) "verdieping" noemt en de film ook aan BvJ 4 vwo thema 2 / de havo-route op de index wordt gekoppeld.
 - Stemmodel is eleven_multilingual_v2 (opname uit v1), andere films gebruiken eleven_v4; zes zinnen zijn later opnieuw ingesproken, dus binnen een hoofdstuk kunnen klankverschillen hoorbaar zijn.
 - H1 verwijst naar de film "Eén wordt twee" voor de meiose; die film staat niet in de repo (de pagina zegt elders "zie de serie Cel").

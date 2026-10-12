@@ -165,3 +165,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Credits: “Naar de reeks: zie reeks.html in de zip” — verwijst naar een zip-levering, niet naar de site; geen werkende link.
 - Nieuwer dan films 1–5: `plan.questions[].optWords` timet de opties op woorden; hoofdstuk 2 heeft twee uitlegsegmenten (s21, s22) vóór de vraag, vandaar 15 fragmenten.
 - Jaartallen staan als “in het jaar 1953”/“Rond het jaar 1900” in de tekst, conform de uitspraakregel. Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
+- Verbeterd 12-10-2026: credits linken naar `../../index.html#regeling`; eindkaart zegt "Volgende film: Slaap en stress (volgt)". De slotzin in de audio noemt film 7 nog wel.

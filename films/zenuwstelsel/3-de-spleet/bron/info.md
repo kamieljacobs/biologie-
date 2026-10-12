@@ -160,3 +160,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - `plan.series` zegt “film 3 van 6” (reeks telt inmiddels 7); niet zichtbaar.
 - Hoofdstuk 3 heet “Gas en rem”, net als hoofdstuk 5 van film 1 (daar autonoom zenuwstelsel, hier exciterend/remmend); mogelijk verwarrend in de reeks.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
+- Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`; "film 3 van 7".

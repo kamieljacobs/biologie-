@@ -39,15 +39,22 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 | Stofwisseling 1–3, Voortplanting | één mp3 per hoofdstuk, base64 | `window.FILM`, zinstijden | dat hoofdstuk opnieuw |
 | Zenuwstelsel 1–6 | één mp3 per alinea, base64 | `window.FILM`, woordtijden | alleen die alinea opnieuw |
 
-## Gevonden bij de reconstructie (nog niet aangepast)
+## Gevonden bij de reconstructie
 
-- **Erfelijkheid 2:** cue `Q('p09b','vier:')` treft "in vier stappen", waardoor stappenkaart 4 vóór kaart 1 verschijnt (180,2 s i.p.v. 188,6 s). Oplossing: `Q('p09b','vier',2)`.
-- **Zenuwstelsel 4:** animatie hangt aan "afremmen", de stem zegt "af te remmen"; het label staat daardoor te vroeg.
-- **Zenuwstelsel 1–2:** vragen openen nog met "Voorspel." (moet "Wat denk je?" zijn); 2–6 linken naar `reeks.html`, die niet bestaat; 6 verwijst naar film 7 "Slaap en stress", die nog niet in de repo staat.
-- **Evolutie 1:** docentdeel noemt bij vraag 1 de verkeerde optieletter en de pauzetijden wijken 7–8 s af van de audio.
-- **Evolutie 7 en 8:** een hoofdstukkaart (`card4`) staat niet in de tijdlijn en wordt nooit getoond.
-- **Stofwisseling 3:** formule twee keer fout weergegeven als C₆H₁2O₆ (tabel bij H5 en checkvraag 4).
-- **Voortplanting:** bij alle zeven vragen is A het goede antwoord; poster zegt nog "Precies op tijd".
-- **Ouder ontwerp:** Onderzoek doen, Alles gaat rond, Erfelijkheid, Evolutie, Stofwisseling en Zenuwstelsel volgen nog niet de stijlkaart (Part C); alleen Celorganellen doet dat.
+Verbeterd op 12 oktober 2026 (alleen code en tekst, geen nieuwe opnamen):
+
+- Erfelijkheid 2: stappenkaart 4 verscheen vóór kaart 1 (cue `Q('p09b','vier',2)`).
+- Zenuwstelsel 4: label op "afremmen" verscheen te vroeg (cue nu op "remmen").
+- Zenuwstelsel 2–6: dode link `reeks.html` vervangen door de hoofdstukpagina Regeling; reeksnummering "van 7"; film 6 noemt film 7 als "(volgt)".
+- Evolutie 1: optieletter en pauzetijden in het docentdeel.
+- Stofwisseling 3: formule C₆H₁₂O₆.
+- Voortplanting: het goede antwoord is niet meer steeds A.
+
+Nog open (vraagt een nieuwe opname of het verschuiven van de hele tijdlijn):
+
+- Zenuwstelsel 1–2: vragen openen met "Voorspel." in de audio (moet "Wat denk je?" zijn).
+- Evolutie 7 en 8: hoofdstukkaart `card4` staat niet in de tijdlijn; toevoegen betekent stilte in de mp3 invoegen en alle latere tijden verschuiven.
+- Zenuwstelsel 6: de slotzin noemt film 7 "Slaap en stress", die er nog niet is.
+- Ouder ontwerp: Onderzoek doen, Alles gaat rond, Erfelijkheid, Evolutie, Stofwisseling en Zenuwstelsel volgen nog niet de stijlkaart (Part C); alleen Celorganellen doet dat.
 
 Details per film staan onder "Aandachtspunten" in de bijbehorende `info.md`.

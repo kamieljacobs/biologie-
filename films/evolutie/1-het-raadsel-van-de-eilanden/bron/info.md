@@ -160,3 +160,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 8
 - Docentdeel noemt bij de misvattingen "individuen passen zich aan of krimpen (vraag 1, optie C)", maar in `QDEFS.q1` is dat optie **A**; C is juist het goede antwoord. Tekstfout in het docentdeel.
 - De pauzemomenten in het docentdeel zijn vaste tekst en wijken af van de echte tijden: "Toeval?" valt op 1:31,9 (genoemd 1:38), "Elk eiland zijn eigen variant" op 2:37,9 (genoemd 2:45), "I think" op 3:51,1 (genoemd 3:50), Wallacelijn op 6:11,4 (genoemd 6:05).
 - Controle: 20 takes, 4 vragen, 10 kaarten; som van alle segmenten = 430,966 s, mp3 = 430,994 s (verschil 0,028 s, staart van de eindkaart). De stiltes in de mp3 (silencedetect) vallen op de kaart- en vraagsegmenten. Alle `cue()`-aanroepen met een vast woord vinden hun woord.
+- Verbeterd 12-10-2026: docentdeel noemt nu optie A bij de misvatting van vraag 1; pauzetijden aangepast naar 1:32, 2:38, 3:51 en 6:11.

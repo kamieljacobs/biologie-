@@ -162,3 +162,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Credits linken naar `reeks.html`, dat niet in de repo staat (dode link). `plan.series` zegt “film 4 van 6”.
 - Gevoelig onderwerp: docentdeel heeft een apart blok ‘Vooraf: gevoelige thema’s’ met links naar Trimbos en drugsinfo.nl; de SSRI-passage volgt Kamiels wens (geen oorzaakclaims over depressie). Bij herschrijven bewaken.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
+- Verbeterd 12-10-2026: cue in a3 hangt nu aan "remmen" (de stem zegt "af te remmen"), label verschijnt op 3,54 s in het stuk. Dode link `reeks.html` → `../../index.html#regeling`; "film 4 van 7".

@@ -165,3 +165,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Credits linken naar `reeks.html`, dat niet in de repo staat (dode link). `plan.series` zegt “film 5 van 7”, films 1–4 nog “van 6”.
 - Docentdeel noemt expliciet wat ontbreekt (Broca/Wernicke, limbisch systeem); de slakkenhuis-tonotopie is ‘handboekfeit, nagekeken in de onafhankelijke controle’ zonder externe link.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
+- Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`.

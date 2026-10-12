@@ -171,3 +171,4 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Credits linken naar `reeks.html`, maar dat bestand staat niet in films/zenuwstelsel/ in de repo (dode link).
 - `plan.subtitle` begint met een hoofdletter (“Hoe een zenuwcel …”), de titelkaart met een kleine letter; alleen de kaart is zichtbaar.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
+- Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`; "film 2 van 7".

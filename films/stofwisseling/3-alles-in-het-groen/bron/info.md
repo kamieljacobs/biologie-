@@ -235,3 +235,4 @@ Werk altijd in de uitgepakte versie: `python3 scripts/filmbron.py uitpakken film
 - Versiedatum vóór prompt v4/Part C, maar de code noemt zich "stijlkaart … look Micro". Alles staat in die donkere look, ook de macro-scènes (eik, wilg, blad, kas) en grafieken; volgens Part C zouden die Macro (eigen vlakke ecologielook) of Schema (navy) zijn. Plantweefsel en chlorofyl zijn olijfgroen gekozen om niet te botsen met het molecuulgroen.
 - Ongebruikte modules van film 1 en 2 (`models.js`, `models2.js`, `etc2.js`) zitten in het bestand.
 - Uitspraak bij heropname: "negentig" in "ruim negentig procent" (H5, 7:54) moet volgens de uitspraaklijst als "neguntig" worden ingevoerd; de stem-invoer staat niet in de HTML, dus controleer de huidige audio. "In de zeventiende eeuw" (H1) is in woorden, geen jaartal.
+- Verbeterd 12-10-2026: formule C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> op beide plekken gecorrigeerd.

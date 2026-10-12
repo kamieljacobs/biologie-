@@ -87,3 +87,4 @@ Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Films 2�
 - In de samenvattingskaart staat 'terugkruising: 1 : 1'. Dat klopt alleen als de paarse plant Aa is.
 - In de gedeelde bibliotheek staat de enzymsimulatie uit film 1 (`runSim`, `drawSimPanel`, r. 224–285), maar deze film gebruikt die niet: dode code.
 - De stem-invoer en uitspraaklijst staan niet in de HTML. Er zijn geen versie/datum, geen vwo-blokken en geen Havo/Vwo-schakelaar.
+- Verbeterd 12-10-2026: cue stappenkaart 4 is nu `Q('p09b','vier',2)` (188,6 s); de vier kaarten verschijnen in volgorde op 181,1 · 183,4 · 186,4 · 188,6 s.
