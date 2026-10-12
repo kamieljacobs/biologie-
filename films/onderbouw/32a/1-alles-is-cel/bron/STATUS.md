@@ -2,7 +2,7 @@
 
 Film 1 van de reeks Kerndoelen onderbouw (kerndoel 32A, eerste bullet). Gemaakt met prompt v5 + Part D.
 
-**Stand 12 oktober 2026: checkpoint opgeleverd, wacht op akkoord van Kamiel.**
+**Stand 12 oktober 2026: film 1.0 staat op de site** (`../index.html`). Script, uitspraak en stijlframes goedgekeurd; keukenframe na vijf versies vlak in de stijl van de andere films. Zie `info.md` voor bouw en aanpassen.
 Checkpointpagina: https://claude.ai/artifact/Qmriu6MBGVCAZ9BVy6m4sV
 
 - `script_v2.md` — script na drie reviews (`reviews/`); `script_v1.md` de versie ervoor.
