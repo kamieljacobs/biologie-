@@ -437,6 +437,42 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   </div>
 </main>
 
+<main id="ecologie" hidden>
+  <div class="head">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="#home"><i><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c6 0 12-6 14-14-8 2-14 8-14 14z"/><path d="M5 19l8-8"/></svg></i>Biologie bij Kamiel</a>
+        <div class="menu"><a href="#ecologie-films">Video's</a><a href="#ecologie-tools">Tools en practica</a><a href="#ecologie-oefenen">Begrippen</a><a href="#ecologie-oefenen">Binas</a><a href="#ecologie-oefenen">Examens</a><a href="#home">Planner</a></div>
+        <button class="pill theme-btn" type="button" aria-label="Wissel tussen licht en donker" style="margin-left:auto"></button>
+      </nav>
+      <div class="crumb">
+        <a href="#home">← Hoofdstukken</a>
+        <span class="chip">Ecologie</span>
+        <h1>Ecologie</h1>
+        <small>havo thema 7 · vwo H6 + H8 · 2 films, kijk ze op volgorde</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="grid films" id="ecologie-films">
+      <a class="film" style="--thumb:#2b4a3a" href="films/ecologie/plek-genoeg/index.html"><span class="thumb"><span class="n">1</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 1 · populaties</span><span class="t">Plek genoeg?</span><span class="s">De wolf terug op de Veluwe: hoe populaties groeien, wat ze begrenst en hoe soorten elkaar beïnvloeden</span></a>
+      <a class="film" style="--thumb:#1e3340" href="films/ecologie/alles-gaat-rond/index.html"><span class="thumb"><span class="n">2</span><span class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#13202b" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></span></span><span class="eyebrow">Film 2 · ecosystemen</span><span class="t">Alles gaat rond</span><span class="s">Atomen en energie van een ree: voedselketens, energiestroom en kringlopen</span></a>
+    </div>
+
+    <section class="sec" id="ecologie-tools" style="padding-top:28px">
+      <div class="sec-h"><h2>Tools en practica</h2><small>komen hier te staan</small></div>
+    </section>
+
+    <section class="sec" id="ecologie-oefenen">
+      <div class="grid three">
+        <a class="card soft" href="#ecologie-oefenen"><span class="t">Begrippen trainen</span><span class="m">Populatie, draagkracht, niche, voedselweb, producent, kringloop… oefen tot je ze kent.</span><span class="go">Start →</span></a>
+        <a class="card" href="#ecologie-oefenen"><span class="t">Uit het examen</span><span class="m">Examenvragen over ecologie, met uitwerking.</span><span class="go">Bekijk →</span></a>
+      </div>
+    </section>
+  </div>
+</main>
+
 <footer>Biologie bij Kamiel · <a href="#home">home</a></footer>
 
 <script>
@@ -452,7 +488,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
       {code:'OND2',w:15,subs:[
         ['Thema 4','Evolutie','4 havo','9 films · Resistentielab','#evolutie'],
         ['Thema 5 + 6','Regeling en waarneming','Regeling · Waarneming en gedrag · 4 havo','Regelkring · zenuwstelsel volgt','#regeling'],
-        ['Thema 7','Ecologie','Ecologie en milieu · 4 havo','Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab','']]},
+        ['Thema 7','Ecologie','Ecologie en milieu · 4 havo','Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab','#ecologie']]},
       {code:'OND3',w:25,subs:[
         ['Eigen pakket','Gedrag','psychologie-experimenten','',''],
         ['Thema 8','Stofwisseling','Stofwisseling in de cel · 5 havo','3 films · Aardappellab','#stofwisseling'],
@@ -469,7 +505,7 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
         ['H4','Voortplanting','4 vwo','Van bevruchting tot baby','#voortplanting'],
         ['H5','Genetica','Erfelijkheid · 4 vwo','6 films · Kruisingslab · Bloedgroepenlab','#erfelijkheid'],
         ['H7','Evolutie','4 vwo','9 films · Resistentielab','#evolutie'],
-        ['H6 + H8','Ecologie','Soorten en populaties · Kenmerken van ecosystemen · 4 vwo','Plek genoeg · Alles gaat rond · Terrariumlab','']]},
+        ['H6 + H8','Ecologie','Soorten en populaties · Kenmerken van ecosystemen · 4 vwo','Plek genoeg · Alles gaat rond · Terrariumlab','#ecologie']]},
       {code:'OND2',w:25,subs:[
         ['H9','Mens en milieu','Systeem Aarde en de mens · 5 vwo','',''],
         ['H17','DNA','6 vwo','Eiwitfabriek · DNA-reeks · examenatlas','#dna'],
@@ -526,8 +562,8 @@ footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;font
   // Routes: #home, #erfelijkheid en #stofwisseling (ankers binnen een pagina laten die pagina staan)
   function route(){
     var h=(location.hash||'#home').slice(1);
-    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':h.indexOf('regeling')===0?'regeling':'home';
-    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna','regeling'].forEach(function(id){document.getElementById(id).hidden=page!==id});
+    var page=h.indexOf('erfelijkheid')===0?'erfelijkheid':h.indexOf('stofwisseling')===0?'stofwisseling':h.indexOf('cellen')===0?'cellen':h.indexOf('voortplanting')===0?'voortplanting':h.indexOf('evolutie')===0?'evolutie':h.indexOf('dna')===0?'dna':h.indexOf('regeling')===0?'regeling':h.indexOf('ecologie')===0?'ecologie':'home';
+    ['home','erfelijkheid','stofwisseling','cellen','voortplanting','evolutie','dna','regeling','ecologie'].forEach(function(id){document.getElementById(id).hidden=page!==id});
     if(h===page) window.scrollTo(0,0);
     else{var el=document.getElementById(h); if(el) el.scrollIntoView();}
   }
