@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kruisingslab · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: opdrachtenlijst links (groepen per kruisingstype), rechts één vaste werkroute in zes stappen die stap voor stap openklapt. */
+:root{
+  --bg:#eef1ec; --paper:#ffffff; --paper-2:#f6f8f3; --fg:#17211b; --muted:#5f6c63; --line:#d3dbd0; --line-strong:#9aa89e;
+  --accent:#176b5a; --accent-fg:#ffffff; --accent-soft:#d9eee6;
+  --pea:#e3c04b; --pea-ink:#3d3310;
+  --ok:#1f7a3a; --ok-soft:#dff3e3; --bad:#b4382b; --bad-soft:#f9e2dd; --warn:#8a6500; --warn-soft:#fbf0c9;
+  --font-display:"Sora",system-ui,sans-serif; --font-body:"IBM Plex Sans",system-ui,sans-serif; --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#131a16; --paper:#1b231e; --paper-2:#212b25; --fg:#e7ece7; --muted:#a2b0a6; --line:#34423a; --line-strong:#5d6f64;
+  --accent:#6cc3a9; --accent-fg:#0e1a15; --accent-soft:#1f3d33; --pea:#e6c860; --pea-ink:#2a2410;
+  --ok:#7fd49a; --ok-soft:#1f3a29; --bad:#f08c7e; --bad-soft:#4a241f; --warn:#f0c94a; --warn-soft:#4a3d12; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#131a16; --paper:#1b231e; --paper-2:#212b25; --fg:#e7ece7; --muted:#a2b0a6; --line:#34423a; --line-strong:#5d6f64;
+  --accent:#6cc3a9; --accent-fg:#0e1a15; --accent-soft:#1f3d33; --pea:#e6c860; --pea-ink:#2a2410;
+  --ok:#7fd49a; --ok-soft:#1f3a29; --bad:#f08c7e; --bad-soft:#4a241f; --warn:#f0c94a; --warn-soft:#4a3d12; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.15rem;font-weight:700}
+h3{font-size:.95rem;font-weight:700}
+p{margin:0}
+button{font:inherit;cursor:pointer}
+select,input[type=number],input[type=text]{font:inherit;color:var(--fg);background:var(--paper);border:1px solid var(--line-strong);border-radius:6px;padding:6px 8px;min-height:38px}
+select.mono,input[type=number]{font-family:var(--font-mono)}
+input[type=number]{width:5em;font-variant-numeric:tabular-nums;text-align:right}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:.875rem}
+.eyebrow{font-family:var(--font-display);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+sup{font-size:.7em}
+
+header.top{padding-block:26px 16px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--fg)}
+header.top .lede{max-width:56ch;color:var(--muted);margin-top:6px}
+.topright{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line-strong);background:var(--paper);border-radius:999px;padding:7px 14px;font-family:var(--font-display);font-weight:600;font-size:.85rem;color:var(--fg)}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:290px minmax(0,1fr);gap:28px;margin-top:20px;align-items:start}
+@media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
+aside.side{min-width:0;position:sticky;top:env(safe-area-inset-top,0px);max-height:calc(100vh - 8px);overflow:auto;padding-bottom:12px}
+@media (max-width:880px){aside.side{position:static;max-height:none}}
+.progressline{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);margin-bottom:12px}
+.progressline .bar{flex:1;height:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.progressline .bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.group{margin-bottom:12px}
+.group summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-family:var(--font-display);font-weight:600;font-size:.9rem}
+.group summary::-webkit-details-marker{display:none}
+.group summary:hover{background:var(--paper-2)}
+.group summary .cnt{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
+.group .items{display:flex;flex-direction:column;gap:4px;padding:4px 0 2px 8px;border-left:2px solid var(--line);margin-left:10px}
+.item{text-align:left;border:1px solid transparent;background:transparent;border-radius:8px;padding:7px 10px;color:var(--fg);display:flex;gap:10px;align-items:center;font-size:.9rem;width:100%}
+.item:hover{background:var(--paper-2)}
+.item[aria-current="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.item .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line-strong);flex:none;display:grid;place-items:center;font-size:.7rem;color:var(--accent-fg)}
+.item .dot.done{background:var(--ok);border-color:var(--ok)}
+.item .dot.done::after{content:"✓";font-weight:700}
+
+main.route{min-width:0;display:flex;flex-direction:column;gap:14px}
+.taskhead{display:flex;flex-direction:column;gap:6px;padding-bottom:12px}
+.taskhead h2{font-size:1.4rem}
+.taskhead .tags{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:.75rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted)}
+.tag.acc{background:var(--pea);color:var(--pea-ink);border-color:transparent;font-weight:600}
+
+.step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px}
+.step.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.step.done{border-color:var(--ok)}
+.step.locked{opacity:.55}
+.step.locked .body>*:not(.steptitle){display:none}
+.step .stepnum{width:32px;height:32px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line-strong);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:.95rem}
+.step.active .stepnum{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.step.done .stepnum{background:var(--ok);color:#fff;border-color:var(--ok)}
+.step .body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.steptitle{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.steptitle .q{color:var(--muted);font-size:.95rem}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:9px 16px;font-family:var(--font-display);font-weight:600;font-size:.9rem}
+.btn.sec{background:var(--paper);color:var(--fg);border-color:var(--line-strong)}
+.btn.sm{padding:5px 10px;font-size:.8rem}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.feedback{padding:10px 12px;border-radius:8px;font-size:.925rem;border:1px solid var(--line);background:var(--paper-2)}
+.feedback.ok{background:var(--ok-soft);border-color:var(--ok)}
+.feedback.bad{background:var(--bad-soft);border-color:var(--bad)}
+.feedback.warn{background:var(--warn-soft);border-color:var(--warn)}
+.answer{font-size:.875rem;padding:8px 12px;border-left:3px solid var(--pea);background:var(--paper-2);border-radius:0 8px 8px 0}
+.answer b{font-family:var(--font-display);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+
+.situatie{display:flex;flex-direction:column;gap:12px;max-width:70ch}
+.legend{font-size:.875rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.parents{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.parent{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.parent .who{display:flex;gap:10px;align-items:center}
+.parent .who svg{width:44px;height:44px;flex:none}
+.parent .who .lbl{font-family:var(--font-display);font-weight:600;font-size:.9rem}
+.parent .who .ph{font-size:.9rem;color:var(--muted)}
+.parent .genorow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.9rem}
+.parent .genorow label{color:var(--muted)}
+.given{font-family:var(--font-mono);font-weight:600;font-size:1.05rem;padding:4px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--line)}
+select.chk-ok{border-color:var(--ok);background:var(--ok-soft)}
+select.chk-bad{border-color:var(--bad);background:var(--bad-soft)}
+input.chk-ok{border-color:var(--ok);background:var(--ok-soft)}
+input.chk-bad{border-color:var(--bad);background:var(--bad-soft)}
+
+.gamcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.gamcol{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line-strong);background:var(--paper);border-radius:8px;padding:7px 12px;color:var(--fg);font-family:var(--font-mono);font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.chip.chk-ok{border-color:var(--ok);background:var(--ok-soft)}
+.chip.chk-bad{border-color:var(--bad);background:var(--bad-soft)}
+.chip.chk-miss{border-color:var(--bad);border-style:dashed}
+
+.punnett-wrap{overflow-x:auto}
+table.punnett{border-collapse:separate;border-spacing:4px;font-family:var(--font-mono)}
+table.punnett th{font-family:var(--font-mono);font-size:1rem;font-weight:600;padding:6px 8px;color:var(--fg);background:var(--paper-2);border-radius:6px;min-width:3em}
+table.punnett th.corner{background:transparent;font-family:var(--font-body);font-size:.75rem;color:var(--muted);font-weight:400;text-align:left;vertical-align:bottom;min-width:0}
+table.punnett th.rowh{text-align:right}
+table.punnett td{padding:0}
+table.punnett td select{width:100%;min-width:7em;text-align:center;font-weight:600;font-size:1rem;background:var(--paper)}
+table.punnett td .fixed{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-weight:600;min-height:38px}
+table.punnett td .fixed svg{width:24px;height:24px}
+table.punnett.dihy td select{min-width:6.5em;font-size:.95rem}
+
+table.ratio{border-collapse:collapse;width:100%;max-width:640px;font-size:.95rem}
+table.ratio th,table.ratio td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+table.ratio th{font-family:var(--font-display);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+table.ratio td.num,table.ratio th.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+table.ratio td svg{width:28px;height:28px;vertical-align:middle;margin-right:8px}
+table.ratio tr.tot td{font-weight:600;border-bottom:0}
+.ratiostr{font-family:var(--font-mono);font-size:1.15rem;font-weight:600}
+.bar{height:10px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;overflow:hidden;min-width:80px;position:relative}
+.bar i{display:block;height:100%;background:var(--accent)}
+.bar i.exp{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--fg);height:auto}
+
+.counter{display:flex;flex-direction:column;gap:8px;max-width:560px}
+.crow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 10px 8px 8px;border:1px solid var(--line);border-radius:10px;background:var(--paper-2);transition:background .15s,border-color .15s}
+.crow.ok{border-color:var(--ok);background:var(--ok-soft)}
+.crow.bad{border-color:var(--bad);background:var(--bad-soft)}
+.cglyph{display:grid;place-items:center}
+.clabel{font-weight:500;min-width:0}
+.stepper{display:inline-flex;align-items:stretch;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;background:var(--paper)}
+.stepper button{width:40px;border:0;background:transparent;color:var(--fg);font-size:1.25rem;font-weight:600;line-height:1}
+.stepper button:hover{background:var(--accent-soft)}
+.stepper button:active{background:var(--accent);color:var(--accent-fg)}
+.stepper input{width:3em;border:0;border-inline:1px solid var(--line);border-radius:0;text-align:center;font-family:var(--font-mono);font-weight:600;font-size:1.1rem;min-height:42px;padding:0;background:var(--paper);color:var(--fg)}
+.stepper input::placeholder{color:var(--muted);opacity:.6}
+.csum{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font-size:.9rem;color:var(--muted);padding:4px 2px 0}
+.csum .ratiostr{color:var(--fg)}
+.csum .full{color:var(--ok)}
+.csum .over{color:var(--bad)}
+
+.dish{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-wrap:wrap;gap:3px;max-height:160px;overflow:auto}
+.dish svg{width:26px;height:26px}
+@media (prefers-reduced-motion:no-preference){.dish svg{animation:pop .25s ease both}@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}}
+
+.vrijform{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px}
+.vrijform .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.vrijform .row>label{font-size:.9rem;color:var(--muted);min-width:9em}
+.choices{display:flex;flex-wrap:wrap;gap:8px}
+.choice{border:1px solid var(--line-strong);background:var(--paper);border-radius:8px;padding:7px 12px;color:var(--fg);font-size:.9rem}
+.choice[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
+.choice:disabled{opacity:.45;cursor:not-allowed}
+
+details.uitleg{margin-top:26px;border-top:2px solid var(--fg);padding-top:12px}
+details.uitleg summary{cursor:pointer;font-family:var(--font-display);font-weight:700}
+details.uitleg .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:12px}
+details.uitleg p{font-size:.925rem;max-width:60ch;margin-top:6px}
+</style>
+</head>
+<body>
+<nav class="sitenav" style="display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;max-width:1200px;margin:0 auto;padding:14px 16px 0;font:600 15px/1.3 system-ui,sans-serif"><a href="../index.html#home" style="color:inherit;opacity:.65;text-decoration:none">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a href="../index.html#erfelijkheid" style="color:inherit;text-decoration:underline;text-underline-offset:3px">← Terug naar Erfelijkheid</a></nav>
+
+<div class="wrap">
+<header class="top">
+  <div>
+    <div class="eyebrow">Erfelijkheid · vwo bovenbouw</div>
+    <h1>Kruisingslab</h1>
+    <p class="lede">Voer kruisingen uit zoals je ze ook op papier zou doen: genotypen van de ouders, gameten, kruisingsschema, verwachte verhouding. Daarna kruist het lab écht en zie je of je voorspelling klopt.</p>
+  </div>
+  <div class="topright">
+    <div class="tabs" role="tablist">
+      <button class="tab" id="tabOpd" role="tab" aria-selected="true">Opdrachten</button>
+      <button class="tab" id="tabVrij" role="tab" aria-selected="false">Vrij lab</button>
+    </div>
+    <label class="switch"><input type="checkbox" id="docent"> docentweergave (toon antwoorden)</label>
+  </div>
+</header>
+
+<div class="grid">
+<aside class="side" id="side">
+  <div class="progressline"><span id="progTxt"></span><div class="bar"><i id="progBar" style="width:0%"></i></div></div>
+  <div id="groups"></div>
+</aside>
+<main class="route" id="main"></main>
+</div>
+
+<details class="uitleg">
+  <summary>Hoe werkt een kruising op papier?</summary>
+  <div class="cols">
+    <div><h3>1. Genotypen van de ouders</h3><p>Schrijf voor elk gen de twee allelen op. Raszuiver (homozygoot) betekent twee gelijke allelen; een drager of hybride (heterozygoot) heeft twee verschillende allelen. Bij een recessief fenotype weet je het genotype altijd zeker.</p></div>
+    <div><h3>2. Gameten</h3><p>Elke gameet krijgt van elk gen precies één allel. Een heterozygote ouder maakt dus twee soorten gameten, een dihybride ouder (AaBb) vier. Bij gekoppelde genen blijven de allelen op één chromosoom bij elkaar.</p></div>
+    <div><h3>3. Kruisingsschema</h3><p>Zet de gameten van ouder 1 boven en die van ouder 2 ernaast. Elk vakje is één mogelijke combinatie en komt even vaak voor.</p></div>
+    <div><h3>4. Verhouding</h3><p>Tel per fenotype hoeveel vakjes erbij horen. Dat is de verwachte verhouding. Echte tellingen wijken af door toeval; hoe groter het aantal nakomelingen, hoe dichter erbij.</p></div>
+  </div>
+</details>
+</div>
+
+<script>
+/* ---------- genetica-engine ---------- */
+const SUP={A:'ᴬ',B:'ᴮ',R:'ᴿ',r:'ʳ',Y:'ʸ'};
+const ORGS={
+  erwt:{name:'Erwt',labels:['Plant 1','Plant 2'],loci:{
+    G:{name:'zaadkleur',alleles:['G','g'],legend:'G = geel (dominant), g = groen',pheno:p=>p.includes('G')?{label:'geel',props:{fill:'#e3c04b'}}:{label:'groen',props:{fill:'#7fa848'}}},
+    R:{name:'zaadvorm',alleles:['R','r'],legend:'R = rond (dominant), r = gerimpeld',pheno:p=>p.includes('R')?{label:'rond',props:{}}:{label:'gerimpeld',props:{wrinkled:true}}},
+    P:{name:'bloemkleur',alleles:['P','p'],legend:'P = paars (dominant), p = wit',pheno:p=>p.includes('P')?{label:'paarse bloem',props:{flower:'#8a5bb5'}}:{label:'witte bloem',props:{flower:'#f6f3e6'}}}
+  }},
+  leeuwenbek:{name:'Leeuwenbekje',labels:['Plant 1','Plant 2'],loci:{
+    K:{name:'bloemkleur',alleles:['R','W'],legend:'R = rood, W = wit; RW geeft roze (intermediair)',pheno:p=>{const n=p.filter(a=>a==='R').length;return n===2?{label:'rood',props:{flower:'#c8322b'}}:n===1?{label:'roze',props:{flower:'#ea9bb0'}}:{label:'wit',props:{flower:'#f6f3e6'}}}}
+  }},
+  mens:{name:'Mens',labels:['Moeder','Vader'],loci:{
+    I:{name:'bloedgroep',alleles:['IA','IB','i'],disp:{IA:'Iᴬ',IB:'Iᴮ',i:'i'},sep:' ',legend:'Iᴬ en Iᴮ zijn codominant, i is recessief',pheno:p=>{const a=p.includes('IA'),b=p.includes('IB');const g=a&&b?'AB':a?'A':b?'B':'O';return{label:'bloedgroep '+g,props:{blood:g}}}}
+  }},
+  fruitvlieg:{name:'Fruitvlieg',labels:['Moeder ♀','Vader ♂'],loci:{
+    X:{name:'oogkleur (X-gebonden)',sexLocus:true,alleles:['XR','Xr','Y'],disp:{XR:'Xᴿ',Xr:'Xʳ',Y:'Y'},sep:' ',legend:'Xᴿ = rode ogen (dominant), Xʳ = witte ogen; het Y-chromosoom draagt dit gen niet',
+      pheno:p=>{const sex=p.includes('Y')?'♂':'♀';const red=p.includes('XR');return{label:sex+' '+(red?'rode ogen':'witte ogen'),props:{eye:red?'#c8322b':'#f6f3e6',sex}}}},
+    V:{name:'vleugels',alleles:['V','v'],legend:'V = normale vleugels (dominant), v = vestigiale (kleine) vleugels',pheno:p=>p.includes('V')?{label:'normale vleugels',props:{}}:{label:'vestigiale vleugels',props:{vest:true}}},
+    E:{name:'lichaamskleur',alleles:['E','e'],legend:'E = grijs lichaam (dominant), e = ebony (zwart)',pheno:p=>p.includes('E')?{label:'grijs',props:{body:'#8b8577'}}:{label:'ebony',props:{body:'#2b2622'}}},
+    L:{name:'lichaamskleur + vleugels (gekoppeld)',linked:true,alleles:['BV','Bv','bV','bv'],sep:'/',legend:'Gekoppeld op chromosoom 2, geen crossing-over: B = grijs (dominant), b = zwart; V = normale vleugels (dominant), v = vestigiaal',
+      pheno:p=>{const grey=p.some(h=>h[0]==='B'),norm=p.some(h=>h[1]==='V');return{label:(grey?'grijs':'zwart')+', '+(norm?'normale vleugels':'vestigiale vleugels'),props:{body:grey?'#8b8577':'#2b2622',vest:!norm}}}}
+  }},
+  muis:{name:'Muis',labels:['Moeder','Vader'],loci:{
+    A:{name:'vachtkleur',alleles:['AY','a'],disp:{AY:'Aʸ',a:'a'},sep:' ',legend:'Aʸ = geel (dominant), a = zwart; Aʸ Aʸ is letaal (embryo sterft)',
+      pheno:p=>{const n=p.filter(a=>a==='AY').length;return n===2?{label:null,props:{}}:n===1?{label:'geel',props:{body:'#e0b64a'}}:{label:'zwart',props:{body:'#2b2622'}}}}
+  }}
+};
+const disp=(L,a)=>(L.disp&&L.disp[a])||a;
+const lociOf=(org,ids)=>ids.map(id=>Object.assign({id},ORGS[org].loci[id]));
+function sortPair(L,pair){return [...pair].sort((a,b)=>L.alleles.indexOf(a)-L.alleles.indexOf(b));}
+function pairStr(L,pair){return sortPair(L,pair).map(a=>disp(L,a)).join(L.sep||'');}
+function genoStr(loci,geno){const sep=loci.every(L=>!L.sep)?'':'  ';return loci.map(L=>pairStr(L,geno[L.id])).join(sep);}
+function gamStr(loci,gam){const sep=loci.every(L=>!L.sep)?'':' ';return loci.map(L=>disp(L,gam[L.id])).join(sep);}
+function cart(arrs){return arrs.reduce((acc,a)=>acc.flatMap(x=>a.map(y=>[...x,y])),[[]]);}
+function pairsOf(L,parentIdx){const out=[];for(let i=0;i<L.alleles.length;i++)for(let j=i;j<L.alleles.length;j++){const p=[L.alleles[i],L.alleles[j]];if(L.sexLocus){const ny=p.filter(a=>a==='Y').length;if(parentIdx===0&&ny>0)continue;if(parentIdx===1&&ny!==1)continue;if(parentIdx===undefined&&ny>1)continue;}out.push(p);}return out;}
+function gametesOf(loci,geno){return cart(loci.map(L=>[...new Set(geno[L.id])])).map(vals=>Object.fromEntries(loci.map((L,i)=>[L.id,vals[i]])));}
+function candGametes(loci){return cart(loci.map(L=>L.alleles)).map(vals=>Object.fromEntries(loci.map((L,i)=>[L.id,vals[i]])));}
+function combine(loci,g1,g2){return Object.fromEntries(loci.map(L=>[L.id,sortPair(L,[g1[L.id],g2[L.id]])]));}
+function validGeno(loci,geno){return loci.every(L=>!L.sexLocus||geno[L.id].filter(a=>a==='Y').length<2);}
+function allGenos(loci){const out=[],seen=new Set();for(const combo of cart(loci.map(L=>pairsOf(L)))){const g=Object.fromEntries(loci.map((L,i)=>[L.id,combo[i]]));const s=genoStr(loci,g);if(!seen.has(s)){seen.add(s);out.push(g);}}return out;}
+function phenoOf(loci,geno){const parts=loci.map(L=>L.pheno(geno[L.id]));if(parts.some(p=>p.label===null))return{label:null,props:{}};return{label:parts.map(p=>p.label).join(', '),props:Object.assign({},...parts.map(p=>p.props))};}
+const LETHAL='sterft (letaal)';
+function phenoClasses(loci){const out=[],seen=new Set();let lethal=false;for(const g of allGenos(loci)){const ph=phenoOf(loci,g);if(ph.label===null){lethal=true;continue;}if(!seen.has(ph.label)){seen.add(ph.label);out.push({label:ph.label,props:ph.props});}}if(out.some(k=>/^[♀♂]/.test(k.label)))out.sort((a,b)=>a.label[0]===b.label[0]?0:a.label[0]==='♀'?-1:1);if(lethal)out.push({label:LETHAL,props:{dead:true}});return out;}
+function punnett(loci,gen1,gen2){const g1=gametesOf(loci,gen1),g2=gametesOf(loci,gen2);const cells=g1.map(a=>g2.map(b=>combine(loci,a,b)));return{g1,g2,cells};}
+function expectedCounts(loci,cells,classes){const c=Object.fromEntries(classes.map(k=>[k.label,0]));for(const row of cells)for(const g of row){const ph=phenoOf(loci,g);c[ph.label===null?LETHAL:ph.label]++;}return c;}
+function gcd(a,b){return b?gcd(b,a%b):a;}
+function normRatio(arr){const nz=arr.filter(x=>x>0);if(!nz.length)return null;const g=nz.reduce((a,b)=>gcd(a,b));return arr.map(x=>x/g);}
+function ratioStr(classes,counts){const vals=classes.map(k=>counts[k.label]);const n=normRatio(vals);return n.filter(x=>x>0).join(' : ');}
+
+/* ---------- glyphs ---------- */
+function glyph(org,props,size){
+  const s=size||32;const o=`width="${s}" height="${s}" viewBox="0 0 40 40" aria-hidden="true"`;
+  if(props.dead)return `<svg ${o}><circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3" opacity=".5"/><path d="M13 13l14 14M27 13L13 27" stroke="currentColor" stroke-width="2.5" opacity=".6"/></svg>`;
+  if(org==='erwt'){
+    if(props.flower&&!props.fill&&!props.wrinkled){return `<svg ${o}>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="11" rx="6" ry="9" fill="${props.flower}" stroke="#4a3a5a" stroke-opacity=".35" transform="rotate(${a} 20 20)"/>`).join('')}<circle cx="20" cy="20" r="4.5" fill="#e8c74a"/></svg>`;}
+    const fill=props.fill||'#b9c48a';
+    const body=props.wrinkled?`<path d="M20 5c3 0 4 3 7 3s5-1 7 2 0 5 1 8-2 5-1 8-4 3-6 5-4 4-8 4-6-2-8-4-5-3-6-5 0-5-1-8 0-5 1-8 5-2 7-2 4-3 7-3z" fill="${fill}" stroke="#3a3a22" stroke-opacity=".5" stroke-width="1.5"/>`:`<circle cx="20" cy="20" r="15" fill="${fill}" stroke="#3a3a22" stroke-opacity=".4" stroke-width="1.5"/><ellipse cx="14" cy="14" rx="4" ry="2.5" fill="#fff" opacity=".45"/>`;
+    const fl=props.flower?`<circle cx="31" cy="9" r="6" fill="${props.flower}" stroke="#4a3a5a" stroke-opacity=".4"/>`:'';
+    return `<svg ${o}>${body}${fl}</svg>`;
+  }
+  if(org==='leeuwenbek'){return `<svg ${o}><path d="M20 38V22" stroke="#4d7a3a" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="10" rx="6.5" ry="9.5" fill="${props.flower}" stroke="#5a2a2a" stroke-opacity=".3" transform="rotate(${a} 20 19)"/>`).join('')}<circle cx="20" cy="19" r="4" fill="#f0d060"/></svg>`;}
+  if(org==='mens'){return `<svg ${o}><path d="M20 4c6 9 12 15 12 22a12 12 0 0 1-24 0C8 19 14 13 20 4z" fill="#b8322e"/><text x="20" y="31" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="700" font-size="11" fill="#fff">${props.blood||''}</text></svg>`;}
+  if(org==='fruitvlieg'){
+    const body=props.body||'#8b8577',eye=props.eye||'#c8322b';
+    const wings=props.vest?`<ellipse cx="14" cy="21" rx="3" ry="4" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8"/><ellipse cx="26" cy="21" rx="3" ry="4" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8"/>`:`<ellipse cx="11" cy="26" rx="6" ry="12" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8" transform="rotate(15 11 26)"/><ellipse cx="29" cy="26" rx="6" ry="12" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8" transform="rotate(-15 29 26)"/>`;
+    const sx=props.sex==='♂'?`<text x="34" y="10" font-size="10" fill="currentColor">♂</text>`:props.sex==='♀'?`<text x="34" y="10" font-size="10" fill="currentColor">♀</text>`:'';
+    return `<svg ${o}>${wings}<ellipse cx="20" cy="24" rx="6" ry="11" fill="${body}"/><circle cx="20" cy="10" r="5" fill="${body}"/><circle cx="16.5" cy="9" r="2.3" fill="${eye}" stroke="#333" stroke-width=".5"/><circle cx="23.5" cy="9" r="2.3" fill="${eye}" stroke="#333" stroke-width=".5"/>${sx}</svg>`;
+  }
+  if(org==='muis'){const body=props.body||'#aaa';return `<svg ${o}><path d="M31 27c4 2 6 5 5 8" stroke="${body}" stroke-width="2" fill="none"/><ellipse cx="20" cy="25" rx="13" ry="9" fill="${body}"/><circle cx="10" cy="20" r="6" fill="${body}"/><circle cx="8" cy="13" r="3.5" fill="${body}" stroke="#f2b8b0" stroke-width="1.2"/><circle cx="14" cy="12" r="3.5" fill="${body}" stroke="#f2b8b0" stroke-width="1.2"/><circle cx="7" cy="20" r="1.2" fill="#111"/><circle cx="4.5" cy="22" r="1.3" fill="#e88"/></svg>`;}
+  return '';
+}
+
+/* ---------- opdrachten ---------- */
+const G=(...a)=>a; // helper for readability
+const TASKS=[
+ {group:'Monohybride kruising',id:'m1',title:'Raszuiver geel × raszuiver groen',org:'erwt',loci:['G'],
+  text:'Mendel kruiste een <b>raszuivere</b> gele erwtenplant met een <b>raszuivere</b> groene. Welke nakomelingen (F1) verwacht je?',
+  parents:[{geno:{G:['G','G']},given:true},{geno:{G:['g','g']},given:true}]},
+ {group:'Monohybride kruising',id:'m2',title:'De F1 onderling',org:'erwt',loci:['G'],
+  text:'Je laat twee F1-planten uit de vorige opdracht met elkaar kruisen. Beide zijn geel maar <b>heterozygoot</b>.',
+  parents:[{geno:{G:['G','g']},given:true},{geno:{G:['G','g']},given:true}]},
+ {group:'Monohybride kruising',id:'m3',title:'Terugkruising met de recessieve ouder',org:'erwt',loci:['G'],
+  text:'Een heterozygote gele plant (Gg) kruis je met een groene plant. Dit heet een <b>testkruising</b>: aan de nakomelingen zie je het genotype van de gele ouder.',
+  parents:[{geno:{G:['G','g']},given:true},{geno:{G:['g','g']},given:true}]},
+ {group:'Monohybride kruising',id:'m4',title:'Zelf de genotypen bepalen',org:'erwt',loci:['P'],
+  text:'Een paarsbloeiende erwtenplant waarvan je weet dat hij <b>heterozygoot</b> is, kruis je met een <b>witbloeiende</b> plant. Bepaal eerst zelf de genotypen van beide ouders.',
+  parents:[{geno:{P:['P','p']}},{geno:{P:['p','p']}}]},
+
+ {group:'Intermediair',id:'i1',title:'Rood × wit leeuwenbekje',org:'leeuwenbek',loci:['K'],
+  text:'Bij het leeuwenbekje is bloemkleur <b>intermediair</b>: geen van beide allelen overheerst. Je kruist een raszuivere roodbloeiende met een raszuivere witbloeiende plant.',
+  parents:[{geno:{K:['R','R']}},{geno:{K:['W','W']}}]},
+ {group:'Intermediair',id:'i2',title:'Roze × roze',org:'leeuwenbek',loci:['K'],
+  text:'Twee roze leeuwenbekjes uit de F1 kruis je onderling. Welke verhouding verwacht je in de F2?',
+  parents:[{geno:{K:['R','W']}},{geno:{K:['R','W']}}]},
+
+ {group:'Dihybride kruising',id:'d1',title:'Twee kenmerken tegelijk: de P-generatie',org:'erwt',loci:['G','R'],
+  text:'Je kruist een raszuivere plant met <b>gele, ronde</b> zaden met een raszuivere plant met <b>groene, gerimpelde</b> zaden. De genen liggen op verschillende chromosomen.',
+  parents:[{geno:{G:['G','G'],R:['R','R']}},{geno:{G:['g','g'],R:['r','r']}}]},
+ {group:'Dihybride kruising',id:'d2',title:'Dihybride F1 onderling',org:'erwt',loci:['G','R'],
+  text:'Twee dihybride F1-planten (GgRr) kruis je met elkaar. Dit is de klassieke kruising van Mendel met vier fenotypen in de F2.',
+  parents:[{geno:{G:['G','g'],R:['R','r']},given:true},{geno:{G:['G','g'],R:['R','r']},given:true}]},
+ {group:'Dihybride kruising',id:'d3',title:'Dihybride testkruising',org:'erwt',loci:['G','R'],
+  text:'Een dihybride plant (GgRr) kruis je met een plant die voor beide kenmerken recessief is.',
+  parents:[{geno:{G:['G','g'],R:['R','r']},given:true},{geno:{G:['g','g'],R:['r','r']},given:true}]},
+ {group:'Dihybride kruising',id:'d4',title:'Half heterozygoot',org:'erwt',loci:['G','R'],
+  text:'Plant 1 heeft genotype GgRR, plant 2 heeft Ggrr. Let op: niet elke dihybride kruising geeft 9 : 3 : 3 : 1.',
+  parents:[{geno:{G:['G','g'],R:['R','R']},given:true},{geno:{G:['G','g'],R:['r','r']},given:true}]},
+
+ {group:'Multipele allelen (bloedgroep)',id:'b1',title:'A × B, beide heterozygoot',org:'mens',loci:['I'],
+  text:'Een moeder met bloedgroep A (genotype Iᴬ i) en een vader met bloedgroep B (Iᴮ i) krijgen kinderen. Welke bloedgroepen zijn mogelijk en in welke verhouding?',
+  parents:[{geno:{I:['IA','i']},given:true},{geno:{I:['IB','i']},given:true}]},
+ {group:'Multipele allelen (bloedgroep)',id:'b2',title:'AB × O',org:'mens',loci:['I'],
+  text:'Een moeder met bloedgroep <b>AB</b> en een vader met bloedgroep <b>O</b>. Bepaal eerst de genotypen: bij deze twee bloedgroepen kan dat maar op één manier.',
+  parents:[{geno:{I:['IA','IB']}},{geno:{I:['i','i']}}]},
+ {group:'Multipele allelen (bloedgroep)',id:'b3',title:'A (homozygoot) × AB',org:'mens',loci:['I'],
+  text:'Een moeder met bloedgroep A die <b>homozygoot</b> is, en een vader met bloedgroep AB.',
+  parents:[{geno:{I:['IA','IA']}},{geno:{I:['IA','IB']}}]},
+
+ {group:'X-gebonden',id:'x1',title:'Draagster × rode man',org:'fruitvlieg',loci:['X'],
+  text:'Bij fruitvliegen ligt het gen voor oogkleur op het X-chromosoom. Een vrouwtje met rode ogen dat <b>draagster</b> is (Xᴿ Xʳ) kruis je met een roodogig mannetje (Xᴿ Y). Tel de nakomelingen apart per geslacht.',
+  parents:[{geno:{X:['XR','Xr']},given:true},{geno:{X:['XR','Y']},given:true}]},
+ {group:'X-gebonden',id:'x2',title:'Witte vrouw × rode man',org:'fruitvlieg',loci:['X'],
+  text:'Een vrouwtje met <b>witte</b> ogen kruis je met een mannetje met <b>rode</b> ogen. Bepaal zelf de genotypen. Let op wat er met de zonen gebeurt.',
+  parents:[{geno:{X:['Xr','Xr']}},{geno:{X:['XR','Y']}}]},
+ {group:'X-gebonden',id:'x3',title:'Draagster × witte man',org:'fruitvlieg',loci:['X'],
+  text:'Een roodogige draagster (Xᴿ Xʳ) kruis je met een witogig mannetje (Xʳ Y).',
+  parents:[{geno:{X:['XR','Xr']},given:true},{geno:{X:['Xr','Y']},given:true}]},
+
+ {group:'Letaal allel',id:'l1',title:'Geel × geel',org:'muis',loci:['A'],
+  text:'Bij muizen is het allel Aʸ voor gele vacht dominant, maar embryo’s met <b>Aʸ Aʸ</b> sterven vroeg. Twee gele muizen (beide Aʸ a) krijgen jongen. Welke verhouding zie je in het nest?',
+  parents:[{geno:{A:['AY','a']},given:true},{geno:{A:['AY','a']},given:true}]},
+ {group:'Letaal allel',id:'l2',title:'Geel × zwart',org:'muis',loci:['A'],
+  text:'Een gele muis kruis je met een zwarte muis. Bepaal zelf de genotypen. Een gele muis kan maar één genotype hebben: waarom?',
+  parents:[{geno:{A:['AY','a']}},{geno:{A:['a','a']}}]},
+
+ {group:'Gekoppelde genen',id:'k1',title:'Gekoppelde testkruising',org:'fruitvlieg',loci:['L'],
+  text:'Lichaamskleur (B/b) en vleugelvorm (V/v) liggen bij de fruitvlieg <b>dicht bij elkaar op chromosoom 2</b>. Een vlieg met genotype BV/bv (grijs, normale vleugels) kruis je met bv/bv. We nemen aan dat er geen crossing-over plaatsvindt. Vergelijk je uitkomst met de 1 : 1 : 1 : 1 die je bij onafhankelijke genen zou verwachten.',
+  parents:[{geno:{L:['BV','bv']},given:true},{geno:{L:['bv','bv']},given:true}]},
+ {group:'Gekoppelde genen',id:'k2',title:'Gekoppeld, F1 onderling',org:'fruitvlieg',loci:['L'],
+  text:'Twee vliegen met genotype BV/bv kruis je onderling. Zonder crossing-over gedragen de twee genen zich als één gen.',
+  parents:[{geno:{L:['BV','bv']},given:true},{geno:{L:['BV','bv']},given:true}]},
+ {group:'Gekoppelde genen',id:'k3',title:'Trans-configuratie',org:'fruitvlieg',loci:['L'],
+  text:'Nu zitten de dominante allelen op <b>verschillende</b> chromosomen van het paar: Bv/bV × bv/bv. Welke fenotypen komen er dan uit?',
+  parents:[{geno:{L:['Bv','bV']},given:true},{geno:{L:['bv','bv']},given:true}]},
+
+ {group:'Terugredeneren',id:'t1',title:'Geel × geel geeft ook groen',org:'erwt',loci:['G'],
+  text:'Twee gele erwtenplanten worden gekruist. In de F1 tel je <b>148 gele</b> en <b>52 groene</b> planten. Welke genotypen hadden de ouders?',
+  parents:[{geno:{G:['G','g']}},{geno:{G:['G','g']}}],observed:{'geel':148,'groen':52},
+  hint2:'Er komen groene (recessieve) nakomelingen uit twee gele ouders. Beide ouders moeten dus een g-allel bezitten.'},
+ {group:'Terugredeneren',id:'t2',title:'Geel × groen, half om half',org:'erwt',loci:['G'],
+  text:'Een gele plant (plant 1) wordt gekruist met een groene plant (plant 2). Je telt <b>98 gele</b> en <b>102 groene</b> nakomelingen. Bepaal de genotypen.',
+  parents:[{geno:{G:['G','g']}},{geno:{G:['g','g']}}],observed:{'geel':98,'groen':102},
+  hint2:'Een groene plant is altijd gg. Als de helft van de nakomelingen groen is, gaf de gele ouder in de helft van zijn gameten een g.'},
+ {group:'Terugredeneren',id:'t3',title:'Welke partner?',org:'erwt',loci:['G','R'],
+  text:'Een dihybride plant (GgRr, plant 1) wordt gekruist met een onbekende plant 2. Je telt: <b>52</b> geel rond, <b>48</b> geel gerimpeld, <b>51</b> groen rond en <b>49</b> groen gerimpeld. Wat was het genotype van plant 2?',
+  parents:[{geno:{G:['G','g'],R:['R','r']},given:true},{geno:{G:['g','g'],R:['r','r']}}],observed:{'geel, rond':52,'geel, gerimpeld':48,'groen, rond':51,'groen, gerimpeld':49},
+  hint2:'Een verhouding van 1 : 1 : 1 : 1 krijg je als de partner voor beide genen alleen recessieve allelen levert.'},
+ {group:'Terugredeneren',id:'t4',title:'Ouders A en B, kind O',org:'mens',loci:['I'],
+  text:'Een moeder met bloedgroep <b>A</b> en een vader met bloedgroep <b>B</b> krijgen een kind met bloedgroep <b>O</b>. Welke genotypen hebben de ouders? Reken daarna uit hoe groot de kans op een kind met O was.',
+  parents:[{geno:{I:['IA','i']}},{geno:{I:['IB','i']}}],
+  hint2:'Een kind met O heeft genotype ii en kreeg van beide ouders een i.'},
+ {group:'Terugredeneren',id:'t5',title:'Alleen zonen met witte ogen',org:'fruitvlieg',loci:['X'],
+  text:'Een roodogig vrouwtje en een roodogig mannetje krijgen nakomelingen: <b>101 dochters met rode ogen</b>, <b>49 zonen met rode ogen</b> en <b>51 zonen met witte ogen</b>. Welke genotypen hadden de ouders?',
+  parents:[{geno:{X:['XR','Xr']}},{geno:{X:['XR','Y']}}],observed:{'♀ rode ogen':101,'♀ witte ogen':0,'♂ rode ogen':49,'♂ witte ogen':51},
+  hint2:'Zonen krijgen hun X-chromosoom van hun moeder. Als de helft van de zonen witte ogen heeft, draagt de moeder een Xʳ.'},
+ {group:'Terugredeneren',id:'t6',title:'Roze × rood',org:'leeuwenbek',loci:['K'],
+  text:'Een roze leeuwenbekje (plant 1) wordt gekruist met een rood leeuwenbekje (plant 2). Je telt <b>50 rode</b> en <b>50 roze</b> planten. Bepaal de genotypen.',
+  parents:[{geno:{K:['R','W']}},{geno:{K:['R','R']}}],observed:{'rood':50,'roze':50,'wit':0},
+  hint2:'Bij intermediaire overerving verraadt het fenotype het genotype: roze is altijd RW.'}
+];
+const GROUPS=[...new Set(TASKS.map(t=>t.group))];
+
+/* ---------- state ---------- */
+let done=new Set();try{done=new Set(JSON.parse(localStorage.getItem('kl2-done')||'[]'));}catch(e){}
+function saveDone(){try{localStorage.setItem('kl2-done',JSON.stringify([...done]));}catch(e){}}
+let mode='opd';
+let S=null; // state of current task
+let docent=false;
+
+function startTask(task){
+  const loci=lociOf(task.org,task.loci);
+  S={task,loci,org:task.org,
+     geno:task.parents.map(p=>p.given?JSON.parse(JSON.stringify(p.geno)):Object.fromEntries(loci.map(L=>[L.id,null]))),
+     gam:[new Set(),new Set()],cells:{},ratio:{},tries:[0,0,0,0,0,0],open:1,passed:[true,false,false,false,false,false],sim:null,simN:100,show:[false,false,false,false,false,false]};
+  if(task.parents.every(p=>p.given)){S.passed[1]=true;S.open=2;}
+  render();
+  const m=document.getElementById('main');if(m&&window.innerWidth<880)m.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ---------- render ---------- */
+const $=id=>document.getElementById(id);
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function renderSide(){
+  const g=$('groups');g.innerHTML='';
+  GROUPS.forEach(gr=>{
+    const ts=TASKS.filter(t=>t.group===gr);const n=ts.filter(t=>done.has(t.id)).length;
+    const d=document.createElement('details');d.className='group';d.open=S&&S.task.group===gr||(!S&&gr===GROUPS[0]);
+    d.innerHTML=`<summary><span>${esc(gr)}</span><span class="cnt">${n}/${ts.length}</span></summary><div class="items"></div>`;
+    const items=d.querySelector('.items');
+    ts.forEach(t=>{const b=document.createElement('button');b.className='item';b.setAttribute('aria-current',S&&S.task.id===t.id?'true':'false');
+      b.innerHTML=`<span class="dot ${done.has(t.id)?'done':''}"></span><span>${esc(t.title)}</span>`;b.onclick=()=>{mode='opd';setTabs();startTask(t);};items.appendChild(b);});
+    g.appendChild(d);
+  });
+  $('progTxt').textContent=`${done.size} van ${TASKS.length} af`;
+  $('progBar').style.width=(100*done.size/TASKS.length)+'%';
+}
+
+function render(){
+  renderSide();
+  const m=$('main');
+  if(mode==='vrij'&&!S){m.innerHTML='';m.appendChild(vrijForm());return;}
+  if(!S){m.innerHTML=`<div class="feedback">Kies links een opdracht om te beginnen.</div>`;return;}
+  m.innerHTML='';
+  const t=S.task,org=ORGS[S.org];
+  const head=document.createElement('div');head.className='taskhead';
+  head.innerHTML=`<div class="tags"><span class="tag acc">${esc(t.group)}</span><span class="tag">${esc(org.name)}</span>${S.loci.map(L=>`<span class="tag">${esc(L.name)}</span>`).join('')}</div><h2>${esc(t.title)}</h2>`;
+  if(mode==='vrij'){const b=document.createElement('button');b.className='btn sec sm';b.textContent='← Andere kruising instellen';b.onclick=()=>{S=null;render();};head.appendChild(b);}
+  m.appendChild(head);
+  [step1,step2,step3,step4,step5,step6].forEach((fn,i)=>m.appendChild(stepCard(i,fn)));
+}
+
+const STEP_META=[
+ ['Situatie','wat weet je?'],['Genotypen van de ouders','welke allelen hebben ze?'],['Gameten','welke geslachtscellen maakt elke ouder?'],
+ ['Kruisingsschema','combineer de gameten'],['Verwachte verhouding','tel de vakjes per fenotype'],['Controle','klopt je voorspelling?']];
+function stepCard(i,fn){
+  const sec=document.createElement('section');
+  sec.className='step '+(i>S.open?'locked':i===S.open?'active':'done');
+  sec.innerHTML=`<div class="stepnum">${i+1}</div><div class="body"><div class="steptitle"><h2>${STEP_META[i][0]}</h2><span class="q">${STEP_META[i][1]}</span></div></div>`;
+  if(i<=S.open){const body=sec.querySelector('.body');fn(body);}
+  return sec;
+}
+function fb(body,cls,html){const d=document.createElement('div');d.className='feedback '+cls;d.innerHTML=html;body.appendChild(d);}
+function answerBox(body,html){if(!docent)return;const d=document.createElement('div');d.className='answer';d.innerHTML='<b>Antwoord</b>'+html;body.appendChild(d);}
+function unlock(i){S.passed[i]=true;if(S.open===i)S.open=i+1;render();}
+function tryBtns(body,i,onCheck,onShow){
+  const tb=document.createElement('div');tb.className='toolbar';
+  const b=document.createElement('button');b.className='btn';b.textContent='Controleer';b.onclick=onCheck;tb.appendChild(b);
+  if(S.tries[i]>=2&&!S.passed[i]){const s=document.createElement('button');s.className='btn sec';s.textContent='Laat het antwoord zien';s.onclick=onShow;tb.appendChild(s);}
+  body.appendChild(tb);
+}
+const parentLabel=(i)=>ORGS[S.org].labels[i];
+function parentPheno(i){return phenoOf(S.loci,S.task.parents[i].geno);}
+
+/* stap 1 */
+function step1(body){
+  const t=S.task,org=ORGS[S.org];
+  const w=document.createElement('div');w.className='situatie';
+  w.innerHTML=`<p>${t.text}</p><div class="legend">${S.loci.map(L=>`<span><b>${esc(L.name)}</b>: ${esc(L.legend)}</span>`).join('')}</div>`;
+  const ps=document.createElement('div');ps.className='parents';
+  t.parents.forEach((p,i)=>{const ph=parentPheno(i);ps.innerHTML+=`<div class="parent"><div class="who">${glyph(S.org,ph.props,44)}<div><div class="lbl">${esc(parentLabel(i))}</div><div class="ph">${esc(ph.label)}${p.given?` · genotype <span class="mono">${esc(genoStr(S.loci,p.geno))}</span>`:' · genotype nog onbekend'}</div></div></div></div>`;});
+  w.appendChild(ps);
+  if(t.observed){const cls=phenoClasses(S.loci);let rows='';cls.forEach(k=>{if(k.label===LETHAL)return;const v=t.observed[k.label]||0;rows+=`<tr><td>${glyph(S.org,k.props,28)}${esc(k.label)}</td><td class="num">${v}</td></tr>`;});
+    w.innerHTML+=`<div><div class="eyebrow" style="margin-bottom:6px">Getelde nakomelingen</div><table class="ratio"><thead><tr><th>Fenotype</th><th class="num">Aantal</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
+  body.appendChild(w);
+}
+
+/* stap 2 */
+function step2(body){
+  const t=S.task;
+  const ps=document.createElement('div');ps.className='parents';
+  t.parents.forEach((p,i)=>{
+    const ph=parentPheno(i);const d=document.createElement('div');d.className='parent';
+    d.innerHTML=`<div class="who">${glyph(S.org,ph.props,44)}<div><div class="lbl">${esc(parentLabel(i))}</div><div class="ph">${esc(ph.label)}</div></div></div>`;
+    S.loci.forEach(L=>{const row=document.createElement('div');row.className='genorow';
+      if(p.given){row.innerHTML=`<label>${esc(L.name)}</label><span class="given">${esc(pairStr(L,p.geno[L.id]))}</span><span class="small muted">gegeven</span>`;}
+      else{const sel=document.createElement('select');sel.className='mono';sel.id=`geno-${i}-${L.id}`;sel.innerHTML=`<option value="">– kies –</option>`+pairsOf(L,i).map(pr=>`<option value="${pr.join(',')}">${esc(pairStr(L,pr))}</option>`).join('');
+        const cur=S.geno[i][L.id];if(cur)sel.value=cur.join(',');
+        if(S.chk2){const ok=cur&&pairStr(L,cur)===pairStr(L,p.geno[L.id]);sel.className='mono '+(ok?'chk-ok':'chk-bad');}
+        sel.onchange=()=>{S.geno[i][L.id]=sel.value?sel.value.split(','):null;S.chk2=false;};
+        row.innerHTML=`<label>${esc(L.name)}</label>`;row.appendChild(sel);}
+      d.appendChild(row);});
+    ps.appendChild(d);
+  });
+  body.appendChild(ps);
+  const allGiven=t.parents.every(p=>p.given);
+  if(allGiven){fb(body,'ok','De genotypen zijn in deze opdracht gegeven. Ga door naar de gameten.');return;}
+  if(S.passed[1]){fb(body,'ok',`Klopt. ${t.parents.map((p,i)=>`${parentLabel(i)}: <span class="mono">${esc(genoStr(S.loci,p.geno))}</span>`).join(' · ')}`);return;}
+  if(S.msg2)fb(body,S.msg2.cls,S.msg2.html);
+  answerBox(body,t.parents.map((p,i)=>`${esc(parentLabel(i))} <span class="mono">${esc(genoStr(S.loci,p.geno))}</span>`).join(' · '));
+  tryBtns(body,1,()=>{
+    S.chk2=true;S.tries[1]++;
+    const allSet=S.geno.every((g,i)=>S.loci.every(L=>g[L.id]));
+    const ok=allSet&&S.geno.every((g,i)=>genoStr(S.loci,g)===genoStr(S.loci,t.parents[i].geno));
+    if(ok){S.msg2=null;S.geno=t.parents.map(p=>JSON.parse(JSON.stringify(p.geno)));unlock(1);}
+    else{S.msg2={cls:'bad',html:!allSet?'Vul voor elke ouder en elk gen een genotype in.':(t.hint2||'Nog niet goed. Een recessief fenotype heeft altijd twee recessieve allelen; een dominant fenotype kan homozygoot of heterozygoot zijn. Lees de situatie nog eens: staat er raszuiver of heterozygoot?')};render();}
+  },()=>{S.geno=t.parents.map(p=>JSON.parse(JSON.stringify(p.geno)));S.chk2=false;S.msg2={cls:'warn',html:'Het antwoord is ingevuld. Ga verder met de gameten.'};unlock(1);});
+}
+
+/* stap 3 */
+function step3(body){
+  const cand=candGametes(S.loci);
+  const cols=document.createElement('div');cols.className='gamcols';
+  [0,1].forEach(i=>{
+    const correct=new Set(gametesOf(S.loci,S.geno[i]).map(g=>gamStr(S.loci,g)));
+    const d=document.createElement('div');d.className='gamcol';
+    d.innerHTML=`<div><span class="eyebrow">${esc(parentLabel(i))}</span> <span class="mono" style="margin-left:8px;font-weight:600">${esc(genoStr(S.loci,S.geno[i]))}</span></div><div class="small muted">Klik alle gameten aan die deze ouder kan maken.</div>`;
+    const ch=document.createElement('div');ch.className='chips';
+    cand.forEach(g=>{const s=gamStr(S.loci,g);const b=document.createElement('button');b.className='chip';b.textContent=s;b.setAttribute('aria-pressed',S.gam[i].has(s));
+      if(S.chk3){if(S.gam[i].has(s)&&correct.has(s))b.classList.add('chk-ok');else if(S.gam[i].has(s))b.classList.add('chk-bad');else if(correct.has(s))b.classList.add('chk-miss');}
+      if(S.passed[2]){b.disabled=true;}
+      b.onclick=()=>{if(S.gam[i].has(s))S.gam[i].delete(s);else S.gam[i].add(s);S.chk3=false;b.setAttribute('aria-pressed',S.gam[i].has(s));b.className='chip';};
+      ch.appendChild(b);});
+    d.appendChild(ch);cols.appendChild(d);
+  });
+  body.appendChild(cols);
+  if(S.passed[2]){fb(body,'ok','Goed. Elke gameet bevat van elk gen precies één allel.'+(S.loci.some(L=>L.linked)?' Bij gekoppelde genen blijven de allelen van één chromosoom samen in de gameet.':''));return;}
+  if(S.msg3)fb(body,S.msg3.cls,S.msg3.html);
+  answerBox(body,[0,1].map(i=>`${esc(parentLabel(i))}: <span class="mono">${[...new Set(gametesOf(S.loci,S.geno[i]).map(g=>gamStr(S.loci,g)))].join(', ')}</span>`).join(' · '));
+  tryBtns(body,2,()=>{
+    S.chk3=true;S.tries[2]++;
+    const ok=[0,1].every(i=>{const c=new Set(gametesOf(S.loci,S.geno[i]).map(g=>gamStr(S.loci,g)));return c.size===S.gam[i].size&&[...c].every(x=>S.gam[i].has(x));});
+    if(ok){S.msg3=null;unlock(2);}
+    else{S.msg3={cls:'bad',html:'Nog niet goed. Rood = die gameet kan deze ouder niet maken; gestreept = deze mist nog. Een homozygote ouder maakt maar één soort gameet, een heterozygote ouder twee.'+(S.loci.some(L=>L.sexLocus)?' Een vrouwtje heeft geen Y-chromosoom.':'')};render();}
+  },()=>{[0,1].forEach(i=>{S.gam[i]=new Set(gametesOf(S.loci,S.geno[i]).map(g=>gamStr(S.loci,g)));});S.chk3=false;S.msg3={cls:'warn',html:'De gameten zijn ingevuld.'};unlock(2);});
+}
+
+/* stap 4 */
+function step4(body){
+  const P=punnett(S.loci,S.geno[0],S.geno[1]);
+  const opts=allGenos(S.loci).map(g=>genoStr(S.loci,g));
+  const wrap=document.createElement('div');wrap.className='punnett-wrap';
+  const tbl=document.createElement('table');tbl.className='punnett'+(S.loci.length>1?' dihy':'');
+  let html=`<thead><tr><th class="corner">↓ ${esc(parentLabel(0))}<br>→ ${esc(parentLabel(1))}</th>${P.g2.map(g=>`<th>${esc(gamStr(S.loci,g))}</th>`).join('')}</tr></thead><tbody>`;
+  P.cells.forEach((row,r)=>{html+=`<tr><th class="rowh">${esc(gamStr(S.loci,P.g1[r]))}</th>`;row.forEach((g,c)=>{const key=r+'-'+c;const correct=genoStr(S.loci,g);
+    if(S.passed[3]){const ph=phenoOf(S.loci,g);html+=`<td><div class="fixed">${glyph(S.org,ph.label===null?{dead:true}:ph.props,24)}<span>${esc(correct)}</span></div></td>`;}
+    else{const cur=S.cells[key]||'';const cls=S.chk4?(cur===correct?'chk-ok':'chk-bad'):'';html+=`<td><select class="mono ${cls}" id="cell-${key}" data-key="${key}"><option value="">?</option>${opts.map(o=>`<option ${o===cur?'selected':''}>${esc(o)}</option>`).join('')}</select></td>`;}
+  });html+='</tr>';});
+  tbl.innerHTML=html+'</tbody>';wrap.appendChild(tbl);body.appendChild(wrap);
+  tbl.querySelectorAll('select').forEach(sel=>{sel.onchange=()=>{S.cells[sel.dataset.key]=sel.value;S.chk4=false;sel.className='mono';};});
+  if(S.passed[3]){fb(body,'ok',`Het schema klopt. Elk van de ${P.g1.length*P.g2.length} vakjes is even waarschijnlijk.`);return;}
+  fb(body,'',`Vul in elk vakje het genotype in van de nakomeling die ontstaat uit die twee gameten.`);
+  if(S.msg4)fb(body,S.msg4.cls,S.msg4.html);
+  answerBox(body,P.cells.map(row=>row.map(g=>`<span class="mono">${esc(genoStr(S.loci,g))}</span>`).join(' | ')).join(' / '));
+  tryBtns(body,3,()=>{
+    S.chk4=true;S.tries[3]++;
+    let ok=true;P.cells.forEach((row,r)=>row.forEach((g,c)=>{if(S.cells[r+'-'+c]!==genoStr(S.loci,g))ok=false;}));
+    if(ok){S.msg4=null;unlock(3);}else{S.msg4={cls:'bad',html:'Nog niet alle vakjes kloppen. Kijk per vakje: het allel uit de rij komt van '+esc(parentLabel(0))+', het allel uit de kolom van '+esc(parentLabel(1))+'.'};render();}
+  },()=>{P.cells.forEach((row,r)=>row.forEach((g,c)=>{S.cells[r+'-'+c]=genoStr(S.loci,g);}));S.chk4=false;S.msg4=null;unlock(3);});
+}
+
+/* stap 5 */
+function step5(body){
+  const P=punnett(S.loci,S.geno[0],S.geno[1]);const cls=phenoClasses(S.loci);const exp=expectedCounts(S.loci,P.cells,cls);
+  const total=P.g1.length*P.g2.length;const hasLethal=cls.some(k=>k.label===LETHAL);
+  const rs=ratioStr(cls,exp);const names=cls.filter(k=>exp[k.label]>0).map(k=>k.label);
+  if(S.passed[4]){
+    const tbl=document.createElement('table');tbl.className='ratio';
+    tbl.innerHTML=`<thead><tr><th>Fenotype</th><th class="num">Vakjes</th><th class="num">Kans</th></tr></thead><tbody>${cls.map(k=>`<tr><td>${glyph(S.org,k.props,28)}${esc(k.label)}</td><td class="num">${exp[k.label]}</td><td class="num">${exp[k.label]}/${total}</td></tr>`).join('')}</tbody>`;
+    body.appendChild(tbl);
+    let extra='';
+    if(hasLethal){const living=cls.filter(k=>k.label!==LETHAL);const lv=Object.fromEntries(living.map(k=>[k.label,exp[k.label]]));extra=` Onder de <b>levende</b> jongen is de verhouding <span class="ratiostr">${ratioStr(living,lv)}</span> (${living.filter(k=>lv[k.label]>0).map(k=>k.label).join(' : ')}).`;}
+    if(S.loci.some(L=>L.sexLocus))extra+=' Let op dat de verhouding bij de dochters anders is dan bij de zonen.';
+    fb(body,'ok',(names.length===1?`Alle nakomelingen krijgen hetzelfde fenotype: <b>${esc(names[0])}</b> (100%).`:`Verwachte verhouding: <span class="ratiostr">${rs}</span> (${names.join(' : ')}).`)+extra);return;}
+
+  fb(body,'',`Tel in je kruisingsschema (<b>${total} vakjes</b>) hoeveel vakjes bij elk fenotype horen. Komt een fenotype niet voor, laat het dan op 0 staan.`+(hasLethal?' De vakjes waarin het embryo sterft tellen ook mee, bij “sterft (letaal)”.':''));
+
+  const val=k=>S.ratio[k.label]||0;
+  const wrap=document.createElement('div');wrap.className='counter';
+  const rows=[];
+  cls.forEach((k,idx)=>{
+    const row=document.createElement('div');row.className='crow';
+    const id='cnt-'+idx;
+    row.innerHTML=`<span class="cglyph">${glyph(S.org,k.props,34)}</span><label class="clabel" for="${id}">${esc(k.label)}</label>
+      <div class="stepper"><button type="button" class="minus" aria-label="Eén vakje minder">−</button><input type="text" inputmode="numeric" autocomplete="off" id="${id}" value="${S.ratio[k.label]===undefined?'':S.ratio[k.label]}" placeholder="0"><button type="button" class="plus" aria-label="Eén vakje meer">+</button></div>`;
+    const inp=row.querySelector('input');
+    const set=v=>{v=Math.max(0,Math.min(99,v));S.ratio[k.label]=v;inp.value=v;changed();};
+    row.querySelector('.minus').onclick=()=>set(val(k)-1);
+    row.querySelector('.plus').onclick=()=>set(val(k)+1);
+    inp.oninput=()=>{const d=inp.value.replace(/\D/g,'').slice(0,2);inp.value=d;S.ratio[k.label]=d===''?undefined:Number(d);changed();};
+    inp.onfocus=()=>inp.select();
+    inp.onkeydown=e=>{if(e.key==='ArrowUp'){e.preventDefault();set(val(k)+1);}else if(e.key==='ArrowDown'){e.preventDefault();set(val(k)-1);}else if(e.key==='Enter'){check();}};
+    rows.push(row);wrap.appendChild(row);
+  });
+  const sum=document.createElement('div');sum.className='csum';
+  sum.innerHTML=`<span>Ingevuld: <b class="mono" id="csumN"></b> van ${total} vakjes</span><span>Jouw verhouding: <span class="ratiostr" id="csumR"></span></span>`;
+  wrap.appendChild(sum);body.appendChild(wrap);
+
+  function stuArr(){return cls.map(val);}
+  function update(){
+    const a=stuArr();const n=a.reduce((x,y)=>x+y,0);
+    const nEl=sum.querySelector('#csumN');nEl.textContent=n;nEl.className='mono'+(n>total?' over':n===total?' full':'');
+    const r=normRatio(a);sum.querySelector('#csumR').textContent=r?r.filter(x=>x>0).join(' : '):'–';
+  }
+  function mark(){
+    rows.forEach(r=>r.classList.remove('ok','bad'));
+    if(!S.chk5)return;
+    const a=stuArr(),e=cls.map(k=>exp[k.label]);const n=a.reduce((x,y)=>x+y,0);
+    const ns=normRatio(a),ne=normRatio(e);
+    rows.forEach((r,i)=>{const ok=n===total?a[i]===e[i]:(ns&&ns[i]===ne[i]);r.classList.add(ok?'ok':'bad');});
+  }
+  function changed(){S.chk5=false;S.msg5=null;mark();update();const m=body.querySelector('.msg5');if(m)m.remove();}
+  update();mark();
+
+  if(S.msg5){const d=document.createElement('div');d.className='feedback msg5 '+S.msg5.cls;d.innerHTML=S.msg5.html;body.appendChild(d);}
+  answerBox(body,`<span class="mono">${rs}</span> (${names.join(' : ')})`);
+  function check(){
+    S.chk5=true;S.tries[4]++;
+    const a=stuArr();const ns=normRatio(a);
+    const ok=ns&&JSON.stringify(ns)===JSON.stringify(normRatio(cls.map(k=>exp[k.label])));
+    if(ok){S.msg5=null;cls.forEach(k=>S.ratio[k.label]=exp[k.label]);unlock(4);return;}
+    const n=a.reduce((x,y)=>x+y,0);
+    S.msg5={cls:'bad',html:!ns?'Vul bij minstens één fenotype een aantal in.':n>total?`Je hebt ${n} vakjes geteld, maar het schema heeft er maar ${total}. Sommige vakjes heb je dubbel geteld.`:'Nog niet goed. Bij de rode regels klopt het aantal niet. Ga in het schema per vakje na welk fenotype erbij hoort.'};render();
+  }
+  tryBtns(body,4,check,()=>{cls.forEach(k=>S.ratio[k.label]=exp[k.label]);S.chk5=false;S.msg5=null;unlock(4);});
+}
+
+/* stap 6 */
+function step6(body){
+  const t=S.task;const P=punnett(S.loci,S.geno[0],S.geno[1]);const cls=phenoClasses(S.loci);const exp=expectedCounts(S.loci,P.cells,cls);const total=P.g1.length*P.g2.length;
+  const flat=P.cells.flat();
+  if(t.observed){
+    const obsTot=Object.values(t.observed).reduce((a,b)=>a+b,0);
+    let rows='';cls.forEach(k=>{if(k.label===LETHAL)return;const o=t.observed[k.label]||0;const e=exp[k.label]/total*obsTot;rows+=`<tr><td>${glyph(S.org,k.props,28)}${esc(k.label)}</td><td class="num">${exp[k.label]}/${total}</td><td class="num">${e.toFixed(1)}</td><td class="num">${o}</td></tr>`;});
+    body.innerHTML+=`<p class="small muted">Vergelijk de telling uit de opdracht met wat je op grond van jouw genotypen verwacht.</p><table class="ratio"><thead><tr><th>Fenotype</th><th class="num">Kans</th><th class="num">Verwacht bij ${obsTot}</th><th class="num">Geteld</th></tr></thead><tbody>${rows}</tbody></table>`;
+    fb(body,'ok','De telling past bij de genotypen die je hebt gevonden. De kleine afwijkingen zijn toeval.');
+  }else{
+    const tb=document.createElement('div');tb.className='toolbar';
+    tb.innerHTML=`<span class="small">Aantal nakomelingen</span><select id="simN">${[20,50,100,400,1000].map(n=>`<option ${n===S.simN?'selected':''}>${n}</option>`).join('')}</select>`;
+    const b=document.createElement('button');b.className='btn';b.textContent=S.sim?'Nog eens kruisen':'Kruis en tel';
+    b.onclick=()=>{S.simN=Number($('simN').value);const counts=Object.fromEntries(cls.map(k=>[k.label,0]));const list=[];for(let i=0;i<S.simN;i++){const g=flat[Math.floor(Math.random()*flat.length)];const ph=phenoOf(S.loci,g);const lab=ph.label===null?LETHAL:ph.label;counts[lab]++;if(list.length<300)list.push(ph.label===null?{dead:true}:ph.props);}S.sim={counts,list};render();};
+    tb.appendChild(b);body.appendChild(tb);
+    if(S.sim){
+      const n=S.simN;const dish=document.createElement('div');dish.className='dish';dish.innerHTML=S.sim.list.map(p=>glyph(S.org,p,26)).join('');body.appendChild(dish);
+      let rows='';cls.forEach(k=>{const e=exp[k.label]/total;const o=S.sim.counts[k.label];rows+=`<tr><td>${glyph(S.org,k.props,28)}${esc(k.label)}</td><td class="num">${(e*100).toFixed(1)}%</td><td class="num">${(e*n).toFixed(1)}</td><td class="num">${o}</td><td><div class="bar"><i style="width:${(o/n*100)}%"></i><i class="exp" style="left:${e*100}%"></i></div></td></tr>`;});
+      body.innerHTML+=`<table class="ratio"><thead><tr><th>Fenotype</th><th class="num">Kans</th><th class="num">Verwacht</th><th class="num">Geteld</th><th>streepje = verwacht</th></tr></thead><tbody>${rows}</tbody></table>`;
+      fb(body,'',cls.filter(k=>exp[k.label]>0).length===1?'Alle nakomelingen hebben hetzelfde fenotype, precies zoals het schema voorspelt. Hier speelt toeval geen rol.':`Tellingen wijken door toeval af van de verwachting. Probeer eens 20 en daarna 1000 nakomelingen: bij grote aantallen komt de telling dicht bij <span class="mono">${ratioStr(cls,exp)}</span>.`);
+    }
+  }
+  if(mode==='opd'){
+    const tb=document.createElement('div');tb.className='toolbar';
+    if(done.has(t.id)){tb.innerHTML=`<span class="feedback ok" style="padding:6px 12px">✓ Opdracht afgerond</span>`;}
+    const nxt=TASKS[TASKS.findIndex(x=>x.id===t.id)+1];
+    const fin=document.createElement('button');fin.className='btn';fin.textContent=done.has(t.id)?(nxt?'Volgende opdracht →':'Alles af!'):'Opdracht afronden';
+    fin.onclick=()=>{if(!done.has(t.id)){done.add(t.id);saveDone();render();}else if(nxt)startTask(nxt);};
+    if(!t.observed&&!S.sim&&!done.has(t.id))fin.disabled=true;
+    tb.appendChild(fin);body.appendChild(tb);
+  }
+}
+
+/* ---------- vrij lab ---------- */
+let V={org:'erwt',loci:['G'],geno:[{},{}]};
+function vrijForm(){
+  const f=document.createElement('div');f.className='vrijform';
+  f.innerHTML=`<div><h2>Stel je eigen kruising in</h2><p class="small muted">Kies organisme, genen en de genotypen van de ouders. Daarna loop je dezelfde zes stappen door.</p></div>`;
+  const r1=document.createElement('div');r1.className='row';r1.innerHTML=`<label>Organisme</label>`;const c1=document.createElement('div');c1.className='choices';
+  Object.entries(ORGS).forEach(([k,o])=>{const b=document.createElement('button');b.className='choice';b.textContent=o.name;b.setAttribute('aria-pressed',V.org===k);b.onclick=()=>{V.org=k;V.loci=[Object.keys(o.loci)[0]];V.geno=[{},{}];render();};c1.appendChild(b);});
+  r1.appendChild(c1);f.appendChild(r1);
+  const org=ORGS[V.org];
+  const r2=document.createElement('div');r2.className='row';r2.innerHTML=`<label>Genen (max. 2)</label>`;const c2=document.createElement('div');c2.className='choices';
+  Object.entries(org.loci).forEach(([k,L])=>{const b=document.createElement('button');b.className='choice';b.textContent=L.name;const on=V.loci.includes(k);b.setAttribute('aria-pressed',on);
+    const linkedClash=(L.linked&&V.loci.some(x=>x!=='L'))||(!L.linked&&V.loci.includes('L')&&!on);
+    if((!on&&V.loci.length>=2)||linkedClash)b.disabled=true;
+    b.onclick=()=>{if(on){if(V.loci.length>1)V.loci=V.loci.filter(x=>x!==k);}else V.loci.push(k);V.loci.sort((a,b)=>Object.keys(org.loci).indexOf(a)-Object.keys(org.loci).indexOf(b));V.geno=[{},{}];render();};c2.appendChild(b);});
+  r2.appendChild(c2);f.appendChild(r2);
+  const loci=lociOf(V.org,V.loci);
+  f.innerHTML+=`<div class="legend">${loci.map(L=>`<span><b>${esc(L.name)}</b>: ${esc(L.legend)}</span>`).join('')}</div>`;
+  const ps=document.createElement('div');ps.className='parents';
+  [0,1].forEach(i=>{const d=document.createElement('div');d.className='parent';d.innerHTML=`<div class="who"><div><div class="lbl">${esc(org.labels[i])}</div></div></div>`;
+    loci.forEach(L=>{const row=document.createElement('div');row.className='genorow';const sel=document.createElement('select');sel.className='mono';sel.id=`v-${i}-${L.id}`;
+      const prs=pairsOf(L,i);if(!V.geno[i][L.id])V.geno[i][L.id]=prs[Math.min(1,prs.length-1)];
+      sel.innerHTML=prs.map(pr=>`<option value="${pr.join(',')}" ${pr.join(',')===V.geno[i][L.id].join(',')?'selected':''}>${esc(pairStr(L,pr))}</option>`).join('');
+      sel.onchange=()=>{V.geno[i][L.id]=sel.value.split(',');render();};row.innerHTML=`<label>${esc(L.name)}</label>`;row.appendChild(sel);d.appendChild(row);});
+    const ph=phenoOf(loci,V.geno[i]);d.innerHTML+=`<div class="small muted">fenotype: ${ph.label===null?'letaal (bestaat niet)':esc(ph.label)}</div>`;ps.appendChild(d);});
+  f.appendChild(ps);
+  const tb=document.createElement('div');tb.className='toolbar';const b=document.createElement('button');b.className='btn';b.textContent='Start deze kruising';
+  const lethal=[0,1].some(i=>phenoOf(loci,V.geno[i]).label===null);b.disabled=lethal;
+  b.onclick=()=>{const task={group:'Vrij lab',id:'vrij',title:`${genoStr(loci,V.geno[0])}  ×  ${genoStr(loci,V.geno[1])}`,org:V.org,loci:[...V.loci],
+    text:`Je kruist ${org.labels[0].toLowerCase()} (${esc(phenoOf(loci,V.geno[0]).label)}) met ${org.labels[1].toLowerCase()} (${esc(phenoOf(loci,V.geno[1]).label)}). De genotypen heb je zelf gekozen.`,
+    parents:[{geno:JSON.parse(JSON.stringify(V.geno[0])),given:true},{geno:JSON.parse(JSON.stringify(V.geno[1])),given:true}]};startTask(task);};
+  tb.appendChild(b);if(lethal)tb.innerHTML+=`<span class="small muted">Een ouder met dit genotype kan niet bestaan (letaal).</span>`;
+  f.appendChild(tb);
+  return f;
+}
+
+/* ---------- tabs ---------- */
+function setTabs(){$('tabOpd').setAttribute('aria-selected',mode==='opd');$('tabVrij').setAttribute('aria-selected',mode==='vrij');$('side').hidden=mode!=='opd';}
+$('tabOpd').onclick=()=>{mode='opd';S=null;setTabs();startTask(TASKS.find(t=>!done.has(t.id))||TASKS[0]);};
+$('tabVrij').onclick=()=>{mode='vrij';S=null;setTabs();render();};
+$('docent').onchange=e=>{docent=e.target.checked;render();};
+
+startTask(TASKS.find(t=>!done.has(t.id))||TASKS[0]);
+</script>
+
+</body>
+</html>
