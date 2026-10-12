@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Virtuele microscoop · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--fill:#2A3A58;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--teal:#5BA4C9;--grain:#C9B896;
+ --titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--goud);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+.nav{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:14px 0 0;font:600 15px/1.3 var(--tekst)}
+.nav a{color:var(--text2);text-decoration:none}.nav a.terug{color:var(--goud)}
+header{padding:18px 0 6px}
+header .meta{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--grain)}
+h1{font-family:var(--titel);font-size:clamp(32px,5vw,50px);margin:4px 0;line-height:1.05}
+header p{color:var(--text2);margin:0;max-width:780px}
+.slides{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 12px}
+.slides button{background:var(--fill);border:1px solid rgba(143,160,181,.45);border-radius:999px;padding:8px 16px;min-height:44px}
+.slides button[aria-pressed="true"]{border-color:var(--goud);color:var(--goud)}
+.slides button .done{color:var(--groen);margin-left:6px}
+.board{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:860px){.board{grid-template-columns:minmax(0,1fr)}}
+.scope{background:#05080D;border:1px solid rgba(143,160,181,.35);border-radius:14px;padding:12px;position:relative}
+canvas{display:block;width:100%;height:auto;aspect-ratio:1/1;touch-action:none;cursor:grab;border-radius:50%}
+canvas.drag{cursor:grabbing}
+.mag{position:absolute;right:20px;top:18px;font:13px var(--meta);color:var(--grain);letter-spacing:.08em}
+.controls{display:grid;gap:10px;margin-top:12px}
+.ctl{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ctl label{font:13px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text2);min-width:130px}
+.ctl input[type=range]{flex:1 1 200px;accent-color:var(--goud);min-height:32px}
+.seg{display:inline-flex;border-radius:10px;overflow:hidden;border:1px solid rgba(143,160,181,.45)}
+.seg button{background:var(--fill);border:0;padding:8px 16px;min-height:44px;border-right:1px solid rgba(143,160,181,.3)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{color:var(--goud);background:#33476B}
+.panel{background:var(--bg);border:1px solid rgba(143,160,181,.35);border-radius:14px;padding:14px 16px}
+.panel h2{font-family:var(--titel);font-size:24px;margin:0 0 4px}
+.panel .sub{color:var(--text2);font-size:16px;margin:0 0 10px}
+.tasks{list-style:none;padding:0;margin:0 0 10px}
+.tasks li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid rgba(143,160,181,.3);border-radius:10px;margin:6px 0;background:rgba(42,58,88,.5)}
+.tasks li.active{border-color:var(--goud)}
+.tasks li.ok{border-color:var(--groen);background:rgba(127,196,143,.12)}
+.tasks li .box{flex:0 0 22px;height:22px;border-radius:6px;border:2px solid var(--line);display:grid;place-items:center;font-size:14px;margin-top:2px}
+.tasks li.ok .box{border-color:var(--groen);color:var(--groen)}
+.feedback{border-radius:12px;padding:10px 14px;min-height:64px;background:rgba(42,58,88,.55);border:1px solid rgba(143,160,181,.3);margin-top:8px}
+.feedback.ok{border-color:var(--groen);background:rgba(127,196,143,.12)}
+.feedback.no{border-color:var(--koraal);background:rgba(224,122,95,.12)}
+.opts{display:grid;gap:8px;margin-top:8px}
+.opts button{text-align:left;background:var(--fill);border:1px solid rgba(143,160,181,.45);border-radius:10px;padding:8px 12px;min-height:44px}
+.opts button.ok{border-color:var(--groen)}.opts button.no{border-color:var(--koraal)}
+details{margin-top:14px;color:var(--text2);font-size:16px}
+summary{cursor:pointer;color:var(--text);font-weight:600}
+.final{margin-top:16px;border:1px solid var(--goud);border-radius:14px;padding:14px 16px;background:rgba(224,182,74,.08)}
+.final h2{font-family:var(--titel);font-size:24px;margin:0 0 6px;color:var(--goud)}
+footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a class="terug" href="../../index.html#kerndoelen">← Terug naar Kerndoelen onderbouw</a></nav>
+<header>
+  <div class="meta">Tool · Kerndoelen onderbouw · 32A · bij de film Alles is cel</div>
+  <h1>Virtuele microscoop</h1>
+  <p>Bekijk drie preparaten: uienvlies, wangcellen en een blaadje waterpest. Stel scherp, vergroot en zoek de onderdelen van de cel. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
+</header>
+
+<div class="slides" role="group" aria-label="Preparaat" id="slides"></div>
+
+<div class="board">
+  <div class="scope">
+    <canvas id="view" width="720" height="720" aria-label="Beeld door de microscoop"></canvas>
+    <div class="mag" id="maglbl">40×</div>
+    <div class="controls">
+      <div class="ctl"><label>Vergroting</label><span class="seg" id="mags"><button data-m="40" aria-pressed="true">40×</button><button data-m="100" aria-pressed="false">100×</button><button data-m="400" aria-pressed="false">400×</button></span></div>
+      <div class="ctl"><label for="focus">Scherpstellen</label><input id="focus" type="range" min="0" max="100" value="10"></div>
+      <div class="ctl"><label for="light">Licht</label><input id="light" type="range" min="0" max="100" value="70"></div>
+    </div>
+  </div>
+  <div class="panel" id="side"></div>
+</div>
+<div id="finalbox"></div>
+<details><summary>Zo werk je met een microscoop</summary><ol><li>Begin met de kleinste vergroting (40×) en stel scherp.</li><li>Schuif wat je wilt bekijken naar het midden.</li><li>Kies een grotere vergroting en stel opnieuw scherp. Bij een grotere vergroting is het beeld veel sneller onscherp.</li><li>Te donker of te licht? Draai aan het licht.</li></ol><p>Zeg wat je ziet met de vergroting erbij, bijvoorbeeld: "Bij 400× zie ik in elke cel een celkern."</p></details>
+<footer>Biologie bij Kamiel · Virtuele microscoop · versie 1.0 · oktober 2026 · getekende preparaten, vereenvoudigd · past bij de film <a href="../../films/onderbouw/32a/1-alles-is-cel/index.html" style="color:var(--goud)">Alles is cel</a></footer>
+</div>
+
+<script>
+const cv=document.getElementById('view'), main=cv.getContext('2d'), S=720, R=S/2;
+const off=document.createElement('canvas'); off.width=S; off.height=S; const ctx=off.getContext('2d');
+let dirty=true, lastKey='', lastAnim=0;
+const H=n=>{ const x=Math.sin(n*127.1+311.7)*43758.5453; return x-Math.floor(x); };
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+// ---------- preparaten (wereld in µm-achtige eenheden) ----------
+const WORLD=2400;
+function makeOnion(){ const cells=[]; const rowH=70; for(let r=0;r*rowH<WORLD;r++){ let x=-((r*97)%300); while(x<WORLD){ const w=220+H(r*31+x)*160; cells.push({x,y:r*rowH,w,h:rowH,nx:x+w*(0.3+0.4*H(x+r)),ny:r*rowH+rowH*(0.35+0.3*H(r+x*2)),nr:11}); x+=w; } } return cells; }
+function makeCheek(){ const cells=[]; for(let i=0;i<220;i++){ const x=100+H(i*3)*2200, y=100+H(i*3+1)*2200; if(cells.some(c=>Math.hypot(c.x-x,c.y-y)<70)) continue; const n=7+Math.floor(H(i)*3), r=50+H(i*7)*18, rot=H(i*11)*6.28, pts=[];
+    for(let k=0;k<n;k++){ const a=rot+k/n*6.283+(H(i*13+k)-0.5)*0.5, rr=r*(0.8+0.32*H(i*17+k)); pts.push([x+Math.cos(a)*rr,y+Math.sin(a)*rr]); }
+    cells.push({x,y,r,pts,nx:x+(H(i+4)-0.5)*r*0.3,ny:y+(H(i+5)-0.5)*r*0.3,nr:r*0.13,rot}); } return cells; }
+function makeElodea(){ const cells=[]; const rowH=44; for(let r=0;r*rowH<WORLD;r++){ let x=-((r*53)%120); while(x<WORLD){ const w=90+H(r*19+x)*50; const ch=[]; const n=14+Math.floor(H(x+r)*6); for(let k=0;k<n;k++) ch.push({u:k/n+H(k+r*3)*0.03,sp:0.025+0.01*H(x+k)}); cells.push({x,y:r*rowH,w,h:rowH,ch,nx:x+w*0.3,ny:r*rowH+rowH*0.5,nr:7}); x+=w; } } return cells; }
+const SLIDES={
+ ui:{name:'Uienvlies',sub:'met een druppel jodium',bg:[236,226,196],cells:makeOnion(),kind:'grid',focus:{40:34,100:52,400:68},
+   tasks:[{id:'celwand',t:'Wijs een celwand aan.'},{id:'celkern',t:'Wijs een celkern aan.'},{id:'q',t:'Zie je bladgroenkorrels?',q:'Zie je in het uienvlies bladgroenkorrels?',opts:['ja, in elke cel','nee, geen enkele'],ok:1,ex:'Nee. Een ui groeit onder de grond; zijn rokken krijgen geen licht. Zonder licht heeft een cel niets aan bladgroenkorrels.'}]},
+ wang:{name:'Wangcellen',sub:'gekleurd met methyleenblauw',bg:[230,236,239],cells:makeCheek(),kind:'free',focus:{40:22,100:47,400:76},
+   tasks:[{id:'celkern',t:'Wijs een celkern aan.'},{id:'celmembraan',t:'Wijs het celmembraan aan (de rand van een cel).'},{id:'q',t:'Heeft een wangcel een celwand?',q:'Heeft een wangcel een celwand?',opts:['ja, net als de ui','nee, alleen een celmembraan'],ok:1,ex:'Nee. Een dierlijke cel heeft alleen een celmembraan. Daarom zijn wangcellen zo dun en slap, en liggen ze los.'}]},
+ waterpest:{name:'Waterpest',sub:'een blaadje, zonder kleuring',bg:[226,236,216],cells:makeElodea(),kind:'grid',focus:{40:40,100:61,400:84},
+   tasks:[{id:'bladgroenkorrel',t:'Wijs een bladgroenkorrel aan.'},{id:'celwand',t:'Wijs een celwand aan.'},{id:'q',t:'Waarom bewegen de bladgroenkorrels?',q:'Bij 400× zie je de bladgroenkorrels langs de rand van de cel schuiven. Hoe komt dat?',opts:['ze zwemmen zelf','het cytoplasma stroomt en neemt ze mee','het water onder het dekglaasje stroomt'],ok:1,ex:'Het cytoplasma stroomt rond in de cel en neemt de bladgroenkorrels mee. Een levende cel is niet stil!'}]}
+};
+const SCALE={40:0.3,100:0.6,400:1.6};
+let cur='ui', mag=40, cam={ui:{x:900,y:900},wang:{x:900,y:900},waterpest:{x:900,y:900}}, focus=10, light=70, t0=performance.now();
+const prog={ui:{},wang:{},waterpest:{}}; let feedback=null, ask=null;
+
+// ---------- tekenen ----------
+function chPos(c,k,t){ const per=2*(c.w+c.h)-40, ch=c.ch[k]; let d=((ch.u+t*ch.sp*0.2)%1)*per; const iw=c.w-20, ih=c.h-20; const x0=c.x+10,y0=c.y+10;
+  if(d<iw) return [x0+d,y0+3]; d-=iw; if(d<ih) return [x0+iw-3,y0+d]; d-=ih; if(d<iw) return [x0+iw-d,y0+ih-3]; d-=iw; return [x0+3,y0+ih-d]; }
+function draw(now){
+  const sl=SLIDES[cur], sc=SCALE[mag], c=cam[cur], t=(performance.now()-t0)/1000;
+  const key=[cur,mag,Math.round(c.x),Math.round(c.y),light].join('|');
+  const anim=cur==='waterpest'&&mag>=100&&(performance.now()-lastAnim>(mag===400?33:120));
+  if(key!==lastKey||anim||dirty){ lastKey=key; dirty=false; if(anim) lastAnim=performance.now(); renderScene(sl,sc,c,t); }
+  composite(); requestAnimationFrame(draw);
+}
+function renderScene(sl,sc,c,t){
+  ctx.save(); ctx.clearRect(0,0,S,S);
+  const L=0.35+light/100*0.9; ctx.fillStyle=`rgb(${sl.bg.map(v=>Math.round(clamp(v*L,0,255))).join(',')})`; ctx.fillRect(0,0,S,S);
+  ctx.translate(R,R); ctx.scale(sc,sc); ctx.translate(-c.x,-c.y);
+  const vx0=c.x-R/sc-200, vx1=c.x+R/sc+200, vy0=c.y-R/sc-200, vy1=c.y+R/sc+200;
+  const dim=v=>Math.round(clamp(v*L,0,255));
+  if(cur==='ui'){ for(const k of sl.cells){ if(k.x>vx1||k.x+k.w<vx0||k.y>vy1||k.y+k.h<vy0) continue;
+      ctx.fillStyle=`rgba(${dim(225)},${dim(205)},${dim(150)},0.35)`; ctx.fillRect(k.x+3,k.y+3,k.w-6,k.h-6);
+      ctx.strokeStyle=`rgb(${dim(150)},${dim(120)},${dim(70)})`; ctx.lineWidth=5; ctx.strokeRect(k.x,k.y,k.w,k.h);
+      ctx.fillStyle=`rgb(${dim(160)},${dim(110)},${dim(40)})`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr*1.3,k.nr,0,0,6.283); ctx.fill();
+      ctx.fillStyle=`rgb(${dim(110)},${dim(70)},${dim(20)})`; ctx.beginPath(); ctx.arc(k.nx+3,k.ny-2,3,0,6.283); ctx.fill(); } }
+  if(cur==='wang'){ for(const k of sl.cells){ if(Math.abs(k.x-c.x)>R/sc+120||Math.abs(k.y-c.y)>R/sc+120) continue;
+      ctx.beginPath(); k.pts.forEach((p,i)=>{ const q=k.pts[(i+1)%k.pts.length], m=[(p[0]+q[0])/2,(p[1]+q[1])/2]; if(!i){ const l=k.pts[k.pts.length-1]; ctx.moveTo((l[0]+p[0])/2,(l[1]+p[1])/2); } ctx.quadraticCurveTo(p[0],p[1],m[0],m[1]); }); ctx.closePath();
+      ctx.fillStyle=`rgba(${dim(120)},${dim(155)},${dim(205)},0.28)`; ctx.fill(); ctx.strokeStyle=`rgba(${dim(55)},${dim(85)},${dim(145)},0.7)`; ctx.lineWidth=1.6/sc*0.6+1; ctx.stroke();
+      ctx.fillStyle=`rgba(${dim(60)},${dim(90)},${dim(150)},0.3)`; for(let i=0;i<18;i++){ const a=H(k.x+i)*6.283, d=Math.sqrt(H(k.y+i))*k.r*0.7; ctx.beginPath(); ctx.arc(k.x+Math.cos(a)*d,k.y+Math.sin(a)*d,1.2,0,6.283); ctx.fill(); }
+      ctx.fillStyle=`rgba(${dim(42)},${dim(62)},${dim(128)},0.9)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.8,k.rot,0,6.283); ctx.fill(); }
+    ctx.fillStyle=`rgba(${dim(42)},${dim(62)},${dim(128)},0.7)`; for(let i=0;i<500;i++){ const x=H(i*5)*WORLD, y=H(i*5+1)*WORLD; if(Math.abs(x-c.x)>R/sc||Math.abs(y-c.y)>R/sc) continue; ctx.beginPath(); ctx.ellipse(x,y,1.6,0.9,H(i)*3,0,6.283); ctx.fill(); }
+    // a few air bubbles
+    [[600,700,90],[1500,1300,120],[1100,1900,70]].forEach(([x,y,r])=>{ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle=`rgb(${dim(40)},${dim(45)},${dim(50)})`; ctx.lineWidth=8; ctx.stroke(); ctx.beginPath(); ctx.arc(x-r*0.3,y-r*0.3,r*0.2,0,6.283); ctx.fillStyle='rgba(255,255,255,.5)'; ctx.fill(); }); }
+  if(cur==='waterpest'){ for(const k of sl.cells){ if(k.x>vx1||k.x+k.w<vx0||k.y>vy1||k.y+k.h<vy0) continue;
+      ctx.fillStyle=`rgba(${dim(200)},${dim(225)},${dim(185)},0.5)`; ctx.fillRect(k.x+2,k.y+2,k.w-4,k.h-4);
+      ctx.strokeStyle=`rgb(${dim(90)},${dim(130)},${dim(80)})`; ctx.lineWidth=3; ctx.strokeRect(k.x,k.y,k.w,k.h);
+      ctx.fillStyle=`rgb(${dim(60)},${dim(140)},${dim(60)})`; k.ch.forEach((_,i)=>{ const p=chPos(k,i,t); ctx.beginPath(); ctx.ellipse(p[0],p[1],5,3.4,0,0,6.283); ctx.fill(); });
+      ctx.fillStyle=`rgba(${dim(140)},${dim(150)},${dim(140)},0.5)`; ctx.beginPath(); ctx.ellipse(k.nx,k.ny,k.nr,k.nr*0.8,0,0,6.283); ctx.fill(); } }
+  ctx.restore();
+}
+function composite(){ const blur=blurPx(); main.save(); main.clearRect(0,0,S,S); main.beginPath(); main.arc(R,R,R-2,0,6.283); main.clip();
+  main.fillStyle=getComputedStyle(document.body).backgroundColor; main.filter=blur>0.3?`blur(${blur.toFixed(1)}px)`:'none'; main.drawImage(off,0,0); main.filter='none'; main.restore();
+  const g=main.createRadialGradient(R,R,R*0.7,R,R,R); g.addColorStop(0,'rgba(0,0,0,0)'); g.addColorStop(1,'rgba(0,0,0,0.55)'); main.fillStyle=g; main.beginPath(); main.arc(R,R,R-2,0,6.283); main.fill();
+  main.beginPath(); main.arc(R,R,R-3,0,6.283); main.strokeStyle='#05080D'; main.lineWidth=6; main.stroke();
+  if(ask&&ask.mark){ main.beginPath(); main.arc(ask.mark[0],ask.mark[1],18,0,6.283); main.strokeStyle=ask.mark[2]; main.lineWidth=3; main.stroke(); }
+  if(light<12){ main.fillStyle='rgba(224,182,74,.9)'; main.font='600 26px "Source Sans 3",sans-serif'; main.textAlign='center'; main.fillText('te donker: meer licht',R,R); }
+}
+function blurPx(){ const target=SLIDES[cur].focus[mag]; const d=Math.abs(focus-target); const sens={40:0.25,100:0.4,400:0.7}[mag]; return Math.min(16, Math.max(0,d-2)*sens); }
+
+// ---------- aanwijzen ----------
+function toWorld(px,py){ const sc=SCALE[mag], c=cam[cur]; return [c.x+(px-R)/sc, c.y+(py-R)/sc]; }
+function what(wx,wy){ const sl=SLIDES[cur], sc=SCALE[mag], tol=Math.max(6, 10/sc), t=(performance.now()-t0)/1000;
+  if(cur==='ui'||cur==='waterpest'){ const k=sl.cells.find(k=>wx>=k.x&&wx<k.x+k.w&&wy>=k.y&&wy<k.y+k.h); if(!k) return 'niets';
+    if(cur==='waterpest'){ for(let i=0;i<k.ch.length;i++){ const p=chPos(k,i,t); if(Math.hypot(p[0]-wx,p[1]-wy)<Math.max(7,9/sc)) return 'bladgroenkorrel'; } }
+    if(Math.hypot((wx-k.nx)/1.3,wy-k.ny)<k.nr+Math.max(3,6/sc)) return 'celkern';
+    const edge=Math.min(wx-k.x,k.x+k.w-wx,wy-k.y,k.y+k.h-wy); if(edge<tol) return 'celwand';
+    return cur==='ui'?'binnenkant van de cel (vacuole en cytoplasma)':'binnenkant van de cel (vacuole)'; }
+  // wangcellen
+  let best=null, bd=1e9; for(const k of sl.cells){ const d=Math.hypot(k.x-wx,k.y-wy); if(d<bd){ bd=d; best=k; } }
+  if(!best||bd>best.r*1.25) return 'niets (tussen de cellen)';
+  if(Math.hypot(best.nx-wx,best.ny-wy)<best.nr+Math.max(3,6/sc)) return 'celkern';
+  if(bd>best.r*0.78-tol*0.5) return 'celmembraan';
+  return 'cytoplasma';
+}
+function handleTap(px,py){ const sl=SLIDES[cur]; const [wx,wy]=toWorld(px,py); const task=sl.tasks.find(x=>!prog[cur][x.id]&&x.id!=='q');
+  if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Draai aan de schuif "Scherpstellen" tot je de randen van de cellen scherp ziet.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  if(mag===40){ feedback={kind:'no',title:'Vergroot eerst',text:'Bij 40× zijn de onderdelen te klein om aan te wijzen. Kies 100× of 400× en stel opnieuw scherp.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+  const w=what(wx,wy);
+  if(!task){ feedback={kind:'info',title:'Je wijst aan: '+w,text:'Alle aanwijsopdrachten bij dit preparaat zijn klaar.'}; ask={mark:[px,py,'#E0B64A']}; renderSide(); return; }
+  if(w===task.id){ prog[cur][task.id]=true; feedback={kind:'ok',title:'Goed: '+w,text:EXPL[cur+':'+w]||''}; ask={mark:[px,py,'#7FC48F']}; }
+  else { feedback={kind:'no',title:'Dat is: '+w,text:'Je zoekt: '+task.id+'. '+(HINT[cur+':'+task.id]||'')}; ask={mark:[px,py,'#E07A5F']}; }
+  renderSide(); renderSlides(); checkFinal();
+}
+const EXPL={'ui:celwand':'De dikke lijnen tussen de cellen. Ze liggen tegen elkaar aan als stenen in een muur.','ui:celkern':'Door het jodium kleurt de celkern bruin. Elke cel heeft er één.','wang:celkern':'Het methyleenblauw kleurt de celkern donkerblauw.','wang:celmembraan':'De dunne rand van de cel. Er zit geen celwand omheen.','waterpest:bladgroenkorrel':'Groene korrels die licht vangen. Kijk goed bij 400×: ze schuiven langzaam langs de rand.','waterpest:celwand':'De rand om elke cel. De cellen liggen in rijen tegen elkaar.'};
+const HINT={'ui:celwand':'Tik precies op een lijn tussen twee cellen.','ui:celkern':'Zoek in een cel een klein bruin bolletje.','wang:celkern':'Zoek in een cel het donkerblauwe vlekje.','wang:celmembraan':'Tik op de dunne rand van een losse cel.','waterpest:bladgroenkorrel':'Zoek de kleine groene korrels langs de rand van een cel. Vergroot naar 400×.','waterpest:celwand':'Tik op de rand tussen twee cellen.'};
+
+// ---------- zijpaneel ----------
+function renderSlides(){ const box=document.getElementById('slides'); box.innerHTML='';
+  Object.entries(SLIDES).forEach(([k,s])=>{ const b=document.createElement('button'); const done=s.tasks.every(x=>prog[k][x.id]); b.setAttribute('aria-pressed',String(k===cur)); b.innerHTML=s.name+(done?'<span class="done">✓</span>':''); b.onclick=()=>{ cur=k; feedback=null; ask=null; renderSlides(); renderSide(); }; box.appendChild(b); }); }
+function renderSide(){ const sl=SLIDES[cur]; const p=prog[cur]; const first=sl.tasks.find(x=>!p[x.id]);
+  let html=`<h2>${sl.name}</h2><p class="sub">${sl.sub}</p><ul class="tasks">`+sl.tasks.map(x=>`<li class="${p[x.id]?'ok':(x===first?'active':'')}"><span class="box">${p[x.id]?'✓':''}</span><span>${x.t}</span></li>`).join('')+'</ul>';
+  if(first&&first.id==='q'){ const ans=p.q_ans; html+=`<div><b>${first.q}</b><div class="opts">`+first.opts.map((o,i)=>`<button data-i="${i}">${o}</button>`).join('')+'</div></div>'; }
+  html+=`<div class="feedback ${feedback?(feedback.kind==='ok'?'ok':feedback.kind==='no'?'no':''):''}" aria-live="polite">${feedback?`<b>${feedback.title}</b><br>${feedback.text}`:'Stel scherp en zoek wat er in de opdracht staat.'}</div>`;
+  document.getElementById('side').innerHTML=html;
+  document.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; const q=sl.tasks.find(x=>x.id==='q'); if(i===q.ok){ prog[cur].q=true; feedback={kind:'ok',title:'Goed',text:q.ex}; } else { feedback={kind:'no',title:'Niet goed',text:'Kijk nog eens goed door de microscoop en probeer het opnieuw.'}; } renderSide(); renderSlides(); checkFinal(); });
+}
+function checkFinal(){ const all=Object.keys(SLIDES).every(k=>SLIDES[k].tasks.every(x=>prog[k][x.id])); const box=document.getElementById('finalbox');
+  box.innerHTML=all?`<div class="final"><h2>Alle drie de preparaten bekeken</h2><p><b>In welk preparaat zag je bladgroenkorrels? En waarom niet in het uienvlies?</b></p><details open><summary>Antwoord</summary><p>Alleen in het blaadje waterpest. Waterpest is een groene plant die licht vangt en zo zijn eigen voedsel maakt. Een ui groeit onder de grond: de rokken krijgen geen licht, dus hebben de cellen geen bladgroenkorrels. Toch is het uienvlies een plantencel: je ziet een celwand. De wangcellen zijn dierlijke cellen: geen celwand en geen bladgroenkorrels.</p></details></div>`:''; }
+
+// ---------- bediening ----------
+document.querySelectorAll('#mags button').forEach(b=>b.onclick=()=>{ mag=+b.dataset.m; document.querySelectorAll('#mags button').forEach(x=>x.setAttribute('aria-pressed',String(x===b))); document.getElementById('maglbl').textContent=mag+'×'; ask=null; });
+document.getElementById('focus').oninput=e=>{ focus=+e.target.value; };
+document.getElementById('light').oninput=e=>{ light=+e.target.value; };
+let drag=null;
+cv.addEventListener('pointerdown',e=>{ cv.setPointerCapture(e.pointerId); const r=cv.getBoundingClientRect(); drag={x:e.clientX,y:e.clientY,moved:0,k:S/r.width}; cv.classList.add('drag'); });
+cv.addEventListener('pointermove',e=>{ if(!drag) return; const dx=(e.clientX-drag.x)*drag.k, dy=(e.clientY-drag.y)*drag.k; drag.moved+=Math.abs(dx)+Math.abs(dy); drag.x=e.clientX; drag.y=e.clientY; const sc=SCALE[mag], c=cam[cur]; c.x=clamp(c.x-dx/sc,200,WORLD-200); c.y=clamp(c.y-dy/sc,200,WORLD-200); if(drag.moved>6) ask=null; });
+cv.addEventListener('pointerup',e=>{ cv.classList.remove('drag'); if(drag&&drag.moved<8){ const r=cv.getBoundingClientRect(); const px=(e.clientX-r.left)*S/r.width, py=(e.clientY-r.top)*S/r.height; if(Math.hypot(px-R,py-R)<R) handleTap(px,py); } drag=null; });
+renderSlides(); renderSide(); requestAnimationFrame(draw);
+</script>
+</body>
+</html>
