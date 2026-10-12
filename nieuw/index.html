@@ -110,7 +110,9 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .ondblok{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;min-width:0}
 .ondblok header{padding:22px 22px 16px;border-bottom:1px solid var(--line);background:radial-gradient(260px 120px at 100% 0,var(--goud-soft),transparent)}
 .ondtitel{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-.ondtitel h2{font-size:38px;line-height:1;letter-spacing:-.02em}
+.ondnaam{font-size:27px;line-height:1.08;letter-spacing:-.015em;min-height:2.16em;margin-bottom:12px}
+.ondcode{font:600 13px/1 var(--meta);letter-spacing:.12em;color:var(--goud-text)}
+.ondtitel{align-items:center}
 .weging{font:600 13px/1 var(--meta);color:var(--goud-ink);background:var(--goud);padding:6px 9px;border-radius:999px}
 .ondsub{color:var(--text3);margin-top:8px;min-height:15px}
 .ondkunst{display:flex;gap:8px;margin-top:16px}
@@ -763,7 +765,8 @@ const NIVEAUS = {
       "6 films · Kruisingslab · Bloedgroepenlab",
       "#erfelijkheid"
      ]
-    ]
+    ],
+    "naam": "Van cel tot nakomeling"
    },
    {
     "code": "OND2",
@@ -790,7 +793,8 @@ const NIVEAUS = {
       "Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab",
       "#ecologie"
      ]
-    ]
+    ],
+    "naam": "Leven in verandering"
    },
    {
     "code": "OND3",
@@ -817,7 +821,8 @@ const NIVEAUS = {
       "Eiwitfabriek · DNA-reeks volgt",
       "#dna"
      ]
-    ]
+    ],
+    "naam": "Energie en informatie"
    },
    {
     "code": "OND4",
@@ -851,7 +856,8 @@ const NIVEAUS = {
       "",
       ""
      ]
-    ]
+    ],
+    "naam": "Het lichaam van binnen"
    }
   ]
  },
@@ -898,7 +904,8 @@ const NIVEAUS = {
       "Plek genoeg · Alles gaat rond · Terrariumlab",
       "#ecologie"
      ]
-    ]
+    ],
+    "naam": "Van cel tot ecosysteem"
    },
    {
     "code": "OND2",
@@ -925,7 +932,8 @@ const NIVEAUS = {
       "3 films · Aardappellab",
       "#stofwisseling"
      ]
-    ]
+    ],
+    "naam": "De moleculen van het leven"
    },
    {
     "code": "OND3",
@@ -952,7 +960,8 @@ const NIVEAUS = {
       "Alles in het groen",
       "#stofwisseling"
      ]
-    ]
+    ],
+    "naam": "Sturen en reageren"
    },
    {
     "code": "OND4",
@@ -986,7 +995,8 @@ const NIVEAUS = {
       "",
       ""
      ]
-    ]
+    ],
+    "naam": "Het lichaam van binnen"
    },
    {
     "code": "OND5",
@@ -999,7 +1009,8 @@ const NIVEAUS = {
       "Examenatlas",
       ""
      ]
-    ]
+    ],
+    "naam": "Jouw eigen keuze"
    }
   ]
  },
@@ -1045,7 +1056,8 @@ const NIVEAUS = {
       "video · onderzoekje · opdracht",
       ""
      ]
-    ]
+    ],
+    "naam": "Mens en natuur"
    }
   ]
  }
@@ -1220,7 +1232,7 @@ function home(){
     const nf=ids.reduce((s,id)=>s+HOOFDSTUKKEN[id].films.length,0);
     out+=`<article class="ondblok${o.subs.length===1?' smal1':''}">
       <header>
-        <div class="ondtitel"><h2>${esc(o.code.replace(/^OND/,'OND '))}</h2>${o.w?`<span class="weging">${o.w}%</span>`:''}</div>
+        ${o.naam?`<h2 class="ondnaam">${esc(o.naam)}</h2>`:''}<div class="ondtitel"><span class="ondcode">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.w?`<span class="weging">${o.w}%</span>`:''}</div>
         <div class="ondsub mono">${[jaar,nf?`${nf} ${nf===1?"film":"films"}`:''].filter(Boolean).join(' · ')||'&nbsp;'}</div>
         <div class="ondkunst">${ids.slice(0,4).map(id=>`<span>${kunst(id)}</span>`).join('')}</div>
       </header>
