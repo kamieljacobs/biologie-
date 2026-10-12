@@ -1,0 +1,104 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>@font-face{font-family:"Fraunces";font-weight:700;src:url(fonts/fraunces-700.woff2)}
+@font-face{font-family:"Source Sans 3";font-weight:400;src:url(fonts/ss3-400.woff2)}
+@font-face{font-family:"Source Sans 3";font-weight:600;src:url(fonts/ss3-600.woff2)}
+@font-face{font-family:"Source Sans 3";font-weight:700;src:url(fonts/ss3-700.woff2)}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(fonts/plexmono-500.woff2)}</style>
+<style>body{margin:0;background:#000}canvas{display:block;width:1920px;height:1080px}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="src/lib.js"></script>
+<script>
+const ctx=document.getElementById('c').getContext('2d');
+const DAY={sky:'#6E8CA8',sand:'#C9A86A',soil:'#3A2E24',water:'#2A6E7E'};
+
+function caption(s){ ctx.save(); ctx.font=fTekst(44,700); const w=Math.min(1600,ctx.measureText(s).width+80), x=(W-w)/2, y=950;
+  roundRect(ctx,x,y,w,86,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill(); text(ctx,s,W/2,y+58,fTekst(44,700),C.text,'center'); ctx.restore(); }
+function metaTop(s){ metaText(ctx,s,60,46,C.text2,'left',20); }
+function hvBar(){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
+
+// ---- lettuce (Macro, flat, geometric) ----
+function krop(x,y,s,slap){
+  const leaves=[[-1,0.9],[1,0.9],[-0.55,1.1],[0.55,1.1],[0,1.2]];
+  leaves.forEach(([d,hh],i)=>{ ctx.save(); ctx.translate(x,y);
+    const tip = slap? {x:d*150*s, y:-hh*40*s+60*s} : {x:d*70*s, y:-hh*150*s};
+    ctx.beginPath(); ctx.moveTo(-40*s+d*20*s,0); ctx.quadraticCurveTo(tip.x*0.6-50*s, (tip.y)*0.8, tip.x, tip.y);
+    ctx.quadraticCurveTo(tip.x*0.6+50*s, tip.y*0.8, 40*s+d*20*s,0); ctx.closePath();
+    shape(ctx, i%2? '#6FB57F':'#5FA86E', lighten('#5FA86E',0.35), 1.5); ctx.restore(); });
+  ctx.beginPath(); ctx.ellipse(x,y,70*s,26*s,0,0,6.283); shape(ctx,'#8FCB9B',lighten('#8FCB9B',0.3),1.5);
+}
+function frameKeuken(){
+  ctx.fillStyle=DAY.sky; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#7E9AB4'; for(let i=0;i<7;i++){ ctx.fillRect(140+i*250,120,180,4); } // tegelvoegen, subtiel
+  ctx.fillStyle=DAY.sand; ctx.fillRect(0,640,W,40); ctx.fillStyle='#B08A5C'; ctx.fillRect(0,680,W,CAPTION_Y-680+200);
+  krop(620,640,1.25,false); krop(1300,640,1.25,true);
+  label(ctx,'stevig','net uit de koelkast',660,470,860,300,1);
+  label(ctx,'slap','een dag op het aanrecht',1330,600,1460,380,1);
+  metaTop('onderbouw · kerndoelen · film 1');
+  caption('Nu hangen de blaadjes slap.');
+}
+
+// ---- plant cell, turgid or wilted ----
+function plantCell(cx,cy,rx,ry,vol){
+  const shrink = vol? 1 : 0.94;
+  cellWall(ctx,cx,cy,rx,ry,1);
+  const mrx=(rx-12)*shrink, mry=(ry-12)*(vol?1:0.9);
+  membrane(ctx,cx,cy+(vol?0:8),mrx,mry,C.er,vol?0.01:0.06,3,0);
+  vacuole(ctx,cx+10,cy+6,mrx*0.82,mry*0.74,1,vol?1:0.62);
+  const ch=[[-0.78,-0.55,0.3],[-0.15,-0.82,0],[0.55,-0.7,-0.3],[0.86,0.05,1.2],[0.55,0.72,0.4],[-0.3,0.82,-0.2],[-0.86,0.25,1.4]];
+  ch.forEach(([u,v,r],i)=>chloroplast(ctx,cx+u*mrx*(vol?1:0.98),cy+v*mry*(vol?1:0.95),Math.max(46,rx*0.2),1,r));
+  nucleus(ctx,cx-mrx*0.62,cy-mry*0.05,Math.max(30,rx*0.13),1,0);
+  mitochondrion(ctx,cx+mrx*0.2,cy+mry*0.86,44,0.2,1,4,0);
+}
+function frameVacuole(){
+  bg(ctx,'micro');
+  plantCell(560,460,290,270,true); plantCell(1360,465,290,270,false);
+  label(ctx,'vacuole','vol water',620,470,960,250,1,C.text);
+  label(ctx,'celwand','laat water door',300,640,520,800,1);
+  label(ctx,'bladgroenkorrel','vangt licht',1318,285,1180,150,1);
+  metaText(ctx,'stevig',560,80,C.groen,'center',28); metaText(ctx,'slap',1360,80,C.koraal,'center',28);
+  haak(ctx,240,880,858,'',C.groen,0); // placeholder off
+  metaTop('onderbouw · kerndoelen · film 1');
+  scaleBar(ctx);
+  caption('Elke vacuole duwt het celmembraan strak tegen de celwand.');
+}
+
+// ---- vraagkaart (Schema) ----
+function frameVraag(){
+  bg(ctx,'schema');
+  metaText(ctx,'vraag 4 · hoofdstuk 3',120,150,C.grain,'left',26);
+  text(ctx,'Wat denk je?',120,240,fTitel(72),C.goud,'left');
+  text(ctx,'De sla ligt op het aanrecht.',120,330,fTekst(48,600),C.text,'left');
+  text(ctx,'Wat gebeurt er in de cellen van het blad?',120,392,fTekst(48,600),C.text,'left');
+  const opts=['De cellen gaan dood.','De celwanden scheuren.','De vacuolen verliezen water.'];
+  opts.forEach((o,i)=>{ const y=470+i*112; roundRect(ctx,120,y,1100,88,14); ctx.fillStyle=C.fill; ctx.fill(); ctx.strokeStyle=rgba(C.line,0.6); ctx.lineWidth=1; ctx.stroke();
+    ctx.beginPath(); ctx.arc(176,y+44,26,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.stroke();
+    text(ctx,'ABC'[i],176,y+56,fTekst(34,700),C.goud,'center'); text(ctx,o,230,y+58,fTekst(40,600),C.text,'left'); });
+  // mini-cell as visual anchor
+  ctx.save(); ctx.translate(0,0); plantCell(1560,560,190,170,true); ctx.restore();
+  ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,CAPTION_Y-40); ctx.lineTo(120+1680*0.55,CAPTION_Y-40); ctx.stroke();
+  metaText(ctx,'denk na…',120,CAPTION_Y-60,C.grain,'left',24);
+  metaTop('onderbouw · kerndoelen · film 1');
+}
+
+// ---- havo/vwo: de tekening is een model ----
+function tile(x,y,w,h,seed){ blob(ctx,x,y,w,h,0.08,seed,0); shape(ctx,rgba('#C9A3B0',0.28),'#D9B8C2',1.5); }
+function frameModel(){
+  bg(ctx,'micro');
+  for(let i=0;i<5;i++) for(let j=0;j<3;j++){ const x=170+i*190+(j%2)*90, y=270+j*190; tile(x,y,95,80,i*3+j); ctx.save(); ctx.globalAlpha=0.9; nucleus(ctx,x+(hash(i+j)*20-10),y+(hash(i*j+3)*16-8),18,1,0); ctx.restore(); }
+  label(ctx,'wangcellen','plat, als tegeltjes',540,460,620,150,1);
+  // right: 3D block vs flat drawing
+  const x0=1300,y0=360;
+  ctx.strokeStyle=C.text2; ctx.lineWidth=1.5; ctx.fillStyle=rgba(C.teal,0.18);
+  ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0+260,y0); ctx.lineTo(x0+340,y0-80); ctx.lineTo(x0+80,y0-80); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.rect(x0,y0,260,200); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x0+260,y0); ctx.lineTo(x0+340,y0-80); ctx.lineTo(x0+340,y0+120); ctx.lineTo(x0+260,y0+200); ctx.closePath(); ctx.fill(); ctx.stroke();
+  metaText(ctx,'echte cel: heeft dikte',x0+170,y0+250,C.grain,'center',24);
+  ctx.beginPath(); ctx.ellipse(x0+170,y0+400,140,80,0,0,6.283); ctx.strokeStyle=C.text; ctx.setLineDash([8,6]); ctx.stroke(); ctx.setLineDash([]);
+  metaText(ctx,'tekening: plat model',x0+170,y0+520,C.grain,'center',24);
+  hvBar();
+  scaleBar(ctx,'model · vereenvoudigd · niet op schaal');
+  caption('Zo\'n tekening is een model.');
+}
+window.FRAMES={keuken:frameKeuken,vacuole:frameVacuole,vraag:frameVraag,model:frameModel};
+window.draw=(k)=>{ ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H); FRAMES[k](); };
+</script></body></html>

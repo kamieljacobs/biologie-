@@ -1,0 +1,210 @@
+<title>Checkpoint Alles is cel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: één leeskolom (werkdocument) met brede blokken voor beelden en tabellen; kleuren uit de film-stijlkaart */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --fg:#18212F; --muted:#5A6577; --line:#D7DDE6;
+  --goud:#9A6F12; --groen:#2F7D45; --paars:#6A58A6; --paars-soft:#EEEAF8; --groen-soft:#E5F3E9; --navy:#1A2740;
+  --display:"Fraunces",Georgia,serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121A26; --surface:#1A2740; --fg:#F2F2EE; --muted:#9AA3B2; --line:#2E3E5C;
+  --goud:#E0B64A; --groen:#7FC48F; --paars:#A99BDB; --paars-soft:#2A2847; --groen-soft:#1F3A2C; --navy:#0D1420; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121A26; --surface:#1A2740; --fg:#F2F2EE; --muted:#9AA3B2; --line:#2E3E5C;
+  --goud:#E0B64A; --groen:#7FC48F; --paars:#A99BDB; --paars-soft:#2A2847; --groen-soft:#1F3A2C; --navy:#0D1420; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--body);padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:44px}
+.read{max-width:68ch}
+.wrap>*{min-width:0}
+h1{font:700 clamp(30px,5vw,44px)/1.1 var(--display);margin:0 0 8px;text-wrap:balance}
+h2{font:700 26px/1.2 var(--display);margin:0 0 14px;text-wrap:balance}
+h3{font:600 19px/1.3 var(--body);margin:0}
+p{margin:0}
+.eyebrow{font:500 12.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--goud);margin:0 0 12px}
+.lead{color:var(--muted);font-size:18px}
+.mono{font-family:var(--mono);font-size:13px}
+.small{font-size:12px;color:var(--muted)}
+section>*+*{margin-top:12px}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.ask ol{margin:8px 0 0;padding-left:22px;display:grid;gap:8px}
+.ask b{color:var(--fg)}
+audio{width:100%;margin-top:6px}
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:14px}
+.tests div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0}
+.tests .n{font:500 12px var(--mono);color:var(--goud);letter-spacing:.08em}
+.frames{display:grid;gap:22px}
+figure{margin:0}
+figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block}
+figcaption{color:var(--muted);font-size:15px;margin-top:8px}
+figcaption b{color:var(--fg);font-weight:600;margin-right:6px}
+.script{display:grid;gap:18px}
+.ch{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 22px;display:grid;gap:10px}
+.look{font:500 12px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em}
+.take{display:grid;gap:3px;padding-left:14px;border-left:2px solid var(--line)}
+.take.hv{border-left:4px solid var(--paars);background:var(--paars-soft);padding:10px 14px;border-radius:0 6px 6px 0}
+.take.hv::before{content:"HAVO/VWO";font:500 11px var(--mono);letter-spacing:.12em;color:var(--paars)}
+.q{display:grid;gap:6px}
+.q ul{margin:0;padding-left:0;list-style:none;display:grid;gap:4px}
+.q li{padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.q li.ok{border-color:var(--groen);background:var(--groen-soft);color:var(--fg);font-weight:600}
+.q li.ok::after{content:"  goed";font:500 11px var(--mono);letter-spacing:.1em;color:var(--groen)}
+.tag{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--goud)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.sb{min-width:860px}
+.look-pill{font:500 11.5px var(--mono);white-space:nowrap;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px;min-width:0}
+ul.plain{margin:0;padding-left:20px;display:grid;gap:6px}
+.ans{color:var(--groen);font-weight:600}
+a{color:var(--goud)}
+:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="read">
+<p class="eyebrow">Kerndoelen onderbouw · film 1 · checkpoint</p>
+<h1>Alles is cel</h1>
+<p class="lead">Kerndoel 32A, eerste bullet: bouw en functie van de cel en de zeven organellen. Gemengde onderbouw, basislijn op vmbo-t-niveau met één havo/vwo-blok. Stem Roos (eleven_v4). Na jouw akkoord bouw ik de hele film zonder tussenstops.</p>
+</header>
+
+<section class="ask read">
+<h2>Wat ik van je nodig heb</h2>
+<ol>
+<li><b>Uitspraak:</b> luister de test hieronder en kies bij 1/2 en 4/5 de variant die goed klinkt.</li>
+<li><b>Script:</b> akkoord, of zeg welke zinnen anders moeten.</li>
+<li><b>Lengte:</b> de film wordt ongeveer 6:30 (basis) en 7:10 (havo/vwo). Dat is iets boven de 4–6 minuten uit Part D, omdat het kerndoel acht begrippen noemt. Goed zo, of moet er iets uit?</li>
+<li><b>Beeld:</b> klopt de richting van de vijf stijlframes?</li>
+</ol>
+</section>
+
+<section class="read">
+<p class="eyebrow">1 · Uitspraaktest</p>
+<h2>Luister één keer</h2>
+<p>Alle andere begrippen (celmembraan, cytoplasma, celkern, mitochondriën, celwand) sprak Roos al goed uit in de film Celorganellen. Deze test bevat alleen wat nieuw is of twijfel geeft, in de echte zinnen uit het script. Elke regel begint met het nummer.</p>
+<audio controls preload="none" src="{{AUDIO}}"></audio>
+<div class="tests">
+<div><p class="n">1 en 2</p><p>"dertigduizend miljard": als één woord of met streepje. Klinkt het als één getal?</p></div>
+<div><p class="n">3</p><p>"vacuole": vaa-kuu-OO-lə.</p></div>
+<div><p class="n">4 en 5</p><p>"vacuolen": gewone spelling of respelling "vaa-kuu-oo-len".</p></div>
+<div><p class="n">6</p><p>"mitochondriën" en "mitochondrium" in één zin, ter controle.</p></div>
+<div><p class="n">7 tot 9</p><p>"bladgroenkorrels", "celmembraan" en de binnenband-zin: pauze bij de dubbele punt en tempo.</p></div>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">2 · Stijlframes</p>
+<h2>Zo ziet het eruit</h2>
+<div class="frames">{{FRAMES}}</div>
+</section>
+
+<section>
+<p class="eyebrow">3 · Script v2</p>
+<h2>De tekst, na drie reviews</h2>
+<p class="read">Een witregel in het script is een nieuwe opname, zodat later één alinea los opnieuw ingesproken kan worden. Het paarse blok valt weg in de stand Basis. Bij elke vraag staat het goede antwoord groen.</p>
+<div class="script">{{SCRIPT}}</div>
+</section>
+
+<section>
+<p class="eyebrow">4 · Storyboard</p>
+<h2>Beeld per opname</h2>
+<p class="read">Micro is de donkere celwereld, Macro-dag de keuken met de sla, Schema de navy kaarten voor vragen en samenvatting. Van Micro naar Macro en terug gaat altijd via de gouden zoomcirkel.</p>
+<div class="tw"><table class="sb"><thead><tr><th>Opname</th><th>Deel</th><th>Look</th><th>Wat je ziet</th><th>Cue-woorden</th></tr></thead><tbody>{{SB}}</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">5 · Dekking</p>
+<h2>Kerndoel, leerdoel en vraag</h2>
+<div class="tw"><table>
+<thead><tr><th>Kerndoel 32A / leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Getoetst door</th></tr></thead>
+<tbody>
+<tr><td>Bouw en functie van de cel: kleinste levende bouwsteen</td><td>basis</td><td>Cold open, H1</td><td>Voorspelvraag 1 · controlevraag 1</td></tr>
+<tr><td>Celmembraan, cytoplasma, celkern</td><td>basis</td><td>H1</td><td>Controlevraag 1</td></tr>
+<tr><td>Mitochondrium</td><td>basis</td><td>H2, H3</td><td>Voorspelvragen 2 en 3 · controlevraag 1</td></tr>
+<tr><td>Celwand</td><td>basis</td><td>H3</td><td>Controlevragen 1, 2 en 3</td></tr>
+<tr><td>Bladgroenkorrel</td><td>basis</td><td>H3</td><td>Controlevraag 2 · eindkaart</td></tr>
+<tr><td>Vacuole en slappe sla</td><td>basis</td><td>H3</td><td>Voorspelvraag 4 · controlevraag 3a</td></tr>
+<tr><td>Plantencel en dierlijke cel onderscheiden</td><td>basis</td><td>Samenvatting</td><td>Controlevraag 2</td></tr>
+<tr><td>Een celtekening is een model (kerndoel 29, aanvulling havo-vwo)</td><td>havo/vwo</td><td>H1-blok</td><td>Controlevraag 3b</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="read">
+<p class="eyebrow">6 · Controlevragen</p>
+<h2>Drie vragen na de film</h2>
+<div class="card">
+<p><b>1.</b> Welke uitspraak over een plantencel en een dierlijke cel is juist?<br>A. Alleen een dierlijke cel heeft mitochondriën. · B. Beide hebben een celmembraan, cytoplasma, een celkern en mitochondriën. · C. Een plantencel heeft een celwand in plaats van een celmembraan. · D. Alleen een plantencel heeft een celkern.</p>
+<p class="ans">B</p>
+</div>
+<div class="card">
+<p><b>2.</b> Onder de microscoop zie je cellen met een dikke rand en een grote, lichte ruimte in het midden. Groene korrels zie je niet. Waar komen ze vandaan?<br>A. wangslijmvlies van een mens · B. groen blad van een plant · C. rok van een ui · D. spier van een kat</p>
+<p class="ans">C: celwand en grote vacuole, maar geen bladgroenkorrels, dus geen groen deel.</p>
+</div>
+<div class="card">
+<p><b>3a.</b> Een slablad wordt op het aanrecht slap en in koud water weer stevig. Leg uit hoe dat komt. Gebruik de woorden vacuole en celwand.</p>
+<p class="ans">Water verdampt, de vacuolen krimpen en drukken niet meer tegen de celwand: slap. In water nemen ze weer water op en drukken de cel strak tegen de celwand: stevig.</p>
+<p><b>3b (havo/vwo).</b> Noem twee verschillen tussen een celtekening en een echte cel, en één ding dat je met de tekening niet te weten komt.</p>
+<p class="ans">Bijvoorbeeld: echte cel heeft dikte; tekening niet op schaal. Niet te zien: hoe dik de cel is of hoe groot de onderdelen echt zijn.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">7 · Getallen</p>
+<h2>Wat de film beweert</h2>
+<div class="tw"><table>
+<thead><tr><th>In de film</th><th>Waarde</th><th>Bron</th><th>Afronding</th></tr></thead>
+<tbody>
+<tr><td>"ongeveer dertigduizend miljard cellen" (volwassene)</td><td class="num">3,0 × 10¹³ (man 70 kg)</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4991899" target="_blank" rel="noopener">Sender e.a. 2016</a>; nieuwere schatting 28–36 × 10¹³ volwassenen (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10523466" target="_blank" rel="noopener">Hatton e.a. 2023</a>)</td><td>"ongeveer"</td></tr>
+<tr><td>"miljoenen" cellen in een slablad</td><td class="num">≥ 10⁶</td><td>schatting uit celgrootte 20–50 µm; geen directe bron</td><td>orde van grootte</td></tr>
+<tr><td>vacuole is het grootste onderdeel</td><td class="num">tot ± 90 % van het celvolume</td><td><a href="https://bionumbers.hms.harvard.edu/bionumber.aspx?id=108542" target="_blank" rel="noopener">BioNumbers 108542</a></td><td>niet genoemd als getal</td></tr>
+<tr><td>wangcel en mitochondrium (alleen in beeld)</td><td class="num">± 50–60 µm · ± 0,5–1 µm breed</td><td>leerboekwaarden (Alberts)</td><td>"niet op schaal"</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">8 · Wat de reviews veranderden</p>
+<h2>Van v1 naar v2</h2>
+<div class="cols">
+<div class="card"><h3>Celbioloog</h3><ul class="plain">
+<li>"Duizenden" cellen in een blad werd "miljoenen".</li>
+<li>Aantal cellen geldt nu voor een volwassene.</li>
+<li>Celkern is het grootste onderdeel "in deze wangcel"; in de plantencel is dat de vacuole.</li>
+<li>Oorzaak van de stevige sla toegevoegd: opgeloste stoffen in de vacuole trekken water aan; de celwand laat water door en voorkomt knappen.</li>
+<li>Mitochondrium "verbrandt" blijft, met "vereenvoudigd" in beeld.</li>
+</ul></div>
+<div class="card"><h3>Didactiek en taal</h3><ul class="plain">
+<li>Goede antwoorden niet meer steeds op B.</li>
+<li>Extra voorspelvraag in hoofdstuk 3 (de cellen op het aanrecht).</li>
+<li>"Erfelijk materiaal", "fotosynthese" en "celvocht" eruit; begrippen in twee blokken van vier met een herhaling.</li>
+<li>Zinnen gesplitst tot maximaal 12 woorden; "dierlijke cel" wordt nu hardop gezegd.</li>
+<li>Herkenningsregel in de samenvatting: celwand of bladgroenkorrels betekent plantencel.</li>
+</ul></div>
+<div class="card"><h3>Curriculum</h3><ul class="plain">
+<li>Cytoplasma kreeg een functie ("hier gebeurt het meeste werk").</li>
+<li>Havo/vwo-blok zegt nu ook wat je met een model níét ziet.</li>
+<li>"Grote vacuole" en "in de groene delen" voor bladgroenkorrels.</li>
+<li>Meervoud "vacuolen", zoals in de methodes.</li>
+<li>Eindkaart: wangcellen kleuren met methyleenblauw, waterpest erbij.</li>
+</ul></div>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">9 · Probeer het zelf en tools</p>
+<h2>Wat de leerling na de film doet</h2>
+<div class="cols">
+<div class="card"><h3>Practicum (op de eindkaart)</h3><p>Uienvlies, wangcellen met methyleenblauw en een blaadje waterpest onder de microscoop. Vraag: in welk preparaat zie je bladgroenkorrels, en waarom niet in het uienvlies? Ik maak hiervoor een korte opdrachtpagina op je site.</p></div>
+<div class="card"><h3>Bestaande tool</h3><p><b>Schaallab</b> (verdieping havo/vwo): waarom cellen klein zijn. Staat nu nog als Claude-link; kan mee naar de site.</p></div>
+<div class="card"><h3>Nieuwe tool: Celbouwer</h3><p>De leerling sleept onderdelen in een plantencel of dierlijke cel en krijgt per onderdeel feedback. Dekt leerdoelen 1 tot 3. Klein: één middag.</p></div>
+<div class="card"><h3>Nieuwe tool: Slalab</h3><p>Een slablad in zout, gewoon of suikerwater; de leerling ziet vacuolen krimpen of zwellen en het blad slap of stevig worden. Dekt leerdoel 4 en is een opstap naar osmose. Middelgroot.</p></div>
+<div class="card"><h3>Nieuwe tool: Virtuele microscoop</h3><p>Scherpstellen en vergroten bij uienvlies, wangslijm en waterpest, voor wie geen microscoop heeft. Middelgroot.</p></div>
+</div>
+</section>
+
+</div>

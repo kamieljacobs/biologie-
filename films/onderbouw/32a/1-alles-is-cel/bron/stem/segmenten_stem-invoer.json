@@ -1,0 +1,252 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je haalt een krop sla uit de koelkast. De blaadjes zijn stevig en knapperig.",
+   "Dan vergeet je de sla een dag op het aanrecht. Nu hangen de blaadjes slap.",
+   "Je zet ze in koud water. Na een uur zijn ze weer stevig.",
+   "Waar is dat water gebleven? Wat denk je?"
+  ],
+  "display": "Je haalt een krop sla uit de koelkast. De blaadjes zijn stevig en knapperig. Dan vergeet je de sla een dag op het aanrecht. Nu hangen de blaadjes slap. Je zet ze in koud water. Na een uur zijn ze weer stevig. Waar is dat water gebleven? Wat denk je?",
+  "voice": "Je haalt een krop sla uit de koelkast. De blaadjes zijn stevig en knapperig. Dan vergeet je de sla een dag op het aanrecht. Nu hangen de blaadjes slap. Je zet ze in koud water. Na een uur zijn ze weer stevig. Waar is dat water gebleven? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) het plakt aan de buitenkant van het blad",
+   "(b) de sla groeit er een stukje van",
+   "(c) het is het blad in gegaan"
+  ]
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Alles is cel. Waar alles wat leeft van gemaakt is."
+  ],
+  "display": "Alles is cel. Waar alles wat leeft van gemaakt is.",
+  "voice": "Alles is cel. Waar alles wat leeft van gemaakt is."
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het water is het blad in gegaan. Het blad bestaat uit miljoenen piepkleine bouwstenen: cellen.",
+   "Een kat, een eik en jij lijken totaal niet op elkaar. Toch zijn jullie van hetzelfde gemaakt: van cellen.",
+   "Een cel is de kleinste bouwsteen die zelf leeft.",
+   "Een volwassen mens bestaat uit ongeveer dertigduizend miljard cellen.",
+   "Eén cel zie je niet met je ogen. Daarvoor heb je een microscoop nodig."
+  ],
+  "display": "Het water is het blad in gegaan. Het blad bestaat uit miljoenen piepkleine bouwstenen: cellen. Een kat, een eik en jij lijken totaal niet op elkaar. Toch zijn jullie van hetzelfde gemaakt: van cellen. Een cel is de kleinste bouwsteen die zelf leeft. Een volwassen mens bestaat uit ongeveer dertigduizend miljard cellen. Eén cel zie je niet met je ogen. Daarvoor heb je een microscoop nodig.",
+  "voice": "Het water is het blad in gegaan. Het blad bestaat uit miljoenen piepkleine bouwstenen: cellen. Een kat, een eik en jij lijken totaal niet op elkaar. Toch zijn jullie van hetzelfde gemaakt: van cellen. Een cel is de kleinste bouwsteen die zelf leeft. Een volwassen mens bestaat uit ongeveer dertigduizend miljard cellen. Eén cel zie je niet met je ogen. Daarvoor heb je een microscoop nodig."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "We zoomen in op de binnenkant van je wang. Dit zijn wangcellen. Ze zijn plat, als tegeltjes.",
+   "Om elke cel zit een dun vlies: het celmembraan.",
+   "Het celmembraan houdt de cel bij elkaar. Het laat sommige stoffen erin en eruit, andere niet.",
+   "Binnenin zit een soort gelei: het cytoplasma.",
+   "In het cytoplasma gebeurt het meeste werk van de cel.",
+   "Daarin liggen kleine onderdelen. Elk onderdeel heeft een eigen taak."
+  ],
+  "display": "We zoomen in op de binnenkant van je wang. Dit zijn wangcellen. Ze zijn plat, als tegeltjes. Om elke cel zit een dun vlies: het celmembraan. Het celmembraan houdt de cel bij elkaar. Het laat sommige stoffen erin en eruit, andere niet. Binnenin zit een soort gelei: het cytoplasma. In het cytoplasma gebeurt het meeste werk van de cel. Daarin liggen kleine onderdelen. Elk onderdeel heeft een eigen taak.",
+  "voice": "We zoomen in op de binnenkant van je wang. Dit zijn wangcellen. Ze zijn plat, als tegeltjes. Om elke cel zit een dun vlies: het celmembraan. Het celmembraan houdt de cel bij elkaar. Het laat sommige stoffen erin en eruit, andere niet. Binnenin zit een soort gelei: het cytoplasma. In het cytoplasma gebeurt het meeste werk van de cel. Daarin liggen kleine onderdelen. Elk onderdeel heeft een eigen taak."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In deze wangcel is de celkern het grootste onderdeel.",
+   "In de celkern ligt de bouwtekening van de cel. De celkern regelt wat er in de cel gebeurt.",
+   "Even op een rij: celmembraan, cytoplasma, celkern."
+  ],
+  "display": "In deze wangcel is de celkern het grootste onderdeel. In de celkern ligt de bouwtekening van de cel. De celkern regelt wat er in de cel gebeurt. Even op een rij: celmembraan, cytoplasma, celkern.",
+  "voice": "In deze wangcel is de celkern het grootste onderdeel. In de celkern ligt de bouwtekening van de cel. De celkern regelt wat er in de cel gebeurt. Even op een rij: celmembraan, cytoplasma, celkern."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Voor havo en vwo gaan we nog een stap verder.",
+   "Op papier tekenen we een cel als een plat rondje.",
+   "Maar een echte cel is dik of dun. Sommige zijn een bolletje, andere een blokje of een plat tegeltje.",
+   "Zo'n tekening is een model. Je tekent alleen wat je wilt laten zien.",
+   "Daardoor zie je andere dingen juist niet. Bijvoorbeeld hoe dik de cel is. Of hoe klein de onderdelen echt zijn.",
+   "Ook deze film tekent vereenvoudigd en niet op schaal.",
+   "Terug naar de wangcel."
+  ],
+  "display": "Voor havo en vwo gaan we nog een stap verder. Op papier tekenen we een cel als een plat rondje. Maar een echte cel is dik of dun. Sommige zijn een bolletje, andere een blokje of een plat tegeltje. Zo'n tekening is een model. Je tekent alleen wat je wilt laten zien. Daardoor zie je andere dingen juist niet. Bijvoorbeeld hoe dik de cel is. Of hoe klein de onderdelen echt zijn. Ook deze film tekent vereenvoudigd en niet op schaal. Terug naar de wangcel.",
+  "voice": "Voor havo en vwo gaan we nog een stap verder. Op papier tekenen we een cel als een plat rondje. Maar een echte cel is dik of dun. Sommige zijn een bolletje, andere een blokje of een plat tegeltje. Zo'n tekening is een model. Je tekent alleen wat je wilt laten zien. Daardoor zie je andere dingen juist niet. Bijvoorbeeld hoe dik de cel is. Of hoe klein de onderdelen echt zijn. Ook deze film tekent vereenvoudigd en niet op schaal. Terug naar de wangcel."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Deze wangcel heeft energie nodig om te werken. Waar komt die energie vandaan? Wat denk je?"
+  ],
+  "display": "Deze wangcel heeft energie nodig om te werken. Waar komt die energie vandaan? Wat denk je?",
+  "voice": "Deze wangcel heeft energie nodig om te werken. Waar komt die energie vandaan? Wat denk je?"
+ },
+ {
+  "id": "q09",
+  "chapter": "Hoofdstuk 1 — Alles is cel",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) uit voedingsstoffen, die de cel verbrandt",
+   "(b) uit de celkern",
+   "(c) uit licht"
+  ]
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 2 — De energiecentrale",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Jij eet om energie te krijgen. Je cellen hebben die energie nodig.",
+   "Je bloed brengt voedingsstoffen uit je eten naar elke cel. En zuurstof uit je longen.",
+   "In het cytoplasma liggen kleine boontjes: mitochondriën. Eén zo'n boontje heet een mitochondrium.",
+   "Een mitochondrium verbrandt voedingsstoffen met zuurstof. Daarbij komt energie vrij.",
+   "Een spiercel heeft heel veel mitochondriën. Een spiercel gebruikt ook veel energie.",
+   "Mitochondriën zijn zo klein dat je ze met een schoolmicroscoop niet ziet."
+  ],
+  "display": "Jij eet om energie te krijgen. Je cellen hebben die energie nodig. Je bloed brengt voedingsstoffen uit je eten naar elke cel. En zuurstof uit je longen. In het cytoplasma liggen kleine boontjes: mitochondriën. Eén zo'n boontje heet een mitochondrium. Een mitochondrium verbrandt voedingsstoffen met zuurstof. Daarbij komt energie vrij. Een spiercel heeft heel veel mitochondriën. Een spiercel gebruikt ook veel energie. Mitochondriën zijn zo klein dat je ze met een schoolmicroscoop niet ziet.",
+  "voice": "Jij eet om energie te krijgen. Je cellen hebben die energie nodig. Je bloed brengt voedingsstoffen uit je eten naar elke cel. En zuurstof uit je longen. In het cytoplasma liggen kleine boontjes: mitochondriën. Eén zo'n boontje heet een mitochondrium. Een mitochondrium verbrandt voedingsstoffen met zuurstof. Daarbij komt energie vrij. Een spiercel heeft heel veel mitochondriën. Een spiercel gebruikt ook veel energie. Mitochondriën zijn zo klein dat je ze met een schoolmicroscoop niet ziet."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 2 — De energiecentrale",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je kent nu vier delen van een dierlijke cel. Celmembraan, cytoplasma, celkern en mitochondrium.",
+   "Een plant maakt zijn eigen voedsel. Heeft een plantencel dan nog mitochondriën nodig? Wat denk je?"
+  ],
+  "display": "Je kent nu vier delen van een dierlijke cel. Celmembraan, cytoplasma, celkern en mitochondrium. Een plant maakt zijn eigen voedsel. Heeft een plantencel dan nog mitochondriën nodig? Wat denk je?",
+  "voice": "Je kent nu vier delen van een dierlijke cel. Celmembraan, cytoplasma, celkern en mitochondrium. Een plant maakt zijn eigen voedsel. Heeft een plantencel dan nog mitochondriën nodig? Wat denk je?"
+ },
+ {
+  "id": "q12",
+  "chapter": "Hoofdstuk 2 — De energiecentrale",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) nee, de plant maakt zijn voedsel zelf",
+   "(b) ja, ook een plant moet voedsel verbranden",
+   "(c) alleen in de wortels"
+  ]
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Wat een plant extra heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Terug naar de sla. We zoomen in op een blaadje.",
+   "Ook hier zie je een celmembraan, cytoplasma en een celkern.",
+   "En ja: mitochondriën. Ook een plant verbrandt voedsel om energie te krijgen.",
+   "Maar een plantencel heeft drie dingen die een dierlijke cel niet heeft."
+  ],
+  "display": "Terug naar de sla. We zoomen in op een blaadje. Ook hier zie je een celmembraan, cytoplasma en een celkern. En ja: mitochondriën. Ook een plant verbrandt voedsel om energie te krijgen. Maar een plantencel heeft drie dingen die een dierlijke cel niet heeft.",
+  "voice": "Terug naar de sla. We zoomen in op een blaadje. Ook hier zie je een celmembraan, cytoplasma en een celkern. En ja: mitochondriën. Ook een plant verbrandt voedsel om energie te krijgen. Maar een plantencel heeft drie dingen die een dierlijke cel niet heeft."
+ },
+ {
+  "id": "s14",
+  "chapter": "Hoofdstuk 3 — Wat een plant extra heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Om het celmembraan zit een stevige laag: de celwand.",
+   "De celwand laat water gewoon door. Hij geeft de cel stevigheid en vorm.",
+   "In de groene delen van een plant zitten groene korrels: bladgroenkorrels.",
+   "Een bladgroenkorrel vangt licht. Daarmee maakt de plant zijn eigen voedsel."
+  ],
+  "display": "Om het celmembraan zit een stevige laag: de celwand. De celwand laat water gewoon door. Hij geeft de cel stevigheid en vorm. In de groene delen van een plant zitten groene korrels: bladgroenkorrels. Een bladgroenkorrel vangt licht. Daarmee maakt de plant zijn eigen voedsel.",
+  "voice": "Om het celmembraan zit een stevige laag: de celwand. De celwand laat water gewoon door. Hij geeft de cel stevigheid en vorm. In de groene delen van een plant zitten groene korrels: bladgroenkorrels. Een bladgroenkorrel vangt licht. Daarmee maakt de plant zijn eigen voedsel."
+ },
+ {
+  "id": "s15",
+  "chapter": "Hoofdstuk 3 — Wat een plant extra heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het grootste onderdeel van een plantencel is de vacuole. Een grote blaas met water.",
+   "In dat water zitten opgeloste stoffen, zoals suikers. Daardoor neemt de vacuole water op.",
+   "De sla ligt nu op het aanrecht. Wat gebeurt er in de cellen van het blad? Wat denk je?"
+  ],
+  "display": "Het grootste onderdeel van een plantencel is de vacuole. Een grote blaas met water. In dat water zitten opgeloste stoffen, zoals suikers. Daardoor neemt de vacuole water op. De sla ligt nu op het aanrecht. Wat gebeurt er in de cellen van het blad? Wat denk je?",
+  "voice": "Het grootste onderdeel van een plantencel is de vacuole. Een grote blaas met water. In dat water zitten opgeloste stoffen, zoals suikers. Daardoor neemt de vacuole water op. De sla ligt nu op het aanrecht. Wat gebeurt er in de cellen van het blad? Wat denk je?"
+ },
+ {
+  "id": "q16",
+  "chapter": "Hoofdstuk 3 — Wat een plant extra heeft",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "(a) de cellen gaan dood",
+   "(b) de celwanden scheuren",
+   "(c) de vacuolen verliezen water"
+  ]
+ },
+ {
+  "id": "s17",
+  "chapter": "Hoofdstuk 3 — Wat een plant extra heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "De vacuolen verliezen water. Het water verdampt uit het blad.",
+   "De vacuolen worden kleiner. Ze drukken minder hard tegen de celwand. Het blaadje wordt slap.",
+   "In koud water nemen de vacuolen weer water op. Ze worden groter.",
+   "Elke vacuole duwt het celmembraan strak tegen de celwand. Net als een binnenband in een fietsband.",
+   "De celwand houdt tegen. Zo knapt de cel niet. Miljoenen strakke cellen samen maken een stevig blad."
+  ],
+  "display": "De vacuolen verliezen water. Het water verdampt uit het blad. De vacuolen worden kleiner. Ze drukken minder hard tegen de celwand. Het blaadje wordt slap. In koud water nemen de vacuolen weer water op. Ze worden groter. Elke vacuole duwt het celmembraan strak tegen de celwand. Net als een binnenband in een fietsband. De celwand houdt tegen. Zo knapt de cel niet. Miljoenen strakke cellen samen maken een stevig blad.",
+  "voice": "De vacuolen verliezen water. Het water verdampt uit het blad. De vacuolen worden kleiner. Ze drukken minder hard tegen de celwand. Het blaadje wordt slap. In koud water nemen de vacuolen weer water op. Ze worden groter. Elke vacuole duwt het celmembraan strak tegen de celwand. Net als een binnenband in een fietsband. De celwand houdt tegen. Zo knapt de cel niet. Miljoenen strakke cellen samen maken een stevig blad."
+ },
+ {
+  "id": "s18",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een dierlijke cel heeft een celmembraan, cytoplasma, een celkern en mitochondriën.",
+   "Een plantencel heeft dat ook. Daarbij een celwand en een grote vacuole. En in de groene delen bladgroenkorrels.",
+   "Zie je een celwand of bladgroenkorrels? Dan kijk je naar een plantencel.",
+   "En de slappe sla? Het water was uit de vacuolen verdampt. In koud water liepen ze weer vol."
+  ],
+  "display": "Een dierlijke cel heeft een celmembraan, cytoplasma, een celkern en mitochondriën. Een plantencel heeft dat ook. Daarbij een celwand en een grote vacuole. En in de groene delen bladgroenkorrels. Zie je een celwand of bladgroenkorrels? Dan kijk je naar een plantencel. En de slappe sla? Het water was uit de vacuolen verdampt. In koud water liepen ze weer vol.",
+  "voice": "Een dierlijke cel heeft een celmembraan, cytoplasma, een celkern en mitochondriën. Een plantencel heeft dat ook. Daarbij een celwand en een grote vacuole. En in de groene delen bladgroenkorrels. Zie je een celwand of bladgroenkorrels? Dan kijk je naar een plantencel. En de slappe sla? Het water was uit de vacuolen verdampt. In koud water liepen ze weer vol."
+ },
+ {
+  "id": "s19",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]
