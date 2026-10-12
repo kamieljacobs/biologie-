@@ -1,0 +1,167 @@
+# Het hoofdkantoor — bronmap
+
+| Veld | Waarde |
+|---|---|
+| Bestand | films/zenuwstelsel/5-het-hoofdkantoor.html |
+| Reeks / nummer | Zenuwstelsel, film 5 (pagina: “wat je hersenen doen als je een nummer hoort · 5 vwo · film 5 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 5 van 7”) |
+| Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
+| Versie / datum | 1.1 · 5 oktober 2026 (credits op de pagina) |
+| Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
+| Duur | 5:21 gesproken (som van 13 mp3’s, 321,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:31 |
+| Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (zaterdagochtend, keuken, radio, meisje, inzet arm met kippenvel, lens op het hoofd) en lichte schema-scènes met een ‘plattegrond’: zijaanzicht van de linkerhersenhelft waarop per hoofdstuk een afdeling oplicht, diepe structuren gestippeld; Inter-systeemfont |
+| Audio-opslag | 13 fragmenten, één per gesproken segment, als base64-data-URI in `window.FILM_AUDIO` (blobs 001–013) |
+| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+
+## Opbouw
+
+| Begin | Hoofdstuk | Segmenten | Type (docentdeel) | Kernbeeld (docentdeel) |
+|---|---|---|---|---|
+| 0:00 | Cold open | s00 | — | wereld: zaterdagochtend, radio speelt, voet tikt mee, kippenvel op de arm; vraag ‘wie regelt dat?’ |
+| 0:20 | 1 Drie delen | q1, a1 | structuur | plattegrond met grote hersenen, vier kwabben, kleine hersenen, hersenstam; doorsnede met grijze en witte stof en de hersenbalk |
+| 1:25 | 2 Horen en herkennen | s21, q2, a2 | functie | slakkenhuis (plek per toon op het basilair membraan) → gehoorzenuw → hersenstam → thalamus → primaire gehoorschors met dezelfde volgorde van laag naar hoog; associatieve schors herkent; zien, voelen en bewegen per kwab |
+| 3:12 | 3 Kruislings | q3, a3 | structuur en functie | bovenaanzicht met kruisende banen; homunculus op de strook motorische schors |
+| 4:04 | 4 De maat houden | q4, a4 | functie | plan, kopie, terugmelding en bijsturen; tikken op de tel met en zonder kleine hersenen |
+| 4:56 | 5 Vanzelf | q5, a5 | regulatie | verlengde merg (ademhaling, hartslag), middenrif; hypothalamus, hypofyse en autonoom zenuwstelsel; kippenvel bij het refrein |
+| 5:51 | 6 Samenvatting | s70 | — | plattegrond van de hersenen met samenvattingspaneel rechts (`#p-recap`), gebieden lichten op ankerwoorden op |
+
+Begintijden = begin van de hoofdstukkaart in de speler, zonder wachttijd bij de vragen (zoals in de hoofdstuklijst op de pagina). Type-letters A–I uit de prompt staan niet in de HTML; de typering hierboven is die uit de tabel “Per hoofdstuk” in het docentdeel.
+
+## Vragen
+
+### Voorspelvragen in de film (`plan.questions`)
+
+| Nr | Plek | Vraag | Opties | Juist | Misconceptie-optie | Niveau |
+|---|---|---|---|---|---|---|
+| V1 | H1 Drie delen, 0:23 | Je luistert naar een nummer dat je kent. Hoeveel van je hersenen doet mee? | A. Ongeveer tien procent / B. Eén hersenhelft / C. Gebieden verspreid door je hele hersenen | C | A | basis (5 vwo) |
+| V2 | H2 Horen en herkennen, 2:35 | Gezonde oren en primaire gehoorschors, maar de associatieve schors eromheen is aan beide kanten beschadigd. Wat merkt hij bij zijn lievelingsnummer? | A. Hij hoort niets / B. Hij hoort tonen, maar herkent het nummer niet / C. Hij hoort en herkent het gewoon | B | A | basis (5 vwo) |
+| V3 | H3 Kruislings, 3:15 | Je tikt de maat met je rechterhand. Welke hersenhelft stuurt die hand? | A. De rechterhelft / B. De linkerhelft / C. Allebei evenveel | B | A | basis (5 vwo) |
+| V4 | H4 De maat houden, 4:07 | Schade aan de kleine hersenen, maar de arm kan nog bewegen. Wat gaat er mis? | A. Niets, de kleine hersenen doen weinig / B. Bewegingen worden onhandig en slecht getimed / C. Hij raakt toch verlamd | B | A | basis (5 vwo) |
+| V5 | H5 Vanzelf, 4:59 | Je slaapt en denkt nergens aan. Wat houdt je ademhaling gaande? | A. Je grote hersenen / B. Je hersenstam / C. Niets: je longen ademen vanzelf | B | C | basis (5 vwo) |
+
+Alle antwoordsegmenten beginnen met “Het goede antwoord is …”. De gesproken vraag begint met “Wat denk je?”.
+
+### Checkvragen op de pagina
+
+1. Een tijdschrift schrijft: 'Je gebruikt maar tien procent van je hersenen.' Weerleg dit met twee argumenten. Gebruik dat de hersenen ongeveer 2 % van je lichaamsgewicht zijn en ongeveer 20 % van je energie gebruiken. Leg ook uit waar in de grote hersenen grijze en waar witte stof ligt, en waaruit elk bestaat.  
+   *Antwoord:* Argument 1: er is bijna geen hersengebied dat je kunt beschadigen zonder dat er een functie uitvalt. Argument 2: de hersenen kosten veel energie (een vijfde) bij een klein gewicht; een orgaan dat grotendeels niets doet zou in de evolutie niet zo duur zijn gebleven. Grijze stof ligt buiten (de hersenschors) en bestaat vooral uit cellichamen; witte stof ligt binnen en bestaat uit axonen met myeline.
+2. Beschrijf de weg van een geluid van je oor tot het moment dat je weet: 'dit is mijn nummer'. Noem daarbij de thalamus, de primaire gehoorschors en de associatieve schors, en wat elk doet. In welke kwab ligt de gehoorschors?  
+   *Antwoord:* In het slakkenhuis trilt het basilair membraan op een eigen plek per toon (begin: hoog, top: laag); daar worden zintuigcellen geprikkeld → gehoorzenuw → hersenstam → thalamus (schakelstation) → primaire gehoorschors (toonhoogte, luidheid) → associatieve schors eromheen (koppelt aan wat je kent: herkennen). De gehoorschors ligt in de slaapkwab.
+3. Na een beroerte in de linkerhersenhelft kan iemand zijn rechterhand slecht bewegen, maar zijn rug wel. Verklaar beide met de kruising van banen en met de verdeling van de motorische schors.  
+   *Antwoord:* De motorische banen kruisen in de hersenstam, dus de linker motorische schors stuurt de rechterlichaamshelft. De hand heeft een groot stuk motorische schors (fijne bewegingen), de rug een klein stuk; schade treft daardoor eerder en sterker de hand. (De romp wordt bovendien vanuit beide helften aangestuurd.)
+4. Een drummer heeft een kleine hersenbloeding gehad in de kleine hersenen. Hij kan nog met beide armen slaan, maar 'loopt achter de tel aan'. Verklaar dit met de taak van de kleine hersenen.  
+   *Antwoord:* De motorische schors maakt het plan; de kleine hersenen vergelijken een kopie van dat plan met de terugmelding uit spieren en gewrichten en sturen bij. Zonder die correctie lukt bewegen nog, maar onnauwkeurig en slecht getimed: net te laat.
+5. Bij iemand is het verlengde merg beschadigd. Een ander heeft schade aan de hypothalamus. Noem voor elk twee functies die in gevaar komen, en leg uit welke van de twee direct levensbedreigend is.  
+   *Antwoord:* Verlengde merg: ademhaling en hartslag (en bloeddruk); direct levensbedreigend omdat ademen niet vanzelf door de longen gebeurt. Hypothalamus: temperatuur, honger, dorst, aansturing van de hypofyse (hormonen) en het autonome zenuwstelsel; ernstig, maar niet direct dodelijk zoals uitval van de ademhaling.
+
+## Begrippen
+
+- **grote hersenen** — grootste deel van de hersenen, uit twee hersenhelften; buitenkant is de hersenschors.
+- **hersenhelften** — de linker- en rechterhelft van de grote hersenen; elke helft werkt vooral met de andere lichaamshelft.
+- **hersenbalk** — brede band witte stof (zo'n tweehonderd miljoen axonen) die de twee hersenhelften verbindt.
+- **hersenkwabben** — de vier delen van elke hersenhelft: voorhoofdskwab, wandbeenkwab, slaapkwab en achterhoofdskwab.
+- **voorhoofdskwab** — kwab vooraan; bevat de motorische schors en veel associatieve schors (plannen, kiezen, je inhouden).
+- **wandbeenkwab** — kwab bovenop, achter de centrale groeve; bevat de gevoelsschors.
+- **slaapkwab** — kwab opzij; bevat de primaire gehoorschors.
+- **achterhoofdskwab** — kwab achteraan; bevat de primaire schors voor zien.
+- **kleine hersenen** — deel achter onder de grote hersenen; zorgt voor coördinatie, timing en evenwicht door bewegingen bij te sturen.
+- **hersenstam** — deel onder de grote hersenen dat overgaat in het ruggenmerg; alle banen lopen erdoor; regelt onder meer ademhaling en hartslag.
+- **verlengde merg** — onderste deel van de hersenstam met centra voor ademhaling en hartslag.
+- **grijze stof** — weefsel met vooral cellichamen van neuronen; in de grote hersenen de hersenschors aan de buitenkant, plus kernen diep binnenin (zoals de thalamus).
+- **witte stof** — weefsel met vooral axonen met een myelineschede; verbindt hersengebieden met elkaar.
+- **hersenschors** — dunne laag grijze stof (2–4 mm) aan de buitenkant van de grote hersenen.
+- **primaire schors** — schorsgebied waar impulsen van een zintuig binnenkomen of waar bewegingsopdrachten beginnen.
+- **associatieve schors** — schorsgebied rond de primaire gebieden dat informatie koppelt aan wat je al weet en er betekenis aan geeft.
+- **slakkenhuis** — deel van het binnenoor waarin geluidstrillingen worden omgezet in impulsen.
+- **basilair membraan** — vlies in het slakkenhuis met de zintuigcellen; smal en stijf bij het begin (hoge tonen), breed en slap bij de top (lage tonen).
+- **thalamus** — schakelstation diep in de hersenen; bijna alle zintuiglijke impulsen (niet die van reuk) gaan erdoor naar de schors.
+- **kruising** — banen van en naar de grote hersenen kruisen in de hersenstam: de linkerhelft werkt met de rechterlichaamshelft.
+- **homunculus** — tekening van het lichaam waarin elk deel zo groot is als zijn stuk motorische (of gevoels)schors.
+- **hypothalamus** — klein gebied net boven de hersenstam; houdt temperatuur, honger en dorst op peil, stuurt het autonome zenuwstelsel en via de hypofyse hormonen.
+- **hypofyse** — hormoonklier onder de hypothalamus, die er door wordt aangestuurd.
+
+Geen vwo-markering: de hele film is 5 vwo.
+
+## Docentdeel
+
+Film 5 laat zien wat de hersenen doen in de eerste seconden van een nummer dat je kent. De rode draad is de plattegrond: een zijaanzicht van de linkerhersenhelft waarop per hoofdstuk een afdeling oplicht. De centrale puzzel is "waar zit de baas?"; het antwoord is dat er geen baas is: gebieden werken tegelijk en zijn via witte stof verbonden. Niveau: 5 vwo, CE-stof.
+
+**Per hoofdstuk**: zie “Opbouw” hierboven (Type en Kernbeeld); misconcepties per hoofdstuk:
+
+- 1 Drie delen: je gebruikt maar tien procent van je hersenen
+- 2 Horen en herkennen: horen en herkennen zijn hetzelfde
+- 3 Kruislings: de helft aan dezelfde kant stuurt die kant
+- 4 De maat houden: bewegen is alleen de motorische schors
+- 5 Vanzelf: ademen doen je longen vanzelf
+
+**De feiten en getallen**
+
+| Feit | Waarde | Bron | In de film |
+|---|---|---|---|
+| neuronen, massa, energie | 86 ± 8 miljard neuronen; 1,2–1,4 kg (≈ 2 % van het lichaamsgewicht); wakker een vijfde van de energie; schors 2–4 mm; witte stof ongeveer de helft van het volume | [Human brain (Wikipedia)](https://en.wikipedia.org/wiki/Human_brain) | checkvraag 1; "een dunne laag" |
+| thalamus, kruising, hersenstam, hypothalamus | schakelstation (reuk uitgezonderd); banen kruisen in de hersenstam; verlengde merg regelt ademhaling, hartslag en bloeddruk; hypothalamus stuurt de hypofyse en regelt homeostase | [Human brain (Wikipedia)](https://en.wikipedia.org/wiki/Human_brain) | hoofdstuk 2, 3 en 5 |
+| hersenbalk | 200–300 miljoen axonen (meestal ≈ 200–250 miljoen genoemd); grootste witte-stofstructuur | [Corpus callosum (Wikipedia)](https://en.wikipedia.org/wiki/Corpus_callosum) | "zo'n tweehonderd miljoen axonen" |
+| kleine hersenen | ≈ 10 % van het volume; ongeveer 69 van de 86 miljard neuronen (≈ 80 %); schade geeft onnauwkeurige, slecht getimede bewegingen, geen verlamming | [Cerebellum (Wikipedia)](https://en.wikipedia.org/wiki/Cerebellum); 69 van 86 miljard: Azevedo e.a. 2009, zoals besproken in [Von Bartheld e.a. 2016](https://pmc.ncbi.nlm.nih.gov/articles/PMC5063692/) | "een tiende", "ongeveer vier vijfde"; V4 |
+| slakkenhuis | basilair membraan smal en stijf bij het begin (hoge tonen), breed en slap bij de top (lage tonen); deze volgorde blijft bewaard tot in de gehoorschors | handboekfeit; nagekeken in de onafhankelijke controle van het script | hoofdstuk 2 |
+| tien-procentmythe | bijna geen gebied te beschadigen zonder functieverlies; tot 20 % van de energie bij 2 % van het gewicht | [Ten percent of the brain myth (Wikipedia)](https://en.wikipedia.org/wiki/Ten_percent_of_the_brain_myth) | V1 |
+| gehoorschors | bovenkant slaapkwab; tonen geordend van laag naar hoog; schade aan één kant geeft licht verlies, aan beide kanten corticale doofheid | [Auditory cortex (Wikipedia)](https://en.wikipedia.org/wiki/Auditory_cortex) | hoofdstuk 2 |
+| auditieve agnosie | wel horen, niet herkennen; bij schade aan beide kanten; soms alleen muziek | [Auditory agnosia (Wikipedia)](https://en.wikipedia.org/wiki/Auditory_agnosia) | V2 |
+| homunculus | schorsoppervlak hangt af van hoe rijk een deel bezenuwd is, niet van de grootte; Penfield, 1937 | [Cortical homunculus (Wikipedia)](https://en.wikipedia.org/wiki/Cortical_homunculus) | hoofdstuk 3 |
+| kippenvel bij muziek | sympathische activatie (huidgeleiding, pupil) en dopamine in het beloningssysteem | [Frisson (Wikipedia)](https://en.wikipedia.org/wiki/Frisson) | alleen de autonome kant |
+
+**Vereenvoudigingen en wat ontbreekt**
+
+Grijze stof zit niet alleen in de schors: diep binnenin liggen ook kernen van grijze stof (thalamus, basale kernen); de doorsnede laat er twee zien. Het hart klopt uit zichzelf (sinusknoop); het verlengde merg regelt alleen het tempo. De plattegrond is een schema: de primaire gehoorschors ligt grotendeels verborgen in de groeve tussen slaap- en wandbeenkwab; thalamus, hypothalamus en hypofyse liggen diep en zijn gestippeld door de schors heen getekend. De associatieve gebieden zijn als vlekken getekend. De route van het gehoor is ingekort (er liggen meer schakelstations in de hersenstam). "Grijs rekent, wit verbindt" is een ezelsbruggetje, geen definitie. De romp wordt vanuit beide helften aangestuurd; de kruising geldt vooral voor armen, benen en gevoel. Taalcentra (Broca, Wernicke) en het limbisch systeem komen niet voor. De verdeling "links logisch, rechts creatief" komt ook niet voor; beide helften doen aan bijna alles mee, wel met accenten. Kippenvel bij muziek gaat ook samen met dopamine in het beloningssysteem (film 4); de film noemt alleen de autonome kant. Brug naar film 4: wankelen na te veel alcohol is een teken dat de kleine hersenen minder goed werken.
+
+**Leerdoelen**
+
+Bouw van de hersenen met kwabben (V1, C1) · grijze en witte stof (C1) · route van een zintuigprikkel (C2) · primaire en associatieve schors per kwab (V2, C2) · kruising (V3, C3) · homunculus: precisie, niet grootte (C3) · kleine hersenen (V4, C4) · hersenstam en hypothalamus (V5, C5) · verdeelde functies, geen baas (V1, C1).
+
+## Techniek: waar zit wat in de HTML
+
+Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; zelfde regelnummers als de film-HTML zelf, 942 regels).
+
+- **`window.FILM_AUDIO`** (r. 519): object `{segment-id: 'data:audio/mpeg;base64,…'}`, één mp3 per gesproken segment. Koppeling id → blob: s00=001.mp3, q1=002.mp3, a1=003.mp3, s21=004.mp3, q2=005.mp3, a2=006.mp3, q3=007.mp3, a3=008.mp3, q4=009.mp3, a4=010.mp3, q5=011.mp3, a5=012.mp3, s70=013.mp3.
+- **`window.FILM`** (r. 520, één lange JSON-regel) met drie delen:
+  - `plan`: `title`, `subtitle`, `series`, `next` (worden door de speler niet gebruikt; de zichtbare titels staan als HTML in `#card-title`/`#card-end` en de `<h1>`), `chapters` (6× `{n,title,verdieping}`), `timeline` (26 items: narration/title/card/countdown/end; kaarten hebben een vaste `dur`, narration-items krijgen hun duur uit `timing`), `questions` ({q, opts[3], correct, misconception}), `cues` (`[woord, n-de keer, soort, tekst]` per segment; soorten: beat, number, recap, term).
+  - `timing[<id>]`: `duration` (s), `speech` ([begin, eind] van de spraak), `phrases` (ondertitelfrasen met `t0`/`t1`), `words` (elk woord met `t0`/`t1`). Bron van de woordtijden (vermoedelijk ElevenLabs-alignment): onbekend (niet in de HTML).
+  - `segments[]`: `{id, chapter, text}` — volledige tekst per segment; **niet gebruikt door de speler** (alleen documentatie).
+- **Speler** (IIFE vanaf r. 524): bouwt `SEGS` uit `plan.timeline` (starttijden opgeteld; narration-duur = `timing.duration`), zet `window.FILM_SEGS` en `window.FILM_CUES` (r. 574). `FILM_CUES` is een opgeloste cuetabel met absolute tijden voor QA; de scènes lezen de cues niet, maar zoeken hun eigen ankerwoorden op met `wt(id, woord, n)` (begintijd van het n-de voorkomen van dat woord in `timing[id].words`).
+- **Audio**: `AUD[id]=new Audio(FILM_AUDIO[id])` (r. 584). De klok (`tick`) volgt `audio.currentTime` tijdens een narration-segment; kaarten en aftellingen lopen op de wandklok. Aan het eind van een fragment springt de speler naar het volgende segment.
+- **Scènes**: `render(T)` kiest per segment op `scene`: `sceneWorld` r. 689, `sceneMicro` r. 703, `sceneRecap` r. 827, `sceneCard` r. 840, `sceneQuestion` r. 848, `sceneReveal` r. 863, `render` r. 872, `tick` r. 890. `sceneMicro` verdeelt per segment: a1→microBouw, s21→microHoren, a2→microHerkennen, a3→microKruis, a4→microMaat, a5→microVanzelf.
+- **Ondertitels**: `renderCaption` toont de lopende frase uit `timing[id].phrases` (frasen < 18 tekens worden met de volgende samengevoegd); in staande stand op de telefoon in `#capband` onder het beeld.
+- **Vragen**: `sceneQuestion` toont `plan.questions[n]` tijdens het q-segment en de aftelling; opties lichten op op vaste fracties 0,30/0,55/0,80 van de duur van het q-segment. `sceneReveal` legt de vraag over het begin van het a-segment en kleurt het juiste antwoord op het woord “antwoord” (tot 3,2 s erna).
+- **Modi**: Leerling (wacht na de aftelling tot er een optie getikt is), Klas (`?modus=klas`; knop “verder”), vinkje “automatisch door”. Ondertitels (C), stem aan/uit (M), volledig scherm (F, met nep-fullscreen voor iPhone). Geen havo/vwo-schakelaar.
+- **Pagina onder de speler**: hoofdstuklijst (gegenereerd uit `plan.chapters`), Begrippen r. 428, Transcript r. 454, Checkvragen r. 477, Voor de docent r. 485, Credits r. 514.
+- **QA**: `window.FILM_API.renderAt(T)` (r. 936) rendert deterministisch één frame.
+
+**Ankerwoorden per segment** (woorden waarop beeld of cues getimed zijn, gevonden in de code en in `plan.cues`; mogelijk niet volledig): 
+
+- `s00`: baas, kippenvel, radio, refrein, tikt, Twee, Waar, Wie
+- `q1`: —
+- `a1`: achterhoofdskwab, Buiten, cellichamen, doorsnede, fabel, Grijs, grijze, grote, hersenbalk, hersenbalk (2e), hersenstam, kleine, kwabben, myeline, ruggenmerg, slaapkwab, verbindt, voorhoofdskwab, wandbeenkwab, witte + “antwoord” (reveal)
+- `s21`: achterhoofdskwab, associatieve, basilair, betekenis, gehoorschors, gehoorzenuw, groeve, hersenstam, hoge, laag, lage, oor, slaapkwab, slakkenhuis, thalamus, toonhoogte, volgorde, voorhoofdskwab, voorhoofdskwab (2e), wandbeenkwab
+- `q2`: —
+- `a2`: geleerd, herkennen, losse, tonen + “antwoord” (reveal)
+- `q3`: —
+- `a3`: groot, handen, homunculus, kruisen, kruislings, lippen, mannetje, rechterhand, rug, strook, Tikken, tong + “antwoord” (reveal)
+- `q4`: —
+- `a4`: bij, Daardoor, evenwicht, kopie, schokkerig, spieren, tel, tiende, tik, vijfde + “antwoord” (reveal)
+- `q5`: —
+- `a5`: ademhaling, autonome, haartjes, hart, hypofyse, hypothalamus, Kippenvel, middenrif, refrein, temperatuur, verlengde + “antwoord” (reveal)
+- `s70`: associatieve, baas, gehoorschors, geleerd, hersenstam, kippenvel, kleine, Links, Lippen, witte
+
+## Zo pas je deze film aan
+
+1. **Tekst in beeld wijzigen** (labels, termen, kaarten): zoek de tekst in de SVG-lagen (`#world`, `#micro`) of in `#cards`; titel- en eindkaart staan als HTML in `#card-title` / `#card-end`. Vraagteksten en opties wijzig je in `plan.questions` (let op: de gesproken vraag in het q-fragment noemt de opties ook).
+2. **Eén alinea opnieuw inspreken**: elk segment is een eigen mp3. Vervang alleen het blob van dat segment (zie tabel hierboven) met dezelfde naam, en vervang in `window.FILM.timing[<id>]` `duration`, `speech`, `phrases` en `words` door de nieuwe tijden (ElevenLabs met timestamps). Pas `segments[].text` en het transcript op de pagina mee aan. De andere segmenten blijven ongemoeid; de starttijden schuiven vanzelf op.
+3. **Let op de ankerwoorden**: de animatie hangt aan woorden via `wt()`. Verdwijnt of verandert een ankerwoord (lijst hierboven), dan geeft `wt` 0 terug en springt dat beeldmoment naar het begin van het segment. Een a-segment moet het woord “antwoord” bevatten (reveal), en het n-de voorkomen telt (`wt(id,woord,2)`).
+4. **Vraag aanpassen**: `plan.questions[n]` (`q`, `opts`, `correct` 0-gebaseerd, `misconception`); het q- en a-fragment opnieuw inspreken als de gesproken tekst niet meer klopt. De aftelling (`cdN`, 8 s) staat in `plan.timeline`.
+5. **Kaarten en pauzes**: de duur van titel-, hoofdstuk- en eindkaart en de aftellingen staat als `dur` in `plan.timeline`.
+6. **Inpakken**: werk in een tijdelijke map met `python3 scripts/filmbron.py uitpakken|inpakken|controleer`; zet geen uitgepakte mappen in de repo.
+
+## Aandachtspunten
+
+- Versie 1.1 (5 oktober 2026): de enige film naast film 1 met een tweede versie; welke wijziging 1.1 bracht is onbekend (niet in de HTML).
+- Credits linken naar `reeks.html`, dat niet in de repo staat (dode link). `plan.series` zegt “film 5 van 7”, films 1–4 nog “van 6”.
+- Docentdeel noemt expliciet wat ontbreekt (Broca/Wernicke, limbisch systeem); de slakkenhuis-tonotopie is ‘handboekfeit, nagekeken in de onafhankelijke controle’ zonder externe link.
+- Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.

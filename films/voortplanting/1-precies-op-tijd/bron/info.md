@@ -1,0 +1,136 @@
+# Van bevruchting tot baby (voorheen Precies op tijd) — bronmap
+
+| Veld | Waarde |
+|---|---|
+| Bestand | films/voortplanting/1-precies-op-tijd.html |
+| Reeks / nummer | Voortplanting (vwo), film 1 "Van bevruchting tot baby"; celdeling zit in de serie Cel |
+| Doelgroep / niveau | vwo bovenbouw; Nectar 4.1 H4 en Biologie voor jou 4 vwo thema 2. Geen Havo/Vwo-schakelaar; `verdieping` staat overal op false (H2 eiwit- vs steroïdhormoon heet in het docentdeel wel "verdieping") |
+| Versie / datum | v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
+| Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2); opname van v1 (september 2026) hergebruikt, zes zinnen in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; vraag H8 begint met "Wat denk je?") |
+| Duur | 19:43 (som van de 12 audioblobs: 1183,4 s), inclusief hoofdstukkaarten, bedenktijd en onthulling die in de audio als stilte zitten |
+| Beeldstijl | Part C-stijlkaart (v4): Schema (navy #1A2740) als hoofdlook, Micro (#121A26) in zoomcirkels; Macro niet gebruikt. Vaste UI-laag, canvas 1920×1080, CAPTION_Y 950. Kleurafspraak: eiwithormonen teal, steroïden/inhibine/AMH paars, bloed koraal, leven groen |
+| Audio-opslag | 12 fragmenten, één per hoofdstuk (Opening + H1–H11), als base64 in de HTML (blobs 006–017.mp3, via `window.__AUDIO`) |
+| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+
+## Opbouw
+Type en look uit de tabel "Hoe de film het uitlegt" op de pagina.
+
+| Begin | Hoofdstuk | Type · look | Kernbeeld |
+|---|---|---|---|
+| 0:00 | Opening · één eicel, één dag | — · Schema | Eicel ± 1 dag, zaadcel ± 5 dagen; negen maanden; organen verbonden door signalen; oma → moeder → jij; titelkaart |
+| 0:42 | H1 Een eicel die wacht | C · Schema → Micro | Oma zwanger, zoom op eierstokjes; voorraad eicellen (logschaal); ongelijke deling met poollichaampje; 1000 zaadcellen per seconde |
+| 2:28 | H2 Signalen van boven | D · Schema met Micro-zoom | Hypothalamus → hypofyse → geslachtsklier; alleen cel met receptor reageert; eiwit- vs steroïdhormoon; Leydig/Sertoli; live terugkoppelmodel |
+| 4:38 | H3 Een wedstrijd tussen follikels | D · Schema | Follikels groeien op FSH; oestrogeen in twee stappen; remming van FSH; dominante follikel |
+| 5:50 | H4 Van rem naar gaspedaal | D · Schema | Remlijn wordt stimuleerlijn; hormoongrafiek op een dagklok (eigen model); eisprong, geel lichaam, menstruatie |
+| 7:48 | H5 De ontmoeting | A · Schema → Micro | Teller 200 miljoen → honderden; capacitatie, zona, acrosoomreactie, calciumgolf, corticale reactie, zygote |
+| 9:43 | H6 Een bericht aan het gele lichaam | C + D · Schema met Micro-zoom | Klieving, blastocyste, innesteling; scenario zonder hCG; zwangerschapstest; placenta neemt over |
+| 11:41 | H7 Dichtbij, maar gescheiden | B · Schema | Vlokken in moederbloed; dunne laag (goud); wat er wel en niet door gaat |
+| 12:45 | H8 Man of vrouw? | D · Schema | Buizen van Wolff en Müller; SRY, AMH, testosteron, DHT; vergelijking op één basislijn |
+| 14:29 | H9 Een lus die zichzelf versterkt | D · Schema | Rek → hypothalamus → oxytocine → wee; geboorte doorbreekt de lus |
+| 15:12 | H10 Ingrijpen in de signalen | I · Schema met Micro-zoom | Pilmodel met stopweek, spiraaltjes, morning-afterpil, mifepriston, condoom; hiv in T-helpercel; bacterie vs virus |
+| 17:11 | H11 Als het niet vanzelf gaat | I · Schema | Keten met schakels; chlamydia en de eileider; ivf-tijdlijn met ICSI; recap; eindkaart |
+
+## Vragen
+Zeven voorspelvragen (basis = vwo; geen aparte niveaus). De vraag wordt ingesproken, daarna 8 s bedenktijd met keuzes op het scherm, dan de onthulling (9 s). Leerling: de film wacht op een antwoord; Klas: wacht op Verder. In de data is bij elke vraag **A** het juiste antwoord (`mis: false`); de opties worden niet geschud.
+
+| Plek (globaal) | Vraag | Opties (juist vet) | Uitleg op het scherm |
+|---|---|---|---|
+| H1, 2:03 | Waarom is het voor een zaadcel juist handig dat hij bijna geen cytoplasma meekrijgt? | **A Een lichte cel kost minder energie en is sneller; het embryo krijgt zijn cytoplasma toch van de eicel.** · B Cytoplasma zou het DNA in de kop van de zaadcel beschadigen. · C Een zaadcel heeft geen energie nodig, dus ook geen cytoplasma. | Alleen DNA afleveren is genoeg: mitochondriën, ribosomen en eiwitten brengt de eicel mee. |
+| H2, 4:10 | Een bodybuilder spuit extra testosteron. Wat gebeurt er met zijn LH, zijn eigen testosteronproductie en zijn zaadcelproductie? | **A LH daalt, de Leydigcellen maken minder testosteron, en de zaadcelproductie daalt.** · B LH stijgt om het extra testosteron te compenseren; de zaadcelproductie blijft gelijk. · C LH blijft gelijk; de zaadcelproductie stijgt, want er is meer testosteron. | Negatieve terugkoppeling: hoog testosteron remt GnRH, LH en FSH. In de zaadbal zakt de concentratie die de Sertolicellen nodig hebben. |
+| H4, 7:20 (met figuur `cycle`) | Lees de grafiek: op welke dag vond de eisprong plaats, welke lijn verraadt dat, en hoe zie je aan progesteron dat er geen zwangerschap is? | **A Rond dag 14, net na de LH-piek; progesteron zakt aan het eind, dus het gele lichaam is afgestorven.** · B Op dag 1, bij het begin van de menstruatie; progesteron blijft de hele cyclus laag. · C Rond dag 14, op de oestrogeenpiek; progesteron blijft hoog, dus ze is zwanger. | De LH-piek gaat ± 36 uur aan de eisprong vooraf. Bij een zwangerschap zou hCG het gele lichaam in leven houden en progesteron hoog blijven. |
+| H5, 9:17 | Een zaadcel die niet gecapaciteerd is, zwemt wel naar de eicel, maar kan haar niet bevruchten. Welke stap gaat er dan mis? | **A De acrosoomreactie: met te veel cholesterol in het membraan komen de enzymen niet vrij.** · B De corticale reactie: de eicel laat de zaadcel niet toe. · C Het zwemmen zelf: de staart werkt niet zonder capacitatie. | Zonder acrosoomreactie komt er geen tunneltje door de zona pellucida, en dus geen versmelting. |
+| H6, 11:15 | Een vrouw doet vier dagen na de bevruchting een zwangerschapstest, en die is negatief. Betekent dat dat ze niet zwanger is? | **A Nee: de innesteling begint pas rond dag 6, en pas daarna komt er hCG in haar bloed en urine.** · B Ja: een test meet hCG, en dat maakt het embryo direct na de bevruchting. · C Nee: de test meet progesteron, en dat stijgt pas later. | Betrouwbaar testen kan vanaf ongeveer de dag van de verwachte menstruatie. |
+| H8, 14:00 | Wat denk je? Een embryo is XY, maar de receptor voor testosteron werkt niet. Heeft deze persoon zaadballen? Een baarmoeder? Zaadleiders? Hoe zien de uitwendige geslachtsorganen eruit? | **A Zaadballen: ja. Baarmoeder: nee. Zaadleiders: nee. Uitwendig: vrouwelijk.** · B Zaadballen: ja. Baarmoeder: ja. Zaadleiders: nee. Uitwendig: vrouwelijk. · C Eierstokken en baarmoeder: zonder werkend testosteron wordt alles vrouwelijk. | SRY werkt, dus zaadballen. Anti-Müllerhormoon werkt via een eigen receptor, dus geen baarmoeder. Testosteron en DHT werken niet: geen zaadleiders, uitwendig vrouwelijk. |
+| H11, 19:00 | Eén: een vrouw vergeet drie dagen haar pil. Leg met terugkoppeling uit waarom ze toch een eisprong kan krijgen. Twee: waarom is een zwangerschapstest vlak na de hCG-injectie van een ivf-behandeling niet betrouwbaar? | **A De spiegels dalen, de rem op FSH valt weg, een follikel rijpt en bij genoeg oestrogeen volgt de LH-piek.** · B Dat kan niet: de pil werkt nog een hele maand door. · C De eisprong komt pas in de stopweek, als de hormonen dalen. | En de tweede vraag: vlak na een hCG-injectie meet een test de injectie zelf, niet een embryo. Pas na ± 2 weken zegt de uitslag iets. |
+
+Checkvragen (examenstijl, statische HTML, antwoorden ingeklapt): 1 ongelijke cytoplasmaverdeling en "bagage" van de eicel · 2 testosteron vs LH (vervoer, receptor) en anabole steroïden · 3 LH-piek door oestrogeen; vergelijking met de weeën · 4 hCG en zwangerschapstest; antistoffen vs afweercellen via de placenta · 5 chlamydia en buitenbaarmoederlijke zwangerschap; FSH, onderdrukker en hCG bij ivf.
+
+## Begrippen
+Statische tabel "Begrippen" (term — betekenis — hoofdstuk). Geen vwo-markering.
+
+- poollichaampje — kleine cel die bij de meiose van de eicel wordt afgesnoerd, met een set chromosomen en bijna geen cytoplasma; sterft af (1)
+- profase I / metafase II — de twee momenten waarop de eicel in de meiose stilstaat: vóór de geboorte tot de LH-piek, en van de eisprong tot de bevruchting (1, 4, 5)
+- hypothalamus / hypofyse — hersendelen die het startsein geven: de hypothalamus maakt GnRH, de hypofyse antwoordt met FSH en LH (2)
+- GnRH — hormoon van de hypothalamus dat de hypofyse aanzet tot de afgifte van FSH en LH; komt in korte stoten (2)
+- FSH — hormoon van de hypofyse dat follikels laat groeien en bij de man de Sertolicellen aanstuurt (2, 3)
+- LH — hormoon van de hypofyse; de LH-piek veroorzaakt de eisprong; zet bij de man de Leydigcellen aan tot testosteron (2, 4)
+- receptor — eiwit dat precies bij één hormoon past; alleen cellen met de receptor reageren (2)
+- eiwithormoon — hormoon dat in bloedplasma oplost, niet door het celmembraan kan en bindt aan een receptor óp het membraan (2)
+- steroïdhormoon — hormoon gemaakt van cholesterol, vetoplosbaar, glipt door het membraan en bindt aan een receptor ín de cel die genen aan- of uitzet (2)
+- Leydigcellen / Sertolicellen — cellen in de zaadbal: Leydigcellen maken testosteron (op LH), Sertolicellen verzorgen de zaadcellen in wording (op FSH en testosteron) en maken inhibine (2, 8)
+- inhibine — hormoon van de Sertolicellen (en van follikels) dat vooral de afgifte van FSH remt (2, 3)
+- negatieve terugkoppeling — een signaal remt zijn eigen oorzaak; de spiegel blijft stabiel (2, 4)
+- positieve terugkoppeling — een signaal versterkt zichzelf; loopt op tot iets de lus doorbreekt (LH-piek, weeën) (4, 9)
+- follikel — blaasje van hulpcellen rond een eicel in de eierstok; maakt oestrogeen (3)
+- dominante follikel — de follikel met de meeste FSH-receptoren, die het bij weinig FSH nog redt en tot de eisprong komt (3)
+- oestrogeen — geslachtshormoon van de follikel: laat het baarmoederslijmvlies aangroeien, remt FSH en lokt bij een langdurig hoge spiegel de LH-piek uit (3, 4)
+- geel lichaam — restant van de follikel na de eisprong; maakt vooral progesteron en leeft zonder hCG ongeveer twaalf dagen (4, 6)
+- progesteron — hormoon van het gele lichaam (later van de placenta): maakt het slijmvlies klaar voor een embryo en remt de hypofyse (4, 6)
+- menstruatie — afstoten van het baarmoederslijmvlies als de progesteronspiegel zakt (4)
+- capacitatie — verandering van het zaadcelmembraan onderweg (cholesterol eruit), nodig om te kunnen bevruchten (5)
+- zona pellucida — stevige mantel van glycoproteïnen rond de eicel (5)
+- acrosoom / acrosoomreactie — blaasje met enzymen in de kop van de zaadcel; bij binding aan de zona komen de enzymen vrij en verteren een tunneltje (5)
+- corticale reactie — korrels onder het eicelmembraan lozen hun inhoud na de calciumgolf; de zona verandert, geen tweede zaadcel (5)
+- zygote — bevruchte eicel met een nieuwe combinatie van 46 chromosomen (5)
+- klievingsdelingen — delingen van het vroege embryo zonder groei: het embryo blijft even groot, de cellen worden kleiner (6)
+- blastocyste — holle bal van cellen rond dag 5: trofoblast (buitenlaag) en binnenste celmassa (6)
+- trofoblast — buitenlaag van de blastocyste; groeit het slijmvlies in, maakt hCG en wordt het kindsdeel van de placenta (6, 7)
+- innesteling — het embryo nestelt zich vanaf ongeveer dag 6 in het baarmoederslijmvlies (6)
+- hCG — hormoon van de trofoblast dat op LH lijkt en aan de LH-receptoren van het gele lichaam bindt; het signaal dat een zwangerschapstest meet (6)
+- placenta — orgaan waar bloed van moeder en kind heel dicht bij elkaar komt, gescheiden door een dunne laag cellen; uitwisseling zonder mengen (7)
+- buizen van Wolff / buizen van Müller — twee stelsels buisjes in elk vroeg embryo; Wolff wordt mannelijk (bijbal, zaadleider, zaadblaasjes), Müller wordt vrouwelijk (eileiders, baarmoeder, bovenste deel vagina) (8)
+- SRY-gen — gen op het Y-chromosoom dat de aanleg omvormt tot een zaadbal (8)
+- anti-Müllerhormoon — hormoon van de Sertolicellen waardoor de buizen van Müller verdwijnen (8)
+- oxytocine — hormoon van de achterkwab van de hypofyse dat de baarmoederwand laat samentrekken; versterkt zichzelf tijdens de bevalling (9)
+- progestageen — nagemaakt progesteron in de pil en het hormoonspiraaltje (10)
+- onttrekkingsbloeding — bloeding in de stopweek van de pil doordat de hormonen wegvallen; geen echte menstruatie (10)
+- T-helpercel — afweercel die de rest van de afweer aanstuurt; doelwit van hiv (10)
+- ICSI — bij ivf: één zaadcel rechtstreeks in de eicel spuiten (11)
+
+## Docentdeel
+Sectie "Voor de docent": leerdoelen 1–12 met hoofdstuk en toetsvraag; tabel "Hoe de film het uitlegt" (zie Opbouw); twaalf misvattingen met waar/hoe (o.a. elke maand nieuwe eicellen, hormoon werkt overal, oestrogeen is remmend, placenta mengt bloed of filtert, test meet progesteron, pil regelt menstruatie, morning-afterpil = abortuspil, zonder testosteron wordt alles vrouwelijk); pauze- en bespreekmomenten (H2 bodybuilder, H4 grafiek schetsen, H8 androgeenongevoeligheid/Jost 1947, H11 test na hCG-injectie); vereenvoudigingen (diploteen, GnRH-puls, model in relatieve eenheden, acrosoomreactie vóór de zona, celverkeer moeder-kind, prostaglandinen, misoprostol, CD4-co-receptor, ivf-protocollen, niet op schaal); practica en werkvormen (preparaten, stierensperma, dialyseslang, zwangerschapstest, signaalkaartjes, ivf-tijdlijn); checkvragen; bronnen en versie.
+
+Getallen achter de film (overgenomen):
+
+| Wat | Waarde | Zo gezegd of getoond | Bron |
+|---|---|---|---|
+| levensduur eicel na de eisprong | 12–24 uur | "ongeveer een dag" | Nectar 4 vwo H4; BvJ 4 vwo thema 2 |
+| overleving zaadcellen in de vrouw | tot ± 5 dagen | "hooguit een dag of vijf" | idem |
+| aantal eicellen (oöcyten) | ± 7 miljoen (20 weken foetaal), 1–2 miljoen (geboorte), ± 300 000 (puberteit), ± 400 eisprongen | staafdiagram op logschaal | Baker 1963 (klassieke schatting); gangbare leerboekwaarden; grote variatie |
+| zaadcelproductie | ± 1000 per seconde (± 100 miljoen per dag) | teller tot 1000 | gangbare schatting; een ronde zaadcelvorming duurt ± 10 weken |
+| zaadcellen per zaadlozing | ± 200 miljoen (40–300 miljoen) | teller 200 000 000 → honderden | WHO-referentiewaarden; leerboek |
+| lengte zaadcel | ± 0,05 mm | "een twintigste millimeter"; schaalbalk ± 50 µm bij de eicel (doorsnede eicel ± 0,1 mm) | leerboek |
+| LH-piek → eisprong | ± 36 uur na het begin van de piek | "ongeveer anderhalve dag"; in het model 1,5 dag | Nectar; klinische literatuur |
+| omslag naar positieve terugkoppeling | oestrogeen ± 2 dagen boven een drempel | "ongeveer twee dagen hoog" | leerboek (vereenvoudigd) |
+| levensduur geel lichaam zonder hCG | ± 12–14 dagen | "ongeveer twaalf dagen"; model: afname vanaf dag 12 | leerboek |
+| cyclusmodel | dag 0 = eerste dag menstruatie; LH-piek dag ± 13, eisprong dag ± 14,5, menstruatie dag ± 28 | grafiek H4 en H10 (met pil) | eigen terugkoppelmodel, relatieve eenheden, vorm gecontroleerd op het schoolboek |
+| klieving | 2, 4, 8, 16 cellen in ± 3 dagen; blastocyste dag 5; innesteling vanaf dag 6 | dagen in de zoomcirkel | leerboek |
+| placenta neemt progesteron over | week 8–10 | tijdlijn in weken | leerboek |
+| geslachtsontwikkeling | tot ± week 6 geen verschil | "tot ongeveer week zes" | Nectar 4 vwo "Man of vrouw?" |
+| onvruchtbaarheid | ± 1 op 6 stellen niet zwanger binnen een jaar | zes paren, één gemarkeerd | leerboek; WHO-schatting ± 1 op 6 |
+| ivf: hCG → punctie | ± 34–36 uur | "± 36 uur later" | klinische protocollen (verschillen per kliniek) |
+
+## Techniek: waar zit wat in de HTML
+Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:nnn@@`; in het echte bestand staat daar base64, regelnummers zijn gelijk).
+
+- **Lettertypen**: regel 5–9, `@font-face` met blobs 001–005.woff2 (Fraunces, Source Sans 3 ×3, IBM Plex Mono). Volledig offline.
+- **Audio**: regel 719, `window.__AUDIO = {"audio/ch_0.mp3": base64, …}` — blob 006 = ch_0 (Opening), 007 = ch_1, … 017 = ch_11. Regel 2376–2386 zet ze bij het laden om in blob-URL's (`ch.audio = URL.createObjectURL(...)`).
+- **Filmdata**: regel 720, `window.FILM = {chapters:[...]}`. Per hoofdstuk: `key`, `title`, `dur` (s), `audio`, `hasQ`, `hasV`, `segments` (`card` 0–3 s, `narr` met `take`, `gap`, `title`, `question` met `q`, `opts[{k,text,mis}]`, `correct`, `count0`/`count1` (bedenktijd), `reveal`, `expl`, optioneel `fig`; `reveal`, `end`, `tail`), `sentences` (`n`, `text`, `t0`, `t1`, `words[{w,t0,t1}]`, `verdieping`, `take`) en `phrases` (ondertitelblokken, = zinnen plus de ingesproken vraag; `w` = woordtijden voor het meekleuren).
+- **Engine** `ENG` regel 721–1070 (Part C-tokens `C` regel 728, `G.text`, `chapterCard`, `endCard` regel 1041, `revealCard`); `COMMON.makeTL(ch)` regel 1072: `TL.W(n, 'woord', occ)` = tijd van een woord in zin n (gooit een fout als het woord niet bestaat), `TL.E(n)`/`TL.B(n)` = eind/begin van zin n, `TL.seg(kind)`, `TL.cue(...)` (QA-lijst van beeldmomenten).
+- **Scènes**: `SCENES['0']` regel 1280, `'1'` 1347, `'2'` 1453, `'3'` 1580, `'4'` 1667 (met dagklok en cyclusmodel), `'5'` 1746, `'6'` 1845, `'7'` 1969, `'8'` 2041, `'9'` 2122, `'10'` 2174, `'11'` 2288; bibliotheek `LIB` (hormoonkleuren `HC`, cyclusmodel, regelkring, organen) vanaf regel 1120. Elke scène legt zijn tijden vast via `W(zin, 'woord')`, dus beeld hangt aan woordtijden.
+- **Transcript** onder de speler: statische HTML regel 291–597 met knoppen `data-ch`/`data-t`; tekst is gelijk aan `sentences[].text` (gecontroleerd: 284 zinnen identiek).
+- **Speler** regel 2387–2676: audio per hoofdstuk is de klok; bij `ended` volgt het volgende hoofdstuk. `gate()` (regel 2547) pauzeert aan het eind van de bedenktijd tot er een antwoord (Leerling) of Verder (Klas) is; instellingen "Automatisch verder" en "Woorden meekleuren" (localStorage `vp1.*`); `?modus=klas`; toetsen spatie, ←/→ (Shift = 30 s), ↑/↓ hoofdstuk, A/B/C, Enter. Smalle schermen: ondertitels en vraagkaart onder het beeld (`#capband`, `#qband`).
+
+## Zo pas je deze film aan
+1. **Eén zin opnieuw inspreken**: de audio is per hoofdstuk één bestand (één `take` per hoofdstuk, bijv. `4a`). Vervang de blob van dat hoofdstuk (bijv. 010.mp3 voor H4) en zet voor dat hoofdstuk `dur`, `segments` (alle t0/t1, `count0/count1/reveal`) en alle `sentences`/`phrases`-tijden opnieuw. Andere hoofdstukken blijven ongemoeid. Pas het statische transcript (regel 291–597) mee aan.
+2. **Na elke tekst- of timingwijziging**: controleer dat elke `W(n, 'woord')` in de scène nog bestaat; een ontbrekend woord geeft een fout en het hoofdstuk tekent niet. Zinsnummers `n` schuiven als je zinnen toevoegt of weghaalt.
+3. **Tekst op het scherm**: zoek de string in de scènefunctie (bijv. `"meiose zelf: zie 'Eén wordt twee'"` in `SCENES['1']`); eindkaartregels in `SCENES['11']` (`E.endCard(...)`), hoofdstuksubtitels via `E.chapterCard`.
+4. **Vraag aanpassen**: `segments[kind=question]` (`q`, `opts`, `correct`, `expl`). Omdat de vraag ingesproken is, betekent een andere vraagtekst ook nieuwe audio voor dat stuk; alleen opties/uitleg wijzigen kan zonder opname.
+5. **Uitspraak**: de pagina noemt de respelling "ha cee gee" voor hCG; de overige stem-invoer staat niet in de HTML. Gebruik bij nieuwe opnames de uitspraaklijst.
+
+## Aandachtspunten
+- Bestandsnaam en index-link heten nog `1-precies-op-tijd`, titel is "Van bevruchting tot baby"; de poster in de speler zegt nog "Precies op tijd" en "Een uitlegfilm in elf hoofdstukken". De index-tegel noemt 19:45, de pagina 19:43.
+- Bij alle zeven voorspelvragen is A het juiste antwoord en de opties worden niet geschud: leerlingen kunnen het patroon leren.
+- Geen Havo/Vwo-schakelaar en geen verdiepingsblokken (`hasV` overal false), terwijl het docentdeel leerdoel 3 (eiwit- vs steroïdhormoon) "verdieping" noemt en de film ook aan BvJ 4 vwo thema 2 / de havo-route op de index wordt gekoppeld.
+- Stemmodel is eleven_multilingual_v2 (opname uit v1), andere films gebruiken eleven_v4; zes zinnen zijn later opnieuw ingesproken, dus binnen een hoofdstuk kunnen klankverschillen hoorbaar zijn.
+- H1 verwijst naar de film "Eén wordt twee" voor de meiose; die film staat niet in de repo (de pagina zegt elders "zie de serie Cel").
