@@ -184,9 +184,10 @@ s06(ctx,t,q){ bg(ctx,'schema'); const tO=q.at('Verschillende'), tH=q.at('hart'),
     pill(ctx,960,100,'orgaan = verschillende weefsels samen, met een eigen taak',C.goud,ramp(t,tO,0.5),30);
     const tk=ramp(t,q.at('taak'),0.5); pill(ctx,420,150,'taak: korter worden',C.koraal,tk,30); });
   const a2=ramp(t,tH-0.3,0.6); if(a2>0.01) alpha(ctx,a2,()=>{ const O=[['hart',q.at('hart'),400,380,()=>heart(400,380,2.6,1,t*6)],['long',q.at('long'),700,380,()=>lungs(700,390,2.2,1,t*3)],['maag',q.at('maag'),1000,380,()=>{ ctx.beginPath(); ctx.ellipse(1000,380,72,52,-0.3,0,6.283); shape(ctx,C.oker,lighten(C.oker,0.25),2); }],['huid',q.at('huid'),1300,380,()=>{ roundRect(ctx,1230,330,150,110,10); shape(ctx,'#C9A27E','#E0BE9C',2); roundRect(ctx,1230,330,150,26,8); shape(ctx,'#E0BE9C','#F0D6B8',1.5); }],['bot',tB,1600,380,()=>bone(1600,380,200,0,1,1.2)]];
-    O.forEach(([n,tt,x,y,fn])=>{ const a=ramp(t,tt,0.5); alpha(ctx,a,()=>{ fn(); text(ctx,n,x,560,fTekst(36,600),C.text,'center'); }); });
-    metaText(ctx,'allemaal organen',960,180,C.grain,'center',28*clamp(ramp(t,tH,0.5),0.01,1));
-    const bq=ramp(t,q.at('hard'),0.6); if(bq>0.01) alpha(ctx,bq,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.7); ctx.fillRect(0,0,W,H); bone(960,470,560,0,1,2.2); pill(ctx,960,720,'zit daar nog leven in?',C.goud,ramp(t,q.at('leven'),0.5),36); }); });
+    const bq=ramp(t,q.at('hard'),0.6);
+    alpha(ctx,1-bq,()=>{ O.forEach(([n,tt,x,y,fn])=>{ const a=ramp(t,tt,0.5); alpha(ctx,a,()=>{ fn(); text(ctx,n,x,560,fTekst(36,600),C.text,'center'); }); });
+      metaText(ctx,'allemaal organen',960,180,C.grain,'center',28*clamp(ramp(t,tH,0.5),0.01,1)); });
+    if(bq>0.01) alpha(ctx,bq,()=>{ bone(960,470,560,0,1,2.2); pill(ctx,960,720,'zit daar nog leven in?',C.goud,ramp(t,q.at('leven'),0.5),36); }); });
 },
 // ---- H2: bot leeft; orgaanstelsels: spijsvertering, ademhaling, bloedvaten; bloed vraag ----
 s08(ctx,t,q){ bg(ctx,'schema'); const tOrg=q.at('Organen'), tBl=q.at('stroomt');
@@ -273,7 +274,7 @@ s16(ctx,t,q){ bg(ctx,'micro'); const tP=q.at('plant');
 s17(ctx,t,q){ bg(ctx,'schema'); const al=[ramp(t,q.at('cel'),0.5),ramp(t,q.at('weefsel'),0.5),ramp(t,q.at('orgaan'),0.5),ramp(t,q.at('orgaanstelsel'),0.5),ramp(t,q.at('organisme'),0.5)];
   trap(al); trapArt(al,t);
   metaText(ctx,'van klein naar groot',120,120,C.grain,'left',26); text(ctx,'Van cel tot lichaam',120,190,fTitel(56),C.text);
-  const sla=ramp(t,q.at('sla'),0.5); alpha(ctx,sla,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.5); ctx.fillRect(0,0,W,H); const R=[['bladmoescel',()=>plantCellV(285,560,70,52,{wall:1,chloro:1,vac:1,kern:1})],['bladmoes',()=>tissue(615,470,90,t)],['blad',()=>{ lettuceLeaf(945,420,120,70,0,3,945,500,G1,V1,{amp:0.06}); }],['wortelstelsel',()=>roots(1275,300,0.5)],['slaplant',()=>slaPlant(1600,400,0.45,{})]]; R.forEach(([n,fn],i)=>{ fn(); metaText(ctx,n,120+i*330+160,H-150,C.groen,'center',24); }); });
+  const sla=ramp(t,q.at('sla'),0.5); alpha(ctx,sla,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.92); ctx.fillRect(0,0,W,H); trap([1,1,1,1,1],false); metaText(ctx,'en de sla',120,120,C.groen,'left',26); text(ctx,'Van cel tot plant',120,190,fTitel(56),C.text); const R=[['bladmoescel',()=>plantCellV(285,560,70,52,{wall:1,chloro:1,vac:1,kern:1})],['bladmoes',()=>tissue(615,470,90,t)],['blad',()=>{ lettuceLeaf(945,420,120,70,0,3,945,500,G1,V1,{amp:0.06}); }],['wortelstelsel',()=>roots(1275,300,0.5)],['slaplant',()=>slaPlant(1600,400,0.45,{})]]; R.forEach(([n,fn],i)=>{ fn(); metaText(ctx,n,120+i*330+160,H-150,C.groen,'center',24); }); });
   const gym=ramp(t,q.at('gymles'),0.5); alpha(ctx,gym,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.75); ctx.fillRect(0,0,W,H); runner(880,800,420,t,1); heart(950,480,1.3,1,t*12); pill(ctx,960,150,'je spieren werken nooit alleen: je hele lichaam doet mee',C.goud,ramp(t,q.at('hele'),0.5),32); });
 },
 // ---- eindkaart: probeer het zelf (speelt 12 s) ----

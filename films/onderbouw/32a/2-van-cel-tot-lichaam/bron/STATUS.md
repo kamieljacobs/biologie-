@@ -18,3 +18,7 @@ Volgende stap na akkoord: opnemen per take (Roos, eleven_v4, stem-invoer "dertig
 - `bouw/cuecheck.py` controleert of elk `q.at('woord',n)` op het bedoelde woord valt; alle cues kloppen op het script v2 (s14 is bij "We zoomen in op één blad" gesplitst in s14/s15; havo/vwo-blok = s16, samenvatting s17, eindkaart s18).
 - Beeldcontrole met geschatte woordtijden: `stijlframes/beeldcheck_v0.jpg`.
 - Nog te doen zodra Kamiel akkoord is: inspreken (14 takes, Roos, eleven_v4; stem-invoer "dertig-duizend", "koolstofdie-oxide"), Scribe-woordtijden, mastering, `build_data.py` (vragen q02/q07/q09/q13 → optie b, eindkaart 12 s), page.html (kop, checkvragen, docentdeel), publiceren + index.html + BRONMAPPEN.
+
+## 13 oktober 2026 (middag): film 1.0 gepubliceerd
+
+Kamiel: "kun je ook 1 en 2 doen?" → ingesproken (14 takes), woordtijden, gemasterd, gebouwd, op de site (`index.html` in deze map), op de homepage (`HOOFDSTUKKEN.kerndoelen.films` + `FILMKUNST`). Keuzes A (bloed-vraag erin) en B (dekweefsel erin) zijn mijn voorstel gevolgd. Zie `info.md`.
