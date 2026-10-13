@@ -36,6 +36,9 @@ def build(n):
     legend=''.join(f'<span><i style="background:{c}"></i>{t}</span>' for c,t in F['legend'])
     page=rd('src/page.tpl')
     for k,v in {'{{TITLE}}':F['title'],'{{HEADMETA}}':F['headmeta'],'{{H1}}':F['film']['title'],'{{LEAD}}':F['lead'],'{{LEGEND}}':legend,'{{CHECKS}}':checks,'{{TEACHER}}':teacher,'{{FOOTER}}':F['footer']}.items(): page=page.replace(k,v)
+    if F.get('oneLevel'):
+        page=page.replace('<span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>\n','')
+        page=page.replace('Havo slaat de vwo-blokken over; <code>?niveau=havo</code> en <code>?modus=klas</code> in de link werken ook.','Deze film heeft één niveau (geen vwo-blokken); <code>?modus=klas</code> in de link werkt ook.')
     page=page.replace('/*FONTS*/',fonts).replace('/*FILMDATA*/',json.dumps(data,ensure_ascii=False)).replace('/*GLOSSARY*/',json.dumps(gl,ensure_ascii=False))
     page=page.replace('/*LIB*/',rd('src/lib.js')+'\n'+rd('src/dnalib.js')).replace('/*SCENES*/',rd(f'src/scenes{n}.js')).replace('/*PLAYER*/',rd('src/player.js'))
     nav=('<nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><a href="../../index.html#dna" id="back" class="terug">← Terug naar DNA</a></nav>'

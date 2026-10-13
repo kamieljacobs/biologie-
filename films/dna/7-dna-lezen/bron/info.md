@@ -5,9 +5,9 @@
 | Bestand | films/dna/7-dna-lezen.html (één zelfstandig bestand; audio en lettertypen ingebed) |
 | Reeks / nummer | DNA, film 7 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; vwo-blokken na hoofdstuk 1 (reverse transcriptase, primerkeuze), hoofdstuk 2 (STR, toevalskans), hoofdstuk 3 (referentiegenoom en variant) en hoofdstuk 4 (SNP's, gedeelde stukken en crossing-over) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (cold case: bloedspoor en stamboomsite); stem eleven_v3 zonder uitspraaktest vooraf |
+| Versie / datum | 1.1 · 13 oktober 2026 — n3, n5, n6, n11 en n25 opnieuw ingesproken met "primer" zoals geschreven (Kamiels keuze); 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (cold case: bloedspoor en stamboomsite); stem eleven_v3 zonder uitspraaktest vooraf |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
-| Duur | gesproken 10:39; speeltijd (zonder wachten bij vragen) vwo 12:03, havo 10:05 |
+| Duur | gesproken 10:34; speeltijd (zonder wachten bij vragen) vwo 11:58, havo 10:00 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
 | Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
 | Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–6, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
@@ -19,10 +19,10 @@ Begintijden in de speler (hoofdstukkaart), vwo en havo.
 |---|---|---|---|---|---|
 | 0:00 | 0:00 | Opening | n0 | I toepassing · Macro | kapotte ruit met bloeddruppels; profiel naast lege databank; dossier de kast in; vergrootglas |
 | 0:34 | 0:34 | Hoofdstuk 1 — Vermeerderen | n3, q4, n5, n6 | A mechanisme + A · Schema | buisje met bloed; rode cellen zonder kern; thermometer met drie standen; strengen los, primers binden, polymerase bouwt; 1 → 2 → 4 → miljard; coronatest (vraag 1) / RNA → reverse transcriptase → DNA → PCR; primers die alleen op virus-DNA passen |
-| 3:06 | 2:34 | Hoofdstuk 2 — Sorteren | n8, n9, q10, n11, n12 | A + B + B · Schema | herhalingen GATA; twee versies (8 en 11); gel met min- en pluspool, korte stukken lopen verder; twintig plekken → streepjescode; bruinvissen (vraag 2) / één of twee banden per plek; alle twintig gelijk < 1 op een miljard; eeneiige tweeling |
-| 5:43 | 4:41 | Hoofdstuk 3 — Lezen | n14, q15, n16, n17 | A mechanisme + B · Schema | gekleurde stopnucleotiden; kopieën van alle lengtes op lengte gesorteerd; laatste blokje lezen; 13 jaar → een dag; NIPT (vraag 3) / stukje naast referentie; afwijking = variant; meeste doen niets |
-| 8:15 | 6:46 | Hoofdstuk 4 — Vinden | n19, q20, n21, n22, n23 | I toepassing + A · Macro + Schema + Schema | profiel niet in databank; stamboomsite; NL vs VS; stamboom naar beneden; achterneef (vraag 4); wattenstaafje, match; knippen en plakken: restrictie-enzym, plasmide, CRISPR / SNP’s op twee chromosomen; gedeeld stuk; crossing-over knipt per generatie |
-| 11:09 | 9:11 | Samenvatting — Terug naar de zaak | n25, n26 | — · Macro + Schema | vier iconen: buisje, gel, kleurenrij, stamboom; brug naar aflevering 8 |
+| 3:00 | 2:29 | Hoofdstuk 2 — Sorteren | n8, n9, q10, n11, n12 | A + B + B · Schema | herhalingen GATA; twee versies (8 en 11); gel met min- en pluspool, korte stukken lopen verder; twintig plekken → streepjescode; bruinvissen (vraag 2) / één of twee banden per plek; alle twintig gelijk < 1 op een miljard; eeneiige tweeling |
+| 5:38 | 4:37 | Hoofdstuk 3 — Lezen | n14, q15, n16, n17 | A mechanisme + B · Schema | gekleurde stopnucleotiden; kopieën van alle lengtes op lengte gesorteerd; laatste blokje lezen; 13 jaar → een dag; NIPT (vraag 3) / stukje naast referentie; afwijking = variant; meeste doen niets |
+| 8:10 | 6:41 | Hoofdstuk 4 — Vinden | n19, q20, n21, n22, n23 | I toepassing + A · Macro + Schema + Schema | profiel niet in databank; stamboomsite; NL vs VS; stamboom naar beneden; achterneef (vraag 4); wattenstaafje, match; knippen en plakken: restrictie-enzym, plasmide, CRISPR / SNP’s op twee chromosomen; gedeeld stuk; crossing-over knipt per generatie |
+| 11:04 | 9:06 | Samenvatting — Terug naar de zaak | n25, n26 | — · Macro + Schema | vier iconen: buisje, gel, kleurenrij, stamboom; brug naar aflevering 8 |
 
 ## Voorspelvragen
 De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling; het antwoord wordt in het volgende segment uitgesproken.
@@ -86,27 +86,27 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 - Meta-tekst staat in kapitalen, behalve eenheden (`metaCase` in de bibliotheek): µm, nm, °C blijven correct.
 - De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
 - Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
-- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3, één take per alinea, spellingen uit de uitspraaklijst (deeënaa, er-en-aa, pee cee er, zjel, praimer(s), krisper, snip(s), es-tee-er(rs), siekwensen/gesiekwenst, rivurs transcriptase, nipt). Take q4 is opnieuw gegenereerd (de eerste bleef in 'generating' hangen). Wachtlijst hieronder voor de verzameltest.
+- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3, één take per alinea, spellingen uit de uitspraaklijst (deeënaa, er-en-aa, pee cee er, zjel, primer(s) zoals geschreven (Kamiels keuze 13 okt; eerste opname met 'praimer' vervangen in n3, n5, n6, n11, n25), krisper, snip(s), es-tee-er(rs), siekwensen/gesiekwenst, rivurs transcriptase, nipt). Take q4 is opnieuw gegenereerd (de eerste bleef in 'generating' hangen). Wachtlijst hieronder voor de verzameltest.
 - Uitspraak-wachtlijst (eerste voorkomen per take; tijd = binnen de take; `FILMDATA.segments[<take>]`):
 
 | woord | take | tijd in take |
 |---|---|---|
 | DNA-profiel | n0 | 0:09.4 |
 | databank | n0 | 0:11.5 |
-| DNA | n3 | 0:05.2 |
-| PCR | n3 | 0:13.1 |
-| polymerase | n3 | 0:20.3 |
-| waterstofbruggen | n3 | 0:30.2 |
-| primers | n3 | 0:37.1 |
-| hittebestendige | n3 | 0:45.2 |
+| DNA | n3 | 0:04.8 |
+| PCR | n3 | 0:12.1 |
+| polymerase | n3 | 0:18.8 |
+| waterstofbruggen | n3 | 0:27.4 |
+| primers | n3 | 0:34.1 |
+| hittebestendige | n3 | 0:42.0 |
 | PCR | q4 | 0:01.3 |
 | PCR | n5 | 0:00.8 |
-| primers | n5 | 0:05.4 |
-| nucleotiden | n5 | 0:08.6 |
+| primers | n5 | 0:04.9 |
+| nucleotiden | n5 | 0:07.9 |
 | DNA | n6 | 0:04.7 |
-| reverse | n6 | 0:11.2 |
-| PCR | n6 | 0:18.2 |
-| primers | n6 | 0:19.5 |
+| reverse | n6 | 0:11.3 |
+| PCR | n6 | 0:17.6 |
+| primers | n6 | 0:19.3 |
 | DNA | n8 | 0:00.7 |
 | PCR | n9 | 0:00.0 |
 | gelelektroforese | n9 | 0:05.8 |
@@ -114,10 +114,10 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 | gel | n9 | 0:12.5 |
 | Bruinvissen | q10 | 0:00.0 |
 | zeehond-DNA | q10 | 0:13.2 |
-| PCR | n11 | 0:12.3 |
-| primers | n11 | 0:13.3 |
-| zeehond-DNA | n11 | 0:14.6 |
-| gel | n11 | 0:16.8 |
+| PCR | n11 | 0:12.6 |
+| primers | n11 | 0:13.8 |
+| zeehond-DNA | n11 | 0:15.0 |
+| gel | n11 | 0:17.2 |
 | STR | n12 | 0:04.9 |
 | DNA | n14 | 0:06.8 |
 | sequencen | n14 | 0:08.6 |
@@ -154,12 +154,12 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 | STR's | n23 | 0:04.9 |
 | SNP's | n23 | 0:06.2 |
 | crossing-over | n23 | 0:20.2 |
-| PCR | n25 | 0:03.4 |
-| primers | n25 | 0:04.4 |
-| gel | n25 | 0:09.8 |
-| sequencen | n25 | 0:17.4 |
-| stopnucleotiden | n25 | 0:19.3 |
-| DNA | n25 | 0:27.9 |
+| PCR | n25 | 0:02.9 |
+| primers | n25 | 0:04.3 |
+| gel | n25 | 0:09.4 |
+| sequencen | n25 | 0:17.0 |
+| stopnucleotiden | n25 | 0:18.6 |
+| DNA | n25 | 0:27.3 |
 | DNA | n26 | 0:00.2 |
 
 - Puzzels: gekozen A (cold case: bloedspoor op een kapotte ruit, profiel niet in de databank, jaren later een achterneef op een stamboomsite; rode draad door alle vier de hoofdstukken, Golden State Killer 2018 als voorbeeld zonder naam). Afgevallen: B (de coronatest als rode draad: nu V1 en het vwo-blok van hoofdstuk 1), C (de NIPT als rode draad: nu V3 en de brug naar aflevering 8).
@@ -171,4 +171,5 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 - Denktijd 12 s bij V2 en V4 (`think`).
 
 ## Wijzigingen
+- 1.1 · 13 okt 2026 — takes n3, n5, n6, n11 en n25 opnieuw ingesproken met 'primer' zoals geschreven in plaats van 'praimer' (Kamiels keuze, zoals in aflevering 2); woordtijden opnieuw berekend; de eerste opnamen staan in de bouwstraat als afl7/raw_v1.
 - 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (o.a. rode bloedcellen zonder kern, drie PCR-temperaturen, reverse transcriptase vóór de primers, niet-coderend DNA, twee STR-versies, PCR-stap in het bruinvisantwoord, drie miljard dollar, NIPT zonder lengtefiltering en als screening, Nederland vs VS bij stamboomsites, restrictie-enzym/plasmide/genetisch gemodificeerd, CRISPR bij sikkelcelziekte) en een didactiek/taal-review (o.a. nieuwe NIPT-checkvraag, opening verraadt de achterneef niet, kortere opties bij V4, lettervolgorde A, B, C, B, slotzinnen 'Terug naar het bloedspoor' / 'Terug naar de zaak'). Beelden nagekeken op stijlframes (frames7.js) en contactsheets vwo en havo; na de bouw de strengscheiding in h1a (li 2) gecorrigeerd (ladder begon te dicht op elkaar) en de derde slotregel ingekort.

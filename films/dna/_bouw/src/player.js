@@ -151,7 +151,7 @@ function init(){
   document.getElementById('verder').onclick=verder;
   document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen && !/iPhone|iPod/.test(navigator.userAgent)){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
-  const setToggle=(id,key)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  const setToggle=(id,key)=>{ const el=document.getElementById(id); if(!el) return; el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
         if(key==='niveau'){ buildTimeline(); buildChapterList(); const i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
   setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('havo',state.niveau==='havo');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;

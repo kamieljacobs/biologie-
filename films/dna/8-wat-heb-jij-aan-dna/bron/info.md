@@ -4,8 +4,8 @@
 |---|---|
 | Bestand | films/dna/8-wat-heb-jij-aan-dna.html (één zelfstandig bestand; audio en lettertypen ingebed) |
 | Reeks / nummer | DNA, film 8 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
-| Doelgroep / niveau | havo + vwo; geen vwo-blokken: slotaflevering op één niveau (havo en vwo), type I toepassing en keuze; de Havo/Vwo-schakelaar verandert niets, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (de film zelf: doosje, dokter, telefoontje); stem eleven_v3 zonder uitspraaktest vooraf |
+| Doelgroep / niveau | havo + vwo; geen vwo-blokken: slotaflevering op één niveau (havo en vwo), type I toepassing en keuze; de Havo/Vwo-schakelaar is verborgen (`oneLevel`), `?niveau=havo`, `?modus=klas` |
+| Versie / datum | 1.1 · 13 oktober 2026 — Havo/Vwo-schakelaar verborgen (één niveau, Kamiel 13 okt); 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (de film zelf: doosje, dokter, telefoontje); stem eleven_v3 zonder uitspraaktest vooraf |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken 9:49; speeltijd (zonder wachten bij vragen) vwo 11:09, havo 11:09 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
@@ -67,10 +67,10 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 
 ## Techniek: waar zit wat in de HTML
 Regelnummers in 8-wat-heb-jij-aan-dna.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
-- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 140. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
-- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 141; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 323.
-- **Scènes**: regel 553; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 680. **Speler**: regel 681 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
+- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 139. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
+- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 140; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 322.
+- **Scènes**: regel 552; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
+- **Begrippen**: `const GLOSSARY` regel 679. **Speler**: regel 680 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
 - **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl8_docent.htmlfrag`.
 
 ## Zo pas je deze film aan
@@ -148,4 +148,5 @@ Regelnummers in 8-wat-heb-jij-aan-dna.html (de base64-audio staat binnen FILMDAT
 - Denktijd 12 s bij alle vier de vragen (`think`).
 
 ## Wijzigingen
+- 1.1 · 13 okt 2026 — Havo/Vwo-schakelaar en de havo-regel in de toetsenuitleg verborgen (`oneLevel` in films.py/build.py), omdat de film geen vwo-blokken heeft (Kamiel: 'als het nutteloos is dan hoeft t niet').
 - 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (klinisch geneticus/ethicus + CE-examinator, 15 punten: o.a. koriander maar deels één gen, diabetes 1,3 × bij een gemiddelde kans van 1 op 3 is geen kleine kans, politie alleen in sommige landen, hielprik dag 3–7 door JGZ/verloskundige en 'schade voorkomt of beperkt', NIPT 21/18/13 en downsyndroom benoemd, beide screening, dragerschapstest via huisarts/klinisch geneticus, borstkanker zonder variant 1 op 7, eierstokken, mannen, Huntington 30–50 jaar en 1 op 5, gerichte test in V3 en dominant, vragengrens verzekeraar, DPYD alleen bij deze kuur, gg-maïs feit/waarde) en een didactiek/taal-review (15 punten: o.a. lettervolgorde C, A, B, C, kortere opties bij V2, V3-afleiders, geen dubbele vraag, 'vinden de meeste mensen' eruit, zus → niet-geteste vader, balans als weegschaal uitgelegd, ondertitels gesplitst, slot 'Het begon in een cel. Het eindigt bij jou.'). Beelden nagekeken op stijlframes (frames8.js, 40 frames) en contactsheet; weegschaalchips vergroot, voet en chromosoomtrio gecorrigeerd, overlappende labels in h3b/h4a/h4b verplaatst.
