@@ -13,7 +13,7 @@ Foto's die al in de catalogus staan (zelfde Flickr-link) worden overgeslagen.
 Draait in GitHub Actions (.github/workflows/microscoopfotos.yml), omdat Claude's eigen
 omgeving Flickr niet kan bereiken.
 """
-import html, io, json, re, sys, time, urllib.request
+import html, io, json, os, re, sys, time, urllib.request
 from pathlib import Path
 from PIL import Image
 
@@ -25,6 +25,7 @@ BRONNEN = MAP / "bronnen.txt"
 MAX_BREEDTE = 2560
 UA = {"User-Agent": "Mozilla/5.0 (biologie-bij-kamiel; microscoopfotos)"}
 USER = "146824358@N03"
+TIJDBUDGET = float(os.environ.get("MAX_MINUTEN", "80")) * 60  # stop netjes vóór de Actions-timeout; de volgende run gaat verder
 
 
 def get(url, binair=False, pogingen=3):
@@ -128,6 +129,8 @@ def main():
     per_id = {fid_van(f): f for f in cat["fotos"] if fid_van(f)}
     ids = {f["id"] for f in cat["fotos"]}
     nieuw = 0
+    start = time.time()
+    op = False
     for regel in BRONNEN.read_text("utf-8").splitlines():
         regel = regel.strip()
         if not regel or regel.startswith("#"):
@@ -137,7 +140,13 @@ def main():
         if filt:
             lijst = [x for x in lijst if re.search(filt, f"{x[0]} {x[1]}", re.I)]
         print(f"{url}: {len(lijst)} foto's")
+        if op:
+            break
         for sectie, bijschrift, fid in lijst:
+            if time.time() - start > TIJDBUDGET:
+                print(f"Tijdbudget op na {nieuw} foto's; de rest volgt in de volgende run.")
+                op = True
+                break
             link = f"https://www.flickr.com/photos/{USER}/{fid}/"
             bestaand = per_id.get(fid)
             if bestaand and bestaand.get("bestand"):

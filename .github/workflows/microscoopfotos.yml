@@ -18,7 +18,7 @@ concurrency:
 jobs:
   ophalen:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 110
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,13 +26,19 @@ jobs:
           python-version: "3.12"
       - run: pip install pillow
       - name: Foto's ophalen
-        run: python3 scripts/haal_microscoopfotos.py | tee tools/virtuele-microscoop/fotos/ophaallog.txt
+        env:
+          MAX_MINUTEN: "80"
+        run: python3 scripts/haal_microscoopfotos.py 2>&1 | tee tools/virtuele-microscoop/fotos/ophaallog.txt
       - name: Opslaan in de repo
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add tools/virtuele-microscoop/fotos
           if git diff --cached --quiet; then echo "Niets nieuws."; exit 0; fi
           git commit -m "Microscoopfoto's opgehaald uit de Berkshire-bibliotheek (CC0)"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 20
+          done
+          exit 1
