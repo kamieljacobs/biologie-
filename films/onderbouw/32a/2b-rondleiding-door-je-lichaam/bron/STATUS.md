@@ -12,3 +12,7 @@ Extra overzichtsfilm in de reeks Kerndoelen onderbouw (32A), besloten op 13 okto
 - Bouw: dezelfde bouwstraat als film 1 en 2; het lichaam-schema uit film 2 (stijlframe `../2-van-cel-tot-lichaam/bron/stijlframes/frame_lichaam.png`) is de basis.
 
 Volgende stap: uitspraaktest (hypofyse, schildklier, urineleiders, lymfeklieren, eierstokken, alvleesklier) en checkpoint; daarna inspreken en bouwen zoals film 2.
+
+## 13 oktober 2026 (middag): film 1.0 gepubliceerd
+
+Kamiel: "kun je ook 1 en 2 doen?" → zonder checkpoint direct ingesproken (16 takes, IPA vooraf opgezocht, wachtlijst in `info.md`), gebouwd, op de site en de homepage. Zie `info.md`.

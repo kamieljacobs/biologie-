@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Een rondleiding door je lichaam · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.basis .term.vwo,body.basis #transcript p.vwo,body.basis .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  /*NAV*/
+  <div class="meta">Biologie bij Kamiel · Kerndoelen onderbouw · film 2b · kerndoel 32A</div>
+  <h1>Een rondleiding door je lichaam</h1>
+  <p>Een dag uit je leven, van binnen bekeken: welk orgaan doet wat, en bij welk orgaanstelsel hoort het?</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Alles is cel"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="basis">Basis</button><button data-v="havovwo">Havo/vwo</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">antwoorden ingeklapt</p>
+    <div class="q"><b>1. Bij welk stelsel?</b> <span class="pts">1 punt</span><p>De lever hoort vooral bij: A. het bloedvatenstelsel · B. het spijsverteringsstelsel · C. het zenuwstelsel.</p>
+      <details><summary>Antwoord</summary><p>B (1). De lever maakt een sap voor het verteren van vet en bewaart voedingsstoffen.</p></details></div>
+    <div class="q"><b>2. Slapend lichaam</b> <span class="pts">1 punt</span><p>Welke organen werken door als je slaapt? A. alleen je hart · B. je hart en je longen, de rest niet · C. bijna allemaal, alleen rustiger.</p>
+      <details><summary>Antwoord</summary><p>C (1).</p></details></div>
+    <div class="q"><b>3. Van orgaan naar stelsel</b> <span class="pts">3 punten</span><p>Zet elk orgaan bij het juiste orgaanstelsel: nieren · longen · hypofyse · maag · lymfeklieren · ruggenmerg.</p>
+      <details><summary>Antwoord</summary><p>nieren: uitscheidingsstelsel; longen: ademhalingsstelsel; hypofyse: hormoonstelsel; maag: spijsverteringsstelsel; lymfeklieren: afweersysteem; ruggenmerg: zenuwstelsel (0,5 per goed antwoord).</p></details></div>
+    <div class="q"><b>4. Urine</b> <span class="pts">2 punten</span><p>Een klasgenoot zegt: "Urine is gewoon het drinken dat je lichaam niet nodig heeft." Leg uit wat er niet klopt. Gebruik de woorden nieren en bloed.</p>
+      <details><summary>Antwoord</summary><p>De nieren maken je bloed schoon (1): afvalstoffen en te veel water gaan uit het bloed, en dat is urine; het is dus geen restje drinken maar afval uit je bloed (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Twee stelsels</b> <span class="vwo-badge">havo/vwo</span> <span class="pts">2 punten</span><p>De alvleesklier hoort bij twee orgaanstelsels. Welke, en waarom?</p>
+      <details><summary>Antwoord</summary><p>Spijsverteringsstelsel: maakt sap dat eten afbreekt (1). Hormoonstelsel: maakt het hormoon insuline (1).</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Doelgroep en niveaus</h3>
+    <p>Onderbouw leerjaar 1–3, gemengde klassen vmbo-t, havo en vwo. Film 2b is de "kaart" bij kerndoel 32A, bullet 2: ± 28 organen één keer gezien, elk met zijn plek en zijn taak in één zin, gegroepeerd per orgaanstelsel. De mechanismen (hoe de nier filtert, hoe een spier werkt) komen in de films 3–8. Het blok over organen die bij twee stelsels horen (eind hoofdstuk 3) is extra voor havo en vwo; in de stand <b>Basis</b> valt het weg.</p>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Deel</th><th>Moment van de dag</th><th>Organen en stelsel</th></tr>
+      <tr><td>Cold open</td><td>6:00, je slaapt</td><td>Voorspelvraag: hoeveel organen werken nu?</td></tr>
+      <tr><td>1 Ochtend</td><td>wekker, ontbijt</td><td>hersenen, ruggenmerg, zenuwen, ogen (zenuwstelsel); mond, slokdarm, maag, dunne en dikke darm, alvleesklier, lever (spijsverteringsstelsel). Vraag: bij welk stelsel hoort de lever?</td></tr>
+      <tr><td>2 Overdag</td><td>fietsen, school, wc, les, pauze buiten</td><td>spieren (spierstelsel), botten en schedel (skelet); neus, luchtpijp, longen (ademhalingsstelsel); hart, bloedvaten (bloedvatenstelsel); nieren, urineleiders, blaas (uitscheidingsstelsel); witte bloedcellen, lymfeklieren (afweersysteem); huid. Vraag: is de huid een orgaan?</td></tr>
+      <tr><td>3 Avond</td><td>moe, groeien, slapen</td><td>huid in doorsnede; hormonen, hypofyse, schildklier (hormoonstelsel); eierstokken, baarmoeder, zaadballen (voortplantingsstelsel). Vraag: hormonen alleen in de puberteit? Slot: het slapende lichaam werkt door; hond en muis; een dag van de plant (wortels, stengel, bladeren, bloem).</td></tr>
+      <tr><td>3 havo/vwo</td><td>—</td><td>alvleesklier, lever en huid horen bij twee stelsels; de stelsels zijn geen losse hokjes</td></tr>
+      <tr><td>Samenvatting</td><td>—</td><td>het lichaam met alle tien stelsels, elk met een werkwoord; de huid beschermt alles</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Organen werken alleen als je ze "gebruikt" (cold open, slot).</li><li>De lever hoort bij de bloedsomloop of is een filter voor het bloed (vraag H1).</li><li>De huid is geen orgaan, maar een laagje of één weefsel (vraag H2).</li><li>Urine is een restje van wat je dronk (H2: de nieren halen afval uit het bloed).</li><li>Hormonen zijn iets van de puberteit (vraag H3).</li><li>Een plant doet niets (slot H3).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Vier voorspelvragen met 8 s denktijd; in Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de samenvatting en laat leerlingen per stelsel één orgaan noemen voordat het label verschijnt; laat ze daarna hun eigen dag van vandaag langs de organen lopen (eindkaart).</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Botten</td><td>"ongeveer tweehonderd" (206 bij een volwassene)</td><td>leerboekwaarde</td></tr>
+      <tr><td>Hartslagen per dag</td><td>"honderdduizend" (≈ 70 per minuut × 1440 minuten ≈ 100 000)</td><td>rekensom</td></tr>
+      <tr><td>Huid</td><td>het grootste orgaan (± 2 m² bij een volwassene; in de film alleen "grootste")</td><td>leerboekwaarde</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>Per orgaan één taak in één zin; de lever heeft er in werkelijkheid honderden.</li><li>Het lichaam-schema is vlak en niet op schaal: nieren en lymfeklieren als symbolen op ongeveer de juiste plek.</li><li>De huid wordt in de basislijn een orgaan zonder stelsel genoemd; in het havo/vwo-blok hoort hij bij afweer/bescherming én uitscheiding.</li><li>De alvleesklier heet in de basislijn alleen "sap dat eten afbreekt"; insuline komt in het havo/vwo-blok.</li><li>"Wat overblijft, gaat de wc in": de dikke darm maakt ontlasting; het woord valt niet.</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Deel</th><th>Vraag</th></tr>
+      <tr><td>Bij ± 28 organen naam, plek en taak herkennen</td><td>basis</td><td>H1–H3</td><td>check 3, eindkaart</td></tr>
+      <tr><td>Elk orgaan bij het juiste orgaanstelsel plaatsen</td><td>basis</td><td>H1–H3, samenvatting</td><td>voorspel 2 (lever), check 1 en 3</td></tr>
+      <tr><td>Organen werken de hele dag, ook in je slaap</td><td>basis</td><td>cold open, slot</td><td>voorspel 1, check 2</td></tr>
+      <tr><td>De vier organen van een plant en hun taak</td><td>basis</td><td>slot H3</td><td>eindkaart</td></tr>
+      <tr><td>Een orgaan kan bij meer dan één stelsel horen</td><td>havo/vwo</td><td>H3-blok</td><td>check 5</td></tr>
+    </table>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 13 oktober 2026.</footer>
+<script>window.FILMDATA=/*FILMDATA*/;</script>
+<script>/*LIB*/</script>
+<script>/*SCENES*/</script>
+<script>
+const GLOSSARY=[
+ {t:'orgaanstelsel',d:'Een groep organen die samenwerken aan één grote taak. De mens heeft er tien.'},
+ {t:'zenuwstelsel',d:'Hersenen, ruggenmerg, zenuwen en zintuigen zoals je ogen: stuurt alles aan en geeft signalen door.'},
+ {t:'spijsverteringsstelsel',d:'Mond, slokdarm, maag, dunne en dikke darm, met alvleesklier en lever: maakt eten klein en neemt voedingsstoffen op.'},
+ {t:'spierstelsel en skelet',d:'Spieren worden korter en trekken aan botten; botten geven vorm, stevigheid en bescherming (schedel).'},
+ {t:'ademhalingsstelsel',d:'Neus, luchtpijp en longen: zuurstof het bloed in, koolstofdioxide eruit.'},
+ {t:'bloedvatenstelsel',d:'Hart en bloedvaten: het hart pompt het bloed rond, tot in je tenen.'},
+ {t:'uitscheidingsstelsel',d:'Nieren, urineleiders en blaas: de nieren halen afvalstoffen en te veel water uit het bloed (urine).'},
+ {t:'afweersysteem',d:'Witte bloedcellen en lymfeklieren: vallen ziekteverwekkers aan.'},
+ {t:'hormoonstelsel',d:'Klieren zoals de hypofyse en de schildklier maken hormonen: stoffen die in je bloed reizen en van alles regelen, je hele leven.'},
+ {t:'voortplantingsstelsel',d:'Eierstokken en baarmoeder, of zaadballen: maken hormonen en in de puberteit eicellen of zaadcellen.'},
+ {t:'huid',d:'Je grootste orgaan: dekweefsel en bindweefsel met zenuwen en bloedvaten. Beschermt en regelt je temperatuur.'},
+ {t:'orgaan bij twee stelsels',d:'De alvleesklier (spijsvertering én hormoonstelsel), de lever (spijsvertering én uitscheiding) en de huid (bescherming én uitscheiding).',vwo:true},
+];
+/*PLAYER*/
+</script>
+</body>
+</html>
