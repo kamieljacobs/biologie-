@@ -28,7 +28,7 @@ jobs:
       - name: Foto's ophalen
         env:
           MAX_MINUTEN: "80"
-        run: python3 scripts/haal_microscoopfotos.py 2>&1 | tee tools/virtuele-microscoop/fotos/ophaallog.txt
+        run: python3 -u scripts/haal_microscoopfotos.py 2>&1 | tee tools/virtuele-microscoop/fotos/ophaallog.txt
       - name: Opslaan in de repo
         if: always()
         run: |

@@ -13,7 +13,7 @@ Foto's die al in de catalogus staan (zelfde Flickr-link) worden overgeslagen.
 Draait in GitHub Actions (.github/workflows/microscoopfotos.yml), omdat Claude's eigen
 omgeving Flickr niet kan bereiken.
 """
-import html, io, json, os, re, sys, time, urllib.request
+import html, io, json, os, re, sys, time, urllib.error, urllib.request
 from pathlib import Path
 from PIL import Image
 
@@ -28,15 +28,31 @@ USER = "146824358@N03"
 TIJDBUDGET = float(os.environ.get("MAX_MINUTEN", "80")) * 60  # stop netjes vóór de Actions-timeout; de volgende run gaat verder
 
 
-def get(url, binair=False, pogingen=3):
+PAUZE = float(os.environ.get("PAUZE_SECONDEN", "4"))  # rust tussen twee Flickr-verzoeken
+
+
+def get(url, binair=False, pogingen=6):
+    """Haalt een pagina of bestand op. Bij HTTP 429 (te veel verzoeken) wacht het script
+    de tijd die Flickr in Retry-After opgeeft, anders oplopend 60, 120, 240 ... seconden."""
     for i in range(pogingen):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
                 data = r.read()
+                time.sleep(PAUZE)
                 return data if binair else data.decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                ra = e.headers.get("Retry-After")
+                wacht = int(ra) if ra and ra.isdigit() else 60 * (2 ** i)
+                wacht = min(max(wacht, 60), 900)
+                print(f"  ! 429 van Flickr, {wacht} s wachten (poging {i+1}/{pogingen})", flush=True)
+                time.sleep(wacht)
+                continue
+            print(f"  ! {url}: HTTP {e.code} (poging {i+1})", flush=True)
+            time.sleep(5 * (i + 1))
         except Exception as e:  # noqa
-            print(f"  ! {url}: {e} (poging {i+1})")
-            time.sleep(3 * (i + 1))
+            print(f"  ! {url}: {e} (poging {i+1})", flush=True)
+            time.sleep(5 * (i + 1))
     return None
 
 
@@ -139,7 +155,7 @@ def main():
         lijst = fotos_op_pagina(url)
         if filt:
             lijst = [x for x in lijst if re.search(filt, f"{x[0]} {x[1]}", re.I)]
-        print(f"{url}: {len(lijst)} foto's")
+        print(f"{url}: {len(lijst)} foto's", flush=True)
         if op:
             break
         for sectie, bijschrift, fid in lijst:
@@ -154,16 +170,15 @@ def main():
                     lic = licentie(fid)
                     bestaand["bron"]["licentie"] = lic
                     bestaand["bron"]["licentieGecontroleerd"] = time.strftime("%Y-%m-%d")
-                    print(f"  = {bestaand['id']}: licentie {lic}" + ("" if lic in TOEGESTAAN else "  !! NIET TOEGESTAAN, verwijderen"))
-                    time.sleep(1)
+                    print(f"  = {bestaand['id']}: licentie {lic}" + ("" if lic in TOEGESTAAN else "  !! NIET TOEGESTAAN, verwijderen"), flush=True)
                 continue
             lic = licentie(fid)
             if lic not in TOEGESTAAN:
-                print(f"  - OVERGESLAGEN {fid} ({bijschrift}): licentie {lic}")
+                print(f"  - OVERGESLAGEN {fid} ({bijschrift}): licentie {lic}", flush=True)
                 continue
             bron_url, ftitel = origineel(fid)
             if not bron_url:
-                print(f"  - geen origineel voor {fid}")
+                print(f"  - geen origineel voor {fid}", flush=True)
                 continue
             data = get(bron_url, binair=True)
             if not data:
@@ -192,8 +207,7 @@ def main():
                                  "status": "compleet" if bestaand.get("beschrijving") else "nieuw"})
                 bestaand.pop("opmerking", None)
                 nieuw += 1
-                print(f"  + {bestaand['bestand']} (bij bestaand item)")
-                time.sleep(1)
+                print(f"  + {bestaand['bestand']} (bij bestaand item)", flush=True)
                 continue
             cat["fotos"].append({
                 "id": fid_naam,
@@ -223,10 +237,9 @@ def main():
             })
             per_id[fid] = cat["fotos"][-1]
             nieuw += 1
-            print(f"  + {bestand} ({img.width}×{img.height}, origineel {ob}×{oh})")
+            print(f"  + {bestand} ({img.width}×{img.height}, origineel {ob}×{oh})", flush=True)
             if nieuw % 10 == 0:
                 CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
-            time.sleep(1)
     CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
     print(f"Klaar: {nieuw} nieuwe foto's. Licentie per foto gecontroleerd op de Flickr-pagina; afwijkers staan hierboven als OVERGESLAGEN.")
 
