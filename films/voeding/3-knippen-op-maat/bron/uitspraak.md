@@ -14,3 +14,5 @@ Uit de test kwamen goed terug, zoals geschreven: amylase, lipase, lactase, malta
 | alle enzymnamen, "ase" | zoals geschreven | kwamen correct terug |
 
 Reeksregels staan in `bouw/uitspraak_subs.json`.
+
+**13 okt (versie 1.1):** nieuwe take s26 blind gecontroleerd; "gedenatureerd", "denatureren", "optimum" en "lichaamstemperatuur" kwamen goed terug (alleen "optimum kromme" los geschreven).

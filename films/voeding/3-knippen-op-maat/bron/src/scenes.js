@@ -26,13 +26,22 @@ function thermometer(ctx, x, y, h, T, a = 1) { if (a <= 0.01) return; ctx.save()
   [0, 37, 60, 80].forEach(v => { const yy = y - v / 90 * (h - 16); ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x + 18, yy); ctx.lineTo(x + 30, yy); ctx.stroke(); text(ctx, String(v), x + 40, yy + 10, fMeta(28), C.text2, 'left'); });
   text(ctx, Math.round(T) + ' °C', x, y + 100, fTekst(44, 600), C.text, 'center'); ctx.restore(); }
 // activiteit van amylase tegen temperatuur (schematisch, 0..1)
-function act(T) { return T <= 38 ? 0.06 + 0.94 * Math.exp(-Math.pow((T - 38) / 24, 2)) : Math.exp(-Math.pow((T - 38) / 11, 2)); }
+// twee effecten: elk werkend enzym knipt sneller als het warmer is (Q10 ≈ 2), en het aandeel werkende (niet-gedenatureerde) enzymen daalt boven ~40 °C
+function rise(T) { return Math.pow(2, (T - 37) / 10); }
+function frac(T) { return 1 / (1 + Math.exp((T - 44) / 3)); }
+let ACTMAX = 0; for (let T = 0; T <= 80; T += 0.25) ACTMAX = Math.max(ACTMAX, rise(T) * frac(T));
+function act(T) { return rise(T) * frac(T) / ACTMAX; }
+let TOPT = 0; for (let T = 0, b = 0; T <= 80; T += 0.25) if (act(T) > b) { b = act(T); TOPT = T; }
+// kans per seconde dat één enzym denatureert (blijvend); per enzym aan of uit
+function kDen(T) { return T < 40 ? 0 : 0.03 * Math.exp((T - 40) / 5); }
 // optimumkromme in een assenstelsel
-function optGrafiek(ctx, x, y, w, h, draw = 1, Tm = null, a = 1, labels = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+function optGrafiek(ctx, x, y, w, h, draw = 1, Tm = null, a = 1, labels = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const deel = (f, col, al) => { if (!(al > 0.01)) return; ctx.save(); ctx.globalAlpha *= al; ctx.setLineDash([10, 9]); ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); for (let T = 0; T <= 80; T++) { if (f(T) > 1.0) break; const px = x + T / 80 * w, py = y - f(T) * h * 0.9; T ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore(); };
+  deel(T => rise(T) / rise(60), C.line, o.rise); deel(frac, C.teal, o.frac);
   ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y - h); ctx.lineTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
   text(ctx, 'temperatuur (°C)', x + w, y + 84, fTekst(36), C.text2, 'right'); ctx.save(); ctx.translate(x - 26, y - h / 2); ctx.rotate(-Math.PI / 2); text(ctx, 'reactiesnelheid', 0, 0, fTekst(36), C.text2, 'center'); ctx.restore();
   [0, 20, 40, 60, 80].forEach(v => { const xx = x + v / 80 * w; text(ctx, String(v), xx, y + 34, fMeta(28), C.text2, 'center'); });
-  ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); const n = Math.round(80 * draw); for (let i = 0; i <= n; i++) { const T = i, px = x + T / 80 * w, py = y - act(T) * h * 0.9; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
+  ctx.save(); ctx.globalAlpha *= (o.hoofd === undefined ? 1 : o.hoofd); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); const n = Math.round(80 * draw); for (let i = 0; i <= n; i++) { const T = i, px = x + T / 80 * w, py = y - act(T) * h * 0.9; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
   if (Tm !== null) { const px = x + Tm / 80 * w, py = y - act(Tm) * h * 0.9; ctx.fillStyle = C.koraal; ctx.beginPath(); ctx.arc(px, py, 12, 0, 6.283); ctx.fill(); }
   ctx.restore(); }
 // tabel stof · enzym · plek · product
@@ -56,16 +65,16 @@ function tabel(ctx, zicht, o = {}) { const { hl = -1, a = 1, hlKol = -1, y0 = 17
   ctx.restore(); }
 // simulatievlak met enzymen en zetmeel; temperatuur T(t) bepaalt snelheid en activiteit
 const SIMS = {};
-function simVlak(ctx, id, t, Tf, o = {}) { const { x = 140, y = 200, w = 900, h = 600, denatVan = 48, n = 7, sub = 14, a = 1 } = o;
+function simVlak(ctx, id, t, Tf, o = {}) { const { x = 140, y = 200, w = 900, h = 600, n = 7, sub = 14, a = 1 } = o;
   if (a <= 0.01) return; if (!SIMS[id]) SIMS[id] = maakSim(id.length * 17 + 3, n, sub, [x + 60, y + 60, w - 120, h - 120]);
-  const sim = SIMS[id]; const st = simStap(sim, t, (tt) => { const T = Tf(tt); return { v: 0.35 + T / 45, werkt: T > denatVan + 6 ? 0 : act(T) * 0.5 }; }, (e, s) => s.soort === 'zetmeel');
+  const sim = SIMS[id]; const st = simStap(sim, t, (tt) => { const T = Tf(tt); return { v: 0.35 + T / 45, werkt: Math.min(0.9, 0.25 * rise(T)), kDen: kDen(T) }; }, (e, s) => s.soort === 'zetmeel');
   ctx.save(); ctx.globalAlpha *= a; microVlak(ctx, x, y, w, h);
   ctx.save(); roundRect(ctx, x, y, w, h, 18); ctx.clip();
-  const T = Tf(t), dn = clamp((T - denatVan) / 15, 0, 1);
+  const nWerk = st.E.filter(e => e.dn < 0).length;
   st.S.forEach(s => { if (s.len < 2) return; if (s.soort === 'eiwit') proteinChain(ctx, coilPath(s.x - 40, s.y, 5, 18, 5), [0, 5, 9, 14, 3], 8); else zetmeelKeten(ctx, s.x - s.len * 11, s.y, s.len, 9, { amp: 4, ph: s.a }); });
   st.prod.forEach(p => maltose(ctx, p.x, p.y, 9, 1, p.a));
-  st.E.forEach((e, i) => enzym(ctx, e.x, e.y, 0.36, { soort: 'amylase', rot: e.a * 0.3, denat: Math.max(dn, o.denat || 0), t: t + i, gloed: e.cd > 0.3 ? 1 : 0 }));
-  ctx.restore(); text(ctx, st.knips + ' knippen', x + w - 30, y + h - 30, fMeta(28) , C.grain, 'right');
+  st.E.forEach((e, i) => enzym(ctx, e.x, e.y, 0.36, { soort: 'amylase', rot: e.a * 0.3, denat: e.dn >= 0 ? clamp((sim.t - e.dn) / 0.7, 0, 1) : 0, t: t + i, gloed: e.cd > 0.3 && e.dn < 0 ? 1 : 0 }));
+  ctx.restore(); text(ctx, st.knips + ' knippen', x + w - 30, y + h - 30, fMeta(28) , C.grain, 'right'); text(ctx, 'werkende enzymen: ' + nWerk + ' van ' + st.E.length, x + 30, y + h - 30, fMeta(28), nWerk < st.E.length ? C.koraal : C.grain, 'left');
   ctx.restore(); return st; }
 function tekenEi(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, 110, 70, 0, 0, 6.283); shape(ctx, '#F2F2EE', C.line, 2); ctx.beginPath(); ctx.ellipse(x + 10, y + 4, 44, 36, 0, 0, 6.283); ctx.fillStyle = C.goud; ctx.fill(); ctx.restore(); }
 function koelkast(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y - 120, 140, 240, 14); shape(ctx, rgba(C.teal, 0.15), C.teal, 2); ctx.strokeStyle = C.teal; ctx.beginPath(); ctx.moveTo(x - 70, y - 30); ctx.lineTo(x + 70, y - 30); ctx.stroke(); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x + 50, y - 90); ctx.lineTo(x + 50, y - 55); ctx.moveTo(x + 50, y); ctx.lineTo(x + 50, y + 50); ctx.stroke(); ctx.restore(); }
@@ -219,11 +228,18 @@ const SCENES = {
     simVlak(ctx, 's24', t, Tf); thermometer(ctx, 1300, 700, 460, Tf(t)); tag(ctx, 'vaker botsen → sneller knippen', 1560, 150, C.goud, q.on('botsen'));
     vraagteken(ctx, 1640, 600, q.on('zestig'));
   },
-  s26(ctx, t, q) { bg(ctx, 'schema'); const t0 = q.at('lichaamstemperatuur'), t1 = q.at('warmer', 2); const Tf = (tt) => tt < t1 ? 37 : 37 + 33 * clamp((tt - t1) / 4, 0, 1); const Td = t < t1 ? lerp(60, 37, ramp(t, t0, 1.2)) : Tf(t);
+  s26(ctx, t, q) { bg(ctx, 'schema'); const tH = q.at('Hoe'), tW = q.at('Wordt');
+    const Tf = (tt) => tt < tW ? 20 + 17 * clamp((tt - tH) / 5, 0, 1) : 37 + 28 * clamp((tt - tW) / 16, 0, 1);
+    const Td = lerp(60, Tf(t), ramp(t, tH, 0.8));
     simVlak(ctx, 's26', t, Tf, { x: 120, y: 200, w: 760, h: 560, n: 6, sub: 10 });
-    optGrafiek(ctx, 1060, 760, 720, 480, ramp(t, 0.2, 2.5), Td, 1);
     text(ctx, Math.round(Tf(t)) + ' °C', 500, 820, fTekst(44, 600), C.text, 'center');
-    tag(ctx, 'optimum', 1060 + 40 / 80 * 720, 220, C.groen, q.on('optimum')); tag(ctx, 'denatureren', 1700, 560, C.koraal, q.on('denatureren'));
+    tag(ctx, 'elk enzym: werkt wel of niet', 500, 150, C.koraal, q.on('wel'));
+    const rA = q.on('bewegen'), fA = q.on('veranderen');
+    optGrafiek(ctx, 1060, 760, 720, 480, ramp(t, 0.2, 2.5), Td, 1, 1, { rise: rA * 0.9, frac: fA * 0.9, hoofd: 0.35 + 0.65 * q.on('Daarom') });
+    tag(ctx, 'optimum', 1060 + TOPT / 80 * 720 - 130, 210, C.groen, q.on('optimum'));
+    ctx.save(); ctx.globalAlpha *= fA; text(ctx, 'werkende enzymen', 1085, 312, fTekst(32, 600), C.teal, 'left'); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= rA; text(ctx, 'per werkend enzym: sneller', 1790, 262, fTekst(32, 600), C.text2, 'right'); ctx.restore();
+    tag(ctx, 'denatureren', 1700, 560, C.koraal, q.on('denatureren') * (1 - q.on('Teken')));
     tag(ctx, 'optimumkromme', 1420, 860, C.goud, q.on('optimumkromme'));
   },
   s27(ctx, t, q) { bg(ctx, 'micro'); const a80 = q.on('verwarmt', 1, 1.6), af = q.on('afkoelen', 1, 2.0); const T = 37 + 43 * a80 - 43 * af;

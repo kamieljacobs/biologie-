@@ -470,16 +470,16 @@ function maakSim(seed, nE, nS, box) { return { seed, nE, nS, box, t: 0, st: null
 function simStap(sim, tDoel, snel, pas = (e, s) => true) {
   const B = sim.box;
   if (!sim.st || tDoel < sim.t) { sim.t = 0; sim.st = { E: [], S: [], knips: 0, prod: [] };
-    for (let i = 0; i < sim.nE; i++) sim.st.E.push({ x: B[0] + hash(sim.seed + i * 3) * B[2], y: B[1] + hash(sim.seed + i * 3 + 1) * B[3], a: hash(sim.seed + i * 3 + 2) * 6.28, cd: 0 });
+    for (let i = 0; i < sim.nE; i++) sim.st.E.push({ x: B[0] + hash(sim.seed + i * 3) * B[2], y: B[1] + hash(sim.seed + i * 3 + 1) * B[3], a: hash(sim.seed + i * 3 + 2) * 6.28, cd: 0, dn: -1 });
     for (let i = 0; i < sim.nS; i++) sim.st.S.push({ x: B[0] + hash(sim.seed + 100 + i * 3) * B[2], y: B[1] + hash(sim.seed + 101 + i * 3) * B[3], a: hash(sim.seed + 102 + i * 3) * 6.28, len: 6, soort: i % 4 === 3 ? 'eiwit' : 'zetmeel' }); }
   const st = sim.st, dt = 1 / 30;
   while (sim.t < tDoel) { sim.t += dt; const sp = snel(sim.t);
     const mv = (p, v, k) => { p.a += (hash(Math.floor(sim.t * 30) * 7 + k) - 0.5) * 0.9; p.x += Math.cos(p.a) * v * dt; p.y += Math.sin(p.a) * v * dt;
       if (p.x < B[0]) { p.x = B[0]; p.a = Math.PI - p.a; } if (p.x > B[0] + B[2]) { p.x = B[0] + B[2]; p.a = Math.PI - p.a; } if (p.y < B[1]) { p.y = B[1]; p.a = -p.a; } if (p.y > B[1] + B[3]) { p.y = B[1] + B[3]; p.a = -p.a; } };
-    st.E.forEach((e, i) => { mv(e, 60 * sp.v, i); if (e.cd > 0) e.cd -= dt; });
+    st.E.forEach((e, i) => { mv(e, 60 * sp.v, i); if (e.cd > 0) e.cd -= dt; if (e.dn < 0 && sp.kDen > 0 && hash(Math.floor(sim.t * 30) * 17 + i * 5 + sim.seed) < sp.kDen * dt) e.dn = sim.t; });
     st.S.forEach((s, i) => mv(s, 40 * sp.v, 50 + i));
     st.prod.forEach((p, i) => { mv(p, 50 * sp.v, 200 + i); p.age += dt; });
-    st.E.forEach(e => { if (e.cd > 0 || sp.werkt <= 0) return; for (const s of st.S) { if (s.len < 2) continue; if (Math.hypot(e.x - s.x, e.y - s.y) < 46) { if (!pas(e, s)) { e.a += Math.PI; break; }
+    st.E.forEach(e => { if (e.cd > 0 || sp.werkt <= 0 || e.dn >= 0) return; for (const s of st.S) { if (s.len < 2) continue; if (Math.hypot(e.x - s.x, e.y - s.y) < 46) { if (!pas(e, s)) { e.a += Math.PI; break; }
           if (hash(Math.floor(sim.t * 30) * 13 + st.knips) < sp.werkt) { s.len -= 2; st.knips++; st.prod.push({ x: s.x, y: s.y, a: e.a + 2, age: 0 }); e.cd = 0.5; } break; } } });
   }
   return st;

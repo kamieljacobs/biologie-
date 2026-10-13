@@ -104,10 +104,10 @@ Hoe snel een enzym knipt, hangt af van de omstandigheden. Eerst de temperatuur. 
 a) nog sneller, want de moleculen botsen vaker  
 b) even snel als bij zevenendertig graden  
 **c) langzamer, want het enzym verliest zijn vorm**  
-Onthulling: Langzamer: bij hoge temperatuur verandert de vorm van het enzym (denatureren). Warmer is niet altijd sneller.
+Onthulling: Langzamer. Elk enzym dat nog werkt, knipt bij 60 °C wel sneller, maar bijna alle enzymen zijn dan gedenatureerd. Warmer is niet altijd sneller.
 
-**s26** · basis · 24.72 s · `../audio/s26.mp3`  
-Antwoord c. Warmer is niet altijd sneller. Rond je lichaamstemperatuur knipt amylase het snelst. Die temperatuur heet het optimum. Wordt het veel warmer, dan verandert de vorm van het enzym. Het actieve centrum past niet meer, en de snelheid daalt snel. Dat heet denatureren. Teken je de reactiesnelheid bij elke temperatuur in een grafiek, dan krijg je een optimumkromme.
+**s26** · basis · 44.72 s · `../audio/s26.mp3`  
+Antwoord c. Warmer is niet altijd sneller. Er gebeuren twee dingen tegelijk. Hoe warmer het is, hoe sneller de moleculen bewegen. Een enzym dat werkt, knipt dan vaker. Rond je lichaamstemperatuur knipt amylase het snelst. Die temperatuur heet het optimum. Wordt het warmer, dan veranderen steeds meer enzymen van vorm. Dat heet denatureren. In een gedenatureerd enzym past het substraat niet meer in het actieve centrum. Dat enzym knipt helemaal niet meer. Een enzym werkt dus wel of niet. Maar hoe heter het wordt, hoe minder enzymen er nog werken. Daarom daalt de snelheid boven het optimum snel. Teken je de reactiesnelheid bij elke temperatuur in een grafiek, dan krijg je een optimumkromme.
 
 **s27** · basis · 8.56 s · `../audio/s27.mp3`  
 Je verwarmt amylase tot tachtig graden. Daarna laat je het afkoelen tot zevenendertig graden. Werkt het enzym dan weer? Wat denk je?
