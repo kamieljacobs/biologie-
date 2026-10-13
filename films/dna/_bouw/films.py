@@ -8,7 +8,7 @@ def old_teacher(fname):  # docentdeel (pauzes, vereenvoudigingen, leerdoelen) st
 def how(rows):
     return ('<details open><summary>Hoe de film het uitlegt</summary><table><tr><th>Hoofdstuk</th><th>Type</th><th>Look (Part C)</th><th>Kernbeeld</th><th>Misconceptie</th></tr>'
             + ''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in rows) + '</table></details>')
-SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen')]
+SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties')]
 def seriesline(cur):
     parts=[]
     for k,(f,t) in enumerate(SERIES,1):
@@ -78,4 +78,20 @@ FILMS={
       ['4 Terugredeneren','G','Schema','CE-vragen in twee kolommen codons; passend paar licht op','het is altijd de tweede base; richting omdraaien'],
       ['Samenvatting','—','Macro → Micro → Schema','zelfde tRNA in bacterie en mens; zelfde keten','—']]),
     'teacher_rest':old_teacher('4-de-genetische-code-lezen.html')},
+ 5:{'file':'5-mutaties.html','title':'Mutaties · DNA aflevering 5','headmeta':'Biologie bij Kamiel · reeks DNA · film 5 van 8 · havo + vwo','lead':'Hoe kan zonlicht je DNA veranderen, en waarom krijgen je kinderen dat niet mee? Over schade en herstel, wat één andere base met een eiwit doet, en erfelijk of niet. Onderdelen met <span class="tag">vwo</span> zijn alleen vwo-stof; in de havo-stand worden ze overgeslagen.',
+    'film':{'title':'Mutaties','sub':'DNA · aflevering 5','puzzle':'Een middag te lang in de zon. \'s Avonds rood, een week later vervellen, en jaren later een plekje dat niet geneest. Hoe kan licht je DNA veranderen?','meta':'dna 5/8','titleLook':'micro',
+            'mini':{'Hoofdstuk 1 — Hoe ontstaat een mutatie?':'Wat doet UV met je DNA?','Hoofdstuk 2 — Wat doet één andere base?':'Stil, ander aminozuur of stop?','Hoofdstuk 3 — Van één base naar een ziek mens':'Van molecuul tot organisme','Hoofdstuk 4 — Erfelijk of niet?':'Huidcel of geslachtscel?','Samenvatting — Terug naar het strand':'Wat neem je mee van het strand?'},
+            'endLines':['Schade is nog geen mutatie; wat na herstel blijft staan, wel.','Eén andere base: soms niets, soms een ander aminozuur, soms een eiwit dat te vroeg stopt.','In een huidcel blijft de mutatie bij jou; in een geslachtscel kan je kind hem erven.'],'endHaak':'smeren = DNA-bescherming','next':'Volgende: genen aan en uit',
+            'footer':'biologie bij kamiel · reeks dna 5/8 · stem: roos (elevenlabs) · versie 1.0 · oktober 2026'},
+    'legend':LEGEND+[('#5BA4C9','RNA (mRNA)'),('#C9A35C','aminozuur / eiwit / koper'),('#E0B64A','UV-licht')],'seriesline':seriesline(5),'footer':FOOT.format(extra=', IKNL Huidkanker in Nederland 2025, CvTE havo 2019-II, 2022-II, 2024-II en 2025-II (geparafraseerd)').replace('Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).','Versie 1.0 · 13 oktober 2026.').replace('eleven_multilingual_v2','eleven_v3'),
+    'teacher_how':how([
+      ['Opening','I toepassing','Macro (strand)','figuur met rode huid, het plekje, het getal 75 000','—'],
+      ['1 Hoe ontstaat een mutatie?','A mechanisme','Micro','UV-straal plakt twee T\'s aan elkaar (koraal klem); herstelenzym; cellen die zichzelf opruimen; polymerase zet een verkeerde base tegenover de schade; dochtercellen','UV geeft meteen een mutatie; schade = mutatie; een mutatie ontstaat omdat de cel het nodig heeft'],
+      ['2 Wat doet één andere base?','G redeneerstappen','Schema','substitutie/insertie/deletie op een tegelrij; codontabel met stil, ander aminozuur, stop; EEN KAT EET VIS per drie','elke mutatie verandert het eiwit; één base eraf maakt het eiwit één base korter'],
+      ['2 vwo: leesraam <span class="tag">vwo</span>','B structuur','Schema','leesraamhaken; genlineaal promotor · exon · intron · exon','mutaties buiten exons doen nooit iets'],
+      ['3 Van één base naar een ziek mens','G + organisatieniveaus','Schema','DNA → mRNA → codon → aminozuur; histidine- en glutaminecodons; vier kaarten molecuul → cel → orgaan → organisme','een ander aminozuur vraagt drie andere basen'],
+      ['4 Erfelijk of niet?','A + I','Schema, Macro met zoomcirkel','niet-scheiden in de meiose; bevruchte eicel → alle cellen; plukje huid; ei → kuiken tegenover kip in de zon; vier zomers; rem kapot → tumor','zonnebrand van de ouder komt in het kind; één mutatie = kanker'],
+      ['4 vwo: gas en rem <span class="tag">vwo</span>','A','Schema','gaspedaal (proto-oncogen) en rempedaal (tumorsuppressorgen); p53; erfelijke eerste hit','dominant erfelijk = één allel is altijd genoeg'],
+      ['Samenvatting','—','Macro (strand) + Schema','paneel met vijf regels; huidcel en levercel met andere genen aan','mutaties zijn altijd slecht']]),
+    'teacher_rest':old_teacher('5-mutaties.html')},
 }

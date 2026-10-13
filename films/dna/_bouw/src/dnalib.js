@@ -198,3 +198,30 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 function person(ctx,x,y,h,alpha=1,o={}){ const look=(typeof PERSON_LOOK!=='undefined')?PERSON_LOOK:{}; return personReal(ctx,x,y,h,alpha,Object.assign({},look,o)); }
+
+// ---- shared with films 4+ (moved from scenes4.js on 13 Oct 2026) ----
+const CODE=(()=>{ const B='UCAG', aa='Phe Phe Leu Leu Ser Ser Ser Ser Tyr Tyr stop stop Cys Cys stop Trp Leu Leu Leu Leu Pro Pro Pro Pro His His Gln Gln Arg Arg Arg Arg Ile Ile Ile Met Thr Thr Thr Thr Asn Asn Lys Lys Ser Ser Arg Arg Val Val Val Val Ala Ala Ala Ala Asp Asp Glu Glu Gly Gly Gly Gly'.split(' ');
+  const m={}; let k=0; for(const a of B) for(const b of B) for(const c of B){ m[a+b+c]=null; }
+  // fill in order: first base, second base, third base — the string above is ordered first, then (second, third)
+  k=0; for(const a of B) for(const b of B) for(const c of B){ m[a+b+c]=aa[B.indexOf(a)*16+B.indexOf(b)*4+B.indexOf(c)]; }
+  return m; })();
+const AANAAM={Met:'methionine',Phe:'fenylalanine',Val:'valine',Leu:'leucine',His:'histidine',Cys:'cysteïne',Ser:'serine',Ala:'alanine',Gly:'glycine'};
+function macroBg(ctx){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); ctx.fillStyle=C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0,720); ctx.quadraticCurveTo(480,640,960,700); ctx.quadraticCurveTo(1440,760,1920,680); ctx.lineTo(1920,H); ctx.lineTo(0,H); ctx.fill(); ctx.fillStyle=C.bgMacroFront; ctx.fillRect(0,820,W,H-820); }
+// codon table (Schema card): rows = first base, columns = second base, lines = third base
+function codonTable(ctx,x,y,o={}){ const B='UCAG', cw=o.cw||300, lh=o.lh||42, ph=lh*4+16, a=o.alpha==null?1:o.alpha; if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a;
+  const hl=o.hl||{}; // codon -> colour
+  M(ctx,'tweede base',x+60+cw*2,y-58,{align:'center',color:C.text2}); M(ctx,'eerste',x+24,y-58,{align:'center',color:C.text2}); M(ctx,'derde',x+60+cw*4+44,y-58,{align:'center',color:C.text2});
+  for(let j=0;j<4;j++) T(ctx,B[j],x+60+cw*j+cw/2,y-14,40,{w:700,align:'center',color:RC[B[j]]});
+  for(let i=0;i<4;i++){ const yy=y+i*ph; T(ctx,B[i],x+24,yy+ph/2+14,40,{w:700,align:'center',color:RC[B[i]]});
+    for(let j=0;j<4;j++){ const xx=x+60+cw*j; box(ctx,xx+4,yy+4,cw-8,ph-8,10,rgba(C.fill,0.9),rgba(C.line,0.5),1);
+      for(let k=0;k<4;k++){ const cod=B[i]+B[j]+B[k], aaN=CODE[cod], ly=yy+12+lh*k+lh*0.72; const h=hl[cod];
+        if(h){ box(ctx,xx+10,yy+12+lh*k,cw-20,lh-4,8,rgba(h,0.25),h,2); }
+        const dim=o.dimOthers&&!h&&!(o.keep&&o.keep.includes(aaN));
+        T(ctx,cod,xx+22,ly,34,{w:700,color:dim?rgba(C.text2,0.5):C.text}); T(ctx,aaN,xx+cw-22,ly,34,{align:'right',color:aaN==='stop'?C.koraal:(dim?rgba(C.text2,0.5):C.text2)}); } }
+    T(ctx,'',x,yy,10); }
+  for(let i=0;i<4;i++) for(let k=0;k<4;k++) T(ctx,B[k],x+60+cw*4+44,y+i*ph+12+lh*k+lh*0.72,30,{align:'center',color:C.text2});
+  ctx.restore(); }
+// ---- shared helpers for the reading chapters ----
+function tileRow(ctx,x0,y,sq,o={}){ const dx=o.dx||96; for(let i=0;i<sq.length;i++){ const m=o.mark&&o.mark(i); tile(ctx,x0+i*dx,y,sq[i],{w:o.w||80,h:o.h||92,px:o.px||52,rna:o.rna!==false,alpha:(o.alpha==null?1:o.alpha)*(o.dim&&o.dim(i)?0.35:1),mark:m||null}); } }
+function bracket(ctx,x1,x2,y,col,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke(); if(lab) M(ctx,lab,(x1+x2)/2,y+50,{align:'center',color:col}); ctx.restore(); }
+function aaBead(ctx,x,y,name,k,alpha=1,col){ if(alpha<=0.01) return; aa(ctx,x,y,40,k,'',alpha); if(col){ ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,40,col,lighten(col,0.3),2); ctx.restore(); } T(ctx,name,x,y+13,34,{w:700,align:'center',color:C.bgMicro,alpha}); }

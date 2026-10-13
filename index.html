@@ -598,6 +598,14 @@ const HOOFDSTUKKEN = {
     "bij": "Film · DNA-reeks · havo + vwo"
    },
    {
+    "href": "films/dna/5-mutaties.html",
+    "titel": "Mutaties",
+    "vraag": "Hoe kan zonlicht je DNA veranderen, en waarom erven je kinderen dat niet?",
+    "tekst": "Van zonnebrand tot huidkanker: schade en herstel, wat één andere base met een eiwit doet, en erfelijk of niet",
+    "duur": 10,
+    "bij": "Film · DNA-reeks · havo + vwo"
+   },
+   {
     "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
     "titel": "Op maat gekopieerd · PCR",
     "vraag": "Hoe maak je van een spoortje DNA genoeg om te onderzoeken?",
@@ -1274,6 +1282,7 @@ const FILMKUNST = {
 '1-wat-is-dna':`<circle cx="24" cy="24" r="19" stroke-width="1.5"/><path d="${[...Array(17)].map((_,i)=>{const y=10+i*1.75,x=24+7*Math.sin(i/16*Math.PI*2);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join('')}" stroke-width="1.5"/><path d="${[...Array(17)].map((_,i)=>{const y=10+i*1.75,x=24-7*Math.sin(i/16*Math.PI*2);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join('')}" stroke-width="1.5"/><path d="M19 14h10M19 34h10" class="acc" stroke-width="1.2"/>`,
 '2-dna-kopieren':`<path d="M24 44V24M24 24L10 6M24 24l14-18" stroke-width="1.6"/><path d="M20 44V26M28 44V26" stroke-width=".9" opacity=".6"/>${[30,34,38,42].map(y=>`<path d="M20 ${y}h8" stroke-width="1"/>`).join('')}<path d="M14 6l14 18" stroke-width="1.3" class="acc" transform="translate(-6 2)"/><path d="M34 6L20 24" stroke-width="1.3" class="acc" transform="translate(6 2)"/>`,
 '4-de-genetische-code-lezen':`<circle cx="24" cy="8" r="4" stroke-width="1.4" class="acc"/><path d="M24 12v4M12 28v-8q0-4 6-4h12q6 0 6 4v8z" stroke-width="1.5"/>${[17,24,31].map(x=>`<path d="M${x} 28v6" stroke-width="1.6" class="acc"/><path d="M${x} 36v4" stroke-width="1.2"/>`).join('')}<path d="M4 41h40" stroke-width="1.5"/>`,
+'5-mutaties':`<circle cx="36" cy="10" r="5" stroke-width="1.4" class="acc"/>${[0,1,2].map(i=>`<path d="M${30-i*4} ${14+i*2}l-4 4" stroke-width="1" class="acc"/>`).join('')}<path d="M6 20h28M6 40h28" stroke-width="1.6"/>${[10,17,24,31].map(x=>`<path d="M${x} 20v6M${x} 40v-6" stroke-width="1.3"/>`).join('')}<path d="M17 26h7" stroke-width="2" class="acc"/>`,
 '3-van-dna-naar-eiwit':`<path d="M4 34h40" stroke-width="1.5"/>${[8,13,18,23,28,33,38].map(x=>`<path d="M${x} 34v-3" stroke-width="1"/>`).join('')}<ellipse cx="22" cy="28" rx="9" ry="5.5" stroke-width="1.5"/><ellipse cx="22" cy="37" rx="11" ry="5" stroke-width="1.5"/>${[0,1,2,3,4].map(i=>`<circle cx="${24+i*4}" cy="${20-i*3.2}" r="2.4" stroke-width="1.2" ${i%2?'class="acc"':''}/>`).join('')}`,
 '1-op-maat-gekopieerd':`<path d="M14 4h8v30a4 4 0 0 1-8 0z" stroke-width="1.5"/><path d="M14 20h8" stroke-width="1" opacity=".6"/><path d="M30 14h4M32 12v4M30 24h4M32 22v4M38 14h4M40 12v4M38 24h4M40 22v4M30 34h4M32 32v4M38 34h4M40 32v4" stroke-width="1.3" class="acc"/><path d="M18 26c-1-2 1-3 0-5" stroke-width="1.1"/>`,
 '2-op-lengte-gesorteerd':`<rect x="8" y="4" width="32" height="40" rx="2" stroke-width="1.5"/>${[13,22,31].map(x=>`<rect x="${x}" y="8" width="5" height="2.5" stroke-width="1"/>`).join('')}${[[13,16],[13,28],[22,20],[22,34],[31,16],[31,24],[31,38]].map(([x,y],i)=>`<path d="M${x} ${y}h5" stroke-width="2.2" ${i===4||i===0?'class="acc"':''}/>`).join('')}`,

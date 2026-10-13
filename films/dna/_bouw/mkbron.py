@@ -21,12 +21,71 @@ def timeline(segs,niv):
 fmt=lambda x:f'{int(x//60)}:{int(x%60):02d}'
 PP='- 12 okt 2026 (later) — nieuwe mensfiguur in opening en samenvatting: met huidskleur, zachte ronde vormen, vriendelijk gezicht (personReal in dnalib); speler: denktijd per vraag instelbaar.'
 CC='- 2.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma/dubbele punt, nooit midden in “van 3′ naar 5′”; opnieuw gebouwd, beeld en audio ongewijzigd.'
-VWO={4:'vwo-blokken in hoofdstuk 1 (anticodon, laadenzymen, ribosomaal RNA), hoofdstuk 3 (coderende streng en matrijsstreng) en de samenvatting (gen zonder introns)',1:'hoofdstuk 4 is een vwo-blok',2:'hoofdstuk 4 is een vwo-blok',3:'vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag)'}
-VERSIE={4:'1.1 · 12 oktober 2026 — opnieuw ingesproken met eleven_v3 (Nederlandse aminozuren); 1.0 eerste versie, Part C (prompt v5); opening = puzzel A (insuline uit een bacterie); oefenaflevering met CE-vragen',1:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',2:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',3:'1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin)'}
+VWO={5:'vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie)',4:'vwo-blokken in hoofdstuk 1 (anticodon, laadenzymen, ribosomaal RNA), hoofdstuk 3 (coderende streng en matrijsstreng) en de samenvatting (gen zonder introns)',1:'hoofdstuk 4 is een vwo-blok',2:'hoofdstuk 4 is een vwo-blok',3:'vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag)'}
+VERSIE={5:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf',4:'1.1 · 12 oktober 2026 — opnieuw ingesproken met eleven_v3 (Nederlandse aminozuren); 1.0 eerste versie, Part C (prompt v5); opening = puzzel A (insuline uit een bacterie); oefenaflevering met CE-vragen',1:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',2:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',3:'1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin)'}
 _W12=PP+'\n'+CC+'\n- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: {}\n- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.'
-WIJZ={4:'- 1.1 · 12 okt 2026 — tRNA-kringloop (h1b) opnieuw: één tRNA gaat zichtbaar de kring rond (pakt valine, klikt op G-U-G, valine gaat naar de keten, het tRNA vertrekt leeg met een gestippeld leeg haakje); “vaste combinatie” anticodon C A C → valine plus een rijtje anticodon → aminozuur (h1b li 5–6), met een nieuwe gesproken zin in n5 (“Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine.”); tRNA overal dezelfde opname; anticodon en codon grijpen nu precies in elkaar (`trnaY()`).; alle 20 takes opnieuw ingesproken met eleven_v3 en Nederlandse uitspraak van de aminozuren (na 9 uitspraakrondes met Kamiel); woordtijden opnieuw berekend; spraak nu ≈ 505 s (vwo).\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (13 punten, o.a. stopcodon telt mee in het mRNA; A G U als tweede mogelijkheid) en een didactiek/taal-review (15 punten, o.a. "Antwoord C." vooraf, hergebruik van tRNA als werktuig). Beelden nagekeken op contactsheets vwo en havo.',1:_W12.format('schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.'),2:_W12.format('de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'),
+WIJZ={5:'- 1.0 · 13 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stille mutatie in de Wilson-vraag, variatie voor havo, leesraamdefinitie, asbest eruit) en een didactiek/taal-review (15 punten, o.a. afleiders V1/V2/V4, NF2-vraag naar de pagina, genoommutatie naar hoofdstuk 4). Beelden nagekeken op contactsheets vwo en havo.',4:'- 1.1 · 12 okt 2026 — tRNA-kringloop (h1b) opnieuw: één tRNA gaat zichtbaar de kring rond (pakt valine, klikt op G-U-G, valine gaat naar de keten, het tRNA vertrekt leeg met een gestippeld leeg haakje); “vaste combinatie” anticodon C A C → valine plus een rijtje anticodon → aminozuur (h1b li 5–6), met een nieuwe gesproken zin in n5 (“Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine.”); tRNA overal dezelfde opname; anticodon en codon grijpen nu precies in elkaar (`trnaY()`).; alle 20 takes opnieuw ingesproken met eleven_v3 en Nederlandse uitspraak van de aminozuren (na 9 uitspraakrondes met Kamiel); woordtijden opnieuw berekend; spraak nu ≈ 505 s (vwo).\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (13 punten, o.a. stopcodon telt mee in het mRNA; A G U als tweede mogelijkheid) en een didactiek/taal-review (15 punten, o.a. "Antwoord C." vooraf, hergebruik van tRNA als werktuig). Beelden nagekeken op contactsheets vwo en havo.',1:_W12.format('schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.'),2:_W12.format('de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'),
  3:PP+'\n- 1.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma.\n- 1.0.2 · 12 okt 2026 — tRNA’s sluiten nu precies op het codon aan (anticodonbasen grijpen in de codonbasen; eerst hingen ze iets te hoog of schoven ze erin). Helper `trnaY()` in `src/dnalib.js`.\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA\'s, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon). Dezelfde dag: n17 opnieuw ingesproken, de wiebelbase is de derde base van het codon (niet van het anticodon).'}
-AANDACHT={4:"""- Uitspraak (rondes 1–9 met Kamiel, 12 okt): opgenomen met ElevenLabs **eleven_v3** (niet multilingual_v2: die gaf de uitgang '-ine' Frans of als 'valinuu'). Aminozuren in de stem-invoer: vaaline, meetioonine, leussine, histiedine, seerine, aalaanine, feenyl-alanine; cysteïne zoals geschreven. De uitgang moet klinken als in 'verwenne' (/vaːˈli.nə/). Afgekeurd: 'valie-nuh'-spellingen (rondes 1–7), 'valienuh' zonder streepje. Verder 'codon tabel' los, losse codons met streepjes, DNA als 'deeënaa', tRNA als 'tee-er-en-aa'.
+AANDACHT={5:"""- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3 en de spellingen uit de uitspraaklijst; nieuwe woorden staan op de wachtlijst hieronder voor een latere verzameltest over meerdere films. Ronde 1 van de test (18 zinnen, `uitspraaktest_afl5_ronde1.mp3`) is wel gemaakt maar niet beoordeeld.
+- Uitspraak-wachtlijst (tijd = binnen de take; `FILMDATA.segments[<take>]`):
+
+| woord | take | tijd in take |
+|---|---|---|
+| vijfenzeventigduizend | n0 | 0:17.3 |
+| DNA | n0 | 0:24.1 |
+| DNA | n3 | 0:20.4 |
+| UV | n3 | 0:26.1 |
+| UV-licht | q4 | 0:00.0 |
+| DNA | q4 | 0:01.9 |
+| UV-licht | n5 | 0:01.2 |
+| T's | n5 | 0:10.0 |
+| DNA | n5 | 0:32.4 |
+| UV | n6 | 0:00.5 |
+| Röntgenstraling | n6 | 0:01.9 |
+| radioactieve | n6 | 0:03.3 |
+| DNA | n6 | 0:05.3 |
+| mutagene | n6 | 0:17.8 |
+| substitutie | n8 | 0:10.4 |
+| insertie | n8 | 0:13.9 |
+| deletie | n8 | 0:17.0 |
+| DNA | n8 | 0:19.7 |
+| mRNA | n8 | 0:22.4 |
+| substitutie | q9 | 0:00.3 |
+| mRNA | q9 | 0:04.6 |
+| valine | n10 | 0:03.4 |
+| glutaminezuur | n10 | 0:17.3 |
+| tryptofaan | n10 | 0:27.8 |
+| mRNA | n11 | 0:19.7 |
+| deletie | n11 | 0:21.3 |
+| leesraam | n12 | 0:09.7 |
+| leesraamverschuiving | n12 | 0:14.0 |
+| promotor | n12 | 0:20.1 |
+| mRNA | n12 | 0:21.9 |
+| intron | n12 | 0:24.2 |
+| glutamine | n14 | 0:15.0 |
+| histidine | n14 | 0:16.3 |
+| DNA | n16 | 0:02.4 |
+| mRNA | n16 | 0:04.6 |
+| Histidine | n16 | 0:11.1 |
+| glutamine | n16 | 0:24.5 |
+| meiose | n19 | 0:02.7 |
+| Down | n19 | 0:11.5 |
+| 21 | n19 | 0:13.5 |
+| genoommutatie | n19 | 0:15.4 |
+| chromosoommutatie | n20 | 0:12.3 |
+| tumor | n24 | 0:26.8 |
+| proto-oncogenen | n25 | 0:05.4 |
+| tumorsuppressorgenen | n25 | 0:18.3 |
+| tumorsuppressorgen | n25 | 0:25.2 |
+| p53 | n25 | 0:27.3 |
+| UV | n27 | 0:01.4 |
+| DNA | n29 | 0:02.0 |
+
+- CE-vragen geparafraseerd (havo 2019-II v2, 2025-II v5; op de pagina 2024-II v45, 2022-II v32, 2019-II v31); antwoorden zelf uitgewerkt, correctievoorschriften niet ingezien.
+- UV-schade is vereenvoudigd tot 'basen aan elkaar, meestal twee T\'s' en 'soms een verkeerde base'; vervellen tot 'cellen die zichzelf opruimen' (zie docentdeel).
+- Lengte: spraak vwo ≈ 10:25, havo ≈ 8:30; langer dan afl. 4. Kandidaten om in te korten: h3c (vier niveaus) en het p53-blok (h4v).
+- Nieuwe bibliotheekobjecten (scenes5.js): beachBg, sun, uvRay, dimerMark, chromo, cellS, liver, chick, egg, hen, geneBar, pedal. Gedeelde helpers (codonTable, tileRow, bracket, aaBead, macroBg, CODE) zijn op 13 okt van scenes4.js naar dnalib.js verhuisd.
+- Denktijd 12 s bij V2 en V3 (`think`).""",4:"""- Uitspraak (rondes 1–9 met Kamiel, 12 okt): opgenomen met ElevenLabs **eleven_v3** (niet multilingual_v2: die gaf de uitgang '-ine' Frans of als 'valinuu'). Aminozuren in de stem-invoer: vaaline, meetioonine, leussine, histiedine, seerine, aalaanine, feenyl-alanine; cysteïne zoals geschreven. De uitgang moet klinken als in 'verwenne' (/vaːˈli.nə/). Afgekeurd: 'valie-nuh'-spellingen (rondes 1–7), 'valienuh' zonder streepje. Verder 'codon tabel' los, losse codons met streepjes, DNA als 'deeënaa', tRNA als 'tee-er-en-aa'.
 - tRNA klonk in eleven_v3 elke keer anders. Kamiel koos uitspraak nr 2 (n5 ≈ 0:07,6); `splice_trna.py` plakt precies die opname over alle andere 13 keer (n5, n6, n23; grenzen via DTW, meervouden houden hun eigen s). Originelen in `afl4/v3/pre_splice/`, tijdkaart in `afl4/v3/splice.json`. Neem je n5, n6 of n23 opnieuw op, draai daarna `splice_trna.py` opnieuw.
 - n5 kreeg op 12 okt een extra zin (Kamiel: anticodon ↔ aminozuur ook zeggen): "Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine." Los opgenomen (eleven_v3, `afl4/v3/insert/`) en ingevoegd door `insert_n5.py`, ná `splice_trna.py`. Volgorde: `splice_trna.py` → `insert_n5.py` → `make_words4v3.py` → kopieer naar `data/afl4_audio/` → `build.py 4`.
 - CE-vragen geparafraseerd (havo 2025-I v39, 2024-II v18; 2022-II v32 als checkvraag); antwoorden zelf uitgewerkt, correctievoorschriften niet ingezien. Bij 2024-II is U G U → A G U ook één base; de film benoemt dat.
@@ -59,7 +118,7 @@ def main(n,dest):
          f"| Duur | gesproken {fmt(spoken)}; speeltijd (zonder wachten bij vragen) vwo {fmt(TV)}, havo {fmt(TH)} |",
          "| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |",
          "| Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |",
-         "| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–4, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |\n"]
+         "| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–5, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |\n"]
     I.append('## Opbouw\nBegintijden in de speler (hoofdstukkaart), vwo en havo.\n')
     I.append('| Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |\n|---|---|---|---|---|---|')
     for ci,ch in enumerate(chs):

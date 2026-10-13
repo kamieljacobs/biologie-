@@ -1,0 +1,174 @@
+{
+ "SCRIPT": [
+  {"kind": "narr", "level": "b", "scene": "open", "lines": [
+   "Een middag op het strand. Je bent de zonnebrand vergeten.",
+   "'s Avonds is je huid rood en warm. Een week later vervelt hij.",
+   "En jaren later, bij de huisarts: een plekje op je huid dat maar niet geneest.",
+   "In Nederland krijgen elk jaar bijna vijfenzeventigduizend mensen huidkanker. Bij de meeste speelt zonlicht mee.",
+   "Hoe kan licht je DNA veranderen? En waarom krijgen je kinderen dat niet mee?"
+  ]},
+  {"kind": "card", "title": "Mutaties", "sub": "DNA · aflevering 5"},
+  {"kind": "card", "title": "Hoe ontstaat een mutatie?", "sub": "Hoofdstuk 1"},
+  {"kind": "narr", "level": "b", "scene": "h1a", "lines": [
+   "In aflevering twee zag je: kopiëren gaat bijna foutloos. Van elke miljard basenparen blijft hooguit één fout staan.",
+   "Zo'n fout die blijft staan, is een mutatie: een verandering in de volgorde van de basen.",
+   "Maar kopieerfouten zijn niet de enige bron. Ook van buiten kan je DNA beschadigd raken.",
+   "Zonlicht bevat ultraviolet licht, kort UV. Dat dringt je huid in, tot in de kern van je huidcellen."
+  ]},
+  {"kind": "q", "level": "b", "scene": "h1q", "text": "UV-licht beschadigt het DNA in je huidcellen. Wat doet het precies? Wat denk je?", "opts": ["het verandert een T meteen in een andere base", "het plakt twee basen die naast elkaar zitten aan elkaar vast", "het breekt de twee strengen van elkaar los"], "correct": 1},
+  {"kind": "narr", "level": "b", "scene": "h1b", "lines": [
+   "Antwoord B. UV-licht heeft precies genoeg energie om twee basen die naast elkaar in één streng zitten aan elkaar te plakken. Meestal twee T's.",
+   "Dat is nog geen mutatie. Het is schade.",
+   "Je cellen hebben herstelenzymen. Die knippen het beschadigde stuk eruit en zetten er nieuwe nucleotiden in.",
+   "Na een middag verbranden is het soms te veel. Cellen met te veel schade ruimen zichzelf op. Dat is het vervellen, een week later.",
+   "Maar soms kopieert een cel het DNA terwijl de schade er nog zit. Kijk naar de nieuwe streng.",
+   "Tegenover de vastgeplakte basen zet de polymerase soms een verkeerde base.",
+   "Die verkeerde base blijft staan. Nu is het een mutatie. En elke dochtercel krijgt hem mee."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "h1c", "lines": [
+   "Niet alleen UV doet dit. Röntgenstraling en radioactieve straling beschadigen DNA ook.",
+   "En stoffen kunnen het. Stoffen in sigarettenrook binden aan het DNA, en daar maakt de polymerase fouten.",
+   "Straling en stoffen die mutaties vaker laten ontstaan, noem je mutagene factoren. Kopieerfouten maak je ook zonder.",
+   "En een mutatie ontstaat toevallig. Een cel kiest er niet voor, en hij ontstaat niet omdat de cel hem nodig heeft."
+  ]},
+  {"kind": "card", "title": "Wat doet één andere base?", "sub": "Hoofdstuk 2"},
+  {"kind": "narr", "level": "b", "scene": "h2a", "lines": [
+   "Een mutatie in één nucleotidepaar, dus één basenpaar, heet een puntmutatie. Er zijn drie soorten.",
+   "Een base is vervangen door een andere: een substitutie.",
+   "Er is een base bij gekomen: een insertie.",
+   "Of er is een base weg: een deletie.",
+   "Een andere base in het DNA geeft een andere base in het mRNA, het recept. Wat dat met het eiwit doet, zoek je op in de codontabel. Precies zoals in aflevering vier."
+  ]},
+  {"kind": "q", "level": "b", "scene": "h2q", "text": "Door een substitutie wordt het codon G U G in het mRNA G U A. Wat gebeurt er met het eiwit? Wat denk je?", "opts": ["het ribosoom stopt bij dit codon", "er komt een ander aminozuur op die plek", "niets: het aminozuur blijft valine"], "correct": 2, "think": 12},
+  {"kind": "narr", "level": "b", "scene": "h2b", "lines": [
+   "Antwoord C. G U A staat ook voor valine. De mutatie is er wel, maar je merkt er niets van. Dat heet een stille mutatie.",
+   "Verandert in G U G de tweede base, dan krijg je G A G. Dat is glutaminezuur, een ander aminozuur. Het eiwit kan een andere vorm krijgen.",
+   "En soms wordt een codon een stopcodon. U G G, tryptofaan, wordt U A G: stop. Het ribosoom stopt daar. Het eiwit is te kort en werkt meestal niet meer."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "h2c", "lines": [
+   "Een base erbij of eraf is meestal erger. Het ribosoom leest per drie, zonder spaties.",
+   "Kijk naar deze zin: EEN KAT EET VIS. Haal de eerste E weg, en lees opnieuw per drie. Dan staat er alleen nog onzin.",
+   "Zo gaat het ook in het mRNA: vanaf de deletie klopt geen enkel codon meer. Meestal komt er al snel een stopcodon.",
+   "Haal je er precies drie weg, dan valt er alleen één aminozuur af. De rest klopt nog."
+  ]},
+  {"kind": "narr", "level": "v", "scene": "h2v", "lines": [
+   "Voor vwo gaan we hier nog een stap verder.",
+   "Vanaf het startcodon leest het ribosoom steeds drie basen tegelijk. Die indeling in drietallen heet het leesraam. Eén base erbij of eraf verschuift het: een leesraamverschuiving.",
+   "Een mutatie buiten een exon kan ook gevolgen hebben. In een promotor verandert hoeveel mRNA er wordt gemaakt. In een intron meestal niets, behalve als het wegknippen van dat intron erdoor misgaat.",
+   "Terug naar het eiwit."
+  ]},
+  {"kind": "card", "title": "Van één base naar een ziek mens", "sub": "Hoofdstuk 3"},
+  {"kind": "narr", "level": "b", "scene": "h3a", "lines": [
+   "Een voorbeeld uit het examen. Bij de ziekte van Wilson werkt een eiwit niet dat levercellen nodig hebben om koper uit te scheiden. Het koper hoopt zich op in de lever.",
+   "Op één plek in dat eiwit zit het aminozuur glutamine, waar histidine hoort."
+  ]},
+  {"kind": "q", "level": "b", "scene": "h3q", "source": "naar CvTE, examen biologie havo 2019, tijdvak 2", "text": "Kan één puntmutatie genoeg zijn voor dit verschil van één aminozuur? Wat denk je?", "opts": ["nee, voor een ander aminozuur moeten minstens drie basen veranderen", "ja, één andere base kan een codon voor een ander aminozuur geven", "nee, een puntmutatie verandert het DNA, maar niet het eiwit"], "correct": 1, "think": 12},
+  {"kind": "narr", "level": "b", "scene": "h3b", "lines": [
+   "Antwoord B. Eén basenpaar anders in het DNA, één base anders in het mRNA, één ander codon. En dat codon kan voor een ander aminozuur staan.",
+   "Kijk maar in de tabel. Histidine is C A U of C A C. Glutamine is C A A of C A G.",
+   "Eén base anders, de derde, en het ribosoom bouwt glutamine in."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "h3c", "lines": [
+   "En dan verder. Eén ander aminozuur geeft het eiwit een andere vorm: het molecuulniveau.",
+   "Het eiwit brengt geen koper meer naar buiten. De levercel houdt het vast: celniveau.",
+   "De lever vult zich met koper en raakt beschadigd: orgaanniveau.",
+   "En de patiënt krijgt leverklachten: organismeniveau.",
+   "Zo vragen ze het op het examen: één mutatie, en jij volgt de gevolgen van molecuul tot mens."
+  ]},
+  {"kind": "card", "title": "Erfelijk of niet?", "sub": "Hoofdstuk 4"},
+  {"kind": "narr", "level": "b", "scene": "h4a", "lines": [
+   "Niet elke mutatie is zo klein. Bij de meiose kunnen twee chromosomen van een paar bij elkaar blijven. Dan krijgt een geslachtscel er één te veel.",
+   "Een kind met het syndroom van Down heeft zo drie chromosomen 21. Dat is een genoommutatie: het aantal chromosomen is veranderd.",
+   "Die mutatie zat in een geslachtscel. En daarom zit hij in elke cel van het kind."
+  ]},
+  {"kind": "narr", "level": "v", "scene": "h4v1", "lines": [
+   "Voor vwo: tussen één base en een heel chromosoom zit nog een maat. Een stuk chromosoom dat wegvalt, verdubbelt, of op een ander chromosoom terechtkomt. Dat heet een chromosoommutatie.",
+   "Terug naar de geslachtscel."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "h4b", "lines": [
+   "Terug naar het strand. De mutatie van die middag zit in een huidcel.",
+   "Die huidcel deelt. Haar dochtercellen krijgen de mutatie mee. Ze zit nu in een plukje huid."
+  ]},
+  {"kind": "q", "level": "b", "scene": "h4q", "source": "naar CvTE, examen biologie havo 2025, tijdvak 2", "text": "Een kuiken wordt geboren met een mutatie in alle cellen van zijn lichaam. Waar is die mutatie ontstaan? Wat denk je?", "opts": ["in de huid van het kuiken", "in een geslachtscel van een ouder, of heel vroeg in het embryo", "in het ei, doordat de moederkip veel in de zon zat"], "correct": 1},
+  {"kind": "narr", "level": "b", "scene": "h4c", "lines": [
+   "Antwoord B. Alle cellen van het kuiken stammen af van één bevruchte eicel. Zat de mutatie daarin, dan zit hij overal.",
+   "De zon op de huid van de moederkip verandert haar huidcellen, niet haar eicellen.",
+   "Een mutatie in een zaadcel of eicel kan worden doorgegeven. Een mutatie in een huidcel, een levercel of een darmcel niet. Die blijft bij jou.",
+   "Je kinderen beginnen dus zonder jouw huidmutaties."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "h4d", "lines": [
+   "Maar bij jou blijven ze zitten. En elke zomer komen er bij.",
+   "De meeste mutaties doen niets. Ze zitten buiten een gen, of ze zijn stil.",
+   "Maar sommige genen besturen de celdeling. Het ene gen zet de deling aan, het andere remt af.",
+   "Raakt zo'n rem kapot, dan deelt de cel door terwijl dat niet moet. En de dochtercellen ook. Zo ontstaat een klomp cellen: een tumor.",
+   "Daarvoor zijn meerdere mutaties nodig, in dezelfde cel. Daarom duurt het vaak jaren, en komt huidkanker vooral op latere leeftijd."
+  ]},
+  {"kind": "narr", "level": "v", "scene": "h4v", "lines": [
+   "Voor vwo gaan we hier nog een stap verder.",
+   "Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg.",
+   "Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is.",
+   "Zo'n tumorsuppressorgen is het gen voor p53. Dat eiwit stopt een cel met DNA-schade, of laat die cel zichzelf opruimen. Zonder p53 blijven beschadigde cellen delen en stapelen ze nog meer mutaties op.",
+   "Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit.",
+   "Terug naar het strand."
+  ]},
+  {"kind": "card", "title": "Terug naar het strand", "sub": "Samenvatting"},
+  {"kind": "narr", "level": "b", "scene": "recap", "lines": [
+   "Een middag in de zon: UV plakt basen aan elkaar. Herstelenzymen repareren het meeste. Wat blijft staan, is een mutatie.",
+   "Eén andere base doet soms niets, geeft soms een ander aminozuur, en soms een eiwit dat te vroeg stopt.",
+   "Zit de mutatie in een huidcel, dan blijft hij bij jou. Zit hij in een geslachtscel, dan kan je kind hem erven.",
+   "De meeste mutaties merk je niet. En soms levert een mutatie juist iets nieuws op: zo zijn alle allelen ooit ontstaan.",
+   "Maar zonnebrand tel je op. Elke verbranding voegt mutaties toe aan je huidcellen. Smeren is geen betutteling. Het is DNA-bescherming."
+  ]},
+  {"kind": "narr", "level": "v", "scene": "recapv", "lines": [
+   "Voor vwo, tot slot: zonder mutaties geen nieuwe allelen, en zonder nieuwe allelen geen evolutie. Daar komen we op terug."
+  ]},
+  {"kind": "narr", "level": "b", "scene": "recap2", "lines": [
+   "Elke cel in je lichaam heeft hetzelfde DNA. Toch is een huidcel geen levercel. Hoe een cel kiest welke genen ze gebruikt: dat zie je in aflevering zes."
+  ]},
+  {"kind": "end", "dur": 4}
+ ],
+ "CHAPTERS": [
+  {"n": 0, "title": "Opening", "level": "b"},
+  {"n": 1, "title": "Hoe ontstaat een mutatie?", "level": "b"},
+  {"n": 2, "title": "Wat doet één andere base?", "level": "b"},
+  {"n": 3, "title": "Van één base naar een ziek mens", "level": "b"},
+  {"n": 4, "title": "Erfelijk of niet?", "level": "b"},
+  {"n": 5, "title": "Samenvatting", "level": "b"}
+ ],
+ "GLOSSARY": [
+  ["mutatie", "Verandering in de nucleotidevolgorde van het DNA, bijvoorbeeld een kopieerfout of een beschadiging die blijft staan. Mutaties ontstaan toevallig en zijn de bron van nieuwe allelen (genetische variatie).", "b"],
+  ["puntmutatie", "Verandering in één nucleotidepaar: vervanging door een ander nucleotidepaar (substitutie), of een invoeging (insertie) of verwijdering (deletie) van een nucleotidepaar.", "b"],
+  ["stille mutatie", "Substitutie die het aminozuur niet verandert, doordat het nieuwe codon voor hetzelfde aminozuur staat; vaak een verandering van de derde base.", "b"],
+  ["mutagene factoren", "Straling en stoffen die mutaties vaker laten ontstaan: UV-licht, röntgenstraling, radioactieve straling, stoffen in sigarettenrook, roet en teer.", "b"],
+  ["DNA-herstel", "Enzymen die beschadigd of fout gekopieerd DNA opsporen, het stuk eruit knippen en vervangen, met de andere streng als voorbeeld.", "b"],
+  ["genoommutatie", "Mutatie waarbij het aantal chromosomen in een cel verandert, bijvoorbeeld doordat bij de meiose chromosomen van een paar (of chromatiden) bij elkaar blijven; drie chromosomen 21 bij het syndroom van Down.", "b"],
+  ["erfelijke mutatie", "Mutatie in een zaadcel of eicel, of heel vroeg in het embryo; zit daardoor in alle cellen van het kind en kan worden doorgegeven. Een mutatie in een lichaamscel (huid, lever) is niet erfelijk.", "b"],
+  ["tumor", "Gezwel: een groeiende klomp cellen die blijven delen doordat genen die de celdeling besturen door mutaties zijn veranderd.", "b"],
+  ["leesraam", "De indeling van het mRNA in codons van drie basen vanaf het startcodon. Een insertie of deletie van één of twee basen verschuift het leesraam (leesraamverschuiving), zodat alle codons erna veranderen.", "v"],
+  ["chromosoommutatie", "Verandering in de bouw van een chromosoom: een stuk valt weg, wordt verdubbeld, omgekeerd of komt op een ander chromosoom terecht.", "v"],
+  ["proto-oncogen", "Gen dat de celdeling stimuleert. Door een mutatie kan het een oncogen worden dat voortdurend aanstaat; één gemuteerd allel is dan al genoeg.", "v"],
+  ["tumorsuppressorgen", "Gen dat de celdeling remt of een beschadigde cel laat opruimen, zoals het gen voor p53. Pas als beide allelen uitvallen, verdwijnt de rem.", "v"]
+ ],
+ "CHECKS": {
+  "b": [
+   ["Leg uit waarom zonverbranding de kans op huidkanker vergroot, met de woorden UV, schade, herstel en mutatie.", "UV-licht plakt buurbasen in het DNA van huidcellen aan elkaar (schade). Herstelenzymen repareren het meeste, maar bij veel schade blijft soms een verkeerde base staan (mutatie). Elke verbranding voegt mutaties toe; raken genen die de celdeling besturen, dan kan een cel ongeremd gaan delen."],
+   ["Een codon G G C wordt door een substitutie G G A. Zoek op wat er met het aminozuur gebeurt.", "G G C en G G A staan allebei voor glycine: een stille mutatie, het eiwit verandert niet."],
+   ["(naar CvTE havo 2022-II, vraag 32) Door een puntmutatie is op een plaats in een eiwit serine ingebouwd in plaats van leucine. Welk codon kan er oorspronkelijk hebben gestaan: C U A of C U G, C U U of C U C, of U U A of U U G?", "Serine is U C U, U C C, U C A, U C G, A G U of A G C. Eén base verschil met een leucinecodon: U U A → U C A of U U G → U C G (tweede base U → C). Dus U U A of U U G."],
+   ["(naar CvTE havo 2024-II, vraag 45) Een erfelijke mutatie in het NF2-gen: het eiwit dat normaal de celdeling remt, werkt niet. Juist of onjuist: 1 de mutatie zit alleen in zenuwcellen; 2 door de mutatie wordt de celdeling geremd.", "Beide onjuist. De mutatie is erfelijk, zat dus al in de bevruchte eicel en zit in alle cellen. Het rem-eiwit werkt niet, dus de celdeling wordt juist niet geremd; daardoor groeit een tumor."],
+   ["(naar CvTE havo 2019-II, vraag 31) Een kind met het syndroom van Down heeft drie chromosomen 21. Juist of onjuist: 1 het syndroom is het gevolg van een genoommutatie; 2 het extra chromosoom kan van de vader komen; 3 de drie chromosomen 21 zijn identiek.", "1 juist (het aantal chromosomen is veranderd); 2 juist (niet-scheiden kan ook bij de vorming van een zaadcel); 3 onjuist (minstens één van de drie komt van de andere ouder en draagt andere allelen)."],
+   ["Waarom is een mutatie in een huidcel niet erfelijk, en een mutatie in een eicel wel?", "Een kind krijgt zijn DNA alleen uit de zaadcel en de eicel. Een mutatie in een huidcel komt alleen in de dochtercellen van die huidcel terecht; een mutatie in een eicel zit na de bevruchting in alle cellen van het kind."]
+  ],
+  "v": [
+   ["Een deletie van vier basenparen in een exon. Wat gebeurt er met het eiwit, en waarom?", "Vier is geen drievoud: het leesraam verschuift. Alle codons na de deletie veranderen, meestal volgt snel een stopcodon; het eiwit krijgt een andere aminozuurvolgorde en wordt meestal korter."],
+   ["Waarom is één gemuteerd allel van een proto-oncogen genoeg voor ongeremde deling, maar bij een tumorsuppressorgen niet?", "Een gemuteerd proto-oncogen (oncogen) geeft een eiwit dat de deling voortdurend aanzet; dat werkt al naast het normale allel. Een tumorsuppressorgen remt; één werkend allel levert nog genoeg rem, dus beide allelen moeten uitvallen."],
+   ["Het mutante NF2-allel erft autosomaal dominant over, terwijl NF2 een tumorsuppressorgen is waarvan beide allelen moeten uitvallen. Leg uit hoe dat samengaat.", "Wie het mutante allel erft, heeft in elke cel al één kapot allel. In een van de vele cellen valt vroeg of laat door een nieuwe (somatische) mutatie ook het tweede allel uit; die cel gaat ongeremd delen. Op organismeniveau is één geërfd allel dus genoeg voor de aanleg: dominant."]
+  ]
+ },
+ "NUMBERS": [
+  ["Nieuwe huidkankerpatiënten per jaar in NL", "bijna 75 000", "IKNL, Huidkanker in Nederland: trends en inzichten 2025 (incl. basaalcelcarcinoom)"],
+  ["Aandeel per soort", "≈ 70 % basaalcel, 20 % plaveiselcel, 10 % melanoom", "IKNL, cijfers huidkanker"],
+  ["Foutkans na herstel", "≈ 1 op 10⁹", "Alberts; zoals in aflevering 2"],
+  ["UV-schade", "pyrimidinedimeren (vooral T–T); de typische UV-mutatie is C → T", "Alberts, Molecular Biology of the Cell"],
+  ["Syndroom van Down", "drie chromosomen 21", "BvJ havo thema 9; CvTE havo 2019-II"]
+ ]
+}

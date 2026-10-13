@@ -1,0 +1,153 @@
+# Mutaties — bronmap
+
+| Veld | Waarde |
+|---|---|
+| Bestand | films/dna/5-mutaties.html (één zelfstandig bestand; audio en lettertypen ingebed) |
+| Reeks / nummer | DNA, film 5 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
+| Doelgroep / niveau | havo + vwo; vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
+| Versie / datum | 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf |
+| Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
+| Duur | gesproken 10:12; speeltijd (zonder wachten bij vragen) vwo 11:37, havo 9:43 |
+| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
+| Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
+| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–5, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
+
+## Opbouw
+Begintijden in de speler (hoofdstukkaart), vwo en havo.
+
+| Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |
+|---|---|---|---|---|---|
+| 0:00 | 0:00 | Opening | n0 | I toepassing · Macro (strand) | figuur met rode huid, het plekje, het getal 75 000 |
+| 0:33 | 0:33 | Hoofdstuk 1 — Hoe ontstaat een mutatie? | n3, q4, n5, n6 | A mechanisme · Micro | UV-straal plakt twee T's aan elkaar (koraal klem); herstelenzym; cellen die zichzelf opruimen; polymerase zet een verkeerde base tegenover de schade; dochtercellen |
+| 2:45 | 2:45 | Hoofdstuk 2 — Wat doet één andere base? | n8, q9, n10, n11, n12 | G redeneerstappen + B structuur · Schema | substitutie/insertie/deletie op een tegelrij; codontabel met stil, ander aminozuur, stop; EEN KAT EET VIS per drie / leesraamhaken; genlineaal promotor · exon · intron · exon |
+| 5:25 | 4:53 | Hoofdstuk 3 — Van één base naar een ziek mens | n14, q15, n16, n17 | G + organisatieniveaus · Schema | DNA → mRNA → codon → aminozuur; histidine- en glutaminecodons; vier kaarten molecuul → cel → orgaan → organisme |
+| 7:01 | 6:28 | Hoofdstuk 4 — Erfelijk of niet? | n19, n20, n21, q22, n23, n24, n25 | A + I + A · Schema, Macro met zoomcirkel + Schema | niet-scheiden in de meiose; bevruchte eicel → alle cellen; plukje huid; ei → kuiken tegenover kip in de zon; vier zomers; rem kapot → tumor / gaspedaal (proto-oncogen) en rempedaal (tumorsuppressorgen); p53; erfelijke eerste hit |
+| 10:20 | 8:35 | Samenvatting — Terug naar het strand | n27, n28, n29 | — · Macro (strand) + Schema | paneel met vijf regels; huidcel en levercel met andere genen aan |
+
+## Voorspelvragen
+De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling; het antwoord wordt in het volgende segment uitgesproken.
+
+| Segment | Niveau | Vraag | Opties (juist vet) |
+|---|---|---|---|
+| q4 | basis | UV-licht beschadigt het DNA in je huidcellen. Wat doet het precies? | het verandert een T meteen in een andere base · **het plakt twee basen die naast elkaar zitten aan elkaar vast** · het breekt de twee strengen van elkaar los |
+| q9 | basis | Door een substitutie wordt het codon G U G in het mRNA G U A. Wat gebeurt er met het eiwit? | het ribosoom stopt bij dit codon · er komt een ander aminozuur op die plek · **niets: het aminozuur blijft valine** |
+| q15 | basis | Kan één puntmutatie genoeg zijn voor dit verschil van één aminozuur? | nee, voor een ander aminozuur moeten minstens drie basen veranderen · **ja, één andere base kan een codon voor een ander aminozuur geven** · nee, een puntmutatie verandert het DNA, maar niet het eiwit |
+| q22 | basis | Een kuiken wordt geboren met een mutatie in alle cellen van zijn lichaam. Waar is die mutatie ontstaan? | in de huid van het kuiken · **in een geslachtscel van een ouder, of heel vroeg in het embryo** · in het ei, doordat de moederkip veel in de zon zat |
+
+## Begrippen
+- mutatie — Verandering in de nucleotidevolgorde van het DNA, bijvoorbeeld een kopieerfout of een beschadiging die blijft staan. Mutaties ontstaan toevallig en zijn de bron van nieuwe allelen (genetische variatie).
+- puntmutatie — Verandering in één nucleotidepaar: vervanging door een ander nucleotidepaar (substitutie), of een invoeging (insertie) of verwijdering (deletie) van een nucleotidepaar.
+- stille mutatie — Substitutie die het aminozuur niet verandert, doordat het nieuwe codon voor hetzelfde aminozuur staat; vaak een verandering van de derde base.
+- mutagene factoren — Straling en stoffen die mutaties vaker laten ontstaan: UV-licht, röntgenstraling, radioactieve straling, stoffen in sigarettenrook, roet en teer.
+- DNA-herstel — Enzymen die beschadigd of fout gekopieerd DNA opsporen, het stuk eruit knippen en vervangen, met de andere streng als voorbeeld.
+- genoommutatie — Mutatie waarbij het aantal chromosomen in een cel verandert, bijvoorbeeld doordat bij de meiose chromosomen van een paar (of chromatiden) bij elkaar blijven; drie chromosomen 21 bij het syndroom van Down.
+- erfelijke mutatie — Mutatie in een zaadcel of eicel, of heel vroeg in het embryo; zit daardoor in alle cellen van het kind en kan worden doorgegeven. Een mutatie in een lichaamscel (huid, lever) is niet erfelijk.
+- tumor — Gezwel: een groeiende klomp cellen die blijven delen doordat genen die de celdeling besturen door mutaties zijn veranderd.
+- leesraam *vwo* — De indeling van het mRNA in codons van drie basen vanaf het startcodon. Een insertie of deletie van één of twee basen verschuift het leesraam (leesraamverschuiving), zodat alle codons erna veranderen.
+- chromosoommutatie *vwo* — Verandering in de bouw van een chromosoom: een stuk valt weg, wordt verdubbeld, omgekeerd of komt op een ander chromosoom terecht.
+- proto-oncogen *vwo* — Gen dat de celdeling stimuleert. Door een mutatie kan het een oncogen worden dat voortdurend aanstaat; één gemuteerd allel is dan al genoeg.
+- tumorsuppressorgen *vwo* — Gen dat de celdeling remt of een beschadigde cel laat opruimen, zoals het gen voor p53. Pas als beide allelen uitvallen, verdwijnt de rem.
+
+## Checkvragen
+- (basis) Leg uit waarom zonverbranding de kans op huidkanker vergroot, met de woorden UV, schade, herstel en mutatie. — *UV-licht plakt buurbasen in het DNA van huidcellen aan elkaar (schade). Herstelenzymen repareren het meeste, maar bij veel schade blijft soms een verkeerde base staan (mutatie). Elke verbranding voegt mutaties toe; raken genen die de celdeling besturen, dan kan een cel ongeremd gaan delen.*
+- (basis) Een codon G G C wordt door een substitutie G G A. Zoek op wat er met het aminozuur gebeurt. — *G G C en G G A staan allebei voor glycine: een stille mutatie, het eiwit verandert niet.*
+- (basis) (naar CvTE havo 2022-II, vraag 32) Door een puntmutatie is op een plaats in een eiwit serine ingebouwd in plaats van leucine. Welk codon kan er oorspronkelijk hebben gestaan: C U A of C U G, C U U of C U C, of U U A of U U G? — *Serine is U C U, U C C, U C A, U C G, A G U of A G C. Eén base verschil met een leucinecodon: U U A → U C A of U U G → U C G (tweede base U → C). Dus U U A of U U G.*
+- (basis) (naar CvTE havo 2024-II, vraag 45) Een erfelijke mutatie in het NF2-gen: het eiwit dat normaal de celdeling remt, werkt niet. Juist of onjuist: 1 de mutatie zit alleen in zenuwcellen; 2 door de mutatie wordt de celdeling geremd. — *Beide onjuist. De mutatie is erfelijk, zat dus al in de bevruchte eicel en zit in alle cellen. Het rem-eiwit werkt niet, dus de celdeling wordt juist niet geremd; daardoor groeit een tumor.*
+- (basis) (naar CvTE havo 2019-II, vraag 31) Een kind met het syndroom van Down heeft drie chromosomen 21. Juist of onjuist: 1 het syndroom is het gevolg van een genoommutatie; 2 het extra chromosoom kan van de vader komen; 3 de drie chromosomen 21 zijn identiek. — *1 juist (het aantal chromosomen is veranderd); 2 juist (niet-scheiden kan ook bij de vorming van een zaadcel); 3 onjuist (minstens één van de drie komt van de andere ouder en draagt andere allelen).*
+- (basis) Waarom is een mutatie in een huidcel niet erfelijk, en een mutatie in een eicel wel? — *Een kind krijgt zijn DNA alleen uit de zaadcel en de eicel. Een mutatie in een huidcel komt alleen in de dochtercellen van die huidcel terecht; een mutatie in een eicel zit na de bevruchting in alle cellen van het kind.*
+- (vwo) Een deletie van vier basenparen in een exon. Wat gebeurt er met het eiwit, en waarom? — *Vier is geen drievoud: het leesraam verschuift. Alle codons na de deletie veranderen, meestal volgt snel een stopcodon; het eiwit krijgt een andere aminozuurvolgorde en wordt meestal korter.*
+- (vwo) Waarom is één gemuteerd allel van een proto-oncogen genoeg voor ongeremde deling, maar bij een tumorsuppressorgen niet? — *Een gemuteerd proto-oncogen (oncogen) geeft een eiwit dat de deling voortdurend aanzet; dat werkt al naast het normale allel. Een tumorsuppressorgen remt; één werkend allel levert nog genoeg rem, dus beide allelen moeten uitvallen.*
+- (vwo) Het mutante NF2-allel erft autosomaal dominant over, terwijl NF2 een tumorsuppressorgen is waarvan beide allelen moeten uitvallen. Leg uit hoe dat samengaat. — *Wie het mutante allel erft, heeft in elke cel al één kapot allel. In een van de vele cellen valt vroeg of laat door een nieuwe (somatische) mutatie ook het tweede allel uit; die cel gaat ongeremd delen. Op organismeniveau is één geërfd allel dus genoeg voor de aanleg: dominant.*
+
+## Getallen
+| Getal | In de film | Bron |
+|---|---|---|
+| Nieuwe huidkankerpatiënten per jaar in NL | bijna 75 000 | IKNL, Huidkanker in Nederland: trends en inzichten 2025 (incl. basaalcelcarcinoom) |
+| Aandeel per soort | ≈ 70 % basaalcel, 20 % plaveiselcel, 10 % melanoom | IKNL, cijfers huidkanker |
+| Foutkans na herstel | ≈ 1 op 10⁹ | Alberts; zoals in aflevering 2 |
+| UV-schade | pyrimidinedimeren (vooral T–T); de typische UV-mutatie is C → T | Alberts, Molecular Biology of the Cell |
+| Syndroom van Down | drie chromosomen 21 | BvJ havo thema 9; CvTE havo 2019-II |
+
+## Techniek: waar zit wat in de HTML
+Regelnummers in 5-mutaties.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
+- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 137. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
+- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 138; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 320.
+- **Scènes**: regel 550; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
+- **Begrippen**: `const GLOSSARY` regel 744. **Speler**: regel 745 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
+- **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl5_docent.htmlfrag`.
+
+## Zo pas je deze film aan
+1. Werk in `films/dna/_bouw/` (kopieer de map naar een werkmap buiten de repo). Haal eerst de audio terug: `python3 haal_audio.py 5 ../5-mutaties.html`.
+2. **Beeld**: pas `src/scenes5.js` aan (zoek de scènenaam uit de tabel Opbouw, bijv. `SCENES.h2a`), daarna `python3 build.py 5` → `out/5-mutaties.html`. Controleer met `node grab.js <pad>/out/5-mutaties.standalone.html qa/x 6` en `python3 sheet.py qa/x qa/x.png 7`.
+3. **Tekst op de pagina, titel, hoofdstukvragen, eindkaart**: `films.py`. **Docentdeel**: `data/afl5_docent.htmlfrag`. **Begrippen, checkvragen, getallen**: `data/afl5_script.json`.
+4. **Een alinea opnieuw inspreken**: stem-invoer uit `data/afl5_stem.json` (respellings volgens de uitspraaklijst), Roos, eleven_v3, één take. Vervang `data/afl5_audio/<id>.mp3` (−16 LUFS, −1 dBTP), zet nieuwe woordtijden (Scribe) en `bounds` in `data/afl5_words.json`, en pas de tekst aan in `data/afl5_script.json`. Andere segmenten blijven ongemoeid.
+5. Kopieer `out/5-mutaties.html` naar `films/dna/`, werk dit bestand en script.md bij (versie, datum, wat er veranderd is) en push.
+
+## Aandachtspunten
+- Alle tekst moet boven y = 892 blijven: de speler knipt scènes daar af (ondertitelzone).
+- Meta-tekst staat in kapitalen, behalve eenheden (`metaCase` in de bibliotheek): µm, nm, °C blijven correct.
+- De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
+- Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
+- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3 en de spellingen uit de uitspraaklijst; nieuwe woorden staan op de wachtlijst hieronder voor een latere verzameltest over meerdere films. Ronde 1 van de test (18 zinnen, `uitspraaktest_afl5_ronde1.mp3`) is wel gemaakt maar niet beoordeeld.
+- Uitspraak-wachtlijst (tijd = binnen de take; `FILMDATA.segments[<take>]`):
+
+| woord | take | tijd in take |
+|---|---|---|
+| vijfenzeventigduizend | n0 | 0:17.3 |
+| DNA | n0 | 0:24.1 |
+| DNA | n3 | 0:20.4 |
+| UV | n3 | 0:26.1 |
+| UV-licht | q4 | 0:00.0 |
+| DNA | q4 | 0:01.9 |
+| UV-licht | n5 | 0:01.2 |
+| T's | n5 | 0:10.0 |
+| DNA | n5 | 0:32.4 |
+| UV | n6 | 0:00.5 |
+| Röntgenstraling | n6 | 0:01.9 |
+| radioactieve | n6 | 0:03.3 |
+| DNA | n6 | 0:05.3 |
+| mutagene | n6 | 0:17.8 |
+| substitutie | n8 | 0:10.4 |
+| insertie | n8 | 0:13.9 |
+| deletie | n8 | 0:17.0 |
+| DNA | n8 | 0:19.7 |
+| mRNA | n8 | 0:22.4 |
+| substitutie | q9 | 0:00.3 |
+| mRNA | q9 | 0:04.6 |
+| valine | n10 | 0:03.4 |
+| glutaminezuur | n10 | 0:17.3 |
+| tryptofaan | n10 | 0:27.8 |
+| mRNA | n11 | 0:19.7 |
+| deletie | n11 | 0:21.3 |
+| leesraam | n12 | 0:09.7 |
+| leesraamverschuiving | n12 | 0:14.0 |
+| promotor | n12 | 0:20.1 |
+| mRNA | n12 | 0:21.9 |
+| intron | n12 | 0:24.2 |
+| glutamine | n14 | 0:15.0 |
+| histidine | n14 | 0:16.3 |
+| DNA | n16 | 0:02.4 |
+| mRNA | n16 | 0:04.6 |
+| Histidine | n16 | 0:11.1 |
+| glutamine | n16 | 0:24.5 |
+| meiose | n19 | 0:02.7 |
+| Down | n19 | 0:11.5 |
+| 21 | n19 | 0:13.5 |
+| genoommutatie | n19 | 0:15.4 |
+| chromosoommutatie | n20 | 0:12.3 |
+| tumor | n24 | 0:26.8 |
+| proto-oncogenen | n25 | 0:05.4 |
+| tumorsuppressorgenen | n25 | 0:18.3 |
+| tumorsuppressorgen | n25 | 0:25.2 |
+| p53 | n25 | 0:27.3 |
+| UV | n27 | 0:01.4 |
+| DNA | n29 | 0:02.0 |
+
+- CE-vragen geparafraseerd (havo 2019-II v2, 2025-II v5; op de pagina 2024-II v45, 2022-II v32, 2019-II v31); antwoorden zelf uitgewerkt, correctievoorschriften niet ingezien.
+- UV-schade is vereenvoudigd tot 'basen aan elkaar, meestal twee T's' en 'soms een verkeerde base'; vervellen tot 'cellen die zichzelf opruimen' (zie docentdeel).
+- Lengte: spraak vwo ≈ 10:25, havo ≈ 8:30; langer dan afl. 4. Kandidaten om in te korten: h3c (vier niveaus) en het p53-blok (h4v).
+- Nieuwe bibliotheekobjecten (scenes5.js): beachBg, sun, uvRay, dimerMark, chromo, cellS, liver, chick, egg, hen, geneBar, pedal. Gedeelde helpers (codonTable, tileRow, bracket, aaBead, macroBg, CODE) zijn op 13 okt van scenes4.js naar dnalib.js verhuisd.
+- Denktijd 12 s bij V2 en V3 (`think`).
+
+## Wijzigingen
+- 1.0 · 13 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stille mutatie in de Wilson-vraag, variatie voor havo, leesraamdefinitie, asbest eruit) en een didactiek/taal-review (15 punten, o.a. afleiders V1/V2/V4, NF2-vraag naar de pagina, genoommutatie naar hoofdstuk 4). Beelden nagekeken op contactsheets vwo en havo.
