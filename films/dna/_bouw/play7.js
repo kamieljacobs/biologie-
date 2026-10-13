@@ -1,0 +1,14 @@
+const puppeteer=require('/home/claude/node_modules/puppeteer');
+(async()=>{ const b=await puppeteer.launch({args:['--no-sandbox','--allow-file-access-from-files','--autoplay-policy=no-user-gesture-required']}); const p=await b.newPage();
+ const errs=[]; p.on('pageerror',e=>errs.push(e.message));
+ await p.goto('file:///home/claude/dnaC/out/7-dna-lezen.html'); await new Promise(r=>setTimeout(r,600));
+ const s=async(l)=>console.log(l, JSON.stringify(await p.evaluate(()=>{const it=state.items[state.idx];return {idx:state.idx,type:it.type,id:it.seg&&it.seg.id,local:+state.local.toFixed(2),phase:state.qPhase&&state.qPhase.phase,playing:state.playing,g:+(it.start+state.local).toFixed(1)};})));
+ await p.keyboard.press('ArrowRight'); await new Promise(r=>setTimeout(r,1500)); await s('after → (start):');
+ await p.evaluate(()=>{ const i=state.items.findIndex(x=>x.type==='question'); gotoItem(i,0); }); await new Promise(r=>setTimeout(r,2000)); await s('q ask 2s:');
+ await new Promise(r=>setTimeout(r,4000)); await s('q +6s:');
+ await p.keyboard.press('b'); await new Promise(r=>setTimeout(r,500)); await s('after b:');
+ await new Promise(r=>setTimeout(r,3000)); await s('after reveal:');
+ await p.keyboard.press('ArrowDown'); await new Promise(r=>setTimeout(r,300)); await s('after ↓:');
+ await p.keyboard.press('ArrowUp'); await new Promise(r=>setTimeout(r,300)); await s('after ↑:');
+ await p.keyboard.press('Space'); await new Promise(r=>setTimeout(r,300)); await s('after space:');
+ console.log(errs.join('\n')||'no errors'); await b.close(); })();

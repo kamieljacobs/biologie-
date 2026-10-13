@@ -1,0 +1,431 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Een onopgeloste zaak. Een inbraak met geweld, jaren geleden. Op een kapotte ruit: een paar druppels bloed van de dader.",
+    "Het DNA-profiel komt met niemand in de databank overeen. De zaak gaat de kast in.",
+    "Jaren later komt er een nieuwe aanwijzing. Niet uit de databank, en niet van de dader zelf.",
+    "Hoe lees je DNA uit een paar druppels bloed? En hoe vind je een dader die nergens geregistreerd staat?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "DNA lezen",
+   "sub": "DNA · aflevering 7"
+  },
+  {
+   "kind": "card",
+   "title": "Vermeerderen",
+   "sub": "Hoofdstuk 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "Een paar druppels bloed. Rode bloedcellen hebben geen kern, dus geen DNA; alleen de witte tellen mee. Te weinig om iets mee te doen.",
+    "Dus eerst kopiëren. Dat heet PCR, en het lijkt op de DNA-verdubbeling uit aflevering twee: strengen los, een polymerase bouwt bij. Alleen nu in een buisje, met de temperatuur als schakelaar.",
+    "Verhitten tot bijna honderd graden: de waterstofbruggen breken, de strengen gaan uit elkaar.",
+    "Afkoelen: korte stukjes DNA, primers, binden aan het begin van het stuk dat je wilt kopiëren.",
+    "Weer opwarmen tot zo'n zeventig graden: een hittebestendige polymerase, uit een bacterie uit hete bronnen, bouwt vanaf elke primer een nieuwe streng.",
+    "Eén cyclus, en je hebt twee keer zoveel. Dertig cycli later: meer dan een miljard kopieën van precies dat ene stuk."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h1q",
+   "source": "naar CvTE, examen biologie havo 2025, tijdvak 2",
+   "text": "Bij een coronatest met PCR wordt in een neusmonster gezocht naar het virus. Wat wordt met de PCR aangetoond? Wat denk je?",
+   "opts": [
+    "een bepaalde nucleotidenvolgorde van het virus",
+    "bepaalde eiwitten van het virus",
+    "een bepaalde aminozuurvolgorde van het virus"
+   ],
+   "correct": 0
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "Antwoord A. PCR kopieert erfelijk materiaal. De primers passen alleen op één bepaalde volgorde van nucleotiden: die van het virus.",
+    "Zit er virus in het monster, dan passen de primers, en wordt dat ene stukje een miljard keer gekopieerd. Dát meet je: het gekopieerde stuk, niet het virus zelf.",
+    "Een zelftest vangt eiwitten van het virus. Die kun je niet kopiëren, nucleotidenvolgordes wel. Daarom is PCR gevoeliger."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h1v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Het coronavirus heeft geen DNA maar RNA. Daarom gaat er een stap aan vooraf: een enzym, reverse transcriptase, schrijft het RNA eerst over naar DNA.",
+    "Dan pas begint de PCR. De primers bepalen wát je kopieert: je kiest ze zo dat ze alleen passen op het virus-DNA, en nergens op het DNA van de mens.",
+    "Terug naar het bloedspoor."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Sorteren",
+   "sub": "Hoofdstuk 2"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Nu heb je genoeg DNA. Maar hoe maak je er een profiel van?",
+    "Het lab gebruikt stukken DNA die niet voor een eiwit coderen, waar een kort motief steeds herhaald wordt. Zoiets als G A T A, G A T A, G A T A.",
+    "Hoeveel keer dat motief herhaald wordt, verschilt per mens. En je hebt van elke plek twee versies: één van je vader, één van je moeder. Bijvoorbeeld acht keer en elf keer."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2g",
+   "lines": [
+    "PCR kopieert zo'n stuk, en dan moet je weten hoe lang het is. Dat doe je met gelelektroforese.",
+    "DNA is negatief geladen, dus in een gel met stroom kruipt het naar de pluspool. Korte stukken komen makkelijker door de mazen dan lange.",
+    "Na een tijdje zie je banden. Hoe verder van de start, hoe korter het stuk.",
+    "Doe dit op een stuk of twintig plekken in het DNA, en de combinatie van lengtes is uniek: een DNA-profiel. Een streepjescode van een mens."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h2q",
+   "source": "naar CvTE, examen biologie havo 2019, tijdvak 2",
+   "text": "Bruinvissen spoelen aan met bijtwonden. Is het de grijze zeehond? Onderzoekers nemen een monster van een dichte bijtwond, van een open bijtwond en van gewone huid, en zoeken daarin naar zeehond-DNA. Waar verwacht je dat? Wat denk je?",
+   "opts": [
+    "in de dichte én de open wond",
+    "alleen in de dichte wond",
+    "in alle drie de monsters"
+   ],
+   "correct": 1,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2c",
+   "lines": [
+    "Antwoord B. In een dichte bijtwond blijven cellen van de zeehond beschermd zitten. Een open wond spoelt uit in zee. En op gewone huid heeft de zeehond niets achtergelaten.",
+    "Eerst PCR met primers die alleen op zeehond-DNA passen, dan op de gel. Een band op de verwachte hoogte betekent: dat stuk zeehond-DNA zat in het monster.",
+    "Een schoon wattenstaafje is de controle: daar hoort geen band te staan."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h2v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Zo'n korte herhaling heet een STR. Heb je van je vader acht herhalingen en van je moeder elf, dan geeft die plek twee banden. Van allebei elf: één band.",
+    "Per plek delen veel mensen hetzelfde aantal. Maar alle twintig plekken precies gelijk? Die kans is kleiner dan één op een miljard. Alleen een eeneiige tweeling deelt een profiel.",
+    "Terug naar het bloedspoor."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Lezen",
+   "sub": "Hoofdstuk 3"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Een profiel vertelt hoe lang twintig stukjes zijn. Maar niet welke basen erin staan. Daarvoor moet je het DNA echt lezen: sequencen, letter voor letter.",
+    "Het idee is slim. Een polymerase maakt heel veel kopieën van hetzelfde stuk. Maar tussen de gewone nucleotiden zitten een paar speciale: met een kleur, en zodra er één wordt ingebouwd, stopt de keten.",
+    "Zo krijg je kopieën van alle lengtes, elk met aan het eind één gekleurde base. Leg ze op lengte naast elkaar, van kort naar lang, en kijk naar het laatste blokje: rood, groen, blauw, geel. Dat is de volgorde.",
+    "Het eerste menselijke genoom kostte dertien jaar en zo'n drie miljard dollar. Nu lezen machines miljoenen stukjes tegelijk en legt een computer ze als puzzelstukjes in elkaar: een heel genoom in een dag."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h3q",
+   "source": "naar CvTE, examen biologie havo 2019, tijdvak 2",
+   "text": "Bij de NIPT drijven er stukjes DNA van de foetus in het bloed van de moeder. Het lab bepaalt van welk chromosoom elk stukje komt. Waaraan ziet het lab dat? Wat denk je?",
+   "opts": [
+    "aan de lengte van het stukje",
+    "aan de kleur van het stukje",
+    "aan de nucleotidenvolgorde van het stukje"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "Antwoord C. Elk stukje wordt gesequencet, en de computer zoekt op waar in het genoom die volgorde thuishoort. Op chromosoom twee, zeven of een-en-twintig.",
+    "Die stukjes komen uit afgestorven cellen van de placenta en zweven tussen het DNA van de moeder: ongeveer één op de tien is van het kind. Je leest alles, en telt.",
+    "Zijn er iets meer stukjes van chromosoom een-en-twintig dan je verwacht, dan heeft de foetus daar waarschijnlijk drie van: trisomie een-en-twintig, uit aflevering vijf.",
+    "Waarschijnlijk: zekerheid geeft pas een test van de foetus zelf. Maar het begint met een buisje bloed van de moeder, niet meteen met een naald in de baarmoeder."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h3v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "De computer vergelijkt elk stukje met een referentiegenoom: één standaardvolgorde van de mens. Waar jouw DNA daarvan afwijkt, heet dat een variant.",
+    "De meeste varianten doen niets. Een paar zijn de mutaties die een ziekte geven. Lezen is makkelijk geworden; weten wat een variant betekent, is het echte werk.",
+    "Terug naar het bloedspoor."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Vinden",
+   "sub": "Hoofdstuk 4"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4a",
+   "lines": [
+    "Het bloedspoor is gekopieerd en gesorteerd: het profiel staat klaar. Maar het staat niet in de databank van de politie.",
+    "Wel ergens anders, in een andere vorm. Miljoenen mensen hebben hun DNA naar een stamboomsite gestuurd. Niet voor de politie, maar om familie te vinden.",
+    "Zo'n site kijkt naar honderdduizenden plekken waar mensen van elkaar verschillen. Daarvoor wordt het bloedspoor opnieuw gelezen; een gewoon profiel is niet genoeg.",
+    "In Amerika mag de politie zo zoeken. In Nederland alleen in de eigen databank, ook naar verwanten."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q",
+   "source": "",
+   "text": "Op de stamboomsite blijkt een achterneef van de dader te staan. Wat hebben de dader en die achterneef met elkaar gemeen? Wat denk je?",
+   "opts": [
+    "precies hetzelfde DNA-profiel",
+    "een klein deel van hun DNA",
+    "de helft van hun DNA"
+   ],
+   "correct": 1,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4b",
+   "lines": [
+    "Antwoord B. De helft van je DNA komt van je vader, de helft van je moeder. Van elke grootouder een kwart, van elke overgrootouder een achtste.",
+    "Achterneven hebben dezelfde overgrootouders. Ze delen zo'n drie procent van hun DNA: op hun chromosomen liggen een paar lange stukken die precies hetzelfde zijn.",
+    "De site ziet die gedeelde stukken. Hoe langer en hoe meer, hoe nauwer verwant.",
+    "Rechercheurs krijgen zo een lijst van verre familie. Ze bouwen de stamboom naar beneden, tot er één persoon overblijft die past in leeftijd en woonplaats.",
+    "Bij hem halen ze een wattenstaafje langs de wang. Profiel vergelijken. Match."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4c",
+   "lines": [
+    "Lezen is niet het einde. DNA kun je ook veranderen.",
+    "In aflevering vier zag je een bacterie die menselijke insuline maakt. Het insulinegen is uit menselijk DNA geknipt met een restrictie-enzym, en geplakt in een plasmide: een klein cirkeltje DNA dat de bacterie opneemt. Zo'n bacterie heet genetisch gemodificeerd.",
+    "Sinds een paar jaar kan knippen preciezer, met CRISPR: een moleculaire schaar die op één gekozen plek in het DNA knipt. Daarmee behandelen artsen de eerste erfelijke ziektes, zoals sikkelcelziekte.",
+    "Lezen, vergelijken, veranderen. En bij elk van die drie komt een vraag: mag dat, en wie beslist?"
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h4v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "De stamboomsite kijkt niet naar STR's, maar naar SNP's: plekken waar één base verschilt tussen mensen. Honderdduizenden tegelijk.",
+    "Lange stukken met precies dezelfde SNP's komen van een gezamenlijke voorouder. Elke generatie knipt crossing-over ze in kleinere delen. Hoe langer het stuk, hoe minder generaties geleden.",
+    "Terug naar de zaak."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar de zaak",
+   "sub": "Samenvatting"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Een paar druppels bloed. Kopiëren met PCR: primers, temperatuur, een miljard kopieën.",
+    "Sorteren op een gel: korte stukken lopen verder; de lengtes van herhaalde stukjes vormen een profiel.",
+    "Lezen door te sequencen: gekleurde stopnucleotiden, en een computer die miljoenen stukjes in elkaar past.",
+    "En vinden: via verre familie die vrijwillig haar DNA deelde."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap2",
+   "lines": [
+    "Jouw DNA is nooit alleen van jou: je deelt het met je familie, of die dat nu wil of niet.",
+    "Wat zou jij uit je eigen DNA willen weten? En wat liever niet? Dat is aflevering acht."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Vermeerderen",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "Sorteren",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Lezen",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Vinden",
+   "level": "b"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "PCR",
+   "Polymerasekettingreactie: een gekozen stuk DNA in een buisje in korte tijd meer dan een miljard keer kopiëren. Per cyclus: verhitten (≈95 °C, strengen los), afkoelen (≈55 °C, primers binden), opwarmen (≈72 °C, hittebestendige polymerase bouwt nieuwe strengen); elke cyclus verdubbelt het aantal.",
+   "b"
+  ],
+  [
+   "primer",
+   "Kort stukje DNA dat aan het begin van het te kopiëren stuk bindt; de polymerase begint daar. De primers bepalen welk stuk gekopieerd wordt.",
+   "b"
+  ],
+  [
+   "gelelektroforese",
+   "DNA-fragmenten sorteren op lengte: DNA is negatief geladen en loopt in een gel naar de pluspool; korte fragmenten lopen verder dan lange. Het resultaat is een bandenpatroon.",
+   "b"
+  ],
+  [
+   "DNA-profiel",
+   "De combinatie van lengtes van een vaste set herhaalde stukjes niet-coderend DNA; per mens vrijwel uniek, behalve bij eeneiige tweelingen.",
+   "b"
+  ],
+  [
+   "sequencen",
+   "De basenvolgorde van een stuk DNA bepalen, bijvoorbeeld met gekleurde stopnucleotiden en sorteren op lengte; moderne apparaten lezen miljoenen stukjes tegelijk.",
+   "b"
+  ],
+  [
+   "NIPT",
+   "Niet-invasieve prenatale test: DNA-fragmenten van de placenta in het bloed van de moeder worden gesequencet en per chromosoom geteld; te veel fragmenten van chromosoom 21 wijst op trisomie 21.",
+   "b"
+  ],
+  [
+   "genetische modificatie",
+   "Het DNA van een organisme gericht veranderen: een gen van een andere soort inbouwen (met een restrictie-enzym geknipt, in een plasmide geplakt: recombinant-DNA; de bacterie met het menselijke insulinegen) of een gen op een gekozen plek knippen en veranderen (CRISPR).",
+   "b"
+  ],
+  [
+   "STR",
+   "Short tandem repeat: een kort motief (bijv. GATA) dat een aantal keer achter elkaar herhaald wordt; het aantal herhalingen verschilt tussen mensen en tussen de twee allelen van één persoon.",
+   "v"
+  ],
+  [
+   "reverse transcriptase",
+   "Enzym dat RNA overschrijft naar DNA; nodig vóór een PCR op een RNA-virus (RT-PCR).",
+   "v"
+  ],
+  [
+   "referentiegenoom en variant",
+   "Eén standaardvolgorde van het menselijk genoom waarmee gesequencete stukjes worden vergeleken; een plek waar iemands DNA afwijkt heet een variant. SNP: een variant van één base.",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Zet de drie stappen van één PCR-cyclus in de juiste volgorde en noem bij elke stap de temperatuur (hoog, laag, middel) en wat er gebeurt.",
+    "1 hoog (≈95 °C): de waterstofbruggen breken, de strengen gaan uit elkaar; 2 laag (≈55 °C): de primers binden; 3 middel (≈72 °C): de hittebestendige polymerase bouwt vanaf de primers nieuwe strengen. Elke cyclus verdubbelt het aantal kopieën."
+   ],
+   [
+    "Twee DNA-fragmenten van 200 en 800 basenparen lopen op dezelfde gel. Welke band zit het dichtst bij de pluspool en waarom?",
+    "Het fragment van 200 basenparen: DNA is negatief geladen en loopt naar de pluspool; korte fragmenten komen makkelijker door de gel en lopen verder."
+   ],
+   [
+    "(naar CvTE havo 2021-II, vraag 30) Een bureau onderzoekt watermonsters op DNA-sporen (eDNA) van een parasiet. Leg uit hoe PCR kan aantonen dat de parasiet in het water zit.",
+    "Primers worden gekozen die alleen passen op een DNA-volgorde van die parasiet; zit dat DNA in het monster, dan wordt het bij de PCR vermeerderd en op de gel zichtbaar; zonder parasiet-DNA ontstaat geen product."
+   ],
+   [
+    "Waarom is een DNA-profiel van een eeneiige tweeling geen bewijs voor één van de twee?",
+    "Een eeneiige tweeling is uit één bevruchte eicel ontstaan en heeft dus hetzelfde DNA en hetzelfde profiel; op grond van het profiel alleen kun je ze niet onderscheiden."
+   ],
+   [
+    "Bij de NIPT worden stukjes DNA uit het bloed van de moeder gesequencet. Leg uit hoe het lab daaruit afleidt dat de foetus waarschijnlijk trisomie 21 heeft.",
+    "Van elk stukje wordt via de nucleotidenvolgorde bepaald van welk chromosoom het komt; ongeveer een tiende van de stukjes is van de placenta (het kind). Bij trisomie 21 komt er een klein maar meetbaar overschot aan stukjes van chromosoom 21 ten opzichte van het verwachte aantal. De NIPT is een screening; zekerheid geeft een vlokkentest of vruchtwaterpunctie."
+   ]
+  ],
+  "v": [
+   [
+    "Iemand heeft op een STR-plek de allelen 8 en 11. Hoeveel banden zie je op de gel, en wat zie je bij iemand die homozygoot 11 is?",
+    "Twee banden (8 en 11 herhalingen, verschillende lengtes); bij homozygoot 11 één band, meestal iets dikker."
+   ],
+   [
+    "Waarom begint een coronatest met reverse transcriptase?",
+    "Het coronavirus heeft RNA als erfelijk materiaal; PCR kopieert alleen DNA. Reverse transcriptase maakt van het virus-RNA eerst DNA (cDNA), dat daarna met PCR vermeerderd wordt."
+   ],
+   [
+    "Twee mensen delen op de stamboomsite lange stukken DNA met precies dezelfde SNP's. Wat zegt de lengte van die stukken over hun verwantschap?",
+    "Elke generatie breekt crossing-over de gedeelde stukken in kleinere delen; hoe langer de gedeelde stukken, hoe minder generaties geleden de gezamenlijke voorouder leefde, dus hoe nauwer verwant."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "Kopieën na 30 PCR-cycli",
+   "meer dan een miljard",
+   "2^30 ≈ 1,07 × 10^9 (ideale verdubbeling)"
+  ],
+  [
+   "Eerste menselijke genoom",
+   "dertien jaar, miljarden euro's",
+   "Human Genome Project 1990–2003, ≈ 3 miljard dollar"
+  ],
+  [
+   "Heel genoom lezen nu",
+   "in een dag",
+   "NGS-apparaten: een menselijk genoom in ca. 1 dag, kosten in de orde van enkele honderden euro's (2024–2025)"
+  ],
+  [
+   "Gedeeld DNA met achterneef",
+   "ongeveer drie procent",
+   "gemiddeld 3,125 % (1/32) voor achterneven (second cousins: gedeelde overgrootouders)"
+  ],
+  [
+   "Kans op toevallig gelijk DNA-profiel",
+   "kleiner dan één op een miljard",
+   "forensische STR-sets (≥ 20 loci): toevalskans typisch < 10^-9 bij niet-verwanten"
+  ],
+  [
+   "DNA van het kind in het bloed van de moeder (NIPT)",
+   "ongeveer één op de tien",
+   "foetale fractie gemiddeld ≈ 10 % van het celvrije DNA vanaf week 10"
+  ]
+ ]
+}

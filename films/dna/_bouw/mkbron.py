@@ -21,12 +21,94 @@ def timeline(segs,niv):
 fmt=lambda x:f'{int(x//60)}:{int(x%60):02d}'
 PP='- 12 okt 2026 (later) — nieuwe mensfiguur in opening en samenvatting: met huidskleur, zachte ronde vormen, vriendelijk gezicht (personReal in dnalib); speler: denktijd per vraag instelbaar.'
 CC='- 2.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma/dubbele punt, nooit midden in “van 3′ naar 5′”; opnieuw gebouwd, beeld en audio ongewijzigd.'
-VWO={6:'vwo-blokken na hoofdstuk 2 (activator, repressor, enhancer), hoofdstuk 3 (totipotent, pluripotent, multipotent) en hoofdstuk 4 (methylering, histonen, X-inactivatie en de lapjeskat)',5:'vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie)',4:'vwo-blokken in hoofdstuk 1 (anticodon, laadenzymen, ribosomaal RNA), hoofdstuk 3 (coderende streng en matrijsstreng) en de samenvatting (gen zonder introns)',1:'hoofdstuk 4 is een vwo-blok',2:'hoofdstuk 4 is een vwo-blok',3:'vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag)'}
-VERSIE={6:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf',5:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf',4:'1.1 · 12 oktober 2026 — opnieuw ingesproken met eleven_v3 (Nederlandse aminozuren); 1.0 eerste versie, Part C (prompt v5); opening = puzzel A (insuline uit een bacterie); oefenaflevering met CE-vragen',1:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',2:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',3:'1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin)'}
+VWO={7:"vwo-blokken na hoofdstuk 1 (reverse transcriptase, primerkeuze), hoofdstuk 2 (STR, toevalskans), hoofdstuk 3 (referentiegenoom en variant) en hoofdstuk 4 (SNP's, gedeelde stukken en crossing-over)",6:'vwo-blokken na hoofdstuk 2 (activator, repressor, enhancer), hoofdstuk 3 (totipotent, pluripotent, multipotent) en hoofdstuk 4 (methylering, histonen, X-inactivatie en de lapjeskat)',5:'vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie)',4:'vwo-blokken in hoofdstuk 1 (anticodon, laadenzymen, ribosomaal RNA), hoofdstuk 3 (coderende streng en matrijsstreng) en de samenvatting (gen zonder introns)',1:'hoofdstuk 4 is een vwo-blok',2:'hoofdstuk 4 is een vwo-blok',3:'vwo-blokken aan het eind van hoofdstuk 2 (promotor, leesrichting, splicing) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag)'}
+VERSIE={7:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (cold case: bloedspoor en stamboomsite); stem eleven_v3 zonder uitspraaktest vooraf',6:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf',5:'1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf',4:'1.1 · 12 oktober 2026 — opnieuw ingesproken met eleven_v3 (Nederlandse aminozuren); 1.0 eerste versie, Part C (prompt v5); opening = puzzel A (insuline uit een bacterie); oefenaflevering met CE-vragen',1:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',2:'2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd',3:'1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin)'}
 _W12=PP+'\n'+CC+'\n- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: {}\n- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.'
-WIJZ={6:'- 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stamceldeling vlak na de deling nog gelijk, lapjeskat met allelen oranje/zwart en lapjeskater XXY, slotjes ook door de cel zelf, structuurgenen erbij, X-inactivatie) en een didactiek/taal-review (15 punten, o.a. V1 zonder genoom/genotype als afleiders, hormoonvraag met promotor/polymerase als afleiders, rattenvraag met moeders aten gewoon in de stam, kookboekmetafoor, slotje niet voorgoed). Beelden nagekeken op stijlframes en contactsheets vwo en havo.',5:'- 1.0 · 13 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stille mutatie in de Wilson-vraag, variatie voor havo, leesraamdefinitie, asbest eruit) en een didactiek/taal-review (15 punten, o.a. afleiders V1/V2/V4, NF2-vraag naar de pagina, genoommutatie naar hoofdstuk 4). Beelden nagekeken op contactsheets vwo en havo.',4:'- 1.1 · 12 okt 2026 — tRNA-kringloop (h1b) opnieuw: één tRNA gaat zichtbaar de kring rond (pakt valine, klikt op G-U-G, valine gaat naar de keten, het tRNA vertrekt leeg met een gestippeld leeg haakje); “vaste combinatie” anticodon C A C → valine plus een rijtje anticodon → aminozuur (h1b li 5–6), met een nieuwe gesproken zin in n5 (“Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine.”); tRNA overal dezelfde opname; anticodon en codon grijpen nu precies in elkaar (`trnaY()`).; alle 20 takes opnieuw ingesproken met eleven_v3 en Nederlandse uitspraak van de aminozuren (na 9 uitspraakrondes met Kamiel); woordtijden opnieuw berekend; spraak nu ≈ 505 s (vwo).\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (13 punten, o.a. stopcodon telt mee in het mRNA; A G U als tweede mogelijkheid) en een didactiek/taal-review (15 punten, o.a. "Antwoord C." vooraf, hergebruik van tRNA als werktuig). Beelden nagekeken op contactsheets vwo en havo.',1:_W12.format('schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.'),2:_W12.format('de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'),
+WIJZ={7:"- 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (o.a. rode bloedcellen zonder kern, drie PCR-temperaturen, reverse transcriptase vóór de primers, niet-coderend DNA, twee STR-versies, PCR-stap in het bruinvisantwoord, drie miljard dollar, NIPT zonder lengtefiltering en als screening, Nederland vs VS bij stamboomsites, restrictie-enzym/plasmide/genetisch gemodificeerd, CRISPR bij sikkelcelziekte) en een didactiek/taal-review (o.a. nieuwe NIPT-checkvraag, opening verraadt de achterneef niet, kortere opties bij V4, lettervolgorde A, B, C, B, slotzinnen 'Terug naar het bloedspoor' / 'Terug naar de zaak'). Beelden nagekeken op stijlframes (frames7.js) en contactsheets vwo en havo; na de bouw de strengscheiding in h1a (li 2) gecorrigeerd (ladder begon te dicht op elkaar) en de derde slotregel ingekort.",6:'- 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stamceldeling vlak na de deling nog gelijk, lapjeskat met allelen oranje/zwart en lapjeskater XXY, slotjes ook door de cel zelf, structuurgenen erbij, X-inactivatie) en een didactiek/taal-review (15 punten, o.a. V1 zonder genoom/genotype als afleiders, hormoonvraag met promotor/polymerase als afleiders, rattenvraag met moeders aten gewoon in de stam, kookboekmetafoor, slotje niet voorgoed). Beelden nagekeken op stijlframes en contactsheets vwo en havo.',5:'- 1.0 · 13 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stille mutatie in de Wilson-vraag, variatie voor havo, leesraamdefinitie, asbest eruit) en een didactiek/taal-review (15 punten, o.a. afleiders V1/V2/V4, NF2-vraag naar de pagina, genoommutatie naar hoofdstuk 4). Beelden nagekeken op contactsheets vwo en havo.',4:'- 1.1 · 12 okt 2026 — tRNA-kringloop (h1b) opnieuw: één tRNA gaat zichtbaar de kring rond (pakt valine, klikt op G-U-G, valine gaat naar de keten, het tRNA vertrekt leeg met een gestippeld leeg haakje); “vaste combinatie” anticodon C A C → valine plus een rijtje anticodon → aminozuur (h1b li 5–6), met een nieuwe gesproken zin in n5 (“Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine.”); tRNA overal dezelfde opname; anticodon en codon grijpen nu precies in elkaar (`trnaY()`).; alle 20 takes opnieuw ingesproken met eleven_v3 en Nederlandse uitspraak van de aminozuren (na 9 uitspraakrondes met Kamiel); woordtijden opnieuw berekend; spraak nu ≈ 505 s (vwo).\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (13 punten, o.a. stopcodon telt mee in het mRNA; A G U als tweede mogelijkheid) en een didactiek/taal-review (15 punten, o.a. "Antwoord C." vooraf, hergebruik van tRNA als werktuig). Beelden nagekeken op contactsheets vwo en havo.',1:_W12.format('schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.'),2:_W12.format('de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).'),
  3:PP+'\n- 1.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma.\n- 1.0.2 · 12 okt 2026 — tRNA’s sluiten nu precies op het codon aan (anticodonbasen grijpen in de codonbasen; eerst hingen ze iets te hoog of schoven ze erin). Helper `trnaY()` in `src/dnalib.js`.\n- 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten verwerkt); beelden nagekeken door een tweede, onafhankelijke review (ribosoom volgt de tRNA\'s, losgelaten mRNA houdt zijn basen, labels vrij van elkaar, 3′/5′ bij het anticodon). Dezelfde dag: n17 opnieuw ingesproken, de wiebelbase is de derde base van het codon (niet van het anticodon).'}
-AANDACHT={6:"""- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3, één take per alinea, spellingen uit de uitspraaklijst plus nieuwe respellings op basis van de standaard Nederlandse klemtoon (IPA): eustradiol, keratienuh/albumienuh/hemoglobienuh (-ine als /inə/), aapoptoze, metielgroep/metielering, acetielgroepen, em-er-en-aa (mRNA), er-en-aa-polymerase, iks (X-chromosoom). Wachtlijst hieronder voor de verzameltest.
+AANDACHT={7:"""- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3, één take per alinea, spellingen uit de uitspraaklijst (deeënaa, er-en-aa, pee cee er, zjel, praimer(s), krisper, snip(s), es-tee-er(rs), siekwensen/gesiekwenst, rivurs transcriptase, nipt). Take q4 is opnieuw gegenereerd (de eerste bleef in 'generating' hangen). Wachtlijst hieronder voor de verzameltest.
+- Uitspraak-wachtlijst (eerste voorkomen per take; tijd = binnen de take; `FILMDATA.segments[<take>]`):
+
+| woord | take | tijd in take |
+|---|---|---|
+| DNA-profiel | n0 | 0:09.4 |
+| databank | n0 | 0:11.5 |
+| DNA | n3 | 0:05.2 |
+| PCR | n3 | 0:13.1 |
+| polymerase | n3 | 0:20.3 |
+| waterstofbruggen | n3 | 0:30.2 |
+| primers | n3 | 0:37.1 |
+| hittebestendige | n3 | 0:45.2 |
+| PCR | q4 | 0:01.3 |
+| PCR | n5 | 0:00.8 |
+| primers | n5 | 0:05.4 |
+| nucleotiden | n5 | 0:08.6 |
+| DNA | n6 | 0:04.7 |
+| reverse | n6 | 0:11.2 |
+| PCR | n6 | 0:18.2 |
+| primers | n6 | 0:19.5 |
+| DNA | n8 | 0:00.7 |
+| PCR | n9 | 0:00.0 |
+| gelelektroforese | n9 | 0:05.8 |
+| DNA | n9 | 0:08.1 |
+| gel | n9 | 0:12.5 |
+| Bruinvissen | q10 | 0:00.0 |
+| zeehond-DNA | q10 | 0:13.2 |
+| PCR | n11 | 0:12.3 |
+| primers | n11 | 0:13.3 |
+| zeehond-DNA | n11 | 0:14.6 |
+| gel | n11 | 0:16.8 |
+| STR | n12 | 0:04.9 |
+| DNA | n14 | 0:06.8 |
+| sequencen | n14 | 0:08.6 |
+| polymerase | n14 | 0:13.4 |
+| nucleotiden | n14 | 0:18.4 |
+| genoom | n14 | 0:43.3 |
+| NIPT | q15 | 0:00.3 |
+| DNA | q15 | 0:01.7 |
+| foetus | q15 | 0:02.6 |
+| gesequencet | n16 | 0:02.2 |
+| genoom | n16 | 0:05.2 |
+| placenta | n16 | 0:14.3 |
+| DNA | n16 | 0:16.3 |
+| foetus | n16 | 0:27.3 |
+| trisomie | n16 | 0:29.5 |
+| referentiegenoom | n17 | 0:05.4 |
+| DNA | n17 | 0:10.3 |
+| variant | n17 | 0:12.7 |
+| databank | n19 | 0:05.9 |
+| DNA | n19 | 0:12.2 |
+| stamboomsite | n19 | 0:13.0 |
+| stamboomsite | q20 | 0:00.3 |
+| achterneef | q20 | 0:01.7 |
+| DNA | n21 | 0:02.1 |
+| Achterneven | n21 | 0:10.1 |
+| DNA | n22 | 0:01.8 |
+| insulinegen | n22 | 0:09.3 |
+| restrictie-enzym | n22 | 0:12.2 |
+| plasmide | n22 | 0:14.5 |
+| genetisch | n22 | 0:20.9 |
+| CRISPR | n22 | 0:25.9 |
+| sikkelcelziekte | n22 | 0:35.4 |
+| stamboomsite | n23 | 0:03.4 |
+| STR's | n23 | 0:04.9 |
+| SNP's | n23 | 0:06.2 |
+| crossing-over | n23 | 0:20.2 |
+| PCR | n25 | 0:03.4 |
+| primers | n25 | 0:04.4 |
+| gel | n25 | 0:09.8 |
+| sequencen | n25 | 0:17.4 |
+| stopnucleotiden | n25 | 0:19.3 |
+| DNA | n25 | 0:27.9 |
+| DNA | n26 | 0:00.2 |
+
+- Puzzels: gekozen A (cold case: bloedspoor op een kapotte ruit, profiel niet in de databank, jaren later een achterneef op een stamboomsite; rode draad door alle vier de hoofdstukken, Golden State Killer 2018 als voorbeeld zonder naam). Afgevallen: B (de coronatest als rode draad: nu V1 en het vwo-blok van hoofdstuk 1), C (de NIPT als rode draad: nu V3 en de brug naar aflevering 8).
+- CE-vragen geparafraseerd en naar drie keuzes omgezet (havo 2025-II coronatest, havo 2019-II bruinvissen en NIPT; op de pagina havo 2021-II eDNA); V4 (achterneef) is zelf gemaakt; antwoorden zelf uitgewerkt, correctievoorschriften niet ingezien.
+- Vereenvoudigingen: PCR met één getekende primer per streng en drie temperaturen; DNA-profiel als "twintig plekken" op een gewone gel (in werkelijkheid capillaire elektroforese); sequencen als Sanger (stopnucleotiden); NIPT zonder lengtefiltering, celvrij DNA uit de placenta, screening en geen diagnose; stamboomsite: honderdduizenden SNP's, Nederland alleen de eigen databank (zie docentdeel).
+- Getallen: 2^30 ≈ 1,07 miljard; Human Genome Project 1990–2003, ≈ 3 miljard dollar; een genoom in een dag (2024–2025); achterneven delen gemiddeld 3,125 %; toevalskans profiel < 1 op een miljard; foetale fractie ≈ 10 %.
+- Lengte: spraak vwo ≈ 10:50, havo ≈ 8:55. Kandidaten om in te korten: n14 (geschiedenis van het genoom), n22 (knippen en plakken) en n19 (Nederland/VS).
+- Nieuwe bibliotheekobjecten (scenes7.js): chromo, tube, drop, strand, primer, gel, barcode, repeats, folder, database, window_, personIcon, scissors, plasmid, bacterium, pedigree, thermometer; SEQCOL (kleuren voor stopnucleotiden); PERSON_LOOK (huidskleur 2) voor de verdachte.
+- Denktijd 12 s bij V2 en V4 (`think`).""",6:"""- **Geen uitspraaktest vooraf** (afspraak Kamiel 13 okt 2026): opgenomen met eleven_v3, één take per alinea, spellingen uit de uitspraaklijst plus nieuwe respellings op basis van de standaard Nederlandse klemtoon (IPA): eustradiol, keratienuh/albumienuh/hemoglobienuh (-ine als /inə/), aapoptoze, metielgroep/metielering, acetielgroepen, em-er-en-aa (mRNA), er-en-aa-polymerase, iks (X-chromosoom). Wachtlijst hieronder voor de verzameltest.
 - Uitspraak-wachtlijst (eerste voorkomen per take; tijd = binnen de take; `FILMDATA.segments[<take>]`):
 
 | woord | take | tijd in take |

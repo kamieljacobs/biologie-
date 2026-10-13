@@ -8,7 +8,7 @@ def old_teacher(fname):  # docentdeel (pauzes, vereenvoudigingen, leerdoelen) st
 def how(rows):
     return ('<details open><summary>Hoe de film het uitlegt</summary><table><tr><th>Hoofdstuk</th><th>Type</th><th>Look (Part C)</th><th>Kernbeeld</th><th>Misconceptie</th></tr>'
             + ''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in rows) + '</table></details>')
-SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties'),('6-genen-aan-en-uit.html','Genen aan en uit')]
+SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties'),('6-genen-aan-en-uit.html','Genen aan en uit'),('7-dna-lezen.html','DNA lezen')]
 def seriesline(cur):
     parts=[]
     for k,(f,t) in enumerate(SERIES,1):
@@ -111,4 +111,22 @@ FILMS={
       ['4 vwo: histonen en lapjeskat <span class="tag">vwo</span>','A','Schema','histonen met acetylgroepen (open) en zonder (dicht); twee X-chromosomen, één op slot; lapjeskat met plukjes; kater met één X','X-inactivatie gebeurt per plukje opnieuw; lapjeskaters komen vaak voor'],
       ['Samenvatting','—','Macro + Schema','de twee zussen met paneel; helix met vergrootglas (naar aflevering 7)','—']]),
     'teacher_rest':old_teacher('6-genen-aan-en-uit.html')},
+ 7:{'file':'7-dna-lezen.html','title':'DNA lezen · DNA aflevering 7','headmeta':'Biologie bij Kamiel · reeks DNA · film 7 van 8 · havo + vwo','lead':'Een paar druppels bloed op een kapotte ruit. Hoe lees je daar DNA uit, en hoe vind je een dader die nergens geregistreerd staat? Over PCR, gelelektroforese en het DNA-profiel, sequencen en de NIPT, en zoeken via verre familie. Onderdelen met <span class="tag">vwo</span> zijn alleen vwo-stof; in de havo-stand worden ze overgeslagen.',
+    'film':{'title':'DNA lezen','sub':'DNA · aflevering 7','puzzle':'Een onopgeloste zaak. Op een kapotte ruit een paar druppels bloed van de dader, maar het profiel komt met niemand in de databank overeen. Jaren later komt er een nieuwe aanwijzing, niet van de dader zelf. Hoe lees je DNA uit een paar druppels bloed, en hoe vind je iemand die nergens geregistreerd staat?','meta':'dna 7/8','titleLook':'schema',
+            'mini':{'Hoofdstuk 1 — Vermeerderen':'PCR: kopiëren met de temperatuur als schakelaar','Hoofdstuk 2 — Sorteren':'Gelelektroforese en het DNA-profiel','Hoofdstuk 3 — Lezen':'Sequencen: letter voor letter','Hoofdstuk 4 — Vinden':'Zoeken via verre familie','Samenvatting — Terug naar de zaak':'Kopiëren, sorteren, lezen, vinden'},
+            'endLines':['PCR kopieert één gekozen stuk DNA een miljard keer: primers, temperatuur, polymerase.','Op een gel lopen korte stukken verder; de lengtes van herhaalde stukjes vormen een DNA-profiel.','Sequencen leest de basen zelf; via verre familie vind je wie nergens geregistreerd staat.'],'endHaak':'kopiëren, sorteren, lezen, vinden','next':'Volgende: wat heb jij aan DNA?',
+            'footer':'biologie bij kamiel · reeks dna 7/8 · stem: roos (elevenlabs) · versie 1.0 · oktober 2026'},
+    'legend':LEGEND+[('#8CC6E1','primer'),('#5BA4C9','RNA'),('#C9A35C','eiwit / polymerase'),('#7FC48F','zeehond / bacterie / match'),('#E07A5F','bloedspoor / stopnucleotide')],'seriesline':seriesline(7),'footer':FOOT.format(extra=', CvTE havo 2021-II (geparafraseerd), Mullis 1985, Sanger 1977, Human Genome Project 2003, RIVM over de NIPT').replace('Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).','Versie 1.0 · 13 oktober 2026.').replace('eleven_multilingual_v2','eleven_v3'),
+    'teacher_how':how([
+      ['Opening','I toepassing','Macro','kapotte ruit met bloeddruppels; profiel naast lege databank; dossier de kast in; vergrootglas','DNA-onderzoek wijst altijd meteen een dader aan'],
+      ['1 Vermeerderen','A mechanisme','Schema','buisje met bloed; rode cellen zonder kern; thermometer met drie standen; strengen los, primers binden, polymerase bouwt; 1 → 2 → 4 → miljard; coronatest (vraag 1)','PCR maakt het hele genoom na; een PCR-test ziet het virus zelf'],
+      ['1 vwo: RT-PCR en primerkeuze <span class="tag">vwo</span>','A','Schema','RNA → reverse transcriptase → DNA → PCR; primers die alleen op virus-DNA passen','het coronavirus heeft DNA'],
+      ['2 Sorteren','A + B','Schema','herhalingen GATA; twee versies (8 en 11); gel met min- en pluspool, korte stukken lopen verder; twintig plekken → streepjescode; bruinvissen (vraag 2)','lange stukken lopen verder; één plek is al een profiel'],
+      ['2 vwo: STR en toevalskans <span class="tag">vwo</span>','B','Schema','één of twee banden per plek; alle twintig gelijk < 1 op een miljard; eeneiige tweeling','een profiel is uniek per plek'],
+      ['3 Lezen','A mechanisme','Schema','gekleurde stopnucleotiden; kopieën van alle lengtes op lengte gesorteerd; laatste blokje lezen; 13 jaar → een dag; NIPT (vraag 3)','een profiel vertelt welke basen erin staan; de NIPT bewijst een trisomie'],
+      ['3 vwo: referentiegenoom en variant <span class="tag">vwo</span>','B','Schema','stukje naast referentie; afwijking = variant; meeste doen niets','elke variant is een ziektemutatie'],
+      ['4 Vinden','I toepassing','Macro + Schema','profiel niet in databank; stamboomsite; NL vs VS; stamboom naar beneden; achterneef (vraag 4); wattenstaafje, match; knippen en plakken: restrictie-enzym, plasmide, CRISPR','je deelt met een achterneef de helft van je DNA; de politie mag in Nederland zomaar op stamboomsites zoeken'],
+      ['4 vwo: SNP’s en gedeelde stukken <span class="tag">vwo</span>','A','Schema','SNP’s op twee chromosomen; gedeeld stuk; crossing-over knipt per generatie','STR en SNP zijn hetzelfde'],
+      ['Samenvatting','—','Macro + Schema','vier iconen: buisje, gel, kleurenrij, stamboom; brug naar aflevering 8','—']]),
+    'teacher_rest':old_teacher('7-dna-lezen.html')},
 }
