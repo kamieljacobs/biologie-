@@ -8,12 +8,12 @@ def old_teacher(fname):  # docentdeel (pauzes, vereenvoudigingen, leerdoelen) st
 def how(rows):
     return ('<details open><summary>Hoe de film het uitlegt</summary><table><tr><th>Hoofdstuk</th><th>Type</th><th>Look (Part C)</th><th>Kernbeeld</th><th>Misconceptie</th></tr>'
             + ''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in rows) + '</table></details>')
-SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties'),('6-genen-aan-en-uit.html','Genen aan en uit'),('7-dna-lezen.html','DNA lezen')]
+SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties'),('6-genen-aan-en-uit.html','Genen aan en uit'),('7-dna-lezen.html','DNA lezen'),('8-wat-heb-jij-aan-dna.html','Wat heb jij aan DNA?')]
 def seriesline(cur):
     parts=[]
     for k,(f,t) in enumerate(SERIES,1):
         parts.append(f'<b>{k} {t}</b>' if k==cur else f'<a href="{f}" style="color:var(--text2)">{k} {t}</a>')
-    parts.append('<span>'+str(len(SERIES)+1)+'–8 volgen</span>')
+    if len(SERIES)<8: parts.append('<span>'+str(len(SERIES)+1)+'–8 volgen</span>')
     return '<div class="meta" style="margin:-4px 0 10px;letter-spacing:.06em;text-transform:none;font-size:13px">Reeks DNA: '+' · '.join(parts)+'</div>'
 LEGEND=[('#C9BEEB','adenine (A) · punt'),('#9F90D4','thymine (T) · inkeping'),('#6C5BA8','cytosine (C) · nok'),('#4F3F86','guanine (G) · sleuf'),('#3E3366','suiker-fosfaatruggengraat'),('#7A8BA8','enzym (goud = actief centrum)'),('#E07A5F','let op / mutatie'),('#E0B64A','focus')]
 FOOT='Stem: Roos (ElevenLabs, eleven_multilingual_v2). Script, animatie en speler: Kamiel met Claude; illustraties door Claude volgens de stijlkaart (Part C). Bronnen: Biologie voor Jou havo thema 9, Nectar vwo H17, Alberts <em>Molecular Biology of the Cell</em>{extra}. Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).'
@@ -129,4 +129,18 @@ FILMS={
       ['4 vwo: SNP’s en gedeelde stukken <span class="tag">vwo</span>','A','Schema','SNP’s op twee chromosomen; gedeeld stuk; crossing-over knipt per generatie','STR en SNP zijn hetzelfde'],
       ['Samenvatting','—','Macro + Schema','vier iconen: buisje, gel, kleurenrij, stamboom; brug naar aflevering 8','—']]),
     'teacher_rest':old_teacher('7-dna-lezen.html')},
+ 8:{'file':'8-wat-heb-jij-aan-dna.html','title':'Wat heb jij aan DNA? · DNA aflevering 8','headmeta':'Biologie bij Kamiel · reeks DNA · film 8 van 8 · havo en vwo, één niveau','lead':'Een doosje van internet, de hielprik en de NIPT, een variant in de familie, een DNA-test vóór een medicijn. Vier keuzes die je kunt tegenkomen, en steeds dezelfde balans: wat de test zeker weet, en wat jij belangrijk vindt. Deze slotaflevering heeft geen vwo-blokken; alles is voor iedereen.',
+    'film':{'title':'Wat heb jij aan DNA?','sub':'DNA · aflevering 8','puzzle':'Zeven afleveringen ging het over DNA in cellen, in een buisje, in het lab. Deze laatste gaat over jou: een doosje van internet, een test bij de dokter, een telefoontje van een tante. Wil je weten wat erin staat, en wat doe je dan met de uitslag?','meta':'dna 8/8','titleLook':'schema',
+            'mini':{'Hoofdstuk 1 — Een doosje van internet':'Afkomst, koriander en een risico: kans of zekerheid?','Hoofdstuk 2 — Een kind op komst':'Hielprik, NIPT en dragerschapstest','Hoofdstuk 3 — Het zit in de familie':'BRCA1, Huntington en het recht om niet te weten','Hoofdstuk 4 — Een medicijn op maat':'Een DNA-test vóór de kuur; wie wint, wie draagt het risico','Samenvatting — Jouw balans':'De feiten, en wat jij belangrijk vindt'},
+            'endLines':['Een DNA-uitslag is bijna altijd een kans, zelden een zekerheid.','Hielprik en NIPT zijn allebei screening; het verschil is wat je met de uitslag kunt.','Je uitslag gaat ook over je familie. Wat de feiten wegen, bepaalt niemand voor je.'],'endHaak':'de feiten, en wat jij belangrijk vindt','next':'Dit was de reeks DNA',
+            'footer':'biologie bij kamiel · reeks dna 8/8 · stem: roos (elevenlabs) · versie 1.0 · oktober 2026'},
+    'legend':[('#E0B64A','feit · wat je wint'),('#5BA4C9','waarde · wat je weggeeft'),('#E07A5F','variant / let op'),('#7FC48F','behandeling / maïs'),('#8C7BBF','chromosoom / allel'),('#C9A35C','medicijn')],'seriesline':seriesline(8),'footer':FOOT.format(extra=', RIVM (hielprik, NIPT), IKNL, Kuchenbaecker e.a. JAMA 2017, Henricks e.a. Lancet Oncol 2018, Wet op de medische keuringen').replace('Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).','Versie 1.0 · 13 oktober 2026.').replace('eleven_multilingual_v2','eleven_v3'),
+    'teacher_how':how([
+      ['Opening','I toepassing','Schema','drie iconen van de vorige afleveringen; jij; doosje, dokter, telefoontje','DNA-onderzoek geeft altijd zekerheid'],
+      ['1 Een doosje van internet','I + G','Schema','doosje en telefoonrapport; SNP-stippen op het genoom; afkomst als vergelijking met groepen; lactose vs koriander; varianten vs leefstijl (vraag 1); het bedrijf, de politie, de familie; de eerste balans','afkomst staat in je DNA; 1,3 × betekent waarschijnlijk ziek'],
+      ['2 Een kind op komst','I','Schema','hielprik (voet en druppel); 24 vakjes; dieet/medicijn/behandeling; 60 ouders; NIPT (bloed met stukjes); chromosoom 21/18/13; kans → vervolgtest → keuze (vraag 2); dragerschap: allelen A a, 1 op 30, 1 op 4; balans feit/waarde','de hielprik is verplicht; de NIPT is een diagnose'],
+      ['3 Het zit in de familie','I + E','Schema','telefoontje van de tante; BRCA1 op het chromosoom; 70 % vs 1 op 7; controleren of operatie; weten/niet weten; Huntington met tijdlijn; 1 op 5 laat zich testen; stamboom met en zonder variant (vraag 3); vader nooit getest; klinisch geneticus; verzekeraar; balans','een negatieve uitslag zegt niets over je kinderen; iedereen in zo’n familie laat zich testen'],
+      ['4 Een medicijn op maat','I + A','Schema','ziekte later vs medicijn nu; patiënt met infuus; enzym en stapelende pillen; DNA-test → dosis (vraag 4); eenvoudige balans; gg-maïs: boer, zaadbedrijf, akker, het eten zelf; feit vs waarde','de test kijkt of het medicijn werkt; gg-voedsel is bewezen gevaarlijk'],
+      ['Samenvatting','—','Schema','de balans met beide schalen; cel → acht stippen → jij','—']]),
+    'teacher_rest':old_teacher('8-wat-heb-jij-aan-dna.html')},
 }

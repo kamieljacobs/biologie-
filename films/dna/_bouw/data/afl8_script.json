@@ -1,0 +1,378 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Zeven afleveringen lang ging het over DNA in cellen, in een buisje, in het lab. Deze laatste gaat over jou.",
+    "Want vroeg of laat krijg je een vraag over je eigen DNA. Een doosje van internet. Een test bij de dokter. Een telefoontje van een tante.",
+    "Wil je weten wat erin staat? En wat doe je dan met de uitslag?",
+    "Geen vwo-blokken deze keer: alles is voor iedereen."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Wat heb jij aan DNA?",
+   "sub": "DNA · aflevering 8"
+  },
+  {
+   "kind": "card",
+   "title": "Een doosje van internet",
+   "sub": "Hoofdstuk 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "Je spuugt in een buisje, plakt een postzegel op het doosje, en zes weken later staat er een rapport op je telefoon.",
+    "Waar je voorouders vandaan komen. Of je koriander naar zeep vindt smaken. En een risico op diabetes.",
+    "Wat heeft het bedrijf gelezen? Niet je hele genoom, maar een paar honderdduizend plekken waar mensen verschillen: de SNP's uit aflevering zeven.",
+    "Afkomst is een vergelijking: welke groepen uit de databank lijken het meest op jou? Een schatting; bij een ander bedrijf komt er soms een ander percentage uit.",
+    "Lactose hangt bijna helemaal van één plek in je DNA af; die uitslag klopt meestal. Koriander maar voor een deel: ook daar is het een kans.",
+    "En diabetes, hartziekte, een hoog gewicht: daar spelen honderden varianten tegelijk een kleine rol, en je leefstijl een grote."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h1q",
+   "text": "Het rapport zegt: je kans op diabetes type 2 is 1,3 keer zo groot als gemiddeld. Wat betekent dat? Wat denk je?",
+   "opts": [
+    "ik heb een mutatie die diabetes veroorzaakt",
+    "ik krijg waarschijnlijk diabetes",
+    "mijn kans is iets groter dan gemiddeld; mijn leefstijl telt zwaarder"
+   ],
+   "correct": 2,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "Antwoord C. Gemiddeld krijgt in Nederland ongeveer één op de drie mensen ooit diabetes type 2. Eén komma drie keer zo groot: bij jou zo'n vier op de tien.",
+    "Dus niet 'waarschijnlijk', en ook geen zekerheid de andere kant op. En gewicht, eten en bewegen wegen zwaarder dan de varianten die de chip leest.",
+    "Een DNA-uitslag is bijna altijd een kans, en zelden een zekerheid. Houd dat vast; het komt elk hoofdstuk terug.",
+    "Dan de andere kant van het doosje. Je DNA staat nu bij een bedrijf. Dat kan het delen met onderzoekers, of failliet gaan en zijn databank verkopen; dat gebeurde in 2025.",
+    "En in sommige landen zoekt de politie erin, zoals je in aflevering zeven zag.",
+    "En je deelt het met je familie. Stuur jij je DNA op, dan ligt een deel van je broer, je moeder en je nichtje mee op tafel. Die hebben niets getekend.",
+    "Zet het op een balans: een weegschaal met twee schalen. Links wat je ermee wint: nieuwsgierigheid, afkomst, een familielid vinden.",
+    "Rechts wat je weggeeft: je gegevens, en een stukje van je familie. Welke kant zwaarder weegt, verschilt per persoon."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Een kind op komst",
+   "sub": "Hoofdstuk 2"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "Een paar dagen na de geboorte komt iemand van de jeugdgezondheidszorg of de verloskundige langs voor een paar druppels bloed uit de hiel. De hielprik.",
+    "Het lab zoekt naar ruim twintig zeldzame aandoeningen, allemaal met één kenmerk: als je er vroeg bij bent, kun je er iets aan doen.",
+    "Een dieet, een medicijn, een behandeling die schade voorkomt of beperkt.",
+    "Bijna alle ouders doen mee. Niet omdat het moet, maar omdat de balans bij bijna iedereen dezelfde kant op slaat.",
+    "Eerder in de zwangerschap ligt dat anders. De NIPT uit aflevering zeven telt stukjes DNA van het kind in het bloed van de moeder.",
+    "Die geeft een kans op een extra chromosoom 21, 18 of 13 bij het kind. Een extra chromosoom 21 heet downsyndroom.",
+    "Een afwijkende uitslag is geen diagnose. Er volgt een vervolgtest, en daarna een keuze waar geen lab het antwoord op heeft.",
+    "Ook de NIPT is een aanbod, geen plicht. Iets meer dan de helft van de zwangere vrouwen kiest ervoor."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h2q",
+   "text": "Bijna alle ouders doen de hielprik, maar de NIPT is een echte keuze. Hoe komt dat? Wat denk je?",
+   "opts": [
+    "de hielprik vindt wat je kunt behandelen; de NIPT geeft een kans waarbij jij moet kiezen",
+    "de hielprik is verplicht, de NIPT niet",
+    "de NIPT geeft een zekere uitslag, de hielprik niet"
+   ],
+   "correct": 0,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "Antwoord A. Allebei de testen zijn vrijwillig, en allebei zijn het screening: een aanbod aan iedereen, zonder dat er een klacht is.",
+    "Een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd. Het verschil zit in wat je daarna met de uitslag kunt.",
+    "Bij de hielprik is de uitslag het begin van een behandeling. Bij de NIPT is de uitslag het begin van een afweging.",
+    "Er is nog een test, vóór een zwangerschap: de dragerschapstest. Die vraag je zelf aan, via de huisarts of een klinisch geneticus.",
+    "Je kunt drager zijn van een recessieve erfelijke ziekte, zoals taaislijmziekte, zonder er iets van te merken: je hebt het allel één keer.",
+    "In Nederland is ongeveer één op de dertig mensen drager. Zijn beide ouders drager, dan is de kans één op vier dat een kind de ziekte krijgt. Dat is een feit uit de erfelijkheidsles.",
+    "Wat je met dat feit doet, is geen biologie meer. Op de balans: zekerheid vooraf, tegenover een vraag waar je misschien niet om gevraagd had."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Het zit in de familie",
+   "sub": "Hoofdstuk 3"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Een telefoontje van je tante. Bij haar is borstkanker gevonden, en het lab vond een variant in het gen BRCA1. Die variant zit in de familie. Wil jij je laten testen?",
+    "Wat de test kan zeggen is precies: heb je de variant, of niet. Wat de variant betekent is een kans.",
+    "Met de variant krijgt tot zo'n zeventig procent van de vrouwen ooit borstkanker. Zonder de variant is dat in Nederland ongeveer één op de zeven.",
+    "En er is iets aan te doen. Vaker controleren, of een operatie uit voorzorg: de borsten, of de eierstokken, want ook die kans is verhoogd.",
+    "Daarom kiezen veel mensen in zo'n familie ervoor om het te weten. Anderen juist niet. Allebei kan. En ook mannen kunnen de variant hebben en doorgeven.",
+    "Vergelijk het met de ziekte van Huntington. Met de variant krijg je de ziekte vrijwel zeker, meestal tussen je dertigste en vijftigste. Er is nog niets dat de ziekte tegenhoudt.",
+    "Van de mensen met een ouder met Huntington laat maar ongeveer één op de vijf zich testen. Weten of niet weten: allebei mag. Dat heet het recht om niet te weten."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h3q",
+   "text": "Je moeder heeft de BRCA1-variant. Jij laat je gericht op die variant testen, en je hebt hem niet. Wat weet je dan over je eigen kinderen? Wat denk je?",
+   "opts": [
+    "ze hebben toch een verhoogde kans, want het zit in de familie",
+    "ze kunnen die variant via mij niet krijgen",
+    "ze hebben ieder vijftig procent kans op die variant"
+   ],
+   "correct": 1,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "Antwoord B. Je kunt alleen doorgeven wat je zelf hebt. Zit de variant niet in jouw DNA, dan krijgen je kinderen hem niet van jou.",
+    "Had je de variant wél, dan had elk kind de helft kans. De variant is dominant: één keer is genoeg.",
+    "En andersom: heb je de variant wél, en was je vader nooit getest, dan weet je nu ook iets over hem. Misschien wilde hij dat niet weten.",
+    "Daarom gaat zo'n test niet via een doosje, maar via een klinisch geneticus: een arts voor erfelijkheid. Die bespreekt vooraf wat je kunt horen, wat je ermee kunt, en wie het nog meer aangaat.",
+    "Nog één feit voor de balans. Bij een levensverzekering tot een paar ton mag een verzekeraar in Nederland niet vragen naar erfelijkheidsonderzoek. Dat staat in de wet.",
+    "Op de balans: een kans die je kunt verkleinen, tegenover een uitslag die ook over anderen gaat."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Een medicijn op maat",
+   "sub": "Hoofdstuk 4"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4a",
+   "lines": [
+    "Niet elke DNA-test gaat over een ziekte die je misschien krijgt. Sommige gaan over een medicijn dat je nu nodig hebt.",
+    "Een patiënt begint aan een veelgebruikte chemokuur, bijvoorbeeld bij darmkanker.",
+    "Ongeveer één op de twintig mensen heeft een variant in het gen voor het enzym dat dit medicijn afbreekt. Het enzym werkt dan te langzaam, het medicijn stapelt zich op, en de kuur wordt gevaarlijk.",
+    "Daarom is in Nederland bij dit medicijn eerst een DNA-test standaard. Met de variant krijg je een lagere dosis, of een ander middel."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q",
+   "text": "Vóór deze chemokuur krijgt de patiënt eerst een DNA-test. Waar kijkt de arts bij deze test naar? Wat denk je?",
+   "opts": [
+    "of de kanker erfelijk is",
+    "of het medicijn bij deze patiënt gaat werken",
+    "of de patiënt het medicijn langzaam afbreekt"
+   ],
+   "correct": 2,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4b",
+   "lines": [
+    "Antwoord C. Deze test kijkt niet naar de tumor en niet naar de werking, maar naar het enzym dat het medicijn opruimt. Trage opruimer: lagere dosis.",
+    "Hier is de balans eenvoudig: de test voorkomt een gevaarlijke bijwerking, en de uitslag gaat bijna alleen over jou.",
+    "Dat is bij genetisch gemodificeerd voedsel anders. Een maïsplant met een bacteriegen tegen insecten: de boer spuit minder gif, het zaadbedrijf verdient aan het zaad.",
+    "De vragen gaan over de akker: worden insecten ongevoelig, waait het stuifmeel over? Voor het eten zelf hebben de keurende instanties tot nu toe geen extra risico gevonden.",
+    "Dat zijn de feiten. Of je zo'n plant wilt, is een waarde. En wie wint en wie het risico draagt, zijn hier niet dezelfde."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Jouw balans",
+   "sub": "Samenvatting"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Vier keer dezelfde balans. Aan de ene kant de feiten: wat de test leest, en hoe zeker dat is. Bijna altijd een kans, zelden een zekerheid.",
+    "Aan de andere kant wat jij belangrijk vindt: weten of niet weten, delen of niet delen, en wie er nog meer in je uitslag zit.",
+    "De feiten kun je opzoeken. Hoe zwaar ze wegen, bepaalt niemand voor je. Ook deze film niet."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap2",
+   "lines": [
+    "Dus: wat zou jij uit je eigen DNA willen weten? En wat liever niet?",
+    "Acht afleveringen DNA. Het begon in een cel. Het eindigt bij jou."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Een doosje van internet",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "Een kind op komst",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Het zit in de familie",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Een medicijn op maat",
+   "level": "b"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "commerciële DNA-test",
+   "Test uit een doosje: een bedrijf leest een paar honderdduizend SNP's uit je speeksel en rapporteert afkomst (een schatting door vergelijking met referentiegroepen), eigenschappen van (bijna) één gen en risico's op veelvoorkomende ziekten (kleine verschillen; honderden varianten plus leefstijl).",
+   "b"
+  ],
+  [
+   "kans of zekerheid",
+   "Een DNA-uitslag is bijna altijd een kans (een variant maakt een ziekte waarschijnlijker) en zelden een zekerheid (zoals bij de ziekte van Huntington). Een relatief risico (1,3 keer de gemiddelde kans) zegt pas iets als je de gemiddelde kans kent.",
+   "b"
+  ],
+  [
+   "screening",
+   "Een onderzoek dat aan iedereen in een groep wordt aangeboden zonder dat er een klacht is (hielprik, NIPT); een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd.",
+   "b"
+  ],
+  [
+   "hielprik",
+   "Screening van pasgeborenen (dag 3–7) op ruim twintig zeldzame aandoeningen waarbij vroege behandeling helpt, uit een paar druppels bloed uit de hiel; vrijwillig, bijna iedereen doet mee.",
+   "b"
+  ],
+  [
+   "NIPT",
+   "Niet-invasieve prenatale test (zie aflevering 7): telt DNA van het kind in het bloed van de moeder en geeft een kans op een extra chromosoom 21 (downsyndroom), 18 of 13; een screening, geen diagnose; een aanbod, geen plicht; vervolgtest: vlokkentest of vruchtwaterpunctie.",
+   "b"
+  ],
+  [
+   "dragerschapstest",
+   "Test vóór een zwangerschap of je drager bent van een recessieve erfelijke ziekte (het allel één keer, zoals bij taaislijmziekte) zonder er zelf iets van te merken; via huisarts of klinisch geneticus; zijn beide ouders drager, dan is de kans per kind één op vier.",
+   "b"
+  ],
+  [
+   "erfelijkheidsonderzoek",
+   "DNA-onderzoek naar een variant die in de familie zit (zoals in BRCA1), via een klinisch geneticus (arts gespecialiseerd in erfelijkheid) die vooraf bespreekt wat je kunt horen, wat je ermee kunt en wie het nog meer aangaat; weten en niet weten mogen allebei (recht om niet te weten).",
+   "b"
+  ],
+  [
+   "medicijn op maat",
+   "Farmacogenetica: een DNA-test op het gen voor een enzym dat een medicijn afbreekt; bij een trage variant een lagere dosis of een ander middel (in Nederland standaard vóór bepaalde chemokuren).",
+   "b"
+  ],
+  [
+   "genetisch gemodificeerd (transgeen)",
+   "Organisme met een ingebouwd gen van een andere soort (zie aflevering 7): de insulinebacterie, of maïs met een bacteriegen tegen insecten. Bij de afweging horen de vragen wie er baat bij heeft en wie het risico draagt.",
+   "b"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Een commerciële DNA-test zegt dat iemand voor 23 % 'Scandinavisch' is; een ander bedrijf zegt 9 %. Hoe kan dat?",
+    "Afkomst is geen eigenschap die in het DNA staat, maar een schatting: de SNP's worden vergeleken met referentiegroepen in de databank van dat bedrijf. Andere databank en andere rekenmethode geven een ander percentage."
+   ],
+   [
+    "Noem twee verschillen tussen de hielprik en de NIPT.",
+    "Moment (na de geboorte / tijdens de zwangerschap), wat er gezocht wordt (behandelbare aandoeningen / kans op een extra chromosoom), wat de uitslag in gang zet (onderzoek en behandeling / vervolgtest en een keuze) en deelname (bijna iedereen / iets meer dan de helft). Allebei zijn screening en vrijwillig."
+   ],
+   [
+    "Beide ouders zijn drager van taaislijmziekte. Hoe groot is de kans dat hun kind de ziekte heeft, en hoe groot dat het drager is?",
+    "Ziek: 1 op 4 (aa); drager: 1 op 2 (Aa); niet-drager: 1 op 4 (AA). Dit geldt voor elk kind opnieuw."
+   ],
+   [
+    "Waarom verloopt een test op een BRCA1-variant via een klinisch geneticus en niet via een doosje van internet?",
+    "De uitslag heeft grote gevolgen (kans tot zo'n 70 % op borstkanker en een verhoogde kans op eierstokkanker; keuzes als controles of een operatie), hij zegt ook iets over familieleden die misschien niet willen weten, en de betekenis vraagt uitleg vooraf en nazorg; een commerciële test leest meestal niet eens de relevante varianten."
+   ],
+   [
+    "Wat is het verschil tussen de DNA-test vóór een chemokuur en de BRCA1-test?",
+    "De test vóór de chemokuur kijkt naar het gen voor een enzym dat het medicijn afbreekt en past de dosis aan (nu, vooral voor deze patiënt); de BRCA1-test kijkt naar een variant die de kans op een ziekte in de toekomst vergroot en zegt ook iets over familieleden."
+   ]
+  ],
+  "v": []
+ },
+ "NUMBERS": [
+  [
+   "Plekken die een commerciële test leest",
+   "een paar honderdduizend",
+   "SNP-chips: ≈ 600.000–700.000 SNP's; een genoom heeft ≈ 3 miljard basenparen"
+  ],
+  [
+   "Kans op diabetes type 2 (gemiddeld, NL)",
+   "ongeveer één op de drie",
+   "Rotterdam Study: levenslang risico ≈ 31 % vanaf 45 jaar; 1,3 × ≈ 40 %"
+  ],
+  [
+   "Hielprik: aantal aandoeningen en moment",
+   "ruim twintig; dag 3–7",
+   "RIVM: 26–27 aandoeningen (2024–2025), afname 72–168 uur na de geboorte, deelname ≈ 99 %"
+  ],
+  [
+   "NIPT: deelname",
+   "iets meer dan de helft",
+   "RIVM-monitor 2023–2024: ≈ 55–60 % van de zwangere vrouwen (sinds april 2023 zonder eigen bijdrage)"
+  ],
+  [
+   "Drager van taaislijmziekte (CF)",
+   "ongeveer één op de dertig",
+   "NL: ≈ 1 op 30 is drager van een CFTR-variant; ≈ 1 op 4.000–4.750 kinderen heeft CF"
+  ],
+  [
+   "Borstkanker bij een BRCA1-variant",
+   "tot zo'n zeventig procent",
+   "cumulatief risico tot 80 jaar ≈ 72 % (BRCA1) en 69 % (BRCA2), Kuchenbaecker e.a., JAMA 2017; eierstokkanker ≈ 40 % (BRCA1); algemene bevolking NL ≈ 1 op 7 (IKNL); overervingskans 50 % (dominant)"
+  ],
+  [
+   "Huntington: begin en wie laat zich testen",
+   "30–50 jaar; ongeveer één op de vijf",
+   "gemiddelde beginleeftijd 30–50 jaar; ≈ 10–25 % van de mensen met 50 % risico vraagt een voorspellende test aan"
+  ],
+  [
+   "Verzekeraar en erfelijkheidsonderzoek",
+   "tot een paar ton niet vragen",
+   "Wet op de medische keuringen: vragengrens levensverzekering ≈ € 350.000 (2025, jaarlijks geïndexeerd); daarboven mag naar uitslagen gevraagd worden"
+  ],
+  [
+   "Trage afbraak chemomedicijn",
+   "ongeveer één op de twintig",
+   "DPYD-varianten (vier geteste): ≈ 5–8 % van de Europese bevolking; genotypering standaard in NL vóór fluoropyrimidines (5-FU, capecitabine) sinds ≈ 2018 (Henricks e.a., Lancet Oncol 2018), EMA-advies 2020"
+  ]
+ ]
+}
