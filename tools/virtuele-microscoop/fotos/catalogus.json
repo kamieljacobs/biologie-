@@ -57,6 +57,32 @@
       "opmerking": "Vergroting staat niet bij de foto; de donkere, bruine cellen en vlekken liever niet laten aanwijzen."
     },
     {
+      "id": "plat-epitheel-mens",
+      "status": "link-ontbreekt",
+      "bestand": "plat-epitheel-mens.jpg",
+      "breedte": 2576,
+      "hoogte": 1452,
+      "titel": "Plat epitheel van de mens",
+      "origineleTitel": "Epithelial Tissues: Simple Squamous Epithelium",
+      "organisme": "mens",
+      "doorsnede": "whole mount",
+      "vergroting": null,
+      "beschrijving": "Een laagje platte menselijke cellen, van bovenaf bekeken. De grenzen tussen de cellen zijn zwart gekleurd; in elke cel ligt één lichte, ovale celkern. Er zit geen celwand omheen, alleen een celmembraan.",
+      "structuren": [
+        { "id": "celkern", "naam": "celkern", "uitleg": "Het lichte, ovale vlekje in elke cel.", "punt": null },
+        { "id": "celmembraan", "naam": "celmembraan", "uitleg": "De zwarte lijn om elke cel. Er zit geen celwand omheen.", "punt": null },
+        { "id": "cytoplasma", "naam": "cytoplasma", "uitleg": "Het bruine, korrelige deel van de cel rond de celkern.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": null,
+        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["virtuele microscoop: wangcellen (dierlijke cel)"],
+      "opmerking": "Vergroting staat niet bij de foto. Waarschijnlijk is dit een van de geplande foto's 'Simple Squamous Epithelium: Whole Mount (Human)' (100×, 200× of 400×); met de Flickr-link kunnen die twee items samengevoegd worden."
+    },
+    {
       "id": "pinus-naald-40x",
       "status": "foto-ontbreekt",
       "bestand": null,
