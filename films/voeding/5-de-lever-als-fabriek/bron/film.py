@@ -1,0 +1,83 @@
+import json
+film = {
+ "slug": "5-de-lever-als-fabriek", "hoofdstuk": "voeding", "hoofdstukNaam": "Voeding",
+ "title": "De lever als fabriek", "sub": "Wat er met je eten gebeurt als het in het bloed zit",
+ "puzzle": "Een baby van drie dagen wordt geel. Waar komt die kleur vandaan, en waarom gaat het vanzelf over?",
+ "meta": "voeding 5/6", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Voeding · film 5 van 6",
+ "lead": "Drie bloedvaten rond de lever, en een fabriek met vier afdelingen: glucose wordt glycogeen, te veel aminozuren worden ureum, alcohol en medicijnen worden afgebroken, en de lever maakt gal. In die gal zit een gele kleurstof uit oude rode bloedcellen, en daarmee wordt een pasgeboren baby geel.",
+ "endHaak": "drie vaten, vier afdelingen",
+ "minis": {"Hoofdstuk 1": "Welke bloedvaten lopen naar en van de lever?", "Hoofdstuk 2": "Wat doet de lever met glucose, aminozuren en alcohol?", "Hoofdstuk 3": "Waar komt de gele kleurstof vandaan?", "Recap": "Waarom wordt een baby geel, en waarom gaat dat over?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Een baby van drie dagen wordt geel, haar oogwit ook. Waar komt die gele kleur vandaan?", "correct": 2, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
+  "q07": {"q": "Een half uur na het broodje kaas: in welk bloedvat zit de meeste glucose?", "correct": 0, "explain": "De poortader komt rechtstreeks van de darm, die op dat moment glucose opneemt. De leverader heeft minder (de lever houdt een deel vast); de leverslagader heeft dezelfde concentratie als de aorta."},
+  "q10": {"q": "In een leverlobje stroomt het bloed van de hoeken naar de centrale ader in het midden. Welke kant stroomt de gal op?", "correct": 1, "explain": "Gal en bloed mogen niet mengen. De levercellen geven gal af aan kanaaltjes tussen de cellen, die naar het galbuisje op de hoek lopen: tegen de bloedstroom in."},
+  "q15": {"q": "Je eet vaak meer eiwit dan je nodig hebt. Waar blijft dat?", "correct": 1, "explain": "Voor aminozuren bestaat geen voorraadstof. De lever haalt het stikstofdeel eraf (dat wordt ureum, naar de nieren) en gebruikt de rest als brandstof of bouwt het om tot vet."},
+  "q19": {"q": "Hoe haalt de lever alcohol uit je bloed?", "correct": 1, "explain": "Een zeef houdt deeltjes tegen op grootte, en alcohol is een klein molecuul, nauwelijks groter dan water. De lever breekt alcohol chemisch af (tot koolstofdioxide en water); medicijnen en afvalstoffen bouwt hij om tot stoffen die in water oplossen, zodat de nieren ze kunnen uitplassen: ontgiften."},
+  "q25": {"q": "Een galsteen sluit de galgang af; de gal kan niet meer naar de darm. Welke kleur krijgt de ontlasting?", "correct": 1, "explain": "De gele kleurstof (bilirubine) komt niet meer in de darm, dus darmbacteriën kunnen er geen bruine stof van maken. De bilirubine die de levercel al oplosbaar had gemaakt, gaat terug het bloed in: gele huid, en de nieren maken de urine donker."}
+ },
+ "glossary": [
+  {"t": "poortader", "d": "Ader die zuurstofarm bloed met opgenomen voedingsstoffen van de darm naar de lever brengt."},
+  {"t": "leverslagader", "d": "Slagader van de aorta naar de lever; brengt zuurstofrijk bloed."},
+  {"t": "leverader", "d": "Ader waardoor al het bloed de lever verlaat, naar de onderste holle ader en het hart."},
+  {"t": "onderste holle ader", "d": "Grote ader die bloed uit de onderste helft van het lichaam (ook uit de lever) naar het hart brengt."},
+  {"t": "glycogeen", "d": "Voorraadstof van glucose: een lange, vertakte keten. De lever heeft er ongeveer honderd gram van."},
+  {"t": "ureum", "d": "Afvalstof die de lever maakt uit het stikstofdeel van afgebroken aminozuren. Verlaat het lichaam via de nieren met de urine."},
+  {"t": "ontgiften", "d": "Het chemisch afbreken (alcohol) of ombouwen (medicijnen, afvalstoffen) tot stoffen die in water oplossen en uitgescheiden kunnen worden."},
+  {"t": "gal", "d": "Vloeistof die de lever maakt en de galblaas opslaat; bevat galzouten (emulgeren vet) en afvalstoffen zoals bilirubine. Geen enzym."},
+  {"t": "galzouten", "d": "Stoffen in gal die vet in de darm in kleine druppels verdelen. Worden aan het eind van de dunne darm teruggenomen en hergebruikt."},
+  {"t": "bilirubine", "d": "Gele afbraakstof van de rode kleurstof uit oude rode bloedcellen. De lever maakt het oplosbaar en scheidt het uit met de gal."},
+  {"t": "geelzucht", "d": "Gele huid en oogwit doordat bilirubine in het bloed blijft, bijvoorbeeld bij een afgesloten galgang of bij een pasgeboren baby."},
+  {"t": "milt", "d": "Orgaan naast de maag waar oude rode bloedcellen worden afgebroken."},
+  {"t": "leverlobje", "d": "Zeshoekig bouwsteentje van de lever: bloed stroomt van de hoeken naar de centrale ader in het midden, gal stroomt naar de hoeken.", "vwo": True},
+  {"t": "deaminering", "d": "Het afhalen van de aminogroep van een aminozuur. De aminogroep komt vrij als ammoniak en wordt in de lever omgezet in ureum.", "vwo": True},
+  {"t": "lipoproteïnen (LDL, HDL)", "d": "Bolletjes van vet en cholesterol met een eiwitjasje. LDL brengt cholesterol van de lever naar de cellen, HDL terug naar de lever.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Welk vat is welk?</b> <span class="pts">2 punten</span><p>Bij een proefpersoon is een uur na een maaltijd de concentratie van glucose en van ureum gemeten in drie bloedvaten rond de lever. De namen van de vaten ontbreken.</p>
+      <table><tr><th>vat</th><th>glucose (mmol/L)</th><th>ureum (mmol/L)</th></tr><tr><td>P</td><td>5,0</td><td>4,0</td></tr><tr><td>Q</td><td>5,2</td><td>4,4</td></tr><tr><td>R</td><td>8,5</td><td>4,0</td></tr></table>
+      <p>Noteer P, Q en R onder elkaar en zet erachter welk bloedvat het is: poortader, leverslagader of leverader. Licht je keuze voor Q toe.</p>
+      <details><summary>Antwoord</summary><p>R = poortader (hoogste glucose: komt van de darm), Q = leverader, P = leverslagader (1). Q: ureum wordt in de lever gemaakt, dus het bloed dat de lever verlaat bevat meer ureum dan het bloed dat erin gaat (1).</p></details></div>
+    <div class="q"><b>2. Juist of onjuist</b> <span class="pts">2 punten</span><p>1 Het bloed in de poortader is zuurstofrijk.<br>2 Bilirubine verlaat het lichaam voor het grootste deel met de ontlasting.<br>3 Bij een eiwitrijke maaltijd slaat de lever het teveel aan aminozuren op als glycogeen.</p><p>Noteer bij elke uitspraak of die juist of onjuist is.</p>
+      <details><summary>Antwoord</summary><p>1 onjuist (de darm heeft de zuurstof gebruikt), 2 juist (via de gal naar de darm), 3 onjuist (aminozuren worden afgebroken; het stikstofdeel wordt ureum). Drie goed: 2; twee goed: 1.</p></details></div>
+    <div class="q"><b>3. Blauw licht</b> <span class="pts">2 punten</span><p>Een pasgeboren baby met geelzucht krijgt blauw licht op de huid. Het licht zet bilirubine in de huid om in een vorm die in water oplost. De lever van de baby werkt daarbij niet beter dan daarvoor.</p><p>Leg uit waarom de baby toch minder geel wordt.</p>
+      <details><summary>Antwoord</summary><p>Bilirubine lost slecht op in water en kan normaal alleen via de lever (na bewerking door de levercel) met de gal worden uitgescheiden (1). De omgezette, oplosbare vorm kan direct via de nieren met de urine (of via de gal) het lichaam verlaten, zonder bewerking door het leverenzym (1).</p></details></div>
+    <div class="q"><b>4. Eiwitrijk dieet</b> <span class="pts">2 punten</span><p>Een sporter eet drie keer zoveel eiwit als zijn lichaam nodig heeft. Hij hoopt zo een eiwitvoorraad op te bouwen. In plaats daarvan komt hij aan in vet.</p><p>Leg uit, aan de hand van wat er in de lever met aminozuren gebeurt, dat hij geen eiwitvoorraad opbouwt maar wel vet.</p>
+      <details><summary>Antwoord</summary><p>Aminozuren kunnen niet worden opgeslagen; de lever breekt het teveel af, waarbij het stikstofdeel als ureum wordt uitgescheiden (1). De rest van het aminozuur wordt gebruikt als brandstof of omgezet in vet (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Zuurstof in het leverlobje</b> <span class="vwo-badge">vwo</span> <span class="pts">2 punten</span><p>In een leverlobje stroomt het bloed vanaf de hoeken (takjes van de poortader en de leverslagader) door wijde haarvaten naar de centrale ader in het midden. Bij een tijdelijk zuurstoftekort in het lichaam sterven vooral de levercellen rond de centrale ader af, en niet de cellen bij de hoeken.</p><p>Verklaar dit.</p>
+      <details><summary>Antwoord</summary><p>Het bloed bij de hoeken is een mengsel van zuurstofrijk bloed uit de leverslagader en zuurstofarm bloed uit de poortader; onderweg naar het midden nemen de levercellen zuurstof op (1). De cellen rond de centrale ader krijgen bloed dat al langs andere levercellen is geweest en bevat dus het minste zuurstof; bij een tekort komen zij als eerste in de problemen (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>B · Macro</td><td>Baby van drie dagen, huid en oogwit worden geel; vraag q02</td></tr>
+      <tr><td>1 Drie buizen</td><td>B structuur en functie · Schema</td><td>Lever rechtsboven in de buik; poortader (zuurstofarm, voedingsstoffen), leverslagader (zuurstofrijk), leverader → onderste holle ader → hart; concentratiemeters voor glucose (vraag q07) en alcohol. Vwo: leverlobje met portale driehoek, sinusoïden en centrale ader; gal stroomt tegen het bloed in (vraag q10)</td></tr>
+      <tr><td>2 Vier afdelingen</td><td>B, met D voor ontgiften · Schema + Micro</td><td>Fabriek: suiker (glycogeen, melkzuur), eiwit (plasma-eiwitten, andere aminozuren, overschot → ureum, vraag q15; vwo: deaminering, ammoniak), afbreken (alcohol, vraag q19; paracetamol), gal (galblaas, twaalfvingerige darm, galzouten hergebruikt, uitscheiding van cholesterol en afbraakstoffen; vwo: lipoproteïnen)</td></tr>
+      <tr><td>3 De gele kleurstof</td><td>B · Schema + Macro</td><td>Rode bloedcel → milt en lever → ijzer naar het beenmerg, eiwit naar aminozuren, kleurstof → bilirubine → levercel maakt het oplosbaar → gal → darm → bruin door bacteriën; galsteen (vraag q25); de baby: afbraakgolf en een enzym op een paar procent; blauw licht</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ul><li>De lever maakt verteringsenzymen → gal is geen enzym; de darmenzymen komen uit de alvleesklier (H2).</li><li>De lever filtert bloed zoals een zeef → de lever bouwt moleculen chemisch om; filteren doet de nier (vraag in H2).</li><li>Te veel eiwit wordt opgeslagen → afgebroken tot ureum, brandstof of vet (vraag in H2).</li><li>Slagaders brengen alles wat het lichaam nodig heeft, dus daar zit de meeste glucose → de poortader komt van de darm (vraag in H1).</li><li>Geelzucht komt door gal in het bloed of door uitdroging → het is bilirubine, een afbraakproduct van rode bloedcellen (cold open, H3).</li></ul>
+    <h3>Examenaansluiting (havo)</h3>
+    <p>Drie bloedvaten benoemen: 2024-II vr 35. Routes vanaf de lever (leverader → onderste holle ader → hart): 2021-I vr 16, 2024-I vr 26, 2025-II vr 42. Concentratie in aorta/leverslagader en leverader/onderste holle ader: 2019-II vr 43; glucosesensor niet in de poortader: 2018-II vr 2; stroomrichting poortader: 2021-II vr 28. Ureum uit aminozuren en de nieren: 2018-II vr 9, 2025-II vr 44; slechte lever → minder ureum: 2024-II vr 27; geen eiwitreserve: 2026-II vr 22; lever maakt plasma-eiwitten en andere aminozuren, geen verteringsenzymen: 2019-II vr 5, 2023-II vr 21. Bilirubine, galstenen, geelzucht, donkere urine: 2021-I vr 13–17; ijzer naar het rode beenmerg: 2021-I vr 14; afbraak rode bloedcellen in milt en lever: 2025-I vr 28–29. Gal als uitscheidingsroute (cholesterol): 2024-I vr 29, 2022-I vr 43; gal en twaalfvingerige darm: 2024-II vr 32. Melkzuur in de lever: 2024-II vr 29, 2026-I vr 6. Leverlobje als afbeelding: 2019-II vr 4.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Afronding</th></tr>
+      <tr><td>Lever</td><td>1,2–1,5 kg; ontvangt ≈ 25% van het hartminuutvolume (≈ 1 L/min), ≈ 75% via de poortader (Guyton &amp; Hall)</td><td>"anderhalve kilo", "driekwart"</td></tr>
+      <tr><td>Glycogeen</td><td>lever 80–120 g (voor het hele lichaam); spieren ≈ 400 g (alleen voor de spier zelf)</td><td>"ongeveer honderd gram, genoeg voor een nacht"</td></tr>
+      <tr><td>Gal</td><td>0,5–1 L per dag; ≈ 95% van de galzouten wordt in het laatste deel van de dunne darm teruggenomen</td><td>"een halve tot een liter"</td></tr>
+      <tr><td>Rode bloedcel</td><td>≈ 120 dagen; 2–3 miljoen per seconde afgebroken door macrofagen in milt, lever en beenmerg</td><td>"honderdtwintig dagen"</td></tr>
+      <tr><td>Pasgeborene</td><td>hogere hematocriet (zuurstofarm milieu in de baarmoeder), rode bloedcellen leven 60–90 dagen; UGT1A1 ≈ 1% bij de geboorte, volwassen niveau na ≈ 14 weken; &gt; 50% van de voldragen baby's zichtbaar geel, piek dag 3–4, weg binnen 2 weken</td><td>"een paar procent", "meer dan de helft", "na een week of twee"</td></tr>
+      <tr><td>Fototherapie</td><td>blauw licht 460–490 nm maakt in de huid foto-isomeren (o.a. lumirubine) die wateroplosbaar zijn en zonder conjugatie via gal en urine weggaan</td><td>"blauw licht"</td></tr>
+      <tr><td>Paracetamol</td><td>veilig tot 4 g/dag (volwassene); leverschade vooral bij een flinke overdosis (&gt; ≈ 150 mg/kg ineens) door het tussenproduct NAPQI als de glutathionvoorraad op is; tegengif acetylcysteïne</td><td>"veel meer dan op het doosje staat"</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <p>"De leverader" zijn in werkelijkheid drie leveraders die apart in de onderste holle ader uitkomen (Binas en CE: enkelvoud). De leverslagader takt af via de truncus coeliacus. Poortaderbloed is zuurstofarmer dan slagaderbloed, maar levert door de grote stroom ongeveer de helft van de zuurstof van de lever; de poortader verzamelt ook bloed van maag, alvleesklier en milt. Na een maaltijd ligt de glucoseconcentratie in de leverader tussen poortader en leverslagader in; tussen de maaltijden is leverader &gt; leverslagader (afgifte). Glycogeen is vertakt. Deaminering gebeurt vooral in de lever; ureumvorming is exclusief lever; afgebroken aminozuren leveren ook glucose (gluconeogenese). Nettovergelijking ureum: 2 NH₃ + CO₂ → ureum + H₂O (de ureumcyclus zelf hoeft niet). Bilirubine ontstaat uit de heemgroep; ongeconjugeerd bilirubine reist gebonden aan albumine en komt niet in de urine: een baby met fysiologische geelzucht heeft géén donkere urine, iemand met een afgesloten galgang wél (geconjugeerd bilirubine). Te weinig drinken verergert geelzucht bij pasgeborenen echt (meer terugopname in de darm), maar de kleur komt niet van uitdroging. De bruine kleur van ontlasting (stercobiline) maken darmbacteriën. De lever scheidt VLDL uit; LDL ontstaat daaruit in het bloed. Leverlobjes: aantal onzeker (50.000 tot ≈ 1 miljoen in verschillende bronnen). "Gal in het bloed" (optie b van de cold open) is een lekenverklaring; bij een afgesloten galgang komt inderdaad geconjugeerd bilirubine in het bloed, geen gal.</p>
+    <h3>Bewust weggelaten</h3>
+    <p>Regeling van de bloedglucose met insuline en glucagon (Regelkring), de nier zelf (eigen film), het first-pass-effect van medicijnen (puzzel B van de seriebrief, staat in de docentnotitie), de ureumcyclus, Kupffercellen, vitamine-opslag (A, D, B12), stolling (de lever maakt stollingseiwitten), hepatitis en cirrose, darmbacteriën (film 6).</p>
+  </section>
+"""
+}
+json.dump(film, open('/home/claude/voeding/f5/film.json', 'w'), ensure_ascii=False, indent=1)
+print('ok')

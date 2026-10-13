@@ -1,0 +1,148 @@
+{
+ "flow": "tf9JO2aShKlk9GTxgiVk",
+ "model": "eleven_v4",
+ "voice": "Roos 7qdUFMklKPaaAVMsBTBt",
+ "date": "2026-10-13",
+ "nodes": {
+  "s01": "ylTB3EBw0fhVu7OK1xHT",
+  "s04": "r8gvEXpusfPpAzrw92D9",
+  "s05": "QPOIMAjGy83sxeqnSrH1",
+  "s06": "WYBoG7UJDG3FxPJfht6i",
+  "s08": "d7nLhpr7vZsW9WKKCnyR",
+  "s09": "QtROYMfK7XCOsJ81zBjz",
+  "s11": "BF0blepPlaUYA3QGUyKN",
+  "s12": "H0rOAC8sfmRZsD61O2Do",
+  "s13": "Duj8J7n6fdE3B6OYOAHI",
+  "s14": "thxR5dPzPyV6psfOt1lg",
+  "s16": "dXXbLLG4rQij7WcL9714",
+  "s17": "u6dWQOrnuc0yZ1nWZx2P",
+  "s18": "9WNawXPkR29fWFNGBT60",
+  "s20": "Fkzu3w7LCBZo8zDZQxNq",
+  "s21": "cCQgsZkKiltNwEe2GKIz",
+  "s22": "HLGxLEXJVI1tSV1etlWi",
+  "s23": "JzSK8TVnqoekW2YlH8Lk",
+  "s24": "3jvaE4Bz7hknZNPmy78T",
+  "s26": "PbzACx7jAhZxz15tuFKa",
+  "s27": "gF3mZVFqWSiyFRmeTDAt",
+  "s28": "B9zCu7n3L5gwgYw0iDrT",
+  "s29": "QFiOiw1tRDq0ACCACdfC"
+ },
+ "sessions": {
+  "s01": "anNrm35wKQHTxu1USJ64",
+  "s04": "dCk5WT271ZKKki5yF1C9",
+  "s05": "nPNqCtWjcHsq0FP8sBkp",
+  "s06": "JM0x4LSy85pWE4ONxOwP",
+  "s08": "vs5YkqK5nnLchL3ef1u7",
+  "s09": "8GJDaEARFEv1cQvvykV5",
+  "s11": "4cRmN7GtMbewJ6JIq0ne",
+  "s12": "CsOYb7EGYkbUFWdmOZkQ",
+  "s13": "IqgFcW4pQF400BXzcu0z",
+  "s14": "cLC0X74tK9VKME5kSOWo",
+  "s16": "3mvdeRXMhFgspsbEuGj1",
+  "s17": "om0eO0yLYbgr6whXhPzP",
+  "s18": "0mORrk77DknGA4XpyYVl",
+  "s20": "9bySIltStawkhdEVxXSW",
+  "s21": "tR8A1duucB4PIjieThGr",
+  "s22": "v5X9MWNMBXTrjKoQu2MX",
+  "s23": "1qEPwxkH1gr5QBZ9ah0b",
+  "s24": "MtACgPmeHQQM150Y6yCC",
+  "s26": "WbrJgf3kETEe28Gv90Dl",
+  "s27": "1OPJxMWt4X0Rg3ifVMPL",
+  "s28": "KL5KjQ93zXIM9epC9Yv0",
+  "s29": "pJtNuWnqXCwMZsKACuU1"
+ },
+ "takes": {
+  "s01": [
+   "RHCCpqBwPdgs2CPYWP1L"
+  ],
+  "s04": [
+   "qsb35qHEV0g4dGrcFOuW"
+  ],
+  "s05": [
+   "Iv6cNFvllYJLGDBoDpUb"
+  ],
+  "s06": [
+   "E8SRHHm42kAyLMViC7yo"
+  ],
+  "s08": [
+   "AE0n2rSNyJpgBoSCQz76"
+  ],
+  "s09": [
+   "t3GzfwGlovjWgdZXuZOx"
+  ],
+  "s11": [
+   "yHutgq3DC6MNGvnmdGA0"
+  ],
+  "s12": [
+   "MdaCyNVa4jryrDdVJstg"
+  ],
+  "s13": [
+   "ZV5DveX3ZY3ensNdWaUg"
+  ],
+  "s14": [
+   "JQh2V27qfp52pzSJRMwU"
+  ],
+  "s16": [
+   "8Nno82pt1eLcmofNbsOV"
+  ],
+  "s17": [
+   "qNjdlYEg5Tlr84oK8oza"
+  ],
+  "s18": [
+   "tlG0KCbISXUqgtERZBh0"
+  ],
+  "s20": [
+   "dGfpHJK8pnpNgr6TNxzt"
+  ],
+  "s21": [
+   "70HSjJNyACk057jPTEyW"
+  ],
+  "s22": [
+   "v3jkbk0Xz5HQGPQmcE4t"
+  ],
+  "s23": [
+   "HzVdpFxVJWbfQyBchRQJ"
+  ],
+  "s24": [
+   "ogp3PL4kENKJlZIPnAsn"
+  ],
+  "s26": [
+   "xVQKFetzFh0ytRf1nPHT"
+  ],
+  "s27": [
+   "AmZf6BtsklsnKVCP8OlN"
+  ],
+  "s28": [
+   "XJVw4KUM4VTz3wG5ATmn"
+  ],
+  "s29": [
+   "lf7Ie1Ap8uOkJphNnsPa"
+  ]
+ },
+ "hernemingen_v3": {
+  "s05": {
+   "session": "nUR9yGHSV0FS7LnXoDGJ",
+   "generation": "26DzLviqRrUoWBT0UJ8t",
+   "timing_session": "RDJlju099sHjLnYAQ2V8",
+   "opmerking": "node opnieuw gedraaid via run_flow_nodes (4 varianten per node, laatste variant gebruikt; de STT-node transcribeert die)"
+  },
+  "s20": {
+   "session": "7zyk7YuDNzo631kTJ82Y",
+   "generation": "UFNFz0M8yJ06piBR9XNi",
+   "timing_session": "SPhnl1bmRVdwCbortwMC",
+   "opmerking": "node opnieuw gedraaid via run_flow_nodes (4 varianten per node, laatste variant gebruikt; de STT-node transcribeert die)"
+  },
+  "s26": {
+   "session": "xYtyrW1rpzMQKeGwSqFu",
+   "generation": "PoAWNju31KqTb97qpVZD",
+   "timing_session": "2gRCMT6UwRIfkoVIe9x2",
+   "opmerking": "node opnieuw gedraaid via run_flow_nodes (4 varianten per node, laatste variant gebruikt; de STT-node transcribeert die)"
+  },
+  "s27": {
+   "session": "1fWDBNzhtgaCvOYU7LIH",
+   "generation": "kMvMptLCFjhmEJKA9ktB",
+   "timing_session": "CS14Bj6GbT2SPifxpuog",
+   "opmerking": "node opnieuw gedraaid via run_flow_nodes (4 varianten per node, laatste variant gebruikt; de STT-node transcribeert die)"
+  }
+ }
+}
