@@ -25,7 +25,8 @@ BRONNEN = MAP / "bronnen.txt"
 MAX_BREEDTE = 2560
 UA = {"User-Agent": "Mozilla/5.0 (biologie-bij-kamiel; microscoopfotos)"}
 USER = "146824358@N03"
-TIJDBUDGET = float(os.environ.get("MAX_MINUTEN", "80")) * 60  # stop netjes vóór de Actions-timeout; de volgende run gaat verder
+TIJDBUDGET = float(os.environ.get("MAX_MINUTEN", "80")) * 60
+DEADLINE = None  # stop netjes vóór de Actions-timeout; de volgende run gaat verder
 
 
 PAUZE = float(os.environ.get("PAUZE_SECONDEN", "4"))  # rust tussen twee Flickr-verzoeken
@@ -45,6 +46,9 @@ def get(url, binair=False, pogingen=6):
                 ra = e.headers.get("Retry-After")
                 wacht = int(ra) if ra and ra.isdigit() else 60 * (2 ** i)
                 wacht = min(max(wacht, 60), 900)
+                if DEADLINE and time.time() + wacht > DEADLINE:
+                    print("  ! tijdbudget laat geen wachttijd meer toe; stoppen", flush=True)
+                    return None
                 print(f"  ! 429 van Flickr, {wacht} s wachten (poging {i+1}/{pogingen})", flush=True)
                 time.sleep(wacht)
                 continue
@@ -146,6 +150,8 @@ def main():
     ids = {f["id"] for f in cat["fotos"]}
     nieuw = 0
     start = time.time()
+    global DEADLINE
+    DEADLINE = start + TIJDBUDGET
     op = False
     for regel in BRONNEN.read_text("utf-8").splitlines():
         regel = regel.strip()
@@ -244,8 +250,7 @@ def main():
             per_id[fid] = cat["fotos"][-1]
             nieuw += 1
             print(f"  + {bestand} ({img.width}×{img.height}, origineel {ob}×{oh})", flush=True)
-            if nieuw % 10 == 0:
-                CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
+            CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")  # na elke foto, zodat niets verloren gaat bij afbreken
     CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
     print(f"Klaar: {nieuw} nieuwe foto's. Licentie per foto gecontroleerd op de Flickr-pagina; afwijkers staan hierboven als OVERGESLAGEN.")
 
