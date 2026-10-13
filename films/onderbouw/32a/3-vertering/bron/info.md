@@ -8,7 +8,7 @@
 | Versie / datum | 1.0 · 13 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 14 takes woord voor woord gelijk aan het script |
-| Duur | audio 301 s; speeltijd Havo/vwo ± 6:10, Basis ± 5:35 |
+| Duur | audio 307 s; speeltijd Havo/vwo ± 6:10, Basis ± 5:35 |
 | Beeldstijl | Part C, vlak. Rode draad: een hap appel met pit op een **routekaart** van het spijsverteringskanaal (`ROUTE`/`tractMap`: één buis van mond tot anus met maag, lever + gal, alvleesklier, dunne en dikke darm; de hap reist via `routePt(u)`); Micro-look voor de cel, de mond, de darmwand met darmvlokken en de enzymschaartjes; de keuken uit film 1 voor de cold open. Beeldcheck `stijlframes/beeldcheck_v1.jpg` |
 | Audio-opslag | losse mp3's per segment, gemasterd naar −16 LUFS (ffmpeg loudnorm, 128 kbps) |
 | Herkomst | uitlegfilm-prompt v5 + Part D; script na drie reviews (`reviews/`); zonder checkpoint gebouwd (Kamiel: "kun je verder") |
@@ -94,6 +94,8 @@ Geen blobs: `film.src.html` = `index.html`, regelnummers zijn gelijk.
 Geen uitspraaktest vooraf (afspraak 13-10-2026). Respelling: "wc" → "wee-cee". **Wachtlijst voor de batchtest:** alvleesklier (s08, s13, s15, s16), darmvlokken (s10), enzym/enzymen (s08, s16), zetmeel (s16), gal (s08, s16), ontlasting (s12), estafette (s13–s17), anus (s04, s12), chemische (s16).
 
 ## Aandachtspunten
+
+- 13-10 (16:50): s04 opnieuw ingesproken na vraag van Kamiel ("in een appel zit weinig eiwit en vet"): "In een appel zit vooral suiker. In kaas zit eiwit en vet. Allemaal zitten ze vast in het eten." Beeld: kaas naast de appel in s04, kaasblokje in de maag (s07) bij "eiwitten".
 
 - De routekaart is een schema, niet een anatomische tekening; de dunne darm is als golf getekend, de dikke darm als lus eromheen.
 - "Het bloed in" geldt in de film voor alle voedingsstoffen; vet gaat grotendeels via de lymfe (docentdeel).

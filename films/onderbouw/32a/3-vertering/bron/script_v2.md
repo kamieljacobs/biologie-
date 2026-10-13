@@ -31,7 +31,7 @@ Vertering. De reis van een hap appel, van mond tot wc.
 ## Hoofdstuk 1 — Klein maken [Schema: spijsverteringskanaal als buis]
 Dit is de reis. Eén lange buis, van je mond tot je anus. Met organen eromheen die sap in de buis spuiten. Samen: je spijsverteringsstelsel.
 Waarom die hele reis? Je cellen kunnen niets met een stukje appel. Ze hebben voedingsstoffen nodig: suikers, eiwitten en vetten. Als piepkleine deeltjes.
-Die zitten in de appel vast. Verteren is: eten klein maken en afbreken, tot de voedingsstoffen los zijn. Water en vitamines hoeven dat niet. Die zijn al klein genoeg.
+In een appel zit vooral suiker. In kaas zit eiwit en vet. Allemaal zitten ze vast in het eten. Verteren is: eten klein maken en afbreken, tot de voedingsstoffen los zijn. Water en vitamines hoeven dat niet. Die zijn al klein genoeg.
 
 Het begint in je mond. Je tanden snijden en malen. Speeksel maakt het nat en glad. Zo kunnen de sappen er straks overal bij.
 Je slikt. De hap gaat je slokdarm in. Stel: je hangt op je kop en slikt. Komt het eten dan in je maag? Wat denk je?

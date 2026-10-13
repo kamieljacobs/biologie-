@@ -2,7 +2,7 @@
 
 Per segment de tekst zoals in de film (ondertitel) met begin- en eindtijd binnen het audiobestand. Stem: Roos (ElevenLabs, eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment, 13 oktober 2026. Waar de stem-invoer afwijkt van de schermtekst staat die eronder (respelling: wee-cee).
 
-Losse audio: 301 s. In de speler komen daar hoofdstukkaarten (3,5 s) en vier vragen (8 + 6 s) bij; eindkaart 12 s.
+Losse audio: 307 s. In de speler komen daar hoofdstukkaarten (3,5 s) en vier vragen (8 + 6 s) bij; eindkaart 12 s.
 
 ## Cold open
 
@@ -30,9 +30,9 @@ Stem-invoer: Vertering. De reis van een hap appel, van mond tot wee-cee.
 
 ## Hoofdstuk 1 — Klein maken
 
-**s04** · `audio/s04.mp3` · 0.0–32.2 s
+**s04** · `audio/s04.mp3` · 0.0–38.0 s
 
-Dit is de reis. Eén lange buis, van je mond tot je anus. Met organen eromheen die sap in de buis spuiten. Samen: je spijsverteringsstelsel. Waarom die hele reis? Je cellen kunnen niets met een stukje appel. Ze hebben voedingsstoffen nodig: suikers, eiwitten en vetten. Als piepkleine deeltjes. Die zitten in de appel vast. Verteren is: eten klein maken en afbreken, tot de voedingsstoffen los zijn. Water en vitamines hoeven dat niet. Die zijn al klein genoeg.
+Dit is de reis. Eén lange buis, van je mond tot je anus. Met organen eromheen die sap in de buis spuiten. Samen: je spijsverteringsstelsel. Waarom die hele reis? Je cellen kunnen niets met een stukje appel. Ze hebben voedingsstoffen nodig: suikers, eiwitten en vetten. Als piepkleine deeltjes. In een appel zit vooral suiker. In kaas zit eiwit en vet. Allemaal zitten ze vast in het eten. Verteren is: eten klein maken en afbreken, tot de voedingsstoffen los zijn. Water en vitamines hoeven dat niet. Die zijn al klein genoeg.
 
 **s05** · `audio/s05.mp3` · 0.0–17.9 s
 
