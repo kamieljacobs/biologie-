@@ -2,6 +2,10 @@
 
 Kamiel wil de getekende preparaten combineren met echte foto's. Plan: bij 100× en 400× een knop **Echte foto** die de echte opname toont, met dezelfde aanwijsopdrachten (celwand, celkern, celmembraan, bladgroenkorrel) op de foto, en een bronregel eronder plus een kopje *Bronnen* onderaan de tool.
 
+## Catalogus (sinds 13 oktober 2026)
+
+Alle ontvangen foto's staan in `fotos/`, gekoppeld aan hun beschrijving in **`fotos/catalogus.json`** (titel, originele titel, organisme, doorsnede, vergroting, beschrijving, aanwijsbare structuren met `punt`, bron/licentie/bronregel, gebruik, status). Overzichtspagina: `fotos/index.html`. Nieuwe foto: bestand in `fotos/` + een item in de catalogus, in dezelfde commit. De catalogus is de basis voor de latere microscopietool.
+
 ## Eisen aan foto's
 
 - Minstens 2000 px breed, liever het Flickr-**Original** (3000–6000 px): de tool zoomt tot 400×. De 768 px-plaatjes van de blog zijn alleen goed als klein illustratieplaatje, niet voor de microscoop of als filmachtergrond (1920 px).

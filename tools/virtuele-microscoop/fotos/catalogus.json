@@ -1,0 +1,173 @@
+{
+  "uitleg": "Catalogus van echte microscoopfoto's. Elke foto is gekoppeld aan zijn beschrijving, bron en de structuren die je erop kunt aanwijzen. 'punt' is de plek van een structuur op de foto als fractie van breedte en hoogte (0-1), of null als die nog niet is aangewezen. 'status': compleet = foto en link staan erin; link-ontbreekt = foto staat erin, Flickr-link nog niet; foto-ontbreekt = alleen beschrijving; gepland = gekozen maar nog niet ontvangen.",
+  "fotos": [
+    {
+      "id": "pinus-stengel-40x",
+      "status": "link-ontbreekt",
+      "bestand": "pinus-stengel-40x.jpg",
+      "breedte": 2576,
+      "hoogte": 1452,
+      "titel": "Stengel van een den, eerste jaar",
+      "origineleTitel": "Gymnosperm Stem: One Year Pinus",
+      "organisme": "den (Pinus)",
+      "doorsnede": "dwarsdoorsnede",
+      "vergroting": 40,
+      "beschrijving": "Dwarsdoorsnede van een eenjarige stengel van een den. In het eerste jaar is de stengel al in de dikte gegroeid: binnen de schors ligt een ring hout met cellen in rechte rijen.",
+      "structuren": [
+        { "id": "opperhuid", "naam": "opperhuid", "uitleg": "De donkere buitenrand. Hij beschermt de stengel.", "punt": null },
+        { "id": "schors", "naam": "schors", "uitleg": "Losse, levende cellen tussen de opperhuid en het floëem.", "punt": null },
+        { "id": "harskanaal", "naam": "harskanaal", "uitleg": "De witte gaten met een ring kleine cellen eromheen. Die cellen maken hars, dat wondjes afsluit.", "punt": null },
+        { "id": "floeem", "naam": "floëem", "uitleg": "De turquoise band om het hout. Hierdoor gaan suikers van de naalden naar de rest van de plant.", "punt": null },
+        { "id": "cambium", "naam": "cambium", "uitleg": "De dunne laag delende cellen tussen floëem en hout. Hierdoor wordt de stengel elk jaar dikker.", "punt": null },
+        { "id": "xyleem", "naam": "xyleem (hout)", "uitleg": "Kleine cellen in rechte rijen naar buiten (tracheïden). Ze vervoeren water en maken de stengel stevig.", "punt": null },
+        { "id": "houtstraal", "naam": "houtstraal", "uitleg": "Smalle lijnen die van binnen naar buiten door het hout lopen.", "punt": null },
+        { "id": "merg", "naam": "merg", "uitleg": "De grote, lichte cellen in het midden.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": null,
+        "bronregel": "Foto: Gymnosperm Stem: One Year Pinus, 40×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["microscopietool", "32A-film 2 Van cel tot lichaam"]
+    },
+    {
+      "id": "plat-epitheel-kikker",
+      "status": "link-ontbreekt",
+      "bestand": "plat-epitheel-kikker.jpg",
+      "breedte": 2576,
+      "hoogte": 1452,
+      "titel": "Plat epitheel van een kikker",
+      "origineleTitel": "Epithelial Tissues: Simple Squamous Epithelium (frog)",
+      "organisme": "kikker",
+      "doorsnede": "whole mount",
+      "vergroting": null,
+      "beschrijving": "Een laagje platte dierlijke cellen, van bovenaf bekeken. De cellen sluiten als tegels op elkaar aan; in elke cel ligt één paarse celkern. Er zit geen celwand omheen, alleen een celmembraan.",
+      "structuren": [
+        { "id": "celkern", "naam": "celkern", "uitleg": "Het paarse vlekje midden in elke cel.", "punt": null },
+        { "id": "celmembraan", "naam": "celmembraan", "uitleg": "De dunne lijn om elke cel. Er zit geen celwand omheen.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": null,
+        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium (frog), Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["virtuele microscoop: wangcellen (dierlijke cel)"],
+      "opmerking": "Vergroting staat niet bij de foto; de donkere, bruine cellen en vlekken liever niet laten aanwijzen."
+    },
+    {
+      "id": "pinus-naald-40x",
+      "status": "foto-ontbreekt",
+      "bestand": null,
+      "titel": "Naald van een den",
+      "origineleTitel": "Gymnosperm Leaves: Single Needled Pinus",
+      "organisme": "den (Pinus), eennaaldige soort",
+      "doorsnede": "dwarsdoorsnede",
+      "vergroting": 40,
+      "beschrijving": "Dwarsdoorsnede van een dennennaald. Een naald groeit niet in de dikte: je ziet geen ring hout, maar bladmoes rond een centrale cilinder met vaatbundels.",
+      "structuren": [
+        { "id": "opperhuid", "naam": "opperhuid", "uitleg": "Dikke buitenlaag met een waslaag. Zo verdampt de naald weinig water.", "punt": null },
+        { "id": "huidmondje", "naam": "huidmondje", "uitleg": "Kleine openingen die verzonken in de opperhuid liggen.", "punt": null },
+        { "id": "bladmoes", "naam": "bladmoes", "uitleg": "Cellen met geplooide wanden en veel bladgroenkorrels. Hier vindt de fotosynthese plaats.", "punt": null },
+        { "id": "harskanaal", "naam": "harskanaal", "uitleg": "Gaatjes in het bladmoes, omringd door cellen die hars maken.", "punt": null },
+        { "id": "endodermis", "naam": "endodermis", "uitleg": "Een ring cellen rond de centrale cilinder.", "punt": null },
+        { "id": "vaatbundel", "naam": "vaatbundel", "uitleg": "Xyleem en floëem in het midden van de naald.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": null,
+        "bronregel": "Foto: Gymnosperm Leaves: Single Needled Pinus, 40×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["microscopietool"],
+      "opmerking": "Op 13 okt 2026 kwam per ongeluk opnieuw de stengelfoto mee; de naaldfoto moet nog gestuurd worden."
+    },
+    {
+      "id": "pinus-wortel-100x",
+      "status": "foto-ontbreekt",
+      "bestand": null,
+      "titel": "Wortel van een den, vaatcilinder",
+      "origineleTitel": "Gymnosperm Root: Vascular Cylinder in Pinus",
+      "organisme": "den (Pinus)",
+      "doorsnede": "dwarsdoorsnede",
+      "vergroting": 100,
+      "beschrijving": "Dwarsdoorsnede van de vaatcilinder in een wortel van een den.",
+      "structuren": [],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": "https://www.flickr.com/photos/146824358@N03/36096074562/",
+        "bronregel": "Foto: Gymnosperm Root: Vascular Cylinder in Pinus, 100×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["32A-film 2 Van cel tot lichaam"],
+      "opmerking": "Op 12 okt alleen ontvangen op 768 × 433 px; het Flickr-Original is nog nodig."
+    },
+    {
+      "id": "uienvlies-300x",
+      "status": "gepland",
+      "bestand": null,
+      "titel": "Uienvlies, levende cellen",
+      "origineleTitel": "Living cells of onion epidermis",
+      "organisme": "ui",
+      "doorsnede": "vlies (opperhuid)",
+      "vergroting": 300,
+      "beschrijving": "Levende cellen uit het vlies van een uienrok. De cellen liggen tegen elkaar aan als stenen in een muur.",
+      "structuren": [
+        { "id": "celwand", "naam": "celwand", "uitleg": "De dikke lijnen tussen de cellen.", "punt": null },
+        { "id": "celkern", "naam": "celkern", "uitleg": "Een klein bolletje in elke cel.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": "https://www.flickr.com/photos/146824358@N03/34062338020",
+        "bronregel": "Foto: Living cells of onion epidermis, 300×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["virtuele microscoop: uienvlies"]
+    },
+    {
+      "id": "plat-epitheel-100x",
+      "status": "gepland",
+      "bestand": null,
+      "titel": "Plat epitheel van de mens, 100×",
+      "origineleTitel": "Simple Squamous Epithelium: Whole Mount (Human)",
+      "organisme": "mens",
+      "doorsnede": "whole mount",
+      "vergroting": 100,
+      "beschrijving": "Platte cellen die als tegels naast elkaar liggen. Vervanger voor wangcellen.",
+      "structuren": [
+        { "id": "celkern", "naam": "celkern", "uitleg": "Het donkere vlekje in elke cel.", "punt": null },
+        { "id": "celmembraan", "naam": "celmembraan", "uitleg": "De dunne rand van de cel. Er zit geen celwand omheen.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": "https://www.flickr.com/photos/146824358@N03/40823230315/",
+        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 100×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["virtuele microscoop: wangcellen"]
+    },
+    {
+      "id": "plat-epitheel-400x",
+      "status": "gepland",
+      "bestand": null,
+      "titel": "Plat epitheel van de mens, 400×",
+      "origineleTitel": "Simple Squamous Epithelium: Whole Mount (Human)",
+      "organisme": "mens",
+      "doorsnede": "whole mount",
+      "vergroting": 400,
+      "beschrijving": "Dezelfde platte cellen bij 400×: de celkern en de rand van de cel zijn nu goed te zien.",
+      "structuren": [
+        { "id": "celkern", "naam": "celkern", "uitleg": "Het donkere vlekje in elke cel.", "punt": null },
+        { "id": "celmembraan", "naam": "celmembraan", "uitleg": "De dunne rand van de cel. Er zit geen celwand omheen.", "punt": null }
+      ],
+      "bron": {
+        "collectie": "Berkshire Community College Bioscience Image Library",
+        "licentie": "CC0 (publiek domein)",
+        "link": "https://www.flickr.com/photos/146824358@N03/41722161301/",
+        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 400×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+      },
+      "gebruik": ["virtuele microscoop: wangcellen"]
+    }
+  ]
+}

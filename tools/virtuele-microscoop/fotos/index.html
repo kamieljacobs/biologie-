@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microscoopfoto's</title>
+<style>
+:root{--bg:#f4f6f8;--kaart:#fff;--tekst:#14213d;--zacht:#5b6576;--lijn:#dde3ea;--accent:#0f7c7c;--let:#b45309}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1626;--kaart:#16213a;--tekst:#e8edf5;--zacht:#9aa6b8;--lijn:#26324d;--accent:#3cc2c2;--let:#f0a050}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tekst);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.sitenav{padding:12px 16px;border-bottom:1px solid var(--lijn)}
+.sitenav a{color:var(--accent);text-decoration:none;font-weight:600}
+main{max-width:1100px;margin:0 auto;padding:16px}
+h1{margin:8px 0 4px}
+.intro{color:var(--zacht);margin:0 0 20px}
+.raster{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.kaart{background:var(--kaart);border:1px solid var(--lijn);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.beeld{aspect-ratio:16/9;background:var(--lijn);display:flex;align-items:center;justify-content:center;color:var(--zacht);font-size:14px}
+.beeld img{width:100%;height:100%;object-fit:cover;display:block}
+.inhoud{padding:12px 14px 14px}
+.inhoud h2{font-size:18px;margin:0 0 2px}
+.meta{color:var(--zacht);font-size:13px;margin:0 0 8px}
+.status{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;border:1px solid currentColor;margin-left:6px}
+.status.compleet{color:var(--accent)} .status.let{color:var(--let)}
+ul{margin:8px 0;padding-left:18px} li{margin:2px 0}
+.bron{font-size:12px;color:var(--zacht);margin-top:8px}
+.bron a{color:var(--accent)}
+.opm{font-size:13px;color:var(--let);margin-top:6px}
+</style>
+</head>
+<body>
+<nav class="sitenav"><a href="../index.html">← Terug naar de virtuele microscoop</a></nav>
+<main>
+<h1>Microscoopfoto's</h1>
+<p class="intro">Elke echte foto met zijn beschrijving, de onderdelen die je erop kunt zien en de bron. Deze lijst komt uit <code>catalogus.json</code>.</p>
+<div class="raster" id="raster">Laden…</div>
+</main>
+<script>
+const STATUS={'compleet':['compleet','compleet'],'link-ontbreekt':['link ontbreekt','let'],'foto-ontbreekt':['foto ontbreekt','let'],'gepland':['gepland','let']};
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+fetch('catalogus.json').then(r=>r.json()).then(d=>{
+  document.getElementById('raster').innerHTML=d.fotos.map(f=>{
+    const [st,cl]=STATUS[f.status]||[f.status,'let'];
+    const beeld=f.bestand?`<img src="${esc(f.bestand)}" alt="${esc(f.titel)}" loading="lazy">`:'nog geen foto';
+    const verg=f.vergroting?`${f.vergroting}×`:'vergroting onbekend';
+    const str=f.structuren.length?`<ul>${f.structuren.map(s=>`<li><b>${esc(s.naam)}</b>: ${esc(s.uitleg)}</li>`).join('')}</ul>`:'';
+    const link=f.bron.link?` · <a href="${esc(f.bron.link)}" target="_blank" rel="noopener">Flickr</a>`:'';
+    return `<article class="kaart"><div class="beeld">${beeld}</div><div class="inhoud">
+      <h2>${esc(f.titel)}<span class="status ${cl}">${st}</span></h2>
+      <p class="meta">${esc(f.organisme)} · ${esc(f.doorsnede)} · ${verg}</p>
+      <p>${esc(f.beschrijving)}</p>${str}
+      <p class="bron">${esc(f.bron.bronregel)}${link}</p>
+      ${f.opmerking?`<p class="opm">${esc(f.opmerking)}</p>`:''}
+    </div></article>`;}).join('');
+}).catch(()=>{document.getElementById('raster').textContent='De catalogus kon niet geladen worden.';});
+</script>
+</body>
+</html>
