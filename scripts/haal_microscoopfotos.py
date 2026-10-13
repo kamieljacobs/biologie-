@@ -140,7 +140,7 @@ def main():
     DOEL.mkdir(parents=True, exist_ok=True)
     cat = json.loads(CATALOGUS.read_text("utf-8"))
     def fid_van(f):
-        m = re.search(r"/(\d{8,})", (f.get("bron") or {}).get("link") or "")
+        m = re.search(r"/photos/[^/]+/(\d+)", (f.get("bron") or {}).get("link") or "")
         return m.group(1) if m else None
     per_id = {fid_van(f): f for f in cat["fotos"] if fid_van(f)}
     ids = {f["id"] for f in cat["fotos"]}
@@ -190,10 +190,16 @@ def main():
             vm = re.search(r"(\d+)\s*x\b", bijschrift, re.I)
             vergroting = int(vm.group(1)) if vm else None
             kern = bijschrift.split(":", 1)[1] if ":" in bijschrift else bijschrift
-            kern = re.sub(r"\d+\s*x\b", "", kern, flags=re.I)
+            kern = re.sub(r"\d+\s*x\b", "", kern, flags=re.I).strip()
             mag = f"-{vergroting}x" if vergroting else ""
+            # bijschrift dat niets toevoegt aan de sectie ("Simple Squamous Epithelium" bij sectie
+            # "Simple Squamous Epithelium: Whole Mount (Human)") weglaten
+            if slug(kern) in slug(sectie):
+                kern = ""
             basis = slug(f"{sectie} {kern}")[:80].strip("-") + mag
-            fid_naam = basis if basis not in ids else f"{basis}-{fid[-5:]}"
+            fid_naam, n = basis, 2
+            while fid_naam in ids:
+                fid_naam, n = f"{basis}-{n}", n + 1
             ids.add(fid_naam)
             bestand = f"berkshire/{fid_naam}.jpg"
             img.save(MAP / bestand, "JPEG", quality=88, optimize=True, progressive=True)

@@ -76,15 +76,15 @@
     },
     {
       "id": "plat-epitheel-kikker",
-      "status": "link-ontbreekt",
+      "status": "compleet",
       "bestand": "plat-epitheel-kikker.jpg",
       "breedte": 2576,
       "hoogte": 1452,
-      "titel": "Plat epitheel van een kikker",
+      "titel": "Plat epitheel van een kikker, 100×",
       "origineleTitel": "Epithelial Tissues: Simple Squamous Epithelium (frog)",
       "organisme": "kikker",
       "doorsnede": "whole mount",
-      "vergroting": null,
+      "vergroting": 100,
       "beschrijving": "Een laagje platte dierlijke cellen, van bovenaf bekeken. De cellen sluiten als tegels op elkaar aan; in elke cel ligt één paarse celkern. Er zit geen celwand omheen, alleen een celmembraan.",
       "structuren": [
         {
@@ -103,25 +103,26 @@
       "bron": {
         "collectie": "Berkshire Community College Bioscience Image Library",
         "licentie": "CC0 (publiek domein)",
-        "link": null,
-        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium (frog), Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+        "link": "https://www.flickr.com/photos/146824358@N03/27847648428/",
+        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium, 100×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)",
+        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/"
       },
       "gebruik": [
         "virtuele microscoop: wangcellen (dierlijke cel)"
       ],
-      "opmerking": "Vergroting staat niet bij de foto; de donkere, bruine cellen en vlekken liever niet laten aanwijzen."
+      "opmerking": "Vergroting afgeleid: van de drie kikkerfoto's (100/200/400×) is dit de enige die niet in de automatische reeks zit; licentie van de pagina nog niet automatisch gecontroleerd."
     },
     {
       "id": "plat-epitheel-mens",
-      "status": "link-ontbreekt",
-      "bestand": "plat-epitheel-mens.jpg",
-      "breedte": 2576,
-      "hoogte": 1452,
-      "titel": "Plat epitheel van de mens",
+      "status": "compleet",
+      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-200x.jpg",
+      "breedte": 2560,
+      "hoogte": 1443,
+      "titel": "Plat epitheel van de mens, 200×",
       "origineleTitel": "Epithelial Tissues: Simple Squamous Epithelium",
       "organisme": "mens",
       "doorsnede": "whole mount",
-      "vergroting": null,
+      "vergroting": 200,
       "beschrijving": "Een laagje platte menselijke cellen, van bovenaf bekeken. De grenzen tussen de cellen zijn zwart gekleurd; in elke cel ligt één lichte, ovale celkern. Er zit geen celwand omheen, alleen een celmembraan.",
       "structuren": [
         {
@@ -146,13 +147,17 @@
       "bron": {
         "collectie": "Berkshire Community College Bioscience Image Library",
         "licentie": "CC0 (publiek domein)",
-        "link": null,
-        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+        "link": "https://www.flickr.com/photos/146824358@N03/41722161021/",
+        "bronregel": "Foto: Epithelial Tissues: Simple Squamous Epithelium, 200×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)",
+        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
+        "licentieGecontroleerd": "2026-10-13"
       },
       "gebruik": [
         "virtuele microscoop: wangcellen (dierlijke cel)"
       ],
-      "opmerking": "Vergroting staat niet bij de foto. Waarschijnlijk is dit een van de geplande foto's 'Simple Squamous Epithelium: Whole Mount (Human)' (100×, 200× of 400×); met de Flickr-link kunnen die twee items samengevoegd worden."
+      "origineleBreedte": 3264,
+      "origineleHoogte": 1840,
+      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)"
     },
     {
       "id": "pinus-naald-40x",
@@ -271,8 +276,8 @@
     },
     {
       "id": "plat-epitheel-100x",
-      "status": "gepland",
-      "bestand": null,
+      "status": "compleet",
+      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-100x.jpg",
       "titel": "Plat epitheel van de mens, 100×",
       "origineleTitel": "Simple Squamous Epithelium: Whole Mount (Human)",
       "organisme": "mens",
@@ -297,16 +302,23 @@
         "collectie": "Berkshire Community College Bioscience Image Library",
         "licentie": "CC0 (publiek domein)",
         "link": "https://www.flickr.com/photos/146824358@N03/40823230315/",
-        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 100×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 100×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)",
+        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
+        "licentieGecontroleerd": "2026-10-13"
       },
       "gebruik": [
         "virtuele microscoop: wangcellen"
-      ]
+      ],
+      "breedte": 2560,
+      "hoogte": 1443,
+      "origineleBreedte": 3264,
+      "origineleHoogte": 1840,
+      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)"
     },
     {
       "id": "plat-epitheel-400x",
-      "status": "gepland",
-      "bestand": null,
+      "status": "compleet",
+      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-400x.jpg",
       "titel": "Plat epitheel van de mens, 400×",
       "origineleTitel": "Simple Squamous Epithelium: Whole Mount (Human)",
       "organisme": "mens",
@@ -331,16 +343,23 @@
         "collectie": "Berkshire Community College Bioscience Image Library",
         "licentie": "CC0 (publiek domein)",
         "link": "https://www.flickr.com/photos/146824358@N03/41722161301/",
-        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 400×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)"
+        "bronregel": "Foto: Simple Squamous Epithelium: Whole Mount (Human), 400×, Berkshire Community College Bioscience Image Library, publiek domein (CC0)",
+        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
+        "licentieGecontroleerd": "2026-10-13"
       },
       "gebruik": [
         "virtuele microscoop: wangcellen"
-      ]
+      ],
+      "breedte": 2560,
+      "hoogte": 1443,
+      "origineleBreedte": 3264,
+      "origineleHoogte": 1840,
+      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)"
     },
     {
-      "id": "simple-squamous-epithelium-whole-mount-frog-simple-squamous-epithelium-200x",
+      "id": "simple-squamous-epithelium-whole-mount-frog-200x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-frog-simple-squamous-epithelium-200x.jpg",
+      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-frog-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -364,9 +383,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-squamous-epithelium-whole-mount-frog-simple-squamous-epithelium-400x",
+      "id": "simple-squamous-epithelium-whole-mount-frog-400x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-frog-simple-squamous-epithelium-400x.jpg",
+      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-frog-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -390,87 +409,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-100x",
+      "id": "stratified-squamous-epithelium-cross-section-human-100x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-100x.jpg",
-      "breedte": 2560,
-      "hoogte": 1443,
-      "origineleBreedte": 3264,
-      "origineleHoogte": 1840,
-      "titel": "Epithelial Tissues: Simple Squamous Epithelium 100x",
-      "origineleTitel": "All sizes",
-      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)",
-      "organisme": null,
-      "doorsnede": null,
-      "vergroting": 100,
-      "beschrijving": "",
-      "structuren": [],
-      "bron": {
-        "collectie": "Berkshire Community College Bioscience Image Library",
-        "licentie": "CC0 (publiek domein)",
-        "licentieGecontroleerd": "2026-10-13",
-        "link": "https://www.flickr.com/photos/146824358@N03/40823230315/",
-        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
-        "bronregel": "Foto: All sizes, 100×, Berkshire Community College Bioscience Image Library, CC0, publiek domein"
-      },
-      "gebruik": []
-    },
-    {
-      "id": "simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-200x",
-      "status": "nieuw",
-      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-200x.jpg",
-      "breedte": 2560,
-      "hoogte": 1443,
-      "origineleBreedte": 3264,
-      "origineleHoogte": 1840,
-      "titel": "Epithelial Tissues: Simple Squamous Epithelium 200x",
-      "origineleTitel": "All sizes",
-      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)",
-      "organisme": null,
-      "doorsnede": null,
-      "vergroting": 200,
-      "beschrijving": "",
-      "structuren": [],
-      "bron": {
-        "collectie": "Berkshire Community College Bioscience Image Library",
-        "licentie": "CC0 (publiek domein)",
-        "licentieGecontroleerd": "2026-10-13",
-        "link": "https://www.flickr.com/photos/146824358@N03/41722161021/",
-        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
-        "bronregel": "Foto: All sizes, 200×, Berkshire Community College Bioscience Image Library, CC0, publiek domein"
-      },
-      "gebruik": []
-    },
-    {
-      "id": "simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-400x",
-      "status": "nieuw",
-      "bestand": "berkshire/simple-squamous-epithelium-whole-mount-human-simple-squamous-epithelium-400x.jpg",
-      "breedte": 2560,
-      "hoogte": 1443,
-      "origineleBreedte": 3264,
-      "origineleHoogte": 1840,
-      "titel": "Epithelial Tissues: Simple Squamous Epithelium 400x",
-      "origineleTitel": "All sizes",
-      "sectie": "Simple Squamous Epithelium: Whole Mount (Human)",
-      "organisme": null,
-      "doorsnede": null,
-      "vergroting": 400,
-      "beschrijving": "",
-      "structuren": [],
-      "bron": {
-        "collectie": "Berkshire Community College Bioscience Image Library",
-        "licentie": "CC0 (publiek domein)",
-        "licentieGecontroleerd": "2026-10-13",
-        "link": "https://www.flickr.com/photos/146824358@N03/41722161301/",
-        "pagina": "https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/",
-        "bronregel": "Foto: All sizes, 400×, Berkshire Community College Bioscience Image Library, CC0, publiek domein"
-      },
-      "gebruik": []
-    },
-    {
-      "id": "stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-100x",
-      "status": "nieuw",
-      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-100x.jpg",
+      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -494,9 +435,9 @@
       "gebruik": []
     },
     {
-      "id": "stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-100x-40420",
+      "id": "stratified-squamous-epithelium-cross-section-human-100x-2",
       "status": "nieuw",
-      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-100x-40420.jpg",
+      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-100x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -520,9 +461,9 @@
       "gebruik": []
     },
     {
-      "id": "stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-200x",
+      "id": "stratified-squamous-epithelium-cross-section-human-200x",
       "status": "nieuw",
-      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-200x.jpg",
+      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-200x.jpg",
       "breedte": 1840,
       "hoogte": 3264,
       "origineleBreedte": 1840,
@@ -546,9 +487,9 @@
       "gebruik": []
     },
     {
-      "id": "stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-200x-29312",
+      "id": "stratified-squamous-epithelium-cross-section-human-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-200x-29312.jpg",
+      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -572,9 +513,9 @@
       "gebruik": []
     },
     {
-      "id": "stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-400x",
+      "id": "stratified-squamous-epithelium-cross-section-human-400x",
       "status": "nieuw",
-      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-stratified-squamous-epitheliu-400x.jpg",
+      "bestand": "berkshire/stratified-squamous-epithelium-cross-section-human-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -598,9 +539,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-100x",
+      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-100x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-100x.jpg",
+      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -624,9 +565,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x",
+      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x.jpg",
+      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -650,9 +591,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x-18360",
+      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x-18360.jpg",
+      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -676,9 +617,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x-82831",
+      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x-3",
       "status": "nieuw",
-      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-200x-82831.jpg",
+      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-200x-3.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -702,9 +643,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-400x",
+      "id": "simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-400x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-simple-cuboidal-400x.jpg",
+      "bestand": "berkshire/simple-cuboidal-epithelium-cross-section-mammalian-kidney-tubule-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -728,9 +669,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-40x",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-40x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-40x.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-40x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -754,9 +695,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-100x",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-100x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-100x.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -780,9 +721,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-200x",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-200x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-200x.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -806,9 +747,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-200x-52128",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-200x-52128.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -832,9 +773,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-400x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -936,9 +877,9 @@
       "gebruik": []
     },
     {
-      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x-53338",
+      "id": "simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x",
       "status": "nieuw",
-      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x-53338.jpg",
+      "bestand": "berkshire/simple-columnar-epithelium-cross-section-mammalian-gut-simple-columnar-epitheliu-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -962,9 +903,9 @@
       "gebruik": []
     },
     {
-      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-40x",
+      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-40x",
       "status": "nieuw",
-      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-40x.jpg",
+      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-40x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -988,9 +929,9 @@
       "gebruik": []
     },
     {
-      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-100x",
+      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-100x",
       "status": "nieuw",
-      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-100x.jpg",
+      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1014,9 +955,9 @@
       "gebruik": []
     },
     {
-      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-100x-90687",
+      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-100x-2",
       "status": "nieuw",
-      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-100x-90687.jpg",
+      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-100x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1040,9 +981,9 @@
       "gebruik": []
     },
     {
-      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-200x",
+      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-200x",
       "status": "nieuw",
-      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-200x.jpg",
+      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1066,9 +1007,9 @@
       "gebruik": []
     },
     {
-      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-200x-11911",
+      "id": "ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-ciliated-p-200x-11911.jpg",
+      "bestand": "berkshire/ciliated-pseudostratified-columnar-epithelium-cross-section-mammalian-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1092,9 +1033,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-40x",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-40x",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-40x.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-40x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1118,9 +1059,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-100x",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-100x",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-100x.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1144,9 +1085,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-200x",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1170,9 +1111,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x-92372",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x-92372.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1196,9 +1137,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x-25007",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-200x-3",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-200x-25007.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-200x-3.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1222,9 +1163,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-400x",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1248,9 +1189,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-25607",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-2",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-25607.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-2.jpg",
       "breedte": 1840,
       "hoogte": 3264,
       "origineleBreedte": 1840,
@@ -1274,9 +1215,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-93442",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-3",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-93442.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-3.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1300,9 +1241,9 @@
       "gebruik": []
     },
     {
-      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-26037",
+      "id": "transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-4",
       "status": "nieuw",
-      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-transitional-epi-400x-26037.jpg",
+      "bestand": "berkshire/transitional-epithelium-cross-section-mammalian-urinary-bladder-400x-4.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1326,9 +1267,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-100x",
+      "id": "adipose-tissue-cross-section-mammalian-100x",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-100x.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1352,9 +1293,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-200x",
+      "id": "adipose-tissue-cross-section-mammalian-200x",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-200x.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1378,9 +1319,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-200x-12834",
+      "id": "adipose-tissue-cross-section-mammalian-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-200x-12834.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1404,9 +1345,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-400x",
+      "id": "adipose-tissue-cross-section-mammalian-400x",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-400x.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1430,9 +1371,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-400x-13704",
+      "id": "adipose-tissue-cross-section-mammalian-400x-2",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-400x-13704.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-400x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1456,9 +1397,9 @@
       "gebruik": []
     },
     {
-      "id": "adipose-tissue-cross-section-mammalian-adipose-400x-14324",
+      "id": "adipose-tissue-cross-section-mammalian-400x-3",
       "status": "nieuw",
-      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-adipose-400x-14324.jpg",
+      "bestand": "berkshire/adipose-tissue-cross-section-mammalian-400x-3.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1482,9 +1423,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-40x",
+      "id": "reticular-tissue-cross-section-mammalian-40x",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-40x.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-40x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1508,9 +1449,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-100x",
+      "id": "reticular-tissue-cross-section-mammalian-100x",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-100x.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-100x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1534,9 +1475,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-100x-92545",
+      "id": "reticular-tissue-cross-section-mammalian-100x-2",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-100x-92545.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-100x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1560,9 +1501,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-200x",
+      "id": "reticular-tissue-cross-section-mammalian-200x",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-200x.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-200x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1586,9 +1527,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-200x-93805",
+      "id": "reticular-tissue-cross-section-mammalian-200x-2",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-200x-93805.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-200x-2.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
@@ -1612,9 +1553,9 @@
       "gebruik": []
     },
     {
-      "id": "reticular-tissue-cross-section-mammalian-reticular-400x",
+      "id": "reticular-tissue-cross-section-mammalian-400x",
       "status": "nieuw",
-      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-reticular-400x.jpg",
+      "bestand": "berkshire/reticular-tissue-cross-section-mammalian-400x.jpg",
       "breedte": 2560,
       "hoogte": 1443,
       "origineleBreedte": 3264,
