@@ -1,0 +1,219 @@
+<title>Checkpoint Van cel tot lichaam</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: één leeskolom (werkdocument) met brede blokken voor beelden en tabellen; kleuren uit de film-stijlkaart */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --fg:#18212F; --muted:#5A6577; --line:#D7DDE6;
+  --goud:#9A6F12; --groen:#2F7D45; --paars:#6A58A6; --paars-soft:#EEEAF8; --groen-soft:#E5F3E9; --navy:#1A2740;
+  --display:"Fraunces",Georgia,serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121A26; --surface:#1A2740; --fg:#F2F2EE; --muted:#9AA3B2; --line:#2E3E5C;
+  --goud:#E0B64A; --groen:#7FC48F; --paars:#A99BDB; --paars-soft:#2A2847; --groen-soft:#1F3A2C; --navy:#0D1420; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121A26; --surface:#1A2740; --fg:#F2F2EE; --muted:#9AA3B2; --line:#2E3E5C;
+  --goud:#E0B64A; --groen:#7FC48F; --paars:#A99BDB; --paars-soft:#2A2847; --groen-soft:#1F3A2C; --navy:#0D1420; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:17px/1.55 var(--body);padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:980px;margin:0 auto;display:grid;gap:44px}
+.read{max-width:68ch}
+.wrap>*{min-width:0}
+h1{font:700 clamp(30px,5vw,44px)/1.1 var(--display);margin:0 0 8px;text-wrap:balance}
+h2{font:700 26px/1.2 var(--display);margin:0 0 14px;text-wrap:balance}
+h3{font:600 19px/1.3 var(--body);margin:0}
+p{margin:0}
+.eyebrow{font:500 12.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--goud);margin:0 0 12px}
+.lead{color:var(--muted);font-size:18px}
+.mono{font-family:var(--mono);font-size:13px}
+.small{font-size:12px;color:var(--muted)}
+section>*+*{margin-top:12px}
+.ask{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.ask ol{margin:8px 0 0;padding-left:22px;display:grid;gap:8px}
+.ask b{color:var(--fg)}
+audio{width:100%;margin-top:6px}
+.tests{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:14px}
+.tests div{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0}
+.tests .n{font:500 12px var(--mono);color:var(--goud);letter-spacing:.08em}
+.frames{display:grid;gap:22px}
+figure{margin:0}
+figure img{width:100%;border-radius:8px;border:1px solid var(--line);display:block}
+figcaption{color:var(--muted);font-size:15px;margin-top:8px}
+figcaption b{color:var(--fg);font-weight:600;margin-right:6px}
+.script{display:grid;gap:18px}
+.ch{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 22px;display:grid;gap:10px}
+.look{font:500 12px/1.4 var(--mono);color:var(--muted);letter-spacing:.04em}
+.take{display:grid;gap:3px;padding-left:14px;border-left:2px solid var(--line)}
+.take.hv{border-left:4px solid var(--paars);background:var(--paars-soft);padding:10px 14px;border-radius:0 6px 6px 0}
+.take.hv::before{content:"HAVO/VWO";font:500 11px var(--mono);letter-spacing:.12em;color:var(--paars)}
+.q{display:grid;gap:6px}
+.q ul{margin:0;padding-left:0;list-style:none;display:grid;gap:4px}
+.q li{padding:6px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted)}
+.q li.ok{border-color:var(--groen);background:var(--groen-soft);color:var(--fg);font-weight:600}
+.q li.ok::after{content:"  goed";font:500 11px var(--mono);letter-spacing:.1em;color:var(--groen)}
+.tag{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--goud)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+.sb{min-width:860px}
+.look-pill{font:500 11.5px var(--mono);white-space:nowrap;padding:2px 8px;border-radius:999px;border:1px solid var(--line)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px;min-width:0}
+ul.plain{margin:0;padding-left:20px;display:grid;gap:6px}
+.ans{color:var(--groen);font-weight:600}
+a{color:var(--goud)}
+:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="read">
+<p class="eyebrow">Kerndoelen onderbouw · film 2 · checkpoint</p>
+<h1>Van cel tot lichaam</h1>
+<p class="lead">Kerndoel 32A, tweede bullet: de bouw van plantaardige en dierlijke orgaanstelsels, organen en weefsels (werkwoord: beschrijven). De trap cel → weefsel → orgaan → orgaanstelsel → organisme, voor mens én plant, met de tien orgaanstelsels als opstap naar films 3–7. Gemengde onderbouw, basislijn op vmbo-t-niveau met één havo/vwo-blok. Stem Roos (eleven_v4). Na jouw akkoord bouw ik de hele film zonder tussenstops.</p>
+</header>
+
+<section class="ask read">
+<h2>Wat ik van je nodig heb</h2>
+<ol>
+<li><b>Uitspraak:</b> luister de test hieronder. Zeg welke nummers niet goed klinken.</li>
+<li><b>Script:</b> akkoord, of zeg welke zinnen anders moeten. Twee keuzes staan onder het script (3b).</li>
+<li><b>Lengte:</b> ongeveer 5:50 (basis) en 6:40 (havo/vwo), met vier voorspelvragen. Goed zo?</li>
+<li><b>Beeld:</b> twee stijlframes in de stijl van film 1: de trap en het lichaam met tien orgaanstelsels.</li>
+</ol>
+</section>
+
+<section class="read">
+<p class="eyebrow">1 · Uitspraaktest</p>
+<h2>Luister één keer</h2>
+<p>Alleen de woorden die nieuw zijn in deze film. Elke regel begint met het nummer. "dertig-duizend" en "koolstofdie-oxide" zijn de spellingen die je eerder goedkeurde.</p>
+<audio controls preload="none" src="{{AUDIO}}"></audio>
+<div class="tests">
+<div><p class="n">1 tot 8</p><p>De orgaanstelsels: orgaanstelsel, spijsverteringsstelsel, bloedvatenstelsel, uitscheidingsstelsel, hormoonstelsel, voortplantingsstelsel, ademhalingsstelsel, afweersysteem.</p></div>
+<div><p class="n">9 tot 13</p><p>De weefsels: bindweefsel, dekweefsel, opperhuid, bladmoes, vaatbundels.</p></div>
+<div><p class="n">14 tot 18</p><p>gespecialiseerd, kuitspier, luchtpijp, koolstofdioxide, ziekteverwekkers.</p></div>
+<div><p class="n">19 en 20</p><p>Twee echte zinnen uit het script, voor tempo en pauzes.</p></div>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">2 · Stijlframes</p>
+<h2>Zo ziet het eruit</h2>
+<div class="frames">{{FRAMES}}</div>
+</section>
+
+<section>
+<p class="eyebrow">3 · Script v2</p>
+<h2>De tekst, na drie reviews</h2>
+<p class="read">Een witregel in het script is een nieuwe opname, zodat later één alinea los opnieuw ingesproken kan worden. Het paarse blok valt weg in de stand Basis. Bij elke vraag staat het goede antwoord groen.</p>
+<div class="script">{{SCRIPT}}</div>
+</section>
+
+<section>
+<p class="eyebrow">4 · Storyboard</p>
+<h2>Beeld per opname</h2>
+<p class="read">Micro is de donkere celwereld, Macro-dag de gymzaal en de tuin met de sla, Schema de navy kaarten voor vragen en samenvatting. Van Micro naar Macro en terug gaat altijd via de gouden zoomcirkel.</p>
+<div class="tw"><table class="sb"><thead><tr><th>Opname</th><th>Deel</th><th>Look</th><th>Wat je ziet</th><th>Cue-woorden</th></tr></thead><tbody>{{SB}}</tbody></table></div>
+</section>
+
+<section>
+
+<section class="read">
+<p class="eyebrow">3b · Twee keuzes</p>
+<h2>Waar ik je mening over wil</h2>
+<div class="cols">
+<div class="card"><h3>A. De vraag over bloed</h3><p>De reviewers stelden een vierde voorspelvraag voor ("Is bloed ook een weefsel?"), omdat hoofdstuk 2 anders drie minuten zonder vraag is en de misconceptie "bloed is geen weefsel" onbehandeld blijft. Kost 15 s. Erin laten, of eruit om tijd te winnen?</p></div>
+<div class="card"><h3>B. "Dekweefsel"</h3><p>Biologie voor jou noemt in de onderbouw beenweefsel, bindweefsel, spierweefsel en zenuwweefsel. "Dekweefsel" (epitheel) komt uit andere methodes. Ik houd het erin omdat de huid en de opperhuid van het blad er anders geen naam hebben; de film zegt erbij dat de namen niet uit het hoofd hoeven. Akkoord, of liever weglaten?</p></div>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">5 · Dekking</p>
+<h2>Kerndoel, leerdoel en vraag</h2>
+<div class="tw"><table>
+<thead><tr><th>Kerndoel 32A / leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Getoetst door</th></tr></thead>
+<tbody>
+<tr><td>Bullet 2: weefsels (groep dezelfde cellen, dezelfde taak) en voorbeelden</td><td>basis</td><td>H1</td><td>Voorspelvraag 2 (bot) en 3 (bloed) · controlevraag 1</td></tr>
+<tr><td>Bullet 2: organen (verschillende weefsels samen, eigen taak)</td><td>basis</td><td>H1, H3</td><td>Voorspelvraag 4 (plant) · controlevraag 2</td></tr>
+<tr><td>Bullet 2: orgaanstelsels, de tien bij naam</td><td>basis</td><td>H2</td><td>Controlevraag 2 · eindkaart</td></tr>
+<tr><td>Bullet 2: plantaardige organen en weefsels (wortel, stengel, blad, bloem; opperhuid, bladmoes, vaatbundels; wortelstelsel)</td><td>basis</td><td>H3</td><td>Voorspelvraag 4 · controlevraag 3a</td></tr>
+<tr><td>De trap cel → organisme in volgorde</td><td>basis</td><td>Samenvatting</td><td>Controlevraag 2 · eindkaart (sorteeropdracht)</td></tr>
+<tr><td>Opstap naar bullets 3–4: orgaanstelsels werken samen (gymles)</td><td>basis</td><td>Cold open, H2</td><td>Voorspelvraag 1</td></tr>
+<tr><td>Gespecialiseerde cellen: bouw past bij taak</td><td>havo/vwo</td><td>H3-blok</td><td>Controlevraag 3b</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="read">
+<p class="eyebrow">6 · Controlevragen</p>
+<h2>Drie vragen na de film</h2>
+<div class="card">
+<p><b>1.</b> Wat is een weefsel?<br>A. Een groep dezelfde cellen met dezelfde taak. · B. Verschillende organen die samenwerken. · C. Alles wat in een lichaam zacht is.</p>
+<p class="ans">A</p>
+</div>
+<div class="card">
+<p><b>2.</b> Zet in de goede volgorde, van klein naar groot: orgaan · cel · organisme · weefsel · orgaanstelsel.<br>A. cel, weefsel, orgaan, orgaanstelsel, organisme · B. cel, orgaan, weefsel, orgaanstelsel, organisme · C. weefsel, cel, orgaan, organisme, orgaanstelsel</p>
+<p class="ans">A</p>
+</div>
+<div class="card">
+<p><b>3a.</b> Een blad is een orgaan. Leg uit waarom. Noem twee weefsels in een blad.</p>
+<p class="ans">Een blad bestaat uit verschillende weefsels samen (opperhuid, bladmoes, vaatbundels) met een eigen taak (licht vangen en voedsel maken).</p>
+<p><b>3b (havo/vwo).</b> Een spiercel en een zenuwcel hebben dezelfde bouwtekening. Toch zien ze er anders uit. Leg uit hoe dat komt.</p>
+<p class="ans">Cellen zijn gespecialiseerd: de bouw past bij de taak. Een spiercel is lang en kan korter worden; een zenuwcel heeft lange uitlopers om signalen ver door te geven.</p>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">7 · Getallen</p>
+<h2>Wat de film beweert</h2>
+<div class="tw"><table>
+<thead><tr><th>In de film</th><th>Waarde</th><th>Bron</th><th>Afronding</th></tr></thead>
+<tbody>
+<tr><td>"ongeveer dertigduizend miljard cellen" (volwassene)</td><td class="num">3,0 × 10¹³</td><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4991899" target="_blank" rel="noopener">Sender, Fuchs &amp; Milo 2016</a></td><td>ja</td></tr>
+<tr><td>"tien orgaanstelsels"</td><td class="num">10</td><td>de tien stelsels die kerndoel 32A, bullet 3 noemt</td><td>telling van het kerndoel</td></tr>
+<tr><td>"miljoenen spiercellen" in een spier</td><td class="num">orde 10⁵–10⁶ spiervezels in een grote spier</td><td>leerboekwaarde (Guyton &amp; Hall)</td><td>orde van grootte</td></tr>
+<tr><td>rode bloedcel zonder celkern (havo/vwo)</td><td class="num">rijpe rode bloedcel van een zoogdier: geen kern</td><td>leerboekwaarde</td><td>—</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="eyebrow">8 · Wat de reviews veranderden</p>
+<h2>Van v1 naar v2</h2>
+<div class="cols">
+<div class="card"><h3>Histoloog</h3><ul class="plain">
+<li>Om een spier zit bindweefsel, geen dekweefsel.</li>
+<li>Een nerf is geen weefsel; het weefsel is de vaatbundel die in de nerf loopt.</li>
+<li>"Hormonen" zijn geen orgaanstelsel: hormoonstelsel.</li>
+<li>Havo/vwo: "bijna elke cel" heeft de bouwtekening (de rode bloedcel niet).</li>
+<li>Bladmoes genoemd; bot: "het harde spul is gemaakt door botcellen, en die zitten er nog in".</li>
+</ul></div>
+<div class="card"><h3>Didactiek en taal</h3><ul class="plain">
+<li>Cold open korter; optie "de rest doet niets" als misconceptie.</li>
+<li>Nieuwe vraag over bloed in hoofdstuk 2; de plant-vraag naar het begin van hoofdstuk 3 (anders te raden).</li>
+<li>"Trekken" werd "korter worden / kracht zetten"; "ziekmakers" werd "ziekteverwekkers".</li>
+<li>Vier kernbegrippen apart van de voorbeeldnamen ("die hoef je niet te onthouden").</li>
+<li>Havo/vwo-blok naar het eind van hoofdstuk 3, zodat het de plant niet verklapt.</li>
+</ul></div>
+<div class="card"><h3>Curriculum</h3><ul class="plain">
+<li>Alle tien orgaanstelsels uit het kerndoel bij naam, in de kerndoelspelling.</li>
+<li>Bindweefsel en bloed als weefsel erbij (het rijtje van Biologie voor jou).</li>
+<li>Orgaan "met een eigen taak" in plaats van "één taak" (huid heeft er meer).</li>
+<li>Organisme als "één levend wezen".</li>
+<li>Wortelstelsel als plantaardig orgaanstelsel; de trap wordt op de eindkaart getoetst.</li>
+</ul></div>
+</div>
+</section>
+
+<section>
+<p class="eyebrow">9 · Probeer het zelf en tools</p>
+<h2>Wat de leerling na de film doet</h2>
+<div class="cols">
+<div class="card"><h3>Eindkaart: sorteeropdracht</h3><p>Zet op de trap: rode bloedcel, bloed, hart, bloedvatenstelsel, jij · bladmoescel, bladmoes, blad, wortelstelsel, slaplant. Als korte klik-en-sorteer-opdracht op de site, tot er een tool is.</p></div>
+<div class="card"><h3>Bestaand</h3><p>Virtuele microscoop en Celbouwer (film 1). De Berkshire-foto van de wortel van een den (Pinus) kan in deze film als echt beeld van een orgaan in doorsnede.</p></div>
+<div class="card"><h3>Nieuwe tool: Lichaamsbouwer</h3><p>De leerling sleept organen naar het juiste orgaanstelsel in een lichaam en ziet per orgaan de taak; daarna hetzelfde voor de plant (wortel, stengel, blad, bloem). Klein: één middag. Kan later groeien met films 3–7.</p></div>
+<div class="card"><h3>Nieuwe tool: Trap-sorteerder</h3><p>Kaartjes (cel, weefsel, orgaan, stelsel, organisme) voor mens en plant op de trap zetten, met feedback. Heel klein; kan ook de eindkaart-opdracht zelf zijn.</p></div>
+</div>
+</section>
+
+</div>
+</div>
