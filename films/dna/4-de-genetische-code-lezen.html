@@ -72,7 +72,7 @@ body.havo .vonly{display:none}
 </head>
 <body>
 <header>
-  <nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><a href="../../index.html#dna" id="back" class="terug">← Terug naar DNA</a></nav><script>document.getElementById("back").addEventListener("click",function(e){try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});</script><div class="meta" style="margin:-4px 0 10px;letter-spacing:.06em;text-transform:none;font-size:13px">Reeks DNA: <a href="1-wat-is-dna.html" style="color:var(--text2)">1 Wat is DNA?</a> · <a href="2-dna-kopieren.html" style="color:var(--text2)">2 DNA kopiëren</a> · <a href="3-van-dna-naar-eiwit.html" style="color:var(--text2)">3 Van DNA naar eiwit</a> · <b>4 De genetische code lezen</b> · <span>5–8 volgen</span></div>
+  <nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><a href="../../index.html#dna" id="back" class="terug">← Terug naar DNA</a></nav><script>document.getElementById("back").addEventListener("click",function(e){try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});</script><div class="meta" style="margin:-4px 0 10px;letter-spacing:.06em;text-transform:none;font-size:13px">Reeks DNA: <a href="1-wat-is-dna.html" style="color:var(--text2)">1 Wat is DNA?</a> · <a href="2-dna-kopieren.html" style="color:var(--text2)">2 DNA kopiëren</a> · <a href="3-van-dna-naar-eiwit.html" style="color:var(--text2)">3 Van DNA naar eiwit</a> · <b>4 De genetische code lezen</b> · <a href="5-mutaties.html" style="color:var(--text2)">5 Mutaties</a> · <a href="6-genen-aan-en-uit.html" style="color:var(--text2)">6 Genen aan en uit</a> · <span>7–8 volgen</span></div>
   <div class="meta">Biologie bij Kamiel · reeks DNA · film 4 van 8 · havo + vwo</div>
   <h1>De genetische code lezen</h1>
   <p>Hoe leest een bacterie het recept van een mens? Over het tRNA als werktuig, de codontabel en terugredeneren met echte examenvragen. Onderdelen met <span class="tag">vwo</span> zijn alleen vwo-stof; in de havo-stand worden ze overgeslagen.</p>
@@ -510,12 +510,8 @@ function personReal(ctx,x,y,h,alpha=1,o={}){ if(alpha<=0.01) return {}; ctx.save
 
 // series person (12 Oct 2026): every film draws the friendly person; each scenes file may set PERSON_LOOK
 function person(ctx,x,y,h,alpha=1,o={}){ const look=(typeof PERSON_LOOK!=='undefined')?PERSON_LOOK:{}; return personReal(ctx,x,y,h,alpha,Object.assign({},look,o)); }
-</script>
-<script>// ===== DNA 4 · De genetische code lezen — scenes (Part C) =====
-// signature: SCENES[name](ctx, li, lf, t, q)   li = line index, lf = 0..1 within the line
-const SCENES={};
-const ANTI=c=>c.split('').map(b=>({A:'U',U:'A',G:'C',C:'G'})[b]).join('');
-// standard genetic code, three-letter names as in BiNaS
+
+// ---- shared with films 4+ (moved from scenes4.js on 13 Oct 2026) ----
 const CODE=(()=>{ const B='UCAG', aa='Phe Phe Leu Leu Ser Ser Ser Ser Tyr Tyr stop stop Cys Cys stop Trp Leu Leu Leu Leu Pro Pro Pro Pro His His Gln Gln Arg Arg Arg Arg Ile Ile Ile Met Thr Thr Thr Thr Asn Asn Lys Lys Ser Ser Arg Arg Val Val Val Val Ala Ala Ala Ala Asp Asp Glu Glu Gly Gly Gly Gly'.split(' ');
   const m={}; let k=0; for(const a of B) for(const b of B) for(const c of B){ m[a+b+c]=null; }
   // fill in order: first base, second base, third base — the string above is ordered first, then (second, third)
@@ -523,20 +519,6 @@ const CODE=(()=>{ const B='UCAG', aa='Phe Phe Leu Leu Ser Ser Ser Ser Tyr Tyr st
   return m; })();
 const AANAAM={Met:'methionine',Phe:'fenylalanine',Val:'valine',Leu:'leucine',His:'histidine',Cys:'cysteïne',Ser:'serine',Ala:'alanine',Gly:'glycine'};
 function macroBg(ctx){ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); ctx.fillStyle=C.bgMacroHill; ctx.beginPath(); ctx.moveTo(0,720); ctx.quadraticCurveTo(480,640,960,700); ctx.quadraticCurveTo(1440,760,1920,680); ctx.lineTo(1920,H); ctx.lineTo(0,H); ctx.fill(); ctx.fillStyle=C.bgMacroFront; ctx.fillRect(0,820,W,H-820); }
-// insulin pen (Macro object, line-drawn like the syringe in film 3)
-function insulinPen(ctx,x,y,rot,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
-  box(ctx,0,-22,300,44,18,rgba(C.fill,0.95),'#AFC0D0',1.5); box(ctx,170,-14,90,28,6,rgba(C.teal,0.25),'#AFC0D0',1); box(ctx,-46,-16,46,32,8,'#AFC0D0'); ln(ctx,300,0,340,0,'#AFC0D0',3); M(ctx,'insuline',90,8,{color:C.text2,px:22}); ctx.restore(); }
-// steel fermentation tank (Macro, schematic)
-function tank(ctx,x,y,w,h,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; box(ctx,x,y,w,h,w/2.6,rgba('#3A4A66',0.9),'#AFC0D0',1.5); box(ctx,x+w*0.15,y+h*0.25,w*0.7,h*0.6,20,rgba(C.groen,0.14),null); ln(ctx,x+w/2,y-40,x+w/2,y,'#AFC0D0',6); ctx.restore(); }
-// bacterium (Micro): rounded rod with a little DNA loop
-function bacterium(ctx,x,y,s=1,rot=0,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); box(ctx,-60*s,-26*s,120*s,52*s,26*s,rgba(C.groen,0.35),C.groen,1.5); ctx.beginPath(); ctx.ellipse(-8*s,0,26*s,12*s,0.3,0,6.283); ctx.strokeStyle=C.paars; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); }
-// insulin: two short amino-acid chains linked (oker)
-function insulin(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; for(let k=0;k<5;k++){ circ(ctx,x+k*14*s,y,7*s,AAT[k%5]); circ(ctx,x+k*14*s,y+18*s,7*s,AAT[(k+2)%5]); } ln(ctx,x+14*s,y,x+14*s,y+18*s,C.goud,2); ln(ctx,x+42*s,y,x+42*s,y+18*s,C.goud,2); ctx.restore(); }
-
-// ---- big tRNA "two ends" diagram (key visual of chapter 1) ----
-function bigTrna(ctx,x,y,anti,aaName,o={}){ // y = anticodon backbone; returns geometry
-  const a=o.alpha==null?1:o.alpha; if(a<=0.01) return {}; const dx=130, bs=1.15; const g=trna(ctx,x,y,anti,{dx,bs,aa:false,alpha:a});
-  if(aaName!==false) aa(ctx,x,g.top,60,o.k||0,aaName,a); return {top:g.top,dx}; }
 // codon table (Schema card): rows = first base, columns = second base, lines = third base
 function codonTable(ctx,x,y,o={}){ const B='UCAG', cw=o.cw||300, lh=o.lh||42, ph=lh*4+16, a=o.alpha==null?1:o.alpha; if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a;
   const hl=o.hl||{}; // codon -> colour
@@ -551,6 +533,30 @@ function codonTable(ctx,x,y,o={}){ const B='UCAG', cw=o.cw||300, lh=o.lh||42, ph
     T(ctx,'',x,yy,10); }
   for(let i=0;i<4;i++) for(let k=0;k<4;k++) T(ctx,B[k],x+60+cw*4+44,y+i*ph+12+lh*k+lh*0.72,30,{align:'center',color:C.text2});
   ctx.restore(); }
+// ---- shared helpers for the reading chapters ----
+function tileRow(ctx,x0,y,sq,o={}){ const dx=o.dx||96; for(let i=0;i<sq.length;i++){ const m=o.mark&&o.mark(i); tile(ctx,x0+i*dx,y,sq[i],{w:o.w||80,h:o.h||92,px:o.px||52,rna:o.rna!==false,alpha:(o.alpha==null?1:o.alpha)*(o.dim&&o.dim(i)?0.35:1),mark:m||null}); } }
+function bracket(ctx,x1,x2,y,col,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke(); if(lab) M(ctx,lab,(x1+x2)/2,y+50,{align:'center',color:col}); ctx.restore(); }
+function aaBead(ctx,x,y,name,k,alpha=1,col){ if(alpha<=0.01) return; aa(ctx,x,y,40,k,'',alpha); if(col){ ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,40,col,lighten(col,0.3),2); ctx.restore(); } T(ctx,name,x,y+13,34,{w:700,align:'center',color:C.bgMicro,alpha}); }
+</script>
+<script>// ===== DNA 4 · De genetische code lezen — scenes (Part C) =====
+// signature: SCENES[name](ctx, li, lf, t, q)   li = line index, lf = 0..1 within the line
+const SCENES={};
+const ANTI=c=>c.split('').map(b=>({A:'U',U:'A',G:'C',C:'G'})[b]).join('');
+// standard genetic code, three-letter names as in BiNaS
+// insulin pen (Macro object, line-drawn like the syringe in film 3)
+function insulinPen(ctx,x,y,rot,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  box(ctx,0,-22,300,44,18,rgba(C.fill,0.95),'#AFC0D0',1.5); box(ctx,170,-14,90,28,6,rgba(C.teal,0.25),'#AFC0D0',1); box(ctx,-46,-16,46,32,8,'#AFC0D0'); ln(ctx,300,0,340,0,'#AFC0D0',3); M(ctx,'insuline',90,8,{color:C.text2,px:22}); ctx.restore(); }
+// steel fermentation tank (Macro, schematic)
+function tank(ctx,x,y,w,h,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; box(ctx,x,y,w,h,w/2.6,rgba('#3A4A66',0.9),'#AFC0D0',1.5); box(ctx,x+w*0.15,y+h*0.25,w*0.7,h*0.6,20,rgba(C.groen,0.14),null); ln(ctx,x+w/2,y-40,x+w/2,y,'#AFC0D0',6); ctx.restore(); }
+// bacterium (Micro): rounded rod with a little DNA loop
+function bacterium(ctx,x,y,s=1,rot=0,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); box(ctx,-60*s,-26*s,120*s,52*s,26*s,rgba(C.groen,0.35),C.groen,1.5); ctx.beginPath(); ctx.ellipse(-8*s,0,26*s,12*s,0.3,0,6.283); ctx.strokeStyle=C.paars; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); }
+// insulin: two short amino-acid chains linked (oker)
+function insulin(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; for(let k=0;k<5;k++){ circ(ctx,x+k*14*s,y,7*s,AAT[k%5]); circ(ctx,x+k*14*s,y+18*s,7*s,AAT[(k+2)%5]); } ln(ctx,x+14*s,y,x+14*s,y+18*s,C.goud,2); ln(ctx,x+42*s,y,x+42*s,y+18*s,C.goud,2); ctx.restore(); }
+
+// ---- big tRNA "two ends" diagram (key visual of chapter 1) ----
+function bigTrna(ctx,x,y,anti,aaName,o={}){ // y = anticodon backbone; returns geometry
+  const a=o.alpha==null?1:o.alpha; if(a<=0.01) return {}; const dx=130, bs=1.15; const g=trna(ctx,x,y,anti,{dx,bs,aa:false,alpha:a});
+  if(aaName!==false) aa(ctx,x,g.top,60,o.k||0,aaName,a); return {top:g.top,dx}; }
 
 SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1330,140); ctx.scale(0.62,0.62); bigTrna(ctx,300,560,'CAC','Val',{k:1}); mrna(ctx,170,560+28+244*1.15,'GUG',{dx:130,dir:-1,s:1.15}); ctx.restore(); };
 
@@ -639,10 +645,6 @@ SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie 
   if(li===4) T(ctx,'schrijf alle codons op · zoek het paar met één verschil',W/2,860,36,{align:'center',alpha:ease(lf*2)});
 };
 
-// ---- shared helpers for the reading chapters ----
-function tileRow(ctx,x0,y,sq,o={}){ const dx=o.dx||96; for(let i=0;i<sq.length;i++){ const m=o.mark&&o.mark(i); tile(ctx,x0+i*dx,y,sq[i],{w:o.w||80,h:o.h||92,px:o.px||52,rna:o.rna!==false,alpha:(o.alpha==null?1:o.alpha)*(o.dim&&o.dim(i)?0.35:1),mark:m||null}); } }
-function bracket(ctx,x1,x2,y,col,lab,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke(); if(lab) M(ctx,lab,(x1+x2)/2,y+50,{align:'center',color:col}); ctx.restore(); }
-function aaBead(ctx,x,y,name,k,alpha=1,col){ if(alpha<=0.01) return; aa(ctx,x,y,40,k,'',alpha); if(col){ ctx.save(); ctx.globalAlpha*=alpha; circ(ctx,x,y,40,col,lighten(col,0.3),2); ctx.restore(); } T(ctx,name,x,y+13,34,{w:700,align:'center',color:C.bgMicro,alpha}); }
 
 // ---- H1a: the gap between codon and amino acid ----
 SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const x0=330, dx=96, Ym=640;

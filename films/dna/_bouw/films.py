@@ -8,7 +8,7 @@ def old_teacher(fname):  # docentdeel (pauzes, vereenvoudigingen, leerdoelen) st
 def how(rows):
     return ('<details open><summary>Hoe de film het uitlegt</summary><table><tr><th>Hoofdstuk</th><th>Type</th><th>Look (Part C)</th><th>Kernbeeld</th><th>Misconceptie</th></tr>'
             + ''.join('<tr>'+''.join(f'<td>{c}</td>' for c in r)+'</tr>' for r in rows) + '</table></details>')
-SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties')]
+SERIES=[('1-wat-is-dna.html','Wat is DNA?'),('2-dna-kopieren.html','DNA kopiëren'),('3-van-dna-naar-eiwit.html','Van DNA naar eiwit'),('4-de-genetische-code-lezen.html','De genetische code lezen'),('5-mutaties.html','Mutaties'),('6-genen-aan-en-uit.html','Genen aan en uit')]
 def seriesline(cur):
     parts=[]
     for k,(f,t) in enumerate(SERIES,1):
@@ -94,4 +94,21 @@ FILMS={
       ['4 vwo: gas en rem <span class="tag">vwo</span>','A','Schema','gaspedaal (proto-oncogen) en rempedaal (tumorsuppressorgen); p53; erfelijke eerste hit','dominant erfelijk = één allel is altijd genoeg'],
       ['Samenvatting','—','Macro (strand) + Schema','paneel met vijf regels; huidcel en levercel met andere genen aan','mutaties zijn altijd slecht']]),
     'teacher_rest':old_teacher('5-mutaties.html')},
+ 6:{'file':'6-genen-aan-en-uit.html','title':'Genen aan en uit · DNA aflevering 6','headmeta':'Biologie bij Kamiel · reeks DNA · film 6 van 8 · havo + vwo','lead':'Een eeneiige tweeling met hetzelfde DNA, en toch twee verschillende mensen. Over genexpressie, transcriptiefactoren, stamcellen en de slotjes op je DNA (epigenetica). Onderdelen met <span class="tag">vwo</span> zijn alleen vwo-stof; in de havo-stand worden ze overgeslagen.',
+    'film':{'title':'Genen aan en uit','sub':'DNA · aflevering 6','puzzle':'Twee zussen, een eeneiige tweeling. Vijftig jaar later loopt de ene elke ochtend hard en rookt de andere. Hetzelfde kookboek, en toch twee verschillende mensen. Hoe kan dat?','meta':'dna 6/8','titleLook':'schema',
+            'mini':{'Hoofdstuk 1 — Zelfde DNA, andere cel':'Waarom is een huidcel geen levercel?','Hoofdstuk 2 — Hoe zet een cel een gen aan?':'Promotor, transcriptiefactor, polymerase','Hoofdstuk 3 — Stamcellen':'Van één eicel naar alle celtypen','Hoofdstuk 4 — Slotjes op het DNA':'Epigenetica: óp het DNA, niet ín het DNA','Samenvatting — Terug naar de tweeling':'Wat maakt jou?'},
+            'endLines':['Elke cel heeft alle genen, maar gebruikt er een deel van: genexpressie.','Transcriptiefactoren zetten genen aan en uit; zo ontstaat differentiatie.','Slotjes op het DNA houden genen lang uit, en je omgeving bepaalt mee: epigenetica.'],'endHaak':'hetzelfde kookboek, andere pagina’s open','next':'Volgende: DNA lezen',
+            'footer':'biologie bij kamiel · reeks dna 6/8 · stem: roos (elevenlabs) · versie 1.0 · oktober 2026'},
+    'legend':LEGEND+[('#5BA4C9','RNA (mRNA)'),('#C9A35C','aminozuur / eiwit'),('#E0B64A','transcriptiefactor / gen aan'),('#7FC48F','activator / open'),('#E07A5F','slotje (methylgroep) / repressor')],'seriesline':seriesline(6),'footer':FOOT.format(extra=', CvTE havo 2022-I, 2024-I en 2025-I (geparafraseerd), Takahashi & Yamanaka 2006').replace('Versie 2.0 · 12 oktober 2026 (Part C-look; 1.x had de stijl Papier en inkt).','Versie 1.0 · 13 oktober 2026.').replace('eleven_multilingual_v2','eleven_v3'),
+    'teacher_how':how([
+      ['Opening','I toepassing','Macro','de tweeling als kleuters en vijftig jaar later; paneel zelfde DNA; de kookboekvraag','eeneiige tweelingen zijn in alles gelijk'],
+      ['1 Zelfde DNA, andere cel','B structuur / A mechanisme','Schema + Macro (beekprik)','huidcel, levercel, zenuwcel uit één eicel; genstrip met alle genen; gen → mRNA → eiwit; keratine aan / albumine uit; beekprik larve → vis','een gespecialiseerde cel is genen kwijt; genotype verandert bij metamorfose'],
+      ['2 Hoe zet een cel een gen aan?','A mechanisme','Schema','promotor (DNA) met transcriptiefactor (eiwit) en polymerase; aan/uit; structuur- en regulatorgenen; oestradiol → receptor → kern → gen aan → eiwit','de promotor is een eiwit; het hormoon bindt zelf aan het DNA'],
+      ['2 vwo: activator, repressor, enhancer <span class="tag">vwo</span>','A','Schema','groene activator, koraal repressor; enhancer ver van het gen met lus','transcriptiefactoren zetten genen alleen aan'],
+      ['3 Stamcellen','A + G','Schema','eicel deelt; embryonale en volwassen stamcellen; twee dingen die een stamcel kan; deling met gelijke dochters → stamcel of rode bloedcel; hemoglobine aan/uit; apoptose (vliezen); zenuwcel met slotjes; lab: regulatorgenen aan → stamcel','direct na de deling zijn de dochtercellen al verschillend; differentiatie = mutatie'],
+      ['3 vwo: potentie <span class="tag">vwo</span>','B','Schema','totipotent, pluripotent, multipotent met steeds meer slotjes','stamcellen kunnen altijd alles worden'],
+      ['4 Slotjes op het DNA','A + I','Schema + Macro (zoomcirkel)','methylgroep en slotje op de promotor; transcriptiefactor kan er niet bij; dochtercellen krijgen het slotje mee; voeding/stress/roken; longcel van de rokende zus; rattenvraag met zaadcellen en slotjes','een slotje is een mutatie; slotjes zijn voorgoed; alles van de ouder gaat over op het kind'],
+      ['4 vwo: histonen en lapjeskat <span class="tag">vwo</span>','A','Schema','histonen met acetylgroepen (open) en zonder (dicht); twee X-chromosomen, één op slot; lapjeskat met plukjes; kater met één X','X-inactivatie gebeurt per plukje opnieuw; lapjeskaters komen vaak voor'],
+      ['Samenvatting','—','Macro + Schema','de twee zussen met paneel; helix met vergrootglas (naar aflevering 7)','—']]),
+    'teacher_rest':old_teacher('6-genen-aan-en-uit.html')},
 }

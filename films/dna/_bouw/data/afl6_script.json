@@ -1,0 +1,420 @@
+{
+ "SCRIPT": [
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "open",
+   "lines": [
+    "Twee zussen, een eeneiige tweeling. Op de kleuterschool haalt de juf ze door elkaar.",
+    "Vijftig jaar later niet meer. De ene loopt elke ochtend hard. De andere rookt, en heeft last van haar hart.",
+    "Hun DNA is nog bijna precies hetzelfde: dezelfde basen, dezelfde genen.",
+    "Hoe kan dat: hetzelfde kookboek, en toch twee verschillende mensen?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Genen aan en uit",
+   "sub": "DNA · aflevering 6"
+  },
+  {
+   "kind": "card",
+   "title": "Zelfde DNA, andere cel",
+   "sub": "Hoofdstuk 1"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1a",
+   "lines": [
+    "Eerst iets dichterbij. Een huidcel, een levercel en een zenuwcel uit één mens. Ze zien er totaal anders uit en doen totaal andere dingen.",
+    "Alle drie zijn ze ontstaan uit dezelfde bevruchte eicel."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h1q",
+   "source": "naar CvTE, examen biologie havo 2022, tijdvak 1",
+   "text": "Waarin verschilt een zenuwcel van een nog niet gespecialiseerde cel? Wat denk je?",
+   "opts": [
+    "de zenuwcel is genen kwijtgeraakt",
+    "de zenuwcel gebruikt andere genen",
+    "de zenuwcel heeft extra genen gekregen"
+   ],
+   "correct": 1
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1b",
+   "lines": [
+    "Antwoord B. Het DNA is hetzelfde. Elke cel met een kern heeft alle twintigduizend genen. Het verschil zit in welke genen de cel gebruikt.",
+    "Een gen gebruiken heet genexpressie: het gen wordt overgeschreven naar mRNA, en dat wordt vertaald naar een eiwit. Gebeurt dat, dan staat het gen aan. Anders staat het uit.",
+    "Een huidcel heeft het gen voor huidkeratine aan, het stevige eiwit van je huid. Een levercel heeft dat gen uit, maar het gen voor albumine aan, een bloedeiwit.",
+    "Hetzelfde kookboek, andere pagina's open."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h1c",
+   "lines": [
+    "Dat verandert ook in de tijd. Een beekprik, een soort vis, is eerst een larve zonder echte ogen, ingegraven in de modder. Later wordt hij een vis met ogen en vinnen, en zijn darm verdwijnt: hij eet niet meer.",
+    "Zijn genotype verandert niet. Zijn genexpressie wel: andere genen gaan aan en uit.",
+    "Een cel raakt dus geen genen kwijt. Ze gebruikt er een deel van, en welk deel kan veranderen."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Hoe zet een cel een gen aan?",
+   "sub": "Hoofdstuk 2"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2a",
+   "lines": [
+    "In aflevering drie zag je: transcriptie begint bij de promotor, een stuk DNA vóór het gen. Daar bindt RNA-polymerase.",
+    "Maar niet zomaar. Eerst moet er een eiwit op de promotor gaan zitten: een transcriptiefactor. De promotor is DNA, de transcriptiefactor is een eiwit.",
+    "Is die er, dan bindt de polymerase en gaat het gen aan. Is hij er niet, dan blijft het gen uit.",
+    "Genen voor keratine of albumine heten structuurgenen: ze coderen voor de eiwitten die het werk doen. De genen voor de schakelaars, zoals transcriptiefactoren, heten regulatorgenen."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h2q",
+   "source": "naar CvTE, examen biologie havo 2024, tijdvak 1",
+   "text": "Het hormoon oestradiol zet in borstcellen genen aan. Het hormoon gaat de cel in. Wat is de eerste stap daarna? Wat denk je?",
+   "opts": [
+    "het hormoon bindt aan een receptor, en samen werken ze als transcriptiefactor",
+    "het hormoon bindt zelf aan de promotor van het gen",
+    "het hormoon bindt aan RNA-polymerase"
+   ],
+   "correct": 0
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2b",
+   "lines": [
+    "Antwoord A. Oestradiol bindt in de cel aan een receptor. Dat koppel werkt in de kern als transcriptiefactor: het bindt bij het regelgebied van bepaalde genen.",
+    "RNA-polymerase komt erbij, er wordt mRNA gemaakt, en aan de ribosomen een eiwit.",
+    "Zo komt een signaal van buiten bij het DNA terecht: hormoon, receptor, kern, gen aan. Niet door het DNA te veranderen, maar door genen aan en uit te zetten."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h2v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit.",
+    "Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt.",
+    "Nu: waar komen al die verschillende cellen vandaan?"
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Stamcellen",
+   "sub": "Hoofdstuk 3"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3a",
+   "lines": [
+    "Alles begint bij één bevruchte eicel. Die deelt, en deelt.",
+    "Cellen die nog niet gespecialiseerd zijn, heten stamcellen. In een embryo: embryonale stamcellen. In je beenmerg: volwassen stamcellen.",
+    "Een stamcel kan twee dingen: zichzelf blijven delen, en zich ontwikkelen tot een gespecialiseerde cel. Dat heet celdifferentiatie.",
+    "Een stamcel in je beenmerg deelt. Vlak daarna zijn de twee dochtercellen nog gelijk. Dan gaan in de ene andere genen aan: die blijft stamcel. In de andere gaan weer andere genen aan, en na nog een reeks delingen is zij een rode bloedcel."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h3q",
+   "source": "naar CvTE, examen biologie havo 2025, tijdvak 1",
+   "text": "Uit gedoneerde stamcellen ontstaan verschillende typen bloedcellen. Hoe heet dat proces, en waar komt het door? Wat denk je?",
+   "opts": [
+    "adaptatie, door mutatie",
+    "differentiatie, door mutatie",
+    "differentiatie, door genexpressie"
+   ],
+   "correct": 2
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h3b",
+   "lines": [
+    "Antwoord C. Differentiatie, door genexpressie. Het DNA verandert niet. Er gaan alleen andere genen aan.",
+    "In een cel die rode bloedcel wordt, gaat het gen voor hemoglobine aan. In een cel die afweercel wordt, blijft dat gen uit.",
+    "Ook celdood hoort erbij. Sommige cellen krijgen het signaal om zichzelf op te ruimen: apoptose. Zo verdwijnen de vliezen tussen je vingers vóór je geboorte.",
+    "In je lichaam gaat een gespecialiseerde cel normaal niet terug. Niet omdat ze genen kwijt is: alle genen zitten er nog, ze staan alleen op slot.",
+    "In het lab lukt het wel: zet een paar regulatorgenen aan in een huidcel, en ze wordt weer een stamcel. Daar hopen onderzoekers beschadigd weefsel mee te repareren."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h3v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Niet elke stamcel kan alles. De bevruchte eicel en de eerste cellen daarna zijn totipotent: ze kunnen alles worden, ook de placenta.",
+    "Embryonale stamcellen zijn pluripotent: alle cellen van het lichaam, maar geen placenta.",
+    "De bloedstamcellen in je beenmerg zijn multipotent: alleen nog de verschillende bloedcellen.",
+    "Hoe verder een cel is gedifferentieerd, hoe minder soorten cel ze nog kan worden. Steeds meer genen gaan op slot.",
+    "Terug naar de tweeling."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Slotjes op het DNA",
+   "sub": "Hoofdstuk 4"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4a",
+   "lines": [
+    "De twee zussen hebben hetzelfde DNA. Maar hun genexpressie is na vijftig jaar niet meer hetzelfde.",
+    "Een cel kan een gen namelijk ook voor lange tijd uitzetten. Ze hangt er een chemisch slotje aan: een methylgroep op het DNA, bij de promotor.",
+    "Zit dat slotje erop, dan kan de transcriptiefactor er niet bij. Het gen blijft uit. Ook na een celdeling, want de dochtercellen krijgen het slotje mee.",
+    "De basenvolgorde verandert niet, dus dit is geen mutatie. En het is niet voorgoed: een cel kan het slotje er weer afhalen. Het heet een epigenetische verandering: iets óp het DNA, niet ín het DNA."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4b",
+   "lines": [
+    "Veel slotjes zet de cel zelf, tijdens de differentiatie. Zo onthoudt een levercel na elke deling dat ze levercel is.",
+    "Maar je omgeving verandert er ook een deel van. Voeding, stress, roken: ze zetten slotjes op sommige genen en halen ze van andere af.",
+    "Roken geeft echte mutaties, dat zag je in aflevering vijf. Maar daarnaast verandert het welke genen aan staan, zonder dat de code verandert.",
+    "De zus die rookt, heeft in haar longcellen dus andere genen aan en uit staan dan haar tweelingzus. Zelfde DNA, andere slotjes.",
+    "Epigenetica is de wetenschap van alles wat genen aan of uit zet zonder de basenvolgorde te veranderen, en van hoe je omgeving daarop invloed heeft."
+   ]
+  },
+  {
+   "kind": "q",
+   "level": "b",
+   "scene": "h4q",
+   "source": "naar CvTE, examen biologie havo 2022, tijdvak 1",
+   "text": "Vaderratten kregen een vetrijk dieet; de moeders aten gewoon. De dochters hadden een andere genexpressie in de alvleesklier dan dochters van gewone vaders. Wat is de meest voor de hand liggende oorzaak? Wat denk je?",
+   "opts": [
+    "de omstandigheden in de baarmoeder",
+    "een mutatie in de zaadcellen van de vader",
+    "slotjes op genen in de zaadcellen van de vader"
+   ],
+   "correct": 2,
+   "think": 12
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h4c",
+   "lines": [
+    "Antwoord C. De baarmoeder valt af: de moeders aten gewoon. Een mutatie is onwaarschijnlijk: mutaties zijn toeval, dan zouden niet álle dochters hetzelfde hebben.",
+    "Het dieet van de vader zette slotjes op genen in zijn zaadcellen. En die slotjes gingen mee naar de dochters.",
+    "Dat gebeurt niet vaak. De meeste slotjes worden gewist bij de vorming van zaadcellen en eicellen, en nog eens vlak na de bevruchting. Maar sommige blijven zitten.",
+    "Bij ratten werkt wat de vader eet dus een klein beetje door in zijn jongen, zonder dat er één base verandert. Of dat bij mensen ook zo gaat, wordt nog onderzocht."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h4v",
+   "lines": [
+    "Voor vwo gaan we hier nog een stap verder.",
+    "Zo'n slotje heet methylering. Maar er is nog een manier. Het DNA zit om histonen gewikkeld, zag je in aflevering één. Zitten er acetylgroepen op die histonen, dan zit het DNA los en kan de polymerase erbij: open. Zonder die groepen zit het strak opgerold: dicht.",
+    "Een beroemd voorbeeld is de lapjeskat. Een poes heeft twee X-chromosomen. In elke cel wordt vroeg in het embryo één willekeurig uitgeschakeld, en alle nakomelingen van die cel houden datzelfde X uit.",
+    "Op het X-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Heeft een poes op het ene X oranje en op het andere zwart, dan krijg je plukjes oranje en plukjes zwart: in elk plukje staat een ander X aan.",
+    "Een kater heeft één X, dus hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes.",
+    "Terug naar de tweeling."
+   ]
+  },
+  {
+   "kind": "card",
+   "title": "Terug naar de tweeling",
+   "sub": "Samenvatting"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap",
+   "lines": [
+    "Twee zussen, één DNA. Elke cel heeft alle genen, maar gebruikt er een deel van: genexpressie.",
+    "Transcriptiefactoren zetten genen aan en uit. Zo worden uit één bevruchte eicel huid, lever en zenuw: differentiatie.",
+    "Slotjes op het DNA houden genen lang uit, en je omgeving bepaalt mee waar ze komen: epigenetica.",
+    "Het kookboek is hetzelfde. Welke pagina's open liggen, dat maakt jou."
+   ]
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "recap2",
+   "lines": [
+    "Maar hoe weten we eigenlijk wat er in iemands DNA staat? Hoe lees je het? Dat zie je in aflevering zeven."
+   ]
+  },
+  {
+   "kind": "end",
+   "dur": 4
+  }
+ ],
+ "CHAPTERS": [
+  {
+   "n": 0,
+   "title": "Opening",
+   "level": "b"
+  },
+  {
+   "n": 1,
+   "title": "Zelfde DNA, andere cel",
+   "level": "b"
+  },
+  {
+   "n": 2,
+   "title": "Hoe zet een cel een gen aan?",
+   "level": "b"
+  },
+  {
+   "n": 3,
+   "title": "Stamcellen",
+   "level": "b"
+  },
+  {
+   "n": 4,
+   "title": "Slotjes op het DNA",
+   "level": "b"
+  },
+  {
+   "n": 5,
+   "title": "Samenvatting",
+   "level": "b"
+  }
+ ],
+ "GLOSSARY": [
+  [
+   "genexpressie",
+   "Het gebruiken van een gen: het gen wordt overgeschreven naar mRNA (transcriptie) en dat wordt meestal vertaald naar een eiwit (translatie). Een gen dat tot expressie komt, staat aan.",
+   "b"
+  ],
+  [
+   "genregulatie",
+   "Het aan- of uitzetten van genen. Elke cel met een kern heeft alle genen, maar gebruikt er maar een deel van; welk deel verschilt per celtype en per moment.",
+   "b"
+  ],
+  [
+   "transcriptiefactor",
+   "Eiwit dat bij de promotor (of een ander regelgebied) van een gen bindt en bepaalt of RNA-polymerase het gen kan overschrijven. De promotor zelf is een stuk DNA.",
+   "b"
+  ],
+  [
+   "regulatorgenen en structuurgenen",
+   "Regulatorgenen coderen voor eiwitten die de genexpressie regelen (zoals transcriptiefactoren); structuurgenen coderen voor de eiwitten die het werk in de cel doen.",
+   "b"
+  ],
+  [
+   "stamcellen",
+   "Cellen die nog niet gespecialiseerd zijn en lang kunnen blijven delen; bij een deling blijft de ene dochtercel stamcel en kan de andere differentiëren. Embryonale stamcellen in het embryo, volwassen stamcellen bijvoorbeeld in het beenmerg.",
+   "b"
+  ],
+  [
+   "celdifferentiatie",
+   "Proces waarbij een stamcel zich ontwikkelt tot een specifiek celtype, doordat andere genen aan en uit gaan.",
+   "b"
+  ],
+  [
+   "apoptose",
+   "Proces waarbij een cel zichzelf laat afsterven, waardoor overbodige of beschadigde cellen verdwijnen.",
+   "b"
+  ],
+  [
+   "epigenetica",
+   "Wetenschap van alles wat genen aan of uit zet zonder de basenvolgorde te veranderen (zoals methylgroepen op het DNA), en van hoe factoren als voeding, stress en roken daar invloed op hebben.",
+   "b"
+  ],
+  [
+   "activator en repressor",
+   "Transcriptiefactoren die de binding van RNA-polymerase bevorderen (activator) of remmen (repressor); een enhancer is een DNA-stuk, soms ver van het gen, dat de transcriptie versterkt als er een activator op zit.",
+   "v"
+  ],
+  [
+   "histonmodificatie",
+   "Acetylgroepen op histonen maken het chromatine losser (gen aan); zonder zit het DNA strak opgerold (gen uit). Bij genen voor tRNA en rRNA stopt expressie bij de transcriptie.",
+   "v"
+  ],
+  [
+   "X-inactivatie",
+   "In elke cel van een vrouwelijk embryo wordt vroeg één van de twee X-chromosomen willekeurig uitgeschakeld (methylering en histonen samen; zichtbaar als Barr-lichaampje); dochtercellen houden hetzelfde X inactief (lapjeskat).",
+   "v"
+  ],
+  [
+   "potentie van stamcellen",
+   "Totipotent (bevruchte eicel: alles, ook placenta), pluripotent (embryonale stamcellen: alle lichaamscellen), multipotent (volwassen stamcellen: een beperkt aantal celtypen).",
+   "v"
+  ]
+ ],
+ "CHECKS": {
+  "b": [
+   [
+    "Een huidcel en een levercel van dezelfde persoon: wat is hetzelfde en wat verschilt?",
+    "Het DNA (alle genen) is hetzelfde; de genexpressie verschilt: in elke cel staan andere genen aan, zodat andere eiwitten worden gemaakt."
+   ],
+   [
+    "(naar CvTE havo 2026-I, vraag 11) Tijdens de metamorfose van larve tot volwassen beekprik ontstaan ogen en vinnen en verdwijnt de darm. Verandert het genotype? Verandert de genexpressie?",
+    "Genotype: nee. Genexpressie: ja; andere genen gaan aan en uit."
+   ],
+   [
+    "Leg uit hoe een hormoon dat de cel in gaat een gen kan aanzetten.",
+    "Het hormoon bindt aan een receptor in de cel; het hormoon-receptorcomplex werkt in de kern als transcriptiefactor bij het regelgebied van het gen; RNA-polymerase maakt mRNA; aan de ribosomen ontstaat het eiwit."
+   ],
+   [
+    "(naar CvTE havo 2024-I, vraag 8) Juist of onjuist: 1 uit één stamcel ontstaat na mitose één endotheelcel en één bindweefselcel; 2 een endotheelcel krijgt zijn vorm en functie door celdifferentiatie; 3 celdifferentiatie wordt bepaald door veranderingen in genexpressie.",
+    "1 onjuist: direct na de mitose zijn de dochtercellen gelijk (zelfde DNA, zelfde genexpressie); het verschil ontstaat pas daarna door differentiatie. 2 juist. 3 juist."
+   ],
+   [
+    "Waarom is een methylgroep op het DNA geen mutatie?",
+    "De basenvolgorde verandert niet; alleen de genexpressie verandert (het gen wordt niet meer afgelezen). Dat is een epigenetische verandering."
+   ]
+  ],
+  "v": [
+   [
+    "Een repressor blokkeert gen A. Gen A codeert voor een repressor van gen B. Staat gen B aan of uit?",
+    "Aan: de repressor van A zorgt dat A uit staat, dus de repressor van B wordt niet gemaakt en B komt tot expressie (twee remmingen na elkaar = activatie)."
+   ],
+   [
+    "Waarom zijn lapjeskatten bijna altijd vrouwtjes?",
+    "Het gen voor vachtkleur met de allelen oranje en zwart ligt op het X-chromosoom. Alleen een poes (XX) kan oranje op het ene X en zwart op het andere hebben; door willekeurige X-inactivatie vroeg in het embryo ontstaan plukjes cellen met oranje en plukjes met zwart. Een kater (XY) heeft één X en is dus óf oranje óf zwart; een lapjeskater heeft meestal XXY."
+   ],
+   [
+    "Een vrouw is heterozygoot voor een X-chromosomale aandoening. Verklaar waarom de ernst per vrouw verschilt.",
+    "Door willekeurige X-inactivatie verschilt per vrouw het aandeel cellen waarin het X met het gemuteerde allel actief is; hoe groter dat aandeel, hoe ernstiger."
+   ]
+  ]
+ },
+ "NUMBERS": [
+  [
+   "Genen in het menselijk genoom",
+   "ongeveer 20 000",
+   "Ensembl GRCh38 (eiwitcoderend)"
+  ],
+  [
+   "Vliezen tussen de vingers",
+   "verdwijnen door apoptose vóór de geboorte",
+   "Alberts, Molecular Biology of the Cell"
+  ],
+  [
+   "Lapjeskat",
+   "bijna altijd vrouwelijk (X-inactivatie); lapjeskater meestal XXY",
+   "standaard genetica"
+  ],
+  [
+   "Terugzetten van een huidcel naar stamcel",
+   "een paar regulatorgenen (Yamanaka-factoren, 2006)",
+   "Takahashi & Yamanaka, Cell 2006"
+  ]
+ ]
+}
