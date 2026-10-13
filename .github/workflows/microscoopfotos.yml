@@ -1,0 +1,38 @@
+name: Microscoopfoto's ophalen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - tools/virtuele-microscoop/fotos/bronnen.txt
+      - scripts/haal_microscoopfotos.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: microscoopfotos
+  cancel-in-progress: false
+
+jobs:
+  ophalen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Foto's ophalen
+        run: python3 scripts/haal_microscoopfotos.py | tee tools/virtuele-microscoop/fotos/ophaallog.txt
+      - name: Opslaan in de repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add tools/virtuele-microscoop/fotos
+          if git diff --cached --quiet; then echo "Niets nieuws."; exit 0; fi
+          git commit -m "Microscoopfoto's opgehaald uit de Berkshire-bibliotheek (CC0)"
+          git pull --rebase origin main
+          git push origin HEAD:main

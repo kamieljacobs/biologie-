@@ -1,0 +1,24 @@
+# Pagina's van de Berkshire Community College Bioscience Image Library (CC0) waarvan
+# alle foto's worden opgehaald. Na een push van dit bestand draait GitHub Actions
+# (.github/workflows/microscoopfotos.yml) en zet de foto's in fotos/berkshire/ + catalogus.json.
+# Formaat: <pagina-url> | <optioneel filter (regex op sectie + bijschrift)>
+# Een regel toevoegen = die foto's erbij; al opgehaalde foto's worden overgeslagen.
+
+# Dierlijke weefsels
+https://blogs.berkshirecc.edu/bccoer/mammalian-histology-epithelial-tissues/
+https://blogs.berkshirecc.edu/bccoer/mammalian-histology-connective-tissues/
+https://blogs.berkshirecc.edu/bccoer/mammalian-histology-muscle-tissue/
+https://blogs.berkshirecc.edu/bccoer/mammalian-histology-nervous-tissue/
+
+# Plantenweefsels en -organen
+https://blogs.berkshirecc.edu/bccoer/plant-morphology-gymnosperms/ | Leaves|One Year|Vascular Cylinder
+https://blogs.berkshirecc.edu/bccoer/angiosperm-leaves/
+https://blogs.berkshirecc.edu/bccoer/plant-morphology-angiosperm-stems/
+https://blogs.berkshirecc.edu/bccoer/plant-morphology-angiosperms/
+https://blogs.berkshirecc.edu/bccoer/dermal-tissues/
+https://blogs.berkshirecc.edu/bccoer/vascular-tissues/
+https://blogs.berkshirecc.edu/bccoer/fundamental-or-grounds-tissues/
+https://blogs.berkshirecc.edu/bccoer/meristematic-tissues/
+
+# Eencelligen
+https://blogs.berkshirecc.edu/bccoer/protists/

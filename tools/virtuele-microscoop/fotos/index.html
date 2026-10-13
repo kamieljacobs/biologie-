@@ -34,13 +34,15 @@ ul{margin:8px 0;padding-left:18px} li{margin:2px 0}
 <main>
 <h1>Microscoopfoto's</h1>
 <p class="intro">Elke echte foto met zijn beschrijving, de onderdelen die je erop kunt zien en de bron. Deze lijst komt uit <code>catalogus.json</code>.</p>
+<input id="zoek" type="search" placeholder="Zoek op naam, sectie of vergroting…" style="width:100%;max-width:420px;padding:8px 10px;margin:0 0 16px;border:1px solid var(--lijn);border-radius:8px;background:var(--kaart);color:var(--tekst);font:inherit">
 <div class="raster" id="raster">Laden…</div>
 </main>
 <script>
-const STATUS={'compleet':['compleet','compleet'],'link-ontbreekt':['link ontbreekt','let'],'foto-ontbreekt':['foto ontbreekt','let'],'gepland':['gepland','let']};
+const STATUS={'compleet':['compleet','compleet'],'link-ontbreekt':['link ontbreekt','let'],'foto-ontbreekt':['foto ontbreekt','let'],'gepland':['gepland','let'],'nieuw':['nieuw, nog beschrijven','let']};
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-fetch('catalogus.json').then(r=>r.json()).then(d=>{
-  document.getElementById('raster').innerHTML=d.fotos.map(f=>{
+let ALLE=[];
+function toon(){ const q=(document.getElementById('zoek').value||'').toLowerCase();
+  document.getElementById('raster').innerHTML=ALLE.filter(f=>!q||JSON.stringify([f.titel,f.origineleTitel,f.sectie,f.vergroting]).toLowerCase().includes(q)).map(f=>{
     const [st,cl]=STATUS[f.status]||[f.status,'let'];
     const beeld=f.bestand?`<img src="${esc(f.bestand)}" alt="${esc(f.titel)}" loading="lazy">`:'nog geen foto';
     const verg=f.vergroting?`${f.vergroting}×`:'vergroting onbekend';
@@ -48,12 +50,13 @@ fetch('catalogus.json').then(r=>r.json()).then(d=>{
     const link=f.bron.link?` · <a href="${esc(f.bron.link)}" target="_blank" rel="noopener">Flickr</a>`:'';
     return `<article class="kaart"><div class="beeld">${beeld}</div><div class="inhoud">
       <h2>${esc(f.titel)}<span class="status ${cl}">${st}</span></h2>
-      <p class="meta">${esc(f.organisme)} · ${esc(f.doorsnede)} · ${verg}</p>
-      <p>${esc(f.beschrijving)}</p>${str}
+      <p class="meta">${[f.sectie,f.organisme,f.doorsnede,verg,f.breedte?f.breedte+'×'+f.hoogte+' px':null].filter(Boolean).map(esc).join(' · ')}</p>
+      ${f.beschrijving?`<p>${esc(f.beschrijving)}</p>`:''}${str}
       <p class="bron">${esc(f.bron.bronregel)}${link}</p>
       ${f.opmerking?`<p class="opm">${esc(f.opmerking)}</p>`:''}
-    </div></article>`;}).join('');
-}).catch(()=>{document.getElementById('raster').textContent='De catalogus kon niet geladen worden.';});
+    </div></article>`;}).join(''); }
+document.getElementById('zoek').addEventListener('input',toon);
+fetch('catalogus.json').then(r=>r.json()).then(d=>{ ALLE=d.fotos; toon(); }).catch(()=>{document.getElementById('raster').textContent='De catalogus kon niet geladen worden.';});
 </script>
 </body>
 </html>
