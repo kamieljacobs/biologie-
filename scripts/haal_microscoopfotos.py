@@ -6,6 +6,8 @@ https://blogs.berkshirecc.edu/bccoer/, eventueel gevolgd door ' | <filter>' (reg
 sectie + bijschrift). Van elke foto op die pagina haalt het script het Flickr-origineel,
 verkleint het tot maximaal MAX_BREEDTE px breed, slaat het op in fotos/berkshire/ en
 voegt het toe aan fotos/catalogus.json met naam, sectie, vergroting, resolutie en bron.
+De licentie wordt per foto van de Flickr-pagina gelezen; alleen CC0/PD, CC BY en CC BY-SA
+worden opgehaald, de rest wordt overgeslagen en in het log gemeld.
 Foto's die al in de catalogus staan (zelfde Flickr-link) worden overgeslagen.
 
 Draait in GitHub Actions (.github/workflows/microscoopfotos.yml), omdat Claude's eigen
@@ -88,6 +90,35 @@ def origineel(fid):
     return None, None
 
 
+# Toegestaan: CC0 / publiek domein, CC BY, CC BY-SA. Alles anders wordt overgeslagen.
+LICENTIES = [
+    (r"creativecommons\.org/publicdomain/zero", "CC0 (publiek domein)"),
+    (r"creativecommons\.org/publicdomain/mark", "Public Domain Mark"),
+    (r"creativecommons\.org/licenses/by-sa/", "CC BY-SA"),
+    (r"creativecommons\.org/licenses/by/", "CC BY"),
+    (r"creativecommons\.org/licenses/by-nc", "CC BY-NC (niet toegestaan)"),
+    (r"creativecommons\.org/licenses/by-nd", "CC BY-ND (niet toegestaan)"),
+]
+TOEGESTAAN = {"CC0 (publiek domein)", "Public Domain Mark", "CC BY-SA", "CC BY"}
+
+
+def licentie(fid):
+    """Leest de licentie van de Flickr-fotopagina zelf (niet van de collectiebeschrijving)."""
+    p = get(f"https://www.flickr.com/photos/{USER}/{fid}/")
+    if not p:
+        return "onbekend (pagina niet geladen)"
+    for patroon, naam in LICENTIES:
+        if re.search(patroon, p):
+            return naam
+    m = re.search(r'"license"\s*:\s*"?(\d+)', p)  # Flickr-licentiecodes: 9 = CC0, 4 = BY, 5 = BY-SA, 7 = no known restrictions
+    codes = {"9": "CC0 (publiek domein)", "4": "CC BY", "5": "CC BY-SA", "7": "Public Domain Mark"}
+    if m and m.group(1) in codes:
+        return codes[m.group(1)]
+    if re.search(r"All rights reserved", p, re.I):
+        return "Alle rechten voorbehouden (niet toegestaan)"
+    return "onbekend"
+
+
 def main():
     DOEL.mkdir(parents=True, exist_ok=True)
     cat = json.loads(CATALOGUS.read_text("utf-8"))
@@ -110,6 +141,16 @@ def main():
             link = f"https://www.flickr.com/photos/{USER}/{fid}/"
             bestaand = per_id.get(fid)
             if bestaand and bestaand.get("bestand"):
+                if not bestaand["bron"].get("licentieGecontroleerd"):  # eerder opgehaald zonder controle
+                    lic = licentie(fid)
+                    bestaand["bron"]["licentie"] = lic
+                    bestaand["bron"]["licentieGecontroleerd"] = time.strftime("%Y-%m-%d")
+                    print(f"  = {bestaand['id']}: licentie {lic}" + ("" if lic in TOEGESTAAN else "  !! NIET TOEGESTAAN, verwijderen"))
+                    time.sleep(1)
+                continue
+            lic = licentie(fid)
+            if lic not in TOEGESTAAN:
+                print(f"  - OVERGESLAGEN {fid} ({bijschrift}): licentie {lic}")
                 continue
             bron_url, ftitel = origineel(fid)
             if not bron_url:
@@ -135,6 +176,8 @@ def main():
             titel = ftitel or bijschrift
             if bestaand:  # al beschreven item zonder foto: foto erbij zetten
                 (MAP / bestand).rename(MAP / f"berkshire/{bestaand['id']}.jpg")
+                bestaand["bron"]["licentie"] = lic
+                bestaand["bron"]["licentieGecontroleerd"] = time.strftime("%Y-%m-%d")
                 bestaand.update({"bestand": f"berkshire/{bestaand['id']}.jpg", "breedte": img.width, "hoogte": img.height,
                                  "origineleBreedte": ob, "origineleHoogte": oh,
                                  "status": "compleet" if bestaand.get("beschrijving") else "nieuw"})
@@ -161,10 +204,11 @@ def main():
                 "structuren": [],
                 "bron": {
                     "collectie": "Berkshire Community College Bioscience Image Library",
-                    "licentie": "CC0 (publiek domein)",
+                    "licentie": lic,
+                    "licentieGecontroleerd": time.strftime("%Y-%m-%d"),
                     "link": link,
                     "pagina": url,
-                    "bronregel": f"Foto: {titel}{', ' + str(vergroting) + '×' if vergroting and str(vergroting) + 'x' not in titel else ''}, Berkshire Community College Bioscience Image Library, publiek domein (CC0)",
+                    "bronregel": f"Foto: {titel}{', ' + str(vergroting) + '×' if vergroting and str(vergroting) + 'x' not in titel else ''}, Berkshire Community College Bioscience Image Library, {lic.replace(' (publiek domein)', '') if lic.startswith('CC0') else lic}{', publiek domein' if lic.startswith('CC0') else ''}",
                 },
                 "gebruik": [],
             })
@@ -175,7 +219,7 @@ def main():
                 CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
             time.sleep(1)
     CATALOGUS.write_text(json.dumps(cat, ensure_ascii=False, indent=2) + "\n", "utf-8")
-    print(f"Klaar: {nieuw} nieuwe foto's.")
+    print(f"Klaar: {nieuw} nieuwe foto's. Licentie per foto gecontroleerd op de Flickr-pagina; afwijkers staan hierboven als OVERGESLAGEN.")
 
 
 if __name__ == "__main__":
