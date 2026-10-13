@@ -31,7 +31,7 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 
 | Reeks | Audio | Tijdlijn in de HTML | Gevolg bij een tekstwijziging |
 |---|---|---|---|
-| Celorganellen, Diffusie en osmose, Celdeling, Alles is cel, Van cel tot lichaam en Een rondleiding door je lichaam (onderbouw 32A) | losse mp3 per alinea (`audio/`) | `window.FILMDATA`, woordtijden | alleen die alinea opnieuw |
+| Celorganellen, Diffusie en osmose, Celdeling, Alles is cel, Van cel tot lichaam, Een rondleiding door je lichaam en Vertering (onderbouw 32A) | losse mp3 per alinea (`audio/`) | `window.FILMDATA`, woordtijden | alleen die alinea opnieuw |
 | Onderzoek doen | losse mp3 per hoofdstuk (`audio/`) | zinstijden per hoofdstuk | dat hoofdstuk opnieuw |
 | Plek genoeg?, Alles gaat rond | één doorlopende take (`narration.mp3`) | `window.TIMELINE`, globale tijden | alle latere tijden schuiven |
 | Erfelijkheid 1–6 | één take per film, base64 | `window.__TIMELINE__`, woordtijden | alle latere tijden schuiven |

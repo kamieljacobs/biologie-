@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vertering · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.basis .term.vwo,body.basis #transcript p.vwo,body.basis .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  <nav class="sitenav nav"><a href="../../../../index.html#home">Biologie bij Kamiel</a><a href="../../../../index.html#kerndoelen" id="back" class="terug">← Terug naar Kerndoelen onderbouw</a></nav><script>document.getElementById("back").addEventListener("click",function(e){ try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ e.preventDefault(); history.back(); } }catch(_){} });</script>
+  <div class="meta">Biologie bij Kamiel · Kerndoelen onderbouw · film 3 · kerndoel 32A</div>
+  <h1>Vertering</h1>
+  <p>De reis van een hap appel, van mond tot wc. Waarom verdwijnt de appel en komt de pit heel terug?</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Alles is cel"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="basis">Basis</button><button data-v="havovwo">Havo/vwo</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">antwoorden ingeklapt</p>
+    <div class="q"><b>1. Opnemen</b> <span class="pts">1 punt</span><p>Waar gaan de voedingsstoffen je bloed in? A. in de maag · B. in de dunne darm · C. in de dikke darm.</p>
+      <details><summary>Antwoord</summary><p>B (1): door de darmwand van de dunne darm, via de darmvlokken.</p></details></div>
+    <div class="q"><b>2. Drie stappen</b> <span class="pts">3 punten</span><p>Noem de drie stappen van de vertering en geef bij elke stap één orgaan dat die stap doet.</p>
+      <details><summary>Antwoord</summary><p>Klein maken: mond (tanden) of maag (kneden) (1). Afbreken met verteringssappen: maag, alvleesklier, dunne darm (1). Opnemen in het bloed: dunne darm (1).</p></details></div>
+    <div class="q"><b>3. Samenwerking</b> <span class="pts">2 punten</span><p>Leg met twee organen uit waarom het spijsverteringsstelsel een estafette is.</p>
+      <details><summary>Antwoord</summary><p>Elk orgaan doet een stuk en geeft het eten door, bijv. de maag maakt een papje en de alvleesklier levert het sap dat het meeste afbreekt (1); valt één orgaan uit, dan lukt de volgende stap niet meer en komen de voedingsstoffen niet in het bloed (1).</p></details></div>
+    <div class="q"><b>4. De pit</b> <span class="pts">2 punten</span><p>Een klasgenoot zegt: "De pit komt heel terug, dus hij is gewoon te klein om te verteren." Wat klopt er niet?</p>
+      <details><summary>Antwoord</summary><p>Klein zijn is juist nodig om opgenomen te worden; de pit heeft een harde schil waar geen sap doorheen komt (1), blijft dus groot en past niet door de darmwand; hij reist mee naar de ontlasting (1).</p></details></div>
+    <div class="q vwo-only"><b>5. Enzymen</b> <span class="vwo-badge">havo/vwo</span> <span class="pts">2 punten</span><p>Je kauwt een minuut op brood en het gaat zoet smaken. Leg uit wat er gebeurt en waarom dit een chemische verandering is.</p>
+      <details><summary>Antwoord</summary><p>Een enzym in je speeksel knipt zetmeel in kleine suikers (1); er ontstaat een andere stof (zoet in plaats van zetmeel), dus het is een chemische verandering; kauwen alleen maakt het brood kleiner maar niet anders (1).</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Doelgroep en niveaus</h3>
+    <p>Onderbouw leerjaar 1–3, gemengde klassen vmbo-t, havo en vwo. Kerndoel 32A, bullet 3: verklaren hoe samenwerking van organen leidt tot een functionerend orgaanstelsel, hier het spijsverteringsstelsel. De basislijn is op vmbo-t-niveau; het blok over enzymen en chemische verandering (eind hoofdstuk 3) is extra voor havo en vwo en valt in de stand <b>Basis</b> weg. Vooraf: film 2 (orgaan, orgaanstelsel) en 2b (de organen bij naam).</p>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Deel</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>Keuken</td><td>Appel gegeten, pit doorgeslikt; een dag later ligt de pit heel op de wc. Vraag: waarom de appel wel en de pit niet?</td></tr>
+      <tr><td>1 Klein maken</td><td>Routekaart → Micro</td><td>De buis van mond tot anus met de sap-organen; een cel kan niets met een stukje appel, voedingsstoffen (suikers, eiwitten, vetten) zitten vast; verteren = klein maken en afbreken; mond (tanden, speeksel), slokdarm. Vraag: op je kop slikken?</td></tr>
+      <tr><td>2 Afbreken en opnemen</td><td>Schema → Micro</td><td>Spieren in de slokdarmwand knijpen achter de hap; maag kneedt, zuur maagsap, 2–4 uur; dunne darm (6 m) met sap van alvleesklier, gal (druppels) en darmwand; enzymen; vraag: hoe komen de voedingsstoffen bij je cellen? Darmwand met darmvlokken en bloedvaten (± 30 m²); de pit: geen sap komt erdoor, te groot voor de darmwand</td></tr>
+      <tr><td>3 Wat overblijft, en samen</td><td>Routekaart, estafette</td><td>Dikke darm: water terug, bacteriën (vezels, vitamines), ontlasting = wat nooit in je bloed kwam, 1–2 dagen; de organen als estafette; vraag: de alvleesklier stopt; zonder dat sap blijven de voedingsstoffen vastzitten</td></tr>
+      <tr><td>3 havo/vwo</td><td>Micro</td><td>Enzymen als schaartjes: speeksel/zetmeel, maagsap/eiwit, alvleesklier/alles; gal heeft geen enzym; afbreken is een chemische verandering, kauwen niet</td></tr>
+      <tr><td>Samenvatting</td><td>Routekaart</td><td>De haltes met hun taak, drie stappen, estafette, de pit</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Eten valt door de zwaartekracht naar je maag (vraag H1).</li><li>De maag doet de hele vertering (H2: de dunne darm is de belangrijkste halte).</li><li>Voedingsstoffen gaan vanuit de maag je lichaam in (vraag H2).</li><li>Alles wat je eet wordt gebruikt (cold open, H3: de pit, vezels, ontlasting).</li><li>Darmbacteriën zijn vies (H3).</li><li>Elk orgaan werkt op zichzelf (vraag H3: alvleesklier stopt).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Vier voorspelvragen met 8 s denktijd; in Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de estafette en laat leerlingen zelf een ander orgaan "uitzetten" (geen gal? geen maag?) en voorspellen wat er gebeurt; doe de broodproef uit de eindkaart in de les.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Tijd in de maag</td><td>2 tot 4 uur</td><td>leerboekwaarde</td></tr>
+      <tr><td>Lengte dunne darm</td><td>"ongeveer zes meter" (ontspannen, volwassene; in het lichaam door spierspanning korter, 3–5 m)</td><td>leerboekwaarde</td></tr>
+      <tr><td>Lengte dikke darm</td><td>ongeveer 1,5 m</td><td>leerboekwaarde</td></tr>
+      <tr><td>Binnenoppervlak dunne darm</td><td>ongeveer 30 m² (± 32 m²; oudere boeken noemen 200–300 m²)</td><td>Helander & Fändriks, Scand J Gastroenterol 2014</td></tr>
+      <tr><td>Hele reis</td><td>1 tot 2 dagen</td><td>leerboekwaarde (24–72 uur)</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>Vet wordt na opname grotendeels via de lymfe vervoerd; de film zegt "het bloed in" voor alle voedingsstoffen.</li><li>Darmsap, galblaas, twaalfvingerige darm, endeldarm en peristaltiek worden niet bij naam genoemd ("de darmwand maakt zelf ook sap", "spieren in de wand knijpen").</li><li>Het maagsap "begint met eiwitten"; dat de maag ook vet en zetmeel nauwelijks aanpakt blijft impliciet.</li><li>"Zonder alvleesklier krijgt je lichaam bijna niets" is de didactische uitvalproef; in werkelijkheid wordt dit met medicijnen (enzympreparaten) opgevangen.</li><li>Bacteriën: "enorm veel"; het getal (orde 10¹³) valt niet.</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Deel</th><th>Vraag</th></tr>
+      <tr><td>Waarom verteren: voedingsstoffen los en klein genoeg voor de darmwand</td><td>basis</td><td>H1, H2</td><td>voorspel 1 en 3, check 1 en 4</td></tr>
+      <tr><td>Taak per orgaan van het spijsverteringsstelsel</td><td>basis</td><td>H1–H3, samenvatting</td><td>check 2</td></tr>
+      <tr><td>Drie stappen: klein maken, afbreken, opnemen</td><td>basis</td><td>H1, samenvatting</td><td>check 2</td></tr>
+      <tr><td>Samenwerking: estafette, uitval van één orgaan</td><td>basis</td><td>H3</td><td>voorspel 4, check 3</td></tr>
+      <tr><td>Enzymen knippen één soort stof; chemische verandering</td><td>havo/vwo</td><td>H3-blok</td><td>check 5</td></tr>
+    </table>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 13 oktober 2026.</footer>
+<script>window.FILMDATA={"segments": [{"id": "s01", "kind": "speech", "level": "basis", "chapter": "Cold open", "words": [{"t": "Je", "s": 0.0, "e": 0.16}, {"t": "eet", "s": 0.24, "e": 0.4}, {"t": "een", "s": 0.48, "e": 0.56}, {"t": "appel.", "s": 0.64, "e": 1.04}, {"t": "Hap,", "s": 1.44, "e": 2.08}, {"t": "kauw,", "s": 2.12, "e": 2.8}, {"t": "slik.", "s": 2.84, "e": 3.28}, {"t": "Per", "s": 3.68, "e": 3.84}, {"t": "ongeluk", "s": 3.92, "e": 4.4}, {"t": "slik", "s": 4.44, "e": 4.64}, {"t": "je", "s": 4.68, "e": 4.72}, {"t": "een", "s": 4.8, "e": 4.96}, {"t": "pit", "s": 5.04, "e": 5.12}, {"t": "door.", "s": 5.2, "e": 5.72}, {"t": "Een", "s": 5.92, "e": 6.0}, {"t": "dag", "s": 6.12, "e": 6.24}, {"t": "later", "s": 6.48, "e": 6.72}, {"t": "is", "s": 6.8, "e": 6.88}, {"t": "de", "s": 6.92, "e": 6.96}, {"t": "appel", "s": 7.04, "e": 7.28}, {"t": "weg.", "s": 7.48, "e": 7.84}, {"t": "Maar", "s": 8.0, "e": 8.24}, {"t": "op", "s": 8.32, "e": 8.4}, {"t": "de", "s": 8.48, "e": 8.56}, {"t": "wc", "s": 8.64, "e": 9.2}, {"t": "ligt", "s": 9.32, "e": 9.44}, {"t": "de", "s": 9.52, "e": 9.6}, {"t": "pit.", "s": 9.76, "e": 10.2}, {"t": "Heel.", "s": 10.48, "e": 11.12}, {"t": "Waarom", "s": 11.36, "e": 11.68}, {"t": "de", "s": 11.76, "e": 11.84}, {"t": "appel", "s": 11.92, "e": 12.16}, {"t": "wel", "s": 12.36, "e": 12.56}, {"t": "en", "s": 12.64, "e": 12.72}, {"t": "de", "s": 12.76, "e": 12.8}, {"t": "pit", "s": 12.96, "e": 13.12}, {"t": "niet?", "s": 13.2, "e": 13.92}, {"t": "Wat", "s": 14.0, "e": 14.08}, {"t": "denk", "s": 14.16, "e": 14.32}, {"t": "je?", "s": 14.4, "e": 14.8}], "audio": "audio/s01.mp3", "dur": 15.25}, {"id": "q02", "kind": "question", "level": "basis", "chapter": "Cold open", "q": "Waarom verdwijnt de appel wel en de pit niet?", "options": ["de pit is te klein om te verteren", "de appel wordt in je maag verbrand, de pit niet", "de appel is klein gemaakt en opgenomen in je bloed, de pit niet"], "correct": 2, "explain": "De appel is klein gemaakt, afgebroken en door de darmwand in je bloed opgenomen. De pit niet: te hard en te groot."}, {"id": "s03", "kind": "speech", "level": "basis", "chapter": "Titel", "words": [{"t": "Vertering.", "s": 0.0, "e": 0.8}, {"t": "De", "s": 1.2, "e": 1.28}, {"t": "reis", "s": 1.36, "e": 1.68}, {"t": "van", "s": 1.76, "e": 1.84}, {"t": "een", "s": 1.92, "e": 2.0}, {"t": "hap", "s": 2.12, "e": 2.24}, {"t": "appel,", "s": 2.32, "e": 2.96}, {"t": "van", "s": 3.04, "e": 3.12}, {"t": "mond", "s": 3.2, "e": 3.52}, {"t": "tot", "s": 3.68, "e": 3.84}, {"t": "wc.", "s": 3.92, "e": 4.72}], "audio": "audio/s03.mp3", "dur": 5.17}, {"id": "s04", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Klein maken", "words": [{"t": "Dit", "s": 0.0, "e": 0.16}, {"t": "is", "s": 0.24, "e": 0.36}, {"t": "de", "s": 0.4, "e": 0.52}, {"t": "reis.", "s": 0.56, "e": 1.04}, {"t": "Eén", "s": 1.44, "e": 1.68}, {"t": "lange", "s": 1.84, "e": 2.08}, {"t": "buis,", "s": 2.16, "e": 2.72}, {"t": "van", "s": 2.8, "e": 2.88}, {"t": "je", "s": 2.96, "e": 3.04}, {"t": "mond", "s": 3.2, "e": 3.36}, {"t": "tot", "s": 3.52, "e": 3.68}, {"t": "je", "s": 3.72, "e": 3.76}, {"t": "anus.", "s": 3.84, "e": 4.48}, {"t": "Met", "s": 4.64, "e": 4.72}, {"t": "organen", "s": 4.8, "e": 5.28}, {"t": "eromheen", "s": 5.36, "e": 5.76}, {"t": "die", "s": 5.84, "e": 5.92}, {"t": "sap", "s": 6.08, "e": 6.32}, {"t": "in", "s": 6.36, "e": 6.4}, {"t": "de", "s": 6.48, "e": 6.56}, {"t": "buis", "s": 6.6, "e": 6.8}, {"t": "spuiten.", "s": 6.88, "e": 7.36}, {"t": "Samen:", "s": 7.76, "e": 8.64}, {"t": "je", "s": 8.72, "e": 8.8}, {"t": "spijsverteringsstelsel.", "s": 8.88, "e": 10.68}, {"t": "Waarom", "s": 10.96, "e": 11.36}, {"t": "die", "s": 11.44, "e": 11.52}, {"t": "hele", "s": 11.6, "e": 11.76}, {"t": "reis?", "s": 11.84, "e": 12.4}, {"t": "Je", "s": 12.8, "e": 12.96}, {"t": "cellen", "s": 13.04, "e": 13.36}, {"t": "kunnen", "s": 13.44, "e": 13.68}, {"t": "niets", "s": 13.76, "e": 14.0}, {"t": "met", "s": 14.08, "e": 14.16}, {"t": "een", "s": 14.2, "e": 14.24}, {"t": "stukje", "s": 14.28, "e": 14.56}, {"t": "appel.", "s": 14.64, "e": 15.04}, {"t": "Ze", "s": 15.36, "e": 15.44}, {"t": "hebben", "s": 15.52, "e": 15.76}, {"t": "voedingsstoffen", "s": 15.8, "e": 16.48}, {"t": "nodig:", "s": 16.6, "e": 17.2}, {"t": "suikers,", "s": 17.28, "e": 18.0}, {"t": "eiwitten", "s": 18.08, "e": 18.56}, {"t": "en", "s": 18.72, "e": 18.8}, {"t": "vetten.", "s": 18.88, "e": 19.28}, {"t": "Als", "s": 19.52, "e": 19.68}, {"t": "piepkleine", "s": 19.84, "e": 20.4}, {"t": "deeltjes.", "s": 20.48, "e": 21.24}, {"t": "Die", "s": 21.44, "e": 21.52}, {"t": "zitten", "s": 21.6, "e": 21.84}, {"t": "in", "s": 21.92, "e": 21.96}, {"t": "de", "s": 22.0, "e": 22.08}, {"t": "appel", "s": 22.16, "e": 22.32}, {"t": "vast.", "s": 22.4, "e": 22.88}, {"t": "Verteren", "s": 23.36, "e": 24.08}, {"t": "is:", "s": 24.2, "e": 24.48}, {"t": "eten", "s": 24.64, "e": 24.88}, {"t": "klein", "s": 24.96, "e": 25.28}, {"t": "maken", "s": 25.32, "e": 25.68}, {"t": "en", "s": 25.76, "e": 25.84}, {"t": "afbreken,", "s": 25.92, "e": 26.64}, {"t": "tot", "s": 26.72, "e": 26.8}, {"t": "de", "s": 26.84, "e": 26.88}, {"t": "voedingsstoffen", "s": 26.96, "e": 27.52}, {"t": "los", "s": 27.64, "e": 27.76}, {"t": "zijn.", "s": 27.8, "e": 28.32}, {"t": "Water", "s": 28.56, "e": 28.88}, {"t": "en", "s": 28.96, "e": 29.04}, {"t": "vitamines", "s": 29.12, "e": 29.68}, {"t": "hoeven", "s": 29.76, "e": 29.92}, {"t": "dat", "s": 30.0, "e": 30.08}, {"t": "niet.", "s": 30.16, "e": 30.56}, {"t": "Die", "s": 30.72, "e": 30.8}, {"t": "zijn", "s": 30.84, "e": 30.96}, {"t": "al", "s": 31.04, "e": 31.12}, {"t": "klein", "s": 31.2, "e": 31.36}, {"t": "genoeg.", "s": 31.44, "e": 32.16}], "audio": "audio/s04.mp3", "dur": 32.61}, {"id": "s05", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Klein maken", "words": [{"t": "Het", "s": 0.0, "e": 0.16}, {"t": "begint", "s": 0.28, "e": 0.64}, {"t": "in", "s": 0.72, "e": 0.8}, {"t": "je", "s": 0.88, "e": 0.96}, {"t": "mond.", "s": 1.16, "e": 1.56}, {"t": "Je", "s": 1.76, "e": 1.92}, {"t": "tanden", "s": 1.96, "e": 2.32}, {"t": "snijden", "s": 2.4, "e": 2.88}, {"t": "en", "s": 2.96, "e": 3.04}, {"t": "malen.", "s": 3.2, "e": 4.0}, {"t": "Speeksel", "s": 4.12, "e": 4.64}, {"t": "maakt", "s": 4.68, "e": 4.88}, {"t": "het", "s": 4.96, "e": 5.04}, {"t": "nat", "s": 5.12, "e": 5.36}, {"t": "en", "s": 5.44, "e": 5.52}, {"t": "glad.", "s": 5.6, "e": 6.4}, {"t": "Zo", "s": 6.48, "e": 6.64}, {"t": "kunnen", "s": 6.8, "e": 6.96}, {"t": "de", "s": 7.04, "e": 7.12}, {"t": "sappen", "s": 7.16, "e": 7.44}, {"t": "er", "s": 7.52, "e": 7.6}, {"t": "straks", "s": 7.68, "e": 8.0}, {"t": "overal", "s": 8.16, "e": 8.48}, {"t": "bij.", "s": 8.64, "e": 9.04}, {"t": "Je", "s": 9.28, "e": 9.44}, {"t": "slikt.", "s": 9.48, "e": 10.08}, {"t": "De", "s": 10.24, "e": 10.32}, {"t": "hap", "s": 10.4, "e": 10.64}, {"t": "gaat", "s": 10.72, "e": 10.88}, {"t": "je", "s": 10.96, "e": 11.04}, {"t": "slokdarm", "s": 11.08, "e": 11.52}, {"t": "in.", "s": 11.6, "e": 11.84}, {"t": "Stel:", "s": 12.32, "e": 13.04}, {"t": "je", "s": 13.12, "e": 13.2}, {"t": "hangt", "s": 13.28, "e": 13.44}, {"t": "op", "s": 13.48, "e": 13.52}, {"t": "je", "s": 13.6, "e": 13.76}, {"t": "kop", "s": 13.92, "e": 14.08}, {"t": "en", "s": 14.24, "e": 14.4}, {"t": "slikt.", "s": 14.44, "e": 15.08}, {"t": "Komt", "s": 15.28, "e": 15.44}, {"t": "het", "s": 15.52, "e": 15.6}, {"t": "eten", "s": 15.72, "e": 15.84}, {"t": "dan", "s": 15.92, "e": 16.0}, {"t": "in", "s": 16.04, "e": 16.08}, {"t": "je", "s": 16.16, "e": 16.24}, {"t": "maag?", "s": 16.32, "e": 17.04}, {"t": "Wat", "s": 17.12, "e": 17.2}, {"t": "denk", "s": 17.28, "e": 17.44}, {"t": "je?", "s": 17.52, "e": 17.92}], "audio": "audio/s05.mp3", "dur": 18.37}, {"id": "q06", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 1 — Klein maken", "q": "Je hangt op je kop en slikt. Komt het eten in je maag?", "options": ["ja, spieren in de slokdarm duwen het naar je maag", "nee, eten valt naar beneden, dus het blijft hangen", "alleen als je water drinkt"], "correct": 0, "explain": "Spieren in de wand van je slokdarm duwen het eten naar je maag, ook tegen de zwaartekracht in."}, {"id": "s07", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Afbreken en opnemen", "words": [{"t": "Ja.", "s": 0.0, "e": 0.32}, {"t": "Spieren", "s": 0.52, "e": 1.2}, {"t": "in", "s": 1.24, "e": 1.28}, {"t": "de", "s": 1.36, "e": 1.44}, {"t": "wand", "s": 1.52, "e": 1.76}, {"t": "van", "s": 1.8, "e": 1.84}, {"t": "je", "s": 1.92, "e": 2.0}, {"t": "slokdarm", "s": 2.08, "e": 2.64}, {"t": "knijpen", "s": 2.72, "e": 3.28}, {"t": "achter", "s": 3.36, "e": 3.6}, {"t": "de", "s": 3.64, "e": 3.68}, {"t": "hap.", "s": 3.76, "e": 4.28}, {"t": "Ze", "s": 4.48, "e": 4.56}, {"t": "duwen", "s": 4.64, "e": 4.88}, {"t": "hem", "s": 4.96, "e": 5.04}, {"t": "voort,", "s": 5.12, "e": 5.76}, {"t": "ook", "s": 5.84, "e": 6.0}, {"t": "op", "s": 6.04, "e": 6.08}, {"t": "je", "s": 6.16, "e": 6.24}, {"t": "kop.", "s": 6.32, "e": 6.64}, {"t": "Je", "s": 7.04, "e": 7.2}, {"t": "maag.", "s": 7.28, "e": 7.76}, {"t": "Een", "s": 8.0, "e": 8.08}, {"t": "gespierde", "s": 8.24, "e": 8.8}, {"t": "zak.", "s": 8.88, "e": 9.28}, {"t": "Hij", "s": 9.6, "e": 9.76}, {"t": "kneedt", "s": 9.8, "e": 10.12}, {"t": "de", "s": 10.16, "e": 10.24}, {"t": "hap", "s": 10.4, "e": 10.56}, {"t": "en", "s": 10.64, "e": 10.8}, {"t": "mengt", "s": 10.84, "e": 11.12}, {"t": "hem", "s": 11.16, "e": 11.2}, {"t": "met", "s": 11.28, "e": 11.36}, {"t": "maagsap.", "s": 11.44, "e": 12.28}, {"t": "Dat", "s": 12.48, "e": 12.64}, {"t": "sap", "s": 12.8, "e": 12.96}, {"t": "is", "s": 13.04, "e": 13.2}, {"t": "zuur.", "s": 13.28, "e": 13.68}, {"t": "Het", "s": 13.92, "e": 14.08}, {"t": "doodt", "s": 14.12, "e": 14.347}, {"t": "bacteriën", "s": 14.373, "e": 15.12}, {"t": "en", "s": 15.16, "e": 15.2}, {"t": "begint", "s": 15.28, "e": 15.6}, {"t": "met", "s": 15.68, "e": 15.76}, {"t": "het", "s": 15.84, "e": 15.92}, {"t": "afbreken", "s": 16.0, "e": 16.48}, {"t": "van", "s": 16.56, "e": 16.72}, {"t": "eiwitten.", "s": 16.8, "e": 17.6}, {"t": "Twee", "s": 17.64, "e": 17.84}, {"t": "tot", "s": 18.0, "e": 18.08}, {"t": "vier", "s": 18.32, "e": 18.48}, {"t": "uur", "s": 18.64, "e": 18.8}, {"t": "blijft", "s": 18.88, "e": 19.2}, {"t": "de", "s": 19.24, "e": 19.28}, {"t": "hap", "s": 19.36, "e": 19.52}, {"t": "in", "s": 19.6, "e": 19.64}, {"t": "je", "s": 19.68, "e": 19.76}, {"t": "maag.", "s": 19.84, "e": 20.4}, {"t": "Beetje", "s": 20.64, "e": 20.96}, {"t": "bij", "s": 21.04, "e": 21.12}, {"t": "beetje", "s": 21.2, "e": 21.6}, {"t": "gaat", "s": 21.68, "e": 21.84}, {"t": "het", "s": 21.92, "e": 22.0}, {"t": "papje", "s": 22.04, "e": 22.4}, {"t": "naar", "s": 22.44, "e": 22.56}, {"t": "de", "s": 22.64, "e": 22.72}, {"t": "dunne", "s": 22.773, "e": 22.96}, {"t": "darm.", "s": 23.0, "e": 23.6}], "audio": "audio/s07.mp3", "dur": 24.05}, {"id": "s08", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Afbreken en opnemen", "words": [{"t": "De", "s": 0.0, "e": 0.16}, {"t": "dunne", "s": 0.2, "e": 0.4}, {"t": "darm", "s": 0.48, "e": 0.8}, {"t": "is", "s": 0.88, "e": 0.96}, {"t": "de", "s": 1.04, "e": 1.12}, {"t": "belangrijkste", "s": 1.24, "e": 1.84}, {"t": "halte.", "s": 1.92, "e": 2.52}, {"t": "Ongeveer", "s": 2.72, "e": 3.12}, {"t": "zes", "s": 3.28, "e": 3.44}, {"t": "meter", "s": 3.6, "e": 3.84}, {"t": "lang,", "s": 3.92, "e": 4.4}, {"t": "opgevouwen", "s": 4.48, "e": 5.04}, {"t": "in", "s": 5.12, "e": 5.16}, {"t": "je", "s": 5.2, "e": 5.28}, {"t": "buik.", "s": 5.36, "e": 5.92}, {"t": "Hier", "s": 6.16, "e": 6.32}, {"t": "komen", "s": 6.4, "e": 6.72}, {"t": "drie", "s": 6.76, "e": 6.96}, {"t": "sappen", "s": 7.04, "e": 7.36}, {"t": "bij.", "s": 7.52, "e": 7.92}, {"t": "Sap", "s": 8.16, "e": 8.32}, {"t": "uit", "s": 8.4, "e": 8.56}, {"t": "je", "s": 8.6, "e": 8.64}, {"t": "alvleesklier", "s": 8.72, "e": 9.52}, {"t": "breekt", "s": 9.6, "e": 9.92}, {"t": "suikers,", "s": 10.0, "e": 10.64}, {"t": "eiwitten", "s": 10.76, "e": 11.28}, {"t": "én", "s": 11.36, "e": 11.52}, {"t": "vetten", "s": 11.6, "e": 11.84}, {"t": "af.", "s": 11.92, "e": 12.44}, {"t": "Gal", "s": 12.64, "e": 12.88}, {"t": "uit", "s": 12.96, "e": 13.04}, {"t": "je", "s": 13.12, "e": 13.2}, {"t": "lever", "s": 13.44, "e": 13.68}, {"t": "maakt", "s": 13.76, "e": 14.0}, {"t": "van", "s": 14.08, "e": 14.16}, {"t": "vet", "s": 14.24, "e": 14.48}, {"t": "kleine", "s": 14.64, "e": 14.96}, {"t": "druppels,", "s": 15.04, "e": 15.68}, {"t": "als", "s": 15.76, "e": 15.84}, {"t": "afwasmiddel.", "s": 15.92, "e": 16.88}, {"t": "En", "s": 16.92, "e": 16.96}, {"t": "de", "s": 17.04, "e": 17.12}, {"t": "darmwand", "s": 17.16, "e": 17.68}, {"t": "maakt", "s": 17.76, "e": 17.92}, {"t": "zelf", "s": 18.08, "e": 18.24}, {"t": "ook", "s": 18.32, "e": 18.48}, {"t": "sap.", "s": 18.64, "e": 19.2}, {"t": "In", "s": 19.32, "e": 19.44}, {"t": "al", "s": 19.52, "e": 19.6}, {"t": "die", "s": 19.68, "e": 19.84}, {"t": "sappen", "s": 19.88, "e": 20.16}, {"t": "zitten", "s": 20.2, "e": 20.48}, {"t": "enzymen:", "s": 20.6, "e": 21.28}, {"t": "de", "s": 21.32, "e": 21.36}, {"t": "stoffen", "s": 21.44, "e": 21.84}, {"t": "die", "s": 21.88, "e": 21.92}, {"t": "het", "s": 22.0, "e": 22.16}, {"t": "afbreken", "s": 22.24, "e": 22.64}, {"t": "doen.", "s": 22.72, "e": 23.36}, {"t": "Nu", "s": 23.44, "e": 23.52}, {"t": "zijn", "s": 23.6, "e": 23.68}, {"t": "de", "s": 23.76, "e": 23.84}, {"t": "voedingsstoffen", "s": 23.88, "e": 24.48}, {"t": "los", "s": 24.68, "e": 24.88}, {"t": "en", "s": 25.0, "e": 25.12}, {"t": "piepklein.", "s": 25.2, "e": 26.16}, {"t": "Maar", "s": 26.2, "e": 26.48}, {"t": "hoe", "s": 26.56, "e": 26.72}, {"t": "komen", "s": 26.76, "e": 26.96}, {"t": "ze", "s": 27.0, "e": 27.04}, {"t": "bij", "s": 27.12, "e": 27.2}, {"t": "je", "s": 27.28, "e": 27.36}, {"t": "cellen?", "s": 27.48, "e": 28.08}, {"t": "Wat", "s": 28.16, "e": 28.24}, {"t": "denk", "s": 28.32, "e": 28.48}, {"t": "je?", "s": 28.56, "e": 28.96}], "audio": "audio/s08.mp3", "dur": 29.41}, {"id": "q09", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 2 — Afbreken en opnemen", "q": "De voedingsstoffen zijn los. Hoe komen ze bij je cellen?", "options": ["vanuit je maag, rechtstreeks je lichaam in", "door de darmwand het bloed in; het bloed brengt ze rond", "de darm stuurt ze door buisjes naar elke cel"], "correct": 1, "explain": "Alleen in de dunne darm gaan de voedingsstoffen door de darmwand het bloed in. Het bloed brengt ze naar je cellen."}, {"id": "s10", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Afbreken en opnemen", "words": [{"t": "Door", "s": 0.0, "e": 0.16}, {"t": "de", "s": 0.24, "e": 0.32}, {"t": "darmwand,", "s": 0.4, "e": 1.08}, {"t": "het", "s": 1.12, "e": 1.2}, {"t": "bloed", "s": 1.28, "e": 1.52}, {"t": "in.", "s": 1.6, "e": 2.0}, {"t": "Dat", "s": 2.16, "e": 2.32}, {"t": "heet", "s": 2.44, "e": 2.56}, {"t": "opnemen.", "s": 2.72, "e": 3.6}, {"t": "De", "s": 3.84, "e": 3.92}, {"t": "darmwand", "s": 4.0, "e": 4.48}, {"t": "zit", "s": 4.56, "e": 4.72}, {"t": "vol", "s": 4.8, "e": 5.04}, {"t": "plooien", "s": 5.12, "e": 5.6}, {"t": "en", "s": 5.68, "e": 5.76}, {"t": "piepkleine", "s": 5.92, "e": 6.48}, {"t": "vingertjes:", "s": 6.56, "e": 7.44}, {"t": "darmvlokken.", "s": 7.52, "e": 8.24}, {"t": "Zo", "s": 8.72, "e": 8.8}, {"t": "is", "s": 8.88, "e": 8.96}, {"t": "de", "s": 9.04, "e": 9.12}, {"t": "binnenkant", "s": 9.2, "e": 9.52}, {"t": "van", "s": 9.6, "e": 9.68}, {"t": "je", "s": 9.76, "e": 9.84}, {"t": "darm", "s": 9.88, "e": 10.16}, {"t": "ongeveer", "s": 10.24, "e": 10.64}, {"t": "dertig", "s": 10.8, "e": 11.12}, {"t": "vierkante", "s": 11.28, "e": 11.68}, {"t": "meter.", "s": 11.76, "e": 12.32}, {"t": "Zo", "s": 12.48, "e": 12.64}, {"t": "groot", "s": 12.72, "e": 12.96}, {"t": "als", "s": 13.04, "e": 13.12}, {"t": "de", "s": 13.2, "e": 13.28}, {"t": "vloer", "s": 13.36, "e": 13.6}, {"t": "van", "s": 13.68, "e": 13.76}, {"t": "een", "s": 13.84, "e": 13.92}, {"t": "grote", "s": 13.96, "e": 14.24}, {"t": "kamer.", "s": 14.32, "e": 15.0}, {"t": "In", "s": 15.28, "e": 15.44}, {"t": "elke", "s": 15.52, "e": 15.68}, {"t": "darmvlok", "s": 15.76, "e": 16.32}, {"t": "lopen", "s": 16.4, "e": 16.64}, {"t": "bloedvaten.", "s": 16.72, "e": 17.64}, {"t": "De", "s": 17.84, "e": 17.92}, {"t": "voedingsstoffen", "s": 18.0, "e": 18.64}, {"t": "gaan", "s": 18.72, "e": 18.88}, {"t": "door", "s": 18.96, "e": 19.12}, {"t": "de", "s": 19.16, "e": 19.2}, {"t": "wand,", "s": 19.28, "e": 19.76}, {"t": "het", "s": 19.84, "e": 19.92}, {"t": "bloed", "s": 20.0, "e": 20.16}, {"t": "in.", "s": 20.24, "e": 20.48}, {"t": "Je", "s": 20.88, "e": 20.96}, {"t": "bloed", "s": 21.04, "e": 21.28}, {"t": "brengt", "s": 21.36, "e": 21.6}, {"t": "ze", "s": 21.64, "e": 21.68}, {"t": "naar", "s": 21.76, "e": 22.0}, {"t": "al", "s": 22.08, "e": 22.16}, {"t": "je", "s": 22.24, "e": 22.32}, {"t": "cellen.", "s": 22.4, "e": 22.8}, {"t": "Die", "s": 23.12, "e": 23.2}, {"t": "verbranden", "s": 23.28, "e": 23.76}, {"t": "ze,", "s": 23.84, "e": 24.16}, {"t": "of", "s": 24.24, "e": 24.32}, {"t": "bouwen", "s": 24.4, "e": 24.64}, {"t": "er", "s": 24.72, "e": 24.8}, {"t": "mee.", "s": 24.88, "e": 25.44}], "audio": "audio/s10.mp3", "dur": 25.89}, {"id": "s11", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Afbreken en opnemen", "words": [{"t": "De", "s": 0.0, "e": 0.16}, {"t": "pit?", "s": 0.24, "e": 0.76}, {"t": "Geen", "s": 0.96, "e": 1.28}, {"t": "enkel", "s": 1.36, "e": 1.76}, {"t": "sap", "s": 1.88, "e": 2.0}, {"t": "komt", "s": 2.08, "e": 2.24}, {"t": "door", "s": 2.32, "e": 2.4}, {"t": "die", "s": 2.44, "e": 2.48}, {"t": "harde", "s": 2.56, "e": 2.72}, {"t": "schil.", "s": 2.8, "e": 3.52}, {"t": "Hij", "s": 3.547, "e": 3.6}, {"t": "blijft", "s": 3.68, "e": 3.92}, {"t": "groot.", "s": 4.0, "e": 4.8}, {"t": "Dus", "s": 4.827, "e": 4.88}, {"t": "hij", "s": 4.96, "e": 5.04}, {"t": "past", "s": 5.12, "e": 5.36}, {"t": "niet", "s": 5.44, "e": 5.6}, {"t": "door", "s": 5.64, "e": 5.68}, {"t": "de", "s": 5.76, "e": 5.84}, {"t": "darmwand.", "s": 5.88, "e": 6.8}, {"t": "Hij", "s": 6.827, "e": 6.88}, {"t": "reist", "s": 6.96, "e": 7.2}, {"t": "verder,", "s": 7.28, "e": 7.84}, {"t": "met", "s": 7.92, "e": 8.08}, {"t": "de", "s": 8.16, "e": 8.24}, {"t": "vezels", "s": 8.36, "e": 8.64}, {"t": "van", "s": 8.72, "e": 8.8}, {"t": "de", "s": 8.84, "e": 8.88}, {"t": "appel.", "s": 8.96, "e": 9.6}], "audio": "audio/s11.mp3", "dur": 10.05}, {"id": "s12", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Wat overblijft, en samen", "words": [{"t": "De", "s": 0.0, "e": 0.08}, {"t": "dikke", "s": 0.08, "e": 0.16}, {"t": "darm.", "s": 0.2, "e": 0.48}, {"t": "Ongeveer", "s": 0.56, "e": 1.52}, {"t": "anderhalve", "s": 1.56, "e": 2.267}, {"t": "meter.", "s": 2.293, "e": 2.72}, {"t": "Hier", "s": 2.8, "e": 3.44}, {"t": "gaat", "s": 3.44, "e": 3.62}, {"t": "het", "s": 3.62, "e": 3.76}, {"t": "laatste", "s": 3.8, "e": 4.053}, {"t": "water", "s": 4.08, "e": 4.32}, {"t": "terug", "s": 4.373, "e": 4.688}, {"t": "je", "s": 4.752, "e": 4.88}, {"t": "lichaam", "s": 5.04, "e": 5.6}, {"t": "in.", "s": 5.627, "e": 5.72}, {"t": "Wat", "s": 5.76, "e": 6.04}, {"t": "overblijft", "s": 6.1, "e": 6.98}, {"t": "wordt", "s": 7.04, "e": 7.36}, {"t": "steviger:", "s": 7.44, "e": 7.84}, {"t": "ontlasting.", "s": 7.92, "e": 8.96}, {"t": "In", "s": 9.04, "e": 9.2}, {"t": "je", "s": 9.28, "e": 9.44}, {"t": "dikke", "s": 9.68, "e": 10.12}, {"t": "darm", "s": 10.16, "e": 10.32}, {"t": "wonen", "s": 10.36, "e": 10.72}, {"t": "bacteriën.", "s": 10.8, "e": 11.504}, {"t": "Enorm", "s": 11.536, "e": 11.84}, {"t": "veel.", "s": 12.0, "e": 12.64}, {"t": "Niet", "s": 12.72, "e": 13.0}, {"t": "vies,", "s": 13.12, "e": 13.653}, {"t": "maar", "s": 13.68, "e": 14.053}, {"t": "handig.", "s": 14.16, "e": 14.48}, {"t": "Ze", "s": 14.54, "e": 14.66}, {"t": "breken", "s": 14.72, "e": 15.44}, {"t": "vezels", "s": 15.52, "e": 15.84}, {"t": "af", "s": 15.96, "e": 16.04}, {"t": "die", "s": 16.08, "e": 16.24}, {"t": "jij", "s": 16.32, "e": 16.56}, {"t": "niet", "s": 16.587, "e": 16.8}, {"t": "kunt", "s": 16.84, "e": 17.067}, {"t": "verteren.", "s": 17.093, "e": 17.493}, {"t": "En", "s": 17.56, "e": 17.693}, {"t": "ze", "s": 17.76, "e": 17.84}, {"t": "maken", "s": 18.24, "e": 18.6}, {"t": "vitamines.", "s": 18.64, "e": 19.12}, {"t": "Na", "s": 19.213, "e": 19.4}, {"t": "één", "s": 19.493, "e": 19.96}, {"t": "tot", "s": 20.24, "e": 20.48}, {"t": "twee", "s": 20.56, "e": 21.12}, {"t": "dagen", "s": 21.2, "e": 21.52}, {"t": "is", "s": 21.68, "e": 21.76}, {"t": "de", "s": 21.8, "e": 21.84}, {"t": "reis", "s": 21.92, "e": 22.16}, {"t": "klaar.", "s": 22.24, "e": 22.76}, {"t": "Ontlasting", "s": 22.96, "e": 23.6}, {"t": "is", "s": 23.72, "e": 23.84}, {"t": "alles", "s": 23.92, "e": 24.24}, {"t": "wat", "s": 24.36, "e": 24.48}, {"t": "nooit", "s": 24.56, "e": 24.8}, {"t": "in", "s": 24.84, "e": 24.88}, {"t": "je", "s": 24.96, "e": 25.04}, {"t": "bloed", "s": 25.08, "e": 25.28}, {"t": "kwam.", "s": 25.36, "e": 25.92}, {"t": "Het", "s": 25.96, "e": 26.0}, {"t": "verlaat", "s": 26.08, "e": 26.48}, {"t": "je", "s": 26.52, "e": 26.56}, {"t": "lichaam", "s": 26.64, "e": 27.04}, {"t": "via", "s": 27.16, "e": 27.28}, {"t": "de", "s": 27.36, "e": 27.44}, {"t": "anus.", "s": 27.68, "e": 28.24}, {"t": "Met", "s": 28.32, "e": 28.4}, {"t": "de", "s": 28.48, "e": 28.64}, {"t": "pit.", "s": 28.8, "e": 29.2}], "audio": "audio/s12.mp3", "dur": 29.65}, {"id": "s13", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Wat overblijft, en samen", "words": [{"t": "Terug", "s": 0.0, "e": 0.24}, {"t": "naar", "s": 0.32, "e": 0.44}, {"t": "het", "s": 0.48, "e": 0.56}, {"t": "begin.", "s": 0.76, "e": 1.04}, {"t": "Elk", "s": 1.52, "e": 1.76}, {"t": "orgaan", "s": 1.84, "e": 2.24}, {"t": "deed", "s": 2.32, "e": 2.48}, {"t": "een", "s": 2.56, "e": 2.64}, {"t": "stuk", "s": 2.72, "e": 3.04}, {"t": "en", "s": 3.2, "e": 3.28}, {"t": "gaf", "s": 3.36, "e": 3.52}, {"t": "de", "s": 3.56, "e": 3.6}, {"t": "hap", "s": 3.68, "e": 3.92}, {"t": "door.", "s": 4.08, "e": 4.32}, {"t": "Een", "s": 4.64, "e": 4.72}, {"t": "estafette.", "s": 4.8, "e": 5.76}, {"t": "Stel", "s": 6.08, "e": 6.32}, {"t": "dat", "s": 6.4, "e": 6.48}, {"t": "je", "s": 6.56, "e": 6.64}, {"t": "alvleesklier", "s": 6.76, "e": 7.36}, {"t": "stopt.", "s": 7.44, "e": 8.04}, {"t": "De", "s": 8.24, "e": 8.32}, {"t": "rest", "s": 8.48, "e": 8.64}, {"t": "werkt", "s": 8.72, "e": 8.88}, {"t": "gewoon", "s": 8.96, "e": 9.2}, {"t": "door.", "s": 9.28, "e": 9.8}, {"t": "Wat", "s": 10.0, "e": 10.16}, {"t": "gebeurt", "s": 10.24, "e": 10.56}, {"t": "er?", "s": 10.68, "e": 11.12}, {"t": "Wat", "s": 11.2, "e": 11.28}, {"t": "denk", "s": 11.36, "e": 11.6}, {"t": "je?", "s": 11.68, "e": 12.08}], "audio": "audio/s13.mp3", "dur": 12.53}, {"id": "q14", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 3 — Wat overblijft, en samen", "q": "Je alvleesklier stopt, de rest werkt door. Wat gebeurt er?", "options": ["niets, de maag doet het werk wel", "je dunne darm maakt extra sap, dus het gaat goed", "de meeste voedingsstoffen komen niet los, en niet in je bloed"], "correct": 2, "explain": "Zonder het sap van de alvleesklier komen de meeste voedingsstoffen niet los. Ze gaan de wc in, je lichaam krijgt bijna niets."}, {"id": "s15", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Wat overblijft, en samen", "words": [{"t": "Je", "s": 0.0, "e": 0.12}, {"t": "eet,", "s": 0.16, "e": 0.64}, {"t": "je", "s": 0.88, "e": 1.0}, {"t": "kauwt,", "s": 1.04, "e": 1.84}, {"t": "je", "s": 1.92, "e": 2.0}, {"t": "maag", "s": 2.08, "e": 2.4}, {"t": "kneedt.", "s": 2.48, "e": 3.2}, {"t": "Maar", "s": 3.44, "e": 3.52}, {"t": "het", "s": 3.6, "e": 3.68}, {"t": "sap", "s": 3.76, "e": 4.0}, {"t": "dat", "s": 4.08, "e": 4.16}, {"t": "het", "s": 4.24, "e": 4.32}, {"t": "meeste", "s": 4.4, "e": 4.72}, {"t": "afbreekt,", "s": 4.8, "e": 5.44}, {"t": "is", "s": 5.52, "e": 5.6}, {"t": "er", "s": 5.68, "e": 5.76}, {"t": "niet.", "s": 5.867, "e": 6.28}, {"t": "De", "s": 6.48, "e": 6.56}, {"t": "voedingsstoffen", "s": 6.64, "e": 7.28}, {"t": "blijven", "s": 7.333, "e": 7.68}, {"t": "vastzitten.", "s": 7.72, "e": 8.4}, {"t": "Ze", "s": 8.8, "e": 8.88}, {"t": "gaan", "s": 8.96, "e": 9.04}, {"t": "de", "s": 9.12, "e": 9.2}, {"t": "dikke", "s": 9.24, "e": 9.44}, {"t": "darm", "s": 9.52, "e": 9.76}, {"t": "in", "s": 9.84, "e": 10.08}, {"t": "en", "s": 10.16, "e": 10.24}, {"t": "de", "s": 10.32, "e": 10.36}, {"t": "wc", "s": 10.4, "e": 10.88}, {"t": "in.", "s": 10.96, "e": 11.4}, {"t": "Je", "s": 11.6, "e": 11.68}, {"t": "lichaam", "s": 11.76, "e": 12.16}, {"t": "krijgt", "s": 12.24, "e": 12.48}, {"t": "bijna", "s": 12.56, "e": 12.8}, {"t": "niets.", "s": 12.88, "e": 13.56}, {"t": "Dat", "s": 13.84, "e": 14.08}, {"t": "is", "s": 14.16, "e": 14.24}, {"t": "een", "s": 14.28, "e": 14.32}, {"t": "orgaanstelsel.", "s": 14.4, "e": 15.56}, {"t": "Elk", "s": 15.76, "e": 16.0}, {"t": "orgaan", "s": 16.08, "e": 16.4}, {"t": "doet", "s": 16.48, "e": 16.64}, {"t": "een", "s": 16.68, "e": 16.72}, {"t": "stuk.", "s": 16.8, "e": 17.2}, {"t": "Valt", "s": 17.52, "e": 17.76}, {"t": "er", "s": 17.84, "e": 17.92}, {"t": "één", "s": 17.96, "e": 18.16}, {"t": "uit,", "s": 18.24, "e": 18.72}, {"t": "dan", "s": 18.8, "e": 18.88}, {"t": "loopt", "s": 18.92, "e": 19.12}, {"t": "de", "s": 19.147, "e": 19.173}, {"t": "estafette", "s": 19.2, "e": 19.76}, {"t": "vast.", "s": 19.8, "e": 20.48}], "audio": "audio/s15.mp3", "dur": 20.93}, {"id": "s16", "kind": "speech", "level": "vwo", "chapter": "Hoofdstuk 3 — Wat overblijft, en samen", "words": [{"t": "Voor", "s": 0.0, "e": 0.24}, {"t": "havo", "s": 0.28, "e": 0.72}, {"t": "en", "s": 0.8, "e": 0.88}, {"t": "vwo", "s": 0.96, "e": 1.6}, {"t": "gaan", "s": 1.76, "e": 1.84}, {"t": "we", "s": 1.92, "e": 1.96}, {"t": "nog", "s": 2.0, "e": 2.08}, {"t": "een", "s": 2.12, "e": 2.16}, {"t": "stap", "s": 2.24, "e": 2.48}, {"t": "verder.", "s": 2.56, "e": 2.96}, {"t": "Elk", "s": 3.44, "e": 3.68}, {"t": "enzym", "s": 3.76, "e": 4.16}, {"t": "knipt", "s": 4.24, "e": 4.64}, {"t": "één", "s": 4.68, "e": 4.88}, {"t": "soort", "s": 4.96, "e": 5.2}, {"t": "stof.", "s": 5.28, "e": 5.92}, {"t": "In", "s": 6.16, "e": 6.24}, {"t": "je", "s": 6.32, "e": 6.4}, {"t": "speeksel", "s": 6.44, "e": 6.96}, {"t": "zit", "s": 7.0, "e": 7.12}, {"t": "een", "s": 7.2, "e": 7.28}, {"t": "enzym", "s": 7.4, "e": 7.68}, {"t": "voor", "s": 7.8, "e": 7.92}, {"t": "zetmeel,", "s": 8.08, "e": 8.72}, {"t": "de", "s": 8.8, "e": 8.88}, {"t": "suiker", "s": 8.96, "e": 9.28}, {"t": "in", "s": 9.36, "e": 9.44}, {"t": "brood.", "s": 9.52, "e": 9.92}, {"t": "Het", "s": 10.32, "e": 10.48}, {"t": "knipt", "s": 10.52, "e": 10.8}, {"t": "zetmeel", "s": 10.96, "e": 11.36}, {"t": "in", "s": 11.44, "e": 11.6}, {"t": "kleine", "s": 11.68, "e": 11.92}, {"t": "suikers.", "s": 12.08, "e": 12.88}, {"t": "In", "s": 13.12, "e": 13.2}, {"t": "je", "s": 13.28, "e": 13.36}, {"t": "maagsap", "s": 13.44, "e": 14.0}, {"t": "zit", "s": 14.04, "e": 14.16}, {"t": "een", "s": 14.2, "e": 14.24}, {"t": "enzym", "s": 14.32, "e": 14.64}, {"t": "voor", "s": 14.72, "e": 14.88}, {"t": "eiwit.", "s": 14.96, "e": 15.52}, {"t": "Je", "s": 15.92, "e": 16.0}, {"t": "alvleesklier", "s": 16.08, "e": 16.8}, {"t": "maakt", "s": 16.88, "e": 17.04}, {"t": "enzymen", "s": 17.12, "e": 17.52}, {"t": "voor", "s": 17.6, "e": 17.68}, {"t": "zetmeel,", "s": 17.76, "e": 18.48}, {"t": "eiwit", "s": 18.6, "e": 18.96}, {"t": "én", "s": 19.2, "e": 19.36}, {"t": "vet.", "s": 19.44, "e": 19.84}, {"t": "Gal", "s": 20.32, "e": 20.64}, {"t": "heeft", "s": 20.72, "e": 20.96}, {"t": "geen", "s": 21.04, "e": 21.2}, {"t": "enzym:", "s": 21.28, "e": 22.0}, {"t": "het", "s": 22.04, "e": 22.08}, {"t": "maakt", "s": 22.16, "e": 22.4}, {"t": "alleen", "s": 22.48, "e": 22.72}, {"t": "druppels.", "s": 22.8, "e": 23.64}, {"t": "Een", "s": 23.92, "e": 24.0}, {"t": "geknipte", "s": 24.08, "e": 24.56}, {"t": "stof", "s": 24.6, "e": 24.96}, {"t": "is", "s": 25.04, "e": 25.12}, {"t": "een", "s": 25.2, "e": 25.36}, {"t": "andere", "s": 25.44, "e": 25.68}, {"t": "stof.", "s": 25.76, "e": 26.4}, {"t": "Zetmeel", "s": 26.64, "e": 27.2}, {"t": "is", "s": 27.28, "e": 27.36}, {"t": "zoet", "s": 27.4, "e": 27.6}, {"t": "geworden.", "s": 27.68, "e": 28.32}, {"t": "Afbreken", "s": 28.56, "e": 29.2}, {"t": "is", "s": 29.28, "e": 29.36}, {"t": "dus", "s": 29.44, "e": 29.52}, {"t": "een", "s": 29.6, "e": 29.68}, {"t": "chemische", "s": 29.76, "e": 30.16}, {"t": "verandering.", "s": 30.24, "e": 30.88}, {"t": "Kauwen", "s": 31.36, "e": 31.68}, {"t": "niet:", "s": 31.787, "e": 32.4}, {"t": "kleiner,", "s": 32.48, "e": 33.04}, {"t": "maar", "s": 33.08, "e": 33.2}, {"t": "dezelfde", "s": 33.32, "e": 33.76}, {"t": "stof.", "s": 33.84, "e": 34.48}], "audio": "audio/s16.mp3", "dur": 34.93}, {"id": "s17", "kind": "speech", "level": "basis", "chapter": "Samenvatting", "words": [{"t": "Mond:", "s": 0.0, "e": 0.4}, {"t": "klein", "s": 0.88, "e": 1.16}, {"t": "maken", "s": 1.2, "e": 1.6}, {"t": "en", "s": 1.68, "e": 1.88}, {"t": "nat", "s": 1.92, "e": 2.24}, {"t": "maken.", "s": 2.32, "e": 2.96}, {"t": "Slokdarm:", "s": 3.2, "e": 4.24}, {"t": "duwen.", "s": 4.32, "e": 4.92}, {"t": "Maag:", "s": 5.2, "e": 6.0}, {"t": "kneden", "s": 6.08, "e": 6.56}, {"t": "en", "s": 6.64, "e": 6.72}, {"t": "zuur", "s": 6.88, "e": 7.12}, {"t": "maagsap.", "s": 7.2, "e": 7.84}, {"t": "Dunne", "s": 8.32, "e": 8.56}, {"t": "darm:", "s": 8.64, "e": 9.36}, {"t": "sappen", "s": 9.44, "e": 9.76}, {"t": "van", "s": 9.88, "e": 10.0}, {"t": "alvleesklier,", "s": 10.12, "e": 10.96}, {"t": "lever", "s": 11.16, "e": 11.36}, {"t": "en", "s": 11.44, "e": 11.52}, {"t": "darmwand,", "s": 11.6, "e": 12.32}, {"t": "en", "s": 12.4, "e": 12.48}, {"t": "opnemen", "s": 12.64, "e": 13.04}, {"t": "in", "s": 13.12, "e": 13.2}, {"t": "het", "s": 13.24, "e": 13.28}, {"t": "bloed.", "s": 13.36, "e": 13.96}, {"t": "Dikke", "s": 14.24, "e": 14.48}, {"t": "darm:", "s": 14.52, "e": 15.2}, {"t": "water", "s": 15.28, "e": 15.6}, {"t": "terug,", "s": 15.68, "e": 16.16}, {"t": "bacteriën,", "s": 16.2, "e": 17.12}, {"t": "ontlasting.", "s": 17.2, "e": 17.84}, {"t": "Drie", "s": 18.4, "e": 18.56}, {"t": "stappen:", "s": 18.64, "e": 19.44}, {"t": "klein", "s": 19.52, "e": 19.76}, {"t": "maken,", "s": 19.84, "e": 20.48}, {"t": "afbreken,", "s": 20.6, "e": 21.52}, {"t": "opnemen.", "s": 21.64, "e": 22.16}, {"t": "Samen,", "s": 22.56, "e": 23.2}, {"t": "als", "s": 23.28, "e": 23.36}, {"t": "estafette.", "s": 23.44, "e": 24.32}, {"t": "En", "s": 24.56, "e": 24.64}, {"t": "de", "s": 24.68, "e": 24.72}, {"t": "pit?", "s": 24.8, "e": 25.32}, {"t": "Te", "s": 25.52, "e": 25.6}, {"t": "hard", "s": 25.68, "e": 25.92}, {"t": "voor", "s": 26.0, "e": 26.16}, {"t": "elk", "s": 26.24, "e": 26.48}, {"t": "sap,", "s": 26.56, "e": 27.04}, {"t": "te", "s": 27.12, "e": 27.2}, {"t": "groot", "s": 27.28, "e": 27.6}, {"t": "voor", "s": 27.64, "e": 27.68}, {"t": "de", "s": 27.76, "e": 27.84}, {"t": "darmwand.", "s": 27.88, "e": 28.8}, {"t": "Die", "s": 28.88, "e": 28.96}, {"t": "reist", "s": 29.04, "e": 29.28}, {"t": "gewoon", "s": 29.32, "e": 29.52}, {"t": "mee.", "s": 29.56, "e": 30.08}], "audio": "audio/s17.mp3", "dur": 30.53}, {"id": "s18", "kind": "speech", "level": "basis", "chapter": "Eindkaart", "words": [{"t": "Probeer", "s": 0.0, "e": 0.32}, {"t": "het", "s": 0.4, "e": 0.48}, {"t": "zelf.", "s": 0.72, "e": 1.12}], "audio": "audio/s18.mp3", "dur": 12.0}], "chapters": ["Cold open", "Titel", "Hoofdstuk 1 — Klein maken", "Hoofdstuk 2 — Afbreken en opnemen", "Hoofdstuk 3 — Wat overblijft, en samen", "Samenvatting", "Eindkaart"]};</script>
+<script>// ===== Part C tokens =====
+const C = {
+  bgMicro:'#121A26', bgMacroSky:'#1E2E4A', bgMacroHill:'#2F4A3A', bgMacroFront:'#3A5540', bgSchema:'#1A2740',
+  goud:'#E0B64A', koraal:'#E07A5F', groen:'#7FC48F', teal:'#5BA4C9', paars:'#8C7BBF', oker:'#C9A35C',
+  text:'#F2F2EE', text2:'#9AA3B2', line:'#8FA0B5', grain:'#C9B896', fill:'#2A3A58', kast:'#0D1420',
+  mito:'#D88E7A', mitoR:'#F0B8A6', golgi:'#C98A3E', er:'#AFC0D0', lyso:'#3E9A78', ves:'#D4A83C', vesR:'#F0CC7A',
+  kern:'#6E5A9E', kernR:'#A392D6', chloro:'#5FA86E', ribo:'#C9B896', enzym:'#7A8BA8', mens:'#9AA3B2',
+  berg:'#4B5878', bergTop:'#B8C0D0', water:'#2E6FBF', bruin:'#8C5A3A', okerD:'#B08A5C'
+};
+const F = { titel:'"Fraunces","Playfair Display",Georgia,serif', tekst:'"Source Sans 3","Inter",system-ui,sans-serif', meta:'"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace' };
+const W = 1920, H = 1080, CAPTION_Y = 900; // nothing below CAPTION_Y except captions
+
+// ===== deterministic helpers =====
+function hash(n){ let x = Math.sin(n*127.1+311.7)*43758.5453; return x - Math.floor(x); }
+// smooth pseudo-random wander for particle i at time t (deterministic for any t)
+function wander(i, t, amp, speed){
+  const a = hash(i*3+1)*6.283, b = hash(i*3+2)*6.283, c = hash(i*3+3)*6.283;
+  const s = speed*(0.7+0.6*hash(i*7+5));
+  return { x: amp*(Math.sin(t*s+a)*0.6+Math.sin(t*s*2.3+b)*0.3+Math.sin(t*s*5.1+c)*0.1),
+           y: amp*(Math.cos(t*s*1.1+b)*0.6+Math.cos(t*s*2.7+c)*0.3+Math.cos(t*s*4.3+a)*0.1) };
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,u)=>a+(b-a)*clamp(u,0,1);
+const ease=(u)=>{u=clamp(u,0,1);return u*u*(3-2*u);};
+// ramp: 0→1 between t0 and t0+d
+const ramp=(t,t0,d=0.6)=>ease((t-t0)/d);
+function lighten(hex, k){ const n=parseInt(hex.slice(1),16); let r=n>>16,g=(n>>8)&255,b=n&255; r=Math.round(r+(255-r)*k); g=Math.round(g+(255-g)*k); b=Math.round(b+(255-b)*k); return `rgb(${r},${g},${b})`; }
+function rgba(hex,a){ const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; }
+
+// ===== grain texture (cached once) =====
+let grainCanvas=null;
+function grain(ctx){
+  if(!grainCanvas){
+    grainCanvas=document.createElement('canvas'); grainCanvas.width=W; grainCanvas.height=H;
+    const g=grainCanvas.getContext('2d');
+    for(let i=0;i<9000;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
+      g.fillStyle=rgba(C.grain,0.18+0.22*hash(i*5)); g.beginPath(); g.arc(x,y,0.9+1.6*hash(i*9),0,6.283); g.fill(); }
+  }
+  ctx.drawImage(grainCanvas,0,0);
+}
+function bg(ctx, look){
+  ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
+  ctx.fillRect(0,0,W,H);
+  if(look==='micro') grain(ctx);
+}
+
+// ===== shape primitives =====
+function shape(ctx, fill, stroke, lw=1.5){ ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
+  ctx.beginPath();
+  for(let i=0;i<=40;i++){ const a=i/40*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    const px=x+Math.cos(a)*rx*r, py=y+Math.sin(a)*ry*r; i?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+  ctx.closePath();
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
+const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+
+// ===== UI layer =====
+// two-line label with leader line ending in dot; alpha for fade
+function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  if(alpha<=0.01) return;
+  ctx.save(); ctx.globalAlpha=alpha;
+  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
+  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
+  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
+  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
+  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
+  ctx.restore();
+}
+function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo((x1+x2)/2,y+14); ctx.lineTo((x1+x2)/2,y+26); ctx.stroke();
+  text(ctx,msg,(x1+x2)/2,y+66,fTekst(36,600),color,'center'); ctx.restore();
+}
+function zoomCircle(ctx, x, y, r, sx, sy, caption, alpha=1, drawInside){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha;
+  ctx.strokeStyle=C.goud; ctx.lineWidth=1.5;
+  // two straight leader lines from source to circle tangents
+  const ang=Math.atan2(y-sy,x-sx); for(const d of [-1,1]){ const a=ang+d*Math.PI/2; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r); ctx.stroke(); }
+  ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); drawInside&&drawInside(); ctx.restore();
+  ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.stroke();
+  if(caption) metaText(ctx,caption,x,y+r+40,C.grain,'center',26);
+  ctx.restore();
+}
+function dim(ctx, fn, a=0.35){ ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
+function scaleBar(ctx, txt='schematisch · niet op schaal'){ metaText(ctx,txt,W-40,H-22,C.text2,'right',22); }
+
+// ===== organelle library (Part C2) =====
+function membrane(ctx, x, y, rx, ry, color=C.er, wob=0.04, seed=1, t=0){
+  blob(ctx,x,y,rx,ry,wob,seed,t); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke();
+  blob(ctx,x,y,rx-7,ry-7,wob,seed,t); ctx.lineWidth=1.2; ctx.stroke();
+  // phospholipid heads as regular dots
+  ctx.fillStyle=color; const n=Math.round((rx+ry)/9);
+  for(let i=0;i<n;i++){ const a=i/n*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    ctx.beginPath(); ctx.arc(x+Math.cos(a)*(rx-3.5)*r, y+Math.sin(a)*(ry-3.5)*r, 1.6,0,6.283); ctx.fill(); }
+}
+const _nucCache={};
+function nucleus(ctx,x,y,r,alpha=1,t=0){
+  const key=Math.round(r); let c=_nucCache[key];
+  if(!c){ c=document.createElement('canvas'); const pad=14; c.width=Math.ceil(2*(r+pad)); c.height=c.width; const g=c.getContext('2d'); const cx=r+pad, cy=r+pad;
+    blob(g,cx,cy,r,r*0.92,0.03,4,0); shape(g,C.kern,C.kernR,1.5);
+    for(let i=0;i<Math.round(r*1.2);i++){ const a=hash(i*11+3)*6.283, d=Math.sqrt(hash(i*11+7))*r*0.85; g.fillStyle=rgba(C.kernR,0.35); g.beginPath(); g.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d*0.92,1.4,0,6.283); g.fill(); }
+    g.strokeStyle=C.kernR; g.lineWidth=1.2; const pores=10;
+    for(let i=0;i<pores;i++){ const a0=i/pores*6.283+0.08, a1=(i+1)/pores*6.283-0.08; g.beginPath(); g.ellipse(cx,cy,r+7,(r+7)*0.92,0,a0,a1); g.stroke(); }
+    _nucCache[key]=c; }
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.drawImage(c,x-c.width/2,y-c.height/2); ctx.restore();
+}
+function mitochondrion(ctx,x,y,len,rot=0,alpha=1,cristae=5,t=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  const h=len*0.42, k=Math.max(1,len/110);
+  roundRect(ctx,-len/2,-h/2,len,h,h/2); shape(ctx,C.mito,C.mitoR,1.5*k);
+  const inset=6*k; roundRect(ctx,-len/2+inset,-h/2+inset,len-2*inset,h-2*inset,(h-2*inset)/2); ctx.fillStyle=rgba(C.bgMicro,0.18); ctx.fill(); ctx.strokeStyle=C.mitoR; ctx.lineWidth=1.2*k; ctx.stroke();
+  // cristae: folds of the inner membrane, drawn as narrow loops
+  ctx.strokeStyle=lighten(C.mitoR,0.15); ctx.lineWidth=1.3*k; ctx.fillStyle=C.mito;
+  for(let i=0;i<cristae;i++){ const px=-len/2+inset+10*k+(len-2*inset-20*k)*(i+0.5)/cristae; const dir=i%2?1:-1; const y0=dir*(h/2-inset), depth=h*0.6, w=Math.max(3,len/40);
+    ctx.beginPath(); ctx.moveTo(px-w,y0); ctx.lineTo(px-w,y0-dir*depth); ctx.arc(px,y0-dir*depth,w,Math.PI,0,dir>0); ctx.lineTo(px+w,y0); ctx.fill(); ctx.stroke(); }
+  ctx.restore();
+}
+function golgi(ctx,x,y,w,alpha=1){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=lighten(C.golgi,0.25); ctx.fillStyle=C.golgi; const gap=Math.max(12,w*0.075), th=Math.max(8,w*0.05);
+  for(let i=0;i<5;i++){ const ww=w*(1-i*0.12), yy=y-i*gap; ctx.beginPath(); ctx.moveTo(x-ww/2,yy); ctx.quadraticCurveTo(x,yy-th*2.2,x+ww/2,yy); ctx.quadraticCurveTo(x,yy-th*0.6,x-ww/2,yy); ctx.closePath(); ctx.fill(); ctx.lineWidth=1; ctx.stroke(); }
+  ctx.restore();
+}
+function roughER(ctx,x,y,w,rows=3,alpha=1,ribos=true){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.er; ctx.lineWidth=1.5;
+  for(let r=0;r<rows;r++){ const yy=y+r*26;
+    for(const off of [0,8]){ ctx.beginPath(); for(let i=0;i<=24;i++){ const px=x-w/2+w*i/24, py=yy+off+Math.sin(i/24*6.283*1.5+r)*7; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.stroke(); }
+    if(ribos){ ctx.fillStyle=C.ribo; for(let i=0;i<14;i++){ const px=x-w/2+w*(i+0.5)/14, py=yy-5+Math.sin((i+0.5)/14*6.283*1.5+r)*7; ctx.beginPath(); ctx.arc(px,py,3,0,6.283); ctx.fill(); } }
+  }
+  ctx.restore();
+}
+function vesicle(ctx,x,y,r=9,alpha=1,fill=C.ves,ring=C.vesR){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,fill,ring,1.2); ctx.restore(); }
+function lysosome(ctx,x,y,r=12,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,C.lyso,lighten(C.lyso,0.3),1.2); ctx.restore(); }
+function ribosome(ctx,x,y,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.ribo; ctx.beginPath(); ctx.arc(x,y,3.2,0,6.283); ctx.fill(); ctx.restore(); }
+function chloroplast(ctx,x,y,len,alpha=1,rot=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  ctx.beginPath(); ctx.ellipse(0,0,len/2,len*0.3,0,0,6.283); shape(ctx,C.chloro,lighten(C.chloro,0.3),1.5);
+  ctx.fillStyle=lighten(C.chloro,0.4); ctx.strokeStyle=rgba(C.bgMicro,0.7); ctx.lineWidth=Math.max(0.8,len/120);
+  for(let g=0;g<3;g++){ const gx=-len*0.28+g*len*0.28; for(let k=0;k<5;k++){ roundRect(ctx,gx-len*0.1,-len*0.11+k*len*0.045,len*0.2,len*0.035,len*0.012); ctx.fill(); ctx.stroke(); } }
+  ctx.restore();
+}
+function vacuole(ctx,x,y,rx,ry,alpha=1,fill=0.9){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx*fill,ry*fill,0.03,9); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),1.5); ctx.restore(); }
+function cellWall(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx,ry,0.0,0); ctx.strokeStyle=C.groen; ctx.lineWidth=14; ctx.stroke(); ctx.strokeStyle=lighten(C.groen,0.3); ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+function cytoskeleton(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.line; ctx.lineWidth=0.75;
+  for(let i=0;i<14;i++){ const a=hash(i*13)*6.283, a2=a+2.2+hash(i*13+1)*1.5; ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*rx*0.95,y+Math.sin(a)*ry*0.95); ctx.quadraticCurveTo(x+(hash(i)*2-1)*rx*0.4,y+(hash(i+9)*2-1)*ry*0.4,x+Math.cos(a2)*rx*0.95,y+Math.sin(a2)*ry*0.95); ctx.stroke(); }
+  ctx.restore(); }
+
+// ===== the standard cell (series library: fixed in film 2) =====
+// returns organelle positions so scenes can reference them
+function cellLayout(cx=960, cy=520, rx=560, ry=330){
+  const sx=rx/560, sy=ry/330, s=Math.min(sx,sy);
+  return { cx,cy,rx,ry,
+    kern:{x:cx-180*sx,y:cy-30*sy,r:118*s},
+    er:{x:cx+40*sx,y:cy-150*sy,w:420*sx},
+    golgi:{x:cx+300*sx,y:cy+40*sy,w:170*s},
+    mitos:[{x:cx-430*sx,y:cy+90*sy,len:120*s,rot:-0.5},{x:cx+120*sx,y:cy+190*sy,len:110*s,rot:0.3},{x:cx-120*sx,y:cy+200*sy,len:100*s,rot:0.1},{x:cx+420*sx,y:cy-170*sy,len:95*s,rot:0.9}],
+    lysos:[{x:cx+230*sx,y:cy+220*sy},{x:cx+470*sx,y:cy+150*sy}],
+    vesicles:[{x:cx+170*sx,y:cy-40*sy},{x:cx+200*sx,y:cy-10*sy},{x:cx+395*sx,y:cy+10*sy},{x:cx+440*sx,y:cy-60*sy}],
+    s
+  };
+}
+function drawCell(ctx, L, t, opts={}){
+  const {alpha=1, focus=null, showER=true, showGolgi=true, showMito=true, showLyso=true, showVes=true, showKern=true, showRibo=true, showSkel=false, motion=0} = opts;
+  const dimOthers = focus? 0.35 : 1;
+  const A = (name)=> (focus===null||focus===name||(Array.isArray(focus)&&focus.includes(name)))?alpha:alpha*dimOthers;
+  ctx.save();
+  if(showSkel) cytoskeleton(ctx,L.cx,L.cy,L.rx,L.ry,A('skel'));
+  if(showRibo){ for(let i=0;i<120;i++){ const a=hash(i*17)*6.283, d=Math.sqrt(hash(i*17+1)); const px=L.cx+Math.cos(a)*d*L.rx*0.9, py=L.cy+Math.sin(a)*d*L.ry*0.9; const dk=Math.hypot(px-L.kern.x,py-L.kern.y); if(dk<L.kern.r+20) continue; const w=wander(i,t,10*motion,0.8); ribosome(ctx,px+w.x,py+w.y,A('ribo')*0.8); } }
+  if(showER) roughER(ctx,L.er.x,L.er.y,L.er.w,(L.s||1)<0.7?2:3,A('er'));
+  if(showKern) nucleus(ctx,L.kern.x,L.kern.y,L.kern.r,A('kern'),t);
+  if(showGolgi) golgi(ctx,L.golgi.x,L.golgi.y,L.golgi.w,A('golgi'));
+  if(showMito) L.mitos.forEach((m,i)=>{ const w=wander(i+50,t,40*motion,0.5); mitochondrion(ctx,m.x+w.x,m.y+w.y,m.len,m.rot+ (motion?Math.sin(t*0.4+i)*0.1:0),A('mito')); });
+  if(showLyso) L.lysos.forEach((l,i)=>{ const w=wander(i+70,t,50*motion,0.9); lysosome(ctx,l.x+w.x,l.y+w.y,12*(L.s||1),A('lyso')); });
+  if(showVes) L.vesicles.forEach((v,i)=>{ const w=wander(i+90,t,90*motion,1.3); vesicle(ctx,v.x+w.x,v.y+w.y,9*(L.s||1),A('ves')); });
+  membrane(ctx,L.cx,L.cy,L.rx,L.ry,C.er,0.04,1,t*motion);
+  ctx.restore();
+}
+
+// ===== levenskenmerken bord (Schema card, top-right; six fixed slots) =====
+const KENMERKEN=['stoffen omzetten','groeien','zich voortplanten','bewegen','reageren op de omgeving','in evenwicht houden'];
+function board(ctx, lit, alpha=1, x=60, y=76, w=1800){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const cw=(w-2*12)/3, ch=50;
+  KENMERKEN.forEach((k,i)=>{ const col=i%3,row=Math.floor(i/3); const xx=x+col*(cw+12), yy=y+row*(ch+8); const u=lit[i]||0;
+    roundRect(ctx,xx,yy,cw,ch,10); ctx.fillStyle = u>0? rgba(C.groen,0.16*u+0.06): rgba(C.bgSchema,0.85); ctx.fill(); ctx.strokeStyle = u>0? rgba(C.groen,0.45+0.55*u): rgba(C.line,0.45); ctx.lineWidth=1; ctx.stroke();
+    text(ctx,k,xx+18,yy+34,fTekst(28,u>0?600:400),u>0?C.text:C.text2,'left');
+    if(u>0){ ctx.save(); ctx.globalAlpha*=u; ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(xx+cw-22,yy+25,6,0,6.283); ctx.fill(); ctx.restore(); }
+  });
+  ctx.restore();
+}
+</script>
+<script>// ---------- algemene hulpjes ----------
+function fadeIO(t,a,b,d=0.5){ return ramp(t,a,d)*(1-ramp(t,b,d)); }
+function dot(ctx,x,y,r,fill,stroke,lw=1.2){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function arrow(ctx,x1,y1,x2,y2,color,lw=4,head=16,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw; ctx.lineCap='round';
+  const a=Math.atan2(y2-y1,x2-x1), bx=x2-Math.cos(a)*head*0.8, by=y2-Math.sin(a)*head*0.8; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(bx,by); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-Math.cos(a-0.45)*head,y2-Math.sin(a-0.45)*head); ctx.lineTo(x2-Math.cos(a+0.45)*head,y2-Math.sin(a+0.45)*head); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function crossOut(ctx,x,y,s,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.koraal; ctx.lineWidth=6; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-s,y-s); ctx.lineTo(x+s,y+s); ctx.moveTo(x+s,y-s); ctx.lineTo(x-s,y+s); ctx.stroke(); ctx.restore(); }
+function pill(ctx,x,y,s,color=C.goud,alpha=1,size=30){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.font=fTekst(size,600); const w=ctx.measureText(s).width+44; roundRect(ctx,x-w/2,y-size*0.95,w,size*1.65,size*0.8); shape(ctx,rgba(C.bgSchema,0.94),color,1.5); text(ctx,s,x,y+size*0.32,fTekst(size,600),color,'center'); ctx.restore(); }
+function wrap(ctx, s, x, y, maxW, lh){ const words=s.split(' '); let line=''; for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW&&line){ ctx.fillText(line,x,y); y+=lh; line=w; } else line=test; } if(line) ctx.fillText(line,x,y); return y; }
+function alpha(ctx,a,fn){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
+function chips(ctx,items,y){ // row of term chips, centred; items: [label, alpha, color]
+  ctx.save(); ctx.font=fTekst(32,600); const ws=items.map(i=>ctx.measureText(i[0]).width+48); const gap=18; const tot=ws.reduce((a,b)=>a+b,0)+gap*(items.length-1); let x=W/2-tot/2;
+  items.forEach((it,i)=>{ const a=it[1]; if(a>0.01){ ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y-34,ws[i],58,29); shape(ctx,rgba(C.bgSchema,0.94),it[2]||C.text,1.5); text(ctx,it[0],x+ws[i]/2,y+6,fTekst(32,600),it[2]||C.text,'center'); ctx.restore(); }
+    else { ctx.save(); ctx.setLineDash([6,6]); roundRect(ctx,x,y-34,ws[i],58,29); ctx.strokeStyle=rgba(C.line,0.35); ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+    x+=ws[i]+gap; }); ctx.restore(); }
+function inset(cx,cy,r,a,fn){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,6.283); ctx.clip(); ctx.fillStyle=C.bgSchema; ctx.fillRect(cx-r,cy-r,2*r,2*r); fn(); ctx.restore(); ctx.beginPath(); ctx.arc(cx,cy,r,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.stroke(); ctx.restore(); }
+function human(ctx,x,y,h,a=1,color=C.mens){ ctx.save(); ctx.globalAlpha*=a; ctx.fillStyle=color; const u=h/8;
+  ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();
+  roundRect(ctx,x-u*1.3,y-h+u*2.1,u*2.6,u*3.6,u*0.8); ctx.fill();
+  roundRect(ctx,x-u*1.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill(); roundRect(ctx,x+u*0.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x-u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.arc(x+u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.fill();
+  ctx.strokeStyle=C.bgSchema; ctx.lineWidth=u*0.08; ctx.beginPath(); ctx.arc(x,y-h+u*1.1,u*0.3,0.3,2.84); ctx.stroke(); ctx.restore(); }
+function cat(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a; const c=C.okerD;
+  ctx.beginPath(); ctx.ellipse(x,y-55*s,95*s,48*s,0,0,6.283); shape(ctx,c,lighten(c,0.3),2);
+  ctx.beginPath(); ctx.arc(x+92*s,y-110*s,40*s,0,6.283); shape(ctx,c,lighten(c,0.3),2);
+  ctx.beginPath(); ctx.moveTo(x+66*s,y-136*s); ctx.lineTo(x+70*s,y-176*s); ctx.lineTo(x+92*s,y-148*s); ctx.closePath(); ctx.moveTo(x+104*s,y-148*s); ctx.lineTo(x+124*s,y-176*s); ctx.lineTo(x+126*s,y-134*s); ctx.closePath(); shape(ctx,c,lighten(c,0.3),2);
+  [[-60,0],[-30,0],[40,0],[70,0]].forEach(([dx])=>{ roundRect(ctx,x+dx*s-9*s,y-30*s,18*s,30*s,8*s); shape(ctx,c,lighten(c,0.3),1.5); });
+  ctx.strokeStyle=c; ctx.lineWidth=14*s; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-88*s,y-70*s); ctx.quadraticCurveTo(x-150*s,y-80*s,x-140*s,y-150*s); ctx.stroke();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x+80*s,y-116*s,4*s,0,6.283); ctx.arc(x+106*s,y-116*s,4*s,0,6.283); ctx.fill(); ctx.restore(); }
+function oak(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a;
+  ctx.beginPath(); ctx.moveTo(x-22*s,y); ctx.lineTo(x-14*s,y-150*s); ctx.lineTo(x+14*s,y-150*s); ctx.lineTo(x+22*s,y); ctx.closePath(); shape(ctx,C.bruin,lighten(C.bruin,0.3),2);
+  [[0,-250,110],[-90,-200,80],[90,-205,85],[-50,-300,80],[55,-305,78],[0,-180,90]].forEach(([dx,dy,r],i)=>{ blob(ctx,x+dx*s,y+dy*s,r*s,r*0.85*s,0.06,i); shape(ctx,'#4E8A5C',lighten('#4E8A5C',0.3),2); });
+  ctx.restore(); }
+function microscope(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a; const f=C.fill, l=C.line;
+  roundRect(ctx,x-90*s,y-24*s,180*s,24*s,6*s); shape(ctx,f,l,2);
+  ctx.beginPath(); ctx.moveTo(x+40*s,y-24*s); ctx.quadraticCurveTo(x+80*s,y-160*s,x+20*s,y-250*s); ctx.lineWidth=26*s; ctx.strokeStyle=l; ctx.lineCap='round'; ctx.stroke(); ctx.lineWidth=20*s; ctx.strokeStyle=f; ctx.stroke();
+  roundRect(ctx,x-80*s,y-120*s,150*s,14*s,4*s); shape(ctx,f,l,2);
+  ctx.save(); ctx.translate(x-10*s,y-200*s); ctx.rotate(-0.35); roundRect(ctx,-18*s,-90*s,36*s,150*s,6*s); shape(ctx,f,l,2); roundRect(ctx,-24*s,-110*s,48*s,24*s,6*s); shape(ctx,f,l,2); ctx.restore();
+  ctx.restore(); }
+
+// ---------- sla en keuken (stijlframe 1, vlak) ----------
+function blobPath(cx,cy,rx,ry,rot,seed,waves,amp){ const N=140, pts=[];
+  for(let i=0;i<N;i++){ const th=i/N*6.283; const r=1+(amp*Math.sin(th*waves+seed)+amp*0.5*Math.sin(th*waves*2.2+seed*1.7)+amp*0.35*Math.abs(Math.sin(th*waves*4.1+seed)));
+    const x=Math.cos(th)*rx*r, y=Math.sin(th)*ry*r; pts.push([cx+x*Math.cos(rot)-y*Math.sin(rot), cy+x*Math.sin(rot)+y*Math.cos(rot)]); }
+  ctx.beginPath(); pts.forEach((q,i)=>{ const n=pts[(i+1)%N], m=[(q[0]+n[0])/2,(q[1]+n[1])/2]; if(!i) ctx.moveTo(m[0],m[1]); else ctx.quadraticCurveTo(q[0],q[1],m[0],m[1]); }); ctx.closePath(); }
+function leafPath(pts){ ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath(); }
+function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,col,vein,o){ o=o||{}; const wv=o.waves||11, am=o.amp||0.07;
+  blobPath(cx,cy,rx,ry,rot,seed,wv,am); shape(ctx,col,lighten(col,0.32),2);
+  ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,wv,am); ctx.clip(); ctx.strokeStyle=rgba(vein,0.35); ctx.lineWidth=2; ctx.lineCap='round';
+  for(let k=0;k<3;k++){ const a=rot+(k-1)*0.45; const ex=cx+Math.cos(a-1.57)*rx*0.85, ey=cy+Math.sin(a-1.57)*ry*0.85; ctx.beginPath(); ctx.moveTo(lx,ly); ctx.quadraticCurveTo((lx+ex)/2,(ly+ey)/2+8,ex,ey); ctx.stroke(); }
+  ctx.restore(); }
+const G1='#5FA86E', G2='#6FB57C', G3='#9ACB8E', V1='#D8EBCF';
+function stevigeKrop(x,y,s){ const L=(cx,cy,rx,ry,rot,seed,c,o)=>lettuceLeaf(x+cx*s,y+cy*s,rx*s,ry*s,rot,seed,x,y+40*s,c,V1,o);
+  L(-150,60,150,95,-0.35,1,G1); L(150,60,150,95,0.35,2,G1); L(-90,95,140,80,-0.1,3,G1); L(95,98,140,80,0.12,4,G1);
+  L(-175,-20,120,120,-0.6,5,G1); L(175,-20,120,120,0.6,6,G1); L(-110,-95,120,105,-0.4,7,G1); L(110,-95,120,105,0.4,8,G1); L(0,-140,140,90,0,9,G1);
+  L(-80,-30,115,120,-0.25,10,G2,{amp:0.06}); L(85,-30,115,120,0.25,11,G2,{amp:0.06}); L(0,-60,120,110,0,12,G2,{amp:0.06});
+  L(-35,10,85,95,-0.15,13,G3,{amp:0.05,waves:9}); L(40,15,85,92,0.15,14,G3,{amp:0.05,waves:9});
+  L(0,55,120,70,0,15,G1,{amp:0.06}); L(-40,110,135,55,-0.05,16,G1); L(55,112,130,52,0.08,17,G1); }
+function slappeKrop(x,y,s){ const top=[x+4*s,y-165*s], hemY=y+10*s;
+  const SF=['#9AA068','#939A62'], SB=['#7C8452','#81894F'];
+  [[-275,-120,0,0],[110,280,1,0],[-230,-20,2,0],[40,235,3,0],[-170,30,4,1],[-40,170,5,1],[-110,0,6,1],[-5,105,7,1]].forEach(([a,b,k,front])=>{
+    const h=hash(k*4.7+1), c=front?SF[k%2]:SB[k%2]; const xa=x+a*s, xb=x+b*s, bulge=(32+30*h)*s;
+    const edge=(xe,dir,t)=>{ const bx=top[0]+(xe-top[0])*t, by=top[1]+(hemY-top[1])*Math.pow(t,0.9); return [bx+dir*bulge*Math.sin(Math.PI*t)*0.9, by-bulge*0.35*Math.sin(Math.PI*t)]; };
+    const pts=[], N=36; for(let i=0;i<=N;i++) pts.push(edge(xa,-1,i/N));
+    for(let i=0;i<=N;i++){ const t=i/N; pts.push([xa+(xb-xa)*t, hemY+(Math.sin(t*14+k*2)*11+Math.abs(Math.sin(t*37+k))*7)*s-(front?0:14*s)]); }
+    for(let i=N;i>=0;i--) pts.push(edge(xb,1,i/N));
+    leafPath(pts); shape(ctx,c,lighten(c,0.3),2);
+    ctx.save(); leafPath(pts); ctx.clip();
+    if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle='#D8D6B8'; ctx.lineCap='round';
+      for(let i=0;i<12;i++){ const t1=i/12, t2=(i+1)/12; ctx.lineWidth=(7-5*t1)*s; ctx.beginPath(); ctx.moveTo(top[0]+(mx-top[0])*t1+Math.sin(t1*3)*12*s, top[1]+(hemY-top[1])*t1); ctx.lineTo(top[0]+(mx-top[0])*t2+Math.sin(t2*3)*12*s, top[1]+(hemY-top[1])*t2); ctx.stroke(); } }
+    ctx.globalAlpha=0.25; ctx.strokeStyle=lighten(c,0.35); ctx.lineWidth=2;
+    for(let w=0;w<5;w++){ const t=0.45+0.5*hash(k*9+w), u=hash(k*13+w*3); const p1=edge(xa,-1,t), p2=edge(xb,1,t); const px=p1[0]+(p2[0]-p1[0])*u, py=p1[1]+(p2[1]-p1[1])*u;
+      ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+(hash(w+k)-0.5)*30*s,py+20*s,px+(hash(w*2+k)-0.5)*24*s,py+42*s); ctx.stroke(); }
+    ctx.restore(); });
+  ctx.beginPath(); ctx.ellipse(top[0],top[1]+4*s,18*s,9*s,0,0,6.283); shape(ctx,C.oker,lighten(C.oker,0.3),2); }
+// krop op basislijn yb (onderkant op het aanrecht); u = 0 stevig … 1 slap (snelle overvloeier met een klein inzakken)
+function krop(x,yb,s,u,a=1){ if(a<=0.01) return; u=clamp(u,0,1);
+  if(u<0.99){ ctx.save(); ctx.globalAlpha*=a*(1-u); ctx.translate(x,yb); ctx.scale(1+0.08*u,1-0.3*u); ctx.translate(-x,-yb); stevigeKrop(x,yb-163*s,s); ctx.restore(); }
+  if(u>0.01){ ctx.save(); ctx.globalAlpha*=a*u; ctx.translate(x,yb); ctx.scale(1,0.75+0.25*u); ctx.translate(-x,-yb); slappeKrop(x,yb-10*s,s); ctx.restore(); } }
+function ridge(x0,x1,base,amp,seed,step){ const pts=[]; for(let x=x0;x<=x1+step;x+=step){ const u=x*0.004+seed; pts.push([x, base-amp*(0.55*Math.abs(Math.sin(u))+0.3*Math.sin(u*2.3+1)+0.15*Math.sin(u*5.1))]); } return pts; }
+function treeLine(X,Wd,base,hMin,hVar,step,seed){ const pts=[[X-20,base+400]]; for(let x=X-20;x<=X+Wd+20;x+=step*(0.7+0.6*hash(x*0.11+seed))){ const h=hMin+hVar*hash(x*0.37+seed); pts.push([x-step*0.45,base-h*0.35]); pts.push([x,base-h]); pts.push([x+step*0.45,base-h*0.35]); } pts.push([X+Wd+20,base+400]); return pts; }
+function windowView(X,Y,Wd,Hd,sun,dusk=0){ // sun: 0 morning (left low) … 1 evening (right low)
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  ctx.fillStyle=C.bgMacroSky; ctx.fillRect(X,Y,Wd,Hd); if(dusk>0){ ctx.fillStyle=rgba('#0D1420',0.45*dusk); ctx.fillRect(X,Y,Wd,Hd); }
+  const sx=X+Wd*(0.12+0.76*sun), sy=Y+Hd*(0.55-0.42*Math.sin(Math.PI*sun)); dot(ctx,sx,sy,22,C.goud);
+  leafPath([[X,Y+300],[X+90,Y+240],[X+170,Y+270],[X+290,Y+150],[X+350,Y+120],[X+430,Y+190],[X+520,Y+230],[X+590,Y+210],[X+Wd,Y+240],[X+Wd,Y+Hd],[X,Y+Hd]]); ctx.fillStyle=C.berg; ctx.fill();
+  leafPath([[X+350,Y+120],[X+400,Y+165],[X+380,Y+172],[X+362,Y+160],[X+345,Y+182],[X+325,Y+160],[X+305,Y+170],[X+290,Y+150]]); ctx.fillStyle=C.bergTop; ctx.fill();
+  ctx.fillStyle=C.bgMacroHill; leafPath(treeLine(X,Wd,Y+330,26,30,18,3)); ctx.fill();
+  ctx.fillStyle=C.bgMacroFront; leafPath(treeLine(X,Wd,Y+385,40,50,30,8)); ctx.fill();
+  ctx.restore(); ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.strokeRect(X,Y,Wd,Hd); ctx.beginPath(); ctx.moveTo(X+Wd/2,Y); ctx.lineTo(X+Wd/2,Y+Hd); ctx.stroke(); }
+const COUNTER=790;
+function counter(){ ctx.beginPath(); ctx.rect(0,COUNTER,W,26); shape(ctx,C.bruin,lighten(C.bruin,0.3),2); }
+function bowl(bx,a=1,level=1,inner){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const top=640, bot=COUNTER-2;
+  if(inner) inner();
+  const wy=top+40+(1-level)*30; ctx.beginPath(); ctx.moveTo(bx-150+(1-level)*8,wy); ctx.lineTo(bx+150-(1-level)*8,wy); ctx.lineTo(bx+118,bot-2); ctx.lineTo(bx-118,bot-2); ctx.closePath(); ctx.fillStyle=rgba(C.water,0.45); ctx.fill();
+  ctx.strokeStyle=rgba(C.teal,0.6); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(bx-146,wy); ctx.lineTo(bx+146,wy); ctx.stroke();
+  ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(bx-165,top); ctx.lineTo(bx-120,bot); ctx.lineTo(bx+120,bot); ctx.lineTo(bx+165,top); ctx.stroke(); ctx.restore(); }
+function kitchenBase(sun=0.5,dusk=0){ bg(ctx,'schema'); windowView(1160,110,640,420,sun,dusk); counter(); }
+
+// ---------- cellen ----------
+function cytoFill(cx,cy,rx,ry,hl=0,seed=3){ blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.fillStyle=rgba(C.er,0.07+0.12*hl); ctx.fill();
+  ctx.save(); blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.clip(); ctx.fillStyle=rgba(C.grain,0.35); for(let i=0;i<160;i++){ const a=hash(i*7+seed)*6.283, d=Math.sqrt(hash(i*7+1+seed)); ctx.beginPath(); ctx.arc(cx+Math.cos(a)*d*rx,cy+Math.sin(a)*d*ry,1.4,0,6.283); ctx.fill(); } ctx.restore(); }
+function hlRing(cx,cy,rx,ry,a,seed=3){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.strokeStyle=C.goud; ctx.lineWidth=5; ctx.stroke(); ctx.restore(); }
+// dierlijke cel (wangcel, schematisch): o = {cyto, kern, mitos, org, hlMem, hlCyto, hlKern, t}
+function animalCell(cx,cy,rx,ry,o={}){ const t=o.t||0;
+  cytoFill(cx,cy,rx,ry,o.hlCyto||0,3);
+  if(o.org){ alpha(ctx,o.org,()=>{ for(let i=0;i<5;i++){ const a=1.1+i*1.05, w=wander(i+30,t,10,0.5); vesicle(ctx,cx+Math.cos(a)*rx*0.55+w.x,cy+Math.sin(a)*ry*0.5+w.y,9); } }); }
+  if(o.mitos){ alpha(ctx,o.mitos,()=>{ [[0.42,0.38,0.3],[-0.15,0.62,-0.2],[0.6,-0.3,1.1],[-0.55,0.45,0.6],[0.15,-0.62,0.1]].forEach(([u,v,r],i)=>{ const w=wander(i+40,t,8,0.4); mitochondrion(ctx,cx+u*rx+w.x,cy+v*ry+w.y,Math.max(44,rx*0.16),r,1,4,t); }); }); }
+  membrane(ctx,cx,cy,rx,ry,C.er,0.04,3,t*0.3); hlRing(cx,cy,rx,ry,o.hlMem||0);
+  if(o.kern!==0){ alpha(ctx,o.kern===undefined?1:o.kern,()=>{ nucleus(ctx,cx-rx*0.28,cy-ry*0.08,Math.max(30,ry*0.3),1,t); if(o.hlKern) { ctx.save(); ctx.globalAlpha*=o.hlKern; ctx.beginPath(); ctx.arc(cx-rx*0.28,cy-ry*0.08,Math.max(30,ry*0.3)+10,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.stroke(); ctx.restore(); } }); } }
+// plantencel (stijlframe 2): o = {wall, chloro, vac (0..1 grootte), kern, mitos, hlWall, hlMem, hlCyto, hlMito, sugar, t}
+const CHL=[[-0.78,-0.55,0.3],[-0.15,-0.82,0],[0.55,-0.7,-0.3],[0.86,0.05,1.2],[0.55,0.72,0.4],[-0.3,0.82,-0.2],[-0.86,0.25,1.4]];
+function plantCellV(cx,cy,rx,ry,o={}){ const t=o.t||0, v=o.vac===undefined?1:o.vac;
+  const turg=o.turg===undefined?1:o.turg; // 1 strak, 0 slap (membraan iets van de wand)
+  if(o.wall) alpha(ctx,o.wall,()=>{ cellWall(ctx,cx,cy,rx,ry,1); if(o.hlWall){ ctx.save(); ctx.globalAlpha*=o.hlWall; blob(ctx,cx,cy,rx,ry,0,0); ctx.strokeStyle=C.goud; ctx.lineWidth=5; ctx.stroke(); ctx.restore(); } });
+  const mrx=(rx-12)*(0.94+0.06*turg), mry=(ry-12)*(0.9+0.1*turg);
+  cytoFill(cx,cy+(1-turg)*8,mrx,mry,o.hlCyto||0,3);
+  if(v>0.02){ vacuole(ctx,cx+10,cy+6,mrx*0.82,mry*0.74,1,0.25+0.75*v);
+    if(o.sugar) alpha(ctx,o.sugar,()=>{ for(let i=0;i<18;i++){ const a=hash(i*3.1)*6.283, d=Math.sqrt(hash(i*5.7))*0.7, w=wander(i+60,t,6,0.8); dot(ctx,cx+10+Math.cos(a)*d*mrx*0.82*(0.25+0.75*v)+w.x,cy+6+Math.sin(a)*d*mry*0.74*(0.25+0.75*v)+w.y,5,C.oker); } }); }
+  membrane(ctx,cx,cy+(1-turg)*8,mrx,mry,C.er,0.01+0.05*(1-turg),3,0); hlRing(cx,cy+(1-turg)*8,mrx,mry,o.hlMem||0);
+  if(o.chloro) alpha(ctx,o.chloro,()=>CHL.forEach(([u,w,r])=>chloroplast(ctx,cx+u*mrx*(0.98+0.02*turg),cy+w*mry*(0.95+0.05*turg),Math.max(40,rx*0.2),1,r)));
+  if(o.kern!==0) alpha(ctx,o.kern===undefined?1:o.kern,()=>nucleus(ctx,cx-mrx*0.62,cy-mry*0.05,Math.max(26,rx*0.13),1,t));
+  if(o.mitos) alpha(ctx,o.mitos,()=>{ mitochondrion(ctx,cx+mrx*0.2,cy+mry*0.86,Math.max(36,rx*0.15),0.2,1,4,t); mitochondrion(ctx,cx-mrx*0.35,cy-mry*0.7,Math.max(32,rx*0.13),-0.4,1,4,t);
+    if(o.hlMito){ ctx.save(); ctx.globalAlpha*=o.hlMito; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(cx+mrx*0.2,cy+mry*0.86,Math.max(36,rx*0.15)*0.75,22,0.2,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.ellipse(cx-mrx*0.35,cy-mry*0.7,Math.max(32,rx*0.13)*0.75,20,-0.4,0,6.283); ctx.stroke(); ctx.restore(); } }); }
+// microscoopbeeld van wangcellen (methyleenblauw)
+function wangcel(x,y,r,rot,seed){ const n=7+Math.floor(hash(seed)*3), pts=[];
+  for(let i=0;i<n;i++){ const a=rot+i/n*6.283+(hash(seed+i*1.3)-0.5)*0.5, rr=r*(0.78+0.35*hash(seed*2+i)); pts.push([x+Math.cos(a)*rr, y+Math.sin(a)*rr]); }
+  ctx.beginPath(); pts.forEach((p,i)=>{ const q=pts[(i+1)%n], m=[(p[0]+q[0])/2,(p[1]+q[1])/2]; if(!i){ const l=pts[n-1]; ctx.moveTo((l[0]+p[0])/2,(l[1]+p[1])/2); } ctx.quadraticCurveTo(p[0],p[1],m[0],m[1]); });
+  ctx.closePath(); ctx.fillStyle='rgba(120,155,205,0.22)'; ctx.fill(); ctx.strokeStyle='rgba(55,85,145,0.55)'; ctx.lineWidth=1.6; ctx.stroke();
+  ctx.beginPath(); const f=hash(seed+9)*6.283; ctx.moveTo(x+Math.cos(f)*r*0.75,y+Math.sin(f)*r*0.75); ctx.quadraticCurveTo(x+Math.cos(f+1.4)*r*0.25,y+Math.sin(f+1.4)*r*0.25,x+Math.cos(f+2.4)*r*0.7,y+Math.sin(f+2.4)*r*0.7); ctx.strokeStyle='rgba(55,85,145,0.28)'; ctx.lineWidth=2.2; ctx.stroke();
+  ctx.fillStyle='rgba(60,90,150,0.25)'; for(let i=0;i<26;i++){ const a=hash(seed+i*2.1)*6.283, d=Math.sqrt(hash(seed*3+i))*r*0.7; ctx.beginPath(); ctx.arc(x+Math.cos(a)*d,y+Math.sin(a)*d,1.4,0,6.283); ctx.fill(); }
+  const nx=x+(hash(seed+4)-0.5)*r*0.3, ny=y+(hash(seed+5)-0.5)*r*0.3; ctx.beginPath(); ctx.ellipse(nx,ny,r*0.13,r*0.1,rot,0,6.283); ctx.fillStyle='rgba(42,62,128,0.85)'; ctx.fill(); }
+const WANG=[[380,300,92,0.2],[560,250,100,1.1],[730,330,95,2.0],[300,470,90,0.7],[470,430,105,2.6],[660,500,98,1.7],[820,470,85,0.4],[390,640,96,1.9],[570,660,92,0.9],[750,660,88,2.9],[230,330,80,1.5],[880,300,78,0.8],[240,610,76,2.2],[540,90,90,0.1],[900,640,80,1.2]];
+function microField(cx,cy,R,s=1){ ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.clip(); ctx.fillStyle='#E6ECEF'; ctx.fillRect(cx-R,cy-R,2*R,2*R);
+  ctx.translate(cx,cy); ctx.scale(s,s); ctx.translate(-560,-470); WANG.forEach(([x,y,r,rot],i)=>wangcel(x,y,r,rot,i*5.7+2));
+  ctx.fillStyle='rgba(42,62,128,0.7)'; for(let i=0;i<40;i++){ const a=hash(i*3.3)*6.283, d=Math.sqrt(hash(i*7.1))*390; ctx.beginPath(); ctx.ellipse(560+Math.cos(a)*d,470+Math.sin(a)*d,2.6,1.5,a,0,6.283); ctx.fill(); }
+  ctx.restore(); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.strokeStyle='#05080D'; ctx.lineWidth=10; ctx.stroke(); }
+// bladweefsel: honingraat van plantencellen (in een zoomcirkel)
+function tissue(cx,cy,R,t=0,turg=1){ for(let r=-4;r<=4;r++) for(let c=-5;c<=5;c++){ const x=cx+c*92+(r%2?46:0), y=cy+r*70; if(Math.hypot(x-cx,y-cy)>R+80) continue;
+  ctx.beginPath(); ctx.ellipse(x,y,44,32*(0.9+0.1*turg),0,0,6.283); shape(ctx,rgba(C.teal,0.18),C.groen,5);
+  for(let k=0;k<4;k++){ const a=k*1.6+hash(r*11+c); dot(ctx,x+Math.cos(a)*30,y+Math.sin(a)*20,6,C.chloro); } } }
+
+// ===== Van cel tot lichaam — scènes (kerndoelen onderbouw, film 2) =====
+// Hulpjes uit film 1 staan hierboven (helpers1.js). Nieuwe tekeningen: gymzaal, spiercel, weefseltegels, kuitspier, bot, lichaam met tien stelsels, slaplant met organen, bladdoorsnede, gespecialiseerde cellen, trap.
+
+// ---------- film 2: nieuwe tekeningen ----------
+function muscleCell(x,y,len,a=1,ry=24){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.moveTo(x-len/2,y); ctx.quadraticCurveTo(x-len/4,y-ry-2,x,y-ry); ctx.quadraticCurveTo(x+len/4,y-ry-2,x+len/2,y); ctx.quadraticCurveTo(x+len/4,y+ry+2,x,y+ry); ctx.quadraticCurveTo(x-len/4,y+ry+2,x-len/2,y); ctx.closePath(); shape(ctx,rgba(C.koraal,0.35),lighten(C.koraal,0.2),2);
+  ctx.strokeStyle=rgba(C.koraal,0.6); ctx.lineWidth=1.5; for(let k=-2;k<=2;k++){ ctx.beginPath(); ctx.moveTo(x-len/2+30,y+k*ry/3); ctx.lineTo(x+len/2-30,y+k*ry/3); ctx.stroke(); }
+  nucleus(ctx,x-len*0.18,y-ry*0.25,Math.min(11,ry*0.45),1,0); nucleus(ctx,x+len*0.22,y+ry*0.2,Math.min(11,ry*0.45),1,0); ctx.restore(); }
+function neuron(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=C.paars; ctx.lineCap='round';
+  ctx.lineWidth=5*s; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+420*s,y+10*s); ctx.stroke();
+  [[-60,-70],[-80,10],[-50,80],[20,-85],[30,80]].forEach(([dx,dy])=>{ ctx.lineWidth=3*s; ctx.beginPath(); ctx.moveTo(x,y); ctx.quadraticCurveTo(x+dx*0.5*s,y+dy*0.7*s,x+dx*s,y+dy*s); ctx.stroke(); });
+  [[-20,-30],[-20,30],[20,30]].forEach(([dx,dy])=>{ ctx.lineWidth=2.5*s; ctx.beginPath(); ctx.moveTo(x+420*s,y+10*s); ctx.lineTo(x+420*s+dx*s,y+10*s+dy*s); ctx.stroke(); });
+  ctx.beginPath(); ctx.ellipse(x,y,34*s,30*s,0,0,6.283); shape(ctx,rgba(C.paars,0.5),lighten(C.paars,0.3),2); nucleus(ctx,x,y,12*s,1,0); ctx.restore(); }
+function rbc(x,y,r,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,r,r*0.95,0,0,6.283); shape(ctx,'#B85A5A','#D88080',2); ctx.beginPath(); ctx.ellipse(x,y,r*0.45,r*0.4,0,0,6.283); ctx.fillStyle=rgba('#7A3838',0.5); ctx.fill(); ctx.restore(); }
+function bone(x,y,len,rot,a=1,s=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.rotate(rot); const w=26*s, k=30*s;
+  roundRect(ctx,-len/2,-w/2,len,w,w/2); shape(ctx,'#E9E4D6','#B8B2A2',2);
+  [[-len/2,-1],[len/2,1]].forEach(([ex])=>{ ctx.beginPath(); ctx.arc(ex,-k*0.55,k*0.6,0,6.283); ctx.arc(ex,k*0.55,k*0.6,0,6.283); shape(ctx,'#E9E4D6','#B8B2A2',2); });
+  ctx.restore(); }
+function boneCells(x,y,len,a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let i=0;i<14;i++){ const px=x-len/2+40+(i*(len-80)/13), py=y+(hash(i*3.3)-0.5)*16; ctx.beginPath(); ctx.ellipse(px,py,9,6,hash(i)*3,0,6.283); shape(ctx,rgba(C.kern,0.8),lighten(C.kern,0.3),1); for(let k=0;k<5;k++){ const an=k*1.26+hash(i+k); ctx.strokeStyle=rgba(C.kern,0.6); ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(px+Math.cos(an)*9,py+Math.sin(an)*6); ctx.lineTo(px+Math.cos(an)*20,py+Math.sin(an)*14); ctx.stroke(); } } ctx.restore(); }
+// gymzaal: vloer, lijnen, rennend poppetje
+function runner(x,y,h,t,a=1,color=C.mens){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.fillStyle=color; ctx.strokeStyle=color; ctx.lineCap='round'; const u=h/8, ph=t*9;
+  const by=y-h+u*2.2+Math.abs(Math.sin(ph))*u*0.15;
+  ctx.beginPath(); ctx.arc(x+u*0.2,by-u*1.1,u*0.9,0,6.283); ctx.fill();
+  ctx.save(); ctx.translate(x,by); ctx.rotate(0.18); roundRect(ctx,-u*1.3,0,u*2.6,u*3.4,u*0.8); ctx.fill(); ctx.restore();
+  ctx.lineWidth=u*0.8; [[1,0],[-1,Math.PI]].forEach(([d,o])=>{ const sw=Math.sin(ph+o); const kx=x+sw*u*1.4, ky=by+u*3.2+u*1.6; const fx=kx+Math.max(0,sw)*u*0.6+u*0.3, fy=by+u*6.6-Math.max(0,-sw)*u*1.2; ctx.beginPath(); ctx.moveTo(x+u*0.2,by+u*3.2); ctx.lineTo(kx,ky); ctx.lineTo(fx,fy); ctx.stroke(); });
+  ctx.lineWidth=u*0.6; [[1,Math.PI],[-1,0]].forEach(([d,o])=>{ const sw=Math.sin(ph+o); ctx.beginPath(); ctx.moveTo(x+u*0.3,by+u*0.8); ctx.lineTo(x+u*0.3+sw*u*1.4,by+u*2.2); ctx.lineTo(x+u*0.3+sw*u*1.6+u*0.8,by+u*1.6); ctx.stroke(); });
+  ctx.restore(); }
+function gymHall(t){ bg(ctx,'schema'); const fy=800;
+  ctx.fillStyle='#22324D'; ctx.fillRect(0,fy,W,H-fy); ctx.strokeStyle=rgba(C.goud,0.35); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(0,fy); ctx.lineTo(W,fy); ctx.stroke();
+  ctx.strokeStyle=rgba(C.text,0.12); ctx.lineWidth=2; for(let x=200;x<W;x+=380){ ctx.beginPath(); ctx.moveTo(x,fy+10); ctx.lineTo(x,H-10); ctx.stroke(); }
+  // wandrek links, basket rechts
+  ctx.strokeStyle=rgba(C.line,0.45); ctx.lineWidth=3; for(let k=0;k<7;k++){ ctx.beginPath(); ctx.moveTo(90,230+k*70); ctx.lineTo(290,230+k*70); ctx.stroke(); } ctx.beginPath(); ctx.moveTo(90,200); ctx.lineTo(90,fy); ctx.moveTo(290,200); ctx.lineTo(290,fy); ctx.stroke();
+  ctx.beginPath(); ctx.rect(1700,300,140,100); ctx.stroke(); ctx.beginPath(); ctx.ellipse(1740,410,40,10,0,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(1840,300); ctx.lineTo(1840,fy); ctx.stroke();
+  return fy; }
+function heart(x,y,s,a=1,beat=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); const k=1+0.12*Math.max(0,Math.sin(beat)); ctx.scale(s*k,s*k); ctx.beginPath(); ctx.moveTo(0,28); ctx.bezierCurveTo(-40,-6,-30,-40,0,-18); ctx.bezierCurveTo(30,-40,40,-6,0,28); ctx.closePath(); shape(ctx,C.koraal,lighten(C.koraal,0.25),2); ctx.restore(); }
+function lungs(x,y,s,a=1,breath=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const k=1+0.08*Math.max(0,Math.sin(breath)); [[-1,0],[1,0]].forEach(([d])=>{ ctx.beginPath(); ctx.ellipse(x+d*40*s,y,30*s*k,52*s*k,0,0,6.283); shape(ctx,rgba(C.teal,0.55),lighten(C.teal,0.2),2); }); ctx.strokeStyle=lighten(C.teal,0.2); ctx.lineWidth=5*s; ctx.beginPath(); ctx.moveTo(x,y-80*s); ctx.lineTo(x,y-20*s); ctx.stroke(); ctx.restore(); }
+function kidney(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,14*s,24*s,0,0,6.283); shape(ctx,'#9A4A4A','#C47070',1.5); ctx.restore(); }
+// lichaam-schema: silhouet + organen per stelsel; o = {zenuw, spijs, adem, bloed, uitsch, skelet, spier, afweer, hormoon, voortpl, hl:'naam', t, labels}
+const BODY={cx:960,yb:920,h:760};
+function bodyOrgans(o={}){ const {cx,yb,h}=BODY, u=h/8, top=yb-h, t=o.t||0; const A=k=>o[k]===undefined?0:o[k];
+  ctx.save(); ctx.globalAlpha*=(o.sil===undefined?0.3:o.sil); human(ctx,cx,yb,h,1,C.mens); ctx.restore();
+  const hl=n=>o.hl===n?1:0;
+  // skelet: wervelkolom, ribben, benen
+  alpha(ctx,A('skelet'),()=>{ ctx.strokeStyle='#E9E4D6'; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(cx,top+u*1.9); ctx.lineTo(cx,top+u*5.5); ctx.stroke(); ctx.lineWidth=2.5; for(let k=0;k<5;k++){ const y=top+u*2.5+k*u*0.35; ctx.beginPath(); ctx.moveTo(cx-10,y); ctx.quadraticCurveTo(cx-70,y+6,cx-95,y+22); ctx.moveTo(cx+10,y); ctx.quadraticCurveTo(cx+70,y+6,cx+95,y+22); ctx.stroke(); }
+    bone(cx-u*0.7,top+u*6.6,u*1.9,Math.PI/2,1,0.55); bone(cx+u*0.7,top+u*6.6,u*1.9,Math.PI/2,1,0.55); });
+  // spieren: op de benen en bovenarmen
+  alpha(ctx,A('spier'),()=>{ [[cx-u*0.75,top+u*6.5,0],[cx+u*0.75,top+u*6.5,0],[cx-u*1.55,top+u*3.1,0.25],[cx+u*1.55,top+u*3.1,-0.25]].forEach(([x,y,r])=>{ ctx.save(); ctx.translate(x,y); ctx.rotate(r); ctx.beginPath(); ctx.ellipse(0,0,22,u*0.75,0,0,6.283); shape(ctx,rgba(C.koraal,0.55),lighten(C.koraal,0.2),2); ctx.restore(); }); });
+  // spijsvertering: mond, slokdarm, maag, darm
+  alpha(ctx,A('spijs'),()=>{ ctx.strokeStyle=C.oker; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(cx+6,top+u*1.3); ctx.lineTo(cx+10,top+u*4.0); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx+20,top+u*4.3,48,34,-0.3,0,6.283); shape(ctx,C.oker,lighten(C.oker,0.25),2);
+    ctx.strokeStyle=C.okerD; ctx.lineWidth=14; ctx.beginPath(); ctx.moveTo(cx-60,top+u*4.9); ctx.quadraticCurveTo(cx+60,top+u*4.9,cx+50,top+u*5.2); ctx.quadraticCurveTo(cx-70,top+u*5.2,cx-50,top+u*5.5); ctx.stroke();
+    ctx.strokeStyle=lighten(C.okerD,0.15); ctx.lineWidth=12; ctx.beginPath(); ctx.moveTo(cx-85,top+u*5.5); ctx.lineTo(cx-85,top+u*4.75); ctx.lineTo(cx+90,top+u*4.75); ctx.lineTo(cx+90,top+u*5.6); ctx.stroke(); });
+  // ademhaling: neus/luchtpijp + longen
+  alpha(ctx,A('adem'),()=>{ lungs(cx-10,top+u*3.1,1.25,1,o.breath||0); });
+  // bloedvaten: hart + vaten
+  alpha(ctx,A('bloed'),()=>{ ctx.strokeStyle=rgba('#C47070',0.8); ctx.lineWidth=3; [[cx-30,top+u*2.9,cx-u*1.6,top+u*4.4],[cx-30,top+u*2.9,cx+u*1.6,top+u*4.4],[cx-30,top+u*2.9,cx-u*0.7,top+u*7.6],[cx-30,top+u*2.9,cx+u*0.7,top+u*7.6],[cx-30,top+u*2.9,cx,top+u*0.6]].forEach(([a,b,c,d])=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.quadraticCurveTo((a+c)/2-20,(b+d)/2,c,d); ctx.stroke(); }); heart(cx-30,top+u*2.95,1.1,1,o.beat||0); });
+  // zenuwstelsel: hersenen + zenuwen
+  alpha(ctx,A('zenuw'),()=>{ ctx.strokeStyle=C.paars; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,top+u*1.6); ctx.lineTo(cx,top+u*5.4); ctx.moveTo(cx,top+u*2.4); ctx.lineTo(cx-u*1.6,top+u*4.6); ctx.moveTo(cx,top+u*2.4); ctx.lineTo(cx+u*1.6,top+u*4.6); ctx.moveTo(cx,top+u*5.4); ctx.lineTo(cx-u*0.7,top+u*7.7); ctx.moveTo(cx,top+u*5.4); ctx.lineTo(cx+u*0.7,top+u*7.7); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx,top+u*0.5,u*0.55,u*0.3,0,0,6.283); shape(ctx,rgba(C.paars,0.65),lighten(C.paars,0.3),1.5); });
+  // uitscheiding: nieren + blaas
+  alpha(ctx,A('uitsch'),()=>{ kidney(cx-60,top+u*4.55,1); kidney(cx+90,top+u*4.55,1); ctx.strokeStyle='#C47070'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx-55,top+u*4.8); ctx.lineTo(cx+5,top+u*5.75); ctx.moveTo(cx+85,top+u*4.8); ctx.lineTo(cx+25,top+u*5.75); ctx.stroke(); ctx.beginPath(); ctx.ellipse(cx+15,top+u*5.85,26,18,0,0,6.283); shape(ctx,rgba(C.teal,0.5),lighten(C.teal,0.2),1.5); });
+  // afweer: lymfeklieren
+  alpha(ctx,A('afweer'),()=>{ [[cx-40,top+u*1.5],[cx+40,top+u*1.5],[cx-u*1.35,top+u*2.5],[cx+u*1.35,top+u*2.5],[cx-u*0.5,top+u*5.9],[cx+u*0.6,top+u*5.9]].forEach(([x,y])=>dot(ctx,x,y,7,C.groen,lighten(C.groen,0.3),1.5)); });
+  // hormoon: hypofyse, schildklier, bijnieren
+  alpha(ctx,A('hormoon'),()=>{ dot(ctx,cx,top+u*0.85,8,C.goud,lighten(C.goud,0.3),1.5); ctx.beginPath(); ctx.ellipse(cx-10,top+u*1.65,18,9,0,0,6.283); ctx.ellipse(cx+10,top+u*1.65,18,9,0,0,6.283); shape(ctx,rgba(C.goud,0.7),lighten(C.goud,0.3),1.5); dot(ctx,cx-60,top+u*4.2,7,C.goud,lighten(C.goud,0.3),1.5); dot(ctx,cx+90,top+u*4.2,7,C.goud,lighten(C.goud,0.3),1.5); });
+  // voortplanting
+  alpha(ctx,A('voortpl'),()=>{ ctx.beginPath(); ctx.ellipse(cx+10,top+u*5.45,30,22,0,0,6.283); shape(ctx,rgba(C.koraal,0.4),lighten(C.koraal,0.2),1.5); dot(ctx,cx-30,top+u*5.4,7,C.koraal); dot(ctx,cx+50,top+u*5.4,7,C.koraal); });
+}
+const SYS={ // naam, sleutel, aanwijspunt (relatief in u), labelpositie, taak
+  spijs:['spijsverteringsstelsel',0.3,4.3,1400,470,'eten klein maken, opnemen'],
+  adem:['ademhalingsstelsel',-0.9,3.1,440,330,'zuurstof erin, koolstofdioxide eruit'],
+  bloed:['bloedvatenstelsel',-0.3,2.95,440,210,'alles rondbrengen'],
+  zenuw:['zenuwstelsel',0,0.5,1400,120,'signalen doorgeven'],
+  skelet:['skelet',0.7,6.6,1400,760,'stevigheid en bescherming'],
+  spier:['spierstelsel',-1.55,3.1,440,600,'bewegen'],
+  uitsch:['uitscheidingsstelsel',0.95,4.55,1400,600,'afval uit je bloed'],
+  afweer:['afweersysteem',1.35,2.5,1400,300,'tegen ziekteverwekkers'],
+  hormoon:['hormoonstelsel',0,0.85,440,110,'regelen met stoffen in je bloed'],
+  voortpl:['voortplantingsstelsel',0.1,5.45,440,760,'nieuw leven'],
+};
+function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
+// kuitspier als orgaan (doorsnede-achtig, vlak)
+function calf(x,y,s,a=1,o={}){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s);
+  ctx.beginPath(); ctx.ellipse(0,0,120,250,0,0,6.283); shape(ctx,rgba(C.koraal,0.5),lighten(C.koraal,0.2),2);
+  ctx.strokeStyle=rgba(C.koraal,0.7); ctx.lineWidth=1.5; for(let k=-4;k<=4;k++){ ctx.beginPath(); ctx.moveTo(k*22,-230+Math.abs(k)*12); ctx.lineTo(k*22,230-Math.abs(k)*12); ctx.stroke(); }
+  if(o.zenuw){ ctx.save(); ctx.globalAlpha*=o.zenuw; ctx.strokeStyle=C.paars; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(-20,-250); ctx.quadraticCurveTo(20,-60,-10,200); ctx.stroke(); [[-80,-60],[60,0],[-70,80],[50,120]].forEach(([dx,dy])=>{ ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,dy-60); ctx.quadraticCurveTo(dx*0.5,dy-20,dx,dy); ctx.stroke(); }); ctx.restore(); }
+  if(o.vat){ ctx.save(); ctx.globalAlpha*=o.vat; ctx.strokeStyle='#C47070'; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(30,-250); ctx.quadraticCurveTo(-30,0,20,230); ctx.stroke(); ctx.strokeStyle=C.teal; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(50,-245); ctx.quadraticCurveTo(0,20,40,225); ctx.stroke(); ctx.restore(); }
+  if(o.bind){ ctx.save(); ctx.globalAlpha*=o.bind; ctx.beginPath(); ctx.ellipse(0,0,134,262,0,0,6.283); ctx.strokeStyle=C.grain; ctx.lineWidth=10; ctx.stroke(); ctx.restore(); }
+  if(o.pees){ ctx.save(); ctx.globalAlpha*=o.pees; ctx.strokeStyle='#E9E4D6'; ctx.lineWidth=12; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(0,-250); ctx.lineTo(0,-320); ctx.moveTo(0,250); ctx.lineTo(0,330); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// weefseltegel: cirkel met een patroon
+function tissueTile(x,y,r,kind,a,t=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.fillStyle=C.bgMicro; ctx.fill(); ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); ctx.translate(x,y);
+  if(kind==='spier'){ for(let k=-3;k<=3;k++) muscleCell(0,k*44,r*2.4,1,16); }
+  if(kind==='zenuw'){ neuron(-110,-40,0.55); neuron(-60,70,0.45); neuron(-150,120,0.4); }
+  if(kind==='bot'){ ctx.fillStyle='#E9E4D6'; ctx.fillRect(-r,-r,2*r,2*r); for(let i=0;i<4;i++){ ctx.strokeStyle='#C9C3B3'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,30+i*32,0,6.283); ctx.stroke(); } for(let i=0;i<22;i++){ const an=hash(i*2.1)*6.283, d=35+hash(i*5.3)*(r-45); ctx.beginPath(); ctx.ellipse(Math.cos(an)*d,Math.sin(an)*d,7,4,an,0,6.283); shape(ctx,rgba(C.kern,0.8),lighten(C.kern,0.3),1); } }
+  if(kind==='bind'){ ctx.strokeStyle=C.grain; ctx.lineWidth=2.5; for(let i=0;i<16;i++){ const an=hash(i*1.7)*6.283, px=(hash(i*3.1)-0.5)*2*r, py=(hash(i*4.3)-0.5)*2*r; ctx.beginPath(); ctx.moveTo(px-Math.cos(an)*120,py-Math.sin(an)*120); ctx.lineTo(px+Math.cos(an)*120,py+Math.sin(an)*120); ctx.stroke(); } for(let i=0;i<9;i++){ const px=(hash(i*7.1)-0.5)*1.6*r, py=(hash(i*8.3)-0.5)*1.6*r; ctx.beginPath(); ctx.ellipse(px,py,16,9,hash(i)*3,0,6.283); shape(ctx,rgba(C.grain,0.35),C.grain,1.2); nucleus(ctx,px,py,5,1,0); } }
+  if(kind==='dek'){ for(let row=-2;row<=2;row++) for(let c=-4;c<=4;c++){ const px=c*60+(row%2?30:0), py=row*34; ctx.beginPath(); ctx.ellipse(px,py,31,17,0,0,6.283); shape(ctx,'rgba(120,155,205,0.22)','rgba(55,85,145,0.6)',1.5); dot(ctx,px,py,6,'rgba(42,62,128,0.85)'); } }
+  if(kind==='bloed'){ ctx.fillStyle=rgba('#E8D9A8',0.18); ctx.fillRect(-r,-r,2*r,2*r); for(let i=0;i<14;i++){ const px=(hash(i*2.7)-0.5)*1.8*r, py=(hash(i*3.9)-0.5)*1.8*r+(t*20+i*13)%40-20; rbc(px,py,22); } dot(ctx,30,-40,18,'rgba(235,235,245,0.9)','#C9C3D6',1.5); dot(ctx,-70,60,16,'rgba(235,235,245,0.9)','#C9C3D6',1.5); }
+  ctx.restore(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.stroke(); ctx.restore(); }
+// bloedvat (schematisch, verticaal) met bewegende cellen
+function vessel(x,y,w,h,t,a=1,label=true){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x-w/2,y,w,h,w/2); shape(ctx,rgba('#9A4A4A',0.35),'#C47070',2); ctx.save(); roundRect(ctx,x-w/2,y,w,h,w/2); ctx.clip(); for(let i=0;i<12;i++){ const py=y+((t*70+i*(h/9))%h), px=x+(hash(i*3.3)-0.5)*(w-70); rbc(px,py,20+hash(i)*6); } dot(ctx,x+10,y+((t*55+200)%h),17,'rgba(235,235,245,0.9)','#C9C3D6',1.5); ctx.restore(); ctx.restore(); }
+// slaplant met organen (bloeiende sla: stengel, bloem), in de grond
+function groundLine(y){ ctx.fillStyle='#2A2119'; ctx.fillRect(0,y,W,H-y); ctx.strokeStyle=lighten(C.bruin,0.2); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+function roots(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle='#D9CFA8'; ctx.lineCap='round'; [[0,0,-30,120,-60,250,5],[0,0,40,100,90,230,4.5],[0,0,-90,80,-180,170,3.5],[0,0,100,60,200,150,3.5],[0,0,-20,160,20,300,3],[-30,120,-110,140,-150,220,2],[40,100,120,150,150,260,2],[-60,250,-90,290,-100,340,1.5],[90,230,130,280,160,330,1.5]].forEach(([ax,ay,bx,by,cx2,cy2,w])=>{ ctx.lineWidth=w*s; ctx.beginPath(); ctx.moveTo(x+ax*s,y+ay*s); ctx.quadraticCurveTo(x+bx*s,y+by*s,x+cx2*s,y+cy2*s); ctx.stroke(); }); ctx.restore(); }
+function flower(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let k=0;k<8;k++){ const an=k/8*6.283; ctx.beginPath(); ctx.ellipse(x+Math.cos(an)*22*s,y+Math.sin(an)*22*s,20*s,9*s,an,0,6.283); shape(ctx,C.goud,lighten(C.goud,0.3),1.5); } dot(ctx,x,y,12*s,C.oker,lighten(C.oker,0.3),1.5); ctx.restore(); }
+function slaPlant(x,yg,s,o={}){ // x, grondlijn yg; o: {wortel,stengel,blad,bloem,hl}
+  const A=k=>o[k]===undefined?1:o[k];
+  roots(x,yg,s*0.9,A('wortel'));
+  alpha(ctx,A('stengel'),()=>{ ctx.strokeStyle=G1; ctx.lineWidth=16*s; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x,yg); ctx.quadraticCurveTo(x+10*s,yg-250*s,x-6*s,yg-470*s); ctx.stroke(); ctx.strokeStyle=lighten(G1,0.3); ctx.lineWidth=2; ctx.stroke(); });
+  alpha(ctx,A('blad'),()=>{ [[-90,-120,0.9,-0.9,1],[95,-140,0.9,0.9,2],[-80,-250,0.75,-1.0,3],[85,-270,0.75,1.0,4],[-60,-360,0.6,-1.1,5],[60,-380,0.6,1.1,6]].forEach(([dx,dy,sc,rot,seed])=>{ lettuceLeaf(x+dx*s,yg+dy*s,95*s*sc,55*s*sc,rot,seed,x,yg+dy*s+40*s,seed%2?G1:G2,V1,{amp:0.06}); }); });
+  flower(x-6*s,yg-490*s,s*1.1,A('bloem'));
+  if(o.hl){ const P={wortel:[x,yg+150*s,200*s],stengel:[x,yg-230*s,70*s],blad:[x+95*s,yg-140*s,110*s],bloem:[x-6*s,yg-490*s,60*s]}[o.hl]; ctx.save(); ctx.setLineDash([10,8]); ctx.beginPath(); ctx.arc(P[0],P[1],P[2],0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); } }
+// bladdoorsnede: opperhuid boven en onder, bladmoes, vaatbundel
+function leafCross(x,y,w,o={}){ const A=k=>o[k]===undefined?1:o[k]; const h=360;
+  ctx.save(); ctx.beginPath(); ctx.rect(x-w/2,y-h/2,w,h); ctx.fillStyle=C.bgMicro; ctx.fill(); ctx.strokeStyle=rgba(C.line,0.3); ctx.lineWidth=1; ctx.stroke();
+  alpha(ctx,A('moes'),()=>{ for(let r=0;r<4;r++) for(let c=0;c<Math.floor(w/70);c++){ const px=x-w/2+45+c*70+(r%2?20:0), py=y-110+r*72; if(Math.abs(px-x)<70&&r>=1&&r<=2) continue; ctx.beginPath(); ctx.ellipse(px,py,30,32,0,0,6.283); shape(ctx,rgba(C.teal,0.18),C.groen,3); for(let k=0;k<4;k++){ const an=k*1.6+hash(r*11+c); chloroplast(ctx,px+Math.cos(an)*14,py+Math.sin(an)*15,16,1,an); } } });
+  alpha(ctx,A('opper'),()=>{ [y-h/2+22,y+h/2-22].forEach(py=>{ for(let c=0;c<Math.floor(w/60);c++){ const px=x-w/2+32+c*60; ctx.beginPath(); ctx.ellipse(px,py,29,19,0,0,6.283); shape(ctx,rgba('#C9D6E6',0.25),'#9FB3CC',2); dot(ctx,px,py,5,'rgba(42,62,128,0.85)'); } }); });
+  alpha(ctx,A('vaat'),()=>{ ctx.beginPath(); ctx.ellipse(x,y+10,64,78,0,0,6.283); shape(ctx,rgba(C.oker,0.2),C.oker,3); [[-22,-30],[22,-30],[0,-5],[-24,22],[24,22],[0,45]].forEach(([dx,dy])=>{ ctx.beginPath(); ctx.arc(x+dx,y+10+dy,14,0,6.283); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),2); }); });
+  if(o.hl){ const P={opper:[x,y-h/2+22,w,50],moes:[x,y-25,w,200],vaat:[x,y+10,150,180]}[o.hl]; ctx.save(); ctx.setLineDash([10,8]); roundRect(ctx,P[0]-P[2]/2,P[1]-P[3]/2,P[2],P[3],12); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// trap van vijf treden
+const TRAP=[['cel','',C.koraal],['weefsel','dezelfde cellen, dezelfde taak'],['orgaan','verschillende weefsels samen'],['orgaanstelsel','organen die samenwerken'],['organisme','alles samen: één levend wezen']];
+function trap(al,sub=true){ const x0=120,y0=780,sw=330,sh=118;
+  TRAP.forEach((s,i)=>{ const a=al[i]; if(a<=0.01) return; alpha(ctx,a,()=>{ const x=x0+i*sw, y=y0-i*sh; ctx.beginPath(); ctx.rect(x,y,sw-6,H-y-200); shape(ctx,rgba(C.fill,0.9),C.line,1.5); text(ctx,s[0],x+24,y+52,fTekst(40,700),C.goud); if(sub&&s[1]){ ctx.font=fTekst(26); ctx.fillStyle=C.text2; ctx.textAlign='left'; wrap(ctx,s[1],x+24,y+92,sw-50,32); } }); }); }
+function trapArt(al,t){ // tekeningen op de treden: mens
+  alpha(ctx,al[0],()=>muscleCell(285,560,200));
+  alpha(ctx,al[1],()=>{ for(let k=0;k<5;k++) muscleCell(615,470+k*20-40,210,0.9); });
+  alpha(ctx,al[2],()=>calf(945,390,0.5,1,{zenuw:1,vat:1,bind:1}));
+  alpha(ctx,al[3],()=>{ ctx.save(); ctx.globalAlpha*=0.35; human(ctx,1275,420,300,1,C.mens); ctx.restore(); heart(1268,262,0.5,1,t*5); ctx.strokeStyle='#C47070'; ctx.lineWidth=3; ctx.lineCap='round'; [[1268,282,1250,400],[1268,282,1290,400],[1268,244,1268,160],[1262,250,1232,300],[1274,250,1304,300]].forEach(([a,b,c,d])=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.quadraticCurveTo((a+c)/2+6,(b+d)/2,c,d); ctx.stroke(); }); });
+  alpha(ctx,al[4],()=>human(ctx,1600,300,300,1,C.mens)); }
+
+
+// ===== Vertering — scènes (kerndoelen onderbouw, film 3) =====
+// Hulpjes uit film 1 (helpers1.js) en film 2 (helpers2.js) staan hierboven. Nieuw: de routekaart van het spijsverteringskanaal (`tractMap`), de hap die meereist (`hap`), mond, maag, darmvlokken, estafette, enzymschaartjes.
+
+// ---------- routekaart: één buis van mond tot anus ----------
+const ROUTE=[[250,300],[300,330],[330,400],[360,470],[430,520],[520,520],[560,470],[600,420],[660,400],[720,440],[760,500],[800,560],[860,600],[920,560],[960,500],[1000,440],[1060,400],[1120,440],[1160,500],[1200,560],[1260,600],[1320,560],[1360,500],[1400,440],[1460,400],[1500,440],[1520,520],[1520,620],[1480,700],[1380,730],[1260,730],[1160,730],[1160,660],[1300,640],[1440,640],[1560,660],[1620,720],[1660,800],[1700,860]];
+const RL=(()=>{ let L=[0]; for(let i=1;i<ROUTE.length;i++) L.push(L[i-1]+Math.hypot(ROUTE[i][0]-ROUTE[i-1][0],ROUTE[i][1]-ROUTE[i-1][1])); return L; })();
+function routePt(u){ const d=clamp(u,0,1)*RL[RL.length-1]; let i=1; while(i<RL.length-1&&RL[i]<d) i++; const a=ROUTE[i-1],b=ROUTE[i],k=(d-RL[i-1])/Math.max(1,RL[i]-RL[i-1]); return [lerp(a[0],b[0],k),lerp(a[1],b[1],k)]; }
+// stations als route-parameter u
+const ST={mond:0.0,slokdarm:0.05,maag:0.12,dunne:0.2,dunneEind:0.72,dikke:0.78,anus:1.0};
+function routeStroke(u0,u1,color,lw){ ctx.beginPath(); const N=80; for(let i=0;i<=N;i++){ const p=routePt(lerp(u0,u1,i/N)); i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]); } ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.stroke(); }
+function stomachShape(x,y,s,a=1,k=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s*k,s/k); ctx.beginPath(); ctx.moveTo(-50,-70); ctx.bezierCurveTo(-10,-110,80,-80,70,0); ctx.bezierCurveTo(60,70,-20,90,-60,50); ctx.bezierCurveTo(-90,20,-80,-40,-50,-70); ctx.closePath(); shape(ctx,C.oker,lighten(C.oker,0.25),2.5); ctx.restore(); }
+function tractMap(o={}){ const A=k=>o[k]===undefined?1:o[k];
+  // buis
+  routeStroke(0,1,rgba(C.okerD,0.35),30); routeStroke(0,1,rgba(C.bgSchema,0.6),22);
+  // gekleurde delen
+  alpha(ctx,A('slokdarm'),()=>routeStroke(ST.mond,ST.maag,C.oker,8)); alpha(ctx,A('dunne'),()=>routeStroke(ST.dunne,ST.dunneEind,C.okerD,8)); alpha(ctx,A('dikke'),()=>routeStroke(ST.dikke,1,lighten(C.okerD,0.15),14));
+  // mond
+  alpha(ctx,A('mond'),()=>{ ctx.beginPath(); ctx.arc(230,290,40,0,6.283); shape(ctx,C.fill,C.line,2); ctx.strokeStyle=C.text; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(230,290,24,0.2,2.94); ctx.stroke(); for(let k=0;k<5;k++){ ctx.fillStyle=C.text; ctx.fillRect(212+k*8,296,5,7); } });
+  // maag
+  alpha(ctx,A('maag'),()=>stomachShape(440,520,0.8,1,o.knead||1));
+  // lever + gal, alvleesklier
+  alpha(ctx,A('lever'),()=>{ ctx.beginPath(); ctx.moveTo(560,240); ctx.quadraticCurveTo(700,200,780,250); ctx.quadraticCurveTo(740,320,640,330); ctx.quadraticCurveTo(540,320,560,240); ctx.closePath(); shape(ctx,'#8E4A44','#B86A62',2); dot(ctx,700,330,16,C.groen,lighten(C.groen,0.3),1.5); });
+  alpha(ctx,A('alvleesklier'),()=>{ ctx.beginPath(); ctx.ellipse(640,660,90,22,-0.1,0,6.283); shape(ctx,rgba(C.goud,0.7),lighten(C.goud,0.3),2); });
+  alpha(ctx,A('speeksel'),()=>{ dot(ctx,300,250,14,C.teal,lighten(C.teal,0.3),1.5); });
+  // anus
+  alpha(ctx,A('anus'),()=>{ ctx.beginPath(); ctx.arc(1700,860,16,0,6.283); shape(ctx,C.fill,C.line,2); });
+}
+function tractLabels(o={}){ const L={mond:['mond',230,290,230,160,'left'],slokdarm:['slokdarm',345,440,120,600,'left'],maag:['maag',440,520,330,740,'right'],lever:['lever',680,260,940,160,'left'],gal:['gal',700,330,940,250,'left'],alvleesklier:['alvleesklier',640,660,940,760,'left'],dunne:['dunne darm',1060,400,1300,330,'left'],dikke:['dikke darm',1300,640,1120,860,'right'],anus:['anus',1700,860,1800,780,'left'],speeksel:['speekselklier',300,250,420,120,'left']};
+  Object.entries(L).forEach(([k,v])=>{ const a=o[k]===undefined?0:o[k]; if(a>0.01) label(ctx,v[0],o[k+'Meta']||'',v[1],v[2],v[3],v[4],a,o[k+'Col']||C.text,v[5]); }); }
+// de hap (stukje appel, later papje) en de pit
+function apple(x,y,r,a=1,bite=false){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,'#C94B4B','#E07070',2); if(bite){ ctx.beginPath(); ctx.arc(x+r*0.8,y-r*0.5,r*0.5,0,6.283); ctx.fillStyle=C.bgSchema; ctx.fill(); ctx.beginPath(); ctx.arc(x+r*0.8,y-r*0.5,r*0.5,0,6.283); ctx.fillStyle='#F2E8C8'; ctx.fill(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle='#E07070'; ctx.lineWidth=2; ctx.stroke(); } ctx.strokeStyle=C.bruin; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(x,y-r); ctx.lineTo(x+4,y-r-18); ctx.stroke(); ctx.beginPath(); ctx.ellipse(x+16,y-r-14,14,7,-0.5,0,6.283); shape(ctx,C.groen,lighten(C.groen,0.3),1.5); ctx.restore(); }
+function pitje(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,9*s,14*s,0.3,0,6.283); shape(ctx,'#5A3A22','#8C5A3A',1.5); ctx.restore(); }
+function hap(u,a=1,mush=0,t=0){ if(a<=0.01) return; const p=routePt(u); ctx.save(); ctx.globalAlpha*=a; if(mush<0.5){ ctx.beginPath(); ctx.arc(p[0],p[1],14,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',3); } else { for(let i=0;i<5;i++){ const q=routePt(clamp(u-i*0.012,0,1)); dot(ctx,q[0]+(hash(i)-0.5)*8,q[1]+(hash(i*3)-0.5)*8,7,rgba(C.oker,0.9)); } } pitje(p[0]+6,p[1]-4,0.8); ctx.restore(); }
+function clockPill(s,a){ pill(ctx,1700,120,'⏱ '+s,C.grain,a,28); }
+// mond groot: tanden en speeksel
+function bigMouth(x,y,s,a,t){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s);
+  ctx.beginPath(); ctx.ellipse(0,0,220,140,0,0,6.283); shape(ctx,'#7A3A4A','#A05868',2);
+  const open=0.5+0.5*Math.sin(t*4); [[-1,-1],[1,1]].forEach(([d])=>{ for(let k=0;k<7;k++){ const tx=-120+k*40; roundRect(ctx,tx,d>0?30*open:-30*open-34,32,34,6); shape(ctx,'#F2EFE6','#D9D4C4',1.5); } });
+  ctx.restore(); }
+function dropsFrom(x,y,tx,ty,t,n,color,a){ if(a<=0.01) return; for(let i=0;i<n;i++){ const u=((t*0.5+i/n)%1); alpha(ctx,a*Math.sin(u*Math.PI),()=>dot(ctx,lerp(x,tx,u),lerp(y,ty,u),6,color)); } }
+// darmwand met darmvlokken en bloedvaten
+function villi(x,y,w,a,t,o={}){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const n=Math.floor(w/70);
+  ctx.fillStyle=rgba(C.okerD,0.25); ctx.fillRect(x-w/2,y,w,200);
+  for(let i=0;i<n;i++){ const vx=x-w/2+35+i*70; roundRect(ctx,vx-24,y-220,48,240,24); shape(ctx,rgba(C.oker,0.5),lighten(C.oker,0.2),2); ctx.strokeStyle='#C47070'; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(vx-8,y+10); ctx.lineTo(vx-8,y-190); ctx.quadraticCurveTo(vx,y-205,vx+8,y-190); ctx.lineTo(vx+8,y+10); ctx.stroke(); }
+  ctx.strokeStyle=lighten(C.oker,0.2); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x-w/2,y); ctx.lineTo(x+w/2,y); ctx.stroke();
+  if(o.flow){ for(let i=0;i<12;i++){ const u=((t*0.35+i/12)%1); const vx=x-w/2+35+(i%n)*70; const col=[C.oker,C.paars,C.koraal][i%3]; alpha(ctx,o.flow,()=>dot(ctx,vx+(hash(i)-0.5)*26*(1-u),lerp(y-300,y+60,u),6,col)); } }
+  ctx.restore(); }
+// estafette: organen als haltes op een rij
+const EST=[['mond','klein maken'],['slokdarm','duwen'],['maag','kneden, zuur'],['alvleesklier','sap: afbreken'],['dunne darm','opnemen'],['dikke darm','water terug']];
+function estafette(al,t,o={}){ const x0=200,y=470,dx=300; EST.forEach(([n,m],i)=>{ const a=al[i]===undefined?1:al[i]; if(a<=0.01) return; alpha(ctx,a,()=>{ const x=x0+i*dx; dot(ctx,x,y,52,C.fill,C.line,2); text(ctx,n,x,y+100,fTekst(30,600),C.text,'center'); metaText(ctx,m,x,y+136,C.grain,'center',22); if(i<EST.length-1) arrow(ctx,x+60,y,x+dx-60,y,rgba(C.goud,0.7),3,12,o.arrows===undefined?1:o.arrows); }); });
+  if(o.baton!==undefined){ const u=o.baton; const i=Math.floor(u*(EST.length-1)), k=u*(EST.length-1)-i; const x=lerp(x0+i*dx,x0+Math.min(i+1,EST.length-1)*dx,k); hapDot(x,y-80); }
+  if(o.cross!==undefined) crossOut(ctx,x0+o.cross*dx,y,40,1); }
+function hapDot(x,y){ ctx.beginPath(); ctx.arc(x,y,14,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',3); }
+// enzymschaartje en kralenketting
+function beads(x,y,n,color,a=1,gap=26){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let i=0;i<n;i++) dot(ctx,x+i*gap,y,11,color,lighten(color,0.3),1.5); if(n>1){ ctx.strokeStyle=lighten(color,0.3); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+(n-1)*gap,y); ctx.stroke(); } ctx.restore(); }
+function scissors(x,y,s,a,open=0.5){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s); ctx.strokeStyle=C.teal; ctx.lineWidth=4; ctx.lineCap='round'; [[1],[-1]].forEach(([d])=>{ ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-40,d*open*30); ctx.stroke(); ctx.beginPath(); ctx.arc(-52,d*open*36,10,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(34,-d*open*18); ctx.stroke(); }); ctx.restore(); }
+
+// ================= SCÈNES =================
+const SCENES={
+// ---- cold open: appel, pit, wc ----
+s01(ctx,t,q){ kitchenBase(0.3,0); const tD=q.at('dag'), tW=q.at('wc');
+  const a1=1-ramp(t,tD-0.3,0.6); alpha(ctx,a1,()=>{ human(ctx,620,COUNTER,420,1,C.mens); const bite=ramp(t,q.at('Hap'),0.3); apple(700,520,46,1,bite>0.5);
+    const sw=fadeIO(t,q.at('slik'),q.at('pit')+0.5,0.3); alpha(ctx,sw,()=>pitje(620,COUNTER-330+40*clamp((t-q.at('slik'))/1.2,0,1),1.2));
+    label(ctx,'pit','per ongeluk doorgeslikt',628,COUNTER-300,900,300,fadeIO(t,q.at('pit'),tD,0.4),C.goud); });
+  const a2=ramp(t,tD-0.3,0.6); alpha(ctx,a2,()=>{ pill(ctx,560,170,'een dag later',C.grain,1,30); human(ctx,520,COUNTER,420,1,C.mens);
+    alpha(ctx,ramp(t,q.at('weg'),0.4),()=>{ apple(700,520,46,0.35); crossOut(ctx,700,520,40,1); metaText(ctx,'de appel: weg',700,620,C.grain,'center',24); });
+    const wc=ramp(t,tW,0.5); alpha(ctx,wc,()=>{ roundRect(ctx,1180,560,160,230,10); shape(ctx,C.fill,C.line,2); text(ctx,'WC',1260,640,fTekst(34,700),C.text,'center'); pitje(1260,730,2.2); });
+    label(ctx,'de pit','heel',1270,730,1480,600,ramp(t,q.at('Heel'),0.4),C.goud); });
+  pill(ctx,960,870,'waarom de appel wel en de pit niet?',C.goud,ramp(t,q.at('Waarom'),0.5),34);
+},
+// ---- titel ----
+s03(ctx,t,q){ bg(ctx,'schema'); const a=ramp(t,0.1,0.7); alpha(ctx,a,()=>{ text(ctx,'Vertering',120,330,fTitel(120),C.text); text(ctx,'De reis van een hap appel, van mond tot wc',120,410,fTekst(44),C.text2); });
+  alpha(ctx,ramp(t,0.5,1.2),()=>{ ctx.save(); ctx.translate(0,300); ctx.scale(0.8,0.8); ctx.translate(140,60); tractMap({}); hap(((t*0.04)%1),1,0); ctx.restore(); });
+  metaText(ctx,'ONDERBOUW · KERNDOELEN · FILM 3',W-80,60,C.text2,'right',24); },
+// ---- H1: de buis; waarom verteren ----
+s04(ctx,t,q){ bg(ctx,'schema'); const tWh=q.at('Waarom'), tBeg=q.at('Verteren');
+  const a1=1-ramp(t,tWh-0.3,0.6); alpha(ctx,a1,()=>{ tractMap({}); tractLabels({mond:1,maag:ramp(t,q.at('organen'),0.3),lever:ramp(t,q.at('organen'),0.3),alvleesklier:ramp(t,q.at('organen'),0.3),dunne:ramp(t,q.at('buis'),0.3),dikke:ramp(t,q.at('buis'),0.3),anus:ramp(t,q.at('anus'),0.3)});
+    const sp=ramp(t,q.at('spuiten'),0.5); dropsFrom(700,330,760,500,t,4,C.groen,sp); dropsFrom(640,640,720,560,t,4,C.goud,sp);
+    pill(ctx,960,100,'spijsverteringsstelsel: de buis + de organen die sap spuiten',C.goud,ramp(t,q.at('Samen'),0.5),30); });
+  const a2=ramp(t,tWh-0.3,0.6)*(1-ramp(t,tBeg-0.2,0.6)); alpha(ctx,a2,()=>{ bg(ctx,'micro'); animalCell(560,470,380,260,{t,kern:1,mitos:1,org:0}); apple(1000,470,60,1,true); crossOut(ctx,1000,470,56,ramp(t,q.at('niets'),0.4));
+    const vs=ramp(t,q.at('voedingsstoffen'),0.5); alpha(ctx,vs,()=>{ chips(ctx,[['suikers',ramp(t,q.at('suikers'),0.3),C.oker],['eiwitten',ramp(t,q.at('eiwitten'),0.3),C.paars],['vetten',ramp(t,q.at('vetten'),0.3),C.koraal]],800); for(let i=0;i<9;i++){ const u=((t*0.3+i/9)%1); dot(ctx,lerp(1400,760,u),470+Math.sin(u*7+i)*40,7,[C.oker,C.paars,C.koraal][i%3]); } });
+    const va=ramp(t,q.at('vast'),0.5); alpha(ctx,va,()=>{ apple(1500,470,110,1); for(let i=0;i<14;i++){ const an=hash(i*2.3)*6.283, d=Math.sqrt(hash(i*5.1))*80; dot(ctx,1500+Math.cos(an)*d,470+Math.sin(an)*d,7,[C.oker,C.paars,C.koraal][i%3]); } metaText(ctx,'zitten vast in de appel',1500,640,C.grain,'center',24); });
+    pill(ctx,960,100,'je cellen hebben voedingsstoffen nodig, als piepkleine deeltjes',C.goud,vs,30); });
+  const a3=ramp(t,tBeg-0.2,0.6); alpha(ctx,a3,()=>{ apple(400,470,120,1,true); arrow(ctx,560,470,700,470,C.goud,4,16,1); for(let i=0;i<6;i++){ const an=i*1.05; ctx.beginPath(); ctx.arc(820+Math.cos(an)*70,470+Math.sin(an)*60,28,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',2); } metaText(ctx,'klein maken',820,640,C.grain,'center',26);
+    const af=ramp(t,q.at('afbreken'),0.5); alpha(ctx,af,()=>{ arrow(ctx,940,470,1080,470,C.goud,4,16,1); for(let i=0;i<24;i++){ const an=hash(i*2.3)*6.283, d=Math.sqrt(hash(i*5.1))*110; dot(ctx,1240+Math.cos(an)*d,470+Math.sin(an)*d,7,[C.oker,C.paars,C.koraal][i%3]); } metaText(ctx,'afbreken: voedingsstoffen los',1240,640,C.grain,'center',26); });
+    pill(ctx,960,100,'verteren = klein maken en afbreken, tot de voedingsstoffen los zijn',C.goud,ramp(t,q.at('Verteren'),0.5),28);
+    const wv=ramp(t,q.at('Water'),0.5); alpha(ctx,wv,()=>{ chips(ctx,[['water',1,C.teal],['vitamines',1,C.groen]],800); metaText(ctx,'al klein genoeg: hoeven niet verteerd',960,850,C.grain,'center',24); }); });
+},
+// ---- H1: mond, slokdarm, op je kop ----
+s05(ctx,t,q){ bg(ctx,'schema'); const tS=q.at('slikt'), tK=q.at('kop');
+  const a1=1-ramp(t,tS-0.3,0.6); alpha(ctx,a1,()=>{ bigMouth(700,470,1,1,t*(ramp(t,q.at('tanden'),0.3))); const ch=ramp(t,q.at('tanden'),0.5); for(let i=0;i<6;i++){ const an=i*1.05; alpha(ctx,ch,()=>{ ctx.beginPath(); ctx.arc(700+Math.cos(an)*60*(1-0.3*ch),470+Math.sin(an)*30,16,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',2); }); }
+    alpha(ctx,1-ch,()=>apple(700,470,50,1,true));
+    const sp=ramp(t,q.at('Speeksel'),0.5); dropsFrom(520,330,640,440,t,5,C.teal,sp); dropsFrom(880,330,760,440,t,5,C.teal,sp);
+    label(ctx,'tanden','snijden en malen',760,400,1100,250,ch,C.text); label(ctx,'speeksel','maakt nat en glad',540,350,440,180,sp,C.teal);
+    pill(ctx,960,870,'zo kunnen de sappen er straks overal bij',C.goud,ramp(t,q.at('sappen'),0.5),30); });
+  const a2=ramp(t,tS-0.3,0.6); alpha(ctx,a2,()=>{ tractMap({}); const u=lerp(ST.mond,ST.slokdarm+0.02,clamp((t-tS)/2,0,1)); hap(u,1,0,t); tractLabels({slokdarm:1});
+    const kop=ramp(t,tK-0.5,0.6); alpha(ctx,kop,()=>{ ctx.save(); ctx.translate(1400,540); ctx.rotate(Math.PI); human(ctx,0,200,400,1,C.mens); ctx.restore(); apple(1400,760,30,1,true); arrow(ctx,1400,700,1400,620,C.goud,3,14,1); metaText(ctx,'op je kop slikken?',1400,840,C.grain,'center',26); });
+    pill(ctx,960,100,'komt het eten dan in je maag?',C.goud,ramp(t,q.at('Komt'),0.5),34); });
+},
+// ---- H2: slokdarm duwt; maag ----
+s07(ctx,t,q){ bg(ctx,'schema'); const tM=q.at('maag');
+  const a1=1-ramp(t,tM-0.3,0.6); alpha(ctx,a1,()=>{ // slokdarm groot, knijpende spieren achter de hap
+    const u=clamp((t-q.at('Spieren'))/3.5,0,1); const y=lerp(180,760,u); roundRect(ctx,860,120,200,720,100); shape(ctx,rgba(C.oker,0.25),C.oker,3);
+    ctx.beginPath(); ctx.ellipse(960,y+60,70,40,0,0,6.283); shape(ctx,rgba(C.oker,0.6),lighten(C.oker,0.3),2); ctx.beginPath(); ctx.arc(960,y+150,38,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',3);
+    [[-1],[1]].forEach(([d])=>arrow(ctx,960+d*160,y+60,960+d*95,y+60,C.koraal,4,14,ramp(t,q.at('knijpen'),0.4)));
+    label(ctx,'spieren in de wand','knijpen achter de hap, duwen hem voort',1060,y+60,1300,y-40,ramp(t,q.at('knijpen'),0.4),C.koraal);
+    alpha(ctx,ramp(t,q.at('kop'),0.4),()=>{ ctx.save(); ctx.translate(400,470); ctx.rotate(Math.PI); human(ctx,0,180,360,1,C.mens); ctx.restore(); pill(ctx,400,760,'ook op je kop',C.groen,1,28); }); });
+  const a2=ramp(t,tM-0.3,0.6); alpha(ctx,a2,()=>{ const kn=ramp(t,q.at('kneedt'),0.5); stomachShape(760,470,2.6,1,1+0.08*kn*Math.sin(t*3));
+    const sap=ramp(t,q.at('maagsap'),0.5); for(let i=0;i<14;i++){ const an=hash(i*2.1)*6.283, d=Math.sqrt(hash(i*4.3))*120; alpha(ctx,sap,()=>dot(ctx,740+Math.cos(an)*d,470+Math.sin(an)*d*0.8,6,C.teal)); }
+    for(let i=0;i<4;i++){ const an=i*1.5+t*0.8; ctx.beginPath(); ctx.arc(740+Math.cos(an)*60,470+Math.sin(an)*50,22*(1-0.5*ramp(t,q.at('papje'),1)),0,6.283); shape(ctx,'#F2E8C8','#C94B4B',2); }
+    label(ctx,'maag','een gespierde zak: kneedt',700,300,440,180,ramp(t,q.at('gespierde'),0.4)); label(ctx,'maagsap','zuur: doodt bacteriën, begint met eiwitten',800,560,1200,760,sap,C.teal);
+    const bac=fadeIO(t,q.at('bacteriën'),q.at('Twee'),0.4); for(let i=0;i<4;i++) alpha(ctx,bac,()=>{ roundRect(ctx,1300+i*50,330,30,12,6); shape(ctx,rgba(C.groen,0.7),C.groen,1.5); crossOut(ctx,1315+i*50,336,10,1); });
+    clockPill('2 tot 4 uur in je maag',ramp(t,q.at('Twee'),0.5));
+    alpha(ctx,ramp(t,q.at('papje'),0.5),()=>{ arrow(ctx,880,620,1120,760,C.goud,4,16,1); metaText(ctx,'beetje bij beetje naar de dunne darm',1300,800,C.grain,'center',26); }); });
+},
+// ---- H2: dunne darm, drie sappen, enzymen ----
+s08(ctx,t,q){ bg(ctx,'schema'); tractMap({mond:0.5,lever:ramp(t,q.at('Gal'),0.4),alvleesklier:ramp(t,q.at('alvleesklier'),0.4)});
+  const z=ramp(t,q.at('zes'),0.5); tractLabels({dunne:1,dunneMeta:z>0.5?'ongeveer zes meter, opgevouwen':'',alvleesklier:ramp(t,q.at('alvleesklier'),0.4),alvleesklierMeta:'sap: suikers, eiwitten én vetten',alvleesklierCol:C.goud,lever:ramp(t,q.at('Gal'),0.4),gal:ramp(t,q.at('Gal'),0.4),galMeta:'maakt van vet kleine druppels',galCol:C.groen});
+  dropsFrom(640,640,760,540,t,5,C.goud,ramp(t,q.at('alvleesklier'),0.5)); dropsFrom(700,330,760,470,t,5,C.groen,ramp(t,q.at('Gal'),0.5));
+  const dw=ramp(t,q.at('darmwand'),0.5); for(let i=0;i<8;i++){ const p=routePt(0.3+i*0.05); alpha(ctx,dw,()=>dot(ctx,p[0]+(i%2?14:-14),p[1]-14,5,C.teal)); } label(ctx,'darmwand','maakt zelf ook sap',routePt(0.5)[0],routePt(0.5)[1],1560,160,dw,C.teal);
+  const vet=fadeIO(t,q.at('druppels'),q.at('darmwand'),0.4); alpha(ctx,vet,()=>{ dot(ctx,1700,520,30,C.koraal); arrow(ctx,1740,520,1790,520,C.groen,3,12,1); for(let i=0;i<6;i++) dot(ctx,1812+(i%3)*24,508+Math.floor(i/3)*24,8,C.koraal); metaText(ctx,'gal: als afwasmiddel',1780,580,C.grain,'center',22); });
+  pill(ctx,960,100,'in al die sappen zitten enzymen: zij doen het afbreken',C.goud,fadeIO(t,q.at('enzymen'),q.at('piepklein'),0.4),30);
+  const los=ramp(t,q.at('los'),0.5); for(let i=0;i<18;i++){ const p=routePt(0.35+(i/18)*0.35); alpha(ctx,los,()=>dot(ctx,p[0]+(hash(i)-0.5)*10,p[1]+(hash(i*3)-0.5)*10,6,[C.oker,C.paars,C.koraal][i%3])); }
+  pill(ctx,960,100,'de voedingsstoffen zijn los en piepklein',C.goud,fadeIO(t,q.at('piepklein'),q.at('hoe'),0.4),30);
+  pill(ctx,960,100,'hoe komen ze bij je cellen?',C.goud,ramp(t,q.at('hoe'),0.5),34);
+},
+// ---- H2: darmwand, darmvlokken, opnemen ----
+s10(ctx,t,q){ bg(ctx,'micro'); const fl=ramp(t,q.at('gaan'),0.5);
+  villi(960,560,1300,1,t,{flow:fl});
+  label(ctx,'darmwand','dun, vol plooien',960,560,440,760,ramp(t,q.at('darmwand',2),0.4));
+  label(ctx,'darmvlokken','piepkleine vingertjes',1065,380,1180,200,ramp(t,q.at('darmvlokken'),0.4),C.oker);
+  label(ctx,'bloedvaten','in elke darmvlok',952,420,560,220,ramp(t,q.at('bloedvaten'),0.4),'#C47070');
+  pill(ctx,960,100,'opnemen: door de darmwand het bloed in',C.goud,fadeIO(t,q.at('opnemen'),q.at('dertig'),0.4),32);
+  pill(ctx,960,100,'binnenkant ≈ 30 m²: de vloer van een grote kamer',C.goud,fadeIO(t,q.at('dertig'),q.at('bloedvaten'),0.4),30);
+  const cel=ramp(t,q.at('cellen'),0.5); inset(1640,300,150,cel,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1490,150,300,300); animalCell(1640,300,120,90,{t,kern:1,mitos:1}); }); metaText(ctx,'verbranden, of bouwen er mee',1640,480,C.grain,'center',22*clamp(ramp(t,q.at('verbranden'),0.4),0.01,1));
+  pill(ctx,960,870,'je bloed brengt ze naar al je cellen',C.koraal,ramp(t,q.at('brengt'),0.5),30);
+},
+// ---- H2: de pit ----
+s11(ctx,t,q){ bg(ctx,'micro'); pitje(700,470,9); const sp=fadeIO(t,q.at('sap'),q.at('groot'),0.4); for(let k=0;k<6;k++){ const an=k/6*6.283; const u=((t*0.6+k/6)%1); alpha(ctx,sp,()=>dot(ctx,700+Math.cos(an)*(240-u*110),470+Math.sin(an)*(240-u*110),7,[C.goud,C.groen,C.teal][k%3])); }
+  label(ctx,'de pit','harde schil: geen sap komt erdoor',760,380,1100,220,ramp(t,q.at('schil'),0.4),C.goud);
+  const gr=ramp(t,q.at('groot'),0.5); alpha(ctx,gr,()=>{ villi(1500,620,500,1,t,{}); pitje(1500,330,6); crossOut(ctx,1500,330,40,ramp(t,q.at('past'),0.4)); metaText(ctx,'te groot voor de darmwand',1500,820,C.grain,'center',24); });
+  pill(ctx,960,870,'reist verder, met de vezels van de appel',C.text,ramp(t,q.at('reist'),0.5),30);
+},
+// ---- H3: dikke darm, bacteriën, ontlasting ----
+s12(ctx,t,q){ bg(ctx,'schema'); tractMap({mond:0.5,maag:0.6,lever:0.4,alvleesklier:0.4,dikke:1}); tractLabels({dikke:1,dikkeMeta:ramp(t,q.at('anderhalve'),0.4)>0.5?'ongeveer anderhalve meter':'',anus:ramp(t,q.at('anus'),0.4)});
+  const u=lerp(ST.dikke,0.98,clamp((t-q.at('dikke'))/Math.max(1,q.at('anus')-q.at('dikke')),0,1)); hap(u,1,1,t);
+  const wa=fadeIO(t,q.at('water'),q.at('bacteriën'),0.4); for(let i=0;i<8;i++){ const p=routePt(0.8+i*0.025); const k=((t*0.5+i/8)%1); alpha(ctx,wa,()=>dot(ctx,p[0],p[1]-20-k*60,6,C.teal)); } label(ctx,'water','terug je lichaam in',routePt(0.86)[0],routePt(0.86)[1]-60,1500,330,wa,C.teal);
+  const bac=ramp(t,q.at('bacteriën'),0.5); for(let i=0;i<14;i++){ const p=routePt(0.8+(i/14)*0.18); alpha(ctx,bac,()=>{ ctx.save(); ctx.translate(p[0]+(hash(i)-0.5)*10,p[1]+(hash(i*3)-0.5)*10); ctx.rotate(hash(i*7)*3); roundRect(ctx,-9,-4,18,8,4); shape(ctx,rgba(C.groen,0.8),lighten(C.groen,0.3),1); ctx.restore(); }); }
+  label(ctx,'bacteriën','vezels afbreken, vitamines maken',routePt(0.9)[0],routePt(0.9)[1],1540,580,bac,C.groen);
+  pill(ctx,960,100,'ontlasting: wat overblijft, steviger',C.text,fadeIO(t,q.at('ontlasting'),q.at('bacteriën'),0.4),30);
+  pill(ctx,960,100,'niet vies, maar handig',C.groen,fadeIO(t,q.at('handig'),q.at('Na'),0.4),30);
+  clockPill('1 tot 2 dagen',ramp(t,q.at('Na'),0.5));
+  pill(ctx,960,100,'ontlasting = alles wat nooit in je bloed kwam',C.goud,ramp(t,q.at('nooit'),0.5),30);
+  alpha(ctx,ramp(t,q.at('pit'),0.4),()=>pitje(1720,900,2));
+},
+// ---- H3: estafette, alvleesklier stopt? ----
+s13(ctx,t,q){ bg(ctx,'schema'); const e=ramp(t,q.at('orgaan'),0.5); const al=EST.map((_,i)=>ramp(t,q.at('orgaan')+i*0.25,0.4));
+  estafette(al,t,{baton:clamp((t-q.at('gaf'))/4,0,1),cross:t>=q.at('Stel')-0.2?3:undefined});
+  pill(ctx,960,150,'een estafette: elk orgaan doet een stuk en geeft door',C.goud,fadeIO(t,q.at('estafette'),q.at('Stel'),0.4),30);
+  pill(ctx,960,150,'stel: je alvleesklier stopt',C.koraal,ramp(t,q.at('Stel'),0.5),34);
+  pill(ctx,960,870,'wat gebeurt er?',C.goud,ramp(t,q.at('gebeurt'),0.5),34);
+},
+// ---- H3: zonder alvleesklier; orgaanstelsel ----
+s15(ctx,t,q){ bg(ctx,'schema'); estafette([1,1,1,1,1,1],t,{cross:3,baton:clamp((t-0.2)/Math.max(1,q.at('krijgt')-0.2),0,1)});
+  const va=ramp(t,q.at('vastzitten'),0.5); alpha(ctx,va,()=>{ apple(1400,250,60,1); for(let i=0;i<10;i++){ const an=hash(i*2.3)*6.283, d=Math.sqrt(hash(i*5.1))*44; dot(ctx,1400+Math.cos(an)*d,250+Math.sin(an)*d,6,[C.oker,C.paars,C.koraal][i%3]); } metaText(ctx,'voedingsstoffen blijven vastzitten',1400,350,C.grain,'center',22); });
+  pill(ctx,960,150,'het sap dat het meeste afbreekt, is er niet',C.koraal,fadeIO(t,q.at('sap'),q.at('wc'),0.4),30);
+  pill(ctx,960,150,'de dikke darm in, de wc in: je lichaam krijgt bijna niets',C.koraal,fadeIO(t,q.at('wc'),q.at('orgaanstelsel'),0.4),28);
+  pill(ctx,960,150,'orgaanstelsel: elk orgaan doet een stuk',C.goud,ramp(t,q.at('orgaanstelsel'),0.5),32);
+  pill(ctx,960,870,'valt er één uit, dan loopt de estafette vast',C.goud,ramp(t,q.at('Valt'),0.5),30);
+},
+// ---- H3 havo/vwo: enzymen knippen ----
+s16(ctx,t,q){ bg(ctx,'micro'); const rows=[['speeksel','zetmeel → kleine suikers',q.at('speeksel'),C.oker,6],['maagsap','eiwit → bouwstenen',q.at('maagsap'),C.paars,5],['alvleesklier','zetmeel, eiwit én vet',q.at('alvleesklier'),C.koraal,5]];
+  pill(ctx,960,100,'elk enzym knipt één soort stof',C.goud,ramp(t,q.at('knipt'),0.5),32);
+  rows.forEach(([n,m,tt,col,k],i)=>{ const a=ramp(t,tt,0.5); if(a<=0.01) return; const y=260+i*150; alpha(ctx,a,()=>{ text(ctx,n,120,y+8,fTekst(34,600),C.text); metaText(ctx,m,120,y+44,C.grain,'left',22);
+      const cut=clamp((t-tt-0.8)/1.5,0,1); beads(560,y,k,col,1,32*(1+cut*0.8)); if(cut<1) scissors(560+32*Math.floor(k/2)-16,y-30,1,1,0.5+0.5*Math.sin(t*6)); }); });
+  const gal=ramp(t,q.at('Gal'),0.5); alpha(ctx,gal,()=>{ text(ctx,'gal',120,718,fTekst(34,600),C.text); metaText(ctx,'geen enzym: alleen druppels',120,754,C.grain,'left',22); dot(ctx,560,710,26,C.koraal); arrow(ctx,600,710,650,710,C.groen,3,12,1); for(let i=0;i<5;i++) dot(ctx,680+i*26,710,8,C.koraal); });
+  const ch=ramp(t,q.at('chemische'),0.5); alpha(ctx,ch,()=>{ roundRect(ctx,1180,230,640,300,16); shape(ctx,rgba(C.fill,0.6),C.line,1); text(ctx,'afbreken = chemische verandering',1500,290,fTekst(30,600),C.goud,'center'); metaText(ctx,'een geknipte stof is een andere stof',1500,330,C.grain,'center',22); beads(1300,420,5,C.oker,1,30); arrow(ctx,1450,420,1520,420,C.goud,3,12,1); for(let i=0;i<5;i++) dot(ctx,1560+i*40,420,11,C.goud,lighten(C.goud,0.3),1.5); metaText(ctx,'zetmeel is zoet geworden',1500,480,C.grain,'center',22); });
+  const ka=ramp(t,q.at('Kauwen'),0.5); alpha(ctx,ka,()=>{ roundRect(ctx,1180,560,640,260,16); shape(ctx,rgba(C.fill,0.6),C.line,1); text(ctx,'kauwen: kleiner, dezelfde stof',1500,620,fTekst(30,600),C.text,'center'); apple(1340,720,40,1,true); arrow(ctx,1400,720,1460,720,C.goud,3,12,1); for(let i=0;i<4;i++){ ctx.beginPath(); ctx.arc(1520+i*50,720,18,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',2); } });
+},
+// ---- samenvatting ----
+s17(ctx,t,q){ bg(ctx,'schema'); tractMap({}); const u=clamp((t-0.3)/Math.max(1,q.at('Drie')-0.3),0,1); hap(u,1,u>0.25?1:0,t);
+  tractLabels({mond:ramp(t,q.at('Mond'),0.3),mondMeta:'klein maken, nat maken',slokdarm:ramp(t,q.at('Slokdarm'),0.3),slokdarmMeta:'duwen',maag:ramp(t,q.at('Maag'),0.3),maagMeta:'kneden, zuur maagsap',dunne:ramp(t,q.at('Dunne'),0.3),dunneMeta:'sappen; opnemen in het bloed',alvleesklier:ramp(t,q.at('alvleesklier'),0.3),lever:ramp(t,q.at('lever'),0.3),dikke:ramp(t,q.at('Dikke'),0.3),dikkeMeta:'water terug, bacteriën, ontlasting',anus:ramp(t,q.at('Dikke'),0.3)});
+  const st=ramp(t,q.at('Drie'),0.5); chips(ctx,[['klein maken',ramp(t,q.at('klein',2),0.3),C.goud],['afbreken',ramp(t,q.at('afbreken'),0.3),C.goud],['opnemen',ramp(t,q.at('opnemen',2),0.3),C.goud]],100);
+  pill(ctx,960,870,'samen, als estafette',C.goud,fadeIO(t,q.at('estafette'),q.at('pit'),0.4),30);
+  alpha(ctx,ramp(t,q.at('pit'),0.5),()=>{ pitje(1720,900,2); pill(ctx,960,870,'de pit: te hard voor elk sap, te groot voor de darmwand',C.text,1,28); });
+},
+// ---- eindkaart ----
+s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'de reis van een hap',120,260,C.grain,'left',26);
+  const P=[['Kauw op brood','Kauw een minuut op een stukje brood zonder te slikken. Wat proef je na een tijdje? Welk sap doet dat?'],['Teken de reis','Teken de buis van mond tot anus. Zet bij elk orgaan zijn taak en het sap dat erbij komt.'],['Rondleiding','Kijk nog eens de film Een rondleiding door je lichaam: welke organen van de rondleiding zag je nu van binnen?']];
+  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
+  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Iemand heeft geen gal meer. Welke voedingsstof wordt dan slechter verteerd, en waarom?',120,720,1680,46); });
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+};
+</script>
+<script>
+const GLOSSARY=[
+ {t:'verteren',d:'Eten klein maken en afbreken, tot de voedingsstoffen los zijn en door de darmwand kunnen.'},
+ {t:'voedingsstoffen',d:'Suikers, eiwitten en vetten (en water, vitamines, zouten): de stoffen die je cellen nodig hebben, als piepkleine deeltjes.'},
+ {t:'verteringssap',d:'Sap dat eten afbreekt: speeksel, maagsap, sap van de alvleesklier en van de darmwand. Gal maakt van vet kleine druppels.'},
+ {t:'enzym',d:'Een stof in verteringssap die het afbreken doet. Elk enzym knipt één soort stof.'},
+ {t:'darmwand en darmvlokken',d:'De wand van de dunne darm, vol plooien en piepkleine vingertjes met bloedvaten erin. Daardoor gaan de voedingsstoffen het bloed in.'},
+ {t:'opnemen',d:'Voedingsstoffen gaan door de darmwand het bloed in; het bloed brengt ze naar alle cellen.'},
+ {t:'ontlasting',d:'Alles wat nooit in je bloed kwam: vezels, bacteriën, de pit. Verlaat het lichaam via de anus.'},
+ {t:'estafette',d:'Elk orgaan doet een stuk en geeft het eten door. Valt er één uit, dan loopt het vast: zo werkt een orgaanstelsel.'},
+ {t:'chemische verandering',d:'Bij het afbreken ontstaat een andere stof (zetmeel wordt suiker). Kauwen maakt alleen kleiner.',vwo:true},
+];
+// ===== Player =====
+const DATA = window.FILMDATA;
+const params = new URLSearchParams(location.search);
+const state = {
+  niveau: params.get('niveau')==='basis' ? 'basis' : 'havovwo',
+  modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
+  auto: false, captions: true,
+  playing:false, t:0, items:[], idx:0, local:0,
+  qPhase:null // {phase:'countdown'|'wait'|'reveal', start, chosen}
+};
+const CARD_DUR=3.5, COUNTDOWN=8, REVEAL=6;
+const NO_CARD=['Cold open','Titel','Eindkaart'];
+
+// ---- build timeline ----
+function buildTimeline(){
+  const items=[]; let prevChapter=null;
+  for(const seg of DATA.segments){
+    if(state.niveau==='basis' && seg.level==='vwo') continue;
+    if(seg.chapter!==prevChapter && !NO_CARD.includes(seg.chapter)){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
+    if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
+    else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
+  }
+  let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
+}
+function makeQ(seg){
+  const words=seg.words||[]; const norm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,'');
+  const cache={};
+  return { at(w,n=1){ const key=w+'|'+n; if(key in cache) return cache[key]; let c=0; const nw=norm(w); for(const x of words){ if(norm(x.t).includes(nw)){ c++; if(c===n){ cache[key]=x.s; return x.s; } } } cache[key]=Infinity; return Infinity; },
+           on(w,n=1,d=0.6){ return ramp(this.localT, this.at(w,n), d); }, localT:0 };
+}
+
+// ---- canvas ----
+const canvas=document.getElementById('stage'); const ctx=canvas.getContext('2d');
+canvas.width=W; canvas.height=H;
+function render(){
+  const it=state.items[state.idx]; if(!it) return; const t=state.local; const gt=it.start+t;
+  ctx.save();
+  if(it.type==='card') drawChapterCard(ctx,it,t);
+  else if(it.type==='question') drawQuestion(ctx,it,t);
+  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
+  // UI layer: vwo marker
+  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
+  // series meta top-left
+  else if(!(it.seg&&it.seg.id==='s03')) metaText(ctx,'onderbouw · kerndoelen · film 3',60,46,C.text2,'left',20);
+  // captions
+  if(state.captions && it.type==='speech') drawCaption(ctx,it.seg,t);
+  ctx.restore();
+}
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+  const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
+  if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
+  const mini={'Hoofdstuk 1':'Mond en slokdarm','Hoofdstuk 2':'Maag en dunne darm','Hoofdstuk 3':'Dikke darm, en de estafette','Samenvatting':'De reis in drie stappen'}[num||it.chapter];
+  if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
+function drawQuestion(ctx,it,t){
+  bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
+  text(ctx,'Wat denk je?',120,200,fTitel(64),C.text); ctx.font=fTekst(40,600); ctx.fillStyle=C.text; wrap(ctx,seg.q,120,290,1680,52);
+  const revealed = ph.phase==='reveal';
+  seg.options.forEach((o,i)=>{ const y=430+i*112; const chosen=ph.chosen===i; const correct=i===seg.correct;
+    roundRect(ctx,120,y,1680,96,14); let fill=C.fill, stroke=C.line;
+    if(revealed){ if(correct){ fill=rgba(C.groen,0.25); stroke=C.groen; } else if(chosen){ fill=rgba(C.koraal,0.25); stroke=C.koraal; } }
+    else if(chosen){ stroke=C.goud; }
+    shape(ctx,fill,stroke,1.5); text(ctx,String.fromCharCode(97+i),160,y+62,fMeta(32),C.grain); text(ctx,o,220,y+62,fTekst(36),C.text);
+    if(revealed&&correct){ ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(1750,y+48,12,0,6.283); ctx.fill(); }
+  });
+  if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/COUNTDOWN,0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,CAPTION_Y-40); ctx.lineTo(120+1680*(1-u),CAPTION_Y-40); ctx.stroke(); metaText(ctx,'denk na…',120,CAPTION_Y-60,C.grain,'left',24); }
+  else if(ph.phase==='wait'){ metaText(ctx, state.modus==='klas'?'klas: druk op verder':'tik op een antwoord',120,CAPTION_Y-50,C.goud,'left',26); }
+  else { ctx.save(); roundRect(ctx,120,H-150,1680,110,14); shape(ctx,rgba(C.groen,0.12),C.groen,1.5); ctx.font=fTekst(32); ctx.fillStyle=C.text; wrap(ctx,seg.explain,150,H-105,1620,40); ctx.restore(); }
+  // option hit zones stored
+  state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
+}
+// captions: phrase chunks of ≤ 2 lines ≤ 44 chars
+function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+  for(const w of seg.words){ const t=w.t; cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+    if(len>80||(endS&&len>30)){ out.push(cur); cur=[]; len=0; } }
+  if(cur.length) out.push(cur); seg._chunks=out; return out; }
+function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && t<=c[c.length-1].e+0.6); if(!ch) return;
+  const s=ch.map(w=>w.t).join(' '); ctx.font=fTekst(44,700); const words=s.split(' '); const lines=[]; let line='';
+  for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>1500&&line){ lines.push(line); line=w; } else line=test; } if(line) lines.push(line);
+  const wmax=Math.max(...lines.map(l=>ctx.measureText(l).width)); const bh=lines.length*54+30, bw=wmax+60; const x=W/2-bw/2, y=H-40-bh;
+  roundRect(ctx,x,y,bw,bh,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill();
+  lines.forEach((l,i)=>text(ctx,l,W/2,y+54+i*54-8,fTekst(44,700),C.text,'center')); }
+
+// ---- transport ----
+const audio=document.getElementById('narration'); let clockStart=0, clockBase=0; let raf=0;
+function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx]; state.items.forEach(x=>x._clock=null); state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+  if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
+  else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
+  updateChapterUI(); }
+function seekGlobal(g){ g=clamp(g,0,state.total-0.01); const i=state.items.findIndex(it=>g<it.start+it.dur); gotoItem(i, g-state.items[i].start); }
+function play(){ state.playing=true; document.getElementById('play').textContent='❚❚'; const it=state.items[state.idx]; if(it.type==='speech'){ audio.play().catch(()=>{}); } else { clockBase=state.local; clockStart=performance.now()/1000; } }
+function pause(){ const it=state.items[state.idx]; if(it) it._clock=null; state.playing=false; document.getElementById('play').textContent='▶'; audio.pause(); }
+function tick(){
+  const it=state.items[state.idx];
+  if(state.playing && it){
+    if(it.type==='speech'){ if(!audio.ended){ state.local=audio.currentTime; } else { if(!it._clock) it._clock={base:Math.max(state.local,audio.duration||0),start:performance.now()/1000}; state.local=it._clock.base+(performance.now()/1000-it._clock.start); } if(state.local>=it.dur-0.02){ next(); } }
+    else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart); const ph=state.qPhase;
+      if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
+      else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
+    } else { state.local=clockBase+(performance.now()/1000-clockStart); if(state.local>=it.dur) next(); }
+  }
+  render(); updateTimeUI(); raf=requestAnimationFrame(tick);
+}
+function next(){ if(state.idx>=state.items.length-1){ pause(); state.local=state.items[state.idx].dur-0.01; return; } gotoItem(state.idx+1,0); }
+function answer(i){ const ph=state.qPhase; if(!ph||ph.phase==='reveal') return; ph.chosen=i; if(state.modus==='leerling'){ ph.phase='reveal'; ph.start=state.local; } }
+function verder(){ const ph=state.qPhase; if(!ph) return; if(ph.phase!=='reveal'){ ph.phase='reveal'; ph.start=state.local; } else next(); }
+
+// ---- UI wiring ----
+function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
+function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
+  for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
+    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='havovwo'?'<em>havo/vwo-blok</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
+function init(){
+  buildTimeline(); buildChapterList(); gotoItem(0,0);
+  document.getElementById('play').onclick=()=>state.playing?pause():play();
+  document.getElementById('seek').oninput=e=>seekGlobal(e.target.value/1000*state.total);
+  document.getElementById('verder').onclick=verder;
+  document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
+  document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+        const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('basis',state.niveau==='basis'); } }; }); };
+  setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('basis',state.niveau==='basis');
+  document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
+  canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
+  document.addEventListener('keydown',e=>{ if(e.code==='Space'){ e.preventDefault(); state.playing?pause():play(); } if(e.code==='ArrowRight') seekGlobal(state.items[state.idx].start+state.local+5); if(e.code==='ArrowLeft') seekGlobal(state.items[state.idx].start+state.local-5); });
+  // glossary + transcript
+  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>havo/vwo</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
+  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>havo/vwo</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
+  tick();
+}
+window.addEventListener('load',init);
+
+</script>
+</body>
+</html>
