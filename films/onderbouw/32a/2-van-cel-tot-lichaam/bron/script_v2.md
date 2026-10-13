@@ -73,6 +73,7 @@ Terug naar de sla. Heeft een plant ook organen? Wat denk je?
 Ja. Een slaplant is een organisme. Ook een plant heeft organen: wortels, een stengel en bladeren. En als hij bloeit, een bloem.
 Wortels halen water uit de grond. De stengel draagt en vervoert. Bladeren vangen licht. De bloem zorgt voor zaden.
 Alle wortels samen vormen het wortelstelsel: een orgaanstelsel van de plant.
+
 We zoomen in op één blad. Ook dat bestaat uit weefsels.
 Aan de buitenkant een laag platte cellen: de opperhuid. Die beschermt.
 Daaronder cellen vol bladgroenkorrels: het bladmoes. Dat maakt het voedsel van de plant.
