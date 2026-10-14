@@ -16,3 +16,7 @@ Kamiel wil films later makkelijk kunnen aanpassen. Daarom geldt bij **elke** fil
 5. Zet in de film de sitebalk (`<nav class="sitenav">`) met "← Terug naar <hoofdstuk>" naar `index.html#<hoofdstuk>`. Voeg de film toe aan `HOOFDSTUKKEN.<hoofdstuk>.films` in `index.html` (href, titel, vraag, tekst, duur, bij) en geef hem een lijntekening in `FILMKUNST` (sleutel = bestandsnaam zonder .html). Een nieuw hoofdstuk krijgt een eigen `HOOFDSTUKKEN`-blok, een kleur in `KLEUR` en een verwijzing (`#<id>`) in `NIVEAUS`.
 
 Controle vóór elke push: `find films -name '*.html' -not -path '*/bron/*'` mag geen film opleveren zonder bronmap.
+
+## Presentaties bij films
+
+Een film kan een klassikale presentatie krijgen: `films/<hoofdstuk>/<film>/presentatie.html` (of naast `<slug>.html`), gemaakt met `python3 scripts/presentatie.py <spec.json> <uit.html>` uit een JSON-spec met dia's (`titel`, `inhoud`, `vraag`, `samenvatting`; beelden = stills uit de film zonder ondertitels). Zet de spec en de beelden in een map `presentatie/` naast de film, en voeg in `HOOFDSTUKKEN` bij de film het veld `"pres": "<pad>"` toe: dan verschijnt er een knop Presentatie. Noteer de presentatie in `bron/info.md` van de film. Voorbeeld: Celorganellen.

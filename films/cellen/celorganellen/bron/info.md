@@ -153,3 +153,7 @@ Regelnummers verwijzen naar film.src.html (= index.html; er zijn geen blobs, dus
 - Pagina: kernporiën niet meer vwo-only, antwoord checkvraag 2 (ATP wordt gemaakt), misconceptie 5 en dekkingstabel (leerdoel 8 basis), footer 1.3.
 - `bouw/checkcues.js` toegevoegd (uit Diffusie).
 - Open: kleinere overlappen en afgesneden labels (s01, s04, s11, s14, s16, s18, s20, s21, s23), werkkopie in beeld bij s09, plantje s20 begint slap (zie review_v2.md).
+
+## Presentatie bij de film (14 okt 2026)
+
+`../presentatie.html` is een klassikale presentatie bij deze film (29 dia's: uitleg per hoofdstuk, alle denkvragen met antwoord, vwo-dia's met paarse rand, docentnotities). De inhoud staat in `../presentatie/presentatie.json`, de beelden in `../presentatie/img/` (stills uit de film zonder ondertitels, gemaakt met `bouw/shots.py` met `state.captions=false`). Aanpassen: wijzig de JSON en draai `python3 scripts/presentatie.py films/cellen/celorganellen/presentatie/presentatie.json films/cellen/celorganellen/presentatie.html`. Toetsen: → verder, A antwoord, N notities, V havo/vwo, O overzicht, F volledig scherm.

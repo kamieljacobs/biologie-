@@ -161,6 +161,7 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .film .vraag{margin:6px 0 0;font-size:18px;color:var(--text)}
 .film .tekst{margin:4px 0 0;color:var(--text2);font-size:15px}
 .film .meta{margin-top:8px;color:var(--text3);display:flex;gap:14px;flex-wrap:wrap}
+.knop-pres{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px var(--goud)}
 .film .acties{display:flex;flex-direction:column;align-items:flex-end;gap:8px;padding-top:4px}
 .vink{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--text3);font-size:14px;font-weight:600;padding:4px 2px;min-height:32px}
 .vink .box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--text3);display:inline-flex;align-items:center;justify-content:center}
@@ -430,12 +431,21 @@ const HOOFDSTUKKEN = {
   "meta": "havo · vwo · start van het jaar",
   "films": [
    {
-    "href": "films/cellen/onderzoek-doen/index.html",
-    "titel": "Onderzoek doen in de biologie",
-    "vraag": "Hoe weet je eigenlijk of iets waar is?",
-    "tekst": "Hoe je een goed onderzoek opzet: vraag, hypothese, variabelen, controle, betrouwbaarheid en validiteit",
-    "duur": 21,
-    "bij": "Film · onderzoeksvaardigheden"
+    "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+    "titel": "Van molecuul tot biosfeer",
+    "vraag": "Leeft een griepvirus eigenlijk?",
+    "tekst": "Levenskenmerken, de ladder van molecuul tot biosfeer, differentiatie, en waarom een virus een grensgeval is",
+    "duur": 7,
+    "bij": "Film · korte film · havo + vwo"
+   },
+   {
+    "href": "films/cellen/celorganellen/index.html",
+    "pres": "films/cellen/celorganellen/presentatie.html",
+    "titel": "Celorganellen",
+    "vraag": "Hoe krijgt één cel dat allemaal voor elkaar?",
+    "tekst": "Een fabriek die leeft: hoe één cel enzymen maakt, verpakt en naar buiten brengt, en welk organel welk levenskenmerk draagt",
+    "duur": 11,
+    "bij": "Film · celorganellen · havo + vwo"
    },
    {
     "href": "films/cellen/diffusie-osmose/index.html",
@@ -446,20 +456,12 @@ const HOOFDSTUKKEN = {
     "bij": "Film · diffusie en osmose · havo + vwo"
    },
    {
-    "href": "films/cellen/celorganellen/index.html",
-    "titel": "Celorganellen",
-    "vraag": "Hoe krijgt één cel dat allemaal voor elkaar?",
-    "tekst": "Een fabriek die leeft: hoe één cel enzymen maakt, verpakt en naar buiten brengt, en welk organel welk levenskenmerk draagt",
-    "duur": 11,
-    "bij": "Film · celorganellen · havo + vwo"
-   },
-   {
-    "href": "films/cellen/van-molecuul-tot-biosfeer.html",
-    "titel": "Van molecuul tot biosfeer",
-    "vraag": "Leeft een griepvirus eigenlijk?",
-    "tekst": "Levenskenmerken, de ladder van molecuul tot biosfeer, differentiatie, en waarom een virus een grensgeval is",
-    "duur": 7,
-    "bij": "Film · korte film · havo + vwo"
+    "href": "films/cellen/onderzoek-doen/index.html",
+    "titel": "Onderzoek doen in de biologie",
+    "vraag": "Hoe weet je eigenlijk of iets waar is?",
+    "tekst": "Hoe je een goed onderzoek opzet: vraag, hypothese, variabelen, controle, betrouwbaarheid en validiteit",
+    "duur": 21,
+    "bij": "Film · onderzoeksvaardigheden"
    }
   ],
   "tools": [
@@ -1746,7 +1748,7 @@ function hoofdstuk(id){
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}" data-href="${esc(f.href)}">
       <span class="nr"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}</span></span>
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div></div>
-      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a><button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
+      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`}).join('')}</section>`;
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
   if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
