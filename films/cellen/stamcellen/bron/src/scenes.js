@@ -20,17 +20,18 @@ function huidcel(ctx, x, y, s = 1, a = 1, col = HUIDC) { if (a <= 0.01) return; 
 function alvcel(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); for (let i = 0; i < 6; i++) { const an = i / 6 * 6.283 + 0.5; const px = x + Math.cos(an) * 52 * s, py = y + Math.sin(an) * 46 * s; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(ALV, 0.45), ALV, 2); for (let i = 0; i < 7; i++) circ(ctx, x + (hash(i + 3) - 0.5) * 60 * s, y - 14 * s + (hash(i + 11) - 0.5) * 30 * s, 4 * s, '#E8D27A'); circ(ctx, x, y + 16 * s, 11 * s, rgba(C.kern, 0.9)); ctx.restore(); }
 function bolcel(ctx, x, y, r, a = 1, col = '#E6D8A8') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(col, 0.35), col, 2); circ(ctx, x, y, r * 0.3, rgba(C.kern, 0.8)); ctx.restore(); }
 function stamcel(ctx, x, y, r, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r * (1.25 + 0.05 * Math.sin(t * 3)), rgba(STAM, 0.12)); circ(ctx, x, y, r, rgba(STAM, 0.4), STAM, 2.5); circ(ctx, x, y, r * 0.42, rgba(C.kern, 0.9), C.kernR, 1.5); ctx.restore(); }
-function rodeBC(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, ROOD, '#E07A6E', 2); circ(ctx, x, y, r * 0.45, rgba('#8A2A2A', 0.6)); ctx.restore(); }
+function rodeBC(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, ROOD, '#E07A6E', 2); circ(ctx, x, y, r * 0.5, rgba('#F0A89E', 0.4)); ctx.restore(); }
 function witteBC(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(WIT, 0.5), WIT, 2); for (let i = 0; i < 3; i++) circ(ctx, x + (i - 1) * r * 0.35, y + (i % 2 ? -1 : 1) * r * 0.15, r * 0.25, rgba(C.kern, 0.9)); ctx.restore(); }
 function plaatje(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.55, 0.4, 0, 6.283); shape(ctx, '#E8C27A', null); ctx.restore(); }
 function leukcel(ctx, x, y, r, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); for (let i = 0; i <= 12; i++) { const an = i / 12 * 6.283, rr = r * (0.85 + 0.25 * hash(i + Math.floor(x))); i ? ctx.lineTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr) : ctx.moveTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr); } ctx.closePath(); shape(ctx, rgba(LEUK, 0.45), LEUK, 2); circ(ctx, x, y, r * 0.5, rgba(C.kern, 0.95)); ctx.restore(); }
 function iks(ctx, x, y, s, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 5 * s; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 9 * s, y - 14 * s); ctx.quadraticCurveTo(x, y, x + 9 * s, y + 14 * s); ctx.moveTo(x + 9 * s, y - 14 * s); ctx.quadraticCurveTo(x, y, x - 9 * s, y + 14 * s); ctx.stroke(); ctx.restore(); }
 const CHR = ['#E07A5F', '#5BA4C9', '#7FC48F', '#E0B64A', '#8C7BBF'];
-function chromRij(ctx, x, y, a = 1) { for (let i = 0; i < 5; i++) iks(ctx, x - 64 + i * 32, y, 0.9, CHR[i], a); }
+function chromatide(ctx, x, y, s, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 6 * s; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y - 15 * s); ctx.quadraticCurveTo(x + 5 * s, y, x, y + 15 * s); ctx.stroke(); ctx.restore(); }
+function chromRij(ctx, x, y, a = 1) { for (let i = 0; i < 5; i++) chromatide(ctx, x - 64 + i * 32, y, 0.9, CHR[i], a); }
 // genen als lampjes: aan[] = 0..1 per lampje; hl = index gemarkeerd
 function lampjes(ctx, x, y, aan, col, a = 1, hl = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = aan.length, w = 40; ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - n * w / 2 - 10, y); ctx.lineTo(x + n * w / 2 + 10, y); ctx.stroke();
   for (let i = 0; i < n; i++) { const cx = x - n * w / 2 + w / 2 + i * w, v = aan[i]; if (v > 0.05) circ(ctx, cx, y, 22, rgba(col, 0.25 * v)); circ(ctx, cx, y, 13, v > 0.5 ? col : rgba(C.line, 0.25), v > 0.5 ? lighten(col, 0.3) : rgba(C.line, 0.6), 2); if (i === hl) { roundRect(ctx, cx - 20, y - 22, 40, 44, 10); shape(ctx, null, C.goud, 2.5); } } ctx.restore(); }
-function knie(ctx, x, y, s, heal, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.strokeStyle = SKINS[1]; ctx.lineWidth = 120; ctx.beginPath(); ctx.moveTo(-260, -160); ctx.lineTo(0, 0); ctx.lineTo(220, -190); ctx.stroke(); ctx.strokeStyle = '#3A4A6A'; ctx.lineWidth = 128; ctx.beginPath(); ctx.moveTo(-420, -300); ctx.lineTo(-250, -150); ctx.stroke();
+function knie(ctx, x, y, s, heal, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.strokeStyle = SKINS[1]; ctx.lineWidth = 120; ctx.beginPath(); ctx.moveTo(-260, -160); ctx.lineTo(0, 0); ctx.lineTo(220, -190); ctx.stroke(); ctx.fillStyle = '#2A3242'; ctx.beginPath(); ctx.ellipse(262, -238, 78, 42, -0.7, 0, 6.283); ctx.fill(); ctx.strokeStyle = '#3A4A6A'; ctx.lineWidth = 128; ctx.beginPath(); ctx.moveTo(-420, -300); ctx.lineTo(-250, -150); ctx.stroke();
   const sc = 1 - heal; if (sc > 0.01) { ctx.save(); ctx.globalAlpha *= sc; for (let i = 0; i < 9; i++) { ctx.strokeStyle = i % 2 ? '#B5474A' : '#D86A6A'; ctx.lineWidth = 6; ctx.beginPath(); const ox = -40 + i * 10, oy = -20 + (i % 3) * 8; ctx.moveTo(ox - 22, oy - 6); ctx.lineTo(ox + 22, oy + 6); ctx.stroke(); } ctx.restore(); }
   if (heal > 0.01 && heal < 0.9) { ctx.save(); ctx.globalAlpha *= heal * (1 - heal) * 3; ctx.beginPath(); ctx.ellipse(0, -10, 50, 26, -0.3, 0, 6.283); shape(ctx, rgba('#E8B4A0', 0.8), null); ctx.restore(); }
   ctx.restore(); }
@@ -39,9 +40,9 @@ function hart(ctx, x, y, s = 1, a = 1, t = 0, dood = 0, litteken = 0) { if (a <=
 function lerpColor(a, b, u) { const pa = [1, 3, 5].map(i => parseInt(a.substr(i, 2), 16)), pb = [1, 3, 5].map(i => parseInt(b.substr(i, 2), 16)); return '#' + pa.map((v, i) => Math.round(v + (pb[i] - v) * clamp(u, 0, 1)).toString(16).padStart(2, '0')).join(''); }
 // opperhuid: kiemlaag onderin, cellen schuiven omhoog, verhoornen en schilferen af
 function opperhuid(ctx, x, y, w, h, t, o = {}) { const { a = 1, beweeg = 1, kiem = 1, hoorn = 1, schilfer = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.rect(x, y - 60, w, h + 60); ctx.clip();
-  ctx.fillStyle = '#5A3A3A'; ctx.fillRect(x, y + h - 40, w, 40); regel(ctx, 'lederhuid', x + w - 20, y + h - 10, kiem * 0.8, C.text2, 22, 'right', 600);
+  ctx.fillStyle = '#5A3A3A'; ctx.fillRect(x, y + h - 40, w, 40); regel(ctx, 'lederhuid', x + w - 20, y + h - 10, kiem, C.text, 24, 'right', 600);
   const rows = 7, rh = (h - 90) / rows, cols = 6, cw = w / cols, ph = (t * 0.22 * beweeg) % 1;
-  for (let r = rows - 1; r >= 0; r--) { const pos = r + ph, u = pos / rows, yy = y + h - 80 - pos * rh; for (let c = 0; c < cols; c++) { const xx = x + cw / 2 + c * cw + (r % 2 ? cw / 2 : 0) - cw / 4; const hh = lerp(rh * 0.8, rh * 0.32, u), ww = cw * 0.92; let col = lerpColor('#C9A35C', '#8C8A80', clamp((u - 0.35) / 0.5, 0, 1)); let al = 1; let dx = 0, dy = 0; if (u > 0.86) { const f = (u - 0.86) / 0.14; al = 1 - f * schilfer; dx = f * 40 * (hash(c + r) - 0.5) * schilfer; dy = -f * 50 * schilfer; }
+  for (let r = rows - 1; r >= 0; r--) { const pos = r + ph, u = pos / rows, yy = y + h - 80 - pos * rh; for (let c = 0; c < cols; c++) { const xx = x + cw / 2 + c * cw + (r % 2 ? cw / 2 : 0) - cw / 4; const hh = lerp(rh * 0.8, rh * 0.32, u), ww = cw * 0.92; let col = lerpColor('#C9A35C', '#8C8A80', clamp((u - 0.35) / 0.5, 0, 1)); let al = clamp(pos / 0.9, 0, 1); let dx = 0, dy = 0; if (u > 0.86) { const f = (u - 0.86) / 0.14; al = 1 - f * schilfer; dx = f * 40 * (hash(c + r) - 0.5) * schilfer; dy = -f * 50 * schilfer; }
       ctx.save(); ctx.globalAlpha *= al; roundRect(ctx, xx - ww / 2 + dx, yy - hh / 2 + dy, ww, hh, Math.min(10, hh / 2)); shape(ctx, rgba(col, 0.55), col, 1.5); if (u < 0.6) circ(ctx, xx + dx, yy + dy, Math.max(3, hh * 0.18), rgba(C.kern, 0.85 * (1 - u / 0.6))); ctx.restore(); } }
   for (let c = 0; c < cols; c++) stamcel(ctx, x + cw / 2 + c * cw, y + h - 62, Math.min(30, cw * 0.32), 1, t + c);
   ctx.restore(); }
@@ -61,9 +62,9 @@ const SCENES = {
 
   s01(ctx, t, q) { bg(ctx, 'macro'); ctx.fillStyle = '#2A2F3E'; ctx.fillRect(0, 0, W, CAPTION_Y);
     const heal = ramp(t, q.at('later', 1), q.at('hersteld', 1) - q.at('later', 1) + 0.6);
-    knie(ctx, 560, 560, 1.1, heal, q.on('fiets', 1)); tag(ctx, 'schaafwond', 560, 760, C.koraal, q.on('schaaft', 1) * (1 - heal)); tag(ctx, 'huid hersteld', 560, 760, C.groen, heal);
+    knie(ctx, 560, 560, 1.1, heal, q.on('fiets', 1)); tag(ctx, 'schaafwond', 560, 760, C.koraal, q.on('schaaft', 1) * clamp(1 - heal * 2, 0, 1)); tag(ctx, 'huid hersteld', 560, 760, C.groen, clamp(heal * 2 - 1, 0, 1));
     const hz = q.on('hartinfarct', 1); hart(ctx, 1380, 470, 2.4, hz, t * (1 - q.on('sterft', 1) * 0.8), q.on('sterft', 1), q.on('littekenweefsel', 1));
-    tag(ctx, 'hartinfarct', 1380, 760, C.koraal, hz * (1 - q.on('littekenweefsel', 1))); tag(ctx, 'litteken: groeit niet terug', 1380, 760, C.text2, q.on('littekenweefsel', 1));
+    const lw = ramp(t, q.at('littekenweefsel', 1), 0.8); tag(ctx, 'hartinfarct', 1380, 760, C.koraal, hz * clamp(1 - lw * 2, 0, 1)); tag(ctx, 'litteken: groeit niet terug', 1380, 760, C.text2, clamp(lw * 2 - 1, 0, 1));
     vraagteken(ctx, 960, 300, q.on('Waarom', 1), 130); },
 
   s04(ctx, t, q) { bg(ctx, 'micro'); const B = q.on('kopie', 1);
@@ -72,7 +73,7 @@ const SCENES = {
       for (let i = 0; i < n; i++) { const [px, py] = n === 1 ? [0.5, 0.5] : n === 2 ? [i, 0.5] : pts[i]; bolcel(ctx, 960 + (px - 0.5) * r * 2.1, 470 + (py - 0.5) * r * 2.1, r, q.on('bevruchte', 1)); }
       regel(ctx, 'bevruchte eicel', 960, 200, q.on('bevruchte', 1) * (1 - dl), C.text, 34); regel(ctx, 'mitose: steeds meer cellen', 960, 200, dl, C.text, 34);
       tag(ctx, '± 30 biljoen cellen, > 200 soorten', 960, 820, C.goud, q.on('dertig', 1)); });
-    fade(ctx, B, () => { const types = [['zenuwcel', ZENUW, 'zenuwcel'], ['spiercel', SPIER, 'spiercel'], ['alvleeskliercel', ALV, 'alvleesklier'], ['huidcel', HUIDC, 'dezelfde']];
+    fade(ctx, B, () => { const types = [['zenuwcel', ZENUW, 'zenuwcel'], ['spiercel', SPIER, 'spiercel'], ['alvleeskliercel', ALV, 'alvleesklier'], ['huidcel', HUIDC, 'lichaamscellen']];
       types.forEach(([nm, col, w], i) => { const x = 330 + i * 400, al = Math.max(0.15, q.on(w, 1)); if (i === 0) zenuwcel(ctx, x - 40, 330, 1.6, al); else if (i === 1) spiercel(ctx, x, 330, 300, 64, al); else if (i === 2) alvcel(ctx, x, 330, 1.5, al); else huidcel(ctx, x, 330, 1.8, al); regel(ctx, nm, x, 460, al, col, 28); chromRij(ctx, x, 540, q.on('kopie', 1)); });
       regel(ctx, 'een kopie van hetzelfde DNA', 960, 160, q.on('kopie', 1), C.text, 34); tag(ctx, 'dezelfde genen', 960, 650, C.goud, q.on('dezelfde', 1) * (1 - q.on('bloedcel', 1)));
       fade(ctx, q.on('bloedcel', 1), () => { rodeBC(ctx, 960, 720, 46); regel(ctx, 'rode bloedcel: geen kern, dus geen DNA', 960, 820, 1, ROOD, 28); }); }); },
@@ -83,7 +84,7 @@ const SCENES = {
       const g = q.on('genen', 1); lampjes(ctx, x, 540, patroon[i].map(v => v * g), col, Math.max(0.3, g), ins > 0.5 && (i === 2 || i === 3) ? 2 : -1); });
     regel(ctx, 'genen', 120, 548, q.on('genen', 1), C.text2, 24, 'left', 600);
     tag(ctx, 'insuline-gen: aan', 1130, 640, C.groen, ins * (1 - dif)); tag(ctx, 'insuline-gen: uit, maar wel aanwezig', 1530, 720, C.text2, q.on('huidcellen', 1) * (1 - dif));
-    tag(ctx, 'gedifferentieerd: eigen bouw, eigen taak', 960, 700, C.goud, dif * (1 - q.on('differentiatie', 1))); tag(ctx, 'differentiatie', 960, 700, C.goud, q.on('differentiatie', 1)); },
+    const df = ramp(t, q.at('differentiatie', 1), 0.8); tag(ctx, 'gedifferentieerd: eigen bouw, eigen taak', 960, 700, C.goud, dif * clamp(1 - df * 2, 0, 1)); tag(ctx, 'differentiatie', 960, 700, C.goud, clamp(df * 2 - 1, 0, 1)); },
 
   s06(ctx, t, q) { bg(ctx, 'micro'); zenuwcel(ctx, 460, 380, 2, q.on('zenuwcel', 1)); regel(ctx, 'zenuwcel (hersenen)', 520, 560, q.on('zenuwcel', 1), ZENUW, 30);
     spiercel(ctx, 1460, 380, 440, 90, q.on('spiercel', 1)); regel(ctx, 'spiercel (been)', 1460, 560, q.on('spiercel', 1), SPIER, 30);
@@ -92,34 +93,34 @@ const SCENES = {
   s08(ctx, t, q) { bg(ctx, 'micro'); const dl = q.on('gedifferentieerde', 1);
     tag(ctx, 'antwoord b: hetzelfde DNA', 960, 140, C.goud, q.on('Antwoord', 1) * (1 - dl));
     fade(ctx, 1 - dl, () => { zenuwcel(ctx, 480, 340, 1.8); regel(ctx, 'zenuwcel', 520, 500, 1, ZENUW, 30); spiercel(ctx, 1440, 340, 400, 80); regel(ctx, 'spiercel', 1440, 500, 1, SPIER, 30);
-      const zg = q.on('zenuwgenen', 1); lampjes(ctx, 520, 610, [1, 0, 1, 1, 0, 0], ZENUW, 1, zg > 0.5 ? 0 : -1); lampjes(ctx, 1440, 610, [0, 1, 0, 1, 1, 0], SPIER, 1, zg > 0.5 ? 0 : -1);
+      const zg = q.on('zenuwgenen', 1); lampjes(ctx, 520, 610, [1, 0, 0, 1, 0, 1], ZENUW, 1, zg > 0.5 ? 0 : -1); lampjes(ctx, 1440, 610, [0, 1, 0, 1, 1, 0], SPIER, 1, zg > 0.5 ? 0 : -1);
       tag(ctx, 'zenuwgenen zitten ook in de spiercel: ze staan uit', 960, 760, C.text2, q.on('spiercel', 1)); });
     fade(ctx, dl, () => { zenuwcel(ctx, 520, 380, 1.8); regel(ctx, 'zenuwcel: deelt niet', 560, 560, q.on('zenuwcel', 2), ZENUW, 30); kruis(ctx, 700, 270, 26, q.on('deelt', 1));
-      hart(ctx, 1400, 380, 1.5, q.on('hartspiercel', 1), t); regel(ctx, 'hartspiercel: bijna niet', 1400, 560, q.on('hartspiercel', 1), SPIER, 30);
+      spiercel(ctx, 1400, 380, 360, 70, q.on('hartspiercel', 1), 0.5 + 0.5 * Math.sin(t * 5)); regel(ctx, 'hartspiercel: deelt bijna niet', 1400, 560, q.on('hartspiercel', 1), SPIER, 30);
       tag(ctx, 'stabiel lichaam', 760, 720, C.groen, q.on('stabiel', 1)); tag(ctx, 'slecht nieuws na een infarct', 1220, 720, C.koraal, q.on('infarct', 1)); }); },
 
   s09(ctx, t, q) { bg(ctx, 'schema'); const uit = q.on('Daarnaast', 1), del = q.on('deling', 1);
     // gen aan: DNA met promotor en gen
-    const y1 = uit > 0.5 ? 320 : 460, X0 = 200, PX = 520, GX0 = 640, GX1 = 1500;
+    const y1 = lerp(460, 320, uit), X0 = 200, PX = 520, GX0 = 640, GX1 = 1500;
     fade(ctx, 1 - del, () => { dnaStreng(ctx, X0, 1700, y1, 1); roundRect(ctx, PX - 80, y1 - 34, 160, 68, 12); shape(ctx, rgba(C.goud, 0.15 * q.on('promotor', 1)), rgba(C.goud, q.on('promotor', 1)), 2.5); regel(ctx, 'promotor', PX, y1 - 52, q.on('promotor', 1), C.goud, 26);
       roundRect(ctx, GX0, y1 - 34, GX1 - GX0, 68, 12); shape(ctx, null, rgba(C.groen, 0.8), 2); regel(ctx, 'gen', (GX0 + GX1) / 2, y1 - 52, q.on('gen', 1), C.groen, 26);
       const tfa = q.on('transcriptiefactoren', 1); tf(ctx, PX - 30, y1 - 20 - 60 * (1 - tfa), C.teal, tfa); tf(ctx, PX + 34, y1 - 20 - 80 * (1 - tfa), '#8C7BBF', tfa); regel(ctx, 'transcriptiefactoren', PX, y1 + 80, tfa, C.teal, 24);
-      const pol = q.on('polymerase', 1), px = lerp(GX0, GX1 - 60, ramp(t, q.at('overschrijven', 1), 4)); fade(ctx, pol, () => { ctx.beginPath(); ctx.ellipse(px + 40, y1, 60, 46, 0, 0, 6.283); shape(ctx, rgba(C.koraal, 0.4), C.koraal, 2); regel(ctx, 'RNA-polymerase', px + 40, y1 + 84, 1, C.koraal, 24); ctx.strokeStyle = '#E0B64A'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(GX0, y1 - 60); ctx.quadraticCurveTo((GX0 + px) / 2, y1 - 110, px + 20, y1 - 40); ctx.stroke(); });
-      tag(ctx, 'gen aan', 1760, y1 + 6, C.groen, q.on('overschrijven', 1));
+      const pol = q.on('polymerase', 1), px = lerp(GX0 + 120, GX1 - 60, ramp(t, q.at('overschrijven', 1), 4)); fade(ctx, pol, () => { ctx.beginPath(); ctx.ellipse(px + 40, y1, 60, 46, 0, 0, 6.283); shape(ctx, rgba(C.koraal, 0.4), C.koraal, 2); regel(ctx, 'RNA-polymerase', px + 40, y1 + 84, 1, C.koraal, 24); ctx.strokeStyle = '#E0B64A'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(GX0, y1 - 60); ctx.quadraticCurveTo((GX0 + px) / 2, y1 - 110, px + 20, y1 - 40); ctx.stroke(); });
+      tag(ctx, 'gen aan', 1810, y1 + 6, C.groen, q.on('overschrijven', 1));
       tag(ctx, 'elke celsoort: eigen combinatie', 960, y1 + 160, C.teal, q.on('combinatie', 1) * (1 - uit));
-      fade(ctx, uit, () => { const y2 = 640; dnaStreng(ctx, X0, 760, y2, 1); roundRect(ctx, PX - 80, y2 - 34, 160, 68, 12); shape(ctx, null, C.goud, 2); methyl(ctx, PX - 30, y2 - 30, q.on('methylgroep', 1)); methyl(ctx, PX + 30, y2 - 30, q.on('methylgroep', 1));
+      fade(ctx, uit, () => { const y2 = 640; dnaStreng(ctx, X0, 1640, y2, 1); roundRect(ctx, PX - 80, y2 - 34, 160, 68, 12); shape(ctx, null, C.goud, 2); methyl(ctx, PX - 30, y2 - 30, q.on('methylgroep', 1)); methyl(ctx, PX + 30, y2 - 30, q.on('methylgroep', 1));
         for (let i = 0; i < 4; i++) histon(ctx, 1000 + i * 150, y2, q.on('histonen', 1), q.on('strak', 1)); regel(ctx, 'histonen', 1225, y2 + 76, q.on('histonen', 1), '#C9A35C', 24); regel(ctx, 'methylgroep op de promotor', PX, y2 + 84, q.on('methylgroep', 1), C.koraal, 24);
-        tag(ctx, 'gen uit', 1760, y2 + 6, C.koraal, q.on('overgeschreven', 1)); }); });
-    fade(ctx, del, () => { huidcel(ctx, 560, 470, 2.4); for (let i = 0; i < 3; i++) methyl(ctx, 520 + i * 40, 430, 1); pijl(ctx, 760, 470, 960, 470, C.line, 1);
-      huidcel(ctx, 1160, 400, 2); huidcel(ctx, 1160, 560, 2); for (let k = 0; k < 2; k++) for (let i = 0; i < 3; i++) methyl(ctx, 1125 + i * 35, 370 + k * 160, 0.9);
-      regel(ctx, 'markeringen blijven na de deling', 960, 720, 1, C.text, 30); tag(ctx, 'epigenetica', 960, 820, C.goud, q.on('epigenetica', 1)); }); },
+        tag(ctx, 'gen uit', 1790, y2 + 6, C.koraal, q.on('overgeschreven', 1)); }); });
+    fade(ctx, del, () => { huidcel(ctx, 560, 470, 2.4); for (let i = 0; i < 3; i++) methyl(ctx, 540 + i * 20, 462, 1); pijl(ctx, 760, 470, 960, 470, C.line, 1);
+      huidcel(ctx, 1160, 400, 2); huidcel(ctx, 1160, 560, 2); for (let k = 0; k < 2; k++) for (let i = 0; i < 3; i++) methyl(ctx, 1143 + i * 17, 393 + k * 160, 0.9);
+      regel(ctx, 'markeringen op het DNA blijven na de deling', 960, 720, 1, C.text, 30); tag(ctx, 'epigenetica', 960, 820, C.goud, q.on('epigenetica', 1)); }); },
 
   s10(ctx, t, q) { bg(ctx, 'micro'); const om = q.on('omhoog', 1);
     opperhuid(ctx, 260, 140, 760, 700, t, { a: q.on('Onderin', 1), beweeg: om, schilfer: q.on('schilfert', 1) });
     regel(ctx, 'opperhuid', 640, 110, q.on('opperhuid', 1), C.text, 30); label(ctx, 'kiemlaag: stamcellen', null, 1000, 778, 1120, 780, q.on('kiemlaag', 1), STAM);
     label(ctx, 'verhoornen', null, 1000, 420, 1120, 420, q.on('verhoornt', 1), HOORN); label(ctx, 'dood, schilfert af', null, 1000, 160, 1120, 160, q.on('schilfert', 1), HOORN);
     // schema asymmetrische deling
-    fade(ctx, q.on('deling', 1) * (1 - q.on('verhoornt', 1)), () => { stamcel(ctx, 1500, 700, 46, 1, t); pijl(ctx, 1500, 650, 1420, 520, STAM, 1); pijl(ctx, 1500, 650, 1600, 520, C.line, 1); stamcel(ctx, 1400, 470, 40, q.on('stamcel', 3), t); regel(ctx, 'blijft stamcel', 1400, 400, q.on('stamcel', 3), STAM, 26); huidcel(ctx, 1620, 470, 1.2, q.on('andere', 1)); regel(ctx, 'schuift omhoog', 1620, 400, q.on('andere', 1), HUIDC, 26); regel(ctx, 'meestal', 1500, 800, q.on('meestal', 1), C.text2, 26); });
+    fade(ctx, q.on('deling', 1) * (1 - q.on('verhoornt', 1)), () => { stamcel(ctx, 1560, 620, 46, 1, t); pijl(ctx, 1505, 620, 1420, 620, STAM, 1); pijl(ctx, 1590, 575, 1660, 530, C.line, 1); stamcel(ctx, 1370, 620, 40, q.on('stamcel', 3), t); regel(ctx, 'blijft stamcel', 1370, 550, q.on('stamcel', 3), STAM, 26); huidcel(ctx, 1690, 470, 1.2, q.on('andere', 1)); regel(ctx, 'schuift omhoog', 1690, 400, q.on('andere', 1), HUIDC, 26); regel(ctx, 'meestal', 1470, 700, q.on('meestal', 1), C.text, 26); });
     tag(ctx, 'voorraad stamcellen blijft op peil', 1500, 300, STAM, q.on('peil', 1)); tag(ctx, 'in ± 4 weken een nieuwe opperhuid', 1500, 640, C.goud, q.on('weken', 1)); },
 
   s11(ctx, t, q) { bg(ctx, 'micro'); const mis = q.on('Misschien', 1);
@@ -127,21 +128,21 @@ const SCENES = {
     fade(ctx, 1 - mis, () => { opperhuid(ctx, 200, 240, 560, 520, t, { beweeg: 1 }); regel(ctx, 'huid: stamcellen blijven delen', 480, 820, q.on('huid', 1), C.groen, 28);
       hart(ctx, 1400, 460, 2, q.on('hartspier', 1), t); kruis(ctx, 1580, 280, 26, q.on('gevonden', 1)); regel(ctx, 'hartspier: geen stamcellen gevonden', 1400, 720, q.on('gevonden', 1), C.koraal, 28);
       tag(ctx, 'hartspiercellen: ± 1 % per jaar vernieuwd', 1400, 820, C.text2, q.on('procent', 1)); });
-    fade(ctx, mis, () => { spiercel(ctx, 540, 450, 360, 70, 1); regel(ctx, 'hartspiercel: "te groot"?', 540, 600, 1, SPIER, 28); const dl = q.on('deelt', 1), sp = ramp(t, q.at('deelt', 1), 1.2) * 70;
-      bolcel(ctx, 1400 - sp, 450, 170 - sp * 0.9, q.on('eicel', 1)); if (dl > 0.01) bolcel(ctx, 1400 + sp, 450, 170 - sp * 0.9, dl); regel(ctx, 'bevruchte eicel: heel groot, en deelt wél', 1400, 720, q.on('eicel', 1), '#E6D8A8', 28);
+    fade(ctx, mis, () => { spiercel(ctx, 540, 450, 360, 70, 1); regel(ctx, 'hartspiercel: "te groot"?', 540, 600, 1, SPIER, 28); const dl = q.on('deelt', 1), sp = ramp(t, q.at('deelt', 1), 1.2) * 120;
+      bolcel(ctx, 1400 - sp, 450, 170 - sp * 0.55, q.on('eicel', 1)); if (dl > 0.01) bolcel(ctx, 1400 + sp, 450, 170 - sp * 0.55, dl); regel(ctx, 'bevruchte eicel: heel groot, en deelt wél', 1400, 720, q.on('eicel', 1), '#E6D8A8', 28);
       tag(ctx, 'het gaat om specialisatie, niet om grootte', 960, 820, C.goud, q.on('specialisatie', 1)); }); },
 
   s12(ctx, t, q) { bg(ctx, 'micro'); const darm = q.on('darm', 1), vol = q.on('volwassen', 1);
-    fade(ctx, 1 - vol * 0.7, () => { bot(ctx, 520, 430, 1.1, q.on('beenmerg', 1), () => { stamcel(ctx, -120, 0, 34, 1, t); const dc = q.on('dochtercellen', 1); for (let i = 0; i < 10; i++) { const u = (t * 0.25 + i / 10) % 1; const bx = -80 + u * 260, by = Math.sin(i * 2.1) * 90; if (i % 4 === 3) witteBC(ctx, bx, by, 16, q.on('witte', 1)); else if (i % 4 === 2) plaatje(ctx, bx, by, 10, q.on('bloedplaatjes', 1)); else rodeBC(ctx, bx, by, 16, dc); } });
+    fade(ctx, 1 - vol * 0.92, () => { bot(ctx, 520, 430, 1.1, q.on('plekken', 1), () => { stamcel(ctx, -150, 0, 30, 1, t); const dc = q.on('dochtercellen', 1); const sp = ramp(t, q.at('dochtercellen', 1), 0.8) * 26; bolcel(ctx, -80, -sp, 16, dc); bolcel(ctx, -80, sp, 16, dc); for (let i = 0; i < 10; i++) { const u = (t * 0.25 + i / 10) % 1; const bx = -40 + u * 220, by = Math.sin(i * 2.1) * 90; if (i % 4 === 3) witteBC(ctx, bx, by, 16, q.on('witte', 1)); else if (i % 4 === 2) plaatje(ctx, bx, by, 10, q.on('bloedplaatjes', 1)); else rodeBC(ctx, bx, by, 16, dc); } });
       regel(ctx, 'rood beenmerg', 520, 720, q.on('beenmerg', 1), '#E07A6E', 28); tag(ctx, '± 2 miljoen rode bloedcellen per seconde', 520, 810, ROOD, q.on('miljoen', 1));
       fade(ctx, darm, () => { darmvlok(ctx, 1400, 780, 560, 240, 1); for (let i = 0; i < 4; i++) { const u = (t * 0.12 + i / 4) % 1; circ(ctx, 1290 + u * 40, 760 - u * 480, 10, rgba(C.goud, 0.9 * (1 - u))); } stamcel(ctx, 1290, 770, 18, 1, t); stamcel(ctx, 1510, 770, 18, 1, t);
-        regel(ctx, 'darm: binnenste laag', 1400, 150, 1, C.text, 28); tag(ctx, 'elke 3 tot 5 dagen nieuw', 1400, 810, C.goud, q.on('drie', 1)); }); });
+        regel(ctx, 'darm: binnenste laag', 1400, 150, 1 - vol, C.text, 28); regel(ctx, 'stamcellen', 1400, 740, 1, STAM, 24); tag(ctx, 'elke 3 tot 5 dagen nieuw', 1400, 858, C.goud, q.on('drie', 1)); }); });
     fade(ctx, vol, () => { tag(ctx, 'volwassen stamcel: alleen celsoorten van het eigen weefsel', 960, 140, STAM, 1); const bs = q.on('bloedstamcel', 1);
-      fade(ctx, bs, () => { roundRect(ctx, 620, 260, 680, 420, 24); shape(ctx, rgba(C.kast, 0.85), rgba(C.line, 0.5), 1.5); stamcel(ctx, 780, 470, 46, 1, t); regel(ctx, 'bloedstamcel', 780, 570, 1, STAM, 26); pijl(ctx, 840, 430, 1040, 360, C.groen, 1); rodeBC(ctx, 1090, 350, 30); witteBC(ctx, 1170, 350, 26); vink(ctx, 1250, 340, 18, q.on('bloedcellen', 1));
+      fade(ctx, bs, () => { roundRect(ctx, 620, 260, 680, 420, 24); shape(ctx, rgba(C.kast, 0.85), rgba(C.line, 0.5), 1.5); stamcel(ctx, 780, 470, 46, 1, t); regel(ctx, 'bloedstamcel', 780, 570, 1, STAM, 26); pijl(ctx, 840, 430, 1040, 360, C.groen, 1); rodeBC(ctx, 1090, 350, 30); witteBC(ctx, 1170, 350, 26); vink(ctx, 1250, 340, 18, q.on('bloedcellen', 3));
         pijl(ctx, 840, 510, 1040, 580, C.koraal, 1); huidcel(ctx, 1110, 590, 1.1); kruis(ctx, 1230, 590, 18, q.on('huid', 1)); }); }); },
 
   s13(ctx, t, q) { bg(ctx, 'micro'); const icm = q.on('klompje', 1), kw = q.on('kweken', 1);
-    blastocyst(ctx, lerp(960, 600, kw), 440, 230, q.on('embryo', 2), icm, t); regel(ctx, 'embryo van 5 dagen: holle bol', lerp(960, 600, kw), 740, q.on('embryo', 2), C.text, 30);
+    blastocyst(ctx, lerp(960, 600, kw), 440, 230, q.on('embryonale', 1), icm, t); regel(ctx, 'embryo van 5 dagen: holle bol', lerp(960, 600, kw), 740, q.on('embryo', 2), C.text, 30);
     label(ctx, 'klompje cellen binnenin', null, lerp(960, 600, kw), 310, lerp(1260, 900, kw), 180, icm * (1 - kw), STAM);
     fade(ctx, q.on('celsoort', 1) * (1 - kw), () => { const icons = [[1320, 330], [1380, 470], [1320, 610]]; zenuwcel(ctx, icons[0][0], icons[0][1], 0.9); spiercel(ctx, icons[1][0], icons[1][1], 160, 36); alvcel(ctx, icons[2][0], icons[2][1], 0.9); regel(ctx, 'elke celsoort', 1380, 740, 1, STAM, 28); });
     fade(ctx, kw, () => { schaal(ctx, 1380, 480, 300); for (let i = 0; i < 14; i++) stamcel(ctx, 1260 + (i % 7) * 40, 460 + Math.floor(i / 7) * 40 + Math.sin(i) * 6, 18, ramp(t, q.at('kweken', 1) + i * 0.08, 0.3), t); regel(ctx, 'kweek in het lab', 1380, 640, 1, C.text, 28); });
@@ -150,14 +151,14 @@ const SCENES = {
   s14(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('Daarna', 1), Cc = q.on('passen', 1), D = q.on('Daarna', 2);
     fade(ctx, 1 - B, () => { const chemo = q.on('chemo', 1); bot(ctx, 760, 450, 1.3, q.on('leukemie', 1), () => { for (let i = 0; i < 16; i++) { const px = -170 + (i % 6) * 66 + (Math.floor(i / 6) % 2) * 30, py = -100 + Math.floor(i / 6) * 90; const ab = ramp(t, q.at('ongeremd', 1) + i * 0.15, 0.4); if (i % 3 === 0 || ab > 0.5) leukcel(ctx, px, py, 26, (i % 3 === 0 ? 1 : ab) * (1 - chemo * 0.9), t); else rodeBC(ctx, px, py, 18, (1 - ab) * (1 - chemo)); } });
       regel(ctx, 'leukemie: afwijkende bloedcellen', 760, 790, q.on('afwijkende', 1), LEUK, 30); tag(ctx, 'delen ongeremd, verdringen gezonde cellen', 1440, 300, LEUK, q.on('verdringen', 1) * (1 - chemo)); tag(ctx, 'chemo (soms bestraling)', 1440, 380, C.teal, chemo); });
-    fade(ctx, B * (1 - Cc), () => { infuus(ctx, 500, 160, q.on('infuus', 1), t); person(ctx, 820, 860, 520, 1); bot(ctx, 1380, 470, 0.9, 1, () => { const ar = q.on('beenmerg', 3); for (let i = 0; i < 5; i++) stamcel(ctx, lerp(-260, -140 + i * 60, ar), lerp(-160, 0, ar) + Math.sin(i * 2) * 50, 20, q.on('bloedstamcellen', 1), t); for (let i = 0; i < 8; i++) rodeBC(ctx, 40 + (i % 4) * 40, -40 + Math.floor(i / 4) * 70, 15, q.on('gezond', 2)); });
+    fade(ctx, B * (1 - Cc), () => { infuus(ctx, 500, 160, q.on('infuus', 1), t); fade(ctx, q.on('infuus', 1), () => { ctx.strokeStyle = '#C9E0E8'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(500, 400); ctx.quadraticCurveTo(560, 640, 740, 600); ctx.stroke(); }); person(ctx, 820, 860, 520, 1); bot(ctx, 1380, 470, 0.9, 1, () => { const ar = q.on('beenmerg', 3); for (let i = 0; i < 5; i++) stamcel(ctx, lerp(-260, -140 + i * 60, ar), lerp(-160, 0, ar) + Math.sin(i * 2) * 50, 20, q.on('bloedstamcellen', 1), t); for (let i = 0; i < 8; i++) rodeBC(ctx, 40 + (i % 4) * 40, -40 + Math.floor(i / 4) * 70, 15, q.on('gezond', 2)); });
       regel(ctx, 'bloedstamcellen van een donor', 500, 470, q.on('donor', 1), STAM, 26); regel(ctx, 'zoeken zelf het beenmerg op', 1380, 760, q.on('zoeken', 1), STAM, 28); });
     fade(ctx, Cc * (1 - D), () => { const sym = (x, y, k, a) => { ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 3; i++) { const an = -1.2 + i * 1.2, sx = x + Math.cos(an) * 62, sy = y + Math.sin(an) * 62; if (k) { roundRect(ctx, sx - 10, sy - 10, 20, 20, 3); shape(ctx, C.goud, null); } else circ(ctx, sx, sy, 11, C.teal); } ctx.restore(); };
       bolcel(ctx, 520, 430, 60, 1, STAM); sym(520, 430, 1, q.on('herkenningseiwitten', 1)); regel(ctx, 'cel van de donor', 520, 570, 1, STAM, 28);
       bolcel(ctx, 1000, 430, 60, 1, '#E6D8A8'); sym(1000, 430, 1, q.on('herkenningseiwitten', 1)); regel(ctx, 'cel van de patiënt', 1000, 570, 1, '#E6D8A8', 28); vink(ctx, 760, 430, 26, q.on('herkenningseiwitten', 1));
       tag(ctx, 'de donor moet passen: bijna dezelfde herkenningseiwitten', 960, 140, C.goud, q.on('passen', 1));
       fade(ctx, q.on('Anders', 1), () => { bolcel(ctx, 1460, 430, 60, 1, STAM); sym(1460, 430, 0, 1); witteBC(ctx, lerp(1760, 1560, ramp(t, q.at('afweersysteem', 1), 1.5)), 430, 40); kruis(ctx, 1460, 300, 22, q.on('ruimt', 1)); regel(ctx, 'past niet: afstoting', 1520, 570, 1, C.koraal, 28); tag(ctx, 'of de donorcellen keren zich tegen de patiënt', 960, 720, C.koraal, q.on('keren', 1)); }); });
-    fade(ctx, D, () => { person(ctx, 960, 860, 560, 1); circ(ctx, 760, 420, 60, ROOD); regel(ctx, 'bloed: DNA en bloedgroep van de donor', 560, 280, q.on('bloed', 4), STAM, 28, 'center');
+    fade(ctx, D, () => { person(ctx, 960, 860, 560, 1); roundRect(ctx, 600, 380, 120, 300, 30); shape(ctx, rgba('#5A1E24', 0.6), '#E07A6E', 2); for (let i = 0; i < 5; i++) rodeBC(ctx, 660 + (i % 2 ? 18 : -18), 420 + i * 55 + ((t * 30) % 55), 20); regel(ctx, 'bloed: DNA en bloedgroep van de donor', 600, 340, q.on('bloed', 4), STAM, 28, 'center');
       regel(ctx, 'huid: eigen DNA', 1330, 330, q.on('huid', 1), HUIDC, 28); regel(ctx, 'geslachtscellen: eigen DNA', 1380, 560, q.on('geslachtscellen', 1), C.groen, 28); pijl(ctx, 1200, 330, 1040, 380, HUIDC, q.on('huid', 1), 3); pijl(ctx, 1180, 560, 1000, 600, C.groen, q.on('geslachtscellen', 1), 3); }); },
 
   s15(ctx, t, q) { bg(ctx, 'micro'); stamcel(ctx, 560, 450, 80, q.on('bloedstamcellen', 1), t); regel(ctx, 'bloedstamcel', 560, 600, q.on('bloedstamcellen', 1), STAM, 30); pijl(ctx, 700, 450, 1120, 450, C.line, q.on('hart', 1)); hart(ctx, 1380, 450, 2, q.on('hart', 1), t, 1, 1); vraagteken(ctx, 910, 360, q.on('herstellen', 1), 120); },
@@ -165,10 +166,11 @@ const SCENES = {
   s17(ctx, t, q) { bg(ctx, 'micro'); const mis = q.on('Misschien', 1);
     tag(ctx, 'antwoord c', 960, 120, C.goud, q.on('Antwoord', 1) * (1 - mis));
     fade(ctx, 1 - mis, () => { stamcel(ctx, 480, 450, 70, 1, t); regel(ctx, 'bloedstamcel', 480, 590, 1, STAM, 30); pijl(ctx, 570, 400, 900, 260, C.groen, q.on('bloedcellen', 1)); rodeBC(ctx, 960, 240, 32, q.on('bloedcellen', 1)); witteBC(ctx, 1040, 240, 30, q.on('bloedcellen', 1)); plaatje(ctx, 1110, 250, 14, q.on('bloedcellen', 1)); vink(ctx, 1180, 230, 20, q.on('bloedcellen', 1));
-      pijl(ctx, 570, 500, 900, 620, C.koraal, q.on('alleen', 1)); spiercel(ctx, 1010, 640, 200, 44, q.on('alleen', 1)); kruis(ctx, 1170, 640, 20, q.on('alleen', 1));
-      tag(ctx, 'alle genen, maar de keuzes liggen al vast', 1420, 440, C.text2, q.on('keuzes', 1)); tag(ctx, 'geprobeerd: geen nieuwe hartspier', 1420, 800, C.koraal, q.on('geprobeerd', 1)); });
-    fade(ctx, mis, () => { const tz = q.on('terugzetten', 1); huidcel(ctx, 380, 450, 2.2, q.on('huidcel', 1)); regel(ctx, 'gewone huidcel', 380, 570, q.on('huidcel', 1), HUIDC, 28); pijl(ctx, 540, 450, 820, 450, STAM, tz); regel(ctx, 'terugzetten', 680, 410, tz, STAM, 26);
-      stamcel(ctx, 960, 450, 80, q.on('stamcel', 2), t); regel(ctx, 'geïnduceerde stamcel', 960, 600, q.on('geïnduceerde', 1), STAM, 28); regel(ctx, 'kan bijna elke celsoort worden', 960, 650, q.on('celsoort', 1), C.text2, 24);
+      pijl(ctx, 570, 500, 900, 620, C.koraal, q.on('bloedcellen', 1)); spiercel(ctx, 1010, 640, 200, 44, q.on('bloedcellen', 1)); regel(ctx, 'hartspier', 1010, 710, q.on('bloedcellen', 1), SPIER, 26); kruis(ctx, 1170, 640, 20, q.on('bloedcellen', 1));
+      tag(ctx, 'alle genen, maar de keuzes liggen grotendeels vast', 1420, 440, C.text2, q.on('keuzes', 1)); tag(ctx, 'geprobeerd: geen nieuwe hartspier', 1420, 800, C.koraal, q.on('geprobeerd', 1)); });
+    fade(ctx, mis * (1 - q.on('huidcel', 1)), () => { stamcel(ctx, 640, 450, 70, 1, t); regel(ctx, 'bloedstamcel', 640, 590, 1, STAM, 30); regel(ctx, 'alle genen zitten erin…', 1220, 420, q.on('genen', 2), C.text, 34); tag(ctx, 'in het lab: bijna', 1220, 540, C.goud, q.on('lab', 1)); });
+    fade(ctx, mis * q.on('huidcel', 1), () => { const tz = q.on('terugzetten', 1); huidcel(ctx, 380, 450, 2.2, q.on('huidcel', 1)); regel(ctx, 'gewone huidcel', 380, 570, q.on('huidcel', 1), HUIDC, 28); pijl(ctx, 540, 450, 820, 450, STAM, tz); regel(ctx, 'terugzetten', 680, 410, tz, STAM, 26);
+      stamcel(ctx, 960, 450, 80, q.on('stamcel', 2), t); regel(ctx, 'geïnduceerde stamcel', 960, 600, q.on('geïnduceerde', 1), STAM, 28); regel(ctx, 'kan bijna elke celsoort worden', 960, 650, q.on('celsoort', 1), C.text, 26);
       const hs = q.on('hartspiercellen', 1); pijl(ctx, 1060, 450, 1300, 450, C.groen, hs); for (let i = 0; i < 3; i++) spiercel(ctx, 1480, 360 + i * 90, 260, 40, hs, 0.5 + 0.5 * Math.sin(t * 5 + i)); regel(ctx, 'hartspiercellen', 1480, 640, hs, SPIER, 28); }); },
 
   s18(ctx, t, q) { bg(ctx, 'micro'); const veel = q.on('veel', 1), sync = q.on('tegelijk', 1), sig = q.on('signaal', 1), wf = q.on('weefsel', 1);
@@ -176,27 +178,27 @@ const SCENES = {
     if (veel < 0.99) fade(ctx, 1 - veel, () => { const k = 0.5 + 0.5 * Math.sin(t * 5); spiercel(ctx, 960, 470, 300, 60, 1, k); regel(ctx, 'één losse cel: klopt al, in eigen tempo', 960, 620, q.on('losse', 1), SPIER, 28); });
     fade(ctx, veel, () => { for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) { const i = r * 6 + c, ph = hash(i) * 6.283 * (1 - sync), sp = lerp(3.5 + 2.5 * hash(i + 7), 5, sync), k = 0.5 + 0.5 * Math.sin(t * sp + ph); spiercel(ctx, 560 + c * 160 + (r % 2) * 80, 360 + r * 75, 170, 30, 1, k); }
       if (sig > 0.01 && sync < 0.99) { const u = ((t - q.at('signaal', 1)) * 0.8) % 1; ctx.save(); ctx.globalAlpha *= sig * (1 - u); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(560, 470, u * 600, u * 260, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
-      tag(ctx, 'ze geven een signaal aan elkaar door', 960, 690, C.goud, sig * (1 - sync)); tag(ctx, 'samen in één ritme', 960, 690, C.groen, sync * (1 - wf)); });
-    tag(ctx, 'weefsel: groep gelijke cellen met dezelfde taak', 960, 690, C.teal, wf * (1 - q.on('emergente', 1))); tag(ctx, 'emergente eigenschap: het geheel kan wat één cel niet kan', 960, 800, C.goud, q.on('emergente', 1)); },
+      const sy = ramp(t, q.at('tegelijk', 1), 0.8), wv = ramp(t, q.at('weefsel', 1), 0.8); tag(ctx, 'ze geven een signaal aan elkaar door', 960, 790, C.goud, sig * clamp(1 - sy * 2, 0, 1)); tag(ctx, 'samen in één ritme', 960, 790, C.groen, clamp(sy * 2 - 1, 0, 1) * clamp(1 - wv * 2, 0, 1)); });
+    tag(ctx, 'weefsel: groep gelijke cellen met dezelfde taak', 960, 790, C.teal, clamp(ramp(t, q.at('weefsel', 1), 0.8) * 2 - 1, 0, 1) * clamp(1 - ramp(t, q.at('emergente', 1), 0.8) * 2, 0, 1)); tag(ctx, 'emergente eigenschap: het geheel kan wat één cel niet kan', 960, 860, C.goud, q.on('emergente', 1)); },
 
   s19(ctx, t, q) { bg(ctx, 'schema'); const ips = q.on('Geïnduceerde', 1);
     regel(ctx, 'embryonale stamcellen', 480, 130, 1, STAM, 30); blastocyst(ctx, 480, 380, 150, 1 - 0.6 * q.on('verloren', 1), 1, t); kruis(ctx, 620, 250, 22, q.on('verloren', 1));
     tag(ctx, 'het embryo gaat verloren', 480, 620, C.koraal, q.on('verloren', 1)); tag(ctx, 'restembryo’s van ivf, met toestemming', 480, 700, C.text2, q.on('ivf', 1)); tag(ctx, 'strenge regels (Embryowet)', 480, 780, C.text2, q.on('streng', 1));
     ctx.save(); ctx.globalAlpha *= ips * 0.6; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(960, 160); ctx.lineTo(960, 840); ctx.stroke(); ctx.restore();
     fade(ctx, ips, () => { regel(ctx, 'geïnduceerde stamcellen', 1440, 130, 1, STAM, 30); huidcel(ctx, 1250, 340, 1.5); pijl(ctx, 1340, 340, 1480, 340, STAM, 1); stamcel(ctx, 1580, 340, 60, 1, t);
-      tag(ctx, 'eigen cellen: geen afstoting', 1440, 540, C.groen, q.on('afgestoten', 1)); const tu = q.on('tumoren', 1); for (let i = 0; i < 9; i++) leukcel(ctx, 1700 + (i % 3) * 30, 560 + Math.floor(i / 3) * 30, 15, tu * ramp(t, q.at('tumoren', 1) + i * 0.1, 0.3), t);
-      tag(ctx, 'risico: tumoren', 1440, 620, C.koraal, tu); tag(ctx, 'nu: vooral lab, enkele proeven bij patiënten', 1440, 780, C.text2, q.on('proeven', 1)); }); },
+      tag(ctx, 'eigen cellen: (vrijwel) geen afstoting', 1440, 540, C.groen, q.on('afgestoten', 1)); const tu = q.on('tumoren', 1); for (let i = 0; i < 9; i++) leukcel(ctx, 1810 + (i % 3) * 30, 520 + Math.floor(i / 3) * 30, 15, tu * ramp(t, q.at('tumoren', 1) + i * 0.1, 0.3), t);
+      tag(ctx, 'risico: tumoren (ook bij embryonale)', 1440, 620, C.koraal, tu); tag(ctx, 'nu: vooral lab, enkele proeven bij patiënten', 1440, 780, C.text2, q.on('proeven', 1)); }); },
 
   s20(ctx, t, q) { bg(ctx, 'schema'); const Y = q.on('2006', 1);
     fade(ctx, 1 - Y, () => { const rows = [['totipotent', 'hele lichaam + placenta', 'totipotent', 0], ['pluripotent', 'elke celsoort, geen placenta', 'pluripotent', 1], ['multipotent', 'een paar celsoorten van eigen weefsel', 'multipotent', 2], ['unipotent', 'maar één celsoort', 'unipotent', 3]];
       rows.forEach(([nm, uitleg, w, i]) => { const y = 230 + i * 165, a = Math.max(0.15, q.on(w, 1)), wbar = 1100 - i * 230; roundRect(ctx, 420, y - 50, wbar, 100, 20); shape(ctx, rgba(STAM, 0.12 + 0.12 * (3 - i) / 3), rgba(STAM, 0.7 * a), 1.5);
         ctx.save(); ctx.globalAlpha *= a; text(ctx, nm, 450, y - 4, fTekst(34, 700), C.text, 'left'); text(ctx, uitleg, 450, y + 34, fTekst(24, 600), C.text2, 'left');
         if (i === 0) { bolcel(ctx, 260, y, 44); } else if (i === 1) blastocyst(ctx, 260, y, 56, 1, 1, t); else if (i === 2) { stamcel(ctx, 240, y, 26, 1, t); rodeBC(ctx, 300, y - 20, 14); witteBC(ctx, 300, y + 20, 14); } else { stamcel(ctx, 240, y, 26, 1, t); huidcel(ctx, 310, y, 0.6); } ctx.restore(); });
-      label(ctx, 'binnenste celmassa / embryonale stamcellen', null, 300, 330 + 20, 1150, 420, q.on('celmassa', 1) * (1 - q.on('multipotent', 1)), STAM); });
+      regel(ctx, 'binnenste celmassa · embryonale stamcellen', 1270, 391, q.on('celmassa', 1), STAM, 24, 'right', 600); });
     fade(ctx, Y, () => { const muis = q.on('muis', 1), mens = q.on('menselijke', 1), ip = q.on('iPS', 1);
       regel(ctx, '2006 · Yamanaka', 960, 140, 1, C.goud, 36); huidcel(ctx, 420, 420, 2, muis); regel(ctx, mens > 0.5 ? 'huidcel (2007: mens)' : 'cel van een muis', 420, 540, muis, HUIDC, 28);
       const f = q.on('vier', 1); const cols = [C.koraal, C.teal, C.groen, C.goud]; for (let i = 0; i < 4; i++) tf(ctx, 640 + i * 70, 420 - 30 * Math.sin(t * 2 + i) * (1 - f), cols[i], f); regel(ctx, '4 transcriptiefactoren', 745, 540, f, C.text, 26);
-      pijl(ctx, 960, 420, 1180, 420, STAM, f); stamcel(ctx, 1320, 420, 80, f, t); regel(ctx, 'iPS-cel', 1320, 560, ip, STAM, 32); regel(ctx, 'geïnduceerde pluripotente stamcel', 1320, 600, ip, C.text2, 24);
+      pijl(ctx, 960, 420, 1180, 420, STAM, f); stamcel(ctx, 1320, 420, 80, f, t); regel(ctx, 'iPS-cel', 1320, 560, ip, STAM, 32); regel(ctx, 'geïnduceerde pluripotente stamcel', 1320, 600, ip, C.text, 26);
       tag(ctx, '2007: ook met menselijke cellen', 960, 700, C.teal, mens * (1 - q.on('2012', 1))); tag(ctx, 'Nobelprijs 2012: Yamanaka en John Gurdon', 960, 700, C.goud, q.on('2012', 1)); }); },
 
   s21(ctx, t, q) { bg(ctx, 'schema'); const dna = q.on('DNA', 1);

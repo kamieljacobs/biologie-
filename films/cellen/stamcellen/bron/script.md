@@ -28,7 +28,7 @@ Toch zien ze er heel anders uit, en doen ze iets anders. Hoe kan dat? In elke ce
 
 Een zenuwcel uit je hersenen en een spiercel uit je been, van jou. Wat is het verschil in hun DNA? Wat denk je?
 
-**q07** (vraag): de zenuwcel heeft genen die de spiercel niet heeft · er is geen verschil: alleen andere genen staan aan · de spiercel heeft meer chromosomen, voor zijn kracht
+**q07** (vraag): de zenuwcel heeft genen die de spiercel niet heeft · er is geen verschil: alleen andere genen staan aan · in de spiercel zijn de genen die hij niet nodig heeft eruit geknipt
 
 **s08** · 28.5 s · `audio/s08.mp3`
 
@@ -92,4 +92,4 @@ Waarom herstelt je huid wel, en je hartspier bijna niet? Je lichaamscellen hebbe
 
 ## Eindkaart
 
-Eindkaart: Differentiatie: zelfde DNA, andere genen aan; gespecialiseerde cellen delen vaak niet meer. / Stamcel: blijft delen, gemiddeld blijft er één stamcel over (kiemlaag, beenmerg, darm). / Volwassen stamcel: eigen weefsel · embryonale stamcel: elke celsoort. / Transplantatie: donor moet passen · iPS: eigen cellen, wel tumorrisico · emergent: samen één ritme.
+Eindkaart: Differentiatie: zelfde DNA, andere genen aan; gespecialiseerde cellen delen vaak niet meer. / Stamcel: blijft delen, gemiddeld blijft er één stamcel over (kiemlaag, beenmerg, darm). / Volwassen stamcel: eigen weefsel · embryonale stamcel: elke celsoort. / Transplantatie: donor moet passen · iPS: eigen cellen, wel tumorrisico. / Emergent: cellen kloppen samen in één ritme.

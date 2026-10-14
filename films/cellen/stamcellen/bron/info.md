@@ -5,7 +5,7 @@
 | Bestand | films/cellen/stamcellen.html (audio in films/cellen/stamcellen/audio/) |
 | Reeks / nummer | Cellen, losse film (Kamiel 14 okt 2026: "ik wil algemene celdifferentiatie en stamcellen als losse video", met een emergente eigenschap). Sluit aan op Van molecuul tot biosfeer (differentiatie kort) en Celdeling (mitose) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (promotor, transcriptiefactoren, RNA-polymerase, methylering, histonen: epigenetica) en s20 (toti-, pluri-, multi-, unipotent; Yamanaka, iPS-cel, Gurdon). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Versie / datum | 1.1 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; eindreview verwerkt; wacht op review door Kamiel) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow CiG3slI2g101iKV2bsAG "Stamcellen — voice-over"; nodes in `stem/takes.json`) |
 | Duur | spraak 8:04 (vwo) / 6:17 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7,5 min |
 | Beeldstijl | Part C: Macro (knie met schaafwond die geneest, hart met litteken), Micro (bevruchte eicel die deelt; zenuwcel, spiercel, alvleeskliercel, huidcel met dezelfde chromosomen en genen als lampjes; rode bloedcel zonder kern; opperhuid met kiemlaag waarin stamcellen delen en cellen omhoog schuiven, verhoornen en afschilferen; beenmerg; darmvlok; blastocyst met binnenste celmassa; kweekschaal; hartspiercellen die los en samen kloppen), Schema (vwo: DNA met promotor, transcriptiefactoren, RNA-polymerase, methylgroepen, histonen; leukemie, infuus, donor- en patiëntcel met herkenningseiwitten, patiënt met donor-DNA in het bloed; ethiek; potentie-ladder; Yamanaka-panel). Kleuren in `scenes.js`: `SPIER`, `ZENUW`, `HUIDC`, `STAM`, `ALV`, `ROOD`, `WIT`, `HOORN`, `LEUK` |
@@ -27,7 +27,7 @@
 | `stem/takes.json`, `stem/gen.json` | ElevenLabs-flow en node per take; generatie-id en duur |
 | `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js`, `player.js`, `page.html`, `fonts.css` |
 | `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` (reeks), **`uitspraak_film.json`** (alleen deze film: emergente, iPS-cel, ivf, Gurdon) en `wachtlijst.md` |
-| `reviews/` | Expert (cel- en ontwikkelingsbiologie), curriculum (met checkvragen, ook los in `checkvragen.html`) |
+| `reviews/` | Expert (cel- en ontwikkelingsbiologie), curriculum (met checkvragen, ook los in `checkvragen.html`), eindreview `eind.md` (alles verwerkt zonder nieuwe opname) |
 
 **Werkmap opzetten:** maak `d1/` met `script_v2.md`, `film.py`, `sections.html`, `scenes.js` (uit `src/`), `uitspraak_film.json` (uit `bouw/`), `words/` (= `stem/woordtijden/`) en `film/stamcellen/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py d1 script_v2.md && (cd d1 && python3 film.py) && python3 engine/build_data.py d1 && python3 engine/build.py d1` → `d1/film/stamcellen.html`.
 
@@ -48,7 +48,7 @@
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
 | q02 | basis | Waarom herstelt je huid wel, en je hartspier bijna niet? | a in je huid zitten cellen die zich blijven delen, in je hartspier niet (onthulling in s11 en s21) |
-| q07 | basis | Zenuwcel en spiercel van jou: wat is het verschil in hun DNA? | b geen verschil: alleen andere genen staan aan |
+| q07 | basis | Zenuwcel en spiercel van jou: wat is het verschil in hun DNA? | b geen verschil: alleen andere genen staan aan (afleider c: 'in de spiercel zijn de genen die hij niet nodig heeft eruit geknipt') |
 | q16 | basis | Kun je met bloedstamcellen ook een beschadigd hart herstellen? | c nee: ze kunnen alleen de celsoorten van het bloed maken |
 
 De antwoordopties worden niet ingesproken; ze staan alleen op het scherm (uit het script, `[VRAAG]`). De onthulling staat wél in de audio van s08, s11, s17 en s21.
@@ -69,9 +69,9 @@ Begrippen: differentiatie, gedifferentieerde cel, stamcel, kiemlaag, volwassen s
 | 170–391 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
 | 392–962 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
 | 963–1213 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
-| 1214–1270 | `scenes.js`: hulpstukken van deze film |
-| 1271–1422 | `SCENES`: title 1272 · s01 1275 · s04 1282 · s05 1293 · s06 1301 · s08 1305 · s09 1314 · s10 1330 · s11 1338 · s12 1347 · s13 1356 · s14 1363 · s15 1376 · s17 1378 · s18 1387 · s19 1395 · s20 1403 · s21 1415 |
-| 1423–1590 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 1214–1271 | `scenes.js`: hulpstukken van deze film |
+| 1272–1424 | `SCENES`: title 1273 · s01 1276 · s04 1283 · s05 1294 · s06 1302 · s08 1306 · s09 1315 · s10 1331 · s11 1339 · s12 1348 · s13 1357 · s14 1364 · s15 1377 · s17 1379 · s18 1389 · s19 1397 · s20 1405 · s21 1417 |
+| 1425–1592 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
 
 ## Hoe je de film aanpast
 
@@ -86,4 +86,5 @@ Begrippen: differentiatie, gedifferentieerde cel, stamcel, kiemlaag, volwassen s
 - Uitspraak: zie `uitspraak.md` en de wachtlijst (o.a. Yamanaka, Geurdun, totipotent, ie-pee-es-cel, ee-mer-gente). Een blinde luistercontrole was in deze sessie niet mogelijk.
 - Embryowet: de film zegt alleen dat onderzoekers restembryo's van ivf gebruiken en dat de regels streng zijn. Een wetsvoorstel om embryo's speciaal voor onderzoek te mogen kweken is in behandeling geweest; controleer de stand bij elke herziening.
 - Klinische proeven met iPS-cellen ontwikkelen zich snel ("nog maar in een paar proeven bij patiënten"); controleer bij elke herziening.
-- Geen aparte eindreview door een tweede agent; wel een eigen controle van alle stills en de cues.
+- Eindreview (`reviews/eind.md`): alle punten in beeld, vragen en begrippen verwerkt. Optionele tekstwijzigingen met nieuwe opname staan op de wachtlijst: s09 "levercel" i.p.v. "huidcel" (vwo), s14 "de bloedgroep van de donor", s19 "in principe niet afgestoten" en het tumorrisico ook bij embryonale stamcellen.
+- Chromosomen staan als enkele chromatiden in beeld (cellen die niet delen); de rode bloedcel heeft geen kern.

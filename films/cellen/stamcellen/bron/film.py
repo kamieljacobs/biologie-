@@ -12,7 +12,7 @@ film = {
  "questions": {
   "q02": {"q": "Waarom herstelt je huid wel, en je hartspier bijna niet?", "correct": 0, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2."},
   "q07": {"q": "Een zenuwcel uit je hersenen en een spiercel uit je been, van jou. Wat is het verschil in hun DNA?", "correct": 1, "explain": "Hetzelfde DNA: in elke celsoort staan alleen andere genen aan."},
-  "q16": {"q": "Kun je met bloedstamcellen ook een beschadigd hart herstellen?", "correct": 2, "explain": "Bloedstamcellen zijn volwassen stamcellen: ze maken alleen de celsoorten van het bloed."}
+  "q16": {"q": "Kun je met bloedstamcellen ook een beschadigd hart herstellen?", "correct": 2, "explain": "Bloedstamcellen zijn volwassen stamcellen: ze maken alleen de celsoorten van het bloed. Snel genoeg delen ze wel, maar ze kunnen geen hartspier maken."}
  },
  "glossary": [
   {"t": "differentiatie", "d": "Een cel krijgt een eigen bouw en taak doordat er andere genen aan staan; het DNA blijft hetzelfde."},
@@ -26,7 +26,7 @@ film = {
   {"t": "geïnduceerde stamcel (iPS-cel)", "d": "Gewone lichaamscel die in het lab is teruggezet tot een stamcel die bijna elke celsoort kan worden."},
   {"t": "weefsel", "d": "Groep gelijke cellen met dezelfde taak."},
   {"t": "emergente eigenschap", "d": "Eigenschap van het geheel die de losse delen niet hebben, zoals hartspiercellen die samen in één ritme kloppen."},
-  {"t": "transcriptiefactor (vwo)", "d": "Eiwit dat aan de promotor van een gen bindt, zodat RNA-polymerase het gen kan overschrijven."},
+  {"t": "transcriptiefactor (vwo)", "d": "Eiwit dat aan de promotor van een gen bindt en zo bepaalt of RNA-polymerase het gen kan overschrijven."},
   {"t": "epigenetica (vwo)", "d": "Chemische markeringen op het DNA en de histonen (bijvoorbeeld methylgroepen) die genen langdurig aan of uit zetten, ook na een deling."},
   {"t": "toti-, pluri-, multi-, unipotent (vwo)", "d": "Hoeveel een cel nog kan worden: alles inclusief placenta · elke celsoort van het lichaam · een paar celsoorten van het eigen weefsel · één celsoort."}
  ],

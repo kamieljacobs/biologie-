@@ -31,7 +31,7 @@ Toch zien ze er heel anders uit, en doen ze iets anders. Hoe kan dat? In elke ce
 Een cel die zo een eigen bouw en een eigen taak krijgt, is gedifferentieerd. Het proces heet differentiatie.
 
 Een zenuwcel uit je hersenen en een spiercel uit je been, van jou. Wat is het verschil in hun DNA? Wat denk je?
-[VRAAG] (a) de zenuwcel heeft genen die de spiercel niet heeft · (b) er is geen verschil: alleen andere genen staan aan · (c) de spiercel heeft meer chromosomen, voor zijn kracht
+[VRAAG] (a) de zenuwcel heeft genen die de spiercel niet heeft · (b) er is geen verschil: alleen andere genen staan aan · (c) in de spiercel zijn de genen die hij niet nodig heeft eruit geknipt
 
 Antwoord bee. Beide cellen hebben hetzelfde DNA. Het verschil zit in welke genen aan staan.
 Misschien dacht je: een zenuwcel heeft eigen zenuwgenen. Maar die genen zitten ook in je spiercel. Ze staan daar alleen uit.
@@ -80,4 +80,5 @@ Het antwoord was dus aa.
 Differentiatie: zelfde DNA, andere genen aan; gespecialiseerde cellen delen vaak niet meer.
 Stamcel: blijft delen, gemiddeld blijft er één stamcel over (kiemlaag, beenmerg, darm).
 Volwassen stamcel: eigen weefsel · embryonale stamcel: elke celsoort.
-Transplantatie: donor moet passen · iPS: eigen cellen, wel tumorrisico · emergent: samen één ritme.
+Transplantatie: donor moet passen · iPS: eigen cellen, wel tumorrisico.
+Emergent: cellen kloppen samen in één ritme.
