@@ -88,3 +88,4 @@ Begrippen: poortader, leverslagader, leverader, onderste holle ader, glycogeen, 
 - `koolstofdioxide` is hier zonder respelling opgenomen (s17, s20); in de diffusiefilm was "koolstofdie-oxide" nodig. Op de wachtlijst.
 - De blinde controle hoorde "vwo" in s17 als "vvbo"; in s22 goed. Beluisteren.
 - Speelduur vwo ≈ 11½ min: langer dan film 4. Alternatief (−1 min): galsteenvraag s24–s26 en het paracetamolstuk schrappen.
+- (14 okt 2026) De TTS/STT-nodes van deze flow (`stem/takes.json` → `nodes`) zijn hergebruikt voor film 6; hun prompts dragen nu de film-6-tekst. De generatie-id's in `takes.json` blijven geldig en wijzen nog naar de film-5-audio.
