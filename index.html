@@ -129,6 +129,10 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .ondblok li + li{border-top:1px solid var(--line)}
 .blok .binnenkort{margin-top:22px;align-items:baseline}
 .binnenkort .bk-lbl::before{display:none}
+.binnenkort a.link-atlas{color:var(--goud-text);font-weight:700}
+.binnenkort a.link-atlas::before{background:var(--goud)}
+.binnenkort a.link-atlas:hover{text-decoration:underline;text-underline-offset:3px}
+.binnenkort a.link-atlas::before{content:"";display:inline-block;width:6px;height:6px;border-radius:9px;margin-right:10px;vertical-align:middle}
 @media (max-width:1040px){.ondgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.ondgrid{grid-template-columns:1fr}}
 
@@ -254,6 +258,7 @@ footer a:hover{color:var(--text)}
       <a href="#tools" data-nav="tools">Tools</a>
       <a href="challenges.html">Challenges</a>
       <a href="pta-route.html">PTA-route</a>
+      <a href="examenatlas.html">Examenatlas</a>
     </nav>
     <div class="rechts">
       <div class="seg" role="group" aria-label="Kies je niveau">
@@ -275,6 +280,7 @@ footer a:hover{color:var(--text)}
     <a href="#tools">Alle tools</a>
     <a href="challenges.html">Challenges</a>
     <a href="pta-route.html">PTA-route</a>
+    <a href="examenatlas.html">Examenatlas</a>
   </div>
 </footer>
 
@@ -1663,6 +1669,7 @@ const alleFilms=Object.values(HOOFDSTUKKEN).flatMap(h=>h.films);
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
 const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?\b/g,'').replace(/\s*·\s*\d+:\d+\b/g,'');
+const ATLAS=new Set(['cellen','voortplanting','erfelijkheid','evolutie','regeling','ecologie','stofwisseling','dna','voeding','transport','gaswisseling','afweer']);
 const pijl='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const play='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
 
@@ -1718,7 +1725,7 @@ function home(){
     out+=`</ul></article>`;
   }
   out+=`</div>
-    <div class="binnenkort"><span class="mono bk-lbl" style="color:var(--text3)">Binnenkort</span><span>Begrippen trainen</span><span>Binas oefenen</span><span>Examentraining</span></div>
+    <div class="binnenkort"><span class="mono bk-lbl" style="color:var(--text3)">Examentraining</span><a class="link-atlas" href="examenatlas.html">Examenatlas: wat komt terug?</a><a class="link-atlas" href="examenatlas.html#begrippen">Begrippen trainen</a>${niveau==='havo'?'<a class="link-atlas" href="examenatlas.html#binas">Binas oefenen</a>':''}</div>
   </section>`;
   return out;
 }
@@ -1742,7 +1749,7 @@ function hoofdstuk(id){
       <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a><button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`}).join('')}</section>`;
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
-  if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
+  if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
 }
 

@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Examenatlas · Biologie bij Kamiel</title>
+<meta name="description" content="Wat komt er op het centraal examen biologie? Per PTA-onderdeel de onderwerpen, begrippen en examenvragen van 2018 tot 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
+<style>
+/* Examenatlas in de huisstijl van de site: navy/goud, Fraunces voor titels, enkelkolommig naslagwerk.
+   Ingang = PTA-onderdeel. Data per niveau in examenatlas/havo.json en examenatlas/vwo.json. */
+:root{
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.30);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --koraal:#E8876C; --teal:#6DB3D6;
+  --h1:rgba(224,182,74,.28); --h2:rgba(224,182,74,.55); --h3:#E0B64A;
+  --titel:"Fraunces",Georgia,"Times New Roman",serif;
+  --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --meta:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.22);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#D9AC3C; --goud-ink:#1A1405; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --groen:#2F8A47; --koraal:#B9502F; --teal:#25729C;
+  --h1:rgba(217,172,60,.30); --h2:rgba(217,172,60,.62); --h3:#B88A1E;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--tekst);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.num{font-variant-numeric:tabular-nums}
+.zacht{color:var(--text2)}
+.stil{color:var(--text3)}
+
+/* kopbalk (zoals de site) */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
+.merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:7px 12px;color:var(--text2);font-weight:600;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud)}
+.rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.seg{display:inline-flex;padding:3px;border-radius:999px;border:1px solid var(--line2);flex-wrap:wrap}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font-weight:600;font-size:14px;color:var(--text2);min-height:34px}
+.seg button[aria-pressed="true"]{background:var(--goud);color:var(--goud-ink)}
+.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text2)}
+.icoon:hover{color:var(--text)}
+
+/* knoppen */
+.knop{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;background:var(--goud);color:var(--goud-ink);font-weight:700;font-size:15px;border:0}
+.knop:hover{filter:brightness(1.06)}
+.knop.stil{background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
+.knop.stil:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+.knop:disabled{opacity:.4;cursor:default}
+.knoppen{display:flex;gap:12px;flex-wrap:wrap}
+.link{color:var(--goud-text);font-weight:700;font-size:15px;background:none;border:0;padding:0}
+.link:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* kop van elke pagina */
+.kop{padding-block:44px 28px;border-bottom:1px solid var(--line)}
+.kop .mono{color:var(--goud-text)}
+.kop h1{font-size:clamp(38px,5vw,58px);line-height:1.04;margin:14px 0 14px}
+.kop .lede{color:var(--text2);font-size:19px;max-width:60ch}
+.terug{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-weight:600;font-size:15px;margin-bottom:20px}
+.terug:hover{color:var(--text)}
+.feiten{display:flex;flex-wrap:wrap;gap:10px 32px;margin-top:22px}
+.feit b{display:block;font:700 30px/1.1 var(--titel)}
+.feit span{color:var(--text3);font-size:14px}
+
+section.blok{padding-block:34px 8px}
+.blok-kop{display:flex;align-items:baseline;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--line2)}
+.blok-kop h2{font-size:28px}
+.blok-kop p{color:var(--text3);font-size:15px;max-width:62ch}
+
+/* PTA-blokken op de startpagina */
+.ondgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;padding-top:18px}
+.ondblok{border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ondblok header{padding:18px 20px 12px;border-bottom:1px solid var(--line);background:radial-gradient(260px 120px at 100% 0,var(--goud-soft),transparent)}
+.ondblok .code{font:600 13px/1 var(--meta);letter-spacing:.12em;color:var(--goud-text)}
+.ondblok h3{font-size:23px;line-height:1.12;margin-top:8px}
+.ondblok ul{list-style:none;margin:0;padding:4px 0 8px}
+.ondblok li+li{border-top:1px solid var(--line)}
+.ondblok a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;padding:11px 20px;align-items:center}
+.ondblok a:hover{background:var(--goud-soft)}
+.ondblok a:hover b{color:var(--goud-text)}
+.ondblok b{font:700 18px/1.25 var(--titel)}
+.ondblok .h{grid-column:1;color:var(--text3);font-size:13px}
+.ondblok .mini{grid-row:1/3;grid-column:2;text-align:right;font-size:13px;color:var(--text2);line-height:1.3}
+.ondblok .mini strong{display:block;font:600 15px/1.2 var(--meta);color:var(--text)}
+
+.tegels{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding-top:18px}
+.tegel{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line2);border-radius:16px;background:var(--surface);padding:18px 20px;transition:border-color .18s,transform .18s;text-align:left}
+.tegel:hover{border-color:var(--text3);transform:translateY(-2px)}
+.tegel .mono{color:var(--text3)}
+.tegel h3{font-size:21px}
+.tegel p{color:var(--text2);font-size:15px}
+.tegel .open{margin-top:auto;padding-top:6px;color:var(--goud-text);font-weight:700;font-size:14px}
+
+/* belang: balk + strook per examen */
+.belang{display:grid;grid-template-columns:minmax(0,1fr) 178px 92px;gap:6px 18px;align-items:center}
+.strook{display:grid;grid-template-columns:repeat(var(--n,16),1fr);gap:2px}
+.strook i{height:14px;border-radius:2px;background:var(--line)}
+.strook i.p1{background:var(--h1)}.strook i.p2{background:var(--h2)}.strook i.p3{background:var(--h3)}
+.telt{font:600 14px/1.2 var(--meta);text-align:right;white-space:nowrap}
+.telt small{display:block;font:400 12px/1.3 var(--tekst);color:var(--text3)}
+.lab{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.06em;text-transform:uppercase;padding:4px 7px;border-radius:999px;white-space:nowrap}
+.lab.altijd{background:var(--goud);color:var(--goud-ink)}
+.lab.vaak{background:var(--h2);color:var(--text)}
+.lab.soms{background:var(--goud-soft);color:var(--goud-text)}
+.lab.zelden{box-shadow:inset 0 0 0 1px var(--line2);color:var(--text3)}
+:root[data-theme="light"] .lab.vaak{color:var(--goud-ink)}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;color:var(--text3);font-size:13px;padding-top:12px}
+.legenda span{display:inline-flex;align-items:center;gap:6px}
+.legenda i{width:14px;height:14px;border-radius:2px;display:inline-block}
+
+/* overzicht */
+.ov-groep{padding-top:26px}
+.ov-groep > h3{font-size:21px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding-bottom:6px}
+.ov-groep > h3 .mono{color:var(--goud-text);font-size:12px}
+.ov-groep > h3 a:hover{color:var(--goud-text)}
+.ov-rij{padding:9px 4px;border-top:1px solid var(--line)}
+.ov-rij .nm{display:flex;gap:10px;align-items:baseline;min-width:0;flex-wrap:wrap}
+.ov-rij .nm button{background:none;border:0;padding:0;text-align:left;font-weight:600;color:var(--text)}
+.ov-rij .nm button:hover{color:var(--goud-text);text-decoration:underline;text-underline-offset:3px}
+.ov-rij .nm small{color:var(--text3);font-size:13px}
+.ov-as{display:grid;grid-template-columns:minmax(0,1fr) 178px 92px;gap:18px;font:500 11px/1 var(--meta);color:var(--text3);padding:14px 4px 6px}
+.ov-as span:nth-child(2){display:flex;justify-content:space-between}
+
+/* onderwerpen (uitklappen) */
+.ow{border-top:1px solid var(--line)}
+.ow:last-child{border-bottom:1px solid var(--line)}
+.ow > summary{list-style:none;cursor:pointer;padding:14px 4px}
+.ow > summary::-webkit-details-marker{display:none}
+.ow > summary:hover .nmx{color:var(--goud-text)}
+.ow .nmx{font:700 19px/1.25 var(--titel);display:flex;align-items:center;gap:10px}
+.ow .nmx::before{content:"";width:8px;height:8px;border-right:2px solid var(--text3);border-bottom:2px solid var(--text3);transform:rotate(-45deg);transition:transform .2s;flex:none}
+.ow[open] .nmx::before{transform:rotate(45deg)}
+.ow .kort{color:var(--text2);font-size:15px;margin-top:2px;padding-left:18px}
+.ow .belang{margin-top:2px}
+.les{padding:4px 4px 22px 22px;display:grid;gap:16px;max-width:78ch}
+.les .tx p{margin:0 0 10px}.les .tx ul{margin:0 0 10px;padding-left:22px}
+.vak{border-radius:12px;padding:12px 16px;display:grid;gap:3px}
+.vak .mono{font-size:11px}
+.vak.ex{background:var(--goud-soft)} .vak.ex .mono{color:var(--goud-text)}
+.vak.vk{background:color-mix(in srgb,var(--koraal) 14%,transparent)} .vak.vk .mono{color:var(--koraal)}
+.kleinkop{font:600 12px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line2);background:none;border-radius:999px;padding:4px 11px;font-size:14px;color:var(--text2)}
+.chip:hover{color:var(--text);border-color:var(--text3)}
+.chip[aria-expanded="true"]{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip.imp{border-style:dashed}
+.pop{margin-top:10px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px}
+.pop b{font-weight:700}
+
+/* begrippen */
+.gereed{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;padding-top:16px}
+input[type=search]{background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:10px 16px;min-height:44px;min-width:0;flex:1 1 220px;max-width:420px}
+input[type=search]::placeholder{color:var(--text3)}
+.term{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:4px 24px;padding:14px 4px;border-top:1px solid var(--line)}
+.term:last-child{border-bottom:1px solid var(--line)}
+.term dt{font:700 18px/1.3 var(--titel)}
+.term dt .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;font:400 13px/1.3 var(--tekst);color:var(--text3);align-items:center}
+.term dd{margin:0;color:var(--text2);font-size:16px}
+.term dd .chips{margin-top:8px}
+.term dd .chip{font-size:12.5px;padding:2px 9px}
+mark{background:var(--goud-soft);color:inherit;border-radius:3px}
+.leeg{padding:22px 4px;color:var(--text3)}
+.meer{margin-top:12px}
+
+/* vragen */
+.vr{display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 16px;padding:12px 4px;border-top:1px solid var(--line);font-size:15px}
+.vr .wie{font:500 13px/1.45 var(--meta);color:var(--text3)}
+.vr .wie b{display:block;color:var(--text);font-weight:600}
+.vr .ctx{font-weight:600}
+.vr .w{color:var(--text2)}
+.bnl{margin-top:6px;display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap;color:var(--text2);font-size:14px}
+.bn{display:inline-flex;align-items:center;gap:5px;font:500 12px/1.4 var(--meta);padding:1px 8px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--line2);color:var(--text3);white-space:nowrap}
+.bn.l1{background:var(--goud-soft);color:var(--goud-text);box-shadow:none}
+.bn.l2{background:var(--goud);color:var(--goud-ink);box-shadow:none}
+details.alle{margin-top:18px;border:1px solid var(--line2);border-radius:14px;background:var(--surface)}
+details.alle > summary{cursor:pointer;padding:14px 18px;font-weight:700}
+details.alle .vrlijst{padding:0 16px 10px}
+
+/* jaren */
+.examens{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding-top:18px}
+.excard{border:1px solid var(--line2);border-radius:16px;background:var(--surface);padding:18px 20px}
+.excard header{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.excard header b{font:700 20px/1.2 var(--titel)}
+.op{padding:12px 0;border-bottom:1px solid var(--line)}
+.op:last-child{border-bottom:0}
+.op .t{font-weight:700;display:flex;justify-content:space-between;gap:10px}
+.op .t span{font:500 12px/1.6 var(--meta);color:var(--text3);white-space:nowrap}
+.op .c{color:var(--text2);font-size:14.5px;margin:2px 0 8px}
+.op .chip{font-size:12.5px;padding:2px 9px}
+.jaarnav{display:flex;justify-content:space-between;gap:12px;padding-top:24px}
+.jaren{display:flex;flex-wrap:wrap;gap:10px;padding-top:18px}
+.jaren a{border:1px solid var(--line2);border-radius:12px;background:var(--surface);padding:12px 18px;min-width:120px}
+.jaren a:hover{border-color:var(--text3)}
+.jaren a b{display:block;font:700 24px/1.1 var(--titel)}
+.jaren a span{color:var(--text3);font-size:13px}
+
+/* flipkaarten */
+.fc-wrap{display:grid;gap:14px;max-width:680px;padding-top:24px}
+.fc-top{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;font:500 13px/1.4 var(--meta);color:var(--text3)}
+.fc-prog{flex:1 1 140px;height:4px;background:var(--line2);border-radius:99px;overflow:hidden}
+.fc-prog i{display:block;height:100%;background:var(--goud)}
+.fc{perspective:1200px;min-height:270px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.fc-in{position:relative;width:100%;min-height:270px;transition:transform .45s;transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border:1px solid var(--line2);border-radius:18px;padding:28px;display:grid;align-content:center;justify-items:center;text-align:center;gap:10px}
+.fc-face.back{transform:rotateY(180deg);background:radial-gradient(400px 200px at 50% 0,var(--goud-soft),var(--surface))}
+.fc-face .groot{font:700 clamp(24px,4vw,34px)/1.15 var(--titel);text-wrap:balance}
+.fc-face .def{font-size:18px;line-height:1.5;max-width:56ch}
+.fc-face .mono{color:var(--text3);font-size:11px}
+.fc-face .hint{font:500 12px/1 var(--meta);color:var(--text3)}
+.fc-face .wat{font-size:13px;color:var(--text3)}
+.fc-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fc-btns button{border:0;border-radius:14px;min-height:52px;font:700 17px/1 var(--tekst)}
+.fc-btns .nee{background:color-mix(in srgb,var(--koraal) 22%,transparent);color:var(--text)}
+.fc-btns .ja{background:var(--goud);color:var(--goud-ink)}
+.fc-btns button:disabled{opacity:.35;cursor:default}
+.kaart{border:1px solid var(--line2);border-radius:18px;background:var(--surface);padding:24px;display:grid;gap:16px}
+.bakjes{display:flex;height:8px;border-radius:99px;overflow:hidden;background:var(--line)}
+.bakjes span{height:100%}
+.bakjes-l{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--text3)}
+.bakjes-l b{color:var(--text);font-variant-numeric:tabular-nums}
+.gekend{font:500 12px/1 var(--meta);color:var(--goud-text)}
+
+/* binas */
+.btabs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;padding-top:18px}
+.btab{display:grid;gap:6px;text-align:left;border:1px solid var(--line2);border-radius:14px;background:var(--surface);padding:14px 16px}
+.btab:hover{border-color:var(--text3)}
+.btab .tn{display:flex;gap:10px;align-items:baseline;font-weight:700}
+.btab .tn span{font:600 20px/1 var(--meta);color:var(--goud-text)}
+.btab .bb{display:flex;height:5px;border-radius:99px;overflow:hidden;gap:2px;background:var(--line)}
+.btab .bb i{display:block;height:100%}
+.keuzes{display:grid;gap:8px}
+.keuzes button{text-align:left;background:var(--bg2);border:1px solid transparent;border-radius:12px;padding:12px 16px;font-weight:700;display:grid;gap:2px}
+.keuzes button span{font-weight:400;color:var(--text2);font-size:14px}
+.keuzes button:hover{border-color:var(--text3)}
+.keuzes button[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+select{background:var(--surface);border:1px solid var(--line2);border-radius:10px;padding:10px 12px;max-width:100%;min-height:44px}
+.oordeel{border-radius:14px;padding:14px 18px;display:grid;gap:6px}
+.oordeel.ok{background:var(--goud-soft)} .oordeel.half{background:var(--bg2)} .oordeel.nee{background:color-mix(in srgb,var(--koraal) 16%,transparent)}
+
+footer{margin-top:64px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
+footer .wrap{display:grid;gap:8px;padding-block:24px 44px;max-width:1080px}
+footer a{text-decoration:underline;text-underline-offset:3px}
+.laden{padding:80px 0;color:var(--text3)}
+
+@media (max-width:760px){
+  .belang,.ov-as{grid-template-columns:minmax(0,1fr) 92px}
+  .belang .strook,.ov-as span:nth-child(2){grid-column:1/-1;grid-row:2}
+  .term{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .bar .wrap{gap:6px 12px}
+  .nav a{padding:6px 8px;font-size:14px}
+  .rechts{margin-left:0}
+  .bar{position:static}
+  .kop{padding-block:30px 22px}
+  .kop .lede{font-size:17px}
+  .vr{grid-template-columns:1fr}
+  .les{padding-left:4px}
+  .fc,.fc-in{min-height:240px}.fc-face{padding:20px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Biologie bij Kamiel
+    </a>
+    <nav class="nav" aria-label="Examenatlas">
+      <a href="#" data-nav="home">Atlas</a>
+      <a href="#overzicht" data-nav="overzicht">Wat komt terug?</a>
+      <a href="#begrippen" data-nav="begrippen">Begrippen</a>
+      <a href="#jaren" data-nav="jaren">Per jaar</a>
+      <a href="#binas" data-nav="binas" id="nav-binas">Binas</a>
+    </nav>
+    <div class="rechts">
+      <div class="seg" role="group" aria-label="Kies je niveau">
+        <button type="button" data-niveau="havo">havo</button>
+        <button type="button" data-niveau="vwo">vwo</button>
+      </div>
+      <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"><div class="wrap laden">De examenatlas wordt geladen…</div></main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Werkwijze.</b> Bron: de opgavenboekjes van het centraal examen biologie 2018–2026 (tijdvak 1 en 2; in 2020 was er geen examen). Elke vraag is ingedeeld bij onderwerpen; de onderwerpen en begrippen zijn via de hoofdstukken van je methode gekoppeld aan de PTA-onderdelen. Indeling, uitleg en begrippen zijn gemaakt met Claude, zonder correctievoorschrift. Twijfel je? Kijk in het officiële correctievoorschrift.</p>
+    <p><a href="index.html#home">Terug naar Biologie bij Kamiel</a> · <a href="pta-route.html">PTA-route</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+const root=document.documentElement, app=document.getElementById('app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const lees=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+const schrijf=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const pct=v=>String(Math.round(v*10)/10).replace('.',',');
+const pijl='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+// subonderdelen met een eigen hoofdstukpagina op de site
+const SITEPAG=new Set(['cellen','voortplanting','erfelijkheid','evolutie','regeling','ecologie','stofwisseling','dna','voeding','transport','gaswisseling','afweer']);
+
+/* ---------- thema en niveau ---------- */
+function themaKnop(){
+  const d=root.getAttribute('data-theme')!=='light', b=document.getElementById('thema');
+  b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>';
+  b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
+}
+document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
+themaKnop();
+
+let LV=lees('niveau'); if(LV!=='havo'&&LV!=='vwo') LV='havo';
+const CACHE={}; let D=null;
+async function laad(lv){
+  if(!CACHE[lv]){
+    const r=await fetch('examenatlas/'+lv+'.json'); if(!r.ok) throw new Error('kan '+lv+'.json niet laden');
+    CACHE[lv]=bereid(await r.json());
+  }
+  return CACHE[lv];
+}
+const TIER=n=>n>=12?'altijd':n>=7?'vaak':n>=3?'soms':'zelden';
+const TIERN={altijd:'Bijna altijd',vaak:'Vaak',soms:'Soms',zelden:'Zelden'};
+const BTIER=n=>n>=5?'kern':n>=2?'regelmatig':'eenmalig';
+function bereid(d){
+  d.N=d.exams.length;
+  d.onderwerpen.forEach((o,i)=>{o.i=i; o.n=o.n.charAt(0).toUpperCase()+o.n.slice(1); o.nex=o.ex.length; o.tier=TIER(o.nex);
+    // punten per examen (alleen als eerste onderwerp van de vraag telt het hele aantal punten)
+    o.pex=new Array(d.N).fill(0); o.q.forEach(qi=>{const v=d.vragen[qi]; o.pex[v.e]+=v.p;}); });
+  d.begrippen.forEach((b,i)=>{b.i=i; b.k=norm(b.b); b.kd=norm(b.d); b.tier=BTIER(b.n);});
+  d.bidx={}; d.begrippen.forEach(b=>d.bidx[b.b]=b);
+  d.subOrder=d.groepen.flatMap(g=>g.subs);
+  d.subOnd={}; d.groepen.forEach(g=>g.subs.forEach(s=>d.subOnd[s]=g));
+  d.sub={};
+  d.subOrder.forEach(s=>{
+    const ow=d.onderwerpen.filter(o=>o.sub===s).sort((a,b)=>b.nex-a.nex||b.q.length-a.q.length);
+    const ex=new Set(); ow.forEach(o=>o.ex.forEach(e=>ex.add(e)));
+    const pex=new Array(d.N).fill(0); d.vragen.forEach(v=>{ if(v.on.some(o=>d.onderwerpen[o].sub===s)) pex[v.e]+=v.p; });
+    d.sub[s]=Object.assign({},d.subs[s],{id:s,ow,nex:ex.size,pex,
+      begr:d.begrippen.filter(b=>b.s.includes(s)),
+      vragen:d.vragen.map((v,i)=>i).filter(i=>{const v=d.vragen[i]; return v.on.length&&d.onderwerpen[v.on[0]].sub===s;})});
+  });
+  d.jaren=[...new Set(d.exams.map(e=>e.jaar))];
+  return d;
+}
+document.querySelectorAll('[data-niveau]').forEach(b=>b.addEventListener('click',async()=>{ if(b.dataset.niveau===LV) return; LV=b.dataset.niveau; schrijf('niveau',LV); await start(); }));
+
+/* ---------- bouwstenen ---------- */
+function strook(pex,n){return `<div class="strook" style="--n:${n}" aria-hidden="true">${pex.map(p=>`<i class="${p<=0?'':p<=2?'p1':p<=4?'p2':'p3'}"></i>`).join('')}</div>`;}
+function belang(nex,pex,extra){
+  return `<div class="belang">${extra||'<span></span>'}${strook(pex,D.N)}<span class="telt num">${nex}/${D.N}<small>examens</small></span></div>`;
+}
+function legenda(){return `<div class="legenda"><span>Elk vakje is één examen, van ${esc(D.exams[0].lab)} tot ${esc(D.exams[D.N-1].lab)}. Punten op dat examen:</span><span><i style="background:var(--h1)"></i>1–2</span><span><i style="background:var(--h2)"></i>3–4</span><span><i style="background:var(--h3)"></i>5 of meer</span><span><i style="background:var(--line)"></i>niet gevraagd</span></div>`;}
+function md(s){
+  const inl=x=>esc(x).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  return String(s||'').split(/\n\s*\n/).map(b=>{const ls=b.split('\n').filter(l=>l.trim());
+    if(ls.length&&ls.every(l=>/^\s*-\s/.test(l))) return '<ul>'+ls.map(l=>'<li>'+inl(l.replace(/^\s*-\s/,''))+'</li>').join('')+'</ul>';
+    if(ls.length>1&&ls.slice(1).every(l=>/^\s*-\s/.test(l))) return '<p>'+inl(ls[0])+'</p><ul>'+ls.slice(1).map(l=>'<li>'+inl(l.replace(/^\s*-\s/,''))+'</li>').join('')+'</ul>';
+    return '<p>'+ls.map(inl).join('<br>')+'</p>';}).join('');
+}
+const exLab=e=>D.exams[e].lab;
+function bnBadge(v){ if(!v.bn) return ''; const [l,t]=v.bn; return `<span class="bn l${l}">${l?'Binas '+t.join(', '):'geen Binas'}</span>`; }
+function vraagHtml(qi,opts={}){
+  const v=D.vragen[qi]; const tekst=v.q&&opts.vraagtekst?v.q:v.w;
+  return `<div class="vr"><div class="wie"><b>${esc(exLab(v.e))}</b>vraag ${v.nr} · ${v.p}p</div><div><span class="ctx">${esc(v.o)}</span><div class="w">${esc(tekst)}</div>${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}</div></div>`;
+}
+let popId=0; const POPS={};
+function vraagChips(list){ // list = [[qi,letterlijk]]
+  const lim=10, html=x=>x.map(([qi,lit])=>{const v=D.vragen[qi]; return `<button type="button" class="chip ${lit?'':'imp'}" data-vq="${qi}" aria-expanded="false" title="${lit?'staat letterlijk in de vraag':'nodig voor het antwoord'}">${esc(exLab(v.e))} vr.${v.nr}</button>`;}).join('');
+  if(list.length<=lim+2) return html(list);
+  const id='p'+(popId++); POPS[id]=()=>html(list);
+  return html(list.slice(0,lim))+`<button type="button" class="chip" data-meer="${id}">+${list.length-lim} meer</button>`;
+}
+function owTag(o){return `<span class="lab ${o.tier}">${TIERN[o.tier]}</span>`;}
+
+/* ---------- routes ---------- */
+// #  ·  #overzicht  ·  #sub/<id>  ·  #begrippen  ·  #flip/<sleutel>  ·  #jaren  ·  #jaar/<j>  ·  #binas  ·  #binas/<nr>  ·  #binas-oefenen
+function route(){
+  const h=decodeURIComponent(location.hash.slice(1)); const [a,b]=h.split('/');
+  return {v:a||'home',arg:b||null};
+}
+function nav(v){ document.querySelectorAll('.nav a').forEach(a=>{ const m=a.dataset.nav===({sub:'home',flip:'begrippen',jaar:'jaren','binas-oefenen':'binas'}[v]||v); if(m) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); }); }
+function render(){
+  const r=route();
+  document.querySelectorAll('[data-niveau]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.niveau===LV));
+  document.getElementById('nav-binas').hidden=!D.binas;
+  nav(r.v);
+  const V={home:vHome,overzicht:vOverzicht,sub:vSub,begrippen:vBegrippen,flip:vFlip,jaren:vJaren,jaar:vJaar,binas:vBinas,'binas-oefenen':vOefen}[r.v]||vHome;
+  if((r.v==='binas'||r.v==='binas-oefenen')&&!D.binas){ vHome(); return; }
+  if(r.v==='sub'&&!D.sub[r.arg]){ vHome(); return; }
+  V(r.arg);
+  document.title=(r.v==='home'?'Examenatlas':(document.querySelector('#app h1')?.textContent||'Examenatlas')+' · Examenatlas')+' · Biologie bij Kamiel';
+}
+window.addEventListener('hashchange',()=>{ render(); window.scrollTo(0,0); });
+
+/* ---------- start ---------- */
+function vHome(){
+  const top=[...D.onderwerpen].sort((a,b)=>b.nex-a.nex||b.q.length-a.q.length).slice(0,8);
+  app.innerHTML=`<section class="kop"><div class="wrap">
+    <span class="mono">Centraal examen biologie · ${esc(LV)} · ${D.jaren[0]}–${D.jaren[D.jaren.length-1]}</span>
+    <h1>Examenatlas</h1>
+    <p class="lede">Wat vragen de examenmakers echt? Kies je PTA-onderdeel en zie welke onderwerpen bijna elk jaar terugkomen, welke begrippen je moet kennen en met welke examenvragen je kunt oefenen.</p>
+    <div class="feiten">${[[D.N,'examens'],[D.vragen.length,'vragen'],[D.onderwerpen.length,'onderwerpen'],[D.begrippen.length,'begrippen']].map(([n,l])=>`<div class="feit"><b class="num">${n}</b><span>${l}</span></div>`).join('')}</div>
+  </div></section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Per PTA-onderdeel</h2><p>${esc(D.methode)} · rechts: welk deel van alle examenpunten bij dit onderdeel hoort</p></div>
+    <div class="ondgrid">${D.groepen.map(g=>`<article class="ondblok"><header><span class="code">${g.code==='VAARD'?'VAARDIGHEDEN':esc(g.code)}</span><h3>${esc(g.naam)}</h3></header>
+      <ul>${g.subs.map(s=>{const x=D.sub[s]; return `<li><a href="#sub/${s}"><b>${esc(x.n)}</b><span class="h">${esc(x.h)} · ${x.ow.length} onderwerpen</span><span class="mini"><strong class="num">${pct(100*x.pts/D.totp)}%</strong>van de punten</span></a></li>`;}).join('')}</ul></article>`).join('')}</div>
+  </section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Wat komt het vaakst terug?</h2><p>De acht onderwerpen die op de meeste examens zaten</p></div>
+    ${top.map(o=>ovRij(o)).join('')}
+    ${legenda()}
+    <p style="padding-top:16px"><a class="link" href="#overzicht">Bekijk alle ${D.onderwerpen.length} onderwerpen →</a></p>
+  </section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Oefenen</h2></div>
+    <div class="tegels">
+      <a class="tegel" href="#begrippen"><span class="mono">Begrippen</span><h3>Begrippen en flipkaarten</h3><p>Zoek in alle ${D.begrippen.length} begrippen of oefen de ${D.begrippen.filter(b=>b.tier==='kern').length} kernbegrippen.</p><span class="open">Naar de begrippen →</span></a>
+      <a class="tegel" href="#jaren"><span class="mono">Per jaar</span><h3>Examens per jaar</h3><p>Per examen de opgaven, hun context en de onderwerpen die getoetst werden.</p><span class="open">Kies een jaar →</span></a>
+      ${D.binas?`<a class="tegel" href="#binas"><span class="mono">Binas</span><h3>Wanneer helpt Binas?</h3><p>Per tabel de examenvragen, en een oefenstand: eerst kiezen of Binas helpt, dan pas de vraag.</p><span class="open">Naar Binas →</span></a>`:''}
+    </div>
+  </section>`;
+}
+function ovRij(o,metSub=true){
+  const s=D.sub[o.sub];
+  return `<div class="ov-rij">${belang(o.nex,o.pex,`<div class="nm"><button type="button" data-ow="${o.i}">${esc(o.n)}</button>${owTag(o)}${metSub?`<small>${esc(s.n)}</small>`:''}</div>`)}</div>`;
+}
+
+/* ---------- overzicht: hoe vaak komt elk onderwerp terug ---------- */
+let OVS=lees('atlas-overzicht')||'pta';
+function vOverzicht(){
+  const as=`<div class="ov-as" aria-hidden="true"><span>onderwerp</span><span><span>${esc(D.exams[0].lab)}</span><span>${esc(D.exams[D.N-1].lab)}</span></span><span style="text-align:right">examens</span></div>`;
+  let body='';
+  if(OVS==='pta'){
+    body=D.groepen.map(g=>g.subs.map(s=>{const x=D.sub[s]; if(!x.ow.length) return '';
+      return `<div class="ov-groep"><h3><span class="mono">${g.code==='VAARD'?'Vaardigheden':esc(g.code)}</span><a href="#sub/${s}">${esc(x.n)}</a></h3>${as}${x.ow.map(o=>ovRij(o,false)).join('')}</div>`;}).join('')).join('');
+  } else {
+    const all=[...D.onderwerpen].sort((a,b)=>b.nex-a.nex||b.q.length-a.q.length);
+    body=['altijd','vaak','soms','zelden'].map(t=>{const L=all.filter(o=>o.tier===t); if(!L.length) return '';
+      return `<div class="ov-groep"><h3>${TIERN[t]}<span class="mono">${{altijd:'op 12 of meer',vaak:'op 7–11',soms:'op 3–6',zelden:'op 1–2'}[t]} van de ${D.N} examens · ${L.length} onderwerpen</span></h3>${as}${L.map(o=>ovRij(o)).join('')}</div>`;}).join('');
+  }
+  app.innerHTML=`<section class="kop"><div class="wrap"><span class="mono">Examenatlas · ${esc(LV)}</span><h1>Wat komt terug?</h1>
+    <p class="lede">Per onderwerp zie je op hoeveel van de ${D.N} examens het gevraagd werd, en hoeveel punten het per examen opleverde. Hoe vaker een onderwerp terugkwam, hoe groter de kans dat het weer komt. Klik op een onderwerp voor de uitleg.</p></div></section>
+  <section class="wrap blok"><div class="gereed"><div class="seg" role="group" aria-label="Indeling"><button type="button" data-ovs="pta" aria-pressed="${OVS==='pta'}">Per PTA-onderdeel</button><button type="button" data-ovs="belang" aria-pressed="${OVS==='belang'}">Van vaak naar zelden</button></div></div>
+    ${legenda()}${body}</section>`;
+}
+
+/* ---------- subonderdeel ---------- */
+function owHtml(o,open){
+  const B=o.b.map(i=>D.begrippen[i]);
+  const vr=o.q.map(qi=>[qi,1]);
+  return `<details class="ow" data-owi="${o.i}" ${open?'open':''}><summary>
+      <span class="nmx">${esc(o.n)}</span>
+      ${o.kort?`<p class="kort">${esc(o.kort)}</p>`:''}
+      ${belang(o.nex,o.pex,`<span style="padding-left:18px">${owTag(o)}</span>`)}
+    </summary>
+    <div class="les">
+      ${o.uitleg?`<div class="tx">${md(o.uitleg)}</div>`:''}
+      ${o.examen?`<div class="vak ex"><span class="mono">Zo wordt het gevraagd</span><span>${esc(o.examen)}</span></div>`:''}
+      ${o.valkuil?`<div class="vak vk"><span class="mono">Let op</span><span>${esc(o.valkuil)}</span></div>`:''}
+      ${B.length?`<div><div class="kleinkop">Begrippen · klik voor uitleg</div><div class="chips">${B.map(b=>`<button type="button" class="chip" data-bg="${b.i}" aria-expanded="false">${esc(b.b)}</button>`).join('')}</div></div>`:''}
+      <div><div class="kleinkop">Oefen met deze examenvragen (${vr.length})</div><div class="chips">${vraagChips(vr)}</div></div>
+    </div></details>`;
+}
+function vSub(id){
+  const x=D.sub[id], g=D.subOnd[id], r=route();
+  const kern=x.begr.filter(b=>b.tier==='kern').length;
+  app.innerHTML=`<section class="kop"><div class="wrap">
+    <a class="terug" href="#">${pijl} Alle PTA-onderdelen</a><br>
+    <span class="mono">${g.code==='VAARD'?'Vaardigheden':esc(g.code)+' · '+esc(g.naam)}</span>
+    <h1>${esc(x.n)}</h1>
+    <p class="lede">${esc(x.h)}${SITEPAG.has(id)?` · <a class="link" href="index.html#${id}">films en tools bij ${esc(x.n.toLowerCase())}</a>`:''}</p>
+    <div class="feiten">${[[x.nex+'/'+D.N,'examens'],[pct(100*x.pts/D.totp)+'%','van alle punten'],[x.vragen.length,'vragen'],[x.begr.length,'begrippen']].map(([n,l])=>`<div class="feit"><b class="num">${n}</b><span>${l}</span></div>`).join('')}</div>
+    <div style="max-width:560px;padding-top:18px">${strook(x.pex,D.N)}</div>
+  </div></section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Onderwerpen</h2><p>van vaak naar zelden · klik open voor uitleg</p></div>
+    ${x.ow.map(o=>owHtml(o,false)).join('')||'<p class="leeg">Hier zijn geen examenonderwerpen aan gekoppeld.</p>'}
+    ${legenda()}
+  </section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Begrippen</h2><p>${x.begr.length} begrippen uit de examens die bij ${esc(x.n.toLowerCase())} horen · ${kern} daarvan kwamen op 5 of meer examens voor</p></div>
+    <div class="gereed"><a class="knop" href="#flip/sub:${id}">Flipkaarten</a>${kern?`<a class="knop stil" href="#flip/subkern:${id}">Alleen de ${kern} kernbegrippen</a>`:''}</div>
+    <div id="blijst"></div>
+  </section>
+  <section class="wrap blok"><details class="alle"><summary>Alle ${x.vragen.length} examenvragen bij ${esc(x.n.toLowerCase())}</summary><div class="vrlijst">${x.vragen.map(qi=>vraagHtml(qi)).join('')}</div></details></section>`;
+  termLijst(document.getElementById('blijst'),x.begr,{filter:true});
+  if(OPEN!=null){ const d=app.querySelector(`details.ow[data-owi="${OPEN}"]`); if(d){ d.open=true; setTimeout(()=>d.scrollIntoView({block:'start'}),0);} OPEN=null; }
+}
+let OPEN=null;
+
+/* ---------- begrippen ---------- */
+function bakje(b){ const r=kstore()[b]; return r?r.b:0; }
+function termLijst(el,list,{filter,q:q0}={}){
+  let f={tier:'all',q:q0||'',sort:'belang'}, toon=60;
+  const teken=()=>{
+    const qn=norm(f.q.trim());
+    let L=list.filter(b=>(f.tier==='all'||b.tier===f.tier)&&(!qn||b.k.includes(qn)||b.kd.includes(qn)));
+    if(f.sort==='az') L.sort((a,b)=>a.k.localeCompare(b.k,'nl')); else L.sort((a,b)=>(qn?((b.k.startsWith(qn))-(a.k.startsWith(qn))):0)||b.n-a.n||a.k.localeCompare(b.k,'nl'));
+    const z=el.querySelector('.tl');
+    z.innerHTML=L.length?`<dl style="margin:12px 0 0">${L.slice(0,toon).map(b=>termHtml(b,f.q)).join('')}</dl>${L.length>toon?`<button type="button" class="knop stil meer" data-toon>Toon meer (${L.length-toon} over)</button>`:''}`:'<p class="leeg">Geen begrippen gevonden. Probeer een ander woord of zet de filter op "Alle".</p>';
+    el.querySelector('.aantal').textContent=`${L.length} ${L.length===1?'begrip':'begrippen'}`;
+    const m=z.querySelector('[data-toon]'); if(m) m.onclick=()=>{toon+=120; teken();};
+  };
+  el.innerHTML=`<div class="gereed">
+    ${filter?`<div class="seg" role="group" aria-label="Belang" data-f="tier">${[['all','Alle'],['kern','Kern'],['regelmatig','Regelmatig'],['eenmalig','Eenmalig']].map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${f.tier===v}">${l}</button>`).join('')}</div>`:''}
+    <div class="seg" role="group" aria-label="Sortering" data-f="sort"><button type="button" data-v="belang" aria-pressed="true">Belangrijkst eerst</button><button type="button" data-v="az" aria-pressed="false">A–Z</button></div>
+    ${filter?`<input type="search" placeholder="Zoek in deze lijst…" aria-label="Zoek in deze lijst" autocomplete="off">`:''}
+    <span class="stil aantal" style="font-size:14px"></span></div><div class="tl"></div>`;
+  el.querySelectorAll('[data-f]').forEach(sg=>sg.onclick=e=>{const b=e.target.closest('button'); if(!b) return; f[sg.dataset.f]=b.dataset.v; sg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b)); toon=60; teken();});
+  const inp=el.querySelector('input[type=search]'); let tm; if(inp) inp.oninput=e=>{clearTimeout(tm); tm=setTimeout(()=>{f.q=e.target.value; toon=60; teken();},120);};
+  teken();
+  return v=>{f.q=v; toon=60; teken();};
+}
+function hl(s,q){ q=norm((q||'').trim()); if(!q) return esc(s); const n=norm(s); let out='',i=0,j; while((j=n.indexOf(q,i))>-1){out+=esc(s.slice(i,j))+'<mark>'+esc(s.slice(j,j+q.length))+'</mark>'; i=j+q.length;} return out+esc(s.slice(i)); }
+function termHtml(b,q){
+  const bk=bakje(b.b);
+  return `<div class="term"><dt>${hl(b.b,q)}<span class="meta"><span class="lab ${b.tier==='kern'?'altijd':b.tier==='regelmatig'?'soms':'zelden'}">${b.tier} · ${b.n} ex.</span>${b.s.map(s=>`<a href="#sub/${s}" class="stil">${esc(D.sub[s].n)}</a>`).join(' · ')}${bk?`<span class="gekend">${'✓'.repeat(Math.min(bk,4))}</span>`:''}</span></dt>
+    <dd>${hl(b.d,q)}<div class="chips">${vraagChips(b.v)}</div></dd></div>`;
+}
+function vBegrippen(){
+  const kern=D.begrippen.filter(b=>b.tier==='kern').length;
+  app.innerHTML=`<section class="kop"><div class="wrap"><span class="mono">Examenatlas · ${esc(LV)}</span><h1>Begrippen</h1>
+    <p class="lede">Alle ${D.begrippen.length} begrippen uit de examenvragen, met uitleg en de vragen waarin ze voorkwamen. <b>Kern</b> = op 5 of meer examens, <b>regelmatig</b> = 2 tot 4, <b>eenmalig</b> = 1. Per PTA-onderdeel oefenen? Kies het onderdeel op de <a class="link" href="#">startpagina</a>.</p></div></section>
+  <section class="wrap blok">
+    <div class="kaart"><div><h3 style="font-size:22px">Flipkaarten</h3><p class="zacht" style="font-size:15px;margin-top:4px">Leer in korte sessies. Begrippen die je vaker goed had komen steeds minder terug, fouten komen vooraan. Je voortgang wordt in deze browser onthouden.</p></div>
+      <div class="knoppen"><a class="knop" href="#flip/kern">Kernbegrippen (${kern})</a><a class="knop stil" href="#flip/alle">Alle ${D.begrippen.length} begrippen</a></div></div>
+    <div class="gereed" style="padding-top:26px"><input type="search" id="gq" placeholder="Zoek in alle ${D.begrippen.length} begrippen…" aria-label="Zoek in alle begrippen" autocomplete="off"></div>
+    <div id="blijst"></div>
+  </section>`;
+  const zet=termLijst(document.getElementById('blijst'),D.begrippen,{filter:false});
+  let tm; document.getElementById('gq').oninput=e=>{clearTimeout(tm); tm=setTimeout(()=>zet(e.target.value),150);};
+}
+
+/* ---------- flipkaarten (Leitner) ---------- */
+const KN={};
+function kstore(){ if(!KN[LV]){ let o={}; try{o=JSON.parse(lees('examenatlas-ken-'+LV)||'{}')||{}}catch(e){} KN[LV]=o; } return KN[LV]; }
+function zetBakje(b,v){ const s=kstore(); s[b]={b:v,t:Date.now()}; schrijf('examenatlas-ken-'+LV,JSON.stringify(s)); }
+const BOXW=[8,4,2,1,.5], BOXN=['nieuw','1× goed','2× goed','3× goed','4× of vaker'], BOXC=['var(--line2)','var(--h1)','var(--h2)','var(--h3)','var(--text)'];
+function flipLijst(key){
+  const [m,id]=key.split(':');
+  if(m==='kern') return {naam:'Kernbegrippen',L:D.begrippen.filter(b=>b.tier==='kern'),terug:'#begrippen'};
+  if(m==='alle') return {naam:'Alle begrippen',L:D.begrippen,terug:'#begrippen'};
+  if((m==='sub'||m==='subkern')&&D.sub[id]){ const x=D.sub[id]; return {naam:x.n+(m==='subkern'?' · kern':''),L:m==='subkern'?x.begr.filter(b=>b.tier==='kern'):x.begr,terug:'#sub/'+id}; }
+  return null;
+}
+let FL=null;
+function trek(pool,n){ const it=pool.map(b=>({b,w:BOXW[bakje(b.b)]*(1+Math.random()*.5)})), out=[];
+  while(it.length&&out.length<n){ let tot=it.reduce((a,x)=>a+x.w,0), r=Math.random()*tot, i=0; for(;i<it.length;i++){ r-=it[i].w; if(r<=0) break; } i=Math.min(i,it.length-1); out.push(it[i].b); it.splice(i,1); }
+  return out; }
+function hist(L){ const h=[0,0,0,0,0]; L.forEach(b=>h[bakje(b.b)]++); const n=L.length||1;
+  return `<div class="bakjes" aria-hidden="true">${h.map((v,i)=>`<span style="width:${100*v/n}%;background:${BOXC[i]}"></span>`).join('')}</div><div class="bakjes-l">${h.map((v,i)=>`<span><b>${v}</b> ${BOXN[i]}</span>`).join('')}</div>`; }
+function vFlip(key){
+  const F=flipLijst(key||''); if(!F){ location.hash='#begrippen'; return; }
+  if(!FL||FL.key!==key||FL.lv!==LV) FL={key,lv:LV,n:20,dir:'bd',gestart:false};
+  const L=F.L; let top='', body='';
+  const richting=`<div class="seg" role="group" aria-label="Richting"><button type="button" data-dir="bd" aria-pressed="${FL.dir==='bd'}">Begrip → uitleg</button><button type="button" data-dir="db" aria-pressed="${FL.dir==='db'}">Uitleg → begrip</button></div>`;
+  if(!FL.gestart){
+    body=`<div class="kaart"><h3 style="font-size:22px">Nieuwe sessie</h3><p class="zacht" style="font-size:15px">Elk begrip zit in een bakje. Goed = een bakje omhoog, fout = terug naar het begin. Begrippen in een laag bakje komen vaker langs.</p>
+      <div><div class="kleinkop">Jouw stand voor deze lijst (${L.length})</div>${hist(L)}</div>
+      <div><div class="kleinkop">Aantal kaarten</div><div class="seg" role="group" aria-label="Aantal kaarten" id="nseg">${[10,20,40].filter(k=>k<L.length).map(k=>`<button type="button" data-n="${k}" aria-pressed="${FL.n===k}">${k}</button>`).join('')}<button type="button" data-n="${L.length}" aria-pressed="${FL.n>=L.length}">alle ${L.length}</button></div></div>
+      <div><div class="kleinkop">Richting</div>${richting}</div>
+      <div><button type="button" class="knop" id="fstart">Start</button></div></div>`;
+  } else if(FL.i>=FL.order.length){
+    const fout=[...new Set(FL.log.filter(x=>!x[1]).map(x=>x[0]))];
+    body=`<div class="kaart" style="text-align:center;justify-items:center"><span class="mono stil">Sessie klaar</span><b style="font:700 34px/1.1 var(--titel)">${FL.ok} van ${FL.ok+FL.no} goed</b>
+      <p class="zacht">${fout.length?`Fout: ${esc(fout.slice(0,8).join(', '))}${fout.length>8?' …':''}. Die komen volgende keer vooraan.`:'Alles goed. Deze begrippen komen voortaan minder vaak langs.'}</p>
+      <div style="width:100%;text-align:left"><div class="kleinkop">Stand na deze sessie</div>${hist(L)}</div>
+      <div class="knoppen"><button type="button" class="knop" id="fopnieuw">Nog een sessie</button><a class="knop stil" href="${F.terug}">Terug</a></div></div>`;
+  } else {
+    const b=FL.order[FL.i], voor=FL.dir==='bd';
+    const v1=voor?`<span class="mono">Begrip</span><span class="groot">${esc(b.b)}</span><span class="hint">tik om te draaien</span>`:`<span class="mono">Uitleg</span><span class="def">${esc(b.d)}</span><span class="hint">welk begrip is dit? · tik om te draaien</span>`;
+    const v2=(voor?`<span class="mono">Uitleg</span><span class="def">${esc(b.d)}</span>`:`<span class="mono">Begrip</span><span class="groot">${esc(b.b)}</span>`)+`<span class="wat">${b.s.map(s=>esc(D.sub[s].n)).join(' · ')} · op ${b.n} ${b.n===1?'examen':'examens'}</span>`;
+    top=`<div class="fc-top"><span>kaart ${FL.i+1} / ${FL.order.length}</span><div class="fc-prog"><i style="width:${100*FL.i/FL.order.length}%"></i></div><span>${FL.ok} goed · ${FL.no} fout</span><span>bakje: ${BOXN[bakje(b.b)]}</span></div>`;
+    body=`<div class="fc ${FL.flip?'flip':''}" id="fc" role="button" tabindex="0" aria-label="Flipkaart, druk om te draaien"><div class="fc-in"><div class="fc-face">${v1}</div><div class="fc-face back">${v2}</div></div></div>
+      <div class="fc-btns"><button type="button" class="nee" id="fnee" ${FL.flip?'':'disabled'}>Wist ik niet</button><button type="button" class="ja" id="fja" ${FL.flip?'':'disabled'}>Wist ik</button></div>
+      <p class="stil" style="text-align:center;font-size:13px">Sneltoetsen: spatie = draaien · 1 = wist ik niet · 2 = wist ik</p>`;
+  }
+  app.innerHTML=`<section class="kop"><div class="wrap"><a class="terug" href="${F.terug}">${pijl} Terug</a><br><span class="mono">Flipkaarten · ${esc(LV)}</span><h1>${esc(F.naam)}</h1></div></section>
+    <section class="wrap"><div class="fc-wrap">${top}${body}${FL.gestart&&FL.i<FL.order.length?`<div><button type="button" class="link" id="fstop">Sessie stoppen</button></div>`:''}</div></section>`;
+  const nieuw=()=>{ FL.order=trek(L,FL.n); FL.i=0; FL.ok=0; FL.no=0; FL.log=[]; FL.flip=false; FL.gestart=true; vFlip(key); };
+  const $=id=>document.getElementById(id);
+  if($('fstart')) $('fstart').onclick=nieuw;
+  if($('fopnieuw')) $('fopnieuw').onclick=nieuw;
+  if($('fstop')) $('fstop').onclick=()=>{ FL.order=FL.order.slice(0,FL.i); vFlip(key); };
+  const ns=$('nseg'); if(ns) ns.onclick=e=>{const b=e.target.closest('[data-n]'); if(!b) return; FL.n=+b.dataset.n; vFlip(key);};
+  app.querySelectorAll('[data-dir]').forEach(b=>b.onclick=()=>{FL.dir=b.dataset.dir; vFlip(key);});
+  const draai=()=>{FL.flip=!FL.flip; vFlip(key);};
+  const antw=ok=>{ const b=FL.order[FL.i]; const bk=bakje(b.b); zetBakje(b.b,ok?Math.min(4,bk+1):0); FL.log.push([b.b,ok]); if(ok) FL.ok++; else { FL.no++; if(FL.order.length<FL.n+Math.ceil(FL.n/2)) FL.order.push(b); } FL.i++; FL.flip=false; vFlip(key); };
+  const fc=$('fc'); if(fc){ fc.onclick=draai; fc.onkeydown=e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault(); draai();}}; if(!FL.flip) fc.focus({preventScroll:true}); }
+  if($('fja')) $('fja').onclick=()=>antw(true);
+  if($('fnee')) $('fnee').onclick=()=>antw(false);
+  window.onkeydown=e=>{ if(route().v!=='flip'||!document.getElementById('fc')||e.target.tagName==='INPUT') return;
+    if(e.key===' '&&e.target!==fc){e.preventDefault(); draai();} else if(e.key==='1'&&FL.flip) antw(false); else if(e.key==='2'&&FL.flip) antw(true); };
+}
+
+/* ---------- per jaar ---------- */
+function jaarTop(j){ const t={}; D.vragen.forEach(v=>{ if(D.exams[v.e].jaar===j&&v.on.length){ const s=D.onderwerpen[v.on[0]].sub; t[s]=(t[s]||0)+v.p; } }); return Object.entries(t).sort((a,b)=>b[1]-a[1]); }
+function vJaren(){
+  app.innerHTML=`<section class="kop"><div class="wrap"><span class="mono">Examenatlas · ${esc(LV)}</span><h1>Examens per jaar</h1>
+    <p class="lede">Per jaar de twee examens (tijdvak 1 en 2) met hun opgaven en de onderwerpen die getoetst werden. In 2020 was er geen centraal examen.</p></div></section>
+  <section class="wrap blok"><div class="jaren">${D.jaren.map(j=>{const ex=D.exams.filter(e=>e.jaar===j); return `<a href="#jaar/${j}"><b>${j}</b><span>${ex.length} examens · ${ex.reduce((a,e)=>a+e.nq,0)} vragen</span></a>`;}).join('')}</div></section>`;
+}
+function vJaar(arg){
+  const j=+arg, i=D.jaren.indexOf(j); if(i<0){ vJaren(); return; }
+  const exs=D.exams.map((e,k)=>[e,k]).filter(([e])=>e.jaar===j);
+  app.innerHTML=`<section class="kop"><div class="wrap"><a class="terug" href="#jaren">${pijl} Alle jaren</a><br><span class="mono">Centraal examen ${esc(LV)}</span><h1>${j}</h1>
+    <p class="lede">Zwaartepunten: ${jaarTop(j).slice(0,4).map(([s,p])=>`${esc(D.sub[s].n)} (${p}p)`).join(' · ')}</p></div></section>
+  <section class="wrap blok"><div class="examens">${exs.map(([e,k])=>`<article class="excard"><header><b>Tijdvak ${e.tv}</b><span class="stil" style="font-size:14px">${e.nq} vragen · ${e.pts} punten</span></header>
+    ${e.ops.map(([t,c,a,b])=>{ const ons=[...new Set(D.vragen.filter(v=>v.e===k&&v.nr>=a&&v.nr<=b).flatMap(v=>v.on))];
+      return `<div class="op"><div class="t">${esc(t)}<span>vr. ${a}–${b}</span></div><div class="c">${esc(c)}</div><div class="chips">${ons.map(o=>`<button type="button" class="chip" data-ow="${o}">${esc(D.onderwerpen[o].n)}</button>`).join('')}</div></div>`;}).join('')}</article>`).join('')}</div>
+    <div class="jaarnav">${i>0?`<a class="knop stil" href="#jaar/${D.jaren[i-1]}">← ${D.jaren[i-1]}</a>`:'<span></span>'}${i<D.jaren.length-1?`<a class="knop stil" href="#jaar/${D.jaren[i+1]}">${D.jaren[i+1]} →</a>`:''}</div></section>`;
+}
+
+/* ---------- binas (havo) ---------- */
+const BNL=['Geen Binas nodig','Binas als hulp','Volledig uit Binas'];
+const BND=['Het antwoord volgt uit de vraag en je eigen kennis: redeneren, rekenen, aflezen.','Een tabel geeft een belangrijk deel van het antwoord, maar je moet het nog combineren met de vraag.','Je kunt het antwoord opzoeken of aflezen zonder extra redenering.'];
+const bnTel=qs=>{const c=[0,0,0]; qs.forEach(qi=>c[D.vragen[qi].bn[0]]++); return c;};
+const tabVragen=nr=>D.vragen.map((v,i)=>i).filter(i=>D.vragen[i].bn&&D.vragen[i].bn[1].some(t=>t.slice(0,2)===nr));
+function vBinas(nr){
+  if(nr&&D.binas[nr]) return vBtab(nr);
+  const alle=D.vragen.map((v,i)=>i), c=bnTel(alle), n=alle.length;
+  const tabs=Object.keys(D.binas).map(nr=>{const qs=tabVragen(nr); return {nr,qs,c:bnTel(qs)};}).filter(t=>t.qs.length).sort((a,b)=>b.qs.length-a.qs.length||+a.nr-+b.nr);
+  const mx=Math.max(...tabs.map(t=>t.qs.length));
+  app.innerHTML=`<section class="kop"><div class="wrap"><span class="mono">Examenatlas · ${esc(LV)}</span><h1>Wanneer helpt Binas?</h1>
+    <p class="lede">Elke examenvraag heeft een label: volledig uit Binas, Binas als hulp (tabel plus redenering) of geen Binas nodig. Hieronder per tabel de examenvragen waarbij hij hielp. De labels zijn gemaakt zonder correctievoorschrift; controleer bij twijfel zelf in je Binas.</p>
+    <div class="feiten">${[0,1,2].map(k=>`<div class="feit"><b class="num">${pct(100*c[k]/n)}%</b><span>${BNL[k].toLowerCase()}</span></div>`).join('')}</div></div></section>
+  <section class="wrap blok"><div class="kaart"><div><h3 style="font-size:22px">Oefenstand</h3><p class="zacht" style="font-size:15px;margin-top:4px">Je krijgt een examenvraag en kiest eerst of Binas helpt en zo ja welke tabel. Daarna zie je het label en maak je de vraag in het examen.</p></div><div><a class="knop" href="#binas-oefenen">Start met oefenen</a></div></div></section>
+  <section class="wrap blok"><div class="blok-kop"><h2>Tabellen</h2><p>gesorteerd op aantal examenvragen</p></div>
+    <div class="legenda"><span><i style="background:var(--goud)"></i>volledig uit Binas</span><span><i style="background:var(--h1)"></i>Binas als hulp</span></div>
+    <div class="btabs">${tabs.map(t=>`<a class="btab" href="#binas/${t.nr}"><span class="tn"><span>${t.nr}</span>${esc(D.binas[t.nr].t)}</span><span class="stil" style="font-size:14px">${t.qs.length} ${t.qs.length===1?'vraag':'vragen'}${t.c[2]?` · ${t.c[2]} volledig`:''}</span><span class="bb"><i style="width:${100*t.c[2]/mx}%;background:var(--goud)"></i><i style="width:${100*t.c[1]/mx}%;background:var(--h1)"></i></span></a>`).join('')}</div></section>`;
+}
+function vBtab(nr){
+  const T=D.binas[nr], qs=tabVragen(nr), c=bnTel(qs);
+  const subs=Object.keys(T.sub).length?Object.keys(T.sub):[''];
+  const groepen=subs.map(L=>[L,qs.filter(i=>D.vragen[i].bn[1].includes(nr+L)).sort((a,b)=>D.vragen[b].bn[0]-D.vragen[a].bn[0]||D.vragen[a].e-D.vragen[b].e||D.vragen[a].nr-D.vragen[b].nr)]).filter(g=>g[1].length);
+  app.innerHTML=`<section class="kop"><div class="wrap"><a class="terug" href="#binas">${pijl} Alle tabellen</a><br><span class="mono">Binas-tabel ${esc(nr)}</span><h1>${esc(T.t)}</h1>
+    <div class="feiten">${[[qs.length,'examenvragen'],[c[2],'volledig uit deze tabel'],[c[1],'als hulp']].map(([n,l])=>`<div class="feit"><b class="num">${n}</b><span>${l}</span></div>`).join('')}</div></div></section>
+  <section class="wrap blok">${groepen.map(([L,g])=>`<div style="padding-top:18px"><div class="blok-kop"><h2 style="font-size:22px">${esc(nr+L)} · ${esc(L?T.sub[L]:T.t)}</h2><p>${g.length} ${g.length===1?'vraag':'vragen'}</p></div>
+    ${g.map(i=>{const v=D.vragen[i]; return `<div class="vr"><div class="wie"><b>${esc(exLab(v.e))}</b>vraag ${v.nr} · ${v.p}p</div><div><div>${esc(v.q||v.w)}</div><div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div><div class="bnl"><span>${esc(v.o)}</span>${v.on.length?`<button type="button" class="chip" data-ow="${v.on[0]}">${esc(D.onderwerpen[v.on[0]].n)}</button>`:''}</div></div></div>`;}).join('')}</div>`).join('')}
+    <div class="knoppen" style="padding-top:22px"><a class="knop" href="#binas-oefenen">Oefenen</a><a class="knop stil" href="#binas">Alle tabellen</a></div></section>`;
+}
+let OF=null;
+function kiesVraag(){ const pool=D.vragen.map((v,i)=>i).filter(i=>D.vragen[i].bn&&!OF.gezien.includes(i)); if(!pool.length){OF.gezien=[]; return kiesVraag();} const i=pool[Math.floor(Math.random()*pool.length)]; OF.gezien.push(i); return i; }
+function vOefen(){
+  if(!OF||OF.lv!==LV){ OF={lv:LV,gezien:[],n:0,ok:0}; OF.i=kiesVraag(); OF.lvl=null; OF.tab=''; OF.sub=''; OF.klaar=false; }
+  const v=D.vragen[OF.i], e=D.exams[v.e], op=e.ops.find(o=>o[2]<=v.nr&&v.nr<=o[3])||['','',0,0];
+  const [l,t,h]=v.bn; let body='';
+  if(!OF.klaar){
+    body=`<div><div class="kleinkop">Stap 1 · Helpt Binas bij deze vraag?</div><div class="keuzes" id="lvlc">${[0,1,2].map(k=>`<button type="button" data-ol="${k}" aria-pressed="${OF.lvl===k}">${BNL[k]}<span>${BND[k]}</span></button>`).join('')}</div></div>
+      ${OF.lvl?`<div><div class="kleinkop">Stap 2 · Welke tabel sla je op?</div><div class="knoppen"><select id="tabsel" aria-label="Kies een tabel"><option value="">Kies een tabel…</option>${Object.keys(D.binas).map(nr=>`<option value="${nr}" ${OF.tab===nr?'selected':''}>${nr} · ${esc(D.binas[nr].t)}</option>`).join('')}</select>
+        ${OF.tab&&Object.keys(D.binas[OF.tab].sub).length?`<select id="subsel" aria-label="Kies een deeltabel"><option value="">Welke deeltabel? (mag je overslaan)</option>${Object.entries(D.binas[OF.tab].sub).map(([L,x])=>`<option value="${L}" ${OF.sub===L?'selected':''}>${OF.tab}${L} · ${esc(x)}</option>`).join('')}</select>`:''}</div></div>`:''}
+      <div class="knoppen"><button type="button" class="knop" id="check" ${OF.lvl===null||(OF.lvl&&!OF.tab)?'disabled':''}>Controleer</button><button type="button" class="knop stil" id="skip">Andere vraag</button></div>`;
+  } else {
+    const lvlOk=OF.lvl===l, tabOk=l>0&&OF.lvl>0&&t.some(x=>x.slice(0,2)===OF.tab);
+    const cls=lvlOk&&(l===0||tabOk)?'ok':(lvlOk||tabOk||(l>0&&OF.lvl>0))?'half':'nee';
+    const msg=cls==='ok'?'Goed gezien.':cls==='half'?(lvlOk?'Juiste inschatting, maar een andere tabel.':tabOk?'Juiste tabel; het label zat net anders.':'Binas helpt inderdaad, maar met een andere tabel en een ander label.'):(l===0?'Hier helpt Binas niet; het antwoord zit in de vraag en je eigen kennis.':'Hier had Binas juist wel geholpen.');
+    body=`<div class="oordeel ${cls}"><b>${msg}</b><div>Label: ${bnBadge(v)} <b>${BNL[l]}</b>${l?' · '+t.map(x=>`<a class="link" href="#binas/${x.slice(0,2)}">${esc(x)}</a>`).join(', '):''}</div>${l?`<div class="zacht">${esc(h)}</div>`:''}<div class="stil" style="font-size:14px">Jouw keuze: ${BNL[OF.lvl]}${OF.lvl?` · tabel ${esc(OF.tab+OF.sub)}`:''}</div></div>
+      <p class="zacht">Maak de vraag nu zelf in het opgavenboekje: examen ${esc(e.lab)}, vraag ${v.nr} (${v.p} ${v.p===1?'punt':'punten'}).</p>
+      <details class="alle" style="margin-top:0"><summary>Wat getoetst wordt (kijk pas na het maken)</summary><p class="zacht" style="padding:0 18px 14px">${esc(v.w)}</p></details>
+      <div class="knoppen"><button type="button" class="knop" id="next">Volgende vraag</button>${v.on.length?`<button type="button" class="knop stil" data-ow="${v.on[0]}">Uitleg bij ${esc(D.onderwerpen[v.on[0]].n)}</button>`:''}</div>`;
+  }
+  app.innerHTML=`<section class="kop"><div class="wrap"><a class="terug" href="#binas">${pijl} Binas</a><br><span class="mono">Binas · oefenstand · vraag ${OF.n+1} · ${OF.ok} van ${OF.n} goed</span><h1>Eerst kiezen, dan maken</h1>
+    <p class="lede">Op het examen moet je zelf bedenken of je het informatieboek opslaat. Lees de vraag, kies en controleer.</p></div></section>
+  <section class="wrap blok"><div class="kaart" style="max-width:780px"><div class="zacht" style="font-size:15px"><b style="color:var(--text)">${esc(op[0])}</b> · ${esc(op[1])}</div>
+    <div><div class="kleinkop">${esc(e.lab)} · vraag ${v.nr} · ${v.p}p</div><div style="font-size:19px;font-weight:600;line-height:1.45">${esc(v.q||v.w)}</div></div>${body}</div></section>`;
+  const $=id=>document.getElementById(id);
+  if($('lvlc')) $('lvlc').onclick=e=>{const b=e.target.closest('[data-ol]'); if(!b) return; OF.lvl=+b.dataset.ol; if(!OF.lvl){OF.tab='';OF.sub='';} vOefen();};
+  if($('tabsel')) $('tabsel').onchange=e=>{OF.tab=e.target.value; OF.sub=''; vOefen();};
+  if($('subsel')) $('subsel').onchange=e=>{OF.sub=e.target.value;};
+  if($('check')) $('check').onclick=()=>{OF.klaar=true; OF.n++; const lo=OF.lvl===l, to=l>0&&t.some(x=>x.slice(0,2)===OF.tab); if(lo&&(l===0||to)) OF.ok++; vOefen();};
+  const nieuw=()=>{OF.i=kiesVraag(); OF.lvl=null; OF.tab=''; OF.sub=''; OF.klaar=false; vOefen(); window.scrollTo(0,0);};
+  if($('skip')) $('skip').onclick=nieuw;
+  if($('next')) $('next').onclick=nieuw;
+}
+
+/* ---------- klikken ---------- */
+document.addEventListener('click',e=>{
+  const ovs=e.target.closest('[data-ovs]'); if(ovs){ OVS=ovs.dataset.ovs; schrijf('atlas-overzicht',OVS); vOverzicht(); return; }
+  const ow=e.target.closest('[data-ow]'); if(ow){ const o=D.onderwerpen[+ow.dataset.ow]; OPEN=o.i; const h='#sub/'+o.sub; if(location.hash===h) render(); else location.hash=h; return; }
+  const meer=e.target.closest('[data-meer]'); if(meer){ meer.parentElement.innerHTML=POPS[meer.dataset.meer](); return; }
+  const vq=e.target.closest('button[data-vq]'), bg=e.target.closest('button[data-bg]');
+  if(vq||bg){
+    const btn=vq||bg, box=btn.closest('.chips'), open=btn.getAttribute('aria-expanded')==='true';
+    box.querySelectorAll('[aria-expanded]').forEach(x=>x.setAttribute('aria-expanded','false'));
+    const oud=box.nextElementSibling; if(oud&&oud.classList.contains('pop')) oud.remove();
+    if(open) return; btn.setAttribute('aria-expanded','true');
+    let html;
+    if(vq){ const v=D.vragen[+btn.dataset.vq]; html=`<b>${esc(exLab(v.e))} · vraag ${v.nr} (${v.p}p) · ${esc(v.o)}</b><br>${esc(v.w)}${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}`; }
+    else { const b=D.begrippen[+btn.dataset.bg]; html=`<b>${esc(b.b)}</b> · ${esc(b.d)}`; }
+    box.insertAdjacentHTML('afterend',`<div class="pop">${html}</div>`); return;
+  }
+});
+
+async function start(){
+  try{ D=await laad(LV); }
+  catch(err){ app.innerHTML=`<div class="wrap laden">De gegevens konden niet worden geladen. Open de pagina via de site (niet als los bestand) en probeer het opnieuw.</div>`; return; }
+  render();
+}
+start();
+})();
+</script>
+</body>
+</html>
