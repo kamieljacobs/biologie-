@@ -15,12 +15,13 @@ const VD = '#E0B64A', VC = '#F2A65A', VA = '#E07A5F', VB = '#C9708F', VET = '#E8
 const VAK4 = [['VASTGESTELD', C.groen], ['WAARSCHIJNLIJK', C.goud], ['HYPOTHESE', C.paars], ['WEERLEGD', C.koraal]];
 function wrapC(ctx, s, x, y, maxW, lh) { const words = s.split(' '); let line = '', lines = []; for (const w of words) { const t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; } if (line) lines.push(line); ctx.textAlign = 'center'; lines.forEach((l, i) => ctx.fillText(l, x, y + i * lh)); return lines.length; }
 // bewijsbord met vier vakken; items: [[vak, tekst, alpha]]; nieuw = alpha van het vak WEERLEGD
+function wrapL(ctx, s, x, y, maxW, lh) { const words = s.split(' '); let line = '', lines = []; for (const w of words) { const t = line ? line + ' ' + w : w; if (ctx.measureText(t).width > maxW && line) { lines.push(line); line = w; } else line = t; } if (line) lines.push(line); ctx.textAlign = 'left'; lines.forEach((l, i) => ctx.fillText(l, x, y + i * lh)); return lines.length; }
 function bord4(ctx, items, a = 1, o = {}) { if (a <= 0.01) return; const { x = 120, y = 150, w = 1680, h = 640, nieuw = 1, def = 0 } = o; ctx.save(); ctx.globalAlpha *= a;
   roundRect(ctx, x, y, w, h, 22); shape(ctx, rgba(C.fill, 0.25), rgba(C.line, 0.5), 1.4); metaText(ctx, 'BEWIJSBORD', x + w / 2, y - 20, C.grain, 'center', 26);
   const cw = (w - 56) / 4;
   VAK4.forEach(([naam, col], i) => { const al = i === 3 ? nieuw : 1; if (al <= 0.01) return; ctx.save(); ctx.globalAlpha *= al; const cx = x + 16 + i * (cw + 8); roundRect(ctx, cx, y + 18, cw, 64, 14); shape(ctx, rgba(col, 0.16), col, i === 3 ? 2.6 : 1.6); metaText(ctx, naam, cx + cw / 2, y + 59, lighten(col, 0.3), 'center', 24);
     if (i === 3 && def > 0.01) { ctx.save(); ctx.globalAlpha *= def; ctx.font = fTekst(24, 400); ctx.fillStyle = C.text2; wrapC(ctx, 'goed getest, met een controlegroep, en het klopte niet', cx + cw / 2, y + 116, cw - 30, 30); ctx.restore(); }
-    let yy = y + (i === 3 && def > 0.01 ? 220 : 130); items.filter(it => it[0] === i).forEach(it => { if (it[2] <= 0.01) return; ctx.save(); ctx.globalAlpha *= it[2]; ctx.font = fTekst(28, 500); ctx.fillStyle = C.text; const n = wrapC(ctx, it[1], cx + cw / 2, yy, cw - 40, 34); ctx.beginPath(); ctx.arc(cx + 20, yy - 10, 6, 0, 6.283); ctx.fillStyle = col; ctx.fill(); ctx.restore(); yy += 34 * n + 22; }); ctx.restore(); });
+    let yy = y + (i === 3 && def > 0.01 ? 220 : 130); items.filter(it => it[0] === i).forEach(it => { if (it[2] <= 0.01) return; ctx.save(); ctx.globalAlpha *= it[2]; ctx.font = fTekst(28, 500); ctx.fillStyle = C.text; const n = wrapL(ctx, it[1], cx + 36, yy, cw - 56, 34); ctx.beginPath(); ctx.arc(cx + 20, yy - 10, 6, 0, 6.283); ctx.fillStyle = col; ctx.fill(); ctx.restore(); yy += 34 * n + 22; }); ctx.restore(); });
   ctx.restore(); }
 function potje(ctx, x, y, s = 1, lab = 'vitamine C', sub = '1000 mg', col = VC, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
   roundRect(ctx, -60, -150, 120, 30, 8); shape(ctx, '#E6E1D3', '#9AA3B2', 2); roundRect(ctx, -70, -120, 140, 190, 22); shape(ctx, rgba('#F2F2EE', 0.85), '#9AA3B2', 2); roundRect(ctx, -64, -80, 128, 100, 8); shape(ctx, col, null);
@@ -46,6 +47,23 @@ function poppetjes100(ctx, x, y, n, rood, half = 0, a = 1) { if (a <= 0.01) retu
   if (i === rood && half > 0.01) { ctx.save(); ctx.globalAlpha *= half; ctx.beginPath(); ctx.rect(px - 12, py - 40, 12, 64); ctx.clip(); circ(ctx, px, py - 26, 10, C.koraal); roundRect(ctx, px - 11, py - 12, 22, 32, 9); ctx.fillStyle = C.koraal; ctx.fill(); ctx.restore(); } } ctx.restore(); }
 function staaf(ctx, x, y0, w, hh, col, lab, val, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y0 - hh, w, hh, 6); shape(ctx, rgba(col, 0.7), col, 2); regel(ctx, lab, x + w / 2, y0 + 40, 1, C.text2, 24, 'center', 700); if (val) regel(ctx, val, x + w / 2, y0 - hh - 16, 1, C.text, 26, 'center', 700); ctx.restore(); }
 
+
+// ---------- hoofdstuk 4: hypes op het bewijsbord ----------
+const B4 = { x: 120, y: 130, w: 1680, h: 430 };
+function hypeItems(q, stage) { // cumulatief: stage = nummer van de scène in H4 (1..6)
+  const full = (k) => stage > k ? 1 : null; const it = [];
+  const add = (k, vak, txt, cue) => { const a = full(k) != null ? 1 : (stage === k ? cue : 0); if (a > 0.01) it.push([vak, txt, a]); };
+  add(1, 0, 'creatine: sprint en kracht', stage === 1 ? q.on('Vastgesteld', 1) : 1);
+  add(2, 0, 'vitamine D in de adviesgroepen', stage === 2 ? q.on('vastgesteld', 1) : 1);
+  add(2, 3, 'vitamine D bij gezonden: kanker, hart, botbreuk', stage === 2 ? q.on('weerlegd', 1) : 1);
+  add(2, 1, 'vitamine D: iets minder luchtweginfecties (klein)', stage === 2 ? q.on('Waarschijnlijk', 1) : 1);
+  add(3, 0, 'niacine tegen pellagra', stage === 3 ? q.on('vastgesteld', 1) : 1);
+  add(3, 3, 'veel niacine tegen hartinfarct', stage === 3 ? q.on('Weerlegd', 1) : 1);
+  add(4, 2, 'NMN tegen ouder worden', stage === 4 ? q.on('getest', 1) : 1);
+  add(6, 2, 'magnesium-threonaat: geheugen', stage === 6 ? q.on('Hypothese', 1) : 1);
+  return it; }
+function muis(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = '#C9B896'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-60, 10); ctx.quadraticCurveTo(-110, 0, -120, -30); ctx.stroke(); ctx.beginPath(); ctx.ellipse(0, 0, 66, 40, 0, 0, 6.283); shape(ctx, '#9AA3B2', null); circ(ctx, 60, -10, 30, '#9AA3B2'); circ(ctx, 50, -40, 16, '#C9A0A8'); circ(ctx, 74, -14, 4, '#1A2740'); circ(ctx, 90, -6, 5, '#C9708F'); ctx.restore(); }
+function nadMol(ctx, x, y, a = 1, lab = 'NAD+') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y - 30, 140, 60, 30); shape(ctx, rgba(C.teal, 0.25), C.teal, 2); text(ctx, lab, x, y + 10, fTekst(30, 700), C.text, 'center'); ctx.restore(); }
 const SCENES = {
   title(ctx, t) { bg(ctx, 'schema'); potje(ctx, 1500, 700, 1.2); schijf(ctx, 1720, 360, 110); vraagteken(ctx, 1300, 620, 0.6 + 0.4 * Math.sin(t), 120); },
 
@@ -149,10 +167,39 @@ const SCENES = {
       for (let i = 0; i < 8; i++) { const y = 290 + i * 52, m = X - 30 + 70 * (hash(i * 3) - 0.6), w = 60 + 120 * hash(i * 5); ctx.strokeStyle = C.text2; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(m - w / 2, y); ctx.lineTo(m + w / 2, y); ctx.stroke(); circ(ctx, m, y, 7, C.text2); }
       ctx.beginPath(); ctx.moveTo(X - 55, 730); ctx.lineTo(X - 35, 712); ctx.lineTo(X - 15, 730); ctx.lineTo(X - 35, 748); ctx.closePath(); shape(ctx, C.goud, null); regel(ctx, 'samen', X - 110, 740, 1, C.goud, 24, 'right', 700); regel(ctx, '← verkoudheid korter', X - 20, 790, 1, C.text2, 22, 'right', 700); regel(ctx, 'langer →', X + 20, 790, 1, C.text2, 22, 'left', 700); regel(ctx, 'geen verschil', X, 252, 1, C.text2, 22, 'center', 700); regel(ctx, 'weegt zwaarder dan één onderzoek', 960, 830, q.on('zwaarder', 1), C.goud, 26, 'center', 700); ctx.restore();
   },
-  s21(ctx, t, q) { keuken(ctx, t);
+  s21(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 1), 1, Object.assign({ nieuw: 1 }, B4));
+    const cr = q.on('spieren', 1); ctx.save(); ctx.globalAlpha *= cr; roundRect(ctx, 260, 640, 300, 70, 20); shape(ctx, rgba(C.goud, 0.2), C.goud, 2); text(ctx, 'creatinefosfaat', 410, 686, fTekst(30, 700), C.text, 'center');
+      arrow(ctx, 580, 675, 720, 675, C.line, q.on('ATP', 1), 3); circ(ctx, 790, 675, 46, rgba(C.koraal, 0.3 * q.on('ATP', 1)), rgba(C.koraal, q.on('ATP', 1)), 3); regel(ctx, 'ATP', 790, 686, q.on('ATP', 1), C.text, 30, 'center', 700); ctx.restore();
+    tag(ctx, 'sprint, kracht: een paar procent beter', 1290, 660, C.groen, q.on('procent', 1)); tag(ctx, 'duursport: effect niet aangetoond', 1290, 760, C.koraal, q.on('duursport', 1)); },
+  s22(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 2), 1, Object.assign({ nieuw: 1 }, B4)); const rct = q.on('groot', 1);
+    ctx.save(); ctx.globalAlpha *= q.on('Mensen', 2) * (1 - rct); regel(ctx, 'veel vitamine D in het bloed → gezonder?', 960, 650, 1, C.text, 30, 'center', 700); tag(ctx, 'maar: meer buiten, meer bewegen', 960, 740, C.goud, q.on('buiten', 1)); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= rct; regel(ctx, 'ruim 25 000 gezonde 50-plussers, ± 5 jaar, met placebo', 520, 640, 1, C.text2, 26, 'center', 700);
+      [['kanker', 0], ['hartziekte', 1], ['botbreuken', 2]].forEach(([n, i]) => { const x = 1000 + i * 260; staaf(ctx, x, 860, 70, 150, C.text2, '', '', q.on('kreeg', 1)); staaf(ctx, x + 80, 860, 70, 147, C.goud, '', '', q.on('kreeg', 1)); regel(ctx, n, x + 75, 690, q.on('kreeg', 1), C.text, 24, 'center', 700); });
+      regel(ctx, 'grijs: placebo · goud: vitamine D', 520, 720, q.on('kreeg', 1), C.text2, 24, 'center', 600); ctx.restore(); },
+  s23(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 3), 1, Object.assign({ nieuw: 1 }, B4)); const hart = q.on('hartinfarcten', 1);
+    ctx.save(); ctx.globalAlpha *= 1 - hart; nadMol(ctx, 520, 690, q.on('NAD', 1)); regel(ctx, 'waterstofdrager bij de verbranding', 520, 790, q.on('waterstofdrager', 1), C.teal, 26, 'center', 700); tag(ctx, 'tekort: pellagra', 1250, 700, C.koraal, q.on('pellagra', 1)); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= hart; regel(ctx, '± 30 000 hart- en vaatpatiënten', 420, 640, 1, C.text2, 26, 'center', 700); regel(ctx, 'grijs: placebo · goud: niacine', 420, 690, q.on('bloedwaarden', 1), C.text2, 22, 'center', 600);
+      staaf(ctx, 300, 860, 80, 90, C.text2, '', '', q.on('bloedwaarden', 1)); staaf(ctx, 400, 860, 80, 130, C.goud, '', '', q.on('bloedwaarden', 1)); regel(ctx, 'HDL-cholesterol', 390, 715, q.on('bloedwaarden', 1), C.text, 22, 'center', 700);
+      staaf(ctx, 900, 860, 80, 120, C.text2, '', '', q.on('minder', 1)); staaf(ctx, 1000, 860, 80, 118, C.goud, '', '', q.on('minder', 1)); regel(ctx, 'hartinfarcten', 990, 710, q.on('minder', 1), C.text, 22, 'center', 700);
+      tag(ctx, 'wel meer bijwerkingen', 1480, 720, C.koraal, q.on('bijwerkingen', 1)); tag(ctx, 'betere bloedwaarden ≠ minder ziek', 1480, 820, C.goud, q.on('betekenen', 1)); ctx.restore(); },
+  s24(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 4), 1 - 0.6 * q.on('Toch', 1), Object.assign({ nieuw: 1 }, B4)); const mens = q.on('mensen', 1), vr = q.on('allebei', 1);
+    ctx.save(); ctx.globalAlpha *= 1 - vr; nadMol(ctx, 420, 700, q.on('NMN', 1), 'NMN'); arrow(ctx, 500, 700, 620, 700, C.line, q.on('daar', 1), 3); nadMol(ctx, 700, 700, q.on('daar', 1));
+      muis(ctx, 1050, 720, 1, q.on('muizen', 1) * (1 - mens)); tag(ctx, 'muizen: minder achteruitgang met de leeftijd', 1050, 830, C.groen, q.on('muizen', 1) * (1 - mens));
+      tag(ctx, 'mensen: klein en kort, hooguit 3 maanden', 1350, 660, C.text2, mens); tag(ctx, 'NAD+ in het bloed omhoog', 1350, 740, C.teal, q.on('stijgt', 1)); tag(ctx, 'langer gezond? nooit getest', 1350, 820, C.goud, q.on('getest', 1)); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= vr; nadMol(ctx, 560, 720, 1, 'niacine'); nadMol(ctx, 1360, 720, 1, 'NMN'); arrow(ctx, 640, 700, 860, 640, C.line, 1, 3); arrow(ctx, 1280, 700, 1060, 640, C.line, 1, 3); nadMol(ctx, 960, 620, 1); regel(ctx, 'weerlegd', 560, 820, q.on('weerlegd', 1), C.koraal, 28, 'center', 700); regel(ctx, 'hypothese', 1360, 820, q.on('hypothese', 1), C.paars, 28, 'center', 700); vraagteken(ctx, 960, 830, q.on('Hoe', 1), 110); ctx.restore(); },
+  s26(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 5), 0.5, Object.assign({ nieuw: 1 }, B4));
+    tag(ctx, 'antwoord a: het vak zegt hoe goed er getest is', 960, 630, C.goud, q.on('Antwoord', 1));
+    regel(ctx, 'niacine', 420, 720, q.on('getest', 1), C.text, 26, 'right', 700); if (q.on('getest', 1) > 0.02) { roundRect(ctx, 440, 690, 900 * q.on('getest', 1), 40, 10); shape(ctx, rgba(C.koraal, 0.5), C.koraal, 1.5); } regel(ctx, '2 proeven, ± 30 000 mensen, jaren', 460, 720, q.on('getest', 1), C.text, 22, 'left', 600);
+    regel(ctx, 'NMN', 420, 790, q.on('getest', 1), C.text, 26, 'right', 700); if (q.on('getest', 1) > 0.02) { roundRect(ctx, 440, 760, 60 * q.on('getest', 1), 40, 10); shape(ctx, rgba(C.paars, 0.5), C.paars, 1.5); } regel(ctx, 'klein, hooguit 3 maanden', 520, 790, q.on('getest', 1), C.text, 22, 'left', 600);
+    tag(ctx, 'b? ook bij niacine betere bloedwaarden, toch geen effect', 960, 860, C.koraal, q.on('Misschien', 1) * (1 - q.on('regels', 1))); tag(ctx, 'EU: nog niet toegelaten, zegt niets over bewijs', 960, 860, C.teal, q.on('regels', 1)); },
+  s27(ctx, t, q) { bg(ctx, 'schema'); bord4(ctx, hypeItems(q, 6), 1, Object.assign({ nieuw: 1 }, B4));
+    muis(ctx, 360, 720, 0.9, q.on('ratten', 1)); regel(ctx, 'ratten: meer verbindingen tussen zenuwcellen', 360, 830, q.on('ratten', 1), C.groen, 24, 'center', 700);
+    tag(ctx, 'mensen: klein, vaak door de fabrikant betaald', 1000, 700, C.text2, q.on('mensen', 1));
+    potje(ctx, 1560, 820, 0.85, 'magnesium', 'threonaat', '#9FD6C8', q.on('verpakking', 1)); regel(ctx, 'alleen: "draagt bij tot een normale', 1560, 610, q.on('draagt', 1), C.text, 22, 'center', 600); regel(ctx, 'werking van het zenuwstelsel"', 1560, 640, q.on('draagt', 1), C.text, 22, 'center', 600); },
+  s28(ctx, t, q) { keuken(ctx, t);
     ctx.fillStyle = rgba('#0B0F16', 0.8 * q.on('Nee', 1)); ctx.fillRect(980, 110, 900, 340);
     tag(ctx, 'ook zonder tablet misschien niet verkouden', 1430, 170, C.text2, q.on('Misschien', 1)); tag(ctx, 'dat zie je ook als de tablet niets doet', 1430, 245, C.text2, q.on('niets', 1)); tag(ctx, 'meer helpt niet (hoofdstuk 2)', 1430, 320, VD, q.on('Meer', 1)); tag(ctx, 'antwoord b', 1430, 395, C.goud, q.on('antwoord', 1)); },
-  s22(ctx, t, q) { keuken(ctx, t);
+  s29(ctx, t, q) { keuken(ctx, t);
     ctx.fillStyle = rgba('#0B0F16', 0.8 * q.on('Slik', 1)); ctx.fillRect(980, 110, 900, 360);
     tag(ctx, 'heb ik het echt nodig?', 1200, 175, C.groen, q.on('nodig', 1)); tag(ctx, 'hoeveel zit erin?', 1200, 250, C.groen, q.on('erin', 1));
     tag(ctx, 'vergeleken met wat?', 1640, 175, C.goud, q.on('vergeleken', 1)); tag(ctx, 'hoeveel effect?', 1640, 250, C.goud, q.on('effect', 1)); tag(ctx, 'wie betaalde?', 1640, 325, C.goud, q.on('betaalde', 1)); },

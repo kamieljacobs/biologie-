@@ -69,6 +69,21 @@ Vitamine C voorkomt verkoudheid: weerlegd. Bètacaroteenpillen beschermen rokers
 Antwoord cee. Achttien procent van drie is ongeveer een half. Misschien dacht je: drie plus achttien. Maar achttien procent is een relatief risico: méér dan het risico dat er al was. Het absolute risico steeg met ongeveer een half op de honderd.
 En één onderzoek is nooit het laatste woord. Een overzicht van alle goede onderzoeken samen heet een meta-analyse. Dat weegt zwaarder. Het onderzoek naar vitamine C in dit hoofdstuk was zo'n overzicht. Terug naar de basis. [VWO-END]
 
+## Hoofdstuk 4 — Hypes op het bewijsbord [Schema: bewijsbord met creatine, vitamine D, niacine, NMN en magnesium-threonaat; creatinefosfaat en ATP; NAD+ als waterstofdrager; grote proef met vitamine D]
+Online zie je steeds nieuwe supplementen. Laten we er een paar op het bewijsbord zetten. Eerst een die het goed doet: creatine. In je spieren slaat creatine energie op, waarmee je snel nieuwe ATP maakt. Honderden onderzoeken met een controlegroep laten zien: bij korte, zware inspanning, zoals sprinten of krachttraining, presteer je een paar procent beter. Vastgesteld. Maar alleen daarvoor: dat het bij duursport helpt, is niet aangetoond.
+
+Dan vitamine D. In hoofdstuk één zag je voor wie het advies geldt. Daar is het nut vastgesteld. Maar veel mensen slikken het om kanker, hartziekte of depressie te voorkomen. Waarom? Mensen met veel vitamine D in hun bloed zijn gemiddeld gezonder. Maar zij komen ook meer buiten, en bewegen meer. Daarom is een groot onderzoek gedaan met ruim vijfentwintigduizend gezonde vijftigplussers, vijf jaar lang. De vitamine D-groep kreeg niet minder kanker, hartziekte of botbreuken dan de placebogroep. Voor gezonde mensen: weerlegd. Wel kregen mensen met elke dag een beetje vitamine D iets minder vaak een luchtweginfectie. Waarschijnlijk, maar klein.
+
+Vitamine B3 heet ook niacine. Je lichaam maakt er NAD+ van: een waterstofdrager bij de verbranding in je cellen. Bij een ernstig tekort krijg je de ziekte pellagra. Dat niacine die voorkomt, is vastgesteld. In hoge doses verbetert niacine ook je cholesterol. Zou het dan hartinfarcten voorkomen? Twee grote onderzoeken met samen bijna dertigduizend hart- en vaatpatiënten testten dat. De bloedwaarden werden beter, maar er kwamen niet minder hartinfarcten. Wel meer bijwerkingen. Weerlegd. Betere bloedwaarden betekenen dus nog niet: minder ziek.
+
+Nu een nieuwe hype: NMN. Ook daar maakt je lichaam NAD+ van. Bij muizen remde het de achteruitgang bij het ouder worden. Daarom wordt NMN verkocht tegen het ouder worden. Bij mensen zijn er alleen kleine onderzoeken, van hooguit drie maanden. Het NAD+ in het bloed stijgt wel. Maar of je daardoor langer gezond blijft, is nooit getest.
+Niacine en NMN worden allebei NAD+. Toch staat de ene claim op weerlegd, en de andere op hypothese. Hoe kan dat? Wat denk je?
+[VRAAG] (a) niacine is in grote, lange proeven getest; NMN bij mensen nog niet · (b) NMN maakt meer NAD+ aan, dus het werkt beter dan niacine · (c) NMN is in de EU nog niet toegelaten, dus mag het niet op weerlegd staan
+
+Antwoord aa. Het vak zegt hoe goed een claim getest is, niet hoe veelbelovend een stof klinkt. Niet getest is iets anders dan getest en niet werkzaam. Misschien dacht je: NMN maakt meer NAD+. Maar ook bij niacine werden de bloedwaarden beter, en toch bleef het effect uit. Of je dacht aan de regels. In de Europese Unie is NMN inderdaad nog niet toegelaten als supplement. Maar dat zegt niets over het bewijs.
+
+Tot slot magnesium-threonaat, voor een beter geheugen. Bij ratten kwamen er meer verbindingen tussen zenuwcellen bij. Bij mensen zijn er een paar kleine onderzoeken, vaak betaald door de fabrikant, met kleine effecten. Hypothese. Op de verpakking mag alleen staan wat voor alle soorten magnesium geldt, zoals: draagt bij tot een normale werking van het zenuwstelsel.
+
 ## Recap [Macro: keukentafel; opa met de pot; Noor met het bewijsbord]
 Terug naar opa en zijn tablet. Bewijst zijn verhaal dat vitamine C werkt?
 Nee. Misschien was hij ook zonder tabletten niet verkouden geweest. Misschien dacht je: hij slikt het al jaren en blijft gezond, dus het werkt. Maar dat zou je ook zien als de tablet niets doet. Of je dacht: hij neemt te weinig. Meer helpt niet, dat zag je in hoofdstuk twee.
@@ -81,3 +96,4 @@ Slik jij zelf iets? Dat is je eigen keuze. Twee vragen helpen: heb ik het echt n
 Gevarieerd eten levert bijna alles; supplement bij vitamine D, B12 (veganisten), foliumzuur.
 Meer is niet beter: A, D, E en K stapelen zich op; ook natuurlijke pillen kunnen schaden.
 Claim toetsen: controlegroep, loting, placebo, dubbelblind, effectgrootte, wie betaalde.
+Hypes: creatine vastgesteld; NMN hypothese; veel niacine en extra vitamine D bij gezonden: weerlegd.

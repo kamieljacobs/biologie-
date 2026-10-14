@@ -5,11 +5,11 @@
 | Bestand | films/voeding/7-supplementen-en-superfoods.html (audio in films/voeding/7-supplementen-en-superfoods/audio/) |
 | Reeks / nummer | Voeding, film 7 (los slotstuk, op verzoek van Kamiel, 14 okt 2026); sluit aan op film 1 (broodje kaas) en film 6 (bewijsbord) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s18–s20 (relatief tegenover absoluut risico met ATBC, meta-analyse). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Versie / datum | 1.1 · 14 oktober 2026: hoofdstuk 4 'Hypes op het bewijsbord' toegevoegd op verzoek van Kamiel (1.0 dezelfde dag; wacht op review) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow wgRb2mkEIugHlouCw6hz; nodes in `stem/takes.json`) |
-| Duur | spraak 7:22 (vwo) / 6:29 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 8 min |
+| Duur | spraak 10:42 (vwo) / 9:49 (havo). Speeltijd met kaarten en vragen: vwo ≈ 12,5 min, havo ≈ 11,5 min |
 | Beeldstijl | Part C: Macro (keuken met opa, Noor, een pot vitamine C, goji-bessen en detoxthee), Schema (broodje kaas, Schijf van Vijf, zon → huid → vitamine D → calcium → bot, foliumzuur-tijdlijn, dierlijke producten en B12, vet tegenover water, bètacaroteen met verbandonderzoek en proef, lever en nieren, superfood-etiket en EU-claims, loting met proef- en controlegroep, staafdiagrammen vitamine C, bewijsbord met vier vakken, 100 poppetjes voor absoluut risico, meta-analyse). Kleuren in `scenes.js`: vitamine D `VD`, C `VC`, A `VA`, B12 `VB`, vet `VET`, water `WATER`; bewijsbord `VAK4` (vastgesteld groen, waarschijnlijk goud, hypothese paars, weerlegd koraal) |
-| Audio-opslag | 16 losse mp3's in audio/ (s01 … s22), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
+| Audio-opslag | 22 losse mp3's in audio/ (s01 … s29), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
 | Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en de bibliotheek `lib_hormonen.js`; enkele helpers overgenomen uit de afweerreeks (`tag`, `regel`, `pil`, `kruis`, `vink`) |
 
@@ -40,7 +40,8 @@
 | H1 Wie heeft er iets aan? (s04–s07) | I · Schema | Broodje kaas met melk; vitaminen in kleine hoeveelheden; Schijf van Vijf; zon → huid → vitamine D → calcium → sterke botten, met vijf adviesgroepen; foliumzuur-tijdlijn (4 weken vóór tot 8 weken na de bevruchting, ruggetje sluit, vaak pas: zwanger?); vraag q06; dierlijke producten met B12, veganistisch, B12-pot; sporter en weinig buiten; ijzer alleen bij een tekort |
 | H2 Meer is niet beter (s08–s12) | I · Schema | Vraag q09 (D tegenover C); vet: A, D, E, K stapelen in lever en vetweefsel; water: nieren, urine; B6; bètacaroteen → vitamine A; verbandonderzoek groente en kanker; proef bij 30 000 rokers: meer longkanker; wortels eten geen probleem; lever en nieren ontgiften, detoxthee zonder goed onderzoek; SUPERFOOD-etiket als reclamewoord; EU-claims; de claim op opa's pot |
 | H3 Hoe toets je een claim? (s13–s20) | H · Schema | Loting in proef- en controlegroep (10 tegen 10), pil en identieke placebo, placebo-effect, dubbelblind; staven 'hoe vaak verkouden' (gelijk) en 'hoe lang' (± halve dag korter); vraag q15; '9 van de 10 voelen zich fitter'; bewijsbord met het nieuwe vak weerlegd. Vwo s18–s20: 100 rokers, vraag q19, relatief 18 % tegenover absoluut ± een half op de 100; meta-analyse als stapel onderzoeken met een samenvattende ruit |
-| Recap (s21–s22) | Macro | Keuken; antwoordketen en antwoord b; twee vragen bij jezelf, drie bij elke claim |
+| H4 Hypes op het bewijsbord (s21–s27) | H · Schema | Bewijsbord bovenin, cumulatief gevuld (`hypeItems`): creatine (creatinefosfaat → ATP; sprint en kracht vastgesteld, duursport niet aangetoond); vitamine D (adviesgroepen vastgesteld; verband 'meer vitamine D = gezonder' tegenover de grote proef met 25 000 vijftigplussers: weerlegd bij gezonden; luchtweginfecties waarschijnlijk, klein); niacine (NAD+, pellagra vastgesteld; HDL beter maar niet minder hartinfarcten, meer bijwerkingen: weerlegd); NMN (muizen, korte kleine studies, NAD+ omhoog; hypothese); vraag q25; antwoord met balken 'hoe goed getest'; magnesium-threonaat (ratten, kleine fabrikantstudies; hypothese; alleen de algemene EU-claim) |
+| Recap (s28–s29) | Macro | Keuken; antwoordketen en antwoord b; twee vragen bij jezelf, drie bij elke claim |
 | Eindkaart (s23) | Schema | Drie kernzinnen |
 
 ## Vragen
@@ -52,6 +53,7 @@
 | q09 | basis | Bij welke vitamine loop je bij een overdosis het meeste risico? | a vitamine D, want die blijft in je lichaam |
 | q15 | basis | Vitamine C: niet minder vaak verkouden, wel een halve dag korter. Wat zeg je dan? | b het effect is echt, maar het is klein |
 | q19 | vwo | 3 op de 100 rokers, met bètacaroteen 18 % meer: hoeveel? | c ongeveer drieënhalf op de honderd |
+| q25 | basis | Niacine en NMN worden allebei NAD+. Waarom staat de ene claim op weerlegd en de andere op hypothese? | a niacine is in grote, lange proeven getest; NMN bij mensen nog niet |
 
 De antwoordopties worden niet ingesproken; ze staan alleen op het scherm (uit het script, `[VRAAG]`). De onthulling staat wél in de audio van s07, s10, s16, s20 en s21.
 
@@ -66,14 +68,14 @@ Begrippen: supplement, Schijf van Vijf, vitamine D, vitamine B12, foliumzuur, wa
 | 7–65 | Fonts (base64) en CSS |
 | 69 | Sitebalk `<nav class="sitenav">` met "← Terug naar Voeding" |
 | 76–99 | Speler: canvas, ondertitelband, knoppen, Havo/Vwo- en Leerling/Klas-schakelaar |
-| 100–154 | Checkvragen (100–120), Voor de docent (121–154) |
-| 155 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
-| 156–377 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
-| 378–948 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
-| 949–1199 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
-| 1200–1247 | `scenes.js`: hulpstukken van deze film |
-| 1248–1360 | `SCENES`: title 1249 · s01 1251 · s04 1256 · s05 1270 · s07 1279 · s08 1288 · s10 1289 · s11 1299 · s12 1307 · s13 1319 · s14 1327 · s16 1333 · s17 1339 · s18 1342 · s20 1343 · s21 1351 · s22 1354 |
-| 1361–1528 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 100–156 | Checkvragen (100–120), Voor de docent (121–156) |
+| 157 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
+| 158–379 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
+| 380–950 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
+| 951–1201 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
+| 1202–1267 | `scenes.js`: hulpstukken van deze film |
+| 1268–1409 | `SCENES`: title 1269 · s01 1271 · s04 1276 · s05 1290 · s07 1299 · s08 1308 · s10 1309 · s11 1319 · s12 1327 · s13 1339 · s14 1347 · s16 1353 · s17 1359 · s18 1362 · s20 1363 · s21 1371 · s22 1375 · s23 1380 · s24 1386 · s26 1391 · s27 1396 · s28 1400 · s29 1403 |
+| 1410–1577 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
 
 ## Hoe je de film aanpast
 
@@ -89,3 +91,4 @@ Begrippen: supplement, Schijf van Vijf, vitamine D, vitamine B12, foliumzuur, wa
 - Getallen met bronnen staan in de kop van `script_v2.md` en in het docentdeel; de film rondt ATBC af op 3 en 3,5 per 100 (echt: 2,8 % en 3,3 %).
 - De andere voedingsfilms tonen zelf nog 'film x van 6'; in de index staat deze film als slotstuk 7.
 - Eindreview: 12 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
+- Hoofdstuk 4 (14 okt): bronnen in `reviews/supplementen_onderzoek.md`, eindreview in `reviews/eind_h4.md` (10 punten verwerkt; s21–s24 en s27 opnieuw ingesproken). De recap-takes heetten eerst s21/s22 en zijn hernummerd tot s28/s29 (zelfde opname). **NMN-status in de EU (per oktober 2026: nog niet toegelaten, positief EFSA-veiligheidsadvies mei 2026) controleren bij elke herziening**; s26 noemt dit hardop.
