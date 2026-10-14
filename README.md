@@ -8,3 +8,7 @@ Lesmateriaal biologie voor havo, vwo en onderbouw: uitlegfilms, tools en practic
 - `scripts/filmbron.py` — pakt een film uit (audio en fonts los van de code) en weer in, byte voor byte gelijk
 
 De site wordt gepubliceerd met GitHub Pages vanaf de `main`-branch.
+
+## Licentie
+
+© 2026 Kamiel Jacobs. Het lesmateriaal valt onder [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl): gebruiken, delen en aanpassen voor onderwijs mag, met naamsvermelding, niet commercieel en onder dezelfde licentie. De examenvragen in de Examenatlas zijn © CvTE. Zie `LICENSE.md` en `gebruik.html`.

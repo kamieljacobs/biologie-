@@ -17,6 +17,10 @@ Kamiel wil films later makkelijk kunnen aanpassen. Daarom geldt bij **elke** fil
 
 Controle vóór elke push: `find films -name '*.html' -not -path '*/bron/*'` mag geen film opleveren zonder bronmap.
 
+## Licentie
+
+Alles op de site valt onder CC BY-NC-SA 4.0 (© Kamiel Jacobs; uitleg in `gebruik.html`, tekst in `LICENSE.md`; examenvragen in de Examenatlas © CvTE). Elke pagina draagt onderaan of in de footer de licentievermelding: draai `python3 scripts/licentie_noot.py` na het toevoegen van een nieuwe pagina, film of tool (idempotent).
+
 ## Presentaties bij films
 
 Een film kan een klassikale presentatie krijgen: `films/<hoofdstuk>/<film>/presentatie.html` (of naast `<slug>.html`), gemaakt met `python3 scripts/presentatie.py <spec.json> <uit.html>` uit een JSON-spec met dia's (`titel`, `inhoud`, `samenvatting`; Kamiel wil weinig tekst per dia, géén denkvragen en eigen schema's (SVG in `presentatie/svg/`, veld `svg`) in plaats van stills uit de film; uitleg hoort in `notities`). Zet de spec en de beelden in een map `presentatie/` naast de film, en voeg in `HOOFDSTUKKEN` bij de film het veld `"pres": "<pad>"` toe: dan verschijnt er een knop Presentatie. Noteer de presentatie in `bron/info.md` van de film. Voorbeeld: Celorganellen.

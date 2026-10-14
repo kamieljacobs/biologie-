@@ -58,5 +58,6 @@ function toon(){ const q=(document.getElementById('zoek').value||'').toLowerCase
 document.getElementById('zoek').addEventListener('input',toon);
 fetch('catalogus.json').then(r=>r.json()).then(d=>{ ALLE=d.fotos; toon(); }).catch(()=>{document.getElementById('raster').textContent='De catalogus kon niet geladen worden.';});
 </script>
+<p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body>
 </html>
