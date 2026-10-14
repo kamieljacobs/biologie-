@@ -1,0 +1,82 @@
+import json
+film = {
+ "slug": "5-water-in-balans", "hoofdstuk": "regeling", "hoofdstukNaam": "Regeling",
+ "title": "Water in balans", "sub": "Hoe je nieren en ADH je water regelen",
+ "puzzle": "Na twee uur sporten in de zon plas je een beetje, en het is donkergeel. Na een fles water op een rustige dag plas je veel, en het is bijna kleurloos. Hoe weet je lichaam hoeveel water het moet houden?",
+ "meta": "hormonen 5/5", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Hormonen · film 5 van 5",
+ "lead": "Je nieren filteren elke dag ongeveer 180 liter voorurine uit je bloed en halen bijna alles terug: alle glucose, de meeste zouten en ongeveer 99 procent van het water. Hoeveel water er op het laatste stuk, in de verzamelbuis, terug gaat, regelt ADH. De hypothalamus meet de osmotische waarde van je bloed; de hypofyse geeft ADH af; met veel ADH plas je weinig en donker. Alcohol remt ADH.",
+ "endHaak": "eerst alles eruit, dan het goede terug",
+ "minis": {"Hoofdstuk 1": "Wat doen je nieren, en hoe zien ze eruit?", "Hoofdstuk 2": "Hoe maakt een nefron urine?", "Hoofdstuk 3": "Hoe regelt ADH hoeveel water je terughaalt?", "Recap": "Hoe weet je lichaam hoeveel water het moet houden?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Na sporten in de zon plas je weinig en donker; na een fles water op een rustige dag veel en licht. Hoe weet je lichaam hoeveel water het moet houden?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
+  "q08": {"q": "Bij onbehandelde diabetes zit er heel veel glucose in het bloed. Wat gebeurt er dan in de nier?", "correct": 0, "explain": "Glucose wordt gefiltreerd en daarna in het nierbuisje teruggehaald. Dat kan niet onbeperkt: boven een bloedglucose van ongeveer 10 mmol/L (de nierdrempel) blijft er glucose in de urine."},
+  "q13": {"q": "Na het drinken van alcohol plassen mensen vaak veel. Hoe komt dat?", "correct": 0, "explain": "Alcohol remt de afgifte van ADH. De verzamelbuis haalt dan minder water terug. Het lichaam kan zo meer vocht verliezen dan er binnenkomt; de terugkoppeling werkt niet goed."},
+  "q16": {"q": "Woestijndieren zoals de kangoeroerat hebben een extra lange lis van Henle. Wat betekent dat voor hun urine?", "correct": 0, "explain": "Een langere lis pompt meer zout het niermerg in. De osmotische waarde van het merg wordt hoger, en met ADH gaat er nog meer water uit de verzamelbuis terug. De urine is extra geconcentreerd."}
+ },
+ "glossary": [
+  {"t": "nier", "d": "Orgaan dat afvalstoffen (zoals ureum) uitscheidt en de hoeveelheid water en zouten in het bloed regelt. Delen: nierschors, niermerg, nierbekken (een holte)."},
+  {"t": "nierslagader / nierader", "d": "Voert bloed naar de nier / af van de nier. In de nierader zit het minste ureum."},
+  {"t": "ureum", "d": "Afvalstof die in de lever ontstaat bij de afbraak van aminozuren; wordt met de urine uitgescheiden."},
+  {"t": "nefron", "d": "Eenheid in de nier die urine maakt: kapsel van Bowman met glomerulus, en nierbuisje. Ongeveer een miljoen per nier."},
+  {"t": "glomerulus", "d": "Kluwen haarvaten in het kapsel van Bowman. Door de hoge bloeddruk wordt hier bloedplasma uitgeperst (filtratie)."},
+  {"t": "voorurine", "d": "Wat bij de filtratie uit het bloed wordt geperst: water met kleine stoffen (glucose, zouten, ureum), zonder bloedcellen en grote eiwitten. Ongeveer 180 liter per dag."},
+  {"t": "terugresorptie", "d": "Terug opnemen in het bloed: in het nierbuisje worden glucose en zouten actief teruggepompt; water volgt door osmose."},
+  {"t": "nierdrempel", "d": "Bloedglucoseconcentratie (ongeveer 10 mmol/L) waarboven het nierbuisje niet alle glucose kan terughalen, zodat er glucose in de urine komt."},
+  {"t": "verzamelbuis", "d": "Buis waarop de nierbuisjes van veel nefronen uitkomen. Hier bepaalt ADH hoeveel water er nog terug gaat."},
+  {"t": "osmotische waarde", "d": "Maat voor de hoeveelheid opgeloste stoffen per hoeveelheid water. De hypothalamus meet die van het bloed."},
+  {"t": "ADH", "d": "Antidiuretisch hormoon: gemaakt in de hypothalamus, afgegeven door de hypofyse. Maakt de verzamelbuis doorlaatbaar voor water: minder, geconcentreerdere urine. Alcohol remt de afgifte."},
+  {"t": "aquaporinen", "d": "Waterkanaaltjes. ADH laat blaasjes met aquaporinen versmelten met het membraan van de cellen van de verzamelbuis.", "vwo": True},
+  {"t": "lis van Henle", "d": "Lus van het nierbuisje in het niermerg. Het opstijgende deel pompt zouten naar buiten en laat geen water door; zo wordt het merg zout.", "vwo": True},
+  {"t": "aldosteron", "d": "Hormoon uit de bijnierschors: het nierbuisje haalt meer natrium terug, water gaat osmotisch mee. Regelt vooral de hoeveelheid bloed en de bloeddruk.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Eiwit in de urine</b> <span class="pts">3 punten</span><p>Bij een man wordt eiwit in de urine gevonden, maar geen glucose.</p><p>a. Zet in de goede volgorde: nierbekken, kapsel van Bowman, verzamelbuis, urineleider, nierbuisje. (1p)<br>b. In welk onderdeel zit waarschijnlijk de fout? Leg uit waarom het niet aan de terugresorptie ligt. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Kapsel van Bowman → nierbuisje → verzamelbuis → nierbekken → urineleider (1, alleen helemaal juist). b. De filter in de glomerulus / het kapsel van Bowman laat eiwit door (1). Normaal komt er geen (groot) eiwit in de voorurine, dus het hoeft ook niet teruggehaald te worden; bovendien zit er geen glucose in de urine, dus de terugresorptie werkt wel (1).</p></details></div>
+    <div class="q"><b>2. Zweten en bier</b> <span class="pts">5 punten</span><p>a. Sanne heeft veel gezweet. Beschrijf hoe haar lichaam via ADH water vasthoudt, en waar de negatieve terugkoppeling zit. (3p)<br>b. Een volwassene drinkt vijf glazen bier. Hij plast veel, en zijn bloed raakt geconcentreerd. Leg uit waarom de regelkring dit niet herstelt. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. De osmotische waarde van het bloed stijgt; de hypothalamus meet dit en de hypofyse geeft meer ADH af (1). De verzamelbuis wordt beter doorlaatbaar voor water, er gaat meer water terug naar het bloed (1). Daardoor daalt de osmotische waarde, en dat remt de ADH-afgifte weer: negatieve terugkoppeling (1). b. Alcohol remt de afgifte van ADH, dus er gaat minder water terug en er komt meer urine (1). Ondanks de hoge osmotische waarde blijft de ADH geremd: de terugkoppeling werkt niet (1).</p></details></div>
+    <div class="q"><b>3. Plasma, voorurine en urine</b> <span class="pts">7 + 2 punten</span><p>Tabel: concentraties en volumes per dag bij een gezond persoon.</p>
+      <table><tr><th>stof</th><th>bloedplasma (g/L)</th><th>voorurine (g/L)</th><th>urine (g/L)</th></tr>
+      <tr><td>eiwitten</td><td>70</td><td>0</td><td>0</td></tr><tr><td>glucose</td><td>1,0</td><td>1,0</td><td>0</td></tr><tr><td>natriumionen (Na⁺)</td><td>3,2</td><td>3,2</td><td>3,5</td></tr><tr><td>ureum</td><td>0,30</td><td>0,30</td><td>20</td></tr><tr><td><b>volume per dag</b></td><td>—</td><td>180 L</td><td>1,5 L</td></tr></table>
+      <p>a. Leg uit waarom er geen eiwit in de voorurine zit, maar wel evenveel glucose als in het plasma. (2p)<br>b. Leg uit hoe het komt dat ureum in de urine veel sterker geconcentreerd is dan in de voorurine. (2p)<br>c. Bereken hoeveel procent van het gefiltreerde ureum wordt teruggeresorbeerd. (2p)<br>d. Bij een patiënt met diabetes is de glucose in het plasma 2,7 g/L. De nierdrempel is 1,8 g/L. Komt er glucose in de urine? Leg uit. (1p)</p>
+      <p class="vwo-only">e. (vwo) Bereken hoeveel procent van het gefiltreerde Na⁺ wordt teruggeresorbeerd, en leg uit wat een tekort aan aldosteron doet met de hoeveelheid bloed. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Eiwitten zijn te groot voor de filter (1); glucose is klein en gaat vrij mee met het water (1). b. Ongeveer 99 % van het water wordt teruggeresorbeerd (1), van het ureum veel minder (1). c. Gefiltreerd: 180 × 0,30 = 54 g; uitgescheiden: 1,5 × 20 = 30 g (1). Teruggeresorbeerd: 24 / 54 × 100 % ≈ 44 % (1). d. Ja: de plasmaconcentratie ligt boven de nierdrempel, dus het nierbuisje kan niet alle glucose terughalen (1).</p><p class="vwo-only">e. Gefiltreerd 576 g, uitgescheiden 5,25 g: (576 − 5,25) / 576 × 100 % ≈ 99,1 % (1). Minder aldosteron: minder Na⁺ terug, dus ook minder water osmotisch terug; de hoeveelheid bloed (en de bloeddruk) daalt (1).</p></details></div>
+    <div class="q vwo-only"><b>4. De kangoeroerat</b> <span class="vwo-badge">vwo</span> <span class="pts">6 punten</span><p>De kangoeroerat leeft in de woestijn en drinkt bijna nooit. Hij heeft een extra lange lis van Henle en veel ADH in zijn bloed.</p><p>a. Beschrijf hoe ADH de cellen van de verzamelbuis doorlaatbaar maakt voor water. (2p)<br>b. Leg uit hoe een lange lis van Henle bijdraagt aan sterk geconcentreerde urine. (2p)<br>c. Het medicijn furosemide remt de zoutpomp in het opstijgende deel van de lis. Leg uit waarom iemand die furosemide slikt meer urine maakt, ook als er veel ADH is. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. ADH bindt aan een receptor op de cellen van de verzamelbuis (1); blaasjes met aquaporinen versmelten met het membraan aan de kant van de buis, zodat water door osmose de cel in en weer uit kan (1). b. De lis pompt meer zout naar het niermerg, waardoor de osmotische waarde van het merg hoger wordt (1); daardoor gaat er meer water door osmose uit de verzamelbuis terug (1). c. Er wordt minder zout naar het merg gepompt, dus de osmotische waarde van het merg is lager (1); ook met veel aquaporinen gaat er dan minder water terug, dus meer urine (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>I · Macro</td><td>Sporten in de zon met een beker donkere urine; een andere dag binnen met een fles water en een beker lichte urine; vraag q02</td></tr>
+      <tr><td>1 Twee nieren, twee taken</td><td>B · Schema</td><td>Lichaam met nieren, urineleiders en blaas; twee taken; nierdoorsnede met nierslagader en nierader, schors, merg, nierbekken, urineleider; een miljoen nefronen per nier</td></tr>
+      <tr><td>2 Eerst alles eruit, dan het goede terug</td><td>B + D · Schema</td><td>Uitgerold nefron: aanvoerend (wijd) en afvoerend (nauw) vaatje, glomerulus in het kapsel van Bowman; filtratie van water, glucose, zouten en ureum; bloedcellen en grote eiwitten blijven; 180 L voorurine tegenover 1–2 L urine; terugresorptie (actief transport, osmose) naar de haarvaten; vraag q08; nierdrempel-grafiek</td></tr>
+      <tr><td>3 De kraan heet ADH</td><td>D + I · Schema</td><td>Verzamelbuis in zout weefsel met ADH-schuif en urinebeker; naam anti-diuretisch; regelkring (osmotische waarde, hypothalamus, ADH, verzamelbuis) met minteken; dorst; vraag q13 en de kring met geremd ADH. Vwo: cel van de verzamelbuis met ADH-receptor en aquaporinen; lis van Henle en zout merg; kangoeroerat (vraag q16); aldosteron tegenover ADH</td></tr>
+      <tr><td>Recap</td><td>Schema</td><td>Sporten (veel ADH, weinig donkere urine) naast fles water (weinig ADH, veel lichte urine); slotbeeld van de reeks: klier → hormoon → doelwitcel → kring</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul>
+      <li>Het nefron is uitgerold getekend; de lis van Henle komt alleen in het vwo-blok in beeld. In de basis heet het hele stuk tussen kapsel en verzamelbuis "nierbuisje".</li>
+      <li>"Het weefsel rond de verzamelbuis is zout" staat in de basis zonder verklaring; de verklaring (lis van Henle) is vwo.</li>
+      <li>ADH wordt gemaakt in zenuwcellen van de hypothalamus en via het steeltje in de hypofyse-achterkwab opgeslagen en afgegeven (zie film 3).</li>
+      <li>Alcohol: de film noemt alleen de remming van ADH. Andere effecten (en de oorzaken van een kater) zijn bewust weggelaten.</li>
+      <li>Aldosteron: alleen het effect op natrium en water in het nierbuisje; het renine-angiotensinesysteem is weggelaten.</li>
+      <li>De nierdrempelgrafiek is een model.</li>
+    </ul>
+    <h3>Leerdoelen en waar ze zitten</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
+      <tr><td>Functies en bouw van nier en nefron</td><td>basis</td><td>H1, H2, checkvraag 1</td></tr>
+      <tr><td>Filtratie en terugresorptie; geen glucose en eiwit in urine; nierdrempel</td><td>basis</td><td>H2, vraag q08, checkvragen 1 en 3</td></tr>
+      <tr><td>ADH-regelkring met negatieve terugkoppeling</td><td>basis</td><td>H3, vraag q02, checkvraag 2a</td></tr>
+      <tr><td>Alcohol en ADH</td><td>basis</td><td>H3, vraag q13, checkvraag 2b</td></tr>
+      <tr><td>Aquaporinen, lis van Henle, aldosteron</td><td>vwo</td><td>H3 vwo-blok, vraag q16, checkvragen 3e en 4</td></tr>
+    </table>
+    <h3>Pauzemomenten in de klas</h3>
+    <ul><li>Na de filtratie: laat leerlingen voorspellen welke stoffen wel en niet in de voorurine zitten.</li><li>Na de regelkring: laat ze de kring tekenen voor "veel water gedronken".</li><li>Na de recap: laat ze de vijf films van de reeks in één schema zetten (klier → hormoon → doelwitcel → kring).</li></ul>
+  </section>
+"""
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')
