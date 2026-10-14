@@ -1,0 +1,78 @@
+import json
+film = {
+ "slug": "3-de-baas-van-de-klieren", "hoofdstuk": "regeling", "hoofdstukNaam": "Regeling",
+ "title": "De baas van de klieren", "sub": "Hoe je hersenen je hormoonklieren aansturen",
+ "puzzle": "Op bijna elk pak zout staat: met jodium. Met de smaak heeft dat niets te maken. Waarom zit het er dan in?",
+ "meta": "hormonen 3/5", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Hormonen · film 3 van 5",
+ "lead": "Onder je hersenen hangt de hypofyse, zo groot als een erwt. De hypothalamus stuurt haar aan, en zij stuurt met eigen hormonen andere klieren aan. De schildklier maakt thyroxine, met vier jodiumatomen per molecuul. TSH van de hypofyse zet de schildklier aan, thyroxine remt de hypofyse: negatieve terugkoppeling. Zonder jodium valt die rem weg en groeit de schildklier uit tot een struma.",
+ "endHaak": "wie stuurt wie, en wie remt wie",
+ "minis": {"Hoofdstuk 1": "Wie stuurt je hormoonklieren aan?", "Hoofdstuk 2": "Hoe blijft de thyroxine op peil, en wat gaat er mis zonder jodium?", "Hoofdstuk 3": "Hoe laat groeihormoon je groeien?", "Recap": "Waarom zit er jodium in zout?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Op bijna elk pak zout staat: met jodium. Met de smaak heeft dat niets te maken. Waarom zit er jodium in zout?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 2 en aan het eind."},
+  "q11": {"q": "Iemand krijgt te weinig jodium binnen. Zijn schildklier maakt te weinig thyroxine. Wat gebeurt er met de afgifte van TSH door de hypofyse?", "correct": 1, "explain": "Thyroxine remt de hypofyse. Is er weinig thyroxine, dan wordt de hypofyse nauwelijks geremd en geeft ze steeds meer TSH af."},
+  "q17": {"q": "Bij de ziekte van Graves zetten antistoffen de TSH-receptor van de schildklier aan, net als TSH. Wat meet een arts in het bloed?", "correct": 0, "explain": "De schildklier werkt hard: veel thyroxine. Die thyroxine remt de hypofyse, dus weinig TSH. De antistoffen luisteren niet naar die rem: de terugkoppeling is omzeild."}
+ },
+ "glossary": [
+  {"t": "hypothalamus", "d": "Deel van de hersenen dat informatie krijgt via zenuwen en zelf dingen in het bloed meet. Stuurt met hormonen de hypofyse aan: de schakel tussen zenuwstelsel en hormoonstelsel."},
+  {"t": "hypofyse", "d": "Hormoonklier zo groot als een erwt, aan een steeltje onder de hersenen. Geeft hormonen af die andere klieren aansturen (TSH, ACTH, FSH, LH) en hormonen die zelf werken (groeihormoon; ADH wordt in de hypothalamus gemaakt en door de hypofyse afgegeven)."},
+  {"t": "schildklier", "d": "Vlindervormige hormoonklier in de hals, onder de adamsappel. Maakt thyroxine."},
+  {"t": "thyroxine", "d": "Schildklierhormoon met vier jodiumatomen per molecuul. Verhoogt de stofwisseling (verbranding, warmte, hartslag); bij kinderen nodig voor groei en ontwikkeling van de hersenen."},
+  {"t": "TSH", "d": "Schildklierstimulerend hormoon van de hypofyse. Zet de schildklier aan om thyroxine te maken, en laat hem ook groeien."},
+  {"t": "negatieve terugkoppeling", "d": "Het gevolg werkt de oorzaak tegen: veel thyroxine remt de hypofyse, zodat er minder TSH komt."},
+  {"t": "jodium", "d": "Element dat de schildklier nodig heeft om thyroxine te maken. In Nederland toegevoegd aan bakkerszout en keukenzout."},
+  {"t": "struma (krop)", "d": "Vergrote schildklier, bijvoorbeeld door jodiumtekort: weinig thyroxine, dus weinig rem, dus veel TSH, en TSH laat de schildklier groeien."},
+  {"t": "groeihormoon", "d": "Hormoon van de hypofyse dat zelf op weefsels werkt en de lever een groeifactor laat maken. Botten groeien in de lengte bij de groeischijven. Afgifte in stoten, de grootste in de diepe slaap."},
+  {"t": "groeischijf", "d": "Laag kraakbeen bij de uiteinden van een bot waar het bot in de lengte groeit. Sluit aan het eind van de puberteit."},
+  {"t": "TRH", "d": "Releasing hormoon van de hypothalamus dat de hypofyse aanzet om TSH af te geven.", "vwo": True},
+  {"t": "ziekte van Graves", "d": "Het afweersysteem maakt antistoffen die de TSH-receptor van de schildklier aanzetten. Gevolg: veel thyroxine, weinig TSH; de terugkoppeling is omzeild.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Regelkring aanvullen</b> <span class="pts">2 punten</span><p>Een schema van de regeling van de thyroxineconcentratie: P → (hormoon Q) → schildklier → thyroxine → (remt) P.</p><p>Noem de naam van orgaan P en hormoon Q, en noem de naam van dit type regeling.</p>
+      <details><summary>Antwoord</summary><p>P = hypofyse en Q = TSH (schildklierstimulerend hormoon) (1). Negatieve terugkoppeling (1).</p></details></div>
+    <div class="q"><b>2. Struma in de bergen</b> <span class="pts">3 punten</span><p>In sommige bergstreken bevatten de bodem en het voedsel weinig jodium. Daar komt struma vaak voor.</p><p>Leg uit hoe jodiumtekort leidt tot een vergrote schildklier.</p>
+      <details><summary>Antwoord</summary><p>Door het jodiumtekort maakt de schildklier te weinig thyroxine (1). Daardoor wordt de hypofyse minder geremd en geeft ze meer TSH af (1). TSH stimuleert de groei van de schildklier; dat leidt tot struma (1).</p></details></div>
+    <div class="q"><b>3. Vier patiënten</b> <span class="pts">2 + 2 punten</span><p>Bij vier patiënten is het bloed onderzocht.</p>
+      <table><tr><th>patiënt</th><th>TSH (mU/L)</th><th>vrij thyroxine (pmol/L)</th></tr>
+      <tr><td>normaalwaarden</td><td>0,4 – 4,0</td><td>10 – 23</td></tr><tr><td>A</td><td>0,05</td><td>45</td></tr><tr><td>B</td><td>28</td><td>5</td></tr><tr><td>C</td><td>0,2</td><td>6</td></tr><tr><td>D</td><td>1,9</td><td>16</td></tr></table>
+      <p>a. Bij één patiënt ligt de oorzaak van de lage thyroxineconcentratie in de hypofyse. Welke patiënt is dat? Leg je antwoord uit. (2p)</p>
+      <p class="vwo-only">b. (vwo) Patiënt A heeft de ziekte van Graves. Leg met behulp van de tabel uit dat de terugkoppeling op de hypofyse bij deze patiënt wel werkt, maar de thyroxineconcentratie toch hoog blijft. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Patiënt C (1). Uitleg: de thyroxine is laag, maar de TSH is niet verhoogd; de hypofyse geeft dus te weinig TSH af (1). (Bij B is de TSH juist hoog: daar zit de fout in de schildklier.)</p><p class="vwo-only">b. De lage TSH laat zien dat de hoge thyroxineconcentratie de hypofyse remt (1). De antistoffen zetten de TSH-receptoren van de schildklier aan zonder TSH, dus de schildklier blijft veel thyroxine maken (1).</p></details></div>
+    <div class="q vwo-only"><b>4. De TRH-test</b> <span class="vwo-badge">vwo</span> <span class="pts">3 punten</span><p>Twee patiënten, X en Y, hebben allebei een lage TSH- en een lage thyroxineconcentratie. Een arts spuit bij beiden TRH in en meet daarna de TSH. Bij X stijgt de TSH sterk. Bij Y verandert de TSH niet.</p><p>Leg uit in welk orgaan de afwijking bij X zit, en in welk orgaan bij Y.</p>
+      <details><summary>Antwoord</summary><p>TRH van de hypothalamus zet de hypofyse aan tot afgifte van TSH (1). X: de hypofyse reageert normaal op TRH, dus de afwijking zit in de hypothalamus, die te weinig TRH maakt (1). Y: de hypofyse reageert niet op TRH, dus de afwijking zit in de hypofyse (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>D · Macro</td><td>Keukenplank met een pak zout "met jodium" en een brood van de bakker; vraag q02</td></tr>
+      <tr><td>1 Wie is de baas?</td><td>B · Schema</td><td>Hoofd in profiel met hypothalamus en hypofyse (erwt ter vergelijking); organogram hypofyse → TSH / ACTH / FSH·LH → klieren; groeihormoon en ADH die zelf werken; ladder hersenen → hypothalamus → hypofyse → klieren</td></tr>
+      <tr><td>2 De schildklier</td><td>D + I · Schema</td><td>Hals met vlindervormige schildklier; thyroxinemolecuul met vier jodiumatomen; doelcellen en hartslag; regelkring hypofyse–TSH–schildklier–thyroxine met rem; vraag q11; jodium weg: balken jodium, thyroxine, TSH en een groeiende schildklier (struma); diagnose met twee balkparen; te traag en te snel. Vwo: TRH, rem op twee niveaus, ziekte van Graves met antistoffen op de TSH-receptor (vraag q17)</td></tr>
+      <tr><td>3 Groeihormoon</td><td>B · Schema</td><td>Groeihormoon naar de lever (groeifactor) en de groeischijven; stoten in de slaap (model); groeischijven sluiten</td></tr>
+      <tr><td>Recap</td><td>Schema + Macro</td><td>Pak zout naast de kring met jodium; ladder hypothalamus → hypofyse → schildklier met thyroxine die terugstuurt</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul>
+      <li>De film noemt alleen thyroxine (T4). Het actievere T3 (drie jodiumatomen) en de omzetting van T4 naar T3 in weefsels zijn weggelaten.</li>
+      <li>Voor havo staat de regelkring met één verdieping (hypofyse – schildklier); TRH en de rem op de hypothalamus komen alleen in het vwo-blok.</li>
+      <li>Een grotere schildklier vangt wat meer jodium; bij ernstig tekort blijft de thyroxine toch laag. Bij langdurige struma kunnen ook knobbels ontstaan; dat is weggelaten.</li>
+      <li>Te snel of te traag werkende schildklier: alleen de kenmerkende verschijnselen; oorzaken (behalve Graves bij vwo) en behandeling van een te snelle schildklier zijn niet uitgewerkt.</li>
+      <li>De grafiek met stoten groeihormoon is een model, geen meting. De groeifactor uit de lever (IGF-1) wordt niet bij naam genoemd.</li>
+    </ul>
+    <h3>Leerdoelen en waar ze zitten</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
+      <tr><td>Ligging en rol van hypothalamus en hypofyse</td><td>basis</td><td>H1, eindkaart</td></tr>
+      <tr><td>Werking van thyroxine en de rol van jodium</td><td>basis</td><td>H2, vraag q02</td></tr>
+      <tr><td>Regelkring hypofyse–schildklier, negatieve terugkoppeling, struma</td><td>basis</td><td>H2, vraag q11, checkvragen 1, 2 en 3a</td></tr>
+      <tr><td>Te veel en te weinig thyroxine; groeihormoon</td><td>basis</td><td>H2 en H3</td></tr>
+      <tr><td>TRH, terugkoppeling op twee niveaus, ziekte van Graves</td><td>vwo</td><td>H2 vwo-blok, vraag q17, checkvragen 3b en 4</td></tr>
+    </table>
+    <h3>Pauzemomenten in de klas</h3>
+    <ul><li>Na q02: wat staat er op het zout thuis? Wie heeft wel eens van struma gehoord?</li><li>Na de regelkring: laat leerlingen de kring zelf tekenen en het minteken plaatsen.</li><li>Na de diagnose: geef de tabel uit checkvraag 3 en laat ze in tweetallen redeneren.</li></ul>
+  </section>
+"""
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')
