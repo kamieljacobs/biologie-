@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Doorsnede van een mitochondrium">
+<style>text{font-family:"Source Sans 3",system-ui,sans-serif;font-size:24px;fill:#F2F2EE;font-weight:600}.m{font-family:"IBM Plex Mono",monospace;font-size:15px;fill:#C9B896;font-weight:500;letter-spacing:.08em}.l{stroke:#9AA3B2;stroke-width:1.5;fill:none}</style>
+<rect width="900" height="560" fill="#121A26"/>
+<ellipse cx="450" cy="290" rx="330" ry="165" fill="#5A2E2A" stroke="#E8A08C" stroke-width="7"/>
+<ellipse cx="450" cy="290" rx="305" ry="142" fill="#7A3A30" stroke="#D86A5A" stroke-width="7"/>
+<g fill="#5A2E2A" stroke="#D86A5A" stroke-width="7" stroke-linejoin="round">
+<rect x="228" y="140" width="26" height="150" rx="13"/><rect x="318" y="150" width="26" height="130" rx="13"/><rect x="408" y="148" width="26" height="140" rx="13"/><rect x="498" y="150" width="26" height="130" rx="13"/><rect x="588" y="140" width="26" height="150" rx="13"/>
+<rect x="273" y="300" width="26" height="130" rx="13"/><rect x="363" y="292" width="26" height="148" rx="13"/><rect x="453" y="295" width="26" height="140" rx="13"/><rect x="543" y="300" width="26" height="135" rx="13"/><rect x="633" y="300" width="26" height="125" rx="13"/>
+</g>
+<g fill="#E0B64A"><circle cx="262" cy="200" r="6"/><circle cx="352" cy="230" r="6"/><circle cx="442" cy="190" r="6"/><circle cx="532" cy="240" r="6"/><circle cx="622" cy="210" r="6"/><circle cx="307" cy="370" r="6"/><circle cx="397" cy="340" r="6"/><circle cx="487" cy="390" r="6"/><circle cx="577" cy="350" r="6"/></g>
+<ellipse cx="700" cy="290" rx="34" ry="24" fill="none" stroke="#8C7BBF" stroke-width="4"/>
+<g fill="#C9B896"><circle cx="210" cy="300" r="5"/><circle cx="226" cy="318" r="5"/><circle cx="196" cy="282" r="5"/></g>
+<path class="l" d="M450 125 L450 60"/><text x="450" y="50" text-anchor="middle">buitenmembraan</text>
+<path class="l" d="M700 200 L770 160"/><text x="790" y="150" text-anchor="middle">binnenmembraan</text>
+<path class="l" d="M725 305 L780 370"/><text x="790" y="395" text-anchor="middle">ringvormig DNA</text>
+<path class="l" d="M600 140 L640 70"/><text x="640" y="62">intermembraanruimte</text>
+<path class="l" d="M601 260 L700 470"/><text x="700" y="495" text-anchor="middle">cristae (plooien)</text>
+<path class="l" d="M520 330 L520 520"/><text x="460" y="545" text-anchor="middle">matrix</text><path class="l" d="M460 520 L500 360"/>
+<path class="l" d="M210 300 L120 380"/><text x="120" y="405" text-anchor="middle">ribosomen</text>
+<path class="l" d="M262 200 L120 130"/><text x="120" y="118" text-anchor="middle">ATP-synthase</text>
+</svg>

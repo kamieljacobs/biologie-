@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schaallab</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: één kolom, tabs bovenaan; per tab links een simulatie-canvas, rechts de knoppen en getallen. */
+:root{
+  --bg:#f5f7f8; --panel:#ffffff; --fg:#1d2a30; --muted:#5d6f78; --line:#d9e1e5;
+  --sur:#0f7c8c;  --sur-soft:#d5edf0;   /* oppervlakte */
+  --vol:#d9752b;  --vol-soft:#fbe6d4;   /* inhoud */
+  --accent:#0f7c8c; --warn:#b4472a; --ok:#2f8f4e;
+  --font-display:"Outfit",system-ui,sans-serif;
+  --font-body:"Source Sans 3",system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#141b1f; --panel:#1d262b; --fg:#e8eef0; --muted:#9db0b8; --line:#33434b;
+  --sur:#4fc3d1; --sur-soft:#163a40; --vol:#f29a55; --vol-soft:#4a2e18; --accent:#4fc3d1; --warn:#f08a6a; --ok:#6fcf8a; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#141b1f; --panel:#1d262b; --fg:#e8eef0; --muted:#9db0b8; --line:#33434b;
+  --sur:#4fc3d1; --sur-soft:#163a40; --vol:#f29a55; --vol-soft:#4a2e18; --accent:#4fc3d1; --warn:#f08a6a; --ok:#6fcf8a; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.5;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-block:24px 60px;padding-inline:16px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:2rem;font-weight:700}
+h2{font-size:1.35rem;font-weight:600}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+.lead{color:var(--muted);max-width:60ch;margin-top:6px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
+.eyebrow{font-family:var(--font-display);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line);margin-bottom:22px}
+.tab{background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px 14px;font:600 1rem var(--font-display);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:var(--fg);border-color:var(--accent)}
+.tab:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.panel{display:grid;gap:22px}
+.block{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:22px;align-items:start}
+@media (max-width:760px){.block{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.stage{min-width:0}
+.stage svg,.stage canvas{display:block;width:100%;height:auto;max-width:100%}
+.ctrl{display:grid;gap:14px}
+label.sl{display:grid;gap:4px;font-weight:600}
+label.sl span.v{font-family:var(--font-mono);font-weight:500;color:var(--muted);font-size:.9rem}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stat{padding:10px 12px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.stat .k{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-family:var(--font-display);font-weight:600}
+.stat .n{font-family:var(--font-mono);font-size:1.25rem;font-variant-numeric:tabular-nums}
+.stat.sur{border-color:var(--sur);background:var(--sur-soft)}
+.stat.vol{border-color:var(--vol);background:var(--vol-soft)}
+.stat.ratio .n{color:var(--accent)}
+.note{color:var(--muted);font-size:.95rem}
+.key{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:4px}
+.btn{font:600 .95rem var(--font-display);padding:8px 14px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .btn.primary{color:#0e1b1e}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn.primary{color:#0e1b1e}}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--panel);color:var(--muted);padding:6px 12px;font:600 .9rem var(--font-display);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.vragen{border-left:3px solid var(--accent);padding-left:14px;display:grid;gap:10px}
+details summary{cursor:pointer;font-weight:600}
+details p{margin-top:6px;color:var(--muted)}
+.tbl{width:100%;border-collapse:collapse;font-size:.95rem}
+.tbl th,.tbl td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;text-align:right}
+.tbl th.num{text-align:right}
+.tbl tr.sel{background:var(--sur-soft)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.grid3 .card h3{margin-bottom:6px}
+.grid3 .card p{font-size:.95rem;color:var(--muted)}
+.tag{display:inline-block;font:600 .72rem var(--font-display);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--sur-soft);color:var(--sur);margin-bottom:8px}
+.tag.vol{background:var(--vol-soft);color:var(--vol)}
+.clock{font-family:var(--font-mono);font-size:1.4rem;font-variant-numeric:tabular-nums}
+.bar{height:14px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--vol);border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.tip{position:absolute;pointer-events:none;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px;font:.85rem var(--font-mono);display:none}
+</style>
+</head>
+<body>
+<nav class="sitenav" style="display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;max-width:1080px;margin:0 auto;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../index.html#home" style="color:var(--muted);text-decoration:none">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a href="../index.html#cellen" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">← Terug naar Cellen</a></nav>
+<div class="wrap">
+<header>
+  <div>
+    <div class="eyebrow">Oppervlakte en inhoud</div>
+    <h1>Schaallab</h1>
+    <p class="lead">Hoe kleiner iets is, hoe meer buitenkant het heeft per binnenkant. Onderzoek wat dat betekent voor cellen, dieren en organen.</p>
+  </div>
+  <div class="note"><span class="key" style="background:var(--sur)"></span>oppervlakte &nbsp; <span class="key" style="background:var(--vol)"></span>inhoud</div>
+</header>
+
+<div class="tabs" role="tablist">
+  <button class="tab" role="tab" aria-selected="true" data-tab="kubus">1 · De regel</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="diffusie">2 · Diffusie</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="warmte">3 · Warmte</button>
+  <button class="tab" role="tab" aria-selected="false" data-tab="natuur">4 · Oplossingen in de natuur</button>
+</div>
+
+<!-- ============ TAB 1 ============ -->
+<section class="panel" id="tab-kubus">
+  <div class="block">
+    <div class="card stage">
+      <h2>Eén kubus</h2>
+      <p class="note">Oppervlakte groeit met het kwadraat van de ribbe, inhoud met de derde macht. De inhoud wint het dus altijd van de oppervlakte als iets groter wordt.</p>
+      <svg id="cubeSvg" viewBox="-110 -115 220 230" style="max-height:300px;margin-top:10px"></svg>
+      <div id="chart1wrap" style="position:relative"><svg id="chart1" viewBox="0 0 520 230"></svg><div class="tip" id="tip1"></div></div>
+    </div>
+    <div class="card ctrl">
+      <label class="sl">Ribbe <span class="v" id="rV">4 cm</span>
+        <input type="range" id="rSl" min="1" max="10" step="1" value="4"></label>
+      <div class="stats">
+        <div class="stat sur"><div class="k">Oppervlakte</div><div class="n" id="sA">96 cm²</div><div class="note">6 × r²</div></div>
+        <div class="stat vol"><div class="k">Inhoud</div><div class="n" id="sV">64 cm³</div><div class="note">r³</div></div>
+        <div class="stat ratio"><div class="k">Oppervlakte ∕ inhoud</div><div class="n" id="sR">1,5</div><div class="note">cm² per cm³ = 6 ∕ r</div></div>
+      </div>
+      <p class="note" id="cubeText"></p>
+      <div class="vragen">
+        <h3>Denkvragen</h3>
+        <details><summary>Een cel wordt 2× zo groot (ribbe). Hoeveel keer zoveel oppervlakte en inhoud krijgt hij?</summary><p>Oppervlakte 2² = 4×, inhoud 2³ = 8×. Per cm³ inhoud is er nu maar half zoveel buitenkant.</p></details>
+        <details><summary>Waarom staat in de kolom rechts 6 ∕ r?</summary><p>6r² ∕ r³ = 6 ∕ r. De verhouding hangt alleen van de grootte af: hoe groter r, hoe kleiner de verhouding.</p></details>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="card stage">
+      <h2>Zelfde inhoud, kleinere blokjes</h2>
+      <p class="note">Zaag een kubus in stukken. De inhoud blijft gelijk, maar elke zaagsnede maakt nieuwe buitenkant.</p>
+      <svg id="splitSvg" viewBox="-130 -130 260 250" style="max-height:330px;margin-top:10px"></svg>
+    </div>
+    <div class="card ctrl">
+      <label class="sl">Zaag in <span class="v" id="nV">2 × 2 × 2 = 8 blokjes</span>
+        <input type="range" id="nSl" min="1" max="4" step="1" value="2"></label>
+      <label class="sl">Trek uit elkaar <span class="v" id="gV"></span>
+        <input type="range" id="gSl" min="0" max="100" step="1" value="35"></label>
+      <div class="stats">
+        <div class="stat vol"><div class="k">Totale inhoud</div><div class="n" id="spV">1000 cm³</div></div>
+        <div class="stat sur"><div class="k">Totale oppervlakte</div><div class="n" id="spA">1200 cm²</div></div>
+        <div class="stat ratio"><div class="k">Verhouding</div><div class="n" id="spR">× 2</div><div class="note">t.o.v. de hele kubus</div></div>
+      </div>
+      <p class="note">Dit is precies wat een grote cel wint door zich te delen, en wat een darm wint door plooien en vlokken: dezelfde hoeveelheid weefsel, veel meer contactoppervlak.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 2 ============ -->
+<section class="panel" id="tab-diffusie" hidden>
+  <div class="card">
+    <h2>Zuurstof moet naar binnen door de buitenkant</h2>
+    <p class="note" style="max-width:70ch">Een cel haalt zuurstof alleen via diffusie door het membraan. De aanvoer hangt af van de <b>oppervlakte</b>, het verbruik van de <b>inhoud</b>. Twee cellen starten tegelijk zonder zuurstof in een omgeving vol zuurstof. Kijk hoe snel de kern wordt bereikt.</p>
+  </div>
+  <div class="block">
+    <div class="card stage">
+      <div class="row" style="justify-content:space-between">
+        <div><div class="eyebrow">Gesimuleerde tijd</div><div class="clock" id="dClock">0,00 s</div></div>
+        <div class="row"><button class="btn primary" id="dStart">Start</button><button class="btn" id="dReset">Reset</button></div>
+      </div>
+      <canvas id="dCanvas" width="900" height="560" style="margin-top:10px"></canvas>
+      <p class="note">Kleur = zuurstofconcentratie (wit = leeg, blauwgroen = zoals buiten). Onder elke cel: concentratie van rand (links) tot midden (rechts).</p>
+    </div>
+    <div class="card ctrl">
+      <label class="sl">Straal cel A <span class="v" id="rAV">10 µm</span>
+        <input type="range" id="rA" min="0" max="100" step="1" value="13"></label>
+      <label class="sl">Straal cel B <span class="v" id="rBV">100 µm</span>
+        <input type="range" id="rB" min="0" max="100" step="1" value="57"></label>
+      <div>
+        <div style="font-weight:600;margin-bottom:6px">Zuurstofverbruik van de cel</div>
+        <div class="seg" id="qSeg">
+          <button aria-pressed="true" data-q="0">geen</button>
+          <button aria-pressed="false" data-q="0.05">laag</button>
+          <button aria-pressed="false" data-q="0.5">gemiddeld</button>
+          <button aria-pressed="false" data-q="2">hoog</button>
+        </div>
+      </div>
+      <table class="tbl">
+        <tr><th></th><th class="num">Cel A</th><th class="num">Cel B</th></tr>
+        <tr><td>Oppervlakte ∕ inhoud</td><td class="num" id="dRa"></td><td class="num" id="dRb"></td></tr>
+        <tr><td>Midden half gevuld na</td><td class="num" id="dTa">–</td><td class="num" id="dTb">–</td></tr>
+        <tr><td>Concentratie in midden nu</td><td class="num" id="dCa">0 %</td><td class="num" id="dCb">0 %</td></tr>
+      </table>
+      <p class="note">Diffusietijd groeit met het <b>kwadraat</b> van de afstand: 10× grotere straal, 100× langer wachten. Daarom zijn de meeste cellen 10–100 µm en niet 1 mm.</p>
+      <div class="vragen">
+        <h3>Denkvragen</h3>
+        <details><summary>Zet het verbruik op "hoog" en maak cel B zo groot mogelijk. Wat gebeurt er in de kern?</summary><p>De kern blijft leeg: alle zuurstof die binnenkomt wordt onderweg al verbruikt. Zo'n cel zou in het midden afsterven. Een cel mag dus niet te groot worden, of hij moet zijn verbruik verlagen.</p></details>
+        <details><summary>Een eicel is wel groot (tot 0,1 mm bij de mens, bij vogels centimeters). Hoe kan dat?</summary><p>Een eicel is grotendeels voorraad (dooier) met een heel laag verbruik per cm³; de levende, actieve laag zit dun aan de rand. Zodra het embryo gaat delen, worden de cellen weer snel klein.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 3 ============ -->
+<section class="panel" id="tab-warmte" hidden>
+  <div class="block">
+    <div class="card stage">
+      <h2>Afkoelen</h2>
+      <p class="note">Warmte lekt weg door de huid (oppervlakte), maar zit opgeslagen in het lichaam (inhoud). Twee "dieren" van 37 °C in een omgeving van 5 °C, zonder eigen warmteproductie.</p>
+      <div class="row" style="justify-content:space-between;margin-top:10px">
+        <div><div class="eyebrow">Tijd</div><div class="clock" id="wClock">0 min</div></div>
+        <div class="row"><button class="btn primary" id="wStart">Start</button><button class="btn" id="wReset">Reset</button></div>
+      </div>
+      <canvas id="wCanvas" width="900" height="470" style="margin-top:10px"></canvas>
+    </div>
+    <div class="card ctrl">
+      <label class="sl">Diameter dier A <span class="v" id="dAV">6 cm</span>
+        <input type="range" id="dA" min="2" max="60" step="1" value="6"></label>
+      <label class="sl">Diameter dier B <span class="v" id="dBV">40 cm</span>
+        <input type="range" id="dB" min="2" max="60" step="1" value="40"></label>
+      <label class="sl">Omgeving <span class="v" id="tEV">5 °C</span>
+        <input type="range" id="tE" min="-20" max="35" step="1" value="5"></label>
+      <table class="tbl">
+        <tr><th></th><th class="num">A</th><th class="num">B</th></tr>
+        <tr><td>Oppervlakte ∕ inhoud</td><td class="num" id="wRa"></td><td class="num" id="wRb"></td></tr>
+        <tr><td>Temperatuur nu</td><td class="num" id="wTa">37,0 °C</td><td class="num" id="wTb">37,0 °C</td></tr>
+        <tr><td>Nodige warmteproductie om op 37 °C te blijven (ongeveer, ter vergelijking: mens in rust ≈ 1 W/L)</td><td class="num" id="wPa"></td><td class="num" id="wPb"></td></tr>
+      </table>
+      <p class="note">Een klein warmbloedig dier moet dus per gram lichaam veel harder "stoken": sneller ademen, sneller hart, veel vaker eten.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="card stage">
+      <h2>Van spitsmuis tot olifant</h2>
+      <p class="note">Klik een dier. De stofwisseling per kilo lichaamsgewicht daalt naarmate het dier groter wordt: een spitsmuis verbrandt per gram ongeveer 30× meer dan een olifant.</p>
+      <div style="position:relative"><svg id="chart3" viewBox="0 0 520 260"></svg><div class="tip" id="tip3"></div></div>
+    </div>
+    <div class="card ctrl">
+      <table class="tbl" id="dierTbl">
+        <tr><th>Dier</th><th class="num">Massa</th><th class="num">Hartslag ∕ min</th><th class="num">Eet per dag</th></tr>
+      </table>
+      <p class="note">Getallen zijn afgeronde gemiddelden. "Eet per dag" is het gewicht van het voedsel als percentage van het lichaamsgewicht.</p>
+      <div class="vragen">
+        <h3>Denkvragen</h3>
+        <details><summary>Waarom zijn er geen warmbloedige dieren kleiner dan een spitsmuis of kolibrie (± 2 g)?</summary><p>Nog kleiner betekent nog meer warmteverlies per gram. Zo'n dier zou vrijwel onafgebroken moeten eten en zelfs 's nachts niet mogen stoppen. Kolibries en spitsmuizen zitten al op de grens en laten hun temperatuur 's nachts soms zakken (torpor).</p></details>
+        <details><summary>Poolvossen hebben kleine oren, woestijnvossen enorme. Leg uit met oppervlakte en inhoud.</summary><p>Oren zijn dun: veel oppervlakte, weinig inhoud. Grote oren verliezen veel warmte, handig in de woestijn, gevaarlijk op de pool. (Regel van Allen.) Ook zijn dieren in koude gebieden vaak groter (regel van Bergmann): minder oppervlakte per kilo.</p></details>
+        <details><summary>Waarom koelt een baby sneller af dan een volwassene?</summary><p>Een baby is klein en heeft dus relatief veel huid per liter lichaam. Vandaar mutsjes, en vandaar dat te vroeg geboren baby's in een couveuse liggen.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAB 4 ============ -->
+<section class="panel" id="tab-natuur" hidden>
+  <div class="block">
+    <div class="card stage">
+      <h2>Oppervlakte winnen zonder groter te worden</h2>
+      <p class="note">Groot zijn heeft voordelen (minder afkoelen, minder uitdrogen, prooien vangen). Maar dan moet er wel genoeg uitwisselingsoppervlak zijn. De truc: plooien, vertakken, platmaken.</p>
+      <svg id="foldSvg" viewBox="0 0 520 220" style="margin-top:10px"></svg>
+    </div>
+    <div class="card ctrl">
+      <label class="sl">Aantal plooien <span class="v" id="fV">0</span>
+        <input type="range" id="fSl" min="0" max="24" step="1" value="0"></label>
+      <label class="sl">Diepte van de plooien <span class="v" id="fdV"></span>
+        <input type="range" id="fdSl" min="10" max="100" step="1" value="60"></label>
+      <div class="stats">
+        <div class="stat sur"><div class="k">Contactoppervlak</div><div class="n" id="fA">× 1,0</div><div class="note">t.o.v. de vlakke wand</div></div>
+        <div class="stat vol"><div class="k">Weefsel eronder</div><div class="n">gelijk</div></div>
+      </div>
+      <p class="note">De darmwand doet dit drie keer op elkaar: plooien, daarop darmvlokken, daarop microvilli. Samen maken ze van een buis van 1 m² zo'n 30 m² opnameoppervlak.</p>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="card"><span class="tag">plooien</span><h3>Dunne darm</h3><p>Plooien, darmvlokken en microvilli: ongeveer 30 m² opnameoppervlak in een buis van zes meter.</p></div>
+    <div class="card"><span class="tag">vertakken</span><h3>Longen</h3><p>300 miljoen longblaasjes, samen ongeveer 70 m² (een halve tennisbaan), opgevouwen in de borstkas. Een vis doet hetzelfde met kieuwlamellen.</p></div>
+    <div class="card"><span class="tag">vertakken</span><h3>Wortelharen</h3><p>Eén roggeplant heeft tot honderden kilometers wortelhaar. Water en mineralen komen alleen binnen door de buitenkant.</p></div>
+    <div class="card"><span class="tag">platmaken</span><h3>Platwormen en bladeren</h3><p>Een platworm heeft geen longen of bloed nodig: hij is zo plat dat geen cel ver van de buitenkant zit. Bladeren zijn om dezelfde reden dun.</p></div>
+    <div class="card"><span class="tag">plooien</span><h3>Mitochondriën</h3><p>Het binnenmembraan is sterk geplooid (cristae). Daar zit de elektronentransportketen: meer membraan, meer ATP.</p></div>
+    <div class="card"><span class="tag vol">transport</span><h3>Bloedsomloop</h3><p>Zodra diffusie alleen te traag wordt, neemt een vervoersysteem het over. Het bloed brengt zuurstof tot op 20 µm van elke cel; de laatste stap is wel weer diffusie.</p></div>
+    <div class="card"><span class="tag vol">klein blijven</span><h3>Celdeling</h3><p>Een cel die te groot wordt, deelt zich. Grote cellen zoals spiervezels hebben veel kernen en liggen dicht tegen haarvaten.</p></div>
+    <div class="card"><span class="tag">plooien</span><h3>Nier en hersenen</h3><p>Miljoenen nefronen in de nier, hersenwindingen in de hersenschors: ook daar wint plooien oppervlak in een beperkte ruimte.</p></div>
+    <div class="card"><span class="tag vol">klein zijn</span><h3>Insecten</h3><p>Insecten ademen door tracheeën zonder bloed als zuurstofdrager. Dat werkt alleen op kleine schaal; het is een van de redenen dat er geen insecten zo groot als een hond zijn.</p></div>
+  </div>
+  <div class="card vragen" style="border-left-width:3px">
+    <h3>Denkvragen</h3>
+    <details><summary>Een patiënt heeft door een ziekte afgevlakte darmvlokken (coeliakie). Welk gevolg verwacht je?</summary><p>Minder opnameoppervlak, dus minder opname van voedingsstoffen: afvallen, tekorten, vermoeidheid, ook al eet de patiënt genoeg.</p></details>
+    <details><summary>Fijngemalen koffie of suiker lost sneller op dan grove. Zelfde principe?</summary><p>Ja: malen is zagen. Meer oppervlakte per gram, dus meer contact met het water. Hetzelfde geldt voor enzymen die beter werken op fijngekauwd voedsel, en voor meelstof dat kan ontploffen.</p></details>
+  </div>
+</section>
+</div>
+
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt=(x,d=1)=>x.toLocaleString('nl-NL',{minimumFractionDigits:d,maximumFractionDigits:d});
+const fmt0=x=>x.toLocaleString('nl-NL',{maximumFractionDigits:0});
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected',t===b));
+  document.querySelectorAll('.panel').forEach(p=>p.hidden=(p.id!=='tab-'+b.dataset.tab));
+  if(b.dataset.tab==='diffusie')drawD(); if(b.dataset.tab==='warmte')drawW();
+  document.querySelector('.tabs').scrollIntoView({block:'start'});
+}));
+try{const h=location.hash.replace('#','');if(h)document.querySelector(`.tab[data-tab="${h}"]`)?.click();}catch(e){}
+
+/* ---------- isometric cube ---------- */
+const P=(x,y,z)=>[(x-y)*0.866,(x+y)*0.5-z];
+function cubeFaces(ox,oy,oz,r,div,fill){
+  // returns svg string for a cube with origin (ox,oy,oz), edge r, grid divisions div
+  const f=(pts)=>pts.map(p=>P(...p)).map(p=>p.join(',')).join(' ');
+  const sur=css('--sur'),line=css('--panel');
+  let s='';
+  const faces={
+    top:[[ox,oy,oz+r],[ox+r,oy,oz+r],[ox+r,oy+r,oz+r],[ox,oy+r,oz+r]],
+    right:[[ox+r,oy,oz],[ox+r,oy+r,oz],[ox+r,oy+r,oz+r],[ox+r,oy,oz+r]],
+    left:[[ox,oy+r,oz],[ox+r,oy+r,oz],[ox+r,oy+r,oz+r],[ox,oy+r,oz+r]]
+  };
+  const shade={top:1,right:.78,left:.6};
+  for(const k in faces){
+    s+=`<polygon points="${f(faces[k])}" fill="${sur}" opacity="${shade[k]*(fill||1)}" stroke="${line}" stroke-width="0.8" stroke-linejoin="round"/>`;
+  }
+  // grid lines
+  if(div>1){
+    const st=r/div;
+    for(let i=1;i<div;i++){
+      const d=i*st;
+      // top face: lines parallel to x and y
+      s+=seg([ox+d,oy,oz+r],[ox+d,oy+r,oz+r])+seg([ox,oy+d,oz+r],[ox+r,oy+d,oz+r]);
+      s+=seg([ox+r,oy+d,oz],[ox+r,oy+d,oz+r])+seg([ox+r,oy,oz+d],[ox+r,oy+r,oz+d]);
+      s+=seg([ox+d,oy+r,oz],[ox+d,oy+r,oz+r])+seg([ox,oy+r,oz+d],[ox+r,oy+r,oz+d]);
+    }
+  }
+  return s;
+  function seg(a,b){const A=P(...a),B=P(...b);return `<line x1="${A[0]}" y1="${A[1]}" x2="${B[0]}" y2="${B[1]}" stroke="${line}" stroke-width="0.7" opacity=".8"/>`}
+}
+
+/* ---------- tab 1: single cube ---------- */
+function drawCube(){
+  const r=+$('rSl').value, sc=11;
+  const R=r*sc;
+  $('cubeSvg').innerHTML=`<g transform="translate(0,-5)">${cubeFaces(0,0,0,R,r)}</g>
+    <text x="0" y="108" text-anchor="middle" font-size="11" fill="${css('--muted')}" font-family="${css('--font-mono')}">ribbe ${r} cm</text>`;
+  $('rV').textContent=r+' cm';
+  $('sA').textContent=fmt0(6*r*r)+' cm²'; $('sV').textContent=fmt0(r*r*r)+' cm³'; $('sR').textContent=fmt(6/r,2);
+  $('cubeText').textContent=`Per cm³ inhoud heeft deze kubus ${fmt(6/r,2)} cm² buitenkant. Bij ribbe 1 cm is dat 6 cm², bij ribbe 10 cm nog maar 0,6 cm².`;
+  drawChart1(r);
+}
+function drawChart1(rSel){
+  const W=520,H=230,ml=44,mr=16,mt=18,mb=34,pw=W-ml-mr,ph=H-mt-mb;
+  const maxY=1000; const x=r=>ml+(r-1)/9*pw, y=v=>mt+ph-(v/maxY)*ph;
+  const sur=css('--sur'),vol=css('--vol'),mu=css('--muted'),ln=css('--line'),mono=css('--font-mono');
+  let s=`<text x="${ml}" y="11" font-size="11" fill="${mu}" font-family="${mono}">cm² / cm³</text>`;
+  [0,250,500,750,1000].forEach(v=>{s+=`<line x1="${ml}" x2="${W-mr}" y1="${y(v)}" y2="${y(v)}" stroke="${ln}" stroke-width="1"/><text x="${ml-6}" y="${y(v)+4}" text-anchor="end" font-size="10" fill="${mu}" font-family="${mono}">${v}</text>`});
+  for(let r=1;r<=10;r++)s+=`<text x="${x(r)}" y="${H-mb+16}" text-anchor="middle" font-size="10" fill="${mu}" font-family="${mono}">${r}</text>`;
+  s+=`<text x="${ml+pw/2}" y="${H-4}" text-anchor="middle" font-size="11" fill="${mu}">ribbe (cm)</text>`;
+  const pa=[],pv=[]; for(let r=1;r<=10;r++){pa.push(`${x(r)},${y(Math.min(6*r*r,maxY))}`);pv.push(`${x(r)},${y(Math.min(r**3,maxY))}`)}
+  s+=`<polyline points="${pa.join(' ')}" fill="none" stroke="${sur}" stroke-width="2" stroke-linejoin="round"/>`;
+  s+=`<polyline points="${pv.join(' ')}" fill="none" stroke="${vol}" stroke-width="2" stroke-linejoin="round"/>`;
+  s+=`<text x="${x(10)-2}" y="${y(600)+18}" text-anchor="end" font-size="11" font-weight="600" fill="${css('--fg')}">oppervlakte 6r²</text>`;
+  s+=`<text x="${x(7.4)}" y="${y(560)}" text-anchor="end" font-size="11" font-weight="600" fill="${css('--fg')}">inhoud r³</text>`;
+  s+=`<line x1="${x(rSel)}" x2="${x(rSel)}" y1="${mt}" y2="${mt+ph}" stroke="${mu}" stroke-dasharray="3 3"/>`;
+  s+=`<circle cx="${x(rSel)}" cy="${y(Math.min(6*rSel*rSel,maxY))}" r="5" fill="${sur}" stroke="${css('--panel')}" stroke-width="2"/><circle cx="${x(rSel)}" cy="${y(Math.min(rSel**3,maxY))}" r="5" fill="${vol}" stroke="${css('--panel')}" stroke-width="2"/>`;
+  $('chart1').innerHTML=s;
+}
+$('rSl').addEventListener('input',drawCube);
+$('chart1').addEventListener('mousemove',e=>{
+  const svg=$('chart1'),b=svg.getBoundingClientRect(),xr=(e.clientX-b.left)/b.width*520;
+  const r=Math.max(1,Math.min(10,Math.round(1+(xr-44)/460*9)));
+  const t=$('tip1');t.style.display='block';t.style.left=(e.clientX-b.left+12)+'px';t.style.top=(e.clientY-b.top-10)+'px';
+  t.textContent=`r=${r}: A=${6*r*r} cm², V=${r**3} cm³`;
+});
+$('chart1').addEventListener('mouseleave',()=>$('tip1').style.display='none');
+
+/* ---------- tab 1: split cube ---------- */
+function drawSplit(){
+  const n=+$('nSl').value,g=+$('gSl').value/100,R=10,sc=11;
+  $('nV').textContent=n===1?'1 blok (niet gezaagd)':`${n} × ${n} × ${n} = ${n**3} blokjes`;
+  $('gV').textContent=Math.round(g*100)+' %';
+  const r=R/n, gap=g*r*0.9, step=r+gap, tot=n*step-gap;
+  const cubes=[];
+  for(let z=0;z<n;z++)for(let x=0;x<n;x++)for(let y=0;y<n;y++)cubes.push([x,y,z]);
+  cubes.sort((a,b)=>(a[0]+a[1]+a[2])-(b[0]+b[1]+b[2]));
+  let s='';
+  for(const [x,y,z] of cubes){s+=cubeFaces((x*step-tot/2)*sc,(y*step-tot/2)*sc,(z*step)*sc-tot*sc*0.5,r*sc,1);}
+  $('splitSvg').innerHTML=`<g transform="translate(0,20)">${s}</g>`;
+  $('spV').textContent='1000 cm³';
+  $('spA').textContent=fmt0(600*n)+' cm²';
+  $('spR').textContent='× '+n;
+}
+$('nSl').addEventListener('input',drawSplit);$('gSl').addEventListener('input',drawSplit);
+
+/* ---------- tab 2: diffusion ---------- */
+const D=2000; // µm²/s (zuurstof in cytoplasma, orde van grootte)
+const N=40;
+const radiusFromSlider=v=>Math.round(Math.pow(10, 0.7+v/100*2.3)); // 5 µm .. 1000 µm (log)
+let dq=0, dRun=false, dTsim=0, dLast=0, cells=[];
+function mkCell(R){return {R, c:new Float64Array(N+1), t50:null, sa:3/R}}
+function dReset(){
+  dRun=false;dTsim=0;$('dStart').textContent='Start';
+  cells=[mkCell(radiusFromSlider(+$('rA').value)),mkCell(radiusFromSlider(+$('rB').value))];
+  cells.forEach(c=>c.c[N]=1);
+  $('rAV').textContent=cells[0].R+' µm';$('rBV').textContent=cells[1].R+' µm';
+  $('dRa').textContent=fmt(3/cells[0].R,3)+' /µm';$('dRb').textContent=fmt(3/cells[1].R,3)+' /µm';
+  $('dTa').textContent='–';$('dTb').textContent='–';$('dClock').textContent='0,00 s';
+  drawD();
+}
+function stepCell(cell,dtau){ // advance nondimensional time dtau
+  const dr=1/N, dtMax=dr*dr/7, Phi=dq*cell.R*cell.R/D;
+  let steps=Math.ceil(dtau/dtMax); if(steps>3000)steps=3000; const dt=Math.min(dtMax,dtau/steps);
+  const c=cell.c,nc=new Float64Array(N+1);
+  for(let s=0;s<steps;s++){
+    for(let i=0;i<N;i++){
+      const rho=i*dr;
+      let lap;
+      if(i===0){lap=6*(c[1]-c[0])/(dr*dr);}
+      else{const rp=rho+dr/2,rm=rho-dr/2;lap=(rp*rp*(c[i+1]-c[i])-rm*rm*(c[i]-c[i-1]))/(dr*dr*rho*rho);}
+      let v=c[i]+dt*(lap-Phi*c[i]/(c[i]+0.08));
+      nc[i]=v<0?0:v;
+    }
+    nc[N]=1; c.set(nc);
+  }
+}
+function dTick(ts){
+  if(!dRun)return;
+  const wall=(ts-dLast)/1000;dLast=ts;
+  const Rmax=Math.max(cells[0].R,cells[1].R);
+  const speed=(0.5*Rmax*Rmax/D)/8; // sim-seconden per echte seconde
+  const dtSim=Math.min(wall,0.05)*speed; dTsim+=dtSim;
+  cells.forEach(c=>{stepCell(c,dtSim*D/(c.R*c.R)); if(c.t50===null&&c.c[0]>=0.5)c.t50=dTsim;});
+  $('dClock').textContent=dTsim<1?fmt(dTsim,2)+' s':dTsim<120?fmt(dTsim,1)+' s':fmt(dTsim/60,1)+' min';
+  ['a','b'].forEach((k,i)=>{const c=cells[i];$('dT'+k).textContent=c.t50===null?'nog niet':(c.t50<1?fmt(c.t50,3)+' s':c.t50<120?fmt(c.t50,1)+' s':fmt(c.t50/60,1)+' min');$('dC'+k).textContent=fmt0(c.c[0]*100)+' %';});
+  drawD();
+  if(dTsim>1.2*Rmax*Rmax/D&&dq===0){dRun=false;$('dStart').textContent='Start';}
+  if(dRun)requestAnimationFrame(dTick);
+}
+function mix(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t))}
+function hex2(h){h=h.replace('#','');return [0,2,4].map(i=>parseInt(h.substr(i,2),16))}
+function drawD(){
+  const cv=$('dCanvas'),ctx=cv.getContext('2d');const W=cv.width,H=cv.height;
+  ctx.fillStyle=css('--panel');ctx.fillRect(0,0,W,H);
+  const surC=hex2(css('--sur')),bgC=hex2(css('--panel'));
+  const Rmax=Math.max(cells[0].R,cells[1].R);
+  cells.forEach((cell,i)=>{
+    const cx=W*(i?0.74:0.26),cy=200;
+    const pr=Math.max(28,150*Math.sqrt(cell.R/Rmax)); // visuele straal (wortelschaal, zodat beide zichtbaar blijven)
+    // omgeving
+    ctx.fillStyle=`rgb(${surC.join(',')})`;ctx.globalAlpha=.25;ctx.beginPath();ctx.arc(cx,cy,pr+16,0,7);ctx.fill();ctx.globalAlpha=1;
+    for(let k=N;k>=0;k--){const t=cell.c[k];const col=mix(bgC,surC,Math.max(0,Math.min(1,t)));ctx.fillStyle=`rgb(${col.join(',')})`;ctx.beginPath();ctx.arc(cx,cy,pr*(k/N)+(k===N?0:0.6),0,7);ctx.fill();}
+    ctx.strokeStyle=css('--fg');ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,pr,0,7);ctx.stroke();
+    ctx.fillStyle=css('--fg');ctx.font='600 20px '+css('--font-display');ctx.textAlign='center';ctx.fillText('Cel '+(i?'B':'A'),cx,cy-pr-26);
+    ctx.font='14px '+css('--font-mono');ctx.fillStyle=css('--muted');ctx.fillText('straal '+cell.R+' µm'+(cell.R>=1000?' (1 mm)':''),cx,cy+pr+28);
+    // profiel
+    const gx=cx-110,gy=415,gw=220,gh=110;
+    ctx.strokeStyle=css('--line');ctx.lineWidth=1;ctx.strokeRect(gx,gy,gw,gh);
+    ctx.beginPath();ctx.moveTo(gx,gy+gh/2);ctx.lineTo(gx+gw,gy+gh/2);ctx.stroke();
+    ctx.strokeStyle=css('--sur');ctx.lineWidth=2.5;ctx.beginPath();
+    for(let k=N;k>=0;k--){const x=gx+(N-k)/N*gw,y=gy+gh-cell.c[k]*gh;k===N?ctx.moveTo(x,y):ctx.lineTo(x,y);}ctx.stroke();
+    ctx.fillStyle=css('--muted');ctx.font='12px '+css('--font-mono');ctx.textAlign='left';ctx.fillText('rand',gx,gy+gh+16);ctx.textAlign='right';ctx.fillText('midden',gx+gw,gy+gh+16);
+    ctx.textAlign='left';ctx.fillText('100 %',gx+4,gy+12);ctx.fillText('50 %',gx+4,gy+gh/2-3);
+  });
+}
+$('rA').addEventListener('input',dReset);$('rB').addEventListener('input',dReset);
+$('dStart').addEventListener('click',()=>{dRun=!dRun;$('dStart').textContent=dRun?'Pauze':'Start';if(dRun){dLast=performance.now();requestAnimationFrame(dTick);}});
+$('dReset').addEventListener('click',dReset);
+$('qSeg').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{$('qSeg').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));dq=+b.dataset.q;dReset();}));
+
+/* ---------- tab 3: cooling ---------- */
+const hK=0.012; // afkoelconstante per (cm²/cm³) per minuut (h ≈ 10 W/m²K, water)
+let wRun=false,wT=0,wLast=0,animals=[];
+function mkAnimal(d){return {d,T:37,sa:6/d}}
+function wReset(){
+  wRun=false;wT=0;$('wStart').textContent='Start';
+  animals=[mkAnimal(+$('dA').value),mkAnimal(+$('dB').value)];
+  $('dAV').textContent=animals[0].d+' cm';$('dBV').textContent=animals[1].d+' cm';$('tEV').textContent=$('tE').value+' °C';
+  const Te=+$('tE').value;
+  ['a','b'].forEach((k,i)=>{const a=animals[i];$('wR'+k).textContent=fmt(a.sa,2)+' /cm';$('wT'+k).textContent='37,0 °C';
+    const p=Math.max(0,10*a.sa*100*(37-Te)/1000); // W per liter: h·(A/V)·ΔT
+    $('wP'+k).textContent=fmt(p,1)+' W/L';});
+  $('wClock').textContent='0 min';drawW();
+}
+function wTick(ts){
+  if(!wRun)return;const wall=Math.min((ts-wLast)/1000,0.05);wLast=ts;
+  const dtMin=wall*10; // 10 minuten per seconde
+  wT+=dtMin;const Te=+$('tE').value;
+  animals.forEach(a=>{a.T+= -hK*a.sa*(a.T-Te)*dtMin;});
+  $('wClock').textContent=wT<60?fmt0(wT)+' min':fmt(wT/60,1)+' uur';
+  ['a','b'].forEach((k,i)=>$('wT'+k).textContent=fmt(animals[i].T,1)+' °C');
+  drawW();
+  if(animals.every(a=>Math.abs(a.T-Te)<0.5)||wT>24*60){wRun=false;$('wStart').textContent='Start';}
+  if(wRun)requestAnimationFrame(wTick);
+}
+function tempColor(T,Te){const t=Math.max(0,Math.min(1,(T-Te)/(37-Te||1)));const cold=hex2(css('--sur')),warm=hex2(css('--vol'));return 'rgb('+mix(cold,warm,t).join(',')+')';}
+function drawW(){
+  const cv=$('wCanvas'),ctx=cv.getContext('2d'),W=cv.width,H=cv.height;const Te=+$('tE').value;
+  ctx.fillStyle=css('--panel');ctx.fillRect(0,0,W,H);
+  animals.forEach((a,i)=>{
+    const cx=W*(i?0.72:0.28),cy=225,pr=Math.max(8,a.d*3.2);
+    ctx.fillStyle=tempColor(a.T,Te);ctx.beginPath();ctx.arc(cx,cy,pr,0,7);ctx.fill();
+    ctx.strokeStyle=css('--fg');ctx.lineWidth=2;ctx.stroke();
+    ctx.fillStyle=css('--fg');ctx.font='600 20px '+css('--font-display');ctx.textAlign='center';ctx.fillText((i?'B':'A')+' · '+a.d+' cm',cx,Math.max(22,cy-pr-16));
+    ctx.font='600 26px '+css('--font-mono');ctx.fillStyle=css('--fg');ctx.fillText(fmt(a.T,1)+' °C',cx,cy+pr+44);
+    // kleine thermometerbalk
+    const bx=cx-80,by=cy+pr+60,bw=160,bh=10;ctx.fillStyle=css('--line');ctx.fillRect(bx,by,bw,bh);
+    const f=Math.max(0,Math.min(1,(a.T-Te)/(37-Te||1)));ctx.fillStyle=css('--vol');ctx.fillRect(bx,by,bw*f,bh);
+  });
+  ctx.fillStyle=css('--muted');ctx.font='14px '+css('--font-mono');ctx.textAlign='center';ctx.fillText('omgeving '+Te+' °C',W/2,H-10);
+}
+['dA','dB','tE'].forEach(id=>$(id).addEventListener('input',wReset));
+$('wStart').addEventListener('click',()=>{wRun=!wRun;$('wStart').textContent=wRun?'Pauze':'Start';if(wRun){wLast=performance.now();requestAnimationFrame(wTick);}});
+$('wReset').addEventListener('click',wReset);
+
+/* ---------- tab 3: animals ---------- */
+const dieren=[
+  {n:'Spitsmuis',m:0.005,hr:900,eet:100},{n:'Muis',m:0.02,hr:600,eet:15},{n:'Rat',m:0.3,hr:350,eet:10},
+  {n:'Kat',m:4,hr:150,eet:3},{n:'Mens',m:70,hr:70,eet:2.5},{n:'Paard',m:500,hr:40,eet:2},{n:'Olifant',m:5000,hr:30,eet:4}];
+let selDier=1;
+function bmrKg(m){return 3.4*Math.pow(m,-0.25)} // W per kg (Kleiber, 3,4·M^0,75 W)
+function drawDieren(){
+  const tb=$('dierTbl');tb.querySelectorAll('tr.d').forEach(r=>r.remove());
+  dieren.forEach((d,i)=>{const tr=document.createElement('tr');tr.className='d'+(i===selDier?' sel':'');tr.style.cursor='pointer';
+    tr.innerHTML=`<td>${d.n}</td><td class="num">${d.m<1?fmt0(d.m*1000)+' g':fmt0(d.m)+' kg'}</td><td class="num">${d.hr}</td><td class="num">${fmt(d.eet,d.eet<5?1:0)} %</td>`;
+    tr.addEventListener('click',()=>{selDier=i;drawDieren();});tb.appendChild(tr);});
+  const W=520,H=260,ml=46,mr=16,mt=16,mb=40,pw=W-ml-mr,ph=H-mt-mb;
+  const lx=m=>ml+(Math.log10(m)+2.5)/6.5*pw, maxY=14, y=v=>mt+ph-v/maxY*ph;
+  const mu=css('--muted'),ln=css('--line'),mono=css('--font-mono'),vol=css('--vol');
+  let s=`<text x="${ml}" y="10" font-size="11" fill="${mu}" font-family="${mono}">watt per kg lichaam (rust)</text>`;
+  [0,2,4,6,8,10,12,14].forEach(v=>s+=`<line x1="${ml}" x2="${W-mr}" y1="${y(v)}" y2="${y(v)}" stroke="${ln}"/><text x="${ml-6}" y="${y(v)+4}" text-anchor="end" font-size="10" fill="${mu}" font-family="${mono}">${v}</text>`);
+  [[0.001,'1 g'],[0.01,'10 g'],[0.1,'100 g'],[1,'1 kg'],[10,'10 kg'],[100,'100 kg'],[1000,'1 ton']].forEach(([m,l])=>s+=`<text x="${lx(m)}" y="${H-mb+16}" text-anchor="middle" font-size="10" fill="${mu}" font-family="${mono}">${l}</text>`);
+  s+=`<text x="${ml+pw/2}" y="${H-4}" text-anchor="middle" font-size="11" fill="${mu}">lichaamsmassa (logaritmische as)</text>`;
+  let pts=[];for(let e=-2.5;e<=4;e+=0.1){pts.push(`${lx(10**e)},${y(Math.min(maxY,bmrKg(10**e)))}`)}
+  s+=`<polyline points="${pts.join(' ')}" fill="none" stroke="${vol}" stroke-width="2"/>`;
+  dieren.forEach((d,i)=>{const sel=i===selDier;s+=`<circle cx="${lx(d.m)}" cy="${y(bmrKg(d.m))}" r="${sel?7:5}" fill="${sel?css('--fg'):vol}" stroke="${css('--panel')}" stroke-width="2" data-i="${i}" style="cursor:pointer"/>`;
+    s+=`<text x="${lx(d.m)+(i===0?10:0)}" y="${y(bmrKg(d.m))-11}" text-anchor="${i===0?'start':'middle'}" font-size="11" font-weight="${sel?700:400}" fill="${css('--fg')}">${d.n}</text>`;});
+  const d=dieren[selDier];
+  s+=`<text x="${W-mr}" y="${mt+14}" text-anchor="end" font-size="12" fill="${css('--fg')}" font-family="${mono}">${d.n}: ${fmt(bmrKg(d.m),1)} W/kg</text>`;
+  $('chart3').innerHTML=s;
+  $('chart3').querySelectorAll('circle').forEach(c=>c.addEventListener('click',()=>{selDier=+c.dataset.i;drawDieren();}));
+}
+
+/* ---------- tab 4: folds ---------- */
+function drawFold(){
+  const n=+$('fSl').value,depth=+$('fdSl').value;$('fV').textContent=n;$('fdV').textContent=depth+' %';
+  const x0=40,x1=480,base=170,top=base-depth*1.2;
+  let path=`M${x0},${base}`;let len=0;
+  if(n===0){path+=` L${x1},${base}`;len=x1-x0;}
+  else{const w=(x1-x0)/n;for(let i=0;i<n;i++){const a=x0+i*w,b=a+w/2,c=a+w;path+=` L${b},${top} L${c},${base}`;len+=2*Math.hypot(w/2,base-top);}}
+  const sur=css('--sur'),vol=css('--vol'),mu=css('--muted');
+  $('foldSvg').innerHTML=`<rect x="${x0}" y="${base}" width="${x1-x0}" height="40" fill="${vol}" opacity=".9"/>
+    <path d="${path} L${x1},${base} Z" fill="${vol}" opacity=".9"/>
+    <path d="${path}" fill="none" stroke="${sur}" stroke-width="4" stroke-linejoin="round"/>
+    <text x="${x0}" y="30" font-size="12" fill="${mu}">darmholte (voedsel)</text>
+    <text x="${x0}" y="${base+30}" font-size="12" fill="#fff">darmwand met bloedvaten</text>`;
+  $('fA').textContent='× '+fmt(len/(x1-x0),1);
+}
+$('fSl').addEventListener('input',drawFold);$('fdSl').addEventListener('input',drawFold);
+
+/* ---------- init ---------- */
+function all(){drawCube();drawSplit();dReset();wReset();drawDieren();drawFold();}
+all();
+if(window.matchMedia){window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',all);}
+new MutationObserver(all).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>
+</body>
+</html>

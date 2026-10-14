@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" role="img" aria-label="Lysosoom met afbraakenzymen">
+<style>text{font-family:"Source Sans 3",system-ui,sans-serif;font-size:22px;fill:#F2F2EE;font-weight:600}.s{font-size:18px;fill:#C9B896}.l{stroke:#9AA3B2;stroke-width:1.5;fill:none}</style>
+<rect width="900" height="560" fill="#121A26"/>
+<text x="40" y="45" class="s">cytoplasma · pH ± 7,2</text>
+<circle cx="450" cy="285" r="185" fill="#1F4A3C" stroke="#3E9A78" stroke-width="8"/>
+<text x="450" y="140" text-anchor="middle" style="font-size:30px;fill:#E0B64A">pH ± 4,5–5</text>
+<g><path d="M300 300 l18 -14 l18 14 l-18 14z" fill="#E07A5F"/><text x="340" y="306">proteasen</text>
+<rect x="430" y="186" width="30" height="30" rx="6" fill="#E8D27A"/><text x="470" y="210">lipasen</text>
+<circle cx="330" cy="380" r="15" fill="#8C7BBF"/><text x="352" y="388">nucleasen</text>
+<path d="M440 420 l16 -26 l16 26z" fill="#5BA4C9"/><text x="480" y="420">koolhydraatsplitsers</text>
+<circle cx="560" cy="300" r="40" fill="none" stroke="#D88E7A" stroke-width="5" stroke-dasharray="10 8"/><text x="560" y="365" text-anchor="middle" class="s">oud organel</text></g>
+<g><rect x="610" y="140" width="34" height="22" rx="6" fill="#C9708F"/><path d="M627 100 V138" stroke="#F2F2EE" stroke-width="3"/><path d="M620 128 l7 12 l7 -12" fill="#F2F2EE"/><text x="660" y="105">H⁺-pomp</text><text x="660" y="130" class="s">houdt het zuur</text></g>
+<path class="l" d="M640 330 L770 345"/><text x="820" y="350" text-anchor="middle">membraan</text><text x="820" y="375" text-anchor="middle" class="s">beschermd tegen</text><text x="820" y="397" text-anchor="middle" class="s">de eigen enzymen</text>
+<text x="40" y="520" class="s">autofagie: eigen afval · fagocytose: opgenomen bacteriën</text><text x="40" y="545" class="s">de bouwstenen gaan terug de cel in</text>
+</svg>

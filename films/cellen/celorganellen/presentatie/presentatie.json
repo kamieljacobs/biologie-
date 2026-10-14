@@ -5,119 +5,486 @@
  "terug": "../../../index.html#cellen",
  "hoofdstuk": "Cellen",
  "slides": [
-  {"type": "titel", "kop": "Cellen · klassikale uitleg bij de film", "titel": "Celorganellen", "sub": "Een fabriek die leeft", "beeld": "presentatie/img/s01_020-5.jpg",
-   "notities": "Doel: leerlingen noemen de zes levenskenmerken, de organellen met hun taak, en lezen uit de organellen af wat een cel doet. Volgt de film (13 min); je kunt de film achteraf als herhaling geven. V wisselt havo/vwo (vwo-slides hebben een paarse rand)."},
-
-  {"type": "vraag", "kop": "Startvraag", "vraag": "Je alvleesklier maakt elke dag ruim een liter verteringssap vol enzymen. Elke kliercel maakt ze binnenin en brengt ze netjes naar buiten. Hoe krijgt één cel dat voor elkaar?",
-   "opties": ["De enzymen lekken gewoon de cel uit", "De cel maakt ze in één ruimte en pompt ze naar buiten", "De cel heeft er een route van aparte onderdelen voor"], "juist": 2,
+  {
+   "type": "titel",
+   "kop": "Cellen · klassikale uitleg bij de film",
+   "titel": "Celorganellen",
+   "sub": "Een fabriek die leeft",
+   "beeld": "presentatie/img/s01_020-5.jpg",
+   "notities": "Doel: leerlingen noemen de zes levenskenmerken, de organellen met hun taak, en lezen uit de organellen af wat een cel doet. Volgt de film (13 min); je kunt de film achteraf als herhaling geven. V wisselt havo/vwo (vwo-slides hebben een paarse rand)."
+  },
+  {
+   "type": "vraag",
+   "kop": "Startvraag",
+   "vraag": "Je alvleesklier maakt elke dag ruim een liter verteringssap vol enzymen. Elke kliercel maakt ze binnenin en brengt ze netjes naar buiten. Hoe krijgt één cel dat voor elkaar?",
+   "opties": [
+    "De enzymen lekken gewoon de cel uit",
+    "De cel maakt ze in één ruimte en pompt ze naar buiten",
+    "De cel heeft er een route van aparte onderdelen voor"
+   ],
+   "juist": 2,
    "uitleg": "Een route: kern → ribosomen op het ER → golgisysteem → blaasjes → celmembraan. Laat het antwoord eventueel pas aan het eind zien (slide 'Terug naar de puzzel').",
    "beeld": "presentatie/img/s01_020-5.jpg",
-   "notities": "Laat leerlingen eerst kiezen en hun keuze onthouden. In de film komt het antwoord pas in de recap."},
-
-  {"type": "inhoud", "kop": "1 · Wat moet één cel kunnen?", "titel": "Zes levenskenmerken", "beeld": "presentatie/img/s04_022-0.jpg",
-   "punten": ["Stoffen omzetten (stofwisseling)", "Groeien", "Zich voortplanten", "Bewegen", "Reageren op de omgeving", "Zichzelf in evenwicht houden (homeostase)"],
-   "notities": "Het bord bovenin komt elke slide terug: elk organel 'verdient' een kenmerk. Vraag: wat doet een bacterie van deze lijst? (alles)."},
-
-  {"type": "inhoud", "kop": "1 · Wat moet één cel kunnen?", "titel": "Prokaryoot en eukaryoot", "beeld": "presentatie/img/s04_052-0.jpg",
-   "punten": ["Bacterie: één cel zonder kern en zonder organellen met een membraan, alleen losse ribosomen: prokaryoot", "Jouw cellen: ± 10× zo lang en breed, met kern en organellen: eukaryoot", "Een organel = een afdeling met eigen bouw en taak"],
-   "notities": "Misconceptie: 'je hebt organellen nodig om te leven'. De bacterie leeft ook zonder."},
-
-  {"type": "inhoud", "kop": "1 · Een cel van dichtbij", "titel": "Membraan, cytoplasma, organellen", "beeld": "presentatie/img/s05_030-0.jpg",
-   "punten": ["Celmembraan: dun vlies om de cel", "Cytoplasma: stroperige vulling", "Organellen: onderdelen met eigen bouw en taak", "Een cel is een blokje, geen plat plaatje; tekeningen zijn vereenvoudigd en niet op schaal"],
-   "notities": "Kliercel uit de alvleesklier: ongeveer 0,01 mm. Laat eventueel de virtuele microscoop zien (wangcellen)."},
-
-  {"type": "vraag", "kop": "1 · Denkvraag", "vraag": "Deze cel maakt heel veel eiwitten. Waar begint het maken van elk eiwit?",
-   "opties": ["Bij de mitochondriën", "Bij de bouwtekeningen in de kern", "Bij de celwand"], "juist": 1,
+   "notities": "Laat leerlingen eerst kiezen en hun keuze onthouden. In de film komt het antwoord pas in de recap."
+  },
+  {
+   "type": "inhoud",
+   "kop": "1 · Wat moet één cel kunnen?",
+   "titel": "Zes levenskenmerken",
+   "beeld": "presentatie/img/s04_022-0.jpg",
+   "punten": [
+    "Stoffen omzetten (stofwisseling)",
+    "Groeien",
+    "Zich voortplanten",
+    "Bewegen",
+    "Reageren op de omgeving",
+    "Zichzelf in evenwicht houden (homeostase)"
+   ],
+   "notities": "Het bord bovenin komt elke slide terug: elk organel 'verdient' een kenmerk. Vraag: wat doet een bacterie van deze lijst? (alles)."
+  },
+  {
+   "type": "inhoud",
+   "kop": "1 · Wat moet één cel kunnen?",
+   "titel": "Prokaryoot en eukaryoot",
+   "beeld": "presentatie/img/s04_052-0.jpg",
+   "punten": [
+    "Bacterie: één cel zonder kern en zonder organellen met een membraan, alleen losse ribosomen: prokaryoot",
+    "Jouw cellen: ± 10× zo lang en breed, met kern en organellen: eukaryoot",
+    "Een organel = een afdeling met eigen bouw en taak"
+   ],
+   "notities": "Misconceptie: 'je hebt organellen nodig om te leven'. De bacterie leeft ook zonder."
+  },
+  {
+   "type": "inhoud",
+   "kop": "1 · Een cel van dichtbij",
+   "titel": "Membraan, cytoplasma, organellen",
+   "beeld": "presentatie/img/s05_030-0.jpg",
+   "punten": [
+    "Celmembraan: dun vlies om de cel",
+    "Cytoplasma: stroperige vulling",
+    "Organellen: onderdelen met eigen bouw en taak",
+    "Een cel is een blokje, geen plat plaatje; tekeningen zijn vereenvoudigd en niet op schaal"
+   ],
+   "notities": "Kliercel uit de alvleesklier: ongeveer 0,01 mm. Laat eventueel de virtuele microscoop zien (wangcellen)."
+  },
+  {
+   "type": "vraag",
+   "kop": "1 · Denkvraag",
+   "vraag": "Deze cel maakt heel veel eiwitten. Waar begint het maken van elk eiwit?",
+   "opties": [
+    "Bij de mitochondriën",
+    "Bij de bouwtekeningen in de kern",
+    "Bij de celwand"
+   ],
+   "juist": 1,
    "uitleg": "Elk eiwit begint bij een bouwtekening (DNA) in de kern. Mitochondriën leveren energie; dierlijke cellen hebben geen celwand.",
-   "beeld": "presentatie/img/s05_012-0.jpg"},
-
-  {"type": "inhoud", "kop": "2 · De bouwtekening", "titel": "De kern", "beeld": "presentatie/img/s07_020-0.jpg",
-   "punten": ["In de kern ligt het DNA: de bouwtekening van bijna elk eiwit", "Dubbel kernmembraan met kernporiën", "Werkkopieën (RNA) gaan door de poriën naar buiten; het DNA blijft binnen", "Vóór een deling wordt al het DNA gekopieerd → zich voortplanten"],
-   "notities": "Misconceptie: 'de kern geeft bevelen'. De kern stuurt doordat hij bepaalt welke werkkopieën eruit gaan."},
-
-  {"type": "vraag", "kop": "2 · Denkvraag", "vraag": "Een rode bloedcel heeft geen kern. Na vier maanden is hij versleten en wordt hij afgebroken. Waarom?",
-   "opties": ["Zonder bouwtekening kan hij versleten eiwitten niet vervangen", "Hij krijgt geen voedsel meer", "Hij wordt te groot"], "juist": 0,
+   "beeld": "presentatie/img/s05_012-0.jpg"
+  },
+  {
+   "type": "inhoud",
+   "kop": "2 · De bouwtekening",
+   "titel": "De kern",
+   "beeld": "presentatie/img/s07_020-0.jpg",
+   "punten": [
+    "In de kern ligt het DNA: de bouwtekening van bijna elk eiwit",
+    "Dubbel kernmembraan met kernporiën",
+    "Werkkopieën (RNA) gaan door de poriën naar buiten; het DNA blijft binnen",
+    "Vóór een deling wordt al het DNA gekopieerd → zich voortplanten"
+   ],
+   "notities": "Misconceptie: 'de kern geeft bevelen'. De kern stuurt doordat hij bepaalt welke werkkopieën eruit gaan."
+  },
+  {
+   "type": "vraag",
+   "kop": "2 · Denkvraag",
+   "vraag": "Een rode bloedcel heeft geen kern. Na vier maanden is hij versleten en wordt hij afgebroken. Waarom?",
+   "opties": [
+    "Zonder bouwtekening kan hij versleten eiwitten niet vervangen",
+    "Hij krijgt geen voedsel meer",
+    "Hij wordt te groot"
+   ],
+   "juist": 0,
    "uitleg": "Zonder kern geen nieuwe werkkopieën, dus ook geen nieuwe eiwitten. Versleten eiwitten blijven versleten.",
-   "beeld": "presentatie/img/s07_044-0.jpg"},
-
-  {"type": "inhoud", "kop": "3 · De werkvloer", "titel": "Ribosomen en ER", "beeld": "presentatie/img/s09_032-0.jpg",
-   "punten": ["Ribosoom: maakt eiwitten volgens de werkkopie", "Eiwitten die de cel houdt, laten hem groeien", "Endoplasmatisch reticulum (ER): netwerk van membranen", "Met ribosomen erop: ruw ER. Daar gaan eiwitten voor buiten de cel in, worden gevouwen en gecontroleerd"],
-   "notities": "Verteringsenzymen zijn eiwitten: zo sluit dit aan op de startvraag."},
-
-  {"type": "inhoud", "kop": "3 · De werkvloer", "titel": "Golgisysteem en naar buiten", "beeld": "presentatie/img/s09_052-0.jpg",
-   "punten": ["Blaasjes brengen eiwitten van het ER naar het golgisysteem", "Golgisysteem: bewerkt, sorteert en verpakt in nieuwe blaasjes", "Een blaasje versmelt met het celmembraan: de enzymen zijn buiten", "Iets nieuws opbouwen = stofwisseling (opbouwkant)"],
-   "notities": "Laat leerlingen de route hardop navertellen: kern → ribosoom → ER → blaasje → golgisysteem → blaasje → membraan."},
-
-  {"type": "vraag", "kop": "3 · Denkvraag", "vraag": "Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat?",
-   "opties": ["Hij is groter", "Hij maakt veel meer eiwitten voor buiten de cel", "Hij deelt zich vaker"], "juist": 1,
-   "uitleg": "Uit de organellen lees je af wat een cel doet: veel ruw ER en golgisysteem → veel eiwitten voor export (enzymen)."},
-
-  {"type": "inhoud", "kop": "3 · Eiwitroute", "vwo": true, "titel": "Eén enzym gevolgd", "beeld": "presentatie/img/s11_052-0.jpg",
-   "punten": ["Ribosoom op een kanaal in het ER-membraan: het eiwit glijdt het ER in", "In het ER vouwen en een eerste suikerlabel; blaasje snoert af", "Golgisysteem: suikers aangepast, adreslabel erop, sorteren", "Exocytose: blaasje versmelt met het membraan · endocytose: membraan stulpt in en haalt iets binnen"]},
-
-  {"type": "vraag", "kop": "3 · Denkvraag", "vwo": true, "vraag": "Twee eiwitten verlaten het golgisysteem: één voor buiten de cel, één voor de opruimdienst. Wat bepaalt waar elk heen gaat?",
-   "opties": ["Hun grootte", "Het adreslabel dat het golgisysteem erop zette", "Toeval: ze drijven weg"], "juist": 1,
+   "beeld": "presentatie/img/s07_044-0.jpg"
+  },
+  {
+   "type": "inhoud",
+   "kop": "3 · De werkvloer",
+   "titel": "Ribosomen en ER",
+   "beeld": "presentatie/img/s09_032-0.jpg",
+   "punten": [
+    "Ribosoom: maakt eiwitten volgens de werkkopie",
+    "Eiwitten die de cel houdt, laten hem groeien",
+    "Endoplasmatisch reticulum (ER): netwerk van membranen",
+    "Met ribosomen erop: ruw ER. Daar gaan eiwitten voor buiten de cel in, worden gevouwen en gecontroleerd"
+   ],
+   "notities": "Verteringsenzymen zijn eiwitten: zo sluit dit aan op de startvraag."
+  },
+  {
+   "type": "inhoud",
+   "kop": "3 · De werkvloer",
+   "titel": "Golgisysteem en naar buiten",
+   "beeld": "presentatie/img/s09_052-0.jpg",
+   "punten": [
+    "Blaasjes brengen eiwitten van het ER naar het golgisysteem",
+    "Golgisysteem: bewerkt, sorteert en verpakt in nieuwe blaasjes",
+    "Een blaasje versmelt met het celmembraan: de enzymen zijn buiten",
+    "Iets nieuws opbouwen = stofwisseling (opbouwkant)"
+   ],
+   "notities": "Laat leerlingen de route hardop navertellen: kern → ribosoom → ER → blaasje → golgisysteem → blaasje → membraan."
+  },
+  {
+   "type": "inhoud",
+   "kop": "3 · Stap voor stap",
+   "titel": "Van gen tot buiten de cel",
+   "svg": "presentatie/svg/route.svg",
+   "stapsgewijs": true,
+   "punten": [
+    "Kern: een werkkopie (RNA) van het gen gaat door een kernporie naar buiten",
+    "Ruw ER: een ribosoom maakt het eiwit; dat glijdt het ER in",
+    "In het ER: vouwen, controleren, eerste suikers; een blaasje snoert af",
+    "Het blaasje versmelt met de cis-kant van het golgisysteem",
+    "Van zakje naar zakje: bijwerken, adreslabel, sorteren aan de trans-kant",
+    "Een blaasje versmelt met het celmembraan: exocytose (of gaat naar een lysosoom)"
+   ],
+   "notities": "Elke klik toont een volgende stap. Laat leerlingen vóór elke klik voorspellen waar het eiwit nu heen gaat. Cis = kant naar het ER, trans = kant naar het membraan."
+  },
+  {
+   "type": "inhoud",
+   "kop": "3 · Twee soorten ER",
+   "titel": "Ruw ER en glad ER",
+   "beeld": "presentatie/img/s09_032-0.jpg",
+   "punten": [
+    "Ruw ER: met ribosomen; maakt eiwitten voor buiten de cel, voor het membraan en voor lysosomen",
+    "Glad ER: zonder ribosomen; maakt vetten en fosfolipiden (voor membranen) en steroïdhormonen",
+    "Glad ER in levercellen: ontgiften · in spiercellen: calcium opslaan",
+    "Veel glad ER in cellen van bijnier en geslachtsklieren (hormonen)"
+   ],
+   "notities": "Toepassing: een cel die testosteron maakt heeft veel glad ER, een alvleeskliercel veel ruw ER."
+  },
+  {
+   "type": "vraag",
+   "kop": "3 · Denkvraag",
+   "vraag": "Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat?",
+   "opties": [
+    "Hij is groter",
+    "Hij maakt veel meer eiwitten voor buiten de cel",
+    "Hij deelt zich vaker"
+   ],
+   "juist": 1,
+   "uitleg": "Uit de organellen lees je af wat een cel doet: veel ruw ER en golgisysteem → veel eiwitten voor export (enzymen)."
+  },
+  {
+   "type": "inhoud",
+   "kop": "3 · Eiwitroute",
+   "vwo": true,
+   "titel": "Eén enzym gevolgd",
+   "beeld": "presentatie/img/s11_052-0.jpg",
+   "punten": [
+    "Ribosoom op een kanaal in het ER-membraan: het eiwit glijdt het ER in",
+    "In het ER vouwen en een eerste suikerlabel; blaasje snoert af",
+    "Golgisysteem: suikers aangepast, adreslabel erop, sorteren",
+    "Exocytose: blaasje versmelt met het membraan · endocytose: membraan stulpt in en haalt iets binnen"
+   ]
+  },
+  {
+   "type": "vraag",
+   "kop": "3 · Denkvraag",
+   "vwo": true,
+   "vraag": "Twee eiwitten verlaten het golgisysteem: één voor buiten de cel, één voor de opruimdienst. Wat bepaalt waar elk heen gaat?",
+   "opties": [
+    "Hun grootte",
+    "Het adreslabel dat het golgisysteem erop zette",
+    "Toeval: ze drijven weg"
+   ],
+   "juist": 1,
    "uitleg": "Het golgisysteem sorteert op adreslabels: naar het celmembraan (exocytose) of naar een lysosoom.",
-   "beeld": "presentatie/img/s11_064-0.jpg"},
-
-  {"type": "inhoud", "kop": "4 · De krachtcentrale", "titel": "Het mitochondrium", "beeld": "presentatie/img/s14_034-0.jpg",
-   "punten": ["Hier wordt de verbranding van glucose afgemaakt, met zuurstof", "Daarbij ontstaat ATP, de energiedrager van de cel, en koolstofdioxide", "Twee membranen; het binnenmembraan is geplooid tot cristae", "In een levende cel vaak buizen die splitsen en samensmelten"],
-   "notities": "Hoe de verbranding precies gaat: film Stofwisseling (dissimilatie)."},
-
-  {"type": "vraag", "kop": "4 · Denkvraag", "vraag": "Wat gebeurt er als de plooien (cristae) er niet waren?",
-   "opties": ["Niets, verbranden gaat net zo goed", "De cel maakt minder ATP", "Het mitochondrium wordt groter"], "juist": 1,
+   "beeld": "presentatie/img/s11_064-0.jpg"
+  },
+  {
+   "type": "inhoud",
+   "kop": "4 · De krachtcentrale",
+   "titel": "Het mitochondrium",
+   "beeld": "presentatie/img/s14_034-0.jpg",
+   "punten": [
+    "Hier wordt de verbranding van glucose afgemaakt, met zuurstof",
+    "Daarbij ontstaat ATP, de energiedrager van de cel, en koolstofdioxide",
+    "Twee membranen; het binnenmembraan is geplooid tot cristae",
+    "In een levende cel vaak buizen die splitsen en samensmelten"
+   ],
+   "notities": "Hoe de verbranding precies gaat: film Stofwisseling (dissimilatie)."
+  },
+  {
+   "type": "inhoud",
+   "kop": "4 · Bouw van de krachtcentrale",
+   "titel": "Het dubbelmembraan",
+   "svg": "presentatie/svg/mito.svg",
+   "punten": [
+    "Buitenmembraan: glad, laat kleine moleculen door",
+    "Intermembraanruimte: de smalle ruimte tussen de twee membranen",
+    "Binnenmembraan: kiest streng, geplooid tot cristae; daarop de eiwitten van de ademhalingsketen en ATP-synthase",
+    "Matrix: de vulling, met enzymen voor de verbranding, eigen ringvormig DNA en ribosomen"
+   ],
+   "notities": "Vwo-uitbreiding: eigen DNA en ribosomen lijken op die van bacteriën → endosymbiosetheorie. Dat geldt ook voor chloroplasten."
+  },
+  {
+   "type": "vraag",
+   "kop": "4 · Denkvraag",
+   "vraag": "Wat gebeurt er als de plooien (cristae) er niet waren?",
+   "opties": [
+    "Niets, verbranden gaat net zo goed",
+    "De cel maakt minder ATP",
+    "Het mitochondrium wordt groter"
+   ],
+   "juist": 1,
    "uitleg": "Op het binnenmembraan zitten de eiwitten die ATP maken. Plooien = meer oppervlak (in een levercel ± 5×) = meer ATP. Bouw past bij functie.",
-   "beeld": "presentatie/img/s14_034-0.jpg", "beeld_na": "presentatie/img/s16_014-0.jpg"},
-
-  {"type": "inhoud", "kop": "4 · Bouw past bij functie", "titel": "Hoeveel mitochondriën?", "beeld": "presentatie/img/s16_026-0.jpg",
-   "punten": ["Hartspiercel: voor een derde vol mitochondriën, duizenden", "Huidcel: een paar honderd", "Energie vrijmaken = stofwisseling, afbraakkant", "Opbouw = assimilatie · afbraak = dissimilatie"]},
-
-  {"type": "inhoud", "kop": "4 · Cristae", "vwo": true, "titel": "Uit de bouw lees je het werktempo", "beeld": "presentatie/img/s17_022-0.jpg",
-   "punten": ["Alleen het binnenste membraan is geplooid", "Hoe sneller een cel ATP nodig heeft, hoe meer cristae", "Hartspiercel: dicht opeengepakte cristae · witte vetcel: maar een paar"]},
-
-  {"type": "inhoud", "kop": "5 · Opruimen", "titel": "Lysosomen", "beeld": "presentatie/img/s18_025-0.jpg",
-   "punten": ["Afval: versleten organellen, kapotte eiwitten, binnengehaalde bacteriën (witte bloedcellen)", "Lysosoom: blaasje vol afbraakenzymen; versmelt met een afvalblaasje", "De bouwstenen gebruikt de cel opnieuw", "Binnenin is het zuur: daar werken de enzymen het best"]},
-
-  {"type": "vraag", "kop": "5 · Denkvraag", "vraag": "Wat gebeurt er als er een enzym uit een lysosoom lekt?",
-   "opties": ["Het breekt de hele cel af", "Weinig: in het cytoplasma is het niet zuur genoeg", "De cel maakt meteen een nieuw lysosoom"], "juist": 1,
-   "uitleg": "De enzymen werken het best in het zure lysosoom (pH ± 4,8); in het cytoplasma (pH ± 7,2) nauwelijks. Een ingebouwde veiligheid."},
-
-  {"type": "inhoud", "kop": "5 · In evenwicht blijven", "titel": "De vacuole", "beeld": "presentatie/img/s20_012-0.jpg",
-   "punten": ["Volgroeide plantencel: één grote vacuole met celvocht", "Water stroomt erin en bouwt druk op tegen de celwand: de plant staat stevig", "Verliest de vacuole water, dan zakt de plant in", "Afval opruimen en water vasthouden = homeostase"],
-   "notities": "Koppeling met de film Diffusie en osmose (turgor, plasmolyse)."},
-
-  {"type": "inhoud", "kop": "6 · De grens", "titel": "Het celmembraan", "beeld": "presentatie/img/s21_012-0.jpg",
-   "punten": ["Alles wat erin of eruit gaat, passeert het membraan", "Het laat sommige stoffen door en andere niet", "Past een hormoon op een ontvanger-eiwit, dan verandert de cel wat hij doet → reageren op de omgeving"]},
-
-  {"type": "inhoud", "kop": "6 · Het skelet", "titel": "Het cytoskelet", "beeld": "presentatie/img/s21_038-0.jpg",
-   "punten": ["In een echte cel beweegt alles: blaasjes, mitochondriën", "Cytoskelet: netwerk van eiwitdraden", "Geeft de cel zijn vorm; sommige cellen kruipen ermee of slaan met trilharen → bewegen"],
-   "notities": "Misconceptie: organellen liggen stil."},
-
-  {"type": "inhoud", "kop": "6 · Motoreiwitten", "vwo": true, "titel": "Karretjes op rails", "beeld": "presentatie/img/s22_012-0.jpg",
-   "punten": ["Een blaasje drijft niet alleen van ER naar golgisysteem", "Motoreiwitten lopen met het blaasje over de draden van het cytoskelet", "Zonder cytoskelet geen gerichte route"]},
-
-  {"type": "inhoud", "kop": "7 · Plant en dier", "titel": "Plantencel en dierlijke cel", "beeld": "presentatie/img/s23_036-0.jpg",
-   "punten": ["Beide: kern, mitochondriën, ribosomen, ER, golgisysteem, celmembraan", "Lysosomen vooral bij dieren; bij planten doet de vacuole dat werk", "Plant extra: celwand van cellulose, chloroplasten, grote vacuole", "De wand is een zeef; alleen het membraan kiest wat erin en eruit gaat"]},
-
-  {"type": "vraag", "kop": "7 · Denkvraag", "vraag": "Heeft een plantencel ook mitochondriën?",
-   "opties": ["Nee, chloroplasten doen dat werk", "Ja, elke plantencel verbrandt glucose, dag en nacht", "Alleen cellen zonder chloroplasten, zoals in de wortel"], "juist": 1,
+   "beeld": "presentatie/img/s14_034-0.jpg",
+   "beeld_na": "presentatie/img/s16_014-0.jpg"
+  },
+  {
+   "type": "inhoud",
+   "kop": "4 · Bouw past bij functie",
+   "titel": "Hoeveel mitochondriën?",
+   "beeld": "presentatie/img/s16_026-0.jpg",
+   "punten": [
+    "Hartspiercel: voor een derde vol mitochondriën, duizenden",
+    "Huidcel: een paar honderd",
+    "Energie vrijmaken = stofwisseling, afbraakkant",
+    "Opbouw = assimilatie · afbraak = dissimilatie"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "4 · Cristae",
+   "vwo": true,
+   "titel": "Uit de bouw lees je het werktempo",
+   "beeld": "presentatie/img/s17_022-0.jpg",
+   "punten": [
+    "Alleen het binnenste membraan is geplooid",
+    "Hoe sneller een cel ATP nodig heeft, hoe meer cristae",
+    "Hartspiercel: dicht opeengepakte cristae · witte vetcel: maar een paar"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "5 · Opruimen",
+   "titel": "Lysosomen",
+   "beeld": "presentatie/img/s18_025-0.jpg",
+   "punten": [
+    "Afval: versleten organellen, kapotte eiwitten, binnengehaalde bacteriën (witte bloedcellen)",
+    "Lysosoom: blaasje vol afbraakenzymen; versmelt met een afvalblaasje",
+    "De bouwstenen gebruikt de cel opnieuw",
+    "Binnenin is het zuur: daar werken de enzymen het best"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "5 · Wat zit erin?",
+   "titel": "De inhoud van een lysosoom",
+   "svg": "presentatie/svg/lyso.svg",
+   "punten": [
+    "Zo'n vijftig soorten afbraakenzymen: proteasen (eiwit), lipasen (vet), nucleasen (DNA en RNA), koolhydraatsplitsers",
+    "Een H⁺-pomp in het membraan houdt het binnen zuur: pH 4,5–5",
+    "Het membraan is beschermd tegen de eigen enzymen",
+    "Gemaakt op het ruw ER, via het golgisysteem met een adreslabel naar het lysosoom"
+   ],
+   "notities": "Autofagie = de cel ruimt eigen versleten onderdelen op. Fagocytose = een witte bloedcel neemt een bacterie op, het blaasje versmelt met een lysosoom."
+  },
+  {
+   "type": "vraag",
+   "kop": "5 · Denkvraag",
+   "vraag": "Wat gebeurt er als er een enzym uit een lysosoom lekt?",
+   "opties": [
+    "Het breekt de hele cel af",
+    "Weinig: in het cytoplasma is het niet zuur genoeg",
+    "De cel maakt meteen een nieuw lysosoom"
+   ],
+   "juist": 1,
+   "uitleg": "De enzymen werken het best in het zure lysosoom (pH ± 4,8); in het cytoplasma (pH ± 7,2) nauwelijks. Een ingebouwde veiligheid."
+  },
+  {
+   "type": "vraag",
+   "kop": "5 · Denkvraag",
+   "vraag": "Bij de ziekte van Pompe ontbreekt in de lysosomen één enzym dat glycogeen afbreekt. Wat gebeurt er in de spiercellen?",
+   "opties": [
+    "Glycogeen hoopt zich op in de lysosomen, die opzwellen",
+    "Een ander enzym neemt het werk meteen over",
+    "Het lysosoom stuurt het glycogeen terug naar het golgisysteem"
+   ],
+   "juist": 0,
+   "uitleg": "Elk enzym heeft zijn eigen substraat. Zonder dit enzym blijft glycogeen liggen; de lysosomen zwellen op en de spiercel raakt beschadigd. Dit heet een stapelingsziekte."
+  },
+  {
+   "type": "inhoud",
+   "kop": "5 · Nog een opruimer",
+   "titel": "Het peroxisoom",
+   "svg": "presentatie/svg/perox.svg",
+   "punten": [
+    "Klein blaasje met één membraan",
+    "Enzymen (oxidasen) breken stoffen af met zuurstof; daarbij ontstaat het giftige waterstofperoxide (H₂O₂)",
+    "Katalase breekt H₂O₂ meteen af tot water en zuurstof",
+    "Taken: lange vetzuren afbreken, ontgiften in de lever (o.a. een deel van de alcohol)"
+   ],
+   "notities": "Proef in de klas: een stukje rauwe lever of aardappel in waterstofperoxide schuimt door katalase. Peroxisomen worden niet door het golgisysteem gemaakt; ze groeien en delen zelf. Niet elke methode behandelt het peroxisoom."
+  },
+  {
+   "type": "inhoud",
+   "kop": "5 · In evenwicht blijven",
+   "titel": "De vacuole",
+   "beeld": "presentatie/img/s20_012-0.jpg",
+   "punten": [
+    "Volgroeide plantencel: één grote vacuole met celvocht",
+    "Water stroomt erin en bouwt druk op tegen de celwand: de plant staat stevig",
+    "Verliest de vacuole water, dan zakt de plant in",
+    "Afval opruimen en water vasthouden = homeostase"
+   ],
+   "notities": "Koppeling met de film Diffusie en osmose (turgor, plasmolyse)."
+  },
+  {
+   "type": "inhoud",
+   "kop": "6 · De grens",
+   "titel": "Het celmembraan",
+   "beeld": "presentatie/img/s21_012-0.jpg",
+   "punten": [
+    "Alles wat erin of eruit gaat, passeert het membraan",
+    "Het laat sommige stoffen door en andere niet",
+    "Past een hormoon op een ontvanger-eiwit, dan verandert de cel wat hij doet → reageren op de omgeving"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "6 · Het skelet",
+   "titel": "Het cytoskelet",
+   "beeld": "presentatie/img/s21_038-0.jpg",
+   "punten": [
+    "In een echte cel beweegt alles: blaasjes, mitochondriën",
+    "Cytoskelet: netwerk van eiwitdraden",
+    "Geeft de cel zijn vorm; sommige cellen kruipen ermee of slaan met trilharen → bewegen"
+   ],
+   "notities": "Misconceptie: organellen liggen stil."
+  },
+  {
+   "type": "inhoud",
+   "kop": "6 · Motoreiwitten",
+   "vwo": true,
+   "titel": "Karretjes op rails",
+   "beeld": "presentatie/img/s22_012-0.jpg",
+   "punten": [
+    "Een blaasje drijft niet alleen van ER naar golgisysteem",
+    "Motoreiwitten lopen met het blaasje over de draden van het cytoskelet",
+    "Zonder cytoskelet geen gerichte route"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "7 · Plant en dier",
+   "titel": "Plantencel en dierlijke cel",
+   "beeld": "presentatie/img/s23_036-0.jpg",
+   "punten": [
+    "Beide: kern, mitochondriën, ribosomen, ER, golgisysteem, celmembraan",
+    "Lysosomen vooral bij dieren; bij planten doet de vacuole dat werk",
+    "Plant extra: celwand van cellulose, chloroplasten, grote vacuole",
+    "De wand is een zeef; alleen het membraan kiest wat erin en eruit gaat"
+   ]
+  },
+  {
+   "type": "vraag",
+   "kop": "7 · Denkvraag",
+   "vraag": "Heeft een plantencel ook mitochondriën?",
+   "opties": [
+    "Nee, chloroplasten doen dat werk",
+    "Ja, elke plantencel verbrandt glucose, dag en nacht",
+    "Alleen cellen zonder chloroplasten, zoals in de wortel"
+   ],
+   "juist": 1,
    "uitleg": "Een chloroplast maakt glucose (alleen bij licht), een mitochondrium verbrandt die. 's Nachts zou de plant anders stilvallen. Allebei nodig, in elke plantencel.",
-   "beeld": "presentatie/img/s23_052-0.jpg", "beeld_na": "presentatie/img/s25_008-0.jpg"},
-
-  {"type": "inhoud", "kop": "7 · Chloroplast", "vwo": true, "titel": "Grana", "beeld": "presentatie/img/s26_010-0.jpg",
-   "punten": ["Binnenin een chloroplast: stapels schijfjes, de grana", "Op die schijfjes zitten de eiwitten die licht vangen", "Veel oppervlak, veel licht: net als de cristae"]},
-
-  {"type": "inhoud", "kop": "Terug naar de puzzel", "titel": "Een route van onderdelen", "beeld": "presentatie/img/s27_030-0.jpg",
-   "punten": ["Niet lekken, niet pompen: antwoord c", "Kern → ribosomen → ER → golgisysteem → blaasjes → membraan", "Elk onderdeel heeft een eigen taak: een fabriek die leeft"],
-   "notities": "Wie koos a of b? Laat ze uitleggen wat er mis is met lekken (enzymen zouden de cel zelf aantasten) en met één ruimte (geen sortering, geen controle)."},
-
-  {"type": "samenvatting", "kop": "Samenvatting", "titel": "Levenskenmerk en organel",
-   "punten": ["Elk organel heeft een bouw die past bij zijn taak", "Uit de organellen van een cel lees je af wat de cel doet", "Alle zes levenskenmerken zitten al in één cel"],
-   "tabel": [["stoffen omzetten", "ER, golgisysteem, mitochondrium"], ["groeien", "ribosomen"], ["zich voortplanten", "kern (DNA kopiëren)"], ["bewegen", "cytoskelet"], ["reageren", "celmembraan (ontvanger-eiwit)"], ["in evenwicht blijven", "lysosoom, vacuole"]]},
-
-  {"type": "vraag", "kop": "Toepassen", "vraag": "Drie cellen: P heeft veel ruw ER en een groot golgisysteem, Q zit vol mitochondriën met veel cristae, R heeft chloroplasten en een grote vacuole. Welke combinatie klopt?",
-   "opties": ["P hartspiercel · Q bladcel · R alvleeskliercel", "P alvleeskliercel · Q hartspiercel · R bladcel", "P bladcel · Q alvleeskliercel · R hartspiercel"], "juist": 1,
+   "beeld": "presentatie/img/s23_052-0.jpg",
+   "beeld_na": "presentatie/img/s25_008-0.jpg"
+  },
+  {
+   "type": "inhoud",
+   "kop": "7 · Bouw van de chloroplast",
+   "titel": "Thylakoïden en grana",
+   "svg": "presentatie/svg/chloro.svg",
+   "punten": [
+    "Dubbel membraan, net als het mitochondrium",
+    "Binnenin: thylakoïden, platte zakjes met bladgroen in hun membraan",
+    "Thylakoïden liggen gestapeld in grana, verbonden door stromalamellen: veel oppervlak, veel licht",
+    "Stroma: de vulling; hier wordt met CO₂ glucose gemaakt en als zetmeel opgeslagen; eigen DNA en ribosomen"
+   ]
+  },
+  {
+   "type": "inhoud",
+   "kop": "7 · Waar gebeurt wat?",
+   "vwo": true,
+   "titel": "Twee plekken, twee stappen",
+   "svg": "presentatie/svg/chloro.svg",
+   "punten": [
+    "Thylakoïdmembraan: bladgroen vangt licht; water wordt gesplitst, O₂ komt vrij, ATP en NADPH worden gemaakt (lichtreactie)",
+    "Stroma: met die ATP en NADPH wordt CO₂ vastgelegd tot glucose (Calvin-cyclus)",
+    "Vergelijk het mitochondrium: ook daar zit de ATP-fabriek op een geplooid binnenmembraan"
+   ],
+   "notities": "Detail van de fotosynthese: zie de film over fotosynthese (Stofwisseling)."
+  },
+  {
+   "type": "inhoud",
+   "kop": "Terug naar de puzzel",
+   "titel": "Een route van onderdelen",
+   "beeld": "presentatie/img/s27_030-0.jpg",
+   "punten": [
+    "Niet lekken, niet pompen: antwoord c",
+    "Kern → ribosomen → ER → golgisysteem → blaasjes → membraan",
+    "Elk onderdeel heeft een eigen taak: een fabriek die leeft"
+   ],
+   "notities": "Wie koos a of b? Laat ze uitleggen wat er mis is met lekken (enzymen zouden de cel zelf aantasten) en met één ruimte (geen sortering, geen controle)."
+  },
+  {
+   "type": "samenvatting",
+   "kop": "Samenvatting",
+   "titel": "Levenskenmerk en organel",
+   "punten": [
+    "Elk organel heeft een bouw die past bij zijn taak",
+    "Uit de organellen van een cel lees je af wat de cel doet",
+    "Alle zes levenskenmerken zitten al in één cel"
+   ],
+   "tabel": [
+    [
+     "stoffen omzetten",
+     "ER, golgisysteem, mitochondrium, chloroplast"
+    ],
+    [
+     "groeien",
+     "ribosomen"
+    ],
+    [
+     "zich voortplanten",
+     "kern (DNA kopiëren)"
+    ],
+    [
+     "bewegen",
+     "cytoskelet"
+    ],
+    [
+     "reageren",
+     "celmembraan (ontvanger-eiwit)"
+    ],
+    [
+     "in evenwicht blijven",
+     "lysosoom, peroxisoom, vacuole"
+    ]
+   ]
+  },
+  {
+   "type": "vraag",
+   "kop": "Toepassen",
+   "vraag": "Drie cellen: P heeft veel ruw ER en een groot golgisysteem, Q zit vol mitochondriën met veel cristae, R heeft chloroplasten en een grote vacuole. Welke combinatie klopt?",
+   "opties": [
+    "P hartspiercel · Q bladcel · R alvleeskliercel",
+    "P alvleeskliercel · Q hartspiercel · R bladcel",
+    "P bladcel · Q alvleeskliercel · R hartspiercel"
+   ],
+   "juist": 1,
    "uitleg": "Veel ruw ER + golgi = eiwitten voor export (alvleesklier); veel mitochondriën = veel ATP (hartspier); chloroplasten + vacuole = plantencel (blad).",
-   "notities": "Afsluitende check. Eventueel als exit ticket: laat leerlingen per cel één organel noemen en uitleggen waarom."}
+   "notities": "Afsluitende check. Eventueel als exit ticket: laat leerlingen per cel één organel noemen en uitleggen waarom."
+  }
  ]
 }

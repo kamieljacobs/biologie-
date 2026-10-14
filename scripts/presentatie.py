@@ -11,6 +11,9 @@ Toetsen: → / spatie / klik = verder · ← = terug · A = antwoord tonen · N 
 import json, sys, html
 
 spec = json.load(open(sys.argv[1], encoding='utf-8')); out = sys.argv[2]
+import os
+def svg(path):  # pad relatief aan de map van de uitvoer-html
+    return open(os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(out)), path)), encoding='utf-8').read()
 E = lambda s: html.escape(str(s), quote=True)
 
 def slide(s, i):
@@ -18,6 +21,8 @@ def slide(s, i):
     kop = f'<div class="kop">{E(s.get("kop", ""))}{"<span class=vwotag>vwo</span>" if s.get("vwo") else ""}</div>'
     notes = f'<aside class="notities">{E(s.get("notities", ""))}</aside>' if s.get('notities') else ''
     beeld = f'<figure class="beeld"><img src="{E(s["beeld"])}" alt="{E(s.get("alt", s.get("titel", "")))}" loading="lazy"></figure>' if s.get('beeld') else ''
+    if s.get('svg'): beeld = f'<figure class="beeld schema">{svg(s["svg"])}</figure>'
+    stap = ' class="stap"' if s.get('stapsgewijs') else ''
     if t == 'titel':
         body = f'<div class="titelslide">{beeld}<div class="tt"><div class="kop">{E(s.get("kop", ""))}</div><h1>{E(s["titel"])}</h1><p class="sub">{E(s.get("sub", ""))}</p></div></div>'
     elif t == 'vraag':
@@ -31,7 +36,7 @@ def slide(s, i):
             tab = '<table>' + ''.join(f'<tr><td>{E(a)}</td><td>{E(b)}</td></tr>' for a, b in s['tabel']) + '</table>'
         body = f'{kop}<h2>{E(s["titel"])}</h2><div class="samen"><ul class="punten">{"".join(f"<li>{E(p)}</li>" for p in s.get("punten", []))}</ul>{tab}</div>'
     else:
-        body = f'{kop}<div class="inhoud{" metbeeld" if beeld else ""}"><div><h2>{E(s["titel"])}</h2><ul class="punten">{"".join(f"<li>{E(p)}</li>" for p in s.get("punten", []))}</ul></div>{beeld}</div>'
+        body = f'{kop}<div class="inhoud{" metbeeld" if beeld else ""}"><div><h2>{E(s["titel"])}</h2><{'ol' if s.get('stapsgewijs') else 'ul'} class="punten{' genummerd' if s.get('stapsgewijs') else ''}">{"".join(f"<li{stap}>{E(p)}</li>" for p in s.get("punten", []))}</{'ol' if s.get('stapsgewijs') else 'ul'}></div>{beeld}</div>'
     return f'<section class="slide t-{t}" data-i="{i}"{vwo}>{body}{notes}</section>'
 
 slides = ''.join(slide(s, i) for i, s in enumerate(spec['slides']))
@@ -60,7 +65,9 @@ h1{{font:700 120px/1.02 Fraunces,Georgia,serif;margin:0}}h2{{font:700 64px/1.1 F
 .punten{{margin:0;padding:0;list-style:none}}.punten li{{font-size:40px;line-height:1.3;margin:0 0 26px;padding-left:40px;position:relative}}
 .punten li:before{{content:"";position:absolute;left:4px;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--goud)}}
 .punten li.stap{{opacity:.12;transition:opacity .3s}}.punten li.stap.toon{{opacity:1}}
-.beeld{{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--lijn)}}.beeld img{{display:block;width:100%;height:auto}}
+.beeld{{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--lijn)}}.beeld img,.beeld svg{{display:block;width:100%;height:auto}}.beeld.schema{{background:#121A26}}
+.genummerd{{counter-reset:n}}.genummerd li{{counter-increment:n;padding-left:64px}}.genummerd li:before{{content:counter(n);width:44px;height:44px;top:.05em;left:0;display:grid;place-items:center;font:700 26px 'IBM Plex Mono',monospace;color:#1A2740;background:var(--goud)}}
+.inhoud.metbeeld .punten li{{font-size:34px;margin-bottom:18px}}
 .vraag{{font-size:56px}}.opties{{list-style:none;margin:0;padding:0}}
 .opties li{{display:flex;gap:22px;align-items:baseline;font-size:40px;line-height:1.25;margin:0 0 22px;padding:18px 24px;border:2px solid var(--lijn);border-radius:16px;cursor:pointer}}
 .opties b{{font-family:"IBM Plex Mono",monospace;color:var(--goud)}}
