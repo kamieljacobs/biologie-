@@ -1,0 +1,83 @@
+import json
+film = {
+ "slug": "1-adem-in-adem-uit", "hoofdstuk": "gaswisseling", "hoofdstukNaam": "Gaswisseling",
+ "title": "Adem in, adem uit", "sub": "Hoe lucht je longen in en uit komt",
+ "puzzle": "Daan voelt ineens een steek in zijn borst. Op de foto is zijn rechterlong ingezakt: er is lucht tussen zijn long en zijn borstwand gekomen. Waarom zakt de long dan in?",
+ "meta": "gaswisseling 1/3", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Gaswisseling en uitscheiding · film 1 van 3",
+ "lead": "Lucht gaat via neusholte, keelholte, strottenhoofd, luchtpijp, bronchiën en bronchiolen naar de longblaasjes; slijm en trilhaarepitheel houden stof tegen. Je longen kunnen zelf niet zuigen: middenrif en tussenribspieren maken de borstholte groter, de druk daalt en lucht wordt naar binnen geduwd. De longen volgen de borstkas doordat long- en borstvlies met een laagje vocht aan elkaar kleven. In de longblaasjes, samen zo'n zeventig vierkante meter, diffunderen zuurstof en koolstofdioxide over een dunne, vochtige wand.",
+ "endHaak": "groot, dun, vochtig, en een verschil dat blijft",
+ "minis": {"Hoofdstuk 1": "Welke weg neemt de lucht, en waarom hoesten rokers slijm op?", "Hoofdstuk 2": "Hoe komt lucht je longen in, als longen zelf niet kunnen zuigen?", "Hoofdstuk 3": "Waarom gaan je longen mee met je borstkas?", "Hoofdstuk 4": "Hoeveel lucht adem je, en hoe komt de zuurstof in je bloed?", "Recap": "Waarom zakte de long van Daan in?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Bij Daan is er lucht tussen zijn long en zijn borstwand gekomen. Waarom zakt de long dan in?", "correct": 0, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
+  "q06": {"q": "Rokers hoesten 's ochtends vaak slijm op. Hoe komt dat?", "correct": 0, "explain": "Rook verlamt de trilhaartjes, en op den duur gaan ze kapot. Het slijm wordt dan niet meer naar de keel afgevoerd, en rokers maken ook meer slijm. Dat moet eruit worden gehoest."},
+  "q09": {"q": "Wat doet je middenrif als je inademt?", "correct": 1, "explain": "Het middenrif trekt samen, wordt platter en zakt. Samen met de tussenribspieren (ribben omhoog en naar buiten) wordt de borstholte groter."},
+  "q17": {"q": "Ingeademde lucht bevat ongeveer 21 % zuurstof. Hoeveel zuurstof zit er nog in de lucht die je uitademt?", "correct": 1, "explain": "In rust haal je maar ongeveer een kwart van de zuurstof eruit: uitgeademde lucht bevat nog ongeveer 16 % zuurstof en ongeveer 4 % koolstofdioxide. Daarom werkt mond-op-mondbeademing."}
+ },
+ "glossary": [
+  {"t": "luchtwegen", "d": "Neusholte, keelholte, strottenhoofd, luchtpijp, bronchiën en bronchiolen: de weg van de lucht naar de longblaasjes."},
+  {"t": "strotklepje", "d": "Klepje dat bij het slikken het strottenhoofd afsluit, zodat er geen voedsel in de luchtpijp komt. De huig sluit dan de neusholte af."},
+  {"t": "trilhaarepitheel", "d": "Bekleding van neusholte, luchtpijp en bronchiën: cellen met trilhaartjes en slijmcellen. De trilhaartjes voeren slijm met stof en bacteriën naar de keel."},
+  {"t": "middenrif", "d": "Koepelvormige spier onder de longen. Trekt bij inademen samen, wordt platter en zakt."},
+  {"t": "tussenribspieren", "d": "Spieren tussen de ribben. Trekken bij inademen de ribben omhoog en naar buiten."},
+  {"t": "buikademhaling / borstademhaling", "d": "Ademhaling met vooral het middenrif (buik bolt op) / met vooral de tussenribspieren."},
+  {"t": "longvlies en borstvlies", "d": "Vlies om de long en vlies aan de binnenkant van de borstkas. Een laagje vocht ertussen laat de long de borstkas volgen."},
+  {"t": "klaplong", "d": "Lucht tussen longvlies en borstvlies; de elastische long veert terug en zakt in."},
+  {"t": "ademvolume", "d": "Hoeveelheid lucht per ademhaling; in rust ongeveer 0,5 liter."},
+  {"t": "ademminuutvolume", "d": "Ademvolume × ademfrequentie; in rust ongeveer 6 tot 8 liter per minuut."},
+  {"t": "vitale capaciteit", "d": "Zo diep mogelijk in- en daarna zo ver mogelijk uitademen; bij een volwassen man ongeveer 4 tot 5 liter."},
+  {"t": "restvolume", "d": "Lucht die na maximaal uitademen in de longen achterblijft; ruim een liter."},
+  {"t": "longblaasjes", "d": "Honderden miljoenen blaasjes aan het eind van de bronchiolen; samen ongeveer 70 m² oppervlak, met haarvaten eromheen."},
+  {"t": "gaswisseling", "d": "Diffusie van zuurstof naar het bloed en van koolstofdioxide naar de lucht in de longblaasjes, over een groot, dun, vochtig oppervlak met een concentratieverschil."},
+  {"t": "onderdruk", "d": "De druk tussen de vliezen is bij gewoon ademen iets lager dan de luchtdruk buiten, doordat de uitgerekte long naar binnen en de borstkas naar buiten trekt.", "vwo": True},
+  {"t": "dode ruimte", "d": "Lucht in de luchtwegen (ongeveer 1,5 dL) die de longblaasjes niet bereikt en niet aan de gaswisseling meedoet.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Roken en emfyseem</b> <span class="pts">5 punten</span><p>Bij langdurig roken raakt het trilhaarepitheel beschadigd. Bij veel rokers ontstaat later longemfyseem: de wanden tussen longblaasjes verdwijnen, zodat er minder, maar grotere blaasjes overblijven.</p><p>a. Zet in de juiste volgorde: bronchiolen – keelholte – luchtpijp – neusholte – strottenhoofd – bronchiën. (1p)<br>b. Leg uit waardoor rokers vaker een luchtweginfectie krijgen. Gebruik het slijm en de trilharen. (2p)<br>c. Leg uit waardoor iemand met longemfyseem bij inspanning sneller buiten adem is. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Neusholte – keelholte – strottenhoofd – luchtpijp – bronchiën – bronchiolen (1, alleen helemaal goed). b. Bacteriën en stof blijven in het slijm plakken (1); de trilharen werken niet meer, dus het slijm wordt niet naar de keel afgevoerd en blijft liggen (1). c. Het totale oppervlak van de longblaasjes is kleiner (1); daardoor diffundeert er per tijdseenheid minder zuurstof naar het bloed (1).</p></details></div>
+    <div class="q"><b>2. Het klokmodel</b> <span class="pts">6 punten</span><p>Een docent laat een glazen stolp zien met onderin een rubber vlies. In de stolp hangen twee ballonnen aan een Y-vormig buisje dat bovenin naar buiten loopt.</p><p>a. Wat stellen het rubber vlies en de stolp voor? (1p)<br>b. De docent trekt het vlies naar beneden; de ballonnen worden groter. Leg dit uit met de begrippen volume en druk. (2p)<br>c. Bij hard blazen gebruik je extra spieren. Noem één spiergroep en wat die doet. (1p)<br>d. Leg uit waarom een long bij een gaatje in het borstvlies samenvalt, terwijl de ballon in het model niet verandert als je een gaatje in de stolp prikt terwijl het vlies in de ruststand staat (ballonnen slap). (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Vlies = middenrif, stolp = borstkas (1). b. Het volume in de stolp wordt groter, waardoor de druk daalt (1); de druk buiten is nu hoger, dus lucht stroomt via het buisje de ballonnen in (1). c. Buikspieren duwen de buikorganen en het middenrif omhoog (of: de binnenste tussenribspieren trekken de ribben omlaag) (1). d. In het lichaam kleven long- en borstvlies door het vocht aan elkaar; komt er lucht tussen, dan volgt de long de borstkas niet meer en veert de elastische long terug (1). De ballon zit niet vast aan de stolp en wordt niet opgerekt; de druk binnen en buiten is al gelijk, dus er verandert niets (1).</p></details></div>
+    <div class="q"><b>3. Longvolumes van Lisa</b> <span class="pts">5 + 2 punten</span><p>Bij Lisa (17) wordt het volume lucht in haar longen gemeten: eerst rustig ademen (0–15 s, drie ademhalingen), dan op 17 s maximaal ingeademd en op 21 s maximaal uitgeademd.</p>
+      <table><tr><th>tijd (s)</th><th>0</th><th>2</th><th>5</th><th>7</th><th>10</th><th>12</th><th>15</th><th>17</th><th>21</th><th>24</th></tr><tr><td>volume in de longen (L)</td><td>2,5</td><td>3,0</td><td>2,5</td><td>3,0</td><td>2,5</td><td>3,0</td><td>2,5</td><td>6,0</td><td>1,2</td><td>2,5</td></tr></table>
+      <p>a. Bepaal ademvolume en ademfrequentie in rust, en bereken het ademminuutvolume. (2p)<br>b. Bereken de vitale capaciteit. (1p)<br>c. Hoe groot is het restvolume? Leg uit waarom dit er altijd in blijft. (2p)</p>
+      <p class="vwo-only">d. (vwo) Van elke ingeademde 0,5 L blijft 0,15 L in de dode ruimte. Na een paniekaanval ademt Lisa 24 keer per minuut met 0,25 L; haar ademminuutvolume is gelijk aan dat in rust. Laat met een berekening zien dat er toch minder verse lucht in haar longblaasjes komt. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. Ademvolume 3,0 − 2,5 = 0,5 L; 3 ademhalingen in 15 s = 12 per minuut (1). Ademminuutvolume 0,5 × 12 = 6,0 L per minuut (1). b. 6,0 − 1,2 = 4,8 L (1). c. 1,2 L (1). De longen blijven door de vliezen opgerekt tegen de borstwand en de borstkas kan niet verder kleiner worden (1).</p><p class="vwo-only">d. Rust: (0,5 − 0,15) × 12 = 4,2 L per minuut naar de longblaasjes (1). Paniek: (0,25 − 0,15) × 24 = 2,4 L per minuut, dus minder (1).</p><p class="meta">Een gewone spirometer meet alleen volumeveranderingen; hier is het totale longvolume gegeven.</p></details></div>
+    <div class="q vwo-only"><b>4. Een steekwond</b> <span class="vwo-badge">vwo</span> <span class="pts">5 punten</span><p>De druk tussen longvlies en borstvlies is aan het eind van een rustige uitademing ongeveer 0,5 kPa lager dan de luchtdruk buiten, aan het eind van een rustige inademing ongeveer 0,8 kPa lager. Na een steekwond in de linkerborstwand valt alleen de linkerlong samen; de linkerkant van de borstkas staat iets verder naar buiten.</p><p>a. Leg uit waarom de onderdruk aan het eind van een inademing groter is. (2p)<br>b. Leg uit waarom de linkerkant van de borstkas naar buiten veert. (1p)<br>c. Leg uit waarom de rechterlong niet samenvalt. (1p)<br>d. Waar komt de lucht vandaan die de ruimte tussen de vliezen opvult? (1p)</p>
+      <details><summary>Antwoord</summary><p>a. Aan het eind van de inademing is de long verder uitgerekt (1); een verder uitgerekte elastische long trekt harder aan het vocht tussen de vliezen, dus de druk daar is lager (1). b. De borstkas trekt naar buiten; dat werd tegengehouden door de trek van de long. Nu de long niet meer trekt, veert de borstwand iets naar buiten (1). c. Elke long heeft een eigen afgesloten ruimte tussen de vliezen; rechts blijft de onderdruk bestaan (1). d. Via de wond stroomt buitenlucht tussen de vliezen (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>I · Macro</td><td>Daan op de bank met een steek in zijn borst; röntgenbeeld met een ingezakte rechterlong en lucht tussen long en borstwand; vraag q02</td></tr>
+      <tr><td>1 De weg van de lucht</td><td>B · Schema + Micro</td><td>Hoofd en romp met de luchtwegen die één voor één oplichten; vraag q06 (rokershoest); trilhaarepitheel dat slijm afvoert, verlamd door rook</td></tr>
+      <tr><td>2 De borstkas als pomp</td><td>D · Schema</td><td>Borstkas met ribben, tussenribspieren, middenrif en longen; vraag q09 (middenrif); drukmeter buiten/binnen; lucht in en uit; buik- en borstademhaling</td></tr>
+      <tr><td>3 Waarom je long meegaat</td><td>D + I · Schema</td><td>Long met longvlies, borstvlies en vocht; twee natte glasplaatjes; klaplong: lucht tussen de vliezen, long veert terug. Vwo: long trekt naar binnen, borstkas naar buiten, onderdruk</td></tr>
+      <tr><td>4 Zeventig vierkante meter</td><td>B + D · Schema + Micro</td><td>Spirogram met ademvolume, vitale capaciteit en restvolume; longblaasjes als spons, badmintonveld; longblaasje met haarvat en diffusie; vraag q17 (uitgeademde lucht). Vwo: dode ruimte</td></tr>
+      <tr><td>Recap</td><td>Schema</td><td>Ademende borstkas; de ingezakte long vouwt weer open</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul>
+      <li>De spontane klaplong ontstaat doordat een blaasje aan de buitenkant van de long knapt (vaak bij lange, slanke jonge mannen en rokers); de film noemt geen risicogroepen.</li>
+      <li>Het oppervlak van de longblaasjes (ongeveer 70 m²) en het aantal (300 tot 500 miljoen) zijn schattingen; bronnen lopen uiteen van 50 tot meer dan 100 m².</li>
+      <li>Actief uitademen: de film noemt de buikspieren; de binnenste tussenribspieren alleen in checkvraag 2.</li>
+      <li>Het spirogram in de film toont het totale longvolume; een gewone spirometer meet alleen volumeveranderingen.</li>
+      <li>De drukmeter is een schematische vergelijking (buiten tegenover in de longen), geen meting.</li>
+    </ul>
+    <h3>Leerdoelen en waar ze zitten</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
+      <tr><td>Weg van de lucht; slijm en trilhaarepitheel</td><td>basis</td><td>H1, vraag q06, checkvraag 1</td></tr>
+      <tr><td>Ademhalingsmechanisme (volume en druk), actief/passief, buik- en borstademhaling</td><td>basis</td><td>H2, vraag q09, checkvraag 2</td></tr>
+      <tr><td>Longvliezen en klaplong</td><td>basis</td><td>H3, vraag q02, checkvraag 2d</td></tr>
+      <tr><td>Longvolumes; longblaasjes en diffusie; samenstelling in- en uitgeademde lucht</td><td>basis</td><td>H4, vraag q17, checkvragen 1c en 3</td></tr>
+      <tr><td>Onderdruk; dode ruimte</td><td>vwo</td><td>H3 en H4 vwo-blokken, checkvragen 3d en 4</td></tr>
+    </table>
+    <h3>Pauzemomenten in de klas</h3>
+    <ul><li>Na q09: laat leerlingen een hand op hun buik en een op hun borst leggen en voelen wat er beweegt.</li><li>Na H3: laat het klokmodel zien (checkvraag 2).</li><li>Na H4: laat ze uitrekenen hoeveel lucht ze per dag ademen (ademminuutvolume × 60 × 24).</li></ul>
+  </section>
+"""
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')
