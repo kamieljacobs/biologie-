@@ -250,7 +250,7 @@ const DATA = {
         const its=items(lvl,o,x), done=its.filter(i=>getB(i.k)), subDone=getB(KEY(lvl,o.code,x.n));
         if(!done.length&&!subDone) continue;
         block.push(`  ${x.n}${subDone?" · onderwerp af ✓":""} (${done.length} van ${its.length})`);
-        for(const i of done) block.push(`    ✓ ${i.kind}: ${i.label} · ${i.what}`);
+        for(const i of its){const ok=getB(i.k);block.push(`    ${ok?"✓":"✗"} ${i.kind}: ${i.label} · ${ok?i.what:"nog niet "+i.what.replace("gelezen en opdrachten gemaakt","gelezen en gemaakt")}`)}
       }
       if(block.length){any=true;lines.push(o.code,...block,"")}
     }
@@ -259,7 +259,7 @@ const DATA = {
   }
   function mentorPanel(){
     return `<section class="mentor" id="mentor"><div class="mentor-h"><h2>Overzicht voor je coach</h2><button type="button" class="btn ghost" data-act="close">Sluiten</button></div>
-      <p class="mentor-tip">Hierin staat alles wat je hebt afgevinkt. Je vinkjes worden alleen in deze browser bewaard: kopieer de tekst naar je coach in Teams, of druk hem af of sla hem op als pdf.</p>
+      <p class="mentor-tip">Hierin staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan (✓) en wat je daarvan nog niet hebt gedaan (✗). Je vinkjes worden alleen in deze browser bewaard: kopieer de tekst naar je coach in Teams, of druk hem af of sla hem op als pdf.</p>
       <label class="mentor-naam">Je naam <input type="text" id="pta-naam" value="${escH(getS("pta-naam",""))}" autocomplete="name"></label>
       <pre id="mentor-text">${escH(mentorText())}</pre>
       <div class="mentor-btns"><button type="button" class="btn" data-act="copy">Kopieer tekst</button><button type="button" class="btn ghost" data-act="print">Afdrukken of pdf</button><span class="copied" id="copied" hidden>Gekopieerd</span></div></section>`;
