@@ -290,6 +290,43 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 .cr-leeg{color:var(--muted);margin:0}
 @media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
 
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.extra-tag{display:inline-block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;color:var(--muted);border:1px dashed var(--muted);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:middle;white-space:nowrap}
+.chip.tool{border-style:dashed}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
 /* PTA-route: afvinken en mentoroverzicht */
 .rt-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
 .rt-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
@@ -422,9 +459,10 @@ const DATA = {
 // rep = {titel, naam, datum, groepen:[{kop, rijen:[{titel, sub, items:[{ok, soort, label}]}]}]}
 const COACH=(function(){
   const e=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-  const sorted=items=>items.filter(i=>i.ok).concat(items.filter(i=>!i.ok));
-  const telling=rep=>{let d=0,t=0;for(const g of rep.groepen)for(const r of g.rijen)for(const i of r.items){t++;if(i.ok)d++}return {d,t}};
-  const col=(kop,its,cls)=>`<div class="cr-col ${cls}"><div class="cr-colkop">${kop} <span>${its.length}</span></div>${its.length?`<ul>${its.map(i=>`<li><span class="cr-ico" aria-hidden="true">${cls==="ok"?"✓":""}</span><span class="cr-lbl">${e(i.label)}</span><span class="cr-soort">${e(i.soort)}</span></li>`).join("")}</ul>`:`<p class="cr-niets">${cls==="ok"?"nog niets":"alles gedaan"}</p>`}</div>`;
+  const sorted=items=>items.filter(i=>i.ok).concat(items.filter(i=>!i.ok&&!i.extra));
+  const req=items=>items.filter(i=>!i.extra);   // verplicht: huiswerk en films; tools zijn extra
+  const telling=rep=>{let d=0,t=0;for(const g of rep.groepen)for(const r of g.rijen)for(const i of req(r.items)){t++;if(i.ok)d++}return {d,t}};
+  const col=(kop,its,cls)=>`<div class="cr-col ${cls}"><div class="cr-colkop">${kop} <span>${its.length}</span></div>${its.length?`<ul>${its.map(i=>`<li><span class="cr-ico" aria-hidden="true">${cls==="ok"?"✓":""}</span><span class="cr-lbl">${e(i.label)}</span><span class="cr-soort">${e(i.soort)}${i.extra?" · extra":""}</span></li>`).join("")}</ul>`:`<p class="cr-niets">${cls==="ok"?"nog niets":"alles gedaan"}</p>`}</div>`;
   function html(rep){
     if(!rep.groepen.length) return `<p class="cr-leeg">Je hebt nog niets afgevinkt.</p>`;
     const {d,t}=telling(rep);
@@ -432,9 +470,9 @@ const COACH=(function(){
     for(const g of rep.groepen){
       out+=`<div class="cr-groep"><div class="cr-kop">${e(g.kop)}</div>`;
       for(const r of g.rijen){
-        const n=r.items.filter(i=>i.ok).length, pct=Math.round(100*n/r.items.length);
-        out+=`<div class="cr-rij"><div class="cr-head"><div><b>${e(r.titel)}</b>${r.sub?`<span class="cr-sub">${e(r.sub)}</span>`:""}</div><div class="cr-prog"><span>${n} van ${r.items.length}</span><i class="cr-bar"><i style="width:${pct}%"></i></i></div></div><div class="cr-cols">`
-          +col("Gedaan",r.items.filter(i=>i.ok),"ok")+col("Nog niet gedaan",r.items.filter(i=>!i.ok),"nee")+`</div></div>`;
+        const R=req(r.items), n=R.filter(i=>i.ok).length, pct=R.length?Math.round(100*n/R.length):100;
+        out+=`<div class="cr-rij"><div class="cr-head"><div><b>${e(r.titel)}</b>${r.sub?`<span class="cr-sub">${e(r.sub)}</span>`:""}</div><div class="cr-prog"><span>${n} van ${R.length}</span><i class="cr-bar"><i style="width:${pct}%"></i></i></div></div><div class="cr-cols">`
+          +col("Gedaan",r.items.filter(i=>i.ok),"ok")+col("Nog niet gedaan",r.items.filter(i=>!i.ok&&!i.extra),"nee")+`</div></div>`;
       }
       out+=`</div>`;
     }
@@ -448,9 +486,9 @@ const COACH=(function(){
     for(const g of rep.groepen){
       L.push(g.kop.toUpperCase());
       for(const r of g.rijen){
-        const n=r.items.filter(i=>i.ok).length;
-        L.push(`${r.titel}${r.sub?" · "+r.sub:""} (${n} van ${r.items.length})`);
-        for(const i of sorted(r.items)) L.push(`  ${i.ok?"✓":"○"} ${i.label} (${i.soort.toLowerCase()}${i.ok?"":", nog niet"})`);
+        const R=req(r.items), n=R.filter(i=>i.ok).length;
+        L.push(`${r.titel}${r.sub?" · "+r.sub:""} (${n} van ${R.length})`);
+        for(const i of sorted(r.items)) L.push(`  ${i.ok?"✓":"○"} ${i.label} (${i.soort.toLowerCase()}${i.extra?", extra":""}${i.ok?"":", nog niet"})`);
         L.push("");
       }
     }
@@ -464,9 +502,9 @@ const COACH=(function(){
     for(const g of rep.groepen){
       h+=`<p style="margin:12px 0 4px"><b>${e(g.kop)}</b></p><table style="border-collapse:collapse;font-size:13px">`;
       for(const r of g.rijen){
-        const n=r.items.filter(i=>i.ok).length;
-        h+=`<tr><td colspan="3" style="padding:8px 10px 4px;background:#eef4f0"><b>${e(r.titel)}</b>${r.sub?" · "+e(r.sub):""} — ${n} van ${r.items.length}</td></tr>`;
-        for(const i of sorted(r.items)) h+=`<tr><td ${td}><span style="color:${i.ok?"#2d6a4f":"#9aa39e"}">${i.ok?"✓":"○"}</span></td><td ${td}>${e(i.label)}</td><td ${td}><span style="color:#6b7570">${e(i.soort.toLowerCase())}${i.ok?"":", nog niet"}</span></td></tr>`;
+        const R=req(r.items), n=R.filter(i=>i.ok).length;
+        h+=`<tr><td colspan="3" style="padding:8px 10px 4px;background:#eef4f0"><b>${e(r.titel)}</b>${r.sub?" · "+e(r.sub):""} — ${n} van ${R.length}</td></tr>`;
+        for(const i of sorted(r.items)) h+=`<tr><td ${td}><span style="color:${i.ok?"#2d6a4f":"#9aa39e"}">${i.ok?"✓":"○"}</span></td><td ${td}>${e(i.label)}</td><td ${td}><span style="color:#6b7570">${e(i.soort.toLowerCase())}${i.extra?", extra":""}${i.ok?"":", nog niet"}</span></td></tr>`;
       }
       h+=`</table>`;
     }
@@ -519,11 +557,12 @@ const COACH=(function(){
   const getS=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}};
   const setS=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
   const escH=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-  const sortM=m=>m.slice().sort((a,b)=>(a[3]==="ext")-(b[3]==="ext"));
+  const rank=m=>(m[0]==="tool"?2:0)+(m[3]==="ext"?1:0);   // eigen films, dan GU-films, dan tools (extra)
+  const sortM=m=>m.slice().sort((a,b)=>rank(a)-rank(b));
   // Alle afvinkbare dingen van één subonderdeel: hoofdstukken (lezen en opdrachten) en films/tools.
   function items(lvl,o,x){
     const out=x.h.map(([h])=>({k:KEY(lvl,o.code,x.n,"h",h),label:h,kind:"Hoofdstuk",what:"gelezen en opdrachten gemaakt"}));
-    for(const [t,n] of sortM(x.m)) out.push({k:KEY(lvl,o.code,x.n,t,n),label:n,kind:t==="tool"?"Tool":"Film",what:t==="tool"?"gedaan":"gekeken"});
+    for(const [t,n] of sortM(x.m)) out.push({k:KEY(lvl,o.code,x.n,t,n),label:n,kind:t==="tool"?"Tool":"Film",what:t==="tool"?"gedaan":"gekeken",extra:t==="tool"});
     return out;
   }
   let lvl=getS("pta-tab","havo"); if(!DATA[lvl]) lvl="havo";
@@ -535,14 +574,14 @@ const COACH=(function(){
       const total=o.subs.length, done=o.subs.filter(x=>getB(KEY(lvl,o.code,x.n))).length;
       out+=`<section class="ond"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} onderwerpen af</span></header><div class="ond-grid">`;
       for(const x of o.subs){
-        const k=KEY(lvl,o.code,x.n), d=getB(k), its=items(lvl,o,x), nd=its.filter(i=>getB(i.k)).length;
+        const k=KEY(lvl,o.code,x.n), d=getB(k), its=items(lvl,o,x), req=its.filter(i=>!i.extra), nd=req.filter(i=>getB(i.k)).length;
         const hs=x.h.map(([h,b])=>{const ik=KEY(lvl,o.code,x.n,"h",h);return `<li><label class="tick"><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""}><span>${escH(h)}${b?` <small>· ${escH(b)}</small>`:""}</span></label></li>`}).join("");
         const ms=sortM(x.m).map(([t,n,u,fl])=>{
           const ik=KEY(lvl,o.code,x.n,t,n), cls=`chip ${t}${fl?" "+fl:""}`;
           const chip=u?`<a class="${cls}" href="${escH(u)}" target="_blank" rel="noopener">${escH(n)}</a>`:`<span class="${cls}">${escH(n)}</span>`;
-          return `<li><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${escH(n)}">${chip}</li>`;
+          return `<li><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${escH(n)}">${chip}${t==="tool"?'<span class="extra-tag">extra</span>':""}</li>`;
         }).join("");
-        out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${escH(k)}" ${d?"checked":""} aria-label="Onderwerp af: ${escH(x.n)}"><span>${escH(x.n)}</span><span class="cnt">${nd}/${its.length}</span></h3>${x.af?`<p class="af"><b>${escH(x.af[0])}</b> · af vóór ${escH(x.af[1])}</p>`:""}</div>`
+        out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${escH(k)}" ${d?"checked":""} aria-label="Onderwerp af: ${escH(x.n)}"><span>${escH(x.n)}</span><span class="cnt">${nd}/${req.length}</span></h3>${x.af?`<p class="af"><b>${escH(x.af[0])}</b> · af vóór ${escH(x.af[1])}</p>`:""}</div>`
           +`<div><p class="k">Hoofdstukken · lezen en opdrachten maken</p><ul class="hs">${hs}</ul></div>`
           +`<div><p class="k">Films en tools</p>${ms?`<ul class="ms">${ms}</ul>`:`<span class="leeg">nog geen materiaal</span>`}</div></div>`;
       }
@@ -559,7 +598,7 @@ const COACH=(function(){
       for(const x of o.subs){
         const its=items(lvl,o,x), subDone=getB(KEY(lvl,o.code,x.n));
         if(!its.some(i=>getB(i.k))&&!subDone) continue;
-        rijen.push({titel:x.n+(subDone?" ✓":""),sub:x.h.map(h=>h[0]).join(", "),items:its.map(i=>({ok:getB(i.k),soort:i.kind,label:i.label}))});
+        rijen.push({titel:x.n+(subDone?" ✓":""),sub:x.h.map(h=>h[0]).join(", "),items:its.map(i=>({ok:getB(i.k),soort:i.kind,label:i.label,extra:i.extra}))});
       }
       if(rijen.length) groepen.push({kop:o.code,rijen});
     }
@@ -571,9 +610,9 @@ const COACH=(function(){
     return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>`
       +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
       +`<div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div></div>`
-      +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en wat daarvan nog open staat. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
+      +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en welke hoofdstukken of films nog open staan. Tools zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
       +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
-      +`<div class="rt-legend"><span><i class="chip vid">film</i> <i class="chip tool">tool</i> eigen materiaal (site van Kamiel)</span><span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
+      +`<div class="rt-legend"><span><i class="chip vid">film</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra stof, als je tijd over hebt</span><span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
       +cards();
   }
 
