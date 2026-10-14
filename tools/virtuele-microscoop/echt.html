@@ -64,6 +64,18 @@ canvas.drag{cursor:grabbing}
 .opts button{text-align:left;background:var(--fill);border:1px solid rgba(143,160,181,.45);border-radius:10px;padding:8px 12px;min-height:44px}
 .letop{margin:10px 0 0;padding-left:20px;color:var(--text2);font-size:16px}
 .letop li{margin:3px 0}
+.stand{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(143,160,181,.45);border-radius:12px;overflow:hidden;margin:0 0 12px}
+.stand button{background:var(--fill);border:0;padding:10px 8px;min-height:48px;font-weight:600;color:var(--text2)}
+.stand button[aria-pressed="true"]{background:#33476B;color:var(--goud)}
+.struct{list-style:none;padding:0;margin:0 0 10px}
+.struct li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid rgba(143,160,181,.3);border-radius:10px;margin:6px 0;background:rgba(42,58,88,.5);cursor:pointer}
+.struct li.sel{border-color:var(--goud);background:rgba(224,182,74,.1)}
+.struct li .nr{flex:0 0 26px;height:26px;border-radius:50%;background:var(--goud);color:#1A2740;font:700 15px/26px var(--tekst);text-align:center}
+.struct li.elders .nr{background:transparent;border:1px solid var(--line);color:var(--text2)}
+.struct li small{display:block;color:var(--text2)}
+.kaart{border-radius:12px;padding:12px 14px;background:rgba(224,182,74,.08);border:1px solid var(--goud);margin-top:8px}
+.kaart h3{margin:0 0 4px;font-family:var(--titel);font-size:21px;color:var(--goud)}
+.kaart p{margin:6px 0 0;font-size:16px}
 .kop{font:12px var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--grain);margin:12px 0 4px}
 details{margin-top:14px;color:var(--text2);font-size:16px}
 summary{cursor:pointer;color:var(--text);font-weight:600}
@@ -94,7 +106,7 @@ footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
   <a href="echt.html" aria-current="page"><span class="beeld"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><img src="fotos/thumb-bot.jpg" alt=""></span><span><span class="num">Echte preparaten</span><b>Echte foto's van 23 weefsels</b><small>epitheel, bot, bloed, kraakbeen, spier · 40–400×</small></span><span class="ga">✓ hier</span></a>
   <a href="index.html"><span class="beeld"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span></span><span><span class="num">Geanimeerde preparaten</span><b>Uienvlies, wangcellen, waterpest</b><small>de opdracht bij de film Alles is cel</small></span><span class="ga">Open →</span></a>
 </div>
-  <p>Echte foto's door de microscoop, van 40× tot 400×. Kies een weefsel, stel scherp, vergroot en zoek de onderdelen. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
+  <p>Echte foto's door de microscoop, van 40× tot 400×. Kies een weefsel, stel scherp en vergroot. <b>Verkennen</b>: tik op de genummerde markeringen en lees wat je ziet en wat het doet. <b>Opdrachten</b>: wijs zelf de onderdelen aan.</p>
 </header>
 
 <div class="groepen" role="tablist" aria-label="Soort weefsel" id="groepen"></div>
@@ -125,7 +137,7 @@ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const FOCUS={40:34,100:52,200:60,400:68}, SENS={40:0.25,100:0.4,200:0.55,400:0.7};
 const VIEWH=1.6; // de foto is 1,6× zo hoog als het oculair: je ziet een deel en kunt slepen
 let CAT=null, PREP=null, P=[], groepen=[];
-let groep=null, cur=null, mag=null, fotoIdx=0, focus=10, light=70, feedback=null, ask=null;
+let groep=null, cur=null, mag=null, fotoIdx=0, focus=10, light=70, feedback=null, ask=null, stand='verkennen', gekozen=null, ringT=0;
 const cam={}, prog={}, imgs={};
 
 // ---------- data ----------
@@ -144,7 +156,7 @@ Promise.all([fetch('fotos/catalogus.json').then(r=>r.json()), fetch('preparaten.
   groep=start.groep; kies(start.id, true);
   renderGroepen(); requestAnimationFrame(draw);
 });
-function kies(id, stil){ cur=P.find(p=>p.id===id); mag=cur.mags[0]; fotoIdx=0; feedback=null; ask=null; focus=10; document.getElementById('focus').value=10;
+function kies(id, stil){ cur=P.find(p=>p.id===id); mag=cur.mags[0]; fotoIdx=0; feedback=null; ask=null; gekozen=null; focus=10; document.getElementById('focus').value=10;
   if(!stil) history.replaceState(null,'','#'+id); renderMags(); renderSlides(); renderSide(); laadFoto(); }
 function foto(){ return cur.per[mag][fotoIdx%cur.per[mag].length]; }
 function laadFoto(){ const f=foto(); document.getElementById('maglbl').textContent=mag+'×'; document.getElementById('andere').hidden=cur.per[mag].length<2;
@@ -169,8 +181,19 @@ function draw(){ const f=foto(), im=imgs[f.id]; main.save(); main.clearRect(0,0,
   const gr=main.createRadialGradient(R,R,R*0.7,R,R,R); gr.addColorStop(0,'rgba(0,0,0,0)'); gr.addColorStop(1,'rgba(0,0,0,0.55)'); main.fillStyle=gr; main.beginPath(); main.arc(R,R,R-2,0,6.283); main.fill();
   main.beginPath(); main.arc(R,R,R-3,0,6.283); main.strokeStyle='#05080D'; main.lineWidth=6; main.stroke();
   if(ask&&ask.mark){ main.beginPath(); main.arc(ask.mark[0],ask.mark[1],18,0,6.283); main.strokeStyle=ask.mark[2]; main.lineWidth=3; main.stroke(); }
+  if(stand==='verkennen') tekenMarkers();
   if(light<12){ main.fillStyle='rgba(224,182,74,.9)'; main.font='600 26px "Source Sans 3",sans-serif'; main.textAlign='center'; main.fillText('te donker: meer licht',R,R); }
   requestAnimationFrame(draw);
+}
+function hier(){ return (cur.zoek||[]).filter(z=>z.bij.includes(mag)&&fotoIdx%cur.per[mag].length===0); }
+function naarCanvas(x,y){ const im=imgs[foto().id]; if(!im||!im.naturalWidth) return null; const g=geom(im), c=cam[cur.id]; return [R+(x-c.x)*g.w, R+(y-c.y)*g.h]; }
+function tekenMarkers(){ const lijst=hier(); if(!lijst.length||blurPx()>3) return; const t=performance.now();
+  lijst.forEach((z,i)=>{ const sel=gekozen===z.id; const pts=z.punten.map(([x,y])=>naarCanvas(x,y)).filter(p=>p&&Math.hypot(p[0]-R,p[1]-R)<R-24);
+    if(sel&&t-ringT<2500){ pts.forEach(p=>{ main.beginPath(); main.arc(p[0],p[1],Math.max(14,z.r*geom(imgs[foto().id]).w),0,6.283); main.strokeStyle='rgba(224,182,74,.9)'; main.lineWidth=2.5; main.stroke(); }); }
+    // één genummerde marker per structuur: het zichtbare punt dat het dichtst bij het midden ligt
+    if(!pts.length) return; const p=pts.reduce((a,b)=>Math.hypot(a[0]-R,a[1]-R)<Math.hypot(b[0]-R,b[1]-R)?a:b);
+    main.beginPath(); main.arc(p[0],p[1],15,0,6.283); main.fillStyle=sel?'#E0B64A':'rgba(26,39,64,.85)'; main.fill(); main.strokeStyle='#E0B64A'; main.lineWidth=2; main.stroke();
+    main.fillStyle=sel?'#1A2740':'#E0B64A'; main.font='700 15px "Source Sans 3",sans-serif'; main.textAlign='center'; main.textBaseline='middle'; main.fillText(String(i+1),p[0],p[1]+1); main.textBaseline='alphabetic'; });
 }
 function blurPx(){ const d=Math.abs(focus-FOCUS[mag]); return Math.min(16, Math.max(0,d-2)*SENS[mag]); }
 
@@ -181,6 +204,10 @@ function herken(fx,fy){ const im=imgs[foto().id]; const ar=im.naturalHeight/im.n
   for(const z of (cur.zoek||[]).filter(z=>z.bij.includes(mag))){ for(const [x,y] of z.punten){ const d=Math.hypot(fx-x,(fy-y)*ar); if(d<z.r&&d<bd){ bd=d; best=z; } } }
   return best; }
 function handleTap(px,py){ const fr=toFrac(px,py); if(!fr) return;
+  if(stand==='verkennen'){ if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Stel eerst scherp, dan verschijnen de markeringen.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
+    const z=herken(...fr); if(z){ gekozen=z.id; ringT=performance.now(); feedback=null; ask=null; }
+    else { gekozen=null; feedback={kind:'info',title:'Hier is niets gemarkeerd',text:hier().length?'Tik op een genummerde markering, of kies een onderdeel in de lijst hiernaast. Je kunt ook op een ander deel van de foto tikken dat op een markering lijkt.':'Bij deze vergroting zijn nog geen onderdelen gemarkeerd. Kies een andere vergroting (zie de lijst hiernaast).'}; ask={mark:[px,py,'#E0B64A']}; }
+    renderSide(); return; }
   if(blurPx()>3){ feedback={kind:'no',title:'Het beeld is nog onscherp',text:'Draai aan de schuif "Scherpstellen" tot je de randen van de cellen scherp ziet.'}; ask={mark:[px,py,'#E07A5F']}; renderSide(); return; }
   const open=(cur.zoek||[]).filter(z=>!prog[cur.id][z.id]);
   if(!open.length){ const z=herken(...fr); feedback={kind:'info',title:z?'Je wijst aan: '+z.id:'Vrij kijken',text:z?z.uitleg:'Alle aanwijsopdrachten bij dit preparaat zijn klaar. Kijk rustig verder.'}; ask={mark:[px,py,'#E0B64A']}; renderSide(); return; }
@@ -203,14 +230,30 @@ function renderMags(){ const box=document.getElementById('mags'); box.innerHTML=
   [40,100,200,400].forEach(m=>{ const b=document.createElement('button'); b.textContent=m+'×'; b.disabled=!cur.mags.includes(m); b.setAttribute('aria-pressed',String(m===mag)); b.onclick=()=>{ mag=m; fotoIdx=0; ask=null; renderMags(); laadFoto(); renderSide(); }; box.appendChild(b); }); }
 function renderSide(){ const p=cur, pr=prog[p.id]; const zoek=p.zoek||[]; const first=zoek.find(z=>!pr[z.id]);
   let html=`<h2>${esc(p.naam)}</h2><p class="sub">${esc(p.sub||'')}</p><p class="besch">${esc(p.beschrijving)}</p>`;
+  html+=`<div class="stand" role="group" aria-label="Stand"><button data-s="verkennen" aria-pressed="${stand==='verkennen'}">Verkennen</button><button data-s="opdracht" aria-pressed="${stand==='opdracht'}">Opdrachten${zoek.length?'':' (geen)'}</button></div>`;
+  if(stand==='verkennen'){ const h=hier(); const elders=zoek.filter(z=>!h.includes(z));
+    html+=`<div class="kop">Wat zie je bij ${mag}×?</div>`;
+    if(h.length) html+=`<ul class="struct">`+h.map((z,i)=>`<li class="${gekozen===z.id?'sel':''}" data-z="${esc(z.id)}"><span class="nr">${i+1}</span><span><b>${esc(z.id)}</b><small>${esc(z.uitleg)}</small></span></li>`).join('')+'</ul>';
+    else html+=`<p class="sub">${zoek.length?'Bij deze vergroting zijn nog geen onderdelen gemarkeerd.':'Bij dit preparaat zijn nog geen onderdelen gemarkeerd. Lees hieronder waar je op kunt letten.'}${fotoIdx%cur.per[mag].length?' Ga terug naar de eerste foto bij deze vergroting.':''}</p>`;
+    if(elders.length) html+=`<ul class="struct">`+elders.map(z=>`<li class="elders" data-m="${z.bij[0]}"><span class="nr">${z.bij[0]}×</span><span><b>${esc(z.id)}</b><small>te zien bij ${z.bij.join('× / ')}× · tik om daarheen te gaan</small></span></li>`).join('')+'</ul>';
+    const g=zoek.find(z=>z.id===gekozen);
+    if(g) html+=`<div class="kaart"><h3>${esc(g.id)}</h3><p>${esc(g.uitleg)}</p><p>${esc(g.meer||'')}</p></div>`;
+    else if(feedback) html+=`<div class="feedback ${feedback.kind==='no'?'no':''}"><b>${esc(feedback.title)}</b><br>${esc(feedback.text)}</div>`;
+    else if(h.length) html+=`<div class="feedback">Tik op een nummer in het beeld of op een onderdeel in de lijst om te lezen wat het is en wat het doet.</div>`;
+    if(p.letop&&p.letop.length){ html+=`<div class="kop">Let op</div><ul class="letop">`+p.letop.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>'; }
+    document.getElementById('side').innerHTML=html; koppelStand(); return; }
   if(zoek.length){ html+=`<div class="kop">Zoek</div><ul class="tasks">`+zoek.map(z=>`<li class="${pr[z.id]?'ok':(z===first?'active':'')}"><span class="box">${pr[z.id]?'✓':''}</span><span>${esc(z.t)} <small>bij ${z.bij.join('× / ')}×</small></span></li>`).join('')+'</ul>'; }
   if(p.vraag&&!first){ if(pr.q) html+=`<ul class="tasks"><li class="ok"><span class="box">✓</span><span>${esc(p.vraag.q)}</span></li></ul>`; else html+=`<div class="kop">Vraag</div><div><b>${esc(p.vraag.q)}</b><div class="opts">`+p.vraag.opts.map((o,i)=>`<button data-i="${i}">${esc(o)}</button>`).join('')+'</div></div>'; }
   html+=`<div class="feedback ${feedback?(feedback.kind==='ok'?'ok':feedback.kind==='no'?'no':''):''}" aria-live="polite">${feedback?`<b>${esc(feedback.title)}</b><br>${esc(feedback.text)}`:(zoek.length?'Stel scherp en zoek wat er in de opdracht staat.':'Bij dit preparaat kijk je vrij. Lees hieronder waar je op kunt letten.')}</div>`;
   if(p.letop&&p.letop.length){ html+=`<div class="kop">Let op</div><ul class="letop">`+p.letop.map(x=>`<li>${esc(x)}</li>`).join('')+'</ul>'; }
-  document.getElementById('side').innerHTML=html;
+  document.getElementById('side').innerHTML=html; koppelStand();
   document.querySelectorAll('.opts button').forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; if(i===p.vraag.ok){ pr.q=true; feedback={kind:'ok',title:'Goed',text:p.vraag.ex}; } else { feedback={kind:'no',title:'Niet goed',text:'Kijk nog eens goed door de microscoop en probeer het opnieuw.'}; } renderSide(); renderSlides(); });
 }
 
+function koppelStand(){ document.querySelectorAll('.stand button').forEach(b=>b.onclick=()=>{ stand=b.dataset.s; feedback=null; ask=null; renderSide(); });
+  document.querySelectorAll('.struct li[data-z]').forEach(li=>li.onclick=()=>{ gekozen=li.dataset.z; ringT=performance.now(); feedback=null; ask=null;
+    const z=cur.zoek.find(x=>x.id===gekozen); const im=imgs[foto().id]; if(z&&im&&im.naturalWidth){ const c=cam[cur.id]; const g=geom(im); const inView=z.punten.find(([x,y])=>Math.hypot((x-c.x)*g.w,(y-c.y)*g.h)<R-30); if(!inView){ const [x,y]=z.punten[0]; c.x=x; c.y=y; } } renderSide(); });
+  document.querySelectorAll('.struct li[data-m]').forEach(li=>li.onclick=()=>{ mag=+li.dataset.m; fotoIdx=0; gekozen=null; renderMags(); laadFoto(); renderSide(); }); }
 // ---------- bediening ----------
 document.getElementById('focus').oninput=e=>{ focus=+e.target.value; };
 document.getElementById('light').oninput=e=>{ light=+e.target.value; };

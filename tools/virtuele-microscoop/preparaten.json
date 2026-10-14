@@ -1,6 +1,13 @@
 {
-  "uitleg": "Didactische laag over fotos/catalogus.json. Elk preparaat verwijst met 'sectie' naar de Berkshire-sectie in de catalogus (of met 'fotoIds' naar losse foto's). Per vergroting kiest de tool de eerste foto van die sectie, tenzij 'kies' een andere foto-id aanwijst. 'zoek' = aanwijsopdrachten: de leerling tikt op de foto; 'punten' zijn [x,y] als fractie van breedte en hoogte, 'r' de tolerantie als fractie van de breedte. 'bij' = bij welke vergroting(en) de opdracht geldt.",
-  "groepen": ["Epitheel", "Bindweefsel", "Bloed", "Kraakbeen", "Spier", "Plant"],
+  "uitleg": "Didactische laag over fotos/catalogus.json. Elk preparaat verwijst met 'sectie' naar de Berkshire-sectie in de catalogus (of met 'fotoIds' naar losse foto's). Per vergroting kiest de tool de eerste foto van die sectie, tenzij 'kies' een andere foto-id aanwijst. 'zoek' = aanwijsopdrachten: de leerling tikt op de foto; 'punten' zijn [x,y] als fractie van breedte en hoogte, 'r' de tolerantie als fractie van de breedte. 'bij' = bij welke vergroting(en) de opdracht geldt. Elke structuur in 'zoek' heeft ook 'meer' (uitleg voor de verkenstand: wat is het, wat doet het). 'verkenOnly': true = wel te verkennen, geen opdracht.",
+  "groepen": [
+    "Epitheel",
+    "Bindweefsel",
+    "Bloed",
+    "Kraakbeen",
+    "Spier",
+    "Plant"
+  ],
   "preparaten": [
     {
       "id": "plat-epitheel-mens",
@@ -9,14 +16,161 @@
       "sub": "whole mount: een laagje cellen van bovenaf",
       "sectie": "Simple Squamous Epithelium: Whole Mount (Human)",
       "beschrijving": "Een laagje platte dierlijke cellen, van bovenaf bekeken. Zo'n laag bekleedt bijvoorbeeld de binnenkant van bloedvaten en de longblaasjes. De grenzen tussen de cellen zijn zwart gekleurd; in elke cel ligt één lichte, ovale celkern. Er zit geen celwand omheen, alleen een celmembraan.",
-      "letop": ["Elke cel heeft precies één celkern.", "De cellen sluiten als tegels op elkaar aan: dat is typisch voor epitheel.", "Vergelijk met het uienvlies: daar is de rand een dikke celwand, hier een dun celmembraan."],
-      "zoek": [
-        {"id": "celkern", "t": "Wijs een celkern aan.", "bij": [400], "uitleg": "Het lichte, ovale vlekje midden in de cel.", "hint": "Zoek een lichte ovale vlek binnen een cel.", "r": 0.045,
-         "punten": [[0.17,0.12],[0.33,0.37],[0.47,0.37],[0.53,0.57],[0.62,0.48],[0.74,0.57],[0.26,0.47],[0.12,0.57],[0.60,0.80],[0.41,0.86],[0.32,0.64],[0.86,0.70],[0.80,0.28],[0.45,0.03],[0.05,0.33],[0.91,0.44],[0.70,0.93],[0.21,0.75]]},
-        {"id": "celmembraan", "t": "Wijs het celmembraan aan (de grens tussen twee cellen).", "bij": [400], "uitleg": "De zwarte lijn om elke cel. Er zit geen celwand omheen.", "hint": "Tik precies op een zwarte lijn tussen twee cellen.", "kleur": "donker", "r": 0.03,
-         "punten": [[0.40,0.22],[0.30,0.26],[0.56,0.21],[0.67,0.40],[0.43,0.51],[0.73,0.73],[0.23,0.60],[0.52,0.70],[0.86,0.57],[0.14,0.42]]}
+      "letop": [
+        "Elke cel heeft precies één celkern.",
+        "De cellen sluiten als tegels op elkaar aan: dat is typisch voor epitheel.",
+        "Vergelijk met het uienvlies: daar is de rand een dikke celwand, hier een dun celmembraan."
       ],
-      "vraag": {"q": "Heeft deze cel een celwand?", "opts": ["ja, de zwarte lijn is een celwand", "nee, dit is een dierlijke cel: alleen een celmembraan"], "ok": 1, "ex": "Een dierlijke cel heeft geen celwand. De zwarte lijn is het celmembraan, gekleurd met zilver zodat je de grens kunt zien."}
+      "zoek": [
+        {
+          "id": "celkern",
+          "t": "Wijs een celkern aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het lichte, ovale vlekje midden in de cel.",
+          "hint": "Zoek een lichte ovale vlek binnen een cel.",
+          "r": 0.045,
+          "punten": [
+            [
+              0.17,
+              0.12
+            ],
+            [
+              0.33,
+              0.37
+            ],
+            [
+              0.47,
+              0.37
+            ],
+            [
+              0.53,
+              0.57
+            ],
+            [
+              0.62,
+              0.48
+            ],
+            [
+              0.74,
+              0.57
+            ],
+            [
+              0.26,
+              0.47
+            ],
+            [
+              0.12,
+              0.57
+            ],
+            [
+              0.6,
+              0.8
+            ],
+            [
+              0.41,
+              0.86
+            ],
+            [
+              0.32,
+              0.64
+            ],
+            [
+              0.86,
+              0.7
+            ],
+            [
+              0.8,
+              0.28
+            ],
+            [
+              0.45,
+              0.03
+            ],
+            [
+              0.05,
+              0.33
+            ],
+            [
+              0.91,
+              0.44
+            ],
+            [
+              0.7,
+              0.93
+            ],
+            [
+              0.21,
+              0.75
+            ]
+          ],
+          "meer": "De celkern bevat het DNA van de cel: het recept voor alle eiwitten. Bij plat epitheel is de kern vaak het enige wat je duidelijk ziet, omdat de cel zo dun is. In de kern wordt besloten wanneer de cel deelt of eiwitten maakt."
+        },
+        {
+          "id": "celmembraan",
+          "t": "Wijs het celmembraan aan (de grens tussen twee cellen).",
+          "bij": [
+            400
+          ],
+          "uitleg": "De zwarte lijn om elke cel. Er zit geen celwand omheen.",
+          "hint": "Tik precies op een zwarte lijn tussen twee cellen.",
+          "kleur": "donker",
+          "r": 0.03,
+          "punten": [
+            [
+              0.4,
+              0.22
+            ],
+            [
+              0.3,
+              0.26
+            ],
+            [
+              0.56,
+              0.21
+            ],
+            [
+              0.67,
+              0.4
+            ],
+            [
+              0.43,
+              0.51
+            ],
+            [
+              0.73,
+              0.73
+            ],
+            [
+              0.23,
+              0.6
+            ],
+            [
+              0.52,
+              0.7
+            ],
+            [
+              0.86,
+              0.57
+            ],
+            [
+              0.14,
+              0.42
+            ]
+          ],
+          "meer": "Het celmembraan is een dubbele laag vetmoleculen (fosfolipiden) met eiwitten erin. Het bepaalt wat de cel in en uit gaat. Normaal is het onzichtbaar dun; hier is het met zilver gekleurd zodat de grens zwart wordt. Epitheelcellen zitten met speciale verbindingen aan elkaar vast, daarom sluiten ze zo netjes aan."
+        }
+      ],
+      "vraag": {
+        "q": "Heeft deze cel een celwand?",
+        "opts": [
+          "ja, de zwarte lijn is een celwand",
+          "nee, dit is een dierlijke cel: alleen een celmembraan"
+        ],
+        "ok": 1,
+        "ex": "Een dierlijke cel heeft geen celwand. De zwarte lijn is het celmembraan, gekleurd met zilver zodat je de grens kunt zien."
+      }
     },
     {
       "id": "plat-epitheel-kikker",
@@ -24,9 +178,14 @@
       "naam": "Plat epitheel (kikker)",
       "sub": "whole mount, 100–400×",
       "sectie": "Simple Squamous Epithelium: Whole Mount (Frog)",
-      "fotoIdsExtra": ["plat-epitheel-kikker"],
+      "fotoIdsExtra": [
+        "plat-epitheel-kikker"
+      ],
       "beschrijving": "Hetzelfde soort weefsel als bij de mens, maar dan van een kikker. De celkernen zijn paars gekleurd. Zoek de verschillen met het menselijke preparaat: de cellen zijn kleiner en de kernen donkerder.",
-      "letop": ["Vergelijk bij 400× de celgrootte met het menselijke preparaat.", "De bruine, donkere cellen zijn pigmentcellen: ze geven de kikkerhuid kleur."]
+      "letop": [
+        "Vergelijk bij 400× de celgrootte met het menselijke preparaat.",
+        "De bruine, donkere cellen zijn pigmentcellen: ze geven de kikkerhuid kleur."
+      ]
     },
     {
       "id": "meerlagig-plaveisel",
@@ -35,7 +194,128 @@
       "sub": "dwarsdoorsnede, mens (bijvoorbeeld slokdarm of huid)",
       "sectie": "Stratified Squamous Epithelium: Cross Section (Human)",
       "beschrijving": "Een dikke laag van vele cellagen op elkaar. Onderaan, op het bindweefsel, zijn de cellen rond en delen ze; naar boven toe worden ze platter en sterven ze af. Zo'n laag beschermt tegen slijtage: slokdarm, mond, huid.",
-      "letop": ["Onderaan: ronde cellen met grote kernen (de laag die deelt).", "Bovenaan: platte cellen, soms zonder kern meer.", "Daaronder het roze bindweefsel met golvende grens: zo zit het epitheel stevig vast."]
+      "letop": [
+        "Onderaan: ronde cellen met grote kernen (de laag die deelt).",
+        "Bovenaan: platte cellen, soms zonder kern meer.",
+        "Daaronder het roze bindweefsel met golvende grens: zo zit het epitheel stevig vast."
+      ],
+      "zoek": [
+        {
+          "id": "basale laag",
+          "t": "Wijs de basale laag aan (de onderste, delende cellen).",
+          "bij": [
+            400
+          ],
+          "uitleg": "De dichte, donkere laag kleine cellen onderaan, tegen het bindweefsel. Hier delen de cellen zich.",
+          "hint": "Tik links in beeld, in de donkerpaarse band met veel kernen.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.12,
+              0.25
+            ],
+            [
+              0.14,
+              0.5
+            ],
+            [
+              0.15,
+              0.75
+            ],
+            [
+              0.18,
+              0.35
+            ],
+            [
+              0.13,
+              0.9
+            ],
+            [
+              0.16,
+              0.6
+            ]
+          ],
+          "meer": "In de basale laag delen stamcellen zich voortdurend. Elke nieuwe cel wordt naar boven geduwd, wordt platter, en sterft bovenaan af. Van onder naar boven duurt dat in de huid ongeveer vier weken. Zo slijt het oppervlak zonder dat de laag dunner wordt."
+        },
+        {
+          "id": "middenlaag",
+          "t": "Wijs een cel uit de middenlaag aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Grotere, veelhoekige cellen met een duidelijke kern, op weg naar boven.",
+          "hint": "Tik midden in beeld op een roze cel met een ronde kern.",
+          "r": 0.045,
+          "punten": [
+            [
+              0.45,
+              0.47
+            ],
+            [
+              0.55,
+              0.3
+            ],
+            [
+              0.64,
+              0.45
+            ],
+            [
+              0.58,
+              0.73
+            ],
+            [
+              0.7,
+              0.62
+            ],
+            [
+              0.38,
+              0.65
+            ],
+            [
+              0.5,
+              0.9
+            ],
+            [
+              0.42,
+              0.2
+            ]
+          ],
+          "meer": "Deze cellen hangen met stevige verbindingen (desmosomen) aan elkaar, als klittenband. Daardoor kan de laag flink wat wrijving aan: eten dat je doorslikt, een ruwe handdoek."
+        },
+        {
+          "id": "oppervlakte",
+          "t": "Wijs de platte cellen aan het oppervlak aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Rechts: platte, lichte cellen met een klein kerntje, of helemaal zonder kern. Ze schilferen af.",
+          "hint": "Tik rechts in beeld, bij de rand.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.85,
+              0.3
+            ],
+            [
+              0.9,
+              0.55
+            ],
+            [
+              0.86,
+              0.8
+            ],
+            [
+              0.92,
+              0.15
+            ],
+            [
+              0.8,
+              0.7
+            ]
+          ],
+          "meer": "De bovenste cellen zijn plat als dakpannen en laten uiteindelijk los. Je verliest zo elke dag tientallen miljoenen huidcellen; huisstof bestaat voor een groot deel uit afgeschilferde huid. In de huid vullen deze cellen zich eerst met keratine, het eiwit dat ook in haren en nagels zit."
+        }
+      ]
     },
     {
       "id": "kubisch-epitheel",
@@ -44,7 +324,110 @@
       "sub": "dwarsdoorsnede, niertubulus",
       "sectie": "Simple Cuboidal Epithelium: Cross Section (Mammalian Kidney Tubule)",
       "beschrijving": "De nierbuisjes zijn bekleed met één laag cellen die ongeveer even hoog als breed zijn: kubisch. Je ziet de buisjes als ringen cellen om een open holte, het lumen. Door deze cellen gaan water en zouten terug naar het bloed.",
-      "letop": ["Zoek een buisje dat precies dwars is aangesneden: een ring van cellen met een gat in het midden.", "Elke cel heeft een ronde kern in het midden."]
+      "letop": [
+        "Zoek een buisje dat precies dwars is aangesneden: een ring van cellen met een gat in het midden.",
+        "Elke cel heeft een ronde kern in het midden."
+      ],
+      "zoek": [
+        {
+          "id": "lumen",
+          "t": "Wijs het lumen van een nierbuisje aan (de open holte).",
+          "bij": [
+            400
+          ],
+          "uitleg": "De lichte holte in het midden van een buisje. Hier stroomt de voorurine doorheen.",
+          "hint": "Tik in een van de lichtgrijze open gebieden.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.28,
+              0.47
+            ],
+            [
+              0.33,
+              0.35
+            ],
+            [
+              0.55,
+              0.2
+            ],
+            [
+              0.62,
+              0.4
+            ],
+            [
+              0.85,
+              0.12
+            ],
+            [
+              0.3,
+              0.75
+            ],
+            [
+              0.72,
+              0.88
+            ],
+            [
+              0.94,
+              0.3
+            ]
+          ],
+          "meer": "Per dag maken je nieren zo'n 180 liter voorurine. Terwijl die door deze buisjes stroomt, halen de wandcellen bijna alles wat bruikbaar is (water, glucose, zouten) weer terug naar het bloed. Er blijft anderhalve liter urine over."
+        },
+        {
+          "id": "kubische cel",
+          "t": "Wijs een cel van de buiswand aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Een cel die ongeveer even hoog als breed is, met een ronde kern in het midden.",
+          "hint": "Tik op een roze cel met een ronde kern in de wand van een buisje.",
+          "r": 0.04,
+          "punten": [
+            [
+              0.43,
+              0.44
+            ],
+            [
+              0.47,
+              0.56
+            ],
+            [
+              0.55,
+              0.6
+            ],
+            [
+              0.63,
+              0.26
+            ],
+            [
+              0.71,
+              0.5
+            ],
+            [
+              0.85,
+              0.43
+            ],
+            [
+              0.16,
+              0.42
+            ],
+            [
+              0.22,
+              0.6
+            ],
+            [
+              0.38,
+              0.26
+            ],
+            [
+              0.62,
+              0.7
+            ]
+          ],
+          "meer": "Deze cellen zitten vol mitochondriën: het terughalen van zouten en glucose uit de voorurine kost veel energie (actief transport). Daarom zijn ze kubisch en niet plat: ze hebben ruimte nodig voor al dat werk."
+        }
+      ]
     },
     {
       "id": "cilindrisch-epitheel",
@@ -52,18 +435,158 @@
       "naam": "Cilindrisch epitheel (darm)",
       "sub": "dwarsdoorsnede darmwand, met borstelzoom",
       "sectie": "Simple Columnar Epithelium: Cross Section (Mammalian Gut)",
-      "kies": {"400": "simple-columnar-epithelium-cross-section-mammalian-gut-brush-border-in-simple-co-400x"},
+      "kies": {
+        "400": "simple-columnar-epithelium-cross-section-mammalian-gut-brush-border-in-simple-co-400x"
+      },
       "beschrijving": "De binnenkant van de darm is bekleed met hoge, smalle cellen: cilindrisch epitheel. Aan de bovenkant (de darmholte) hebben ze een borstelzoom: duizenden piepkleine uitstulpingen die het oppervlak enorm vergroten, zodat voedingsstoffen sneller worden opgenomen. Tussen de cellen liggen slijmbekercellen.",
-      "letop": ["De borstelzoom is bij 400× een dun, lichter randje aan de bovenkant van de cellen.", "De celkernen zijn langwerpig en liggen allemaal op dezelfde hoogte, onderin de cel.", "Onder de cellen ligt bindweefsel met bloedvaten: daar gaan de voedingsstoffen heen."],
-      "zoek": [
-        {"id": "borstelzoom", "t": "Wijs de borstelzoom aan (de rand aan de darmholte).", "bij": [400], "uitleg": "Het dunne randje bovenop de cellen: microvilli die het oppervlak vergroten.", "hint": "Tik op de bovenrand van de cellaag, tegen de lege ruimte aan.", "r": 0.05,
-         "punten": [[0.20,0.27],[0.35,0.18],[0.50,0.12],[0.65,0.07],[0.80,0.04],[0.08,0.36]]},
-        {"id": "celkern", "t": "Wijs een celkern aan.", "bij": [400], "uitleg": "De langwerpige paarse kernen liggen netjes op een rij onderin de cellen.", "hint": "Zoek een donkerpaars, langwerpig vlekje in de cellaag.", "r": 0.04,
-         "punten": [[0.22,0.52],[0.33,0.50],[0.42,0.52],[0.63,0.33],[0.72,0.32],[0.84,0.28],[0.95,0.38],[0.15,0.60],[0.27,0.60],[0.76,0.33],[0.55,0.42],[0.47,0.58]]},
-        {"id": "bindweefsel", "t": "Wijs het bindweefsel onder het epitheel aan.", "bij": [400], "uitleg": "Het losse, blauwig-roze weefsel met vezels en bloedvaten onder de cellaag.", "hint": "Tik onder de rij celkernen, waar het weefsel losser en lichter is.", "r": 0.06,
-         "punten": [[0.30,0.72],[0.55,0.70],[0.90,0.72],[0.15,0.82],[0.75,0.80]]}
+      "letop": [
+        "De borstelzoom is bij 400× een dun, lichter randje aan de bovenkant van de cellen.",
+        "De celkernen zijn langwerpig en liggen allemaal op dezelfde hoogte, onderin de cel.",
+        "Onder de cellen ligt bindweefsel met bloedvaten: daar gaan de voedingsstoffen heen."
       ],
-      "vraag": {"q": "Waarom hebben deze cellen een borstelzoom?", "opts": ["om de darm schoon te vegen", "om het oppervlak te vergroten, zodat er meer wordt opgenomen", "om bacteriën tegen te houden"], "ok": 1, "ex": "De borstelzoom bestaat uit microvilli. Ze maken het oppervlak van de darm vele malen groter, zodat voedingsstoffen sneller in het bloed komen."}
+      "zoek": [
+        {
+          "id": "borstelzoom",
+          "t": "Wijs de borstelzoom aan (de rand aan de darmholte).",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het dunne randje bovenop de cellen: microvilli die het oppervlak vergroten.",
+          "hint": "Tik op de bovenrand van de cellaag, tegen de lege ruimte aan.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.2,
+              0.27
+            ],
+            [
+              0.35,
+              0.18
+            ],
+            [
+              0.5,
+              0.12
+            ],
+            [
+              0.65,
+              0.07
+            ],
+            [
+              0.8,
+              0.04
+            ],
+            [
+              0.08,
+              0.36
+            ]
+          ],
+          "meer": "De borstelzoom bestaat uit microvilli: duizenden vingervormige uitstulpingen van het celmembraan, elk ongeveer een duizendste millimeter lang. Samen maken ze het darmoppervlak zo'n 20 keer groter. Op de microvilli zitten ook enzymen die de laatste stap van de vertering doen, bijvoorbeeld het splitsen van melksuiker (lactase)."
+        },
+        {
+          "id": "celkern",
+          "t": "Wijs een celkern aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De langwerpige paarse kernen liggen netjes op een rij onderin de cellen.",
+          "hint": "Zoek een donkerpaars, langwerpig vlekje in de cellaag.",
+          "r": 0.04,
+          "punten": [
+            [
+              0.22,
+              0.52
+            ],
+            [
+              0.33,
+              0.5
+            ],
+            [
+              0.42,
+              0.52
+            ],
+            [
+              0.63,
+              0.33
+            ],
+            [
+              0.72,
+              0.32
+            ],
+            [
+              0.84,
+              0.28
+            ],
+            [
+              0.95,
+              0.38
+            ],
+            [
+              0.15,
+              0.6
+            ],
+            [
+              0.27,
+              0.6
+            ],
+            [
+              0.76,
+              0.33
+            ],
+            [
+              0.55,
+              0.42
+            ],
+            [
+              0.47,
+              0.58
+            ]
+          ],
+          "meer": "In cilindrisch epitheel liggen de kernen allemaal onderin de cel, op dezelfde hoogte. Zo blijft de bovenkant van de cel vrij voor opname van voedingsstoffen. Deze cellen leven maar een paar dagen: de darmwand vernieuwt zich voortdurend vanuit de crypten."
+        },
+        {
+          "id": "bindweefsel",
+          "t": "Wijs het bindweefsel onder het epitheel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het losse, blauwig-roze weefsel met vezels en bloedvaten onder de cellaag.",
+          "hint": "Tik onder de rij celkernen, waar het weefsel losser en lichter is.",
+          "r": 0.06,
+          "punten": [
+            [
+              0.3,
+              0.72
+            ],
+            [
+              0.55,
+              0.7
+            ],
+            [
+              0.9,
+              0.72
+            ],
+            [
+              0.15,
+              0.82
+            ],
+            [
+              0.75,
+              0.8
+            ]
+          ],
+          "meer": "Onder het epitheel ligt los bindweefsel (de lamina propria) met haarvaten en lymfevaten. Opgenomen suikers en aminozuren gaan hier het bloed in; vetten gaan via de lymfe. Je ziet ook cellen van het afweersysteem: de darm is een plek waar veel bacteriën langskomen."
+        }
+      ],
+      "vraag": {
+        "q": "Waarom hebben deze cellen een borstelzoom?",
+        "opts": [
+          "om de darm schoon te vegen",
+          "om het oppervlak te vergroten, zodat er meer wordt opgenomen",
+          "om bacteriën tegen te houden"
+        ],
+        "ok": 1,
+        "ex": "De borstelzoom bestaat uit microvilli. Ze maken het oppervlak van de darm vele malen groter, zodat voedingsstoffen sneller in het bloed komen."
+      }
     },
     {
       "id": "trilhaarepitheel",
@@ -72,14 +595,119 @@
       "sub": "dwarsdoorsnede, met kraakbeenring",
       "sectie": "Ciliated Pseudostratified Columnar Epithelium: Cross Section (Mammalian)",
       "beschrijving": "De luchtpijp is van binnen bekleed met cellen die trilharen dragen. Die bewegen slijm met stof en bacteriën omhoog naar de keel. Links in beeld zie je het kraakbeen dat de luchtpijp open houdt. De lege ruimte rechtsboven is de luchtweg zelf.",
-      "letop": ["De trilharen zijn bij 200× een fijn, borstelig randje aan de kant van de luchtweg.", "Het kraakbeen herkent je aan de cellen in holtes in een egale tussenstof.", "Tussen kraakbeen en epitheel ligt bindweefsel met slijmklieren."],
+      "letop": [
+        "De trilharen zijn bij 200× een fijn, borstelig randje aan de kant van de luchtweg.",
+        "Het kraakbeen herkent je aan de cellen in holtes in een egale tussenstof.",
+        "Tussen kraakbeen en epitheel ligt bindweefsel met slijmklieren."
+      ],
       "zoek": [
-        {"id": "trilharen", "t": "Wijs de trilharen aan.", "bij": [200], "uitleg": "Het fijne, borstelige randje aan de kant van de luchtweg. Ze vegen slijm omhoog.", "hint": "Tik op de rand van de cellaag die aan de lege ruimte grenst.", "r": 0.05,
-         "punten": [[0.42,0.17],[0.52,0.28],[0.62,0.38],[0.72,0.46],[0.85,0.55],[0.95,0.60],[0.33,0.05]]},
-        {"id": "kraakbeen", "t": "Wijs het kraakbeen aan.", "bij": [200], "uitleg": "Het lichtroze weefsel met cellen in kleine holtes. Het houdt de luchtpijp open.", "hint": "Tik links in beeld, in het egale lichtroze gebied met losse cellen.", "r": 0.08,
-         "punten": [[0.10,0.30],[0.20,0.60],[0.40,0.70],[0.50,0.90],[0.15,0.15],[0.30,0.45]]},
-        {"id": "luchtweg", "t": "Wijs de luchtweg (de holte) aan.", "bij": [200], "uitleg": "De lege ruimte: hier stroomt de lucht door.", "hint": "Tik in het lege, grijze gebied rechtsboven.", "r": 0.1,
-         "punten": [[0.70,0.20],[0.85,0.30],[0.60,0.10],[0.90,0.15]]}
+        {
+          "id": "trilharen",
+          "t": "Wijs de trilharen aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "Het fijne, borstelige randje aan de kant van de luchtweg. Ze vegen slijm omhoog.",
+          "hint": "Tik op de rand van de cellaag die aan de lege ruimte grenst.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.42,
+              0.17
+            ],
+            [
+              0.52,
+              0.28
+            ],
+            [
+              0.62,
+              0.38
+            ],
+            [
+              0.72,
+              0.46
+            ],
+            [
+              0.85,
+              0.55
+            ],
+            [
+              0.95,
+              0.6
+            ],
+            [
+              0.33,
+              0.05
+            ]
+          ],
+          "meer": "Trilharen (ciliën) zijn beweeglijke uitsteeksels. Elke cel heeft er honderden; ze slaan 10 tot 20 keer per seconde en vegen slijm met stof en bacteriën richting de keel. Daar slik je het door. Sigarettenrook verlamt de trilharen: rokers moeten daarom hoesten om het slijm kwijt te raken."
+        },
+        {
+          "id": "kraakbeen",
+          "t": "Wijs het kraakbeen aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "Het lichtroze weefsel met cellen in kleine holtes. Het houdt de luchtpijp open.",
+          "hint": "Tik links in beeld, in het egale lichtroze gebied met losse cellen.",
+          "r": 0.08,
+          "punten": [
+            [
+              0.1,
+              0.3
+            ],
+            [
+              0.2,
+              0.6
+            ],
+            [
+              0.4,
+              0.7
+            ],
+            [
+              0.5,
+              0.9
+            ],
+            [
+              0.15,
+              0.15
+            ],
+            [
+              0.3,
+              0.45
+            ]
+          ],
+          "meer": "De luchtpijp heeft hoefijzervormige ringen van hyalien kraakbeen. Ze houden de buis open, ook als je diep inademt en de druk daalt. Voel maar aan je keel: de ribbels zijn deze ringen."
+        },
+        {
+          "id": "luchtweg",
+          "t": "Wijs de luchtweg (de holte) aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "De lege ruimte: hier stroomt de lucht door.",
+          "hint": "Tik in het lege, grijze gebied rechtsboven.",
+          "r": 0.1,
+          "punten": [
+            [
+              0.7,
+              0.2
+            ],
+            [
+              0.85,
+              0.3
+            ],
+            [
+              0.6,
+              0.1
+            ],
+            [
+              0.9,
+              0.15
+            ]
+          ],
+          "meer": "De holte waar de lucht doorheen stroomt. Aan de binnenkant is ze bekleed met slijm dat door de trilharen omhoog wordt bewogen. Zo komt de lucht schoon, vochtig en op temperatuur in de longen aan."
+        }
       ]
     },
     {
@@ -89,7 +717,90 @@
       "sub": "dwarsdoorsnede blaaswand",
       "sectie": "Transitional Epithelium: Cross Section (Mammalian Urinary Bladder)",
       "beschrijving": "De blaas moet kunnen uitrekken. Daarom is de bekleding meerlagig met ronde, koepelvormige cellen bovenaan die platter worden als de blaas vol is. Bij 40× zie je de plooien van een lege blaas.",
-      "letop": ["Bovenste laag: grote, bolle cellen, soms met twee kernen.", "De plooien verdwijnen als de blaas zich vult."]
+      "letop": [
+        "Bovenste laag: grote, bolle cellen, soms met twee kernen.",
+        "De plooien verdwijnen als de blaas zich vult."
+      ],
+      "zoek": [
+        {
+          "id": "koepelcel",
+          "t": "Wijs een koepelcel aan de bovenkant aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De grote, bolle cellen in de bovenste laag, aan de kant van de blaasholte.",
+          "hint": "Tik bovenin beeld, op een grote ronde cel.",
+          "r": 0.045,
+          "punten": [
+            [
+              0.15,
+              0.13
+            ],
+            [
+              0.3,
+              0.1
+            ],
+            [
+              0.45,
+              0.13
+            ],
+            [
+              0.6,
+              0.2
+            ],
+            [
+              0.72,
+              0.25
+            ],
+            [
+              0.85,
+              0.32
+            ],
+            [
+              0.08,
+              0.22
+            ]
+          ],
+          "meer": "Koepelcellen (paraplucellen) hebben een extra dik membraan aan de bovenkant dat urine tegenhoudt: urine is zout en zou de cellen anders beschadigen. Als de blaas zich vult, strekken deze cellen zich uit en wordt de laag platter: vandaar de naam overgangsepitheel."
+        },
+        {
+          "id": "gladde spier",
+          "t": "Wijs de band van gladde spiercellen aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De roze band met langgerekte, donkere kernen die schuin door het beeld loopt.",
+          "hint": "Tik op de roze vezelige band van linksboven naar rechtsonder.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.35,
+              0.45
+            ],
+            [
+              0.5,
+              0.52
+            ],
+            [
+              0.65,
+              0.62
+            ],
+            [
+              0.8,
+              0.72
+            ],
+            [
+              0.9,
+              0.8
+            ],
+            [
+              0.25,
+              0.42
+            ]
+          ],
+          "meer": "Gladde spiercellen zijn spoelvormig met één kern in het midden. Ze trekken langzaam en onbewust samen. In de blaaswand knijpen ze de blaas leeg bij het plassen; je bestuurt alleen de sluitspier bewust."
+        }
+      ]
     },
     {
       "id": "vetweefsel",
@@ -98,14 +809,125 @@
       "sub": "dwarsdoorsnede",
       "sectie": "Adipose Tissue: Cross Section (Mammalian)",
       "beschrijving": "Vetcellen zijn bijna helemaal gevuld met één grote vetdruppel. Bij het maken van het preparaat is het vet opgelost, dus je ziet lege ruimtes met een dun randje cytoplasma. De celkern is tegen de rand geduwd. Vet is een energievoorraad en isoleert.",
-      "letop": ["Elke 'lege' ruimte is één cel.", "De celkern zit platgedrukt tegen de rand, als een donker streepje.", "Tussen de cellen lopen dunne vezels en kleine bloedvaatjes."],
-      "zoek": [
-        {"id": "vetcel", "t": "Wijs een vetcel aan.", "bij": [400], "uitleg": "De grote lichte ruimte: hier zat de vetdruppel. De cel is bijna helemaal vet.", "hint": "Tik midden in een van de grote lichte vlakken.", "r": 0.07,
-         "punten": [[0.15,0.25],[0.50,0.55],[0.60,0.15],[0.30,0.80],[0.80,0.30],[0.90,0.70],[0.10,0.60],[0.45,0.85],[0.75,0.80],[0.35,0.15]]},
-        {"id": "celkern", "t": "Wijs een celkern van een vetcel aan.", "bij": [400], "uitleg": "Het donkere plekje tegen de rand van de cel: de kern is opzij geduwd door het vet.", "hint": "Zoek een donker verdikt plekje op een lijn tussen twee cellen.", "r": 0.035,
-         "punten": [[0.24,0.42],[0.36,0.44],[0.37,0.78],[0.86,0.52],[0.78,0.55],[0.87,0.17],[0.40,0.32],[0.68,0.60],[0.21,0.50]]}
+      "letop": [
+        "Elke 'lege' ruimte is één cel.",
+        "De celkern zit platgedrukt tegen de rand, als een donker streepje.",
+        "Tussen de cellen lopen dunne vezels en kleine bloedvaatjes."
       ],
-      "vraag": {"q": "Waarom lijken de vetcellen leeg?", "opts": ["vetcellen zijn echt leeg", "het vet is bij het maken van het preparaat opgelost", "de cellen zijn dood"], "ok": 1, "ex": "Bij het maken van het preparaat worden oplosmiddelen gebruikt die het vet wegspoelen. De vetdruppel laat een lege ruimte achter."}
+      "zoek": [
+        {
+          "id": "vetcel",
+          "t": "Wijs een vetcel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De grote lichte ruimte: hier zat de vetdruppel. De cel is bijna helemaal vet.",
+          "hint": "Tik midden in een van de grote lichte vlakken.",
+          "r": 0.07,
+          "punten": [
+            [
+              0.15,
+              0.25
+            ],
+            [
+              0.5,
+              0.55
+            ],
+            [
+              0.6,
+              0.15
+            ],
+            [
+              0.3,
+              0.8
+            ],
+            [
+              0.8,
+              0.3
+            ],
+            [
+              0.9,
+              0.7
+            ],
+            [
+              0.1,
+              0.6
+            ],
+            [
+              0.45,
+              0.85
+            ],
+            [
+              0.75,
+              0.8
+            ],
+            [
+              0.35,
+              0.15
+            ]
+          ],
+          "meer": "Een vetcel (adipocyt) slaat energie op als één grote druppel vet. Als je meer eet dan je verbruikt, wordt de druppel groter; de cel kan tot wel 100 keer zijn volume groeien. Vetweefsel isoleert ook en beschermt organen. Het maakt bovendien hormonen, zoals leptine, dat de hersenen vertelt hoeveel reserve er is."
+        },
+        {
+          "id": "celkern",
+          "t": "Wijs een celkern van een vetcel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het donkere plekje tegen de rand van de cel: de kern is opzij geduwd door het vet.",
+          "hint": "Zoek een donker verdikt plekje op een lijn tussen twee cellen.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.24,
+              0.42
+            ],
+            [
+              0.36,
+              0.44
+            ],
+            [
+              0.37,
+              0.78
+            ],
+            [
+              0.86,
+              0.52
+            ],
+            [
+              0.78,
+              0.55
+            ],
+            [
+              0.87,
+              0.17
+            ],
+            [
+              0.4,
+              0.32
+            ],
+            [
+              0.68,
+              0.6
+            ],
+            [
+              0.21,
+              0.5
+            ]
+          ],
+          "meer": "De kern en het beetje cytoplasma zijn door de vetdruppel tegen de rand geduwd. Daarom lijkt een vetcel op een zegelring: een dunne ring met één verdikking."
+        }
+      ],
+      "vraag": {
+        "q": "Waarom lijken de vetcellen leeg?",
+        "opts": [
+          "vetcellen zijn echt leeg",
+          "het vet is bij het maken van het preparaat opgelost",
+          "de cellen zijn dood"
+        ],
+        "ok": 1,
+        "ex": "Bij het maken van het preparaat worden oplosmiddelen gebruikt die het vet wegspoelen. De vetdruppel laat een lege ruimte achter."
+      }
     },
     {
       "id": "reticulair",
@@ -114,7 +936,10 @@
       "sub": "dwarsdoorsnede (bijvoorbeeld lymfeknoop of milt)",
       "sectie": "Reticular Tissue: Cross Section (Mammalian)",
       "beschrijving": "Een fijn netwerk van dunne vezels (donker gekleurd) dat een steunraamwerk vormt voor organen vol cellen, zoals lymfeknopen en de milt. Tussen de vezels zitten veel kleine cellen met ronde kernen.",
-      "letop": ["De donkere draden zijn de reticulaire vezels: het 'hangmatje' waar cellen in liggen.", "De vele paarse stippen zijn kernen van lymfocyten."]
+      "letop": [
+        "De donkere draden zijn de reticulaire vezels: het 'hangmatje' waar cellen in liggen.",
+        "De vele paarse stippen zijn kernen van lymfocyten."
+      ]
     },
     {
       "id": "los-bindweefsel",
@@ -123,7 +948,148 @@
       "sub": "uitgespreid weefsel (spread)",
       "sectie": "Loose Aerolar Tissue: Tissue Spread (Mammalian)",
       "beschrijving": "Het 'vulmateriaal' van het lichaam: losse vezels in alle richtingen met wat cellen ertussen. De dikke roze vezels zijn collageen (sterk), de dunne donkere zijn elastine (rekbaar). Je vindt het onder de huid en rond organen en bloedvaten.",
-      "letop": ["Dikke, golvende roze bundels: collageenvezels.", "Dunne, rechte donkere draden: elastische vezels.", "Cellen met een kern ertussen: fibroblasten, die de vezels maken."]
+      "letop": [
+        "Dikke, golvende roze bundels: collageenvezels.",
+        "Dunne, rechte donkere draden: elastische vezels.",
+        "Cellen met een kern ertussen: fibroblasten, die de vezels maken."
+      ],
+      "zoek": [
+        {
+          "id": "collageenvezel",
+          "t": "Wijs een collageenvezel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De brede, roze, licht golvende bundels. Collageen is sterk en buigzaam.",
+          "hint": "Tik op een brede roze bundel.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.35,
+              0.45
+            ],
+            [
+              0.55,
+              0.4
+            ],
+            [
+              0.85,
+              0.55
+            ],
+            [
+              0.1,
+              0.7
+            ],
+            [
+              0.45,
+              0.85
+            ],
+            [
+              0.8,
+              0.2
+            ],
+            [
+              0.65,
+              0.75
+            ]
+          ],
+          "meer": "Collageen is het meest voorkomende eiwit in je lichaam: in huid, pezen, bot en kraakbeen. Een collageenvezel is per gewicht sterker dan staal, maar niet rekbaar. Vitamine C is nodig om het te maken; bij een tekort (scheurbuik) vallen wonden weer open."
+        },
+        {
+          "id": "elastische vezel",
+          "t": "Wijs een elastische vezel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De dunne, donkere, gebogen draden die kriskras door het beeld lopen.",
+          "hint": "Tik precies op een dunne zwarte draad.",
+          "r": 0.03,
+          "punten": [
+            [
+              0.22,
+              0.08
+            ],
+            [
+              0.3,
+              0.2
+            ],
+            [
+              0.47,
+              0.25
+            ],
+            [
+              0.6,
+              0.12
+            ],
+            [
+              0.25,
+              0.55
+            ],
+            [
+              0.7,
+              0.45
+            ],
+            [
+              0.52,
+              0.72
+            ],
+            [
+              0.8,
+              0.9
+            ],
+            [
+              0.15,
+              0.35
+            ],
+            [
+              0.42,
+              0.4
+            ]
+          ],
+          "meer": "Elastische vezels bestaan uit elastine en kunnen tot anderhalf keer hun lengte uitrekken en weer terugveren, als een elastiekje. Ze zitten in huid, longen en slagaders. Bij het ouder worden en door zonlicht breken ze af: dat geeft rimpels."
+        },
+        {
+          "id": "fibroblast",
+          "t": "Wijs een fibroblast aan (een bindweefselcel).",
+          "bij": [
+            400
+          ],
+          "uitleg": "De donkerpaarse vlekken: kernen van de cellen die de vezels maken.",
+          "hint": "Tik op een donkerpaarse, wat vage vlek.",
+          "r": 0.04,
+          "punten": [
+            [
+              0.17,
+              0.15
+            ],
+            [
+              0.3,
+              0.3
+            ],
+            [
+              0.57,
+              0.45
+            ],
+            [
+              0.08,
+              0.62
+            ],
+            [
+              0.72,
+              0.83
+            ],
+            [
+              0.73,
+              0.93
+            ],
+            [
+              0.05,
+              0.05
+            ]
+          ],
+          "meer": "Fibroblasten maken collageen en elastine en herstellen het weefsel na een wond: ze kruipen naar de beschadigde plek en leggen nieuwe vezels neer. Een litteken is bindweefsel waarin de vezels slordiger liggen dan in gewone huid."
+        }
+      ]
     },
     {
       "id": "compact-bot",
@@ -131,16 +1097,118 @@
       "naam": "Compact bot",
       "sub": "dwarsdoorsnede, geslepen menselijk bot",
       "sectie": "Compact Bone: Cross Section (Human)",
-      "kies": {"200": "compact-bone-cross-section-human-haversian-system-in-ground-human-bone-200x", "400": "compact-bone-cross-section-human-canaliculi-in-ground-human-bone-400x"},
+      "kies": {
+        "200": "compact-bone-cross-section-human-haversian-system-in-ground-human-bone-200x",
+        "400": "compact-bone-cross-section-human-canaliculi-in-ground-human-bone-400x"
+      },
       "beschrijving": "Bot is geen dode steen maar levend weefsel. Het is opgebouwd uit ringen (lamellen) rond een kanaal waar een bloedvat doorheen loopt: het kanaal van Havers. In de ringen liggen de botcellen in kleine holtes, verbonden door piepkleine gangetjes waardoor ze elkaar voeden.",
-      "letop": ["Bij 200×: een groot zwart gat is een kanaal van Havers; de ringen eromheen zijn lamellen.", "De zwarte streepjes zijn holtes met daarin een botcel (osteocyt).", "Bij 400×: de fijne zwarte lijntjes tussen de holtes zijn de gangetjes (canaliculi)."],
-      "zoek": [
-        {"id": "kanaal van Havers", "t": "Wijs een kanaal van Havers aan.", "bij": [200], "uitleg": "Het grote donkere gat. Hier loopt een bloedvat doorheen dat het bot voedt.", "hint": "Zoek het grootste zwarte gat in beeld.", "r": 0.07,
-         "punten": [[0.10,0.55],[0.59,0.36]]},
-        {"id": "botcel", "t": "Wijs een botcel (osteocyt) aan.", "bij": [200], "uitleg": "Elk zwart streepje is een holte met daarin een botcel. Ze liggen in ringen om het kanaal.", "hint": "Tik op een van de kleine zwarte, langwerpige vlekjes.", "r": 0.035,
-         "punten": [[0.38,0.23],[0.44,0.40],[0.30,0.50],[0.55,0.65],[0.78,0.45],[0.27,0.28],[0.63,0.53],[0.86,0.22],[0.69,0.55],[0.12,0.22],[0.20,0.82],[0.90,0.80],[0.48,0.85],[0.75,0.14]]}
+      "letop": [
+        "Bij 200×: een groot zwart gat is een kanaal van Havers; de ringen eromheen zijn lamellen.",
+        "De zwarte streepjes zijn holtes met daarin een botcel (osteocyt).",
+        "Bij 400×: de fijne zwarte lijntjes tussen de holtes zijn de gangetjes (canaliculi)."
       ],
-      "vraag": {"q": "Waar is het kanaal van Havers voor?", "opts": ["het maakt het bot lichter", "er loopt een bloedvat door dat de botcellen voedt", "het is een barst in het bot"], "ok": 1, "ex": "Door het kanaal lopen een bloedvat en een zenuw. Via de gangetjes (canaliculi) bereiken zuurstof en voedingsstoffen de botcellen in hun holtes."}
+      "zoek": [
+        {
+          "id": "kanaal van Havers",
+          "t": "Wijs een kanaal van Havers aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "Het grote donkere gat. Hier loopt een bloedvat doorheen dat het bot voedt.",
+          "hint": "Zoek het grootste zwarte gat in beeld.",
+          "r": 0.07,
+          "punten": [
+            [
+              0.1,
+              0.55
+            ],
+            [
+              0.59,
+              0.36
+            ]
+          ],
+          "meer": "Door elk kanaal van Havers lopen een bloedvat en een zenuw. Eromheen liggen ringen (lamellen) van botweefsel: samen vormen ze een osteon, de bouwsteen van compact bot. Bot wordt voortdurend afgebroken en opnieuw opgebouwd; elke 10 jaar heb je zo ongeveer een nieuw skelet."
+        },
+        {
+          "id": "botcel",
+          "t": "Wijs een botcel (osteocyt) aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "Elk zwart streepje is een holte met daarin een botcel. Ze liggen in ringen om het kanaal.",
+          "hint": "Tik op een van de kleine zwarte, langwerpige vlekjes.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.38,
+              0.23
+            ],
+            [
+              0.44,
+              0.4
+            ],
+            [
+              0.3,
+              0.5
+            ],
+            [
+              0.55,
+              0.65
+            ],
+            [
+              0.78,
+              0.45
+            ],
+            [
+              0.27,
+              0.28
+            ],
+            [
+              0.63,
+              0.53
+            ],
+            [
+              0.86,
+              0.22
+            ],
+            [
+              0.69,
+              0.55
+            ],
+            [
+              0.12,
+              0.22
+            ],
+            [
+              0.2,
+              0.82
+            ],
+            [
+              0.9,
+              0.8
+            ],
+            [
+              0.48,
+              0.85
+            ],
+            [
+              0.75,
+              0.14
+            ]
+          ],
+          "meer": "Een botcel (osteocyt) zit opgesloten in een holte in het harde bot. Via piepkleine gangetjes (canaliculi) staat ze in contact met buurcellen en met het bloedvat in het kanaal. Osteocyten voelen belasting van het bot en sturen aan waar bot moet worden bijgemaakt of weggehaald."
+        }
+      ],
+      "vraag": {
+        "q": "Waar is het kanaal van Havers voor?",
+        "opts": [
+          "het maakt het bot lichter",
+          "er loopt een bloedvat door dat de botcellen voedt",
+          "het is een barst in het bot"
+        ],
+        "ok": 1,
+        "ex": "Door het kanaal lopen een bloedvat en een zenuw. Via de gangetjes (canaliculi) bereiken zuurstof en voedingsstoffen de botcellen in hun holtes."
+      }
     },
     {
       "id": "bloed-he",
@@ -149,7 +1217,11 @@
       "sub": "mens, hematoxyline-eosine",
       "sectie": "Blood Smear: Hematoxylin Eosin Stain (Human)",
       "beschrijving": "Een dun laagje bloed, uitgestreken op een glaasje. Bijna alles wat je ziet zijn rode bloedcellen: schijfjes zonder kern. Af en toe zie je een witte bloedcel met een donkerpaarse kern. De reeks bij 400× is een zoektocht naar verschillende soorten witte bloedcellen.",
-      "letop": ["Rode bloedcellen hebben geen kern: ze zijn in het midden lichter (het schijfje is daar dunner).", "Een witte bloedcel herken je aan de paarse kern, vaak in lobben.", "Bloedplaatjes zijn piepkleine paarse stipjes tussen de cellen."]
+      "letop": [
+        "Rode bloedcellen hebben geen kern: ze zijn in het midden lichter (het schijfje is daar dunner).",
+        "Een witte bloedcel herken je aan de paarse kern, vaak in lobben.",
+        "Bloedplaatjes zijn piepkleine paarse stipjes tussen de cellen."
+      ]
     },
     {
       "id": "bloed-wright",
@@ -158,14 +1230,116 @@
       "sub": "mens, de klassieke bloedkleuring",
       "sectie": "Blood Smear: Wright’s Stain (Human)",
       "beschrijving": "Dezelfde soort uitstrijk, maar met de kleuring die in het laboratorium wordt gebruikt om bloedcellen te tellen. Rode bloedcellen zijn roze-rood, witte bloedcellen hebben een donkerpaarse kern. Op ongeveer 700 rode bloedcellen zie je één witte.",
-      "letop": ["Zoek bij 400× witte bloedcellen: een kern in lobben (granulocyt) of één ronde kern (lymfocyt).", "Rode bloedcellen zijn allemaal even groot: handig als maatstaf."],
-      "zoek": [
-        {"id": "witte bloedcel", "t": "Wijs een witte bloedcel aan.", "bij": [400], "uitleg": "De cel met de donkerpaarse kern. Witte bloedcellen ruimen ziekteverwekkers op.", "hint": "Zoek een cel met een donkerpaarse kern; er zijn er maar een paar in beeld.", "r": 0.035,
-         "punten": [[0.38,0.23],[0.405,0.355],[0.835,0.235],[0.655,0.805],[0.695,0.925]]},
-        {"id": "rode bloedcel", "t": "Wijs een rode bloedcel aan.", "bij": [400], "uitleg": "Een roze schijfje zonder kern. Rode bloedcellen vervoeren zuurstof.", "hint": "Tik op een van de vele roze schijfjes.", "r": 0.05,
-         "punten": [[0.20,0.50],[0.50,0.45],[0.75,0.60],[0.30,0.80],[0.90,0.50],[0.10,0.20],[0.60,0.20],[0.85,0.85],[0.45,0.75],[0.15,0.90],[0.95,0.10],[0.55,0.60]]}
+      "letop": [
+        "Zoek bij 400× witte bloedcellen: een kern in lobben (granulocyt) of één ronde kern (lymfocyt).",
+        "Rode bloedcellen zijn allemaal even groot: handig als maatstaf."
       ],
-      "vraag": {"q": "Wat valt op aan de rode bloedcellen?", "opts": ["ze hebben een grote kern", "ze hebben geen kern", "ze zijn allemaal verschillend van grootte"], "ok": 1, "ex": "Rode bloedcellen van zoogdieren hebben geen kern: zo is er meer ruimte voor hemoglobine, dat zuurstof bindt. Ze zijn allemaal even groot."}
+      "zoek": [
+        {
+          "id": "witte bloedcel",
+          "t": "Wijs een witte bloedcel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De cel met de donkerpaarse kern. Witte bloedcellen ruimen ziekteverwekkers op.",
+          "hint": "Zoek een cel met een donkerpaarse kern; er zijn er maar een paar in beeld.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.38,
+              0.23
+            ],
+            [
+              0.405,
+              0.355
+            ],
+            [
+              0.835,
+              0.235
+            ],
+            [
+              0.655,
+              0.805
+            ],
+            [
+              0.695,
+              0.925
+            ]
+          ],
+          "meer": "Witte bloedcellen (leukocyten) zijn de afweer. Een cel met een kern in lobben is een granulocyt: die eet bacteriën op. Een cel met één ronde kern is een lymfocyt: die maakt antistoffen of doodt geïnfecteerde cellen. Per milliliter bloed zijn er zo'n 7 miljoen witte en 5 miljard rode bloedcellen."
+        },
+        {
+          "id": "rode bloedcel",
+          "t": "Wijs een rode bloedcel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Een roze schijfje zonder kern. Rode bloedcellen vervoeren zuurstof.",
+          "hint": "Tik op een van de vele roze schijfjes.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.2,
+              0.5
+            ],
+            [
+              0.5,
+              0.45
+            ],
+            [
+              0.75,
+              0.6
+            ],
+            [
+              0.3,
+              0.8
+            ],
+            [
+              0.9,
+              0.5
+            ],
+            [
+              0.1,
+              0.2
+            ],
+            [
+              0.6,
+              0.2
+            ],
+            [
+              0.85,
+              0.85
+            ],
+            [
+              0.45,
+              0.75
+            ],
+            [
+              0.15,
+              0.9
+            ],
+            [
+              0.95,
+              0.1
+            ],
+            [
+              0.55,
+              0.6
+            ]
+          ],
+          "meer": "Een rode bloedcel is een schijfje van 7 micrometer, in het midden dunner, zonder kern. Hij zit vol hemoglobine dat zuurstof bindt. Zonder kern kan hij zich niet delen of repareren: na ongeveer 120 dagen wordt hij in de milt afgebroken. Je beenmerg maakt er 2 miljoen per seconde bij."
+        }
+      ],
+      "vraag": {
+        "q": "Wat valt op aan de rode bloedcellen?",
+        "opts": [
+          "ze hebben een grote kern",
+          "ze hebben geen kern",
+          "ze zijn allemaal verschillend van grootte"
+        ],
+        "ok": 1,
+        "ex": "Rode bloedcellen van zoogdieren hebben geen kern: zo is er meer ruimte voor hemoglobine, dat zuurstof bindt. Ze zijn allemaal even groot."
+      }
     },
     {
       "id": "pees",
@@ -174,7 +1348,106 @@
       "sub": "stevig vezelig bindweefsel",
       "sectie": "White Fibrous Connective Tissue: Long Section (Tendon)",
       "beschrijving": "Een pees verbindt spier met bot en moet enorme trekkracht aankunnen. Daarom bestaat hij bijna alleen uit collageenvezels die allemaal dezelfde kant op lopen. Tussen de vezels liggen platte cellen in rijen.",
-      "letop": ["Alle vezels lopen evenwijdig: in de trekrichting.", "De donkere streepjes in rijen zijn kernen van de peescellen."]
+      "letop": [
+        "Alle vezels lopen evenwijdig: in de trekrichting.",
+        "De donkere streepjes in rijen zijn kernen van de peescellen."
+      ],
+      "zoek": [
+        {
+          "id": "collageenbundel",
+          "t": "Wijs een collageenbundel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De lichte, golvende banden die allemaal dezelfde kant op lopen.",
+          "hint": "Tik op een lichte golvende band.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.3,
+              0.3
+            ],
+            [
+              0.6,
+              0.45
+            ],
+            [
+              0.8,
+              0.75
+            ],
+            [
+              0.2,
+              0.65
+            ],
+            [
+              0.5,
+              0.9
+            ],
+            [
+              0.9,
+              0.15
+            ],
+            [
+              0.45,
+              0.6
+            ]
+          ],
+          "meer": "In een pees liggen de collageenbundels strak evenwijdig, in de richting van de trekkracht. De achillespees kan zo meer dan tien keer je lichaamsgewicht aan. De golving is 'speling': bij een plotselinge ruk trekken de vezels eerst recht voordat ze belast worden."
+        },
+        {
+          "id": "peescel",
+          "t": "Wijs een peescel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De donkere, langgerekte streepjes tussen de bundels: platgedrukte cellen (tenocyten).",
+          "hint": "Tik op een donker, langwerpig streepje.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.08,
+              0.52
+            ],
+            [
+              0.35,
+              0.42
+            ],
+            [
+              0.63,
+              0.33
+            ],
+            [
+              0.84,
+              0.32
+            ],
+            [
+              0.58,
+              0.64
+            ],
+            [
+              0.4,
+              0.8
+            ],
+            [
+              0.12,
+              0.8
+            ],
+            [
+              0.85,
+              0.92
+            ],
+            [
+              0.47,
+              0.12
+            ],
+            [
+              0.72,
+              0.47
+            ]
+          ],
+          "meer": "Peescellen liggen in rijen tussen de bundels en onderhouden het collageen. Er zijn er weinig en er lopen weinig bloedvaten door een pees: daarom geneest een peesblessure zo langzaam."
+        }
+      ]
     },
     {
       "id": "pees-uitgeplozen",
@@ -183,7 +1456,9 @@
       "sub": "losse vezelbundels",
       "sectie": "White Fibrous Connective Tissue: (Teased Tendon)",
       "beschrijving": "Hetzelfde weefsel, maar uit elkaar getrokken met naalden. Zo zie je de losse collageenbundels: lange, golvende, roze draden.",
-      "letop": ["Collageenvezels zijn licht golvend: ze rekken eerst een beetje uit voordat ze echt trekkracht opvangen."]
+      "letop": [
+        "Collageenvezels zijn licht golvend: ze rekken eerst een beetje uit voordat ze echt trekkracht opvangen."
+      ]
     },
     {
       "id": "elastisch-bindweefsel",
@@ -192,7 +1467,10 @@
       "sub": "dwarsdoorsnede, mens",
       "sectie": "Elastic Tissue: Cross Section (Human)",
       "beschrijving": "Bindweefsel met veel elastische vezels, speciaal gekleurd zodat ze donker opvallen. Dit weefsel zit in de wand van grote slagaders, zoals de aorta: die rekt uit bij elke hartslag en veert terug.",
-      "letop": ["De donkere golvende lijnen zijn elastische vezels.", "Elastische vezels zijn dunner en rechter dan collageenvezels."]
+      "letop": [
+        "De donkere golvende lijnen zijn elastische vezels.",
+        "Elastische vezels zijn dunner en rechter dan collageenvezels."
+      ]
     },
     {
       "id": "elastisch-kraakbeen",
@@ -201,7 +1479,151 @@
       "sub": "dwarsdoorsnede (bijvoorbeeld oorschelp)",
       "sectie": "Elastic Cartilage: Cross Section (Mammalian)",
       "beschrijving": "Kraakbeen met veel elastische vezels in de tussenstof. Daardoor buigt het makkelijk en veert het terug: je oorschelp en strotklepje zijn ervan gemaakt. De kraakbeencellen liggen in holtes, vaak met twee of vier bij elkaar.",
-      "letop": ["Bij 400×: de zwarte vezels in de tussenstof zijn elastine.", "Cellen in groepjes van twee of vier: ze zijn net gedeeld."]
+      "letop": [
+        "Bij 400×: de zwarte vezels in de tussenstof zijn elastine.",
+        "Cellen in groepjes van twee of vier: ze zijn net gedeeld."
+      ],
+      "zoek": [
+        {
+          "id": "kraakbeencel",
+          "t": "Wijs een kraakbeencel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Een cel in een lichte holte (lacune). Vaak liggen er twee of vier bij elkaar.",
+          "hint": "Tik op een van de lichte ovale holtes met een cel erin.",
+          "r": 0.04,
+          "punten": [
+            [
+              0.08,
+              0.15
+            ],
+            [
+              0.23,
+              0.18
+            ],
+            [
+              0.34,
+              0.27
+            ],
+            [
+              0.46,
+              0.32
+            ],
+            [
+              0.74,
+              0.33
+            ],
+            [
+              0.86,
+              0.35
+            ],
+            [
+              0.25,
+              0.47
+            ],
+            [
+              0.44,
+              0.55
+            ],
+            [
+              0.65,
+              0.44
+            ],
+            [
+              0.78,
+              0.67
+            ],
+            [
+              0.12,
+              0.45
+            ],
+            [
+              0.55,
+              0.63
+            ]
+          ],
+          "meer": "Twee of vier cellen bij elkaar in één holte zijn net gedeeld: ze delen zich binnen de tussenstof en duwen die uit elkaar. Zo groeit kraakbeen van binnenuit. Dat kan bot niet: bot groeit alleen aan de buitenkant."
+        },
+        {
+          "id": "elastische vezel",
+          "t": "Wijs de elastische vezels aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het donkere netwerk tussen de holtes: elastine, hier zwart gekleurd.",
+          "hint": "Tik op het donkere, vezelige gebied tussen de cellen.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.16,
+              0.3
+            ],
+            [
+              0.4,
+              0.42
+            ],
+            [
+              0.58,
+              0.25
+            ],
+            [
+              0.93,
+              0.5
+            ],
+            [
+              0.3,
+              0.62
+            ],
+            [
+              0.68,
+              0.57
+            ],
+            [
+              0.5,
+              0.45
+            ]
+          ],
+          "meer": "Door dit dichte netwerk van elastine kun je je oorschelp dubbelvouwen en veert hij terug. Hyalien kraakbeen heeft die vezels niet en breekt eerder."
+        },
+        {
+          "id": "perichondrium",
+          "t": "Wijs het perichondrium aan (het vlies om het kraakbeen).",
+          "bij": [
+            400
+          ],
+          "uitleg": "De gelaagde, vezelige rand bovenaan en onderaan: een vlies van bindweefsel.",
+          "hint": "Tik helemaal bovenaan of onderaan in beeld, op de gelaagde band.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.5,
+              0.05
+            ],
+            [
+              0.5,
+              0.85
+            ],
+            [
+              0.2,
+              0.92
+            ],
+            [
+              0.8,
+              0.88
+            ],
+            [
+              0.2,
+              0.04
+            ],
+            [
+              0.8,
+              0.06
+            ]
+          ],
+          "meer": "Het perichondrium bevat bloedvaten en cellen die nieuw kraakbeen kunnen maken. Omdat kraakbeen zelf geen bloedvaten heeft, komt alle voeding van hieruit, door diffusie. Hoe dikker het kraakbeen, hoe moeilijker de cellen in het midden het hebben."
+        }
+      ]
     },
     {
       "id": "vezelig-kraakbeen",
@@ -210,7 +1632,10 @@
       "sub": "dwarsdoorsnede (bijvoorbeeld tussenwervelschijf)",
       "sectie": "Fibrocartilage: Cross Section (Mammalian)",
       "beschrijving": "Kraakbeen met dikke bundels collageen: het sterkste kraakbeen. Het zit op plekken die zware druk opvangen, zoals de tussenwervelschijven en de meniscus in de knie. De kraakbeencellen liggen in rijen tussen de vezelbundels.",
-      "letop": ["De blauwe kleuring laat de collageenbundels zien.", "Cellen in rijen tussen de vezels."]
+      "letop": [
+        "De blauwe kleuring laat de collageenbundels zien.",
+        "Cellen in rijen tussen de vezels."
+      ]
     },
     {
       "id": "hyalien-kraakbeen",
@@ -219,14 +1644,175 @@
       "sub": "dwarsdoorsnede, met trilhaarepitheel",
       "sectie": "Hyaline Cartilage: Cross Section (Mammalian)",
       "beschrijving": "Het gewone, glasachtige kraakbeen: in gewrichten, neus, ribben en de ringen van de luchtpijp. De tussenstof lijkt egaal en de kraakbeencellen (chondrocyten) liggen in holtes. In dit preparaat zie je onderaan ook het trilhaarepitheel van de luchtpijp.",
-      "letop": ["Kraakbeen heeft geen bloedvaten: de cellen krijgen voedsel door de tussenstof heen.", "Rond het kraakbeen ligt een dicht vlies (perichondrium).", "Onderaan: het trilhaarepitheel dat de luchtweg bekleedt."],
+      "letop": [
+        "Kraakbeen heeft geen bloedvaten: de cellen krijgen voedsel door de tussenstof heen.",
+        "Rond het kraakbeen ligt een dicht vlies (perichondrium).",
+        "Onderaan: het trilhaarepitheel dat de luchtweg bekleedt."
+      ],
       "zoek": [
-        {"id": "kraakbeencel", "t": "Wijs een kraakbeencel aan.", "bij": [400], "uitleg": "Een cel in een holte in de tussenstof. Kraakbeencellen maken de tussenstof zelf.", "hint": "Tik op een van de ronde of ovale cellen in het lichtroze gebied bovenin.", "r": 0.04,
-         "punten": [[0.07,0.15],[0.28,0.08],[0.43,0.17],[0.63,0.13],[0.53,0.30],[0.21,0.28],[0.33,0.22],[0.76,0.31],[0.88,0.26],[0.86,0.52],[0.62,0.21],[0.48,0.06],[0.15,0.22],[0.72,0.08],[0.40,0.30],[0.95,0.40]]},
-        {"id": "tussenstof", "t": "Wijs de tussenstof aan (tussen de cellen).", "bij": [400], "uitleg": "Het egale lichtroze materiaal tussen de cellen. Het is stevig maar veerkrachtig.", "hint": "Tik op een lichtroze plek waar geen cel zit.", "r": 0.03,
-         "punten": [[0.15,0.08],[0.50,0.10],[0.70,0.22],[0.35,0.35],[0.93,0.15],[0.25,0.16],[0.58,0.05],[0.80,0.18],[0.10,0.33],[0.68,0.33]]},
-        {"id": "trilhaarepitheel", "t": "Wijs het trilhaarepitheel aan.", "bij": [400], "uitleg": "De rij hoge cellen onderaan, met trilharen aan de kant van de luchtweg.", "hint": "Tik onderin beeld, op de donkerroze rij hoge cellen.", "r": 0.06,
-         "punten": [[0.30,0.72],[0.60,0.75],[0.85,0.78],[0.10,0.62],[0.45,0.70]]}
+        {
+          "id": "kraakbeencel",
+          "t": "Wijs een kraakbeencel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "Een cel in een holte in de tussenstof. Kraakbeencellen maken de tussenstof zelf.",
+          "hint": "Tik op een van de ronde of ovale cellen in het lichtroze gebied bovenin.",
+          "r": 0.04,
+          "punten": [
+            [
+              0.07,
+              0.15
+            ],
+            [
+              0.28,
+              0.08
+            ],
+            [
+              0.43,
+              0.17
+            ],
+            [
+              0.63,
+              0.13
+            ],
+            [
+              0.53,
+              0.3
+            ],
+            [
+              0.21,
+              0.28
+            ],
+            [
+              0.33,
+              0.22
+            ],
+            [
+              0.76,
+              0.31
+            ],
+            [
+              0.88,
+              0.26
+            ],
+            [
+              0.86,
+              0.52
+            ],
+            [
+              0.62,
+              0.21
+            ],
+            [
+              0.48,
+              0.06
+            ],
+            [
+              0.15,
+              0.22
+            ],
+            [
+              0.72,
+              0.08
+            ],
+            [
+              0.4,
+              0.3
+            ],
+            [
+              0.95,
+              0.4
+            ]
+          ],
+          "meer": "Kraakbeencellen (chondrocyten) maken de tussenstof zelf en liggen er daarna in opgesloten, in een holte (lacune). Omdat kraakbeen geen bloedvaten heeft, krijgen ze voeding alleen door diffusie. Daarom groeit kraakbeen langzaam en geneest een beschadigde meniscus slecht."
+        },
+        {
+          "id": "tussenstof",
+          "t": "Wijs de tussenstof aan (tussen de cellen).",
+          "bij": [
+            400
+          ],
+          "uitleg": "Het egale lichtroze materiaal tussen de cellen. Het is stevig maar veerkrachtig.",
+          "hint": "Tik op een lichtroze plek waar geen cel zit.",
+          "r": 0.03,
+          "punten": [
+            [
+              0.15,
+              0.08
+            ],
+            [
+              0.5,
+              0.1
+            ],
+            [
+              0.7,
+              0.22
+            ],
+            [
+              0.35,
+              0.35
+            ],
+            [
+              0.93,
+              0.15
+            ],
+            [
+              0.25,
+              0.16
+            ],
+            [
+              0.58,
+              0.05
+            ],
+            [
+              0.8,
+              0.18
+            ],
+            [
+              0.1,
+              0.33
+            ],
+            [
+              0.68,
+              0.33
+            ]
+          ],
+          "meer": "De tussenstof (matrix) bestaat uit collageenvezels in een gel van water en suiker-eiwitten. Hij is stevig maar veerkrachtig en bijna glad: in gewrichten glijden de botuiteinden erover met minder wrijving dan ijs op ijs."
+        },
+        {
+          "id": "trilhaarepitheel",
+          "t": "Wijs het trilhaarepitheel aan.",
+          "bij": [
+            400
+          ],
+          "uitleg": "De rij hoge cellen onderaan, met trilharen aan de kant van de luchtweg.",
+          "hint": "Tik onderin beeld, op de donkerroze rij hoge cellen.",
+          "r": 0.06,
+          "punten": [
+            [
+              0.3,
+              0.72
+            ],
+            [
+              0.6,
+              0.75
+            ],
+            [
+              0.85,
+              0.78
+            ],
+            [
+              0.1,
+              0.62
+            ],
+            [
+              0.45,
+              0.7
+            ]
+          ],
+          "meer": "De rij hoge cellen met trilharen die de binnenkant van de luchtpijp bekleedt. Het kraakbeen erboven houdt de luchtpijp open; het epitheel houdt hem schoon."
+        }
       ]
     },
     {
@@ -236,7 +1822,10 @@
       "sub": "dwarsdoorsnede, jong hyalien kraakbeen",
       "sectie": "Developing Hyaline Cartilage: Cross Section (Mammalian)",
       "beschrijving": "Jong kraakbeen, zoals in een groeiend skelet. De cellen liggen dicht op elkaar en delen zich; er is nog weinig tussenstof. Later wordt veel van dit kraakbeen vervangen door bot.",
-      "letop": ["Veel cellen, weinig tussenstof: het weefsel groeit nog.", "Vergelijk met het volgroeide hyaliene kraakbeen."]
+      "letop": [
+        "Veel cellen, weinig tussenstof: het weefsel groeit nog.",
+        "Vergelijk met het volgroeide hyaliene kraakbeen."
+      ]
     },
     {
       "id": "skeletspier-vezels",
@@ -245,14 +1834,157 @@
       "sub": "lengtedoorsnede, losse spiervezels",
       "sectie": "Skeletal Muscle: Teased Muscle Fibers in Long Section (Mammalian)",
       "beschrijving": "Spiervezels zijn reusachtige cellen: tot wel tientallen centimeters lang, met honderden kernen aan de rand. Bij goed kijken zie je dwarsstreping: fijne lichte en donkere bandjes. Die komen door de eiwitten die de spier laten samentrekken.",
-      "letop": ["Elke roze band is één spiervezel, dus één cel.", "De donkere ovalen aan de rand zijn celkernen: een spiervezel heeft er heel veel.", "Dwarsstreping zie je als fijne streepjes dwars op de vezel, vooral bij 400×."],
-      "zoek": [
-        {"id": "celkern", "t": "Wijs een celkern van een spiervezel aan.", "bij": [200], "uitleg": "De donkerpaarse ovalen aan de rand van de vezel. Eén vezel heeft er honderden.", "hint": "Zoek een donkerpaars ovaal aan de rand van een roze band.", "r": 0.035,
-         "punten": [[0.35,0.07],[0.27,0.13],[0.34,0.32],[0.21,0.45],[0.52,0.45],[0.63,0.16],[0.62,0.07],[0.66,0.33],[0.67,0.47],[0.37,0.62],[0.38,0.70],[0.43,0.77],[0.57,0.80],[0.67,0.66],[0.87,0.37],[0.97,0.14],[0.91,0.83],[0.41,0.92],[0.52,0.68],[0.61,0.75]]},
-        {"id": "spiervezel", "t": "Wijs een spiervezel aan.", "bij": [200], "uitleg": "De lange roze band: één reusachtige spiercel, vol samentrekkende eiwitten.", "hint": "Tik midden op een lange roze band.", "r": 0.05,
-         "punten": [[0.10,0.30],[0.55,0.55],[0.80,0.50],[0.33,0.50],[0.07,0.70],[0.47,0.25],[0.93,0.55]]}
+      "letop": [
+        "Elke roze band is één spiervezel, dus één cel.",
+        "De donkere ovalen aan de rand zijn celkernen: een spiervezel heeft er heel veel.",
+        "Dwarsstreping zie je als fijne streepjes dwars op de vezel, vooral bij 400×."
       ],
-      "vraag": {"q": "Hoeveel kernen heeft één spiervezel?", "opts": ["één, zoals elke cel", "geen", "heel veel: de vezel is ontstaan uit veel versmolten cellen"], "ok": 2, "ex": "Een spiervezel ontstaat doordat tijdens de ontwikkeling veel cellen samensmelten. Daardoor heeft één vezel honderden kernen, allemaal aan de rand."}
+      "zoek": [
+        {
+          "id": "celkern",
+          "t": "Wijs een celkern van een spiervezel aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "De donkerpaarse ovalen aan de rand van de vezel. Eén vezel heeft er honderden.",
+          "hint": "Zoek een donkerpaars ovaal aan de rand van een roze band.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.35,
+              0.07
+            ],
+            [
+              0.27,
+              0.13
+            ],
+            [
+              0.34,
+              0.32
+            ],
+            [
+              0.21,
+              0.45
+            ],
+            [
+              0.52,
+              0.45
+            ],
+            [
+              0.63,
+              0.16
+            ],
+            [
+              0.62,
+              0.07
+            ],
+            [
+              0.66,
+              0.33
+            ],
+            [
+              0.67,
+              0.47
+            ],
+            [
+              0.37,
+              0.62
+            ],
+            [
+              0.38,
+              0.7
+            ],
+            [
+              0.43,
+              0.77
+            ],
+            [
+              0.57,
+              0.8
+            ],
+            [
+              0.67,
+              0.66
+            ],
+            [
+              0.87,
+              0.37
+            ],
+            [
+              0.97,
+              0.14
+            ],
+            [
+              0.91,
+              0.83
+            ],
+            [
+              0.41,
+              0.92
+            ],
+            [
+              0.52,
+              0.68
+            ],
+            [
+              0.61,
+              0.75
+            ]
+          ],
+          "meer": "Een spiervezel heeft honderden kernen, allemaal tegen de rand. De vezel is tijdens de ontwikkeling ontstaan uit het samensmelten van veel losse cellen. Elke kern bestuurt het stukje vezel om zich heen."
+        },
+        {
+          "id": "spiervezel",
+          "t": "Wijs een spiervezel aan.",
+          "bij": [
+            200
+          ],
+          "uitleg": "De lange roze band: één reusachtige spiercel, vol samentrekkende eiwitten.",
+          "hint": "Tik midden op een lange roze band.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.1,
+              0.3
+            ],
+            [
+              0.55,
+              0.55
+            ],
+            [
+              0.8,
+              0.5
+            ],
+            [
+              0.33,
+              0.5
+            ],
+            [
+              0.07,
+              0.7
+            ],
+            [
+              0.47,
+              0.25
+            ],
+            [
+              0.93,
+              0.55
+            ]
+          ],
+          "meer": "Eén spiervezel is één cel, soms langer dan 10 cm. Hij zit vol lange eiwitdraden (actine en myosine) die langs elkaar schuiven als de spier samentrekt. Die draden liggen zo netjes gerangschikt dat je dwarsstreping ziet. Spiervezels gehoorzamen alleen aan een zenuwsignaal: skeletspieren bestuur je bewust."
+        }
+      ],
+      "vraag": {
+        "q": "Hoeveel kernen heeft één spiervezel?",
+        "opts": [
+          "één, zoals elke cel",
+          "geen",
+          "heel veel: de vezel is ontstaan uit veel versmolten cellen"
+        ],
+        "ok": 2,
+        "ex": "Een spiervezel ontstaat doordat tijdens de ontwikkeling veel cellen samensmelten. Daardoor heeft één vezel honderden kernen, allemaal aan de rand."
+      }
     },
     {
       "id": "skeletspier-geheel",
@@ -261,23 +1993,149 @@
       "sub": "doorsnede van een hele spier",
       "sectie": "Skeletal Muscle: Cross and Long Section of Whole Muscle (Mammalian)",
       "beschrijving": "Een spier is opgebouwd uit bundels vezels, bij elkaar gehouden door bindweefsel. In de dwarsdoorsnede zie je de vezels als veelhoekjes met de kernen aan de rand; in de lengtedoorsnede als lange banden.",
-      "letop": ["Dwars: elke veelhoek is één spiervezel.", "Het roze bindweefsel tussen de bundels voert bloedvaten en zenuwen aan."]
+      "letop": [
+        "Dwars: elke veelhoek is één spiervezel.",
+        "Het roze bindweefsel tussen de bundels voert bloedvaten en zenuwen aan."
+      ]
     },
     {
       "id": "dennenstengel",
       "groep": "Plant",
       "naam": "Stengel van een den",
       "sub": "dwarsdoorsnede, eerste jaar, 40×",
-      "fotoIds": ["pinus-stengel-40x"],
+      "fotoIds": [
+        "pinus-stengel-40x"
+      ],
       "beschrijving": "Dwarsdoorsnede van een eenjarige stengel van een den. Van buiten naar binnen: opperhuid, schors met harskanalen (de witte gaten), de turquoise band floëem, een dunne laag cambium, de brede ring hout (xyleem) met cellen in rechte rijen, en in het midden het merg.",
-      "letop": ["De witte gaten in de schors zijn harskanalen.", "Het hout bestaat uit kleine cellen in rechte rijen: die vervoeren water en maken de stengel stevig.", "Het cambium tussen floëem en hout maakt de stengel elk jaar dikker."],
+      "letop": [
+        "De witte gaten in de schors zijn harskanalen.",
+        "Het hout bestaat uit kleine cellen in rechte rijen: die vervoeren water en maken de stengel stevig.",
+        "Het cambium tussen floëem en hout maakt de stengel elk jaar dikker."
+      ],
       "zoek": [
-        {"id": "harskanaal", "t": "Wijs een harskanaal aan.", "bij": [40], "uitleg": "De witte gaten met een ring kleine cellen eromheen. Die cellen maken hars, dat wondjes afsluit.", "hint": "Tik in een van de witte gaten in de buitenste ring.", "r": 0.03,
-         "punten": [[0.42,0.14],[0.60,0.13],[0.30,0.33],[0.24,0.43],[0.22,0.55],[0.27,0.67],[0.33,0.80],[0.44,0.92],[0.56,0.93],[0.70,0.83],[0.75,0.68],[0.75,0.55],[0.71,0.40],[0.68,0.25]]},
-        {"id": "hout", "t": "Wijs het hout (xyleem) aan.", "bij": [40], "uitleg": "De paarsige ring met cellen in rechte rijen. Hierdoor stroomt water omhoog.", "hint": "Tik in de paarse ring binnen de turquoise band.", "r": 0.05,
-         "punten": [[0.42,0.40],[0.56,0.33],[0.60,0.65],[0.40,0.62],[0.37,0.50],[0.62,0.50]]},
-        {"id": "merg", "t": "Wijs het merg aan.", "bij": [40], "uitleg": "De grote, lichte cellen in het midden van de stengel.", "hint": "Tik precies in het midden.", "r": 0.035,
-         "punten": [[0.495,0.50]]}
+        {
+          "id": "harskanaal",
+          "t": "Wijs een harskanaal aan.",
+          "bij": [
+            40
+          ],
+          "uitleg": "De witte gaten met een ring kleine cellen eromheen. Die cellen maken hars, dat wondjes afsluit.",
+          "hint": "Tik in een van de witte gaten in de buitenste ring.",
+          "r": 0.03,
+          "punten": [
+            [
+              0.42,
+              0.14
+            ],
+            [
+              0.6,
+              0.13
+            ],
+            [
+              0.3,
+              0.33
+            ],
+            [
+              0.24,
+              0.43
+            ],
+            [
+              0.22,
+              0.55
+            ],
+            [
+              0.27,
+              0.67
+            ],
+            [
+              0.33,
+              0.8
+            ],
+            [
+              0.44,
+              0.92
+            ],
+            [
+              0.56,
+              0.93
+            ],
+            [
+              0.7,
+              0.83
+            ],
+            [
+              0.75,
+              0.68
+            ],
+            [
+              0.75,
+              0.55
+            ],
+            [
+              0.71,
+              0.4
+            ],
+            [
+              0.68,
+              0.25
+            ]
+          ],
+          "meer": "Een harskanaal is een buis omringd door cellen die hars maken. Bij een wond stroomt de hars naar buiten, sluit het gat af en is giftig voor insecten en schimmels. Barnsteen is miljoenen jaren oude, versteende hars van naaldbomen."
+        },
+        {
+          "id": "hout",
+          "t": "Wijs het hout (xyleem) aan.",
+          "bij": [
+            40
+          ],
+          "uitleg": "De paarsige ring met cellen in rechte rijen. Hierdoor stroomt water omhoog.",
+          "hint": "Tik in de paarse ring binnen de turquoise band.",
+          "r": 0.05,
+          "punten": [
+            [
+              0.42,
+              0.4
+            ],
+            [
+              0.56,
+              0.33
+            ],
+            [
+              0.6,
+              0.65
+            ],
+            [
+              0.4,
+              0.62
+            ],
+            [
+              0.37,
+              0.5
+            ],
+            [
+              0.62,
+              0.5
+            ]
+          ],
+          "meer": "Hout is xyleem: dode, holle cellen met dikke, verhoute wanden. Ze vervoeren water en mineralen van de wortels omhoog en geven de stengel stevigheid. Elk jaar komt er een ring bij: in het voorjaar grote cellen, in de zomer kleine. Zo ontstaan jaarringen."
+        },
+        {
+          "id": "merg",
+          "t": "Wijs het merg aan.",
+          "bij": [
+            40
+          ],
+          "uitleg": "De grote, lichte cellen in het midden van de stengel.",
+          "hint": "Tik precies in het midden.",
+          "r": 0.035,
+          "punten": [
+            [
+              0.495,
+              0.5
+            ]
+          ],
+          "meer": "Het merg bestaat uit grote, dunwandige parenchymcellen die reservestoffen opslaan. In een jonge stengel is het merg een groot deel van de doorsnede; bij een oude boom is het een smal streepje in het midden."
+        }
       ]
     }
   ]
