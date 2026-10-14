@@ -1,6 +1,6 @@
 # Adem in, adem uit — gesproken tekst per opname
 
-Hormonen 1 · Roos (eleven_v4) · één take per alinea · audio in `../audio/sNN.mp3`. Vwo-alinea's gemarkeerd.
+Gaswisseling 1/3 · Roos (eleven_v4) · één take per alinea · audio in `../audio/sNN.mp3`. Vwo-alinea's gemarkeerd.
 
 ## Cold open
 
