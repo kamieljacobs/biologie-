@@ -8,6 +8,10 @@ Alle ontvangen foto's staan in `fotos/`, gekoppeld aan hun beschrijving in **`fo
 
 **Automatisch ophalen:** `fotos/bronnen.txt` bevat pagina's van de Berkshire-bibliotheek. Bij elke push van dat bestand haalt GitHub Actions (`.github/workflows/microscoopfotos.yml` → `scripts/haal_microscoopfotos.py`) alle foto's van die pagina's op als Flickr-origineel (verkleind tot max. 2560 px breed), zet ze in `fotos/berkshire/` en voegt ze aan de catalogus toe met naam, sectie, vergroting, resolutie en bronregel (status `nieuw`). Log van de laatste run: `fotos/ophaallog.txt`. Een pagina erbij = één regel in `bronnen.txt`.
 
+## De tool (sinds 14 oktober 2026)
+
+`echt.html` is de microscoop op echte foto's. De didactische laag staat in **`preparaten.json`**: per preparaat de Nederlandse naam, groep, beschrijving, *letop*-punten, aanwijsopdrachten (`zoek`, met `punten` als fractie van breedte/hoogte en `r` als tolerantie) en een meerkeuzevraag. De tool koppelt elk preparaat via `sectie` aan de foto's in `fotos/catalogus.json` en kiest per vergroting de eerste foto, tenzij `kies` een andere aanwijst. Nieuwe aanwijspunten bepalen: foto met raster tekenen (zie de scratch-aanpak van 14 okt: `PIL`, lijnen op elke 0,1) en de coördinaten aflezen; testen door in de tool `cam[cur.id]` op het punt te zetten en `handleTap(R,R)` aan te roepen.
+
 ## Eisen aan foto's
 
 - Minstens 2000 px breed, liever het Flickr-**Original** (3000–6000 px): de tool zoomt tot 400×. De 768 px-plaatjes van de blog zijn alleen goed als klein illustratieplaatje, niet voor de microscoop of als filmachtergrond (1920 px).
