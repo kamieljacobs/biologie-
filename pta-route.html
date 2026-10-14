@@ -150,6 +150,76 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 .cr-leeg{color:var(--muted);margin:0}
 @media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
 
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
+
+.coach-report{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px;max-height:520px;overflow:auto}
+.cr-top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--line);padding:0 0 10px;margin:0 0 12px}
+.cr-titel{font:600 17px var(--display)}
+.cr-wie{font-size:13px;color:var(--muted)}
+.cr-tot{font-size:13px;color:var(--muted)}.cr-tot b{font-size:20px;color:var(--accent)}
+.cr-groep{margin:0 0 14px}
+.cr-kop{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+.cr-rij{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0 0 8px;break-inside:avoid}
+.cr-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cr-sub{display:block;font-size:12.5px;color:var(--muted)}
+.cr-prog{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cr-bar{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.cr-bar i{display:block;height:100%;background:var(--accent)}
+.cr-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 0}
+@media (max-width:640px){.cr-cols{grid-template-columns:1fr}}
+.cr-col{border-radius:6px;padding:8px 10px}
+.cr-col.ok{background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.cr-col.nee{background:var(--bg);border:1px dashed var(--line)}
+.cr-colkop{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--muted);margin:0 0 6px}
+.cr-col.ok .cr-colkop{color:var(--accent)}
+.cr-colkop span{font-weight:600;opacity:.8}
+.cr-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.cr-col li{display:flex;align-items:center;gap:8px;font-size:13.5px;line-height:1.3}
+.cr-ico{flex:none;width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.ok .cr-ico{background:var(--accent);color:var(--row)}
+.nee .cr-ico{border:1.5px solid var(--muted);opacity:.6}
+.nee .cr-lbl{color:var(--fg)}
+.cr-soort{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap;padding-left:8px}
+.cr-niets{margin:0;font-size:12.5px;color:var(--muted);font-style:italic}
+.rt-acts{display:flex;flex-wrap:wrap;gap:8px}
+.btn.warn,.btn.ghost.warn{background:#b3261e;color:#fff;border-color:#b3261e}
+.cr-leeg{color:var(--muted);margin:0}
+@media print{body.print-mentor .coach-report{max-height:none;overflow:visible;border:0;padding:0;background:#fff}body.print-mentor .cr-rij{background:#fff}}
+
 /* PTA-route: afvinken en mentoroverzicht */
 .rt-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
 .rt-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
@@ -357,7 +427,17 @@ const COACH=(function(){
   }
   const naam=()=>{try{return localStorage.getItem("pta-naam")||""}catch(x){return ""}};
   const datum=()=>new Date().toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"});
-  return {html,text,panel,wire,naam,datum};
+  // Knop "Alles uitvinken": eerste klik vraagt om bevestiging, tweede klik wist alle sleutels met dit voorvoegsel
+  function resetKnop(btn,prefix,klaar){
+    let armed=false,timer=null;
+    btn.addEventListener("click",()=>{
+      if(!armed){armed=true;btn.textContent="Zeker weten? Klik nog een keer";btn.classList.add("warn");timer=setTimeout(()=>{armed=false;btn.textContent="Alles uitvinken";btn.classList.remove("warn")},4000);return}
+      clearTimeout(timer);
+      try{const weg=[];for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.indexOf(prefix)===0)weg.push(k)}weg.forEach(k=>localStorage.removeItem(k))}catch(x){}
+      klaar();
+    });
+  }
+  return {html,text,panel,wire,naam,datum,resetKnop};
 })();
 (function(){
   // ---- PTA-route: weergave, afvinken per onderdeel en mentoroverzicht ----
@@ -420,7 +500,7 @@ const COACH=(function(){
     const P=DATA[lvl];
     return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>`
       +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
-      +`<button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div>`
+      +`<div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div></div>`
       +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en wat daarvan nog open staat. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
       +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
       +`<div class="rt-legend"><span><i class="chip vid">film</i> <i class="chip tool">tool</i> eigen materiaal (site van Kamiel)</span><span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
@@ -437,6 +517,7 @@ const COACH=(function(){
     el.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>{
       if(b.dataset.act==="mentor"){mentorOpen=!mentorOpen;mount(el,notesEl);if(mentorOpen){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
     }));
+    const rb=el.querySelector("[data-reset]"); if(rb) COACH.resetKnop(rb,`pta:${lvl}:`,()=>mount(el,notesEl));
     if(mentorOpen) COACH.wire(el,coachRep,()=>{mentorOpen=false;mount(el,notesEl)});
   }
 
