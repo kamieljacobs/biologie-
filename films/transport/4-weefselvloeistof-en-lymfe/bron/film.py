@@ -1,0 +1,78 @@
+import json
+film = {
+ "slug": "4-weefselvloeistof-en-lymfe", "hoofdstuk": "transport", "hoofdstukNaam": "Transport",
+ "title": "Weefselvloeistof en lymfe", "sub": "Wat er bij een haarvat in en uit gaat",
+ "puzzle": "Na een vlucht van tien uur passen je schoenen niet meer en blijft er een putje staan als je in je enkel drukt. Waar komt dat vocht vandaan?",
+ "meta": "transport 4/6", "version": "1.0 · oktober 2026", "titleLook": "micro",
+ "seriesline": "Biologie bij Kamiel · reeks Transport · film 4 van 6",
+ "lead": "Je cellen raken je bloed niet direct: ze baden in weefselvloeistof. Aan het begin van een haarvat duwt de bloeddruk water met kleine stoffen door de wand naar buiten (filtratie). Rode bloedcellen en de meeste eiwitten blijven binnen. Aan het eind van het haarvat is de bloeddruk laag en trekken de plasma-eiwitten het meeste vocht terug (resorptie). Het restje gaat als lymfe via lymfevaten met kleppen en lymfeknopen terug naar het bloed. Raakt die balans zoek, dan hoopt weefselvloeistof zich op: oedeem.",
+ "endHaak": "een drukverschil bepaalt wat eruit gaat en wat terugkomt",
+ "minis": {"Hoofdstuk 1": "Hoe komen stoffen bij je cellen?", "Hoofdstuk 2": "Hoe komt het vocht weer terug?", "Hoofdstuk 3": "Waarom worden je enkels dik?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Na een lange vlucht zijn je enkels dik. Waar komt dat vocht vandaan?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord komt in hoofdstuk 3."},
+  "q06": {"q": "Wat zit er níet in weefselvloeistof?", "correct": 1, "explain": "Rode bloedcellen zijn te groot voor de wand van het haarvat. Water en zouten gaan er wel doorheen."},
+  "q13": {"q": "Het lymfestelsel heeft geen hart. Hoe stroomt de lymfe dan?", "correct": 1, "explain": "Bewegende spieren knijpen de lymfevaten samen, en kleppen laten de lymfe maar één kant op. Lymfeknopen pompen niet: daar vangen witte bloedcellen ziekteverwekkers weg."},
+  "q17": {"q": "Een kind eet al lang veel te weinig eiwit. Er zitten minder eiwitten in het plasma. Wat gebeurt er met het vocht in het weefsel?", "correct": 0, "explain": "Minder plasma-eiwitten geeft een lagere osmotische waarde van het plasma. Er komt minder vocht terug in het haarvat, en het hoopt zich op."}
+ },
+ "glossary": [
+  {"t": "weefselvloeistof", "d": "Vocht tussen de cellen. Lijkt op plasma, maar zonder rode bloedcellen en met veel minder eiwitten. Elke cel baadt erin."},
+  {"t": "haarvat", "d": "Dunste bloedvat, met een wand van één cellaag. Hier vindt de uitwisseling met de weefselvloeistof plaats."},
+  {"t": "bloedplasma", "d": "Het vloeibare deel van het bloed: water met opgeloste stoffen en veel eiwitten."},
+  {"t": "plasma-eiwitten", "d": "Eiwitten in het bloedplasma (vooral albumine). Ze zijn te groot voor de haarvatwand en trekken water aan."},
+  {"t": "filtratie", "d": "Aan het begin van een haarvat duwt de bloeddruk water met kleine stoffen door de wand naar buiten."},
+  {"t": "resorptie", "d": "Aan het eind van een haarvat gaat het meeste vocht weer terug het haarvat in, omdat de bloeddruk daar laag is en de eiwitten water aantrekken."},
+  {"t": "diffusie", "d": "Verplaatsing van een stof van een plek met veel naar een plek met weinig van die stof. Zo gaan zuurstof en glucose naar je cellen."},
+  {"t": "lymfe", "d": "Weefselvloeistof die in een lymfevat is opgenomen."},
+  {"t": "lymfevaten", "d": "Vaten die doodlopend beginnen tussen de cellen en het overschot aan weefselvloeistof afvoeren. Ze hebben kleppen."},
+  {"t": "lymfeknopen", "d": "Verdikkingen in de lymfevaten met veel witte bloedcellen, die ziekteverwekkers uit de lymfe vangen. In de spreektaal: klieren."},
+  {"t": "borstbuis", "d": "Het grootste lymfevat. Komt bij het linkersleutelbeen uit in een ader, die naar de bovenste holle ader gaat."},
+  {"t": "spierpomp", "d": "Bewegende spieren knijpen aders en lymfevaten samen; kleppen zorgen dat het bloed of de lymfe maar één kant op gaat."},
+  {"t": "oedeem", "d": "Ophoping van weefselvloeistof: het weefsel zwelt op."},
+  {"t": "osmotische waarde", "d": "Maat voor hoe sterk een oplossing water aantrekt. Door de eiwitten is de osmotische waarde van plasma hoger dan die van weefselvloeistof.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Dikke enkels na een busreis</b> <span class="pts">2 punten</span><p>Na een lange busreis heeft Sanne dikke enkels. Bij de regeling van de hoeveelheid weefselvloeistof zijn de volgende processen betrokken:<br>1 filtratie van vocht uit de haarvaten<br>2 resorptie van vocht naar de haarvaten<br>3 afvoer van vocht via de lymfevaten</p><p>Welk proces of welke processen is of zijn tijdens de busreis veranderd, zodat er oedeem ontstaat?<br>A alleen 1 · B alleen 3 · C 1 en 2 · D 1, 2 en 3</p>
+      <details><summary>Antwoord</summary><p>D (2p). De druk in de beenaders stijgt, dus meer filtratie en minder resorptie; de spierpomp ligt stil, dus minder afvoer via de lymfevaten. Antwoord C: 1p.</p></details></div>
+    <div class="q"><b>2. Een vetmolecuul op reis</b> <span class="pts">2 punten</span><p>Een vetmolecuul wordt in de dunne darm opgenomen in een lymfevat. Het molecuul wordt later in een spiercel in het bovenbeen verbruikt.</p><p>Noteer via welk groot bloedvat het vetmolecuul het hart voor het eerst bereikt. Komt het molecuul vóór het bovenbeen door de longen? Leg uit.</p>
+      <details><summary>Antwoord</summary><p>De bovenste holle ader: de lymfe komt via de borstbuis bij het sleutelbeen in het bloed (1). Ja: vanuit de rechterharthelft gaat het bloed eerst door de longen, dan naar de linkerharthelft en via de aorta naar het been (1).</p></details></div>
+    <div class="q"><b>3. Vernauwde slagadertjes</b> <span class="pts">2 punten</span><p>In een weefsel trekken de kleine slagaders (arteriolen) vóór de haarvaten samen. Neemt hierdoor de hoeveelheid weefselvloeistof in dit weefsel toe of af? Leg je antwoord uit.</p>
+      <details><summary>Antwoord</summary><p>De bloeddruk in de haarvaten daalt (1). Er is minder filtratie (en meer resorptie), dus de hoeveelheid weefselvloeistof neemt af (1).</p></details></div>
+    <div class="q vwo-only"><b>4. Te weinig albumine</b> <span class="vwo-badge">vwo</span> <span class="pts">3 punten</span><p>Bij een leverziekte maakt de lever minder albumine. Albumine is het belangrijkste eiwit in het bloedplasma. Patiënten krijgen oedeem in de benen.</p><p>Leg uit hoe een lager albuminegehalte van het plasma leidt tot oedeem.</p>
+      <details><summary>Antwoord</summary><p>Minder albumine geeft een lagere osmotische waarde van het plasma (1). Daardoor wordt er minder water naar de haarvaten getrokken: minder resorptie aan het eind van het haarvat (1). Er blijft meer weefselvloeistof achter dan de lymfevaten kunnen afvoeren, zodat het zich ophoopt (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>A+D · Macro</td><td>Passagier na tien uur in de vliegtuigstoel; de enkels zwellen; een vinger drukt een putje dat blijft staan; vraag q02 (antwoord pas in H3)</td></tr>
+      <tr><td>1 Rond elke cel</td><td>A · Micro</td><td>Eén haarvat tussen cellen: aan het begin gaat vocht naar buiten (filtratie); vraag q06 vóór de uitleg; close-up van de wand (rode bloedcel en eiwit kaatsen terug); bloed – plasma – weefselvloeistof naast elkaar; haarvatennetwerk met 0,1 mm; diffusie van zuurstof en glucose</td></tr>
+      <tr><td>2 Terug, en een tweede afvoer</td><td>A · Micro + Schema</td><td>Dezelfde simulatie met drukpijlen: de bloeddruk zakt, de eiwitten trekken; resorptie aan het eind; het restje hoopt zich op tot het lymfevaatje verschijnt; lymfestelsel in het lichaam met lymfeknopen, borstbuis en de route van vet; vraag q13 met close-up van een lymfevat met kleppen en spieren. Vwo: krachtengrafiek langs het haarvat, het klassieke model als vereenvoudiging, vraag q17 over eiwittekort</td></tr>
+      <tr><td>3 Als de balans zoek is</td><td>D · Schema + Macro</td><td>Bak met één toevoer en twee afvoeren naast een enkel die meegroeit; terug in de vliegtuigstoel met drukmeter in de beenader en een ingezoomd haarvat; vernauwde slagadertjes vóór het haarvat; drie andere oorzaken (zwak hart, eiwittekort, weggehaalde lymfeknopen)</td></tr>
+      <tr><td>Recap</td><td>Macro</td><td>De passagier loopt door de luchthaven; de enkels worden weer dun</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul>
+      <li>De simulatie gebruikt het klassieke model (Starling/Guyton): filtratie aan het begin, resorptie aan het eind. Het vwo-blok zegt dat dit vereenvoudigd is: in veel weefsels is er volgens het herziene model (Levick &amp; Michel 2010) netto filtratie over bijna de hele lengte, en gaat veel meer via de lymfe terug.</li>
+      <li>Getallen die niet worden ingesproken: bloeddruk aan het begin van een haarvat ongeveer 35 mmHg, aan het eind ongeveer 15 mmHg; osmotische trek van de plasma-eiwitten ongeveer 25 mmHg. Klassiek: ongeveer 20 liter filtratie per dag, 17 liter terug, 3 liter lymfe. De film zegt alleen "het meeste" en "een paar liter per dag".</li>
+      <li>De krachtengrafiek (vwo) heeft geen eenheden: alleen de vorm (bloeddruk daalt, trek van de eiwitten blijft gelijk) telt.</li>
+      <li>Het haarvat, de cellen en het lymfevaatje zijn niet op schaal; de wand is getekend met spleetjes tussen de cellen.</li>
+      <li>Het lymfestelsel in het lichaam is sterk vereenvoudigd: een paar groepen lymfeknopen (hals, oksel, lies) en de borstbuis; de rechter lymfestam en de cisterna chyli worden niet genoemd.</li>
+      <li>Oedeem bij ernstig eiwittekort (kwashiorkor) wordt "een belangrijk deel van de verklaring" genoemd; er spelen meer factoren mee.</li>
+    </ul>
+    <h3>Leerdoelen en waar ze zitten</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
+      <tr><td>Hoe weefselvloeistof ontstaat (filtratie), wat erin zit, diffusie naar de cellen</td><td>basis</td><td>H1, vraag q06</td></tr>
+      <tr><td>Resorptie aan het eind van het haarvat; het overschot wordt lymfe</td><td>basis</td><td>H2, checkvraag 1</td></tr>
+      <tr><td>Lymfestelsel: kleppen, spierpomp, lymfeknopen, borstbuis, uitmonding bij het sleutelbeen; vet via de lymfe naar de bovenste holle ader</td><td>basis</td><td>H2, vraag q13, checkvraag 2</td></tr>
+      <tr><td>Oedeem verklaren; druk vóór en na het haarvat</td><td>basis</td><td>Cold open, H3, vraag q02, checkvragen 1 en 3</td></tr>
+      <tr><td>Bloeddruk tegen osmotische waarde langs het haarvat; het model als vereenvoudiging; oedeem bij eiwittekort</td><td>vwo</td><td>vwo-blok H2, vraag q17, checkvraag 4</td></tr>
+    </table>
+    <h3>Pauzemomenten in de klas</h3>
+    <ul><li>Na H1: laat leerlingen in drie kolommen opschrijven wat er in bloed, plasma en weefselvloeistof zit.</li><li>Na het lymfedeel van H2: laat ze de route van een vetdruppel van de darm naar het hart opschrijven (checkvraag 2).</li><li>Na H3: laat ze voor elke oorzaak van oedeem zeggen wat er verandert: meer erin, minder terug, of minder afvoer (checkvragen 1 en 3).</li></ul>
+  </section>
+"""
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')

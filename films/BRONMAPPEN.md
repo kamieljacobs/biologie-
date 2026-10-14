@@ -27,7 +27,7 @@ De bronmappen van de 28 films die er op 12 oktober 2026 stonden zijn achteraf ge
 
 ## Bouwvormen
 
-De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen:
+De films zijn in verschillende sessies gebouwd en hebben daardoor verschillende bouwvormen:
 
 | Reeks | Audio | Tijdlijn in de HTML | Gevolg bij een tekstwijziging |
 |---|---|---|---|
@@ -42,6 +42,7 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 | DNA-technieken 1–2 | één doorlopende take naast de HTML (`narration.mp3`, `gelfilm.mp3`) | geschatte woordtijden (`OMG_TL`, `OLG_TL`) of globale tijden | alle latere tijden schuiven; PCR- en gelfilm zitten ook in het practicum `tools/dna-profielen/` |
 | Voeding 1–7 (7: film-eigen `bouw/uitspraak_film.json`) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (Celorganellen-straat, uitgebreid) | alleen die alinea opnieuw |
 | Hormonen 1–5, Gaswisseling 1–3, Afweer 1–4, Zenuwstelsel 8 Zintuigen (14 oktober 2026; Afweer 4 en Zintuigen met een film-eigen uitspraaklijst `bouw/uitspraak_film.json`) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (voedingsstraat + `lib_hormonen.js`) | alleen die alinea opnieuw |
+| Transport 1–6 (14 oktober 2026) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden lokaal met `bouw/silalign.py` (stiltes + leestekens, geen Scribe); bron in `bron/src` + `bron/bouw` (gaswisselingsstraat + `lib_transport.js`) | alleen die alinea opnieuw; daarna `silalign.py` voor die take |
 
 ## Gevonden bij de reconstructie
 

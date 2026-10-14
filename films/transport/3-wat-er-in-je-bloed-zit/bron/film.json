@@ -1,0 +1,120 @@
+{
+ "slug": "3-wat-er-in-je-bloed-zit",
+ "hoofdstuk": "transport",
+ "hoofdstukNaam": "Transport",
+ "title": "Wat er in je bloed zit",
+ "sub": "Plasma, bloedcellen en hoe je een lek dicht",
+ "puzzle": "Een zakje donorbloed gaat bij Sanquin in een centrifuge die het heel snel ronddraait. Wat zie je daarna in het zakje?",
+ "meta": "transport 3/6",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Transport · film 3 van 6",
+ "lead": "Bloed is geen rode vloeistof: na het centrifugeren zie je geel plasma boven, een dun wit laagje en onderin de rode bloedcellen. Plasma is vooral water met opgeloste stoffen en eiwitten. Rode bloedcellen hebben geen kern en zitten vol hemoglobine, dat zuurstof bindt waar veel zuurstof is en loslaat waar weinig is. Witte bloedcellen bestrijden ziekteverwekkers, bloedplaatjes dichten lekken. Alle bloedcellen ontstaan uit stamcellen in het rode beenmerg; oude rode bloedcellen worden in milt en lever afgebroken. Bij een wond plakken bloedplaatjes, wordt protrombine trombine en zet trombine fibrinogeen om in een net van fibrinedraden.",
+ "endHaak": "geel plasma, cellen uit het beenmerg, een net van fibrine",
+ "minis": {
+  "Hoofdstuk 1": "Wat zit er eigenlijk in je bloed?",
+  "Hoofdstuk 2": "Waar komen al die bloedcellen vandaan?",
+  "Hoofdstuk 3": "Hoe stopt een wondje met bloeden?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Een zakje donorbloed gaat in een centrifuge die het heel snel ronddraait. Wat zie je daarna in het zakje?",
+   "correct": 1,
+   "explain": "Boven een gele vloeistof (plasma), onder een rode laag (bloedcellen), met daartussen een dun wit laagje. De cellen zijn iets zwaarder dan het plasma."
+  },
+  "q10": {
+   "q": "Een rode bloedcel leeft ongeveer 120 dagen. Toch blijft je aantal rode bloedcellen gelijk. Waar komen de nieuwe vandaan?",
+   "correct": 1,
+   "explain": "Uit het rode beenmerg. Rode bloedcellen hebben geen kern en kunnen zich dus niet delen; de lever breekt oude rode bloedcellen juist af."
+  },
+  "q19": {
+   "q": "In een zakje donorbloed zit citraat. Daardoor stolt het bloed niet. Hoe werkt dat?",
+   "correct": 0,
+   "explain": "Citraat bindt de calciumionen. Die zijn nodig bij meerdere stappen van de stollingscascade. Zonder vrije calciumionen ontstaat geen trombine en dus geen fibrine. Stolling is geen indrogen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "bloedplasma",
+   "d": "Het vloeibare deel van bloed: ongeveer 55 % van het bloed, voor ongeveer negen tiende water met opgeloste stoffen (voedingsstoffen, zouten, hormonen, afvalstoffen, koolstofdioxide) en eiwitten."
+  },
+  {
+   "t": "rode bloedcel",
+   "d": "Schijfvormige cel zonder kern, in het midden dunner dan aan de rand, vol hemoglobine; vervoert zuurstof. Leeft ongeveer 120 dagen. Ongeveer 5 miljoen per mm³ bloed."
+  },
+  {
+   "t": "hemoglobine",
+   "d": "Eiwit met ijzer in rode bloedcellen. Bindt zuurstof waar veel zuurstof is (longen) en laat het los waar weinig is (weefsels). Met zuurstof helderrood, zonder zuurstof donkerrood."
+  },
+  {
+   "t": "witte bloedcel",
+   "d": "Bloedcel met kern, groter dan een rode bloedcel; bestrijdt ziekteverwekkers (afweer). 4000–10 000 per mm³."
+  },
+  {
+   "t": "bloedplaatje (trombocyt)",
+   "d": "Stukje van een grote cel uit het beenmerg, geen echte cel; nodig voor de bloedstolling. 150 000–400 000 per mm³."
+  },
+  {
+   "t": "rood beenmerg",
+   "d": "Weefsel binnen in botten waar stamcellen alle bloedcellen maken. Bij volwassenen vooral in platte botten (borstbeen, ribben, bekken, wervels) en in de uiteinden van dijbeen en opperarmbeen."
+  },
+  {
+   "t": "stamcel",
+   "d": "Cel die zich deelt, waarbij een dochtercel stamcel blijft en de andere zich nog vaak deelt en uitrijpt tot bloedcellen."
+  },
+  {
+   "t": "galkleurstof",
+   "d": "Afbraakproduct van de hemoglobine (het heem zonder ijzer), gemaakt bij de afbraak van rode bloedcellen in milt en lever."
+  },
+  {
+   "t": "bloedarmoede",
+   "d": "Te weinig rode bloedcellen of hemoglobine, bijvoorbeeld als rode bloedcellen sneller kapotgaan dan het beenmerg ze maakt."
+  },
+  {
+   "t": "EPO",
+   "d": "Hormoon uit de nieren dat het beenmerg aanzet tot het maken van rode bloedcellen; de nieren maken meer EPO als er weinig zuurstof in het bloed is (negatieve terugkoppeling)."
+  },
+  {
+   "t": "stollingsfactoren",
+   "d": "Eiwitten die altijd al (inactief) in het plasma zitten en bij een wond actief worden; ze zetten protrombine om in trombine."
+  },
+  {
+   "t": "protrombine, trombine",
+   "d": "Protrombine is een plasma-eiwit dat bij de stolling wordt omgezet in trombine. Trombine zet fibrinogeen om in fibrine."
+  },
+  {
+   "t": "fibrinogeen, fibrine",
+   "d": "Fibrinogeen is een opgelost plasma-eiwit; fibrine vormt lange draden die een net over de wond weven."
+  },
+  {
+   "t": "trombose",
+   "d": "Het ontstaan van een bloedstolsel in een bloedvat zonder wond; het stolsel kan het vat afsluiten (bijvoorbeeld in het been, of in het hart bij een hartinfarct)."
+  },
+  {
+   "t": "hemofilie",
+   "d": "Erfelijke ziekte (via het X-chromosoom) waarbij een stollingsfactor ontbreekt, zodat iemand lang blijft bloeden."
+  },
+  {
+   "t": "stollingscascade",
+   "d": "Reeks stappen waarin de ene stollingsfactor de volgende activeert; bij elke stap wordt het signaal sterker.",
+   "vwo": true
+  },
+  {
+   "t": "vitamine K",
+   "d": "Vitamine die de lever nodig heeft om enkele stollingsfactoren te maken, zoals protrombine.",
+   "vwo": true
+  },
+  {
+   "t": "serum",
+   "d": "De gele vloeistof die overblijft als bloed stolt en het stolsel krimpt: plasma zonder fibrinogeen.",
+   "vwo": true
+  },
+  {
+   "t": "citraat",
+   "d": "Stof in zakjes donorbloed die calciumionen bindt, zodat het bloed niet stolt.",
+   "vwo": true
+  }
+ ],
+ "sections": "\n  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Het witte laagje</b> <span class=\"pts\">2 punten</span><p>Bij Sanquin wordt een zakje donorbloed gecentrifugeerd. Er ontstaan drie lagen: een gele bovenlaag, een dun wit laagje en een rode onderlaag.</p><p>Noem de bloedbestanddelen in het witte laagje en geef van elk de functie.</p>\n      <details><summary>Antwoord</summary><p>Witte bloedcellen: afweer / bestrijden van ziekteverwekkers (1). Bloedplaatjes: bloedstolling / dichten van een wond (1).</p></details></div>\n    <div class=\"q\"><b>2. Sikkelcellen</b> <span class=\"pts\">2 punten</span><p>Bij patiënten met de ziekte sikkelcelanemie leven rode bloedcellen ongeveer 20 dagen in plaats van 120 dagen. Hun beenmerg maakt meer rode bloedcellen aan dan normaal. Toch hebben zij bloedarmoede.</p><p>Leg dit uit.</p>\n      <details><summary>Antwoord</summary><p>De afbraak van rode bloedcellen (in milt en lever) gaat veel sneller, ongeveer zes keer zo snel (1). Het beenmerg kan de aanmaak niet genoeg verhogen om dit bij te houden, waardoor het aantal rode bloedcellen (en de hoeveelheid hemoglobine) daalt (1).</p></details></div>\n    <div class=\"q\"><b>3. Te weinig bloedplaatjes</b> <span class=\"pts\">2 punten</span><p>Bij iemand met een tekort aan bloedplaatjes wordt het bloed onderzocht. Welke stof heeft na een verwonding een lagere concentratie dan normaal, en welke een hogere?</p><p>A trombine lager, fibrinogeen hoger<br>B trombine hoger, fibrinogeen lager<br>C fibrine lager, protrombine lager<br>D trombine lager, fibrine hoger</p>\n      <details><summary>Antwoord</summary><p>A (2). Minder bloedplaatjes, dus minder omzetting van protrombine in trombine; daardoor wordt minder fibrinogeen omgezet in fibrine, en blijft de concentratie fibrinogeen hoger.</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Citraat en vitamine K</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">3 punten</span><p>In donorzakjes zit citraat. Citraat bindt calciumionen. Patiënten die in korte tijd veel bloedtransfusies krijgen, kunnen te weinig vrije calciumionen in hun bloed krijgen.</p><p>a. Leg uit waardoor donorbloed met citraat niet stolt. (2p)<br>b. Iemand gebruikt een middel dat de werking van vitamine K remt. Leg uit dat dit dezelfde uitkomst heeft als citraat, maar via een andere stap. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Calciumionen zijn nodig bij (stappen van) de stollingscascade / bij de omzetting van protrombine in trombine (1); zonder trombine wordt fibrinogeen niet omgezet in fibrine, er ontstaat geen fibrinenet (1). b. Zonder vitamine K maakt de lever minder (werkzame) protrombine en andere stollingsfactoren, waardoor er minder trombine en fibrine ontstaat (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>B · Schema</td><td>Zakje donorbloed bij Sanquin dat in een centrifuge ronddraait; vraag q02 zonder voorzegging (egaal rood als verleidelijke afleider)</td></tr>\n      <tr><td>1 Lagen in een zakje</td><td>B · Schema + Micro</td><td>Buisje waarin de cellen echt zakken tot drie lagen (55 % plasma); inzoomen op het plasma (opgeloste stoffen en eiwitten) en op de cellen: de rode bloedcel als schijfje zonder kern; hemoglobine die in de longen zuurstof bindt en in de weefsels loslaat (helderrood/donkerrood); witte bloedcellen en bloedplaatjes; het zakje dat bij Sanquin in drie delen wordt gesplitst</td></tr>\n      <tr><td>2 Waar je bloed vandaan komt</td><td>B/C · Schema + Micro</td><td>Vraag q10 (delen in het bloed / beenmerg / lever); skelet van kind en volwassene met rood beenmerg; stamcel die deelt (één blijft stamcel, de ander deelt nog vaak en rijpt); kern uitstoten; afbraak in milt en lever (ijzer terug, aminozuren, galkleurstof); aanmaak en afbraak als in- en uitstroom (bloedarmoede); EPO-terugkoppeling; herstel na een donatie</td></tr>\n      <tr><td>3 Een lek dichten</td><td>C · Micro</td><td>Een vat met een snee: vaatvernauwing, plaatjes die plakken en een prop vormen, stollingsfactoren die actief worden, protrombine → trombine → fibrinogeen → fibrine; draden die een net weven waarin rode bloedcellen verstrikt raken; trombose in een vat zonder wond. Vwo: cascade als versterking, vitamine K in de lever, serum, vraag q19 over citraat en calciumionen</td></tr>\n      <tr><td>Recap</td><td>Schema</td><td>Het zakje in drie zakjes gesplitst, met beenmerg, afbraak en stolling als korte regels</td></tr>\n    </table>\n    <h3>Vereenvoudigingen</h3>\n    <ul>\n      <li>De centrifuge bezinkt in de animatie in een paar seconden; de echte centrifuge bij Sanquin draait ongeveer tien minuten. Na het centrifugeren is het zakje ook getekend als buisje, om de lagen goed te laten zien.</li>\n      <li>Cellen en plaatjes zijn niet op schaal getekend en veel te weinig in aantal. Werkelijke verhouding per mm³: ongeveer 5 miljoen rode bloedcellen, 4000–10 000 witte, 150 000–400 000 plaatjes. De dikte van het witte laagje is overdreven.</li>\n      <li>De stolling is getoond als één lijn (protrombine → trombine → fibrinogeen → fibrine). In werkelijkheid zijn er veel meer stollingsfactoren (VII, IX, X, VIII …) die elkaar in een cascade activeren; dat staat alleen in het vwo-blok, en ook daar schematisch.</li>\n      <li>Afbraak: het heem (zonder ijzer) wordt galkleurstof (bilirubine); de afbraak gebeurt door macrofagen, vooral in de milt, ook in lever en beenmerg.</li>\n      <li>Het donatie-interval (56 dagen bij mannen, 122 bij vrouwen) komt uit Vinkenoog et al. 2020; sanquin.nl was niet bereikbaar om de actuele waarden te controleren.</li>\n      <li>Weefselvloeistof en lymfe (plasma dat uit haarvaten lekt) zitten in film 4 van deze reeks.</li>\n    </ul>\n    <h3>Leerdoelen en waar ze zitten</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Samenstelling van bloed: plasma (opgeloste stoffen, eiwitten) en bloedcellen; ongeveer 55 % plasma</td><td>basis</td><td>Cold open, H1, vraag q02, checkvraag 1</td></tr>\n      <tr><td>Bouw en functie van rode bloedcellen (hemoglobine met ijzer), witte bloedcellen en bloedplaatjes</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Bloedvorming in het rode beenmerg uit stamcellen; levensduur en afbraak; EPO; bloedarmoede</td><td>basis</td><td>H2, vraag q10, checkvraag 2</td></tr>\n      <tr><td>Bloedstolling: plaatjes, protrombine → trombine, fibrinogeen → fibrine; trombose</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Cascade (versterking), calciumionen, vitamine K, serum, citraat</td><td>vwo</td><td>vwo-blok H3, vraag q19, checkvraag 4</td></tr>\n    </table>\n    <h3>Pauzemomenten in de klas</h3>\n    <ul><li>Na de cold open: laat leerlingen het buisje na het centrifugeren tekenen, vóór het antwoord.</li><li>Na H1: laat ze bij elke laag noemen wat erin zit en waarvoor Sanquin het gebruikt (checkvraag 1).</li><li>Na H2: laat ze de sikkelcelvraag beantwoorden met aanmaak en afbraak (checkvraag 2).</li><li>Na H3: laat ze de stolling als een rijtje van vier stoffen opschrijven en checkvraag 3 maken.</li></ul>\n  </section>\n"
+}
