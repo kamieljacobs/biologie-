@@ -59,6 +59,15 @@ summary{cursor:pointer;color:var(--text);font-weight:600}
 .final{margin-top:16px;border:1px solid var(--goud);border-radius:14px;padding:14px 16px;background:rgba(224,182,74,.08)}
 .final h2{font-family:var(--titel);font-size:24px;margin:0 0 6px;color:var(--goud)}
 footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
+.modus{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+.modus a{flex:1 1 260px;display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--text);background:var(--fill);border:2px solid rgba(143,160,181,.35);border-radius:14px;padding:10px 14px;min-height:64px}
+.modus a[aria-current="page"]{border-color:var(--goud);background:#33476B}
+.modus a .num{font:12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--grain)}
+.modus a b{display:block;font-size:19px;line-height:1.2}
+.modus a small{color:var(--text2);font-size:15px}
+.modus a img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(143,160,181,.4)}
+.modus a .teken{width:56px;height:56px;border-radius:50%;flex:none;background:#E6E0C2;display:grid;place-items:center;border:2px solid rgba(143,160,181,.4)}
+
 </style>
 </head>
 <body>
@@ -67,8 +76,12 @@ footer{color:var(--text2);font-size:14px;padding:30px 0 40px}
 <header>
   <div class="meta">Tool · Kerndoelen onderbouw · 32A · bij de film Alles is cel</div>
   <h1>Virtuele microscoop</h1>
-  <p>Bekijk drie preparaten: uienvlies, wangcellen en een blaadje waterpest. Stel scherp, vergroot en zoek de onderdelen van de cel. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
+  <p>Twee microscopen: eerst drie getekende preparaten bij de film <i>Alles is cel</i>, daarna echte foto's van 23 weefsels. Stel scherp, vergroot en zoek de onderdelen. Sleep om het preparaat te verschuiven, tik om iets aan te wijzen.</p>
 </header>
+<div class="modus" aria-label="Kies een microscoop">
+  <a href="index.html" aria-current="page"><span class="teken"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#7A5A1E" stroke-width="1.6"><rect x="4" y="6" width="32" height="12" rx="2"/><rect x="4" y="22" width="32" height="12" rx="2"/><circle cx="14" cy="12" r="2.2" fill="#7A5A1E"/><circle cx="26" cy="28" r="2.2" fill="#7A5A1E"/></svg></span><span><span class="num">1 · getekend</span><b>Uienvlies, wangcellen, waterpest</b><small>de opdracht bij de film Alles is cel</small></span></a>
+  <a href="echt.html"><img src="fotos/thumb-plat-epitheel.jpg" alt=""><span><span class="num">2 · echte foto's</span><b>Echte preparaten: 23 weefsels</b><small>epitheel, bot, bloed, kraakbeen, spier · 40–400×</small></span></a>
+</div>
 
 <div class="slides" role="group" aria-label="Preparaat" id="slides"></div>
 

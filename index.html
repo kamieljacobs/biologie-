@@ -1273,6 +1273,20 @@ const fries=id=>FRIES[id]?`<svg class="fries kunst" viewBox="0 0 600 48" preserv
 const L=(x,y,t,a='start')=>`<text x="${x}" y="${y}" class="lab" text-anchor="${a}">${t}</text>`;
 const LL=(x1,y1,x2,y2)=>`<path d="M${x1} ${y1}L${x2} ${y2}" class="leid"/>`;
 const TOOLPLAAT = [
+ [/^virtuele microscoop/i,'teal','lichtmicroscoop',()=>`
+  <path d="M96 14l-14 4-8 44 14-4z" stroke-width="1.5"/><path d="M82 18l-6-2M94 14l2-6" stroke-width="1.2"/>
+  <path d="M78 58l-2 10h-8l-2-10" stroke-width="1.3"/><path d="M60 64c-6 2-10 6-10 12 0 4 2 8 6 10" stroke-width="1.5"/>
+  <path d="M40 86h58v4H40z" stroke-width="1.4"/><circle cx="69" cy="88" r="2.4" class="acc" fill="currentColor" stroke="none"/>
+  <path d="M60 98c0-6 4-9 9-9s9 3 9 9" stroke-width="1.2"/><path d="M69 98v8" stroke-width="1"/>
+  <path d="M30 112c10-28 30-30 50-20 14 8 14 30-10 30H30z" stroke-width="1.5"/><path d="M26 122h84" stroke-width="1.6"/>
+  <circle cx="100" cy="76" r="5" stroke-width="1.2"/><circle cx="100" cy="76" r="2" stroke-width="1"/>
+  ${LL(94,22,130,22)}${L(132,25,'oculair')}${LL(72,66,130,56)}${L(132,59,'objectief')}${LL(98,88,130,84)}${L(132,87,'tafel + preparaat')}${LL(76,104,130,108)}${L(132,111,'lichtbron')}${LL(104,74,130,70)}${L(132,73,'scherpstelknop')}`],
+ [/echte preparaten/i,'teal','beeld door de microscoop: epitheel bij 400×',()=>`
+  <circle cx="72" cy="66" r="54" stroke-width="1.8"/><circle cx="72" cy="66" r="48" stroke-width=".8" opacity=".5"/>
+  <clipPath id="oc"><circle cx="72" cy="66" r="48"/></clipPath>
+  <g clip-path="url(#oc)">${[[40,40],[70,34],[100,40],[30,70],[60,66],[90,64],[116,74],[44,98],[76,96],[104,100]].map(([x,y],i)=>`<path d="M${x-15} ${y-12}l12-5 16 2 8 10-4 13-14 6-15-4-6-10z" stroke-width="1.2"/><ellipse cx="${x}" cy="${y}" rx="5.5" ry="4" stroke-width="1.1" ${i===4?'class="acc" fill="currentColor"':''}/>`).join('')}</g>
+  ${LL(60,66,140,46)}${L(142,44,'celkern')}${LL(84,84,140,86)}${L(142,89,'celmembraan')}${LL(112,118,140,118)}${L(142,121,'echte foto')}
+  <g class="mono-t">${L(168,18,'400×')}</g>`],
  [/kruising/i,'paars','kruisingsschema',()=>`
   <path d="M34 112V58M34 80c-10-2-16-8-14-16M34 72c10-2 14-8 12-14" stroke-width="1.4"/>
   ${R(5,i=>{const a=i/5*Math.PI*2-Math.PI/2;return `<circle cx="${(34+8*Math.cos(a)).toFixed(1)}" cy="${(42+8*Math.sin(a)).toFixed(1)}" r="5" stroke-width="1.2"/>`})}<circle cx="34" cy="42" r="3" class="acc" fill="currentColor" stroke="none"/>
