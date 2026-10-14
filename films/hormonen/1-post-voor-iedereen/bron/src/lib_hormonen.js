@@ -61,7 +61,7 @@ const HK = { hormoon: C.goud, hormoonR: '#F0CC7A', klier: C.oker, klierR: '#E2C3
 function hormoonVorm(ctx, x, y, r = 10, kind = 'adrenaline', a = 1, col = HK.hormoon) {
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath();
   if (kind === 'adrenaline') { ctx.moveTo(x, y - r * 1.35); ctx.bezierCurveTo(x + r * 0.9, y - r * 0.2, x + r, y + r * 0.9, x, y + r); ctx.bezierCurveTo(x - r, y + r * 0.9, x - r * 0.9, y - r * 0.2, x, y - r * 1.35); }
-  else if (kind === 'insuline') { for (let i = 0; i < 6; i++) { const an = Math.PI / 6 + i * Math.PI / 3; i ? ctx.lineTo(x + Math.cos(an) * r, y + Math.sin(an) * r) : ctx.moveTo(x + Math.cos(an) * r, y + Math.sin(an) * r); } ctx.closePath(); }
+  else if (kind === 'insuline') { roundRect(ctx, x - r * 0.95, y - r * 0.95, r * 1.9, r * 1.9, r * 0.45); }
   else if (kind === 'glucagon') { ctx.moveTo(x, y - r * 1.2); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r * 1.2); ctx.lineTo(x - r, y); ctx.closePath(); }
   else if (kind === 'cortisol') { ctx.arc(x, y, r, 0, 6.283); ctx.moveTo(x + r * 0.5, y); ctx.arc(x, y, r * 0.5, 0, 6.283, true); }
   else if (kind === 'thyroxine') { for (let i = 0; i < 10; i++) { const an = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.5 : r * 1.15; i ? ctx.lineTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr) : ctx.moveTo(x + Math.cos(an) * rr, y + Math.sin(an) * rr); } ctx.closePath(); }
@@ -162,17 +162,17 @@ function grafiek(ctx, x, y, w, h, o = {}) {
 
 // ---------- bak met kraan en afvoer (Schema-model voor concentratie) ----------
 function bakKraan(ctx, x, y, w, h, level, inflow, outflow, t, a = 1, o = {}) {
-  if (a <= 0.01) return; const { kind = 'adrenaline', labels = 1 } = o; ctx.save(); ctx.globalAlpha *= a;
+  if (a <= 0.01) return; const { kind = 'adrenaline', labels = 1, dot = null } = o; const DOT = dot || ((c, px, py, r, al) => hormoonVorm(c, px, py, r, kind, al)); ctx.save(); ctx.globalAlpha *= a;
   // kraan
   ctx.strokeStyle = HK.klierR; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 60, y - 70); ctx.lineTo(x + 70, y - 70); ctx.lineTo(x + 70, y - 34); ctx.stroke();
   ctx.fillStyle = HK.klier; roundRect(ctx, x - 100, y - 96, 56, 52, 10); ctx.fill(); ctx.save(); ctx.translate(x - 72, y - 108); ctx.rotate(inflow * 1.3); ctx.fillStyle = HK.klierR; roundRect(ctx, -32, -6, 64, 12, 6); ctx.fill(); ctx.restore();
   // straal
-  if (inflow > 0.02) for (let i = 0; i < Math.round(10 * inflow); i++) { const ph = (t * 2.2 + i / (10 * inflow)) % 1; hormoonVorm(ctx, x + 70 + Math.sin(i * 3.1) * 4 * inflow, y - 30 + ph * (h - h * level + 30), 8, kind, inflow); }
+  if (inflow > 0.02) for (let i = 0; i < Math.round(10 * inflow); i++) { const ph = (t * 2.2 + i / (10 * inflow)) % 1; DOT(ctx, x + 70 + Math.sin(i * 3.1) * 4 * inflow, y - 30 + ph * (h - h * level + 30), 8, inflow); }
   // bak
   ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + h); ctx.lineTo(x + w, y + h); ctx.lineTo(x + w, y); ctx.stroke();
   const ly = y + h - h * clamp(level, 0, 1); ctx.fillStyle = rgba(HK.bloed, 0.35); ctx.fillRect(x + 2, ly, w - 4, y + h - ly - 2);
   ctx.strokeStyle = HK.bloedL; ctx.lineWidth = 2; ctx.beginPath(); for (let px = x + 2; px < x + w - 2; px += 4) { const py = ly + Math.sin(px * 0.05 + t * 3) * 3; px === x + 2 ? ctx.moveTo(px, py) : ctx.lineTo(px, py); } ctx.stroke();
-  const nIn = Math.round(40 * clamp(level, 0, 1)); for (let i = 0; i < nIn; i++) { const wv = wander(i, t, 8, 1); const hx = x + 24 + hash(i * 3) * (w - 48) + wv.x, hy = ly + 20 + hash(i * 3 + 1) * Math.max(0, y + h - ly - 40) + wv.y; hormoonVorm(ctx, hx, hy, 7, kind, 0.9); }
+  const nIn = Math.round(40 * clamp(level, 0, 1)); for (let i = 0; i < nIn; i++) { const wv = wander(i, t, 8, 1); const hx = x + 24 + hash(i * 3) * (w - 48) + wv.x, hy = ly + 20 + hash(i * 3 + 1) * Math.max(0, y + h - ly - 40) + wv.y; DOT(ctx, hx, hy, 7, 0.9); }
   // afvoer
   ctx.strokeStyle = C.line; ctx.lineWidth = 14; ctx.beginPath(); ctx.moveTo(x + w - 40, y + h); ctx.lineTo(x + w - 40, y + h + 40); ctx.lineTo(x + w + 80, y + h + 40); ctx.stroke();
   if (outflow > 0.02) for (let i = 0; i < Math.round(5 * outflow); i++) { const ph = (t * 1.2 + i / 5) % 1; ctx.save(); ctx.globalAlpha *= (1 - ph) * outflow; circ(ctx, x + w - 40 + ph * 120, y + h + 40, 5 - ph * 3, C.text2); ctx.restore(); }
@@ -180,3 +180,69 @@ function bakKraan(ctx, x, y, w, h, level, inflow, outflow, t, a = 1, o = {}) {
   ctx.restore();
 }
 function person(ctx,x,y,h,alpha=1,o={}){ const look=(typeof PERSON_LOOK!=='undefined')?PERSON_LOOK:{}; return personReal(ctx,x,y,h,alpha,Object.assign({},look,o)); }
+
+// ---------- gedeeld vanaf film 2 ----------
+function glucoseDeeltje(ctx, x, y, r = 10, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; hexagon(ctx, x, y, r, rgba(HK.glucose, 0.55), HK.glucose, 1.5, 0); ctx.restore(); }
+function klasAchtergrond(ctx) {
+  ctx.fillStyle = '#26364F'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#2E4060'; ctx.fillRect(0, 0, W, 640);
+  ctx.fillStyle = '#3A3530'; ctx.fillRect(0, 640, W, H - 640);
+  for (let i = 0; i < 12; i++) { ctx.strokeStyle = rgba('#000000', 0.12); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(i * 180 - 200, H); ctx.lineTo(i * 180 + 100, 640); ctx.stroke(); }
+  roundRect(ctx, 240, 110, 900, 360, 10); shape(ctx, '#2F5246', '#8C6A44', 10);
+  ctx.save(); ctx.globalAlpha = 0.6; text(ctx, 'Biologie', 300, 190, fTitel(52), '#E6E1D3', 'left'); ctx.strokeStyle = '#E6E1D3'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(300, 240); ctx.lineTo(760, 240); ctx.moveTo(300, 300); ctx.lineTo(640, 300); ctx.stroke(); ctx.restore();
+  roundRect(ctx, 1360, 110, 420, 330, 8); shape(ctx, '#3E5C80', '#8FA0B5', 6); ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(1570, 110); ctx.lineTo(1570, 440); ctx.stroke();
+}
+function schoolbank(ctx, x, y, w) { roundRect(ctx, x - w / 2, y, w, 30, 6); shape(ctx, '#B08A5C', '#8C6A44', 2); ctx.fillStyle = '#8C6A44'; ctx.fillRect(x - w / 2 + 20, y + 30, w - 40, 200); }
+// telefoon met glucosegrafiek; vals = functie t→mmol/L, alarm 0..1
+function telefoon(ctx, x, y, w, h, o = {}) { const { a = 1, val = 5.4, curve = null, alarm = 0, t = 0, label = 'mmol/L' } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x, y, w, h, 28); shape(ctx, '#0D1420', '#5B6B88', 4); roundRect(ctx, x + 14, y + 40, w - 28, h - 70, 12); ctx.fillStyle = alarm > 0.3 && (t * 3 % 1) < 0.5 ? rgba(C.koraal, 0.35) : '#141E30'; ctx.fill();
+  text(ctx, val.toFixed(1).replace('.', ','), x + w / 2, y + 150, fTitel(76), alarm > 0.3 ? C.koraal : C.text, 'center'); metaText(ctx, label, x + w / 2, y + 190, C.grain, 'center', 20);
+  const gx = x + 30, gw = w - 60, gy = y + 220, gh = h - 290; ctx.fillStyle = rgba(C.groen, 0.14); ctx.fillRect(gx, gy + gh * (1 - 8 / 14), gw, gh * 4 / 14);
+  if (curve) { ctx.strokeStyle = C.teal; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const v = curve(i / 60); const px = gx + gw * i / 60, py = gy + gh * (1 - clamp(v / 14, 0, 1)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); }
+  ctx.restore(); }
+// rond sensortje op de bovenarm (punt (x,y))
+function sensor(ctx, x, y, r = 16, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, '#E6E1D3', '#9AA3B2', 2); circ(ctx, x, y, r * 0.35, '#9AA3B2'); ctx.restore(); }
+function insulinePomp(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 40 * s, y - 26 * s, 80 * s, 52 * s, 10 * s); shape(ctx, '#5B6B88', '#AFC0D0', 2); circ(ctx, x + 20 * s, y, 8 * s, HK.hormoon); ctx.restore(); }
+
+// regelkring-schema: vier knopen rond een lus, pijlen met de klok mee, minteken in het midden
+// o.nodes: [{t:'titel', s:'onderschrift', col, a}], o.arr:[a0..a3] (pijl van knoop i naar i+1), o.minus, o.pulse 0..1, o.broken:{i:0..1}, o.thin:{i:0..1}
+function kringSchema(ctx, cx, cy, o = {}) {
+  const { a = 1, rx = 520, ry = 260, nodes = [], arr = [1, 1, 1, 1], minus = 0, pulse = -1, broken = {}, thin = {}, bw = 400, bh = 120, arrCol = C.line } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const P = [[cx, cy - ry], [cx + rx, cy], [cx, cy + ry], [cx - rx, cy]];
+  for (let i = 0; i < 4; i++) { const al = arr[i] || 0; if (al <= 0.01) continue; const p0 = P[i], p1 = P[(i + 1) % 4]; const mid = [(p0[0] + p1[0]) / 2 + (i === 0 || i === 3 ? 1 : -1) * 0, (p0[1] + p1[1]) / 2];
+    const ctrl = [p0[0] + p1[0] - cx, p0[1] + p1[1] - cy]; const b = broken[i] || 0, th = thin[i] || 0;
+    ctx.save(); ctx.globalAlpha *= al; ctx.strokeStyle = b > 0.5 ? rgba(C.koraal, 0.6) : arrCol; ctx.lineWidth = lerp(5, 1.5, th); if (b > 0.01) ctx.setLineDash([10, 10]);
+    const s0 = i % 2 === 0 ? [p0[0] + (p1[0] > p0[0] ? bw / 2 : -bw / 2) * 0.9, p0[1]] : [p0[0], p0[1] + (p1[1] > p0[1] ? bh / 2 : -bh / 2) + 6];
+    const s1 = i % 2 === 0 ? [p1[0], p1[1] + (p0[1] < p1[1] ? -bh / 2 - 8 : bh / 2 + 8)] : [p1[0] + (p0[0] < p1[0] ? -bw / 2 - 8 : bw / 2 + 8), p1[1]];
+    ctx.beginPath(); ctx.moveTo(s0[0], s0[1]); ctx.quadraticCurveTo(ctrl[0], ctrl[1], s1[0], s1[1]); ctx.stroke(); ctx.setLineDash([]);
+    const an = Math.atan2(s1[1] - ctrl[1], s1[0] - ctrl[0]); ctx.beginPath(); ctx.moveTo(s1[0] - Math.cos(an - 0.45) * 18, s1[1] - Math.sin(an - 0.45) * 18); ctx.lineTo(s1[0], s1[1]); ctx.lineTo(s1[0] - Math.cos(an + 0.45) * 18, s1[1] - Math.sin(an + 0.45) * 18); ctx.stroke();
+    if (b > 0.5) { const m = [(s0[0] + 2 * ctrl[0] + s1[0]) / 4, (s0[1] + 2 * ctrl[1] + s1[1]) / 4]; ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(m[0] - 22, m[1] - 22); ctx.lineTo(m[0] + 22, m[1] + 22); ctx.moveTo(m[0] + 22, m[1] - 22); ctx.lineTo(m[0] - 22, m[1] + 22); ctx.stroke(); }
+    if (pulse >= 0 && Math.floor(pulse * 4) === i && b < 0.5) { const u = pulse * 4 - i; const q1 = [lerp(lerp(s0[0], ctrl[0], u), lerp(ctrl[0], s1[0], u), u), lerp(lerp(s0[1], ctrl[1], u), lerp(ctrl[1], s1[1], u), u)]; circ(ctx, q1[0], q1[1], 10, C.goud); }
+    ctx.restore(); }
+  nodes.forEach((nd, i) => { const na = nd.a == null ? 1 : nd.a; if (na <= 0.01) return; const [x, y] = P[i]; ctx.save(); ctx.globalAlpha *= na; roundRect(ctx, x - bw / 2, y - bh / 2, bw, bh, 18); shape(ctx, rgba(C.bgSchema, 0.95), nd.col || C.line, 2.5);
+    if (nd.rol) metaText(ctx, nd.rol, x, y - bh / 2 - 14, nd.col || C.grain, 'center', 22);
+    text(ctx, nd.t, x, y + (nd.s ? -4 : 12), fTekst(36, 700), C.text, 'center'); if (nd.s) text(ctx, nd.s, x, y + 36, fTekst(28), C.text2, 'center'); ctx.restore(); });
+  if (minus > 0.01) { ctx.save(); ctx.globalAlpha *= minus; circ(ctx, cx, cy, 54, rgba(HK.rem, 0.25), HK.rem, 3); ctx.fillStyle = C.text; ctx.fillRect(cx - 24, cy - 5, 48, 10); metaText(ctx, 'NEGATIEVE TERUGKOPPELING', cx, cy + 96, C.grain, 'center', 22); ctx.restore(); }
+  ctx.restore(); return P;
+}
+// eilandje van Langerhans (Micro): bètacellen (oker) en alfacellen (groen) rond een haarvat
+function eilandje(ctx, x, y, r, o = {}) { const { a = 1, beta = 0, alfa = 0, t = 0, kapot = 0, moe = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  blob(ctx, x, y, r, r * 0.86, 0.05, 5, t); shape(ctx, rgba(HK.klier, 0.12), HK.klierR, 2);
+  ctx.strokeStyle = HK.bloed; ctx.lineWidth = r * 0.12; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r * 1.05, y + r * 0.1); ctx.bezierCurveTo(x - r * 0.3, y - r * 0.25, x + r * 0.3, y + r * 0.35, x + r * 1.05, y - r * 0.05); ctx.stroke();
+  for (let i = 0; i < 26; i++) { const an = hash(i * 3 + 1) * 6.283, d = Math.sqrt(hash(i * 3 + 2)) * r * 0.78; const cx2 = x + Math.cos(an) * d, cy2 = y + Math.sin(an) * d * 0.86; const isA = i % 4 === 0;
+    let col = isA ? C.groen : HK.klierR, glow = isA ? alfa : beta; if (!isA && kapot > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - kapot * 0.85; }
+    circ(ctx, cx2, cy2, r * 0.1, rgba(col, 0.3 + 0.5 * glow * (isA ? 1 : 1 - moe * 0.6)), col, 1.5); if (!isA && kapot > 0.01) ctx.restore(); }
+  ctx.restore(); }
+// cel met glycogeen (lever of spier); fill 0..1
+function cel(ctx, x, y, w, h, o = {}) { const { a = 1, naam = '', glyco = 0, col = HK.cel, t = 0, seed = 2 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  roundRect(ctx, x - w / 2, y - h / 2, w, h, 30); shape(ctx, rgba(col, 0.14), rgba(col, 0.9), 2.5); circ(ctx, x + w * 0.25, y - h * 0.15, Math.min(w, h) * 0.13, rgba(C.kern, 0.5), C.kernR, 1.5);
+  if (glyco > 0.01) glycogeenKeten(ctx, x - w * 0.15, y + h * 0.08, 0.55 + 0.6 * glyco, Math.min(1, glyco * 2), glyco);
+  if (naam) text(ctx, naam, x, y + h / 2 + 46, fTekst(34, 700), C.text, 'center'); ctx.restore(); }
+
+// glycogeen als vertakte keten van glucose (teal zeshoekjes), zodat het niet op een hormoon lijkt; n 0..1 = hoe vol
+function glycogeenKeten(ctx, x, y, s = 1, a = 1, n = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const r = 9 * s, d = 17 * s; const pts = [];
+  for (let i = 0; i < 7; i++) pts.push([x - 3 * d + i * d, y]);
+  for (const [bi, dir] of [[1, -1], [3, 1], [5, -1]]) for (let k = 1; k <= 3; k++) pts.push([x - 3 * d + bi * d + k * d * 0.5, y + dir * k * d * 0.86]);
+  const m = Math.max(1, Math.round(pts.length * clamp(n, 0, 1)));
+  ctx.strokeStyle = rgba(HK.glucose, 0.6); ctx.lineWidth = 2; ctx.beginPath(); pts.slice(0, 7).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+  for (let i = 0; i < m; i++) hexagon(ctx, pts[i][0], pts[i][1], r, rgba(HK.glucose, 0.55), HK.glucose, 1.3, 0);
+  ctx.restore(); }

@@ -64,14 +64,14 @@ Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adr
 | 7–65 | Fonts (base64) en CSS |
 | 69 | Sitebalk `<nav class="sitenav">` met "← Terug naar Regeling" |
 | 76–100 | Speler: canvas, ondertitelband, knoppen, Havo/Vwo- en Leerling/Klas-schakelaar |
-| 101–145 | Checkvragen (101–111), Voor de docent (112–145), begrippen en transcript |
-| 146 | `window.FILMDATA` — alle segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
-| 147–368 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `particleFlow`, `human` |
+| 101–145 | Checkvragen (101–111), Voor de docent (112–145) |
+| 146 | `window.FILMDATA` — segmenten, woordtijden, vragen, titelkaart (uit `build_data.py`) |
+| 147–368 | `lib.js`: Part C-tokens, `label`, `zoomCircle`, `human` |
 | 369–939 | `lib_voeding.js` (gebruikt: `lichaam`, `glycogen`, `hexagon`, `proteinChain`, `coilPath`, `arrow`, `klok`, `padPunt`, `gladC`) |
-| 940–1122 | `lib_hormonen.js`: `personReal`/`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `KLIERPOS`, `nierVorm`, `klierKaart`, `bloedLus`, `bloedNet`, `hormoonStroom`, `grafiek`, `bakKraan` |
-| 1123–1202 | `scenes.js`: hulpstukken (`tag`, `klas`, `zenuwLijn`, `huisje`, `envelop`, `vergTabel`, iconen, `membraanBand`, `cascade`, `kernMetGen`, `conc`) |
-| 1203–1432 | `SCENES`: title 1204 · s01 1207 · s04 1219 · s05 1229 · s06 1240 · s07 1252 · s08 1274 · s09 1294 · s10 1307 · s12 1320 · s13 1331 · s14 1344 · s15 1352 · s16 1364 · s18 1383 · s19 1391 · s20 1397 · s21 1404 · s22 1412 · s23 1421 |
-| 1433–1599 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
+| 940–1188 | `lib_hormonen.js`: seriebibliotheek (`person`, `HK`, `hormoonVorm`, `receptor`, `doelcel`, `hartMeter`, `klierKaart`, `bloedLus`, `grafiek`, `bakKraan`, `kringSchema`, `eilandje`, `cel`, `glycogeenKeten`, `telefoon`, …) |
+| 1189–1268 | `scenes.js`: hulpstukken van deze film |
+| 1269–1498 | `SCENES`: title 1270 · s01 1273 · s04 1285 · s05 1295 · s06 1306 · s07 1318 · s08 1340 · s09 1360 · s10 1373 · s12 1386 · s13 1397 · s14 1410 · s15 1418 · s16 1430 · s18 1449 · s19 1457 · s20 1463 · s21 1470 · s22 1478 · s23 1487 |
+| 1499–1666 | `GLOSSARY` en `player.js` (havo slaat vwo-segmenten over) |
 
 ## Hoe je de film aanpast
 
@@ -81,6 +81,8 @@ Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adr
 - **Checkvragen of docentdeel:** `film.py` → `python3 film.py` → `build.py`.
 
 ## Aandachtspunten
+
+- 14 oktober 2026 (later die dag): opnieuw gebouwd met de uitgebreide seriebibliotheek van film 2, zonder nieuwe opnames: insuline heeft nu een eigen vorm (afgerond vierkant) en glycogeen is een teal keten van glucose, zoals in de rest van de reeks.
 
 - Uitspraak: zie `uitspraak.md`. Een blinde controle (losse transcriptie van de echte takes) was in deze sessie niet mogelijk; de risicowoorden staan op de wachtlijst voor Kamiel.
 - De grafiek toont de extra adrenaline boven het rustniveau; de narratie "pas na een minuut of tien is bijna alles weg" slaat daarop.
