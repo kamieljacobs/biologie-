@@ -41,7 +41,7 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor zes bouwvormen
 | DNA 1–8 (Part C; 1–2 v2.0, 3 v1.0, 4 v1.1, 5–8 v1.0) | één mp3 per alinea of vraag, base64 in `FILMDATA` | woordtijden + regelgrenzen per segment; bouwstraat `films/dna/_bouw/` | alleen dat segment opnieuw (zie `_bouw/README.md`) |
 | DNA-technieken 1–2 | één doorlopende take naast de HTML (`narration.mp3`, `gelfilm.mp3`) | geschatte woordtijden (`OMG_TL`, `OLG_TL`) of globale tijden | alle latere tijden schuiven; PCR- en gelfilm zitten ook in het practicum `tools/dna-profielen/` |
 | Voeding 1–6 | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (Celorganellen-straat, uitgebreid) | alleen die alinea opnieuw |
-| Hormonen 1–5, Gaswisseling 1–3 (14 oktober 2026) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (voedingsstraat + `lib_hormonen.js`) | alleen die alinea opnieuw |
+| Hormonen 1–5, Gaswisseling 1–3, Afweer 1– (14 oktober 2026) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (voedingsstraat + `lib_hormonen.js`) | alleen die alinea opnieuw |
 
 ## Gevonden bij de reconstructie
 

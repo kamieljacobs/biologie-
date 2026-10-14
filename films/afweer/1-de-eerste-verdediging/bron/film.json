@@ -1,0 +1,96 @@
+{
+ "slug": "1-de-eerste-verdediging",
+ "hoofdstuk": "afweer",
+ "hoofdstukNaam": "Afweer",
+ "title": "De eerste verdediging",
+ "sub": "Hoe je lichaam indringers tegenhoudt en opruimt",
+ "puzzle": "Noor krijgt een splinter in haar vinger. De volgende dag is het plekje rood, warm en dik. Waarom?",
+ "meta": "afweer 1/4",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "micro",
+ "seriesline": "Biologie bij Kamiel · reeks Bescherming en afweer · film 1 van 4",
+ "lead": "Huid, slijm en trilharen, lysozym, maagzuur en je eigen bacteriën houden de meeste ziekteverwekkers buiten. Komt er toch iets binnen, dan eten fagocyten het op: ze herkennen vormpjes die veel ziekteverwekkers gemeen hebben, maar onthouden niets (aspecifieke afweer). Histamine uit mestcellen maakt bloedvaatjes wijder (rood, warm) en doorlaatbaarder (dik, pijn), zodat witte bloedcellen het weefsel in kunnen. Bij koorts zetten stoffen van witte bloedcellen de thermostaat in de hypothalamus hoger.",
+ "endHaak": "snel, altijd klaar, maar niet op maat",
+ "minis": {
+  "Hoofdstuk 1": "Hoe houdt je lichaam ziekteverwekkers buiten?",
+  "Hoofdstuk 2": "Hoe ruimt een fagocyt een bacterie op?",
+  "Hoofdstuk 3": "Waarom wordt een ontsteking rood, warm en dik?",
+  "Hoofdstuk 4": "Waarom krijg je koorts?",
+  "Recap": "Wat gebeurde er bij de splinter?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Noor heeft een splinter gehad. De volgende dag is het plekje rood, warm en dik. Waarom?",
+   "correct": 0,
+   "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."
+  },
+  "q06": {
+   "q": "Na een antibioticakuur krijgen sommige mensen diarree. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Antibiotica doden ook je nuttige darmbacteriën. Daardoor krijgen schadelijke bacteriën de ruimte, of schimmels, waar antibiotica niet tegen werken."
+  },
+  "q10": {
+   "q": "Je krijgt een bacterie binnen die je lichaam nog nooit heeft gezien. Kan een fagocyt die meteen opeten?",
+   "correct": 1,
+   "explain": "Ja. Een fagocyt herkent vormpjes die veel bacteriën gemeen hebben en die jouw eigen cellen niet hebben. Hij hoeft de soort niet te kennen: aspecifieke afweer."
+  },
+  "q15": {
+   "q": "Bij griep krijg je vaak koorts. Waardoor?",
+   "correct": 1,
+   "explain": "Stoffen van witte bloedcellen zetten de thermostaat in de hypothalamus hoger. Je lichaam vindt zichzelf te koud: vaatjes in de huid worden nauwer en je gaat rillen, tot je op de nieuwe instelling zit."
+  }
+ },
+ "glossary": [
+  {
+   "t": "ziekteverwekker",
+   "d": "Bacterie, virus, schimmel of parasiet die je ziek kan maken."
+  },
+  {
+   "t": "barrière",
+   "d": "Eerste verdediging die ziekteverwekkers buiten houdt: huid, slijm en trilharen, lysozym in traanvocht en speeksel, maagzuur en de eigen bacterieflora."
+  },
+  {
+   "t": "lysozym",
+   "d": "Enzym in traanvocht en speeksel dat de celwand van bacteriën afbreekt."
+  },
+  {
+   "t": "bacterieflora",
+   "d": "De nuttige bacteriën op je huid en in je darmen; ze bezetten de plek en het voedsel en remmen ziekteverwekkers."
+  },
+  {
+   "t": "fagocyt",
+   "d": "Witte bloedcel die ziekteverwekkers opeet, zoals een macrofaag of een neutrofiel."
+  },
+  {
+   "t": "fagocytose",
+   "d": "Het opnemen van een deeltje met schijnvoetjes in een blaasje, waarna lysosomen het met enzymen afbreken."
+  },
+  {
+   "t": "aspecifieke afweer",
+   "d": "Afweer die op allerlei ziekteverwekkers reageert zonder de soort te herkennen: snel, altijd klaar, zonder geheugen."
+  },
+  {
+   "t": "ontstekingsreactie",
+   "d": "Histamine maakt bloedvaatjes wijder (rood, warm) en doorlaatbaarder (vocht: dik, pijn); witte bloedcellen gaan het weefsel in."
+  },
+  {
+   "t": "histamine",
+   "d": "Stof uit mestcellen die bloedvaatjes wijder en doorlaatbaarder maakt."
+  },
+  {
+   "t": "pus",
+   "d": "Dode bacteriën, dode witte bloedcellen en weefselresten bij een ontsteking."
+  },
+  {
+   "t": "koorts",
+   "d": "Lichaamstemperatuur boven ongeveer 38 °C doordat de thermostaat in de hypothalamus hoger is gezet."
+  },
+  {
+   "t": "antigeenpresentatie",
+   "d": "Een fagocyt (vooral een dendritische cel) zet stukjes van een ziekteverwekker (antigenen) op zijn oppervlak en laat ze in een lymfeknoop aan T-helpercellen zien.",
+   "vwo": true
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Barrières en flora</b> <span class=\"pts\">5 punten</span><p>Een vrouw krijgt voor een longontsteking een kuur met een breedspectrumantibioticum. Tien dagen later krijgt ze ernstige diarree. In haar ontlasting wordt veel van de bacterie <i>Clostridioides difficile</i> gevonden. Deze bacterie zit bij veel gezonde mensen in kleine aantallen in de darm zonder klachten te geven, en is ongevoelig voor het gebruikte antibioticum. Een andere patiënt heeft een grote brandwond, waarbij de opperhuid over een groot oppervlak verdwenen is.</p>\n      <p>a. Leg uit hoe het antibioticum kan leiden tot een sterke groei van <i>C. difficile</i> in de darm. (2p)<br>b. Maagzuur is ook een barrière. Leg uit waarom maagzuur de groei van <i>C. difficile</i> in de darm van deze vrouw níet kan voorkomen. (1p)<br>c. Leg uit waarom de patiënt met de brandwond meer kans op een infectie heeft. Noem twee eigenschappen van de gave huid die als barrière werken. (2p)</p>\n      <details><summary>Antwoord</summary><p>a. Het antibioticum doodt een groot deel van de eigen darmbacteriën (1); daardoor heeft de ongevoelige <i>C. difficile</i> minder concurrentie om ruimte en voedsel en kan hij zich sterk vermeerderen (1). b. <i>C. difficile</i> zit al in de darm en komt niet via de maag binnen (ook goed: hij vormt sporen die maagzuur overleven) (1). c. De verhoornde, afschilferende hoornlaag ontbreekt, zodat ziekteverwekkers direct het weefsel in kunnen (1); tweede eigenschap: de zure huid (zweet en talg) of de eigen huidflora (1).</p></details></div>\n    <div class=\"q\"><b>2. Een ontstoken knie</b> <span class=\"pts\">6 punten</span><p>Bij een jongen raakt een schaafwond aan zijn knie ontstoken. Vanaf dag 0 wordt bloed afgenomen (fictief maar realistisch). Normaalwaarde: 4–10 × 10⁹ witte bloedcellen per liter, waarvan 50–70 % neutrofielen.</p>\n      <table><tr><th>dag</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr><td>witte bloedcellen (× 10⁹/L)</td><td>7,0</td><td>12,5</td><td>15,0</td><td>13,0</td><td>9,5</td><td>7,5</td></tr><tr><td>waarvan neutrofielen (× 10⁹/L)</td><td>4,2</td><td>9,8</td><td>12,3</td><td>10,2</td><td>6,5</td><td>4,6</td></tr></table>\n      <p>a. Bereken het percentage neutrofielen op dag 2. (1p)<br>b. Neutrofielen zijn fagocyten. Leg uit dat de stijging van het aantal neutrofielen in het bloed helpt bij het bestrijden van de bacteriën in de wond. Gebruik het begrip haarvaatwand. (2p)<br>c. De knie is op dag 1 dik. Leg uit hoe histamine tot deze zwelling leidt. (2p)<br>d. Op dag 3 komt er pus uit de wond. Waaruit bestaat pus vooral? A bloedplaatjes en fibrine · B dode bacteriën en dode witte bloedcellen · C histamine en weefselvocht · D levende bacteriën en rode bloedcellen (1p)</p>\n      <details><summary>Antwoord</summary><p>a. 12,3 / 15,0 × 100 % = 82 % (1). b. Neutrofielen kruipen door de haarvaatwand het ontstoken weefsel in (1); daar nemen ze bacteriën op en breken ze af (fagocytose): meer neutrofielen in het bloed betekent meer fagocyten bij de wond (1). c. Histamine maakt de wand van de haarvaten doorlaatbaarder (1); daardoor lekt er meer vocht uit de haarvaten het weefsel in (1). Alleen vaatverwijding zonder doorlaatbaarheid: maximaal 1p. d. B (1).</p></details></div>\n    <div class=\"q\"><b>3. Koorts</b> <span class=\"pts\">6 punten</span><p>Bij een meisje met griep worden 12 uur lang de ingestelde temperatuur in de hypothalamus (de normwaarde) en haar lichaamstemperatuur gevolgd (fictief).</p>\n      <table><tr><th>tijd (uur)</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>6</th><th>8</th><th>9</th><th>10</th><th>12</th></tr><tr><td>normwaarde (°C)</td><td>37,0</td><td>39,0</td><td>39,0</td><td>39,0</td><td>39,0</td><td>39,0</td><td>37,0</td><td>37,0</td><td>37,0</td><td>37,0</td></tr><tr><td>lichaamstemperatuur (°C)</td><td>37,0</td><td>37,3</td><td>38,2</td><td>38,9</td><td>39,0</td><td>39,0</td><td>38,9</td><td>38,0</td><td>37,2</td><td>37,0</td></tr></table>\n      <p>a. Waardoor stijgt de normwaarde op t = 1? A de griepvirussen produceren warmte · B stoffen die witte bloedcellen afgeven, werken in op de hypothalamus · C de spieren gaan harder werken · D de lichaamstemperatuur stijgt (1p)<br>b. Tussen t = 1 en t = 3 heeft het meisje het koud en rilt ze, terwijl haar temperatuur hoger is dan normaal. Leg dit uit met de tabel. Noem ook een andere reactie die de temperatuur laat stijgen. (2p)<br>c. Tussen t = 8 en t = 10 zweet ze. Leg uit waardoor het zweten begint en hoe het de temperatuur laat dalen. (2p)<br>d. Geef een voordeel van koorts voor de afweer. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. B (1). b. De lichaamstemperatuur is lager dan de verhoogde normwaarde, dus de hypothalamus registreert dat het lichaam te koud is (1); andere reactie: vaatvernauwing in de huid (minder warmteafgifte) of kippenvel (1). c. De normwaarde daalt naar 37 °C terwijl de lichaamstemperatuur nog hoger is: het lichaam is te warm (1); verdampend zweet onttrekt warmte aan de huid (1). d. Veel ziekteverwekkers vermenigvuldigen zich trager bij een hogere temperatuur, of de afweer werkt beter (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Dendritische cellen</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">7 punten</span><p>Onderzoekers brengen dendritische cellen van muizen samen met bacteriën die een fluorescerend eiwit bevatten. Na 1 uur meten ze het percentage dendritische cellen met opgenomen bacteriën. Daarna wassen ze losse bacteriën weg en voegen T-helpercellen toe met een receptor die past bij een antigeen van deze bacterie. Na 24 uur meten ze het percentage geactiveerde T-helpercellen.</p>\n      <table><tr><th>conditie</th><th>dendritische cellen met opgenomen bacteriën (%)</th><th>geactiveerde T-helpercellen (%)</th></tr><tr><td>A: 37 °C</td><td>45</td><td>30</td></tr><tr><td>B: 40 °C</td><td>62</td><td>41</td></tr><tr><td>C: 37 °C + stof X (blokkeert de opbouw van actinefilamenten)</td><td>4</td><td>3</td></tr></table>\n      <p>a. Verklaar de resultaten van conditie C in beide kolommen. (2p)<br>b. De onderzoekers concluderen dat een hogere temperatuur tijdens de opname de start van de specifieke afweer kan versterken. (De T-helpercellen worden in alle condities bij 37 °C toegevoegd.) Welke condities moet je daarvoor vergelijken? A A en B · B A en C · C B en C · D A, B en C (1p)<br>c. Een extra controle is nodig: T-helpercellen met dendritische cellen zónder bacteriën. Welke andere verklaring voor de activatie sluit je daarmee uit? (1p)<br>d. Leg uit dat dendritische cellen een brug vormen tussen de aspecifieke en de specifieke afweer. Gebruik fagocytose, antigeen en lymfeknoop. (3p)</p>\n      <details><summary>Antwoord</summary><p>a. Stof X verhindert de vorming van schijnvoetjes (daarvoor is actine nodig), dus vindt er vrijwel geen fagocytose plaats (1); zonder opgenomen bacteriën worden er geen antigenen gepresenteerd en worden de T-helpercellen niet geactiveerd (1). b. A (1). c. Dat de dendritische cellen of de kweekomstandigheden de T-helpercellen ook zonder bacterieantigeen activeren (1). d. Dendritische cellen nemen allerlei ziekteverwekkers op door fagocytose zonder de soort te herkennen: aspecifiek (1); ze zetten stukjes (antigenen) op hun oppervlak (1); ze reizen via de lymfe naar een lymfeknoop, waar alleen T-helpercellen met een passende receptor worden geactiveerd: de start van de specifieke afweer (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>I · Macro</td><td>Noor in de tuin; inzoom op de vinger met splinter, de volgende dag rood en dik; vraag q02</td></tr>\n      <tr><td>1 Muren en grachten</td><td>B · Schema</td><td>Huid in doorsnede (hoornlaag schilfert af, zure huid); lichaam met slijm en trilharen, lysozym, maagzuur, eigen bacteriën; vraag q06 (antibiotica en diarree)</td></tr>\n      <tr><td>2 Alles opeten</td><td>B + D · Micro</td><td>Splinter door de huid; macrofaag met schijnvoetjes, blaasje, lysosomen; vraag q10; jouw cel met jouw vormpjes tegenover bacteriën met gedeelde vormpjes. Vwo: dendritische cel met antigenen reist naar een lymfeknoop met T-helpercellen</td></tr>\n      <tr><td>3 Rood, warm, dik</td><td>D · Micro</td><td>Haarvat dat wijder wordt; mestcel met histamine; vocht lekt; neutrofielen kruipen het weefsel in; pus; rode bloedcellen blijven in het vat</td></tr>\n      <tr><td>4 De thermostaat omhoog</td><td>D · Schema</td><td>Thermometer; vraag q15; grafiek ingestelde temperatuur en lichaamstemperatuur (stijgen, plateau, dalen)</td></tr>\n      <tr><td>Recap</td><td>Macro</td><td>Noor in de tuin met de antwoordketen</td></tr>\n    </table>\n    <h3>Vereenvoudigingen</h3>\n    <ul>\n      <li>Ontstekingsstoffen anders dan histamine (bijvoorbeeld prostaglandines en cytokinen) noemt de film niet bij naam; ook complement blijft weg.</li>\n      <li>De stoffen die de thermostaat hoger zetten (pyrogenen, zoals interleukine-1) heten in de film \"stoffen van witte bloedcellen\".</li>\n      <li>\"Ongeveer net zoveel bacteriën als eigen cellen\": schattingen liggen rond 40 biljoen bacteriën tegen 30 biljoen lichaamscellen.</li>\n      <li>De grafiek van de koorts is schematisch.</li>\n    </ul>\n    <h3>Leerdoelen en waar ze zitten</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Barrières en de eigen bacterieflora</td><td>basis</td><td>H1, vraag q06, checkvraag 1</td></tr>\n      <tr><td>Fagocytose en aspecifieke afweer</td><td>basis</td><td>H2, vraag q10, checkvraag 2b</td></tr>\n      <tr><td>Ontstekingsreactie</td><td>basis</td><td>H3, vraag q02, checkvraag 2</td></tr>\n      <tr><td>Koorts</td><td>basis</td><td>H4, vraag q15, checkvraag 3</td></tr>\n      <tr><td>Antigeenpresentatie door dendritische cellen</td><td>vwo</td><td>H2 vwo-blok, checkvraag 4</td></tr>\n    </table>\n    <h3>Pauzemomenten in de klas</h3>\n    <ul><li>Na H1: laat leerlingen per barrière bedenken hoe een ziekteverwekker er toch langs kan komen.</li><li>Na H3: laat ze de kenmerken van een ontsteking (rood, warm, dik, pijn, en functieverlies) en de pus aan een oorzaak koppelen.</li><li>Na H4: bespreek of je koorts altijd moet onderdrukken.</li></ul>\n  </section>\n"
+}
