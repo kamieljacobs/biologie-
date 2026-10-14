@@ -61,13 +61,13 @@ h1{{font:700 120px/1.02 Fraunces,Georgia,serif;margin:0}}h2{{font:700 64px/1.1 F
 .sub{{font-size:44px;color:var(--text2);margin:20px 0 0}}
 .titelslide{{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;height:100%}}
 .inhoud,.vraagslide{{display:grid;grid-template-columns:1fr;gap:56px;height:calc(100% - 50px)}}
-.inhoud.metbeeld,.vraagslide.metbeeld{{grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);align-items:center}}
+.inhoud.metbeeld,.vraagslide.metbeeld{{grid-template-columns:minmax(0,0.62fr) minmax(0,1.38fr);align-items:center}}
 .punten{{margin:0;padding:0;list-style:none}}.punten li{{font-size:40px;line-height:1.3;margin:0 0 26px;padding-left:40px;position:relative}}
 .punten li:before{{content:"";position:absolute;left:4px;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--goud)}}
 .punten li.stap{{opacity:.12;transition:opacity .3s}}.punten li.stap.toon{{opacity:1}}
 .beeld{{margin:0;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--lijn)}}.beeld img,.beeld svg{{display:block;width:100%;height:auto}}.beeld.schema{{background:#121A26}}
 .genummerd{{counter-reset:n}}.genummerd li{{counter-increment:n;padding-left:64px}}.genummerd li:before{{content:counter(n);width:44px;height:44px;top:.05em;left:0;display:grid;place-items:center;font:700 26px 'IBM Plex Mono',monospace;color:#1A2740;background:var(--goud)}}
-.inhoud.metbeeld .punten li{{font-size:34px;margin-bottom:18px}}
+.inhoud.metbeeld .punten li{{font-size:36px;margin-bottom:22px}}
 .vraag{{font-size:56px}}.opties{{list-style:none;margin:0;padding:0}}
 .opties li{{display:flex;gap:22px;align-items:baseline;font-size:40px;line-height:1.25;margin:0 0 22px;padding:18px 24px;border:2px solid var(--lijn);border-radius:16px;cursor:pointer}}
 .opties b{{font-family:"IBM Plex Mono",monospace;color:var(--goud)}}
@@ -90,7 +90,7 @@ body.metnotities .notities{{display:block;position:absolute;left:120px;right:120
 @media (max-width:900px){{.uitlegtoetsen,#bOv,#bFs{{display:none}}.balk{{gap:10px;font-size:13px;padding:0 10px}}.balk button{{padding:5px 9px;font-size:12px}}.balk a:nth-of-type(3){{display:none}}}}
 </style></head><body>
 <nav class="balk sitenav"><a href="{E(spec.get("home", "../../../index.html#home"))}">Biologie bij Kamiel</a><a href="{E(spec["terug"])}">← Terug naar {E(spec["hoofdstuk"])}</a><a href="{E(spec["film"])}">Film bekijken</a><span class="sp"></span>
-<span class="uitlegtoetsen">→ verder · A antwoord · N notities</span><button id="bNiv" type="button">Vwo</button><button id="bNot" type="button">Notities</button><button id="bOv" type="button">Overzicht</button><button id="bFs" type="button">Volledig scherm</button><span class="nummer" id="nr"></span></nav>
+<span class="uitlegtoetsen">→ verder{' · A antwoord' if any(x.get('type')=='vraag' for x in spec['slides']) else ''} · N notities</span><button id="bNiv" type="button">Vwo</button><button id="bNot" type="button">Notities</button><button id="bOv" type="button">Overzicht</button><button id="bFs" type="button">Volledig scherm</button><span class="nummer" id="nr"></span></nav>
 <div id="podium">{slides}</div><div id="overzicht"></div><div class="voortgang" id="vg"></div>
 <script>
 const S=[...document.querySelectorAll('.slide')];let i=0,vwo=true;
