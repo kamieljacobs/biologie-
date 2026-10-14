@@ -2,7 +2,7 @@
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/cellen/celdeling/index.html (audio in films/cellen/celdeling/audio/) |
+| Bestand | films/voortplanting/celdeling/index.html (audio in films/voortplanting/celdeling/audio/) |
 | Reeks / nummer | Cel, film 3 van 3 ("Biologie bij Kamiel · reeks Cel · film 3 van 3"); 1 = Diffusie en osmose, 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Mitose, meiose, G1/S/G2 en crossing-over staan in het basisdeel (besluit Kamiel 12 okt 2026, na de curriculumreview). Vwo-blokken: controlepunten (H2), kanker + non-disjunctie + trisomie 21 (H6). Daarnaast één **extra-uitdagingblok** (H4, tussen metafase en anafase) voor havo én vwo: verdieping, geen examenstof; schakelaar Extra aan/uit, standaard aan |
 | Versie / datum | Versie 1.2 · 12 oktober 2026 (1.0 zonder extra uitdaging; 1.1 met extra uitdaging; 1.2 na de onafhankelijke review, zie `reviews/review_v2.md`) |
