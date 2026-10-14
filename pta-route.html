@@ -70,9 +70,6 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 .ond-grid .sub-onderdeel .af{margin-left:26px}
 
 
-
-
-
 /* PTA-route: afvinken en mentoroverzicht */
 .rt-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
 .rt-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
@@ -123,9 +120,6 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 </div>
 </div>
 <script>
-
-
-
 
 
 const SITE = "https://kamieljacobs.github.io/biologie-";
@@ -207,7 +201,7 @@ const DATA = {
 (function(){
   // ---- PTA-route: weergave, afvinken per onderdeel en mentoroverzicht ----
   // Afvinken wordt alleen in de eigen browser bewaard (localStorage).
-  // Het mentoroverzicht maakt daarvan een tekst die de leerling kan kopiëren (Teams) of afdrukken.
+  // Het coachoverzicht maakt daarvan een tekst die de leerling kan kopiëren (Teams) of afdrukken.
   const KEY=(...p)=>"pta:"+p.join(":");
   const getB=k=>{try{return localStorage.getItem(k)==="1"}catch(e){return false}};
   const setB=(k,v)=>{try{localStorage.setItem(k,v?"1":"0")}catch(e){}};
@@ -264,8 +258,8 @@ const DATA = {
     return lines.join("\n").trim();
   }
   function mentorPanel(){
-    return `<section class="mentor" id="mentor"><div class="mentor-h"><h2>Overzicht voor je mentor</h2><button type="button" class="btn ghost" data-act="close">Sluiten</button></div>
-      <p class="mentor-tip">Hierin staat alles wat je hebt afgevinkt. Je vinkjes worden alleen in deze browser bewaard: kopieer de tekst naar je mentor in Teams, of druk hem af of sla hem op als pdf.</p>
+    return `<section class="mentor" id="mentor"><div class="mentor-h"><h2>Overzicht voor je coach</h2><button type="button" class="btn ghost" data-act="close">Sluiten</button></div>
+      <p class="mentor-tip">Hierin staat alles wat je hebt afgevinkt. Je vinkjes worden alleen in deze browser bewaard: kopieer de tekst naar je coach in Teams, of druk hem af of sla hem op als pdf.</p>
       <label class="mentor-naam">Je naam <input type="text" id="pta-naam" value="${escH(getS("pta-naam",""))}" autocomplete="name"></label>
       <pre id="mentor-text">${escH(mentorText())}</pre>
       <div class="mentor-btns"><button type="button" class="btn" data-act="copy">Kopieer tekst</button><button type="button" class="btn ghost" data-act="print">Afdrukken of pdf</button><span class="copied" id="copied" hidden>Gekopieerd</span></div></section>`;
@@ -275,7 +269,7 @@ const DATA = {
     const P=DATA[lvl];
     return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>`
       +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
-      +`<button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je mentor</button></div>`
+      +`<button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div>`
       +(mentorOpen?mentorPanel():"")
       +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
       +`<div class="rt-legend"><span><i class="chip vid">film</i> <i class="chip tool">tool</i> eigen materiaal (site van Kamiel)</span><span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
