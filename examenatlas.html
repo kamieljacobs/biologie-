@@ -70,6 +70,19 @@ p{margin:0}
 .knop.stil{background:none;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
 .knop.stil:hover{box-shadow:inset 0 0 0 1px var(--text3)}
 .knop:disabled{opacity:.4;cursor:default}
+.knop.klein{min-height:34px;padding:0 14px;font-size:14px}
+#viewer{position:fixed;inset:0;z-index:50;background:rgba(5,8,14,.72);display:none;overflow:auto;padding:24px 12px}
+#viewer.open{display:block}
+#viewer .vbox{max-width:820px;margin:0 auto;background:var(--bg2,var(--bg));border:1px solid var(--line2);border-radius:18px;padding:20px 20px 24px;display:grid;gap:14px}
+#viewer .vkop{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+#viewer .vkop b{font-size:18px}
+#viewer .papier{background:#fff;border-radius:10px;padding:10px;display:grid;gap:0}
+#viewer .papier img{display:block;width:100%;height:auto}
+#viewer .papier .sep{height:1px;background:#ddd;margin:6px 0}
+#viewer .antw{border:2px solid var(--goud);border-radius:12px;padding:10px;background:#fff}
+#viewer .bron{font-size:13px;color:var(--text3)}
+#viewer .knoppen{display:flex;flex-wrap:wrap;gap:8px}
+body.vopen{overflow:hidden}
 .knoppen{display:flex;gap:12px;flex-wrap:wrap}
 .link{color:var(--goud-text);font-weight:700;font-size:15px;background:none;border:0;padding:0}
 .link:hover{text-decoration:underline;text-underline-offset:3px}
@@ -393,7 +406,7 @@ const exLab=e=>D.exams[e].lab;
 function bnBadge(v){ if(!v.bn) return ''; const [l,t]=v.bn; return `<span class="bn l${l}">${l?'Binas '+t.join(', '):'geen Binas'}</span>`; }
 function vraagHtml(qi,opts={}){
   const v=D.vragen[qi]; const tekst=v.q&&opts.vraagtekst?v.q:v.w;
-  return `<div class="vr"><div class="wie"><b>${esc(exLab(v.e))}</b>vraag ${v.nr} · ${v.p}p</div><div><span class="ctx">${esc(v.o)}</span><div class="w">${esc(tekst)}</div>${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}</div></div>`;
+  return `<div class="vr"><div class="wie"><b>${esc(exLab(v.e))}</b>vraag ${v.nr} · ${v.p}p</div><div><span class="ctx">${esc(v.o)}</span><div class="w">${esc(tekst)}</div>${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}${v.ni?`<div style="margin-top:8px"><button type="button" class="knop stil klein" data-open="${qi}">Bekijk de vraag</button></div>`:''}</div></div>`;
 }
 let popId=0; const POPS={};
 function vraagChips(list){ // list = [[qi,letterlijk]]
@@ -635,7 +648,7 @@ function vJaar(arg){
     <p class="lede">Zwaartepunten: ${jaarTop(j).slice(0,4).map(([s,p])=>`${esc(D.sub[s].n)} (${p}p)`).join(' · ')}</p></div></section>
   <section class="wrap blok"><div class="examens">${exs.map(([e,k])=>`<article class="excard"><header><b>Tijdvak ${e.tv}</b><span class="stil" style="font-size:14px">${e.nq} vragen · ${e.pts} punten</span></header>
     ${e.ops.map(([t,c,a,b])=>{ const ons=[...new Set(D.vragen.filter(v=>v.e===k&&v.nr>=a&&v.nr<=b).flatMap(v=>v.on))];
-      return `<div class="op"><div class="t">${esc(t)}<span>vr. ${a}–${b}</span></div><div class="c">${esc(c)}</div><div class="chips">${ons.map(o=>`<button type="button" class="chip" data-ow="${o}">${esc(D.onderwerpen[o].n)}</button>`).join('')}</div></div>`;}).join('')}</article>`).join('')}</div>
+      return `<div class="op"><div class="t">${esc(t)}<span>vr. ${a}–${b}</span></div><div class="c">${esc(c)}</div><div class="chips">${ons.map(o=>`<button type="button" class="chip" data-ow="${o}">${esc(D.onderwerpen[o].n)}</button>`).join('')}</div><div class="chips" style="margin-top:6px">${D.vragen.map((v,qi)=>[v,qi]).filter(([v])=>v.e===k&&v.nr>=a&&v.nr<=b&&v.ni).map(([v,qi])=>`<button type="button" class="chip" data-open="${qi}" title="Bekijk vraag ${v.nr}">vr. ${v.nr}</button>`).join('')}</div></div>`;}).join('')}</article>`).join('')}</div>
     <div class="jaarnav">${i>0?`<a class="knop stil" href="#jaar/${D.jaren[i-1]}">← ${D.jaren[i-1]}</a>`:'<span></span>'}${i<D.jaren.length-1?`<a class="knop stil" href="#jaar/${D.jaren[i+1]}">${D.jaren[i+1]} →</a>`:''}</div></section>`;
 }
 
@@ -683,7 +696,7 @@ function vOefen(){
     const cls=lvlOk&&(l===0||tabOk)?'ok':(lvlOk||tabOk||(l>0&&OF.lvl>0))?'half':'nee';
     const msg=cls==='ok'?'Goed gezien.':cls==='half'?(lvlOk?'Juiste inschatting, maar een andere tabel.':tabOk?'Juiste tabel; het label zat net anders.':'Binas helpt inderdaad, maar met een andere tabel en een ander label.'):(l===0?'Hier helpt Binas niet; het antwoord zit in de vraag en je eigen kennis.':'Hier had Binas juist wel geholpen.');
     body=`<div class="oordeel ${cls}"><b>${msg}</b><div>Label: ${bnBadge(v)} <b>${BNL[l]}</b>${l?' · '+t.map(x=>`<a class="link" href="#binas/${x.slice(0,2)}">${esc(x)}</a>`).join(', '):''}</div>${l?`<div class="zacht">${esc(h)}</div>`:''}<div class="stil" style="font-size:14px">Jouw keuze: ${BNL[OF.lvl]}${OF.lvl?` · tabel ${esc(OF.tab+OF.sub)}`:''}</div></div>
-      <p class="zacht">Maak de vraag nu zelf in het opgavenboekje: examen ${esc(e.lab)}, vraag ${v.nr} (${v.p} ${v.p===1?'punt':'punten'}).</p>
+      <p class="zacht">Maak de vraag nu zelf: examen ${esc(e.lab)}, vraag ${v.nr} (${v.p} ${v.p===1?'punt':'punten'}).</p>${v.ni?`<div class="knoppen"><button type="button" class="knop stil" data-open="${OF.i}">Bekijk de vraag met antwoord</button></div>`:''}
       <details class="alle" style="margin-top:0"><summary>Wat getoetst wordt (kijk pas na het maken)</summary><p class="zacht" style="padding:0 18px 14px">${esc(v.w)}</p></details>
       <div class="knoppen"><button type="button" class="knop" id="next">Volgende vraag</button>${v.on.length?`<button type="button" class="knop stil" data-ow="${v.on[0]}">Uitleg bij ${esc(D.onderwerpen[v.on[0]].n)}</button>`:''}</div>`;
   }
@@ -701,6 +714,35 @@ function vOefen(){
   if($('next')) $('next').onclick=nieuw;
 }
 
+/* ---------- examenvraag bekijken (uitsneden uit opgavenboekje en correctievoorschrift, bron: CvTE) ---------- */
+let VW=null; const LET='abcdefgh';
+const vImg=(v,pre,i)=>`examenatlas/img/${D.niveau}/${exLab(v.e)}/${pre}${v.nr}${LET[i]}.webp`;
+function vZoek(e,nr){ return D.vragen.findIndex(v=>v.e===e&&v.nr===nr); }
+function tekenViewer(){
+  let el=document.getElementById('viewer'); if(!el){ el=document.createElement('div'); el.id='viewer'; el.setAttribute('role','dialog'); el.setAttribute('aria-modal','true'); document.body.appendChild(el); }
+  const v=D.vragen[VW.qi], e=D.exams[v.e], op=e.ops.find(o=>o[2]<=v.nr&&v.nr<=o[3])||['','',v.nr,v.nr];
+  const reeks=VW.heel?D.vragen.filter(x=>x.e===v.e&&x.nr>=op[2]&&x.nr<=v.nr&&x.ni).sort((a,b)=>a.nr-b.nr):[v];
+  const imgs=reeks.map(x=>Array.from({length:x.ni},(_,i)=>`<img src="${vImg(x,'',i)}" alt="Examen ${esc(e.lab)}, vraag ${x.nr}${i?' (vervolg)':''}" loading="lazy">`).join('')).join('<div class="sep"></div>');
+  const vor=vZoek(v.e,v.nr-1), na=vZoek(v.e,v.nr+1);
+  el.innerHTML=`<div class="vbox"><div class="vkop"><div><span class="mono">${esc(D.niveau)} · ${esc(e.lab)} · ${esc(op[0])}</span><br><b>Vraag ${v.nr} · ${v.p} ${v.p===1?'punt':'punten'}</b></div><button type="button" class="knop stil klein" data-vsluit>Sluiten ✕</button></div>
+    <div class="knoppen">${op[2]<v.nr?`<button type="button" class="knop stil klein" data-vheel>${VW.heel?'Alleen deze vraag':'Toon de hele opgave'}</button>`:''}</div>
+    <div class="papier">${imgs}</div>
+    <div class="knoppen">${v.na?`<button type="button" class="knop" data-vantw aria-expanded="${VW.antw}">${VW.antw?'Verberg antwoord':'Toon antwoord'}</button>`:''}${vor>=0?`<button type="button" class="knop stil" data-open="${vor}">← vraag ${v.nr-1}</button>`:''}${na>=0?`<button type="button" class="knop stil" data-open="${na}">vraag ${v.nr+1} →</button>`:''}</div>
+    ${VW.antw&&v.na?`<div class="antw">${Array.from({length:v.na},(_,i)=>`<img src="${vImg(v,'a',i)}" alt="Antwoord vraag ${v.nr} uit het correctievoorschrift" style="display:block;width:100%;height:auto">`).join('')}</div>`:''}
+    ${v.w?`<details><summary class="zacht">Wat getoetst wordt (samenvatting)</summary><p class="zacht">${esc(v.w)}</p></details>`:''}
+    <p class="bron">Bron: College voor Toetsen en Examens, centraal examen biologie ${esc(D.niveau)} ${esc(e.lab)}, vraag ${v.nr}: opgavenboekje en correctievoorschrift (examenblad.nl). Soms verwijst een vraag naar een bijlage die hier niet staat.</p></div>`;
+  el.classList.add('open'); document.body.classList.add('vopen');
+}
+function sluitViewer(){ const el=document.getElementById('viewer'); if(el){ el.classList.remove('open'); el.innerHTML=''; } document.body.classList.remove('vopen'); VW=null; }
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'&&VW) sluitViewer(); });
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]'); if(o){ e.stopPropagation(); VW={qi:+o.dataset.open,heel:VW?VW.heel:false,antw:false}; tekenViewer(); const el=document.getElementById('viewer'); if(el) el.scrollTop=0; return; }
+  if(!VW) return;
+  if(e.target.closest('[data-vsluit]')||e.target.id==='viewer'){ sluitViewer(); return; }
+  if(e.target.closest('[data-vheel]')){ VW.heel=!VW.heel; tekenViewer(); return; }
+  if(e.target.closest('[data-vantw]')){ VW.antw=!VW.antw; tekenViewer(); return; }
+},true);
+
 /* ---------- klikken ---------- */
 document.addEventListener('click',e=>{
   const ovs=e.target.closest('[data-ovs]'); if(ovs){ OVS=ovs.dataset.ovs; schrijf('atlas-overzicht',OVS); vOverzicht(); return; }
@@ -713,7 +755,7 @@ document.addEventListener('click',e=>{
     const oud=box.nextElementSibling; if(oud&&oud.classList.contains('pop')) oud.remove();
     if(open) return; btn.setAttribute('aria-expanded','true');
     let html;
-    if(vq){ const v=D.vragen[+btn.dataset.vq]; html=`<b>${esc(exLab(v.e))} · vraag ${v.nr} (${v.p}p) · ${esc(v.o)}</b><br>${esc(v.w)}${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}`; }
+    if(vq){ const v=D.vragen[+btn.dataset.vq]; html=`<b>${esc(exLab(v.e))} · vraag ${v.nr} (${v.p}p) · ${esc(v.o)}</b><br>${esc(v.w)}${v.bn&&v.bn[0]?`<div class="bnl">${bnBadge(v)}<span>${esc(v.bn[2])}</span></div>`:''}${v.ni?`<div style="margin-top:8px"><button type="button" class="knop klein" data-open="${btn.dataset.vq}">Bekijk de vraag</button></div>`:''}`; }
     else { const b=D.begrippen[+btn.dataset.bg]; html=`<b>${esc(b.b)}</b> · ${esc(b.d)}`; }
     box.insertAdjacentHTML('afterend',`<div class="pop">${html}</div>`); return;
   }
