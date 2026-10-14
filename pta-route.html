@@ -68,22 +68,51 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 .ond-grid .sub-onderdeel.done{border-color:var(--accent);background:var(--accent-soft)}
 .ond-grid .sub-onderdeel h3{font-size:17px}
 .ond-grid .sub-onderdeel .af{margin-left:26px}
+
+
+/* PTA-route: afvinken en mentoroverzicht */
+.rt-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin:0 0 14px}
+.rt-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.rt-switch button{all:unset;cursor:pointer;padding:6px 16px;font:600 13px var(--body);color:var(--muted)}
+.rt-switch button[aria-pressed="true"]{background:var(--accent);color:var(--row)}
+.rt-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.rt-intro{max-width:72ch;color:var(--muted);margin:0 0 12px}
+.rt-intro a,.notes a{color:var(--accent)}
+.rt-legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.btn{all:unset;cursor:pointer;font:600 13.5px var(--body);padding:8px 14px;border-radius:8px;background:var(--accent);color:var(--row)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sub-onderdeel.done h3 .cnt{text-decoration:none}
+.sub-onderdeel h3 .cnt{margin-left:auto;font:500 12px var(--body);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.hs li{margin:0 0 4px}
+.tick{display:flex;gap:8px;align-items:flex-start;cursor:pointer}
+.tick input,.ms input{width:16px;height:16px;margin:2px 0 0;accent-color:var(--accent);flex:none;cursor:pointer}
+.ms{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.ms li{display:flex;align-items:center;gap:8px}
+.ms .chip{margin:0;white-space:normal}
+.ms li:has(input:checked) .chip,.tick:has(input:checked) span{opacity:.6}
+.mentor{background:var(--row);border:2px solid var(--accent);border-radius:10px;padding:16px 18px;margin:0 0 22px}
+.mentor-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mentor-h h2{font:600 18px var(--display);margin:0}
+.mentor-tip{color:var(--muted);font-size:13.5px;margin:6px 0 12px;max-width:72ch}
+.mentor-naam{display:flex;align-items:center;gap:8px;font-size:14px;margin:0 0 10px}
+.mentor-naam input{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);min-width:0;flex:1;max-width:320px}
+.mentor pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:0 0 12px;max-height:360px;overflow:auto}
+.mentor-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.copied{color:var(--accent);font-size:13px;font-weight:600}
+@media print{
+  body.print-mentor *{visibility:hidden}
+  body.print-mentor #mentor,body.print-mentor #mentor *{visibility:visible}
+  body.print-mentor #mentor{position:absolute;left:0;top:0;width:100%;border:0}
+  body.print-mentor #mentor pre{max-height:none;overflow:visible;border:0}
+  body.print-mentor .mentor-btns,body.print-mentor .mentor-naam,body.print-mentor [data-act="close"],body.print-mentor .mentor-tip{display:none}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <p style="margin:0 0 10px;font-size:14px"><a href="index.html#home" style="color:var(--accent);text-decoration:none">← Biologie bij Kamiel</a></p>
 <h1>PTA-route biologie</h1>
-<p class="sub">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Bij elk hoofdstuk: lees de tekst en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je af hebt; dat onthoudt je browser. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>
-<div class="tabs" role="tablist" aria-label="Niveau">
-  <button class="tab" role="tab" data-tab="havo" aria-selected="true">havo</button>
-  <button class="tab" role="tab" data-tab="vwo" aria-selected="false">vwo</button>
-</div>
-<div class="meta" id="meta"></div>
-<div class="legend">
-  <span><i class="chip vid">film</i> <i class="chip tool">tool</i> eigen materiaal (site van Kamiel)</span>
-  <span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span>
-</div>
 <div id="route"></div>
 <div class="notes">
 <h3>Toelichting</h3>
@@ -91,6 +120,8 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 </div>
 </div>
 <script>
+
+
 const SITE = "https://kamieljacobs.github.io/biologie-";
 const GU = "https://gewoonuitgelegd.nl/biologie/";
 const ART = "https://claude.ai/code/artifact/";
@@ -108,19 +139,19 @@ const DATA = {
   ],
   ond:[
    {code:"OND1", w:15, subs:[
-     {n:"Cellen", af:["havo 4","12 okt 2026"], h:[["Thema 1 Inleiding in de biologie","4 havo"]], m:[gu("Celorganellen","celorganellen"),t("Aardappellab",ART+"30a09c5b-7155-459f-bea6-0baf79b93a6a"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek")]},
+     {n:"Cellen", af:["havo 4","12 okt 2026"], h:[["Thema 1 Inleiding in de biologie","4 havo"]], m:[gu("Celorganellen","celorganellen"),t("Aardappellab",ART+"30a09c5b-7155-459f-bea6-0baf79b93a6a"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek"),t("Celbouwer",SITE+"/tools/celbouwer/index.html"),t("Virtuele microscoop",SITE+"/tools/virtuele-microscoop/index.html")]},
      {n:"Voortplanting", af:["havo 4","23 nov 2026"], h:[["Thema 2 Voortplanting","4 havo"]], m:[f("Van bevruchting tot baby",SITE+"/films/voortplanting/1-precies-op-tijd.html"),gu("Celdeling","celdeling"),gu("Zwangerschap","zwangerschap"),gu("Stamcellen","stamcellen"),gu("Voortplanting","voortplanting"),gu("Menstruatiecyclus","menstruatiecyclus")]},
      {n:"Erfelijkheid", af:["havo 4","11 jan 2027"], h:[["Thema 3 Genetica","4 havo"]], m:[f("Erfelijkheid 1 · Chromosomen",SITE+"/films/erfelijkheid/1-chromosomen.html"),f("Erfelijkheid 2 · Monohybride kruisingen",SITE+"/films/erfelijkheid/2-monohybride-kruisingen.html"),f("Erfelijkheid 3 · Voorbij dominant en recessief",SITE+"/films/erfelijkheid/3-voorbij-dominant-en-recessief.html"),f("Erfelijkheid 4 · Dihybride kruising",SITE+"/films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"),f("Erfelijkheid 5 · X-chromosomen en mitochondriën",SITE+"/films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"),f("Erfelijkheid 6 · Stambomen en kansrekenen",SITE+"/films/erfelijkheid/6-stambomen-en-kansrekenen.html"),t("Kruisingslab",SITE+"/tools/kruisingslab.html"),t("Bloedgroepenlab",SITE+"/tools/bloedgroepenlab.html"),gu("Kruisingsschema's","kruisingsschemas"),gu("Stambomen","stambomen"),gu("Dihybride kruisingen","dihybride-kruisingen"),gu("Bloedgroepen","bloedgroepen")]},
    ]},
    {code:"OND2", w:15, subs:[
      {n:"Evolutie", af:["havo 4","8 mrt 2027"], h:[["Thema 4 Evolutie","4 havo"]], m:[f("Evolutie 1 · Het raadsel van de eilanden",SITE+"/films/evolutie/1-het-raadsel-van-de-eilanden.html"),f("Evolutie 2 · Verrassend simpel",SITE+"/films/evolutie/2-verrassend-simpel.html"),f("Evolutie 3 · Hoe weten we dat?",SITE+"/films/evolutie/3-hoe-weten-we-dat.html"),f("Evolutie 4 · Van niet-leven naar leven",SITE+"/films/evolutie/4-van-niet-leven-naar-leven.html"),f("Evolutie 5 · De grote lijn",SITE+"/films/evolutie/5-de-grote-lijn.html"),f("Evolutie 6 · Selectie van dichtbij",SITE+"/films/evolutie/6-selectie-van-dichtbij.html"),f("Evolutie 7 · Hoe één soort er twee wordt",SITE+"/films/evolutie/7-hoe-een-soort-er-twee-wordt.html"),f("Evolutie 8 · Toeval",SITE+"/films/evolutie/8-toeval.html"),f("Evolutie 9 · Veertig jaar Daphne Major",SITE+"/films/evolutie/9-veertig-jaar-daphne-major.html"),t("Resistentielab",ART+"75d0cbb8-ba7e-431c-a43c-87e3242a7008")]},
-     {n:"Regeling en waarneming", af:["havo 4","17 mei 2027"], h:[["Thema 5 Regeling","4 havo"],["Thema 6 Waarneming en gedrag (waarneming)","4 havo"]], m:[t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Actiepotentiaal","actiepotentiaal"),f("Zenuwstelsel 1 · Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Zenuwstelsel 2 · Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("Zenuwstelsel 3 · De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Zenuwstelsel 4 · Knoeien met de spleet",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Zenuwstelsel 5 · Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Zenuwstelsel 6 · Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),gu("Zenuwstelsel","zenuwstelsel")]},
+     {n:"Regeling en waarneming", af:["havo 4","17 mei 2027"], h:[["Thema 5 Regeling","4 havo"],["Thema 6 Waarneming en gedrag (waarneming)","4 havo"]], m:[t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Actiepotentiaal","actiepotentiaal"),f("Zenuwstelsel 1 · Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Zenuwstelsel 2 · Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("Zenuwstelsel 3 · De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Zenuwstelsel 4 · Knoeien met de spleet",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Zenuwstelsel 5 · Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Zenuwstelsel 6 · Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),gu("Zenuwstelsel","zenuwstelsel"),f("Hormonen 1 · Post voor iedereen",SITE+"/films/hormonen/1-post-voor-iedereen.html"),f("Hormonen 2 · Suiker in balans",SITE+"/films/hormonen/2-suiker-in-balans.html")]},
      {n:"Ecologie", af:["havo 4","12 jul 2027"], h:[["Thema 7 Ecologie en milieu","4 havo"]], m:[f("Alles gaat rond · kringlopen",SITE+"/films/ecologie/alles-gaat-rond/index.html"),f("Plek genoeg · de wolf op de Veluwe",SITE+"/films/ecologie/plek-genoeg/index.html"),t("Terrariumlab",ART+"3c627959-8535-401a-8415-afa8a5755c03"),t("Reactorlab",ART+"91fd7565-2989-456a-8537-0d1c17c3e53c"),gu("Voedselwebben","voedselweb"),gu("Stikstofkringloop","stikstofkringloop"),gu("Fotosynthese","fotosynthese"),gu("Populaties","populaties"),gu("Niche","niche"),gu("Koolstofkringloop","koolstofkringloop")]},
    ]},
    {code:"OND3", w:25, subs:[
      {n:"Gedrag", af:["havo 4 · eigen pakket","mrt 2027"], h:[["Eigen lespakket gedrag (psychologie-experimenten)",""]], m:[]},
      {n:"Stofwisseling", af:["havo 5","12 okt 2027"], h:[["Thema 8 Stofwisseling in de cel","5 havo"]], m:[f("Alles versneld · enzymen",SITE+"/films/stofwisseling/1-alles-versneld.html"),f("Alles op adem · dissimilatie",SITE+"/films/stofwisseling/2-alles-op-adem.html"),f("Alles in het groen · fotosynthese",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),gu("Enzymen","enzymen"),gu("Dissimilatie","dissimilatie"),gu("Gisting","gisting"),gu("Fotosynthese","fotosynthese"),gu("Biomoleculen","biomoleculen")]},
-     {n:"DNA", af:["havo 5","23 nov 2027"], h:[["Thema 9 DNA","5 havo"]], m:[f("Wat is DNA? · DNA 1",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren · DNA 2",SITE+"/films/dna/2-dna-kopieren.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gel-elektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),f("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),gu("Eiwitsynthese","eiwitsynthese"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR · DNA-profiel en gel-elektroforese","pcr"),gu("Stamcellen","stamcellen")]},
+     {n:"DNA", af:["havo 5","23 nov 2027"], h:[["Thema 9 DNA","5 havo"]], m:[f("Wat is DNA? · DNA 1",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren · DNA 2",SITE+"/films/dna/2-dna-kopieren.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gel-elektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),f("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),gu("Eiwitsynthese","eiwitsynthese"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR · DNA-profiel en gel-elektroforese","pcr"),gu("Stamcellen","stamcellen"),t("De bouw van DNA",SITE+"/tools/dna-bouw/index.html")]},
    ]},
    {code:"OND4", w:25, subs:[
      {n:"Voeding", af:["havo 5","jan 2028"], h:[["Thema 10 Vertering","5 havo"]], m:[f("Wat zit er in je eten? · Voeding 1",SITE+"/films/voeding/1-wat-zit-er-in-je-eten.html"),f("De reis door je buik · Voeding 2",SITE+"/films/voeding/2-de-reis-door-je-buik.html"),f("Knippen op maat · Voeding 3",SITE+"/films/voeding/3-knippen-op-maat.html"),f("Van darm naar bloed · Voeding 4",SITE+"/films/voeding/4-van-darm-naar-bloed.html"),f("De lever als fabriek · Voeding 5",SITE+"/films/voeding/5-de-lever-als-fabriek.html"),f("Je darmbewoners · Voeding 6",SITE+"/films/voeding/6-je-darmbewoners.html"),gu("Vertering","vertering")]},
@@ -140,7 +171,7 @@ const DATA = {
   ],
   ond:[
    {code:"OND1", w:15, subs:[
-     {n:"Cellen", af:["vwo 4+5","12 okt 2026"], h:[["H2 Cel en leven","4 vwo"],["H3 Wetenschappelijk onderzoek (vaardigheden)","4 vwo"]], m:[f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),t("Onderzoekskeuring",ART+"0398cc0f-06f7-4769-b365-95433ed715f5"),t("Schaallab",ART+"166a0713-cddc-4465-a56b-b9aee05ef88b"),gu("Celorganellen","celorganellen"),t("Aardappellab",ART+"30a09c5b-7155-459f-bea6-0baf79b93a6a"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek")]},
+     {n:"Cellen", af:["vwo 4+5","12 okt 2026"], h:[["H2 Cel en leven","4 vwo"],["H3 Wetenschappelijk onderzoek (vaardigheden)","4 vwo"]], m:[f("Celorganellen",SITE+"/films/cellen/celorganellen/index.html"),f("Onderzoek doen in de biologie",SITE+"/films/cellen/onderzoek-doen/index.html"),t("Onderzoekskeuring",ART+"0398cc0f-06f7-4769-b365-95433ed715f5"),t("Schaallab",ART+"166a0713-cddc-4465-a56b-b9aee05ef88b"),gu("Celorganellen","celorganellen"),t("Aardappellab",ART+"30a09c5b-7155-459f-bea6-0baf79b93a6a"),gu("Diffusie en osmose","diffusie"),gu("Membraantransport","membraantransport"),gu("Biomoleculen","biomoleculen"),gu("Biologisch onderzoek","biologisch-onderzoek"),t("Celbouwer",SITE+"/tools/celbouwer/index.html"),t("Virtuele microscoop",SITE+"/tools/virtuele-microscoop/index.html")]},
      {n:"Voortplanting", af:["vwo 4+5","23 nov 2026"], h:[["H4 Voortplanting","4 vwo"]], m:[f("Van bevruchting tot baby",SITE+"/films/voortplanting/1-precies-op-tijd.html"),gu("Celdeling","celdeling"),gu("Zwangerschap","zwangerschap"),gu("Stamcellen","stamcellen"),gu("Voortplanting","voortplanting"),gu("Menstruatiecyclus","menstruatiecyclus")]},
      {n:"Genetica", af:["vwo 4+5","11 jan 2027"], h:[["H5 Erfelijkheid","4 vwo"]], m:[f("Erfelijkheid 1 · Chromosomen",SITE+"/films/erfelijkheid/1-chromosomen.html"),f("Erfelijkheid 2 · Monohybride kruisingen",SITE+"/films/erfelijkheid/2-monohybride-kruisingen.html"),f("Erfelijkheid 3 · Voorbij dominant en recessief",SITE+"/films/erfelijkheid/3-voorbij-dominant-en-recessief.html"),f("Erfelijkheid 4 · Dihybride kruising",SITE+"/films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"),f("Erfelijkheid 5 · X-chromosomen en mitochondriën",SITE+"/films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html"),f("Erfelijkheid 6 · Stambomen en kansrekenen",SITE+"/films/erfelijkheid/6-stambomen-en-kansrekenen.html"),t("Kruisingslab",SITE+"/tools/kruisingslab.html"),t("Bloedgroepenlab",SITE+"/tools/bloedgroepenlab.html"),gu("Kruisingsschema's","kruisingsschemas"),gu("Stambomen","stambomen"),gu("Dihybride kruisingen","dihybride-kruisingen"),gu("Bloedgroepen","bloedgroepen")]},
      {n:"Evolutie", af:["vwo 4+5","8 mrt 2027"], h:[["H7 Evolutie","4 vwo"]], m:[f("Evolutie 1 · Het raadsel van de eilanden",SITE+"/films/evolutie/1-het-raadsel-van-de-eilanden.html"),f("Evolutie 2 · Verrassend simpel",SITE+"/films/evolutie/2-verrassend-simpel.html"),f("Evolutie 3 · Hoe weten we dat?",SITE+"/films/evolutie/3-hoe-weten-we-dat.html"),f("Evolutie 4 · Van niet-leven naar leven",SITE+"/films/evolutie/4-van-niet-leven-naar-leven.html"),f("Evolutie 5 · De grote lijn",SITE+"/films/evolutie/5-de-grote-lijn.html"),f("Evolutie 6 · Selectie van dichtbij",SITE+"/films/evolutie/6-selectie-van-dichtbij.html"),f("Evolutie 7 · Hoe één soort er twee wordt",SITE+"/films/evolutie/7-hoe-een-soort-er-twee-wordt.html"),f("Evolutie 8 · Toeval",SITE+"/films/evolutie/8-toeval.html"),f("Evolutie 9 · Veertig jaar Daphne Major",SITE+"/films/evolutie/9-veertig-jaar-daphne-major.html"),t("Resistentielab",ART+"75d0cbb8-ba7e-431c-a43c-87e3242a7008")]},
@@ -148,11 +179,11 @@ const DATA = {
    {code:"OND2", w:25, subs:[
      {n:"Ecologie", af:["vwo 4+5","17 mei en 12 jul 2027"], h:[["H6 Soorten en populaties","4 vwo"],["H8 Kenmerken van ecosystemen","4 vwo"]], m:[f("Alles gaat rond · kringlopen",SITE+"/films/ecologie/alles-gaat-rond/index.html"),f("Plek genoeg · de wolf op de Veluwe",SITE+"/films/ecologie/plek-genoeg/index.html"),t("Terrariumlab",ART+"3c627959-8535-401a-8415-afa8a5755c03"),gu("Voedselwebben","voedselweb"),gu("Stikstofkringloop","stikstofkringloop"),gu("Populaties","populaties"),gu("Niche","niche"),gu("Koolstofkringloop","koolstofkringloop")]},
      {n:"Stofwisseling", af:["vwo 6","nov 2027"], h:[["H18 Eiwitten (enzymen)","6 vwo"],["H19 Sport (dissimilatie)","6 vwo"],["H20 Planten (fotosynthese)","6 vwo"]], m:[f("Alles versneld · enzymen",SITE+"/films/stofwisseling/1-alles-versneld.html"),f("Alles op adem · dissimilatie",SITE+"/films/stofwisseling/2-alles-op-adem.html"),f("Alles in het groen · fotosynthese",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),gu("Enzymen","enzymen"),gu("Dissimilatie","dissimilatie"),gu("Gisting","gisting"),gu("Fotosynthese","fotosynthese"),gu("Biomoleculen","biomoleculen")]},
-     {n:"DNA", af:["vwo 6","okt 2027"], h:[["H17 DNA","6 vwo"],["H18 Eiwitten","6 vwo"]], m:[f("Wat is DNA? · DNA 1",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren · DNA 2",SITE+"/films/dna/2-dna-kopieren.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gel-elektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),f("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),f("Waarom U in RNA",SITE+"/tools/waarom-u-in-rna.html"),t("Examenatlas biologie",ART+"96cc35e5-0fea-4865-884c-e3f0d76b59ff"),gu("Eiwitsynthese","eiwitsynthese"),gu("Genregulatie","genregulatie"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR · DNA-profiel en gel-elektroforese","pcr"),gu("Stamcellen","stamcellen")]},
+     {n:"DNA", af:["vwo 6","okt 2027"], h:[["H17 DNA","6 vwo"],["H18 Eiwitten","6 vwo"]], m:[f("Wat is DNA? · DNA 1",SITE+"/films/dna/1-wat-is-dna.html"),f("DNA kopiëren · DNA 2",SITE+"/films/dna/2-dna-kopieren.html"),t("De Eiwitfabriek",SITE+"/tools/eiwitfabriek.html"),f("Op maat gekopieerd · PCR",SITE+"/films/dna-technieken/1-op-maat-gekopieerd/index.html"),f("Op lengte gesorteerd · gel-elektroforese",SITE+"/films/dna-technieken/2-op-lengte-gesorteerd/index.html"),f("DNA-profielen vergelijken",SITE+"/tools/dna-profielen/index.html"),f("Waarom U in RNA",SITE+"/tools/waarom-u-in-rna.html"),t("Examenatlas biologie",ART+"96cc35e5-0fea-4865-884c-e3f0d76b59ff"),gu("Eiwitsynthese","eiwitsynthese"),gu("Genregulatie","genregulatie"),gu("Mutaties","mutaties"),gu("Genetische modificatie","genetische-modificatie"),gu("PCR · DNA-profiel en gel-elektroforese","pcr"),gu("Stamcellen","stamcellen"),t("De bouw van DNA",SITE+"/tools/dna-bouw/index.html")]},
    ]},
    {code:"OND3", w:15, subs:[
      {n:"Planten", af:["vwo 6","mei 2028"], h:[["H20 Planten","6 vwo"]], m:[f("Alles in het groen · fotosynthese",SITE+"/films/stofwisseling/3-alles-in-het-groen.html"),gu("Fotosynthese","fotosynthese"),gu("Transport in planten","transport-in-planten")]},
-     {n:"Regeling en waarneming", af:["vwo 6","jan 2028"], h:[["H12 Regeling intern milieu","5 vwo"],["H13 Hormonen","5 vwo"],["H14 Zenuwstelsel","5 vwo"],["H15 Waarnemen (§15.5)","5 vwo"]], m:[t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Actiepotentiaal","actiepotentiaal"),f("Zenuwstelsel 1 · Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Zenuwstelsel 2 · Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("Zenuwstelsel 3 · De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Zenuwstelsel 4 · Knoeien met de spleet",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Zenuwstelsel 5 · Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Zenuwstelsel 6 · Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),gu("Zenuwstelsel","zenuwstelsel")]},
+     {n:"Regeling en waarneming", af:["vwo 6","jan 2028"], h:[["H12 Regeling intern milieu","5 vwo"],["H13 Hormonen","5 vwo"],["H14 Zenuwstelsel","5 vwo"],["H15 Waarnemen (§15.5)","5 vwo"]], m:[t("Regelkring",SITE+"/tools/regelkring.html"),gu("Regelkringen","regelkringen"),gu("Hormonen","hormonen"),gu("Actiepotentiaal","actiepotentiaal"),f("Zenuwstelsel 1 · Eén seconde",SITE+"/films/zenuwstelsel/1-een-seconde.html"),f("Zenuwstelsel 2 · Het kabelnetwerk",SITE+"/films/zenuwstelsel/2-het-kabelnetwerk.html"),f("Zenuwstelsel 3 · De spleet",SITE+"/films/zenuwstelsel/3-de-spleet.html"),f("Zenuwstelsel 4 · Knoeien met de spleet",SITE+"/films/zenuwstelsel/4-knoeien-met-de-spleet.html"),f("Zenuwstelsel 5 · Het hoofdkantoor",SITE+"/films/zenuwstelsel/5-het-hoofdkantoor.html"),f("Zenuwstelsel 6 · Leren en onthouden",SITE+"/films/zenuwstelsel/6-leren-en-onthouden.html"),gu("Zenuwstelsel","zenuwstelsel"),f("Hormonen 1 · Post voor iedereen",SITE+"/films/hormonen/1-post-voor-iedereen.html"),f("Hormonen 2 · Suiker in balans",SITE+"/films/hormonen/2-suiker-in-balans.html")]},
      {n:"Gedrag en beweging", af:["vwo 6","mei 2028"], h:[["Eigen lespakket gedrag (i.p.v. H1)",""],["H19 Sport","6 vwo"]], m:[]},
    ]},
    {code:"OND4", w:25, subs:[
@@ -167,40 +198,109 @@ const DATA = {
   ],
  },
 };
-
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const key=(lvl,code,n)=>`pta:${lvl}:${code}:${n}`;
-function getDone(k){try{return localStorage.getItem(k)==="1"}catch(e){return false}}
-function setDone(k,v){try{localStorage.setItem(k,v?"1":"0")}catch(e){}}
-
-function render(level){
-  const P=DATA[level]; let out="";
-  for(const o of P.ond){
-    const total=o.subs.length, done=o.subs.filter(s=>getDone(key(level,o.code,s.n))).length;
-    out+=`<section class="ond" data-ond="${o.code}"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} af</span></header><div class="ond-grid">`;
-    for(const s of o.subs){
-      const k=key(level,o.code,s.n), d=getDone(k);
-      const hs=s.h.map(([h,b])=>`<li>${esc(h)}${b?` <small>· ${esc(b)}</small>`:""}</li>`).join("");
-      const ms=s.m.slice().sort((a,b)=>(a[3]==="ext")-(b[3]==="ext")).map(([t,n,u,fl])=>{
-        const cls=`chip ${t}${fl?" "+fl:""}`;
-        return u?`<a class="${cls}" href="${esc(u)}" target="_blank" rel="noopener">${esc(n)}</a>`:`<span class="${cls}">${esc(n)}</span>`;
-      }).join("")||`<span class="leeg">nog geen materiaal</span>`;
-      out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${esc(k)}" ${d?"checked":""} aria-label="Afgerond: ${esc(s.n)}"><span>${esc(s.n)}</span></h3>${s.af?`<p class="af"><b>${esc(s.af[0])}</b> · af vóór ${esc(s.af[1])}</p>`:""}</div><div><p class="k">Hoofdstukken</p><ul class="hs">${hs}</ul></div><div><p class="k">Films en tools</p>${ms}</div></div>`;
-    }
-    out+=`</div></section>`;
+(function(){
+(function(){
+  // ---- PTA-route: weergave, afvinken per onderdeel en mentoroverzicht ----
+  // Afvinken wordt alleen in de eigen browser bewaard (localStorage).
+  // Het mentoroverzicht maakt daarvan een tekst die de leerling kan kopiëren (Teams) of afdrukken.
+  const KEY=(...p)=>"pta:"+p.join(":");
+  const getB=k=>{try{return localStorage.getItem(k)==="1"}catch(e){return false}};
+  const setB=(k,v)=>{try{localStorage.setItem(k,v?"1":"0")}catch(e){}};
+  const getS=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}};
+  const setS=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+  const escH=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const sortM=m=>m.slice().sort((a,b)=>(a[3]==="ext")-(b[3]==="ext"));
+  // Alle afvinkbare dingen van één subonderdeel: hoofdstukken (lezen en opdrachten) en films/tools.
+  function items(lvl,o,x){
+    const out=x.h.map(([h])=>({k:KEY(lvl,o.code,x.n,"h",h),label:h,kind:"Hoofdstuk",what:"gelezen en opdrachten gemaakt"}));
+    for(const [t,n] of sortM(x.m)) out.push({k:KEY(lvl,o.code,x.n,t,n),label:n,kind:t==="tool"?"Tool":"Film",what:t==="tool"?"gedaan":"gekeken"});
+    return out;
   }
-  document.getElementById("route").innerHTML=out;
-  document.getElementById("meta").innerHTML=`<span><b>${esc(P.methode)}</b></span><span>${esc(P.pta)}</span>`;
-  document.getElementById("notes").innerHTML=P.notes.map(n=>`<li>${esc(n)}</li>`).join("");
-  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",String(t.dataset.tab===level)));
-  document.querySelectorAll(".chk").forEach(c=>c.addEventListener("change",()=>{setDone(c.dataset.key,c.checked);render(level)}));
-  try{localStorage.setItem("pta-tab",level)}catch(e){}
-  try{history.replaceState(null,"","#"+level)}catch(e){}
-}
-document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>render(t.dataset.tab)));
-let start="havo";
-try{const h=location.hash.replace("#","");if(DATA[h])start=h;else{const s=localStorage.getItem("pta-tab");if(DATA[s])start=s}}catch(e){}
-render(start);
+  let lvl=getS("pta-tab","havo"); if(!DATA[lvl]) lvl="havo";
+  let mentorOpen=false;
+
+  function cards(){
+    const P=DATA[lvl]; let out="";
+    for(const o of P.ond){
+      const total=o.subs.length, done=o.subs.filter(x=>getB(KEY(lvl,o.code,x.n))).length;
+      out+=`<section class="ond"><header><h2>${o.code}</h2><span class="prog">${done} van ${total} onderwerpen af</span></header><div class="ond-grid">`;
+      for(const x of o.subs){
+        const k=KEY(lvl,o.code,x.n), d=getB(k), its=items(lvl,o,x), nd=its.filter(i=>getB(i.k)).length;
+        const hs=x.h.map(([h,b])=>{const ik=KEY(lvl,o.code,x.n,"h",h);return `<li><label class="tick"><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""}><span>${escH(h)}${b?` <small>· ${escH(b)}</small>`:""}</span></label></li>`}).join("");
+        const ms=sortM(x.m).map(([t,n,u,fl])=>{
+          const ik=KEY(lvl,o.code,x.n,t,n), cls=`chip ${t}${fl?" "+fl:""}`;
+          const chip=u?`<a class="${cls}" href="${escH(u)}" target="_blank" rel="noopener">${escH(n)}</a>`:`<span class="${cls}">${escH(n)}</span>`;
+          return `<li><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${escH(n)}">${chip}</li>`;
+        }).join("");
+        out+=`<div class="sub-onderdeel${d?" done":""}"><div><h3><input class="chk" type="checkbox" data-key="${escH(k)}" ${d?"checked":""} aria-label="Onderwerp af: ${escH(x.n)}"><span>${escH(x.n)}</span><span class="cnt">${nd}/${its.length}</span></h3>${x.af?`<p class="af"><b>${escH(x.af[0])}</b> · af vóór ${escH(x.af[1])}</p>`:""}</div>`
+          +`<div><p class="k">Hoofdstukken · lezen en opdrachten maken</p><ul class="hs">${hs}</ul></div>`
+          +`<div><p class="k">Films en tools</p>${ms?`<ul class="ms">${ms}</ul>`:`<span class="leeg">nog geen materiaal</span>`}</div></div>`;
+      }
+      out+=`</div></section>`;
+    }
+    return out;
+  }
+
+  function mentorText(){
+    const P=DATA[lvl], name=getS("pta-naam","").trim();
+    const datum=new Date().toLocaleDateString("nl-NL",{day:"numeric",month:"long",year:"numeric"});
+    let lines=[`PTA-route biologie · ${lvl}`,`${name?name+" · ":""}${datum}`,""], any=false;
+    for(const o of P.ond){
+      const block=[];
+      for(const x of o.subs){
+        const its=items(lvl,o,x), done=its.filter(i=>getB(i.k)), subDone=getB(KEY(lvl,o.code,x.n));
+        if(!done.length&&!subDone) continue;
+        block.push(`  ${x.n}${subDone?" · onderwerp af ✓":""} (${done.length} van ${its.length})`);
+        for(const i of done) block.push(`    ✓ ${i.kind}: ${i.label} · ${i.what}`);
+      }
+      if(block.length){any=true;lines.push(o.code,...block,"")}
+    }
+    if(!any) lines.push("Nog niets afgevinkt.");
+    return lines.join("\n").trim();
+  }
+  function mentorPanel(){
+    return `<section class="mentor" id="mentor"><div class="mentor-h"><h2>Overzicht voor je mentor</h2><button type="button" class="btn ghost" data-act="close">Sluiten</button></div>
+      <p class="mentor-tip">Hierin staat alles wat je hebt afgevinkt. Je vinkjes worden alleen in deze browser bewaard: kopieer de tekst naar je mentor in Teams, of druk hem af of sla hem op als pdf.</p>
+      <label class="mentor-naam">Je naam <input type="text" id="pta-naam" value="${escH(getS("pta-naam",""))}" autocomplete="name"></label>
+      <pre id="mentor-text">${escH(mentorText())}</pre>
+      <div class="mentor-btns"><button type="button" class="btn" data-act="copy">Kopieer tekst</button><button type="button" class="btn ghost" data-act="print">Afdrukken of pdf</button><span class="copied" id="copied" hidden>Gekopieerd</span></div></section>`;
+  }
+
+  function html(){
+    const P=DATA[lvl];
+    return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>`
+      +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
+      +`<button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je mentor</button></div>`
+      +(mentorOpen?mentorPanel():"")
+      +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
+      +`<div class="rt-legend"><span><i class="chip vid">film</i> <i class="chip tool">tool</i> eigen materiaal (site van Kamiel)</span><span><i class="chip ext vid">GU · film</i> van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
+      +cards();
+  }
+
+  function mount(el,notesEl){
+    const y=window.scrollY;
+    el.innerHTML=html();
+    if(notesEl) notesEl.innerHTML=DATA[lvl].notes.map(n=>`<li>${escH(n)}</li>`).join("");
+    window.scrollTo(0,y);
+    el.querySelectorAll("[data-rt]").forEach(b=>b.addEventListener("click",()=>{lvl=b.dataset.rt;setS("pta-tab",lvl);mount(el,notesEl)}));
+    el.querySelectorAll(".chk,.it").forEach(c=>c.addEventListener("change",()=>{setB(c.dataset.key,c.checked);mount(el,notesEl)}));
+    el.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>{
+      const a=b.dataset.act;
+      if(a==="mentor"){mentorOpen=!mentorOpen;mount(el,notesEl);if(mentorOpen){const m=el.querySelector("#mentor");if(m&&m.scrollIntoView)m.scrollIntoView({block:"start"})}}
+      else if(a==="close"){mentorOpen=false;mount(el,notesEl)}
+      else if(a==="copy"){
+        const txt=mentorText(), ok=()=>{const c=el.querySelector("#copied");if(c){c.hidden=false;setTimeout(()=>{c.hidden=true},2000)}};
+        const fallback=()=>{const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");ok()}catch(e){}ta.remove()};
+        try{navigator.clipboard.writeText(txt).then(ok,fallback)}catch(e){fallback()}
+      }
+      else if(a==="print"){document.body.classList.add("print-mentor");window.print();setTimeout(()=>document.body.classList.remove("print-mentor"),500)}
+    }));
+    const naam=el.querySelector("#pta-naam");
+    if(naam) naam.addEventListener("input",()=>{setS("pta-naam",naam.value);const pre=el.querySelector("#mentor-text");if(pre)pre.textContent=mentorText()});
+  }
+
+  mount(document.getElementById("route"),document.getElementById("notes"));
+})();
 </script>
 
 </body>
