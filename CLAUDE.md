@@ -1,6 +1,6 @@
 # Biologie bij Kamiel — werkafspraken voor Claude
 
-Statische site (GitHub Pages, branch `main`, map `/`): `index.html` is de nieuwe site (sinds 12 okt 2026; de inhoud staat als JSON in `HOOFDSTUKKEN` en `NIVEAUS` bovenin het script, hash-routes `#<hoofdstuk>`, `#films`, `#tools`). De oude site staat als `oud.html` en wordt niet meer bijgewerkt; `nieuw/` stuurt door naar de hoofdpagina. Films in `films/<hoofdstuk>/`, tools in `tools/`, `pta-route.html`.
+Statische site (GitHub Pages, branch `main`, map `/`): `index.html` is de nieuwe site (sinds 12 okt 2026; de inhoud staat als JSON in `HOOFDSTUKKEN` en `NIVEAUS` bovenin het script, hash-routes `#<hoofdstuk>`, `#films`, `#tools`). De oude site staat als `oud.html` en wordt niet meer bijgewerkt; `nieuw/` stuurt door naar de hoofdpagina. Films in `films/<hoofdstuk>/`, tools in `tools/`, `pta-route.html`. `challenges.html` is een aparte pagina met biologische challenges (hoofdvraag + subvragen); een nieuwe challenge = blok in `CHALLENGES` plus een lijntekening in `KUNST` (sleutel = id), bovenin het script van die pagina.
 
 ## Elke nieuwe of aangepaste film krijgt een bronmap
 

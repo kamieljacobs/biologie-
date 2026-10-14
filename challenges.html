@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Challenges · Biologie bij Kamiel</title>
+<meta name="description" content="Biologische challenges: grote vragen met subvragen om zelf mee aan de slag te gaan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
+<style>
+/* Zelfde huisstijl als index.html (navy, goud, Fraunces, lijntekeningen als platen in een biologieboek). */
+:root{
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.30);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --koraal:#E8876C; --paars:#A897DB; --teal:#6DB3D6; --oker:#D2AE66;
+  --titel:"Fraunces",Georgia,"Times New Roman",serif;
+  --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --meta:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.22);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#D9AC3C; --goud-ink:#1A1405; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --groen:#2F8A47; --koraal:#B9502F; --paars:#6550AD; --teal:#25729C; --oker:#8C6A1C;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--tekst);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
+.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+[hidden]{display:none!important}
+.kunst{color:var(--c,var(--goud))}
+.kunst .acc{color:var(--goud)}
+
+/* Kopbalk (zoals index.html) */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
+.merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:7px 12px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud);border-radius:0}
+.rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text2)}
+.icoon:hover{color:var(--text)}
+
+/* Paginakop */
+.kop{border-bottom:1px solid var(--line)}
+.kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
+.terug{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-weight:600;font-size:15px}
+.terug:hover{color:var(--text)}
+.kop .lbl{color:var(--goud-text);margin:26px 0 8px}
+.kop h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
+.kop p{margin:12px 0 0;color:var(--text2);max-width:60ch}
+.kop .groot{justify-self:end;width:220px;height:220px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);display:flex;align-items:center;justify-content:center}
+.kop .groot svg{width:150px;height:150px}
+
+/* Uitleg en filters */
+.hoe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:32px;border:1px solid var(--line2);border-radius:4px;background:var(--surface)}
+.hoe div{padding:16px 18px;border-right:1px solid var(--line)}
+.hoe div:last-child{border-right:0}
+.hoe b{display:block;font-family:var(--titel);font-size:18px;margin:6px 0 2px}
+.hoe span:not(.mono){color:var(--text2);font-size:15px;line-height:1.45;display:block}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:34px 0 8px}
+.filters .mono{color:var(--text3);margin-right:6px}
+.chip{border:1px solid var(--line2);background:none;border-radius:999px;padding:6px 14px;min-height:36px;font-weight:600;font-size:14px;color:var(--text2)}
+.chip:hover{color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+.teller{color:var(--text3);font-size:14px;margin-left:auto}
+
+/* Challenges */
+.raster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-top:14px}
+.ch{border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ch header{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:center;padding:22px 22px 16px;background:radial-gradient(280px 130px at 100% 0,var(--goud-soft),transparent)}
+.ch .embleem{width:96px;height:96px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.ch .embleem svg{width:74px;height:74px}
+.ch .letter{color:var(--c,var(--goud-text))}
+.ch h2{font-size:25px;line-height:1.1;margin:4px 0 0}
+.ch .intro{margin:0;padding:0 22px 14px;color:var(--text2);font-size:16px}
+.ch ol{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.ch li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;padding:11px 22px;border-bottom:1px solid var(--line)}
+.ch li .nr{font:600 13px/1.9 var(--meta);color:var(--goud-text)}
+.ch li p{margin:0;line-height:1.4}
+.ch li .soort{display:inline-block;margin-top:4px;font:600 10.5px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:4px 8px}
+.ch li .soort[data-s="experiment"],.ch li .soort[data-s="meten"]{color:var(--c);border-color:color-mix(in srgb,var(--c) 45%,transparent)}
+.ch li .soort[data-s="ontwerpen"],.ch li .soort[data-s="standpunt"]{color:var(--goud-text);border-color:color-mix(in srgb,var(--goud) 45%,transparent)}
+.ch footer{margin-top:auto;padding:14px 22px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ch footer .mono{color:var(--text3);margin-right:4px}
+.ch footer a{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.ch footer a:hover{color:var(--text);border-color:var(--line2)}
+.leeg{padding:40px 0;color:var(--text3)}
+
+footer.site{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
+footer.site .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
+footer.site a:hover{color:var(--text)}
+
+@media (max-width:900px){
+  .kop .wrap{grid-template-columns:1fr;gap:20px;padding-block:28px}
+  .kop .groot{justify-self:start;width:120px;height:120px;order:-1}
+  .kop .groot svg{width:84px;height:84px}
+  .kop .lbl{margin-top:4px}
+  .raster{grid-template-columns:1fr}
+  .hoe{grid-template-columns:1fr 1fr}
+  .hoe div:nth-child(2){border-right:0}
+  .hoe div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .ch header{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:18px 16px 12px}
+  .ch .embleem{width:72px;height:72px}.ch .embleem svg{width:54px;height:54px}
+  .ch h2{font-size:22px}
+  .ch .intro{padding:0 16px 12px}.ch li{padding:10px 16px}.ch footer{padding:12px 16px 16px}
+  .teller{width:100%;margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Biologie bij Kamiel
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html#home">Hoofdstukken</a>
+      <a href="index.html#films">Films</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="challenges.html" aria-current="page">Challenges</a>
+      <a href="pta-route.html">PTA-route</a>
+    </nav>
+    <div class="rechts">
+      <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Biologie bij Kamiel · uitlegfilms, tools en challenges</span>
+    <a href="index.html#films">Alle films</a>
+    <a href="index.html#tools">Alle tools</a>
+    <a href="pta-route.html">PTA-route</a>
+  </div>
+</footer>
+
+<script>
+/* ===== INHOUD — een nieuwe challenge: voeg een blok toe aan CHALLENGES en een tekening aan KUNST (sleutel = id).
+   thema: mens | dier | plant | ecologie | erfelijkheid | gezondheid
+   soort per subvraag: uitzoeken | experiment | meten | ontwerpen | standpunt
+   bij: links naar films/tools op deze site [label, href] ===== */
+const THEMA = {mens:['Mens','koraal'],dier:['Dier','oker'],plant:['Plant','groen'],ecologie:['Ecologie','groen'],erfelijkheid:['Erfelijkheid & evolutie','paars'],gezondheid:['Gezondheid','teal']};
+const SOORT = {uitzoeken:'uitzoeken',experiment:'experiment',meten:'zelf meten',ontwerpen:'ontwerpen',standpunt:'standpunt'};
+const CHALLENGES = [
+ {id:'veroudering',letter:'A',thema:['mens','erfelijkheid'],titel:'Hoe werkt veroudering?',
+  intro:'Iedereen wordt ouder, maar niet iedereen en niet elke soort even snel. Waar komt dat door?',
+  vragen:[['Is veroudering erfelijk?','uitzoeken'],['Hoe meet je ouderdom: biologische leeftijd tegenover kalenderleeftijd?','uitzoeken'],['Waarom worden sommige soorten 200 jaar en andere maar 2 weken?','uitzoeken'],['Kun je veroudering tegengaan, en wat zegt de wetenschap over "anti-aging"?','standpunt']],
+  bij:[['Film · Mutaties','films/dna/5-mutaties.html'],['Film · Genen aan en uit','films/dna/6-genen-aan-en-uit.html']]},
+ {id:'slaap',letter:'B',thema:['mens','dier'],titel:'Waarom slapen we?',
+  intro:'Je brengt een derde van je leven slapend door. Wat doet je lichaam in die tijd, en kun je zonder?',
+  vragen:[['Wat gebeurt er in je hersenen tijdens de verschillende slaapfases?','uitzoeken'],['Slapen alle dieren? Hoe slapen dolfijnen, vogels of vissen?','uitzoeken'],['Wat doet een nacht slecht slapen met je reactiesnelheid?','meten'],['Waarom slapen tieners later dan volwassenen?','uitzoeken']],
+  bij:[['Film · Het hoofdkantoor','films/zenuwstelsel/5-het-hoofdkantoor.html'],['Film · Post voor iedereen','films/hormonen/1-post-voor-iedereen.html']]},
+ {id:'microbioom',letter:'C',thema:['mens','gezondheid'],titel:'Wie wonen er allemaal in jou?',
+  intro:'In en op je lichaam leven biljoenen bacteriën. Zijn het indringers of huisgenoten?',
+  vragen:[['Hoeveel bacteriën heb je, en waar zitten ze?','uitzoeken'],['Kan je darmflora je stemming of gedrag beïnvloeden?','uitzoeken'],['Wat doen antibiotica met je microbioom?','uitzoeken'],['Wat helpt écht om bacteriën van je handen te krijgen? Kweek ze veilig en vergelijk.','experiment']],
+  bij:[['Film · Je darmbewoners','films/voeding/6-je-darmbewoners.html'],['Tool · Virtuele microscoop','tools/virtuele-microscoop/index.html']]},
+ {id:'verschil',letter:'D',thema:['mens','erfelijkheid'],titel:'Waarom is er zoveel verschil tussen mensen?',
+  intro:'Lengte, oogkleur, karakter, talent: wat komt uit je DNA en wat uit je omgeving?',
+  vragen:[['Hoeveel van je lengte, karakter of talent is erfelijk?','uitzoeken'],['Wat zijn tweelingstudies en wat kun je ermee?','uitzoeken'],['Hoe kan één DNA-verandering een ziekte veroorzaken?','uitzoeken'],['Moeten we embryo\'s mogen aanpassen met CRISPR?','standpunt']],
+  bij:[['Film · Chromosomen','films/erfelijkheid/1-chromosomen.html'],['Film · Wat heb jij aan DNA?','films/dna/8-wat-heb-jij-aan-dna.html'],['Tool · Kruisingslab','tools/kruisingslab.html']]},
+ {id:'buurt',letter:'E',thema:['ecologie','plant','dier'],titel:'Hoe overleeft de natuur in jouw buurt?',
+  intro:'Ook tussen stoeptegels en op het schoolplein leeft van alles. Wat dan, en hoe kun je het helpen?',
+  vragen:[['Welke soorten leven er binnen 100 meter van school?','meten'],['Verschilt de biodiversiteit tussen een gemaaid gazon en een wilde berm?','experiment'],['Hoe beïnvloedt licht \'s nachts insecten en vleermuizen?','uitzoeken'],['Ontwerp een schoolplein dat meer biodiversiteit oplevert.','ontwerpen']],
+  bij:[['Film · Selectie van dichtbij','films/evolutie/6-selectie-van-dichtbij.html']]},
+ {id:'slim',letter:'F',thema:['dier'],titel:'Kan een dier slim zijn?',
+  intro:'Kraaien gebruiken gereedschap, mieren bouwen steden. Wat is intelligentie eigenlijk?',
+  vragen:[['Wat is intelligentie, en hoe meet je dat bij dieren?','uitzoeken'],['Herkennen dieren zichzelf in een spiegel?','uitzoeken'],['Hoe kan een mierenkolonie "denken" zonder dat één mier het overzicht heeft?','uitzoeken'],['Voelen dieren pijn of emoties, en wat betekent dat voor hoe we ze behandelen?','standpunt']],
+  bij:[['Film · Leren en onthouden','films/zenuwstelsel/6-leren-en-onthouden.html']]},
+ {id:'ziekte',letter:'G',thema:['gezondheid','ecologie'],titel:'Hoe verspreidt een ziekte zich?',
+  intro:'Van verkoudheid tot pandemie: hoe springt een ziekteverwekker van de een naar de ander?',
+  vragen:[['Wat is het verschil tussen een virus, een bacterie en een parasiet?','uitzoeken'],['Hoe bereken je hoe snel een ziekte zich verspreidt (het R-getal)?','meten'],['Hoe werkt groepsimmuniteit?','uitzoeken'],['Hoe komt een nieuwe ziekte van dier naar mens?','uitzoeken']],
+  bij:[]},
+ {id:'sport',letter:'H',thema:['mens','gezondheid'],titel:'Wat doet sport met je lichaam?',
+  intro:'Je hart gaat sneller, je spieren verzuren, en na een paar weken kun je meer. Hoe kan dat?',
+  vragen:[['Wat gebeurt er in je spieren als je moe wordt?','uitzoeken'],['Hoe snel herstelt je hartslag na inspanning, en hangt dat af van je conditie?','meten'],['Waarom word je sterker van training?','uitzoeken'],['Bestaat er zoiets als een "sportgen"?','standpunt']],
+  bij:[['Film · Alles op adem','films/stofwisseling/2-alles-op-adem.html'],['Film · Adem in, adem uit','films/gaswisseling/1-adem-in-adem-uit.html'],['Film · Gas op reis','films/gaswisseling/2-gas-op-reis.html']]},
+ {id:'eten',letter:'I',thema:['mens','gezondheid'],titel:'Waarom eten we wat we eten?',
+  intro:'Smaak, gewoonte, reclame en biologie bepalen samen wat er op je bord ligt.',
+  vragen:[['Hoe proef en ruik je, en waarom vinden mensen verschillende dingen lekker?','experiment'],['Wat gebeurt er met een boterham vanaf je mond tot het einde?','uitzoeken'],['Is ultrabewerkt voedsel echt slechter, en waarom?','standpunt'],['Kunnen we de wereld voeden met insecten, algen of kweekvlees?','ontwerpen']],
+  bij:[['Film · Wat zit er in je eten?','films/voeding/1-wat-zit-er-in-je-eten.html'],['Film · De reis door je buik','films/voeding/2-de-reis-door-je-buik.html']]},
+ {id:'planten',letter:'J',thema:['plant'],titel:'Hoe reageren planten op hun omgeving?',
+  intro:'Planten kunnen niet weglopen, maar ze merken wel van alles. Hoe dan?',
+  vragen:[['Kunnen planten "zien", "voelen" of "horen"?','uitzoeken'],['Hoe weet een plant welke kant boven is? Test het met kiemplanten.','experiment'],['Communiceren bomen met elkaar via schimmels?','uitzoeken'],['Welke plant groeit het best onder welke kleur licht?','experiment']],
+  bij:[['Film · Alles in het groen','films/stofwisseling/3-alles-in-het-groen.html'],['Tool · Virtuele microscoop','tools/virtuele-microscoop/index.html']]},
+ {id:'regeneratie',letter:'K',thema:['dier','mens'],titel:'Kun je een lichaamsdeel opnieuw laten groeien?',
+  intro:'Een zeester maakt een nieuwe arm, een salamander een nieuwe poot. Waarom wij niet?',
+  vragen:[['Hoe kan een salamander een poot teruggroeien?','uitzoeken'],['Waarom kunnen mensen dat niet (meer)?','uitzoeken'],['Wat zijn stamcellen en wat kun je ermee?','uitzoeken'],['Hoe ver is de wetenschap met het kweken van organen?','standpunt']],
+  bij:[['Film · Genen aan en uit','films/dna/6-genen-aan-en-uit.html'],['Tool · Celbouwer','tools/celbouwer/index.html']]},
+ {id:'klimaat',letter:'L',thema:['ecologie','erfelijkheid'],titel:'Hoe past leven zich aan een veranderend klimaat aan?',
+  intro:'Het wordt warmer. Welke soorten schuiven op, welke passen zich aan, en welke redden het niet?',
+  vragen:[['Welke soorten schuiven op naar het noorden, en hoe weet je dat?','uitzoeken'],['Kan evolutie snel genoeg gaan om bij te houden?','uitzoeken'],['Waarom bloeien planten steeds eerder? Zoek het uit met waarnemingsdata.','meten'],['Wat kunnen we doen om soorten te helpen?','ontwerpen']],
+  bij:[['Film · Selectie van dichtbij','films/evolutie/6-selectie-van-dichtbij.html'],['Film · Veertig jaar Daphne Major','films/evolutie/9-veertig-jaar-daphne-major.html']]},
+ {id:'hersenen',letter:'M',thema:['mens'],titel:'Hoe maken je hersenen je werkelijkheid?',
+  intro:'Wat je ziet, hoort en onthoudt is geen kopie van de wereld, maar een reconstructie.',
+  vragen:[['Waarom werken optische illusies?','experiment'],['Hoe betrouwbaar is je geheugen?','experiment'],['Wat gebeurt er in je hersenen als je iets leert?','uitzoeken'],['Hoe beïnvloedt je telefoon je aandacht?','meten']],
+  bij:[['Film · Eén seconde','films/zenuwstelsel/1-een-seconde.html'],['Film · Leren en onthouden','films/zenuwstelsel/6-leren-en-onthouden.html']]},
+ {id:'geslacht',letter:'N',thema:['dier','erfelijkheid'],titel:'Waarom zijn er mannetjes en vrouwtjes?',
+  intro:'Ongeslachtelijke voortplanting is veel efficiënter. Waarom doen de meeste soorten het dan toch met z\'n tweeën?',
+  vragen:[['Waarom bestaat geslachtelijke voortplanting eigenlijk?','uitzoeken'],['Hoe wordt het geslacht bepaald bij verschillende soorten: genen, temperatuur, of wisselen?','uitzoeken'],['Waarom hebben pauwen zo\'n staart?','uitzoeken'],['Welke rol spelen hormonen bij gedrag?','standpunt']],
+  bij:[['Film · Precies op tijd','films/voortplanting/1-precies-op-tijd.html'],['Film · Overerving via X-chromosomen','films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html']]},
+ {id:'soort',letter:'O',thema:['erfelijkheid','dier'],titel:'Hoe ontstaat een nieuwe soort?',
+  intro:'Darwinvinken, stadsmuizen, resistente bacteriën: evolutie gebeurt ook nu, vlak voor je neus.',
+  vragen:[['Wat is een soort eigenlijk?','uitzoeken'],['Hoe snel kan evolutie gaan?','uitzoeken'],['Evolueren dieren in de stad anders dan op het platteland?','uitzoeken'],['Evolueert de mens nog?','standpunt']],
+  bij:[['Film · Hoe een soort er twee wordt','films/evolutie/7-hoe-een-soort-er-twee-wordt.html'],['Film · Veertig jaar Daphne Major','films/evolutie/9-veertig-jaar-daphne-major.html']]},
+ {id:'leven',letter:'P',thema:['erfelijkheid','gezondheid'],titel:'Kun je leven maken of programmeren?',
+  intro:'We knippen in DNA en laten bacteriën medicijnen maken. Waar ligt de grens?',
+  vragen:[['Wat is de grens tussen leven en niet-leven (virussen, prionen)?','uitzoeken'],['Hoe maak je bacteriën die medicijnen produceren?','uitzoeken'],['Kunnen we uitgestorven dieren terughalen?','uitzoeken'],['Moet er een grens zijn aan wat we met genetische technologie doen?','standpunt']],
+  bij:[['Film · Van niet-leven naar leven','films/evolutie/4-van-niet-leven-naar-leven.html'],['Tool · Eiwitfabriek','tools/eiwitfabriek.html']]},
+];
+/* ===== einde inhoud ===== */
+
+/* Lijntekeningen (viewBox 0 0 120 120). currentColor = kleur van het eerste thema, .acc = goud. */
+const rondom=(n,cx,cy,r,f)=>Array.from({length:n},(_,i)=>f(cx+r*Math.cos(i/n*Math.PI*2),cy+r*Math.sin(i/n*Math.PI*2),i/n*Math.PI*2)).join('');
+const KUNST = {
+veroudering:`<path d="M38 16h44M38 104h44" stroke-width="1.8"/><path d="M42 16c0 24 14 30 18 44-4 14-18 20-18 44M78 16c0 24-14 30-18 44 4 14 18 20 18 44" stroke-width="1.6"/>
+ <path d="M47 30h26c-3 9-9 14-13 20-4-6-10-11-13-20z" class="acc" fill="currentColor" stroke="none" opacity=".85"/><path d="M60 62v18" class="acc" stroke="currentColor" stroke-width="1.2" stroke-dasharray="1 4"/>
+ <path d="M46 102c3-10 8-14 14-15 6 1 11 5 14 15z" class="acc" fill="currentColor" stroke="none" opacity=".85"/>
+ <path d="M90 34c6 6 6 14 0 20M96 28c10 10 10 22 0 32" stroke-width="1" opacity=".5"/>`,
+slaap:`<path d="M70 18a36 36 0 1 0 30 52 30 30 0 0 1-30-52z" stroke-width="1.7"/>
+ <path d="M30 74c6 6 18 6 24 0" stroke-width="1.5"/><path d="M33 79l-3 4M42 81v5M51 79l3 4" stroke-width="1.1"/>
+ <g class="acc" stroke="currentColor" stroke-width="1.5"><path d="M74 30h10l-10 11h10"/><path d="M90 16h7l-7 8h7"/></g>
+ <circle cx="98" cy="88" r="1.6" fill="currentColor" stroke="none" opacity=".6"/><circle cx="20" cy="40" r="1.4" fill="currentColor" stroke="none" opacity=".6"/>`,
+microbioom:`<circle cx="60" cy="60" r="46" stroke-width="1.6"/><circle cx="60" cy="60" r="41" stroke-width=".8" opacity=".5"/>
+ <g stroke-width="1.5"><rect x="32" y="40" width="22" height="9" rx="4.5" transform="rotate(-20 43 44)"/><rect x="62" y="72" width="22" height="9" rx="4.5" transform="rotate(25 73 76)"/><rect x="68" y="34" width="18" height="8" rx="4" transform="rotate(60 77 38)"/></g>
+ <path d="M54 44c-6-4-10 0-16-2M84 80c4 6 10 6 12 10" stroke-width="1" opacity=".7"/>
+ ${[[40,74],[47,79],[44,86],[55,64]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3.6" stroke-width="1.3"/>`).join('')}
+ <path d="M64 50q4-4 8 0t8 0" class="acc" stroke="currentColor" stroke-width="1.6"/><circle cx="78" cy="58" r="3" class="acc" fill="currentColor" stroke="none"/>`,
+verschil:`${[6,12,18,24,30,36,42].map((r,i)=>{const ry=r*1.25,g=.5+i*.35,a1=Math.PI/2+g,a2=Math.PI/2+2*Math.PI-.35,p=a=>[(60+r*Math.cos(a)).toFixed(1),(64+ry*Math.sin(a)).toFixed(1)];const[x1,y1]=p(a1),[x2,y2]=p(a2);return `<path d="M${x1} ${y1}A${r} ${ry.toFixed(1)} 0 1 1 ${x2} ${y2}" stroke-width="1.4" ${i===3?'class="acc" stroke="currentColor"':''}/>`}).join('')}
+ <circle cx="60" cy="64" r="2.4" class="acc" fill="currentColor" stroke="none"/>`,
+buurt:`<path d="M10 96c18-6 30-6 46-2" stroke-width="1.3" opacity=".7"/>
+ <g stroke-width="1.4"><path d="M24 96c0-14 2-26 8-36M32 60c-10-2-14-10-12-18 8 2 13 9 12 18zM30 80c6-8 14-10 22-6-6 8-14 10-22 6z"/><path d="M44 96c0-10-2-18-6-24"/></g>
+ <circle cx="74" cy="50" r="24" stroke-width="1.7"/><circle cx="74" cy="50" r="19" stroke-width=".8" opacity=".5"/><path d="M91 67l18 18" stroke-width="3.2"/>
+ <ellipse cx="74" cy="52" rx="7" ry="9" class="acc" stroke="currentColor" stroke-width="1.4"/><path d="M74 43v18M67 48l-6-3M67 54l-6 1M67 58l-5 4M81 48l6-3M81 54l6 1M81 58l5 4M71 43l-3-5M77 43l3-5" stroke-width="1.1"/>`,
+slim:`<g stroke-width="1.6"><ellipse cx="34" cy="62" rx="9" ry="8"/><ellipse cx="54" cy="62" rx="7" ry="6"/><ellipse cx="80" cy="62" rx="15" ry="10"/></g>
+ <path d="M30 55c-6-10-14-12-18-10M32 54c-2-10-8-16-14-16" stroke-width="1.2"/>
+ <path d="M50 66l-6 14-6 4M54 68l0 16 -4 6M58 66l8 14 6 2M50 58l-8-12-8-2M54 56l2-14 -4-6M58 58l10-10 6 0" stroke-width="1.2"/>
+ <circle cx="30" cy="60" r="1.8" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M10 100c20 0 30-8 50-8s30 8 50 8" stroke-width="1" opacity=".5" stroke-dasharray="2 5"/><circle cx="104" cy="96" r="2.4" class="acc" fill="currentColor" stroke="none"/>`,
+ziekte:`<circle cx="60" cy="60" r="26" stroke-width="1.7"/><circle cx="60" cy="60" r="20" stroke-width=".8" opacity=".5"/>
+ ${rondom(12,60,60,26,(x,y,a)=>`<path d="M${x.toFixed(1)} ${y.toFixed(1)}L${(60+38*Math.cos(a)).toFixed(1)} ${(60+38*Math.sin(a)).toFixed(1)}" stroke-width="1.3"/><circle cx="${(60+41*Math.cos(a)).toFixed(1)}" cy="${(60+41*Math.sin(a)).toFixed(1)}" r="3" stroke-width="1.3" ${(Math.round(a*10)%3===0)?'class="acc" fill="currentColor"':''}/>`)}
+ <path d="M52 56q4-6 8 0t8 0M50 66q5-5 10 0t10 0" class="acc" stroke="currentColor" stroke-width="1.3"/>`,
+sport:`<path d="M60 96C30 76 16 58 18 42c2-14 18-22 30-14 6 4 10 10 12 14 2-4 6-10 12-14 12-8 28 0 30 14 2 16-12 34-42 54z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M10 60h26l6-12 8 26 8-34 8 28 6-8h38" class="acc" stroke="currentColor" stroke-width="1.8"/>`,
+eten:`<path d="M62 34c-4-12 4-20 12-22M60 36c-18-10-38 2-38 24 0 22 16 42 30 38 4-1 6-2 8-2s4 1 8 2c14 4 30-16 30-38 0-22-20-34-38-24z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M72 22c8-6 16-4 18 2-8 4-14 4-18-2z" class="acc" stroke="currentColor" stroke-width="1.4"/>
+ <path d="M44 56c-6 6-8 16-4 26" stroke-width="1.1" opacity=".6"/>`,
+planten:`<circle cx="98" cy="22" r="10" class="acc" stroke="currentColor" stroke-width="1.5"/>${rondom(8,98,22,15,(x,y,a)=>`<path d="M${x.toFixed(1)} ${y.toFixed(1)}l${(4*Math.cos(a)).toFixed(1)} ${(4*Math.sin(a)).toFixed(1)}" class="acc" stroke="currentColor" stroke-width="1.2"/>`)}
+ <path d="M18 100h56" stroke-width="1.4"/><path d="M24 100l4 14h36l4-14" stroke-width="1.4" opacity=".7"/>
+ <path d="M46 100c0-22 4-40 22-54" stroke-width="1.8"/><path d="M50 70c-14-2-22-12-20-24 12 2 20 12 20 24zM58 56c4-12 16-16 26-12-4 12-16 16-26 12z" stroke-width="1.5"/>
+ <path d="M70 44l10-8" stroke-width="1" stroke-dasharray="2 4" opacity=".7"/>`,
+regeneratie:`${(()=>{const pt=(i,r)=>{const a=-Math.PI/2+i*Math.PI/5;return [60+r*Math.cos(a),62+r*Math.sin(a)]};let d='';for(let i=0;i<10;i++){const[x,y]=pt(i,i%2?16:i===4?28:44);d+=(i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}return `<path d="${d}z" stroke-width="1.7" stroke-linejoin="round"/>`})()}
+ ${(()=>{const a=-Math.PI/2+4*Math.PI/5;const x=60+44*Math.cos(a),y=62+44*Math.sin(a),xm=60+28*Math.cos(a),ym=62+28*Math.sin(a);return `<path d="M${xm.toFixed(1)} ${ym.toFixed(1)}L${x.toFixed(1)} ${y.toFixed(1)}" class="acc" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3" class="acc" fill="currentColor" stroke="none"/>`})()}
+ ${rondom(5,60,62,8,(x,y)=>`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="1.6" fill="currentColor" stroke="none" opacity=".7"/>`)}`,
+klimaat:`<path d="M34 20a8 8 0 0 1 16 0v52a14 14 0 1 1-16 0z" stroke-width="1.7"/><circle cx="42" cy="84" r="8" class="acc" fill="currentColor" stroke="none"/><path d="M42 84V34" class="acc" stroke="currentColor" stroke-width="3.2"/>
+ <path d="M52 30h5M52 42h5M52 54h5M52 66h5" stroke-width="1.1" opacity=".7"/>
+ <path d="M70 70c6-4 10-4 14 0 4-4 8-4 14 0" stroke-width="1.5"/><path d="M76 46c4-3 7-3 10 0 3-3 6-3 10 0" stroke-width="1.3" opacity=".8"/>
+ <path d="M104 92V30M98 38l6-8 6 8" stroke-width="1.4"/>`,
+hersenen:`<g stroke-width="1.6"><path d="M28 48h44v44H28z"/><path d="M48 28h44v44H48z"/></g>
+ <path d="M28 48l20-20M72 48l20-20M28 92l20-20M72 92l20-20" stroke-width="1.3"/>
+ <path d="M48 28v44h44" class="acc" stroke="currentColor" stroke-width="1.6" stroke-dasharray="3 4"/>
+ <circle cx="72" cy="48" r="3" class="acc" fill="currentColor" stroke="none"/>`,
+geslacht:`<path d="M60 112V58" stroke-width="1.6"/>
+ ${Array.from({length:11},(_,i)=>{const y=106-i*6,w=4+i*2.6;return `<path d="M60 ${y}c-${w*.6} -2 -${w} -6 -${w} -10M60 ${y}c${w*.6} -2 ${w} -6 ${w} -10" stroke-width="1" opacity=".75"/>`}).join('')}
+ <ellipse cx="60" cy="38" rx="26" ry="30" stroke-width="1.6"/><ellipse cx="60" cy="42" rx="15" ry="18" stroke-width="1.4"/>
+ <ellipse cx="60" cy="46" rx="8" ry="10" class="acc" fill="currentColor" stroke="none"/>`,
+soort:`<path d="M60 108V72M60 72C46 62 34 56 24 44M60 72c14-10 26-16 36-28" stroke-width="1.6"/>
+ <g stroke-width="1.5"><circle cx="24" cy="34" r="12"/><path d="M14 30l-10 3 10 3" /><circle cx="96" cy="34" r="12"/><path d="M106 28l12 6-12 6"/></g>
+ <circle cx="20" cy="31" r="1.8" fill="currentColor" stroke="none"/><circle cx="100" cy="31" r="1.8" fill="currentColor" stroke="none"/>
+ <circle cx="60" cy="72" r="3.4" class="acc" fill="currentColor" stroke="none"/><path d="M60 86c-10 0-16 8-30 8M60 86c10 0 16 8 30 8" class="acc" stroke="currentColor" stroke-width="1.1" stroke-dasharray="2 4"/>`,
+leven:`<path d="M48 14h24M52 14v32L26 96c-2 6 2 12 8 12h52c6 0 10-6 8-12L68 46V14" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M36 80h48" stroke-width="1" opacity=".6"/>
+ <path d="${Array.from({length:21},(_,i)=>{const y=62+i*1.8,x=60+12*Math.sin(i/20*Math.PI*2.2);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join('')}" class="acc" stroke="currentColor" stroke-width="1.6"/>
+ <path d="${Array.from({length:21},(_,i)=>{const y=62+i*1.8,x=60-12*Math.sin(i/20*Math.PI*2.2);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)}).join('')}" stroke-width="1.6"/>
+ <circle cx="88" cy="30" r="4" stroke-width="1.2"/><circle cx="96" cy="20" r="2.4" stroke-width="1.1"/>`,
+kop:`<circle cx="60" cy="60" r="44" stroke-width="1.5"/><circle cx="60" cy="60" r="38" stroke-width=".8" opacity=".5"/>
+ <path d="M60 22v10M60 88v10M22 60h10M88 60h10" stroke-width="1.2" opacity=".7"/>
+ <path d="M48 54a12 12 0 1 1 18 10c-4 2-6 5-6 9" stroke-width="2.2"/><circle cx="60" cy="82" r="2.8" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M60 16l3 6-3 6-3-6z" class="acc" fill="currentColor" stroke="none"/>`,
+};
+
+(function(){
+const root=document.documentElement, app=document.getElementById('app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const lees=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+const schrijf=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const kunst=(id,kl,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${esc(label)}"`:'aria-hidden="true"'} style="--c:var(--${kl||'goud'})">${KUNST[id]||KUNST.kop}</svg>`;
+let filter=(location.hash||'').slice(1); if(!THEMA[filter]) filter='';
+
+function themaKnop(){
+  const d=root.getAttribute('data-theme')!=='light', b=document.getElementById('thema');
+  b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>';
+  b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
+}
+document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
+
+function kaart(c){
+  const kl=THEMA[c.thema[0]][1];
+  return `<article class="ch" id="${c.id}" style="--c:var(--${kl})">
+    <header><span class="embleem">${kunst(c.id,kl,c.titel)}</span><div><span class="letter mono">Challenge ${esc(c.letter)} · ${c.thema.map(t=>esc(THEMA[t][0])).join(' · ')}</span><h2>${esc(c.titel)}</h2></div></header>
+    <p class="intro">${esc(c.intro)}</p>
+    <ol>${c.vragen.map(([v,s],i)=>`<li><span class="nr">${esc(c.letter.toLowerCase())}${i+1}</span><div><p>${esc(v)}</p><span class="soort" data-s="${s}">${esc(SOORT[s]||s)}</span></div></li>`).join('')}</ol>
+    ${c.bij.length?`<footer><span class="mono">Past bij</span>${c.bij.map(([l,h])=>`<a href="${esc(h)}">${esc(l)}</a>`).join('')}</footer>`:''}
+  </article>`;
+}
+
+function render(){
+  const lijst=CHALLENGES.filter(c=>!filter||c.thema.includes(filter));
+  app.innerHTML=`<section class="kop"><div class="wrap">
+      <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Zelf aan de slag</div><h1>Challenges</h1>
+      <p>Grote biologische vragen om zelf uit te zoeken. Elke challenge begint breed; kies een subvraag om het kleiner en concreter te maken, of werk ze allemaal af.</p></div>
+      <div class="groot">${kunst('kop','goud')}</div>
+    </div></section>
+    <div class="wrap">
+      <div class="hoe" aria-label="Soorten opdrachten">
+        <div><span class="mono">Uitzoeken</span><b>Bronnen</b><span>Zoek betrouwbare bronnen en leg het uit in je eigen woorden.</span></div>
+        <div><span class="mono">Experiment · meten</span><b>Zelf proberen</b><span>Bedenk een proef of meting, voer hem uit en trek een conclusie.</span></div>
+        <div><span class="mono">Ontwerpen</span><b>Oplossing</b><span>Maak een plan of ontwerp dat een probleem oplost.</span></div>
+        <div><span class="mono">Standpunt</span><b>Mening</b><span>Weeg argumenten af en onderbouw wat jij vindt.</span></div>
+      </div>
+      <div class="filters" role="group" aria-label="Filter op thema"><span class="mono">Thema</span>
+        <button class="chip" type="button" data-f="" aria-pressed="${!filter}">Alles</button>
+        ${Object.entries(THEMA).map(([k,[n]])=>`<button class="chip" type="button" data-f="${k}" aria-pressed="${filter===k}">${esc(n)}</button>`).join('')}
+        <span class="teller">${lijst.length} van ${CHALLENGES.length} challenges</span>
+      </div>
+      <div class="raster">${lijst.map(kaart).join('')||'<p class="leeg">Geen challenges bij dit thema.</p>'}</div>
+    </div>`;
+}
+app.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
+themaKnop(); render();
+const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!THEMA[doel.id]) doel.scrollIntoView();
+})();
+</script>
+</body>
+</html>
