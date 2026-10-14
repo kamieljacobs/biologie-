@@ -727,10 +727,11 @@ function tekenViewer(){
   el.innerHTML=`<div class="vbox"><div class="vkop"><div><span class="mono">${esc(D.niveau)} · ${esc(e.lab)} · ${esc(op[0])}</span><br><b>Vraag ${v.nr} · ${v.p} ${v.p===1?'punt':'punten'}</b></div><button type="button" class="knop stil klein" data-vsluit>Sluiten ✕</button></div>
     <div class="knoppen">${op[2]<v.nr?`<button type="button" class="knop stil klein" data-vheel>${VW.heel?'Alleen deze vraag':'Toon de hele opgave'}</button>`:''}</div>
     <div class="papier">${imgs}</div>
+    ${v.nu?`<div><div class="kleinkop">Uitwerkbijlage bij vraag ${v.nr}</div><div class="papier">${Array.from({length:v.nu},(_,i)=>`<img src="${vImg(v,'u',i)}" alt="Uitwerkbijlage bij vraag ${v.nr}" loading="lazy">`).join('')}</div></div>`:''}
     <div class="knoppen">${v.na?`<button type="button" class="knop" data-vantw aria-expanded="${VW.antw}">${VW.antw?'Verberg antwoord':'Toon antwoord'}</button>`:''}${vor>=0?`<button type="button" class="knop stil" data-open="${vor}">← vraag ${v.nr-1}</button>`:''}${na>=0?`<button type="button" class="knop stil" data-open="${na}">vraag ${v.nr+1} →</button>`:''}</div>
     ${VW.antw&&v.na?`<div class="antw">${Array.from({length:v.na},(_,i)=>`<img src="${vImg(v,'a',i)}" alt="Antwoord vraag ${v.nr} uit het correctievoorschrift" style="display:block;width:100%;height:auto">`).join('')}</div>`:''}
     ${v.w?`<details><summary class="zacht">Wat getoetst wordt (samenvatting)</summary><p class="zacht">${esc(v.w)}</p></details>`:''}
-    <p class="bron">Bron: College voor Toetsen en Examens, centraal examen biologie ${esc(D.niveau)} ${esc(e.lab)}, vraag ${v.nr}: opgavenboekje en correctievoorschrift (examenblad.nl). Soms verwijst een vraag naar een bijlage die hier niet staat.</p></div>`;
+    <p class="bron">Bron: College voor Toetsen en Examens, centraal examen biologie ${esc(D.niveau)} ${esc(e.lab)}, vraag ${v.nr}: opgavenboekje en correctievoorschrift (examenblad.nl).</p></div>`;
   el.classList.add('open'); document.body.classList.add('vopen');
 }
 function sluitViewer(){ const el=document.getElementById('viewer'); if(el){ el.classList.remove('open'); el.innerHTML=''; } document.body.classList.remove('vopen'); VW=null; }
