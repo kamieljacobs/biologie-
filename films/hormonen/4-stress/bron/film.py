@@ -1,0 +1,88 @@
+import json
+film = {
+ "slug": "4-stress", "hoofdstuk": "regeling", "hoofdstukNaam": "Regeling",
+ "title": "Stress", "sub": "Twee hormonen, twee snelheden",
+ "puzzle": "Na een zware toetsweek lig je de dag na de laatste toets verkouden in bed. Hoe kan stress ervoor zorgen dat je ziek wordt?",
+ "meta": "hormonen 4/5", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Hormonen · film 4 van 5",
+ "lead": "De bijnier is twee klieren in één. Het merg maakt adrenaline: aangezet door zenuwen, binnen seconden in je bloed, en na een paar minuten weer weg. De schors maakt cortisol: aangezet door ACTH van de hypofyse, op zijn hoogst na twintig minuten tot een half uur. Cortisol verhoogt je glucose en remt je afweer; via negatieve terugkoppeling remt het zijn eigen aanmaak. Duurt stress dagen of weken, dan blijft de cortisol hoger en ben je vatbaarder voor ziekte.",
+ "endHaak": "snel en kort, of traag en lang",
+ "minis": {"Hoofdstuk 1": "Welk deel van de bijnier reageert het snelst?", "Hoofdstuk 2": "Wat doet adrenaline in een paar seconden?", "Hoofdstuk 3": "Wat doet cortisol, en hoe zakt het weer?", "Hoofdstuk 4": "Wat gebeurt er als de stress niet stopt?", "Recap": "Waarom word je ziek na een toetsweek?"},
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {"q": "Na een toetsweek lig je de dag na de laatste toets verkouden in bed. Hoe kan stress ervoor zorgen dat je ziek wordt?", "correct": 1, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
+  "q05": {"q": "Je schrikt. Welk deel van de bijnier reageert sneller?", "correct": 0, "explain": "Een zenuwsignaal is er in een fractie van een seconde, en het merg heeft adrenaline al klaarliggen in blaasjes. De schors moet wachten op ACTH uit de hypofyse en moet cortisol daarna nog maken."},
+  "q10": {"q": "Wat doet cortisol met je glucose?", "correct": 1, "explain": "Cortisol laat de lever nieuwe glucose maken, onder andere uit aminozuren uit eiwitten. Je glucose stijgt dus, net als bij adrenaline en glucagon."},
+  "q15": {"q": "Iemand slikt een jaar lang prednison, een medicijn dat op cortisol lijkt, en stopt dan in één keer. Wat is het risico?", "correct": 0, "explain": "Prednison remde de hypothalamus en de hypofyse: weinig CRH en ACTH. Zonder ACTH is de bijnierschors gekrompen. Na het stoppen maakt die te weinig cortisol, en het duurt weken tot maanden voor de as hersteld is. Daarom wordt zo'n medicijn langzaam afgebouwd."}
+ },
+ "glossary": [
+  {"t": "bijnier", "d": "Hormoonklier als een kapje op elke nier, met twee delen: het merg en de schors."},
+  {"t": "bijniermerg", "d": "Binnenste deel van de bijnier. Maakt adrenaline; wordt aangezet door het orthosympathische zenuwstelsel."},
+  {"t": "bijnierschors", "d": "Buitenste deel van de bijnier. Maakt onder andere cortisol; wordt aangezet door ACTH van de hypofyse."},
+  {"t": "orthosympathisch zenuwstelsel", "d": "Deel van het autonome zenuwstelsel dat je lichaam klaarzet voor actie: hart sneller, luchtwegen wijder, bijniermerg aan."},
+  {"t": "adrenaline", "d": "Hormoon uit het bijniermerg. Binnen seconden in het bloed: hart sneller en harder, luchtwegen wijder, lever breekt glycogeen af tot glucose, bloedvaten naar de spieren wijder. Na een paar minuten grotendeels afgebroken."},
+  {"t": "doelwitcel", "d": "Cel met een receptor voor een bepaald hormoon; alleen die cel reageert op dat hormoon."},
+  {"t": "ACTH", "d": "Hormoon van de hypofyse dat de bijnierschors aanzet om cortisol te maken."},
+  {"t": "cortisol", "d": "Hormoon uit de bijnierschors. Verhoogt de glucose (de lever maakt nieuwe glucose, onder andere uit aminozuren) en remt afweer en ontstekingen. Hoogst rond het wakker worden."},
+  {"t": "negatieve terugkoppeling", "d": "Het eindproduct remt zijn eigen aanmaak: cortisol remt de hypothalamus en de hypofyse, zodat er minder ACTH en minder cortisol komt."},
+  {"t": "CRH", "d": "Releasing hormoon van de hypothalamus dat de hypofyse aanzet om ACTH af te geven.", "vwo": True},
+  {"t": "HPA-as", "d": "Hypothalamus, hypofyse (pituitary) en bijnierschors (adrenal cortex) als één regelsysteem: CRH → ACTH → cortisol, met terugkoppeling op hypothalamus en hypofyse.", "vwo": True},
+  {"t": "steroïdhormoon", "d": "Hormoon gemaakt van cholesterol, zoals cortisol. Gaat door het membraan, bindt aan een receptor in de cel en zet genen aan of uit.", "vwo": True},
+  {"t": "prednison", "d": "Medicijn dat op cortisol lijkt en ontstekingen remt. Remt bij langdurig gebruik ook de eigen HPA-as; daarom langzaam afbouwen.", "vwo": True}
+ ],
+ "sections": """
+  <section><h2>Checkvragen</h2>
+    <p class="meta">examenstijl · antwoorden ingeklapt</p>
+    <div class="q"><b>1. Schrik van een hond</b> <span class="pts">3 punten</span><p>In een doorsnede van een bijnier is het binnenste deel aangegeven met P en het buitenste deel met Q. Lisa schrikt van een blaffende hond.</p><p>a. Welk deel geeft binnen enkele seconden een hormoon af, en welk hormoon is dat? (1p)<br>b. Leg uit waarom dat deel sneller reageert dan het andere deel. Noem in je antwoord hoe elk deel wordt aangezet. (2p)</p>
+      <details><summary>Antwoord</summary><p>a. P (het merg) en adrenaline; beide nodig voor het punt (1). b. Het merg wordt aangezet via een (orthosympathische) zenuw en heeft adrenaline klaarliggen (1). De schors wordt aangezet door ACTH van de hypofyse, dat eerst via het bloed moet komen, en daarna moet cortisol nog gemaakt worden (1).</p></details></div>
+    <div class="q"><b>2. Vluchten of vechten</b> <span class="pts">4 punten</span><p>a. Noem één orgaan waarvan de bloedvaten onder invloed van adrenaline wijder worden en één waarvan ze nauwer worden. Leg uit waarom dat nuttig is bij een schrik. (2p)<br>b. Uit welke stof in de lever komt de extra glucose die adrenaline vrijmaakt? (1p)<br>c. Sem heeft al maanden veel stress. Een schaafwond geneest bij hem langzaam. Leg uit hoe dat komt. (1p)</p>
+      <details><summary>Antwoord</summary><p>a. Wijder: (skelet)spieren; nauwer: darmen of huid (1). Zo gaat er meer bloed met zuurstof en glucose naar de spieren, voor vluchten of vechten (1). b. Glycogeen (1). c. De cortisol blijft verhoogd en remt de afweer en de ontstekingsreactie (1).</p></details></div>
+    <div class="q"><b>3. Een stresstest</b> <span class="pts">5 + 1 punten</span><p>Proefpersonen houden om 14.00 uur een presentatie voor een jury (van t = 0 tot t = 10 min). In hun bloed worden drie stoffen gemeten: X, Y en Z. Dat zijn adrenaline, ACTH en cortisol, in onbekende volgorde.</p>
+      <table><tr><th>t (min)</th><th>0</th><th>5</th><th>10</th><th>20</th><th>30</th><th>45</th><th>60</th><th>90</th></tr>
+      <tr><td>X (pg/mL)</td><td>40</td><td>135</td><td>120</td><td>55</td><td>42</td><td>40</td><td>39</td><td>40</td></tr>
+      <tr><td>Y (pmol/L)</td><td>4,0</td><td>6,5</td><td>9,8</td><td>8,1</td><td>5,9</td><td>4,6</td><td>4,1</td><td>4,0</td></tr>
+      <tr><td>Z (nmol/L)</td><td>160</td><td>170</td><td>215</td><td>330</td><td>345</td><td>290</td><td>230</td><td>175</td></tr></table>
+      <p>a. Welke stof is adrenaline? Geef één argument. (1p)<br>b. Leg met de tabel uit dat Y de afgifte van Z regelt. (1p)<br>c. Beschrijf het mechanisme waardoor Z na t = 30 weer daalt. Noem de twee organen die Z daarbij remt. (2p)<br>d. Waarom kozen de onderzoekers 14.00 uur, en niet 7.30 uur? (1p)</p>
+      <p class="vwo-only">e. (vwo) Welk hormoon zet de afgifte van Y aan, en stijgt dat hormoon vóór, tegelijk met of na Y? (1p)</p>
+      <details><summary>Antwoord</summary><p>a. X: die stijgt en daalt het snelst (1). b. Y (ACTH) is het hoogst bij t = 10; Z (cortisol) pas bij t = 20–30, dus Z volgt Y (1). c. Cortisol remt de hypothalamus en de hypofyse (1); daardoor komt er minder ACTH en dus minder cortisol: negatieve terugkoppeling (1). d. Door het dagritme is cortisol 's ochtends al hoog (en wisselt het sterk), dus het effect van de test is dan slecht te zien (1).</p><p class="vwo-only">e. CRH; dat stijgt vóór ACTH (1).</p></details></div>
+    <div class="q vwo-only"><b>4. Een jaar prednison</b> <span class="vwo-badge">vwo</span> <span class="pts">5 punten</span><p>Een patiënte met reuma slikt een jaar lang prednison en stopt dan in één keer. Metingen om 8.00 uur:</p>
+      <table><tr><th></th><th>vóór</th><th>na 1 jaar prednison</th><th>4 weken na stoppen</th><th>referentie</th></tr>
+      <tr><td>ACTH (pmol/L)</td><td>5,5</td><td>1,1</td><td>3,0</td><td>2–11</td></tr>
+      <tr><td>eigen cortisol (nmol/L)</td><td>420</td><td>45</td><td>70</td><td>200–600</td></tr>
+      <tr><td>glucose (mmol/L)</td><td>5,2</td><td>6,4</td><td>3,4</td><td>4,0–5,6</td></tr></table>
+      <p>a. Waar in de doelwitcel bindt prednison, en hoe werkt het daar? (1p)<br>b. Verklaar de lage ACTH en de lage eigen cortisol tijdens het gebruik. Noem beide plaatsen van terugkoppeling. (2p)<br>c. Leg uit waarom na het stoppen de ACTH wel stijgt, maar de cortisol nauwelijks. (1p)<br>d. Verklaar de lage glucose na het stoppen. (1p)</p>
+      <details><summary>Antwoord</summary><p>a. Het gaat door het membraan, bindt aan een receptor in de cel en zet genen aan of uit (1). b. Prednison remt de afgifte van CRH door de hypothalamus en van ACTH door de hypofyse (1); daardoor wordt de bijnierschors niet gestimuleerd en maakt die weinig cortisol (1). c. De bijnierschors is gekrompen door het langdurige gebrek aan ACTH en heeft weken tot maanden nodig om te herstellen (1). d. Er is te weinig cortisol (en geen prednison meer), dus de lever maakt minder nieuwe glucose uit aminozuren (1).</p></details></div>
+  </section>
+  <section><h2>Voor de docent</h2>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>I · Macro</td><td>Klaslokaal met toetsweekrooster en leerling die tot laat leert; daarna in bed met tissues; vraag q02</td></tr>
+      <tr><td>1 Eén klier, twee delen</td><td>B · Schema</td><td>Nier met bijnier als kapje; doorsnede met merg (binnen) en schors (buiten); zenuw naar het merg, hormoon van de hypofyse naar de schors; vraag q05</td></tr>
+      <tr><td>2 De snelle route</td><td>D · Schema</td><td>Lichaamskaart: zenuw van de hypothalamus naar het bijniermerg; mergcel met adrenaline in blaasjes; adrenaline in de bloedlus; doelwitcellen met en zonder receptor; vijf effecten; grafiek: adrenaline in een paar minuten weg</td></tr>
+      <tr><td>3 De langzame route</td><td>D · Schema + Micro</td><td>Keten hypothalamus → hypofyse → ACTH → bijnierschors → cortisol; grafiek adrenaline tegenover cortisol na een schrik; vraag q10; spier → aminozuren → lever → nieuwe glucose; afweercellen geremd; regelkring met minteken; dagritme. Vwo: CRH en HPA-as, membraanreceptor tegenover receptor in de cel, prednison (vraag q15), krimpende schors en afbouwen</td></tr>
+      <tr><td>4 Als de stress niet stopt</td><td>I · Schema</td><td>Tijdlijn schrik – toets – toetsweek – weken; gas (hersenen) sterker dan rem (cortisol); drie gevolgen; herstel</td></tr>
+      <tr><td>Recap</td><td>Schema</td><td>Toetsweek met cortisol over de dagen, virussen die een kans krijgen, ziek na de laatste toets</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul>
+      <li>Het merg maakt ook noradrenaline, en de schors maakt ook andere hormonen (onder andere aldosteron, zie film 5). De film noemt alleen adrenaline en cortisol.</li>
+      <li>Hart en bloedvaten worden ook rechtstreeks door het orthosympathische zenuwstelsel aangestuurd; de film noemt dat, maar laat de effecten vooral aan adrenaline zien.</li>
+      <li>De grafieken (adrenaline en cortisol na een schrik, dagritme, cortisol tijdens de toetsweek) zijn modellen met realistische tijden, geen meetgegevens.</li>
+      <li>Langdurige stress: de film laat een hogere cortisol zien, vooral 's avonds. In werkelijkheid zijn de patronen bij chronische stress wisselend; het remmende effect op de afweer is goed aangetoond.</li>
+      <li>De koppeling toetsweek → verkoudheid is een herkenbaar voorbeeld; ook slaaptekort en contact met veel mensen spelen mee.</li>
+    </ul>
+    <h3>Leerdoelen en waar ze zitten</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
+      <tr><td>Bijnier: merg (adrenaline, zenuw) en schors (cortisol, ACTH)</td><td>basis</td><td>H1, vraag q05, checkvraag 1</td></tr>
+      <tr><td>Werking adrenaline en waarom die snel is</td><td>basis</td><td>H2, checkvragen 1b en 2</td></tr>
+      <tr><td>Werking cortisol, regelkring met negatieve terugkoppeling, dagritme</td><td>basis</td><td>H3, vraag q10, checkvraag 3</td></tr>
+      <tr><td>Korte tegenover langdurige stress</td><td>basis</td><td>H4, recap, vraag q02, checkvraag 2c</td></tr>
+      <tr><td>HPA-as met CRH; prednison en afbouwen</td><td>vwo</td><td>H3 vwo-blok, vraag q15, checkvragen 3e en 4</td></tr>
+    </table>
+    <h3>Pauzemomenten in de klas</h3>
+    <ul><li>Na q05: laat leerlingen opschrijven wat ze voelen bij een schrik, en koppel elk gevoel aan een effect van adrenaline.</li><li>Na de grafiek adrenaline tegenover cortisol: welke curve hoort bij welke route?</li><li>Na H4: wat helpt jou om stress te laten zakken? (Geen beoordeling; benoem dat de mentor er ook is.)</li></ul>
+  </section>
+"""
+}
+json.dump(film, open('film.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print('ok')
