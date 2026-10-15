@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verder met biologie · Biologie bij Kamiel</title>
+<meta name="description" content="Vervolgopleidingen en beroepen waarin biologie centraal staat, met per gebied de theoretische basis die je nodig hebt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
+<style>
+/* Zelfde huisstijl als index.html (navy, goud, Fraunces, lijntekeningen als platen in een biologieboek). */
+:root{
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.30);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --koraal:#E8876C; --paars:#A897DB; --teal:#6DB3D6; --oker:#D2AE66;
+  --titel:"Fraunces",Georgia,"Times New Roman",serif;
+  --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --meta:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.22);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#D9AC3C; --goud-ink:#1A1405; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --groen:#2F8A47; --koraal:#B9502F; --paars:#6550AD; --teal:#25729C; --oker:#8C6A1C;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 var(--tekst);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px}
+h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wrap:balance;margin:0}
+.mono{font-family:var(--meta);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+[hidden]{display:none!important}
+.kunst{color:var(--c,var(--goud))}
+.kunst .acc{color:var(--goud)}
+
+/* Kopbalk (zoals index.html) */
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
+.merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav a{padding:7px 12px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
+.nav a:hover{color:var(--text)}
+.nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud);border-radius:0}
+.rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.icoon{width:40px;height:40px;border-radius:999px;border:1px solid var(--line2);background:none;display:inline-flex;align-items:center;justify-content:center;color:var(--text2)}
+.icoon:hover{color:var(--text)}
+
+/* Paginakop */
+.kop{border-bottom:1px solid var(--line)}
+.kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
+.terug{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-weight:600;font-size:15px}
+.terug:hover{color:var(--text)}
+.kop .lbl{color:var(--goud-text);margin:26px 0 8px}
+.kop h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
+.kop p{margin:12px 0 0;color:var(--text2);max-width:60ch}
+.kop .groot{justify-self:end;width:220px;height:220px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);display:flex;align-items:center;justify-content:center}
+.kop .groot svg{width:150px;height:150px}
+
+/* Uitleg en filters */
+.hoe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:32px;border:1px solid var(--line2);border-radius:4px;background:var(--surface)}
+.hoe div{padding:16px 18px;border-right:1px solid var(--line)}
+.hoe div:last-child{border-right:0}
+.hoe b{display:block;font-family:var(--titel);font-size:18px;margin:6px 0 2px}
+.hoe span:not(.mono){color:var(--text2);font-size:15px;line-height:1.45;display:block}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:34px 0 8px}
+.filters .mono{color:var(--text3);margin-right:6px}
+.chip{border:1px solid var(--line2);background:none;border-radius:999px;padding:6px 14px;min-height:36px;font-weight:600;font-size:14px;color:var(--text2)}
+.chip:hover{color:var(--text)}
+.chip[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+.teller{color:var(--text3);font-size:14px;margin-left:auto}
+
+/* Kern en gebieden */
+.kern{margin-top:32px;border:1px solid var(--line2);border-radius:18px;background:var(--surface);padding:22px;display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;align-items:start}
+.kern .embleem{width:96px;height:96px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.kern .embleem svg{width:74px;height:74px}
+.kern h2{font-size:25px;margin:4px 0 6px}
+.kern p{margin:0 0 12px;color:var(--text2)}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags a,.tags span{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.tags a:hover{color:var(--text);border-color:var(--line2)}
+.opbouw{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px;border:1px solid var(--line2);border-radius:4px;background:var(--surface)}
+.opbouw div{padding:16px 18px;border-right:1px solid var(--line)}
+.opbouw div:last-child{border-right:0}
+.opbouw b{display:block;font-family:var(--titel);font-size:18px;margin:6px 0 2px}
+.opbouw span:not(.mono){color:var(--text2);font-size:15px;line-height:1.45;display:block}
+.opbouw .mono{color:var(--goud-text)}
+.opbouw .later .mono{color:var(--text3)}
+.cluster{margin-top:44px}
+.cluster>h2{font-size:30px;display:flex;align-items:center;gap:12px}
+.cluster>h2 .stip{width:12px;height:12px;border-radius:999px;background:var(--c)}
+.cluster>p{margin:6px 0 0;color:var(--text2);max-width:70ch}
+.raster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;padding-top:16px}
+.gb{scroll-margin-top:110px;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.gb header{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center;padding:20px 22px 12px;background:radial-gradient(280px 130px at 100% 0,color-mix(in srgb,var(--c) 14%,transparent),transparent)}
+.gb .embleem{width:72px;height:72px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.gb .embleem svg{width:54px;height:54px}
+.gb .niv{color:var(--c)}
+.gb h3{font-size:23px;line-height:1.1;margin:4px 0 0}
+.gb .intro{margin:0;padding:0 22px 12px;color:var(--text2);font-size:16px}
+.gb .basis{border-top:1px solid var(--line);padding:12px 22px 4px}
+.gb .basis .mono{color:var(--text3);display:flex;justify-content:space-between;gap:8px}
+.gb ol{list-style:none;margin:8px 0 0;padding:0}
+.gb li{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:8px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);color:var(--text2)}
+.gb li:last-child{border-bottom:0}
+.gb li .nr{font:600 12px/1.9 var(--meta);color:var(--text3)}
+.komt{font:600 10.5px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);border:1px dashed var(--line2);border-radius:999px;padding:4px 8px;white-space:nowrap}
+.gb footer{margin-top:auto;padding:12px 22px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--line)}
+.gb footer .mono{color:var(--text3);margin-right:4px}
+.gb footer a{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+.gb footer a:hover{color:var(--text);border-color:var(--line2)}
+.leeg{padding:40px 0;color:var(--text3)}
+footer.site{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
+footer.site .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
+footer.site a:hover{color:var(--text)}
+
+@media (max-width:900px){
+  .kop .wrap{grid-template-columns:1fr;gap:20px;padding-block:28px}
+  .kop .groot{justify-self:start;width:120px;height:120px;order:-1}
+  .kop .groot svg{width:84px;height:84px}
+  .kop .lbl{margin-top:4px}
+  .raster{grid-template-columns:1fr}
+  .opbouw{grid-template-columns:1fr 1fr}
+  .opbouw div:nth-child(2){border-right:0}
+  .opbouw div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .hoe{grid-template-columns:1fr 1fr}
+  .hoe div:nth-child(2){border-right:0}
+  .hoe div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .gb header{padding:16px 16px 10px}
+  .gb .intro{padding:0 16px 10px}.gb .basis{padding:10px 16px 4px}.gb footer{padding:10px 16px 16px}
+  .kern{grid-template-columns:1fr;padding:18px 16px}
+  .opbouw{grid-template-columns:1fr}.opbouw div{border-right:0;border-bottom:1px solid var(--line)}
+  .teller{width:100%;margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* levende lijntekeningen: af en toe beweegt er één (uit bij 'beweging verminderen') */
+@media (prefers-reduced-motion: no-preference){
+svg.kunst.leeft-klop{animation:bk-klop 1.6s ease-in-out}
+svg.kunst.leeft-wieg{animation:bk-wieg 2.4s ease-in-out}
+svg.kunst.leeft-drijf{animation:bk-drijf 2.6s ease-in-out}
+svg.kunst.leeft-adem{animation:bk-adem 2.8s ease-in-out}
+svg.kunst.leeft-draai{animation:bk-draai 3s ease-in-out}
+}
+@keyframes bk-klop{0%,100%{transform:scale(1)}15%{transform:scale(1.07)}30%{transform:scale(1)}45%{transform:scale(1.05)}60%{transform:scale(1)}}
+@keyframes bk-wieg{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@keyframes bk-drijf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes bk-adem{0%,100%{transform:scale(1,1)}50%{transform:scale(1.04,.97)}}
+@keyframes bk-draai{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Biologie bij Kamiel
+    </a>
+    <nav class="nav" aria-label="Hoofdmenu">
+      <a href="index.html#home">Hoofdstukken</a>
+      <a href="index.html#films">Films</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="challenges.html">Challenges</a>
+      <a href="vervolg.html" aria-current="page">Verder</a>
+      <a href="pta-route.html">PTA-route</a>
+      <a href="examenatlas.html">Examenatlas</a>
+    </nav>
+    <div class="rechts">
+      <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Biologie bij Kamiel · uitlegfilms, tools en challenges</span>
+    <a href="challenges.html">Challenges</a>
+    <a href="index.html#films">Alle films</a>
+    <a href="index.html#tools">Alle tools</a>
+    <a href="pta-route.html">PTA-route</a>
+    <a href="examenatlas.html">Examenatlas</a>
+  <span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></div>
+</footer>
+
+<script>
+/* ===== INHOUD — vervolgopleidingen per gebied.
+   Eerst komt per gebied de theoretische basis (onderwerpen in 'basis'); 'Een dag uit het werk',
+   'praktijkopdracht' en 'opleidingen' volgen later. Een onderwerp dat af is: zet het als
+   [titel, href] in plaats van een losse tekst, dan verdwijnt 'komt nog' en wordt het een link.
+   bouwt: hoofdstukken op deze site waar het gebied op voortbouwt [label, hoofdstuk-id] ===== */
+const CLUSTERS = [
+ {id:'zorg',naam:'Zorg en geneeskunde',kleur:'koraal',tekst:'Opleidingen waarin je met het menselijk (of dierlijk) lichaam werkt: diagnose stellen, behandelen, verzorgen.'},
+ {id:'lab',naam:'Lab en onderzoek',kleur:'teal',tekst:'Opleidingen waarin je in het laboratorium of achter de computer uitzoekt hoe leven werkt.'},
+ {id:'voeding',naam:'Voeding en gezondheid',kleur:'oker',tekst:'Opleidingen over wat we eten, hoe we bewegen en hoe je ziekte in een hele bevolking voorkomt.'},
+ {id:'gedrag',naam:'Gedrag en hersenen',kleur:'paars',tekst:'Opleidingen over denken, voelen en gedrag, en de biologie die daaronder ligt.'},
+ {id:'groen',naam:'Groen en ecologie',kleur:'groen',tekst:'Opleidingen over natuur, landbouw en het milieu, van een moestuin tot een heel ecosysteem.'},
+ {id:'onderwijs',naam:'Onderwijs',kleur:'goud',tekst:'Biologie zelf uitleggen aan anderen.'},
+];
+const GEBIEDEN = [
+ {id:'geneeskunde',cluster:'zorg',naam:'Geneeskunde',niveau:'wo',intro:'Arts worden: weten hoe een gezond lichaam werkt, zodat je herkent wat er misgaat.',
+  basis:['Anatomie en fysiologie van de orgaanstelsels','Homeostase en regelkringen','Afweer en infectieziekten','Celbiologie en weefsels','Erfelijkheid en erfelijke aandoeningen'],
+  bouwt:[['Afweer','afweer'],['Regeling','regeling'],['Transport','transport'],['Erfelijkheid','erfelijkheid']]},
+ {id:'diergeneeskunde',cluster:'zorg',naam:'Diergeneeskunde',niveau:'wo',intro:'Dierenarts worden: van hond en kat tot koe en paard.',
+  basis:['Vergelijkende anatomie en fysiologie','Voortplanting en verloskunde bij dieren','Infectieziekten en zoönosen','Diergedrag en welzijn'],
+  bouwt:[['Voortplanting','voortplanting'],['Afweer','afweer'],['Gedrag','gedrag']]},
+ {id:'tandheelkunde',cluster:'zorg',naam:'Tandheelkunde en mondzorg',niveau:'hbo · wo',intro:'Tandarts of mondzorgkundige: het gebit, de mond en de bacteriën die er wonen.',
+  basis:['Bouw van gebit en kaak','Bacteriën in de mond en tandplak','Ontsteking en afweer','Voeding en tanderosie'],
+  bouwt:[['Voeding','voeding'],['Afweer','afweer']]},
+ {id:'farmacie',cluster:'zorg',naam:'Farmacie',niveau:'mbo · wo',intro:'Apotheker of apothekersassistent: hoe een medicijn je lichaam in komt, werkt en weer verdwijnt.',
+  basis:['Celmembraan en transport','Enzymen en receptoren','Stofwisseling en afbraak in de lever','Antibiotica en resistentie','Hormonen als medicijn'],
+  bouwt:[['Cellen','cellen'],['Stofwisseling','stofwisseling'],['Regeling','regeling']]},
+ {id:'verloskunde',cluster:'zorg',naam:'Verloskunde',niveau:'hbo',intro:'Verloskundige: zwangerschap, bevalling en de eerste dagen daarna begeleiden.',
+  basis:['Voortplantingsorganen en menstruatiecyclus','Bevruchting en embryonale ontwikkeling','Hormonen tijdens zwangerschap en bevalling','Placenta en de bloedsomloop van het kind'],
+  bouwt:[['Voortplanting','voortplanting'],['Regeling','regeling']]},
+ {id:'verpleegkunde',cluster:'zorg',naam:'Verpleegkunde',niveau:'mbo · hbo',intro:'Verpleegkundige: zorg voor patiënten, van ziekenhuis tot wijk.',
+  basis:['Bloedsomloop, ademhaling en vitale functies','Vocht en zouten in balans','Wondgenezing en infecties','Medicijnen en het lichaam'],
+  bouwt:[['Transport','transport'],['Gaswisseling','gaswisseling'],['Afweer','afweer']]},
+ {id:'fysiotherapie',cluster:'zorg',naam:'Fysiotherapie en bewegingswetenschappen',niveau:'hbo · wo',intro:'Hoe spieren, botten en zenuwen samen beweging maken, en hoe je herstelt na een blessure.',
+  basis:['Skelet, spieren en gewrichten','Zenuwen en spieraansturing','Energie voor spieren en training','Herstel van weefsel'],
+  bouwt:[['Stofwisseling','stofwisseling'],['Regeling','regeling'],['Gaswisseling','gaswisseling']]},
+ {id:'mbrt',cluster:'zorg',naam:'Medische beeldvorming (MBRT)',niveau:'hbo',intro:'Röntgen, MRI, CT en bestraling: in het lichaam kijken zonder te opereren.',
+  basis:['Anatomie in doorsneden','Straling en weefsel','Tumoren en celdeling'],
+  bouwt:[['Cellen','cellen'],['DNA','dna']]},
+
+ {id:'biomedisch',cluster:'lab',naam:'Biomedische wetenschappen',niveau:'wo',intro:'Onderzoek naar hoe ziektes ontstaan op het niveau van cellen en moleculen.',
+  basis:['Celbiologie en signaaloverdracht','DNA, genexpressie en mutaties','Afweer en vaccins','Onderzoek doen: proefopzet en statistiek'],
+  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']]},
+ {id:'labtechniek',cluster:'lab',naam:'Laboratoriumtechniek',niveau:'mbo · hbo',intro:'Analist in een lab: monsters onderzoeken in ziekenhuis, bedrijf of onderzoeksinstituut.',
+  basis:['Microscopie en preparaten','PCR en gel-elektroforese','Bloedgroepen en bloedonderzoek','Werken met bacteriën: kweken en steriel werken'],
+  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']]},
+ {id:'biotechnologie',cluster:'lab',naam:'Biotechnologie en life sciences',niveau:'mbo · hbo · wo',intro:'Organismen laten werken voor de mens: medicijnen, voedsel en materialen maken.',
+  basis:['Genetische modificatie en CRISPR','Eiwitsynthese en enzymen','Bacteriën en gisten als fabriek','Ethiek van biotechnologie'],
+  bouwt:[['DNA','dna'],['Stofwisseling','stofwisseling']]},
+ {id:'forensisch',cluster:'lab',naam:'Forensisch onderzoek',niveau:'hbo · wo',intro:'Sporen onderzoeken voor politie en justitie: wie was er, en wanneer?',
+  basis:['DNA-profielen maken en vergelijken','Bloed en lichaamsvloeistoffen','Afbraak na de dood en tijdstip bepalen','Insecten als getuige'],
+  bouwt:[['DNA','dna'],['Erfelijkheid','erfelijkheid']]},
+ {id:'bioinformatica',cluster:'lab',naam:'Bio-informatica',niveau:'hbo · wo',intro:'Biologie en programmeren: enorme hoeveelheden DNA- en eiwitdata doorzoeken.',
+  basis:['Genoom, genen en eiwitten','Mutaties en variatie tussen mensen','Evolutie en stambomen','Data en statistiek in de biologie'],
+  bouwt:[['DNA','dna'],['Evolutie','evolutie'],['Erfelijkheid','erfelijkheid']]},
+
+ {id:'voedingsleer',cluster:'voeding',naam:'Voeding en diëtetiek',niveau:'hbo · wo',intro:'Diëtist of voedingskundige: wat eten met je lichaam doet en hoe je gezond eet.',
+  basis:['Voedingsstoffen en hun functie','Vertering en opname','Energiebalans en stofwisseling','Voeding bij ziekte'],
+  bouwt:[['Voeding','voeding'],['Stofwisseling','stofwisseling']]},
+ {id:'gezondheidswetenschappen',cluster:'voeding',naam:'Gezondheidswetenschappen',niveau:'wo',intro:'Gezondheid van een hele bevolking: hoe voorkom je ziekte op grote schaal?',
+  basis:['Verspreiding van ziektes (epidemiologie)','Leefstijl, erfelijkheid en risico','Vaccinatie en groepsimmuniteit','Onderzoek doen: cohort- en patiënt-controlestudies'],
+  bouwt:[['Afweer','afweer'],['Erfelijkheid','erfelijkheid']]},
+
+ {id:'psychologie',cluster:'gedrag',naam:'Psychologie',niveau:'wo',intro:'Waarom mensen denken, voelen en doen wat ze doen, en hoe je helpt als het vastloopt.',
+  basis:['Zenuwstelsel en neuronen','Hersengebieden en hun functie','Hormonen en stress (HPA-as)','Gedrag: aangeboren en geleerd','Erfelijkheid en omgeving'],
+  bouwt:[['Regeling','regeling'],['Gedrag','gedrag'],['Erfelijkheid','erfelijkheid']]},
+ {id:'neurowetenschappen',cluster:'gedrag',naam:'Neurowetenschappen',niveau:'wo',intro:'Hoe hersenen werken, van één zenuwcel tot bewustzijn.',
+  basis:['Actiepotentiaal en synaps','Zintuigen en waarneming','Leren en geheugen','Hersenen en medicijnen'],
+  bouwt:[['Regeling','regeling'],['Gedrag','gedrag']]},
+ {id:'pedagogiek',cluster:'gedrag',naam:'Pedagogiek',niveau:'hbo · wo',intro:'Hoe kinderen zich ontwikkelen en hoe je ze daarbij helpt.',
+  basis:['Ontwikkeling van de hersenen','Puberteit en hormonen','Hechting en gedrag'],
+  bouwt:[['Gedrag','gedrag'],['Voortplanting','voortplanting']]},
+
+ {id:'ecologie',cluster:'groen',naam:'Ecologie en natuurbeheer',niveau:'mbo · hbo · wo',intro:'Natuur begrijpen en beschermen: van boswachter tot ecoloog.',
+  basis:['Populaties en soorten','Ecosystemen en voedselwebben','Kringlopen van stoffen','Evolutie en biodiversiteit'],
+  bouwt:[['Ecologie','ecologie'],['Evolutie','evolutie']]},
+ {id:'milieukunde',cluster:'groen',naam:'Milieukunde',niveau:'hbo · wo',intro:'Vervuiling, klimaat en duurzaamheid: de invloed van de mens op de natuur.',
+  basis:['Kringlopen van koolstof en stikstof','Vervuiling en ophoping in voedselketens','Klimaatverandering en soorten'],
+  bouwt:[['Ecologie','ecologie'],['Planten','planten']]},
+ {id:'landbouw',cluster:'groen',naam:'Landbouw en dierhouderij',niveau:'mbo · hbo · wo',intro:'Voedsel produceren: planten telen en dieren houden, liefst duurzaam.',
+  basis:['Fotosynthese en plantengroei','Bodem en voedingsstoffen','Fokken en erfelijkheid','Dierwelzijn en diergezondheid'],
+  bouwt:[['Planten','planten'],['Erfelijkheid','erfelijkheid'],['Stofwisseling','stofwisseling']]},
+ {id:'tuin',cluster:'groen',naam:'Tuin- en landschapsinrichting',niveau:'mbo · hbo',intro:'Hovenier of landschapsarchitect: groen ontwerpen, aanleggen en onderhouden.',
+  basis:['Planten herkennen en hun eisen','Bodem, water en groei','Biodiversiteit in de stad'],
+  bouwt:[['Planten','planten'],['Ecologie','ecologie']]},
+
+ {id:'leraar',cluster:'onderwijs',naam:'Leraar biologie',niveau:'hbo · wo',intro:'Zelf biologie uitleggen, zoals je docent nu bij jou doet.',
+  basis:['De hele biologie in samenhang','Hoe leerlingen leren','Practicum en onderzoek begeleiden'],
+  bouwt:[['Alle hoofdstukken','home']]},
+];
+const KERN = [['Cellen','cellen'],['DNA','dna'],['Regeling (homeostase)','regeling'],['Erfelijkheid','erfelijkheid'],['Evolutie','evolutie']];
+/* ===== einde inhoud ===== */
+/* Lijntekeningen per cluster (viewBox 0 0 120 120). currentColor = clusterkleur, .acc = goud. */
+const KUNST = {
+zorg:`<path d="M60 96C30 76 16 58 18 42c2-14 18-22 30-14 6 4 10 10 12 14 2-4 6-10 12-14 12-8 28 0 30 14 2 16-12 34-42 54z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M54 46h12v10h10v12H66v10H54V68H44V56h10z" class="acc" stroke="currentColor" stroke-width="1.6"/>`,
+lab:`<path d="M48 14h24M52 14v32L26 96c-2 6 2 12 8 12h52c6 0 10-6 8-12L68 46V14" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M34 80c10-4 18 4 26 0s16-4 26 0" class="acc" stroke="currentColor" stroke-width="1.5"/>
+ <circle cx="50" cy="92" r="3" stroke-width="1.2"/><circle cx="64" cy="96" r="2" stroke-width="1.1"/><circle cx="72" cy="88" r="2.6" stroke-width="1.1"/>`,
+voeding:`<path d="M62 34c-4-12 4-20 12-22M60 36c-18-10-38 2-38 24 0 22 16 42 30 38 4-1 6-2 8-2s4 1 8 2c14 4 30-16 30-38 0-22-20-34-38-24z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M72 22c8-6 16-4 18 2-8 4-14 4-18-2z" class="acc" stroke="currentColor" stroke-width="1.4"/>`,
+gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 10 0 24 12 24 2 12 18 18 28 10z" stroke-width="1.7"/>
+ <path d="M60 22c10-8 28-4 30 10 12 2 18 16 10 26 6 10 0 24-12 24-2 12-18 18-28 10z" stroke-width="1.7"/>
+ <path d="M60 22v70" stroke-width="1.1" opacity=".6"/><path d="M36 48c6 0 10 4 12 10M84 48c-6 0-10 4-12 10M40 72c6-2 10-6 10-12" stroke-width="1.2" opacity=".8"/>
+ <circle cx="72" cy="58" r="3" class="acc" fill="currentColor" stroke="none"/><path d="M72 58l12 14" class="acc" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 4"/>`,
+groen:`<path d="M24 100C24 56 52 26 100 20c-4 46-32 76-76 80z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M24 100L80 40" stroke-width="1.5"/><path d="M44 78l-4-16M56 64l-2-18M44 78l16 0M56 64l18 2M68 52l16 0" stroke-width="1.1" opacity=".75"/>
+ <circle cx="96" cy="96" r="5" class="acc" fill="currentColor" stroke="none"/>`,
+onderwijs:`<path d="M60 34C48 26 30 24 16 26v64c14-2 32 0 44 8 12-8 30-10 44-8V26c-14-2-32 0-44 8z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M60 34v64" stroke-width="1.4"/><path d="M26 40c8-1 18 0 26 4M26 52c8-1 18 0 26 4M68 44c8-4 18-5 26-4M68 56c8-4 18-5 26-4" stroke-width="1" opacity=".6"/>
+ <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`,
+kop:`<circle cx="60" cy="60" r="44" stroke-width="1.5"/><circle cx="60" cy="60" r="38" stroke-width=".8" opacity=".5"/>
+ <path d="M30 78h18l10-22 10 12 20-30" stroke-width="1.8"/><path d="M80 38h8v8" stroke-width="1.8"/>
+ <circle cx="88" cy="38" r="3" class="acc" fill="currentColor" stroke="none"/><path d="M60 16l3 6-3 6-3-6z" class="acc" fill="currentColor" stroke="none"/>`,
+kern:`<circle cx="60" cy="60" r="40" stroke-width="1.6"/><circle cx="60" cy="60" r="34" stroke-width=".8" opacity=".5"/>
+ <circle cx="60" cy="60" r="14" class="acc" stroke="currentColor" stroke-width="1.6"/><circle cx="60" cy="60" r="5" class="acc" fill="currentColor" stroke="none"/>
+ <path d="M60 20v26M60 74v26M20 60h26M74 60h26" stroke-width="1" opacity=".55" stroke-dasharray="2 4"/>`,
+};
+
+(function(){
+const root=document.documentElement, app=document.getElementById('app');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const schrijf=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const kunst=(id,kl,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" ${label?`role="img" aria-label="${esc(label)}"`:'aria-hidden="true"'} style="--c:var(--${kl||'goud'})">${KUNST[id]||KUNST.kop}</svg>`;
+const hfst=([l,id])=>`<a href="index.html#${esc(id)}">${esc(l)}</a>`;
+const CL=Object.fromEntries(CLUSTERS.map(c=>[c.id,c]));
+let filter=(location.hash||'').slice(1); if(!CL[filter]) filter='';
+
+function themaKnop(){
+  const d=root.getAttribute('data-theme')!=='light', b=document.getElementById('thema');
+  b.innerHTML=d?'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>':'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg>';
+  b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
+}
+document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
+
+function kaart(g){
+  const c=CL[g.cluster], klaar=g.basis.filter(b=>Array.isArray(b)).length;
+  return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
+    <header><span class="embleem">${kunst(c.id,c.kleur)}</span><div><span class="niv mono">${esc(g.niveau)}</span><h3>${esc(g.naam)}</h3></div></header>
+    <p class="intro">${esc(g.intro)}</p>
+    <div class="basis"><span class="mono"><span>Theoretische basis</span><span>${klaar} van ${g.basis.length} klaar</span></span>
+      <ol>${g.basis.map((b,i)=>Array.isArray(b)
+        ?`<li><span class="nr">${i+1}</span><a href="${esc(b[1])}">${esc(b[0])}</a><span></span></li>`
+        :`<li><span class="nr">${i+1}</span><span>${esc(b)}</span><span class="komt">komt nog</span></li>`).join('')}</ol></div>
+    ${g.bouwt.length?`<footer><span class="mono">Bouwt voort op</span>${g.bouwt.map(hfst).join('')}</footer>`:''}
+  </article>`;
+}
+
+function render(){
+  const cl=CLUSTERS.filter(c=>!filter||c.id===filter);
+  app.innerHTML=`<section class="kop"><div class="wrap">
+      <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Na je examen</div><h1>Verder met biologie</h1>
+      <p>Opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied komt hier eerst de theoretische basis: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
+      <div class="groot">${kunst('kop','goud')}</div>
+    </div></section>
+    <div class="wrap">
+      <div class="opbouw" aria-label="Opbouw per gebied">
+        <div><span class="mono">Stap 1 · in de maak</span><b>Theoretische basis</b><span>De biologie die je nodig hebt, met films en oefeningen.</span></div>
+        <div class="later"><span class="mono">Stap 2 · later</span><b>Een dag uit het werk</b><span>Wat doe je eigenlijk de hele dag?</span></div>
+        <div class="later"><span class="mono">Stap 3 · later</span><b>Praktijkopdracht</b><span>Probeer zelf een stukje van het vak.</span></div>
+        <div class="later"><span class="mono">Stap 4 · later</span><b>Opleidingen</b><span>Welke opleiding, op welk niveau, en hoe kom je erin.</span></div>
+      </div>
+      <section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
+        <span class="mono" style="color:var(--goud-text)">Voor elk gebied</span><h2>De gedeelde kern</h2>
+        <p>Deze onderwerpen heb je bij bijna elke biologische vervolgopleiding nodig. Ze staan al op de site; per gebied komt er een verdieping bovenop.</p>
+        <div class="tags">${KERN.map(hfst).join('')}</div></div></section>
+      <div class="filters" role="group" aria-label="Filter op richting"><span class="mono">Richting</span>
+        <button class="chip" type="button" data-f="" aria-pressed="${!filter}">Alles</button>
+        ${CLUSTERS.map(c=>`<button class="chip" type="button" data-f="${c.id}" aria-pressed="${filter===c.id}">${esc(c.naam)}</button>`).join('')}
+        <span class="teller">${GEBIEDEN.filter(g=>!filter||g.cluster===filter).length} gebieden</span>
+      </div>
+      ${cl.map(c=>`<section class="cluster" style="--c:var(--${c.kleur})"><h2><span class="stip"></span>${esc(c.naam)}</h2><p>${esc(c.tekst)}</p>
+        <div class="raster">${GEBIEDEN.filter(g=>g.cluster===c.id).map(kaart).join('')}</div></section>`).join('')}
+    </div>`;
+}
+app.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
+themaKnop(); render();
+const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[doel.id]) doel.scrollIntoView();
+})();
+</script>
+<script>
+/* levende lijntekeningen: om de paar seconden doet één zichtbare tekening iets kleins */
+(function(){ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SOORT=['klop','wieg','drijf','adem','klop','wieg','drijf','draai'];
+  function zichtbaar(el){ const r=el.getBoundingClientRect(); return r.width>20&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth; }
+  function stap(){ if(document.hidden) return; const svgs=[...document.querySelectorAll('svg.kunst:not(.fries)')].filter(zichtbaar); if(!svgs.length) return;
+    const el=svgs[Math.floor(Math.random()*svgs.length)]; if([...el.classList].some(c=>c.startsWith('leeft-'))) return;
+    let s=SOORT[Math.floor(Math.random()*SOORT.length)]; if(s==='draai'&&(el.classList.contains('plaatje')||Math.random()<.5)) s='drijf';
+    el.classList.add('leeft-'+s); el.addEventListener('animationend',()=>el.classList.remove('leeft-'+s),{once:true}); }
+  setInterval(stap,3200); })();
+</script>
+</body>
+</html>
