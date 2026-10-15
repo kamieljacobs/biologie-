@@ -1693,13 +1693,13 @@ const SCENES = {
     const st = drawStrip(ctx, cx, cy, 0, 70, 340, 340 * (1 + 0.16 * omh), { n: 6, auxB: auxS, t }); // kant B = onderkant (rechts van looprichting naar rechts)
     if (st) { const e = st.end; ctx.save(); ctx.translate(e[0], e[1]); ctx.rotate(st.th + Math.PI / 2); for (const d of [-1, 1]) { ctx.save(); ctx.rotate(d * 0.9); ctx.beginPath(); ctx.ellipse(0, -46, 20, 46, 0, 0, 6.283); shape(ctx, BLAD, STENGD, 2); ctx.restore(); } ctx.restore(); }
     const rt = drawStrip(ctx, cx, cy, Math.PI, 46, 300, 300, { n: 6, col: WORT, colD: WORTD, auxA: auxR, t, mutsje: 1 }); // kant A = onderkant voor looprichting naar links
-    regel(ctx, 'stengel', cx + 200, cy - 80 - 200 * omh, 1, STENG, 28, 'center', 700); regel(ctx, 'wortel', cx - 170, cy - 60, 1, WORTD, 28, 'center', 700);
+    regel(ctx, 'stengel', cx + 170, cy + 80, 1, STENG, 28, 'center', 700); regel(ctx, 'wortel', cx - 170, cy - 60, 1, WORTD, 28, 'center', 700);
     tag(ctx, 'gravitropie', 420, 220, C.goud, q.on('gravitropie', 1) * (1 - zoom));
     // zoom op de wortelmuts: statolieten zakken
-    if (rt && zoom > 0.01) { const e = rt.end; zoomCircle(ctx, 1480, 560, 260, e[0], e[1], 'wortelmuts', zoom, () => { ctx.fillStyle = '#1E2638'; ctx.fillRect(1220, 300, 520, 520); for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) { const x = 1300 + i * 130, y = 380 + j * 130; roundRect(ctx, x, y, 120, 120, 10); shape(ctx, rgba(WORT, 0.2), WORTD, 2); for (let k = 0; k < 4; k++) { const fy = mix(y + 30 + hash(k + i * 5 + j * 11) * 50, y + 98 - (k % 2) * 14, stat); circ(ctx, x + 26 + k * 22, fy, 9, STAT, '#B8B2A2', 1.5); } } });
-      regel(ctx, 'statolieten (zetmeelkorrels)', 1480, 880, q.on('statolieten', 1), C.text, 28, 'center', 700); pijl(ctx, 1760, 420, 1760, 620, C.text2, stat * (1 - q.on('statolieten', 1)), 4); }
-    tag(ctx, 'meer auxine aan de onderkant', 700, 820, AUX, q.on('Dus', 1) * (1 - zoom * 0));
-    vraagteken(ctx, cx - 340, cy + 140, q.on('doet', 1), 100); },
+    if (rt && zoom > 0.01) { const e = rt.end; zoomCircle(ctx, 560, 670, 170, e[0], e[1], 'wortelmuts', zoom, () => { ctx.fillStyle = '#1E2638'; ctx.fillRect(380, 520, 360, 360); for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) { const x = 420 + i * 95, y = 575 + j * 95; roundRect(ctx, x, y, 88, 88, 8); shape(ctx, rgba(WORT, 0.2), WORTD, 2); for (let k = 0; k < 3; k++) { const fy = mix(y + 22 + hash(k + i * 5 + j * 11) * 40, y + 72 - (k % 2) * 10, stat); circ(ctx, x + 20 + k * 24, fy, 8, STAT, '#B8B2A2', 1.5); } } });
+      regel(ctx, 'statolieten (zetmeelkorrels)', 770, 690, q.on('statolieten', 1), C.text, 30, 'left', 700); regel(ctx, 'zakken naar de onderkant', 770, 734, stat, C.text2, 26, 'left', 600); }
+    tag(ctx, 'meer auxine aan de onderkant', 1420, 820, AUX, q.on('Dus', 1));
+    vraagteken(ctx, 1500, 680, q.on('doet', 1), 100); },
 
   s16(ctx, t, q) { bg(ctx, 'schema');
     const gr = q.on('grafiek', 1), rechts = q.on('rechts', 1), boven = q.on('Boven', 1), stg = q.on('stengel', 2, 1.5), wrt = q.on('wortel', 2, 1.5), zet = q.on('Zet', 1);
@@ -1718,8 +1718,8 @@ const SCENES = {
       drawStrip(ctx, 1200, 400, 0, 60, 380, 380 * (1 + 0.14 * bS), { n: 6, auxB: 1, t });
       regel(ctx, 'versnelt: onderkant langer', 1780, 480, ps, C.groen, 26, 'right', 700);
       // wortel: kant A (onder bij looprichting naar rechts? → wortel loopt naar rechts) onderkant geremd
-      drawStrip(ctx, 1200, 660, 0, 44, 380 * (1 + 0.1 * bR), 380, { n: 6, col: WORT, colD: WORTD, auxB: 1, t, mutsje: 1 });
-      regel(ctx, 'remt: onderkant blijft korter', 1780, 850, pr, C.koraal, 26, 'right', 700);
+      drawStrip(ctx, 1200, 660, 0, 44, 380 * (1 + 0.08 * bR), 380, { n: 6, col: WORT, colD: WORTD, auxB: 1, t, mutsje: 1 });
+      regel(ctx, 'remt: onderkant blijft korter', 1140, 850, pr, C.koraal, 26, 'left', 700);
       ctx.restore(); }
     tag(ctx, 'één hormoon, twee effecten', 960, 120, C.goud, q.on('hormoon', 1)); },
 
