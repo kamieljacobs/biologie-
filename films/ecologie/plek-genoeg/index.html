@@ -201,7 +201,8 @@ a { color: var(--accent); }
       <span class="time" id="time">0:00</span>
       <div class="seekwrap"><input id="seek" type="range" min="0" max="1000" step="1" value="0" aria-label="Positie in de film"><div id="seek-marks"></div></div>
       <button id="btn-cc" type="button" aria-pressed="true" title="Ondertitels (C)">CC</button>
-      <select id="speed" aria-label="Afspeelsnelheid"><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.15">1,15×</option></select>
+      <button id="btn-vragen" type="button" aria-pressed="true" title="Pauzevragen aan of uit">Vragen aan</button>
+      <select id="speed" aria-label="Afspeelsnelheid"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select>
       <button id="btn-fs" type="button" title="Volledig scherm (F)" aria-label="Volledig scherm">⤢</button>
     </div>
   </section>
@@ -3333,6 +3334,9 @@ const TL = window.TIMELINE, META = window.FILMMETA || {};
 const root = document.getElementById('film');
 const canvas = root.querySelector('canvas');
 const audio = document.getElementById('narration');
+const SV = { v: 'aan', r: 1 };
+try { if (localStorage.getItem('bk-vragen') === 'uit') SV.v = 'uit'; const r = parseFloat(localStorage.getItem('bk-snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; } catch (e) {}
+{ const u = new URLSearchParams(location.search); if (u.get('vragen') === 'uit') SV.v = 'uit'; if (u.get('vragen') === 'aan') SV.v = 'aan'; const r = parseFloat(u.get('snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; }
 const subEl = root.querySelector('.subs');
 const pauseEl = root.querySelector('.pausecard');
 const pauseQ = pauseEl.querySelector('.q');
@@ -3428,7 +3432,7 @@ function render(T) {
   let sub = '';
   for (const c of TL.cues) { if (T >= c.s - 0.05 && T < c.e + 0.25) { sub = c.text; break; } }
   if (sub !== lastSub) { subEl.textContent = sub; subEl.hidden = !sub; lastSub = sub; }
-  if (ch.pause && T >= ch.pause.s && T < ch.pause.e) {
+  if (ch.pause && T >= ch.pause.s && T < ch.pause.e && SV.v !== 'uit') {
     if (pauseQ.dataset.ch !== String(ch.num)) { pauseQ.innerHTML = ''; ch.pause.q.split('\n').forEach(l => { const p = document.createElement('p'); p.textContent = l; pauseQ.appendChild(p); }); pauseQ.dataset.ch = ch.num; }
     pauseEl.hidden = false;
     const qe = ch.pause.qe || ch.pause.s;
@@ -3445,7 +3449,7 @@ function fmt(s) { s = Math.max(0, s); const m = Math.floor(s / 60), r = Math.flo
 
 /* ---------- bediening ---------- */
 let seeking = false, raf = 0;
-function loop() { render(audio.currentTime); if (!audio.paused) raf = requestAnimationFrame(loop); }
+function loop() { slaVraagOver(); render(audio.currentTime); if (!audio.paused) raf = requestAnimationFrame(loop); }
 function play() { audio.play().then(() => { bigPlay.hidden = true; loop(); }).catch(() => {}); }
 function pause() { audio.pause(); }
 audio.addEventListener('play', () => { ui.play.setAttribute('aria-label', 'Pauzeer'); ui.play.dataset.state = 'playing'; bigPlay.hidden = true; cancelAnimationFrame(raf); loop(); });
@@ -3458,7 +3462,15 @@ canvas.addEventListener('click', () => audio.paused ? play() : pause());
 ui.seek.addEventListener('input', () => { seeking = true; const T = ui.seek.value / 1000 * TL.duration; audio.currentTime = T; render(T); });
 ui.seek.addEventListener('change', () => { seeking = false; });
 ui.cc.addEventListener('click', () => { const on = root.classList.toggle('nocc'); ui.cc.setAttribute('aria-pressed', String(!on)); });
-ui.speed.addEventListener('change', () => { audio.playbackRate = parseFloat(ui.speed.value); try { audio.preservesPitch = true; } catch (e) {} });
+ui.speed.addEventListener('change', () => { audio.playbackRate = parseFloat(ui.speed.value); try { audio.preservesPitch = true; } catch (e) {} SV.r = audio.playbackRate; try { localStorage.setItem('bk-snelheid', String(SV.r)); } catch (e) {} });
+// vragen- en snelheidsknop (gedeeld met de andere films via localStorage)
+function vraagVensters() { return chapters.filter(c => c.pause).map(c => { let a = c.pause.s - 0.05; const vb = TL.cues.filter(x => x.e <= c.pause.s + 0.3 && x.e > c.pause.s - 3).slice(-1)[0];
+  if (vb && /^(eerst )?(nog )?(één |een |twee |drie )?vra(ag|gen)\b/i.test(String(vb.text || '').trim())) a = vb.s - 0.1; return [a, c.pause.e]; }); }
+function slaVraagOver() { if (SV.v !== 'uit' || audio.paused) return; const T = audio.currentTime; for (const [a, b] of VV) if (T >= a && T < b - 0.05) { audio.currentTime = b; return; } }
+const VV = vraagVensters(), vrBtn = document.getElementById('btn-vragen');
+function zetVragen() { vrBtn.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; vrBtn.setAttribute('aria-pressed', String(SV.v === 'aan')); render(audio.currentTime); }
+vrBtn.addEventListener('click', () => { SV.v = SV.v === 'aan' ? 'uit' : 'aan'; try { localStorage.setItem('bk-vragen', SV.v); } catch (e) {} zetVragen(); });
+ui.speed.value = String(SV.r); audio.playbackRate = SV.r; audio.defaultPlaybackRate = SV.r; zetVragen();
 ui.fs.addEventListener('click', () => {
   if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   else if (root.requestFullscreen) root.requestFullscreen().catch(() => {});
