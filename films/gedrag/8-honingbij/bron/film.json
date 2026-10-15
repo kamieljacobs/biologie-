@@ -1,0 +1,69 @@
+{
+ "slug": "8-honingbij",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "De dans van de honingbij",
+ "sub": "Rondedans, kwispeldans en een klok in je hoofd",
+ "puzzle": "Eén bij vindt een schaaltje suikerwater op bijna een kilometer van de kast. Een halfuur later zitten er tientallen. Hoe vonden ze het?",
+ "meta": "gedrag · communicatie bij bijen",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 8 van 12",
+ "lead": "Een verkenster vertelt met een dans waar voedsel is. Rondedans: voedsel vlakbij, ga zoeken. Kwispeldans: de hoek van het rechte stuk ten opzichte van recht omhoog op de raat is de hoek tussen voedsel en zon; hoe langer het kwispelen, hoe verder weg. Omdat de zon opschuift, past de bij met haar inwendige klok de dans aan. De dans is grotendeels aangeboren.",
+ "endHaak": "hoe zou jij zonder woorden de weg naar de kantine uitleggen?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe vertelt een bij waar voedsel is?",
+  "Hoofdstuk 2": "Hoe zit richting en afstand in de kwispeldans?",
+  "Hoofdstuk 3": "Wat doet de bij als de zon opschuift?",
+  "Recap": "Hoe vonden de bijen het schaaltje?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk en Noor (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Hoe vonden al die bijen het schaaltje?",
+   "correct": 1,
+   "explain": "De eerste bij, een verkenster, vertelde het de anderen met een dans."
+  },
+  "q06": {
+   "q": "Recht stuk recht omhoog, elke keer twee seconden kwispelen. Waar liggen de bloemen?",
+   "correct": 1,
+   "explain": "Recht omhoog = richting van de zon; 2 s kwispelen ≈ 2 km."
+  },
+  "q09": {
+   "q": "Dezelfde bloemen, om tien uur en om twaalf uur. Wat gebeurt er met de dans?",
+   "correct": 1,
+   "explain": "De zon schuift op, dus de hoek tussen bloemen en zon verandert: het rechte stuk draait mee."
+  }
+ },
+ "glossary": [
+  {
+   "t": "communicatie",
+   "d": "Een zender geeft een signaal dat het gedrag van een ontvanger verandert."
+  },
+  {
+   "t": "verkenster",
+   "d": "Werkster die voedsel zoekt en de andere bijen vertelt waar het is."
+  },
+  {
+   "t": "rondedans",
+   "d": "Dans in kleine rondjes, afwisselend linksom en rechtsom: voedsel dichtbij, ga zoeken (geen duidelijke richting)."
+  },
+  {
+   "t": "kwispeldans",
+   "d": "Achtvormige dans met een recht stuk waarin de bij kwispelt: de hoek t.o.v. recht omhoog = de hoek t.o.v. de zon; de duur van het kwispelen = de afstand."
+  },
+  {
+   "t": "inwendige klok",
+   "d": "Biologische klok waarmee de bij rekening houdt met de opschuivende zon."
+  },
+  {
+   "t": "dialect",
+   "d": "Per ras verschilt hoeveel afstand een seconde kwispelen betekent; dat verschil is erfelijk."
+  },
+  {
+   "t": "harmonische radar",
+   "d": "vwo · Radar die een piepklein antennetje op een bij volgt; zo zie je hoe een bij na een dans vliegt."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Rondedans of kwispeldans?</b> <span class=\"pts\">2 punten</span><p>Een verkenster komt terug van een bloeiende boom op 15 meter van de kast. Een tweede verkenster komt terug van een koolzaadveld op 1,5 kilometer.</p>\n      <p>Welke dans voert elke verkenster uit, en welke informatie geeft elke dans? (2p)</p>\n      <details><summary>Antwoord</summary><p>Eerste: rondedans; voedsel dichtbij, zonder (duidelijke) richting (1). Tweede: kwispeldans; richting ten opzichte van de zon en afstand (1).</p></details></div>\n    <div class=\"q\"><b>2. De dans lezen</b> <span class=\"pts\">3 punten</span><p>Op de verticale raat loopt een verkenster het rechte stuk van haar kwispeldans schuin naar links, 60° van recht omhoog. Het kwispelen duurt steeds ongeveer een halve seconde.</p>\n      <p>a. In welke richting liggen de bloemen, gezien vanaf de kast? (1p)<br>b. Hoe ver ongeveer? Gebruik: 1 seconde kwispelen ≈ 1 km. (1p)<br>c. Hoe merken de andere bijen in de donkere kast deze dans op? Noem twee manieren. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. 60° links van de zon (1). b. Ongeveer 500 meter (1). c. Twee van: meelopen en voelen met de voelsprieten; het zoemen van de vleugels horen (via de voelsprieten); trillingen in de raat; geur en smaak van meegebracht voedsel (1).</p></details></div>\n    <div class=\"q\"><b>3. Zon en tijd</b> <span class=\"pts\">2 punten</span><p>Een onderzoeker houdt een verkenster een paar uur in een donkere kast. Daarna danst ze opnieuw voor dezelfde voerplek.</p>\n      <p>Leg uit of de hoek van het rechte stuk hetzelfde is als eerst, en welk vermogen van de bij dit laat zien. (2p)</p>\n      <details><summary>Antwoord</summary><p>Nee, de hoek is veranderd, omdat de zon is opgeschoven (de hoek bloemen–zon is anders) (1). De bij heeft een inwendige (biologische) klok (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Bewijs voor de danstaal</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Critici beweerden dat bijen het voer alleen op geur vinden. Bij een proef met radar werden bijen die een dans hadden gevolgd, vóór het uitvliegen een eind verplaatst.</p>\n      <p>Welke uitkomst pleit voor de danstaal en tegen de geurhypothese? Leg uit. (2p)</p>\n      <details><summary>Antwoord</summary><p>De verplaatste bijen vlogen dezelfde richting en afstand als in de dans, vanaf de nieuwe plek (en kwamen dus op de verkeerde plek uit) (1). Een geurspoor naar de echte voerplek kan dat niet verklaren: ze gebruikten de informatie uit de dans (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Opa Henk (imker) en Noor (castboek); een schaaltje suikerwater op bijna 1 km; één bij, daarna tientallen. Openingsvraag (antwoord in H1)</td></tr>\n      <tr><td>1 Een dans als boodschap</td><td>Twee misconcepties weggestreept (in een rij erachteraan, ruiken op 1 km); zender → signaal → ontvanger; von Frisch met glazen observatiekast en gemerkte bijen; rondedans op de raat</td></tr>\n      <tr><td>2 De kwispeldans</td><td>Achtvormige dans met kwispelend recht stuk; raat rechtop, recht omhoog = richting van de zon; 40° op de raat ↔ 40° op een kaart van bovenaf; stopwatch: 1 s ≈ 1 km; vaker herhalen bij beter voedsel; volgers in het donker (voelsprieten, zoemen, trillingen, geur en smaak)</td></tr>\n      <tr><td>3 Een klok in haar hoofd</td><td>Zon schuift over de hemel; dans om 10:00 en 12:00 met verschillende hoek; inwendige klok; grotendeels aangeboren, dialecten per ras; oriëntatievluchten. Vwo: robotbij met gelijke geur op alle voerplekken; harmonische radar, ook met verplaatste bijen</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Karl von Frisch (1886–1982) beschreef de danstaal vanaf de jaren 1920; Nobelprijs 1973 met Lorenz en Tinbergen (zie film 1 en 2).</li>\n      <li>Rondedans en kwispeldans: de grens ligt per ras ergens tussen ruwweg 25 en 100 meter en de overgang is geleidelijk; nieuwer onderzoek ziet de rondedans als een kwispeldans met heel korte rechte stukken, die wel wat richting bevat. De film volgt de methodeversie ('geen duidelijke richting').</li>\n      <li>Afstand: '1 seconde ≈ 1 km' is een vuistregel; de kalibratie verschilt per ras en per omgeving, omdat bijen afstand schatten met de optische stroom (hoeveel landschap er voorbij schuift).</li>\n      <li>De zon verschuift gemiddeld zo'n 15° per uur, maar rond het middaguur (zeker in de zomer) gaat de kompasrichting veel sneller. Bijen die lang in de kast blijven dansen, passen hun hoek aan (Lindauer). Bijen hebben een aangeboren 'zonnebaan' die ze met ervaring bijstellen (Dyer &amp; Dickinson 1994).</li>\n      <li>Dialecten zijn erfelijk: in gemengde volken danst een bij in het dialect van haar eigen ras (Rinderer &amp; Beaman 1995).</li>\n      <li>Wenner &amp; Johnson (1967) stelden dat geur genoeg is. Robotbij: Michelsen, Lindauer e.a. (1989, 1992); de robot rook naar de kast en was minder precies dan echte bijen. Harmonische radar: Riley e.a. (2005, <i>Nature</i>): volgers vliegen een vrij rechte koers in de aangegeven richting, ook na verplaatsing, en zoeken daarna, waarbij geur helpt.</li>\n      <li>Waarom delen bijen informatie? Werksters zijn zussen en planten zich zelf niet voort; zie film 9 (mierenkolonie) en film 10 (waarom helpen dieren elkaar).</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Communicatie: zender, signaal, ontvanger</td><td>basis</td><td>H1</td></tr>\n      <tr><td>Rondedans: voedsel dichtbij, geen richting</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Kwispeldans: hoek t.o.v. recht omhoog = hoek t.o.v. de zon; duur = afstand</td><td>basis</td><td>H2, checkvragen 1, 2</td></tr>\n      <tr><td>Inwendige klok, grotendeels aangeboren gedrag</td><td>basis</td><td>H3, checkvraag 3</td></tr>\n      <tr><td>Bewijs voor de danstaal (robotbij, radar)</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen elkaar met een 'kwispeldans' op een verticaal bord een plek op het schoolplein aanwijzen (raam = zon), en controleer of de ander de plek vindt.</li><li>Teken op een kaart van de omgeving van school de voerplek bij een gegeven dans, voor 10:00 en 14:00 uur.</li></ul>\n  </section>\n"
+}
