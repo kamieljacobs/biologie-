@@ -90,3 +90,7 @@ Begrippen: microbioom, waterresorptie, vezels, anaerobe dissimilatie (gisting), 
 - `koolstofdioxide` (s11) is zonder de "koolstofdie-oxide"-respelling opgenomen; de blinde Scribe-controle hoorde het goed, maar beluisteren en vergelijken met film 5.
 - Speelduur vwo ≈ 13 min, de langste van de reeks; Kamiel koos bij het checkpoint bewust voor niet inkorten. Mocht dat later toch: s17 (60 s) en s18 (57 s) zijn de kandidaten (de zin over resistentie kan naar de q16-uitleg).
 - Niet-verwerkte eindreviewpunten (vragen heropname): s22 "via het bloed en de zenuwen" → "via het bloed … en prikkelen zenuwen"; s19 "een drankje" → "bijvoorbeeld een drankje"; s17 "gifstoffen, toxinen". Staan in `reviews/eindreview.md` onderaan.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: mutualisme (tussen de pijlen), poeptransplantatie (boven het bed). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

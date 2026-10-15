@@ -99,3 +99,7 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
 - **Risicowoorden (uitspraaktest)**:
   - condensatie — IPA [kɔndɛnˈsa(t)si] (woorden.org, via encyclo.nl); stem-invoer: zoals geschreven; valt de klemtoon verkeerd of hoor je "-tie", dan "condensaatsie".
   - galzouten, galzout — samenstelling van gewone woorden; zoals geschreven.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Plaatsing gecontroleerd; geen calls verplaatst. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

@@ -190,7 +190,7 @@ const SCENES = {
     const cel = q.on('onderste'), hor = q.on('hormoon'), naar = q.on('bereikt', 1, 1.0);
     const cells = [[760, 640], [810, 625], [860, 600]];
     cells.forEach(([x, y]) => { ctx.save(); ctx.globalAlpha *= cel; ctx.beginPath(); ctx.arc(x, y, 14, 0, 6.283); shape(ctx, rgba(C.goud, 0.3), C.goud, 2); ctx.restore(); });
-    label(ctx, 'cellen die eiwit herkennen', null, 810, 640, 900, 800, cel * (1 - byp));
+    naamBij(ctx, 'cellen die eiwit herkennen', null, 560, 765, cel * (1 - byp), 'center');
     const vat = [[810, 655], [1000, 740], [1080, 520], [1000, 240], [700, 230], [520, 330]];
     if (hor > 0.01) { ctx.save(); ctx.globalAlpha *= hor; ctx.strokeStyle = BLOED; ctx.lineWidth = 8; ctx.lineJoin = 'round'; ctx.beginPath(); vat.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
       label(ctx, 'bloed', null, 1080, 520, 1180, 620, 1 - byp);
@@ -323,7 +323,7 @@ const SCENES = {
       ctx.strokeStyle = C.goud; ctx.lineWidth = 10; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(540, 822); ctx.quadraticCurveTo(580, 870, 640, 860); ctx.stroke(); ctx.restore();
       label(ctx, 'blinde darm', null, 480, 800, 250, 830, bd); label(ctx, 'wormvormig aanhangsel', null, 640, 860, 760, 850, q.on('wormvormig')); }
     label(ctx, 'dunne darm', null, 360, 700, 250, 620, ramp(t, 0.8, 0.6));
-    label(ctx, 'dikke darm', null, 960, 255, 960, 200, ramp(t, 1.2, 0.6));
+    naamBij(ctx, 'dikke darm', null, 960, 182, ramp(t, 1.2, 0.6), 'center');
     // inhoud: water, vezels, rest
     const inh = q.on('aankomt');
     if (inh > 0.01) for (let i = 0; i < 18; i++) { const u = ((t * 0.04 + i / 18) % 1); const p = padPunt(P, u); const ty = i % 3; ctx.save(); ctx.globalAlpha *= inh;

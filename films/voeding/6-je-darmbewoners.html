@@ -201,16 +201,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -786,9 +795,9 @@ function bypassSchema(ctx, t, o = {}) {
     label(ctx, by > 0.5 ? 'restmaag' : 'maag', null, 1150, 330, 1150, 120, 1, C.text, 'left');
     label(ctx, 'lever', null, 1640, 210, 1720, 120, 1);
     label(ctx, 'galblaas', null, 1540, 400, 1700, 440, 1);
-    label(ctx, 'alvleesklier', null, 1360, 560, 1640, 600, 1);
+    naamBij(ctx, 'alvleesklier', null, 1235, 612, 1, 'right');
     label(ctx, 'twaalfvingerige darm', null, 1440, 620, 1540, 720, 1);
-    label(ctx, 'dunne darm', null, 1340, 848, 1560, 800, 1);
+    naamBij(ctx, 'dunne darm', null, 1340, 905, 1, 'center');
     if (by > 0.5) { label(ctx, 'maagzakje', null, 880, 230, 560, 220, by); label(ctx, 'nieuw stuk', null, 760, 520, 560, 520, by); }
     ctx.restore(); }
   ctx.restore();
@@ -1120,7 +1129,7 @@ const SCENES = {
       human(ctx, 480, 760, 420, 1); zwerm(ctx, 1100, 300, 500, 300, 24, t, 1, { s: 1.4 });
       if (zij > 0.01) { arrow(ctx, 640, 480, 1060, 400, C.goud, zij, 3); tag(ctx, 'warme plek · eten', 850, 400, C.goud, zij); }
       if (jij > 0.01) { arrow(ctx, 1060, 560, 640, 620, C.groen, jij, 3); tag(ctx, 'brandstof · bescherming', 850, 660, C.groen, jij); }
-      label(ctx, 'mutualisme', 'VOORDEEL VOOR ALLEBEI', 850, 520, 850, 240, mu, C.text, 'center');
+      naamBij(ctx, 'mutualisme', 'VOORDEEL VOOR ALLEBEI', 850, 518, mu, 'center', C.text);
       if (gev > 0.01) { ctx.save(); ctx.globalAlpha *= gev; bact(ctx, 1560, 640, 3, 1.5, 0.3, 1); metaText(ctx, 'EEN PAAR KUNNEN GEVAARLIJK WORDEN', 1560, 700, lighten(ZIEK, 0.3), 'center', 20); ctx.restore(); }
       ctx.restore(); }
     bewijsbord(ctx, [[0, '40 biljoen bacteriën leven zonder zuurstof in je dikke darm', vast]], bord);
@@ -1234,7 +1243,7 @@ const SCENES = {
       if (don > 0.01) { ctx.save(); ctx.globalAlpha *= don; roundRect(ctx, 520, 500, 140, 180, 20); shape(ctx, rgba(C.bruin, 0.35), C.bruin, 1.5); for (let k = 0; k < 14; k++) bact(ctx, 545 + hash(k) * 90, 530 + hash(k + 5) * 120, k % 3, 0.5, hash(k + 7) * 3, 1); metaText(ctx, 'ONTLASTING VOL DARMBACTERIËN', 590, 720, C.grain, 'center', 20); ctx.restore(); }
       if (ver > 0.01) { ctx.save(); ctx.globalAlpha *= ver; arrow(ctx, 680, 590, 800, 590, C.line, 1, 2); roundRect(ctx, 820, 520, 90, 140, 16); shape(ctx, rgba(V.neutraal, 0.15), V.neutraal, 1.5); metaText(ctx, 'VERDUND · GEZEEFD', 865, 700, C.grain, 'center', 20); ctx.restore(); }
       if (sl > 0.01) { ctx.save(); ctx.globalAlpha *= sl; bedMan(ctx, 1400, 440, 1.0, 1, { ziek: 0.6 }); ctx.strokeStyle = rgba(C.bruin, 0.9); ctx.lineWidth = 4; ctx.setLineDash([6, 8]); ctx.beginPath(); ctx.moveTo(920, 580); ctx.quadraticCurveTo(1100, 560, 1230, 470); ctx.quadraticCurveTo(1350, 420, 1480, 480); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'VOORBIJ DE MAAG', 1200, 520, C.grain, 'center', 20); ctx.restore(); }
-      label(ctx, 'poeptransplantatie', 'DONORBACTERIËN IN DE DARM', 1480, 480, 1300, 200, pt, C.text, 'center');
+      naamBij(ctx, 'poeptransplantatie', 'DONORBACTERIËN IN DE DARM', 1400, 330, pt, 'center', C.text);
       ctx.restore(); }
     if (bew > 0.01 && vast < 0.99) { ctx.save(); ctx.globalAlpha *= bew * (1 - vast);
       metaText(ctx, 'AMSTERDAMS ONDERZOEK · PATIËNTEN MET EEN TERUGKERENDE INFECTIE', 960, 150, C.grain, 'center', 24);

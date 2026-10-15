@@ -148,7 +148,7 @@ const SCENES = {
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2; const E = oog(ctx, 1000, 500, 300, { bol: 0.4, pupil: 0.6 });
       label(ctx, 'hoornvlies', null, E.hornTop[0], E.hornTop[1], 420, 230, q.on('hoornvlies', 1));
       label(ctx, 'iris', null, E.iris[0], E.iris[1], 560, 160, q.on('iris', 1)); label(ctx, 'pupil', null, E.pupil[0], E.pupil[1] + 4, 520, 690, q.on('pupil', 1));
-      label(ctx, 'lens', null, E.lensTop[0], E.lensTop[1] + 40, 820, 120, q.on('lens', 1)); label(ctx, 'glasachtig lichaam', null, E.glas[0], E.glas[1], 1450, 700, q.on('glasachtig', 1));
+      label(ctx, 'lens', null, E.lensTop[0] + 20, E.lensTop[1] + 40, E.lensTop[0] + 120, E.lensTop[1] + 40, q.on('lens', 1)); label(ctx, 'glasachtig lichaam', null, E.glas[0], E.glas[1], 1450, 700, q.on('glasachtig', 1));
       label(ctx, 'netvlies', 'lichtreceptoren', E.netv[0], E.netv[1], 1500, 200, q.on('netvlies', 1));
       const br = q.on('breken', 1); stralenHorn(ctx, 360, E.horn[0] + 20, E.lx, E.xr, 500, [-56, -28, 0, 28, 56], LICHT, br, ramp(t, q.at('breken', 1), 2)); ctx.save(); ctx.globalAlpha *= q.on('tweederde', 1); ctx.strokeStyle = C.teal; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(E.horn[0] + 60, 500, 60, 155, 0, Math.PI / 2, 1.5 * Math.PI); ctx.stroke(); ctx.restore();
       vlekje(ctx, E.xr, 500, 26, LICHT, q.on('scherp', 1));
@@ -158,7 +158,7 @@ const SCENES = {
   s05(ctx, t, q) { bg(ctx, 'schema'); const ph = q.on('telefoon', 1);
     ctx.save(); ctx.globalAlpha *= 1 - 0.7 * ph; const E = oog(ctx, 1200, 480, 400, { bol: 0.5, pupil: 0.6, straal: q.on('ring', 1) });
     label(ctx, 'straalvormig lichaam', 'met kringspier', E.straal[0] - 10, E.straal[1] - 10, 720, 110, q.on('straalvormig', 1), C.text, 'right');
-    label(ctx, 'lensbandjes', null, E.bandje[0], E.bandje[1] + 20, 560, 200, q.on('lensbandjes', 1)); label(ctx, 'lens', null, E.lens[0] - 10, E.lens[1], 560, 470, q.on('hangt', 1)); ctx.restore();
+    label(ctx, 'lensbandjes', null, E.bandje[0], E.bandje[1] + 20, 560, 200, q.on('lensbandjes', 1)); label(ctx, 'lens', null, E.lens[0] + 20, E.lens[1], E.lens[0] + 120, E.lens[1], q.on('hangt', 1)); ctx.restore();
     if (ph > 0.01) { ctx.save(); ctx.globalAlpha *= ph; roundRect(ctx, 300, 520, 110, 200, 18); shape(ctx, '#1A2740', C.text2, 3); roundRect(ctx, 312, 540, 86, 150, 8); shape(ctx, rgba(C.teal, 0.4), null);
       arrow(ctx, 450, 560, 1250, 400, C.line, q.on('overkant', 1), 3); roundRect(ctx, 1280, 260, 300, 160, 12); shape(ctx, rgba(C.groen, 0.5 * q.on('bord', 1)), rgba(C.groen, q.on('bord', 1)), 3); regel(ctx, 'BUSHALTE', 1430, 355, q.on('bord', 1), C.text, 40, 'center', 700);
       regel(ctx, 'dichtbij', 355, 780, 1, C.text2, 26, 'center', 700); regel(ctx, 'ver weg', 1430, 470, q.on('overkant', 1), C.text2, 26, 'center', 700); ctx.restore(); }
@@ -209,7 +209,7 @@ const SCENES = {
 
   s11(ctx, t, q) { bg(ctx, 'micro');
     const E = oog(ctx, 400, 470, 210, { bol: 0.4, pupil: 0.5, gv: q.on('gele', 1), bv: q.on('blinde', 1) });
-    label(ctx, 'gele vlek', 'veel kegeltjes', E.gv[0], E.gv[1], 520, 160, q.on('gele', 1), '#F0D040'); label(ctx, 'blinde vlek', 'geen receptoren', E.bv[0], E.bv[1], 520, 800, q.on('blinde', 1), C.koraal);
+    naamBij(ctx, 'gele vlek', 'veel kegeltjes', E.gv[0] + 20, E.gv[1] - 95, q.on('gele', 1), 'left', '#F0D040'); naamBij(ctx, 'blinde vlek', 'geen receptoren', E.bv[0] - 80, E.bv[1] + 190, q.on('blinde', 1), 'center', C.koraal);
     const X0 = 900, Y0 = 760; ctx.fillStyle = rgba(NETV, 0.12); ctx.fillRect(X0 - 40, Y0 + 40, 1000, 30);
     const keg = q.on('Kegeltjes', 1), kl = q.on('drie', 1), st = q.on('Staafjes', 1);
     for (let i = 0; i < 14; i++) { const x = X0 + i * 70; if (i % 3 === 1) kegeltje(ctx, x, Y0, 2, kl > 0.01 ? KEG[Math.floor(i / 3) % 3] : '#C9A35C', keg); else staafje(ctx, x, Y0, 2, st); }
@@ -258,7 +258,7 @@ const SCENES = {
     label(ctx, 'trommelvlies', null, 798, 540, 700, 820, q.on('trommelvlies', 1), C.text, 'right');
     label(ctx, 'hamer · aambeeld · stijgbeugel', 'gehoorbeentjes', 890, 380, 900, 110, q.on('gehoorbeentjes', 1), C.text, 'left');
     label(ctx, 'ovale venster', null, 1010, 500, 1080, 720, q.on('ovale', 1), C.text, 'left'); label(ctx, 'slakkenhuis', 'met haarcellen', 1230, 600, 1480, 740, q.on('slakkenhuis', 1), C.text, 'left');
-    tag(ctx, 'groot → klein: druk ± 20× groter', 905, 300, C.goud, q.on('groter', 1) * (1 - q.on('haarcellen', 1))); regel(ctx, 'groot', 770, 405, q.on('groot', 1) * (1 - q.on('haarcellen', 1)), C.goud, 24, 'right', 700); regel(ctx, 'klein', 1030, 430, q.on('klein', 1) * (1 - q.on('haarcellen', 1)), C.goud, 24, 'left', 700);
+    tag(ctx, 'groot → klein: druk ± 20× groter', 1500, 830, C.goud, q.on('groter', 1) * (1 - q.on('haarcellen', 1))); regel(ctx, 'groot', 770, 405, q.on('groot', 1) * (1 - q.on('haarcellen', 1)), C.goud, 24, 'right', 700); regel(ctx, 'klein', 1030, 430, q.on('klein', 1) * (1 - q.on('haarcellen', 1)), C.goud, 24, 'left', 700);
     zoomCircle(ctx, 1640, 330, 150, 1200, 560, 'haarcellen', q.on('haarcellen', 1), () => { ctx.fillStyle = rgba(SLAK, 0.15); ctx.fillRect(1490, 180, 300, 300); for (let k = 0; k < 3; k++) haarcel(ctx, 1570 + k * 70, 400, 0.8, 0.5 * Math.sin(t * 6 + k) * q.on('buigen', 1), 1); });
     label(ctx, 'gehoorzenuw', null, 1440, 506, 1560, 640, q.on('gehoorzenuw', 1), ZENUW, 'left');
     tag(ctx, 'mensen horen ± 20 – 20 000 Hz', 960, 860, C.teal, q.on('hertz', 1)); },

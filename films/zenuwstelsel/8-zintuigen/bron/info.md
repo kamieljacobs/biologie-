@@ -89,3 +89,7 @@ Begrippen: zintuig, adequate prikkel, hoornvlies, iris en pupil, pupilreflex, le
 - De film heet in de index "film 8"; film 7 (Slaap en stress) bestaat nog niet. De andere zenuwstelselfilms noemen zelf hun eigen nummer.
 - Eindreview: 15 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
 - Het evenwichtsorgaan is sterk vereenvoudigd getekend (drie bogen, één blaasje met de tekst "er zijn er twee").
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). 'lens' (s04, s05) staat rechts van de lens; gele vlek en blinde vlek nu `naamBij` naast/onder het kleine oog; de tag 'groot → klein: druk ± 20× groter' staat rechtsonder (overlapte de gehoorbeentjes). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

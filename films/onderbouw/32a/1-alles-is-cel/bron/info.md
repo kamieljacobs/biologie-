@@ -104,3 +104,7 @@ Geen blobs: `film.src.html` = `index.html`, regelnummers zijn gelijk.
 - De overgang stevig ↔ slap is een snelle overvloeier tussen twee tekeningen, geen echte vervorming.
 - Lettertypen komen van Google Fonts (zoals bij Celorganellen); offline vallen ze terug op Georgia/system-ui.
 - Tabellen in het docentdeel scrollen horizontaal op een telefoon (`table{display:block;overflow-x:auto}`); Celorganellen heeft dat nog niet.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Verplaatst (nu `naamBij`): wangcellen (onder het microscoopbeeld), celkern, model, zuurstof, mitochondrium, bladgroenkorrel, vacuole (ook 'wordt kleiner/groter'), opgeloste stoffen, celwand ('houdt tegen').

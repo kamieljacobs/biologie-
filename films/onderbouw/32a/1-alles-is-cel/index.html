@@ -206,16 +206,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -531,7 +540,7 @@ s04(ctx,t,q){ bg(ctx,'schema'); const tK=q.at('kat');
 },
 // ---- H1: wangcellen, celmembraan, cytoplasma ----
 s05(ctx,t,q){ bg(ctx,'micro'); const tOm=q.at('elke'); const fA=1-ramp(t,tOm-0.2,0.8);
-  if(fA>0.01) alpha(ctx,fA,()=>{ microField(960,450,380,0.98); label(ctx,'wangcellen','methyleenblauw, onder de microscoop',1240,300,1420,190,ramp(t,q.at('wangcellen'),0.5));
+  if(fA>0.01) alpha(ctx,fA,()=>{ microField(960,450,380,0.98); naamBij(ctx,'wangcellen','methyleenblauw, onder de microscoop',960,880,ramp(t,q.at('wangcellen'),0.5),'center');
     pill(ctx,960,870-30,'plat, als tegeltjes',C.goud,ramp(t,q.at('plat'),0.5),32); });
   const cA=ramp(t,tOm-0.4,0.8); if(cA>0.01) alpha(ctx,cA,()=>{
     animalCell(960,450,560,300,{t, kern:1, hlMem:fadeIO(t,q.at('celmembraan'),q.at('Binnenin'),0.5), hlCyto:fadeIO(t,q.at('gelei'),q.at('Daarin'),0.6), org:ramp(t,q.at('onderdelen'),0.6), mitos:ramp(t,q.at('onderdelen')+0.3,0.6)});
@@ -546,7 +555,7 @@ s05(ctx,t,q){ bg(ctx,'micro'); const tOm=q.at('elke'); const fA=1-ramp(t,tOm-0.2
 // ---- H1: celkern ----
 s06(ctx,t,q){ bg(ctx,'micro'); const tR=q.at('rij');
   animalCell(960,470,560,300,{t,kern:1,mitos:1,org:1,hlKern:ramp(t,q.at('celkern'),0.5)*(1-ramp(t,tR,0.5))});
-  label(ctx,'celkern','de bouwtekening van de cel',800,440,560,180,ramp(t,q.at('celkern'),0.5));
+  naamBij(ctx,'celkern','de bouwtekening van de cel',800,316,ramp(t,q.at('celkern'),0.5),'center');
   const rg=fadeIO(t,q.at('regelt'),tR,0.5); if(rg>0.01) for(let k=0;k<6;k++){ const a=k/6*6.283+0.3; arrow(ctx,803+Math.cos(a)*110,446+Math.sin(a)*110,803+Math.cos(a)*210,446+Math.sin(a)*170,C.goud,3,12,rg); }
   chips(ctx,[['celmembraan',ramp(t,q.at('celmembraan'),0.4)],['cytoplasma',ramp(t,q.at('cytoplasma'),0.4)],['celkern',ramp(t,q.at('celkern',4),0.4)]],870-40);
 },
@@ -559,7 +568,7 @@ s07(ctx,t,q){ bg(ctx,'schema'); const out=1-ramp(t,q.at('Terug')-0.2,0.6);
     alpha(ctx,ramp(t,q.at('blokje'),0.5),()=>{ const x=1330,y=420,s=110,dx=50,dy=-40; ctx.beginPath(); ctx.rect(x-s/2,y-s/2,s,s); shape(ctx,C.oker,lighten(C.oker,0.3),2); ctx.beginPath(); ctx.moveTo(x-s/2,y-s/2); ctx.lineTo(x-s/2+dx,y-s/2+dy); ctx.lineTo(x+s/2+dx,y-s/2+dy); ctx.lineTo(x+s/2,y-s/2); ctx.closePath(); shape(ctx,lighten(C.oker,0.25),lighten(C.oker,0.4),2); ctx.beginPath(); ctx.moveTo(x+s/2,y-s/2); ctx.lineTo(x+s/2+dx,y-s/2+dy); ctx.lineTo(x+s/2+dx,y+s/2+dy); ctx.lineTo(x+s/2,y+s/2); ctx.closePath(); shape(ctx,C.okerD,lighten(C.okerD,0.3),2); metaText(ctx,'blokje',1350,500,C.grain,'center',22); });
     alpha(ctx,ramp(t,q.at('tegeltje'),0.5),()=>{ const x=1610,y=410; ctx.beginPath(); ctx.ellipse(x,y+14,130,40,0,0,Math.PI); ctx.lineTo(x-130,y); ctx.ellipse(x,y,130,40,0,Math.PI,0,true); ctx.closePath(); ctx.fillStyle='#7F9CC4'; ctx.fill(); ctx.beginPath(); ctx.ellipse(x,y,130,40,0,0,6.283); shape(ctx,'#C9D6E6','#7F9CC4',2); dot(ctx,x+10,y,9,'rgba(42,62,128,0.85)'); metaText(ctx,'plat tegeltje',1610,500,C.grain,'center',22); });
     alpha(ctx,d3,()=>metaText(ctx,'echte cellen: ze hebben dikte',1330,600,C.text2,'center',24));
-    label(ctx,'model','je tekent alleen wat je wilt laten zien',560,300,700,250,ramp(t,q.at('model'),0.5));
+    naamBij(ctx,'model','je tekent alleen wat je wilt laten zien',420,205,ramp(t,q.at('model'),0.5),'center');
     const nz=ramp(t,q.at('niet'),0.5); alpha(ctx,nz,()=>{ text(ctx,'wat je in de tekening níét ziet:',240,780,fTekst(34,600),C.koraal); });
     alpha(ctx,ramp(t,q.at('dik',2),0.4),()=>text(ctx,'· hoe dik de cel is',760,780,fTekst(34),C.text));
     alpha(ctx,ramp(t,q.at('klein'),0.4),()=>text(ctx,'· hoe klein de onderdelen echt zijn',1080,780,fTekst(34),C.text));
@@ -578,7 +587,7 @@ s10(ctx,t,q){ bg(ctx,'micro'); const tS=q.at('spiercel'), tM=q.at('schoolmicrosc
     const vs=ramp(t,q.at('voedingsstoffen'),0.6), zs=ramp(t,q.at('zuurstof'),0.6), tt=t;
     for(let i=0;i<6;i++){ const u=((tt*0.22+i/6)%1); alpha(ctx,vs,()=>dot(ctx,lerp(300,1000,u),lerp(330+i*20,560-i*10,u),9,C.oker)); alpha(ctx,zs,()=>dot(ctx,lerp(300,980,(u+0.5)%1),lerp(600-i*15,380+i*12,(u+0.5)%1),8,C.teal)); }
     label(ctx,'voedingsstoffen','uit je eten',330,330,440,140,fadeIO(t,q.at('voedingsstoffen'),q.at('boontjes'),0.5));
-    label(ctx,'zuurstof','uit je longen',330,600,440,830-20,fadeIO(t,q.at('zuurstof'),q.at('boontjes'),0.5),C.teal);
+    naamBij(ctx,'zuurstof','uit je longen',320,650,fadeIO(t,q.at('zuurstof'),q.at('boontjes'),0.5),'left',C.teal);
     label(ctx,'mitochondriën','kleine boontjes',1592,560,1500,800,ramp(t,q.at('boontjes'),0.5));
     const big=ramp(t,q.at('mitochondrium'),0.6); if(big>0.01) alpha(ctx,big,()=>{ ctx.fillStyle=rgba(C.bgMicro,0.6); ctx.fillRect(0,0,W,H); mitochondrion(ctx,960,470,420,0,1,6,t); text(ctx,'mitochondrium',960,260,fTekst(44,600),C.text,'center');
       const br=ramp(t,q.at('verbrandt'),0.6); for(let i=0;i<5;i++){ const u=clamp((t-q.at('verbrandt')-i*0.35)/1.6,0,1); alpha(ctx,br*(1-u),()=>{ dot(ctx,lerp(500,860,u),420+i*20,10,C.oker); dot(ctx,lerp(1420,1060,u),440+i*16,9,C.teal); }); }
@@ -609,7 +618,7 @@ s13(ctx,t,q){ bg(ctx,'schema'); const tC=q.at('celmembraan');
     label(ctx,'celmembraan','',960+ox+430,320,1560,160,ramp(t,tC,0.4)*lA);
     label(ctx,'cytoplasma','',960+ox+120,600,1300,830-20,ramp(t,q.at('cytoplasma'),0.4)*lA);
     label(ctx,'celkern','',960+ox-275,450,420,180,ramp(t,q.at('celkern'),0.4)*lA);
-    label(ctx,'mitochondrium','ook in een plantencel',960+ox+96,756-20,620,830-20,ramp(t,q.at('mitochondriën'),0.4)*lA);
+    naamBij(ctx,'mitochondrium','ook in een plantencel',960+ox+96,830,ramp(t,q.at('mitochondriën'),0.4)*lA,'center');
     pill(ctx,960,100,'ook een plant verbrandt voedsel',C.koraal,fadeIO(t,q.at('verbrandt'),q.at('drie'),0.5),30);
     const d=ramp(t,q.at('drie'),0.5); if(d>0.01) for(let i=0;i<3;i++){ alpha(ctx,ramp(t,q.at('drie')+0.3*i,0.4),()=>{ ctx.save(); ctx.setLineDash([8,8]); roundRect(ctx,1300,220+i*170,420,120,16); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.stroke(); ctx.restore(); text(ctx,(i+1)+'  ?',1510,295+i*170,fTekst(40,600),C.goud,'center'); }); }
     metaText(ctx,'extra in een plantencel',1510,180,C.grain,'center',24*clamp(d,0.01,1)); });
@@ -620,15 +629,15 @@ s14(ctx,t,q){ bg(ctx,'micro'); const wA=ramp(t,q.at('celwand'),0.6), chA=ramp(t,
   const tw=ramp(t,q.at('water'),0.5)*(1-ramp(t,q.at('groene'),0.5)); if(tw>0.01) for(let i=0;i<6;i++){ const u=((t*0.5+i/6)%1); const a=-0.6+i*0.25; const r=lerp(560,380,u); alpha(ctx,tw*Math.sin(u*Math.PI),()=>dot(ctx,700+Math.cos(a)*r,470+Math.sin(a)*r*0.7,9,C.teal)); }
   label(ctx,'celwand','laat water gewoon door',1172,470,1420,300,ramp(t,q.at('celwand'),0.5),C.groen);
   alpha(ctx,ramp(t,q.at('stevigheid'),0.5),()=>metaText(ctx,'geeft stevigheid en vorm',1430,384,C.grain,'left',26));
-  label(ctx,'bladgroenkorrel','vangt licht',1102,486,1420,600,ramp(t,q.at('bladgroenkorrels'),0.5),C.groen);
+  naamBij(ctx,'bladgroenkorrel','vangt licht',1050,500,ramp(t,q.at('bladgroenkorrels'),0.5),'right',C.groen);
   const li=ramp(t,q.at('licht'),0.6); for(let k=0;k<4;k++) arrow(ctx,1500+k*60,120,1120+k*10,460+k*6,C.goud,3,14,li);
   const vd=ramp(t,q.at('voedsel'),0.6); if(vd>0.01) for(let i=0;i<6;i++){ const u=((t*0.4+i/6)%1); alpha(ctx,vd,()=>dot(ctx,1100-u*300,486+Math.sin(u*6+i)*40+u*40,7,C.oker)); }
   pill(ctx,700,100,'licht → eigen voedsel',C.goud,ramp(t,q.at('voedsel'),0.5),30); },
 // ---- H3: de vacuole ----
 s15(ctx,t,q){ bg(ctx,'micro'); const v=ramp(t,q.at('vacuole')-0.2,1.2), tA=q.at('aanrecht');
   plantCellV(700,470,480,330,{t,wall:1,chloro:1,vac:v,kern:1,mitos:1,sugar:ramp(t,q.at('opgeloste'),0.6)});
-  label(ctx,'vacuole','een grote blaas met water',760,470,1420,300,ramp(t,q.at('vacuole'),0.5),C.teal);
-  label(ctx,'opgeloste stoffen','zoals suikers',820,540,1420,560,fadeIO(t,q.at('opgeloste'),tA,0.5),C.oker);
+  naamBij(ctx,'vacuole','een grote blaas met water',740,568,ramp(t,q.at('vacuole'),0.5),'center',C.teal);
+  naamBij(ctx,'opgeloste stoffen','zoals suikers',700,300,fadeIO(t,q.at('opgeloste'),tA,0.5),'center',C.oker);
   const nm=fadeIO(t,q.at('neemt'),tA,0.4); if(nm>0.01) for(let i=0;i<6;i++){ const u=((t*0.45+i/6)%1); const a=-0.8+i*0.3; alpha(ctx,nm,()=>dot(ctx,lerp(700+Math.cos(a)*600,710,u),lerp(470+Math.sin(a)*420,476,u),9,C.teal)); }
   inset(1640,600,160,ramp(t,tA,0.6),()=>{ ctx.beginPath(); ctx.rect(1470,660,340,30); shape(ctx,C.bruin,lighten(C.bruin,0.3),2); krop(1640,660,0.38,1); });
   pill(ctx,1580,830,'wat gebeurt er in de cellen?',C.goud,ramp(t,q.at('gebeurt'),0.5),28); },
@@ -640,11 +649,11 @@ s17(ctx,t,q){ bg(ctx,'micro'); const tK=q.at('koud'), tB=q.at('binnenband'), tMi
     plantCellV(640,470,460,320,{t,wall:1,chloro:1,vac:v,kern:1,mitos:1,turg:clamp(turg,0,1)});
     const out=fadeIO(t,q.at('verliest'),q.at('slap'),0.4); if(out>0.01) for(let i=0;i<6;i++){ const u=((t*0.5+i/6)%1); const a=-1+i*0.4; alpha(ctx,out,()=>dot(ctx,lerp(650,640+Math.cos(a)*620,u),lerp(476,470+Math.sin(a)*440,u),9,C.teal)); }
     const inn=fadeIO(t,tK,q.at('strak'),0.4); if(inn>0.01) for(let i=0;i<6;i++){ const u=((t*0.5+i/6)%1); const a=-1+i*0.4; alpha(ctx,inn,()=>dot(ctx,lerp(640+Math.cos(a)*620,650,u),lerp(470+Math.sin(a)*440,476,u),9,C.teal)); }
-    label(ctx,'vacuole','wordt kleiner',700,470,1180,180,fadeIO(t,q.at('kleiner'),tK,0.4),C.teal);
-    label(ctx,'vacuole','wordt groter',700,470,1180,180,fadeIO(t,q.at('groter'),tB,0.4),C.teal);
+    naamBij(ctx,'vacuole','wordt kleiner',640,480,fadeIO(t,q.at('kleiner'),tK,0.4),'center',C.teal);
+    naamBij(ctx,'vacuole','wordt groter',640,480,fadeIO(t,q.at('groter'),tB,0.4),'center',C.teal);
     pill(ctx,640,90,'water verdampt uit het blad',C.teal,fadeIO(t,q.at('verdampt'),q.at('drukt'),0.4),30);
     const pr=ramp(t,q.at('strak'),0.6); for(let k=0;k<8;k++){ const a=k/8*6.283; arrow(ctx,640+Math.cos(a)*250,470+Math.sin(a)*170,640+Math.cos(a)*380,470+Math.sin(a)*262,C.goud,4,14,pr*(1-ramp(t,tMi-0.6,0.4))); }
-    label(ctx,'celwand','houdt tegen: de cel knapt niet',1086,500,1180,800,ramp(t,q.at('houdt'),0.5),C.groen);
+    naamBij(ctx,'celwand','houdt tegen: de cel knapt niet',700,834,ramp(t,q.at('houdt'),0.5),'left',C.groen);
     // kleine sla rechtsboven: slap en weer stevig
     inset(1580,450,170,ramp(t,q.at('slap'),0.5)*(1-ramp(t,tB-0.3,0.4)),()=>{ ctx.beginPath(); ctx.rect(1400,520,360,30); shape(ctx,C.bruin,lighten(C.bruin,0.3),2); krop(1580,520,0.42,1-ramp(t,q.at('groter'),1)); });
     // binnenband in fietsband

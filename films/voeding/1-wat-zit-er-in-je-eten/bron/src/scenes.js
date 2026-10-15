@@ -132,8 +132,8 @@ const SCENES = {
       atoms(930, 260, 6, 12, 6, 'glucose', 1);
       atoms(930, 580, 16, 32, 2, 'vetzuur', 1);
       const z = q.on('zuurstofatomen'); if (z > 0.01) { ctx.save(); ctx.globalAlpha *= z; ctx.strokeStyle = C.teal; ctx.lineWidth = 1.5; roundRect(ctx, 990, 360, 200, 40, 10); ctx.stroke(); ctx.restore(); }
-      label(ctx, 'al veel zuurstof', 'al half verbrand', 1120, 380, 1520, 310, q.on('half'));
-      label(ctx, 'bijna alleen C en H', 'meer te verbranden', 1330, 650, 1520, 500, q.on('koolstof'));
+      naamBij(ctx, 'al veel zuurstof', 'al half verbrand', 1475, 392, q.on('half'), 'left');
+      naamBij(ctx, 'bijna alleen C en H', 'meer te verbranden', 1475, 618, q.on('koolstof'), 'left');
       ctx.restore(); }
   },
   s12(ctx, t, q) { bg(ctx, 'schema');
@@ -141,7 +141,7 @@ const SCENES = {
     const fade = 1 - bird * 0.5;
     ctx.save(); ctx.globalAlpha *= fade;
     // glycogeen in lever en spieren
-    ctx.save(); ctx.globalAlpha *= Math.max(g, bird); glycogen(ctx, 140, 470, 2.4); label(ctx, 'glycogeen', 'lever en spieren · klein beetje', 330, 420, 480, 230, 1 - bird); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= Math.max(g, bird); glycogen(ctx, 140, 470, 2.4); naamBij(ctx, 'glycogeen', 'lever en spieren · klein beetje', 330, 200, 1 - bird, 'center'); ctx.restore();
     // vet in vetcel
     ctx.save(); ctx.globalAlpha *= f; blob(ctx, 1380, 460, 330, 260, 0.05, 2); shape(ctx, rgba(V.vt, 0.35), V.vt, 2); for (let i = 0; i < 6; i++) triglyceride(ctx, 1170 + (i % 2) * 230, 330 + Math.floor(i / 2) * 120, 1.0); label(ctx, 'vet', 'het meeste', 1380, 200, 1640, 150, 1 - bird); ctx.restore();
     ctx.restore();
@@ -261,7 +261,7 @@ const SCENES = {
       metaText(ctx, 'concentratie in het bloed', x0 + 14, y1 - 14, C.grain, 'left', 28); metaText(ctx, 'tijd na de maaltijd (uur)', x1, y0 + 84, C.grain, 'right', 28);
       [0, 1, 2, 3, 4].forEach(h => text(ctx, String(h), x0 + h * 300, y0 + 40, fMeta(28), C.text2, 'center'));
       const curve = (ampl, base, u, col, lw) => { ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.beginPath(); for (let i = 0; i <= 200 * u; i++) { const h = i / 200 * 4; const v = base + ampl * (h / 0.8) * Math.exp(1 - h / 0.8); const x = x0 + h * 300, y = y0 - v * 520; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); };
-      curve(0.75, 0.15, rise, C.oker, 4); label(ctx, 'essentiële aminozuren', 'stijging = uit de maaltijd', x0 + 240, y0 - 0.9 * 520, x0 + 520, 230, rise > 0.9 ? 1 : 0);
+      curve(0.75, 0.15, rise, C.oker, 4); naamBij(ctx, 'essentiële aminozuren', 'stijging = uit de maaltijd', x0 + 300, y0 - 0.9 * 520 - 48, rise > 0.9 ? 1 : 0, 'left');
       ctx.save(); ctx.globalAlpha *= ne; curve(0.2, 0.35, ne, V.neutraal, 3); text(ctx, 'niet-essentiële: lichaam maakt ze ook zelf', x1, y0 - 0.62 * 520, fTekst(36, 600), V.neutraal, 'right'); ctx.restore();
       ctx.restore(); }
     metaText(ctx, 'schematisch verloop', W - 40, CAPTION_Y - 16, C.text2, 'right', 28);
@@ -288,7 +288,7 @@ const SCENES = {
     // vezels schuiven door; enzymen botsen ertegen en laten los
     for (let i = 0; i < 5; i++) { const x = 160 + ((t * 70 + i * 330) % 1500); fiber(ctx, x, 470 + (i % 3) * 30, 5, 11, q.on('vezels') * tube, 0.05 * Math.sin(t + i)); }
     const en = q.on('enzymen'); if (en > 0.01) { for (let i = 0; i < 3; i++) { const x = 500 + i * 300, bounce = Math.abs(Math.sin(t * 2 + i)) * 40; ctx.save(); ctx.globalAlpha *= en; blob(ctx, x, 560 + bounce, 22, 18, 0.12, i); shape(ctx, C.enzym, lighten(C.enzym, 0.3), 1.2); ctx.restore(); } label(ctx, 'enzymen', 'kunnen vezels niet knippen', 800, 590, 900, 770, en); }
-    label(ctx, 'cellulose', 'uit celwanden van planten', 600, 470, 520, 250, q.on('cellulose'));
+    naamBij(ctx, 'cellulose', 'uit celwanden van planten', 860, 328, q.on('cellulose'), 'center');
     bigLine(ctx, 'een maand bijna geen vezels: wat gebeurt er?', W / 2, 180, q.on('maand'), C.goud, 44);
   },
   s25(ctx, t, q) { bg(ctx, 'schema');
@@ -315,7 +315,7 @@ const SCENES = {
     ctx.restore();
     const fx = ['kleur', 'smaak', 'geur', 'houdbaar']; fx.forEach((f, i) => { const al = q.on(['kleur', 'smaak', 'geur', 'langer'][i]); bigLine(ctx, f, 1360, 260 + i * 90, al, C.text, 40, 'left'); });
     const eu = q.on('getest'); if (eu > 0.01) { ctx.save(); ctx.globalAlpha *= eu; roundRect(ctx, 1300, 640, 520, 110, 14); shape(ctx, rgba(C.groen, 0.12), C.groen, 1.5); text(ctx, 'getest en toegelaten in de EU', 1560, 708, fTekst(36, 600), C.groen, 'center'); ctx.restore(); }
-    label(ctx, 'E-nummer', 'of de naam', 960, 544, 990, 790, q.on('nummer'));
+    naamBij(ctx, 'E-nummer', 'of de naam', 1045, 598, q.on('nummer'), 'left');
   },
   s27(ctx, t, q) { bg(ctx, 'schema');
     const adi = q.on('ADI'), asp = q.on('aspartaam'), sx = q.on('Zestig', 1, 0.8), blik = q.on('blikje', 1, 0.6), kind = q.on('kind', 1, 0.8);

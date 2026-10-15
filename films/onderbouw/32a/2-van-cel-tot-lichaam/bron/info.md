@@ -115,3 +115,7 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
 - **Risicowoorden (uitspraaktest)**:
   - tussencelstof — geen IPA gevonden (samenstelling tussen + cel + stof); risico dat de TTS "tussence-lstof" knipt. Stem-invoer `tussen-celstof`.
   - kraakbeen — Wiktionary geeft afbreking kraak-been (alleen geluidsbestand, geen IPA); als geschreven.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Verplaatst: labelposities ademhalingsstelsel en bloedvatenstelsel in `SYS`; 'ademt sneller' en 'hart' (andere kant); nu `naamBij`: spierweefsel, botcellen, bladeren, opperhuid, bladmoes (twee regels links van de doorsnede), vaatbundel (onder de nerf).

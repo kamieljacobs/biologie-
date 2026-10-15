@@ -222,16 +222,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -627,7 +636,7 @@ s05(ctx,t,q){
   if(big>0){ ctx.save(); ctx.globalAlpha=big; const r=lerp(140,320,ramp(t,q.at('groter'),2.5));
     blob(ctx,960,480,r,r*0.95,0.03,2); shape(ctx,rgba(C.fill,0.7),C.er,3); dot0(ctx,960,480,8,C.text2);
     const ox=ramp(t,q.at('weg'),0.5); if(ox>0){ for(let k=0;k<6;k++){ const a=k/6*6.2832; const u=((t*0.25+k/6)%1); o2(ctx,960+Math.cos(a)*lerp(r+60,r*0.35,u),480+Math.sin(a)*lerp(r+60,r*0.35,u)*0.95,1,ox*(1-u*0.6)); } }
-    const mid=ramp(t,q.at('midden'),0.5); if(mid>0){ ctx.save(); ctx.globalAlpha*=mid; ctx.beginPath(); ctx.arc(960,480,r*0.3,0,6.2832); ctx.fillStyle=rgba(C.koraal,0.25); ctx.fill(); ctx.restore(); label(ctx,'het midden','krijgt te laat zuurstof',960,480,1340,250,mid,C.koraal); }
+    const mid=ramp(t,q.at('midden'),0.5); if(mid>0){ ctx.save(); ctx.globalAlpha*=mid; ctx.beginPath(); ctx.arc(960,480,r*0.3,0,6.2832); ctx.fillStyle=rgba(C.koraal,0.25); ctx.fill(); ctx.restore(); naamBij(ctx,'het midden','krijgt te laat zuurstof',960,605,mid,'center',C.koraal); }
     pill(ctx,960,130,'hoe groter de cel, hoe verder de weg voor diffusie',C.teal,ramp(t,q.at('Hoe'),0.4)*(1-ramp(t,q.at('midden'),0.3)),26); ctx.restore(); }
   const two=ramp(t,q.at('Daarom'),0.6); if(two>0){ ctx.save(); ctx.globalAlpha=two; cellBody(ctx,960,480,300,210,ramp(t,q.at('Daarom')+0.6,1.4)); ctx.restore(); pill(ctx,960,800,'liever twee kleine cellen',C.groen,ramp(t,q.at('liever'),0.4),28); }
   scaleBar(ctx);
@@ -708,7 +717,7 @@ s16(ctx,t,q){
   const ph=(name,cue)=>ramp(t,q.at(cue),0.4);
   const pro=ph('profase','Profase')*(1-ramp(t,q.at('Metafase'),0.3)), met=ph('metafase','Metafase');
   pill(ctx,960,100,'profase',C.goud,pro,34); pill(ctx,960,100,'metafase',C.goud,met,34);
-  label(ctx,'spoelfiguur','trekdraden vanuit de twee polen',960+460,470,1880,200,ramp(t,q.at('spoelfiguur'),0.5)*(1-met),C.text,'right');
+  naamBij(ctx,'spoelfiguur','trekdraden vanuit de twee polen',960,850,ramp(t,q.at('spoelfiguur'),0.5)*(1-met),'center',C.text);
   label(ctx,'pool','',960-460,470,330,250,ramp(t,q.at('polen'),0.5)*(1-ramp(t,q.at('spoelfiguur'),0.4)));
   label(ctx,'kernmembraan','valt uit elkaar',960+190,470-180,1500,250,fadeIO(t,q.at('kernmembraan'),q.at('Metafase'),0.4));
   const eq=ramp(t,q.at('equatorvlak'),0.5); if(eq>0){ ctx.save(); ctx.globalAlpha=eq; ctx.setLineDash([10,10]); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(960,150); ctx.lineTo(960,800); ctx.stroke(); ctx.restore(); metaText(ctx,'equatorvlak',990,800,C.goud,'left',24*1); }
@@ -747,9 +756,9 @@ e01(ctx,t,q){
     const pa=fadeIO(t,tTg,tH,0.4); arrow(ctx,g.kL[0]-30,cy+150,g.kL[0]-150,cy+150,C.goud,5,18,pa); arrow(ctx,g.kR[0]+30,cy+150,g.kR[0]+150,cy+150,C.goud,5,18,pa);
     label(ctx,'kinetochoor','eiwitplaatje, één per chromatide',g.kL[0],cy-30,g.kL[0]-120,240,fadeIO(t,q.at('plaatjes',2),q.at('goed'),0.5));
     label(ctx,'kinetochoor','',g.kR[0],cy-30,g.kR[0]+120,240,fadeIO(t,q.at('plaatjes',2),q.at('goed'),0.5));
-    label(ctx,'centromeer onder spanning','',cx,cy,cx+260,cy+260,fadeIO(t,q.at('spanning')-0.4,tH,0.4),C.groen,'left');
+    naamBij(ctx,'centromeer onder spanning','',cx+70,cy+50,fadeIO(t,q.at('spanning')-0.4,tH,0.4),'left',C.groen);
     if(ez>0.01){ ctx.save(); ctx.globalAlpha*=ez; const pr=1+0.12*Math.sin(t*6); dot0(ctx,cx,cy,22*pr,rgba(C.paars,0.35)); dot0(ctx,cx,cy,13,C.paars); ctx.restore();
-      label(ctx,'enzym','maakt foute trekdraden los',cx,cy+14,cx+170,cy+250,ez,C.paars,'left'); }
+      naamBij(ctx,'enzym','maakt foute trekdraden los',cx+70,cy+70,ez,'left',C.paars); }
     // los kinetochoor knippert rood
     const lk=t<tKn?fadeIO(t,tL2-0.3,tWs+0.8,0.3):0; if(lk>0.01){ const w=(t*1.6)%1; ctx.save(); ctx.globalAlpha*=lk; ctx.strokeStyle=rgba(C.koraal,1-w); ctx.lineWidth=4; ctx.beginPath(); ctx.arc(g.kR[0],cy,20+w*80,0,6.2832); ctx.stroke(); ctx.restore(); }
     // knip-enzym (ander enzym) bij de cohesine
@@ -806,8 +815,8 @@ e03(ctx,t,q){
         const r=rng(i*7+j*101); const dx=(r()-0.3)*60*age, dy=(r()-0.5)*90*age; dot0(ctx,P[0]+12+i*B+dx+8,y+dy,5,rgba(C.spoel,0.8*(1-age/1.6))); } });
     const goldEnd=fadeIO(t,tAf-0.6,tHo+1.0,0.4); if(goldEnd>0){ ctx.save(); ctx.globalAlpha*=goldEnd; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(xk-12,470,44,0,6.2832); ctx.stroke(); ctx.restore(); }
     label(ctx,'trekdraad','rijtje eiwitblokjes',600,452,600,250,fadeIO(t,tTr+0.4,tAf-0.6,0.4)*(xk>700?1:0));
-    label(ctx,'afbreken','vooral bij het kinetochoor',xk-30,500,xk-60,760,fadeIO(t,tAf-0.6,tHo,0.4),C.goud);
-    label(ctx,'kinetochoor','houdt het uiteinde vast',xk+8,440,xk+150,230,fadeIO(t,tHo,tTe,0.4),C.goud);
+    naamBij(ctx,'afbreken','vooral bij het kinetochoor',xk-60,600,fadeIO(t,tAf-0.6,tHo,0.4),'right',C.goud);
+    naamBij(ctx,'kinetochoor','houdt het uiteinde vast',xk-20,440,fadeIO(t,tHo,tTe,0.4),'right',C.goud);
     arrow(ctx,xk+200,640,xk+40,640,C.goud,5,18,fadeIO(t,tMe,tTe+0.6,0.4));
     pill(ctx,960,110,'draad wordt korter → chromatide gaat mee naar de pool',C.text,fadeIO(t,tKo,tTe,0.5),28);
     ctx.restore(); }
@@ -830,7 +839,7 @@ s17(ctx,t,q){
     for(const s of [-1,1]) nucMembrane(ctx,x0+s*220,y0,90,1);
     const cp=ramp(t,q.at('celplaat'),1.4); ctx.strokeStyle=C.groen; ctx.lineWidth=10; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x0,y0-200*cp); ctx.lineTo(x0,y0+200*cp); ctx.stroke();
     for(let k=0;k<8;k++){ const yy=y0-180+k*52; if(Math.abs(yy-y0)<200*cp) continue; dot0(ctx,x0+(hash(k)*2-1)*14,yy,7,rgba(C.groen,0.8)); }
-    label(ctx,'celplaat','wordt een nieuwe celwand',x0,y0-120,1500,170,ramp(t,q.at('celplaat'),0.5),C.groen,'right'); metaText(ctx,'plantencel',x0,y0+290,C.grain,'center',24); ctx.restore(); }
+    naamBij(ctx,'celplaat','wordt een nieuwe celwand',x0,190,ramp(t,q.at('celplaat'),0.5),'center',C.groen); metaText(ctx,'plantencel',x0,y0+290,C.grain,'center',24); ctx.restore(); }
   scaleBar(ctx);
 },
 s19(ctx,t,q){
@@ -869,7 +878,7 @@ s22(ctx,t,q){
   const cellA=ramp(t,q.at('meiose',3),0.6); // 'In meiose I'
   const intro=1-cellA;
   if(intro>0){ ctx.save(); ctx.globalAlpha=intro; human(ctx,560,830,560,1,C.mens);
-    const org=ramp(t,q.at('teelballen'),0.4); if(org>0){ ctx.save(); ctx.globalAlpha*=org; ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(560,600,46,0,6.2832); ctx.stroke(); ctx.restore(); label(ctx,'teelballen / eierstokken','hier vindt meiose plaats',606,600,860,660,org,C.goud,'left'); }
+    const org=ramp(t,q.at('teelballen'),0.4); if(org>0){ ctx.save(); ctx.globalAlpha*=org; ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(560,600,46,0,6.2832); ctx.stroke(); ctx.restore(); naamBij(ctx,'teelballen / eierstokken','hier vindt meiose plaats',690,620,org,'left',C.goud); }
     pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,org,28);
     pill(ctx,1240,420,'reductiedeling: 46 → 23',C.goud,ramp(t,q.at('reductiedeling'),0.4),28);
     pill(ctx,1240,540,'twee delingen, één keer kopiëren',C.text,ramp(t,q.at('delingen'),0.4),28); ctx.restore(); }

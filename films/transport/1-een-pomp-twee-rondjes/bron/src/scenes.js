@@ -37,7 +37,7 @@ const SCENES = {
     tag(ctx, 'naar je longen', 1590, 300, TR.armL, q.on('longen', 1) * (1 - q.on('pompkamers', 1)));
     tag(ctx, 'naar de rest van je lichaam', 1590, 560, TR.rijkL, q.on('lichaam', 1) * (1 - q.on('pompkamers', 1)));
     const w = q.on('dik', 1); if (w > 0.01) { const p1 = hartPunt(1150, 420, 0.45, 'wandLV'), p2 = hartPunt(1150, 420, 0.45, 'wandRV');
-      label(ctx, 'linkerkamer', 'DIKKE WAND', p1[0], p1[1], 1560, 720, w, C.goud); label(ctx, 'rechterkamer', 'DUNNE WAND', p2[0], p2[1], 760, 230, w * q.on('rechterkamer', 1), C.text); }
+      label(ctx, 'linkerkamer', 'DIKKE WAND', p1[0], p1[1], 1560, 720, w, C.goud); naamBij(ctx, 'rechterkamer', 'DUNNE WAND', 905, 300, w * q.on('rechterkamer', 1), 'right', C.text); }
     vraagteken(ctx, 1700, 300, q.on('komt', 1), 140);
   },
 
@@ -61,7 +61,7 @@ const SCENES = {
       const lr = q.on('Links', 3) * (1 - q.on('Ook', 1));
       if (lr > 0.01) { ctx.save(); ctx.globalAlpha *= lr; person(ctx, 1640, 640, 300, 1, {}); tag(ctx, 'zijn links', 1640, 700, C.goud, 1); tag(ctx, 'jouw links = rechts op het plaatje', 960, 140, C.goud, q.on('plaatje', 1));
         const p = hartPunt(X, Y, S, 'LV'); label(ctx, 'linkerkamer', 'RECHTS OP HET PLAATJE', p[0], p[1], 1300, 830, 1, C.goud); ctx.restore(); }
-      const w = q.on('Ook', 1); if (w > 0.01) { lab('RA', 'boezem', 'DUNNE SPIERWAND', 440, 140, w * (1 - q.on('kamers', 2) * 0.0)); lab('wandLV', 'kamer', 'DIKKE SPIERWAND', 1560, 700, q.on('kamers', 2), C.goud);
+      const w = q.on('Ook', 1); if (w > 0.01) { naamBij(ctx, 'boezem', 'DUNNE SPIERWAND', 560, 410, w, 'right'); naamBij(ctx, 'kamer', 'DIKKE SPIERWAND', 1275, 700, q.on('kamers', 2), 'left', C.goud);
         const pp = (t * 0.9) % 1; if (q.on('pompen', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('pompen', 1); hart(ctx, X, Y, S, { f: hartFase(t * 0.9), vaten: 0.5, peesdraden: 0.4, a: 1 }); ctx.restore(); } }
       ctx.restore(); }
   },
@@ -156,7 +156,7 @@ const SCENES = {
     const f = hartFase(0.75); hart(ctx, X, Y, S, { f: q.on('kleppen', 1) > 0 ? f : hartFase(0.2), peesdraden: 0.4, hi: { klepAV: q.on('hartklep', 1) * (1 - q.on('halvemaanvormige', 1)) > 0.5, klepSL: q.on('halvemaanvormige', 1) > 0.5 } });
     vraagteken(ctx, 1500, 360, q.on('Waarom', 1) * (1 - q.on('kleppen', 1)), 140);
     const pAV = hartPunt(X, Y, S, 'klepL'), pSL = hartPunt(X, Y, S, 'slR');
-    label(ctx, 'hartklep', 'TUSSEN BOEZEM EN KAMER', pAV[0], pAV[1], 1450, 520, q.on('hartklep', 1), C.goud);
+    label(ctx, 'hartklep', 'TUSSEN BOEZEM EN KAMER', pAV[0], pAV[1], pAV[0] + 200, pAV[1] + 200, q.on('hartklep', 1), C.goud);
     regel(ctx, 'links twee slippen, rechts drie', 1460, 620, q.on('slippen', 1), C.text2, 30);
     label(ctx, 'halvemaanvormige klep', 'BEGIN AORTA EN LONGSLAGADER', pSL[0], pSL[1], 1300, 300, q.on('halvemaanvormige', 1), C.goud);
     tag(ctx, 'geen spieren: alleen drukverschil', 1480, 840, C.goud, q.on('spieren', 1));

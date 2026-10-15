@@ -87,3 +87,7 @@ Regelnummers in `4-van-darm-naar-bloed.html` (geen blobs; de audio staat ernaast
 - Uitspraak: alle risicowoorden (darmepitheelcellen, microvilli, coeliakie, chylomicronen, galactose, fosfolipiden, natrium-kaliumpomp, ATP, A4'tjes) zijn blind teruggetranscribeerd uit de echte takes en kwamen goed terug; Kamiel heeft de takes nog niet beluisterd (uitspraakwachtlijst in de bouwlijst).
 - Getallen volgen Helander & Fändriks 2014 (dunne darm ≈ 3 m, ≈ 30 m²); "6 m" en "tennisveld" worden in de film expliciet als verouderd benoemd. Vereenvoudigingen staan in het docentdeel (glycerol vs. monoglyceriden, SGLT1/GLUT2, chylvat, borstbuis).
 - Perf (4× CPU-throttle, p95 per frame): s06 19 ms, s23 10 ms, overige ≤ 8 ms. Telefoonlay-out gecontroleerd op s06 en s10.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: microvilli (boven de cel), ATP (boven het transporteiwit), lymfevat (rechts van de vlok, boven 'haarvaten'). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

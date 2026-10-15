@@ -88,3 +88,7 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
   - **ductus Botalli**: genitief van Botallus (Leonardo Botallo, it. /boˈtallo/), klemtoon op -tal-: /ˈdʏk.tʏs boːˈtɑ.li/ (DUK-tus bo-TAL-lie). Stem-invoer: `duktus Bo-tallie`.
   - **placenta**: /plaːˈsɛn.taː/ (plaa-SEN-taa). Stem-invoer: zoals geschreven (stond ook op de wachtlijst van Afweer 4).
   - **navelstreng**: zoals geschreven.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: rechterkamer ('dunne wand'), boezem/kamer ('dunne/dikke spierwand'); 'hartklep' staat rechtsonder de klep (overlapte 'halvemaanvormige klep'). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

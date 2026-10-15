@@ -100,3 +100,7 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026). IPA vooraf opgezocht (Wiktionar
 - Het lichaam staat niet op schaal; de lever is als wedge links van de maag (rechterkant van het lichaam) getekend, de alvleesklier als gele ellips achter de maag, lymfeklieren als groene stippen.
 - Geen Lichaamsbouwer-tool nog: de eindkaart geeft de sorteeropdracht als tekst. Tool later toevoegen en de eindkaart (s20) ernaar laten verwijzen.
 - Voortplantingsorganen zijn neutraal benoemd ("eierstokken en een baarmoeder, of zaadballen"); beide getekend in hetzelfde lichaam.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). `sysLabel()` zet de namen van de orgaanstelsels nu in twee kolommen naast het lichaam (tabel `SYSPOS`, x/y/uitlijning per stelsel); 'huid' in die kolom. In `ORG` verplaatst: maag, dunne darm, alvleesklier, eierstokken, baarmoeder; 'hart' en 'bloedvaten' (s09) nu `naamBij` rechts van het lichaam.

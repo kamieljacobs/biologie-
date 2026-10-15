@@ -92,3 +92,7 @@ Begrippen: supplement, Schijf van Vijf, vitamine D, vitamine B12, foliumzuur, wa
 - De andere voedingsfilms tonen zelf nog 'film x van 6'; in de index staat deze film als slotstuk 7.
 - Eindreview: 12 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
 - Hoofdstuk 4 (14 okt): bronnen in `reviews/supplementen_onderzoek.md`, eindreview in `reviews/eind_h4.md` (10 punten verwerkt; s21–s24 en s27 opnieuw ingesproken). De recap-takes heetten eerst s21/s22 en zijn hernummerd tot s28/s29 (zelfde opname). **NMN-status in de EU (per oktober 2026: nog niet toegelaten, positief EFSA-veiligheidsadvies mei 2026) controleren bij elke herziening**; s26 noemt dit hardop.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Geen scènes met `label()` in beeld; alleen de functie is vervangen. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

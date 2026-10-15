@@ -196,7 +196,7 @@ const SCENES = {
       label(ctx, 'dikke, stevige wand', '', X + Math.cos(-0.7) * (R - 6), Y + Math.sin(-0.7) * (R - 6), 1120, 210, q.on('dikke', 1), C.text);
       label(ctx, 'elastische vezels', '', X + Math.cos(-0.1) * 88 * S, Y + Math.sin(-0.1) * 88 * S, 1120, 400, q.on('elastische', 1), C.text);
       label(ctx, 'laag spieren', '', X + Math.cos(0.45) * 74 * S, Y + Math.sin(0.45) * 74 * S, 1120, 590, q.on('spieren', 1), C.text);
-      label(ctx, 'bloed', 'HOGE DRUK', X + 40, Y + 30, 1120, 760, q.on('hoge', 1), TR.rijkL);
+      naamBij(ctx, 'bloed', 'HOGE DRUK', X, Y + 10, q.on('hoge', 1), 'center', TR.rijkL);
       if (beat > 0.02) { ctx.save(); ctx.globalAlpha *= beat; for (let i = 0; i < 8; i++) { const an = i / 8 * 6.283 + 0.2; dikPijl(ctx, X + Math.cos(an) * 22, Y + Math.sin(an) * 22, X + Math.cos(an) * (Rl - 14), Y + Math.sin(an) * (Rl - 14), C.text, 1, 4); } ctx.restore(); }
       tag(ctx, 'bij elke hartslag rekt de wand mee', 960, 860, C.goud, q.on('opvangen', 1));
       ctx.restore(); }

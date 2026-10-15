@@ -390,10 +390,10 @@ const SCENES = {
       const flat = { schedel: 1, borstbeen: 1, ribben: 1, bekken: 1, wervels: 1, sleutelbeen: 1, dijbeen: 1, opperarmbeen: 1 };
       const A = skelet(ctx, 1160, 440, 0.76, { a: vol, volw: true, rood: (n) => (flat[n] || 0) * q.on('platte', 1) * (n === 'dijbeen' || n === 'opperarmbeen' ? q.on('uiteinden', 1) : 1), hi });
       inv(ctx, vol, () => { text(ctx, 'volwassene', 1160, 885, fTekst(36, 700), C.text, 'center'); metaText(ctx, 'vooral in platte botten', 1160, 120, C.grain, 'center', 24); });
-      const lab = (k, n, lx, ly, w) => label(ctx, n, '', A[k][0], A[k][1], lx, ly, w, C.goud, 'left');
-      lab('borstbeen', 'borstbeen', 1480, 280, q.on('borstbeen', 1)); lab('ribben', 'ribben', 1480, 360, q.on('ribben', 1)); lab('wervels', 'wervels', 1480, 440, q.on('wervels', 1)); lab('bekken', 'bekken', 1480, 540, q.on('bekken', 1));
-      label(ctx, 'uiteinden van dijbeen', '', 1160 + 50 * 0.76, 440 + 140 * 0.76, 1480, 640, q.on('dijbeen', 1), C.goud, 'left');
-      label(ctx, 'en opperarmbeen', '', 1160 + 106 * 0.76, 440 - 200 * 0.76, 1480, 740, q.on('opperarmbeen', 1), C.goud, 'left');
+      const lab = (k, n, lx, ly, w) => naamBij(ctx, n, '', lx, ly, w, 'left', C.goud); // namen in een kolom naast het skelet, op de hoogte van het bot
+      lab('borstbeen', 'borstbeen', 1290, 312, q.on('borstbeen', 1)); lab('ribben', 'ribben', 1290, 368, q.on('ribben', 1)); lab('wervels', 'wervels', 1290, 440, q.on('wervels', 1)); lab('bekken', 'bekken', 1290, 520, q.on('bekken', 1));
+      naamBij(ctx, 'uiteinden van dijbeen', '', 1290, 600, q.on('dijbeen', 1), 'left', C.goud);
+      naamBij(ctx, 'en opperarmbeen', '', 1050, 300, q.on('opperarmbeen', 1), 'right', C.goud);
       ctx.restore(); }
   },
 

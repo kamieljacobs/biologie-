@@ -202,16 +202,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -787,9 +796,9 @@ function bypassSchema(ctx, t, o = {}) {
     label(ctx, by > 0.5 ? 'restmaag' : 'maag', null, 1150, 330, 1150, 120, 1, C.text, 'left');
     label(ctx, 'lever', null, 1640, 210, 1720, 120, 1);
     label(ctx, 'galblaas', null, 1540, 400, 1700, 440, 1);
-    label(ctx, 'alvleesklier', null, 1360, 560, 1640, 600, 1);
+    naamBij(ctx, 'alvleesklier', null, 1235, 612, 1, 'right');
     label(ctx, 'twaalfvingerige darm', null, 1440, 620, 1540, 720, 1);
-    label(ctx, 'dunne darm', null, 1340, 848, 1560, 800, 1);
+    naamBij(ctx, 'dunne darm', null, 1340, 905, 1, 'center');
     if (by > 0.5) { label(ctx, 'maagzakje', null, 880, 230, 560, 220, by); label(ctx, 'nieuw stuk', null, 760, 520, 560, 520, by); }
     ctx.restore(); }
   ctx.restore();
@@ -1649,7 +1658,7 @@ const SCENES = {
       vaatbundelGroot(ctx, 640, 470, 1.15, { xyl: q.on('xyleem', 1), flo: 0 });
       laag(ctx, fade(q, 'twee', 'xyleem'), () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(640, 470 - 175, 225, 110, 0, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.ellipse(640, 470 + 135, 240, 170, 0, 0, 6.283); ctx.stroke(); });
       tag(ctx, 'twee soorten vaten', 640, 120, C.goud, fade(q, 'twee', 'xyleem'));
-      label(ctx, 'xyleem', 'HOUTVATEN', 640 + 70, 470 + 140, 1000, 620, q.on('xyleem', 1), TR.water, 'left');
+      naamBij(ctx, 'xyleem', 'HOUTVATEN', 925, 625, q.on('xyleem', 1), 'left', TR.water);
       schemaPlant(ctx, 1460, 640, 0.72, { t, xyl: q.on('water', 1), water: q.on('water', 1), mineralen: q.on('mineralen', 1), vrucht: 0, bodem: 1 });
       laag(ctx, q.on('wortels', 1), () => { pijl(ctx, 1800, 760, 1800, 280, C.goud, 1, 5); });
       tag(ctx, 'water + mineralen', 1460, 120, TR.water, fade(q, 'mineralen', 'Altijd'));
@@ -1661,7 +1670,7 @@ const SCENES = {
       houtvat(ctx, 760, 130, 830, 170, { dood, t, water: hol, ringen: ramp(t, q.at('stevige'), 1), hiWand: fade(q, 'houtstof', null), hiTussen: fade(q, 'tussenwanden', 'verdwenen') });
       label(ctx, 'een rij cellen', 'EÉN HOUTVAT', 845, 300, 1150, 240, fade(q, 'houtvat', 'dode', 2), C.text, 'left');
       tag(ctx, 'dode cellen', 1300, 240, C.text2, fade(q, 'dode', 'inhoud'));
-      label(ctx, 'inhoud', 'VERDWIJNT', 760, 410, 1150, 380, fade(q, 'inhoud', 'holle'), C.text, 'left');
+      naamBij(ctx, 'inhoud', 'VERDWIJNT', 880, 420, fade(q, 'inhoud', 'holle'), 'left', C.text);
       label(ctx, 'tussenwand', 'VERDWIJNT', 845, 550, 1150, 560, fade(q, 'tussenwanden', 'holle'), C.goud, 'left');
       tag(ctx, 'een lange, holle buis', 1400, 480, TR.water, fade(q, 'holle', 'houtstof'));
       label(ctx, 'wand van houtstof', 'STEVIG', 853, 640, 1150, 700, q.on('houtstof', 1), C.goud, 'left');
@@ -1794,7 +1803,7 @@ const SCENES = {
       tag(ctx, 'vooral aan de onderkant', 960, 140, C.text, fade(q, 'onderkant', 'huidmondjes'));
       const st = blP(X, Y, S, 250, 180); label(ctx, 'huidmondje', '', st[0], st[1], 1420, 790, q.on('huidmondjes', 1) * (1 - q.on('Verdampt', 2)), C.goud, 'left');
       tag(ctx, 'verdampen = transpiratie', 960, 140, TR.water, fade(q, 'transpiratie', 'Verdampt', 1, 2));
-      const nf = blP(X, Y, S, -300, -10); label(ctx, 'houtvat in de nerf', '', nf[0], nf[1], 470, 790, fade(q, 'houtvaten', 'Zo'), TR.water, 'right');
+      const nf = blP(X, Y, S, -300, -10); naamBij(ctx, 'houtvat in de nerf', '', nf[0], nf[1] + 235, fade(q, 'houtvaten', 'Zo'), 'center', TR.water);
       tag(ctx, 'bladcellen trekken water uit de houtvaten', 960, 140, TR.water, fade(q, 'Verdampt', 'zuigkracht', 2));
       tag(ctx, 'zuigkracht van de bladeren', 960, 140, C.goud, q.on('zuigkracht', 1));
     });
@@ -1948,7 +1957,7 @@ const SCENES = {
     horizontaal(ctx, 960, 720, () => houtvat(ctx, 0, -820, 820, 70, { t, water: 0, n: 9 }));
     metaText(ctx, 'zeefvat', 1700, zy0 - 14, TR.suiker, 'center', 26);
     bladluis(ctx, 860, y0 - 70, 1.1, { t, stilet: [1020, (zy0 + zy1) / 2] });
-    label(ctx, 'monddeel', 'IN ÉÉN ZEEFVAT', 990, 470, 1250, 230, q.on('monddeel', 1), C.text, 'left');
+    naamBij(ctx, 'monddeel', 'IN ÉÉN ZEEFVAT', 1000, 318, q.on('monddeel', 1), 'left', C.text);
     vraagteken(ctx, 1790, 250, q.on('zuigen', 1), 130);
   },
 

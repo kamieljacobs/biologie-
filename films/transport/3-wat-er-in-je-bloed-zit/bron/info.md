@@ -76,3 +76,7 @@ Begrippen: bloedplasma, rode bloedcel, hemoglobine, witte bloedcel, bloedplaatje
 - Uitspraak: zie `uitspraak.md`; geen blinde controle mogelijk in deze sessie.
 - Woordtijden komen uit `silalign.py`, niet uit Scribe; enkele cues kunnen 0,2–0,4 s afwijken.
 - Open punten uit de eindreview: zie `reviews/eindreview.md`.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Rode beenmerg (s11): borstbeen, ribben, wervels, bekken en 'uiteinden van dijbeen' staan als kolom rechts naast het skelet op de hoogte van het bot; 'en opperarmbeen' links van de schouder. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

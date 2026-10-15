@@ -207,16 +207,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -641,7 +650,7 @@ function tractMap(o={}){ const A=k=>o[k]===undefined?1:o[k];
   // anus
   alpha(ctx,A('anus'),()=>{ ctx.beginPath(); ctx.arc(1700,860,16,0,6.283); shape(ctx,C.fill,C.line,2); });
 }
-function tractLabels(o={}){ const L={mond:['mond',230,290,230,160,'left'],slokdarm:['slokdarm',345,440,120,600,'left'],maag:['maag',440,520,330,740,'right'],lever:['lever',680,260,940,160,'left'],gal:['gal',700,330,940,250,'left'],alvleesklier:['alvleesklier',640,660,940,760,'left'],dunne:['dunne darm',1060,400,1300,330,'left'],dikke:['dikke darm',1300,640,1120,860,'right'],anus:['anus',1700,860,1800,780,'left'],speeksel:['speekselklier',300,250,420,120,'left']};
+function tractLabels(o={}){ const L={mond:['mond',230,290,230,160,'left'],slokdarm:['slokdarm',345,440,120,600,'left'],maag:['maag',440,520,330,740,'right'],lever:['lever',680,260,940,160,'left'],gal:['gal',700,330,940,250,'left'],alvleesklier:['alvleesklier',640,660,640,1000,'left'],dunne:['dunne darm',1060,400,1300,330,'left'],dikke:['dikke darm',1330,735,1330,1100,'right'],anus:['anus',1700,860,1800,780,'left'],speeksel:['speekselklier',300,250,420,120,'left']};
   Object.entries(L).forEach(([k,v])=>{ const a=o[k]===undefined?0:o[k]; if(a>0.01) label(ctx,v[0],o[k+'Meta']||'',v[1],v[2],v[3],v[4],a,o[k+'Col']||C.text,v[5]); }); }
 // de hap (stukje appel, later papje) en de pit
 function apple(x,y,r,a=1,bite=false){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,'#C94B4B','#E07070',2); if(bite){ ctx.beginPath(); ctx.arc(x+r*0.8,y-r*0.5,r*0.5,0,6.283); ctx.fillStyle=C.bgSchema; ctx.fill(); ctx.beginPath(); ctx.arc(x+r*0.8,y-r*0.5,r*0.5,0,6.283); ctx.fillStyle='#F2E8C8'; ctx.fill(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle='#E07070'; ctx.lineWidth=2; ctx.stroke(); } ctx.strokeStyle=C.bruin; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(x,y-r); ctx.lineTo(x+4,y-r-18); ctx.stroke(); ctx.beginPath(); ctx.ellipse(x+16,y-r-14,14,7,-0.5,0,6.283); shape(ctx,C.groen,lighten(C.groen,0.3),1.5); ctx.restore(); }

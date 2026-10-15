@@ -75,3 +75,7 @@ Begrippen: slagader, aorta, haarvat, ader, kleppen in aders, spierpomp, poortade
 - Uitspraak: zie `uitspraak.md`; geen blinde controle mogelijk in deze sessie.
 - Woordtijden komen uit `silalign.py`, niet uit Scribe; enkele cues kunnen 0,2–0,4 s afwijken.
 - Open punten uit de eindreview: zie `reviews/eindreview.md`.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). 'bloed' ('hoge druk') staat nu midden in het bloedvat (overlapte 'laag spieren'). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

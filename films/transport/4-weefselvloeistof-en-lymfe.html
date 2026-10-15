@@ -204,16 +204,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -789,9 +798,9 @@ function bypassSchema(ctx, t, o = {}) {
     label(ctx, by > 0.5 ? 'restmaag' : 'maag', null, 1150, 330, 1150, 120, 1, C.text, 'left');
     label(ctx, 'lever', null, 1640, 210, 1720, 120, 1);
     label(ctx, 'galblaas', null, 1540, 400, 1700, 440, 1);
-    label(ctx, 'alvleesklier', null, 1360, 560, 1640, 600, 1);
+    naamBij(ctx, 'alvleesklier', null, 1235, 612, 1, 'right');
     label(ctx, 'twaalfvingerige darm', null, 1440, 620, 1540, 720, 1);
-    label(ctx, 'dunne darm', null, 1340, 848, 1560, 800, 1);
+    naamBij(ctx, 'dunne darm', null, 1340, 905, 1, 'center');
     if (by > 0.5) { label(ctx, 'maagzakje', null, 880, 230, 560, 220, by); label(ctx, 'nieuw stuk', null, 760, 520, 560, 520, by); }
     ctx.restore(); }
   ctx.restore();
@@ -1535,7 +1544,7 @@ const SCENES = {
     const g = (lx, ly) => hvP(X, Y, S, lx, ly);
     const p1 = g(-600, -225); label(ctx, 'cel', '', p1[0], p1[1] - 40, 200, 130, q.on('cellen', 1) * (1 - q.on('vocht', 1)), C.text);
     const p2 = g(300, 0); label(ctx, 'haarvat', '', p2[0], p2[1] - 20, 1560, 130, q.on('haarvat', 1) * (1 - q.on('Elke', 1)), C.text);
-    const p3 = g(-260, -110); label(ctx, 'weefselvloeistof', 'VOCHT TUSSEN DE CELLEN', p3[0], p3[1], 760, 120, q.on('weefselvloeistof', 1) * (1 - q.on('begin', 1)), TR.plasma);
+    const p3 = g(-260, -110); naamBij(ctx, 'weefselvloeistof', 'VOCHT TUSSEN DE CELLEN', p3[0], p3[1] + 5, q.on('weefselvloeistof', 1) * (1 - q.on('begin', 1)), 'center', TR.plasma);
     tag(ctx, 'elke cel baadt in weefselvloeistof', 960, 870, TR.plasma, q.on('baadt', 1) * (1 - q.on('Weefselvloeistof', 2)));
     tag(ctx, 'begin van het haarvat: bloeddruk nog hoog', 960, 870, TR.rijkL, q.on('bloeddruk', 1) * (1 - q.on('duwt', 1)));
     tag(ctx, 'water met kleine stoffen door de wand naar buiten', 960, 870, TR.plasma, q.on('duwt', 1) * (1 - q.on('filtratie', 1)));
@@ -1556,7 +1565,7 @@ const SCENES = {
       const b1 = ((t - q.at('Rode') + 0.2) % 3.2 + 3.2) % 3.2; const by = 180 + 200 * Math.sin(Math.min(Math.PI, b1 / 3.2 * Math.PI)) * 0.98; rbc(ctx, 930, by, 70, TR.rijk, q.on('Rode', 1), 0);
       label(ctx, 'rode bloedcel', 'TE GROOT VOOR DE WAND', 860, by - 20, 420, 200, q.on('groot', 1), C.text);
       const b2 = ((t - q.at('plasma') + 0.2) % 2.8 + 2.8) % 2.8; const ey = 200 + 196 * Math.sin(Math.min(Math.PI, b2 / 2.8 * Math.PI)); eiwit(ctx, 1110, ey, 18, q.on('plasma', 1), t * 0.4);
-      label(ctx, 'plasma-eiwit', 'BLIJFT BINNEN', 1160, ey, 1480, 210, q.on('plasma', 1), C.text);
+      naamBij(ctx, 'plasma-eiwit', 'BLIJFT BINNEN', 1180, ey - 60, q.on('plasma', 1), 'left', C.text);
       tag(ctx, 'antwoord b: rode bloedcellen', 960, 870, C.goud, 1 - q.on('Rode', 1) * 0.0 - q.on('meeste', 1));
       tag(ctx, 'water en kleine stoffen gaan er wel door', 960, 870, TR.plasma, q.on('meeste', 1));
       return; }

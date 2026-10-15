@@ -298,7 +298,7 @@ const SCENES = {
       vaatbundelGroot(ctx, 640, 470, 1.15, { xyl: q.on('xyleem', 1), flo: 0 });
       laag(ctx, fade(q, 'twee', 'xyleem'), () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(640, 470 - 175, 225, 110, 0, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.ellipse(640, 470 + 135, 240, 170, 0, 0, 6.283); ctx.stroke(); });
       tag(ctx, 'twee soorten vaten', 640, 120, C.goud, fade(q, 'twee', 'xyleem'));
-      label(ctx, 'xyleem', 'HOUTVATEN', 640 + 70, 470 + 140, 1000, 620, q.on('xyleem', 1), TR.water, 'left');
+      naamBij(ctx, 'xyleem', 'HOUTVATEN', 925, 625, q.on('xyleem', 1), 'left', TR.water);
       schemaPlant(ctx, 1460, 640, 0.72, { t, xyl: q.on('water', 1), water: q.on('water', 1), mineralen: q.on('mineralen', 1), vrucht: 0, bodem: 1 });
       laag(ctx, q.on('wortels', 1), () => { pijl(ctx, 1800, 760, 1800, 280, C.goud, 1, 5); });
       tag(ctx, 'water + mineralen', 1460, 120, TR.water, fade(q, 'mineralen', 'Altijd'));
@@ -310,7 +310,7 @@ const SCENES = {
       houtvat(ctx, 760, 130, 830, 170, { dood, t, water: hol, ringen: ramp(t, q.at('stevige'), 1), hiWand: fade(q, 'houtstof', null), hiTussen: fade(q, 'tussenwanden', 'verdwenen') });
       label(ctx, 'een rij cellen', 'EÉN HOUTVAT', 845, 300, 1150, 240, fade(q, 'houtvat', 'dode', 2), C.text, 'left');
       tag(ctx, 'dode cellen', 1300, 240, C.text2, fade(q, 'dode', 'inhoud'));
-      label(ctx, 'inhoud', 'VERDWIJNT', 760, 410, 1150, 380, fade(q, 'inhoud', 'holle'), C.text, 'left');
+      naamBij(ctx, 'inhoud', 'VERDWIJNT', 880, 420, fade(q, 'inhoud', 'holle'), 'left', C.text);
       label(ctx, 'tussenwand', 'VERDWIJNT', 845, 550, 1150, 560, fade(q, 'tussenwanden', 'holle'), C.goud, 'left');
       tag(ctx, 'een lange, holle buis', 1400, 480, TR.water, fade(q, 'holle', 'houtstof'));
       label(ctx, 'wand van houtstof', 'STEVIG', 853, 640, 1150, 700, q.on('houtstof', 1), C.goud, 'left');
@@ -443,7 +443,7 @@ const SCENES = {
       tag(ctx, 'vooral aan de onderkant', 960, 140, C.text, fade(q, 'onderkant', 'huidmondjes'));
       const st = blP(X, Y, S, 250, 180); label(ctx, 'huidmondje', '', st[0], st[1], 1420, 790, q.on('huidmondjes', 1) * (1 - q.on('Verdampt', 2)), C.goud, 'left');
       tag(ctx, 'verdampen = transpiratie', 960, 140, TR.water, fade(q, 'transpiratie', 'Verdampt', 1, 2));
-      const nf = blP(X, Y, S, -300, -10); label(ctx, 'houtvat in de nerf', '', nf[0], nf[1], 470, 790, fade(q, 'houtvaten', 'Zo'), TR.water, 'right');
+      const nf = blP(X, Y, S, -300, -10); naamBij(ctx, 'houtvat in de nerf', '', nf[0], nf[1] + 235, fade(q, 'houtvaten', 'Zo'), 'center', TR.water);
       tag(ctx, 'bladcellen trekken water uit de houtvaten', 960, 140, TR.water, fade(q, 'Verdampt', 'zuigkracht', 2));
       tag(ctx, 'zuigkracht van de bladeren', 960, 140, C.goud, q.on('zuigkracht', 1));
     });
@@ -597,7 +597,7 @@ const SCENES = {
     horizontaal(ctx, 960, 720, () => houtvat(ctx, 0, -820, 820, 70, { t, water: 0, n: 9 }));
     metaText(ctx, 'zeefvat', 1700, zy0 - 14, TR.suiker, 'center', 26);
     bladluis(ctx, 860, y0 - 70, 1.1, { t, stilet: [1020, (zy0 + zy1) / 2] });
-    label(ctx, 'monddeel', 'IN ÉÉN ZEEFVAT', 990, 470, 1250, 230, q.on('monddeel', 1), C.text, 'left');
+    naamBij(ctx, 'monddeel', 'IN ÉÉN ZEEFVAT', 1000, 318, q.on('monddeel', 1), 'left', C.text);
     vraagteken(ctx, 1790, 250, q.on('zuigen', 1), 130);
   },
 

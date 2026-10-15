@@ -100,3 +100,7 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026). Respelling: "wc" → "wee-cee".
 - De routekaart is een schema, niet een anatomische tekening; de dunne darm is als golf getekend, de dikke darm als lus eromheen.
 - "Het bloed in" geldt in de film voor alle voedingsstoffen; vet gaat grotendeels via de lymfe (docentdeel).
 - Het poppetje op zijn kop is het `human`-poppetje 180° gedraaid.
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). In `tractLabels()` staan 'alvleesklier' en 'dikke darm' nu onder het orgaan (overlapten elkaar).

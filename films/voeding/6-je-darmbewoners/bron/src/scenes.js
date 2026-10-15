@@ -184,7 +184,7 @@ const SCENES = {
       human(ctx, 480, 760, 420, 1); zwerm(ctx, 1100, 300, 500, 300, 24, t, 1, { s: 1.4 });
       if (zij > 0.01) { arrow(ctx, 640, 480, 1060, 400, C.goud, zij, 3); tag(ctx, 'warme plek · eten', 850, 400, C.goud, zij); }
       if (jij > 0.01) { arrow(ctx, 1060, 560, 640, 620, C.groen, jij, 3); tag(ctx, 'brandstof · bescherming', 850, 660, C.groen, jij); }
-      label(ctx, 'mutualisme', 'VOORDEEL VOOR ALLEBEI', 850, 520, 850, 240, mu, C.text, 'center');
+      naamBij(ctx, 'mutualisme', 'VOORDEEL VOOR ALLEBEI', 850, 518, mu, 'center', C.text);
       if (gev > 0.01) { ctx.save(); ctx.globalAlpha *= gev; bact(ctx, 1560, 640, 3, 1.5, 0.3, 1); metaText(ctx, 'EEN PAAR KUNNEN GEVAARLIJK WORDEN', 1560, 700, lighten(ZIEK, 0.3), 'center', 20); ctx.restore(); }
       ctx.restore(); }
     bewijsbord(ctx, [[0, '40 biljoen bacteriën leven zonder zuurstof in je dikke darm', vast]], bord);
@@ -298,7 +298,7 @@ const SCENES = {
       if (don > 0.01) { ctx.save(); ctx.globalAlpha *= don; roundRect(ctx, 520, 500, 140, 180, 20); shape(ctx, rgba(C.bruin, 0.35), C.bruin, 1.5); for (let k = 0; k < 14; k++) bact(ctx, 545 + hash(k) * 90, 530 + hash(k + 5) * 120, k % 3, 0.5, hash(k + 7) * 3, 1); metaText(ctx, 'ONTLASTING VOL DARMBACTERIËN', 590, 720, C.grain, 'center', 20); ctx.restore(); }
       if (ver > 0.01) { ctx.save(); ctx.globalAlpha *= ver; arrow(ctx, 680, 590, 800, 590, C.line, 1, 2); roundRect(ctx, 820, 520, 90, 140, 16); shape(ctx, rgba(V.neutraal, 0.15), V.neutraal, 1.5); metaText(ctx, 'VERDUND · GEZEEFD', 865, 700, C.grain, 'center', 20); ctx.restore(); }
       if (sl > 0.01) { ctx.save(); ctx.globalAlpha *= sl; bedMan(ctx, 1400, 440, 1.0, 1, { ziek: 0.6 }); ctx.strokeStyle = rgba(C.bruin, 0.9); ctx.lineWidth = 4; ctx.setLineDash([6, 8]); ctx.beginPath(); ctx.moveTo(920, 580); ctx.quadraticCurveTo(1100, 560, 1230, 470); ctx.quadraticCurveTo(1350, 420, 1480, 480); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'VOORBIJ DE MAAG', 1200, 520, C.grain, 'center', 20); ctx.restore(); }
-      label(ctx, 'poeptransplantatie', 'DONORBACTERIËN IN DE DARM', 1480, 480, 1300, 200, pt, C.text, 'center');
+      naamBij(ctx, 'poeptransplantatie', 'DONORBACTERIËN IN DE DARM', 1400, 330, pt, 'center', C.text);
       ctx.restore(); }
     if (bew > 0.01 && vast < 0.99) { ctx.save(); ctx.globalAlpha *= bew * (1 - vast);
       metaText(ctx, 'AMSTERDAMS ONDERZOEK · PATIËNTEN MET EEN TERUGKERENDE INFECTIE', 960, 150, C.grain, 'center', 24);

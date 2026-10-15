@@ -423,9 +423,9 @@ function bypassSchema(ctx, t, o = {}) {
     label(ctx, by > 0.5 ? 'restmaag' : 'maag', null, 1150, 330, 1150, 120, 1, C.text, 'left');
     label(ctx, 'lever', null, 1640, 210, 1720, 120, 1);
     label(ctx, 'galblaas', null, 1540, 400, 1700, 440, 1);
-    label(ctx, 'alvleesklier', null, 1360, 560, 1640, 600, 1);
+    naamBij(ctx, 'alvleesklier', null, 1235, 612, 1, 'right');
     label(ctx, 'twaalfvingerige darm', null, 1440, 620, 1540, 720, 1);
-    label(ctx, 'dunne darm', null, 1340, 848, 1560, 800, 1);
+    naamBij(ctx, 'dunne darm', null, 1340, 905, 1, 'center');
     if (by > 0.5) { label(ctx, 'maagzakje', null, 880, 230, 560, 220, by); label(ctx, 'nieuw stuk', null, 760, 520, 560, 520, by); }
     ctx.restore(); }
   ctx.restore();

@@ -91,3 +91,7 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 - **Beeld nodig**: in het kralensnoer van s17 één binding tussen twee kralen oplichten, label "peptidebinding".
 - **Risicowoorden (uitspraaktest)**:
   - peptidebinding — geen IPA-bron gevonden voor de samenstelling (Wiktionary was niet bereikbaar, woorden.org/encyclo geven geen uitspraak voor "peptide"); verwacht [pɛpˈtidəˌbɪndɪŋ]. Stem-invoer: "peptide-binding" (koppelteken zodat de -e van peptide hoorbaar blijft).
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: 'al veel zuurstof', 'bijna alleen C en H' (rechts naast de rij atomen), glycogeen (erboven), cellulose, E-nummer, essentiële aminozuren (boven de piek).

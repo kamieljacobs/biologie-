@@ -91,3 +91,7 @@ Begrippen: poortader, leverslagader, leverader, onderste holle ader, glycogeen, 
 - (14 okt 2026) De TTS/STT-nodes van deze flow (`stem/takes.json` → `nodes`) zijn hergebruikt voor film 6; hun prompts dragen nu de film-6-tekst. De generatie-id's in `takes.json` blijven geldig en wijzen nog naar de film-5-audio.
 
 - 15 okt 2026: vwo-segment opnieuw ingesproken zonder 'Voor vwo' (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW); audio-URL met ?v=2. Overige 'Voor vwo'-aankondigingen worden door de speler weggeknipt (vwoCuts).
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: sinusoïden (links van het leverlobje), centrale ader (rechts naast het lobje). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.

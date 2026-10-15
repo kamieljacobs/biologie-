@@ -209,8 +209,8 @@ function bodyOrgans(o={}){ const {cx,yb,h}=BODY, u=h/8, top=yb-h, t=o.t||0; cons
 }
 const SYS={ // naam, sleutel, aanwijspunt (relatief in u), labelpositie, taak
   spijs:['spijsverteringsstelsel',0.3,4.3,1400,470,'eten klein maken, opnemen'],
-  adem:['ademhalingsstelsel',-0.9,3.1,440,330,'zuurstof erin, koolstofdioxide eruit'],
-  bloed:['bloedvatenstelsel',-0.3,2.95,440,210,'alles rondbrengen'],
+  adem:['ademhalingsstelsel',-0.9,3.1,440,600,'zuurstof erin, koolstofdioxide eruit'],
+  bloed:['bloedvatenstelsel',-0.3,2.95,440,60,'alles rondbrengen'],
   zenuw:['zenuwstelsel',0,0.5,1400,120,'signalen doorgeven'],
   skelet:['skelet',0.7,6.6,1400,760,'stevigheid en bescherming'],
   spier:['spierstelsel',-1.55,3.1,440,600,'bewegen'],
@@ -279,9 +279,9 @@ s01(ctx,t,q){ const fy=gymHall(t); const tH=q.at('hart'), tA=q.at('ademt'), tW=q
   // beenspieren oplichten
   const lg=fadeIO(t,q.at('beenspieren'),tH,0.4); if(lg>0.01){ ctx.save(); ctx.globalAlpha*=lg; ctx.setLineDash([8,8]); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.beginPath(); ctx.ellipse(x+40,fy-150,110,170,0,0,6.283); ctx.stroke(); ctx.restore(); }
   label(ctx,'beenspieren','werken hard',x+40,fy-250,x-300,fy-520,lg,C.goud);
-  const hb=ramp(t,tH,0.4); heart(x+70,fy-320,1.3,hb,t*12); label(ctx,'hart','bonkt',x+95,fy-330,x+340,fy-560,fadeIO(t,tH,tW+1,0.4),C.koraal);
+  const hb=ramp(t,tH,0.4); heart(x+70,fy-320,1.3,hb,t*12); label(ctx,'hart','bonkt',x+95,fy-330,x+340,fy-300,fadeIO(t,tH,tW+1,0.4),C.koraal);
   const br=ramp(t,tA,0.4); if(br>0.01) for(let i=0;i<3;i++){ const u=((t*0.9+i/3)%1); alpha(ctx,br*(1-u),()=>dot(ctx,x+110+u*80,fy-380-u*40-i*10,8+u*10,rgba(C.teal,0.7))); }
-  label(ctx,'ademt sneller','',x+150,fy-400,x+340,fy-460,fadeIO(t,tA,tW+1,0.4),C.teal);
+  label(ctx,'ademt sneller','',x+150,fy-400,x+150,fy-600,fadeIO(t,tA,tW+1,0.4),C.teal);
   pill(ctx,960,150,'waarom doet de rest van je lichaam mee?',C.goud,ramp(t,tW,0.5),36);
 },
 // ---- titel ----
@@ -302,7 +302,7 @@ s04(ctx,t,q){ bg(ctx,'schema'); const tK=q.at('klein'), tM=q.at('miljoenen'), tG
     const many=ramp(t,tM-0.2,0.8); if(many>0.01) alpha(ctx,many,()=>{ for(let r=0;r<9;r++) for(let c=0;c<3;c++){ muscleCell(430+c*520+(r%2?30:0),200+r*62,500,1,24); }
       const pr=ramp(t,q.at('kracht'),0.5); arrow(ctx,300,470,120,470,C.goud,6,20,pr); arrow(ctx,1620,470,1800,470,C.goud,6,20,pr);
       pill(ctx,960,820,'miljoenen spiercellen naast elkaar: samen kracht zetten',C.goud,pr,30);
-      const wf=ramp(t,tG,0.5); haak(ctx,120,1800,760,'',C.goud,0); label(ctx,'spierweefsel','dezelfde cellen, dezelfde taak',1400,690,1500,820,ramp(t,q.at('spierweefsel'),0.5),C.goud);
+      const wf=ramp(t,tG,0.5); haak(ctx,120,1800,760,'',C.goud,0); naamBij(ctx,'spierweefsel','dezelfde cellen, dezelfde taak',960,748,ramp(t,q.at('spierweefsel'),0.5),'center',C.goud);
       pill(ctx,960,100,'weefsel = een groep dezelfde cellen met dezelfde taak',C.goud,wf,30); }); });
 },
 // ---- H1: meer soorten weefsel (tegels) ----
@@ -335,7 +335,7 @@ s06(ctx,t,q){ bg(ctx,'schema'); const tO=q.at('Verschillende'), tH=q.at('hart'),
 s08(ctx,t,q){ bg(ctx,'schema'); const tOrg=q.at('Organen'), tBl=q.at('stroomt');
   const a1=1-ramp(t,tOrg-0.3,0.6);
   if(a1>0.01) alpha(ctx,a1,()=>{ bone(960,470,560,0,1,2.2); boneCells(960,470,560,ramp(t,q.at('botcellen'),0.6));
-    label(ctx,'botcellen','maken het harde spul, en zitten er nog in',900,470,1400,250,ramp(t,q.at('botcellen'),0.5),C.kern);
+    naamBij(ctx,'botcellen','maken het harde spul, en zitten er nog in',960,560,ramp(t,q.at('botcellen'),0.5),'center',C.kern);
     const br=fadeIO(t,q.at('gebroken'),tOrg,0.5); if(br>0.01){ const heal=ramp(t,q.at('gebroken')+1.2,1.5); alpha(ctx,br*(1-heal),()=>{ ctx.strokeStyle=C.koraal; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(1000,440); ctx.lineTo(980,470); ctx.lineTo(1010,500); ctx.stroke(); }); pill(ctx,960,720,heal>0.5?'groeit weer aan elkaar':'gebroken',heal>0.5?C.groen:C.koraal,br,30); }
     pill(ctx,960,150,'een bot leeft',C.groen,ramp(t,q.at('leeft'),0.5),36); });
   const a2=ramp(t,tOrg-0.3,0.6)*(1-ramp(t,tBl-0.2,0.6)*0.85);
@@ -379,7 +379,7 @@ s14(ctx,t,q){ bg(ctx,'macro'); groundLine(700); const P=['wortels','stengel','bl
   pill(ctx,760,100,'een slaplant is een organisme',C.goud,fadeIO(t,q.at('organisme'),q.at('organen'),0.4),32);
   label(ctx,'wortels','halen water uit de grond',760,820,1250,840,ramp(t,q.at('halen'),0.5),C.grain);
   label(ctx,'stengel','draagt en vervoert',760,470,1250,560,ramp(t,q.at('draagt'),0.5),C.groen);
-  label(ctx,'bladeren','vangen licht',855,560,1250,380,ramp(t,q.at('vangen'),0.5),C.groen);
+  naamBij(ctx,'bladeren','vangen licht',950,600,ramp(t,q.at('vangen'),0.5),'left',C.groen);
   label(ctx,'bloem','zorgt voor zaden',754,210,1250,200,ramp(t,q.at('zorgt'),0.5),C.goud);
   alpha(ctx,ramp(t,q.at('Alle'),0.5),()=>{ ctx.save(); ctx.setLineDash([10,8]); ctx.beginPath(); ctx.ellipse(760,870,240,160,0,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); });
   pill(ctx,760,100,'wortelstelsel: een orgaanstelsel van de plant',C.goud,ramp(t,q.at('wortelstelsel'),0.5),30);
@@ -389,9 +389,9 @@ s15(ctx,t,q){ bg(ctx,'micro'); const tO=q.at('opperhuid'), tM=q.at('bladmoes'), 
   const hl = t>=tB?null: t>=tVb?'vaat': t>=tM?'moes': t>=tO?'opper':null;
   const intro=1-ramp(t,q.at('buitenkant')-0.3,0.6); alpha(ctx,intro,()=>{ bg(ctx,'macro'); groundLine(700); slaPlant(560,700,0.9,{}); zoomCircle(ctx,1300,420,280,655,560,'één blad, doorgesneden',ramp(t,q.at('zoomen'),0.6),()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1000,120,600,600); leafCross(1300,420,560,{}); }); });
   const main=ramp(t,q.at('buitenkant')-0.3,0.6); alpha(ctx,main,()=>{ bg(ctx,'micro'); leafCross(960,470,1100,{opper:ramp(t,tO-0.5,0.5),moes:ramp(t,tM-0.5,0.5),vaat:ramp(t,tVb-0.5,0.5),hl});
-    label(ctx,'opperhuid','een laag platte cellen: beschermt',700,312,200,180,ramp(t,tO,0.5),'#C9D6E6','left');
-    label(ctx,'bladmoes','vol bladgroenkorrels: maakt voedsel',700,440,200,790,ramp(t,tM,0.5),C.groen,'left');
-    label(ctx,'vaatbundel','in de nerf: vervoert water en voedsel',1020,480,1240,790,ramp(t,tVb,0.5),C.oker,'left');
+    naamBij(ctx,'opperhuid','een laag platte cellen: beschermt',420,258,ramp(t,tO,0.5),'left','#C9D6E6');
+    naamBij(ctx,'bladmoes','vol bladgroenkorrels:',385,450,ramp(t,tM,0.5),'right',C.groen); naamBij(ctx,'','maakt voedsel',385,478,ramp(t,tM,0.5),'right',C.groen);
+    naamBij(ctx,'vaatbundel','in de nerf: vervoert water en voedsel',960,700,ramp(t,tVb,0.5),'center',C.oker);
     pill(ctx,960,100,'een blad is een orgaan: verschillende weefsels samen, met een eigen taak',C.goud,ramp(t,tB,0.5),28); });
 },
 // ---- H3 havo/vwo: gespecialiseerde cellen ----

@@ -209,16 +209,25 @@ const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${
 function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
 
 // ===== UI layer =====
-// two-line label with leader line ending in dot; alpha for fade
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -794,9 +803,9 @@ function bypassSchema(ctx, t, o = {}) {
     label(ctx, by > 0.5 ? 'restmaag' : 'maag', null, 1150, 330, 1150, 120, 1, C.text, 'left');
     label(ctx, 'lever', null, 1640, 210, 1720, 120, 1);
     label(ctx, 'galblaas', null, 1540, 400, 1700, 440, 1);
-    label(ctx, 'alvleesklier', null, 1360, 560, 1640, 600, 1);
+    naamBij(ctx, 'alvleesklier', null, 1235, 612, 1, 'right');
     label(ctx, 'twaalfvingerige darm', null, 1440, 620, 1540, 720, 1);
-    label(ctx, 'dunne darm', null, 1340, 848, 1560, 800, 1);
+    naamBij(ctx, 'dunne darm', null, 1340, 905, 1, 'center');
     if (by > 0.5) { label(ctx, 'maagzakje', null, 880, 230, 560, 220, by); label(ctx, 'nieuw stuk', null, 760, 520, 560, 520, by); }
     ctx.restore(); }
   ctx.restore();
@@ -1566,7 +1575,7 @@ const SCENES = {
     const bpmF = (s) => { let b = 70; b = lerp(b, 120, ramp(s, tO, 1.5)); b = lerp(b, 60, ramp(s, tP, 1.5)); b = lerp(b, 70, ramp(s, q.at('spanning', 1), 1)); b = lerp(b, 130, ramp(s, tA + 0.6, 2)); return b; };
     const u = slagFase(t, bpmF); hart(ctx, X, Y, S, { f: hartFase(u), peesdraden: 0.3 });
     const sn = q.on('sinusknoop', 1); sinusPuls(ctx, X, Y, S, u, Math.max(sn, q.on('gangmaker', 1) * 0.7));
-    const p = hartPunt(X, Y, S, 'sinus'); label(ctx, 'sinusknoop', 'EIGEN GANGMAKER · PACEMAKER', p[0], p[1], 90, 300, sn * (1 - 0.6 * q.on('hersenen', 2)), TR.signaal, 'left');
+    const p = hartPunt(X, Y, S, 'sinus'); naamBij(ctx, 'sinusknoop', 'EIGEN GANGMAKER · PACEMAKER', p[0] - 40, p[1] - 165, sn * (1 - 0.6 * q.on('hersenen', 2)), 'center', TR.signaal);
     tag(ctx, 'in de wand van de rechterboezem', 560, 140, C.text2, q.on('rechterboezem', 1) * (1 - q.on('startsein', 1)));
     tag(ctx, 'uit zichzelf: startsein voor elke slag', 560, 140, TR.signaal, q.on('startsein', 1) * (1 - q.on('zonder', 1)));
     tag(ctx, 'klopt ook zonder je hersenen', 560, 140, C.goud, q.on('zonder', 1) * (1 - q.on('hersenen', 2)));
@@ -1616,7 +1625,7 @@ const SCENES = {
       sig([P('avknoop'), [X, Y + 80 * S], [X + 30 * S, Y + 230 * S], P('apex'), [X + 245 * S, Y + 170 * S], [X + 262 * S, Y]], (t - tK + 0.3) / 1.4, 1);
       sig([[X + 30 * S, Y + 230 * S], [X - 140 * S, Y + 222 * S], [X - 252 * S, Y + 80 * S], [X - 255 * S, Y - 20 * S]], (t - tK - 0.3) / 1.2, 1);
       const p = P('sinus'); label(ctx, 'sinusknoop', '', p[0], p[1], 300, 200, 1, TR.signaal, 'left');
-      const av = P('avknoop'); label(ctx, 'AV-knoop', 'KLEINE VERTRAGING', av[0], av[1], 1220, 320, q.on('AV', 1), TR.signaal, 'left');
+      const av = P('avknoop'); naamBij(ctx, 'AV-knoop', 'KLEINE VERTRAGING', av[0] + 330, av[1] + 10, q.on('AV', 1), 'left', TR.signaal);
       tag(ctx, 'sinusknoop → boezems → AV-knoop → kamers', 1400, 820, C.goud, q.on('kamers', 1)); ctx.restore(); }
   },
 
@@ -1662,7 +1671,7 @@ const SCENES = {
       for (const [px, py] of pts) { ctx.save(); ctx.globalAlpha *= rc; ctx.beginPath(); ctx.arc(px, py, 10 + 6 * rek * q.on('uitrekt', 1), 0, 6.283); shape(ctx, TR.signaal, C.text, 2); ctx.restore(); }
       const ab = hartPunt(X, Y, S, 'aorta'); label(ctx, 'aortaboog', '', ab[0] + 40, ab[1] + 10, 1260, 330, q.on('aortaboog', 1), C.text, 'left');
       label(ctx, 'halsslagaders', '', X + 168 * S, Y - 385 * S, 1260, 170, q.on('halsslagaders', 1), C.text, 'left');
-      label(ctx, 'drukreceptoren', 'BARORECEPTOREN', X + 235 * S, Y - 322 * S, 1260, 470, rc, TR.signaal, 'left');
+      naamBij(ctx, 'drukreceptoren', 'BARORECEPTOREN', X + 60 * S, Y - 395 * S, rc, 'right', TR.signaal);
       tag(ctx, 'meten hoe ver de wand uitrekt', 1460, 640, C.goud, q.on('meten', 1));
       tag(ctx, 'bloeddruk wordt geregeld', 760, 120, C.paars, q.on('geregeld', 1) * (1 - q.on('aortaboog', 1))); ctx.restore(); }
     if (pB > 0.01) { ctx.save(); ctx.globalAlpha *= pB; const sink = ramp(t, q.at('zakt'), 2); person(ctx, 760, 860, 600, 1, { armR: { a1: 0.12 }, armL: { a1: 0.12 } });
@@ -1690,7 +1699,7 @@ const SCENES = {
   s15(ctx, t, q) { bg(ctx, 'schema'); const tB = q.at('wand', 1) - 0.4; const pA = 1 - ramp(t, tB, 0.6), pB = ramp(t, tB, 0.6);
     if (pA > 0.01) { ctx.save(); ctx.globalAlpha *= pA; const X = 860, Y = 590, S = 0.82; const kr = q.on('kransslagaders', 1);
       hart(ctx, X, Y, S, { f: hartFase(t * 1.1), stroom: 1 - 0.6 * kr, t, krans: Math.max(0.35, kr), peesdraden: 0.2, hi: {} });
-      const p = hartPunt(X, Y, S, 'krans'); label(ctx, 'kransslagaders', 'VOEDEN DE HARTSPIER', p[0], p[1], 1420, 640, kr, C.goud, 'left');
+      const p = hartPunt(X, Y, S, 'krans'); naamBij(ctx, 'kransslagaders', 'VOEDEN DE HARTSPIER', 1170, p[1] + 10, kr, 'left', C.goud);
       tag(ctx, 'niet uit het bloed in de holtes', 860, 140, C.koraal, q.on('holtes', 1));
       tag(ctx, 'het hart zit vol bloed', 860, 140, C.text2, q.on('vol', 1) * (1 - q.on('kransslagaders', 1))); ctx.restore(); }
     if (pB > 0.01) { ctx.save(); ctx.globalAlpha *= pB; const g = ramp(t, q.at('vet'), 9) * 0.55 + 0.45 * ramp(t, q.at('nauwer'), 1.5);
@@ -1698,8 +1707,8 @@ const SCENES = {
       const r = plaqueVat(ctx, 160, 1760, 470, 190, t, { g, ont: q.on('ontstekingscellen', 1), scheur: q.on('Scheurt', 1), stol: ramp(t, q.at('stolsel'), 3) });
       metaText(ctx, 'slagader in lengtedoorsnede · schematisch', 160, 200, C.grain, 'left', 24);
       if (q.on('langzaam', 1) > 0.01) { klok(ctx, 1700, 170, 50, jr * 0.4, '', q.on('langzaam', 1) * (1 - q.on('nauwer', 1))); regel(ctx, jr + ' jaar', 1620, 185, q.on('langzaam', 1) * (1 - q.on('nauwer', 1)), C.goud, 36, 'right', 700); }
-      label(ctx, 'vet en cholesterol', 'HOOPT ZICH OP IN DE WAND', r.xm + 120, r.bot(r.xm + 120) + 40, 1300, 830, q.on('cholesterol', 1) * (1 - q.on('ontstekingscellen', 1)), C.oker, 'left');
-      label(ctx, 'ontstekingscellen', '', r.xm - 120, r.bot(r.xm - 120) + 30, 560, 830, q.on('ontstekingscellen', 1) * (1 - q.on('plaque', 1)), C.text, 'right');
+      naamBij(ctx, 'vet en cholesterol', 'HOOPT ZICH OP IN DE WAND', r.xm + 120, 765, q.on('cholesterol', 1) * (1 - q.on('ontstekingscellen', 1)), 'left', C.oker);
+      naamBij(ctx, 'ontstekingscellen', '', r.xm - 120, 765, q.on('ontstekingscellen', 1) * (1 - q.on('plaque', 1)), 'right', C.text);
       label(ctx, 'plaque', '', r.xm + 60, r.bot(r.xm + 60) + 20, 1300, 830, q.on('plaque', 1) * (1 - q.on('Scheurt', 1)), C.goud, 'left');
       tag(ctx, 'nauwer en stugger', 960, 140, C.text2, q.on('nauwer', 1) * (1 - q.on('atherosclerose', 1)));
       tag(ctx, 'atherosclerose (aderverkalking)', 960, 140, C.goud, q.on('atherosclerose', 1) * (1 - q.on('slagader', 3)));
@@ -1711,10 +1720,10 @@ const SCENES = {
   s16(ctx, t, q) { bg(ctx, 'schema'); const tB = q.at('stolsel', 1) - 0.4, tC = q.at('kans') - 0.4; const pA = 1 - ramp(t, tB, 0.6), pB = ramp(t, tB, 0.6) * (1 - ramp(t, tC, 0.6)), pC = ramp(t, tC, 0.6);
     if (pA > 0.01) { ctx.save(); ctx.globalAlpha *= pA; const X = 760, Y = 590, S = 0.85; hart(ctx, X, Y, S, { f: hartFase(t * 1.1), t, krans: 1, peesdraden: 0.2 });
       infarct(ctx, X, Y, S, q.on('kransslagader', 1), ramp(t, q.at('sterft'), 2.5)); const p = [X + 140 * S, Y + 30 * S];
-      label(ctx, 'stolsel', 'KRANSSLAGADER DICHT', p[0], p[1], 1300, 300, q.on('kransslagader', 1), C.goud, 'left');
+      naamBij(ctx, 'stolsel', 'KRANSSLAGADER DICHT', p[0] + 170, p[1] - 45, q.on('kransslagader', 1), 'left', C.goud);
       tag(ctx, 'geen zuurstof meer', 1460, 470, C.koraal, q.on('zuurstof', 1) * (1 - q.on('sterft', 1)), 'center');
       if (q.on('twintig', 1) > 0.01) { klok(ctx, 1480, 560, 70, (t - q.at('twintig')) * 2, '20 min – paar uur', q.on('twintig', 1)); }
-      const g = hartPunt(X, Y, S, 'apex'); label(ctx, 'hartinfarct', 'DIT DEEL STERFT AF', X + 175 * S, Y + 185 * S, 1300, 820, q.on('hartinfarct', 1), C.goud, 'left'); ctx.restore(); }
+      const g = hartPunt(X, Y, S, 'apex'); naamBij(ctx, 'hartinfarct', 'DIT DEEL STERFT AF', p[0] + 170, Y + 185 * S + 10, q.on('hartinfarct', 1), 'left', C.goud); ctx.restore(); }
     if (pB > 0.01) { ctx.save(); ctx.globalAlpha *= pB; const x = 760, y = 560, s = 0.8; lichaam(ctx, x, y, s, 1, { darm: 0 });
       ctx.beginPath(); ctx.ellipse(x, y - 490 * s, 66 * s, 44 * s, 0, Math.PI, 0); ctx.closePath(); shape(ctx, rgba(C.paars, 0.2), rgba(C.paars, 0.7), 1.5);
       bonzendHart(ctx, x + 30 * s, y - 170 * s, 30, t, 70, 1); const pts = [[x + 30 * s, y - 200 * s], [x + 40 * s, y - 330 * s], [x + 30 * s, y - 420 * s], [x + 15 * s, y - 500 * s]];

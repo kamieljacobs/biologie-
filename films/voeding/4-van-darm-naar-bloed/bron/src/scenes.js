@@ -109,7 +109,7 @@ const SCENES = {
     if (stap <= 0) { ctx.save(); ctx.globalAlpha *= 1 - z2; plooiWand(ctx, x0, x1, 560, 140 * z1, 1); metaText(ctx, 'DARMWAND IN DOORSNEDE', 560, 180, C.grain, 'center', 26); ctx.restore(); }
     if (stap >= 0 && stap <= 1) { ctx.save(); ctx.globalAlpha *= z2 * (1 - z3); vlokkenRij(ctx, x0, x1, 620, 300, 1, 7); metaText(ctx, 'ÉÉN PLOOI, MET DARMVLOKKEN', 560, 180, C.grain, 'center', 26); ctx.restore(); }
     if (stap >= 1 && stap <= 2) { ctx.save(); ctx.globalAlpha *= z3 * (1 - z4); darmvlok(ctx, 560, 820, 560, 240, 1, { t, cellen: 11 }); metaText(ctx, 'ÉÉN DARMVLOK', 560, 180, C.grain, 'center', 26); label(ctx, 'epitheelcellen', 'één laag dekweefsel', 680, 420, 820, 560, 1); ctx.restore(); }
-    if (stap >= 2) { ctx.save(); ctx.globalAlpha *= z4; epitheelcel(ctx, 260, 520, 600, 260, 1, { mv: 12, mvh: 110, t }); metaText(ctx, 'ÉÉN EPITHEELCEL', 560, 180, C.grain, 'center', 26); label(ctx, 'microvilli', 'uitstulpingen van de cel', 700, 430, 900, 600, 1); metaText(ctx, 'VOEDSEL', 300, 330, C.grain, 'left', 24); ctx.restore(); }
+    if (stap >= 2) { ctx.save(); ctx.globalAlpha *= z4; epitheelcel(ctx, 260, 520, 600, 260, 1, { mv: 12, mvh: 110, t }); metaText(ctx, 'ÉÉN EPITHEELCEL', 560, 180, C.grain, 'center', 26); naamBij(ctx, 'microvilli', 'uitstulpingen van de cel', 800, 345, 1, 'center'); metaText(ctx, 'VOEDSEL', 300, 330, C.grain, 'left', 24); ctx.restore(); }
     // teller rechts
     const m2 = stap < 0 ? 0.23 : stap === 0 ? lerp(0.23, 0.37, z1) : stap === 1 ? lerp(0.37, 2.4, z2) : stap === 2 ? 2.4 : lerp(2.4, 30, z4);
     teller(ctx, 1180, 220, m2, null, 1, 560);
@@ -160,7 +160,7 @@ const SCENES = {
     // drie glucose worden naar binnen getrokken (tegen het verschil in)
     for (let i = 0; i < 3; i++) { const u = clamp((t - q.at('toch') - i * 0.5) / 1.6, 0, 1); if (u <= 0 || u >= 1) continue; const x = TP[1 + i * 2 - (i === 2 ? 1 : 0)]; glucose(ctx, x, lerp(330, 560, u), 11); }
     tag(ctx, 'actief transport · kost energie', 960, 870, C.goud, q.on('actief') * (1 - q.on('water')));
-    label(ctx, 'ATP', 'energie', TP[1], CEL.y - CEL.mvh + 36, 300, 420, q.on('energie') * (1 - q.on('water')), C.goud);
+    naamBij(ctx, 'ATP', 'energie', TP[1], CEL.y - CEL.mvh - 62, q.on('energie') * (1 - q.on('water')), 'center', C.goud);
     const w = q.on('water', 1, 1.0); if (w > 0.01) { for (let i = 0; i < 8; i++) { const u = ((t * 0.5 + hash(i + 30)) % 1); waterMol(ctx, 640 + i * 90 + Math.sin(t + i) * 4, lerp(300, 600, u), 8, w * (u < 0.1 ? u * 10 : u > 0.9 ? (1 - u) * 10 : 1)); } tag(ctx, 'water volgt: osmose', 960, 870, C.teal, w * (1 - uit)); }
     if (uit > 0.01) { for (let i = 0; i < 5; i++) { const u = ((t * 0.6 + hash(i + 50)) % 1); glucose(ctx, 560 + i * 200, lerp(700, 880, u), 10, uit * (u > 0.85 ? (1 - u) * 6 : 1)); } tag(ctx, 'de cel uit, de vlok in', 960, 870, C.groen, uit); }
   },
@@ -193,7 +193,7 @@ const SCENES = {
     darmvlok(ctx, 560, 900, 680, 300, 1, { t, cellen: 13, vaten: h, lymf: l });
     const pan = q.on('slagader', 1, 0.8);
     label(ctx, 'haarvaten', 'bloed', 720, 520, 1000, 440, h * (1 - pan));
-    label(ctx, 'lymfevat', 'lymfe: vocht uit het weefsel', 560, 300, 1000, 240, q.on('lymfe', 1) * (1 - pan));
+    naamBij(ctx, 'lymfevat', 'lymfe: vocht uit het weefsel', 752, 420, q.on('lymfe', 1) * (1 - pan), 'left');
     // glucose door de cel naar het haarvat (een paar µm)
     const mu = q.on('micrometer', 1, 0.8); if (mu > 0.01) { for (let i = 0; i < 6; i++) { const u = ((t * 0.5 + hash(i + 11)) % 1); glucose(ctx, 420 + i * 10, lerp(360 + i * 60, 400 + i * 60, u), 9, mu); } tag(ctx, 'een paar micrometer', 1000, 620, C.goud, mu * (1 - q.on('slagader'))); }
     // mini routekaart rechts

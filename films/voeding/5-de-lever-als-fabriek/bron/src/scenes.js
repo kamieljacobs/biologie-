@@ -177,8 +177,8 @@ const SCENES = {
     lobje(ctx, 960, 500, 300, Math.max(zes, z * 0.6), { t, bloed: si, gal: 0, cellen: ce, driehoek: dr, centraal: cen });
     label(ctx, 'portale driehoek', '', 960 + 300 * Math.cos(-Math.PI / 6) - 10, 500 + 300 * Math.sin(-Math.PI / 6) + 10, 1240, 140, q.on('driehoek'), C.text, 'left');
     { const d = q.on('driehoek'); if (d > 0.01) { ctx.save(); ctx.globalAlpha *= d; let kx = 1240; [['POORTADER', ZARM], ['SLAGADER', ZRIJK], ['GALBUISJE', GAL]].forEach(([w, c], i) => { ctx.beginPath(); ctx.arc(kx + 8, 166, 7, 0, 6.283); shape(ctx, rgba(c, 0.6), c, 1.2); metaText(ctx, w, kx + 24, 174, lighten(c, 0.35), 'left', 22); kx += 24 + w.length * 13.5 + 30; }); ctx.restore(); } }
-    label(ctx, 'sinusoïden', 'wijde haarvaten vol gaten', 960 - 150, 500 - 90, 640, 180, q.on('sinusoïden'), C.text, 'right');
-    label(ctx, 'centrale ader', 'naar de leverader', 980, 520, 1300, 700, cen);
+    naamBij(ctx, 'sinusoïden', 'wijde haarvaten vol gaten', 670, 420, q.on('sinusoïden'), 'right', C.text);
+    naamBij(ctx, 'centrale ader', 'naar de leverader', 1250, 525, cen, 'left');
     tag(ctx, '1 à 2 mm', 960, 870, C.goud, q.on('millimeter') * (1 - dr));
     vraagteken(ctx, 1560, 820, q.on('Welke'), 110);
   },

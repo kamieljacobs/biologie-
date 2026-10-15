@@ -182,7 +182,7 @@ const SCENES = {
     const g = (lx, ly) => hvP(X, Y, S, lx, ly);
     const p1 = g(-600, -225); label(ctx, 'cel', '', p1[0], p1[1] - 40, 200, 130, q.on('cellen', 1) * (1 - q.on('vocht', 1)), C.text);
     const p2 = g(300, 0); label(ctx, 'haarvat', '', p2[0], p2[1] - 20, 1560, 130, q.on('haarvat', 1) * (1 - q.on('Elke', 1)), C.text);
-    const p3 = g(-260, -110); label(ctx, 'weefselvloeistof', 'VOCHT TUSSEN DE CELLEN', p3[0], p3[1], 760, 120, q.on('weefselvloeistof', 1) * (1 - q.on('begin', 1)), TR.plasma);
+    const p3 = g(-260, -110); naamBij(ctx, 'weefselvloeistof', 'VOCHT TUSSEN DE CELLEN', p3[0], p3[1] + 5, q.on('weefselvloeistof', 1) * (1 - q.on('begin', 1)), 'center', TR.plasma);
     tag(ctx, 'elke cel baadt in weefselvloeistof', 960, 870, TR.plasma, q.on('baadt', 1) * (1 - q.on('Weefselvloeistof', 2)));
     tag(ctx, 'begin van het haarvat: bloeddruk nog hoog', 960, 870, TR.rijkL, q.on('bloeddruk', 1) * (1 - q.on('duwt', 1)));
     tag(ctx, 'water met kleine stoffen door de wand naar buiten', 960, 870, TR.plasma, q.on('duwt', 1) * (1 - q.on('filtratie', 1)));
@@ -203,7 +203,7 @@ const SCENES = {
       const b1 = ((t - q.at('Rode') + 0.2) % 3.2 + 3.2) % 3.2; const by = 180 + 200 * Math.sin(Math.min(Math.PI, b1 / 3.2 * Math.PI)) * 0.98; rbc(ctx, 930, by, 70, TR.rijk, q.on('Rode', 1), 0);
       label(ctx, 'rode bloedcel', 'TE GROOT VOOR DE WAND', 860, by - 20, 420, 200, q.on('groot', 1), C.text);
       const b2 = ((t - q.at('plasma') + 0.2) % 2.8 + 2.8) % 2.8; const ey = 200 + 196 * Math.sin(Math.min(Math.PI, b2 / 2.8 * Math.PI)); eiwit(ctx, 1110, ey, 18, q.on('plasma', 1), t * 0.4);
-      label(ctx, 'plasma-eiwit', 'BLIJFT BINNEN', 1160, ey, 1480, 210, q.on('plasma', 1), C.text);
+      naamBij(ctx, 'plasma-eiwit', 'BLIJFT BINNEN', 1180, ey - 60, q.on('plasma', 1), 'left', C.text);
       tag(ctx, 'antwoord b: rode bloedcellen', 960, 870, C.goud, 1 - q.on('Rode', 1) * 0.0 - q.on('meeste', 1));
       tag(ctx, 'water en kleine stoffen gaan er wel door', 960, 870, TR.plasma, q.on('meeste', 1));
       return; }

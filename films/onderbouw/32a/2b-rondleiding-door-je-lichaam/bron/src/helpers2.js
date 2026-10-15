@@ -77,7 +77,9 @@ const SYS={ // naam, sleutel, aanwijspunt (relatief in u), labelpositie, taak
   hormoon:['hormoonstelsel',0,0.85,440,110,'regelen met stoffen in je bloed'],
   voortpl:['voortplantingsstelsel',0.1,5.45,440,760,'nieuw leven'],
 };
-function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
+// namen in twee kolommen naast het lichaam, op de hoogte van het orgaanstelsel (geen wijslijnen, 15 okt 2026)
+const SYSPOS={hormoon:[1025,235,'right'],bloed:[925,345,'right'],adem:[925,435,'right'],spier:[925,525,'right'],voortpl:[990,725,'right'],zenuw:[1215,200,'left'],afweer:[1310,400,'left'],spijs:[1310,500,'left'],uitsch:[1310,590,'left'],skelet:[1250,800,'left']};
+function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const p=SYSPOS[k]; if(p){ naamBij(ctx,s[0],meta?s[5]:'',p[0],p[1],a,p[2]); return; } const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
 // kuitspier als orgaan (doorsnede-achtig, vlak)
 function calf(x,y,s,a=1,o={}){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s);
   ctx.beginPath(); ctx.ellipse(0,0,120,250,0,0,6.283); shape(ctx,rgba(C.koraal,0.5),lighten(C.koraal,0.2),2);

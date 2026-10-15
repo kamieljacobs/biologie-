@@ -111,3 +111,7 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
   - ongeslachtelijke / geslachtelijke — geen IPA gevonden; verwacht klemtoon op "slach" (on-ge-SLACH-te-lij-ke). Als geschreven; alternatief `on-geslachtelijke`.
   - bladluis — /ˈblɑt.lœy̯s/, blad-luis (Wiktionary via kaikki.org); als geschreven.
   - aardbeiplant, uitlopers, klonen — gewone woorden; als geschreven ("klonen" moet het zelfstandig naamwoord zijn, KLOO-nen).
+
+## Wijziging 15 okt 2026
+
+Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: het midden, spoelfiguur (onder de cel), centromeer onder spanning, enzym, afbreken en kinetochoor (extra uitdaging, naast de trekdraad), celplaat (boven de cel), teelballen / eierstokken.

@@ -219,7 +219,9 @@ const SYS={ // naam, sleutel, aanwijspunt (relatief in u), labelpositie, taak
   hormoon:['hormoonstelsel',0,0.85,440,110,'regelen met stoffen in je bloed'],
   voortpl:['voortplantingsstelsel',0.1,5.45,440,760,'nieuw leven'],
 };
-function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
+// namen in twee kolommen naast het lichaam, op de hoogte van het orgaanstelsel (geen wijslijnen, 15 okt 2026)
+const SYSPOS={hormoon:[1025,235,'right'],bloed:[925,345,'right'],adem:[925,435,'right'],spier:[925,525,'right'],voortpl:[990,725,'right'],zenuw:[1215,200,'left'],afweer:[1310,400,'left'],spijs:[1310,500,'left'],uitsch:[1310,590,'left'],skelet:[1250,800,'left']};
+function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const p=SYSPOS[k]; if(p){ naamBij(ctx,s[0],meta?s[5]:'',p[0],p[1],a,p[2]); return; } const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
 // kuitspier als orgaan (doorsnede-achtig, vlak)
 function calf(x,y,s,a=1,o={}){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s);
   ctx.beginPath(); ctx.ellipse(0,0,120,250,0,0,6.283); shape(ctx,rgba(C.koraal,0.5),lighten(C.koraal,0.2),2);
@@ -280,13 +282,13 @@ const U=BODY.h/8, TOP=BODY.yb-BODY.h, CX=BODY.cx;
 // orgaanlabels: naam → [aanwijspunt x (in U vanaf cx), y (in U vanaf top), labelplek x, y]
 const ORG={
   hersenen:[0,0.5,1500,110], ogen:[-0.3,0.9,900,230], ruggenmerg:[0,3.0,1500,260], zenuwen:[1.6,4.6,1500,700],
-  mond:[0,1.25,1500,170], slokdarm:[0.08,2.3,1500,260], maag:[0.3,4.3,1500,520], 'dunne darm':[0.1,5.0,1500,610], 'dikke darm':[-0.9,5.2,900,700], alvleesklier:[0.75,4.62,1500,440], lever:[-0.95,4.05,900,560],
+  mond:[0,1.25,1500,170], slokdarm:[0.08,2.3,1500,260], maag:[0.3,4.3,1750,-220], 'dunne darm':[0.1,5.0,1730,1445], 'dikke darm':[-0.9,5.2,900,700], alvleesklier:[0.75,4.62,1700,610], lever:[-0.95,4.05,900,560],
   spieren:[-1.55,3.1,900,330], botten:[0.7,6.6,1500,760], schedel:[0.55,0.3,1500,90],
   neus:[0,1.0,900,180], luchtpijp:[-0.1,2.3,900,260], longen:[-0.95,3.3,900,420],
   hart:[-0.3,2.95,900,300], bloedvaten:[-0.7,7.2,900,760],
   nieren:[0.95,4.55,1500,520], urineleiders:[0.4,5.3,1500,640], blaas:[0.15,5.9,1500,760],
   huid:[-1.4,3.6,900,480], lymfeklieren:[1.35,2.5,1500,300], 'witte bloedcellen':[0.6,7.0,1500,760],
-  hypofyse:[0,0.85,1500,130], schildklier:[0.2,1.65,1500,230], eierstokken:[0.5,5.4,1500,640], baarmoeder:[0.1,5.45,1500,720], zaadballen:[0.1,6.25,1500,800],
+  hypofyse:[0,0.85,1500,130], schildklier:[0.2,1.65,1500,230], eierstokken:[0.5,5.4,1300,300], baarmoeder:[0.1,5.45,1500,678], zaadballen:[0.1,6.25,1500,800],
 };
 function orgLabel(k,a,meta='',color=C.text){ if(a<=0.01) return; const o=ORG[k]; label(ctx,k,meta,CX+o[0]*U,TOP+o[1]*U,o[2],o[3],a,color); }
 function orgRing(k,a,rx=40,ry=40){ if(a<=0.01) return; const o=ORG[k]; ctx.save(); ctx.globalAlpha*=a; ctx.setLineDash([8,7]); ctx.beginPath(); ctx.ellipse(CX+o[0]*U,TOP+o[1]*U,rx,ry,0,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); }
@@ -369,7 +371,7 @@ s08(ctx,t,q){ bg(ctx,'schema'); const ne=ramp(t,q.at('neus'),0.5), lu=ramp(t,q.a
   bodyOrgans({sil:0.3,adem:Math.max(ne,lo),bloed:ha,t,beat:t*8,breath:t*4}); nose(Math.max(ne,lu)); dagInzet('fiets',1,t); tijd('8:30 · ademt dieper',1);
   orgLabel('neus',ne,'',C.teal); orgLabel('luchtpijp',lu,'',C.teal); orgLabel('longen',lo,'zuurstof erin',C.teal);
   const ox=fadeIO(t,q.at('zuurstof'),q.at('hart'),0.4); for(let i=0;i<5;i++){ const u=((t*0.5+i/5)%1); alpha(ctx,ox,()=>{ dot(ctx,CX-U*0.9+Math.sin(u*6)*10,TOP+U*(2.6+u*1.0),7,C.teal); dot(ctx,CX+U*0.7,TOP+U*(3.6-u*1.0),7,rgba(C.text2,0.8)); }); }
-  orgLabel('hart',ha,'pompt het bloed rond',C.koraal); orgLabel('bloedvaten',bv,'tot in je tenen',C.koraal);
+  naamBij(ctx,'hart','pompt het bloed rond',1215,445,ha,'left',C.koraal); naamBij(ctx,'bloedvaten','tot in je tenen',1250,790,bv,'left',C.koraal);
   pill(ctx,960,100,'ademhalingsstelsel',C.goud,fadeIO(t,q.at('ademhalingsstelsel'),q.at('hart'),0.4),34);
   pill(ctx,960,870,'100 000 keer per dag',C.koraal,fadeIO(t,q.at('Honderdduizend'),q.at('bloedvatenstelsel'),0.4),30);
   pill(ctx,960,100,'bloedvatenstelsel',C.goud,ramp(t,q.at('bloedvatenstelsel'),0.4),34);
@@ -461,7 +463,7 @@ s18(ctx,t,q){ bg(ctx,'macro'); const tN=q.at('Nachts'); const night=ramp(t,tN-0.
 s19(ctx,t,q){ bg(ctx,'schema'); const K=[['zenuw','Zenuwstelsel'],['spijs','Spijsverteringsstelsel'],['spier','Spierstelsel'],['skelet','skelet'],['adem','Ademhalingsstelsel'],['bloed','Bloedvatenstelsel'],['uitsch','Uitscheidingsstelsel'],['afweer','Afweersysteem'],['hormoon','Hormoonstelsel'],['voortpl','Voortplantingsstelsel']];
   const o={sil:0.3,t,beat:t*5,breath:t*2.5}; K.forEach(([k,w])=>o[k]=0.35+0.65*ramp(t,q.at(w),0.5)); bodyOrgans(o); skin(ramp(t,q.at('huid'),0.5));
   K.forEach(([k,w])=>sysLabel(k,ramp(t,q.at(w),0.5)));
-  label(ctx,'huid','beschermt alles',CX-U*1.4,TOP+U*3.6,440,480,ramp(t,q.at('huid'),0.5),'#E0BE9C');
+  naamBij(ctx,'huid','beschermt alles',925,615,ramp(t,q.at('huid'),0.5),'right','#E0BE9C');
   pill(ctx,960,100,'tien orgaanstelsels, één dag',C.goud,ramp(t,q.at('Tien'),0.5),34);
   pill(ctx,960,870,'elk orgaan: eigen plek, eigen taak · samen zijn ze jij',C.goud,ramp(t,q.at('Elk'),0.5),30);
 },
