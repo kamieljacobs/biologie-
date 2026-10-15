@@ -2454,7 +2454,7 @@ SCENES['11'] = function ({ TL }) {
     return Math.min(CH[ci].dur, lastA + Math.min(0.25, (now - lastPerf) / 1000) * SV.r);
   }
   function seekGlobal(T) {
-    T = Math.max(0, Math.min(TOTAL - 0.05, T)); let i = 0; while (i + 1 < CH.length && T >= starts[i + 1]) i++;
+    T = Math.max(0, Math.min(TOTAL - 0.05, T)); { const sb = bkIn(T); if (sb !== null) T = Math.min(TOTAL - 0.05, sb); } let i = 0; while (i + 1 < CH.length && T >= starts[i + 1]) i++;
     const local = T - starts[i];
     resetQuestionsAfter(i, local);
     if (i !== ci) loadChapter(i, local, wantPlay); else { t = local; try { audio.currentTime = local; } catch (e) { } waiting = false; dirty = true; }
@@ -2571,11 +2571,11 @@ SCENES['11'] = function ({ TL }) {
   $('#cc').setAttribute('aria-pressed', String(S.cc));
   // tijdbalk met hoofdstukstreepjes
   CH.forEach((c, i) => { if (i) { const d = document.createElement('div'); d.className = 'tick'; d.style.left = (starts[i] / TOTAL * 100) + '%'; bar.appendChild(d); } });
-  const posFromEvent = (ev) => { const r = bar.getBoundingClientRect(); return E.c01((ev.clientX - r.left) / r.width) * TOTAL; };
+  const posFromEvent = (ev) => { const r = bar.getBoundingClientRect(); return bkV2F(E.c01((ev.clientX - r.left) / r.width) * bkF2V(TOTAL)); };
   bar.addEventListener('pointerdown', (ev) => { scrubbing = true; bar.setPointerCapture(ev.pointerId); seekGlobal(posFromEvent(ev)); if (!started) start(true); });
   bar.addEventListener('pointermove', (ev) => { if (scrubbing) seekGlobal(posFromEvent(ev)); });
   bar.addEventListener('pointerup', () => { scrubbing = false; });
-  bar.addEventListener('keydown', (ev) => { if (ev.key === 'ArrowRight') { seekGlobal(starts[ci] + t + 5); ev.preventDefault(); } if (ev.key === 'ArrowLeft') { seekGlobal(starts[ci] + t - 5); ev.preventDefault(); } });
+  bar.addEventListener('keydown', (ev) => { if (ev.key === 'ArrowRight') { seekGlobal(bkV2F(bkF2V(starts[ci] + t) + 5)); ev.preventDefault(); } if (ev.key === 'ArrowLeft') { seekGlobal(bkV2F(bkF2V(starts[ci] + t) - 5)); ev.preventDefault(); } });
   // instellingen
   const setP = $('#settings');
   $('#gear').addEventListener('click', () => { setP.hidden = !setP.hidden; $('#gear').setAttribute('aria-expanded', String(!setP.hidden)); });
@@ -2596,7 +2596,7 @@ SCENES['11'] = function ({ TL }) {
     if (q && t >= q.t0 && t < q.reveal && /^[abcABC123]$/.test(ev.key)) { const k = { 1: 'A', 2: 'B', 3: 'C' }[ev.key] || ev.key.toUpperCase(); choose(k); }
     if (ev.key === 'Enter' && waiting && S.mode === 'klas') verder();
     // pijltjes werken overal op de pagina: links/rechts 5 s (met Shift 30 s), omhoog/omlaag een hoofdstuk
-    if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') { if (!started) start(true); const step = (ev.shiftKey ? 30 : 5) * (ev.key === 'ArrowRight' ? 1 : -1); seekGlobal(Math.max(0, Math.min(TOTAL - 0.1, starts[ci] + t + step))); ev.preventDefault(); }
+    if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') { if (!started) start(true); const step = (ev.shiftKey ? 30 : 5) * (ev.key === 'ArrowRight' ? 1 : -1); seekGlobal(Math.max(0, Math.min(TOTAL - 0.1, bkV2F(bkF2V(starts[ci] + t) + step)))); ev.preventDefault(); }
     if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') { if (!started) start(true); const n = ev.key === 'ArrowDown' ? ci + 1 : (t > 2 ? ci : ci - 1); if (n >= 0 && n < CH.length) seekGlobal(starts[n]); ev.preventDefault(); }
   });
 
@@ -2619,7 +2619,7 @@ SCENES['11'] = function ({ TL }) {
     CH.forEach((c, i) => {
       const b = document.createElement('button'); b.type = 'button'; if (i === ci) b.className = 'cur';
       const tags = (c.hasQ ? '<span class="p">vraag</span>' : '') + (c.hasV ? '<span class="p v">verdieping</span>' : '');
-      b.innerHTML = `<span class="n">${i === 0 ? 'Opening' : 'H' + i}</span><span class="t">${esc(i === 0 ? 'Eén eicel, één dag' : c.title)}</span><span class="d">${fmtT(c.dur)}</span>${tags ? `<span class="s">${tags}</span>` : ''}`;
+      b.innerHTML = `<span class="n">${i === 0 ? 'Opening' : 'H' + i}</span><span class="t">${esc(i === 0 ? 'Eén eicel, één dag' : c.title)}</span><span class="d">${fmtT(bkF2V(starts[i] + c.dur) - bkF2V(starts[i]))}</span>${tags ? `<span class="s">${tags}</span>` : ''}`;
       b.addEventListener('click', () => { resetQuestionsAfter(i, 0); loadChapter(i, 0, true); if (!started) start(true); box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
       chlist.appendChild(b);
     });
@@ -2644,7 +2644,7 @@ SCENES['11'] = function ({ TL }) {
   }
   function frameBody(now) {
     const nt = clock(now);
-    if (slaVraagOver(nt)) return;
+    { const sb = bkIn(starts[ci] + nt); if (sb !== null && !scrubbing) { seekGlobal(sb); lastA = t; lastPerf = now; dirty = true; return; } }
     if (nt !== t) { t = nt; dirty = true; }
     gate();
     // simulaties vooruit rekenen in brokjes (huidig, dan volgend hoofdstuk)
@@ -2659,8 +2659,8 @@ SCENES['11'] = function ({ TL }) {
       dirty = false;
       g.frame(backW / 1920); B.sc.draw(g, t);
       captions(); questionCard();
-      const T = starts[ci] + t; const p = T / TOTAL * 100; fillp.style.width = p + '%'; knob.style.left = p + '%';
-      timeEl.textContent = `${fmtT(T)} / ${fmtT(TOTAL)}`; bar.setAttribute('aria-valuenow', String(Math.round(T)));
+      const T = bkF2V(starts[ci] + t), VT = bkF2V(TOTAL); const p = T / VT * 100; fillp.style.width = p + '%'; knob.style.left = p + '%';
+      timeEl.textContent = `${fmtT(T)} / ${fmtT(VT)}`; bar.setAttribute('aria-valuenow', String(Math.round(T)));
     }
   }
   /* ---------- haakjes voor QA ---------- */
@@ -2675,19 +2675,32 @@ SCENES['11'] = function ({ TL }) {
   // lettertypen vooraf laden (anders tekent het canvas het eerste beeld met een vervangend lettertype)
   try { Promise.all(['400 40px "Source Sans 3"', '600 40px "Source Sans 3"', '700 40px "Source Sans 3"', '700 40px "Fraunces"', '500 40px "IBM Plex Mono"'].map((f) => document.fonts.load(f))).then(() => { dirty = true; }, () => { dirty = true; }); } catch (e) { /* oude browser */ }
   // vragen- en snelheidsknop (gedeeld met de andere films via localStorage)
-  function vraagVensters(i) { const B = scene(i), qs = B.qs || (B.q ? [B.q] : []), P = CH[i].phrases, out = [];
-    qs.forEach((q) => { let a = q.t0 - 0.05; const vb = P.filter((x) => x.t1 <= q.t0 + 0.3 && x.t1 > q.t0 - 1.5).slice(-1)[0]; if (vb && /^(eerst )?een voorspelling|^voorspel/i.test(vb.text.trim())) a = vb.t0 - 0.1;
-      const an = P.find((x) => x.t0 >= q.reveal - 0.6 && x.t0 < q.reveal + 2.5 && /^(het )?(goede )?antwoord\b/i.test(x.text.trim()));
-      let b = an ? an.t1 + 0.05 : q.reveal; const nx = P.find((x) => x.t0 >= b - 0.05); if (!nx && !an) b = CH[i].dur; if (!an && P.every((x) => x.t0 < q.reveal - 0.2)) b = CH[i].dur;
-      out.push([a, b]); });
-    return out; }
-  function slaVraagOver(nt) { if (SV.v !== 'uit' || !playing || scrubbing) return false;
-    for (const [a, b] of vraagVensters(ci)) { if (nt >= a && nt < b - 0.05) {
-      if (b >= CH[ci].dur - 0.05) { if (ci + 1 < CH.length) loadChapter(ci + 1, 0, true); else { doPause(); t = CH[ci].dur; dirty = true; } }
-      else { t = b; lastA = b; try { audio.currentTime = b; } catch (e) { } dirty = true; }
-      return true; } }
-    return false; }
-  function zetKnoppen() { const v = $('#vragenK'), r = $('#snelheid'); v.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; v.setAttribute('aria-pressed', String(SV.v === 'aan')); r.textContent = String(SV.r).replace('.', ',') + '×'; audio.defaultPlaybackRate = SV.r; audio.playbackRate = SV.r; qState = ''; dirty = true; }
+/* bk-knip (15 okt 2026): Vragen uit knipt de vraag, de gesproken vraagzin(nen) en de antwoordzin weg; hoofdstukkaart 2,2 s. BK.k = te overslaan stukken [van, tot] in filmtijd; de tijdbalk toont de ingekorte tijd (bkF2V/bkV2F). */
+var BK={k:[]};try{window.__BK=BK;}catch(e){}
+function bkZet(l){l=l.filter(function(x){return x[1]>x[0]+0.01;}).sort(function(a,b){return a[0]-b[0];});var o=[];l.forEach(function(x){var p=o[o.length-1];if(p&&x[0]<=p[1])p[1]=Math.max(p[1],x[1]);else o.push([x[0],x[1]]);});BK.k=o;}
+function bkF2V(x){var d=x;BK.k.forEach(function(c){if(x>c[0])d-=Math.min(x,c[1])-c[0];});return d;}
+function bkV2F(u){var x=u;BK.k.forEach(function(c){if(x>=c[0])x+=c[1]-c[0];});return x;}
+function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}
+var BK_LEAD=/^(wat denk je|denk (even |goed )?na|voorspel|eerst (nog )?(een |één |twee |drie )?(voorspelling|vra(ag|gen))|nog (een |één |twee |drie )?vra(ag|gen))\b/i;
+var BK_ANTW=/^((het )?(goede )?antwoord( is)? ([a-d]|aa|bee|cee|dee)\b|[a-d]\.$|(ja|nee|precies|klopt|inderdaad|niet per se|wel degelijk)\b)/i;
+function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?z[i].s:null;}
+function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.test(x)||x.split(/\s+/).length<=3);}
+  function bkBouw() { const l = [];
+    CH.forEach((c, i) => { const o = starts[i], G = c.segments || [];
+      G.forEach((g) => { if (g.kind === 'card' && g.t1 - g.t0 > 2.3) l.push([o + g.t0 + 1.0, o + g.t1 - 1.2]); });   // hoofdstukkaart 3,0 -> 2,2 s (midden eruit, in- en uitfaden blijven)
+      if (SV.v !== 'uit') return;
+      const Z = (c.sentences || []).map((s) => ({ x: s.text, s: s.t0, e: s.t1 }));
+      G.forEach((q, gi) => { if (q.kind !== 'question') return;
+        let a = q.t0 - 0.05; const st = bkVraagStart(Z.filter((s) => s.e <= q.t0 + 0.3)); if (st != null && st > q.t0 - 15) a = Math.min(a, st - 0.05);
+        const qe = q.count1 != null ? q.count1 : q.t1, na = Z.filter((s) => s.s >= qe - 0.3); let b;
+        if (na.length) { b = Math.max(qe, Math.min(q.reveal != null ? q.reveal : qe, na[0].s - 0.1)); if (bkIsAntw(na[0].x)) b = (na[1] ? na[1].s : na[0].e + 0.2) - 0.05; }
+        else { const nx = G.slice(gi + 1).find((x) => !/^(reveal|qtail|tail|gap|hold)$/.test(x.kind)); b = nx ? nx.t0 : c.dur; }
+        l.push([o + a, o + b]); });
+    });
+    bkZet(l);
+    bar.querySelectorAll('.tick').forEach((d, k) => { d.style.left = (bkF2V(starts[k + 1]) / bkF2V(TOTAL) * 100) + '%'; });
+    renderChList(); qState = ''; dirty = true; }
+  function zetKnoppen() { bkBouw(); const v = $('#vragenK'), r = $('#snelheid'); v.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; v.setAttribute('aria-pressed', String(SV.v === 'aan')); r.textContent = String(SV.r).replace('.', ',') + '×'; audio.defaultPlaybackRate = SV.r; audio.playbackRate = SV.r; qState = ''; dirty = true; }
   $('#vragenK').addEventListener('click', () => { SV.v = SV.v === 'aan' ? 'uit' : 'aan'; try { localStorage.setItem('bk-vragen', SV.v); } catch (e) { } if (SV.v === 'uit' && waiting) { waiting = false; doPlay(); } zetKnoppen(); });
   $('#snelheid').addEventListener('click', () => { const L = [1, 1.25, 1.5, 0.75]; SV.r = L[(L.indexOf(SV.r) + 1) % L.length]; try { localStorage.setItem('bk-snelheid', String(SV.r)); } catch (e) { } zetKnoppen(); });
   zetKnoppen();

@@ -1986,7 +1986,7 @@ const Player = (() => {
     ci = i; ri = -1; setChrome();
     audio.src = CHAPTERS[i].audio;
     const go = () => { mode = 'play'; audio.playbackRate = SV.r; audio.currentTime = offset || 0; pendingSeek = offset || 0; audio.play().catch(() => {}); };
-    if (withSlate && CHAPTERS[i].num >= 1 && CHAPTERS[i].num <= 8) { mode = 'slate'; slate(i); slateTimer = setTimeout(go, 2600); }
+    if (withSlate && CHAPTERS[i].num >= 1 && CHAPTERS[i].num <= 8) { mode = 'slate'; slate(i); slateTimer = setTimeout(go, 2200); }   // hoofdstukkaart 2,2 s (15 okt 2026; was 2,6 s)
     else go();
     setPlayIcon(true);
   }

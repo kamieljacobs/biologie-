@@ -981,7 +981,7 @@ let t=0,playing=false;
 const playB=document.getElementById('play'),seek=document.getElementById('seek'),timeEl=document.getElementById('time');
 seek.max=DUR;
 const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-function draw(){render(t);setCap(t);if(!seeking)seek.value=t;timeEl.textContent=fmt(t)+' / '+fmt(DUR);
+function draw(){render(t);setCap(t);if(!seeking)seek.value=bkF2V(t);timeEl.textContent=fmt(bkF2V(t))+' / '+fmt(bkF2V(DUR));
   document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('cur',t>=+li.dataset.a&&t<+li.dataset.b));}
 let seeking=false;
 function resize(){const r=cv.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);cv.width=Math.max(320,Math.round(r.width*d));cv.height=Math.round(cv.width*9/16);draw();}
@@ -991,24 +991,24 @@ function setNote(m){const n=document.getElementById('note');if(n){n.textContent=
 function loop(now){if(!playing)return;
   let tc=t0+(performance.now()-wall0)/1000*SNEL.r;
   if(audioOK&&!audio.paused&&audio.readyState>=2){const ta=audio.currentTime;if(Math.abs(ta-tc)>0.25){wall0=performance.now();t0=ta;tc=ta;}else tc=ta;}
-  t=tc;if(slaVraagOver())return requestAnimationFrame(loop);if(t>=DUR){t=DUR;pause();return;}draw();requestAnimationFrame(loop);}
+  t=tc;{const sb=bkIn(t);if(sb!==null){seekTo(sb);if(t>=DUR){t=DUR;pause();return;}return requestAnimationFrame(loop);}}if(t>=DUR){t=DUR;pause();return;}draw();requestAnimationFrame(loop);}
 function play(){if(t>=DUR-.05)t=0;wall0=performance.now();t0=t;playing=true;playB.textContent='❚❚';playB.setAttribute('aria-label','Pauzeren');
   try{audio.currentTime=t;audio.playbackRate=SNEL.r;const p=audio.play();audioOK=true;if(p&&p.then)p.then(()=>{audioOK=true;setNote('');}).catch(()=>{audioOK=false;setNote('Geluid kon niet starten. Het beeld loopt door; druk nog eens op ▶ om het geluid te proberen.');});}catch(e){audioOK=false;}
   requestAnimationFrame(loop);}
 function pause(){try{audio.pause();}catch(e){}playing=false;playB.textContent='▶';playB.setAttribute('aria-label','Afspelen');draw();}
 function toggle(){playing?pause():play();}
-function seekTo(s){t=clamp(s,0,DUR);wall0=performance.now();t0=t;try{audio.currentTime=t;}catch(e){}draw();}
+function seekTo(s){t=clamp(s,0,DUR);{const sb=bkIn(t);if(sb!==null)t=Math.min(sb,DUR);}wall0=performance.now();t0=t;try{audio.currentTime=t;}catch(e){}draw();}
 playB.onclick=toggle;cv.onclick=toggle;
-seek.addEventListener('input',()=>{seeking=true;seekTo(+seek.value);});seek.addEventListener('change',()=>{seeking=false;});
+seek.addEventListener('input',()=>{seeking=true;seekTo(bkV2F(+seek.value));});seek.addEventListener('change',()=>{seeking=false;});
 document.getElementById('cc').onclick=e=>{capEl.classList.toggle('off');e.currentTarget.classList.toggle('on');};
-document.getElementById('back').onclick=()=>seekTo(t-10);
+document.getElementById('back').onclick=()=>seekTo(bkV2F(bkF2V(t)-10));
 document.getElementById('fs').onclick=()=>{const p=document.getElementById('player');
   if(document.fullscreenElement||document.webkitFullscreenElement){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
   if(p.classList.contains('pseudo-fs')){p.classList.remove('pseudo-fs');document.body.style.overflow='';resize();return;}
   const req=p.requestFullscreen||p.webkitRequestFullscreen;
   if(req&&!/iPhone|iPod/.test(navigator.userAgent)){req.call(p);}else{p.classList.add('pseudo-fs');document.body.style.overflow='hidden';resize();}};
 document.addEventListener('fullscreenchange',()=>setTimeout(resize,60));document.addEventListener('webkitfullscreenchange',()=>setTimeout(resize,60));
-document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();toggle();}if(e.code==='ArrowLeft')seekTo(t-(e.shiftKey?30:5));if(e.code==='ArrowRight')seekTo(t+(e.shiftKey?30:5));if(e.code==='ArrowDown'||e.code==='ArrowUp'){e.preventDefault();const ch=(typeof FILM!=='undefined'&&FILM.chapters)?FILM.chapters():CHAP;let i=ch.findIndex((c,k)=>t>=c[1]&&(k===ch.length-1||t<ch[k+1][1]));if(e.code==='ArrowUp'&&t-ch[Math.max(i,0)][1]<2)i--;else if(e.code==='ArrowDown')i++;if(i>=0&&i<ch.length)seekTo(ch[i][1]);}});
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;if(e.code==='Space'){e.preventDefault();toggle();}if(e.code==='ArrowLeft')seekTo(bkV2F(bkF2V(t)-(e.shiftKey?30:5)));if(e.code==='ArrowRight')seekTo(bkV2F(bkF2V(t)+(e.shiftKey?30:5)));if(e.code==='ArrowDown'||e.code==='ArrowUp'){e.preventDefault();const ch=(typeof FILM!=='undefined'&&FILM.chapters)?FILM.chapters():CHAP;let i=ch.findIndex((c,k)=>t>=c[1]&&(k===ch.length-1||t<ch[k+1][1]));if(e.code==='ArrowUp'&&t-ch[Math.max(i,0)][1]<2)i--;else if(e.code==='ArrowDown')i++;if(i>=0&&i<ch.length)seekTo(ch[i][1]);}});
 window.addEventListener('resize',resize);
 // chapters
 const CHAP=[['Twee puzzels',0],['Inzoomen: van huid naar DNA',PS('p02')-1],['Het karyogram',PS('p04')-1.5],['Gen, locus en allel',PS('p08')-1.5],['Van allel naar eigenschap',K.ch5],['Genotype + milieu',K.ch6],['Terug naar de familie',K.ch7]];
@@ -1019,9 +1019,25 @@ window.__K=K;
 const SNEL={r:1,v:'aan'};
 try{const v=localStorage.getItem('bk-vragen');if(v==='uit')SNEL.v='uit';const r=parseFloat(localStorage.getItem('bk-snelheid'));if([0.75,1,1.25,1.5].includes(r))SNEL.r=r;}catch(e){}
 {const u=new URLSearchParams(location.search);if(u.get('vragen')==='uit')SNEL.v='uit';if(u.get('vragen')==='aan')SNEL.v='aan';const r=parseFloat(u.get('snelheid'));if([0.75,1,1.25,1.5].includes(r))SNEL.r=r;}
-function vraagVensters(){const out=[];Object.keys(K).forEach(k=>{if(!/^cd\d*a$/.test(k))return;const a=K[k],b=K[k.replace(/a$/,'b')];if(!(b>a))return;const n=TL.paras.find(p=>p.words[0].s>b-0.1);out.push([a-0.2,n?n.words[0].s-0.2:b+0.3]);});return out;}
-function slaVraagOver(){if(SNEL.v!=='uit'||!playing)return false;for(const [a,b] of vraagVensters()){if(t>=a&&t<b-0.05){seekTo(b);return true;}}return false;}
-function zetKnoppen(){const v=document.getElementById('vragenK'),s=document.getElementById('snelheid');v.textContent=SNEL.v==='aan'?'Vragen aan':'Vragen uit';v.classList.toggle('on',SNEL.v==='aan');s.textContent=String(SNEL.r).replace('.',',')+'×';try{audio.playbackRate=SNEL.r;}catch(e){}}
+/* bk-knip (15 okt 2026): Vragen uit knipt de vraag, de gesproken vraagzin(nen) en de antwoordzin weg; hoofdstukkaart 2,2 s. BK.k = te overslaan stukken [van, tot] in filmtijd; de tijdbalk toont de ingekorte tijd (bkF2V/bkV2F). */
+var BK={k:[]};try{window.__BK=BK;}catch(e){}
+function bkZet(l){l=l.filter(function(x){return x[1]>x[0]+0.01;}).sort(function(a,b){return a[0]-b[0];});var o=[];l.forEach(function(x){var p=o[o.length-1];if(p&&x[0]<=p[1])p[1]=Math.max(p[1],x[1]);else o.push([x[0],x[1]]);});BK.k=o;}
+function bkF2V(x){var d=x;BK.k.forEach(function(c){if(x>c[0])d-=Math.min(x,c[1])-c[0];});return d;}
+function bkV2F(u){var x=u;BK.k.forEach(function(c){if(x>=c[0])x+=c[1]-c[0];});return x;}
+function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}
+var BK_LEAD=/^(wat denk je|denk (even |goed )?na|voorspel|eerst (nog )?(een |één |twee |drie )?(voorspelling|vra(ag|gen))|nog (een |één |twee |drie )?vra(ag|gen))\b/i;
+var BK_ANTW=/^((het )?(goede )?antwoord( is)? ([a-d]|aa|bee|cee|dee)\b|[a-d]\.$|(ja|nee|precies|klopt|inderdaad|niet per se|wel degelijk)\b)/i;
+function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?z[i].s:null;}
+function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.test(x)||x.split(/\s+/).length<=3);}
+function bkZinnen(p){const z=[];let c=[];p.words.forEach((w,i)=>{c.push(w);if(/[.?!]$/.test(w.w)||i===p.words.length-1){z.push({x:c.map(v=>v.w).join(' '),s:c[0].s,e:c[c.length-1].e});c=[];}});return z;}
+function bkBouw(){const l=[];if(SNEL.v==='uit')Object.keys(K).forEach(k=>{if(!/^cd\d*a$/.test(k))return;const a0=K[k],b0=K[k.replace(/a$/,'b')];if(!(b0>a0))return;
+  const pv=TL.paras.filter(p=>p.words[p.words.length-1].e<=a0+0.05).pop(),nx=TL.paras.find(p=>p.words[0].s>b0-0.1);
+  let a=a0-0.2;if(pv){const s=bkVraagStart(bkZinnen(pv));if(s!=null)a=s-0.05;}
+  let b=b0+0.3;if(nx){const z=bkZinnen(nx);b=z[0].s-0.2;if(bkIsAntw(z[0].x))b=(z[1]?z[1].s:z[0].e+0.3)-0.05;}
+  l.push([a,b]);});
+  bkZet(l);seek.max=bkF2V(DUR);document.querySelectorAll('#chapters li').forEach(li=>{const c=li.querySelector('.ct');if(c)c.textContent=fmt(Math.max(0,bkF2V(+li.dataset.a)));});
+  const sb=bkIn(t);if(sb!==null)seekTo(sb);else if(BK.ok&&!playing)draw();BK.ok=true;}
+function zetKnoppen(){bkBouw();const v=document.getElementById('vragenK'),s=document.getElementById('snelheid');v.textContent=SNEL.v==='aan'?'Vragen aan':'Vragen uit';v.classList.toggle('on',SNEL.v==='aan');s.textContent=String(SNEL.r).replace('.',',')+'×';try{audio.playbackRate=SNEL.r;}catch(e){}}
 document.getElementById('vragenK').onclick=()=>{SNEL.v=SNEL.v==='aan'?'uit':'aan';try{localStorage.setItem('bk-vragen',SNEL.v);}catch(e){}zetKnoppen();};
 document.getElementById('snelheid').onclick=()=>{const L=[1,1.25,1.5,0.75];SNEL.r=L[(L.indexOf(SNEL.r)+1)%L.length];try{localStorage.setItem('bk-snelheid',String(SNEL.r));}catch(e){}wall0=performance.now();t0=t;zetKnoppen();};
 zetKnoppen();

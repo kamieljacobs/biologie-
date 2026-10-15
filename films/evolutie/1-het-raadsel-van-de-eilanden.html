@@ -829,14 +829,30 @@ let mode='leerling', waiting=false;
 const _q=new URLSearchParams(location.search), _ls=(k,d)=>{try{const v=localStorage.getItem(k);return v==null?d:v}catch(e){return d}}, _lw=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 let vragen=_q.get('vragen')||_ls('bk-vragen','aan'); if(vragen!=='uit') vragen='aan';
 let snelheid=parseFloat(_q.get('snelheid')||_ls('bk-snelheid','1')); if(![0.75,1,1.25,1.5].includes(snelheid)) snelheid=1;
-function zetKnoppen(){ document.querySelectorAll('#vragen button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===vragen)); document.querySelectorAll('#snelheid button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===snelheid)); au.defaultPlaybackRate=snelheid; au.playbackRate=snelheid; try{au.preservesPitch=true}catch(e){} }
+function zetKnoppen(){ bkBouw(); document.querySelectorAll('#vragen button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===vragen)); document.querySelectorAll('#snelheid button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===snelheid)); au.defaultPlaybackRate=snelheid; au.playbackRate=snelheid; try{au.preservesPitch=true}catch(e){} }
 document.querySelectorAll('#vragen button').forEach(b=>b.onclick=()=>{ vragen=b.dataset.v; _lw('bk-vragen',vragen); zetKnoppen(); });
 document.querySelectorAll('#snelheid button').forEach(b=>b.onclick=()=>{ snelheid=+b.dataset.v; _lw('bk-snelheid',String(snelheid)); zetKnoppen(); });
-// Vragen uit: sla de vraag over, en ook een direct volgende antwoordzin ("Antwoord B.", "B.").
-function slaVraagOver(t){ if(vragen!=='uit'||au.paused) return; const Qs=(typeof QSEGS!=='undefined'?QSEGS:[]).find(q=>t>=q.start-0.05&&t<q.end-0.05); if(!Qs) return; let to=Qs.end;
-  const ph=(typeof PHR!=='undefined'?PHR:[]).filter(p=>p.start>=Qs.end-0.1&&p.start<Qs.end+4).sort((a,b)=>a.start-b.start)[0];
-  if(ph&&/^(het )?antwoord\b|^[abc][.:]/i.test(String(ph.text).trim())){ const m=String(ph.text).trim().match(/^[^.?!]*[.?!]/); if(m&&m[0].length===String(ph.text).trim().length) to=ph.end; }
-  au.currentTime=to; }
+/* bk-knip (15 okt 2026): Vragen uit knipt de vraag, de gesproken vraagzin(nen) en de antwoordzin weg; hoofdstukkaart 2,2 s. BK.k = te overslaan stukken [van, tot] in filmtijd; de tijdbalk toont de ingekorte tijd (bkF2V/bkV2F). */
+var BK={k:[]};try{window.__BK=BK;}catch(e){}
+function bkZet(l){l=l.filter(function(x){return x[1]>x[0]+0.01;}).sort(function(a,b){return a[0]-b[0];});var o=[];l.forEach(function(x){var p=o[o.length-1];if(p&&x[0]<=p[1])p[1]=Math.max(p[1],x[1]);else o.push([x[0],x[1]]);});BK.k=o;}
+function bkF2V(x){var d=x;BK.k.forEach(function(c){if(x>c[0])d-=Math.min(x,c[1])-c[0];});return d;}
+function bkV2F(u){var x=u;BK.k.forEach(function(c){if(x>=c[0])x+=c[1]-c[0];});return x;}
+function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}
+var BK_LEAD=/^(wat denk je|denk (even |goed )?na|voorspel|eerst (nog )?(een |één |twee |drie )?(voorspelling|vra(ag|gen))|nog (een |één |twee |drie )?vra(ag|gen))\b/i;
+var BK_ANTW=/^((het )?(goede )?antwoord( is)? ([a-d]|aa|bee|cee|dee)\b|[a-d]\.$|(ja|nee|precies|klopt|inderdaad|niet per se|wel degelijk)\b)/i;
+function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?z[i].s:null;}
+function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.test(x)||x.split(/\s+/).length<=3);}
+function bkZinP(ph){const z=[];let c=null;for(const p of ph){const x=String(p.text).trim();if(!c)c={x:x,s:p.start,e:p.end};else{c.x+=' '+x;c.e=p.end;}if(/[.?!]$/.test(x)){z.push(c);c=null;}}if(c)z.push(c);return z;}
+function bkBouw(){ const l=[];
+  SEGS.forEach(s=>{ if(s.kind==='card'&&s.id!=='title'&&s.id!=='end'&&s.end-s.start>2.3){ l.push([s.start+1.1,s.end-1.1]); } });
+  if(vragen==='uit') SEGS.forEach((s,i)=>{ if(s.kind!=='q') return; let a=s.start, b=s.end;
+    const pv=SEGS.slice(0,i).filter(x=>x.kind==='take').pop(), nx=SEGS.slice(i+1).find(x=>x.kind==='take');
+    if(pv&&T[pv.id]){ const st=bkVraagStart(bkZinP(T[pv.id].phrases)); if(st!=null) a=st-0.05; }
+    if(nx&&T[nx.id]){ const z=bkZinP(T[nx.id].phrases); if(z[0]&&bkIsAntw(z[0].x)) b=(z[1]?z[1].s:z[0].e+0.2)-0.05; }
+    l.push([a,b]); });
+  bkZet(l); seek.max=bkF2V(TOTAL);
+  document.querySelectorAll('[data-bkt]').forEach(b=>{ const s=b.querySelector('.t'); if(s) s.textContent=fmt(bkF2V(+b.dataset.bkt)); });
+  const sb=bkIn(au.currentTime); if(sb!==null) au.currentTime=Math.min(sb,TOTAL); }
 const QSTATE={}; Object.keys(QDEFS).forEach(k=>QSTATE[k]={answered:null,passed:false});
 const QSEGS=SEGS.filter(s=>s.kind==='q').map(s=>({id:s.id,start:s.start,cdStart:s.start+1.0,cdEnd:s.start+9.0,end:s.end}));
 window.__evo={get au(){return au},QSEGS,get PHR(){return typeof PHR!=='undefined'?PHR:[]}};
@@ -875,22 +891,22 @@ function gate(t){
   const Qs=qseg(t); if(!Qs) return; const st=QSTATE[Qs.id];
   if(!st.passed && !autoCb.checked && t>=Qs.cdEnd && t<Qs.cdEnd+0.6 && !au.paused){ au.pause(); au.currentTime=Qs.cdEnd; waiting=true; if(mode==='leerling'){ cdtext.textContent='Tik een antwoord om verder te gaan'; ringfg.setAttribute('stroke-dashoffset','169.6'); } else { cdtext.textContent='Klas: druk op Verder'; ringfg.setAttribute('stroke-dashoffset','169.6'); } }
 }
-function loop(){ fit(); slaVraagOver(au.currentTime); const t=au.currentTime; render(t); caption(t); gate(t); questionUI(t); seek.value=t; timeEl.textContent=fmt(t)+' / '+fmt(TOTAL); play.textContent=au.paused?'▶':'❚❚'; requestAnimationFrame(loop); }
+function loop(){ fit(); { const sb=bkIn(au.currentTime); if(sb!==null) au.currentTime=Math.min(sb,TOTAL); } const t=au.currentTime; render(t); caption(t); gate(t); questionUI(t); seek.value=bkF2V(t); timeEl.textContent=fmt(bkF2V(t))+' / '+fmt(bkF2V(TOTAL)); play.textContent=au.paused?'▶':'❚❚'; requestAnimationFrame(loop); }
 function toggle(){ if(au.paused){ if(au.ended||au.currentTime>=TOTAL-0.05) au.currentTime=0; waiting=false; au.play(); } else au.pause(); }
 play.onclick=toggle; bigplay.onclick=()=>{ bigplay.hidden=true; au.play(); };
 au.addEventListener('play',()=>{ bigplay.hidden=true; });
 au.addEventListener('ended',()=>{ bigplay.hidden=false; });
-seek.addEventListener('input',()=>{ au.currentTime=parseFloat(seek.value); waiting=false; });
+seek.addEventListener('input',()=>{ au.currentTime=bkV2F(parseFloat(seek.value)); waiting=false; });
 ccBtn.onclick=()=>{ const on=ccBtn.getAttribute('aria-pressed')!=='true'; ccBtn.setAttribute('aria-pressed',on); captions.classList.toggle('off',!on); };
 function fullscreen(){ if(document.fullscreenElement){ document.exitFullscreen(); return; } if(player.requestFullscreen){ player.requestFullscreen().catch(()=>{ player.classList.toggle('fs'); fit(); }); } else { player.classList.toggle('fs'); fit(); } }
 fsBtn.onclick=fullscreen;
 document.addEventListener('fullscreenchange',()=>{ player.classList.toggle('fs',!!document.fullscreenElement); setTimeout(fit,50); });
 function orient(){ player.classList.toggle('portrait',window.innerHeight>window.innerWidth); } window.addEventListener('resize',orient); orient();
-document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'&&e.target.type!=='range') return; if(e.code==='Space'){e.preventDefault();toggle();} else if(e.code==='ArrowRight'){au.currentTime=Math.min(TOTAL,au.currentTime+5);} else if(e.code==='ArrowLeft'){au.currentTime=Math.max(0,au.currentTime-5);} else if(e.key==='c'||e.key==='C'){ccBtn.click();} else if(e.key==='f'||e.key==='F'){fullscreen();} });
+document.addEventListener('keydown',e=>{ if(e.target.tagName==='INPUT'&&e.target.type!=='range') return; if(e.code==='Space'){e.preventDefault();toggle();} else if(e.code==='ArrowRight'){au.currentTime=Math.min(TOTAL,bkV2F(bkF2V(au.currentTime)+5));} else if(e.code==='ArrowLeft'){au.currentTime=Math.max(0,bkV2F(bkF2V(au.currentTime)-5));} else if(e.key==='c'||e.key==='C'){ccBtn.click();} else if(e.key==='f'||e.key==='F'){fullscreen();} });
 // chapters
 const CH=[['Het raadsel (cold open)',0,''],['Darwin aan boord',seg('t2_darwin').start,''],['Aanwijzing 1 · de fossielen',seg('card1').start,'vraag'],['Aanwijzing 2 · de nandoes',seg('card2').start,''],['Aanwijzing 3 · de Galápagos',seg('card3').start,'vraag'],['"I think"',seg('card4').start,'vraag'],['De vinken, achteraf',seg('card5').start,''],['Twintig jaar stilte',seg('card6').start,''],['De tweede speurder: Wallace',seg('card7').start,'vraag'],['Twee speurders, één antwoord',seg('card8').start,'']];
 const chUl=document.getElementById('chapters');
-CH.forEach(c=>{ const li=document.createElement('li'); const b=document.createElement('button'); b.innerHTML=`<span class="t">${fmt(c[1])}</span><span>${c[0]}</span>${c[2]?`<span class="tag">${c[2]}</span>`:''}`; b.onclick=()=>{ au.currentTime=c[1]; bigplay.hidden=true; waiting=false; au.play(); window.scrollTo({top:0,behavior:'smooth'}); }; li.appendChild(b); chUl.appendChild(li); });
+CH.forEach(c=>{ const li=document.createElement('li'); const b=document.createElement('button'); b.dataset.bkt=c[1]; b.innerHTML=`<span class="t">${fmt(c[1])}</span><span>${c[0]}</span>${c[2]?`<span class="tag">${c[2]}</span>`:''}`; b.onclick=()=>{ au.currentTime=c[1]; bigplay.hidden=true; waiting=false; au.play(); window.scrollTo({top:0,behavior:'smooth'}); }; li.appendChild(b); chUl.appendChild(li); });
 // transcript
 const tr=document.getElementById('transcript');
 const TRN=[['Cold open','t1_coldopen'],['Darwin aan boord','t2_darwin'],['Aanwijzing 1 · de fossielen','t3_fossielen'],['','t4_levend'],['','t5_payoff'],['Aanwijzing 2 · de nandoes','t6_nandoe_a'],['','t7_nandoe_b'],['Aanwijzing 3 · de Galápagos','t8_gal_a'],['','t9_gal_b'],['','t10_gal_c'],['"I think"','t11_schets_a'],['','t12_schets_b'],['','t13_schets_c'],['De vinken, achteraf','t14_vinken'],['Twintig jaar stilte','t15_stilte'],['De tweede speurder','t16_wallace_a'],['','t17_wallace_b'],['','t18_wallace_c'],['Twee speurders, één antwoord','t19_slot_a'],['','t20_slot_b']];

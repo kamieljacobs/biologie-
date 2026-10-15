@@ -94,3 +94,6 @@ Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Deze film
 - Volgens de docenttekst heeft Aa "evenveel" pigment als AA. De gesproken tekst zegt "bijna evenveel melanine", en vraagoptie A luidt "evenveel als AA".
 - De stem-invoer (uitspraaklijst, bv. "Y-chromosoom" als "ei-chromosoom") staat niet in de HTML. Of de huidige uitspraakregels zijn toegepast, valt niet na te gaan.
 - Er zijn geen vwo-blokken, geen Havo/Vwo-schakelaar en geen versie/datum op de pagina.
+
+## Wijzigingen
+- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Deze film heeft geen hoofdstukkaarten, dus geen hoofdstukpauze om in te korten.

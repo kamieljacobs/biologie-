@@ -236,3 +236,6 @@ Werk altijd in de uitgepakte versie: `python3 scripts/filmbron.py uitpakken film
 - Ongebruikte modules van film 1 en 2 (`models.js`, `models2.js`, `etc2.js`) zitten in het bestand.
 - Uitspraak bij heropname: "negentig" in "ruim negentig procent" (H5, 7:54) moet volgens de uitspraaklijst als "neguntig" worden ingevoerd; de stem-invoer staat niet in de HTML, dus controleer de huidige audio. "In de zeventiende eeuw" (H1) is in woorden, geen jaartal.
 - Verbeterd 12-10-2026: formule C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> op beide plekken gecorrigeerd.
+
+## Wijzigingen
+- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s: de speler slaat het stille midden van de kaart over (mp3 ongewijzigd). De oude `vraagVensters`/`slaVraagOver` zijn vervangen.

@@ -252,3 +252,6 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
   - reductor — geen IPA-bron gevonden; verwacht [reːˈdʏktɔr], klemtoon op -duc-. Zoals geschreven; bij klemtoon op -tor: "redúctor".
   - oxidator — geen IPA-bron gevonden; verwacht [ɔksiˈdaːtɔr], klemtoon op -da-. Zoals geschreven; bij een fout: "oxi-daator".
   - acetyl-coA komt niet in de nieuwe zinnen voor; wel bij heropname van andere takes: "acetyl ko a".
+
+## Wijzigingen
+- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s: de speler slaat het stille midden van de kaart over (mp3 ongewijzigd). De oude `vraagVensters`/`slaVraagOver` zijn vervangen.

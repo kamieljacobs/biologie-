@@ -125,3 +125,6 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
   - *controlevariabelen* — IPA /kɔnˈtrɔː.lə.vaː.ri.jaː.bə.lə(n)/ (kon-TRO-luh-vaa-rie-jaa-bu-luh). Samenstelling uit woorden die al in de film staan (controle, variabelen); laag risico, wel meenemen omdat de TTS bij lange samenstellingen soms de klemtoon verlegt. Stem-invoer: "controle-variabelen".
   - *nauwkeurigheid* — IPA /nɑu̯ˈkøː.rəx.ɦɛi̯t/ (klemtoon op "KEU"). Laag risico. Stem-invoer: "nauwkeurigheid".
   - Online geen IPA-transcriptie van deze samenstellingen gevonden; afgeleid van de losse delen.
+
+## Wijzigingen
+- 15 okt 2026 — Speler: hoofdstukkaart (slate) 2,2 s in plaats van 2,6 s. Vragen uit werkte al (de pauzerij 'Zet de film even stil.' en de pauzekaart worden overgeslagen); niets aan veranderd.

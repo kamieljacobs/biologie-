@@ -2979,7 +2979,7 @@ function omgMount(root, opts) {
   function pause() { audio.pause(); st.playing = false; syncPlayBtn(); }
   function toggle() { if (st.phase === 'ask') return resumeQ(); st.playing ? pause() : play(); }
   function seek(t) {
-    t = clamp(t, 0, dur);
+    t = clamp(t, 0, dur); { const sb = bkIn(t); if (sb !== null) t = Math.min(sb, dur); }
     if (st.q) clearQ();
     st.t = t; st.prev = t; st.started = true; big.hidden = true; st.ended = false;
     try { audio.currentTime = t; } catch (e) {}
@@ -2992,8 +2992,8 @@ function omgMount(root, opts) {
   }
   function syncUI() {
     const t = st.started ? st.t : 0;
-    cur.textContent = omgFmt(t);
-    const f = (t / dur * 100).toFixed(3) + '%';
+    cur.textContent = omgFmt(bkF2V(t));
+    const f = (bkF2V(t) / bkF2V(dur) * 100).toFixed(3) + '%';
     fill.style.width = f; knob.style.left = f;
     bar.setAttribute('aria-valuenow', String(Math.round(t)));
     bar.setAttribute('aria-valuetext', omgFmt(t) + ' van ' + omgFmt(dur));
@@ -3013,7 +3013,7 @@ function omgMount(root, opts) {
   function tick() {
     raf = requestAnimationFrame(tick);
     if (st.playing) {
-      slaVraagOver();
+      bkSpring();
       const now = audio.currentTime;
       for (const q of Qs) if (st.prev < q.t - 0.005 && now >= q.t - 0.03) { ask(q); break; }
       if (st.playing) { st.t = Math.min(now, dur); st.prev = st.t; st.dirty = true; }
@@ -3023,7 +3023,7 @@ function omgMount(root, opts) {
   }
   audio.addEventListener('timeupdate', () => {   // ook als het tabblad niet zichtbaar is
     if (!st.playing) return;
-    if (slaVraagOver()) return;
+    if (bkSpring()) return;
     const now = audio.currentTime;
     for (const q of Qs) if (st.prev < q.t - 0.005 && now >= q.t - 0.03) { ask(q); return; }
   });
@@ -3050,12 +3050,36 @@ function omgMount(root, opts) {
   try { if (localStorage.getItem('bk-vragen') === 'uit') SV.v = 'uit'; const r = parseFloat(localStorage.getItem('bk-snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; } catch (e) {}
   { const u = new URLSearchParams(location.search); if (u.get('vragen') === 'uit') SV.v = 'uit'; if (u.get('vragen') === 'aan') SV.v = 'aan'; const r = parseFloat(u.get('snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; }
   const vrBtn = $('.omg-vragen'), snBtn = $('.omg-snel');
-  const vensters = Qs.map(q => { const ql = TL.lines.find(l => l.ch === q.ch && l.i === q.after_line); const al = q.answerLine; const nx = al ? TL.lines.find(l => l.t0 > al.t1) : null;
-    return [ql ? ql.t0 - 0.15 : q.t - 0.05, nx ? nx.t0 - 0.12 : (al ? al.t1 + 0.3 : q.t + 0.1)]; });
-  function slaVraagOver() { if (SV.v !== 'uit') return false; const now = audio.currentTime;
-    for (const [a, b] of vensters) if (now >= a && now < b - 0.05) { try { audio.currentTime = b; } catch (e) {} st.t = b; st.prev = b; st.dirty = true; return true; }
-    return false; }
-  function zetKnoppen() { vrBtn.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; vrBtn.setAttribute('aria-pressed', String(SV.v === 'aan')); snBtn.textContent = String(SV.r).replace('.', ',') + '×'; audio.playbackRate = SV.r; }
+/* bk-knip (15 okt 2026): Vragen uit knipt de vraag, de gesproken vraagzin(nen) en de antwoordzin weg; hoofdstukkaart 2,2 s. BK.k = te overslaan stukken [van, tot] in filmtijd; de tijdbalk toont de ingekorte tijd (bkF2V/bkV2F). */
+var BK={k:[]};try{window.__BK=BK;}catch(e){}
+function bkZet(l){l=l.filter(function(x){return x[1]>x[0]+0.01;}).sort(function(a,b){return a[0]-b[0];});var o=[];l.forEach(function(x){var p=o[o.length-1];if(p&&x[0]<=p[1])p[1]=Math.max(p[1],x[1]);else o.push([x[0],x[1]]);});BK.k=o;}
+function bkF2V(x){var d=x;BK.k.forEach(function(c){if(x>c[0])d-=Math.min(x,c[1])-c[0];});return d;}
+function bkV2F(u){var x=u;BK.k.forEach(function(c){if(x>=c[0])x+=c[1]-c[0];});return x;}
+function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}
+var BK_LEAD=/^(wat denk je|denk (even |goed )?na|voorspel|eerst (nog )?(een |één |twee |drie )?(voorspelling|vra(ag|gen))|nog (een |één |twee |drie )?vra(ag|gen))\b/i;
+var BK_ANTW=/^((het )?(goede )?antwoord( is)? ([a-d]|aa|bee|cee|dee)\b|[a-d]\.$|(ja|nee|precies|klopt|inderdaad|niet per se|wel degelijk)\b)/i;
+function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?z[i].s:null;}
+function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.test(x)||x.split(/\s+/).length<=3);}
+  // eerste zin van een regel: eindtijd via de pauzes ('parts') in die regel, of null als de regel één zin is of de indeling niet klopt
+  function bkEersteZinEind(l) { const z = l.text.split(/(?<=[.?!])\s+/); if (z.length < 2 || !l.parts) return null;
+    for (const re of [/(?<=[:.?!;,])\s+/, /(?<=[:.?!;])\s+/]) { const ch = l.text.split(re); if (ch.length !== l.parts.length) continue;
+      let n = 0; for (let k = 0; k < ch.length - 1; k++) { if (/[.?!]$/.test(ch[k])) return l.parts[k + 1][0] - 0.05; } }
+    return null; }
+  function bkBouw() { const l = [];
+    chapters.forEach(c => { if (c.id !== 'H0' && c.t_first - c.t > 2.3) l.push([c.t + 1.0, c.t_first - 1.2]); });   // hoofdstukkaart 3,0 -> 2,2 s
+    if (SV.v === 'uit') Qs.forEach(q => { const ql = TL.lines.find(x => x.ch === q.ch && x.i === q.after_line), al = q.answerLine;
+      let a = q.t - 0.05; if (ql && (/\?\s*$/.test(ql.text) || BK_LEAD.test(ql.text.trim()))) a = ql.t0 - 0.15;
+      let b = q.t + 0.1;
+      if (al && bkIsAntw(al.text.split(/(?<=[.?!])\s+/)[0])) { const e = bkEersteZinEind(al); if (e != null) b = e; else { const nx = TL.lines.find(x => x.t0 > al.t1); b = nx ? nx.t0 - 0.12 : al.t1 + 0.3; } }
+      l.push([a, b]); });
+    bkZet(l); BK.tl = TL; BK.au = audio; const VD = bkF2V(dur);
+    root.querySelectorAll('.omg-seg').forEach((d, i) => { const c = chapters[i]; if (!c) return; const end = i < chapters.length - 1 ? chapters[i + 1].t : dur; d.style.left = (bkF2V(c.t) / VD * 100) + '%'; d.style.width = ((bkF2V(end) - bkF2V(c.t)) / VD * 100) + '%'; });
+    root.querySelectorAll('.omg-mark').forEach((m, i) => { if (Qs[i]) m.style.left = (bkF2V(Qs[i].t) / VD * 100) + '%'; m.hidden = SV.v === 'uit'; });
+    chapList.querySelectorAll('.omg-cd').forEach((x, i) => { if (chapters[i]) x.textContent = omgFmt(bkF2V(chapters[i].t)); });
+    root.querySelectorAll('.omg-dur').forEach(x => { x.textContent = omgFmt(VD); });
+    bkSpring(); st.dirty = true; }
+  function bkSpring() { const sb = bkIn(audio.currentTime); if (sb === null) return false; try { audio.currentTime = sb; } catch (e) {} st.t = sb; st.prev = sb; st.dirty = true; return true; }
+  function zetKnoppen() { bkBouw(); vrBtn.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; vrBtn.setAttribute('aria-pressed', String(SV.v === 'aan')); snBtn.textContent = String(SV.r).replace('.', ',') + '×'; audio.playbackRate = SV.r; }
   vrBtn.addEventListener('click', () => { SV.v = SV.v === 'aan' ? 'uit' : 'aan'; try { localStorage.setItem('bk-vragen', SV.v); } catch (e) {} zetKnoppen(); });
   snBtn.addEventListener('click', () => { const L = [1, 1.25, 1.5, 0.75]; SV.r = L[(L.indexOf(SV.r) + 1) % L.length]; try { localStorage.setItem('bk-snelheid', String(SV.r)); } catch (e) {} zetKnoppen(); });
   zetKnoppen();
@@ -3072,14 +3096,14 @@ function omgMount(root, opts) {
   function barSeek(ev) {
     const r = bar.getBoundingClientRect();
     const x = (ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left;
-    seek(clamp(x / r.width, 0, 1) * dur);
+    seek(bkV2F(clamp(x / r.width, 0, 1) * bkF2V(dur)));
   }
   let dragging = false, wasPlaying = false;
   bar.addEventListener('pointerdown', ev => { dragging = true; wasPlaying = st.playing; pause(); try { bar.setPointerCapture(ev.pointerId); } catch (e) {} barSeek(ev); });
   bar.addEventListener('pointermove', ev => { if (dragging) barSeek(ev); });
   bar.addEventListener('pointerup', ev => { if (!dragging) return; dragging = false; if (wasPlaying) play(); });
   bar.addEventListener('keydown', ev => {
-    if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') { ev.preventDefault(); ev.stopPropagation(); seek(st.t + (ev.key === 'ArrowLeft' ? -5 : 5)); }
+    if (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight') { ev.preventDefault(); ev.stopPropagation(); seek(bkV2F(bkF2V(st.t) + (ev.key === 'ArrowLeft' ? -5 : 5))); }
     if (ev.key === 'Home') { ev.preventDefault(); seek(0); }
     if (ev.key === 'End') { ev.preventDefault(); seek(dur - 0.1); }
   });
