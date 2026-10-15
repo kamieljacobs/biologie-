@@ -16,6 +16,9 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - **Celmembraan** is gebogen: een cel is rond. Ook bij een uitsnede een stukje van een cirkel, geen rechte lijn.
 - **Processen in de kern**: maak altijd zichtbaar welk proces het is. DNA-replicatie (alles kopiëren vóór de deling) en transcriptie (één werkkopie van één gen) krijgen elk een eigen beeld, label en kleur.
 
+## Gesproken tekst
+- **Niet 'Voor vwo …' zeggen** (15 okt 2026): de kijker kiest zelf havo of vwo in de speler en het vwo-blok is op het scherm gemarkeerd. Een vwo-blok begint gewoon met de inhoud. (Bestaande films: 74 keer in 40 films; weghalen staat op de bouwlijst.)
+
 ## Inhoud tussen films
 - Herhaal geen leerstof die een andere film al als hoofdthema heeft (bv. levenskenmerken staan in *Van molecuul tot biosfeer*, niet opnieuw als rode draad in *Celorganellen*). Een korte verwijzing mag.
 
