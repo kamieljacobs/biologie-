@@ -25,6 +25,10 @@ Alles op de site valt onder CC BY-NC-SA 4.0 (© Kamiel Jacobs; uitleg in `gebrui
 
 Een film kan een klassikale presentatie krijgen: `films/<hoofdstuk>/<film>/presentatie.html` (of naast `<slug>.html`), gemaakt met `python3 scripts/presentatie.py <spec.json> <uit.html>` uit een JSON-spec met dia's (`titel`, `inhoud`, `samenvatting`; Kamiel wil weinig tekst per dia, géén denkvragen en eigen schema's (SVG in `presentatie/svg/`, veld `svg`) in plaats van stills uit de film; uitleg hoort in `notities`). Zet de spec en de beelden in een map `presentatie/` naast de film, en voeg in `HOOFDSTUKKEN` bij de film het veld `"pres": "<pad>"` toe: dan verschijnt er een knop Presentatie. Noteer de presentatie in `bron/info.md` van de film. Voorbeeld: Celorganellen.
 
+## Geplande films ('komt nog')
+
+Geplande films staan per hoofdstuk in `HOOFDSTUKKEN.<id>.komt` (titel, vraag, niveau) en verschijnen grijs met 'komt nog'. Zodra een film af is: haal hem uit `komt` en zet hem in `films`. Films buiten het PTA staan in het hoofdstuk `extra`.
+
 ## Reviewstatus van films
 
 Kamiel bekijkt de films en geeft feedback. De status staat in `REVIEW` bovenin het script van `index.html` (sleutel = href van de film): ontbreekt = nog bekijken, `'feedback'` = opmerkingen nog te verwerken, `'ok'` = klaar. Alleen zichtbaar als stipje met `?k=1` (uit met `?k=0`). Werk dit bij zodra Kamiel een film bekeken heeft of feedback verwerkt is; een nieuwe of flink aangepaste film krijgt weer status 'nog bekijken'.
