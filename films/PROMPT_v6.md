@@ -1,3 +1,5 @@
+> Lees ook `films/BEELDAFSPRAKEN.md`: algemene beeldfeedback van Kamiel gaat vóór wat hieronder staat.
+
 # Prompt uitlegfilms biologie — v6
 <?claude block asof?> · <?claude block me?> · ◆ = nieuw in v4 · ★ = nieuw in v5 · ● = nieuw in v6
 ## How to use
@@ -246,7 +248,7 @@ Commit and push. The planner links to the site, so it needs no change unless a t
 Every film has one look, built from three scene looks and one fixed UI layer. The look of a scene follows from its scale level, never from the topic or the chapter type. These rules are binding; Part B1 ranks them above visual ambition and length. Hex codes marked (geschat) are estimates from reference frames and are replaced by the illustrator's own values when he confirms them; until then they are used as given.
 | Look | Scale level | Reference |
 | --- | --- | --- |
-| Micro | molecuul, cel, organel | the illustrator's cell style: dark, grainy, detailed |
+| Micro | molecuul, cel, organel | the illustrator's cell style: dark, calm texture, detailed |
 | Macro | organisme, populatie, ecosysteem, aarde en tijd | Kamiel's ecology frames: flat, geometric, calm |
 | Schema | all abstract image types; organ cross-sections; onderzoek doen; biologie en samenleving | neutral navy; the default |
 | UI layer | always, over every look | the illustrator's typography and labels; Kamiel's ondertitelkast and annotatiehaak |
@@ -276,13 +278,13 @@ Typografie: three roles, never more. The illustrator's exact typefaces are not y
 Graph axis values may go down to 28 px in Meta; nothing on the stage is smaller. Contrast at least 4.5:1 everywhere.
 Vormregels for all looks:
 Muted fills; saturation is reserved for the betekeniskleuren.
-No gradients, no glow, no drop shadow. Depth comes from layers and, in Micro, from grain.
+No gradients, no glow, no drop shadow. Depth comes from layers and, in Micro, from a very light texture (Kamiel 15 Oct 2026: the grain was too busy — see films/BEELDAFSPRAKEN.md).
 People get a simple face (eyes, mouth) in a few lines, no eyes with white; ● they may have skin colour and rounded, soft shapes rather than angular silhouettes; animals get at most a dot for an eye. Silhouettes without a face only for crowds and small action figures.
 Never more than three betekeniskleuren on screen at once, plus goud for focus.
 Detail goes to the focus; context stays schematic.
 What the narration names moves or lights up; everything else stands still.
 ### C2. Look 1: Micro
-The illustrator's cell world: blue-black cytoplasm with fine grain, organelles with muted fill and a thin light border, one fixed colour per organelle. For molecule, cell and organelle.
+The illustrator's cell world: blue-black cytoplasm with only a little calm texture (a few small dissolved particles, never a busy speckle pattern), organelles with muted fill and a thin light border, one fixed colour per organelle. For molecule, cell and organelle.
 Tekenregels:
 Background #121A26 with a beige dot texture (#C9B896 at 25–40% opacity, irregularly spread, denser around organelles). Drawn once as a cached texture.
 Every shape has a border of 1–1.5 px in a lighter tone of its own fill, never black.
