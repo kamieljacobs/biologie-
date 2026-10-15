@@ -9,6 +9,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 ## Moleculen en celonderdelen
 - **mRNA** is een dunne, kronkelende, sliertige enkele streng — geen staafje of blokje.
 - **Eiwitten** zijn geen bolletjes: teken ze als een keten (kralenketting) die zich opvouwt tot een kluwen. Laat processen als vouwen en het vastmaken van suikerketens (vertakte zijtakjes) echt gebeuren in beeld.
+- **Kleine moleculen** krijgen een herkenbare structuurvorm, geen stipjes of bolletjes: glucose als zeshoekige ring; bij afbraak breekt die ring in kleinere stukken (twee ketentjes van drie C: pyrodruivenzuur), en uiteindelijk CO₂ en H₂O als kleine eigen vormpjes.
 - **Celmembraan** is gebogen: een cel is rond. Ook bij een uitsnede een stukje van een cirkel, geen rechte lijn.
 - **Processen in de kern**: maak altijd zichtbaar welk proces het is. DNA-replicatie (alles kopiëren vóór de deling) en transcriptie (één werkkopie van één gen) krijgen elk een eigen beeld, label en kleur.
 
