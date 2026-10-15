@@ -381,6 +381,8 @@ a.chip:hover{background:var(--accent);color:var(--row)}
 
 
 const SITE = "https://kamieljacobs.github.io/biologie-";
+const KORT=n=>String(n).replace(/^(Erfelijkheid|Evolutie|Zenuwstelsel|Hormonen|DNA|Voeding|Transport|Gaswisseling|Afweer|Cel) \d+ · /,"").replace(/ \((eigen|\d+ min)\)$/,"").replace(/ · (kringlopen|de wolf op de Veluwe|enzymen|dissimilatie|fotosynthese|voortplanting|DNA \d|PCR|gel-elektroforese|gelelektroforese|hart|bloedvaten|bloed|xyleem en floëem)$/,"").replace(/^(.+?) · (Voeding|DNA) \d+$/,"$1").replace("Overerving via X-chromosomen en mitochondriën","X-chromosomen en mitochondriën").replace("Dihybride kruising en gekoppelde overerving","Dihybride kruising").replace("Onderzoek doen in de biologie","Onderzoek doen").replace("Vaccins, allergie en bloedgroepen","Vaccins en allergie").replace("De genetische code lezen","Genetische code").replace("Supplementen en superfoods","Supplementen").replace(" (vwo)","");
+
 const GU = "https://gewoonuitgelegd.nl/biologie/";
 const ART = "https://claude.ai/code/artifact/";
 // m = middelen: [type, naam, url?, flag?]. type "vid"|"tool"; flag "ext" (Gewoon Uitgelegd) of "soon" (komt nog).
@@ -579,7 +581,7 @@ const COACH=(function(){
         const hs=x.h.map(([h,b])=>{const ik=KEY(lvl,o.code,x.n,"h",h);return `<li><label class="tick"><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""}><span>${escH(h)}${b?` <small>· ${escH(b)}</small>`:""}</span></label></li>`}).join("");
         const li=([t,n,u,fl])=>{
           const ik=KEY(lvl,o.code,x.n,t,n), cls=`chip ${t}${fl?" "+fl:""}`;
-          const chip=u?`<a class="${cls}" href="${escH(u)}" target="_blank" rel="noopener">${escH(n)}</a>`:`<span class="${cls}">${escH(n)}</span>`;
+          const nn=fl==="ext"?String(n).replace(/^GU · /,""):KORT(n); const chip=u?`<a class="${cls}" href="${escH(u)}" target="_blank" rel="noopener">${escH(nn)}</a>`:`<span class="${cls}">${escH(nn)}</span>`;
           return `<li><input type="checkbox" class="it" data-key="${escH(ik)}" ${getB(ik)?"checked":""} aria-label="${t==="tool"?"Gedaan":"Gekeken"}: ${escH(n)}">${chip}${t==="tool"?'<span class="extra-tag">extra</span>':""}</li>`;
         };
         const ms=sortM(x.m.filter(z=>z[3]!=="ext")).map(li).join(""), gus=x.m.filter(z=>z[3]==="ext").map(li).join("");
