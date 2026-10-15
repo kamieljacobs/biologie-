@@ -27,7 +27,7 @@ Een film kan een klassikale presentatie krijgen: `films/<hoofdstuk>/<film>/prese
 
 ## Geplande films ('komt nog')
 
-Geplande films staan per hoofdstuk in `HOOFDSTUKKEN.<id>.komt` (titel, vraag, niveau) en verschijnen grijs met 'komt nog'. Zodra een film af is: haal hem uit `komt` en zet hem in `films`. Films buiten het PTA staan in het hoofdstuk `extra`.
+Geplande films staan per hoofdstuk in `HOOFDSTUKKEN.<id>.komt` (titel, vraag, niveau) en verschijnen grijs met 'komt nog'. Zodra een film af is: haal hem uit `komt` en zet hem in `films`. Films buiten het PTA staan in het hoofdstuk `extra` (op de site: 'Nieuwsgierig?').
 
 ## Reviewstatus van films
 
