@@ -172,3 +172,12 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - `plan.subtitle` begint met een hoofdletter (“Hoe een zenuwcel …”), de titelkaart met een kleine letter; alleen de kaart is zichtbaar.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
 - Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`; "film 2 van 7".
+
+## Wachtlijst opnieuw inspreken
+
+- **s31 (blob 007.mp3), 15-10-2026, inhoudelijke correctie.** “Dan herstelt de pomp de rust.” was onjuist: na de hyperpolarisatie brengen de kaliumkanalen (die weer dichtgaan) het membraan terug op het rustpotentiaal; de pomp herstelt alleen op lange termijn de ionenverdeling. Vervangen door:
+  > Dan gaan de kaliumkanalen weer dicht, en komt het membraan terug op min zeventig: het rustpotentiaal. De pomp is daar niet voor nodig. Bij één impuls verplaatsen maar heel weinig ionen. Die zet de pomp pas op de lange duur terug.
+  - Hele segment s31 opnieuw opnemen (één mp3), daarna `timing.s31`, `segments[].text` en het transcript bijwerken. Ankerwoorden van s31 blijven allemaal staan; segment wordt ca. 8 s langer.
+  - Geen nieuwe risicowoorden (“rustpotentiaal” en “kaliumkanalen” zitten al in de film).
+  - Gevonden bij de vergelijking met Gewoon Uitgelegd (GU noemt “de pomp herstelt de rust” een misvatting).
+

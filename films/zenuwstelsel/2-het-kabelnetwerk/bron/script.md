@@ -140,6 +140,7 @@ Scène: `micro` (sceneMicro → microLeeg())
 *[hoofdstukkaart 3,0 s op 2:21]*
 
 ## 7. s31 — uitleg
+> **Opnieuw inspreken (15-10-2026)**: de zin over de pomp is vervangen door de twee [nieuw]-zinnen hieronder (inhoudelijke correctie). De tijden na 0:26.6 kloppen pas weer na de nieuwe opname.
 Audio: blob 007.mp3 (sleutel `s31` in FILM_AUDIO) · 2:24–3:11 (46,8 s mp3; timing.duration 46,811 s)
 Scène: `micro` (sceneMicro → microImpuls())
 
@@ -161,7 +162,9 @@ Scène: `micro` (sceneMicro → microImpuls())
 [0:22.5] Even schiet het zelfs door,
 [0:24.1] onder de min zeventig:
 [0:25.3] hyperpolarisatie.
-[0:26.6] Dan herstelt de pomp de rust.
+[0:26.6] ~~Dan herstelt de pomp de rust.~~
+[nieuw] Dan gaan de kaliumkanalen weer dicht, en komt het membraan terug op min zeventig: het rustpotentiaal.
+[nieuw] De pomp is daar niet voor nodig. Bij één impuls verplaatsen maar heel weinig ionen. Die zet de pomp pas op de lange duur terug.
 [0:27.9] Dit hele golfje heet een actiepotentiaal.
 [0:29.6] Het duurt maar een paar duizendste seconde.
 [0:32.1] En dit stukje membraan prikkelt het volgende stukje.
