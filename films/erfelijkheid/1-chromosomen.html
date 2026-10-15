@@ -55,6 +55,7 @@ details summary{cursor:pointer;font-weight:700;font-size:19px}
     <button id="back" aria-label="10 seconden terug">↺</button>
     <input type="range" id="seek" min="0" step="0.01" value="0" aria-label="Tijd">
     <span class="time" id="time">0:00</span>
+    <button id="vragenK" title="Tussendoorvragen aan of uit">Vragen</button><button id="snelheid" title="Afspeelsnelheid">1×</button>
     <button id="cc" class="on" aria-label="Ondertiteling">CC</button>
     <button id="fs" aria-label="Volledig scherm">⛶</button>
   </div>
@@ -988,11 +989,11 @@ function resize(){const r=cv.getBoundingClientRect(),d=Math.min(window.devicePix
 let wall0=0,t0=0,audioOK=false;
 function setNote(m){const n=document.getElementById('note');if(n){n.textContent=m||'';n.hidden=!m;}}
 function loop(now){if(!playing)return;
-  let tc=t0+(performance.now()-wall0)/1000;
+  let tc=t0+(performance.now()-wall0)/1000*SNEL.r;
   if(audioOK&&!audio.paused&&audio.readyState>=2){const ta=audio.currentTime;if(Math.abs(ta-tc)>0.25){wall0=performance.now();t0=ta;tc=ta;}else tc=ta;}
-  t=tc;if(t>=DUR){t=DUR;pause();return;}draw();requestAnimationFrame(loop);}
+  t=tc;if(slaVraagOver())return requestAnimationFrame(loop);if(t>=DUR){t=DUR;pause();return;}draw();requestAnimationFrame(loop);}
 function play(){if(t>=DUR-.05)t=0;wall0=performance.now();t0=t;playing=true;playB.textContent='❚❚';playB.setAttribute('aria-label','Pauzeren');
-  try{audio.currentTime=t;const p=audio.play();audioOK=true;if(p&&p.then)p.then(()=>{audioOK=true;setNote('');}).catch(()=>{audioOK=false;setNote('Geluid kon niet starten. Het beeld loopt door; druk nog eens op ▶ om het geluid te proberen.');});}catch(e){audioOK=false;}
+  try{audio.currentTime=t;audio.playbackRate=SNEL.r;const p=audio.play();audioOK=true;if(p&&p.then)p.then(()=>{audioOK=true;setNote('');}).catch(()=>{audioOK=false;setNote('Geluid kon niet starten. Het beeld loopt door; druk nog eens op ▶ om het geluid te proberen.');});}catch(e){audioOK=false;}
   requestAnimationFrame(loop);}
 function pause(){try{audio.pause();}catch(e){}playing=false;playB.textContent='▶';playB.setAttribute('aria-label','Afspelen');draw();}
 function toggle(){playing?pause():play();}
@@ -1014,6 +1015,16 @@ const CHAP=[['Twee puzzels',0],['Inzoomen: van huid naar DNA',PS('p02')-1],['Het
 const ul=document.getElementById('chapters');CHAP.forEach(([n,a],i)=>{const b=i<CHAP.length-1?CHAP[i+1][1]:DUR+1;const li=document.createElement('li');li.dataset.a=a;li.dataset.b=b;li.innerHTML=`<span class="ct">${fmt(Math.max(0,a))}</span> ${n}`;li.onclick=()=>{seekTo(Math.max(0,a)+.01);document.getElementById('player').scrollIntoView({behavior:'smooth',block:'start'});};ul.appendChild(li);});
 window.renderAt=s=>{t=s;draw();};
 window.__K=K;
+// vragen- en snelheidsknop (gedeeld via localStorage)
+const SNEL={r:1,v:'aan'};
+try{const v=localStorage.getItem('bk-vragen');if(v==='uit')SNEL.v='uit';const r=parseFloat(localStorage.getItem('bk-snelheid'));if([0.75,1,1.25,1.5].includes(r))SNEL.r=r;}catch(e){}
+{const u=new URLSearchParams(location.search);if(u.get('vragen')==='uit')SNEL.v='uit';if(u.get('vragen')==='aan')SNEL.v='aan';const r=parseFloat(u.get('snelheid'));if([0.75,1,1.25,1.5].includes(r))SNEL.r=r;}
+function vraagVensters(){const out=[];Object.keys(K).forEach(k=>{if(!/^cd\d*a$/.test(k))return;const a=K[k],b=K[k.replace(/a$/,'b')];if(!(b>a))return;const n=TL.paras.find(p=>p.words[0].s>b-0.1);out.push([a-0.2,n?n.words[0].s-0.2:b+0.3]);});return out;}
+function slaVraagOver(){if(SNEL.v!=='uit'||!playing)return false;for(const [a,b] of vraagVensters()){if(t>=a&&t<b-0.05){seekTo(b);return true;}}return false;}
+function zetKnoppen(){const v=document.getElementById('vragenK'),s=document.getElementById('snelheid');v.textContent=SNEL.v==='aan'?'Vragen aan':'Vragen uit';v.classList.toggle('on',SNEL.v==='aan');s.textContent=String(SNEL.r).replace('.',',')+'×';try{audio.playbackRate=SNEL.r;}catch(e){}}
+document.getElementById('vragenK').onclick=()=>{SNEL.v=SNEL.v==='aan'?'uit':'aan';try{localStorage.setItem('bk-vragen',SNEL.v);}catch(e){}zetKnoppen();};
+document.getElementById('snelheid').onclick=()=>{const L=[1,1.25,1.5,0.75];SNEL.r=L[(L.indexOf(SNEL.r)+1)%L.length];try{localStorage.setItem('bk-snelheid',String(SNEL.r));}catch(e){}wall0=performance.now();t0=t;zetKnoppen();};
+zetKnoppen();
 (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{buildSims();resize();});resize();
 
 </script>
