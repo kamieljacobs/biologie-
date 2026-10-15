@@ -1,6 +1,6 @@
 # Hechting: van baby tot verliefd — script v2
 
-Reeks Gedrag, film 4 (havo + vwo; vwo-blok gelabeld). Havo eigen pakket Gedrag / vwo H1 + H19. Voice Roos (eleven_v4). Kamiel: "hechting vind ik wel belangrijk, ook omdat het leven van leerlingen daar ook door beïnvloed wordt: hun latere liefdesrelaties." Rode draad: twee peuters in de Vreemde Situatie (Mila en Ties, geen castpersonages); Harlows aapjes; Lotte (castboek) met een onbeantwoord appje. Toon: eerlijk, niet deterministisch, hoopvol; verwijzing naar mentor. Opmaat naar de film Emotieregulatie.
+Reeks Gedrag, film 4 (havo + vwo; vwo-blok gelabeld). Havo eigen pakket Gedrag / vwo H1 + H19. Voice Roos (eleven_v4). Kamiel: "hechting vind ik wel belangrijk, ook omdat het leven van leerlingen daar ook door beïnvloed wordt: hun latere liefdesrelaties." Rode draad: twee peuters in de Vreemde Situatie (Mila en Ties, geen castpersonages); Harlows aapjes; Lotte (castboek) met een onbeantwoord appje. Toon: eerlijk, niet deterministisch, hoopvol (zonder verwijzing naar de mentor: op verzoek van Kamiel geschrapt, 15 okt 2026). Opmaat naar de film Emotieregulatie.
 
 Leerdoelen
 1. basis — hechting beschrijven als een emotionele band met een vaste verzorger; aangeboren neiging bij baby en verzorger
@@ -51,7 +51,6 @@ Stel: iemand was als baby onveilig gehecht. Wat klopt dan? Wat denk je?
 [VRAAG] (a) die persoon krijgt later altijd slechte relaties · (b) de kans op zo'n patroon is groter, maar het kan veranderen · (c) hechting als baby heeft later geen enkele invloed
 
 Antwoord bee. Er is een verband, maar het is niet sterk. Hechting is geen vonnis. Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog kunnen helpen om je patroon veiliger te maken. Het begint vaak met herkennen: oh, dit is mijn manier van reageren.
-Als iets uit deze film je raakt, praat er dan over met iemand die je vertrouwt, bijvoorbeeld je mentor.
 En wat doe je als een emotie je overspoelt? Daarover gaat een volgende film.
 
 ## Recap [Schema: aapje bij doekmoeder, Mila, drie patronen, binnenwerkmodel]

@@ -48,9 +48,9 @@ Bowlby dacht dat een kind uit al die ervaringen een soort binnenwerkmodel bouwt:
 
 **q11** (vraag): die persoon krijgt later altijd slechte relaties · de kans op zo'n patroon is groter, maar het kan veranderen · hechting als baby heeft later geen enkele invloed
 
-**s12** · 30.4 s · `audio/s12.mp3`
+**s12** · 24.4 s · `audio/s12.mp3`
 
-Antwoord bee. Er is een verband, maar het is niet sterk. Hechting is geen vonnis. Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog kunnen helpen om je patroon veiliger te maken. Het begint vaak met herkennen: oh, dit is mijn manier van reageren. Als iets uit deze film je raakt, praat er dan over met iemand die je vertrouwt, bijvoorbeeld je mentor. En wat doe je als een emotie je overspoelt? Daarover gaat een volgende film.
+Antwoord bee. Er is een verband, maar het is niet sterk. Hechting is geen vonnis. Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog kunnen helpen om je patroon veiliger te maken. Het begint vaak met herkennen: oh, dit is mijn manier van reageren. En wat doe je als een emotie je overspoelt? Daarover gaat een volgende film.
 
 ## Recap
 

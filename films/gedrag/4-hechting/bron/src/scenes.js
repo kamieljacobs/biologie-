@@ -172,7 +172,7 @@ const SCENES = {
       if (q.on('beetje', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('beetje', 1); let x = 560; [[0.55, C.groen], [0.2, C.teal], [0.25, C.koraal]].forEach(([p, col]) => { ctx.fillStyle = rgba(col, 0.6); ctx.fillRect(x, 720, 800 * p, 50); x += 800 * p; }); regel(ctx, 'van alles een beetje', 960, 820, 1, C.text, 30, 'center', 700); ctx.restore(); }
       vraagteken(ctx, 1700, 760, q.on('klopt', 1), 100); ctx.restore(); } },
 
-  s12(ctx, t, q) { bg(ctx, 'schema'); const me = q.on('raakt', 1, 0.8);
+  s12(ctx, t, q) { bg(ctx, 'schema'); const me = q.on('emotie', 1, 0.8);
     if (me < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - me;
       tag(ctx, 'verband: ja · sterk: nee', 960, 150, C.text2, q.on('verband', 1) * (1 - q.on('vonnis', 1))); tag(ctx, 'hechting is geen vonnis', 960, 150, C.goud, q.on('vonnis', 1));
       // pad dat buigt van onveilig naar veiliger
@@ -181,8 +181,7 @@ const SCENES = {
       [['vriendschappen', 'goede vriendschappen', 0.25], ['betrouwbare', 'betrouwbare mensen', 0.5], ['psycholoog', 'hulp van een psycholoog', 0.75]].forEach(([w, s, u]) => { const a = q.on(w, 1); const x = 240 + u * 1440, y = 760 - 420 * Math.pow(u, 1.6); circ(ctx, x, y, 14 * a, C.goud); tag(ctx, s, x, y + 70, C.goud, a, 'center', 26); });
       tag(ctx, 'herkennen: oh, dit is mijn manier van reageren', 960, 250, C.teal, q.on('herkennen', 1), 'center', 28);
       ctx.restore(); }
-    if (me > 0.01) { ctx.save(); ctx.globalAlpha *= me; roundRect(ctx, 460, 280, 1000, 300, 24); shape(ctx, rgba(C.teal, 0.12), C.teal, 2); text(ctx, 'Raakt iets uit deze film je?', 960, 370, fTitel(48), C.text, 'center'); text(ctx, 'Praat erover met iemand die je vertrouwt,', 960, 450, fTekst(34, 600), C.text, 'center'); text(ctx, 'bijvoorbeeld je mentor.', 960, 500, fTekst(34, 600), C.text, 'center');
-      tag(ctx, 'volgende film: emotieregulatie', 960, 720, C.goud, q.on('emotie', 1)); ctx.restore(); } },
+    if (me > 0.01) { ctx.save(); ctx.globalAlpha *= me; regel(ctx, 'volgende film', 960, 380, 1, C.text2, 30, 'center', 600); text(ctx, 'Emotieregulatie', 960, 470, fTitel(64), C.goud, 'center'); regel(ctx, 'wat doe je als een emotie je overspoelt?', 960, 540, 1, C.text, 32, 'center', 600); ctx.restore(); } },
 
   s13(ctx, t, q) { bg(ctx, 'schema'); const pw = 400, gap = 40, x0 = (W - 4 * pw - 3 * gap) / 2, y0 = 220, ph = 520;
     const panel = (i, titel, a, draw) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const x = x0 + i * (pw + gap); roundRect(ctx, x, y0, pw, ph, 14); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); regel(ctx, titel, x + pw / 2, y0 + 50, 1, C.text, 28, 'center', 700); ctx.save(); ctx.beginPath(); ctx.rect(x, y0 + 60, pw, ph - 60); ctx.clip(); draw(x); ctx.restore(); ctx.restore(); };

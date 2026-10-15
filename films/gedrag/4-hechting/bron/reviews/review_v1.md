@@ -13,7 +13,7 @@ Eén gecombineerde review (ontwikkelingspsychologie, didactiek, taal) door een a
 10. Vwo: Duitsland/Japan met uitleg, en 'toch was veilig in elk land de meest voorkomende stijl'.
 11. Hazan & Shaver: 'niet per se hetzelfde patroon als toen je baby was', 'van alles een beetje'.
 12. Appje-voorbeeld genderneutraal en als mogelijke gedachten; 'ik red me wel alleen'.
-13. 'Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog'; mentor concreet.
+13. 'Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog'. (De voorgestelde mentorzin is na de bouw op verzoek van Kamiel geschrapt.)
 14. TTS-wachtlijst: Bowlby, Ainsworth, Harlow, rhesusaapjes, binnenwerkmodel, onveilig-vermijdende/ambivalente, fijngevoelig; 'oh' i.p.v. 'o'.
 15. Recap ingekort tot vier zinnen.
 
@@ -22,3 +22,6 @@ Eén gecombineerde review (ontwikkelingspsychologie, didactiek, taal) door een a
 - s05 begon leeg → kooi en aapje meteen in beeld.
 - s12: tag 'herkennen' stond in het onderschriftvlak → bovenin.
 - s13: paneel 'drie patronen' verscheen vóór 'kijk naar de terugkomst' → cue 'opbouwt'.
+
+## Feedback Kamiel (15 okt 2026)
+- 'Praat erover met iemand die je vertrouwt, bijvoorbeeld je mentor' niet doen → zin uit s12 geknipt (audio ingekort, geen nieuwe opname), eindkaart in beeld vervangen door een vooruitblik op Emotieregulatie.
