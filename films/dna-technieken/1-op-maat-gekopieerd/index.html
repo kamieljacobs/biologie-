@@ -455,6 +455,7 @@ function txt(ctx, s, x, y, o = {}) {
   ctx.textBaseline = o.base || 'alphabetic';
   ctx.letterSpacing = (o.ls || 0) + 'px';
   if (o.shadow) { ctx.shadowColor = o.shadow; ctx.shadowBlur = o.blur || 12; }
+  if (o.halo) { ctx.lineJoin = 'round'; ctx.lineWidth = o.halo; ctx.strokeStyle = o.haloColor || 'rgba(13,20,24,0.9)'; ctx.strokeText(s, x, y); }
   ctx.fillText(s, x, y);
   const w = ctx.measureText(s).width;
   ctx.restore();
@@ -1197,14 +1198,11 @@ SCENES.H0 = function (ctx, t, q) {
     bandGlow(ctx, g, 1, 172, pulse(t, tb - 0.2, 1.4) * 0.9);
     const yb = G.Y(172), x0 = g.x + 30 + G.laneW * 1.5 + G.laneW / 2 - 8;
     const k = E(t, tb, 0.6);
-    if (k > 0) {
-      ctx.save(); ctx.strokeStyle = hexA(COL.amber, 0.9); ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.moveTo(x0, yb); ctx.lineTo(x0 + (g.x + g.w + 60 - x0) * k, yb); ctx.stroke(); ctx.restore();
-    }
+    // geen wijslijn meer (15 okt 2026): '172 bp' staat direct rechts naast de gel, op de hoogte van de band
     const t172 = q.w(2, 'honderdtweeënzeventig');
-    txt(ctx, '172 bp', g.x + g.w + 76, yb + 20, { size: 64, weight: 600, color: COL.amber, alpha: fadeIn(t, t172, 0.4) });
-    txt(ctx, 'één heldere band', g.x + g.w + 78, yb + 70, { size: 36, weight: 500, color: COL.text, alpha: fadeIn(t, tb + 0.2, 0.5) });
-    txt(ctx, 'baan Sp: het bloedspoor · vWA', g.x + g.w + 78, yb + 116, { size: 30, weight: 500, color: COL.muted, alpha: fadeIn(t, tb + 0.5, 0.5) });
+    txt(ctx, '172 bp', g.x + g.w + 30, yb + 20, { size: 64, weight: 600, color: COL.amber, alpha: fadeIn(t, t172, 0.4) });
+    txt(ctx, 'één heldere band', g.x + g.w + 32, yb + 70, { size: 36, weight: 500, color: COL.text, alpha: fadeIn(t, tb + 0.2, 0.5) });
+    txt(ctx, 'baan Sp: het bloedspoor · vWA', g.x + g.w + 32, yb + 116, { size: 30, weight: 500, color: COL.muted, alpha: fadeIn(t, tb + 0.5, 0.5) });
 
     // buisje met stippenteller
     const aTube = fadeIn(t, q.s(3) - 0.3, 0.6);
@@ -1537,8 +1535,7 @@ SCENES.H1 = function (ctx, t, q) {
     // STR-label
     withAlpha(ctx, st.str * (1 - E(t, s(8) + 1.5, 0.6)), () => {
       const px = FIELD.x + FIELD.w * 0.5, py = FIELD.y + FIELD.h * 0.46;
-      ctx.save(); ctx.strokeStyle = COL.pink; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(px, py - 34); ctx.lineTo(px, py - 110); ctx.stroke(); ctx.restore();
-      txt(ctx, 'STR · TCTA × 16', px, py - 124, { size: 36, weight: 600, color: COL.pink, align: 'center' });
+      txt(ctx, 'STR · TCTA × 16', px, py - 48, { size: 36, weight: 600, color: COL.pink, align: 'center', halo: 8 }); // direct boven de STR, geen wijslijn (15 okt 2026)
     });
     // label template
     withAlpha(ctx, st.tmpl * (1 - E(t, s(5) + 0.4, 0.5)), () => txt(ctx, 'template-DNA', FIELD.x + 60, FIELD.y + FIELD.h * 0.52 + 78, { size: 38, weight: 600, color: COL.chalk }));
@@ -2087,8 +2084,7 @@ SCENES.H3 = function (ctx, t, q) {
       const a14 = fadeIn(t, s(14) + 0.6, 0.4);
       if (a14 > 0) withAlpha(ctx, a14, () => {
         const xe = map.X(0);
-        txt(ctx, 'einde template', xe - 66, yF + 4, { size: 32, weight: 600, color: COL.chalk, align: 'right' });
-        arrowLine(ctx, xe - 60, yF - 8, xe - 12, yF - 8, { color: COL.chalk, w: 3, head: 16 });
+        txt(ctx, 'einde template', xe - 16, yF + 4, { size: 32, weight: 600, color: COL.chalk, align: 'right', halo: 8 }); // direct tegen het einde, zonder wijspijl (15 okt 2026)
       });
       // r15: terugblik op cyclus 1
       const a15 = showIn(t, s(15) - 0.1, s(16) + 0.2, 0.4, 0.4);
@@ -2551,9 +2547,10 @@ SCENES.H5 = function (ctx, t, q) {
     if (!clean && t < tZoom) {
       const a = fadeIn(t, q.w(3, 'band'), 0.4);
       withAlpha(ctx, a, () => {
-        ctx.save(); ctx.strokeStyle = COL.warn; ctx.lineWidth = 3; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(g.x + 30 + G.laneW * 1.5 - 60, yb); ctx.lineTo(g.x + g.w + 60, yb); ctx.stroke(); ctx.restore();
-        txt(ctx, 'een band in NC,', g.x + g.w + 80, yb - 10, { size: 40, weight: 600, color: COL.warn });
-        txt(ctx, 'even hoog als in Sp', g.x + g.w + 80, yb + 40, { size: 40, weight: 600, color: COL.warn });
+        // stippellijn alleen tussen de banden Sp en NC (zelfde hoogte), niet meer door naar de tekst (15 okt 2026)
+        ctx.save(); ctx.strokeStyle = COL.warn; ctx.lineWidth = 3; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(g.x + 30 + G.laneW * 1.5 - 60, yb); ctx.lineTo(cxNC + G.laneW / 2 - 10, yb); ctx.stroke(); ctx.restore();
+        txt(ctx, 'een band in NC,', g.x + g.w + 30, yb - 10, { size: 40, weight: 600, color: COL.warn });
+        txt(ctx, 'even hoog als in Sp', g.x + g.w + 30, yb + 40, { size: 40, weight: 600, color: COL.warn });
       });
     }
     // r9: alle banen onbetrouwbaar

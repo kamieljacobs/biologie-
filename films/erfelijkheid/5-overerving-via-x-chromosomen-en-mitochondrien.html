@@ -364,7 +364,7 @@ function s3(t){ctx.fillStyle='#1A2740';ctx.fillRect(0,0,W,H);
     T('± 800 genen',XX,730,{s:24,w:800,a:ax*seg(t,K.acht2-.2,K.acht2+.3)});}
   const hy=seg(t,K.ychr-.3,K.ychr+.5);if(hy>0){rod(XX+400,560,130,56,0,'n','',hy,{bands:[[.2,.02],[.5,.03]]});T('Y',XX+400,460,{s:40,w:800,a:hy});T('klein, weinig genen',XX+400,660,{s:24,w:800,a:hy});}
   // opsin genes near tip
-  const hg=seg(t,K.keg-.3,K.keg+.4);const gy=470+XL/2-60;if(hg>0){box(XX-34,gy-14,68,28,6,null,C.paars,4,hg);arrow(XX+40,gy,XX+120,gy-60,C.paars,3,hg*(1-hy));T('genen voor kleurzien',XX+130,gy-76,{s:20,w:800,c:C.paars,al:'left',a:hg*(1-hy)});}
+  const hg=seg(t,K.keg-.3,K.keg+.4);const gy=470+XL/2-60;if(hg>0){box(XX-34,gy-14,68,28,6,null,C.paars,4,hg);T('genen voor kleurzien',XX+46,gy,{s:20,w:800,c:C.paars,al:'left',a:hg*(1-hy),halo:6});}
   // eye & cone (p03)
   const ea=seg(t,K.keg-.2,K.keg+.6)*(1-seg(t,K.p3b-.3,K.p3b+.3));
   if(ea>0){ctx.save();ctx.globalAlpha=ea;circ(1000,380,120,'#E8ECEF','#8FA0B5',4);circ(890,380,34,'#5b7fa6');circ(890,380,14,'#F2F2EE');

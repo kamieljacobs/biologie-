@@ -609,16 +609,18 @@ table.mini th, table.mini td { border: 1px solid var(--rule); padding: 4px 10px;
     }
     /* label met verbindingslijn van (ax,ay) [schermcoörd.] naar tekst op (lx,ly) */
     callout(s, ax, ay, lx, ly, o = {}) {
+      // geen wijslijn meer (15 okt 2026): de naam staat direct naast het anker (ax, ay), aan de kant waar hij vroeger stond,
+      // met een rand in de achtergrondkleur rond de letters
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return;
-      const c = this.ctx; this.screen();
-      const box = this.text(s, lx, ly, Object.assign({ size: 40, w: 500 }, o));
-      if (!box) return;
-      // lijn naar dichtstbijzijnde rand van de tekst
-      const tx = clamp(ax, box.x0 - 8, box.x1 + 8), ty = ax >= box.x0 - 8 && ax <= box.x1 + 8 ? (ay < box.y0 ? box.y0 - 8 : box.y1 + 8) : (box.y0 + box.y1) / 2;
-      c.save(); c.globalAlpha = a; if (o.lineHalo) { c.strokeStyle = C.paper; c.lineWidth = 8; c.lineCap = 'round'; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke(); }
-      c.strokeStyle = o.line || C.ink2; c.lineWidth = 2.5; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke();
-      c.fillStyle = o.line || C.ink2; c.beginPath(); c.arc(ax, ay, 5, 0, Math.PI * 2); c.fill(); c.restore();
-      return box;
+      const size = o.size || 40, align = o.align || 'left';
+      const bw = this.measure(s, Object.assign({ size: 40, w: 500 }, o)).width, asc = size * 0.75, bh = size * 0.97;
+      const bx0 = align === 'left' ? lx : align === 'right' ? lx - bw : lx - bw / 2;
+      const cx = bx0 + bw / 2, cy = ly - asc + bh / 2;
+      const dx = cx - ax, dy = cy - ay, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+      const gap = o.gap != null ? o.gap : 14;
+      const D = Math.min(L, gap + Math.abs(ux) * bw / 2 + Math.abs(uy) * bh / 2);
+      const ncx = clamp(ax + ux * D, 24 + bw / 2, 1896 - bw / 2), ncy = clamp(ay + uy * D, 24 + bh / 2, 1056 - bh / 2);
+      return this.text(s, lx + ncx - cx, ly + ncy - cy, Object.assign({ size: 40, w: 500 }, o, { halo: o.halo || 8 }));
     }
     pill(s, x, y, o = {}) {
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return null;
@@ -2951,11 +2953,11 @@ SCENES['2'] = function ({ TL }) {
       g.text('bladgroenkorrel', CH.x, 252, { size: 48, align: 'center', color: C.ink2, alpha: ka * E.vis(t, T.bgk - 0.2, null), key: 'bladgroenkorrel' });
       g.pill('hier: fotosynthese', CH.x, 790, { align: 'center', size: 36, alpha: ka * E.vis(t, T.hier - 0.2, T.thyl - 1.4) });
       const db = E.vis(t, T.dubbel - 0.3, null) * ka;
-      P.tag(g, 'dubbelmembraan', 1880, 300, { align: 'right', size: 48, alpha: db, key: 'dubbelmembraan' }); P.pointer(g, 1720, 318, CH.x + CH.rx * 0.78, CH.y - CH.ry * 0.62, { alpha: db });
+      P.tag(g, 'dubbelmembraan', 1880, 288, { align: 'right', size: 48, alpha: db, key: 'dubbelmembraan' }); // direct op de rand, geen wijslijn (15 okt 2026)
       const sa = E.vis(t, T.stroma - 0.3, null) * ka;
       g.text('stroma', 1120, 500, { size: 48, w: 600, color: C.leafDeep, alpha: sa, key: 'stroma' }); g.text('vloeistof vol enzymen', 1100, 548, { size: 36, color: C.ink2, alpha: sa * E.vis(t, T.enz - 0.3, T.twee) });
-      P.tag(g, 'thylakoïden, in grana', 1240, 768, { align: 'center', size: 48, alpha: ta, key: 'thylakoïden' }); P.pointer(g, 1240, 744, grana[3][0] - 30, grana[3][1] + 30, { alpha: ta });
-      P.tag(g, 'chlorofyl', 1880, 720, { align: 'right', size: 48, alpha: cla, key: 'chlorofyl' }); g.text('in het membraan', 1880, 786, { size: 36, align: 'right', color: C.ink2, alpha: cla }); P.pointer(g, 1740, 700, grana[1][0] + 56, grana[1][1] + 20, { alpha: cla });
+      P.tag(g, 'thylakoïden, in grana', grana[3][0], grana[3][1] + 86, { align: 'center', size: 48, alpha: ta, key: 'thylakoïden' });
+      P.tag(g, 'chlorofyl', grana[1][0] + 66, grana[1][1] + 6, { size: 48, alpha: cla, key: 'chlorofyl' }); g.text('in het membraan', grana[1][0] + 74, grana[1][1] + 72, { size: 36, color: C.ink2, alpha: cla, halo: 8 });
       // twee delen
       const tw = E.vis(t, T.vangt - 0.3, null) * ka;
       if (tw > 0.01) { CM.card(g, 1060, 826, 820, 116, { alpha: tw }); const l1 = tw * E.vis(t, T.vangt - 0.3, null); const b1 = g.text('lichtreactie', 1090, 876, { size: 48, w: 600, alpha: l1, key: 'lichtreactie' }); g.text('— thylakoïden, licht', b1 ? b1.x1 + 16 : 1400, 876, { size: 36, color: C.ink2, alpha: l1 }); }
@@ -3054,7 +3056,7 @@ SCENES['3'] = function ({ TL }) {
     g.text('pomp', X.pump, B.bot - 100, { size: 36, align: 'center', color: C.ink2, alpha: E.vis(t, T.pompt - 0.3, null), halo: 8, haloColor: C.stroma });
     g.text('tweede chlorofyl', X.PS1, B.bot - 100, { size: 36, align: 'center', color: C.leafDeep, alpha: E.vis(t, T.tweede - 0.3, null), halo: 8, haloColor: C.stroma });
     const sa = E.vis(t, T.stromen - 0.3, null);
-    P.tag(g, 'ATP-synthetase', X.S - 70, B.memTop - 160, { align: 'center', size: 48, w: 600, alpha: sa, key: 'ATP-synthetase' }); P.pointer(g, X.S - 20, B.memTop - 124, X.S, B.memTop - 50, { alpha: sa });
+    P.tag(g, 'ATP-synthetase', X.S - 70, B.memTop - 92, { align: 'center', size: 48, w: 600, alpha: sa, key: 'ATP-synthetase' }); // direct boven het eiwit, geen wijslijn (15 okt 2026)
     const na = E.vis(t, T.coenz - 0.2, null), nh = t > T.nadph22 - 0.2;
     if (na > 0.01) D.rich(g, nh ? 'NADPH,H⁺' : 'NADP⁺', X.red - 80, B.bot - 40, { size: 48, align: 'center', alpha: na, key: nh ? 'NADPH,H⁺' : 'NADP⁺' });
     // water → O₂ (r8–12)

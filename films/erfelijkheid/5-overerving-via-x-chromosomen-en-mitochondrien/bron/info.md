@@ -89,3 +89,7 @@ Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Films 2â€
 
 ## Wijzigingen
 - 15 okt 2026 â€” Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Deze film heeft geen hoofdstukkaarten, dus geen hoofdstukpauze om in te korten.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+Weg: de pijl naar 'genen voor kleurzien'; de naam staat direct rechts naast het kader op het X-chromosoom (Kamiel: "die lijntjes naar begrippen moeten sowieso weg"; zie `films/BEELDAFSPRAKEN.md`). Gecontroleerd op contactbladen. Regelnummers elders in dit bestand kunnen een paar regels verschoven zijn.

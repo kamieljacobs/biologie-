@@ -328,7 +328,7 @@ function s2(t){ctx.fillStyle='#1E2B3C';ctx.fillRect(0,0,W,H);
       box(x,120,300,100,16,C.panel,null,0,a,true);rod(x+40,170,56,15,0,'v',l,a,{band:.5,bh:12});T(l+': '+txt,x+80,170,{s:26,w:800,al:'left',a});pea(x+260,170,22,i<2?y:1,i<2?1:r,a);});}
   const ca=seg(t,K.ouder-.3,K.ouder+.5)*(1-seg(t,K.p3-.2,K.p3+.4));
   if(ca>0){meiosis(0,800,560,.9,PAIRS(false,false),'v',ca);T('GgRr',800,280,{s:36,w:800,a:ca});
-    const ha=seg(t,K.ander-.2,K.ander+.5);if(ha>0){T('chromosoompaar met kleurgen',420,480,{s:22,w:800,a:ha*ca,c:C.muted});T('ander paar: vormgen',420,640,{s:22,w:800,a:ha*ca,c:C.muted});}}
+    const ha=seg(t,K.ander-.2,K.ander+.5);if(ha>0){T('chromosoompaar',756,468,{s:22,w:800,al:'right',a:ha*ca,c:C.muted});T('met kleurgen',756,494,{s:22,w:800,al:'right',a:ha*ca,c:C.muted});T('ander paar:',756,628,{s:22,w:800,al:'right',a:ha*ca,c:C.muted});T('vormgen',756,654,{s:22,w:800,al:'right',a:ha*ca,c:C.muted});}}
   // p03: two orientations
   const m=seg(t,K.p3-.2,K.p3+.5)*(1-seg(t,K.honderd-.5,K.honderd+.3));
   if(m>0){const p1=lerp(0,1,seg(t,K.zo,K.zo+4)),p2=lerp(0,1,seg(t,K.anders,K.anders+4));

@@ -110,3 +110,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; 2
 - Uitspraak: in de stem-invoer staat “iks en ei” voor X en Y; getallen worden voluit ingevoerd (“honderdveertig”, “achtentachtig”). “DNA”, “PCR” en “STR’s” staan als gewone tekst; naluisteren tegen de uitspraaklijst.
 - Geen versie/datum op de pagina; docentdeel zonder getallentabel met bronnen; de kansen in de kansladder staan zonder bron.
 - `<title>` en `<meta name="description">` staan na de navigatiebalk in `<body>` (artifact-skelet).
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+Weg: de wijspijl naar het kaartje 'één band = DNA van één bepaalde lengte' (opening; kaartje staat direct naast de band) en de wijspijl naar '13' bij de allelladder (H2; '13' staat direct naast de ladderband). Hulplijnen tussen banden (zelfde hoogte) en pijlen voor looprichting zijn gebleven (Kamiel: "die lijntjes naar begrippen moeten sowieso weg"; zie `films/BEELDAFSPRAKEN.md`). Gecontroleerd op contactbladen. Regelnummers elders in dit bestand kunnen een paar regels verschoven zijn.

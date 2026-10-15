@@ -284,8 +284,8 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
             <text id="bl-akopie" data-b="1215,620" text-anchor="start" class="t-label" fill="#C62A55">kopie van het plan</text>
             <text id="bl-aterug" data-b="1300,950" text-anchor="start" class="t-label" fill="#0B6E62">spieren en gewrichten</text>
             <text id="bl-abij" data-b="1395,420" text-anchor="start" class="t-label" fill="#B87400">bijsturen</text>
-            <text id="bl-hip" data-b="990,790" text-anchor="end" class="t-label" fill="#1D4ED8">hippocampus</text>
-            <text id="bl-wegh" data-b="990,790" text-anchor="end" class="t-label" fill="#C62A55">weggehaald</text>
+            <text id="bl-hip" data-b="1010,566" text-anchor="middle" class="t-label" fill="#1D4ED8" style="paint-order:stroke;stroke:#F3F6FC;stroke-width:7px;stroke-linejoin:round">hippocampus</text>
+            <text id="bl-wegh" data-b="890,662" text-anchor="middle" class="t-label" fill="#C62A55" style="paint-order:stroke;stroke:#F3F6FC;stroke-width:7px;stroke-linejoin:round">weggehaald</text>
             <text id="bl-bg" data-b="880,400" text-anchor="end" class="t-label" fill="#C62A55">basale kernen</text>
             <text id="bl-mot2" data-b="1000,215" text-anchor="start" class="t-label" fill="#C62A55">motorische schors</text>
             <text id="bl-schors" data-b="760,300" text-anchor="middle" class="t-label" fill="#1D4ED8">schors</text>
@@ -832,7 +832,7 @@ function drawPath(el,t,t0,d){ const L=el._len||(el._len=el.getTotalLength()); at
 const LOBE={f:'#FCE3D2',p:'#E7F0CC',t:'#DCE8FB',o:'#F3E1F1'}, UNI='#DCE6F8';
 let BT={s:1,tx:0,ty:0};
 function brainAt(s,tx,ty){ BT={s,tx,ty}; attr($('#brain'),'transform',`translate(${tx} ${ty}) scale(${s})`); }
-function lab(id,on,t,t0){ if(id==='bl-hip'||id==='bl-wegh'){ const L=$('#b-hipLead'); attr(L,'stroke',id==='bl-hip'?'#1D4ED8':'#C62A55'); if(on) op(L,t0===undefined?1:kf(t,[[t0,0],[t0+0.4,1]])); } const el=$('#'+id); if(!on){ el.style.display='none'; return; } el.style.display=''; const [x,y]=el.dataset.b.split(',').map(Number); attr(el,'x',(BT.s*x+BT.tx).toFixed(1)); attr(el,'y',(BT.s*y+BT.ty).toFixed(1)); op(el,t0===undefined?1:kf(t,[[t0,0],[t0+0.4,1]])); }
+function lab(id,on,t,t0){ /* geen wijslijn meer (15 okt 2026): hippocampus/weggehaald staan nu op het gebied zelf */ const el=$('#'+id); if(!on){ el.style.display='none'; return; } el.style.display=''; const [x,y]=el.dataset.b.split(',').map(Number); attr(el,'x',(BT.s*x+BT.tx).toFixed(1)); attr(el,'y',(BT.s*y+BT.ty).toFixed(1)); op(el,t0===undefined?1:kf(t,[[t0,0],[t0+0.4,1]])); }
 function lobe(k,fill,fo){ const el=$('#lb-'+k); attr(el,'fill',fill); attr(el,'fill-opacity',fo); }
 function lobesPale(){ ['f','p','t','o'].forEach(k=>lobe(k,LOBE[k],0.55)); }
 function brainReset(){

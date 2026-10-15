@@ -575,12 +575,12 @@ function sceneZoom(t){
     const bi=win(t,Q('p03','opgerold'),Q('p03','daarom')+.2,.5,.5);if(bi>0)beads(1120,560,bi);
     const zc=win(t,Q('p03','zusterchromatiden')-.2,K.z5out+.4,.4,.4);
     if(zc>0){const L=C11.len4*2.4,ang=C11.a4,sp=4.6*2.4*1.9;const ex=Math.cos(ang),ey=Math.sin(ang);
-      arrow(480,300,800-ex*sp-Math.sin(ang)*(-L*.3)*-1-20,450-ey*sp+Math.cos(ang)*(-L*.3)-10,C.ink,3,zc);
-      arrow(1120,300,800+ex*sp+Math.sin(ang)*L*.3+18,450+ey*sp-Math.cos(ang)*L*.3+20,C.ink,3,zc);
-      T('zusterchromatide',480,276,{s:24,w:800,a:zc,halo:7,hc:C.nuc});T('zusterchromatide',1120,276,{s:24,w:800,a:zc,halo:7,hc:C.nuc});
+      // geen wijslijnen (15 okt 2026): elke naam direct naast zijn eigen chromatide
+      const zx1=800-ex*sp-Math.sin(ang)*(-L*.3)*-1-20,zy1=450-ey*sp+Math.cos(ang)*(-L*.3)-10,zx2=800+ex*sp+Math.sin(ang)*L*.3+18,zy2=450+ey*sp-Math.cos(ang)*L*.3+20;
+      T('zusterchromatide',zx1-2,zy1,{s:24,w:800,al:'right',a:zc,halo:8,hc:C.nuc});T('zusterchromatide',zx2+6,zy2,{s:24,w:800,al:'left',a:zc,halo:8,hc:C.nuc});
       T('identieke kopieën',800,112,{s:26,w:700,c:C.muted,a:zc*(1-seg(t,Q('p03','ze'),Q('p03','ze')+.4)),halo:7,hc:C.nuc});}
     const ce=win(t,Q('p03','centromeer')-.1,K.z5out+.5,.3,.4);
-    if(ce>0){const off=(-.5+C11.cen)*C11.len4*2.4;const X=800-off*Math.sin(C11.a4),Y=450+off*Math.cos(C11.a4);circ(X,Y,40,null,C.paars,4,ce);arrow(X+230,Y+170,X+44,Y+28,C.paars,3,ce);T('centromeer',X+240,Y+196,{s:28,w:800,c:C.paars,a:ce,halo:7,hc:C.nuc});}
+    if(ce>0){const off=(-.5+C11.cen)*C11.len4*2.4;const X=800-off*Math.sin(C11.a4),Y=450+off*Math.cos(C11.a4);circ(X,Y,40,null,C.paars,4,ce);T('centromeer',X+52,Y+4,{s:28,w:800,al:'left',c:C.paars,a:ce,halo:8,hc:C.nuc});}
   }
   return s;
 }
@@ -732,7 +732,7 @@ function ch4(t){
   T('chromosoom 11',800,120,{s:32,w:800,a:la*g});
   T('van vader',700,Y+L/2+40,{s:22,w:800,c:C.v,a:g*(1-zz)*seg(t,K.c11+.8,K.c11+1.4)});T('van moeder',900,Y+L/2+40,{s:22,w:800,c:C.m,a:g*(1-zz)*seg(t,K.c11+.8,K.c11+1.4)});
   const gl=win(t,K.gen,K.hoeft,.3,.3);
-  if(gl>0){arrow(470,bandY-110,X1-32,bandY-6,C.ink,3,gl);T('gen',460,bandY-136,{s:34,w:800,a:gl});T('instructie voor één eiwit',460,bandY-100+ -4,{s:20,c:C.muted,a:gl,al:'center'});}
+  if(gl>0){T('gen',X1-40,bandY-12,{s:34,w:800,al:'right',a:gl,halo:7});T('instructie voor één eiwit',X1-40,bandY+22,{s:20,c:C.muted,a:gl,al:'right',halo:6});}
   const ll=win(t,K.locus-.1,K.hoeft,.3,.3);
   if(ll>0){T('locus',1120,bandY-18,{s:34,w:800,c:C.paars,a:ll});T('dezelfde plek op beide',1120,bandY+18,{s:20,c:C.muted,a:ll});}
   // DNA sequence view

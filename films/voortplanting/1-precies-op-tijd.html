@@ -801,6 +801,7 @@ footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
       c.textAlign = o.align || 'left'; c.textBaseline = o.base || 'alphabetic';
       if (o.ls && 'letterSpacing' in c) c.letterSpacing = o.ls + 'px';
       const m = c.measureText(s);
+      if (o.halo) { c.lineWidth = o.halo; c.strokeStyle = o.haloColor || 'rgba(14,21,34,0.88)'; c.lineJoin = 'round'; c.strokeText(s, x, y); }
       c.fillText(s, x, y);
       c.restore();
       const w = m.width, asc = m.actualBoundingBoxAscent || (o.size || 36) * 0.75, desc = m.actualBoundingBoxDescent || (o.size || 36) * 0.22;
@@ -822,20 +823,27 @@ footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
     label(name, note, ax, ay, lx, ly, o = {}) {
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return null;
       const c = this.ctx; this.screen();
-      const size = o.size || 36; const align = o.align || 'left';
-      const b1 = this.text(name, lx, ly, { size, color: o.color || C.ink, alpha: a, align, key: o.key, w: o.w || 600 });
-      let b2 = null; if (note) b2 = this.text(note, lx, ly + size * 0.95, { size: 28, f: 'mono', color: o.noteColor || C.grain, alpha: a, align, ls: 1.5, layer: 'meta' });
+      const size = o.size || 36; let align = o.align || 'left';
+      let halo = 0;
+      if (ax != null && !o.noline) {
+        // geen wijslijnen meer (15 okt 2026): het tekstblok schuift naar het anker toe en staat er direct naast,
+        // aan de kant waar het vroeger stond (richting anker -> oude tekstplek), met een donkere rand rond de letters
+        const nw = this.measure(name, { size, w: o.w || 600 }).width;
+        const tw = note ? this.measure(note, { size: 28, f: 'mono' }).width + note.length * 1.5 : 0;
+        const bw = Math.max(nw, tw), asc = size * 0.75, bh = note ? size * 0.95 + 28 * 0.22 + asc : asc + size * 0.22;
+        const bx0 = align === 'left' ? lx : align === 'right' ? lx - bw : lx - bw / 2, by0 = ly - asc;
+        const cx = bx0 + bw / 2, cy = by0 + bh / 2;
+        const dx = cx - ax, dy = cy - ay, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+        const gap = o.gap != null ? o.gap : 14;
+        const D = Math.min(L, gap + Math.abs(ux) * bw / 2 + Math.abs(uy) * bh / 2);
+        let ncx = ax + ux * D, ncy = ay + uy * D;
+        ncx = clamp(ncx, 24 + bw / 2, 1896 - bw / 2); ncy = clamp(ncy, 24 + bh / 2, 1056 - bh / 2);
+        lx += ncx - cx; ly += ncy - cy; halo = 7;
+      }
+      const b1 = this.text(name, lx, ly, { size, color: o.color || C.ink, alpha: a, align, key: o.key, w: o.w || 600, halo });
+      let b2 = null; if (note) b2 = this.text(note, lx, ly + size * 0.95, { size: 28, f: 'mono', color: o.noteColor || C.grain, alpha: a, align, ls: 1.5, layer: 'meta', halo: halo ? 6 : 0 });
       if (!b1) return null;
       const box = { x0: Math.min(b1.x0, b2 ? b2.x0 : b1.x0), x1: Math.max(b1.x1, b2 ? b2.x1 : b1.x1), y0: b1.y0, y1: b2 ? b2.y1 : b1.y1 };
-      if (ax != null && !o.noline) {
-        // lijn vanaf de dichtstbijzijnde rand van het tekstblok naar het anker, eindigend in een punt van 3 px
-        const pad = 10; let tx, ty;
-        if (ax < box.x0 - pad) { tx = box.x0 - pad; ty = clamp(ay, box.y0, box.y1); }
-        else if (ax > box.x1 + pad) { tx = box.x1 + pad; ty = clamp(ay, box.y0, box.y1); }
-        else { tx = clamp(ax, box.x0, box.x1); ty = ay < box.y0 ? box.y0 - pad : box.y1 + pad; }
-        c.save(); c.globalAlpha = a; c.strokeStyle = o.line || C.line; c.lineWidth = 1.5; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke();
-        c.fillStyle = o.line || C.line; c.beginPath(); c.arc(ax, ay, 3.5, 0, TAU); c.fill(); c.restore();
-      }
       return box;
     }
     /* annotatiehaak: een haak (1,5 px) onder of naast de elementen waar een conclusie over gaat, met één korte zin in dezelfde kleur. Hooguit één tegelijk. */
@@ -1800,7 +1808,7 @@ SCENES['5'] = function ({ TL }) {
         E.cell(g, EX, EY, ER, { alpha: a, nucleus: false, blob: 0.02 });
         // kern van de eicel: metafase II (chromosomen) → maakt deling af → voorkern
         const aEn = a * (1 - pn); E.chromosomes(g, EX + 60, EY - 40, 40, 6, { alpha: aEn, lw: 3 });
-        g.label('eicel', 'STIL IN METAFASE II', EX + 60, EY - 60, EX + 40, EY - 150, { alpha: a * E.vis(t, T.follikelcellen - 0.3, T.wakker), noline: true });
+        g.label('eicel', 'STIL IN METAFASE II', EX + 60, EY - 60, EX, EY - 120, { alpha: a * E.vis(t, T.follikelcellen - 0.3, T.wakker), noline: true, align: 'center' });
         // tweede poollichaampje
         if (m2 > 0) E.cell(g, EX + ER - 30 + 50 * m2, EY - 120, 16 * m2, { alpha: a * 0.8, nr: 5, single: true });
         // voorkernen samen
@@ -1992,7 +2000,7 @@ SCENES['7'] = function ({ TL }) {
       g.text('holtes met bloed van de moeder', 320, 510, { size: 32, w: 600, color: C.coralL, alpha: aOv * E.vis(t, T.holtes, null) });
       const aV = aOv * E.vis(t, T.vlokken - 0.3, null);
       for (let i = 0; i < 9; i++) { const x = 420 + i * 135; g.box(x - 26, 230, 52, 200 + 20 * Math.sin(i), { alpha: aV, fill: C.fill2, r: 26 }); c.save(); c.globalAlpha = aV; c.strokeStyle = C.coralL; c.lineWidth = 3; c.beginPath(); c.moveTo(x - 8, 240); c.lineTo(x - 8, 400); c.moveTo(x + 8, 240); c.lineTo(x + 8, 400); c.stroke(); c.restore(); }
-      g.label('vlokken', 'TROFOBLAST · BLOEDVAATJES VAN HET KIND', 1230, 240, 1120, 640, { alpha: aV });
+      g.label('vlokken', null, null, null, 1548, 300, { alpha: aV, noline: true }); ['TROFOBLAST ·', 'BLOEDVAATJES', 'VAN HET KIND'].forEach((r, k) => g.text(r, 1548, 336 + k * 30, { size: 26, f: 'mono', color: C.grain, alpha: aV, ls: 1.5, layer: 'meta', halo: 6 })); // rechts naast de vlokken, geen wijslijn (15 okt 2026)
       // kind met navelstreng
       g.box(820, 520, 280, 160, { alpha: aOv, fill: C.fill, r: 60 }); g.text('kind', 960, 610, { size: 36, w: 600, align: 'center', alpha: aOv });
       c.save(); c.globalAlpha = aOv; c.strokeStyle = C.coralL; c.lineWidth = 10; c.beginPath(); c.moveTo(960, 470); c.lineTo(960, 520); c.stroke(); c.restore();

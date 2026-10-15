@@ -884,10 +884,10 @@ SCENES.H0 = (ctx, t, q) => {
     bandRing(ctx, G, 'Sp', 140, COL.amber, aB);
     const y = G.Y(140), x = G.lx('Sp') + G.bw / 2 + 14;
     withAlpha(ctx, aB, () => {
-      arrowLine(ctx, x + 150, y, x + 6, y, { color: COL.amber, w: 3, head: 16 });
-      panel(ctx, x + 158, y - 58, 520, 116, { stroke: hexA(COL.amber, 0.6) });
-      txt(ctx, 'één band', x + 186, y - 12, { size: 40, weight: 600, color: COL.chalk });
-      txt(ctx, '= DNA van één bepaalde lengte', x + 186, y + 34, { size: 32, weight: 500, color: COL.text });
+      // geen wijspijl meer (15 okt 2026): het kaartje staat direct naast de band
+      panel(ctx, x + 12, y - 58, 520, 116, { stroke: hexA(COL.amber, 0.6) });
+      txt(ctx, 'één band', x + 40, y - 12, { size: 40, weight: 600, color: COL.chalk });
+      txt(ctx, '= DNA van één bepaalde lengte', x + 40, y + 34, { size: 32, weight: 500, color: COL.text });
     });
   }
   // regel 3: de twee vragen
@@ -1510,8 +1510,7 @@ SCENES.H2 = (ctx, t, q) => {
       bandRing(ctx, G, 'AL', 140, COL.amber, E(t, q.ph(8, 1) + 0.5, 0.4), { pad: 4 });
       const al = fadeIn(t, q.ph(8, 1) + 0.6, 0.4);
       withAlpha(ctx, al, () => {
-        arrowLine(ctx, 1150, G.Y(140), G.lx('AL') + G.bw / 2 + 16, G.Y(140), { color: COL.amber, w: 3, head: 16 });
-        txt(ctx, '13', 1166, G.Y(140) + 12, { fam: 'mono', size: 36, weight: 600, color: COL.amber });
+        txt(ctx, '13', G.lx('AL') + G.bw / 2 + 22, G.Y(140) + 12, { fam: 'mono', size: 36, weight: 600, color: COL.amber }); // direct naast de ladderband, geen wijspijl (15 okt 2026)
       });
       const as = fadeIn(t, q.ph(8, 2), 0.4);
       txt(ctx, 'even hoog = hetzelfde allel', 1100, 760, { size: 40, weight: 600, color: COL.amber, alpha: as });

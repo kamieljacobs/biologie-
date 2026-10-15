@@ -584,15 +584,18 @@ footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
     }
     /* label met verbindingslijn van (ax,ay) [schermcoörd.] naar tekst op (lx,ly) */
     callout(s, ax, ay, lx, ly, o = {}) {
+      // geen wijslijn meer (15 okt 2026): de naam staat direct naast het anker (ax, ay), aan de kant waar hij vroeger stond,
+      // met een rand in de achtergrondkleur rond de letters
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return;
-      const c = this.ctx; this.screen();
-      const box = this.text(s, lx, ly, Object.assign({ size: 40, w: 500 }, o));
-      if (!box) return;
-      // lijn naar dichtstbijzijnde rand van de tekst
-      const tx = clamp(ax, box.x0 - 8, box.x1 + 8), ty = ax >= box.x0 - 8 && ax <= box.x1 + 8 ? (ay < box.y0 ? box.y0 - 8 : box.y1 + 8) : (box.y0 + box.y1) / 2;
-      c.save(); c.globalAlpha = a; c.strokeStyle = o.line || C.ink2; c.lineWidth = 2.5; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke();
-      c.fillStyle = o.line || C.ink2; c.beginPath(); c.arc(ax, ay, 5, 0, Math.PI * 2); c.fill(); c.restore();
-      return box;
+      const size = o.size || 40, align = o.align || 'left';
+      const bw = this.measure(s, Object.assign({ size: 40, w: 500 }, o)).width, asc = size * 0.75, bh = size * 0.97;
+      const bx0 = align === 'left' ? lx : align === 'right' ? lx - bw : lx - bw / 2;
+      const cx = bx0 + bw / 2, cy = ly - asc + bh / 2;
+      const dx = cx - ax, dy = cy - ay, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+      const gap = o.gap != null ? o.gap : 14;
+      const D = Math.min(L, gap + Math.abs(ux) * bw / 2 + Math.abs(uy) * bh / 2);
+      const ncx = clamp(ax + ux * D, 24 + bw / 2, 1896 - bw / 2), ncy = clamp(ay + uy * D, 24 + bh / 2, 1056 - bh / 2);
+      return this.text(s, lx + ncx - cx, ly + ncy - cy, Object.assign({ size: 40, w: 500 }, o, { halo: o.halo || 8 }));
     }
     pill(s, x, y, o = {}) {
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return null;
@@ -1735,8 +1738,7 @@ SCENES['0'] = function ({ TL }) {
       const aZV = ov * E.vis(t, T.dezelfde - 0.1, null, 0.4);
       if (aZV > 0.01) {
         const b = g.text('zelfde vloeistof', 960, LIQ + 8, { size: 36, align: 'center', color: C.ink2, alpha: aZV });
-        if (b) { c.save(); c.globalAlpha = aZV; c.strokeStyle = C.ink2; c.lineWidth = 2.5; c.beginPath(); c.moveTo(b.x0 - 10, LIQ - 4); c.lineTo(LX + TUBE.w + 6, LIQ + 26); c.moveTo(b.x1 + 10, LIQ - 4); c.lineTo(RX - 6, LIQ + 26); c.stroke();
-          c.fillStyle = C.ink2; c.beginPath(); c.arc(LX + TUBE.w + 6, LIQ + 26, 5, 0, Math.PI * 2); c.arc(RX - 6, LIQ + 26, 5, 0, Math.PI * 2); c.fill(); c.restore(); }
+        // geen wijslijntjes meer (15 okt 2026): de tekst staat tussen de twee buizen, op de hoogte van de vloeistof
       }
       // klok: staat er al op 0 s; loopt alleen tijdens het schuimen (beeld versneld)
       const aK = ov * E.ep(t, T.dezelfde + 0.3, 0.5);
@@ -2452,9 +2454,9 @@ SCENES['2'] = function ({ TL }) {
     const s1 = CM.part(sim, sim.extra.S1);
     const strip = (s, t0, t1, ax, ay, o = {}) => {
       const a = E.vis(t, t0, t1, 0.35, 0.4); if (a <= 0.01) return;
-      const box = g.text(s, o.x || BOX.x + 6, 178, { size: 48, f: 'serif', color: C.ink, alpha: a, key: o.key || s, layer: 'term' });
-      if (box && ax != null) { const c = g.ctx; g.screen(); c.save(); c.globalAlpha = a; c.strokeStyle = C.ink2; c.lineWidth = 2.5;
-        const bx = Math.max(box.x0 + 10, Math.min(box.x1 - 10, ax)); c.beginPath(); c.moveTo(bx, box.y1 + 6); c.lineTo(ax, ay); c.stroke(); c.fillStyle = C.ink2; c.beginPath(); c.arc(ax, ay, 5, 0, Math.PI * 2); c.fill(); c.restore(); }
+      // geen wijslijn meer (15 okt 2026): met een anker staat de term direct boven dat punt
+      if (ax != null) { g.callout(s, ax, ay, o.x || BOX.x + 6, 178, { size: 48, f: 'serif', w: 400, color: C.ink, alpha: a, key: o.key || s, layer: 'term', gap: 22 }); return; }
+      g.text(s, o.x || BOX.x + 6, 178, { size: 48, f: 'serif', color: C.ink, alpha: a, key: o.key || s, layer: 'term' });
     };
     strip('substraat', T.substr, T.ac - 0.2, null, null, { key: 'substraat' });
     const [sx, sy] = sim.siteXY(e, 4);
@@ -2806,9 +2808,8 @@ SCENES['3'] = function ({ TL }) {
     onBody(1, 'enzym 2', aE23, 44); onBody(2, 'enzym 3', aE23, 44);
     // 'actief centrum' aanwijzen (r4 'op de juiste plek' en r10)
     const aAC = aIn * Math.max(E.vis(t, T.plek - 0.3, Math.min(T.vast + 1.2, T.suiker - 0.45), 0.3, 0.4), E.vis(t, T.verandert - 0.6, T.sluit - 0.2, 0.3, 0.4));   // weg vóór de suiker bij de holte komt
-    if (aAC > 0.01) { const [sx, sy] = g.toS(...sim.siteXY(eK, 0)); const lx = sx - 360, ly = sy - 150;
-      CM.card(g, lx - 14, ly - 46, 290, 64, { alpha: aAC }); g.text('actief centrum', lx + 131, ly, { size: 40, f: 'serif', align: 'center', color: C.ink, alpha: aAC });
-      g.screen(); c.save(); c.globalAlpha = aAC; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(lx + 276, ly - 14); c.lineTo(sx - 18, sy - 6); c.stroke(); c.restore(); }
+    if (aAC > 0.01) { const [sx, sy] = g.toS(...sim.siteXY(eK, 0)); const lx = sx - 145, ly = sy - 58;   // kaartje direct boven het actieve centrum, geen wijslijn (15 okt 2026)
+      CM.card(g, lx - 14, ly - 46, 290, 64, { alpha: aAC }); g.text('actief centrum', lx + 131, ly, { size: 40, f: 'serif', align: 'center', color: C.ink, alpha: aAC }); }
     // r15/r16: geen vormverandering bij suiker
     const aGV = aIn * E.vis(t, T.past15 - 0.1, T.C + 1.2, 0.3, 0.4);
     if (aGV > 0.01) { const [sx, sy] = g.toS(...sim.siteXY(eK, 0)); CM.card(g, sx + 60, sy - 110, 370, 64, { alpha: aGV }); g.text('geen vormverandering', sx + 245, sy - 64, { size: 36, align: 'center', color: C.ink, alpha: aGV, w: 500 }); }
@@ -3113,8 +3114,8 @@ SCENES['4'] = function ({ TL, FILM }) {
       c.restore(); g.setCam(E.W / 2, E.H / 2, 1);
       // label bij het actieve centrum van het ingezoomde enzym
       const aACl = aBox * E.vis(t, T.actieve - 0.15, T.unf0 + 0.6, 0.3, 0.4) * (zk > 0.95 ? 1 : 0);
-      if (aACl > 0.01) { CM.card(g, VC[0] - 150, BOX.y + 22, 300, 66, { alpha: aACl }); g.text('actief centrum', VC[0], BOX.y + 68, { size: 40, f: 'serif', align: 'center', color: C.ink, alpha: aACl });
-        g.screen(); c.save(); c.globalAlpha = aACl; c.strokeStyle = C.ink; c.lineWidth = 3; c.beginPath(); c.moveTo(VC[0], BOX.y + 90); c.lineTo(VC[0], VC[1] - (he.R - 21) * 2.6 - 80); c.stroke(); c.restore(); }
+      if (aACl > 0.01) { const cy0 = Math.max(BOX.y + 22, VC[1] - (he.R - 21) * 2.6 - 80 - 70);   // direct boven het actieve centrum, geen wijslijn (15 okt 2026)
+        CM.card(g, VC[0] - 150, cy0, 300, 66, { alpha: aACl }); g.text('actief centrum', VC[0], cy0 + 46, { size: 40, f: 'serif', align: 'center', color: C.ink, alpha: aACl }); }
       // 'net als in de gekookte aardappel': klein inzetje uit de proef
       const aPot = aBox * E.vis(t, T.gekookte - 0.25, T.gekookte + 2.3, 0.3, 0.4);
       if (aPot > 0.01) { const x0 = BOX.x + BOX.w - 250, y0 = BOX.y + 20; CM.card(g, x0, y0, 230, 340, { alpha: aPot });

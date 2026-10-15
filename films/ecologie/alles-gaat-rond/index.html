@@ -581,12 +581,19 @@ D.pill = (s, x, y, color, o = {}) => {
   return w;
 };
 D.label = (s, x, y, o = {}) => {
+  // geen wijslijnen meer (15 okt 2026): met o.from staat de naam direct naast dat punt,
+  // aan de kant waar de lijn vroeger heen liep, met een donkere rand rond de letters
+  let align = o.align || 'left';
   if (o.from) {
-    ctx.beginPath(); ctx.moveTo(o.from[0], o.from[1]); ctx.lineTo(x + (o.align === 'right' ? 8 : o.align === 'center' ? 0 : -8), y);
-    ctx.strokeStyle = o.lineColor || hexA(COL.ink, 0.45); ctx.lineWidth = 1.5; ctx.stroke();
-    D.circle(o.from[0], o.from[1], 3.5, { fill: o.lineColor || COL.ink });
+    const fx = o.from[0], fy = o.from[1], dx = x - fx, dy = y - fy, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+    const gap = o.gap !== undefined ? o.gap : 16 + (o.size || 24) * 0.5;
+    x = fx + ux * gap; y = fy + uy * gap;
+    align = Math.abs(ux) > 0.45 ? (ux < 0 ? 'right' : 'left') : 'center';
+    if (align === 'center') y += uy < 0 ? -(o.size || 24) * 0.35 : (o.size || 24) * 0.35;
+    ctx.save(); ctx.font = `${o.weight || 600} ${o.size || 24}px ${o.font || FONT.body}`; ctx.textAlign = align; ctx.textBaseline = 'middle';
+    ctx.lineJoin = 'round'; ctx.lineWidth = 7; ctx.strokeStyle = 'rgba(8,16,31,.85)'; ctx.strokeText(s, x, y); ctx.restore();
   }
-  return D.text(s, x, y, { size: o.size || 24, color: o.color || COL.ink, align: o.align || 'left', weight: o.weight || 600, font: o.font });
+  return D.text(s, x, y, { size: o.size || 24, color: o.color || COL.ink, align, weight: o.weight || 600, font: o.font });
 };
 D.arrow = (x1, y1, x2, y2, o = {}) => {
   const prog = o.prog === undefined ? 1 : clamp(o.prog); if (prog <= 0) return;
@@ -2573,7 +2580,7 @@ F.scenes[5] = S => {
     D.alpha(S.qw(6, 8, 0.6), () => {
       D.text('voedselketen', 800, 80, { size: 32, font: FONT.disp, weight: 800, color: COL.warn, align: 'center' });
       D.label('begint bij een producent', 170, 700, { size: 22, color: COL.prod, from: [400, 640] });
-      D.alpha(S.q(7, 0.6), () => D.label('eindigt bij een dier dat niet gegeten wordt', 930, 130, { size: 22, color: COL.carn, from: [830, 205] }));
+      D.alpha(S.q(7, 0.6), () => D.label('eindigt bij een dier dat niet gegeten wordt', 830, 130, { size: 22, color: COL.carn, from: [830, 205], gap: 50 }));
     });
     D.alpha(S.q(8, 0.6), () => {
       D.card(560, 40, 480, 80, {});
@@ -4111,7 +4118,7 @@ F.scenes[11] = S => {
     const sh = S.q(8, 0.5) * (1 - S.q(9, 0.5)) * Math.sin(t * 40) * 2.5;
     H.n2big(800 + sh, 300, 2.2, {});
     D.alpha(S.q(7, 0.6), () => D.chem('stikstofgas (N_2)', 800, 140, { size: 30, align: 'center', color: NIT, font: FONT.disp, weight: 800 }));
-    D.alpha(S.q(7, 0.6, 1.6), () => D.label('drievoudige binding', 960, 430, { size: 26, color: COL.warn, from: [800, 322] }));
+    D.alpha(S.q(7, 0.6, 1.6), () => D.label('drievoudige binding', 800, 410, { size: 26, color: COL.warn, align: 'center' }));
     D.alpha(S.q(8, 0.6), () => {
       clover(300, 640, 2.1, t, {}); D.check(300, 400, false, 2.2);
       D.quad(1300, 640, 1.1, 'ree', { t }); D.check(1300, 400, false, 2.2);

@@ -567,16 +567,18 @@ table.mini th, table.mini td { border: 1px solid var(--rule); padding: 4px 10px;
     }
     /* label met verbindingslijn van (ax,ay) [schermcoörd.] naar tekst op (lx,ly) */
     callout(s, ax, ay, lx, ly, o = {}) {
+      // geen wijslijn meer (15 okt 2026): de naam staat direct naast het anker (ax, ay), aan de kant waar hij vroeger stond,
+      // met een rand in de achtergrondkleur rond de letters
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return;
-      const c = this.ctx; this.screen();
-      const box = this.text(s, lx, ly, Object.assign({ size: 40, w: 500 }, o));
-      if (!box) return;
-      // lijn naar dichtstbijzijnde rand van de tekst
-      const tx = clamp(ax, box.x0 - 8, box.x1 + 8), ty = ax >= box.x0 - 8 && ax <= box.x1 + 8 ? (ay < box.y0 ? box.y0 - 8 : box.y1 + 8) : (box.y0 + box.y1) / 2;
-      c.save(); c.globalAlpha = a; if (o.lineHalo) { c.strokeStyle = C.paper; c.lineWidth = 8; c.lineCap = 'round'; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke(); }
-      c.strokeStyle = o.line || C.ink2; c.lineWidth = 2.5; c.beginPath(); c.moveTo(tx, ty); c.lineTo(ax, ay); c.stroke();
-      c.fillStyle = o.line || C.ink2; c.beginPath(); c.arc(ax, ay, 5, 0, Math.PI * 2); c.fill(); c.restore();
-      return box;
+      const size = o.size || 40, align = o.align || 'left';
+      const bw = this.measure(s, Object.assign({ size: 40, w: 500 }, o)).width, asc = size * 0.75, bh = size * 0.97;
+      const bx0 = align === 'left' ? lx : align === 'right' ? lx - bw : lx - bw / 2;
+      const cx = bx0 + bw / 2, cy = ly - asc + bh / 2;
+      const dx = cx - ax, dy = cy - ay, L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L;
+      const gap = o.gap != null ? o.gap : 14;
+      const D = Math.min(L, gap + Math.abs(ux) * bw / 2 + Math.abs(uy) * bh / 2);
+      const ncx = clamp(ax + ux * D, 24 + bw / 2, 1896 - bw / 2), ncy = clamp(ay + uy * D, 24 + bh / 2, 1056 - bh / 2);
+      return this.text(s, lx + ncx - cx, ly + ncy - cy, Object.assign({ size: 40, w: 500 }, o, { halo: o.halo || 8 }));
     }
     pill(s, x, y, o = {}) {
       const a = o.alpha == null ? 1 : o.alpha; if (a <= 0.01) return null;
@@ -2899,9 +2901,8 @@ SCENES['2'] = function ({ TL, FILM }) {
     const sx = ex + (e.x + 0.5 * 36 - ex) * z, sy = ey + (e.y - e.R - 6 - ey) * z - 8;      // rechter lege plek (vergroot)
     const aA = a * E.vis(t, T.zonder + 0.6, null);
     const tA = P.tag(g, 'geen NAD⁺', 548, 230, { size: 38, alpha: aA });
-    if (tA) P.pointer(g, tA.x0, 230, sx + 20, sy, { alpha: aA });
+    // geen wijslijn meer (15 okt 2026): het kaartje staat direct naast de zoomcirkel
     const tH = P.tag(g, 'H-atomen kunnen nergens heen', 548, 338, { size: 38, alpha: a * E.vis(t, T.hat18 - 0.2, null) });
-    if (tH) P.pointer(g, tH.x0, 338, ex + (hx + 18 - ex) * z, ey + (hy - 34 - ey) * z, { alpha: a * E.vis(t, T.hat18 - 0.2, null) });
     P.tag(g, 'glycolyse stopt: geen ATP meer', 548, 446, { size: 38, icon: 'atp', iconS: 1.0, alpha: a * E.vis(t, T.geen19 - 0.3, null) });
   }
 
@@ -3194,7 +3195,7 @@ SCENES['3'] = function ({ TL, FILM }) {
       reactionCard(g, t, aRc);
       // 'Het enzym': label bij het gemarkeerde melkzuurenzym
       const aEz = aA * E.vis(t, T.free + 1.6, T.weer6, 0.4, 0.4);
-      if (aEz > 0.01) { const tg = P.tag(g, 'enzym', 690, 600, { size: 40, w: 600, alpha: aEz }); if (tg) P.pointer(g, tg.x0, 600, 596, 500, { alpha: aEz }); }
+      if (aEz > 0.01) { P.tag(g, 'enzym', 650, 520, { size: 40, w: 600, alpha: aEz }); /* direct naast het enzym, geen wijslijn (15 okt 2026) */ }
       const aN = aA * E.vis(t, T.netto6 - 0.2, T.wel7 - 0.2);
       if (aN > 0.01) P.tag(g, 'netto 2 ATP per glucose', BOX.x + BOX.w / 2, BOX.y + BOX.h - 70, { align: 'center', size: 44, w: 600, alpha: aN });
       const aW = aA * E.vis(t, T.wel7, T.gisting8 - 0.7);
@@ -3555,13 +3556,13 @@ SCENES['5'] = function ({ TL, FILM }) {
     }
     /* r4–r5: eiwitcomplex; H⁺ komt los; weer NAD⁺ */
     const aEw = E.vis(t, T.eiwit4 - 0.3, T.stap);
-    if (aEw > 0.01) { const r = P.tag(g, 'eiwitcomplex', 470, 250, { size: 44, w: 600, alpha: aEw }); if (r) P.pointer(g, (r.x0 + r.x1) / 2, r.y1, X.I - 10, mid - 120, { alpha: aEw }); }
+    if (aEw > 0.01) { P.tag(g, 'eiwitcomplex', X.I, 330, { align: 'center', size: 44, w: 600, alpha: aEw }); }
     const aLos = E.vis(t, T.los - 0.3, T.stap);
-    if (aLos > 0.01) { const r = P.tag(g, 'H⁺ los in de matrix', 430, 790, { size: 40, alpha: aLos }); if (r) P.pointer(g, r.x0 + 150, r.y0, X.I - 40, B.memBot + 70, { alpha: aLos }); }
+    if (aLos > 0.01) { P.tag(g, 'H⁺ los in de matrix', 430, B.memBot + 140, { size: 40, alpha: aLos }); }
     P.tag(g, 'weer NAD⁺', 1010, 790, { icon: 'nad', iconS: 1.6, size: 40, alpha: E.vis(t, T.nad5 - 0.3, T.stap + 0.5) });
     /* r7: de term */
     const aK = E.vis(t, T.keten7 - 0.3, T.deel + 1.5);
-    if (aK > 0.01) { const r = P.tag(g, 'elektronentransportketen', 430, 290, { size: 52, w: 600, alpha: aK, key: 'elektronentransportketen' }); if (r) P.pointer(g, X.III - 160, r.y1, X.III - 120, mid - 4, { alpha: aK }); }
+    if (aK > 0.01) { P.tag(g, 'elektronentransportketen', (X.I + X.III) / 2, 320, { align: 'center', size: 52, w: 600, alpha: aK, key: 'elektronentransportketen' }); }
     /* r8: energietrap */
     stairs(g, t, E.vis(t, T.deel - 0.5, T.pompen - 0.2));
     /* r9–r11: teller */
@@ -3575,10 +3576,10 @@ SCENES['5'] = function ({ TL, FILM }) {
     }
     /* r10: FADH₂ verderop */
     const aF = E.vis(t, T.fadh - 0.3, T.af10 + 1.2);
-    if (aF > 0.01) { const r = P.tag(g, 'FADH₂ geeft hier af', 700, 820, { icon: 'fadh', iconS: 1.6, size: 40, alpha: aF }); if (r) P.pointer(g, X.II, r.y0, X.II, B.memBot + 70, { alpha: aF }); }
+    if (aF > 0.01) { P.tag(g, 'FADH₂ geeft hier af', X.II, B.memBot + 130, { align: 'center', icon: 'fadh', iconS: 1.6, size: 40, alpha: aF }); }
     /* r12: ATP-synthetase */
     const synA = E.vis(t, T.synth - 0.2, T.zoom);
-    if (synA > 0.01) { const r = P.tag(g, 'ATP-synthetase', (X.S[0] + X.S[1]) / 2, 260, { align: 'center', size: 48, w: 600, alpha: synA, key: 'ATP-synthetase' }); if (r) { P.pointer(g, r.x0 + 70, r.y1, X.S[0] + 10, B.memTop - 50, { alpha: synA }); P.pointer(g, r.x1 - 70, r.y1, X.S[1] - 10, B.memTop - 50, { alpha: synA }); } }
+    if (synA > 0.01) { P.tag(g, 'ATP-synthetase', (X.S[0] + X.S[1]) / 2, B.memTop - 100, { align: 'center', size: 48, w: 600, alpha: synA, key: 'ATP-synthetase' }); }
     /* r14: van veel naar weinig H⁺ */
     const aT = E.vis(t, T.terug - 0.4, T.draait + 0.2);
     if (aT > 0.01) {
@@ -3598,7 +3599,7 @@ SCENES['5'] = function ({ TL, FILM }) {
     }
     /* r16: ADP + fosfaat → ATP */
     const aAdp = E.vis(t, T.koppelt - 0.2, T.zoom);
-    if (aAdp > 0.01) { CM.card(g, 1345, 812, 500, 92, { alpha: aAdp }); P.eq(g, ['ADP', '+', 'fosfaat', '>', 'ATP'], 1595, 872, { align: 'center', size: 40, alpha: aAdp }); P.pointer(g, X.S[0], 812, X.S[0], 728, { alpha: aAdp }); }
+    if (aAdp > 0.01) { CM.card(g, 1345, 752, 500, 92, { alpha: aAdp }); P.eq(g, ['ADP', '+', 'fosfaat', '>', 'ATP'], 1595, 812, { align: 'center', size: 40, alpha: aAdp }); }
     /* r17: geplooid */
     folded(g, t, E.ep(t, T.zoom, 1.0));
   }
@@ -3780,9 +3781,8 @@ SCENES['6'] = function ({ TL, FILM }) {
     }
     const aAdp = E.vis(t, T.fosf8, 56.3);
     if (aAdp > 0.01) {
-      CM.card(g, 1350, 800, 490, 92, { alpha: aAdp });
-      P.eq(g, ['ADP', '+', 'fosfaat', '>', 'ATP'], 1595, 860, { align: 'center', size: 40, alpha: aAdp });
-      P.pointer(g, X.S[0], 800, X.S[0], 715, { alpha: aAdp });
+      CM.card(g, 1350, 740, 490, 92, { alpha: aAdp });
+      P.eq(g, ['ADP', '+', 'fosfaat', '>', 'ATP'], 1595, 800, { align: 'center', size: 40, alpha: aAdp });
     }
 
     /* I. omweg: labels bij het grondplasma */
@@ -3802,7 +3802,7 @@ SCENES['6'] = function ({ TL, FILM }) {
       if (r) { const cx = r.x0 + 18 + (D.HALF.o2 * 2 * 1.7) / 2, cy = 846; c.save(); c.globalAlpha = aNo; c.strokeStyle = C.bad; c.lineWidth = 5; c.lineCap = 'round'; c.beginPath(); c.moveTo(cx - 26, cy + 20); c.lineTo(cx + 26, cy - 20); c.stroke(); c.restore(); }
     }
     const aVast = aK * E.vis(t, T.vast13 - 0.3, T.pompen14 + 1.5);
-    if (aVast > 0.01) { const r = P.tag(g, 'de keten loopt vast', 520, 250, { alpha: aVast }); if (r) P.pointer(g, r.x1 - 60, r.y1, X.III - 30, mid - 10, { alpha: aVast }); }
+    if (aVast > 0.01) { P.tag(g, 'de keten loopt vast', X.III, 340, { align: 'center', alpha: aVast }); }
     const aCnt = aK * E.vis(t, T.eiwit14 - 0.2, null);
     if (aCnt > 0.01) {
       const { nI, nM } = ETC2.counts(s), aD = E.vis(t, T.versch15 - 0.2, null);
@@ -3814,7 +3814,7 @@ SCENES['6'] = function ({ TL, FILM }) {
     const aStil = aK * (t > T.syn15 ? 1 : 0) * (s.extra.synOn === false ? 1 : 0) * E.vis(t, T.syn15, null);
     P.tag(g, 'staat stil', 1595, 846, { align: 'center', alpha: aStil });
     const aNad = aK * E.vis(t, T.nad16 - 0.3, null);
-    if (aNad > 0.01) { const r = P.tag(g, 'geen NAD⁺ meer vrij', 720, 690, { alpha: aNad }); if (r) P.pointer(g, r.x0, 690, X.I + 50, 640, { alpha: aNad }); }
+    if (aNad > 0.01) { P.tag(g, 'geen NAD⁺ meer vrij', X.I + 66, 660, { alpha: aNad }); }
     const aCyc = aK * E.vis(t, T.cyclus16 - 0.5, null);
     if (aCyc > 0.01) {
       const tS = T.stopt16 - 0.6, stopped = t > tS;                   // stilstand iets vóór het woord, zodat het ook even te zien is
