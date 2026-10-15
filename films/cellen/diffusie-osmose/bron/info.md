@@ -120,3 +120,7 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
   - hydrofiel — /ɦidroːˈfil/ (Wiktionary via kaikki.org); stem-invoer `hiedro-fiel` (zelfde ie-truc als "hiepotonisch").
   - hydrofoob — /ɦidroːˈfoːp/ (Wiktionary via kaikki.org); stem-invoer `hiedro-foob`.
   - chloride — geen IPA gevonden (alleen een geluidsbestand op Wiktionary); verwacht /xloːˈridə/, klemtoon op "ri". Stem-invoer eerst zoals geschreven, alternatief `chlo-riede`.
+
+## Wijziging 15 okt 2026 (beeld, op verzoek van Kamiel)
+- Osmose-opstelling (s18) en stromende opstelling (s20): watermoleculen gaan nu zichtbaar door het membraan (functie `oversteek()` vóór `const SCENES`). In s18 even veel naar links als naar rechts; in s20 meer naar rechts (14) dan naar links (5), terwijl het niveau rechts stijgt. In s20 staat nu ook water (`waterField`) in beide compartimenten.
+- Alleen beeld: direct aangepast in `index.html` én in `bron/src/scenes.js` (zelfde code). Let op: `bron/src/player.js` en `page.html` lopen achter op de live speler (snelheid, vragen aan/uit, vwo-knippen); bouw je opnieuw vanuit de bron, neem dan eerst de speler en pagina uit `index.html` over.

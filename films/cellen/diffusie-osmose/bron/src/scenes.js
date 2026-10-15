@@ -27,6 +27,8 @@ function drawDiffBox(ctx,S,tt,t,opts={}){
   return [L,R];
 }
 
+// watermoleculen die door het membraan gaan (nR naar rechts, nL naar links)
+function oversteek(ctx,mx,y0,y1,t,nR,nL,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const go=(k,dir)=>{ const sp=0.28+0.14*hash(k*7+900), u=((t*sp+hash(k*7+901))%1), y=y0+40+hash(k*7+902)*(y1-y0-80)+Math.sin(t*3+k)*6; const x=dir>0?lerp(mx-130,mx+130,u):lerp(mx+130,mx-130,u); const f=Math.min(1,u*5,(1-u)*5); ctx.globalAlpha=a*f; dot(ctx,x,y,6.5,lighten(C.teal,0.25),lighten(C.teal,0.6),1.5); }; for(let k=0;k<nR;k++) go(k,1); for(let k=0;k<nL;k++) go(k+50,-1); ctx.restore(); }
 const SCENES = {
 // ---------- Cold open: glas stil water + druppel kleurstof ----------
 s01(ctx,t,q){
@@ -267,6 +269,7 @@ s18(ctx,t,q){
   ctx.fillStyle=rgba(C.teal,0.14); ctx.fillRect(x0,y0,x1-x0,y1-y0); ctx.strokeStyle=C.line; ctx.lineWidth=3; ctx.strokeRect(x0,y0,x1-x0,y1-y0);
   const mm=ramp(t,q.at('membraan'),0.5); ctx.save(); ctx.globalAlpha=mm; ctx.strokeStyle=C.er; ctx.lineWidth=8; ctx.setLineDash([26,14]); ctx.beginPath(); ctx.moveTo(mx,y0); ctx.lineTo(mx,y1); ctx.stroke(); ctx.restore();
   waterField(ctx,x0+10,y0+10,mx-14,y1-10,170,t,2,0.6,80,4); waterField(ctx,mx+14,y0+10,x1-10,y1-10,150,t,2,0.6,81,4);
+  oversteek(ctx,mx,y0,y1,t,7,7,mm);
   const sa=ramp(t,q.at('zout',2),0.5); if(sa>0){ for(let k=0;k<26;k++){ const bx=mx+60+hash(k*3+400)*(x1-mx-100), by=y0+40+hash(k*3+401)*(y1-y0-80); const w=wander(k+400,t,40,1.2); let x=bx+w.x; if(x<mx+26){ x=2*(mx+26)-x; } salt(ctx,x,by+w.y,13,sa); } }
   label(ctx,'semipermeabel membraan','water wel, zout niet',mx,y0+40,mx-60,140,ramp(t,q.at('semipermeabel'),0.5)*(1-ramp(t,q.at('gebeurt'),0.4)),C.text,'left');
   const lz=ramp(t,q.at('zuiver'),0.5); if(lz>0) metaText(ctx,'zuiver water',(x0+mx)/2,y1+50,C.teal,'center',28*1);
@@ -281,6 +284,8 @@ s20(ctx,t,q){
   ctx.strokeStyle=C.line; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0,y1); ctx.lineTo(x1,y1); ctx.lineTo(x1,y0); ctx.stroke();
   ctx.save(); ctx.strokeStyle=C.er; ctx.lineWidth=8; ctx.setLineDash([26,14]); ctx.beginPath(); ctx.moveTo(mx,y0); ctx.lineTo(mx,y1); ctx.stroke(); ctx.restore();
   for(let k=0;k<22;k++){ const bx=mx+60+hash(k*3+400)*(x1-mx-100), by=y0+120+hash(k*3+401)*(y1-y0-160); const w=wander(k+400,t,40,1.2); salt(ctx,Math.max(mx+26,bx+w.x),by+w.y,13); }
+  waterField(ctx,x0+10,y0+70+rise,mx-14,y1-10,150,t,2,0.6,82,4); waterField(ctx,mx+14,y0+70-rise,x1-10,y1-10,150,t,2,0.6,83,4);
+  oversteek(ctx,mx,y0+130,y1,t,14,5,1);
   arrow(ctx,mx-150,560,mx+150,560,C.teal,10,34,ramp(t,0.2,0.5)*(1-ramp(t,q.at('hoort'),0.4)*0.6));
   const wr=fadeIO(t,q.at('waarom'),q.at('hoort'),0.4); if(wr>0) pill(ctx,960,150,'maar waarom?',C.text,wr,34);
   // myth 1: salt pulls water (magnet) -> crossed
