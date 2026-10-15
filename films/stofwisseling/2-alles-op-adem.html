@@ -218,6 +218,7 @@ table.mini th, table.mini td { border: 1px solid var(--rule); padding: 4px 10px;
     <button id="next" type="button" aria-label="Volgend hoofdstuk"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
     <div class="bar" id="bar" role="slider" aria-label="Positie in de film" aria-valuemin="0" aria-valuemax="775" aria-valuenow="0" tabindex="0"><div class="track"></div><div class="fillp" id="fillp"></div><div class="knob" id="knob"></div></div>
     <span class="time" id="time">0:00 / 12:55</span>
+    <button id="vragenK" type="button" aria-pressed="true" title="Tussendoorvragen aan of uit">Vragen aan</button><button id="snelheid" type="button" title="Afspeelsnelheid">1×</button>
     <button id="cc" type="button" aria-pressed="true" aria-label="Ondertitels">CC</button>
     <button id="gear" type="button" aria-expanded="false" aria-label="Instellingen"><svg viewBox="0 0 24 24"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3h-4l-.3 2.9c-.6.2-1.2.6-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1c.5.4 1.1.8 1.7 1L11 21h4l.3-2.9c.6-.2 1.2-.6 1.7-1l2.5 1 2-3.5zM13 15.5A3.5 3.5 0 1 1 13 8.5a3.5 3.5 0 0 1 0 7z"/></svg></button>
     <button id="fs" type="button" aria-label="Volledig scherm"><svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4zm10 0h6v6h-2V6h-4zM4 14h2v4h4v2H4zm14 0h2v6h-6v-2h4z"/></svg></button>
@@ -4333,6 +4334,9 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
 
   /* ---------- instellingen (per kijker, mag ontbreken) ---------- */
   const store = { get(k, d) { try { const v = localStorage.getItem('av1.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem('av1.' + k, JSON.stringify(v)); } catch (e) { /* geen opslag: prima */ } } };
+  const SV = { v: 'aan', r: 1 };
+  try { if (localStorage.getItem('bk-vragen') === 'uit') SV.v = 'uit'; const r = parseFloat(localStorage.getItem('bk-snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; } catch (e) { }
+  { const u = new URLSearchParams(location.search); if (u.get('vragen') === 'uit') SV.v = 'uit'; if (u.get('vragen') === 'aan') SV.v = 'aan'; const r = parseFloat(u.get('snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; }
   const urlKlas = /[?&]modus=klas\b/.test(location.search) || /(^|#|&)klas\b/.test(location.hash);
   const S = { mode: urlKlas ? 'klas' : 'leerling', auto: store.get('auto', false), words: store.get('words', false), cc: store.get('cc', true) };
 
@@ -4366,7 +4370,7 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
     scene(ci); updateNow(); renderChList(); dirty = true;
   }
   function doPlay() {
-    if (waiting) return; wantPlay = true;
+    if (waiting) return; wantPlay = true; audio.playbackRate = SV.r;
     const p = audio.play(); if (p && p.catch) p.catch(() => { wantPlay = false; playing = false; setPlayIcon(); });
   }
   function doPause() { wantPlay = false; audio.pause(); }
@@ -4382,7 +4386,7 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
     if (!playing || scrubbing) return t;
     const a = audio.currentTime;
     if (a !== lastA) { lastA = a; lastPerf = now; }
-    return Math.min(CH[ci].dur, lastA + Math.min(0.25, (now - lastPerf) / 1000));
+    return Math.min(CH[ci].dur, lastA + Math.min(0.25, (now - lastPerf) / 1000) * SV.r);
   }
   function seekGlobal(T) {
     T = Math.max(0, Math.min(TOTAL - 0.05, T)); let i = 0; while (i + 1 < CH.length && T >= starts[i + 1]) i++;
@@ -4428,6 +4432,7 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
   let qState = '';
   const QHOLD = 1.2;   // s na de onthulling: daarna verdwijnt de kaart in 0,4 s (scènes laten de uitleg pas na onthulling + 1,6 s zien)
   function questionCard() {
+    if (SV.v === 'uit') { if (qState) { qc.classList.remove('show'); qc.setAttribute('aria-hidden', 'true'); qState = ''; } return; }
     const B = scene(ci), q = B.q;
     const on = q && t >= q.t0 - 0.05 && t < q.reveal + QHOLD + 0.45;
     if (!on) { if (qState) { qc.classList.remove('show'); qc.setAttribute('aria-hidden', 'true'); qState = ''; } return; }
@@ -4482,6 +4487,7 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
   $('.verder', qc).addEventListener('click', verder);
   // de film wacht aan het eind van de bedenktijd (tenzij 'automatisch verder')
   function gate() {
+    if (SV.v === 'uit') return;
     const q = scene(ci).q; if (!q || S.auto || !playing) return;
     const done = S.mode === 'klas' ? continued[ci] : answers[ci] != null;
     if (!done && t >= q.count1 - 0.02 && t < q.count1 + 0.5) { doPause(); waiting = true; t = q.count1; try { audio.currentTime = q.count1; } catch (e) { } qState = ''; dirty = true; }
@@ -4575,6 +4581,7 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
   }
   function frameBody(now) {
     const nt = clock(now);
+    if (slaVraagOver(nt)) return;
     if (nt !== t) { t = nt; dirty = true; }
     gate();
     // simulaties vooruit rekenen in brokjes (huidig, dan volgend hoofdstuk)
@@ -4604,6 +4611,23 @@ window.FILM = {"chapters":[{"key":"0","title":"Cold open","dur":23.73,"audio":"a
   };
   // lettertypen vooraf laden (anders tekent het canvas het eerste beeld met een vervangend lettertype)
   try { Promise.all(['400 40px "Source Sans 3"', '600 40px "Source Sans 3"', '700 40px "Source Sans 3"', '700 40px "Fraunces"', '500 40px "IBM Plex Mono"'].map((f) => document.fonts.load(f))).then(() => { dirty = true; }, () => { dirty = true; }); } catch (e) { /* oude browser */ }
+  // vragen- en snelheidsknop (gedeeld met de andere films via localStorage)
+  function vraagVensters(i) { const B = scene(i), qs = B.qs || (B.q ? [B.q] : []), P = CH[i].phrases, out = [];
+    qs.forEach((q) => { let a = q.t0 - 0.05; const vb = P.filter((x) => x.t1 <= q.t0 + 0.3 && x.t1 > q.t0 - 1.5).slice(-1)[0]; if (vb && /^(eerst )?een voorspelling|^voorspel/i.test(vb.text.trim())) a = vb.t0 - 0.1;
+      const an = P.find((x) => x.t0 >= q.reveal - 0.6 && x.t0 < q.reveal + 2.5 && /^(het )?(goede )?antwoord\b/i.test(x.text.trim()));
+      let b = an ? an.t1 + 0.05 : q.reveal; const nx = P.find((x) => x.t0 >= b - 0.05); if (!nx && !an) b = CH[i].dur; if (!an && P.every((x) => x.t0 < q.reveal - 0.2)) b = CH[i].dur;
+      out.push([a, b]); });
+    return out; }
+  function slaVraagOver(nt) { if (SV.v !== 'uit' || !playing || scrubbing) return false;
+    for (const [a, b] of vraagVensters(ci)) { if (nt >= a && nt < b - 0.05) {
+      if (b >= CH[ci].dur - 0.05) { if (ci + 1 < CH.length) loadChapter(ci + 1, 0, true); else { doPause(); t = CH[ci].dur; dirty = true; } }
+      else { t = b; lastA = b; try { audio.currentTime = b; } catch (e) { } dirty = true; }
+      return true; } }
+    return false; }
+  function zetKnoppen() { const v = $('#vragenK'), r = $('#snelheid'); v.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; v.setAttribute('aria-pressed', String(SV.v === 'aan')); r.textContent = String(SV.r).replace('.', ',') + '×'; audio.defaultPlaybackRate = SV.r; audio.playbackRate = SV.r; qState = ''; dirty = true; }
+  $('#vragenK').addEventListener('click', () => { SV.v = SV.v === 'aan' ? 'uit' : 'aan'; try { localStorage.setItem('bk-vragen', SV.v); } catch (e) { } if (SV.v === 'uit' && waiting) { waiting = false; doPlay(); } zetKnoppen(); });
+  $('#snelheid').addEventListener('click', () => { const L = [1, 1.25, 1.5, 0.75]; SV.r = L[(L.indexOf(SV.r) + 1) % L.length]; try { localStorage.setItem('bk-snelheid', String(SV.r)); } catch (e) { } zetKnoppen(); });
+  zetKnoppen();
   renderChList(); updateNow(); setPlayIcon(); sizeCanvas(); scene(0);
   requestAnimationFrame(frame);
 })();
