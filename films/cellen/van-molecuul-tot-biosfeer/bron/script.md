@@ -54,7 +54,7 @@ Op elk niveau komt er iets nieuws bij. Eén spiercel trekt samen, maar pas een h
 
 **s13** · vwo · 28.8 s · `audio/s13.mp3`
 
-Voor vwo gaan we hier nog een stap verder. Een emergente eigenschap ontstaat doordat de delen samenwerken. Het is meer dan de optelsom. Eén koolmees heeft geen dichtheid en geen geboortecijfer, een populatie wel. En alleen een populatie kan evolueren. Het mooiste voorbeeld: geen enkel molecuul leeft, maar een cel vol moleculen wel. Ook leven zelf is een emergente eigenschap. Terug naar de basis.
+Een emergente eigenschap ontstaat doordat de delen samenwerken. Het is meer dan de optelsom. Eén koolmees heeft geen dichtheid en geen geboortecijfer, een populatie wel. En alleen een populatie kan evolueren. Het mooiste voorbeeld: geen enkel molecuul leeft, maar een cel vol moleculen wel. Ook leven zelf is een emergente eigenschap. Terug naar de basis.
 
 ## Hoofdstuk 3 — Leeft een virus?
 

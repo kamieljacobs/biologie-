@@ -85,3 +85,7 @@ Begrippen: levenskenmerken, homeostase, organisatieniveaus, weefsel, orgaanstels
 - Uitspraak: zie `uitspraak.md` (homeo-staaze, ee-mer-gente, aa-biotische, biosfeer). Een blinde controle was in deze sessie niet mogelijk.
 - De lijst levenskenmerken verschilt per methode; de film zegt dat ook. Controleer of de lijst past bij je eigen editie van Biologie voor jou en Nectar.
 - Eindreview: 12 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
+
+## Wijzigingen
+
+- 15 okt 2026 (versie 1.1): s11, s12, s13 en s16 opnieuw ingesproken na feedback van Kamiel: 'abiotische' zonder dubbele a (stem-invoer `abiotische`), 'emergente' met klemtoon op gen (`emergénte`); in s13 is "Voor vwo gaan we hier nog een stap verder." weggelaten (havo/vwo kies je in de speler). Let op: regelnummers en tijden hierboven kunnen enkele seconden verschoven zijn.

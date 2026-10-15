@@ -1593,7 +1593,7 @@ const toolFig=naam=>{const m=TOOLPLAAT.find(([re])=>re.test(naam));return m?m[2]
 // Werkstatus per film (alleen zichtbaar met ?k=1, uit met ?k=0). Ontbreekt = nog bekijken; 'feedback' = opmerkingen nog te verwerken; 'ok' = klaar.
 const REVIEW = {
   "films/cellen/celorganellen/index.html": "feedback", // 15 okt: cytoplasma-stippen te onrustig; levenskenmerken-koppeling eruit
-  "films/cellen/van-molecuul-tot-biosfeer.html": "feedback", // 15 okt: 'abiotische' dubbele a (s11, s16); 'emergente' klemtoon op gen (s12, s13) → uitspraakwachtlijst
+  // Van molecuul tot biosfeer: feedback 15 okt verwerkt (s11-s13, s16 heropgenomen) -> opnieuw bekijken
 };
 const FILMKUNST = {
 '1-chromosomen':`${[[12,26,24],[26,22,18],[38,20,14]].map(([x,h,w],i)=>`<path d="M${x-w/4} ${24-h/2}l${w/2} ${h}M${x+w/4} ${24-h/2}l-${w/2} ${h}" stroke-width="2.2"/><path d="M${x-w/4+1} ${24-h/4}h${w/2-2}" stroke-width="1" opacity=".6"/>`).join('')}<circle cx="12" cy="24" r="2" class="acc" fill="currentColor" stroke="none"/><path d="M4 42h40" stroke-width="1" opacity=".5"/>`,

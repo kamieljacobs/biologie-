@@ -49,7 +49,7 @@ Misschien dacht je: een levensgemeenschap, want ze telt planten en dieren. Maar 
 
 Op elk niveau komt er iets nieuws bij. Eén spiercel trekt samen, maar pas een hart pompt bloed rond. Zo'n nieuwe eigenschap heet een emergente eigenschap.
 
-[VWO-START] Voor vwo gaan we hier nog een stap verder. Een emergente eigenschap ontstaat doordat de delen samenwerken. Het is meer dan de optelsom. Eén koolmees heeft geen dichtheid en geen geboortecijfer, een populatie wel. En alleen een populatie kan evolueren. Het mooiste voorbeeld: geen enkel molecuul leeft, maar een cel vol moleculen wel. Ook leven zelf is een emergente eigenschap. Terug naar de basis. [VWO-END]
+[VWO-START] Een emergente eigenschap ontstaat doordat de delen samenwerken. Het is meer dan de optelsom. Eén koolmees heeft geen dichtheid en geen geboortecijfer, een populatie wel. En alleen een populatie kan evolueren. Het mooiste voorbeeld: geen enkel molecuul leeft, maar een cel vol moleculen wel. Ook leven zelf is een emergente eigenschap. Terug naar de basis. [VWO-END]
 
 ## Hoofdstuk 3 — Leeft een virus? [Micro: griepvirus naast een bacterie; levenskenmerken afvinken; virus in een gastheercel]
 Terug naar het griepvirus. Waar staat het op de ladder? Een virus is geen cel. Het is een pakketje erfelijk materiaal in een eiwitmantel. Een griepvirus heeft daaromheen ook nog een vetlaagje. Het is zo'n tien keer kleiner dan een bacterie. Maar het grote verschil is iets anders: een bacterie is wél een cel. Die neemt stoffen op, groeit, en deelt zich zelf.
