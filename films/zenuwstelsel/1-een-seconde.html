@@ -394,6 +394,7 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
     <button id="mute" class="tog" title="stem (M)">🔊</button>
     <button id="fs" title="volledig scherm (F)">⛶</button>
     <span class="modes"><button id="modeL" class="tog">Leerling</button><button id="modeK" class="tog">Klas</button></span>
+    <span class="modes" id="vragen"><button id="vragenK" class="tog" title="tussendoorvragen aan of uit">Vragen</button></span><span class="modes"><button id="snelheid" class="tog on" title="afspeelsnelheid">1×</button></span>
     <label class="auto"><input id="auto" type="checkbox"> automatisch door na de aftelling</label>
   </div>
   <p class="keys">Spatie afspelen of pauzeren · ←→ 5 s spoelen · C ondertitels · M stem · F volledig scherm · <a href="?modus=klas">Klas-modus openen</a></p>
@@ -564,11 +565,23 @@ if(params.get('auto')==='1') S.auto=true;
 /* ---------- audio ---------- */
 const AUD={}; for(const s of SEGS){ if(s.kind==='narration'){ const a=new Audio(window.FILM_AUDIO[s.id]); a.preload='auto'; AUD[s.id]=a; } }
 let curAudio=null;
+S.vragen='aan'; S.snelheid=1;
+try{ const v=localStorage.getItem('bk-vragen'); if(v==='uit') S.vragen='uit'; const r=parseFloat(localStorage.getItem('bk-snelheid')); if([0.75,1,1.25,1.5].includes(r)) S.snelheid=r; }catch(e){}
+if(params.get('vragen')==='uit') S.vragen='uit'; if(params.get('vragen')==='aan') S.vragen='aan';
+{ const r=parseFloat(params.get('snelheid')); if([0.75,1,1.25,1.5].includes(r)) S.snelheid=r; }
+// vragen uit: vraag, aftelling en 'Het goede antwoord is X' overslaan
+function antwCut(seg){ if(!seg.reveal||!seg.words) return 0; const w=seg.words; const i=w.findIndex(x=>norm(x.w)==='antwoord'); if(i<0||i>3) return 0;
+  let j=i+1; if(w[j]&&norm(w[j].w)==='is') j++; if(!w[j]) return 0; return w[j+1]?Math.max(w[j].t1,w[j+1].t0-0.05):w[j].t1; }
+function slaVragenOver(){ if(S.vragen!=='uit') return false; let seg=segAt(S.T); let moved=false;
+  while((seg.question||seg.kind==='countdown')&&seg.start+seg.dur<TOTAL-0.01){ S.T=seg.start+seg.dur+0.001; seg=segAt(S.T); moved=true; }
+  if(seg.reveal){ const c=antwCut(seg); if(S.T-seg.start<c){ S.T=seg.start+c; moved=true; } }
+  if(moved){ S.holdQ=null; syncAudio(seg,S.T-seg.start,true); } return moved; }
+function zetKnoppen(){ $('#vragenK').classList.toggle('on',S.vragen==='aan'); $('#vragenK').textContent=S.vragen==='aan'?'Vragen aan':'Vragen uit'; $('#snelheid').textContent=String(S.snelheid).replace('.',',')+'×'; for(const a of Object.values(AUD)) a.playbackRate=S.snelheid; }
 function syncAudio(seg,tl,force){
   if(seg.kind!=='narration'){ if(curAudio){curAudio.pause();curAudio=null;} return; }
   const a=AUD[seg.id];
   if(curAudio!==a||force){ if(curAudio) curAudio.pause(); curAudio=a; try{a.currentTime=clamp(tl,0,seg.dur-0.05);}catch(e){} }
-  a.muted=S.muted;
+  a.muted=S.muted; a.playbackRate=S.snelheid;
   if(S.playing){ if(a.paused){ a.play().catch(()=>{}); } }
   else if(!a.paused) a.pause();
 }
@@ -877,7 +890,7 @@ function sceneQuestion(seg,tl){
   Q.feedback.style.display='none';
   hud({chip:'Voorspel',legend:null,tbar:null});
 }
-function sceneReveal(seg,tl){ // overlay during the first seconds of the answer segment
+function sceneReveal(seg,tl){ if(S.vragen==='uit') return false; // overlay during the first seconds of the answer segment
   const qn=seg.reveal, q=D.plan.questions[qn]; const tAnt=wt(seg.id,'antwoord'); const until=tAnt+3.2;
   if(tl<until){ show(layers.q,true); show(layers.micro,false); show(layers.lens,false); hud({chip:'Voorspel',legend:null,tbar:null}); Q.root.classList.add('reveal'); setText(Q.text,q.q); $('#q-ring').style.display='none'; Q.hint.style.display='none'; Q.verder.style.display='none';
     Q.opts.forEach((o,i)=>{ o.querySelector('span').textContent=q.opts[i]; o.style.opacity=1; o.style.pointerEvents='none'; o.classList.remove('correct','wrong','chosen'); if(tl>=tAnt){ if(i===q.correct) o.classList.add('correct'); else if(S.choices[qn]===i) o.classList.add('wrong'); } });
@@ -906,7 +919,7 @@ function render(T){
 function mmss(t){ t=Math.max(0,Math.floor(t)); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); }
 /* ---------- clock ---------- */
 function tick(now){
-  const dt=S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0; S.lastRaf=now;
+  const dt=(S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0)*S.snelheid; S.lastRaf=now; if(S.playing) slaVragenOver();
   const seg=segAt(S.T); const tl=S.T-seg.start;
   if(S.playing){
     if(seg.kind==='narration'){ const a=AUD[seg.id]; syncAudio(seg,tl,false); if(!a.paused&&a.readyState>=2){ S.T=seg.start+a.currentTime; } else if(a.ended){ S.T=seg.start+seg.dur; }
@@ -952,7 +965,9 @@ addEventListener('resize',fit); fit();
 (function(){ const ul=$('#chapters'); D.plan.chapters.forEach(ch=>{ const first=SEGS.find(s=>s.chapter===ch.n&&s.kind==='card'); const li=document.createElement('li'); li.dataset.ch=String(ch.n); li.dataset.t=String(first?first.start:0); li.innerHTML=`<b>${ch.n<7?ch.n:'·'}</b> ${ch.title} <i>${mmss(first?first.start:0)}</i>`+(ch.verdieping?' <em class="vtag">verdieping</em>':''); ul.appendChild(li); }); })();
 /* deterministic snapshot API for QA: window.FILM_API.renderAt(T) */
 window.FILM_API={ renderAt:(T)=>{ pause(); S.T=T; render(T); }, total:TOTAL, segs:SEGS, cues:CUES, setMode, state:S };
-render(0); requestAnimationFrame(tick);
+$('#vragenK').addEventListener('click',()=>{ S.vragen=S.vragen==='aan'?'uit':'aan'; try{localStorage.setItem('bk-vragen',S.vragen);}catch(e){} zetKnoppen(); if(S.playing) slaVragenOver(); });
+$('#snelheid').addEventListener('click',()=>{ const L=[1,1.25,1.5,0.75]; S.snelheid=L[(L.indexOf(S.snelheid)+1)%L.length]; try{localStorage.setItem('bk-snelheid',String(S.snelheid));}catch(e){} zetKnoppen(); });
+zetKnoppen(); render(0); requestAnimationFrame(tick);
 })();
 
 </script>
