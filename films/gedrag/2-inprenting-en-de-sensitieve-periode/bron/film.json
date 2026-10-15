@@ -1,0 +1,56 @@
+{
+ "slug": "2-inprenting-en-de-sensitieve-periode",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Inprenting en de sensitieve periode",
+ "sub": "Waarom vroeg zo veel uitmaakt",
+ "puzzle": "Zeven jonge ganzen lopen achter een man aan, ook de vijver in. Hun echte moeder negeren ze. Waarom?",
+ "meta": "gedrag · inprenting en sensitieve periodes",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 2 van 9",
+ "lead": "Een jong gansje leert in de eerste uren na het uitkomen wie zijn moeder is: het eerste wat beweegt, geluid maakt en dichtbij is. Dat heet inprenting. Het kan alleen in een kort tijdvenster, een sensitieve periode. Ook mensen hebben sensitieve periodes, bijvoorbeeld bij zien (lui oog) en bij het horen van taalklanken.",
+ "endHaak": "welke ervaring in jouw jeugd heeft extra zwaar geteld?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe weet een gansje wie zijn moeder is?",
+  "Hoofdstuk 2": "Hebben mensen ook zo'n tijdvenster?",
+  "Recap": "Waarom volgden de gansjes Lorenz?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Noor (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Zeven jonge ganzen lopen achter een man aan en negeren hun echte moeder. Waarom?",
+   "correct": 1,
+   "explain": "Het antwoord zie je in hoofdstuk 1."
+  },
+  "q06": {
+   "q": "Een eendje ziet de eerste twee dagen niets. Dan ziet het voor het eerst de nep-eend. Wat doet het?",
+   "correct": 1,
+   "explain": "Na ongeveer anderhalve dag worden eendjes bang voor alles wat nieuw is: de sensitieve periode is voorbij."
+  },
+  "q10": {
+   "q": "Een Japanse baby van zes maanden en een van een jaar horen ra en la. Wie hoort het verschil?",
+   "correct": 1,
+   "explain": "Rond een jaar hebben de hersenen zich afgestemd op de klanken van de eigen taal."
+  }
+ },
+ "glossary": [
+  {
+   "t": "inprenting",
+   "d": "Snel leren in een korte periode vlak na de geboorte of het uitkomen, met een effect dat lang blijft, zoals een gansje dat leert wie zijn moeder is."
+  },
+  {
+   "t": "sensitieve periode",
+   "d": "Een tijdvenster waarin een bepaalde ervaring veel invloed heeft op het gedrag of de ontwikkeling; daarna veel minder. Ook: gevoelige periode."
+  },
+  {
+   "t": "lui oog",
+   "d": "Een oog dat zelf gezond is, maar waarvan de hersenen het beeld weinig gebruiken. Afplakken van het goede oog helpt vooral bij jonge kinderen."
+  },
+  {
+   "t": "seksuele inprenting",
+   "d": "vwo · Een jong dier leert hoe een geschikte partner eruitziet; dat bepaalt later naar wie het baltst."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Eendjes en een bal</b> <span class=\"pts\">3 punten</span><p>In een kinderboerderij komen eendeneieren uit in een broedmachine. Het eerste wat de eendjes zien, is een rode bal die door de verzorger heen en weer wordt gerold. Een week later lopen de eendjes nog steeds achter de bal aan, ook als er een volwassen eend in het hok is.</p>\n      <p>a. Welk type leren is dit? (1p)<br>b. Leg uit waarom het belangrijk is <i>wanneer</i> de eendjes de bal zien. Gebruik het begrip sensitieve periode. (1p)<br>c. Noem de functie van dit gedrag in de natuur. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Inprenting (1). b. Inprenting kan alleen in een korte periode na het uitkomen (sensitieve periode); daarna werkt het nauwelijks nog / worden ze bang voor nieuwe dingen (1). c. Dicht bij de moeder blijven: bescherming en voedsel, grotere overlevingskans (1).</p></details></div>\n    <div class=\"q\"><b>2. De proef van Hess</b> <span class=\"pts\">2 punten</span><p>Hess liet eendenkuikens op verschillende leeftijden een nep-eend zien en mat welk deel van de kuikens de nep-eend volgde. Kuikens van 15 uur oud volgden het vaakst; kuikens van 2 dagen bijna nooit.</p>\n      <p>a. Wat is in deze proef de onafhankelijke variabele? (1p)<br>b. Geef een verklaring waarom kuikens van 2 dagen de nep-eend niet volgen. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. De leeftijd van de kuikens (tijd na het uitkomen) (1). b. Ze zijn dan bang voor nieuwe/onbekende dingen en vluchten; de sensitieve periode is voorbij (1).</p></details></div>\n    <div class=\"q\"><b>3. Lui oog</b> <span class=\"pts\">2 punten</span><p>Bij een kind met een lui oog plakt de oogarts het goede oog een paar uur per dag af. Bij volwassenen met een lui oog heeft dezelfde behandeling veel minder effect.</p>\n      <p>Leg dit verschil uit. (2p)</p>\n      <details><summary>Antwoord</summary><p>Bij jonge kinderen zijn de verbindingen in de hersenen nog makkelijk te veranderen: door het afplakken moet het luie oog werken en leren de hersenen dat beeld te gebruiken (1). Bij volwassenen is de sensitieve periode voorbij; de verbindingen zijn veel minder makkelijk te veranderen (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Kruisopvoeding</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Een zebravinkmannetje groeit op bij Japanse meeuwtjes. Als volwassen vogel baltst hij naar meeuwtjes, ook als er zebravinkvrouwtjes zijn.</p>\n      <p>a. Hoe heet deze vorm van inprenting? (1p)<br>b. Leg uit dat deze proef laat zien dat de partnervoorkeur niet (alleen) aangeboren is. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Seksuele inprenting (1). b. Als de voorkeur aangeboren was, zou hij naar zebravinkvrouwtjes baltsen; hij kiest de soort van zijn opvoeders, dus de voorkeur is in zijn jeugd aangeleerd (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Een man loopt door een weide, zeven gansjes in een rij erachter, ook de vijver in; de echte moeder staat verderop. Openingsvraag (antwoord in H1)</td></tr>\n      <tr><td>1 Inprenting</td><td>Eierproef van Lorenz: eieren in twee groepen (moedergans / broedmachine), kuikens onder een kist, kist op, elk kuiken naar zijn 'moeder' (gekleurde ringetjes). Kenmerken van inprenting. Grafiek van Hess (± 15 uur), tijdvenster = sensitieve periode; functie; drie vragen van Tinbergen. Vwo: seksuele inprenting bij zebravinken</td></tr>\n      <tr><td>2 Mensen</td><td>Noor (castboek) met een foto als peuter met pleister; schema twee ogen → hersenen met dikke/dunne verbinding; afplakken; grafiek 'afplakken helpt' tegen leeftijd. Japanse baby's van 6 en 12 maanden, ra en la. Deur die langzaam dichtgaat; uitspraak leren tegen beginleeftijd</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Lorenz beschreef inprenting bij grauwe ganzen in 'Der Kumpan in der Umwelt des Vogels' (1935); de eierproef met de kist is de klassieke leerboekversie. Het begrip 'Prägung' is van Lorenz; Heinroth beschreef het verschijnsel eerder.</li>\n      <li>Hess (jaren vijftig): wilde eenden, maximale inprenting rond 13–16 uur; na ± 30 uur nauwelijks nog. De grafiek in de film is schematisch.</li>\n      <li>Inprenting is niet onomkeerbaar in strikte zin; latere studies lieten zien dat de volgreactie enigszins om te buigen is. De film zegt daarom 'blijft lang bestaan'.</li>\n      <li>Seksuele inprenting: Immelmann (jaren zeventig), zebravinken opgevoed door Japanse meeuwtjes (Lonchura striata domestica).</li>\n      <li>Lui oog (amblyopie): behandeling met afplakken werkt het best vóór ± 7 jaar; bij oudere kinderen en volwassenen is er beperkt effect. De klassieke basis is het werk van Hubel en Wiesel met katjes (Nobelprijs 1981).</li>\n      <li>Taalklanken: Kuhl e.a. (2006): Japanse en Amerikaanse baby's van 6–8 maanden onderscheiden r/l even goed; met 10–12 maanden gaan Japanse baby's achteruit en Amerikaanse vooruit.</li>\n      <li>Bewust weggelaten: hechting (Bowlby, Harlow). Kan in een latere film of als lesgesprek.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Inprenting beschrijven (snel, kort venster, blijvend, zonder beloning)</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Sensitieve periode gebruiken</td><td>basis</td><td>H1, H2, checkvragen 1b, 2, 3</td></tr>\n      <tr><td>Functie van inprenting; vragen van Tinbergen</td><td>basis</td><td>H1, checkvraag 1c</td></tr>\n      <tr><td>Sensitieve periodes bij mensen (zien, taalklanken)</td><td>basis</td><td>H2, checkvraag 3</td></tr>\n      <tr><td>Seksuele inprenting</td><td>vwo</td><td>H1 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen de grafiek van Hess zelf tekenen uit een tabel en het venster aangeven.</li><li>Lesgesprek: waarom is het voor mensen handig dat zo'n periode langzaam sluit en niet ineens?</li><li>Bespreek het project waarin jonge kraanvogels leren trekken achter een ultralicht vliegtuigje (onderzoekers in kraanvogelpak).</li></ul>\n  </section>\n"
+}
