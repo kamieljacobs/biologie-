@@ -48,9 +48,9 @@ Bowlby dacht dat een kind uit al die ervaringen een soort binnenwerkmodel bouwt:
 
 **q11** (vraag): die persoon krijgt later altijd slechte relaties · de kans op zo'n patroon is groter, maar het kan veranderen · hechting als baby heeft later geen enkele invloed
 
-**s12** · 24.4 s · `audio/s12.mp3`
+**s12** · 59.6 s · `audio/s12.mp3`
 
-Antwoord bee. Er is een verband, maar het is niet sterk. Hechting is geen vonnis. Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog kunnen helpen om je patroon veiliger te maken. Het begint vaak met herkennen: oh, dit is mijn manier van reageren. En wat doe je als een emotie je overspoelt? Daarover gaat een volgende film.
+Antwoord bee. Er is een verband, maar het is niet sterk. Onderzoekers volgden kinderen jarenlang. Over een paar jaar lijkt je hechting nog behoorlijk op die van vroeger. Maar hoe meer jaren ertussen zitten, hoe kleiner het verband. Na vijftien jaar is het nauwelijks nog te meten. Wat er later gebeurt, telt minstens zo zwaar: hoe er in de jaren daarna voor je gezorgd wordt, en je vriendschappen. Veilig gehechte kinderen zijn op de basisschool vaak sociaal vaardiger. Wie als tiener hechte vriendschappen heeft, gaat later vaak opener om met een partner. Zo loopt de lijn van baby naar liefde niet rechtstreeks, maar via alle relaties daartussen. Hechting is dus geen vonnis. Goede vriendschappen, betrouwbare mensen om je heen, of hulp van een psycholoog kunnen helpen om je patroon veiliger te maken. Het begint vaak met herkennen: oh, dit is mijn manier van reageren. En wat doe je als een emotie je overspoelt? Daarover gaat een volgende film.
 
 ## Recap
 

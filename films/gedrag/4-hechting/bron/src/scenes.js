@@ -172,13 +172,29 @@ const SCENES = {
       if (q.on('beetje', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('beetje', 1); let x = 560; [[0.55, C.groen], [0.2, C.teal], [0.25, C.koraal]].forEach(([p, col]) => { ctx.fillStyle = rgba(col, 0.6); ctx.fillRect(x, 720, 800 * p, 50); x += 800 * p; }); regel(ctx, 'van alles een beetje', 960, 820, 1, C.text, 30, 'center', 700); ctx.restore(); }
       vraagteken(ctx, 1700, 760, q.on('klopt', 1), 100); ctx.restore(); } },
 
-  s12(ctx, t, q) { bg(ctx, 'schema'); const me = q.on('emotie', 1, 0.8);
-    if (me < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - me;
-      tag(ctx, 'verband: ja · sterk: nee', 960, 150, C.text2, q.on('verband', 1) * (1 - q.on('vonnis', 1))); tag(ctx, 'hechting is geen vonnis', 960, 150, C.goud, q.on('vonnis', 1));
-      // pad dat buigt van onveilig naar veiliger
-      const pg = clamp((t - q.at('vriendschappen')) / 6, 0, 1); ctx.strokeStyle = rgba(C.goud, 0.9); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(240, 760); for (let i = 1; i <= 60 * Math.max(pg, 0.15); i++) { const u = i / 60; ctx.lineTo(240 + u * 1440, 760 - 420 * Math.pow(u, 1.6)); } ctx.stroke();
+  s12(ctx, t, q) { bg(ctx, 'schema'); const lat = q.on('later', 1, 0.8), hv = q.on('vonnis', 1, 0.8), me = q.on('emotie', 1, 0.8);
+    tag(ctx, 'verband: ja · sterk: nee', 960, 150, C.text2, q.on('verband', 1) * (1 - lat));
+    // 1. stabiliteit neemt af met de jaren (schematisch, naar Pinquart e.a. 2013)
+    if (lat < 0.99) { ctx.save(); ctx.globalAlpha *= (1 - lat) * q.on('jarenlang', 1);
+      const B = [['een paar jaar', 0.42, 'paar'], ['5 tot 15 jaar', 0.20, 'meer'], ['meer dan 15 jaar', 0.14, 'vijftien']]; const x0 = 420, base = 760;
+      ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0 - 40, 260); ctx.lineTo(x0 - 40, base); ctx.lineTo(x0 + 1160, base); ctx.stroke();
+      metaText(ctx, 'hoeveel lijkt je hechting op die van vroeger?', x0 - 40, 240, C.text2, 'left', 20);
+      B.forEach(([nm, v, w], i) => { const a = q.on(w, 1, 0.8); const hgt = v * 1000 * a; const x = x0 + 40 + i * 380; roundRect(ctx, x, base - hgt, 240, Math.max(hgt, 1), 10); shape(ctx, rgba(C.goud, 0.45), C.goud, 2); regel(ctx, nm, x + 120, base + 44, a, C.text, 28, 'center', 700); });
+      tag(ctx, 'nauwelijks nog te meten', x0 + 40 + 2 * 380 + 120, base - 220, C.koraal, q.on('meten', 1), 'center', 26);
+      metaText(ctx, 'schematisch, naar Pinquart e.a. (2013)', 1780, 880, C.text2, 'right', 16); ctx.restore(); }
+    // 2. de lijn loopt via alle relaties daartussen (naar Simpson e.a. 2007)
+    if (lat > 0.01 && hv < 0.99) { ctx.save(); ctx.globalAlpha *= lat * (1 - hv);
+      const N = [['baby', 'hechting', 'Wat', 1], ['basisschool', 'sociaal vaardig', 'basisschool', 1], ['tiener', 'hechte vriendschappen', 'tiener', 1], ['volwassene', 'open naar een partner', 'partner', 1]];
+      N.forEach(([nm, s2, w, n], i) => { const a = q.on(w, n); const x = 150 + i * 430; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, 420, 360, 170, 18); shape(ctx, rgba(C.teal, 0.12), C.teal, 2); text(ctx, nm, x + 180, 485, fTekst(34, 700), C.teal, 'center'); text(ctx, s2, x + 180, 540, fTekst(26, 600), C.text, 'center'); ctx.restore(); if (i) pijl(ctx, x - 64, 505, x - 8, 505, C.goud, a, 5, 16); });
+      tag(ctx, 'ook: hoe er in de jaren daarna voor je gezorgd wordt', 960, 300, C.goud, q.on('gezorgd', 1), 'center', 28);
+      const rs = q.on('rechtstreeks', 1); if (rs > 0.01) { ctx.save(); ctx.globalAlpha *= rs; ctx.setLineDash([12, 10]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(330, 620); ctx.quadraticCurveTo(960, 820, 1610, 620); ctx.stroke(); ctx.setLineDash([]); kruis(ctx, 960, 720, 30, 1); ctx.restore(); regel(ctx, 'niet rechtstreeks, maar via alle relaties daartussen', 960, 830, rs, C.text, 30, 'center', 700); }
+      ctx.restore(); }
+    // 3. geen vonnis: pad van onveilig naar veiliger
+    if (hv > 0.01 && me < 0.99) { ctx.save(); ctx.globalAlpha *= hv * (1 - me);
+      tag(ctx, 'hechting is geen vonnis', 960, 150, C.goud, 1);
+      const pg = clamp((t - q.at('vriendschappen', 3)) / 6, 0, 1); ctx.strokeStyle = rgba(C.goud, 0.9); ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(240, 760); for (let i = 1; i <= 60 * Math.max(pg, 0.15); i++) { const u = i / 60; ctx.lineTo(240 + u * 1440, 760 - 420 * Math.pow(u, 1.6)); } ctx.stroke();
       regel(ctx, 'onveilig', 240, 820, 1, C.koraal, 30, 'center', 700); regel(ctx, 'veiliger', 1680, 300, pg, C.groen, 34, 'center', 700);
-      [['vriendschappen', 'goede vriendschappen', 0.25], ['betrouwbare', 'betrouwbare mensen', 0.5], ['psycholoog', 'hulp van een psycholoog', 0.75]].forEach(([w, s, u]) => { const a = q.on(w, 1); const x = 240 + u * 1440, y = 760 - 420 * Math.pow(u, 1.6); circ(ctx, x, y, 14 * a, C.goud); tag(ctx, s, x, y + 70, C.goud, a, 'center', 26); });
+      [['vriendschappen', 3, 'goede vriendschappen', 0.25], ['betrouwbare', 1, 'betrouwbare mensen', 0.5], ['psycholoog', 1, 'hulp van een psycholoog', 0.75]].forEach(([w, n, s2, u]) => { const a = q.on(w, n); const x = 240 + u * 1440, y = 760 - 420 * Math.pow(u, 1.6); circ(ctx, x, y, 14 * a, C.goud); tag(ctx, s2, x, y + 70, C.goud, a, 'center', 26); });
       tag(ctx, 'herkennen: oh, dit is mijn manier van reageren', 960, 250, C.teal, q.on('herkennen', 1), 'center', 28);
       ctx.restore(); }
     if (me > 0.01) { ctx.save(); ctx.globalAlpha *= me; regel(ctx, 'volgende film', 960, 380, 1, C.text2, 30, 'center', 600); text(ctx, 'Emotieregulatie', 960, 470, fTitel(64), C.goud, 'center'); regel(ctx, 'wat doe je als een emotie je overspoelt?', 960, 540, 1, C.text, 32, 'center', 600); ctx.restore(); } },

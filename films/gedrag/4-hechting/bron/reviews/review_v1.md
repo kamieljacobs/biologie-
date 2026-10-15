@@ -25,3 +25,4 @@ Eén gecombineerde review (ontwikkelingspsychologie, didactiek, taal) door een a
 
 ## Feedback Kamiel (15 okt 2026)
 - 'Praat erover met iemand die je vertrouwt, bijvoorbeeld je mentor' niet doen → zin uit s12 geknipt (audio ingekort, geen nieuwe opname), eindkaart in beeld vervangen door een vooruitblik op Emotieregulatie.
+- Kamiel: de wetenschappelijke inzichten over de sterkte van het verband in de film verwerken → s12 herschreven en opnieuw ingesproken (script v3): stabiliteit neemt af met de jaren (na 15 jaar nauwelijks meetbaar), latere ervaringen tellen mee (zorg, vriendschappen), de lijn van baby naar liefde loopt indirect via sociale vaardigheid en vriendschappen. Beeld: staafjes en een keten met doorgestreepte directe pijl.
