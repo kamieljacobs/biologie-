@@ -732,6 +732,39 @@ const HOOFDSTUKKEN = {
    "Uit het examen"
   ]
  },
+ "planten": {
+  "label": "H20",
+  "titel": "Planten",
+  "meta": "vwo H20 · groei, plantenhormonen, fotosynthese en transport in planten",
+  "films": [
+   {
+    "href": "films/transport/7-hoe-een-plant-groeit.html",
+    "titel": "Hoe een plant groeit",
+    "vraag": "Hoe kan een plant naar het licht buigen zonder ogen en zonder spieren?",
+    "tekst": "Meristemen en cambium, delen, strekken met water en differentiëren; de proeven van Darwin en Went, auxine, fototropie en gravitropie: dezelfde auxine versnelt de stengel en remt de wortel; kort de andere plantenhormonen",
+    "duur": 7,
+    "bij": "Film · planten · vwo"
+   },
+   {
+    "href": "films/transport/6-transport-in-planten.html",
+    "titel": "Transport in planten",
+    "vraag": "Waarom hangt een plant slap op een warme middag, en staat hij 's avonds weer recht?",
+    "tekst": "Xyleem en floëem, worteldruk en de zuigkracht van de bladeren, huidmondjes, turgor; vwo: cohesie en de drukstroomtheorie",
+    "duur": 7,
+    "bij": "Film · ook bij Transport"
+   },
+   {
+    "href": "films/stofwisseling/3-alles-in-het-groen.html",
+    "titel": "Alles in het groen",
+    "vraag": "Waar komt de massa van een eik vandaan?",
+    "tekst": "Fotosynthese en voortgezette assimilatie: waar de massa van een eik vandaan komt",
+    "duur": 15,
+    "bij": "Film · ook bij Stofwisseling"
+   }
+  ],
+  "tools": [],
+  "oefenen": []
+ },
  "gedrag": {
   "label": "GEDRAG",
   "titel": "Gedrag",
@@ -1275,14 +1308,6 @@ const HOOFDSTUKKEN = {
     "tekst": "Xyleem en floëem, worteldruk en de zuigkracht van de bladeren, huidmondjes, turgor; vwo: cohesie en de drukstroomtheorie",
     "duur": 7,
     "bij": "Film · transport 6/6"
-   },
-   {
-    "href": "films/transport/7-hoe-een-plant-groeit.html",
-    "titel": "Hoe een plant groeit",
-    "vraag": "Hoe kan een plant naar het licht buigen zonder ogen en zonder spieren?",
-    "tekst": "Meristemen en cambium, delen, strekken met water en differentiëren; de proeven van Darwin en Went, auxine, fototropie en gravitropie: dezelfde auxine versnelt de stengel en remt de wortel; kort de andere plantenhormonen",
-    "duur": 7,
-    "bij": "Film · planten · vwo"
    }
   ],
   "tools": [],
@@ -1614,8 +1639,8 @@ const NIVEAUS = {
       "H20",
       "Planten",
       "6 vwo",
-      "Alles in het groen",
-      "#stofwisseling"
+      "Hoe een plant groeit · Alles in het groen · Transport in planten",
+      "#planten"
      ]
     ],
     "naam": "Sturen en reageren"
@@ -1734,11 +1759,12 @@ const NIVEAUS = {
  }
 };
 /* Kleur en tekening per hoofdstuk (tekeningen staan in KUNST hieronder). */
-const KLEUR = {extra:'paars',cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen',gedrag:'oker'};
+const KLEUR = {extra:'paars',cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen',gedrag:'oker',planten:'groen'};
 /* ===== einde inhoud ===== */
 
 /* Lijntekeningen (viewBox 0 0 120 120). currentColor = kleur van het hoofdstuk, .acc = goud. */
 const KUNST = {
+planten:`<path d="M60 100V52" stroke-width="1.8"/><path d="M60 64c-16 0-24-8-22-20 13 0 21 7 22 20zM60 56c14 0 21-8 19-18-12 0-18 7-19 18z" stroke-width="1.5"/><path d="M60 100c-6 4-14 5-20 4M60 100c5 5 12 7 18 6M60 100v10" stroke-width="1.1" opacity=".7"/><circle cx="60" cy="46" r="3.5" class="acc" fill="currentColor" stroke="none"/><path d="M92 26l-10 10M98 38l-12 4M84 18l-4 12" stroke-width="1.2" class="acc" opacity=".8"/>`,
 gedrag:`<g transform="translate(-30 -40) scale(1.5)"><path d="M30 70c0-16 18-16 30 0s30 16 30 0-18-16-30 0-30 16-30 0z" stroke-width="1.3" opacity=".55" stroke-dasharray="3 4"/>
  <ellipse cx="60" cy="70" rx="13" ry="8" stroke-width="1.6"/><path d="M53 63v14M59 62v16M65 63v14" stroke-width="1.4" class="acc"/><circle cx="76" cy="69" r="5" stroke-width="1.5"/>
  <ellipse cx="55" cy="58" rx="9" ry="5" transform="rotate(-30 55 58)" stroke-width="1.2"/><ellipse cx="64" cy="58" rx="9" ry="5" transform="rotate(30 64 58)" stroke-width="1.2"/>
@@ -1789,6 +1815,7 @@ voeding:`<path d="M44 14c0 14 22 12 22 26s-26 10-26 26 30 10 30 24-18 10-18 18" 
 const R=(n,f)=>Array.from({length:n},(_,i)=>f(i)).join('');
 const golf=(y,a,p,ph,x0=0,x1=600)=>{let d='';for(let x=x0;x<=x1;x+=4)d+=(x===x0?'M':'L')+x+' '+(y+a*Math.sin((x/p)*Math.PI*2+ph)).toFixed(1);return d};
 const FRIES = {
+planten:()=>R(10,i=>{const x=40+i*60,h=12+(i%3)*5;return `<path d="M${x} 44V${44-h}" stroke-width="1.4"/><path d="M${x} ${44-h+4}c-7 0-10-4-9-9 6 0 9 4 9 9zM${x} ${44-h+2}c6 0 9-4 8-8-5 0-8 3-8 8z" stroke-width="1.1" ${i%4===1?'class="acc"':''}/>`}),
 gedrag:()=>R(12,i=>{const x=30+i*48,y=24+6*Math.sin(i*0.9);return `<ellipse cx="${x}" cy="${y.toFixed(1)}" rx="4" ry="3" stroke-width="1.2"/><ellipse cx="${x+7}" cy="${y.toFixed(1)}" rx="3" ry="2.6" stroke-width="1.2"/><circle cx="${x+12}" cy="${y.toFixed(1)}" r="2.2" stroke-width="1.1" ${i%5===2?'class="acc"':''}/><path d="M${x+2} ${(y+3).toFixed(1)}l-3 4M${x+6} ${(y+3).toFixed(1)}l0 5M${x+9} ${(y+3).toFixed(1)}l3 4" stroke-width=".9"/>`}),
 dna:()=>`<path d="${golf(24,14,150,0)}" stroke-width="1.5"/><path d="${golf(24,14,150,Math.PI)}" stroke-width="1.5"/>${R(40,i=>{const x=8+i*15,y1=24+14*Math.sin(x/150*Math.PI*2),y2=24-14*Math.sin(x/150*Math.PI*2);return `<path d="M${x} ${y1.toFixed(1)}V${y2.toFixed(1)}" stroke-width=".9" ${i%4===1?'class="acc"':''} opacity=".8"/>`})}`,
 cellen:()=>R(9,i=>{const x=34+i*66,r=14+(i%3)*3;return `<circle cx="${x}" cy="24" r="${r}" stroke-width="1.4"/><circle cx="${x-3}" cy="${22+(i%2)*3}" r="${4}" stroke-width="1.1"/>${i%3===0?`<circle cx="${x-3}" cy="${22+(i%2)*3}" r="1.6" class="acc" fill="currentColor" stroke="none"/>`:''}${i%4===2?`<path d="M${x-r} 24h${2*r}" stroke-width=".8" stroke-dasharray="2 3" opacity=".6"/>`:''}`}),
@@ -1982,7 +2009,7 @@ const KMODUS=(()=>{const q=new URLSearchParams(location.search).get('k');if(q===
 const rv=href=>KMODUS?`<i class="rv rv-${REVIEW[href]||'open'}" title="${{ok:'klaar',feedback:'feedback'}[REVIEW[href]]||'nog bekijken'}"></i>`:'';
 let niveau=lees('niveau'); if(!NIVEAUS[niveau]) niveau='havo';
 let gezien={}; try{gezien=JSON.parse(lees('gezien')||'{}')||{}}catch(e){gezien={}}
-const alleFilms=Object.values(HOOFDSTUKKEN).flatMap(h=>h.films);
+const alleFilms=[...new Map(Object.values(HOOFDSTUKKEN).flatMap(h=>h.films).map(f=>[f.href,f])).values()];
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
 const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?\b/g,'').replace(/\s*·\s*\d+:\d+\b/g,'');

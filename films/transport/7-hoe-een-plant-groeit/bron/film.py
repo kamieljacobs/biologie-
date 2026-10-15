@@ -1,10 +1,10 @@
 import json
 film = {
- "slug": "7-hoe-een-plant-groeit", "hoofdstuk": "transport", "hoofdstukNaam": "Transport",
+ "slug": "7-hoe-een-plant-groeit", "hoofdstuk": "planten", "hoofdstukNaam": "Planten",
  "title": "Hoe een plant groeit", "sub": "En hoe hij naar het licht buigt",
  "puzzle": "Daan zet een zonnebloempje op de vensterbank. Twee dagen later buigt het naar het raam. Een plant heeft geen ogen en geen spieren: hoe kan hij naar het licht buigen?",
  "meta": "planten · groei en plantenhormonen", "version": "1.0 · oktober 2026", "titleLook": "schema", "alleen": "vwo",
- "seriesline": "Biologie bij Kamiel · Transport · planten",
+ "seriesline": "Biologie bij Kamiel · Planten (vwo H20)",
  "lead": "Een plant groeit alleen in zijn meristemen: in de top van de stengel en in de wortelpunt (lengte) en in het cambium (dikte). Achter de top delen cellen zich, strekken ze zich met water en differentiëren ze. Auxine uit de top maakt de celwand soepel. Bij licht van één kant gaat auxine naar de schaduwkant en buigt de stengel naar het licht (fototropie). Ligt een plant op zijn kant, dan komt auxine aan de onderkant: de stengel buigt omhoog, de wortel omlaag (gravitropie), omdat wortelcellen veel gevoeliger zijn voor auxine.",
  "endHaak": "welke kant strekt meer, en waarom?",
  "minis": {"Hoofdstuk 1": "Waar groeit een plant?", "Hoofdstuk 2": "Hoe wordt een cel zo lang?", "Hoofdstuk 3": "Hoe weten we dat er een stof uit de top komt?", "Hoofdstuk 4": "Waarom buigt de stengel naar het licht?", "Hoofdstuk 5": "Waarom gaat de wortel de andere kant op?", "Hoofdstuk 6": "Welke plantenhormonen zijn er nog?", "Recap": "Hoe buigt een plant zonder ogen en spieren?"},

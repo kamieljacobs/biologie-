@@ -3,7 +3,7 @@
 | Veld | Waarde |
 |---|---|
 | Bestand | films/transport/7-hoe-een-plant-groeit.html (audio in films/transport/7-hoe-een-plant-groeit/audio/) |
-| Reeks | Transport · planten (losse film, na *Transport in planten*) |
+| Reeks | Planten (hoofdstuk `planten` op de site, vwo H20); bestand staat om historische redenen in films/transport/ |
 | Niveau | vwo (één niveau; `film.alleen = "vwo"` verbergt de havo/vwo-schakelaar) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow p1OIm7h3RGpVBKSmumfR |
