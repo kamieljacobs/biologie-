@@ -40,7 +40,7 @@ for s in segs:
     elif s['kind'] == 'title':
         o['text'] = 'Celorganellen'; o['sub'] = 'Een fabriek die leeft'
     elif s['kind'] == 'card':
-        o['lines'] = ['Elk organel heeft een bouw die past bij zijn taak.', 'Uit de organellen van een cel lees je af wat de cel doet.', 'Alle zes levenskenmerken zitten al in één cel.']
+        o['lines'] = ['Elk organel heeft een bouw die past bij zijn taak.', 'Uit de organellen van een cel lees je af wat de cel doet.', 'Samen vormen ze één route: van bouwtekening tot product.']
     out.append(o)
 json.dump({'segments': out, 'chapters': chapters}, open('filmdata.json','w',encoding='utf-8'), ensure_ascii=False)
 tot = sum(o.get('dur',0) for o in out); bas = sum(o.get('dur',0) for o in out if o['level']=='basis')

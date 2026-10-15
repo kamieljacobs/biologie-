@@ -160,5 +160,13 @@ Regelnummers verwijzen naar film.src.html (= index.html; er zijn geen blobs, dus
 
 ## Wijzigingen
 
+**Versie 1.4 · 15 oktober 2026** (feedback Kamiel):
+- Levenskenmerken eruit (die staan al in de film *Van molecuul tot biosfeer*): het bord met zes kenmerken is weg uit alle scènes (`board()` wordt niet meer aangeroepen; `state.boardTimes=[]`), de opsomming in s04 en s27 en de zinnen "… licht op / op het bord" in s07, s09, s20, s21 zijn geschrapt; eindkaart regel 3 is nu "Samen vormen ze één route: van bouwtekening tot product."; checkvraag 3b, docenttabel en begrippenlijst aangepast.
+- "Voor vwo …" uit de gesproken tekst (s11, s17, s22, s26): de vwo-schakelaar en de paarse balk laten al zien dat het vwo-stof is.
+- ER wordt nu uitgesproken als "E-R" (stem-invoer `E-R`, variant 2 die Kamiel koos).
+- Geknipt zonder nieuwe opname (zin eruit met ffmpeg op de woordtijden, latere woordtijden verschoven): s04, s07, s17, s20, s21. Opnieuw ingesproken (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW, −16 LUFS, woordtijden Scribe): s09, s11, s22, s23, s26, s27. Audio-URL's in FILMDATA hebben `?v=14` tegen oude cache.
+- s27: kaart "één ruimte → afdelingen" hoger gezet (y 420) nu het bord weg is.
+
+
 - 15 okt 2026 (versie 1.1, alleen beeld, geen nieuwe opname) na feedback van Kamiel: rustigere textuur in de achtergrond/het cytoplasma (`grain()` in lib.js: 1400 kleine, zachte deeltjes); mRNA als dunne sliertige enkele streng met basenstreepjes (`mrnaStrand`); in de kern een badge TRANSCRIPTIE (één gen → werkkopie, teal) of DNA-REPLICATIE (al het DNA, vóór de deling, paars) plus 'één gen'-haak; eiwit als kralenketting die opvouwt en een vertakte suikerketen krijgt (`eiwitKeten`, s11; enzymen buiten de cel in s09); celmembraan in s09/s11 als gebogen stuk van een ronde cel (`membraanBoog`); glucose als zeshoek die in twee brokstukken van drie C breekt, O₂, CO₂ en ATP (base + suiker + drie fosfaten) als moleculen (s14, s16, s25; `molFlow`); namen zonder lange lijntjes in s11, s14, s25 (`naam`). Nieuwe helpers staan onderaan `src/lib.js`; de wijzigingen zijn in `index.html` gezet door de oude lib/scenes-tekst te vervangen.
-- Nog te doen (zie bouwlijst, Reviewfeedback per film): levenskenmerken eruit, uitspraak ER en 'voor vwo' weg (vraagt knippen/heropnames), presentatie nalopen.
+- Audiopunten verwerkt in versie 1.4 (hierboven).

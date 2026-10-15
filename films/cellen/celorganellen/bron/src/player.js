@@ -25,7 +25,7 @@ function buildTimeline(){
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
   // board cue times (global): slot -> time
   const cue=(id,word,n=1)=>{ const it=items.find(i=>i.seg&&i.seg.id===id); if(!it) return Infinity; const q=makeQ(it.seg); return it.start+q.at(word,n); };
-  state.boardTimes=[cue('s09','opbouwkant'), cue('s09','Groeien'), cue('s07','voortplanten'), cue('s21','Bewegen'), cue('s21','Reageren'), cue('s20','homeostase')];
+  state.boardTimes=[]; // levenskenmerkenbord verwijderd (v1.4)
 }
 function makeQ(seg){
   const words=seg.words||[]; const norm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,'');
@@ -39,13 +39,12 @@ const canvas=document.getElementById('stage'); const ctx=canvas.getContext('2d')
 canvas.width=W; canvas.height=H;
 function render(){
   const it=state.items[state.idx]; if(!it) return; const t=state.local; const gt=it.start+t;
-  for(let i=0;i<6;i++) state.board[i]=ramp(gt,state.boardTimes[i],1.0);
   ctx.save();
   if(it.type==='title') drawTitle(ctx,t);
   else if(it.type==='card') drawChapterCard(ctx,it,t);
   else if(it.type==='end') drawEnd(ctx,it,t);
   else if(it.type==='question') drawQuestion(ctx,it,t);
-  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); if(!['s01','s04','s11','s13','s17','s22','s26','s27'].includes(it.seg.id)) board(ctx,state.board,0.92); }
+  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
   // UI layer: vwo marker
   if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'vwo',60,46,C.paars,'left',24); }
   // series/level meta top-left (non-vwo items)

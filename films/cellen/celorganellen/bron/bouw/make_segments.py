@@ -39,7 +39,7 @@ for s in secs:
 json.dump(segments, open('segments.json','w',encoding='utf-8'), ensure_ascii=False, indent=1)
 # voice input substitutions
 subs = [
- (r'\bER\b', 'ee-er'), (r'\bER-', 'ee-er-'),
+ (r'\bER\b', 'E-R'), (r'\bER-', 'E-R-'),
  (r'\bDNA\b', 'dee-en-aa'),
  (r"'s nachts", 'snachts'),
  (r'\bWat denk je\?', 'Wat denk je?'),

@@ -56,7 +56,7 @@ s01(ctx,t,q,st){
 },
 // ---------- H1: levenskenmerken, bacterie vs eukaryoot ----------
 s04(ctx,t,q,st){
-  bg(ctx,'schema'); board(ctx,st.board,ramp(t,q.at('lijst'),0.8));
+  bg(ctx,'schema');
   // small eukaryote cell (left) vs bacterium
   const aCell=ramp(t,q.at('onderdelen'),0.6), aBac=ramp(t,q.at('bacterie',1),0.6);
   ctx.save(); ctx.globalAlpha=aCell; const Ls=cellLayout(520,440,300,180); ctx.save(); ctx.beginPath(); blob(ctx,520,440,312,192,0.04,1,0); ctx.clip(); ctx.fillStyle=C.bgMicro; ctx.fillRect(150,200,760,500); ctx.globalAlpha*=0.7; grain(ctx); ctx.restore();
@@ -375,12 +375,7 @@ s26(ctx,t,q,st){
 s27(ctx,t,q,st){
   bg(ctx,'schema');
   const rr=ramp(t,q.at('route'),0.6);
-  // big board while recapping the kenmerken
-  const bb=ramp(t,0.2,0.5)*(1-0.65*ramp(t,q.at('bacterie'),0.6))*(1-ramp(t,q.at('route'),0.6));
-  if(bb>0){ ctx.save(); ctx.globalAlpha=bb; metaText(ctx,'levenskenmerken',W/2,200,C.grain,'center',26);
-    KENMERKEN.forEach((k,i)=>{ const col=i%3,row=Math.floor(i/3); const x=300+col*460, y=260+row*150; const lit=ramp(t,q.at(['omzetten','Groeien','voortplanten','Bewegen','Reageren','evenwicht'][i]),0.4);
-      roundRect(ctx,x,y,420,110,14); ctx.fillStyle=rgba(C.groen,0.08+0.18*lit); ctx.fill(); ctx.strokeStyle=rgba(C.groen,0.4+0.6*lit); ctx.lineWidth=1.5; ctx.stroke(); text(ctx,k,x+210,y+68,fTekst(34,600),lit>0.5?C.text:C.text2,'center'); }); ctx.restore(); }
-  const ab=ramp(t,q.at('bacterie'),0.5)*(1-rr); if(ab>0){ card(ctx,300,600,1320,160,'één ruimte  →  afdelingen','Een bacterie doet alles in één ruimte. Jouw cel verdeelt het werk over organellen.',ab,C.teal); }
+  const ab=ramp(t,q.at('bacterie'),0.5)*(1-rr); if(ab>0){ card(ctx,300,420,1320,160,'één ruimte  →  afdelingen','Een bacterie doet alles in één ruimte. Jouw cel verdeelt het werk over organellen.',ab,C.teal); }
   const items=[['kern','bouwtekening'],['ribosomen','maken eiwit'],['ER','vouwen'],['golgisysteem','sorteert, verpakt'],['blaasjes','vervoer'],['membraan','poort']];
   items.forEach((it,i)=>{ const a=rr*ramp(t,q.at('route')+0.3*i,0.4); if(a<=0) return; const x=210+i*300; ctx.save(); ctx.globalAlpha=a; roundRect(ctx,x-125,440,250,110,14); shape(ctx,C.fill,C.goud,1); text(ctx,it[0],x,488,fTekst(32,600),C.text,'center'); metaText(ctx,it[1],x,524,C.grain,'center',18); if(i<5){ ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(x+132,495); ctx.lineTo(x+168,495); ctx.lineTo(x+160,488); ctx.moveTo(x+168,495); ctx.lineTo(x+160,502); ctx.stroke(); } ctx.restore(); });
   haak(ctx,100,1800,640,'een fabriek die leeft',C.groen,ramp(t,q.at('fabriek'),0.5));
