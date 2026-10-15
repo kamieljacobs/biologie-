@@ -245,6 +245,20 @@ footer a:hover{color:var(--text)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .rv{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:5px;vertical-align:middle;background:#E0A43A;opacity:.85}.rv-ok{background:#5BA47A}.rv-feedback{background:#D86A5A}
 .komt-lijst{display:grid;gap:14px;margin-top:8px}.komt-item{display:grid;grid-template-columns:18px 1fr;gap:12px;align-items:start;opacity:.82}.komt-o{width:11px;height:11px;border:2px solid var(--text3);border-radius:50%;margin-top:7px}.komt-item b{font-weight:600}.komt-item em,.kort.komt em{font-style:italic;font-weight:400;color:var(--text3);font-size:.9em;margin-left:4px}.komt-item p{margin:4px 0 0;color:var(--text2)}.komt-niv{font-size:.72em;color:var(--text3);margin-left:6px}.kort.komt{opacity:.7;cursor:default}
+/* levende lijntekeningen: af en toe beweegt er één (uit bij 'beweging verminderen') */
+@media (prefers-reduced-motion: no-preference){
+svg.kunst.leeft-klop{animation:bk-klop 1.6s ease-in-out}
+svg.kunst.leeft-wieg{animation:bk-wieg 2.4s ease-in-out}
+svg.kunst.leeft-drijf{animation:bk-drijf 2.6s ease-in-out}
+svg.kunst.leeft-adem{animation:bk-adem 2.8s ease-in-out}
+svg.kunst.leeft-draai{animation:bk-draai 3s ease-in-out}
+}
+@keyframes bk-klop{0%,100%{transform:scale(1)}15%{transform:scale(1.07)}30%{transform:scale(1)}45%{transform:scale(1.05)}60%{transform:scale(1)}}
+@keyframes bk-wieg{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+@keyframes bk-drijf{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes bk-adem{0%,100%{transform:scale(1,1)}50%{transform:scale(1.04,.97)}}
+@keyframes bk-draai{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 </style>
 </head>
 <body>
@@ -2046,6 +2060,17 @@ app.addEventListener('click',e=>{
 window.addEventListener('hashchange',render);
 themaKnop(); render();
 })();
+</script>
+<script>
+/* levende lijntekeningen: om de paar seconden doet één zichtbare tekening iets kleins */
+(function(){ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SOORT=['klop','wieg','drijf','adem','klop','wieg','drijf','draai'];
+  function zichtbaar(el){ const r=el.getBoundingClientRect(); return r.width>20&&r.bottom>0&&r.top<innerHeight&&r.right>0&&r.left<innerWidth; }
+  function stap(){ if(document.hidden) return; const svgs=[...document.querySelectorAll('svg.kunst:not(.fries)')].filter(zichtbaar); if(!svgs.length) return;
+    const el=svgs[Math.floor(Math.random()*svgs.length)]; if([...el.classList].some(c=>c.startsWith('leeft-'))) return;
+    let s=SOORT[Math.floor(Math.random()*SOORT.length)]; if(s==='draai'&&(el.classList.contains('plaatje')||Math.random()<.5)) s='drijf';
+    el.classList.add('leeft-'+s); el.addEventListener('animationend',()=>el.classList.remove('leeft-'+s),{once:true}); }
+  setInterval(stap,3200); })();
 </script>
 </body>
 </html>
