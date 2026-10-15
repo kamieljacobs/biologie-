@@ -92,7 +92,7 @@ body.havo .vonly{display:none}
   <div class="controls">
     <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
     <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
-    <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+    <span class="tog" id="snelheid" title="Afspeelsnelheid (wordt onthouden)"><button data-v="0.75">0,75×</button><button data-v="1">1×</button><button data-v="1.25">1,25×</button><button data-v="1.5">1,5×</button></span> <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
   </div>
   <p class="keys">Toetsen: <kbd>spatie</kbd> afspelen/pauze · <kbd>←</kbd> <kbd>→</kbd> 5 s terug/vooruit · <kbd>Shift</kbd>+<kbd>←</kbd> <kbd>→</kbd> 30 s · <kbd>↑</kbd> <kbd>↓</kbd> vorig/volgend hoofdstuk · <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> of <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> antwoorden · <kbd>Enter</kbd> verder (klas). Havo slaat de vwo-blokken over; <code>?niveau=havo</code> en <code>?modus=klas</code> in de link werken ook.</p>
 </div>
@@ -744,7 +744,7 @@ const params = new URLSearchParams(location.search);
 const state = {
   niveau: params.get('niveau')==='havo' ? 'havo' : 'vwo',
   modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
-  auto: false, captions: true, vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(), started:false,
+  auto: false, captions: true, snelheid: (()=>{ const p=parseFloat(params.get('snelheid')); if([0.75,1,1.25,1.5].includes(p)) return p; try{ const v=parseFloat(localStorage.getItem('bk-snelheid')); return [0.75,1,1.25,1.5].includes(v)?v:1; }catch(e){ return 1; } })(), vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(), started:false,
   playing:false, items:[], idx:0, local:0, qPhase:null
 };
 const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8; const CD=seg=>(seg&&seg.think)||COUNTDOWN;
@@ -843,7 +843,7 @@ function drawCaption(ctx,seg,t){ const cs=chunks(seg); let ch=null; for(const c 
   lines.forEach((l,i)=>text(ctx,l,W/2,y+52+i*54-6,fTekst(44,700),C.text,'center')); }
 
 // ---- transport ----
-const audio=document.getElementById('narration'); let clockStart=0, clockBase=0, curAudio=null;
+const audio=document.getElementById('narration'); function zetSnelheid(r){ if(state.items&&state.items[state.idx]&&state.items[state.idx].type!=='speech'){ clockBase=state.local; clockStart=performance.now()/1000; } state.snelheid=r; audio.defaultPlaybackRate=r; audio.playbackRate=r; try{ audio.preservesPitch=true; }catch(e){} document.querySelectorAll('#snelheid button').forEach(b=>b.classList.toggle('on',+b.dataset.v===r)); } let clockStart=0, clockBase=0, curAudio=null;
 function setAudio(seg){ if(curAudio!==seg.id){ audio.src=seg.audio; curAudio=seg.id; } }
 function qPhaseAt(seg,local){ const ad=seg.adur||0; if(local<ad) return {phase:'ask',start:0,chosen:null}; if(local<ad+CD(seg)) return {phase:'countdown',start:ad,chosen:null}; return {phase:'reveal',start:ad+COUNTDOWN,chosen:null}; }
 function gotoItem(i,local=0){ state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local+=it.off||0; state.local=local;
@@ -862,10 +862,10 @@ function tick(){
     else if(it.type==='question'){ const ph=state.qPhase;
       if(ph.phase==='ask'){ state.local=audio.currentTime; if(audio.ended||state.local>=(it.seg.adur||0)-0.02){ ph.phase='countdown'; ph.start=it.seg.adur||0; state.local=ph.start; clockBase=state.local; clockStart=performance.now()/1000; } }
       else if(ph.phase==='wait'){ /* hold */ }
-      else { state.local=clockBase+(performance.now()/1000-clockStart);
+      else { state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid;
         if(ph.phase==='countdown' && state.local-ph.start>=CD(it.seg)){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
         else if(ph.phase==='reveal' && state.local-ph.start>=revealDur(it.seg)) next(); } }
-    else { state.local=clockBase+(performance.now()/1000-clockStart); if(state.local>=it.dur) next(); }
+    else { state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid; if(state.local>=it.dur) next(); }
   }
   render(); updateTimeUI(); requestAnimationFrame(tick);
 }
@@ -893,7 +893,7 @@ function init(){
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen && !/iPhone|iPod/.test(navigator.userAgent)){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
   const setToggle=(id,key)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='vragen'){ try{ localStorage.setItem('bk-vragen',state.vragen); }catch(e){} buildTimeline(); buildChapterList(); let i=state.items.findIndex(it=>it.seg&&it.seg===was.seg); if(i<0) i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); }
         if(key==='niveau'){ buildTimeline(); buildChapterList(); const i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
-  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('vragen','vragen'); document.body.classList.toggle('havo',state.niveau==='havo');
+  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('vragen','vragen'); document.querySelectorAll('#snelheid button').forEach(b=>b.onclick=()=>{ zetSnelheid(+b.dataset.v); try{ localStorage.setItem('bk-snelheid',String(state.snelheid)); }catch(e){} }); zetSnelheid(state.snelheid); document.body.classList.toggle('havo',state.niveau==='havo');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
   canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!state.started){ play(); return; } if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
   document.addEventListener('keydown',e=>{ const tag=(e.target&&e.target.tagName)||''; if(tag==='INPUT'&&e.target.type!=='range') return; const g=()=>state.items[state.idx].start+state.local;
