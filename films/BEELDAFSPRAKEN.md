@@ -6,6 +6,9 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - **Geen korreltjes/stippen op de achtergrond** (15 okt 2026): de grain-laag is storend. Weg of heel rustig.
 - **Binnenkant van een cel (cytoplasma)**: een klein beetje textuur is goed — het laat zien dat cytoplasma iets is met opgeloste deeltjes — maar niet te veel. Weinig, kleine, rustige deeltjes; geen druk stippelpatroon.
 
+## Labels
+- **Labels direct bij het object**, zonder lange schuine verbindingslijnen. Een lijntje alleen als het echt moet, dan kort, en nooit door tekst heen (15 okt 2026: de lijntjes naar 'chloroplast' en 'mitochondrium' waren storend).
+
 ## Moleculen en celonderdelen
 - **mRNA** is een dunne, kronkelende, sliertige enkele streng — geen staafje of blokje.
 - **Eiwitten** zijn geen bolletjes: teken ze als een keten (kralenketting) die zich opvouwt tot een kluwen. Laat processen als vouwen en het vastmaken van suikerketens (vertakte zijtakjes) echt gebeuren in beeld.
