@@ -128,3 +128,7 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: hoofdstukkaart (slate) 2,2 s in plaats van 2,6 s. Vragen uit werkte al (de pauzerij 'Zet de film even stil.' en de pauzekaart worden overgeslagen); niets aan veranderd.
+- 15 okt 2026 — Audio-reparaties na feedback van Kamiel:
+  - `audio/ch_2.mp3`: na "…kan er ook geen leven ontstaan." (einde scène 2.1, spontane generatie) zat een onverstaanbaar geluidje van ± 1,2 s (16,33–17,65 s). Dat stuk is stilgezet; duur en tijden ongewijzigd.
+  - `audio/ch_4.mp3`: de zin "Het probleem is dus niet dat Mendel te ver van de verwachting zat, maar juist té dichtbij." (scène 4.10, 200,0–206,0 s) opnieuw ingesproken, want 'té' klonk als 'tee'. Nieuwe take: Roos (voice 7qdUFMklKPaaAVMsBTBt), eleven_v4, stem-invoer met gewoon "te" (zonder accent), -5,5 dB aangepast aan het hoofdstuk, ingevoegd op 200,15 s; hoofdstukduur gelijk gebleven. In `TIMING["4"]` van die rij `end` 204.54 → 205.3. Ondertitel houdt "té".
+  - Let op bij opnieuw inspreken (wachtlijst): schrijf in de stem-invoer "te" in plaats van "té".

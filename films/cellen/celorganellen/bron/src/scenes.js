@@ -182,7 +182,7 @@ s11(ctx,t,q,st){
   // second vesicle to lysosome
   if(t>tl){ const u=ramp(t,tl,1.5); const x=lerp(G.x+160,LY.x,u), y=lerp(G.y-30,LY.y,u); vesicle(ctx,x,y,18,1-ramp(t,tl+1.5,0.4)); metaText(ctx,'adreslabel: lysosoom',x,y-30,C.grain,'center',22); }
   // endocytosis
-  if(t>ten-2.5){ const u=ramp(t,ten-2.5,2.0); ctx.save(); ctx.strokeStyle=C.er; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(M7-70*u,700,60,-1.35,1.35,true); ctx.stroke(); ctx.restore(); if(u>0.95){ vesicle(ctx,M7-150-(t-ten)*30,700,34,1,C.ves,C.vesR); } naam(ctx,'endocytose','membraan stulpt in',M7-200,600,ramp(t,ten-2.5,0.5),'right'); }
+  { const tst=q.at('stulpt'), t0=tst-0.4, t1=ten+0.9; if(t>t0-1.0){ const ca=ramp(t,t0-1.0,0.6); instulp(ctx,yy=>memX(MC.x,MC.y,MC.R,yy),700,ramp(t,t0,t1-t0),Math.max(0,t-t1)*35,ca); naam(ctx,'endocytose','membraan stulpt in en snoert af',M7-60,610,ramp(t,ten,0.5),'right'); } }
   naam(ctx,'exocytose','blaasje versmelt met het celmembraan',MEM-40,380,ramp(t,te,0.5),'right');
   scaleBar(ctx);
 },

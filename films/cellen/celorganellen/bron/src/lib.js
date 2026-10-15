@@ -217,6 +217,21 @@ function chromatine(ctx,x,y,r,t=0){ ctx.save(); ctx.beginPath(); ctx.ellipse(x,y
     for(const k of [2,5]){ const [px,py]=pts[k]; ctx.lineWidth=1.6; ctx.beginPath(); for(let i=0;i<=24;i++){ const s=i/24*6.283*2.2; const rx=px+Math.cos(s)*(5+i*0.25), ry=py+Math.sin(s)*(5+i*0.25)*0.8; i?ctx.lineTo(rx,ry):ctx.moveTo(rx,ry);} ctx.stroke(); } }
   ctx.restore(); }
 // exocytose: blaasje versmelt met het celmembraan (membraan bij x=M, binnenkant links); f = 0..1
+function instulp(ctx,mx,y,f,drift=0,ca=1){ // endocytose: membraan (binnenlijn x = mx(y), buiten = rechts) stulpt in rond deeltjes en snoert af tot een blaasje
+  const e=ease(f), a=Math.min(e/0.8,1), R=44, op=lerp(2.95,0.06,a), M=mx(y)+4.5, cx0=M-R*Math.cos(op);
+  const ves=e>0.8, k=ves?ramp(e,0.8,0.2):0, cx=ves?cx0-60*ease(k)-drift:cx0;
+  const dbl=(path,fill)=>{ path(); if(fill){ ctx.fillStyle=fill; ctx.fill(); } ctx.strokeStyle=C.er; ctx.lineWidth=11; path(); ctx.stroke(); ctx.strokeStyle=C.bgMicro; ctx.lineWidth=7; path(); ctx.stroke(); };
+  ctx.save(); ctx.lineCap='butt';
+  if(!ves){ const gy=R*Math.sin(op)+38, L=26, Lm=30;
+    ctx.strokeStyle=C.bgMicro; ctx.lineWidth=18; ctx.beginPath(); for(let yy=y-gy-1;yy<=y+gy+1;yy+=3){ const x=mx(yy)+4.5; yy===y-gy-1?ctx.moveTo(x,yy):ctx.lineTo(x,yy);} ctx.stroke();
+    const Pt=[cx+R*Math.cos(op),y-R*Math.sin(op)], Pb=[cx+R*Math.cos(op),y+R*Math.sin(op)], s=Math.sin(op), c=Math.cos(op);
+    const path=()=>{ ctx.beginPath(); ctx.moveTo(mx(y-gy)+4.5,y-gy); ctx.bezierCurveTo(mx(y-gy+Lm)+4.5,y-gy+Lm,Pt[0]+L*s,Pt[1]+L*c,Pt[0],Pt[1]); ctx.arc(cx,y,R,2*Math.PI-op,op,true); ctx.bezierCurveTo(Pb[0]+L*s,Pb[1]-L*c,mx(y+gy-Lm)+4.5,y+gy-Lm,mx(y+gy)+4.5,y+gy); };
+    dbl(path,null);
+    ctx.fillStyle=C.er; for(let i=0;i<16;i++){ const ang=op+0.12+(2*Math.PI-2*op-0.24)*i/15; ctx.beginPath(); ctx.arc(cx+R*Math.cos(ang),y+R*Math.sin(ang),1.6,0,6.283); ctx.fill(); }
+  } else { dbl(()=>{ ctx.beginPath(); ctx.arc(cx,y,R,0,6.283); },rgba(C.ves,0.3));
+    ctx.fillStyle=C.er; for(let i=0;i<18;i++){ const ang=i*Math.PI/9; ctx.beginPath(); ctx.arc(cx+R*Math.cos(ang),y+R*Math.sin(ang),1.6,0,6.283); ctx.fill(); } }
+  ctx.globalAlpha*=ca; ctx.fillStyle=C.oker; for(const [dx,dy] of [[-12,-8],[10,-12],[2,12]]){ ctx.beginPath(); ctx.arc(Math.min(cx,M+30)+dx,y+dy,7,0,6.283); ctx.fill(); }
+  ctx.restore(); return cx; }
 function versmelt(ctx,M,y,f){ const e=ease(f), op=lerp(0.04,2.3,e), r=lerp(56,46,e), cx=M-r*Math.cos(op), gy=r*Math.sin(op), fade=1-ramp(f,0.85,0.15);
   ctx.save(); ctx.fillStyle=C.bgMicro; ctx.fillRect(M-2,y-gy,14,2*gy);
   ctx.globalAlpha*=0.75*fade+0.25; ctx.beginPath(); ctx.arc(cx,y,r,op,2*Math.PI-op,false); ctx.closePath(); ctx.fillStyle=C.ves; ctx.fill();

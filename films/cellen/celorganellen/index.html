@@ -375,6 +375,21 @@ function chromatine(ctx,x,y,r,t=0){ ctx.save(); ctx.beginPath(); ctx.ellipse(x,y
     for(const k of [2,5]){ const [px,py]=pts[k]; ctx.lineWidth=1.6; ctx.beginPath(); for(let i=0;i<=24;i++){ const s=i/24*6.283*2.2; const rx=px+Math.cos(s)*(5+i*0.25), ry=py+Math.sin(s)*(5+i*0.25)*0.8; i?ctx.lineTo(rx,ry):ctx.moveTo(rx,ry);} ctx.stroke(); } }
   ctx.restore(); }
 // exocytose: blaasje versmelt met het celmembraan (membraan bij x=M, binnenkant links); f = 0..1
+function instulp(ctx,mx,y,f,drift=0,ca=1){ // endocytose: membraan (binnenlijn x = mx(y), buiten = rechts) stulpt in rond deeltjes en snoert af tot een blaasje
+  const e=ease(f), a=Math.min(e/0.8,1), R=44, op=lerp(2.95,0.06,a), M=mx(y)+4.5, cx0=M-R*Math.cos(op);
+  const ves=e>0.8, k=ves?ramp(e,0.8,0.2):0, cx=ves?cx0-60*ease(k)-drift:cx0;
+  const dbl=(path,fill)=>{ path(); if(fill){ ctx.fillStyle=fill; ctx.fill(); } ctx.strokeStyle=C.er; ctx.lineWidth=11; path(); ctx.stroke(); ctx.strokeStyle=C.bgMicro; ctx.lineWidth=7; path(); ctx.stroke(); };
+  ctx.save(); ctx.lineCap='butt';
+  if(!ves){ const gy=R*Math.sin(op)+38, L=26, Lm=30;
+    ctx.strokeStyle=C.bgMicro; ctx.lineWidth=18; ctx.beginPath(); for(let yy=y-gy-1;yy<=y+gy+1;yy+=3){ const x=mx(yy)+4.5; yy===y-gy-1?ctx.moveTo(x,yy):ctx.lineTo(x,yy);} ctx.stroke();
+    const Pt=[cx+R*Math.cos(op),y-R*Math.sin(op)], Pb=[cx+R*Math.cos(op),y+R*Math.sin(op)], s=Math.sin(op), c=Math.cos(op);
+    const path=()=>{ ctx.beginPath(); ctx.moveTo(mx(y-gy)+4.5,y-gy); ctx.bezierCurveTo(mx(y-gy+Lm)+4.5,y-gy+Lm,Pt[0]+L*s,Pt[1]+L*c,Pt[0],Pt[1]); ctx.arc(cx,y,R,2*Math.PI-op,op,true); ctx.bezierCurveTo(Pb[0]+L*s,Pb[1]-L*c,mx(y+gy-Lm)+4.5,y+gy-Lm,mx(y+gy)+4.5,y+gy); };
+    dbl(path,null);
+    ctx.fillStyle=C.er; for(let i=0;i<16;i++){ const ang=op+0.12+(2*Math.PI-2*op-0.24)*i/15; ctx.beginPath(); ctx.arc(cx+R*Math.cos(ang),y+R*Math.sin(ang),1.6,0,6.283); ctx.fill(); }
+  } else { dbl(()=>{ ctx.beginPath(); ctx.arc(cx,y,R,0,6.283); },rgba(C.ves,0.3));
+    ctx.fillStyle=C.er; for(let i=0;i<18;i++){ const ang=i*Math.PI/9; ctx.beginPath(); ctx.arc(cx+R*Math.cos(ang),y+R*Math.sin(ang),1.6,0,6.283); ctx.fill(); } }
+  ctx.globalAlpha*=ca; ctx.fillStyle=C.oker; for(const [dx,dy] of [[-12,-8],[10,-12],[2,12]]){ ctx.beginPath(); ctx.arc(Math.min(cx,M+30)+dx,y+dy,7,0,6.283); ctx.fill(); }
+  ctx.restore(); return cx; }
 function versmelt(ctx,M,y,f){ const e=ease(f), op=lerp(0.04,2.3,e), r=lerp(56,46,e), cx=M-r*Math.cos(op), gy=r*Math.sin(op), fade=1-ramp(f,0.85,0.15);
   ctx.save(); ctx.fillStyle=C.bgMicro; ctx.fillRect(M-2,y-gy,14,2*gy);
   ctx.globalAlpha*=0.75*fade+0.25; ctx.beginPath(); ctx.arc(cx,y,r,op,2*Math.PI-op,false); ctx.closePath(); ctx.fillStyle=C.ves; ctx.fill();
@@ -618,7 +633,7 @@ s11(ctx,t,q,st){
   // second vesicle to lysosome
   if(t>tl){ const u=ramp(t,tl,1.5); const x=lerp(G.x+160,LY.x,u), y=lerp(G.y-30,LY.y,u); vesicle(ctx,x,y,18,1-ramp(t,tl+1.5,0.4)); metaText(ctx,'adreslabel: lysosoom',x,y-30,C.grain,'center',22); }
   // endocytosis
-  if(t>ten-2.5){ const u=ramp(t,ten-2.5,2.0); ctx.save(); ctx.strokeStyle=C.er; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(M7-70*u,700,60,-1.35,1.35,true); ctx.stroke(); ctx.restore(); if(u>0.95){ vesicle(ctx,M7-150-(t-ten)*30,700,34,1,C.ves,C.vesR); } naam(ctx,'endocytose','membraan stulpt in',M7-200,600,ramp(t,ten-2.5,0.5),'right'); }
+  { const tst=q.at('stulpt'), t0=tst-0.4, t1=ten+0.9; if(t>t0-1.0){ const ca=ramp(t,t0-1.0,0.6); instulp(ctx,yy=>memX(MC.x,MC.y,MC.R,yy),700,ramp(t,t0,t1-t0),Math.max(0,t-t1)*35,ca); naam(ctx,'endocytose','membraan stulpt in en snoert af',M7-60,610,ramp(t,ten,0.5),'right'); } }
   naam(ctx,'exocytose','blaasje versmelt met het celmembraan',MEM-40,380,ramp(t,te,0.5),'right');
   scaleBar(ctx);
 },
@@ -871,14 +886,21 @@ function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
     i=j+1; }
   return cuts; }
 function knipSamen(c){ c=c.filter(x=>x[1]>x[0]).sort((a,b)=>a[0]-b[0]); const o=[]; for(const x of c){ const l=o[o.length-1]; if(l&&x[0]<=l[1]) l[1]=Math.max(l[1],x[1]); else o.push([Math.max(0,x[0]),x[1]]); } return o; }
-function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ seg2.push(cur); cur=[]; } } if(cur.length) seg2.push(cur); seg2.forEach((z,i)=>{ const txt=z.map(x=>x.t).join(' '); const hit=(/\bantwoord\b/i.test(txt)&&!/begin/i.test(txt))||/^(dat (is|was) )?[abc]\.$/i.test(txt); if(hit){ const a=Math.max(0,z[0].s-0.05), b=seg2[i+1]?Math.max(a,seg2[i+1][0].s-0.05):(seg.dur||z[z.length-1].e+0.3); cuts.push([a,b]); } }); return cuts; }function antwKopCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=0; while(i<z.length&&/^(antwoord\b.*|(het )?antwoord is [abc]\.|[abc]\.)$/i.test(z[i].map(x=>x.t).join(' '))&&z[i].length<=4) i++; if(!i) return []; return [[Math.max(0,z[0][0].s-0.05),z[i]?z[i][0].s-0.05:(seg.dur||w[w.length-1].e+0.3)]]; } function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=z.length; while(i>0&&/\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; return [[Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]]; } function aud2it(it,t){ let d=t; for(const c of (it.cuts||[])){ if(t>c[0]) d-=Math.min(t,c[1])-c[0]; } return d; } function it2aud(it,u){ let t=u; for(const c of (it.cuts||[])){ if(t>=c[0]) t+=c[1]-c[0]; } return t; } function buildTimeline(){
+function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ seg2.push(cur); cur=[]; } } if(cur.length) seg2.push(cur); seg2.forEach((z,i)=>{ const txt=z.map(x=>x.t).join(' '); const hit=(/\bantwoord\b/i.test(txt)&&!/begin/i.test(txt)&&z.some(x=>/^(aa|bee|cee|a|b|c)[.,:]?$/i.test(x.t)))||/^(dat (is|was) )?[abc]\.$/i.test(txt); if(hit){ const a=Math.max(0,z[0].s-0.05), b=seg2[i+1]?Math.max(a,seg2[i+1][0].s-0.05):(seg.dur||z[z.length-1].e+0.3); cuts.push([a,b]); } }); return cuts; }function losAntwCuts(seg,aan){ const w=seg.words||[]; for(const x of w){ if(x._t0!==undefined){ x.t=x._t0; delete x._t0; } } if(!aan) return [];
+  const z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur);
+  const LET=/^(aa|bee|cee|a|b|c)[.,:]?$/i, OK=/^(het|antwoord|op|de|vraag|van|aan|begin|was|is|dus|dat|daar|beste|aa|bee|cee|a|b|c)[.,:]?$/i, cuts=[];
+  z.forEach((s,i)=>{ const txt=s.map(x=>x.t).join(' '); if(!/\bantwoord\b/i.test(txt)||!s.some(x=>LET.test(x.t))) return;
+    const k=s.findIndex(x=>/:$/.test(x.t));
+    if(k<0){ if(s.length<=12&&s.every(x=>OK.test(x.t))){ const a=Math.max(0,s[0].s-0.05), b=z[i+1]?z[i+1][0].s-0.05:(seg.dur||s[s.length-1].e+0.3); cuts.push([a,b]); } return; }
+    const pre=s.slice(0,k+1); if(k+1<s.length&&pre.length<=11&&pre.every(x=>OK.test(x.t))&&pre.some(x=>LET.test(x.t))&&pre.some(x=>/^antwoord/i.test(x.t))){ cuts.push([Math.max(0,s[0].s-0.05),s[k+1].s-0.03]); const r=s[k+1]; r._t0=r.t; r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); } });
+  return cuts; } function antwKopCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=0; while(i<z.length&&/^(antwoord\b.*|(het )?antwoord is [abc]\.|[abc]\.)$/i.test(z[i].map(x=>x.t).join(' '))&&z[i].length<=4) i++; if(!i) return []; return [[Math.max(0,z[0][0].s-0.05),z[i]?z[i][0].s-0.05:(seg.dur||w[w.length-1].e+0.3)]]; } function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=z.length; while(i>0&&/\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; return [[Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]]; } function aud2it(it,t){ let d=t; for(const c of (it.cuts||[])){ if(t>c[0]) d-=Math.min(t,c[1])-c[0]; } return d; } function it2aud(it,u){ let t=u; for(const c of (it.cuts||[])){ if(t>=c[0]) t+=c[1]-c[0]; } return t; } function buildTimeline(){
   const items=[]; let prevChapter=null, naQ=false, naKop=false;
   const SEGS=DATA.segments.filter(s=>!(state.niveau==='havo'&&s.level==='vwo')); for(let si=0;si<SEGS.length;si++){ const seg=SEGS[si];
     if(state.niveau==='havo' && seg.level==='vwo') continue;
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='card'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Cold open'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[])); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
+    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
     else if(seg.kind==='question' && state.vragen==='uit'){ if(seg.chapter==='Cold open') naKop=true; else naQ=seg.chapter; } else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;

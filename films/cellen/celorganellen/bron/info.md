@@ -189,3 +189,5 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
 - **DNA in de kern (s07):** nieuwe functie `chromatine()`: zes losse, zacht kronkelende draden met opgerolde stukjes en een kernlichaampje, in plaats van de zigzag-ringen.
 - **Exocytose (s11):** nieuwe functie `versmelt()`: het blaasje legt aan tegen het celmembraan, het membraan opent, het blaasje vlakt af tot een deel van het celmembraan en het eiwit komt naar buiten.
 - Aangepast in `index.html` en in `bron/src/` (lib.js, scenes.js).
+
+Wijziging 15 okt 2026 (2): endocytose (s11) opnieuw getekend met `instulp(ctx, mx, y, f, drift, ca)` in `lib.js`: drie deeltjes buiten de cel, het celmembraan (dubbele lijn) stulpt er geleidelijk omheen, de hals snoert dicht, het blaasje met de deeltjes laat los en drijft de cel in; het membraan is daarna weer heel. Timing: begint 0,4 s vóór 'stulpt', blaasje los kort na 'endocytose'. Naam 'endocytose · membraan stulpt in en snoert af' boven het blaasje.

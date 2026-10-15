@@ -102,3 +102,5 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'klompje cellen binnenin'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+Wijziging 15 okt 2026 (2): speler: bij Vragen uit vallen nu ook losse antwoordzinnen weg die niet direct na een vraag komen ("Terug naar de knie en het hart. Antwoord aa." in s11, "Het antwoord was dus aa." in de recap), via `losAntwCuts()` (in alle films van de hoofdengine).
