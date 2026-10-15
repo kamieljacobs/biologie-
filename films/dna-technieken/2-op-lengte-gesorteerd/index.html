@@ -2030,6 +2030,8 @@ function omgMount(root, opts) {
     <div class="omg-bar" role="slider" tabindex="0" aria-label="Tijdlijn van de film" aria-valuemin="0" aria-valuemax="${Math.round(dur)}" aria-valuenow="0">
       <div class="omg-track"></div><div class="omg-fill"></div><div class="omg-marks"></div><div class="omg-knob"></div>
     </div>
+    <button class="omg-btn omg-cc omg-vragen" type="button" aria-pressed="true" title="Tussendoorvragen aan of uit" ${Qs.length ? '' : 'hidden'}>Vragen aan</button>
+    <button class="omg-btn omg-cc omg-snel" type="button" title="Afspeelsnelheid">1×</button>
     <button class="omg-btn omg-cc" type="button" aria-pressed="true" title="Ondertitels aan/uit (C)">CC</button>
     ${hasQ ? `<div class="omg-mode" role="group" aria-label="Modus bij de voorspelvragen">
       <button type="button" data-m="leerling" title="De film gaat na 8 seconden vanzelf verder">Leerling</button>
@@ -2160,6 +2162,7 @@ function omgMount(root, opts) {
     if (st.phase === 'ask') { resumeQ(); return; }
     if (st.ended || st.t >= dur - 0.05) { seek(0); st.ended = false; }
     st.started = true; big.hidden = true;
+    audio.playbackRate = SV.r;
     const p = audio.play();
     if (p && p.catch) p.catch(() => { st.playing = false; syncPlayBtn(); big.hidden = false; });
     st.playing = true; syncPlayBtn(); st.dirty = true;
@@ -2201,6 +2204,7 @@ function omgMount(root, opts) {
   function tick() {
     raf = requestAnimationFrame(tick);
     if (st.playing) {
+      slaVraagOver();
       const now = audio.currentTime;
       for (const q of Qs) if (st.prev < q.t - 0.005 && now >= q.t - 0.03) { ask(q); break; }
       if (st.playing) { st.t = Math.min(now, dur); st.prev = st.t; st.dirty = true; }
@@ -2210,6 +2214,7 @@ function omgMount(root, opts) {
   }
   audio.addEventListener('timeupdate', () => {   // ook als het tabblad niet zichtbaar is
     if (!st.playing) return;
+    if (slaVraagOver()) return;
     const now = audio.currentTime;
     for (const q of Qs) if (st.prev < q.t - 0.005 && now >= q.t - 0.03) { ask(q); return; }
   });
@@ -2231,6 +2236,20 @@ function omgMount(root, opts) {
   }
   modeBtns.forEach(b => b.addEventListener('click', () => setMode(b.dataset.m)));
   setMode(st.mode);
+  // vragen- en snelheidsknop (gedeeld met de andere films via localStorage)
+  const SV = { v: 'aan', r: 1 };
+  try { if (localStorage.getItem('bk-vragen') === 'uit') SV.v = 'uit'; const r = parseFloat(localStorage.getItem('bk-snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; } catch (e) {}
+  { const u = new URLSearchParams(location.search); if (u.get('vragen') === 'uit') SV.v = 'uit'; if (u.get('vragen') === 'aan') SV.v = 'aan'; const r = parseFloat(u.get('snelheid')); if ([0.75, 1, 1.25, 1.5].includes(r)) SV.r = r; }
+  const vrBtn = $('.omg-vragen'), snBtn = $('.omg-snel');
+  const vensters = Qs.map(q => { const ql = TL.lines.find(l => l.ch === q.ch && l.i === q.after_line); const al = q.answerLine; const nx = al ? TL.lines.find(l => l.t0 > al.t1) : null;
+    return [ql ? ql.t0 - 0.15 : q.t - 0.05, nx ? nx.t0 - 0.12 : (al ? al.t1 + 0.3 : q.t + 0.1)]; });
+  function slaVraagOver() { if (SV.v !== 'uit') return false; const now = audio.currentTime;
+    for (const [a, b] of vensters) if (now >= a && now < b - 0.05) { try { audio.currentTime = b; } catch (e) {} st.t = b; st.prev = b; st.dirty = true; return true; }
+    return false; }
+  function zetKnoppen() { vrBtn.textContent = SV.v === 'aan' ? 'Vragen aan' : 'Vragen uit'; vrBtn.setAttribute('aria-pressed', String(SV.v === 'aan')); snBtn.textContent = String(SV.r).replace('.', ',') + '×'; audio.playbackRate = SV.r; }
+  vrBtn.addEventListener('click', () => { SV.v = SV.v === 'aan' ? 'uit' : 'aan'; try { localStorage.setItem('bk-vragen', SV.v); } catch (e) {} zetKnoppen(); });
+  snBtn.addEventListener('click', () => { const L = [1, 1.25, 1.5, 0.75]; SV.r = L[(L.indexOf(SV.r) + 1) % L.length]; try { localStorage.setItem('bk-snelheid', String(SV.r)); } catch (e) {} zetKnoppen(); });
+  zetKnoppen();
   const fsOK = !!(root.requestFullscreen || root.webkitRequestFullscreen);
   if (!fsOK) fsBtn.hidden = true;
   fsBtn.addEventListener('click', () => {
