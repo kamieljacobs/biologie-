@@ -7,7 +7,8 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - **Binnenkant van een cel (cytoplasma)**: een klein beetje textuur is goed — het laat zien dat cytoplasma iets is met opgeloste deeltjes — maar niet te veel. Weinig, kleine, rustige deeltjes; geen druk stippelpatroon.
 
 ## Labels
-- **Labels direct bij het object**, zonder lange schuine verbindingslijnen. Een lijntje alleen als het echt moet, dan kort, en nooit door tekst heen (15 okt 2026: de lijntjes naar 'chloroplast' en 'mitochondrium' waren storend).
+- **Geen wijslijnen naar begrippen** (15 okt 2026, Kamiel: "die lijntjes naar begrippen moeten sowieso weg, is te vaak fout"). De naam van een onderdeel staat **direct naast of op het onderdeel**, goed geplaatst, eventueel met een donkere rand rond de letters voor leesbaarheid. Geldt voor alle films; bestaande films worden reeks voor reeks omgezet (Celorganellen als eerste, met `naamBij()`).
+- Labels mogen niet over andere labels of over belangrijke delen van de tekening vallen; controleer dit op de contactbladen.
 
 ## Moleculen en celonderdelen
 - **mRNA** is een dunne, kronkelende, sliertige enkele streng — geen staafje of blokje.
@@ -24,3 +25,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 
 ## Personages
 - Gebruik de vaste personages uit `personages/lib_cast.js` (castboek: `personages/index.html`).
+
+## Processen in beeld
+- **Exocytose / endocytose:** laat het blaasje echt versmelten met het celmembraan (aanleggen, membraan opent, blaasje wordt deel van het membraan, inhoud naar buiten), niet een blaasje dat verdwijnt (15 okt 2026).
+- **DNA in de kern** als losse, zacht kronkelende draden (chromatine), geen zigzag- of veerpatroon (15 okt 2026).

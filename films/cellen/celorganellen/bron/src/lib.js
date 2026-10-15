@@ -60,15 +60,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -198,6 +207,22 @@ function naam(ctx, name, meta, x, y, alpha=1, align='center', color=C.text){
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
   text(ctx,name,x,y,fTekst(34,600),color,align); if(meta) metaText(ctx,meta,x,y+30,C.grain,align,22); ctx.restore();
 }
+// DNA in de kern (chromatine): losse, zacht kronkelende draden met hier en daar een opgerold stukje, plus een kernlichaampje
+function chromatine(ctx,x,y,r,t=0){ ctx.save(); ctx.beginPath(); ctx.ellipse(x,y,r*0.86,r*0.8,0,0,6.283); ctx.clip();
+  ctx.beginPath(); ctx.ellipse(x+r*0.22,y-r*0.12,r*0.16,r*0.14,0.3,0,6.283); ctx.fillStyle=rgba('#3E2E6A',0.75); ctx.fill();
+  const cols=[lighten(C.kernR,0.55),lighten(C.kernR,0.35)];
+  for(let d=0;d<6;d++){ const pts=[]; let a=hash(d*13+1)*6.283, rr=r*(0.25+0.45*hash(d*13+2)); for(let k=0;k<8;k++){ a+=0.7+hash(d*13+k*3+5)*0.9; rr=Math.max(r*0.12,Math.min(r*0.72,rr+(hash(d*13+k*3+6)-0.5)*r*0.35)); pts.push([x+Math.cos(a)*rr+Math.sin(t*0.4+d+k)*1.5,y+Math.sin(a)*rr*0.92+Math.cos(t*0.35+d*2+k)*1.5]); }
+    ctx.strokeStyle=cols[d%2]; ctx.lineWidth=2.6; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]); for(let k=1;k<pts.length-1;k++){ const mx=(pts[k][0]+pts[k+1][0])/2, my=(pts[k][1]+pts[k+1][1])/2; ctx.quadraticCurveTo(pts[k][0],pts[k][1],mx,my); } ctx.stroke();
+    // twee opgerolde stukjes per draad (zoals DNA rond eiwitten gewonden)
+    for(const k of [2,5]){ const [px,py]=pts[k]; ctx.lineWidth=1.6; ctx.beginPath(); for(let i=0;i<=24;i++){ const s=i/24*6.283*2.2; const rx=px+Math.cos(s)*(5+i*0.25), ry=py+Math.sin(s)*(5+i*0.25)*0.8; i?ctx.lineTo(rx,ry):ctx.moveTo(rx,ry);} ctx.stroke(); } }
+  ctx.restore(); }
+// exocytose: blaasje versmelt met het celmembraan (membraan bij x=M, binnenkant links); f = 0..1
+function versmelt(ctx,M,y,f){ const e=ease(f), op=lerp(0.04,2.3,e), r=lerp(56,46,e), cx=M-r*Math.cos(op), gy=r*Math.sin(op), fade=1-ramp(f,0.85,0.15);
+  ctx.save(); ctx.fillStyle=C.bgMicro; ctx.fillRect(M-2,y-gy,14,2*gy);
+  ctx.globalAlpha*=0.75*fade+0.25; ctx.beginPath(); ctx.arc(cx,y,r,op,2*Math.PI-op,false); ctx.closePath(); ctx.fillStyle=C.ves; ctx.fill();
+  ctx.globalAlpha=1; ctx.strokeStyle=C.er; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(cx,y,r,op,2*Math.PI-op,false); ctx.stroke();
+  for(const s of [-1,1]){ ctx.beginPath(); ctx.moveTo(cx+r*Math.cos(op),y+s*gy); ctx.quadraticCurveTo(M+4,y+s*(gy+3),M+9,y+s*(gy+6)); ctx.stroke(); }
+  ctx.restore(); }
 // ===== moleculen met een herkenbare vorm =====
 function hexPath(ctx,x,y,r,rot=0){ ctx.beginPath(); for(let i=0;i<6;i++){ const a=rot+i*Math.PI/3+Math.PI/6; const px=x+Math.cos(a)*r, py=y+Math.sin(a)*r; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.closePath(); }
 function glucoseMol(ctx,x,y,s=1,alpha=1,rot=0){ // zeshoekige ring

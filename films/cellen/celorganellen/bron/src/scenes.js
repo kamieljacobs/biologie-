@@ -93,14 +93,11 @@ s05(ctx,t,q,st){
 s07(ctx,t,q,st){
   bg(ctx,'micro'); const K={x:560,y:540,r:210};
   nucleus(ctx,K.x,K.y,K.r,1,t);
-  // chromatin: a few loose coiled threads (not a tangle)
-  ctx.save(); ctx.strokeStyle=lighten(C.kernR,0.45); ctx.lineWidth=2.2;
-  for(let th=0;th<4;th++){ ctx.beginPath(); const a0=th*1.6, r0=K.r*0.35+th*18; for(let i=0;i<=90;i++){ const a=a0+i/90*2.6; const r=r0+Math.sin(i*0.9+th)*9; const x=K.x+Math.cos(a)*r, y=K.y+Math.sin(a)*r*0.9; i?ctx.lineTo(x,y):ctx.moveTo(x,y);} ctx.stroke(); }
-  ctx.restore();
+  chromatine(ctx,K.x,K.y,K.r,t);
   // pores
   const ap=ramp(t,q.at('kernporiën'),0.5);
   const pores=[]; for(let i=0;i<10;i++){ const a=i/10*6.283; pores.push({x:K.x+Math.cos(a)*(K.r+7), y:K.y+Math.sin(a)*(K.r+7)*0.92, a}); ctx.save(); ctx.globalAlpha=ap; ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.beginPath(); ctx.arc(pores[i].x,pores[i].y,8,0,6.283); ctx.stroke(); ctx.restore(); }
-  label(ctx,'celkern','grootste losse organel',K.x-60,K.y-K.r+10,120,260,ramp(t,q.at('celkern'),0.5),C.text,'left');
+  label(ctx,'celkern','grootste losse organel',K.x,K.y-K.r*0.92-16,K.x,K.y-K.r-120,ramp(t,q.at('celkern'),0.5),C.text,'left');
   // ---- zoom circle: a piece of DNA as a double helix ----
   const az=ramp(t,q.at('dna',1),0.8); const Z={x:1300,y:520,r:230};
   const tm=q.at('werkkopieën'), tblijft=q.at('blijft'), trep=q.at('gekopieerd');
@@ -121,11 +118,11 @@ s07(ctx,t,q,st){
     if(bt&&ba>0.01){ ctx.save(); ctx.globalAlpha=ba; roundRect(ctx,Z.x-310,Z.y-Z.r-92,620,64,12); shape(ctx,rgba(C.bgSchema,0.92),bc,2); text(ctx,bt,Z.x,Z.y-Z.r-62,fTekst(30,700),bc,'center'); metaText(ctx,bs,Z.x,Z.y-Z.r-38,C.grain,'center',18); ctx.restore();
       ctx.save(); ctx.globalAlpha=ba; ctx.strokeStyle=bc; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(Z.x,Z.y,Z.r+5,0,6.283); ctx.stroke(); ctx.restore(); }
     if(copy>0.05){ ctx.save(); ctx.globalAlpha=copy*az; ctx.strokeStyle=C.goud; ctx.lineWidth=2; const gx0=Z.x-Z.r+30, gx1=Z.x+Z.r-30, gy=Z.y-74; ctx.beginPath(); ctx.moveTo(gx0,gy+10); ctx.lineTo(gx0,gy); ctx.lineTo(gx1,gy); ctx.lineTo(gx1,gy+10); ctx.stroke(); metaText(ctx,'één gen',Z.x,gy-10,C.goud,'center',20); ctx.restore(); } }
-  if(az>0){ label(ctx,'DNA','dubbele helix · basenparen als sporten',Z.x-Z.r*0.6,Z.y-Z.r*0.8,1000,228,az*(1-Math.max(ramp(copy,0,0.15),ramp(rep,0,0.15))),C.text,'left'); }
+  if(az>0){ label(ctx,'DNA','dubbele helix · basenparen als sporten',Z.x,Z.y-Z.r-16,Z.x,Z.y-Z.r-120,az*(1-Math.max(ramp(copy,0,0.15),ramp(rep,0,0.15))),C.text,'left'); }
   // mRNA strands leaving through pores into the cytoplasm (single wavy teal threads)
   const am=ramp(t,tm+4.5,0.8)*(1-ramp(t,q.at('bestuurt'),0.8));
   if(am>0){ for(let k=0;k<5;k++){ const p=pores[(k*3)%10]; const u=((t*0.22+hash(k+40))%1); const d=lerp(-60,220,u); const x=p.x+Math.cos(p.a)*d, y=p.y+Math.sin(p.a)*d*0.92; mrnaStrand(ctx,x,y,90,p.a,t+k,am*(u<0.85?1:(1-u)/0.15)); } }
-  label(ctx,'kernporiën','werkkopieën (RNA) gaan de kern uit',K.x-K.r*0.75,K.y+K.r*0.6,120,830,ap,C.text,'left');
+  label(ctx,'kernporiën','werkkopieën (RNA) gaan de kern uit',K.x,K.y+K.r*0.92+16,K.x,K.y+K.r+120,ap,C.text,'left');
   const ab=ramp(t,tblijft,0.5)*(1-ramp(t,q.at('bestuurt'),0.6)); if(ab>0) haak(ctx,Z.x-Z.r,Z.x+Z.r,Z.y+Z.r+60,'het DNA zelf blijft in de kern',C.groen,ab);
   // misconception card
   const mc=ramp(t,q.at('bestuurt'),0.5)*(1-ramp(t,q.at('deelt'),0.6));
@@ -172,14 +169,14 @@ s11(ctx,t,q,st){
   // channel in ER membrane
   if(t>tk-0.3){ ctx.save(); ctx.globalAlpha=ramp(t,tk,0.4); roundRect(ctx,ER.x-82,ER.y-20,28,44,7); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.2); ctx.fillStyle=C.ribo; ctx.beginPath(); ctx.arc(ER.x-68,ER.y-32,7,0,6.283); ctx.fill(); label(ctx,'kanaal','in het ER-membraan',ER.x-68,ER.y-14,330,250,ramp(t,tk,0.4)*(1-ramp(t,ts,0.5))); ctx.restore(); }
   // protein position over time
-  let px,py,inVes=false,lbl='';
+  let px,py,inVes=false,lbl='',fus=0;
   if(t<tv){ const u=ramp(t,tk,Math.max(tv-tk,0.1)); px=ER.x-68; py=ER.y-30+60*u; }
   else if(t<ts){ px=ER.x-20; py=ER.y+40; lbl='eerste suikerlabel'; }
   else if(t<tg){ const u=ramp(t,ts,Math.max(tg-ts,0.1)); px=lerp(ER.x+140,G.x-170,u); py=lerp(ER.y+70,G.y+30,u); inVes=true; }
   else if(t<ts2){ const u=ramp(t,tg,Math.max(ts2-tg,0.1)); px=G.x-100+200*u; py=G.y+40-14*Math.floor(u*4.99); lbl= t>tz?'suikers aangepast · adreslabel':''; }
-  else if(t<te+1){ const u=ramp(t,ts2,Math.max(tm-ts2,0.1)); px=lerp(G.x+160,MEM-14,u); py=lerp(G.y-30,460,u); inVes=u<1; lbl='adreslabel: celmembraan'; }
+  else if(t<te+1){ const u=ramp(t,ts2,Math.max(tm-ts2,0.1)); px=lerp(G.x+160,MEM-58,u); py=lerp(G.y-30,460,u); inVes=true; if(u>=1){ fus=ramp(t,tm+0.3,Math.max(te+1-tm-0.3,0.8)); const e=ease(fus); px=lerp(MEM-58,MEM+20,ramp(e,0.35,0.6)); } lbl='adreslabel: celmembraan'; }
   else { const u=ramp(t,te+1,1.2); px=MEM+20+200*u; py=460; lbl='buiten de cel'; }
-  if(inVes) vesicle(ctx,px,py,56,0.75);
+  if(inVes){ if(fus>0) versmelt(ctx,MEM,460,fus); else vesicle(ctx,px,py,56,0.75); }
   { const fold=t<tv?0:ramp(t,tv,1.6), sug=t<tv?0:ramp(t,tv+1.0,1.6), shown=t<tv?Math.max(0.1,ramp(t,tk,Math.max(tv-tk,0.1))):1; eiwitKeten(ctx,px,py+4,2.6,fold,sug,1,shown,t>tz?C.teal:C.groen,t); }
   if(lbl){ ctx.save(); roundRect(ctx,660,230,600,54,10); shape(ctx,rgba(C.bgSchema,0.9),C.goud,1); metaText(ctx,lbl,960,266,C.goud,'center',24); ctx.restore(); }
   // second vesicle to lysosome
@@ -237,7 +234,7 @@ s17(ctx,t,q,st){
   const y=500; mitochondrion(ctx,560,y,520,0,1,16); mitochondrion(ctx,1360,y,520,0,1,3);
   label(ctx,'hartspiercel','dicht opeengepakte cristae',560,y-110,330,240,ramp(t,q.at('hartspiercel'),0.5),C.text,'left');
   label(ctx,'witte vetcel','maar een paar cristae',1360,y-110,1130,240,ramp(t,q.at('vetcel'),0.5),C.text,'left');
-  const a2=ramp(t,q.at('binnenste'),0.5); label(ctx,'buitenmembraan','glad',500,y+104,330,690,a2,C.text,'right'); label(ctx,'binnenmembraan','geplooid tot cristae',640,y+60,800,690,a2,C.goud,'left');
+  const a2=ramp(t,q.at('binnenste'),0.5); naamBij(ctx,'buitenmembraan','glad',250,y+150,a2,'center'); naamBij(ctx,'binnenmembraan','geplooid tot cristae',560,y+150,a2,'center',C.goud);
   haak(ctx,300,1620,760,'uit de bouw van één mitochondrium lees je af hoe hard de cel werkt',C.groen,ramp(t,q.at('raden'),0.5));
 },
 // ---------- H5: lysosomen en vacuole ----------
@@ -279,7 +276,7 @@ s20(ctx,t,q,st){
   const aw=ramp(t,tw,0.5)*(t<tv?1:0); if(aw>0){ particleFlow(ctx,[[cx-rx-120,cy+60],[cx-rx*0.6,cy+40]],6,t,70,C.teal,5,700,aw); particleFlow(ctx,[[cx+rx+120,cy-60],[cx+rx*0.6,cy-40]],6,t,70,C.teal,5,800,aw); }
   // pressure arrows
   if(press>0){ ctx.save(); ctx.globalAlpha=press; ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; for(let i=0;i<8;i++){ const a=i/8*6.283; const x0=cx+Math.cos(a)*rx*0.5, y0=cy+Math.sin(a)*ry*0.5, x1=cx+Math.cos(a)*rx*0.82, y1=cy+Math.sin(a)*ry*0.82; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.stroke(); const an=Math.atan2(y1-y0,x1-x0); ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x1-12*Math.cos(an-0.5),y1-12*Math.sin(an-0.5)); ctx.moveTo(x1,y1); ctx.lineTo(x1-12*Math.cos(an+0.5),y1-12*Math.sin(an+0.5)); ctx.stroke(); } ctx.restore(); }
-  label(ctx,'vacuole','blaas met celvocht',cx-150,cy-120,140,300,ramp(t,q.at('vacuole'),0.5),C.text,'left');
+  label(ctx,'vacuole','blaas met celvocht',cx,cy-40,cx,cy-40,ramp(t,q.at('vacuole'),0.5),C.text,'left');
   label(ctx,'celwand','stevig · die zie je straks',cx+rx*0.7+10,cy+ry*0.72,1250,820,ramp(t,q.at('wand',1),0.5));
   // plant turgid / wilted pictogram (Schema icon) right
   const px=1500, py=620; ctx.save(); ctx.strokeStyle=C.groen; ctx.lineWidth=8; ctx.lineCap='round'; const droop=1-press; ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+40*droop,py-150+40*droop,px+120*droop,py-220+120*droop); ctx.stroke(); ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(px+10*droop,py-120+30*droop); ctx.quadraticCurveTo(px-60,py-170+60*droop,px-80+40*droop,py-130+90*droop); ctx.stroke(); ctx.restore(); metaText(ctx,press>0.5?'druk → stevig':'druk weg → slap',px,py+50,C.grain,'center',24);
@@ -296,7 +293,7 @@ s21(ctx,t,q,st){
     const ap=ramp(t,q.at('sommige'),0.4); for(let k=0;k<10;k++){ const x=400+k*90; const ph=(t*0.5+hash(k))%1; const passes=k%3!=0; let py; if(passes){ py=lerp(y-200,y+200,ph); } else { py=y-30-Math.abs(Math.sin(ph*6.283))*170; } ctx.save(); ctx.globalAlpha=ap; ctx.fillStyle=passes?C.teal:C.oker; ctx.beginPath(); ctx.arc(x,py,passes?7:11,0,6.283); ctx.fill(); ctx.restore(); }
     // receptor + hormone
     const ah=ramp(t,q.at('hormoon'),0.5); if(ah>0){ ctx.save(); ctx.globalAlpha=ah; roundRect(ctx,1400,y-40,40,80,10); shape(ctx,C.mens,lighten(C.mens,0.3),1.2); ctx.fillStyle=C.bgMicro; ctx.beginPath(); ctx.arc(1420,y-40,12,0,Math.PI,false); ctx.fill();
-      const u=ramp(t,q.at('hormoon'),1.2); ctx.fillStyle=C.teal; ctx.beginPath(); ctx.arc(1420,lerp(y-220,y-44,u),12,0,6.283); ctx.fill(); ctx.restore(); label(ctx,'ontvanger-eiwit','past precies op één hormoon',1440,y+30,1300,600,ah,C.text,'right'); label(ctx,'hormoon','signaal van buiten',1420,y-200,1250,230,ah,C.text,'right');
+      const u=ramp(t,q.at('hormoon'),1.2); ctx.fillStyle=C.teal; ctx.beginPath(); ctx.arc(1420,lerp(y-220,y-44,u),12,0,6.283); ctx.fill(); ctx.restore(); naamBij(ctx,'ontvanger-eiwit','past precies op één hormoon',1400,560,ah,'right'); label(ctx,'hormoon','signaal van buiten',1420,y-200,1250,230,ah,C.text,'right');
       const ar=ramp(t,q.at('verandert'),0.5); if(ar>0){ ctx.save(); ctx.globalAlpha=ar; ctx.strokeStyle=C.goud; ctx.lineWidth=2; for(let i=0;i<3;i++){ ctx.beginPath(); ctx.arc(1420,y+60,30+i*22+((t*40)%22),0.3,2.84); ctx.stroke(); } ctx.restore(); metaText(ctx,'de cel doet iets anders',1420,y+190,C.goud,'center',24); } }
     scaleBar(ctx);
   } else { // timelapse of the whole cell: everything moves
@@ -317,7 +314,7 @@ s22(ctx,t,q,st){
   const drift=ramp(t,q.at('drijven'),0.5)*(1-ramp(t,q.at('motoreiwitten'),0.5)); if(drift>0){ const w=wander(1,t,40,1.5); vesicle(ctx,700+w.x,400+w.y,16,drift); metaText(ctx,'drijven: geen richting',700,330,C.grain,'center',22); }
   const am=ramp(t,q.at('motoreiwitten'),0.5); if(am>0){ const u=((t-q.at('motoreiwitten'))*0.12)%1; const x=lerp(520,1360,u); vesicle(ctx,x,470,16,am);
     ctx.save(); ctx.globalAlpha=am; ctx.strokeStyle=C.goud; ctx.lineWidth=3; const step=Math.sin(t*8); ctx.beginPath(); ctx.moveTo(x,486); ctx.lineTo(x,500); ctx.lineTo(x-10+6*step,518); ctx.moveTo(x,500); ctx.lineTo(x+10-6*step,518); ctx.stroke(); ctx.restore(); label(ctx,'motoreiwit','loopt over de draad',x,500,x+60,620,am,C.text,'left'); }
-  label(ctx,'cytoskelet','rails door de cel',620,520,560,360,ramp(t,q.at('rails'),0.5),C.text,'left');
+  naamBij(ctx,'cytoskelet','rails door de cel',900,450,ramp(t,q.at('rails'),0.5),'center');
   scaleBar(ctx);
 },
 // ---------- H7: plantencel vs dierlijke cel (Schema comparison) ----------
@@ -343,7 +340,7 @@ s23(ctx,t,q,st){
   // sieve demo: particles stream through wall, membrane selects
   const az=ramp(t,tz,0.5)*(1-ramp(t,tc,0.5)); if(az>0){ ctx.save(); ctx.globalAlpha=az; for(let k=0;k<12;k++){ const u=((t*0.5+hash(k+900))%1); const x=lerp(P.cx-P.rx-140,P.cx-P.rx+60,u); const y=P.cy+ (hash(k)*2-1)*120; const stop = k%2 && u>0.78; ctx.fillStyle=k%2?C.oker:C.teal; ctx.beginPath(); ctx.arc(stop?P.cx-P.rx-6:x,y,k%2?12:8,0,6.283); ctx.fill(); } ctx.restore(); card(ctx,1300,560,560,170,'wand = zeef, membraan kiest','Alles stroomt door de celwand; alleen het membraan laat selectief door.',az,C.goud); }
   const aj=ramp(t,q.at('allebei',2),0.5)*(1-ramp(t,tc,0.5)); haak(ctx,P.cx-P.rx-30,P.cx+P.rx+30,base+70,'wand eromheen, membraan ertegenaan: allebei',C.groen,aj);
-  const al=ramp(t,q.at('lysosomen'),0.5)*(1-ramp(t,t3,0.5)); if(al>0) label(ctx,'lysosoom','vooral in dierlijke cellen',A.cx-150,A.cy+20,140,330,al,C.text,'left');
+  const al=ramp(t,q.at('lysosomen'),0.5)*(1-ramp(t,t3,0.5)); if(al>0) naamBij(ctx,'lysosoom','vooral in dierlijke cellen',A.cx-118,A.cy+30,al,'left');
   const ap=ramp(t,q.at('vast'),0.5)*(1-ramp(t,tw,0.5)); if(ap>0) card(ctx,1400,210,480,170,'een plant zit vast','en maakt zelf zijn voedsel. Dat zie je aan zijn cel: drie dingen extra.',ap,C.groen);
   const af=ramp(t,q.at('fotosynthese'),0.5)*(1-ramp(t,tv,0.4)); if(af>0) card(ctx,1300,560,560,150,'fotosynthese','lichtenergie + water + CO₂ → glucose',af,C.groen);
 },

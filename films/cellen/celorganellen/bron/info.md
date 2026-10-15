@@ -183,3 +183,9 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
   - fosfolipiden — "lipide" /liˈpidə/ (Wiktionary via kaikki.org); stem-invoer `fosfo-lipiden`.
   - steroïdhormonen — geen Nederlandse IPA gevonden; verwacht /steːroːˈit/ (ste-ro-ÏD, trema = aparte i). Stem-invoer `steroïd-hormonen`, alternatief `stero-ied-hormonen`.
   - glad E-R — "E-R" al goedgekeurd (15-10-2026); alleen controleren dat "glad" er niet aan vastplakt.
+
+## Wijziging 15 okt 2026 (beeld, feedback Kamiel)
+- **Geen wijslijnen meer naar begrippen.** `label()` tekent nu alleen de naam (en toelichting) direct naast het onderdeel, met een donkere rand voor leesbaarheid; de richting ax,ay → lx,ly bepaalt alleen nog aan welke kant de naam staat. Nieuwe hulpfunctie `naamBij(ctx,naam,toelichting,x,y,alpha,uitlijning,kleur)` voor vaste plekken; gebruikt in s17 (buiten-/binnenmembraan), s21 (ontvanger-eiwit), s22 (cytoskelet), s23 (lysosoom). Celkern, DNA en kernporiën in s07 staan nu boven/onder het object; vacuole in s20 in de vacuole.
+- **DNA in de kern (s07):** nieuwe functie `chromatine()`: zes losse, zacht kronkelende draden met opgerolde stukjes en een kernlichaampje, in plaats van de zigzag-ringen.
+- **Exocytose (s11):** nieuwe functie `versmelt()`: het blaasje legt aan tegen het celmembraan, het membraan opent, het blaasje vlakt af tot een deel van het celmembraan en het eiwit komt naar buiten.
+- Aangepast in `index.html` en in `bron/src/` (lib.js, scenes.js).
