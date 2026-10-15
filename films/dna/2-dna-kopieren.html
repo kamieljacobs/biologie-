@@ -92,7 +92,7 @@ body.havo .vonly{display:none}
   <div class="controls">
     <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
     <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
-    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+    <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
   </div>
   <p class="keys">Toetsen: <kbd>spatie</kbd> afspelen/pauze · <kbd>←</kbd> <kbd>→</kbd> 5 s terug/vooruit · <kbd>Shift</kbd>+<kbd>←</kbd> <kbd>→</kbd> 30 s · <kbd>↑</kbd> <kbd>↓</kbd> vorig/volgend hoofdstuk · <kbd>A</kbd> <kbd>B</kbd> <kbd>C</kbd> of <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> antwoorden · <kbd>Enter</kbd> verder (klas). Havo slaat de vwo-blokken over; <code>?niveau=havo</code> en <code>?modus=klas</code> in de link werken ook.</p>
 </div>
@@ -761,22 +761,22 @@ const params = new URLSearchParams(location.search);
 const state = {
   niveau: params.get('niveau')==='havo' ? 'havo' : 'vwo',
   modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
-  auto:false, captions:true, started:false,
+  auto: false, captions: true, vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(), started:false,
   playing:false, items:[], idx:0, local:0, qPhase:null
 };
 const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8; const CD=seg=>(seg&&seg.think)||COUNTDOWN;
 const revealDur=seg=>seg.explain?6:2.5;
 
 // ---- timeline ----
-function buildTimeline(){
-  const items=[]; let prevChapter=null;
+function antwOff(seg){ const w=seg.words||[]; if(w.length<2) return 0; const f=w[0].t.toLowerCase().replace(/[^a-z]/g,''); if(!(f==='antwoord'||/^[abc]$/.test(f))) return 0; for(let k=0;k<Math.min(4,w.length-1);k++){ if(/\.$/.test(w[k].t)) return Math.max(0,w[k+1].s-0.08); } return 0; } function buildTimeline(){
+  const items=[]; let prevChapter=null, naQ=false;
   for(const seg of DATA.segments){
     if(state.niveau==='havo' && seg.level==='vwo') continue;
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='end'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Opening'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:seg.level}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
-    else if(seg.kind==='question') items.push({type:'question',seg,dur:(seg.adur||0)+CD(seg)+revealDur(seg),level:seg.level,chapter:seg.chapter});
+    if(seg.kind==='speech'){ const off=naQ?antwOff(seg):0; naQ=false; items.push({type:'speech',seg,dur:seg.dur-off,off,level:seg.level,chapter:seg.chapter}); }
+    else if(seg.kind==='question' && state.vragen==='uit') naQ=true; else if(seg.kind==='question') items.push({type:'question',seg,dur:(seg.adur||0)+CD(seg)+revealDur(seg),level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
 }
@@ -839,7 +839,7 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:y0+i*gap,w:1680,h:hgt,i}));
 }
 // captions: phrase chunks, at most two lines, in the ondertitelkast
-function chunks(seg){ if(seg._chunks) return seg._chunks; const MAX=112, L=w=>w.reduce((a,x)=>a+x.t.length+1,0);
+function chunks(seg){ const it=state.items[state.idx]; const off=(it&&it.seg===seg&&it.off)||0; const cs=chunks0(seg); return off?cs.map(c=>c.filter(w=>w.s>=off-0.1)).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const MAX=112, L=w=>w.reduce((a,x)=>a+x.t.length+1,0);
   // 1. sentences
   const sents=[]; let cur=[]; for(const w of seg.words){ cur.push(w); if(/[.?!]$/.test(w.t)){ sents.push(cur); cur=[]; } } if(cur.length) sents.push(cur);
   // 2. split long sentences at the best break: clause mark near the middle, else a balanced word break that never ends on a small word
@@ -863,7 +863,7 @@ function drawCaption(ctx,seg,t){ const cs=chunks(seg); let ch=null; for(const c 
 const audio=document.getElementById('narration'); let clockStart=0, clockBase=0, curAudio=null;
 function setAudio(seg){ if(curAudio!==seg.id){ audio.src=seg.audio; curAudio=seg.id; } }
 function qPhaseAt(seg,local){ const ad=seg.adur||0; if(local<ad) return {phase:'ask',start:0,chosen:null}; if(local<ad+CD(seg)) return {phase:'countdown',start:ad,chosen:null}; return {phase:'reveal',start:ad+COUNTDOWN,chosen:null}; }
-function gotoItem(i,local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx];
+function gotoItem(i,local=0){ state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local+=it.off||0; state.local=local;
   state.qPhase= it.type==='question'? qPhaseAt(it.seg,local):null;
   if(it.type==='speech' || (it.type==='question'&&it.seg.audio&&local<(it.seg.adur||0))){ setAudio(it.seg); try{ audio.currentTime=local; }catch(e){} if(state.playing) audio.play().catch(()=>{}); }
   else audio.pause();
@@ -875,7 +875,7 @@ function pause(){ state.playing=false; document.getElementById('play').textConte
 function tick(){
   const it=state.items[state.idx];
   if(state.playing && it){
-    if(it.type==='speech'){ state.local=audio.currentTime; if(audio.ended || state.local>=it.dur-0.02) next(); }
+    if(it.type==='speech'){ state.local=audio.currentTime; if(audio.ended || state.local>=(it.off||0)+it.dur-0.02) next(); }
     else if(it.type==='question'){ const ph=state.qPhase;
       if(ph.phase==='ask'){ state.local=audio.currentTime; if(audio.ended||state.local>=(it.seg.adur||0)-0.02){ ph.phase='countdown'; ph.start=it.seg.adur||0; state.local=ph.start; clockBase=state.local; clockStart=performance.now()/1000; } }
       else if(ph.phase==='wait'){ /* hold */ }
@@ -896,7 +896,7 @@ function chapterJump(dir){ const it=state.items[state.idx]; const starts=[]; let
 
 // ---- UI ----
 function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
-function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local-(it.off||0); document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
 function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on',li.dataset.ch===it.chapter)); }
 function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
   for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const allV=DATA.segments.filter(s=>s.chapter===it.chapter&&s.kind!=='title').every(s=>s.level==='vwo'); const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
@@ -908,9 +908,9 @@ function init(){
   document.getElementById('verder').onclick=verder;
   document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen && !/iPhone|iPod/.test(navigator.userAgent)){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
-  const setToggle=(id,key)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  const setToggle=(id,key)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='vragen'){ try{ localStorage.setItem('bk-vragen',state.vragen); }catch(e){} buildTimeline(); buildChapterList(); let i=state.items.findIndex(it=>it.seg&&it.seg===was.seg); if(i<0) i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); }
         if(key==='niveau'){ buildTimeline(); buildChapterList(); const i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
-  setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('havo',state.niveau==='havo');
+  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('vragen','vragen'); document.body.classList.toggle('havo',state.niveau==='havo');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
   canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!state.started){ play(); return; } if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
   document.addEventListener('keydown',e=>{ const tag=(e.target&&e.target.tagName)||''; if(tag==='INPUT'&&e.target.type!=='range') return; const g=()=>state.items[state.idx].start+state.local;

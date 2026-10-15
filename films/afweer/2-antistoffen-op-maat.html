@@ -87,7 +87,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
   <div class="controls">
     <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
     <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
-    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+    <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
   </div>
   <details class="keys"><summary>Toetsen</summary><p><b>spatie</b> afspelen/pauze · <b>← →</b> 5 s terug/vooruit · <b>Shift + ← →</b> 30 s · <b>↑ ↓</b> vorig/volgend hoofdstuk · <b>A B C</b> of <b>1 2 3</b> antwoord kiezen · <b>Enter</b> verder (klas). Een pijltje vóór de start start de film.</p></details>
 </div>
@@ -1465,7 +1465,7 @@ const params = new URLSearchParams(location.search);
 const state = { reduce:false,
   niveau: params.get('niveau')==='havo' ? 'havo' : 'vwo',
   modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
-  auto: false, captions: true,
+  auto: false, captions: true, vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(),
   playing:false, t:0, items:[], idx:0, local:0,
   qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
   board:[0,0,0,0,0,0]
@@ -1473,15 +1473,15 @@ const state = { reduce:false,
 const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
 
 // ---- build timeline ----
-function buildTimeline(){
-  const items=[]; let prevChapter=null;
+function antwOff(seg){ const w=seg.words||[]; if(w.length<2) return 0; const f=w[0].t.toLowerCase().replace(/[^a-z]/g,''); if(!(f==='antwoord'||/^[abc]$/.test(f))) return 0; for(let k=0;k<Math.min(4,w.length-1);k++){ if(/\.$/.test(w[k].t)) return Math.max(0,w[k+1].s-0.08); } return 0; } function buildTimeline(){
+  const items=[]; let prevChapter=null, naQ=false;
   for(const seg of DATA.segments){
     if(state.niveau==='havo' && seg.level==='vwo') continue;
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='card'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Cold open'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
-    else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
+    if(seg.kind==='speech'){ const off=naQ?antwOff(seg):0; naQ=false; items.push({type:'speech',seg,dur:seg.dur-off,off,level:seg.level,chapter:seg.chapter}); }
+    else if(seg.kind==='question' && state.vragen==='uit') naQ=true; else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
 }
@@ -1543,7 +1543,7 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
 }
 // captions: phrase chunks of ≤ 2 lines ≤ 44 chars
-function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+function chunks(seg){ const it=state.items[state.idx]; const off=(it&&it.seg===seg&&it.off)||0; const cs=chunks0(seg); return off?cs.map(c=>c.filter(w=>w.s>=off-0.1)).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
   for(const w of seg.words){ const t=w.t.replace(/\b(ee-er)\b/gi,'ER').replace(/dee-en-aa/gi,'DNA'); cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
     const comma=/[,;]$/.test(t);
     if(len>88||(endS&&len>24)||(comma&&len>48)){ out.push(cur); cur=[]; len=0; } }
@@ -1557,7 +1557,7 @@ function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && 
 
 // ---- transport ----
 const audio=document.getElementById('narration'); let clockStart=0, clockBase=0; let raf=0;
-function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx]; state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local+=it.off||0; state.local=local; state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
   if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
   else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
   updateChapterUI(); }
@@ -1567,7 +1567,7 @@ function pause(){ state.playing=false; document.getElementById('play').textConte
 function tick(){
   const it=state.items[state.idx];
   if(state.playing && it){
-    if(it.type==='speech'){ state.local=audio.currentTime; if(audio.ended || state.local>=it.dur-0.02){ next(); } }
+    if(it.type==='speech'){ state.local=audio.currentTime; if(audio.ended || state.local>=(it.off||0)+it.dur-0.02){ next(); } }
     else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart); const ph=state.qPhase;
       if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
       else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
@@ -1581,7 +1581,7 @@ function verder(){ const ph=state.qPhase; if(!ph) return; if(ph.phase!=='reveal'
 
 // ---- UI wiring ----
 function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
-function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local-(it.off||0); document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
 function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
 function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
   for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
@@ -1593,9 +1593,9 @@ function init(){
   document.getElementById('verder').onclick=verder;
   document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
-  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='vragen'){ try{ localStorage.setItem('bk-vragen',state.vragen); }catch(e){} buildTimeline(); buildChapterList(); let i=state.items.findIndex(it=>it.seg&&it.seg===was.seg); if(i<0) i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); } if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
         const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('havo',state.niveau==='havo'); } }; }); };
-  setToggle('niveau','niveau'); setToggle('modus','modus'); document.body.classList.toggle('havo',state.niveau==='havo');
+  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('vragen','vragen'); document.body.classList.toggle('havo',state.niveau==='havo');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
   canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
   document.addEventListener('keydown',e=>{
