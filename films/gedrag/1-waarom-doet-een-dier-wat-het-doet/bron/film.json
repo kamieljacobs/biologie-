@@ -1,0 +1,74 @@
+{
+ "slug": "1-waarom-doet-een-dier-wat-het-doet",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Waarom doet een dier wat het doet?",
+ "sub": "Gedrag onderzoeken als bioloog",
+ "puzzle": "In het voorjaar van 1935 schiet een stekelbaarsmannetje in een aquarium in dreighouding naar de ruit als buiten een rode postauto voorbijrijdt. Waarom?",
+ "meta": "gedrag · sleutelprikkel en vier vragen",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 1 van 9",
+ "lead": "Gedrag is een reactie op prikkels. Een sleutelprikkel is één kenmerk dat een vaste reactie uitlokt, zoals rood aan de onderkant bij een stekelbaars. Aangeboren gedrag hoeft een dier niet te leren; aangeleerd gedrag ontstaat door ervaring, en veel gedrag is een mix, zoals de zang van de vink. Bij elk gedrag kun je vier vragen stellen (Tinbergen): oorzaak, ontwikkeling, functie en evolutie.",
+ "endHaak": "welke van de vier vragen beantwoord je eigenlijk?",
+ "minis": {
+  "Hoofdstuk 1": "Waar reageert de stekelbaars precies op?",
+  "Hoofdstuk 2": "Moet een dier zijn gedrag leren?",
+  "Hoofdstuk 3": "Welke vier vragen kun je bij gedrag stellen?",
+  "Recap": "Waarom viel de stekelbaars de postauto aan?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Sam (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Een stekelbaarsmannetje schiet in dreighouding naar de ruit als buiten een rode postauto voorbijrijdt. Waarom?",
+   "correct": 1,
+   "explain": "Het antwoord zie je in hoofdstuk 1."
+  },
+  "q05": {
+   "q": "Welk model valt het mannetje het vaakst aan?",
+   "correct": 1,
+   "explain": "Eén kenmerk is genoeg: rood aan de onderkant. Dat is een sleutelprikkel."
+  },
+  "q08": {
+   "q": "Een jonge vink groeit op zonder ooit een andere vink te horen zingen. Wat zingt hij later?",
+   "correct": 1,
+   "explain": "De aanleg is aangeboren; het complete lied met slotroffel is aangeleerd."
+  },
+  "q11": {
+   "q": "Sam zegt: de stekelbaars valt aan om zijn nest te beschermen. Op welke vraag geeft Sam antwoord?",
+   "correct": 1,
+   "explain": "Wat het gedrag oplevert is de functie, niet de oorzaak."
+  }
+ },
+ "glossary": [
+  {
+   "t": "gedrag",
+   "d": "Alles wat een organisme doet als reactie op prikkels uit de omgeving of uit het eigen lichaam."
+  },
+  {
+   "t": "prikkel",
+   "d": "Een verandering in of buiten het lichaam die een reactie kan uitlokken."
+  },
+  {
+   "t": "sleutelprikkel",
+   "d": "Eén kenmerk dat een vaste reactie uitlokt, zoals rood aan de onderkant bij een stekelbaars."
+  },
+  {
+   "t": "aangeboren gedrag",
+   "d": "Gedrag dat een dier niet hoeft te leren en dat bij alle soortgenoten op dezelfde manier verloopt."
+  },
+  {
+   "t": "aangeleerd gedrag",
+   "d": "Gedrag dat ontstaat door ervaring."
+  },
+  {
+   "t": "vier vragen van Tinbergen",
+   "d": "Oorzaak (hoe werkt het nu?), ontwikkeling (hoe ontstaat het in zijn leven?), functie (wat levert het op?), evolutie (waar komt het vandaan?)."
+  },
+  {
+   "t": "nabije en uiteindelijke oorzaken",
+   "d": "vwo · Nabij: oorzaak en ontwikkeling, over dit ene dier. Uiteindelijk: functie en evolutie, over de soort."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Zilvermeeuwkuikens</b> <span class=\"pts\">3 punten</span><p>Een zilvermeeuwkuiken pikt naar de rode vlek op de snavel van zijn ouder; dan braakt de ouder voedsel op. Tinbergen bood kuikens kartonnen koppen aan: een echte kop zonder rode vlek, en een losse stok met een rode vlek.</p>\n      <p>a. De kuikens pikten vaker naar de stok met de rode vlek dan naar de echte kop zonder vlek. Wat is hier de sleutelprikkel? (1p)<br>b. Kuikens doen dit al op hun eerste dag, zonder het ooit gezien te hebben. Leg uit of dit aangeboren of aangeleerd gedrag is. (1p)<br>c. Noem een functie van dit pikgedrag. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. De rode vlek (op de snavel) (1). b. Aangeboren: het kuiken hoeft het niet te leren en doet het zonder voorbeeld (1). c. Voedsel krijgen: de ouder braakt voedsel op, het kuiken overleeft/groeit (1).</p></details></div>\n    <div class=\"q\"><b>2. Vier vragen</b> <span class=\"pts\">4 punten</span><p>Een merel zingt in het voorjaar. Hieronder staan vier uitspraken.<br>1 Merels die luid zingen, houden hun territorium en krijgen meer jongen.<br>2 Als de dagen langer worden, maakt het mannetje meer testosteron, en dan gaat hij zingen.<br>3 Een jonge merel leert het lied van merels in de buurt in zijn eerste jaar.<br>4 Verwante lijsters zingen ook, en hebben vergelijkbare zangpatronen.</p>\n      <p>Geef bij elke uitspraak aan op welke van de vier vragen van Tinbergen ze antwoord geeft: oorzaak, ontwikkeling, functie of evolutie. (4p)</p>\n      <details><summary>Antwoord</summary><p>1 functie · 2 oorzaak · 3 ontwikkeling · 4 evolutie (elk 1).</p></details></div>\n    <div class=\"q\"><b>3. Vinkenzang</b> <span class=\"pts\">2 punten</span><p>Jonge vinken die in een geluiddichte kooi opgroeien, zingen later een eenvoudig lied zonder slotroffel.</p>\n      <p>Leg met deze waarneming uit dat vinkenzang zowel aangeboren als aangeleerd is. (2p)</p>\n      <details><summary>Antwoord</summary><p>Aangeboren: ze zingen wel, zonder ooit een voorbeeld te horen (1). Aangeleerd: het complete lied met slotroffel ontstaat alleen als ze in hun eerste levensjaar volwassen vinken horen (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Nabij en uiteindelijk</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Een leerling zegt: \"Een stekelbaars valt rivalen aan omdat hij zo meer jongen krijgt.\" Een andere leerling zegt: \"Nee, hij valt aan omdat hij rood ziet en veel testosteron heeft.\"</p>\n      <p>Leg uit dat de leerlingen elkaar niet tegenspreken. Gebruik de begrippen nabije en uiteindelijke oorzaak. (2p)</p>\n      <details><summary>Antwoord</summary><p>De eerste geeft een uiteindelijke oorzaak (functie: waarom het gedrag bij de soort is gebleven) (1); de tweede een nabije oorzaak (hoe het nu in het dier werkt). Het zijn antwoorden op verschillende vragen (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Lab in Leiden (± 1935): aquarium op de vensterbank, rode postauto rijdt voorbij, het mannetje schiet in dreighouding naar de ruit. Openingsvraag (antwoord in H1)</td></tr>\n      <tr><td>1 De sleutelprikkel</td><td>Tinbergen; echt model zonder rood naast ruwe modellen met rode onderkant; staafjes met aantal aanvallen; sleutel en slot; prikkel → reactie</td></tr>\n      <tr><td>2 Aangeboren of aangeleerd?</td><td>Apart opgegroeid mannetje reageert op rood; definities; Thorpe: vink in geluiddichte kooi; twee sonogrammen (zonder en met slotroffel)</td></tr>\n      <tr><td>3 Vier vragen</td><td>Bord met oorzaak, ontwikkeling, functie, evolutie, ingevuld voor de stekelbaars; Sams uitspraak = functie; vis 'denkt' niet; vwo: nabije en uiteindelijke oorzaken, Nobelprijs 1973; gapen als menselijk voorbeeld</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>De postauto-anekdote: Tinbergen beschreef dat mannetjes in aquaria op de vensterbank van het Leidse lab reageerden op voorbijrijdende rode postauto's (The Study of Instinct, 1951). De modellenproef: ruwe modellen met rode onderkant lokten meer aanvallen uit dan een getrouw model zonder rood. Latere herhalingen laten zien dat ook vorm en houding enigszins meetellen.</li>\n      <li>Vinken: W.H. Thorpe (jaren vijftig). Geïsoleerde vinken zingen een eenvoudig lied zonder slotroffel; het volledige lied leren ze in hun eerste levensjaar.</li>\n      <li>Vier vragen: Tinbergen (1963), in de methodes ook wel mechanisme/oorzaak, ontwikkeling, functie, evolutie. Het onderscheid nabij/uiteindelijk komt van Ernst Mayr (1961).</li>\n      <li>Testosteron: bij vissen is 11-ketotestosteron het belangrijkste androgeen; de film zegt testosteron.</li>\n      <li>Gapen: foetussen gapen al vanaf ± 11 weken; besmettelijk gapen ontstaat rond de kleuterleeftijd. De functie van gapen is onzeker.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Prikkel en reactie; sleutelprikkel</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Aangeboren en aangeleerd gedrag, mengvormen</td><td>basis</td><td>H2, checkvraag 1b, 3</td></tr>\n      <tr><td>De vier vragen van Tinbergen</td><td>basis</td><td>H3, checkvraag 2</td></tr>\n      <tr><td>Experiment met modellen</td><td>basis</td><td>H1, checkvraag 1a</td></tr>\n      <tr><td>Nabije en uiteindelijke oorzaken</td><td>vwo</td><td>H3 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen zelf een 'modellenproef' bedenken voor een huisdier (kat en laserstipje, hond en piepspeeltje): welke prikkel test je, wat is je controle?</li><li>Vier-vragen-oefening met een filmpje van een dier (bijv. een kat die 'kneedt').</li></ul>\n  </section>\n"
+}
