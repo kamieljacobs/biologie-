@@ -1,0 +1,68 @@
+{
+ "slug": "5-emotieregulatie",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Emotieregulatie",
+ "sub": "Wat doe je als een emotie je overspoelt?",
+ "puzzle": "Bilal verliest een potje vlak voor de winst. Zijn hart bonkt en hij wil zijn controller door de kamer gooien. Wat helpt hem het best om rustig te worden?",
+ "meta": "gedrag · emoties en emotieregulatie",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 5 van 12",
+ "lead": "Emoties maken je lichaam snel klaar en laten anderen zien hoe je je voelt. De amygdala reageert razendsnel op wat belangrijk is; de prefrontale cortex kan bijsturen. Je kunt bijsturen bij de situatie, je aandacht, de betekenis en je reactie. Onderdrukken verbergt een emotie, maar het lichaam reageert juist sterker; herwaarderen en benoemen pakken het gevoel zelf vaker aan. Regulatie leer je eerst samen (co-regulatie), dan zelf.",
+ "endHaak": "welke strategie gebruik jij het vaakst, en werkt die altijd?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom hebben we emoties?",
+  "Hoofdstuk 2": "Wat kun je doen?",
+  "Hoofdstuk 3": "Hoe leer je het?",
+  "Recap": "Wat helpt Bilal?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Bilal (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bilal verliest vlak voor de winst. Wat helpt hem het best om rustig te worden?",
+   "correct": 1,
+   "explain": "Het antwoord zie je in hoofdstuk 2."
+  },
+  "q06": {
+   "q": "Wat gebeurde er bij de groep die niets mocht laten merken?",
+   "correct": 1,
+   "explain": "Onderdrukken verandert de buitenkant; het lichaam reageert juist sterker en het gevoel blijft."
+  }
+ },
+ "glossary": [
+  {
+   "t": "emotie",
+   "d": "Een reactie van lichaam en hersenen op iets wat belangrijk voor je is; maakt je snel klaar om te handelen en geeft een signaal aan anderen."
+  },
+  {
+   "t": "amygdala",
+   "d": "Amandelvormig hersendeel diep in de hersenen dat razendsnel reageert op wat belangrijk is, zoals gevaar."
+  },
+  {
+   "t": "prefrontale cortex",
+   "d": "Het voorste deel van de hersenschors; weegt af en kan een emotionele reactie bijsturen of afremmen. Rijpt door tot in de twintiger jaren."
+  },
+  {
+   "t": "emotieregulatie",
+   "d": "Invloed uitoefenen op welke emoties je hebt, hoe sterk, en hoe je ze uit: via situatie, aandacht, betekenis of reactie."
+  },
+  {
+   "t": "herwaarderen",
+   "d": "Een situatie anders bekijken, zodat de emotie verandert."
+  },
+  {
+   "t": "onderdrukken",
+   "d": "Niets van je emotie laten merken; verandert vooral de buitenkant."
+  },
+  {
+   "t": "co-regulatie",
+   "d": "Samen met een ander tot rust komen: eerst door een verzorger, later ook met vrienden of een partner."
+  },
+  {
+   "t": "orthosympathisch en parasympathisch",
+   "d": "vwo · Delen van het autonome zenuwstelsel: actiestand (o.a. adrenaline uit het bijniermerg) en ruststand."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Alarm en rem</b> <span class=\"pts\">2 punten</span><p>Iemand schrikt van een harde knal en springt op, nog voordat hij weet wat het was. Even later denkt hij: \"O, het was maar een ballon.\"</p>\n      <p>Welk hersendeel reageert het eerst, en welk hersendeel stuurt de reactie daarna bij? (2p)</p>\n      <details><summary>Antwoord</summary><p>Eerst de amygdala (snel alarm) (1); daarna de prefrontale cortex (weegt af, remt/stuurt bij) (1).</p></details></div>\n    <div class=\"q\"><b>2. Vier stappen</b> <span class=\"pts\">4 punten</span><p>Noor is zenuwachtig voor een presentatie. Hieronder staan vier dingen die ze doet.<br>1 Ze denkt: \"Ze willen gewoon horen wat ik weet, het is geen examen.\"<br>2 Ze vraagt of ze als eerste mag, zodat ze niet hoeft te wachten.<br>3 Ze kijkt naar haar aantekeningen in plaats van naar de klas.<br>4 Ze laat niets merken en glimlacht.</p>\n      <p>Geef bij elke handeling aan bij welke stap ze bijstuurt: situatie, aandacht, betekenis of reactie. (4p)</p>\n      <details><summary>Antwoord</summary><p>1 betekenis (herwaarderen) · 2 situatie · 3 aandacht · 4 reactie (onderdrukken) (elk 1).</p></details></div>\n    <div class=\"q\"><b>3. De proef van Gross</b> <span class=\"pts\">3 punten</span><p>Studenten keken naar een nare film. Groep A moest niets laten merken, groep B moest kijken als een koele buitenstaander. Een controlegroep keek gewoon.</p>\n      <p>a. Waarom was de controlegroep nodig? (1p)<br>b. Groep A liet minder zien, maar ging meer zweten. Leg uit waarom 'niets laten merken' niet hetzelfde is als 'rustig worden'. (2p)</p>\n      <details><summary>Antwoord</summary><p>a. Om te kunnen vergelijken met de gewone reactie op de film / te zien of de opdracht zelf iets verandert (1). b. Onderdrukken verandert alleen de uitdrukking (1); de emotie (walging) en de lichamelijke stressreactie blijven, of worden zelfs sterker (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Adrenaline en cortisol</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>Bij schrik stijgt de hartslag binnen enkele seconden; cortisol stijgt pas na enkele minuten.</p>\n      <p>Verklaar dit verschil in snelheid. (2p)</p>\n      <details><summary>Antwoord</summary><p>Adrenaline: het orthosympathische zenuwstelsel zet het bijniermerg direct via zenuwen aan (snel) (1). Cortisol: via hormonen van hypothalamus en hypofyse (bloedbaan) naar de bijnierschors, en cortisol moet nog worden aangemaakt (trager) (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Bilal (castboek) met controller; scherm telt af, GAME OVER; bonkend hart, rood gezicht. Openingsvraag (antwoord in H2)</td></tr>\n      <tr><td>1 Waarom we emoties hebben</td><td>Lichaam met hart, longen, spieren; hersenen van opzij met amygdala (pulserend alarm) en prefrontale cortex (rem); schematische curven 'emotiesysteem' en 'prefrontale cortex' tegen leeftijd</td></tr>\n      <tr><td>2 Wat kun je doen?</td><td>Vier stappen (situatie, aandacht, betekenis, reactie) met een strategie onder elke stap; proef met groep A/B en balkjes (laat zien, lichaam, walging); benoemen in de hersenscanner; Bilal met gedachtewolk; 'het gaat erom dat je kunt kiezen'. Vwo: schema orthosympathisch–adrenaline, hypothalamus–hypofyse–cortisol, parasympathisch, ademcurve</td></tr>\n      <tr><td>3 Eerst samen, dan zelf</td><td>Ouder wiegt huilende peuter (co-regulatie, verwijzing naar de veilige haven uit film 4); Bilal krijgt een appje van een vriend; volwassenen ook</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Amygdala als 'alarm' en prefrontale cortex als 'rem' is een vereenvoudiging: de amygdala reageert op alles wat relevant is (ook beloning), en emoties ontstaan in netwerken. De film zegt daarom 'reageert op wat belangrijk is' en 'kan bijsturen'.</li>\n      <li>Tienerbrein: het dual-systems model (Steinberg, Casey) beschrijft een sterk reagerend emotie-/beloningssysteem in de adolescentie en een later rijpende prefrontale cortex; het model wordt ook bekritiseerd. 'Tot 25' is een populair maar onderbouwd-noch-vast getal; de film zegt 'tot ergens in je twintiger jaren'. De curven zijn schematisch.</li>\n      <li>Procesmodel van emotieregulatie (Gross 1998): situatieselectie/-modificatie, aandachtsinzet, cognitieve verandering (herwaarderen), responsmodulatie (o.a. onderdrukken). De film voegt situatieselectie en -modificatie samen.</li>\n      <li>Proef: Gross (1998), film van een armamputatie; onderdrukken verminderde de expressie, maar verhoogde de sympathische activatie (huidgeleiding, vaatvernauwing in de vingers); de walging bleef. Herwaarderen verminderde walging en expressie. De balkjes zijn schematisch.</li>\n      <li>Benoemen (affect labeling): Lieberman e.a. (2007): minder amygdala-activiteit en meer activiteit in de (rechter ventrolaterale) prefrontale cortex. Effect bescheiden.</li>\n      <li>Herwaarderen hangt gemiddeld samen met beter welzijn (Gross &amp; John 2003, correlationeel; meta-analyse Webb e.a. 2012: klein tot middelgroot effect). Flexibiliteit in strategiekeuze (Bonanno) is de eerlijkste boodschap; onderdrukken is soms functioneel.</li>\n      <li>Co-regulatie: bij baby's door verzorgers; bij volwassenen sociale steun (Coan e.a. 2006: hand vasthouden dempt de stressreactie in de hersenen).</li>\n      <li>Langzaam ademen verhoogt de hartslagvariabiliteit; het effect op ervaren stress is klein tot matig ('een beetje').</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Functie van emoties</td><td>basis</td><td>H1</td></tr>\n      <tr><td>Amygdala en prefrontale cortex; tienerbrein</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Vier stappen en strategieën</td><td>basis</td><td>H2, checkvraag 2</td></tr>\n      <tr><td>Proef onderdrukken vs herwaarderen</td><td>basis</td><td>H2, checkvraag 3</td></tr>\n      <tr><td>Co-regulatie</td><td>basis</td><td>H3</td></tr>\n      <tr><td>Orthosympathisch, parasympathisch, adrenaline, cortisol</td><td>vwo</td><td>H2 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen voor een eigen (verzonnen) situatie bij elk van de vier stappen een strategie bedenken.</li><li>Koppel aan film 4 (hechting): hoe leert een kind zichzelf te kalmeren?</li></ul>\n  </section>\n"
+}
