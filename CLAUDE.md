@@ -41,3 +41,7 @@ Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die v
 
 Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films.
 
+## Kijkcijfers
+
+Elke pagina laadt `js/teller.js` (GoatCounter `biologiebijkamiel`, zonder cookies). Films tellen daarnaast `start/`, `halverwege/` (±45% van `duur` aan afgespeeld geluid) en `uitgekeken/` (±85%) als gebeurtenis; de duur komt uit `HOOFDSTUKKEN` en staat als `data-duur` op de scripttag. Draai `python3 scripts/teller.py` na het toevoegen van een nieuwe pagina, film of tool, of na het wijzigen van een filmduur (idempotent). Elke nacht haalt `.github/workflows/statistieken.yml` (secret `GOATCOUNTER_TOKEN`) de totalen op met `scripts/statistieken_ophalen.py` naar `statistieken/data.json`; het dashboard is `statistieken/index.html` (niet gelinkt, noindex).
+

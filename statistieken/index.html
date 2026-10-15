@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Kijkcijfers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
+<style>
+/* Kijkcijfers: niet gelinkt, alleen voor Kamiel. Zelfde huisstijl als index.html. */
+:root{
+  --bg:#0F1726; --bg2:#0B1220; --surface:#141E33; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.30);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --bar1:#E0B64A; --bar2:rgba(224,182,74,.55); --bar3:rgba(224,182,74,.28); --track:rgba(143,160,181,.12);
+  --koraal:#E8876C;
+  --titel:"Fraunces",Georgia,serif; --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif; --meta:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#F5F6F8; --bg2:#ECEFF3; --surface:#FFFFFF; --line:rgba(20,32,52,.10); --line2:rgba(20,32,52,.22);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#B98A1E; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --bar1:#B98A1E; --bar2:rgba(185,138,30,.55); --bar3:rgba(185,138,30,.28); --track:rgba(20,32,52,.08);
+  --koraal:#B9502F;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 var(--tekst);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--goud);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px}
+.terug{font:13px var(--meta);color:var(--text3);text-decoration:none}
+h1{font:700 clamp(30px,5vw,42px)/1.1 var(--titel);margin:10px 0 6px}
+.sub{color:var(--text2);margin:0}
+.balk{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:20px 0 6px}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:999px;padding:3px;background:var(--surface)}
+.seg button{border:0;background:none;padding:6px 14px;border-radius:999px;font-size:14px;color:var(--text2)}
+.seg button[aria-pressed="true"]{background:var(--goud-soft);color:var(--goud-text);font-weight:600}
+.thema{margin-left:auto;border:1px solid var(--line2);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:14px;color:var(--text2)}
+.melding{border:1px solid var(--line2);background:var(--goud-soft);border-radius:14px;padding:14px 18px;margin:18px 0}
+.melding b{color:var(--goud-text)}
+.tegels{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:18px 0}
+.tegel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.tegel .k{font:12px var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
+.tegel .v{font:700 34px/1.15 var(--titel);margin-top:4px}
+.tegel .x{font-size:14px;color:var(--text2)}
+section{margin:34px 0}
+h2{font:700 24px/1.2 var(--titel);margin:0 0 4px}
+h3{font:600 13px var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--goud-text);margin:26px 0 8px}
+.uitleg{color:var(--text2);font-size:15px;margin:0 0 12px}
+.kaart{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+/* daggrafiek */
+.dagen{position:relative}
+.dagen svg{display:block;width:100%;height:180px;overflow:visible}
+.tip{position:absolute;pointer-events:none;background:var(--bg2);border:1px solid var(--line2);border-radius:8px;padding:6px 10px;font-size:13px;white-space:nowrap;transform:translate(-50%,-100%);opacity:0;transition:opacity .1s}
+.tip b{font-weight:700}
+/* filmtabel */
+.hfd{margin:14px 0 4px;font-weight:700;font-size:17px}
+.hfd span{font:12px var(--meta);color:var(--text3);margin-left:8px;font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th{font:500 11.5px var(--meta);letter-spacing:.05em;text-transform:uppercase;color:var(--text3);text-align:right;padding:6px 8px;border-bottom:1px solid var(--line2);white-space:nowrap}
+th:first-child{text-align:left}
+td{padding:8px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;vertical-align:middle}
+td:first-child{text-align:left}
+td.film a{text-decoration:none} td.film a:hover{text-decoration:underline}
+td.film small{display:block;color:var(--text3);font-size:12.5px}
+td.nul{color:var(--text3)}
+.films table{table-layout:fixed}
+.films th:nth-child(n+2):not(.trechter){width:96px}
+.films th:nth-child(6){width:112px}
+.trechter{width:150px}
+@media (max-width:640px){.films table{table-layout:auto}.films th:nth-child(n+2){width:auto}}
+.tr{display:flex;flex-direction:column;gap:2px}
+.tr i{display:block;height:6px;border-radius:0 4px 4px 0;background:var(--track);position:relative}
+.tr i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);border-radius:0 4px 4px 0;background:var(--c)}
+.pct{font-weight:700}
+.pct.laag{color:var(--koraal)}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.afhaak li{margin:6px 0}
+.afhaak{padding-left:20px;margin:0}
+.leeg{color:var(--text3);font-style:italic}
+footer{margin:40px 0 30px;color:var(--text3);font-size:13px}
+@media (max-width:640px){.trechter{display:none}.thema{margin-left:0}th,td{padding:7px 5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="terug" href="../index.html">← Biologie bij Kamiel</a>
+  <h1>Kijkcijfers</h1>
+  <p class="sub" id="bijgewerkt">Laden…</p>
+  <div class="balk">
+    <div class="seg" role="group" aria-label="Periode" id="periode">
+      <button data-p="totaal" aria-pressed="true">Sinds de start</button>
+      <button data-p="week" aria-pressed="false">Laatste 7 dagen</button>
+    </div>
+    <div class="seg" role="group" aria-label="Niveau" id="niveau">
+      <button data-n="havo" aria-pressed="false">Havo</button>
+      <button data-n="vwo" aria-pressed="true">Vwo</button>
+      <button data-n="onderbouw" aria-pressed="false">Onderbouw</button>
+      <button data-n="alles" aria-pressed="false">Alles</button>
+    </div>
+    <button class="thema" id="thema" type="button">Licht/donker</button>
+  </div>
+</header>
+
+<div id="melding"></div>
+<div class="tegels" id="tegels"></div>
+
+<section>
+  <h2>Films per dag</h2>
+  <p class="uitleg">Hoe vaak er een film werd geopend, de laatste 30 dagen (alle niveaus samen).</p>
+  <div class="kaart dagen" id="dagen"></div>
+</section>
+
+<section>
+  <h2>Waar haken ze af?</h2>
+  <p class="uitleg">Films die minstens 5 keer gestart zijn, met het laagste aandeel kijkers dat de film uitkijkt.</p>
+  <div class="kaart" id="afhaak"></div>
+</section>
+
+<section>
+  <h2>Per film</h2>
+  <p class="uitleg">Per bezoek telt elke stap één keer. <b>Gestart</b> = het geluid begon te spelen, <b>halverwege</b> = ongeveer de helft van de film afgespeeld, <b>uitgekeken</b> = ongeveer 85% afgespeeld. Het percentage is uitgekeken ÷ gestart.</p>
+  <div id="films" class="films"></div>
+</section>
+
+<section>
+  <h2>Tools</h2>
+  <p class="uitleg">Hoe vaak elke tool geopend is.</p>
+  <div class="kaart scroll" id="tools"></div>
+</section>
+
+<footer>Telling via GoatCounter, zonder cookies en zonder gegevens van leerlingen. Elke nacht bijgewerkt. Je eigen bezoeken tellen niet mee in een browser waarin je één keer <code>#toggle-goatcounter</code> achter het adres van de site hebt gezet.</footer>
+</div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const root=document.documentElement;
+let D=null, P='totaal', N='vwo';
+try{const n=localStorage.getItem('stats-niveau');if(n)N=n;const p=localStorage.getItem('stats-periode');if(p)P=p}catch(e){}
+
+$('#thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);try{localStorage.setItem('thema',n)}catch(e){}});
+function knoppen(id,attr,waarde,set){document.querySelectorAll('#'+id+' button').forEach(b=>{b.setAttribute('aria-pressed',b.dataset[attr]===waarde);b.onclick=()=>{set(b.dataset[attr]);teken()}})}
+
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>n.toLocaleString('nl-NL');
+const pct=(a,b)=>b?Math.round(100*a/b):null;
+function getal(bron,href){const r=(bron||{})[href];return r?(r[P]||0):0}
+function cijfers(f){return{geopend:getal(D.paginas,f.href),gestart:getal(D.start,f.href),half:getal(D.halverwege,f.href),uit:getal(D.uitgekeken,f.href)}}
+
+function hoofdstukkenVoorNiveau(){
+  const H=D.hoofdstukken;
+  if(N==='alles') return [{code:'Alle hoofdstukken',naam:'',ids:Object.keys(H)}];
+  return (D.niveaus[N]||[]).map(o=>({code:o.code,naam:o.naam===o.code?'':o.naam,ids:o.hoofdstukken.filter(id=>H[id])}));
+}
+function filmsVoorNiveau(){const z=new Set(),uit=[];hoofdstukkenVoorNiveau().forEach(o=>o.ids.forEach(id=>(D.hoofdstukken[id].films||[]).forEach(f=>{if(!z.has(f.href)){z.add(f.href);uit.push({...f,hfd:D.hoofdstukken[id].titel})}})));return uit}
+
+function teken(){
+  knoppen('periode','p',P,v=>{P=v;try{localStorage.setItem('stats-periode',v)}catch(e){}});
+  knoppen('niveau','n',N,v=>{N=v;try{localStorage.setItem('stats-niveau',v)}catch(e){}});
+  const films=filmsVoorNiveau();
+  let t={geopend:0,gestart:0,half:0,uit:0};
+  films.forEach(f=>{const c=cijfers(f);for(const k in t)t[k]+=c[k]});
+  const p=pct(t.uit,t.gestart);
+  const periode=P==='week'?'laatste 7 dagen':'sinds de start';
+  $('#tegels').innerHTML=`
+    <div class="tegel"><div class="k">Films geopend</div><div class="v">${fmt(t.geopend)}</div><div class="x">${periode}</div></div>
+    <div class="tegel"><div class="k">Gestart</div><div class="v">${fmt(t.gestart)}</div><div class="x">${t.geopend?pct(t.gestart,t.geopend)+'% van de geopende films':'—'}</div></div>
+    <div class="tegel"><div class="k">Uitgekeken</div><div class="v">${fmt(t.uit)}</div><div class="x">${p!=null?p+'% van de gestarte films':'—'}</div></div>`;
+
+  // afhakers
+  const af=films.map(f=>({...f,...cijfers(f)})).filter(f=>f.gestart>=5).map(f=>({...f,p:pct(f.uit,f.gestart)})).sort((a,b)=>a.p-b.p).slice(0,5);
+  $('#afhaak').innerHTML=af.length?'<ol class="afhaak">'+af.map(f=>`<li><a href="../${esc(f.href)}">${esc(f.titel)}</a> <span style="color:var(--text3)">· ${esc(f.hfd)}</span> — <b class="pct${f.p<40?' laag':''}">${f.p}%</b> uitgekeken <span style="color:var(--text3)">(${f.uit} van ${f.gestart}, ${f.half} halverwege)</span></li>`).join('')+'</ol>':'<p class="leeg">Nog te weinig gestarte films om iets te zeggen.</p>';
+
+  // per film, gegroepeerd per PTA-onderdeel en hoofdstuk
+  let html='';
+  hoofdstukkenVoorNiveau().forEach(o=>{
+    const blokken=o.ids.map(id=>{const h=D.hoofdstukken[id];if(!h.films.length)return'';
+      const rijen=h.films.map(f=>{const c=cijfers(f),q=pct(c.uit,c.gestart);const max=Math.max(c.geopend,1);
+        const td=n=>`<td class="${n?'':'nul'}">${n||'–'}</td>`;
+        return `<tr><td class="film"><a href="../${esc(f.href)}">${esc(f.titel)}</a><small>${esc(f.bij||'')}${f.duur?' · '+f.duur+' min':''}</small></td>${td(c.geopend)}${td(c.gestart)}${td(c.half)}${td(c.uit)}
+        <td class="${q==null?'nul':''}">${q==null?'–':`<span class="pct${q<40&&c.gestart>=5?' laag':''}">${q}%</span>`}</td>
+        <td class="trechter" aria-hidden="true"><div class="tr" title="gestart, halverwege, uitgekeken t.o.v. geopend">
+          <i style="--w:${100*c.gestart/max}%;--c:var(--bar1)"></i><i style="--w:${100*c.half/max}%;--c:var(--bar2)"></i><i style="--w:${100*c.uit/max}%;--c:var(--bar3)"></i></div></td></tr>`}).join('');
+      return `<div class="hfd">${esc(h.titel)}<span>${esc(h.label||'')} · ${h.films.length} films</span></div>
+      <div class="scroll"><table><thead><tr><th>Film</th><th>Geopend</th><th>Gestart</th><th>Halverwege</th><th>Uitgekeken</th><th>Uitgekeken %</th><th class="trechter"></th></tr></thead><tbody>${rijen}</tbody></table></div>`}).join('');
+    if(blokken) html+=`<h3>${esc(o.code)}${o.naam?' · '+esc(o.naam):''}</h3><div class="kaart">${blokken}</div>`;
+  });
+  $('#films').innerHTML=html||'<p class="leeg">Geen films voor dit niveau.</p>';
+
+  // tools (per niveau)
+  const tz=new Set(),tools=[];
+  hoofdstukkenVoorNiveau().forEach(o=>o.ids.forEach(id=>(D.hoofdstukken[id].tools||[]).forEach(t=>{if(!tz.has(t.href)){tz.add(t.href);tools.push(t)}})));
+  tools.sort((a,b)=>getal(D.paginas,b.href)-getal(D.paginas,a.href));
+  $('#tools').innerHTML=tools.length?`<table><thead><tr><th>Tool</th><th>Geopend</th></tr></thead><tbody>${tools.map(t=>{const n=getal(D.paginas,t.href);return`<tr><td><a href="../${esc(t.href)}">${esc(t.naam)}</a></td><td class="${n?'':'nul'}">${n||'–'}</td></tr>`}).join('')}</tbody></table>`:'<p class="leeg">Geen tools voor dit niveau.</p>';
+}
+
+function dagGrafiek(){
+  const el=$('#dagen'), dagen=[];
+  const eind=new Date(D.bijgewerkt||Date.now()); eind.setUTCHours(0,0,0,0);
+  const begin=new Date(D.begin+'T00:00:00Z');
+  for(let i=29;i>=0;i--){const d=new Date(eind);d.setUTCDate(d.getUTCDate()-i);if(d<begin)continue;const k=d.toISOString().slice(0,10);dagen.push({k,n:(D.dagen[k]||{}).geopend||0})}
+  if(!dagen.length||!dagen.some(d=>d.n)){el.innerHTML='<p class="leeg">Nog geen films geopend.</p>';return}
+  const W=Math.max(280,el.clientWidth-36),H=180,pl=36,pb=24,pt=10,max=Math.max(...dagen.map(d=>d.n)),stap=Math.max(1,Math.ceil(max/4)),top=stap*4;
+  const bw=(W-pl)/dagen.length, y=v=>pt+(H-pt-pb)*(1-v/top);
+  let g='';
+  for(let v=0;v<=top;v+=stap)g+=`<line x1="${pl}" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)"/><text x="${pl-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="var(--text3)" font-family="var(--meta)">${v}</text>`;
+  dagen.forEach((d,i)=>{const x=pl+i*bw+1,w=Math.max(bw-2,2),h=H-pb-y(d.n);
+    if(d.n)g+=`<path d="M${x},${H-pb}V${y(d.n)+Math.min(4,h)}q0,-${Math.min(4,h)} ${Math.min(4,w/2)},-${Math.min(4,h)}H${x+w-Math.min(4,w/2)}q${Math.min(4,w/2)},0 ${Math.min(4,w/2)},${Math.min(4,h)}V${H-pb}Z" fill="var(--bar1)"/>`;
+    g+=`<rect class="hit" data-i="${i}" x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt}" fill="transparent"/>`;
+    if((dagen.length-1-i)%(W<600?10:7)===0){const dt=new Date(d.k);g+=`<text x="${pl+i*bw+bw/2}" y="${H-6}" text-anchor="middle" font-size="11" fill="var(--text3)" font-family="var(--meta)">${dt.getUTCDate()}/${dt.getUTCMonth()+1}</text>`}});
+  el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Films geopend per dag">${g}</svg><div class="tip" id="tip"></div>`;
+  const svg=el.querySelector('svg'),tip=el.querySelector('#tip');
+  svg.addEventListener('pointermove',e=>{const r=e.target.closest('.hit');if(!r){tip.style.opacity=0;return}const d=dagen[+r.dataset.i],b=svg.getBoundingClientRect(),eb=el.getBoundingClientRect();
+    const dt=new Date(d.k);tip.innerHTML=`${dt.toLocaleDateString('nl-NL',{weekday:'short',day:'numeric',month:'short',timeZone:'UTC'})}: <b>${d.n}</b> geopend · ${(D.dagen[d.k]||{}).gestart||0} gestart`;
+    tip.style.left=(e.clientX-eb.left)+'px';tip.style.top=(b.top-eb.top+y(d.n)*b.height/H-6)+'px';tip.style.opacity=1});
+  svg.addEventListener('pointerleave',()=>tip.style.opacity=0);
+}
+
+fetch('data.json',{cache:'no-store'}).then(r=>r.json()).then(d=>{
+  D=d;
+  const t=new Date(d.bijgewerkt);
+  $('#bijgewerkt').textContent='Bijgewerkt '+t.toLocaleString('nl-NL',{weekday:'long',day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'})+' · geteld sinds '+new Date(d.begin).toLocaleDateString('nl-NL',{day:'numeric',month:'long',year:'numeric'});
+  if(d.fout)$('#melding').innerHTML=`<div class="melding"><b>Nog geen cijfers.</b> De nachtelijke taak heeft nog niets kunnen ophalen. Zet de GoatCounter-sleutel in GitHub (Settings → Secrets and variables → Actions → <code>GOATCOUNTER_TOKEN</code>) en start daarna in Actions de taak <i>Kijkcijfers ophalen</i>.</div>`;
+  teken();dagGrafiek();let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(dagGrafiek,150)});
+}).catch(()=>{$('#bijgewerkt').textContent='Kon de cijfers niet laden.'});
+})();
+</script>
+</body>
+</html>

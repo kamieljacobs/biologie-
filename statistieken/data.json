@@ -1,0 +1,814 @@
+{
+ "bijgewerkt": "2026-10-15T16:14+00:00",
+ "begin": "2026-10-15",
+ "paginas": {},
+ "dagen": {},
+ "start": {},
+ "halverwege": {},
+ "uitgekeken": {},
+ "fout": "Geen GOATCOUNTER_TOKEN: zet de API-sleutel als repository secret.",
+ "hoofdstukken": {
+  "erfelijkheid": {
+   "titel": "Erfelijkheid",
+   "label": "H3",
+   "films": [
+    {
+     "href": "films/erfelijkheid/1-chromosomen.html",
+     "titel": "Chromosomen",
+     "duur": 7,
+     "bij": "Film 1 · § 3.1 – 3.2"
+    },
+    {
+     "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
+     "titel": "Monohybride kruisingen",
+     "duur": 5,
+     "bij": "Film 2 · § 3.3"
+    },
+    {
+     "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
+     "titel": "Voorbij dominant en recessief",
+     "duur": 5,
+     "bij": "Film 3 · § 3.3"
+    },
+    {
+     "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
+     "titel": "Dihybride kruising en gekoppelde overerving",
+     "duur": 4,
+     "bij": "Film 4 · § 3.5"
+    },
+    {
+     "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
+     "titel": "Overerving via X-chromosomen en mitochondriën",
+     "duur": 4,
+     "bij": "Film 5 · § 3.4"
+    },
+    {
+     "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
+     "titel": "Stambomen en kansrekenen",
+     "duur": 4,
+     "bij": "Film 6 · § 3.5"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/kruisingslab.html",
+     "naam": "Kruisingslab"
+    },
+    {
+     "href": "tools/bloedgroepenlab.html",
+     "naam": "Bloedgroepenlab"
+    }
+   ]
+  },
+  "stofwisseling": {
+   "titel": "Stofwisseling",
+   "label": "PTA",
+   "films": [
+    {
+     "href": "films/stofwisseling/1-alles-versneld.html",
+     "titel": "Alles versneld",
+     "duur": 12,
+     "bij": "Film 1 · § 18.2 – 18.3"
+    },
+    {
+     "href": "films/stofwisseling/2-alles-op-adem.html",
+     "titel": "Alles op adem",
+     "duur": 13,
+     "bij": "Film 2 · § 19.3 – 19.4"
+    },
+    {
+     "href": "films/stofwisseling/3-alles-in-het-groen.html",
+     "titel": "Alles in het groen",
+     "duur": 15,
+     "bij": "Film 3 · § 20.3 – 20.4"
+    }
+   ],
+   "tools": []
+  },
+  "voortplanting": {
+   "titel": "Voortplanting",
+   "label": "H4",
+   "films": [
+    {
+     "href": "films/voortplanting/1-precies-op-tijd.html",
+     "titel": "Van bevruchting tot baby",
+     "duur": 20,
+     "bij": "Film 1 · § 4.1 – 4.5 · 19:45"
+    },
+    {
+     "href": "films/voortplanting/celdeling/index.html",
+     "titel": "Celdeling",
+     "duur": 12,
+     "bij": "Film · celdeling · havo + vwo"
+    }
+   ],
+   "tools": []
+  },
+  "cellen": {
+   "titel": "Cellen",
+   "label": "H1",
+   "films": [
+    {
+     "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+     "titel": "Van molecuul tot biosfeer",
+     "duur": 7,
+     "bij": "Film · korte film · havo + vwo"
+    },
+    {
+     "href": "films/cellen/celorganellen/index.html",
+     "titel": "Celorganellen",
+     "duur": 11,
+     "bij": "Film · celorganellen · havo + vwo"
+    },
+    {
+     "href": "films/cellen/diffusie-osmose/index.html",
+     "titel": "Diffusie en osmose",
+     "duur": 9,
+     "bij": "Film · diffusie en osmose · havo + vwo"
+    },
+    {
+     "href": "films/cellen/stamcellen.html",
+     "titel": "Stamcellen",
+     "duur": 9,
+     "bij": "Film · differentiatie en stamcellen · havo + vwo"
+    },
+    {
+     "href": "films/cellen/onderzoek-doen/index.html",
+     "titel": "Onderzoek doen in de biologie",
+     "duur": 21,
+     "bij": "Film · onderzoeksvaardigheden"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/schaallab.html",
+     "naam": "Schaallab"
+    }
+   ]
+  },
+  "evolutie": {
+   "titel": "Evolutie",
+   "label": "H4",
+   "films": [
+    {
+     "href": "films/evolutie/1-het-raadsel-van-de-eilanden.html",
+     "titel": "Het raadsel van de eilanden",
+     "duur": 7,
+     "bij": "Film 1 · § 4.3 · 7 min"
+    },
+    {
+     "href": "films/evolutie/2-verrassend-simpel.html",
+     "titel": "Verrassend simpel",
+     "duur": 7,
+     "bij": "Film 2 · § 4.3 · 7 min"
+    },
+    {
+     "href": "films/evolutie/3-hoe-weten-we-dat.html",
+     "titel": "Hoe weten we dat?",
+     "duur": 6,
+     "bij": "Film 3 · § 4.3 · 6 min"
+    },
+    {
+     "href": "films/evolutie/4-van-niet-leven-naar-leven.html",
+     "titel": "Van niet-leven naar leven",
+     "duur": 8,
+     "bij": "Film 4 · § 4.2 · 8 min"
+    },
+    {
+     "href": "films/evolutie/5-de-grote-lijn.html",
+     "titel": "De grote lijn",
+     "duur": 7,
+     "bij": "Film 5 · § 4.1 · 7 min"
+    },
+    {
+     "href": "films/evolutie/6-selectie-van-dichtbij.html",
+     "titel": "Selectie van dichtbij",
+     "duur": 6,
+     "bij": "Film 6 · § 4.4 · 6 min"
+    },
+    {
+     "href": "films/evolutie/7-hoe-een-soort-er-twee-wordt.html",
+     "titel": "Hoe één soort er twee wordt",
+     "duur": 6,
+     "bij": "Film 7 · § 4.4 · 6 min"
+    },
+    {
+     "href": "films/evolutie/8-toeval.html",
+     "titel": "Toeval",
+     "duur": 6,
+     "bij": "Film 8 · § 4.4 · 6 min · vwo"
+    },
+    {
+     "href": "films/evolutie/9-veertig-jaar-daphne-major.html",
+     "titel": "Veertig jaar Daphne Major",
+     "duur": 7,
+     "bij": "Film 9 · § 4.5 · 6½ min"
+    }
+   ],
+   "tools": []
+  },
+  "dna": {
+   "titel": "DNA",
+   "label": "Thema",
+   "films": [
+    {
+     "href": "films/dna/1-wat-is-dna.html",
+     "titel": "Wat is DNA?",
+     "duur": 6,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/2-dna-kopieren.html",
+     "titel": "DNA kopiëren",
+     "duur": 6,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/3-van-dna-naar-eiwit.html",
+     "titel": "Van DNA naar eiwit",
+     "duur": 7,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/4-de-genetische-code-lezen.html",
+     "titel": "De genetische code lezen",
+     "duur": 8,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/5-mutaties.html",
+     "titel": "Mutaties",
+     "duur": 10,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/6-genen-aan-en-uit.html",
+     "titel": "Genen aan en uit",
+     "duur": 10,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/7-dna-lezen.html",
+     "titel": "DNA lezen",
+     "duur": 11,
+     "bij": "Film · DNA-reeks · havo + vwo"
+    },
+    {
+     "href": "films/dna/8-wat-heb-jij-aan-dna.html",
+     "titel": "Wat heb jij aan DNA?",
+     "duur": 11,
+     "bij": "Film · DNA-reeks · havo en vwo, één niveau"
+    },
+    {
+     "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
+     "titel": "Op maat gekopieerd · PCR",
+     "duur": 10,
+     "bij": "Film · DNA-technieken"
+    },
+    {
+     "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
+     "titel": "Op lengte gesorteerd · gelelektroforese",
+     "duur": 4,
+     "bij": "Film · DNA-technieken"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/dna-bouw/index.html",
+     "naam": "De bouw van DNA"
+    },
+    {
+     "href": "tools/dna-profielen/index.html",
+     "naam": "DNA-profielen vergelijken"
+    },
+    {
+     "href": "tools/waarom-u-in-rna.html",
+     "naam": "Waarom U in RNA"
+    },
+    {
+     "href": "tools/eiwitfabriek.html",
+     "naam": "De Eiwitfabriek"
+    }
+   ]
+  },
+  "planten": {
+   "titel": "Planten",
+   "label": "H20",
+   "films": [
+    {
+     "href": "films/transport/7-hoe-een-plant-groeit.html",
+     "titel": "Hoe een plant groeit",
+     "duur": 7,
+     "bij": "Film · planten · vwo"
+    },
+    {
+     "href": "films/transport/6-transport-in-planten.html",
+     "titel": "Transport in planten",
+     "duur": 7,
+     "bij": "Film · ook bij Transport"
+    },
+    {
+     "href": "films/stofwisseling/3-alles-in-het-groen.html",
+     "titel": "Alles in het groen",
+     "duur": 15,
+     "bij": "Film · ook bij Stofwisseling"
+    }
+   ],
+   "tools": []
+  },
+  "gedrag": {
+   "titel": "Gedrag",
+   "label": "GEDRAG",
+   "films": [
+    {
+     "href": "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html",
+     "titel": "Waarom doet een dier wat het doet?",
+     "duur": 7,
+     "bij": "Film 1 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/2-inprenting-en-de-sensitieve-periode.html",
+     "titel": "Inprenting en de sensitieve periode",
+     "duur": 6,
+     "bij": "Film 2 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/3-baltsen-en-kiezen.html",
+     "titel": "Baltsen en kiezen",
+     "duur": 6,
+     "bij": "Film 3 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/4-hechting.html",
+     "titel": "Hechting: van baby tot verliefd",
+     "duur": 7,
+     "bij": "Film 4 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/5-emotieregulatie.html",
+     "titel": "Emotieregulatie",
+     "duur": 6,
+     "bij": "Film 5 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/6-attributie.html",
+     "titel": "Wiens schuld is het? Interne en externe attributie",
+     "duur": 5,
+     "bij": "Film 6 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/7-leren.html",
+     "titel": "Leren: van Pavlov tot je telefoon",
+     "duur": 6,
+     "bij": "Film 7 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/8-honingbij.html",
+     "titel": "De dans van de honingbij",
+     "duur": 7,
+     "bij": "Film 8 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/9-mierenkolonie.html",
+     "titel": "Een mierenkolonie zonder baas",
+     "duur": 6,
+     "bij": "Film 9 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/10-helpen.html",
+     "titel": "Waarom helpen dieren elkaar?",
+     "duur": 6,
+     "bij": "Film 10 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/11-slimme-dieren.html",
+     "titel": "Slimme dieren",
+     "duur": 7,
+     "bij": "Film 11 · havo en vwo"
+    },
+    {
+     "href": "films/gedrag/12-psychologie-experimenten.html",
+     "titel": "Beroemde psychologie-experimenten",
+     "duur": 7,
+     "bij": "Film 12 · havo en vwo"
+    }
+   ],
+   "tools": []
+  },
+  "regeling": {
+   "titel": "Regeling",
+   "label": "Thema",
+   "films": [
+    {
+     "href": "films/hormonen/1-post-voor-iedereen.html",
+     "titel": "Post voor iedereen",
+     "duur": 10,
+     "bij": "Hormonen · film 1"
+    },
+    {
+     "href": "films/hormonen/2-suiker-in-balans.html",
+     "titel": "Suiker in balans",
+     "duur": 11,
+     "bij": "Hormonen · film 2"
+    },
+    {
+     "href": "films/hormonen/3-de-baas-van-de-klieren.html",
+     "titel": "De baas van de klieren",
+     "duur": 10,
+     "bij": "Hormonen · film 3"
+    },
+    {
+     "href": "films/hormonen/4-stress.html",
+     "titel": "Stress",
+     "duur": 9,
+     "bij": "Hormonen · film 4"
+    },
+    {
+     "href": "films/hormonen/5-water-in-balans.html",
+     "titel": "Water in balans",
+     "duur": 10,
+     "bij": "Hormonen · film 5"
+    },
+    {
+     "href": "films/zenuwstelsel/1-een-seconde.html",
+     "titel": "Eén seconde",
+     "duur": 6,
+     "bij": "Zenuwstelsel · film 1"
+    },
+    {
+     "href": "films/zenuwstelsel/2-het-kabelnetwerk.html",
+     "titel": "Het kabelnetwerk",
+     "duur": 5,
+     "bij": "Zenuwstelsel · film 2"
+    },
+    {
+     "href": "films/zenuwstelsel/3-de-spleet.html",
+     "titel": "De spleet",
+     "duur": 5,
+     "bij": "Zenuwstelsel · film 3"
+    },
+    {
+     "href": "films/zenuwstelsel/4-knoeien-met-de-spleet.html",
+     "titel": "Knoeien met de spleet",
+     "duur": 5,
+     "bij": "Zenuwstelsel · film 4"
+    },
+    {
+     "href": "films/zenuwstelsel/5-het-hoofdkantoor.html",
+     "titel": "Het hoofdkantoor",
+     "duur": 5,
+     "bij": "Zenuwstelsel · film 5"
+    },
+    {
+     "href": "films/zenuwstelsel/6-leren-en-onthouden.html",
+     "titel": "Leren en onthouden",
+     "duur": 6,
+     "bij": "Zenuwstelsel · film 6"
+    },
+    {
+     "href": "films/zenuwstelsel/8-zintuigen.html",
+     "titel": "Zintuigen",
+     "duur": 10,
+     "bij": "Zenuwstelsel · zintuigen"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/regelkring.html",
+     "naam": "Regelkring"
+    }
+   ]
+  },
+  "extra": {
+   "titel": "Nieuwsgierig?",
+   "label": "Nieuwsgierig?",
+   "films": [],
+   "tools": []
+  },
+  "ecologie": {
+   "titel": "Ecologie",
+   "label": "Ecologie",
+   "films": [
+    {
+     "href": "films/ecologie/plek-genoeg/index.html",
+     "titel": "Plek genoeg?",
+     "duur": 20,
+     "bij": "Film 1 · populaties"
+    },
+    {
+     "href": "films/ecologie/alles-gaat-rond/index.html",
+     "titel": "Alles gaat rond",
+     "duur": 25,
+     "bij": "Film 2 · ecosystemen"
+    }
+   ],
+   "tools": []
+  },
+  "kerndoelen": {
+   "titel": "Kerndoelen onderbouw",
+   "label": "Onderbouw",
+   "films": [
+    {
+     "href": "films/onderbouw/32a/1-alles-is-cel/index.html",
+     "titel": "Alles is cel",
+     "duur": 6,
+     "bij": "Film · kerndoel 32A"
+    },
+    {
+     "href": "films/onderbouw/32a/2-van-cel-tot-lichaam/index.html",
+     "titel": "Van cel tot lichaam",
+     "duur": 7,
+     "bij": "Film · kerndoel 32A"
+    },
+    {
+     "href": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/index.html",
+     "titel": "Een rondleiding door je lichaam",
+     "duur": 7,
+     "bij": "Film · kerndoel 32A"
+    },
+    {
+     "href": "films/onderbouw/32a/3-vertering/index.html",
+     "titel": "Vertering",
+     "duur": 6,
+     "bij": "Film · kerndoel 32A"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/celbouwer/index.html",
+     "naam": "Celbouwer"
+    },
+    {
+     "href": "tools/virtuele-microscoop/index.html",
+     "naam": "Virtuele microscoop"
+    },
+    {
+     "href": "tools/virtuele-microscoop/echt.html",
+     "naam": "Microscoop: echte preparaten"
+    }
+   ]
+  },
+  "voeding": {
+   "titel": "Voeding",
+   "label": "OND4",
+   "films": [
+    {
+     "href": "films/voeding/1-wat-zit-er-in-je-eten.html",
+     "titel": "Wat zit er in je eten?",
+     "duur": 9,
+     "bij": "Film · voeding 1/6"
+    },
+    {
+     "href": "films/voeding/2-de-reis-door-je-buik.html",
+     "titel": "De reis door je buik",
+     "duur": 10,
+     "bij": "Film · voeding 2/6"
+    },
+    {
+     "href": "films/voeding/3-knippen-op-maat.html",
+     "titel": "Knippen op maat",
+     "duur": 12,
+     "bij": "Film · voeding 3/6"
+    },
+    {
+     "href": "films/voeding/4-van-darm-naar-bloed.html",
+     "titel": "Van darm naar bloed",
+     "duur": 10,
+     "bij": "Film · voeding 4/6"
+    },
+    {
+     "href": "films/voeding/5-de-lever-als-fabriek.html",
+     "titel": "De lever als fabriek",
+     "duur": 12,
+     "bij": "Film · voeding 5/6"
+    },
+    {
+     "href": "films/voeding/6-je-darmbewoners.html",
+     "titel": "Je darmbewoners",
+     "duur": 13,
+     "bij": "Film · voeding 6/6"
+    },
+    {
+     "href": "films/voeding/7-supplementen-en-superfoods.html",
+     "titel": "Supplementen en superfoods",
+     "duur": 12,
+     "bij": "Film · voeding 7 · slotstuk"
+    }
+   ],
+   "tools": []
+  },
+  "transport": {
+   "titel": "Transport",
+   "label": "OND4",
+   "films": [
+    {
+     "href": "films/transport/1-een-pomp-twee-rondjes.html",
+     "titel": "Eén pomp, twee rondjes",
+     "duur": 9,
+     "bij": "Film · transport 1/6"
+    },
+    {
+     "href": "films/transport/2-buizen-onder-druk.html",
+     "titel": "Buizen onder druk",
+     "duur": 8,
+     "bij": "Film · transport 2/6"
+    },
+    {
+     "href": "films/transport/3-wat-er-in-je-bloed-zit.html",
+     "titel": "Wat er in je bloed zit",
+     "duur": 10,
+     "bij": "Film · transport 3/6"
+    },
+    {
+     "href": "films/transport/4-weefselvloeistof-en-lymfe.html",
+     "titel": "Weefselvloeistof en lymfe",
+     "duur": 7,
+     "bij": "Film · transport 4/6"
+    },
+    {
+     "href": "films/transport/5-het-hart-onder-controle.html",
+     "titel": "Het hart onder controle",
+     "duur": 9,
+     "bij": "Film · transport 5/6"
+    },
+    {
+     "href": "films/transport/6-transport-in-planten.html",
+     "titel": "Transport in planten",
+     "duur": 7,
+     "bij": "Film · transport 6/6"
+    }
+   ],
+   "tools": []
+  },
+  "gaswisseling": {
+   "titel": "Gaswisseling en uitscheiding",
+   "label": "OND4",
+   "films": [
+    {
+     "href": "films/gaswisseling/1-adem-in-adem-uit.html",
+     "titel": "Adem in, adem uit",
+     "duur": 10,
+     "bij": "Film · gaswisseling 1/3"
+    },
+    {
+     "href": "films/gaswisseling/2-gas-op-reis.html",
+     "titel": "Gas op reis",
+     "duur": 11,
+     "bij": "Film · gaswisseling 2/3"
+    },
+    {
+     "href": "films/gaswisseling/3-uitscheiding-en-evenwicht.html",
+     "titel": "Uitscheiding en evenwicht",
+     "duur": 10,
+     "bij": "Film · gaswisseling 3/3"
+    }
+   ],
+   "tools": []
+  },
+  "afweer": {
+   "titel": "Bescherming en afweer",
+   "label": "OND4",
+   "films": [
+    {
+     "href": "films/afweer/1-de-eerste-verdediging.html",
+     "titel": "De eerste verdediging",
+     "duur": 8,
+     "bij": "Film · afweer 1/4"
+    },
+    {
+     "href": "films/afweer/2-antistoffen-op-maat.html",
+     "titel": "Antistoffen op maat",
+     "duur": 9,
+     "bij": "Film · afweer 2/4"
+    },
+    {
+     "href": "films/afweer/3-t-cellen-en-virussen.html",
+     "titel": "T-cellen en virussen",
+     "duur": 9,
+     "bij": "Film · afweer 3/4"
+    },
+    {
+     "href": "films/afweer/4-vaccins-allergie-en-bloedgroepen.html",
+     "titel": "Vaccins, allergie en bloedgroepen",
+     "duur": 11,
+     "bij": "Film · afweer 4/4 · met het Bloedgroepenlab"
+    }
+   ],
+   "tools": [
+    {
+     "href": "tools/bloedgroepenlab.html",
+     "naam": "Bloedgroepenlab"
+    }
+   ]
+  }
+ },
+ "niveaus": {
+  "havo": [
+   {
+    "code": "OND1",
+    "naam": "Van cel tot nakomeling",
+    "hoofdstukken": [
+     "cellen",
+     "voortplanting",
+     "erfelijkheid"
+    ]
+   },
+   {
+    "code": "OND2",
+    "naam": "Leven in verandering",
+    "hoofdstukken": [
+     "evolutie",
+     "regeling",
+     "ecologie"
+    ]
+   },
+   {
+    "code": "OND3",
+    "naam": "Energie en informatie",
+    "hoofdstukken": [
+     "gedrag",
+     "stofwisseling",
+     "dna"
+    ]
+   },
+   {
+    "code": "OND4",
+    "naam": "Het lichaam van binnen",
+    "hoofdstukken": [
+     "voeding",
+     "transport",
+     "gaswisseling",
+     "afweer"
+    ]
+   },
+   {
+    "code": "Nieuwsgierig?",
+    "naam": "Nieuwsgierig?",
+    "hoofdstukken": [
+     "extra"
+    ]
+   }
+  ],
+  "vwo": [
+   {
+    "code": "OND1",
+    "naam": "Van cel tot ecosysteem",
+    "hoofdstukken": [
+     "cellen",
+     "voortplanting",
+     "erfelijkheid",
+     "evolutie",
+     "ecologie"
+    ]
+   },
+   {
+    "code": "OND2",
+    "naam": "De moleculen van het leven",
+    "hoofdstukken": [
+     "dna",
+     "stofwisseling"
+    ]
+   },
+   {
+    "code": "OND3",
+    "naam": "Sturen en reageren",
+    "hoofdstukken": [
+     "regeling",
+     "gedrag",
+     "planten"
+    ]
+   },
+   {
+    "code": "OND4",
+    "naam": "Het lichaam van binnen",
+    "hoofdstukken": [
+     "voeding",
+     "transport",
+     "gaswisseling",
+     "afweer"
+    ]
+   },
+   {
+    "code": "OND5",
+    "naam": "Jouw eigen keuze",
+    "hoofdstukken": []
+   },
+   {
+    "code": "Nieuwsgierig?",
+    "naam": "Nieuwsgierig?",
+    "hoofdstukken": [
+     "extra"
+    ]
+   }
+  ],
+  "onderbouw": [
+   {
+    "code": "Kerndoelen",
+    "naam": "Mens en natuur",
+    "hoofdstukken": [
+     "kerndoelen"
+    ]
+   }
+  ]
+ }
+}
