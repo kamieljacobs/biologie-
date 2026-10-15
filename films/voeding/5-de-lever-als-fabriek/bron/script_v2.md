@@ -90,7 +90,7 @@ Aan het eind van de dunne darm worden de galzouten weer opgenomen. Via de poorta
 Met de gal scheidt de lever ook stoffen uit die je lichaam kwijt moet: cholesterol, afgebroken hormonen en medicijnen. Die verlaten je lichaam met de ontlasting.
 En gal bevat nog iets: een gele kleurstof. Daarmee zijn we terug bij de baby.
 
-[VWO-START] Voor vwo heeft de fabriek een vijfde afdeling: vet.
+[VWO-START] De fabriek heeft nog een vijfde afdeling: vet.
 Vet lost niet op in bloed. De lever verpakt vet en cholesterol in bolletjes met een jasje van eiwit: lipoproteïnen.
 LDL brengt cholesterol van de lever naar de cellen. HDL brengt het terug naar de lever.
 Daarom heet LDL het slechte en HDL het goede cholesterol. Het is dezelfde stof; alleen de richting verschilt, en veel LDL betekent veel cholesterol onderweg naar de vaatwand.

@@ -68,7 +68,7 @@ Zelfs je tenen reageren dus: ze worden koud en bleek. Wat er gebeurt, hangt af v
 Het effect is dat je lichaam klaar staat voor een flinke inspanning. Je spieren krijgen meer bloed en meer brandstof, je hart pompt harder.
 Dat is handig als je moet wegrennen of vechten. Maar het hormoon zelf weet daar niets van. Het past gewoon op bepaalde receptoren.
 
-[VWO-START] Voor vwo kijken we hoe het bericht de cel in komt. Daarin verschillen hormonen sterk.
+[VWO-START] Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk.
 Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan.
 Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie.
 Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.

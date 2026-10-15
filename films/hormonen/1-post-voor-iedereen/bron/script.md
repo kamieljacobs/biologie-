@@ -62,7 +62,7 @@ Het effect is dat je lichaam klaar staat voor een flinke inspanning. Je spieren 
 
 **s15** · vwo · 36.0 s · `audio/s15.mp3`
 
-Voor vwo kijken we hoe het bericht de cel in komt. Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
+Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
 
 **s16** · vwo · 42.2 s · `audio/s16.mp3`
 

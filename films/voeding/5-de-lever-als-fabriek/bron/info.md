@@ -89,3 +89,5 @@ Begrippen: poortader, leverslagader, leverader, onderste holle ader, glycogeen, 
 - De blinde controle hoorde "vwo" in s17 als "vvbo"; in s22 goed. Beluisteren.
 - Speelduur vwo ≈ 11½ min: langer dan film 4. Alternatief (−1 min): galsteenvraag s24–s26 en het paracetamolstuk schrappen.
 - (14 okt 2026) De TTS/STT-nodes van deze flow (`stem/takes.json` → `nodes`) zijn hergebruikt voor film 6; hun prompts dragen nu de film-6-tekst. De generatie-id's in `takes.json` blijven geldig en wijzen nog naar de film-5-audio.
+
+- 15 okt 2026: vwo-segment opnieuw ingesproken zonder 'Voor vwo' (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW); audio-URL met ?v=2. Overige 'Voor vwo'-aankondigingen worden door de speler weggeknipt (vwoCuts).

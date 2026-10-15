@@ -87,3 +87,5 @@ Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adr
 - Uitspraak: zie `uitspraak.md`. Een blinde controle (losse transcriptie van de echte takes) was in deze sessie niet mogelijk; de risicowoorden staan op de wachtlijst voor Kamiel.
 - De grafiek toont de extra adrenaline boven het rustniveau; de narratie "pas na een minuut of tien is bijna alles weg" slaat daarop.
 - Eindreview: 14 punten; verwerkt: grafieklabel, opties q02 en q17, klaslokaal (stoel achter de leerling, leerling zit achter een schoolbank), hypofyse niet meer in het gezicht, bijnieren lichten op, merg in oker, koude teen, labels, rustpeil, begrip hypothalamus. Niet verwerkt: de eindkaart gebruikt de vaste speler-opmaak (geen seriekleuren); timing van enkele tags is een fractie later dan het woord.
+
+- 15 okt 2026: vwo-segment opnieuw ingesproken zonder 'Voor vwo' (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW); audio-URL met ?v=2. Overige 'Voor vwo'-aankondigingen worden door de speler weggeknipt (vwoCuts).
