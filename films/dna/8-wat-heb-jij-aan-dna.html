@@ -172,8 +172,8 @@ function grain(ctx){
   if(!grainCanvas){
     grainCanvas=document.createElement('canvas'); grainCanvas.width=W; grainCanvas.height=H;
     const g=grainCanvas.getContext('2d');
-    for(let i=0;i<9000;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
-      g.fillStyle=rgba(C.grain,0.18+0.22*hash(i*5)); g.beginPath(); g.arc(x,y,0.9+1.6*hash(i*9),0,6.283); g.fill(); }
+    for(let i=0;i<1400;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
+      g.fillStyle=rgba(C.grain,0.06+0.08*hash(i*5)); g.beginPath(); g.arc(x,y,0.8+1.2*hash(i*9),0,6.283); g.fill(); }
   }
   ctx.drawImage(grainCanvas,0,0);
 }
