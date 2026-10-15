@@ -37,6 +37,7 @@ Audio: blob 001.mp3 · 0:19.7–0:38.6 (18,9 s) · hoofdstuk "Drie sporen"
 *[0:38.6–0:42.1] kaart `card1`: 1 · Lagen en fossielen · In de grond*
 
 ## 3. e3_lagen · Lagen en fossielen
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 0:42.1–1:03.6 (21,5 s) · hoofdstuk "Lagen en fossielen"
 
 [0:42.2] Begin met de grond.  
@@ -46,6 +47,8 @@ Audio: blob 001.mp3 · 0:42.1–1:03.6 (21,5 s) · hoofdstuk "Lagen en fossielen
 [0:50.8] wat dieper ligt, is ouder.  
 [0:52.4] Dat heet relatieve datering.  
 [0:54.6] Hoe oud precies, dat meet je aan radioactief verval in het gesteente.  
+[nieuw] Dat heet absolute datering. Van koolstof-14 is na ongeveer 5730 jaar de helft vervallen: dat is de halveringstijd.
+[nieuw] Daarmee kom je tot zo'n 50.000 jaar terug. Voor oudere gesteenten, zoals die van de walvisfossielen, gebruik je andere isotopen.
 [0:58.6] Hoe dat werkt is scheikunde;  
 [1:00.8] voor deze film is het een gegeven:  
 [1:02.6] dat is gemeten.
@@ -89,6 +92,7 @@ Audio: blob 001.mp3 · 1:24.2–2:02.2 (38,0 s) · hoofdstuk "Lagen en fossielen
 *[2:02.2–2:05.7] kaart `card2`: 2 · Hetzelfde skelet · In het lichaam*
 
 ## 6. e6_homoloog · Hetzelfde skelet
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 2:05.7–2:24.3 (18,6 s) · hoofdstuk "Hetzelfde skelet"
 
 [2:05.8] Nu het lichaam.  
@@ -99,6 +103,7 @@ Audio: blob 001.mp3 · 2:05.7–2:24.3 (18,6 s) · hoofdstuk "Hetzelfde skelet"
 [2:18.2] Dat heet homoloog:  
 [2:19.2] dezelfde bouw, een andere functie.  
 [2:20.9] Het wijst op een gemeenschappelijke voorouder.
+[nieuw] Verwante soorten groeien zo uit elkaar, elk met een andere functie voor hetzelfde bot: dat heet divergentie.
 
 > Beeld (teksten die de scène `limbScene` (gedeeld met de volgende takes) in de loop van de take toont): "walvisvin" · "mensenarm" · "hondenpoot" · "Homoloog: dezelfde bouw, een andere functie" · "→ een gemeenschappelijke voorouder" · "haaienvin" · "kraakbeenstralen, geen botten" · "Homoloog of analoog?"
 
@@ -117,11 +122,13 @@ Audio: blob 001.mp3 · 2:24.9–2:32.5 (7,6 s) · hoofdstuk "Hetzelfde skelet"
 *[2:32.5–2:44.0] vraag `q2` (stilte 11,5 s): Walvisvin en haaienvin: zelfde functie, van buiten gelijk, van binnen botten tegenover kraakbeenstralen. Homoloog of analoog?*
 
 ## 8. e8_analoog
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 2:44.0–3:11.2 (27,2 s) · hoofdstuk "Hetzelfde skelet"
 
 [2:44.0] Analoog.  
 [2:44.7] Dezelfde functie, een andere bouw.  
 [2:46.7] Niet via een voorouder, maar omdat zwemmen nu eenmaal dezelfde vorm vraagt.  
+[nieuw] Niet-verwante soorten gaan door dezelfde selectiedruk op elkaar lijken: dat heet convergentie.
 [2:50.9] Functie zegt niets over familie.  
 [2:52.7] Bouw wel.  
 [2:53.5] En dan twee details in de walvis die alleen afstamming verklaart.  

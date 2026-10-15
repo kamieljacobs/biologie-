@@ -141,6 +141,7 @@ Scène: `micro` (sceneMicro → microLeeg())
 
 ## 7. s31 — uitleg
 > **Opnieuw inspreken (15-10-2026)**: de zin over de pomp is vervangen door de twee [nieuw]-zinnen hieronder (inhoudelijke correctie). De tijden na 0:26.6 kloppen pas weer na de nieuwe opname.
+> **Aanvulling (15-10-2026)**: ook [nieuw]-regels toegevoegd na 0:09.4 (lawine van natriumkanalen) en bij 0:40.3/0:41.9 (refractaire periode), na vergelijking met Gewoon Uitgelegd. Daardoor kloppen de tijden al vanaf 0:09.4 pas weer na de nieuwe opname.
 Audio: blob 007.mp3 (sleutel `s31` in FILM_AUDIO) · 2:24–3:11 (46,8 s mp3; timing.duration 46,811 s)
 Scène: `micro` (sceneMicro → microImpuls())
 
@@ -151,6 +152,9 @@ Scène: `micro` (sceneMicro → microImpuls())
 [0:07.3] Dat is de drempelwaarde.
 [0:08.2] Natriumkanalen schieten open.
 [0:09.4] Natrium stroomt naar binnen.
+[nieuw] Natriumkanalen zijn spanningsafhankelijk: ze gaan open als het membraan minder negatief wordt.
+[nieuw] Het binnenstromende natrium maakt het nog minder negatief, dus gaan er nog meer kanalen open: een lawine.
+[nieuw] Die lawine stopt niet halverwege. Alles of niets.
 [0:11.2] Binnen wordt het positief,
 [0:12.6] tot boven nul.
 [0:13.9] Dit heet depolarisatie.
@@ -163,7 +167,7 @@ Scène: `micro` (sceneMicro → microImpuls())
 [0:24.1] onder de min zeventig:
 [0:25.3] hyperpolarisatie.
 [0:26.6] ~~Dan herstelt de pomp de rust.~~
-[nieuw] Dan gaan de kaliumkanalen weer dicht, en komt het membraan terug op min zeventig: het rustpotentiaal.
+[nieuw] Dan gaan de kaliumkanalen weer dicht, en herstelt het rustpotentiaal: min zeventig.
 [nieuw] De pomp is daar niet voor nodig. Bij één impuls verplaatsen maar heel weinig ionen. Die zet de pomp pas op de lange duur terug.
 [0:27.9] Dit hele golfje heet een actiepotentiaal.
 [0:29.6] Het duurt maar een paar duizendste seconde.
@@ -172,7 +176,9 @@ Scène: `micro` (sceneMicro → microImpuls())
 [0:36.8] Terug kan hij niet:
 [0:37.8] het stukje erachter is even niet prikkelbaar.
 [0:40.3] Dat heet de refractaire periode.
+[nieuw] De natriumkanalen daar zijn vanzelf dichtgevallen, en kunnen heel kort niet opnieuw open.
 [0:41.9] Daarom loopt een impuls maar één kant op.
+[nieuw] Die korte rustpauze bepaalt ook hoe vaak een zenuwcel per seconde kan vuren.
 
 > Beeld (cues uit `plan.cues`, op het woord): beat „prikkel” op ‘prikkel’; number „−55 mV” op ‘vijfenvijftig’; term „drempelwaarde” op ‘drempelwaarde’; beat „Na open” op ‘Natriumkanalen’; term „depolarisatie” op ‘depolarisatie’; beat „K open” op ‘Kaliumkanalen’; term „repolarisatie” op ‘repolarisatie’; term „hyperpolarisatie” op ‘hyperpolarisatie’; term „actiepotentiaal” op ‘actiepotentiaal’; number „≈ 1–2 ms” op ‘duizendste’; beat „golf” op ‘rolt’; term „refractaire periode” op ‘refractaire’
 
@@ -288,6 +294,7 @@ Scène: `question` (sceneQuestion())
 *[aftelling 8,0 s (`cd5`) — in Leerling-modus wacht de film hier op een antwoord]*
 
 ## 13. a5 — antwoord op vraag 5
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 013.mp3 (sleutel `a5` in FILM_AUDIO) · 5:14–5:45 (31,3 s mp3; timing.duration 31,254 s)
 Scène: `micro` (sceneMicro → microReceptor())
 
@@ -305,6 +312,7 @@ Scène: `micro` (sceneMicro → microReceptor())
 [0:15.0] en er vertrekt een impuls.
 [0:16.3] Harder nog:
 [0:17.1] meer impulsen per seconde.
+[nieuw] En een sterkere prikkel doet nog iets: hij prikkelt ook receptoren ernaast. Dan vuren er meer zenuwcellen tegelijk.
 [0:18.7] Elke receptor heeft zijn eigen prikkel.
 [0:21.0] Druk voor de huid,
 [0:21.6] licht voor het oog.

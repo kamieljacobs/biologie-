@@ -188,6 +188,7 @@ Niveau: 6 vwo
 
 
 ## 4. H4 Warmte en zuur
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 Audio: blob 010.mp3 (`audio/ch_4.mp3` in `window.__AUDIO`) · 4:36–6:27 (111,8 s volgens ffprobe; `dur` in FILM 111,788 s)  
 Niveau: 6 vwo
@@ -213,6 +214,11 @@ Niveau: 6 vwo
 [5:08.3] Daardoor breken de zwakke bindingen  
 [5:09.9] die de vouwing bij elkaar houden.  
 [5:11.8] De keten zelf blijft heel.  
+[nieuw] Die keten is de primaire structuur: de volgorde van de aminozuren.  
+[nieuw] Waterstofbruggen vouwen stukken van de keten tot een spiraal of tot vlakke platen: de secundaire structuur.  
+[nieuw] Die stukken vouwen samen tot één ruimtelijke vorm: de tertiaire structuur. Bij veel eiwitten zetten zwavelbruggen tussen twee cysteïnes die vorm extra vast.  
+[nieuw] Katalase bestaat zelfs uit vier van zulke ketens samen: dat is de quaternaire structuur.  
+[nieuw] Bij verhitten gaat die ruimtelijke vorm verloren. De primaire structuur blijft.  
 [5:13.6] Het actieve centrum verliest zijn vorm.  
 [5:15.9] Dit heet denatureren:  
 [5:17.3] het eiwit verliest zijn ruimtelijke structuur,  

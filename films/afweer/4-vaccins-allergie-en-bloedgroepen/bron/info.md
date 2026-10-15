@@ -89,3 +89,11 @@ Begrippen: vaccin, actieve en passieve immunisatie, groepsimmuniteit, allergie, 
 - De losse bloedgroepletters staan bewust in een film-eigen lijst (`uitspraak_film.json`), zodat bijvoorbeeld "vitamine A" in andere reeksen niet verandert.
 - Getallen en kleuren volgen het Bloedgroepenlab.
 - Eindreview: 12 punten; 11 verwerkt zonder nieuwe opname (zie `reviews/eind.md`). Niet apart aangepakt: het algemene advies over in- en uitfaden van tags op dezelfde plek.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet hem bij het opnemen ook in `script_v2.md`).
+
+- **H3 Vormpjes op je bloed · s20** (basis): voor plasma is AB de universele donor (geen anti-A en geen anti-B in het plasma), tegenover O voor rode bloedcellen; O resusnegatief staat al in s21. Take s20 opnieuw (≈ +9 s), Roos, eleven_v4, één take; `make_segments.py` met `uitspraak_film.json` in de werkmap (dan wordt AB vanzelf `aa-bee`, A `aa`, B `bee`); Scribe + `align.py`; mp3 genormaliseerd in `audio/`. De cues in s20 (`bee`, `plasma`, `rode`, `ontvanger`, `bloedbank`, `universele`) staan vóór de nieuwe zinnen en blijven kloppen; let op dat `q.on('universele', 1)` de eerste keer blijft (de nieuwe zin bevat een tweede "universele"). Vul in de eindkaart of het docentdeel eventueel "AB geeft plasma aan iedereen" aan (eindkaart max ± 85 tekens per regel).
+- **Beeld nodig**: na de zak met rode bloedcellen een tweede zak "plasma" van AB, zonder anti-A en anti-B (lege plasma-ruimte, label "AB: universele donor voor plasma"), naast de O-zak met label "O: universele donor voor rode bloedcellen". Gebruik `rbcAg`/`antiY` en de kleuren KA/KB.
+- **Risicowoorden (uitspraaktest)**: geen nieuwe. AB, A, B en "universele donor" komen al in de film voor (AB via `uitspraak_film.json` als `aa-bee`).

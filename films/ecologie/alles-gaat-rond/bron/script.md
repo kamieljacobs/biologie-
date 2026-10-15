@@ -32,6 +32,7 @@ Beats: b0 0:05.1 · b1 0:12.4 · b2 0:20.5 · b3 0:31.9 · b4 0:42.7 · b5 0:53.
 [1:00.6] waarschijnlijk duizenden koolstofatomen van dit ree zitten.
 
 ## 2. Opruimers
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: narration.mp3 · 1:05–2:33 (hoofdstukkaart vanaf 65.019, stem vanaf 68.119; 88,9 s)
 Niveau: 4 vwo (geen havo/vwo-splitsing)
 
@@ -51,6 +52,8 @@ Beats: b0 1:08.0 · b1 1:17.4 · b2 1:31.8 · b3 1:41.0 · b4 1:54.0
 [1:43.1] Met fotosynthese maken planten glucose uit CO₂ en water.
 [1:47.2] Met voortgezette assimilatie maken ze daar, samen met mineralen,
 [1:50.8] andere organische stoffen van, zoals eiwitten.
+[nieuw] Producenten maken hun organische stoffen dus zelf, uit anorganische stoffen: ze zijn autotroof.
+[nieuw] Consumenten, detrituseters en reducenten kunnen dat niet. Zij moeten organische stoffen opnemen: ze zijn heterotroof.
 [1:54.1] In een stroomschema herken je de groepen aan de pijlen.
 [1:57.1] Alleen producenten nemen CO₂ op.
 [1:59.7] Herbivoren krijgen organische stoffen van producenten, en carnivoren van herbivoren.
@@ -375,6 +378,7 @@ Beats: b0 16:51.7 · b1 17:05.7 · b2 17:14.5 · b3 17:26.6 · b4 17:38.4 · b5 
 [18:21.6] Ze zetten nu minstens evenveel stikstofgas om als alle bacteriën op het land samen.
 
 ## 12. Stikstof gaat rond
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: narration.mp3 · 18:27–20:24 (hoofdstukkaart vanaf 1107.756, stem vanaf 1110.856; 116,8 s)
 Niveau: 4 vwo (geen havo/vwo-splitsing)
 
@@ -394,9 +398,16 @@ Beats: b0 18:30.8 · b1 18:39.9 · b2 18:50.3 · b3 18:56.8 · b4 19:08.5 · b5 
 [19:08.6] Daarna zetten nitrificerende bacteriën het ammonium om in nitriet,
 [19:12.5] en andere bacteriën zetten nitriet om in nitraat.
 [19:15.7] Ze halen daar energie uit, en ze hebben er zuurstof voor nodig.
+[nieuw] Met die energie maken ze zelf organische stoffen uit CO₂.
+[nieuw] Ze zijn dus autotroof, net als planten, maar hun energie komt niet uit licht. Ze zijn chemo-autotroof.
 [19:19.7] Planten nemen het nitraat weer op, en de kringloop is rond.
 [19:23.0] Maar nitraat hecht nauwelijks aan bodemdeeltjes.
 [19:25.9] Wat planten niet opnemen, spoelt makkelijk uit naar het grondwater.
+[nieuw] Waarom het ene blijft liggen en het andere wegspoelt, zit in de lading.
+[nieuw] Klei en humus zijn negatief geladen.
+[nieuw] Ammonium is positief geladen, en blijft daardoor aan klei en humus hangen.
+[nieuw] Nitraat is negatief geladen. Het hecht nauwelijks, en spoelt met het regenwater mee naar beneden.
+[nieuw] En ammoniak is een gas. Uit mest kan het zo de lucht in ontsnappen.
 [19:30.1] Waar geen zuurstof is, zoals in natte grond,
 [19:32.6] zetten denitrificerende bacteriën nitraat om in stikstofgas.
 [19:36.6] Ze gebruiken nitraat bij hun dissimilatie, zoals wij daar zuurstof voor gebruiken.

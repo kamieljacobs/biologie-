@@ -144,3 +144,21 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 6
 - Woordtijden zijn geschat; het docentdeel zegt zelf "Bij de volledige bouw gebruiken we woordtimestamps". Dat is nog niet gebeurd.
 - Radioactieve datering wordt alleen gegeven ("dat is gemeten"), niet uitgelegd. Dat is bewust zo, staat ook zo in het docentdeel.
 - Controle: 16 takes, 4 vragen, 8 kaarten; som van alle segmenten = 381,806 s, mp3 = 381,858 s (verschil 0,052 s, staart van de eindkaart). De stiltes in de mp3 (silencedetect) vallen op de kaart- en vraagsegmenten. Alle `cue()`-aanroepen met een vast woord vinden hun woord.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Hele film is vwo; geen apart vwo-blok nodig. De bestaande zinnen "Hoe dat werkt is scheikunde; voor deze film is het een gegeven: dat is gemeten." blijven kloppen (het mechanisme van verval wordt nog steeds niet uitgelegd), dus niets doorgestreept.
+
+- **`e3_lagen` (Lagen en fossielen)**: na "…radioactief verval in het gesteente." komen absolute datering, koolstof-14 met halveringstijd ongeveer 5730 jaar, bruikbaar tot zo'n 50.000 jaar, oudere gesteenten met andere isotopen (2 zinnen, ca. 13 s).
+- **`e6_homoloog` (Hetzelfde skelet)**: na "Het wijst op een gemeenschappelijke voorouder." komt divergentie (1 zin, ca. 6 s).
+- **`e8_analoog`**: na "…dezelfde vorm vraagt." komt convergentie (1 zin, ca. 5 s).
+- **Opname** volgens "Zo pas je deze film aan", punt 3: takes `e3_lagen` (0:42.1–1:03.6), `e6_homoloog` (2:05.7–2:24.3) en `e8_analoog` (2:44.0–3:11.2) opnieuw genereren met stem Roos (eleven_multilingual_v2), terugknippen in 001.mp3, `phrases`/`words` van die takes opnieuw zetten en alle latere `start`/`end` in `takes`, `phrases`, `words` en `segments` opschuiven, plus `TL.total`, de seekbalk (`max` en de vaste tekst "0:00 / …" in r. 120) en de tijden in het docentdeel (samen ca. +24 s). Let op punt 5: scènes gebruiken vaste offsets na een cue (bijv. `C.x+2.0`); de cues 'radioactief', 'gemeten', 'voorouder', 'Functie' en 'Bouw' verschuiven mee, maar controleer of de vaste offsets in `sedimentScene`, `limbScene` en `SCENE.e8_analoog` nog passen. De kaart "Absolute datering: radioactief verval" staat al in beeld.
+- **Beeld nodig**: in `sedimentScene` onder "Absolute datering: radioactief verval" een klein halveringsgrafiekje (100 % → 50 % → 25 %, x-as "× 5730 jaar") met label "koolstof-14: tot ± 50.000 jaar" en "ouder: andere isotopen". In `limbScene` bij "Homoloog" een label "divergentie: verwanten groeien uit elkaar" (drie ledematen vanuit één voorouderpoot, uitwaaierende pijlen). In `SCENE.e8_analoog` bij "Analoog" een label "convergentie: niet-verwanten gaan op elkaar lijken" (walvisvin en haaienvin met naar elkaar toe lopende pijlen).
+- **Docentdeel**: "Gegeven, niet uitgelegd: radioactieve datering" aanpassen naar "alleen de halveringstijd van koolstof-14 genoemd"; getallentabel aanvullen met koolstof-14 (halveringstijd 5730 ± 40 jaar, bruikbaar tot ca. 50.000 jaar; walvisfossielen worden gedateerd met bijv. argon-argon of via de omringende lagen); `RISK` aanvullen met de woorden hieronder.
+- **Risicowoorden (uitspraaktest)**:
+  - *koolstof-14* — stem-invoer "koolstof veertien" (anders kan de TTS "koolstof min veertien" of "koolstof een vier" zeggen).
+  - *5730 jaar* — jaartallen-regel geldt hier niet (het is een duur, geen jaartal); getallen in deze film staan als cijfers ("50 miljoen"). Stem-invoer "5730 jaar"; gaat het fout, dan "vijfduizend zevenhonderddertig jaar".
+  - *50.000 jaar* — stem-invoer "50.000 jaar"; bij problemen "vijftigduizend jaar".
+  - *halveringstijd* — IPA /ɦɑlˈveː.rɪŋs.tɛi̯t/ (hal-VEE-rings-tijd). Laag risico.
+  - *isotopen* — IPA /ˌi.zoːˈtoː.pə(n)/ (ie-zoo-TOO-pen). Wiktionary heeft alleen een geluidsbestand (Nl-isotoop.ogg), geen IPA; transcriptie afgeleid van het klemtoonpatroon op -oop. Risico: Engelse "ai-so-toops". Stem-invoer: "iezotopen".
+  - *divergentie* / *convergentie* — IPA /ˌdi.vɛrˈɣɛn.(t)si/ en /ˌkɔn.vɛrˈɣɛn.(t)si/ (klemtoon op "GEN", g als Nederlandse g). Wiktionary geeft voor -tie /tsi/ of /si/, na een medeklinker vaker /si/. Risico: Engelse of Franse g (zachte "zj"). Stem-invoer: "divergentie" en "convergentie"; bij een zachte g of verkeerde klemtoon "diever-gensie" / "konver-gensie".

@@ -43,11 +43,16 @@ Een paar dagen na de geboorte komt iemand van de jeugdgezondheidszorg of de verl
 Bijna alle ouders doen de hielprik, maar de NIPT is een echte keuze. Hoe komt dat? Wat denk je?
 
 ## n9 · Hoofdstuk 2 — Een kind op komst · basis
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 *begin 4:33 / 4:33 · 68.2 s*
 
 Antwoord A. Allebei de testen zijn vrijwillig, en allebei zijn het screening: een aanbod aan iedereen, zonder dat er een klacht is. Een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd. Het verschil zit in wat je daarna met de uitslag kunt. Bij de hielprik is de uitslag het begin van een behandeling. Bij de NIPT is de uitslag het begin van een afweging. Er is nog een test, vóór een zwangerschap: de dragerschapstest. Die vraag je zelf aan, via de huisarts of een klinisch geneticus. Je kunt drager zijn van een recessieve erfelijke ziekte, zoals taaislijmziekte, zonder er iets van te merken: je hebt het allel één keer. In Nederland is ongeveer één op de dertig mensen drager. Zijn beide ouders drager, dan is de kans één op vier dat een kind de ziekte krijgt. Dat is een feit uit de erfelijkheidsles. Wat je met dat feit doet, is geen biologie meer. Op de balans: zekerheid vooraf, tegenover een vraag waar je misschien niet om gevraagd had.
+> plek van de [nieuw]-regels: direct na "Wat je met dat feit doet, is geen biologie meer.", vóór "Op de balans: zekerheid vooraf, …"
+[nieuw] Een argument dat op zo'n feit steunt, op biologische kennis, heet een biologisch argument.
+[nieuw] Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument.
 
 > stem-invoer: Antwoord A. Allebei de testen zijn vrijwillig, en allebei zijn het skriening: een aanbod aan iedereen, zonder dat er een klacht is. Een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd. Het verschil zit in wat je daarna met de uitslag kunt. Bij de hielprik is de uitslag het begin van een behandeling. Bij de nipt is de uitslag het begin van een afweging. Er is nog een test, vóór een zwangerschap: de dragerschapstest. Die vraag je zelf aan, via de huisarts of een klinisch geneticus. Je kunt drager zijn van een recessieve erfelijke ziekte, zoals taaislijmziekte, zonder er iets van te merken: je hebt het allel één keer. In Nederland is ongeveer één op de dertig mensen drager. Zijn beide ouders drager, dan is de kans één op vier dat een kind de ziekte krijgt. Dat is een feit uit de erfelijkheidsles. Wat je met dat feit doet, is geen biologie meer. Op de balans: zekerheid vooraf, tegenover een vraag waar je misschien niet om gevraagd had.
+> stem-invoer [nieuw] (na "…is geen biologie meer."): Een argument dat op zo'n feit steunt, op biologische kennis, heet een biologisch argument. Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument.
 
 ## n11 · Hoofdstuk 3 — Het zit in de familie · basis
 *begin 5:44 / 5:44 · 78.4 s*

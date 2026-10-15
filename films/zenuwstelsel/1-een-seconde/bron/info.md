@@ -176,3 +176,19 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - De eindkaart geeft als ondertitel van film 2 “hoe een impuls door een neuron reist”; film 2 zelf heet “hoe een zenuwcel een bericht verstuurt”.
 - Docentdeel: het getal ‘≈ 100 ms netvlies → hersenen’ staat er zelf als ‘niet gecontroleerd’ bij.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.title/subtitle`. Type-letters A–I ontbreken (alleen typering in woorden). Geen havo/vwo-schakelaar (niet nodig: alleen 5 vwo).
+
+## Wachtlijst opnieuw inspreken
+
+- **a4 — antwoord op vraag 4 (blob 012.mp3), 15-10-2026, aanvulling na vergelijking met Gewoon Uitgelegd.** Erbij: na “Dat is de reflexboog.” de antagonistische remming (buigspier trekt samen, remmend schakelneuron remt het motorische neuron naar de strekspier); aan het eind één zin dat de hersenen een reflex kunnen afremmen (hete pan).
+  - Hele segment a4 opnieuw opnemen (één mp3, blob 012.mp3), daarna `timing.a4` (`duration`, `speech`, `phrases`, `words`), `segments[].text` en het transcript bijwerken. Segment wordt ca. 20 s langer; alles na a4 schuift vanzelf op.
+  - Ankerwoorden blijven staan. De nieuwe zinnen staan ná `reflexboog`/`effector` (2e) en ná `gevaar`, dus de n-de voorkomens van `schakelneuron`, `motorisch`, `niet`, `effector` veranderen niet (de nieuwe zinnen gebruiken “motorische”, geen “motorisch”/“niet”). Alleen de lensanimatie na `reflexboog` (`niet`, `daarna`, `klap`, `kniepeesreflex`) start later; dat gaat vanzelf goed via `wt()`.
+- **s51 — uitleg Gas en rem (blob 013.mp3), 15-10-2026, aanvulling.** Erbij: na “…zonder dat je het merkt.” welke effectoren het autonome zenuwstelsel aanstuurt (hartspier, gladde spieren in darm en bloedvaten, klieren).
+  - Hele segment s51 opnieuw opnemen (blob 013.mp3), `timing.s51`, `segments[].text` en transcript bijwerken. Ca. 10 s langer.
+  - Ankerwoorden blijven staan: “klam” komt nu twee keer voor, maar `wt(id,'klam')` pakt de eerste (0:02.9); “hartspier” is niet “hart”, en “twee” komt in de nieuwe zin niet voor.
+- **Beeld nodig**
+  - a4: in de lens of als inzet: buigspier (biceps) licht op en verkort, strekspier (triceps) ontspant; tweede schakelneuron met een rem-symbool (−) naar het motorische neuron van de strekspier; label „antagonisten”. Bij de pan-zin: kort een pijl van de hersenen omlaag naar het motorische neuron met „remt”.
+  - s51: drie kleine pictogrammen/labels op het woord: „hartspier”, „gladde spieren (darm, bloedvaten)”, „klieren (zweetklier)”.
+- **Risicowoorden (uitspraaktest)**
+  - *antagonisten* — IPA [ɑntaxoˈnɪstə(n)], klemtoon op „nis” (woorden.org via [encyclo.nl](https://www.encyclo.nl/begrip/antagonist): [ɑntaxo'nɪst], an·ta·go·nist). Stem-invoer: eerst „antagonisten” zoals geschreven; klinkt de klemtoon verkeerd, dan „anta-go-nisten”.
+  - *effectoren* — klemtoon op „to” [ɛfɛkˈtoːrə(n)] (meervoud volgens [encyclo.nl](https://www.encyclo.nl/begrip/effector); IPA niet online gevonden, afgeleid van „effector” + -oren zoals motor/motoren). Stem-invoer: „effectoren”; fout? dan „effec-tooren”.
+  - *gladde spieren, buigspier, strekspier, hartspier, remmend* — gewone Nederlandse woorden, laag risico; als geschreven.

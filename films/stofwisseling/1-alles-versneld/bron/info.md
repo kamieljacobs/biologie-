@@ -215,3 +215,18 @@ Werk altijd in de uitgepakte versie: `python3 scripts/filmbron.py uitpakken film
 - De metingen in `FILM.curves` komen uit een `measure.js` die niet in de HTML staat: nieuwe grafiekpunten kun je niet opnieuw berekenen zonder dat script (de modelinstellingen in `models.js` staan er wel).
 - Looptijd op de pagina (11:34) = som van `dur`; de audiobestanden samen zijn 0,4 s langer (mp3-opvulling), dat is normaal.
 - Uitspraak: de stem-invoer (respellings) staat niet in de HTML. Woorden om op te letten bij heropname volgens de uitspraaklijst: "blaasje" (H1, goed), "zevenendertig graden" (H4).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). De hele film is 6 vwo, dus geen vwo-markering nodig.
+
+- **H4 Warmte en zuur · take 4b** (blob 010.mp3 = `audio/ch_4.mp3`, nu 111,8 s, wordt ≈ +30 s): eiwitstructuur primair (volgorde aminozuren), secundair (spiraal en vlakke platen door waterstofbruggen), tertiair (ruimtelijke vouwing, o.a. zwavelbruggen tussen twee cysteïnes), quaternair (meer ketens samen; katalase is een tetrameer), en dat bij verhitten alleen de primaire structuur overblijft. Na "De keten zelf blijft heel." in take 4b. Volgens "Zo pas je deze film aan", punt 1–2: take 4b opnieuw opnemen met Roos (eleven_multilingual_v2), hoofdstuk-mp3 opnieuw plakken met dezelfde stiltes, `dur`/`segments`/`sentences`/`phrases` van hoofdstuk 4 vervangen; de zinnummers ná 4b schuiven (5 nieuwe zinnen), dus alle `W(n, …)` in `SCENES['4']` vanaf take 4b nalopen; de begintijden van H5–H8, transcript (`data-t`) en looptijd 11:34 (drie plekken) schuiven ≈ +30 s.
+- **Begrippen** (pagina): primaire, secundaire, tertiaire en quaternaire structuur toevoegen; "denatureren" (Nectar: verlies van de ruimtelijke structuur) blijft kloppen.
+- **Beeld nodig**: in de inzoom op één enzym (H4) vóór het denatureren vier kleine stappen: rij kralen (primair), een stuk spiraal en een vlakke plaat met gestippelde waterstofbruggen (secundair), de gevouwen vorm met één gele zwavelbrug tussen twee gemarkeerde cysteïnes (tertiair), vier gevouwen ketens samen als katalase (quaternair). Daarna denatureert het enzym zoals nu, met label "primaire structuur blijft".
+- **Risicowoorden (uitspraaktest)**:
+  - primaire — woorden.org (via encyclo.nl) geeft voor primair [priˈməːr], klemtoon op -mair; zoals geschreven.
+  - secundaire — IPA [səkʏnˈdɛːr] (woorden.org via encyclo.nl); zoals geschreven.
+  - tertiaire — IPA [tɛrˈ(t)ʃɛːr] (woorden.org via encyclo.nl), dus "ter-sjèr-", geen "ter-tie-air". Grote kans dat de TTS "tertie-aire" zegt; voorstel stem-invoer "tersjère".
+  - quaternaire — geen IPA-bron gevonden (Wiktionary niet bereikbaar); verwacht [kʋaːtərˈnɛːr], klemtoon op -nai-. Voorstel stem-invoer "kwaternaire".
+  - cysteïnes — "cysteïne" zoals geschreven was al goedgekeurd (DNA afl. 4); meervoud zoals geschreven, wel beluisteren of de -s goed aansluit.
+  - waterstofbruggen, zwavelbruggen — gewone samenstellingen; zoals geschreven.

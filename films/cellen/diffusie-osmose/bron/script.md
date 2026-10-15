@@ -58,9 +58,15 @@ Ongeveer vier keer zo lang. Een deeltje dwaalt heen en weer, dus hoe verder het 
 
 ## Hoofdstuk 4 — De grens: het celmembraan
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s12** · 3:46 · duur 17.47 s · audio/s12.mp3
 
 Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen. Het membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel. Welke stof komt het makkelijkst door? Wat denk je?
+
+[nieuw] (direct na "Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen.") Kijk eerst naar de bouw. Het membraan bestaat uit fosfolipiden: elk met een kop die van water houdt, hydrofiel, en twee vetstaarten die water afstoten, hydrofoob. De koppen liggen naar het water toe, de staarten naar binnen, tegen elkaar: midden in het membraan zit dus een laag vet.
+
+[nieuw] Stem-invoer: Kijk eerst naar de bouw. Het membraan bestaat uit fosfo-lipiden: elk met een kop die van water houdt, hiedro-fiel, en twee vetstaarten die water afstoten, hiedro-foob. De koppen liggen naar het water toe, de staarten naar binnen, tegen elkaar: midden in het membraan zit dus een laag vet.
 
 **q13** · vraag op scherm (8 s + 6 s): Welke stof komt het makkelijkst door het celmembraan?  
 Opties: **zuurstof** · een natriumion · glucose  
@@ -69,6 +75,8 @@ Uitleg na antwoord: Zuurstof is klein en lost goed op in vet. Een ion heeft een 
 **s14** · 4:18 · duur 33.39 s · audio/s14.mp3
 
 Zuurstof. Kleine stoffen die goed in vet oplossen glippen er zo doorheen: zuurstof en koolstofdioxide. Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet. Het membraan is dus geen zeef die alleen naar grootte kijkt. Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes. Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag.
+
+[nieuw] (direct na "Het gaat dan nog steeds vanzelf, van hoog naar laag.") Dus: stoffen die goed in vet oplossen, gaan zelf door het membraan. Stoffen die goed in water oplossen, en ionen, hebben een eiwit in het membraan nodig.
 
 > Stem-invoer: Zuurstof. Kleine stoffen die goed in vet oplossen glippen er zo doorheen: zuurstof en koolstofdie-oxide. Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet door de vetlaag. Glucose ook niet: dat lost slecht op in vet. Het membraan is dus geen zeef die alleen naar grootte kijkt. Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes. Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag.
 
@@ -85,6 +93,8 @@ Uitleg na antwoord: Nee. Het eiwit is alleen een doorgang; de beweging gaat vanz
 Nee. Het eiwit is alleen een doorgang. De beweging komt nog steeds van het willekeurig rondschieten. Terug naar de hoofdlijn.
 
 ## Hoofdstuk 5 — Osmose
+
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s18** · 5:43 · duur 14.99 s · audio/s18.mp3
 
@@ -109,6 +119,8 @@ Kijk naar een gaatje in het membraan, van dichtbij. Rechts botsen de zoutdeeltje
 **s22** · 7:20 · duur 20.83 s · audio/s22.mp3
 
 Zet het membraan in een U-buis. Het water rechts stijgt. Maar hoe hoger de kolom, hoe harder die terugduwt. Op een bepaalde hoogte duwt de kolom precies even hard terug als het water dat door osmose naar rechts wil. Netto stroomt er dan geen water meer. Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt.
+
+[nieuw] Tel daarbij deeltjes, geen moleculen. Keukenzout valt in water uiteen in twee ionen: natrium en chloride. Glucose blijft heel. Eén mol zout per liter geeft dus twee mol deeltjes, één mol glucose per liter maar één. De zoutoplossing heeft daardoor twee keer zo'n hoge osmotische waarde.
 
 **s23** · 7:41 · duur 31.71 s · audio/s23.mp3
 

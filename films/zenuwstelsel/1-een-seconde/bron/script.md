@@ -209,6 +209,7 @@ Scène: `question` (sceneQuestion())
 *[aftelling 8,0 s (`cd4`) — in Leerling-modus wacht de film hier op een antwoord]*
 
 ## 11. a4 — antwoord op vraag 4
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 012.mp3 (sleutel `a4` in FILM_AUDIO) · 3:30–4:19 (49,6 s mp3; timing.duration 49,505 s)
 Scène: `lens` (sceneLens())
 
@@ -230,6 +231,9 @@ Scène: `lens` (sceneLens())
 [0:24.0] motorisch neuron,
 [0:24.9] effector.
 [0:25.4] Dat is de reflexboog.
+[nieuw] Er gebeurt tegelijk nog iets. Je buigspier trekt samen en trekt je hand weg.
+[nieuw] Een tweede, remmend schakelneuron remt het motorische neuron naar je strekspier. Die ontspant, zodat je arm vrij kan buigen.
+[nieuw] Buigspier en strekspier bewegen je arm in tegengestelde richting. Zulke spieren heten antagonisten.
 [0:26.4] De hersenen zitten er niet tussen.
 [0:27.7] Pas daarna gaat er ook een impuls omhoog,
 [0:29.3] en voel je de klap.
@@ -242,6 +246,7 @@ Scène: `lens` (sceneLens())
 [0:39.0] verloopt altijd hetzelfde,
 [0:40.4] en je kunt hem nauwelijks tegenhouden.
 [0:42.5] Dat is precies wat je wilt als er gevaar is.
+[nieuw] Toch kunnen je hersenen een reflex wel afremmen, via remmende verbindingen op het motorische neuron. Zo kun je een hete pan nog even vasthouden tot hij op het aanrecht staat.
 
 > Beeld (cues uit `plan.cues`, op het woord): term „reflex” op ‘reflex’; term „sensorisch neuron” op ‘sensorisch’; term „schakelneuron” op ‘schakelneuron’; term „motorisch neuron” op ‘motorisch’; term „effector” op ‘effector’; term „reflexboog” op ‘reflexboog’; number „18 ms” op ‘achttien’
 
@@ -249,6 +254,7 @@ Scène: `lens` (sceneLens())
 *[hoofdstukkaart 3,0 s op 4:19]*
 
 ## 12. s51 — uitleg
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 013.mp3 (sleutel `s51` in FILM_AUDIO) · 4:22–4:56 (33,5 s mp3; timing.duration 33,483 s)
 Scène: `micro` (sceneMicro())
 
@@ -259,6 +265,7 @@ Scène: `micro` (sceneMicro())
 [0:05.8] Dat heb je niet besloten.
 [0:07.5] Dit doet het autonome zenuwstelsel:
 [0:09.5] het deel dat je organen regelt zonder dat je het merkt.
+[nieuw] Het stuurt drie soorten effectoren aan. Je hartspier. Gladde spieren, zoals in je darm en in de wand van je bloedvaten. En klieren, zoals de zweetklieren die je handen klam maken.
 [0:12.9] Het heeft twee delen.
 [0:14.1] Het sympathische deel maakt je klaar voor actie:
 [0:16.7] hart sneller,

@@ -166,3 +166,17 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Docentdeel noemt expliciet wat ontbreekt (Broca/Wernicke, limbisch systeem); de slakkenhuis-tonotopie is ‘handboekfeit, nagekeken in de onafhankelijke controle’ zonder externe link.
 - Velden die de speler niet gebruikt: `questions[].misconception`, `segments[]`, `plan.series/next`.
 - Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`.
+
+## Wachtlijst opnieuw inspreken
+
+- **a5 — antwoord op vraag 5, Vanzelf (blob 012.mp3), 15-10-2026, aanvulling na vergelijking met Gewoon Uitgelegd.** Erbij: na „temperatuur, honger, dorst.” de temperatuurregeling als regelkring (temperatuurzintuigen → hypothalamus vergelijkt met normwaarde ≈ 37 °C → zweetklieren en wijde huidvaten of nauwe huidvaten en rillen; negatieve terugkoppeling). Vijf zinnen.
+  - Hele segment a5 opnieuw opnemen (blob 012.mp3), `timing.a5`, `segments[].text` en transcript bijwerken. Ca. 25 s langer; s70 en de eindkaart schuiven vanzelf op.
+  - Ankerwoorden blijven staan: `temperatuur` en `hypothalamus` komen nu vaker voor, maar `T()` pakt het eerste voorkomen (vóór de aanvulling). In de nieuwe zinnen staan geen „hart”, „autonome”, „hypofyse”, „refrein” of „Kippenvel”. Let op: microVanzelf laat ‘op peil’ op `temperatuur` beginnen; het beeld voor de nieuwe regelkring moet op een nieuw ankerwoord (bv. `normwaarde`, `zweetklieren`, `rillen`, `terugkoppeling`).
+- **Beeld nodig**: kleine regelkring naast de hypothalamus op de plattegrond: sensor (temperatuurzintuigen) → hypothalamus met normwaarde „≈ 37 °C” → effectoren; twee takken „te warm: zweetklieren, huidvaten wijd” en „te koud: huidvaten nauw, rillen”; label „negatieve terugkoppeling” met een min-teken op de terugkoppelpijl. (Kan dezelfde regelkringstijl gebruiken als in de Regelkring-tool.)
+- **Risicowoorden (uitspraaktest)**
+  - *hypothalamus* — bestaand (komt al in de film voor), geen nieuw risicowoord. Bekende voorkeur: klemtoon op „tha” (hy-po-THA-la-mus); stem-invoer „hypoTHAlamus”. Nu ook in de nieuwe zin „De hypothalamus vergelijkt…”: zelfde invoer gebruiken zodat het hele segment gelijk klinkt.
+  - *zevenendertig graden* — IPA [ˈzeːvə(n)ənˌdɛrtəx ˈɣradən]. Gezien Kamiels keuze bij „vijf en neguntig graden”: stem-invoer „zeven en dertig graden” (niet „37 graden” als cijfers, niet aaneengeschreven); ondertitel „zevenendertig” of „37 °C”.
+  - *negatieve terugkoppeling* — terugkoppeling met klemtoon op „rug” [təˈrʏxkɔpəlɪŋ] (online IPA niet gevonden; koppeling = kop-pe-ling). Stem-invoer: als geschreven; fout? „te-rug-koppeling”.
+  - *temperatuurzintuigen* — temperatuur [tɛm.pə.raːˈtyːr] ([kaikki/Wiktionary](https://kaikki.org/dictionary/Dutch/meaning/t/te/temperatuur.html)); lange samenstelling, klemtoon op „tuur”. Stem-invoer: als geschreven; struikelt de stem, dan „temperatuur-zintuigen”.
+  - *zweetklieren* — [ˈzʋeːt.kliːrən] ([kaikki/Wiktionary](https://kaikki.org/dictionary/Dutch/meaning/z/zw/zweetklier.html)); laag risico, als geschreven.
+  - *normwaarde, huidvaten, rillen* — laag risico, als geschreven.

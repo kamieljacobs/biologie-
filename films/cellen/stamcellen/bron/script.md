@@ -58,6 +58,8 @@ En embryonale stamcellen? Een embryo van vijf dagen is een holle bol, met binnen
 
 ## Hoofdstuk 3 — Stamcellen als medicijn
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s14** · 43.3 s · `audio/s14.mp3`
 
 Bij leukemie maakt het beenmerg afwijkende bloedcellen. Die delen zich ongeremd, en verdringen de gezonde cellen. Artsen vernietigen dan het zieke beenmerg met chemo, soms ook met bestraling. Daarna krijgt de patiënt via een infuus bloedstamcellen van een donor. Die zoeken zelf hun weg naar het beenmerg, en maken daar weer gezond bloed. De donor moet wel goed passen. Zijn cellen moeten bijna dezelfde herkenningseiwitten hebben. Anders ruimt het afweersysteem ze op, of keren de donorcellen zich juist tegen het lichaam van de patiënt. Daarna heeft het nieuwe bloed het DNA van de donor, zelfs zijn bloedgroep. De huid en de geslachtscellen van de patiënt niet: die houden hun eigen DNA.
@@ -79,6 +81,9 @@ In het lab kloppen zulke hartspiercellen echt. Eén losse cel klopt al, maar in 
 **s19** · 33.3 s · `audio/s19.mp3`
 
 Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
+
+[nieuw] Let in zo'n discussie op wat voor argument je geeft. Een biologisch argument gaat over feiten: embryonale stamcellen kunnen nog elke celsoort worden, volwassen stamcellen niet. Een ethisch argument gaat over normen en waarden: een embryo is het begin van een mens, dus dat mag je niet zomaar gebruiken.
+
 
 **s20** · vwo · 61.8 s · `audio/s20.mp3`
 

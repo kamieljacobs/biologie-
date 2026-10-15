@@ -106,3 +106,17 @@ Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 - Beeld: celwand-label bij plasmolyse "stevig, blijft staan", pas bij turgor "duwt terug"; koud/warm-panelen al bij "Hoe warmer"; paneel 1 in s09 bij "sneller bewegen"; pill "de tellers schommelen" in s08; passief transport langer in beeld (s29) en in havo zonder "gefaciliteerde diffusie"; nier als boon; kaarten in s21 dekkend (`card` in scenes_lib.js zonder transparantie).
 - Docent/pagina: practicum met kleurstof in agar (convectie vs diffusie), uitleg q02 met nuance over stroming, begrippen osmose/osmotische waarde/passief/actief transport aangepast, begrip osmotische druk toegevoegd, taalfout checkvraag 1a.
 - Niet aangepast: kleur van de celkern (paars), afbreekpunten van ondertitels, kleine overlappen in s01, s06, s11, s15 en s28 (zie review_v2.md).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md` en volg "Tekst wijzigen" hierboven (Roos, eleven_v4, één take, Scribe, mastering, `build_data.py`, `build.py`, `checkcues.js`).
+
+- **H4, s12** — fosfolipide-dubbellaag (hydrofiele kop, hydrofobe staarten, vette middenlaag), na de eerste zin. Opnieuw: `audio/s12.mp3` + `words/s12.json`; s12 wordt ± 20 s langer, alles erna schuift op. Cues in `SCENES.s12` ('dubbele', 'selectief', 'sommige', 'permeabel', 'Welke') blijven uniek; voeg cues toe op 'fosfolipiden', 'koppen', 'staarten'.
+- **H4, s14** — conclusiezin vetoplosbaar zelf door het membraan, wateroplosbaar en ionen via een eiwit, aan het eind. Opnieuw: `audio/s14.mp3` + `words/s14.json`; ± 8 s langer. Bestaande cues ('Ook' 2, 'Glucose' 2, 'Water', 'hoog') blijven kloppen.
+- **H5, s22** — osmotische waarde telt deeltjes: NaCl → Na⁺ + Cl⁻, dus 2× de osmotische waarde van glucose bij dezelfde molariteit, aan het eind. Opnieuw: `audio/s22.mp3` + `words/s22.json`; ± 17 s langer. Cue 'Hoe' 3 blijft kloppen. Overweeg een checkvraag of een docentnoot (examenvalkuil).
+- **Beeld nodig**: s12 close-up van één fosfolipide (kop + twee staarten, labels "hydrofiel" en "hydrofoob") en de dubbellaag met koppen naar buiten en staarten naar binnen (helper `lipidedubbellaag` in `scenes_lib.js` uitbreiden); s14 tweedeling "lost op in vet → zelf erdoor" (O₂, CO₂) tegenover "lost op in water / ion → eiwit nodig" (glucose, Na⁺); s22 rekenvoorbeeld: bekertje 1 mol/L NaCl met 2 deeltjes per formule-eenheid (Na⁺ en Cl⁻), bekertje 1 mol/L glucose met 1, met teller "2 mol deeltjes / 1 mol deeltjes".
+- **Risicowoorden (uitspraaktest)**:
+  - fosfolipiden — "lipide" /liˈpidə/ (Wiktionary via kaikki.org); stem-invoer `fosfo-lipiden`.
+  - hydrofiel — /ɦidroːˈfil/ (Wiktionary via kaikki.org); stem-invoer `hiedro-fiel` (zelfde ie-truc als "hiepotonisch").
+  - hydrofoob — /ɦidroːˈfoːp/ (Wiktionary via kaikki.org); stem-invoer `hiedro-foob`.
+  - chloride — geen IPA gevonden (alleen een geluidsbestand op Wiktionary); verwacht /xloːˈridə/, klemtoon op "ri". Stem-invoer eerst zoals geschreven, alternatief `chlo-riede`.

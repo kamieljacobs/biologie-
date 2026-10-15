@@ -118,9 +118,12 @@ Een kuiken wordt geboren met een mutatie in alle cellen van zijn lichaam. Waar i
 Antwoord B. Alle cellen van het kuiken stammen af van één bevruchte eicel. Zat de mutatie daarin, dan zit hij overal. De zon op de huid van de moederkip verandert haar huidcellen, niet haar eicellen. Een mutatie in een zaadcel of eicel kan worden doorgegeven. Een mutatie in een huidcel, een levercel of een darmcel niet. Die blijft bij jou. Je kinderen beginnen dus zonder jouw huidmutaties.
 
 ## n24 · Hoofdstuk 4 — Erfelijk of niet? · basis
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 *begin 8:46 / 7:58 · 37.7 s*
 
 Maar bij jou blijven ze zitten. En elke zomer komen er bij. De meeste mutaties doen niets. Ze zitten buiten een gen, of ze zijn stil. Maar sommige genen besturen de celdeling. Het ene gen zet de deling aan, het andere remt af. Raakt zo'n rem kapot, dan deelt de cel door terwijl dat niet moet. En de dochtercellen ook. Zo ontstaat een klomp cellen: een tumor. Daarvoor zijn meerdere mutaties nodig, in dezelfde cel. Daarom duurt het vaak jaren, en komt huidkanker vooral op latere leeftijd.
+> plek van de [nieuw]-regel: direct na "Zo ontstaat een klomp cellen: een tumor.", vóór "Daarvoor zijn meerdere mutaties nodig, in dezelfde cel."
+[nieuw] Kanker is het pas als zo'n tumor kwaadaardig is: hij groeit het weefsel eromheen in en kan uitzaaien, terwijl een goedaardige tumor op zijn plek blijft.
 
 ## n25 · Hoofdstuk 4 — Erfelijk of niet? · vwo
 *begin 9:24 / — · 55.8 s*

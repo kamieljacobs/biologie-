@@ -76,3 +76,15 @@ Begrippen: boezem, kamer, tussenschot, kleine bloedsomloop, grote bloedsomloop, 
 - Uitspraak: zie `uitspraak.md`; geen blinde controle mogelijk in deze sessie.
 - Woordtijden komen uit `silalign.py`, niet uit Scribe; enkele cues kunnen 0,2–0,4 s afwijken.
 - Open punten uit de eindreview: zie `reviews/eindreview.md`.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet hem bij het opnemen ook in `script_v2.md`, gemarkeerd als vwo).
+
+- **Hoofdstuk 2 — Twee rondjes · nieuwe vwo-alinea na s10** (vwo): de bloedsomloop van een ongeboren kind (placenta en navelstreng, foramen ovale, ductus Botalli, sluiten bij de geboorte). Eén nieuwe take (≈ 35 s), Roos, eleven_v4, één generatie; ffmpeg loudnorm zoals hierboven, woordtijden met `silalign.py`. Bestaande takes blijven ongewijzigd. Let op: `make_segments.py` nummert de id's opnieuw, dus de nieuwe alinea wordt s11 en alles daarna (s11–s18, vraag q14) schuift één nummer op: hernoem de mp3's, de woordtijden, de sleutels in `SCENES` (scenes.js) en de vraag-id in `film.py` mee. Voeg "foramen ovale" en "ductus Botalli" toe aan de vwo-begrippen en vul `uitspraak.md` aan.
+- **Beeld nodig**: Schema: hart in doorsnede (bestaande `hart` uit `lib_transport.js`) met een opening in het tussenschot tussen de boezems (pijl rechterboezem → linkerboezem) en een kort vat tussen longslagader en aorta (pijl longslagader → aorta); longen gedimd (nog niet aan het werk); navelstreng met placenta onderaan; bij "geboorte" klapt de opening dicht en verdwijnt het vat, longen kleuren op. Labels: "foramen ovale", "ductus Botalli", "placenta", "navelstreng".
+- **Risicowoorden (uitspraaktest)**:
+  - **foramen ovale**: Latijn forāmen ōvāle, klemtoon op de lange a's: Nederlands medisch /foːˈraː.mɛn oːˈvaː.lə/ (foo-RAA-men oo-VAA-lə). Stem-invoer: `foraamen ovaale`.
+  - **ductus Botalli**: genitief van Botallus (Leonardo Botallo, it. /boˈtallo/), klemtoon op -tal-: /ˈdʏk.tʏs boːˈtɑ.li/ (DUK-tus bo-TAL-lie). Stem-invoer: `duktus Bo-tallie`.
+  - **placenta**: /plaːˈsɛn.taː/ (plaa-SEN-taa). Stem-invoer: zoals geschreven (stond ook op de wachtlijst van Afweer 4).
+  - **navelstreng**: zoals geschreven.

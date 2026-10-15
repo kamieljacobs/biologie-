@@ -170,3 +170,16 @@ Regelnummers verwijzen naar film.src.html (= index.html; er zijn geen blobs, dus
 
 - 15 okt 2026 (versie 1.1, alleen beeld, geen nieuwe opname) na feedback van Kamiel: rustigere textuur in de achtergrond/het cytoplasma (`grain()` in lib.js: 1400 kleine, zachte deeltjes); mRNA als dunne sliertige enkele streng met basenstreepjes (`mrnaStrand`); in de kern een badge TRANSCRIPTIE (één gen → werkkopie, teal) of DNA-REPLICATIE (al het DNA, vóór de deling, paars) plus 'één gen'-haak; eiwit als kralenketting die opvouwt en een vertakte suikerketen krijgt (`eiwitKeten`, s11; enzymen buiten de cel in s09); celmembraan in s09/s11 als gebogen stuk van een ronde cel (`membraanBoog`); glucose als zeshoek die in twee brokstukken van drie C breekt, O₂, CO₂ en ATP (base + suiker + drie fosfaten) als moleculen (s14, s16, s25; `molFlow`); namen zonder lange lijntjes in s11, s14, s25 (`naam`). Nieuwe helpers staan onderaan `src/lib.js`; de wijzigingen zijn in `index.html` gezet door de oude lib/scenes-tekst te vervangen.
 - Audiopunten verwerkt in versie 1.4 (hierboven).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md` en volg "Tekst wijzigen" en "Zo pas je deze film aan" stap 2 (Roos, eleven_v4, één take, Scribe, −16 LUFS, nieuwe `words` en `dur`, cuecheck met `bouw/checkcues.js`).
+
+- **H2, s07** — kernlichaampje: maakt de onderdelen van ribosomen, na "Het DNA zelf blijft binnen." Opnieuw: `audio/s07.mp3` + woordtijden; ± 9 s langer. Cues ('dna' 1, 'blijft', 'bestuurt', 'deelt', 'gekopieerd') blijven kloppen.
+- **H3, s09** — glad ER (vetten zoals fosfolipiden en steroïdhormonen, ontgiften in de lever) na "dan heet het ruw ER."; de zin "Eiwitten voor buiten de cel gaan het ER in." wordt "… het ruw ER in." Opnieuw: `audio/s09.mp3` + woordtijden; ± 10 s langer. Cue 'ruw' (eerste) blijft op "ruw ER" vallen; nieuwe cue op 'glad'. ER in de stem-invoer als `E-R`.
+- **Beeld nodig**: s07 donker bolletje in de kern met label "kernlichaampje" en een paar ribosoom-onderdelen die door een kernporie naar buiten gaan; s09 glad ER (buisjes zonder ribosomen) naast het ruw ER, met labels "vetten maken" en "ontgiften (lever)". De presentatie (`presentatie/svg/er.svg`) heeft al ruw/glad ER; begrip "glad ER" en "kernlichaampje" toevoegen aan `GLOSSARY`.
+- **Risicowoorden (uitspraaktest)**:
+  - kernlichaampje — samenstelling van gewone woorden; als geschreven.
+  - fosfolipiden — "lipide" /liˈpidə/ (Wiktionary via kaikki.org); stem-invoer `fosfo-lipiden`.
+  - steroïdhormonen — geen Nederlandse IPA gevonden; verwacht /steːroːˈit/ (ste-ro-ÏD, trema = aparte i). Stem-invoer `steroïd-hormonen`, alternatief `stero-ied-hormonen`.
+  - glad E-R — "E-R" al goedgekeurd (15-10-2026); alleen controleren dat "glad" er niet aan vastplakt.

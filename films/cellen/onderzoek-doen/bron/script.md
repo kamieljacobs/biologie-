@@ -101,6 +101,7 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 > Vraag (pauzekaart aan het eind van het hoofdstuk, niet ingesproken; de film wacht op Verder): Semmelweis vergeleek vóór en ná. Hoe had hij een gelijktijdige controlegroep kunnen maken, en waarom was dat ethisch lastig?
 
 ## 3. H2 Proefopzet — Pasteurs zwanenhalskolf en het paard Hans
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: audio/ch_2.mp3 · globaal 3:00–5:17 (136,8 s; TIMING.dur 136.8)
 Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 
@@ -144,6 +145,9 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 ### Scène 2.7 blind en dubbelblind  ·  rij t0 99.74 · spraak 100.09–119.87
 [1:40.1] Daarom werken onderzoekers blind.
 [1:43.1] In medisch onderzoek krijgt de controlegroep vaak een placebo, een nepbehandeling, en weet de proefpersoon niet in welke groep hij zit.
+[nieuw] Haal twee dingen niet door elkaar.
+[nieuw] Constante variabelen, ook wel controlevariabelen, zijn wat je gelijk houdt, zoals de bouillon en de kooktijd bij Pasteur.
+[nieuw] De controlegroep is een hele groep die de behandeling niet krijgt, maar verder precies hetzelfde: zoals de groep met de placebo.
 [1:50.8] Weet ook de onderzoeker het niet, dan kan hij, zoals bij Hans, niets verraden: dat heet dubbelblind.
 [1:56.5] En het toeval bepaalt wie in welke groep komt: randomiseren.
 
@@ -155,6 +159,7 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 [2:12.7] Er werd niet gemeten of hij kon rekenen, maar of hij lichaamstaal kon lezen.
 
 ## 4. H3 Meten en meetfouten — Van Helmonts wilg · 17e eeuw
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: audio/ch_3.mp3 · globaal 5:17–7:24 (127,0 s; TIMING.dur 126.96)
 Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 
@@ -194,6 +199,7 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 [1:22.8] Niet echt.
 [1:24.0] Nauwkeurig gewogen, jazeker.
 [1:26.5] Maar één boom is één boom.
+[nieuw] Nauwkeurigheid gaat over hoe precies één meting is, betrouwbaarheid over of je bij herhalen hetzelfde vindt.
 
 ### Scène 3.7 valide?  ·  rij t0 89.62 · spraak 90.55–106.95
 [1:30.5] Valide?
@@ -369,6 +375,7 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 [2:08.6] En samengaan is iets anders dan veroorzaken.
 
 ## 7. H6 Correlatie ≠ causaliteit — Roken en longkanker · Londen, 1950
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: audio/ch_6.mp3 · globaal 13:24–15:37 (132,7 s; TIMING.dur 132.73)
 Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 
@@ -420,6 +427,7 @@ Niveau: vwo bovenbouw (geen havo/vwo-splitsing in deze film)
 [1:52.5] Ja: tienduizenden mensen, en in land na land hetzelfde verband.
 [1:56.2] Valide?
 [1:56.8] Een correlatie alleen bewijst nog geen oorzaak.
+[nieuw] En een grote steekproef beperkt het toeval, maar heft een scheve keuze van proefpersonen niet op.
 [1:58.0] Maar door de andere verklaringen één voor één uit te sluiten, werd de conclusie steeds sterker.
 [2:04.1] En Fisher?
 [2:04.8] Die rookte zelf, en kreeg geld van de tabaksindustrie.

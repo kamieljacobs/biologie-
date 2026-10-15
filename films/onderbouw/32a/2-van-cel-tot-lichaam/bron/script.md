@@ -28,9 +28,15 @@ Stem-invoer: Van cel tot lichaam. Hoe dertig-duizend miljard cellen samenwerken.
 
 ## Hoofdstuk 1 — Van cel naar orgaan
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s04** · `audio/s04.mp3` · 0.0–27.4 s
 
 Een volwassen mens bestaat uit ongeveer dertigduizend miljard cellen. Die liggen niet zomaar op een hoop. Ze zijn geordend, in stappen. We beginnen klein. Dit is een spiercel. Lang en dun. Hij kan korter worden. Eén spiercel kan bijna niets. Maar miljoenen spiercellen naast elkaar kunnen samen kracht zetten. Zo'n groep van dezelfde cellen met dezelfde taak heet een weefsel. Dit is spierweefsel.
+
+[nieuw] (direct na "Dit is spierweefsel.") Tussen de cellen van een weefsel zit vaak nog stof die de cellen zelf maken: tussencelstof. In bot is dat het harde deel, in kraakbeen het stevige, buigzame deel.
+
+[nieuw] Stem-invoer: Tussen de cellen van een weefsel zit vaak nog stof die de cellen zelf maken: tussen-celstof. In bot is dat het harde deel, in kraakbeen het stevige, buigzame deel.
 
 Stem-invoer: Een volwassen mens bestaat uit ongeveer dertig-duizend miljard cellen. Die liggen niet zomaar op een hoop. Ze zijn geordend, in stappen. We beginnen klein. Dit is een spiercel. Lang en dun. Hij kan korter worden. Eén spiercel kan bijna niets. Maar miljoenen spiercellen naast elkaar kunnen samen kracht zetten. Zo'n groep van dezelfde cellen met dezelfde taak heet een weefsel. Dit is spierweefsel.
 

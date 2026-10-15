@@ -176,8 +176,23 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 ## Wachtlijst opnieuw inspreken
 
 - **s31 (blob 007.mp3), 15-10-2026, inhoudelijke correctie.** “Dan herstelt de pomp de rust.” was onjuist: na de hyperpolarisatie brengen de kaliumkanalen (die weer dichtgaan) het membraan terug op het rustpotentiaal; de pomp herstelt alleen op lange termijn de ionenverdeling. Vervangen door:
-  > Dan gaan de kaliumkanalen weer dicht, en komt het membraan terug op min zeventig: het rustpotentiaal. De pomp is daar niet voor nodig. Bij één impuls verplaatsen maar heel weinig ionen. Die zet de pomp pas op de lange duur terug.
+  > Dan gaan de kaliumkanalen weer dicht, en herstelt het rustpotentiaal: min zeventig. De pomp is daar niet voor nodig. Bij één impuls verplaatsen maar heel weinig ionen. Die zet de pomp pas op de lange duur terug.
   - Hele segment s31 opnieuw opnemen (één mp3), daarna `timing.s31`, `segments[].text` en het transcript bijwerken. Ankerwoorden van s31 blijven allemaal staan; segment wordt ca. 8 s langer.
   - Geen nieuwe risicowoorden (“rustpotentiaal” en “kaliumkanalen” zitten al in de film).
   - Gevonden bij de vergelijking met Gewoon Uitgelegd (GU noemt “de pomp herstelt de rust” een misvatting).
 
+- **s31 (blob 007.mp3), 15-10-2026, aanvulling na vergelijking met Gewoon Uitgelegd** (komt bovenop de correctie hierboven; samen in één opname). Erbij: (a) na „Natrium stroomt naar binnen.” de lawine van spanningsafhankelijke natriumkanalen en waarom dat alles-of-niets geeft; (b) na „Dat heet de refractaire periode.” dat de natriumkanalen vanzelf dichtvallen en even niet open kunnen, en na „Daarom loopt een impuls maar één kant op.” dat die pauze bepaalt hoe vaak een zenuwcel per seconde kan vuren.
+  - Segment wordt nog eens ca. 17 s langer (samen met de correctie ca. 25 s). Tijden kloppen al vanaf 0:09.4 pas weer na de nieuwe opname.
+  - Ankerwoorden: de nieuwe zinnen bevatten geen `positief`, `sluiten`, `Daarom` of `Even`; „Natriumkanalen/natriumkanalen” komt vaker voor, maar `T()` pakt het eerste voorkomen (0:08.2). **Let op (correctie op de regel hierboven):** `herstelt` is wél een ankerwoord van s31 (`k.herstel=T('herstelt')` in microImpuls) en verdwijnt met de doorgestreepte zin. Opgelost 15-10-2026: de nieuwe zin bevat weer `herstelt` („en herstelt het rustpotentiaal”), dus het beeldmoment `herstel` blijft werken.
+  - Ook het antwoordmodel in het docentdeel (vraag hierboven: „… → pomp herstelt de rust”) aanpassen in de HTML: „→ kaliumkanalen dicht, rustpotentiaal hersteld; de pomp herstelt op lange termijn de ionenverdeling”.
+- **a5 (blob 013.mp3), 15-10-2026, aanvulling.** Erbij: na „meer impulsen per seconde.” dat een sterkere prikkel ook receptoren ernaast prikkelt, zodat meer zenuwcellen tegelijk vuren (rekrutering).
+  - Hele segment a5 opnieuw opnemen (blob 013.mp3), `timing.a5`, `segments[].text` en transcript bijwerken. Ca. 6 s langer.
+  - Ankerwoorden blijven staan: de nieuwe zin bevat „receptoren” (niet „receptor”), geen `Harder`, `Elke`, `adequate`, `nooit` of `vertaalt`.
+- **Beeld nodig**
+  - s31 (a): in microImpuls een terugkoppelpijl „Na⁺ in → minder negatief → meer kanalen open” (kringetje dat sneller gaat draaien), label „lawine” en „alles-of-niets” op het woord „niets”.
+  - s31 (b): de natriumkanalen in de refractaire zone tekenen met een ‘slot’ (dicht en geblokkeerd) in plaats van gewoon dicht; bij „per seconde” een korte rij pieken met een minimale tussenruimte.
+  - a5: naast de drukreceptor een tweede en derde receptor met elk een eigen axon; bij de harde druk vuren ze allemaal (meer lijnen met pieken).
+- **Risicowoorden (uitspraaktest)**
+  - *spanningsafhankelijk* — spanning [ˈspɑ.nɪŋ] ([kaikki](https://kaikki.org/dictionary/Dutch/meaning/s/sp/spanning.html)), afhankelijk [ɑfˈɦɑŋ.kə.lək] ([kaikki](https://kaikki.org/dictionary/Dutch/meaning/a/af/afhankelijk.html)); „-lijk” als [lək], niet „lijk”. Stem-invoer: als geschreven; fout? „spannings-afhankelijk”.
+  - *lawine* — [laˈʋinə], la·wi·ne (woorden.org via [encyclo.nl](https://www.encyclo.nl/begrip/lawine); [kaikki](https://kaikki.org/dictionary/Dutch/meaning/l/la/lawine.html)). Klemtoon op „wie”. Stem-invoer: als geschreven.
+  - *alles of niets* — staat al in de film (a3), geen nieuw risico. *refractaire*, *natriumkanalen*, *vuren* staan al in de film.

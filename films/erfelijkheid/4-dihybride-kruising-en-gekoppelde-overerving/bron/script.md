@@ -105,11 +105,16 @@ Audio: blob 006.mp3 (doorlopende take) · 2:16–2:21 (4,8 s)
 > Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
 
 ## 10. p10 · Gekoppelde genen en crossing-over
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 006.mp3 (doorlopende take) · 2:27–2:44 (17,1 s)
 
 [2:27.3] Dan gaan ze samen mee.
 [2:28.9] Bij dit fruitvliegje ligt op het ene chromosoom het allel voor een grijs lijf naast het allel voor normale vleugels.
 [2:35.8] Op het homologe chromosoom ligt zwart lijf naast vleugelstompjes.
+[nieuw] Hoe weet je welke allelen samen op één chromosoom liggen? Dat lees je af aan de ouders.
+[nieuw] Kwam dit vliegje uit een raszuivere grijze vlieg met normale vleugels en een zwarte met stompjes, dan kreeg het van de ene ouder grijs en normaal samen op één chromosoom, en van de andere zwart en stompjes.
+[nieuw] Waren de ouders grijs met stompjes en zwart met normale vleugels, dan is het precies andersom: grijs ligt naast stompjes, en zwart naast normale vleugels.
+[nieuw] Hetzelfde genotype, alleen een andere verdeling over de chromosomen.
 [2:39.7] Zonder uitwisseling ontstaan maar twee soorten gameten.
 [2:42.7] Zulke genen heten gekoppeld.
 

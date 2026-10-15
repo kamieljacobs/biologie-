@@ -182,3 +182,16 @@ Regelnummers in 6-genen-aan-en-uit.html (de base64-audio staat binnen FILMDATA o
 
 ## Wijzigingen
 - 1.0 · 13 okt 2026 — eerste versie (reeksmodus). Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stamceldeling vlak na de deling nog gelijk, lapjeskat met allelen oranje/zwart en lapjeskater XXY, slotjes ook door de cel zelf, structuurgenen erbij, X-inactivatie) en een didactiek/taal-review (15 punten, o.a. V1 zonder genoom/genotype als afleiders, hormoonvraag met promotor/polymerase als afleiders, rattenvraag met moeders aten gewoon in de stam, kookboekmetafoor, slotje niet voorgoed). Beelden nagekeken op stijlframes en contactsheets vwo en havo.
+
+## Wachtlijst opnieuw inspreken
+- **n11 (vwo, hoofdstuk 2), 15-10-2026: lac-operon toegevoegd** (aanvulling na vergelijking met Gewoon Uitgelegd). Zes [nieuw]-zinnen tussen "…dat de transcriptie versterkt." en "Nu: waar komen al die verschillende cellen vandaan?": E. coli, drie structuurgenen met één promotor en een operator, regulatorgen maakt repressor op de operator, lactose bindt de repressor → genen aan.
+  - Opname: hele take n11 opnieuw (stem-invoer staat in script.md onder n11; oude en nieuwe stem-invoer samenvoegen op de aangegeven plek), Roos, eleven_v3, één take. Vervang `data/afl6_audio/n11.mp3` (−16 LUFS, −1 dBTP), nieuwe woordtijden (Scribe) en `bounds` in `data/afl6_words.json`, tekst in `data/afl6_script.json` en `data/afl6_stem.json`. Take wordt ca. 30 s langer (≈ 60 s); alleen de vwo-speeltijd schuift (alles na 3:57 in vwo ca. 30 s later; havo ongewijzigd). Hoofdstukkaart-tijden in info.md en script.md daarna bijwerken.
+  - **Beeld nodig**: in `src/scenes6.js` (scène van n11: `SCENES.h2v`) een vwo-schema van het lac-operon: staafje bacterie-DNA met labels REGULATORGEN · PROMOTOR · OPERATOR · drie STRUCTUURGENEN; koraal repressor op de operator, polymerase geblokkeerd (gen uit); lactose-molecuul bindt aan de repressor, repressor laat los, polymerase loopt over de genen → mRNA (teal) → enzymen (oker). Klein bacteriesilhouet E. coli als kop. Beeldwissels aan de regels van de nieuwe zinnen (`li`/`lf` via `bounds`). Eventueel begrip "operon *vwo*" en een checkvraag toevoegen in `data/afl6_script.json`.
+  - **Risicowoorden (uitspraaktest)**:
+    | woord | uitspraak (IPA) | voorstel stem-invoer |
+    |---|---|---|
+    | E. coli | /eː ˈkoːli/ (Nederlandse lettername E + "koli"; niet Engels "ie-koolai") | ee-koolie |
+    | lac-operon | /lɑk oːpəˈrɔn/ (lac als "lak"; klemtoon operon op -ron, net als bij Nederlandse leenwoorden op -on; IPA niet gevonden in Wiktionary/Woorden.org, voorstel op basis van de standaardklemtoon) | lak-operon |
+    | lactose | /ˌlɑkˈtoː.zə/ (Wiktionary, Dutch) | lactose (zoals geschreven); als de TTS "laktoos" zegt: lakTOOze |
+    | operator | /oːpəˈraːtɔr/ (klemtoon op -ra-, zoals Nederlands *operator*; IPA niet gevonden in Wiktionary NL, afgeleid van het patroon promotor/repressor) | operator (zoals geschreven) |
+    | melksuiker | /ˈmɛlksœykər/ | zoals geschreven |

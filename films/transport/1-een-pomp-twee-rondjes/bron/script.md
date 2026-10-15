@@ -27,6 +27,7 @@ In de rechterboezem komen de bovenste en de onderste holle ader uit, met bloed u
 
 
 ## Hoofdstuk 2 — Twee rondjes
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s06** · basis · 7.0 s · `1-een-pomp-twee-rondjes/audio/s06.mp3`
 
@@ -47,6 +48,9 @@ Antwoord bee dus. De longslagader vervoert zuurstofarm bloed. Een slagader is ni
 **s10** · basis · 46.25 s · `1-een-pomp-twee-rondjes/audio/s10.mp3`
 
 En nu de vraag van het begin. Elke slag pompen beide kamers ongeveer even veel bloed weg, zo'n zeventig milliliter. Dat is het slagvolume. Pompt de ene kamer meer dan de andere? Dan hoopt het bloed zich op, in je longen of in je lichaam. Dus over de tijd pompen ze precies even veel. Maar het grote rondje is veel langer. En de vaatjes onderweg zijn smal. Het bloed ondervindt daar veel meer weerstand. Daarom maakt de linkerkamer een ongeveer vijf keer zo hoge bloeddruk als de rechterkamer. Daarvoor is meer spier nodig, dus een dikkere wand. In je longen mag de druk juist niet hoog zijn. Dan zou er vocht uit de haarvaten in je longblaasjes lekken. Antwoord bee dus: niet meer bloed, wel een hogere druk.
+
+[nieuw] (nieuwe vwo-alinea, eigen take tussen s10 en s11)
+[nieuw] Voor vwo nog een stap verder. Een ongeboren kind ademt nog niet: zijn bloed krijgt zuurstof uit de placenta, via de navelstreng. Daarom gaat het meeste bloed langs de longen. In het tussenschot tussen de boezems zit een opening, het foramen ovale: daardoor stroomt bloed van de rechterboezem meteen naar de linkerboezem. En een kort bloedvat, de ductus Botalli, verbindt de longslagader met de aorta. Bij de geboorte gaan de longen aan het werk, en sluiten die twee verbindingen. Terug naar de basis.
 
 
 ## Hoofdstuk 3 — Eén hartslag

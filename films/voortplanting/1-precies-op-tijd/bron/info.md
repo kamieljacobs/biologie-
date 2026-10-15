@@ -134,3 +134,27 @@ Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:nnn@@`; in het echt
 - Geen Havo/Vwo-schakelaar en geen verdiepingsblokken (`hasV` overal false), terwijl het docentdeel leerdoel 3 (eiwit- vs steroïdhormoon) "verdieping" noemt en de film ook aan BvJ 4 vwo thema 2 / de havo-route op de index wordt gekoppeld.
 - Stemmodel is eleven_multilingual_v2 (opname uit v1), andere films gebruiken eleven_v4; zes zinnen zijn later opnieuw ingesproken, dus binnen een hoofdstuk kunnen klankverschillen hoorbaar zijn.
 - H1 verwijst naar de film "Eén wordt twee" voor de meiose; die film staat niet in de repo (de pagina zegt elders "zie de serie Cel").
+
+## Wachtlijst opnieuw inspreken
+Deze film heeft audio per hoofdstuk (één take per hoofdstuk): per gewijzigd hoofdstuk de hele blob opnieuw opnemen en daarna `dur`, `segments`, `sentences` en `phrases` van dat hoofdstuk opnieuw zetten (zie "Zo pas je deze film aan", punt 1–2). Andere hoofdstukken blijven ongemoeid; alleen de globale begintijden van latere hoofdstukken schuiven. Opnemen met Roos; let op: de rest van de film is eleven_multilingual_v2, dus voor gelijke klank bij voorkeur hetzelfde model. hCG (komt in de nieuwe zinnen niet voor) blijft "ha cee gee".
+
+- **H7 Dichtbij, maar gescheiden (blob 013.mp3 = audio/ch_7.mp3), 15-10-2026: navelstreng toegevoegd** (aanvulling na vergelijking met Gewoon Uitgelegd). Eén [nieuw]-zin na "De trofoblast vormt daar vlokken, vol bloedvaatjes van het kind.": de navelstreng verbindt het kind met de placenta, met twee slagaders en één ader van het kind.
+  - Opname: hele hoofdstuktake H7 opnieuw (≈ 64 s → ≈ 72 s). Daarna in `FILM.chapters[7]` `dur`, `segments` (narr/tail), alle `sentences`/`phrases`-tijden en het statische transcript (regel 291–597) bijwerken. Zinsnummers vanaf de oude zin "Die vlokken hangen…" schuiven één op: alle `W(n,'woord')` in `SCENES['7']` (regel 1969) vanaf die zin met één verhogen en controleren dat elk woord nog bestaat. H8–H11 beginnen ca. 8 s later (globaal).
+  - **Beeld nodig**: in `SCENES['7']` bij de vlokken een navelstreng van de placenta naar het kind, met twee slagaders en één ader (label NAVELSTRENG, 2 SLAGADERS, 1 ADER; kleuren volgens de afspraak bloed koraal), op het woord "navelstreng".
+  - **Risicowoorden (uitspraaktest)**:
+    | woord | uitspraak (IPA) | voorstel stem-invoer |
+    |---|---|---|
+    | navelstreng | /ˈnaː.vəlˌstrɛŋ/ (Wiktionary, Dutch) | navelstreng (zoals geschreven) |
+    ("slagaders" komt al voor in H4 en telt niet mee; "ader" is een gewoon woord.)
+
+- **H11 Als het niet vanzelf gaat (blob 017.mp3 = audio/ch_11.mp3), 15-10-2026: biologisch tegenover ethisch argument bij ivf** (aanvulling na vergelijking met Gewoon Uitgelegd; geen nieuwe pauzevraag). Vier [nieuw]-zinnen na "omdat het gele lichaam na zo'n behandeling niet altijd genoeg maakt.", vóór "Ivf werkt dus alleen omdat artsen de signalen uit deze film nadoen…": overgebleven embryo's worden ingevroren; voorbeeld van een biologisch argument (embryo van vijf dagen = bolletje cellen zonder zenuwstelsel) en een ethisch argument (elk embryo is het begin van een mens).
+  - Opname: hele hoofdstuktake H11 opnieuw (≈ 152 s → ≈ 170 s); de ingesproken vraag aan het eind blijft letterlijk gelijk. Daarna in `FILM.chapters[11]` `dur`, alle `segments` (narr, question met `count0/count1`, reveal, end, tail), `sentences`/`phrases` en het statische transcript bijwerken. Zinsnummers vanaf de oude zin "Ivf werkt dus alleen…" schuiven vier op: alle `W(n,'woord')` in `SCENES['11']` (regel 2288) met die n of hoger met vier verhogen, ook de eindkaart (`E.endCard`). De film wordt ca. 26 s langer in totaal (H7 + H11): 19:43 → ca. 20:09; duur op pagina en index-tegel aanpassen.
+  - Lees bij het nalezen even mee of "Ivf werkt dus alleen…" na de ethiekzinnen nog goed loopt; zo niet, dan "dus" weglaten (dat vraagt dan een gewijzigde bestaande zin).
+  - **Beeld nodig**: in `SCENES['11']` op de ivf-tijdlijn na de terugplaatsing een vriezer/rietje met embryo's (label INGEVROREN EMBRYO'S), daarna een balans of twee kaarten: BIOLOGISCH ARGUMENT (feiten, biologische kennis: '5 dagen, bolletje cellen, geen zenuwstelsel') en ETHISCH ARGUMENT (normen en waarden: 'begin van een mens'). Dezelfde vorm als de balans in DNA-film 8 als die er al is.
+  - **Risicowoorden (uitspraaktest)**:
+    | woord | uitspraak (IPA) | voorstel stem-invoer |
+    |---|---|---|
+    | ethisch | /ˈeː.tis/ (Wiktionary, Dutch) | ethisch (zoals geschreven); bij een Engelse th of "-isch" met sch: "eetis" |
+    | biologisch | /bijoːˈloːɣis/ (klemtoon op -lo-) | zoals geschreven |
+    | zenuwstelsel | /ˈzeːnyʋˌstɛlsəl/ | zoals geschreven |
+    | ingevroren | /ˈɪŋɣəˌvroːrə(n)/ | zoals geschreven |

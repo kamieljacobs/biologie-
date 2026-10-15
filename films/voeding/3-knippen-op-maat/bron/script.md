@@ -18,6 +18,7 @@ Onthulling: Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind
 Titelkaart: Knippen op maat. Hoe enzymen je eten verteren.
 
 ## Hoofdstuk 1 — Een schaar die niet opraakt
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s04** · basis · 17.44 s · `../audio/s04.mp3`  
 Het broodje kaas uit film één. Het zetmeel in het brood is een lange keten van glucosemoleculen. Er zitten er honderden tot duizenden aan elkaar. Zo'n grote suiker heet een polysacharide. Hij is veel te groot om door je darmwand te gaan. Hij moet eerst in kleine stukjes.
@@ -27,6 +28,11 @@ Die keten kan ook vanzelf breken. Maar dat duurt miljoenen jaren. Zo lang heb je
 
 **s06** · basis · 36.72 s · `../audio/s06.mp3`  
 We zoomen in op één enzym: amylase, uit je speeksel. Op één plek heeft het een kuiltje met een precieze vorm: het actieve centrum. Het molecuul dat geknipt wordt, heet het substraat. Hier is dat zetmeel. Past een stuk zetmeel in het actieve centrum, dan vormen ze samen het enzym-substraatcomplex. Het enzym knipt een binding door. Het gebruikt daarbij een watermolecuul. Knippen met water heet hydrolyse. De stukjes laten los. Dat zijn de producten. Hier is dat maltose: twee glucosemoleculen aan elkaar. Maltose smaakt zoet.
+[nieuw] Het zetmeel in het brood heeft de tarweplant zelf gemaakt, door glucosemoleculen één voor één aan elkaar te koppelen.
+[nieuw] Bij elke koppeling komt één watermolecuul vrij.
+[nieuw] Dat heet condensatie.
+[nieuw] Hydrolyse is precies het omgekeerde.
+[nieuw] Bij elke binding die amylase knipt, wordt er weer één watermolecuul ingebouwd.
 
 **s07** · basis · 6.80 s · `../audio/s07.mp3`  
 Een amylasemolecuul heeft net een stuk zetmeel geknipt. Wat gebeurt er nu met het enzym? Wat denk je?
@@ -47,6 +53,7 @@ Kijk nu wat er gebeurt als er een eiwit tegen amylase botst. Het past niet in he
 Voor vwo gaan we nog een stap verder. Waarom gaat een reactie met een enzym zoveel sneller? Voordat een binding breekt, moet er eerst energie in. Die drempel heet de activeringsenergie. Zonder enzym is hij hoog. Daarom duurt het miljoenen jaren. In het enzym-substraatcomplex trekt het enzym aan de binding. De binding wordt zwakker, en de drempel veel lager. Zo komen veel meer moleculen over de drempel, en gaat de reactie sneller. Aan het eind is het enzym weer precies hetzelfde.
 
 ## Hoofdstuk 2 — Welke schaar voor welk molecuul?
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s12** · basis · 18.64 s · `../audio/s12.mp3`  
 Omdat elk enzym maar één soort stof knipt, heb je voor het broodje kaas een hele set scharen nodig. Je herkent ze vaak aan de naam. Veel verteringsenzymen eindigen op ase, en vaak zit het substraat er nog in. Maltose wordt geknipt door maltase. Lactose door lactase.
@@ -68,6 +75,10 @@ Onthulling: In de twaalfvingerige darm: lipase zit in het alvleessap. Daar komt 
 
 **s17** · basis · 9.20 s · `../audio/s17.mp3`  
 Antwoord b. Lipase komt uit de alvleesklier en wordt met het alvleessap in de twaalfvingerige darm gespoten. Daar komt ook de gal binnen.
+[nieuw] Het verdelen van het vet doen de galzouten in de gal.
+[nieuw] Een galzout heeft een kant die van vet houdt en een kant die van water houdt.
+[nieuw] Zo omhullen de galzouten de vetdruppeltjes.
+[nieuw] Die klonteren daardoor niet weer samen, en samen hebben ze een veel groter oppervlak voor lipase.
 
 **s18** · basis · 7.20 s · `../audio/s18.mp3`  
 Sommige mensen maken als volwassene weinig lactase. Wat gebeurt er dan met de lactose uit de melk? Wat denk je?

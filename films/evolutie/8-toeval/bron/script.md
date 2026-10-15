@@ -155,12 +155,16 @@ Audio: blob 001.mp3 · 4:07–4:22 (15,4 s; exact 246.722–262.140)
 > C) 20 %
 
 ## 9. Hardy-Weinberg (`m9_rekenen2`)
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 4:34–5:05 (31,7 s; exact 273.640–305.312)
 
 [4:33.7] 32 procent.
 [4:35.0] Uit q-kwadraat is 0,04 volgt q is 0,2, dus p is 0,8, en dragers zijn 2pq:
 [4:39.9] 2 keer 0,8 keer 0,2, is 0,32.
 [4:41.9] Een derde van de bevolking draagt een allel dat je bij maar 4 procent ziet.
+[nieuw] Let op, want hier gaat het op het examen vaak mis.
+[nieuw] Vraagt een opgave welk deel van de mensen zonder rood haar drager is, of bij een ziekte welk deel van de gezonde mensen, dan tellen de aa-mensen niet mee.
+[nieuw] Je deelt 2pq dan door p-kwadraat plus 2pq. Hier is dat 0,32 gedeeld door 0,96: 0,33 in plaats van 0,32. Het verschil is klein, maar op het examen kost het je wel de punt.
 [4:47.8] Dat is de kracht van de formule:
 [4:50.1] van een zichtbaar fenotype naar een onzichtbare drager.
 [4:54.6] Zo weten we dat één op de dertig Nederlanders drager is van taaislijmziekte, terwijl de ziekte zelf bij één op de 3.600 pasgeborenen voorkomt.
@@ -170,6 +174,7 @@ Audio: blob 001.mp3 · 4:34–5:05 (31,7 s; exact 273.640–305.312)
 > Stilte 5:05.3–5:05.9 (0,6 s)
 
 ## 10. De meetlat (`m10_meetlat`)
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 5:06–5:29 (22,7 s; exact 305.912–328.575)
 
 [5:06.0] Maar er is een valkuil.
@@ -180,6 +185,10 @@ Audio: blob 001.mp3 · 5:06–5:29 (22,7 s; exact 305.912–328.575)
 [5:15.7] Het is een meetlat.
 [5:16.9] Meet je in een echte populatie de genotypen, en wijken ze af van p-kwadraat, 2pq, q-kwadraat, dan weet je dat er iets werkt:
 [5:22.8] selectie, drift, migratie, of niet-willekeurig paren.
+[nieuw] Je zet dus de getelde aantallen naast de verwachte, net als bij de tweeduizend paringen.
+[nieuw] Wijkt het sterk af, dan is aan een van de voorwaarden niet voldaan.
+[nieuw] Bij inteelt bijvoorbeeld paren verwanten met elkaar, en dan tel je meer homozygoten en minder heterozygoten dan p-kwadraat, 2pq, q-kwadraat voorspelt.
+[nieuw] Toch blijven p en q gelijk: dezelfde allelen worden alleen anders over de genotypen verdeeld.
 [5:25.9] Waarvoor gebruik je Hardy-Weinberg dus?
 
 > Beeld (teksten in de scène `SCENE.m10_meetlat`): "\"als er niets gebeurt, verandert er niets\"" · "nutteloos? er gebeurt altijd iets" · "een meetlat" · "verwacht (Hardy-Weinberg)" · "gemeten in een echte populatie" · "wijkt af → er werkt iets" · "Waarvoor gebruik je Hardy-Weinberg?"

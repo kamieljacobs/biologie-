@@ -53,11 +53,20 @@ Antwoord A. Oestradiol bindt in de cel aan een receptor. Dat koppel werkt in de 
 > stem-invoer: Antwoord A. Eustradiol bindt in de cel aan een receptor. Dat koppel werkt in de kern als transcriptiefactor: het bindt bij het regelgebied van bepaalde genen. er-en-aa-polymerase komt erbij, er wordt em-er-en-aa gemaakt, en aan de ribosomen een eiwit. Zo komt een signaal van buiten bij het deeënaa terecht: hormoon, receptor, kern, gen aan. Niet door het deeënaa te veranderen, maar door genen aan en uit te zetten.
 
 ## n11 · Hoofdstuk 2 — Hoe zet een cel een gen aan? · vwo
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 *begin 3:57 / — · 29.5 s*
 
 Voor vwo gaan we hier nog een stap verder. Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit. Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt. Nu: waar komen al die verschillende cellen vandaan?
+> plek van de [nieuw]-regels: direct na "…dat de transcriptie versterkt.", vóór "Nu: waar komen al die verschillende cellen vandaan?"
+[nieuw] Een repressor aan het werk zie je bij de darmbacterie E. coli: het lac-operon.
+[nieuw] Drie structuurgenen voor de opname en afbraak van lactose, melksuiker, liggen naast elkaar, met samen één promotor en daarachter een operator: een stukje DNA.
+[nieuw] Een regulatorgen maakt een repressor, en die zit op de operator.
+[nieuw] Dan kan RNA-polymerase de genen niet overschrijven.
+[nieuw] Is er lactose, dan bindt die aan de repressor, de repressor laat los, en de genen gaan aan.
+[nieuw] Zo maakt de bacterie de enzymen alleen als er lactose is.
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit. Het koppel van eustradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk deeënaa, soms ver van het gen, dat de transcriptie versterkt. Nu: waar komen al die verschillende cellen vandaan?
+> stem-invoer [nieuw] (na "…dat de transcriptie versterkt."): Een repressor aan het werk zie je bij de darmbacterie ee-koolie: het lak-operon. Drie structuurgenen voor de opname en afbraak van lactose, melksuiker, liggen naast elkaar, met samen één promotor en daarachter een operator: een stukje deeënaa. Een regulatorgen maakt een repressor, en die zit op de operator. Dan kan er-en-aa-polymerase de genen niet overschrijven. Is er lactose, dan bindt die aan de repressor, de repressor laat los, en de genen gaan aan. Zo maakt de bacterie de enzymen alleen als er lactose is.
 
 ## n13 · Hoofdstuk 3 — Stamcellen · basis
 *begin 4:30 / 4:00 · 43.1 s*

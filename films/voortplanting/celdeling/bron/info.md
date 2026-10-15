@@ -100,3 +100,14 @@ Pas nooit `index.html` direct aan: wijzig `src/` en bouw opnieuw.
 - Fonts via Google Fonts; geen MP4-export.
 - Rendertijd per scène ≤ 2,1 ms per frame bij 4× vertraagde CPU; e01/e03 ≤ 1,5 ms.
 - Inhoud extra uitdaging vakinhoudelijk gecheckt (Musacchio & Salmon 2007, Nat Rev Mol Cell Biol 8:379; Lampson & Grishchuk 2017, Biology 6:1; Alberts, Molecular Biology of the Cell, NBK26934). Vereenvoudigd: één enzym (Aurora B) en de wachtsignaalroute (SAC) worden niet bij naam genoemd; microtubuli breken vooral aan het plus-uiteinde af (Pac-Man), flux naar de pool is weggelaten.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md`. Let op: `make_segments.py` niet blind draaien (het extra blok e01/eq02/e03 staat met de hand in `segments.json`); pas `display` en `voice` van s20 liever direct aan in `segments.json`. Dan Roos, eleven_v4, één take, Scribe, mastering, `build_data.py`, `build.py`, `checkcues.js`.
+
+- **H4, s20** — ongeslachtelijke voortplanting als toepassing van mitose (aardbei met uitlopers, bladluis zonder bevruchting, klonen) tegenover geslachtelijke voortplanting met meiose en variatie; aan het eind, vlak voor H5 Meiose. Opnieuw: `audio/s20.mp3` + `words/s20.json`; ± 20 s langer, H5 en verder schuiven op. Cues ('Noem', 'verdubbelt', 'mitose', 'weer', 'gehalveerd', 'genetisch') vallen op het eerste voorkomen en blijven kloppen.
+- **Beeld nodig**: na de DNA-grafiek een aardbeiplant met uitloper en nieuw plantje, en een bladluis met jongen; label "klonen: genetisch gelijk"; daarna een korte overgang "geslachtelijk: meiose → variatie" (sluit aan op H5). Begrip "ongeslachtelijke voortplanting" in `GLOSSARY`.
+- **Risicowoorden (uitspraaktest)**:
+  - ongeslachtelijke / geslachtelijke — geen IPA gevonden; verwacht klemtoon op "slach" (on-ge-SLACH-te-lij-ke). Als geschreven; alternatief `on-geslachtelijke`.
+  - bladluis — /ˈblɑt.lœy̯s/, blad-luis (Wiktionary via kaikki.org); als geschreven.
+  - aardbeiplant, uitlopers, klonen — gewone woorden; als geschreven ("klonen" moet het zelfstandig naamwoord zijn, KLOO-nen).

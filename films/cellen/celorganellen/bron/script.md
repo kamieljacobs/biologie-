@@ -36,9 +36,13 @@ Uitleg na antwoord: Zonder bouwtekening geen eiwit. De kern komt eerst.
 
 ## Hoofdstuk 2 — De bouwtekening: de kern
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s07** · 2:39 · duur 54.91 s · audio/s07.mp3
 
 Het grootste losse organel is de celkern, kortweg kern. In de kern ligt het DNA: de bouwtekening van bijna elk eiwit dat de cel maakt. Om de kern zit een dubbel kernmembraan met gaten erin: kernporiën. Door die poriën gaan werkkopieën van één tekening de kern uit, het cytoplasma in. Het DNA zelf blijft binnen. Vaak hoor je: de kern bestuurt de cel. Dat klopt, maar niet met bevelen. De kern bepaalt welke werkkopieën eruit gaan, en dat bepaalt wat de cel doet. Voordat een cel zich deelt, wordt eerst al het DNA gekopieerd. Dat gebeurt in de kern. Hoe het kopiëren werkt, zie je in de film over DNA. Een rode bloedcel van een mens heeft geen kern. Na vier maanden is hij versleten en wordt hij afgebroken. Waarom? Wat denk je?
+
+[nieuw] (direct na "Het DNA zelf blijft binnen.") In de kern zie je vaak een donker bolletje: het kernlichaampje. Daar worden de onderdelen van de ribosomen gemaakt, de deeltjes die straks de eiwitten bouwen.
 
 > Stem-invoer: Het grootste losse organel is de celkern, kortweg kern. In de kern ligt het deeënaa: de bouwtekening van bijna elk eiwit dat de cel maakt. Om de kern zit een dubbel kernmembraan met gaten erin: kernporiën. Door die poriën gaan werkkopieën van één tekening de kern uit, het cytoplasma in. Het deeënaa zelf blijft binnen. Vaak hoor je: de kern bestuurt de cel. Dat klopt, maar niet met bevelen. De kern bepaalt welke werkkopieën eruit gaan, en dat bepaalt wat de cel doet. Voordat een cel zich deelt, wordt eerst al het deeënaa gekopieerd. Dat gebeurt in de kern. Hoe het kopiëren werkt, zie je in de film over deeënaa. Een rode bloedcel van een mens heeft geen kern. Na vier maanden is hij versleten en wordt hij afgebroken. Waarom? Wat denk je?
 
@@ -48,11 +52,19 @@ Uitleg na antwoord: Zonder kern geen nieuwe werkkopieën, dus geen nieuwe eiwitt
 
 ## Hoofdstuk 3 — De werkvloer: ribosomen, ER en golgisysteem
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s09** · 3:51 · duur 63.55 s · audio/s09.mp3
 
-Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Miljoenen ribosomen tegelijk. Die verteringsenzymen uit het begin? Dat zijn eiwitten. Eiwitten die de cel zelf houdt, maken hem groter. Veel ribosomen zitten vast op een netwerk van membranen: het endoplasmatisch reticulum, kortweg ER. Zitten er ribosomen op, dan heet het ruw ER. Eiwitten voor buiten de cel gaan het ER in. Daar worden ze gevouwen en gecontroleerd. Dan reizen ze verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt en sorteert de eiwitten en verpakt ze in nieuwe blaasjes. Zo'n blaasje reist naar het celmembraan en versmelt ermee. De enzymen zijn buiten. Stoffen omzetten tot iets nieuws: dat is stofwisseling, de opbouwkant. Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat, wat denk je?
+Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Miljoenen ribosomen tegelijk. Die verteringsenzymen uit het begin? Dat zijn eiwitten. Eiwitten die de cel zelf houdt, maken hem groter. Veel ribosomen zitten vast op een netwerk van membranen: het endoplasmatisch reticulum, kortweg ER. Zitten er ribosomen op, dan heet het ruw ER. ~~Eiwitten voor buiten de cel gaan het ER in.~~ Daar worden ze gevouwen en gecontroleerd. Dan reizen ze verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt en sorteert de eiwitten en verpakt ze in nieuwe blaasjes. Zo'n blaasje reist naar het celmembraan en versmelt ermee. De enzymen zijn buiten. Stoffen omzetten tot iets nieuws: dat is stofwisseling, de opbouwkant. Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat, wat denk je?
 
-> Stem-invoer: Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Miljoenen ribosomen tegelijk. Die verteringsenzymen uit het begin? Dat zijn eiwitten. Eiwitten die de cel zelf houdt, maken hem groter. Veel ribosomen zitten vast op een netwerk van membranen: het endoplasmatisch reticulum, kortweg E-R. Zitten er ribosomen op, dan heet het ruw E-R. Eiwitten voor buiten de cel gaan het E-R in. Daar worden ze gevouwen en gecontroleerd. Dan reizen ze verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt en sorteert de eiwitten en verpakt ze in nieuwe blaasjes. Zo'n blaasje reist naar het celmembraan en versmelt ermee. De enzymen zijn buiten. Stoffen omzetten tot iets nieuws: dat is stofwisseling, de opbouwkant. Een alvleeskliercel heeft veel meer ruw E-R dan een huidcel. Hoe komt dat, wat denk je?
+[nieuw] (direct na "Zitten er ribosomen op, dan heet het ruw ER.") Zonder ribosomen heet het glad ER: dat maakt vetten, zoals fosfolipiden en steroïdhormonen, en het ontgift stoffen, bijvoorbeeld in je lever.
+
+[nieuw] (vervangt de doorgestreepte zin; met "glad ER" ernaast is "het ER" niet meer eenduidig) Eiwitten voor buiten de cel gaan het ruw ER in.
+
+[nieuw] Stem-invoer: Zonder ribosomen heet het glad E-R: dat maakt vetten, zoals fosfo-lipiden en steroïd-hormonen, en het ontgift stoffen, bijvoorbeeld in je lever. Eiwitten voor buiten de cel gaan het ruw E-R in.
+
+> Stem-invoer: Een werkkopie komt aan bij een klein deeltje: een ribosoom. Een ribosoom maakt eiwitten. Miljoenen ribosomen tegelijk. Die verteringsenzymen uit het begin? Dat zijn eiwitten. Eiwitten die de cel zelf houdt, maken hem groter. Veel ribosomen zitten vast op een netwerk van membranen: het endoplasmatisch reticulum, kortweg E-R. Zitten er ribosomen op, dan heet het ruw E-R. ~~Eiwitten voor buiten de cel gaan het E-R in.~~ Daar worden ze gevouwen en gecontroleerd. Dan reizen ze verder in kleine blaasjes. Die blaasjes komen aan bij een stapel platte zakjes: het golgisysteem. Het golgisysteem bewerkt en sorteert de eiwitten en verpakt ze in nieuwe blaasjes. Zo'n blaasje reist naar het celmembraan en versmelt ermee. De enzymen zijn buiten. Stoffen omzetten tot iets nieuws: dat is stofwisseling, de opbouwkant. Een alvleeskliercel heeft veel meer ruw E-R dan een huidcel. Hoe komt dat, wat denk je?
 
 **q10** · vraag op scherm (8 s + 6 s): Een alvleeskliercel heeft veel meer ruw ER dan een huidcel. Hoe komt dat?  
 Opties: hij is groter · **hij maakt veel meer eiwitten voor buiten de cel** · hij deelt vaker  

@@ -233,6 +233,7 @@ Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · 
 > Juist: A — uitleg op het scherm: Betrouwbaar testen kan vanaf ongeveer de dag van de verwachte menstruatie.
 
 ## 8. H7 Dichtbij, maar gescheiden
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 013.mp3 (audio/ch_7.mp3) · globaal 11:41–12:45 (64,4 s; dur in data 64.418)
 Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · narr 3.0–63.58 · tail 63.58–64.38
 
@@ -240,6 +241,7 @@ Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · 
 [0:05.5] en moet koolstofdioxide en afvalstoffen kwijt.
 [0:07.9] Dat gebeurt in de placenta.
 [0:09.8] De trofoblast vormt daar vlokken, vol bloedvaatjes van het kind.
+[nieuw] Die bloedvaatjes komen uit de navelstreng, die het kind met de placenta verbindt: daarin lopen twee slagaders en één ader van het kind.
 [0:12.6] Die vlokken hangen in holtes met bloed van de moeder.
 [0:15.4] Bloed van moeder en kind komt dus heel dicht bij elkaar, maar mengt niet.
 [0:19.2] Er zit altijd een dunne laag cellen tussen.
@@ -345,6 +347,7 @@ Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · 
 [1:55.7] maar niet uit het lichaam verwijderen.
 
 ## 12. H11 Als het niet vanzelf gaat
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 017.mp3 (audio/ch_11.mp3) · globaal 17:11–19:43 (152,1 s; dur in data 152.059)
 Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · narr 3.0–108.288 · question 108.708–129.82 · reveal 130.22–139.22 · end 139.22–151.22 · tail 151.22–152.02
 
@@ -375,6 +378,10 @@ Niveau: vwo (geen verdiepingszinnen gemarkeerd) · segmenten: card 0.0–3.0 · 
 [1:24.8] Na een paar dagen wordt een embryo in de baarmoeder teruggeplaatst,
 [1:28.7] vaak met extra progesteron,
 [1:30.6] omdat het gele lichaam na zo'n behandeling niet altijd genoeg maakt.
+[nieuw] Vaak blijven er embryo's over. Die worden ingevroren, voor een volgende poging.
+[nieuw] Over wat er met overgebleven embryo's mag gebeuren, denken mensen verschillend.
+[nieuw] "Een embryo van vijf dagen is een bolletje cellen, zonder zenuwstelsel": dat is een biologisch argument. Het steunt op biologische kennis.
+[nieuw] "Elk embryo is het begin van een mens, en dat gooi je niet weg": dat is een ethisch argument. Het steunt op normen en waarden.
 [1:35.0] Ivf werkt dus alleen omdat artsen de signalen uit deze film nadoen: FSH, de LH-piek,
 [1:41.2] progesteron. Precies op tijd.
 [1:43.3] Van de eicel die bij je oma al klaarlag, tot jou.

@@ -18,6 +18,7 @@ Onthulling: Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind
 Titelkaart (5 s): De reis door je buik. Van mond tot anus.
 
 ## Hoofdstuk 1 — Mond en slokdarm
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s04** · basis · 26.77 s · `../audio/s04.mp3`  
 Het broodje kaas uit film één. Een dag nadat je het opat, is het nog niet weg. Waar is het dan? We volgen het op een kaart. Eén lange buis, van mond tot anus: het spijsverteringskanaal. Onderweg zitten klieren die sappen in de buis spuiten. De buis en de klieren samen heten het spijsverteringsstelsel. En we laten een klok meelopen. Want sommige haltes duren seconden, andere dagen.
@@ -39,8 +40,10 @@ Onthulling: Ja. Kringspieren in de slokdarm duwen de hap naar de maag, ook tegen
 
 **s09** · basis · 20.53 s · `../audio/s09.mp3`  
 Antwoord b: ja. Het eten valt niet naar beneden, het wordt geduwd. De wand van de slokdarm heeft kringspieren. Achter de hap knijpen ze samen. Voor de hap ontspannen ze. Zo schuift een golf van knijpen de hap vooruit. Die golf heet peristaltiek. Je vindt hem in de hele buis, tot het eind.
+[nieuw] Naast de kringspieren heeft de wand van de buis ook lengtespieren, die in de lengte van de buis lopen.
 
 ## Hoofdstuk 2 — De maag
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s10** · basis · 25.41 s · `../audio/s10.mp3`  
 Halte twee: de maag. Een gespierde zak. Er past ruim een liter in. De maagwand kneedt het eten tot een dikke brij. Ook dat is mechanische vertering. Klieren in de maagwand maken maagsap. Daar zit zoutzuur in. De brij wordt heel zuur, met een pH van ongeveer twee. In dat zuur stopt de amylase uit je speeksel met werken. Waarom, zie je in film drie.
@@ -49,6 +52,10 @@ _Stem-invoer:_ Halte twee: de maag. Een gespierde zak. Er past ruim een liter in
 
 **s11** · basis · 22.53 s · `../audio/s11.mp3`  
 Het zuur heeft twee functies. Het doodt de meeste bacteriën die je met je eten binnenkrijgt. En het laat een enzym werken: pepsine. Pepsine knipt de eiwitten uit de kaas in kortere stukken. Het werkt alleen in een zure omgeving. Waarom verteert de maag zichzelf dan niet? Een dikke slijmlaag beschermt de maagwand tegen het zuur en tegen pepsine.
+[nieuw] *(vwo)* Voor vwo nog een tweede bescherming.
+[nieuw] *(vwo)* De klieren in de maagwand maken pepsine eerst als onwerkzaam pepsinogeen.
+[nieuw] *(vwo)* Pas in de maag knipt het zoutzuur er een stukje af. Dan is het actief pepsine.
+[nieuw] *(vwo)* Zo verteert de maagklier zichzelf niet.
 
 **s12** · basis · 9.81 s · `../audio/s12.mp3`  
 Gieren eten dode dieren die al dagen liggen te rotten. Hun maagzuur is nog veel zuurder dan dat van jou. Waarom is dat handig? Wat denk je?
@@ -69,6 +76,7 @@ Hoe weet de maag wanneer hij zuur moet maken? In het onderste deel van de maag z
 Een kringspier onderaan de maag, de maagportier, laat de brij steeds in kleine porties door. Na twee tot vier uur is de maag leeg. Veel mensen denken dat je eten in de maag al in je bloed komt. Maar de maag neemt bijna niets op. Dat gebeurt pas verderop.
 
 ## Hoofdstuk 3 — De dunne darm
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s17** · basis · 10.13 s · `../audio/s17.mp3`  
 Halte drie: de dunne darm. Een buis van een paar meter, opgevouwen in je buik. Waar wordt eigenlijk het meeste van je eten verteerd? Wat denk je?
@@ -84,6 +92,9 @@ In de dunne darm. Niet in de maag, zoals veel mensen denken. Kijk maar wat er hi
 
 **s20** · basis · 26.61 s · `../audio/s20.mp3`  
 Het eerste stuk heet de twaalfvingerige darm. Daar komen twee afvoerbuizen op uit. Uit de alvleesklier komt alvleessap. Dat zit vol enzymen: voor koolhydraten, voor eiwitten en voor vetten. Uit de lever komt gal. Gal wordt bewaard in de galblaas en na een vette maaltijd naar de darm geknepen. Ook de wand van de dunne darm maakt enzymen: het darmsap. Die maken het knipwerk af.
+[nieuw] Hoe weten alvleesklier en galblaas wanneer het eten komt? Dat regelen hormonen, net als gastrine in de maag.
+[nieuw] Komt er zure brij in de twaalfvingerige darm, dan geeft de darmwand secretine af aan het bloed. Daardoor spuit de alvleesklier veel alvleessap in de darm.
+[nieuw] Merkt de darmwand vet en eiwit, dan geeft hij CCK af. Daardoor knijpt de galblaas samen, en geeft de alvleesklier zijn enzymen af.
 
 **s21** · basis · 16.53 s · `../audio/s21.mp3`  
 Gal is geen enzym. Gal verdeelt het vet uit de kaas en de melk in kleine druppeltjes. Dat heet emulgeren. Zo kunnen de vetverterende enzymen er beter bij. Is emulgeren mechanische of chemische vertering? Wat denk je?
@@ -115,6 +126,8 @@ Onthulling: Het neutraliseert het zuur. Bij een pH van ongeveer zeven of acht we
 Het neutraliseert het zuur. De pH gaat omhoog, en de enzymen uit de alvleesklier kunnen hun werk doen.
 
 _Stem-invoer:_ Het neutraliseert het zuur. De pee-haa gaat omhoog, en de enzymen uit de alvleesklier kunnen hun werk doen.
+
+[nieuw] *(vwo)* Het sap dat de alvleesklier op secretine afgeeft, is juist rijk aan bicarbonaat. Hoe zuurder de brij, hoe meer secretine, en hoe meer bicarbonaat.
 
 **s28** · basis · 15.01 s · `../audio/s28.mp3`  
 Even op de kaart. Mond: zetmeel knippen. Maag: eiwit knippen en bacteriën doden. Dunne darm: bijna alles knippen en opnemen. Op de klok: zo'n zes tot negen uur na je eerste hap.

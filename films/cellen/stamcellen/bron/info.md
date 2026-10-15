@@ -88,3 +88,13 @@ Begrippen: differentiatie, gedifferentieerde cel, stamcel, kiemlaag, volwassen s
 - Klinische proeven met iPS-cellen ontwikkelen zich snel ("nog maar in een paar proeven bij patiënten"); controleer bij elke herziening.
 - Eindreview (`reviews/eind.md`): alle punten in beeld, vragen en begrippen verwerkt. Optionele tekstwijzigingen met nieuwe opname staan op de wachtlijst: s09 "levercel" i.p.v. "huidcel" (vwo), s14 "de bloedgroep van de donor", s19 "in principe niet afgestoten" en het tumorrisico ook bij embryonale stamcellen.
 - Chromosomen staan als enkele chromatiden in beeld (cellen die niet delen); de rode bloedcel heeft geen kern.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md` en volg "Tekst van een alinea" (make_segments.py met `uitspraak_film.json`, alleen s19 opnieuw, Scribe + `align.py`, normaliseren, bouwen).
+
+- **H3, s19** — onderscheid biologisch argument (feiten: embryonale stamcellen kunnen elke celsoort worden, volwassen niet) en ethisch argument (normen en waarden: een embryo is het begin van een mens), aan het eind van de ethiekalinea. Opnieuw: `audio/s19.mp3` + `stem/woordtijden/s19.json`; ± 15 s langer, s20 en verder schuiven op. Cues ('verloren', 'ivf', 'streng', 'Geïnduceerde', 'afgestoten', 'tumoren', 'proeven') vallen allemaal vóór de nieuwe tekst. Neem meteen de open punten uit de eindreview mee ("in principe niet afgestoten", tumorrisico ook bij embryonale stamcellen).
+- **Beeld nodig**: twee kaartjes naast elkaar: "biologisch argument — feiten" (embryonale stamcel → elke celsoort, volwassen stamcel → eigen weefsel) en "ethisch argument — normen en waarden" (embryo = begin van een mens); eventueel `tag`/`regel` uit de bestaande helpers.
+- **Risicowoorden (uitspraaktest)**:
+  - ethisch — /ˈeː.tis/ (Wiktionary via kaikki.org): lange ee, "th" als t. Als geschreven; alternatief `eetisch` als de TTS "et-hisch" zegt.
+  - biologisch, argument, normen en waarden — gewone woorden; als geschreven.

@@ -120,3 +120,14 @@ Regelnummers verwijzen naar film.src.html (uitpakken met `scripts/filmbron.py`; 
 ## Aandachtspunten
 - Ouder ontwerp, wijkt af van de huidige prompt (stijlkaart/Part C): geen voorspelvragen met opties, geen Leerling/Klas, geen Havo/Vwo, geen versie/datum en geen ElevenLabs-model vermeld.
 - De pauzemomenten stoppen de film niet vanzelf.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Eén doorlopende take: hoofdstuk 5, 8 en 9 opnieuw inspreken, terugknippen in `narration.mp3` en alle latere `chapters[]`/`cues`-tijden opschuiven (samen ca. +45 s).
+
+- **H5 Vol is vol**: J-curve en exponentiële groei; dichtheidsafhankelijke geboorte en sterfte; overshoot boven de draagkracht.
+- **H8 Samenleven**: vraat (ree en jonge eik) met afweer van planten (stekels, looizuren).
+- **H9 Ieder zijn vak**: concurrentie binnen een soort is het felst (twee wolven = zelfde niche).
+- **Beeld nodig**: J-curve naast de S-curve; ree bij jonge eik (met braam); twee wolven tegenover elkaar.
+- **Risicowoorden (uitspraaktest)**: J-curve (stem-invoer voorstel “jee-curve”, de letter J is /jeː/), exponentiële, looizuren.
+

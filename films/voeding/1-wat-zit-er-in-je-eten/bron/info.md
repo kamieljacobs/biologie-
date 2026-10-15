@@ -82,3 +82,12 @@ Regelnummers in `1-wat-zit-er-in-je-eten.html` (er zijn geen blobs; de audio sta
 - ADI staat als vwo-blok, zoals in de specificatie; mogelijk ook havo-schoolexamenstof.
 - Cue-controle: elk `q.on/q.at`-woord in `scenes.js` moet voorkomen in de woorden van zijn segment (op 12 okt: 0 problemen). Frametijd bij 4× CPU-vertraging: mediaan ≤ 3 ms, p95 ≤ 8 ms.
 - Versiegeschiedenis: 1.0 (12 okt 2026) — na eindreview: s14 "bijna negen keer", s15 "Lichaamsvet wordt pas een probleem", s22 "Plantaardig voedsel bevat alle negen" en "vlees, zuivel, ei" opnieuw ingesproken; H4 hernoemd tot "Vezels en het etiket"; voorraadbakjes heten "vrije aminozuren in je cellen".
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`).
+
+- **H3 · s17** (`../audio/s17.mp3`, nu 35,8 s, wordt ≈ +5 s): de binding tussen twee aminozuren heet een peptidebinding. Zet de zin in `script_v2.md` achteraan in de alinea van s17 (geen lege regel ervoor, anders verschuiven alle latere id's). Opnemen volgens "Zo pas je deze film aan", punt 2–3; controleer de `q.on`-woorden van s17.
+- **Beeld nodig**: in het kralensnoer van s17 één binding tussen twee kralen oplichten, label "peptidebinding".
+- **Risicowoorden (uitspraaktest)**:
+  - peptidebinding — geen IPA-bron gevonden voor de samenstelling (Wiktionary was niet bereikbaar, woorden.org/encyclo geven geen uitspraak voor "peptide"); verwacht [pɛpˈtidəˌbɪndɪŋ]. Stem-invoer: "peptide-binding" (koppelteken zodat de -e van peptide hoorbaar blijft).

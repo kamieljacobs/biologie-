@@ -105,3 +105,13 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026: lastige woorden op de wachtlijst
 - Het lichaam-schema is vlak en niet op schaal (nieren achter de darm, lymfeklieren als stippen); het is de basis voor film 2b.
 - Lettertypen komen van Google Fonts; offline vallen ze terug op Georgia/system-ui.
 - Eindkaart verwijst naar Celbouwer en de virtuele microscoop; een Lichaamsbouwer-tool komt bij film 2b.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md` en volg "Zo pas je deze film aan" stap 2 (Roos, eleven_v4, één take, Scribe, −16 LUFS, nieuwe `words` en `dur`, `bouw/cuecheck.py`).
+
+- **H1, s04** — tussencelstof (stof tussen de cellen, door de cellen gemaakt; bot hard, kraakbeen stevig en buigzaam), na "Dit is spierweefsel." Opnieuw: `audio/s04.mp3` + `stem/woordtijden/s04.json`; ± 10 s langer, s05 en verder schuiven op. Cues ('spierweefsel', 'kracht', 'miljoenen' enz.) blijven kloppen.
+- **Beeld nodig**: na het spierweefsel een korte inzet bot (cellen in harde grondstof) en kraakbeen (cellen in lichte, buigzame grondstof), label "tussencelstof" op de ruimte tussen de cellen. Begrip "tussencelstof" toevoegen aan `GLOSSARY` en aan de docenttabel.
+- **Risicowoorden (uitspraaktest)**:
+  - tussencelstof — geen IPA gevonden (samenstelling tussen + cel + stof); risico dat de TTS "tussence-lstof" knipt. Stem-invoer `tussen-celstof`.
+  - kraakbeen — Wiktionary geeft afbreking kraak-been (alleen geluidsbestand, geen IPA); als geschreven.

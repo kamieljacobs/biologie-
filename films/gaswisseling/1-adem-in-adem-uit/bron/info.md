@@ -87,3 +87,12 @@ Begrippen: luchtwegen, strotklepje, trilhaarepitheel, middenrif, tussenribspiere
 - Uitspraak: zie `uitspraak.md`, vooral bronchiën/bronchiolen en "Antwoord aa". Een blinde controle was in deze sessie niet mogelijk.
 - Het spirogram toont het totale longvolume (inclusief restvolume); een gewone spirometer meet alleen volumeveranderingen (staat in het docentdeel).
 - Eindreview: 15 punten, alle verwerkt zonder nieuwe opnames (zie `reviews/eindreview.md`).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet hem bij het opnemen ook in `script_v2.md`).
+
+- **H4 Zeventig vierkante meter · nieuwe vwo-alinea na s15** (vwo): de drie factoren uit s15 (oppervlak, dikte van de wand, concentratieverschil) krijgen de naam wet van Fick. Eén nieuwe take (≈ 13 s), Roos, eleven_v4. Bestaande takes blijven ongewijzigd. Let op: `make_segments.py` nummert de id's opnieuw, dus de nieuwe alinea wordt s16 en s16–s19 (plus vraag q17) schuiven één nummer op: hernoem de mp3's in `audio/`, de woordtijden in `stem/woordtijden/`, de sleutels in `SCENES` (scenes.js) en de vraag-id in `film.py` mee. Markeer de alinea als vwo, zodat havo hem overslaat. Woordtijden met Scribe + `align.py`.
+- **Beeld nodig**: nieuwe vwo-scène bij het longblaasje uit s15: de drie factoren als labels (oppervlak ↑, concentratieverschil ↑, afstand ↓) met een pijl "snellere diffusie" en het label "wet van Fick". Geen formule nodig (eventueel klein: snelheid ~ oppervlak × verschil / afstand).
+- **Risicowoorden (uitspraaktest)**:
+  - **Fick** (Adolf Fick, Duitse fysioloog): Duits /fɪk/, Nederlands net zo: korte i, harde k ("fik"). Stem-invoer: zoals geschreven `Fick`; klinkt het als "fiek", dan `Fik`.

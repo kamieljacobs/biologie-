@@ -15,10 +15,17 @@ Probeer het maar eens, gewoon zittend: houd je adem in. Je hoeft niets te bewijz
 Titelkaart: Gas op reis. Hoe zuurstof en koolstofdioxide door je bloed reizen.
 
 ## Hoofdstuk 1 — Zuurstof aan boord
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s04** · 56.9 s · `audio/s04.mp3`
 
-In de vorige film diffundeerde zuurstof van het longblaasje naar het bloed. Maar zuurstof lost slecht op in water. Bijna alle zuurstof, zo'n achtennegentig procent, reist daarom niet los mee, maar gebonden aan hemoglobine. Dat zit in je rode bloedcellen, honderden miljoenen moleculen per cel. Elk hemoglobinemolecuul heeft vier plekken met ijzer. Op elke plek kan één zuurstofmolecuul binden. Hemoglobine met zuurstof heet oxyhemoglobine. Het is helderrood. Hoeveel zuurstof er ergens is, heet de zuurstofspanning. In de longen is die hoog. Daar raakt de hemoglobine bijna vol. En omdat de hemoglobine de zuurstof meteen inpakt, blijft het verschil met het longblaasje groot, en stroomt er steeds zuurstof bij. Het bloed reist naar je spieren. Daar is de zuurstofspanning laag, want je cellen verbruiken zuurstof. Daar laat de hemoglobine een deel van de zuurstof los.
+In de vorige film diffundeerde zuurstof van het longblaasje naar het bloed. Maar zuurstof lost slecht op in water. Bijna alle zuurstof, zo'n achtennegentig procent, reist daarom niet los mee, maar gebonden aan hemoglobine. Dat zit in je rode bloedcellen, honderden miljoenen moleculen per cel. Elk hemoglobinemolecuul heeft vier plekken met ijzer. Op elke plek kan één zuurstofmolecuul binden. Hemoglobine met zuurstof heet oxyhemoglobine. Het is helderrood.
+~~Hoeveel zuurstof er ergens is, heet de zuurstofspanning.~~
+[nieuw] De druk van de zuurstof ergens heet de zuurstofspanning.
+In de longen is die hoog. Daar raakt de hemoglobine bijna vol.
+[nieuw] Let op: de zuurstofspanning in je bloed hangt alleen af van de zuurstof die los in het plasma is opgelost. Zuurstof die aan hemoglobine vastzit, telt niet mee.
+[nieuw] Daardoor kan de hemoglobine veel zuurstof opladen, zonder dat de zuurstofspanning in het bloed meteen stijgt. Zo blijft het verschil met het longblaasje bestaan, en blijft er zuurstof binnenstromen.
+En omdat de hemoglobine de zuurstof meteen inpakt, blijft het verschil met het longblaasje groot, en stroomt er steeds zuurstof bij. Het bloed reist naar je spieren. Daar is de zuurstofspanning laag, want je cellen verbruiken zuurstof. Daar laat de hemoglobine een deel van de zuurstof los.
 
 **s05** · 8.4 s · `audio/s05.mp3`
 
@@ -32,9 +39,13 @@ Antwoord bee. Gemiddeld laat hemoglobine in rust maar ongeveer een kwart van zij
 
 **s08** · vwo · 34.9 s · `audio/s08.mp3`
 
-Voor vwo gaan we hier nog een stap verder. Zet je uit hoeveel procent van de hemoglobine zuurstof draagt, de verzadiging, tegen de zuurstofspanning, dan krijg je een es-vormige curve: de zuurstofbindingscurve. Je vindt hem in Binas. In de longen is de zuurstofspanning hoog, op het vlakke stuk van de curve. Ook als die wat daalt, blijft de hemoglobine bijna verzadigd. In de weefsels daalt de zuurstofspanning tot op het steile stuk. Daar geeft een klein verschil in zuurstofspanning veel afgifte. Terug naar de basis.
+Voor vwo gaan we hier nog een stap verder. Zet je uit hoeveel procent van de hemoglobine zuurstof draagt, de verzadiging, tegen de zuurstofspanning, dan krijg je een es-vormige curve: de zuurstofbindingscurve. Je vindt hem in Binas. In de longen is de zuurstofspanning hoog, op het vlakke stuk van de curve. Ook als die wat daalt, blijft de hemoglobine bijna verzadigd. In de weefsels daalt de zuurstofspanning tot op het steile stuk. Daar geeft een klein verschil in zuurstofspanning veel afgifte.
+[nieuw] Hoe sterk hemoglobine zuurstof bindt, heet de affiniteit. Hoe groter de affiniteit, hoe meer de curve naar links ligt: dan raakt hemoglobine al bij een lagere zuurstofspanning vol.
+[nieuw] In je spiercellen zit myoglobine: één eiwitketen, met een grotere affiniteit dan hemoglobine. De curve van myoglobine ligt dus links van die van hemoglobine, en in de spier gaat zuurstof van hemoglobine naar myoglobine. Zo houdt myoglobine een kleine voorraad zuurstof vast, voor als je spier hard werkt.
+Terug naar de basis.
 
 ## Hoofdstuk 2 — Koolstofdioxide terug
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s09** · 20.0 s · `audio/s09.mp3`
 
@@ -54,7 +65,9 @@ Voor vwo nog een stap verder. De reactie van koolstofdioxide met water gaat vanz
 
 **s14** · vwo · 18.0 s · `audio/s14.mp3`
 
-Antwoord aa. Als waterstofionen aan hemoglobine binden, laat de hemoglobine de zuurstof makkelijker los. De curve schuift naar rechts. Dat heet het Bohr-effect. Zo komt er extra zuurstof vrij juist waar het meest verbruikt wordt. Terug naar de basis.
+Antwoord aa. Als waterstofionen aan hemoglobine binden, laat de hemoglobine de zuurstof makkelijker los. De curve schuift naar rechts. Dat heet het Bohr-effect.
+[nieuw] Meer koolstofdioxide en meer zuur verlagen dus de affiniteit van hemoglobine.
+Zo komt er extra zuurstof vrij juist waar het meest verbruikt wordt. Terug naar de basis.
 
 ## Hoofdstuk 3 — Wie bepaalt hoe snel je ademt?
 

@@ -151,3 +151,15 @@ Werk in de uitgepakte vorm: `python3 scripts/filmbron.py uitpakken films/evoluti
 - Geen begrippenlijst en geen controlevragen na afloop; alleen vier voorspelvragen.
 - Frasen met duur 0 in `TL` worden nooit als ondertitel getoond (de caption-zoekfunctie pakt dan de volgende frase): "De simulatie:" (h5_gericht, 1:45.9). In het transcript staan ze wel.
 - Er is geen los audiobestand of stem-invoertekst met respellings in de repo; bij heropname moet de invoer opnieuw worden opgebouwd uit script.md + de QA-tabel.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Hele film is vwo, dus geen apart vwo-blok nodig.
+
+- **`h9_split2` (Splitsende selectie)**: na "Dat is de volgende aflevering." komt co-evolutie: koekoek en karekiet als wapenwedloop, bloem en bestuiver als samenwerking (4 zinnen, ca. 18 s). Opname volgens "Zo pas je deze film aan", punt 4: take `h9_split2` opnieuw genereren met stem Roos (eleven_multilingual_v2), het mp3-stuk 238.692–258.754 vervangen, `phrases`/`words` van de take opnieuw timen en alles daarna (`card5`, `h10_sex`, `q4`, `h11_sex2`, `h12_terug`, `card6`, `h13_slot`, `end`, `TL.total`) opschuiven met het duurverschil. De cues van `h9_split2` ('twee groepen', 'splitsende', 'volgende aflevering' enz.) blijven werken zolang de bestaande woorden blijven staan; voor het nieuwe beeld nieuwe cues toevoegen in `const C` (bijv. `cue('h9_split2','koekoek')`, `cue('h9_split2','co-evolutie')`, `cue('h9_split2','bloem')`). Badge "ongeveer … minuten" bijwerken (punt 6).
+- **Beeld nodig**: in `SCENE.h9_split2` een nieuwe stap na "dat is de volgende aflevering": koekoeksei tussen karekieteieren, twee pijlen over en weer tussen koekoek en karekiet ("selectiedruk ↔"), label "co-evolutie: wapenwedloop"; daarnaast bloem met bestuiver (bijv. hommel of kolibrie) met label "of samenwerking". Kleuren volgens de legenda (`#E57C5B` voor de druk, `#86CF86` voor wat selectie bevoordeelt). Eventueel een zesde tegel "co-evolutie" in `h13_slot` (alleen beeld, de stem noemt het daar niet).
+- **Docentdeel**: getallen-/bronnentabel aanvullen met koekoek/karekiet (Davies & Brooke 1988/1989, eiherkenning bij de kleine karekiet) en "co-evolutie" bij Misvattingen/Hoe deze film uitlegt; `RISK` aanvullen met de woorden hieronder.
+- **Risicowoorden (uitspraaktest)**:
+  - *karekiet* — IPA /ˌkaː.rəˈkit/ (kaa-ruh-KIET, klemtoon op de laatste lettergreep, stomme e in het midden). Wiktionary heeft alleen een geluidsbestand (Nl-karekiet.ogg), geen IPA; transcriptie afgeleid van de klanknabootsende naam. Stem-invoer: "karekiet"; als de TTS "kaa-ree-kiet" zegt: "karrukiet".
+  - *co-evolutie* — IPA /ˌkoː.eː.voːˈly.(t)si/ (koo-ee-voo-LU-tsie). Wiktionary geeft voor het achtervoegsel -tie /tsi/ of /si/. Risico: Engelse "co" of een ingeslikte o. Stem-invoer: "koo-evolutie".
+  - *selectiedruk* — samenstelling uit bekende woorden, laag risico; meenemen in de test.

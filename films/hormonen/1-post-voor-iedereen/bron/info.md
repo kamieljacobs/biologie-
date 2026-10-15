@@ -89,3 +89,14 @@ Begrippen: hormoon, hormoonklier, receptor, doelcel/doelorgaan, bijniermerg, adr
 - Eindreview: 14 punten; verwerkt: grafieklabel, opties q02 en q17, klaslokaal (stoel achter de leerling, leerling zit achter een schoolbank), hypofyse niet meer in het gezicht, bijnieren lichten op, merg in oker, koude teen, labels, rustpeil, begrip hypothalamus. Niet verwerkt: de eindkaart gebruikt de vaste speler-opmaak (geen seriekleuren); timing van enkele tags is een fractie later dan het woord.
 
 - 15 okt 2026: vwo-segment opnieuw ingesproken zonder 'Voor vwo' (Roos, eleven_v4, één take, flow wSVfswmRwrmJKmHQ57hW); audio-URL met ?v=2. Overige 'Voor vwo'-aankondigingen worden door de speler weggeknipt (vwoCuts).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet hem bij het opnemen ook in `script_v2.md`).
+
+- **H2 Wie leest de post? · s15** (vwo): eerste boodschapper (het hormoon komt de cel niet in), G-eiwit, tweede boodschapper cAMP, vóór de bestaande enzymcascade. Take s15 opnieuw (≈ +12 s), Roos, eleven_v4, één take; Scribe + `align.py`; mp3 genormaliseerd in `audio/` (audio-URL met een nieuwe `?v=`). De cues `kettingreactie`, `signaaltransductie`, `seconden`, `voorbij` en `loslaat` hangen aan woorden en schuiven vanzelf mee. Voeg "tweede boodschapper (cAMP)" toe aan de vwo-begrippen in `film.py`; checkvraag 4 en het docentdeel zo nodig aanvullen.
+- **Beeld nodig**: in de membraanscène van s15 (Micro): het hormoon blijft buiten met label "eerste boodschapper"; aan de binnenkant van het membraan een G-eiwit naast de receptor dat oplicht, dan een enzym aan het membraan dat kleine cAMP-deeltjes afgeeft (label "tweede boodschapper: cAMP"); die cAMP-deeltjes zetten het eerste enzym van de bestaande cascade 1 → 3 → 9 aan.
+- **Risicowoorden (uitspraaktest)**:
+  - **cAMP** (cyclisch AMP): in het Nederlands als letters, /seː.aː.ɛmˈpeː/ (cee-aa-em-PEE), niet als het Engelse woord "camp". Stem-invoer: `cee-aa-em-pee`. Zelfde respelling bij beide keren in de take, zodat het elke keer gelijk klinkt.
+  - **G-eiwit**: /ɣeːˈɛi̯.ʋɪt/ (GEE-eiwit, de letter G als /ɣeː/). Stem-invoer: `gee-eiwit`.
+  - **boodschapper**: zoals geschreven.

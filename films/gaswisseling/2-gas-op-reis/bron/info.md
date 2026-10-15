@@ -90,3 +90,16 @@ Begrippen: hemoglobine, oxyhemoglobine, zuurstofspanning, verzadiging, waterstof
 - "Na een paar dagen maken je nieren meer EPO" (s20): EPO stijgt in werkelijkheid al binnen een à twee dagen; bij een nieuwe opname kan dat "binnen een paar dagen" worden.
 - De grafieken voor adem inhouden en hyperventileren zijn schematisch (zonder meetwaarden); dat staat in het docentdeel.
 - Eindreview: 15 punten, verwerkt met één nieuwe opname (s14) (zie `reviews/eindreview.md`).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`; zet ze bij het opnemen ook in `script_v2.md`). Per alinea: `make_segments.py`, alleen die take opnieuw (Roos, eleven_v4, één take), Scribe + `align.py`, mp3 genormaliseerd in `audio/`, opnieuw bouwen. De take wordt langer, dus alle cues erna in die alinea schuiven mee (cues hangen aan woorden, dus dat gaat vanzelf na `align.py`).
+
+- **H1 · s04** (basis): de definitie van zuurstofspanning wordt "de druk van de zuurstof" (oude zin doorgestreept); nieuw: alleen opgeloste zuurstof telt mee voor de zuurstofspanning, zuurstof aan hemoglobine niet, dus hemoglobine laadt veel op zonder dat de spanning meteen stijgt, zodat het verschil met het longblaasje blijft. Take s04 opnieuw (≈ +16 s). Cue `q.on('zuurstofspanning', 1)` blijft werken.
+- **H1 · s08** (vwo): affiniteit (meer affiniteit = curve meer naar links) en myoglobine (één keten, grotere affiniteit, curve links van hemoglobine, zuurstofvoorraad in de spier). Take s08 opnieuw (≈ +25 s). Myoglobine stond tot nu toe alleen in checkvraag 4d en het antwoordmodel (`film.py`, regels 57–58), niet in het script of in beeld: in s08 komt het nu voor het eerst in de film zelf. Voeg "affiniteit" en "myoglobine" toe aan de vwo-begrippen in `film.py`.
+- **H2 · s14** (vwo): één zin: het Bohr-effect verlaagt de affiniteit. Take s14 opnieuw (≈ +4 s).
+- **Beeld nodig**: s04: drie kleine meters of een splitsing "opgelost in plasma (telt voor de zuurstofspanning)" tegenover "aan hemoglobine (telt niet)", in de stijl van de drie meters uit s19. s08: label "affiniteit" bij een pijl naar links; tweede curve voor myoglobine links van hemoglobine (hyperbolisch, geen S-vorm: bijv. `p/(p+0,4)` in plaats van `sat(p, p50)`), met een spiercel en een pijl zuurstof Hb → myoglobine. s14: label "lagere affiniteit" bij de goudkleurige curve.
+- **Risicowoorden (uitspraaktest)**:
+  - **myoglobine**: Nederlands /mi.joː.ɣloːˈbi.nə/ (mie-joo-gloo-BIE-nə; analoog aan hemoglobine /ˌɦeː.moː.ɣloːˈbi.nə/, -ine-uitgang hoorbaar, niet Frans). Stem-invoer: eerst zoals geschreven `myoglobine`; als de y als "ie" of de -ne wegvalt: `mie-ooglobinuh`.
+  - **affiniteit**: /ɑ.fi.niˈtɛit/ (af-fie-nie-TEIT, klemtoon op -teit). Stem-invoer: zoals geschreven.
+  - **eiwitketen**: zoals geschreven.

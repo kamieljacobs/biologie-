@@ -88,3 +88,14 @@ Regelnummers in `3-knippen-op-maat.html` (er zijn geen blobs; de audio staat ern
 - Kamiel kon de uitspraaktest niet beluisteren; zie `uitspraak.md`.
 - Kwaliteitscontrole 12 okt: 0 cue-problemen (139 cues na versie 1.1); blinde uitspraakcontrole van s06, s11, s13, s14, s21, s23, s30 (zie `uitspraak.md`); frametijd bij 4× CPU-vertraging mediaan ≤ 4,3 ms, p95 ≤ 10,3 ms (s04–s31); telefoonweergave (844×390) gecontroleerd; eindreview (13 moet-punten, 12 kan-punten) verwerkt op de punten in `reviews/eindreview.md`.
 - Versiegeschiedenis: 1.0 (12 okt 2026); 1.1 (13 okt 2026: temperatuur en denatureren per enzym).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Losse takes: de [nieuw]-zinnen horen bij de take erboven; zet ze in `script_v2.md` achteraan in dezelfde alinea (geen lege regel ervoor), anders nummert `make_segments.py` alle latere id's door en kloppen de audiobestanden niet meer. Daarna per take de stappen onder "Zo pas je deze film aan", punt 2–3.
+
+- **H1 · s06** (`../audio/s06.mp3`, nu 36,7 s, wordt ≈ +20 s): condensatie als omgekeerde van hydrolyse (per koppeling komt één water vrij, per knip wordt één water ingebouwd). Scène s06 krijgt een tweede deel; controleer de `q.on`-woorden van s06. De speeltijd in de kop (9:22 / 7:52) schuift op.
+- **H2 · s17** (`../audio/s17.mp3`, nu 9,2 s, wordt ≈ +16 s): galzouten met een vetkant en een waterkant omhullen de vetdruppeltjes; die klonteren niet samen en geven een groter oppervlak voor lipase. Basisstof, dus geen vwo-markering.
+- **Beeld nodig**: s06: zetmeelketen die van rechts naar links wordt opgebouwd met bij elke koppeling een vrijkomend H₂O (label "condensatie"), en daarnaast dezelfde binding die amylase knipt met een H₂O dat erin gaat (label "hydrolyse"); twee pijlen tegen elkaar in. s17: galzout als staafje met een vetkant (zigzag, vetkleur) en een waterkant (bolletje), een ring galzouten om een vetdruppeltje, meerdere kleine druppels die niet samensmelten, lipase aan het oppervlak.
+- **Risicowoorden (uitspraaktest)**:
+  - condensatie — IPA [kɔndɛnˈsa(t)si] (woorden.org, via encyclo.nl); stem-invoer: zoals geschreven; valt de klemtoon verkeerd of hoor je "-tie", dan "condensaatsie".
+  - galzouten, galzout — samenstelling van gewone woorden; zoals geschreven.

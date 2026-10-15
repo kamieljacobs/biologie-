@@ -131,6 +131,7 @@ Beats: b0 4:54.4 · b1 5:09.0 · b2 5:18.6 · b3 5:24.7 · b4 5:31.4 · b5 5:44.
 **Pauzevraag** (6:22.1–6:50.6): Een populatie bevers telt vierhonderd dieren. In een jaar worden er honderdtwintig geboren, gaan er zestig dood, komen er tien bij en vertrekken er dertig. Bereken de groeisnelheid in procenten en de verdubbelingstijd.
 
 ## 5. Vol is vol
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden in dit hoofdstuk en daarna kloppen pas weer na de nieuwe opname.
 Audio: narration.mp3 · 6:51–7:53 (kaart vanaf 411.5, stem vanaf 414.6; 61.2 s)
 
 Beats: b0 6:54.5 · b1 7:06.0 · b2 7:16.7 · b3 7:23 · b4 7:33.8 · b5 7:44.7
@@ -139,17 +140,24 @@ Beats: b0 6:54.5 · b1 7:06.0 · b2 7:16.7 · b3 7:23 · b4 7:33.8 · b5 7:44.7
 [6:59.0] Gemiddeld is zo'n territorium tweehonderd vierkante kilometer:
 [7:02.5] een vierkant van ruim veertien bij veertien kilometer.
 [7:06.1] Zolang er nog lege plekken zijn, kan de populatie snel groeien.
+[nieuw] Zolang niets de groei remt, groeit een populatie elk jaar met hetzelfde percentage.
+[nieuw] Dan komen er elk jaar meer dieren bij dan het jaar ervoor, en wordt de groeicurve steeds steiler.
+[nieuw] Zo'n curve heet een J-curve: exponentiële groei.
 [7:09.7] Maar elk nieuw roedel neemt ruimte in.
 [7:11.9] Jonge wolven moeten steeds verder zoeken naar een eigen plek, of ze vechten erom.
 [7:16.8] In 2025 was strijd tussen wolven, na het verkeer, de belangrijkste doodsoorzaak.
 [7:23.1] Ruimte is hier een beperkende factor:
 [7:25.1] de factor die als eerste tekortschiet, en zo de groei van een populatie remt.
+[nieuw] En hoe meer wolven er zijn, hoe harder die rem werkt.
+[nieuw] Er sterven meer jonge wolven in gevechten, en er worden minder welpen groot.
+[nieuw] Geboorte en sterfte hangen dus af van de dichtheid van de populatie.
 [7:29.8] Elders kan dat voedsel zijn, of een ziekte, of een roofdier.
 [7:33.9] De groei vlakt dan af, tot de populatie de draagkracht bereikt:
 [7:37.3] het grootste aantal dieren dat een gebied op lange termijn kan onderhouden.
 [7:41.4] De groeicurve krijgt zo de vorm van een S.
 [7:44.8] Rond de draagkracht schommelt de populatie.
 [7:47.3] Na een paar goede jaren zijn er even te veel dieren, en daarna weer wat minder.
+[nieuw] Komt de rem te laat, dan schiet een populatie ver boven de draagkracht uit, en stort daarna in.
 
 ## 6. Een roofdier erbij
 Audio: narration.mp3 · 7:53–9:55 (kaart vanaf 472.7, stem vanaf 475.8; 122.5 s)
@@ -218,6 +226,7 @@ Beats: b0 9:58.2 · b1 10:09.0 · b2 10:16.2 · b3 10:27.0 · b4 10:42.7 · b5 1
 [11:26.4] Accumulatie gaat over het organisme: de stof hoopt zich erin op.
 
 ## 8. Samenleven
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden in dit hoofdstuk en daarna kloppen pas weer na de nieuwe opname.
 Audio: narration.mp3 · 11:31–13:11 (kaart vanaf 691.1, stem vanaf 694.2; 99.5 s)
 
 Beats: b0 11:34.1 · b1 11:45.2 · b2 11:52.7 · b3 12:01.7 · b4 12:08.5 · b5 12:17.5 · b6 12:27.2 · b7 12:35.1
@@ -228,6 +237,10 @@ Beats: b0 11:34.1 · b1 11:45.2 · b2 11:52.7 · b3 12:01.7 · b4 12:08.5 · b5 
 [11:45.3] Wolf en ree: predatie.
 [11:47.3] Een roofdier doodt zijn prooi en eet hem op.
 [11:50.0] Plus voor de wolf, min voor het ree.
+[nieuw] Ree en jonge eik: vraat.
+[nieuw] Het ree eet knoppen en blaadjes, maar de eik blijft leven.
+[nieuw] Plus voor het ree, min voor de eik.
+[nieuw] Planten weren zich wel: met stekels, zoals de braam, of met bittere stoffen, zoals de looizuren in eikenbladeren.
 [11:52.8] Vos en buizerd: competitie.
 [11:54.9] Ze jagen allebei op muizen.
 [11:56.9] Elke muis die de een vangt, kan de ander niet meer vangen.
@@ -251,6 +264,7 @@ Beats: b0 11:34.1 · b1 11:45.2 · b2 11:52.7 · b3 12:01.7 · b4 12:08.5 · b5 
 **Pauzevraag** (12:47.2–13:09.8): Een gaai verstopt in de herfst eikels in de grond, en vergeet er een deel. Uit die vergeten eikels groeien nieuwe eiken. Wat voor relatie hebben gaai en eik? En een vlo en een vos?
 
 ## 9. Ieder zijn vak
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden in dit hoofdstuk en daarna kloppen pas weer na de nieuwe opname.
 Audio: narration.mp3 · 13:11–14:12 (kaart vanaf 790.7, stem vanaf 793.8; 61.5 s)
 
 Beats: b0 13:13.7 · b1 13:22.6 · b2 13:35.6 · b3 13:40.7 · b4 13:45.4 · b5 13:50.9 · b6 14:02.2
@@ -266,6 +280,9 @@ Beats: b0 13:13.7 · b1 13:22.6 · b2 13:35.6 · b3 13:40.7 · b4 13:45.4 · b5 
 [13:40.8] Het edelhert eet veel meer gras, en daarnaast twijgen en schors.
 [13:45.5] Het wilde zwijn wroet in de bodem naar eikels, beukennootjes, wortels en insectenlarven.
 [13:51.0] Ze stellen dus elk andere eisen aan hun omgeving, en daardoor concurreren ze minder.
+[nieuw] De felste concurrentie is er niet tussen soorten, maar binnen een soort.
+[nieuw] Twee wolven hebben precies dezelfde niche: dezelfde prooien, en hetzelfde soort territorium.
+[nieuw] Daarom vechten wolven vooral met andere wolven.
 [13:55.7] Gegevens over wat soorten eten, of waar en wanneer ze actief zijn,
 [13:59.3] laten zien dat ze verschillende niches bezetten.
 [14:02.3] Ook de wolf en de vos hebben elk een eigen niche.

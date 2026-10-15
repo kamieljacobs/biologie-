@@ -41,6 +41,7 @@ In je buik ligt de alvleesklier. Die doet allebei: verteringssap gaat via een bu
 Voor vwo: klieren die hun stof aan het bloed afgeven, heten endocriene klieren. Klieren met een afvoerbuis heten exocriene klieren. De alvleesklier is allebei. De hypothalamus is bijzonder. Het is een stuk hersenen, maar het maakt ook hormonen. Daar komen zenuwstelsel en hormoonstelsel samen.
 
 ## Hoofdstuk 2 — Wie leest de post?
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s10** · 18.9 s · `audio/s10.mp3`
 
@@ -62,7 +63,9 @@ Het effect is dat je lichaam klaar staat voor een flinke inspanning. Je spieren 
 
 **s15** · vwo · 36.0 s · `audio/s15.mp3`
 
-Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm. Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
+Hoe komt het bericht de cel in? Daarin verschillen hormonen sterk. Adrenaline en insuline lossen goed op in water. Ze kunnen niet door het celmembraan. Hun receptor zit dus op het membraan. Als het hormoon bindt, verandert de receptor van vorm.
+[nieuw] Het hormoon zelf komt de cel niet in: het is de eerste boodschapper. De receptor zet aan de binnenkant een G-eiwit aan, en dat laat een enzym een tweede boodschapper maken: cAMP. Dat cAMP geeft het bericht in de cel door.
+Binnen in de cel start dan een kettingreactie: een enzym zet veel andere enzymen aan, en die weer meer. Dat heet signaaltransductie. Eén hormoonmolecuul aan de buitenkant geeft zo binnen seconden een groot effect. Maar dat effect is ook snel weer voorbij, als het hormoon loslaat.
 
 **s16** · vwo · 42.2 s · `audio/s16.mp3`
 

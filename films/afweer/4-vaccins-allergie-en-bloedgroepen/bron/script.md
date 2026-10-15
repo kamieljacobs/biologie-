@@ -67,6 +67,7 @@ Soms gaat het nog verder mis: je afweer ziet je eigen cellen als vreemd. Dat hee
 Voor vwo gaan we hier nog een stap verder. Bij een allergie maak je een speciale klasse antistoffen: IgE. Weet je nog de letter Y uit de tweede film? Een IgE-antistof zit met de steel van die Y, het constante deel, vast op de mestcel. De armen steken naar buiten. Pas als een allergeen twee IgE-antistoffen tegelijk verbindt, geeft de mestcel zijn histamine af. Terug naar de basis.
 
 ## Hoofdstuk 3 — Vormpjes op je bloed
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s17** · 36.0 s · `audio/s17.mp3`
 
@@ -81,6 +82,7 @@ Krijgt iemand met A bloed van B, dan binden zijn antistoffen aan de rode bloedce
 **s20** · 27.2 s · `audio/s20.mp3`
 
 Antwoord bee. Misschien dacht je: in bloed van O zitten geen antistoffen. Maar het plasma van O bevat juist antistoffen tegen A en tegen B. Het gaat om de rode bloedcellen: daar zit geen A en geen B op. De antistoffen van de ontvanger hebben dus niets om op te binden. Daarom geeft de bloedbank vaak alleen de rode bloedcellen, en heet O de universele donor voor rode bloedcellen.
+[nieuw] Voor plasma is het precies andersom. In het plasma van AB zitten geen antistoffen tegen A en geen tegen B, dus voor plasma is AB de universele donor.
 
 **s21** · 33.2 s · `audio/s21.mp3`
 

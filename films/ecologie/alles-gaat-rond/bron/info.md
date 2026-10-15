@@ -113,3 +113,17 @@ Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:00n.woff2@@`; in in
 - De terugknop wijst sinds 2026-10-12 naar de hoofdstukpagina Ecologie (`../../../index.html#ecologie`). Deel 1 *Plek genoeg?* staat ernaast in `films/ecologie/plek-genoeg/`.
 - De voetregel noemt zusterfilms *Alles beweegt*, *Alles op zijn plek*, *Eén wordt twee* en *Precies op tijd*; alleen *Precies op tijd* (nu *Van bevruchting tot baby*) staat in de repo.
 - `TIMELINE.duration` (1484,055 s) is 0,04 s korter dan het mp3-bestand; onschuldig.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Eén doorlopende take (`narration.mp3`): hoofdstuk 2 en 12 opnieuw inspreken, het stuk terugknippen in de take en daarna `chapters[].start/narrStart/end/beats/pause` en alle `cues` vanaf H2 opschuiven met het duurverschil (samen ca. +45 s; zie "Zo pas je deze film aan", punt 1). Nieuwe zinnen krijgen eigen `cues`, dus de cue-indexen (`S.q(k)`) in `F.scenes[2]` en `F.scenes[12]` na de invoeging schuiven op (punt 3).
+
+- **H2 Opruimers** (`F.scenes[2]`): na "andere organische stoffen van, zoals eiwitten" komen autotroof en heterotroof (2 zinnen, ca. 9 s). Valt in beat b2–b3; b3 (stroomschema) en latere beats schuiven op, de pauzekaart van H2 ook.
+- **H12 Stikstof gaat rond** (`F.scenes[12]`): na "zuurstof voor nodig" komen nitrificerende bacteriën als chemo-autotroof (2 zinnen, ca. 8 s, eind van beat b4); na "spoelt makkelijk uit naar het grondwater" één scène over lading: ammonium hecht aan klei en humus, nitraat spoelt uit, ammoniak is een gas (5 zinnen, ca. 22 s, eind van beat b5). Beats b5–b7, de pauzekaart van H12 en alle hoofdstukken erna (H13, H14) schuiven op.
+- **Beeld nodig**: in het stroomschema van H2 labels "autotroof" bij de producent en "heterotroof" bij de andere groepen; bij de nitrificerende bacteriën een label "chemo-autotroof: energie uit ammonium → nitraat, niet uit licht" (met een doorgestreept zonnetje). Nieuwe beat in H12: bodemdeeltje klei/humus met min-tekens, NH₄⁺ (plus) blijft eraan plakken, NO₃⁻ (min) zakt met regendruppels naar het grondwater, NH₃ als gas (pijl omhoog uit de mesthoop). Ladingen in beeld als + en − (stikstof blauw volgens `COL`).
+- **Begrippenlijst** (docentenhandleiding, statische HTML): "Autotroof · heterotroof" en "Chemo-autotroof" toevoegen.
+- **Risicowoorden (uitspraaktest)**:
+  - *autotroof* — IPA /ˌɑu̯.toːˈtroːf/ (au-to-TROOF, klemtoon op de laatste lettergreep). Online geen Nederlandse IPA-transcriptie gevonden (Wiktionary NL/EN, Woorden.org en kaikki.org geven alleen betekenis of een geluidsbestand); IPA afgeleid uit het Nederlandse klemtoonpatroon van leenwoorden op -troof (vgl. catastrofe, filosoof). Stem-invoer: "autotroof" zoals geschreven; valt de klemtoon op "au", dan "auto-troof".
+  - *heterotroof* — IPA /ˌɦeː.tə.roːˈtroːf/ (he-te-ro-TROOF). Stem-invoer: "heterotroof"; bij een verkeerde klemtoon "hetero-troof".
+  - *chemo-autotroof* — IPA /ˌɣeː.moː.ɑu̯.toːˈtroːf/, ch als g (zoals in "chemie"). Risico: ElevenLabs leest "chemo" als Engels "kee-mo". Stem-invoer: "geemo-autotroof".
+  - *ammoniak*, *ammonium*, *nitraat*, *humus* staan al in de film en tellen niet mee.

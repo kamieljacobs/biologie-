@@ -85,3 +85,19 @@ Regelnummers in `2-de-reis-door-je-buik.html` (er zijn geen blobs; de audio staa
 - Diarree: de film noemt snellere peristaltiek (vraag) én een aangetaste darmwand die extra vocht maakt. Osmotische diarree door bacteriën komt in film 6.
 - Kwaliteitscontrole 12 okt: de woordtijden komen uit Scribe gekoppeld aan de opname (die schrijft de ingevoerde tekst terug, dus geen uitspraakcontrole); de uitspraak is daarna blind gecontroleerd (losse transcriptie van s01, s10, s15, s25: gastric bypass, pH, gastrine, HCO₃⁻ en amylase komen goed terug); 0 cue-problemen; frametijd bij 4× CPU-vertraging mediaan ≤ 4 ms, p95 ≤ 18 ms; eindreview (6 moet-punten en 7 kan-punten) verwerkt.
 - Versiegeschiedenis: 1.0 (12 okt 2026).
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Opnemen per take volgens "Zo pas je deze film aan", punt 2–3. Let op: elke nieuwe alinea in `script_v2.md` laat `make_segments.py` alle latere id's doornummeren (s12 wordt s13 enz.); hernoem dan ook de audiobestanden, `stem/woordtijden/` en de `SCENES.sNN` in `scenes.js`, of plak de zinnen achter de bestaande alinea waar dat kan.
+
+- **H1 · s09** (`../audio/s09.mp3`, nu 20,5 s, wordt ≈ +5 s): de wand heeft naast kringspieren ook lengtespieren. Achteraan in de alinea van s09.
+- **H2 · nieuw vwo-blok na s11** (nieuwe take, ≈ 15 s): pepsine wordt gemaakt als onwerkzaam pepsinogeen; zoutzuur knipt er een stukje af en maakt het actief; zo verteert de maagklier zichzelf niet. In `script_v2.md` als eigen alinea tussen `[VWO-START]` … `[VWO-END]` (dit geeft wel een nieuw id en verschuift de nummering). Geen dubbeling: film 2 had nog niets over pro-enzymen; film 3 (s23, vwo) zegt het algemeen ("onwerkzame vorm"), dat sluit hier op aan.
+- **H3 · s20** (`../audio/s20.mp3`, nu 26,6 s, wordt ≈ +20 s): secretine (zure brij → alvleesklier geeft veel alvleessap af) en CCK (vet en eiwit → galblaas knijpt samen, alvleesklier geeft enzymen af), naast gastrine. Achteraan in de alinea van s20. De oude zin "na een vette maaltijd naar de darm geknepen" blijft kloppen.
+- **H3 · s27 (vwo)** (`../audio/s27.mp3`, nu 7,4 s, wordt ≈ +8 s): het sap dat de alvleesklier op secretine afgeeft is rijk aan bicarbonaat; hoe zuurder de brij, hoe meer secretine. In `script_v2.md` vóór `[VWO-END]` van s27 zetten, dan blijft het binnen het bestaande vwo-blok.
+- **Eindkaart** (optioneel): "gastrine zet de maag aan tot zuur maken" kan worden aangevuld met "secretine en CCK sturen alvleesklier en galblaas". Geen audio.
+- **Beeld nodig**: s09: doorsnede van de slokdarmwand met een binnenste laag kringspieren (ringen) en een buitenste laag lengtespieren (strepen in de lengte). Vwo-blok H2: maagklier geeft pepsinogeen af (gedimde schaar), H⁺ knipt een stukje eraf, de schaar wordt goud/actief. s20: twaalfvingerige darm met twee hormoonpijlen via het bloed: "secretine" (bij H⁺ in de brij) naar de alvleesklier, "CCK" (bij vet en eiwit) naar galblaas en alvleesklier; gastrine-pijl uit H2 als vergelijking. s27: secretine-pijl met label "bicarbonaat" op het alvleessap.
+- **Risicowoorden (uitspraaktest)**:
+  - secretine — geen IPA in woorden.org/encyclo (Wiktionary niet bereikbaar); verwacht [seːkrəˈtinə]. Stem-invoer: zoals geschreven, net als gastrine en pepsine die in deze film goed terugkwamen ("pepsinuh" was juist afgekeurd). Controleer dat de -ne hoorbaar blijft.
+  - CCK — letterwoord; stem-invoer "cee cee kaa".
+  - pepsinogeen — geen IPA gevonden; verwacht [pɛpsinoːˈɣeːn] (klemtoon op -geen, zoals glycogeen). Stem-invoer: zoals geschreven; wordt het "pepsi-no-geen" met klemtoon vooraan, dan "pepsino-geen".
+  - lengtespieren, kringspieren — gewone woorden; zoals geschreven.

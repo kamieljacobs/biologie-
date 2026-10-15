@@ -53,6 +53,7 @@ Maar waarom gaan je longen mee met je borstkas? Ze zitten er niet aan vastgegroe
 Voor vwo gaan we hier nog een stap verder. De uitgerekte longen trekken naar binnen. Je borstkas trekt juist een beetje naar buiten. Die twee trekken van beide kanten aan het laagje vocht. Daardoor is de druk tussen de vliezen bij gewoon ademen iets lager dan de luchtdruk buiten. Dat heet de onderdruk. Bij inademen wordt de long verder uitgerekt, en wordt de onderdruk nog groter. Komt er een gaatje, dan stroomt er lucht tússen de vliezen, tot de druk daar gelijk is aan de druk buiten. Dan trekt niets de long meer uit, en veert hij terug. Terug naar de basis.
 
 ## Hoofdstuk 4 — Zeventig vierkante meter
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s13** · 36.6 s · `audio/s13.mp3`
 
@@ -65,6 +66,9 @@ Voor vwo nog een stap verder. Niet alle lucht die je inademt, komt in de longbla
 **s15** · 63.1 s · `audio/s15.mp3`
 
 Aan het eind van de bronchiolen zitten de longblaasjes. Je hebt er honderden miljoenen. Misschien dacht je dat je longen twee holle zakken zijn. Maar van binnen lijken ze op een spons. Samen hebben de longblaasjes een oppervlak van ongeveer zeventig vierkante meter. Bijna een badmintonveld. Om elk longblaasje ligt een netwerk van haarvaten. De wand van het blaasje en de wand van het haarvat zijn samen dunner dan een duizendste millimeter. Honderd keer dunner dan een vel papier. Het binnenste van het blaasje is vochtig. Zuurstof lost op in dat vocht, en diffundeert dan naar het bloed in de haarvaten. Koolstofdioxide gaat de andere kant op. Bij diffusie gaan stoffen van een hoge naar een lage concentratie. In het longblaasje zit veel zuurstof, in het bloed weinig. Dat concentratieverschil blijft bestaan: je ademt steeds verse lucht in, en het bloed voert de zuurstof steeds af. Groot oppervlak, dunne wand, vochtig, en een concentratieverschil dat blijft. Zo werkt gaswisseling.
+
+[nieuw] (nieuwe vwo-alinea, eigen take tussen s15 en s16)
+[nieuw] Voor vwo nog een stap verder. Drie van die factoren vat je samen in de wet van Fick. Hoe groter het oppervlak en het concentratieverschil, en hoe kleiner de afstand, hoe sneller de diffusie. Terug naar de basis.
 
 **s16** · 9.0 s · `audio/s16.mp3`
 

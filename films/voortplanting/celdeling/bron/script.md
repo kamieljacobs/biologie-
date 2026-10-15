@@ -78,6 +78,8 @@ Vier. Elke X-vorm is één chromosoom. Tel de centromeren. Bij een mens zie je z
 
 ## Hoofdstuk 4 — Mitose
 
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
+
 **s16** · 5:05 · duur 28.67 s · audio/s16.mp3
 
 Nu de mitose, in vier stappen. Profase. De chromosomen rollen zich op en worden zichtbaar. Vanuit de twee polen van de cel groeien trekdraden. Samen heten ze de spoelfiguur. Aan het eind van de profase valt het kernmembraan uit elkaar. Metafase. De trekdraden trekken de chromosomen naar het midden. Daar liggen ze op één lijn: het equatorvlak. Aan elk centromeer zitten trekdraden van beide polen.
@@ -111,6 +113,8 @@ Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom é
 **s20** · 8:12 · duur 20.51 s · audio/s20.mp3
 
 Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p. Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk.
+
+[nieuw] Sommige organismen planten zich zo ook voort, zonder geslachtscellen: ongeslachtelijke voortplanting. Een aardbeiplant maakt uitlopers waaruit nieuwe plantjes groeien, en een bladluis krijgt in de zomer jongen zonder bevruchting. Die nakomelingen zijn genetisch gelijk aan hun ouder: het zijn klonen. Bij geslachtelijke voortplanting is meiose nodig, en die zorgt juist voor variatie.
 
 ## Hoofdstuk 5 — Meiose
 

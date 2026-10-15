@@ -123,10 +123,15 @@ Audio: blob 006.mp3 (doorlopende take) · 2:21–2:36 (15,7 s)
 > Cue-woorden (initCues): victoria, leopold, dochters, rusland, spanje, prinsen (ook begin/eind van de alinea via PS/PE)
 
 ## 11. p08 · Mannen vaker · koningshuizen
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 006.mp3 (doorlopende take) · 2:38–2:46 (7,3 s)
 
 [2:38.8] En let op: een vader geeft zijn X nooit aan een zoon.
 [2:41.7] Een zoon krijgt een aandoening op het X-chromosoom dus altijd via zijn moeder.
+[nieuw] Er zijn ook aandoeningen waarbij het afwijkende allel op de X dominant is: X-chromosomaal dominante overerving.
+[nieuw] Een vader met zo'n aandoening geeft zijn X aan al zijn dochters: zij krijgen het allemaal, en zijn zonen geen van allen.
+[nieuw] Een moeder met de aandoening is meestal heterozygoot: zij geeft het aan de helft van haar kinderen, zonen en dochters.
+[nieuw] En omdat een vrouw twee X-chromosomen heeft, en één afwijkend allel al genoeg is, komt het vaker voor bij vrouwen dan bij mannen.
 
 > Beeld: 'X van vader → alleen naar dochters'; 'X van zoon: altijd van moeder'.
 > Cue-woorden (initCues): nooit, via (ook begin/eind van de alinea via PS/PE)

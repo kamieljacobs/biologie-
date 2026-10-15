@@ -235,3 +235,20 @@ Werk altijd in de uitgepakte versie: `python3 scripts/filmbron.py uitpakken film
 - Kopcommentaar `sim.js` noemt nog "Alles versneld" en film 1-modules (`models.js`) zitten er ongebruikt in; onschuldig, maar maakt het bestand groter.
 - Versiedatum vóór prompt v4/Part C, maar de code noemt zich "stijlkaart … look Micro". Alles staat in die ene donkere look, ook de baan, de loopster en de grafieken (Part C zou daar Macro of Schema gebruiken). De loopster is een pictogram zonder gezicht; Part C staat silhouetten toe voor actiefiguren.
 - Uitspraak bij heropname: "acetyl-coA" moet klinken als "acetyl ko a" (uitspraaklijst); de stem-invoer staat niet in de HTML, dus controleer de huidige audio.
+
+## Wachtlijst opnieuw inspreken
+
+Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [nieuw] in `script.md`). Beide in H6 Zuurstof (blob 012.mp3 = `audio/ch_6.mp3`, nu 108,6 s, wordt ≈ +35 s). Volgens "Zo pas je deze film aan", punt 1–2: takes 6c en 6f opnieuw opnemen met Roos (eleven_multilingual_v2), hoofdstuk-mp3 opnieuw plakken met dezelfde stiltes, `dur`/`segments`/`sentences`/`phrases` van hoofdstuk 6 vervangen; de zinnummers ná take 6c schuiven (5 + 1 nieuwe zinnen), dus alle `W(n, …)` in `SCENES['6']` nalopen; let op de tekens ⁺ en ₂ in de woorden; begintijden H7–H8, transcript (`data-t`) en looptijd 12:55 (drie plekken) schuiven mee.
+
+- **H6 · take 6c**: redox. De dissimilatie is een redoxreactie: glucose staat H-atomen (en daarmee elektronen) af aan NAD⁺ en FAD en wordt geoxideerd (reductor); zuurstof neemt de elektronen aan het eind van de keten op en wordt gereduceerd tot water (oxidator). Sluit aan op "Oxidatief, omdat de elektronen uiteindelijk naar zuurstof gaan."
+- **H6 · take 6f**: de kloppende reactievergelijking één keer, na "… heet aerobe dissimilatie.": in woorden "één glucose plus zes zuurstof wordt zes koolstofdioxide plus zes water". In beeld staat volgens de vereenvoudigingentabel al de vorm met 6 H₂O links en 12 H₂O rechts plus de netto vorm; laat op deze zin de netto vorm C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O oplichten (`parts2.js`). Let op: ₁ (in C₆H₁₂O₆) staat niet in `SUBS` van `player.js`; alleen in beeld gebruiken, of `SUBS` uitbreiden als hij ook in de ondertitel komt.
+- **Begrippen** (pagina): redoxreactie, oxidator, reductor toevoegen.
+- **Beeld nodig**: bij 6c een klein schema: glucose → (e⁻ met H⁺) → NAD⁺/FAD → keten → O₂ → H₂O, met boven glucose "geoxideerd · reductor" en bij O₂ "gereduceerd · oxidator". Bij 6f de netto vergelijking in formules (zie boven).
+- **Risicowoorden (uitspraaktest)**:
+  - koolstofdioxide — vaste regel: stem-invoer "koolstofdie-oxide".
+  - redoxreactie — geen IPA-bron gevonden; verwacht [reːˈdɔksreːˌɑksi]. Voorstel stem-invoer "redox-reactie" (koppelteken, anders kans op "redoks-reactie" als één brij).
+  - geoxideerd — IPA oxideren [ɔksiˈderə(n)] (woorden.org via encyclo.nl); zoals geschreven.
+  - gereduceerd — IPA reduceren [redyˈserə(n)] (woorden.org via encyclo.nl); zoals geschreven.
+  - reductor — geen IPA-bron gevonden; verwacht [reːˈdʏktɔr], klemtoon op -duc-. Zoals geschreven; bij klemtoon op -tor: "redúctor".
+  - oxidator — geen IPA-bron gevonden; verwacht [ɔksiˈdaːtɔr], klemtoon op -da-. Zoals geschreven; bij een fout: "oxi-daator".
+  - acetyl-coA komt niet in de nieuwe zinnen voor; wel bij heropname van andere takes: "acetyl ko a".

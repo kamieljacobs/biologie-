@@ -289,6 +289,7 @@ Niveau: 6 vwo
 
 
 ## 6. H6 Zuurstof
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 Audio: blob 012.mp3 (`audio/ch_6.mp3` in `window.__AUDIO`) · 8:05–9:54 (108,6 s volgens ffprobe; `dur` in FILM 108,560 s)  
 Niveau: 6 vwo
@@ -321,6 +322,11 @@ Niveau: 6 vwo
 [8:54.4] Fosforylering betekent: fosfaat aan ADP koppelen.  
 [8:58.4] Oxidatief, omdat de elektronen  
 [9:00.1] uiteindelijk naar zuurstof gaan.
+[nieuw] Dat woord komt uit de scheikunde: de dissimilatie is een redoxreactie.  
+[nieuw] Onderweg staat glucose H-atomen af aan NAD⁺ en FAD, en daarmee ook elektronen.  
+[nieuw] Wie elektronen afstaat, wordt geoxideerd. Glucose is hier de reductor.  
+[nieuw] Zuurstof neemt die elektronen aan het eind van de keten op, en wordt gereduceerd tot water.  
+[nieuw] Zuurstof is de oxidator.
 
 **Take 6d** · 9:02.6–9:12.8 (hoofdstuk 57,08–67,29 s)
 
@@ -347,6 +353,8 @@ Niveau: 6 vwo
 [9:40.6] Niet twee, maar ongeveer dertig.  
 [9:44.0] De afbraak van glucose met zuurstof tot  
 [9:46.1] CO₂ en water heet aerobe dissimilatie.  
+[nieuw] Netto: één glucose plus zes zuurstof wordt zes koolstofdioxide plus zes water.  
+> Stem-invoer van deze [nieuw]-zin: Netto: één glucose plus zes zuurstof wordt zes koolstofdie-oxide plus zes water. In beeld: C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O (zie wachtlijst in info.md).  
 [9:50.9] Waarom sprint je dan niet gewoon aeroob?
 
 > Beeld (uit de scènecommentaar, regel 3610): H6 Zuurstof — aan het eind van de keten neemt O₂ de elektronen op (laatste elektronenacceptor) en vormt met H⁺ water; oxidatieve fosforylering; NADH,H⁺ uit de glycolyse via een omweg; zonder O₂ loopt de keten vast en valt alles stil; 2 tegen ± 30 ATP per glucose; aerobe dissimilatie. Simulatie: EtcSim (sim2.js), tekening ETC2 (etc2.js) met een camera (inzoomen op het eind van de keten, uitzoomen naar het grondplasma).

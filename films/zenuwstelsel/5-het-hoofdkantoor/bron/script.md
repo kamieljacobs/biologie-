@@ -276,6 +276,7 @@ Scène: `question` (sceneQuestion())
 *[aftelling 8,0 s (`cd5`) — in Leerling-modus wacht de film hier op een antwoord]*
 
 ## 12. a5 — antwoord op vraag 5
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 012.mp3 (sleutel `a5` in FILM_AUDIO) · 5:16–5:51 (35,1 s mp3; timing.duration 35,109 s)
 Scène: `micro` (sceneMicro → microVanzelf())
 
@@ -293,6 +294,11 @@ Scène: `micro` (sceneMicro → microVanzelf())
 [0:19.3] temperatuur,
 [0:20.1] honger,
 [0:20.6] dorst.
+[nieuw] Neem je temperatuur. Temperatuurzintuigen in je huid en in je hersenen melden hoe warm je bent.
+[nieuw] De hypothalamus vergelijkt dat met de normwaarde: ongeveer zevenendertig graden.
+[nieuw] Te warm? Dan maken je zweetklieren zweet, en worden de bloedvaten in je huid wijder, zodat je warmte kwijtraakt.
+[nieuw] Te koud? Dan worden die bloedvaten nauwer, en ga je rillen: je spieren maken warmte.
+[nieuw] Elke afwijking wordt zo tegengewerkt. Dat heet negatieve terugkoppeling.
 [0:21.1] Hij stuurt het autonome zenuwstelsel uit film 1.
 [0:23.7] En via de hypofyse ook veel van je hormonen.
 [0:26.1] Dan komt het refrein.

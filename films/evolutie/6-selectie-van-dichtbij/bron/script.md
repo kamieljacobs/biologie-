@@ -148,6 +148,7 @@ Audio: blob 001.mp3 · 3:26–3:47 (21,5 s; exact 205.643–227.192)
 > C) Het gemiddelde schuift naar groot: harde zaden geven meer energie.
 
 ## 9. Splitsende selectie (`h9_split2`)
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 Audio: blob 001.mp3 · 3:59–4:19 (20,1 s; exact 238.692–258.754)
 
 [3:58.8] Twee groepen.
@@ -157,6 +158,10 @@ Audio: blob 001.mp3 · 3:59–4:19 (20,1 s; exact 238.692–258.754)
 [4:08.7] één populatie wordt er twee.
 [4:09.8] Als die twee groepen ook nog apart gaan paren, bijvoorbeeld omdat ze op verschillende plekken eten, dan is dit het begin van twee soorten.
 [4:17.0] Dat is de volgende aflevering.
+[nieuw] Selectie kan ook over en weer gaan, tussen twee soorten.
+[nieuw] Een koekoek legt haar ei in het nest van een karekiet: karekieten die het vreemde ei herkennen, krijgen meer eigen jongen, en koekoeken met eieren die beter lijken ook.
+[nieuw] Zo oefenen twee soorten selectiedruk op elkaar uit, als in een wapenwedloop: dat heet co-evolutie.
+[nieuw] Het kan ook samenwerking zijn: een bloem en haar bestuiver gaan generatie na generatie beter bij elkaar passen.
 
 > Beeld (teksten in de scène `SCENE.h9_split2`): "twee groepen" · "splitsende selectie: het midden verdwijnt" · "één populatie wordt er bijna twee" · "+ apart paren = het begin van twee soorten" · "dat is de volgende aflevering"
 

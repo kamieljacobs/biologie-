@@ -69,9 +69,11 @@ Nu het etiket van de melk. Per honderd milliliter halfvolle melk: drieënhalf gr
 > stem-invoer: Nu het etiket van de melk. Per honderd milliliter halfvolle melk: drieënhalf gram eiwit, anderhalf gram vet en bijna vijf gram koolhydraten. Eiwit levert ook zeventien kilojoule per gram. Reken je het uit, dan kom je op ongeveer honderdvijf en neguntig kilojoule. Dat staat ook op het etiket.
 
 ## Hoofdstuk 3 — Eiwit: twintig bouwstenen
+> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 **s17** · basis · 35.8 s · `../audio/s17.mp3`  
 Is de ene gram eiwit evenveel waard als de andere? Eiwit is voor je spieren, denk je misschien. Dat is maar een klein deel van het verhaal. Een eiwit is een lange keten van bouwstenen: aminozuren. Er zijn twintig soorten aminozuren. Met die twintig maakt je lichaam tienduizenden verschillende eiwitten. Spieren, ja. Maar ook enzymen, veel hormonen, antistoffen en het hemoglobine in je bloed. Het eiwit uit de kaas kun je niet zomaar gebruiken. Je knipt het eerst in losse aminozuren. Met die aminozuren bouw je je eigen eiwitten.
+[nieuw] De binding tussen twee aminozuren in de keten heet een peptidebinding.
 
 **s18** · basis · 18.4 s · `../audio/s18.mp3`  
 De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Negen niet. Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren. Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?
