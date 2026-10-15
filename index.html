@@ -244,6 +244,7 @@ footer a:hover{color:var(--text)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 .rv{display:inline-block;width:7px;height:7px;border-radius:50%;margin-left:5px;vertical-align:middle;background:#E0A43A;opacity:.85}.rv-ok{background:#5BA47A}.rv-feedback{background:#D86A5A}
+.komt-lijst{display:grid;gap:14px;margin-top:8px}.komt-item{display:grid;grid-template-columns:18px 1fr;gap:12px;align-items:start;opacity:.82}.komt-o{width:11px;height:11px;border:2px solid var(--text3);border-radius:50%;margin-top:7px}.komt-item b{font-weight:600}.komt-item em,.kort.komt em{font-style:italic;font-weight:400;color:var(--text3);font-size:.9em;margin-left:4px}.komt-item p{margin:4px 0 0;color:var(--text2)}.komt-niv{font-size:.72em;color:var(--text3);margin-left:6px}.kort.komt{opacity:.7;cursor:default}
 </style>
 </head>
 <body>
@@ -399,6 +400,23 @@ const HOOFDSTUKKEN = {
   ]
  },
  "voortplanting": {
+  "komt": [
+   {
+    "titel": "Geslachtsorganen en puberteit",
+    "vraag": "Wat verandert er in je lichaam, en wie geeft het startsein?",
+    "niveau": "havo · vwo"
+   },
+   {
+    "titel": "Anticonceptie, soa's en voortplantingstechniek",
+    "vraag": "Hoe voorkom je een zwangerschap, en hoe help je er een op weg?",
+    "niveau": "havo · vwo"
+   },
+   {
+    "titel": "Sekse, gender en diversiteit",
+    "vraag": "Hoe bepaalt je lichaam of je een jongen of een meisje wordt?",
+    "niveau": "havo · vwo"
+   }
+  ],
   "label": "H4",
   "titel": "Voortplanting",
   "meta": "vwo bovenbouw · Nectar 4.1 H4 · Biologie voor jou thema 2 · 2 films",
@@ -701,10 +719,57 @@ const HOOFDSTUKKEN = {
   ]
  },
  "regeling": {
+  "komt": [
+   {
+    "titel": "Slaap",
+    "vraag": "Waarom moet je eigenlijk slapen?",
+    "niveau": "havo · vwo"
+   }
+  ],
   "label": "Thema",
   "titel": "Regeling",
   "meta": "havo · vwo · hormonen, negatieve terugkoppeling en het zenuwstelsel",
   "films": [
+   {
+    "href": "films/hormonen/1-post-voor-iedereen.html",
+    "titel": "Post voor iedereen",
+    "vraag": "Je schrikt van een knal. Waarom bonkt je hart nog minuten door?",
+    "tekst": "Wat een hormoon is: klier, bloed, receptor, en waarom een bericht nog naijlt",
+    "duur": 10,
+    "bij": "Hormonen · film 1"
+   },
+   {
+    "href": "films/hormonen/2-suiker-in-balans.html",
+    "titel": "Suiker in balans",
+    "vraag": "Bij jou meet niemand je bloedsuiker. Hoe blijft die toch binnen nauwe grenzen?",
+    "tekst": "Insuline en glucagon, negatieve terugkoppeling, en wat er misgaat bij diabetes type 1 en 2",
+    "duur": 11,
+    "bij": "Hormonen · film 2"
+   },
+   {
+    "href": "films/hormonen/3-de-baas-van-de-klieren.html",
+    "titel": "De baas van de klieren",
+    "vraag": "Op bijna elk pak zout staat: met jodium. Waarom zit het erin?",
+    "tekst": "Hypothalamus en hypofyse, de schildklier met TSH en thyroxine, struma en groeihormoon",
+    "duur": 10,
+    "bij": "Hormonen · film 3"
+   },
+   {
+    "href": "films/hormonen/4-stress.html",
+    "titel": "Stress",
+    "vraag": "Na een zware toetsweek word je ziek. Hoe kan stress je afweer remmen?",
+    "tekst": "Adrenaline uit het bijniermerg tegenover cortisol uit de schors: twee hormonen, twee snelheden",
+    "duur": 9,
+    "bij": "Hormonen · film 4"
+   },
+   {
+    "href": "films/hormonen/5-water-in-balans.html",
+    "titel": "Water in balans",
+    "vraag": "Na sporten plas je weinig en donker, na een fles water veel en licht. Hoe weet je lichaam dat?",
+    "tekst": "Nier en nefron, filtratie en terugresorptie, en hoe ADH je water regelt",
+    "duur": 10,
+    "bij": "Hormonen · film 5"
+   },
    {
     "href": "films/zenuwstelsel/1-een-seconde.html",
     "titel": "Eén seconde",
@@ -760,46 +825,6 @@ const HOOFDSTUKKEN = {
     "tekst": "Oog en lens, staafjes en kegeltjes, het oor en je evenwicht",
     "duur": 10,
     "bij": "Zenuwstelsel · zintuigen"
-   },
-   {
-    "href": "films/hormonen/1-post-voor-iedereen.html",
-    "titel": "Post voor iedereen",
-    "vraag": "Je schrikt van een knal. Waarom bonkt je hart nog minuten door?",
-    "tekst": "Wat een hormoon is: klier, bloed, receptor, en waarom een bericht nog naijlt",
-    "duur": 10,
-    "bij": "Hormonen · film 1"
-   },
-   {
-    "href": "films/hormonen/2-suiker-in-balans.html",
-    "titel": "Suiker in balans",
-    "vraag": "Bij jou meet niemand je bloedsuiker. Hoe blijft die toch binnen nauwe grenzen?",
-    "tekst": "Insuline en glucagon, negatieve terugkoppeling, en wat er misgaat bij diabetes type 1 en 2",
-    "duur": 11,
-    "bij": "Hormonen · film 2"
-   },
-   {
-    "href": "films/hormonen/3-de-baas-van-de-klieren.html",
-    "titel": "De baas van de klieren",
-    "vraag": "Op bijna elk pak zout staat: met jodium. Waarom zit het erin?",
-    "tekst": "Hypothalamus en hypofyse, de schildklier met TSH en thyroxine, struma en groeihormoon",
-    "duur": 10,
-    "bij": "Hormonen · film 3"
-   },
-   {
-    "href": "films/hormonen/4-stress.html",
-    "titel": "Stress",
-    "vraag": "Na een zware toetsweek word je ziek. Hoe kan stress je afweer remmen?",
-    "tekst": "Adrenaline uit het bijniermerg tegenover cortisol uit de schors: twee hormonen, twee snelheden",
-    "duur": 9,
-    "bij": "Hormonen · film 4"
-   },
-   {
-    "href": "films/hormonen/5-water-in-balans.html",
-    "titel": "Water in balans",
-    "vraag": "Na sporten plas je weinig en donker, na een fles water veel en licht. Hoe weet je lichaam dat?",
-    "tekst": "Nier en nefron, filtratie en terugresorptie, en hoe ADH je water regelt",
-    "duur": 10,
-    "bij": "Hormonen · film 5"
    }
   ],
   "tools": [
@@ -813,6 +838,21 @@ const HOOFDSTUKKEN = {
    "Begrippen trainen",
    "Uit het examen"
   ]
+ },
+ "extra": {
+  "label": "Extra",
+  "titel": "Extra: verder kijken",
+  "meta": "buiten het PTA · verdieping en actualiteit",
+  "komt": [
+   {
+    "titel": "Waarom worden we oud?",
+    "vraag": "Kun je je biologische klok terugdraaien? Wat het onderzoek wel en niet laat zien.",
+    "niveau": "havo · vwo"
+   }
+  ],
+  "films": [],
+  "tools": [],
+  "oefenen": []
  },
  "ecologie": {
   "label": "Ecologie",
@@ -843,6 +883,113 @@ const HOOFDSTUKKEN = {
   ]
  },
  "kerndoelen": {
+  "komt": [
+   {
+    "titel": "Ademhaling en bloedsomloop",
+    "vraag": "Hoe komt zuurstof bij elke cel?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Uitscheiding",
+    "vraag": "Waar blijft het afval van je cellen?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Skelet en spieren",
+    "vraag": "Hoe beweeg je eigenlijk?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Zenuw- en hormoonstelsel",
+    "vraag": "Hoe praten je organen met elkaar?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Hoe een plant in leven blijft",
+    "vraag": "Waar haalt een plant zijn eten vandaan?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Organismen aan het werk",
+    "vraag": "Wat doen gist en bacteriën voor ons?",
+    "niveau": "32A"
+   },
+   {
+    "titel": "Levenscyclus: genen en milieu",
+    "vraag": "Lijk je op je ouders, of op je omgeving?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Geslachtelijk en ongeslachtelijk",
+    "vraag": "Waarom hebben de meeste dieren twee ouders?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Waarom zoveel soorten?",
+    "vraag": "Hoe ontstaat een nieuwe soort?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Door de mens gekozen",
+    "vraag": "Hoe maak je een betere tomaat?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Celdeling (havo/vwo)",
+    "vraag": "Hoe wordt één cel er twee?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "DNA en overerving (havo/vwo)",
+    "vraag": "Hoe geef je een eigenschap door?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Stambomen en de grote stappen in de evolutie (havo/vwo)",
+    "vraag": "Hoe lees je een stamboom?",
+    "niveau": "32B"
+   },
+   {
+    "titel": "Voeding en beweging",
+    "vraag": "Wat heeft je lichaam echt nodig?",
+    "niveau": "32C"
+   },
+   {
+    "titel": "Slaap, natuur en hygiëne",
+    "vraag": "Waarom word je fris van slapen?",
+    "niveau": "32C"
+   },
+   {
+    "titel": "Microben: vriend en vijand",
+    "vraag": "Zijn alle bacteriën slecht?",
+    "niveau": "32C"
+   },
+   {
+    "titel": "Ziek worden en beter worden",
+    "vraag": "Wat doet een vaccin?",
+    "niveau": "32C"
+   },
+   {
+    "titel": "Wie woont waar",
+    "vraag": "Waarom leeft een ijsbeer niet in de woestijn?",
+    "niveau": "33C"
+   },
+   {
+    "titel": "Wie eet wie",
+    "vraag": "Wat gebeurt er als de wolf verdwijnt?",
+    "niveau": "33C"
+   },
+   {
+    "titel": "Uit balans",
+    "vraag": "Hoe herstelt een bos na een brand?",
+    "niveau": "33C"
+   },
+   {
+    "titel": "Wij hebben de natuur nodig",
+    "vraag": "Wat levert de natuur ons gratis?",
+    "niveau": "33C"
+   }
+  ],
   "label": "Onderbouw",
   "titel": "Kerndoelen onderbouw",
   "meta": "vmbo-t · havo · vwo · nieuwe kerndoelen mens en natuur",
@@ -968,6 +1115,13 @@ const HOOFDSTUKKEN = {
   ]
  },
  "transport": {
+  "komt": [
+   {
+    "titel": "Hoe een plant groeit",
+    "vraag": "Hoe weet een plant waar het licht is? Hij heeft geen ogen.",
+    "niveau": "vwo"
+   }
+  ],
   "label": "OND4",
   "titel": "Transport",
   "meta": "havo thema 11 · vwo H10 · hart, bloedvaten, bloed, lymfe, planten",
@@ -1237,6 +1391,20 @@ const NIVEAUS = {
      ]
     ],
     "naam": "Het lichaam van binnen"
+   },
+   {
+    "code": "Extra",
+    "w": 0,
+    "subs": [
+     [
+      "Extra",
+      "Verder kijken",
+      "buiten het PTA",
+      "komt nog",
+      "#extra"
+     ]
+    ],
+    "naam": "Extra"
    }
   ]
  },
@@ -1390,6 +1558,20 @@ const NIVEAUS = {
      ]
     ],
     "naam": "Jouw eigen keuze"
+   },
+   {
+    "code": "Extra",
+    "w": 0,
+    "subs": [
+     [
+      "Extra",
+      "Verder kijken",
+      "buiten het PTA",
+      "komt nog",
+      "#extra"
+     ]
+    ],
+    "naam": "Extra"
    }
   ]
  },
@@ -1442,7 +1624,7 @@ const NIVEAUS = {
  }
 };
 /* Kleur en tekening per hoofdstuk (tekeningen staan in KUNST hieronder). */
-const KLEUR = {cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen'};
+const KLEUR = {extra:'paars',cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen'};
 /* ===== einde inhoud ===== */
 
 /* Lijntekeningen (viewBox 0 0 120 120). currentColor = kleur van het hoofdstuk, .acc = goud. */
@@ -1767,6 +1949,7 @@ function hoofdstuk(id){
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div></div>
       <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`}).join('')}</section>`;
+  if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
   if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
@@ -1785,16 +1968,16 @@ function kopPagina(lbl,titel,tekst,id){
 function films(){
   let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
   const reeks=(id)=>{const h=HOOFDSTUKKEN[id];
-    return `<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2>${fries(id)}<a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}</section>`;
+    return `<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2>${fries(id)}<a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</section>`;
   }
   const gehad=new Set();
   for(const o of NIVEAUS[niveau].ond){
-    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&HOOFDSTUKKEN[id].films.length&&!gehad.has(id));
+    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length)&&!gehad.has(id));
     if(!ids.length) continue;
     out+=`<div class="ond-scheiding"><span class="mono">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.naam?`<h2>${esc(o.naam)}</h2>`:''}</div>`;
     for(const id of ids){gehad.add(id);out+=reeks(id)}
   }
-  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&HOOFDSTUKKEN[id].films.length);
+  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length));
   if(rest.length){out+=`<div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Alle films":"Ook bij "+esc(niveau)}</h2></div>`;for(const id of rest) out+=reeks(id)}
   return out+`</div>`;
 }
