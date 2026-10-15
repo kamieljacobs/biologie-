@@ -1,0 +1,69 @@
+{
+ "slug": "4-hechting",
+ "hoofdstuk": "gedrag",
+ "hoofdstukNaam": "Gedrag",
+ "title": "Hechting: van baby tot verliefd",
+ "sub": "Waarom troost belangrijker is dan voedsel",
+ "puzzle": "Mila huilt als haar moeder weggaat en laat zich troosten als ze terugkomt. Ties speelt gewoon door en kijkt nauwelijks op. Welk kind is veilig gehecht?",
+ "meta": "gedrag · hechting en latere relaties",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 4 van 12",
+ "lead": "Hechting is de emotionele band tussen een kind en een vaste verzorger. Harlows aapjes lieten zien dat troost belangrijker is dan voedsel. In de Vreemde Situatie zie je aan de terugkomst of een kind veilig, onveilig-vermijdend of onveilig-ambivalent gehecht is. Fijngevoelig reageren helpt. De verwachtingen die je zo opbouwt (je binnenwerkmodel) neem je mee naar latere relaties, maar ze kunnen veranderen.",
+ "endHaak": "hoe merk je in een vriendschap dat je op iemand kunt rekenen?",
+ "minis": {
+  "Hoofdstuk 1": "Gaat hechting om eten?",
+  "Hoofdstuk 2": "Wanneer is een kind veilig gehecht?",
+  "Hoofdstuk 3": "Wat heeft hechting met verliefd zijn te maken?",
+  "Recap": "Welk kind was veilig gehecht?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Lotte (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Mila huilt en laat zich troosten; Ties speelt door en kijkt nauwelijks op. Welk kind is veilig gehecht?",
+   "correct": 1,
+   "explain": "Het antwoord zie je in hoofdstuk 2."
+  },
+  "q06": {
+   "q": "Bij welke nepmoeder bracht een aapje de meeste tijd door?",
+   "correct": 1,
+   "explain": "Contact en troost waren belangrijker dan voedsel."
+  },
+  "q11": {
+   "q": "Iemand was als baby onveilig gehecht. Wat klopt?",
+   "correct": 1,
+   "explain": "Er is een verband, maar het is niet sterk: hechting kan veranderen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "hechting",
+   "d": "De emotionele band tussen een kind en een vaste verzorger (dat hoeft niet de moeder te zijn)."
+  },
+  {
+   "t": "veilige haven",
+   "d": "De verzorger als plek om troost te zoeken als je bang bent."
+  },
+  {
+   "t": "veilige basis",
+   "d": "De verzorger als uitvalsbasis om de wereld te ontdekken."
+  },
+  {
+   "t": "Vreemde Situatie",
+   "d": "Proef van Ainsworth: een kind van een jaar, een onbekende kamer, een vreemde en twee korte scheidingen; de stijl blijkt vooral bij de terugkomst."
+  },
+  {
+   "t": "veilig / onveilig-vermijdend / onveilig-ambivalent",
+   "d": "Drie hechtingsstijlen: troost zoeken en snel kalmeren / afstand houden en weinig laten zien / vastklampen, boos zijn en moeilijk te troosten."
+  },
+  {
+   "t": "fijngevoelig",
+   "d": "Een verzorger die ziet wat het kind nodig heeft en daar op tijd en passend op reageert."
+  },
+  {
+   "t": "binnenwerkmodel",
+   "d": "Verwachtingen over jezelf en anderen die uit ervaringen ontstaan; ze kleuren latere relaties, maar kunnen veranderen."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. De proef van Harlow</b> <span class=\"pts\">3 punten</span><p>Harlow liet jonge rhesusaapjes opgroeien met twee nepmoeders: een draadmoeder met een fles melk en een doekmoeder zonder melk. De aapjes brachten ongeveer 17 uur per dag door op de doekmoeder en minder dan een uur op de draadmoeder. Als er iets engs in de kooi kwam, renden ze naar de doekmoeder.</p>\n      <p>a. Welke opvatting over hechting wordt door deze proef weerlegd? (1p)<br>b. Leg uit dat de doekmoeder werkt als veilige haven én als veilige basis. (2p)</p>\n      <details><summary>Antwoord</summary><p>a. Dat hechting vooral om voeding gaat / dat een kind zich hecht aan wie het eten geeft (1). b. Veilige haven: bij schrik zoeken ze troost bij de doekmoeder (1). Veilige basis: nadat ze gekalmeerd zijn, gaan ze van daaruit de kooi verkennen (1).</p></details></div>\n    <div class=\"q\"><b>2. De Vreemde Situatie</b> <span class=\"pts\">3 punten</span><p>Drie kinderen van een jaar doen mee aan de Vreemde Situatie. Kind A huilt bij het afscheid en laat zich bij de terugkomst snel troosten. Kind B kijkt bij de terugkomst nauwelijks op en speelt door. Kind C klampt zich bij de terugkomst vast, slaat de moeder en blijft lang huilen.</p>\n      <p>Geef bij elk kind de hechtingsstijl. (3p)</p>\n      <details><summary>Antwoord</summary><p>A veilig (1) · B onveilig-vermijdend (1) · C onveilig-ambivalent (1).</p></details></div>\n    <div class=\"q\"><b>3. Rustig of niet?</b> <span class=\"pts\">2 punten</span><p>Een ouder zegt: \"Mijn dochter huilde helemaal niet toen ik wegging. Ze is dus heel goed gehecht.\"</p>\n      <p>Leg uit waarom deze conclusie niet klopt. (2p)</p>\n      <details><summary>Antwoord</summary><p>Huilen bij het afscheid zegt weinig; de stijl blijkt vooral bij de terugkomst (1). Kinderen die vermijdend gehecht zijn lijken rustig, maar hun hartslag/stress stijgt wel; ze laten het alleen niet zien (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>4. Eén meting</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">2 punten</span><p>In een Japans onderzoek werden veel kinderen als onveilig-ambivalent ingedeeld.</p>\n      <p>Geef twee redenen waarom je voorzichtig moet zijn met de conclusie dat Japanse kinderen vaker onveilig gehecht zijn. (2p)</p>\n      <details><summary>Antwoord</summary><p>Twee van: de Vreemde Situatie is één korte meting in een lab; Japanse kinderen zijn minder gewend om van hun moeder gescheiden te zijn, dus de situatie is voor hen veel stressvoller / het gedrag betekent niet overal hetzelfde; in de meeste landen is veilig toch de meest voorkomende stijl (1 per reden).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Twee speelkamers met spiegelwand: Mila huilt bij het afscheid en laat zich troosten; Ties speelt door en kijkt nauwelijks op. Openingsvraag (antwoord in H2)</td></tr>\n      <tr><td>1 Een band die troost</td><td>Definitie; baby-signalen en een gevoelige volwassene; Bowlby en de functie; inprenting vs hechting; vader, opa, pleegouder als hechtingsfiguur. Harlow: kooi met draad- en doekmoeder, tijd per dag, eng speelgoed; veilige haven en veilige basis</td></tr>\n      <tr><td>2 Veilig of onveilig</td><td>Stappen van de Vreemde Situatie (terugkomst gemarkeerd); drie kaarten met de stijlen, hartslag bij het vermijdende kind; 'geen fouten, slimme aanpassingen'; fijngevoelig reageren; andere factoren. Vwo: verdeling per land</td></tr>\n      <tr><td>3 Van baby tot verliefd</td><td>Binnenwerkmodel als bril; Lotte met een onbeantwoord appje en drie mogelijke gedachten; volwassen patronen en 'van alles een beetje'; pad van onveilig naar veiliger; kaart 'praat erover, bijvoorbeeld met je mentor'</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Bowlby (1969, Attachment); Harlow (1958, The Nature of Love). Harlows isolatieproeven zijn nu ethisch onaanvaardbaar; bespreek dit gerust.</li>\n      <li>Ainsworth (1978): acht episodes van maximaal ± 3 minuten (korter als het kind te overstuur raakt), twee scheidingen; de indeling gebeurt vooral op het herenigingsgedrag.</li>\n      <li>Termen: veilig, onveilig-vermijdend, onveilig-ambivalent (ook: angstig-ambivalent, afwerend). Bij volwassenen (Hazan &amp; Shaver 1987): veilig, angstig, vermijdend. De vierde categorie, gedesorganiseerde hechting (Main &amp; Solomon), is bewust weggelaten: die hangt samen met beangstigende ervaringen en vraagt nabespreking.</li>\n      <li>Hartslag en cortisol bij vermijdende kinderen: Sroufe &amp; Waters (1977), Spangler &amp; Grossmann (1993). Groepsbevindingen.</li>\n      <li>Fijngevoeligheid: matig verband met veilige hechting (De Wolff &amp; Van IJzendoorn 1997, r ≈ 0,24); interventies (Van den Boom 1994, VIPP) laten zien dat het oorzakelijk meespeelt. Temperament, stress in het gezin en omstandigheden spelen ook mee.</li>\n      <li>Cultuur: Grossmann (Bielefeld) veel vermijdend; Takahashi (Sapporo) veel ambivalent. Percentages in de film zijn afgerond en schematisch (naar Van IJzendoorn &amp; Kroonenberg 1988).</li>\n      <li>Stabiliteit van baby tot volwassene is matig tot zwak (Fraley 2002; Pinquart e.a. 2013). Volwassen hechting wordt tegenwoordig vooral als twee dimensies (angst, vermijding) gemeten; 'de meeste mensen hebben van alles een beetje'. 'Verdiende veiligheid' (earned security) kan als extra begrip in de les.</li>\n      <li>Zorg: dit onderwerp kan bij leerlingen iets losmaken. De film eindigt met een verwijzing naar de mentor; zorg dat leerlingen weten waar ze terechtkunnen.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Hechting beschrijven; functie</td><td>basis</td><td>H1</td></tr>\n      <tr><td>Harlow; veilige haven en veilige basis</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Vreemde Situatie en drie stijlen</td><td>basis</td><td>H2, checkvragen 2, 3</td></tr>\n      <tr><td>Fijngevoelig reageren en andere factoren</td><td>basis</td><td>H2</td></tr>\n      <tr><td>Binnenwerkmodel en latere relaties; verandering mogelijk</td><td>basis</td><td>H3</td></tr>\n      <tr><td>Beperkingen van de Vreemde Situatie</td><td>vwo</td><td>H2 (vwo), checkvraag 4</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen het appje-voorbeeld uitbreiden met eigen (verzonnen) situaties, zonder het op zichzelf te hoeven betrekken.</li><li>Bespreek de ethiek van Harlows proeven: wat mag nu wel en niet in dieronderzoek?</li><li>Koppel aan film 2: waarin verschilt hechting van inprenting?</li></ul>\n  </section>\n"
+}
