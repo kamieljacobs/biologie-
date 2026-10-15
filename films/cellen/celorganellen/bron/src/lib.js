@@ -33,8 +33,9 @@ function grain(ctx){
   if(!grainCanvas){
     grainCanvas=document.createElement('canvas'); grainCanvas.width=W; grainCanvas.height=H;
     const g=grainCanvas.getContext('2d');
-    for(let i=0;i<9000;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
-      g.fillStyle=rgba(C.grain,0.18+0.22*hash(i*5)); g.beginPath(); g.arc(x,y,0.9+1.6*hash(i*9),0,6.283); g.fill(); }
+    // rustige textuur (feedback Kamiel 15 okt 2026): weinig, kleine, zachte deeltjes
+    for(let i=0;i<1400;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
+      g.fillStyle=rgba(C.grain,0.06+0.08*hash(i*5)); g.beginPath(); g.arc(x,y,0.7+1.1*hash(i*9),0,6.283); g.fill(); }
   }
   ctx.drawImage(grainCanvas,0,0);
 }
@@ -191,3 +192,61 @@ function board(ctx, lit, alpha=1, x=60, y=76, w=1800){
   });
   ctx.restore();
 }
+
+// ===== naam zonder lijntje: direct bij het object (beeldafspraak) =====
+function naam(ctx, name, meta, x, y, alpha=1, align='center', color=C.text){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  text(ctx,name,x,y,fTekst(34,600),color,align); if(meta) metaText(ctx,meta,x,y+30,C.grain,align,22); ctx.restore();
+}
+// ===== moleculen met een herkenbare vorm =====
+function hexPath(ctx,x,y,r,rot=0){ ctx.beginPath(); for(let i=0;i<6;i++){ const a=rot+i*Math.PI/3+Math.PI/6; const px=x+Math.cos(a)*r, py=y+Math.sin(a)*r; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.closePath(); }
+function glucoseMol(ctx,x,y,s=1,alpha=1,rot=0){ // zeshoekige ring
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; hexPath(ctx,x,y,11*s,rot); ctx.fillStyle=rgba(C.oker,0.35); ctx.fill(); ctx.strokeStyle=C.oker; ctx.lineWidth=2.2*s; ctx.stroke();
+  ctx.fillStyle=C.oker; ctx.beginPath(); const a=rot+Math.PI/6; ctx.arc(x+Math.cos(a)*11*s+5*s,y+Math.sin(a)*11*s-4*s,2.4*s,0,6.283); ctx.fill(); ctx.restore(); }
+function pyruvaatMol(ctx,x,y,s=1,alpha=1,rot=0){ // brokstuk: ketentje van drie C
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); ctx.strokeStyle=C.oker; ctx.lineWidth=2.2*s;
+  const P=[[-11,3],[0,-4],[11,3]]; ctx.beginPath(); P.forEach((p,i)=>i?ctx.lineTo(p[0]*s,p[1]*s):ctx.moveTo(p[0]*s,p[1]*s)); ctx.stroke();
+  ctx.fillStyle=C.oker; for(const p of P){ ctx.beginPath(); ctx.arc(p[0]*s,p[1]*s,3.4*s,0,6.283); ctx.fill(); } ctx.restore(); }
+function o2Mol(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.teal; for(const d of [-1,1]){ ctx.beginPath(); ctx.arc(x+d*4.5*s,y,5.2*s,0,6.283); ctx.fill(); } ctx.restore(); }
+function co2Mol(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.mens; ctx.beginPath(); ctx.arc(x,y,4.6*s,0,6.283); ctx.fill(); ctx.fillStyle=lighten(C.teal,0.2); for(const d of [-1,1]){ ctx.beginPath(); ctx.arc(x+d*8.5*s,y,4.4*s,0,6.283); ctx.fill(); } ctx.restore(); }
+function atpMol(ctx,x,y,s=1,alpha=1,nP=3,pLos=0){ // base + suiker + staartje van fosfaatgroepen; pLos: laatste fosfaat schuift weg (0..1)
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y);
+  ctx.fillStyle=rgba(C.paars,0.9); roundRect(ctx,-22*s,-12*s,12*s,12*s,3*s); ctx.fill(); // base
+  ctx.strokeStyle=C.koraal; ctx.lineWidth=1.6*s; ctx.beginPath(); ctx.moveTo(-10*s,-6*s); ctx.lineTo(-6*s,-2*s); ctx.stroke();
+  ctx.beginPath(); for(let i=0;i<5;i++){ const a=-Math.PI/2+i*2*Math.PI/5; const px=-2*s+Math.cos(a)*6*s, py=2*s+Math.sin(a)*6*s; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.closePath(); ctx.fillStyle=rgba(C.koraal,0.5); ctx.fill(); ctx.stroke(); // suiker
+  for(let i=0;i<nP;i++){ const last=i===nP-1; const dx=(last?pLos*14:0), dy=(last?-pLos*10:0); const px=(8+i*9)*s+dx, py=2*s+dy;
+    if(!(last&&pLos>0.3)){ ctx.beginPath(); ctx.moveTo(px-9*s,2*s); ctx.lineTo(px-3*s,py); ctx.stroke(); }
+    ctx.fillStyle=C.koraal; ctx.beginPath(); ctx.arc(px,py,3.6*s,0,6.283); ctx.fill(); }
+  ctx.restore(); }
+function molFlow(ctx, path, n, t, speed, drawFn, seedOff=0, alpha=1){ // als particleFlow, maar met een eigen molecuulvorm
+  const segs=[]; let total=0; for(let i=1;i<path.length;i++){ const d=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]); segs.push(d); total+=d; }
+  for(let k=0;k<n;k++){ let d=((t*speed + hash(k+seedOff)*total) % total); let i=0; while(d>segs[i]){ d-=segs[i]; i++; } const u=d/segs[i];
+    const x=lerp(path[i][0],path[i+1][0],u), y=lerp(path[i][1],path[i+1][1],u); const w=wander(k+seedOff,t,4,2);
+    const fade=Math.min(1,(d+ (i?segs.slice(0,i).reduce((a,b)=>a+b,0):0))/40, (total-(d+(i?segs.slice(0,i).reduce((a,b)=>a+b,0):0)))/40);
+    drawFn(x+w.x,y+w.y,alpha*clamp(fade,0,1),k,t); }
+}
+// ===== mRNA: dunne, kronkelende enkele streng met basen-streepjes =====
+function mrnaStrand(ctx,x,y,len,ang,t,alpha=1,lw=2.4){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(ang);
+  const n=Math.max(8,Math.round(len/5)); const pts=[]; for(let i=0;i<=n;i++){ const u=i/n; pts.push([u*len-len/2, Math.sin(u*len/11+t*3)*5+Math.sin(u*len/29+t*1.3)*7]); }
+  const cols=[C.koraal,C.teal,C.groen,C.oker]; ctx.lineWidth=1.6;
+  for(let i=1;i<n;i+=2){ const [px,py]=pts[i]; ctx.strokeStyle=cols[(i>>1)%4]; ctx.beginPath(); ctx.moveTo(px,py); ctx.lineTo(px,py+7); ctx.stroke(); }
+  ctx.strokeStyle=C.teal; ctx.lineWidth=lw; ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke(); ctx.restore(); }
+// ===== eiwit: kralenketting die zich opvouwt; suikerketen (vertakt) groeit eraan =====
+function eiwitKeten(ctx,x,y,s=1,fold=1,sug=0,alpha=1,shown=1,sugCol=C.groen,t=0){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const N=16, m=Math.max(1,Math.round(N*shown));
+  const P=[]; for(let i=0;i<N;i++){ const lx=(i-N/2)*7, ly=Math.sin(i*0.9)*5; // uitgestrekt
+    const a=i*0.95, r=4+ (i%5)*2.2; const fx=Math.cos(a)*r+Math.sin(i*1.7)*3, fy=Math.sin(a)*r*0.9+Math.cos(i*2.3)*3; // kluwen
+    P.push([x+lerp(lx,fx,fold)*s, y+lerp(ly,fy,fold)*s]); }
+  ctx.strokeStyle=lighten(C.goud,0.1); ctx.lineWidth=2*s; ctx.beginPath(); for(let i=0;i<m;i++){ i?ctx.lineTo(P[i][0],P[i][1]):ctx.moveTo(P[i][0],P[i][1]); } ctx.stroke();
+  ctx.fillStyle=C.goud; for(let i=0;i<m;i++){ ctx.beginPath(); ctx.arc(P[i][0],P[i][1],2.6*s,0,6.283); ctx.fill(); }
+  if(sug>0.01){ const b=P[Math.min(m-1,N-4)]; const g=[[0,0,0,-9],[0,-9,-6,-16],[0,-9,6,-16],[6,-16,6,-24],[-6,-16,-10,-23]];
+    const k=Math.ceil(sug*g.length); ctx.strokeStyle=sugCol; ctx.lineWidth=1.6*s; ctx.fillStyle=sugCol;
+    for(let j=0;j<k;j++){ const e=g[j]; const f=j<k-1?1:clamp(sug*g.length-j,0,1); const x2=lerp(e[0],e[2],f), y2=lerp(e[1],e[3],f);
+      ctx.beginPath(); ctx.moveTo(b[0]+e[0]*s,b[1]+e[1]*s); ctx.lineTo(b[0]+x2*s,b[1]+y2*s); ctx.stroke(); hexPath(ctx,b[0]+x2*s,b[1]+y2*s,2.8*s); ctx.fill(); } }
+  ctx.restore(); }
+// ===== gebogen celmembraan (een cel is rond): stukje van een grote cirkel, binnenkant links =====
+function memX(cx,cy,R,y){ return cx+Math.sqrt(Math.max(0,R*R-(y-cy)*(y-cy))); }
+function membraanBoog(ctx,cx,cy,R,y0,y1,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.er;
+  for(const [dr,lw] of [[0,2],[9,2]]){ ctx.lineWidth=lw; ctx.beginPath(); for(let y=y0;y<=y1;y+=6){ const x=memX(cx,cy,R+dr,y); y===y0?ctx.moveTo(x,y):ctx.lineTo(x,y);} ctx.stroke(); }
+  ctx.fillStyle=C.er; for(let y=y0+10;y<y1;y+=12){ ctx.beginPath(); ctx.arc(memX(cx,cy,R+4.5,y),y,1.6,0,6.283); ctx.fill(); } ctx.restore(); }
