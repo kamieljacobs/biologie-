@@ -207,15 +207,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -593,7 +602,7 @@ SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1150,120); ctx.scale(0.62,0.
 
 // ---- cold open ----
 SCENES.open=(ctx,li,lf,t)=>{ bg(ctx,'schema');
-  if(li===0){ const p=ease(lf*1.5); window_(ctx,560,180,800,520,1); for(const [dx,dy,s] of [[0,0,1],[40,30,0.7],[-30,50,0.6]]) drop(ctx,1110+dx,560+dy,s,p); label(ctx,'bloed van de dader','een paar druppels',1110,560,1420,420,p,C.koraal,'left'); return; }
+  if(li===0){ const p=ease(lf*1.5); window_(ctx,560,180,800,520,1); for(const [dx,dy,s] of [[0,0,1],[40,30,0.7],[-30,50,0.6]]) drop(ctx,1110+dx,560+dy,s,p); naamBij(ctx,'bloed van de dader','een paar druppels',1390,560,p,'left',C.koraal); return; }
   if(li===1){ const p=ease(lf*1.5); folder(ctx,300,300,520,320,1); barcode(ctx,340,380,440,120,3,1); M(ctx,'DNA-profiel',560,540,{align:'center',color:C.text2}); database(ctx,1300,330,1.6,1); M(ctx,'databank',1300,520,{align:'center',color:C.text2}); arrow(ctx,840,460,1180,460,C.line,2,p); ctx.save(); ctx.globalAlpha*=clamp(p*2-1,0,1); ctx.strokeStyle=C.koraal; ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(1240,260); ctx.lineTo(1360,380); ctx.moveTo(1360,260); ctx.lineTo(1240,380); ctx.stroke(); ctx.restore(); T(ctx,'geen match',1300,620,40,{w:700,align:'center',color:C.koraal,alpha:clamp(p*2-1,0,1)}); return; }
   if(li===2){ const p=ease(lf*1.5); folder(ctx,700,300,520,320,0.5); barcode(ctx,740,380,440,120,3,0.5); T(ctx,'?',960,470,120,{titel:true,align:'center',color:C.goud,alpha:p}); M(ctx,'een nieuwe aanwijzing',960,700,{align:'center',color:C.goud,alpha:p}); return; }
   const p=ease(lf*2); drop(ctx,420,420,1.6,1); T(ctx,'Hoe lees je DNA uit een paar druppels bloed?',560,440,44,{titel:true,alpha:1}); T(ctx,'En hoe vind je iemand die nergens geregistreerd staat?',560,520,44,{titel:true,alpha:p});
@@ -601,12 +610,12 @@ SCENES.open=(ctx,li,lf,t)=>{ bg(ctx,'schema');
 
 // ---- H1a: blood cells, PCR in a tube, three temperatures, doubling ----
 SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro');
-  if(li===0){ const p=ease(lf*1.5); const R=seeded(5); for(let k=0;k<18;k++){ const x=360+R()*1000, y=260+R()*420; circ(ctx,x,y,34,BLOOD,lighten(BLOOD,0.3),1.5); circ(ctx,x,y,14,rgba(C.kast,0.25)); } circ(ctx,1460,420,48,rgba('#E8E2D6',0.9),C.er,1.5); circ(ctx,1460,420,22,rgba(C.kern,0.8),C.kernR,1); label(ctx,'rode bloedcel','geen kern, geen DNA',700,400,520,170,1,C.koraal,'left'); label(ctx,'witte bloedcel','wél een kern',1460,420,1500,220,p,C.text,'left'); speed(ctx,'schematisch · niet op schaal'); return; }
+  if(li===0){ const p=ease(lf*1.5); const R=seeded(5); for(let k=0;k<18;k++){ const x=360+R()*1000, y=260+R()*420; circ(ctx,x,y,34,BLOOD,lighten(BLOOD,0.3),1.5); circ(ctx,x,y,14,rgba(C.kast,0.25)); } circ(ctx,1460,420,48,rgba('#E8E2D6',0.9),C.er,1.5); circ(ctx,1460,420,22,rgba(C.kern,0.8),C.kernR,1); label(ctx,'rode bloedcel','geen kern, geen DNA',700,400,520,170,1,C.koraal,'left'); naamBij(ctx,'witte bloedcel','wél een kern',1530,430,p,'left',C.text); speed(ctx,'schematisch · niet op schaal'); return; }
   if(li===1){ const p=ease(lf*1.5); tube(ctx,560,260,320,1,0.45); ladder(ctx,860,430,'GATTCA',{dx:120,gap:240,s:0.8,bonds:true}); T(ctx,'PCR',560,220,52,{w:700,align:'center',color:C.goud}); M(ctx,'in een buisje · temperatuur als schakelaar',1200,720,{align:'center',color:C.text2,alpha:p}); thermometer(ctx,1700,260,360,0.467,p); return; }
   const Y=420, x0=560, dx=110, seq='GATTCA'; const frac=li===2?1.0:li===3?0.467:0.693; thermometer(ctx,1760,200,420,frac,1);
   if(li===2){ const p=ease(lf*1.3); const sep=p*80; backbone(ctx,x0-dx/2,Y-60-sep,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y-60-sep+22,seq[i],1,{s:0.8}); backbone(ctx,x0-dx/2,Y+180+sep,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y+180+sep-22,COMP[seq[i]],-1,{s:0.8}); label(ctx,'verhitten','strengen gaan uit elkaar',x0+6*dx,Y+60,1320,300,p,C.koraal,'left'); return; }
-  if(li===3){ const p=ease(lf*1.3); backbone(ctx,x0-dx/2,Y-140,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y-140+22,seq[i],1,{s:0.8}); backbone(ctx,x0-dx/2,Y+260,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y+260-22,COMP[seq[i]],-1,{s:0.8}); primer(ctx,x0-dx/2+(1-p)*300,Y+10,150,p,-1); primer(ctx,x0+3.5*dx-(1-p)*300,Y+150,150,p,1); label(ctx,'afkoelen','primers binden',x0+3.5*dx+150,Y+190,1320,620,p,C.goud,'left'); return; }
-  if(li===4){ const p=ease(lf); backbone(ctx,x0-dx/2,Y-140,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y-140+22,seq[i],1,{s:0.8}); backbone(ctx,x0-dx/2,Y+260,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y+260-22,COMP[seq[i]],-1,{s:0.8}); const n=Math.round(p*6); backbone(ctx,x0-dx/2,Y+10,Math.max(150,n*dx),{dx,alpha:1}); for(let i=0;i<n;i++) if(i>1) base(ctx,x0+i*dx,Y+10-22,COMP[seq[i]],-1,{s:0.8}); primer(ctx,x0-dx/2,Y+10,150,1,-1); enzyme(ctx,x0+n*dx+20,Y+10,0.6,1); label(ctx,'opwarmen','hittebestendige polymerase bouwt',x0+n*dx+20,Y+40,1100,700,p,C.goud,'left'); return; }
+  if(li===3){ const p=ease(lf*1.3); backbone(ctx,x0-dx/2,Y-140,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y-140+22,seq[i],1,{s:0.8}); backbone(ctx,x0-dx/2,Y+260,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y+260-22,COMP[seq[i]],-1,{s:0.8}); primer(ctx,x0-dx/2+(1-p)*300,Y+10,150,p,-1); primer(ctx,x0+3.5*dx-(1-p)*300,Y+150,150,p,1); naamBij(ctx,'afkoelen','primers binden',1190,600,p,'left',C.goud); return; }
+  if(li===4){ const p=ease(lf); backbone(ctx,x0-dx/2,Y-140,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y-140+22,seq[i],1,{s:0.8}); backbone(ctx,x0-dx/2,Y+260,6*dx,{dx}); for(let i=0;i<6;i++) base(ctx,x0+i*dx,Y+260-22,COMP[seq[i]],-1,{s:0.8}); const n=Math.round(p*6); backbone(ctx,x0-dx/2,Y+10,Math.max(150,n*dx),{dx,alpha:1}); for(let i=0;i<n;i++) if(i>1) base(ctx,x0+i*dx,Y+10-22,COMP[seq[i]],-1,{s:0.8}); primer(ctx,x0-dx/2,Y+10,150,1,-1); enzyme(ctx,x0+n*dx+20,Y+10,0.6,1); naamBij(ctx,'opwarmen','hittebestendige polymerase bouwt',x0+n*dx+20,740,p,'center',C.goud); return; }
   const p=ease(lf); const n=[1,2,4,8,16,32][Math.min(5,Math.floor(p*5.99))]; for(let k=0;k<Math.min(n,32);k++){ const col=k%8, row=Math.floor(k/8); ladder(ctx,360+col*180,300+row*110,'GAT',{dx:40,gap:50,s:0.3,bonds:true}); } T(ctx,n<32?'× '+n:'30 cycli → meer dan een miljard',960,780,44,{w:700,align:'center',color:C.goud});
 };
 
@@ -633,13 +642,13 @@ SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
 // ---- H2g: gel electrophoresis ----
 SCENES.h2g=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   if(li===0){ const p=ease(lf*1.5); tube(ctx,400,250,300,1,0.6); arrow(ctx,500,400,620,400,C.line,2,p); gel(ctx,700,200,700,520,4,[[],[],[],[]],p,null); T(ctx,'gelelektroforese',1050,780,40,{w:700,align:'center',color:C.goud,alpha:p}); return; }
-  if(li<=2){ const p=li===1?ease(lf):1; const b=l=>[[0.25*p,0.8*p],[0.5*p],[0.35*p,0.7*p],[0.3*p,0.8*p]][l]; gel(ctx,700,200,700,520,4,[b(0),b(1),b(2),b(3)],1,null); M(ctx,'DNA is negatief geladen → naar de pluspool',1050,780,{align:'center',color:C.text2}); if(li===1) label(ctx,'korte stukken','komen verder',700+700/8*7,200+30+0.8*p*470,1620,520,p,C.goud,'left'); if(li===2){ const q=ease(lf*2); label(ctx,'banden','hoe verder, hoe korter',700+700/8*3,200+30+0.5*470,560,760,q,C.text,'right'); } return; }
+  if(li<=2){ const p=li===1?ease(lf):1; const b=l=>[[0.25*p,0.8*p],[0.5*p],[0.35*p,0.7*p],[0.3*p,0.8*p]][l]; gel(ctx,700,200,700,520,4,[b(0),b(1),b(2),b(3)],1,null); M(ctx,'DNA is negatief geladen → naar de pluspool',1050,780,{align:'center',color:C.text2}); if(li===1) naamBij(ctx,'korte stukken','komen verder',1420,200+30+0.8*p*470+10,p,'left',C.goud); if(li===2){ const q=ease(lf*2); naamBij(ctx,'banden','hoe verder, hoe korter',660,200+30+0.5*470,q,'right',C.text); } return; }
   const p=ease(lf*1.5); gel(ctx,300,200,1320,420,20,Array.from({length:20},(_,l)=>{ const R=seeded(l+11); return [0.2+R()*0.6,0.2+R()*0.6]; }),1,null); M(ctx,'twintig plekken · de combinatie van lengtes is uniek',960,680,{align:'center',color:C.text2}); T(ctx,'DNA-profiel · een streepjescode van een mens',960,760,44,{w:700,align:'center',color:C.goud,alpha:p});
 };
 // ---- H2c: bruinvis gel ----
 SCENES.h2c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie havo 2019, tijdvak 2',1800,80,{align:'right',color:C.text2});
   const labs=['dichte wond','open wond','huid','controle']; const p=P(li,1,lf);
-  gel(ctx,560,200,900,480,4,[[0.55],[],[],[]],1,labs,(l,f)=>l===0); label(ctx,'band','zeehond-DNA',560+900/8,200+30+0.55*430,300,420,1,C.goud,'right');
+  gel(ctx,560,200,900,480,4,[[0.55],[],[],[]],1,labs,(l,f)=>l===0); naamBij(ctx,'band','zeehond-DNA',535,200+30+0.55*430+10,1,'right',C.goud);
   if(li>=1){ primer(ctx,1500,300,180,p,1); M(ctx,'primers alleen op zeehond-DNA',1590,260,{align:'center',color:C.goud,alpha:p}); arrow(ctx,1500,330,1480,380,C.line,2,p); }
   if(li===2){ const q=ease(lf*2); swab(ctx,1480,760,-0.25,q); M(ctx,'controle: geen band',1640,640,{align:'center',color:C.text2,alpha:q}); }
 };
@@ -667,7 +676,7 @@ SCENES.h3b=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie 
 };
 // ---- H3v: reference genome & variant ----
 SCENES.h3v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',120,170,48,{w:700,alpha:li===0?ease(lf*2):0.5});
-  if(li<=2){ const p=P(li,1,lf); M(ctx,'referentiegenoom',300,300,{color:C.text2}); tileRow(ctx,340,370,'ATGCATTGCA',{dx:70,w:60,h:68,px:36,rna:false}); M(ctx,'jouw DNA',300,500,{color:C.text2}); tileRow(ctx,340,570,'ATGCGTTGCA',{dx:70,w:60,h:68,px:36,rna:false,mark:i=>i===4&&p>0.5?C.koraal:null,alpha:p}); label(ctx,'variant','één base anders',340+4*70,570,1200,300,clamp(p*2-1,0,1),C.koraal,'left'); if(li===2) M(ctx,'meestal niets · soms een mutatie die ziek maakt · betekenis is het echte werk',960,760,{align:'center',color:C.text2,alpha:ease(lf*2)}); return; }
+  if(li<=2){ const p=P(li,1,lf); M(ctx,'referentiegenoom',300,300,{color:C.text2}); tileRow(ctx,340,370,'ATGCATTGCA',{dx:70,w:60,h:68,px:36,rna:false}); M(ctx,'jouw DNA',300,500,{color:C.text2}); tileRow(ctx,340,570,'ATGCGTTGCA',{dx:70,w:60,h:68,px:36,rna:false,mark:i=>i===4&&p>0.5?C.koraal:null,alpha:p}); naamBij(ctx,'variant','één base anders',340+4*70,650,clamp(p*2-1,0,1),'center',C.koraal); if(li===2) M(ctx,'meestal niets · soms een mutatie die ziek maakt · betekenis is het echte werk',960,760,{align:'center',color:C.text2,alpha:ease(lf*2)}); return; }
   drop(ctx,960,440,1.8,ease(lf*1.5));
 };
 

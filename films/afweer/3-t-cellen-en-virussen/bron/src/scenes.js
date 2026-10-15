@@ -114,7 +114,7 @@ const SCENES = {
       const kap = ramp(t, q.at('bouwen'), 2);
       bacterieGroot(ctx, 560, 460, 640, 300, t, { kapot: kap });
       label(ctx, 'celwand', '', 560 - 120, 460 - 150, 300, 170, q.on('celwand', 1), WAND, 'left');
-      label(ctx, 'ribosomen', '', 560 + 180, 460 - 60, 960, 170, q.on('ribosomen', 1), RIBO, 'left');
+      naamBij(ctx, 'ribosomen', '', 770, 284, q.on('ribosomen', 1), 'left', RIBO);
       regel(ctx, 'bacterie: een cel', 560, 700, 1, VIR, 32, 'center', 700);
       tag(ctx, 'eigen stofwisseling', 560, 800, C.text2, q.on('stofwisseling', 1) * (1 - q.on('Antibiotica', 1)));
       pil(ctx, 960, 500, 1, q.on('Antibiotica', 1)); tag(ctx, 'antibiotica remmen de bouw van de celwand', 560, 800, C.koraal, q.on('Antibiotica', 1) * (1 - q.on('Jouw', 1)));
@@ -124,7 +124,7 @@ const SCENES = {
       bacterieGroot(ctx, 420, 470, 400, 190, t, { a: 1 }); regel(ctx, 'bacterie ± 1–2 µm', 420, 640, 1, VIR, 28, 'center', 700);
       virus(ctx, 720, 470, 18, [3], t, { rot: t * 0.2 }); regel(ctx, 'virus ± 0,1 µm', 720, 545, q.on('tien', 1), VIR, 30, 'center', 700);
       zoomCircle(ctx, 1380, 450, 300, 720, 470, '', q.on('eiwitmantel', 1), () => { virus(ctx, 1380, 450, 150, [3], t, { rot: t * 0.05 }); ctx.strokeStyle = RNAK; ctx.lineWidth = 6; ctx.beginPath(); for (let i = 0; i <= 50; i++) { const u = i / 50; const px = 1300 + u * 160, py = 450 + Math.sin(u * 16 + t) * 30; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); });
-      label(ctx, 'eiwitmantel', '', 1380 + 106, 450 - 106, 1600, 140, q.on('eiwitmantel', 1), VIR, 'left'); label(ctx, 'erfelijk materiaal', '', 1440, 470, 1720, 820, q.on('erfelijk', 1), RNAK, 'right');
+      naamBij(ctx, 'eiwitmantel', '', 1712, 440, q.on('eiwitmantel', 1), 'left', VIR); naamBij(ctx, 'erfelijk materiaal', '', 1380, 522, q.on('erfelijk', 1), 'center', RNAK);
       tag(ctx, 'eet niet · groeit niet · vermenigvuldigt zich niet zelf', 560, 820, C.text2, q.on('groeit', 1));
       ctx.restore(); }
   },
@@ -188,7 +188,7 @@ const SCENES = {
   s10(ctx, t, q) { bg(ctx, 'micro');
     const p2 = q.on('Vindt', 1), p1 = 1 - p2; const let_ = q.on('Let', 1);
     if (p1 > 0.01) { ctx.save(); ctx.globalAlpha *= p1;
-      const sh = -250 * let_; lCel(ctx, 1150 + sh, 470, 210, t, { eigenToon: 1, toon: 1, geinf: 1, seed: 6 }); const tx = lerp(500, 760, ramp(t, 0.5, 2)) + sh; tCel(ctx, tx, 400, 90, t, { col: TK, label: 'T-killercel' }); sleutel(ctx, tx + 120, 420, 1, 16, 1.2, q.on('receptor', 1), TK, q.on('past', 1)); label(ctx, 'receptor', 'past op één stukje virus', tx + 120, 400, tx - 40, 180, q.on('receptor', 1) * (1 - let_), TK, 'left');
+      const sh = -250 * let_; lCel(ctx, 1150 + sh, 470, 210, t, { eigenToon: 1, toon: 1, geinf: 1, seed: 6 }); const tx = lerp(500, 760, ramp(t, 0.5, 2)) + sh; tCel(ctx, tx, 400, 90, t, { col: TK, label: 'T-killercel' }); sleutel(ctx, tx + 120, 420, 1, 16, 1.2, q.on('receptor', 1), TK, q.on('past', 1)); naamBij(ctx, 'receptor', 'past op één stukje virus', tx + 10, 245, q.on('receptor', 1) * (1 - let_), 'center', TK);
       ctx.save(); ctx.globalAlpha *= let_; ctx.fillStyle = rgba('#0B0F16', 0.85); ctx.fillRect(1380, 120, 520, 520); bCel(ctx, 1480, 250, 50, 3, t); virus(ctx, 1640, 250, 26, [3], t); vink(ctx, 1800, 250, 24); regel(ctx, 'B-cel: los virus', 1640, 340, 1, BCOL, 28, 'center', 700);
         tCel(ctx, 1480, 470, 50, t, { col: TK }); virus(ctx, 1640, 410, 22, [3], t); kruis(ctx, 1800, 410, 20); lCel(ctx, 1650, 520, 50, t, { toon: 1, eigenToon: 1 }); vink(ctx, 1800, 520, 24); regel(ctx, 'T-cel: stukje op een cel', 1640, 610, 1, TK, 28, 'center', 700); ctx.restore();
       ctx.restore(); }
@@ -236,7 +236,7 @@ const SCENES = {
     const l = q.on('MHC', 2), r = q.on('twee', 1);
     lCel(ctx, 560, 470, 200, t, { mhc: q.on('MHC', 1), eigenToon: l, toon: l, geinf: l, seed: 6 }); regel(ctx, 'MHC-I: alle cellen met een kern', 560, 760, l, MHCK, 28, 'center', 700); regel(ctx, 'stukjes van binnen in de cel', 560, 800, q.on('binnen', 1), C.text2, 24, 'center');
     tCel(ctx, 200, 300, 60, t, { col: TK, a: q.on('T-killercellen', 1), label: 'T-killercel' });
-    label(ctx, 'MHC', 'houder', 560 + 200, 470, 820, 200, q.on('houders', 1) * (1 - l), MHCK, 'left');
+    naamBij(ctx, 'MHC', 'houder', 790, 470, q.on('houders', 1) * (1 - l), 'left', MHCK);
     ctx.save(); ctx.globalAlpha *= r; fagocyt(ctx, 1360, 470, 170, t, { label: '' }); for (let i = 0; i < 6; i++) { const an = -1.4 + i * 0.55; ctx.save(); ctx.translate(1360 + Math.cos(an) * 172, 470 + Math.sin(an) * 155); ctx.rotate(an + 1.571); ctx.strokeStyle = '#E0B64A'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-11, 6); ctx.lineTo(-11, -10); ctx.moveTo(11, 6); ctx.lineTo(11, -10); ctx.stroke(); ctx.fillStyle = VIR; roundRect(ctx, -8, -16, 16, 12, 4); ctx.globalAlpha *= q.on('buiten', 1); ctx.fill(); ctx.restore(); }
       regel(ctx, 'MHC-II: antigeenpresenterende cellen', 1360, 760, 1, C.goud, 28, 'center', 700); regel(ctx, 'macrofagen · dendritische cellen · B-cellen', 1360, 800, q.on('macrofagen', 1), C.text2, 24, 'center'); regel(ctx, 'stukjes van wat ze van buiten opnamen', 1360, 840, q.on('buiten', 1), C.text2, 24, 'center');
       tCel(ctx, 1720, 280, 60, t, { col: TH, a: q.on('T-helpercellen', 1), label: 'T-helpercel' }); ctx.restore();

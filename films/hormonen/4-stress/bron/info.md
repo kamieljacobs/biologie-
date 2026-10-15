@@ -87,3 +87,7 @@ Begrippen: bijnier, bijniermerg, bijnierschors, orthosympathisch zenuwstelsel, a
 - Uitspraak: zie `uitspraak.md`. Een blinde controle was in deze sessie niet mogelijk; de risicowoorden staan op de wachtlijst voor Kamiel.
 - Alle grafieken zijn modellen met realistische tijden, geen metingen (zie het docentdeel).
 - Eindreview: 15 punten, alle verwerkt (zie `reviews/eindreview.md` en `script_v2.md`). Twee alinea's zijn daarvoor opnieuw ingesproken (s12, s16).
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'bijnier', 'merg', 'schors'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

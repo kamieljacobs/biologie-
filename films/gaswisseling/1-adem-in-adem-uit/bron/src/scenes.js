@@ -55,7 +55,7 @@ const SCENES = {
       { const st = q.on('steek', 1); person(ctx, 900, 860, 520, 1, { shirt: '#4F7A5E', armR: { a1: lerp(0.15, 0.35, st), a2: lerp(0.08, -2.3, st) } }); }
       roundRect(ctx, 520, 610, 760, 150, 30); shape(ctx, '#5A6B8A', '#46566F', 3); ctx.restore();
     if (f > 0.01) { ctx.save(); ctx.globalAlpha *= f; ctx.fillStyle = rgba('#0B0F16', 0.85); ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#0B0F16'; ctx.fillRect(560, 120, 800, 700); ctx.save(); ctx.globalAlpha *= 0.9; borstkas(ctx, 960, 460, 1.05, { v: 0.6, klap: q.on('ingezakt', 1), gap: q.on('ingezakt', 1), mrA: 0.6, xray: true }); ctx.restore(); metaText(ctx, 'R', 600, 170, '#E6E1D3', 'left', 32);
-      label(ctx, 'rechterlong', 'ingezakt', 830, 440, 380, 300, q.on('ingezakt', 1), '#E6E1D3'); label(ctx, 'lucht tussen long en borstwand', '(zwart op de foto)', 820, 380, 1390, 230, q.on('lucht', 1), '#E6E1D3'); ctx.restore();
+      label(ctx, 'rechterlong', 'ingezakt', 830, 440, 380, 300, q.on('ingezakt', 1), '#E6E1D3'); naamBij(ctx, 'lucht tussen long en borstwand', '(zwart op de foto)', 645, 182, q.on('lucht', 1), 'left', '#E6E1D3'); ctx.restore();
       tag(ctx, 'klaplong: zeldzaam, goed te verhelpen', 960, 800, C.groen, q.on('verhelpen', 1)); }
     vraagteken(ctx, 1600, 560, q.on('Waarom', 1), 140);
   },
@@ -70,7 +70,7 @@ const SCENES = {
     ctx.save(); ctx.globalAlpha *= st[3][1]; ctx.strokeStyle = rgba(LUCHT, 0.8); ctx.lineWidth = 30; ctx.beginPath(); ctx.moveTo(hx + 20, hy + 130); ctx.lineTo(hx + 20, hy + 310); ctx.stroke(); for (let i = 0; i < 6; i++) { ctx.strokeStyle = RIB; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(hx + 3, hy + 150 + i * 28); ctx.lineTo(hx + 37, hy + 150 + i * 28); ctx.stroke(); } ctx.restore();
     if (st[4][1] > 0.01) { ctx.save(); ctx.globalAlpha *= st[4][1]; longVorm(ctx, hx - 15, hy + 410, 1.1, -1, 1, 0.5); longVorm(ctx, hx + 55, hy + 410, 1.1, 1, 1, 0.5); boom(ctx, hx + 20, hy + 310, 85, -0.9, 2 + Math.round(2 * st[5][1]) + Math.round(st[6][1]), 1, LUCHT, 18); boom(ctx, hx + 20, hy + 310, 85, 0.9, 2 + Math.round(2 * st[5][1]) + Math.round(st[6][1]), 1, LUCHT, 18); ctx.restore(); }
     const lp = [[hx + 160, hy - 60], [hx + 30, hy], [hx + 40, hy + 95], [hx + 35, hy + 220], [hx - 30, hy + 360], [hx + 150, hy + 420], [hx - 120, hy + 520]];
-    st.forEach(([n, a], i) => label(ctx, n, '', lp[i][0], lp[i][1], 1150, 160 + i * 100, a, i === 2 ? '#C9A35C' : LUCHT));
+    st.forEach(([n, a], i) => { const col = i === 2 ? '#C9A35C' : LUCHT; if (i === 1) naamBij(ctx, n, '', lp[i][0] - 40, lp[i][1] + 12, a, 'right', col); else if (i >= 4) naamBij(ctx, n, '', 905, lp[i][1] + 12, a, 'left', col); else label(ctx, n, '', lp[i][0], lp[i][1], 1150, 160 + i * 100, a, col); });
     tag(ctx, 'verwarmd · vochtig · stof gevangen', 1480, 120, C.text2, q.on('verwarmd', 1) * (1 - q.on('keelholte', 1)));
     tag(ctx, 'strotklepje + huig sluiten af bij slikken', 1380, 880 - 40, C.goud, q.on('slikt', 1) * (1 - q.on('opengehouden', 1)));
     tag(ctx, 'kraakbeenringen (hoefijzer)', 1380, 880 - 40, RIB, q.on('opengehouden', 1) * (1 - q.on('bronchiën', 1)));
@@ -91,14 +91,14 @@ const SCENES = {
   s08(ctx, t, q) { bg(ctx, 'schema');
     borstkas(ctx, 900, 520, 1.15, { v: 0, mrA: q.on('middenrif', 1) * 0.8 + 0.2, ribA: 0.8 });
     tag(ctx, 'longen kunnen zelf niet zuigen', 1500, 260, C.koraal, q.on('zuigen', 1));
-    label(ctx, 'middenrif', 'koepel van spier', 900 - 150, 520 + 1.15 * 150 - 60, 1400, 720, q.on('koepel', 1), SPIER);
+    naamBij(ctx, 'middenrif', 'koepel van spier', 900, 680, q.on('koepel', 1), 'center', SPIER);
     vraagteken(ctx, 1550, 480, q.on('Wat', 1), 120);
   },
   s10(ctx, t, q) { bg(ctx, 'schema');
     const tIn = q.at('trekt'), tUit = q.at('rustig');
     let v = ramp(t, tIn, 4) * (1 - ramp(t, tUit, 3)); const buikA = q.on('buikademhaling', 1); if (buikA > 0.01) v = 0.5 + 0.5 * Math.sin(t * 1.5);
     borstkas(ctx, 760, 500, 1.1, { v, tsp: q.on('tussenribspieren', 1), buik: buikA });
-    label(ctx, 'middenrif', 'trekt samen, wordt platter, zakt', 760 + 150, 500 + 1.1 * (150 + 50 * v) - 50, 1250, 760, q.on('platter', 1) * (1 - buikA), SPIER);
+    naamBij(ctx, 'middenrif', 'trekt samen, wordt platter, zakt', 760, 765, q.on('platter', 1) * (1 - buikA), 'center', SPIER);
     tag(ctx, 'tussenribspieren: ribben omhoog en naar buiten', 1350, 160, SPIER, q.on('tussenribspieren', 1) * (1 - q.on('groter', 1)));
     drukMeter(ctx, 1520, 400, 1 - 0.25 * v * (1 - q.on('stijgt', 1)) + 0.15 * q.on('stijgt', 1) * (1 - q.on('spierkracht', 1)), q.on('druk', 1) * (1 - buikA));
     ctx.save(); ctx.strokeStyle = rgba(LUCHT, 0.6); ctx.lineWidth = 26; ctx.beginPath(); ctx.moveTo(760, 120); ctx.lineTo(760, 250); ctx.stroke(); ctx.restore(); luchtPijlen(ctx, 790, 260, 1, q.on('duwt', 1) * (1 - q.on('rustig', 1)), t); luchtPijlen(ctx, 790, 260, -1, q.on('buiten', 3) * (1 - q.on('spierkracht', 1)), t);
@@ -114,7 +114,7 @@ const SCENES = {
       ctx.strokeStyle = rgba(VOCHT, 0.8 * (1 - kl)); ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(760, 480, 285, Math.PI * 0.6, Math.PI * 1.4); ctx.stroke(); label(ctx, 'borstvlies', '', 470, 390, 300, 220, q.on('borstvlies', 1), RIB);
       if (kl > 0.01) { ctx.save(); ctx.globalAlpha *= kl; ctx.fillStyle = rgba(LUCHT, 0.25); ctx.beginPath(); ctx.arc(760, 480, 280, Math.PI * 0.6, Math.PI * 1.4); ctx.arc(760 + 280 * (1 - k) * 0.6, 480, 280 * k, Math.PI * 1.4, Math.PI * 0.6, true); ctx.fill(); ctx.restore(); }
       ctx.save(); ctx.translate(760 + 280 * (1 - k) * 0.6, 480); ctx.scale(k, k); ctx.beginPath(); ctx.arc(0, 0, 270, Math.PI * 0.6, Math.PI * 1.4); ctx.quadraticCurveTo(80, 0, -270 * Math.cos(Math.PI * 0.6) * -1, 270 * Math.sin(Math.PI * 0.6)); ctx.closePath(); shape(ctx, rgba(LONG, 0.35), lighten(LONG, 0.2), 3); ctx.restore();
-      label(ctx, 'longvlies', '', 760 + 280 * (1 - k) * 0.6 - 262 * k, 480 + 60, 300, 640, q.on('longvlies', 1), LONG); label(ctx, 'laagje vocht', '', 760 - 290, 480 - 60, 300, 420, q.on('vocht', 1) * (1 - kl), VOCHT);
+      label(ctx, 'longvlies', '', 760 + 280 * (1 - k) * 0.6 - 262 * k - 22 * (1 - k), 480 + 60, 300, 640, q.on('longvlies', 1), LONG); label(ctx, 'laagje vocht', '', 760 - 290, 480 - 60, 300, 420, q.on('vocht', 1) * (1 - kl), VOCHT);
       tag(ctx, 'longen zijn elastisch: altijd een beetje uitgerekt', 1380, 220, C.goud, q.on('elastisch', 1) * (1 - kl));
       for (let i = 0; i < 3; i++) arrow(ctx, 860 + i * 20, 400 + i * 80, 1000 + i * 20, 400 + i * 80, C.goud, q.on('uitgerekt', 1) * (1 - kl) * 0.0 + 0, 3);
       tag(ctx, 'lucht tussen de vliezen → long veert terug', 1380, 220, LUCHT, kl * (1 - q.on('eigen', 1)));
@@ -152,7 +152,7 @@ const SCENES = {
     if (sp > 0.01) { ctx.save(); ctx.globalAlpha *= sp; for (let i = 0; i < 60; i++) { const x = 400 + hash(i * 3) * 700, y = 220 + hash(i * 7) * 560; circ(ctx, x, y, 22 + hash(i) * 14, rgba(LONG, 0.15), rgba(LONG, 0.7), 1.5); } ctx.restore(); }
     if (bad > 0.01) { ctx.save(); ctx.globalAlpha *= bad; ctx.strokeStyle = '#E6E1D3'; ctx.lineWidth = 3; ctx.strokeRect(1180, 300, 560, 260); ctx.beginPath(); ctx.moveTo(1460, 300); ctx.lineTo(1460, 560); ctx.stroke(); text(ctx, '≈ 70 m²', 1460, 620, fTitel(48), C.text, 'center'); ctx.restore(); }
     const lb = q.on('haarvaten', 1); longblaasje(ctx, 760, 480, 230, t, { a: lb, o2: q.on('Zuurstof', 1), co2: q.on('Koolstofdioxide', 1) });
-    label(ctx, 'haarvat', '', 760 + 250, 480 - 80, 1250, 260, lb, HK.bloed); label(ctx, 'longblaasje', '', 760 - 120, 480 - 180, 300, 180, lb, '#C9D2DE'); label(ctx, 'wand < 0,001 mm', '', 760 + 230, 480 + 60, 1250, 380, q.on('dunner', 1), '#C9D2DE'); label(ctx, 'vochtig', '', 760 - 215, 480, 300, 300, q.on('vochtig', 1), VOCHT);
+    label(ctx, 'haarvat', '', 760 + 250, 480 - 80, 1250, 260, lb, HK.bloed); naamBij(ctx, 'longblaasje', '', 760, 185, lb, 'center', '#C9D2DE'); naamBij(ctx, 'wand < 0,001 mm', '', 1018, 470, q.on('dunner', 1), 'left', '#C9D2DE'); naamBij(ctx, 'vochtig', '', 455, 492, q.on('vochtig', 1), 'right', VOCHT);
     const cv = q.on('concentratie', 1); if (cv > 0.01) { ctx.save(); ctx.globalAlpha *= cv; regel(ctx, 'longblaasje: veel O₂', 1250, 520, 1, O2, 32); arrow(ctx, 1290, 550, 1290, 610, O2, 1, 4); regel(ctx, 'bloed: weinig O₂', 1250, 650, 1, O2, 32); ctx.restore(); }
     const kk = [['groot oppervlak', 'Groot'], ['dunne wand', 'dunne'], ['vochtig', 'vochtig'], ['concentratieverschil', 'blijft']];
     kk.forEach(([s, w], i) => tag(ctx, s, 380 + i * 390, 860, C.goud, q.on('Groot', 1) * clamp((t - q.at('Groot')) * 1.2 - i * 0.6, 0, 1)));

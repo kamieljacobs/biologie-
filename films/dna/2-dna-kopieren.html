@@ -190,15 +190,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -570,7 +579,7 @@ function replSim(ctx,x0,y,seq,f,g,o={}){ // opened for i<f (fork between f-1 and
   for(let i=0;i<Math.min(g,f);i++){ base(ctx,x0+i*dx,y+282,COMP[seq[i]],-1,{mark:o.markNew?C.goud:null}); hbonds(ctx,x0+i*dx,y+156,y+148,(seq[i]==='A'||seq[i]==='T')?2:3); }
   if(g>0) backbone(ctx,x0-dx/2,y+304,Math.min(g,f)*dx,{dx,mark:o.markNew?C.goud:null});
   if(o.helicase&&f>0&&f<=n){ const hx=x0+(f-0.5)*dx; enzyme(ctx,hx+40,y+170,0.75,1); if(o.labels) label(ctx,'helicase','enzym · ritst open',hx+80,y+300,hx+260,y+560,o.labA==null?1:o.labA,C.text,'left'); }
-  if(o.poly&&g<n){ const ex=x0+g*dx; enzyme(ctx,ex+10,y+230,0.8,0.95); if(o.labels) label(ctx,'DNA-polymerase','enzym · koppelt',ex+60,y+250,ex+40,y+600,o.labB==null?1:o.labB,C.text,'left'); }
+  if(o.poly&&g<n){ const ex=x0+g*dx; enzyme(ctx,ex+10,y+230,0.8,0.95); if(o.labels) naamBij(ctx,'DNA-polymerase','enzym · koppelt',ex-70,y+366,o.labB==null?1:o.labB,'right',C.text); }
 }
 function freeNucs(ctx,x0,y0,T,alpha=1){ const R=seeded(77); for(let k=0;k<5;k++){ const bx=x0+k*92+R()*20, by=y0+R()*60; const ph=R()*6.28, sp=0.6+R()*0.6; const xx=bx+Math.sin(T*sp+ph)*24, yy=by+Math.cos(T*sp*0.8+ph)*18;
   ctx.save(); ctx.translate(xx,yy); ctx.rotate(Math.sin(T*0.5+ph)*0.4); base(ctx,0,-60,'ACGTC'[k],1,{alpha:alpha*0.85,s:0.85}); circ(ctx,0,-70,9,BBR,null); ctx.restore(); } }
@@ -589,7 +598,7 @@ SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx);
   const heal=li===0?ease(lf):1; person(ctx,520,820,640,1); const kx=497, ky=820-640*0.2; const r=22*(1-heal*0.7); ctx.beginPath(); ctx.ellipse(kx,ky,r*1.3,r,0,0,6.283); ctx.fillStyle=heal<0.6?C.koraal:rgba(C.koraal,0.5); ctx.fill();
   M(ctx,li===0?('dag '+Math.round(heal*7)):'dag 7',kx-80,ky+10,{align:'right'});
   if(li>=1){ const p=li===1?ease(lf*1.6):1; zoomCircle(ctx,1300,420,300,kx+20,ky,'huidcellen · vergroot',p,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(980,100,700,700); grain(ctx); skinCells(ctx,1300,420,6,5,t,1,1); }); }
-  if(li>=2) label(ctx,'elke nieuwe cel','twee meter dna',1450,500,1610,640,li===2?ease(lf*2):1,C.text,'left');
+  if(li>=2) naamBij(ctx,'elke nieuwe cel','twee meter dna',1620,470,li===2?ease(lf*2):1,'left',C.text);
   if(li>=3) M(ctx,'foutloos · in een paar uur',1300,820,{align:'center',color:C.goud,alpha:li===3?ease(lf*2):1});
   if(li>=4) T(ctx,'Hoe doe je dat?',120,200,64,{titel:true,alpha:ease(lf*2)});
 };
@@ -598,8 +607,8 @@ SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx);
 SCENES.h1a=(ctx,li,lf,t)=>{
   if(li<=1){ bg(ctx,'micro'); const L=microCell(ctx,700,470,300,1,t,{showGolgi:true,showER:true});
     dnaIcon(ctx,L.kern.x-30,L.kern.y,li===0&&lf<0.6?1:2,1);
-    if(li===0) label(ctx,'DNA kopiëren','eerst, vóór de deling',L.kern.x,L.kern.y-60,L.kern.x-120,160,ease(lf*2),C.text,'right');
-    if(li===1){ const p=ease(lf); arrow(ctx,1120,470,1260,470,C.line,1.5,p); const A=microCell(ctx,1520,290,130,p,t); const B=microCell(ctx,1520,650,130,p,t); dnaIcon(ctx,A.kern.x-8,A.kern.y,1,p); dnaIcon(ctx,B.kern.x-8,B.kern.y,1,p);
+    if(li===0) naamBij(ctx,'DNA kopiëren','eerst, vóór de deling',L.kern.x,185,ease(lf*2),'center',C.text);
+    if(li===1){ const p=ease(lf); arrow(ctx,1120,470,1260,470,C.line,1.5,p); const A=microCell(ctx,1520,290,130,p,t); const B=microCell(ctx,1520,650,130,p,t); if(A) dnaIcon(ctx,A.kern.x-8,A.kern.y,1,p); if(B) dnaIcon(ctx,B.kern.x-8,B.kern.y,1,p);
       M(ctx,'elke dochtercel een hele kopie',1520,840,{align:'center',alpha:p}); }
     return; }
   bg(ctx,'schema'); const ang=li===2?ease(lf)*0.4:li===3?0.4+ease(lf)*0.3:li===4?0.7+ease(lf)*0.3:1; const hl=li===3?'S':li===4?'M':li===5?'S':null;
@@ -667,7 +676,7 @@ SCENES.h3b=(ctx,li,lf)=>{ bg(ctx,'micro'); const seq='ATGCATGC';
   if(li===0) T(ctx,'duizenden startpunten tegelijk',W/2,720,44,{w:600,align:'center',color:C.groen});
   if(li===1) T(ctx,'gaat het altijd goed?',W/2,720,48,{w:700,align:'center',alpha:ease(lf*2)});
   if(li>=2){ const p=li===2?ease(lf):1; base(ctx,x,478,'G',-1,{alpha:p,mark:C.koraal}); ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.koraal; ctx.lineWidth=2; roundRect(ctx,x-48,190,96,320,16); ctx.stroke(); ctx.restore();
-    label(ctx,'A tegenover G','past niet',x+40,330,x+280,120,p,C.koraal,'left'); }
+    naamBij(ctx,'A tegenover G','past niet',x,565,p,'center',C.koraal); }
   if(li>=3) T(ctx,'kopieerfout die blijft staan = mutatie',W/2,720,48,{w:700,align:'center',alpha:li===3?ease(lf*2):1});
   if(li===4) M(ctx,'→ aflevering 5',W/2,790,{align:'center',alpha:ease(lf*2)});
   scale(ctx,180,'1 nm · vereenvoudigd');
@@ -712,7 +721,7 @@ SCENES.h4b=(ctx,li,lf,t)=>{
     backbone(ctx,left-90,y+360,k*dx,{dx,rna:primer});
     T(ctx,"5'",x0+n*dx-50,y+374,40,{w:700}); T(ctx,"3'",left-215,y+374,40,{w:700,align:'right',color:C.goud});
     T(ctx,'antiparallel',1500,370,40,{w:600,color:C.text2});
-    enzyme(ctx,left-120,y+330,0.7,1); label(ctx,'DNA-polymerase',"plakt aan het 3'-uiteinde",left-150,y+460,left-110,y+640,li===3?ease(lf*2):1,C.text,'left');
+    enzyme(ctx,left-120,y+330,0.7,1); naamBij(ctx,'DNA-polymerase',"plakt aan het 3'-uiteinde",left-150,y+470,li===3?ease(lf*2):1,'right',C.text);
     if(li===4){ const p=ease(lf); arrow(ctx,x0+n*dx-60,y+470,x0+n*dx-60-760*p,y+470,C.goud,3,1); M(ctx,"nieuwe streng: 5' → 3'",x0+n*dx-60,y+520,{align:'right',color:C.goud}); }
     if(li>=5){ const p=li===5?ease(lf*2):1; label(ctx,'primer','kort rna-startstukje',x0+(n-1)*dx,y+390,x0+(n-1)*dx+60,y+560,p,C.text,'left');
       if(li===6){ const q=ease(lf*2); enzyme(ctx,x0+n*dx+150,y+300,0.55,q); label(ctx,'primase','maakt de primer',x0+n*dx+170,y+400,x0+n*dx+200,y+520,q,C.text,'left'); } }
@@ -727,12 +736,12 @@ SCENES.h4b=(ctx,li,lf,t)=>{
   M(ctx,'vork beweegt →',fx+200,fy-60,{color:C.goud});
   // leading strand: continuous, grows towards the fork (top template)
   if(li>=8){ const p=li===8?ease(lf):1; const x1=fx-980, x2=x1+(fx-300-x1)*p; ctx.save(); ctx.lineCap='round'; ctx.strokeStyle=BC.T; ctx.lineWidth=14; ctx.beginPath(); ctx.moveTo(x1,fy-160); ctx.lineTo(x2,fy-160); ctx.stroke(); ctx.restore();
-    box(ctx,x1-6,fy-170,34,20,6,RC.U); enzyme(ctx,x2+20,fy-210,0.45,1); label(ctx,'leidende streng','één lange keten, met de vork mee',x1+200,fy-160,x1+60,fy-300,p,C.text,'left'); }
+    box(ctx,x1-6,fy-170,34,20,6,RC.U); enzyme(ctx,x2+20,fy-210,0.45,1); naamBij(ctx,'leidende streng','één lange keten, met de vork mee',x1+30,fy-262,p,'left',C.text); }
   // lagging strand: Okazaki fragments, each built away from the fork
   if(li>=9){ const p=li===9?ease(lf):1; const frags=[[fx-960,fx-760],[fx-720,fx-520],[fx-480,fx-300]]; const nf=Math.ceil(p*3);
     frags.slice(0,nf).forEach(([a,b],k)=>{ const pp=k<nf-1?1:clamp(p*3-k,0,1); const s=b-(b-a)*pp; ctx.save(); ctx.lineCap='round'; box(ctx,b-34,fy+150,34,20,6,RC.U); ctx.strokeStyle=BC.T; ctx.lineWidth=14; ctx.beginPath(); ctx.moveTo(b-36,fy+160); ctx.lineTo(Math.min(b-36,s),fy+160); ctx.stroke(); ctx.restore(); });
     arrow(ctx,fx-320,fy+215,fx-470,fy+215,C.goud,3,p); M(ctx,'steeds een stukje terug',fx-560,fy+260,{color:C.goud,alpha:p}); }
-  if(li>=10){ const p=li===10?ease(lf):1; label(ctx,'Okazaki-fragmenten','',fx-520,fy+170,fx-400,fy+330,p,C.text,'left'); enzyme(ctx,fx-740,fy+120,0.4,p); label(ctx,'ligase','plakt de stukken',fx-740,fy+110,fx-820,fy+30,p,C.text,'left'); label(ctx,'volgende streng','in stukken, van de vork af',fx-950,fy+175,fx-1000,fy+330,p,C.text,'left');
+  if(li>=10){ const p=li===10?ease(lf):1; naamBij(ctx,'Okazaki-fragmenten','',fx-400,fy+115,p,'center',C.text); enzyme(ctx,fx-740,fy+120,0.4,p); label(ctx,'ligase','plakt de stukken',fx-740,fy+110,fx-820,fy+30,p,C.text,'left'); naamBij(ctx,'volgende streng','in stukken, van de vork af',fx-950,fy+330,p,'left',C.text);
     ctx.save(); ctx.globalAlpha*=p; ctx.restore(); }
   box(ctx,1460,700,26,18,6,RC.U); M(ctx,'primer (rna)',1500,716,{color:C.text2}); box(ctx,1460,750,40,10,5,BC.T); M(ctx,'nieuw dna',1520,764,{color:C.text2});
   speed(ctx,'schematisch · niet op schaal');

@@ -88,3 +88,7 @@ Begrippen: uitscheiding, ureum, ammoniak, galkleurstof, inwendig milieu, homeost
 - Uitspraak: zie `uitspraak.md`, vooral dialyse (respelling `dialieze`), peritoneale, homeostase en shunt. Een blinde controle was in deze sessie niet mogelijk.
 - In `scenes.js` heet de bloedkleur `BLD`, omdat `BLOED` al in `lib_voeding.js` bestaat.
 - Eindreview: 15 punten, verwerkt zonder nieuwe opnames (zie `reviews/eindreview.md`).
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'darm', 'shunt', 'holle vezel met bloed', 'dialysevloeistof', 'buikvlies als vlies'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

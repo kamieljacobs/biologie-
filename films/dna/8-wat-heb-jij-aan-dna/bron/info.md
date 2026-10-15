@@ -160,3 +160,7 @@ Regelnummers in 8-wat-heb-jij-aan-dna.html (de base64-audio staat binnen FILMDAT
     |---|---|---|
     | ethisch | /ˈeː.tis/ (Wiktionary, Dutch; th als t, -isch als /is/) | ethisch (zoals geschreven); als de TTS "eetiesg" of een Engelse th zegt: "eetis" |
     | biologisch | /bijoːˈloːɣis/ (klemtoon op -lo-; -isch als /is/) | zoals geschreven |
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'hielprik', 'BRCA1'. Gecontroleerd op stills van alle scènes met namen.

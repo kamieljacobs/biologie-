@@ -86,3 +86,7 @@ Begrippen: nier, nierslagader/nierader, ureum, nefron, glomerulus, voorurine, te
 - Uitspraak: zie `uitspraak.md`, vooral "negenenneguntig" in s06. Een blinde controle was in deze sessie niet mogelijk.
 - In de basis heet het hele stuk tussen kapsel en verzamelbuis "nierbuisje"; de lis van Henle verschijnt pas in het vwo-blok.
 - Eindreview: 15 punten, alle verwerkt in beeld en checkvragen; er waren geen nieuwe opnames nodig.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'niermerg', 'glomerulus', 'kapsel van Bowman', 'lis van Henle'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

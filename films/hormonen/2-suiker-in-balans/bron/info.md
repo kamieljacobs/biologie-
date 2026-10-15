@@ -69,3 +69,7 @@ Checkvragen: 1 Regelkring aanvullen · 2 Glucosetolerantietest (tabel P, Q, R) �
 - Uitspraak: zie `uitspraak.md` (wachtlijst). Geen blinde transcriptie mogelijk in deze sessie.
 - De grafieken zijn modellen (dagcurve, uren zonder behandeling, dextro tegenover boterham, insulinestaven); zie het docentdeel.
 - Eindreview: punten 1–5 verwerkt (glucagonpijl, glucagon in het schema, glycogeen teal, eigen insulinevorm, telefoon bij Sanne) plus de meeste kleine punten. Niet verwerkt: personages blijven in de vaste zithouding; pijlpunten raken bij twee knopen nét het label.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Alle namen stonden na de omzetting al goed; geen aanroepen verplaatst. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

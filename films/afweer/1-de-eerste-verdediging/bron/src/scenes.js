@@ -61,7 +61,7 @@ const SCENES = {
       tag(ctx, 'de huid: eerste muur', 790, 150, HOORN, q.on('muur', 1)); ctx.restore(); }
     if (1 - pA > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - pA; lichaam(ctx, 620, 560, 0.85, 1, { darm: 1, darmA: 0.5 });
       const pts = [['slijm en trilharen', 'luchtwegen', 620, 300, 'slijm', 1, '#9FC3E0'], ['lysozym', 'traanvocht, speeksel', 650, 140, 'lysozym', 1, '#AFC0D0'], ['maagzuur', 'zoutzuur', 690, 395, 'maag', 1, C.goud], ['eigen bacteriën', 'huid en darmen', 600, 640, 'darmen', 1, C.groen]];
-      ctx.save(); ctx.globalAlpha *= q.on('maag', 1); ctx.beginPath(); ctx.ellipse(690, 395, 70, 45, -0.4, 0, 6.283); shape(ctx, rgba(C.goud, 0.25), C.goud, 2); ctx.restore(); pts.forEach(([n, m, ax, ay, w, k, col], i) => label(ctx, n, m, ax, ay, 1200, 220 + i * 150, q.on(w, k), col));
+      ctx.save(); ctx.globalAlpha *= q.on('maag', 1); ctx.beginPath(); ctx.ellipse(690, 395, 70, 45, -0.4, 0, 6.283); shape(ctx, rgba(C.goud, 0.25), C.goud, 2); ctx.restore(); pts.forEach(([n, m, ax, ay, w, k, col], i) => { const P = [[850, 290], [712, 125], [850, 405], [850, 700]][i]; naamBij(ctx, n, m, P[0], P[1], q.on(w, k), 'left', col); });
       const fl = q.on('darmen', 1); for (let i = 0; i < 12; i++) bacterie(ctx, 540 + hash(i * 5) * 160, 600 + hash(i * 9) * 160, 0.45, hash(i) * 6, fl * 0.9, 0, FLORA);
       ctx.restore(); }
     tag(ctx, 'ongeveer net zoveel bacteriën als eigen cellen', 960, 860, C.groen, q.on('ongeveer', 1));

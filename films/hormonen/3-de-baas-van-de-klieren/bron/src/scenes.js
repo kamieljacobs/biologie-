@@ -91,7 +91,7 @@ const SCENES = {
 
   s08(ctx, t, q) { bg(ctx, 'schema');
     const tm = q.on('thyroxine', 1); halsKaart(ctx, 520, 620, 1.0, { glow: q.on('vlinder', 1) });
-    label(ctx, 'schildklier', 'vorm van een vlinder', 520 + 55, 620 - 40, 900, 300, q.on('schildklier', 1), lighten(SCHILD, 0.3));
+    naamBij(ctx, 'schildklier', 'vorm van een vlinder', 640, 585, q.on('schildklier', 1), 'left', lighten(SCHILD, 0.3));
     thyroxineMol(ctx, 1500, 280, 1.0, tm, ramp(t, q.at('jodiumatomen'), 2)); tag(ctx, 'thyroxine · 4 jodiumatomen', 1500, 470, C.goud, q.on('jodiumatomen', 1));
     const vb = q.on('verbranding', 1); if (vb > 0.01) { for (let i = 0; i < 3; i++) doelcel(ctx, 1080 + i * 220, 680, 80, { a: vb, n: 3, kind: 'thyroxine', noRec: true, glow: q.on('stofwisseling', 1), seed: i + 3, t }); }
     hartMeter(ctx, 1460, 770, lerp(66, 80, q.on('sneller', 1)), t, q.on('hart', 1) * (1 - q.on('kinderen', 1)), 400);

@@ -83,13 +83,13 @@ const SCENES = {
     tag(ctx, 'ureum: uit de lever (afbraak aminozuren)', 1420, 160, UREUM, q.on('lever', 1) * (1 - q.on('nierslagader', 1)));
     nierDoorsnede(ctx, 1150, 470, 1.25, { a: Math.max(cut, q.on('nierslagader', 1) * (1 - cut)), schors: cut ? q.on('nierschors', 1) * 0.8 + 0.2 : 0.4, merg: q.on('niermerg', 1), bekken: q.on('nierbekken', 1), leider: q.on('urineleider', 1), slag: q.on('nierslagader', 1), ader: q.on('nierader', 1), nef: q.on('nefronen', 1) });
     label(ctx, 'nierslagader', '', 1150 - 360, 470 - 50, 600, 300, q.on('nierslagader', 1), SLAG); label(ctx, 'nierader', 'minste ureum', 1150 - 360, 470 + 50, 600, 680, q.on('nierader', 1), ADER);
-    label(ctx, 'nierschors', '', 1150 + 300, 470 - 160, 1650, 220, q.on('nierschors', 1) * cut, '#C98A7E'); label(ctx, 'niermerg', '', 1150 + 230, 470 + 40, 1650, 420, q.on('niermerg', 1) * cut, '#A85E54'); label(ctx, 'nierbekken', 'een holte', 1150 - 10, 470 + 60, 1650, 620, q.on('nierbekken', 1) * cut, URINE_D);
+    label(ctx, 'nierschors', '', 1150 + 300, 470 - 160, 1650, 220, q.on('nierschors', 1) * cut, '#C98A7E'); naamBij(ctx, 'niermerg', '', 1150 + 345, 470 + 52, q.on('niermerg', 1) * cut, 'left', '#A85E54'); label(ctx, 'nierbekken', 'een holte', 1150 - 10, 470 + 60, 1650, 620, q.on('nierbekken', 1) * cut, URINE_D);
     label(ctx, 'urineleider', 'naar de blaas', 1150 - 150, 470 + 330, 700, 820, q.on('urineleider', 1) * cut, URINE_D);
     tag(ctx, '≈ 1 miljoen nefronen per nier', 1500, 840, C.goud, q.on('nefronen', 1));
   },
   s05(ctx, t, q) { bg(ctx, 'schema');
     nefronSchema(ctx, { glom: q.on('kluwen', 1), kapsel: q.on('kommetje', 1), buis: q.on('perst', 1), verz: 0, vaatjes: q.on('vaatje', 1), t });
-    label(ctx, 'glomerulus', 'kluwen haarvaten', NF.gx, NF.gy + 30, 350, 660, q.on('kluwen', 1), SLAG); label(ctx, 'kapsel van Bowman', '', NF.gx + 100, NF.gy + 70, 640, 560, q.on('kommetje', 1), '#C9D2DE');
+    naamBij(ctx, 'glomerulus', 'kluwen haarvaten', NF.gx, NF.gy + 135, q.on('kluwen', 1), 'center', SLAG); naamBij(ctx, 'kapsel van Bowman', '', NF.gx + 125, NF.gy + 75, q.on('kommetje', 1), 'left', '#C9D2DE');
     tag(ctx, 'hoge bloeddruk', NF.gx + 150, 120, SLAG, q.on('hoog', 1) * (1 - q.on('nuttige', 1)));
     const pers = q.on('perst', 1); filtraat(ctx, t, pers, 0); legenda(ctx, 1650, 560, pers);
     const bl = q.on('Bloedcellen', 1); if (bl > 0.01) { for (let i = 0; i < 5; i++) { const an = t * 0.8 + i * 1.25; circ(ctx, NF.gx + Math.cos(an) * 34, NF.gy + Math.sin(an) * 34, 13, rgba(SLAG, bl), '#D88A7E', 2); } ctx.save(); ctx.globalAlpha *= bl; circ(ctx, NF.gx, NF.gy, 20, rgba('#8C7AB8', 0.6), '#B8A8E0', 2); ctx.restore(); tag(ctx, 'bloedcellen en grote eiwitten blijven in het bloed', 900, 820, C.text2, bl * (1 - q.on('filtratie', 1))); }
@@ -158,7 +158,7 @@ const SCENES = {
     if (lis > 0.01) { ctx.save(); ctx.globalAlpha *= lis; const g = ctx.createLinearGradient(0, 260, 0, 840); g.addColorStop(0, rgba(ZOUT, 0.02)); g.addColorStop(1, rgba(ZOUT, 0.28 * q.on('osmotische', 1) + 0.05)); ctx.fillStyle = g; ctx.fillRect(300, 260, 1320, 600); metaText(ctx, 'NIERMERG: STEEDS ZOUTER NAAR BENEDEN', 960, 240, C.grain, 'center', 22);
       const L = 1 + 0.35 * q.on('Woestijndieren', 1); ctx.strokeStyle = '#C9D2DE'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(700, 260); ctx.lineTo(700, 260 + 350 * L); ctx.arc(800, 260 + 350 * L, 100, Math.PI, 0, true); ctx.lineTo(900, 260); ctx.stroke();
       { const sr = q.on('opstijgende', 1); arrow(ctx, 660, 360, 660, 440, C.text2, sr, 3); arrow(ctx, 940, 560, 940, 480, C.text2, sr, 3); regel(ctx, 'dalend', 640, 340, sr, C.text2, 24, 'right'); }
-      label(ctx, 'lis van Henle', '', 800, 260 + 350 * L + 100, 500, 820, q.on('Henle', 1), '#C9D2DE');
+      naamBij(ctx, 'lis van Henle', '', 680, 260 + 350 * L + 110, q.on('Henle', 1), 'right', '#C9D2DE');
       const op = q.on('opstijgende', 1); for (let i = 0; i < 5; i++) { const y = 340 + i * 90; arrow(ctx, 910, y, 1000, y, C.goud, op, 4); circ(ctx, 1020 + (t * 30 + i * 9) % 40, y, 6, rgba(ZOUT, op)); } regel(ctx, 'pompt zout naar buiten', 1060, 330, op, C.goud, 30); regel(ctx, 'laat geen water door', 1060, 380, q.on('geen', 1), C.text2, 30);
       ctx.strokeStyle = '#C9D2DE'; ctx.beginPath(); ctx.moveTo(1300, 200); ctx.lineTo(1300, 840); ctx.moveTo(1380, 200); ctx.lineTo(1380, 840); ctx.stroke(); metaText(ctx, 'VERZAMELBUIS', 1340, 190, C.grain, 'center', 20);
       for (let i = 0; i < 5; i++) arrow(ctx, 1300, 480 + i * 80, 1200, 480 + i * 80, WATER, q.on('osmotische', 1), 3);

@@ -103,3 +103,7 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
   - **myoglobine**: Nederlands /mi.joː.ɣloːˈbi.nə/ (mie-joo-gloo-BIE-nə; analoog aan hemoglobine /ˌɦeː.moː.ɣloːˈbi.nə/, -ine-uitgang hoorbaar, niet Frans). Stem-invoer: eerst zoals geschreven `myoglobine`; als de y als "ie" of de -ne wegvalt: `mie-ooglobinuh`.
   - **affiniteit**: /ɑ.fi.niˈtɛit/ (af-fie-nie-TEIT, klemtoon op -teit). Stem-invoer: zoals geschreven.
   - **eiwitketen**: zoals geschreven.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'ijzer', 'zuurstof', 'longslagader', 'longader', 'weefsels ≈ 2–5 kPa', 'CO₂ op het eiwit', 'O₂ op het ijzer', 'ademcentrum', 'chemoreceptoren', 'koolmonoxide op de ijzerplek'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

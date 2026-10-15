@@ -143,8 +143,8 @@ const SCENES = {
       regel(ctx, 'hormoonklier: geen afvoerbuis', 1320, 260, 1, C.text, 36, 'center'); metaText(ctx, 'BLOEDVAT', 1640, 660, HK.bloedL, 'right', 24); ctx.restore(); ctx.restore(); }
     if (kk > 0.01) { const x = 960, y = 620, s = 0.92; const lit = { hypofyse: q.on('hypofyse', 1), hypothalamus: q.on('taalamus', 1) || q.on('hypothalamus', 1), schildklier: q.on('schildklier', 1), bijnier: q.on('Boven', 1) };
       ctx.save(); ctx.globalAlpha *= kk; const K = klierKaart(ctx, x, y, s, { lit, base: 0.3, show: { alvleesklier: 0.3, eierstok: 0.3 } });
-      label(ctx, 'hypofyse', 'onder de hersenen', K.hypofyse[0], K.hypofyse[1], 1360, 190, lit.hypofyse);
-      label(ctx, 'hypothalamus', 'deel van de hersenen', K.hypothalamus[0], K.hypothalamus[1], 560, 120, lit.hypothalamus);
+      naamBij(ctx, 'hypofyse', 'onder de hersenen', K.hypofyse[0] + 100, K.hypofyse[1] + 12, lit.hypofyse, 'left');
+      naamBij(ctx, 'hypothalamus', 'deel van de hersenen', K.hypothalamus[0] - 100, K.hypothalamus[1] - 6, lit.hypothalamus, 'right');
       label(ctx, 'schildklier', 'in je hals', K.schildklier[0] + 30, K.schildklier[1], 1360, 330, lit.schildklier);
       label(ctx, 'bijnieren', 'boven op de nieren', K.bijnierR[0], K.bijnierR[1], 1400, 560, lit.bijnier);
       ctx.restore(); }
@@ -152,7 +152,7 @@ const SCENES = {
   s08(ctx, t, q) { bg(ctx, 'schema');
     const x = 760, y = 620, s = 0.92; const al = q.on('alvleesklier', 1), ei = q.on('eierstokken', 1);
     const K = klierKaart(ctx, x, y, s, { lit: { alvleesklier: al, eierstok: ei, hypofyse: 0.5, hypothalamus: 0.5, schildklier: 0.5, bijnier: 0.5 }, base: 0.55 });
-    label(ctx, 'alvleesklier', 'in je buik', K.alvleesklier[0] - 40, K.alvleesklier[1], 340, 520, al);
+    naamBij(ctx, 'alvleesklier', 'in je buik', K.alvleesklier[0], K.alvleesklier[1] + 70, al, 'center');
     label(ctx, 'eierstokken / zaadballen', '', K.eierstokR[0], K.eierstokR[1], 1060, 800, ei);
     const z = q.on('allebei', 1) * (1 - q.on('eierstokken', 1) * 0.0);
     zoomCircle(ctx, 1450, 400, 300, K.alvleesklier[0] + 50, K.alvleesklier[1], 'alvleesklier · vereenvoudigd', z, () => {

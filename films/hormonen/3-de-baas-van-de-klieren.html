@@ -208,15 +208,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -1284,7 +1293,7 @@ const SCENES = {
 
   s08(ctx, t, q) { bg(ctx, 'schema');
     const tm = q.on('thyroxine', 1); halsKaart(ctx, 520, 620, 1.0, { glow: q.on('vlinder', 1) });
-    label(ctx, 'schildklier', 'vorm van een vlinder', 520 + 55, 620 - 40, 900, 300, q.on('schildklier', 1), lighten(SCHILD, 0.3));
+    naamBij(ctx, 'schildklier', 'vorm van een vlinder', 640, 585, q.on('schildklier', 1), 'left', lighten(SCHILD, 0.3));
     thyroxineMol(ctx, 1500, 280, 1.0, tm, ramp(t, q.at('jodiumatomen'), 2)); tag(ctx, 'thyroxine · 4 jodiumatomen', 1500, 470, C.goud, q.on('jodiumatomen', 1));
     const vb = q.on('verbranding', 1); if (vb > 0.01) { for (let i = 0; i < 3; i++) doelcel(ctx, 1080 + i * 220, 680, 80, { a: vb, n: 3, kind: 'thyroxine', noRec: true, glow: q.on('stofwisseling', 1), seed: i + 3, t }); }
     hartMeter(ctx, 1460, 770, lerp(66, 80, q.on('sneller', 1)), t, q.on('hart', 1) * (1 - q.on('kinderen', 1)), 400);

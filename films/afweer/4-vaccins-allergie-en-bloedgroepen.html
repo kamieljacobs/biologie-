@@ -217,15 +217,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -1479,7 +1488,7 @@ const SCENES = {
     const ve = ramp(t, q.at('verbindt'), 2);
     mestcel(ctx, 900, 560, 220, 1, q.on('geeft', 1), t); regel(ctx, 'mestcel', 900, 860, 1, HIST, 28, 'center', 700);
     const ys = [-2.2, -1.75, -1.35, -0.9]; ys.forEach((an, i) => antistof(ctx, 900 + Math.cos(an) * 270, 560 + Math.sin(an) * 270, 0.7, an + 1.571, q.on('IgE', 1)));
-    label(ctx, 'IgE', 'steel vast op de mestcel', 900 + Math.cos(-1.35) * 240, 560 + Math.sin(-1.35) * 240, 1200, 200, q.on('steel', 1), AS, 'left');
+    naamBij(ctx, 'IgE', 'steel vast op de mestcel', 1135, 336, q.on('steel', 1), 'left', AS);
     const mx = (900 + Math.cos(-1.75) * 330 + 900 + Math.cos(-1.35) * 330) / 2, my = (560 + Math.sin(-1.75) * 330 + 560 + Math.sin(-1.35) * 330) / 2;
     stuifmeel(ctx, lerp(mx, mx, 1), lerp(80, my, ve), 34, t, q.on('allergeen', 1)); regel(ctx, 'allergeen verbindt twee IgE', mx - 60, lerp(80, my, ve), q.on('allergeen', 1), POL, 24, 'right', 700);
   },

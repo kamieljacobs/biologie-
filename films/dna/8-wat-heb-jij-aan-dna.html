@@ -200,15 +200,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -615,7 +624,7 @@ SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'schema');
 
 // ---- H2a: hielprik, NIPT ----
 SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
-  if(li===0){ const p=ease(lf*1.3); foot(ctx,760,470,1.6,1); dropB(ctx,790,560,1.3,p); label(ctx,'hielprik','dag 3 tot 7 · een paar druppels',800,560,1120,400,p,C.koraal,'left'); return; }
+  if(li===0){ const p=ease(lf*1.3); foot(ctx,760,470,1.6,1); dropB(ctx,790,560,1.3,p); naamBij(ctx,'hielprik','dag 3 tot 7 · een paar druppels',880,565,p,'left',C.koraal); return; }
   if(li<=2){ const p=li===1?ease(lf*1.2):1, q=li===2?ease(lf*1.2):0; for(let k=0;k<24;k++){ const x=360+(k%8)*170, y=300+Math.floor(k/8)*110; box(ctx,x-70,y-36,140,72,10,rgba(C.fill,1),rgba(C.goud,0.6),1.5); ctx.save(); ctx.globalAlpha*=pp(p,k,24); circ(ctx,x,y,10,C.goud); ctx.restore(); } M(ctx,'ruim twintig zeldzame aandoeningen · vroeg behandelen helpt',960,660,{align:'center',color:C.goud,alpha:p}); if(li===2){ const cs=[['dieet',()=>{ circ(ctx,0,0,36,null,C.text,3); circ(ctx,0,0,22,null,C.text,2); }],['medicijn',()=>pill(ctx,0,0,0.7,1)],['behandeling',()=>{ ln(ctx,-26,0,26,0,C.groen,10); ln(ctx,0,-26,0,26,C.groen,10); }]]; cs.forEach(([n,d],i)=>{ const a=pp(q,i,3); ctx.save(); ctx.globalAlpha*=a; ctx.save(); ctx.translate(560+i*400,760); d(); ctx.restore(); M(ctx,n,560+i*400,830,{align:'center',color:C.text2}); ctx.restore(); }); } return; }
   if(li===3){ const p=ease(lf*1.2); crowd(ctx,420,300,60,12,Math.round(p*59),1,0.8,95,100,i=>i<Math.round(p*59)?C.goud:C.line); M(ctx,'bijna alle ouders doen mee · vrijwillig',960,CAPTION_Y-60,{align:'center',color:C.goud,alpha:p}); return; }
   if(li===4){ const p=ease(lf*1.3); personReal(ctx,520,870,560,1,{skin:SKINS[2],hair:'#2A2320',shirt:'#8C7BBF',trousers:'#34425A',hairStyle:'long'}); ctx.save(); ctx.globalAlpha*=p; circ(ctx,1200,460,220,rgba(C.fill,0.9),C.goud,1.5); const R=seeded(5); for(let k=0;k<40;k++){ const a=R()*6.283, r=R()*180; ln(ctx,1200+Math.cos(a)*r-14,460+Math.sin(a)*r,1200+Math.cos(a)*r+14,460+Math.sin(a)*r,k%10===0?C.koraal:C.line,4); } ctx.restore(); M(ctx,'bloed van de moeder · stukjes DNA van het kind',1200,740,{align:'center',color:C.text2,alpha:p}); M(ctx,'NIPT',1200,210,{align:'center',color:C.goud,alpha:p}); return; }
@@ -633,7 +642,7 @@ SCENES.h2b=(ctx,li,lf,t)=>{ bg(ctx,'schema');
 
 // ---- H3a: BRCA1, chances, options, Huntington ----
 SCENES.h3a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
-  if(li===0){ const p=ease(lf*1.2); phoneSmall(ctx,420,440,1.6,1,p); personIcon(ctx,420,640,1.2,1,C.goud); M(ctx,'je tante',420,720,{align:'center',color:C.goud}); chromo(ctx,1100,440,260,p,C.paars); box(ctx,1086,380,28,40,6,C.koraal); label(ctx,'BRCA1','een variant in de familie',1100,400,1320,300,clamp(p*2-1,0,1),C.koraal,'left'); return; }
+  if(li===0){ const p=ease(lf*1.2); phoneSmall(ctx,420,440,1.6,1,p); personIcon(ctx,420,640,1.2,1,C.goud); M(ctx,'je tante',420,720,{align:'center',color:C.goud}); chromo(ctx,1100,440,260,p,C.paars); box(ctx,1086,380,28,40,6,C.koraal); naamBij(ctx,'BRCA1','een variant in de familie',1205,400,clamp(p*2-1,0,1),'left',C.koraal); return; }
   if(li===1){ const p=ease(lf*1.3); card(ctx,300,300,620,280,'wat de test zegt',['variant: ja of nee','precies'],1,C.line); card(ctx,1000,300,620,280,'wat het betekent',['een kans','geen zekerheid'],p,C.goud,C.goud); return; }
   if(li===2){ const p=ease(lf*1.2); M(ctx,'met de variant',300,300,{color:C.koraal}); pbar(ctx,300,330,1000,0.7,1,C.koraal,'tot zo’n 70 %'); M(ctx,'zonder de variant',300,500,{color:C.text2,alpha:p}); pbar(ctx,300,530,1000,0.14,p,C.goud,'ongeveer 1 op 7'); M(ctx,'borstkanker ooit in het leven · Nederland',960,700,{align:'center',color:C.text2,alpha:p}); return; }
   if(li===3){ const p=ease(lf*1.2); const cs=[['vaker controleren',()=>{ circ(ctx,-10,-10,34,null,C.text,4); ln(ctx,14,14,44,44,C.text,6); }],['operatie uit voorzorg',()=>{ ln(ctx,-30,0,30,0,C.groen,10); ln(ctx,0,-30,0,30,C.groen,10); }]]; cs.forEach(([n,d],i)=>{ const a=pp(p,i,2); ctx.save(); ctx.globalAlpha*=a; const x=560+i*800; box(ctx,x-240,300,480,300,20,rgba(C.fill,0.9),C.line,1.5); ctx.save(); ctx.translate(x,420); d(); ctx.restore(); T(ctx,n,x,540,30,{w:700,align:'center'}); ctx.restore(); }); M(ctx,'de borsten, of de eierstokken',960,700,{align:'center',color:C.text2,alpha:clamp(p*2-1,0,1)}); return; }

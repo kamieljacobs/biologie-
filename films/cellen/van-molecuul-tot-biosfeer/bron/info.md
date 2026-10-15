@@ -89,3 +89,7 @@ Begrippen: levenskenmerken, homeostase, organisatieniveaus, weefsel, orgaanstels
 ## Wijzigingen
 
 - 15 okt 2026 (versie 1.1): s11, s12, s13 en s16 opnieuw ingesproken na feedback van Kamiel: 'abiotische' zonder dubbele a (stem-invoer `abiotische`), 'emergente' met klemtoon op gen (`emergénte`); in s13 is "Voor vwo gaan we hier nog een stap verder." weggelaten (havo/vwo kies je in de speler). Let op: regelnummers en tijden hierboven kunnen enkele seconden verschoven zijn.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'erfelijk materiaal (RNA)', 'eiwitmantel', 'vetlaagje'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

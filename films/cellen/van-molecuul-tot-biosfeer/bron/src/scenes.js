@@ -155,7 +155,7 @@ const SCENES = {
 
   s14(ctx, t, q) { bg(ctx, 'micro'); const lijst = q.on('Leg', 1);
     ctx.save(); ctx.globalAlpha *= 1 - lijst; ladder(ctx, NIV.map(() => 0.5), { virus: q.on('ladder', 1), t });
-      const kt = q.on('tien', 1); griepvirus(ctx, lerp(900, 1290, kt), 430, lerp(120, 11, kt), t, q.on('virus', 2)); label(ctx, 'erfelijk materiaal (RNA)', null, 900, 430, 760, 220, q.on('erfelijk', 1) * (1 - kt)); label(ctx, 'eiwitmantel', null, 983, 373, 1180, 220, q.on('eiwitmantel', 1) * (1 - kt)); label(ctx, 'vetlaagje', null, 992, 507, 1180, 680, q.on('vetlaagje', 1) * (1 - kt)); regel(ctx, 'griepvirus (op schaal)', 1290, 500, kt, VIR, 22, 'center', 700);
+      const kt = q.on('tien', 1); griepvirus(ctx, lerp(900, 1290, kt), 430, lerp(120, 11, kt), t, q.on('virus', 2)); naamBij(ctx, 'erfelijk materiaal (RNA)', null, 900, 645, q.on('erfelijk', 1) * (1 - kt), 'center'); naamBij(ctx, 'eiwitmantel', null, 1085, 318, q.on('eiwitmantel', 1) * (1 - kt), 'left'); naamBij(ctx, 'vetlaagje', null, 1085, 568, q.on('vetlaagje', 1) * (1 - kt), 'left'); regel(ctx, 'griepvirus (op schaal)', 1290, 500, kt, VIR, 22, 'center', 700);
       bacterieC(ctx, 1500, 430, 1.7, q.on('bacterie', 1)); regel(ctx, 'bacterie: ± 10× groter', 1500, 330, q.on('tien', 1), C.text2, 26, 'center', 700);
       tag(ctx, 'bacterie = wél een cel: neemt op, groeit, deelt zich', 1250, 800, BAC, q.on('verschil', 1)); ctx.restore();
     if (lijst > 0.01) { ctx.save(); ctx.globalAlpha *= lijst; const inf = q.on('dringt', 1);

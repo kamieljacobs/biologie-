@@ -98,7 +98,7 @@ const SCENES = {
       ctx.restore(); }
     if (pB > 0.01) { ctx.save(); ctx.globalAlpha *= pB * (1 - pC);
       const nb = 4 * ramp(t, q.at('binden'), 3); hbMol(ctx, 960, 470, 2.4, { o2: nb, ijzerA: q.on('ijzer', 1) * (1 - q.on('binden', 1)) });
-      label(ctx, 'ijzer', 'één per eiwitdeel', 960 - 50, 470 - 48, 520, 220, q.on('ijzer', 1), IJZER); label(ctx, 'zuurstof', '', 960 + 70, 470 + 70, 1400, 720, q.on('binden', 1), O2);
+      naamBij(ctx, 'ijzer', 'één per eiwitdeel', 745, 462, q.on('ijzer', 1), 'right', IJZER); naamBij(ctx, 'zuurstof', '', 1170, 545, q.on('binden', 1), 'left', O2);
       metaText(ctx, 'HEMOGLOBINE', 960, 190, C.grain, 'center', 26);
       tag(ctx, 'oxyhemoglobine: helderrood', 1420, 260, BLOEDRIJK, q.on('oxyhemoglobine', 1));
       ctx.restore(); }
@@ -135,7 +135,7 @@ const SCENES = {
       longKlein(ctx, 760, 330, 1.2, -1); longKlein(ctx, 1160, 330, 1.2, 1); hartVorm(ctx, 960, 660, 1.6);
       ctx.strokeStyle = BLOEDARM; ctx.lineWidth = 20; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(940, 610); ctx.lineTo(940, 470); ctx.quadraticCurveTo(940, 420, 820, 380); ctx.moveTo(940, 470); ctx.quadraticCurveTo(940, 420, 1100, 380); ctx.stroke(); arrow(ctx, 850, 395, 805, 378, BLOEDARM, 1, 8); arrow(ctx, 1070, 395, 1115, 378, BLOEDARM, 1, 8);
       const ld = q.on('longader', 1); ctx.save(); ctx.globalAlpha *= ld; ctx.strokeStyle = BLOEDRIJK; ctx.lineWidth = 20; ctx.beginPath(); ctx.moveTo(800, 460); ctx.quadraticCurveTo(960, 520, 985, 600); ctx.moveTo(1120, 460); ctx.quadraticCurveTo(990, 520, 985, 600); ctx.stroke(); arrow(ctx, 975, 560, 985, 605, BLOEDRIJK, 1, 8); ctx.restore();
-      label(ctx, 'longslagader', 'zuurstofarm, naar de longen', 940, 520, 600, 600, 1, BLOEDARM); label(ctx, 'longader', 'zuurstofrijk, naar het hart', 1060, 510, 1260, 640, ld, BLOEDRIJK);
+      naamBij(ctx, 'longslagader', 'zuurstofarm, naar de longen', 845, 640, 1, 'right', BLOEDARM); naamBij(ctx, 'longader', 'zuurstofrijk, naar het hart', 1140, 565, ld, 'left', BLOEDRIJK);
       tag(ctx, 'de naam zegt waarheen, niet hoeveel zuurstof', 960, 160, C.goud, q.on('zuurstofarme', 1));
       ctx.restore(); }
   },
@@ -143,7 +143,7 @@ const SCENES = {
     const X = 380, Y = 230, Wc = 1000, Hc = 480; bindCurve(ctx, X, Y, Wc, Hc, { u: ramp(t, q.at('curve'), 3) });
     const vl = q.on('vlakke', 1), st = q.on('steile', 1);
     if (vl > 0.01) { ctx.save(); ctx.globalAlpha *= vl * 0.25; ctx.fillStyle = LUCHT; const a = curveXY(X, Y, Wc, Hc, 9)[0], b = curveXY(X, Y, Wc, Hc, 14)[0]; ctx.fillRect(a, Y, b - a, Hc); ctx.restore(); const [px, py] = curveXY(X, Y, Wc, Hc, 13); circ(ctx, px, py, 10, O2); label(ctx, 'longen ≈ 13 kPa', '97 %', px, py, 1440, 260, vl, LUCHT); }
-    if (st > 0.01) { ctx.save(); ctx.globalAlpha *= st * 0.25; ctx.fillStyle = SPIER; const a = curveXY(X, Y, Wc, Hc, 2)[0], b = curveXY(X, Y, Wc, Hc, 5.5)[0]; ctx.fillRect(a, Y, b - a, Hc); ctx.restore(); const [px, py] = curveXY(X, Y, Wc, Hc, 5); circ(ctx, px, py, 10, BLOEDARM); label(ctx, 'weefsels ≈ 2–5 kPa', 'steil: veel afgifte', px, py, 1440, 560, st, SPIER); }
+    if (st > 0.01) { ctx.save(); ctx.globalAlpha *= st * 0.25; ctx.fillStyle = SPIER; const a = curveXY(X, Y, Wc, Hc, 2)[0], b = curveXY(X, Y, Wc, Hc, 5.5)[0]; ctx.fillRect(a, Y, b - a, Hc); ctx.restore(); const [px, py] = curveXY(X, Y, Wc, Hc, 5); circ(ctx, px, py, 10, BLOEDARM); naamBij(ctx, 'weefsels ≈ 2–5 kPa', 'steil: veel afgifte', px + 30, py + 75, st, 'left', SPIER); }
     tag(ctx, 'verzadiging: % hemoglobine met zuurstof', 880, 130, C.text2, q.on('verzadiging', 1) * (1 - q.on('Binas', 1)));
     tag(ctx, 'zuurstofbindingscurve (Binas)', 880, 130, O2, q.on('Binas', 1));
   },
@@ -165,7 +165,7 @@ const SCENES = {
       for (let i = 0; i < 4; i++) { const v = (t * 0.3 + i / 4) % 1; hco3(ctx, lerp(RX + 170, RX + 420, v), 380 + i * 50, q.on('plasma', 1) * (1 - v * 0.6), 22); }
       regel(ctx, 'bloedplasma', RX + 300, 330, q.on('plasma', 1), C.text2, 28); ctx.restore();
       if (pie > 0.01) { ctx.save(); ctx.globalAlpha *= pie; const parts = [[0.7, CO2, 'HCO₃⁻ in plasma 70 %'], [0.2, BLOEDRIJK, 'aan hemoglobine 20 %'], [0.1, LUCHT, 'opgelost 10 %']]; let a0 = -Math.PI / 2; parts.forEach(([f, col, lab], i) => { const al = i === 0 ? 1 : i === 1 ? q.on('vijfde', 1) : q.on('rest', 1); ctx.save(); ctx.globalAlpha *= al; ctx.beginPath(); ctx.moveTo(1450, 470); ctx.arc(1450, 470, 170, a0, a0 + f * 6.283); ctx.closePath(); shape(ctx, rgba(col, 0.6), col, 2); text(ctx, lab, 1450, 700 + i * 46, fTekst(30, 600), C.text, 'center'); ctx.restore(); a0 += f * 6.283; }); ctx.restore(); }
-      const ew = q.on('eiwit', 1); if (ew > 0.01) { ctx.save(); ctx.globalAlpha *= ew; hbMol(ctx, RX, 470, 1.3, { o2: 3, co2: 1 }); label(ctx, 'CO₂ op het eiwit', '', RX - 125, 470, RX - 200, 760, 1, CO2); label(ctx, 'O₂ op het ijzer', '', RX + 50, 420, RX + 240, 760, 1, O2); ctx.restore(); }
+      const ew = q.on('eiwit', 1); if (ew > 0.01) { ctx.save(); ctx.globalAlpha *= ew; hbMol(ctx, RX, 470, 1.3, { o2: 3, co2: 1 }); naamBij(ctx, 'CO₂ op het eiwit', '', RX - 245, 482, 1, 'right', CO2); naamBij(ctx, 'O₂ op het ijzer', '', RX, 208, 1, 'center', O2); ctx.restore(); }
       ctx.restore(); }
     if (lo > 0.01) { ctx.save(); ctx.globalAlpha *= lo; longblaasje(ctx, 560, 470, 200, t, { co2: 1 }); rbc(ctx, 1150, 470, 150, 0.98); hco3(ctx, 1150, 440, 1, 24); arrow(ctx, 1150, 470, 1150, 520, C.text, 1, 3); co2Mol(ctx, 1150, 545, 10, 1);
       for (let i = 0; i < 3; i++) { const v = (t * 0.5 + i / 3) % 1; co2Mol(ctx, lerp(1000, 800, v), 440 + i * 30, 9, 1 - v); }
@@ -199,8 +199,8 @@ const SCENES = {
       hoofdHersenen(ctx, 520, 320, 1, { centrum: q.on('ademcentrum', 1), chemo: q.on('chemoreceptoren', 1), t });
       torsoSchets(ctx, 1240, 520, 1.05, v, q.on('zenuwen', 1));
       const zn = q.on('zenuwen', 1); if (zn > 0.01) { ctx.save(); ctx.globalAlpha *= zn; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.setLineDash([12, 8]); ctx.lineDashOffset = -t * 40; ctx.beginPath(); ctx.moveTo(494, 490); ctx.bezierCurveTo(700, 700, 950, 700, 1060, 640); ctx.stroke(); ctx.beginPath(); ctx.moveTo(494, 490); ctx.bezierCurveTo(700, 380, 900, 360, 1060, 400); ctx.stroke(); ctx.restore(); }
-      label(ctx, 'ademcentrum', 'verlengde merg (hersenstam)', 494, 490, 60, 790, q.on('ademcentrum', 1), C.goud, 'left');
-      label(ctx, 'chemoreceptoren', 'meten vooral CO₂', 530, 505, 780, 820, q.on('chemoreceptoren', 1), CO2);
+      naamBij(ctx, 'ademcentrum', 'verlengde merg (hersenstam)', 330, 600, q.on('ademcentrum', 1), 'center', C.goud);
+      naamBij(ctx, 'chemoreceptoren', 'meten vooral CO₂', 380, 702, q.on('chemoreceptoren', 1), 'center', CO2);
       tag(ctx, 'automatisch, ook als je slaapt', 960, 120, C.text2, q.on('slaapt', 1) * (1 - q.on('chemoreceptoren', 1)));
       tag(ctx, 'meer CO₂ → bloed iets zuurder → sneller en dieper', 960, 120, CO2, q.on('zuurder', 1));
       ctx.restore(); }
@@ -243,7 +243,7 @@ const SCENES = {
       tag(ctx, 'onvolledige verbranding → koolmonoxide (CO)', 1380, 260, CO, q.on('onvolledige', 1) * (1 - q.on('ruikt', 1)) + 0 * 0, 'center');
       tag(ctx, 'je ruikt het niet, je ziet het niet', 1380, 260, C.koraal, q.on('ruikt', 1)); ctx.restore(); }
     if (hb > 0.01) { ctx.save(); ctx.globalAlpha *= hb; const nC = 4 * ramp(t, q.at('ijzerplek'), 3);
-      hbMol(ctx, 760, 470, 2.2, { o2: 0, co: nC }); label(ctx, 'koolmonoxide op de ijzerplek', '', 760 + 70, 470 - 70, 1250, 230, ramp(t, q.at('ijzerplek') + 1.5, 1), '#B8BCC6');
+      hbMol(ctx, 760, 470, 2.2, { o2: 0, co: nC }); naamBij(ctx, 'koolmonoxide op de ijzerplek', '', 760, 255, ramp(t, q.at('ijzerplek') + 1.5, 1), 'center', '#B8BCC6');
       tag(ctx, '≈ 200× sterker · laat moeilijk los', 1380, 820, C.koraal, q.on('tweehonderd', 1));
       const bz = q.on('bezet', 1); const bzr = ramp(t, q.at('bezet'), 4); if (bz > 0.01) for (let i = 0; i < 8; i++) { const k = i < 5 ? clamp(bzr * 5 - i, 0, 1) : 0; hbMol(ctx, 1240 + (i % 4) * 140, 380 + Math.floor(i / 4) * 160, 0.55, { a: bz, co: k > 0.5 ? 4 : 0, o2: k > 0.5 ? 0 : 4 }); }
       vraagteken(ctx, 400, 300, q.on('merk', 1), 130); ctx.restore(); }

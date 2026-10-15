@@ -68,9 +68,9 @@ const SCENES = {
 
   s04(ctx, t, q) { bg(ctx, 'schema');
     const cut = q.on('Snijd', 1);
-    nierMetBijnier(ctx, 960, 560, 1.6, 1 - cut, q.on('bijnier', 1)); label(ctx, 'bijnier', 'als een kapje op de nier', 960, 560 - 210, 1300, 300, q.on('bijnier', 1) * (1 - cut), HK.klierR); label(ctx, 'nier', '', 1040, 600, 1300, 700, q.on('nier', 1) * (1 - cut), '#C98A7E');
+    nierMetBijnier(ctx, 960, 560, 1.6, 1 - cut, q.on('bijnier', 1)); naamBij(ctx, 'bijnier', 'als een kapje op de nier', 1015, 335, q.on('bijnier', 1) * (1 - cut), 'left', HK.klierR); label(ctx, 'nier', '', 1040, 600, 1300, 700, q.on('nier', 1) * (1 - cut), '#C98A7E');
     bijnierDoorsnede(ctx, 760, 560, 1.15, { a: cut, merg: q.on('merg', 1), schors: q.on('schors', 1) * 0.85 + 0.15, gMerg: q.on('adrenaline', 1) * (1 - q.on('schors', 2)), gSchors: q.on('cortisol', 1) });
-    label(ctx, 'merg', 'binnenin', 760, 520, 1180, 330, q.on('merg', 1) * cut, lighten(MERG, 0.3)); label(ctx, 'schors', 'daaromheen', 600, 440, 1180, 220, q.on('schors', 1) * cut, HK.klierR);
+    naamBij(ctx, 'merg', 'binnenin', 770, 570, q.on('merg', 1) * cut, 'center', lighten(MERG, 0.3)); naamBij(ctx, 'schors', 'daaromheen', 480, 560, q.on('schors', 1) * cut, 'right', HK.klierR);
     tag(ctx, 'twee klieren in één', 760, 830, C.goud, q.on('klieren', 1) * (1 - q.on('adrenaline', 1)));
     const ad = q.on('adrenaline', 1), co = q.on('cortisol', 1);
     if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; regel(ctx, 'merg → adrenaline', 1180, 520, 1, C.text, 36); zenuwLijn(ctx, [[300, 200], [470, 360], [640, 450], [740, 500]], q.on('zenuw', 1), t, 1); regel(ctx, 'aangezet door een zenuw', 1180, 570, q.on('zenuw', 1), HK.zenuw, 30); ctx.restore(); }

@@ -200,15 +200,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -636,8 +645,8 @@ SCENES.h1c=(ctx,li,lf,t)=>{ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); c
 
 // ---- H2a: promotor, transcription factor, polymerase; structuur- vs regulatorgenen ----
 SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const y=460; const g=geneRow(ctx,360,y,900,1,'gen',li>=2?(li===2&&lf>0.5?false:true):null);
-  if(li===0){ const p=ease(lf*1.5); enzyme(ctx,g.px,y-160,0.9,p); M(ctx,'rna-polymerase',g.px,y-230,{align:'center',color:C.text2,alpha:p}); label(ctx,'promotor','stuk DNA vóór het gen',g.px,y+10,g.px-100,760,p,C.goud,'left'); return; }
-  if(li===1){ const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1,C.goud,''); label(ctx,'eiwit','transcriptiefactor',g.px+50,y-70,g.px+300,230,p,C.goud,'left'); label(ctx,'DNA','promotor',g.px,y+10,g.px-100,760,p,C.text,'left'); return; }
+  if(li===0){ const p=ease(lf*1.5); enzyme(ctx,g.px,y-160,0.9,p); M(ctx,'rna-polymerase',g.px,y-230,{align:'center',color:C.text2,alpha:p}); naamBij(ctx,'promotor','stuk DNA vóór het gen',g.px,y+112,p,'center',C.goud); return; }
+  if(li===1){ const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1,C.goud,''); label(ctx,'eiwit','transcriptiefactor',g.px+50,y-70,g.px+300,230,p,C.goud,'left'); naamBij(ctx,'DNA','promotor',g.px,y+112,p,'center',C.text); return; }
   if(li===2){ const on=lf<0.5; const p=ease(lf*3); tf(ctx,g.px,y-26,1,on?1:0.15,C.goud,''); enzyme(ctx,g.gx+300,y-170,0.9,on?p:0.15); mrna(ctx,g.gx+240,y-260,'AUGGC',{dx:60,s:0.6,alpha:on?p:0}); M(ctx,on?'transcriptiefactor aanwezig → polymerase bindt':'geen transcriptiefactor → polymerase bindt niet',960,700,{align:'center',color:on?C.groen:C.koraal}); return; }
   const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1); ctx.save(); ctx.globalAlpha*=p; box(ctx,240,620,700,150,20,rgba(C.fill,0.9),RBBR,1.5); T(ctx,'structuurgenen',270,670,36,{w:700}); T(ctx,'keratine, albumine: eiwitten die het werk doen',270,725,28,{color:C.text2}); box(ctx,980,620,700,150,20,rgba(C.fill,0.9),C.goud,1.5); T(ctx,'regulatorgenen',1010,670,36,{w:700,color:C.goud}); T(ctx,'de schakelaars, zoals transcriptiefactoren',1010,725,28,{color:C.text2}); ctx.restore();
 };
@@ -692,7 +701,7 @@ SCENES.h3v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',
 SCENES.h4a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   if(li===0){ const p=ease(lf*1.5); personReal(ctx,560,780,460,1,TWIN_A); personReal(ctx,1360,780,460,1,TWIN_B); M(ctx,'zelfde DNA',960,300,{align:'center',color:C.text}); geneStrip(ctx,380,820,[1,0,1,1,0,1,0,1,1],p,36); geneStrip(ctx,1180,820,[1,0,0,1,1,1,0,0,1],p,36); M(ctx,'andere genexpressie',960,845,{align:'center',color:C.goud,alpha:p}); return; }
   const y=430; const g=geneRow(ctx,420,y,900,1,'gen',li>=2?false:null);
-  if(li>=1){ const p=P(li,1,lf); methyl(ctx,g.px,y-26,p); lock(ctx,g.px+120,y-80,1,p); if(li===1) label(ctx,'methylgroep','chemisch slotje op het DNA',g.px+10,y-70,g.px-160,220,p,C.koraal,'left'); }
+  if(li>=1){ const p=P(li,1,lf); methyl(ctx,g.px,y-26,p); lock(ctx,g.px+120,y-80,1,p); if(li===1) naamBij(ctx,'methylgroep','chemisch slotje op het DNA',g.px-25,y-100,p,'right',C.koraal); }
   if(li===2){ const p=ease(lf*1.5); const tx=g.px-300+p*180; tf(ctx,tx,y-110,1,1,C.goud,''); ctx.save(); ctx.globalAlpha*=clamp(p*3-2,0,1); ctx.strokeStyle=C.koraal; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(g.px-60,y-170); ctx.lineTo(g.px-20,y-130); ctx.moveTo(g.px-20,y-170); ctx.lineTo(g.px-60,y-130); ctx.stroke(); ctx.restore(); M(ctx,'kan er niet bij → gen blijft uit · dochtercellen krijgen het slotje mee',960,700,{align:'center',color:C.koraal,alpha:p}); cellS(ctx,560,790,50,p,false); lock(ctx,600,790,0.5,p); cellS(ctx,1360,790,50,p,false); lock(ctx,1400,790,0.5,p); }
   if(li===3){ const p=ease(lf*1.5); panel(ctx,360,620,1200,220,p); T(ctx,'basenvolgorde onveranderd → geen mutatie',420,690,36,{w:700,alpha:p}); T(ctx,'niet voorgoed: het slotje kan er weer af',420,745,36,{w:600,color:C.groen,alpha:p}); T(ctx,'epigenetisch: óp het DNA, niet ín het DNA',420,800,36,{w:700,color:C.goud,alpha:p}); }
 };

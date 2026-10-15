@@ -98,3 +98,7 @@ Regelnummers in 2-dna-kopieren.html (de base64-audio staat binnen FILMDATA op é
 - 2.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma/dubbele punt, nooit midden in “van 3′ naar 5′”; opnieuw gebouwd, beeld en audio ongewijzigd.
 - 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).
 - 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'DNA-polymerase', 'elke nieuwe cel', 'DNA kopiëren', 'A tegenover G', 'leidende streng', 'Okazaki-fragmenten', 'volgende streng'. Gecontroleerd op stills van alle scènes met namen. Daarnaast een bestaande fout hersteld: scène h1a crashte als `microCell()` bij doorzichtigheid 0 niets teruggaf (`if(A)`/`if(B)` toegevoegd).

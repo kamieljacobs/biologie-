@@ -143,7 +143,7 @@ const SCENES = {
 
   s13(ctx, t, q) { bg(ctx, 'micro'); const icm = q.on('klompje', 1), kw = q.on('kweken', 1);
     blastocyst(ctx, lerp(960, 600, kw), 440, 230, q.on('embryonale', 1), icm, t); regel(ctx, 'embryo van 5 dagen: holle bol', lerp(960, 600, kw), 740, q.on('embryo', 2), C.text, 30);
-    label(ctx, 'klompje cellen binnenin', null, lerp(960, 600, kw), 310, lerp(1260, 900, kw), 180, icm * (1 - kw), STAM);
+    naamBij(ctx, 'klompje cellen binnenin', null, lerp(960, 600, kw), 172, icm * (1 - kw), 'center', STAM);
     fade(ctx, q.on('celsoort', 1) * (1 - kw), () => { const icons = [[1320, 330], [1380, 470], [1320, 610]]; zenuwcel(ctx, icons[0][0], icons[0][1], 0.9); spiercel(ctx, icons[1][0], icons[1][1], 160, 36); alvcel(ctx, icons[2][0], icons[2][1], 0.9); regel(ctx, 'elke celsoort', 1380, 740, 1, STAM, 28); });
     fade(ctx, kw, () => { schaal(ctx, 1380, 480, 300); for (let i = 0; i < 14; i++) stamcel(ctx, 1260 + (i % 7) * 40, 460 + Math.floor(i / 7) * 40 + Math.sin(i) * 6, 18, ramp(t, q.at('kweken', 1) + i * 0.08, 0.3), t); regel(ctx, 'kweek in het lab', 1380, 640, 1, C.text, 28); });
     tag(ctx, 'embryonale stamcellen', 960, 830, STAM, q.on('embryonale', 2)); },

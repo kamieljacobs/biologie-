@@ -81,7 +81,7 @@ const SCENES = {
     tag(ctx, 'uitscheiding: afval uit je eigen cellen + overschot', 1360, 160, C.goud, q.on('Uitscheiding', 1) * (1 - q.on('longen', 1)));
     const rows = [['longen', 'koolstofdioxide, waterdamp', LONG, 'longen'], ['huid', 'zweet: water, zouten, beetje ureum', DIAL, 'huid'], ['lever', 'galkleurstof via de gal → ontlasting', '#B06A58', 'lever'], ['nieren', 'urine: water, zouten, ureum', C.koraal, 'nieren']];
     rows.forEach(([o, s, col, w], i) => { const a = q.on(w, 1); if (a <= 0.01) return; regel(ctx, o, 1080, 300 + i * 120, a, col, 36, 'left', 700); regel(ctx, s, 1080, 342 + i * 120, a, C.text2, 28); });
-    label(ctx, 'darm', 'ontlasting', X + 60, Y + 140, 360, 800, q.on('Ontlasting', 1) * (1 - q.on('longen', 1)), C.text2);
+    naamBij(ctx, 'darm', 'ontlasting', 850, 740, q.on('Ontlasting', 1) * (1 - q.on('longen', 1)), 'left', C.text2);
     tag(ctx, 'galkleurstof maakt poep bruin: dát is uitscheiding', 1360, 820, '#B06A58', q.on('bruin', 1) * (1 - q.on('nieren', 1)));
     vraagteken(ctx, 1700, 720, q.on('orgaan', 1), 130);
   },
@@ -147,10 +147,10 @@ const SCENES = {
       ctx.strokeStyle = rgba(C.mens, 0.8); ctx.lineWidth = 80; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(200, 620); ctx.lineTo(620, 560); ctx.stroke(); regel(ctx, 'arm', 300, 700, 1, C.text2, 28);
       ctx.strokeStyle = BLD; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(560, 540); ctx.bezierCurveTo(700, 300, 950, 300, 1095, 460); ctx.stroke(); arrow(ctx, 1060, 410, 1092, 455, BLD, 1, 6); ctx.strokeStyle = '#D9483E'; ctx.beginPath(); ctx.moveTo(1505, 460); ctx.bezierCurveTo(1650, 760, 800, 800, 500, 580); ctx.stroke(); arrow(ctx, 560, 640, 505, 585, '#D9483E', 1, 6);
       filterBuis(ctx, 1300, 460, 420, 160, t, q.on('filter', 1)); regel(ctx, 'filter', 1300, 600, q.on('filter', 1), C.text, 30, 'center', 700);
-      label(ctx, 'shunt', 'slagader aan ader', 540, 560, 420, 300, q.on('shunt', 1), C.koraal);
+      naamBij(ctx, 'shunt', 'slagader aan ader', 488, 500, q.on('shunt', 1), 'right', C.koraal);
       ctx.restore(); }
     if (fv > 0.01) { ctx.save(); ctx.globalAlpha *= fv * (1 - po); circ(ctx, 700, 470, 260, rgba(DIAL, 0.15), '#E6E1D3', 3); for (let i = 0; i < 19; i++) { const an = i * 2.4, rr = Math.sqrt(i / 19) * 210; circ(ctx, 700 + Math.cos(an) * rr, 470 + Math.sin(an) * rr, 26, rgba(BLD, 0.6), VLIES, 2); } metaText(ctx, 'DOORSNEDE FILTER', 700, 180, C.grain, 'center', 22);
-      label(ctx, 'holle vezel met bloed', 'wand vol kleine poriën', 700, 470, 1150, 360, 1, BLD); label(ctx, 'dialysevloeistof', 'om de vezels heen', 880, 600, 1150, 640, q.on('dialysevloeistof', 1), DIAL); ctx.restore(); }
+      naamBij(ctx, 'holle vezel met bloed', 'wand vol kleine poriën', 985, 430, 1, 'left', BLD); naamBij(ctx, 'dialysevloeistof', 'om de vezels heen', 985, 600, q.on('dialysevloeistof', 1), 'left', DIAL); ctx.restore(); }
     if (po > 0.01) { ctx.save(); ctx.globalAlpha *= po; membraan(ctx, 960, 480, 1000, 600, { t, flow: 0 });
       const u = (t * 0.25) % 1; ureumD(ctx, lerp(560, 1360, u), 280, 10); glucD(ctx, lerp(560, 1360, (u + 0.5) % 1), 370, 13); glucD(ctx, lerp(1360, 560, (u + 0.25) % 1), 420, 13); regel(ctx, 'ureum, zouten, glucose: erdoor (beide kanten op)', 960, 230, 1, GLUC, 30, 'center');
       rbcD(ctx, 860, 540, 34, q.on('Bloedcellen', 1)); eiwitD(ctx, 860, 660, 1.6, q.on('eiwitten', 1)); regel(ctx, 'bloedcellen, grote eiwitten: niet', 600, 760, q.on('Bloedcellen', 1), C.koraal, 30);  ctx.restore(); }
@@ -191,7 +191,7 @@ const SCENES = {
       regel(ctx, 'bloed →', X + Wg + 30, Y + 80, 1, BLD, 30); regel(ctx, mee > 0.5 ? 'vloeistof →' : '← vloeistof', X + Wg + 30, Y + 130, 1, DIAL, 30);
       if (mee < 0.5) for (let i = 0; i < 4; i++) { const x = 0.15 + i * 0.23; arrow(ctx, X + x * Wg, Y + Hg - fb(x) / 28 * Hg + 10, X + x * Wg, Y + Hg - fv(x) / 28 * Hg - 10, C.goud, q.on('lengte', 1), 3); }
       tag(ctx, 'hetzelfde trucje: kieuwen van een vis', 960, 830, C.text2, q.on('kieuwen', 1)); ctx.restore(); }
-    if (pe > 0.01) { ctx.save(); ctx.globalAlpha *= pe; lichaam(ctx, 620, 540, 0.85, 1, { darm: 0 }); ctx.beginPath(); ctx.ellipse(620, 640, 170, 120, 0, 0, 6.283); shape(ctx, rgba(DIAL, 0.35 * q.on('buikholte', 1) + 0.05), rgba(DIAL, 0.8), 2); label(ctx, 'buikvlies als vlies', 'buikholte met dialysevloeistof', 620 + 160, 640, 1150, 560, q.on('buikvlies', 1), DIAL);
+    if (pe > 0.01) { ctx.save(); ctx.globalAlpha *= pe; lichaam(ctx, 620, 540, 0.85, 1, { darm: 0 }); ctx.beginPath(); ctx.ellipse(620, 640, 170, 120, 0, 0, 6.283); shape(ctx, rgba(DIAL, 0.35 * q.on('buikholte', 1) + 0.05), rgba(DIAL, 0.8), 2); naamBij(ctx, 'buikvlies als vlies', 'buikholte met dialysevloeistof', 845, 630, q.on('buikvlies', 1), 'left', DIAL);
       ctx.strokeStyle = '#C9D2DE'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(700, 720); ctx.quadraticCurveTo(820, 820, 1000, 800); ctx.stroke(); regel(ctx, 'slangetje', 1010, 810, q.on('slangetje', 1), C.text2, 26);
       const os = q.on('osmose', 1); for (let i = 0; i < 5; i++) { const v = (t * 0.4 + i / 5) % 1; circ(ctx, 620 + Math.cos(i * 1.3) * lerp(240, 140, v), 640 + Math.sin(i * 1.3) * lerp(180, 100, v), 7, rgba(DIAL, os * (1 - v * 0.4))); }
       tag(ctx, 'veel glucose → water door osmose uit het bloed', 1300, 300, GLUC, q.on('glucose', 1));  ctx.restore(); }

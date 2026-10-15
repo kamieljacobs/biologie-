@@ -88,3 +88,7 @@ Begrippen: antigeen, specifieke afweer, lymfocyt, B-cel, receptor, klonale selec
 - Uitspraak: zie `uitspraak.md`, vooral bee-cel, tee-helpercel, limfosieten, reseptoren, kloonaale, "letter ei", immunoglobuline en humorale. Een blinde controle was in deze sessie niet mogelijk.
 - In de grafiek is de primaire piek bewust klein (secundaire ≈ 12×), passend bij "10 tot 100 keer zoveel".
 - Eindreview: 12 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'antigeen', 'constant deel', 'variabel deel', 'stukje antigeen'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

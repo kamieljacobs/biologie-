@@ -277,7 +277,7 @@ const SCENES = {
     const ve = ramp(t, q.at('verbindt'), 2);
     mestcel(ctx, 900, 560, 220, 1, q.on('geeft', 1), t); regel(ctx, 'mestcel', 900, 860, 1, HIST, 28, 'center', 700);
     const ys = [-2.2, -1.75, -1.35, -0.9]; ys.forEach((an, i) => antistof(ctx, 900 + Math.cos(an) * 270, 560 + Math.sin(an) * 270, 0.7, an + 1.571, q.on('IgE', 1)));
-    label(ctx, 'IgE', 'steel vast op de mestcel', 900 + Math.cos(-1.35) * 240, 560 + Math.sin(-1.35) * 240, 1200, 200, q.on('steel', 1), AS, 'left');
+    naamBij(ctx, 'IgE', 'steel vast op de mestcel', 1135, 336, q.on('steel', 1), 'left', AS);
     const mx = (900 + Math.cos(-1.75) * 330 + 900 + Math.cos(-1.35) * 330) / 2, my = (560 + Math.sin(-1.75) * 330 + 560 + Math.sin(-1.35) * 330) / 2;
     stuifmeel(ctx, lerp(mx, mx, 1), lerp(80, my, ve), 34, t, q.on('allergeen', 1)); regel(ctx, 'allergeen verbindt twee IgE', mx - 60, lerp(80, my, ve), q.on('allergeen', 1), POL, 24, 'right', 700);
   },

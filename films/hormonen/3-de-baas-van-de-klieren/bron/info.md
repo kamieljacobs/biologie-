@@ -86,3 +86,7 @@ Begrippen: hypothalamus, hypofyse, schildklier, thyroxine, TSH, negatieve terugk
 - Alleen thyroxine (T4) heet bij naam; T3 en de omzetting in weefsels zijn weggelaten (zie het docentdeel).
 - De grafiek met stoten groeihormoon is een model, geen meting.
 - Eindreview: 15 punten; verwerkt: s14, s18 en s19 opnieuw ingesproken (inhoud), diagnosepanelen met kop en labels, Graves-balken met normaallijn, rem in s12 zichtbaar, slaap in de grafiek, groeihormoon ook naar het bot, terugboog in de recap eerder, labels in s08/s09/s13 verplaatst, struma-tag bij de hals, antwoordmodel checkvraag 3a. Niet verwerkt: de hartslagmeter in s08 staat kort in beeld (ruimte), het einde van de recap heeft geen extra hold.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'schildklier'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

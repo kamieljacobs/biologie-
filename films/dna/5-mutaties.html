@@ -198,15 +198,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -586,8 +595,8 @@ SCENES.__title=(ctx,t)=>{ ctx.save(); ctx.translate(1180,120); ctx.scale(0.58,0.
 SCENES.open=(ctx,li,lf,t)=>{ beachBg(ctx); sun(ctx,1620,170,90,1,t);
   const red=P(li,1,lf); const skin=red>0.01? `rgb(${Math.round(232+(224-232)*red)},${Math.round(194+(122-194)*red)},${Math.round(164+(95-164)*red)})` : SKINS[0];
   personReal(ctx,520,880,600,1,{skin,hairStyle:'short',armR:{a1:0.5,a2:-0.6},armL:{a1:0.3,a2:0.2}});
-  if(li===1) label(ctx,'rood en warm','zonnebrand',600,560,900,420,ease(lf*2),C.koraal,'left');
-  if(li>=2){ const p=P(li,2,lf); circ(ctx,585,635,7,C.koraal); label(ctx,'een plekje','dat niet geneest',585,635,760,540,p,C.koraal,'left'); }
+  if(li===1) naamBij(ctx,'rood en warm','zonnebrand',380,520,ease(lf*2),'right',C.koraal);
+  if(li>=2){ const p=P(li,2,lf); circ(ctx,585,635,7,C.koraal); naamBij(ctx,'een plekje','dat niet geneest',680,650,p,'left',C.koraal); }
   if(li>=3){ const p=P(li,3,lf); panel(ctx,1040,240,760,220,p); T(ctx,'bijna 75 000',1080,330,72,{titel:true,color:C.goud,alpha:p}); T(ctx,'nieuwe huidkankerpatiënten per jaar in Nederland',1080,400,34,{alpha:p}); M(ctx,'iknl · meestal speelt zonlicht mee',1080,440,{alpha:p}); }
   if(li>=4){ const p=ease(lf*2); T(ctx,'Hoe verandert licht je DNA?',1040,620,46,{titel:true,alpha:p}); T(ctx,'En waarom erven je kinderen dat niet?',1040,680,46,{titel:true,alpha:p}); }
 };
@@ -595,24 +604,24 @@ SCENES.open=(ctx,li,lf,t)=>{ beachBg(ctx); sun(ctx,1620,170,90,1,t);
 // ---- H1a: copy errors recap → UV reaches the nucleus ----
 SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   if(li<=1){ ladder(ctx,260,300,'GATTCAGC',{dx:150,gap:300,s:0.9,bonds:true}); enzyme(ctx,1500,330,1.1,1); M(ctx,'dna-polymerase',1500,560,{align:'center',color:C.text2});
-    if(li>=1){ const p=ease(lf*2); base(ctx,260+4*150,300+300-22,'A',-1,{s:0.9,mark:C.koraal}); label(ctx,'één fout die blijft staan','mutatie',860,500,1000,720,p,C.koraal,'left'); }
-    else label(ctx,'hooguit 1 fout per miljard','na herstel',1100,300,1300,160,ease(lf*2),C.text,'left');
+    if(li>=1){ const p=ease(lf*2); base(ctx,260+4*150,300+300-22,'A',-1,{s:0.9,mark:C.koraal}); naamBij(ctx,'één fout die blijft staan','mutatie',860,680,p,'center',C.koraal); }
+    else naamBij(ctx,'hooguit 1 fout per miljard','na herstel',1100,232,ease(lf*2),'left',C.text);
     scale(ctx,165,'1 nm · vereenvoudigd'); return; }
   // li 2–3: skin cell, UV enters from above into the nucleus
   const L=microCell(ctx,960,560,300,1,t); sun(ctx,200,120,60,1,t,false); M(ctx,'huidcel',960,CAPTION_Y-60,{align:'center',color:C.text2});
-  if(li>=3){ const p=ease(lf*1.6); for(let k=0;k<3;k++) uvRay(ctx,260+k*40,160,900+k*30-60,470+k*10,p,t); label(ctx,'UV','tot in de kern',900,480,1300,260,p,C.goud,'left'); }
+  if(li>=3){ const p=ease(lf*1.6); for(let k=0;k<3;k++) uvRay(ctx,260+k*40,160,900+k*30-60,470+k*10,p,t); naamBij(ctx,'UV','tot in de kern',660,285,p,'left',C.goud); }
   else label(ctx,'van buiten','straling, stoffen',700,330,520,220,ease(lf*2),C.text,'right');
   speed(ctx,'schematisch · niet op schaal');
 };
 
 // ---- H1b: dimer → repair → sunburn cells → replication error → mutation in daughters ----
 SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const x0=300, dx=150, Y=300, seq='GATTCAGC';
-  if(li<=1){ ladder(ctx,x0,Y,seq,{dx,gap:300,s:0.9,bonds:true}); const p=li===0?ease(lf*1.5):1; uvRay(ctx,200,120,x0+2.5*dx,Y+40,p,t); dimerMark(ctx,x0+2*dx,x0+3*dx,Y+60,p); label(ctx,'twee T’s aan elkaar','schade, nog geen mutatie',x0+2.5*dx,Y+60,x0+5.5*dx,180,p,C.koraal,'left'); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
+  if(li<=1){ ladder(ctx,x0,Y,seq,{dx,gap:300,s:0.9,bonds:true}); const p=li===0?ease(lf*1.5):1; uvRay(ctx,200,120,x0+2.5*dx,Y+40,p,t); dimerMark(ctx,x0+2*dx,x0+3*dx,Y+60,p); naamBij(ctx,'twee T’s aan elkaar','schade, nog geen mutatie',x0+2.5*dx+20,232,p,'left',C.koraal); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
   if(li===2){ const p=ease(lf); ladder(ctx,x0,Y,seq,{dx,gap:300,s:0.9,bonds:true,shown:[1,1,1,1,1,1,1,1]}); // repair: segment lifted out, new one dropped in
     const lift=-120*ease(lf*2)*(1-ease((lf-0.5)*2));
     for(const [i,b] of [[2,'T'],[3,'T']]) base(ctx,x0+i*dx,Y+22+lift,b,1,{s:0.9,alpha:1-ease((lf-0.5)*2)}); dimerMark(ctx,x0+2*dx,x0+3*dx,Y+60+lift,1-ease((lf-0.5)*2));
     const drop=ease((lf-0.5)*2); for(const [i,b] of [[2,'T'],[3,'T']]) base(ctx,x0+i*dx,Y+22-120*(1-drop),b,1,{s:0.9,alpha:drop});
-    enzyme(ctx,x0+2.5*dx,Y-210,0.9,1); label(ctx,'herstelenzym','knipt eruit, zet nieuw in',x0+2.5*dx-60,Y-150,x0+5.5*dx,120,1,C.text,'left'); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
+    enzyme(ctx,x0+2.5*dx,Y-210,0.9,1); naamBij(ctx,'herstelenzym','knipt eruit, zet nieuw in',x0+2.5*dx+115,Y-200,1,'left',C.text); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
   if(li===3){ const p=ease(lf*1.5); // many dimers; damaged cells fade out (vervellen)
     for(let k=0;k<6;k++){ const cx=330+k*260, cy=430; const gone=k%2===0? ease((lf-0.4)*2):0; cellS(ctx,cx,cy,90,1-gone*0.85,false); const R=seeded(k+3); for(let m=0;m<5+k;m++) circ(ctx,cx-40+R()*80,cy-30+R()*60,5,rgba(C.koraal,(1-gone)*p)); }
     M(ctx,'te veel schade: de cel ruimt zichzelf op',960,700,{align:'center',color:C.koraal,alpha:p}); M(ctx,'vervellen',960,750,{align:'center',color:C.text2,alpha:ease((lf-0.4)*2)}); speed(ctx,'schematisch · niet op schaal'); return; }
@@ -620,7 +629,7 @@ SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const x0=300, dx=150, Y=300, seq='G
     const p=li===4?ease(lf):1, q2=li===5?ease(lf*1.5):0; ladder(ctx,x0,Y,seq,{dx,gap:300,s:0.9,bonds:true,bottom:false}); dimerMark(ctx,x0+2*dx,x0+3*dx,Y+60,1);
     const n=Math.round(p*8); for(let i=0;i<n;i++){ const wrong=(i===2&&q2>0); base(ctx,x0+i*dx,Y+300-22,wrong?'G':COMP[seq[i]],-1,{s:0.9,mark:wrong?C.koraal:null,alpha:1}); }
     backbone(ctx,x0-dx/2,Y+300,8*dx,{dx,alpha:1}); enzyme(ctx,x0+n*dx-40,Y+120,0.9,1);
-    M(ctx,'nieuwe streng',x0+8*dx+30,Y+310,{color:C.text2}); if(li===5) label(ctx,'verkeerde base','tegenover de schade',x0+2*dx,Y+300-40,x0+4.5*dx,760,q2,C.koraal,'left'); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
+    M(ctx,'nieuwe streng',x0+8*dx+30,Y+310,{color:C.text2}); if(li===5) naamBij(ctx,'verkeerde base','tegenover de schade',x0+2*dx,665,q2,'center',C.koraal); scale(ctx,165,'1 nm · vereenvoudigd'); return; }
   // li 6: mutation fixed; two daughter cells carry it
   const p=ease(lf*1.5); const cx=960; cellS(ctx,cx,330,110,1-p*0.6,true); arrow(ctx,cx-60,450,cx-260,560,C.line,2,p); arrow(ctx,cx+60,450,cx+260,560,C.line,2,p); cellS(ctx,cx-300,660,100,p,true); cellS(ctx,cx+300,660,100,p,true); M(ctx,'mutatie',cx,330-150,{align:'center',color:C.koraal}); M(ctx,'elke dochtercel krijgt hem mee',cx,820,{align:'center',color:C.text2,alpha:p}); speed(ctx,'schematisch · niet op schaal');
 };
@@ -662,7 +671,7 @@ SCENES.h2c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const y0=260, s='EENKATEETVIS', s1
 // ---- H2v: reading frame; mutation outside an exon ----
 SCENES.h2v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',120,170,48,{w:700,alpha:li===0?ease(lf*2):0.5});
   if(li<=1){ const m='AUGGUGGCUUCA', x0=360; tileRow(ctx,x0,400,m,{dx:96,w:80,h:92,px:48}); for(let g=0;g<4;g++) bracket(ctx,x0+g*3*96-40,x0+(g*3+2)*96+40,460,C.goud,g===0?'leesraam':'',P(li,1,lf)); if(li===1) M(ctx,'één base erbij of eraf → alles erna verschuift: leesraamverschuiving',960,640,{align:'center',color:C.koraal,alpha:ease(lf*2)}); return; }
-  const r=geneBar(ctx,330,520,1); if(li===2){ const p=ease(lf*2); const [px0,px1]=r.p[0], [ix0,ix1]=r.i[0]; circ(ctx,(px0+px1)/2,520,10,C.koraal); label(ctx,'in de promotor','meer of minder mRNA',(px0+px1)/2,510,px0,340,p,C.koraal,'left'); circ(ctx,(ix0+ix1)/2,520,10,C.koraal); label(ctx,'in een intron','meestal niets',(ix0+ix1)/2,530,ix0+40,720,p,C.text,'left'); }
+  const r=geneBar(ctx,330,520,1); if(li===2){ const p=ease(lf*2); const [px0,px1]=r.p[0], [ix0,ix1]=r.i[0]; circ(ctx,(px0+px1)/2,520,10,C.koraal); label(ctx,'in de promotor','meer of minder mRNA',(px0+px1)/2,510,px0,340,p,C.koraal,'left'); circ(ctx,(ix0+ix1)/2,520,10,C.koraal); naamBij(ctx,'in een intron','meestal niets',(ix0+ix1)/2,640,p,'center',C.text); }
 };
 
 // ---- H3a: the Wilson example — liver, copper, one wrong amino acid ----
@@ -712,7 +721,7 @@ SCENES.h4b=(ctx,li,lf,t)=>{ beachBg(ctx); sun(ctx,1620,170,90,1,t); personReal(c
 // ---- H4c: chick: all cells vs hen in the sun ----
 SCENES.h4c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie havo 2025, tijdvak 2',1800,80,{align:'right',color:C.text2});
   egg(ctx,330,400,1.6,1,true); arrow(ctx,420,400,560,400,C.line,2,1); for(let k=0;k<12;k++) cellS(ctx,640+(k%4)*70,330+Math.floor(k/4)*70,28,1,true); arrow(ctx,940,400,1060,400,C.line,2,1); chick(ctx,1180,420,1.4,1,true); M(ctx,'mutatie in de bevruchte eicel → in elke cel',760,600,{align:'center',color:C.koraal});
-  if(li>=1){ const p=P(li,1,lf); ctx.save(); ctx.globalAlpha*=p; sun(ctx,1500,230,50,1,t); hen(ctx,1560,470,1.1,1); for(let k=0;k<5;k++) circ(ctx,1500+k*26,430,5,C.koraal); egg(ctx,1700,560,1,1,false); label(ctx,'huidcellen','niet de eicel',1600,440,1860,330,p,C.text,'right'); ctx.restore(); }
+  if(li>=1){ const p=P(li,1,lf); ctx.save(); ctx.globalAlpha*=p; sun(ctx,1500,230,50,1,t); hen(ctx,1560,470,1.1,1); for(let k=0;k<5;k++) circ(ctx,1500+k*26,430,5,C.koraal); egg(ctx,1700,560,1,1,false); naamBij(ctx,'huidcellen','niet de eicel',1665,440,p,'left',C.text); ctx.restore(); }
   if(li>=2){ const p=P(li,2,lf); panel(ctx,360,680,1200,150,p); T(ctx,'zaadcel of eicel: kan worden doorgegeven',420,740,36,{w:700,color:C.goud,alpha:p}); T(ctx,'huidcel, levercel, darmcel: blijft bij jou',420,795,36,{w:700,alpha:p}); }
 };
 // ---- H4d: mutations accumulate over years; brake broken → tumour ----

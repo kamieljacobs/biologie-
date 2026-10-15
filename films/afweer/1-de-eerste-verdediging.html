@@ -210,15 +210,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -1256,7 +1265,7 @@ const SCENES = {
       tag(ctx, 'de huid: eerste muur', 790, 150, HOORN, q.on('muur', 1)); ctx.restore(); }
     if (1 - pA > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - pA; lichaam(ctx, 620, 560, 0.85, 1, { darm: 1, darmA: 0.5 });
       const pts = [['slijm en trilharen', 'luchtwegen', 620, 300, 'slijm', 1, '#9FC3E0'], ['lysozym', 'traanvocht, speeksel', 650, 140, 'lysozym', 1, '#AFC0D0'], ['maagzuur', 'zoutzuur', 690, 395, 'maag', 1, C.goud], ['eigen bacteriën', 'huid en darmen', 600, 640, 'darmen', 1, C.groen]];
-      ctx.save(); ctx.globalAlpha *= q.on('maag', 1); ctx.beginPath(); ctx.ellipse(690, 395, 70, 45, -0.4, 0, 6.283); shape(ctx, rgba(C.goud, 0.25), C.goud, 2); ctx.restore(); pts.forEach(([n, m, ax, ay, w, k, col], i) => label(ctx, n, m, ax, ay, 1200, 220 + i * 150, q.on(w, k), col));
+      ctx.save(); ctx.globalAlpha *= q.on('maag', 1); ctx.beginPath(); ctx.ellipse(690, 395, 70, 45, -0.4, 0, 6.283); shape(ctx, rgba(C.goud, 0.25), C.goud, 2); ctx.restore(); pts.forEach(([n, m, ax, ay, w, k, col], i) => { const P = [[850, 290], [712, 125], [850, 405], [850, 700]][i]; naamBij(ctx, n, m, P[0], P[1], q.on(w, k), 'left', col); });
       const fl = q.on('darmen', 1); for (let i = 0; i < 12; i++) bacterie(ctx, 540 + hash(i * 5) * 160, 600 + hash(i * 9) * 160, 0.45, hash(i) * 6, fl * 0.9, 0, FLORA);
       ctx.restore(); }
     tag(ctx, 'ongeveer net zoveel bacteriën als eigen cellen', 960, 860, C.groen, q.on('ongeveer', 1));

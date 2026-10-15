@@ -87,3 +87,7 @@ Begrippen: virus, antibiotica, resistentie, T-cellen, T-killercel, T-helpercel, 
 - Checkvraag 1 gebruikt vereenvoudigde, afgeronde voorbeeldwaarden (aangegeven in de vraag); vervang ze desgewenst door actuele ECDC-cijfers.
 - De viruscurve in s15 is relatief (geen eigen as).
 - Eindreview: 12 punten; 11 verwerkt zonder nieuwe opname. Niet overgenomen: de ondertitel "Antwoord aa./bee./cee." blijft zoals in film 1 en 2 (zie `reviews/eind.md`).
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'ribosomen', 'eiwitmantel', 'erfelijk materiaal', 'receptor', 'MHC'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

@@ -101,7 +101,7 @@ const SCENES = {
       ctx.restore(); }
     if (pB * (1 - pC) > 0.01) { ctx.save(); ctx.globalAlpha *= pB * (1 - pC);
       virus(ctx, 620, 450, 140, [0, 3], t, { rot: t * 0.05 }); regel(ctx, 'virus', 620, 760, 1, VIR, 32, 'center', 700);
-      const ag = q.on('antigeen', 1); label(ctx, 'antigeen', 'vormpje, meestal een stukje eiwit', 620 + Math.cos(-0.785 + t * 0.05) * 140 * 1.42, 450 + Math.sin(-0.785 + t * 0.05) * 140 * 1.42, 900, 180, ag, VORMKL[3], 'left');
+      const ag = q.on('antigeen', 1); naamBij(ctx, 'antigeen', 'vormpje, meestal een stukje eiwit', 620, 168, ag, 'center', VORMKL[3]);
       const ei = q.on('eigen', 1); ctx.save(); ctx.globalAlpha *= ei; blob(ctx, 1420, 480, 170, 150, 0.04, 4, t); shape(ctx, rgba(EIGEN, 0.25), EIGEN, 2.5); circ(ctx, 1420, 480, 60, rgba(C.kern, 0.6), C.kernR, 1.2); for (let i = 0; i < 10; i++) { const an = i * 0.628; antigeen(ctx, 1420 + Math.cos(an) * 182, 480 + Math.sin(an) * 162, 4, 13, an + 1.571); } regel(ctx, 'eigen cel: eigen antigenen', 1420, 720, 1, EIGEN, 30, 'center', 700); ctx.restore();
       tag(ctx, 'je afweer reageert alleen op vreemde antigenen', 960, 860, VIR, q.on('vreemd', 1));
       ctx.restore(); }
@@ -200,13 +200,13 @@ const SCENES = {
         if (va > 0.01) { ctx.save(); ctx.globalAlpha *= va; ctx.strokeStyle = VAR; ctx.lineWidth = 34; ctx.beginPath(); ctx.moveTo(cx + sx * 160, cy - 165); ctx.lineTo(cx + sx * 215, cy - 235); ctx.stroke(); ctx.restore(); } }
       label(ctx, 'zware keten', '× 2', cx + 18, cy + 160, 1250, 760, k, H, 'left'); label(ctx, 'lichte keten', '× 2', cx + 190, cy - 160, 1250, 360, ramp(t, q.at('lichte'), 1), L, 'left');
       if (cv > 0.01) { ctx.save(); ctx.globalAlpha *= cv * 0.6; ctx.strokeStyle = lighten(H, 0.5); ctx.lineWidth = 10; ctx.lineCap = 'round'; for (const sx of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx + 18 * sx, cy + 225); ctx.lineTo(cx + 18 * sx, cy); ctx.lineTo(cx + sx * (18 + 120), cy - 157); ctx.stroke(); } ctx.restore(); }
-      label(ctx, 'constant deel', 'gelijk binnen één klasse', cx - 20, cy + 120, 1250, 600, cv, C.text2, 'left');
-      label(ctx, 'variabel deel', 'bindplaatsen · per kloon anders', cx + 190, cy - 200, 1250, 220, va, VAR, 'left');
+      naamBij(ctx, 'constant deel', 'gelijk binnen één klasse', cx - 40, cy + 130, cv, 'right', C.text2);
+      naamBij(ctx, 'variabel deel', 'bindplaatsen · per kloon anders', cx - 250, cy - 215, va, 'right', VAR);
       regel(ctx, 'immunoglobuline', cx, 180, q.on('immunoglobuline', 1), AS, 34, 'center', 700);
       ctx.restore(); }
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2; const bx = 760, by = 470;
       bCel(ctx, bx, by, 150, 3, t, { label: 'B-cel' }); for (let i = 0; i < 3; i++) { const an = -0.4 + i * 0.4; ctx.save(); ctx.translate(bx + Math.cos(an) * 150, by + Math.sin(an) * 150); ctx.rotate(an + 1.571); ctx.fillStyle = WIT; ctx.fillRect(-12, -6, 24, 12); antigeen(ctx, 0, -18, 3, 11); ctx.restore(); }
-      label(ctx, 'stukje antigeen', 'op het oppervlak', bx + Math.cos(-0.4) * 170, by + Math.sin(-0.4) * 170, 1050, 180, q.on('oppervlak', 1), VORMKL[3], 'left');
+      naamBij(ctx, 'stukje antigeen', 'op het oppervlak', bx + Math.cos(-0.4) * 170 - 5, by + Math.sin(-0.4) * 170 - 118, q.on('oppervlak', 1), 'left', VORMKL[3]);
       const th = q.on('T-helpercel', 1); tCel(ctx, lerp(1600, 1080, th), 470, 110, t, { a: th, label: 'T-helpercel' }); vonk(ctx, 935, 470, q.on('startsein', 1), t);
       tag(ctx, 'T-helpercel past → startsein voor de B-cel', 960, 860, TCOL, q.on('startsein', 1) * (1 - q.on('Daarover', 1)));
       tag(ctx, 'meer in film 3', 960, 860, TCOL, q.on('Daarover', 1));

@@ -222,15 +222,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+28,C.grain,align,26);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -568,7 +577,7 @@ s05(ctx,t,q){
   const t0=q.at('dwaalt'); const tt=Math.max(0,t-t0);
   const followA=fadeIO(t,q.at('gevolgde'),q.at('Toch'),0.5);
   const [L,R]=drawDiffBox(ctx,S,tt,t,{followA,trailLen:5,showLine:ramp(t,q.at('streep'),0.5),arrows:ramp(t,q.at('veel',2),0.6)*(1-cvA),counts:ramp(t,q.at('Links'),0.5)});
-  label(ctx,'veel kleurstof','',BOX[0]+200,BOX[1]+60,BOX[0]+120,BOX[1]-60,fadeIO(t,q.at('veel'),q.at('streep'),0.5),C.text);
+  naamBij(ctx,'veel kleurstof','',BOX[0]+10,BOX[1]-22,fadeIO(t,q.at('veel'),q.at('streep'),0.5),'left',C.text);
   if(followA>0){ const p=S.pos(0,tt); pill(ctx,960,BOX[1]-70,'dit deeltje weet niet dat het rechts leger is',C.text,followA,28); }
   const df=ramp(t,q.at('Diffusie',2),0.6)*(1-ramp(t,q.at('verschil'),0.5));
   card(ctx,420,230,1080,200,'diffusie','de netto verplaatsing van deeltjes van een hoge naar een lage concentratie',df,C.goud);
@@ -651,9 +660,9 @@ s11(ctx,t,q){
       const inA=ramp(t,q.at('Zuurstof',2),0.5), outA=ramp(t,q.at('koolstofdioxide'),0.5);
       for(let k=0;k<5;k++){ const u=((t*0.35+k/5)%1); o2(ctx,lerp(1250,1430,u),300+k*80,1.4,inA*(u<0.85?1:(1-u)/0.15)); co2(ctx,lerp(1430,1240,u),340+k*80,1.2,outA*(u<0.85?1:(1-u)/0.15)); }
     });
-    const fl=ramp(t,q.at('flinterdunne'),0.5); if(fl>0) label(ctx,'flinterdunne wand','ongeveer 0,0005 mm',1440,250,1880,105,fl,C.text,'right');
+    const fl=ramp(t,q.at('flinterdunne'),0.5); if(fl>0) naamBij(ctx,'flinterdunne wand','ongeveer 0,0005 mm',1515,178,fl,'left',C.text);
     const bm=ramp(t,q.at('badmintonveld'),0.5); if(bm>0){ ctx.save(); ctx.globalAlpha=bm; roundRect(ctx,140,770,200,90,4); ctx.strokeStyle=C.groen; ctx.lineWidth=2; ctx.stroke(); ctx.beginPath(); ctx.moveTo(240,770); ctx.lineTo(240,860); ctx.stroke(); text(ctx,'samen ongeveer 70 m²',370,828,fTekst(30,600),C.groen,'left'); ctx.restore(); }
-    const zo=ramp(t,q.at('Zuurstof',2),0.5); if(zo>0){ label(ctx,'zuurstof','het bloed in',1300,300,1880,640,zo*(1-ramp(t,q.at('koolstofdioxide'),0.4)),C.teal,'right'); }
+    const zo=ramp(t,q.at('Zuurstof',2),0.5); if(zo>0){ naamBij(ctx,'zuurstof','het bloed in',1225,330,zo*(1-ramp(t,q.at('koolstofdioxide'),0.4)),'right',C.teal); }
     const both=ramp(t,q.at('Allebei'),0.5); if(both>0) pill(ctx,1250,860,'allebei door diffusie',C.groen,both,28);
     ctx.restore(); }
   scaleBar(ctx);
@@ -688,7 +697,7 @@ s14(ctx,t,q){
   // O2 and CO2 pass through the lipid layer
   const ao=ramp(t,q.at('Zuurstof'),0.4); lane(240,ao,(x,a)=>{ for(let k=0;k<3;k++){ const u=((t*0.3+k/3)%1); o2(ctx,x+k*40,lerp(220,820,u),1,a); } metaText(ctx,'zuurstof',x+40,180,C.teal,'center',22); });
   const ac=ramp(t,q.at('koolstofdioxide'),0.4); lane(470,ac,(x,a)=>{ for(let k=0;k<3;k++){ const u=((t*0.3+k/3+0.5)%1); co2(ctx,x+k*40,lerp(820,220,u),0.9,a); } metaText(ctx,'koolstofdioxide',x+40,180,C.text2,'center',22); });
-  const lp=ramp(t,q.at('glippen'),0.4)*(1-ramp(t,q.at('natriumion'),0.4)); if(lp>0) label(ctx,'klein en lost op in vet','glipt door de vetlaag',300,my,560,330,lp);
+  const lp=ramp(t,q.at('glippen'),0.4)*(1-ramp(t,q.at('natriumion'),0.4)); if(lp>0) naamBij(ctx,'klein en lost op in vet','glipt door de vetlaag',300,my-108,lp,'left');
   // Na+ bounces (charge + water mantle)
   const an=ramp(t,q.at('natriumion'),0.4); lane(760,an,(x,a)=>{ const v=((t*0.45)%1); const y=v<0.5? lerp(220,my-95,ease(v*2)): lerp(my-95,220,ease((v-0.5)*2)); ion(ctx,x,y,1.2,a); metaText(ctx,'natriumion',x,180,C.oker,'center',22); });
   const ld=fadeIO(t,q.at('lading'),q.at('Glucose',2),0.4); if(ld>0) label(ctx,'lading + watermantel','komt niet door de vetlaag',790,300,1040,250,ld);
@@ -697,7 +706,7 @@ s14(ctx,t,q){
   // water: a little through the lipid layer, mostly through channels
   const aw=ramp(t,q.at('Water'),0.4); if(aw>0){ const u=((t*0.25)%1); dot(ctx,1230,lerp(240,800,u),6,C.teal); for(let k=0;k<9;k++){ const uu=((t*0.6+k/9)%1); dot(ctx,chX,lerp(240,800,uu),6,C.teal); } metaText(ctx,'water',1300,180,C.teal,'center',22); }
   if(showCh>0) label(ctx,'kanaaltje','voor water',chX+40,my-50,chX+150,320,showCh*(1-ramp(t,q.at('Ook',2),0.4)),C.text,'right');
-  if(showCar>0){ const u=((t*0.3)%1); glucose(ctx,carX,lerp(220,820,u),1.1,showCar,t); metaText(ctx,'glucose',carX,180,C.oker,'center',22); label(ctx,'eigen doorgang','van hoog naar laag',carX-50,my+60,carX-220,760,ramp(t,q.at('hoog'),0.4),C.text,'left'); }
+  if(showCar>0){ const u=((t*0.3)%1); glucose(ctx,carX,lerp(220,820,u),1.1,showCar,t); metaText(ctx,'glucose',carX,180,C.oker,'center',22); naamBij(ctx,'eigen doorgang','van hoog naar laag',carX+80,my+100,ramp(t,q.at('hoog'),0.4),'left',C.text); }
   scaleBar(ctx);
 },
 s15(ctx,t,q){
@@ -707,7 +716,7 @@ s15(ctx,t,q){
   // channel protein with single-file water
   channelH(ctx,chX,my,34,1,C.enzym,150);
   const ach=ramp(t,q.at('Kanaaleiwitten'),0.5); for(let k=0;k<10;k++){ const u=((t*0.5+k/10)%1); dot(ctx,chX,lerp(220,820,u),7,C.teal,null); }
-  label(ctx,'kanaaleiwit','tunnel voor één soort deeltje',chX+50,my-60,chX+90,200,ach,C.text,'left');
+  naamBij(ctx,'kanaaleiwit','tunnel voor één soort deeltje',chX+75,my-100,ach,'left',C.text);
   const wk=ramp(t,q.at('waterkanalen'),0.4); if(wk>0) metaText(ctx,'waterkanaal',chX,880-20,C.teal,'center',24);
   // carrier protein: cycle open-out -> bind -> flip -> release-in
   const ad=ramp(t,q.at('Dragereiwitten'),0.5); const cyc=((t-q.at('Dragereiwitten'))/4)%1; const flip=ad>0? (cyc<0.35?0: cyc<0.55? ease((cyc-0.35)/0.2):1):0;
@@ -718,7 +727,7 @@ s15(ctx,t,q){
   for(let k=0;k<9;k++){ const w=wander(k+500,t,24,1); glucose(ctx,carX-260+k*65+w.x,300+(k%3)*45+w.y,0.9,0.9,k); }
   for(let k=0;k<2;k++){ const w=wander(k+520,t,30,1); glucose(ctx,carX-120+k*260+w.x,780+w.y,0.9,0.9,k); }
   if(ad>0){ const gy= cyc<0.35? lerp(360,my-40,ease(cyc/0.35)) : cyc<0.55? lerp(my-40,my+40,flip) : lerp(my+40,700,ease((cyc-0.55)/0.45)); glucose(ctx,carX,gy,1.2,ad*(cyc>0.95?(1-cyc)/0.05:1),0); }
-  label(ctx,'dragereiwit','pakt glucose vast, zet hem binnen af',carX-70,my+40,carX-160,720,ad,C.text,'right');
+  naamBij(ctx,'dragereiwit','pakt glucose vast, zet hem binnen af',carX-95,my+100,ad,'right',C.text);
   const gd=ramp(t,q.at('gefaciliteerde'),0.5); if(gd>0) pill(ctx,960,850,'gefaciliteerde diffusie: via een eiwit, van hoog naar laag',C.paars,gd*(1-ramp(t,q.at('Kost'),0.4)),28);
   const ka=ramp(t,q.at('Kost'),0.5); if(ka>0){ atp(ctx,960,850,ka,1.4); text(ctx,'?',1030,865,fTitel(56),C.koraal,'left'); }
   scaleBar(ctx);
@@ -730,7 +739,7 @@ s17(ctx,t,q){
   for(const s of [-1,1]){ ctx.save(); ctx.translate(carX+s*44,my); ctx.rotate(s*lerp(-0.25,0.25,flip)); roundRect(ctx,-38,-80,76,160,30); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
   const gy= cyc<0.35? lerp(360,my-40,ease(cyc/0.35)) : cyc<0.55? lerp(my-40,my+40,flip) : lerp(my+40,700,ease((cyc-0.55)/0.45)); glucose(ctx,carX,gy,1.2,1,0);
   atp(ctx,1300,300,1,1.4); crossOut(ctx,1300,300,50,ramp(t,0.1,0.4)); metaText(ctx,'geen ATP nodig',1300,380,C.grain,'center',24);
-  const dg=ramp(t,q.at('doorgang'),0.4); if(dg>0) label(ctx,'alleen een doorgang','',carX-80,my,560,330,dg);
+  const dg=ramp(t,q.at('doorgang'),0.4); if(dg>0) naamBij(ctx,'alleen een doorgang','',carX-90,my-80,dg,'right');
   const wl=ramp(t,q.at('willekeurig'),0.4); if(wl>0) pill(ctx,960,150,'de beweging komt van het willekeurig rondschieten',C.paars,wl*(1-ramp(t,q.at('Terug'),0.4)),28);
   scaleBar(ctx);
 },
@@ -742,7 +751,7 @@ s18(ctx,t,q){
   waterField(ctx,x0+10,y0+10,mx-14,y1-10,170,t,2,0.6,80,4); waterField(ctx,mx+14,y0+10,x1-10,y1-10,150,t,2,0.6,81,4);
   oversteek(ctx,mx,y0,y1,t,7,7,mm);
   const sa=ramp(t,q.at('zout',2),0.5); if(sa>0){ for(let k=0;k<26;k++){ const bx=mx+60+hash(k*3+400)*(x1-mx-100), by=y0+40+hash(k*3+401)*(y1-y0-80); const w=wander(k+400,t,40,1.2); let x=bx+w.x; if(x<mx+26){ x=2*(mx+26)-x; } salt(ctx,x,by+w.y,13,sa); } }
-  label(ctx,'semipermeabel membraan','water wel, zout niet',mx,y0+40,mx-60,140,ramp(t,q.at('semipermeabel'),0.5)*(1-ramp(t,q.at('gebeurt'),0.4)),C.text,'left');
+  naamBij(ctx,'semipermeabel membraan','water wel, zout niet',mx,y0-50,ramp(t,q.at('semipermeabel'),0.5)*(1-ramp(t,q.at('gebeurt'),0.4)),'center',C.text);
   const lz=ramp(t,q.at('zuiver'),0.5); if(lz>0) metaText(ctx,'zuiver water',(x0+mx)/2,y1+50,C.teal,'center',28*1);
   const rz=ramp(t,q.at('zout',2),0.5); if(rz>0) metaText(ctx,'zout water',(mx+x1)/2,y1+50,C.goud,'center',28*1);
   const nd=ramp(t,q.at('door',2),0.4); if(nd>0) pill(ctx,(mx+x1)/2,y0+70,'zout kan er niet door',C.goud,nd*(1-ramp(t,q.at('gebeurt'),0.4)),26);
@@ -847,11 +856,11 @@ s23(ctx,t,q){
     const tg=ramp(t,q.at('drukt'),0.5); for(let k=0;k<8;k++){ const a=k/8*6.2832; arrow(ctx,760+Math.cos(a)*150,470+Math.sin(a)*110,760+Math.cos(a)*255,470+Math.sin(a)*190,C.goud,3,14,tg*(1-ramp(t,q.at('Strooi'),0.3))); }
     pill(ctx,1520,150,'in zout water',C.goud,ramp(t,q.at('zout'),0.4)*clamp(1-2*toPure,0,1),28);
     pill(ctx,1520,150,'in zuiver water',C.teal,clamp(2*toPure-1,0,1),28);
-    label(ctx,'celmembraan','laat los van de celwand',760+190,470-150,1300,300,ramp(t,q.at('celmembraan'),0.5)*(1-toPure),C.text,'right');
+    naamBij(ctx,'celmembraan','laat los van de celwand',1065,440,ramp(t,q.at('celmembraan'),0.5)*(1-toPure),'left',C.text);
     label(ctx,'vacuole','krimpt',780,470,1300,520,fadeIO(t,q.at('vacuole'),q.at('celmembraan'),0.4),C.text,'right');
     const pl=fadeIO(t,q.at('plasmolyse'),q.at('zuiver'),0.4); if(pl>0) pill(ctx,760,830,'plasmolyse',C.goud,pl,32);
     const tu=ramp(t,q.at('turgor'),0.5); if(tu>0) pill(ctx,760,830,'turgor: de druk in de cel',C.goud,tu,30);
-    label(ctx,'celwand','stevig, blijft staan',760-292,470+120,250,700,ramp(t,q.at('wand'),0.5)*(1-tg),C.text,'left'); label(ctx,'celwand','duwt terug',760-292,470+120,250,700,tg,C.groen,'left');
+    naamBij(ctx,'celwand','stevig, blijft staan',405,420,ramp(t,q.at('wand'),0.5)*(1-tg),'right',C.text); naamBij(ctx,'celwand','duwt terug',405,420,tg,'right',C.groen);
     const nb=ramp(t,q.at('Barsten'),0.5); if(nb>0) pill(ctx,1520,260,'barst niet: de celwand houdt hem tegen',C.groen,nb,26);
     ctx.restore(); }
   if(kom>0){ ctx.save(); ctx.globalAlpha=kom; bg(ctx,'schema');
@@ -943,7 +952,7 @@ s31(ctx,t,q){
     const ea=ramp(t,q.at('ATP'),0.5); if(ea>0){ const near=cyc>0.25&&cyc<0.55; atp(ctx,pX+150-(near?60:0),my+120,ea*run,1.2); if(near) metaText(ctx,'energie',pX+260,my+130,C.koraal,'left',22); } }
   const tg=ramp(t,q.at('tegen'),0.5)*(1-stop); if(tg>0){ ctx.save(); ctx.globalAlpha=tg; metaText(ctx,'van weinig (buiten) naar veel (binnen):',pX+140,300,C.oker,'left',22); metaText(ctx,'tegen het concentratieverschil in',pX+140,334,C.oker,'left',22); ctx.restore(); }
   pill(ctx,960,150,'actief transport: kost ATP',C.koraal,ramp(t,q.at('actief'),0.5)*(1-stop),30);
-  label(ctx,'pomp','eiwit in het membraan',pX-90,my-60,pX-420,300,ramp(t,q.at('pomp'),0.5)*(1-stop));
+  naamBij(ctx,'pomp','eiwit in het membraan',pX-115,my-92,ramp(t,q.at('pomp'),0.5)*(1-stop),'right');
   if(stop>0){ atp(ctx,pX+170,my+120,stop,1.2); crossOut(ctx,pX+170,my+120,46,stop); pill(ctx,960,150,'geen ATP: de pomp staat stil',C.koraal,stop,30);
     const lk=ramp(t,q.at('lekken'),0.5); if(lk>0){ for(let k=0;k<3;k++){ const u=((t*0.25+k/3)%1); dot(ctx,lkX,lerp(720,230,u),9,C.oker); } metaText(ctx,'lekt langzaam terug via een kanaal',lkX+80,300,C.grain,'left',22); } }
   scaleBar(ctx);
@@ -963,7 +972,7 @@ s32(ctx,t,q){
     const useA=cyc>0.12&&cyc<0.42; atp(ctx,pX,my+150,useA?1:0.35,1.1); if(!useA) metaText(ctx,'ADP',pX,my+210,C.grain,'center',20);
     ctx.restore(); }
   label(ctx,'3 Na⁺','naar buiten',pX+60,my-110,pX+330,230,on,C.oker,'left'); label(ctx,'2 K⁺','naar binnen',pX+60,my+110,pX+330,760,on,KC,'left');
-  label(ctx,'natrium-kaliumpomp','in al je cellen',pX-100,my,pX-380,320,ramp(t,q.at('kaliumpomp'),0.5),C.text,'left');
+  naamBij(ctx,'natrium-kaliumpomp','in al je cellen',pX-115,my-92,ramp(t,q.at('kaliumpomp'),0.5),'right',C.text);
   const za=ramp(t,q.at('ATP'),0.5); if(za>0) label(ctx,'ATP','energie voor elke ronde',pX-40,my+150,pX-380,700,za,C.koraal,'left');
   const zi=ramp(t,q.at('zenuwimpulsen'),0.5); if(zi>0) pill(ctx,960,150,'zie je terug bij zenuwimpulsen',C.paars,zi,28);
   scaleBar(ctx);

@@ -100,3 +100,7 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
   - **cAMP** (cyclisch AMP): in het Nederlands als letters, /seː.aː.ɛmˈpeː/ (cee-aa-em-PEE), niet als het Engelse woord "camp". Stem-invoer: `cee-aa-em-pee`. Zelfde respelling bij beide keren in de take, zodat het elke keer gelijk klinkt.
   - **G-eiwit**: /ɣeːˈɛi̯.ʋɪt/ (GEE-eiwit, de letter G als /ɣeː/). Stem-invoer: `gee-eiwit`.
   - **boodschapper**: zoals geschreven.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'hypofyse', 'hypothalamus', 'alvleesklier'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

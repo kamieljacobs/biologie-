@@ -96,3 +96,7 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 - **Beeld nodig**: nieuwe vwo-scène bij het longblaasje uit s15: de drie factoren als labels (oppervlak ↑, concentratieverschil ↑, afstand ↓) met een pijl "snellere diffusie" en het label "wet van Fick". Geen formule nodig (eventueel klein: snelheid ~ oppervlak × verschil / afstand).
 - **Risicowoorden (uitspraaktest)**:
   - **Fick** (Adolf Fick, Duitse fysioloog): Duits /fɪk/, Nederlands net zo: korte i, harde k ("fik"). Stem-invoer: zoals geschreven `Fick`; klinkt het als "fiek", dan `Fik`.
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'lucht tussen long en borstwand', 'middenrif', 'longvlies', 'haarvat', 'longblaasje', 'wand < 0,001 mm', 'vochtig'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.

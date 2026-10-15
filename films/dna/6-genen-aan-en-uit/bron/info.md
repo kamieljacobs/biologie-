@@ -195,3 +195,7 @@ Regelnummers in 6-genen-aan-en-uit.html (de base64-audio staat binnen FILMDATA o
     | lactose | /ˌlɑkˈtoː.zə/ (Wiktionary, Dutch) | lactose (zoals geschreven); als de TTS "laktoos" zegt: lakTOOze |
     | operator | /oːpəˈraːtɔr/ (klemtoon op -ra-, zoals Nederlands *operator*; IPA niet gevonden in Wiktionary NL, afgeleid van het patroon promotor/repressor) | operator (zoals geschreven) |
     | melksuiker | /ˈmɛlksœykər/ | zoals geschreven |
+
+## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
+
+`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'promotor', 'DNA', 'methylgroep'. Gecontroleerd op stills van alle scènes met namen.

@@ -216,15 +216,24 @@ function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.f
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha*=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+32,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -1269,9 +1278,9 @@ const SCENES = {
 
   s04(ctx, t, q) { bg(ctx, 'schema');
     const cut = q.on('Snijd', 1);
-    nierMetBijnier(ctx, 960, 560, 1.6, 1 - cut, q.on('bijnier', 1)); label(ctx, 'bijnier', 'als een kapje op de nier', 960, 560 - 210, 1300, 300, q.on('bijnier', 1) * (1 - cut), HK.klierR); label(ctx, 'nier', '', 1040, 600, 1300, 700, q.on('nier', 1) * (1 - cut), '#C98A7E');
+    nierMetBijnier(ctx, 960, 560, 1.6, 1 - cut, q.on('bijnier', 1)); naamBij(ctx, 'bijnier', 'als een kapje op de nier', 1015, 335, q.on('bijnier', 1) * (1 - cut), 'left', HK.klierR); label(ctx, 'nier', '', 1040, 600, 1300, 700, q.on('nier', 1) * (1 - cut), '#C98A7E');
     bijnierDoorsnede(ctx, 760, 560, 1.15, { a: cut, merg: q.on('merg', 1), schors: q.on('schors', 1) * 0.85 + 0.15, gMerg: q.on('adrenaline', 1) * (1 - q.on('schors', 2)), gSchors: q.on('cortisol', 1) });
-    label(ctx, 'merg', 'binnenin', 760, 520, 1180, 330, q.on('merg', 1) * cut, lighten(MERG, 0.3)); label(ctx, 'schors', 'daaromheen', 600, 440, 1180, 220, q.on('schors', 1) * cut, HK.klierR);
+    naamBij(ctx, 'merg', 'binnenin', 770, 570, q.on('merg', 1) * cut, 'center', lighten(MERG, 0.3)); naamBij(ctx, 'schors', 'daaromheen', 480, 560, q.on('schors', 1) * cut, 'right', HK.klierR);
     tag(ctx, 'twee klieren in één', 760, 830, C.goud, q.on('klieren', 1) * (1 - q.on('adrenaline', 1)));
     const ad = q.on('adrenaline', 1), co = q.on('cortisol', 1);
     if (ad > 0.01) { ctx.save(); ctx.globalAlpha *= ad; regel(ctx, 'merg → adrenaline', 1180, 520, 1, C.text, 36); zenuwLijn(ctx, [[300, 200], [470, 360], [640, 450], [740, 500]], q.on('zenuw', 1), t, 1); regel(ctx, 'aangezet door een zenuw', 1180, 570, q.on('zenuw', 1), HK.zenuw, 30); ctx.restore(); }

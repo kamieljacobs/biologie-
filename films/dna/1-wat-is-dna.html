@@ -190,15 +190,24 @@ function metaCase(s){ return s.replace(/[^\s·:→(),]+/g,w=>/^(nm|µm|mm|cm|m|k
 
 // ===== UI layer =====
 // two-line label with leader line ending in dot; alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([metaCase(meta),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
 function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
   if(alpha<=0.01) return;
-  ctx.save(); ctx.globalAlpha=alpha;
-  ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(ax,ay); ctx.lineTo(lx,ly); ctx.stroke();
-  ctx.fillStyle=C.line; ctx.beginPath(); ctx.arc(ax,ay,3,0,6.283); ctx.fill();
-  const right = forceAlign? forceAlign==='right' : lx<ax; const align = right?'right':'left'; const dx = right?-8:8;
-  text(ctx,name,lx+dx,ly-4,fTekst(36,600),color,align);
-  if(meta) metaText(ctx,meta,lx+dx,ly+30,C.grain,align,28);
-  ctx.restore();
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
@@ -556,7 +565,7 @@ SCENES.__title=(ctx,t)=>{ bigNucleus(ctx,1430,520,300,46,1); M(ctx,'celkern · �
 SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx);
   person(ctx,420,860,680,1,{open:true}); const sx=470, sy=270; swab(ctx,sx+40,sy+20,0.15,li===0?ease(lf*2):1);
   if(li>=1){ const p=li===1?ease(lf*1.6):1; zoomCircle(ctx,1250,430,300,sx+30,sy+20,'wangcellen · vergroot',p,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(950,130,600,600); grain(ctx); cheekCells(ctx,1250,430,t,li>=3?6:-1); }); }
-  if(li>=2) label(ctx,'in elke cel','≈ twee meter dna',1450,380,1560,600,li===2?ease(lf*2):1,C.text,'left');
+  if(li>=2) naamBij(ctx,'in elke cel','≈ twee meter dna',1580,470,li===2?ease(lf*2):1,'left',C.text);
   if(li>=3) M(ctx,'celkern: ≈ 6 µm',1250,820,{align:'center',color:C.goud,alpha:li===3?ease(lf*2):1});
   if(li>=4){ T(ctx,'Hoe past dat?',120,180,64,{titel:true,alpha:ease(lf*2)}); }
 };
@@ -567,7 +576,7 @@ SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   if(li===1){ const z=ease(lf); microCell(ctx,960+lerp(0,500,z),460,lerp(330,1200,z),1-z,t); bigNucleus(ctx,960,460,lerp(90,330,z),46,z); speed(ctx,'inzoomen'); return; }
   const count=li===2?Math.max(1,Math.floor(ease(lf)*46)):46; bigNucleus(ctx,760,450,330,count,1);
   if(li===2) T(ctx,count+' chromosomen',1240,300,48,{w:700});
-  if(li>=3&&li<=4) label(ctx,'chromosoom','één lang dna-molecuul',900,350,1240,260,li===3?ease(lf*2):1,C.text,'left');
+  if(li>=3&&li<=4) naamBij(ctx,'chromosoom','één lang dna-molecuul',1110,322,li===3?ease(lf*2):1,'left',C.text);
   if(li===4) M(ctx,'uitgerold · door elkaar',1240,420,{alpha:ease(lf*2)});
   if(li===5){ const p=ease(lf); ctx.save(); ctx.lineCap='round'; ln(ctx,1120,600,1120+680*p,600,C.goud,6); ctx.restore(); label(ctx,'chromosoom 1','uitgerold ≈ 8 cm · vergroot',1120,600,1240,470,p,C.text,'left'); }
   scale(ctx,220,'2 µm');
@@ -653,11 +662,11 @@ SCENES.h3b=(ctx,li,lf,t)=>{
   bg(ctx,'micro'); const L=microCell(ctx,560,460,280,1,t);
   if(li===4) T(ctx,'zit al het DNA in de kern? bijna',1080,200,44,{w:600});
   if(li>=5){ const p=li===5?ease(lf):1; L.mitos.forEach(m=>{ ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.paars; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(m.x,m.y,9,0,6.283); ctx.stroke(); ctx.restore(); });
-    label(ctx,'mitochondrium','eigen kleine ring-dna',L.mitos[0].x,L.mitos[0].y,L.mitos[0].x-40,820,p,C.text,'left'); }
+    naamBij(ctx,'mitochondrium','eigen kleine ring-dna',L.mitos[0].x-60,714,p,'left',C.text); }
   if(li>=6){ const p=ease(lf*(li===6?1:9)); ctx.save(); ctx.globalAlpha*=p; ctx.beginPath(); ctx.ellipse(1500,470,170,95,0.15,0,6.283); shape(ctx,rgba('#3A4A66',0.9),C.teal,1.5); ctx.restore();
     ctx.save(); ctx.globalAlpha*=p; ctx.beginPath(); for(let a=0;a<6.283;a+=0.1){ const r=62+Math.sin(a*5)*10; const X=1500+r*Math.cos(a)*1.2, Y=470+r*Math.sin(a)*0.55; a?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.closePath(); ctx.strokeStyle=C.paars; ctx.lineWidth=3; ctx.stroke();
     for(const [x,y] of [[1400,430],[1600,440],[1550,525]]){ ctx.beginPath(); ctx.arc(x,y,15,0,6.283); ctx.stroke(); } ctx.restore();
-    label(ctx,'plasmiden','losse dna-ringetjes',1600,440,1380,700,p,C.text,'left'); M(ctx,'bacterie · niet op schaal',1500,340,{align:'center',alpha:p,color:C.text2}); }
+    naamBij(ctx,'plasmiden','losse dna-ringetjes',1500,615,p,'center',C.text); M(ctx,'bacterie · niet op schaal',1500,340,{align:'center',alpha:p,color:C.text2}); }
 };
 
 // ---- H4 Richting, bruggen en verpakking (vwo) ----
@@ -682,8 +691,8 @@ SCENES.h4b=(ctx,li,lf)=>{ bg(ctx,'micro'); const seq='ATGCA', x0=330, y=200, dx=
   for(let i=0;i<n;i++){ const x=x0+i*dx, b=seq[i]; base(ctx,x,top+22,b,1); base(ctx,x,bot-22,COMP[b],-1);
     if(li>=1&&sep<0.05) hbonds(ctx,x,top+156,bot-156,(b==='A'||b==='T')?2:3,li===1?ease(lf*2):1);
     if(li===2) T(ctx,String((b==='A'||b==='T')?2:3),x+44,y+184,40,{w:700,color:C.goud,alpha:ease(lf*2)}); }
-  if(li>=1&&li<=2) label(ctx,'waterstofbruggen','zwak',x0+dx*2-8,y+170,1440,640,li===1?ease(lf*2):1,C.text,'left');
-  if(li===2) M(ctx,'a = t: twee · c ≡ g: drie',1440,740,{color:C.goud});
+  if(li>=1&&li<=2) naamBij(ctx,'waterstofbruggen','zwak',x0+dx*2,600,li===1?ease(lf*2):1,'center',C.text);
+  if(li===2) M(ctx,'a = t: twee · c ≡ g: drie',1400,740,{color:C.goud,align:'center'});
   if(li===3){ thermometer(ctx,1700,180,420,ease(lf),1); M(ctx,lf>0.5?'de strengen laten los':'verwarmen tot ≈ 95 °c',1620,810,{align:'right',color:C.koraal}); }
   if(li===4){ thermometer(ctx,1700,180,420,1-ease(lf),1); M(ctx,'afkoelen: passende volgorden vinden elkaar terug',1620,810,{align:'right',color:C.text2}); }
   scale(ctx,180,'1 nm · vereenvoudigd');
@@ -702,7 +711,7 @@ SCENES.h4c=(ctx,li,lf,t)=>{ bg(ctx,'micro');
     for(let k=0;k<nb;k++){ const x=240+k*200, y=440+Math.sin(x/90)*18; if(p>0){ ctx.save(); ctx.globalAlpha*=p; circ(ctx,x,y,46,HIST,lighten(HIST,0.35),1.5); ctx.beginPath(); for(let a=0;a<Math.PI*3.5;a+=0.1){ const r=58+Math.sin(a*2)*4; const X=x+r*Math.cos(a), Y=y+r*0.6*Math.sin(a)+(a/(Math.PI*3.5)-0.5)*40; a?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.strokeStyle=BBR; ctx.lineWidth=8; ctx.stroke(); ctx.restore(); } } }
   if(li===2) T(ctx,'terug naar de puzzel: twee meter in zes micrometer',W/2,720,44,{w:600,align:'center'});
   if(li===3) T(ctx,'alleen met opwikkelen',W/2,720,44,{w:600,align:'center'});
-  if(li===4) label(ctx,'histonen','eiwitten',240,440,300,680,ease(lf*2),C.text,'left');
+  if(li===4) naamBij(ctx,'histonen','eiwitten',240,525,ease(lf*2),'center',C.text);
   if(li===5){ T(ctx,'nucleosoom',W/2,700,48,{w:700,align:'center',alpha:ease(lf*2)}); M(ctx,'dna om acht histonen',W/2,750,{align:'center',alpha:ease(lf*2)}); ctx.save(); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(240,440,84,0,6.283); ctx.stroke(); ctx.restore(); }
   if(li>=6&&li<=7){ const q=li===6?ease(lf):1; const pts=[]; for(let k=0;k<nb;k++) pts.push([240+k*180,440+(k%2?-1:1)*110*q]);
     ctx.save(); ctx.beginPath(); pts.forEach(([x,y],k)=>k?ctx.lineTo(x,y):ctx.moveTo(x,y)); ctx.strokeStyle=BBR; ctx.lineWidth=10; ctx.stroke(); ctx.restore(); pts.forEach(([x,y])=>circ(ctx,x,y,46,HIST,lighten(HIST,0.35),1.5));
