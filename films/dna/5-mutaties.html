@@ -834,8 +834,8 @@ const revealDur=seg=>seg.explain?6:2.5;
 // 'Voor vwo ...' niet uitspreken (de havo/vwo-keuze zit in de speler): losse aankondigingen helemaal, 'Voor vwo:' als voorzetsel weg
 function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
   while(i<w.length){ let j=i; while(j<w.length&&!/[.?!]$/.test(w[j].t)) j++; const zin=w.slice(i,j+1), txt=zin.map(x=>x.t).join(' ');
-    if(/^Voor vwo\b/.test(txt)){ const nxt=w[j+1];
-      if(/^Voor vwo (gaan we )?(hier )?(nog )?(een |één |drie )?stap(pen)? verder(, de lever in)?\.$|^Voor vwo nog (een|één) stap( verder)?\.$|^Voor vwo volgen we die prikkel door het hart\.$|^Voor vwo kijken we preciezer naar [^.]*\.$/.test(txt)) cuts.push([zin[0].s-0.03, nxt?nxt.s-0.03:(seg.dur||zin[zin.length-1].e+0.3)]);
+    if(/^Voor (havo en )?vwo\b/.test(txt)){ const nxt=w[j+1];
+      if(/^Voor (havo en )?vwo (gaan we )?(hier )?(nog )?(een |één |drie )?stap(pen)? verder(, de lever in)?\.$|^Voor vwo nog (een|één) stap( verder)?\.$|^Voor vwo volgen we die prikkel door het hart\.$|^Voor vwo kijken we preciezer naar [^.]*\.$/.test(txt)) cuts.push([zin[0].s-0.03, nxt?nxt.s-0.03:(seg.dur||zin[zin.length-1].e+0.3)]);
       else { let k=-1; const m=txt.match(/^(Voor vwo(, tot slot)?:|Voor vwo nog (een|één) stap( verder)?:|Voor vwo(?= een ))/i);
         if(m){ let n=0, acc=''; for(let q=0;q<zin.length;q++){ acc+=(q?' ':'')+zin[q].t; if(acc.length>=m[0].trim().length){ k=q; break; } }
           if(k>=0&&zin[k+1]){ if(/, tot slot:$/i.test(m[0])){ k=1; } cuts.push([zin[0].s-0.03, zin[k+1].s-0.03]); const r=zin[k+1]; if(!r._hoofd){ r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); r._hoofd=1; } } } } }

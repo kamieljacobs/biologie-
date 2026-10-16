@@ -14,7 +14,7 @@ const DAY={sky:'#6E8CA8',sand:'#C9A86A',soil:'#3A2E24',water:'#2A6E7E'};
 function caption(s){ ctx.save(); ctx.font=fTekst(44,700); const w=Math.min(1600,ctx.measureText(s).width+80), x=(W-w)/2, y=950;
   roundRect(ctx,x,y,w,86,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill(); text(ctx,s,W/2,y+58,fTekst(44,700),C.text,'center'); ctx.restore(); }
 function metaTop(s){ metaText(ctx,s,60,46,C.text2,'left',20); }
-function hvBar(){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
+function hvBar(){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'uitdaging',60,46,C.paars,'left',24); }
 
 // ---- lettuce v2: naturalistic leaves along a curved spine, ruffled edge, veins ----
 function leafPath(pts){ ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath(); }

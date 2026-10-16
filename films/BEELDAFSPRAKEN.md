@@ -29,3 +29,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 ## Processen in beeld
 - **Exocytose / endocytose:** laat het blaasje echt versmelten met het celmembraan (aanleggen, membraan opent, blaasje wordt deel van het membraan, inhoud naar buiten), niet een blaasje dat verdwijnt (15 okt 2026).
 - **DNA in de kern** als losse, zacht kronkelende draden (chromatine), geen zigzag- of veerpatroon (15 okt 2026).
+
+## Onderbouw (kerndoelen)
+- In onderbouwfilms nergens havo, vwo of vmbo noemen, niet in beeld, niet in de stem en niet in het docentdeel: in de onderbouw is dat niet belangrijk (Kamiel, 16 okt 2026).
+- De niveauknop heet **Basis** / **Uitdaging**; het extra blok heet 'uitdaging' (in beeld, hoofdstukmenu, begrippen, transcript, checkvragen). Een gesproken aankondiging als "Voor havo en vwo gaan we nog een stap verder." niet meer opnemen; in bestaande films knipt de speler hem weg.

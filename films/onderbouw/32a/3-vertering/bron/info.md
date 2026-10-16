@@ -104,3 +104,6 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026). Respelling: "wc" → "wee-cee".
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). In `tractLabels()` staan 'alvleesklier' en 'dikke darm' nu onder het orgaan (overlapten elkaar).
+
+## Wijziging 16 okt 2026
+Geen havo/vwo meer in beeld of tekst (Kamiel): niveauknop **Basis / Uitdaging**, het extra blok heet "uitdaging" (canvaslabel, hoofdstukmenu, begrippen, transcript, checkvraag 5, docentdeel). De gesproken zin "Voor havo en vwo gaan we nog een stap verder." wordt door de speler weggeknipt (`vwoCuts`) en staat niet in het transcript. Interne sleutels (`level: vwo`, `data-v="havovwo"`) zijn ongewijzigd.
