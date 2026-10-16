@@ -1,0 +1,62 @@
+# Anticonceptie, soa's en voortplantingstechniek — bronmap
+
+| Veld | Waarde |
+|---|---|
+| Bestand | films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html (audio in films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/audio/) |
+| Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
+| Niveau | havo + vwo; vwo-blokken s10 (resistentie bij gonorroe) en s14 (embryoselectie/PGT en ethiek) |
+| Versie / datum | 1.0 · 16 oktober 2026 |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
+| Duur | spraak 7:08 (vwo) / 6:07 (havo); speeltijd met kaarten en vragen ± 8:13 (vwo) / 7:12 (havo); met Vragen uit 7:10 / 6:10 |
+| Beeldstijl | Part C: Schema; schematische doorsnede (vooraanzicht) van baarmoeder, eileiders en eierstokken |
+| Personages | Lotte en dokter Kim (cold open), Sam (H2) uit het castboek; overige figuren generiek (`figuur()`) |
+| Audio-opslag | 11 losse mp3's in audio/ (s01, s04, s05, s06, s07, s09, s10, s11, s13, s14, s15) |
+| Herkomst | Hoofdengine, werkmap `hw/vp3`; gebouwd met Claude in reeksmodus (geplande film 'Anticonceptie, soa's en voortplantingstechniek') |
+
+## Opbouw
+| Hoofdstuk | Segmenten | Kernbeeld |
+|---|---|---|
+| Cold open | s01, q02 | Lotte bij dokter Kim achter het bureau; lijst met methodes (pil, condoom, spiraaltje, staafje: '?'); raster van 100 stippen. q02 (antwoord in H1) |
+| H1 Een schakel eruit | s04, s05, s06 | 7 van 100 stippen rood, strip met vergeten pil; de keten eisprong → bevruchting → innesteling, schakel breekt; doorsnede met per schakel de methodes (links pil/prikpil/staafje/ring, rechts condoom/pessarium/hormoonspiraaltje/sterilisatie), zaadcellen stoppen bij de baarmoederhals, slijmprop; koperspiraaltje (zaadcellen sterven, geen innesteling); morning-afterpil op een dagenas (eisprong schuift voorbij de 5 dagen dat zaadcellen leven); Pearl-index met vijf stippenrasters; condoom met schild, andere methodes doorgestreept |
+| H2 Soa's: vaak zonder klachten | s07, q08, s09, s10 (vwo) | Sam met telefoon ('je ex heeft chlamydia'); bacterie- en virus-paneel (antibiotica doden bacteriën; virus in een lichaamscel); 7 van 10 vrouwen / helft van de mannen zonder klachten; ontstoken eileiders met littekens; Sam met testbuisje (huisarts, GGD, gratis onder 25); HPV, baarmoederhals, twee kinderen met prik; grafiek virus in het bloed met hiv-remmers tot onder de meetgrens; PrEP-schild. Vwo: populatie bacteriën, kuur, resistente mutanten vermenigvuldigen zich; vijf middelen doorgestreept, één werkt nog |
+| H3 Een handje helpen | s11, q12, s13, s14 (vwo) | Zes stelletjes (1 gemarkeerd); keten met haperende schakel; inseminatie (katheter, zaadcellen hoog in de baarmoeder); eileiders dicht → ivf; ivf-stappenbalk: één vs veel follikels (FSH), punctie met naald, schaaltje, ICSI met pipet, embryo dag 1–5, één embryo terug, vriezer (−196 °C), donor (niet anoniem). Vwo: blastocyste, cellen uit de buitenlaag, DNA, drie embryo's (één gezond), Nederlandse regels en drie ethische vragen |
+| Recap | s15 | Vier panelen: een schakel eruit, alleen condoom tegen soa's, bacterie of virus, een schakel erbij |
+| Eindkaart | s16 | drie regels |
+
+## Vragen (juist: b, c, a)
+- q02: hoeveel van de 100 pilgebruiksters worden in een jaar zwanger? a geen enkele · **b ongeveer zeven** · c ongeveer dertig
+- q08: welke soa kun je genezen met antibiotica? a hiv · b herpes · **c gonorroe**
+- q12: waarom eerst tien dagen hormooninjecties bij ivf? **a zodat meerdere eicellen tegelijk rijpen** · b zodat de baarmoeder groter wordt · c zodat de eicellen sneller bevrucht worden
+
+## Begrippen
+anticonceptie, pil, spiraaltje, sterilisatie, morning-afterpil, Pearl-index, soa, antibiotica, HPV-vaccinatie, hiv-remmers / PrEP, kunstmatige inseminatie, ivf, ICSI, resistentie (vwo), embryoselectie/PGT (vwo) — zie `film.json` → glossary.
+
+## Docentdeel
+In `sections.html`: 5 checkvragen (waar grijpt het in, betrouwbaarheid, soa zonder klachten + ivf-keuze, ivf, vwo: resistentie en embryoselectie), hoe de film het uitlegt, achtergrond met bronnen (Trussell/CDC-tabel, werking per methode, morning-afterpil, Soa Aids Nederland, RIVM HPV/Gardasil 9 sept 2026, U=U en PrEP, WHO/GRAS gonorroe, Wet donorgegevens 2004, Embryowet/PGT MUMC+), leerdoelen, lessuggesties.
+
+## Waar wat in de HTML zit (films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html)
+- regel 5: teller (GoatCounter); regel 70: sitebalk (← Terug naar Voortplanting)
+- regel 101: checkvragen en docentdeel (uit `sections.html`); regel 155: footer met licentie
+- regel 156: `window.FILMDATA`
+- regel 1269: `persoon()` uit lib_cast.js (Lotte, dokter Kim, Sam)
+- regel 1450: titel-aanpassing (lange titel wordt op de titelkaart automatisch kleiner; wrapper om `text()`)
+- regel 1466: `figuur()`; 1475 `zaadcel()`; 1478 `eicel()`; 1482 `embryo()`
+- regel 1495: `baarmoeder()` — schematische doorsnede met opties (slijmprop, spiraal koper/hormoon, pessarium, dicht/sterilisatie, litteken, slijmvlies, namen)
+- regel 1537 e.v.: voorwerpen (`pilStrip`, `spuit`, `staafje`, `ringIcon`, `condoom`, `pessariumIcon`, `spiraalIcon`, `capsule`, `virus`, `schild`, `buisje`, `schaaltje`, `vriezer`, `pipet`, `dnaIcon`)
+- regel 1562: `keten()` (eisprong → bevruchting → innesteling); 1579 `methode()`
+- regel 1582: `const SCENES` (title, s01 … s15); s05 op 1609, s09 op 1683, s13 op 1754, s14 op 1787, s15 op 1799
+
+## Hoe je de film aanpast
+Werkmap opzetten: kopieer `bron/` naar `hw/vp3` (scenes.js uit `src/`, `words/` = `stem/woordtijden/`, `film/3-anticonceptie-soa-voortplantingstechniek/audio/` = `../audio/`, `uitspraak_film.json` in de werkmap), engine = `src/*.js` + `bouw/*`. Dan:
+- tekst: `script_v2.md` aanpassen → `python3 engine/make_segments.py vp3 script_v2.md` → alleen gewijzigde alinea's opnieuw inspreken (Roos, eleven_v4, één take) → Scribe (connect_from = de TTS-node) → `engine/align.py` → `python3 film.py` → `engine/build_data.py vp3` → `engine/build.py vp3` → `bash pack.sh vp3 3-anticonceptie-soa-voortplantingstechniek voortplanting` → daarna opnieuw `scripts/licentie_noot.py` en `scripts/teller.py` (pack overschrijft de HTML).
+- beeld: alleen `scenes.js` → `engine/build.py vp3` → pack. Let op deelwoord-cues: 'pil' zit ook in prikpil/abortuspil, 'meer' in 'meerdere' (daarom n = 2), 'hepatitis' en 'hiv' komen in s09 meermaals voor (n = 2), 'condoom' in s06 (n = 2 voor het schild).
+
+## Aandachtspunten
+- Uitspraakwachtlijst (zie `uitspraak.md`): soa als letters (es-oo-aa) of als woord, chlamydia, gonorroe, syfilis, HPV, hepatitis B, GGD, PrEP, hiv, Pearl-index, morning-afterpil, pessarium, ivf/in-vitrofertilisatie, FSH, ICSI, PGT.
+- Getallen afgerond met 'ongeveer'; de echte waarden en bronnen staan in het docentdeel. 'Gratis testen onder 25 bij de GGD' kan per GGD voorwaarden hebben (docentdeel).
+- Indeling: hormoonspiraaltje bij schakel 2 (slijmprop), koperspiraaltje bij schakel 2 én 3. De pilwerking via terugkoppeling staat in film 1 (Van bevruchting tot baby); hier alleen een verwijzing.
+- Toon zakelijk; anatomie schematisch; geen beschrijving van seks.
+- `data-duur` voor de kijkcijfers komt pas na het toevoegen aan `HOOFDSTUKKEN` in index.html (daarna `scripts/teller.py` opnieuw draaien).
+
+## Wijzigingen
+- 1.0 (16 okt 2026): eerste versie. Script na één gecombineerde review (zie `reviews/review_v1.md`); beeld-QA op contactbladen.
