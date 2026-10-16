@@ -83,7 +83,7 @@ function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && 
 // ---- transport ----
 const audio=document.getElementById('narration'); let clockStart=0, clockBase=0; let raf=0;
 function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx]; state.items.forEach(x=>x._clock=null); state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
-  if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
+  if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; const want=local; if(want>0.05) audio.muted=true; const zet=()=>{ if(state.items[state.idx]===it&&audio.currentTime<want-0.05) audio.currentTime=want; if(audio.currentTime>=want-0.05||state.items[state.idx]!==it) audio.muted=false; }; audio.addEventListener('loadedmetadata',zet,{once:true}); audio.addEventListener('playing',zet,{once:true}); audio.addEventListener('seeked',zet,{once:true}); setTimeout(()=>{ audio.muted=false; },1500); } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
   else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
   updateChapterUI(); }
 function seekGlobal(g){ g=clamp(g,0,state.total-0.01); const i=state.items.findIndex(it=>g<it.start+it.dur); gotoItem(i, g-state.items[i].start); }
