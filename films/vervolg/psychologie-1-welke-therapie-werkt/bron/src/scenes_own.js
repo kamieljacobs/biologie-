@@ -160,11 +160,11 @@ const SCENES = {
       tag(ctx, 'gewone zorg: nog steeds middelgroot tot groot · beste studies: wat lager', 960, 760, C.groen, q.on('beste', 1), 'center', 26); ctx.restore(); } },
 
   // ---------- H3 ----------
-  s08(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('Henk', 1, 0.8), pC = q.on('Zulke', 2, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
+  s17(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('Henk', 1, 0.8), pC = q.on('Zulke', 2, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
     if (A1 > 0.01) { ctx.save(); ctx.globalAlpha *= A1; const sa = q.on('Sam', 1);
-      paneel(ctx, 100, 140, 820, 680, '', 1); persoon(ctx, 'lotte', 260, 780, 420, { uit: q.on('vast', 1) > 0.5 ? 'blij' : 'bezorgd', pose: 'staan', kijk: 1, t }); naamBij(ctx, 'Lotte', 'bang voor spinnen', 150, 210, 1);
+      paneel(ctx, 100, 140, 820, 680, '', 1); persoon(ctx, 'lotte', 260, 780, 420, { uit: 'blij', pose: 'staan', kijk: 1, t }); naamBij(ctx, 'Lotte', 'bang voor spinnen', 150, 210, 1);
       regel(ctx, 'exposure', 620, 230, q.on('exposure', 1), C.goud, 34, 'center', 700);
-      const st = [['foto', 'foto'], ['pot', 'pot'], ['hand', 'vast']]; st.forEach(([l, w], i) => { const a = q.on(w, 1); if (a <= 0.01) return; const x = 460 + i * 190, y = 640 - i * 110; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y, 140, 30, 6); shape(ctx, rgba(C.groen, 0.5), C.groen, 1.5); if (i === 0) { fotolijst(ctx, x, y - 20, 0.8, 1); spin(ctx, x, y - 70, 0.7, 1, 0); } if (i === 1) { pot(ctx, x, y - 6, 0.8, 1); spin(ctx, x, y - 50, 0.8, 1, t); } if (i === 2) { hand(ctx, x, y - 30, 0.8, 1); spin(ctx, x, y - 70, 0.8, 1, t); } metaText(ctx, l, x, y + 64, C.grain, 'center', 18); ctx.restore(); });
+      angstLadder(ctx, 470, 640, 0.8, 4, q.on('exposure', 1), t);
       chip(ctx, 'vaak een paar sessies genoeg', 520, 780, C.groen, q.on('sessies', 1), 22);
       ctx.save(); ctx.globalAlpha *= 0.35 + 0.65 * sa; paneel(ctx, 1000, 140, 820, 680, '', sa); ctx.restore();
       if (sa > 0.01) { ctx.save(); ctx.globalAlpha *= sa; persoon(ctx, 'sam', 1160, 780, 430, { uit: 'bezorgd', pose: 'staan', kijk: 1, t }); naamBij(ctx, 'Sam', 'nare herinneringen', 1050, 210, 1);
@@ -182,7 +182,7 @@ const SCENES = {
     if (A3 > 0.01) { ctx.save(); ctx.globalAlpha *= A3; regel(ctx, 'bij depressie: heel verschillende therapieën, vaak ongeveer even goed', W / 2, 200, 1, C.text, 36, 'center', 700);
       [0, 5, 4, 6].forEach((k, i) => kaart(ctx, KAARTEN[k], 150 + i * 420, 290, 380, 190, 1, false, t)); vraagteken(ctx, W / 2, 680, q.on('verklaring', 1), 140); ctx.restore(); } },
 
-  s10(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('Toch', 1, 0.8), pC = q.on('Omdat', 1, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
+  s19(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('Toch', 1, 0.8), pC = q.on('Omdat', 1, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
     if (A1 > 0.01) { ctx.save(); ctx.globalAlpha *= A1; regel(ctx, 'Antwoord a: iets wat ze gemeen hebben', 120, 140, 1, C.groen, 36, 'left', 700); metaText(ctx, 'een veelgenoemde verklaring', 120, 184, C.grain, 'left', 22);
       const B2 = q.on('band', 1, 0.8);
       if (B2 < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - B2; const cx = W / 2, cy = 520; circ(ctx, cx, cy, 160, rgba(C.goud, 0.12), C.goud, 2.5); text(ctx, 'gemeenschappelijk', cx, cy + 10, fTekst(30, 700), C.goud, 'center');
@@ -202,7 +202,7 @@ const SCENES = {
       const ap = q.on('aanpak', 1); if (ap > 0.01) { ctx.save(); ctx.globalAlpha *= ap; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.moveTo(gx + 60 + adj * 160, gy - 10); ctx.lineTo(gx + 60 + adj * 160, gy + gh); ctx.stroke(); ctx.setLineDash([]); regel(ctx, 'aanpak aangepast', gx + 60 + adj * 160 + 20, gy + 20, 1, C.goud, 28, 'left', 700); ctx.restore(); }
       chip(ctx, 'helpt het niet? pas de aanpak aan', 1620, 400, C.text2, q.on('Helpt', 2), 22); ctx.restore(); } },
 
-  s11(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('master', 1, 0.8), pC = q.on('vertrouwt', 1, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
+  s21(ctx, t, q) { bg(ctx, 'schema'); const pB = q.on('master', 1, 0.8), pC = q.on('vertrouwt', 1, 0.8), A1 = 1 - pB, A2 = pB * (1 - pC), A3 = pC;
     if (A1 > 0.01) { ctx.save(); ctx.globalAlpha *= A1; kamer(ctx, 1); persoon(ctx, 'henk', 1160, 800, 520, { uit: q.on('band', 1) > 0.5 ? 'blij' : 'neutraal', pose: 'staan', kijk: -1, t });
       tag(ctx, 'niet één beste therapie voor iedereen', 600, 200, C.text2, q.on('iedereen', 1), 'center', 26);
       [['goed onderzocht bij depressie', 'onderzocht'], ['past bij Henk', 'past'], ['meten of het helpt', 'meet'], ['werken aan een goede band', 'band']].forEach(([l, w], i) => { const a = q.on(w, 1); if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 260, 280 + i * 100, 640, 76, 14); shape(ctx, rgba(C.groen, 0.12), C.groen, 1.5); vink_(ctx, 310, 318 + i * 100, 18, 1); text(ctx, l, 350, 330 + i * 100, fTekst(30, 700), C.text, 'left'); ctx.restore(); });
