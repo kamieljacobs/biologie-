@@ -114,6 +114,14 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 #m-icons .ic text.t-term{fill:#0F1A33}
 
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--ink2)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--ink2)}
+</style>
 </head>
 <body>
 <nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#regeling" style="color:#E0B64A;text-decoration:none">← Terug naar Regeling</a></nav>
@@ -403,29 +411,29 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 <section class="pageblock"><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
 
-<section class="pageblock"><h2>Begrippen</h2><dl class="gloss">
-<dt>zenuwstelsel</dt><dd>het orgaanstelsel dat informatie opneemt, verwerkt en doorgeeft: hersenen, ruggenmerg en zenuwen.</dd>
-<dt>centraal zenuwstelsel</dt><dd>hersenen en ruggenmerg samen.</dd>
-<dt>perifeer zenuwstelsel</dt><dd>alle zenuwen buiten het centrale zenuwstelsel.</dd>
-<dt>zenuw</dt><dd>een bundel van lange uitlopers van veel zenuwcellen.</dd>
-<dt>neuron</dt><dd>een zenuwcel; geleidt impulsen.</dd>
-<dt>impuls</dt><dd>het signaal dat door een neuron loopt.</dd>
-<dt>prikkel</dt><dd>een invloed van buiten (licht, geluid, druk) waarop een receptor reageert.</dd>
-<dt>receptor</dt><dd>een cel die een prikkel omzet in een impuls.</dd>
-<dt>drempelwaarde</dt><dd>de minimale prikkelsterkte waarbij een receptor een impuls afgeeft.</dd>
-<dt>sensorisch neuron</dt><dd>neuron dat impulsen van een receptor naar het centrale zenuwstelsel brengt.</dd>
-<dt>schakelneuron</dt><dd>neuron in het centrale zenuwstelsel dat impulsen doorgeeft tussen andere neuronen.</dd>
-<dt>motorisch neuron</dt><dd>neuron dat impulsen van het centrale zenuwstelsel naar een effector brengt.</dd>
-<dt>effector</dt><dd>het orgaan dat reageert: een spier of een klier.</dd>
-<dt>reflex</dt><dd>een snelle, aangeboren, altijd gelijke reactie die buiten de hersenen om via het ruggenmerg verloopt.</dd>
-<dt>reflexboog</dt><dd>de route receptor → sensorisch neuron → schakelneuron → motorisch neuron → effector.</dd>
-<dt>animaal zenuwstelsel</dt><dd>het deel dat de skeletspieren aanstuurt, vaak bewust.</dd>
-<dt>autonoom zenuwstelsel</dt><dd>het deel dat de organen regelt, onbewust.</dd>
-<dt>sympathisch deel</dt><dd>deel van het autonome zenuwstelsel dat het lichaam klaarmaakt voor actie.</dd>
-<dt>parasympathisch deel</dt><dd>deel van het autonome zenuwstelsel voor rust, vertering en herstel.</dd>
-<dt>grijze stof</dt><dd>gebied in hersenen en ruggenmerg met vooral cellichamen van neuronen.</dd>
-<dt>witte stof</dt><dd>gebied met vooral uitlopers van neuronen, wit door de vettige laag eromheen.</dd>
-</dl></section>
+<section class="pageblock"><h2>Begrippen</h2><div id="glossary">
+  <div class="term"><b>zenuwstelsel</b><p>het orgaanstelsel dat informatie opneemt, verwerkt en doorgeeft: hersenen, ruggenmerg en zenuwen.</p></div>
+  <div class="term"><b>centraal zenuwstelsel</b><p>hersenen en ruggenmerg samen.</p></div>
+  <div class="term"><b>perifeer zenuwstelsel</b><p>alle zenuwen buiten het centrale zenuwstelsel.</p></div>
+  <div class="term"><b>zenuw</b><p>een bundel van lange uitlopers van veel zenuwcellen.</p></div>
+  <div class="term"><b>neuron</b><p>een zenuwcel; geleidt impulsen.</p></div>
+  <div class="term"><b>impuls</b><p>het signaal dat door een neuron loopt.</p></div>
+  <div class="term"><b>prikkel</b><p>een invloed van buiten (licht, geluid, druk) waarop een receptor reageert.</p></div>
+  <div class="term"><b>receptor</b><p>een cel die een prikkel omzet in een impuls.</p></div>
+  <div class="term"><b>drempelwaarde</b><p>de minimale prikkelsterkte waarbij een receptor een impuls afgeeft.</p></div>
+  <div class="term"><b>sensorisch neuron</b><p>neuron dat impulsen van een receptor naar het centrale zenuwstelsel brengt.</p></div>
+  <div class="term"><b>schakelneuron</b><p>neuron in het centrale zenuwstelsel dat impulsen doorgeeft tussen andere neuronen.</p></div>
+  <div class="term"><b>motorisch neuron</b><p>neuron dat impulsen van het centrale zenuwstelsel naar een effector brengt.</p></div>
+  <div class="term"><b>effector</b><p>het orgaan dat reageert: een spier of een klier.</p></div>
+  <div class="term"><b>reflex</b><p>een snelle, aangeboren, altijd gelijke reactie die buiten de hersenen om via het ruggenmerg verloopt.</p></div>
+  <div class="term"><b>reflexboog</b><p>de route receptor → sensorisch neuron → schakelneuron → motorisch neuron → effector.</p></div>
+  <div class="term"><b>animaal zenuwstelsel</b><p>het deel dat de skeletspieren aanstuurt, vaak bewust.</p></div>
+  <div class="term"><b>autonoom zenuwstelsel</b><p>het deel dat de organen regelt, onbewust.</p></div>
+  <div class="term"><b>sympathisch deel</b><p>deel van het autonome zenuwstelsel dat het lichaam klaarmaakt voor actie.</p></div>
+  <div class="term"><b>parasympathisch deel</b><p>deel van het autonome zenuwstelsel voor rust, vertering en herstel.</p></div>
+  <div class="term"><b>grijze stof</b><p>gebied in hersenen en ruggenmerg met vooral cellichamen van neuronen.</p></div>
+  <div class="term"><b>witte stof</b><p>gebied met vooral uitlopers van neuronen, wit door de vettige laag eromheen.</p></div>
+</div></section>
 
 <section class="pageblock"><h2>Transcript</h2><div class="transcript">
 <h3>Cold open</h3>

@@ -115,6 +115,14 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 .bg-ochtend{fill:#FFF3D6}.bg-avond{fill:#2E3A55}
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--ink2)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--ink2)}
+</style>
 </head>
 <body>
 <nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#regeling" style="color:#E0B64A;text-decoration:none">← Terug naar Regeling</a></nav>
@@ -340,27 +348,27 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 <section class="pageblock"><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
 
-<section class="pageblock"><h2>Begrippen</h2><dl class="gloss">
-<dt>psychoactieve stof</dt><dd>stof die via het zenuwstelsel je waarneming, stemming of gedrag verandert.</dd>
-<dt>agonist</dt><dd>stof die in een receptor past en hem aanzet, zoals de echte neurotransmitter.</dd>
-<dt>antagonist</dt><dd>stof die in een receptor past maar hem niet aanzet; blokkeert de echte neurotransmitter.</dd>
-<dt>heropnameremmer</dt><dd>stof die het terugpompen van neurotransmitter in het eindknopje remt, zodat de stof langer in de spleet blijft.</dd>
-<dt>adenosine</dt><dd>stof die zich tijdens het waken ophoopt in de hersenen en zenuwcellen remt (slaapdruk).</dd>
-<dt>cafeïne</dt><dd>antagonist op de adenosinereceptor; verbergt vermoeidheid.</dd>
-<dt>GABA</dt><dd>de belangrijkste remmende neurotransmitter in de hersenen.</dd>
-<dt>glutamaat</dt><dd>de belangrijkste exciterende neurotransmitter in de hersenen.</dd>
-<dt>alcohol (ethanol)</dt><dd>versterkt de werking van GABA en remt die van glutamaat; het netwerk wordt trager.</dd>
-<dt>nicotine</dt><dd>agonist op (nicotinerge) acetylcholinereceptoren; laat ook dopamine vrijkomen.</dd>
-<dt>serotonine</dt><dd>neurotransmitter die onder andere bij stemming, slaap en eetlust een rol speelt.</dd>
-<dt>SSRI</dt><dd>antidepressivum dat de heropname van serotonine remt (selectieve serotonine-heropnameremmer).</dd>
-<dt>dopamine</dt><dd>neurotransmitter die onder andere bij beweging en beloning een rol speelt.</dd>
-<dt>levodopa (L-dopa)</dt><dd>grondstof voor dopamine; komt, anders dan dopamine, wel de hersenen in; medicijn bij de ziekte van Parkinson.</dd>
-<dt>ziekte van Parkinson</dt><dd>aandoening waarbij zenuwcellen afsterven die dopamine maken; leidt tot bewegingsproblemen.</dd>
-<dt>tolerantie (gewenning)</dt><dd>afname van het effect van een stof bij herhaald gebruik, doordat de cel receptoren weghaalt of minder gevoelig maakt.</dd>
-<dt>ontwenning</dt><dd>klachten na het stoppen met een stof, doordat de aangepaste cel nu te weinig signaal krijgt.</dd>
-<dt>beloningssysteem</dt><dd>hersengebieden waar dopamine vrijkomt bij iets dat goed was; stuurt herhalen aan.</dd>
-<dt>verslaving</dt><dd>toestand waarin het verlangen naar een stof of gedrag voor het effect uit gaat, door aanpassing van synapsen en het beloningssysteem.</dd>
-</dl></section>
+<section class="pageblock"><h2>Begrippen</h2><div id="glossary">
+  <div class="term"><b>psychoactieve stof</b><p>stof die via het zenuwstelsel je waarneming, stemming of gedrag verandert.</p></div>
+  <div class="term"><b>agonist</b><p>stof die in een receptor past en hem aanzet, zoals de echte neurotransmitter.</p></div>
+  <div class="term"><b>antagonist</b><p>stof die in een receptor past maar hem niet aanzet; blokkeert de echte neurotransmitter.</p></div>
+  <div class="term"><b>heropnameremmer</b><p>stof die het terugpompen van neurotransmitter in het eindknopje remt, zodat de stof langer in de spleet blijft.</p></div>
+  <div class="term"><b>adenosine</b><p>stof die zich tijdens het waken ophoopt in de hersenen en zenuwcellen remt (slaapdruk).</p></div>
+  <div class="term"><b>cafeïne</b><p>antagonist op de adenosinereceptor; verbergt vermoeidheid.</p></div>
+  <div class="term"><b>GABA</b><p>de belangrijkste remmende neurotransmitter in de hersenen.</p></div>
+  <div class="term"><b>glutamaat</b><p>de belangrijkste exciterende neurotransmitter in de hersenen.</p></div>
+  <div class="term"><b>alcohol (ethanol)</b><p>versterkt de werking van GABA en remt die van glutamaat; het netwerk wordt trager.</p></div>
+  <div class="term"><b>nicotine</b><p>agonist op (nicotinerge) acetylcholinereceptoren; laat ook dopamine vrijkomen.</p></div>
+  <div class="term"><b>serotonine</b><p>neurotransmitter die onder andere bij stemming, slaap en eetlust een rol speelt.</p></div>
+  <div class="term"><b>SSRI</b><p>antidepressivum dat de heropname van serotonine remt (selectieve serotonine-heropnameremmer).</p></div>
+  <div class="term"><b>dopamine</b><p>neurotransmitter die onder andere bij beweging en beloning een rol speelt.</p></div>
+  <div class="term"><b>levodopa (L-dopa)</b><p>grondstof voor dopamine; komt, anders dan dopamine, wel de hersenen in; medicijn bij de ziekte van Parkinson.</p></div>
+  <div class="term"><b>ziekte van Parkinson</b><p>aandoening waarbij zenuwcellen afsterven die dopamine maken; leidt tot bewegingsproblemen.</p></div>
+  <div class="term"><b>tolerantie (gewenning)</b><p>afname van het effect van een stof bij herhaald gebruik, doordat de cel receptoren weghaalt of minder gevoelig maakt.</p></div>
+  <div class="term"><b>ontwenning</b><p>klachten na het stoppen met een stof, doordat de aangepaste cel nu te weinig signaal krijgt.</p></div>
+  <div class="term"><b>beloningssysteem</b><p>hersengebieden waar dopamine vrijkomt bij iets dat goed was; stuurt herhalen aan.</p></div>
+  <div class="term"><b>verslaving</b><p>toestand waarin het verlangen naar een stof of gedrag voor het effect uit gaat, door aanpassing van synapsen en het beloningssysteem.</p></div>
+</div></section>
 
 <section class="pageblock"><h2>Transcript</h2><div class="transcript">
 <h3>Cold open</h3>

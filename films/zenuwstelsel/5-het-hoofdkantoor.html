@@ -114,6 +114,14 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 #m-icons .ic text.t-term{fill:#0F1A33}
 
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--ink2)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--ink2)}
+</style>
 </head>
 <body>
 <nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#regeling" style="color:#E0B64A;text-decoration:none">← Terug naar Regeling</a></nav>
@@ -427,31 +435,31 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 <section class="pageblock"><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
 
-<section class="pageblock"><h2>Begrippen</h2><dl class="gloss">
-<dt>grote hersenen</dt><dd>grootste deel van de hersenen, uit twee hersenhelften; buitenkant is de hersenschors.</dd>
-<dt>hersenhelften</dt><dd>de linker- en rechterhelft van de grote hersenen; elke helft werkt vooral met de andere lichaamshelft.</dd>
-<dt>hersenbalk</dt><dd>brede band witte stof (zo&#x27;n tweehonderd miljoen axonen) die de twee hersenhelften verbindt.</dd>
-<dt>hersenkwabben</dt><dd>de vier delen van elke hersenhelft: voorhoofdskwab, wandbeenkwab, slaapkwab en achterhoofdskwab.</dd>
-<dt>voorhoofdskwab</dt><dd>kwab vooraan; bevat de motorische schors en veel associatieve schors (plannen, kiezen, je inhouden).</dd>
-<dt>wandbeenkwab</dt><dd>kwab bovenop, achter de centrale groeve; bevat de gevoelsschors.</dd>
-<dt>slaapkwab</dt><dd>kwab opzij; bevat de primaire gehoorschors.</dd>
-<dt>achterhoofdskwab</dt><dd>kwab achteraan; bevat de primaire schors voor zien.</dd>
-<dt>kleine hersenen</dt><dd>deel achter onder de grote hersenen; zorgt voor coördinatie, timing en evenwicht door bewegingen bij te sturen.</dd>
-<dt>hersenstam</dt><dd>deel onder de grote hersenen dat overgaat in het ruggenmerg; alle banen lopen erdoor; regelt onder meer ademhaling en hartslag.</dd>
-<dt>verlengde merg</dt><dd>onderste deel van de hersenstam met centra voor ademhaling en hartslag.</dd>
-<dt>grijze stof</dt><dd>weefsel met vooral cellichamen van neuronen; in de grote hersenen de hersenschors aan de buitenkant, plus kernen diep binnenin (zoals de thalamus).</dd>
-<dt>witte stof</dt><dd>weefsel met vooral axonen met een myelineschede; verbindt hersengebieden met elkaar.</dd>
-<dt>hersenschors</dt><dd>dunne laag grijze stof (2–4 mm) aan de buitenkant van de grote hersenen.</dd>
-<dt>primaire schors</dt><dd>schorsgebied waar impulsen van een zintuig binnenkomen of waar bewegingsopdrachten beginnen.</dd>
-<dt>associatieve schors</dt><dd>schorsgebied rond de primaire gebieden dat informatie koppelt aan wat je al weet en er betekenis aan geeft.</dd>
-<dt>slakkenhuis</dt><dd>deel van het binnenoor waarin geluidstrillingen worden omgezet in impulsen.</dd>
-<dt>basilair membraan</dt><dd>vlies in het slakkenhuis met de zintuigcellen; smal en stijf bij het begin (hoge tonen), breed en slap bij de top (lage tonen).</dd>
-<dt>thalamus</dt><dd>schakelstation diep in de hersenen; bijna alle zintuiglijke impulsen (niet die van reuk) gaan erdoor naar de schors.</dd>
-<dt>kruising</dt><dd>banen van en naar de grote hersenen kruisen in de hersenstam: de linkerhelft werkt met de rechterlichaamshelft.</dd>
-<dt>homunculus</dt><dd>tekening van het lichaam waarin elk deel zo groot is als zijn stuk motorische (of gevoels)schors.</dd>
-<dt>hypothalamus</dt><dd>klein gebied net boven de hersenstam; houdt temperatuur, honger en dorst op peil, stuurt het autonome zenuwstelsel en via de hypofyse hormonen.</dd>
-<dt>hypofyse</dt><dd>hormoonklier onder de hypothalamus, die er door wordt aangestuurd.</dd>
-</dl></section>
+<section class="pageblock"><h2>Begrippen</h2><div id="glossary">
+  <div class="term"><b>grote hersenen</b><p>grootste deel van de hersenen, uit twee hersenhelften; buitenkant is de hersenschors.</p></div>
+  <div class="term"><b>hersenhelften</b><p>de linker- en rechterhelft van de grote hersenen; elke helft werkt vooral met de andere lichaamshelft.</p></div>
+  <div class="term"><b>hersenbalk</b><p>brede band witte stof (zo&#x27;n tweehonderd miljoen axonen) die de twee hersenhelften verbindt.</p></div>
+  <div class="term"><b>hersenkwabben</b><p>de vier delen van elke hersenhelft: voorhoofdskwab, wandbeenkwab, slaapkwab en achterhoofdskwab.</p></div>
+  <div class="term"><b>voorhoofdskwab</b><p>kwab vooraan; bevat de motorische schors en veel associatieve schors (plannen, kiezen, je inhouden).</p></div>
+  <div class="term"><b>wandbeenkwab</b><p>kwab bovenop, achter de centrale groeve; bevat de gevoelsschors.</p></div>
+  <div class="term"><b>slaapkwab</b><p>kwab opzij; bevat de primaire gehoorschors.</p></div>
+  <div class="term"><b>achterhoofdskwab</b><p>kwab achteraan; bevat de primaire schors voor zien.</p></div>
+  <div class="term"><b>kleine hersenen</b><p>deel achter onder de grote hersenen; zorgt voor coördinatie, timing en evenwicht door bewegingen bij te sturen.</p></div>
+  <div class="term"><b>hersenstam</b><p>deel onder de grote hersenen dat overgaat in het ruggenmerg; alle banen lopen erdoor; regelt onder meer ademhaling en hartslag.</p></div>
+  <div class="term"><b>verlengde merg</b><p>onderste deel van de hersenstam met centra voor ademhaling en hartslag.</p></div>
+  <div class="term"><b>grijze stof</b><p>weefsel met vooral cellichamen van neuronen; in de grote hersenen de hersenschors aan de buitenkant, plus kernen diep binnenin (zoals de thalamus).</p></div>
+  <div class="term"><b>witte stof</b><p>weefsel met vooral axonen met een myelineschede; verbindt hersengebieden met elkaar.</p></div>
+  <div class="term"><b>hersenschors</b><p>dunne laag grijze stof (2–4 mm) aan de buitenkant van de grote hersenen.</p></div>
+  <div class="term"><b>primaire schors</b><p>schorsgebied waar impulsen van een zintuig binnenkomen of waar bewegingsopdrachten beginnen.</p></div>
+  <div class="term"><b>associatieve schors</b><p>schorsgebied rond de primaire gebieden dat informatie koppelt aan wat je al weet en er betekenis aan geeft.</p></div>
+  <div class="term"><b>slakkenhuis</b><p>deel van het binnenoor waarin geluidstrillingen worden omgezet in impulsen.</p></div>
+  <div class="term"><b>basilair membraan</b><p>vlies in het slakkenhuis met de zintuigcellen; smal en stijf bij het begin (hoge tonen), breed en slap bij de top (lage tonen).</p></div>
+  <div class="term"><b>thalamus</b><p>schakelstation diep in de hersenen; bijna alle zintuiglijke impulsen (niet die van reuk) gaan erdoor naar de schors.</p></div>
+  <div class="term"><b>kruising</b><p>banen van en naar de grote hersenen kruisen in de hersenstam: de linkerhelft werkt met de rechterlichaamshelft.</p></div>
+  <div class="term"><b>homunculus</b><p>tekening van het lichaam waarin elk deel zo groot is als zijn stuk motorische (of gevoels)schors.</p></div>
+  <div class="term"><b>hypothalamus</b><p>klein gebied net boven de hersenstam; houdt temperatuur, honger en dorst op peil, stuurt het autonome zenuwstelsel en via de hypofyse hormonen.</p></div>
+  <div class="term"><b>hypofyse</b><p>hormoonklier onder de hypothalamus, die er door wordt aangestuurd.</p></div>
+</div></section>
 
 <section class="pageblock"><h2>Transcript</h2><div class="transcript">
 <h3>Cold open</h3>

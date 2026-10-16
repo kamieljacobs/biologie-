@@ -180,6 +180,14 @@ footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
 .key { font: 500 12px/1 var(--f-mono); border:1px solid var(--rule); border-bottom-width:2px; border-radius:4px; padding:2px 6px; background:var(--panel2) }
 
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--muted)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--faint)}
+</style>
 </head><body>
 <div class="wrap">
 <nav class="sitenav"><a class="home" href="../../index.html#home">Biologie bij Kamiel</a><span>·</span><a class="back" href="../../index.html#voortplanting">← Terug naar Voortplanting</a></nav>
@@ -249,46 +257,46 @@ footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--rule);
 
 <section class="doc" id="begrippen"><h2>Begrippen</h2>
 <p class="lead">De termen uit de film, met de omschrijving zoals de film ze gebruikt.</p>
-<div class="tbl"><table><thead><tr><th>Begrip</th><th>Betekenis</th><th>H.</th></tr></thead><tbody>
-<tr><td class="term">poollichaampje</td><td>kleine cel die bij de meiose van de eicel wordt afgesnoerd, met een set chromosomen en bijna geen cytoplasma; sterft af</td><td class="h">1</td></tr>
-<tr><td class="term">profase I / metafase II</td><td>de twee momenten waarop de eicel in de meiose stilstaat: vóór de geboorte tot de LH-piek, en van de eisprong tot de bevruchting</td><td class="h">1, 4, 5</td></tr>
-<tr><td class="term">hypothalamus / hypofyse</td><td>hersendelen die het startsein geven: de hypothalamus maakt GnRH, de hypofyse antwoordt met FSH en LH</td><td class="h">2</td></tr>
-<tr><td class="term">GnRH</td><td>hormoon van de hypothalamus dat de hypofyse aanzet tot de afgifte van FSH en LH; komt in korte stoten</td><td class="h">2</td></tr>
-<tr><td class="term">FSH</td><td>hormoon van de hypofyse dat follikels laat groeien en bij de man de Sertolicellen aanstuurt</td><td class="h">2, 3</td></tr>
-<tr><td class="term">LH</td><td>hormoon van de hypofyse; de LH-piek veroorzaakt de eisprong; zet bij de man de Leydigcellen aan tot testosteron</td><td class="h">2, 4</td></tr>
-<tr><td class="term">receptor</td><td>eiwit dat precies bij één hormoon past; alleen cellen met de receptor reageren</td><td class="h">2</td></tr>
-<tr><td class="term">eiwithormoon</td><td>hormoon dat in bloedplasma oplost, niet door het celmembraan kan en bindt aan een receptor óp het membraan</td><td class="h">2</td></tr>
-<tr><td class="term">steroïdhormoon</td><td>hormoon gemaakt van cholesterol, vetoplosbaar, glipt door het membraan en bindt aan een receptor ín de cel die genen aan- of uitzet</td><td class="h">2</td></tr>
-<tr><td class="term">Leydigcellen / Sertolicellen</td><td>cellen in de zaadbal: Leydigcellen maken testosteron (op LH), Sertolicellen verzorgen de zaadcellen in wording (op FSH en testosteron) en maken inhibine</td><td class="h">2, 8</td></tr>
-<tr><td class="term">inhibine</td><td>hormoon van de Sertolicellen (en van follikels) dat vooral de afgifte van FSH remt</td><td class="h">2, 3</td></tr>
-<tr><td class="term">negatieve terugkoppeling</td><td>een signaal remt zijn eigen oorzaak; de spiegel blijft stabiel</td><td class="h">2, 4</td></tr>
-<tr><td class="term">positieve terugkoppeling</td><td>een signaal versterkt zichzelf; loopt op tot iets de lus doorbreekt (LH-piek, weeën)</td><td class="h">4, 9</td></tr>
-<tr><td class="term">follikel</td><td>blaasje van hulpcellen rond een eicel in de eierstok; maakt oestrogeen</td><td class="h">3</td></tr>
-<tr><td class="term">dominante follikel</td><td>de follikel met de meeste FSH-receptoren, die het bij weinig FSH nog redt en tot de eisprong komt</td><td class="h">3</td></tr>
-<tr><td class="term">oestrogeen</td><td>geslachtshormoon van de follikel: laat het baarmoederslijmvlies aangroeien, remt FSH en lokt bij een langdurig hoge spiegel de LH-piek uit</td><td class="h">3, 4</td></tr>
-<tr><td class="term">geel lichaam</td><td>restant van de follikel na de eisprong; maakt vooral progesteron en leeft zonder hCG ongeveer twaalf dagen</td><td class="h">4, 6</td></tr>
-<tr><td class="term">progesteron</td><td>hormoon van het gele lichaam (later van de placenta): maakt het slijmvlies klaar voor een embryo en remt de hypofyse</td><td class="h">4, 6</td></tr>
-<tr><td class="term">menstruatie</td><td>afstoten van het baarmoederslijmvlies als de progesteronspiegel zakt</td><td class="h">4</td></tr>
-<tr><td class="term">capacitatie</td><td>verandering van het zaadcelmembraan onderweg (cholesterol eruit), nodig om te kunnen bevruchten</td><td class="h">5</td></tr>
-<tr><td class="term">zona pellucida</td><td>stevige mantel van glycoproteïnen rond de eicel</td><td class="h">5</td></tr>
-<tr><td class="term">acrosoom / acrosoomreactie</td><td>blaasje met enzymen in de kop van de zaadcel; bij binding aan de zona komen de enzymen vrij en verteren een tunneltje</td><td class="h">5</td></tr>
-<tr><td class="term">corticale reactie</td><td>korrels onder het eicelmembraan lozen hun inhoud na de calciumgolf; de zona verandert, geen tweede zaadcel</td><td class="h">5</td></tr>
-<tr><td class="term">zygote</td><td>bevruchte eicel met een nieuwe combinatie van 46 chromosomen</td><td class="h">5</td></tr>
-<tr><td class="term">klievingsdelingen</td><td>delingen van het vroege embryo zonder groei: het embryo blijft even groot, de cellen worden kleiner</td><td class="h">6</td></tr>
-<tr><td class="term">blastocyste</td><td>holle bal van cellen rond dag 5: trofoblast (buitenlaag) en binnenste celmassa</td><td class="h">6</td></tr>
-<tr><td class="term">trofoblast</td><td>buitenlaag van de blastocyste; groeit het slijmvlies in, maakt hCG en wordt het kindsdeel van de placenta</td><td class="h">6, 7</td></tr>
-<tr><td class="term">innesteling</td><td>het embryo nestelt zich vanaf ongeveer dag 6 in het baarmoederslijmvlies</td><td class="h">6</td></tr>
-<tr><td class="term">hCG</td><td>hormoon van de trofoblast dat op LH lijkt en aan de LH-receptoren van het gele lichaam bindt; het signaal dat een zwangerschapstest meet</td><td class="h">6</td></tr>
-<tr><td class="term">placenta</td><td>orgaan waar bloed van moeder en kind heel dicht bij elkaar komt, gescheiden door een dunne laag cellen; uitwisseling zonder mengen</td><td class="h">7</td></tr>
-<tr><td class="term">buizen van Wolff / buizen van Müller</td><td>twee stelsels buisjes in elk vroeg embryo; Wolff wordt mannelijk (bijbal, zaadleider, zaadblaasjes), Müller wordt vrouwelijk (eileiders, baarmoeder, bovenste deel vagina)</td><td class="h">8</td></tr>
-<tr><td class="term">SRY-gen</td><td>gen op het Y-chromosoom dat de aanleg omvormt tot een zaadbal</td><td class="h">8</td></tr>
-<tr><td class="term">anti-Müllerhormoon</td><td>hormoon van de Sertolicellen waardoor de buizen van Müller verdwijnen</td><td class="h">8</td></tr>
-<tr><td class="term">oxytocine</td><td>hormoon van de achterkwab van de hypofyse dat de baarmoederwand laat samentrekken; versterkt zichzelf tijdens de bevalling</td><td class="h">9</td></tr>
-<tr><td class="term">progestageen</td><td>nagemaakt progesteron in de pil en het hormoonspiraaltje</td><td class="h">10</td></tr>
-<tr><td class="term">onttrekkingsbloeding</td><td>bloeding in de stopweek van de pil doordat de hormonen wegvallen; geen echte menstruatie</td><td class="h">10</td></tr>
-<tr><td class="term">T-helpercel</td><td>afweercel die de rest van de afweer aanstuurt; doelwit van hiv</td><td class="h">10</td></tr>
-<tr><td class="term">ICSI</td><td>bij ivf: één zaadcel rechtstreeks in de eicel spuiten</td><td class="h">11</td></tr>
-</tbody></table></div></section>
+<div id="glossary">
+  <div class="term"><b>poollichaampje</b><p>kleine cel die bij de meiose van de eicel wordt afgesnoerd, met een set chromosomen en bijna geen cytoplasma; sterft af</p><p class="gl-meta">H. 1</p></div>
+  <div class="term"><b>profase I / metafase II</b><p>de twee momenten waarop de eicel in de meiose stilstaat: vóór de geboorte tot de LH-piek, en van de eisprong tot de bevruchting</p><p class="gl-meta">H. 1, 4, 5</p></div>
+  <div class="term"><b>hypothalamus / hypofyse</b><p>hersendelen die het startsein geven: de hypothalamus maakt GnRH, de hypofyse antwoordt met FSH en LH</p><p class="gl-meta">H. 2</p></div>
+  <div class="term"><b>GnRH</b><p>hormoon van de hypothalamus dat de hypofyse aanzet tot de afgifte van FSH en LH; komt in korte stoten</p><p class="gl-meta">H. 2</p></div>
+  <div class="term"><b>FSH</b><p>hormoon van de hypofyse dat follikels laat groeien en bij de man de Sertolicellen aanstuurt</p><p class="gl-meta">H. 2, 3</p></div>
+  <div class="term"><b>LH</b><p>hormoon van de hypofyse; de LH-piek veroorzaakt de eisprong; zet bij de man de Leydigcellen aan tot testosteron</p><p class="gl-meta">H. 2, 4</p></div>
+  <div class="term"><b>receptor</b><p>eiwit dat precies bij één hormoon past; alleen cellen met de receptor reageren</p><p class="gl-meta">H. 2</p></div>
+  <div class="term"><b>eiwithormoon</b><p>hormoon dat in bloedplasma oplost, niet door het celmembraan kan en bindt aan een receptor óp het membraan</p><p class="gl-meta">H. 2</p></div>
+  <div class="term"><b>steroïdhormoon</b><p>hormoon gemaakt van cholesterol, vetoplosbaar, glipt door het membraan en bindt aan een receptor ín de cel die genen aan- of uitzet</p><p class="gl-meta">H. 2</p></div>
+  <div class="term"><b>Leydigcellen / Sertolicellen</b><p>cellen in de zaadbal: Leydigcellen maken testosteron (op LH), Sertolicellen verzorgen de zaadcellen in wording (op FSH en testosteron) en maken inhibine</p><p class="gl-meta">H. 2, 8</p></div>
+  <div class="term"><b>inhibine</b><p>hormoon van de Sertolicellen (en van follikels) dat vooral de afgifte van FSH remt</p><p class="gl-meta">H. 2, 3</p></div>
+  <div class="term"><b>negatieve terugkoppeling</b><p>een signaal remt zijn eigen oorzaak; de spiegel blijft stabiel</p><p class="gl-meta">H. 2, 4</p></div>
+  <div class="term"><b>positieve terugkoppeling</b><p>een signaal versterkt zichzelf; loopt op tot iets de lus doorbreekt (LH-piek, weeën)</p><p class="gl-meta">H. 4, 9</p></div>
+  <div class="term"><b>follikel</b><p>blaasje van hulpcellen rond een eicel in de eierstok; maakt oestrogeen</p><p class="gl-meta">H. 3</p></div>
+  <div class="term"><b>dominante follikel</b><p>de follikel met de meeste FSH-receptoren, die het bij weinig FSH nog redt en tot de eisprong komt</p><p class="gl-meta">H. 3</p></div>
+  <div class="term"><b>oestrogeen</b><p>geslachtshormoon van de follikel: laat het baarmoederslijmvlies aangroeien, remt FSH en lokt bij een langdurig hoge spiegel de LH-piek uit</p><p class="gl-meta">H. 3, 4</p></div>
+  <div class="term"><b>geel lichaam</b><p>restant van de follikel na de eisprong; maakt vooral progesteron en leeft zonder hCG ongeveer twaalf dagen</p><p class="gl-meta">H. 4, 6</p></div>
+  <div class="term"><b>progesteron</b><p>hormoon van het gele lichaam (later van de placenta): maakt het slijmvlies klaar voor een embryo en remt de hypofyse</p><p class="gl-meta">H. 4, 6</p></div>
+  <div class="term"><b>menstruatie</b><p>afstoten van het baarmoederslijmvlies als de progesteronspiegel zakt</p><p class="gl-meta">H. 4</p></div>
+  <div class="term"><b>capacitatie</b><p>verandering van het zaadcelmembraan onderweg (cholesterol eruit), nodig om te kunnen bevruchten</p><p class="gl-meta">H. 5</p></div>
+  <div class="term"><b>zona pellucida</b><p>stevige mantel van glycoproteïnen rond de eicel</p><p class="gl-meta">H. 5</p></div>
+  <div class="term"><b>acrosoom / acrosoomreactie</b><p>blaasje met enzymen in de kop van de zaadcel; bij binding aan de zona komen de enzymen vrij en verteren een tunneltje</p><p class="gl-meta">H. 5</p></div>
+  <div class="term"><b>corticale reactie</b><p>korrels onder het eicelmembraan lozen hun inhoud na de calciumgolf; de zona verandert, geen tweede zaadcel</p><p class="gl-meta">H. 5</p></div>
+  <div class="term"><b>zygote</b><p>bevruchte eicel met een nieuwe combinatie van 46 chromosomen</p><p class="gl-meta">H. 5</p></div>
+  <div class="term"><b>klievingsdelingen</b><p>delingen van het vroege embryo zonder groei: het embryo blijft even groot, de cellen worden kleiner</p><p class="gl-meta">H. 6</p></div>
+  <div class="term"><b>blastocyste</b><p>holle bal van cellen rond dag 5: trofoblast (buitenlaag) en binnenste celmassa</p><p class="gl-meta">H. 6</p></div>
+  <div class="term"><b>trofoblast</b><p>buitenlaag van de blastocyste; groeit het slijmvlies in, maakt hCG en wordt het kindsdeel van de placenta</p><p class="gl-meta">H. 6, 7</p></div>
+  <div class="term"><b>innesteling</b><p>het embryo nestelt zich vanaf ongeveer dag 6 in het baarmoederslijmvlies</p><p class="gl-meta">H. 6</p></div>
+  <div class="term"><b>hCG</b><p>hormoon van de trofoblast dat op LH lijkt en aan de LH-receptoren van het gele lichaam bindt; het signaal dat een zwangerschapstest meet</p><p class="gl-meta">H. 6</p></div>
+  <div class="term"><b>placenta</b><p>orgaan waar bloed van moeder en kind heel dicht bij elkaar komt, gescheiden door een dunne laag cellen; uitwisseling zonder mengen</p><p class="gl-meta">H. 7</p></div>
+  <div class="term"><b>buizen van Wolff / buizen van Müller</b><p>twee stelsels buisjes in elk vroeg embryo; Wolff wordt mannelijk (bijbal, zaadleider, zaadblaasjes), Müller wordt vrouwelijk (eileiders, baarmoeder, bovenste deel vagina)</p><p class="gl-meta">H. 8</p></div>
+  <div class="term"><b>SRY-gen</b><p>gen op het Y-chromosoom dat de aanleg omvormt tot een zaadbal</p><p class="gl-meta">H. 8</p></div>
+  <div class="term"><b>anti-Müllerhormoon</b><p>hormoon van de Sertolicellen waardoor de buizen van Müller verdwijnen</p><p class="gl-meta">H. 8</p></div>
+  <div class="term"><b>oxytocine</b><p>hormoon van de achterkwab van de hypofyse dat de baarmoederwand laat samentrekken; versterkt zichzelf tijdens de bevalling</p><p class="gl-meta">H. 9</p></div>
+  <div class="term"><b>progestageen</b><p>nagemaakt progesteron in de pil en het hormoonspiraaltje</p><p class="gl-meta">H. 10</p></div>
+  <div class="term"><b>onttrekkingsbloeding</b><p>bloeding in de stopweek van de pil doordat de hormonen wegvallen; geen echte menstruatie</p><p class="gl-meta">H. 10</p></div>
+  <div class="term"><b>T-helpercel</b><p>afweercel die de rest van de afweer aanstuurt; doelwit van hiv</p><p class="gl-meta">H. 10</p></div>
+  <div class="term"><b>ICSI</b><p>bij ivf: één zaadcel rechtstreeks in de eicel spuiten</p><p class="gl-meta">H. 11</p></div>
+</div></section>
 
 <section class="doc" id="transcript"><h2>Transcript</h2>
 <p class="lead">Wat de stem zegt, per hoofdstuk. Klik op een tijd om de film daar te starten.</p>

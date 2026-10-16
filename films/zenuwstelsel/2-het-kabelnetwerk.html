@@ -114,6 +114,14 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 #m-icons .ic text.t-term{fill:#0F1A33}
 
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--ink2)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--ink2)}
+</style>
 </head>
 <body>
 <nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#regeling" style="color:#E0B64A;text-decoration:none">← Terug naar Regeling</a></nav>
@@ -381,31 +389,31 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 <section class="pageblock"><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
 
-<section class="pageblock"><h2>Begrippen</h2><dl class="gloss">
-<dt>neuron</dt><dd>een zenuwcel: dendrieten, cellichaam, axon en eindknopjes.</dd>
-<dt>dendriet</dt><dd>korte uitloper van een neuron waar informatie binnenkomt.</dd>
-<dt>cellichaam</dt><dd>deel van het neuron met de kern.</dd>
-<dt>axon</dt><dd>lange uitloper die de impuls van het cellichaam naar de eindknopjes geleidt.</dd>
-<dt>eindknopjes</dt><dd>uiteinden van het axon; hier gaat het bericht naar de volgende cel (film 3).</dd>
-<dt>myelineschede</dt><dd>vettige isolatielaag om het axon, gemaakt door cellen van Schwann.</dd>
-<dt>insnoering</dt><dd>smalle plek tussen twee cellen van Schwann waar het axon bloot ligt.</dd>
-<dt>membraanpotentiaal</dt><dd>het elektrische verschil tussen binnen- en buitenkant van het membraan.</dd>
-<dt>rustpotentiaal</dt><dd>het membraanpotentiaal van een neuron in rust: binnen ongeveer −70 mV ten opzichte van buiten.</dd>
-<dt>natrium-kaliumpomp</dt><dd>eiwit dat met energie uit ATP per slag drie Na⁺ naar buiten en twee K⁺ naar binnen pompt.</dd>
-<dt>kaliumlekkanaal</dt><dd>kanaal dat altijd openstaat voor K⁺, waardoor kalium naar buiten lekt.</dd>
-<dt>drempelwaarde</dt><dd>de waarde (ongeveer −55 mV) waarbij natriumkanalen openschieten en een actiepotentiaal start.</dd>
-<dt>depolarisatie</dt><dd>het membraan wordt minder negatief en zelfs positief: Na⁺ stroomt naar binnen.</dd>
-<dt>repolarisatie</dt><dd>het membraan wordt weer negatief: K⁺ stroomt naar buiten.</dd>
-<dt>hyperpolarisatie</dt><dd>kort doorschieten tot onder het rustpotentiaal.</dd>
-<dt>actiepotentiaal</dt><dd>de snelle omkering van het membraanpotentiaal die als impuls over het axon loopt.</dd>
-<dt>impuls</dt><dd>een actiepotentiaal die over het axon loopt.</dd>
-<dt>refractaire periode</dt><dd>korte tijd na een actiepotentiaal waarin een stukje membraan niet opnieuw prikkelbaar is.</dd>
-<dt>alles-of-niets</dt><dd>een actiepotentiaal komt helemaal of niet; hij heeft altijd dezelfde grootte.</dd>
-<dt>frequentie</dt><dd>aantal impulsen per seconde; hierin zit de sterkte van de prikkel.</dd>
-<dt>sprongsgewijze geleiding</dt><dd>de impuls springt van insnoering naar insnoering; veel sneller dan stap voor stap.</dd>
-<dt>receptor</dt><dd>cel die een prikkel vertaalt naar impulsen.</dd>
-<dt>adequate prikkel</dt><dd>de soort prikkel waar een receptor het makkelijkst op reageert (druk voor de huid, licht voor het oog).</dd>
-</dl></section>
+<section class="pageblock"><h2>Begrippen</h2><div id="glossary">
+  <div class="term"><b>neuron</b><p>een zenuwcel: dendrieten, cellichaam, axon en eindknopjes.</p></div>
+  <div class="term"><b>dendriet</b><p>korte uitloper van een neuron waar informatie binnenkomt.</p></div>
+  <div class="term"><b>cellichaam</b><p>deel van het neuron met de kern.</p></div>
+  <div class="term"><b>axon</b><p>lange uitloper die de impuls van het cellichaam naar de eindknopjes geleidt.</p></div>
+  <div class="term"><b>eindknopjes</b><p>uiteinden van het axon; hier gaat het bericht naar de volgende cel (film 3).</p></div>
+  <div class="term"><b>myelineschede</b><p>vettige isolatielaag om het axon, gemaakt door cellen van Schwann.</p></div>
+  <div class="term"><b>insnoering</b><p>smalle plek tussen twee cellen van Schwann waar het axon bloot ligt.</p></div>
+  <div class="term"><b>membraanpotentiaal</b><p>het elektrische verschil tussen binnen- en buitenkant van het membraan.</p></div>
+  <div class="term"><b>rustpotentiaal</b><p>het membraanpotentiaal van een neuron in rust: binnen ongeveer −70 mV ten opzichte van buiten.</p></div>
+  <div class="term"><b>natrium-kaliumpomp</b><p>eiwit dat met energie uit ATP per slag drie Na⁺ naar buiten en twee K⁺ naar binnen pompt.</p></div>
+  <div class="term"><b>kaliumlekkanaal</b><p>kanaal dat altijd openstaat voor K⁺, waardoor kalium naar buiten lekt.</p></div>
+  <div class="term"><b>drempelwaarde</b><p>de waarde (ongeveer −55 mV) waarbij natriumkanalen openschieten en een actiepotentiaal start.</p></div>
+  <div class="term"><b>depolarisatie</b><p>het membraan wordt minder negatief en zelfs positief: Na⁺ stroomt naar binnen.</p></div>
+  <div class="term"><b>repolarisatie</b><p>het membraan wordt weer negatief: K⁺ stroomt naar buiten.</p></div>
+  <div class="term"><b>hyperpolarisatie</b><p>kort doorschieten tot onder het rustpotentiaal.</p></div>
+  <div class="term"><b>actiepotentiaal</b><p>de snelle omkering van het membraanpotentiaal die als impuls over het axon loopt.</p></div>
+  <div class="term"><b>impuls</b><p>een actiepotentiaal die over het axon loopt.</p></div>
+  <div class="term"><b>refractaire periode</b><p>korte tijd na een actiepotentiaal waarin een stukje membraan niet opnieuw prikkelbaar is.</p></div>
+  <div class="term"><b>alles-of-niets</b><p>een actiepotentiaal komt helemaal of niet; hij heeft altijd dezelfde grootte.</p></div>
+  <div class="term"><b>frequentie</b><p>aantal impulsen per seconde; hierin zit de sterkte van de prikkel.</p></div>
+  <div class="term"><b>sprongsgewijze geleiding</b><p>de impuls springt van insnoering naar insnoering; veel sneller dan stap voor stap.</p></div>
+  <div class="term"><b>receptor</b><p>cel die een prikkel vertaalt naar impulsen.</p></div>
+  <div class="term"><b>adequate prikkel</b><p>de soort prikkel waar een receptor het makkelijkst op reageert (druk voor de huid, licht voor het oog).</p></div>
+</div></section>
 
 <section class="pageblock"><h2>Transcript</h2><div class="transcript">
 <h3>Cold open</h3>

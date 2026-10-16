@@ -114,6 +114,14 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 #m-icons .ic text.t-term{fill:#0F1A33}
 
 </style>
+<style id="glossary-stijl">
+/* Begrippen als kaartjesraster, zoals in de hoofdengine (16 okt 2026) */
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin:0}
+#glossary>.term{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;white-space:normal;font-weight:400;line-height:1.5;text-align:left}
+#glossary>.term>b{font-weight:700;color:var(--ink)}
+#glossary>.term>p{margin:4px 0 0;color:var(--ink2)}
+#glossary>.term>p.gl-meta{margin-top:6px;font-size:13px;color:var(--ink2)}
+</style>
 </head>
 <body>
 <nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:14px 16px 0;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#regeling" style="color:#E0B64A;text-decoration:none">← Terug naar Regeling</a></nav>
@@ -338,26 +346,26 @@ body.fakefs #stagebox{height:calc(100vh - 64px);aspect-ratio:auto}
 
 <section class="pageblock"><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
 
-<section class="pageblock"><h2>Begrippen</h2><dl class="gloss">
-<dt>synaps</dt><dd>de aansluiting tussen een eindknopje en de volgende cel: eindknopje, synapsspleet en het membraan met receptoren.</dd>
-<dt>eindknopje</dt><dd>het uiteinde van een axon; de kant vóór de spleet (presynaptisch).</dd>
-<dt>synapsspleet</dt><dd>de smalle ruimte (ongeveer 20 nm) tussen eindknopje en volgende cel.</dd>
-<dt>postsynaptisch membraan</dt><dd>het membraan van de ontvangende cel, met de receptoren.</dd>
-<dt>presynaptisch</dt><dd>aan de kant van het eindknopje; postsynaptisch is de kant van de ontvangende cel.</dd>
-<dt>blaasje (synapsblaasje)</dt><dd>membraanbolletje in het eindknopje, gevuld met neurotransmitter.</dd>
-<dt>neurotransmitter</dt><dd>stof die het bericht over de spleet brengt, bijvoorbeeld acetylcholine.</dd>
-<dt>receptor (op een membraan)</dt><dd>eiwit waar een neurotransmitter precies in past; bij binding gaat een ionkanaal open.</dd>
-<dt>calciumkanaal</dt><dd>kanaal in het eindknopje dat opengaat als de impuls aankomt; Ca²⁺ stroomt in en geeft het sein aan de blaasjes.</dd>
-<dt>exocytose</dt><dd>het versmelten van een blaasje met het membraan, waardoor de inhoud naar buiten komt.</dd>
-<dt>exciterende synaps</dt><dd>synaps die de volgende cel dichter bij de drempel brengt (bijvoorbeeld Na⁺ naar binnen).</dd>
-<dt>remmende synaps</dt><dd>synaps die de volgende cel verder van de drempel brengt (bijvoorbeeld Cl⁻ naar binnen).</dd>
-<dt>sommatie</dt><dd>het optellen van alle exciterende en remmende invloeden op één cel; bepaalt of de drempel wordt gehaald.</dd>
-<dt>acetylcholine</dt><dd>neurotransmitter, onder andere tussen motorische neuronen en spieren.</dd>
-<dt>acetylcholinesterase</dt><dd>enzym in de spleet dat acetylcholine afbreekt.</dd>
-<dt>heropname</dt><dd>het terugpompen van neurotransmitter in het eindknopje.</dd>
-<dt>neuromusculaire synaps</dt><dd>de synaps tussen een motorisch neuron en een spiervezel.</dd>
-<dt>spiervezel</dt><dd>een spiercel; trekt samen als genoeg receptoren bezet zijn.</dd>
-</dl></section>
+<section class="pageblock"><h2>Begrippen</h2><div id="glossary">
+  <div class="term"><b>synaps</b><p>de aansluiting tussen een eindknopje en de volgende cel: eindknopje, synapsspleet en het membraan met receptoren.</p></div>
+  <div class="term"><b>eindknopje</b><p>het uiteinde van een axon; de kant vóór de spleet (presynaptisch).</p></div>
+  <div class="term"><b>synapsspleet</b><p>de smalle ruimte (ongeveer 20 nm) tussen eindknopje en volgende cel.</p></div>
+  <div class="term"><b>postsynaptisch membraan</b><p>het membraan van de ontvangende cel, met de receptoren.</p></div>
+  <div class="term"><b>presynaptisch</b><p>aan de kant van het eindknopje; postsynaptisch is de kant van de ontvangende cel.</p></div>
+  <div class="term"><b>blaasje (synapsblaasje)</b><p>membraanbolletje in het eindknopje, gevuld met neurotransmitter.</p></div>
+  <div class="term"><b>neurotransmitter</b><p>stof die het bericht over de spleet brengt, bijvoorbeeld acetylcholine.</p></div>
+  <div class="term"><b>receptor (op een membraan)</b><p>eiwit waar een neurotransmitter precies in past; bij binding gaat een ionkanaal open.</p></div>
+  <div class="term"><b>calciumkanaal</b><p>kanaal in het eindknopje dat opengaat als de impuls aankomt; Ca²⁺ stroomt in en geeft het sein aan de blaasjes.</p></div>
+  <div class="term"><b>exocytose</b><p>het versmelten van een blaasje met het membraan, waardoor de inhoud naar buiten komt.</p></div>
+  <div class="term"><b>exciterende synaps</b><p>synaps die de volgende cel dichter bij de drempel brengt (bijvoorbeeld Na⁺ naar binnen).</p></div>
+  <div class="term"><b>remmende synaps</b><p>synaps die de volgende cel verder van de drempel brengt (bijvoorbeeld Cl⁻ naar binnen).</p></div>
+  <div class="term"><b>sommatie</b><p>het optellen van alle exciterende en remmende invloeden op één cel; bepaalt of de drempel wordt gehaald.</p></div>
+  <div class="term"><b>acetylcholine</b><p>neurotransmitter, onder andere tussen motorische neuronen en spieren.</p></div>
+  <div class="term"><b>acetylcholinesterase</b><p>enzym in de spleet dat acetylcholine afbreekt.</p></div>
+  <div class="term"><b>heropname</b><p>het terugpompen van neurotransmitter in het eindknopje.</p></div>
+  <div class="term"><b>neuromusculaire synaps</b><p>de synaps tussen een motorisch neuron en een spiervezel.</p></div>
+  <div class="term"><b>spiervezel</b><p>een spiercel; trekt samen als genoeg receptoren bezet zijn.</p></div>
+</div></section>
 
 <section class="pageblock"><h2>Transcript</h2><div class="transcript">
 <h3>Cold open</h3>
