@@ -113,7 +113,7 @@ function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1
   const mini={'Hoofdstuk 1':'Staan deeltjes ooit stil?','Hoofdstuk 2':'Waarom gaat het van veel naar weinig?','Hoofdstuk 3':'Waarom zijn cellen zo klein?','Hoofdstuk 4':'Wat komt er door het membraan?','Hoofdstuk 5':'Waarom stroomt water naar het zout?','Hoofdstuk 6':'Hoe krijgt een cel iets bergop?','Recap':'Wat hebben we gezien?'}[num||it.chapter];
   if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
 function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=it.seg.lines; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,380+i*120,fTekst(44,600),C.text,'center'); ctx.restore(); });
-  haak(ctx,400,1520,740,'alles beweegt, niemand stuurt',C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · 16 oktober 2026',W/2,CAPTION_Y-60,C.text2,'center',24); metaText(ctx,'eerste versie: kamiels broer, naar ontwerp van kamiel jacobs',W/2,CAPTION_Y-20,C.text2,'center',24); }
+  haak(ctx,400,1520,740,'alles beweegt, niemand stuurt',C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · 16 oktober 2026',W/2,CAPTION_Y-60,C.text2,'center',24); }
 function drawQuestion(ctx,it,t){
   bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
   text(ctx,'Wat denk je?',120,200,fTitel(64),C.text); ctx.font=fTekst(40,600); ctx.fillStyle=C.text; wrap(ctx,seg.q,120,290,1680,52);

@@ -10,7 +10,7 @@
 | Duur | 10:02 gesproken (som van 24 mp3's: 602 s; vwo-blokken 50 s). Speeltijd met kaarten en vragen (versie 1.2): Vwo 12:47, Havo 11:47, Vwo zonder vragen 9:55. `script.md` heeft de begintijden per segment. `data-duur="9"` op de tellerscript-tag is de oude gesproken duur in minuten (alleen voor de kijkcijferteller; bijwerken met `scripts/teller.py` als dat gewenst is) |
 | Beeldstijl | Part C-stijlkaart: Micro (#121A26, sinds 1.2 zonder korrel), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
 | Audio-opslag | 24 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s11, s12, s14, s15, s17, s18, s20, s21, s22, s23, s25, s27, s28, s29, s31, s32, s33, s35), gemasterd op −16 LUFS / −1,5 dBTP (ffmpeg loudnorm, twee passes, lineair) |
-| Herkomst | Eerste versie ("Alles beweegt") door Kamiels broer, naar ontwerp van Kamiel Jacobs. Deze remake in Part C: Claude met Kamiel (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Credits staan op de eindkaart en in de footer |
+| Herkomst | Eerste versie ("Alles beweegt") door Kamiels broer, naar ontwerp van Kamiel Jacobs. Deze remake in Part C: Claude met Kamiel (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Op verzoek van Kamiel (16 okt 2026) staat de broer voorlopig niet in de credits; ze werken samen |
 
 ## Echte bronbestanden (in deze map)
 
@@ -43,7 +43,7 @@
 | 6:01 (5:15) | H5 Osmose | Schema, Micro | Opstelling; 'zout trekt' doorgestreept, 'minder water' = de oorzaak, maar het water stroomt als geheel; porie-close-up met terugkaatsend gehydrateerd zout dat het water een duw geeft, lagere druk in de opening, drukmeters in een strook bovenin, stroom; kaarten osmose / in je boek / op een toets onderin; U-buis; deeltjes tellen (NaCl 2, glucose 1); plantencel (ruimte bij plasmolyse gevuld met zout water); komkommer; rode bloedcel; iso/hypo/hyper; infuus |
 | 10:25 (9:38) | H6 Actief transport (+ vwo-blok) | Schema, Micro | Passief transport samengevat; wortelhaarcel; pomp met ATP-molecuul (fosfaat springt eraf); lekken via kanaal als ATP op is; vwo: Na/K-pomp in drie stappen (3 Na⁺ binden binnen + ATP → ADP + P; omklappen, Na⁺ los buiten; 2 K⁺ binden buiten, terugklappen, K⁺ los binnen), voorraad aan beide kanten telt zichtbaar op |
 | 11:29 (10:28) | Recap | Schema, Macro | Vijf panelen; bootje op zee |
-| 12:38 (11:38) | Eindkaart (9 s) | Schema | Drie kernzinnen; versie 1.2 · 16 oktober 2026; eerste versie: Kamiels broer, naar ontwerp van Kamiel Jacobs |
+| 12:38 (11:38) | Eindkaart (9 s) | Schema | Drie kernzinnen; versie 1.2 · 16 oktober 2026 |
 
 ## Vragen (juiste antwoord vet)
 
@@ -152,3 +152,5 @@ Aanleiding: redactiereview (blokkerende en belangrijke punten B1–B4, K1–K9).
 **Bouwstraat**: `src/player.js` en `src/page.html` lopen weer gelijk met de live film (teruggehaald uit index.html 1.1 vóór de wijzigingen); `bouw/contact2.py` (contactbladen) en `bouw/test_v12.py` (speler, havo/vwo, vragen, zoeken, 390 px) toegevoegd.
 
 **Niet aangepast** (KLEIN uit de review): afbreekpunten van ondertitels, "even zout als je bloed" (s28; tekst vraagt nieuwe opname), H⁺-pomp-bijzin bij wortelhaar, "Voor vwo" in s15/s32 (speler knipt het weg), titel van de film, Google Fonts lokaal (bewust zo gelaten, zoals de rest van de site).
+
+- 16 okt 2026: credits voor de broer op eindkaart en in footer weer weggehaald op verzoek van Kamiel (voorlopig; ze werken samen).
