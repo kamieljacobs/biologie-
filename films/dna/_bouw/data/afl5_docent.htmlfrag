@@ -3,7 +3,8 @@
   <li>Na hoofdstuk 2: geef een codon uit de tabel en laat leerlingen zelf een stille mutatie, een ander aminozuur en een stopcodon vinden.</li>
   <li>Na vraag 3 (ziekte van Wilson): laat leerlingen de vier organisatieniveaus in eigen woorden opschrijven, zoals bij examenvraag havo 2024-I vraag 24 (SRY-gen).</li>
   <li>Na vraag 4: bespreek waarom de zonnebrand van een ouder niet in het kind komt, maar een mutatie in een eicel wel.</li>
-  <li class="vonly">Na het vwo-blok in hoofdstuk 4: hoe kan een tumorsuppressorgen dominant overerven als beide allelen moeten uitvallen? (checkvraag 9)</li></ul></details>
+  <li>Na het tumorstuk in hoofdstuk 4: laat leerlingen in één zin het verschil tussen goedaardig en kwaadaardig geven, en de twee remmen (apoptose, telomeren) noemen (checkvragen 7 en 8).</li>
+  <li class="vonly">Na het vwo-blok in hoofdstuk 4: hoe kan een tumorsuppressorgen dominant overerven als beide allelen moeten uitvallen? (checkvraag 11)</li></ul></details>
  <!--NUMBERS-->
  <details><summary>Vereenvoudigingen en verantwoording</summary><ul>
   <li>De CE-vragen (havo 2019-II vraag 2 en 31, havo 2025-II vraag 5, havo 2024-II vraag 45, havo 2022-II vraag 32) zijn geparafraseerd. De antwoorden zijn zelf uitgewerkt; de correctievoorschriften zijn niet ingezien.</li>
@@ -12,8 +13,11 @@
   <li>"Bij de meeste speelt zonlicht mee": van de bijna 75 000 nieuwe huidkankerpatiënten per jaar heeft ongeveer 70 % basaalcelcarcinoom, 20 % plaveiselcelcarcinoom en 10 % melanoom (IKNL). Bij alle drie is UV-blootstelling de belangrijkste vermijdbare oorzaak.</li>
   <li>Mutagene stoffen: de film noemt stoffen in sigarettenrook; asbest (BvJ) werkt vooral via ontsteking en is in de film weggelaten.</li>
   <li>"Een mutatie in een zaadcel of eicel kan worden doorgegeven": het kind erft ook de kiembaanmutaties van beide ouders plus enkele tientallen nieuwe mutaties die in de geslachtscellen ontstonden; "zonder jouw huidmutaties" is precies wat de film zegt.</li>
+  <li>Goedaardig/kwaadaardig: de film noemt alleen uitzaaien via het bloed; via de lymfe kan ook. Een goedaardige tumor kan door zijn plek (bijv. in de hersenen) toch schadelijk zijn.</li>
+  <li>Apoptose: in de film "rem 1" (een cel met te veel DNA-schade ruimt zichzelf op), aansluitend op het vervellen in hoofdstuk 1; de signaalroute (p53, caspasen) blijft buiten beeld (p53 alleen in het vwo-blok).</li>
+  <li>Telomeren: de teller in beeld (50 delingen) verwijst naar de Hayflick-limiet (ongeveer 40–60 delingen bij menselijke cellen in kweek); de stappen zijn vereenvoudigd. "Cellen die geslachtscellen maken" = kiembaancellen. Ongeveer 85–90 % van de tumoren zet telomerase aan; de rest verlengt de telomeren op een andere manier (ALT).</li>
   <li>Genoommutatie: de film noemt alleen het niet-scheiden in de meiose (trisomie 21); polyploïdie (bij planten) blijft buiten beeld.</li>
-  <li class="vonly">NF2 (checkvraag 9): het mutante allel erft autosomaal dominant over, terwijl NF2 een tumorsuppressorgen is; de tumor ontstaat pas als in een cel ook het tweede allel uitvalt (tweede hit).</li></ul></details>
+  <li class="vonly">NF2 (checkvraag 11): het mutante allel erft autosomaal dominant over, terwijl NF2 een tumorsuppressorgen is; de tumor ontstaat pas als in een cel ook het tweede allel uitvalt (tweede hit).</li></ul></details>
  <details><summary>Leerdoelen en dekking</summary><table>
   <tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
   <tr><td>mutatie: kopieerfout of beschadiging die blijft staan; schade ≠ mutatie</td><td>basis</td><td>1</td><td>V1</td></tr>
@@ -23,7 +27,9 @@
   <tr><td>genoommutatie (syndroom van Down)</td><td>basis</td><td>4</td><td>check 5</td></tr>
   <tr><td>erfelijk (geslachtscel) of niet (lichaamscel)</td><td>basis</td><td>4</td><td>V4, check 6</td></tr>
   <tr><td>tumor: genen die de celdeling besturen; meerdere mutaties</td><td>basis</td><td>4</td><td>check 4</td></tr>
+  <tr><td>goedaardige en kwaadaardige tumor (kanker), uitzaaien</td><td>basis</td><td>4</td><td>check 7</td></tr>
+  <tr><td>apoptose; telomeren en telomerase (beperkt aantal delingen; kankercellen blijven delen)</td><td>basis</td><td>4</td><td>check 8</td></tr>
   <tr><td>mutaties als bron van nieuwe allelen</td><td>basis</td><td>samenvatting</td><td>—</td></tr>
-  <tr class="vonly"><td>leesraam en leesraamverschuiving; promotor- en intronmutaties</td><td>vwo</td><td>2</td><td>check 7</td></tr>
+  <tr class="vonly"><td>leesraam en leesraamverschuiving; promotor- en intronmutaties</td><td>vwo</td><td>2</td><td>check 9</td></tr>
   <tr class="vonly"><td>chromosoommutatie</td><td>vwo</td><td>4</td><td>—</td></tr>
-  <tr class="vonly"><td>proto-oncogen, tumorsuppressorgen, p53, erfelijke eerste hit</td><td>vwo</td><td>4</td><td>check 8, check 9</td></tr></table></details>
+  <tr class="vonly"><td>proto-oncogen, tumorsuppressorgen, p53, erfelijke eerste hit</td><td>vwo</td><td>4</td><td>check 10, check 11</td></tr></table></details>

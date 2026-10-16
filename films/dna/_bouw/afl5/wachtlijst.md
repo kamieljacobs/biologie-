@@ -48,4 +48,12 @@
 | tumorsuppressorgen | n25 | 0:25.2 |
 | p53 | n25 | 0:27.3 |
 | UV | n27 | 0:01.4 |
-| DNA | n29 | 0:02.0 |
+| DNA | n29 | 0:02.0 || goedaardige | n24b | 0:02.5 |
+| kwaadaardige | n24b | 0:09.6 |
+| uitzaaien | n24b | 0:19.9 |
+| DNA-schade (deeënaa-schade) | n24c | 0:08.2 |
+| apoptose | n24c | 0:15.4 |
+| geprogrammeerde | n24c | 0:16.6 |
+| telomeren | n24c | 0:25.0 |
+| telomerase | n24c | 0:42.1 |
+| telomerase | n24c | 0:46.8 |

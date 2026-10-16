@@ -34,3 +34,6 @@ De audio staat niet in deze map maar in de film zelf (`python3 scripts/filmbron.
 
 ## Ingevoegde segmenten (16 okt 2026)
 Een nieuw stuk tekst zonder bestaande takes opnieuw op te nemen: zet een eigen segment met `"id"` (bv. `n9b`) in `data/afl<n>_script.json`; build.py gebruikt `id` als sleutel als die er is (anders `n`/`q` + plek in SCRIPT). Geef de segmenten erna hun oude sleutel als vaste `id`, zodat audio en woordtijden niet verschuiven. Normaliseren: `./norm16.sh ruw.mp3 data/afl<n>_audio/<id>.mp3`; woordtijden: `python3 make_words_nieuw.py <n> <id> <scribe.json>`; stills per segment: `NODE_PATH=$(npm root -g) node grabseg.js <html> <map> <id,id> [havo] [aantal]` (Playwright).
+
+## Afl. 5 — aanvulling 16 okt 2026 (n24b, n24c)
+Ingevoegde segmenten n24b (goedaardig/kwaadaardig, scène `h4k`) en n24c (apoptose, telomeren, scène `h4r`); woordtijden met `make_words5b.py` uit `afl5/aanvulling_16okt/<id>_words.json`. `src/scenes5.js` is nu gelijk aan het gepubliceerde scèneblok (naamBij). De gepubliceerde DNA-films hebben speler- en labelwijzigingen die niet in `src/lib.js`, `src/player.js` en `src/page.tpl` staan; een kale `build.py 5` zou die terugdraaien. Daarom: `build.py 5`, dan `python3 afl5/aanvulling_16okt/patch5.py ../5-mutaties.html <oude bouw>` (zie bron/info.md van de film).

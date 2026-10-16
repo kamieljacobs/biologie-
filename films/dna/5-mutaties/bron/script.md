@@ -1,6 +1,6 @@
 # Mutaties — script
 
-Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026); zonder uitspraaktest vooraf (afspraak Kamiel 13 okt: uitspraak later per verzameltest over meerdere films); spellingen volgens de uitspraaklijst: deeënaa, uu-vee, histiedine, vaaline, codons met streepjes (G-U-G), 'vijf en zeventig duizend', 'chromosomen een-en-twintig', 'pee-drie-en-vijftig'; glutamine, glutaminezuur, tryptofaan, mutagene, röntgenstraling, substitutie/insertie/deletie, leesraamverschuiving, proto-oncogenen, tumorsuppressorgenen zoals geschreven. Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
+Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026); zonder uitspraaktest vooraf (afspraak Kamiel 13 okt: uitspraak later per verzameltest over meerdere films); spellingen volgens de uitspraaklijst: deeënaa, uu-vee, histiedine, vaaline, codons met streepjes (G-U-G), 'vijf en zeventig duizend', 'chromosomen een-en-twintig', 'pee-drie-en-vijftig'; glutamine, glutaminezuur, tryptofaan, mutagene, röntgenstraling, substitutie/insertie/deletie, leesraamverschuiving, proto-oncogenen, tumorsuppressorgenen zoals geschreven. Tijden: begin in de speler (vwo / havo; vanaf n24b bijgewerkt op 16 oktober 2026, ervoor ongewijzigd uit versie 1.0). Aanvulling 16 oktober 2026: n24b en n24c (eigen takes, stem-invoer zoals geschreven; apoptose, telomeren, telomerase op de uitspraak-wachtlijst). Audio: `FILMDATA.segments[<id>].audio`.
 
 ## n0 · Opening · basis
 *begin 0:00 / 0:00 · 28.9 s*
@@ -118,34 +118,47 @@ Een kuiken wordt geboren met een mutatie in alle cellen van zijn lichaam. Waar i
 Antwoord B. Alle cellen van het kuiken stammen af van één bevruchte eicel. Zat de mutatie daarin, dan zit hij overal. De zon op de huid van de moederkip verandert haar huidcellen, niet haar eicellen. Een mutatie in een zaadcel of eicel kan worden doorgegeven. Een mutatie in een huidcel, een levercel of een darmcel niet. Die blijft bij jou. Je kinderen beginnen dus zonder jouw huidmutaties.
 
 ## n24 · Hoofdstuk 4 — Erfelijk of niet? · basis
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 *begin 8:46 / 7:58 · 37.7 s*
 
 Maar bij jou blijven ze zitten. En elke zomer komen er bij. De meeste mutaties doen niets. Ze zitten buiten een gen, of ze zijn stil. Maar sommige genen besturen de celdeling. Het ene gen zet de deling aan, het andere remt af. Raakt zo'n rem kapot, dan deelt de cel door terwijl dat niet moet. En de dochtercellen ook. Zo ontstaat een klomp cellen: een tumor. Daarvoor zijn meerdere mutaties nodig, in dezelfde cel. Daarom duurt het vaak jaren, en komt huidkanker vooral op latere leeftijd.
-> plek van de [nieuw]-regel: direct na "Zo ontstaat een klomp cellen: een tumor.", vóór "Daarvoor zijn meerdere mutaties nodig, in dezelfde cel."
-[nieuw] Kanker is het pas als zo'n tumor kwaadaardig is: hij groeit het weefsel eromheen in en kan uitzaaien, terwijl een goedaardige tumor op zijn plek blijft.
+
+> 16-10-2026: de klaargezette [nieuw]-zin over goedaardig/kwaadaardig is niet in deze take gezet maar als eigen segment n24b hieronder ingesproken; n24 is ongewijzigd.
+
+## n24b · Hoofdstuk 4 — Erfelijk of niet? · basis · nieuw 16 okt 2026
+*begin 9:24 / 8:39 · 24.5 s · scène h4k*
+
+Een tumor is niet altijd kanker. Een goedaardige tumor blijft op zijn plek. Hij groeit wel, maar duwt het weefsel eromheen alleen opzij. Een kwaadaardige tumor groeit het weefsel eromheen in. Losse cellen kunnen via het bloed naar een andere plek reizen en daar een nieuwe tumor vormen. Dat heet uitzaaien. Alleen een kwaadaardige tumor heet kanker.
+
+> stem-invoer (Roos, eleven_v3, één take): Een tumor is niet altijd kanker. Een goedaardige tumor blijft op zijn plek. Hij groeit wel, maar duwt het weefsel eromheen alleen opzij. Een kwaadaardige tumor groeit het weefsel eromheen in. Losse cellen kunnen via het bloed naar een andere plek reizen en daar een nieuwe tumor vormen. Dat heet uitzaaien. Alleen een kwaadaardige tumor heet kanker.
+
+## n24c · Hoofdstuk 4 — Erfelijk of niet? · basis · nieuw 16 okt 2026
+*begin 9:48 / 9:03 · 52.1 s · scène h4r*
+
+Waarom zijn er meerdere mutaties nodig? Een cel heeft meer dan één rem. De eerste ken je al: een cel met te veel DNA-schade ruimt zichzelf op. Ze valt netjes uiteen in kleine blaasjes, en die worden opgeruimd. Dat heet apoptose: geprogrammeerde celdood. In kankercellen staat die rem vaak uit. De tweede rem zit aan de uiteinden van je chromosomen: de telomeren. Dat zijn beschermende kapjes. Bij elke deling worden ze een stukje korter. Zijn ze te kort, dan stopt de cel met delen. Zo kan een gewone cel maar een beperkt aantal keren delen. Stamcellen en cellen die geslachtscellen maken, hebben het enzym telomerase. Dat maakt de telomeren weer langer. Kankercellen zetten telomerase ook aan. Daardoor blijven ze delen, steeds opnieuw.
+
+> stem-invoer (Roos, eleven_v3, één take): Waarom zijn er meerdere mutaties nodig? Een cel heeft meer dan één rem. De eerste ken je al: een cel met te veel deeënaa-schade ruimt zichzelf op. Ze valt netjes uiteen in kleine blaasjes, en die worden opgeruimd. Dat heet apoptose: geprogrammeerde celdood. In kankercellen staat die rem vaak uit. De tweede rem zit aan de uiteinden van je chromosomen: de telomeren. Dat zijn beschermende kapjes. Bij elke deling worden ze een stukje korter. Zijn ze te kort, dan stopt de cel met delen. Zo kan een gewone cel maar een beperkt aantal keren delen. Stamcellen en cellen die geslachtscellen maken, hebben het enzym telomerase. Dat maakt de telomeren weer langer. Kankercellen zetten telomerase ook aan. Daardoor blijven ze delen, steeds opnieuw.
 
 ## n25 · Hoofdstuk 4 — Erfelijk of niet? · vwo
-*begin 9:24 / — · 55.8 s*
+*begin 10:40 / — · 55.8 s*
 
 Voor vwo gaan we hier nog een stap verder. Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg. Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is. Zo'n tumorsuppressorgen is het gen voor p53. Dat eiwit stopt een cel met DNA-schade, of laat die cel zichzelf opruimen. Zonder p53 blijven beschadigde cellen delen en stapelen ze nog meer mutaties op. Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit. Terug naar het strand.
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg. Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is. Zo'n tumorsuppressorgen is het gen voor pee-drie-en-vijftig. Dat eiwit stopt een cel met deeënaa-schade, of laat die cel zichzelf opruimen. Zonder pee-drie-en-vijftig blijven beschadigde cellen delen en stapelen ze nog meer mutaties op. Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit. Terug naar het strand.
 
 ## n27 · Samenvatting — Terug naar het strand · basis
-*begin 10:23 / 8:39 · 44.7 s*
+*begin 11:40 / 9:55 · 44.7 s*
 
 Een middag in de zon: UV plakt basen aan elkaar. Herstelenzymen repareren het meeste. Wat blijft staan, is een mutatie. Eén andere base doet soms niets, geeft soms een ander aminozuur, en soms een eiwit dat te vroeg stopt. Zit de mutatie in een huidcel, dan blijft hij bij jou. Zit hij in een geslachtscel, dan kan je kind hem erven. De meeste mutaties merk je niet. En soms levert een mutatie juist iets nieuws op: zo zijn alle allelen ooit ontstaan. Maar zonnebrand tel je op. Elke verbranding voegt mutaties toe aan je huidcellen. Smeren is geen betutteling. Het is DNA-bescherming.
 
 > stem-invoer: Een middag in de zon: uu-vee plakt basen aan elkaar. Herstelenzymen repareren het meeste. Wat blijft staan, is een mutatie. Eén andere base doet soms niets, geeft soms een ander aminozuur, en soms een eiwit dat te vroeg stopt. Zit de mutatie in een huidcel, dan blijft hij bij jou. Zit hij in een geslachtscel, dan kan je kind hem erven. De meeste mutaties merk je niet. En soms levert een mutatie juist iets nieuws op: zo zijn alle allelen ooit ontstaan. Maar zonnebrand tel je op. Elke verbranding voegt mutaties toe aan je huidcellen. Smeren is geen betutteling. Het is deeënaa-bescherming.
 
 ## n28 · Samenvatting — Terug naar het strand · vwo
-*begin 11:08 / — · 10.1 s*
+*begin 12:25 / — · 10.1 s*
 
 Voor vwo, tot slot: zonder mutaties geen nieuwe allelen, en zonder nieuwe allelen geen evolutie. Daar komen we op terug.
 
 ## n29 · Samenvatting — Terug naar het strand · basis
-*begin 11:18 / 9:24 · 11.3 s*
+*begin 12:35 / 10:41 · 11.3 s*
 
 Elke cel in je lichaam heeft hetzelfde DNA. Toch is een huidcel geen levercel. Hoe een cel kiest welke genen ze gebruikt: dat zie je in aflevering zes.
 
