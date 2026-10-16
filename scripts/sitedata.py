@@ -37,4 +37,9 @@ def lees():
 def filmduren():
     """href -> duur in minuten, voor alle films op de site."""
     h, _ = lees()
-    return {f['href']: f.get('duur') for v in h.values() for f in v.get('films', []) if f.get('href')}
+    d = {f['href']: f.get('duur') for v in h.values() for f in v.get('films', []) if f.get('href')}
+    # films buiten de hoofdstukken (Wat word jij?) staan in films/vervolg/films.json
+    p = os.path.join(R, 'films', 'vervolg', 'films.json')
+    if os.path.exists(p):
+        d.update({f['href']: f.get('duur') for f in json.load(open(p, encoding='utf-8'))})
+    return d

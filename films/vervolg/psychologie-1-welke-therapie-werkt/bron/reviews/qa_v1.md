@@ -1,0 +1,4 @@
+# Frisse-ogen-controle beeld (16 okt 2026, aparte agent op contactbladen)
+Verwerkt: tag 'al maanden somber' botste met de vraagwolk (verplaatst); s07 overgang zonder overlap; 'onderling weinig verschil' los van de medicatiebox; kaarten na vraag 3 'bij depressie' en zonder EMDR (EMDR is geen depressietherapie in de film); rij systeemtherapie als 'kind of jongere + gezin'; 'vastgesteld' → 'sterk onderbouwd'; 'borderline-stoornis'; kaartteksten groter; EMDR-chip groter; wachtlijst-tag 'effect lijkt ±1,5× zo groot'.
+Niet verwerkt: ondertitel 'Antwoord aa.' (reeksconventie, speler gebruikt die zin); afbreking van de ondertitel in s11 (speler); eindkaartcredits (speler, gelijk aan andere films).
+Eerder (zelf gezien): titelkaarten over de titel, iconen over de subtitels van de kaarten, te lange eindkaartregel, 'zulke' te vroeg (s08), 'helpt' te vroeg (s10).
