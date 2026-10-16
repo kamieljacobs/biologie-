@@ -59,3 +59,4 @@ Werkmap opzetten: kopieer `bron/` naar `hw/zs7` (scenes.js uit `src/`, `words/` 
 ## Wijzigingen
 - 1.0 (16 okt 2026): eerste versie. Script na een kritische eigen review (zie `reviews/review_v1.md`); beeld-QA via contactsheets (zie `checkpoint.html`).
 - 1.0.1 (16 okt 2026): EEG → E-E-G (feedback Kamiel); s04 en s05 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.
+- 1.0.2 (16 okt 2026): film 4 heet voortaan 'Knoeien met de synaps'; verwijzing in s09 (tekst, stem-invoer, beeldlabel en docentdeel) aangepast, s09 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.

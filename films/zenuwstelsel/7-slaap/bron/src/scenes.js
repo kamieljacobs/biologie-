@@ -195,7 +195,7 @@ const SCENES = {
 
   // ---------- H2 ----------
   s09(ctx, t, q) { bg(ctx, 'schema'); const cx = 760, cy = 1500, R = 980; const slaap = q.on('slaapt', 1, 1.2), caf = q.on('Cafeïne', 1, 0.8), fb = q.on('slaapdruk', 3, 0.8);
-    tag(ctx, 'twee systemen bepalen wanneer je moe wordt', 960, 110, C.text2, q.on('Wanneer', 1) * (1 - q.on('eerste', 1)), 'center', 30); regel(ctx, 'systeem 1: slaapdruk', 140, 150, q.on('eerste', 1), ADENO, 36, 'left', 700); regel(ctx, "zie de film 'Knoeien met de spleet'", 140, 196, q.on('Knoeien', 1), C.text2, 24, 'left', 600);
+    tag(ctx, 'twee systemen bepalen wanneer je moe wordt', 960, 110, C.text2, q.on('Wanneer', 1) * (1 - q.on('eerste', 1)), 'center', 30); regel(ctx, 'systeem 1: slaapdruk', 140, 150, q.on('eerste', 1), ADENO, 36, 'left', 700); regel(ctx, "zie de film 'Knoeien met de synaps'", 140, 196, q.on('Knoeien', 1), C.text2, 24, 'left', 600);
     boogMembraan(ctx, cx, cy, R, Math.PI * 1.18, Math.PI * 1.82, q.on('hersencellen', 1)); naamBij(ctx, 'zenuwcel', null, 330, 760, q.on('hersencellen', 1), 'left', C.text2);
     const angs = [1.32, 1.42, 1.52, 1.62, 1.72].map(k => k * Math.PI);
     const vol = q.on('stapelt', 1, 3) * (1 - slaap) + (1 - caf) * 0; const nA = Math.round(26 * clamp(q.on('stapelt', 1, 4) - slaap * 0.85 + caf * 0.6, 0, 1));

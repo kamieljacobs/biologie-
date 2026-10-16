@@ -1,6 +1,6 @@
 # Slaap — script v2
 
-Reeks Zenuwstelsel, film 7 (havo + vwo; één kort vwo-blok gelabeld). Hoofdstuk Regeling (Nectar 4.1: regeling, zenuwstelsel en hormonen; Biologie voor jou: thema Regeling). Voice Roos (eleven_v4). Rode draad: Bilal en Sam (castboek) halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot, om acht uur voelen ze zich weer wakkerder. Twee systemen verklaren dat. Sluit aan op film 4 (Knoeien met de spleet: adenosine en cafeïne), film 5 (Het hoofdkantoor: hersenstam), film 6 (Leren en onthouden), Hormonen 2 (negatieve terugkoppeling) en Hormonen 3 (hypothalamus en hypofyse).
+Reeks Zenuwstelsel, film 7 (havo + vwo; één kort vwo-blok gelabeld). Hoofdstuk Regeling (Nectar 4.1: regeling, zenuwstelsel en hormonen; Biologie voor jou: thema Regeling). Voice Roos (eleven_v4). Rode draad: Bilal en Sam (castboek) halen een nacht door met gamen. Om vier uur 's nachts zijn ze kapot, om acht uur voelen ze zich weer wakkerder. Twee systemen verklaren dat. Sluit aan op film 4 (Knoeien met de synaps: adenosine en cafeïne), film 5 (Het hoofdkantoor: hersenstam), film 6 (Leren en onthouden), Hormonen 2 (negatieve terugkoppeling) en Hormonen 3 (hypothalamus en hypofyse).
 
 Leerdoelen
 1. basis — wat er in je hersenen gebeurt als je slaapt: EEG; slaapcyclus van ongeveer anderhalf uur met lichte slaap, diepe slaap en REM-slaap; dromen vooral in de REM-slaap, spieren slap
@@ -34,7 +34,7 @@ Antwoord aa. In de REM-slaap remt je hersenstam de motorische neuronen naar je s
 Lichte slaap, diepe slaap, REM-slaap: samen is dat één slaapcyclus. Die duurt ongeveer anderhalf uur. In een nacht doorloop je er vier tot zes. In het begin van de nacht heb je veel diepe slaap. Tegen de ochtend worden de REM-periodes langer.
 
 ## Hoofdstuk 2 — Twee systemen [Schema: synaps met adenosine en cafeïne; slaapdrukbalk; hoofdprofiel met netvlies, hypothalamus en pijnappelklier; 24-uursgrafiek]
-Wanneer word je moe? Dat bepalen twee systemen samen. Het eerste is je slaapdruk. In de film Knoeien met de spleet zag je: als je wakker bent, stapelt de stof adenosine zich op tussen je hersencellen. Adenosine past op een receptor en remt zenuwcellen af. Hoe langer je wakker bent, hoe meer adenosine, en hoe slaperiger je wordt.
+Wanneer word je moe? Dat bepalen twee systemen samen. Het eerste is je slaapdruk. In de film Knoeien met de synaps zag je: als je wakker bent, stapelt de stof adenosine zich op tussen je hersencellen. Adenosine past op een receptor en remt zenuwcellen af. Hoe langer je wakker bent, hoe meer adenosine, en hoe slaperiger je wordt.
 Als je slaapt, wordt de adenosine opgeruimd. Een hoge slaapdruk zorgt dus voor slaap, en slaap verlaagt de slaapdruk weer. Dat is negatieve terugkoppeling, net als bij je bloedsuiker. Cafeïne past op dezelfde receptor, maar remt niet. Het blokkeert de receptor alleen. Je voelt je wakkerder, maar de adenosine is er nog steeds.
 
 Het tweede systeem is je biologische klok. Die zit in een klein kerngebied in je hypothalamus, vlak boven de plek waar je oogzenuwen kruisen. De klok tikt in een ritme van ongeveer vierentwintig uur: een circadiaans ritme. Zonder daglicht loopt hij een beetje uit de pas. Daarom zet licht de klok elke dag gelijk. Speciale lichtgevoelige cellen in je netvlies sturen een signaal naar de klok.

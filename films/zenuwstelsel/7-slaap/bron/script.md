@@ -36,9 +36,9 @@ Lichte slaap, diepe slaap, REM-slaap: samen is dat één slaapcyclus. Die duurt 
 
 ## Hoofdstuk 2 — Twee systemen
 
-**s09** · 43.6 s · `audio/s09.mp3`
+**s09** · 44.5 s · `audio/s09.mp3`
 
-Wanneer word je moe? Dat bepalen twee systemen samen. Het eerste is je slaapdruk. In de film Knoeien met de spleet zag je: als je wakker bent, stapelt de stof adenosine zich op tussen je hersencellen. Adenosine past op een receptor en remt zenuwcellen af. Hoe langer je wakker bent, hoe meer adenosine, en hoe slaperiger je wordt. Als je slaapt, wordt de adenosine opgeruimd. Een hoge slaapdruk zorgt dus voor slaap, en slaap verlaagt de slaapdruk weer. Dat is negatieve terugkoppeling, net als bij je bloedsuiker. Cafeïne past op dezelfde receptor, maar remt niet. Het blokkeert de receptor alleen. Je voelt je wakkerder, maar de adenosine is er nog steeds.
+Wanneer word je moe? Dat bepalen twee systemen samen. Het eerste is je slaapdruk. In de film Knoeien met de synaps zag je: als je wakker bent, stapelt de stof adenosine zich op tussen je hersencellen. Adenosine past op een receptor en remt zenuwcellen af. Hoe langer je wakker bent, hoe meer adenosine, en hoe slaperiger je wordt. Als je slaapt, wordt de adenosine opgeruimd. Een hoge slaapdruk zorgt dus voor slaap, en slaap verlaagt de slaapdruk weer. Dat is negatieve terugkoppeling, net als bij je bloedsuiker. Cafeïne past op dezelfde receptor, maar remt niet. Het blokkeert de receptor alleen. Je voelt je wakkerder, maar de adenosine is er nog steeds.
 
 **s10** · 25.8 s · `audio/s10.mp3`
 
