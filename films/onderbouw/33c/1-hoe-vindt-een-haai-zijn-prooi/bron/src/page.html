@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hoe vindt een haai zijn prooi? · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.basis .term.vwo,body.basis #transcript p.vwo,body.basis .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+</head>
+<body>
+<header>
+  /*NAV*/
+  <div class="meta">Biologie bij Kamiel · Kerndoelen onderbouw · kerndoel 32A · 32B · 33C</div>
+  <h1>Hoe vindt een haai zijn prooi?</h1>
+  <p>In films ruikt een haai één druppel bloed van kilometers ver. Klopt dat? En hoe vindt een haai een vis in het pikdonker?</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Hoe vindt een haai zijn prooi?"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">antwoorden ingeklapt</p>
+    <div class="q"><b>1. Van ver naar dichtbij</b> <span class="pts">1 punt</span><p>Welke volgorde klopt, van ver naar dichtbij? A. ogen – reuk – zijlijn – elektrisch zintuig · B. gehoor en reuk – ogen – zijlijn – elektrisch zintuig · C. zijlijn – ogen – reuk – elektrisch zintuig.</p>
+      <details><summary>Antwoord</summary><p>B (1). Geluid en geur komen van honderden meters ver; ogen werken tot ongeveer 15 m; de zijlijn op een paar meter; het elektrisch zintuig op de laatste twintig centimeter.</p></details></div>
+    <div class="q"><b>2. Goed gebouwd</b> <span class="pts">1 punt</span><p>Waarom hebben haaien zulke goede zintuigen? A. ze hebben ze hun hele leven geoefend · B. haaien met betere zintuigen kregen vaker jongen, over heel veel generaties · C. ze wilden beter kunnen jagen.</p>
+      <details><summary>Antwoord</summary><p>B (1): natuurlijke selectie. Een dier kan zijn kenmerken niet zelf kiezen of veranderen omdat het dat wil.</p></details></div>
+    <div class="q"><b>3. Gevaarlijk?</b> <span class="pts">2 punten</span><p>Iemand zegt: "Haaien zijn gevaarlijk. Het is beter als ze verdwijnen." Geef twee argumenten uit de film waarom dat niet klopt.</p>
+      <details><summary>Antwoord</summary><p>(1) Haaien doden per jaar enkele mensen (in 2025 negen), mensen doden ongeveer 80 miljoen haaien per jaar. (2) Zonder haaien kunnen zeekoeien en zeeschildpadden het zeegras kaal eten, en daar schuilen jonge vissen: het hele voedselweb verandert.</p></details></div>
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Doelgroep en kerndoelen</h3>
+    <p>Onderbouw leerjaar 1–3, gemengde klassen vmbo-t, havo en vwo. Eén niveau voor iedereen: geen van de aanvullingen havo-vwo gaat over dit onderwerp. Kerndoelen (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025): <b>32A</b> bullets 2–3 (bouw van dierlijke organen en weefsels; samenwerking van zenuwstelsel, skelet, ademhalingsstelsel), <b>32B</b> bullet 3 (biodiversiteit door evolutie: natuurlijke selectie), <b>33C</b> bullets 2 en 4 (voedselwebben; dynamisch evenwicht) en <b>29B</b> bullets 2–3 (redeneren met structuur en functie; met schaal en hoeveelheden).</p>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Deel</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>Macro-nacht</td><td>De filmmythe: één druppel bloed, kilometers ver. Hoe vindt een haai zijn prooi in het donker?</td></tr>
+      <tr><td>1 Van ver naar dichtbij</td><td>Macro-nacht, Schema</td><td>Eén nachtjacht met een afstandsbalk: gehoor en reuk (honderden meters; één druppel in een zwembad, niet kilometers), ogen (± 15 m), zijlijn (± 2 m, trillingen), elektrisch zintuig (± 20 cm, gaatjes in de snuit). Vragen: hoe goed is de neus? hoe vindt hij een vis in het zand?</td></tr>
+      <tr><td>2 Het lijf van een jager</td><td>Schema, Macro-nacht</td><td>± 450 miljoen jaar oud (vóór bomen en dinosauriërs); skelet van kraakbeen; geen zwemblaas maar een lever vol olie, plus lift van de vinnen bij het zwemmen; kieuwen (witte haai moet zwemmen, verpleegsterhaai niet); tanden als lopende band; natuurlijke selectie. Vraag: waarom zakt hij niet?</td></tr>
+      <tr><td>3 Wie is er bang voor wie?</td><td>Schema, Macro-nacht</td><td>Voedselweb met de tijgerhaai als toppredator; de baai: tijgerhaaien in het ondiepe, grazers blijven weg, het zeegras blijft dicht (voorspelling: zonder haaien kan het kaal gegeten worden). Vraag: wat als de haaien verdwijnen? Getallen: 65 beten en 9 doden (2025) tegenover ± 80 miljoen gedode haaien per jaar.</td></tr>
+      <tr><td>Samenvatting</td><td>Macro-nacht</td><td>De vier haltes met hun zintuig; de filmmythe weerlegd</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Een haai ruikt één druppel bloed van kilometers ver (cold open, vraag H1).</li><li>Alle haaien moeten blijven zwemmen, anders gaan ze dood (H2).</li><li>Een dier past zich aan omdat het moet (H2, checkvraag 2).</li><li>Minder roofdieren is beter voor de rest van de natuur (vraag H3).</li><li>Haaien zijn een grote bedreiging voor mensen (H3, checkvraag 3).</li></ol>
+    <h3>Pauzemomenten</h3>
+    <p>Vier voorspelvragen met 8 s denktijd; in Klas-modus blijft elke vraag staan tot "verder". Extra: pauzeer bij de afstandsbalk en laat leerlingen voorspellen welk zintuig het overneemt in troebel water. Doe het proefje "Voel de trilling" uit de eindkaart in de les.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Reuk</td><td>gevoeligheid 1 op 25 miljoen tot 1 op 10 miljard, per stof en soort ("één druppel in een groot zwembad"); onder ideale stroming tot ± 400 m</td><td>BBC Science Focus; Field &amp; Stream; SeaWorld</td></tr>
+      <tr><td>Ogen</td><td>effectief zicht tot ± 15 m in helder water</td><td>SeaWorld</td></tr>
+      <tr><td>Zijlijn</td><td>± 1–3 m bij spartelende prooi</td><td>PBS NOVA</td></tr>
+      <tr><td>Elektrisch zintuig</td><td>± 20–30 cm; drempel ± 5 nV/cm</td><td>Kalmijn; Surfertoday; ReefQuest</td></tr>
+      <tr><td>Ouderdom haaien</td><td>± 450 miljoen jaar (oudste haaiachtige schubben, Laat-Ordovicium; onomstreden schubben ± 420 miljoen); oudste bossen ± 385–390 miljoen jaar</td><td>Natural History Museum London; Discover Wildlife</td></tr>
+      <tr><td>Lever</td><td>bij de reuzenhaai 20–25 % van het lichaamsgewicht</td><td>ReefQuest</td></tr>
+      <tr><td>Tanden</td><td>witte haai ± 20 000 in een leven</td><td>Mental Floss</td></tr>
+      <tr><td>Beten 2025</td><td>65 onuitgelokte beten; 9 van de 12 doden onuitgelokt</td><td>International Shark Attack File (Florida Museum)</td></tr>
+      <tr><td>Gedode haaien</td><td>± 80 miljoen per jaar (2012–2019), ≈ 2,5 per seconde</td><td>Worm et al. 2024, Science</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>De afstanden per zintuig verschillen per soort en per water; de afstandsbalk toont ze als vier haltes, niet op schaal.</li><li>"Zeekoeien" zijn doejongs. Het zeegrasvoorbeeld komt uit Shark Bay (West-Australië): de tijgerhaaien beschermen het zeegras vooral via het gedrag van de grazers (angst), niet doordat ze veel grazers opeten.</li><li>"450 miljoen jaar" rust op losse schubben waarvan niet zeker is of ze van echte haaien zijn.</li><li>De film noemt de ampullen van Lorenzini alleen als label in beeld; de narratie zegt "elektrisch zintuig".</li><li>Ogen: "zo'n vijftien meter" geldt voor helder water; in het donker zien haaien minder ver, maar beter dan wij.</li><li>Het voedselweb is vereenvoudigd tot vijf soorten; kleine vis eet in werkelijkheid vooral kleine diertjes, die zijn weggelaten.</li></ul>
+    <h3>Leerdoelen en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Kerndoel</th><th>Deel</th><th>Vraag</th></tr>
+      <tr><td>Zintuigen van een haai, van ver naar dichtbij</td><td>32A, 29B</td><td>H1, samenvatting</td><td>voorspel 1, check 1</td></tr>
+      <tr><td>Wat de zijlijn en het elektrisch zintuig waarnemen</td><td>32A</td><td>H1</td><td>voorspel 2</td></tr>
+      <tr><td>Bouwkenmerken en hun functie (kraakbeen, lever, kieuwen, tanden)</td><td>32A, 29B</td><td>H2</td><td>voorspel 3</td></tr>
+      <tr><td>Natuurlijke selectie</td><td>32B</td><td>H2</td><td>check 2</td></tr>
+      <tr><td>Toppredator en evenwicht in een voedselweb</td><td>33C</td><td>H3</td><td>voorspel 4, check 3</td></tr>
+      <tr><td>Gevaar in getallen</td><td>33C, 29B</td><td>H3</td><td>check 3</td></tr>
+    </table>
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 16 oktober 2026.</footer>
+<script>window.FILMDATA=/*FILMDATA*/;</script>
+<script>/*LIB*/</script>
+<script>/*SCENES*/</script>
+<script>
+const GLOSSARY=[
+ {t:'zintuig',d:'Een orgaan dat iets uit de omgeving waarneemt: geluid, geur, licht, trillingen of elektrische signalen.'},
+ {t:'zijlijn',d:'Een rij zintuigcellen langs de zijkant en de kop van een vis. Ze voelen trillingen en stroming in het water, op een paar meter afstand.'},
+ {t:'elektrisch zintuig',d:'Gaatjes in de snuit van een haai (ampullen van Lorenzini) die de zwakke elektrische signalen van spieren van andere dieren voelen. Werkt op zo\'n twintig centimeter.'},
+ {t:'kraakbeen',d:'Stevig maar buigzaam steunweefsel, lichter dan bot. Het skelet van een haai is van kraakbeen; jouw oorschelp ook.'},
+ {t:'natuurlijke selectie',d:'Dieren met een handig erfelijk kenmerk overleven vaker en krijgen meer jongen. Die jongen erven het kenmerk. Zo komt het over veel generaties steeds vaker voor.'},
+ {t:'toppredator',d:'Een roofdier bovenaan het voedselweb dat zelf (bijna) geen natuurlijke vijanden heeft.'},
+ {t:'voedselweb',d:'Alle voedselketens in een gebied, die met elkaar verbonden zijn. Een pijl wijst naar wie het eten opeet.'},
+];
+/*PLAYER*/
+</script>
+</body>
+</html>
