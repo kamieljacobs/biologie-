@@ -237,6 +237,17 @@ details.reeks[open] .pijl{transform:rotate(225deg)}
 .reeks-inhoud .naar{display:inline-block;color:var(--goud-text);font-weight:700;font-size:14px;margin:0 0 8px 4px}
 .ond-scheiding + details.reeks{margin-top:4px}
 .ond-blok[hidden],details.reeks[hidden],.kort[hidden]{display:none}
+.ond-blok{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;align-items:start}
+.ond-blok>.ond-scheiding{grid-column:1/-1;margin-top:34px}
+.ond-blok>details.reeks{border:1px solid var(--line);border-radius:14px;background:var(--surface);margin:0!important;padding-top:0!important}
+.ond-blok>details.reeks[open]{grid-column:1/-1}
+.ond-blok>details.reeks>summary{padding:10px 12px;gap:10px}
+.ond-blok>details.reeks .embleem{width:34px;height:34px}
+.ond-blok>details.reeks .embleem svg{width:24px;height:24px}
+.ond-blok>details.reeks h2{font-size:18px;line-height:1.15}
+.ond-blok>details.reeks .reeks-meta{font-size:11px}
+.ond-blok>details.reeks .pijl{width:8px;height:8px}
+.ond-blok>details.reeks .reeks-inhoud{padding:0 12px 10px}
 footer{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
 footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
 footer a:hover{color:var(--text)}
@@ -2250,8 +2261,8 @@ function films(){
     for(const id of ids){gehad.add(id);volgorde.push(id);lijst+=reeks(id)}
     lijst+=`</div>`;
   }
-  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&id!=='extra'&&heeft(id));
-  if(rest.length){lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Alle films":"Ook bij "+esc(niveau)}</h2></div>`;for(const id of rest){volgorde.push(id);lijst+=reeks(id)}lijst+=`</div>`}
+  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&id!=='extra'&&!(id==='kerndoelen'&&niveau!=='onderbouw')&&heeft(id));
+  if(rest.length){lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Uit de bovenbouw":"Overige films"}</h2></div>`;for(const id of rest){volgorde.push(id);lijst+=reeks(id)}lijst+=`</div>`}
   if(heeft('extra')){volgorde.push('extra');lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Extra</span><h2>Nieuwsgierig?</h2></div>${reeks('extra')}</div>`}
   out+=`<div class="filmzoek"><input id="filmzoek" type="search" placeholder="Zoek een film, bv. osmose of CRISPR" autocomplete="off" aria-label="Zoek in alle films"><div class="snel">${volgorde.map(id=>`<button type="button" data-open="${id}">${esc(HOOFDSTUKKEN[id].titel)}</button>`).join('')}</div><p class="zoek-leeg" hidden>Geen film gevonden. Probeer een ander woord.</p></div>`;
   return out+lijst+`</div>`;
