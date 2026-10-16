@@ -77,7 +77,20 @@ Terugkoppeling per gekozen optie staat in `QDEFS.qN.explain` (letterlijk):
 Let op de nummering: q4 (kikkers) komt in de film vóór q3 (cichliden).
 
 ## Begrippen
-Geen begrippenlijst op de pagina. Begrippen die in beeld als definitie staan (letterlijk uit de scènes): soort = "een groep organismen die zich onderling kunnen voortplanten en vruchtbare nakomelingen krijgen" (Ernst Mayr, 1942); "allopatrische soortvorming: op gescheiden plaatsen"; "isolatiemechanismen"; "sympatrische soortvorming: op dezelfde plaats"; "een ringsoort"; "een soort is geen hokje, maar een momentopname van een proces". Kleurlegenda op de pagina:
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **soort**: Groep organismen die zich onderling kunnen voortplanten en vruchtbare nakomelingen krijgen (Mayr, 1942).
+- **genenstroom**: Uitwisseling van genen tussen populaties doordat ze met elkaar paren. Stopt de genenstroom, dan kan één soort er twee worden.
+- **barrière**: Iets dat populaties van elkaar scheidt, zoals een rivier, een gebergte of de zee rond een eiland.
+- **allopatrische soortvorming**: Soortvorming op gescheiden plaatsen: een barrière stopt de genenstroom en verschillende selectie laat de twee helften uit elkaar groeien.
+- **isolatiemechanisme**: Een barrière in de dieren of planten zelf waardoor twee soorten geen vruchtbare nakomelingen krijgen, ook als ze door elkaar leven.
+- **isolatie vóór de bevruchting**: Er komt geen bevruchting: ander ritme of lied, andere bloeitijd of paartijd, passen mechanisch niet, of zaadcel en eicel herkennen elkaar niet.
+- **isolatie na de bevruchting**: De nakomeling wordt wel gemaakt maar is zwak of onvruchtbaar, zoals de muilezel.
+- **sympatrische soortvorming**: Soortvorming op dezelfde plaats, zonder barrière in het landschap, bijvoorbeeld door partnerkeuze zoals bij de cichliden.
+- **chromosoomverdubbeling**: Een fout bij de celdeling verdubbelt alle chromosomen; zo'n plant kan alleen nog paren met planten met dezelfde verdubbeling. Zo ontstonden tarwe, koolzaad en aardbei.
+- **ringsoort**: Een reeks populaties rond een gebied waarin buren met elkaar paren, maar de twee uiteinden niet meer, zoals de salamander Ensatina.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina. Begrippen die in beeld als definitie staan (letterlijk uit de scènes): soort = "een groep organismen die zich onderling kunnen voortplanten en vruchtbare nakomelingen krijgen" (Ernst Mayr, 1942); "allopatrische soortvorming: op gescheiden plaatsen"; "isolatiemechanismen"; "sympatrische soortvorming: op dezelfde plaats"; "een ringsoort"; "een soort is geen hokje, maar een momentopname van een proces". Kleurlegenda op de pagina:
 
 - `#F0B64A` het antwoord, de rechterhelft (groot voordelig), de ringsoort
 - `#6FB7E8` de linkerhelft (klein voordelig), blauwe cichliden, de rivier
@@ -148,9 +161,12 @@ Werk in de uitgepakte vorm: `python3 scripts/filmbron.py uitpakken films/evoluti
 - `CARDS.card4` ("3 · Zonder barrière") wordt nooit getoond: geen `card4`-segment in de tijdlijn. Daardoor heeft hoofdstuk 3 geen titelkaart en springt de film van vraag q4 direct naar "Tijd.".
 - Versie 0.2 (de andere afleveringen 6, 8, 9 zijn 0.1); wat er in 0.2 is veranderd, staat niet in de HTML.
 - Gebouwd vóór prompt v3/v4: geen NIVEAU-schakelaar (Havo/Vwo), geen Part C-stijlkaart (Micro/Macro/Schema), geen ingebedde fonts (Google Fonts via `<link>`, dus offline valt de film terug op Georgia/systeemletters).
-- Geen begrippenlijst en geen controlevragen na afloop; alleen vier voorspelvragen.
+- Geen begrippenlijst (toegevoegd 16 okt 2026) en geen controlevragen na afloop; alleen vier voorspelvragen.
 - Frasen met duur 0 in `TL` worden nooit als ondertitel getoond (de caption-zoekfunctie pakt dan de volgende frase): "Maar let op:" (k5_allo2, 2:33.8); "Test:" (k7_isolatie, 3:28.1). In het transcript staan ze wel.
 - Er is geen los audiobestand of stem-invoertekst met respellings in de repo; bij heropname moet de invoer opnieuw worden opgebouwd uit script.md + de QA-tabel.
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

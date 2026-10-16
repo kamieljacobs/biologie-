@@ -58,7 +58,19 @@ Twee eilanden, vlak naast elkaar, hetzelfde klimaat. Op het ene Aziatische diere
 - C. De geschiedenis: de eilanden hoorden bij verschillende continenten en de dieren verhuisden mee. **(juist)** — feedback: "Klopt. Afstamming en geschiedenis verklaren wat het klimaat niet kan."
 
 ## Begrippen
-Geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **onveranderlijke soorten**: Het oude idee: elke soort is apart gemaakt en verandert nooit.
+- **fossiel**: Overblijfsel of afdruk van een organisme uit het verre verleden, bewaard in de bodem of in gesteente, zoals het pantser van een Glyptodon.
+- **uitgestorven**: Een soort is uitgestorven als er geen levende exemplaren meer van zijn, zoals de reuzenluiaard.
+- **evolutie**: Soorten veranderen in de loop van vele generaties en nieuwe soorten ontstaan uit bestaande soorten.
+- **gemeenschappelijke voorouder**: Een soort waarvan twee of meer latere soorten afstammen. Soorten die op elkaar lijken, hebben een gemeenschappelijke voorouder.
+- **afstamming**: Soorten komen voort uit eerdere soorten; Darwin tekende dat als een lijn die zich steeds vertakt ("I think").
+- **Darwins vinken**: Dertien vinkensoorten die alleen op de Galápagos voorkomen, met snavels van een dikke notenkraker tot een dun pincet.
+- **Wallacelijn**: Scherpe grens in de Indonesische archipel tussen Aziatische en Australische dieren, ook al is het klimaat aan beide kanten gelijk. De eilanden hoorden ooit bij verschillende continenten.
+- **On the Origin of Species**: Het boek van Darwin uit 1859 over het ontstaan van soorten; een jaar eerder werden de teksten van Darwin en Wallace samen voorgelezen.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
 
 - #F0B64A: aanwijzing, raadsel, de route van de Beagle
 - #DCCBA6: uitgestorven: fossielen en botten
@@ -155,7 +167,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 8
 5. **Let op**: kaarten en vragen zijn stiltes ín de mp3, geen pauzes van de speler. Een kaart langer maken = stilte bijvoegen in de audio en alle latere tijden verschuiven. De `C`-cues rekenen zichzelf opnieuw uit, maar de scènes gebruiken ook vaste offsets na een cue (bijv. `C.x+2.0`).
 
 ## Aandachtspunten
-- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst, geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
+- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst (toegevoegd 16 okt 2026), geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
 - Woordtijden zijn geschat; het docentdeel zegt zelf "Bij de volledige bouw gebruiken we woordtimestamps". Dat is nog niet gebeurd.
 - Docentdeel noemt bij de misvattingen "individuen passen zich aan of krimpen (vraag 1, optie C)", maar in `QDEFS.q1` is dat optie **A**; C is juist het goede antwoord. Tekstfout in het docentdeel.
 - De pauzemomenten in het docentdeel zijn vaste tekst en wijken af van de echte tijden: "Toeval?" valt op 1:31,9 (genoemd 1:38), "Elk eiland zijn eigen variant" op 2:37,9 (genoemd 2:45), "I think" op 3:51,1 (genoemd 3:50), Wallacelijn op 6:11,4 (genoemd 6:05).
@@ -164,3 +176,6 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 8
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

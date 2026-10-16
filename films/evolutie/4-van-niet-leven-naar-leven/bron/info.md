@@ -55,7 +55,20 @@ Een bacterie, een eik en jij gebruiken dezelfde genetische code. Wat is de beste
 - C. Toeval: dezelfde code ontstond meerdere keren apart. — feedback: "Een tabel van 64 codons die meerdere keren precies hetzelfde uitvalt, is als verklaring onwaarschijnlijker dan één voorouder."
 
 ## Begrippen
-Geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **stromatoliet**: Gesteente met laagjes die door bacteriën zijn opgebouwd; de oudste zijn 3,5 miljard jaar oud.
+- **experiment van Miller**: Proef uit 1953: water, de gassen methaan, ammoniak en waterstof, warmte en vonken. Na een week waren er aminozuren ontstaan, zonder levende cel.
+- **aminozuren**: De bouwstenen van eiwitten. Ze ontstaan vanzelf uit simpele stoffen en energie, en zitten ook in meteorieten.
+- **RNA**: Molecuul dat net als DNA informatie draagt in een volgorde van letters, maar ook kan vouwen en reacties kan versnellen.
+- **ribozym**: Een RNA-molecuul dat werkt als enzym. Ribosomen zijn in de kern nog steeds ribozymen.
+- **RNA-wereld**: Idee dat het leven begon met RNA, dat tegelijk bouwtekening en gereedschap was. Kopiëren met fouten geeft dan al natuurlijke selectie: evolutie vóór het leven.
+- **vetzuur**: Molecuul met een kop die water opzoekt en een staart die water vermijdt. In water vormen vetzuren vanzelf blaasjes met een dubbele laag.
+- **protocel**: Een blaasje van vetzuren dat groeit en deelt, met daarin RNA dat zichzelf kopieert. Nog geen cel, maar het lijkt er al op.
+- **LUCA**: De laatste gemeenschappelijke voorouder van alles wat leeft: de laatste cel waar alle takken van de stamboom samenkomen. Had al DNA en ribosomen.
+- **genetische code**: Drie letters bepalen één aminozuur. Alle organismen gebruiken dezelfde code: een aanwijzing voor één gemeenschappelijke voorouder.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
 
 - #F0B64A: de rode draad: tussenstoffen, vetzuren, LUCA; in RNA de letter A
 - #86CF86: aminozuren, levende organismen, "kan vanzelf"; in RNA de letter G
@@ -140,7 +153,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 6
 5. **Let op**: kaarten en vragen zijn stiltes ín de mp3, geen pauzes van de speler. Een kaart langer maken = stilte bijvoegen in de audio en alle latere tijden verschuiven. De `C`-cues rekenen zichzelf opnieuw uit, maar de scènes gebruiken ook vaste offsets na een cue (bijv. `C.x+2.0`).
 
 ## Aandachtspunten
-- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst, geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
+- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst (toegevoegd 16 okt 2026), geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
 - Woordtijden zijn geschat; het docentdeel zegt zelf "Bij de volledige bouw gebruiken we woordtimestamps". Dat is nog niet gebeurd.
 - Vraag 3 heeft als goed antwoord "bolletjes met een dubbele laag", maar de vetzuursimulatie zelf geeft micel-achtige clusters; de dubbele laag in hoofdstuk 3 is een tekening. Het docentdeel meldt dit zelf ("Dat staat zo in de film niet benoemd").
 - Uitspraaklijst staat in het docentdeel en in `RISK`: Murchison als "Murtsjison", LUCA als "Loeka", jaartallen als cijfers.
@@ -148,3 +161,6 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 6
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

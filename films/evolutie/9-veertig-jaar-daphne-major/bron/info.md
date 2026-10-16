@@ -81,7 +81,19 @@ Terugkoppeling per gekozen optie staat in `QDEFS.qN.explain` (letterlijk):
 Let op: q1 staat in de tijdlijn vóór de kaart `card1`, dus de kaart "1 · Meten" volgt direct op de vraagpauze.
 
 ## Begrippen
-Geen begrippenlijst op de pagina. In beeld als definitie (letterlijk uit de scènes): "erfelijkheidsgraad h² = 0,7"; "selectieverschil S = 0,5 mm"; "R = h² × S"; "de fokkersvergelijking"; "karakterverschuiving: twee soorten groeien elkaar uit de weg"; "de Big Bird-lijn". Kleurlegenda op de pagina:
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **variatie**: Verschillen tussen individuen, zoals de snaveldiepte van middelgrote grondvinken (van ruim 8 tot ruim 11 mm).
+- **erfelijkheid**: Verschillen gaan over op de nakomelingen: de snavel van de jongen lijkt op het gemiddelde van de ouders.
+- **erfelijkheidsgraad**: Welk deel van de variatie in een kenmerk wordt doorgegeven aan de nakomelingen; bij de snaveldiepte ongeveer 0,7.
+- **selectieverschil**: Het verschil tussen het gemiddelde van de hele populatie en dat van de overlevers, zoals 9,4 tegen 9,9 mm na de droogte van 1977.
+- **fokkersvergelijking**: Verandering in de volgende generatie = erfelijkheidsgraad × selectieverschil. Voor 1978: 0,7 × 0,5 = 0,35 mm.
+- **natuurlijke selectie**: De omgeving bepaalt welke varianten overleven en nakomelingen krijgen; de richting wisselt met de omgeving, zoals na El Niño in 1983.
+- **concurrentie**: Twee soorten gebruiken hetzelfde voedsel. In 2004 at de grote grondvink de grote zaden, zodat juist kleine snavels in het voordeel waren.
+- **karakterverschuiving**: Twee concurrerende soorten groeien in hun kenmerken uit elkaar, zoals de snavel van de middelgrote grondvink na 2004.
+- **soortvorming**: Er ontstaat een nieuwe soort doordat de genenstroom stopt, zoals bij de Big Bird-lijn: door een eigen lied paarden de nakomelingen alleen met elkaar.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina. In beeld als definitie (letterlijk uit de scènes): "erfelijkheidsgraad h² = 0,7"; "selectieverschil S = 0,5 mm"; "R = h² × S"; "de fokkersvergelijking"; "karakterverschuiving: twee soorten groeien elkaar uit de weg"; "de Big Bird-lijn". Kleurlegenda op de pagina:
 
 - `#F0B64A` de gemeten lijn, het antwoord, de Big Bird-lijn
 - `#DCCBA6` de middelgrote grondvink, de populatie vóór selectie
@@ -149,10 +161,13 @@ Werk in de uitgepakte vorm: `python3 scripts/filmbron.py uitpakken films/evoluti
 - Docentdeel noemt 184 overlevers en gemiddelde 9,93 mm in het model; de stem zegt "180" en "9,9" (afgerond, consistent met de veldwaarden in de tabel).
 - Vraag q1 staat vóór kaart `card1` in de tijdlijn (49,1–60,6 s vraag, 60,6–64,1 kaart): de mp3 heeft daar één stilte van 15,2 s.
 - Gebouwd vóór prompt v3/v4: geen NIVEAU-schakelaar (Havo/Vwo), geen Part C-stijlkaart (Micro/Macro/Schema), geen ingebedde fonts (Google Fonts via `<link>`, dus offline valt de film terug op Georgia/systeemletters).
-- Geen begrippenlijst en geen controlevragen na afloop; alleen vier voorspelvragen.
+- Geen begrippenlijst (toegevoegd 16 okt 2026) en geen controlevragen na afloop; alleen vier voorspelvragen.
 - Frasen met duur 0 in `TL` worden nooit als ondertitel getoond (de caption-zoekfunctie pakt dan de volgende frase): "9,9." (n4_droogte, 1:54.7). In het transcript staan ze wel.
 - De statische HTML noemt een oude duur: schuifbalk `max="379"` en tekst `0:00 / 6:18`, terwijl de film 6:37 duurt; dit wordt bij het laden overschreven door `TL.total`, dus onzichtbaar voor kijkers.
 - Er is geen los audiobestand of stem-invoertekst met respellings in de repo; bij heropname moet de invoer opnieuw worden opgebouwd uit script.md + de QA-tabel.
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

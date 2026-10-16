@@ -74,7 +74,18 @@ Terugkoppeling per gekozen optie staat in `QDEFS.qN.explain` (letterlijk):
 - **q4**: B: "Klopt. Het is de nul-situatie. Juist de afwijking ervan vertelt dat er evolutie gaande is, en vaak ook welke kracht." · A: "Bijna geen populatie voldoet precies aan de voorwaarden. Het model beschrijft de verwachting zonder krachten, niet de werkelijkheid." · C: "Dat er altijd iets gebeurt, is precies waarom je een meetlat nodig hebt om te zien wát er gebeurt."
 
 ## Begrippen
-Geen begrippenlijst op de pagina. In beeld als definitie (letterlijk uit de scènes): "A: aandeel p", "a: aandeel q", "p + q = 1", "evolutie = verandering van p"; "genetische drift: verandering van allelfrequenties door toeval"; "flessenhals"; "stichtereffect: een paar dieren op een leeg eiland"; "p² + 2pq + q² = 0,64 + 0,32 + 0,04 = 1"; Hardy-Weinberg als "een meetlat". Kleurlegenda op de pagina:
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **allel**: Een variant van een gen, zoals A en a.
+- **allelfrequentie (p en q)** (vwo): Het aandeel van een allel in een populatie: p voor A, q voor a, en p + q = 1. Evolutie is een verandering van p.
+- **genetische drift**: Verandering van allelfrequenties door toeval bij het doorgeven. Sterk in kleine populaties, nauwelijks in grote.
+- **flessenhals**: Een populatie wordt ineens heel klein, zoals op Pingelap na de tyfoon. Welke allelen overblijven is toeval en er gaat genetische variatie verloren.
+- **stichtereffect**: Een paar dieren stichten een nieuwe populatie, bijvoorbeeld op een leeg eiland. De nieuwe populatie erft de toevallige allelen van die stichters.
+- **genetische variatie**: De verschillende allelen in een populatie. Weinig variatie, zoals bij jachtluipaarden, betekent weinig om op te selecteren.
+- **Hardy-Weinberg** (vwo): Als er geen selectie, drift, migratie of mutatie is en er willekeurig gepaard wordt, blijven de genotypen AA : Aa : aa = p² : 2pq : q². Zo bereken je dragers, en het is een meetlat voor evolutie.
+- **drager**: Iemand met één recessief allel (Aa), die de eigenschap zelf niet heeft. Het aandeel dragers is 2pq.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina. In beeld als definitie (letterlijk uit de scènes): "A: aandeel p", "a: aandeel q", "p + q = 1", "evolutie = verandering van p"; "genetische drift: verandering van allelfrequenties door toeval"; "flessenhals"; "stichtereffect: een paar dieren op een leeg eiland"; "p² + 2pq + q² = 0,64 + 0,32 + 0,04 = 1"; Hardy-Weinberg als "een meetlat". Kleurlegenda op de pagina:
 
 - `#F0B64A` allel A (frequentie p), het antwoord
 - `#6FB7E8` allel a (frequentie q)
@@ -142,7 +153,7 @@ Werk in de uitgepakte vorm: `python3 scripts/filmbron.py uitpakken films/evoluti
 - De ondertitel "p is 0,5." staat maar 0,5 s in beeld, ongeveer 3 s na de vorige frase: in de woordtijden is "precies even vaak voorkomen:" uitgerekt (1:00.6–1:05.1). Mogelijk is de geschatte timing hier scheef; niet gecontroleerd tegen de audio.
 - Rood haar wordt als één recessief allel behandeld; het docentdeel zegt zelf dat dit vereenvoudigd is.
 - Gebouwd vóór prompt v3/v4: geen NIVEAU-schakelaar (Havo/Vwo), geen Part C-stijlkaart (Micro/Macro/Schema), geen ingebedde fonts (Google Fonts via `<link>`, dus offline valt de film terug op Georgia/systeemletters). Mensen (Pingelap) zijn lijnfiguren zonder gezicht (`function person`); de huidige stijlkaart vraagt eenvoudige gezichten.
-- Geen begrippenlijst en geen controlevragen na afloop; alleen vier voorspelvragen.
+- Geen begrippenlijst (toegevoegd 16 okt 2026) en geen controlevragen na afloop; alleen vier voorspelvragen.
 - Frasen met duur 0 in `TL` worden nooit als ondertitel getoond (de caption-zoekfunctie pakt dan de volgende frase): "Simulatie:" (m6_variatie, 2:54.2). In het transcript staan ze wel.
 - Er is geen los audiobestand of stem-invoertekst met respellings in de repo; bij heropname moet de invoer opnieuw worden opgebouwd uit script.md + de QA-tabel.
 
@@ -162,3 +173,6 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

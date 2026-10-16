@@ -78,7 +78,17 @@ Terugkoppeling per gekozen optie staat in `QDEFS.qN.explain` (letterlijk):
 - **q4**: C: "Klopt. Seksuele selectie: fitness is nakomelingen, en wie gekozen wordt, krijgt er meer, ook als hij eerder sterft." · A: "Was het bescherming, dan hadden de vrouwtjes hem ook. De staart kost juist overleving." · B: "Een kenmerk dat overleving kost én toevallig is, zou snel verdwijnen. Dat hij groeit, vraagt om een voordeel ergens anders: bij het paren."
 
 ## Begrippen
-Geen begrippenlijst op de pagina. Begrippen die in beeld als definitie staan (uit de scènes, letterlijk): "fitness = het aantal nakomelingen dat een individu bijdraagt aan de volgende generatie"; "gerichte selectie: één uiterste wint, het gemiddelde schuift"; "stabiliserende selectie: niet van plaats, maar van breedte"; "splitsende selectie: het midden verdwijnt"; "seksuele selectie". Kleurlegenda op de pagina ("Kleuren in deze reeks"):
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **fitness**: Het aantal nakomelingen dat een individu bijdraagt aan de volgende generatie. Hangt af van de omgeving, niet van kracht.
+- **survival of the fittest**: Leus die Darwin van Spencer overnam. "Fittest" betekent: met de meeste nakomelingen, niet: de sterkste.
+- **gerichte selectie**: Eén uiterste heeft de hoogste fitness; het gemiddelde verschuift die kant op, zoals bij de berkenspanner en bij antibioticaresistentie.
+- **stabiliserende selectie**: Het midden heeft de hoogste fitness; het gemiddelde blijft gelijk en de spreiding wordt kleiner, zoals bij het geboortegewicht. De meest voorkomende vorm.
+- **splitsende selectie**: Beide uitersten hebben de hoogste fitness; het midden verdwijnt en de populatie splitst in twee groepen, zoals bij de zaadkraker.
+- **seksuele selectie**: Selectie door partnerkeuze: kenmerken die voor overleven slecht zijn, zoals een pauwenstaart, worden groter omdat partners ze kiezen.
+- **spreiding**: Hoe breed de verdeling van een kenmerk in een populatie is: hoeveel de individuen van elkaar verschillen.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina. Begrippen die in beeld als definitie staan (uit de scènes, letterlijk): "fitness = het aantal nakomelingen dat een individu bijdraagt aan de volgende generatie"; "gerichte selectie: één uiterste wint, het gemiddelde schuift"; "stabiliserende selectie: niet van plaats, maar van breedte"; "splitsende selectie: het midden verdwijnt"; "seksuele selectie". Kleurlegenda op de pagina ("Kleuren in deze reeks"):
 
 - `#F0B64A` de fitnesscurve, het antwoord, snavels
 - `#86CF86` de populatie in de simulaties; wat selectie bevoordeelt
@@ -148,7 +158,7 @@ Werk in de uitgepakte vorm: `python3 scripts/filmbron.py uitpakken films/evoluti
 - Het Darwin-citaat in beeld is Engels ("The sight of a feather in a peacock's tail, whenever I gaze at it, makes me sick!"); de stem zegt het Nederlands. De gestileerde curve aandeel zwart 1848–2000 is volgens de pagina geen meetreeks.
 - `SEX.optimum` staat op 0 en `k` op 3 als losse velden; de tekst "best voor overleven: geen staart" klopt met het model (overleving exp(−(t/0,7)²) is maximaal bij t = 0).
 - Gebouwd vóór prompt v3/v4: geen NIVEAU-schakelaar (Havo/Vwo), geen Part C-stijlkaart (Micro/Macro/Schema), geen ingebedde fonts (Google Fonts via `<link>`, dus offline valt de film terug op Georgia/systeemletters).
-- Geen begrippenlijst en geen controlevragen na afloop; alleen vier voorspelvragen.
+- Geen begrippenlijst (toegevoegd 16 okt 2026) en geen controlevragen na afloop; alleen vier voorspelvragen.
 - Frasen met duur 0 in `TL` worden nooit als ondertitel getoond (de caption-zoekfunctie pakt dan de volgende frase): "De simulatie:" (h5_gericht, 1:45.9). In het transcript staan ze wel.
 - Er is geen los audiobestand of stem-invoertekst met respellings in de repo; bij heropname moet de invoer opnieuw worden opgebouwd uit script.md + de QA-tabel.
 
@@ -166,3 +176,6 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

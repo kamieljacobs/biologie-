@@ -56,7 +56,21 @@ De geschiedenis van de aarde als één jaar: 1 januari ontstaat de aarde, eind f
 - C. Eind november. — feedback: "Eind november komen de planten het land op. De mens komt veel, veel later."
 
 ## Begrippen
-Geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **fotosynthese**: Met energie uit licht water splitsen en suiker maken; daarbij komt zuurstof vrij.
+- **cyanobacteriën**: Bacteriën die aan fotosynthese doen. Ze maakten de eerste zuurstof en bouwden de stromatolieten.
+- **gebande ijzerformatie**: Lagen roest op de oude zeebodem: het opgeloste ijzer in de oerzee ving de eerste zuurstof weg.
+- **cel met een kern**: Grote cel waarin het DNA in een kern ligt, met mitochondriën; ontstond ongeveer 2 miljard jaar geleden. Een bacterie heeft geen kern.
+- **mitochondrium**: Het energiefabriekje van de cel. Heeft eigen, ringvormig DNA en deelt zich zelfstandig, net als een bacterie.
+- **endosymbiose**: Een grote cel nam een bacterie op zonder haar te verteren; daaruit ontstonden mitochondriën en (bij planten) chloroplasten.
+- **chloroplast**: Bladgroenkorrel: het celorganel voor fotosynthese, ontstaan uit een opgenomen cyanobacterie.
+- **meercelligheid**: Organismen uit veel samenwerkende cellen; de eerste afdrukken zijn ongeveer 600 miljoen jaar oud.
+- **Cambrische explosie**: Rond 540 miljoen jaar geleden ontstonden in korte tijd bijna alle hoofdgroepen van dieren, met ogen, poten, schelpen en kaken.
+- **ozonlaag**: Laag in de lucht, gevormd uit zuurstof, die UV-straling tegenhoudt; daardoor kon het leven het land op.
+- **massa-uitsterven**: In korte tijd verdwijnt het grootste deel van alle soorten, zoals 66 miljoen jaar geleden na de inslag. Daarna waaieren de overlevers uit in de vrijgekomen ruimte.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
 
 - #F0B64A: de rode draad: mitochondriën, het Cambrium, de mens op de kalender
 - #86CF86: leven: cyanobacteriën, planten, overlevende takken
@@ -145,7 +159,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 6
 5. **Let op**: kaarten en vragen zijn stiltes ín de mp3, geen pauzes van de speler. Een kaart langer maken = stilte bijvoegen in de audio en alle latere tijden verschuiven. De `C`-cues rekenen zichzelf opnieuw uit, maar de scènes gebruiken ook vaste offsets na een cue (bijv. `C.x+2.0`).
 
 ## Aandachtspunten
-- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst, geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
+- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst (toegevoegd 16 okt 2026), geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
 - Woordtijden zijn geschat; het docentdeel zegt zelf "Bij de volledige bouw gebruiken we woordtimestamps". Dat is nog niet gebeurd.
 - Het code-commentaar boven `treeRun` zegt "p = 0.08·(1 − n/K) … K = 36", maar de code gebruikt 0,12 en K = 30. Het docentdeel noemt wel de juiste waarden (0,12·(1 − n/30)).
 - In g11_mens: "de laatste gemeenschappelijke voorouder van mens en chimpansee. Daar splitst onze tak af; de chimpansee is dus geen voorouder van ons, maar een neef." Controleer of die formulering (afsplitsen bij de voorouder) is zoals je het wilt.
@@ -153,3 +167,6 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 6
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.

@@ -52,7 +52,20 @@ Na het natte El Niño-jaar zijn kleine, zachte zaden overal. Wat verwacht je?
 - C. Er verandert niets: de populatie is al aangepast. — feedback: ""Aangepast" is altijd aangepast aan iets. Verandert dat iets, dan verandert de selectie."
 
 ## Begrippen
-Geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
+Begrippenlijst op de pagina (toegevoegd 16 okt 2026, sectie "Begrippen" tussen Hoofdstukken en Kleuren in deze reeks; gekozen uit wat de film zelf behandelt, definities op havo-niveau in de woorden van de film):
+
+- **populatie**: Alle individuen van één soort die in hetzelfde gebied leven en zich onderling voortplanten, zoals de grondvinken op Daphne Major.
+- **variatie**: In een populatie is geen individu precies hetzelfde: metingen, zoals de snaveldiepte, vormen een verdeling rond een gemiddelde.
+- **mutatie**: Toevallige kopieerfout in het DNA. Een mutatie ontstaat niet omdat een dier haar nodig heeft. Mutaties leveren nieuwe varianten.
+- **recombinatie**: Bij het maken van geslachtscellen worden de varianten van vader en moeder opnieuw gecombineerd, zodat elk jong een nieuwe combinatie heeft.
+- **erfelijkheid**: Erfelijke verschillen gaan over op de nakomelingen: jongen lijken op hun ouders.
+- **overproductie**: Er worden meer jongen geboren dan er kunnen overleven, omdat er bijvoorbeeld maar zoveel voedsel is (de gedachte van Malthus).
+- **natuurlijke selectie**: Variatie, erfelijkheid, overproductie en verschil in overleving en voortplanting: de omgeving bepaalt welke varianten de meeste nakomelingen krijgen.
+- **fitness**: Het aantal nakomelingen dat een individu krijgt dat zelf weer overleeft. Niet: kracht of conditie.
+- **evolutie**: De erfelijke eigenschappen van een populatie veranderen van generatie op generatie. Populaties evolueren, individuen niet.
+- **kunstmatige selectie**: De mens kiest welke dieren of planten nakomelingen krijgen, zoals een duivenfokker. Het mechanisme is hetzelfde als bij natuurlijke selectie.
+
+Vóór 16 okt 2026 geen begrippenlijst op de pagina (onbekend, niet in de HTML). Wel een legenda "Kleuren in deze reeks":
 
 - #F0B64A: de populatie, het gemiddelde, de selectiedruk
 - #86CF86: jongen, nieuwe generatie
@@ -139,7 +152,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 7
 5. **Let op**: kaarten en vragen zijn stiltes ín de mp3, geen pauzes van de speler. Een kaart langer maken = stilte bijvoegen in de audio en alle latere tijden verschuiven. De `C`-cues rekenen zichzelf opnieuw uit, maar de scènes gebruiken ook vaste offsets na een cue (bijv. `C.x+2.0`).
 
 ## Aandachtspunten
-- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst, geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
+- Gemaakt vóór Prompt v4/Part C: geen Micro/Macro/Schema-stijlkaart, geen begrippenlijst (toegevoegd 16 okt 2026), geen havo/vwo-blokken, terwijl de reeks volgens de afspraken ook voor havo bedoeld is. De badge zegt alleen "5/6 vwo".
 - Woordtijden zijn geschat; het docentdeel zegt zelf "Bij de volledige bouw gebruiken we woordtimestamps". Dat is nog niet gebeurd.
 - Deze film heeft drie voorspelvragen, de andere delen 1, 3, 4 en 5 hebben er vier.
 - Het docentdeel zegt bij de snaveldiepte zelf: "exacte waarden niet gecontroleerd vanuit deze sessie". De simulatie geeft een sterkere verschuiving (9,4 naar 10,7 mm, 9 % overleeft) dan in werkelijkheid; in beeld staat wel het label "simulatie".
@@ -148,3 +161,6 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`, 7
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaarten (card1, card2, …) duren 2,2 s in plaats van 3,5 s: de speler slaat het stille midden van de kaart over (in- en uitfaden blijven; de mp3 is niet veranderd). Korte inhoudelijke antwoorden zoals 'Analoog.' of 'Twee.' blijven staan.
+
+## Wijziging 16 okt 2026: begrippenlijst
+Nieuw blok `<section>` met `<h2 class="gl-kop">Begrippen</h2>` en `<div id="glossary">` (kaartjes `<div class="term"><b>begrip</b><p>uitleg</p></div>`, vwo-begrippen met `class="term vwo"` en `<i>vwo</i>`), vlak vóór "Kleuren in deze reeks"; opmaak in `<style id="glossary-stijl">` vlak voor `</head>` (licht: wit kaartje met `--line`, donker: zoals de hoofdengine). De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina). Begrip toevoegen of wijzigen: pas het kaartje in `#glossary` aan en de lijst hierboven. Regelnummers elders in dit bestand zijn enkele tientallen regels verschoven.
