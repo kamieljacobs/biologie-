@@ -86,8 +86,8 @@ SCENES.h1c=(ctx,li,lf,t)=>{ ctx.fillStyle=C.bgMacroSky; ctx.fillRect(0,0,W,H); c
 
 // ---- H2a: promotor, transcription factor, polymerase; structuur- vs regulatorgenen ----
 SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const y=460; const g=geneRow(ctx,360,y,900,1,'gen',li>=2?(li===2&&lf>0.5?false:true):null);
-  if(li===0){ const p=ease(lf*1.5); enzyme(ctx,g.px,y-160,0.9,p); M(ctx,'rna-polymerase',g.px,y-230,{align:'center',color:C.text2,alpha:p}); label(ctx,'promotor','stuk DNA vóór het gen',g.px,y+10,g.px-100,760,p,C.goud,'left'); return; }
-  if(li===1){ const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1,C.goud,''); label(ctx,'eiwit','transcriptiefactor',g.px+50,y-70,g.px+300,230,p,C.goud,'left'); label(ctx,'DNA','promotor',g.px,y+10,g.px-100,760,p,C.text,'left'); return; }
+  if(li===0){ const p=ease(lf*1.5); enzyme(ctx,g.px,y-160,0.9,p); M(ctx,'rna-polymerase',g.px,y-230,{align:'center',color:C.text2,alpha:p}); naamBij(ctx,'promotor','stuk DNA vóór het gen',g.px,y+112,p,'center',C.goud); return; }
+  if(li===1){ const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1,C.goud,''); label(ctx,'eiwit','transcriptiefactor',g.px+50,y-70,g.px+300,230,p,C.goud,'left'); naamBij(ctx,'DNA','promotor',g.px,y+112,p,'center',C.text); return; }
   if(li===2){ const on=lf<0.5; const p=ease(lf*3); tf(ctx,g.px,y-26,1,on?1:0.15,C.goud,''); enzyme(ctx,g.gx+300,y-170,0.9,on?p:0.15); mrna(ctx,g.gx+240,y-260,'AUGGC',{dx:60,s:0.6,alpha:on?p:0}); M(ctx,on?'transcriptiefactor aanwezig → polymerase bindt':'geen transcriptiefactor → polymerase bindt niet',960,700,{align:'center',color:on?C.groen:C.koraal}); return; }
   const p=ease(lf*1.5); tf(ctx,g.px,y-26,1,1); ctx.save(); ctx.globalAlpha*=p; box(ctx,240,620,700,150,20,rgba(C.fill,0.9),RBBR,1.5); T(ctx,'structuurgenen',270,670,36,{w:700}); T(ctx,'keratine, albumine: eiwitten die het werk doen',270,725,28,{color:C.text2}); box(ctx,980,620,700,150,20,rgba(C.fill,0.9),C.goud,1.5); T(ctx,'regulatorgenen',1010,670,36,{w:700,color:C.goud}); T(ctx,'de schakelaars, zoals transcriptiefactoren',1010,725,28,{color:C.text2}); ctx.restore();
 };
@@ -107,6 +107,99 @@ SCENES.h2v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',
   if(li<=1){ const p=P(li,1,lf); const g1=geneRow(ctx,200,400,560,1,'gen',li>=1?true:null); tf(ctx,g1.px,374,1,p,C.groen,'activator'); enzyme(ctx,g1.gx+100,250,0.8,p);
     const g2=geneRow(ctx,1120,400,560,1,'gen',li>=1?false:null); tf(ctx,g2.px,374,1,p,C.koraal,'repressor'); enzyme(ctx,g2.gx+100,180,0.8,p*0.3); M(ctx,'zit in de weg',g2.px,640,{align:'center',color:C.koraal,alpha:p}); return; }
   if(li===2){ const p=ease(lf*1.5); const g=geneRow(ctx,700,560,900,1,'gen',true); box(ctx,200,534,200,52,10,rgba(C.groen,0.3),C.groen,1.5); M(ctx,'enhancer',300,620,{align:'center',color:C.groen}); ln(ctx,400,560,620,560,C.line,6); tf(ctx,300,534,0.9,p,C.groen,'oestradiol + receptor'); ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.groen; ctx.lineWidth=2; ctx.setLineDash([8,8]); ctx.beginPath(); ctx.moveTo(300,470); ctx.quadraticCurveTo(600,250,g.px,430); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); M(ctx,'soms ver van het gen · versterkt de transcriptie',960,720,{align:'center',color:C.text2,alpha:p}); enzyme(ctx,g.gx+100,400,0.8,p); return; }
+  const p=ease(lf*1.5); egg(ctx,960,460,70,p); M(ctx,'waar komen al die cellen vandaan?',960,620,{align:'center',color:C.goud,alpha:p});
+};
+
+// ---- Aanvulling 16 okt 2026: lac-operon (h2op, basis) en RNA-interferentie (h2ri, vwo) ----
+// eiwit als keten (kralenketting), fold 0 = gestrekt, 1 = kluwen
+function protChain(ctx,x,y,s=1,col=C.koraal,alpha=1,fold=1,seed=3,n=13){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const r=seeded(seed); const pts=[];
+  for(let k=0;k<n;k++){ const a=k*2.3+r()*0.7, rad=(14+(k%4)*9)*s; const fx=x+Math.cos(a)*rad, fy=y+Math.sin(a)*rad*0.85; const sx=x+(k-(n-1)/2)*17*s; pts.push([lerp(sx,fx,fold),lerp(y,fy,fold)]); }
+  ctx.strokeStyle=lighten(col,0.25); ctx.lineWidth=3*s; ctx.lineJoin='round'; ctx.beginPath(); pts.forEach((p,k)=>k?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke();
+  pts.forEach(p=>circ(ctx,p[0],p[1],8*s,col,lighten(col,0.35),1)); ctx.restore(); }
+// mRNA: dunne, sliertige enkele streng
+function slier(ctx,x0,y0,len,alpha=1,o={}){ if(alpha<=0.01||len<=2) return; const dir=o.dir||1, amp=o.amp==null?1:o.amp, ph=o.ph||0; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=o.col||C.teal; ctx.lineWidth=o.lw||3; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.beginPath();
+  for(let u=0;u<=len;u+=5){ const X=x0+dir*u, Y=y0+amp*(Math.sin(u/34+ph)*9+Math.sin(u/91+ph)*6); u?ctx.lineTo(X,Y):ctx.moveTo(X,Y); } ctx.stroke(); ctx.restore(); }
+// kort dubbelstrengs RNA-stukje (twee teal strengen met baseparen)
+function dsRNA(ctx,x,y,len,alpha=1,col=C.teal){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; for(let u=6;u<len;u+=12) ln(ctx,x+u,y-7,x+u,y+7,rgba(col,0.6),2); ln(ctx,x,y-8,x+len,y-8,col,3); ln(ctx,x,y+8,x+len,y+8,lighten(col,0.3),3); ctx.restore(); }
+function hexRing(ctx,x,y,r,col){ ctx.beginPath(); for(let k=0;k<6;k++){ const a=k/6*6.283+0.52; const X=x+Math.cos(a)*r, Y=y+Math.sin(a)*r; k?ctx.lineTo(X,Y):ctx.moveTo(X,Y);} ctx.closePath(); ctx.fillStyle=rgba(col,0.22); ctx.fill(); ctx.strokeStyle=col; ctx.lineWidth=3; ctx.stroke(); }
+// lactose: twee suikerringen aan elkaar (glucose + galactose)
+function lactose(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const col='#EDE4D0'; hexRing(ctx,x-23*s,y,17*s,col); hexRing(ctx,x+23*s,y+6*s,17*s,col); ln(ctx,x-7*s,y+4*s,x+7*s,y+4*s,col,3); ctx.restore(); }
+function bacterie(ctx,x,y,s=1,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.groen; ctx.lineWidth=2; for(let k=0;k<3;k++){ ctx.beginPath(); for(let u=0;u<=70;u+=4){ const X=x+90*s+u*s, Y=y+(k-1)*18*s+Math.sin(u/9)*5*s; u?ctx.lineTo(X,Y):ctx.moveTo(X,Y);} ctx.stroke(); }
+  box(ctx,x-90*s,y-34*s,180*s,68*s,34*s,rgba(C.groen,0.22),C.groen,2.5); ctx.strokeStyle=C.paars; ctx.lineWidth=2; ctx.beginPath(); ctx.ellipse(x,y,46*s,16*s,0.2,0,6.283); ctx.stroke(); ctx.restore(); }
+// het lac-operon op een DNA-streep; geeft posities terug
+const OP={y:470, reg:[140,360], pro:[440,620], opr:[628,760], genes:[[776,1086],[1102,1412],[1428,1738]]};
+function operonRow(ctx,show){ const y=OP.y; ln(ctx,90,y,1830,y,C.line,6);
+  const bx=(r,fill,stroke,a)=>{ if(a>0.01){ ctx.save(); ctx.globalAlpha*=a; box(ctx,r[0],y-26,r[1]-r[0],52,10,fill,stroke,1.5); ctx.restore(); } };
+  bx(OP.reg,rgba(C.paars,0.35),C.paars,show.reg); M(ctx,'regulatorgen',(OP.reg[0]+OP.reg[1])/2,y+62,{align:'center',color:C.paars,alpha:show.reg});
+  bx(OP.pro,rgba(C.goud,0.3),C.goud,show.pro); M(ctx,'promotor',(OP.pro[0]+OP.pro[1])/2,y+62,{align:'center',color:C.goud,alpha:show.pro});
+  bx(OP.opr,rgba(C.koraal,0.3),C.koraal,show.opr); M(ctx,'operator',(OP.opr[0]+OP.opr[1])/2,y+104,{align:'center',color:C.koraal,alpha:show.opr});
+  OP.genes.forEach((g,k)=>{ bx(g,RBB,RBBR,show.genes); T(ctx,'gen '+(k+1),(g[0]+g[1])/2,y+12,30,{align:'center',w:600,alpha:show.genes}); });
+  M(ctx,'drie structuurgenen',(OP.genes[0][0]+OP.genes[2][1])/2,y+62,{align:'center',color:C.text2,alpha:show.genes});
+  if(show.br>0.01){ bracket(ctx,OP.pro[0],OP.genes[2][1],y+128,C.groen,'',show.br); T(ctx,'operon · het lac-operon',(OP.pro[0]+OP.genes[2][1])/2,y+196,36,{w:700,align:'center',color:C.groen,alpha:show.br}); } }
+SCENES.h2op=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const y=OP.y, pX=(OP.pro[0]+OP.pro[1])/2, oX=(OP.opr[0]+OP.opr[1])/2;
+  if(li===0){ const p=ease(lf*1.5); const g=geneRow(ctx,560,y,800,1,'gen',false); enzyme(ctx,g.px-170,y-250,0.6,0.35); M(ctx,'rna-polymerase',g.px-250,y-270,{align:'right',color:C.text2,alpha:0.6}); protChain(ctx,g.px,y-70,1,C.koraal,p,1); T(ctx,'repressor',g.px+70,y-80,40,{w:700,color:C.koraal,alpha:p}); M(ctx,'een eiwit dat in de weg zit',g.px+70,y-36,{color:C.text2,alpha:p}); return; }
+  T(ctx,'E. coli · lac-operon',120,140,46,{w:700}); bacterie(ctx,640,124,0.55,1);
+  const s1=li===1?ease(lf*1.6):1, s2=li<2?0:li===2?ease(lf*1.6):1, s3=li<3?0:li===3?ease(lf*3):1;
+  operonRow(ctx,{reg:s3,pro:s1,opr:s2,genes:s1,br:li===2?clamp(lf*2-0.8,0,1):li>2?0.5:0});
+  if(li===1){ lactose(ctx,1500,300,1.2,s1); M(ctx,'opname en afbraak van lactose (melksuiker)',1257,330,{align:'center',color:C.text2,alpha:s1,px:26}); return; }
+  if(li===2) return;
+  if(li===3){ const m=clamp((lf-0.15)*2.2,0,1), mv=ease(clamp((lf-0.35)*2.4,0,1)); const rx=lerp((OP.reg[0]+OP.reg[1])/2,oX,mv), ry=y-70; protChain(ctx,rx,ry,1,C.koraal,m,clamp(m*1.5,0,1)); if(mv<1&&m>0) M(ctx,'repressor',rx,ry-64,{align:'center',color:C.koraal,alpha:m});
+    const pb=clamp((lf-0.65)*3,0,1); enzyme(ctx,pX,y-134,0.6,pb); if(mv>=1){ M(ctx,'repressor',oX+14,y-150,{align:'left',color:C.koraal}); M(ctx,'rna-polymerase',pX-80,y-170,{align:'right',color:C.text2,alpha:pb}); }
+    T(ctx,'uit',1257,330,48,{w:700,align:'center',color:C.koraal,alpha:pb}); M(ctx,'polymerase kan de genen niet overschrijven',1257,380,{align:'center',color:C.text2,alpha:pb}); return; }
+  // li 4: lactose bindt, repressor laat los, polymerase loopt, mRNA; li 5: enzymen
+  const a=li===4?lf:1; const inL=ease(clamp(a/0.3,0,1)), up=ease(clamp((a-0.32)/0.2,0,1)), run=ease(clamp((a-0.5)/0.45,0,1));
+  const rx=oX, ry=lerp(y-70,y-200,up); protChain(ctx,rx,ry,1,C.koraal,1,1); lactose(ctx,lerp(1500,rx+14,inL),lerp(170,ry-58,inL),0.9,1);
+  M(ctx,'lactose',lerp(1500,rx+14,inL)+ (inL<1?60:70),lerp(170,ry-58,inL)+10,{color:'#EDE4D0'}); if(up>0.5) M(ctx,'repressor laat los',rx-70,ry+8,{align:'right',color:C.koraal,alpha:up});
+  const px=lerp(pX,OP.genes[2][1]-60,run); enzyme(ctx,px,y-134,0.6,1); if(run>0.02) slier(ctx,px-40,y-170,px-40-OP.genes[0][0],1,{dir:-1,ph:px/40});
+  if(run>0.3) M(ctx,'mrna voor alle drie de genen',(OP.genes[0][0]+px)/2,y-215,{align:'center',color:C.teal,alpha:clamp(run*3-0.9,0,1)});
+  T(ctx,run>0.05?'aan':'uit',1830,330,48,{w:700,align:'right',color:run>0.05?C.groen:C.koraal});
+  if(li===5){ const p=ease(lf*1.6); [0,1,2].forEach(k=>{ const g=OP.genes[k]; protChain(ctx,(g[0]+g[1])/2+20,170,0.85,C.oker,p,clamp(p*1.3,0,1),k+5); }); M(ctx,'enzymen voor lactose',1257,100,{align:'center',color:C.oker,alpha:p});
+    T(ctx,'alleen enzymen als er lactose is',960,820,40,{w:700,align:'center',color:C.goud,alpha:clamp(p*2-0.6,0,1)}); }
+};
+// RISC: eiwitcomplex (een paar ketens samen)
+function risc(ctx,x,y,alpha=1){ if(alpha<=0.01) return; protChain(ctx,x-34,y,1,ENZ,alpha,1,21); protChain(ctx,x+30,y-10,1,ENZ,alpha,1,22); protChain(ctx,x,y+20,0.9,ENZ,alpha,1,23); }
+SCENES.h2ri=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'RNA-interferentie',120,140,46,{w:700}); M(ctx,'een gen uitzetten ná de transcriptie',120,190,{color:C.text2});
+  if(li===0){ const p=ease(lf*1.4), y=470; ln(ctx,180,y-10,520,y-10,BBR,5); ln(ctx,180,y+10,520,y+10,BBR,5); M(ctx,'gen (dna)',350,y+70,{align:'center',color:C.paars});
+    arrow(ctx,560,y,720,y,C.line,3); M(ctx,'transcriptie',640,y-62,{align:'center',color:C.text2}); slier(ctx,760,y,340,1); M(ctx,'mrna',930,y+70,{align:'center',color:C.teal});
+    arrow(ctx,1140,y,1300,y,C.line,3); M(ctx,'translatie',1220,y-62,{align:'center',color:C.text2}); protChain(ctx,1420,y,1,C.oker,1,1,7); M(ctx,'eiwit',1420,y+80,{align:'center',color:C.oker});
+    ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.koraal; ctx.lineWidth=4; ctx.setLineDash([10,8]); roundRect(ctx,742,y-45,376,140,24); ctx.stroke(); ctx.restore();
+    T(ctx,'hier grijpt RNA-interferentie in: op het mRNA',930,680,38,{w:700,align:'center',color:C.koraal,alpha:p}); return; }
+  if(li===1){ const p=ease(lf*1.3); panel(ctx,140,250,780,560,1); panel(ctx,1000,250,780,560,p);
+    T(ctx,'microRNA',180,310,40,{w:700,color:C.teal}); M(ctx,'door de cel zelf · eigen genen',180,350,{color:C.text2});
+    ln(ctx,200,460,520,460,BBR,6); M(ctx,'eigen gen',360,510,{align:'center',color:C.paars}); arrow(ctx,540,460,610,460,C.line,2.5);
+    ctx.save(); ctx.strokeStyle=C.teal; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(640,448); ctx.lineTo(820,448); ctx.arc(820,460,12,-1.57,1.57); ctx.lineTo(640,472); ctx.stroke(); for(let u=650;u<815;u+=12) ln(ctx,u,450,u,470,rgba(C.teal,0.6),2); ctx.restore(); M(ctx,'haarspeld',730,510,{align:'center',color:C.text2});
+    arrow(ctx,730,540,730,610,C.line,2.5); dsRNA(ctx,640,660,180,1); M(ctx,'klein stukje',730,720,{align:'center',color:C.teal});
+    T(ctx,'siRNA',1040,310,40,{w:700,color:C.teal,alpha:p}); M(ctx,'uit dubbelstrengs rna (virus, lab)',1040,350,{color:C.text2,alpha:p});
+    dsRNA(ctx,1060,460,660,p); [1280,1500].forEach(x=>{ ln(ctx,x,430,x,490,C.koraal,3); }); ctx.save(); ctx.globalAlpha*=p; ctx.restore();
+    const sp=clamp(lf*2-0.6,0,1); [0,1,2].forEach(k=>dsRNA(ctx,1060+k*240,640,180,sp)); M(ctx,'kleine stukjes',1390,720,{align:'center',color:C.teal,alpha:sp});
+    M(ctx,'± 20 tot 25 nucleotiden',960,860,{align:'center',color:C.goud,alpha:p}); return; }
+  if(li===2){ const y=600, mv=ease(clamp(lf/0.6,0,1)), bx=lerp(420,1100,mv), bound=clamp((lf-0.6)/0.25,0,1);
+    slier(ctx,160,y,1600,1,{amp:0.25}); M(ctx,'mrna',160,y+60,{color:C.teal});
+    // match zone
+    ctx.save(); ctx.globalAlpha*=0.5; box(ctx,1000,y-30,200,60,10,null,rgba(C.goud,0.8),2); ctx.restore(); M(ctx,'passende basenvolgorde',1100,y+60,{align:'center',color:C.goud});
+    const sy=lerp(y-120,y-22,bound); risc(ctx,bx,sy-70,1); ln(ctx,bx-90,sy,bx+90,sy,'#8CC6E1',3); M(ctx,'risc',bx+110,sy-110,{color:C.text,px:30});
+    if(bound>0){ ctx.save(); ctx.globalAlpha*=bound; for(let u=-84;u<=84;u+=12) ln(ctx,bx+u,sy+2,bx+u,y-4,rgba(C.text,0.7),2); ctx.restore(); M(ctx,'klein rna · baseparing',bx,y+110,{align:'center',color:C.text,alpha:bound}); }
+    M(ctx,'één streng van het kleine rna',bx,sy+44,{align:'center',color:'#8CC6E1',alpha:1-bound,px:24}); return; }
+  if(li===3){ const p=ease(lf*1.3), y=520; panel(ctx,140,250,780,560,1); panel(ctx,1000,250,780,560,1);
+    T(ctx,'past precies · siRNA',180,310,36,{w:700,color:C.teal}); const cut=clamp(lf*2.5-0.3,0,1);
+    slier(ctx,180-cut*30,y,300,1-cut*0.6,{amp:0.25}); slier(ctx,540+cut*30,y,330,1-cut*0.6,{amp:0.25,ph:2}); risc(ctx,510,y-90,1); ln(ctx,440,y-22,600,y-22,'#8CC6E1',3);
+    if(cut>0.5) for(let k=0;k<10;k++) ln(ctx,220+k*62+Math.sin(k)*8,y+120+(k%3)*22,236+k*62+Math.sin(k)*8,y+120+(k%3)*22,C.teal,3);
+    M(ctx,'mrna doorgeknipt → afgebroken',530,740,{align:'center',color:C.koraal,alpha:cut});
+    const q=clamp(lf*2-0.9,0,1); T(ctx,'past deels · microRNA',1040,310,36,{w:700,color:C.teal,alpha:q}); slier(ctx,1040,y,700,q,{amp:0.25}); ribosomeBig(ctx,1220,y-14,150,q); risc(ctx,1480,y-90,q); ctx.save(); ctx.globalAlpha*=q; ln(ctx,1410,y-22,1550,y-22,'#8CC6E1',3); for(let u=1416;u<1550;u+=24) ln(ctx,u,y-20,u,y-6,rgba(C.text,0.7),2); ctx.restore();
+    M(ctx,'translatie geblokkeerd',1390,740,{align:'center',color:C.koraal,alpha:q}); return; }
+  if(li===4){ const p=ease(lf*1.4), y=520; panel(ctx,140,250,780,560,1); panel(ctx,1000,250,780,560,p);
+    T(ctx,'regeling van de transcriptie',180,310,36,{w:700}); M(ctx,'repressor · activator',180,350,{color:C.text2});
+    ln(ctx,200,y,860,y,C.line,6); box(ctx,240,y-22,140,44,8,rgba(C.goud,0.3),C.goud,1.5); box(ctx,392,y-22,440,44,8,RBB,RBBR,1.5); protChain(ctx,310,y-62,0.8,C.koraal,1,1); enzyme(ctx,620,y-150,0.5,0.35);
+    T(ctx,'wel of géén mRNA?',530,700,34,{w:700,align:'center',color:C.goud});
+    ctx.save(); ctx.globalAlpha*=p; T(ctx,'RNA-interferentie',1040,310,36,{w:700,color:C.teal}); M(ctx,'werkt op het mrna',1040,350,{color:C.text2});
+    ln(ctx,1060,y-120,1280,y-120,C.line,6); M(ctx,'gen',1170,y-80,{align:'center',color:C.text2}); arrow(ctx,1300,y-120,1370,y-120,C.line,2.5); slier(ctx,1390,y-120,300,1); M(ctx,'mrna wordt gemaakt',1540,y-70,{align:'center',color:C.teal}); risc(ctx,1540,y+20,1);
+    protChain(ctx,1540,y+170,0.8,C.oker,0.5,1,7); ln(ctx,1480,y+120,1600,y+220,C.koraal,5); ln(ctx,1600,y+120,1480,y+220,C.koraal,5); ctx.restore();
+    T(ctx,'mRNA wel, eiwit niet',1390,780,34,{w:700,align:'center',color:C.goud,alpha:p}); return; }
+  if(li===5){ const p=ease(lf*1.4); panel(ctx,140,300,780,420,1); panel(ctx,1000,300,780,420,p);
+    T(ctx,'onderzoek',180,370,40,{w:700}); T(ctx,'zet met siRNA één gen uit',180,430,32,{color:C.text2}); T(ctx,'en kijk wat er dan verandert',180,475,32,{color:C.text2});
+    box(ctx,700,520,60,150,26,rgba(C.teal,0.3),C.teal,2); box(ctx,690,505,80,20,6,C.line); dsRNA(ctx,705,610,50,1);
+    ctx.save(); ctx.globalAlpha*=p; T(ctx,'medicijn',1040,370,40,{w:700}); T(ctx,'siRNA in de lever: minder',1040,430,32,{color:C.text2}); T(ctx,'van een schadelijk eiwit',1040,475,32,{color:C.text2});
+    ctx.beginPath(); ctx.moveTo(1420,560); ctx.quadraticCurveTo(1520,500,1700,540); ctx.quadraticCurveTo(1730,620,1600,670); ctx.quadraticCurveTo(1480,690,1420,640); ctx.closePath(); ctx.fillStyle=rgba(C.bruin,0.75); ctx.fill(); ctx.strokeStyle=lighten(C.bruin,0.35); ctx.lineWidth=2; ctx.stroke(); M(ctx,'lever',1560,710,{align:'center',color:C.text2}); ctx.restore(); return; }
   const p=ease(lf*1.5); egg(ctx,960,460,70,p); M(ctx,'waar komen al die cellen vandaan?',960,620,{align:'center',color:C.goud,alpha:p});
 };
 
@@ -142,7 +235,7 @@ SCENES.h3v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',
 SCENES.h4a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   if(li===0){ const p=ease(lf*1.5); personReal(ctx,560,780,460,1,TWIN_A); personReal(ctx,1360,780,460,1,TWIN_B); M(ctx,'zelfde DNA',960,300,{align:'center',color:C.text}); geneStrip(ctx,380,820,[1,0,1,1,0,1,0,1,1],p,36); geneStrip(ctx,1180,820,[1,0,0,1,1,1,0,0,1],p,36); M(ctx,'andere genexpressie',960,845,{align:'center',color:C.goud,alpha:p}); return; }
   const y=430; const g=geneRow(ctx,420,y,900,1,'gen',li>=2?false:null);
-  if(li>=1){ const p=P(li,1,lf); methyl(ctx,g.px,y-26,p); lock(ctx,g.px+120,y-80,1,p); if(li===1) label(ctx,'methylgroep','chemisch slotje op het DNA',g.px+10,y-70,g.px-160,220,p,C.koraal,'left'); }
+  if(li>=1){ const p=P(li,1,lf); methyl(ctx,g.px,y-26,p); lock(ctx,g.px+120,y-80,1,p); if(li===1) naamBij(ctx,'methylgroep','chemisch slotje op het DNA',g.px-25,y-100,p,'right',C.koraal); }
   if(li===2){ const p=ease(lf*1.5); const tx=g.px-300+p*180; tf(ctx,tx,y-110,1,1,C.goud,''); ctx.save(); ctx.globalAlpha*=clamp(p*3-2,0,1); ctx.strokeStyle=C.koraal; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(g.px-60,y-170); ctx.lineTo(g.px-20,y-130); ctx.moveTo(g.px-20,y-170); ctx.lineTo(g.px-60,y-130); ctx.stroke(); ctx.restore(); M(ctx,'kan er niet bij → gen blijft uit · dochtercellen krijgen het slotje mee',960,700,{align:'center',color:C.koraal,alpha:p}); cellS(ctx,560,790,50,p,false); lock(ctx,600,790,0.5,p); cellS(ctx,1360,790,50,p,false); lock(ctx,1400,790,0.5,p); }
   if(li===3){ const p=ease(lf*1.5); panel(ctx,360,620,1200,220,p); T(ctx,'basenvolgorde onveranderd → geen mutatie',420,690,36,{w:700,alpha:p}); T(ctx,'niet voorgoed: het slotje kan er weer af',420,745,36,{w:600,color:C.groen,alpha:p}); T(ctx,'epigenetisch: óp het DNA, niet ín het DNA',420,800,36,{w:700,color:C.goud,alpha:p}); }
 };

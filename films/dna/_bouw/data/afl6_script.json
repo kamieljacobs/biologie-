@@ -9,7 +9,8 @@
     "Vijftig jaar later niet meer. De ene loopt elke ochtend hard. De andere rookt, en heeft last van haar hart.",
     "Hun DNA is nog bijna precies hetzelfde: dezelfde basen, dezelfde genen.",
     "Hoe kan dat: hetzelfde kookboek, en toch twee verschillende mensen?"
-   ]
+   ],
+   "id": "n0"
   },
   {
    "kind": "card",
@@ -28,7 +29,8 @@
    "lines": [
     "Eerst iets dichterbij. Een huidcel, een levercel en een zenuwcel uit één mens. Ze zien er totaal anders uit en doen totaal andere dingen.",
     "Alle drie zijn ze ontstaan uit dezelfde bevruchte eicel."
-   ]
+   ],
+   "id": "n3"
   },
   {
    "kind": "q",
@@ -41,7 +43,8 @@
     "de zenuwcel gebruikt andere genen",
     "de zenuwcel heeft extra genen gekregen"
    ],
-   "correct": 1
+   "correct": 1,
+   "id": "q4"
   },
   {
    "kind": "narr",
@@ -52,7 +55,8 @@
     "Een gen gebruiken heet genexpressie: het gen wordt overgeschreven naar mRNA, en dat wordt vertaald naar een eiwit. Gebeurt dat, dan staat het gen aan. Anders staat het uit.",
     "Een huidcel heeft het gen voor huidkeratine aan, het stevige eiwit van je huid. Een levercel heeft dat gen uit, maar het gen voor albumine aan, een bloedeiwit.",
     "Hetzelfde kookboek, andere pagina's open."
-   ]
+   ],
+   "id": "n5"
   },
   {
    "kind": "narr",
@@ -62,7 +66,8 @@
     "Dat verandert ook in de tijd. Een beekprik, een soort vis, is eerst een larve zonder echte ogen, ingegraven in de modder. Later wordt hij een vis met ogen en vinnen, en zijn darm verdwijnt: hij eet niet meer.",
     "Zijn genotype verandert niet. Zijn genexpressie wel: andere genen gaan aan en uit.",
     "Een cel raakt dus geen genen kwijt. Ze gebruikt er een deel van, en welk deel kan veranderen."
-   ]
+   ],
+   "id": "n6"
   },
   {
    "kind": "card",
@@ -78,7 +83,8 @@
     "Maar niet zomaar. Eerst moet er een eiwit op de promotor gaan zitten: een transcriptiefactor. De promotor is DNA, de transcriptiefactor is een eiwit.",
     "Is die er, dan bindt de polymerase en gaat het gen aan. Is hij er niet, dan blijft het gen uit.",
     "Genen voor keratine of albumine heten structuurgenen: ze coderen voor de eiwitten die het werk doen. De genen voor de schakelaars, zoals transcriptiefactoren, heten regulatorgenen."
-   ]
+   ],
+   "id": "n8"
   },
   {
    "kind": "q",
@@ -91,7 +97,8 @@
     "het hormoon bindt zelf aan de promotor van het gen",
     "het hormoon bindt aan RNA-polymerase"
    ],
-   "correct": 0
+   "correct": 0,
+   "id": "q9"
   },
   {
    "kind": "narr",
@@ -101,6 +108,21 @@
     "Antwoord A. Oestradiol bindt in de cel aan een receptor. Dat koppel werkt in de kern als transcriptiefactor: het bindt bij het regelgebied van bepaalde genen.",
     "RNA-polymerase komt erbij, er wordt mRNA gemaakt, en aan de ribosomen een eiwit.",
     "Zo komt een signaal van buiten bij het DNA terecht: hormoon, receptor, kern, gen aan. Niet door het DNA te veranderen, maar door genen aan en uit te zetten."
+   ],
+   "id": "n10"
+  },
+  {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2op",
+   "id": "n10b",
+   "lines": [
+    "Een gen kan ook uit staan omdat er een eiwit in de weg zit: een repressor.",
+    "Dat zie je bij de darmbacterie E. coli. Drie structuurgenen voor de opname en afbraak van lactose, melksuiker, liggen naast elkaar, met samen één promotor.",
+    "Tussen de promotor en de genen ligt een operator: een stukje DNA. Zo'n rij genen met één promotor en één operator heet een operon: het lac-operon.",
+    "Een regulatorgen maakt een repressor, en die zit op de operator. Dan kan RNA-polymerase de genen niet overschrijven: ze staan uit.",
+    "Is er lactose, dan bindt die aan de repressor. De repressor laat los van de operator, de polymerase gaat lopen, en er wordt mRNA voor alle drie de genen gemaakt.",
+    "Zo maakt de bacterie de enzymen voor lactose alleen als er lactose is."
    ]
   },
   {
@@ -110,7 +132,22 @@
    "lines": [
     "Voor vwo gaan we hier nog een stap verder.",
     "Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit.",
-    "Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt.",
+    "Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt."
+   ],
+   "id": "n11"
+  },
+  {
+   "kind": "narr",
+   "level": "v",
+   "scene": "h2ri",
+   "id": "n11b",
+   "lines": [
+    "Een gen kan ook ná de transcriptie nog worden uitgezet: door RNA-interferentie.",
+    "Daarbij spelen kleine stukjes RNA de hoofdrol, van zo'n twintig tot vijfentwintig nucleotiden. MicroRNA maakt de cel zelf, met eigen genen. siRNA wordt geknipt uit dubbelstrengs RNA, bijvoorbeeld van een virus of uit het lab.",
+    "Eén streng van zo'n stukje gaat in een eiwitcomplex zitten: RISC. Het complex zoekt een mRNA met de passende basenvolgorde, en het kleine RNA bindt eraan door baseparing.",
+    "Past het precies, zoals bij siRNA, dan knipt het complex het mRNA door en wordt het afgebroken. Past het maar voor een deel, zoals vaak bij microRNA, dan wordt de translatie geblokkeerd.",
+    "Let op het verschil. Een repressor of activator regelt de transcriptie: wordt er mRNA gemaakt of niet. Bij RNA-interferentie wordt het gen gewoon overgeschreven, maar komt er van dat mRNA geen eiwit.",
+    "Onderzoekers zetten zo een gen uit om te zien wat het doet. En er zijn al medicijnen met siRNA, die in de lever de aanmaak van een schadelijk eiwit stilleggen.",
     "Nu: waar komen al die verschillende cellen vandaan?"
    ]
   },
@@ -128,7 +165,8 @@
     "Cellen die nog niet gespecialiseerd zijn, heten stamcellen. In een embryo: embryonale stamcellen. In je beenmerg: volwassen stamcellen.",
     "Een stamcel kan twee dingen: zichzelf blijven delen, en zich ontwikkelen tot een gespecialiseerde cel. Dat heet celdifferentiatie.",
     "Een stamcel in je beenmerg deelt. Vlak daarna zijn de twee dochtercellen nog gelijk. Dan gaan in de ene andere genen aan: die blijft stamcel. In de andere gaan weer andere genen aan, en na nog een reeks delingen is zij een rode bloedcel."
-   ]
+   ],
+   "id": "n13"
   },
   {
    "kind": "q",
@@ -141,7 +179,8 @@
     "differentiatie, door mutatie",
     "differentiatie, door genexpressie"
    ],
-   "correct": 2
+   "correct": 2,
+   "id": "q14"
   },
   {
    "kind": "narr",
@@ -153,7 +192,8 @@
     "Ook celdood hoort erbij. Sommige cellen krijgen het signaal om zichzelf op te ruimen: apoptose. Zo verdwijnen de vliezen tussen je vingers vóór je geboorte.",
     "In je lichaam gaat een gespecialiseerde cel normaal niet terug. Niet omdat ze genen kwijt is: alle genen zitten er nog, ze staan alleen op slot.",
     "In het lab lukt het wel: zet een paar regulatorgenen aan in een huidcel, en ze wordt weer een stamcel. Daar hopen onderzoekers beschadigd weefsel mee te repareren."
-   ]
+   ],
+   "id": "n15"
   },
   {
    "kind": "narr",
@@ -166,7 +206,8 @@
     "De bloedstamcellen in je beenmerg zijn multipotent: alleen nog de verschillende bloedcellen.",
     "Hoe verder een cel is gedifferentieerd, hoe minder soorten cel ze nog kan worden. Steeds meer genen gaan op slot.",
     "Terug naar de tweeling."
-   ]
+   ],
+   "id": "n16"
   },
   {
    "kind": "card",
@@ -182,7 +223,8 @@
     "Een cel kan een gen namelijk ook voor lange tijd uitzetten. Ze hangt er een chemisch slotje aan: een methylgroep op het DNA, bij de promotor.",
     "Zit dat slotje erop, dan kan de transcriptiefactor er niet bij. Het gen blijft uit. Ook na een celdeling, want de dochtercellen krijgen het slotje mee.",
     "De basenvolgorde verandert niet, dus dit is geen mutatie. En het is niet voorgoed: een cel kan het slotje er weer afhalen. Het heet een epigenetische verandering: iets óp het DNA, niet ín het DNA."
-   ]
+   ],
+   "id": "n18"
   },
   {
    "kind": "narr",
@@ -194,7 +236,8 @@
     "Roken geeft echte mutaties, dat zag je in aflevering vijf. Maar daarnaast verandert het welke genen aan staan, zonder dat de code verandert.",
     "De zus die rookt, heeft in haar longcellen dus andere genen aan en uit staan dan haar tweelingzus. Zelfde DNA, andere slotjes.",
     "Epigenetica is de wetenschap van alles wat genen aan of uit zet zonder de basenvolgorde te veranderen, en van hoe je omgeving daarop invloed heeft."
-   ]
+   ],
+   "id": "n19"
   },
   {
    "kind": "q",
@@ -208,7 +251,8 @@
     "slotjes op genen in de zaadcellen van de vader"
    ],
    "correct": 2,
-   "think": 12
+   "think": 12,
+   "id": "q20"
   },
   {
    "kind": "narr",
@@ -219,7 +263,8 @@
     "Het dieet van de vader zette slotjes op genen in zijn zaadcellen. En die slotjes gingen mee naar de dochters.",
     "Dat gebeurt niet vaak. De meeste slotjes worden gewist bij de vorming van zaadcellen en eicellen, en nog eens vlak na de bevruchting. Maar sommige blijven zitten.",
     "Bij ratten werkt wat de vader eet dus een klein beetje door in zijn jongen, zonder dat er één base verandert. Of dat bij mensen ook zo gaat, wordt nog onderzocht."
-   ]
+   ],
+   "id": "n21"
   },
   {
    "kind": "narr",
@@ -232,7 +277,8 @@
     "Op het X-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Heeft een poes op het ene X oranje en op het andere zwart, dan krijg je plukjes oranje en plukjes zwart: in elk plukje staat een ander X aan.",
     "Een kater heeft één X, dus hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes.",
     "Terug naar de tweeling."
-   ]
+   ],
+   "id": "n22"
   },
   {
    "kind": "card",
@@ -248,7 +294,8 @@
     "Transcriptiefactoren zetten genen aan en uit. Zo worden uit één bevruchte eicel huid, lever en zenuw: differentiatie.",
     "Slotjes op het DNA houden genen lang uit, en je omgeving bepaalt mee waar ze komen: epigenetica.",
     "Het kookboek is hetzelfde. Welke pagina's open liggen, dat maakt jou."
-   ]
+   ],
+   "id": "n24"
   },
   {
    "kind": "narr",
@@ -256,7 +303,8 @@
    "scene": "recap2",
    "lines": [
     "Maar hoe weten we eigenlijk wat er in iemands DNA staat? Hoe lees je het? Dat zie je in aflevering zeven."
-   ]
+   ],
+   "id": "n25"
   },
   {
    "kind": "end",
@@ -317,6 +365,11 @@
    "b"
   ],
   [
+   "operon",
+   "Rij genen bij bacteriën met samen één promotor en één operator, die dus samen aan of uit gaan. Voorbeeld: het lac-operon van E. coli. Een regulatorgen maakt een repressor (eiwit) die op de operator (stuk DNA) zit, zodat RNA-polymerase de drie structuurgenen niet kan overschrijven. Lactose bindt aan de repressor, die laat los, en de genen worden overgeschreven (één mRNA): de enzymen voor lactose worden alleen gemaakt als er lactose is.",
+   "b"
+  ],
+  [
    "stamcellen",
    "Cellen die nog niet gespecialiseerd zijn en lang kunnen blijven delen; bij een deling blijft de ene dochtercel stamcel en kan de andere differentiëren. Embryonale stamcellen in het embryo, volwassen stamcellen bijvoorbeeld in het beenmerg.",
    "b"
@@ -339,6 +392,11 @@
   [
    "activator en repressor",
    "Transcriptiefactoren die de binding van RNA-polymerase bevorderen (activator) of remmen (repressor); een enhancer is een DNA-stuk, soms ver van het gen, dat de transcriptie versterkt als er een activator op zit.",
+   "v"
+  ],
+  [
+   "RNA-interferentie",
+   "Een gen uitzetten ná de transcriptie. Een klein RNA van zo’n 20 tot 25 nucleotiden (microRNA, gemaakt van eigen genen, of siRNA, geknipt uit dubbelstrengs RNA) zit met één streng in een eiwitcomplex (RISC) en bindt door baseparing aan een passend mRNA. Past het precies, dan wordt het mRNA geknipt en afgebroken; past het maar deels, dan wordt de translatie geblokkeerd. Het gen wordt dus wel overgeschreven, maar er komt geen eiwit van. Gebruikt in onderzoek en in medicijnen.",
    "v"
   ],
   [
@@ -378,12 +436,28 @@
    [
     "Waarom is een methylgroep op het DNA geen mutatie?",
     "De basenvolgorde verandert niet; alleen de genexpressie verandert (het gen wordt niet meer afgelezen). Dat is een epigenetische verandering."
+   ],
+   [
+    "Bij E. coli is er geen lactose. Leg uit waarom de drie structuurgenen van het lac-operon dan uit staan, en wat er verandert als er lactose bij komt.",
+    "Het regulatorgen maakt een repressor die op de operator zit; daardoor kan RNA-polymerase de structuurgenen niet overschrijven. Lactose bindt aan de repressor; de repressor laat los van de operator, RNA-polymerase schrijft de drie genen over (één mRNA) en de enzymen voor opname en afbraak van lactose worden gemaakt."
+   ],
+   [
+    "Door een mutatie in het regulatorgen kan de repressor van het lac-operon niet meer aan de operator binden. Wat is het gevolg voor de bacterie?",
+    "De structuurgenen staan altijd aan: de enzymen voor lactose worden ook gemaakt als er geen lactose is (verspilling van energie en bouwstoffen)."
    ]
   ],
   "v": [
    [
     "Een repressor blokkeert gen A. Gen A codeert voor een repressor van gen B. Staat gen B aan of uit?",
     "Aan: de repressor van A zorgt dat A uit staat, dus de repressor van B wordt niet gemaakt en B komt tot expressie (twee remmingen na elkaar = activatie)."
+   ],
+   [
+    "Onderzoekers brengen een siRNA in cellen dat precies past op het mRNA van gen X. Wordt gen X nog getranscribeerd? Wordt eiwit X nog gemaakt? Leg uit.",
+    "Gen X wordt nog wel getranscribeerd: RNA-interferentie grijpt pas ná de transcriptie in. Eiwit X wordt (bijna) niet meer gemaakt: het siRNA zit in RISC en bindt door baseparing aan het mRNA van X; dat mRNA wordt geknipt en afgebroken, dus er is geen translatie."
+   ],
+   [
+    "Wat is het verschil tussen een gen uitzetten met een repressor en met RNA-interferentie?",
+    "Een repressor is een transcriptiefactor die aan het DNA bindt en de transcriptie tegenhoudt: er wordt geen mRNA gemaakt. Bij RNA-interferentie wordt het mRNA wél gemaakt, maar een klein RNA in RISC bindt er door baseparing aan, waarna het mRNA wordt afgebroken of de translatie wordt geblokkeerd."
    ],
    [
     "Waarom zijn lapjeskatten bijna altijd vrouwtjes?",
@@ -415,6 +489,16 @@
    "Terugzetten van een huidcel naar stamcel",
    "een paar regulatorgenen (Yamanaka-factoren, 2006)",
    "Takahashi & Yamanaka, Cell 2006"
+  ],
+  [
+   "Lengte van microRNA en siRNA",
+   "zo’n 20 tot 25 nucleotiden",
+   "Alberts, Molecular Biology of the Cell (siRNA ± 21–23 nt, microRNA ± 22 nt)"
+  ],
+  [
+   "Medicijn met siRNA",
+   "“in de lever de aanmaak van een schadelijk eiwit stilleggen”",
+   "patisiran (2018, eerste goedgekeurde siRNA-medicijn): remt in de lever de aanmaak van transthyretine bij erfelijke ATTR-amyloïdose"
   ]
  ]
 }

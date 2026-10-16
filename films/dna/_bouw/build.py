@@ -17,7 +17,7 @@ def build(n):
             chapter = chapter.replace(' · vwo','')
             continue
         if s['kind']=='end': segs.append({'id':'end','kind':'end','level':'basis','chapter':'Einde'}); continue
-        key=s.get('id') or ('n' if s['kind']=='narr' else 'q')+str(i); w=Wd[key]  # eigen id (bv. n9b) voor ingevoegde segmenten
+        key=s.get('id') or (('n' if s['kind']=='narr' else 'q')+str(i)); w=Wd[key]
         audio='data:audio/mpeg;base64,'+b64(f'data/afl{n}_audio/{key}.mp3')
         if s['kind']=='narr':
             segs.append({'id':key,'kind':'speech','level':lev,'chapter':chapter,'scene':s['scene'],'audio':audio,'dur':round(w['dur']+0.6,3),'bounds':w['bounds'],'words':w['words']})
