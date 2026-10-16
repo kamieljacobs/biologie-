@@ -4,7 +4,7 @@
 |---|---|
 | Bestand | `films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/index.html`. De audio staat los in `audio/` (16 mp3's) en zit niet in de HTML. |
 | Reeks | Kerndoelen onderbouw, losse film. Kerndoel **32A** bullets 2–3: bouw van dierlijke organen en weefsels (zintuigen, skelet, kieuwen). **32B** bullet 3: natuurlijke selectie. **33C** bullets 2 en 4: voedselweb en dynamisch evenwicht. **29B** bullets 2–3: structuur en functie, schaal en hoeveelheid. Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025. |
-| Doelgroep / niveau | Onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Er is één niveau (basis): geen aanvulling havo-vwo gaat over dit onderwerp, dus de film heeft geen niveauschakelaar. |
+| Doelgroep / niveau | Onderbouw leerjaar 1–3, één niveau (basis) zonder uitdagingsblok, dus geen niveauschakelaar. Volgens BEELDAFSPRAKEN (Onderbouw) noemt de film nergens schoolniveaus: niet in beeld, stem of docentdeel. |
 | Versie / datum | 1.0 · 16 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `1XH3BOpKpHaUR1wxI2vR`. De generatie-id's staan in `stem/generaties.json`; `versie: 2` = opnieuw ingesproken na de review. |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes. Alle 16 takes kloppen woord voor woord met de schermtekst. |

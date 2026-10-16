@@ -57,7 +57,7 @@ function render(){
   else if(it.type==='question') drawQuestion(ctx,it,t);
   else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
   // UI layer: vwo marker
-  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
+  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'uitdaging',60,46,C.paars,'left',24); }
   // series meta top-left
   else if(!(it.seg&&it.seg.id==='s02')) metaText(ctx,'onderbouw · kerndoelen · haaien',60,46,C.text2,'left',20);
   // captions

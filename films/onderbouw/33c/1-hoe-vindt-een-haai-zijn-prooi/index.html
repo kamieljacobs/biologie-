@@ -106,7 +106,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
 
   <section><h2>Voor de docent</h2>
     <h3>Doelgroep en kerndoelen</h3>
-    <p>Onderbouw leerjaar 1–3, gemengde klassen vmbo-t, havo en vwo. Eén niveau voor iedereen: geen van de aanvullingen havo-vwo gaat over dit onderwerp. Kerndoelen (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025): <b>32A</b> bullets 2–3 (bouw van dierlijke organen en weefsels; samenwerking van zenuwstelsel, skelet, ademhalingsstelsel), <b>32B</b> bullet 3 (biodiversiteit door evolutie: natuurlijke selectie), <b>33C</b> bullets 2 en 4 (voedselwebben; dynamisch evenwicht) en <b>29B</b> bullets 2–3 (redeneren met structuur en functie; met schaal en hoeveelheden).</p>
+    <p>Onderbouw leerjaar 1–3. Eén niveau voor de hele klas: er is geen uitdagingsblok. Kerndoelen (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025): <b>32A</b> bullets 2–3 (bouw van dierlijke organen en weefsels; samenwerking van zenuwstelsel, skelet, ademhalingsstelsel), <b>32B</b> bullet 3 (biodiversiteit door evolutie: natuurlijke selectie), <b>33C</b> bullets 2 en 4 (voedselwebben; dynamisch evenwicht) en <b>29B</b> bullets 2–3 (redeneren met structuur en functie; met schaal en hoeveelheden).</p>
     <h3>Hoe de film het uitlegt</h3>
     <table><tr><th>Deel</th><th>Look</th><th>Kernbeeld</th></tr>
       <tr><td>Cold open</td><td>Macro-nacht</td><td>De filmmythe: één druppel bloed, kilometers ver. Hoe vindt een haai zijn prooi in het donker?</td></tr>
@@ -1156,7 +1156,7 @@ function render(){
   else if(it.type==='question') drawQuestion(ctx,it,t);
   else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
   // UI layer: vwo marker
-  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'havo/vwo',60,46,C.paars,'left',24); }
+  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'uitdaging',60,46,C.paars,'left',24); }
   // series meta top-left
   else if(!(it.seg&&it.seg.id==='s02')) metaText(ctx,'onderbouw · kerndoelen · haaien',60,46,C.text2,'left',20);
   // captions
