@@ -16,11 +16,11 @@ Titelkaart: Slaap. Wat je hersenen 's nachts doen, en waarom je moe wordt.
 
 ## Hoofdstuk 1 — Een nacht in je hoofd
 
-**s04** · 34.0 s · `audio/s04.mp3`
+**s04** · 34.9 s · `audio/s04.mp3`
 
 Wat gebeurt er in je hersenen als je slaapt? Onderzoekers plakken elektroden op je hoofd. Die meten de elektrische activiteit van miljoenen zenuwcellen tegelijk. Dat heet een EEG. Ben je wakker, dan zie je snelle, kleine golfjes: veel cellen doen elk iets anders. Val je in slaap, dan kom je eerst in de lichte slaap: de golven worden trager. In de diepe slaap zie je grote, trage golven. Dan vuren heel veel zenuwcellen tegelijk, in hetzelfde ritme. Je hersenen staan dus niet uit: ze werken anders.
 
-**s05** · 21.8 s · `audio/s05.mp3`
+**s05** · 21.9 s · `audio/s05.mp3`
 
 Daarna komt de REM-slaap. Het EEG lijkt dan bijna op wakker zijn. Je ogen schieten heen en weer onder je oogleden. REM is een Engelse afkorting voor: snelle oogbewegingen. In de REM-slaap droom je het meest, en het levendigst. Je droomt dat je wegrent voor een hond. Waarom ren je niet echt je bed uit? Wat denk je?
 

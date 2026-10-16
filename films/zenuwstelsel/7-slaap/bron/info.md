@@ -6,7 +6,7 @@
 | Reeks | Zenuwstelsel (hoofdstuk `regeling`, op de site 'Regeling'), film 7 |
 | Niveau | havo + vwo; één vwo-blok s13 (klokgenen met negatieve terugkoppeling) |
 | Versie / datum | 1.0 · 16 oktober 2026 |
-| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow GG2iFDV7c2CAFOv0JQWU (nodes in `stem/nodes.json`); respellings adenosine → adenozinuh, melatonine → melatoninuh, circadiaans → sirkadiaans, EEG → ee-ee-gee, REM → rem, microslaap → mikroslaap (`uitspraak_film.json`, zie `uitspraak.md`) |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow GG2iFDV7c2CAFOv0JQWU (nodes in `stem/nodes.json`); respellings adenosine → adenozinuh, melatonine → melatoninuh, circadiaans → sirkadiaans, EEG → E-E-G (Kamiel 16 okt: Nederlandse letternamen, niet Engels), REM → rem, microslaap → mikroslaap (`uitspraak_film.json`, zie `uitspraak.md`) |
 | Duur | spraak 6:59 (vwo) / 6:27 (havo); speeltijd met kaarten en vragen ± 8:04 (vwo) / 7:31 (havo) |
 | Beeldstijl | Part C: Schema |
 | Personages | Bilal en Sam (cold open, gevolgen), Noor (in bed met EEG, droom) uit het castboek; eigen `slaper()` legt een castpersonage in bed met `ogenDicht()` |
@@ -51,10 +51,11 @@ Werkmap opzetten: kopieer `bron/` naar `hw/zs7` (scenes.js uit `src/`, `words/` 
 - beeld: alleen `scenes.js` → `engine/build.py zs7` → pack. Let op deelwoord-cues: in s10 is `licht` 2 (1 = daglicht), in s12 `acht` 3 (1 = nacht, 2 = nachts), in s15 `groei` 2 (1 = groeihormoon), in s04 `anders` 2.
 
 ## Aandachtspunten
-- Uitspraakwachtlijst: adenozinuh, melatoninuh, sirkadiaans, ee-ee-gee, rem-slaap, mikroslaap (zie `uitspraak.md`).
+- Uitspraakwachtlijst: adenozinuh, melatoninuh, sirkadiaans, rem-slaap, mikroslaap (zie `uitspraak.md`). EEG wordt E-E-G (ook in samenstellingen).
 - De grafiek in s12 (slaapdruk en wekker-signaal) is schematisch (tweeprocessenmodel); de meters tonen het verschil slaapdruk − klok.
 - Opruimen in de slaap (glymfatisch systeem) is voorzichtig geformuleerd: vooral bij muizen onderzocht en nog in discussie.
 - Puberklok en sociale jetlag alleen kort; die horen in de geplande Nieuwsgierig?-film 'Slaap en je biologische klok'.
 
 ## Wijzigingen
 - 1.0 (16 okt 2026): eerste versie. Script na een kritische eigen review (zie `reviews/review_v1.md`); beeld-QA via contactsheets (zie `checkpoint.html`).
+- 1.0.1 (16 okt 2026): EEG → E-E-G (feedback Kamiel); s04 en s05 opnieuw ingesproken (Roos, eleven_v4, 1 take), woordtijden opnieuw uitgelijnd.
