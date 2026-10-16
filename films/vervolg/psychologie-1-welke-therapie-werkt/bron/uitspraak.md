@@ -5,7 +5,7 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 |---|---|---|---|
 | CGT | cee-gee-tee | s04, s08 | wachtlijst |
 | EMDR | ee-em-dee-er | s04, s08 | wachtlijst |
-| ACT | ekt (Engels 'act') | s04, s08 | wachtlijst |
+| ACT | Act (als het Engelse woord 'act'; 'ekt' afgewezen) | s04, s17 | goedgekeurd door Kamiel (test 16 okt); s04 en s17 opnieuw ingesproken, Scribe hoort 'Act' |
 | exposure | zoals geschreven (Engels) | s04, s08, s10 | wachtlijst |
 | GZ-psycholoog | gee-zet-psycholoog | s11 | wachtlijst |
 | 0,2 / 0,5 / 0,8 / 0,6 / 0,95 | nul komma twee … nul komma vijf en neguntig | s05, s07 | wachtlijst |

@@ -5,13 +5,13 @@
 | Bestand | films/vervolg/psychologie-1-welke-therapie-werkt.html (audio in films/vervolg/psychologie-1-welke-therapie-werkt/audio/) |
 | Plek op de site | Wat word jij? (`vervolg.html`) → Psychologie → theoretische basis, onderwerp 6 "Therapievormen en wat werkt"; terugknop naar `vervolg.html#psychologie` |
 | Niveau | één niveau: vwo (oriëntatie op de wo-studie psychologie); `alleen: "vwo"` verbergt de havo/vwo-schakelaar |
-| Versie / datum | 2.0 · 16 oktober 2026 (verdiept; 1.0 dezelfde dag) |
+| Versie / datum | 2.0 · 16 oktober 2026 (verdiept; 1.0 dezelfde dag; 16 okt: s04 en s17 opnieuw ingesproken voor ACT) |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow rMBhkqo4RzKdUANupuEg; respellings in `uitspraak.md` en `uitspraak_film.json` |
-| Duur | spraak 13:56; speeltijd met kaarten en vragen ± 17 min (`duur: 17` in `films/vervolg/films.json`) |
+| Duur | spraak 13:54; speeltijd met kaarten en vragen ± 17 min (`duur: 17` in `films/vervolg/films.json`) |
 | Beeldstijl | Part C: Schema; ik-perspectief in de spreekkamer (bureau + notitieboek 'jij · psycholoog') |
 | Personages | Opa Henk (cliënt, somber), Lotte (bang voor spinnen), Sam (nare herinneringen na fietsongeluk) uit het castboek |
 | Audio-opslag | 14 losse mp3's in audio/ (s01, s04, s05, s07, s08, s10, s11, s13, s14, s16, s17, s19, s20, s21) |
-| Woordtijden | lokaal met `bouw/silalign.py` (stiltes + leestekens); steekproef s01 tegen Scribe: afwijking ≤ 0,2 s |
+| Woordtijden | lokaal met `bouw/silalign.py` (stiltes + leestekens); steekproef s01 tegen Scribe: afwijking ≤ 0,2 s; s04 en s17 (16 okt) uit Scribe (`method: scribe`) |
 | Herkomst | Bouwstraat van Gedrag 12 (engine `src/` + `bouw/`), werkmap `hw/th1`; gemaakt met Claude op verzoek van Kamiel, 16 okt 2026 |
 
 ## Opbouw (v2.0)
@@ -81,12 +81,13 @@ Werkmap: kopieer `bron/` naar een werkmap `hw/th1` met `src/*` + `bouw/*` als en
 - Na het kopiëren: `python3 scripts/teller.py` en `python3 scripts/licentie_noot.py`.
 
 ## Aandachtspunten
-- Uitspraakwachtlijst: zie `uitspraak.md` (CGT, EMDR, ACT als 'ekt', exposure, GZ-psycholoog, getallen met komma). Blinde transcriptie kon niet (upload geblokkeerd); Kamiel luistert in de batchronde.
+- Uitspraakwachtlijst: zie `uitspraak.md` (CGT, EMDR, exposure, GZ-psycholoog, getallen met komma). Blinde transcriptie kon niet (upload geblokkeerd); Kamiel luistert in de batchronde.
 - Ondertitels tonen 'Antwoord aa.' / 'Antwoord bee.' zoals in de andere films van deze straat (de speler herkent die zinnen om antwoorden over te slaan als vragen uit staan).
 - Gevoelig onderwerp: personages neutraal, hulpkaart aan het eind (mentor, huisarts).
 - De film staat niet in `HOOFDSTUKKEN` van `index.html` (geen hoofdstuk); de duur voor de teller staat in `films/vervolg/films.json`, dat `scripts/sitedata.py` meeleest.
 - Geen loudness-normalisatie gedaan; de zeven takes komen uit één stem en model.
 
 ## Wijzigingen
+- 16 okt 2026: ACT → 'Act' (Kamiel: moet klinken als het Engelse woord 'act'; in zijn test klonk stem-invoer "Act" goed, niet 'ekt'). Regel in `uitspraak_film.json` aangepast; alleen s04 en s17 opnieuw ingesproken (Roos, eleven_v4, één take, nodes 5IdJYoGU0lNHtNWCPDO2 en fPzK1rVzkIRzj5Zq4kQP), Scribe-controle hoort 'Act'; woordtijden uit Scribe; geen normalisatie (zoals de andere fragmenten, ±-30 LUFS). Speler ongewijzigd (alleen FILMDATA verschilt).
 - 2.0 (16 okt 2026): verdiept op verzoek van Kamiel ('écht diepgaand', ± 15 min mag): valkuilen in onderzoek (H2), nieuw H3 Een cirkel doorbreken, nieuw H4 Wat verandert er in je brein?, in H5 'niet iedereen knapt op', zorg in stappen en therapeuteffecten; vier extra vragen; acht nieuwe takes (s08 v1.0 opnieuw als s17 met korter Lotte-stuk); script na review door een aparte agent (`reviews/review_v3.md`).
 - 1.0 (16 okt 2026): eerste versie. Script na review door een aparte agent (klinisch psycholoog + methodoloog, pedagogie, taal; `reviews/review_v1.md`), beeld na een frisse-ogen-controle van de contactbladen (overlap opening, overgang s07, kaarten 'bij depressie' zonder EMDR, rij systeemtherapie, 'sterk onderbouwd').
