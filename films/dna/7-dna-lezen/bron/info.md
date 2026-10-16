@@ -155,7 +155,7 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 | achterneef | q20 | 0:01.7 |
 | mRNA (em-er-en-aa) | n22 | 0:17.3 |
 | introns | n22 | 0:24.6 |
-| reverse transcriptase (rivurs) | n22 | 0:37.3 |
+| reverse transcriptase (rivurs) | n22 | 0:37.3 | — Kamiel 16 okt 2026: zo laten ("rivurs", gelijk aan n6); de langere havo-uitleg in H4 hoeft niet korter.
 | cDNA (cee-deeënaa) | n22 | 0:43.9 |
 | plasmide | n22 | 0:50.1 |
 | restrictie-enzym | n22 | 0:55.6 |
