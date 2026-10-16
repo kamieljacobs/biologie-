@@ -37,6 +37,10 @@ Kamiel bekijkt de films en geeft feedback. De status staat in `REVIEW` bovenin h
 
 Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die vóór elke nieuwe of aangepaste film en vul hem aan als feedback voor meerdere films geldt.
 
+## Huisstijl van tools
+
+Tools gebruiken dezelfde opmaak als site en films via `tools/huisstijl.css` (kleuren als variabelen, licht/donker, Fraunces/Source Sans 3/IBM Plex Mono, sitebalk, knoppen, panelen, voet) en `tools/huisstijl.js` (themaknop met `data-thema-knop`, zelfde voorkeur `thema` als de site). Nieuwe of aangepaste tools gebruiken die; geen eigen lettertypes of vaste kleuren. Al omgezet: Aardappellab, Eiwitfabriek (Celbouwer en Virtuele microscoop zaten al dicht bij de stijl); de overige tools volgen.
+
 ## Personages
 
 Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films.
