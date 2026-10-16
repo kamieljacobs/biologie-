@@ -72,3 +72,20 @@
 | stopnucleotiden | n25 | 0:18.6 |
 | DNA | n25 | 0:27.3 |
 | DNA | n26 | 0:00.2 |
+
+## Aanvulling 16 okt 2026 (n22 opnieuw, n22v nieuw)
+| woord (stem-invoer) | take | tijd in take |
+|---|---|---|
+| mRNA (em-er-en-aa) | n22 | 0:17.3 |
+| reverse transcriptase (rivurs) | n22 | 0:37.3 |
+| cDNA (cee-deeënaa) | n22 | 0:43.9 |
+| plasmide | n22 | 0:50.1 |
+| ligase (ligaase) | n22 | 1:09.8 |
+| recombinant | n22 | 1:14.6 |
+| antibioticum | n22 | 1:27.5 |
+| CRISPR-Cas9 (krisper-kas-negen) | n22v | 0:00.0 |
+| gids-RNA (gids-er-en-aa) | n22v | 0:06.0 |
+| gentherapie | n22v | 0:42.0 |
+| hemoglobine (hemoglobienuh) | n22v | 1:04.1 |
+| somatisch | n22v | 1:16.6 |
+| kiembaan | n22v | 1:24.2 |

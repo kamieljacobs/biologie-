@@ -1,6 +1,6 @@
 # DNA lezen — script
 
-Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026); zonder uitspraaktest vooraf; respellings: deeënaa, er-en-aa, pee cee er (afspraak Kamiel), zjel (gel moet Engels klinken, niet als 'geld'), krisper, snip(s), es-tee-er, siekwensen/gesiekwenst (Engels /ˈsiːkwəns/), rivurs transcriptase, primer(s) zoals geschreven (Kamiels keuze 13 okt; de eerste opname met 'praimer' is vervangen in n3, n5, n6, n11, n25), nipt zoals geschreven; restrictie-enzym, plasmide, stamboomsite, bruinvissen, trisomie, referentiegenoom, placenta zoals geschreven. Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
+Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026; n22 en n22v 16 oktober 2026: em-er-en-aa, cee-deeënaa, ligaase, krisper-kas-negen, kas-negen, gids-er-en-aa, hemoglobienuh); zonder uitspraaktest vooraf; respellings: deeënaa, er-en-aa, pee cee er (afspraak Kamiel), zjel (gel moet Engels klinken, niet als 'geld'), krisper, snip(s), es-tee-er, siekwensen/gesiekwenst (Engels /ˈsiːkwəns/), rivurs transcriptase, primer(s) zoals geschreven (Kamiels keuze 13 okt; de eerste opname met 'praimer' is vervangen in n3, n5, n6, n11, n25), nipt zoals geschreven; restrictie-enzym, plasmide, stamboomsite, bruinvissen, trisomie, referentiegenoom, placenta zoals geschreven. Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
 
 ## n0 · Opening · basis
 *begin 0:00 / 0:00 · 29.0 s*
@@ -119,29 +119,43 @@ Antwoord B. De helft van je DNA komt van je vader, de helft van je moeder. Van e
 
 > stem-invoer: Antwoord B. De helft van je deeënaa komt van je vader, de helft van je moeder. Van elke grootouder een kwart, van elke overgrootouder een achtste. Achterneven hebben dezelfde overgrootouders. Ze delen zo'n drie procent van hun deeënaa: op hun chromosomen liggen een paar lange stukken die precies hetzelfde zijn. De site ziet die gedeelde stukken. Hoe langer en hoe meer, hoe nauwer verwant. Rechercheurs krijgen zo een lijst van verre familie. Ze bouwen de stamboom naar beneden, tot er één persoon overblijft die past in leeftijd en woonplaats. Bij hem halen ze een wattenstaafje langs de wang. Profiel vergelijken. Match.
 
-## n22 · Hoofdstuk 4 — Vinden · basis
-*begin 9:49 / 8:20 · 46.1 s*
+## n22 · Hoofdstuk 4 — Vinden · basis · opnieuw ingesproken 16 okt 2026
+*begin 9:49 / 8:20 · 119.1 s*
 
-Lezen is niet het einde. DNA kun je ook veranderen. In aflevering vier zag je een bacterie die menselijke insuline maakt. Het insulinegen is uit menselijk DNA geknipt met een restrictie-enzym, en geplakt in een plasmide: een klein cirkeltje DNA dat de bacterie opneemt. Zo'n bacterie heet genetisch gemodificeerd. Sinds een paar jaar kan knippen preciezer, met CRISPR: een moleculaire schaar die op één gekozen plek in het DNA knipt. Daarmee behandelen artsen de eerste erfelijke ziektes, zoals sikkelcelziekte. Lezen, vergelijken, veranderen. En bij elk van die drie komt een vraag: mag dat, en wie beslist?
+Lezen is niet het einde. DNA kun je ook veranderen. In aflevering vier zag je een bacterie die menselijke insuline maakt. Hoe komt het menselijke gen in die bacterie? In stappen. Stap één: haal uit cellen van de alvleesklier het mRNA van het insulinegen. Waarom niet het gen zelf? Een menselijk gen bevat introns: stukken die niet in het eiwit terechtkomen. In de kern worden die uit het mRNA geknipt. Een bacterie kan dat niet. Stap twee: het enzym reverse transcriptase schrijft het mRNA over naar DNA. Dat heet cDNA: het gen, zonder introns. Stap drie: knip een plasmide open, een klein cirkeltje DNA uit een bacterie. Gebruik een restrictie-enzym, en knip het cDNA met hetzelfde enzym. Dan krijgen allebei dezelfde plakkerige uiteinden: korte enkele strengen die op elkaar passen. Stap vier: het enzym ligase plakt het cDNA in het plasmide. Dat heet een recombinant plasmide. Stap vijf: breng de plasmiden in bacteriën. Niet elke bacterie neemt er een op. Daarom zit op het plasmide ook een gen voor resistentie tegen een antibioticum. Op een voedingsbodem met dat antibioticum groeien alleen de bacteriën met het plasmide. Die bacteriën lezen het insulinegen af en maken menselijke insuline. Zo'n bacterie heet genetisch gemodificeerd. Sinds een paar jaar kan knippen preciezer, met CRISPR: een moleculaire schaar die op één gekozen plek in het DNA knipt. Daarmee behandelen artsen de eerste erfelijke ziektes, zoals sikkelcelziekte.
 
-> stem-invoer: Lezen is niet het einde. deeënaa kun je ook veranderen. In aflevering vier zag je een bacterie die menselijke insuline maakt. Het insulinegen is uit menselijk deeënaa geknipt met een restrictie-enzym, en geplakt in een plasmide: een klein cirkeltje deeënaa dat de bacterie opneemt. Zo'n bacterie heet genetisch gemodificeerd. Sinds een paar jaar kan knippen preciezer, met krisper: een moleculaire schaar die op één gekozen plek in het deeënaa knipt. Daarmee behandelen artsen de eerste erfelijke ziektes, zoals sikkelcelziekte. Lezen, vergelijken, veranderen. En bij elk van die drie komt een vraag: mag dat, en wie beslist?
+> stem-invoer (Roos, eleven_v3, 16 oktober 2026): Lezen is niet het einde. deeënaa kun je ook veranderen. In aflevering vier zag je een bacterie die menselijke insuline maakt. Hoe komt het menselijke gen in die bacterie? In stappen. Stap één: haal uit cellen van de alvleesklier het em-er-en-aa van het insulinegen. Waarom niet het gen zelf? Een menselijk gen bevat introns: stukken die niet in het eiwit terechtkomen. In de kern worden die uit het em-er-en-aa geknipt. Een bacterie kan dat niet. Stap twee: het enzym rivurs transcriptase schrijft het em-er-en-aa over naar deeënaa. Dat heet cee-deeënaa: het gen, zonder introns. Stap drie: knip een plasmide open, een klein cirkeltje deeënaa uit een bacterie. Gebruik een restrictie-enzym, en knip het cee-deeënaa met hetzelfde enzym. Dan krijgen allebei dezelfde plakkerige uiteinden: korte enkele strengen die op elkaar passen. Stap vier: het enzym ligaase plakt het cee-deeënaa in het plasmide. Dat heet een recombinant plasmide. Stap vijf: breng de plasmiden in bacteriën. Niet elke bacterie neemt er een op. Daarom zit op het plasmide ook een gen voor resistentie tegen een antibioticum. Op een voedingsbodem met dat antibioticum groeien alleen de bacteriën met het plasmide. Die bacteriën lezen het insulinegen af en maken menselijke insuline. Zo'n bacterie heet genetisch gemodificeerd. Sinds een paar jaar kan knippen preciezer, met krisper: een moleculaire schaar die op één gekozen plek in het deeënaa knipt. Daarmee behandelen artsen de eerste erfelijke ziektes, zoals sikkelcelziekte.
+
+## n22v · Hoofdstuk 4 — Vinden · vwo · nieuw 16 okt 2026
+*begin 11:48 / — · 89.9 s*
+
+CRISPR-Cas9 bestaat uit twee delen. Cas9 is het enzym dat knipt. Het gids-RNA is een kort stukje RNA met een volgorde die je zelf kiest. Het gids-RNA zoekt in het DNA de plek waar het via baseparing precies op past, en brengt Cas9 daarheen. Daar knipt Cas9 beide strengen door. De cel repareert de knip. Vaak gaat dat net niet goed, en dan werkt het gen niet meer: het gen staat uit. Geef je een stuk DNA mee met de gewenste volgorde, dan kan de cel dat als voorbeeld gebruiken. Zo bouw je een gewijzigde versie in. Een werkend gen inbrengen in lichaamscellen van een patiënt heet gentherapie. Vaak gaat het gen mee met een virus dat onschadelijk is gemaakt. Of artsen halen cellen uit het lichaam, passen ze aan en zetten ze terug. Zo gaat het bij sikkelcelziekte. Uit het beenmerg worden stamcellen gehaald. Met CRISPR knippen artsen daarin een schakelaar kapot, zodat de rode bloedcellen weer het hemoglobine maken van vóór de geboorte. Dat vormt geen sikkels. Sinds het jaar 2023 is die behandeling goedgekeurd. Zo'n verandering in lichaamscellen heet somatisch: die gaat niet over op kinderen. Een verandering in een eicel, een zaadcel of een embryo heet kiembaan: die is wel erfelijk. In Nederland is dat verboden.
+
+> stem-invoer (Roos, eleven_v3, 16 oktober 2026): krisper-kas-negen bestaat uit twee delen. kas-negen is het enzym dat knipt. Het gids-er-en-aa is een kort stukje er-en-aa met een volgorde die je zelf kiest. Het gids-er-en-aa zoekt in het deeënaa de plek waar het via baseparing precies op past, en brengt kas-negen daarheen. Daar knipt kas-negen beide strengen door. De cel repareert de knip. Vaak gaat dat net niet goed, en dan werkt het gen niet meer: het gen staat uit. Geef je een stuk deeënaa mee met de gewenste volgorde, dan kan de cel dat als voorbeeld gebruiken. Zo bouw je een gewijzigde versie in. Een werkend gen inbrengen in lichaamscellen van een patiënt heet gentherapie. Vaak gaat het gen mee met een virus dat onschadelijk is gemaakt. Of artsen halen cellen uit het lichaam, passen ze aan en zetten ze terug. Zo gaat het bij sikkelcelziekte. Uit het beenmerg worden stamcellen gehaald. Met krisper knippen artsen daarin een schakelaar kapot, zodat de rode bloedcellen weer het hemoglobienuh maken van vóór de geboorte. Dat vormt geen sikkels. Sinds het jaar 2023 is die behandeling goedgekeurd. Zo'n verandering in lichaamscellen heet somatisch: die gaat niet over op kinderen. Een verandering in een eicel, een zaadcel of een embryo heet kiembaan: die is wel erfelijk. In Nederland is dat verboden.
+
+## n22c · Hoofdstuk 4 — Vinden · basis · slotzin uit de eerste opname van n22
+*begin 13:18 / 10:19 · 8.9 s*
+
+Lezen, vergelijken, veranderen. En bij elk van die drie komt een vraag: mag dat, en wie beslist?
+
+> stem-invoer (13 oktober 2026, geen nieuwe opname; uitgeknipt vanaf 37,15 s): Lezen, vergelijken, veranderen. En bij elk van die drie komt een vraag: mag dat, en wie beslist?
 
 ## n23 · Hoofdstuk 4 — Vinden · vwo
-*begin 10:35 / — · 29.0 s*
+*begin 13:27 / — · 29.0 s*
 
 Voor vwo gaan we hier nog een stap verder. De stamboomsite kijkt niet naar STR's, maar naar SNP's: plekken waar één base verschilt tussen mensen. Honderdduizenden tegelijk. Lange stukken met precies dezelfde SNP's komen van een gezamenlijke voorouder. Elke generatie knipt crossing-over ze in kleinere delen. Hoe langer het stuk, hoe minder generaties geleden. Terug naar de zaak.
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. De stamboomsite kijkt niet naar es-tee-errs, maar naar snips: plekken waar één base verschilt tussen mensen. Honderdduizenden tegelijk. Lange stukken met precies dezelfde snips komen van een gezamenlijke voorouder. Elke generatie knipt crossing-over ze in kleinere delen. Hoe langer het stuk, hoe minder generaties geleden. Terug naar de zaak.
 
 ## n25 · Samenvatting — Terug naar de zaak · basis
-*begin 11:08 / 9:10 · 29.0 s*
+*begin 14:00 / 10:32 · 29.0 s*
 
 Een paar druppels bloed. Kopiëren met PCR: primers, temperatuur, een miljard kopieën. Sorteren op een gel: korte stukken lopen verder; de lengtes van herhaalde stukjes vormen een profiel. Lezen door te sequencen: gekleurde stopnucleotiden, en een computer die miljoenen stukjes in elkaar past. En vinden: via verre familie die vrijwillig haar DNA deelde.
 
 > stem-invoer: Een paar druppels bloed. Kopiëren met pee cee er: primers, temperatuur, een miljard kopieën. Sorteren op een zjel: korte stukken lopen verder; de lengtes van herhaalde stukjes vormen een profiel. Lezen door te siekwensen: gekleurde stopnucleotiden, en een computer die miljoenen stukjes in elkaar past. En vinden: via verre familie die vrijwillig haar deeënaa deelde.
 
 ## n26 · Samenvatting — Terug naar de zaak · basis
-*begin 11:37 / 9:39 · 13.0 s*
+*begin 14:29 / 11:01 · 13.0 s*
 
 Jouw DNA is nooit alleen van jou: je deelt het met je familie, of die dat nu wil of niet. Wat zou jij uit je eigen DNA willen weten? En wat liever niet? Dat is aflevering acht.
 
