@@ -9,6 +9,57 @@ function cellSwarm(ctx,cx,cy,g,maxR,alpha=1){ if(alpha<=0.01) return; ctx.save()
     else { ctx.beginPath(); ctx.arc(x,y,r*0.95,0,6.2832); shape(ctx,rgba(C.fill,0.9),C.er,1.2); if(r>14) dot0(ctx,x,y,r*0.3,rgba(C.kern,0.9)); } }
   ctx.restore(); }
 
+// ---------- Voortplanting (16 okt 2026): organismen voor v01/v02 ----------
+function metaA(ctx,s,x,y,col,a,px=22){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; metaText(ctx,s,x,y,col,'center',px); ctx.restore(); }
+// eencellige die zich in tweeën deelt (p 0..1); beide helften dezelfde kleur = zelfde DNA
+function vpEencellige(ctx,cx,cy,p,t){ const f=rgba(C.goud,0.22), d=ease(p)*92, rx=lerp(118,80,ease(p)), ry=lerp(70,62,ease(p)), w=p>0.15&&p<0.85?Math.sin((p-0.15)/0.7*Math.PI)*0.28:0;
+  const one=(x,r)=>{ ctx.beginPath(); ctx.ellipse(x,cy,r,ry,0,0,6.2832); shape(ctx,f,C.goud,2.5); for(let k=0;k<12;k++){ const a=k/12*6.2832; ctx.save(); ctx.strokeStyle=rgba(C.goud,0.6); ctx.lineWidth=1.5; const ex=x+Math.cos(a)*r, ey=cy+Math.sin(a)*ry; ctx.beginPath(); ctx.moveTo(ex,ey); ctx.lineTo(ex+Math.cos(a)*10,ey+Math.sin(a)*10+Math.sin(t*6+k)*2); ctx.stroke(); ctx.restore(); } };
+  if(p<0.05){ one(cx,rx); dot0(ctx,cx,cy,16,rgba(C.kern,0.95)); return; }
+  if(d<rx){ // insnoeren: twee helften die nog vastzitten
+    ctx.save(); ctx.beginPath(); ctx.ellipse(cx-d/2,cy,rx*0.75,ry*(1-w),0,0,6.2832); ctx.ellipse(cx+d/2,cy,rx*0.75,ry*(1-w),0,0,6.2832); ctx.fillStyle=f; ctx.fill(); ctx.restore();
+    for(const s of [-1,1]){ ctx.beginPath(); ctx.ellipse(cx+s*d/2,cy,rx*0.75,ry*(1-w),0,s<0?Math.PI*0.35:-Math.PI*0.65,s<0?Math.PI*1.65:Math.PI*0.65); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); }
+    for(const s of [-1,1]) dot0(ctx,cx+s*d*0.6,cy,13,rgba(C.kern,0.95)); return; }
+  for(const s of [-1,1]){ one(cx+s*d,rx*0.72); dot0(ctx,cx+s*d,cy,13,rgba(C.kern,0.95)); }
+}
+// gistcel met knop (g) en zoetwaterpoliep met zijknop (h)
+function vpKnop(ctx,cx,cy,g,h,t){
+  const gx=cx-60, gy=cy-150; ctx.beginPath(); ctx.ellipse(gx,gy,62,48,0,0,6.2832); shape(ctx,rgba(C.goud,0.22),C.goud,2.5); dot0(ctx,gx-8,gy,11,rgba(C.kern,0.95));
+  if(g>0){ const r=34*g; ctx.beginPath(); ctx.ellipse(gx+58+r*0.7,gy-26-r*0.3,r,r*0.85,0,0,6.2832); shape(ctx,rgba(C.goud,0.22),C.goud,2.5); if(g>0.6) dot0(ctx,gx+58+r*0.7,gy-26-r*0.3,7,rgba(C.kern,0.95)); }
+  metaText(ctx,'gist',gx,gy+82,C.grain,'center',20);
+  // poliep: steel van voet (onder) naar mond (boven) met tentakels
+  const px=cx+10, top=cy+30, base=cy+200, col=rgba(C.goud,0.30);
+  ctx.beginPath(); ctx.moveTo(px-26,top); ctx.quadraticCurveTo(px-34,(top+base)/2,px-16,base); ctx.lineTo(px+16,base); ctx.quadraticCurveTo(px+34,(top+base)/2,px+26,top); ctx.closePath(); shape(ctx,col,C.goud,2.5);
+  const tent=(x,y,n,len,sc)=>{ ctx.save(); ctx.strokeStyle=C.goud; ctx.lineWidth=4*sc; ctx.lineCap='round'; for(let k=0;k<n;k++){ const a=-Math.PI/2+(k-(n-1)/2)*0.42; ctx.beginPath(); ctx.moveTo(x,y); ctx.quadraticCurveTo(x+Math.cos(a)*len*0.6+Math.sin(t*1.5+k)*8*sc,y+Math.sin(a)*len*0.6,x+Math.cos(a)*len,y+Math.sin(a)*len+Math.sin(t*1.2+k)*6*sc); ctx.stroke(); } ctx.restore(); };
+  tent(px,top,5,90,1);
+  if(h>0){ const sx=px+24, sy=cy+130, L=70*h, an=-0.75, bx=sx+Math.cos(an)*L, by=sy+Math.sin(an)*L; ctx.save(); ctx.translate(sx,sy); ctx.rotate(an); ctx.beginPath(); ctx.moveTo(0,-14*h-3); ctx.lineTo(L,-10*h-2); ctx.lineTo(L,10*h+2); ctx.lineTo(0,14*h+3); ctx.closePath(); shape(ctx,col,C.goud,2.5); ctx.restore(); if(h>0.4){ ctx.save(); ctx.translate(bx,by); ctx.rotate(an+Math.PI/2); tent(0,0,4,40*h,0.6); ctx.restore(); } }
+  metaText(ctx,'zoetwaterpoliep',px,base+34,C.grain,'center',18);
+}
+function vpBlad(ctx,x,y,a,s){ ctx.save(); ctx.translate(x,y); ctx.rotate(a); ctx.beginPath(); ctx.ellipse(0,-22*s,15*s,24*s,0,0,6.2832); shape(ctx,C.chloro,lighten(C.chloro,0.3),1.5); ctx.strokeStyle=rgba(C.bgSchema,0.6); ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(0,-2*s); ctx.lineTo(0,-42*s); ctx.stroke(); ctx.restore(); }
+function vpPlant(ctx,x,y,s){ if(s<=0.02) return; ctx.save(); ctx.strokeStyle=C.chloro; ctx.lineWidth=3; for(const a of [-0.5,0,0.5]){ const ex=x+Math.sin(a)*50*s, ey=y-Math.cos(a)*50*s; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(ex,ey); ctx.stroke(); for(const b of [-0.6,0,0.6]) vpBlad(ctx,ex,ey,a+b,s*0.85); } ctx.restore(); }
+// aardbeiplant met uitloper (u) en nieuw plantje (p); stek in water (st)
+function vpAardbei(ctx,cx,cy,u,p,st){
+  const gy=cy+170; ctx.save(); ctx.strokeStyle=C.bruin; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(cx-190,gy); ctx.lineTo(cx+190,gy); ctx.stroke(); ctx.restore();
+  const mx=cx-110; vpPlant(ctx,mx,gy,1.25);
+  // aardbei
+  ctx.save(); ctx.strokeStyle=C.chloro; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(mx+10,gy-30); ctx.quadraticCurveTo(mx+40,gy-30,mx+46,gy-6); ctx.stroke(); ctx.beginPath(); ctx.moveTo(mx+34,gy-12); ctx.quadraticCurveTo(mx+60,gy-14,mx+46,gy+16); ctx.quadraticCurveTo(mx+32,gy-14,mx+46,gy-12); ctx.closePath(); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); ctx.restore();
+  // uitloper: boog over de grond
+  if(u>0){ const x0=mx+20, x1=cx+120; ctx.save(); ctx.strokeStyle=C.chloro; ctx.lineWidth=3.5; ctx.beginPath(); for(let k=0;k<=30*u;k++){ const v=k/30, x=lerp(x0,x1,v), y=gy-60*Math.sin(Math.PI*v); k?ctx.lineTo(x,y):ctx.moveTo(x,y); } ctx.stroke(); ctx.restore();
+    if(p>0){ vpPlant(ctx,x1,gy,0.9*p); ctx.save(); ctx.strokeStyle=C.okerD; ctx.lineWidth=2; for(let k=0;k<4;k++){ ctx.beginPath(); ctx.moveTo(x1,gy); ctx.lineTo(x1-12+k*8,gy+18*p+hash(k)*8); ctx.stroke(); } ctx.restore(); } }
+  if(st>0){ ctx.save(); ctx.globalAlpha*=st; const sx=cx+90, sy=cy-170; ctx.fillStyle=rgba(C.teal,0.25); ctx.fillRect(sx-36,sy+10,72,70); ctx.strokeStyle=C.line; ctx.lineWidth=2.5; ctx.beginPath(); ctx.moveTo(sx-38,sy-40); ctx.lineTo(sx-38,sy+80); ctx.lineTo(sx+38,sy+80); ctx.lineTo(sx+38,sy-40); ctx.stroke();
+    ctx.strokeStyle=C.chloro; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(sx,sy+50); ctx.lineTo(sx,sy-70); ctx.stroke(); vpBlad(ctx,sx,sy-50,-0.7,0.8); vpBlad(ctx,sx,sy-66,0.6,0.8);
+    ctx.strokeStyle=C.okerD; ctx.lineWidth=1.8; for(let k=0;k<4;k++){ ctx.beginPath(); ctx.moveTo(sx,sy+50); ctx.lineTo(sx-14+k*9,sy+50+22*st); ctx.stroke(); }
+    metaText(ctx,'stek',sx-60,sy+30,C.grain,'right',18); ctx.restore(); }
+}
+// bladluis (s = schaal) en jongen (j 0..1, drie stuks na elkaar)
+function vpLuis(ctx,x,y,s,t){ ctx.save(); ctx.translate(x,y); ctx.strokeStyle=C.groen; ctx.lineWidth=2.2*s; ctx.lineCap='round';
+  for(const k of [-1,0,1]) for(const d of [-1,1]){ ctx.beginPath(); ctx.moveTo(k*14*s,0); ctx.lineTo(k*20*s+d*4*s,d*30*s); ctx.lineTo(k*24*s+d*2*s,d*44*s); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(34*s,-4*s); ctx.quadraticCurveTo(60*s,-30*s,78*s,-26*s+Math.sin(t*2)*3*s); ctx.moveTo(34*s,4*s); ctx.quadraticCurveTo(60*s,30*s,78*s,26*s); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-26*s,-12*s); ctx.lineTo(-40*s,-22*s); ctx.moveTo(-26*s,12*s); ctx.lineTo(-40*s,22*s); ctx.lineWidth=4*s; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(-4*s,0,36*s,24*s,0,0,6.2832); shape(ctx,C.groen,lighten(C.groen,0.35),1.5); ctx.beginPath(); ctx.ellipse(34*s,0,11*s,10*s,0,0,6.2832); shape(ctx,lighten(C.groen,0.15),lighten(C.groen,0.35),1.2); dot0(ctx,40*s,-4*s,2.5*s,C.bgSchema); ctx.restore(); }
+function vpBladluis(ctx,cx,cy,j,t){ vpLuis(ctx,cx+40,cy-60,1.7,t);
+  [[cx-110,cy+90],[cx-10,cy+130],[cx+100,cy+100]].forEach(([x,y],i)=>{ const a=clamp(j*3-i,0,1); if(a>0){ ctx.save(); ctx.globalAlpha*=a; vpLuis(ctx,x,y,0.55+0.25*a,t+i); ctx.restore(); } });
+}
+
 const SCENES = {
 // ---------- Cold open ----------
 s01(ctx,t,q){
@@ -365,6 +416,89 @@ s26(ctx,t,q){
   scaleBar(ctx);
 },
 // ---------- H6 Vergelijking ----------
+// ---------- Voortplanting (16 okt 2026): v01 na s20, v02 na s26 ----------
+v01(ctx,t,q){
+  bg(ctx,'schema');
+  const tB=q.at('eencellige')-0.3, tC=q.at('geslachtelijke',2)-0.2;
+  const A=1-ramp(t,tB,0.6), B=ramp(t,tB,0.6)*(1-0.9*ramp(t,tC,0.6));
+  pill(ctx,960,92,'ongeslachtelijke voortplanting: één ouder, geen bevruchting',C.goud,ramp(t,q.at('ongeslachtelijke'),0.5)*(1-ramp(t,tC,0.5)),30);
+  if(A>0.01){ ctx.save(); ctx.globalAlpha*=A;
+    const chs=(s)=>MODEL.map((m,i)=>({x:[-40,-12,16,44][i]*s,y:(m.pair?24:-22)*s,len:m.len*0.42*s,color:m.color,dup:false,w:9*s}));
+    cellWith(ctx,520,470,150,chs(1.25),{nuc:true});
+    naamBij(ctx,'ouder','één organisme',520,262,1,'center');
+    const d=ramp(t,q.at('mitose',2),1.4);
+    arrow(ctx,710,470,980,470,C.goud,5,18,ramp(t,q.at('mitose',2),0.4)); metaA(ctx,'mitose',845,440,C.goud,ramp(t,q.at('mitose',2),0.4),22);
+    if(d>0){ for(const [x,y] of [[1240,330],[1560,600]]){ ctx.save(); ctx.globalAlpha*=d; cellWith(ctx,x,y,lerp(60,120,d),chs(lerp(0.5,1,d)),{nuc:true}); ctx.restore(); } }
+    naamBij(ctx,'nakomelingen','',1400,170,ramp(t,q.at('Daardoor'),0.5),'center');
+    pill(ctx,960,820,'genetisch gelijk aan de ouder: klonen',C.groen,ramp(t,q.at('klonen'),0.5),30);
+    ctx.restore(); }
+  if(B>0.01){ ctx.save(); ctx.globalAlpha*=B;
+    const P=[[270,'eencellige','deelt in tweeën','eencellige'],[730,'knopvorming','gist · zoetwaterpoliep','Gist'],[1190,'uitlopers en stekken','aardbeiplant','aardbeiplant'],[1650,'bladluis','jongen zonder bevruchting','bladluis']];
+    P.forEach(([cx,naam,meta,cue],k)=>{ const on=ramp(t,q.at(cue)-0.2,0.5); const nx=k<3?q.at(P[k+1][3])-0.2:tC; const foc=on*(1-0.5*ramp(t,nx,0.5));
+      ctx.save(); ctx.globalAlpha*=0.35+0.65*on; roundRect(ctx,cx-205,170,410,640,18); shape(ctx,rgba(C.fill,0.55),foc>0.6?C.goud:C.line,foc>0.6?3:1.2);
+      const cy=430, u=t-q.at(cue);
+      if(k===0) vpEencellige(ctx,cx,cy,ramp(u,0.4,2.2),t);
+      if(k===1) vpKnop(ctx,cx,cy,ramp(u,0.3,2.5),ramp(t,q.at('knop'),2.5),t);
+      if(k===2) vpAardbei(ctx,cx,cy,ramp(t,q.at('uitlopers'),1.6),ramp(t,q.at('plantjes'),1.6),ramp(t,q.at('stek'),1.4));
+      if(k===3) vpBladluis(ctx,cx,cy,ramp(t,q.at('jongen'),2.2),t);
+      naamBij(ctx,naam,meta,cx,730,1,'center',foc>0.6?C.goud:C.text); ctx.restore(); });
+    metaText(ctx,'nakomelingen zijn klonen van de ouder',960,862,C.grain,'center',22);
+    ctx.restore(); }
+  const cC=ramp(t,tC,0.6); if(cC>0){ pill(ctx,960,470,'geslachtelijke voortplanting: twee ouders, een andere deling',C.paars,cC,34); }
+  scaleBar(ctx);
+},
+v02(ctx,t,q){
+  bg(ctx,'schema');
+  const tB=q.at('manier')-0.2; const A=1-ramp(t,tB,0.6), B=ramp(t,tB,0.6);
+  pill(ctx,960,92,'geslachtelijke voortplanting',C.paars,A*ramp(t,0.2,0.5),30);
+  if(A>0.01){ ctx.save(); ctx.globalAlpha*=A;
+    const P1=[C.vader,'#2F6F94'], P2=[C.moeder,'#A8577F'];
+    const ch=(La,Sa,s=1)=>[{x:-22*s,y:0,len:70*s,color:La,dup:false,w:10*s},{x:22*s,y:0,len:44*s,color:Sa,dup:false,w:10*s}];
+    const ch4=(L1,L2,S1,S2,s=1)=>[{x:-36*s,y:-14*s,len:70*s,color:L1,dup:false,w:10*s},{x:-12*s,y:-14*s,len:70*s,color:L2,dup:false,w:10*s},{x:14*s,y:18*s,len:44*s,color:S1,dup:false,w:10*s},{x:38*s,y:18*s,len:44*s,color:S2,dup:false,w:10*s}];
+    const par=ramp(t,q.at('geslachtelijke')+0.4,0.6);
+    ctx.save(); ctx.globalAlpha*=par;
+    cellWith(ctx,420,255,105,ch4(P1[0],P1[1],P1[0],P1[1],1.1),{nuc:true}); cellWith(ctx,1500,255,105,ch4(P2[0],P2[1],P2[0],P2[1],1.1),{nuc:true});
+    naamBij(ctx,'ouder 1','2n',290,250,1,'right'); naamBij(ctx,'ouder 2','2n',1630,250,1,'left'); ctx.restore();
+    const mei=ramp(t,q.at('meiose'),0.8); const fus=ramp(t,q.at('versmelten'),1.6); const zy=ramp(t,q.at('zygote')-0.3,0.5);
+    const G1=[[300,ch(P1[0],P1[1],0.8)],[540,ch(P1[1],P1[0],0.8)]], G2=[[1380,ch(P2[0],P2[0],0.8)],[1620,ch(P2[1],P2[1],0.8)]];
+    if(mei>0){ ctx.save(); ctx.globalAlpha*=mei;
+      for(const [x] of G1) arrow(ctx,420,370,x,430,C.line,2.5,12,1); for(const [x] of G2) arrow(ctx,1500,370,x,430,C.line,2.5,12,1);
+      G1.forEach(([x,c],i)=>{ const mv=i===1?fus:0; const gx=lerp(x,880,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===1?1:0)); cellWith(ctx,gx,500,58,c); ctx.strokeStyle=C.text; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(gx-58,500); for(let k=0;k<=16;k++) ctx.lineTo(gx-58-k*5,500+Math.sin(k*0.8+t*8)*5); ctx.stroke(); ctx.restore(); });
+      G2.forEach(([x,c],i)=>{ const mv=i===0?fus:0; const gx=lerp(x,1040,mv); ctx.save(); ctx.globalAlpha*=(1-zy*(i===0?1:0)); cellWith(ctx,gx,500,64,c); ctx.restore(); });
+      metaText(ctx,'zaadcellen · n',420,610,C.grain,'center',20); metaText(ctx,'eicellen · n',1500,610,C.grain,'center',20);
+      pill(ctx,960,385,'meiose → haploïde geslachtscellen',C.goud,ramp(t,q.at('haploïde'),0.4)*(1-ramp(t,q.at('bevruchting'),0.4)),26);
+      ctx.restore(); }
+    if(zy>0){ ctx.save(); ctx.globalAlpha*=zy; cellWith(ctx,960,500,88,ch4(P1[1],P2[0],P1[0],P2[0],1.05),{nuc:true}); ctx.restore();
+      naamBij(ctx,'zygote','bevruchte eicel',960,370,zy,'center'); metaA(ctx,'weer diploïd · 2n',960,622,C.goud,ramp(t,q.at('diploïd'),0.3),20); }
+    const kids=ramp(t,q.at('nakomelingen'),0.6);
+    if(kids>0){ const K=[[P1[0],P2[1],P1[1],P2[0]],[P1[1],P2[0],P1[0],P2[0]],[P1[0],P2[0],P1[0],P2[1]],[P1[1],P2[1],P1[1],P2[1]]];
+      K.forEach((c,i)=>{ ctx.save(); ctx.globalAlpha*=ramp(t,q.at('nakomelingen')+i*0.25,0.4); cellWith(ctx,600+i*240,765,56,ch4(c[0],c[1],c[2],c[3],0.7)); ctx.restore(); });
+      metaA(ctx,'nakomelingen: allemaal anders',960,862,C.grain,kids,22); }
+    pill(ctx,960,680,'variatie: door meiose en door toeval bij de bevruchting',C.groen,ramp(t,q.at('meiose',2),0.4),24);
+    ctx.restore(); }
+  if(B>0.01){ ctx.save(); ctx.globalAlpha*=B;
+    const L=ramp(t,q.at('geslachtelijke',2)-0.2,0.5), R=ramp(t,q.at('geslachtelijke',3)-0.2,0.5);
+    const ziek=ramp(t,q.at('ziekte'),1.6), dood=ramp(t,q.at('sterven'),0.6), ziekR=ramp(t,q.at('omgeving')-0.6,1.4), doodR=ramp(t,q.at('verandert'),0.6);
+    const kols=[[500,'ongeslachtelijk',L],[1420,'geslachtelijk',R]];
+    const VAR=[[C.vader,C.moeder],[C.moeder,'#2F6F94'],['#A8577F',C.vader],[C.goud,C.moeder],[C.vader,C.groen],[C.groen,'#A8577F']];
+    const blijft=[1,4];
+    kols.forEach(([cx,naam,a],side)=>{ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a;
+      roundRect(ctx,cx-420,150,840,700,18); shape(ctx,rgba(C.fill,0.45),C.line,1.2);
+      text(ctx,naam,cx,225,fTekst(44,600),side?C.paars:C.goud,'center');
+      for(let i=0;i<6;i++){ const x=cx-300+i*120, y=390; const c=side?VAR[i]:[C.goud,C.goud];
+        const sterf=side?(blijft.includes(i)?0:doodR):dood; ctx.save(); ctx.globalAlpha*=1-0.75*sterf;
+        cellWith(ctx,x,y,46,[{x:-11,y:0,len:46,color:c[0],dup:false,w:9},{x:11,y:0,len:46,color:c[1],dup:false,w:9}]); ctx.restore();
+        if(sterf>0.05) crossOut(ctx,x,y,24,sterf);
+        if(side&&blijft.includes(i)&&doodR>0){ ctx.save(); ctx.globalAlpha*=doodR; ctx.strokeStyle=C.groen; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(x,y,58,0,6.2832); ctx.stroke(); ctx.restore(); } }
+      const z=side?ziekR:ziek; if(z>0&&z<1){ for(let k=0;k<5;k++){ const x=cx-380+z*760, y=320+k*36; ctx.save(); ctx.globalAlpha*=Math.sin(z*Math.PI); dot0(ctx,x+Math.sin(k*2.1+t*3)*14,y,9,C.koraal); for(let s=0;s<6;s++){ const an=s/6*6.2832; ctx.strokeStyle=C.koraal; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x+Math.sin(k*2.1+t*3)*14+Math.cos(an)*9,y+Math.sin(an)*9); ctx.lineTo(x+Math.sin(k*2.1+t*3)*14+Math.cos(an)*15,y+Math.sin(an)*15); ctx.stroke(); } ctx.restore(); } }
+      const pros=side?[['− trager',C.koraal,'trager'],['+ variatie',C.groen,'variatie'],['meer kans dat sommige overleven',C.groen,'overleven']]:[['+ snel',C.groen,'snel'],['+ geen partner nodig',C.groen,'partner'],['− geen variatie',C.koraal,'gelijk']];
+      pros.forEach(([s,col,cue],j)=>pill(ctx,cx,560+j*95,s,col,ramp(t,q.at(cue),0.4),30));
+      if(!side) metaA(ctx,'nieuwe ziekte: allemaal tegelijk weg',cx,820,C.koraal,ramp(t,q.at('sterven'),0.4),20);
+      if(side) metaA(ctx,'omgeving verandert: een paar overleven',cx,820,C.groen,ramp(t,q.at('verandert'),0.4),20);
+      ctx.restore(); });
+    ctx.restore(); }
+  scaleBar(ctx);
+},
 s27(ctx,t,q){ bg(ctx,'schema'); comparePanels(ctx,t,0,ramp(t,0.2,0.5)); },
 s29(ctx,t,q){
   bg(ctx,'schema'); const tab=ramp(t,q.at('Mitose:',2),0.6);

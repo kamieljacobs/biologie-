@@ -25,3 +25,7 @@ Opnieuw ingesproken in flow G9H4qGFv1wgBMnnLpTBa: s12, s13, s15, s26, s27, s30, 
 - "DNA" in s13 en s30 → "deeënaa" (Kamiels vaste voorkeur sinds de uitspraaktest van 12 oktober 2026). De oudere segmenten hebben nog "DNA"; neem bij opnieuw inspreken ook daar "deeënaa".
 
 - 12 okt 2026: Kamiel heeft "iks-vorm"/"iks-vormen" en het verschil tussen oude ("DNA") en nieuwe ("deeënaa") takes beluisterd (uitspraakcheck_review.mp3) en goedgekeurd; oude takes blijven zoals ze zijn.
+
+## Voortplanting v01 en v02 (16 okt 2026)
+
+Ingesproken in flow G9H4qGFv1wgBMnnLpTBa (eleven_v4, Roos, één take, generations_count 1), woordtijden met eleven_scribe_v1. Stem-invoer = schermtekst, behalve haploïde → "haaploïde". Geen uitspraaktest vooraf (afspraak 13 okt 2026); op de wachtlijst voor de batchtest: ongeslachtelijke / geslachtelijke, zoetwaterpoliep (/ˈzut.ʋaː.tər.poːˌlip/), bladluis (/ˈblɑt.lœy̯s/), klonen, zygote (/ziˈɣoː.tə/), eencellige.

@@ -102,6 +102,9 @@ Zesenveertig, net als de moedercel. Elke dochtercel krijgt van elk chromosoom é
 Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p.
 Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk.
 
+<!-- v01 (16 okt 2026, met de hand in segments.json, niet via make_segments.py) -->
+Mitose zorgt ook voor voortplanting. Bij ongeslachtelijke voortplanting ontstaan nakomelingen uit één ouder, zonder bevruchting. De nieuwe cellen ontstaan door mitose. Daardoor zijn de nakomelingen genetisch gelijk aan hun ouder: het zijn klonen. Een eencellige deelt zich gewoon in tweeën. Gist en de zoetwaterpoliep maken een knop, die uitgroeit tot een nieuw organisme. Een aardbeiplant maakt uitlopers, waaruit nieuwe plantjes groeien. Ook uit een stek groeit een hele plant. En een bladluis krijgt in de zomer jongen zonder bevruchting. Bij geslachtelijke voortplanting zijn er twee ouders, en is er een andere deling nodig.
+
 ## Hoofdstuk 5 — Meiose [Schema → Micro]
 Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel en een eicel.
 Hadden die allebei zesenveertig chromosomen, dan had het kind er tweeënnegentig.
@@ -124,6 +127,9 @@ Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen di
 Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder.
 Daarom verschilt bijna elke geslachtscel van een persoon van de andere.
 Bij de bevruchting komen n en n samen: weer twee n, zesenveertig.
+
+<!-- v02 (16 okt 2026, met de hand in segments.json, niet via make_segments.py) -->
+Zo werkt geslachtelijke voortplanting. Er zijn twee ouders. Elke ouder maakt door meiose haploïde geslachtscellen. Bij de bevruchting versmelten een zaadcel en een eicel tot een zygote. Die is weer diploïd. De nakomelingen verschillen genetisch van hun ouders, en van elkaar. Dat komt door de meiose, en door het toeval welke zaadcel en welke eicel samenkomen. Elke manier heeft voor- en nadelen. Ongeslachtelijke voortplanting gaat snel, en er is geen partner nodig. Maar alle nakomelingen zijn gelijk. Komt er bijvoorbeeld een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven. Geslachtelijke voortplanting gaat trager. Maar door de variatie is de kans groter dat sommige nakomelingen overleven als de omgeving verandert.
 
 ## Hoofdstuk 6 — Mitose en meiose naast elkaar [Schema]
 Zet de mitose en de twee delingen van de meiose naast elkaar.

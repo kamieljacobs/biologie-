@@ -278,6 +278,28 @@
   "voice": "Volg de hoeveelheid DNA in één kern. Noem die na de deling p. In de interfase verdubbelt het DNA tot twee p. Na de mitose heeft elke kern weer p. Het DNA is dus niet gehalveerd. Het is eerst verdubbeld, en toen eerlijk verdeeld. De twee dochtercellen zijn genetisch gelijk."
  },
  {
+  "id": "v01",
+  "chapter": "Hoofdstuk 4 — Mitose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Mitose zorgt ook voor voortplanting.",
+   "Bij ongeslachtelijke voortplanting ontstaan nakomelingen uit één ouder, zonder bevruchting.",
+   "De nieuwe cellen ontstaan door mitose.",
+   "Daardoor zijn de nakomelingen genetisch gelijk aan hun ouder: het zijn klonen.",
+   "Een eencellige deelt zich gewoon in tweeën.",
+   "Gist en de zoetwaterpoliep maken een knop, die uitgroeit tot een nieuw organisme.",
+   "Een aardbeiplant maakt uitlopers, waaruit nieuwe plantjes groeien.",
+   "Ook uit een stek groeit een hele plant.",
+   "En een bladluis krijgt in de zomer jongen zonder bevruchting.",
+   "Bij geslachtelijke voortplanting zijn er twee ouders, en is er een andere deling nodig."
+  ],
+  "display": "Mitose zorgt ook voor voortplanting. Bij ongeslachtelijke voortplanting ontstaan nakomelingen uit één ouder, zonder bevruchting. De nieuwe cellen ontstaan door mitose. Daardoor zijn de nakomelingen genetisch gelijk aan hun ouder: het zijn klonen. Een eencellige deelt zich gewoon in tweeën. Gist en de zoetwaterpoliep maken een knop, die uitgroeit tot een nieuw organisme. Een aardbeiplant maakt uitlopers, waaruit nieuwe plantjes groeien. Ook uit een stek groeit een hele plant. En een bladluis krijgt in de zomer jongen zonder bevruchting. Bij geslachtelijke voortplanting zijn er twee ouders, en is er een andere deling nodig.",
+  "voice": "Mitose zorgt ook voor voortplanting. Bij ongeslachtelijke voortplanting ontstaan nakomelingen uit één ouder, zonder bevruchting. De nieuwe cellen ontstaan door mitose. Daardoor zijn de nakomelingen genetisch gelijk aan hun ouder: het zijn klonen. Een eencellige deelt zich gewoon in tweeën. Gist en de zoetwaterpoliep maken een knop, die uitgroeit tot een nieuw organisme. Een aardbeiplant maakt uitlopers, waaruit nieuwe plantjes groeien. Ook uit een stek groeit een hele plant. En een bladluis krijgt in de zomer jongen zonder bevruchting. Bij geslachtelijke voortplanting zijn er twee ouders, en is er een andere deling nodig.",
+  "model": "eleven_v4",
+  "opgenomen": "2026-10-16"
+ },
+ {
   "id": "s21",
   "chapter": "Hoofdstuk 5 — Meiose",
   "level": "basis",
@@ -350,6 +372,31 @@
   ],
   "display": "Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen. Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze stukken uit, bij elk paar meestal één of twee keer. Dat heet crossing-over. Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder. Daarom verschilt bijna elke geslachtscel van een persoon van de andere. Bij de bevruchting komen n en n samen: weer twee n, zesenveertig.",
   "voice": "Welk chromosoom van een paar naar welke kant gaat, is toeval. Met drieëntwintig paren geeft dat twee tot de macht drieëntwintig combinaties: zo'n acht miljoen. Er komt nog meer variatie bij. In meiose één liggen de homologe chromosomen dicht tegen elkaar. Daarbij wisselen ze stukken uit, bij elk paar meestal één of twee keer. Dat heet crossing-over. Daardoor zijn veel chromosomen in een geslachtscel een nieuwe mengeling van het chromosoom van je vader en dat van je moeder. Daarom verschilt bijna elke geslachtscel van een persoon van de andere. Bij de bevruchting komen n en n samen: weer twee n, zesenveertig."
+ },
+ {
+  "id": "v02",
+  "chapter": "Hoofdstuk 5 — Meiose",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zo werkt geslachtelijke voortplanting.",
+   "Er zijn twee ouders.",
+   "Elke ouder maakt door meiose haploïde geslachtscellen.",
+   "Bij de bevruchting versmelten een zaadcel en een eicel tot een zygote.",
+   "Die is weer diploïd.",
+   "De nakomelingen verschillen genetisch van hun ouders, en van elkaar.",
+   "Dat komt door de meiose, en door het toeval welke zaadcel en welke eicel samenkomen.",
+   "Elke manier heeft voor- en nadelen.",
+   "Ongeslachtelijke voortplanting gaat snel, en er is geen partner nodig.",
+   "Maar alle nakomelingen zijn gelijk.",
+   "Komt er bijvoorbeeld een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven.",
+   "Geslachtelijke voortplanting gaat trager.",
+   "Maar door de variatie is de kans groter dat sommige nakomelingen overleven als de omgeving verandert."
+  ],
+  "display": "Zo werkt geslachtelijke voortplanting. Er zijn twee ouders. Elke ouder maakt door meiose haploïde geslachtscellen. Bij de bevruchting versmelten een zaadcel en een eicel tot een zygote. Die is weer diploïd. De nakomelingen verschillen genetisch van hun ouders, en van elkaar. Dat komt door de meiose, en door het toeval welke zaadcel en welke eicel samenkomen. Elke manier heeft voor- en nadelen. Ongeslachtelijke voortplanting gaat snel, en er is geen partner nodig. Maar alle nakomelingen zijn gelijk. Komt er bijvoorbeeld een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven. Geslachtelijke voortplanting gaat trager. Maar door de variatie is de kans groter dat sommige nakomelingen overleven als de omgeving verandert.",
+  "voice": "Zo werkt geslachtelijke voortplanting. Er zijn twee ouders. Elke ouder maakt door meiose haaploïde geslachtscellen. Bij de bevruchting versmelten een zaadcel en een eicel tot een zygote. Die is weer diploïd. De nakomelingen verschillen genetisch van hun ouders, en van elkaar. Dat komt door de meiose, en door het toeval welke zaadcel en welke eicel samenkomen. Elke manier heeft voor- en nadelen. Ongeslachtelijke voortplanting gaat snel, en er is geen partner nodig. Maar alle nakomelingen zijn gelijk. Komt er bijvoorbeeld een nieuwe ziekte, dan kunnen ze allemaal tegelijk sterven. Geslachtelijke voortplanting gaat trager. Maar door de variatie is de kans groter dat sommige nakomelingen overleven als de omgeving verandert.",
+  "model": "eleven_v4",
+  "opgenomen": "2026-10-16"
  },
  {
   "id": "s27",
