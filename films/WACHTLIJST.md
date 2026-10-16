@@ -8,9 +8,9 @@ Aanleiding 15-10-2026: correctie in *Het kabelnetwerk* en aanvullingen na de ver
 |---|---|---|
 | [Vaccins, allergie en bloedgroepen](afweer/4-vaccins-allergie-en-bloedgroepen/bron/info.md) | 2 | geen |
 | [Celorganellen](cellen/celorganellen/bron/info.md) | 6 | fosfolipiden, steroïdhormonen |
-| [Diffusie en osmose](cellen/diffusie-osmose/bron/info.md) | 6 | fosfolipiden, hydrofiel, hydrofoob, chloride |
 | [Onderzoek doen in de biologie](cellen/onderzoek-doen/bron/info.md) | 8 | controlevariabelen |
 | [Stamcellen](cellen/stamcellen/bron/info.md) | 2 | ethisch |
+| [Van DNA naar eiwit](dna/3-van-dna-naar-eiwit/bron/info.md) | 0 (n7, n10, n12, n21, n23 op 16 okt al opgenomen; alleen beluisteren) | deeënaa (DNA), taata-box, transcriptiefactoren, matrijsstreng, eksons, vijf-/drie-accent-uiteinde, ‘staart van alleen aa's’, tee-er-en-aa, E-R, golgisysteem, reverse transcriptase |
 | [Mutaties](dna/5-mutaties/bron/info.md) | 3 | (kwaadaardig, goedaardig: alleen klemtoon checken) |
 | [Genen aan en uit](dna/6-genen-aan-en-uit/bron/info.md) | 9 | E. coli, lac-operon, lactose, operator |
 | [Wat heb jij aan DNA?](dna/8-wat-heb-jij-aan-dna/bron/info.md) | 5 | ethisch, biologisch |
@@ -36,3 +36,11 @@ Aanleiding 15-10-2026: correctie in *Het kabelnetwerk* en aanvullingen na de ver
 | [Eén seconde](zenuwstelsel/1-een-seconde/bron/info.md) | 7 | antagonisten, effectoren |
 | [Het kabelnetwerk](zenuwstelsel/2-het-kabelnetwerk/bron/info.md) | 11 | spanningsafhankelijk, lawine |
 | [Het hoofdkantoor](zenuwstelsel/5-het-hoofdkantoor/bron/info.md) | 6 | temperatuurzintuigen, terugkoppeling (hypothalamus: bestaande regel) |
+
+## Ingesproken, uitspraak nog beluisteren (batch-luistertest)
+
+Deze takes zijn al opgenomen; Kamiel luistert de risicowoorden in één batch na. Klinkt een woord fout, dan alleen die take opnieuw (zelfde stem-invoer, met aangepaste respelling).
+
+| Film | Take(s) | Risicowoorden (stem-invoer) |
+|---|---|---|
+| [Diffusie en osmose](cellen/diffusie-osmose/bron/info.md) (v1.2, 16-10-2026) | s12, s14, s20, s21, s22 | fosfolipiden (`fosfo-lipiden`, s12 ± 0:08), hydrofiel (`hiedro-fiel`, s12 ± 0:12), hydrofoob (`hiedro-foob`, s12 ± 0:15), chloride (zoals geschreven, s22 ± 0:28; alternatief `chlo-riede`), keukenzout (s22 ± 0:24), molecuul (s20 ± 0:17) |

@@ -514,7 +514,7 @@ const HOOFDSTUKKEN = {
     "titel": "Diffusie en osmose",
     "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?",
     "tekst": "Alles beweegt: diffusie, het celmembraan, waarom osmose werkt (een drukverschil bij het membraan) en actief transport",
-    "duur": 9,
+    "duur": 10,
     "bij": "Film · diffusie en osmose · havo + vwo"
    },
    {
@@ -679,7 +679,7 @@ const HOOFDSTUKKEN = {
     "titel": "Van DNA naar eiwit",
     "vraag": "Hoe wordt een gen een eiwit?",
     "tekst": "Hoe een mRNA-vaccin werkt: transcriptie, translatie, codons en tRNA",
-    "duur": 7,
+    "duur": 8,
     "bij": "Film · DNA-reeks · havo + vwo"
    },
    {
@@ -743,7 +743,7 @@ const HOOFDSTUKKEN = {
    {
     "href": "tools/dna-bouw/index.html",
     "naam": "De bouw van DNA",
-    "tekst": "Doorklik-tool voor de eerste DNA-les: nucleotide, 5' en 3', dubbele streng, polymerase, gen, RNA en splicing (havo/vwo-schakelaar)"
+    "tekst": "Doorklik-tool voor de docent bij aflevering 1 en 2: nucleotide, 5' en 3', dubbele streng, polymerase, gen, RNA en splicing (havo/vwo, presentatiemodus)"
    },
    {
     "href": "tools/dna-profielen/index.html",
@@ -1974,13 +1974,16 @@ const TOOLPLAAT = [
   <path d="M14 104H206" stroke-width="1.6"/>
   ${R(8,i=>{const h=[14,10,16,12,14,10,16,12][i];return `<path d="M${26+i*24} 104v-${h}" stroke-width="1.1" ${i===3?'class="acc"':''}/><circle cx="${26+i*24}" cy="104" r="2.4" fill="currentColor" stroke="none"/>`})}
   ${L(8,122,'RNA')}${LL(98,88,118,78)}${L(120,78,'uracil (U)')}${LL(110,40,120,26)}${L(122,24,'thymine (T)')}`],
- [/eiwit/i,'groen','translatie aan het ribosoom',()=>`
-  <path d="M8 98H212" stroke-width="1.5"/>${R(17,i=>`<path d="M${14+i*12} 98v-5" stroke-width="1"/>`)}
-  <g class="lab">${['AUG','GCA','UUC','GGA','UAA'].map((c,i)=>`<text x="${30+i*40}" y="112" text-anchor="middle">${c}</text>`).join('')}</g>
-  <ellipse cx="96" cy="78" rx="30" ry="18" stroke-width="1.5"/><ellipse cx="96" cy="106" rx="36" ry="14" stroke-width="1.5"/>
-  <path d="M104 92V70M98 70h12" stroke-width="1.3" class="acc"/>
-  ${R(6,i=>`<circle cx="${(108+i*12-i*i*.6).toFixed(1)}" cy="${(58-i*8).toFixed(1)}" r="5" stroke-width="1.2" ${i%2?'':'class="acc"'}/>`)}
-  ${LL(66,72,50,62)}${L(48,60,'ribosoom','end')}${LL(110,70,140,82)}${L(142,86,'tRNA')}${L(144,12,'aminozuurketen','end')}${L(212,124,'mRNA →','end')}`],
+ [/eiwit/i,'groen','het centrale dogma',()=>`
+  <path d="${R(25,i=>{const x=12+i*1.75,y=70+12*Math.sin(i/24*Math.PI*4);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)})}" stroke-width="1.5"/>
+  <path d="${R(25,i=>{const x=12+i*1.75,y=70-12*Math.sin(i/24*Math.PI*4);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1)})}" stroke-width="1.5"/>
+  ${R(7,i=>{const x=15+i*6,h=Math.abs(12*Math.sin((x-12)/42*Math.PI*4));return h>3?`<path d="M${x} ${(70-h+2).toFixed(1)}V${(70+h-2).toFixed(1)}" stroke-width=".9" opacity=".7"/>`:''})}
+  ${L(33,100,'DNA','middle')}
+  <path d="M60 70h28M83 65l5 5-5 5" stroke-width="1.4" class="acc"/>${L(74,44,'transcriptie','middle')}
+  <path d="M98 70c5-7 9 7 14 0s9 7 14 0" stroke-width="1.6"/>${L(112,100,'RNA','middle')}
+  <path d="M136 70h28M159 65l5 5-5 5" stroke-width="1.4" class="acc"/>${L(150,44,'translatie','middle')}
+  <path d="M178 78c-6-10 4-20 14-16s16 4 14 14-14 14-20 8" stroke-width="1.3"/>${R(6,i=>{const a=i*1.05;return `<circle cx="${(193+10*Math.cos(a)).toFixed(1)}" cy="${(71+9*Math.sin(a)).toFixed(1)}" r="3" stroke-width="1.1" ${i%2?'':'class="acc"'}/>`})}
+  ${L(193,100,'eiwit','middle')}`],
  [/regelkring/i,'koraal','negatieve terugkoppeling',()=>`
   <rect x="14" y="48" width="56" height="26" rx="4" stroke-width="1.4"/><rect x="74" y="12" width="72" height="26" rx="4" stroke-width="1.4"/><rect x="150" y="48" width="56" height="26" rx="4" stroke-width="1.4"/><rect x="74" y="86" width="72" height="26" rx="4" stroke-width="1.4" class="acc"/>
   <g class="lab">${L(42,64,'receptor','middle')}${L(110,28,'regelcentrum','middle')}${L(178,64,'effector','middle')}</g><text x="110" y="102" text-anchor="middle" class="lab acc-t">bloedglucose</text>
@@ -2011,6 +2014,7 @@ const toolFig=naam=>{const m=TOOLPLAAT.find(([re])=>re.test(naam));return m?m[2]
 /* Een lijntekening per film (viewBox 0 0 48 48), gekozen op de bestandsnaam van de film. currentColor = kleur van het hoofdstuk, .acc = goud. */
 // Werkstatus per film (alleen zichtbaar met ?k=1, uit met ?k=0). Ontbreekt = nog bekijken; 'feedback' = opmerkingen nog te verwerken; 'ok' = klaar.
 const REVIEW = {
+  // DNA 3 Van DNA naar eiwit 16 okt: v1.1 (TATA-box, ER/Golgi, beeld) -> nog bekijken
   "films/cellen/van-molecuul-tot-biosfeer.html": "ok", // 15 okt: abiotisch/emergente heropgenomen en goedgekeurd
   "films/gedrag/10-helpen.html": "ok", // 15 okt: door Kamiel bekeken, goed
   "films/gedrag/8-honingbij.html": "ok", // 16 okt: door Kamiel bekeken, goed
@@ -2018,7 +2022,7 @@ const REVIEW = {
   "films/zenuwstelsel/7-slaap.html": "ok", // 16 okt: door Kamiel bekeken, goed (EEG Nederlands, verwijzing Knoeien met de synaps)
   "films/hormonen/1-post-voor-iedereen.html": "ok", // 16 okt: door Kamiel bekeken, goed
   "films/hormonen/2-suiker-in-balans.html": "ok", // 16 okt: door Kamiel bekeken, goed
-  "films/cellen/diffusie-osmose/index.html": "ok", // 15 okt: osmose-beeld aangepast (water door het membraan), rest goed
+  // Diffusie en osmose 16 okt: v1.2 (osmosezinnen opnieuw ingesproken, beeld volgens beeldafspraken) -> nog bekijken
   "films/cellen/stamcellen.html": "ok", // 15 okt: goed; 'Antwoord aa' bij Vragen uit nu ook weg
   "films/cellen/celorganellen/index.html": "ok", // 15 okt: wijslijnen weg, chromatine, exo- en endocytose; door Kamiel goedgekeurd
   // Onderzoek doen 15 okt: geluidje na spontane generatie weg, 'te dichtbij' opnieuw ingesproken -> nog bekijken

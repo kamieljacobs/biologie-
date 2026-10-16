@@ -1,52 +1,35 @@
-<!doctype html><html><head><meta charset=utf8><script src="../../js/teller.js" data-root="../../"></script>
+<!doctype html><html lang="nl"><head><meta charset=utf8><script src="../../js/teller.js" data-root="../../"></script>
 <meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<nav class="sitenav" style="display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;max-width:1180px;margin:0 auto;padding:14px 16px 0;font:600 15px/1.3 system-ui,sans-serif"><a href="../../index.html#home" style="color:inherit;opacity:.65;text-decoration:none">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a href="../../index.html#dna" style="color:inherit;text-decoration:none">← Terug naar DNA</a></nav>
-<title>DNA-profielen vergelijken</title>
+<title>DNA-profielen vergelijken · Biologie bij Kamiel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../huisstijl.css">
+<script src="../huisstijl.js"></script>
 <style>
 /* Layout: labtafel — protocol (stappen) links, instrument-werkruimte rechts; resultaten in donkere geldoc-panelen */
 :root {
-  --bg: #edf1f3; --surface: #ffffff; --surface-2: #f4f7f8; --sunk: #e4eaed;
-  --ink: #132029; --ink-2: #485964; --ink-3: #6f808a; --line: #d3dce1; --line-2: #b9c6cd;
-  --accent: #3b44c4; --accent-2: #2c3499; --accent-ink: #ffffff; --accent-soft: #e2e4fa;
-  --cyan: #0c7d8e; --cyan-soft: #dcf0f3;
-  --ok: #1d7444; --ok-soft: #dcf0e3; --warn: #8f5300; --warn-soft: #fbeed6; --bad: #b0261b; --bad-soft: #fae3e0;
-  --gel: #0a0d10; --gel-2: #141a1f; --gel-ink: #cfdfd7; --gel-line: #27313a;
-  --lcd: #11181d; --lcd-ink: #d8efe4; --lcd-dim: #87a197;
-  --tray: #c9d6dc; --tray-line: #8ea1aa; --gelfill: #b9dfe6;
-  --shadow: 0 1px 2px rgba(19, 32, 41, .06), 0 6px 18px rgba(19, 32, 41, .06);
-  --f-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
-  --f-body: 'Atkinson Hyperlegible', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --f-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0d1215; --surface: #141b20; --surface-2: #1a2329; --sunk: #0a0f12;
-    --ink: #e3eaee; --ink-2: #a5b4bd; --ink-3: #7f909a; --line: #26323a; --line-2: #36454e;
-    --accent: #9ea6ff; --accent-2: #c0c5ff; --accent-ink: #0d1215; --accent-soft: #232852;
-    --cyan: #5cc6d6; --cyan-soft: #11303a;
-    --ok: #63c891; --ok-soft: #12301f; --warn: #e8ad55; --warn-soft: #36270f; --bad: #ff8d80; --bad-soft: #3b1613;
-    --gel: #06080a; --gel-2: #0e1317; --gel-ink: #bccdc5; --gel-line: #212a31;
-    --lcd: #0a0f12; --lcd-ink: #cfe9dc; --lcd-dim: #6f8a80;
-    --tray: #2a363d; --tray-line: #4f616a; --gelfill: #5f8f99;
-    --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 22px rgba(0, 0, 0, .25);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0d1215; --surface: #141b20; --surface-2: #1a2329; --sunk: #0a0f12;
-  --ink: #e3eaee; --ink-2: #a5b4bd; --ink-3: #7f909a; --line: #26323a; --line-2: #36454e;
-  --accent: #9ea6ff; --accent-2: #c0c5ff; --accent-ink: #0d1215; --accent-soft: #232852;
-  --cyan: #5cc6d6; --cyan-soft: #11303a;
-  --ok: #63c891; --ok-soft: #12301f; --warn: #e8ad55; --warn-soft: #36270f; --bad: #ff8d80; --bad-soft: #3b1613;
+  /* Huisstijl (tools/huisstijl.css): de eigen namen van dit practicum verwijzen naar de huisstijlvariabelen.
+     Instrumenten (gel, geldoc, lcd) blijven in beide thema's donker, zoals echte apparatuur. */
+  --surface-2: var(--surface2); --sunk: var(--bg2);
+  --ink: var(--text); --ink-2: var(--text2); --ink-3: var(--text3); --line-2: var(--line2);
+  --accent: var(--goud); --accent-2: var(--goud-text); --accent-ink: var(--goud-ink); --accent-soft: var(--goud-soft);
+  --cyan: var(--teal); --cyan-soft: var(--teal-soft);
+  --ok: var(--groen); --ok-soft: var(--groen-soft); --warn: var(--oker); --warn-soft: rgba(210,174,102,.14); --bad: var(--koraal); --bad-soft: var(--koraal-soft);
   --gel: #06080a; --gel-2: #0e1317; --gel-ink: #bccdc5; --gel-line: #212a31;
   --lcd: #0a0f12; --lcd-ink: #cfe9dc; --lcd-dim: #6f8a80;
   --tray: #2a363d; --tray-line: #4f616a; --gelfill: #5f8f99;
   --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 22px rgba(0, 0, 0, .25);
-  color-scheme: dark;
+  --f-display: var(--titel); --f-body: var(--tekst); --f-mono: var(--meta);
 }
+:root[data-theme="light"] {
+  --warn-soft: rgba(140,106,28,.12);
+  --tray: #c9d6dc; --tray-line: #8ea1aa; --gelfill: #b9dfe6;
+  --shadow: 0 1px 2px rgba(19, 32, 41, .06), 0 6px 18px rgba(19, 32, 41, .06);
+}
+.sitebalk-wrap { max-width: 1280px; }
+@media (min-width: 760px) { .sitebalk-wrap { padding-inline: 28px; } }
+header.top h1 { font-family: var(--titel); }
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -55,7 +38,7 @@ body.noscroll { overflow: hidden; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
 h1, h2, h3, h4 { text-wrap: balance; }
-a { color: var(--accent); }
+a { color: var(--accent-2); }
 .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
 .dim { color: var(--ink-3); }
 .sr { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
@@ -69,7 +52,7 @@ a { color: var(--accent); }
 /* ---------- kop ---------- */
 header.top { background: var(--surface); border-bottom: 1px solid var(--line); }
 .top-in { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; padding-block: 18px 16px; }
-.eyebrow { margin: 0; font: 600 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.eyebrow { margin: 0; font: 600 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-2); }
 header.top h1 { margin: 6px 0 0; font: 700 clamp(25px, 3.6vw, 34px)/1.05 var(--f-display); letter-spacing: -.015em; }
 .top-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .casechip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-2); border-radius: 999px; padding: 5px 12px; font-size: 14px; background: var(--surface-2); }
@@ -121,7 +104,7 @@ main { min-width: 0; outline: none; }
 /* ---------- stap ---------- */
 .step { display: flex; flex-direction: column; gap: 22px; }
 .step-head h2 { margin: 4px 0 6px; font: 700 clamp(24px, 3vw, 31px)/1.12 var(--f-display); letter-spacing: -.012em; }
-.kicker { margin: 0; font: 600 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.kicker { margin: 0; font: 600 11.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-2); }
 .lede { margin: 0; color: var(--ink-2); max-width: 68ch; }
 h3 { font: 700 18px/1.25 var(--f-display); margin: 0 0 10px; }
 h4 { font: 700 15px/1.3 var(--f-body); margin: 16px 0 6px; }
@@ -161,15 +144,15 @@ input[type="range"].unset { opacity: .55; }
 .radio.is-disabled { cursor: not-allowed; opacity: .75; }
 
 /* ---------- knoppen ---------- */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 16px; border-radius: 10px; font: 700 15px/1.2 var(--f-body); border: 1.5px solid transparent; cursor: pointer; text-decoration: none; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 999px; min-height: 44px; font: 700 15px/1.2 var(--f-body); border: 1.5px solid transparent; cursor: pointer; text-decoration: none; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-primary:hover:not(:disabled) { background: var(--accent-2); }
+.btn-primary:hover:not(:disabled) { filter: brightness(1.06); }
 .btn-ghost { background: var(--surface); border-color: var(--line-2); color: var(--ink); }
 .btn-ghost:hover:not(:disabled) { border-color: var(--ink-3); }
 .btn-ghost[aria-pressed="true"] { border-color: var(--accent); color: var(--accent-2); }
-.btn-danger { background: var(--bad); color: #fff; }
+.btn-danger { background: var(--bad); color: var(--bg); }
 .btn-danger-ghost { background: transparent; border-color: var(--bad); color: var(--bad); }
-.btn-s { padding: 7px 12px; font-size: 14px; }
+.btn-s { padding: 7px 14px; font-size: 14px; min-height: 36px; }
 .btn:disabled { opacity: .45; cursor: not-allowed; }
 .icon-btn { width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--line-2); background: var(--surface); color: var(--ink); font: 700 15px var(--f-mono); cursor: pointer; display: inline-grid; place-items: center; }
 .icon-btn:disabled { opacity: .35; cursor: not-allowed; }
@@ -239,7 +222,7 @@ ul.plain.dots { list-style: disc; padding-left: 20px; gap: 6px; }
 .svg-t { font: 11px var(--f-mono); fill: var(--ink-2); }
 .svg-t.mid { text-anchor: middle; }
 .svg-t.end { text-anchor: end; }
-.svg-t.acc { fill: var(--accent); font-weight: 600; }
+.svg-t.acc { fill: var(--accent-2); font-weight: 600; }
 .svg-t.big { font: 700 22px var(--f-display); fill: var(--ink); }
 .svg-t.tiny { font-size: 8.5px; }
 .svg-grid { stroke: var(--line); stroke-width: 1; }
@@ -254,7 +237,7 @@ ul.plain.dots { list-style: disc; padding-left: 20px; gap: 6px; }
 .svg-tooth { fill: var(--ink-2); }
 .svg-well { fill: var(--surface); opacity: .75; }
 .svg-well-empty { fill: var(--surface); opacity: .7; stroke: var(--tray-line); stroke-width: .6; }
-.svg-well-dye { fill: #3d48b8; }
+.svg-well-dye { fill: var(--paars); }
 .svg-well-clear { fill: #7fa3c4; opacity: .55; }
 .tray.pouring .svg-gel { animation: pour 1.5s ease-out; }
 @keyframes pour { from { opacity: 0; } }
@@ -321,7 +304,7 @@ ul.plain.dots { list-style: disc; padding-left: 20px; gap: 6px; }
 .report figure { margin: 10px 0; }
 .report figure img { max-width: min(100%, 620px); border-radius: 6px; display: block; }
 .report figcaption { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
-.rep-kicker { margin: 0; font: 600 11.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.rep-kicker { margin: 0; font: 600 11.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent-2); }
 .rep-meta { margin: 0; color: var(--ink-2); font-size: 14.5px; }
 .report .q { font-weight: 700; margin: 12px 0 2px; }
 .report .empty { color: var(--ink-3); }
@@ -343,7 +326,8 @@ ul.plain.dots { list-style: disc; padding-left: 20px; gap: 6px; }
 .docent-head h2 { margin: 4px 0 0; font: 700 28px var(--f-display); }
 .docres { display: flex; flex-direction: column; gap: 10px; border-top: 1px dashed var(--line-2); padding-top: 14px; }
 .docimg { width: 100%; max-width: 620px; border-radius: 10px; }
-.foot { padding-block: 0 32px; color: var(--ink-3); font-size: 13.5px; }
+.foot { padding-block: 24px 40px; color: var(--ink-3); font-size: 14px; margin-top: 8px; }
+.foot p { margin: 0; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 
@@ -393,7 +377,7 @@ ul.plain.dots { list-style: disc; padding-left: 20px; gap: 6px; }
 .why { background: var(--surface-2); border: 1px dashed var(--line-2); border-radius: 10px; padding: 9px 12px; display: flex; flex-direction: column; gap: 4px; font-size: 14.5px; line-height: 1.45; }
 .why p { margin: 0; }
 .why-k { display: block; font: 600 10.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1px; }
-.why-e .why-k { color: var(--accent); }
+.why-e .why-k { color: var(--accent-2); }
 .why-e.warn { color: var(--warn); }
 .why-e.bad { color: var(--bad); }
 .why-e.ok { color: var(--ink); }
@@ -690,6 +674,13 @@ p.warnbox { display: block; }
 
 </style>
 <a class="skip" href="#main">Naar de inhoud</a>
+<div class="wrap sitebalk-wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../index.html#dna">← Terug naar DNA</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+</div>
 <header class="top">
   <div class="wrap top-in">
     <div class="brand">
@@ -703,7 +694,7 @@ p.warnbox { display: block; }
   <nav class="steps" id="steps" aria-label="Stappen van het practicum"></nav>
   <main id="main" tabindex="-1"></main>
 </div>
-<footer class="wrap foot"><p>Simulatie met vereenvoudigde, maar realistische modellen voor PCR en gelelektroforese. Fictieve casussen.</p><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<footer class="wrap foot tool-voet"><p>Simulatie met vereenvoudigde, maar realistische modellen voor PCR en gelelektroforese. Fictieve casussen.</p><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 <div id="docent" class="docent" hidden></div>
 <div id="modal" class="modal" hidden></div>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
@@ -7100,7 +7091,7 @@ function drawTank(r, now) {
   c.lineWidth = 3;
   c.strokeStyle = '#222'; c.beginPath(); c.moveTo(44, yTop); c.lineTo(W - 44, yTop); c.stroke();
   c.strokeStyle = '#c62828'; c.beginPath(); c.moveTo(44, yBot); c.lineTo(W - 44, yBot); c.stroke();
-  c.font = '700 18px "JetBrains Mono", monospace'; c.textAlign = 'center';
+  c.font = '700 18px "IBM Plex Mono", monospace'; c.textAlign = 'center';
   c.fillStyle = '#222'; c.beginPath(); c.arc(30, yTop, 11, 0, 7); c.fill(); c.fillStyle = '#fff'; c.fillText('−', 30, yTop + 6);
   c.fillStyle = '#c62828'; c.beginPath(); c.arc(30, yBot, 11, 0, 7); c.fill(); c.fillStyle = '#fff'; c.fillText('+', 30, yBot + 6);
   // gel
@@ -7212,19 +7203,19 @@ function drawPhoto(cv, r, o) {
     const y = Yp(WELL_Y + mm);
     const len = mm % 10 === 0 ? 10 * k : mm % 5 === 0 ? 6 * k : 3 * k;
     c.beginPath(); c.moveTo(mL - 3 * k, y); c.lineTo(mL - 3 * k - len, y); c.stroke();
-    if (mm % 10 === 0 || (sy > 1.4 && mm % 5 === 0)) { c.font = `${11 * k}px "JetBrains Mono", monospace`; c.textAlign = 'right'; c.fillText(String(mm), mL - 16 * k, y + 4 * k); }
+    if (mm % 10 === 0 || (sy > 1.4 && mm % 5 === 0)) { c.font = `${11 * k}px "IBM Plex Mono", monospace`; c.textAlign = 'right'; c.fillText(String(mm), mL - 16 * k, y + 4 * k); }
   }
-  c.font = `${10 * k}px "JetBrains Mono", monospace`; c.textAlign = 'right'; c.fillText('mm', mL - 16 * k, mT - 6 * k);
+  c.font = `${10 * k}px "IBM Plex Mono", monospace`; c.textAlign = 'right'; c.fillText('mm', mL - 16 * k, mT - 6 * k);
   const labels = o.labels || laneLabels(r);
   lay.forEach((l, i) => {
     const x = X(l.x);
     if (x < mL - 1 || x > mL + gw + 1) return;
     c.textAlign = 'center';
-    c.font = `600 ${12 * k}px "JetBrains Mono", monospace`; c.fillText(String(i + 1), x, 18 * k);
+    c.font = `600 ${12 * k}px "IBM Plex Mono", monospace`; c.fillText(String(i + 1), x, 18 * k);
     const lab = labels[i] || '', maxW = l.w * o.pxmm + 8 * k;
     let fs = 13 * k;
-    c.font = `700 ${fs}px "Atkinson Hyperlegible", sans-serif`;
-    while (fs > 8 * k && c.measureText(lab).width > maxW) { fs -= 0.5 * k; c.font = `700 ${fs}px "Atkinson Hyperlegible", sans-serif`; }
+    c.font = `700 ${fs}px "Source Sans 3", sans-serif`;
+    while (fs > 8 * k && c.measureText(lab).width > maxW) { fs -= 0.5 * k; c.font = `700 ${fs}px "Source Sans 3", sans-serif`; }
     c.fillText(lab, x, 40 * k);
   });
   const hiCol = o.inv ? 'rgba(48,58,190,0.95)' : 'rgba(255,196,96,0.95)';
@@ -7239,7 +7230,7 @@ function drawPhoto(cv, r, o) {
     const y = Yp(WELL_Y + m.d), x = X(l.x - l.w / 2);
     c.fillStyle = hiCol;
     c.beginPath(); c.moveTo(x - 1 * k, y); c.lineTo(x - 7 * k, y - 4 * k); c.lineTo(x - 7 * k, y + 4 * k); c.closePath(); c.fill();
-    c.font = `600 ${9 * k}px "JetBrains Mono", monospace`; c.textAlign = 'right';
+    c.font = `600 ${9 * k}px "IBM Plex Mono", monospace`; c.textAlign = 'right';
     c.fillText(String(m.n || idx + 1), x - 8 * k, y + 3 * k);
   });
   return { mL, mT, pxmm: o.pxmm, pxmmY: pyY, vx0, vy0, vy1, lay };
@@ -8716,7 +8707,7 @@ function drawReadout(cv, r) {
   cv.style.width = cssW + 'px'; cv.style.height = cssH + 'px';
   const c = cv.getContext('2d');
   c.setTransform(dpr, 0, 0, dpr, 0, 0);
-  const F = (w, s, fam) => `${w} ${s}px ${fam === 'mono' ? '"JetBrains Mono", ui-monospace, monospace' : '"Atkinson Hyperlegible", system-ui, sans-serif'}`;
+  const F = (w, s, fam) => `${w} ${s}px ${fam === 'mono' ? '"IBM Plex Mono", ui-monospace, monospace' : '"Source Sans 3", system-ui, sans-serif'}`;
   c.fillStyle = '#0a0d10'; c.fillRect(0, 0, cssW, cssH);
   const studied = new Set(); S.batches.forEach(b => b.loci.forEach(l => studied.add(l)));
   const colX = j => ML + colW * (j + 0.5);
@@ -8967,7 +8958,7 @@ function zoomDraw() {
   const gx = 90, gw = 120, gTop = 44, gBot = 332, wellY = 64;
   const topSign = ZOOM.rev ? '+' : '−', botSign = ZOOM.rev ? '−' : '+';
   const signCol = s => s === '+' ? '#ff7b72' : '#e6edf0';
-  c.font = '700 20px "JetBrains Mono", monospace'; c.textAlign = 'center';
+  c.font = '700 20px "IBM Plex Mono", monospace'; c.textAlign = 'center';
   c.fillStyle = signCol(topSign); c.fillText(topSign, gx + gw / 2, 30);
   c.fillStyle = signCol(botSign); c.fillText(botSign, gx + gw / 2, gBot + 30);
   c.fillStyle = 'rgba(150,200,210,0.16)'; c.strokeStyle = 'rgba(170,210,220,0.5)'; c.lineWidth = 1.5;
@@ -8981,7 +8972,7 @@ function zoomDraw() {
     c.fillStyle = sz.col; c.globalAlpha = 0.95; c.fillRect(gx + 22, y - 3, gw - 44, 6); c.globalAlpha = 1;
   });
   c.save(); c.translate(gx - 16, (gTop + gBot) / 2); c.rotate(-Math.PI / 2);
-  c.font = '12px "JetBrains Mono", monospace'; c.fillStyle = 'rgba(230,237,240,0.75)'; c.textAlign = 'center'; c.fillText('één baan van de gel', 0, 0); c.restore();
+  c.font = '12px "IBM Plex Mono", monospace'; c.fillStyle = 'rgba(230,237,240,0.75)'; c.textAlign = 'center'; c.fillText('één baan van de gel', 0, 0); c.restore();
   // vergrootglas
   const zy = 176;
   c.strokeStyle = 'rgba(255,255,255,0.55)'; c.setLineDash([4, 4]); c.lineWidth = 1.2;
@@ -9003,13 +8994,13 @@ function zoomDraw() {
       if (i === 0) c.moveTo(px, py); else c.lineTo(px, py);
     }
     c.stroke();
-    c.fillStyle = sz.col; c.font = '700 10px "JetBrains Mono", monospace'; c.textAlign = 'center';
+    c.fillStyle = sz.col; c.font = '700 10px "IBM Plex Mono", monospace'; c.textAlign = 'center';
     const nCh = sz.len >= 1000 ? 3 : sz.len >= 300 ? 2 : 1;
     for (let j = 0; j < nCh; j++) { const t = (j + 0.5) / nCh, along = (t - 0.5) * L; c.fillText('−', m.x + dx * along + nx * (amp + 6), m.y + dy * along + ny * (amp + 6) + 3); }
   });
   c.restore();
   c.strokeStyle = 'rgba(255,255,255,0.55)'; c.lineWidth = 1.2; c.strokeRect(MX, MY, MW, MH);
-  c.font = '700 18px "JetBrains Mono", monospace'; c.textAlign = 'right';
+  c.font = '700 18px "IBM Plex Mono", monospace'; c.textAlign = 'right';
   c.fillStyle = signCol(topSign); c.fillText(topSign, MX + MW - 8, MY + 22);
   c.fillStyle = signCol(botSign); c.fillText(botSign, MX + MW - 8, MY + MH - 8);
   if (ZOOM.on) {
@@ -9018,7 +9009,7 @@ function zoomDraw() {
     const hd = ZOOM.rev ? 8 : -8;
     c.beginPath(); c.moveTo(ax - 5, a1 + hd); c.lineTo(ax, a1); c.lineTo(ax + 5, a1 + hd); c.stroke();
   }
-  c.font = '12px "JetBrains Mono", monospace'; c.fillStyle = 'rgba(230,237,240,0.75)'; c.textAlign = 'left';
+  c.font = '12px "IBM Plex Mono", monospace'; c.fillStyle = 'rgba(230,237,240,0.75)'; c.textAlign = 'left';
   c.fillText(`ingezoomd: agarosevezels (${String(ZOOM.pct).replace('.', ',')}%) en DNA`, MX + 8, MY + MH + 22);
   const obs = $('#zoomObs'); if (obs) obs.innerHTML = zoomObs(outCount);
 }

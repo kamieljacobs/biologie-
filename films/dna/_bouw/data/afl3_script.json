@@ -71,13 +71,14 @@
    "scene": "h2a",
    "lines": [
     "Stap één gebeurt in de kern.",
-    "Een enzym, RNA-polymerase, gaat op het begin van een gen zitten.",
-    "Het haalt de twee DNA-strengen daar uit elkaar, net als bij het kopiëren.",
+    "Een enzym, RNA-polymerase, gaat vlak vóór een gen zitten, op de promotor.",
+    "Daar gaan de twee DNA-strengen uit elkaar, net als bij het kopiëren. Hier doet RNA-polymerase dat zelf.",
     "Nu wordt maar één streng gelezen, en alleen dat ene gen.",
     "Langs die streng zweven vrije RNA-nucleotiden. Een passende blijft hangen, en RNA-polymerase koppelt hem vast.",
     "Dezelfde basenparing als altijd, met één verschil: tegenover een A in het DNA komt geen T, maar een U.",
     "Achter het enzym gaat het DNA weer dicht."
-   ]
+   ],
+   "id": "n7"
   },
   {
    "kind": "q",
@@ -106,17 +107,19 @@
    "level": "v",
    "scene": "h2v",
    "lines": [
-    "Voor vwo gaan we hier nog een stap verder.",
-    "Waar begint RNA-polymerase aan een gen? Vóór elk gen ligt een stuk DNA dat zelf niet wordt overgeschreven: de promotor.",
-    "In de promotor zit vaak een vaste volgorde, de TATA-box. Daar bindt RNA-polymerase.",
+    "De promotor is een stuk DNA vóór het gen, dat zelf niet wordt overgeschreven.",
+    "In veel promotors zit een vaste volgorde, de TATA-box. Daar binden eerst hulpeiwitten: transcriptiefactoren.",
+    "Die zetten RNA-polymerase op zijn plek, net vóór het begin van het gen.",
     "Het enzym leest één streng, de matrijsstreng, van 3' naar 5'.",
     "Het mRNA groeit dus van 5' naar 3'. Net als nieuw DNA bij het kopiëren.",
     "En het eerste mRNA is nog niet af. Het heet pre-mRNA.",
-    "Bij eukaryoten bestaat een gen uit exons en introns. Alleen de exons komen in het mRNA.",
+    "Bij eukaryoten bestaan de meeste genen uit exons en introns. Alleen de exons komen in het mRNA.",
     "De introns worden uit het pre-mRNA geknipt en de exons komen achter elkaar te liggen. Dat heet splicing.",
-    "Soms worden niet steeds dezelfde exons gebruikt: alternatieve splicing. Zo levert één gen meer dan één eiwit op.",
+    "Soms worden niet steeds dezelfde exons gebruikt: alternatieve splicing. Zo kan één gen meer dan één eiwit opleveren.",
+    "Het pre-mRNA krijgt ook een kapje aan het 5'-uiteinde en een lange staart van alleen A's aan het 3'-uiteinde. Die beschermen het mRNA tegen afbraak.",
     "Pas als het mRNA af is, gaat het de kern uit."
-   ]
+   ],
+   "id": "n10"
   },
   {
    "kind": "card",
@@ -128,7 +131,7 @@
    "level": "b",
    "scene": "h3a",
    "lines": [
-    "Het mRNA laat los en gaat door een opening in het kernmembraan naar buiten.",
+    "Het mRNA gaat door een opening in het kernmembraan naar buiten: een kernporie.",
     "Stap twee gebeurt in het cytoplasma, bij een ribosoom.",
     "Het ribosoom gaat op het mRNA zitten en schuift erlangs.",
     "Het leest het mRNA steeds per drie nucleotiden. Zo'n groepje van drie heet een codon.",
@@ -138,9 +141,10 @@
     "De aminozuren worden aangevoerd door kleine RNA-moleculen: transfer-RNA, of tRNA.",
     "Elk tRNA draagt één soort aminozuur. Alleen het tRNA dat past, blijft aan het codon hangen.",
     "Het ribosoom koppelt de aminozuren aan elkaar, codon na codon. Zo groeit een keten.",
-    "Tot het ribosoom een stopcodon tegenkomt. Dat codeert niet voor een aminozuur: de eiwitsynthese stopt en de keten laat los.",
+    "Tot het ribosoom een stopcodon tegenkomt. Dat codeert niet voor een aminozuur: het ribosoom stopt en de keten laat los.",
     "Het koppelen van aminozuren in een ribosoom, in de volgorde die het mRNA bepaalt, heet translatie."
-   ]
+   ],
+   "id": "n12"
   },
   {
    "kind": "q",
@@ -153,7 +157,7 @@
     "54"
    ],
    "correct": 1,
-   "source": "naar CvTE, examen biologie havo 2021, tijdvak 1"
+   "source": "naar CvTE havo 2021-I, vraag 26 · niet onder de CC-licentie"
   },
   {
    "kind": "narr",
@@ -226,7 +230,7 @@
    "opts": [
     "in het vaccin, vóór de prik",
     "in de celkern van je spiercel",
-    "in de ribosomen van je eigen cellen"
+    "door de ribosomen in je eigen cellen"
    ],
    "correct": 2
   },
@@ -237,9 +241,12 @@
    "lines": [
     "C. In je eigen cellen. Het vaccin-mRNA komt in het cytoplasma terecht, bij de ribosomen.",
     "Die lezen het recept, net als elk ander mRNA, en maken het eiwit van het virus.",
+    "Die ribosomen zitten op het ER. Via het golgisysteem gaat het eiwit in een blaasje naar het celmembraan.",
     "Afweercellen komen dat eiwit tegen en leren het herkennen, zonder dat je het virus zelf krijgt.",
-    "Het vaccin-mRNA komt niet in de kern en wordt geen DNA. Na een tijdje breekt de cel het af."
-   ]
+    "Het vaccin-mRNA komt niet in de kern en wordt geen DNA. Daarvoor is een enzym als reverse transcriptase nodig, uit aflevering twee. Dat zit niet in het vaccin, en je spiercel gebruikt het niet.",
+    "Na een tijdje breekt de cel het mRNA af."
+   ],
+   "id": "n21"
   },
   {
    "kind": "card",
@@ -255,9 +262,10 @@
     "Een ribosoom leest elk mRNA op dezelfde manier, waar het ook vandaan komt.",
     "Normaal komt dat mRNA uit de kern. Daar schrijft RNA-polymerase een gen over: transcriptie.",
     "In het cytoplasma lezen ribosomen het mRNA per codon, en brengen tRNA's de aminozuren. Translatie.",
-    "Bijna alle levende wezens gebruiken dezelfde genetische code. Een codon betekent in een bacterie hetzelfde aminozuur als in jouw cellen.",
+    "Zo volgt je spiercel een recept dat niet in haar eigen DNA staat.",
     "Hoe je de codontabel zelf gebruikt, oefen je in aflevering vier."
-   ]
+   ],
+   "id": "n23"
   },
   {
    "kind": "end",
@@ -299,7 +307,7 @@
  "GLOSSARY": [
   [
    "gen",
-   "Stuk DNA met de informatie (het recept) voor één eiwit.",
+   "Stuk DNA met de informatie (het recept) voor een eiwit, of voor een RNA-molecuul zoals tRNA.",
    "b"
   ],
   [
@@ -325,6 +333,11 @@
   [
    "transcriptie",
    "Vorming van mRNA langs het DNA van een gen, in de kern.",
+   "b"
+  ],
+  [
+   "promotor",
+   "Stuk DNA vóór een gen waar de transcriptie begint; hier binden transcriptiefactoren en RNA-polymerase. Wordt zelf niet overgeschreven.",
    "b"
   ],
   [
@@ -363,13 +376,13 @@
    "b"
   ],
   [
-   "promotor",
-   "Stuk DNA vóór een gen waar RNA-polymerase bindt; wordt zelf niet overgeschreven.",
-   "v"
+   "ER en golgisysteem",
+   "Eiwitten voor het celmembraan of voor buiten de cel worden gemaakt door ribosomen op het ER en gaan via het golgisysteem in blaasjes naar het celmembraan.",
+   "b"
   ],
   [
    "TATA-box",
-   "Vaste basenvolgorde in veel promotors; hier binden hulpeiwitten die RNA-polymerase op zijn plek zetten. De transcriptie begint iets verderop.",
+   "Vaste basenvolgorde (TATA…) in een deel van de promotors; hier binden transcriptiefactoren die RNA-polymerase op zijn plek zetten. De transcriptie begint iets verderop.",
    "v"
   ],
   [
@@ -379,7 +392,7 @@
   ],
   [
    "pre-mRNA",
-   "Het eerste, nog onbewerkte RNA-afschrift bij eukaryoten, met introns.",
+   "Het eerste, nog onbewerkte RNA-afschrift bij eukaryoten, met introns; krijgt nog een kapje (5') en een poly-A-staart (3').",
    "v"
   ],
   [
@@ -389,7 +402,12 @@
   ],
   [
    "splicing",
-   "Het verwijderen van introns uit pre-mRNA; bij alternatieve splicing levert één gen verschillende mRNA's.",
+   "Het verwijderen van introns uit pre-mRNA; bij alternatieve splicing kan één gen verschillende mRNA's opleveren.",
+   "v"
+  ],
+  [
+   "transcriptiefactor",
+   "Eiwit dat aan de promotor bindt en RNA-polymerase op zijn plek helpt; zonder transcriptiefactoren wordt een gen niet overgeschreven (meer in aflevering 6).",
    "v"
   ],
   [
@@ -414,12 +432,12 @@
     "A U G C C U"
    ],
    [
-    "Een eiwit bestaat uit 120 aminozuren. Uit hoeveel nucleotiden bestaat het coderende deel van het mRNA minstens, met het stopcodon erbij?",
-    "120 × 3 = 360 nucleotiden voor de aminozuren, plus 3 voor het stopcodon: 363."
+    "Een eiwit bestaat uit 120 aminozuren. Hoeveel nucleotiden telt het mRNA minstens van het startcodon tot en met het stopcodon?",
+    "120 × 3 = 360 nucleotiden voor de aminozuren (het startcodon AUG codeert al voor het eerste aminozuur), plus 3 voor het stopcodon: 363."
    ],
    [
     "Leg uit waarom het vaccin-mRNA geen invloed heeft op je eigen DNA.",
-    "Het mRNA komt alleen in het cytoplasma bij de ribosomen, niet in de kern. Het wordt niet omgezet in DNA en wordt na een tijdje afgebroken."
+    "Het mRNA komt alleen in het cytoplasma bij de ribosomen, niet in de kern. Om RNA in DNA om te zetten is reverse transcriptase nodig; dat zit niet in het vaccin en je spiercel gebruikt het niet. Het mRNA wordt na een tijdje afgebroken."
    ]
   ],
   "v": [
@@ -458,6 +476,11 @@
    "Afbraak vaccin-mRNA",
    "na een tijdje (dagen)",
    "orde-schatting; de film noemt geen precies getal"
+  ],
+  [
+   "Begin transcriptie na TATA-box",
+   "±25–30 baseparen verderop",
+   "standaardleerboeken moleculaire biologie (Alberts); alleen in het docentdeel"
   ]
  ]
 }

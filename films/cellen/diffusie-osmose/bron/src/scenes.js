@@ -110,9 +110,9 @@ s05(ctx,t,q){
 s06(ctx,t,q){
   micro(ctx); const S=SIM_DIFF(); const off=DUR('s05')-0; const t0s05=6; // continue from s05 (movement began ~6 s in)
   const tt=Math.max(0,off-5.9+t);
-  drawDiffBox(ctx,S,tt,t,{showLine:1,arrows:1,counts:0});
-  // live graph
-  const g=ramp(t,0.2,0.6); if(g>0){ ctx.save(); ctx.globalAlpha=g; const gx=BOX[0], gy=BOX[3]+40, gw=1000, gh=200; roundRect(ctx,gx+380,gy,gw,gh+30,12); shape(ctx,rgba(C.bgSchema,0.92),C.line,1);
+  drawDiffBox(ctx,S,tt,t,{showLine:1,arrows:1-ramp(t,0,0.35),counts:0});
+  // live graph (pas na de pijlen, zodat niets overlapt)
+  const g=ramp(t,0.35,0.6); if(g>0){ ctx.save(); ctx.globalAlpha=g; const gx=BOX[0], gy=BOX[3]+40, gw=1000, gh=200; roundRect(ctx,gx+380,gy,gw,gh+30,12); shape(ctx,rgba(C.bgSchema,0.92),C.line,1);
     const X=(s)=>gx+430+s/(tt+0.001)*(gw-100), Y=(f)=>gy+gh-10-f*(gh-50);
     for(const side of [0,1]){ ctx.beginPath(); for(let k=0;k<=40;k++){ const s=tt*k/40; const [l,r]=countSides(S,s); const f=(side?r:l)/S.n; k?ctx.lineTo(X(s),Y(f)):ctx.moveTo(X(s),Y(f)); } ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.setLineDash(side?[10,8]:[]); ctx.stroke(); ctx.setLineDash([]); }
     metaText(ctx,'— links',gx+430,gy+44,C.goud,'left',26); metaText(ctx,'- - rechts',gx+620,gy+44,C.goud,'left',26); metaText(ctx,'tijd →',gx+gw+340,gy+gh+16,C.grain,'right',24);
@@ -189,21 +189,39 @@ s11(ctx,t,q){
 },
 // ---------- H4: Het celmembraan ----------
 s12(ctx,t,q){
-  micro(ctx); const my=500;
+  micro(ctx); const my=520;
   const zoom=ramp(t,q.at('celmembraan'),0.8);
-  // start: a cell; then zoom to a strip of membrane
-  if(zoom<1){ ctx.save(); ctx.globalAlpha=1-zoom; blob(ctx,960,480,380,300,0.04,2); shape(ctx,rgba(C.fill,0.6),C.er,3); nucleus(ctx,880,450,70,1,t); metaText(ctx,'cel',960,840,C.grain,'center',24); ctx.restore(); }
-  if(zoom>0){ ctx.save(); ctx.globalAlpha=zoom; metaText(ctx,'buiten de cel',140,300,C.grain,'left',24); metaText(ctx,'in de cel',140,720,C.grain,'left',24);
+  const bouw=fadeIO(t,q.at('bouw'),q.at('sommige'),0.6);       // close-up van de bouw (fosfolipiden)
+  const mem=1-bouw;
+  // start: een cel; daarna inzoomen op een stuk membraan
+  if(zoom<1){ ctx.save(); ctx.globalAlpha=1-zoom; blob(ctx,960,480,380,300,0.04,2); shape(ctx,rgba(C.fill,0.6),C.er,3); nucleus(ctx,880,450,70,1,t); metaText(ctx,'cel',960,840,C.grain,'center',26); ctx.restore(); }
+  if(zoom>0){ ctx.save(); ctx.globalAlpha=zoom*mem; metaText(ctx,'buiten de cel',140,300,C.grain,'left',26); metaText(ctx,'in de cel',140,760,C.grain,'left',26);
     bilayerH(ctx,100,1820,my,[],1,110);
-    label(ctx,'celmembraan','dubbele laag vetachtige moleculen',640,my-46,720,250,ramp(t,q.at('dubbele'),0.5)*(1-ramp(t,q.at('Welke'),0.4)));
+    naamBij(ctx,'celmembraan','dubbele laag vetachtige moleculen',560,mY(560,my)-130,ramp(t,q.at('dubbele'),0.5)*(1-ramp(t,q.at('bouw'),0.4)),'center');
     ctx.restore(); }
-  const sel=ramp(t,q.at('sommige'),0.5);
-  if(sel>0){ // one O2 passes, one ion bounces
-    const u=((t-q.at('sommige'))*0.35)%1; o2(ctx,1250,lerp(300,700,u),1.1,sel); const v=((t-q.at('sommige'))*0.5)%1; const yb=v<0.5? lerp(260,my-80,v*2): lerp(my-80,260,(v-0.5)*2); ion(ctx,1500,yb,1.1,sel);
-    arrow(ctx,1300,330,1300,680,C.teal,3,14,sel*0.6); }
+  if(bouw>0){ ctx.save(); ctx.globalAlpha=bouw;
+    // links: één fosfolipide groot
+    const f1=ramp(t,q.at('fosfolipiden'),0.5); fosfolipide(ctx,420,330,2.4,1,f1);
+    const kp=ramp(t,q.at('kop'),0.4); if(kp>0){ ctx.save(); ctx.globalAlpha*=kp; ctx.strokeStyle=C.teal; ctx.lineWidth=3; ctx.setLineDash([6,6]); ctx.beginPath(); ctx.arc(420,330,64,0,6.2832); ctx.stroke(); ctx.restore();
+      naamBij(ctx,'kop: hydrofiel','houdt van water',510,322,kp*ramp(t,q.at('hydrofiel'),0.4)+kp*0.0,'left',C.teal); }
+    const st=ramp(t,q.at('vetstaarten'),0.4); if(st>0){ naamBij(ctx,'staarten: hydrofoob','stoten water af',480,520,st*Math.max(0.0,ramp(t,q.at('hydrofoob'),0.4)),'left',C.oker); }
+    naamBij(ctx,'fosfolipide','',420,200,f1,'center');
+    // rechts: de dubbellaag opgebouwd uit fosfolipiden, gebogen; koppen naar het water, staarten naar binnen
+    const dl=ramp(t,q.at('koppen'),0.6); if(dl>0){ ctx.save(); ctx.globalAlpha*=dl;
+      const cx=1340, cy=520; waterField(ctx,960,150,1840,360,90,t,1.4,0.5,61,4); waterField(ctx,960,690,1840,880,90,t,1.4,0.5,62,4);
+      for(let k=-8;k<=8;k++){ const x=cx+k*46; const yy=cy+(x-cx)*(x-cx)/2600; const a=Math.atan((x-cx)/1300);
+        ctx.save(); ctx.translate(x,yy); ctx.rotate(a); fosfolipide(ctx,0,-112,1,1,1); fosfolipide(ctx,0,112,1,-1,1); ctx.restore(); }
+      metaText(ctx,'water (buiten)',cx,190,C.teal,'center',26); metaText(ctx,'water (binnen)',cx,862,C.teal,'center',26);
+      const vt=ramp(t,q.at('midden'),0.5); if(vt>0){ ctx.save(); ctx.globalAlpha*=vt; roundRect(ctx,cx-430,cy-6,860,40,20); ctx.strokeStyle=C.oker; ctx.lineWidth=3; ctx.setLineDash([8,6]); ctx.stroke(); ctx.restore(); pill(ctx,cx,cy+262,'midden: een laag vet',C.oker,vt,28); }
+      ctx.restore(); }
+    ctx.restore(); }
+  const sel=ramp(t,q.at('sommige'),0.5)*mem;
+  if(sel>0){ // zuurstof gaat erdoor, een ion kaatst terug
+    const u=((t-q.at('sommige'))*0.35)%1; o2(ctx,1250,lerp(300,740,u),1.1,sel); const v=((t-q.at('sommige'))*0.5)%1; const yb=v<0.5? lerp(260,mY(1500,my)-80,v*2): lerp(mY(1500,my)-80,260,(v-0.5)*2); ion(ctx,1500,yb,1.1,sel);
+    arrow(ctx,1300,330,1300,720,C.teal,3,14,sel*0.6); }
   const sd=ramp(t,q.at('selectief'),0.5); if(sd>0) pill(ctx,960,150,'selectief doorlatend',C.goud,sd*(1-ramp(t,q.at('Welke'),0.4)),34);
-  const pm=ramp(t,q.at('permeabel'),0.4); if(pm>0){ ctx.save(); ctx.globalAlpha=pm*(1-ramp(t,q.at('Welke'),0.4)); metaText(ctx,'in je boek: selectief permeabel',960,225,C.grain,'center',24); ctx.restore(); }
-  const qq=ramp(t,q.at('Welke'),0.5); if(qq>0){ ctx.save(); ctx.globalAlpha=qq; o2(ctx,600,220,1.3); ion(ctx,960,220,1.3); glucose(ctx,1320,220,1.3); metaText(ctx,'zuurstof',600,290,C.grain,'center',22); metaText(ctx,'natriumion',960,290,C.grain,'center',22); metaText(ctx,'glucose',1320,290,C.grain,'center',22); ctx.restore(); }
+  const pm=ramp(t,q.at('permeabel'),0.4); if(pm>0){ ctx.save(); ctx.globalAlpha=pm*(1-ramp(t,q.at('Welke'),0.4)); metaText(ctx,'in je boek: selectief permeabel',960,228,C.grain,'center',26); ctx.restore(); }
+  const qq=ramp(t,q.at('Welke'),0.5); if(qq>0){ ctx.save(); ctx.globalAlpha=qq; o2(ctx,600,200,1.3); ion(ctx,960,200,1.3); glucose(ctx,1320,200,1.3); metaText(ctx,'zuurstof',600,276,C.grain,'center',26); metaText(ctx,'natriumion',960,276,C.grain,'center',26); metaText(ctx,'glucose',1320,276,C.grain,'center',26); ctx.restore(); }
   scaleBar(ctx);
 },
 s14(ctx,t,q){
@@ -211,7 +229,7 @@ s14(ctx,t,q){
   const showCh=ramp(t,q.at('kanaaltjes'),0.6), showCar=ramp(t,q.at('doorgang'),0.6);
   bilayerH(ctx,60,1860,my,[[chX-70,chX+70],[carX-70,carX+70]].filter((g,i)=>i===0?showCh>0:showCar>0),1,110);
   channelH(ctx,chX,my,30,showCh,C.enzym,130);
-  if(showCar>0){ ctx.save(); ctx.globalAlpha=showCar; blob(ctx,carX,my,62,72,0.06,5); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.fillStyle=C.bgMicro; ctx.beginPath(); ctx.ellipse(carX,my,16,40,0,0,6.2832); ctx.fill(); ctx.restore(); }
+  if(showCar>0){ opMem(ctx,carX,my,()=>{ ctx.globalAlpha*=showCar; blob(ctx,0,0,62,72,0.06,5); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.fillStyle=C.bgMicro; ctx.beginPath(); ctx.ellipse(0,0,16,40,0,0,6.2832); ctx.fill(); }); }
   metaText(ctx,'buiten',80,170,C.grain,'left',22); metaText(ctx,'binnen',80,860,C.grain,'left',22);
   const lane=(x,a,fn)=>{ if(a>0) fn(x,a); };
   // O2 and CO2 pass through the lipid layer
@@ -226,7 +244,14 @@ s14(ctx,t,q){
   // water: a little through the lipid layer, mostly through channels
   const aw=ramp(t,q.at('Water'),0.4); if(aw>0){ const u=((t*0.25)%1); dot(ctx,1230,lerp(240,800,u),6,C.teal); for(let k=0;k<9;k++){ const uu=((t*0.6+k/9)%1); dot(ctx,chX,lerp(240,800,uu),6,C.teal); } metaText(ctx,'water',1300,180,C.teal,'center',22); }
   if(showCh>0) label(ctx,'kanaaltje','voor water',chX+40,my-50,chX+150,320,showCh*(1-ramp(t,q.at('Ook',2),0.4)),C.text,'right');
-  if(showCar>0){ const u=((t*0.3)%1); glucose(ctx,carX,lerp(220,820,u),1.1,showCar,t); metaText(ctx,'glucose',carX,180,C.oker,'center',22); naamBij(ctx,'eigen doorgang','van hoog naar laag',carX+80,my+100,ramp(t,q.at('hoog'),0.4),'left',C.text); }
+  if(showCar>0){ const u=((t*0.3)%1); glucose(ctx,carX,lerp(220,820,u),1.1,showCar,t); metaText(ctx,'glucose',carX,180,C.oker,'center',22); naamBij(ctx,'eigen doorgang','van hoog naar laag',carX-90,mY(carX,my)+150,ramp(t,q.at('hoog'),0.4)*(1-ramp(t,q.at('Dus',2),0.4)),'right',C.text); }
+  // conclusie: tweedeling vet / water
+  const cz=ramp(t,q.at('Dus',2),0.6); if(cz>0){ ctx.save(); ctx.globalAlpha=cz; ctx.fillStyle=rgba(C.bgMicro,0.82); ctx.fillRect(0,0,W,CAPTION_Y-10); ctx.restore();
+    const c1=cz, c2=ramp(t,q.at('Stoffen',3),0.6);
+    card(ctx,130,190,800,470,'lost op in vet','gaat zelf door de vetlaag van het membraan',c1,C.teal);
+    o2(ctx,370,520,1.8,c1); co2(ctx,640,520,1.6,c1); if(c1>0){ ctx.save(); ctx.globalAlpha=c1; metaText(ctx,'zuurstof',370,600,C.teal,'center',26); metaText(ctx,'koolstofdioxide',640,600,C.text2,'center',26); ctx.restore(); }
+    card(ctx,990,190,800,470,'lost op in water, of een ion','heeft een eiwit in het membraan nodig',c2,C.oker);
+    glucose(ctx,1250,520,1.8,c2,0); ion(ctx,1530,520,1.5,c2); if(c2>0){ ctx.save(); ctx.globalAlpha=c2; metaText(ctx,'glucose',1250,600,C.oker,'center',26); metaText(ctx,'natriumion',1530,600,C.oker,'center',26); ctx.restore(); } }
   scaleBar(ctx);
 },
 s15(ctx,t,q){
@@ -241,15 +266,15 @@ s15(ctx,t,q){
   // carrier protein: cycle open-out -> bind -> flip -> release-in
   const ad=ramp(t,q.at('Dragereiwitten'),0.5); const cyc=((t-q.at('Dragereiwitten'))/4)%1; const flip=ad>0? (cyc<0.35?0: cyc<0.55? ease((cyc-0.35)/0.2):1):0;
   ctx.save(); ctx.globalAlpha=Math.max(0.5,ad); // two lobes that open up or down
-  for(const s of [-1,1]){ ctx.save(); ctx.translate(carX+s*44,my); ctx.rotate(s*lerp(-0.25,0.25,flip)); roundRect(ctx,-38,-80,76,160,30); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
+  opMem(ctx,carX,my,()=>{ for(const s of [-1,1]){ ctx.save(); ctx.translate(s*44,0); ctx.rotate(s*lerp(-0.25,0.25,flip)); roundRect(ctx,-38,-80,76,160,30); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); } });
   ctx.restore();
   // glucose many outside, few inside (high -> low)
   for(let k=0;k<9;k++){ const w=wander(k+500,t,24,1); glucose(ctx,carX-260+k*65+w.x,300+(k%3)*45+w.y,0.9,0.9,k); }
   for(let k=0;k<2;k++){ const w=wander(k+520,t,30,1); glucose(ctx,carX-120+k*260+w.x,780+w.y,0.9,0.9,k); }
   if(ad>0){ const gy= cyc<0.35? lerp(360,my-40,ease(cyc/0.35)) : cyc<0.55? lerp(my-40,my+40,flip) : lerp(my+40,700,ease((cyc-0.55)/0.45)); glucose(ctx,carX,gy,1.2,ad*(cyc>0.95?(1-cyc)/0.05:1),0); }
-  naamBij(ctx,'dragereiwit','pakt glucose vast, zet hem binnen af',carX-95,my+100,ad,'right',C.text);
-  const gd=ramp(t,q.at('gefaciliteerde'),0.5); if(gd>0) pill(ctx,960,850,'gefaciliteerde diffusie: via een eiwit, van hoog naar laag',C.paars,gd*(1-ramp(t,q.at('Kost'),0.4)),28);
-  const ka=ramp(t,q.at('Kost'),0.5); if(ka>0){ atp(ctx,960,850,ka,1.4); text(ctx,'?',1030,865,fTitel(56),C.koraal,'left'); }
+  naamBij(ctx,'dragereiwit','pakt glucose vast, zet hem binnen af',carX+120,mY(carX,my)+150,ad,'left',C.text);
+  const gd=ramp(t,q.at('gefaciliteerde'),0.5); if(gd>0) pill(ctx,960,150,'gefaciliteerde diffusie: via een eiwit, van hoog naar laag',C.paars,gd*(1-ramp(t,q.at('Kost'),0.4)),28);
+  const ka=ramp(t,q.at('Kost'),0.5); if(ka>0){ atp(ctx,940,800,ka,1.3,0,''); text(ctx,'?',1060,830,fTitel(64),C.koraal,'left'); }
   scaleBar(ctx);
 },
 s17(ctx,t,q){
@@ -258,7 +283,7 @@ s17(ctx,t,q){
   const cyc=(t/4)%1; const flip=cyc<0.35?0: cyc<0.55? ease((cyc-0.35)/0.2):1;
   for(const s of [-1,1]){ ctx.save(); ctx.translate(carX+s*44,my); ctx.rotate(s*lerp(-0.25,0.25,flip)); roundRect(ctx,-38,-80,76,160,30); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
   const gy= cyc<0.35? lerp(360,my-40,ease(cyc/0.35)) : cyc<0.55? lerp(my-40,my+40,flip) : lerp(my+40,700,ease((cyc-0.55)/0.45)); glucose(ctx,carX,gy,1.2,1,0);
-  atp(ctx,1300,300,1,1.4); crossOut(ctx,1300,300,50,ramp(t,0.1,0.4)); metaText(ctx,'geen ATP nodig',1300,380,C.grain,'center',24);
+  atp(ctx,1300,290,1,1.4,0,''); crossOut(ctx,1300,290,60,ramp(t,0.1,0.4)); metaText(ctx,'geen ATP nodig',1300,390,C.grain,'center',26);
   const dg=ramp(t,q.at('doorgang'),0.4); if(dg>0) naamBij(ctx,'alleen een doorgang','',carX-90,my-80,dg,'right');
   const wl=ramp(t,q.at('willekeurig'),0.4); if(wl>0) pill(ctx,960,150,'de beweging komt van het willekeurig rondschieten',C.paars,wl*(1-ramp(t,q.at('Terug'),0.4)),28);
   scaleBar(ctx);
@@ -285,59 +310,64 @@ s20(ctx,t,q){
   ctx.save(); ctx.strokeStyle=C.er; ctx.lineWidth=8; ctx.setLineDash([26,14]); ctx.beginPath(); ctx.moveTo(mx,y0); ctx.lineTo(mx,y1); ctx.stroke(); ctx.restore();
   for(let k=0;k<22;k++){ const bx=mx+60+hash(k*3+400)*(x1-mx-100), by=y0+120+hash(k*3+401)*(y1-y0-160); const w=wander(k+400,t,40,1.2); salt(ctx,Math.max(mx+26,bx+w.x),by+w.y,13); }
   waterField(ctx,x0+10,y0+70+rise,mx-14,y1-10,150,t,2,0.6,82,4); waterField(ctx,mx+14,y0+70-rise,x1-10,y1-10,150,t,2,0.6,83,4);
-  oversteek(ctx,mx,y0+130,y1,t,14,5,1);
-  arrow(ctx,mx-150,560,mx+150,560,C.teal,10,34,ramp(t,0.2,0.5)*(1-ramp(t,q.at('hoort'),0.4)*0.6));
+  oversteek(ctx,mx,y0+130,y1,t,14,5,1-ramp(t,q.at('stroomt'),0.5));
+  // als één geheel: een brede stroom door het membraan
+  const bulk=ramp(t,q.at('stroomt'),0.6); if(bulk>0){ for(let k=0;k<26;k++){ const u=((t*0.45+hash(k+950))%1); const y=y0+140+(k%13)*28+Math.sin(t*2+k)*4; dot(ctx,lerp(mx-150,mx+150,u),y,6,lighten(C.teal,0.25),null); } arrow(ctx,mx-180,560,mx+180,560,C.teal,14,40,bulk); }
+  arrow(ctx,mx-150,560,mx+150,560,C.teal,10,34,ramp(t,0.2,0.5)*(1-ramp(t,q.at('hoort'),0.4)*0.6)*(1-bulk));
   const wr=fadeIO(t,q.at('waarom'),q.at('hoort'),0.4); if(wr>0) pill(ctx,960,150,'maar waarom?',C.text,wr,34);
-  // myth 1: salt pulls water (magnet) -> crossed
-  const m1=fadeIO(t,q.at('hoort'),q.at('Of'),0.4); if(m1>0){ ctx.save(); ctx.globalAlpha=m1; ctx.strokeStyle=C.goud; ctx.lineWidth=22; ctx.lineCap='butt'; ctx.beginPath(); ctx.arc(1300,170,52,Math.PI,0); ctx.stroke(); ctx.fillStyle=C.koraal; ctx.fillRect(1226,166,26,30); ctx.fillRect(1348,166,26,30); ctx.restore(); text(ctx,'"zout trekt water aan"',1100,190,fTekst(34,600),C.text,'right'); crossOut(ctx,1300,170,70,m1*ramp(t,q.at('niet'),0.3)); }
-  // myth 2: less water on the right -> difference far too small
-  const m2=ramp(t,q.at('Of'),0.4); if(m2>0){ ctx.save(); ctx.globalAlpha=m2; text(ctx,'"rechts is minder water"',960,150,fTekst(34,600),C.text,'center');
-    const bw=ramp(t,q.at('Rechts',3),0.5); if(bw>0){ ctx.globalAlpha=m2*bw; const by=180; roundRect(ctx,520,by,380,34,8); ctx.fillStyle=C.teal; ctx.fill(); roundRect(ctx,1020,by,374,34,8); ctx.fill(); metaText(ctx,'water links',710,by+64,C.grain,'center',20); metaText(ctx,'water rechts: een fractie minder',1207,by+64,C.grain,'center',20); }
-    ctx.restore(); const tk=ramp(t,q.at('klein'),0.4); if(tk>0) pill(ctx,960,880-20,'verschil veel te klein voor zo’n sterke stroom',C.koraal,tk,28); }
+  // mythe 1: zout trekt water aan (magneet) -> doorgestreept
+  const m1=fadeIO(t,q.at('hoort'),q.at('Of'),0.4); if(m1>0){ ctx.save(); ctx.globalAlpha=m1; ctx.strokeStyle=C.goud; ctx.lineWidth=22; ctx.lineCap='butt'; ctx.beginPath(); ctx.arc(1300,170,52,Math.PI,0); ctx.stroke(); ctx.fillStyle=lighten(C.koraal,0.15); ctx.fillRect(1226,166,26,30); ctx.fillRect(1348,166,26,30); ctx.restore(); text(ctx,'"zout trekt water aan"',1180,190,fTekst(34,600),C.text,'right'); crossOut(ctx,1300,170,70,m1*ramp(t,q.at('niet'),0.3)); }
+  // tweede uitleg: rechts is minder water -> klopt, dat is de oorzaak
+  const m2=fadeIO(t,q.at('Of'),q.at('klopt'),0.4); if(m2>0){ ctx.save(); ctx.globalAlpha=m2; text(ctx,'"rechts is minder water"',960,150,fTekst(34,600),C.text,'center'); ctx.restore(); }
+  const ok=fadeIO(t,q.at('klopt'),q.at('molecuul'),0.4); if(ok>0){ pill(ctx,960,140,'klopt: dat kleine verschil in water is de oorzaak',C.groen,ok,30);
+    const bw=ramp(t,q.at('verschil'),0.5)*ok; if(bw>0){ ctx.save(); ctx.globalAlpha=bw; const by=192; roundRect(ctx,520,by,380,30,8); ctx.fillStyle=C.teal; ctx.fill(); roundRect(ctx,1020,by,372,30,8); ctx.fill(); metaText(ctx,'water links',710,by+60,C.grain,'center',26); metaText(ctx,'water rechts: iets minder',1206,by+60,C.grain,'center',26); ctx.restore(); } }
+  const mm=fadeIO(t,q.at('molecuul'),q.at('stroomt'),0.4); if(mm>0) pill(ctx,960,140,'maar niet molecuul voor molecuul',C.koraal,mm,30);
+  const st=ramp(t,q.at('stroomt'),0.4); if(st>0) pill(ctx,960,140,'het stroomt door het gaatje, als één geheel',C.teal,st*(1-ramp(t,q.at('Kijk'),0.4)),30);
+  const kk=ramp(t,q.at('Kijk'),0.4); if(kk>0) pill(ctx,960,140,'kijk hoe dat komt',C.text,kk,30);
 },
 s21(ctx,t,q){
   micro(ctx);
-  const mx=960, y0=120, y1=860, pore=[465,535];
-  const card1=ramp(t,q.at('osmose'),0.6); const dimA=1-0.5*card1;
+  const mx=960, y0=270, y1=860, pc=560, pore=[pc-35,pc+35];
+  const card1=ramp(t,q.at('osmose'),0.6); const dimA=1-0.55*card1;
+  // effen strook bovenin voor de drukmeters (buiten het deeltjesveld)
+  const strook=ramp(t,q.at('druk'),0.6); if(strook>0){ ctx.fillStyle=rgba(C.bgSchema,strook); ctx.fillRect(0,40,W,y0-50); }
   ctx.save(); ctx.globalAlpha=dimA;
-  // left: pure water; right: water + salt
-  waterField(ctx,80,y0,mx-40,y1,340,t,2.2,0.7,90,6);
-  waterField(ctx,mx+40,y0,1840,y1,280,t,2.2,0.7,91,6);
+  waterField(ctx,80,y0,mx-50,y1,300,t,2.2,0.7,90,6);
+  waterField(ctx,mx+50,y0,1840,y1,240,t,2.2,0.7,91,6);
   bilayerV(ctx,mx,y0,y1,[pore],1,80);
-  // pore lining (channel)
   for(const s of [-1,1]){ roundRect(ctx,mx-50,s<0?pore[0]-40:pore[1],100,40,14); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); }
-  // salt particles: background + "bouncers" hitting the pore mouth on the right
   const hsalt=(x,y,a=1)=>{ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let m=0;m<7;m++){ const an=m/7*6.2832; dot(ctx,x+Math.cos(an)*30,y+Math.sin(an)*30,6,C.teal); } salt(ctx,x,y,18); ctx.restore(); };
-  for(let k=0;k<14;k++){ const bx=1180+hash(k*5+700)*620, by=y0+60+hash(k*5+701)*(y1-y0-120); const w=wander(k+700,t,50,1); hsalt(bx+w.x,by+w.y); }
+  for(let k=0;k<12;k++){ const bx=1200+hash(k*5+700)*600, by=y0+60+hash(k*5+701)*(y1-y0-120); const w=wander(k+700,t,40,1); hsalt(bx+w.x,by+w.y); }
   const hitA=ramp(t,q.at('botsen'),0.5);
-  for(let b=0;b<3;b++){ const per=2.4, ph=((t+b*0.8)/per)%1; const yy=500+(b-1)*95; // approach -> hit at ph=0.5 -> recede
+  for(let b=0;b<3;b++){ const per=2.4, ph=((t+b*0.8)/per)%1; const yy=pc+(b-1)*95;
     const x= ph<0.5? lerp(1250,mx+82,ease(ph*2)) : lerp(mx+82,1250,ease((ph-0.5)*2)); hsalt(x,yy,hitA);
-    const kick=ramp(t,q.at('terugkaatsen'),0.5)*hitA; if(kick>0 && ph>0.5 && ph<0.8){ const u=(ph-0.5)/0.3; arrow(ctx,mx+120+90*u,yy-40,mx+240+120*u,yy-40,C.goud,4,16,kick*(1-u)); // water pushed away
+    const kick=ramp(t,q.at('terugkaatsen'),0.5)*hitA; if(kick>0 && ph>0.5 && ph<0.8){ const u=(ph-0.5)/0.3; arrow(ctx,mx+120+90*u,yy-44,mx+240+120*u,yy-44,C.goud,4,16,kick*(1-u)); // duw: water weg van het gaatje
         for(let m=0;m<4;m++){ dot(ctx,mx+60+u*150+m*10,yy-12+m*8,6,C.teal,C.text,1.5); } } }
-  // low pressure zone at right pore mouth
-  const lowP=ramp(t,q.at('druk'),0.6); if(lowP>0){ const g=ctx.createRadialGradient(mx+50,500,10,mx+50,500,190); g.addColorStop(0,rgba(C.bgMicro,0.97*lowP)); g.addColorStop(0.7,rgba(C.bgMicro,0.6*lowP)); g.addColorStop(1,rgba(C.bgMicro,0)); ctx.fillStyle=g; ctx.fillRect(mx+40,300,260,400); ctx.save(); ctx.globalAlpha=lowP; ctx.setLineDash([8,8]); ctx.strokeStyle=C.text2; ctx.lineWidth=2; ctx.beginPath(); ctx.ellipse(mx+120,500,110,140,0,-1.4,1.4); ctx.stroke(); ctx.restore(); }
-  // flow through the pore (bulk stream) once explained
+  // lagere druk in de opening aan de zoute kant
+  const lowP=ramp(t,q.at('druk'),0.6); if(lowP>0){ const g=ctx.createRadialGradient(mx+50,pc,10,mx+50,pc,190); g.addColorStop(0,rgba(C.bgMicro,0.97*lowP)); g.addColorStop(0.7,rgba(C.bgMicro,0.6*lowP)); g.addColorStop(1,rgba(C.bgMicro,0)); ctx.fillStyle=g; ctx.fillRect(mx+40,pc-200,260,400);
+    ctx.save(); ctx.globalAlpha=lowP; ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(mx+70,pc,58,0,6.2832); ctx.stroke(); ctx.strokeStyle=C.teal; ctx.beginPath(); ctx.arc(mx-150,pc,58,0,6.2832); ctx.stroke(); ctx.restore(); }
   const flow=ramp(t,q.at('stroomt'),0.6);
   for(let k=0;k<8;k++){ const u=((t*0.55+k/8)%1); const px= flow>0? lerp(mx-90,mx+120,u): mx-40+Math.sin(t*3+k)*14; const py=pore[0]+20+(k%2)*30; dot(ctx,px,py,6,C.teal,null); }
-  if(flow>0) arrow(ctx,mx-220,500,mx+240,500,C.teal,12,40,flow*0.85);
+  if(flow>0) arrow(ctx,mx-240,pc,mx+250,pc,C.teal,12,40,flow*0.85);
   ctx.restore();
-  // UI on top
-  const pz=fadeIO(t,0.1,q.at('druk'),0.5); if(pz>0) label(ctx,'gaatje in het membraan','',mx-40,535,mx-360,720,pz*dimA,C.text,'left');
-  const kz=fadeIO(t,q.at('kaatsen'),q.at('druk'),0.4); if(kz>0) pill(ctx,1400,190,'zout kaatst terug',C.goud,kz*dimA,28);
-  const mz=fadeIO(t,q.at('nemen'),q.at('druk'),0.4); if(mz>0) pill(ctx,1400,800,'en neemt water mee, weg van het gaatje',C.goud,mz*dimA,26);
-  if(lowP>0){ gauge(ctx,mx-260,250,74,lerp(0.5,0.75,ramp(t,q.at('harder'),0.6)),'druk links',lowP*dimA,C.teal); gauge(ctx,mx+260,250,74,lerp(0.5,0.3,lowP),'druk in de opening',lowP*dimA,C.teal);
-    ctx.save(); ctx.globalAlpha=lowP*dimA; ctx.strokeStyle=C.line; ctx.lineWidth=0.75; ctx.beginPath(); ctx.moveTo(mx-260,290); ctx.lineTo(mx-60,470); ctx.moveTo(mx+260,290); ctx.lineTo(mx+60,470); ctx.stroke(); ctx.restore();
-    pill(ctx,mx+330,700,'lagere druk in de opening',C.text,lowP*dimA*(1-ramp(t,q.at('stroomt'),0.4)),26); }
-  const rz=ramp(t,q.at('rietje'),0.5); if(rz>0) pill(ctx,960,800,'water stroomt erdoorheen, als door een rietje',C.teal,rz*dimA,28);
-  // definition + book bridge cards
-  card(ctx,360,95,1200,200,'osmose','water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen',card1*(1-ramp(t,q.at('boek'),0.5)),C.goud);
-  const bk=ramp(t,q.at('boek'),0.5); card(ctx,360,95,1200,160,'in je boek','naar de kant met de hoogste osmotische waarde · vaak "diffusie van water"',bk*(1-ramp(t,q.at('toets'),0.5)*0.0),C.text);
-  const ts=ramp(t,q.at('toets'),0.5); card(ctx,360,640,1200,160,'op een toets','water gaat naar de kant met de hoogste osmotische waarde',ts,C.groen);
-  const ww=ramp(t,q.at('waarom'),0.5); if(ww>0) pill(ctx,960,850,'jij weet nu ook waarom: een drukverschil bij het gaatje',C.groen,ww,28);
+  // namen en pills
+  const pz=fadeIO(t,0.1,q.at('druk'),0.5); if(pz>0) naamBij(ctx,'gaatje in het membraan','',mx-70,pc+110,pz*dimA,'right');
+  const kz=fadeIO(t,q.at('kaatsen'),q.at('druk'),0.4); if(kz>0) pill(ctx,1460,330,'zout kaatst terug',C.goud,kz*dimA,30);
+  const mz=fadeIO(t,q.at('duw'),q.at('druk'),0.4); if(mz>0) pill(ctx,1440,820,'en duwt het water weg van het gaatje',C.goud,mz*dimA,28);
+  // drukmeters in de strook; kleur = ring bij de plek waar gemeten wordt
+  const gA=ramp(t,q.at('druk'),0.6); if(gA>0){ gauge(ctx,mx-330,190,74,lerp(0.5,0.75,ramp(t,q.at('harder'),0.6)),'',gA,C.teal); gauge(ctx,mx+330,190,74,lerp(0.5,0.3,lowP),'',gA,C.goud);
+    naamBij(ctx,'druk links','',mx-430,180,gA,'right',C.teal); naamBij(ctx,'druk in de opening','zoute kant',mx+430,170,gA,'left',C.goud); }
+  const lp=fadeIO(t,q.at('druk'),q.at('stroomt'),0.4); if(lp>0) pill(ctx,mx+360,760,'lagere druk in de opening',C.goud,lp*dimA,28);
+  const rz=fadeIO(t,q.at('rietje'),q.at('osmose'),0.4); if(rz>0) pill(ctx,960,820,'water stroomt erdoorheen, als door een rietje',C.teal,rz,28);
+  // kaarten onderin, nooit over de drukmeters
+  card(ctx,330,600,1260,210,'osmose','water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen',card1*(1-ramp(t,q.at('boek'),0.5)),C.goud);
+  const bk=ramp(t,q.at('boek'),0.5)*(1-ramp(t,q.at('waarom'),0.5)); card(ctx,330,580,1260,140,'in je boek','naar de kant met de hoogste osmotische waarde · vaak "diffusie van water"',bk,C.text);
+  const ts=ramp(t,q.at('toets'),0.5); card(ctx,330,735,1260,140,'op een toets','water gaat naar de kant met de hoogste osmotische waarde',ts,C.groen);
+  const ww=ramp(t,q.at('waarom'),0.5); if(ww>0) pill(ctx,960,650,'jij weet nu ook waarom: een drukverschil bij het gaatje',C.groen,ww,30);
   scaleBar(ctx);
 },
 s22(ctx,t,q){
-  bg(ctx,'schema');
+  bg(ctx,'schema'); const tel=ramp(t,q.at('Tel'),0.7); if(tel<1){ ctx.save(); ctx.globalAlpha=1-tel;
   const cx=960, base=760, armW=200, gap=200, top=180; const lx=cx-gap/2-armW/2, rx=cx+gap/2+armW/2;
   const h0=330; const rise=ramp(t,q.at('stijgt'),4.5); const extra=ramp(t,q.at('Hoe',3),1.2);
   const dh=lerp(0,190,rise); const hL=h0-dh/2, hR=h0+dh/2;
@@ -356,7 +386,22 @@ s22(ctx,t,q){
   // height difference bracket
   const hd=ramp(t,q.at('hoogte'),0.5); if(hd>0){ ctx.save(); ctx.globalAlpha=hd; ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.setLineDash([8,6]); ctx.beginPath(); ctx.moveTo(lx-armW/2-20,base-hL); ctx.lineTo(rx+armW/2+20,base-hL); ctx.moveTo(lx-armW/2-20,base-hR); ctx.lineTo(rx+armW/2+20,base-hR); ctx.stroke(); ctx.restore(); metaText(ctx,'hoogteverschil',lx-armW/2-40,base-(hL+hR)/2,C.goud,'right',22); }
   const nn=ramp(t,q.at('Netto'),0.5); if(nn>0) pill(ctx,960,130,'netto geen stroom meer: evenwicht',C.groen,nn*(1-ramp(t,q.at('Hoe',3),0.4)),30);
-  if(extra>0){ ctx.save(); ctx.globalAlpha=extra; ctx.setLineDash([6,6]); ctx.strokeStyle=C.goud; ctx.lineWidth=3; const hR2=hR+120; ctx.strokeRect(rx-armW/2,base-hR2,armW,hR2-hR); ctx.restore(); pill(ctx,960,130,'meer opgeloste deeltjes → hogere kolom',C.goud,extra,30); }
+  if(extra>0){ ctx.save(); ctx.globalAlpha=extra; ctx.setLineDash([6,6]); ctx.strokeStyle=C.goud; ctx.lineWidth=3; const hR2=hR+120; ctx.strokeRect(rx-armW/2,base-hR2,armW,hR2-hR); ctx.restore(); pill(ctx,960,130,'hogere concentratie opgeloste deeltjes → hogere kolom',C.goud,extra*(1-ramp(t,q.at('Tel'),0.4)),30); }
+  ctx.restore(); }
+  if(tel>0){ ctx.save(); ctx.globalAlpha=tel;
+    pill(ctx,960,130,'tel deeltjes, geen moleculen',C.text,1-ramp(t,q.at('zoutoplossing'),0.4),32);
+    const split=ramp(t,q.at('uiteen'),1.2);
+    beaker(ctx,600,500,520,440,0.8,rgba(C.teal,0.16),1); beaker(ctx,1320,500,520,440,0.8,rgba(C.teal,0.16),1);
+    metaText(ctx,'1 mol NaCl per liter',600,770,C.goud,'center',26); metaText(ctx,'1 mol glucose per liter',1320,770,C.oker,'center',26);
+    for(let k=0;k<4;k++){ const bx=480+(k%2)*240, by=430+Math.floor(k/2)*150; const w=wander(k+830,t,10,1); const d=lerp(16,54,ease(split));
+      ion(ctx,bx-d+w.x,by+w.y,1.9,1,false,C.oker,'Na⁺'); ion(ctx,bx+d+w.x,by+18*split+w.y,1.9,1,false,'#7FC4D8','Cl⁻'); }
+    for(let k=0;k<4;k++){ const bx=1200+(k%2)*240, by=430+Math.floor(k/2)*150; const w=wander(k+840,t,10,1); glucose(ctx,bx+w.x,by+w.y,1.5,1,t*0.3+k); }
+    const nz=ramp(t,q.at('natrium'),0.4); if(nz>0){ ctx.save(); ctx.globalAlpha*=nz; text(ctx,'Na⁺ + Cl⁻: twee ionen',600,262,fTekst(34,600),C.goud,'center'); ctx.restore(); }
+    const gh=ramp(t,q.at('heel'),0.4); if(gh>0){ ctx.save(); ctx.globalAlpha*=gh; text(ctx,'glucose blijft heel',1320,262,fTekst(34,600),C.oker,'center'); ctx.restore(); }
+    const c1=ramp(t,q.at('mol',3),0.4); if(c1>0){ ctx.save(); ctx.globalAlpha*=c1; text(ctx,'2 mol deeltjes',600,835,fTekst(40,700),C.goud,'center'); ctx.restore(); }
+    const c2=ramp(t,q.at('glucose',2),0.4); if(c2>0){ ctx.save(); ctx.globalAlpha*=c2; text(ctx,'1 mol deeltjes',1320,835,fTekst(40,700),C.oker,'center'); ctx.restore(); }
+    const zo=ramp(t,q.at('zoutoplossing'),0.5); if(zo>0) pill(ctx,960,130,'zoutoplossing: 2 × zo hoge osmotische waarde',C.goud,zo,32);
+    ctx.restore(); }
 },
 s23(ctx,t,q){
   bg(ctx,'micro');
@@ -378,9 +423,9 @@ s23(ctx,t,q){
     pill(ctx,1520,150,'in zuiver water',C.teal,clamp(2*toPure-1,0,1),28);
     naamBij(ctx,'celmembraan','laat los van de celwand',1065,440,ramp(t,q.at('celmembraan'),0.5)*(1-toPure),'left',C.text);
     label(ctx,'vacuole','krimpt',780,470,1300,520,fadeIO(t,q.at('vacuole'),q.at('celmembraan'),0.4),C.text,'right');
-    const pl=fadeIO(t,q.at('plasmolyse'),q.at('zuiver'),0.4); if(pl>0) pill(ctx,760,830,'plasmolyse',C.goud,pl,32);
-    const tu=ramp(t,q.at('turgor'),0.5); if(tu>0) pill(ctx,760,830,'turgor: de druk in de cel',C.goud,tu,30);
-    naamBij(ctx,'celwand','stevig, blijft staan',405,420,ramp(t,q.at('wand'),0.5)*(1-tg),'right',C.text); naamBij(ctx,'celwand','duwt terug',405,420,tg,'right',C.groen);
+    const pl=fadeIO(t,q.at('plasmolyse'),q.at('zuiver'),0.4); if(pl>0){ pill(ctx,1180,830,'plasmolyse',C.goud,pl,32); naamBij(ctx,'zout water','',760,316,pl,'center',C.teal); }
+    const tu=ramp(t,q.at('turgor'),0.5); if(tu>0) pill(ctx,1240,830,'turgor: de druk in de cel',C.goud,tu,30);
+    naamBij(ctx,'celwand','stevig, laat alles door',405,420,ramp(t,q.at('wand'),0.5)*(1-tg),'right',C.text); naamBij(ctx,'celwand','duwt terug',405,420,tg,'right',C.groen);
     const nb=ramp(t,q.at('Barsten'),0.5); if(nb>0) pill(ctx,1520,260,'barst niet: de celwand houdt hem tegen',C.groen,nb,26);
     ctx.restore(); }
   if(kom>0){ ctx.save(); ctx.globalAlpha=kom; bg(ctx,'schema');
@@ -462,39 +507,62 @@ s31(ctx,t,q){
   micro(ctx); const my=470, pX=960;
   const lkX=pX-420; const stop0=ramp(t,q.at('Zonder'),0.6);
   bilayerH(ctx,60,1860,my,stop0>0?[[pX-100,pX+100],[lkX-70,lkX+70]]:[[pX-100,pX+100]],1,110); channelH(ctx,lkX,my,30,stop0,C.enzym,130);
-  metaText(ctx,'buiten: weinig',80,200,C.grain,'left',22); metaText(ctx,'binnen: veel',80,800,C.grain,'left',22);
+  metaText(ctx,'buiten: weinig',80,200,C.grain,'left',26); metaText(ctx,'binnen: veel',80,840,C.grain,'left',26);
   for(let k=0;k<5;k++){ const w=wander(k+1300,t,40,1); dot(ctx,240+hash(k*3+1300)*1400+w.x,200+hash(k*3+1301)*150+w.y,9,C.oker); }
   for(let k=0;k<26;k++){ const w=wander(k+1350,t,30,1); const x=160+hash(k*3+1350)*1600+w.x; if(Math.abs(x-pX)<120) continue; dot(ctx,x,600+hash(k*3+1351)*230+w.y,9,C.oker); }
   const stop=ramp(t,q.at('Zonder'),0.6);
   const run=ramp(t,q.at('eiwit'),0.5)*(1-stop); const cyc=((t)/3)%1; const flip=cyc<0.35?0: cyc<0.55? ease((cyc-0.35)/0.2):1;
   for(const s of [-1,1]){ ctx.save(); ctx.translate(pX+s*48,my); ctx.rotate(s*lerp(-0.25,0.25,flip*run)); roundRect(ctx,-42,-90,84,180,32); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
   if(run>0){ const y= cyc<0.35? lerp(260,my-40,ease(cyc/0.35)) : cyc<0.55? lerp(my-40,my+40,flip) : lerp(my+40,700,ease((cyc-0.55)/0.45)); dot(ctx,pX,y,10,C.oker,null);
-    const ea=ramp(t,q.at('ATP'),0.5); if(ea>0){ const near=cyc>0.25&&cyc<0.55; atp(ctx,pX+150-(near?60:0),my+120,ea*run,1.2); if(near) metaText(ctx,'energie',pX+260,my+130,C.koraal,'left',22); } }
-  const tg=ramp(t,q.at('tegen'),0.5)*(1-stop); if(tg>0){ ctx.save(); ctx.globalAlpha=tg; metaText(ctx,'van weinig (buiten) naar veel (binnen):',pX+140,300,C.oker,'left',22); metaText(ctx,'tegen het concentratieverschil in',pX+140,334,C.oker,'left',22); ctx.restore(); }
-  pill(ctx,960,150,'actief transport: kost ATP',C.koraal,ramp(t,q.at('actief'),0.5)*(1-stop),30);
+    const ea=ramp(t,q.at('ATP'),0.5); if(ea>0){ const pop=cyc<0.3?0: cyc<0.55? (cyc-0.3)/0.25 : 1; atp(ctx,pX+190,my+150,ea*run,1.5,pop); if(cyc>0.3&&cyc<0.7) metaText(ctx,'energie',pX+190,my+250,C.koraal,'center',26); } }
+  const tg=ramp(t,q.at('tegen'),0.5)*(1-stop); if(tg>0){ ctx.save(); ctx.globalAlpha=tg; metaText(ctx,'van weinig (buiten) naar veel (binnen):',pX+170,250,C.oker,'left',26); metaText(ctx,'tegen het concentratieverschil in',pX+170,290,C.oker,'left',26); ctx.restore(); }
+  pill(ctx,960,150,'actief transport: kost ATP',C.koraal,ramp(t,q.at('actief'),0.5)*(1-ramp(t,q.at('Zonder')-0.35,0.3)),30);
   naamBij(ctx,'pomp','eiwit in het membraan',pX-115,my-92,ramp(t,q.at('pomp'),0.5)*(1-stop),'right');
-  if(stop>0){ atp(ctx,pX+170,my+120,stop,1.2); crossOut(ctx,pX+170,my+120,46,stop); pill(ctx,960,150,'geen ATP: de pomp staat stil',C.koraal,stop,30);
+  if(stop>0){ atp(ctx,pX+190,my+150,stop,1.5,0,''); crossOut(ctx,pX+190,my+150,60,stop); pill(ctx,960,150,'geen ATP: de pomp staat stil',C.koraal,stop,30);
     const lk=ramp(t,q.at('lekken'),0.5); if(lk>0){ for(let k=0;k<3;k++){ const u=((t*0.25+k/3)%1); dot(ctx,lkX,lerp(720,230,u),9,C.oker); } metaText(ctx,'lekt langzaam terug via een kanaal',lkX+80,300,C.grain,'left',22); } }
   scaleBar(ctx);
 },
 s32(ctx,t,q){
-  micro(ctx); const my=470, pX=960; const KC=C.paars;
+  micro(ctx); const my=470, pX=960; const KC=C.paars; const NA=C.oker;
   bilayerH(ctx,60,1860,my,[[pX-110,pX+110]],1,110);
-  metaText(ctx,'buiten',80,200,C.grain,'left',22); metaText(ctx,'binnen',80,800,C.grain,'left',22);
-  const on=ramp(t,q.at('natrium',2),0.5);
-  // cycle 4 s: 0-0.45 three Na+ from inside out; 0.5-0.95 two K+ from outside in
-  const cyc=on>0? ((t-q.at('natrium',2))/4)%1 : 0; const openOut= cyc<0.25?0: cyc<0.4? ease((cyc-0.25)/0.15) : cyc<0.6?1: cyc<0.75? 1-ease((cyc-0.6)/0.15):0;
-  for(const s of [-1,1]){ ctx.save(); ctx.translate(pX+s*52,my); ctx.rotate(s*lerp(0.22,-0.22,openOut)); roundRect(ctx,-46,-95,92,190,34); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
+  metaText(ctx,'buiten',80,200,C.grain,'left',26); metaText(ctx,'binnen',80,840,C.grain,'left',26);
+  const t0=q.at('natrium',2); const on=ramp(t,t0,0.5);
+  const P=6.5; const n=on>0? Math.max(0,(t-t0)/P) : 0; const rnd=Math.floor(n), c=n-rnd;   // c = fase in één ronde
+  // pomp: 0 = open naar binnen, 1 = open naar buiten
+  const openOut= c<0.22?0 : c<0.34? ease((c-0.22)/0.12) : c<0.62?1 : c<0.74? 1-ease((c-0.62)/0.12) : 0;
+  for(const sd of [-1,1]){ ctx.save(); ctx.translate(pX+sd*52,my); ctx.rotate(sd*lerp(0.22,-0.22,openOut*on)); roundRect(ctx,-46,-95,92,190,34); shape(ctx,C.enzym,lighten(C.enzym,0.3),1.5); ctx.restore(); }
+  // voorraad die zichtbaar groeit: Na+ buiten, K+ binnen
+  const done=on>0? rnd + (c>0.46?1:0) : 0, doneK=on>0? rnd + (c>0.9?1:0) : 0;
+  const nNa=Math.min(14,5+3*done), nK=Math.min(12,4+2*doneK);
+  for(let k=0;k<nNa;k++){ const w=wander(k+1600,t,14,0.8); ion(ctx,1220+(k%7)*80+w.x,230+Math.floor(k/7)*80+w.y,1.5,1,false,NA,'Na⁺'); }
+  for(let k=0;k<nK;k++){ const w=wander(k+1650,t,14,0.8); ion(ctx,1220+(k%6)*90+w.x,690+Math.floor(k/6)*80+w.y,1.5,1,false,KC,'K⁺'); }
   if(on>0){ ctx.save(); ctx.globalAlpha=on;
-    for(let k=0;k<3;k++){ const xx=pX-36+k*36; const y= cyc<0.2? lerp(740,my+30,ease(cyc/0.2)) : cyc<0.4? my+30 - 60*ease((cyc-0.2)/0.2) : lerp(my-30,240,ease((cyc-0.4)/0.15)); const a=cyc<0.55?1:Math.max(0,1-(cyc-0.55)/0.1); ion(ctx,xx,y,1.5,a,false,C.oker,'Na⁺'); }
-    for(let k=0;k<2;k++){ const xx=pX-22+k*44; const c2=(cyc+0.5)%1; const y= c2<0.2? lerp(220,my-30,ease(c2/0.2)) : c2<0.4? my-30+60*ease((c2-0.2)/0.2) : lerp(my+30,740,ease((c2-0.4)/0.15)); const a=c2<0.55?1:Math.max(0,1-(c2-0.55)/0.1); ion(ctx,xx,y,1.5,a,false,KC,'K⁺'); }
-    // ATP bound at the inside of the pump while Na+ is carried out
-    const useA=cyc>0.12&&cyc<0.42; atp(ctx,pX,my+150,useA?1:0.35,1.1); if(!useA) metaText(ctx,'ADP',pX,my+210,C.grain,'center',20);
+    // stap 1 (0-0.22): 3 Na+ komen van binnen en binden; ATP -> ADP + P
+    for(let k=0;k<3;k++){ const bx=pX-34+k*34; let x,y,a=1;
+      if(c<0.16){ x=lerp(620+k*70,bx,ease(c/0.16)); y=lerp(800,my+40,ease(c/0.16)); }
+      else if(c<0.22){ x=bx; y=my+40; }
+      else if(c<0.34){ x=bx; y=lerp(my+40,my-40,ease((c-0.22)/0.12)); }
+      else if(c<0.46){ const u=ease((c-0.34)/0.12); x=lerp(bx,1220+((nNa-3+k)%7)*80,u); y=lerp(my-40,230+Math.floor((nNa-3+k)/7)*80,u); }
+      else { a=0; x=bx; y=my; }
+      ion(ctx,x,y,1.6,a,false,NA,'Na⁺'); }
+    // stap 3 (0.46-0.9): 2 K+ komen van buiten, binden, pomp klapt terug, K+ los binnen
+    for(let k=0;k<2;k++){ const bx=pX-20+k*40; let x,y,a=1;
+      if(c<0.46){ a=0; x=bx; y=200; }
+      else if(c<0.62){ const u=ease((c-0.46)/0.16); x=lerp(700+k*90,bx,u); y=lerp(210,my-40,u); }
+      else if(c<0.74){ x=bx; y=lerp(my-40,my+40,ease((c-0.62)/0.12)); }
+      else if(c<0.9){ const u=ease((c-0.74)/0.16); x=lerp(bx,1220+((nK+k)%6)*90,u); y=lerp(my+40,690+Math.floor((nK+k)/6)*80,u); }
+      else { a=0; x=bx; y=my; }
+      ion(ctx,x,y,1.6,a,false,KC,'K⁺'); }
+    // ATP bindt binnen aan de pomp; bij het omklappen springt een fosfaat eraf
+    const pop= c<0.16?0 : c<0.3? (c-0.16)/0.14 : 1; const aA= c<0.8?1:Math.max(0,1-(c-0.8)/0.1);
+    atp(ctx,pX-60,my+180,aA,1.4,pop);
     ctx.restore(); }
-  label(ctx,'3 Na⁺','naar buiten',pX+60,my-110,pX+330,230,on,C.oker,'left'); label(ctx,'2 K⁺','naar binnen',pX+60,my+110,pX+330,760,on,KC,'left');
-  naamBij(ctx,'natrium-kaliumpomp','in al je cellen',pX-115,my-92,ramp(t,q.at('kaliumpomp'),0.5),'right',C.text);
-  const za=ramp(t,q.at('ATP'),0.5); if(za>0) label(ctx,'ATP','energie voor elke ronde',pX-40,my+150,pX-380,700,za,C.koraal,'left');
-  const zi=ramp(t,q.at('zenuwimpulsen'),0.5); if(zi>0) pill(ctx,960,150,'zie je terug bij zenuwimpulsen',C.paars,zi,28);
+  naamBij(ctx,'natrium-kaliumpomp','',pX-125,my-120,ramp(t,q.at('kaliumpomp'),0.5),'right',C.text);
+  // stappen als één regel bovenin
+  if(on>0){ const st= c<0.22?1 : c<0.46?2 : 3; const txt=['1 · 3 Na⁺ binden binnen · ATP → ADP + P','2 · pomp klapt om · 3 Na⁺ los buiten','3 · 2 K⁺ binden buiten · pomp klapt terug · K⁺ los binnen'][st-1];
+    pill(ctx,640,130,txt,st===3?KC:(st===2?NA:C.koraal),on*(1-ramp(t,q.at('zenuwimpulsen'),0.4)),28); }
+  ctx.save(); ctx.globalAlpha=on; text(ctx,'3 Na⁺ naar buiten',1200,160,fTekst(36,600),NA,'left'); text(ctx,'2 K⁺ naar binnen',1200,640,fTekst(36,600),KC,'left'); ctx.restore();
+  const zi=ramp(t,q.at('zenuwimpulsen'),0.5); if(zi>0) pill(ctx,560,880,'zie je terug bij zenuwimpulsen',C.paars,zi,30);
   scaleBar(ctx);
 },
 // ---------- Recap ----------
@@ -506,9 +574,9 @@ s33(ctx,t,q){
       const cx=x+w/2, cy=y+200;
       if(i===0){ for(let k=0;k<9;k++){ const ww=wander(k+1400,t,40,2.2); dot(ctx,cx+(hash(k)*2-1)*80+ww.x,cy+(hash(k+3)*2-1)*80+ww.y,9,C.goud); } }
       if(i===1){ for(let k=0;k<10;k++){ dot(ctx,cx-100+(k%3)*22,cy-60+Math.floor(k/3)*36,8,C.goud); } dot(ctx,cx+70,cy,8,C.goud); arrow(ctx,cx-30,cy,cx+50,cy,C.goud,5,18); }
-      if(i===2){ ctx.strokeStyle=C.er; ctx.lineWidth=10; ctx.beginPath(); ctx.moveTo(x+20,cy); ctx.lineTo(x+w-20,cy); ctx.stroke(); o2(ctx,cx-60,cy-60+((t*40)%120),1); ion(ctx,cx+60,cy-70,0.9); }
-      if(i===3){ ctx.strokeStyle=C.er; ctx.lineWidth=10; ctx.beginPath(); ctx.moveTo(cx,cy-130); ctx.lineTo(cx,cy-20); ctx.moveTo(cx,cy+20); ctx.lineTo(cx,cy+130); ctx.stroke(); salt(ctx,cx+60,cy-50,13); salt(ctx,cx+90,cy+40,13); arrow(ctx,cx-110,cy,cx+70,cy,C.teal,8,26); }
-      if(i===4){ ctx.strokeStyle=C.er; ctx.lineWidth=10; ctx.beginPath(); ctx.moveTo(x+20,cy); ctx.lineTo(x+w-20,cy); ctx.stroke(); arrow(ctx,cx,cy+110,cx,cy-110,C.oker,6,22); atp(ctx,cx+80,cy+60,1,1); }
+      if(i===2){ boogH(ctx,x+20,x+w-20,cy-14,28); o2(ctx,cx-60,cy-60+((t*40)%120),1); ion(ctx,cx+60,cy-70,0.9); }
+      if(i===3){ boogV(ctx,cx-10,cy-130,cy+130,22,C.er,10,22); salt(ctx,cx+60,cy-50,13); salt(ctx,cx+90,cy+40,13); arrow(ctx,cx-110,cy,cx+70,cy,C.teal,8,26); }
+      if(i===4){ boogH(ctx,x+20,x+w-20,cy-14,28); arrow(ctx,cx-40,cy+110,cx-40,cy-110,C.oker,6,22); atp(ctx,cx+60,cy+80,1,0.9,0,'ATP'); }
       text(ctx,p[0],cx,y+h-110,fTekst(34,600),C.text,'center'); ctx.font=fTekst(24); ctx.fillStyle=C.text2; ctx.textAlign='center'; wrap(ctx,p[1],cx,y+h-66,w-40,30);
       ctx.restore(); });
     ctx.restore(); }

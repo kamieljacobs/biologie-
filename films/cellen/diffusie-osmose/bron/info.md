@@ -5,12 +5,12 @@
 | Bestand | films/cellen/diffusie-osmose/index.html (audio in films/cellen/diffusie-osmose/audio/) |
 | Reeks / nummer | Cel, film 1 van 3 ("Biologie bij Kamiel · reeks Cel · film 1 van 3"); film 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Vwo-blokken: gefaciliteerde diffusie (H4) en natrium-kaliumpomp (H6). Iso-/hypo-/hypertonisch staat op verzoek van Kamiel in het havo-deel |
-| Versie / datum | Versie 1.1 · 12 oktober 2026 (na de onafhankelijke review, zie `reviews/review_v2.md`) |
+| Versie / datum | Versie 1.2 · 16 oktober 2026 (uitgeversniveau, na de redactiereview; zie "Versie 1.2" onderaan). Eerder: 1.1 · 12 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
-| Duur | 9:02 gesproken (som van 24 mp3's: 542 s). Speeltijd met kaarten en vragen (versie 1.1): Vwo 12:04, Havo 11:00. Hoofdstuktijden in de tabel hieronder kunnen een paar seconden afwijken; `script.md` heeft de actuele begintijden |
-| Beeldstijl | Part C-stijlkaart: Micro (#121A26 met grain), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
+| Duur | 10:02 gesproken (som van 24 mp3's: 602 s; vwo-blokken 50 s). Speeltijd met kaarten en vragen (versie 1.2): Vwo 12:47, Havo 11:47, Vwo zonder vragen 9:55. `script.md` heeft de begintijden per segment. `data-duur="9"` op de tellerscript-tag is de oude gesproken duur in minuten (alleen voor de kijkcijferteller; bijwerken met `scripts/teller.py` als dat gewenst is) |
+| Beeldstijl | Part C-stijlkaart: Micro (#121A26, sinds 1.2 zonder korrel), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |
 | Audio-opslag | 24 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s11, s12, s14, s15, s17, s18, s20, s21, s22, s23, s25, s27, s28, s29, s31, s32, s33, s35), gemasterd op −16 LUFS / −1,5 dBTP (ffmpeg loudnorm, twee passes, lineair) |
-| Herkomst | Gemaakt door Claude met Kamiel in één sessie (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Remake in Part C van een film van Kamiels broer |
+| Herkomst | Eerste versie ("Alles beweegt") door Kamiels broer, naar ontwerp van Kamiel Jacobs. Deze remake in Part C: Claude met Kamiel (12 okt 2026), met dezelfde bouwstraat als Celorganellen. Credits staan op de eindkaart en in de footer |
 
 ## Echte bronbestanden (in deze map)
 
@@ -39,11 +39,11 @@
 | 0:33 | H1 Alles beweegt | Micro | Gesimuleerde willekeurige beweging; één deeltje met spoor; stoten van watermoleculen; koud naast warm |
 | 1:06 | H2 Van veel naar weinig | Micro + grafiek | 150 deeltjes links; tellers; pijldikte naar rechts/terug evenredig met het aantal aan elke kant; live grafiek; evenwicht |
 | 2:25 | H3 Wat maakt het sneller? | Schema | Vier factoren; 2× afstand → 4× tijd; longblaasje met haarvat, O₂ in, CO₂ uit |
-| 3:41 | H4 Het celmembraan (+ vwo-blok) | Micro | Dubbele laag; O₂/CO₂ erdoor; Na⁺ (lading + watermantel) en glucose kaatsen terug; waterkanaal; eigen doorgang glucose; vwo: kanaal- en dragereiwit |
-| 5:38 (4:50) | H5 Osmose | Schema, Micro | Opstelling; mythes doorgestreept; porie-close-up met terugkaatsend gehydrateerd zout, lagere druk in de opening, drukmeters, stroom; kaarten osmose / in je boek / op een toets; U-buis; plantencel; komkommer; rode bloedcel; iso/hypo/hyper; infuus |
-| 9:34 (8:45) | H6 Actief transport (+ vwo-blok) | Schema, Micro | Passief transport samengevat; wortelhaarcel; pomp met ATP; lekken via kanaal als ATP op is; vwo: Na/K-pomp 3 uit, 2 in |
-| 10:40 (9:36) | Recap | Schema, Macro | Vijf panelen; bootje op zee |
-| 11:51 (10:47) | Eindkaart (9 s) | Schema | Drie kernzinnen |
+| 3:39 | H4 Het celmembraan (+ vwo-blok) | Micro | Dubbele laag; bouw: fosfolipide (kop hydrofiel, staarten hydrofoob) en gebogen dubbellaag; O₂/CO₂ erdoor; Na⁺ (lading + watermantel) en glucose kaatsen terug; waterkanaal; eigen doorgang glucose; vwo: kanaal- en dragereiwit |
+| 6:01 (5:15) | H5 Osmose | Schema, Micro | Opstelling; 'zout trekt' doorgestreept, 'minder water' = de oorzaak, maar het water stroomt als geheel; porie-close-up met terugkaatsend gehydrateerd zout dat het water een duw geeft, lagere druk in de opening, drukmeters in een strook bovenin, stroom; kaarten osmose / in je boek / op een toets onderin; U-buis; deeltjes tellen (NaCl 2, glucose 1); plantencel (ruimte bij plasmolyse gevuld met zout water); komkommer; rode bloedcel; iso/hypo/hyper; infuus |
+| 10:25 (9:38) | H6 Actief transport (+ vwo-blok) | Schema, Micro | Passief transport samengevat; wortelhaarcel; pomp met ATP-molecuul (fosfaat springt eraf); lekken via kanaal als ATP op is; vwo: Na/K-pomp in drie stappen (3 Na⁺ binden binnen + ATP → ADP + P; omklappen, Na⁺ los buiten; 2 K⁺ binden buiten, terugklappen, K⁺ los binnen), voorraad aan beide kanten telt zichtbaar op |
+| 11:29 (10:28) | Recap | Schema, Macro | Vijf panelen; bootje op zee |
+| 12:38 (11:38) | Eindkaart (9 s) | Schema | Drie kernzinnen; versie 1.2 · 16 oktober 2026; eerste versie: Kamiels broer, naar ontwerp van Kamiel Jacobs |
 
 ## Vragen (juiste antwoord vet)
 
@@ -54,39 +54,40 @@
 | q10 | basis | Cel twee keer zo dik: hoe lang tot zuurstof het midden bereikt? | 2× · **≈ 4×** · even lang |
 | q13 | basis | Welke stof komt het makkelijkst door het membraan? | **zuurstof** · natriumion · glucose |
 | q16 | vwo | Kost gefaciliteerde diffusie ATP? | ja · **nee** |
-| q19 | basis | Zuiver water / zout water: wat doet het water? | naar links · **naar rechts** · niets |
+| q19 | basis | Zuiver water / zout water: wat doet het water? (uitleg: naar de hoogste concentratie opgeloste deeltjes) | naar links · **naar rechts** · niets |
 | q24 | basis | Komkommer met zout: waar komt het water vandaan? | **uit de cellen** · uit de lucht · zout smelt |
 | q26 | basis | Rode bloedcel in zuiver water? | krimpt · **zwelt en barst** · niets |
 | q30 | basis | Wortelhaarcel neemt mineralen op tegen het verschil in. Hoe? | diffusie · osmose · **pomp in het membraan** |
 | q34 | basis | Waarom geen zeewater drinken? | **cellen verliezen water** · te veel water · bacteriën |
 
 ## Begrippen
-deeltjesbeweging, diffusie, concentratie, concentratieverschil (concentratiegradiënt), evenwicht, longblaasje, celmembraan, selectief doorlatend (selectief permeabel), semipermeabel, osmose, osmotische waarde, plasmolyse, turgor, hemolyse, isotonisch, hypotonisch, hypertonisch, passief transport, actief transport, ATP; vwo: kanaaleiwit, dragereiwit, gefaciliteerde diffusie, natrium-kaliumpomp.
+deeltjesbeweging, diffusie, concentratie, concentratieverschil (concentratiegradiënt), evenwicht, longblaasje, celmembraan, fosfolipide, hydrofiel / hydrofoob, selectief doorlatend (selectief permeabel), semipermeabel, osmose, osmotische waarde, plasmolyse, turgor, hemolyse, isotonisch, hypotonisch, hypertonisch, passief transport, actief transport, ATP; vwo: kanaaleiwit, dragereiwit, gefaciliteerde diffusie, natrium-kaliumpomp.
 
 ## Docentdeel
 Op de pagina zelf: tabel "Hoe de film het uitlegt", de natuurkundige uitleg van osmose (Kramer & Myers 2013), misconcepties, pauzemomenten, getallen met bron of berekening, vereenvoudigingen, leerdoelen en dekking, practicumsuggesties. Zes checkvragen in examenstijl (vier basis, twee vwo).
 
-## Waar wat in de HTML zit (`index.html`, versie 1.0)
+## Waar wat in de HTML zit (`index.html`, versie 1.2)
 
 | Regel | Inhoud |
 |---|---|
-| 66 | Sitebalk: "Biologie bij Kamiel" en "← Terug naar Cellen" (`../../../index.html#cellen`; gaat terug in de geschiedenis als je van de site kwam) |
-| 95 | Checkvragen |
-| 113 | Docentdeel |
-| 162 | `window.FILMDATA` (segmenten, woordtijden, vragen, antwoorden) |
-| 164 | Part C-tokens (`const C`) en reeksbibliotheek (lib.js) |
-| 357 | Filmhelpers (scenes_lib.js); `sim()` op 370 |
-| 500 | `const SCENES`; s01 502, s04 531, s05 562, s06 578, s08 591, s09 601, s11 622, s12 658, s14 676, s15 699, s17 722, s18 734, s20 746, s21 762 (porie), s22 803 (U-buis), s23 825, s25 861, s27 872, s28 886, s29 908, s31 925, s32 944, s33 965, s35 987 |
-| 1008 | Begrippenlijst (`GLOSSARY`) |
-| 1034 | Speler |
+| 70 | Sitebalk: "Biologie bij Kamiel" en "← Terug naar Cellen" (`../../../index.html#cellen`; gaat terug in de geschiedenis als je van de site kwam) |
+| 99 | Checkvragen |
+| 117 | Docentdeel (tabellen in `<div class="tabelkader">`, eigen horizontale scroll op de telefoon) |
+| 165 | Footer met credits en versie |
+| 166 | `window.FILMDATA` (segmenten, woordtijden, vragen, antwoorden) |
+| 167 | Part C-tokens (`const C`) en reeksbibliotheek (lib.js); `bg()` zonder korrel; `metaText()` minimaal 26 px |
+| 375 | Filmhelpers (scenes_lib.js); `sim()` 383; gebogen membraan (`MEM_R`, `mY`, `mA`, `opMem`, `bilayerH`, `bilayerV`, `boogH`, `boogV`) 425; `fosfolipide()` 444; `atp()` (molecuul, fosfaat springt eraf) 488 |
+| 546 | `const SCENES`; s01 548, s04 577, s05 608, s06 624, s08 637, s09 648, s11 669, s12 705, s14 741, s15 771, s17 794, s18 806, s20 819, s21 842 (porie), s22 883 (U-buis + deeltjes tellen), s23 920, s25 956, s27 967, s28 981, s29 1003, s31 1020, s32 1039 (Na/K-pomp), s33 1083, s35 1105 |
+| 1126 | Begrippenlijst (`GLOSSARY`) |
+| 1155 | Speler (eindkaart in `drawEnd`) |
 
 Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 
 ## Hoe je de film aanpast
 
-**Werkmap opzetten** (buiten de repo): kopieer `bron/src/`, `bron/bouw/*`, `bron/script_v2.md` naar een werkmap; `stem/segmenten_stem-invoer.json` → `segments.json`; `stem/woordtijden/` → `words/`; mp3's uit `../audio/` → `master/` en `film/audio/`. Daarna `python3 build_data.py && python3 build.py && node checkcues.js`. Resultaat: `film/index.html` (site) en `film/standalone.html` (zonder sitebalk).
+**Werkmap opzetten** (buiten de repo): kopieer `bron/src/`, `bron/bouw/*`, `bron/script_v2.md` naar een werkmap (sinds 1.2 bouwen `src/` en `bouw/` exact de live `index.html`; speler en pagina zijn weer gelijk); `stem/segmenten_stem-invoer.json` → `segments.json`; `stem/woordtijden/` → `words/`; mp3's uit `../audio/` → `master/` en `film/audio/`. Daarna `python3 build_data.py && python3 build.py && node checkcues.js`. Resultaat: `film/index.html` (site) en `film/standalone.html` (zonder sitebalk).
 
-**Beeld wijzigen:** pas de scène in `src/scenes.js` aan (cue-woorden via `q.at('woord', n)`; n telt alle woorden die het woord bevatten, dus "Glucose" vindt ook "glucose,"). Controleer met `python3 shots.py uit s21:20 s21:30` en `node checkcues.js`.
+**Beeld wijzigen:** pas de scène in `src/scenes.js` aan (cue-woorden via `q.at('woord', n)`; n telt alle woorden die het woord bevatten, dus "Glucose" vindt ook "glucose,"). Controleer met `python3 shots.py uit s21:20 s21:30`, `python3 contact2.py uit 4 [s12,s21]` (contactbladen per segment) en `node checkcues.js`. Speler en telefoon (390 px): `python3 test_v12.py` met `python3 -m http.server 8765` in de werkmap.
 
 **Tekst wijzigen:** pas `script_v2.md` aan → `python3 make_segments.py` → zet in `segments.json` `s03` op `kind: title` en `s36` op `kind: card` → spreek alleen de gewijzigde segmenten opnieuw in (Roos, eleven_v4, één take, invoer uit `voice`) → Scribe-woordtijden naar `words/sNN.json` → mastering (`loudnorm=I=-16:TP=-1.5:LRA=11`, twee passes, `linear=true`) → `build_data.py` → `build.py` → `checkcues.js`. Let op: het aantal woorden in `display` moet gelijk zijn aan het aantal woorden in de transcriptie (gekoppelde woorden met streepje tellen als één).
 
@@ -97,7 +98,7 @@ Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 ## Aandachtspunten
 - Uitspraak van de risicowoorden is door Kamiel goedgekeurd (12 okt 2026, zie `stem/risicowoorden.mp3`).
 - De diffusiesimulatie is vooraf berekend (vaste seed) en dus bij elke weergave en bij terugspoelen identiek. H2 loopt door in s06 en s08 (simulatietijd = speeltijd sinds "dwaalt" + 8 s voor de vraag).
-- Fonts komen van Google Fonts (zoals Celorganellen); zonder internet valt de film terug op systeemletters.
+- Fonts komen van Google Fonts (zoals de rest van de site); zonder internet valt de film terug op systeemletters.
 - Geen MP4-export.
 - Rendertijd per frame bij 4× vertraagde CPU: max ± 6 ms per scène (s25), speler gemiddeld 16,7 ms.
 
@@ -107,19 +108,9 @@ Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 - Docent/pagina: practicum met kleurstof in agar (convectie vs diffusie), uitleg q02 met nuance over stroming, begrippen osmose/osmotische waarde/passief/actief transport aangepast, begrip osmotische druk toegevoegd, taalfout checkvraag 1a.
 - Niet aangepast: kleur van de celkern (paars), afbreekpunten van ondertitels, kleine overlappen in s01, s06, s11, s15 en s28 (zie review_v2.md).
 
-## Wachtlijst opnieuw inspreken
+## Wachtlijst opnieuw inspreken (afgerond in versie 1.2)
 
-Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[nieuw]` in `script.md`; zet hem ook in `script_v2.md` en volg "Tekst wijzigen" hierboven (Roos, eleven_v4, één take, Scribe, mastering, `build_data.py`, `build.py`, `checkcues.js`).
-
-- **H4, s12** — fosfolipide-dubbellaag (hydrofiele kop, hydrofobe staarten, vette middenlaag), na de eerste zin. Opnieuw: `audio/s12.mp3` + `words/s12.json`; s12 wordt ± 20 s langer, alles erna schuift op. Cues in `SCENES.s12` ('dubbele', 'selectief', 'sommige', 'permeabel', 'Welke') blijven uniek; voeg cues toe op 'fosfolipiden', 'koppen', 'staarten'.
-- **H4, s14** — conclusiezin vetoplosbaar zelf door het membraan, wateroplosbaar en ionen via een eiwit, aan het eind. Opnieuw: `audio/s14.mp3` + `words/s14.json`; ± 8 s langer. Bestaande cues ('Ook' 2, 'Glucose' 2, 'Water', 'hoog') blijven kloppen.
-- **H5, s22** — osmotische waarde telt deeltjes: NaCl → Na⁺ + Cl⁻, dus 2× de osmotische waarde van glucose bij dezelfde molariteit, aan het eind. Opnieuw: `audio/s22.mp3` + `words/s22.json`; ± 17 s langer. Cue 'Hoe' 3 blijft kloppen. Overweeg een checkvraag of een docentnoot (examenvalkuil).
-- **Beeld nodig**: s12 close-up van één fosfolipide (kop + twee staarten, labels "hydrofiel" en "hydrofoob") en de dubbellaag met koppen naar buiten en staarten naar binnen (helper `lipidedubbellaag` in `scenes_lib.js` uitbreiden); s14 tweedeling "lost op in vet → zelf erdoor" (O₂, CO₂) tegenover "lost op in water / ion → eiwit nodig" (glucose, Na⁺); s22 rekenvoorbeeld: bekertje 1 mol/L NaCl met 2 deeltjes per formule-eenheid (Na⁺ en Cl⁻), bekertje 1 mol/L glucose met 1, met teller "2 mol deeltjes / 1 mol deeltjes".
-- **Risicowoorden (uitspraaktest)**:
-  - fosfolipiden — "lipide" /liˈpidə/ (Wiktionary via kaikki.org); stem-invoer `fosfo-lipiden`.
-  - hydrofiel — /ɦidroːˈfil/ (Wiktionary via kaikki.org); stem-invoer `hiedro-fiel` (zelfde ie-truc als "hiepotonisch").
-  - hydrofoob — /ɦidroːˈfoːp/ (Wiktionary via kaikki.org); stem-invoer `hiedro-foob`.
-  - chloride — geen IPA gevonden (alleen een geluidsbestand op Wiktionary); verwacht /xloːˈridə/, klemtoon op "ri". Stem-invoer eerst zoals geschreven, alternatief `chlo-riede`.
+De aanvullingen van 15-10-2026 (fosfolipiden in s12, conclusiezin in s14, deeltjes tellen in s22) zijn op 16-10-2026 ingesproken, samen met de correcties in s20 en s21. Risicowoorden (stem-invoer): fosfolipiden `fosfo-lipiden` (/liˈpidə/), hydrofiel `hiedro-fiel` (/ɦidroːˈfil/), hydrofoob `hiedro-foob` (/ɦidroːˈfoːp/), chloride zoals geschreven (verwacht /xloːˈridə/; alternatief `chlo-riede`). Ze staan op `films/WACHTLIJST.md` onder "Ingesproken, uitspraak nog beluisteren".
 
 ## Wijziging 15 okt 2026 (beeld, op verzoek van Kamiel)
 - Osmose-opstelling (s18) en stromende opstelling (s20): watermoleculen gaan nu zichtbaar door het membraan (functie `oversteek()` vóór `const SCENES`). In s18 even veel naar links als naar rechts; in s20 meer naar rechts (14) dan naar links (5), terwijl het niveau rechts stijgt. In s20 staat nu ook water (`waterField`) in beide compartimenten.
@@ -128,3 +119,36 @@ Aanvulling na vergelijking met Gewoon Uitgelegd (15-10-2026). Tekst staat als `[
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'veel kleurstof', 'flinterdunne wand', 'zuurstof', 'klein en lost op in vet', 'eigen doorgang', 'kanaaleiwit', 'dragereiwit', 'alleen een doorgang', 'semipermeabel membraan', 'celmembraan', 'celwand', 'pomp', 'natrium-kaliumpomp'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+## Versie 1.2 (16 oktober 2026): uitgeversniveau
+
+Aanleiding: redactiereview (blokkerende en belangrijke punten B1–B4, K1–K9). Kamiel stuurt de film mee met een open sollicitatie bij een educatieve uitgever.
+
+**Opnieuw ingesproken** (Roos, voice_id 7qdUFMklKPaaAVMsBTBt, eleven_v4, één take per segment, flow Nd0XpevjWZ9i6oE977T1; woordtijden Scribe eleven_scribe_v1 in dezelfde flow; mastering loudnorm I=−16, TP=−1,5, LRA=11, twee passes, linear=true):
+- **s20**: "Rechts is wel iets minder water. Maar dat verschil is veel te klein voor zo'n sterke stroom." → "Dat klopt: dat kleine verschil in water is de oorzaak. Maar het water gaat niet molecuul voor molecuul naar rechts. Het stroomt door het gaatje, als één geheel. Kijk maar hoe dat komt." (B1: het verschil is de drijvende kracht; de film laat het mechanisme zien, niet een tegenstelling met het boek.)
+- **s21**: "Bij dat terugkaatsen nemen ze water mee" → "Bij dat terugkaatsen geven ze het water om hen heen een duw, weg van het gaatje." (B2: impuls, geen transport van water door zout.)
+- **s12**: bouw van het membraan (fosfolipiden, kop hydrofiel, staarten hydrofoob, laag vet in het midden).
+- **s14**: conclusiezin vetoplosbaar zelf erdoor, wateroplosbaar en ionen via een eiwit.
+- **s22**: "Hoe meer opgeloste deeltjes" → "Hoe hoger de concentratie opgeloste deeltjes", plus deeltjes tellen (NaCl → 2 deeltjes, glucose 1).
+
+**Tekst**: q19-uitleg "hoogste concentratie opgeloste deeltjes" (build_data.py); docentdeel osmose: het kleine verschil is de drijvende kracht (van 't Hoff), Kramer & Myers bestrijden het mechanisme; misconcepties aangevuld (lege ruimte bij plasmolyse, moleculen tellen); begrippen fosfolipide, hydrofiel/hydrofoob, aangevulde uitleg bij osmotische waarde, plasmolyse en ATP.
+
+**Beeld** (BEELDAFSPRAKEN):
+- Geen korrel meer op de Micro-achtergrond (`bg()` in lib.js).
+- Alle membranen gebogen: `bilayerH`/`bilayerV`/`channelH` volgen een cirkelboog (R 4500 px horizontaal, 1300 px in de porie-close-up), eiwitten draaien mee (`opMem`); recap-panelen met `boogH`/`boogV`.
+- s06: richtingspijlen verdwijnen vóór de grafiek verschijnt (geen overlap meer).
+- s12: close-up van één fosfolipide met namen "kop: hydrofiel" en "staarten: hydrofoob", daarna gebogen dubbellaag van fosfolipiden met water aan beide kanten en "midden: een laag vet".
+- s14: conclusie als twee kaarten (lost op in vet → zelf erdoor; lost op in water / ion → eiwit nodig).
+- s20: "rechts is minder water" niet meer doorgestreept maar bevestigd ("klopt: … de oorzaak"), dan brede stroom als één geheel.
+- s21: drukmeters in een effen strook bovenin, buiten het deeltjesveld; geen wijslijnen meer, maar een gekleurde ring op de meetplek (teal links, goud in de opening aan de zoute kant) in dezelfde kleur als de meter; kaarten osmose / in je boek / op een toets onderin en nooit over de drukmeters; rietje-pill verdwijnt vóór de kaarten; pill "en duwt het water weg van het gaatje".
+- s22: tweede deel met twee bekers: 1 mol NaCl valt uiteen in Na⁺ en Cl⁻ (2 mol deeltjes) tegenover 1 mol glucose (1 mol deeltjes).
+- s23: bij plasmolyse is de ruimte tussen celwand en membraan gevuld met de buitenoplossing (zout + water), naam "zout water", celwand "stevig, laat alles door"; pills naar rechts zodat ze de cel niet raken.
+- s15, s17, s31, s32, recap: ATP als molecuul (adenine, ribose, drie fosfaatgroepen; bij gebruik springt de laatste eraf: ATP → ADP + P).
+- s32: natrium-kaliumpomp in drie benoemde stappen met volgbare ionen en een voorraad Na⁺ buiten en K⁺ binnen die zichtbaar groeit.
+- Labels: `metaText()` minimaal 26 px op het 1920-canvas (leesbaarder op de telefoon).
+
+**Pagina**: docenttabellen in een eigen scrollkader (`.tabelkader`), geen horizontale scroll meer op 390 px; hint "draai je telefoon" al zichtbaar op smalle schermen; footer en eindkaart: versie 1.2 · 16 oktober 2026, eerste versie door Kamiels broer naar ontwerp van Kamiel Jacobs. (De naam van de broer staat nergens in de repo bevestigd; daarom "Kamiels broer".)
+
+**Bouwstraat**: `src/player.js` en `src/page.html` lopen weer gelijk met de live film (teruggehaald uit index.html 1.1 vóór de wijzigingen); `bouw/contact2.py` (contactbladen) en `bouw/test_v12.py` (speler, havo/vwo, vragen, zoeken, 390 px) toegevoegd.
+
+**Niet aangepast** (KLEIN uit de review): afbreekpunten van ondertitels, "even zout als je bloed" (s28; tekst vraagt nieuwe opname), H⁺-pomp-bijzin bij wortelhaar, "Voor vwo" in s15/s32 (speler knipt het weg), titel van de film, Google Fonts lokaal (bewust zo gelaten, zoals de rest van de site).

@@ -5,69 +5,70 @@
 <script src="../js/teller.js" data-root="../"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Kruisingslab · Biologie bij Kamiel</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
 <style>
-/* Layout: opdrachtenlijst links (groepen per kruisingstype), rechts één vaste werkroute in zes stappen die stap voor stap openklapt. */
+/* Kruisingslab · huisstijl van de site (tools/huisstijl.css).
+   Layout: opdrachtenlijst links (groepen per kruisingstype), rechts één vaste werkroute in zes stappen die stap voor stap openklapt.
+   Hieronder alleen tool-eigen tokens: UI-namen gekoppeld aan de huisstijl, plus kleuren van de organismen (donker = standaard, licht apart). */
 :root{
-  --bg:#eef1ec; --paper:#ffffff; --paper-2:#f6f8f3; --fg:#17211b; --muted:#5f6c63; --line:#d3dbd0; --line-strong:#9aa89e;
-  --accent:#176b5a; --accent-fg:#ffffff; --accent-soft:#d9eee6;
-  --pea:#e3c04b; --pea-ink:#3d3310;
-  --ok:#1f7a3a; --ok-soft:#dff3e3; --bad:#b4382b; --bad-soft:#f9e2dd; --warn:#8a6500; --warn-soft:#fbf0c9;
-  --font-display:"Sora",system-ui,sans-serif; --font-body:"IBM Plex Sans",system-ui,sans-serif; --font-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --paper:var(--surface); --paper-2:var(--surface2); --fg:var(--text); --muted:var(--text2); --line-strong:var(--line2);
+  --accent:var(--goud); --accent-fg:var(--goud-ink); --accent-soft:var(--goud-soft);
+  --pea:var(--goud); --pea-ink:var(--goud-ink);
+  --ok:var(--groen); --ok-soft:var(--groen-soft); --bad:var(--koraal); --bad-soft:var(--koraal-soft); --warn:var(--oker); --warn-soft:color-mix(in srgb,var(--oker) 14%,transparent);
+  --font-display:var(--titel); --font-body:var(--tekst); --font-mono:var(--meta);
+  /* organismen */
+  --erwt-geel:#E3C04B; --erwt-groen:#7FA848; --erwt-rand:#3A3A22; --erwt-onbekend:#B9C48A; --glans:#FFFFFF;
+  --bloem-paars:#8A5BB5; --bloem-wit:#F6F3E6; --bloem-rood:#C8322B; --bloem-roze:#EA9BB0; --bloem-rand:#4A3A5A; --hart:#E8C74A; --hart-2:#F0D060; --steel:#4D7A3A;
+  --bloed:#B8322E; --bloed-ink:#FFFFFF;
+  --vlieg-grijs:#8B8577; --vlieg-ebony:#2B2622; --oog-rood:#C8322B; --oog-wit:#F6F3E6; --vleugel:#FFFFFF; --vleugel-rand:#8A8F99; --oog-rand:#333333;
+  --muis-geel:#E0B64A; --muis-zwart:#2B2622; --muis-oor:#F2B8B0; --muis-oog:#111111; --muis-neus:#EE8888; --muis-onbekend:#AAAAAA;
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#131a16; --paper:#1b231e; --paper-2:#212b25; --fg:#e7ece7; --muted:#a2b0a6; --line:#34423a; --line-strong:#5d6f64;
-  --accent:#6cc3a9; --accent-fg:#0e1a15; --accent-soft:#1f3d33; --pea:#e6c860; --pea-ink:#2a2410;
-  --ok:#7fd49a; --ok-soft:#1f3a29; --bad:#f08c7e; --bad-soft:#4a241f; --warn:#f0c94a; --warn-soft:#4a3d12; color-scheme:dark } }
-:root[data-theme="dark"]{
-  --bg:#131a16; --paper:#1b231e; --paper-2:#212b25; --fg:#e7ece7; --muted:#a2b0a6; --line:#34423a; --line-strong:#5d6f64;
-  --accent:#6cc3a9; --accent-fg:#0e1a15; --accent-soft:#1f3d33; --pea:#e6c860; --pea-ink:#2a2410;
-  --ok:#7fd49a; --ok-soft:#1f3a29; --bad:#f08c7e; --bad-soft:#4a241f; --warn:#f0c94a; --warn-soft:#4a3d12; color-scheme:dark }
+:root[data-theme="light"]{ --vleugel-rand:#666666; }
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.5;margin:0}
-.wrap{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:0 56px}
+body{font-size:16px;line-height:1.5}
+.wrap{max-width:1200px;padding-block:0 24px}
 h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
-h1{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;letter-spacing:-.02em}
 h2{font-size:1.15rem;font-weight:700}
-h3{font-size:.95rem;font-weight:700}
+h3{font-size:1rem;font-weight:700}
 p{margin:0}
 button{font:inherit;cursor:pointer}
-select,input[type=number],input[type=text]{font:inherit;color:var(--fg);background:var(--paper);border:1px solid var(--line-strong);border-radius:6px;padding:6px 8px;min-height:38px}
+select,input[type=number],input[type=text]{font:inherit;color:var(--fg);background:var(--paper);border:1px solid var(--line-strong);border-radius:8px;padding:6px 8px;min-height:40px;width:auto}
 select.mono,input[type=number]{font-family:var(--font-mono)}
 input[type=number]{width:5em;font-variant-numeric:tabular-nums;text-align:right}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+/* .mono is hier een cijfer-/genotypeletter (huisstijl-.mono is een kopregel in hoofdletters: niet gebruiken voor genotypen) */
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-size:inherit;font-weight:inherit;letter-spacing:normal;text-transform:none}
 .muted{color:var(--muted)}
 .small{font-size:.875rem}
-.eyebrow{font-family:var(--font-display);font-size:.7rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tool-kop>.mono{font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
 sup{font-size:.7em}
 
-header.top{padding-block:26px 16px;display:flex;flex-wrap:wrap;gap:14px 24px;align-items:flex-end;justify-content:space-between;border-bottom:2px solid var(--fg)}
-header.top .lede{max-width:56ch;color:var(--muted);margin-top:6px}
-.topright{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.tabs{display:flex;gap:6px;flex-wrap:wrap}
-.tab{border:1px solid var(--line-strong);background:var(--paper);border-radius:999px;padding:7px 14px;font-family:var(--font-display);font-weight:600;font-size:.85rem;color:var(--fg)}
-.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.switch{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--line2)}
+.switch{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted)}
+.feedback b{display:inline;margin:0}
 
 .grid{display:grid;grid-template-columns:290px minmax(0,1fr);gap:28px;margin-top:20px;align-items:start}
 @media (max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
 aside.side{min-width:0;position:sticky;top:env(safe-area-inset-top,0px);max-height:calc(100vh - 8px);overflow:auto;padding-bottom:12px}
 @media (max-width:880px){aside.side{position:static;max-height:none}}
 .progressline{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);margin-bottom:12px}
-.progressline .bar{flex:1;height:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.progressline .bar{flex:1;height:8px;background:var(--paper-2);border:1px solid var(--line2);border-radius:999px;overflow:hidden}
 .progressline .bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
 .group{margin-bottom:12px}
-.group summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-family:var(--font-display);font-weight:600;font-size:.9rem}
+.group summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;font-weight:700;font-size:.95rem}
 .group summary::-webkit-details-marker{display:none}
 .group summary:hover{background:var(--paper-2)}
 .group summary .cnt{font-family:var(--font-mono);font-size:.75rem;color:var(--muted)}
-.group .items{display:flex;flex-direction:column;gap:4px;padding:4px 0 2px 8px;border-left:2px solid var(--line);margin-left:10px}
+.group .items{display:flex;flex-direction:column;gap:4px;padding:4px 0 2px 8px;border-left:2px solid var(--line2);margin-left:10px}
 .item{text-align:left;border:1px solid transparent;background:transparent;border-radius:8px;padding:7px 10px;color:var(--fg);display:flex;gap:10px;align-items:center;font-size:.9rem;width:100%}
 .item:hover{background:var(--paper-2)}
 .item[aria-current="true"]{border-color:var(--accent);background:var(--accent-soft)}
-.item .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line-strong);flex:none;display:grid;place-items:center;font-size:.7rem;color:var(--accent-fg)}
+.item .dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--line-strong);flex:none;display:grid;place-items:center;font-size:.7rem;color:var(--surface)}
 .item .dot.done{background:var(--ok);border-color:var(--ok)}
 .item .dot.done::after{content:"✓";font-weight:700}
 
@@ -78,47 +79,50 @@ main.route{min-width:0;display:flex;flex-direction:column;gap:14px}
 .tag{font-size:.75rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--muted)}
 .tag.acc{background:var(--pea);color:var(--pea-ink);border-color:transparent;font-weight:600}
 
-.step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px}
+.step{display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;background:var(--paper);border:1px solid var(--line2);border-radius:var(--radius);padding:16px}
 .step.active{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .step.done{border-color:var(--ok)}
 .step.locked{opacity:.55}
 .step.locked .body>*:not(.steptitle){display:none}
-.step .stepnum{width:32px;height:32px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line-strong);display:grid;place-items:center;font-family:var(--font-display);font-weight:700;font-size:.95rem}
+.step .stepnum{width:32px;height:32px;border-radius:50%;background:var(--paper-2);border:1px solid var(--line-strong);display:grid;place-items:center;font-family:var(--font-mono);font-weight:600;font-size:.9rem}
 .step.active .stepnum{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
-.step.done .stepnum{background:var(--ok);color:#fff;border-color:var(--ok)}
+.step.done .stepnum{background:var(--ok);color:var(--surface);border-color:var(--ok)}
 .step .body{display:flex;flex-direction:column;gap:12px;min-width:0}
 .steptitle{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
 .steptitle .q{color:var(--muted);font-size:.95rem}
 .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:9px 16px;font-family:var(--font-display);font-weight:600;font-size:.9rem}
-.btn.sec{background:var(--paper);color:var(--fg);border-color:var(--line-strong)}
-.btn.sm{padding:5px 10px;font-size:.8rem}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.feedback{padding:10px 12px;border-radius:8px;font-size:.925rem;border:1px solid var(--line);background:var(--paper-2)}
+/* knoppen zoals .knop / .knop.stil in de huisstijl */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:0;background:var(--accent);color:var(--accent-fg);border-radius:999px;padding:0 20px;font-weight:700;font-size:15px}
+.btn:hover{filter:brightness(1.06)}
+.btn.sec{background:none;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line-strong)}
+.btn.sec:hover{box-shadow:inset 0 0 0 1px var(--text3)}
+.btn.sm{min-height:36px;padding:0 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
+.feedback{padding:10px 14px;border-radius:12px;font-size:.95rem;border:1px solid var(--line2);background:var(--paper-2)}
 .feedback.ok{background:var(--ok-soft);border-color:var(--ok)}
 .feedback.bad{background:var(--bad-soft);border-color:var(--bad)}
 .feedback.warn{background:var(--warn-soft);border-color:var(--warn)}
 .answer{font-size:.875rem;padding:8px 12px;border-left:3px solid var(--pea);background:var(--paper-2);border-radius:0 8px 8px 0}
-.answer b{font-family:var(--font-display);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.answer b{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text);margin-right:6px}
 
 .situatie{display:flex;flex-direction:column;gap:12px;max-width:70ch}
 .legend{font-size:.875rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
 .parents{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.parent{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.parent{background:var(--paper-2);border:1px solid var(--line2);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
 .parent .who{display:flex;gap:10px;align-items:center}
 .parent .who svg{width:44px;height:44px;flex:none}
-.parent .who .lbl{font-family:var(--font-display);font-weight:600;font-size:.9rem}
+.parent .who .lbl{font-weight:700;font-size:.95rem}
 .parent .who .ph{font-size:.9rem;color:var(--muted)}
 .parent .genorow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.9rem}
 .parent .genorow label{color:var(--muted)}
-.given{font-family:var(--font-mono);font-weight:600;font-size:1.05rem;padding:4px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--line)}
+.given{font-family:var(--font-mono);font-weight:600;font-size:1.05rem;padding:4px 10px;border-radius:6px;background:var(--paper);border:1px solid var(--line2)}
 select.chk-ok{border-color:var(--ok);background:var(--ok-soft)}
 select.chk-bad{border-color:var(--bad);background:var(--bad-soft)}
 input.chk-ok{border-color:var(--ok);background:var(--ok-soft)}
 input.chk-bad{border-color:var(--bad);background:var(--bad-soft)}
 
 .gamcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
-.gamcol{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.gamcol{background:var(--paper-2);border:1px solid var(--line2);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--line-strong);background:var(--paper);border-radius:8px;padding:7px 12px;color:var(--fg);font-family:var(--font-mono);font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:6px}
 .chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
@@ -133,23 +137,24 @@ table.punnett th.corner{background:transparent;font-family:var(--font-body);font
 table.punnett th.rowh{text-align:right}
 table.punnett td{padding:0}
 table.punnett td select{width:100%;min-width:7em;text-align:center;font-weight:600;font-size:1rem;background:var(--paper)}
-table.punnett td .fixed{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--paper);font-weight:600;min-height:38px}
+table.punnett td .fixed{display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 10px;border:1px solid var(--line2);border-radius:6px;background:var(--paper);font-weight:600;min-height:38px}
 table.punnett td .fixed svg{width:24px;height:24px}
 table.punnett.dihy td select{min-width:6.5em;font-size:.95rem}
 
 table.ratio{border-collapse:collapse;width:100%;max-width:640px;font-size:.95rem}
-table.ratio th,table.ratio td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
-table.ratio th{font-family:var(--font-display);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+table.ratio th,table.ratio td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line2);vertical-align:middle}
+table.ratio th{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);font-weight:600}
 table.ratio td.num,table.ratio th.num{text-align:right;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
 table.ratio td svg{width:28px;height:28px;vertical-align:middle;margin-right:8px}
 table.ratio tr.tot td{font-weight:600;border-bottom:0}
+@media (max-width:600px){table.ratio{display:block;overflow-x:auto;max-width:100%}table.ratio th,table.ratio td{padding:7px 6px}}
 .ratiostr{font-family:var(--font-mono);font-size:1.15rem;font-weight:600}
-.bar{height:10px;background:var(--paper-2);border:1px solid var(--line);border-radius:999px;overflow:hidden;min-width:80px;position:relative}
+.bar{height:10px;background:var(--paper-2);border:1px solid var(--line2);border-radius:999px;overflow:hidden;min-width:80px;position:relative}
 .bar i{display:block;height:100%;background:var(--accent)}
 .bar i.exp{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--fg);height:auto}
 
 .counter{display:flex;flex-direction:column;gap:8px;max-width:560px}
-.crow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 10px 8px 8px;border:1px solid var(--line);border-radius:10px;background:var(--paper-2);transition:background .15s,border-color .15s}
+.crow{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:8px 10px 8px 8px;border:1px solid var(--line2);border-radius:10px;background:var(--paper-2);transition:background .15s,border-color .15s}
 .crow.ok{border-color:var(--ok);background:var(--ok-soft)}
 .crow.bad{border-color:var(--bad);background:var(--bad-soft)}
 .cglyph{display:grid;place-items:center}
@@ -158,18 +163,18 @@ table.ratio tr.tot td{font-weight:600;border-bottom:0}
 .stepper button{width:40px;border:0;background:transparent;color:var(--fg);font-size:1.25rem;font-weight:600;line-height:1}
 .stepper button:hover{background:var(--accent-soft)}
 .stepper button:active{background:var(--accent);color:var(--accent-fg)}
-.stepper input{width:3em;border:0;border-inline:1px solid var(--line);border-radius:0;text-align:center;font-family:var(--font-mono);font-weight:600;font-size:1.1rem;min-height:42px;padding:0;background:var(--paper);color:var(--fg)}
+.stepper input{width:3em;border:0;border-inline:1px solid var(--line2);border-radius:0;text-align:center;font-family:var(--font-mono);font-weight:600;font-size:1.1rem;min-height:42px;padding:0;background:var(--paper);color:var(--fg)}
 .stepper input::placeholder{color:var(--muted);opacity:.6}
 .csum{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font-size:.9rem;color:var(--muted);padding:4px 2px 0}
 .csum .ratiostr{color:var(--fg)}
 .csum .full{color:var(--ok)}
 .csum .over{color:var(--bad)}
 
-.dish{background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-wrap:wrap;gap:3px;max-height:160px;overflow:auto}
+.dish{background:var(--paper-2);border:1px solid var(--line2);border-radius:10px;padding:10px;display:flex;flex-wrap:wrap;gap:3px;max-height:160px;overflow:auto}
 .dish svg{width:26px;height:26px}
 @media (prefers-reduced-motion:no-preference){.dish svg{animation:pop .25s ease both}@keyframes pop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}}
 
-.vrijform{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:14px}
+.vrijform{background:var(--paper);border:1px solid var(--line2);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:14px}
 .vrijform .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .vrijform .row>label{font-size:.9rem;color:var(--muted);min-width:9em}
 .choices{display:flex;flex-wrap:wrap;gap:8px}
@@ -177,30 +182,34 @@ table.ratio tr.tot td{font-weight:600;border-bottom:0}
 .choice[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft);font-weight:600}
 .choice:disabled{opacity:.45;cursor:not-allowed}
 
-details.uitleg{margin-top:26px;border-top:2px solid var(--fg);padding-top:12px}
-details.uitleg summary{cursor:pointer;font-family:var(--font-display);font-weight:700}
+details.uitleg{margin-top:26px;border-top:1px solid var(--line2);padding-top:12px}
+details.uitleg summary{cursor:pointer;font-family:var(--font-display);font-weight:700;font-size:1.2rem;padding:8px 0}
+.tool-voet{margin-top:28px}
 details.uitleg .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:12px}
 details.uitleg p{font-size:.925rem;max-width:60ch;margin-top:6px}
 </style>
 </head>
 <body>
-<nav class="sitenav" style="display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;max-width:1200px;margin:0 auto;padding:14px 16px 0;font:600 15px/1.3 system-ui,sans-serif"><a href="../index.html#home" style="color:inherit;opacity:.65;text-decoration:none">Biologie bij Kamiel</a><span style="opacity:.4">·</span><a href="../index.html#erfelijkheid" style="color:inherit;text-decoration:underline;text-underline-offset:3px">← Terug naar Erfelijkheid</a></nav>
-
 <div class="wrap">
-<header class="top">
-  <div>
-    <div class="eyebrow">Erfelijkheid · vwo bovenbouw</div>
-    <h1>Kruisingslab</h1>
-    <p class="lede">Voer kruisingen uit zoals je ze ook op papier zou doen: genotypen van de ouders, gameten, kruisingsschema, verwachte verhouding. Daarna kruist het lab écht en zie je of je voorspelling klopt.</p>
-  </div>
-  <div class="topright">
-    <div class="tabs" role="tablist">
-      <button class="tab" id="tabOpd" role="tab" aria-selected="true">Opdrachten</button>
-      <button class="tab" id="tabVrij" role="tab" aria-selected="false">Vrij lab</button>
-    </div>
-    <label class="switch"><input type="checkbox" id="docent"> docentweergave (toon antwoorden)</label>
-  </div>
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../index.html#erfelijkheid">← Terug naar Erfelijkheid</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Tool · Erfelijkheid · vwo bovenbouw</div>
+  <h1>Kruisingslab</h1>
+  <p>Voer kruisingen uit zoals je ze ook op papier zou doen: genotypen van de ouders, gameten, kruisingsschema, verwachte verhouding. Daarna kruist het lab écht en zie je of je voorspelling klopt.</p>
 </header>
+
+<div class="bediening">
+  <div class="seg" role="tablist">
+    <button class="tab" id="tabOpd" role="tab" aria-selected="true">Opdrachten</button>
+    <button class="tab" id="tabVrij" role="tab" aria-selected="false">Vrij lab</button>
+  </div>
+  <label class="switch"><input type="checkbox" id="docent"> docentweergave (toon antwoorden)</label>
+</div>
 
 <div class="grid">
 <aside class="side" id="side">
@@ -219,6 +228,7 @@ details.uitleg p{font-size:.925rem;max-width:60ch;margin-top:6px}
     <div><h3>4. Verhouding</h3><p>Tel per fenotype hoeveel vakjes erbij horen. Dat is de verwachte verhouding. Echte tellingen wijken af door toeval; hoe groter het aantal nakomelingen, hoe dichter erbij.</p></div>
   </div>
 </details>
+<footer class="tool-voet">Biologie bij Kamiel · Kruisingslab · past bij de films over erfelijkheid</footer>
 </div>
 
 <script>
@@ -226,27 +236,27 @@ details.uitleg p{font-size:.925rem;max-width:60ch;margin-top:6px}
 const SUP={A:'ᴬ',B:'ᴮ',R:'ᴿ',r:'ʳ',Y:'ʸ'};
 const ORGS={
   erwt:{name:'Erwt',labels:['Plant 1','Plant 2'],loci:{
-    G:{name:'zaadkleur',alleles:['G','g'],legend:'G = geel (dominant), g = groen',pheno:p=>p.includes('G')?{label:'geel',props:{fill:'#e3c04b'}}:{label:'groen',props:{fill:'#7fa848'}}},
+    G:{name:'zaadkleur',alleles:['G','g'],legend:'G = geel (dominant), g = groen',pheno:p=>p.includes('G')?{label:'geel',props:{fill:'var(--erwt-geel)'}}:{label:'groen',props:{fill:'var(--erwt-groen)'}}},
     R:{name:'zaadvorm',alleles:['R','r'],legend:'R = rond (dominant), r = gerimpeld',pheno:p=>p.includes('R')?{label:'rond',props:{}}:{label:'gerimpeld',props:{wrinkled:true}}},
-    P:{name:'bloemkleur',alleles:['P','p'],legend:'P = paars (dominant), p = wit',pheno:p=>p.includes('P')?{label:'paarse bloem',props:{flower:'#8a5bb5'}}:{label:'witte bloem',props:{flower:'#f6f3e6'}}}
+    P:{name:'bloemkleur',alleles:['P','p'],legend:'P = paars (dominant), p = wit',pheno:p=>p.includes('P')?{label:'paarse bloem',props:{flower:'var(--bloem-paars)'}}:{label:'witte bloem',props:{flower:'var(--bloem-wit)'}}}
   }},
   leeuwenbek:{name:'Leeuwenbekje',labels:['Plant 1','Plant 2'],loci:{
-    K:{name:'bloemkleur',alleles:['R','W'],legend:'R = rood, W = wit; RW geeft roze (intermediair)',pheno:p=>{const n=p.filter(a=>a==='R').length;return n===2?{label:'rood',props:{flower:'#c8322b'}}:n===1?{label:'roze',props:{flower:'#ea9bb0'}}:{label:'wit',props:{flower:'#f6f3e6'}}}}
+    K:{name:'bloemkleur',alleles:['R','W'],legend:'R = rood, W = wit; RW geeft roze (intermediair)',pheno:p=>{const n=p.filter(a=>a==='R').length;return n===2?{label:'rood',props:{flower:'var(--bloem-rood)'}}:n===1?{label:'roze',props:{flower:'var(--bloem-roze)'}}:{label:'wit',props:{flower:'var(--bloem-wit)'}}}}
   }},
   mens:{name:'Mens',labels:['Moeder','Vader'],loci:{
     I:{name:'bloedgroep',alleles:['IA','IB','i'],disp:{IA:'Iᴬ',IB:'Iᴮ',i:'i'},sep:' ',legend:'Iᴬ en Iᴮ zijn codominant, i is recessief',pheno:p=>{const a=p.includes('IA'),b=p.includes('IB');const g=a&&b?'AB':a?'A':b?'B':'O';return{label:'bloedgroep '+g,props:{blood:g}}}}
   }},
   fruitvlieg:{name:'Fruitvlieg',labels:['Moeder ♀','Vader ♂'],loci:{
     X:{name:'oogkleur (X-gebonden)',sexLocus:true,alleles:['XR','Xr','Y'],disp:{XR:'Xᴿ',Xr:'Xʳ',Y:'Y'},sep:' ',legend:'Xᴿ = rode ogen (dominant), Xʳ = witte ogen; het Y-chromosoom draagt dit gen niet',
-      pheno:p=>{const sex=p.includes('Y')?'♂':'♀';const red=p.includes('XR');return{label:sex+' '+(red?'rode ogen':'witte ogen'),props:{eye:red?'#c8322b':'#f6f3e6',sex}}}},
+      pheno:p=>{const sex=p.includes('Y')?'♂':'♀';const red=p.includes('XR');return{label:sex+' '+(red?'rode ogen':'witte ogen'),props:{eye:red?'var(--oog-rood)':'var(--oog-wit)',sex}}}},
     V:{name:'vleugels',alleles:['V','v'],legend:'V = normale vleugels (dominant), v = vestigiale (kleine) vleugels',pheno:p=>p.includes('V')?{label:'normale vleugels',props:{}}:{label:'vestigiale vleugels',props:{vest:true}}},
-    E:{name:'lichaamskleur',alleles:['E','e'],legend:'E = grijs lichaam (dominant), e = ebony (zwart)',pheno:p=>p.includes('E')?{label:'grijs',props:{body:'#8b8577'}}:{label:'ebony',props:{body:'#2b2622'}}},
+    E:{name:'lichaamskleur',alleles:['E','e'],legend:'E = grijs lichaam (dominant), e = ebony (zwart)',pheno:p=>p.includes('E')?{label:'grijs',props:{body:'var(--vlieg-grijs)'}}:{label:'ebony',props:{body:'var(--vlieg-ebony)'}}},
     L:{name:'lichaamskleur + vleugels (gekoppeld)',linked:true,alleles:['BV','Bv','bV','bv'],sep:'/',legend:'Gekoppeld op chromosoom 2, geen crossing-over: B = grijs (dominant), b = zwart; V = normale vleugels (dominant), v = vestigiaal',
-      pheno:p=>{const grey=p.some(h=>h[0]==='B'),norm=p.some(h=>h[1]==='V');return{label:(grey?'grijs':'zwart')+', '+(norm?'normale vleugels':'vestigiale vleugels'),props:{body:grey?'#8b8577':'#2b2622',vest:!norm}}}}
+      pheno:p=>{const grey=p.some(h=>h[0]==='B'),norm=p.some(h=>h[1]==='V');return{label:(grey?'grijs':'zwart')+', '+(norm?'normale vleugels':'vestigiale vleugels'),props:{body:grey?'var(--vlieg-grijs)':'var(--vlieg-ebony)',vest:!norm}}}}
   }},
   muis:{name:'Muis',labels:['Moeder','Vader'],loci:{
     A:{name:'vachtkleur',alleles:['AY','a'],disp:{AY:'Aʸ',a:'a'},sep:' ',legend:'Aʸ = geel (dominant), a = zwart; Aʸ Aʸ is letaal (embryo sterft)',
-      pheno:p=>{const n=p.filter(a=>a==='AY').length;return n===2?{label:null,props:{}}:n===1?{label:'geel',props:{body:'#e0b64a'}}:{label:'zwart',props:{body:'#2b2622'}}}}
+      pheno:p=>{const n=p.filter(a=>a==='AY').length;return n===2?{label:null,props:{}}:n===1?{label:'geel',props:{body:'var(--muis-geel)'}}:{label:'zwart',props:{body:'var(--muis-zwart)'}}}}
   }}
 };
 const disp=(L,a)=>(L.disp&&L.disp[a])||a;
@@ -276,21 +286,21 @@ function glyph(org,props,size){
   const s=size||32;const o=`width="${s}" height="${s}" viewBox="0 0 40 40" aria-hidden="true"`;
   if(props.dead)return `<svg ${o}><circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3" opacity=".5"/><path d="M13 13l14 14M27 13L13 27" stroke="currentColor" stroke-width="2.5" opacity=".6"/></svg>`;
   if(org==='erwt'){
-    if(props.flower&&!props.fill&&!props.wrinkled){return `<svg ${o}>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="11" rx="6" ry="9" fill="${props.flower}" stroke="#4a3a5a" stroke-opacity=".35" transform="rotate(${a} 20 20)"/>`).join('')}<circle cx="20" cy="20" r="4.5" fill="#e8c74a"/></svg>`;}
-    const fill=props.fill||'#b9c48a';
-    const body=props.wrinkled?`<path d="M20 5c3 0 4 3 7 3s5-1 7 2 0 5 1 8-2 5-1 8-4 3-6 5-4 4-8 4-6-2-8-4-5-3-6-5 0-5-1-8 0-5 1-8 5-2 7-2 4-3 7-3z" fill="${fill}" stroke="#3a3a22" stroke-opacity=".5" stroke-width="1.5"/>`:`<circle cx="20" cy="20" r="15" fill="${fill}" stroke="#3a3a22" stroke-opacity=".4" stroke-width="1.5"/><ellipse cx="14" cy="14" rx="4" ry="2.5" fill="#fff" opacity=".45"/>`;
-    const fl=props.flower?`<circle cx="31" cy="9" r="6" fill="${props.flower}" stroke="#4a3a5a" stroke-opacity=".4"/>`:'';
+    if(props.flower&&!props.fill&&!props.wrinkled){return `<svg ${o}>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="11" rx="6" ry="9" fill="${props.flower}" stroke="var(--bloem-rand)" stroke-opacity=".35" transform="rotate(${a} 20 20)"/>`).join('')}<circle cx="20" cy="20" r="4.5" fill="var(--hart)"/></svg>`;}
+    const fill=props.fill||'var(--erwt-onbekend)';
+    const body=props.wrinkled?`<path d="M20 5c3 0 4 3 7 3s5-1 7 2 0 5 1 8-2 5-1 8-4 3-6 5-4 4-8 4-6-2-8-4-5-3-6-5 0-5-1-8 0-5 1-8 5-2 7-2 4-3 7-3z" fill="${fill}" stroke="var(--erwt-rand)" stroke-opacity=".5" stroke-width="1.5"/>`:`<circle cx="20" cy="20" r="15" fill="${fill}" stroke="var(--erwt-rand)" stroke-opacity=".4" stroke-width="1.5"/><ellipse cx="14" cy="14" rx="4" ry="2.5" fill="var(--glans)" opacity=".45"/>`;
+    const fl=props.flower?`<circle cx="31" cy="9" r="6" fill="${props.flower}" stroke="var(--bloem-rand)" stroke-opacity=".4"/>`:'';
     return `<svg ${o}>${body}${fl}</svg>`;
   }
-  if(org==='leeuwenbek'){return `<svg ${o}><path d="M20 38V22" stroke="#4d7a3a" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="10" rx="6.5" ry="9.5" fill="${props.flower}" stroke="#5a2a2a" stroke-opacity=".3" transform="rotate(${a} 20 19)"/>`).join('')}<circle cx="20" cy="19" r="4" fill="#f0d060"/></svg>`;}
-  if(org==='mens'){return `<svg ${o}><path d="M20 4c6 9 12 15 12 22a12 12 0 0 1-24 0C8 19 14 13 20 4z" fill="#b8322e"/><text x="20" y="31" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-weight="700" font-size="11" fill="#fff">${props.blood||''}</text></svg>`;}
+  if(org==='leeuwenbek'){return `<svg ${o}><path d="M20 38V22" stroke="var(--steel)" stroke-width="2"/>${[0,72,144,216,288].map(a=>`<ellipse cx="20" cy="10" rx="6.5" ry="9.5" fill="${props.flower}" stroke="var(--bloem-rand)" stroke-opacity=".3" transform="rotate(${a} 20 19)"/>`).join('')}<circle cx="20" cy="19" r="4" fill="var(--hart-2)"/></svg>`;}
+  if(org==='mens'){return `<svg ${o}><path d="M20 4c6 9 12 15 12 22a12 12 0 0 1-24 0C8 19 14 13 20 4z" fill="var(--bloed)"/><text x="20" y="31" text-anchor="middle" font-family="Source Sans 3,sans-serif" font-weight="700" font-size="11" fill="var(--bloed-ink)">${props.blood||''}</text></svg>`;}
   if(org==='fruitvlieg'){
-    const body=props.body||'#8b8577',eye=props.eye||'#c8322b';
-    const wings=props.vest?`<ellipse cx="14" cy="21" rx="3" ry="4" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8"/><ellipse cx="26" cy="21" rx="3" ry="4" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8"/>`:`<ellipse cx="11" cy="26" rx="6" ry="12" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8" transform="rotate(15 11 26)"/><ellipse cx="29" cy="26" rx="6" ry="12" fill="#fff" fill-opacity=".6" stroke="#666" stroke-width=".8" transform="rotate(-15 29 26)"/>`;
+    const body=props.body||'var(--vlieg-grijs)',eye=props.eye||'var(--oog-rood)';
+    const wings=props.vest?`<ellipse cx="14" cy="21" rx="3" ry="4" fill="var(--vleugel)" fill-opacity=".6" stroke="var(--vleugel-rand)" stroke-width=".8"/><ellipse cx="26" cy="21" rx="3" ry="4" fill="var(--vleugel)" fill-opacity=".6" stroke="var(--vleugel-rand)" stroke-width=".8"/>`:`<ellipse cx="11" cy="26" rx="6" ry="12" fill="var(--vleugel)" fill-opacity=".6" stroke="var(--vleugel-rand)" stroke-width=".8" transform="rotate(15 11 26)"/><ellipse cx="29" cy="26" rx="6" ry="12" fill="var(--vleugel)" fill-opacity=".6" stroke="var(--vleugel-rand)" stroke-width=".8" transform="rotate(-15 29 26)"/>`;
     const sx=props.sex==='♂'?`<text x="34" y="10" font-size="10" fill="currentColor">♂</text>`:props.sex==='♀'?`<text x="34" y="10" font-size="10" fill="currentColor">♀</text>`:'';
-    return `<svg ${o}>${wings}<ellipse cx="20" cy="24" rx="6" ry="11" fill="${body}"/><circle cx="20" cy="10" r="5" fill="${body}"/><circle cx="16.5" cy="9" r="2.3" fill="${eye}" stroke="#333" stroke-width=".5"/><circle cx="23.5" cy="9" r="2.3" fill="${eye}" stroke="#333" stroke-width=".5"/>${sx}</svg>`;
+    return `<svg ${o}>${wings}<ellipse cx="20" cy="24" rx="6" ry="11" fill="${body}"/><circle cx="20" cy="10" r="5" fill="${body}"/><circle cx="16.5" cy="9" r="2.3" fill="${eye}" stroke="var(--oog-rand)" stroke-width=".5"/><circle cx="23.5" cy="9" r="2.3" fill="${eye}" stroke="var(--oog-rand)" stroke-width=".5"/>${sx}</svg>`;
   }
-  if(org==='muis'){const body=props.body||'#aaa';return `<svg ${o}><path d="M31 27c4 2 6 5 5 8" stroke="${body}" stroke-width="2" fill="none"/><ellipse cx="20" cy="25" rx="13" ry="9" fill="${body}"/><circle cx="10" cy="20" r="6" fill="${body}"/><circle cx="8" cy="13" r="3.5" fill="${body}" stroke="#f2b8b0" stroke-width="1.2"/><circle cx="14" cy="12" r="3.5" fill="${body}" stroke="#f2b8b0" stroke-width="1.2"/><circle cx="7" cy="20" r="1.2" fill="#111"/><circle cx="4.5" cy="22" r="1.3" fill="#e88"/></svg>`;}
+  if(org==='muis'){const body=props.body||'var(--muis-onbekend)';return `<svg ${o}><path d="M31 27c4 2 6 5 5 8" stroke="${body}" stroke-width="2" fill="none"/><ellipse cx="20" cy="25" rx="13" ry="9" fill="${body}"/><circle cx="10" cy="20" r="6" fill="${body}"/><circle cx="8" cy="13" r="3.5" fill="${body}" stroke="var(--muis-oor)" stroke-width="1.2"/><circle cx="14" cy="12" r="3.5" fill="${body}" stroke="var(--muis-oor)" stroke-width="1.2"/><circle cx="7" cy="20" r="1.2" fill="var(--muis-oog)"/><circle cx="4.5" cy="22" r="1.3" fill="var(--muis-neus)"/></svg>`;}
   return '';
 }
 

@@ -20,3 +20,15 @@ Controle: Kamiel heeft op 12 oktober 2026 alle twaalf risicowoorden in `risicowo
 
 ## Versie 1.1 (review)
 Opnieuw ingesproken in flow OjSx1NJI3a7cn7PXOtMf: s05, s21, s22, s31. Zelfde respellings (o.a. "semi-permeabel" in s21).
+
+## Versie 1.2 (16 oktober 2026)
+Opnieuw ingesproken in flow Nd0XpevjWZ9i6oE977T1 (één take per segment, eleven_v4): s12, s14, s20, s21, s22. Nieuwe respellings (IPA via Wiktionary/kaikki.org):
+
+| Schermtekst | Stem-invoer | IPA / waarom |
+|---|---|---|
+| fosfolipiden | fosfo-lipiden | /liˈpidə/; koppelteken houdt "fosfo" en "lipiden" los |
+| hydrofiel | hiedro-fiel | /ɦidroːˈfil/; zelfde ie-truc als hiepotonisch |
+| hydrofoob | hiedro-foob | /ɦidroːˈfoːp/ |
+| chloride | chloride (ongewijzigd) | verwacht /xloːˈridə/; alternatief `chlo-riede` als de klemtoon fout is |
+
+Nog te beluisteren door Kamiel (batch): zie `films/WACHTLIJST.md`.

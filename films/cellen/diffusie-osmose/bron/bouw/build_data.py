@@ -6,7 +6,7 @@ answers = {  # question id -> (correct index, explanation shown after reveal)
  'q10': (1, 'Dubbele afstand kost bij diffusie ongeveer vier keer zoveel tijd. Daarom zijn cellen klein.'),
  'q13': (0, 'Zuurstof is klein en lost goed op in vet. Een ion heeft een lading, glucose lost slecht op in vet.'),
  'q16': (1, 'Nee. Het eiwit is alleen een doorgang; de beweging gaat vanzelf van hoog naar laag.'),
- 'q19': (1, 'Het water gaat naar rechts, naar de kant met de meeste opgeloste deeltjes die er niet door kunnen.'),
+ 'q19': (1, 'Het water gaat naar rechts, naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen.'),
  'q24': (0, 'Uit de cellen: buiten is de osmotische waarde hoger dan in het celvocht, dus water gaat de cellen uit.'),
  'q26': (1, 'Hij zwelt en barst (hemolyse). Een rode bloedcel heeft geen celwand die terugduwt.'),
  'q30': (2, 'Een eiwit pompt de mineralen naar binnen, tegen het concentratieverschil in. Dat kost ATP.'),

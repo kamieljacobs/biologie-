@@ -51,16 +51,34 @@ function ion(ctx,x,y,s=1,alpha=1,mantle=true,color=C.oker,sign='+'){ if(alpha<=0
 function glucose(ctx,x,y,s=1,alpha=1,rot=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot); ctx.beginPath(); for(let k=0;k<6;k++){ const a=k/6*6.2832+Math.PI/6; const px=Math.cos(a)*18*s, py=Math.sin(a)*18*s; k?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.closePath(); shape(ctx,C.oker,lighten(C.oker,0.35),1.5); ctx.restore(); }
 function salt(ctx,x,y,r=14,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; dot(ctx,x,y,r,C.goud,lighten(C.goud,0.35),1.5); ctx.restore(); }
 // horizontal lipid bilayer from x0..x1 centred on y; gaps: [[xa,xb],...] left open for proteins
+// celmembraan altijd gebogen (stukje van een cirkel, BEELDAFSPRAKEN): horizontaal membraan = boog met middelpunt (MEM_CX, y+MEM_R),
+// bolle kant = buiten (boven). mY(x,y) = hoogte van de middellijn bij x, mA(x) = hoek van de raaklijn.
+const MEM_R=4500, MEM_CX=960, MEMV_R=1300, MEMV_CY=560;
+const mY=(x,y)=>y+MEM_R-Math.sqrt(MEM_R*MEM_R-(x-MEM_CX)*(x-MEM_CX));
+const mA=(x)=>Math.asin(clamp((x-MEM_CX)/MEM_R,-1,1));
+const mX=(x,y)=>x+MEMV_R-Math.sqrt(MEMV_R*MEMV_R-(y-MEMV_CY)*(y-MEMV_CY));
+function opMem(ctx,x,y,fn){ ctx.save(); ctx.translate(x,mY(x,y)); ctx.rotate(mA(x)); fn(); ctx.restore(); }
+function lipPaar(ctx,th,side){ const hy=side*(th/2-9); ctx.strokeStyle=rgba(C.oker,0.7); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(-3,hy-side*8); ctx.lineTo(-3,-side*3); ctx.moveTo(3,hy-side*8); ctx.lineTo(3,-side*3); ctx.stroke(); dot(ctx,0,hy,9,C.er,lighten(C.er,0.3),1); }
 function bilayerH(ctx,x0,x1,y,gaps=[],alpha=1,th=90){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const step=22;
   for(let x=x0+step/2;x<x1;x+=step){ if(gaps.some(g=>x>g[0]-step/2&&x<g[1]+step/2)) continue;
-    for(const side of [-1,1]){ const hy=y+side*(th/2-9); ctx.strokeStyle=rgba(C.oker,0.7); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x-3,hy-side*8); ctx.lineTo(x-3,y-side*3); ctx.moveTo(x+3,hy-side*8); ctx.lineTo(x+3,y-side*3); ctx.stroke(); dot(ctx,x,hy,9,C.er,lighten(C.er,0.3),1); } }
+    ctx.save(); ctx.translate(x,mY(x,y)); ctx.rotate(mA(x)); for(const side of [-1,1]) lipPaar(ctx,th,side); ctx.restore(); }
   ctx.restore(); }
 function bilayerV(ctx,x,y0,y1,gaps=[],alpha=1,th=70){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; const step=22;
   for(let y=y0+step/2;y<y1;y+=step){ if(gaps.some(g=>y>g[0]-step/2&&y<g[1]+step/2)) continue;
-    for(const side of [-1,1]){ const hx=x+side*(th/2-9); ctx.strokeStyle=rgba(C.oker,0.7); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(hx-side*8,y-3); ctx.lineTo(x-side*3,y-3); ctx.moveTo(hx-side*8,y+3); ctx.lineTo(x-side*3,y+3); ctx.stroke(); dot(ctx,hx,y,9,C.er,lighten(C.er,0.3),1); } }
+    ctx.save(); ctx.translate(mX(x,y),y); ctx.rotate(-Math.asin(clamp((y-MEMV_CY)/MEMV_R,-1,1))-Math.PI/2); for(const side of [-1,1]) lipPaar(ctx,th,side); ctx.restore(); }
   ctx.restore(); }
+// boog (stukje cirkel) voor kleine membraantjes in schema's: horizontaal van x0 tot x1, top op y, randen d lager
+function boogH(ctx,x0,x1,y,d,color=C.er,lw=10){ const L=x1-x0, R=(L*L/4+d*d)/(2*d), xm=(x0+x1)/2, a=Math.asin(L/2/R); ctx.save(); ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.beginPath(); ctx.arc(xm,y+R,R,-Math.PI/2-a,-Math.PI/2+a); ctx.stroke(); ctx.restore(); }
+function boogV(ctx,x,y0,y1,d,color=C.er,lw=10,gap=null){ const L=y1-y0, R=(L*L/4+d*d)/(2*d), ym=(y0+y1)/2, a=Math.asin(L/2/R); ctx.save(); ctx.strokeStyle=color; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.beginPath();
+  if(gap){ const g=Math.asin(gap/R); ctx.arc(x+R,ym,R,Math.PI-a,Math.PI-g); ctx.stroke(); ctx.beginPath(); ctx.arc(x+R,ym,R,Math.PI+g,Math.PI+a); } else ctx.arc(x+R,ym,R,Math.PI-a,Math.PI+a); ctx.stroke(); ctx.restore(); }
+// één fosfolipide: kop (hydrofiel) en twee vetstaarten (hydrofoob); dir=1 staarten naar beneden
+function fosfolipide(ctx,x,y,s=1,dir=1,alpha=1,kop=C.er){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.scale(s,s*dir);
+  ctx.strokeStyle=C.oker; ctx.lineWidth=5; ctx.lineCap='round'; ctx.lineJoin='round';
+  ctx.beginPath(); ctx.moveTo(-8,14); ctx.lineTo(-8,96); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(8,14); ctx.lineTo(8,52); ctx.lineTo(16,62); ctx.lineTo(16,96); ctx.stroke();
+  dot(ctx,0,0,20,kop,lighten(kop,0.35),2); ctx.restore(); }
 // channel protein (two halves) through a horizontal membrane at x, opening ow
-function channelH(ctx,x,y,ow=34,alpha=1,color=C.enzym,th=110){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; for(const s of [-1,1]){ roundRect(ctx,s<0?x-ow/2-44:x+ow/2,y-th/2,44,th,18); shape(ctx,color,lighten(color,0.3),1.5); } ctx.restore(); }
+function channelH(ctx,x,y,ow=34,alpha=1,color=C.enzym,th=110){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,mY(x,y)); ctx.rotate(mA(x)); for(const s of [-1,1]){ roundRect(ctx,s<0?-ow/2-44:ow/2,-th/2,44,th,18); shape(ctx,color,lighten(color,0.3),1.5); } ctx.restore(); }
 function gauge(ctx,x,y,r,val,label,alpha=1,color=C.teal){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
   ctx.beginPath(); ctx.arc(x,y,r,Math.PI,0); ctx.closePath(); shape(ctx,rgba(C.bgSchema,0.95),C.line,1.5);
   for(let k=0;k<=8;k++){ const a=Math.PI+k/8*Math.PI; ctx.strokeStyle=C.line; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*r*0.82,y+Math.sin(a)*r*0.82); ctx.lineTo(x+Math.cos(a)*r*0.95,y+Math.sin(a)*r*0.95); ctx.stroke(); }
@@ -71,8 +89,10 @@ function thermometer(ctx,x,y,h,level,color,alpha=1){ if(alpha<=0.01) return; ctx
 // plant cell: wall (w,h), membrane pulled in by plasmolysis p (0..1), vacuole fraction v, bulge = turgor
 function plantCell(ctx,x,y,w,h,p=0,v=0.6,alpha=1,bulge=0){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
   const bw=w*(1+bulge*0.04), bh=h*(1+bulge*0.04);
-  if(p>0){ roundRect(ctx,x-bw/2,y-bh/2,bw,bh,26); ctx.fillStyle=rgba(C.goud,0.10*p); ctx.fill(); }
   const mw=(bw-24)*(1-0.42*p), mh=(bh-24)*(1-0.36*p);
+  if(p>0){ // ruimte tussen celwand en membraan: gevuld met de buitenoplossing (de celwand laat alles door)
+    roundRect(ctx,x-bw/2,y-bh/2,bw,bh,26); ctx.fillStyle=rgba(C.teal,0.16*p); ctx.fill();
+    for(let k=0;k<70;k++){ const px=x+(hash(k*3+77)-0.5)*(bw-26), py=y+(hash(k*3+78)-0.5)*(bh-26); if(Math.abs(px-x)<mw/2+8&&Math.abs(py-y)<mh/2+8) continue; ctx.save(); ctx.globalAlpha*=p; if(k%3===0) salt(ctx,px,py,6); else dot(ctx,px,py,3,rgba(C.teal,0.9)); ctx.restore(); } }
   const rr=lerp(20,Math.min(mw,mh)*0.45,ease(p)); roundRect(ctx,x-mw/2,y-mh/2,mw,mh,rr); shape(ctx,rgba(C.fill,0.95),C.er,2.5);
   const vr=v*(1-0.55*p); blob(ctx,x+mw*0.06,y,mw/2*vr,mh/2*vr,0.04,9); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),1.5);
   nucleus(ctx,x-mw*0.36,y-mh*0.24,Math.min(mw,mh)*0.085,1,0);
@@ -94,7 +114,18 @@ function beaker(ctx,x,y,w,h,fill=0.75,liquid=rgba(C.teal,0.18),alpha=1,label){ i
   ctx.strokeStyle=C.line; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x-w/2,y-h/2); ctx.lineTo(x-w/2,y+h/2); ctx.lineTo(x+w/2,y+h/2); ctx.lineTo(x+w/2,y-h/2); ctx.stroke();
   if(label) metaText(ctx,label,x,y+h/2+40,C.grain,'center',24); ctx.restore(); }
 function pill(ctx,x,y,s,color=C.goud,alpha=1,size=30){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.font=fTekst(size,600); const w=ctx.measureText(s).width+44; roundRect(ctx,x-w/2,y-size*0.95,w,size*1.65,size*0.8); shape(ctx,rgba(C.bgSchema,0.94),color,1.5); text(ctx,s,x,y+size*0.32,fTekst(size,600),color,'center'); ctx.restore(); }
-function atp(ctx,x,y,alpha=1,s=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x-36*s,y-20*s,72*s,40*s,20*s); shape(ctx,C.koraal,lighten(C.koraal,0.3),1.5); text(ctx,'ATP',x,y+1,fMeta(Math.round(20*s)),C.bgMicro,'center','middle'); ctx.restore(); }
+// ATP als molecuul (BEELDAFSPRAKEN): base (adenine, zes- + vijfring) + suiker (ribose) + drie fosfaatgroepen.
+// pop 0..1: de laatste fosfaatgroep springt eraf (ATP -> ADP + P). naam: tekst eronder ('' = geen)
+function atp(ctx,x,y,alpha=1,s=1,pop=0,naam=null){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.scale(s,s);
+  const ring=(cx,cy,r,n,rot,fill)=>{ ctx.beginPath(); for(let k=0;k<n;k++){ const a=rot+k/n*6.2832; const px=cx+Math.cos(a)*r, py=cy+Math.sin(a)*r; k?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.closePath(); shape(ctx,fill,lighten(fill,0.4),1.5); };
+  ring(-62,-4,15,6,Math.PI/6,'#B9604A'); ring(-38,-12,12,5,-0.3,'#B9604A');           // base (adenine)
+  ring(-14,8,13,5,-Math.PI/2,C.oker);                                               // suiker (ribose)
+  ctx.strokeStyle=lighten(C.koraal,0.3); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(-26,-6); ctx.lineTo(-20,2); ctx.moveTo(-2,8); ctx.lineTo(60,8); ctx.stroke();
+  const P=(px,py,a)=>{ ctx.save(); ctx.globalAlpha*=a; dot(ctx,px,py,11,C.koraal,lighten(C.koraal,0.4),1.5); text(ctx,'P',px,py+1,fTekst(14,700),C.bgMicro,'center','middle'); ctx.restore(); };
+  P(14,8,1); P(38,8,1);
+  const u=clamp(pop,0,1); if(u<1||true){ const px=62+u*46, py=8-Math.sin(u*Math.PI)*34+u*28; if(u>0.02&&u<0.98){ ctx.strokeStyle=rgba(C.koraal,0.7*(1-u)); ctx.lineWidth=2; for(let k=0;k<3;k++){ const a=-0.6+k*0.6; ctx.beginPath(); ctx.moveTo(px+Math.cos(a)*16,py+Math.sin(a)*16); ctx.lineTo(px+Math.cos(a)*26,py+Math.sin(a)*26); ctx.stroke(); } } P(px,py,1); }
+  const lab = naam!==null ? naam : (u>0.5?'ADP + P':'ATP'); if(lab){ ctx.font=fMeta(20); ctx.letterSpacing='1px'; ctx.textAlign='center'; ctx.fillStyle=C.koraal; ctx.fillText(lab,0,48); ctx.letterSpacing='0px'; }
+  ctx.restore(); }
 function card(ctx, x, y, w, h, title, body, alpha=1, accent=C.goud){
   if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x,y,w,h,12); shape(ctx,C.bgSchema,C.line,1);
   if(title) text(ctx,title,x+28,y+52,fTekst(36,600),accent);

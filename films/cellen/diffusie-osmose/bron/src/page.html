@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../" data-duur="9"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Diffusie en osmose · Alles beweegt</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,12 +54,15 @@ body.havo .term.vwo,body.havo #transcript p.vwo,body.havo .vwo-only{display:none
 details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
 summary{cursor:pointer;font-weight:600}
 table{border-collapse:collapse;width:100%;font-size:16px}
+.tabelkader{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.tabelkader table{min-width:560px}
+html,body{overflow-x:hidden}
 td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
 th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .q{margin:14px 0}
 .q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
 footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
-@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} .controls{gap:6px} .tog button{padding:6px 8px;font-size:14px} #playerwrap>.hint{display:block} }
 </style>
 </head>
 <body>
@@ -83,7 +87,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
   <div class="controls">
     <span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>
     <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
-    <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+    <span class="tog" id="snelheid" title="Afspeelsnelheid (wordt onthouden)"><button data-v="0.75">0,75×</button><button data-v="1">1×</button><button data-v="1.25">1,25×</button><button data-v="1.5">1,5×</button></span> <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
   </div>
 </div>
 
@@ -112,7 +116,7 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
 
   <section><h2>Voor de docent</h2>
     <h3>Hoe de film het uitlegt</h3>
-    <table><tr><th>Hoofdstuk</th><th>Look</th><th>Kernbeeld</th></tr>
+    <div class="tabelkader"><table><tr><th>Hoofdstuk</th><th>Look</th><th>Kernbeeld</th></tr>
       <tr><td>Cold open</td><td>Schema → zoomcirkel Micro</td><td>Druppel kleurstof in stil water: wolk, daarna egaal; niemand roert</td></tr>
       <tr><td>1 Alles beweegt</td><td>Micro</td><td>Gesimuleerde willekeurige beweging; één deeltje met spoor; botsingen met watermoleculen; koud naast warm</td></tr>
       <tr><td>2 Van veel naar weinig</td><td>Micro + grafiek</td><td>150 deeltjes links; pijldikte naar rechts/terug evenredig met het aantal aan elke kant; live grafiek; evenwicht met doorgaande beweging</td></tr>
@@ -121,16 +125,16 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
       <tr><td>5 Osmose</td><td>Schema, Micro</td><td>Close-up van één porie: terugkaatsend zout, lagere druk in de opening, stroom erdoor; brug naar "hoogste osmotische waarde"; U-buis; plantencel (plasmolyse, turgor), komkommer, rode bloedcel (hemolyse), iso/hypo/hypertonisch, infuus</td></tr>
       <tr><td>6 Actief transport</td><td>Micro</td><td>Wortelhaarcel; pomp met ATP; zonder ATP lekt het terug; vwo: natrium-kaliumpomp</td></tr>
       <tr><td>Recap</td><td>Schema, Macro</td><td>Vijf panelen; zeewatervraag in een bootje</td></tr>
-    </table>
+    </table></div>
     <h3>Waarom osmose werkt (de uitleg in H5)</h3>
-    <p>De film volgt Kramer &amp; Myers (2013, <i>Trends in Plant Science</i> 18: 195–197, "Osmosis is not driven by water dilution"). Opgeloste deeltjes die de porie niet in kunnen, kaatsen terug van de membraanwand. De impuls die ze daarbij afgeven, is van het membraan af gericht en wordt gedeeld met de watermoleculen in de buurt: de druk in en vlak bij de opening van de porie wordt aan die kant lager. Water stroomt daardoor als een stroom (bulkstroom) door de porie naar de kant met de opgeloste stof. De gangbare uitleg "het water diffundeert naar waar minder water is" geeft de goede richting, maar het verschil in waterconcentratie is veel te klein om de kracht van osmose te verklaren. De film noemt daarom expliciet de boekformulering ("naar de hoogste osmotische waarde", "diffusie van water") en zegt dat leerlingen die op een toets mogen gebruiken.</p>
+    <p>De film volgt Kramer &amp; Myers (2013, <i>Trends in Plant Science</i> 18: 195–197, "Osmosis is not driven by water dilution"). Opgeloste deeltjes die de porie niet in kunnen, kaatsen terug van de membraanwand. De impuls die ze daarbij afgeven, is van het membraan af gericht en wordt gedeeld met de watermoleculen in de buurt: de druk in en vlak bij de opening van de porie wordt aan die kant lager. Water stroomt daardoor als een stroom (bulkstroom) door de porie naar de kant met de opgeloste stof. Het kleine verschil in water (of: in opgeloste deeltjes) is wel degelijk de drijvende kracht: de osmotische druk volgt precies uit dat verschil (van 't Hoff). Wat Kramer &amp; Myers bestrijden, is het <i>mechanisme</i> "losse watermoleculen diffunderen één voor één naar waar minder water is". De beschrijving in het boek en die in de film geven dezelfde richting en dezelfde grootte; de film laat het mechanisme in de porie zien. De film noemt daarom expliciet de boekformulering ("naar de hoogste osmotische waarde", "diffusie van water") en zegt dat leerlingen die op een toets mogen gebruiken.</p>
     <p>Kanttekening: door de pure lipidelaag gaat een klein deel van het water op een andere manier (oplossen in en diffunderen door de vetlaag); het porie-model geldt voor kanalen en waterkanalen.</p>
     <h3>Misconcepties die de film aanpakt</h3>
-    <ol><li>Deeltjes willen naar waar het leeg is (afleider cold open; H2 gevolgd deeltje "weet niet dat het rechts leeg is").</li><li>Kleurstofdeeltjes duwen elkaar weg (cold open; H1).</li><li>Bij evenwicht staat alles stil (vraag H2).</li><li>Zout trekt water aan (H5, doorgestreept).</li><li>Water gaat naar waar minder water is (H5: verschil te klein; porie-uitleg).</li><li>Een plantencel barst in zuiver water (H5 expliciet).</li><li>Het membraan is een zeef die alleen op grootte selecteert (H4: Na⁺ kleiner dan glucose).</li></ol>
+    <ol><li>Deeltjes willen naar waar het leeg is (afleider cold open; H2 gevolgd deeltje "weet niet dat het rechts leeg is").</li><li>Kleurstofdeeltjes duwen elkaar weg (cold open; H1).</li><li>Bij evenwicht staat alles stil (vraag H2).</li><li>Zout trekt water aan (H5, doorgestreept).</li><li>Water diffundeert molecuul voor molecuul naar waar minder water is (H5: het verschil is de oorzaak, maar het water stroomt als geheel door de porie; porie-uitleg).</li><li>De ruimte tussen celwand en membraan is bij plasmolyse leeg (H5: gevuld met de buitenoplossing, de celwand laat alles door).</li><li>Osmotische waarde telt moleculen (H5: tel deeltjes; NaCl geeft er twee, glucose één).</li><li>Een plantencel barst in zuiver water (H5 expliciet).</li><li>Het membraan is een zeef die alleen op grootte selecteert (H4: Na⁺ kleiner dan glucose).</li></ol>
     <h3>Pauzemomenten</h3>
     <p>Tien voorspelvragen (negen basis, één vwo) met 8 s denktijd. In Klas-modus blijft elke vraag staan tot "verder". Extra pauze: bij de porie-close-up (H5), laat leerlingen eerst zelf de twee drukmeters vergelijken.</p>
     <h3>Getallen in de film</h3>
-    <table><tr><th>Getal</th><th>Waarde</th><th>Bron / berekening</th></tr>
+    <div class="tabelkader"><table><tr><th>Getal</th><th>Waarde</th><th>Bron / berekening</th></tr>
       <tr><td>Botsingen per seconde</td><td>biljoenen (10¹²–10¹³ per seconde in vloeibaar water)</td><td>orde van grootte, kinetische theorie</td></tr>
       <tr><td>Diffusietijd en afstand</td><td>t ≈ x²/2D: dubbele afstand ≈ 4 × zo lang</td><td>Einstein-relatie</td></tr>
       <tr><td>Zuurstof door een cel</td><td>10 µm, D ≈ 2·10⁻⁹ m²/s → ≈ 0,025 s</td><td>berekend</td></tr>
@@ -139,11 +143,11 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
       <tr><td>Infuus</td><td>9 g NaCl per liter (0,9 %) ≈ 308 mOsm/L; plasma ≈ 290</td><td>fysiologische zoutoplossing</td></tr>
       <tr><td>Zeewater</td><td>≈ 3,5 % zout, ongeveer 4 × zo zout als bloed; nieren kunnen geen urine maken die zo zout is</td><td>standaardwaarden</td></tr>
       <tr><td>Kleurstof in stil glas</td><td>wolk binnen een uur; met alleen diffusie duurt egaal weken, in een echt glas sneller door stromingen</td><td>D ≈ 5·10⁻¹⁰ m²/s</td></tr>
-    </table>
+    </table></div>
     <h3>Vereenvoudigingen</h3>
     <ul><li>Alles is plat getekend en niet op schaal.</li><li>Wortelharen: de ATP-pomp pompt vooral H⁺ naar buiten; mineralen komen binnen via dragers die dat H⁺-verschil benutten (secundair actief). De film zegt "kost ATP".</li><li>Glucose in darm en nier gaat (ook) via SGLT, secundair actief; de film toont GLUT-achtige dragers (gefaciliteerde diffusie).</li><li>Iso-, hypo- en hypertonisch gaan over opgeloste deeltjes die het membraan níét door kunnen; ureum telt bijvoorbeeld niet mee.</li><li>De diffusiesimulatie is een gestileerde willekeurige wandeling; snelheden zijn niet op schaal.</li></ul>
     <h3>Leerdoelen en dekking</h3>
-    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
+    <div class="tabelkader"><table><tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
       <tr><td>1 Deeltjes bewegen willekeurig; warmte maakt het sneller</td><td>basis</td><td>Cold open, 1</td><td>cold open; check 1a</td></tr>
       <tr><td>2 Diffusie als netto verplaatsing; dynamisch evenwicht</td><td>basis</td><td>2</td><td>H2; check 1b</td></tr>
       <tr><td>3 Vier factoren; longblaasjes</td><td>basis</td><td>3</td><td>H3; check 2</td></tr>
@@ -153,44 +157,15 @@ footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:
       <tr><td>7 Gefaciliteerde diffusie</td><td>vwo</td><td>4 (vwo-blok)</td><td>vwo-vraag H4; check 5</td></tr>
       <tr><td>8 Iso-, hypo-, hypertonisch; infuus</td><td>basis</td><td>5</td><td>check 3b</td></tr>
       <tr><td>9 Natrium-kaliumpomp</td><td>vwo</td><td>6 (vwo-blok)</td><td>(film Zenuwstelsel)</td></tr>
-    </table>
+    </table></div>
     <h3>Practicumsuggesties</h3>
     <ul><li>Kleurstof of kaliumpermanganaat in agar (petrischaal, één koud en één warm): meet elke 10 minuten de diameter van de gekleurde kring. In een glas water zie je vooral stroming (convectie); in agar zie je alleen diffusie.</li><li>Aardappelstaafjes in een reeks suikeroplossingen: massaverandering tegen concentratie, isotonisch punt aflezen (ook als Aardappellab op de site).</li><li>Rode ui-opperhuid onder de microscoop in zout water: plasmolyse, daarna terug in kraanwater.</li><li>Komkommer of sla met zout: massa voor en na.</li></ul>
   </section>
 </main>
-<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.1 · 12 oktober 2026.</footer>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Eerste versie: Kamiels broer, naar ontwerp van Kamiel Jacobs. Deze versie (script, animatie en speler): Kamiel Jacobs met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.2 · 16 oktober 2026.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 <script>window.FILMDATA=/*FILMDATA*/;</script>
 <script>/*LIB*/</script>
 <script>/*SCENES*/</script>
-<script>
-const GLOSSARY=[
- {t:'deeltjesbeweging',d:'Alle deeltjes in een vloeistof of gas bewegen altijd willekeurig door elkaar; hoe warmer, hoe sneller.'},
- {t:'diffusie',d:'De netto verplaatsing van deeltjes van een hoge naar een lage concentratie, door hun willekeurige beweging.'},
- {t:'concentratie',d:'Hoeveel deeltjes van een stof er in een bepaalde hoeveelheid oplossing zitten.'},
- {t:'concentratieverschil (concentratiegradiënt)',d:'Het verschil in concentratie tussen twee plekken. Hoe groter, hoe sneller de diffusie.'},
- {t:'evenwicht',d:'Er gaan evenveel deeltjes heen als terug: netto nul. De deeltjes blijven bewegen.'},
- {t:'longblaasje',d:'Klein blaasje in de long met een flinterdunne wand; zuurstof en koolstofdioxide gaan er door diffusie doorheen.'},
- {t:'celmembraan',d:'Dubbele laag vetachtige moleculen om de cel, met eiwitten erin.'},
- {t:'selectief doorlatend (selectief permeabel)',d:'Laat sommige stoffen door en andere niet. Kleine stoffen die in vet oplossen gaan makkelijk; ionen en glucose niet zomaar.'},
- {t:'semipermeabel',d:'Laat water door, maar opgeloste stoffen zoals zout niet.'},
- {t:'kanaaleiwit',d:'Eiwit in het membraan dat een tunnel vormt voor een bepaald soort deeltje, zoals een waterkanaal.',vwo:true},
- {t:'dragereiwit',d:'Eiwit in het membraan dat een deeltje vastpakt en aan de andere kant afzet.',vwo:true},
- {t:'gefaciliteerde diffusie',d:'Diffusie via een kanaal- of dragereiwit, van hoog naar laag, zonder ATP.',vwo:true},
- {t:'osmose',d:'Water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen: de hoogste osmotische waarde.'},
- {t:'osmotische waarde',d:'Maat voor de concentratie opgeloste deeltjes in een oplossing. Water gaat naar de kant met de hoogste osmotische waarde.'},
- {t:'osmotische druk',d:'De druk die nodig is om osmose precies tegen te houden, bijvoorbeeld door een hogere waterkolom in een U-buis.',vwo:false},
- {t:'plasmolyse',d:'In een geconcentreerde oplossing verliest een plantencel water; het celmembraan laat los van de celwand.'},
- {t:'turgor',d:'De druk van de celinhoud tegen de celwand; maakt een plant stevig.'},
- {t:'hemolyse',d:'Het barsten van rode bloedcellen, bijvoorbeeld in zuiver water.'},
- {t:'isotonisch',d:'Oplossing met dezelfde osmotische waarde als de cel: netto geen water in of uit.'},
- {t:'hypotonisch',d:'Oplossing met een lagere osmotische waarde dan de cel: water gaat de cel in.'},
- {t:'hypertonisch',d:'Oplossing met een hogere osmotische waarde dan de cel: water gaat de cel uit.'},
- {t:'passief transport',d:'Transport dat vanzelf gaat, zonder energie van de cel: diffusie en osmose (vwo: ook gefaciliteerde diffusie).'},
- {t:'actief transport',d:'Transport tegen het concentratieverschil in, met een pomp (een eiwit in het membraan) die ATP kost.'},
- {t:'ATP',d:'Energiedrager van de cel.'},
- {t:'natrium-kaliumpomp',d:'Pomp in het celmembraan die met ATP natrium naar buiten en kalium naar binnen pompt.',vwo:true},
-];
-/*PLAYER*/
-</script>
+<script>/*PLAYER*/</script>
 </body>
 </html>

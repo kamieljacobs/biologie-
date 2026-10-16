@@ -3,6 +3,7 @@
   <li>Na hoofdstuk 2: laat leerlingen bij een zelfgekozen DNA-stukje het mRNA opschrijven; let op de U.</li>
   <li>Na vraag 3: wat verandert er aan het antwoord als je het stopcodon wél meetelt? (54)</li>
   <li class="vonly">Na vraag 4: zoek in de codontabel aminozuren met vier codons en kijk welke positie verschilt.</li>
+  <li>Coderende streng tegenover matrijsstreng: deze film noemt alleen de matrijsstreng (vwo); de coderende streng komt in aflevering 4.</li>
   <li>Na vraag 5: welke misverstanden over mRNA-vaccins hoor je weleens? Toets ze aan wat je nu weet.</li></ul></details>
  <!--NUMBERS-->
  <details><summary>Vereenvoudigingen</summary><ul>
@@ -10,16 +11,20 @@
   <li>Het startcodon-tRNA landt in de film op dezelfde manier als de volgende tRNA's; in werkelijkheid begint de translatie met een apart initiatiecomplex.</li>
   <li>tRNA is als een eenvoudige T-vorm getekend, niet als klaverblad of L-vorm.</li>
   <li>De opvouwing van het eiwit is schematisch; secundaire en tertiaire structuur worden niet onderscheiden.</li>
-  <li>In het vaccin zit gemodificeerd mRNA in lipide-nanodeeltjes; de film noemt ze "vetbolletjes".</li>
-  <li class="vonly">"Daar bindt RNA-polymerase" (TATA-box): bij eukaryoten binden eerst transcriptiefactoren, die RNA-polymerase op zijn plek zetten; de transcriptie start ongeveer 25–30 basen verderop.</li>
+  <li>In het vaccin zit mRNA in lipide-nanodeeltjes; de film noemt ze "vetbolletjes". Het vaccin-mRNA is gemodificeerd: in plaats van uridine bevat het N1-methylpseudo-uridine, en het heeft een kapje en een poly-A-staart. Daardoor wordt het minder snel afgebroken en lokt het zelf minder ontstekingsreactie uit. <span class="tag">vwo</span>-verdieping, niet in de film gesproken.</li>
+  <li>Het eiwit van het virus is het spike-eiwit van het coronavirus; de film noemt het "het eiwit van het virus". Het is een membraaneiwit: gemaakt door ribosomen op het ER, via het golgisysteem in een blaasje naar het celmembraan (de film laat het blaasje versmelten). Vrije ribosomen tegenover ER-ribosomen worden niet uitgewerkt.</li>
+  <li>Bij havo noemt de film de promotor alleen als de plek vlak vóór het gen waar RNA-polymerase begint (nodig voor aflevering 6). Bij vwo: eerst binden transcriptiefactoren (bij een deel van de genen aan een TATA-box); die zetten RNA-polymerase op zijn plek. De transcriptie start ongeveer 25–30 baseparen na de TATA-box. Lang niet alle menselijke promotors hebben een TATA-box.</li>
+  <li class="vonly">Het kapje (5'-cap, een gemodificeerd G-nucleotide) en de poly-A-staart worden in de film alleen benoemd met hun functie (bescherming tegen afbraak); hun rol bij export uit de kern en bij de start van de translatie blijft buiten beeld.</li>
+  <li>Waarom het vaccin-mRNA geen DNA wordt: daarvoor is reverse transcriptase nodig (aflevering 2). Dat zit niet in het vaccin en een spiercel gebruikt het niet voor dit mRNA; het mRNA komt bovendien de kern niet in.</li>
   <li class="vonly">Wiebelbase: de film noemt de derde base van het codon (zoals Wikipedia en de meeste bronnen). Die paart met de eerste (5'-)base van het anticodon; in het beeld staat het anticodon 3'→5' onder het codon, dus recht onder die derde codonbase.</li>
   <li class="vonly">Bij de wiebelbase is alleen het U–G-voorbeeld getoond; inosine in het anticodon blijft buiten beeld.</li></ul></details>
- <details><summary>Leerdoelen en dekking</summary><table>
+ <details><summary>Leerdoelen en dekking</summary><div class="tabelscroll"><table>
   <tr><th>Leerdoel</th><th>Niveau</th><th>Hoofdstuk</th><th>Vraag</th></tr>
   <tr><td>DNA blijft in de kern; mRNA brengt het recept naar de ribosomen</td><td>basis</td><td>1</td><td>V1</td></tr>
   <tr><td>verschillen DNA en RNA</td><td>basis</td><td>1</td><td>check 1</td></tr>
-  <tr><td>transcriptie: RNA-polymerase, één streng, U tegenover A</td><td>basis</td><td>2</td><td>V2, check 2</td></tr>
+  <tr><td>transcriptie: RNA-polymerase begint bij de promotor, één streng, U tegenover A</td><td>basis</td><td>2</td><td>V2, check 2</td></tr>
   <tr><td>translatie: codon, start/stop, tRNA, keten</td><td>basis</td><td>3</td><td>V3, check 3</td></tr>
-  <tr><td>volgorde bepaalt vorm bepaalt werking</td><td>basis</td><td>4</td><td>V5, check 4</td></tr>
-  <tr class="vonly"><td>promotor, TATA-box, 3'→5' lezen, splicing</td><td>vwo</td><td>2</td><td>check 5</td></tr>
-  <tr class="vonly"><td>anticodon, 64 codons/20 aminozuren, wiebelbase</td><td>vwo</td><td>3</td><td>V4, check 6</td></tr></table></details>
+  <tr><td>volgorde bepaalt vorm bepaalt werking</td><td>basis</td><td>4</td><td>—</td></tr>
+  <tr><td>membraaneiwit: ER → golgisysteem → blaasje → celmembraan; vaccin-mRNA wordt geen DNA</td><td>basis</td><td>4</td><td>V5, check 4</td></tr>
+  <tr class="vonly"><td>transcriptiefactoren en TATA-box, 3'→5' lezen, splicing, kapje en poly-A-staart</td><td>vwo</td><td>2</td><td>check 5</td></tr>
+  <tr class="vonly"><td>anticodon, 64 codons/20 aminozuren, wiebelbase</td><td>vwo</td><td>3</td><td>V4, check 6</td></tr></table></div></details>

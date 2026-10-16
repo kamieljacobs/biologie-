@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="huisstijl.css">
 <script src="huisstijl.js"></script>
 <style>
-/* De Eiwitfabriek · versie 2.0 · oktober 2026
+/* De Eiwitfabriek · versie 2.1 · oktober 2026
+   2.1: centrale dogma als lijnbeeld in de werkbank, lijntekeningen bij het begin van de fasen,
+   uitleg over het ribosoom vóór de translatie, mutaties ingedeeld als soort verandering + gevolg.
    Kleuren van basen en moleculen zoals in de DNA-reeks (films/dna/_bouw/src/dnalib.js):
    DNA-basen vier tinten paars (BC), RNA-basen vier tinten teal (RC), aminozuren oker, stop koraal. */
 :root{
@@ -60,7 +62,8 @@
 #log{display:flex;flex-direction:column;gap:10px;min-width:0}
 .msg{max-width:64ch;padding:12px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line2);overflow-wrap:anywhere}
 .msg p{margin:0 0 8px}.msg p:last-child{margin-bottom:0}
-.msg ul{margin:4px 0 0;padding-left:20px}
+.msg ul,.msg ol{margin:4px 0 0;padding-left:20px}
+.msg ol li{margin:3px 0}
 .msg .wie{display:block;font:600 11px/1 var(--meta);letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:6px}
 .msg.ik{align-self:flex-end;background:var(--goud-soft);border-color:transparent;white-space:pre-wrap}
 .msg.hint{background:var(--goud-soft);border-color:var(--goud)}
@@ -113,8 +116,23 @@
 .bank-kop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
 .bank-kop h2{font-size:22px}
 .bank-kop .sub{margin:2px 0 0;font:600 12px/1.3 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text)}
-.plek{flex:0 0 auto;width:170px;max-width:46%}
-.plek svg{display:block;width:100%;height:auto}
+/* lijntekeningen: dunne lijnen in currentColor, accent goud, namen direct bij het onderdeel */
+.dogma{margin:0 0 12px;padding:8px 0 4px;border-bottom:1px solid var(--line)}
+.dogma svg{display:block;width:100%;max-width:440px;height:auto;color:var(--text3)}
+.kunst{margin:2px 0 10px}
+.kunst svg{display:block;width:100%;max-width:400px;height:auto;color:var(--text2)}
+.lijn text{stroke:none;font-family:var(--meta);font-size:10px;font-weight:500;fill:var(--text2);letter-spacing:.03em}
+.lijn text.klein{font-size:9px;fill:var(--text3)}
+.lijn text.plaats{font-size:9px;letter-spacing:.12em;fill:var(--text3)}
+.lijn text.t-aan{fill:var(--goud-text);font-weight:600}
+.lijn .p-aan{stroke:var(--goud)!important;stroke-width:2.2}
+.lijn .s-dna{stroke:var(--paars);fill:none}
+.lijn .s-rna{stroke:var(--teal);fill:none}
+.lijn .s-aa{stroke:var(--aa);fill:none}
+.lijn .k-aa{fill:var(--aa);stroke:none}
+.lijn .k-aa2{fill:var(--aa2);stroke:none}
+.lijn .goud{stroke:var(--goud);fill:none}
+.lijn .koraal{stroke:var(--koraal);fill:none}
 .streng-wrap{overflow-x:auto;padding:4px 0 8px;-webkit-overflow-scrolling:touch}
 .leeg{color:var(--text2);margin:6px 0}
 .streng{display:flex;align-items:flex-start;width:max-content}
@@ -204,7 +222,6 @@ details.docent[open]>summary::after{content:"–"}
   .b{font-size:14px}
   .kraal{min-width:2.5rem;font-size:12px}
   .kraal.na::before{width:calc(var(--tw)*3 + 12px - 2.5rem)}
-  .plek{width:130px}
   .bediening .rol{flex-basis:100%}
 }
 @media print{
@@ -245,9 +262,9 @@ details.docent[open]>summary::after{content:"–"}
   <div id="invoer" aria-label="Jouw antwoord"><div id="slot"></div><div class="onder"><span class="tip" id="tip"></span><button type="button" id="sla" class="knop stil klein">Sla deze opdracht over</button></div></div>
   <div class="zij">
     <section class="paneel" id="bank" aria-labelledby="bankKop">
+      <div class="dogma" id="plek"></div>
       <div class="bank-kop">
         <div><h2 id="bankKop">Werkbank</h2><p class="sub" id="bankSub"></p></div>
-        <div class="plek" id="plek" aria-hidden="true"></div>
       </div>
       <div class="streng-wrap" id="streng" tabindex="-1"></div>
       <div class="sleutel" id="sleutel" aria-hidden="true"></div>
@@ -286,9 +303,9 @@ details.docent[open]>summary::after{content:"–"}
           <li><span class="vwo-label">vwo</span> de matrijsstreng onderscheiden van de coderende streng, met de leesrichting 3'→5' en de groeirichting van het mRNA 5'→3';</li>
           <li>een mRNA met de codontabel vertalen in een aminozuurvolgorde, beginnend bij het startcodon AUG en stoppend bij een stopcodon;</li>
           <li>berekenen hoeveel aminozuren een mRNA oplevert (drie nucleotiden per codon, het stopcodon levert geen aminozuur);</li>
-          <li>de rol van tRNA en ribosoom beschrijven;</li>
+          <li>de rol van tRNA en ribosoom beschrijven: twee subeenheden die om het mRNA klemmen, codon voor codon opschuiven en de aminozuren met peptidebindingen koppelen;</li>
           <li><span class="vwo-label">vwo</span> bij een anticodon het codon en het aminozuur bepalen;</li>
-          <li>het effect van een puntmutatie op het eiwit voorspellen: stille mutatie, ander aminozuur, te vroeg stopcodon, deletie met leesraamverschuiving.</li>
+          <li>bij een puntmutatie eerst de verandering in het DNA benoemen (substitutie, deletie of insertie) en dan het gevolg voor het eiwit voorspellen: bij een substitutie geen verandering (stille mutatie), één ander aminozuur of te vroeg een stopcodon; bij een deletie of insertie van één base een leesraamverschuiving.</li>
         </ul>
         <h3>Examenprogramma</h3>
         <ul>
@@ -299,7 +316,7 @@ details.docent[open]>summary::after{content:"–"}
         <h3>Lestijd</h3>
         <ul>
           <li>Fase 1 t/m 3 (transcriptie, translatie, zelf doen): 20 tot 25 minuten.</li>
-          <li>Mutatie-uitdaging: 10 minuten extra; afsluiting met drie controlevragen: 5 minuten.</li>
+          <li>Mutatie-uitdaging (vijf mutaties, steeds DNA-verandering en gevolg): 10 tot 15 minuten extra; afsluiting met drie controlevragen: 5 minuten.</li>
           <li>Snelle leerlingen kunnen direct naar fase 3 springen via de fasenbalk.</li>
         </ul>
       </div>
@@ -313,22 +330,23 @@ details.docent[open]>summary::after{content:"–"}
         </ul>
         <h3>Aansluiting op de films</h3>
         <ul>
-          <li>Zelfde begrippen als film 3: gen, mRNA, RNA-polymerase, transcriptie, ribosoom, codon, startcodon, stopcodon, tRNA, translatie; vwo: matrijsstreng, 3'→5', anticodon. Film 4: coderende streng (vwo) en de codontabel met eerste, tweede en derde base. Film 5: stille mutatie, deletie, leesraam.</li>
+          <li>Zelfde begrippen als film 3: gen, mRNA, RNA-polymerase, transcriptie, ribosoom, codon, startcodon, stopcodon, tRNA, translatie; vwo: matrijsstreng, 3'→5', anticodon. Film 4: coderende streng (vwo) en de codontabel met eerste, tweede en derde base. Film 5: puntmutatie, substitutie, insertie, deletie, stille mutatie, leesraamverschuiving (vwo). In de film heet ‘leesraam’ vwo-stof; havo ziet hetzelfde verschijnsel als ‘vanaf de deletie klopt geen enkel codon meer’. De tool gebruikt de term voor beide niveaus.</li>
+          <li><b>Indeling mutaties</b>: eerst de soort verandering in het DNA (substitutie, deletie, insertie), dan het gevolg voor het eiwit. Engelse termen ter herkenning: stille mutatie (silent), één ander aminozuur (missense), te vroeg stopcodon (nonsense), leesraamverschuiving (frameshift).</li>
           <li>Zelfde kleuren: DNA-basen in vier tinten paars, RNA-basen in vier tinten teal, aminozuren oker als kralenketting, stop koraal.</li>
         </ul>
         <h3>Vereenvoudigingen</h3>
         <ul>
           <li>Het gen is kort en heeft geen introns; promotor, splicing en de bewerking van het pre-mRNA blijven buiten de oefening (zie film 3, vwo).</li>
           <li>De strengen staan als rijen letters; de werkbank toont alleen welke molecuul en welke streng, niet de echte ruimtelijke vorm.</li>
-          <li>Bij de translatie zie je de aminozuurketen groeien; tRNA's zijn niet getekend. Het opvouwen van de keten tot een eiwit komt in film 3 aan bod.</li>
-          <li>De mutaties zijn steeds in de matrijsstreng aangebracht; het mRNA neemt ze over.</li>
+          <li>Bij de translatie zie je op de werkbank de aminozuurketen groeien; het ribosoom met tRNA's staat als lijntekening bij de uitleg aan het begin van fase 2. Het opvouwen van de keten is alleen als schets getekend; meer in film 3.</li>
+          <li>De mutaties zijn steeds in de matrijsstreng aangebracht; het mRNA neemt ze over. Deleties en inserties van drie basen (één aminozuur minder of meer, geen verschuiving) en mutaties buiten het coderende deel komen niet voor.</li>
         </ul>
       </div>
     </div>
   </details>
 </div>
 
-<footer class="tool-voet">Biologie bij Kamiel · De Eiwitfabriek · versie 2.0 · oktober 2026 · past bij de film <a href="../films/dna/3-van-dna-naar-eiwit.html">Van DNA naar eiwit</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<footer class="tool-voet">Biologie bij Kamiel · De Eiwitfabriek · versie 2.1 · oktober 2026 · past bij de film <a href="../films/dna/3-van-dna-naar-eiwit.html">Van DNA naar eiwit</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script>
@@ -469,25 +487,32 @@ function checkProtein(raw, mrna, start, {frame=false} = {}){
   return {ok:false, msg:`${firstN(i,'aminozuur','aminozuren')} Kijk nog eens naar codon ${i+1}: zoek de 1e base in de rij, de 2e in de kolom en de 3e in het vakje.`};
 }
 
-/* oefenmutaties: altijd in de matrijsstreng aangebracht; het mRNA neemt de verandering over */
+/* oefenmutaties: altijd in de matrijsstreng aangebracht; het mRNA neemt de verandering over.
+   soort = 'stil' | 'ander' | 'stop' (substituties), 'deletie' | 'insertie' (leesraamverschuiving) */
 function mutPractice(kind){
   const fam = ['Ala','Gly','Val','Pro','Thr'];
   for (let t = 0; t < 500; t++){
     const aas = ['Met']; for (let i = 0; i < 3; i++) aas.push(pickOne(fam));
     const codons = aas.map(a => a === 'Met' ? 'AUG' : pickOne(AA_CODONS[a]));
-    if (kind === 'nonsense'){ const k = 1 + rand(3); aas[k] = 'Lys'; codons[k] = pickOne(['AAA','AAG']); }
+    if (kind === 'stop'){ const k = 1 + rand(3); aas[k] = 'Lys'; codons[k] = pickOne(['AAA','AAG']); }
     const stop = pickOne(['UAA','UAG','UGA']);
     const mrna = codons.join('') + stop;
     if (translate(mrna,0).aas.length !== 4) continue;
     const templ = templateFromMrna(mrna);
-    if (kind === 'frameshift'){
+    if (kind === 'deletie'){
       const mm = mrna.slice(0,3) + mrna.slice(4);
       return {kind, mrna, mm, templ, delIndex:3,
         desc:`In de ${STR()} valt het eerste nucleotide van het 2e triplet (${templ[3]}) weg.`};
     }
+    if (kind === 'insertie'){
+      const nb = pickOne([...'ACGT']), templMut = templ.slice(0,3) + nb + templ.slice(3), mm = mrnaFromTemplate(templMut);
+      if (translate(mm,0).aas.slice(0,3).join() === aas.slice(0,3).join()) continue;
+      return {kind, mrna, mm, templ, templMut, insIndex:3,
+        desc:`In de ${STR()} komt aan het begin van het 2e triplet een extra ${nb} bij.`};
+    }
     let k = 1 + rand(3), cod = codons[k], nc;
     if (kind === 'stil'){ nc = cod.slice(0,2) + pickOne([...'UCAG'].filter(b => b !== cod[2])); if (CODON[nc] !== aas[k]) continue; }
-    else if (kind === 'missense'){ nc = pickOne([...'UCAG'].filter(b => b !== cod[0])) + cod.slice(1); if (CODON[nc] === 'STOP' || CODON[nc] === aas[k]) continue; }
+    else if (kind === 'ander'){ nc = pickOne([...'UCAG'].filter(b => b !== cod[0])) + cod.slice(1); if (CODON[nc] === 'STOP' || CODON[nc] === aas[k]) continue; }
     else { k = aas.indexOf('Lys'); cod = codons[k]; nc = 'U' + cod.slice(1); }
     const mc = codons.slice(); mc[k] = nc;
     const mm = mc.join('') + stop;
@@ -530,7 +555,7 @@ const M3  = mrnaFromTemplate(T3);            // GCAUGUUUGGCUGCCAUUAGC
 /* ---- fasen ---- */
 const PHASES = ['Start','Transcriptie','Translatie','Zelf doen','Mutaties','Afsluiting'];
 const ROLES = ['RNA-polymerase, in de kern','RNA-polymerase, in de kern','ribosoom, in het cytoplasma','RNA-polymerase én ribosoom','RNA-polymerase én ribosoom', null];
-const PLEK = ['kern','kern','ribosoom','beide','beide','klaar'];
+const PLEK = ['kern','kern','ribosoom','beide','mutatie','klaar'];
 let curPhase = 0;
 const afgerond = new Set();   /* alleen fasen die echt zijn doorlopen krijgen een vinkje */
 let springen = false;
@@ -542,21 +567,117 @@ function setPhase(p){
   tekenPlek(PLEK[p]);
 }
 
-/* kleine tekening: waar in de cel ben je? Cel en kern rond, mRNA als dunne draad door een kernporie */
-function tekenPlek(w){
-  const kern = w === 'kern' || w === 'beide', rib = w === 'ribosoom' || w === 'beide';
-  const ring = (cx, cy, r, aan) => aan ? `<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="var(--goud)" stroke-width="2.5" stroke-dasharray="5 4"/>` : '';
-  $('#plek').innerHTML = `<svg viewBox="0 0 200 120" role="img" aria-label="cel met kern en ribosoom">
-    <ellipse cx="100" cy="60" rx="94" ry="54" fill="var(--surface2)" stroke="var(--line2)" stroke-width="2"/>
-    <circle cx="62" cy="60" r="32" fill="var(--paars-soft)" stroke="var(--paars)" stroke-width="2" stroke-dasharray="64 6"/>
-    <path d="M44 50 q8 -10 16 0 t16 2 M46 66 q6 8 14 0 t14 -4 M54 76 q8 -4 12 2" fill="none" stroke="var(--paars)" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>
-    <path d="M90 56 q10 -8 18 2 t16 0 t14 4" fill="none" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round"/>
-    <ellipse cx="146" cy="58" rx="11" ry="8" fill="var(--ribosoom)"/><ellipse cx="146" cy="69" rx="9" ry="5" fill="var(--ribosoom)" opacity=".8"/>
-    ${ring(62, 60, 37, kern)}${ring(146, 62, 20, rib)}
-    <text x="62" y="109" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--text2)">KERN</text>
-    <text x="146" y="98" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--text2)">RIBOSOOM</text>
-  </svg>`;
+/* ---- lijntekeningen (zoals op de site: dunne lijnen, currentColor, goud als accent, namen direct bij het onderdeel) ---- */
+const SVG = (vb, label, inhoud) => `<svg class="lijn" viewBox="${vb}" role="img" aria-label="${label}" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">${inhoud}</svg>`;
+/* dubbele DNA-streng als twee zacht golvende lijnen met sporten */
+function dnaHelix(x0, x1, y, amp=9){
+  const n = 3, w = (x1 - x0) / n; let a = `M${x0} ${y}`, b = `M${x0} ${y}`;
+  for (let i = 0; i < n; i++){ const s = x0 + i*w; a += ` C${s+w/3} ${y-amp*1.5} ${s+2*w/3} ${y+amp*1.5} ${s+w} ${y}`; b += ` C${s+w/3} ${y+amp*1.5} ${s+2*w/3} ${y-amp*1.5} ${s+w} ${y}`; }
+  let sport = ''; for (let i = 0; i < n*4; i++){ if (i % 2 === 0) continue; const x = x0 + (i+.5) * w/4, t = ((i+.5)/4) % 1, d = amp*1.15*Math.sin(t*2*Math.PI); if (Math.abs(d) > 2) sport += `M${x.toFixed(1)} ${(y-d).toFixed(1)}V${(y+d).toFixed(1)}`; }
+  return `<path d="${sport}" stroke-width="1" opacity=".55"/><path class="s-dna" d="${a}" stroke-width="1.8"/><path class="s-dna" d="${b}" stroke-width="1.8"/>`;
 }
+/* kralen langs punten: aminozuren als kralenketting (oker) */
+function kralen(pts, r=3.6){
+  const lijn = 'M' + pts.map(p => p.map(v => v.toFixed(1)).join(' ')).join(' L');
+  return `<path class="s-aa" d="${lijn}" stroke-width="1.6"/>` + pts.map((p,i) => `<circle class="${i % 2 ? 'k-aa2' : 'k-aa'}" cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${r}"/>`).join('');
+}
+/* opgevouwen keten: een vaste, onregelmatige kluwen (genormaliseerd op straal 1) */
+const KLUWEN = [[-1,.15],[-.62,.55],[-.12,.85],[.4,.62],[.15,.2],[-.35,.05],[-.55,-.4],[-.1,-.72],[.45,-.85],[.88,-.45],[.7,.05],[.95,.48],[.55,.95],[.05,.45],[-.2,-.25],[.3,-.35]];
+function kluwen(cx, cy, n=13, r0=17){
+  return KLUWEN.slice(0, n).map(([x,y]) => [cx + x*r0, cy + y*r0]);
+}
+/* ribosoom: grote subeenheid boven het mRNA, kleine eronder */
+const ribosoomVorm = (cx, cy, s=1, cls='') => `<path class="${cls}" d="M${cx-13*s} ${cy-2*s} C${cx-14*s} ${cy-14*s} ${cx+14*s} ${cy-14*s} ${cx+13*s} ${cy-2*s} Z" stroke-width="1.5"/><path class="${cls}" d="M${cx-10*s} ${cy+3*s} C${cx-10*s} ${cy+10*s} ${cx+10*s} ${cy+10*s} ${cx+10*s} ${cy+3*s} Z" stroke-width="1.5"/>`;
+
+/* het centrale dogma, met de stap waar de leerling nu is in goud */
+const PLEK_TEKST = {kern:'nu: transcriptie, in de kern', ribosoom:'nu: translatie, bij een ribosoom in het cytoplasma', beide:'nu: transcriptie en translatie', mutatie:'nu: een verandering in het DNA en wat die doet met het eiwit', klaar:'het eiwit is klaar'};
+function tekenPlek(w){
+  const tr = w === 'kern' || w === 'beide' || w === 'mutatie', tl = w === 'ribosoom' || w === 'beide' || w === 'mutatie';
+  const dnaAan = w === 'mutatie', eiwitAan = w === 'klaar';
+  const pijl = (x0, x1, aan) => `<path class="${aan ? 'p-aan' : ''}" d="M${x0} 62H${x1}M${x1-6} 57l6 5-6 5" stroke-width="1.4"/>`;
+  const veeg = (x, wd, aan) => aan ? `<rect x="${x}" y="36" width="${wd}" height="17" rx="8.5" fill="var(--goud-soft)" stroke="none"/>` : '';
+  const mrna = 'M146 64c7-6 13 5 20 0s13-5 20 0 13 5 20 0 13-5 20 0 13 5 20 0 13-5 20 0 13 5 18 0';
+  $('#plek').innerHTML = SVG('0 0 440 116', `Centrale dogma: DNA, via transcriptie naar mRNA, via translatie naar eiwit; ${PLEK_TEKST[w] || ''}`, `
+    <path d="M222.3 6A140 140 0 0 1 229.8 54M229.8 70A140 140 0 0 1 222.3 114" stroke-width="1.2" stroke-dasharray="1 0" opacity=".9"/>
+    <path d="M216.6 6A146 146 0 0 1 224 54M224 70A146 146 0 0 1 216.6 114" stroke-width="1" opacity=".5"/>
+    <text class="plaats${tr ? ' t-aan' : ''}" x="208" y="12" text-anchor="end">KERN</text>
+    <text class="plaats${tl ? ' t-aan' : ''}" x="240" y="12">CYTOPLASMA</text>
+    ${dnaAan ? '<rect x="8" y="40" width="66" height="44" rx="10" fill="var(--goud-soft)" stroke="none"/>' : ''}
+    ${dnaHelix(12, 70, 62, 8)}
+    ${dnaAan ? '<circle class="goud" cx="41" cy="62" r="7" stroke-width="1.8"/>' : ''}
+    ${veeg(79, 76, tr)}<text class="${tr ? 't-aan' : ''}" x="117" y="48" text-anchor="middle">transcriptie</text>${pijl(84, 136, tr)}
+    <path class="s-rna" d="${mrna}" stroke-width="1.4"/>
+    ${ribosoomVorm(296, 64, 1, tl ? 'p-aan' : '')}
+    ${veeg(311, 66, tl)}<text class="${tl ? 't-aan' : ''}" x="344" y="48" text-anchor="middle">translatie</text>${pijl(316, 372, tl)}
+    ${eiwitAan ? '<circle cx="408" cy="62" r="26" fill="var(--goud-soft)" stroke="none"/>' : ''}
+    ${kralen(kluwen(408, 62, 12, 16), 3.2)}
+    <text class="${dnaAan ? 't-aan' : ''}" x="41" y="100" text-anchor="middle">DNA</text>
+    <text x="186" y="100" text-anchor="middle">mRNA</text>
+    <text class="klein${tl ? ' t-aan' : ''}" x="296" y="90" text-anchor="middle">ribosoom</text>
+    <text class="${eiwitAan ? 't-aan' : ''}" x="408" y="100" text-anchor="middle">eiwit</text>`);
+}
+
+/* kleine lijntekeningen bij het begin van een fase */
+function trnaVorm(x, top, onder){
+  return `<path class="s-rna" d="M${x-11} ${onder}h22M${x-7} ${onder}v3M${x} ${onder}v3M${x+7} ${onder}v3M${x} ${onder}V${top+12}M${x-8} ${top+19}h16" stroke-width="1.3"/><circle class="s-rna" cx="${x}" cy="${top+6}" r="6" stroke-width="1.3"/>`;
+}
+const ART = {
+  polymerase: () => SVG('0 0 400 122', 'RNA-polymerase opent de DNA-dubbelstreng en bouwt tegen één streng een mRNA', `
+    <text class="plaats" x="6" y="12">KERN</text>
+    <path d="M${Array.from({length:8}, (_,i) => `${20+i*12} 54V70`).join('M')}M${Array.from({length:9}, (_,i) => `${284+i*12} 54V70`).join('M')}" stroke-width="1" opacity=".55"/>
+    <path class="s-dna" d="M10 52H118C138 52 148 30 170 30H222C244 30 254 52 274 52H392" stroke-width="2"/>
+    <path class="s-dna" d="M10 72H118C138 72 148 94 170 94H222C244 94 254 72 274 72H392" stroke-width="2"/>
+    <path class="goud" d="M178 44C178 30 252 30 254 52C256 76 238 92 214 92C190 92 176 70 178 44Z" fill="var(--goud-soft)" stroke-width="1.6"/>
+    <path class="s-rna" d="M226 84C210 82 200 96 186 102S158 104 148 112S126 116 112 112" stroke-width="1.5"/>
+    <text class="t-aan" x="216" y="20" text-anchor="middle">RNA-polymerase (jij)</text>
+    <text x="392" y="44" text-anchor="end">DNA</text>
+    <text class="klein" x="284" y="88">${VWO() ? 'matrijsstreng' : 'afgelezen streng'}</text>
+    <text x="104" y="115" text-anchor="end">mRNA</text>`),
+  ribosoom: () => SVG('0 0 400 152', 'Ribosoom op het mRNA: grote en kleine subeenheid, twee tRNA\'s binnenin, een derde tRNA met aminozuur komt aan; de keten groeit', `
+    <path class="s-rna" d="M14 100H386" stroke-width="1.6"/>
+    <path class="s-rna" d="${Array.from({length:37}, (_,i) => { const x = 15 + i*10; return `M${x} 100v${(x-15) % 30 === 0 ? 6 : 3}`; }).join('')}" stroke-width="1"/>
+    <path d="M136 92C136 50 160 40 200 40S264 50 264 92Z" stroke-width="1.6"/>
+    <path d="M146 106C146 126 254 126 254 106Z" stroke-width="1.6"/>
+    ${trnaVorm(180, 56, 97)}${trnaVorm(210, 56, 97)}
+    ${kralen([[124,22],[136,30],[148,24],[160,34],[170,42],[180,50]], 4.2)}
+    <circle class="k-aa2" cx="210" cy="50" r="4.2"/>
+    <path class="goud" d="M185 50H205" stroke-width="2.2"/>
+    ${trnaVorm(330, 34, 76)}<circle class="k-aa" cx="330" cy="28" r="4.2"/>
+    <path class="goud" d="M315 108v4H345v-4" stroke-width="1.6"/>
+    <text x="114" y="26" text-anchor="end">keten</text>
+    <text class="klein" x="130" y="74" text-anchor="end">grote</text><text class="klein" x="130" y="84" text-anchor="end">subeenheid</text>
+    <text class="klein" x="140" y="118" text-anchor="end">kleine subeenheid</text>
+    <text x="344" y="52">tRNA</text>
+    <text class="klein" x="340" y="25">aminozuur</text>
+    ${VWO() ? '<text class="klein" x="346" y="80">anticodon</text>' : ''}
+    <text class="klein t-aan" x="330" y="126" text-anchor="middle">codon</text>
+    <text x="396" y="122" text-anchor="end">mRNA</text>
+    <text class="klein" x="200" y="146" text-anchor="middle">ribosoom schuift codon voor codon →</text>
+    ${VWO() ? `<text class="klein" x="8" y="94">5'</text><text class="klein" x="398" y="94" text-anchor="end">3'</text>` : ''}`),
+  mutatie: () => {
+    const rij = (x, letters, kleur) => letters.map((l,i) => { const xx = x + i*16; const c = kleur[i] || ''; return `<text class="${c === 'g' ? 't-aan' : c === 'k' ? '' : ''}" x="${xx}" y="40" text-anchor="middle"${c === 'k' ? ' style="fill:var(--koraal)"' : ''}>${l}</text>`; }).join('');
+    const streng = (x, n, marks) => `<path class="s-dna" d="M${x-8} 56H${x + (n-1)*16 + 8}" stroke-width="1.8"/>` + Array.from({length:n}, (_,i) => `<path class="${marks[i] === 'g' ? 'goud' : marks[i] === 'k' ? 'koraal' : 's-dna'}" d="M${x + i*16} 56V46" stroke-width="${marks[i] ? 2 : 1.3}"${marks[i] === 'k' ? ' stroke-dasharray="2 2"' : ''}/>`).join('');
+    const oud = x => `<text class="klein" x="${x - 10}" y="18" text-anchor="end">was</text>` + 'TACCGA'.split('').map((l,i) => `<text class="klein" x="${x + i*16}" y="18" text-anchor="middle">${l}</text>`).join('');
+    return SVG('0 0 400 100', 'Drie soorten verandering in het DNA: substitutie, deletie en insertie', `
+      ${oud(36)}${rij(36, [...'TACTGA'], {3:'g'})}${streng(36, 6, {3:'g'})}
+      ${oud(166)}${rij(166, ['T','A','C','·','G','A'], {3:'k'})}${streng(166, 6, {3:'k'})}
+      ${oud(300)}${rij(292, [...'TACACGA'], {3:'g'})}${streng(292, 7, {3:'g'})}
+      <text class="t-aan" x="76" y="76" text-anchor="middle">substitutie</text><text class="klein" x="76" y="90" text-anchor="middle">base vervangen</text>
+      <text class="t-aan" x="206" y="76" text-anchor="middle">deletie</text><text class="klein" x="206" y="90" text-anchor="middle">base weg</text>
+      <text class="t-aan" x="340" y="76" text-anchor="middle">insertie</text><text class="klein" x="340" y="90" text-anchor="middle">base erbij</text>`);
+  },
+  vouwen: () => SVG('0 0 400 110', 'Het ribosoom valt uit elkaar bij het stopcodon, de keten laat los en vouwt zich op tot een eiwit', `
+    <path class="s-rna" d="M10 80c10-5 18 4 28 0s18-4 28 0 18 4 28 0 18-4 28 0 18 4 26 0" stroke-width="1.4"/>
+    <path d="M58 60C58 38 102 38 102 60Z" stroke-width="1.5"/>
+    <path d="M62 94C62 104 98 104 98 94Z" stroke-width="1.5"/>
+    ${kralen([[110,48],[124,44],[138,48],[152,44],[166,48],[180,44],[194,48],[208,46],[222,50]], 3.8)}
+    <path class="s-aa" d="M222 50C240 54 258 58 274 56" stroke-width="1.6"/>
+    ${kralen(kluwen(304, 54, 16, 30), 3.8)}
+    <text class="klein" x="80" y="30" text-anchor="middle">ribosoom laat los</text>
+    <text x="166" y="32" text-anchor="middle">keten</text>
+    <text class="t-aan" x="300" y="100" text-anchor="middle">eiwit, opgevouwen</text>`)
+};
+const kunst = naam => `<figure class="kunst" aria-hidden="false">${ART[naam]()}</figure>`;
 
 /* ---- gesprek ---- */
 const log = $('#log');
@@ -791,7 +912,7 @@ function stepFree({phase, q, model, react, onDone, continueLabel, vwo=false}){
 
 function stepMCq({phase, q, options, correct, hints, explain, intro, vwo=false}){
   const st = S({phase, vwo, enter(){
-    if (intro && !st.isPractice) [].concat(intro).forEach(m => bot(m));
+    if (intro && !st.isPractice) [].concat(intro).forEach(m => bot(typeof m === 'function' ? m() : m));
     bot(q);
     if (st.bench) setBench(st.bench); else setBench({note: st.note || 'Hier verschijnen de strengen waar je aan werkt.'});
     choiceWidget(options, (i, label) => {
@@ -808,7 +929,8 @@ function stepStrands(){
   if (VWO()){
     s = stepMCq({phase:1, vwo:true,
       intro:[
-        '<p><strong>Fase 1: transcriptie.</strong> Kijk eerst naar je werkbank. DNA is <strong>dubbelstrengs</strong>: twee strengen waarvan de basen paren vormen (A met T, C met G). De strengen lopen in tegengestelde richting: de ene van 5\' naar 3\', de andere van 3\' naar 5\'.</p>',
+        () => '<p><strong>Fase 1: transcriptie.</strong> Jij, het RNA-polymerase, gaat op het begin van een gen zitten. Daar haal je de twee DNA-strengen even uit elkaar en bouw je tegen één streng een mRNA.</p>' + kunst('polymerase'),
+        '<p>Kijk nu naar je werkbank. DNA is <strong>dubbelstrengs</strong>: twee strengen waarvan de basen paren vormen (A met T, C met G). De strengen lopen in tegengestelde richting: de ene van 5\' naar 3\', de andere van 3\' naar 5\'.</p>',
         '<p>Jij gebruikt maar één van de twee als mal: de <strong>matrijsstreng</strong>. Tegen die streng bouw je het mRNA, base voor base. De andere streng heet de <strong>coderende streng</strong>.</p>'],
       q:'<p>Welke streng gebruik jij als RNA-polymerase als mal om het mRNA te bouwen?</p>',
       options:['De coderende streng','De matrijsstreng','Allebei tegelijk'], correct:1,
@@ -818,7 +940,7 @@ function stepStrands(){
       caption:'Twee strengen, verbonden via de basenparen A–T en C–G (stippellijnen). Boven loopt de streng van 5\' naar 3\', onder van 3\' naar 5\'.'};
   } else {
     s = stepMCq({phase:1,
-      intro:['<p><strong>Fase 1: transcriptie.</strong> Kijk eerst naar je werkbank. DNA is <strong>dubbelstrengs</strong>: twee strengen waarvan de basen paren vormen (A met T, C met G).</p><p>Jij gaat op het begin van een gen zitten en haalt de twee strengen daar uit elkaar.</p>'],
+      intro:[() => '<p><strong>Fase 1: transcriptie.</strong> Jij, het RNA-polymerase, gaat op het begin van een gen zitten. Daar haal je de twee DNA-strengen even uit elkaar en bouw je tegen één streng een mRNA.</p>' + kunst('polymerase'), '<p>Kijk nu naar je werkbank. DNA is <strong>dubbelstrengs</strong>: twee strengen waarvan de basen paren vormen (A met T, C met G).</p>'],
       q:'<p>Hoeveel van de twee DNA-strengen lees jij af om het mRNA te bouwen?</p>',
       options:['Eén streng','Allebei de strengen'], correct:0,
       hints:{1:{msg:'Het mRNA is één streng. Tegenover hoeveel DNA-strengen kun je het dan bouwen?'}},
@@ -920,6 +1042,28 @@ function stepTranslate({phase, mrna, start=0, intro, grouped=true, offset=0, fra
   return st;
 }
 
+/* uitleg over het ribosoom aan het begin van de translatie, met één controlevraag */
+function stepRibosoom(){
+  const v = t => VWO() ? ` <span class="vwo-label">vwo</span> ${t}` : '';
+  const st = stepMCq({phase:2,
+    intro:[
+      '<p><strong>Fase 2: translatie.</strong> Je mRNA is door een kernporie de kern uit gegaan. Jij bent nu een <strong>ribosoom</strong> in het cytoplasma. Zo werk je:</p>',
+      () => kunst('ribosoom') + `<ol>
+        <li>Een ribosoom bestaat uit twee delen: een <strong>kleine</strong> en een <strong>grote subeenheid</strong>. Die klemmen samen om het mRNA.</li>
+        <li>Je schuift langs het mRNA en leest het per drie nucleotiden: een <strong>codon</strong>. Je begint bij het startcodon AUG.${v(`Je schuift van ${P5} naar ${P3}.`)}</li>
+        <li><strong>tRNA</strong>-moleculen brengen de aminozuren. Elk tRNA draagt één bepaald aminozuur. Alleen het tRNA dat past, blijft aan het codon hangen.${v('Het tRNA past met zijn <strong>anticodon</strong>: drie basen die paren met de basen van het codon.')}</li>
+        <li>Jij koppelt het nieuwe aminozuur met een <strong>peptidebinding</strong> aan de keten. Dan schuif je één codon op.</li>
+        <li>Bij een <strong>stopcodon</strong> past geen tRNA. Je valt uit elkaar in je twee subeenheden, en de keten laat los.</li>
+      </ol>`],
+    q:'<p>Controlevraag: wat gebeurt er als jij bij een stopcodon komt?</p>',
+    options:['Een tRNA brengt het aminozuur ‘stop’ en dat komt aan het eind van de keten', 'Er past geen tRNA: het ribosoom valt uit elkaar en de keten laat los', 'Je springt terug naar het startcodon en begint opnieuw'], correct:1,
+    hints:{0:{mis:'stop', msg:'Een stopcodon levert geen aminozuur op. Is er dan een tRNA dat past?'}, 2:{msg:'Bij een stopcodon is het eiwit af. Wat gebeurt er dan met het ribosoom en de keten?'}},
+    explain:() => '<p>Bij een stopcodon past geen tRNA, dus er komt geen aminozuur bij. Het ribosoom valt uit elkaar in een kleine en een grote subeenheid, en de keten laat los.</p>'});
+  st.okMsg = 'Klopt. Er komt geen aminozuur bij: het ribosoom valt uit elkaar en de keten laat los.';
+  st.note = 'Straks staat hier je mRNA. Het ribosoom leest het codon voor codon.';
+  return st;
+}
+
 function stepCount(mrna=M1B){
   const tr = translate(mrna, 0), n = tr.aas.length, codons = n + 1;
   const st = S({phase:2, enter(){
@@ -969,77 +1113,109 @@ function stepPick(mrna=M3, start=2){
   return st;
 }
 
-const MUT = {
-  stil:      {knop:'Stille mutatie: het eiwit verandert niet', naam:'stille mutatie'},
-  missense:  {knop:'Eén ander aminozuur', naam:'mutatie met één ander aminozuur (missense)'},
-  nonsense:  {knop:'Te vroeg een stopcodon', naam:'mutatie met een te vroeg stopcodon (nonsense)'},
-  frameshift:{knop:'Deletie: het leesraam verschuift', naam:'deletie met leesraamverschuiving (frameshift)'}
+/* Indeling zoals in film 5 en de methodes: eerst de soort verandering in het DNA, dan het gevolg voor het eiwit */
+const DNA_SOORT = {stil:'substitutie', ander:'substitutie', stop:'substitutie', deletie:'deletie', insertie:'insertie'};
+const SOORT = {
+  substitutie:{knop:'<strong>Substitutie</strong>: één base is vervangen door een andere', why:'Er is één base vervangen door een andere: een substitutie.'},
+  deletie:{knop:'<strong>Deletie</strong>: er is een base weg', why:'Er is een base weggevallen: een deletie.'},
+  insertie:{knop:'<strong>Insertie</strong>: er is een base bij gekomen', why:'Er is een base bij gekomen: een insertie.'}
 };
-const WHY = {
-  stil:'Het codon verandert, maar codeert nog steeds voor hetzelfde aminozuur.',
-  missense:'Eén aminozuur wordt vervangen door een ander; de rest van het eiwit blijft gelijk.',
-  nonsense:'Er ontstaat te vroeg een stopcodon, dus het eiwit wordt veel korter.',
-  frameshift:'Door de deletie verschuift het leesraam, zodat alle codons daarna anders zijn.'
+const GEVOLG = {
+  stil:{knop:'Geen verandering: hetzelfde eiwit (<strong>stille mutatie</strong>)', why:'Het codon is veranderd, maar het staat nog steeds voor hetzelfde aminozuur. Het eiwit blijft gelijk: een stille mutatie.'},
+  ander:{knop:'<strong>Eén ander aminozuur</strong>, de rest blijft gelijk', why:'Het veranderde codon staat voor een ander aminozuur. Eén aminozuur is vervangen; de rest van het eiwit blijft gelijk.'},
+  stop:{knop:'<strong>Te vroeg een stopcodon</strong>: het eiwit is te kort', why:'Het veranderde codon is een stopcodon. Het ribosoom stopt daar al, dus het eiwit is te kort.'},
+  leesraam:{knop:'<strong>Leesraamverschuiving</strong>: vanaf de mutatie zijn alle codons anders', why:'Het ribosoom leest per drie, zonder spaties. Door één base minder of meer verschuift de indeling in drietallen: vanaf de mutatie zijn alle codons anders.'}
 };
-function stepMutType({answer, isPractice=false}){
-  const keys = ['stil','missense','nonsense','frameshift'];
+const gevolgVan = kind => kind === 'deletie' || kind === 'insertie' ? 'leesraam' : kind;
+
+function stepMutSoort({kind, isPractice=false}){
+  const keys = ['substitutie','deletie','insertie'], answer = DNA_SOORT[kind];
   const HINT = {
-    stil:'Bij een stille mutatie blijft het eiwit precies gelijk. Is dat hier zo? Vergelijk je nieuwe eiwit met het origineel.',
-    missense:'Dan wordt één aminozuur vervangen door een ander, en blijft de rest gelijk. Is dat hier gebeurd?',
-    nonsense:'Dan ontstaat er te vroeg een stopcodon. Is dat hier het geval?',
-    frameshift:'Dan verschuift het leesraam, doordat er een nucleotide bij komt of verdwijnt. Is er hier een nucleotide verdwenen?'
+    substitutie:'Bij een substitutie blijft het aantal basen gelijk: één base is vervangen door een andere. Is dat hier zo? Tel de basen in het triplet.',
+    deletie:'Bij een deletie is er een base weg, dus het DNA wordt korter. Is er hier een base verdwenen?',
+    insertie:'Bij een insertie komt er een base bij, dus het DNA wordt langer. Is er hier een base bij gekomen?'
   };
   const st = S({phase:4, isPractice, enter(){
-    bot('Wat voor mutatie is dit?');
-    choiceWidget(keys.map(k => MUT[k].knop), (i, label) => {
-      if (keys[i] === answer) return handle(st, {ok:true, msg:`Klopt. ${WHY[answer]}`}, label);
+    bot('<p><strong>Eerst het DNA.</strong> Wat voor verandering in het DNA is dit?</p>');
+    choiceWidget(keys.map(k => SOORT[k].knop), (i, label) => {
+      if (keys[i] === answer) return handle(st, {ok:true, msg:`Klopt. ${SOORT[answer].why}`}, label);
       handle(st, {ok:false, msg:HINT[keys[i]]}, label);
-    });
+    }, 'Verandering in het DNA');
   },
-  explain: () => `<p>Bij een <strong>stille mutatie</strong> verandert het codon, maar niet het aminozuur. Soms verandert er <strong>één aminozuur</strong>. Soms ontstaat <strong>te vroeg een stopcodon</strong>. Bij een <strong>deletie</strong> (of insertie) verschuift het leesraam.</p><p>Hier is het een ${MUT[answer].naam}: ${WHY[answer]}</p>`});
+  explain: () => `<p>Er zijn drie soorten puntmutaties: een base vervangen door een andere (<strong>substitutie</strong>), een base weg (<strong>deletie</strong>) of een base erbij (<strong>insertie</strong>).</p><p>Hier: ${SOORT[answer].why}</p>`});
   return st;
 }
+function stepMutGevolg({kind, isPractice=false}){
+  const keys = ['stil','ander','stop','leesraam'], answer = gevolgVan(kind);
+  const HINT = {
+    stil:'Bij een stille mutatie blijft het eiwit precies gelijk. Is dat hier zo? Vergelijk je nieuwe eiwit met het oude.',
+    ander:'Dan is precies één aminozuur anders en blijft de rest gelijk. Klopt dat hier? Vergelijk aminozuur voor aminozuur.',
+    stop:'Dan wordt een codon een stopcodon en stopt het eiwit daar. Is dat hier gebeurd?',
+    leesraam:'Het leesraam verschuift alleen als er een base bij komt of weg gaat. Is het aantal basen hier veranderd?'
+  };
+  const st = S({phase:4, isPractice, enter(){
+    bot('<p><strong>Dan het eiwit.</strong> Wat is het gevolg van deze mutatie voor het eiwit?</p>');
+    choiceWidget(keys.map(k => GEVOLG[k].knop), (i, label) => {
+      if (keys[i] === answer) return handle(st, {ok:true, msg:`Klopt. ${GEVOLG[answer].why}`}, label);
+      handle(st, {ok:false, msg:HINT[keys[i]]}, label);
+    }, 'Gevolg voor het eiwit');
+  },
+  explain: () => `<p>Een <strong>substitutie</strong> geeft geen verandering (stille mutatie), één ander aminozuur, of te vroeg een stopcodon. Een <strong>deletie</strong> of <strong>insertie</strong> van één base geeft een leesraamverschuiving.</p><p>Hier: ${GEVOLG[answer].why}</p>`});
+  return st;
+}
+const mutTypeSteps = (kind, isPractice=false) => [stepMutSoort({kind, isPractice}), stepMutGevolg({kind, isPractice})];
 
 function mutPracticeSteps(kind){
   const m = mutPractice(kind);
   const orig = translate(m.mrna, 0).aas.join('-');
-  const rows = () => kind === 'frameshift'
+  const rows = () => kind === 'deletie'
     ? [{name:STR(), soort:'dna', left:P3, right:P5, seq:m.templ, del:m.delIndex}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:m.mrna, del:m.delIndex}]
+    : kind === 'insertie'
+    ? [{name:STR() + ', nieuw', soort:'dna', left:P3, right:P5, seq:m.templMut, mark:m.insIndex}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:metGat(m.mrna, m.insIndex)}]
     : [{name:STR() + ', nieuw', soort:'dna', left:P3, right:P5, seq:m.templMut, mark:m.markIndex}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:m.mrna}];
-  const s1 = stepTranslate({phase:4, mrna:m.mm, start:0, benchRows:rows, sub:'Mutatie · oefening', aaRow: kind !== 'frameshift',
-    intro:() => [`<p>Oefenmutatie. Het mRNA is ${fR(m.mrna)}, met als eiwit ${orig}.</p><p>${m.desc} Wat wordt het nieuwe eiwit?</p>`]});
+  const s1 = stepTranslate({phase:4, mrna:m.mm, start:0, benchRows:rows, sub:'Mutatie · oefening', aaRow: gevolgVan(kind) !== 'leesraam',
+    intro:() => [`<p>Oefenmutatie. Het mRNA is ${fR(m.mrna)}, met als eiwit ${orig}.</p><p>${m.desc} Wat wordt het nieuwe eiwit?${gevolgVan(kind) === 'leesraam' ? ' Vertaal tot een stopcodon, of tot het einde van het mRNA.' : ''}</p>`]});
   s1.practice = null;
-  return [s1, stepMutType({answer:kind, isPractice:true})];
+  return [s1, ...mutTypeSteps(kind, true)];
 }
+/* oud mRNA met een lege plek waar in het DNA een base bij kwam, zodat de rijen gelijk blijven */
+const metGat = (m, i) => [...m.slice(0, i), '', ...m.slice(i)];
 
 function mutSteps(){
   const mk = (tIdx, from, to) => { const t = T1B.slice(0, tIdx*3) + to + T1B.slice(tIdx*3 + 3); let p = 0; while (from[p] === to[p]) p++; return {t, mark: tIdx*3 + p}; };
+  const T_INS = T1B.slice(0,6) + 'G' + T1B.slice(6);   /* extra G aan het begin van het 3e triplet */
   const defs = [
-    {letter:'a', kind:'stil',     ...mk(1,'CGA','CGG'), text:() => `In het 2e triplet van de ${STR()} verandert CGA in CGG.`},
-    {letter:'b', kind:'missense', ...mk(3,'TTT','CTT'), text:() => `In het 4e triplet van de ${STR()} verandert TTT in CTT.`},
-    {letter:'c', kind:'nonsense', ...mk(2,'ACC','ACT'), text:() => `In het 3e triplet van de ${STR()} verandert ACC in ACT.`},
-    {letter:'d', kind:'frameshift', text:() => `In de ${STR()} valt de C aan het begin van het 2e triplet (CGA) weg. Het mRNA mist daardoor de G aan het begin van het 2e codon.`}
+    {letter:'a', kind:'stil',  ...mk(1,'CGA','CGG'), text:() => `In het 2e triplet van de ${STR()} verandert CGA in CGG.`},
+    {letter:'b', kind:'ander', ...mk(3,'TTT','CTT'), text:() => `In het 4e triplet van de ${STR()} verandert TTT in CTT.`},
+    {letter:'c', kind:'stop',  ...mk(2,'ACC','ACT'), text:() => `In het 3e triplet van de ${STR()} verandert ACC in ACT.`},
+    {letter:'d', kind:'deletie', text:() => `In de ${STR()} valt de C aan het begin van het 2e triplet (CGA) weg. Het mRNA mist daardoor de G aan het begin van het 2e codon.`},
+    {letter:'e', kind:'insertie', t:T_INS, mark:6, text:() => `In de ${STR()} komt aan het begin van het 3e triplet een extra G bij. Het mRNA krijgt daar dus een extra C.`}
   ];
   const out = [];
   defs.forEach((d, n) => {
-    const frameshift = d.kind === 'frameshift';
-    const mm = frameshift ? M1B.slice(0,3) + M1B.slice(4) : mrnaFromTemplate(d.t);
-    const rows = () => frameshift
+    const leesraam = gevolgVan(d.kind) === 'leesraam';
+    const mm = d.kind === 'deletie' ? M1B.slice(0,3) + M1B.slice(4) : mrnaFromTemplate(d.t);
+    const rows = () => d.kind === 'deletie'
       ? [{name:STR(), soort:'dna', left:P3, right:P5, seq:T1B, del:3}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:M1B, del:3}]
+      : d.kind === 'insertie'
+      ? [{name:STR() + ', nieuw', soort:'dna', left:P3, right:P5, seq:d.t, mark:d.mark}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:metGat(M1B, d.mark)}]
       : [{name:STR() + ', nieuw', soort:'dna', left:P3, right:P5, seq:d.t, mark:d.mark}, {name:'mRNA, oud', soort:'rna', left:P5, right:P3, seq:M1B}];
     const intro = () => {
       const r = [];
-      if (n === 0) r.push(`<p><strong>Fase 4: mutaties.</strong> Een mutatie is een verandering in het DNA. Het mRNA neemt die verandering over. We gaan terug naar het gen uit fase 1: mRNA ${fR(M1B)}, eiwit Met-Ala-Trp-Lys-Asp.</p><p>Steeds verandert er iets kleins in de ${STR()}. Bepaal het nieuwe eiwit en benoem de mutatie.</p>`);
-      r.push(`<p><strong>Mutatie ${d.letter}.</strong> ${d.text()} Wat wordt het nieuwe eiwit?${frameshift ? ' Vertaal tot een stopcodon, of tot het einde van het mRNA.' : ''}</p>`);
+      if (n === 0){
+        r.push(`<p><strong>Fase 4: mutaties.</strong> Een mutatie is een verandering in de volgorde van de basen in het DNA. Het mRNA neemt die verandering over. Een verandering van één basenpaar heet een <strong>puntmutatie</strong>. Er zijn drie soorten:</p>` + kunst('mutatie') + `<p>Wat zo'n verandering met het eiwit doet, zoek je op in de codontabel. Je benoemt dus steeds twee dingen: eerst de verandering in het DNA, dan het gevolg voor het eiwit.</p>`);
+        r.push(`<p>We gaan terug naar het gen uit fase 1: mRNA ${fR(M1B)}, eiwit Met-Ala-Trp-Lys-Asp. Steeds verandert er iets kleins in de ${STR()}.</p>`);
+      }
+      r.push(`<p><strong>Mutatie ${d.letter}.</strong> ${d.text()} Wat wordt het nieuwe eiwit?${leesraam ? ' Vertaal tot een stopcodon, of tot het einde van het mRNA.' : ''}</p>`);
       return r;
     };
-    const s = stepTranslate({phase:4, mrna:mm, start:0, benchRows:rows, sub:`Mutatie ${d.letter}`, aaRow:!frameshift, intro});
+    const s = stepTranslate({phase:4, mrna:mm, start:0, benchRows:rows, sub:`Mutatie ${d.letter}`, aaRow:!leesraam, intro});
     s.practice = () => mutPracticeSteps(d.kind);
-    out.push(s, stepMutType({answer:d.kind}));
+    out.push(s, ...mutTypeSteps(d.kind));
   });
   out.push(stepFree({phase:4,
-    q:'<p>Laatste vraag van de uitdaging: welke mutatie heeft waarschijnlijk het grootste effect op het eiwit, en waarom?</p>',
-    model:'<p>De deletie (d) en de mutatie met een te vroeg stopcodon (c) hebben het grootste effect. Bij c stopt het eiwit al na twee aminozuren. Bij d verschuift het leesraam, zodat alle aminozuren na de deletie veranderen en het stopcodon verdwijnt. De stille mutatie (a) verandert niets aan het eiwit, en bij b verandert één aminozuur.</p>'}));
+    q:'<p>Laatste vraag van de uitdaging: welke mutaties hebben waarschijnlijk het grootste effect op het eiwit, en waarom?</p>',
+    model:'<p>De substitutie met een te vroeg stopcodon (c), de deletie (d) en de insertie (e). Bij c stopt het eiwit al na twee aminozuren. Bij d en e verschuift het leesraam, zodat alle aminozuren na de mutatie anders zijn. De stille mutatie (a) verandert niets aan het eiwit, en bij b verandert één aminozuur.</p>'}));
   return out;
 }
 
@@ -1106,7 +1282,7 @@ function closingSteps(){
         explain:() => '<p>Elk aminozuur hoort bij een codon van drie nucleotiden: 120 × 3 = 360. Het stopcodon levert geen aminozuur, maar staat wel in het mRNA: 360 + 3 = 363.</p>'});
   const end = S({phase:5, enter(){
     setBench({note:'Het eiwit is klaar: de keten laat het ribosoom los en vouwt zich op. De productie zit erop.'});
-    bot(`<p><strong>Klaar!</strong> ${summary()}</p><p>Onder <strong>Mijn resultaat</strong> staat je samenvatting. Die kun je printen of als pdf bewaren en inleveren.</p>`);
+    bot(`<p><strong>Klaar!</strong> Bij het stopcodon valt het ribosoom uit elkaar. De keten laat los en vouwt zich op tot een eiwit met een eigen vorm.</p>${kunst('vouwen')}<p>${summary()}</p><p>Onder <strong>Mijn resultaat</strong> staat je samenvatting. Die kun je printen of als pdf bewaren en inleveren.</p>`);
     toonResultaat(true);
     choiceWidget(['Bekijk mijn resultaat','Opnieuw beginnen'], i => { if (i === 0) toonResultaat(true, true); else start(); });
   }});
@@ -1137,9 +1313,10 @@ function buildMain(){
       continueLabel:'Door naar de translatie',
       model:'<p>Ze hebben dezelfde volgorde, alleen staat in het DNA een T waar het mRNA een U heeft. Logisch: allebei zijn ze complementair aan de matrijsstreng. Op je werkbank zie je de T\'s en U\'s nu met een gouden rand.</p>'}));
   lijst.push(
+    stepRibosoom(),
     stepTranslate({phase:2, mrna:M1B, openTable:true,
       intro:() => [
-        '<p><strong>Fase 2: translatie.</strong> Je mRNA is door een kernporie de kern uit gegaan. Jij bent nu een ribosoom in het cytoplasma.</p><p>Je leest het mRNA per drie nucleotiden: een <strong>codon</strong>. Je begint bij het startcodon AUG. Een <strong>tRNA</strong> brengt steeds het passende aminozuur, en jij koppelt de aminozuren met een <strong>peptidebinding</strong> aan elkaar. Zo groeit een keten. Bij een stopcodon laat je het mRNA los.</p>' + (VWO() ? '<p><span class="vwo-label">vwo</span> Het tRNA past met zijn <strong>anticodon</strong> op het codon. In de codontabel zoek je het <strong>codon</strong> van het mRNA op, niet het anticodon.</p>' : ''),
+        '<p>Nu ga je zelf vertalen. Jij bent het ribosoom: jij zoekt bij elk codon op welk aminozuur het tRNA brengt.</p>' + (VWO() ? '<p><span class="vwo-label">vwo</span> In de codontabel zoek je het <strong>codon</strong> van het mRNA op, niet het anticodon van het tRNA.</p>' : ''),
         `<p>De codontabel staat bij je werkbank. Vertaal het mRNA ${fR(M1B)} codon voor codon. Schrijf de aminozuren met de drielettercode (of de naam), met streepjes ertussen.</p>`]}),
     stepCount(),
     stepTranscribe({phase:3, template:T3, grouped:false,

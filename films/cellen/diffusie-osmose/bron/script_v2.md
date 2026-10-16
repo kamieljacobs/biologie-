@@ -9,7 +9,7 @@ Leerdoelen
 2. basis — diffusie: netto verplaatsing van hoge naar lage concentratie; bij evenwicht bewegen ze door, netto nul
 3. basis — vier factoren (temperatuur, concentratieverschil, afstand, oppervlak), toegepast op longblaasjes
 4. basis — het celmembraan is selectief doorlatend (selectief permeabel): zuurstof en koolstofdioxide makkelijk, ionen en glucose niet door de vetlaag
-5. basis — osmose: water gaat door een semipermeabel membraan naar de kant met de hoogste osmotische waarde (de meeste opgeloste deeltjes die er niet door kunnen); oorzaak: terugkaatsende deeltjes verlagen de druk bij de gaatjes aan die kant; plantencel (plasmolyse, turgor, barst niet) en rode bloedcel (hemolyse, krimpen) voorspellen
+5. basis — osmose: water gaat door een semipermeabel membraan naar de kant met de hoogste osmotische waarde (de hoogste concentratie opgeloste deeltjes die er niet door kunnen); oorzaak: terugkaatsende deeltjes verlagen de druk bij de gaatjes aan die kant; plantencel (plasmolyse, turgor, barst niet) en rode bloedcel (hemolyse, krimpen) voorspellen
 6. basis — passief transport (zonder energie van de cel) versus actief transport (tegen het concentratieverschil in, kost ATP)
 7. vwo — gefaciliteerde diffusie via kanaaleiwitten (waterkanalen) en dragereiwitten, zonder ATP
 8. basis — isotonisch, hypotonisch, hypertonisch; infuus (besluit Kamiel 12 okt: naar havo-deel)
@@ -67,7 +67,7 @@ Een flinterdunne wand, dus een korte afstand. En honderden miljoenen longblaasje
 Zuurstof gaat het bloed in, koolstofdioxide eruit. Allebei door diffusie.
 
 ## Hoofdstuk 4 — De grens: het celmembraan [Micro]
-Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen.
+Om elke cel zit een celmembraan: een dubbele laag vetachtige moleculen. Kijk eerst naar de bouw. Het membraan bestaat uit fosfolipiden: elk met een kop die van water houdt, hydrofiel, en twee vetstaarten die water afstoten, hydrofoob. De koppen liggen naar het water toe, de staarten naar binnen, tegen elkaar: midden in het membraan zit dus een laag vet.
 Het membraan laat sommige stoffen door en andere niet. Het is selectief doorlatend. In je boek: selectief permeabel.
 Welke stof komt het makkelijkst door? Wat denk je?
 [VRAAG] (a) zuurstof · (b) een natriumion · (c) glucose
@@ -76,7 +76,7 @@ Een natriumion is kleiner dan glucose, maar het heeft een lading. Het komt niet 
 Glucose ook niet: dat lost slecht op in vet.
 Het membraan is dus geen zeef die alleen naar grootte kijkt.
 Water gaat er wel doorheen: een beetje door de vetlaag, en in veel cellen vooral door speciale kanaaltjes.
-Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag.
+Ook glucose heeft zo'n eigen doorgang nodig. Het gaat dan nog steeds vanzelf, van hoog naar laag. Dus: stoffen die goed in vet oplossen, gaan zelf door het membraan. Stoffen die goed in water oplossen, en ionen, hebben een eiwit in het membraan nodig.
 
 [VWO-START] Voor vwo nog een stap. Die doorgangen zijn eiwitten in het membraan.
 Kanaaleiwitten vormen een tunnel voor een bepaald soort deeltje. Zo zijn er waterkanalen.
@@ -94,11 +94,11 @@ Wat gebeurt er met het water? Wat denk je?
 [VRAAG] (a) het water gaat naar links · (b) het water gaat naar rechts, naar het zout · (c) er gebeurt niets, want het zout kan er niet door
 Het water gaat naar rechts. Maar waarom?
 Je hoort vaak: het zout trekt water aan. Maar zout trekt niet.
-Of: rechts is minder water, dus gaat water erheen. Rechts is wel iets minder water. Maar dat verschil is veel te klein voor zo'n sterke stroom.
+Of: rechts is minder water, dus gaat water erheen. Dat klopt: dat kleine verschil in water is de oorzaak. Maar het water gaat niet molecuul voor molecuul naar rechts. Het stroomt door het gaatje, als één geheel. Kijk maar hoe dat komt.
 
 Kijk naar een gaatje in het membraan, van dichtbij.
 Rechts botsen de zoutdeeltjes tegen het membraan. Ze kunnen er niet door, en kaatsen terug.
-Bij dat terugkaatsen nemen ze water mee, weg van het gaatje.
+Bij dat terugkaatsen geven ze het water om hen heen een duw, weg van het gaatje.
 Daardoor is de druk in de opening van het gaatje aan de zoute kant lager.
 Links duwt het water harder. Dus stroomt het water door het gaatje naar rechts, als door een rietje.
 Dat heet osmose. Water gaat door een semipermeabel membraan naar de kant met de hoogste concentratie opgeloste deeltjes die er niet door kunnen.
@@ -108,7 +108,7 @@ De richting klopt altijd. Op een toets schrijf je: water gaat naar de kant met d
 Zet het membraan in een U-buis. Het water rechts stijgt.
 Maar hoe hoger de kolom, hoe harder die terugduwt.
 Op een bepaalde hoogte duwt de kolom precies even hard terug als het water dat door osmose naar rechts wil. Netto stroomt er dan geen water meer.
-Hoe meer opgeloste deeltjes rechts, hoe hoger die kolom wordt.
+Hoe hoger de concentratie opgeloste deeltjes rechts, hoe hoger die kolom wordt. Tel daarbij deeltjes, geen moleculen. Keukenzout valt in water uiteen in twee ionen: natrium en chloride. Glucose blijft heel. Eén mol zout per liter geeft dus twee mol deeltjes, één mol glucose per liter maar één. De zoutoplossing heeft daardoor twee keer zo'n hoge osmotische waarde.
 
 Zet een plantencel in zout water. Water gaat de cel uit. De vacuole krimpt, en het celmembraan laat los van de celwand. Dat heet plasmolyse.
 In zuiver water gaat er water de cel in. De cel zwelt en drukt tegen de celwand, en de wand duwt terug.
