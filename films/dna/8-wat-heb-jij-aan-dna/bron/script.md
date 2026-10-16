@@ -43,64 +43,66 @@ Een paar dagen na de geboorte komt iemand van de jeugdgezondheidszorg of de verl
 Bijna alle ouders doen de hielprik, maar de NIPT is een echte keuze. Hoe komt dat? Wat denk je?
 
 ## n9 · Hoofdstuk 2 — Een kind op komst · basis
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 *begin 4:33 / 4:33 · 68.2 s*
 
 Antwoord A. Allebei de testen zijn vrijwillig, en allebei zijn het screening: een aanbod aan iedereen, zonder dat er een klacht is. Een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd. Het verschil zit in wat je daarna met de uitslag kunt. Bij de hielprik is de uitslag het begin van een behandeling. Bij de NIPT is de uitslag het begin van een afweging. Er is nog een test, vóór een zwangerschap: de dragerschapstest. Die vraag je zelf aan, via de huisarts of een klinisch geneticus. Je kunt drager zijn van een recessieve erfelijke ziekte, zoals taaislijmziekte, zonder er iets van te merken: je hebt het allel één keer. In Nederland is ongeveer één op de dertig mensen drager. Zijn beide ouders drager, dan is de kans één op vier dat een kind de ziekte krijgt. Dat is een feit uit de erfelijkheidsles. Wat je met dat feit doet, is geen biologie meer. Op de balans: zekerheid vooraf, tegenover een vraag waar je misschien niet om gevraagd had.
-> plek van de [nieuw]-regels: direct na "Wat je met dat feit doet, is geen biologie meer.", vóór "Op de balans: zekerheid vooraf, …"
-[nieuw] Een argument dat op zo'n feit steunt, op biologische kennis, heet een biologisch argument.
-[nieuw] Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument.
 
 > stem-invoer: Antwoord A. Allebei de testen zijn vrijwillig, en allebei zijn het skriening: een aanbod aan iedereen, zonder dat er een klacht is. Een afwijkende uitslag wordt altijd met vervolgonderzoek gecontroleerd. Het verschil zit in wat je daarna met de uitslag kunt. Bij de hielprik is de uitslag het begin van een behandeling. Bij de nipt is de uitslag het begin van een afweging. Er is nog een test, vóór een zwangerschap: de dragerschapstest. Die vraag je zelf aan, via de huisarts of een klinisch geneticus. Je kunt drager zijn van een recessieve erfelijke ziekte, zoals taaislijmziekte, zonder er iets van te merken: je hebt het allel één keer. In Nederland is ongeveer één op de dertig mensen drager. Zijn beide ouders drager, dan is de kans één op vier dat een kind de ziekte krijgt. Dat is een feit uit de erfelijkheidsles. Wat je met dat feit doet, is geen biologie meer. Op de balans: zekerheid vooraf, tegenover een vraag waar je misschien niet om gevraagd had.
-> stem-invoer [nieuw] (na "…is geen biologie meer."): Een argument dat op zo'n feit steunt, op biologische kennis, heet een biologisch argument. Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument.
+
+## n9b · Hoofdstuk 2 — Een kind op komst · basis · nieuw 16 okt 2026
+*begin 5:41 / 5:41 · 38.3 s*
+
+Bij zo'n afweging gebruik je twee soorten argumenten. Een argument dat op een feit steunt, op biologische kennis, heet een biologisch argument. Bijvoorbeeld: de kans is één op vier dat een kind de ziekte krijgt. Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument. Bijvoorbeeld: ik wil het liever niet van tevoren weten. Of een biologisch argument klopt, kun je nagaan. Over een ethisch argument kunnen mensen het oneens zijn, ook als ze dezelfde feiten kennen.
+
+> stem-invoer (Roos, eleven_v3, 16 oktober 2026): Bij zo'n afweging gebruik je twee soorten argumenten. Een argument dat op een feit steunt, op biologische kennis, heet een biologisch argument. Bijvoorbeeld: de kans is één op vier dat een kind de ziekte krijgt. Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument. Bijvoorbeeld: ik wil het liever niet van tevoren weten. Of een biologisch argument klopt, kun je nagaan. Over een ethisch argument kunnen mensen het oneens zijn, ook als ze dezelfde feiten kennen.
 
 ## n11 · Hoofdstuk 3 — Het zit in de familie · basis
-*begin 5:44 / 5:44 · 78.4 s*
+*begin 6:23 / 6:23 · 78.4 s*
 
 Een telefoontje van je tante. Bij haar is borstkanker gevonden, en het lab vond een variant in het gen BRCA1. Die variant zit in de familie. Wil jij je laten testen? Wat de test kan zeggen is precies: heb je de variant, of niet. Wat de variant betekent is een kans. Met de variant krijgt tot zo'n zeventig procent van de vrouwen ooit borstkanker. Zonder de variant is dat in Nederland ongeveer één op de zeven. En er is iets aan te doen. Vaker controleren, of een operatie uit voorzorg: de borsten, of de eierstokken, want ook die kans is verhoogd. Daarom kiezen veel mensen in zo'n familie ervoor om het te weten. Anderen juist niet. Allebei kan. En ook mannen kunnen de variant hebben en doorgeven. Vergelijk het met de ziekte van Huntington. Met de variant krijg je de ziekte vrijwel zeker, meestal tussen je dertigste en vijftigste. Er is nog niets dat de ziekte tegenhoudt. Van de mensen met een ouder met Huntington laat maar ongeveer één op de vijf zich testen. Weten of niet weten: allebei mag. Dat heet het recht om niet te weten.
 
 > stem-invoer: Een telefoontje van je tante. Bij haar is borstkanker gevonden, en het lab vond een variant in het gen bee er cee aa één. Die variant zit in de familie. Wil jij je laten testen? Wat de test kan zeggen is precies: heb je de variant, of niet. Wat de variant betekent is een kans. Met de variant krijgt tot zo'n zeventig procent van de vrouwen ooit borstkanker. Zonder de variant is dat in Nederland ongeveer één op de zeven. En er is iets aan te doen. Vaker controleren, of een operatie uit voorzorg: de borsten, of de eierstokken, want ook die kans is verhoogd. Daarom kiezen veel mensen in zo'n familie ervoor om het te weten. Anderen juist niet. Allebei kan. En ook mannen kunnen de variant hebben en doorgeven. Vergelijk het met de ziekte van Huntington. Met de variant krijg je de ziekte vrijwel zeker, meestal tussen je dertigste en vijftigste. Er is nog niets dat de ziekte tegenhoudt. Van de mensen met een ouder met Huntington laat maar ongeveer één op de vijf zich testen. Weten of niet weten: allebei mag. Dat heet het recht om niet te weten.
 
 ## q12 · Hoofdstuk 3 — Het zit in de familie · basis · vraag
-*begin 7:03 / 7:03 · 12.7 s*
+*begin 7:41 / 7:41 · 12.7 s*
 
 Je moeder heeft de BRCA1-variant. Jij laat je gericht op die variant testen, en je hebt hem niet. Wat weet je dan over je eigen kinderen? Wat denk je?
 
 > stem-invoer: Je moeder heeft de bee er cee aa één-variant. Jij laat je gericht op die variant testen, en je hebt hem niet. Wat weet je dan over je eigen kinderen? Wat denk je?
 
 ## n13 · Hoofdstuk 3 — Het zit in de familie · basis
-*begin 7:26 / 7:26 · 58.2 s*
+*begin 8:04 / 8:04 · 58.2 s*
 
 Antwoord B. Je kunt alleen doorgeven wat je zelf hebt. Zit de variant niet in jouw DNA, dan krijgen je kinderen hem niet van jou. Had je de variant wél, dan had elk kind de helft kans. De variant is dominant: één keer is genoeg. En andersom: heb je de variant wél, en was je vader nooit getest, dan weet je nu ook iets over hem. Misschien wilde hij dat niet weten. Daarom gaat zo'n test niet via een doosje, maar via een klinisch geneticus: een arts voor erfelijkheid. Die bespreekt vooraf wat je kunt horen, wat je ermee kunt, en wie het nog meer aangaat. Nog één feit voor de balans. Bij een levensverzekering tot een paar ton mag een verzekeraar in Nederland niet vragen naar erfelijkheidsonderzoek. Dat staat in de wet. Op de balans: een kans die je kunt verkleinen, tegenover een uitslag die ook over anderen gaat.
 
 > stem-invoer: Antwoord B. Je kunt alleen doorgeven wat je zelf hebt. Zit de variant niet in jouw deeënaa, dan krijgen je kinderen hem niet van jou. Had je de variant wél, dan had elk kind de helft kans. De variant is dominant: één keer is genoeg. En andersom: heb je de variant wél, en was je vader nooit getest, dan weet je nu ook iets over hem. Misschien wilde hij dat niet weten. Daarom gaat zo'n test niet via een doosje, maar via een klinisch geneticus: een arts voor erfelijkheid. Die bespreekt vooraf wat je kunt horen, wat je ermee kunt, en wie het nog meer aangaat. Nog één feit voor de balans. Bij een levensverzekering tot een paar ton mag een verzekeraar in Nederland niet vragen naar erfelijkheidsonderzoek. Dat staat in de wet. Op de balans: een kans die je kunt verkleinen, tegenover een uitslag die ook over anderen gaat.
 
 ## n15 · Hoofdstuk 4 — Een medicijn op maat · basis
-*begin 8:28 / 8:28 · 36.6 s*
+*begin 9:06 / 9:06 · 36.6 s*
 
 Niet elke DNA-test gaat over een ziekte die je misschien krijgt. Sommige gaan over een medicijn dat je nu nodig hebt. Een patiënt begint aan een veelgebruikte chemokuur, bijvoorbeeld bij darmkanker. Ongeveer één op de twintig mensen heeft een variant in het gen voor het enzym dat dit medicijn afbreekt. Het enzym werkt dan te langzaam, het medicijn stapelt zich op, en de kuur wordt gevaarlijk. Daarom is in Nederland bij dit medicijn eerst een DNA-test standaard. Met de variant krijg je een lagere dosis, of een ander middel.
 
 > stem-invoer: Niet elke deeënaa-test gaat over een ziekte die je misschien krijgt. Sommige gaan over een medicijn dat je nu nodig hebt. Een patiënt begint aan een veelgebruikte geemokuur, bijvoorbeeld bij darmkanker. Ongeveer één op de twintig mensen heeft een variant in het gen voor het enzym dat dit medicijn afbreekt. Het enzym werkt dan te langzaam, het medicijn stapelt zich op, en de kuur wordt gevaarlijk. Daarom is in Nederland bij dit medicijn eerst een deeënaa-test standaard. Met de variant krijg je een lagere dosis, of een ander middel.
 
 ## q16 · Hoofdstuk 4 — Een medicijn op maat · basis · vraag
-*begin 9:04 / 9:04 · 7.9 s*
+*begin 9:42 / 9:42 · 7.9 s*
 
 Vóór deze chemokuur krijgt de patiënt eerst een DNA-test. Waar kijkt de arts bij deze test naar? Wat denk je?
 
 > stem-invoer: Vóór deze geemokuur krijgt de patiënt eerst een deeënaa-test. Waar kijkt de arts bij deze test naar? Wat denk je?
 
 ## n17 · Hoofdstuk 4 — Een medicijn op maat · basis
-*begin 9:23 / 9:23 · 54.9 s*
+*begin 10:01 / 10:01 · 54.9 s*
 
 Antwoord C. Deze test kijkt niet naar de tumor en niet naar de werking, maar naar het enzym dat het medicijn opruimt. Trage opruimer: lagere dosis. Hier is de balans eenvoudig: de test voorkomt een gevaarlijke bijwerking, en de uitslag gaat bijna alleen over jou. Dat is bij genetisch gemodificeerd voedsel anders. Een maïsplant met een bacteriegen tegen insecten: de boer spuit minder gif, het zaadbedrijf verdient aan het zaad. De vragen gaan over de akker: worden insecten ongevoelig, waait het stuifmeel over? Voor het eten zelf hebben de keurende instanties tot nu toe geen extra risico gevonden. Dat zijn de feiten. Of je zo'n plant wilt, is een waarde. En wie wint en wie het risico draagt, zijn hier niet dezelfde.
 
 ## n19 · Samenvatting — Jouw balans · basis
-*begin 10:21 / 10:21 · 28.1 s*
+*begin 10:59 / 10:59 · 28.1 s*
 
 Vier keer dezelfde balans. Aan de ene kant de feiten: wat de test leest, en hoe zeker dat is. Bijna altijd een kans, zelden een zekerheid. Aan de andere kant wat jij belangrijk vindt: weten of niet weten, delen of niet delen, en wie er nog meer in je uitslag zit. De feiten kun je opzoeken. Hoe zwaar ze wegen, bepaalt niemand voor je. Ook deze film niet.
 
 ## n20 · Samenvatting — Jouw balans · basis
-*begin 10:49 / 10:49 · 11.9 s*
+*begin 11:27 / 11:27 · 11.9 s*
 
 Dus: wat zou jij uit je eigen DNA willen weten? En wat liever niet? Acht afleveringen DNA. Het begon in een cel. Het eindigt bij jou.
 

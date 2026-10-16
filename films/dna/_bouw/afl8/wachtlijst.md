@@ -51,3 +51,9 @@
 | gemodificeerd | n17 | 0:21.6 |
 | maïsplant | n17 | 0:24.8 |
 | DNA | n20 | 0:02.3 |
+
+## Aanvulling 16 okt 2026 (n9b)
+| woord | take | tijd in take |
+|---|---|---|
+| biologisch | n9b | 0:08.2 |
+| ethisch | n9b | 0:21.3 |

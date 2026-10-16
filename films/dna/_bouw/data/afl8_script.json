@@ -110,6 +110,18 @@
    ]
   },
   {
+   "kind": "narr",
+   "level": "b",
+   "scene": "h2c",
+   "id": "n9b",
+   "lines": [
+    "Bij zo'n afweging gebruik je twee soorten argumenten.",
+    "Een argument dat op een feit steunt, op biologische kennis, heet een biologisch argument. Bijvoorbeeld: de kans is één op vier dat een kind de ziekte krijgt.",
+    "Een argument dat steunt op normen en waarden, op wat jij goed of slecht vindt, heet een ethisch argument. Bijvoorbeeld: ik wil het liever niet van tevoren weten.",
+    "Of een biologisch argument klopt, kun je nagaan. Over een ethisch argument kunnen mensen het oneens zijn, ook als ze dezelfde feiten kennen."
+   ]
+  },
+  {
    "kind": "card",
    "title": "Het zit in de familie",
    "sub": "Hoofdstuk 3"
@@ -126,7 +138,8 @@
     "Daarom kiezen veel mensen in zo'n familie ervoor om het te weten. Anderen juist niet. Allebei kan. En ook mannen kunnen de variant hebben en doorgeven.",
     "Vergelijk het met de ziekte van Huntington. Met de variant krijg je de ziekte vrijwel zeker, meestal tussen je dertigste en vijftigste. Er is nog niets dat de ziekte tegenhoudt.",
     "Van de mensen met een ouder met Huntington laat maar ongeveer één op de vijf zich testen. Weten of niet weten: allebei mag. Dat heet het recht om niet te weten."
-   ]
+   ],
+   "id": "n11"
   },
   {
    "kind": "q",
@@ -139,7 +152,8 @@
     "ze hebben ieder vijftig procent kans op die variant"
    ],
    "correct": 1,
-   "think": 12
+   "think": 12,
+   "id": "q12"
   },
   {
    "kind": "narr",
@@ -152,7 +166,8 @@
     "Daarom gaat zo'n test niet via een doosje, maar via een klinisch geneticus: een arts voor erfelijkheid. Die bespreekt vooraf wat je kunt horen, wat je ermee kunt, en wie het nog meer aangaat.",
     "Nog één feit voor de balans. Bij een levensverzekering tot een paar ton mag een verzekeraar in Nederland niet vragen naar erfelijkheidsonderzoek. Dat staat in de wet.",
     "Op de balans: een kans die je kunt verkleinen, tegenover een uitslag die ook over anderen gaat."
-   ]
+   ],
+   "id": "n13"
   },
   {
    "kind": "card",
@@ -168,7 +183,8 @@
     "Een patiënt begint aan een veelgebruikte chemokuur, bijvoorbeeld bij darmkanker.",
     "Ongeveer één op de twintig mensen heeft een variant in het gen voor het enzym dat dit medicijn afbreekt. Het enzym werkt dan te langzaam, het medicijn stapelt zich op, en de kuur wordt gevaarlijk.",
     "Daarom is in Nederland bij dit medicijn eerst een DNA-test standaard. Met de variant krijg je een lagere dosis, of een ander middel."
-   ]
+   ],
+   "id": "n15"
   },
   {
    "kind": "q",
@@ -181,7 +197,8 @@
     "of de patiënt het medicijn langzaam afbreekt"
    ],
    "correct": 2,
-   "think": 12
+   "think": 12,
+   "id": "q16"
   },
   {
    "kind": "narr",
@@ -193,7 +210,8 @@
     "Dat is bij genetisch gemodificeerd voedsel anders. Een maïsplant met een bacteriegen tegen insecten: de boer spuit minder gif, het zaadbedrijf verdient aan het zaad.",
     "De vragen gaan over de akker: worden insecten ongevoelig, waait het stuifmeel over? Voor het eten zelf hebben de keurende instanties tot nu toe geen extra risico gevonden.",
     "Dat zijn de feiten. Of je zo'n plant wilt, is een waarde. En wie wint en wie het risico draagt, zijn hier niet dezelfde."
-   ]
+   ],
+   "id": "n17"
   },
   {
    "kind": "card",
@@ -208,7 +226,8 @@
     "Vier keer dezelfde balans. Aan de ene kant de feiten: wat de test leest, en hoe zeker dat is. Bijna altijd een kans, zelden een zekerheid.",
     "Aan de andere kant wat jij belangrijk vindt: weten of niet weten, delen of niet delen, en wie er nog meer in je uitslag zit.",
     "De feiten kun je opzoeken. Hoe zwaar ze wegen, bepaalt niemand voor je. Ook deze film niet."
-   ]
+   ],
+   "id": "n19"
   },
   {
    "kind": "narr",
@@ -217,7 +236,8 @@
    "lines": [
     "Dus: wat zou jij uit je eigen DNA willen weten? En wat liever niet?",
     "Acht afleveringen DNA. Het begon in een cel. Het eindigt bij jou."
-   ]
+   ],
+   "id": "n20"
   },
   {
    "kind": "end",
@@ -301,6 +321,16 @@
    "genetisch gemodificeerd (transgeen)",
    "Organisme met een ingebouwd gen van een andere soort (zie aflevering 7): de insulinebacterie, of maïs met een bacteriegen tegen insecten. Bij de afweging horen de vragen wie er baat bij heeft en wie het risico draagt.",
    "b"
+  ],
+  [
+   "biologisch argument",
+   "Argument dat steunt op een feit, op biologische kennis (bv. 'de kans is één op vier dat een kind de ziekte krijgt'); of het klopt, kun je nagaan.",
+   "b"
+  ],
+  [
+   "ethisch argument",
+   "Argument dat steunt op normen en waarden, op wat iemand goed of slecht vindt (bv. 'ik wil het liever niet van tevoren weten'); mensen kunnen het erover oneens zijn, ook als ze dezelfde feiten kennen.",
+   "b"
   ]
  ],
  "CHECKS": {
@@ -324,6 +354,10 @@
    [
     "Wat is het verschil tussen de DNA-test vóór een chemokuur en de BRCA1-test?",
     "De test vóór de chemokuur kijkt naar het gen voor een enzym dat het medicijn afbreekt en past de dosis aan (nu, vooral voor deze patiënt); de BRCA1-test kijkt naar een variant die de kans op een ziekte in de toekomst vergroot en zegt ook iets over familieleden."
+   ],
+   [
+    "Een stel overweegt een dragerschapstest. Ze zeggen: (1) 'Als we allebei drager zijn, is de kans één op vier dat ons kind taaislijmziekte krijgt.' (2) 'We vinden dat je een kind moet accepteren zoals het komt.' Welk argument is biologisch en welk ethisch?",
+    "(1) is een biologisch argument: het steunt op een feit uit de erfelijkheid dat je kunt nagaan. (2) is een ethisch argument: het steunt op normen en waarden (wat zij goed vinden); daar kunnen mensen het oneens over zijn, ook met dezelfde feiten."
    ]
   ],
   "v": []

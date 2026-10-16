@@ -81,6 +81,19 @@ SCENES.h2b=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   const p=ease(lf*1.2); balance(ctx,960,800,-0.3+Math.sin(t*0.8)*0.4,1,[['zekerheid vooraf',p]],[['een vraag die je niet stelde',clamp(p*2-1,0,1)]],{labL:'feit',labR:'waarde'});
 };
 
+// ---- H2c (n9b, 16 okt 2026): biologisch argument tegenover ethisch argument ----
+SCENES.h2c=(ctx,li,lf,t)=>{ bg(ctx,'schema');
+  const a1=li>1?1:li===1?ease(lf*1.6):0, a2=li>2?1:li===2?ease(lf*1.6):0, a3=li===3?ease(lf*1.4):0;
+  if(li===0) T(ctx,'twee soorten argumenten',960,300,56,{titel:true,align:'center',alpha:ease(lf*1.5)});
+  card(ctx,230,140,680,330,'biologisch argument',['feit · biologische kennis','“de kans is 1 op 4”'],a1,C.line,C.text);
+  card(ctx,1010,140,680,330,'ethisch argument',['normen en waarden · goed of slecht?','“liever niet van tevoren weten”'],a2,C.goud,C.goud);
+  M(ctx,'klopt het? na te gaan',570,420,{align:'center',color:C.groen,alpha:a3});
+  M(ctx,'mensen kunnen het oneens zijn',1350,420,{align:'center',color:C.goud,alpha:a3});
+  ctx.save(); ctx.translate(960,870); ctx.scale(0.8,0.8); ctx.translate(-960,-870);
+  balance(ctx,960,870,(li===0?-0.15:li===1?-0.15-0.25*a1:li===2?-0.4+0.4*a2:0)+Math.sin(t*0.8)*0.12,1,[['biologisch',Math.max(a1,li===0?0.35:0)]],[['ethisch',Math.max(a2,li===0?0.35:0)]],{labL:'feit',labR:'waarde'});
+  ctx.restore();
+};
+
 // ---- H3a: BRCA1, chances, options, Huntington ----
 SCENES.h3a=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   if(li===0){ const p=ease(lf*1.2); phoneSmall(ctx,420,440,1.6,1,p); personIcon(ctx,420,640,1.2,1,C.goud); M(ctx,'je tante',420,720,{align:'center',color:C.goud}); chromo(ctx,1100,440,260,p,C.paars); box(ctx,1086,380,28,40,6,C.koraal); label(ctx,'BRCA1','een variant in de familie',1100,400,1320,300,clamp(p*2-1,0,1),C.koraal,'left'); return; }

@@ -31,3 +31,6 @@ De audio staat niet in deze map maar in de film zelf (`python3 scripts/filmbron.
 1. `splice_trna.py` — plakt de goedgekeurde tRNA-uitspraak (n5 ≈ 7,6 s) over alle andere keren; tijdkaart in `afl4_v3/splice.json`.
 2. `insert_n5.py` — voegt de extra zin over anticodon ↔ aminozuur in n5 in (woordtijden in `afl4_v3/n5_ins_words.json`).
 3. `make_words4v3.py` → kopieer naar `data/afl4_audio/` → `python3 build.py 4` → `python3 mkbron.py 4 <repo>/films/dna`.
+
+## Ingevoegde segmenten (16 okt 2026)
+Een nieuw stuk tekst zonder bestaande takes opnieuw op te nemen: zet een eigen segment met `"id"` (bv. `n9b`) in `data/afl<n>_script.json`; build.py gebruikt `id` als sleutel als die er is (anders `n`/`q` + plek in SCRIPT). Geef de segmenten erna hun oude sleutel als vaste `id`, zodat audio en woordtijden niet verschuiven. Normaliseren: `./norm16.sh ruw.mp3 data/afl<n>_audio/<id>.mp3`; woordtijden: `python3 make_words_nieuw.py <n> <id> <scribe.json>`; stills per segment: `NODE_PATH=$(npm root -g) node grabseg.js <html> <map> <id,id> [havo] [aantal]` (Playwright).
