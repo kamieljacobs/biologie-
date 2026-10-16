@@ -28,8 +28,8 @@ film = {
   {"t": "kunstmatige inseminatie", "d": "Zaadcellen worden rond de eisprong hoog in de baarmoeder gespoten."},
   {"t": "ivf", "d": "In-vitrofertilisatie: bevruchting buiten het lichaam, in een schaaltje; daarna wordt een embryo teruggeplaatst."},
   {"t": "ICSI", "d": "Bij ivf: één zaadcel rechtstreeks in de eicel spuiten."},
-  {"t": "resistentie", "d": "vwo · Bacteriën die niet meer gevoelig zijn voor een antibioticum, door selectie van toevallige mutaties."},
-  {"t": "embryoselectie (PGT)", "d": "vwo · Een paar cellen van een ivf-embryo testen op een ernstige erfelijke ziekte, en alleen een embryo zonder die ziekte terugplaatsen."}
+  {"t": "resistentie", "d": "Bacteriën die niet meer gevoelig zijn voor een antibioticum, door selectie van toevallige mutaties."},
+  {"t": "embryoselectie (PGT)", "d": "Een paar cellen van een ivf-embryo testen op een ernstige erfelijke ziekte, en alleen een embryo zonder die ziekte terugplaatsen."}
  ],
  "sections": open('sections.html', encoding='utf-8').read()
 }

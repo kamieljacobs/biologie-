@@ -4,10 +4,10 @@
 |---|---|
 | Bestand | films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html (audio in films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
-| Niveau | havo + vwo; vwo-blokken s10 (resistentie bij gonorroe) en s14 (embryoselectie/PGT en ethiek) |
+| Niveau | havo + vwo, voor beide niveaus dezelfde film (sinds 16 okt 2026 geen vwo-blokken meer; s10 en s14 zijn basis) |
 | Versie / datum | 1.0 · 16 oktober 2026 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
-| Duur | spraak 7:08 (vwo) / 6:07 (havo); speeltijd met kaarten en vragen ± 8:13 (vwo) / 7:12 (havo); met Vragen uit 7:10 / 6:10 |
+| Duur | spraak 7:08; speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |
 | Beeldstijl | Part C: Schema; schematische doorsnede (vooraanzicht) van baarmoeder, eileiders en eierstokken |
 | Personages | Lotte en dokter Kim (cold open), Sam (H2) uit het castboek; overige figuren generiek (`figuur()`) |
 | Audio-opslag | 11 losse mp3's in audio/ (s01, s04, s05, s06, s07, s09, s10, s11, s13, s14, s15) |
@@ -18,8 +18,8 @@
 |---|---|---|
 | Cold open | s01, q02 | Lotte bij dokter Kim achter het bureau; lijst met methodes (pil, condoom, spiraaltje, staafje: '?'); raster van 100 stippen. q02 (antwoord in H1) |
 | H1 Een schakel eruit | s04, s05, s06 | 7 van 100 stippen rood, strip met vergeten pil; de keten eisprong → bevruchting → innesteling, schakel breekt; doorsnede met per schakel de methodes (links pil/prikpil/staafje/ring, rechts condoom/pessarium/hormoonspiraaltje/sterilisatie), zaadcellen stoppen bij de baarmoederhals, slijmprop; koperspiraaltje (zaadcellen sterven, geen innesteling); morning-afterpil op een dagenas (eisprong schuift voorbij de 5 dagen dat zaadcellen leven); Pearl-index met vijf stippenrasters; condoom met schild, andere methodes doorgestreept |
-| H2 Soa's: vaak zonder klachten | s07, q08, s09, s10 (vwo) | Sam met telefoon ('je ex heeft chlamydia'); bacterie- en virus-paneel (antibiotica doden bacteriën; virus in een lichaamscel); 7 van 10 vrouwen / helft van de mannen zonder klachten; ontstoken eileiders met littekens; Sam met testbuisje (huisarts, GGD, gratis onder 25); HPV, baarmoederhals, twee kinderen met prik; grafiek virus in het bloed met hiv-remmers tot onder de meetgrens; PrEP-schild. Vwo: populatie bacteriën, kuur, resistente mutanten vermenigvuldigen zich; vijf middelen doorgestreept, één werkt nog |
-| H3 Een handje helpen | s11, q12, s13, s14 (vwo) | Zes stelletjes (1 gemarkeerd); keten met haperende schakel; inseminatie (katheter, zaadcellen hoog in de baarmoeder); eileiders dicht → ivf; ivf-stappenbalk: één vs veel follikels (FSH), punctie met naald, schaaltje, ICSI met pipet, embryo dag 1–5, één embryo terug, vriezer (−196 °C), donor (niet anoniem). Vwo: blastocyste, cellen uit de buitenlaag, DNA, drie embryo's (één gezond), Nederlandse regels en drie ethische vragen |
+| H2 Soa's: vaak zonder klachten | s07, q08, s09, s10 | Sam met telefoon ('je ex heeft chlamydia'); bacterie- en virus-paneel (antibiotica doden bacteriën; virus in een lichaamscel); 7 van 10 vrouwen / helft van de mannen zonder klachten; ontstoken eileiders met littekens; Sam met testbuisje (huisarts, GGD, gratis onder 25); HPV, baarmoederhals, twee kinderen met prik; grafiek virus in het bloed met hiv-remmers tot onder de meetgrens; PrEP-schild. Daarna (s10): populatie bacteriën, kuur, resistente mutanten vermenigvuldigen zich; vijf middelen doorgestreept, één werkt nog |
+| H3 Een handje helpen | s11, q12, s13, s14 | Zes stelletjes (1 gemarkeerd); keten met haperende schakel; inseminatie (katheter, zaadcellen hoog in de baarmoeder); eileiders dicht → ivf; ivf-stappenbalk: één vs veel follikels (FSH), punctie met naald, schaaltje, ICSI met pipet, embryo dag 1–5, één embryo terug, vriezer (−196 °C), donor (niet anoniem). Daarna (s14): blastocyste, cellen uit de buitenlaag, DNA, drie embryo's (één gezond), Nederlandse regels en drie ethische vragen |
 | Recap | s15 | Vier panelen: een schakel eruit, alleen condoom tegen soa's, bacterie of virus, een schakel erbij |
 | Eindkaart | s16 | drie regels |
 
@@ -29,10 +29,10 @@
 - q12: waarom eerst tien dagen hormooninjecties bij ivf? **a zodat meerdere eicellen tegelijk rijpen** · b zodat de baarmoeder groter wordt · c zodat de eicellen sneller bevrucht worden
 
 ## Begrippen
-anticonceptie, pil, spiraaltje, sterilisatie, morning-afterpil, Pearl-index, soa, antibiotica, HPV-vaccinatie, hiv-remmers / PrEP, kunstmatige inseminatie, ivf, ICSI, resistentie (vwo), embryoselectie/PGT (vwo) — zie `film.json` → glossary.
+anticonceptie, pil, spiraaltje, sterilisatie, morning-afterpil, Pearl-index, soa, antibiotica, HPV-vaccinatie, hiv-remmers / PrEP, kunstmatige inseminatie, ivf, ICSI, resistentie, embryoselectie/PGT — zie `film.json` → glossary.
 
 ## Docentdeel
-In `sections.html`: 5 checkvragen (waar grijpt het in, betrouwbaarheid, soa zonder klachten + ivf-keuze, ivf, vwo: resistentie en embryoselectie), hoe de film het uitlegt, achtergrond met bronnen (Trussell/CDC-tabel, werking per methode, morning-afterpil, Soa Aids Nederland, RIVM HPV/Gardasil 9 sept 2026, U=U en PrEP, WHO/GRAS gonorroe, Wet donorgegevens 2004, Embryowet/PGT MUMC+), leerdoelen, lessuggesties.
+In `sections.html`: 5 checkvragen (waar grijpt het in, betrouwbaarheid, soa zonder klachten + ivf-keuze, ivf, resistentie en embryoselectie), hoe de film het uitlegt, achtergrond met bronnen (Trussell/CDC-tabel, werking per methode, morning-afterpil, Soa Aids Nederland, RIVM HPV/Gardasil 9 sept 2026, U=U en PrEP, WHO/GRAS gonorroe, Wet donorgegevens 2004, Embryowet/PGT MUMC+), leerdoelen, lessuggesties.
 
 ## Waar wat in de HTML zit (films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html)
 - regel 5: teller (GoatCounter); regel 70: sitebalk (← Terug naar Voortplanting)
@@ -60,3 +60,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp3` (scenes.js uit `src/`, `words/` 
 
 ## Wijzigingen
 - 1.0 (16 okt 2026): eerste versie. Script na één gecombineerde review (zie `reviews/review_v1.md`); beeld-QA op contactbladen.
+
+
+## Wijziging 16 okt 2026
+Op verzoek van Kamiel: alle hoofdstukken zijn voor havo en vwo hetzelfde. s10 (resistentie bij gonorroe) en s14 (embryoselectie/PGT) staan nu op niveau `basis` in `FILMDATA`, `segments.json` en `script_v2.md` (markers `[VWO-START]/[VWO-END]` weg); de vwo-labels in de begrippenlijst (`film.py`/`film.json`) en checkvraag 5 (`vwo-only`) zijn weg. Audio ongewijzigd.
