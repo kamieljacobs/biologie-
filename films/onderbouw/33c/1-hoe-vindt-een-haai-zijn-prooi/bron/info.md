@@ -110,6 +110,6 @@ Er zijn geen blobs: `film.src.html` = `index.html`, dus de regelnummers zijn gel
 
 ## Aandachtspunten
 
-- **Uitspraak:** de stem-invoer schrijft getallen voluit: "vierhonderdvijftig miljoen" en "tachtig miljoen". De woorden risicowoorden zijn dinosauriërs, verpleegsterhaai, "in het jaar 2025" en 65. Scribe gaf ze in de woordtijden terug zoals bedoeld; luister ze bij twijfel na (s09, s12, s18).
+- **Uitspraak:** de stem-invoer schrijft getallen voluit: "vierhonderdvijftig miljoen" en "tachtig miljoen". De woorden risicowoorden zijn dinosauriërs, verpleegsterhaai, "in het jaar 2025" en 65. Blinde controle (Scribe op de geüploade mp3, zonder script) op 16 okt 2026: s09 "450 miljoen … dinosauriërs" en s12 "verpleegster haai" kwamen goed terug; s18 (2025, 65, tachtig miljoen) klopt in de woordtijden.
 - **Getallen:** het zeegraseffect is gemeten als gedragseffect in Shark Bay. De film zegt daarom voorzichtig "kan kaal gegeten worden" en "helpt de baai gezond te houden".
 - **Beeldafspraken:** geen grain, geen wijslijnen (labels staan direct bij het object).
