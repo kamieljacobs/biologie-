@@ -7,11 +7,27 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sitedata import R, lees
 h, _ = lees()
 films = {}
+import subprocess
+idx = open(os.path.join(R, 'index.html'), encoding='utf-8').read()
+def jsobj(name):
+    a = idx.index('const ' + name); i = idx.index('{', a); d = 0
+    for j in range(i, len(idx)):
+        if idx[j] == '{': d += 1
+        elif idx[j] == '}':
+            d -= 1
+            if not d: return idx[i:j+1]
+kunst = json.loads(subprocess.check_output(['node', '-e', 'const F=' + jsobj('FILMKUNST') + ';process.stdout.write(JSON.stringify(F))']))
+kleur = json.loads(subprocess.check_output(['node', '-e', 'process.stdout.write(JSON.stringify(' + jsobj('KLEUR') + '))']))
+slug = lambda href: re.sub(r'(/index)?\.html$', '', href).split('/')[-1]
 for hid, v in h.items():
     if hid in ('kerndoelen', 'extra'):
         continue
     for f in v.get('films', []):
-        films.setdefault(f['href'], [f['titel'], v.get('titel') or hid, hid])
+        films.setdefault(f['href'], [f['titel'], v.get('titel') or hid, hid, f.get('vraag', ''), f.get('duur') or 0, kunst.get(slug(f['href']), ''), kleur.get(hid, 'goud')])
+vj = os.path.join(R, 'films', 'vervolg', 'films.json')
+if os.path.exists(vj):
+    for f in json.load(open(vj, encoding='utf-8')):
+        films.setdefault(f['href'], [f['titel'], 'Wat word jij?', 'vervolg', f.get('vraag', ''), f.get('duur') or 0, kunst.get(slug(f['href']), ''), 'paars'])
 p = os.path.join(R, 'vervolg.html'); s = open(p, encoding='utf-8').read()
 blok = '/* FILMS:start (scripts/vervolg_films.py) */\nconst FILMS = ' + json.dumps(films, ensure_ascii=False, separators=(',', ':')) + ';\n/* FILMS:end */'
 if '/* FILMS:start' in s:
@@ -19,5 +35,5 @@ if '/* FILMS:start' in s:
 else:
     s = s.replace('const GEBIEDEN = [', blok + '\nconst GEBIEDEN = [', 1)
 open(p, 'w', encoding='utf-8').write(s)
-mis = sorted({x for x in re.findall(r"'(films/[^']+\.html)'", s.split('const GEBIEDEN = [', 1)[1].split('];', 1)[0]) if x not in films and not x.startswith('films/vervolg/')})
+mis = sorted({x for x in re.findall(r"'(films/[^']+\.html)'", s.split('const GEBIEDEN = [', 1)[1].split('];', 1)[0]) if x not in films})
 print(len(films), 'films;', 'onbekend in pta:', mis or 'geen')
