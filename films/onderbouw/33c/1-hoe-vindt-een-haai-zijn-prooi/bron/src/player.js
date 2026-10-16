@@ -4,7 +4,7 @@ const params = new URLSearchParams(location.search);
 const state = {
   niveau: 'basis',
   modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
-  auto: false, captions: true, snelheid: (()=>{ const p=parseFloat(params.get('snelheid')); if([0.75,1,1.25,1.5].includes(p)) return p; try{ const v=parseFloat(localStorage.getItem('bk-snelheid')); return [0.75,1,1.25,1.5].includes(v)?v:1; }catch(e){ return 1; } })(),
+  auto: false, captions: true, snelheid: (()=>{ const p=parseFloat(params.get('snelheid')); if([0.75,1,1.25,1.5].includes(p)) return p; try{ const v=parseFloat(localStorage.getItem('bk-snelheid')); return [0.75,1,1.25,1.5].includes(v)?v:1; }catch(e){ return 1; } })(), vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(),
   playing:false, t:0, items:[], idx:0, local:0,
   qPhase:null // {phase:'countdown'|'wait'|'reveal', start, chosen}
 };
@@ -12,13 +12,31 @@ const CARD_DUR=3.5, COUNTDOWN=8, REVEAL=6;
 const NO_CARD=['Cold open','Titel','Eindkaart'];
 
 // ---- build timeline ----
-function buildTimeline(){
-  const items=[]; let prevChapter=null;
-  for(const seg of DATA.segments){
+// 'Voor vwo ...' niet uitspreken (de havo/vwo-keuze zit in de speler): losse aankondigingen helemaal, 'Voor vwo:' als voorzetsel weg
+function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
+  while(i<w.length){ let j=i; while(j<w.length&&!/[.?!]$/.test(w[j].t)) j++; const zin=w.slice(i,j+1), txt=zin.map(x=>x.t).join(' ');
+    if(/^Voor (havo en )?vwo\b/.test(txt)){ const nxt=w[j+1];
+      if(/^Voor (havo en )?vwo (gaan we )?(hier )?(nog )?(een |één |drie )?stap(pen)? verder(, de lever in)?\.$|^Voor vwo nog (een|één) stap( verder)?\.$|^Voor vwo volgen we die prikkel door het hart\.$|^Voor vwo kijken we preciezer naar [^.]*\.$/.test(txt)) cuts.push([zin[0].s-0.03, nxt?nxt.s-0.03:(seg.dur||zin[zin.length-1].e+0.3)]);
+      else { let k=-1; const m=txt.match(/^(Voor vwo(, tot slot)?:|Voor vwo nog (een|één) stap( verder)?:|Voor vwo(?= een ))/i);
+        if(m){ let n=0, acc=''; for(let q=0;q<zin.length;q++){ acc+=(q?' ':'')+zin[q].t; if(acc.length>=m[0].trim().length){ k=q; break; } }
+          if(k>=0&&zin[k+1]){ if(/, tot slot:$/i.test(m[0])){ k=1; } cuts.push([zin[0].s-0.03, zin[k+1].s-0.03]); const r=zin[k+1]; if(!r._hoofd){ r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); r._hoofd=1; } } } } }
+    i=j+1; }
+  return cuts; }
+function knipSamen(c){ c=c.filter(x=>x[1]>x[0]).sort((a,b)=>a[0]-b[0]); const o=[]; for(const x of c){ const l=o[o.length-1]; if(l&&x[0]<=l[1]) l[1]=Math.max(l[1],x[1]); else o.push([Math.max(0,x[0]),x[1]]); } return o; }
+function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ seg2.push(cur); cur=[]; } } if(cur.length) seg2.push(cur); seg2.forEach((z,i)=>{ const txt=z.map(x=>x.t).join(' '); const hit=(/\bantwoord\b/i.test(txt)&&!/begin/i.test(txt)&&z.some(x=>/^(aa|bee|cee|a|b|c)[.,:]?$/i.test(x.t)))||/^(dat (is|was) )?[abc]\.$/i.test(txt); if(hit){ const a=Math.max(0,z[0].s-0.05), b=seg2[i+1]?Math.max(a,seg2[i+1][0].s-0.05):(seg.dur||z[z.length-1].e+0.3); cuts.push([a,b]); } }); return cuts; }function losAntwCuts(seg,aan){ const w=seg.words||[]; for(const x of w){ if(x._t0!==undefined){ x.t=x._t0; delete x._t0; } } if(!aan) return [];
+  const z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur);
+  const LET=/^(aa|bee|cee|a|b|c)[.,:]?$/i, OK=/^(het|antwoord|op|de|vraag|van|aan|begin|was|is|dus|dat|daar|beste|aa|bee|cee|a|b|c)[.,:]?$/i, cuts=[];
+  z.forEach((s,i)=>{ const txt=s.map(x=>x.t).join(' '); if(!/\bantwoord\b/i.test(txt)||!s.some(x=>LET.test(x.t))) return;
+    const k=s.findIndex(x=>/:$/.test(x.t));
+    if(k<0){ if(s.length<=12&&s.every(x=>OK.test(x.t))){ const a=Math.max(0,s[0].s-0.05), b=z[i+1]?z[i+1][0].s-0.05:(seg.dur||s[s.length-1].e+0.3); cuts.push([a,b]); } return; }
+    const pre=s.slice(0,k+1); if(k+1<s.length&&pre.length<=11&&pre.every(x=>OK.test(x.t))&&pre.some(x=>LET.test(x.t))&&pre.some(x=>/^antwoord/i.test(x.t))){ cuts.push([Math.max(0,s[0].s-0.05),s[k+1].s-0.03]); const r=s[k+1]; r._t0=r.t; r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); } });
+  return cuts; } function antwKopCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=0; while(i<z.length&&/^(antwoord\b.*|(het )?antwoord is [abc]\.|[abc]\.)$/i.test(z[i].map(x=>x.t).join(' '))&&z[i].length<=4) i++; if(!i) return []; return [[Math.max(0,z[0][0].s-0.05),z[i]?z[i][0].s-0.05:(seg.dur||w[w.length-1].e+0.3)]]; } function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=z.length; while(i>0&&/\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; return [[Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]]; } function aud2it(it,t){ let d=t; for(const c of (it.cuts||[])){ if(t>c[0]) d-=Math.min(t,c[1])-c[0]; } return d; } function it2aud(it,u){ let t=u; for(const c of (it.cuts||[])){ if(t>=c[0]) t+=c[1]-c[0]; } return t; } function buildTimeline(){
+  const items=[]; let prevChapter=null, naQ=false, naKop=false;
+  const SEGS=DATA.segments.filter(s=>!(state.niveau==='havo'&&s.level==='vwo')); for(let si=0;si<SEGS.length;si++){ const seg=SEGS[si];
     if(state.niveau==='basis' && seg.level==='vwo') continue;
     if(seg.chapter!==prevChapter && !NO_CARD.includes(seg.chapter)){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech') items.push({type:'speech',seg,dur:seg.dur,level:seg.level,chapter:seg.chapter});
-    else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
+    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
+    else if(seg.kind==='question' && state.vragen==='uit'){ if(seg.chapter==='Cold open') naKop=true; else naQ=seg.chapter; } else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
 }
@@ -69,7 +87,7 @@ function drawQuestion(ctx,it,t){
   state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
 }
 // captions: phrase chunks of ≤ 2 lines ≤ 44 chars
-function chunks(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
   for(const w of seg.words){ const t=w.t; cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t), comma=/[,;]$/.test(t);
     if((endS&&len>22)||(comma&&len>50)||len>92){ out.push(cur); cur=[]; len=0; } }
   if(cur.length) out.push(cur); seg._chunks=out; return out; }
@@ -82,7 +100,7 @@ function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && 
 
 // ---- transport ----
 const audio=document.getElementById('narration'); function zetSnelheid(r){ if(state.items&&state.items[state.idx]&&state.items[state.idx].type!=='speech'){ clockBase=state.local; clockStart=performance.now()/1000; } state.snelheid=r; audio.defaultPlaybackRate=r; audio.playbackRate=r; try{ audio.preservesPitch=true; }catch(e){} document.querySelectorAll('#snelheid button').forEach(b=>b.classList.toggle('on',+b.dataset.v===r)); } let clockStart=0, clockBase=0; let raf=0;
-function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); state.local=local; const it=state.items[state.idx]; state.items.forEach(x=>x._clock=null); state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local=it2aud(it,local); state.local=local; state.items.forEach(x=>x._clock=null); state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
   if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
   else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
   updateChapterUI(); }
@@ -92,7 +110,7 @@ function pause(){ const it=state.items[state.idx]; if(it) it._clock=null; state.
 function tick(){
   const it=state.items[state.idx];
   if(state.playing && it){
-    if(it.type==='speech'){ if(!audio.ended){ state.local=audio.currentTime; } else { if(!it._clock) it._clock={base:Math.max(state.local,audio.duration||0),start:performance.now()/1000}; state.local=it._clock.base+(performance.now()/1000-it._clock.start); } if(state.local>=it.dur-0.02){ next(); } }
+    if(it.type==='speech'){ if(!audio.ended){ state.local=audio.currentTime; const cc=(it.cuts||[]).find(c=>state.local>=c[0]&&state.local<c[1]-0.03); if(cc){ audio.currentTime=cc[1]; state.local=cc[1]; } } else { if(!it._clock) it._clock={base:Math.max(state.local,audio.duration||0),start:performance.now()/1000}; state.local=it._clock.base+(performance.now()/1000-it._clock.start); } if(aud2it(it,state.local)>=it.dur-0.02){ next(); } }
     else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid; const ph=state.qPhase;
       if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
       else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
@@ -106,11 +124,11 @@ function verder(){ const ph=state.qPhase; if(!ph) return; if(ph.phase!=='reveal'
 
 // ---- UI wiring ----
 function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
-function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+state.local; document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+aud2it(it,state.local); document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
 function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
 function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
   for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
-    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='havovwo'?'<em>havo/vwo-blok</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
+    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='havovwo'?'<em>uitdaging</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
 function init(){
   buildTimeline(); buildChapterList(); gotoItem(0,0);
   document.getElementById('play').onclick=()=>state.playing?pause():play();
@@ -118,15 +136,16 @@ function init(){
   document.getElementById('verder').onclick=verder;
   document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
   document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
-  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='vragen'){ try{ localStorage.setItem('bk-vragen',state.vragen); }catch(e){} buildTimeline(); buildChapterList(); let i=state.items.findIndex(it=>it.seg&&it.seg===was.seg); if(i<0) i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); } if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
         const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('basis',state.niveau==='basis'); } }; }); };
-  setToggle('modus','modus'); document.querySelectorAll('#snelheid button').forEach(b=>b.onclick=()=>{ zetSnelheid(+b.dataset.v); try{ localStorage.setItem('bk-snelheid',String(state.snelheid)); }catch(e){} }); zetSnelheid(state.snelheid); document.body.classList.toggle('basis',state.niveau==='basis');
+  setToggle('modus','modus'); setToggle('vragen','vragen'); document.querySelectorAll('#snelheid button').forEach(b=>b.onclick=()=>{ zetSnelheid(+b.dataset.v); try{ localStorage.setItem('bk-snelheid',String(state.snelheid)); }catch(e){} }); zetSnelheid(state.snelheid); document.body.classList.toggle('basis',state.niveau==='basis');
   document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
   canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
   document.addEventListener('keydown',e=>{ if(e.code==='Space'){ e.preventDefault(); state.playing?pause():play(); } if(e.code==='ArrowRight') seekGlobal(state.items[state.idx].start+state.local+5); if(e.code==='ArrowLeft') seekGlobal(state.items[state.idx].start+state.local-5); });
   // glossary + transcript
-  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>havo/vwo</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
-  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>havo/vwo</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
+  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>uitdaging</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
+  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>uitdaging</i> ':'')+s.words.map(w=>w.t).join(' '); tr.appendChild(p); });
   tick();
 }
 window.addEventListener('load',init);
+

@@ -25,7 +25,7 @@
 | `src/lib.js`, `src/helpers1.js` | De Part C-bibliotheek en algemene hulpjes (uit de vertering-film). |
 | `src/lib_cast.js` | Kopie van `personages/lib_cast.js`. |
 | `src/scenes_haai.js` | Haai-tekenwerk en één scènefunctie per segment (zie onder). |
-| `src/player.js`, `src/page.html` | De speler (meta "onderbouw · kerndoelen · haaien", hoofdstuk-subtitels in `mini`, geen niveauschakelaar) en het paginasjabloon met checkvragen, begrippen en docentdeel. |
+| `src/player.js`, `src/page.html` | De speler (meta "onderbouw · kerndoelen · haaien", hoofdstuk-subtitels in `mini`, geen niveauschakelaar) en het paginasjabloon met checkvragen, begrippen en docentdeel. Sinds 16 okt 2026 is de speler die van Vertering, met afspeelsnelheid (0,75–1,5×) en **Vragen aan/uit**. Beide worden onthouden (`bk-snelheid`, `bk-vragen`), net als in de andere films. Bij Vragen uit vallen de vraagkaarten weg en knipt `vraagCuts` de gesproken vraagzinnen ("… Wat denk je?") uit s03, s06, s09 en s15. |
 | `bouw/make_segments.py` | `script_v2.md` → `segments.json`. Een lege regel betekent een nieuwe take; respellings staan in `subs`. |
 | `bouw/build_data.py` | Segments + woordtijden + vragen (`answers`, `qtext`) → `filmdata.json`. `HOLD` = hoe lang de eindkaart blijft staan. |
 | `bouw/build.py` | Plakt helpers1 + lib_cast + scenes_haai tot `scenes.js`, voegt lib/player in `page.html` in en schrijft `film/index.html`. |
