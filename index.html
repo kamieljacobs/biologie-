@@ -219,6 +219,24 @@ a.tool:hover h3{color:var(--goud-text)}
 .ond-scheiding .mono{color:var(--goud-text)}
 .ond-scheiding h2{font-size:30px}
 .ond-scheiding + .reeks{padding-top:20px}
+.filmzoek{margin:26px 0 6px}
+.filmzoek input{width:100%;font:400 17px/1.3 var(--tekst,inherit);padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--text)}
+.filmzoek input:focus{outline:2px solid var(--goud);outline-offset:1px}
+.snel{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.snel button{font:600 13px/1 var(--meta,inherit);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.snel button:hover{border-color:var(--goud)}
+.zoek-leeg{color:var(--text3);margin-top:14px}
+details.reeks{padding-top:0;border-bottom:1px solid var(--line);scroll-margin-top:120px}
+details.reeks>summary{list-style:none;cursor:pointer;padding:16px 4px}
+details.reeks>summary::-webkit-details-marker{display:none}
+.reeks-titel{display:flex;flex-direction:column;gap:3px;min-width:0}
+.reeks-meta{color:var(--text3);font-size:12px}
+.reeks-kop .pijl{margin-left:auto;width:10px;height:10px;border-right:2px solid var(--text3);border-bottom:2px solid var(--text3);transform:rotate(45deg);transition:transform .2s}
+details.reeks[open] .pijl{transform:rotate(225deg)}
+.reeks-inhoud{padding-bottom:14px}
+.reeks-inhoud .naar{display:inline-block;color:var(--goud-text);font-weight:700;font-size:14px;margin:0 0 8px 4px}
+.ond-scheiding + details.reeks{margin-top:4px}
+.ond-blok[hidden],details.reeks[hidden],.kort[hidden]{display:none}
 footer{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
 footer .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
 footer a:hover{color:var(--text)}
@@ -2193,20 +2211,40 @@ function kopPagina(lbl,titel,tekst,id){
 }
 function films(){
   let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
-  const reeks=(id)=>{const h=HOOFDSTUKKEN[id];
-    return `<section class="reeks"><div class="reeks-kop"><span class="embleem">${kunst(id)}</span><h2>${esc(h.titel)}</h2>${fries(id)}<a href="#${id}">Naar het hoofdstuk →</a></div>${h.films.map((f,i)=>`<a class="kort" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</section>`;
+  const heeft=id=>HOOFDSTUKKEN[id]&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length);
+  const zoekTekst=(...x)=>esc(x.filter(Boolean).join(' ').toLowerCase());
+  const reeks=(id)=>{const h=HOOFDSTUKKEN[id]; const min=h.films.reduce((a,f)=>a+(+f.duur||0),0);
+    const meta=[h.films.length?`${h.films.length} ${h.films.length===1?'film':'films'}`:'',min?`± ${min} min`:'',(h.komt||[]).length?`${h.komt.length} komt nog`:''].filter(Boolean).join(' · ');
+    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
   }
-  const gehad=new Set();
+  const gehad=new Set(), volgorde=[]; let lijst='';
   for(const o of NIVEAUS[niveau].ond){
-    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>HOOFDSTUKKEN[id]&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length)&&!gehad.has(id));
+    const ids=[...new Set(o.subs.map(x=>hoofdstukVan(x[4])))].filter(id=>heeft(id)&&id!=='extra'&&!gehad.has(id));
     if(!ids.length) continue;
-    out+=`<div class="ond-scheiding"><span class="mono">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.naam?`<h2>${esc(o.naam)}</h2>`:''}</div>`;
-    for(const id of ids){gehad.add(id);out+=reeks(id)}
+    lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.naam?`<h2>${esc(o.naam)}</h2>`:''}</div>`;
+    for(const id of ids){gehad.add(id);volgorde.push(id);lijst+=reeks(id)}
+    lijst+=`</div>`;
   }
-  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length));
-  if(rest.length){out+=`<div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Alle films":"Ook bij "+esc(niveau)}</h2></div>`;for(const id of rest) out+=reeks(id)}
-  return out+`</div>`;
+  const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&id!=='extra'&&heeft(id));
+  if(rest.length){lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Alle films":"Ook bij "+esc(niveau)}</h2></div>`;for(const id of rest){volgorde.push(id);lijst+=reeks(id)}lijst+=`</div>`}
+  if(heeft('extra')){volgorde.push('extra');lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Extra</span><h2>Nieuwsgierig?</h2></div>${reeks('extra')}</div>`}
+  out+=`<div class="filmzoek"><input id="filmzoek" type="search" placeholder="Zoek een film, bv. osmose of CRISPR" autocomplete="off" aria-label="Zoek in alle films"><div class="snel">${volgorde.map(id=>`<button type="button" data-open="${id}">${esc(HOOFDSTUKKEN[id].titel)}</button>`).join('')}</div><p class="zoek-leeg" hidden>Geen film gevonden. Probeer een ander woord.</p></div>`;
+  return out+lijst+`</div>`;
 }
+function filmZoek(q){
+  q=(q||'').trim().toLowerCase(); const w=q.split(/\s+/).filter(Boolean); let n=0;
+  document.querySelectorAll('details.reeks').forEach(d=>{
+    let m=0; d.querySelectorAll('.kort').forEach(k=>{const ok=!w.length||w.every(x=>k.dataset.zoek.includes(x)); k.hidden=!ok; if(ok) m++;});
+    d.hidden=w.length>0&&m===0; if(w.length) d.open=m>0; n+=m;
+  });
+  document.querySelectorAll('.ond-blok').forEach(b=>b.hidden=![...b.querySelectorAll('details.reeks')].some(d=>!d.hidden));
+  const leeg=document.querySelector('.zoek-leeg'); if(leeg) leeg.hidden=!(w.length&&n===0);
+  if(!w.length) document.querySelectorAll('details.reeks').forEach(d=>d.open=false);
+}
+document.addEventListener('input',e=>{if(e.target&&e.target.id==='filmzoek') filmZoek(e.target.value)});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-open]'); if(!b) return;
+  const z=document.getElementById('filmzoek'); if(z&&z.value){z.value='';filmZoek('')}
+  const d=document.getElementById('reeks-'+b.dataset.open); if(d){d.open=true; d.scrollIntoView({behavior:'smooth',block:'start'})}});
 function tools(){
   return kopPagina('Alle tools','Tools en practica','Simulaties en virtuele practica om het zelf te proberen.','erfelijkheid')+`<div class="wrap smal lijst"><div class="tools">${alleTools.filter(t=>t.href).map(toolRij).join('')}</div>${alleTools.some(t=>!t.href)?`<h2>In de maak</h2><div class="tools">${alleTools.filter(t=>!t.href).map(toolRij).join('')}</div>`:''}</div>`;
 }
