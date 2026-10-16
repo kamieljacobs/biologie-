@@ -1,4 +1,4 @@
-# Knoeien met de spleet — bronmap
+# Knoeien met de synaps — bronmap
 
 | Veld | Waarde |
 |---|---|
@@ -166,3 +166,6 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 
 ## Wijzigingen
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
+
+## Wijziging 16 okt 2026
+Titel op verzoek van Kamiel: "Knoeien met de synaps" (was "Knoeien met de spleet") in `<title>`, kop, titelkaart en `FILM.plan.title`; ook in de eindkaart van film 3, `index.html`, `pta-route.html` en de verwijzing in Slaap. Bestandsnaam blijft `4-knoeien-met-de-spleet.html` (links en kijkcijfers). De gesproken zin "ze knoeien met de spleet uit de vorige film" (s00, 0:11) gaat over de synapsspleet en is niet opnieuw ingesproken.

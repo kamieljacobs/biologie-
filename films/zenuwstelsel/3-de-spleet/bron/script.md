@@ -325,7 +325,7 @@ Scène: `recap` (sceneRecap())
 
 > Beeld (cues uit `plan.cues`, op het woord): recap „neus” op ‘receptor’; recap „impuls” op ‘impuls’; recap „calcium” op ‘Calcium’; recap „oversteken” op ‘spleet’; recap „receptoren” op ‘bezet’; recap „vuurt of niet” op ‘niet’; recap „opruimen” op ‘Enzym’; recap „hersenen” op ‘brood’; recap „e-c-e” op ‘Elektrisch’; recap „één kant” op ‘kant’
 
-*[eindkaart 8,0 s op 6:07: “Volgende film: Knoeien met de spleet — koffie, wijn en wat er dan in de synaps gebeurt (☕ de koffie, 🍷 de wijn, 🎧 het nummer, 🚲 de zijwieltjes)”]*
+*[eindkaart 8,0 s op 6:07: “Volgende film: Knoeien met de synaps — koffie, wijn en wat er dan in de synaps gebeurt (☕ de koffie, 🍷 de wijn, 🎧 het nummer, 🚲 de zijwieltjes)”]*
 
 ---
 Controle: 13 gesproken segmenten = 13 audiofragmenten in FILM_AUDIO = 13 mp3-blobs. Som audio (ffprobe) 5:05 (305,4 s); som timing.duration 304,9 s (per fragment ±0,05 s korter dan de mp3, encoderstilte). Filmduur in de speler incl. kaarten en aftellingen: 6:15 (375,9 s).
