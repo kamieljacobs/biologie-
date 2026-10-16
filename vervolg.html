@@ -114,6 +114,15 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .gb li:last-child{border-bottom:0}
 .gb li .nr{font:600 12px/1.9 var(--meta);color:var(--text3)}
 .komt{font:600 10.5px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);border:1px dashed var(--line2);border-radius:999px;padding:4px 8px;white-space:nowrap}
+.gb .pta{border-top:1px dashed var(--line2);padding:12px 22px 8px;background:color-mix(in srgb,var(--bg) 55%,transparent)}
+.gb .pta .mono{color:var(--text3);display:flex;justify-content:space-between;gap:8px}
+.gb .pta ul{list-style:none;margin:8px 0 0;padding:0}
+.gb .pta li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--line);grid-template-columns:none}
+.gb .pta li:last-child{border-bottom:0}
+.gb .pta li a{color:var(--text2);min-width:0}
+.gb .pta li a:hover{color:var(--text)}
+.gb .pta .play{font-size:10px;color:var(--c);margin-right:8px;vertical-align:1px}
+.gb .pta .hf{font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);border:1px solid var(--line);border-radius:999px;padding:4px 8px;white-space:nowrap;flex:none}
 .gb footer{margin-top:auto;padding:12px 22px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--line)}
 .gb footer .mono{color:var(--text3);margin-right:4px}
 .gb footer a{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
@@ -139,7 +148,7 @@ footer.site a:hover{color:var(--text)}
 @media (max-width:600px){
   .wrap{padding-inline:16px}
   .gb header{padding:16px 16px 10px}
-  .gb .intro{padding:0 16px 10px}.gb .basis{padding:10px 16px 4px}.gb footer{padding:10px 16px 16px}
+  .gb .intro{padding:0 16px 10px}.gb .basis{padding:10px 16px 4px}.gb .pta{padding:10px 16px 6px}.gb footer{padding:10px 16px 16px}
   .kern{grid-template-columns:1fr;padding:18px 16px}
   .opbouw{grid-template-columns:1fr}.opbouw div{border-right:0;border-bottom:1px solid var(--line)}
   .teller{width:100%;margin-left:0}
@@ -211,81 +220,107 @@ const CLUSTERS = [
  {id:'groen',naam:'Groen en ecologie',kleur:'groen',tekst:'Opleidingen over natuur, landbouw en het milieu, van een moestuin tot een heel ecosysteem.'},
  {id:'onderwijs',naam:'Onderwijs',kleur:'goud',tekst:'Biologie zelf uitleggen aan anderen.'},
 ];
+/* FILMS:start (scripts/vervolg_films.py) */
+const FILMS = {"films/erfelijkheid/1-chromosomen.html":["Chromosomen","Erfelijkheid","erfelijkheid"],"films/erfelijkheid/2-monohybride-kruisingen.html":["Monohybride kruisingen","Erfelijkheid","erfelijkheid"],"films/erfelijkheid/3-voorbij-dominant-en-recessief.html":["Voorbij dominant en recessief","Erfelijkheid","erfelijkheid"],"films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html":["Dihybride kruising en gekoppelde overerving","Erfelijkheid","erfelijkheid"],"films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html":["Overerving via X-chromosomen en mitochondriën","Erfelijkheid","erfelijkheid"],"films/erfelijkheid/6-stambomen-en-kansrekenen.html":["Stambomen en kansrekenen","Erfelijkheid","erfelijkheid"],"films/stofwisseling/1-alles-versneld.html":["Alles versneld","Stofwisseling","stofwisseling"],"films/stofwisseling/2-alles-op-adem.html":["Alles op adem","Stofwisseling","stofwisseling"],"films/stofwisseling/3-alles-in-het-groen.html":["Alles in het groen","Stofwisseling","stofwisseling"],"films/voortplanting/1-precies-op-tijd.html":["Van bevruchting tot baby","Voortplanting","voortplanting"],"films/voortplanting/celdeling/index.html":["Celdeling","Voortplanting","voortplanting"],"films/cellen/van-molecuul-tot-biosfeer.html":["Van molecuul tot biosfeer","Cellen","cellen"],"films/cellen/celorganellen/index.html":["Celorganellen","Cellen","cellen"],"films/cellen/diffusie-osmose/index.html":["Diffusie en osmose","Cellen","cellen"],"films/cellen/stamcellen.html":["Stamcellen","Cellen","cellen"],"films/cellen/onderzoek-doen/index.html":["Onderzoek doen in de biologie","Cellen","cellen"],"films/evolutie/1-het-raadsel-van-de-eilanden.html":["Het raadsel van de eilanden","Evolutie","evolutie"],"films/evolutie/2-verrassend-simpel.html":["Verrassend simpel","Evolutie","evolutie"],"films/evolutie/3-hoe-weten-we-dat.html":["Hoe weten we dat?","Evolutie","evolutie"],"films/evolutie/4-van-niet-leven-naar-leven.html":["Van niet-leven naar leven","Evolutie","evolutie"],"films/evolutie/5-de-grote-lijn.html":["De grote lijn","Evolutie","evolutie"],"films/evolutie/6-selectie-van-dichtbij.html":["Selectie van dichtbij","Evolutie","evolutie"],"films/evolutie/7-hoe-een-soort-er-twee-wordt.html":["Hoe één soort er twee wordt","Evolutie","evolutie"],"films/evolutie/8-toeval.html":["Toeval","Evolutie","evolutie"],"films/evolutie/9-veertig-jaar-daphne-major.html":["Veertig jaar Daphne Major","Evolutie","evolutie"],"films/dna/1-wat-is-dna.html":["Wat is DNA?","DNA","dna"],"films/dna/2-dna-kopieren.html":["DNA kopiëren","DNA","dna"],"films/dna/3-van-dna-naar-eiwit.html":["Van DNA naar eiwit","DNA","dna"],"films/dna/4-de-genetische-code-lezen.html":["De genetische code lezen","DNA","dna"],"films/dna/5-mutaties.html":["Mutaties","DNA","dna"],"films/dna/6-genen-aan-en-uit.html":["Genen aan en uit","DNA","dna"],"films/dna/7-dna-lezen.html":["DNA lezen","DNA","dna"],"films/dna/8-wat-heb-jij-aan-dna.html":["Wat heb jij aan DNA?","DNA","dna"],"films/dna-technieken/1-op-maat-gekopieerd/index.html":["Op maat gekopieerd · PCR","DNA","dna"],"films/dna-technieken/2-op-lengte-gesorteerd/index.html":["Op lengte gesorteerd · gelelektroforese","DNA","dna"],"films/transport/7-hoe-een-plant-groeit.html":["Hoe een plant groeit","Planten","planten"],"films/transport/6-transport-in-planten.html":["Transport in planten","Planten","planten"],"films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html":["Waarom doet een dier wat het doet?","Gedrag","gedrag"],"films/gedrag/2-inprenting-en-de-sensitieve-periode.html":["Inprenting en de sensitieve periode","Gedrag","gedrag"],"films/gedrag/3-baltsen-en-kiezen.html":["Baltsen en kiezen","Gedrag","gedrag"],"films/gedrag/4-hechting.html":["Hechting: van baby tot verliefd","Gedrag","gedrag"],"films/gedrag/5-emotieregulatie.html":["Emotieregulatie","Gedrag","gedrag"],"films/gedrag/6-attributie.html":["Wiens schuld is het? Interne en externe attributie","Gedrag","gedrag"],"films/gedrag/7-leren.html":["Leren: van Pavlov tot je telefoon","Gedrag","gedrag"],"films/gedrag/8-honingbij.html":["De dans van de honingbij","Gedrag","gedrag"],"films/gedrag/9-mierenkolonie.html":["Een mierenkolonie zonder baas","Gedrag","gedrag"],"films/gedrag/10-helpen.html":["Waarom helpen dieren elkaar?","Gedrag","gedrag"],"films/gedrag/11-slimme-dieren.html":["Slimme dieren","Gedrag","gedrag"],"films/gedrag/12-psychologie-experimenten.html":["Beroemde psychologie-experimenten","Gedrag","gedrag"],"films/hormonen/1-post-voor-iedereen.html":["Post voor iedereen","Regeling","regeling"],"films/hormonen/2-suiker-in-balans.html":["Suiker in balans","Regeling","regeling"],"films/hormonen/3-de-baas-van-de-klieren.html":["De baas van de klieren","Regeling","regeling"],"films/hormonen/4-stress.html":["Stress","Regeling","regeling"],"films/hormonen/5-water-in-balans.html":["Water in balans","Regeling","regeling"],"films/zenuwstelsel/1-een-seconde.html":["Eén seconde","Regeling","regeling"],"films/zenuwstelsel/2-het-kabelnetwerk.html":["Het kabelnetwerk","Regeling","regeling"],"films/zenuwstelsel/3-de-spleet.html":["De spleet","Regeling","regeling"],"films/zenuwstelsel/4-knoeien-met-de-spleet.html":["Knoeien met de spleet","Regeling","regeling"],"films/zenuwstelsel/5-het-hoofdkantoor.html":["Het hoofdkantoor","Regeling","regeling"],"films/zenuwstelsel/6-leren-en-onthouden.html":["Leren en onthouden","Regeling","regeling"],"films/zenuwstelsel/8-zintuigen.html":["Zintuigen","Regeling","regeling"],"films/ecologie/plek-genoeg/index.html":["Plek genoeg?","Ecologie","ecologie"],"films/ecologie/alles-gaat-rond/index.html":["Alles gaat rond","Ecologie","ecologie"],"films/voeding/1-wat-zit-er-in-je-eten.html":["Wat zit er in je eten?","Voeding","voeding"],"films/voeding/2-de-reis-door-je-buik.html":["De reis door je buik","Voeding","voeding"],"films/voeding/3-knippen-op-maat.html":["Knippen op maat","Voeding","voeding"],"films/voeding/4-van-darm-naar-bloed.html":["Van darm naar bloed","Voeding","voeding"],"films/voeding/5-de-lever-als-fabriek.html":["De lever als fabriek","Voeding","voeding"],"films/voeding/6-je-darmbewoners.html":["Je darmbewoners","Voeding","voeding"],"films/voeding/7-supplementen-en-superfoods.html":["Supplementen en superfoods","Voeding","voeding"],"films/transport/1-een-pomp-twee-rondjes.html":["Eén pomp, twee rondjes","Transport","transport"],"films/transport/2-buizen-onder-druk.html":["Buizen onder druk","Transport","transport"],"films/transport/3-wat-er-in-je-bloed-zit.html":["Wat er in je bloed zit","Transport","transport"],"films/transport/4-weefselvloeistof-en-lymfe.html":["Weefselvloeistof en lymfe","Transport","transport"],"films/transport/5-het-hart-onder-controle.html":["Het hart onder controle","Transport","transport"],"films/gaswisseling/1-adem-in-adem-uit.html":["Adem in, adem uit","Gaswisseling en uitscheiding","gaswisseling"],"films/gaswisseling/2-gas-op-reis.html":["Gas op reis","Gaswisseling en uitscheiding","gaswisseling"],"films/gaswisseling/3-uitscheiding-en-evenwicht.html":["Uitscheiding en evenwicht","Gaswisseling en uitscheiding","gaswisseling"],"films/afweer/1-de-eerste-verdediging.html":["De eerste verdediging","Bescherming en afweer","afweer"],"films/afweer/2-antistoffen-op-maat.html":["Antistoffen op maat","Bescherming en afweer","afweer"],"films/afweer/3-t-cellen-en-virussen.html":["T-cellen en virussen","Bescherming en afweer","afweer"],"films/afweer/4-vaccins-allergie-en-bloedgroepen.html":["Vaccins, allergie en bloedgroepen","Bescherming en afweer","afweer"]};
+/* FILMS:end */
 const GEBIEDEN = [
  {id:'geneeskunde',cluster:'zorg',naam:'Geneeskunde',niveau:'wo',intro:'Arts worden: weten hoe een gezond lichaam werkt, zodat je herkent wat er misgaat.',
   basis:['Anatomie en fysiologie van de orgaanstelsels','Homeostase en regelkringen','Afweer en infectieziekten','Celbiologie en weefsels','Erfelijkheid en erfelijke aandoeningen'],
-  bouwt:[['Afweer','afweer'],['Regeling','regeling'],['Transport','transport'],['Erfelijkheid','erfelijkheid']]},
+  bouwt:[['Afweer','afweer'],['Regeling','regeling'],['Transport','transport'],['Erfelijkheid','erfelijkheid']],
+  pta:['films/transport/1-een-pomp-twee-rondjes.html', 'films/transport/3-wat-er-in-je-bloed-zit.html', 'films/gaswisseling/1-adem-in-adem-uit.html', 'films/hormonen/2-suiker-in-balans.html', 'films/afweer/1-de-eerste-verdediging.html', 'films/zenuwstelsel/1-een-seconde.html', 'films/erfelijkheid/6-stambomen-en-kansrekenen.html']},
  {id:'diergeneeskunde',cluster:'zorg',naam:'Diergeneeskunde',niveau:'wo',intro:'Dierenarts worden: van hond en kat tot koe en paard.',
   basis:['Vergelijkende anatomie en fysiologie','Voortplanting en verloskunde bij dieren','Infectieziekten en zoönosen','Diergedrag en welzijn'],
-  bouwt:[['Voortplanting','voortplanting'],['Afweer','afweer'],['Gedrag','gedrag']]},
+  bouwt:[['Voortplanting','voortplanting'],['Afweer','afweer'],['Gedrag','gedrag']],
+  pta:['films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html', 'films/afweer/1-de-eerste-verdediging.html', 'films/voortplanting/1-precies-op-tijd.html', 'films/voeding/2-de-reis-door-je-buik.html', 'films/evolutie/5-de-grote-lijn.html']},
  {id:'tandheelkunde',cluster:'zorg',naam:'Tandheelkunde en mondzorg',niveau:'hbo · wo',intro:'Tandarts of mondzorgkundige: het gebit, de mond en de bacteriën die er wonen.',
   basis:['Bouw van gebit en kaak','Bacteriën in de mond en tandplak','Ontsteking en afweer','Voeding en tanderosie'],
-  bouwt:[['Voeding','voeding'],['Afweer','afweer']]},
+  bouwt:[['Voeding','voeding'],['Afweer','afweer']],
+  pta:['films/voeding/1-wat-zit-er-in-je-eten.html', 'films/voeding/2-de-reis-door-je-buik.html', 'films/voeding/6-je-darmbewoners.html', 'films/afweer/1-de-eerste-verdediging.html']},
  {id:'farmacie',cluster:'zorg',naam:'Farmacie',niveau:'mbo · wo',intro:'Apotheker of apothekersassistent: hoe een medicijn je lichaam in komt, werkt en weer verdwijnt.',
   basis:['Celmembraan en transport','Enzymen en receptoren','Stofwisseling en afbraak in de lever','Antibiotica en resistentie','Hormonen als medicijn'],
-  bouwt:[['Cellen','cellen'],['Stofwisseling','stofwisseling'],['Regeling','regeling']]},
+  bouwt:[['Cellen','cellen'],['Stofwisseling','stofwisseling'],['Regeling','regeling']],
+  pta:['films/cellen/diffusie-osmose/index.html', 'films/stofwisseling/1-alles-versneld.html', 'films/voeding/5-de-lever-als-fabriek.html', 'films/hormonen/1-post-voor-iedereen.html', 'films/zenuwstelsel/4-knoeien-met-de-spleet.html']},
  {id:'verloskunde',cluster:'zorg',naam:'Verloskunde',niveau:'hbo',intro:'Verloskundige: zwangerschap, bevalling en de eerste dagen daarna begeleiden.',
   basis:['Voortplantingsorganen en menstruatiecyclus','Bevruchting en embryonale ontwikkeling','Hormonen tijdens zwangerschap en bevalling','Placenta en de bloedsomloop van het kind'],
-  bouwt:[['Voortplanting','voortplanting'],['Regeling','regeling']]},
+  bouwt:[['Voortplanting','voortplanting'],['Regeling','regeling']],
+  pta:['films/voortplanting/1-precies-op-tijd.html', 'films/voortplanting/celdeling/index.html', 'films/erfelijkheid/1-chromosomen.html', 'films/hormonen/1-post-voor-iedereen.html', 'films/transport/1-een-pomp-twee-rondjes.html']},
  {id:'verpleegkunde',cluster:'zorg',naam:'Verpleegkunde',niveau:'mbo · hbo',intro:'Verpleegkundige: zorg voor patiënten, van ziekenhuis tot wijk.',
   basis:['Bloedsomloop, ademhaling en vitale functies','Vocht en zouten in balans','Wondgenezing en infecties','Medicijnen en het lichaam'],
-  bouwt:[['Transport','transport'],['Gaswisseling','gaswisseling'],['Afweer','afweer']]},
+  bouwt:[['Transport','transport'],['Gaswisseling','gaswisseling'],['Afweer','afweer']],
+  pta:['films/transport/1-een-pomp-twee-rondjes.html', 'films/transport/2-buizen-onder-druk.html', 'films/gaswisseling/1-adem-in-adem-uit.html', 'films/gaswisseling/3-uitscheiding-en-evenwicht.html', 'films/hormonen/5-water-in-balans.html', 'films/afweer/1-de-eerste-verdediging.html']},
  {id:'fysiotherapie',cluster:'zorg',naam:'Fysiotherapie en bewegingswetenschappen',niveau:'hbo · wo',intro:'Hoe spieren, botten en zenuwen samen beweging maken, en hoe je herstelt na een blessure.',
   basis:['Skelet, spieren en gewrichten','Zenuwen en spieraansturing','Energie voor spieren en training','Herstel van weefsel'],
-  bouwt:[['Stofwisseling','stofwisseling'],['Regeling','regeling'],['Gaswisseling','gaswisseling']]},
+  bouwt:[['Stofwisseling','stofwisseling'],['Regeling','regeling'],['Gaswisseling','gaswisseling']],
+  pta:['films/zenuwstelsel/1-een-seconde.html', 'films/zenuwstelsel/2-het-kabelnetwerk.html', 'films/stofwisseling/2-alles-op-adem.html', 'films/gaswisseling/1-adem-in-adem-uit.html', 'films/zenuwstelsel/8-zintuigen.html']},
  {id:'mbrt',cluster:'zorg',naam:'Medische beeldvorming (MBRT)',niveau:'hbo',intro:'Röntgen, MRI, CT en bestraling: in het lichaam kijken zonder te opereren.',
   basis:['Anatomie in doorsneden','Straling en weefsel','Tumoren en celdeling'],
-  bouwt:[['Cellen','cellen'],['DNA','dna']]},
+  bouwt:[['Cellen','cellen'],['DNA','dna']],
+  pta:['films/cellen/van-molecuul-tot-biosfeer.html', 'films/voortplanting/celdeling/index.html', 'films/cellen/stamcellen.html', 'films/dna/5-mutaties.html']},
 
  {id:'biomedisch',cluster:'lab',naam:'Biomedische wetenschappen',niveau:'wo',intro:'Onderzoek naar hoe ziektes ontstaan op het niveau van cellen en moleculen.',
   basis:['Celbiologie en signaaloverdracht','DNA, genexpressie en mutaties','Afweer en vaccins','Onderzoek doen: proefopzet en statistiek'],
-  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']]},
+  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']],
+  pta:['films/cellen/celorganellen/index.html', 'films/dna/3-van-dna-naar-eiwit.html', 'films/dna/5-mutaties.html', 'films/dna/6-genen-aan-en-uit.html', 'films/afweer/2-antistoffen-op-maat.html', 'films/hormonen/1-post-voor-iedereen.html', 'films/cellen/onderzoek-doen/index.html']},
  {id:'labtechniek',cluster:'lab',naam:'Laboratoriumtechniek',niveau:'mbo · hbo',intro:'Analist in een lab: monsters onderzoeken in ziekenhuis, bedrijf of onderzoeksinstituut.',
   basis:['Microscopie en preparaten','PCR en gel-elektroforese','Bloedgroepen en bloedonderzoek','Werken met bacteriën: kweken en steriel werken'],
-  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']]},
+  bouwt:[['DNA','dna'],['Cellen','cellen'],['Afweer','afweer']],
+  pta:['films/cellen/onderzoek-doen/index.html', 'films/cellen/celorganellen/index.html', 'films/dna-technieken/1-op-maat-gekopieerd/index.html', 'films/dna-technieken/2-op-lengte-gesorteerd/index.html', 'films/afweer/4-vaccins-allergie-en-bloedgroepen.html']},
  {id:'biotechnologie',cluster:'lab',naam:'Biotechnologie en life sciences',niveau:'mbo · hbo · wo',intro:'Organismen laten werken voor de mens: medicijnen, voedsel en materialen maken.',
   basis:['Genetische modificatie en CRISPR','Eiwitsynthese en enzymen','Bacteriën en gisten als fabriek','Ethiek van biotechnologie'],
-  bouwt:[['DNA','dna'],['Stofwisseling','stofwisseling']]},
+  bouwt:[['DNA','dna'],['Stofwisseling','stofwisseling']],
+  pta:['films/dna/3-van-dna-naar-eiwit.html', 'films/dna/6-genen-aan-en-uit.html', 'films/dna/8-wat-heb-jij-aan-dna.html', 'films/stofwisseling/1-alles-versneld.html', 'films/dna-technieken/1-op-maat-gekopieerd/index.html', 'films/voeding/6-je-darmbewoners.html']},
  {id:'forensisch',cluster:'lab',naam:'Forensisch onderzoek',niveau:'hbo · wo',intro:'Sporen onderzoeken voor politie en justitie: wie was er, en wanneer?',
   basis:['DNA-profielen maken en vergelijken','Bloed en lichaamsvloeistoffen','Afbraak na de dood en tijdstip bepalen','Insecten als getuige'],
-  bouwt:[['DNA','dna'],['Erfelijkheid','erfelijkheid']]},
+  bouwt:[['DNA','dna'],['Erfelijkheid','erfelijkheid']],
+  pta:['films/dna/7-dna-lezen.html', 'films/dna-technieken/1-op-maat-gekopieerd/index.html', 'films/dna-technieken/2-op-lengte-gesorteerd/index.html', 'films/afweer/4-vaccins-allergie-en-bloedgroepen.html', 'films/erfelijkheid/6-stambomen-en-kansrekenen.html']},
  {id:'bioinformatica',cluster:'lab',naam:'Bio-informatica',niveau:'hbo · wo',intro:'Biologie en programmeren: enorme hoeveelheden DNA- en eiwitdata doorzoeken.',
   basis:['Genoom, genen en eiwitten','Mutaties en variatie tussen mensen','Evolutie en stambomen','Data en statistiek in de biologie'],
-  bouwt:[['DNA','dna'],['Evolutie','evolutie'],['Erfelijkheid','erfelijkheid']]},
+  bouwt:[['DNA','dna'],['Evolutie','evolutie'],['Erfelijkheid','erfelijkheid']],
+  pta:['films/dna/4-de-genetische-code-lezen.html', 'films/dna/5-mutaties.html', 'films/dna/7-dna-lezen.html', 'films/evolutie/3-hoe-weten-we-dat.html', 'films/evolutie/5-de-grote-lijn.html', 'films/erfelijkheid/6-stambomen-en-kansrekenen.html']},
 
  {id:'voedingsleer',cluster:'voeding',naam:'Voeding en diëtetiek',niveau:'hbo · wo',intro:'Diëtist of voedingskundige: wat eten met je lichaam doet en hoe je gezond eet.',
   basis:['Voedingsstoffen en hun functie','Vertering en opname','Energiebalans en stofwisseling','Voeding bij ziekte'],
-  bouwt:[['Voeding','voeding'],['Stofwisseling','stofwisseling']]},
+  bouwt:[['Voeding','voeding'],['Stofwisseling','stofwisseling']],
+  pta:['films/voeding/1-wat-zit-er-in-je-eten.html', 'films/voeding/2-de-reis-door-je-buik.html', 'films/voeding/3-knippen-op-maat.html', 'films/voeding/4-van-darm-naar-bloed.html', 'films/voeding/5-de-lever-als-fabriek.html', 'films/voeding/7-supplementen-en-superfoods.html', 'films/stofwisseling/2-alles-op-adem.html', 'films/hormonen/2-suiker-in-balans.html']},
  {id:'gezondheidswetenschappen',cluster:'voeding',naam:'Gezondheidswetenschappen',niveau:'wo',intro:'Gezondheid van een hele bevolking: hoe voorkom je ziekte op grote schaal?',
   basis:['Verspreiding van ziektes (epidemiologie)','Leefstijl, erfelijkheid en risico','Vaccinatie en groepsimmuniteit','Onderzoek doen: cohort- en patiënt-controlestudies'],
-  bouwt:[['Afweer','afweer'],['Erfelijkheid','erfelijkheid']]},
+  bouwt:[['Afweer','afweer'],['Erfelijkheid','erfelijkheid']],
+  pta:['films/afweer/3-t-cellen-en-virussen.html', 'films/afweer/4-vaccins-allergie-en-bloedgroepen.html', 'films/erfelijkheid/6-stambomen-en-kansrekenen.html', 'films/voeding/7-supplementen-en-superfoods.html', 'films/cellen/onderzoek-doen/index.html']},
 
  {id:'psychologie',cluster:'gedrag',naam:'Psychologie',niveau:'wo',intro:'Waarom mensen denken, voelen en doen wat ze doen, en hoe je helpt als het vastloopt.',
   basis:['Zenuwstelsel en neuronen','Hersengebieden en hun functie','Hormonen en stress (HPA-as)','Gedrag: aangeboren en geleerd','Erfelijkheid en omgeving',['Therapievormen en wat werkt','films/vervolg/psychologie-1-welke-therapie-werkt.html']],
-  bouwt:[['Regeling','regeling'],['Gedrag','gedrag'],['Erfelijkheid','erfelijkheid']]},
+  bouwt:[['Regeling','regeling'],['Gedrag','gedrag'],['Erfelijkheid','erfelijkheid']],
+  pta:['films/gedrag/12-psychologie-experimenten.html', 'films/gedrag/4-hechting.html', 'films/gedrag/5-emotieregulatie.html', 'films/gedrag/6-attributie.html', 'films/gedrag/7-leren.html', 'films/hormonen/4-stress.html', 'films/zenuwstelsel/6-leren-en-onthouden.html']},
  {id:'neurowetenschappen',cluster:'gedrag',naam:'Neurowetenschappen',niveau:'wo',intro:'Hoe hersenen werken, van één zenuwcel tot bewustzijn.',
   basis:['Actiepotentiaal en synaps','Zintuigen en waarneming','Leren en geheugen','Hersenen en medicijnen'],
-  bouwt:[['Regeling','regeling'],['Gedrag','gedrag']]},
+  bouwt:[['Regeling','regeling'],['Gedrag','gedrag']],
+  pta:['films/zenuwstelsel/1-een-seconde.html', 'films/zenuwstelsel/2-het-kabelnetwerk.html', 'films/zenuwstelsel/3-de-spleet.html', 'films/zenuwstelsel/4-knoeien-met-de-spleet.html', 'films/zenuwstelsel/5-het-hoofdkantoor.html', 'films/zenuwstelsel/6-leren-en-onthouden.html', 'films/zenuwstelsel/8-zintuigen.html', 'films/gedrag/7-leren.html']},
  {id:'pedagogiek',cluster:'gedrag',naam:'Pedagogiek',niveau:'hbo · wo',intro:'Hoe kinderen zich ontwikkelen en hoe je ze daarbij helpt.',
   basis:['Ontwikkeling van de hersenen','Puberteit en hormonen','Hechting en gedrag'],
-  bouwt:[['Gedrag','gedrag'],['Voortplanting','voortplanting']]},
+  bouwt:[['Gedrag','gedrag'],['Voortplanting','voortplanting']],
+  pta:['films/gedrag/2-inprenting-en-de-sensitieve-periode.html', 'films/gedrag/4-hechting.html', 'films/gedrag/5-emotieregulatie.html', 'films/gedrag/7-leren.html', 'films/voortplanting/1-precies-op-tijd.html']},
 
  {id:'ecologie',cluster:'groen',naam:'Ecologie en natuurbeheer',niveau:'mbo · hbo · wo',intro:'Natuur begrijpen en beschermen: van boswachter tot ecoloog.',
   basis:['Populaties en soorten','Ecosystemen en voedselwebben','Kringlopen van stoffen','Evolutie en biodiversiteit'],
-  bouwt:[['Ecologie','ecologie'],['Evolutie','evolutie']]},
+  bouwt:[['Ecologie','ecologie'],['Evolutie','evolutie']],
+  pta:['films/ecologie/plek-genoeg/index.html', 'films/ecologie/alles-gaat-rond/index.html', 'films/evolutie/6-selectie-van-dichtbij.html', 'films/evolutie/7-hoe-een-soort-er-twee-wordt.html', 'films/evolutie/9-veertig-jaar-daphne-major.html', 'films/gedrag/9-mierenkolonie.html']},
  {id:'milieukunde',cluster:'groen',naam:'Milieukunde',niveau:'hbo · wo',intro:'Vervuiling, klimaat en duurzaamheid: de invloed van de mens op de natuur.',
   basis:['Kringlopen van koolstof en stikstof','Vervuiling en ophoping in voedselketens','Klimaatverandering en soorten'],
-  bouwt:[['Ecologie','ecologie'],['Planten','planten']]},
+  bouwt:[['Ecologie','ecologie'],['Planten','planten']],
+  pta:['films/ecologie/alles-gaat-rond/index.html', 'films/ecologie/plek-genoeg/index.html', 'films/stofwisseling/3-alles-in-het-groen.html']},
  {id:'landbouw',cluster:'groen',naam:'Landbouw en dierhouderij',niveau:'mbo · hbo · wo',intro:'Voedsel produceren: planten telen en dieren houden, liefst duurzaam.',
   basis:['Fotosynthese en plantengroei','Bodem en voedingsstoffen','Fokken en erfelijkheid','Dierwelzijn en diergezondheid'],
-  bouwt:[['Planten','planten'],['Erfelijkheid','erfelijkheid'],['Stofwisseling','stofwisseling']]},
+  bouwt:[['Planten','planten'],['Erfelijkheid','erfelijkheid'],['Stofwisseling','stofwisseling']],
+  pta:['films/stofwisseling/3-alles-in-het-groen.html', 'films/transport/7-hoe-een-plant-groeit.html', 'films/transport/6-transport-in-planten.html', 'films/erfelijkheid/2-monohybride-kruisingen.html', 'films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html', 'films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html']},
  {id:'tuin',cluster:'groen',naam:'Tuin- en landschapsinrichting',niveau:'mbo · hbo',intro:'Hovenier of landschapsarchitect: groen ontwerpen, aanleggen en onderhouden.',
   basis:['Planten herkennen en hun eisen','Bodem, water en groei','Biodiversiteit in de stad'],
-  bouwt:[['Planten','planten'],['Ecologie','ecologie']]},
+  bouwt:[['Planten','planten'],['Ecologie','ecologie']],
+  pta:['films/transport/7-hoe-een-plant-groeit.html', 'films/transport/6-transport-in-planten.html', 'films/stofwisseling/3-alles-in-het-groen.html', 'films/ecologie/alles-gaat-rond/index.html']},
 
  {id:'leraar',cluster:'onderwijs',naam:'Leraar biologie',niveau:'hbo · wo',intro:'Zelf biologie uitleggen, zoals je docent nu bij jou doet.',
   basis:['De hele biologie in samenhang','Hoe leerlingen leren','Practicum en onderzoek begeleiden'],
-  bouwt:[['Alle hoofdstukken','home']]},
+  bouwt:[['Alle hoofdstukken','home']],
+  pta:['films/cellen/van-molecuul-tot-biosfeer.html', 'films/cellen/onderzoek-doen/index.html', 'films/evolutie/2-verrassend-simpel.html', 'films/dna/1-wat-is-dna.html', 'films/ecologie/alles-gaat-rond/index.html']},
 ];
 const KERN = [['Cellen','cellen'],['DNA','dna'],['Regeling (homeostase)','regeling'],['Erfelijkheid','erfelijkheid'],['Evolutie','evolutie']];
 /* ===== einde inhoud ===== */
@@ -337,10 +372,12 @@ function kaart(g){
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
     <header><span class="embleem">${kunst(c.id,c.kleur)}</span><div><span class="niv mono">${esc(g.niveau)}</span><h3>${esc(g.naam)}</h3></div></header>
     <p class="intro">${esc(g.intro)}</p>
-    <div class="basis"><span class="mono"><span>Theoretische basis</span><span>${klaar} van ${g.basis.length} klaar</span></span>
+    <div class="basis"><span class="mono"><span>Extra voor dit vak · buiten het PTA</span><span>${klaar} van ${g.basis.length} klaar</span></span>
       <ol>${g.basis.map((b,i)=>Array.isArray(b)
         ?`<li><span class="nr">${i+1}</span><a href="${esc(b[1])}">${esc(b[0])}</a><span></span></li>`
         :`<li><span class="nr">${i+1}</span><span>${esc(b)}</span><span class="komt">komt nog</span></li>`).join('')}</ol></div>
+    ${(g.pta||[]).length?`<div class="pta"><span class="mono"><span>Al op de site · uit de lesstof (PTA)</span><span>${g.pta.length} films</span></span>
+      <ul>${g.pta.filter(h=>FILMS[h]).map(h=>`<li><a href="${esc(h)}"><span class="play" aria-hidden="true">▶</span>${esc(FILMS[h][0])}</a><a class="hf" href="index.html#${esc(FILMS[h][2])}">${esc(FILMS[h][1])}</a></li>`).join('')}</ul></div>`:''}
     ${g.bouwt.length?`<footer><span class="mono">Bouwt voort op</span>${g.bouwt.map(hfst).join('')}</footer>`:''}
   </article>`;
 }
@@ -349,7 +386,7 @@ function render(){
   const cl=CLUSTERS.filter(c=>!filter||c.id===filter);
   app.innerHTML=`<section class="kop"><div class="wrap">
       <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
-      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied komt hier eerst de theoretische basis: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
+      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied zie je twee dingen: films uit de lesstof (PTA) die je al kunt kijken, en extra films voor dat vak, buiten het PTA: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
     <div class="wrap">
