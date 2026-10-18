@@ -1,0 +1,379 @@
+{
+ "versie": 1,
+ "film": "films/cellen/diffusie-osmose/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-diffusie",
+   "soort": "volgorde",
+   "titel": "Van druppel kleurstof tot evenwicht",
+   "opdracht": "Links zit veel kleurstof, rechts nog niets. Zet de stappen van diffusie in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Alle deeltjes bewegen willekeurig door elkaar en botsen steeds met watermoleculen.",
+     "uitleg": "Dit is het begin van alles: deeltjes staan nooit stil. Niemand stuurt ze ergens heen."
+    },
+    {
+     "tekst": "Links zitten veel kleurstofdeeltjes, rechts weinig: er is een concentratieverschil.",
+     "uitleg": "Het verschil tussen links en rechts heet het concentratieverschil (concentratiegradiënt)."
+    },
+    {
+     "tekst": "Van links steken toevallig veel deeltjes over naar rechts, van rechts maar weinig terug.",
+     "uitleg": "Elk deeltje gaat even vaak naar links als naar rechts. Links zijn er gewoon meer, dus steken er van links meer over."
+    },
+    {
+     "tekst": "Netto verplaatsen de deeltjes zich van hoge naar lage concentratie: diffusie.",
+     "uitleg": "Diffusie is de netto verplaatsing van deeltjes van een hoge naar een lage concentratie."
+    },
+    {
+     "tekst": "Het concentratieverschil wordt kleiner, en de netto stroom ook.",
+     "uitleg": "Hoe kleiner het verschil, hoe minder deeltjes er netto oversteken. Diffusie gaat dus steeds trager."
+    },
+    {
+     "tekst": "Links en rechts evenveel: de deeltjes bewegen door, maar netto gaat er niets meer heen.",
+     "uitleg": "Dat is evenwicht: evenveel heen als terug. De deeltjes staan níet stil."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-plasmolyse",
+   "soort": "volgorde",
+   "titel": "Een plantencel in zout water",
+   "opdracht": "Je legt een plantencel in zout water. Zet in de goede volgorde wat er gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Buiten de cel is de osmotische waarde nu hoger dan in het celvocht.",
+     "uitleg": "Zout water bevat meer opgeloste deeltjes dan het celvocht in de vacuole."
+    },
+    {
+     "tekst": "Door osmose gaat er water de cel uit, door het celmembraan naar buiten.",
+     "uitleg": "Water gaat naar de kant met de hoogste osmotische waarde: hier is dat buiten de cel."
+    },
+    {
+     "tekst": "De vacuole krimpt, en de turgor (de druk tegen de celwand) valt weg.",
+     "uitleg": "Het water komt vooral uit de vacuole. Zonder druk tegen de celwand wordt de cel slap."
+    },
+    {
+     "tekst": "Het celmembraan laat los van de celwand: plasmolyse.",
+     "uitleg": "De stevige celwand blijft staan; alleen de celinhoud met het membraan trekt zich terug."
+    },
+    {
+     "tekst": "De ruimte tussen celwand en celmembraan vult zich met zout water van buiten.",
+     "uitleg": "De celwand laat alles door, dus de buitenoplossing stroomt de ruimte in. Het weefsel wordt slap, zoals plakjes komkommer met zout."
+    }
+   ]
+  },
+  {
+   "id": "schema-plasmolyse",
+   "soort": "schema",
+   "titel": "Plasmolyse: wat is wat?",
+   "opdracht": "Deze plantencel ligt in zout water. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een plantencel in zout water: de celinhoud is losgelaten van de celwand.",
+   "breed": 640,
+   "hoog": 400,
+   "vakbreed": 150,
+   "svg": "<rect x=\"168\" y=\"48\" width=\"304\" height=\"304\" rx=\"26\" stroke-width=\"3\"/><rect x=\"178\" y=\"58\" width=\"284\" height=\"284\" rx=\"18\" stroke-width=\"1.4\" class=\"zacht\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M320 80 C385 78 428 140 425 205 C422 270 385 322 322 320 C258 318 214 270 216 200 C218 135 255 82 320 80 Z\"/><path stroke-width=\"1.8\" d=\"M305 137 C345 137 367 175 367 215 C367 258 343 293 305 293 C267 293 243 258 243 215 C243 175 265 137 305 137 Z\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M276 185 c10 -6 22 -6 30 0 M292 250 c10 -5 20 -5 28 0\"/><circle cx=\"388\" cy=\"140\" r=\"17\" stroke-width=\"1.6\"/><circle cx=\"392\" cy=\"136\" r=\"5\" class=\"vul zacht\"/><circle class=\"vul zacht\" cx=\"400\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"262\" cy=\"118\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"350\" cy=\"306\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"232\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"200\" cy=\"320\" r=\"3\"/><circle class=\"vul zacht\" cx=\"192\" cy=\"120\" r=\"3\"/><circle class=\"vul zacht\" cx=\"230\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"440\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"448\" cy=\"90\" r=\"3\"/><circle class=\"vul zacht\" cx=\"190\" cy=\"230\" r=\"3\"/><circle class=\"vul zacht\" cx=\"452\" cy=\"260\" r=\"3\"/><circle class=\"vul zacht\" cx=\"420\" cy=\"70\" r=\"3\"/><circle class=\"vul zacht\" cx=\"205\" cy=\"75\" r=\"3\"/><circle class=\"vul zacht\" cx=\"120\" cy=\"380\" r=\"3\"/><circle class=\"vul zacht\" cx=\"520\" cy=\"30\" r=\"3\"/><circle class=\"vul zacht\" cx=\"535\" cy=\"385\" r=\"3\"/><circle class=\"vul zacht\" cx=\"110\" cy=\"20\" r=\"3\"/><circle class=\"vul zacht\" cx=\"250\" cy=\"372\" r=\"3\"/><circle class=\"vul zacht\" cx=\"360\" cy=\"14\" r=\"3\"/><circle class=\"vul zacht\" cx=\"600\" cy=\"160\" r=\"3\"/><circle class=\"vul zacht\" cx=\"40\" cy=\"150\" r=\"3\"/><circle class=\"vul zacht\" cx=\"470\" cy=\"375\" r=\"3\"/><text x=\"320\" y=\"392\" text-anchor=\"middle\">plantencel in zout water</text>",
+   "vakjes": [
+    {
+     "naam": "celwand",
+     "x": 82,
+     "y": 70,
+     "punt": [
+      170,
+      104
+     ],
+     "uitleg": "stevige buitenlaag van de plantencel; laat alles door en blijft staan."
+    },
+    {
+     "naam": "vacuole",
+     "x": 82,
+     "y": 215,
+     "punt": [
+      290,
+      215
+     ],
+     "uitleg": "grote blaas met celvocht; verliest water en krimpt."
+    },
+    {
+     "naam": "zout water",
+     "x": 82,
+     "y": 345,
+     "punt": [
+      200,
+      300
+     ],
+     "uitleg": "de ruimte tussen celwand en membraan vult zich met de buitenoplossing, want de celwand laat alles door."
+    },
+    {
+     "naam": "celmembraan",
+     "x": 558,
+     "y": 215,
+     "punt": [
+      424,
+      212
+     ],
+     "uitleg": "selectief doorlatende grens; heeft losgelaten van de celwand (plasmolyse)."
+    },
+    {
+     "naam": "cytoplasma",
+     "x": 558,
+     "y": 330,
+     "punt": [
+      340,
+      302
+     ],
+     "uitleg": "de celinhoud tussen celmembraan en vacuole."
+    }
+   ]
+  },
+  {
+   "id": "schema-membraan",
+   "soort": "schema",
+   "vwo": true,
+   "titel": "Het celmembraan van dichtbij",
+   "opdracht": "Sleep de namen naar de goede onderdelen van het celmembraan.",
+   "alt": "Lijntekening van een stukje celmembraan: een dubbele laag fosfolipiden met een kanaaleiwit en een dragereiwit met glucose.",
+   "breed": 640,
+   "hoog": 380,
+   "vakbreed": 156,
+   "svg": "<circle cx=\"110\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M107 144 c-2 14 2 28 0 42 M113 144 c2 14 -2 28 0 42\"/><circle cx=\"110\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M107 236 c-2 -14 2 -28 0 -42 M113 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"134\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M131 144 c-2 14 2 28 0 42 M137 144 c2 14 -2 28 0 42\"/><circle cx=\"134\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M131 236 c-2 -14 2 -28 0 -42 M137 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"158\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M155 144 c-2 14 2 28 0 42 M161 144 c2 14 -2 28 0 42\"/><circle cx=\"158\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M155 236 c-2 -14 2 -28 0 -42 M161 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"182\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M179 144 c-2 14 2 28 0 42 M185 144 c2 14 -2 28 0 42\"/><circle cx=\"182\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M179 236 c-2 -14 2 -28 0 -42 M185 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"206\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M203 144 c-2 14 2 28 0 42 M209 144 c2 14 -2 28 0 42\"/><circle cx=\"206\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M203 236 c-2 -14 2 -28 0 -42 M209 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"230\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M227 144 c-2 14 2 28 0 42 M233 144 c2 14 -2 28 0 42\"/><circle cx=\"230\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M227 236 c-2 -14 2 -28 0 -42 M233 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"326\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M323 144 c-2 14 2 28 0 42 M329 144 c2 14 -2 28 0 42\"/><circle cx=\"326\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M323 236 c-2 -14 2 -28 0 -42 M329 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"350\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M347 144 c-2 14 2 28 0 42 M353 144 c2 14 -2 28 0 42\"/><circle cx=\"350\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M347 236 c-2 -14 2 -28 0 -42 M353 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"374\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M371 144 c-2 14 2 28 0 42 M377 144 c2 14 -2 28 0 42\"/><circle cx=\"374\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M371 236 c-2 -14 2 -28 0 -42 M377 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"494\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M491 144 c-2 14 2 28 0 42 M497 144 c2 14 -2 28 0 42\"/><circle cx=\"494\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M491 236 c-2 -14 2 -28 0 -42 M497 236 c2 -14 -2 -28 0 -42\"/><circle cx=\"518\" cy=\"135\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M515 144 c-2 14 2 28 0 42 M521 144 c2 14 -2 28 0 42\"/><circle cx=\"518\" cy=\"245\" r=\"9\" stroke-width=\"1.6\"/><path stroke-width=\"1.3\" d=\"M515 236 c-2 -14 2 -28 0 -42 M521 236 c2 -14 -2 -28 0 -42\"/><rect class=\"acc\" x=\"242\" y=\"104\" width=\"24\" height=\"172\" rx=\"11\" stroke-width=\"2\"/><rect class=\"acc\" x=\"284\" y=\"104\" width=\"24\" height=\"172\" rx=\"11\" stroke-width=\"2\"/><circle class=\"vul\" cx=\"275\" cy=\"150\" r=\"4\"/><circle class=\"vul\" cx=\"275\" cy=\"196\" r=\"4\"/><circle class=\"vul\" cx=\"275\" cy=\"240\" r=\"4\"/><path class=\"acc\" stroke-width=\"2\" d=\"M396 122 C396 104 418 102 422 118 L422 156 C422 170 444 170 444 156 L444 118 C448 102 470 104 470 122 L470 260 C470 280 396 280 396 260 Z\"/><path stroke-width=\"1.8\" d=\"M433 136 l7 4 v8 l-7 4 l-7 -4 v-8 z\"/><text x=\"570\" y=\"104\" text-anchor=\"middle\">buiten</text><text x=\"570\" y=\"292\" text-anchor=\"middle\">in de cel</text>",
+   "vakjes": [
+    {
+     "naam": "hydrofiele kop",
+     "x": 84,
+     "y": 50,
+     "punt": [
+      134,
+      127
+     ],
+     "uitleg": "houdt van water; de koppen liggen naar het water toe."
+    },
+    {
+     "naam": "hydrofobe staart",
+     "x": 84,
+     "y": 330,
+     "punt": [
+      155,
+      215
+     ],
+     "uitleg": "stoot water af; de staarten liggen naar binnen, tegen elkaar: midden in het membraan zit een laag vet."
+    },
+    {
+     "naam": "kanaaleiwit",
+     "x": 300,
+     "y": 40,
+     "punt": [
+      254,
+      106
+     ],
+     "uitleg": "vormt een tunnel voor één soort deeltje, zoals een waterkanaal."
+    },
+    {
+     "naam": "dragereiwit",
+     "x": 300,
+     "y": 342,
+     "punt": [
+      404,
+      270
+     ],
+     "uitleg": "pakt een deeltje vast en zet het aan de andere kant af."
+    },
+    {
+     "naam": "glucose",
+     "x": 556,
+     "y": 40,
+     "punt": [
+      440,
+      140
+     ],
+     "uitleg": "lost slecht op in vet en heeft dus een eigen doorgang nodig; via een dragereiwit van hoog naar laag = gefaciliteerde diffusie."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-bloedcel",
+   "soort": "uitleg",
+   "titel": "Rode bloedcel en plantencel in zuiver water",
+   "opdracht": "Leg in eigen woorden aan een klasgenoot uit waarom een rode bloedcel in zuiver water barst, maar een plantencel niet.",
+   "begrippen": [
+    {
+     "naam": "osmose",
+     "varianten": []
+    },
+    {
+     "naam": "osmotische waarde",
+     "varianten": [
+      "concentratie opgeloste deeltjes",
+      "concentratie opgeloste stoffen",
+      "meer opgeloste deeltjes",
+      "meer opgeloste stoffen",
+      "zouter"
+     ]
+    },
+    {
+     "naam": "semipermeabel",
+     "varianten": [
+      "halfdoorlatend",
+      "selectief doorlatend",
+      "selectief permeabel",
+      "laat water door"
+     ]
+    },
+    {
+     "naam": "celwand",
+     "varianten": []
+    },
+    {
+     "naam": "turgor",
+     "varianten": [
+      "celspanning",
+      "druk tegen de celwand",
+      "duwt terug"
+     ]
+    },
+    {
+     "naam": "hemolyse",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik zeg welke kant het water op gaat (de cel in) en waarom: in de cel is de osmotische waarde hoger dan in zuiver water.",
+    "Ik leg uit dat de plantencel een celwand heeft die terugduwt (turgor), zodat hij niet barst.",
+    "Ik leg uit dat een rode bloedcel geen celwand heeft, dus blijft zwellen tot hij barst (hemolyse).",
+    "Ik noem het proces osmose en gebruik de begrippen correct."
+   ],
+   "model": [
+    "In zuiver water zitten (bijna) geen opgeloste deeltjes. In een cel wel, dus de osmotische waarde in de cel is hoger. Het celmembraan is semipermeabel: water kan erdoor, de opgeloste stoffen niet. Door osmose gaat er water de cel in.",
+    "Een plantencel zwelt op en drukt tegen de stevige celwand. De celwand duwt terug; die druk heet turgor. Daardoor kan er netto niet meer water in, en barst de cel niet.",
+    "Een rode bloedcel heeft geen celwand. Er is niets dat terugduwt, dus er blijft water instromen tot het membraan scheurt: de cel barst. Dat heet hemolyse."
+   ]
+  },
+  {
+   "id": "uitleg-zeewater",
+   "soort": "uitleg",
+   "titel": "Geen zeewater drinken",
+   "opdracht": "Je zit in een bootje op zee en je hebt dorst. Leg aan een klasgenoot uit waarom je geen zeewater mag drinken.",
+   "begrippen": [
+    {
+     "naam": "osmose",
+     "varianten": []
+    },
+    {
+     "naam": "osmotische waarde",
+     "varianten": [
+      "zouter",
+      "zout gehalte",
+      "zoutgehalte",
+      "concentratie zout",
+      "zoutconcentratie",
+      "meer opgeloste deeltjes"
+     ]
+    },
+    {
+     "naam": "nieren",
+     "varianten": [
+      "nier",
+      "plas",
+      "plassen",
+      "urine"
+     ]
+    },
+    {
+     "naam": "water verliezen",
+     "varianten": [
+      "water kwijt",
+      "water de cel uit",
+      "water uit je cellen",
+      "water uit de cellen",
+      "uitdroging",
+      "uitdrogen",
+      "verliezen water"
+     ]
+    },
+    {
+     "naam": "bloed",
+     "varianten": [
+      "bloedplasma"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat zeewater veel zouter is dan je bloed (ongeveer vier keer).",
+    "Ik leg uit dat je nieren meer water uitplassen dan je dronk om het zout kwijt te raken.",
+    "Ik leg uit dat je bloed daardoor zouter wordt: de osmotische waarde buiten je cellen stijgt.",
+    "Ik leg uit dat je cellen door osmose water verliezen, zodat je juist uitdroogt."
+   ],
+   "model": [
+    "Zeewater is ongeveer vier keer zo zout als je bloed. Je nieren kunnen geen plas maken die zo zout is. Om het zout kwijt te raken, plas je dus meer water uit dan je hebt gedronken.",
+    "Je bloed wordt daardoor zouter: buiten je cellen is de osmotische waarde dan hoger dan in je cellen. Door osmose gaat er water je cellen uit. Je droogt dus juist verder uit."
+   ]
+  },
+  {
+   "id": "uitleg-wortelhaar",
+   "soort": "uitleg",
+   "titel": "Bergop: mineralen in een wortelhaarcel",
+   "opdracht": "Een wortelhaarcel neemt mineralen op uit de grond, terwijl er in de cel al meer zit dan erbuiten. Leg aan een klasgenoot uit hoe dat kan, en waarom de opname stopt als de wortel geen zuurstof krijgt.",
+   "begrippen": [
+    {
+     "naam": "actief transport",
+     "varianten": [
+      "actief",
+      "pomp",
+      "pompt",
+      "pompen"
+     ]
+    },
+    {
+     "naam": "concentratieverschil",
+     "varianten": [
+      "concentratiegradient",
+      "concentratiegradiënt",
+      "van laag naar hoog",
+      "tegen het verschil"
+     ]
+    },
+    {
+     "naam": "ATP",
+     "varianten": [
+      "energie"
+     ]
+    },
+    {
+     "naam": "eiwit in het membraan",
+     "varianten": [
+      "eiwit",
+      "membraaneiwit",
+      "dragereiwit",
+      "pompeiwit"
+     ]
+    },
+    {
+     "naam": "diffusie",
+     "varianten": [
+      "passief transport",
+      "passief",
+      "vanzelf"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": [
+      "verbranding",
+      "dissimilatie"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat diffusie (passief transport) hier niet kan, omdat het alleen van hoog naar laag gaat.",
+    "Ik noem dat een eiwit in het membraan de mineralen tegen het concentratieverschil in naar binnen pompt: actief transport.",
+    "Ik leg uit dat actief transport energie kost in de vorm van ATP.",
+    "Ik leg uit dat de cel zonder zuurstof (bijna) geen ATP maakt, zodat de pomp stilvalt."
+   ],
+   "model": [
+    "Diffusie gaat alleen vanzelf van een hoge naar een lage concentratie. Hier moeten de mineralen juist van laag (de grond) naar hoog (de cel): tegen het concentratieverschil in.",
+    "Dat doet een eiwit in het celmembraan: een pomp die de mineralen vastpakt en naar binnen brengt. Dat heet actief transport en het kost energie in de vorm van ATP.",
+    "Zonder zuurstof maakt de cel (bijna) geen ATP. Dan staat de pomp stil, stopt de opname en lekken de mineralen langzaam weer naar buiten."
+   ]
+  }
+ ]
+}
