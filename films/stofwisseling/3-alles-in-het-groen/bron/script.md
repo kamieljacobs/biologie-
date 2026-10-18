@@ -7,10 +7,12 @@ Tijden: `[m:ss.s]` is de begintijd van de ondertitelfrase op de **filmklok** (al
 Een "take" is een doorlopend stuk stem binnen het hoofdstuk-mp3 (`segments[].kind = "narr"`, veld `take`). Zinnen met `verdieping: true` zijn gemarkeerd met *(verdieping)*.
 
 
+**Havo/vwo (18 okt 2026):** regels met *(vwo)* zijn alleen vwo (havo slaat ze over). Blokken met [havo] zijn nieuw en alleen voor havo (vwo slaat ze over), met tijden in de nieuwe hoofdstuktijd. In H3 liggen de oude tijden vanaf 0:54,8 (hoofdstuktijd) 9,01 s later in de nieuwe film, in H4 vanaf 0:15,6 15,05 s later; de filmklok vanaf H3 schuift mee.
+
 ## 0. Opening (cold open)
 
 Audio: blob 006.mp3 (`audio/ch_0.mp3` in `window.__AUDIO`) · 0:00–0:12 (12,8 s volgens ffprobe; `dur` in FILM 12,791 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 **Take 0a** · 0:00.8–0:12.0 (hoofdstuk 0,80–11,99 s)
 
@@ -26,7 +28,7 @@ Niveau: 6 vwo
 ## 1. H1 Een oude proef
 
 Audio: blob 007.mp3 (`audio/ch_1.mp3` in `window.__AUDIO`) · 0:12–1:29 (76,3 s volgens ffprobe; `dur` in FILM 76,255 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Een oude proef"
 
@@ -68,7 +70,7 @@ Niveau: 6 vwo
 ## 2. H2 Blad en bladgroenkorrel
 
 Audio: blob 008.mp3 (`audio/ch_2.mp3` in `window.__AUDIO`) · 1:29–2:25 (56,5 s volgens ffprobe; `dur` in FILM 56,450 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Blad en bladgroenkorrel"
 
@@ -104,7 +106,7 @@ Niveau: 6 vwo
 ## 3. H3 De lichtreactie
 
 Audio: blob 009.mp3 (`audio/ch_3.mp3` in `window.__AUDIO`) · 2:25–4:53 (148,1 s volgens ffprobe; `dur` in FILM 148,076 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)* en havo-alinea [havo]
 
 > Hoofdstukkaart (3,0 s, stil): "De lichtreactie"
 
@@ -135,36 +137,41 @@ Niveau: 6 vwo
 
 **Take 3c** · 3:20.3–3:43.2 (hoofdstuk 54,85–77,70 s)
 
-[3:20.3] Onderweg geven de elektronen energie af.  
-[3:23.1] Met die energie pompt een  
-[3:24.5] eiwitcomplex H⁺ het thylakoïd in.  
-[3:27.4] Ook het H⁺ uit water komt in het thylakoïd terecht.  
-[3:30.7] Zo hoopt H⁺ zich op in het thylakoïd.  
-[3:33.0] In het stroma is er weinig.  
-[3:35.0] De H⁺ stromen terug door ATP-synthetase.  
-[3:38.3] Daarbij ontstaat ATP.  
-[3:40.1] Dat ken je uit het mitochondrium: hetzelfde principe.
+**Take 3h [havo]** · nieuw 18-10-2026 · hoofdstuk 54.80–63.81 s (stem 54.95 s), alleen havo  
+[havo · 54.95 s] Met de energie van de elektronen maakt de chloroplast ATP.  
+[havo · 58.71 s] Aan het eind van de keten neemt een hulpmolecuul de elektronen en H⁺ op.  
+> Stem-invoer (Roos, eleven_multilingual_v2, 1 take): Met de energie van de elektronen maakt de chloroplast ATP. Aan het eind van de keten neemt een hulpmolecuul de elektronen en haa-plus op.  
+
+[3:20.3] Onderweg geven de elektronen energie af. *(vwo)*  
+[3:23.1] Met die energie pompt een *(vwo)*  
+[3:24.5] eiwitcomplex H⁺ het thylakoïd in. *(vwo)*  
+[3:27.4] Ook het H⁺ uit water komt in het thylakoïd terecht. *(vwo)*  
+[3:30.7] Zo hoopt H⁺ zich op in het thylakoïd. *(vwo)*  
+[3:33.0] In het stroma is er weinig. *(vwo)*  
+[3:35.0] De H⁺ stromen terug door ATP-synthetase. *(vwo)*  
+[3:38.3] Daarbij ontstaat ATP. *(vwo)*  
+[3:40.1] Dat ken je uit het mitochondrium: hetzelfde principe. *(vwo)*
 
 **Take 3d** · 3:45.2–4:04.8 (hoofdstuk 79,75–99,34 s)
 
-[3:45.2] Onderweg krijgen de elektronen bij een tweede chlorofyl  
-[3:48.2] nog een keer energie uit licht.  
-[3:50.1] Aan het eind komen ze bij een co-enzym: NADP⁺.  
-[3:53.9] NADP⁺ lijkt op NAD⁺ uit de vorige film,  
-[3:57.5] met één fosfaat extra.  
-[3:59.4] Met de elektronen en H⁺ uit het stroma wordt het NADPH,H⁺.
+[3:45.2] Onderweg krijgen de elektronen bij een tweede chlorofyl *(vwo)*  
+[3:48.2] nog een keer energie uit licht. *(vwo)*  
+[3:50.1] Aan het eind komen ze bij een co-enzym: NADP⁺. *(vwo)*  
+[3:53.9] NADP⁺ lijkt op NAD⁺ uit de vorige film, *(vwo)*  
+[3:57.5] met één fosfaat extra. *(vwo)*  
+[3:59.4] Met de elektronen en H⁺ uit het stroma wordt het NADPH,H⁺. *(vwo)*
 
 **Take 3e** · 4:06.7–4:35.3 (hoofdstuk 101,19–129,81 s)
 
-[4:06.6] Fosforylering ken je al: fosfaat aan ADP koppelen.  
-[4:10.9] Foto, omdat de energie uit licht komt.  
-[4:13.8] Gaan de elektronen zo van water naar NADP⁺,  
-[4:17.4] dan heet het niet-cyclische fotofosforylering.  
-[4:20.7] Soms gaan de elektronen na het  
-[4:22.3] tweede chlorofyl niet naar NADP⁺,  
-[4:25.1] maar terug naar de pomp in de keten.  
-[4:27.3] Dan ontstaat alleen ATP, en geen NADPH,H⁺ of O₂.  
-[4:32.7] Dat heet cyclische fotofosforylering.
+[4:06.6] Fosforylering ken je al: fosfaat aan ADP koppelen. *(vwo)*  
+[4:10.9] Foto, omdat de energie uit licht komt. *(vwo)*  
+[4:13.8] Gaan de elektronen zo van water naar NADP⁺, *(vwo)*  
+[4:17.4] dan heet het niet-cyclische fotofosforylering. *(vwo)*  
+[4:20.7] Soms gaan de elektronen na het *(vwo)*  
+[4:22.3] tweede chlorofyl niet naar NADP⁺, *(vwo)*  
+[4:25.1] maar terug naar de pomp in de keten. *(vwo)*  
+[4:27.3] Dan ontstaat alleen ATP, en geen NADPH,H⁺ of O₂. *(vwo)*  
+[4:32.7] Dat heet cyclische fotofosforylering. *(vwo)*
 
 **Take 3f** · 4:37.2–4:51.8 (hoofdstuk 131,66–146,28 s)
 
@@ -179,7 +186,7 @@ Niveau: 6 vwo
 ## 4. H4 De calvincyclus
 
 Audio: blob 010.mp3 (`audio/ch_4.mp3` in `window.__AUDIO`) · 4:53–6:54 (121,2 s volgens ffprobe; `dur` in FILM 121,124 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)* en havo-alinea [havo]
 
 > Hoofdstukkaart (3,0 s, stil): "De calvincyclus"
 
@@ -190,34 +197,41 @@ Niveau: 6 vwo
 [5:01.1] Assimilatie betekent:  
 [5:02.4] uit kleine stoffen grotere organische stoffen opbouwen.  
 [5:06.1] Dissimilatie is het omgekeerde: afbreken.  
-[5:09.2] Het enzym rubisco koppelt CO₂  
-[5:12.0] aan een stof met vijf C-atomen.  
-[5:14.8] Die stof heet ribulose-1,5-difosfaat.  
-[5:18.0] Zo komt het C-atoom uit CO₂  
-[5:21.0] in een organische stof terecht.  
-[5:23.1] Dat heet koolstofassimilatie.
+**Take 4h [havo]** · nieuw 18-10-2026 · hoofdstuk 15.61–30.66 s (stem 15.76 s), alleen havo  
+[havo · 15.76 s] Enzymen leggen daar CO₂ vast in een organische stof.  
+[havo · 19.21 s] Dat heet koolstofassimilatie.  
+[havo · 21.10 s] Met energie uit ATP en H-atomen uit de lichtreactie maken ze er stap voor stap glucose van.  
+[havo · 27.19 s] Voor één glucose zijn zes CO₂ nodig.  
+> Stem-invoer (Roos, eleven_multilingual_v2, 1 take): Enzymen leggen daar cee-oo-twee vast in een organische stof. Dat heet koolstofassimilatie. Met energie uit ATP en haa-atomen uit de lichtreactie maken ze er stap voor stap glucose van. Voor één glucose zijn zes cee-oo-twee nodig.  
+
+[5:09.2] Het enzym rubisco koppelt CO₂ *(vwo)*  
+[5:12.0] aan een stof met vijf C-atomen. *(vwo)*  
+[5:14.8] Die stof heet ribulose-1,5-difosfaat. *(vwo)*  
+[5:18.0] Zo komt het C-atoom uit CO₂ *(vwo)*  
+[5:21.0] in een organische stof terecht. *(vwo)*  
+[5:23.1] Dat heet koolstofassimilatie. *(vwo)*
 
 **Take 4b** · 5:27.2–5:48.8 (hoofdstuk 33,61–55,19 s)
 
-[5:27.1] Wat ontstaat,  
-[5:28.1] valt meteen uiteen in twee stoffen met elk drie C-atomen.  
-[5:32.2] Die krijgen H-atomen van NADPH,H⁺, met energie uit ATP.  
-[5:38.7] Dat heet reductie. Zo ontstaat glyceraldehyde-3-fosfaat.  
-[5:43.3] NADP⁺, ADP en fosfaat zijn dan weer beschikbaar  
-[5:47.4] voor de lichtreactie.
+[5:27.1] Wat ontstaat, *(vwo)*  
+[5:28.1] valt meteen uiteen in twee stoffen met elk drie C-atomen. *(vwo)*  
+[5:32.2] Die krijgen H-atomen van NADPH,H⁺, met energie uit ATP. *(vwo)*  
+[5:38.7] Dat heet reductie. Zo ontstaat glyceraldehyde-3-fosfaat. *(vwo)*  
+[5:43.3] NADP⁺, ADP en fosfaat zijn dan weer beschikbaar *(vwo)*  
+[5:47.4] voor de lichtreactie. *(vwo)*
 
 **Take 4c** · 5:50.6–6:20.7 (hoofdstuk 57,04–87,13 s)
 
-[5:50.6] Volg drie rondes.  
-[5:52.3] Drie ribulose-1,5-difosfaat hebben samen vijftien C.  
-[5:57.0] Drie CO₂ brengen er drie bij. Samen achttien C.  
-[6:00.9] Dat worden zes glyceraldehyde-3-fosfaat, elk met drie C.  
-[6:05.2] Vijf daarvan vormen, met ATP,  
-[6:07.5] weer drie ribulose-1,5-difosfaat.  
-[6:10.5] Zo kan de kringloop door.  
-[6:12.4] Eén glyceraldehyde-3-fosfaat blijft over.  
-[6:15.4] Uit twee daarvan ontstaat een glucose:  
-[6:17.8] zes C-atomen, uit zes CO₂.
+[5:50.6] Volg drie rondes. *(vwo)*  
+[5:52.3] Drie ribulose-1,5-difosfaat hebben samen vijftien C. *(vwo)*  
+[5:57.0] Drie CO₂ brengen er drie bij. Samen achttien C. *(vwo)*  
+[6:00.9] Dat worden zes glyceraldehyde-3-fosfaat, elk met drie C. *(vwo)*  
+[6:05.2] Vijf daarvan vormen, met ATP, *(vwo)*  
+[6:07.5] weer drie ribulose-1,5-difosfaat. *(vwo)*  
+[6:10.5] Zo kan de kringloop door. *(vwo)*  
+[6:12.4] Eén glyceraldehyde-3-fosfaat blijft over. *(vwo)*  
+[6:15.4] Uit twee daarvan ontstaat een glucose: *(vwo)*  
+[6:17.8] zes C-atomen, uit zes CO₂. *(vwo)*
 
 > Vraag (6:22.5, stil segment van 11,5 s; bedenktijd 92,43–100,43 s, onthulling 101,50 s in het hoofdstuk): Een plant staat in het licht. Je doet het licht uit. Wat gebeurt er met de calvincyclus?  
 > Opties: A. Die gaat gewoon door; hij gebruikt geen licht. · B. Die stopt binnen korte tijd. · C. Die gaat juist sneller.  
@@ -239,7 +253,7 @@ Niveau: 6 vwo
 ## 5. H5 Atomen tellen
 
 Audio: blob 011.mp3 (`audio/ch_5.mp3` in `window.__AUDIO`) · 6:54–8:18 (83,9 s volgens ffprobe; `dur` in FILM 83,904 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Atomen tellen"
 
@@ -289,7 +303,7 @@ Niveau: 6 vwo
 ## 6. H6 Glucose als grondstof
 
 Audio: blob 012.mp3 (`audio/ch_6.mp3` in `window.__AUDIO`) · 8:18–10:57 (158,6 s volgens ffprobe; `dur` in FILM 158,551 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Glucose als grondstof"
 
@@ -373,7 +387,7 @@ Niveau: 6 vwo
 ## 7. H7 Groeien of krimpen
 
 Audio: blob 013.mp3 (`audio/ch_7.mp3` in `window.__AUDIO`) · 10:57–12:42 (105,7 s volgens ffprobe; `dur` in FILM 105,704 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Groeien of krimpen"
 
@@ -432,7 +446,7 @@ Niveau: 6 vwo
 ## 8. H8 Wat remt de fotosynthese?
 
 Audio: blob 014.mp3 (`audio/ch_8.mp3` in `window.__AUDIO`) · 12:42–14:05 (82,9 s volgens ffprobe; `dur` in FILM 82,876 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Wat remt de fotosynthese?"
 
@@ -483,7 +497,7 @@ Niveau: 6 vwo
 ## 9. H9 Terug naar de eik
 
 Audio: blob 015.mp3 (`audio/ch_9.mp3` in `window.__AUDIO`) · 14:05–14:58 (52,9 s volgens ffprobe; `dur` in FILM 52,827 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Terug naar de eik"
 

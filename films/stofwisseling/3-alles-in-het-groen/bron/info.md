@@ -5,12 +5,12 @@
 | Bestand | `films/stofwisseling/3-alles-in-het-groen.html` (bronmap: `films/stofwisseling/3-alles-in-het-groen/bron/`) |
 | Titel / ondertitel | Alles in het groen · fotosynthese en assimilatie |
 | Reeks / nummer | Stofwisseling (vwo), film 3 van 4; serie: 1 Alles versneld · 2 Alles op adem · 3 Alles in het groen · 4 De lever (volgt) |
-| Doelgroep / niveau | 6 vwo (één niveau); Nectar 4.1, 20.3–20.4 (20.1–20.2 als gegeven); Binas 69B, 69C, 79D, 91A. Geen verdiepingszinnen of vwo-blokken |
+| Doelgroep / niveau | havo + vwo sinds 18 okt 2026 (Havo/Vwo-knop, zie onder): vwo = 6 vwo, Nectar 4.1, 20.3–20.4 (20.1–20.2 als gegeven), Binas 69B, 69C, 79D, 91A; havo = Biologie voor jou thema 8 (fotosynthese, voortgezette assimilatie, compensatiepunt, beperkende factoren) |
 | Versie / datum | versie 1.0 · 4 oktober 2026 (voettekst en "Bronnen en versie") |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2), volgens de pagina |
-| Duur | 14:58 op de pagina (som van `dur`, 898,6 s); som van de audiobestanden 898,9 s (14:58), verschil = mp3-opvulling |
+| Duur | vwo 14:58, havo 12:52 (kop van de pagina; som van `dur` min de overgeslagen stukken, zonder het ingekorte midden van de hoofdstukkaarten). Speler: vwo 14:51, havo 12:45. Som van `dur` 922,6 s inclusief twee havo-alinea's (24,1 s) |
 | Beeldstijl | Eigen canvasontwerp (1920×1080) dat zich in de code "stijlkaart biologiefilms, look Micro" noemt: donkere achtergrond (#121A26 met fijne beige korrel), gedempte vullingen met lichte randen, Fraunces/Source Sans 3/IBM Plex Mono. Eén look voor alle scènes, geen Macro/Schema-onderscheid zoals in Part C (v4, 11 okt) |
-| Audio-opslag | 10 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, blobs 006–015); lettertypen blobs 001–005 |
+| Audio-opslag | 10 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, sinds de begrippen-kop blobs 007–016: `ch_i` = blob 007 + i); lettertypen blobs 001–006. Blobs 010 (H3) en 011 (H4) zijn op 18 okt 2026 opnieuw gemaakt (128 kbit/s) met de havo-alinea's erin |
 | Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
 
 ## Opbouw
@@ -246,3 +246,28 @@ Engine: `g.callout()` zonder lijn (zie film 1). `P.pointer()` weg bij dubbelmemb
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
 Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+
+## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
+
+Geen aparte havofilm: deze vwo-film heeft nu een havo-basis (Biologie voor jou thema 8; havo-examen: fotosynthese 6 CO₂ + 6 H₂O → glucose + 6 O₂ in de chloroplasten, O₂ uit water, voortgezette assimilatie en mineralen, bruto/netto, compensatiepunt, beperkende factoren). Knop **Havo/Vwo** naast Leerling/Klas, onthouden in localStorage `bk-niveau` (gedeeld met de andere films), `?niveau=havo|vwo` gaat voor; standaard vwo. Techniek als in *Alles versneld* en *Alles op adem* (zie daar: `blocks`, `ins`, `NV`, `BK.k`, `window.HAVO`, `Cn`).
+
+Keuze: de namen lichtreactie, calvincyclus, ATP en NADPH,H⁺ blijven in de basis (in hoofdlijnen, zoals in de havomethode); de mechanismen zijn vwo.
+
+| Hoofdstuk | Havo | Alleen vwo (paarse balk + 'vwo' in beeld, paars op de tijdbalk) |
+|---|---|---|
+| Opening, H1, H2, H5–H9 | alles | — |
+| H3 De lichtreactie | take 3a, vraag, 3b (water gesplitst, O₂ uit water, algenproef), **havo-alinea 3h**, take 3f | take 3c–3e: H⁺ pompen, ATP-synthetase, tweede chlorofyl, NADP⁺, (niet-)cyclische fotofosforylering |
+| H4 De calvincyclus | zin 1–3 (calvincyclus, assimilatie, dissimilatie), **havo-alinea 4h**, vraag en take 4d | zin 4–19: rubisco, ribulose-1,5-difosfaat, reductie, glyceraldehyde-3-fosfaat, drie rondes tellen |
+
+Alle acht vragen zijn basis. De havo-tekst als geheel is nagelezen (Playwright): geen gaten.
+
+**Nieuwe segmenten (alleen havo)** — stem Roos (voice 7qdUFMklKPaaAVMsBTBt), eleven_multilingual_v2 (zelfde model als de film), 1 take per alinea, woordtijden met Scribe (eleven_scribe_v1); flow "Stofwisseling havo-basis (18 okt 2026)". Credits samen 366 (137 + 229). Elke take is als 0,15 s stilte + stem + 0,55 s stilte in het hoofdstuk-mp3 geplakt; bestaande opnames zijn ongemoeid.
+
+| Take | Hoofdstuk · tijd (nieuw) | Ondertitel | Stem-invoer | Beeld |
+|---|---|---|---|---|
+| 3h | H3 · 54,80–63,81 s | Met de energie van de elektronen maakt de chloroplast ATP. Aan het eind van de keten neemt een hulpmolecuul de elektronen en H⁺ op. | … de elektronen en haa-plus op. | havo-kaart "Energie uit licht vastleggen" (elektronen, ATP, hulpmolecuul); blijft bij havo staan t/m zin 31 (Cn 155,48 s) met 'lichtreactie · in: licht en water · uit: O₂, ATP en NADPH,H⁺ (het beladen hulpmolecuul) · de energie uit licht zit nu in ATP en NADPH,H⁺' |
+| 4h | H4 · 15,61–30,66 s | Enzymen leggen daar CO₂ vast in een organische stof. Dat heet koolstofassimilatie. Met energie uit ATP en H-atomen uit de lichtreactie maken ze er stap voor stap glucose van. Voor één glucose zijn zes CO₂ nodig. | … daar cee-oo-twee vast … haa-atomen … zes cee-oo-twee nodig. | havo-kaart "De calvincyclus in het kort" (6 regels op de woorden); blijft bij havo staan t/m zin 24 (Cn 134,62 s), rechts 'licht uit?' bij het antwoord (geen licht nodig, wel ATP en NADPH,H⁺; voorraad klein; in het donker stopt hij) |
+
+**In `film.src.html`**: `window.HAVO` (regel ≈ 3635: `'3:3h'`, `'4:4h'`), `const NV` r3739, `NV.over` r3981, knoppen r4075, knop-HTML r255, CSS r184. Begrippen met `class="term vwo"` (verborgen bij havo, ook in de flipkaarten): ATP-synthetase, niet-cyclische en cyclische fotofosforylering, rubisco, ribulose-1,5-difosfaat, glyceraldehyde-3-fosfaat (NADP⁺/NADPH,H⁺ blijft basis). Geen scène-aanpassingen nodig (de havo-kaarten dekken de vwo-beelden af). Gebouwd met `scripts/stofwisseling_niveau/bouw.sh 3 …`.
+
+**Getest (18 okt 2026, Playwright/Chromium)**: havo en vwo, Vragen aan/uit, snelheid 1,5×, knop onthouden; afspelen over de havo-alinea's en vwo-blokken in H3 en H4 (beide niveaus); geen JS-fouten; vwo-beeld pixel-gelijk aan de oude film (H3, H4); stills van beide havo-kaarten.
