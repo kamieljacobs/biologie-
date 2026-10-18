@@ -207,7 +207,7 @@ const SCENES = {
     tag(ctx, 'doelorgaan = orgaan met zulke cellen', 960, 120, C.goud, q.on('doelorgaan', 1));
   },
   s13(ctx, t, q) { bg(ctx, 'schema');
-    const cw = 400, gy = 160; const panels = [['hart', 'sneller en harder', q.on('hart', 1)], ['lever', 'glycogeen → glucose', q.on('lever', 1)], ['spieren', 'vaten wijder', q.on('wijder', 1)], ['darm en huid', 'vaten knijpen samen', q.on('samen', 1)]];
+    const cw = 400, gy = 160; const panels = [['hart', 'sneller en harder', q.on('hart', 1)], ['lever', 'glycogeen → glucose', q.on('lever', 1)], ['spieren', 'vaten wijder', q.on('wijder', 1)], ['darm en huid', 'vaten knijpen samen', q.on('knijpen', 1)]];
     panels.forEach(([n, e, a], i) => { if (a <= 0.01) return; const px = 80 + i * (cw + 50), cx = px + cw / 2; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, px, gy, cw, 560, 18); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.5), 1.5);
       text(ctx, n, cx, gy + 60, fTitel(40), C.text, 'center');
       if (i === 0) { const k = Math.exp(-((t * 2.1) % 1) * 7); ctx.save(); ctx.translate(cx, gy + 270); ctx.scale(1.4 + 0.2 * k, 1.4 + 0.2 * k); ctx.beginPath(); ctx.moveTo(0, 60); ctx.bezierCurveTo(-110, -30, -50, -90, 0, -30); ctx.bezierCurveTo(50, -90, 110, -30, 0, 60); ctx.closePath(); shape(ctx, rgba(HK.bloed, 0.6), HK.bloedL, 2); ctx.restore(); }

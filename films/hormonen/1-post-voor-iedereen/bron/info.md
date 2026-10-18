@@ -104,3 +104,6 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'hypofyse', 'hypothalamus', 'alvleesklier'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+## Wijziging 18 okt 2026
+s13: het paneel "darm en huid" verscheen al bij "samentrekken" (cue `q.on('samen',1)` vond ook "samentrekken"); nu op "knijpen". Gemeld door Kamiel.
