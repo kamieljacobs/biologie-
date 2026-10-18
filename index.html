@@ -1109,7 +1109,7 @@ const HOOFDSTUKKEN = {
  "ecologie": {
   "label": "Ecologie",
   "titel": "Ecologie",
-  "meta": "havo thema 7 · vwo H6 + H8 · 2 films, kijk ze op volgorde",
+  "meta": "havo thema 7 · vwo H6, H8 + H9 · 4 films, kijk ze op volgorde",
   "films": [
    {
     "href": "films/ecologie/plek-genoeg/index.html",
@@ -1126,6 +1126,22 @@ const HOOFDSTUKKEN = {
     "tekst": "Atomen en energie van een ree: voedselketens, energiestroom en kringlopen",
     "duur": 25,
     "bij": "Film 2 · ecosystemen"
+   },
+   {
+    "href": "films/ecologie/3-een-aarde.html",
+    "titel": "Eén aarde",
+    "vraag": "Hoeveel aardes heb jij nodig?",
+    "tekst": "Ecologische voetafdruk, broeikaseffect en klimaatverandering, eutrofiëring en stikstofdepositie, accumulatie van gifstoffen en de ADI, duurzame keuzes, en wat techniek (kernenergie, kernfusie, woestijnherstel, CO₂-afvang) wel en niet kan",
+    "duur": 11,
+    "bij": "Film 3 · mens en milieu"
+   },
+   {
+    "href": "films/ecologie/4-ingrijpen-of-laten-gaan.html",
+    "titel": "Ingrijpen of laten gaan?",
+    "vraag": "Waarom maakt een biologische bestrijder het soms erger?",
+    "tekst": "Monocultuur en plagen, spuiten en resistentie, biologische bestrijding (sluipwesp, Aziatisch lieveheersbeestje, rietpad), geïntegreerde bestrijding en bloemranden, natuurbeheer, stabiliteit, veerkracht en omslagpunten (Veluwemeer)",
+    "duur": 9,
+    "bij": "Film 4 · plaagbestrijding en natuurbeheer"
    }
   ],
   "tools": [],
@@ -1576,7 +1592,7 @@ const NIVEAUS = {
       "Thema 7",
       "Ecologie",
       "Ecologie en milieu · 4 havo",
-      "Plek genoeg · Alles gaat rond · Terrariumlab · Reactorlab",
+      "Plek genoeg · Alles gaat rond · Eén aarde · Ingrijpen of laten gaan? · Terrariumlab · Reactorlab",
       "#ecologie"
      ]
     ],
@@ -1698,10 +1714,10 @@ const NIVEAUS = {
       "#evolutie"
      ],
      [
-      "H6 + H8",
+      "H6, H8 + H9",
       "Ecologie",
-      "Soorten en populaties · Kenmerken van ecosystemen · 4 vwo",
-      "Plek genoeg · Alles gaat rond · Terrariumlab",
+      "Soorten en populaties · Kenmerken van ecosystemen · Mens en milieu",
+      "Plek genoeg · Alles gaat rond · Eén aarde · Ingrijpen of laten gaan? · Terrariumlab",
       "#ecologie"
      ]
     ],
@@ -2054,6 +2070,8 @@ const REVIEW = {
   // Onderzoek doen 15 okt: geluidje na spontane generatie weg, 'te dichtbij' opnieuw ingesproken -> nog bekijken
 };
 const FILMKUNST = {
+'3-een-aarde':`<circle cx="24" cy="22" r="14" stroke-width="1.6"/><path d="M14 16c4 2 6 0 9 3s1 6 4 8M30 12c-2 3 1 5 4 5" stroke-width="1.2"/><path d="M12 42c4-2 8-2 12 0s8 2 12 0" class="acc" stroke-width="1.6"/>`,
+'4-ingrijpen-of-laten-gaan':`<path d="M24 44V14" stroke-width="1.5"/><path d="M24 30q-8-2-10-8M24 22q8-2 10-8M24 36q7-1 9-6" stroke-width="1.2"/><circle cx="24" cy="10" r="5" class="acc" stroke-width="1.4"/><path d="M24 5v10" stroke-width=".9"/><path d="M6 44h36" stroke-width=".8" opacity=".5"/>`,
 '1-chromosomen':`${[[12,26,24],[26,22,18],[38,20,14]].map(([x,h,w],i)=>`<path d="M${x-w/4} ${24-h/2}l${w/2} ${h}M${x+w/4} ${24-h/2}l-${w/2} ${h}" stroke-width="2.2"/><path d="M${x-w/4+1} ${24-h/4}h${w/2-2}" stroke-width="1" opacity=".6"/>`).join('')}<circle cx="12" cy="24" r="2" class="acc" fill="currentColor" stroke="none"/><path d="M4 42h40" stroke-width="1" opacity=".5"/>`,
 '2-monohybride-kruisingen':`<path d="M6 30C10 18 30 12 42 16 38 30 18 36 6 30z" stroke-width="1.5"/><path d="M8 29C18 26 30 22 41 17" stroke-width="1"/>${[14,21,28,35].map((x,i)=>`<circle cx="${x}" cy="${27-i*2.6}" r="3" stroke-width="1.3" ${i===2?'class="acc" fill="currentColor"':''}/>`).join('')}`,
 '3-voorbij-dominant-en-recessief':`${[0,1,2,3,4].map(i=>{const a=i/5*Math.PI*2-Math.PI/2;return `<ellipse cx="${(24+8*Math.cos(a)).toFixed(1)}" cy="${(20+8*Math.sin(a)).toFixed(1)}" rx="5" ry="5" stroke-width="1.4" ${i<2?'class="acc"':''}/>`}).join('')}<circle cx="24" cy="20" r="2.5" class="acc" fill="currentColor" stroke="none"/><path d="M24 30v14M24 38c-5 0-8-3-8-6" stroke-width="1.4"/>`,
