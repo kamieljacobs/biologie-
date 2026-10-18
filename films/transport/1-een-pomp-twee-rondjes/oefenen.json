@@ -1,0 +1,312 @@
+{
+ "versie": 1,
+ "film": "films/transport/1-een-pomp-twee-rondjes.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-druppel",
+   "soort": "volgorde",
+   "titel": "Volg één druppel bloed",
+   "opdracht": "Een druppel zuurstofarm bloed komt uit je been. Zet in de goede volgorde waar hij langs komt.",
+   "stappen": [
+    {
+     "tekst": "Via de onderste holle ader stroomt hij de rechterboezem in.",
+     "uitleg": "Holle aders brengen zuurstofarm bloed uit het lichaam terug naar het hart."
+    },
+    {
+     "tekst": "Hij gaat door naar de rechterkamer.",
+     "uitleg": "Van boezem naar kamer, langs de hartklep."
+    },
+    {
+     "tekst": "De rechterkamer pompt hem door de longslagader naar je longen.",
+     "uitleg": "Een slagader voert bloed van het hart af, ook al is het hier zuurstofarm."
+    },
+    {
+     "tekst": "In de longen neemt het bloed zuurstof op en geeft het koolstofdioxide af.",
+     "uitleg": "Na deze stap is de druppel zuurstofrijk."
+    },
+    {
+     "tekst": "Via de longaders komt hij terug in de linkerboezem.",
+     "uitleg": "Einde van de kleine bloedsomloop: van het hart naar de longen en terug."
+    },
+    {
+     "tekst": "Hij gaat door naar de linkerkamer.",
+     "uitleg": "De kamer met de dikste wand."
+    },
+    {
+     "tekst": "De linkerkamer pompt hem de aorta in, naar je organen.",
+     "uitleg": "Begin van de grote bloedsomloop. In de organen geeft het bloed zuurstof af en komt het zuurstofarm terug in de rechterboezem."
+    }
+   ]
+  },
+  {
+   "id": "schema-hart",
+   "soort": "schema",
+   "titel": "Het hart van voren",
+   "opdracht": "Je kijkt van voren tegen een opengesneden hart. Let op: links en rechts zijn die van de persoon zelf. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een opengesneden hart in vooraanzicht met de vier holtes, de kleppen, de aorta, de longslagader, de holle aders en de longaders.",
+   "breed": 680,
+   "hoog": 490,
+   "vakbreed": 150,
+   "svg": "<g transform=\"translate(20 0)\"><path d=\"M301 162 C301 128 270 104 226 100 L170 98\" stroke-width=\"16\" stroke-linecap=\"butt\"/><path d=\"M301 162 C301 128 270 104 226 100 L170 98\" stroke-width=\"11.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M301 162 C318 126 352 118 392 116 L500 112\" stroke-width=\"16\" stroke-linecap=\"butt\"/><path d=\"M301 162 C318 126 352 118 392 116 L500 112\" stroke-width=\"11.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M372 70 L368 22\" stroke-width=\"12\" stroke-linecap=\"butt\"/><path d=\"M372 70 L368 22\" stroke-width=\"7.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M396 70 L398 22\" stroke-width=\"12\" stroke-linecap=\"butt\"/><path d=\"M396 70 L398 22\" stroke-width=\"7.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M420 70 L428 22\" stroke-width=\"12\" stroke-linecap=\"butt\"/><path d=\"M420 70 L428 22\" stroke-width=\"7.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M351 200 L351 110 C351 56 440 44 456 96 L458 128\" stroke-width=\"23\" stroke-linecap=\"butt\"/><path d=\"M351 200 L351 110 C351 56 440 44 456 96 L458 128\" stroke-width=\"18.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path stroke-width=\"2.6\" style=\"fill:var(--oe-veld)\" d=\"M290 196 L290 150 L290 140 C290 132 284 126 276 126 L222 126 C208 126 198 134 198 150 L198 300 C200 360 230 410 280 430 C320 446 360 452 392 452 C430 430 458 390 464 330 C468 290 466 250 458 226 L458 150 C458 136 450 128 436 128 L382 128 C370 128 362 136 362 150 L362 196 C352 190 322 188 312 196\"/><path stroke-width=\"2.2\" d=\"M312 196 L312 300 C312 350 300 384 286 398 C262 392 236 360 224 320 C214 296 212 272 218 258 C220 252 224 248 228 244 C218 240 212 234 212 226 L212 150 C212 142 218 138 226 138 L264 138 C272 138 278 142 278 150 L278 226 C278 236 274 242 268 246 C276 252 284 256 290 256 L290 196\"/><path stroke-width=\"2.2\" d=\"M340 196 L340 330 C350 370 366 396 386 410 C418 362 430 312 430 262 C430 256 432 250 436 246 C442 242 446 236 446 228 L446 152 C446 144 442 140 434 140 L388 140 C380 140 374 144 374 152 L374 228 C374 236 378 240 382 244 C376 248 368 250 362 250 L362 196\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M228 244 L240 276 M268 246 L256 278 M382 244 L394 278 M436 246 L422 280\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M240 276 L236 330 M256 278 L272 336 M394 278 L380 350 M422 280 L410 352\"/><path stroke-width=\"2\" class=\"acc\" d=\"M290 214 C296 214 300 208 301 202 M312 214 C306 214 302 208 301 202 M340 214 C346 214 350 208 351 202 M362 214 C356 214 352 208 351 202\"/><path d=\"M301 200 L301 146\" stroke-width=\"22\" stroke-linecap=\"butt\"/><path d=\"M301 200 L301 146\" stroke-width=\"17.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M234 20 L234 142\" stroke-width=\"22\" stroke-linecap=\"butt\"/><path d=\"M234 20 L234 142\" stroke-width=\"17.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M172 482 L172 268 C172 244 190 232 220 228\" stroke-width=\"20\" stroke-linecap=\"butt\"/><path d=\"M172 482 L172 268 C172 244 190 232 220 228\" stroke-width=\"15.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M522 166 L440 170\" stroke-width=\"13\" stroke-linecap=\"butt\"/><path d=\"M522 166 L440 170\" stroke-width=\"8.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><path d=\"M522 214 L440 208\" stroke-width=\"13\" stroke-linecap=\"butt\"/><path d=\"M522 214 L440 208\" stroke-width=\"8.4\" stroke-linecap=\"butt\" style=\"stroke:var(--oe-veld)\"/><text x=\"320\" y=\"476\" text-anchor=\"middle\" font-size=\"13\">vooraanzicht</text></g>",
+   "vakjes": [
+    {
+     "naam": "bovenste holle ader",
+     "x": 82,
+     "y": 40,
+     "punt": [
+      242,
+      50
+     ],
+     "uitleg": "voert zuurstofarm bloed uit je hoofd en armen naar de rechterboezem."
+    },
+    {
+     "naam": "longslagader",
+     "x": 82,
+     "y": 130,
+     "punt": [
+      216,
+      99
+     ],
+     "uitleg": "voert zuurstofarm bloed van de rechterkamer naar de longen: een slagader, want het bloed gaat van het hart af."
+    },
+    {
+     "naam": "rechterboezem",
+     "x": 82,
+     "y": 220,
+     "punt": [
+      266,
+      190
+     ],
+     "uitleg": "vangt zuurstofarm bloed uit het lichaam op; staat op een tekening van voren links."
+    },
+    {
+     "naam": "rechterkamer",
+     "x": 82,
+     "y": 340,
+     "punt": [
+      282,
+      345
+     ],
+     "uitleg": "pompt bloed de kleine bloedsomloop in, naar de longen; dunnere wand dan links."
+    },
+    {
+     "naam": "aorta",
+     "x": 598,
+     "y": 40,
+     "punt": [
+      472,
+      62
+     ],
+     "uitleg": "grote lichaamsslagader: vertrekt uit de linkerkamer naar het hele lichaam."
+    },
+    {
+     "naam": "linkerboezem",
+     "x": 598,
+     "y": 280,
+     "punt": [
+      438,
+      226
+     ],
+     "uitleg": "vangt zuurstofrijk bloed uit de longaders op."
+    },
+    {
+     "naam": "linkerkamer",
+     "x": 598,
+     "y": 360,
+     "punt": [
+      412,
+      340
+     ],
+     "uitleg": "pompt bloed de grote bloedsomloop in; de dikste wand, want hier is de druk het hoogst."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-hartslag",
+   "soort": "volgorde",
+   "titel": "Eén hartslag in slow motion",
+   "opdracht": "Zet de fasen van één hartslag in de goede volgorde. Begin bij de hartpauze.",
+   "stappen": [
+    {
+     "tekst": "Hartpauze (diastole): bloed stroomt de boezems in en meteen door naar de kamers.",
+     "uitleg": "De druk in de boezems is hoger dan in de kamers, dus de hartkleppen staan open. De kamers vullen zich al voor het grootste deel."
+    },
+    {
+     "tekst": "De boezems trekken samen en duwen het laatste beetje bloed de kamers in.",
+     "uitleg": "Dit is de systole van de boezems."
+    },
+    {
+     "tekst": "De kamers trekken samen; de druk in de kamer wordt hoger dan in de boezem en de hartkleppen klappen dicht.",
+     "uitleg": "Dat dichtklappen hoor je als de eerste toon: boem. Peesdraden voorkomen dat de klep doorslaat."
+    },
+    {
+     "tekst": "De druk in de kamer wordt hoger dan in de slagader: de halvemaanvormige klep gaat open en het bloed spuit naar buiten.",
+     "uitleg": "Pas als de kamerdruk hoger is dan de druk in de aorta of longslagader gaat de klep open."
+    },
+    {
+     "tekst": "De kamers ontspannen; de druk zakt onder die in de slagader en de halvemaanvormige kleppen klappen dicht.",
+     "uitleg": "Dat is de tweede toon: tak. Daarna begint de hartpauze weer."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-prikkel",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "De weg van de prikkel",
+   "opdracht": "Zet in de goede volgorde hoe de elektrische prikkel door het hart loopt.",
+   "stappen": [
+    {
+     "tekst": "De sinusknoop in de wand van de rechterboezem geeft uit zichzelf een prikkel af.",
+     "uitleg": "De sinusknoop is de gangmaker. Je hersenen zijn niet nodig voor het startsein."
+    },
+    {
+     "tekst": "De prikkel loopt over beide boezems en die trekken samen.",
+     "uitleg": "In het ECG is dit de P-top."
+    },
+    {
+     "tekst": "In de AV-knoop wordt de prikkel ongeveer een tiende seconde vertraagd.",
+     "uitleg": "Het bindweefsel tussen boezems en kamers geleidt niet; de AV-knoop is de enige doorgang. Door de vertraging zijn de boezems klaar voordat de kamers samentrekken."
+    },
+    {
+     "tekst": "Via de bundel van His gaat de prikkel naar de punt van het hart.",
+     "uitleg": "De bundel van His loopt door het tussenschot omlaag."
+    },
+    {
+     "tekst": "Vanuit de punt gaat de prikkel omhoog door de kamerwanden: de kamers trekken samen van onder naar boven.",
+     "uitleg": "Zoals je een tube tandpasta leegknijpt. In het ECG is dit het QRS-complex."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-linkerkamer",
+   "soort": "uitleg",
+   "titel": "Waarom de linkerkamer zo dik is",
+   "opdracht": "De wand van de linkerkamer is zo'n drie keer zo dik als die van de rechterkamer. Leg aan een klasgenoot uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "slagvolume",
+     "varianten": [
+      "even veel bloed",
+      "evenveel bloed",
+      "hetzelfde volume",
+      "zelfde hoeveelheid"
+     ]
+    },
+    {
+     "naam": "grote bloedsomloop",
+     "varianten": [
+      "lichaam",
+      "lange rondje",
+      "lang rondje"
+     ]
+    },
+    {
+     "naam": "weerstand",
+     "varianten": [
+      "smalle vaatjes",
+      "smal"
+     ]
+    },
+    {
+     "naam": "bloeddruk",
+     "varianten": [
+      "druk"
+     ]
+    },
+    {
+     "naam": "spier",
+     "varianten": [
+      "hartspier",
+      "spierwand"
+     ]
+    },
+    {
+     "naam": "longen",
+     "varianten": [
+      "kleine bloedsomloop",
+      "long"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat beide kamers per slag ongeveer even veel bloed wegpompen (het slagvolume).",
+    "Ik leg uit dat het bloed in de grote bloedsomloop een lang rondje maakt met veel weerstand.",
+    "Ik leg uit dat de linkerkamer daarom een veel hogere druk maakt, en daarvoor meer spier (een dikkere wand) nodig heeft.",
+    "Ik noem dat de druk in de longen juist laag moet blijven, anders lekt er vocht in de longblaasjes."
+   ],
+   "model": [
+    "Beide kamers pompen per slag ongeveer even veel bloed weg, zo'n zeventig milliliter: het slagvolume. Zou de ene kamer meer pompen dan de andere, dan hoopt het bloed zich op.",
+    "De linkerkamer pompt het bloed de grote bloedsomloop in. Dat rondje is veel langer, en onderweg zijn de vaatjes smal, dus het bloed ondervindt veel weerstand. Daarom maakt de linkerkamer een ongeveer vijf keer zo hoge druk. Daarvoor is meer spier nodig: een dikkere wand.",
+    "De rechterkamer pompt naar de longen. Daar mag de druk juist niet hoog zijn, anders lekt er vocht uit de haarvaten in de longblaasjes."
+   ]
+  },
+  {
+   "id": "uitleg-kleppen",
+   "soort": "uitleg",
+   "titel": "Boem-tak: wat hoor je?",
+   "opdracht": "Leg aan een klasgenoot uit hoe de kleppen in je hart werken, en wat je hoort bij de boem en bij de tak.",
+   "begrippen": [
+    {
+     "naam": "drukverschil",
+     "varianten": [
+      "verschil in druk",
+      "druk",
+      "hogere druk"
+     ]
+    },
+    {
+     "naam": "hartklep",
+     "varianten": [
+      "hartkleppen",
+      "tweeslippige",
+      "drieslippige"
+     ]
+    },
+    {
+     "naam": "halvemaanvormige klep",
+     "varianten": [
+      "halvemaanvormige kleppen",
+      "halvemaanvormig"
+     ]
+    },
+    {
+     "naam": "systole",
+     "varianten": [
+      "samentrekken",
+      "trekken samen",
+      "kamers samentrekken"
+     ]
+    },
+    {
+     "naam": "geen spieren",
+     "varianten": [
+      "geen eigen spieren",
+      "vanzelf"
+     ]
+    },
+    {
+     "naam": "één kant op",
+     "varianten": [
+      "1 kant op",
+      "een kant op",
+      "terugstromen",
+      "niet terug"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat kleppen geen eigen spieren hebben en alleen door drukverschillen open en dicht gaan.",
+    "Ik leg uit dat de boem het dichtklappen van de hartkleppen (tussen boezem en kamer) is, als de kamers samentrekken.",
+    "Ik leg uit dat de tak het dichtklappen van de halvemaanvormige kleppen is, als de kamers ontspannen.",
+    "Ik noem dat het bloed daardoor maar één kant op kan."
+   ],
+   "model": [
+    "Kleppen hebben geen eigen spieren. Ze gaan open of dicht door verschillen in druk. Zo kan het bloed maar één kant op stromen.",
+    "Trekken de kamers samen (systole), dan wordt de druk in de kamer hoger dan in de boezem. De hartkleppen tussen boezem en kamer klappen dicht: dat is de boem. Peesdraden houden de slippen vast, zodat ze niet doorslaan.",
+    "Is de druk in de kamer hoger dan in de slagader, dan gaat de halvemaanvormige klep open en spuit het bloed naar buiten. Ontspannen de kamers, dan zakt de druk onder die in de slagader en klappen de halvemaanvormige kleppen dicht: dat is de tak."
+   ]
+  }
+ ]
+}

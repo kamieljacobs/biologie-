@@ -1,0 +1,372 @@
+{
+ "versie": 1,
+ "film": "films/stofwisseling/3-alles-in-het-groen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-chloroplast",
+   "soort": "schema",
+   "titel": "De bladgroenkorrel van binnen",
+   "opdracht": "Sleep de namen naar de goede onderdelen van de chloroplast. Eén naam blijft over.",
+   "alt": "Lijntekening van een chloroplast: een dubbele buitenrand, en binnenin stapels platte zakjes die met elkaar verbonden zijn.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 170,
+   "svg": "<ellipse cx=\"395\" cy=\"225\" rx=\"215\" ry=\"118\" stroke-width=\"2.6\"/><ellipse cx=\"395\" cy=\"225\" rx=\"206\" ry=\"109\" stroke-width=\"1.8\"/><rect x=\"234.0\" y=\"150\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"234.0\" y=\"163\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"234.0\" y=\"176\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"234.0\" y=\"189\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"234.0\" y=\"202\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"329.0\" y=\"205\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"329.0\" y=\"218\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"329.0\" y=\"231\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"329.0\" y=\"244\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"329.0\" y=\"257\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"439.0\" y=\"145\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"439.0\" y=\"158\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"439.0\" y=\"171\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"439.0\" y=\"184\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"439.0\" y=\"197\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"489.0\" y=\"245\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"489.0\" y=\"258\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"489.0\" y=\"271\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"489.0\" y=\"284\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"489.0\" y=\"297\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"269.0\" y=\"240\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"269.0\" y=\"253\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"269.0\" y=\"266\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"269.0\" y=\"279\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"269.0\" y=\"292\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"389.0\" y=\"260\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"389.0\" y=\"273\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"389.0\" y=\"286\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"389.0\" y=\"299\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><rect x=\"389.0\" y=\"312\" width=\"62\" height=\"9\" rx=\"4.5\" stroke-width=\"1.8\"/><path stroke-width=\"1.6\" d=\"M296 180 L329 235 M391 235 L439 175 M331 270 L329 235 M391 235 L389 290 M451 290 L489 275 M501 175 L489 275 \"/><path class=\"acc\" stroke-width=\"2\" d=\"M509 145 q8 0 8 8 l0 16 q0 6 6 6 q-6 0 -6 6 l0 16 q0 8 -8 8\"/><circle class=\"vul zacht\" cx=\"230\" cy=\"215\" r=\"2\"/><circle class=\"vul zacht\" cx=\"340\" cy=\"140\" r=\"2\"/><circle class=\"vul zacht\" cx=\"560\" cy=\"200\" r=\"2\"/><circle class=\"vul zacht\" cx=\"250\" cy=\"290\" r=\"2\"/><circle class=\"vul zacht\" cx=\"380\" cy=\"330\" r=\"2\"/><circle class=\"vul zacht\" cx=\"470\" cy=\"210\" r=\"2\"/><circle class=\"vul zacht\" cx=\"580\" cy=\"280\" r=\"2\"/><circle class=\"vul zacht\" cx=\"330\" cy=\"175\" r=\"2\"/><circle class=\"vul zacht\" cx=\"440\" cy=\"250\" r=\"2\"/><circle class=\"vul zacht\" cx=\"210\" cy=\"250\" r=\"2\"/>",
+   "vakjes": [
+    {
+     "naam": "dubbelmembraan",
+     "x": 100,
+     "y": 60,
+     "punt": [
+      255,
+      135
+     ],
+     "uitleg": "twee membranen om de chloroplast heen."
+    },
+    {
+     "naam": "stroma",
+     "x": 100,
+     "y": 380,
+     "punt": [
+      232,
+      290
+     ],
+     "uitleg": "de vloeistof vol enzymen binnen het dubbelmembraan; hier draait de calvincyclus."
+    },
+    {
+     "naam": "thylakoïd",
+     "x": 100,
+     "y": 220,
+     "punt": [
+      272,
+      257
+     ],
+     "uitleg": "plat zakje; in het membraan zit chlorofyl en vindt de lichtreactie plaats."
+    },
+    {
+     "naam": "granum",
+     "x": 668,
+     "y": 175,
+     "punt": [
+      523,
+      175
+     ],
+     "uitleg": "een stapel thylakoïden (meervoud: grana)."
+    }
+   ],
+   "afleiders": [
+    "matrix"
+   ]
+  },
+  {
+   "id": "volgorde-lichtreactie",
+   "soort": "volgorde",
+   "titel": "De lichtreactie",
+   "opdracht": "Licht valt op een chloroplast. Zet de stappen van de lichtreactie in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Chlorofyl in het thylakoïdmembraan absorbeert licht: een elektron krijgt veel energie.",
+     "uitleg": "Chlorofyl absorbeert vooral blauw en rood licht."
+    },
+    {
+     "tekst": "Het chlorofyl geeft dat elektron af aan een keten van eiwitcomplexen.",
+     "uitleg": "Het chlorofyl mist nu een elektron."
+    },
+    {
+     "tekst": "Het chlorofyl krijgt een nieuw elektron uit water. Water wordt gesplitst in elektronen, H⁺ en O₂.",
+     "uitleg": "De O-atomen in de O₂ komen dus uit water, niet uit CO₂.",
+     "groep": "keten"
+    },
+    {
+     "tekst": "Onderweg in de keten geven de elektronen energie af; daarmee maakt de chloroplast ATP.",
+     "uitleg": "Dit gebeurt tegelijk met het aanvullen van het chlorofyl uit water.",
+     "groep": "keten"
+    },
+    {
+     "tekst": "Aan het eind van de keten neemt een hulpmolecuul (NADP⁺) de elektronen en H⁺ op: NADPH,H⁺.",
+     "uitleg": "De energie uit licht zit nu in ATP en NADPH,H⁺."
+    },
+    {
+     "tekst": "ATP en NADPH,H⁺ worden in het stroma gebruikt door de calvincyclus.",
+     "uitleg": "Daar wordt CO₂ vastgelegd. De lichtreactie levert dus O₂, ATP en NADPH,H⁺."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-calvincyclus",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Eén ronde van de calvincyclus",
+   "opdracht": "Volg één CO₂-molecuul in het stroma. Zet de stappen van de calvincyclus in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Het enzym rubisco koppelt CO₂ aan ribulose-1,5-difosfaat (vijf C-atomen).",
+     "uitleg": "Zo komt het C-atoom uit CO₂ in een organische stof: koolstofassimilatie."
+    },
+    {
+     "tekst": "Wat ontstaat, valt meteen uiteen in twee stoffen met elk drie C-atomen.",
+     "uitleg": "Vijf C plus één C is zes C: twee keer drie."
+    },
+    {
+     "tekst": "Die stoffen krijgen H-atomen van NADPH,H⁺, met energie uit ATP: reductie. Zo ontstaat glyceraldehyde-3-fosfaat.",
+     "uitleg": "NADP⁺, ADP en fosfaat zijn daarna weer beschikbaar voor de lichtreactie."
+    },
+    {
+     "tekst": "Het meeste glyceraldehyde-3-fosfaat vormt, met ATP, weer ribulose-1,5-difosfaat.",
+     "uitleg": "Van zes glyceraldehyde-3-fosfaat (drie rondes) vormen er vijf weer drie ribulose-1,5-difosfaat. Zo kan de kringloop door.",
+     "groep": "eind"
+    },
+    {
+     "tekst": "Uit twee overgebleven glyceraldehyde-3-fosfaat ontstaat een glucose.",
+     "uitleg": "Zes C-atomen, uit zes CO₂: daarvoor draait de kringloop zes rondes. Dit gebeurt naast het terugvormen van ribulose-1,5-difosfaat.",
+     "groep": "eind"
+    }
+   ]
+  },
+  {
+   "id": "schema-lichtgrafiek",
+   "soort": "schema",
+   "titel": "Fotosynthese en licht",
+   "opdracht": "De grafiek toont de netto CO₂-opname van een plant bij steeds meer licht. Sleep de namen naar de goede vakjes.",
+   "alt": "Grafiek: een lijn die onder de x-as begint, steil stijgt, de x-as snijdt en bij veel licht vlak wordt. Een stippellijn op de hoogte van het beginpunt, en twee pijlen omhoog naar de lijn.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 190,
+   "svg": "<path stroke-width=\"2\" d=\"M120 400 L120 36 M114 46 L120 36 L126 46 M120 270 L686 270 M676 264 L686 270 L676 276\"/><text x=\"132\" y=\"40\">netto CO₂-opname</text><text x=\"684\" y=\"296\" text-anchor=\"end\">lichtintensiteit</text><text x=\"110\" y=\"275\" text-anchor=\"end\">0</text><path class=\"zacht\" stroke-width=\"1.4\" stroke-dasharray=\"6 6\" d=\"M120 322 L680 322\"/><path class=\"acc\" stroke-width=\"3\" d=\"M120.0 322.0 L126.0 316.9 L132.0 311.8 L138.0 306.8 L144.0 301.8 L150.0 296.8 L156.0 291.8 L162.0 286.9 L168.0 282.0 L174.0 277.2 L180.0 272.3 L186.0 267.5 L192.0 262.8 L198.0 258.1 L204.0 253.4 L210.0 248.8 L216.0 244.2 L222.0 239.7 L228.0 235.3 L234.0 230.9 L240.0 226.5 L246.0 222.3 L252.0 218.0 L258.0 213.9 L264.0 209.8 L270.0 205.9 L276.0 201.9 L282.0 198.1 L288.0 194.4 L294.0 190.7 L300.0 187.2 L306.0 183.7 L312.0 180.3 L318.0 177.0 L324.0 173.9 L330.0 170.8 L336.0 167.8 L342.0 164.9 L348.0 162.2 L354.0 159.5 L360.0 156.9 L366.0 154.5 L372.0 152.1 L378.0 149.9 L384.0 147.7 L390.0 145.6 L396.0 143.6 L402.0 141.7 L408.0 139.9 L414.0 138.2 L420.0 136.5 L426.0 134.9 L432.0 133.4 L438.0 132.0 L444.0 130.6 L450.0 129.3 L456.0 128.0 L462.0 126.9 L468.0 125.7 L474.0 124.6 L480.0 123.6 L486.0 122.6 L492.0 121.6 L498.0 120.7 L504.0 119.9 L510.0 119.0 L516.0 118.2 L522.0 117.5 L528.0 116.8 L534.0 116.1 L540.0 115.4 L546.0 114.7 L552.0 114.1 L558.0 113.5 L564.0 113.0 L570.0 112.4 L576.0 111.9 L582.0 111.4 L588.0 110.9 L594.0 110.4 L600.0 109.9 L606.0 109.5 L612.0 109.1 L618.0 108.7 L624.0 108.3 L630.0 107.9 L636.0 107.5 L642.0 107.2 L648.0 106.8 L654.0 106.5 L660.0 106.2\"/><path stroke-width=\"1.8\" d=\"M450 268 L450 134.2963768274748 M444 144.2963768274748 L450 134.2963768274748 L456 144.2963768274748\"/><path stroke-width=\"1.8\" d=\"M474 320 L474 129.62810548827878 M468 139.62810548827878 L474 129.62810548827878 L480 139.62810548827878\"/>",
+   "vakjes": [
+    {
+     "naam": "alleen dissimilatie",
+     "x": 110,
+     "y": 400,
+     "punt": [
+      121,
+      322
+     ],
+     "uitleg": "bij lichtintensiteit nul geeft de plant alleen CO₂ af: de lijn begint onder de x-as."
+    },
+    {
+     "naam": "compensatiepunt",
+     "x": 300,
+     "y": 400,
+     "punt": [
+      183,
+      270
+     ],
+     "uitleg": "assimilatie en dissimilatie zijn even groot; de netto CO₂-opname is nul."
+    },
+    {
+     "naam": "licht is beperkend",
+     "x": 230,
+     "y": 90,
+     "punt": [
+      270,
+      206
+     ],
+     "uitleg": "in het stijgende deel geeft meer licht meer fotosynthese."
+    },
+    {
+     "naam": "iets anders is beperkend",
+     "x": 560,
+     "y": 60,
+     "punt": [
+      640,
+      107
+     ],
+     "uitleg": "bij veel licht wordt de lijn vlak: dan begrenst bijvoorbeeld CO₂ de snelheid."
+    },
+    {
+     "naam": "netto fotosynthese",
+     "x": 470,
+     "y": 360,
+     "punt": [
+      450,
+      200
+     ],
+     "uitleg": "wat je meet: de opname min de afgifte van CO₂."
+    },
+    {
+     "naam": "bruto fotosynthese",
+     "x": 668,
+     "y": 400,
+     "punt": [
+      474,
+      296
+     ],
+     "uitleg": "de netto fotosynthese plus de dissimilatie."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-eik",
+   "soort": "uitleg",
+   "titel": "Waar komt de massa van een eik vandaan?",
+   "opdracht": "Uit een eikel van een paar gram groeit een eik van vele tonnen, terwijl de grond eronder nauwelijks lichter wordt. Leg uit waar de massa van de eik vandaan komt.",
+   "begrippen": [
+    {
+     "naam": "CO₂",
+     "varianten": [
+      "CO2",
+      "koolstofdioxide",
+      "koolzuurgas",
+      "lucht"
+     ]
+    },
+    {
+     "naam": "water",
+     "varianten": [
+      "H2O",
+      "H₂O"
+     ]
+    },
+    {
+     "naam": "fotosynthese",
+     "varianten": [
+      "calvincyclus",
+      "koolstofassimilatie",
+      "assimilatie"
+     ]
+    },
+    {
+     "naam": "glucose",
+     "varianten": []
+    },
+    {
+     "naam": "licht",
+     "varianten": [
+      "lichtenergie",
+      "zonlicht"
+     ]
+    },
+    {
+     "naam": "cellulose",
+     "varianten": [
+      "voortgezette assimilatie"
+     ]
+    },
+    {
+     "naam": "mineralen",
+     "varianten": [
+      "mineraal",
+      "bodem"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een levende eik voor ongeveer de helft uit water bestaat, uit de bodem.",
+    "Ik leg uit dat bij de fotosynthese C- en O-atomen uit CO₂ uit de lucht in glucose worden vastgelegd, met energie uit licht.",
+    "Ik leg uit dat de boom van die glucose cellulose voor zijn hout maakt (voortgezette assimilatie).",
+    "Ik leg uit dat uit de bodem verder alleen een klein beetje mineralen komt."
+   ],
+   "model": [
+    "Een levende eik is voor ongeveer de helft water, dat de wortels uit de bodem opnemen.",
+    "Het droge hout komt vooral uit CO₂ uit de lucht. In de bladeren legt de calvincyclus de C- en O-atomen uit CO₂ vast in glucose. De energie daarvoor komt uit licht, via ATP en NADPH,H⁺ uit de lichtreactie. C en O samen zijn ruim negentig procent van de massa van glucose.",
+    "Uit glucose maakt de boom cellulose voor zijn celwanden, en alle andere stoffen. Uit de bodem komen verder alleen een paar procent mineralen. Daarom wordt de grond nauwelijks lichter."
+   ]
+  },
+  {
+   "id": "uitleg-donker",
+   "soort": "uitleg",
+   "titel": "De calvincyclus in het donker",
+   "opdracht": "De calvincyclus gebruikt zelf geen licht. Toch stopt hij binnen korte tijd als je het licht uitdoet. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "lichtreactie",
+     "varianten": [
+      "thylakoïden",
+      "thylakoiden",
+      "chlorofyl"
+     ]
+    },
+    {
+     "naam": "ATP",
+     "varianten": []
+    },
+    {
+     "naam": "NADPH,H⁺",
+     "varianten": [
+      "NADPH",
+      "NADPH,H+",
+      "NADPH+H+"
+     ]
+    },
+    {
+     "naam": "CO₂",
+     "varianten": [
+      "CO2",
+      "koolstofdioxide"
+     ]
+    },
+    {
+     "naam": "voorraad",
+     "varianten": [
+      "klein",
+      "op"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de calvincyclus ATP en NADPH,H⁺ nodig heeft om CO₂ vast te leggen en glucose te maken.",
+    "Ik leg uit dat ATP en NADPH,H⁺ alleen uit de lichtreactie komen, en dat die licht nodig heeft.",
+    "Ik leg uit dat de voorraad ATP en NADPH,H⁺ klein is, dus snel op is.",
+    "Ik leg uit waarom de naam 'donkerreactie' verwarrend is."
+   ],
+   "model": [
+    "De calvincyclus gebruikt zelf geen lichtenergie, maar wel ATP en NADPH,H⁺. Daarmee worden CO₂-moleculen stap voor stap omgezet in glucose.",
+    "ATP en NADPH,H⁺ komen alleen uit de lichtreactie in de thylakoïden, en die heeft licht nodig. De voorraad is klein. Gaat het licht uit, dan is die voorraad snel op en stopt de calvincyclus.",
+    "De calvincyclus heet soms de donkerreactie, maar die naam is verwarrend: in het donker stopt hij juist."
+   ]
+  },
+  {
+   "id": "uitleg-kamerplant",
+   "soort": "uitleg",
+   "titel": "Een plant in een donkere hoek",
+   "opdracht": "Een kamerplant staat in een hoek waar het licht overdag precies zo sterk is als het compensatiepunt. 's Nachts is het donker. Leg uit hoe de biomassa van de plant in een paar weken verandert.",
+   "begrippen": [
+    {
+     "naam": "compensatiepunt",
+     "varianten": []
+    },
+    {
+     "naam": "assimilatie",
+     "varianten": [
+      "fotosynthese",
+      "vastleggen"
+     ]
+    },
+    {
+     "naam": "dissimilatie",
+     "varianten": [
+      "dissimileert",
+      "afbreken",
+      "verbranding"
+     ]
+    },
+    {
+     "naam": "biomassa",
+     "varianten": [
+      "organische stof"
+     ]
+    },
+    {
+     "naam": "nacht",
+     "varianten": [
+      "'s nachts",
+      "donker"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij het compensatiepunt assimilatie en dissimilatie even groot zijn: overdag blijft de biomassa gelijk.",
+    "Ik leg uit dat de plant 's nachts wel dissimileert, maar geen fotosynthese doet.",
+    "Ik concludeer dat de biomassa over een hele dag, en dus in een paar weken, afneemt.",
+    "Ik leg uit dat een plant alleen groeit als het licht overdag ruim boven het compensatiepunt ligt."
+   ],
+   "model": [
+    "Bij het compensatiepunt zijn assimilatie en dissimilatie even groot. Overdag legt de plant dus precies evenveel vast als hij afbreekt: de netto CO₂-opname is nul.",
+    "'s Nachts is er geen fotosynthese, maar de plant dissimileert wel door. Dan neemt de biomassa een beetje af.",
+    "Over een hele dag neemt de biomassa dus af, en in een paar weken krimpt de plant. Een plant groeit alleen als het licht overdag ruim boven het compensatiepunt ligt."
+   ]
+  }
+ ]
+}

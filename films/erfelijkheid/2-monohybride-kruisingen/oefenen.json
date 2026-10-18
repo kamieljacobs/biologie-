@@ -1,0 +1,243 @@
+{
+ "versie": 1,
+ "film": "films/erfelijkheid/2-monohybride-kruisingen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-stappenplan-kruising",
+   "soort": "volgorde",
+   "titel": "Stappenplan voor elke kruisingsvraag",
+   "opdracht": "Zet de vier stappen voor het oplossen van een kruisingsvraag in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Schrijf de genotypen van de ouders op.",
+     "uitleg": "Bijvoorbeeld Aa × Aa. Gebruik een hoofdletter voor het dominante allel."
+    },
+    {
+     "tekst": "Bepaal welke gameten elke ouder kan maken.",
+     "uitleg": "Elke gameet krijgt van elk gen één allel. Aa maakt gameten met A en met a, elk met kans ½."
+    },
+    {
+     "tekst": "Zet de gameten in een kruisingsschema.",
+     "uitleg": "De gameten van de ene ouder links, van de andere boven. Elk vakje is één mogelijke bevruchting."
+    },
+    {
+     "tekst": "Lees de verhoudingen af: eerst van de genotypen, dan van de fenotypen.",
+     "uitleg": "Bij Aa × Aa: genotypen 1 AA : 2 Aa : 1 aa, fenotypen 3 : 1."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-mendel",
+   "soort": "volgorde",
+   "titel": "Mendels proef met erwten",
+   "opdracht": "Zet de stappen van Mendels proef met paarse en witte erwtenplanten in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "P: Mendel kruist een raszuivere paarse plant (AA) met een raszuivere witte plant (aa).",
+     "uitleg": "Raszuiver betekent homozygoot: ze gaven generaties lang dezelfde nakomelingen."
+    },
+    {
+     "tekst": "F1: alle nakomelingen zijn paars, met genotype Aa.",
+     "uitleg": "Ze kregen van de ene ouder een A en van de andere een a. A is dominant, dus ze zijn paars."
+    },
+    {
+     "tekst": "Bij de meiose in een F1-plant ontstaan gameten met A en gameten met a, elk met kans ½.",
+     "uitleg": "Eerst gaan de chromosomen van het paar uit elkaar, daarna de chromatiden."
+    },
+    {
+     "tekst": "Mendel kruist twee F1-planten met elkaar.",
+     "uitleg": "Elke bevruchting is een toevallige combinatie van een gameet van elke ouder."
+    },
+    {
+     "tekst": "F2: ongeveer drie paarse op één witte plant; wit komt terug.",
+     "uitleg": "705 paars en 224 wit. Het allel voor wit zat in de F1 verborgen."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-witte-nakomeling",
+   "soort": "uitleg",
+   "titel": "Twee paarse ouders, een witte nakomeling",
+   "opdracht": "Twee paarse erwtenplanten krijgen samen een witte nakomeling. Leg uit hoe dat kan en hoe groot de kans op wit is.",
+   "begrippen": [
+    {
+     "naam": "dominant",
+     "varianten": []
+    },
+    {
+     "naam": "recessief",
+     "varianten": [
+      "verborgen"
+     ]
+    },
+    {
+     "naam": "genotype",
+     "varianten": [
+      "genotypen",
+      "heterozygoot",
+      "Aa"
+     ]
+    },
+    {
+     "naam": "allel",
+     "varianten": [
+      "allelen"
+     ]
+    },
+    {
+     "naam": "gameet",
+     "varianten": [
+      "gameten",
+      "geslachtscel",
+      "geslachtscellen"
+     ]
+    },
+    {
+     "naam": "productregel",
+     "varianten": [
+      "vermenigvuldig",
+      "vermenigvuldigen",
+      "keer"
+     ]
+    },
+    {
+     "naam": "een kwart",
+     "varianten": [
+      "kwart",
+      "1/4",
+      "25"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat paars (A) dominant is, zodat een Aa-plant paars is en het allel voor wit verborgen zit.",
+    "Ik concludeer dat beide ouders Aa moeten zijn, want een witte plant is aa en krijgt van elke ouder een a.",
+    "Ik leg uit dat elke ouder met kans ½ een gameet met a maakt.",
+    "Ik bereken de kans op aa met de productregel: ½ × ½ = ¼."
+   ],
+   "model": [
+    "Paars (A) is dominant, wit (a) is recessief. Een plant met genotype Aa is dus paars, maar draagt het allel voor wit verborgen mee.",
+    "Een witte plant is aa: hij kreeg van elke ouder een a. Beide paarse ouders moeten dus Aa zijn.",
+    "Elke Aa-ouder maakt gameten met A en met a, elk met kans ½. Voor aa moeten beide gameten een a hebben. Met de productregel vermenigvuldig je die kansen: ½ × ½ = ¼, een kwart."
+   ]
+  },
+  {
+   "id": "uitleg-terugkruising",
+   "soort": "uitleg",
+   "titel": "AA of Aa?",
+   "opdracht": "Je hebt een paarse plant en wilt weten of hij AA of Aa is, zonder DNA-test. Leg uit hoe je dat met een terugkruising uitzoekt en hoe je de uitkomst leest.",
+   "begrippen": [
+    {
+     "naam": "terugkruising",
+     "varianten": [
+      "terugkruisen"
+     ]
+    },
+    {
+     "naam": "homozygoot recessief",
+     "varianten": [
+      "witte plant",
+      "aa"
+     ]
+    },
+    {
+     "naam": "allel",
+     "varianten": [
+      "allelen",
+      "altijd een a"
+     ]
+    },
+    {
+     "naam": "genotype",
+     "varianten": []
+    },
+    {
+     "naam": "alle nakomelingen paars",
+     "varianten": [
+      "alle nakomelingen zijn paars",
+      "allemaal paars",
+      "alleen paars",
+      "alles paars"
+     ]
+    },
+    {
+     "naam": "1 : 1",
+     "varianten": [
+      "1:1",
+      "één op één",
+      "de helft"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je de paarse plant kruist met een witte plant (aa): een terugkruising.",
+    "Ik leg uit dat de witte plant altijd een a doorgeeft, zodat het allel uit de paarse plant de kleur van elk kind bepaalt.",
+    "Ik leg uit dat AA alleen paarse nakomelingen geeft en Aa ongeveer de helft paars en de helft wit (1 : 1).",
+    "Ik noem dat één witte nakomeling al bewijst dat de paarse ouder een a had."
+   ],
+   "model": [
+    "Je kruist de paarse plant met een witte plant, aa. Dat heet een terugkruising. De witte plant geeft altijd een a door, dus het allel uit de paarse plant bepaalt meteen de kleur van elk kind.",
+    "Is de paarse plant AA, dan krijgt elk kind een A en Aa: alle nakomelingen zijn paars. Is hij Aa, dan krijgt de helft een a: ongeveer de helft is paars (Aa) en de helft wit (aa), 1 : 1.",
+    "Zie je ook maar één witte nakomeling, dan weet je het zeker: de paarse ouder had een a, dus zijn genotype is Aa."
+   ]
+  },
+  {
+   "id": "uitleg-kansen",
+   "soort": "uitleg",
+   "titel": "Vier nakomelingen, geen 3 : 1",
+   "opdracht": "Twee Aa-planten krijgen vier nakomelingen: twee paarse en twee witte. Een klasgenoot zegt: 'Dat kan niet, het kruisingsschema zegt drie paars en één wit.' Leg uit waarom dat niet klopt.",
+   "begrippen": [
+    {
+     "naam": "kans",
+     "varianten": [
+      "kansen"
+     ]
+    },
+    {
+     "naam": "toeval",
+     "varianten": [
+      "toevallig"
+     ]
+    },
+    {
+     "naam": "bevruchting",
+     "varianten": [
+      "bevruchtingen"
+     ]
+    },
+    {
+     "naam": "kruisingsschema",
+     "varianten": [
+      "schema"
+     ]
+    },
+    {
+     "naam": "vakje",
+     "varianten": [
+      "vakjes"
+     ]
+    },
+    {
+     "naam": "veel nakomelingen",
+     "varianten": [
+      "heel veel",
+      "grote aantallen",
+      "meer nakomelingen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat elke bevruchting toeval is: elk kind heeft opnieuw kans ¾ op paars en ¼ op wit.",
+    "Ik leg uit dat het kruisingsschema kansen geeft, geen aantallen.",
+    "Ik leg uit dat de vier vakjes geen vier kinderen zijn.",
+    "Ik noem dat je pas bij heel veel nakomelingen dicht bij 3 : 1 komt."
+   ],
+   "model": [
+    "Elke bevruchting is toeval. Elk kind heeft opnieuw een kans van ¾ op paars en ¼ op wit, wat de kinderen ervoor ook waren.",
+    "Het kruisingsschema geeft dus kansen, geen aantallen. De vier vakjes zijn vier mogelijke bevruchtingen, geen vier kinderen.",
+    "Bij vier nakomelingen kan het best twee paars en twee wit zijn. Pas bij heel veel nakomelingen kom je dicht bij drie op één, zoals Mendel met 705 paarse en 224 witte planten."
+   ]
+  }
+ ]
+}

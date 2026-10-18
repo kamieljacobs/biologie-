@@ -1,0 +1,336 @@
+{
+ "versie": 1,
+ "film": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-gel-draaien",
+   "soort": "volgorde",
+   "titel": "Van PCR-product tot banden",
+   "opdracht": "Zet de stappen van een gelelektroforese in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Meng het PCR-product met zware laadbuffer.",
+     "uitleg": "De laadbuffer is zwaar, zodat het monster naar de bodem van het putje zakt."
+    },
+    {
+     "tekst": "Pipetteer het mengsel in een putje, aan de kant van de minpool.",
+     "uitleg": "De putjes liggen bij de minpool: de zwarte elektrode."
+    },
+    {
+     "tekst": "Zet spanning op de gel: het negatief geladen DNA beweegt naar de pluspool.",
+     "uitleg": "Het DNA beweegt door het netwerk van agarose."
+    },
+    {
+     "tekst": "Korte stukken glippen makkelijk door de gaatjes en komen verder dan lange.",
+     "uitleg": "Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder."
+    },
+    {
+     "tekst": "Met een kleurstof en blauw licht worden de banden zichtbaar.",
+     "uitleg": "DNA zelf is kleurloos."
+    },
+    {
+     "tekst": "Lees de lengte van elke band af met de marker.",
+     "uitleg": "Kijk tussen welke twee markerbanden je band ligt."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-gel-lezen",
+   "soort": "volgorde",
+   "titel": "Stappenplan: een DNA-profiel vergelijken",
+   "opdracht": "Je krijgt een gel met een spoor, verdachten en controles. Zet de stappen van je werkwijze in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Kijk of de negatieve controle leeg is (op primer-dimeren na).",
+     "uitleg": "Een echte band betekent besmetting: dan kun je geen enkele band vertrouwen.",
+     "groep": "controle"
+    },
+    {
+     "tekst": "Kijk of de positieve controle precies de bekende banden geeft.",
+     "uitleg": "Blijft die baan leeg, dan zegt een lege baan bij een verdachte niets.",
+     "groep": "controle"
+    },
+    {
+     "tekst": "Bepaal de lengte van de banden met de marker of de allelladder.",
+     "uitleg": "Een band even hoog als een ladderband is hetzelfde allel."
+    },
+    {
+     "tekst": "Trek een lijn door elke band van het spoor en vergelijk band voor band.",
+     "uitleg": "Een band op dezelfde lijn is hetzelfde allel."
+    },
+    {
+     "tekst": "Trek je conclusie: één verschil sluit iemand uit; alles gelijk is sterk, maar geen absoluut bewijs.",
+     "uitleg": "Een ander kan toevallig hetzelfde profiel hebben. Hoe meer STR's, hoe kleiner die kans."
+    }
+   ]
+  },
+  {
+   "id": "schema-gel",
+   "soort": "schema",
+   "titel": "Een gel lezen",
+   "opdracht": "Op deze gel staan een marker, een spoor, twee verdachten (A en B) en een controle. Sleep de namen naar de goede vakjes. Pas op: één naam hoort er niet bij.",
+   "alt": "Lijntekening van een gel met vijf banen en putjes bovenaan, een elektrode boven en onder. Baan 1 heeft veel banden op gelijke stappen, drie banen hebben elk twee banden, de laatste baan is leeg op een vage vlek onderaan na.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 168,
+   "svg": "<rect x=\"205\" y=\"44\" width=\"350\" height=\"362\" rx=\"6\" stroke-width=\"2.2\"/><path stroke-width=\"5\" d=\"M215 22 L545 22\"/><path stroke-width=\"5\" d=\"M215 424 L545 424\"/><rect x=\"233\" y=\"62\" width=\"34\" height=\"9\" rx=\"2\" stroke-width=\"1.6\"/><rect x=\"293\" y=\"62\" width=\"34\" height=\"9\" rx=\"2\" stroke-width=\"1.6\"/><rect x=\"353\" y=\"62\" width=\"34\" height=\"9\" rx=\"2\" stroke-width=\"1.6\"/><rect x=\"413\" y=\"62\" width=\"34\" height=\"9\" rx=\"2\" stroke-width=\"1.6\"/><rect x=\"473\" y=\"62\" width=\"34\" height=\"9\" rx=\"2\" stroke-width=\"1.6\"/><path stroke-width=\"3.5\" d=\"M235 340 L265 340\"/><path stroke-width=\"3.5\" d=\"M235 270.8 L265 270.8\"/><path stroke-width=\"3.5\" d=\"M235 230.3 L265 230.3\"/><path stroke-width=\"3.5\" d=\"M235 201.5 L265 201.5\"/><path stroke-width=\"3.5\" d=\"M235 179.2 L265 179.2\"/><path stroke-width=\"3.5\" d=\"M235 161 L265 161\"/><path stroke-width=\"3.5\" d=\"M235 145.6 L265 145.6\"/><path stroke-width=\"3.5\" d=\"M235 132.3 L265 132.3\"/><path stroke-width=\"3.5\" d=\"M235 120.5 L265 120.5\"/><path stroke-width=\"3.5\" d=\"M235 110 L265 110\"/><path class=\"acc\" stroke-width=\"5\" d=\"M295 252.6 L325 252.6\"/><path class=\"acc\" stroke-width=\"5\" d=\"M295 223.8 L325 223.8\"/><path class=\"acc\" stroke-width=\"5\" d=\"M355 252.6 L385 252.6\"/><path class=\"acc\" stroke-width=\"5\" d=\"M355 223.8 L385 223.8\"/><path class=\"acc\" stroke-width=\"5\" d=\"M415 252.6 L445 252.6\"/><path class=\"acc\" stroke-width=\"5\" d=\"M415 195.7 L445 195.7\"/><path class=\"zacht\" stroke-width=\"7\" d=\"M477 348.3 Q490 353.3 503 348.3\"/><text x=\"310\" y=\"396\" text-anchor=\"middle\" style=\"font-size:13px\">spoor</text><text x=\"370\" y=\"396\" text-anchor=\"middle\" style=\"font-size:13px\">A</text><text x=\"430\" y=\"396\" text-anchor=\"middle\" style=\"font-size:13px\">B</text>",
+   "vakjes": [
+    {
+     "naam": "minpool",
+     "x": 100,
+     "y": 30,
+     "punt": [
+      222,
+      22
+     ],
+     "uitleg": "de putjes liggen bij de minpool: de zwarte elektrode."
+    },
+    {
+     "naam": "putje",
+     "x": 100,
+     "y": 110,
+     "punt": [
+      250,
+      70
+     ],
+     "uitleg": "hier pipetteer je het PCR-product met de zware laadbuffer in."
+    },
+    {
+     "naam": "marker",
+     "x": 100,
+     "y": 250,
+     "punt": [
+      250,
+      230
+     ],
+     "uitleg": "DNA-stukken met bekende lengte (50, 100, 150 … bp); hoger in de gel liggen ze dichter op elkaar."
+    },
+    {
+     "naam": "band",
+     "x": 660,
+     "y": 120,
+     "punt": [
+      440,
+      196
+     ],
+     "uitleg": "heel veel kopieën van één lengte die even ver zijn gekomen. Deze band van B zit niet in het spoor."
+    },
+    {
+     "naam": "negatieve controle",
+     "x": 660,
+     "y": 220,
+     "punt": [
+      490,
+      190
+     ],
+     "uitleg": "water in plaats van DNA: hier hoort geen band in."
+    },
+    {
+     "naam": "primer-dimeren",
+     "x": 660,
+     "y": 330,
+     "punt": [
+      500,
+      348
+     ],
+     "uitleg": "primers die aan elkaar plakken: een vage vlek onderaan, geen besmetting."
+    },
+    {
+     "naam": "pluspool",
+     "x": 660,
+     "y": 418,
+     "punt": [
+      532,
+      424
+     ],
+     "uitleg": "DNA is negatief geladen en beweegt naar de pluspool; korte stukken komen het verst."
+    }
+   ],
+   "afleiders": [
+    "positieve controle"
+   ]
+  },
+  {
+   "id": "uitleg-sorteren",
+   "soort": "uitleg",
+   "titel": "Hoe sorteert een gel?",
+   "opdracht": "Leg uit waarom DNA in een gel op lengte wordt gesorteerd, en waarom heel veel kopieën samen één band vormen.",
+   "begrippen": [
+    {
+     "naam": "negatief geladen",
+     "varianten": [
+      "negatief",
+      "lading"
+     ]
+    },
+    {
+     "naam": "pluspool",
+     "varianten": [
+      "plus"
+     ]
+    },
+    {
+     "naam": "agarose",
+     "varianten": [
+      "gaatjes",
+      "netwerk"
+     ]
+    },
+    {
+     "naam": "korte stukken",
+     "varianten": [
+      "korter",
+      "kort"
+     ]
+    },
+    {
+     "naam": "lange stukken",
+     "varianten": [
+      "langer",
+      "lang"
+     ]
+    },
+    {
+     "naam": "dezelfde lengte",
+     "varianten": [
+      "even lang",
+      "even ver"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat DNA negatief geladen is en dus naar de pluspool beweegt als er spanning op staat.",
+    "Ik leg uit dat de gel een netwerk van agarose is met kleine gaatjes.",
+    "Ik leg uit dat korte stukken makkelijk door de gaatjes glippen en lange vaker blijven haken: hoe korter, hoe verder.",
+    "Ik leg uit dat alle kopieën met dezelfde lengte even ver komen en samen één band vormen."
+   ],
+   "model": [
+    "DNA is negatief geladen. Zet je spanning op de gel, dan beweegt het naar de pluspool. De putjes liggen daarom bij de minpool.",
+    "Een gel is een netwerk van agarose met overal kleine gaatjes. Korte stukken DNA glippen er makkelijk door, lange stukken blijven vaker haken. Zo worden de stukken gesorteerd op lengte: hoe korter, hoe verder.",
+    "Alle kopieën met dezelfde lengte komen even ver. Samen vormen ze één band. Met een kleurstof en blauw licht maak je die zichtbaar."
+   ]
+  },
+  {
+   "id": "uitleg-verdachten",
+   "soort": "uitleg",
+   "titel": "Verdachte A en verdachte B",
+   "opdracht": "Bij verdachte B zit één band die niet in het spoor zit. Bij verdachte A passen alle banden, bij elke STR. Leg uit wat je over A en over B mag concluderen.",
+   "begrippen": [
+    {
+     "naam": "band",
+     "varianten": [
+      "banden"
+     ]
+    },
+    {
+     "naam": "allel",
+     "varianten": [
+      "allelen"
+     ]
+    },
+    {
+     "naam": "STR",
+     "varianten": [
+      "STR's",
+      "strs"
+     ]
+    },
+    {
+     "naam": "uitsluiten",
+     "varianten": [
+      "uitgesloten",
+      "niet van B",
+      "sluit uit"
+     ]
+    },
+    {
+     "naam": "geen absoluut bewijs",
+     "varianten": [
+      "niet zeker",
+      "toevallig",
+      "kans"
+     ]
+    },
+    {
+     "naam": "meer STR's",
+     "varianten": [
+      "meerdere STR's",
+      "twintig"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een band op een andere hoogte een ander allel is.",
+    "Ik concludeer dat het spoor niet van B is: één verschil is genoeg.",
+    "Ik leg uit dat A sterk verdacht is, maar dat iemand anders toevallig hetzelfde profiel kan hebben.",
+    "Ik noem dat die kans kleiner wordt naarmate je meer STR's vergelijkt."
+   ],
+   "model": [
+    "Elke band is een allel van een STR: een stuk DNA van één bepaalde lengte. Ligt een band op een andere hoogte, dan is het een ander allel.",
+    "Verdachte B heeft een band die niet in het spoor zit. Eén verschil is genoeg: het spoor is niet van B, B is uitgesloten.",
+    "Bij verdachte A passen alle banden bij elke STR. Dat is sterk bewijs, maar geen absoluut bewijs: een ander kan toevallig hetzelfde profiel hebben. Hoe meer STR's je vergelijkt, hoe kleiner die kans; forensische labs onderzoeken er meer dan twintig."
+   ]
+  },
+  {
+   "id": "uitleg-rare-banden",
+   "soort": "uitleg",
+   "titel": "Een extra bandje",
+   "opdracht": "Bij één STR zie je in het spoor een sterke band met vier basenparen eronder een zwak bandje. Een klasgenoot zegt: 'Dit spoor heeft drie allelen.' Leg uit waarom dat niet zo hoeft te zijn, en wanneer je wél aan meer personen denkt.",
+   "begrippen": [
+    {
+     "naam": "stotterband",
+     "varianten": [
+      "stotter"
+     ]
+    },
+    {
+     "naam": "polymerase",
+     "varianten": [
+      "PCR"
+     ]
+    },
+    {
+     "naam": "herhaling",
+     "varianten": [
+      "herhalingen",
+      "vier basenparen",
+      "4 bp"
+     ]
+    },
+    {
+     "naam": "geen allel",
+     "varianten": [
+      "geen extra allel"
+     ]
+    },
+    {
+     "naam": "mengsel",
+     "varianten": [
+      "meer personen",
+      "meerdere personen"
+     ]
+    },
+    {
+     "naam": "twee allelen",
+     "varianten": [
+      "twee banden",
+      "vader",
+      "moeder"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een zwak bandje precies één herhaling (4 bp) onder een sterke band een stotterband is.",
+    "Ik leg uit dat die ontstaat doordat het polymerase bij de PCR één herhaling oversloeg, en dus geen allel is.",
+    "Ik noem dat iedereen van elke STR twee allelen heeft: één van je vader en één van je moeder.",
+    "Ik leg uit dat meer dan twee echte banden bij één STR wijst op een mengsel van DNA van meer personen."
+   ],
+   "model": [
+    "Een zwak bandje precies vier basenparen, één herhaling, onder een sterke band is een stotterband. Het polymerase sloeg bij de PCR één herhaling over. Het is geen extra allel.",
+    "Van elke STR heeft iemand twee allelen: één van zijn vader en één van zijn moeder. Dat geeft één of twee banden.",
+    "Zie je bij één STR meer dan twee echte banden, dan zit er DNA van meer personen in het monster: een mengsel, bijvoorbeeld van de eigenaar die de scherven opraapte."
+   ]
+  }
+ ]
+}

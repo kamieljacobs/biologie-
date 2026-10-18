@@ -138,7 +138,8 @@
       if (waarde === null) localStorage.removeItem(sleutel); else localStorage.setItem(sleutel, JSON.stringify(waarde));
     } catch (e) { return null; }
   }
-  var SLEUTEL = 'bk-oefenen:' + location.pathname.replace(/\/index\.html$/, '/') + ':';
+  // sleutel per film (via het pad van oefenen.json), zodat de filmpagina en de losse oefenpagina dezelfde antwoorden delen
+  var SLEUTEL = 'bk-oefenen:' + (function () { try { return new URL(PAD, location.href).pathname; } catch (e) { return location.pathname; } })() + ':';
 
   /* ---------- slepen met pointer events (muis, pen en touch) ---------- */
   // opties: { start(e) -> bool, beweeg(x,y), los(x,y,gesleept) }
@@ -514,19 +515,23 @@
   }
 
   function plaats(data) {
+    if (document.querySelector('.oe-blok')) return;
+    var hier = document.getElementById('oefen-hier'); // losse oefenpagina (oefenen.html)
     var g = document.getElementById('glossary');
-    if (!g || document.querySelector('.oe-blok')) return;
-    var sectie = g.closest('section') || g.parentNode;
-    var kopBegrippen = sectie.querySelector('h2');
-    var blok = document.createElement(sectie.tagName === 'SECTION' ? 'section' : 'div');
-    blok.className = (sectie.className ? sectie.className + ' ' : '') + 'oe-blok';
+    if (!hier && !g) return;
+    var sectie = hier ? null : (g.closest('section') || g.parentNode);
+    var kopBegrippen = sectie && sectie.querySelector('h2');
+    var blok = document.createElement(sectie && sectie.tagName === 'SECTION' ? 'section' : 'div');
+    blok.className = (sectie && sectie.className ? sectie.className + ' ' : '') + 'oe-blok';
     blok.id = 'oefenen';
-    var kop = kopBegrippen ? kopBegrippen.cloneNode(false) : document.createElement('h2');
-    kop.removeAttribute('id'); kop.textContent = 'Zelf aan de slag';
-    blok.appendChild(kop);
+    if (!hier) {
+      var kop = kopBegrippen ? kopBegrippen.cloneNode(false) : document.createElement('h2');
+      kop.removeAttribute('id'); kop.textContent = 'Zelf aan de slag';
+      blok.appendChild(kop);
+    }
     blok.appendChild(el('p', 'oe-lead', esc(data.intro || 'Oefen met wat je in de film zag. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.')));
     var lijst = el('div', 'oe-lijstje'); blok.appendChild(lijst);
-    sectie.parentNode.insertBefore(blok, sectie.nextSibling);
+    if (hier) hier.appendChild(blok); else sectie.parentNode.insertBefore(blok, sectie.nextSibling);
     // toetsen in de oefeningen (typen, spatie, pijltjes) niet doorgeven aan de filmspeler
     ['keydown', 'keyup', 'keypress'].forEach(function (t) { blok.addEventListener(t, function (e) { e.stopPropagation(); }); });
     // inhoudsopgave bovenaan (als de film er een heeft)
@@ -534,9 +539,12 @@
     if (toc && !document.querySelector('nav.toc a[href="#oefenen"]')) { var a = document.createElement('a'); a.href = '#oefenen'; a.textContent = 'Zelf aan de slag'; toc.parentNode.insertBefore(a, toc.nextSibling); }
 
     var eerste = true;
+    // link naar één oefening: #oe-<id> (of #<id> op de losse oefenpagina)
+    var h = decodeURIComponent((location.hash || '').slice(1)), doel = null;
+    (data.oefeningen || []).forEach(function (o, k) { var id = o.id || ('o' + (k + 1)); if (h === id || h === 'oe-' + id) doel = id; });
     (data.oefeningen || []).forEach(function (o, k) {
       if (!o.id) o.id = 'o' + (k + 1);
-      var kaart = el('details', 'oe-kaart' + (o.vwo ? ' vwo' : ''));
+      var kaart = el('details', 'oe-kaart' + (o.vwo ? ' vwo' : '')); kaart.id = 'oe-' + o.id;
       var soort = SOORTNAAM[o.soort] || '';
       kaart.innerHTML = '<summary><span class="oe-ico">' + (ICOON[o.soort] || '') + '</span><span class="oe-sumtekst"><span class="oe-soort">' + esc(soort) + (o.vwo ? '<span class="oe-vwo">vwo</span>' : '') + '</span><span class="oe-titel">' + esc(o.titel) + '</span></span><span class="oe-pijl" aria-hidden="true">›</span></summary>';
       var doos = el('div', 'oe-inhoud');
@@ -553,13 +561,14 @@
         } catch (err) { doos.appendChild(el('p', 'oe-hulp', 'Deze oefening kon niet worden geladen.')); if (window.console) console.error(err); }
       }
       kaart.addEventListener('toggle', function () { if (kaart.open) bouw(); });
-      if (eerste && !o.vwo) { kaart.open = true; bouw(); eerste = false; }
+      if (doel ? doel === o.id : (eerste && !o.vwo)) { kaart.open = true; bouw(); eerste = false; }
     });
 
     var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
     thema(blok);
     // vanuit de filmlijst (knop 'Oefenen', link naar #oefenen): meteen naar het blok
-    if (location.hash === '#oefenen') setTimeout(function () { blok.scrollIntoView({ block: 'start' }); }, 60);
+    if (doel) setTimeout(function () { var k = document.getElementById('oe-' + doel); if (k) k.scrollIntoView({ block: 'start' }); }, 60);
+    else if (location.hash === '#oefenen') setTimeout(function () { blok.scrollIntoView({ block: 'start' }); }, 60);
     try {
       new MutationObserver(function () { thema(blok); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-thema', 'class'] });
       if (window.matchMedia) { var mq = window.matchMedia('(prefers-color-scheme: dark)'); (mq.addEventListener ? mq.addEventListener('change', function () { thema(blok); }) : mq.addListener(function () { thema(blok); })); }
@@ -571,7 +580,7 @@
     try { url = new URL(PAD, location.href).href; } catch (e) { return; }
     fetch(url, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (data) {
       var n = 0;
-      (function probeer() { if (document.getElementById('glossary') || n > 40) return plaats(data); n++; setTimeout(probeer, 150); })();
+      (function probeer() { if (document.getElementById('oefen-hier') || document.getElementById('glossary') || n > 40) return plaats(data); n++; setTimeout(probeer, 150); })();
     }).catch(function (e) { if (window.console) console.warn('Oefeningen niet geladen:', e); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();

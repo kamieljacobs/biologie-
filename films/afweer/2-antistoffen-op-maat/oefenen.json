@@ -1,0 +1,336 @@
+{
+ "versie": 1,
+ "film": "films/afweer/2-antistoffen-op-maat.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-klonale-selectie",
+   "soort": "volgorde",
+   "titel": "Van één passende B-cel tot antistoffen",
+   "opdracht": "Het waterpokkenvirus komt voor het eerst binnen. Zet in de goede volgorde hoe je B-cellen erop reageren.",
+   "stappen": [
+    {
+     "tekst": "Het virus komt via de lymfevaten in een lymfeknoop terecht.",
+     "uitleg": "In de lymfeknopen komt het virus de B-cellen tegen. Daarom worden je lymfeknopen vaak dik."
+    },
+    {
+     "tekst": "Een B-cel met een receptor die op een antigeen van het virus past, bindt het virus.",
+     "uitleg": "Die passende B-cel was er al: hij wordt alleen gekozen. Een B-cel kan zijn sleutel niet veranderen."
+    },
+    {
+     "tekst": "Een T-helpercel die bij hetzelfde antigeen hoort, geeft de B-cel het startsein.",
+     "uitleg": "Zonder dat startsein gaat de B-cel niet aan de slag."
+    },
+    {
+     "tekst": "De B-cel deelt zich steeds opnieuw: er ontstaat een kloon van precies dezelfde cellen.",
+     "uitleg": "De passende cel wordt gekozen en vermenigvuldigd: klonale selectie."
+    },
+    {
+     "tekst": "De meeste cellen van de kloon worden plasmacellen, een deel wordt geheugencel.",
+     "uitleg": "Geheugencellen blijven jaren in je lichaam, soms je hele leven."
+    },
+    {
+     "tekst": "Plasmacellen maken antistoffen, die op het virus plakken en het onschadelijk maken.",
+     "uitleg": "Een plasmacel maakt zo'n tweeduizend antistoffen per seconde. Met het virus vast kan het zich niet meer aan je cellen vastgrijpen."
+    },
+    {
+     "tekst": "Fagocyten ruimen de virussen op waar antistoffen op vastzitten.",
+     "uitleg": "Antistoffen doden zelf niets: ze zijn een vlaggetje. Het opruimen doen vooral fagocyten."
+    }
+   ]
+  },
+  {
+   "id": "schema-afweerreactie",
+   "soort": "schema",
+   "titel": "Twee keer hetzelfde virus",
+   "opdracht": "De grafiek toont de hoeveelheid antistoffen bij twee besmettingen met hetzelfde virus. Sleep de namen naar de goede vakjes.",
+   "alt": "Grafiek van de hoeveelheid antistoffen tegen de tijd: na de eerste besmetting een kleine, late piek, na de tweede een snelle, hoge piek.",
+   "breed": 760,
+   "hoog": 410,
+   "vakbreed": 196,
+   "svg": "<path stroke-width=\"2\" d=\"M90 40 L90 360 L724 360\"/><path stroke-width=\"2\" d=\"M84 50 L90 38 L96 50 M714 354 L726 360 L714 366\"/><text x=\"102\" y=\"34\">hoeveelheid antistoffen in het bloed</text><text x=\"720\" y=\"392\" text-anchor=\"end\">tijd</text><path class=\"zacht\" stroke-width=\"1\" stroke-dasharray=\"3 5\" d=\"M200 360 L200 372 M270 360 L270 372\"/><text x=\"200\" y=\"392\" text-anchor=\"middle\" class=\"zacht\">1 week</text><path stroke-width=\"2\" d=\"M130 300 L130 350 M123 340 L130 352 L137 340 M440 300 L440 350 M433 340 L440 352 L447 340\"/><path class=\"acc\" stroke-width=\"3\" d=\"M90 358 L196 357 C224 355 242 292 270 290 C300 288 320 334 380 347 C405 352 425 354 446 354 C458 352 474 84 522 82 C572 80 604 150 720 190\"/>",
+   "vakjes": [
+    {
+     "naam": "eerste besmetting",
+     "x": 200,
+     "y": 205,
+     "punt": [
+      130,
+      302
+     ],
+     "uitleg": "pas na ongeveer een week verschijnen de eerste antistoffen."
+    },
+    {
+     "naam": "primaire afweerreactie",
+     "x": 330,
+     "y": 240,
+     "punt": [
+      270,
+      292
+     ],
+     "uitleg": "traag en laag: zoeken, delen en maken kost tijd. Ondertussen ben je ziek."
+    },
+    {
+     "naam": "tweede besmetting",
+     "x": 420,
+     "y": 150,
+     "punt": [
+      440,
+      302
+     ],
+     "uitleg": "hetzelfde virus komt opnieuw binnen."
+    },
+    {
+     "naam": "secundaire afweerreactie",
+     "x": 640,
+     "y": 300,
+     "punt": [
+      560,
+      103
+     ],
+     "uitleg": "geheugencellen worden snel plasmacellen: binnen een paar dagen veel meer antistoffen. Je bent immuun."
+    }
+   ],
+   "afleiders": [
+    "geheugencel"
+   ]
+  },
+  {
+   "id": "schema-antistof",
+   "soort": "schema",
+   "vwo": true,
+   "titel": "De bouw van een antistof",
+   "opdracht": "Een antistof (immunoglobuline) bestaat uit vier eiwitketens. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een Y-vormige antistof met twee lange en twee korte ketens; de uiteinden van de armen zijn gemarkeerd, op één uiteinde zit een antigeen.",
+   "breed": 700,
+   "hoog": 420,
+   "vakbreed": 160,
+   "svg": "<path stroke-width=\"4\" d=\"M342 396 L342 230 L242 120\"/><path stroke-width=\"4\" d=\"M358 396 L358 230 L458 120\"/><path stroke-width=\"2.6\" d=\"M280 186 L230 131\"/><path stroke-width=\"2.6\" d=\"M420 186 L470 131\"/><path class=\"zacht\" stroke-width=\"1.6\" d=\"M342 250 L358 250 M342 262 L358 262 M300 184 L288 195 M400 184 L412 195\"/><path class=\"acc\" stroke-width=\"6\" d=\"M292 175 L242 120 M255 158 L230 131 M408 175 L458 120 M445 158 L470 131\"/><path class=\"vul zacht\" d=\"M194 92 C198 74 220 68 234 78 C246 86 244 104 234 112 C226 106 218 104 210 110 C198 110 192 104 194 92 Z\"/><path stroke-width=\"1.6\" d=\"M194 92 C198 74 220 68 234 78 C246 86 244 104 234 112 C226 106 218 104 210 110 C198 110 192 104 194 92 Z\"/>",
+   "vakjes": [
+    {
+     "naam": "antigeen",
+     "x": 95,
+     "y": 40,
+     "punt": [
+      208,
+      86
+     ],
+     "uitleg": "het vormpje waar de antistof op past."
+    },
+    {
+     "naam": "bindplaats",
+     "x": 95,
+     "y": 170,
+     "punt": [
+      244,
+      118
+     ],
+     "uitleg": "aan het uiteinde van elke arm; een antistof heeft er twee."
+    },
+    {
+     "naam": "constant deel",
+     "x": 95,
+     "y": 330,
+     "punt": [
+      342,
+      330
+     ],
+     "uitleg": "bijna de hele antistof: gelijk bij alle antistoffen van één klasse."
+    },
+    {
+     "naam": "variabel deel",
+     "x": 600,
+     "y": 70,
+     "punt": [
+      464,
+      124
+     ],
+     "uitleg": "de uiteinden van de armen: verschillen per kloon en vormen de bindplaatsen."
+    },
+    {
+     "naam": "lichte keten",
+     "x": 600,
+     "y": 210,
+     "punt": [
+      416,
+      182
+     ],
+     "uitleg": "twee korte ketens aan de buitenkant van de armen."
+    },
+    {
+     "naam": "zware keten",
+     "x": 600,
+     "y": 330,
+     "punt": [
+      358,
+      300
+     ],
+     "uitleg": "twee lange ketens: de steel en de binnenkant van de armen."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-immuun",
+   "soort": "uitleg",
+   "titel": "Waarom Noor niet ziek wordt",
+   "opdracht": "Sam heeft waterpokken. Zijn zus Noor had waterpokken toen ze klein was, en wordt nu niet ziek, hoe vaak ze ook bij Sam zit. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "geheugencellen",
+     "varianten": [
+      "geheugencel",
+      "geheugen"
+     ]
+    },
+    {
+     "naam": "plasmacellen",
+     "varianten": [
+      "plasmacel"
+     ]
+    },
+    {
+     "naam": "antistoffen",
+     "varianten": [
+      "antistof",
+      "antilichamen"
+     ]
+    },
+    {
+     "naam": "secundaire afweerreactie",
+     "varianten": [
+      "secundaire reactie",
+      "secundair",
+      "tweede reactie"
+     ]
+    },
+    {
+     "naam": "immuun",
+     "varianten": [
+      "immuniteit"
+     ]
+    },
+    {
+     "naam": "B-cellen",
+     "varianten": [
+      "B-cel",
+      "B cel",
+      "B cellen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij de eerste besmetting de passende B-cellen een kloon vormden, met plasmacellen en geheugencellen.",
+    "Ik leg uit dat de geheugencellen nu nog in het lichaam van Noor zitten.",
+    "Ik leg uit dat die bij een nieuwe besmetting snel plasmacellen worden, die binnen een paar dagen veel antistoffen maken.",
+    "Ik leg uit dat het virus wel binnenkomt, maar wordt opgeruimd voordat Noor ziek wordt: ze is immuun."
+   ],
+   "model": [
+    "Toen Noor klein was, vond haar lichaam de B-cellen die pasten op het waterpokkenvirus. Die deelden zich tot een kloon. De meeste werden plasmacellen die antistoffen maakten, een deel werd geheugencel.",
+    "Die geheugencellen zitten nog steeds in haar lichaam. Komt het virus van Sam binnen, dan worden ze snel plasmacellen. Die maken binnen een paar dagen veel meer antistoffen dan de eerste keer: de secundaire afweerreactie.",
+    "Het virus komt bij Noor dus wel binnen, maar is opgeruimd voordat ze er iets van merkt. Dat heet immuun zijn."
+   ]
+  },
+  {
+   "id": "uitleg-griep",
+   "soort": "uitleg",
+   "titel": "Elk jaar weer griep",
+   "opdracht": "Waterpokken krijg je maar één keer, maar griep kun je elk jaar opnieuw krijgen. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "mutaties",
+     "varianten": [
+      "mutatie",
+      "muteren",
+      "muteert"
+     ]
+    },
+    {
+     "naam": "antigenen",
+     "varianten": [
+      "antigeen"
+     ]
+    },
+    {
+     "naam": "geheugencellen",
+     "varianten": [
+      "geheugencel"
+     ]
+    },
+    {
+     "naam": "passen",
+     "varianten": [
+      "past",
+      "passend",
+      "sleutel"
+     ]
+    },
+    {
+     "naam": "verandert",
+     "varianten": [
+      "veranderen",
+      "verandering"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de antigenen van het griepvirus door mutaties steeds een beetje veranderen.",
+    "Ik leg uit dat je oude geheugencellen (en antistoffen) dan minder goed passen.",
+    "Ik leg uit dat je afweer dan opnieuw een primaire reactie moet starten, zodat je toch ziek wordt.",
+    "Ik leg uit dat het waterpokkenvirus bijna niet verandert, zodat je geheugencellen blijven passen."
+   ],
+   "model": [
+    "Door mutaties veranderen de antigenen van het griepvirus steeds een beetje. Je geheugencellen van vorig jaar passen dan minder goed, zoals een sleutel die net niet in een nieuw slot past.",
+    "Je afweer moet dan opnieuw passende B-cellen zoeken en vermenigvuldigen. Dat kost tijd, en ondertussen ben je ziek.",
+    "Het waterpokkenvirus verandert bijna niet. Je geheugencellen blijven dus passen, en daarom krijg je waterpokken maar één keer."
+   ]
+  },
+  {
+   "id": "uitleg-passende-b-cel",
+   "soort": "uitleg",
+   "titel": "Een sleutel die er al was",
+   "opdracht": "Je lichaam heeft een virus nog nooit gezien, en toch is er een B-cel die past. Een klasgenoot zegt: \"De B-cel past zijn vorm aan het virus aan.\" Leg uit waarom dat niet klopt, en hoe het wel zit.",
+   "begrippen": [
+    {
+     "naam": "receptor",
+     "varianten": [
+      "receptoren"
+     ]
+    },
+    {
+     "naam": "beenmerg",
+     "varianten": []
+    },
+    {
+     "naam": "miljoenen",
+     "varianten": [
+      "heel veel soorten",
+      "veel verschillende"
+     ]
+    },
+    {
+     "naam": "klonale selectie",
+     "varianten": [
+      "gekozen",
+      "selectie",
+      "kloon"
+     ]
+    },
+    {
+     "naam": "antigeen",
+     "varianten": [
+      "antigenen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een B-cel zijn receptor (zijn sleutel) niet kan veranderen.",
+    "Ik leg uit dat je beenmerg steeds nieuwe B-cellen maakt, elk met een andere receptor: miljoenen soorten.",
+    "Ik leg uit dat de passende B-cel er al was voordat het virus binnenkwam, en alleen wordt gekozen en vermenigvuldigd (klonale selectie)."
+   ],
+   "model": [
+    "Een B-cel kan zijn receptor niet veranderen. Je beenmerg maakt steeds nieuwe B-cellen, elk met een andere receptor. Zo heb je er miljoenen soorten, al lang voordat een ziekteverwekker binnenkomt.",
+    "Komt er een virus binnen, dan past er toevallig een B-cel op een van zijn antigenen. Omdat een virus veel verschillende antigenen heeft, passen er meestal een paar. Die passende B-cel wordt gekozen en vermenigvuldigd: klonale selectie. Het lijkt maatwerk, maar de sleutel was er al."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,322 @@
+{
+ "versie": 1,
+ "film": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-pcr-cyclus",
+   "soort": "volgorde",
+   "titel": "Eén cyclus PCR",
+   "opdracht": "Zet de stappen van één PCR-cyclus in de goede volgorde, vanaf het DNA uit het spoor.",
+   "stappen": [
+    {
+     "tekst": "95 °C: de waterstofbruggen breken en de twee strengen gaan uit elkaar.",
+     "uitleg": "Denatureren. De strengen zelf blijven heel, en Taq overleeft de hitte."
+    },
+    {
+     "tekst": "55–60 °C: de primers binden waar alle basen precies passen.",
+     "uitleg": "Primers binden (annealing). Past een primer maar half, dan valt hij er bij deze temperatuur weer af."
+    },
+    {
+     "tekst": "72 °C: Taq zet aan de primer telkens een passende nucleotide vast.",
+     "uitleg": "Verlengen (extensie). Nieuwe nucleotiden komen er altijd bij aan het 3'-uiteinde."
+    },
+    {
+     "tekst": "Het stuk tussen de primers is nu twee keer zo vaak aanwezig.",
+     "uitleg": "Elke cyclus verdubbelt het stuk tussen de primers."
+    },
+    {
+     "tekst": "Weer naar 95 °C: de nieuwe strengen worden zelf ook template.",
+     "uitleg": "Zo begint de volgende cyclus, met twee keer zoveel templates."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-op-maat",
+   "soort": "volgorde",
+   "titel": "Verdieping: van lang product naar op maat",
+   "opdracht": "Volg één DNA-molecuul door de eerste cycli. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Cyclus 1: het polymerase bouwt vanaf de primer door, tot de verlengstap voorbij is: een lang product.",
+     "uitleg": "Het begin ligt vast (de primer, het 5'-uiteinde), maar het 3'-uiteinde niet."
+    },
+    {
+     "tekst": "Cyclus 2: het lange product wordt zelf template en de andere primer bindt erop.",
+     "uitleg": "Het polymerase bouwt nu terug, in de andere richting."
+    },
+    {
+     "tekst": "Het polymerase stopt aan het eind van de template: de nieuwe streng loopt van primer tot primer, een streng op maat.",
+     "uitleg": "Het polymerase weet niets en telt niets: het template houdt daar op."
+    },
+    {
+     "tekst": "Cyclus 3: strengen op maat worden template; er ontstaan de eerste moleculen die aan beide kanten kloppen.",
+     "uitleg": "Twee van de acht moleculen zijn dan helemaal op maat."
+    },
+    {
+     "tekst": "Daarna verdubbelen de moleculen op maat elke cyclus; lange producten komen er maar twee per cyclus bij.",
+     "uitleg": "Exponentiële groei tegen lineaire groei: na dertig cycli ruim een miljard tegen zestig."
+    }
+   ]
+  },
+  {
+   "id": "schema-pcr",
+   "soort": "schema",
+   "titel": "Stap 2 en 3 van PCR",
+   "opdracht": "De strengen zijn uit elkaar, de primers zijn gebonden en het polymerase is begonnen. Sleep de namen naar de goede vakjes. Pas op: één naam hoort er niet bij.",
+   "alt": "Lijntekening van twee losse DNA-strengen met 5'- en 3'-uiteinden en in het midden een herhaald stukje. Op elke streng zit een primer; achter de linker primer bouwt een enzym een nieuwe streng.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2.4\" d=\"M60 170 L700 170\"/><path stroke-width=\"2.4\" d=\"M60 290 L700 290\"/><text x=\"44\" y=\"175\" text-anchor=\"middle\" style=\"font-size:14px\">5'</text><text x=\"716\" y=\"175\" text-anchor=\"middle\" style=\"font-size:14px\">3'</text><text x=\"44\" y=\"295\" text-anchor=\"middle\" style=\"font-size:14px\">3'</text><text x=\"716\" y=\"295\" text-anchor=\"middle\" style=\"font-size:14px\">5'</text><path class=\"zacht\" stroke-width=\"1.1\" d=\"M64 170 L64 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M76 170 L76 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M88 170 L88 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M100 170 L100 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M112 170 L112 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M124 170 L124 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M136 170 L136 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M148 170 L148 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M160 170 L160 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M172 170 L172 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M184 170 L184 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M196 170 L196 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M208 170 L208 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M220 170 L220 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M232 170 L232 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M244 170 L244 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M256 170 L256 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M268 170 L268 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M280 170 L280 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M292 170 L292 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M304 170 L304 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M316 170 L316 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M328 170 L328 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M460 170 L460 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M472 170 L472 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M484 170 L484 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M496 170 L496 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M508 170 L508 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M520 170 L520 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M532 170 L532 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M544 170 L544 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M556 170 L556 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M568 170 L568 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M580 170 L580 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M592 170 L592 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M604 170 L604 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M616 170 L616 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M628 170 L628 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M640 170 L640 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M652 170 L652 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M664 170 L664 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M676 170 L676 176\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M688 170 L688 176\"/><rect x=\"331\" y=\"164\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"355\" y=\"164\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"379\" y=\"164\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"403\" y=\"164\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"427\" y=\"164\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M64 290 L64 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M76 290 L76 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M88 290 L88 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M100 290 L100 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M112 290 L112 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M124 290 L124 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M136 290 L136 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M148 290 L148 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M160 290 L160 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M172 290 L172 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M184 290 L184 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M196 290 L196 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M208 290 L208 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M220 290 L220 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M232 290 L232 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M244 290 L244 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M256 290 L256 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M268 290 L268 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M280 290 L280 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M292 290 L292 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M304 290 L304 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M316 290 L316 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M328 290 L328 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M460 290 L460 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M472 290 L472 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M484 290 L484 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M496 290 L496 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M508 290 L508 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M520 290 L520 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M532 290 L532 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M544 290 L544 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M556 290 L556 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M568 290 L568 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M580 290 L580 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M592 290 L592 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M604 290 L604 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M616 290 L616 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M628 290 L628 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M640 290 L640 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M652 290 L652 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M664 290 L664 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M676 290 L676 284\"/><path class=\"zacht\" stroke-width=\"1.1\" d=\"M688 290 L688 284\"/><rect x=\"331\" y=\"284\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"355\" y=\"284\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"379\" y=\"284\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"403\" y=\"284\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><rect x=\"427\" y=\"284\" width=\"22\" height=\"12\" rx=\"3\" stroke-width=\"1.4\"/><path class=\"acc\" stroke-width=\"4.5\" d=\"M196 270 L262 270\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M262 270 L300 270\"/><path stroke-width=\"1.2\" d=\"M200 273 L200 284\"/><path stroke-width=\"1.2\" d=\"M212 273 L212 284\"/><path stroke-width=\"1.2\" d=\"M224 273 L224 284\"/><path stroke-width=\"1.2\" d=\"M236 273 L236 284\"/><path stroke-width=\"1.2\" d=\"M248 273 L248 284\"/><path stroke-width=\"1.2\" d=\"M260 273 L260 284\"/><path stroke-width=\"1.2\" d=\"M272 273 L272 284\"/><path stroke-width=\"1.2\" d=\"M284 273 L284 284\"/><path stroke-width=\"1.2\" d=\"M296 273 L296 284\"/><path stroke-width=\"2.2\" d=\"M325 260 Q322.1 265.3 315.9 266.7 Q310.2 275.5 307.7 264.8 Q299.3 264.1 293.7 256.9 Q306.1 255.3 308.3 248.3 Q316.3 247.8 317.6 255.8 Q323.8 258.3 327 265.2 Q319.6 268.9 313.2 273.9 Q307.8 266.8 303.3 264.3 Q303.6 259.8 300.6 253.7 Q304 245.3 313.8 247.6 Q322.7 248.7 323.3 256.6 Q328.3 263.1 318 264.9\"/><path class=\"acc\" stroke-width=\"4.5\" d=\"M498 190 L566 190\"/><path stroke-width=\"1.2\" d=\"M502 176 L502 187\"/><path stroke-width=\"1.2\" d=\"M514 176 L514 187\"/><path stroke-width=\"1.2\" d=\"M526 176 L526 187\"/><path stroke-width=\"1.2\" d=\"M538 176 L538 187\"/><path stroke-width=\"1.2\" d=\"M550 176 L550 187\"/><path stroke-width=\"1.2\" d=\"M562 176 L562 187\"/><g transform=\"translate(612 232) rotate(0) scale(1.5)\"><path stroke-width=\"1.4\" d=\"M0 -7 L6.7 -2.2 L4.1 5.7 L-4.1 5.7 L-6.7 -2.2 Z\"/><circle cx=\"-14\" cy=\"-4\" r=\"4\" stroke-width=\"1.4\"/><path stroke-width=\"1.4\" d=\"M-10 -3 L-6 -2\"/><path stroke-width=\"2.0\" d=\"M7 1 L20 1 L20 -4\"/></g><g transform=\"translate(560 250) rotate(30) scale(1.5)\"><path stroke-width=\"1.4\" d=\"M0 -7 L6.7 -2.2 L4.1 5.7 L-4.1 5.7 L-6.7 -2.2 Z\"/><circle cx=\"-14\" cy=\"-4\" r=\"4\" stroke-width=\"1.4\"/><path stroke-width=\"1.4\" d=\"M-10 -3 L-6 -2\"/><path stroke-width=\"2.0\" d=\"M7 1 L20 1 L20 -4\"/></g>",
+   "vakjes": [
+    {
+     "naam": "template",
+     "x": 120,
+     "y": 50,
+     "punt": [
+      120,
+      170
+     ],
+     "uitleg": "de DNA-streng die wordt gekopieerd."
+    },
+    {
+     "naam": "STR",
+     "x": 390,
+     "y": 50,
+     "punt": [
+      390,
+      164
+     ],
+     "uitleg": "stuk DNA waarin een kort stukje van vier basen steeds herhaald wordt; hoe vaak, verschilt per persoon."
+    },
+    {
+     "naam": "3'-uiteinde",
+     "x": 650,
+     "y": 50,
+     "punt": [
+      498,
+      190
+     ],
+     "uitleg": "hier zet het polymerase nieuwe nucleotiden aan; de primers wijzen met hun 3'-uiteinde naar elkaar toe."
+    },
+    {
+     "naam": "primer",
+     "x": 140,
+     "y": 380,
+     "punt": [
+      220,
+      270
+     ],
+     "uitleg": "kort stukje enkelstrengs DNA (± 20 nucleotiden) dat op één plek past; het begin van de nieuwe streng."
+    },
+    {
+     "naam": "DNA-polymerase (Taq)",
+     "x": 390,
+     "y": 380,
+     "punt": [
+      316,
+      268
+     ],
+     "uitleg": "verlengt de primer bij 72 °C met passende nucleotiden; overleeft 95 °C."
+    },
+    {
+     "naam": "losse nucleotide",
+     "x": 640,
+     "y": 380,
+     "punt": [
+      612,
+      236
+     ],
+     "uitleg": "bouwsteen voor de nieuwe streng."
+    }
+   ],
+   "afleiders": [
+    "5'-uiteinde"
+   ]
+  },
+  {
+   "id": "uitleg-primers-vergeten",
+   "soort": "uitleg",
+   "titel": "Primers vergeten",
+   "opdracht": "Een leerling vergeet de primers in het PCR-mengsel. Leg uit wat er gebeurt, en waarom de primers bepalen welk stuk DNA je kopieert.",
+   "begrippen": [
+    {
+     "naam": "primer",
+     "varianten": [
+      "primers"
+     ]
+    },
+    {
+     "naam": "DNA-polymerase",
+     "varianten": [
+      "polymerase",
+      "Taq"
+     ]
+    },
+    {
+     "naam": "verlengen",
+     "varianten": [
+      "verlengt",
+      "zelf beginnen",
+      "niet beginnen"
+     ]
+    },
+    {
+     "naam": "één plek",
+     "varianten": [
+      "op één plek",
+      "past maar op één plek"
+     ]
+    },
+    {
+     "naam": "tussen de primers",
+     "varianten": [
+      "tussen de twee primers",
+      "van primer tot primer"
+     ]
+    },
+    {
+     "naam": "3'-uiteinde",
+     "varianten": [
+      "3 uiteinde",
+      "drie-accent"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat er zonder primers niets wordt gekopieerd.",
+    "Ik leg uit dat een polymerase een streng alleen kan verlengen en niet zelf kan beginnen.",
+    "Ik leg uit dat elke primer in al het DNA maar op één plek past, vóór of achter de STR.",
+    "Ik leg uit dat daardoor alleen het stuk tussen de twee primers wordt gekopieerd."
+   ],
+   "model": [
+    "Zonder primers wordt er niets gekopieerd. DNA-polymerase kan een streng alleen verlengen: het zet nieuwe nucleotiden aan het 3'-uiteinde van een primer. Zelf beginnen kan het niet.",
+    "Elke primer past in al het DNA maar op één plek: de ene op de ene streng vóór de STR, de andere op de andere streng erachter. De primers wijzen met hun 3'-uiteinde naar elkaar toe.",
+    "Daarom bepalen de primers waar het kopiëren begint, en wordt alleen het stuk tussen de twee primers steeds opnieuw gekopieerd."
+   ]
+  },
+  {
+   "id": "uitleg-negatieve-controle",
+   "soort": "uitleg",
+   "titel": "Een band in de negatieve controle",
+   "opdracht": "In de negatieve controle zie je een band op de hoogte van een allel. Leg uit wat dat betekent en waarom je dan ook de andere banden op de gel niet kunt vertrouwen.",
+   "begrippen": [
+    {
+     "naam": "negatieve controle",
+     "varianten": [
+      "water in plaats van DNA",
+      "geen DNA"
+     ]
+    },
+    {
+     "naam": "besmetting",
+     "varianten": [
+      "besmet",
+      "verontreiniging"
+     ]
+    },
+    {
+     "naam": "primers",
+     "varianten": [
+      "primer",
+      "juiste plekken"
+     ]
+    },
+    {
+     "naam": "gekopieerd",
+     "varianten": [
+      "kopiëren",
+      "kopieert"
+     ]
+    },
+    {
+     "naam": "miljard",
+     "varianten": [
+      "verdubbelen",
+      "verdubbelt",
+      "exponentieel"
+     ]
+    },
+    {
+     "naam": "pipetpunt",
+     "varianten": [
+      "pipet"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de negatieve controle hetzelfde mengsel is, met water in plaats van DNA, dus dat er geen band hoort.",
+    "Ik leg uit dat elk stuk DNA met de juiste plekken voor de primers wordt gekopieerd, ook DNA dat er niet hoort.",
+    "Ik noem een bron van besmetting: huidcellen of een druppeltje uit een eerdere PCR.",
+    "Ik leg uit dat die besmetting ook in de andere buisjes kan zitten, zodat je geen enkele band kunt vertrouwen."
+   ],
+   "model": [
+    "De negatieve controle is hetzelfde PCR-mengsel, maar met water in plaats van DNA. Er hoort dus geen band in te zitten.",
+    "PCR kopieert elk stuk DNA met de juiste plekken voor de primers, tot wel een miljard keer. Een band betekent dus dat er DNA in het buisje is gekomen dat daar niet hoort: besmetting. Een paar huidcellen van de onderzoeker of een onzichtbaar druppeltje uit een eerdere PCR is al genoeg.",
+    "Als de controle besmet is, kunnen de andere buisjes ook besmet zijn. Dan kun je ook de andere banden op die gel niet vertrouwen. Daarom werk je met een nieuwe pipetpunt voor elk buisje."
+   ]
+  },
+  {
+   "id": "uitleg-een-scherpe-band",
+   "soort": "uitleg",
+   "titel": "Waarom één scherpe band?",
+   "opdracht": "In je buisje zat het stuk DNA maar een paar honderd keer, vast aan een heel lang chromosoom. Na de PCR zie je één scherpe band van precies 172 basenparen. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "primers",
+     "varianten": [
+      "primer",
+      "van primer tot primer"
+     ]
+    },
+    {
+     "naam": "op maat",
+     "varianten": [
+      "korte producten",
+      "kort product"
+     ]
+    },
+    {
+     "naam": "lange producten",
+     "varianten": [
+      "lang product"
+     ]
+    },
+    {
+     "naam": "verdubbelen",
+     "varianten": [
+      "verdubbelt",
+      "exponentieel",
+      "exponentiële"
+     ]
+    },
+    {
+     "naam": "lineair",
+     "varianten": [
+      "lineaire",
+      "twee per cyclus"
+     ]
+    },
+    {
+     "naam": "even lang",
+     "varianten": [
+      "dezelfde lengte",
+      "even ver"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat alleen het stuk tussen de twee primers steeds opnieuw wordt gekopieerd.",
+    "Ik leg uit dat de moleculen op maat (van primer tot primer) elke cyclus verdubbelen: na dertig cycli ruim een miljard.",
+    "Ik leg uit dat er van de lange producten maar twee per cyclus bij komen, te weinig om te zien.",
+    "Ik leg uit dat alle moleculen op maat even lang zijn, dus even ver komen in de gel: één scherpe band."
+   ],
+   "model": [
+    "Een polymerase kan niet zelf beginnen: het verlengt alleen een primer. Daarom wordt alleen het stuk tussen de twee primers steeds opnieuw gekopieerd.",
+    "De eerste kopieën lopen te ver door: lange producten. Daar komen er maar twee per cyclus bij (lineair). De moleculen op maat, van primer tot primer, verdubbelen elke cyclus (exponentieel): na dertig cycli zijn het er ruim een miljard, tegen zestig lange producten.",
+    "Alle moleculen op maat zijn even lang, 172 basenparen. Ze komen dus allemaal even ver in de gel en vormen samen één scherpe band. De lange producten zijn er nog wel, maar veel te weinig om te zien."
+   ]
+  }
+ ]
+}

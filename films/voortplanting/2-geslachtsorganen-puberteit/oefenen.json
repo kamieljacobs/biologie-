@@ -1,0 +1,309 @@
+{
+ "versie": 1,
+ "film": "films/voortplanting/2-geslachtsorganen-puberteit.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-startsein",
+   "soort": "volgorde",
+   "titel": "Het startsein voor de puberteit",
+   "opdracht": "Bij Sam is de puberteit begonnen. Zet de stappen van het startsein in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De hypothalamus geeft steeds vaker kleine stoten GnRH af.",
+     "uitleg": "Het startsein komt uit je hersenen. In je kindertijd houdt de hypothalamus de geslachtsklieren bijna stil."
+    },
+    {
+     "tekst": "De hypofyse gaat meer FSH en LH maken.",
+     "uitleg": "GnRH gaat naar de hypofyse, een klier vlak onder de hypothalamus."
+    },
+    {
+     "tekst": "FSH en LH komen via het bloed bij de zaadballen of de eierstokken.",
+     "uitleg": "Hormonen worden met het bloed door het hele lichaam vervoerd."
+    },
+    {
+     "tekst": "De zaadballen maken testosteron, de eierstokken oestrogeen. En er gaan geslachtscellen rijpen.",
+     "uitleg": "De zaadballen of eierstokken had je al vanaf je geboorte. Nu gaan ze werken."
+    },
+    {
+     "tekst": "De secundaire geslachtskenmerken ontstaan, zoals een lagere stem of borsten.",
+     "uitleg": "Testosteron en oestrogeen veranderen je lichaam. De primaire geslachtskenmerken (de geslachtsorganen) had je al."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-zaadcel",
+   "soort": "volgorde",
+   "titel": "De weg van een zaadcel",
+   "opdracht": "Volg één zaadcel van zijn ontstaan tot buiten het lichaam. Zet de plekken in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "In de lange, kronkelige buisjes van de zaadbal ontstaat de zaadcel.",
+     "uitleg": "Zaadcellen worden alleen in de zaadballen gemaakt: elke dag zo'n honderd miljoen."
+    },
+    {
+     "tekst": "In de bijbal rijpt hij ongeveer twee weken, en wordt hij bewaard.",
+     "uitleg": "De bijbal ligt als een buis op de zaadbal."
+    },
+    {
+     "tekst": "Bij een zaadlozing gaat hij door de zaadleider omhoog de buik in, langs de blaas.",
+     "uitleg": "De zaadleider loopt vanaf de balzak omhoog, en buigt over de blaas naar achteren."
+    },
+    {
+     "tekst": "Achter de blaas komt er vocht uit de zaadblaasjes bij.",
+     "uitleg": "Dat vocht is ongeveer twee derde van het sperma, met suiker als brandstof."
+    },
+    {
+     "tekst": "De zaadleider gaat door de prostaat, die ook vocht toevoegt.",
+     "uitleg": "Zo'n kwart tot een derde van het sperma komt uit de prostaat."
+    },
+    {
+     "tekst": "Via de urinebuis in de penis komt het sperma naar buiten.",
+     "uitleg": "Urine en sperma gebruiken dezelfde buis, maar niet tegelijk: een kringspier sluit de blaas dan af."
+    }
+   ]
+  },
+  {
+   "id": "schema-man",
+   "soort": "schema",
+   "titel": "Van zaadbal tot penis",
+   "opdracht": "Dit is een zijaanzicht van de geslachtsorganen van een man (buik links, rug rechts). Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening in zijaanzicht van de mannelijke geslachtsorganen: blaas, zaadblaasje, prostaat, urinebuis, penis, zaadbal met bijbal en zaadleider.",
+   "breed": 760,
+   "hoog": 450,
+   "vakbreed": 170,
+   "svg": "<path class=\"zacht\" stroke-width=\"1.6\" d=\"M300 20 C292 120 296 220 318 262\"/><path class=\"zacht\" stroke-width=\"5\" d=\"M330 214 C320 232 322 250 336 262\"/><path class=\"zacht\" stroke-width=\"1.6\" d=\"M508 40 C520 120 520 220 496 300 L488 330 M532 40 C546 120 544 222 520 304 L512 332\"/><path stroke-width=\"2.4\" d=\"M404 236 C366 230 346 198 350 160 C354 118 386 96 420 98 C456 100 478 128 476 166 C474 202 452 230 424 236\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M470 40 C480 90 482 130 470 150\"/><ellipse cx=\"414\" cy=\"256\" rx=\"26\" ry=\"20\" stroke-width=\"2.2\"/><path stroke-width=\"2.2\" d=\"M470 214 C488 196 494 168 488 150 C482 136 470 140 468 156 C466 176 464 196 452 220\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M414 236 L414 280 C414 300 404 310 388 312 C360 316 330 330 310 360 C296 382 284 398 274 410\"/><path stroke-width=\"2.4\" d=\"M352 300 C330 306 304 326 290 350 C278 370 266 390 254 404 C248 416 262 430 276 424 C290 414 302 398 314 380 C326 364 344 350 364 344\"/><path class=\"zacht\" stroke-width=\"1.2\" d=\"M330 322 C316 336 304 352 294 370 M340 334 C326 346 314 362 304 380\"/><path stroke-width=\"2\" d=\"M368 344 C356 360 352 396 370 420 C390 444 432 440 444 414 C456 388 446 352 424 338\"/><ellipse cx=\"400\" cy=\"392\" rx=\"24\" ry=\"32\" stroke-width=\"2.2\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M388 378 c8 4 16 -4 24 0 M386 394 c8 4 18 -4 26 0 M390 410 c8 4 14 -4 20 0\"/><path stroke-width=\"4\" d=\"M418 368 C434 374 436 408 420 420\"/><path stroke-width=\"2\" d=\"M422 366 C424 336 372 322 356 296 C350 284 346 276 344 268 C330 236 334 150 352 112 C370 74 450 66 480 98 C500 120 486 170 466 214 C456 232 440 246 430 254\"/>",
+   "vakjes": [
+    {
+     "naam": "zaadleider",
+     "x": 100,
+     "y": 120,
+     "punt": [
+      336,
+      180
+     ],
+     "uitleg": "brengt de zaadcellen van de bijbal omhoog, over de blaas, naar de urinebuis."
+    },
+    {
+     "naam": "urinebuis",
+     "x": 100,
+     "y": 260,
+     "punt": [
+      330,
+      323
+     ],
+     "uitleg": "loopt van de blaas door de prostaat en de penis naar buiten; voor urine én sperma."
+    },
+    {
+     "naam": "zaadbal",
+     "x": 100,
+     "y": 410,
+     "punt": [
+      396,
+      398
+     ],
+     "uitleg": "maakt zaadcellen en testosteron; hangt in de balzak, waar het een paar graden koeler is."
+    },
+    {
+     "naam": "blaas",
+     "x": 660,
+     "y": 60,
+     "punt": [
+      420,
+      140
+     ],
+     "uitleg": "hier wordt urine bewaard."
+    },
+    {
+     "naam": "zaadblaasje",
+     "x": 660,
+     "y": 170,
+     "punt": [
+      484,
+      166
+     ],
+     "uitleg": "klier achter de blaas: maakt het grootste deel van het vocht, met suiker als brandstof."
+    },
+    {
+     "naam": "prostaat",
+     "x": 660,
+     "y": 280,
+     "punt": [
+      436,
+      266
+     ],
+     "uitleg": "klier onder de blaas, rond de urinebuis; maakt een deel van het vocht."
+    },
+    {
+     "naam": "bijbal",
+     "x": 660,
+     "y": 400,
+     "punt": [
+      430,
+      396
+     ],
+     "uitleg": "hier rijpen de zaadcellen ongeveer twee weken en worden ze bewaard."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-sperma",
+   "soort": "uitleg",
+   "titel": "Waar komt sperma vandaan?",
+   "opdracht": "Een klasgenoot zegt: \"Sperma komt uit de zaadballen.\" Leg uit waarom dat maar voor een heel klein deel klopt. Noem waar het sperma wél vandaan komt en wat de verschillende delen doen.",
+   "begrippen": [
+    {
+     "naam": "zaadballen",
+     "varianten": [
+      "zaadbal",
+      "testikels",
+      "teelballen"
+     ]
+    },
+    {
+     "naam": "zaadcellen",
+     "varianten": [
+      "zaadcel"
+     ]
+    },
+    {
+     "naam": "zaadblaasjes",
+     "varianten": [
+      "zaadblaasje"
+     ]
+    },
+    {
+     "naam": "prostaat",
+     "varianten": [
+      "prostaatklier"
+     ]
+    },
+    {
+     "naam": "suiker",
+     "varianten": [
+      "brandstof",
+      "energie"
+     ]
+    },
+    {
+     "naam": "vocht",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat alleen de zaadcellen uit de zaadballen komen, en dat die maar een paar procent van het sperma zijn.",
+    "Ik leg uit dat ongeveer twee derde van het sperma vocht uit de zaadblaasjes is, met suiker als brandstof voor de zaadcellen.",
+    "Ik leg uit dat zo'n kwart tot een derde uit de prostaat komt, met stoffen die zaadcellen helpen overleven en bewegen.",
+    "Ik noem dat zaadcellen niet in de prostaat worden gemaakt."
+   ],
+   "model": [
+    "Zaadcellen worden alleen in de zaadballen gemaakt. Maar ze zijn maar een paar procent van het sperma.",
+    "Ongeveer twee derde van het sperma is vocht uit de zaadblaasjes. Daarin zit suiker als brandstof voor de zaadcellen. Zo'n kwart tot een derde komt uit de prostaat. Ook daarin zitten stoffen die de zaadcellen helpen om te overleven en te bewegen.",
+    "De zaadcellen worden in de bijbal bewaard. Bij een zaadlozing komen ze via de zaadleider langs de zaadblaasjes en door de prostaat, waar het vocht erbij komt."
+   ]
+  },
+  {
+   "id": "uitleg-eicellen",
+   "soort": "uitleg",
+   "titel": "Een voorraad voor het leven",
+   "opdracht": "Een man maakt elke dag nieuwe zaadcellen. Leg uit hoe het bij een vrouw zit met haar eicellen: hoeveel zijn er, wanneer ontstaan ze, en hoeveel komen er vrij?",
+   "begrippen": [
+    {
+     "naam": "geboorte",
+     "varianten": [
+      "geboren"
+     ]
+    },
+    {
+     "naam": "geen nieuwe",
+     "varianten": [
+      "niet nieuw",
+      "komen er niet bij",
+      "geen nieuwe bij"
+     ]
+    },
+    {
+     "naam": "eisprong",
+     "varianten": [
+      "ovulatie"
+     ]
+    },
+    {
+     "naam": "rijpen",
+     "varianten": [
+      "rijpt",
+      "rijping"
+     ]
+    },
+    {
+     "naam": "cyclus",
+     "varianten": [
+      "per maand",
+      "elke maand"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat alle eicellen al vóór de geboorte zijn aangelegd, en dat er geen nieuwe bij komen.",
+    "Ik noem dat er bij het begin van de puberteit nog zo'n driehonderdduizend over zijn.",
+    "Ik leg uit dat er elke cyclus een groepje begint te rijpen, en dat er meestal maar één de eisprong haalt: zo'n vierhonderd in een heel leven.",
+    "Ik vergelijk dat met de man, die vanaf de puberteit steeds nieuwe zaadcellen maakt."
+   ],
+   "model": [
+    "Alle eicellen van een vrouw zijn al aangelegd vóór haar geboorte. Nieuwe komen er niet bij. Bij het begin van de puberteit zijn er nog zo'n driehonderdduizend over.",
+    "Elke cyclus begint een groepje eicellen te rijpen, en meestal haalt er maar één de eisprong. In een heel leven zijn dat er ongeveer vierhonderd.",
+    "Bij een man is het anders: vanaf de puberteit maken de zaadballen elke dag zo'n honderd miljoen nieuwe zaadcellen, tot op hoge leeftijd."
+   ]
+  },
+  {
+   "id": "uitleg-turnster",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Een late eerste menstruatie",
+   "opdracht": "Een topturnster met heel weinig lichaamsvet krijgt haar eerste menstruatie pas op haar zeventiende. Leg uit hoe haar vetreserve het startsein van de puberteit kan beïnvloeden.",
+   "begrippen": [
+    {
+     "naam": "leptine",
+     "varianten": []
+    },
+    {
+     "naam": "vetweefsel",
+     "varianten": [
+      "vet",
+      "vetreserve",
+      "lichaamsvet"
+     ]
+    },
+    {
+     "naam": "hypothalamus",
+     "varianten": []
+    },
+    {
+     "naam": "kisspeptine",
+     "varianten": []
+    },
+    {
+     "naam": "GnRH",
+     "varianten": []
+    },
+    {
+     "naam": "energie",
+     "varianten": [
+      "energiereserve"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat vetweefsel het hormoon leptine maakt, dus dat weinig vet weinig leptine betekent.",
+    "Ik leg uit dat leptine aangeeft of er genoeg energie is opgeslagen voor groei en later een zwangerschap.",
+    "Ik leg uit dat het startsein uit de hypothalamus komt: kisspeptine zet daar de cellen aan die GnRH maken.",
+    "Ik leg uit dat bij weinig leptine het startsein (GnRH) later komt, en dus ook de eerste menstruatie."
+   ],
+   "model": [
+    "Vetweefsel maakt het hormoon leptine. Veel leptine betekent: er is genoeg energie opgeslagen voor groei, en later voor een zwangerschap. De turnster heeft heel weinig lichaamsvet, en dus weinig leptine.",
+    "Het startsein voor de puberteit komt uit de hypothalamus. Daar zet kisspeptine de cellen aan die GnRH maken, en GnRH zet via de hypofyse de eierstokken aan.",
+    "Ook de vetreserve telt mee voor dat startsein. Met weinig leptine komt het later, en daardoor komt ook haar eerste menstruatie later."
+   ]
+  }
+ ]
+}

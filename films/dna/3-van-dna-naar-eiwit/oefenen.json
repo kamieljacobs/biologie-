@@ -1,0 +1,325 @@
+{
+ "versie": 1,
+ "film": "films/dna/3-van-dna-naar-eiwit.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-eiwitsynthese",
+   "soort": "volgorde",
+   "titel": "Van gen naar werkend eiwit",
+   "opdracht": "Zet de stappen van de eiwitsynthese in de goede volgorde, vanaf het gen in de kern.",
+   "stappen": [
+    {
+     "tekst": "RNA-polymerase gaat op de promotor zitten, vlak vóór het gen.",
+     "uitleg": "De promotor is een stuk DNA vóór het gen. Daar begint de transcriptie."
+    },
+    {
+     "tekst": "De DNA-strengen gaan uit elkaar en langs één streng worden RNA-nucleotiden gekoppeld: transcriptie.",
+     "uitleg": "Tegenover A in het DNA komt een U. Achter het enzym gaat het DNA weer dicht."
+    },
+    {
+     "tekst": "Het mRNA gaat door een kernporie naar het cytoplasma.",
+     "uitleg": "Het DNA blijft in de kern; alleen het afschrift gaat naar buiten."
+    },
+    {
+     "tekst": "Een ribosoom gaat op het mRNA zitten en begint bij het startcodon AUG.",
+     "uitleg": "AUG codeert voor methionine. Vanaf hier leest het ribosoom per drie."
+    },
+    {
+     "tekst": "tRNA's brengen aminozuren; het ribosoom koppelt ze codon na codon aan elkaar: translatie.",
+     "uitleg": "Alleen het tRNA dat op het codon past, blijft hangen."
+    },
+    {
+     "tekst": "Bij een stopcodon stopt het ribosoom en laat de keten los.",
+     "uitleg": "Een stopcodon codeert niet voor een aminozuur."
+    },
+    {
+     "tekst": "De keten vouwt zich op tot een vaste vorm: een werkend eiwit.",
+     "uitleg": "De volgorde van de aminozuren bepaalt de vorm, en de vorm bepaalt wat het eiwit kan."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-pre-mrna",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Van promotor tot rijp mRNA",
+   "opdracht": "Zet de stappen in de kern van een eukaryote cel in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Transcriptiefactoren binden aan de TATA-box in de promotor.",
+     "uitleg": "Zonder transcriptiefactoren komt RNA-polymerase niet op zijn plek."
+    },
+    {
+     "tekst": "RNA-polymerase komt op zijn plek, net vóór het begin van het gen.",
+     "uitleg": "De transcriptiefactoren zetten het enzym op zijn plek."
+    },
+    {
+     "tekst": "RNA-polymerase leest de matrijsstreng van 3' naar 5': er ontstaat pre-mRNA.",
+     "uitleg": "Het mRNA groeit dus van 5' naar 3', net als nieuw DNA bij het kopiëren."
+    },
+    {
+     "tekst": "De introns worden eruit geknipt en de exons komen achter elkaar: splicing.",
+     "uitleg": "Bij alternatieve splicing kan één gen meer dan één eiwit opleveren.",
+     "groep": "bewerk"
+    },
+    {
+     "tekst": "Het mRNA krijgt een kapje aan het 5'-uiteinde en een staart van A's aan het 3'-uiteinde.",
+     "uitleg": "Kapje en staart beschermen het mRNA tegen afbraak.",
+     "groep": "bewerk"
+    },
+    {
+     "tekst": "Het rijpe mRNA gaat door een kernporie de kern uit.",
+     "uitleg": "Pas als het mRNA af is, gaat het de kern uit."
+    }
+   ]
+  },
+  {
+   "id": "schema-translatie",
+   "soort": "schema",
+   "titel": "Translatie in het ribosoom",
+   "opdracht": "Hier wordt een eiwit gemaakt in het cytoplasma. Sleep de namen naar de goede vakjes. Pas op: twee namen horen er niet bij.",
+   "alt": "Lijntekening van een ribosoom op een dunne mRNA-streng, met twee tRNA's in het ribosoom, een binnenkomend tRNA met een aminozuur en een keten van aminozuren die zich opvouwt.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2.2\" d=\"M262 288 C252 236 286 188 360 186 C434 184 470 232 460 288 Z\"/><path stroke-width=\"2.2\" d=\"M268 306 C268 296 300 292 360 292 C420 292 452 296 452 306 C452 330 420 340 360 340 C300 340 268 330 268 306 Z\"/><path stroke-width=\"1.4\" d=\"M110 299 L113 299.8 L116 300.5 L119 301.1 L122 301.4 L125 301.5 L128 301.3 L131 300.8 L134 300.1 L137 299.4 L140 298.5 L143 297.7 L146 297.1 L149 296.7 L152 296.5 L155 296.6 L158 297 L161 297.6 L164 298.3 L167 299.1 L170 299.9 L173 300.6 L176 301.2 L179 301.5 L182 301.5 L185 301.2 L188 300.7 L191 300 L194 299.2 L197 298.4 L200 297.6 L203 297 L206 296.6 L209 296.5 L212 296.6 L215 297 L218 297.7 L221 298.4 L224 299.3 L227 300.1 L230 300.7 L233 301.2 L236 301.5 L239 301.5 L242 301.2 L245 300.6 L248 299.9 L251 299.1 L254 298.3 L257 297.5 L260 297 L263 296.6 L266 296.5 L269 296.7 L272 297.1 L275 297.8 L278 298.5 L281 299.4 L284 300.2 L287 300.8 L290 301.3 L293 301.5 L296 301.4 L299 301.1 L302 300.5 L305 299.8 L308 299 L311 298.2 L314 297.4 L317 296.9 L320 296.6 L323 296.5 L326 296.7 L329 297.2 L332 297.9 L335 298.7 L338 299.5 L341 300.3 L344 300.9 L347 301.3 L350 301.5 L353 301.4 L356 301 L359 300.4 L362 299.7 L365 298.9 L368 298 L371 297.3 L374 296.8 L377 296.5 L380 296.5 L383 296.8 L386 297.3 L389 298 L392 298.8 L395 299.6 L398 300.4 L401 301 L404 301.4 L407 301.5 L410 301.4 L413 300.9 L416 300.3 L419 299.6 L422 298.7 L425 297.9 L428 297.2 L431 296.8 L434 296.5 L437 296.6 L440 296.9 L443 297.4 L446 298.1 L449 298.9 L452 299.7 L455 300.5 L458 301.1 L461 301.4 L464 301.5 L467 301.3 L470 300.9 L473 300.2 L476 299.4 L479 298.6 L482 297.8 L485 297.2 L488 296.7 L491 296.5 L494 296.6 L497 296.9 L500 297.5 L503 298.2 L506 299 L509 299.9 L512 300.6 L515 301.1 L518 301.4 L521 301.5 L524 301.3 L527 300.8 L530 300.1 L533 299.3 L536 298.5 L539 297.7 L542 297.1 L545 296.7 L548 296.5 L551 296.6 L554 297 L557 297.6 L560 298.3 L563 299.2 L566 300 L569 300.7 L572 301.2 L575 301.5 L578 301.5 L581 301.2 L584 300.7 L587 300 L590 299.2 L593 298.4 L596 297.6 L599 297 L602 296.6 L605 296.5 L608 296.7 L611 297.1 L614 297.7 L617 298.5 L620 299.3 L623 300.1 L626 300.8 L629 301.2 L632 301.5 L635 301.4 L638 301.1 L641 300.6 L644 299.9 L647 299.1 L650 298.2 L653 297.5 L656 296.9 L659 296.6 L662 296.5 L665 296.7 L668 297.2 L671 297.8 L674 298.6 L677 299.4 L680 300.2 L683 300.9 L686 301.3 L689 301.5 L692 301.4 L695 301.1 L698 300.5\"/><path stroke-width=\"1.2\" d=\"M116 300.5 L116 294.5\"/><path stroke-width=\"1.2\" d=\"M128 301.3 L128 295.3\"/><path stroke-width=\"1.2\" d=\"M140 298.5 L140 292.5\"/><path stroke-width=\"1.2\" d=\"M152 296.5 L152 290.5\"/><path stroke-width=\"1.2\" d=\"M164 298.3 L164 292.3\"/><path stroke-width=\"1.2\" d=\"M176 301.2 L176 295.2\"/><path stroke-width=\"1.2\" d=\"M188 300.7 L188 294.7\"/><path stroke-width=\"1.2\" d=\"M200 297.6 L200 291.6\"/><path stroke-width=\"1.2\" d=\"M212 296.6 L212 290.6\"/><path stroke-width=\"1.2\" d=\"M224 299.3 L224 293.3\"/><path stroke-width=\"1.2\" d=\"M236 301.5 L236 295.5\"/><path stroke-width=\"1.2\" d=\"M248 299.9 L248 293.9\"/><path stroke-width=\"1.2\" d=\"M260 297 L260 291\"/><path stroke-width=\"1.2\" d=\"M272 297.1 L272 291.1\"/><path stroke-width=\"1.2\" d=\"M284 300.2 L284 294.2\"/><path stroke-width=\"1.2\" d=\"M296 301.4 L296 295.4\"/><path stroke-width=\"1.2\" d=\"M308 299 L308 293\"/><path stroke-width=\"1.2\" d=\"M320 296.6 L320 290.6\"/><path stroke-width=\"1.2\" d=\"M332 297.9 L332 291.9\"/><path stroke-width=\"1.2\" d=\"M344 300.9 L344 294.9\"/><path stroke-width=\"1.2\" d=\"M356 301 L356 295\"/><path stroke-width=\"1.2\" d=\"M368 298 L368 292\"/><path stroke-width=\"1.2\" d=\"M380 296.5 L380 290.5\"/><path stroke-width=\"1.2\" d=\"M392 298.8 L392 292.8\"/><path stroke-width=\"1.2\" d=\"M404 301.4 L404 295.4\"/><path stroke-width=\"1.2\" d=\"M416 300.3 L416 294.3\"/><path stroke-width=\"1.2\" d=\"M428 297.2 L428 291.2\"/><path stroke-width=\"1.2\" d=\"M440 296.9 L440 290.9\"/><path stroke-width=\"1.2\" d=\"M452 299.7 L452 293.7\"/><path stroke-width=\"1.2\" d=\"M464 301.5 L464 295.5\"/><path stroke-width=\"1.2\" d=\"M476 299.4 L476 293.4\"/><path stroke-width=\"1.2\" d=\"M488 296.7 L488 290.7\"/><path stroke-width=\"1.2\" d=\"M500 297.5 L500 291.5\"/><path stroke-width=\"1.2\" d=\"M512 300.6 L512 294.6\"/><path stroke-width=\"1.2\" d=\"M524 301.3 L524 295.3\"/><path stroke-width=\"1.2\" d=\"M536 298.5 L536 292.5\"/><path stroke-width=\"1.2\" d=\"M548 296.5 L548 290.5\"/><path stroke-width=\"1.2\" d=\"M560 298.3 L560 292.3\"/><path stroke-width=\"1.2\" d=\"M572 301.2 L572 295.2\"/><path stroke-width=\"1.2\" d=\"M584 300.7 L584 294.7\"/><path stroke-width=\"1.2\" d=\"M596 297.6 L596 291.6\"/><path stroke-width=\"1.2\" d=\"M608 296.7 L608 290.7\"/><path stroke-width=\"1.2\" d=\"M620 299.3 L620 293.3\"/><path stroke-width=\"1.2\" d=\"M632 301.5 L632 295.5\"/><path stroke-width=\"1.2\" d=\"M644 299.9 L644 293.9\"/><path stroke-width=\"1.2\" d=\"M656 296.9 L656 290.9\"/><path stroke-width=\"1.2\" d=\"M668 297.2 L668 291.2\"/><path stroke-width=\"1.2\" d=\"M680 300.2 L680 294.2\"/><path stroke-width=\"1.2\" d=\"M692 301.4 L692 295.4\"/><g transform=\"translate(330 293)\"><path stroke-width=\"1.7\" d=\"M-9 -14 Q-9 0 0 0 Q9 0 9 -14\"/><path stroke-width=\"1.7\" d=\"M-4 -14 L-4 -58 M4 -14 L4 -58\"/><circle cx=\"-15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><circle cx=\"15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><path stroke-width=\"1.7\" d=\"M-4 -38 L-7 -38 M4 -38 L7 -38\"/><path stroke-width=\"1.7\" d=\"M0 -58 L0 -70\"/><path stroke-width=\"1.7\" d=\"M-6 0 L-6 5\"/><path stroke-width=\"1.7\" d=\"M0 0 L0 5\"/><path stroke-width=\"1.7\" d=\"M6 0 L6 5\"/></g><g transform=\"translate(392 293)\"><path stroke-width=\"1.7\" d=\"M-9 -14 Q-9 0 0 0 Q9 0 9 -14\"/><path stroke-width=\"1.7\" d=\"M-4 -14 L-4 -58 M4 -14 L4 -58\"/><circle cx=\"-15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><circle cx=\"15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><path stroke-width=\"1.7\" d=\"M-4 -38 L-7 -38 M4 -38 L7 -38\"/><path stroke-width=\"1.7\" d=\"M0 -58 L0 -70\"/><path stroke-width=\"1.7\" d=\"M-6 0 L-6 5\"/><path stroke-width=\"1.7\" d=\"M0 0 L0 5\"/><path stroke-width=\"1.7\" d=\"M6 0 L6 5\"/><circle class=\"vul\" cx=\"0\" cy=\"-78\" r=\"7\" stroke-width=\"0\"/></g><g transform=\"translate(540 258)\"><path stroke-width=\"1.7\" d=\"M-9 -14 Q-9 0 0 0 Q9 0 9 -14\"/><path stroke-width=\"1.7\" d=\"M-4 -14 L-4 -58 M4 -14 L4 -58\"/><circle cx=\"-15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><circle cx=\"15\" cy=\"-38\" r=\"8\" stroke-width=\"1.7\"/><path stroke-width=\"1.7\" d=\"M-4 -38 L-7 -38 M4 -38 L7 -38\"/><path stroke-width=\"1.7\" d=\"M0 -58 L0 -70\"/><path stroke-width=\"1.7\" d=\"M-6 0 L-6 5\"/><path stroke-width=\"1.7\" d=\"M0 0 L0 5\"/><path stroke-width=\"1.7\" d=\"M6 0 L6 5\"/><circle class=\"vulacc\" cx=\"0\" cy=\"-78\" r=\"7\" stroke-width=\"0\"/></g><path stroke-width=\"1.6\" d=\"M330 215 L330 200 L330 186 L318 174 L304 166 L288 160 L272 152 L260 140 L258 124 L268 112 L284 110 L296 120 L292 135 L276 134 L270 122\"/><circle class=\"vul\" cx=\"330\" cy=\"215\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"330\" cy=\"200\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"330\" cy=\"186\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"318\" cy=\"174\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"304\" cy=\"166\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"288\" cy=\"160\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"272\" cy=\"152\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"260\" cy=\"140\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"258\" cy=\"124\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"268\" cy=\"112\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"284\" cy=\"110\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"296\" cy=\"120\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"292\" cy=\"135\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"276\" cy=\"134\" r=\"5.5\" stroke-width=\"0\"/><circle class=\"vul\" cx=\"270\" cy=\"122\" r=\"5.5\" stroke-width=\"0\"/><path class=\"acc\" stroke-width=\"1.6\" d=\"M483 312 L483 318 L517 318 L517 312\"/>",
+   "vakjes": [
+    {
+     "naam": "aminozuurketen",
+     "x": 100,
+     "y": 70,
+     "punt": [
+      268,
+      112
+     ],
+     "uitleg": "de aminozuren worden codon na codon aan elkaar gekoppeld; de keten vouwt zich op tot een vaste vorm."
+    },
+    {
+     "naam": "ribosoom",
+     "x": 100,
+     "y": 215,
+     "punt": [
+      270,
+      250
+     ],
+     "uitleg": "schuift langs het mRNA en koppelt de aminozuren aan elkaar."
+    },
+    {
+     "naam": "mRNA",
+     "x": 100,
+     "y": 360,
+     "punt": [
+      180,
+      298
+     ],
+     "uitleg": "afschrift van één gen; het recept dat het ribosoom per drie nucleotiden leest."
+    },
+    {
+     "naam": "aminozuur",
+     "x": 660,
+     "y": 70,
+     "punt": [
+      540,
+      180
+     ],
+     "uitleg": "elk tRNA draagt één soort aminozuur."
+    },
+    {
+     "naam": "tRNA",
+     "x": 660,
+     "y": 215,
+     "punt": [
+      555,
+      220
+     ],
+     "uitleg": "transfer-RNA: brengt een aminozuur en blijft alleen hangen als het op het codon past."
+    },
+    {
+     "naam": "codon",
+     "x": 660,
+     "y": 360,
+     "punt": [
+      500,
+      318
+     ],
+     "uitleg": "drie opeenvolgende nucleotiden van het mRNA: codeert voor één aminozuur (of stop)."
+    }
+   ],
+   "afleiders": [
+    "DNA",
+    "RNA-polymerase"
+   ]
+  },
+  {
+   "id": "uitleg-mrna-vaccin",
+   "soort": "uitleg",
+   "titel": "Een recept van buiten",
+   "opdracht": "Na een prik met een mRNA-vaccin maken je spiercellen een eiwit van het virus. Leg uit hoe dat gaat, en waarom het vaccin-mRNA geen deel wordt van je DNA.",
+   "begrippen": [
+    {
+     "naam": "mRNA",
+     "varianten": [
+      "recept"
+     ]
+    },
+    {
+     "naam": "cytoplasma",
+     "varianten": []
+    },
+    {
+     "naam": "ribosoom",
+     "varianten": [
+      "ribosomen"
+     ]
+    },
+    {
+     "naam": "codon",
+     "varianten": [
+      "codons",
+      "per drie"
+     ]
+    },
+    {
+     "naam": "tRNA",
+     "varianten": [
+      "transfer-RNA"
+     ]
+    },
+    {
+     "naam": "translatie",
+     "varianten": []
+    },
+    {
+     "naam": "kern",
+     "varianten": [
+      "kernmembraan"
+     ]
+    },
+    {
+     "naam": "reverse transcriptase",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het vaccin-mRNA in het cytoplasma bij de ribosomen komt.",
+    "Ik leg uit dat ribosomen het mRNA per codon lezen en dat tRNA's de aminozuren brengen: translatie.",
+    "Ik leg uit dat het vaccin-mRNA niet in de kern komt en dat je voor RNA naar DNA reverse transcriptase nodig hebt, dat er niet is.",
+    "Ik noem dat de cel het mRNA na een tijdje afbreekt."
+   ],
+   "model": [
+    "Het vaccin-mRNA komt in het cytoplasma van je spiercel, bij de ribosomen. Een ribosoom leest elk mRNA op dezelfde manier, waar het ook vandaan komt.",
+    "Het ribosoom leest het mRNA per drie nucleotiden: per codon. tRNA's brengen de passende aminozuren en het ribosoom koppelt ze aan elkaar. Zo ontstaat het eiwit van het virus: translatie.",
+    "Het vaccin-mRNA komt niet in de kern. Om van RNA weer DNA te maken is een enzym als reverse transcriptase nodig; dat zit niet in het vaccin en je spiercel gebruikt het niet. Na een tijdje breekt de cel het mRNA af."
+   ]
+  },
+  {
+   "id": "uitleg-volgorde-vorm",
+   "soort": "uitleg",
+   "titel": "Eén base, een ander eiwit",
+   "opdracht": "Leg uit hoe de volgorde van nucleotiden in een gen bepaalt wat een eiwit kan, en waarom één veranderd aminozuur een enzym kan laten stoppen met werken.",
+   "begrippen": [
+    {
+     "naam": "gen",
+     "varianten": []
+    },
+    {
+     "naam": "codon",
+     "varianten": [
+      "codons",
+      "per drie"
+     ]
+    },
+    {
+     "naam": "aminozuur",
+     "varianten": [
+      "aminozuren"
+     ]
+    },
+    {
+     "naam": "volgorde",
+     "varianten": []
+    },
+    {
+     "naam": "vouwt",
+     "varianten": [
+      "vouwen",
+      "opvouwen",
+      "vorm"
+     ]
+    },
+    {
+     "naam": "substraat",
+     "varianten": [
+      "past",
+      "passen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat elk codon van drie nucleotiden codeert voor één aminozuur.",
+    "Ik leg uit dat de volgorde van de nucleotiden dus de volgorde van de aminozuren bepaalt.",
+    "Ik leg uit dat de keten zich opvouwt tot een vaste vorm die afhangt van die volgorde.",
+    "Ik leg uit dat de vorm de werking bepaalt: een enzym moet op zijn substraat passen."
+   ],
+   "model": [
+    "Een gen wordt overgeschreven naar mRNA, en het ribosoom leest dat mRNA per codon van drie nucleotiden. Elk codon codeert voor één aminozuur. De volgorde van de nucleotiden bepaalt dus de volgorde van de aminozuren.",
+    "Een keten van aminozuren vouwt zich op tot een vaste vorm. Welke vorm, hangt af van de volgorde van de aminozuren. De vorm bepaalt wat het eiwit kan: een enzym past op zijn substraat.",
+    "Verandert er één aminozuur, dan kan de keten anders vouwen. Past het enzym dan niet meer op zijn substraat, dan werkt het niet meer."
+   ]
+  },
+  {
+   "id": "uitleg-wiebelbase",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "64 codons, 20 aminozuren",
+   "opdracht": "Er zijn 64 codons, maar maar 20 aminozuren. Leg uit wat daaruit volgt en hoe één tRNA toch aan meer dan één codon kan binden.",
+   "begrippen": [
+    {
+     "naam": "stopcodon",
+     "varianten": [
+      "stopcodons"
+     ]
+    },
+    {
+     "naam": "meer dan één codon",
+     "varianten": [
+      "meerdere codons",
+      "meer codons"
+     ]
+    },
+    {
+     "naam": "derde base",
+     "varianten": []
+    },
+    {
+     "naam": "wiebelbase",
+     "varianten": [
+      "wiebel"
+     ]
+    },
+    {
+     "naam": "anticodon",
+     "varianten": []
+    },
+    {
+     "naam": "tRNA",
+     "varianten": [
+      "transfer-RNA"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat 3 codons stopcodons zijn, en dat 61 codons bij 20 aminozuren horen.",
+    "Ik concludeer dat bijna elk aminozuur meer dan één codon heeft.",
+    "Ik leg uit dat die codons vaak alleen in de derde base verschillen.",
+    "Ik leg uit dat de derde base (de wiebelbase) minder streng paart met het anticodon, zodat één tRNA meer codons herkent."
+   ],
+   "model": [
+    "Van de 64 codons zijn er drie stopcodons. De andere 61 horen bij twintig aminozuren. Bijna elk aminozuur heeft dus meer dan één codon.",
+    "Die codons verschillen vaak alleen in de derde base. Een tRNA bindt met zijn anticodon aan het codon, maar de derde base van het codon paart minder streng: dat is de wiebelbase.",
+    "Daardoor kan één tRNA aan meer dan één codon binden, bijvoorbeeld aan twee codons die alleen in de derde base verschillen en voor hetzelfde aminozuur coderen."
+   ]
+  }
+ ]
+}

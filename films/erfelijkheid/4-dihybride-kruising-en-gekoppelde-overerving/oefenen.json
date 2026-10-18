@@ -1,0 +1,317 @@
+{
+ "versie": 1,
+ "film": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-dihybride-schema",
+   "soort": "volgorde",
+   "titel": "Een dihybride kruising uitwerken",
+   "opdracht": "Je kruist twee erwtenplanten die allebei GgRr zijn (G = geel, R = rond). Zet de stappen om de fenotypeverhouding te vinden in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Noteer de genotypen van de ouders: GgRr × GgRr.",
+     "uitleg": "Kleur en vorm liggen op verschillende chromosomen: je volgt twee chromosoomparen."
+    },
+    {
+     "tekst": "Bepaal de gameten van elke ouder: GR, Gr, gR en gr, elk een kwart.",
+     "uitleg": "De allelen voor kleur en vorm worden los van elkaar verdeeld: onafhankelijke overerving."
+    },
+    {
+     "tekst": "Zet de gameten van de ene ouder boven het schema, en die van de andere ouder ernaast.",
+     "uitleg": "Vier soorten gameten per ouder: vier keer vier is zestien vakjes."
+    },
+    {
+     "tekst": "Vul de zestien vakjes in met de genotypen van de nakomelingen.",
+     "uitleg": "Elk vakje combineert één gameet van de ene en één van de andere ouder."
+    },
+    {
+     "tekst": "Tel de fenotypen: 9 geel en rond, 3 geel en gerimpeld, 3 groen en rond, 1 groen en gerimpeld.",
+     "uitleg": "Geel en rond zijn dominant. De verhouding is 9 : 3 : 3 : 1."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-recombinatiepercentage",
+   "soort": "volgorde",
+   "titel": "Van crossing-over tot recombinatiepercentage",
+   "opdracht": "Een fruitvlieg is BbVv, met B en V samen op één chromosoom. Zet in de goede volgorde hoe recombinanten ontstaan en hoe je het recombinatiepercentage bepaalt.",
+   "stappen": [
+    {
+     "tekst": "Tijdens meiose I liggen de homologe chromosomen dicht tegen elkaar.",
+     "uitleg": "Gekoppelde genen liggen op hetzelfde chromosoom en gaan meestal samen mee."
+    },
+    {
+     "tekst": "Ze breken soms op dezelfde plek en wisselen een stuk uit: crossing-over.",
+     "uitleg": "De uitwisseling gebeurt tussen niet-zuster-chromatiden."
+    },
+    {
+     "tekst": "Valt de crossing-over tussen de twee genen, dan ontstaan gameten met nieuwe combinaties: Bv en bV.",
+     "uitleg": "Grijs met vleugelstompjes, en zwart met normale vleugels."
+    },
+    {
+     "tekst": "Je doet een terugkruising met een zwarte vlieg met vleugelstompjes (bbvv) en telt de nakomelingen.",
+     "uitleg": "Bij een terugkruising zie je de gameten van de BbVv-vlieg direct terug in de nakomelingen."
+    },
+    {
+     "tekst": "Je deelt het aantal recombinanten door het totaal: 170 van de 1000 is 17 procent.",
+     "uitleg": "Dat is het recombinatiepercentage. Hoe verder de genen uit elkaar liggen, hoe groter het."
+    }
+   ]
+  },
+  {
+   "id": "schema-crossing-over",
+   "soort": "schema",
+   "titel": "Oude combinaties en recombinanten",
+   "opdracht": "Bij deze fruitvlieg liggen B en V samen op één chromosoom, en b en v op het homologe chromosoom. Sleep de namen naar de goede vakjes. Eén naam hoort er niet bij.",
+   "alt": "Twee homologe chromosomen met elk twee chromatiden; de binnenste chromatiden kruisen elkaar. Daaronder vier gameten met BV, Bv, bV en bv.",
+   "breed": 760,
+   "hoog": 450,
+   "vakbreed": 150,
+   "svg": "<text x=\"20\" y=\"28\" class=\"zacht\">B grijs · b zwart</text><text x=\"20\" y=\"50\" class=\"zacht\">V normaal · v stompjes</text><path stroke-width=\"5\" d=\"M300 52 L300 212\"/><path stroke-width=\"5\" d=\"M322 52 L322 116 L358 146 L358 212\"/><path stroke-width=\"5\" class=\"acc\" d=\"M380 52 L380 212\"/><path stroke-width=\"5\" class=\"acc\" d=\"M358 52 L358 116 L322 146 L322 212\"/><text x=\"284\" y=\"88\" text-anchor=\"end\" style=\"font-size:17px\">B</text><text x=\"398\" y=\"88\" text-anchor=\"start\" style=\"font-size:17px\">b</text><text x=\"284\" y=\"188\" text-anchor=\"end\" style=\"font-size:17px\">V</text><text x=\"398\" y=\"188\" text-anchor=\"start\" style=\"font-size:17px\">v</text><path class=\"zacht\" stroke-width=\"1.4\" d=\"M292 82 h96 M292 182 h96\"/><path class=\"zacht\" stroke-width=\"1.6\" d=\"M340 222 L340 262 M333 252 L340 264 L347 252\"/><text x=\"352\" y=\"250\" class=\"zacht\">meiose</text><circle cx=\"110\" cy=\"330\" r=\"44\" stroke-width=\"2\"/><path stroke-width=\"5\" class=\"\" d=\"M110 296 L110 330\"/><path stroke-width=\"5\" class=\"\" d=\"M110 330 L110 364\"/><text x=\"128\" y=\"312\" text-anchor=\"start\" style=\"font-size:17px\">B</text><text x=\"128\" y=\"358\" text-anchor=\"start\" style=\"font-size:17px\">V</text><circle cx=\"280\" cy=\"330\" r=\"44\" stroke-width=\"2\"/><path stroke-width=\"5\" class=\"\" d=\"M280 296 L280 330\"/><path stroke-width=\"5\" class=\"acc\" d=\"M280 330 L280 364\"/><text x=\"298\" y=\"312\" text-anchor=\"start\" style=\"font-size:17px\">B</text><text x=\"298\" y=\"358\" text-anchor=\"start\" style=\"font-size:17px\">v</text><circle cx=\"480\" cy=\"330\" r=\"44\" stroke-width=\"2\"/><path stroke-width=\"5\" class=\"acc\" d=\"M480 296 L480 330\"/><path stroke-width=\"5\" class=\"\" d=\"M480 330 L480 364\"/><text x=\"498\" y=\"312\" text-anchor=\"start\" style=\"font-size:17px\">b</text><text x=\"498\" y=\"358\" text-anchor=\"start\" style=\"font-size:17px\">V</text><circle cx=\"650\" cy=\"330\" r=\"44\" stroke-width=\"2\"/><path stroke-width=\"5\" class=\"acc\" d=\"M650 296 L650 330\"/><path stroke-width=\"5\" class=\"acc\" d=\"M650 330 L650 364\"/><text x=\"668\" y=\"312\" text-anchor=\"start\" style=\"font-size:17px\">b</text><text x=\"668\" y=\"358\" text-anchor=\"start\" style=\"font-size:17px\">v</text>",
+   "vakjes": [
+    {
+     "naam": "homologe chromosomen",
+     "x": 130,
+     "y": 160,
+     "punt": [
+      340,
+      206
+     ],
+     "uitleg": "twee chromosomen van één paar, elk van een andere ouder; tijdens meiose I liggen ze dicht tegen elkaar."
+    },
+    {
+     "naam": "crossing-over",
+     "x": 580,
+     "y": 130,
+     "punt": [
+      340,
+      131
+     ],
+     "uitleg": "de chromosomen breken op dezelfde plek en wisselen een stuk uit."
+    },
+    {
+     "naam": "oude combinatie",
+     "x": 110,
+     "y": 414,
+     "punt": [
+      110,
+      330
+     ],
+     "uitleg": "B en V samen, zoals op het chromosoom van de ouder."
+    },
+    {
+     "naam": "recombinant",
+     "x": 280,
+     "y": 414,
+     "punt": [
+      280,
+      347
+     ],
+     "uitleg": "nieuwe combinatie B met v: ontstaan door de crossing-over tussen de genen."
+    },
+    {
+     "naam": "recombinant",
+     "x": 480,
+     "y": 414,
+     "punt": [
+      480,
+      347
+     ],
+     "uitleg": "nieuwe combinatie b met V: ontstaan door de crossing-over tussen de genen."
+    },
+    {
+     "naam": "oude combinatie",
+     "x": 650,
+     "y": 414,
+     "punt": [
+      650,
+      330
+     ],
+     "uitleg": "b en v samen, zoals op het homologe chromosoom."
+    }
+   ],
+   "afleiders": [
+    "onafhankelijke overerving"
+   ]
+  },
+  {
+   "id": "uitleg-9331",
+   "soort": "uitleg",
+   "titel": "Waarom 9 : 3 : 3 : 1?",
+   "opdracht": "Mendel kruiste gele ronde erwten uit de F1 (GgRr) met elkaar. Leg uit waarom je dan een fenotypeverhouding van 9 : 3 : 3 : 1 verwacht, en waarom er combinaties ontstaan die geen van de ouders had.",
+   "begrippen": [
+    {
+     "naam": "verschillende chromosomen",
+     "varianten": [
+      "ander chromosoom",
+      "andere chromosomen",
+      "twee chromosoomparen"
+     ]
+    },
+    {
+     "naam": "onafhankelijk",
+     "varianten": [
+      "onafhankelijke overerving",
+      "los van elkaar"
+     ]
+    },
+    {
+     "naam": "meiose",
+     "varianten": []
+    },
+    {
+     "naam": "toeval",
+     "varianten": [
+      "toevallig"
+     ]
+    },
+    {
+     "naam": "vier soorten gameten",
+     "varianten": [
+      "vier gameten",
+      "4 soorten gameten",
+      "GR, Gr, gR en gr"
+     ]
+    },
+    {
+     "naam": "drie kwart",
+     "varianten": [
+      "3/4",
+      "¾",
+      "driekwart"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het gen voor kleur en het gen voor vorm op verschillende chromosomen liggen.",
+    "Ik leg uit dat bij de meiose toeval bepaalt hoe elk chromosoompaar ligt, zodat er vier soorten gameten ontstaan, elk een kwart.",
+    "Ik leg uit dat er zo nieuwe combinaties ontstaan, zoals geel met gerimpeld.",
+    "Ik reken de verhouding uit: kans op geel ¾ × kans op rond ¾ = 9/16, en groen en gerimpeld ¼ × ¼ = 1/16."
+   ],
+   "model": [
+    "Het gen voor kleur ligt op een ander chromosoom dan het gen voor vorm. Bij de meiose gaan de chromosoomparen in het midden van de cel liggen. Hoe elk paar ligt, is toeval. Daardoor worden de allelen voor kleur en vorm los van elkaar verdeeld: onafhankelijke overerving.",
+    "Een GgRr-plant maakt zo vier soorten gameten: GR, Gr, gR en gr, elk ongeveer een kwart. Door combinaties als Gr en gR ontstaan nakomelingen die geen van de ouders had, zoals gele gerimpelde erwten.",
+    "Omdat de genen onafhankelijk zijn, mag je de kansen vermenigvuldigen. Kans op geel is ¾ en op rond ook ¾: samen 9/16. Geel en gerimpeld ¾ × ¼ = 3/16, groen en rond ook 3/16, en groen en gerimpeld ¼ × ¼ = 1/16. Dat is 9 : 3 : 3 : 1."
+   ]
+  },
+  {
+   "id": "uitleg-gekoppeld",
+   "soort": "uitleg",
+   "titel": "Geen 1 : 1 : 1 : 1",
+   "opdracht": "Bij een terugkruising BbVv × bbvv verwacht je bij onafhankelijke genen 1 : 1 : 1 : 1. Toch vind je vooral grijze vliegen met normale vleugels en zwarte vliegen met stompjes, en maar 17 procent andere. Leg dat uit.",
+   "begrippen": [
+    {
+     "naam": "gekoppeld",
+     "varianten": [
+      "gekoppelde",
+      "koppeling"
+     ]
+    },
+    {
+     "naam": "hetzelfde chromosoom",
+     "varianten": [
+      "zelfde chromosoom",
+      "één chromosoom",
+      "op 1 chromosoom"
+     ]
+    },
+    {
+     "naam": "crossing-over",
+     "varianten": [
+      "crossing over",
+      "crossingover",
+      "overkruising"
+     ]
+    },
+    {
+     "naam": "recombinanten",
+     "varianten": [
+      "recombinant",
+      "recombinatie"
+     ]
+    },
+    {
+     "naam": "gameten",
+     "varianten": [
+      "gameet"
+     ]
+    },
+    {
+     "naam": "recombinatiepercentage",
+     "varianten": [
+      "percentage"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de genen voor lijfkleur en vleugelvorm gekoppeld zijn: ze liggen op hetzelfde chromosoom.",
+    "Ik leg uit dat er zonder uitwisseling maar twee soorten gameten ontstaan: de oude combinaties BV en bv.",
+    "Ik leg uit dat crossing-over tussen de twee genen soms nieuwe combinaties maakt (Bv en bV): recombinanten.",
+    "Ik leg uit dat 17 procent het recombinatiepercentage is, en dat dat iets zegt over de afstand tussen de genen."
+   ],
+   "model": [
+    "De genen voor lijfkleur en vleugelvorm liggen op hetzelfde chromosoom: ze zijn gekoppeld. Grijs (B) ligt naast normale vleugels (V), en op het homologe chromosoom zwart (b) naast stompjes (v). Zonder uitwisseling gaan ze samen mee, en ontstaan er maar twee soorten gameten: BV en bv.",
+    "Tijdens meiose I wisselen de homologe chromosomen soms een stuk uit: crossing-over. Valt die tussen de twee genen, dan ontstaan gameten met nieuwe combinaties: Bv en bV. Dat zijn de recombinanten.",
+    "Omdat crossing-over tussen deze genen maar soms gebeurt, zijn de recombinanten in de minderheid: 17 procent. Dat is het recombinatiepercentage. Hoe verder de genen uit elkaar liggen, hoe groter het."
+   ]
+  },
+  {
+   "id": "uitleg-genkaart",
+   "soort": "uitleg",
+   "titel": "Een genkaart lezen",
+   "opdracht": "Gen A en gen B geven 10 procent recombinanten, gen A en gen C 30 procent. Leg uit welk gen het dichtst bij gen A ligt. Leg ook uit waarom een recombinatiepercentage nooit boven de 50 procent komt.",
+   "begrippen": [
+    {
+     "naam": "recombinatiepercentage",
+     "varianten": [
+      "recombinanten",
+      "recombinatie"
+     ]
+    },
+    {
+     "naam": "crossing-over",
+     "varianten": [
+      "crossing over",
+      "crossingover"
+     ]
+    },
+    {
+     "naam": "afstand",
+     "varianten": [
+      "dichtbij",
+      "dicht bij",
+      "dichter",
+      "verder"
+     ]
+    },
+    {
+     "naam": "kans",
+     "varianten": []
+    },
+    {
+     "naam": "vijftig procent",
+     "varianten": [
+      "50%",
+      "50 procent"
+     ]
+    },
+    {
+     "naam": "onafhankelijk",
+     "varianten": [
+      "onafhankelijke"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik zeg dat gen B het dichtst bij gen A ligt.",
+    "Ik leg uit dat de kans op een crossing-over tussen twee genen groter is als ze verder uit elkaar liggen: minder recombinatie betekent dichter bij elkaar.",
+    "Ik leg uit dat bij het maximum van 50 procent de genen zich gedragen alsof ze onafhankelijk zijn."
+   ],
+   "model": [
+    "Gen B ligt het dichtst bij gen A. Hoe verder twee genen uit elkaar liggen, hoe groter de kans dat er een crossing-over tussen valt, en hoe meer recombinanten je vindt. Tien procent is minder dan dertig procent, dus A en B liggen dichter bij elkaar dan A en C.",
+    "Het maximum is vijftig procent. Dan zie je evenveel recombinanten als oude combinaties: de genen gedragen zich alsof ze onafhankelijk zijn, net als genen op verschillende chromosomen."
+   ]
+  }
+ ]
+}

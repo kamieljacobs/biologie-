@@ -36,7 +36,7 @@ for f in sorted(set(files)):
     d, naam = os.path.split(p)
     kandidaat = os.path.join(d, 'oefenen.json') if naam == 'index.html' else os.path.join(d, naam[:-5], 'oefenen.json')
     if os.path.exists(kandidaat):
-        alle_fouten += controleer(kandidaat); met.append(f)
+        alle_fouten += controleer(kandidaat); met.append((f, os.path.relpath(kandidaat, R).replace(os.sep, '/')))
         root = os.path.relpath(R, d).replace(os.sep, '/') + '/'
         data = os.path.relpath(kandidaat, d).replace(os.sep, '/')
         tag = f'<script src="{root}js/oefenen.js" data-oefenen="{data}" defer></script>\n'
@@ -49,10 +49,28 @@ for f in sorted(set(files)):
         s2 = TAG.sub('', s)
     if s2 != s:
         open(p, 'w', encoding='utf-8').write(s2); n += 1
-# lijst voor de knop 'Oefenen' in de filmlijst van index.html
+# lijst van films met oefeningen: OEFENEN in index.html (knop + aanklikbare opdrachten in de filmlijst)
+# en oefenlijst.json (voor de losse oefenpagina oefenen.html)
 ip = os.path.join(R, 'index.html'); idx = open(ip, encoding='utf-8').read()
-idx2 = re.sub(r'const OEFENEN = \[[^\]]*\];', 'const OEFENEN = ' + json.dumps(sorted(met), ensure_ascii=False) + ';', idx, count=1)
+hs = idx.index('const HOOFDSTUKKEN = '); he = idx.index('\n};\n', hs)
+HFD = json.loads(idx[hs + len('const HOOFDSTUKKEN = '):he + 2])
+info = {}
+for hid, h in HFD.items():
+    for film in h.get('films', []):
+        info.setdefault(film['href'], (film.get('titel', ''), hid, h.get('titel', hid)))
+lijst = {}
+for f, pad in sorted(met):
+    d = json.load(open(os.path.join(R, pad), encoding='utf-8'))
+    titel, hid, htitel = info.get(f, ('', '', ''))
+    lijst[f] = {'titel': titel, 'hoofdstuk': hid, 'htitel': htitel, 'json': pad,
+                'oef': [[o['id'], o.get('titel', ''), o.get('soort', ''), 1 if o.get('vwo') else 0] for o in d.get('oefeningen', [])]}
+regel = 'const OEFENEN = ' + json.dumps(lijst, ensure_ascii=False, separators=(',', ':')) + ';'
+idx2 = re.sub(r'^const OEFENEN = .*;$', lambda m: regel, idx, count=1, flags=re.M)
 if idx2 != idx: open(ip, 'w', encoding='utf-8').write(idx2); print('index.html: OEFENEN bijgewerkt')
+lp = os.path.join(R, 'oefenlijst.json')
+oud = open(lp, encoding='utf-8').read() if os.path.exists(lp) else ''
+nieuw = json.dumps(lijst, ensure_ascii=False, indent=1) + '\n'
+if nieuw != oud: open(lp, 'w', encoding='utf-8').write(nieuw); print('oefenlijst.json bijgewerkt')
 print(n, 'films bijgewerkt')
 if alle_fouten:
     print('\n'.join(alle_fouten)); sys.exit(1)

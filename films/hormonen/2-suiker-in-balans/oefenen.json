@@ -1,0 +1,253 @@
+{
+ "versie": 1,
+ "film": "films/hormonen/2-suiker-in-balans.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-ontbijt",
+   "soort": "volgorde",
+   "titel": "Na het ontbijt",
+   "opdracht": "Je eet een ontbijt. Zet in de goede volgorde hoe je bloedsuiker weer in de band komt.",
+   "stappen": [
+    {
+     "tekst": "Uit je darm komt glucose in je bloed: de concentratie stijgt.",
+     "uitleg": "Na elke maaltijd gaat de lijn omhoog."
+    },
+    {
+     "tekst": "De bètacellen in de eilandjes van Langerhans merken dat de glucose stijgt.",
+     "uitleg": "Ze meten zelf de glucose in het bloed dat erlangs stroomt: sensor en regelcentrum tegelijk."
+    },
+    {
+     "tekst": "De bètacellen geven insuline af aan het bloed.",
+     "uitleg": "Insuline breekt niets af: het is een signaal voor de doelorganen."
+    },
+    {
+     "tekst": "Spier- en vetcellen nemen meer glucose op, lever en spieren maken glycogeen, en de lever stopt met glucose afgeven.",
+     "uitleg": "Lever, spieren en vetweefsel zijn de effectoren."
+    },
+    {
+     "tekst": "De glucose daalt, terug in de band.",
+     "uitleg": "De afvoer staat verder open, de kraan uit de lever bijna dicht."
+    },
+    {
+     "tekst": "De bètacellen merken de daling en geven minder insuline af.",
+     "uitleg": "De kring remt zichzelf af: negatieve terugkoppeling."
+    }
+   ]
+  },
+  {
+   "id": "schema-regelkring",
+   "soort": "schema",
+   "titel": "De regelkring van je bloedsuiker",
+   "opdracht": "Vul de regelkring in. Boven zie je wat er gebeurt als de glucose stijgt, onder als hij daalt. Sleep de namen naar de goede vakjes.",
+   "alt": "Schema van een regelkring: in het midden de normwaarde van 4 tot 8 mmol per liter. Boven een rij van drie lege vakjes na 'glucose stijgt', onder drie lege vakjes na 'glucose daalt'; pijlen lopen terug naar de normwaarde.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 144,
+   "svg": "<rect class=\"acc\" x=\"10\" y=\"48\" width=\"150\" height=\"44\" rx=\"10\" stroke-width=\"2\"/><text x=\"85\" y=\"75\" text-anchor=\"middle\">glucose stijgt</text><rect class=\"acc\" x=\"10\" y=\"328\" width=\"150\" height=\"44\" rx=\"10\" stroke-width=\"2\"/><text x=\"85\" y=\"355\" text-anchor=\"middle\">glucose daalt</text><rect x=\"200\" y=\"188\" width=\"366\" height=\"44\" rx=\"22\" stroke-width=\"2\"/><text x=\"383\" y=\"215\" text-anchor=\"middle\">normwaarde 4–8 mmol/L</text><path stroke-width=\"2\" d=\"M160 70 L208 70 M200 64 L208 70 L200 76 M352 70 L400 70 M392 64 L400 70 L392 76 M544 70 L592 70 M584 64 L592 70 L584 76 M160 350 L208 350 M200 344 L208 350 L200 356 M352 350 L400 350 M392 344 L400 350 L392 356 M544 350 L592 350 M584 344 L592 350 L584 356 M640 94 L640 200 M640 200 L568 200 M576 194 L568 200 L576 206 M684 326 L684 222 M684 222 L568 222 M576 216 L568 222 L576 228 M198 200 L50 200 M50 200 L50 94 M44 102 L50 94 L56 102 M198 222 L50 222 M50 222 L50 326 M44 318 L50 326 L56 318\"/><text class=\"zacht\" x=\"62\" y=\"150\">na het eten</text><text class=\"zacht\" x=\"62\" y=\"282\">sporten, niet eten</text>",
+   "vakjes": [
+    {
+     "naam": "bètacellen",
+     "x": 280,
+     "y": 70,
+     "punt": [
+      280,
+      70
+     ],
+     "uitleg": "merken de stijging en geven insuline af."
+    },
+    {
+     "naam": "insuline",
+     "x": 472,
+     "y": 70,
+     "punt": [
+      472,
+      70
+     ],
+     "uitleg": "het signaal in het bloed dat de glucose verlaagt."
+    },
+    {
+     "naam": "glycogeen opbouwen",
+     "x": 664,
+     "y": 70,
+     "punt": [
+      664,
+      70
+     ],
+     "uitleg": "lever en spieren maken glycogeen; spier- en vetcellen nemen glucose op."
+    },
+    {
+     "naam": "alfacellen",
+     "x": 280,
+     "y": 350,
+     "punt": [
+      280,
+      350
+     ],
+     "uitleg": "merken de daling en geven glucagon af."
+    },
+    {
+     "naam": "glucagon",
+     "x": 472,
+     "y": 350,
+     "punt": [
+      472,
+      350
+     ],
+     "uitleg": "het signaal in het bloed dat de glucose verhoogt; werkt vooral op de lever."
+    },
+    {
+     "naam": "glycogeen afbreken",
+     "x": 664,
+     "y": 350,
+     "punt": [
+      664,
+      350
+     ],
+     "uitleg": "de lever breekt glycogeen af tot glucose en geeft die af aan het bloed."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-glut4",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Insuline en GLUT4",
+   "opdracht": "Insuline komt aan bij een spiercel. Zet in de goede volgorde hoe de cel meer glucose opneemt, en wat er gebeurt als de insuline weer weg is.",
+   "stappen": [
+    {
+     "tekst": "Insuline bindt aan een receptor op het celmembraan.",
+     "uitleg": "Insuline is een eiwit en kan niet door het celmembraan."
+    },
+    {
+     "tekst": "In de cel start een kettingreactie: signaaltransductie.",
+     "uitleg": "Bij insulineresistentie is juist deze kettingreactie zwakker."
+    },
+    {
+     "tekst": "Blaasjes met GLUT4 gaan naar het membraan en versmelten ermee: exocytose.",
+     "uitleg": "Zonder insuline liggen de meeste GLUT4-eiwitten opgeslagen in blaasjes in de cel."
+    },
+    {
+     "tekst": "Glucose stroomt door de GLUT4-eiwitten naar binnen, met de concentratiegradiënt mee.",
+     "uitleg": "Dat is gefaciliteerde diffusie: er is geen energie voor nodig."
+    },
+    {
+     "tekst": "Is de insuline weg, dan gaan de GLUT4-eiwitten weer in blaasjes de cel in.",
+     "uitleg": "Het membraan laat dan minder glucose door."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-type1",
+   "soort": "uitleg",
+   "titel": "Dorst bij diabetes type 1",
+   "opdracht": "Iemand met onbehandelde diabetes type 1 heeft veel dorst en moet vaak plassen. Leg uit hoe dat komt, vanaf de oorzaak.",
+   "begrippen": [
+    {
+     "naam": "afweersysteem",
+     "varianten": [
+      "afweer",
+      "immuunsysteem"
+     ]
+    },
+    {
+     "naam": "bètacellen",
+     "varianten": [
+      "betacellen",
+      "B-cellen",
+      "beta-cellen"
+     ]
+    },
+    {
+     "naam": "insuline",
+     "varianten": []
+    },
+    {
+     "naam": "glucose",
+     "varianten": [
+      "bloedsuiker",
+      "bloedglucose",
+      "suiker"
+     ]
+    },
+    {
+     "naam": "nieren",
+     "varianten": [
+      "nier"
+     ]
+    },
+    {
+     "naam": "urine",
+     "varianten": [
+      "plassen",
+      "uitplassen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het eigen afweersysteem de bètacellen heeft vernietigd, zodat er geen insuline is.",
+    "Ik leg uit dat spier- en vetcellen dan weinig glucose opnemen, zodat de glucose in het bloed na het eten blijft stijgen.",
+    "Ik leg uit dat de nieren boven ongeveer tien mmol per liter niet alle glucose terugnemen: er komt suiker in de urine.",
+    "Ik leg uit dat die suiker water meeneemt, waardoor je veel plast en dorst krijgt."
+   ],
+   "model": [
+    "Bij diabetes type 1 heeft het eigen afweersysteem de bètacellen vernietigd. Er is dus geen insuline.",
+    "Zonder insuline nemen spier- en vetcellen weinig glucose op, terwijl er volop in het bloed zit. Na het eten blijft de glucose stijgen.",
+    "Boven ongeveer tien millimol per liter kunnen de nieren niet alle glucose terugnemen. Er komt suiker in de urine, en die neemt water mee. Daardoor moet je vaak plassen en krijg je veel dorst."
+   ]
+  },
+  {
+   "id": "uitleg-type2",
+   "soort": "uitleg",
+   "titel": "Diabetes type 2: juist veel insuline",
+   "opdracht": "Bij iemand met beginnende diabetes type 2 meet een arts juist veel insuline in het bloed. Leg uit hoe dat kan, en waarom later toch vaak insuline nodig is.",
+   "begrippen": [
+    {
+     "naam": "insulineresistentie",
+     "varianten": [
+      "resistent",
+      "reageren minder"
+     ]
+    },
+    {
+     "naam": "doelcellen",
+     "varianten": [
+      "spiercellen",
+      "vetcellen",
+      "cellen"
+     ]
+    },
+    {
+     "naam": "bètacellen",
+     "varianten": [
+      "betacellen",
+      "B-cellen",
+      "beta-cellen"
+     ]
+    },
+    {
+     "naam": "insuline",
+     "varianten": []
+    },
+    {
+     "naam": "uitgeput",
+     "varianten": [
+      "uitputting",
+      "raken op"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de doelcellen minder sterk op insuline reageren: insulineresistentie.",
+    "Ik leg uit dat de bètacellen daarom meer insuline afgeven om de glucose omlaag te krijgen.",
+    "Ik leg uit dat de bètacellen na jaren uitgeput raken, zodat er te weinig insuline is.",
+    "Ik noem dat bewegen helpt, omdat werkende spieren glucose opnemen."
+   ],
+   "model": [
+    "Bij diabetes type 2 maken de bètacellen wel insuline, maar de doelcellen reageren er minder sterk op. Dat heet insulineresistentie.",
+    "Omdat de cellen minder sterk reageren, moeten de bètacellen meer insuline afgeven om de glucose omlaag te krijgen. Daarom meet de arts vaak juist veel insuline.",
+    "Diabetes ontstaat als de bètacellen die extra vraag niet meer bijhouden. Na jaren raken ze uitgeput: dan is er te weinig insuline, en is ook bij type 2 vaak insuline nodig. Bewegen helpt, want werkende spieren nemen glucose op."
+   ]
+  }
+ ]
+}

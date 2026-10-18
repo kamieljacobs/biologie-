@@ -1,0 +1,308 @@
+{
+ "versie": 1,
+ "film": "films/ecologie/alles-gaat-rond/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-ree",
+   "soort": "volgorde",
+   "titel": "Waar blijft het ree?",
+   "opdracht": "Een roedel wolven doodt een ree. Zet in de goede volgorde hoe de stoffen van het ree weer in een plant terechtkomen.",
+   "stappen": [
+    {
+     "tekst": "Wolven, raven, vossen en wilde zwijnen eten van het dode ree.",
+     "uitleg": "Het zijn consumenten: ze halen organische stoffen uit andere organismen."
+    },
+    {
+     "tekst": "Aaskevers en vliegenlarven eten de resten en maken het dode materiaal kleiner.",
+     "uitleg": "Zulke dieren eten detritus (dode resten en uitwerpselen): het zijn detrituseters."
+    },
+    {
+     "tekst": "Bacteriën en schimmels breken de dode organische stof helemaal af tot CO₂, water en mineralen.",
+     "uitleg": "Dat zijn de reducenten. Ze maken van organische stoffen weer anorganische stoffen."
+    },
+    {
+     "tekst": "Planten nemen CO₂, water en mineralen zoals nitraat op.",
+     "uitleg": "Producenten nemen de anorganische stoffen weer op. Alleen producenten nemen CO₂ op."
+    },
+    {
+     "tekst": "Met fotosynthese maken de planten glucose uit CO₂ en water.",
+     "uitleg": "Daarvoor is zonlicht nodig. De energie van het ree is als warmte weggestroomd, maar de stoffen gaan rond."
+    },
+    {
+     "tekst": "Met voortgezette assimilatie maken ze met glucose en mineralen andere organische stoffen, zoals eiwitten.",
+     "uitleg": "Voor eiwitten is stikstof nodig, bijvoorbeeld uit nitraat."
+    }
+   ]
+  },
+  {
+   "id": "schema-stikstofkringloop",
+   "soort": "schema",
+   "titel": "De stikstofkringloop",
+   "opdracht": "Sleep de namen van de processen naar de goede pijlen. Eén naam hoort er niet bij.",
+   "alt": "Schema van de stikstofkringloop met stikstofgas, nitraat, nitriet, ammonium, dode resten en urine, en eiwitten in planten en dieren, verbonden door pijlen.",
+   "breed": 760,
+   "hoog": 460,
+   "vakbreed": 160,
+   "svg": "<rect x=\"285.0\" y=\"22\" width=\"190\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"380\" y=\"45\" text-anchor=\"middle\">stikstofgas (N₂)</text><rect x=\"40.0\" y=\"152\" width=\"200\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"140\" y=\"175\" text-anchor=\"middle\">eiwitten in planten</text><rect x=\"42.0\" y=\"282\" width=\"196\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"140\" y=\"305\" text-anchor=\"middle\">eiwitten in dieren</text><rect x=\"162.0\" y=\"404\" width=\"216\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"270\" y=\"427\" text-anchor=\"middle\">dode resten en urine</text><rect x=\"472.0\" y=\"382\" width=\"116\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"530\" y=\"405\" text-anchor=\"middle\">ammonium</text><rect x=\"638.0\" y=\"264\" width=\"96\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"686\" y=\"287\" text-anchor=\"middle\">nitriet</text><rect x=\"572.0\" y=\"152\" width=\"104\" height=\"36\" rx=\"10\" stroke-width=\"1.8\" /><text x=\"624\" y=\"175\" text-anchor=\"middle\">nitraat</text><path stroke-width=\"2.4\" class=\"acc\" d=\"M410 58 C430 160 470 300 506 380 M496.3 372.0 L506 380 L507.4 367.6\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M604 152 C592 100 540 52 477 44 M488.7 39.6 L477 44 L487.1 51.5\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M588 392 C628 380 664 340 680 302 M681.2 314.5 L680 302 L670.2 309.8\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M690 264 C694 230 670 204 648 190 M660.5 190.7 L648 190 L654.1 200.9\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M572 170 L242 170 M253.0 164.0 L242 170 L253.0 176.0\"/><path stroke-width=\"2.4\" class=\"acc\" d=\"M378 418 C410 412 440 406 470 402 M459.9 409.5 L470 402 L458.3 397.6\"/><path stroke-width=\"1.8\" class=\"zacht\" d=\"M140 188 L140 280 M134.0 269.0 L140 280 L146.0 269.0\"/><text x=\"150\" y=\"240\" class=\"zacht\">gegeten</text><path stroke-width=\"1.8\" class=\"zacht\" d=\"M170 318 C190 360 210 384 236 402 M223.6 400.2 L236 402 L230.8 390.6\"/><path stroke-width=\"1.8\" class=\"zacht\" d=\"M48 186 C14 260 30 380 160 418 M147.7 420.5 L160 418 L151.2 409.0\"/>",
+   "vakjes": [
+    {
+     "naam": "stikstoffixatie",
+     "x": 300,
+     "y": 252,
+     "punt": [
+      451,
+      228
+     ],
+     "uitleg": "bacteriën (vrij in de bodem of in wortelknolletjes) verbreken de sterke binding in N₂ en maken ammonium."
+    },
+    {
+     "naam": "denitrificatie",
+     "x": 660,
+     "y": 78,
+     "punt": [
+      558,
+      82
+     ],
+     "uitleg": "zonder zuurstof zetten bacteriën nitraat om in stikstofgas, dat terug de lucht in gaat."
+    },
+    {
+     "naam": "nitrificatie",
+     "x": 676,
+     "y": 400,
+     "punt": [
+      643,
+      357
+     ],
+     "uitleg": "met zuurstof zetten bacteriën ammonium om in nitriet, en daarna in nitraat."
+    },
+    {
+     "naam": "opname",
+     "x": 330,
+     "y": 122,
+     "punt": [
+      330,
+      170
+     ],
+     "uitleg": "planten nemen nitraat (en ammonium) op via hun wortels en maken er aminozuren en eiwitten van."
+    },
+    {
+     "naam": "ammonificatie",
+     "x": 400,
+     "y": 340,
+     "punt": [
+      420,
+      410
+     ],
+     "uitleg": "reducenten breken eiwitten en ureum af; daarbij komt ammonium vrij."
+    }
+   ],
+   "afleiders": [
+    "fotosynthese"
+   ]
+  },
+  {
+   "id": "volgorde-successie",
+   "soort": "volgorde",
+   "titel": "Van stuifzand tot bos",
+   "opdracht": "Op het Kootwijkerzand ligt kaal stuifzand. Zet de stappen van de successie in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Kaal stuifzand: geen humus, de grond houdt geen water vast en het zand stuift.",
+     "uitleg": "Er is nog geen bodem met humus. Daarom heet dit primaire successie."
+    },
+    {
+     "tekst": "Pioniersoorten vestigen zich: mossen, korstmossen en buntgras.",
+     "uitleg": "Pioniers verdragen droogte en hitte, en verspreiden zich snel."
+    },
+    {
+     "tekst": "Dode resten van de pioniers vormen humus: de grond houdt meer water vast en stuift minder.",
+     "uitleg": "Pioniers veranderen hun omgeving. Daardoor kunnen er nieuwe soorten groeien."
+    },
+    {
+     "tekst": "Er groeit heide.",
+     "uitleg": "De eerste nieuwe soorten na de pioniers."
+    },
+    {
+     "tekst": "Grove dennen en berken groeien op; ze geven schaduw en concurreren de pioniers weg.",
+     "uitleg": "Zo volgen gemeenschappen elkaar op."
+    },
+    {
+     "tekst": "Er staat een bos van eiken en beuken dat zonder verstoring stabiel blijft.",
+     "uitleg": "Dat is het climaxecosysteem."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-veen",
+   "soort": "uitleg",
+   "titel": "Het meisje van Yde",
+   "opdracht": "Het meisje van Yde lag zo'n tweeduizend jaar in het veen, en zelfs haar huid en haren waren bewaard. Leg uit waarom de afbraak in een hoogveen bijna stilstaat, en waarom veen dat droog komt te liggen toch langzaam verdwijnt.",
+   "begrippen": [
+    {
+     "naam": "reducenten",
+     "varianten": [
+      "reducent",
+      "bacteriën",
+      "schimmels"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": []
+    },
+    {
+     "naam": "zuur",
+     "varianten": [
+      "zure",
+      "zuurgraad"
+     ]
+    },
+    {
+     "naam": "water",
+     "varianten": [
+      "nat",
+      "natte"
+     ]
+    },
+    {
+     "naam": "afbraak",
+     "varianten": [
+      "afbreken",
+      "afgebroken"
+     ]
+    },
+    {
+     "naam": "CO₂",
+     "varianten": [
+      "CO2",
+      "koolstofdioxide",
+      "koolstof"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat reducenten het best werken als het warm en vochtig is, met genoeg zuurstof en een bodem die niet te zuur is.",
+    "Ik leg uit dat er in een hoogveen weinig zuurstof is (het staat vol water) en dat veenmos het water zuur maakt.",
+    "Ik leg uit dat dode resten daardoor maar voor een deel worden afgebroken, zodat veen zich ophoopt.",
+    "Ik leg uit dat er in droog veen lucht en dus zuurstof komt, zodat reducenten het wel afbreken tot CO₂."
+   ],
+   "model": [
+    "Reducenten werken het best als het warm en vochtig is, met genoeg zuurstof en een bodem die niet te zuur is. Ontbreekt een van die omstandigheden, dan gaat de afbraak heel langzaam.",
+    "Een hoogveen staat vol water, dus er is weinig zuurstof. En veenmos maakt het water zuur. Reducenten breken de dode resten daar maar voor een deel af: zo hoopt veen zich op, en bleef zelfs het lichaam van het meisje bewaard.",
+    "Komt veen droog te liggen, dan komt er lucht in, en dus zuurstof. Nu kunnen reducenten het wel afbreken. De koolstof uit het veen verdwijnt dan langzaam als CO₂ in de lucht."
+   ]
+  },
+  {
+   "id": "uitleg-wolven",
+   "soort": "uitleg",
+   "titel": "Waarom zo weinig wolven?",
+   "opdracht": "Op de Veluwe leven duizenden reeën, edelherten en wilde zwijnen, maar maar een paar tientallen wolven. Leg dat uit met de energiestroom door de trofische niveaus.",
+   "begrippen": [
+    {
+     "naam": "energie",
+     "varianten": []
+    },
+    {
+     "naam": "trofisch niveau",
+     "varianten": [
+      "trofische niveaus",
+      "niveau",
+      "niveaus"
+     ]
+    },
+    {
+     "naam": "tien procent",
+     "varianten": [
+      "10%",
+      "10 procent",
+      "klein deel"
+     ]
+    },
+    {
+     "naam": "dissimilatie",
+     "varianten": [
+      "dissimileren",
+      "verbranding"
+     ]
+    },
+    {
+     "naam": "warmte",
+     "varianten": []
+    },
+    {
+     "naam": "uitwerpselen",
+     "varianten": [
+      "dode resten",
+      "detrituseters",
+      "reducenten"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat van de energie in een trofisch niveau maar een klein deel (vaak zo'n tien procent) in het volgende niveau terechtkomt.",
+    "Ik leg uit dat een groot deel bij dissimilatie als warmte verdwijnt.",
+    "Ik leg uit dat een ander deel via uitwerpselen en dode resten naar detrituseters en reducenten gaat.",
+    "Ik leg uit dat er voor de wolven (consumenten van de tweede orde) daardoor veel minder energie overblijft dan voor de herbivoren."
+   ],
+   "model": [
+    "De wolf is een consument van de tweede orde: hij eet herbivoren zoals het ree. Van de energie in een trofisch niveau komt maar een klein deel in het volgende niveau terecht, vaak ongeveer tien procent.",
+    "De rest gaat niet naar het volgende niveau. Een groot deel verdwijnt bij dissimilatie als warmte. Een ander deel gaat via uitwerpselen en dode resten naar detrituseters en reducenten.",
+    "Leggen de planten een miljoen kilojoule vast, dan komt er ongeveer honderdduizend in de herbivoren en tienduizend in de carnivoren. Daardoor is er maar genoeg energie voor een paar wolven."
+   ]
+  },
+  {
+   "id": "uitleg-weiland",
+   "soort": "uitleg",
+   "titel": "Een weiland onder water",
+   "opdracht": "In een weiland dat een paar weken onder water staat, verdwijnt het nitraat uit de bodem, ook al nemen de planten bijna niets op. Leg uit hoe dat kan, en waarom er ook geen nieuw nitraat bij komt.",
+   "begrippen": [
+    {
+     "naam": "zuurstof",
+     "varianten": []
+    },
+    {
+     "naam": "denitrificatie",
+     "varianten": [
+      "denitrificerende",
+      "denitrificeren"
+     ]
+    },
+    {
+     "naam": "stikstofgas",
+     "varianten": [
+      "N₂",
+      "N2"
+     ]
+    },
+    {
+     "naam": "nitrificatie",
+     "varianten": [
+      "nitrificerende",
+      "nitrificeren"
+     ]
+    },
+    {
+     "naam": "ammonium",
+     "varianten": []
+    },
+    {
+     "naam": "bacteriën",
+     "varianten": [
+      "bacterie"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat er in een natte bodem geen zuurstof is.",
+    "Ik leg uit dat denitrificerende bacteriën zonder zuurstof nitraat omzetten in stikstofgas, dat de lucht in gaat.",
+    "Ik leg uit dat nitrificerende bacteriën zuurstof nodig hebben om ammonium om te zetten in nitriet en nitraat.",
+    "Ik leg uit dat er daarom ook geen nieuw nitraat bij komt."
+   ],
+   "model": [
+    "Staat een weiland onder water, dan komt er geen zuurstof meer in de bodem. Denitrificerende bacteriën gebruiken dan nitraat bij hun dissimilatie, zoals wij zuurstof gebruiken. Ze zetten het om in stikstofgas, dat terug de lucht in gaat.",
+    "Nieuw nitraat ontstaat door nitrificatie: bacteriën zetten ammonium om in nitriet en dan in nitraat. Maar daarvoor hebben ze zuurstof nodig. Zonder zuurstof stopt de nitrificatie, en komt er geen nitraat bij."
+   ]
+  }
+ ]
+}

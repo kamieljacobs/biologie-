@@ -1,0 +1,311 @@
+{
+ "versie": 1,
+ "film": "films/zenuwstelsel/8-zintuigen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-oog",
+   "soort": "schema",
+   "titel": "Het oog in doorsnede",
+   "opdracht": "Het licht komt van links. Sleep de namen naar de goede onderdelen van het oog. Eén naam blijft over.",
+   "alt": "Lijntekening van een oog in doorsnede: links een sterk gebogen voorkant, daarachter twee korte stukjes met een opening ertussen, een ovale lens aan bandjes, achterin een binnenlaag met een klein kuiltje op de as, en rechts een zenuw die het oog verlaat.",
+   "breed": 760,
+   "hoog": 430,
+   "vakbreed": 176,
+   "svg": "<path class=\"zacht\" stroke-width=\"1.2\" stroke-dasharray=\"5 6\" d=\"M120 175 L345 182 L566 215 M120 255 L345 248 L566 215\"/><path stroke-width=\"2.6\" d=\"M302.8 135.5 L312.1 122.3 L322.7 110.2 L334.6 99.3 L347.6 89.7 L361.5 81.5 L376.2 75.0 L391.6 70.0 L407.4 66.7 L423.5 65.1 L439.6 65.3 L455.6 67.2 L471.3 70.8 L486.6 76.1 L501.2 83.0 L515.0 91.4 L527.7 101.2 L539.4 112.4 L549.8 124.7 L558.8 138.1 L566.3 152.4 L572.2 167.4 L576.5 183.0 L579.1 198.9 L580.0 215.0 L579.1 231.1 L576.5 247.0 L572.2 262.6 L566.3 277.6 L558.8 291.9 L549.8 305.3 L539.4 317.6 L527.7 328.8 L515.0 338.6 L501.2 347.0 L486.6 353.9 L471.3 359.2 L455.6 362.8 L439.6 364.7 L423.5 364.9 L407.4 363.3 L391.6 360.0 L376.2 355.0 L361.5 348.5 L347.6 340.3 L334.6 330.7 L322.7 319.8 L312.1 307.7 L302.8 294.5\"/><path stroke-width=\"2.6\" d=\"M302.8 135.5 C244.8 153.5 244.8 276.5 302.8 294.5\"/><path class=\"acc\" stroke-width=\"1.8\" d=\"M360.0 93.8 L364.3 91.4 L368.6 89.2 L373.1 87.1 L377.6 85.2 L382.1 83.4 L386.7 81.9 L391.4 80.4 L396.1 79.2 L400.9 78.1 L405.7 77.1 L410.5 76.4 L415.4 75.8 L420.2 75.3 L425.1 75.1 L430.0 75.0 L434.9 75.1 L439.8 75.3 L444.6 75.8 L449.5 76.4 L454.3 77.1 L459.1 78.1 L463.9 79.2 L468.6 80.4 L473.3 81.9 L477.9 83.4 L482.4 85.2 L486.9 87.1 L491.4 89.2 L495.7 91.4 L500.0 93.8 L504.2 96.3 L508.3 98.9 L512.3 101.7 L516.2 104.7 L520.0 107.8 L523.7 111.0 L527.3 114.3 L530.7 117.7 L534.0 121.3 L537.2 125.0 L540.3 128.8 L543.3 132.7 L546.1 136.7 L548.7 140.8 L551.2 145.0 L553.6 149.3 L555.8 153.6 L557.9 158.1 L559.8 162.6 L561.6 167.1 L563.1 171.7 L564.6 176.4 L565.8 181.1 L566.9 185.9 L567.9 190.7 L568.6 195.5 L569.2 200.4 L568.3 205.3 L567.2 210.2 L566.0 215.0 L567.2 219.8 L568.3 224.7 L569.2 229.6 L568.6 234.5 L567.9 239.3 L566.9 244.1 L565.8 248.9 L564.6 253.6 L563.1 258.3 L561.6 262.9 L559.8 267.4 L557.9 271.9 L555.8 276.4 L553.6 280.7 L551.2 285.0 L548.7 289.2 L546.1 293.3 L543.3 297.3 L540.3 301.2 L537.2 305.0 L534.0 308.7 L530.7 312.3 L527.3 315.7 L523.7 319.0 L520.0 322.2 L516.2 325.3 L512.3 328.3 L508.3 331.1 L504.2 333.7 L500.0 336.2 L495.7 338.6 L491.4 340.8 L486.9 342.9 L482.4 344.8 L477.9 346.6 L473.3 348.1 L468.6 349.6 L463.9 350.8 L459.1 351.9 L454.3 352.9 L449.5 353.6 L444.6 354.2 L439.8 354.7 L434.9 354.9 L430.0 355.0 L425.1 354.9 L420.2 354.7 L415.4 354.2 L410.5 353.6 L405.7 352.9 L400.9 351.9 L396.1 350.8 L391.4 349.6 L386.7 348.1 L382.1 346.6 L377.6 344.8 L373.1 342.9 L368.6 340.8 L364.3 338.6 L360.0 336.2\"/><path stroke-width=\"2.2\" d=\"M576.7 246.2 C616.7 250.2 640 260.2 700 264.2 M567.0 276.0 C607.0 282.0 640 320.0 700 326.0\"/><path stroke-width=\"3\" d=\"M306 144 L306 192 M306 238 L306 286\"/><path stroke-width=\"2\" d=\"M310 128 C320 118 336 116 346 124 C340 134 326 140 312 140 Z\"/><path stroke-width=\"2\" d=\"M310 302 C320 312 336 314 346 306 C340 296 326 290 312 290 Z\"/><path class=\"zacht\" stroke-width=\"1.3\" d=\"M330 136 L339 173 M340 130 L350 173 M330 294 L339 257 M340 300 L350 257\"/><ellipse class=\"acc\" cx=\"345\" cy=\"215\" rx=\"16\" ry=\"44\" stroke-width=\"2.4\"/>",
+   "vakjes": [
+    {
+     "naam": "hoornvlies",
+     "x": 95,
+     "y": 70,
+     "punt": [
+      266,
+      174
+     ],
+     "uitleg": "doorzichtige voorkant; doet ongeveer tweederde van de lichtbreking."
+    },
+    {
+     "naam": "iris",
+     "x": 95,
+     "y": 330,
+     "punt": [
+      306,
+      270
+     ],
+     "uitleg": "het gekleurde deel met spiertjes; het gaatje in het midden is de pupil."
+    },
+    {
+     "naam": "lens",
+     "x": 330,
+     "y": 405,
+     "punt": [
+      345,
+      255
+     ],
+     "uitleg": "stelt fijn bij: voor dichtbij wordt hij boller (accommoderen)."
+    },
+    {
+     "naam": "straalvormig lichaam",
+     "x": 330,
+     "y": 30,
+     "punt": [
+      330,
+      124
+     ],
+     "uitleg": "ring met een kringspier; daaraan hangt de lens met de lensbandjes."
+    },
+    {
+     "naam": "netvlies",
+     "x": 560,
+     "y": 30,
+     "punt": [
+      504,
+      96
+     ],
+     "uitleg": "de laag met de lichtreceptoren: staafjes en kegeltjes."
+    },
+    {
+     "naam": "gele vlek",
+     "x": 665,
+     "y": 140,
+     "punt": [
+      566,
+      215
+     ],
+     "uitleg": "recht achter de lens; hier liggen de kegeltjes het dichtst op elkaar."
+    },
+    {
+     "naam": "blinde vlek",
+     "x": 665,
+     "y": 390,
+     "punt": [
+      563,
+      258
+     ],
+     "uitleg": "hier verlaat de oogzenuw het oog; er zitten geen receptoren."
+    }
+   ],
+   "afleiders": [
+    "trommelvlies"
+   ]
+  },
+  {
+   "id": "volgorde-accommoderen",
+   "soort": "volgorde",
+   "titel": "Van het bord naar je telefoon",
+   "opdracht": "Je kijkt van een bord aan de overkant van de straat weer naar je telefoon. Zet in de goede volgorde wat er in je oog gebeurt.",
+   "stappen": [
+    {
+     "tekst": "De kringspier in het straalvormig lichaam trekt samen.",
+     "uitleg": "Bij kijken in de verte is die kringspier juist ontspannen."
+    },
+    {
+     "tekst": "De ring wordt nauwer: de lensbandjes hangen slap.",
+     "uitleg": "De lens hangt aan de lensbandjes in het straalvormig lichaam."
+    },
+    {
+     "tekst": "De lens wordt vanzelf boller.",
+     "uitleg": "Niet de spier duwt de lens bol: de lens veert vanzelf terug als de bandjes slap hangen."
+    },
+    {
+     "tekst": "De lens breekt het licht sterker, zodat er een scherp beeld op het netvlies valt.",
+     "uitleg": "Dichtbij moet het licht juist sterker gebroken worden. Dit heet accommoderen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-geluid",
+   "soort": "volgorde",
+   "titel": "Van geluid tot impuls",
+   "opdracht": "Er klinkt een toon. Zet in de goede volgorde hoe het geluid een impuls wordt.",
+   "stappen": [
+    {
+     "tekst": "De oorschelp vangt de trilling van de lucht op, en de gehoorgang leidt hem naar het trommelvlies.",
+     "uitleg": "Geluid is een trilling van de lucht."
+    },
+    {
+     "tekst": "Het trommelvlies gaat meetrillen.",
+     "uitleg": "Achter het trommelvlies zit lucht: het middenoor."
+    },
+    {
+     "tekst": "Hamer, aambeeld en stijgbeugel geven de trilling door.",
+     "uitleg": "Het trommelvlies is groot en het ovale venster klein: zo wordt de druk zo'n twintig keer groter."
+    },
+    {
+     "tekst": "De stijgbeugel duwt tegen het ovale venster van het slakkenhuis.",
+     "uitleg": "Het slakkenhuis ligt in het binnenoor en zit vol vloeistof."
+    },
+    {
+     "tekst": "De haartjes van de haarcellen buigen mee met de trilling.",
+     "uitleg": "De haarcellen zijn de receptoren voor geluid."
+    },
+    {
+     "tekst": "Er ontstaan impulsen in de gehoorzenuw.",
+     "uitleg": "Je hoort tonen van ongeveer twintig tot twintigduizend hertz."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-donker-pad",
+   "soort": "uitleg",
+   "titel": "Het donkere fietspad",
+   "opdracht": "Noor komt van een fel verlicht veld op een donker fietspad. Eerst ziet ze bijna niets; na een tijdje ziet ze weer, maar alles is grijs en haar rode jas lijkt zwart. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "staafjes",
+     "varianten": [
+      "staafje"
+     ]
+    },
+    {
+     "naam": "kegeltjes",
+     "varianten": [
+      "kegeltje"
+     ]
+    },
+    {
+     "naam": "lichtgevoelige stof",
+     "varianten": [
+      "rodopsine",
+      "stof"
+     ]
+    },
+    {
+     "naam": "adaptatie",
+     "varianten": [
+      "wennen",
+      "aanpassen"
+     ]
+    },
+    {
+     "naam": "kleur",
+     "varianten": [
+      "kleuren",
+      "geen kleur",
+      "grijs"
+     ]
+    },
+    {
+     "naam": "rood",
+     "varianten": [
+      "rood licht",
+      "rode"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat kegeltjes kleur zien, maar alleen bij genoeg licht, en dat staafjes veel gevoeliger zijn.",
+    "Ik leg uit dat in fel licht de lichtgevoelige stof in de staafjes grotendeels is afgebroken.",
+    "Ik leg uit dat die stof in het donker weer wordt aangemaakt, en dat dat minuten duurt (adaptatie).",
+    "Ik leg uit dat staafjes geen kleur zien en haast blind zijn voor rood licht: daarom lijkt de rode jas zwart."
+   ],
+   "model": [
+    "Op het felle veld werkten vooral Noors kegeltjes. Kegeltjes zien kleur, maar alleen bij genoeg licht. Op het donkere pad is er te weinig licht voor de kegeltjes.",
+    "De staafjes zijn veel gevoeliger, maar in fel licht is hun lichtgevoelige stof grotendeels afgebroken. In het donker wordt die stof weer aangemaakt. Dat duurt: na een minuut of tien ziet Noor weer iets, na twintig tot dertig minuten het best. Dit heet adaptatie.",
+    "Staafjes zien geen kleur, dus alles lijkt grijs. Ze zijn bovendien haast blind voor rood licht: daarom lijkt haar rode jas bijna zwart. Haar pupil wordt ook groter, maar dat gaat binnen seconden en helpt maar een beetje."
+   ]
+  },
+  {
+   "id": "uitleg-bijziend",
+   "soort": "uitleg",
+   "titel": "Bijziend",
+   "opdracht": "Iemand die bijziend is, ziet dichtbij goed maar ver weg wazig. Leg uit hoe dat komt en hoe een bril helpt.",
+   "begrippen": [
+    {
+     "naam": "netvlies",
+     "varianten": []
+    },
+    {
+     "naam": "te lang",
+     "varianten": [
+      "lang oog",
+      "oog is te lang"
+     ]
+    },
+    {
+     "naam": "vóór het netvlies",
+     "varianten": [
+      "voor het netvlies"
+     ]
+    },
+    {
+     "naam": "holle lens",
+     "varianten": [
+      "holle",
+      "negatieve lens"
+     ]
+    },
+    {
+     "naam": "breken",
+     "varianten": [
+      "breekt",
+      "lichtbreking",
+      "spreidt"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij bijziendheid het oog vaak iets te lang is.",
+    "Ik leg uit dat het licht van iets in de verte dan al vóór het netvlies samenkomt, zodat het beeld op het netvlies wazig is.",
+    "Ik leg uit dat een holle lens het licht een beetje spreidt, zodat het beeld weer op het netvlies valt.",
+    "Ik zie het verschil met verziendheid: oog te kort, beeld achter het netvlies, bolle lens."
+   ],
+   "model": [
+    "Hoornvlies en lens breken het licht, zodat er normaal een scherp beeld op het netvlies valt. Bij bijziendheid is het oog vaak iets te lang.",
+    "Het licht van iets in de verte komt dan al vóór het netvlies samen. Op het netvlies is het beeld wazig. Dichtbij gaat het wel goed, want daar komt het licht verder naar achteren samen.",
+    "Een holle lens in een bril spreidt het licht een beetje, waardoor het beeld weer precies op het netvlies valt. Bij verziendheid is het andersom: het oog is te kort, en een bolle lens helpt."
+   ]
+  },
+  {
+   "id": "uitleg-convergentie",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Gevoelig of scherp",
+   "opdracht": "Staafjes zijn heel gevoelig, maar geven een minder scherp beeld. Kegeltjes in de gele vlek geven een scherp beeld, maar zijn minder gevoelig. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "convergentie",
+     "varianten": [
+      "samen",
+      "één zenuwcel",
+      "optellen"
+     ]
+    },
+    {
+     "naam": "staafjes",
+     "varianten": [
+      "staafje"
+     ]
+    },
+    {
+     "naam": "kegeltjes",
+     "varianten": [
+      "kegeltje"
+     ]
+    },
+    {
+     "naam": "zenuwcel",
+     "varianten": [
+      "zenuwcellen",
+      "neuron"
+     ]
+    },
+    {
+     "naam": "gele vlek",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat veel staafjes hun signaal samen doorgeven aan één zenuwcel (convergentie).",
+    "Ik leg uit dat kleine beetjes licht zo optellen, zodat ook weinig licht een signaal geeft: staafjes zijn gevoelig.",
+    "Ik leg uit dat de hersenen dan niet weten welk staafje het licht ving: het beeld is minder scherp.",
+    "Ik leg uit dat kegeltjes in de gele vlek bijna elk een eigen zenuwcel hebben: scherp, maar minder gevoelig."
+   ],
+   "model": [
+    "Veel staafjes geven hun signaal samen door aan één zenuwcel. Dat heet convergentie. Kleine beetjes licht op veel staafjes tellen zo op, dus er ontstaat al een impuls bij weinig licht: staafjes zijn gevoelig.",
+    "Omdat veel staafjes op één zenuwcel uitkomen, kunnen de hersenen niet zien welk staafje precies licht ving. Het beeld is daardoor minder scherp.",
+    "Kegeltjes in de gele vlek hebben bijna elk een eigen zenuwcel. Elk puntje van het beeld komt apart door: scherp. Maar er telt niets op, dus er is meer licht nodig: minder gevoelig."
+   ]
+  }
+ ]
+}

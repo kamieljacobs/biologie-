@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="js/teller.js" data-root="./"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zelf aan de slag · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="tools/huisstijl.css">
+<script src="tools/huisstijl.js"></script>
+<style>
+/* Losse oefenpagina: de oefeningen van één film (?film=<href>), of een overzicht van alle films met oefeningen. */
+.oef-kop{display:flex;gap:10px 16px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.oef-kop .seg{margin-left:auto}
+#oefen-hier{margin-top:18px}
+.oef-overzicht{display:grid;gap:22px;margin-top:22px}
+.oef-overzicht h2{font-size:22px;margin-bottom:8px}
+.oef-film{display:flex;gap:6px 14px;flex-wrap:wrap;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line)}
+.oef-film a{font-weight:700;font-size:18px;text-decoration:none;color:var(--text)}
+.oef-film a:hover{color:var(--goud-text)}
+.oef-film span{color:var(--text2);font-size:15px}
+body.havo .oe-kaart.vwo{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="index.html">Biologie bij Kamiel</a>
+    <a class="terug" id="terug" href="index.html#films">← Alle films</a>
+    <span class="rechts"><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+  <header class="tool-kop">
+    <div class="mono" id="eyebrow">Zelf aan de slag</div>
+    <h1 id="titel">Oefenen</h1>
+    <p id="lead">Oefen met wat je in de film zag: zet stappen in de goede volgorde, sleep namen op een schema en leg in je eigen woorden uit hoe het zit. Je antwoorden blijven op je eigen apparaat.</p>
+    <div class="oef-kop" id="kopknoppen" hidden>
+      <a class="knop klein" id="filmknop" href="#"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg> Bekijk de film</a>
+      <div class="seg" id="niveau" role="group" aria-label="Niveau" hidden>
+        <button type="button" data-n="havo" aria-pressed="false">havo</button>
+        <button type="button" data-n="vwo" aria-pressed="true">vwo</button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div id="oefen-hier"></div>
+    <div class="oef-overzicht" id="overzicht" hidden></div>
+  </main>
+  <footer class="tool-voet">Biologie bij Kamiel</footer>
+</div>
+<script>
+(function(){
+  'use strict';
+  function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  var film = new URLSearchParams(location.search).get('film');
+  fetch('oefenlijst.json',{cache:'no-cache'}).then(function(r){ return r.json(); }).then(function(lijst){
+    var f = film && lijst[film];
+    if(!f){ return overzicht(lijst); }
+    document.title = 'Oefenen: ' + f.titel + ' · Biologie bij Kamiel';
+    document.getElementById('eyebrow').textContent = 'Zelf aan de slag · ' + f.htitel;
+    document.getElementById('titel').textContent = f.titel;
+    document.getElementById('lead').textContent = 'Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.';
+    var t = document.getElementById('terug'); t.href = 'index.html#' + f.hoofdstuk; t.textContent = '← Terug naar ' + f.htitel;
+    document.getElementById('filmknop').href = film;
+    document.getElementById('kopknoppen').hidden = false;
+    // havo/vwo alleen als er vwo-oefeningen zijn; zelfde voorkeur als de films (bk-niveau)
+    if(f.oef.some(function(o){ return o[3]; })){
+      var seg = document.getElementById('niveau'); seg.hidden = false;
+      var n = 'vwo'; try{ n = localStorage.getItem('bk-niveau') === 'havo' ? 'havo' : 'vwo'; }catch(e){}
+      var zet = function(x){ document.body.classList.toggle('havo', x === 'havo'); seg.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.n === x)); }); };
+      zet(n);
+      seg.addEventListener('click', function(e){ var b = e.target.closest('[data-n]'); if(!b) return; zet(b.dataset.n); try{ localStorage.setItem('bk-niveau', b.dataset.n); }catch(er){} });
+    }
+    var s = document.createElement('script'); s.src = 'js/oefenen.js'; s.setAttribute('data-oefenen', f.json); document.body.appendChild(s);
+  }).catch(function(){ document.getElementById('lead').textContent = 'De oefeningen konden niet worden geladen. Herlaad de pagina.'; });
+
+  function overzicht(lijst){
+    var per = {}, volg = [];
+    Object.keys(lijst).forEach(function(h){ var f = lijst[h]; if(!per[f.htitel]){ per[f.htitel] = []; volg.push(f.htitel); } per[f.htitel].push([h, f]); });
+    var el = document.getElementById('overzicht'); el.hidden = false;
+    el.innerHTML = volg.map(function(ht){
+      return '<section><h2>' + esc(ht) + '</h2>' + per[ht].map(function(x){
+        return '<div class="oef-film"><a href="oefenen.html?film=' + encodeURIComponent(x[0]) + '">' + esc(x[1].titel) + '</a><span>' + x[1].oef.length + ' oefeningen</span></div>';
+      }).join('') + '</section>';
+    }).join('');
+  }
+})();
+</script>
+</body>
+</html>

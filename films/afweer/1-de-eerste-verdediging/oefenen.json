@@ -1,0 +1,292 @@
+{
+ "versie": 1,
+ "film": "films/afweer/1-de-eerste-verdediging.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-fagocytose",
+   "soort": "volgorde",
+   "titel": "Een macrofaag ruimt een bacterie op",
+   "opdracht": "Er komt een bacterie van de splinter in je weefsel. Zet de stappen van fagocytose in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De macrofaag herkent vormpjes op de bacterie die jouw eigen cellen niet hebben: dit is vreemd.",
+     "uitleg": "Een fagocyt herkent kenmerken die veel bacteriën gemeen hebben. Welke soort het precies is, ziet hij niet."
+    },
+    {
+     "tekst": "De macrofaag omsluit de bacterie met schijnvoetjes.",
+     "uitleg": "Schijnvoetjes zijn uitstulpingen van de cel. Ze groeien om de bacterie heen."
+    },
+    {
+     "tekst": "De bacterie zit nu in een blaasje in de macrofaag.",
+     "uitleg": "De schijnvoetjes sluiten zich: de bacterie is opgenomen, met een stukje membraan eromheen."
+    },
+    {
+     "tekst": "Lysosomen versmelten met het blaasje.",
+     "uitleg": "Lysosomen zijn blaasjes vol verteringsenzymen."
+    },
+    {
+     "tekst": "De enzymen breken de bacterie af.",
+     "uitleg": "Zo ruimt de fagocyt de bacterie op. Dit hele proces heet fagocytose."
+    }
+   ]
+  },
+  {
+   "id": "schema-barrieres",
+   "soort": "schema",
+   "titel": "Muren en grachten",
+   "opdracht": "De meeste ziekteverwekkers komen niet eens binnen. Sleep de barrières naar de goede plek in het lichaam. Eén naam hoort er niet bij.",
+   "alt": "Lijntekening van een mens in vooraanzicht met ogen, mond, luchtpijp, maag en darmen.",
+   "breed": 760,
+   "hoog": 470,
+   "vakbreed": 186,
+   "svg": "<ellipse cx=\"380\" cy=\"66\" rx=\"34\" ry=\"42\" stroke-width=\"2.4\"/><path stroke-width=\"1.6\" d=\"M358 60 c5 -5 13 -5 18 0 c-5 4 -13 4 -18 0 Z M384 60 c5 -5 13 -5 18 0 c-5 4 -13 4 -18 0 Z\"/><path stroke-width=\"1.8\" d=\"M368 88 c8 6 16 6 24 0\"/><path stroke-width=\"2.4\" d=\"M366 106 L366 128 C334 132 306 142 300 168 M394 106 L394 128 C426 132 454 142 460 168\"/><path stroke-width=\"2.4\" d=\"M300 168 C286 240 274 300 268 372 C272 386 288 386 292 372 C300 320 310 260 318 205 C322 260 324 300 322 340 C320 380 326 420 330 456\"/><path stroke-width=\"2.4\" d=\"M460 168 C474 240 486 300 492 372 C488 386 472 386 468 372 C460 320 450 260 442 205 C438 260 436 300 438 340 C440 380 434 420 430 456\"/><path stroke-width=\"1.4\" class=\"zacht\" d=\"M380 424 L380 456\"/><path stroke-width=\"2\" d=\"M374 110 L374 182 M386 110 L386 182 M374 182 C366 194 356 202 344 210 M386 182 C394 194 404 202 416 210\"/><path stroke-width=\"1.2\" class=\"zacht\" d=\"M374 122 h12 M374 134 h12 M374 146 h12 M374 158 h12 M374 170 h12\"/><path stroke-width=\"1.4\" class=\"zacht\" d=\"M380 100 C381 150 392 200 404 236\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M402 234 C426 222 450 240 446 270 C442 300 412 312 388 300 C376 294 380 282 392 282 C410 284 422 272 420 256 C418 246 410 242 402 244 Z\"/><path stroke-width=\"2\" d=\"M340 410 L340 330 C340 318 350 314 362 314 L400 314 C412 314 420 318 420 330 L420 404\"/><path stroke-width=\"1.4\" d=\"M356 334 c10 -6 20 6 30 0 c10 -6 20 6 22 2 M352 352 c10 6 20 -6 30 0 c10 6 20 -6 28 0 M356 370 c10 -6 20 6 30 0 c10 -6 20 6 22 2 M352 388 c10 6 20 -6 30 0 c10 6 20 -6 28 0\"/>",
+   "vakjes": [
+    {
+     "naam": "traanvocht",
+     "x": 100,
+     "y": 40,
+     "punt": [
+      364,
+      62
+     ],
+     "uitleg": "bevat lysozym, een enzym dat de celwand van bacteriën afbreekt."
+    },
+    {
+     "naam": "speeksel",
+     "x": 100,
+     "y": 120,
+     "punt": [
+      380,
+      92
+     ],
+     "uitleg": "bevat ook lysozym."
+    },
+    {
+     "naam": "slijm en trilharen",
+     "x": 100,
+     "y": 210,
+     "punt": [
+      376,
+      152
+     ],
+     "uitleg": "in je luchtwegen vangt slijm ziekteverwekkers, en trilharen voeren het af."
+    },
+    {
+     "naam": "huid",
+     "x": 100,
+     "y": 330,
+     "punt": [
+      279,
+      290
+     ],
+     "uitleg": "buitenste laag van dode, verhoornde cellen die afschilferen; zweet en talg maken de huid wat zuur."
+    },
+    {
+     "naam": "maagzuur",
+     "x": 660,
+     "y": 200,
+     "punt": [
+      444,
+      262
+     ],
+     "uitleg": "zoutzuur in je maag doodt de meeste bacteriën uit je eten."
+    },
+    {
+     "naam": "darmbacteriën",
+     "x": 660,
+     "y": 360,
+     "punt": [
+      398,
+      352
+     ],
+     "uitleg": "nuttige bacteriën bezetten de plek en het voedsel, en remmen ziekteverwekkers."
+    }
+   ],
+   "afleiders": [
+    "histamine"
+   ]
+  },
+  {
+   "id": "volgorde-koorts",
+   "soort": "volgorde",
+   "titel": "Koorts: de thermostaat omhoog",
+   "opdracht": "Je hebt griep. Zet in de goede volgorde hoe je koorts krijgt, en hoe die weer zakt.",
+   "stappen": [
+    {
+     "tekst": "Witte bloedcellen geven stoffen af die naar je hypothalamus gaan.",
+     "uitleg": "De warmte komt niet van de ziekteverwekkers: je lichaam doet het zelf."
+    },
+    {
+     "tekst": "De thermostaat in je hypothalamus wordt hoger gezet. Je lichaam vindt zichzelf nu te koud.",
+     "uitleg": "Je lichaamstemperatuur is lager dan de nieuwe instelling."
+    },
+    {
+     "tekst": "Bloedvaatjes in je huid worden nauwer, en je spieren gaan rillen.",
+     "uitleg": "Nauwere vaatjes: minder warmteverlies. Rillen: extra warmte. Dit gebeurt tegelijk."
+    },
+    {
+     "tekst": "Je temperatuur stijgt tot de nieuwe instelling.",
+     "uitleg": "Bij een hogere temperatuur groeien veel ziekteverwekkers trager en werkt je afweer beter."
+    },
+    {
+     "tekst": "De infectie is voorbij: de thermostaat gaat weer omlaag.",
+     "uitleg": "Nu is je temperatuur hoger dan de instelling: je hebt het te warm."
+    },
+    {
+     "tekst": "Je gaat zweten, tot je weer op 37 graden zit.",
+     "uitleg": "Zweten voert warmte af. Koorts is dus een deel van de afweer, niet de ziekte zelf."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-antigeenpresentatie",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Een opsporingsbericht naar de lymfeknoop",
+   "opdracht": "Een dendritische cel doet meer dan opruimen. Zet de stappen van de antigeenpresentatie in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "De dendritische cel neemt een bacterie op.",
+     "uitleg": "Een dendritische cel is een fagocyt, net als een macrofaag."
+    },
+    {
+     "tekst": "Hij knipt de bacterie in stukjes.",
+     "uitleg": "Die stukjes zijn vooral stukjes eiwit van de bacterie."
+    },
+    {
+     "tekst": "Hij zet een paar stukjes op zijn eigen oppervlak, als een opsporingsbericht.",
+     "uitleg": "Zo'n vreemd stukje heet een antigeen. Het laten zien heet antigeenpresentatie."
+    },
+    {
+     "tekst": "Via de lymfe reist hij naar een lymfeknoop.",
+     "uitleg": "In de lymfeknopen zitten veel lymfocyten bij elkaar."
+    },
+    {
+     "tekst": "Daar zoekt hij een T-helpercel die precies bij dat antigeen past.",
+     "uitleg": "Zo start de specifieke afweer. Die zie je in de volgende twee films."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-ontsteking",
+   "soort": "uitleg",
+   "titel": "Rood, warm en dik",
+   "opdracht": "Noor heeft een splinter gehad. De volgende dag is het plekje rood, warm, dik en pijnlijk. Leg uit hoe elk van die vier verschijnselen ontstaat, en waarom het goed is dat het gebeurt.",
+   "begrippen": [
+    {
+     "naam": "histamine",
+     "varianten": [
+      "histamien"
+     ]
+    },
+    {
+     "naam": "mestcellen",
+     "varianten": [
+      "mestcel"
+     ]
+    },
+    {
+     "naam": "wijder",
+     "varianten": [
+      "verwijden",
+      "verwijding",
+      "breder"
+     ]
+    },
+    {
+     "naam": "doorlaatbaar",
+     "varianten": [
+      "doorlaten",
+      "lekken",
+      "lekt",
+      "lek"
+     ]
+    },
+    {
+     "naam": "vocht",
+     "varianten": [
+      "weefselvocht"
+     ]
+    },
+    {
+     "naam": "witte bloedcellen",
+     "varianten": [
+      "witte bloedcel",
+      "neutrofielen",
+      "neutrofiel",
+      "fagocyten",
+      "fagocyt"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem dat mestcellen histamine afgeven.",
+    "Ik leg uit dat wijdere bloedvaatjes meer bloed aanvoeren: rood en warm.",
+    "Ik leg uit dat de wand van de haarvaten meer doorlaat: vocht lekt het weefsel in (dik), en dat prikkelt zenuwuiteinden (pijn).",
+    "Ik leg uit dat er zo extra witte bloedcellen (fagocyten) het weefsel in komen om de bacteriën op te ruimen."
+   ],
+   "model": [
+    "Mestcellen in het weefsel geven histamine af. Histamine maakt de bloedvaatjes bij de wond wijder. Er stroomt meer bloed naar de plek: daarom wordt hij rood en warm.",
+    "Histamine maakt de wand van de haarvaten ook beter doorlaatbaar. Er lekt vocht het weefsel in, en de plek wordt dik. Dat vocht en andere ontstekingsstoffen prikkelen zenuwuiteinden: dat doet pijn. Er lekt geen bloed uit: de rode bloedcellen blijven in het vat.",
+    "Door de wand kruipen ook extra witte bloedcellen het weefsel in, vooral neutrofielen. Dat zijn fagocyten die de bacteriën opeten. Een ontsteking is dus je afweer aan het werk."
+   ]
+  },
+  {
+   "id": "uitleg-antibiotica-diarree",
+   "soort": "uitleg",
+   "titel": "Diarree na een antibioticakuur",
+   "opdracht": "Na een antibioticakuur krijgt iemand diarree. Leg uit hoe dat kan, en wat dit zegt over de rol van de bacteriën in je darmen.",
+   "begrippen": [
+    {
+     "naam": "darmbacteriën",
+     "varianten": [
+      "bacterieflora",
+      "eigen bacteriën",
+      "nuttige bacteriën",
+      "goede bacteriën"
+     ]
+    },
+    {
+     "naam": "antibiotica",
+     "varianten": [
+      "antibioticum",
+      "antibiotisch"
+     ]
+    },
+    {
+     "naam": "ruimte",
+     "varianten": [
+      "plek"
+     ]
+    },
+    {
+     "naam": "voedsel",
+     "varianten": [
+      "eten",
+      "voeding"
+     ]
+    },
+    {
+     "naam": "schadelijke",
+     "varianten": [
+      "ziekteverwekkers",
+      "ziekteverwekker",
+      "schimmels",
+      "schimmel"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat antibiotica geen onderscheid maken tussen goede en slechte bacteriën.",
+    "Ik leg uit dat er daardoor ook nuttige darmbacteriën doodgaan.",
+    "Ik leg uit dat schadelijke bacteriën of schimmels dan de ruimte en het voedsel krijgen.",
+    "Ik noem dat de eigen bacteriën normaal een barrière zijn: ze bezetten de plek, eten het voedsel op en remmen ziekteverwekkers."
+   ],
+   "model": [
+    "In je darmen leven ontelbaar veel bacteriën die je geen kwaad doen. Ze bezetten de plek, eten het voedsel op en maken zelfs stoffen die ziekteverwekkers remmen. Zo zijn ze een barrière.",
+    "Antibiotica maken geen onderscheid tussen goede en slechte bacteriën. Valt een deel van je eigen darmbacteriën weg, dan krijgen schadelijke bacteriën de ruimte. Of schimmels: daar doen antibiotica niets tegen. Die kunnen diarree veroorzaken."
+   ]
+  }
+ ]
+}

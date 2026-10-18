@@ -1,0 +1,329 @@
+{
+ "versie": 1,
+ "film": "films/hormonen/5-water-in-balans.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-nier",
+   "soort": "schema",
+   "titel": "Een doorgesneden nier",
+   "opdracht": "Je ziet een nier in doorsnede, met de bloedvaten en de afvoer van urine. Sleep de namen naar de goede vakjes. Let op de pijlen. Eén naam blijft over.",
+   "alt": "Lijntekening van een doorgesneden nier: een boonvorm met een buitenlaag, driehoekige piramides en in het midden een holte die overgaat in een buis naar beneden. Twee bloedvaten met pijlen: één naar de nier toe, één van de nier af.",
+   "breed": 760,
+   "hoog": 420,
+   "vakbreed": 160,
+   "svg": "<path stroke-width=\"2.8\" d=\"M300 40 C395 40 440 100 438 150 C436 175 402 178 400 210 C402 242 436 245 438 270 C440 320 395 380 300 380 C205 380 160 300 160 210 C160 120 205 40 300 40 Z\"/><path stroke-width=\"1.8\" d=\"M319.4 70.1 Q342.0 78.3 362.7 92.3 L358.5 151.9 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M342.0 78.3 L358.5 151.9\"/><path stroke-width=\"1.8\" d=\"M232.5 96.6 Q252.7 81.3 274.9 71.6 L318.3 153.2 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M252.7 81.3 L318.3 153.2\"/><path stroke-width=\"1.8\" d=\"M189.1 190.3 Q194.8 161.4 205.1 134.7 L292.2 189.2 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M194.8 161.4 L292.2 189.2\"/><path stroke-width=\"1.8\" d=\"M205.1 285.3 Q194.8 258.6 189.1 229.7 L292.2 233.0 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M194.8 258.6 L292.2 233.0\"/><path stroke-width=\"1.8\" d=\"M274.9 348.4 Q252.7 338.7 232.5 323.4 L318.3 269.0 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M252.7 338.7 L318.3 269.0\"/><path stroke-width=\"1.8\" d=\"M362.7 327.7 Q342.0 341.7 319.4 349.9 L358.5 270.3 Z\"/><path class=\"zacht\" stroke-width=\"1\" d=\"M342.0 341.7 L358.5 270.3\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M410 228 C388 222 372 200 354 168 C348 156 336 150 330 158 C322 168 326 182 338 194 C330 208 330 228 338 240 C326 252 322 266 330 274 C338 282 350 276 358 262 C368 252 388 250 410 256 M410 228 C432 234 440 262 446 300 L454 410 M410 256 C420 262 426 282 430 304 L438 410\"/><path stroke-width=\"2\" d=\"M414 159 C450 157 500 101 600 101 M414 173 C450 171 500 115 600 115\"/><path stroke-width=\"2\" d=\"M528 102 L520 108 L528 114\"/><path stroke-width=\"2\" d=\"M414 189 C450 187 500 171 600 171 M414 203 C450 201 500 185 600 185\"/><path stroke-width=\"2\" d=\"M512 172 L520 178 L512 184\"/><path stroke-width=\"2\" d=\"M440 382 L446 394 L452 382\" class=\"acc\"/>",
+   "vakjes": [
+    {
+     "naam": "nierschors",
+     "x": 90,
+     "y": 60,
+     "punt": [
+      196,
+      112
+     ],
+     "uitleg": "de buitenste laag van de nier."
+    },
+    {
+     "naam": "niermerg",
+     "x": 90,
+     "y": 210,
+     "punt": [
+      222,
+      210
+     ],
+     "uitleg": "de laag binnen de schors, met de piramides."
+    },
+    {
+     "naam": "nierbekken",
+     "x": 90,
+     "y": 370,
+     "punt": [
+      354,
+      215
+     ],
+     "uitleg": "de holte in het midden; hier komt de urine samen."
+    },
+    {
+     "naam": "nierslagader",
+     "x": 670,
+     "y": 70,
+     "punt": [
+      560,
+      104
+     ],
+     "uitleg": "voert bloed naar de nier: de pijl wijst de nier in."
+    },
+    {
+     "naam": "nierader",
+     "x": 670,
+     "y": 225,
+     "punt": [
+      580,
+      178
+     ],
+     "uitleg": "voert bloed af van de nier; hierin zit het minste ureum van al je bloedvaten."
+    },
+    {
+     "naam": "urineleider",
+     "x": 670,
+     "y": 370,
+     "punt": [
+      446,
+      345
+     ],
+     "uitleg": "voert de urine van het nierbekken naar de blaas."
+    }
+   ],
+   "afleiders": [
+    "blaas"
+   ]
+  },
+  {
+   "id": "schema-nefron",
+   "soort": "schema",
+   "titel": "Eén nefron",
+   "opdracht": "Sleep de namen naar de goede onderdelen van het nefron. Let op de pijlen en op hoe wijd de bloedvaten zijn.",
+   "alt": "Lijntekening van een nefron: een kommetje met een kluwen haarvaten, een wijd bloedvat erheen en een nauwer bloedvat ervan af, een kronkelend buisje met een lange lus, dat uitkomt op een brede buis.",
+   "breed": 760,
+   "hoog": 440,
+   "vakbreed": 170,
+   "svg": "<path class=\"acc\" stroke-width=\"2.4\" d=\"M199.8 101.0 L205.6 92.7 L212.7 85.6 L221.0 79.8 L230.2 75.5 L239.9 72.9 L250.0 72.0 L260.1 72.9 L269.8 75.5 L279.0 79.8 L287.3 85.6 L294.4 92.7 L300.2 101.0 L304.5 110.2 L307.1 119.9 L308.0 130.0 L307.1 140.1 L304.5 149.8 L300.2 159.0 L294.4 167.3 L287.3 174.4 L279.0 180.2 L269.8 184.5 L260.1 187.1 L250.0 188.0 L239.9 187.1 L230.2 184.5 L221.0 180.2 L212.7 174.4 L205.6 167.3 L199.8 159.0 L211.9 152.0 L216.3 158.3 L221.7 163.7 L228.0 168.1 L235.0 171.3 L242.4 173.3 L250.0 174.0 L257.6 173.3 L265.0 171.3 L272.0 168.1 L278.3 163.7 L283.7 158.3 L288.1 152.0 L291.3 145.0 L293.3 137.6 L294.0 130.0 L293.3 122.4 L291.3 115.0 L288.1 108.0 L283.7 101.7 L278.3 96.3 L272.0 91.9 L265.0 88.7 L257.6 86.7 L250.0 86.0 L242.4 86.7 L235.0 88.7 L228.0 91.9 L221.7 96.3 L216.3 101.7 L211.9 108.0 Z\"/><path stroke-width=\"16\" d=\"M60 92 L208 112\"/><path stroke-width=\"11.5\" style=\"stroke:var(--oe-veld)\" d=\"M60 92 L208 112\"/><path stroke-width=\"9\" d=\"M208 140 L60 176\"/><path stroke-width=\"4.5\" style=\"stroke:var(--oe-veld)\" d=\"M208 140 L60 176\"/><path stroke-width=\"2.4\" d=\"M206 116 C214 92 244 90 248 108 C252 126 226 132 232 114 C238 96 270 94 272 116 C274 140 244 150 240 132 C236 116 262 112 268 130 C274 152 236 166 226 148 C218 134 234 124 236 140\"/><path stroke-width=\"13\" d=\"M306 128 C330 112 338 150 352 132 C366 114 380 150 368 162 C356 176 386 186 392 196 L392 370 C392 404 432 404 432 370 L432 200 C432 176 466 186 470 168 C474 150 500 160 524 150\"/><path stroke-width=\"8.5\" style=\"stroke:var(--oe-veld)\" d=\"M306 128 C330 112 338 150 352 132 C366 114 380 150 368 162 C356 176 386 186 392 196 L392 370 C392 404 432 404 432 370 L432 200 C432 176 466 186 470 168 C474 150 500 160 524 150\"/><path stroke-width=\"18\" d=\"M540 40 L540 420\"/><path stroke-width=\"13.5\" style=\"stroke:var(--oe-veld)\" d=\"M540 40 L540 420\"/><path stroke-width=\"2\" d=\"M110 90 L124 100 L110 110\" transform=\"rotate(8 117 100)\"/><path stroke-width=\"2\" d=\"M126 152 L112 160 L126 168\" transform=\"rotate(-14 119 160)\"/><path stroke-width=\"2\" d=\"M532 394 L540 406 L548 394\"/>",
+   "vakjes": [
+    {
+     "naam": "aanvoerend bloedvat",
+     "x": 100,
+     "y": 40,
+     "punt": [
+      90,
+      96
+     ],
+     "uitleg": "wijder dan het afvoerende vat; brengt bloed naar de glomerulus."
+    },
+    {
+     "naam": "afvoerend bloedvat",
+     "x": 100,
+     "y": 250,
+     "punt": [
+      92,
+      168
+     ],
+     "uitleg": "nauwer dan het aanvoerende vat; daardoor is de bloeddruk in de glomerulus hoog."
+    },
+    {
+     "naam": "glomerulus",
+     "x": 250,
+     "y": 320,
+     "punt": [
+      240,
+      140
+     ],
+     "uitleg": "kluwen haarvaten; hier wordt bloedplasma uitgeperst: filtratie."
+    },
+    {
+     "naam": "kapsel van Bowman",
+     "x": 300,
+     "y": 30,
+     "punt": [
+      272,
+      76
+     ],
+     "uitleg": "het kommetje om de glomerulus; vangt de voorurine op."
+    },
+    {
+     "naam": "nierbuisje",
+     "x": 670,
+     "y": 300,
+     "punt": [
+      432,
+      300
+     ],
+     "uitleg": "hier worden glucose, zouten en water teruggehaald: terugresorptie."
+    },
+    {
+     "naam": "verzamelbuis",
+     "x": 670,
+     "y": 100,
+     "punt": [
+      548,
+      100
+     ],
+     "uitleg": "verzamelt de urine van veel nefronen; hier bepaalt ADH hoeveel water er nog teruggaat."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-urine",
+   "soort": "volgorde",
+   "titel": "Van bloed tot urine",
+   "opdracht": "Volg het water en de opgeloste stoffen. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Bloed komt via de nierslagader de nier binnen, en stroomt in de glomerulus.",
+     "uitleg": "Het afvoerende vaatje is nauwer dan het aanvoerende: de bloeddruk is hier hoog."
+    },
+    {
+     "tekst": "De druk perst water en kleine stoffen uit de haarvaten in het kapsel van Bowman: voorurine.",
+     "uitleg": "Dit is filtratie. Bloedcellen en grote eiwitten blijven in het bloed."
+    },
+    {
+     "tekst": "In het nierbuisje worden glucose en zouten actief teruggepompt; water volgt door osmose.",
+     "uitleg": "Terugresorptie. Normaal gaat alle glucose terug, en ongeveer 99 procent van het water."
+    },
+    {
+     "tekst": "In de verzamelbuis bepaalt ADH hoeveel water er nog teruggaat.",
+     "uitleg": "Veel ADH: de wand laat water door, weinig en donkere urine."
+    },
+    {
+     "tekst": "De urine komt in het nierbekken.",
+     "uitleg": "Het nierbekken is de holte in het midden van de nier."
+    },
+    {
+     "tekst": "Via de urineleider gaat de urine naar de blaas.",
+     "uitleg": "Van de ongeveer 180 liter voorurine per dag plas je maar één tot twee liter."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-adh",
+   "soort": "volgorde",
+   "titel": "Na twee uur sporten",
+   "opdracht": "Je hebt op een warme dag twee uur gesport en weinig gedronken. Zet in de goede volgorde hoe je lichaam reageert.",
+   "stappen": [
+    {
+     "tekst": "Door zweten verlies je veel water: de osmotische waarde van je bloed stijgt.",
+     "uitleg": "Er zitten nu meer opgeloste stoffen per hoeveelheid water."
+    },
+    {
+     "tekst": "De hypothalamus meet de hogere osmotische waarde.",
+     "uitleg": "De hypothalamus meet hoeveel stoffen er in het water van je bloed zijn opgelost."
+    },
+    {
+     "tekst": "De hypofyse geeft meer ADH af aan het bloed.",
+     "uitleg": "ADH wordt gemaakt in de hypothalamus, en afgegeven door de hypofyse."
+    },
+    {
+     "tekst": "De wand van de verzamelbuis wordt doorlaatbaar: water gaat door osmose terug naar het bloed. Je krijgt ook dorst.",
+     "uitleg": "ADH maakt geen nieuw water; het kan alleen water terughalen. Daarom krijg je ook dorst. Je plast weinig, en het is donker."
+    },
+    {
+     "tekst": "De osmotische waarde daalt weer, en er komt minder ADH.",
+     "uitleg": "Het effect remt zijn eigen oorzaak: negatieve terugkoppeling."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-alcohol",
+   "soort": "uitleg",
+   "titel": "Alcohol droogt uit",
+   "opdracht": "Na het drinken van alcohol plassen mensen vaak veel, en kunnen ze uitdrogen. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "ADH",
+     "varianten": [
+      "antidiuretisch hormoon"
+     ]
+    },
+    {
+     "naam": "hypofyse",
+     "varianten": []
+    },
+    {
+     "naam": "verzamelbuis",
+     "varianten": [
+      "verzamelbuizen"
+     ]
+    },
+    {
+     "naam": "osmotische waarde",
+     "varianten": [
+      "geconcentreerd",
+      "concentratie"
+     ]
+    },
+    {
+     "naam": "hypothalamus",
+     "varianten": []
+    },
+    {
+     "naam": "terugkoppeling",
+     "varianten": [
+      "regelkring"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat alcohol de afgifte van ADH door de hypofyse remt.",
+    "Ik leg uit dat de verzamelbuis zonder ADH weinig water terughaalt, zodat er veel water naar de blaas gaat.",
+    "Ik leg uit dat het bloed daardoor geconcentreerd raakt: de osmotische waarde stijgt.",
+    "Ik leg uit dat de hypothalamus dat wel meet, maar dat ADH geremd blijft: de terugkoppeling werkt niet goed."
+   ],
+   "model": [
+    "Alcohol remt de afgifte van ADH door de hypofyse. Zonder ADH blijft de wand van de verzamelbuis bijna dicht. Er gaat dus minder water terug naar het bloed, en meer water naar de blaas: je plast veel.",
+    "Zo kan je lichaam meer vocht verliezen dan er binnenkomt. Het bloed raakt geconcentreerd: de osmotische waarde stijgt.",
+    "Normaal zou de hypothalamus dan meer ADH laten afgeven. Hij meet het wel, maar de ADH blijft geremd. De negatieve terugkoppeling werkt dus niet goed, en daarom droogt alcohol uit."
+   ]
+  },
+  {
+   "id": "uitleg-kangoeroerat",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "De kangoeroerat",
+   "opdracht": "Een kangoeroerat in de woestijn heeft een extra lange lis van Henle en plast bijna niets. Leg uit hoe een lange lis zorgt voor zeer geconcentreerde urine.",
+   "begrippen": [
+    {
+     "naam": "lis van Henle",
+     "varianten": [
+      "lis",
+      "lus"
+     ]
+    },
+    {
+     "naam": "zouten",
+     "varianten": [
+      "zout",
+      "natrium"
+     ]
+    },
+    {
+     "naam": "niermerg",
+     "varianten": [
+      "merg"
+     ]
+    },
+    {
+     "naam": "osmotische waarde",
+     "varianten": [
+      "zouter",
+      "zout weefsel"
+     ]
+    },
+    {
+     "naam": "ADH",
+     "varianten": []
+    },
+    {
+     "naam": "osmose",
+     "varianten": [
+      "osmotisch"
+     ]
+    },
+    {
+     "naam": "verzamelbuis",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het opstijgende deel van de lis van Henle zouten naar buiten pompt maar geen water doorlaat.",
+    "Ik leg uit dat het niermerg daardoor een hoge osmotische waarde krijgt, en dat een langere lis het merg nog zouter maakt.",
+    "Ik leg uit dat met ADH de verzamelbuis doorlaatbaar wordt voor water, zodat water door osmose het zoute merg in gaat.",
+    "Ik concludeer dat er meer water teruggaat naar het bloed en de urine extra geconcentreerd is."
+   ],
+   "model": [
+    "Het nierbuisje maakt een lange lus door het niermerg: de lis van Henle. Het opstijgende deel pompt zouten naar buiten, maar laat geen water door. Zo krijgt het merg een hoge osmotische waarde. Een extra lange lis maakt het merg nog zouter.",
+    "De verzamelbuis loopt door dat zoute merg. Met ADH komen er aquaporinen in de wand, en gaat het water door osmose het zoute weefsel in, terug naar het bloed.",
+    "Hoe zouter het merg, hoe meer water er zo teruggaat. De kangoeroerat houdt dus bijna al zijn water vast en plast heel weinig, zeer geconcentreerde urine."
+   ]
+  }
+ ]
+}
