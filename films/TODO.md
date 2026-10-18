@@ -30,3 +30,7 @@ Opmerking: vwo H9 Mens en milieu heeft nog geen hoofdstukpagina op de site. Temp
 - In 27 films staan aanvullingen als `[nieuw]` in `bron/script.md` die nog niet zijn ingesproken (vergelijking met Gewoon Uitgelegd); alleen de nieuwe alinea's inspreken.
 - Onderbouwfilms (kerndoelen 32A–33C): 21 op 'komt nog'.
 - Nieuwsgierig?: 9 films op 'komt nog'.
+
+## Uitspraak opnieuw inspreken (na uitspraaktest 18 okt 2026)
+- Ronde 1 (521 woorden) is klaar; uitkomst staat in `films/UITSPRAAK.md`. Ronde 2 (20 twijfelwoorden, varianten in flow "Uitspraaktest ronde 2 (18 okt)") staat op de luisterpagina Uitspraaktest (claude.ai-artifact, keuzes in collectie `keuzes`, id's `r2-<woord>`); werkbestanden in `/home/claude/uitspraaktest/` (data_ronde1.json = ronde 1).
+- Daarna: ±102 alinea's in 34 films opnieuw inspreken met de gekozen uitspraak (schatting 40.000–60.000 credits incl. transcriptie); nog niet aan beginnen zonder akkoord van Kamiel.
