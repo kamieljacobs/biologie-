@@ -1,0 +1,121 @@
+{
+ "slug": "4-ingrijpen-of-laten-gaan",
+ "hoofdstuk": "ecologie",
+ "hoofdstukNaam": "Ecologie",
+ "title": "Ingrijpen of laten gaan?",
+ "sub": "Plagen bestrijden en natuur beheren",
+ "puzzle": "Een lieveheersbeestje tegen luizen: wat kan daar misgaan?",
+ "meta": "ecologie · plaagbestrijding en natuurbeheer",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Ecologie · film 4",
+ "lead": "Een monocultuur is een gedekte tafel voor een plaag. Spuiten werkt snel, maar geeft resistentie (natuurlijke selectie) en doodt ook de natuurlijke vijanden. Biologische bestrijding werkt in de kas, maar een vijand van ver weg kan zelf een exoot worden: het Aziatisch lieveheersbeestje en de rietpad. Geïntegreerde bestrijding, bloemranden en strokenteelt werken mét de natuur. In natuurgebieden houden begrazing, maaien en verbinden de biodiversiteit hoog; dat maakt ecosystemen stabiel en veerkrachtig. Maar voorbij een omslagpunt slaat een ecosysteem om, zoals het Veluwemeer, en terug is moeilijk.",
+ "endHaak": "welke maatregel uit deze film zou jij aanraden aan opa Henk, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe ontstaat een plaag, en waarom helpt spuiten maar even?",
+  "Hoofdstuk 2": "Wanneer werkt een natuurlijke vijand, en wanneer maakt hij het erger?",
+  "Hoofdstuk 3": "Hoe beheer je natuur, en wat is een omslagpunt?",
+  "Recap": "Wat moet je onthouden?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk en Noor (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Vanaf 1996 werd in Nederland een lieveheersbeestje uit Azië verkocht tegen luizen in kassen. Wat gebeurde er daarna?",
+   "correct": 2,
+   "explain": "Het ontsnapte, vestigde zich buiten (eerste in het wild in 2002, in Nijmegen) en is nu op veel plekken het lieveheersbeestje dat je het vaakst ziet."
+  },
+  "q11": {
+   "q": "In 1935 zette Australië rietpadden uit tegen kevers in het suikerriet. Hoe liep dat af?",
+   "correct": 0,
+   "explain": "De padden konden niet bij de kevers (hoog in het riet, larven in de grond), aten van alles en werden zelf een plaag: nu meer dan 200 miljoen."
+  },
+  "q20": {
+   "q": "Een meer is troebel geworden. Je brengt het fosfaat terug tot het niveau van vlak voor de omslag. Wat gebeurt er?",
+   "correct": 1,
+   "explain": "Het blijft troebel: algen en brasems houden die toestand in stand (positieve terugkoppeling). Het fosfaat moet veel verder omlaag."
+  }
+ },
+ "glossary": [
+  {
+   "t": "plaag",
+   "d": "Een soort die zo talrijk wordt dat ze schade doet, bijvoorbeeld aan een gewas."
+  },
+  {
+   "t": "monocultuur",
+   "d": "Eén gewas op een groot oppervlak: veel voedsel voor een plaag, weinig natuurlijke vijanden."
+  },
+  {
+   "t": "biodiversiteit",
+   "d": "De verscheidenheid aan leven: genen, soorten en ecosystemen. Het gaat om het aantal verschillende soorten, niet om het aantal individuen."
+  },
+  {
+   "t": "bestrijdingsmiddel",
+   "d": "Stof die een plaag doodt (chemische bestrijding); werkt snel, maar raakt ook andere soorten."
+  },
+  {
+   "t": "resistentie",
+   "d": "Een bestrijdingsmiddel werkt niet meer, doordat individuen met een erfelijke eigenschap overleven en zich voortplanten: natuurlijke selectie, geen gewenning."
+  },
+  {
+   "t": "natuurlijke vijand",
+   "d": "Predator, parasiet of ziekteverwekker die een plaag klein houdt."
+  },
+  {
+   "t": "biologische bestrijding",
+   "d": "Een plaag bestrijden met haar natuurlijke vijanden; werkt het best bij een kleine plaag."
+  },
+  {
+   "t": "sluipwesp",
+   "d": "Wesp die een ei legt in een ander insect; de larve eet dat van binnenuit op. Encarsia wordt in kassen ingezet tegen witte vlieg."
+  },
+  {
+   "t": "exoot",
+   "d": "Soort die door de mens buiten haar natuurlijke verspreidingsgebied terechtkomt en zich daar vestigt."
+  },
+  {
+   "t": "inheemse soort",
+   "d": "Soort die van nature in een gebied thuishoort."
+  },
+  {
+   "t": "geïntegreerde bestrijding",
+   "d": "Maatregelen combineren: minder vatbare rassen, wisselen van gewas, natuurlijke vijanden en pas spuiten boven een schadegrens."
+  },
+  {
+   "t": "strokenteelt",
+   "d": "Smalle stroken met verschillende gewassen naast elkaar; meer biodiversiteit op de akker."
+  },
+  {
+   "t": "begrazing",
+   "d": "Grazers houden snelgroeiende planten en jonge bomen kort; te veel grazers vertrappen de bodem en eten zeldzame planten."
+  },
+  {
+   "t": "maaien en afvoeren",
+   "d": "Het maaisel weghalen haalt voedingsstoffen weg (verschralen), zodat planten van arme grond terugkomen."
+  },
+  {
+   "t": "ecoduct",
+   "d": "Natuurbrug over een weg die natuurgebieden verbindt."
+  },
+  {
+   "t": "stabiliteit",
+   "d": "Een ecosysteem blijft ongeveer hetzelfde, ook als er iets verandert; hoger bij veel soorten en verbindingen in het voedselweb."
+  },
+  {
+   "t": "veerkracht",
+   "d": "Hoe snel een ecosysteem herstelt na een verstoring."
+  },
+  {
+   "t": "omslagpunt",
+   "d": "Het punt waarop een ecosysteem plotseling overgaat in een andere toestand, bijvoorbeeld van helder naar troebel water."
+  },
+  {
+   "t": "positieve terugkoppeling",
+   "d": "Een versterkend effect dat een toestand in stand houdt, zoals brasems die troebel water nog troebeler maken."
+  },
+  {
+   "t": "hysterese",
+   "d": "vwo · Een systeem heeft twee omslagpunten: de toestand hangt af van de geschiedenis; terug kan pas bij een veel lagere waarde."
+  }
+ ],
+ "sections": "  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Resistente luizen</b> <span class=\"pts\">3 punten</span><p>Een akkerbouwer spuit al jaren hetzelfde middel tegen luizen in zijn aardappels. Het middel werkt steeds slechter. Hij zegt: \"De luizen zijn aan het gif gewend geraakt.\"</p>\n      <p>a. Leg uit waarom zijn verklaring niet klopt en hoe de resistentie wél is ontstaan. (2p)<br>b. Leg uit dat de monocultuur aardappels de kans op een luizenplaag vergroot. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Er waren al luizen met een erfelijke eigenschap waardoor ze het middel overleven (1); die planten zich voort en geven de eigenschap door, zodat het aandeel resistente luizen elke generatie toeneemt: natuurlijke selectie (1). b. Veel voedsel dicht bij elkaar en weinig natuurlijke vijanden (geen nectar of schuilplaatsen; lage biodiversiteit) (1).</p></details></div>\n    <div class=\"q\"><b>2. Na het spuiten</b> <span class=\"pts\">2 punten</span><p>Na een bespuiting met een breed werkend insecticide is de luizenplaag een paar weken later groter dan ervoor.</p>\n      <p>Leg dit uit. (2p)</p>\n      <details><summary>Antwoord</summary><p>Het middel doodt ook de natuurlijke vijanden, zoals lieveheersbeestjes en sluipwespen (1). Luizen planten zich sneller voort dan hun vijanden, dus de luizenpopulatie herstelt sneller en wordt nauwelijks geremd (1).</p></details></div>\n    <div class=\"q\"><b>3. Een helper van ver weg</b> <span class=\"pts\">3 punten</span><p>Het Aziatisch lieveheersbeestje werd vanaf 1996 in Nederland verkocht om bladluizen te bestrijden. Sinds 2002 leeft het in het wild.</p>\n      <p>a. Leg uit waarom het Aziatisch lieveheersbeestje een exoot is. (1p)<br>b. Geef twee redenen waarom het zich hier zo sterk kon uitbreiden. (1p)<br>c. Leg uit waarom een sluipwesp die alleen witte vlieg aanvalt, minder risico geeft. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Het is door de mens buiten zijn natuurlijke verspreidingsgebied gebracht en heeft zich hier gevestigd (1). b. Twee van: weinig natuurlijke vijanden hier; het eet veel soorten prooi (geen specialist), ook eitjes en larven van andere lieveheersbeestjes; het overleeft het klimaat buiten de kas (1). c. Een specialist kan geen andere (inheemse) soorten aantasten / heeft zonder witte vlieg geen voedsel (1).</p></details></div>\n    <div class=\"q\"><b>4. Heide en grasland</b> <span class=\"pts\">2 punten</span><p>Op een heide grazen schapen, en een schraal grasland wordt elk jaar gemaaid, waarna het maaisel wordt afgevoerd.</p>\n      <p>a. Leg uit hoe begrazing de heide open houdt, en noem een nadeel van te veel schapen. (1p)<br>b. Leg uit waarom het maaisel wordt afgevoerd. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. De schapen eten gras en jonge bomen, zodat de successie naar bos wordt geremd; nadeel: ze eten ook zeldzame planten, vertrappen de bodem of brengen mest aan (1). b. Zo worden voedingsstoffen weggehaald en blijft de bodem arm, zodat snelgroeiende soorten niet gaan overheersen en planten van arme grond kansen houden (1).</p></details></div>\n    <div class=\"q\"><b>5. Het Veluwemeer</b> <span class=\"pts\">3 punten</span><p>Rond 1970 werd het heldere Veluwemeer troebel. Ondanks maatregelen tegen fosfaat bleef het daarna nog jaren troebel.</p>\n      <p>a. Beschrijf een positieve terugkoppeling die de troebele toestand in stand houdt. (2p)<br>b. Leg uit waarom het fosfaatgehalte lager moet worden dan vlak voor de omslag. (1p)</p>\n      <details><summary>Antwoord</summary><p>a. Bijvoorbeeld: in troebel water krijgen waterplanten te weinig licht (1), zonder waterplanten wordt de bodem minder vastgehouden en nemen algen meer voedingsstoffen op, zodat het water troebel blijft (1); of: brasems woelen de bodem om, waardoor het water troebeler wordt en waterplanten niet terugkomen. b. De troebele toestand houdt zichzelf in stand; pas bij een veel lager fosfaatgehalte (het lage omslagpunt) kunnen waterplanten terugkomen (1).</p></details></div>\n    <div class=\"q vwo-only\"><b>6. Twee omslagpunten</b> <span class=\"pts\">2 punten</span><p>In 1991 werd in het Wolderwijd driekwart van de vis weggevangen. Het water werd helder, maar na een paar weken weer troebel.</p>\n      <p>Leg met de begrippen omslagpunt en hysterese uit waarom deze ingreep maar kort werkte. (2p)</p>\n      <details><summary>Antwoord</summary><p>Het fosfaatgehalte lag nog boven het lage omslagpunt, in het gebied waar helder én troebel mogelijk zijn (hysterese) (1); daar is de troebele toestand stabieler, zodat een kleine verstoring (nieuwe vis, minder plantengroei) het meer terugduwt naar troebel (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>Opa Henk en Noor (castboek) in de moestuin: tuinbonen vol zwarte luizen, een doosje lieveheersbeestjes. Biologische bestrijding gedefinieerd. Openingsvraag: wat gebeurde er met het Aziatisch lieveheersbeestje? (antwoord in H1)</td></tr>\n      <tr><td>1 Een gedekte tafel</td><td>Ontsnapping uit de kas, Nijmegen 2002. Akker van boven: één gewas, luizen nemen toe, vijanden vinden geen nectar of schuilplaats. Spuiten: drie problemen. Resistentie als selectie in drie generaties (gouden luizen blijven over); 'wennen' doorgestreept; coloradokever. Grafiek: luizen herstellen sneller dan hun vijanden. Ophoping alleen als verwijzing naar film 3</td></tr>\n      <tr><td>2 Een vijand inzetten</td><td>Kas: sluipwesp legt een ei in een larve van witte vlieg (specialist). Aziatisch lieveheersbeestje: eet ook andere lieveheersbeestjes, weinig vijanden, exoot. Rietpad (vraag): kevers buiten bereik, verspreiding over Australië, giftig voor varanen en buidelmarters; drie redenen waarom een bestrijder het erger maakt. Geïntegreerde bestrijding als stappen met een schadegrens. Bloemrand en strokenteelt</td></tr>\n      <tr><td>3 Natuur beheren</td><td>Heide groeit dicht → grazers houden haar open (en te veel grazers); maaien en afvoeren. Versnipperde gebieden en een ecoduct; vogelkers die weer uitloopt. Twee voedselwebben: veel soorten = stabiel; veerkracht als herstelcurve. Veluwemeer van helder naar troebel; twee terugkoppelingslussen (vraag); terug moet het fosfaat veel verder omlaag (± 1995 weer helder). Vwo: grafiek met twee omslagpunten (hysterese), Wolderwijd 1991</td></tr>\n    </table>\n    <h3>Achtergrond en vereenvoudigingen</h3>\n    <ul>\n      <li>Aziatisch (veelkleurig) lieveheersbeestje <i>Harmonia axyridis</i>: in West-Europa sinds 1982 (Frankrijk) gebruikt; in Nederland ± 1996–2003 verkocht voor biologische bestrijding van bladluis (kassen, ook bomen op parkeerplaatsen). Eerste vondst in het wild: een pop in Nijmegen, oktober 2002 (Brown e.a. 2008, <i>BioControl</i> 53: 5–21). In De Kaaistoep (Tilburg) vanaf 2003 de meest gevangen kever op licht, ± 70% van de lieveheersbeestjes; het tweestippelig lieveheersbeestje ging er sterk achteruit (<i>Entomologische Berichten</i> 77(3), 2017). In België en het VK gingen 5 van 8 resp. 7 van 8 onderzochte soorten achteruit (Roy e.a. 2012). Nu wordt voor biologische bestrijding de inheemse <i>Adalia bipunctata</i> verkocht.</li>\n      <li>Resistentie: de coloradokever is resistent tegen meer dan 50 werkzame stoffen (Alyokhin e.a. 2008). Opleving van de plaag na spuiten (<i>resurgence</i>) ontstaat doordat natuurlijke vijanden ook sterven en langzamer herstellen dan de plaag; bladluizen planten zich in de zomer ongeslachtelijk voort.</li>\n      <li>Ophoping (accumulatie) en persistentie komen in deze film alleen als verwijzing voor; ze worden behandeld in <i>Plek genoeg</i> (pcb's in zeehonden) en in film 3 <i>Eén aarde</i>.</li>\n      <li>Kassen: volgens het CBS werd in 2020 op 95% van het areaal van negen glastuinbouwgewassen biologisch bestreden, bij tomaat, paprika en komkommer op 100% (vaak in combinatie met andere maatregelen). De film noemt alleen de sluipwesp <i>Encarsia formosa</i> tegen witte vlieg; er worden ook roofmijten, roofwantsen, galmuggen en aaltjes ingezet.</li>\n      <li>Rietpad <i>Rhinella marina</i>: in 1935 werden 102 padden uit Hawaï naar Gordonvale (Queensland) gebracht (één stierf onderweg); in 1937 waren er ± 62 000 jonge padden uitgezet. Er is geen bewijs dat ze de kevers in het suikerriet verminderden. Schatting 2011: meer dan 200 miljoen; het front schuift 40–60 km per jaar op. Onder andere de noordelijke buidelmarter (quoll) en varanen gingen sterk achteruit door het gif (bufotoxinen).</li>\n      <li>Geïntegreerde bestrijding (ook: geïntegreerde gewasbescherming): preventie (rassen, vruchtwisseling), waarnemen en tellen, ingrijpen boven een schadedrempel, eerst niet-chemisch, chemisch zo selectief mogelijk. Biologische bestrijding werkt het best preventief, bij een kleine plaag (examenatlas).</li>\n      <li>Bloemranden: in de Hoeksche Waard werkten vijf akkerbouwers op ± 250 ha samen met functionele akkerranden; twee jaar lang hoefden ze niet tegen luis in aardappel en graan te spuiten (Vroege Vogels). Strokenteelt wordt onder meer door Wageningen University &amp; Research onderzocht.</li>\n      <li>Natuurbeheer: begrazing remt de successie (zie <i>Alles gaat rond</i>); maaien en afvoeren verschraalt de bodem (zie de zonnedauw in <i>Plek genoeg</i>). Het Natuurnetwerk Nederland verbindt natuurgebieden, onder andere met tientallen ecoducten. Amerikaanse vogelkers loopt na afzagen sterk uit; vogels verspreiden de bessen.</li>\n      <li>Stabiliteit en veerkracht: de film gebruikt 'stabiel' voor een ecosysteem dat ongeveer hetzelfde blijft, en 'veerkracht' voor de snelheid van herstel na een verstoring. Methodes gebruiken deze woorden niet altijd even strikt.</li>\n      <li>Veluwemeer: kranswieren verdwenen rond 1970; zichtdiepte in de jaren '70 ± 20 cm met blauwalg <i>Planktothrix</i>. Fosfaatverwijdering op de rwzi's Elburg (1972) en Harderwijk (1979), doorspoelen met fosfaatarm polderwater vanaf 1979. Pas vanaf ± 1995–1996 regelmatig zicht &gt; 1 m en uitbreiding van kranswieren, samen met minder brasem en meer driehoeksmosselen. Wolderwijd 1991: 75% van de vis weggevangen, slechts enkele weken helder (RIZA, <i>Stabiliteit van de Veluwerandmeren</i>, 1999). Theorie van alternatieve stabiele toestanden: Scheffer e.a. 1993 en 2001.</li>\n      <li>De film gebruikt voor havo bewust niet het woord hysterese; het vwo-blok noemt het en toont de gevouwen curve met twee omslagpunten. De examenatlas noemt bij omslagpunten het voorbeeld zeegras en troebel water met positieve terugkoppeling; het Veluwemeer werkt hetzelfde.</li>\n    </ul>\n    <h3>Leerdoelen</h3>\n    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>\n      <tr><td>Monocultuur en plaag: veel voedsel, weinig natuurlijke vijanden, lage biodiversiteit</td><td>basis</td><td>H1, checkvraag 1</td></tr>\n      <tr><td>Chemische bestrijding: resistentie door natuurlijke selectie; vijanden sterven mee</td><td>basis</td><td>H1, checkvragen 1 en 2</td></tr>\n      <tr><td>Biologische bestrijding; een ingevoerde vijand kan een exoot worden</td><td>basis</td><td>H2, checkvraag 3</td></tr>\n      <tr><td>Geïntegreerde bestrijding, bloemranden en strokenteelt</td><td>basis</td><td>H2</td></tr>\n      <tr><td>Natuurbeheer: begrazing, maaien en afvoeren, verbinden, exoten weghalen</td><td>basis</td><td>H3, checkvraag 4</td></tr>\n      <tr><td>Stabiliteit en veerkracht; omslagpunt en positieve terugkoppeling</td><td>basis</td><td>H3, checkvraag 5</td></tr>\n      <tr><td>Twee omslagpunten, hysterese</td><td>vwo</td><td>H3 (vwo), checkvraag 6</td></tr>\n    </table>\n    <h3>Suggesties voor de les</h3>\n    <ul><li>Laat leerlingen voor opa Henk een plan maken met de stappen van geïntegreerde bestrijding, en laat ze bij elke stap een voor- en nadeel noemen.</li><li>Speel het resistentie-model na met gekleurde kaartjes: elke 'bespuiting' haalt de witte kaartjes weg, overlevers 'verdubbelen'.</li><li>Teken samen de twee terugkoppelingslussen van het Veluwemeer en zoek in een examenopgave (zeegras, Waddenzee) dezelfde opbouw.</li></ul>\n  </section>\n"
+}
