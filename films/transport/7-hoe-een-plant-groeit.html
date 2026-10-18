@@ -1649,7 +1649,7 @@ const SCENES = {
     opts.forEach(([nm, b, kt, kl], i) => { const x = 440 + i * 380; const a = i === 1 ? 1 : q.on('kapje', i === 2 ? 2 : 1); kiemschede(ctx, x, 780, { L: 280, bend: b, kapTop: kt, kapLaag: kl, a: i === 0 ? 1 : (i === 1 ? 1 : q.on('lager', 1)) }); regel(ctx, nm, x, 860, i === 2 ? q.on('lager', 1) : 1, C.text, 26, 'center', 700); });
     regel(ctx, 'het topje merkt het licht op', 820, 160, q.on('merkt', 1), C.goud, 32, 'center', 700);
     regel(ctx, 'het buigen gebeurt lager', 820, 210, q.on('buigen', 1), C.text, 30, 'center', 700);
-    if (q.on('iets', 1) > 0.01) pijl(ctx, 360, 520, 360, 740, AUX, q.on('iets', 1), 5);
+    if (q.on('iets', 2) > 0.01) pijl(ctx, 360, 520, 360, 740, AUX, q.on('iets', 2), 5);
     ctx.restore();
     // Went
     if (went > 0.01) { ctx.save(); ctx.globalAlpha *= went; if (donker > 0.01) { ctx.fillStyle = rgba('#000000', 0.45 * donker); ctx.fillRect(0, 0, W, CAPTION_Y); }

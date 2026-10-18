@@ -107,3 +107,6 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 
 ## Wijziging 18 okt 2026
 s13: het paneel "darm en huid" verscheen al bij "samentrekken" (cue `q.on('samen',1)` vond ook "samentrekken"); nu op "knijpen". Gemeld door Kamiel.
+
+## Wijziging 18 okt 2026
+s07: bijnieren pas bij 'Boven op je nieren' (cue vond eerst 'Daarboven'); s13: vaten knijpen pas samen bij 'knijpen'.

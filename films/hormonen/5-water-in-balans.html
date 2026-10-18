@@ -1320,13 +1320,13 @@ const SCENES = {
   },
 
   s10(ctx, t, q) { bg(ctx, 'schema');
-    const z = q.on('zout', 1); const adh = z > 0.01 ? lerp(0.5, 1, q.on('veel', 2)) * (1 - 0.95 * q.on('weinig', 2)) : 0.5;
+    const z = q.on('zout', 1); const adh = z > 0.01 ? lerp(0.5, 1, q.on('veel', 3)) * (1 - 0.95 * q.on('weinig', 2)) : 0.5;
     const sch = q.on('verzamelbuis', 1) * (1 - z);
     if (sch > 0.01) { ctx.save(); ctx.globalAlpha *= sch; nefronSchema(ctx, { verz: 1, t }); tag(ctx, 'verzamelbuis: urine van veel nefronen', 1300, 250, C.text, 1); ctx.restore(); }
     if (sch > 0.01 || z < 0.01) { const nm = q.on('antidiuretisch', 1); ctx.save(); ctx.globalAlpha *= nm * (1 - z); roundRect(ctx, 200, 620, 1140, 200, 24); shape(ctx, rgba(ADHC, 0.1), ADHC, 2); text(ctx, 'ADH = anti-diuretisch hormoon', 770, 700, fTitel(48), C.text, 'center'); text(ctx, 'anti = tegen · diurese = plassen', 770, 770, fTekst(34), C.text2, 'center'); ctx.restore();
       tag(ctx, 'gemaakt in de hypothalamus, afgegeven door de hypofyse', 770, 560, C.text2, q.on('afgegeven', 1) * (1 - z)); }
     if (z > 0.01) { ctx.save(); ctx.globalAlpha *= z; verzamelbuisClose(ctx, 760, adh, t, 1, 1); adhSchuif(ctx, 1260, 260, adh, 1);
-      const vel = q.on('veel', 2) * (1 - q.on('weinig', 2)), wei = q.on('weinig', 2);
+      const vel = q.on('veel', 3) * (1 - q.on('weinig', 2)), wei = q.on('weinig', 2);
       beker(ctx, 1600, 760, 160, 260, lerp(0.5, 0.2, vel) + 0.7 * wei, lerp(0.5, 1, vel) * (1 - wei) + 0.05 * wei, 1, 'URINE');
       tag(ctx, 'veel ADH: wand laat water door', 1560, 220, ADHC, vel); tag(ctx, 'weinig ADH: water stroomt door', 1560, 220, C.text2, wei); ctx.restore(); }
   },

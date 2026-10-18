@@ -1280,7 +1280,7 @@ const SCENES = {
   s05(ctx, t, q) { bg(ctx, 'schema');
     ctx.save(); ctx.translate(820, 520); ctx.rotate(-0.15); roundRect(ctx, -220, -22, 360, 44, 8); ctx.fillStyle = '#F2F2EE'; ctx.fill(); roundRect(ctx, 140, -22, 90, 44, 8); ctx.fillStyle = '#C98A5C'; ctx.fill(); ctx.restore();
     for (let i = 0; i < 5; i++) { const u = (t * 0.2 + i / 5) % 1; circ(ctx, 600 - u * 80 + Math.sin(u * 8 + i) * 20, 470 - u * 220, 20 + u * 30, rgba('#C9D2DE', 0.25 * (1 - u))); }
-    vraagteken(ctx, 1300, 560, q.on('Hoe', 1), 140); },
+    vraagteken(ctx, 1300, 560, q.on('Hoe', 2), 140); },
   s07(ctx, t, q) { bg(ctx, 'micro');
     const lam = ramp(t, q.at('verlamt'), 1.5); trilhaarRij(ctx, 380, 520, 1100, t, { lam, extra: q.on('meer', 1) });
     regel(ctx, '→ naar je keel', 380 + 1100 * 0.7 + 20, 520 - 120, 1 - ramp(t, q.at('verlamt'), 1.5), C.goud, 28); metaText(ctx, 'TRILHAAREPITHEEL', 380, 785, C.grain, 'left', 22);

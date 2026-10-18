@@ -64,3 +64,6 @@ Werkmap opzetten: kopieer `bron/` naar `hw/p1` (scenes.js uit `src/`, `words/` =
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Geen scènes met `label()` in beeld; alleen de functie is vervangen. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 18 okt 2026
+s11: cue 'iets' vond eerst 'niets'; nu 'iets van de top'.

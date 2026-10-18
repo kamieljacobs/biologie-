@@ -90,3 +90,6 @@ Begrippen: nier, nierslagader/nierader, ureum, nefron, glomerulus, voorurine, te
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'niermerg', 'glomerulus', 'kapsel van Bowman', 'lis van Henle'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+## Wijziging 18 okt 2026
+s10: 'veel ADH'-beeld op het juiste woord (cue 'veel',2 vond 'hoeveel'; nu 'veel',3).
