@@ -91,6 +91,19 @@
     '.oe-schema.smal .oe-vak{position:static;transform:none;width:auto!important;min-height:46px;padding:6px 10px}' +
     '.oe-schema.smal .oe-vak .oe-nr{font-size:14px;min-width:22px;height:22px;border:1.5px solid var(--oe-goud);border-radius:50%;display:grid;place-items:center}' +
     /* leg het uit */
+    '.oe-vgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;align-items:start}' +
+    '.oe-vkol h4{margin:0 0 8px;font:500 12px/1.2 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--oe-goud)}' +
+    '.oe-vbak{flex-direction:column;align-items:stretch;min-height:120px}' +
+    '.oe-kaartje{border-radius:10px;width:100%;line-height:1.35;font-weight:500;font-size:15px;padding:9px 12px;white-space:normal}' +
+    '.oe-sloten{list-style:none;margin:0;padding:0;display:grid;gap:8px}' +
+    '.oe-slot{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:8px;min-height:52px;padding:6px 8px;border-radius:12px;border:1.5px dashed var(--oe-zacht);background:var(--oe-kaart);cursor:pointer}' +
+    '.oe-slot .oe-nr{width:24px;height:24px;border:1.5px solid var(--oe-goud);border-radius:50%;display:grid;place-items:center;font:600 13px/1 "IBM Plex Mono",monospace;color:var(--oe-goud)}' +
+    '.oe-slot .oe-plek{min-width:0}.oe-slot .oe-leeg{color:var(--oe-zacht);font-size:13px;font-style:italic;opacity:.8}' +
+    '.oe-slot.over,.oe-slot.wacht{border-color:var(--oe-goud);border-style:solid;background:var(--oe-kaart2)}' +
+    '.oe-slot.goed{border:2px solid var(--oe-goed)}.oe-slot.fout{border:2px solid var(--oe-fout)}' +
+    '.oe-slot .oe-uitleg{grid-column:2;font-size:14px;color:var(--oe-zacht);line-height:1.45}' +
+    '.oe-slot .oe-uitleg em{font-style:normal;font-weight:600}.oe-slot.goed .oe-uitleg em{color:var(--oe-goed)}.oe-slot.fout .oe-uitleg em{color:var(--oe-fout)}' +
+    '@media (max-width:700px){.oe-vgrid{grid-template-columns:1fr}}' +
     '.oe-veld{width:100%;min-height:150px;resize:vertical;font:17px/1.5 "Source Sans 3",system-ui,sans-serif;color:var(--oe-tekst);background:var(--oe-veld);border:1px solid var(--oe-rand);border-radius:12px;padding:12px 14px}' +
     '.oe-veld:focus{outline:2px solid var(--oe-goud);outline-offset:1px}' +
     '.oe-teller{font:500 12px/1 "IBM Plex Mono",monospace;color:var(--oe-zacht);letter-spacing:.06em}' +
@@ -167,74 +180,110 @@
 
   /* ---------- volgorde ---------- */
   function bouwVolgorde(o, doos) {
+    // lege genummerde plekken; de stappen staan geschud in een bak en sleep/tik je op hun plek
     var stappen = o.stappen.map(function (s, i) { return { i: i, tekst: s.tekst, uitleg: s.uitleg || '', groep: s.groep }; });
     // stappen met dezelfde 'groep' mogen onderling wisselen (bv. twee beginsituaties)
     function plekken(i) { var g = stappen[i].groep; if (!g) return [i]; return stappen.filter(function (s) { return s.groep === g; }).map(function (s) { return s.i; }); }
-    doos.appendChild(el('p', 'oe-hulp', 'Sleep een stap aan het puntjesgreepje (op de telefoon) of de hele regel, of gebruik de pijltjes.'));
-    var lijst = el('ol', 'oe-stappen'); lijst.setAttribute('aria-label', 'Stappen');
-    doos.appendChild(lijst);
+    doos.appendChild(el('p', 'oe-hulp', 'Sleep elke stap naar de goede plek. Of tik eerst op een stap en dan op een plek. Tik op een stap in een plek om hem terug te zetten.'));
+    var veld = el('div', 'oe-vgrid');
+    var links = el('div', 'oe-vkol', '<h4>Stappen</h4>'), rechts = el('div', 'oe-vkol', '<h4>Volgorde</h4>');
+    var bak = el('div', 'oe-bak oe-vbak'); bak.setAttribute('aria-label', 'Stappen');
+    var sloten = el('ol', 'oe-sloten'); sloten.setAttribute('aria-label', 'Volgorde');
+    links.appendChild(bak); rechts.appendChild(sloten); veld.appendChild(links); veld.appendChild(rechts); doos.appendChild(veld);
+    stappen.forEach(function (st, k) {
+      var li = el('li', 'oe-slot'); li.dataset.k = k; li.tabIndex = 0; li.setAttribute('role', 'button');
+      li.innerHTML = '<span class="oe-nr">' + (k + 1) + '</span><span class="oe-plek"></span>';
+      sloten.appendChild(li);
+    });
     var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
     var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
     knoppen.appendChild(melding); doos.appendChild(knoppen);
+    var gekozen = null;
 
-    function rijen() { return Array.prototype.slice.call(lijst.children); }
+    function slots() { return Array.prototype.slice.call(sloten.children); }
     function wisUitslag() {
       melding.textContent = ''; melding.className = 'oe-melding';
-      rijen().forEach(function (li) { li.classList.remove('goed', 'fout'); var u = li.querySelector('.oe-uitleg'); if (u) u.remove(); });
+      slots().forEach(function (v) { v.classList.remove('goed', 'fout'); var u = v.querySelector('.oe-uitleg'); if (u) u.remove(); });
     }
-    function knopjes() {
-      var r = rijen();
-      r.forEach(function (li, k) {
-        var op = li.querySelector('[data-a="op"]'), neer = li.querySelector('[data-a="neer"]');
-        op.disabled = k === 0; neer.disabled = k === r.length - 1;
-        op.setAttribute('aria-label', 'Stap ' + (k + 1) + ' omhoog'); neer.setAttribute('aria-label', 'Stap ' + (k + 1) + ' omlaag');
+    function leegCheck() {
+      slots().forEach(function (v) {
+        var plek = v.querySelector('.oe-plek'), c = plek.querySelector('.oe-chip');
+        if (!c) { if (!plek.querySelector('.oe-leeg')) plek.innerHTML = '<span class="oe-leeg">sleep hier stap ' + (+v.dataset.k + 1) + '</span>'; v.setAttribute('aria-label', 'Plek ' + (+v.dataset.k + 1) + ', leeg'); }
+        else { var l = plek.querySelector('.oe-leeg'); if (l) l.remove(); v.setAttribute('aria-label', 'Plek ' + (+v.dataset.k + 1) + ': ' + c.textContent); }
       });
+      var over = bak.querySelector('.oe-chip'), leeg = bak.querySelector('.oe-leeg');
+      if (!over && !leeg) bak.appendChild(el('span', 'oe-leeg', 'Alle stappen staan op een plek.'));
+      if (over && leeg) leeg.remove();
     }
-    function vul(volgorde) {
-      lijst.innerHTML = '';
-      volgorde.forEach(function (s) {
-        var li = el('li', 'oe-stap');
-        li.dataset.i = s.i;
-        li.innerHTML = '<span class="oe-greep" title="Sleep">' + GREEP + '<b></b></span><span class="oe-tk">' + esc(s.tekst) + '</span>' +
-          '<span class="oe-pijlen"><button type="button" class="oe-mini" data-a="op">↑</button><button type="button" class="oe-mini" data-a="neer">↓</button></span>';
-        sleepbaar(li, function (e) { return !!e.target.closest('.oe-greep'); }, {
-          // uitleg pas bij loslaten wissen, anders krimpt de lijst onder de vinger
-          beweeg: function (x, y) {
-            var r = rijen().filter(function (n) { return n !== li; });
-            var voor = null;
-            for (var k = 0; k < r.length; k++) { var b = r[k].getBoundingClientRect(); if (y < b.top + b.height / 2) { voor = r[k]; break; } }
-            if (li.nextSibling !== voor) lijst.insertBefore(li, voor);
-          },
-          los: function () { wisUitslag(); knopjes(); }
-        });
-        lijst.appendChild(li);
+    function kies(c) {
+      if (gekozen) gekozen.setAttribute('aria-pressed', 'false');
+      gekozen = c && c !== gekozen ? c : null;
+      if (gekozen) gekozen.setAttribute('aria-pressed', 'true');
+      slots().forEach(function (v) { v.classList.toggle('wacht', !!gekozen); });
+    }
+    function zetIn(c, slot) {
+      wisUitslag();
+      if (slot) {
+        var plek = slot.querySelector('.oe-plek'), al = plek.querySelector('.oe-chip');
+        if (al && al !== c) { var van = c.parentNode; if (van.classList.contains('oe-plek')) van.appendChild(al); else bak.appendChild(al); }
+        plek.appendChild(c);
+      } else bak.appendChild(c);
+      kies(null); leegCheck();
+    }
+    function maakKaartje(st) {
+      var c = el('button', 'oe-chip oe-kaartje'); c.type = 'button'; c.textContent = st.tekst; c.dataset.i = st.i; c.setAttribute('aria-pressed', 'false');
+      var overSlot = null;
+      sleepbaar(c, null, {
+        start: function () { kies(null); wisUitslag(); },
+        beweeg: function (x, y) {
+          var doel = document.elementFromPoint(x, y), slot = doel && doel.closest('.oe-slot');
+          if (slot && slot.parentNode !== sloten) slot = null;
+          if (overSlot !== slot) { if (overSlot) overSlot.classList.remove('over'); overSlot = slot; if (slot) slot.classList.add('over'); }
+          bak.classList.toggle('over', !!(doel && doel.closest('.oe-bak') === bak));
+        },
+        los: function (x, y, echt) {
+          if (overSlot) overSlot.classList.remove('over'); bak.classList.remove('over');
+          if (!echt) { overSlot = null; return; }
+          var doel = document.elementFromPoint(x, y), slot = doel && doel.closest('.oe-slot');
+          if (slot && slot.parentNode === sloten) zetIn(c, slot);
+          else if (doel && doel.closest('.oe-bak') === bak) zetIn(c, null);
+          overSlot = null;
+        }
       });
-      knopjes();
+      c.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (c.dataset.netGesleept) return;
+        if (c.closest('.oe-slot') && !gekozen) { zetIn(c, null); c.focus(); return; }
+        if (gekozen && gekozen !== c && c.closest('.oe-slot')) { zetIn(gekozen, c.closest('.oe-slot')); return; }
+        kies(c);
+      });
+      return c;
     }
+    sloten.addEventListener('click', function (e) {
+      var slot = e.target.closest('.oe-slot'); if (!slot || !gekozen) return;
+      var g = gekozen; zetIn(g, slot); g.focus();
+    });
+    sloten.addEventListener('keydown', function (e) {
+      if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('oe-slot') && gekozen) { e.preventDefault(); var g = gekozen; zetIn(g, e.target); g.focus(); }
+    });
     function begin() {
+      kies(null); bak.innerHTML = ''; slots().forEach(function (v) { v.querySelector('.oe-plek').innerHTML = ''; });
       var v;
       do { v = schud(stappen.slice()); } while (stappen.length > 1 && v.every(function (s, k) { return plekken(s.i).indexOf(k) >= 0; }));
-      vul(v); wisUitslag();
+      v.forEach(function (st) { bak.appendChild(maakKaartje(st)); });
+      wisUitslag(); leegCheck();
     }
-    lijst.addEventListener('click', function (e) {
-      var b = e.target.closest('button.oe-mini'); if (!b || b.disabled) return;
-      var li = b.closest('li'); wisUitslag();
-      if (b.dataset.a === 'op' && li.previousElementSibling) lijst.insertBefore(li, li.previousElementSibling);
-      else if (b.dataset.a === 'neer' && li.nextElementSibling) lijst.insertBefore(li.nextElementSibling, li);
-      knopjes();
-      var zelfde = li.querySelector('[data-a="' + b.dataset.a + '"]');
-      (zelfde.disabled ? li.querySelector('.oe-mini:not(:disabled)') : zelfde).focus();
-    });
     knoppen.addEventListener('click', function (e) {
       var a = e.target.closest('[data-a]'); if (!a) return;
       if (a.dataset.a === 'opnieuw') return begin();
-      wisUitslag();
-      var goed = 0, r = rijen();
-      r.forEach(function (li, k) {
-        var i = +li.dataset.i, pl = plekken(i), ok = pl.indexOf(k) >= 0; if (ok) goed++;
-        li.classList.add(ok ? 'goed' : 'fout');
-        var u = el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Hoort op plek ' + pl.map(function (n) { return n + 1; }).join(' of ') + '.</em> ') + esc(stappen[i].uitleg));
-        li.appendChild(u);
+      wisUitslag(); kies(null);
+      var r = slots(), leeg = r.filter(function (v) { return !v.querySelector('.oe-chip'); }).length;
+      if (leeg) { melding.textContent = 'Zet eerst alle stappen op een plek (nog ' + leeg + ' leeg).'; melding.className = 'oe-melding half'; return; }
+      var goed = 0;
+      r.forEach(function (slot, k) {
+        var i = +slot.querySelector('.oe-chip').dataset.i, pl = plekken(i), ok = pl.indexOf(k) >= 0; if (ok) goed++;
+        slot.classList.add(ok ? 'goed' : 'fout');
+        slot.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Hoort op plek ' + pl.map(function (n) { return n + 1; }).join(' of ') + '.</em> ') + esc(stappen[i].uitleg)));
       });
       if (goed === r.length) { melding.textContent = 'Helemaal goed! Lees de uitleg bij elke stap nog eens.'; melding.className = 'oe-melding goed'; }
       else { melding.textContent = goed + ' van ' + r.length + ' op de goede plek. Lees de uitleg, verschuif en controleer opnieuw.'; melding.className = 'oe-melding half'; }
