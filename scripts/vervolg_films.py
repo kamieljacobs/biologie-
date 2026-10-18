@@ -35,5 +35,5 @@ if '/* FILMS:start' in s:
 else:
     s = s.replace('const GEBIEDEN = [', blok + '\nconst GEBIEDEN = [', 1)
 open(p, 'w', encoding='utf-8').write(s)
-mis = sorted({x for x in re.findall(r"'(films/[^']+\.html)'", s.split('const GEBIEDEN = [', 1)[1].split('];', 1)[0]) if x not in films})
+mis = sorted({x for x in re.findall(r"['\"](films/[^'\"]+\.html)['\"]", s.split('const GEBIEDEN = [', 1)[1].split('];', 1)[0]) if x not in films})
 print(len(films), 'films;', 'onbekend in pta:', mis or 'geen')
