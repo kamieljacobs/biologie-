@@ -4744,15 +4744,17 @@ window.HAVO = {};
 
   /* niveau: havo-kaart over het (stilstaande, gedimde) beeld tijdens een havo-alinea; vwo-markering (paarse balk + 'vwo') */
   NV.over = function (g, i, t) {
-    const c = CH[i], C = E.C; const r = NV.ins(i, t);
+    const c = CH[i], C = E.C; let r = NV.ins(i, t);
+    if (!r && SV.n === 'havo') { const h = (c.ins || []).find((x) => x.Cn && t >= x.Pn && t < x.Cn); if (h) r = { h, lt: t - h.Pn }; }   // havo-kaart blijft staan tot Cn
     if (r && r.h.mode === 'panel' && window.HAVO && HAVO[c.key + ':' + r.h.take]) {
-      const D = r.h.D, lt = r.lt, a = Math.max(0, Math.min(1, lt / 0.35, (D - lt) / 0.35));
+      const D = Math.max(r.h.D, (r.h.Cn || 0) - r.h.Pn), lt = r.lt, a = Math.max(0, Math.min(1, lt / 0.35, (D - lt) / 0.35));
       g.screen(); const cx = g.ctx; cx.save(); cx.globalAlpha = a * 0.88; cx.fillStyle = C.paper; cx.fillRect(0, 0, 1920, 1080); cx.restore();
       for (const x of g.texts) x.alpha *= 1 - a;
       const words = []; c.sentences.forEach((s) => { if (s.take === r.h.take && s.lvl === 'havo') s.words.forEach((w) => words.push({ w: w.w, t0: w.t0 - r.h.Pn, t1: w.t1 - r.h.Pn })); });
       const nm = (x) => x.toLowerCase().replace(/[^\p{L}\p{N}₂⁺\-]/gu, '');
       const W = (word, occ = 1) => { let k = 0; for (const x of words) if (nm(x.w).startsWith(nm(word))) { if (++k === occ) return x.t0; } throw new Error('havo-woord niet gevonden: ' + word); };
-      HAVO[c.key + ':' + r.h.take](g, lt, { a, W, D, E, C });
+      const S = (n, word, occ = 1) => { const x = c.sentences.find((y) => y.n === n); let k = 0; for (const w of x.words) if (nm(w.w).startsWith(nm(word))) { if (++k === occ) return w.t0 - r.h.Pn; } throw new Error('woord niet gevonden: ' + n + ' ' + word); };
+      HAVO[c.key + ':' + r.h.take](g, lt, { a, W, S, D, E, C });
     }
     if (SV.n === 'vwo') {
       const b = (c.blocks || []).find((x) => x.lvl === 'vwo' && t >= x.t0 && t < x.t1);

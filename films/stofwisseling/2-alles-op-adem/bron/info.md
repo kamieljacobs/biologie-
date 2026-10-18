@@ -5,12 +5,12 @@
 | Bestand | `films/stofwisseling/2-alles-op-adem.html` (bronmap: `films/stofwisseling/2-alles-op-adem/bron/`) |
 | Titel / ondertitel | Alles op adem · ATP vormen, met en zonder zuurstof |
 | Reeks / nummer | Stofwisseling (vwo), film 2 van 4; serie: 1 Alles versneld · 2 Alles op adem · 3 Alles in het groen · 4 De lever (volgt) |
-| Doelgroep / niveau | 6 vwo (één niveau); Nectar 4.1, 19.3–19.4 (19.2 als gegeven); Binas 67L, 68B–D, 90A. Geen verdiepingszinnen of vwo-blokken |
+| Doelgroep / niveau | havo + vwo sinds 18 okt 2026 (Havo/Vwo-knop, zie onder): vwo = 6 vwo, Nectar 4.1, 19.3–19.4 (19.2 als gegeven), Binas 67L, 68B–D, 90A; havo = Biologie voor jou thema 8 (aerobe en anaerobe dissimilatie, gisting) |
 | Versie / datum | versie 1.0 · 4 oktober 2026 (voettekst en "Bronnen en versie") |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2), volgens de pagina |
-| Duur | 12:55 op de pagina (som van `dur`, 776,0 s); som van de audiobestanden 776,3 s (12:56), verschil = mp3-opvulling |
+| Duur | vwo 12:55, havo 8:42 (kop van de pagina; som van `dur` min de overgeslagen stukken, zonder het ingekorte midden van de hoofdstukkaarten). Speler: vwo 12:47, havo 8:13. Som van `dur` 828,0 s inclusief vijf havo-alinea's (52,0 s) |
 | Beeldstijl | Eigen canvasontwerp (1920×1080) dat zich in de code "stijlkaart biologiefilms, look Micro" noemt: donkere achtergrond (#121A26 met fijne beige korrel), gedempte vullingen met lichte randen, Fraunces/Source Sans 3/IBM Plex Mono. Eén look voor alle scènes, geen Macro/Schema-onderscheid zoals in Part C (v4, 11 okt) |
-| Audio-opslag | 9 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, blobs 006–014); lettertypen blobs 001–005 |
+| Audio-opslag | 9 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, sinds de begrippen-kop blobs 007–015: `ch_i` = blob 007 + i); lettertypen blobs 001–006. Blobs 010 (H3), 011 (H4), 013 (H6) en 015 (H8) zijn op 18 okt 2026 opnieuw gemaakt (128 kbit/s) met de havo-alinea's erin |
 | Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
 
 ## Opbouw
@@ -262,3 +262,42 @@ Engine: `g.callout()` zonder lijn (zie film 1; myosine, actine, celmembraan, ree
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
 Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+
+## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
+
+Geen aparte havofilm: in deze vwo-film zit nu een havo-basis (Biologie voor jou thema 8; havo-examen: aerobe dissimilatie in de mitochondriën, anaerobe dissimilatie/melkzuur- en alcoholgisting, weinig tegenover veel ATP, glucose + zuurstof → koolstofdioxide + water). Knop **Havo/Vwo** naast Leerling/Klas, onthouden in localStorage `bk-niveau` (gedeeld met de andere films), `?niveau=havo|vwo` gaat voor; standaard vwo. Zelfde werking en code als *Alles versneld* (zie daar, "Wijziging 18 okt 2026", voor de techniek: `blocks`, `ins`, `NV`, `BK.k`, `window.BKN`); hier komen havo-kaarten bij.
+
+**Wat havo ziet en wat alleen vwo is**
+
+| Hoofdstuk | Havo | Alleen vwo (paarse balk + 'vwo' in beeld, paars op de tijdbalk) |
+|---|---|---|
+| Opening, H1 fosfaataccu, H7 | alles | — |
+| H2 Glycolyse | take 2a–2b (glucose → 2 pyrodruivenzuur, netto 2 ATP) | take 2c–2e met de vraag: H-atomen, NAD⁺/NADH,H⁺, glycolyse stopt zonder NAD⁺ |
+| H3 Gisting | **havo-alinea 3h**, daarna vanaf "Zonder zuurstof maak je dus wél ATP" | zin 1–6 met de vraag (melkzuur maakt NAD⁺ vrij) |
+| H4 Van glucose naar CO₂ | vraag, take 4b, **havo-alinea 4h**, take 4e | take 4c–4d: decarboxyleren, coA, acetyl-coA, citroenzuurcyclus, FAD |
+| H5 De elektronentransportketen | — (overgeslagen; grijs met 'alleen vwo' in de hoofdstuklijst) | alles |
+| H6 Zuurstof | **havo-alinea 6h**, vraag, "Antwoord C: in water.", **havo-alinea 6i**, zin 5–6, "En als er geen zuurstof is?", zin 17, take 6f | zin 1 (keten, elektronen), 3–4 (laatste elektronenacceptor), take 6c (oxidatieve fosforylering), 6d, zin 13–16 (keten loopt vast, H⁺, ATP-synthetase, citroenzuurcyclus) |
+| H8 Terug naar de baan | alles behalve de laatste twee zinnen; **havo-alinea 8h** | zin 10–11 (acetyl-coA, citroenzuurcyclus, elektronentransportketen, laatste elektronenacceptor) |
+
+Vragen: havo krijgt er 5 van de 8 (H1, H4, H6, H7 en geen in H2/H3/H5). De havo-tekst als geheel is nagelezen (zinnen buiten de overgeslagen stukken, Playwright): geen gaten.
+
+**Nieuwe segmenten (alleen havo)** — stem Roos (voice 7qdUFMklKPaaAVMsBTBt), eleven_multilingual_v2 (zelfde model als de film), 1 take per alinea, woordtijden met Scribe (eleven_scribe_v1); flow "Stofwisseling havo-basis (18 okt 2026)". Credits samen 751 (207 + 174 + 159 + 64 + 147). Elke take is als 0,15 s stilte + stem + 0,55 s stilte in het hoofdstuk-mp3 geplakt; bestaande opnames zijn ongemoeid, de tijden erna schuiven op.
+
+| Take | Hoofdstuk · tijd (hoofdstuktijd, nieuw) | Ondertitel | Stem-invoer | Beeld |
+|---|---|---|---|---|
+| 3h | H3 · 2,95–16,42 s | Stel: er is geen zuurstof. Dan gaat de glycolyse toch door. Een enzym zet het pyrodruivenzuur om in melkzuur. Die stap levert zelf geen ATP op, maar de glycolyse levert nog steeds netto twee ATP per glucose. | zoals de ondertitel | havo-kaart "Zonder zuurstof": glucose → 2 pyrodruivenzuur (glycolyse) → 2 melkzuur (enzym, geen ATP), tag netto 2 ATP per glucose |
+| 4h | H4 · 38,59–48,95 s | In de matrix breken enzymen het pyrodruivenzuur stap voor stap verder af. Daarbij komt CO₂ vrij. De H-atomen die eraf gaan, worden naar het binnenmembraan gebracht. | … komt cee-oo-twee vrij. De haa-atomen … | havo-kaart "In de matrix": mitochondrium, pyrodruivenzuur gaat erin, CO₂ vliegt eruit, H-atomen naar het binnenmembraan; blijft staan t/m zin 18 (Cn 105,0 s) met 'alle 6 C-atomen → CO₂' en 'CO₂ → bloed → longen' |
+| 6h | H6 · 2,95–12,61 s | In het binnenmembraan komt de energie uit die H-atomen vrij. Daarmee maakt het mitochondrium heel veel ATP. Aan het eind is daarvoor zuurstof nodig, O₂. | … die haa-atomen … zuurstof nodig, oo-twee. | havo-kaart "In het binnenmembraan": H-atomen → energie → veel ATP; O₂ nodig |
+| 6i | H6 · 31,38–36,22 s | Zuurstof neemt aan het eind de H-atomen op. Zo ontstaat water. | … de haa-atomen op … | havo-kaart "Zuurstof wordt water": O₂ + H-atomen → water; blijft staan t/m zin 6 (Cn 55,97 s) met 'de zuurstof wordt water' en 'C uit glucose → CO₂' |
+| 8h | H8 · 48,84–60,27 s | Aeroob breken je mitochondriën het pyrodruivenzuur verder af, tot CO₂ en water. Met zuurstof levert dat ongeveer dertig ATP per glucose op. | … tot cee-oo-twee en water … | geen kaart ('warp'): het schema van H8 speelt het vervangen vwo-stuk af; bij havo staat in het aeroob-vak alleen pyrodruivenzuur + O₂ → CO₂ + H₂O en 'totaal ± 30 ATP per glucose' |
+
+**Havo-kaarten en scène-aanpassingen (in `film.src.html`)**
+- `window.HAVO` (regel ≈ 4388, module "havo.js"): één functie per kaart (`'3:3h'`, `'4:4h'`, `'6:6h'`, `'6:6i'`), getekend door `NV.over` (regel ≈ 4755) over het gedimde beeld. Het beeld eronder staat stil op het punt waar havo verdergaat (`blk[1]`). `W('woord')` = woordtijd in de havo-alinea, `S(n, 'woord')` = woordtijd uit basiszin n (voor kaarten met `Cn`, die bij havo blijven staan tot het eind van die zin).
+- `window.BKN` in scènes: H2 tag 'nog een glucose: let op de H-atomen' weg (regel ≈ 3082), H3 NAD⁺-paneel weg (regel ≈ 3251), H8 schema zonder 'NADH,H⁺'/'NAD⁺ terug' (regel ≈ 4291) en met een havo-versie van het aeroob-vak (regel ≈ 4301).
+- Begrippen met `class="term vwo"` (verborgen bij havo, ook in de flipkaarten): co-enzym, NAD⁺/NADH,H⁺, decarboxyleren, acetyl-coA, citroenzuurcyclus, FAD/FADH₂, elektronentransportketen, ATP-synthetase, laatste elektronenacceptor, oxidatieve fosforylering, fosforylering.
+- Overige regels: CSS "niveau havo/vwo" r184, knop r255, `NV` r4515, knoppen r4849.
+- Gebouwd met `scripts/stofwisseling_niveau/bouw.sh 2 …` (specs `f2.json`, `tweaks_f2.json`, kaarten `havo/f2.js`, takes in `tts/`).
+
+**Let op bij de wachtlijst (opnieuw inspreken H6/6c en 6f)**: het hoofdstuk-mp3 van H6 bevat nu twee havo-alinea's. Neem bij heropname de havo-stukken mee (of bouw opnieuw vanaf de film van vóór 18 okt met `bouw.sh` nadat de nieuwe takes erin zitten). De [nieuw]-zinnen van 6c (redox) horen bij vwo; de netto-vergelijking in 6f kan basis zijn.
+
+**Getest (18 okt 2026, Playwright/Chromium)**: havo en vwo, Vragen aan/uit, snelheid 1,5×, knop onthouden na herladen; afspelen over elk overgeslagen stuk (H2→H3, H3, H4, H4→H6 bij havo, H6 drie keer, H8; ook de havo-alinea's overgeslagen bij vwo); geen JS-fouten; vwo-beeld pixel-gelijk aan de oude film op dezelfde momenten (H3, H4, H6); stills van alle havo-kaarten.

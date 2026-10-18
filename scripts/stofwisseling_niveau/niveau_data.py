@@ -100,7 +100,7 @@ def main(wd, specp, ttsd):
             voice = decode(os.path.join(ttsd, h['file'] + '.mp3'))
             vdur = len(voice) / 2 / SR
             D = r3(PRE + vdur + POST)
-            ins.append({'take': h['take'], 'P': P, 'D': D, 'mode': h['mode'], 'blk': [blk['t0'], blk['t1']], 'voice': vdur, 'file': h['file']})
+            ins.append({'take': h['take'], 'P': P, 'D': D, 'mode': h['mode'], 'blk': [blk['t0'], blk['t1']], 'voice': vdur, 'file': h['file'], 'cover': h.get('cover')})
         ins.sort(key=lambda x: x['P'])
         # 3. tijden opschuiven (van achter naar voren, zodat P's in oorspronkelijke tijd blijven kloppen)
         pcm = decode(os.path.join(wd, 'blobs', '%03d.mp3' % (7 + ci)))
@@ -110,7 +110,7 @@ def main(wd, specp, ttsd):
             sh = lambda x: r3(x + D) if x >= P - 1e-6 else x
             for g in c['segments']:
                 for f in ('t0', 't1', 'count0', 'count1', 'reveal'):
-                    if f in g: g[f] = sh(g[f])
+                    if f in g and not (g['kind'] == 'card' and f == 't1'): g[f] = sh(g[f])   # hoofdstukkaart blijft 3 s
             for s in c['sentences']:
                 s['t0'] = sh(s['t0']); s['t1'] = sh(s['t1'])
                 for w in s['words']: w['t0'] = sh(w['t0']); w['t1'] = sh(w['t1'])
@@ -165,6 +165,9 @@ def main(wd, specp, ttsd):
         c['blocks'] = blocks
         # ins: P = begin in oude (scène)tijd, Pn = begin in nieuwe tijd; blk = vwo-blok in oude tijd
         c['ins'] = [{'take': h['take'], 'P': h['P'], 'Pn': h['Pn'], 'D': h['D'], 'mode': h['mode'], 'blk': h['blk']} for h in ins]
+        for h, o in zip(ins, c['ins']):
+            if h.get('cover'):   # havo-kaart blijft staan tot het eind van deze (basis)zin
+                o['Cn'] = r3(next(x for x in c['sentences'] if x['n'] == h['cover'])['t1'] + 0.4)
         c['origDur'] = orig_dur
         if ins:
             encode(pcm, os.path.join(wd, 'blobs', '%03d.mp3' % (7 + ci)))
