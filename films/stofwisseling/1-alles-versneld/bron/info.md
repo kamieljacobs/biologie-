@@ -243,6 +243,8 @@ Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-mo
 
 ## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
 
+**Akkoord Kamiel (18 okt 2026):** Competitieve remming hoort bij de havo-basis (havo-examens vragen naar remming van enzymen).
+
 Kamiel wil geen aparte havofilms, maar in deze vwo-film een havo-basis (Biologie voor jou thema 8, havo-examen: enzymen als eiwit, actief centrum, substraat, enzym-substraatcomplex, specifiek, temperatuur/denatureren, pH, hoeveelheid enzym en substraat, enzymremming). Met de knop **Havo/Vwo** (naast Leerling/Klas) kiest de kijker; de keuze wordt onthouden in localStorage `bk-niveau` (gedeeld met andere films), `?niveau=havo` of `?niveau=vwo` in de link gaat voor. Standaard vwo.
 
 **Wat havo ziet (basis) en wat alleen vwo is**

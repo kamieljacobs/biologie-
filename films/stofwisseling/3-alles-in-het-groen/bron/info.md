@@ -249,6 +249,8 @@ Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-mo
 
 ## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
 
+**Akkoord Kamiel (18 okt 2026):** Havo hoort de namen lichtreactie, calvincyclus en NADPH,H⁺ in grote lijnen.
+
 Geen aparte havofilm: deze vwo-film heeft nu een havo-basis (Biologie voor jou thema 8; havo-examen: fotosynthese 6 CO₂ + 6 H₂O → glucose + 6 O₂ in de chloroplasten, O₂ uit water, voortgezette assimilatie en mineralen, bruto/netto, compensatiepunt, beperkende factoren). Knop **Havo/Vwo** naast Leerling/Klas, onthouden in localStorage `bk-niveau` (gedeeld met de andere films), `?niveau=havo|vwo` gaat voor; standaard vwo. Techniek als in *Alles versneld* en *Alles op adem* (zie daar: `blocks`, `ins`, `NV`, `BK.k`, `window.HAVO`, `Cn`).
 
 Keuze: de namen lichtreactie, calvincyclus, ATP en NADPH,H⁺ blijven in de basis (in hoofdlijnen, zoals in de havomethode); de mechanismen zijn vwo.

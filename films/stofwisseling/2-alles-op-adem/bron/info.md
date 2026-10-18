@@ -265,6 +265,8 @@ Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-mo
 
 ## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
 
+**Akkoord Kamiel (18 okt 2026):** De fosfaatbatterij (CP) hoort bij de havo-basis.
+
 Geen aparte havofilm: in deze vwo-film zit nu een havo-basis (Biologie voor jou thema 8; havo-examen: aerobe dissimilatie in de mitochondriën, anaerobe dissimilatie/melkzuur- en alcoholgisting, weinig tegenover veel ATP, glucose + zuurstof → koolstofdioxide + water). Knop **Havo/Vwo** naast Leerling/Klas, onthouden in localStorage `bk-niveau` (gedeeld met de andere films), `?niveau=havo|vwo` gaat voor; standaard vwo. Zelfde werking en code als *Alles versneld* (zie daar, "Wijziging 18 okt 2026", voor de techniek: `blocks`, `ins`, `NV`, `BK.k`, `window.BKN`); hier komen havo-kaarten bij.
 
 **Wat havo ziet en wat alleen vwo is**
