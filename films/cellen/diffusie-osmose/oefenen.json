@@ -11,11 +11,13 @@
    "stappen": [
     {
      "tekst": "Alle deeltjes bewegen willekeurig door elkaar en botsen steeds met watermoleculen.",
-     "uitleg": "Dit is het begin van alles: deeltjes staan nooit stil. Niemand stuurt ze ergens heen."
+     "uitleg": "Dit is het begin van alles: deeltjes staan nooit stil. Niemand stuurt ze ergens heen.",
+     "groep": "start"
     },
     {
      "tekst": "Links zitten veel kleurstofdeeltjes, rechts weinig: er is een concentratieverschil.",
-     "uitleg": "Het verschil tussen links en rechts heet het concentratieverschil (concentratiegradiënt)."
+     "uitleg": "Het verschil tussen links en rechts heet het concentratieverschil (concentratiegradiënt).",
+     "groep": "start"
     },
     {
      "tekst": "Van links steken toevallig veel deeltjes over naar rechts, van rechts maar weinig terug.",

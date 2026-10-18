@@ -167,7 +167,9 @@
 
   /* ---------- volgorde ---------- */
   function bouwVolgorde(o, doos) {
-    var stappen = o.stappen.map(function (s, i) { return { i: i, tekst: s.tekst, uitleg: s.uitleg || '' }; });
+    var stappen = o.stappen.map(function (s, i) { return { i: i, tekst: s.tekst, uitleg: s.uitleg || '', groep: s.groep }; });
+    // stappen met dezelfde 'groep' mogen onderling wisselen (bv. twee beginsituaties)
+    function plekken(i) { var g = stappen[i].groep; if (!g) return [i]; return stappen.filter(function (s) { return s.groep === g; }).map(function (s) { return s.i; }); }
     doos.appendChild(el('p', 'oe-hulp', 'Sleep een stap aan het puntjesgreepje (op de telefoon) of de hele regel, of gebruik de pijltjes.'));
     var lijst = el('ol', 'oe-stappen'); lijst.setAttribute('aria-label', 'Stappen');
     doos.appendChild(lijst);
@@ -211,7 +213,7 @@
     }
     function begin() {
       var v;
-      do { v = schud(stappen.slice()); } while (stappen.length > 1 && v.every(function (s, k) { return s.i === k; }));
+      do { v = schud(stappen.slice()); } while (stappen.length > 1 && v.every(function (s, k) { return plekken(s.i).indexOf(k) >= 0; }));
       vul(v); wisUitslag();
     }
     lijst.addEventListener('click', function (e) {
@@ -229,9 +231,9 @@
       wisUitslag();
       var goed = 0, r = rijen();
       r.forEach(function (li, k) {
-        var i = +li.dataset.i, ok = i === k; if (ok) goed++;
+        var i = +li.dataset.i, pl = plekken(i), ok = pl.indexOf(k) >= 0; if (ok) goed++;
         li.classList.add(ok ? 'goed' : 'fout');
-        var u = el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Hoort op plek ' + (i + 1) + '.</em> ') + esc(stappen[i].uitleg));
+        var u = el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Hoort op plek ' + pl.map(function (n) { return n + 1; }).join(' of ') + '.</em> ') + esc(stappen[i].uitleg));
         li.appendChild(u);
       });
       if (goed === r.length) { melding.textContent = 'Helemaal goed! Lees de uitleg bij elke stap nog eens.'; melding.className = 'oe-melding goed'; }
