@@ -74,7 +74,7 @@
    "breed": 640,
    "hoog": 400,
    "vakbreed": 150,
-   "svg": "<rect x=\"168\" y=\"48\" width=\"304\" height=\"304\" rx=\"26\" stroke-width=\"3\"/><rect x=\"178\" y=\"58\" width=\"284\" height=\"284\" rx=\"18\" stroke-width=\"1.4\" class=\"zacht\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M320 80 C385 78 428 140 425 205 C422 270 385 322 322 320 C258 318 214 270 216 200 C218 135 255 82 320 80 Z\"/><path stroke-width=\"1.8\" d=\"M305 137 C345 137 367 175 367 215 C367 258 343 293 305 293 C267 293 243 258 243 215 C243 175 265 137 305 137 Z\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M276 185 c10 -6 22 -6 30 0 M292 250 c10 -5 20 -5 28 0\"/><circle cx=\"388\" cy=\"140\" r=\"17\" stroke-width=\"1.6\"/><circle cx=\"392\" cy=\"136\" r=\"5\" class=\"vul zacht\"/><circle class=\"vul zacht\" cx=\"400\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"262\" cy=\"118\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"350\" cy=\"306\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"232\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"200\" cy=\"320\" r=\"3\"/><circle class=\"vul zacht\" cx=\"192\" cy=\"120\" r=\"3\"/><circle class=\"vul zacht\" cx=\"230\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"440\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"448\" cy=\"90\" r=\"3\"/><circle class=\"vul zacht\" cx=\"190\" cy=\"230\" r=\"3\"/><circle class=\"vul zacht\" cx=\"452\" cy=\"260\" r=\"3\"/><circle class=\"vul zacht\" cx=\"420\" cy=\"70\" r=\"3\"/><circle class=\"vul zacht\" cx=\"205\" cy=\"75\" r=\"3\"/><circle class=\"vul zacht\" cx=\"120\" cy=\"380\" r=\"3\"/><circle class=\"vul zacht\" cx=\"520\" cy=\"30\" r=\"3\"/><circle class=\"vul zacht\" cx=\"535\" cy=\"385\" r=\"3\"/><circle class=\"vul zacht\" cx=\"110\" cy=\"20\" r=\"3\"/><circle class=\"vul zacht\" cx=\"250\" cy=\"372\" r=\"3\"/><circle class=\"vul zacht\" cx=\"360\" cy=\"14\" r=\"3\"/><circle class=\"vul zacht\" cx=\"600\" cy=\"160\" r=\"3\"/><circle class=\"vul zacht\" cx=\"40\" cy=\"150\" r=\"3\"/><circle class=\"vul zacht\" cx=\"470\" cy=\"375\" r=\"3\"/><text x=\"320\" y=\"392\" text-anchor=\"middle\">plantencel in zout water</text>",
+   "svg": "<rect x=\"168\" y=\"48\" width=\"304\" height=\"304\" rx=\"26\" stroke-width=\"3\"/><rect x=\"178\" y=\"58\" width=\"284\" height=\"284\" rx=\"18\" stroke-width=\"1.4\" class=\"zacht\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M320 80 C385 78 428 140 425 205 C422 270 385 322 322 320 C258 318 214 270 216 200 C218 135 255 82 320 80 Z\"/><path stroke-width=\"1.8\" d=\"M305 137 C345 137 367 175 367 215 C367 258 343 293 305 293 C267 293 243 258 243 215 C243 175 265 137 305 137 Z\"/><path stroke-width=\"1\" class=\"zacht\" d=\"M276 185 c10 -6 22 -6 30 0 M292 250 c10 -5 20 -5 28 0\"/><circle cx=\"388\" cy=\"140\" r=\"17\" stroke-width=\"1.6\"/><circle cx=\"392\" cy=\"136\" r=\"5\" class=\"vul zacht\"/><circle class=\"vul zacht\" cx=\"400\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"262\" cy=\"118\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"350\" cy=\"306\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"232\" cy=\"250\" r=\"2.2\"/><circle class=\"vul zacht\" cx=\"192\" cy=\"120\" r=\"3\"/><circle class=\"vul zacht\" cx=\"230\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"440\" cy=\"330\" r=\"3\"/><circle class=\"vul zacht\" cx=\"448\" cy=\"90\" r=\"3\"/><circle class=\"vul zacht\" cx=\"190\" cy=\"230\" r=\"3\"/><circle class=\"vul zacht\" cx=\"452\" cy=\"260\" r=\"3\"/><circle class=\"vul zacht\" cx=\"420\" cy=\"70\" r=\"3\"/><circle class=\"vul zacht\" cx=\"205\" cy=\"75\" r=\"3\"/><circle class=\"vul zacht\" cx=\"120\" cy=\"380\" r=\"3\"/><circle class=\"vul zacht\" cx=\"520\" cy=\"30\" r=\"3\"/><circle class=\"vul zacht\" cx=\"535\" cy=\"385\" r=\"3\"/><circle class=\"vul zacht\" cx=\"110\" cy=\"20\" r=\"3\"/><circle class=\"vul zacht\" cx=\"250\" cy=\"372\" r=\"3\"/><circle class=\"vul zacht\" cx=\"360\" cy=\"14\" r=\"3\"/><circle class=\"vul zacht\" cx=\"600\" cy=\"160\" r=\"3\"/><circle class=\"vul zacht\" cx=\"40\" cy=\"150\" r=\"3\"/><circle class=\"vul zacht\" cx=\"470\" cy=\"375\" r=\"3\"/><text x=\"320\" y=\"392\" text-anchor=\"middle\">plantencel in zout water</text>",
    "vakjes": [
     {
      "naam": "celwand",
@@ -101,10 +101,10 @@
      "x": 82,
      "y": 345,
      "punt": [
-      200,
-      300
+      212,
+      334
      ],
-     "uitleg": "de ruimte tussen celwand en membraan vult zich met de buitenoplossing, want de celwand laat alles door."
+     "uitleg": "tussen celwand en celmembraan: de celwand laat alles door, dus deze ruimte vult zich met het zoute water van buiten."
     },
     {
      "naam": "celmembraan",
@@ -121,10 +121,10 @@
      "x": 558,
      "y": 330,
      "punt": [
-      340,
-      302
+      396,
+      232
      ],
-     "uitleg": "de celinhoud tussen celmembraan en vacuole."
+     "uitleg": "de celinhoud binnen het celmembraan, rond de vacuole."
     }
    ]
   },
