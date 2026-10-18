@@ -53,3 +53,36 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | codons | met koppeltekens (C-A-U) | |
 | abiotisch | zoals geschreven | |
 | emergente | emergénte | |
+
+## Uitspraaktest 18 okt 2026 (eleven_v4, 521 woorden)
+
+Belangrijkste les: **eleven_v4 spreekt de gewone spelling meestal goed uit.** Respellings maken het vaak slechter. Kamiel koos bij bijna alle twijfelwoorden de gewone spelling. Gebruik bij v4 dus de gewone spelling, behalve waar hieronder iets anders staat. Uitgangen op *-ine* gewoon als *-ine* schrijven (niet *-inuh*): adenosine, auxine, dopamine, histamine, kisspeptine, leptine, melatonine, niacine, rodopsine, serotonine, creatine. Let op: dit geldt voor v4; de DNA-films (eleven_v3) hielden *valinuh* e.d.
+
+Gekozen (stem-invoer = gewone spelling): adenosine, aids, amygdala, auxine, basilair, Bohr-effect, chiazaad, chlamydia, circadiaans, creatine, dialyse, diastole, systole, dopamine, Eustachius, fagocyten, floëem, Graves, histamine, Iter (ITER), Jones, kisspeptine, lysozym, melatonine, MHC-eiwitten, niacine, peritoneale, plaque, resusfactor, rodopsine, soa's, thorium, xyleem.
+
+Gekozen met letters/koppeltekens: H-plus (H⁺), H-P-A-as, I-V-F, Q-R-S-complex, REM-slaap (hoofdletters), B-twaalf (vitamine B12), "negen en neguntig".
+
+Zoals het al in de film klonk (goed): o.a. Thorizon, ITER-varianten niet nodig, Hoeksche Waard, hysterese, PFAS, CO₂, pcb's, Qatar, GLUT4 en 432 gewone woorden.
+
+Afgekeurd, aanwijzing van Kamiel (nog uit te werken):
+| Woord | Kamiel | Nieuwe stem-invoer (voorstel) |
+|---|---|---|
+| A4'tjes | klemtoon op 4 | A-víertjes |
+| ADI | "adi, niet aadi" | (navragen) |
+| AGS | "nu aags, moet ags" | (navragen) |
+| bloedgroep A, B | "a b" | (navragen) |
+| E. coli | "niet ee-koolie, maar e-koolie" | (navragen) |
+| EPO | niet als losse letters | Epo |
+| gelelektroforese | gel als Engels woord | dzjel-elektroforese |
+| GGD | "ggd" | GGD |
+| gibberelline | gibbereline | gibbereline |
+| IgE | niet dubbel e | (navragen) |
+| in-vitrofertilisatie | in vitro fertilisatie | in vitro fertilisatie |
+| klonale | aan elkaar, niet kloon-ale | klonale |
+| leptine / serotonine | gewoon -ine | leptine / serotonine |
+| mRNA-vaccin | "mrna niet m" | (navragen) |
+| Niger | "nieger" | Niger (Nederlandse uitspraak) |
+| operator | als Nederlands woord | operaator |
+| poetsvissen | klinkt als boetsvissen | poets-vissen |
+| RNA | "niet ee, gewoon rna" | RNA |
+| transcriptiefactor | "tie" moet "zie" | transcriptsie-factor |
