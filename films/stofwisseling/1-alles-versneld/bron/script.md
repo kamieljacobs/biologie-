@@ -7,10 +7,12 @@ Tijden: `[m:ss.s]` is de begintijd van de ondertitelfrase op de **filmklok** (al
 Een "take" is een doorlopend stuk stem binnen het hoofdstuk-mp3 (`segments[].kind = "narr"`, veld `take`). Zinnen met `verdieping: true` zijn gemarkeerd met *(verdieping)*.
 
 
+**Havo/vwo (18 okt 2026):** regels met *(vwo)* hoort alleen vwo (havo slaat ze over; H7 helemaal). Regels met [havo] zijn nieuw en alleen voor havo (vwo slaat ze over). Door de havo-alinea in H6 liggen de tijden in H6 vanaf 0:07,7 (hoofdstuktijd) 4,09 s later dan hieronder staat, en de filmklok vanaf H6 ook; de tijden van de [havo]-regels zijn al hoofdstuktijden in de nieuwe film.
+
 ## 0. Opening (cold open)
 
 Audio: blob 006.mp3 (`audio/ch_0.mp3` in `window.__AUDIO`) · 0:00–0:17 (17,2 s volgens ffprobe; `dur` in FILM 17,129 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 **Take 0a** · 0:00.8–0:11.1 (hoofdstuk 0,80–11,13 s)
 
@@ -28,7 +30,7 @@ Niveau: 6 vwo
 ## 1. H1 Wat eiwitten doen
 
 Audio: blob 007.mp3 (`audio/ch_1.mp3` in `window.__AUDIO`) · 0:17–1:23 (66,1 s volgens ffprobe; `dur` in FILM 66,038 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Wat eiwitten doen"
 
@@ -70,7 +72,7 @@ Niveau: 6 vwo
 ## 2. H2 Hoe een enzym versnelt
 
 Audio: blob 008.mp3 (`audio/ch_2.mp3` in `window.__AUDIO`) · 1:23–3:17 (114,4 s volgens ffprobe; `dur` in FILM 114,378 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Hoe een enzym versnelt"
 
@@ -137,7 +139,7 @@ Niveau: 6 vwo
 ## 3. H3 Precies passend
 
 Audio: blob 009.mp3 (`audio/ch_3.mp3` in `window.__AUDIO`) · 3:17–4:36 (78,6 s volgens ffprobe; `dur` in FILM 78,502 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)*
 
 > Hoofdstukkaart (3,0 s, stil): "Precies passend"
 
@@ -164,17 +166,17 @@ Niveau: 6 vwo
 
 [3:54.5] Je kunt dat zien als een sleutel in een slot:  
 [3:56.8] het sleutel-slotmodel.  
-[3:58.1] Maar een enzym is geen hard stuk metaal.  
-[4:00.6] Door de binding verandert de vorm  
-[4:02.4] van het actieve centrum nog iets.  
-[4:04.4] Het sluit zich om het substraat heen.  
-[4:06.8] Dat heet induced fit.  
-[4:09.7] Zo wordt het substraat nog steviger vastgehouden.  
-[4:12.9] Als het product loslaat,  
-[4:14.1] krijgt het enzym zijn oude vorm terug.  
-[4:16.6] Induced fit werkt alleen  
-[4:18.3] bij een molecuul dat al bijna past.  
-[4:20.6] Daarom klopt antwoord C niet.
+[3:58.1] Maar een enzym is geen hard stuk metaal. *(vwo)*  
+[4:00.6] Door de binding verandert de vorm *(vwo)*  
+[4:02.4] van het actieve centrum nog iets. *(vwo)*  
+[4:04.4] Het sluit zich om het substraat heen. *(vwo)*  
+[4:06.8] Dat heet induced fit. *(vwo)*  
+[4:09.7] Zo wordt het substraat nog steviger vastgehouden. *(vwo)*  
+[4:12.9] Als het product loslaat, *(vwo)*  
+[4:14.1] krijgt het enzym zijn oude vorm terug. *(vwo)*  
+[4:16.6] Induced fit werkt alleen *(vwo)*  
+[4:18.3] bij een molecuul dat al bijna past. *(vwo)*  
+[4:20.6] Daarom klopt antwoord C niet. *(vwo)*
 
 **Take 3d** · 4:23.5–4:34.0 (hoofdstuk 65,91–76,50 s)
 
@@ -191,7 +193,7 @@ Niveau: 6 vwo
 > **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
 Audio: blob 010.mp3 (`audio/ch_4.mp3` in `window.__AUDIO`) · 4:36–6:27 (111,8 s volgens ffprobe; `dur` in FILM 111,788 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo (basis)
 
 > Hoofdstukkaart (3,0 s, stil): "Warmte en zuur"
 
@@ -261,7 +263,7 @@ Niveau: 6 vwo
 ## 5. H5 Hoeveelheden
 
 Audio: blob 011.mp3 (`audio/ch_5.mp3` in `window.__AUDIO`) · 6:27–7:34 (66,7 s volgens ffprobe; `dur` in FILM 66,708 s)  
-Niveau: 6 vwo · bevat verdiepingszinnen
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)*
 
 > Hoofdstukkaart (3,0 s, stil): "Hoeveelheden"
 
@@ -292,11 +294,11 @@ Niveau: 6 vwo · bevat verdiepingszinnen
 
 **Take 5c** · 7:22.4–7:33.7 (hoofdstuk 54,56–65,91 s)
 
-[7:22.3] Biochemici noemen die maximale snelheid V-max. *(verdieping)*  
-[7:25.8] Kijk ook bij hoeveel substraat *(verdieping)*  
-[7:27.4] je de helft van V-max haalt. *(verdieping)*  
-[7:28.9] Hoe minder substraat daarvoor nodig is, *(verdieping)*  
-[7:30.9] hoe steviger het enzym zijn substraat meestal bindt. *(verdieping)*
+[7:22.3] Biochemici noemen die maximale snelheid V-max. *(vwo)*  
+[7:25.8] Kijk ook bij hoeveel substraat *(vwo)*  
+[7:27.4] je de helft van V-max haalt. *(vwo)*  
+[7:28.9] Hoe minder substraat daarvoor nodig is, *(vwo)*  
+[7:30.9] hoe steviger het enzym zijn substraat meestal bindt. *(vwo)*
 
 > Beeld (uit de scènecommentaar, regel 3281): H5 Hoeveelheden — proef 1: meer enzym (bij veel substraat); proef 2: meer substraat (bij vier enzymen). De camera schuift van proef 1 naar proef 2. Grafieken: metingen in hetzelfde model (measure.js), lijn = vloeiende fit.
 
@@ -304,7 +306,7 @@ Niveau: 6 vwo · bevat verdiepingszinnen
 ## 6. H6 Remmen en activeren
 
 Audio: blob 012.mp3 (`audio/ch_6.mp3` in `window.__AUDIO`) · 7:34–8:57 (82,5 s volgens ffprobe; `dur` in FILM 82,457 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)* en havo-alinea [havo]
 
 > Hoofdstukkaart (3,0 s, stil): "Remmen en activeren"
 
@@ -312,8 +314,12 @@ Niveau: 6 vwo
 
 [7:37.5] Hoe gaat een enzym weer uit?  
 [7:39.4] In je cel worden enzymen ook afgeremd.  
-[7:42.3] Twee manieren moet je kennen.  
-[7:44.1] De eerste: een molecuul dat op het substraat lijkt.  
+**Take 6h [havo]** · nieuw 18-10-2026 · hoofdstuk 7.75–11.84 s (stem 7.90 s), alleen havo  
+[havo · 7.89 s] Dat kan bijvoorbeeld met een molecuul dat op het substraat lijkt.  
+> Stem-invoer (Roos, eleven_multilingual_v2, 1 take): Dat kan bijvoorbeeld met een molecuul dat op het substraat lijkt.  
+
+[7:42.3] Twee manieren moet je kennen. *(vwo)*  
+[7:44.1] De eerste: een molecuul dat op het substraat lijkt. *(vwo)*  
 [7:47.2] Het past in het actieve centrum, maar wordt niet omgezet.  
 [7:50.5] Zolang het daar zit, kan het substraat er niet in.  
 [7:53.3] Maar het laat ook weer los.  
@@ -335,19 +341,19 @@ Niveau: 6 vwo
 
 **Take 6c** · 8:27.9–8:54.7 (hoofdstuk 53,40–80,16 s)
 
-[8:27.9] De tweede manier zit op een andere plek:  
-[8:30.0] de allosterische zijde.  
-[8:31.5] Een molecuul dat daar hecht,  
-[8:33.1] verandert de vorm van het hele enzym.  
-[8:35.2] Bindt daar een inhibitormolecuul,  
-[8:37.2] dan vervormt het actieve centrum.  
-[8:39.0] Het substraat past niet meer.  
-[8:40.9] Bij sommige enzymen past het substraat pas  
-[8:43.2] als er een activatormolecuul gebonden is.  
-[8:46.0] Bindt daar een activatormolecuul,  
-[8:48.1] dan krijgt het actieve centrum de goede vorm.  
-[8:51.0] Zo gaat een enzym harder of zachter,  
-[8:53.2] afhankelijk van wat er bindt.
+[8:27.9] De tweede manier zit op een andere plek: *(vwo)*  
+[8:30.0] de allosterische zijde. *(vwo)*  
+[8:31.5] Een molecuul dat daar hecht, *(vwo)*  
+[8:33.1] verandert de vorm van het hele enzym. *(vwo)*  
+[8:35.2] Bindt daar een inhibitormolecuul, *(vwo)*  
+[8:37.2] dan vervormt het actieve centrum. *(vwo)*  
+[8:39.0] Het substraat past niet meer. *(vwo)*  
+[8:40.9] Bij sommige enzymen past het substraat pas *(vwo)*  
+[8:43.2] als er een activatormolecuul gebonden is. *(vwo)*  
+[8:46.0] Bindt daar een activatormolecuul, *(vwo)*  
+[8:48.1] dan krijgt het actieve centrum de goede vorm. *(vwo)*  
+[8:51.0] Zo gaat een enzym harder of zachter, *(vwo)*  
+[8:53.2] afhankelijk van wat er bindt. *(vwo)*
 
 > Beeld (uit de scènecommentaar, regel 3496): H6 Remmen en activeren — groot enzym 1 met actief centrum (boven) en allosterische zijde (onder); later enzym 2 dat een activator nodig heeft. Competitieve remstof (bindt en laat los), meer substraat na de vraag, grafiek met/zonder remstof (metingen + fit), allosterische inhibitor (vervormt het actieve centrum, laat later weer los), en een activator op enzym 2.
 
@@ -355,49 +361,49 @@ Niveau: 6 vwo
 ## 7. H7 Terugkoppeling en helpers
 
 Audio: blob 013.mp3 (`audio/ch_7.mp3` in `window.__AUDIO`) · 8:57–10:15 (78,3 s volgens ffprobe; `dur` in FILM 78,263 s)  
-Niveau: 6 vwo · bevat verdiepingszinnen
+Niveau: **alleen vwo** (havo slaat dit hoofdstuk over)
 
 > Hoofdstukkaart (3,0 s, stil): "Terugkoppeling en helpers"
 
 **Take 7a** · 9:00.0–9:30.9 (hoofdstuk 3,00–33,94 s)
 
-[8:60.0] Hoe stopt een keten van enzymen als er genoeg is?  
-[9:03.0] Zonder dat iets het weet; kijk maar.  
-[9:05.4] Drie enzymen maken samen één eindproduct.  
-[9:08.5] Is er veel eindproduct,  
-[9:09.8] dan bindt het aan het eerste enzym.  
-[9:11.9] Op de allosterische zijde.  
-[9:13.8] Het eerste enzym werkt veel minder,  
-[9:15.9] en de hele keten vertraagt.  
-[9:17.2] Wordt het eindproduct verbruikt,  
-[9:19.2] dan bindt er steeds minder.  
-[9:20.8] De keten komt weer op gang.  
-[9:22.2] Het eindproduct remt zijn eigen aanmaak:  
-[9:24.7] negatieve terugkoppeling.  
-[9:27.5] Geen cel die iets wil,  
-[9:28.9] alleen een molecuul dat ergens past.
+[8:60.0] Hoe stopt een keten van enzymen als er genoeg is? *(vwo)*  
+[9:03.0] Zonder dat iets het weet; kijk maar. *(vwo)*  
+[9:05.4] Drie enzymen maken samen één eindproduct. *(vwo)*  
+[9:08.5] Is er veel eindproduct, *(vwo)*  
+[9:09.8] dan bindt het aan het eerste enzym. *(vwo)*  
+[9:11.9] Op de allosterische zijde. *(vwo)*  
+[9:13.8] Het eerste enzym werkt veel minder, *(vwo)*  
+[9:15.9] en de hele keten vertraagt. *(vwo)*  
+[9:17.2] Wordt het eindproduct verbruikt, *(vwo)*  
+[9:19.2] dan bindt er steeds minder. *(vwo)*  
+[9:20.8] De keten komt weer op gang. *(vwo)*  
+[9:22.2] Het eindproduct remt zijn eigen aanmaak: *(vwo)*  
+[9:24.7] negatieve terugkoppeling. *(vwo)*  
+[9:27.5] Geen cel die iets wil, *(vwo)*  
+[9:28.9] alleen een molecuul dat ergens past. *(vwo)*
 
 **Take 7b** · 9:33.0–10:04.8 (hoofdstuk 35,99–67,76 s)
 
-[9:32.9] Nog één ding.  
-[9:33.9] Veel enzymen werken alleen met een helper.  
-[9:36.2] Soms is dat een metaalion, zoals magnesium.  
-[9:39.1] Dat noem je een cofactor.  
-[9:41.9] Katalase heeft ook ijzer nodig:  
-[9:43.8] dat zit vast ingebouwd, midden in het actieve centrum.  
-[9:47.0] Soms is het een klein organisch molecuul.  
-[9:49.8] Dat is een co-enzym.  
-[9:52.2] Zonder helper bindt het substraat niet goed,  
-[9:54.6] of de reactie zelf lukt niet.  
-[9:56.7] Een co-enzym verandert vaak zelf mee in de reactie.  
-[10:00.3] Een ander enzym zet het daarna weer terug.  
-[10:02.4] Zo wordt het steeds opnieuw gebruikt.
+[9:32.9] Nog één ding. *(vwo)*  
+[9:33.9] Veel enzymen werken alleen met een helper. *(vwo)*  
+[9:36.2] Soms is dat een metaalion, zoals magnesium. *(vwo)*  
+[9:39.1] Dat noem je een cofactor. *(vwo)*  
+[9:41.9] Katalase heeft ook ijzer nodig: *(vwo)*  
+[9:43.8] dat zit vast ingebouwd, midden in het actieve centrum. *(vwo)*  
+[9:47.0] Soms is het een klein organisch molecuul. *(vwo)*  
+[9:49.8] Dat is een co-enzym. *(vwo)*  
+[9:52.2] Zonder helper bindt het substraat niet goed, *(vwo)*  
+[9:54.6] of de reactie zelf lukt niet. *(vwo)*  
+[9:56.7] Een co-enzym verandert vaak zelf mee in de reactie. *(vwo)*  
+[10:00.3] Een ander enzym zet het daarna weer terug. *(vwo)*  
+[10:02.4] Zo wordt het steeds opnieuw gebruikt. *(vwo)*
 
 **Take 7c** · 10:06.6–10:14.5 (hoofdstuk 69,61–77,46 s)
 
-[10:06.6] Veel co-enzymen maakt je lichaam uit een vitamine. *(verdieping)*  
-[10:09.8] Omdat co-enzymen steeds opnieuw gebruikt worden, *(verdieping)*  
-[10:12.1] heb je van die vitamines maar weinig nodig. *(verdieping)*
+[10:06.6] Veel co-enzymen maakt je lichaam uit een vitamine. *(vwo)*  
+[10:09.8] Omdat co-enzymen steeds opnieuw gebruikt worden, *(vwo)*  
+[10:12.1] heb je van die vitamines maar weinig nodig. *(vwo)*
 
 > Beeld (uit de scènecommentaar, regel 3729): H7 Terugkoppeling en helpers — (A) keten van drie enzymen met remming door het eindproduct (sim, grafiek uit de sim); (B) helpers: cofactor (Mg2+), ijzer in katalase, co-enzym dat meeverandert en door een ander enzym wordt teruggezet.
 
@@ -405,7 +411,7 @@ Niveau: 6 vwo · bevat verdiepingszinnen
 ## 8. H8 Terug naar de aardappel
 
 Audio: blob 014.mp3 (`audio/ch_8.mp3` in `window.__AUDIO`) · 10:15–11:34 (79,5 s volgens ffprobe; `dur` in FILM 79,440 s)  
-Niveau: 6 vwo
+Niveau: havo + vwo, met vwo-blok(ken) *(vwo)*
 
 > Hoofdstukkaart (3,0 s, stil): "Terug naar de aardappel"
 
@@ -435,9 +441,9 @@ Niveau: 6 vwo
 [11:03.4] Ze worden niet verbruikt, dus een beetje enzym is genoeg.  
 [11:06.8] Ze zijn specifiek, en gevoelig voor temperatuur en pH.  
 [11:10.8] Competitieve remstoffen houden het actieve centrum bezet.  
-[11:14.3] Moleculen op de allosterische zijde  
-[11:16.4] remmen of activeren ze.  
-[11:18.2] Zo werkt ook negatieve terugkoppeling.  
+[11:14.3] Moleculen op de allosterische zijde *(vwo)*  
+[11:16.4] remmen of activeren ze. *(vwo)*  
+[11:18.2] Zo werkt ook negatieve terugkoppeling. *(vwo)*  
 [11:21.6] Volgende keer zie je waar al die enzymen voor nodig zijn.  
 [11:24.8] Energie vrijmaken uit glucose.
 

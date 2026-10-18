@@ -5,12 +5,12 @@
 | Bestand | `films/stofwisseling/1-alles-versneld.html` (bronmap: `films/stofwisseling/1-alles-versneld/bron/`) |
 | Titel / ondertitel | Alles versneld · eiwitten en enzymen |
 | Reeks / nummer | Stofwisseling (vwo), film 1 van 4; serie: 1 Alles versneld · 2 Alles op adem · 3 Alles in het groen · 4 De lever (volgt) |
-| Doelgroep / niveau | 6 vwo (één niveau); Nectar 4.1, 18.2–18.3 (+ 18.1 denatureren). Vijf zinnen gemarkeerd als *verdieping* (H5 V-max, H7 vitamines), alleen als label in transcript/hoofdstuklijst; geen aparte vwo-blokken of Havo/Vwo-schakelaar |
+| Doelgroep / niveau | havo + vwo sinds 18 okt 2026 (Havo/Vwo-knop, zie onder): vwo = 6 vwo, Nectar 4.1, 18.2–18.3 (+ 18.1 denatureren); havo = Biologie voor jou thema 8 (enzymen). De vroegere *verdieping*-zinnen (H5 V-max, H7 vitamines) zijn nu vwo-blokken |
 | Versie / datum | versie 1.0 · 3 oktober 2026 (voettekst en "Bronnen en versie") |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2), volgens de pagina |
-| Duur | 11:34 op de pagina (som van `dur`, 694,7 s); som van de audiobestanden 695,1 s (11:35), verschil = mp3-opvulling |
+| Duur | vwo 11:34, havo 9:01 (kop van de pagina; som van `dur` min de overgeslagen stukken, zonder het ingekorte midden van de hoofdstukkaarten). Speler: vwo 11:28, havo 8:56 (hoofdstukkaarten 2,2 s). Som van `dur` 698,8 s inclusief de havo-alinea van 4,09 s |
 | Beeldstijl | Eigen canvasontwerp (1920×1080) dat zich in de code "stijlkaart biologiefilms, look Micro" noemt: donkere achtergrond (#121A26 met fijne beige korrel), gedempte vullingen met lichte randen, Fraunces/Source Sans 3/IBM Plex Mono. Eén look voor alle scènes, geen Macro/Schema-onderscheid zoals in Part C (v4, 11 okt) |
-| Audio-opslag | 9 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, blobs 006–014); lettertypen blobs 001–005 |
+| Audio-opslag | 9 fragmenten, één mp3 per hoofdstuk (inclusief stiltes), als base64 in de HTML (`window.__AUDIO`, sinds de begrippen-kop blobs 007–015: `ch_i` = blob 007 + i); lettertypen blobs 001–006. Blob 013 (H6) is op 18 okt 2026 opnieuw gemaakt (128 kbit/s) met de havo-alinea erin |
 | Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
 
 ## Opbouw
@@ -240,3 +240,43 @@ Engine: `g.callout()` tekent geen lijn + stip meer maar zet de naam direct naast
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
 Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+
+## Wijziging 18 okt 2026: havo-basis en Havo/Vwo-knop
+
+Kamiel wil geen aparte havofilms, maar in deze vwo-film een havo-basis (Biologie voor jou thema 8, havo-examen: enzymen als eiwit, actief centrum, substraat, enzym-substraatcomplex, specifiek, temperatuur/denatureren, pH, hoeveelheid enzym en substraat, enzymremming). Met de knop **Havo/Vwo** (naast Leerling/Klas) kiest de kijker; de keuze wordt onthouden in localStorage `bk-niveau` (gedeeld met andere films), `?niveau=havo` of `?niveau=vwo` in de link gaat voor. Standaard vwo.
+
+**Wat havo ziet (basis) en wat alleen vwo is**
+
+| Hoofdstuk | Havo | Alleen vwo (paarse balk + 'vwo' in beeld, paars op de tijdbalk) |
+|---|---|---|
+| Opening, H1, H2, H4 | alles | — |
+| H3 Precies passend | t/m "het sleutel-slotmodel", daarna take 3d (toeval) | zin 9–16: induced fit, "Daarom klopt antwoord C niet" |
+| H5 Hoeveelheden | t/m "Meer enzym wel." | take 5c: V-max en ½ V-max (was *verdieping*) |
+| H6 Remmen en activeren | competitieve remstof + vraag + antwoord; **havo-alinea 6h** in plaats van zin 3–4 | zin 3–4 ("Twee manieren moet je kennen. De eerste: …"), take 6c (allosterische zijde, inhibitor, activator) |
+| H7 Terugkoppeling en helpers | — (havo slaat het hele hoofdstuk over; in de hoofdstuklijst grijs met 'alleen vwo') | alles: negatieve terugkoppeling in een enzymketen, cofactor, co-enzym, vitamines |
+| H8 Terug naar de aardappel | alles behalve twee recapzinnen; de recapkaart toont bij havo 5 regels | zin 16–17 (allosterische zijde, negatieve terugkoppeling) |
+
+Havo-tekst als geheel nagelezen (Playwright, alle zinnen buiten de overgeslagen stukken): geen gaten. Vragen: alle zes vragen zijn basis.
+
+**Nieuw segment (alleen havo)**
+
+| Take | Hoofdstuk · tijd | Tekst | Stem-invoer |
+|---|---|---|---|
+| 6h | H6 · hoofdstuk 7,745–11,835 s (stem vanaf 7,895 s; 0,15 s stilte ervoor, 0,55 s erna) | Dat kan bijvoorbeeld met een molecuul dat op het substraat lijkt. | zoals geschreven |
+
+Stem Roos (voice 7qdUFMklKPaaAVMsBTBt), model eleven_multilingual_v2 (zelfde als de film), 1 take, 65 credits; woordtijden met ElevenLabs Scribe (eleven_scribe_v1) op die take. ElevenLabs-flow "Stofwisseling havo-basis (18 okt 2026)" (2Yxpd5rPUxaDf2FT4mro). Bestaande opnames zijn ongemoeid: de take is als stilte + stem + stilte in het hoofdstuk-mp3 van H6 geplakt op 7,745 s (blob 013, opnieuw gecodeerd 128 kbit/s); alles daarna in H6 schuift 4,09 s op. Vwo slaat dit stuk over.
+
+Beeld bij 6h: geen eigen kaart; de speler laat het beeld van het vwo-stuk dat 6h vervangt (zin 3–4, hoofdstuk 7,745–12,61 s oude tijd) in 4,09 s afspelen ('warp'): het molecuul dat op het substraat lijkt verschijnt met de legenda 'lijkt op substraat'. De kop 'twee manieren van remmen' en de lijst '1 in het actieve centrum / 2 op een andere plek' zijn bij havo weg.
+
+**Techniek (in `film.src.html`)**
+- `FILM.chapters[i].blocks` = stukken per niveau in hoofdstuktijd: `{lvl:'vwo', t0, t1}` (havo slaat over), `{lvl:'havo', t0, t1, take}` (vwo slaat over); `vwoAll: true` bij H7. Zinnen hebben `lvl:'vwo'` of `lvl:'havo'`, frasen `vwo:true` of `havo:true`; havo-zinnen hebben `n` ≥ 101 zodat de zinnummers van de scènes (`W(n, …)`) niet verschuiven. Vragen in een vwo-blok krijgen `lvl:'vwo'`.
+- `FILM.chapters[i].ins` = havo-invoegingen: `P` (begin in de oude tijd), `Pn` (begin in de nieuwe tijd), `D` (duur), `mode` ('warp' of 'panel'), `blk` (het vervangen vwo-stuk in oude tijd); `origDur` = oude duur. De audio en alle tijden in FILM zijn de nieuwe tijd; de **scènecode is niet aangepast**: de speler geeft elke scène het hoofdstuk zonder invoegingen (`NV.orig(i)`) en tekent op de oude tijdlijn (`NV.st(i, t)`).
+- Speler (`player.js`, regel ≈ 4507–4520 `const NV`, ≈ 4746 `NV.over`, ≈ 4817 in `bkBouw`, ≈ 4838 knoppen): de niveaustukken gaan als overslaan-stukken in `BK.k` (zelfde mechaniek als Vragen uit), dus tijdbalk, tijd en hoofdstukduur tonen de ingekorte duur per niveau. `NV.over` tekent de vwo-markering en (bij 'panel') een havo-kaart uit `window.HAVO` (regel ≈ 4460; in deze film leeg). Vorige-knop en pijl omhoog slaan H7 over bij havo. `window.BKN` = niveau voor de scènes: H3 (strook 'antwoord C klopt niet'), H6 (kop 'twee manieren', lijst 1/2) en H8 (recapkaart 5 regels) kijken ernaar.
+- Pagina: knop `<div class="seg" aria-label="Niveau">` met `data-niv` (regel ≈ 248), CSS-blok "niveau havo/vwo" (regel ≈ 177), `body.havo`. Transcript: vwo-zinnen `class="vwo"` met label, havo-zin `class="havo"`; bij havo verdwijnen de vwo-regels, bij vwo de havo-regel. Begrippen: induced fit, V-max, allosterische zijde, inhibitor- en activatormolecuul, negatieve terugkoppeling, cofactor, co-enzym hebben `class="term vwo"` (verborgen bij havo, ook in de flipkaarten). Kop: "havo + vwo · … · vwo 11:34 · havo 9:01"; kaart "Havo of Vwo" in Over de film.
+- Gemaakt met `scripts/stofwisseling_niveau/` (`niveau_data.py` voor FILM-data + audio, `niveau_page.py` voor pagina en speler, `script_md.py` voor script.md; specs per film in `specs/`).
+
+**Zo pas je het niveau aan**
+- Een zin van basis naar vwo (of terug): pas `specs/f1.json` aan (zinnummers per hoofdstuk) en bouw opnieuw vanaf de film van vóór 18 okt (`git show 586f476:films/stofwisseling/1-alles-versneld.html`), of pas in `window.FILM` `lvl` en `blocks` met de hand aan (blokgrenzen: 0,05 s vóór de eerste zin tot 0,05 s vóór de volgende basiszin).
+- Een havo-alinea opnieuw inspreken: nieuwe take in `scripts/stofwisseling_niveau/tts/`, woordtijden in `words.json`, opnieuw bouwen.
+
+**Getest (18 okt 2026, Playwright/Chromium)**: havo en vwo, Vragen aan/uit, snelheid 1,5×; afspelen over elk overgeslagen stuk (H3, H5→H6, H6 invoeging en vwo-blok, H6→H8 bij havo, H8); geen JS-fouten; knop onthouden na herladen; stills van H3, H6 (havo-alinea) en H8 (recap havo/vwo).
