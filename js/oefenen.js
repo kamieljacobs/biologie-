@@ -527,6 +527,8 @@
     blok.appendChild(el('p', 'oe-lead', esc(data.intro || 'Oefen met wat je in de film zag. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.')));
     var lijst = el('div', 'oe-lijstje'); blok.appendChild(lijst);
     sectie.parentNode.insertBefore(blok, sectie.nextSibling);
+    // toetsen in de oefeningen (typen, spatie, pijltjes) niet doorgeven aan de filmspeler
+    ['keydown', 'keyup', 'keypress'].forEach(function (t) { blok.addEventListener(t, function (e) { e.stopPropagation(); }); });
     // inhoudsopgave bovenaan (als de film er een heeft)
     var toc = document.querySelector('nav.toc a[href="#begrippen"]');
     if (toc && !document.querySelector('nav.toc a[href="#oefenen"]')) { var a = document.createElement('a'); a.href = '#oefenen'; a.textContent = 'Zelf aan de slag'; toc.parentNode.insertBefore(a, toc.nextSibling); }
