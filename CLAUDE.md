@@ -45,6 +45,10 @@ Geplande films staan per hoofdstuk in `HOOFDSTUKKEN.<id>.komt` (titel, vraag, ni
 
 Kamiel bekijkt de films en geeft feedback. De status staat in `REVIEW` bovenin het script van `index.html` (sleutel = href van de film): ontbreekt = nog bekijken, `'feedback'` = opmerkingen nog te verwerken, `'ok'` = klaar. Alleen zichtbaar als stipje met `?k=1` (uit met `?k=0`). Werk dit bij zodra Kamiel een film bekeken heeft of feedback verwerkt is; een nieuwe of flink aangepaste film krijgt weer status 'nog bekijken'.
 
+## Uitspraak
+
+Goedgekeurde uitspraken staan centraal in `films/UITSPRAAK.md` (leesbaar) en `films/uitspraak.json` (vervangregels voor de stem-invoer). Gebruik ze bij elke nieuwe of opnieuw ingesproken film. Nieuwe risicowoorden gaan op de wachtlijst van de film (`bron/uitspraak.md`) en worden in batches getest met de luisterpagina Uitspraaktest (claude.ai-artifact, keuzes in collectie `keuzes`); goedgekeurde keuzes daarna in beide centrale bestanden zetten.
+
 ## Beeldafspraken
 
 Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die vóór elke nieuwe of aangepaste film en vul hem aan als feedback voor meerdere films geldt.
