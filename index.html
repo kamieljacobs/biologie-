@@ -2052,6 +2052,8 @@ const toolKunst=naam=>{const m=TOOLPLAAT.find(([re])=>re.test(naam));const kl=m?
 const toolFig=naam=>{const m=TOOLPLAAT.find(([re])=>re.test(naam));return m?m[2]:''};
 /* Een lijntekening per film (viewBox 0 0 48 48), gekozen op de bestandsnaam van de film. currentColor = kleur van het hoofdstuk, .acc = goud. */
 // Werkstatus per film (alleen zichtbaar met ?k=1, uit met ?k=0). Ontbreekt = nog bekijken; 'feedback' = opmerkingen nog te verwerken; 'ok' = klaar.
+// OEFENEN: films met een blok 'Zelf aan de slag' (bijgewerkt door scripts/oefenen.py)
+const OEFENEN = ["films/cellen/diffusie-osmose/index.html", "films/voortplanting/1-precies-op-tijd.html"];
 const REVIEW = {
   // DNA 3 Van DNA naar eiwit 16 okt: v1.1 (TATA-box, ER/Golgi, beeld) -> nog bekijken
   "films/cellen/van-molecuul-tot-biosfeer.html": "ok", // 15 okt: abiotisch/emergente heropgenomen en goedgekeurd
@@ -2260,7 +2262,7 @@ function hoofdstuk(id){
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}" data-href="${esc(f.href)}">
       <span class="nr"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}</span>${rv(f.href)}</span>
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div></div>
-      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
+      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN.includes(f.href)?`<a class="knop knop-pres" href="${BASE+esc(f.href)}#oefenen" title="Oefeningen bij deze film: volgorde, schema en leg het uit">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`}).join('')}</section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;

@@ -28,7 +28,7 @@ def controleer(pad):
     return fouten
 
 
-n = 0; alle_fouten = []
+n = 0; alle_fouten = []; met = []
 for f in sorted(set(files)):
     if '/bron/' in f or '/_bouw/' in f or f.endswith('presentatie.html'):
         continue
@@ -36,7 +36,7 @@ for f in sorted(set(files)):
     d, naam = os.path.split(p)
     kandidaat = os.path.join(d, 'oefenen.json') if naam == 'index.html' else os.path.join(d, naam[:-5], 'oefenen.json')
     if os.path.exists(kandidaat):
-        alle_fouten += controleer(kandidaat)
+        alle_fouten += controleer(kandidaat); met.append(f)
         root = os.path.relpath(R, d).replace(os.sep, '/') + '/'
         data = os.path.relpath(kandidaat, d).replace(os.sep, '/')
         tag = f'<script src="{root}js/oefenen.js" data-oefenen="{data}" defer></script>\n'
@@ -49,6 +49,10 @@ for f in sorted(set(files)):
         s2 = TAG.sub('', s)
     if s2 != s:
         open(p, 'w', encoding='utf-8').write(s2); n += 1
+# lijst voor de knop 'Oefenen' in de filmlijst van index.html
+ip = os.path.join(R, 'index.html'); idx = open(ip, encoding='utf-8').read()
+idx2 = re.sub(r'const OEFENEN = \[[^\]]*\];', 'const OEFENEN = ' + json.dumps(sorted(met), ensure_ascii=False) + ';', idx, count=1)
+if idx2 != idx: open(ip, 'w', encoding='utf-8').write(idx2); print('index.html: OEFENEN bijgewerkt')
 print(n, 'films bijgewerkt')
 if alle_fouten:
     print('\n'.join(alle_fouten)); sys.exit(1)

@@ -505,6 +505,8 @@
 
     var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
     thema(blok);
+    // vanuit de filmlijst (knop 'Oefenen', link naar #oefenen): meteen naar het blok
+    if (location.hash === '#oefenen') setTimeout(function () { blok.scrollIntoView({ block: 'start' }); }, 60);
     try {
       new MutationObserver(function () { thema(blok); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-thema', 'class'] });
       if (window.matchMedia) { var mq = window.matchMedia('(prefers-color-scheme: dark)'); (mq.addEventListener ? mq.addEventListener('change', function () { thema(blok); }) : mq.addListener(function () { thema(blok); })); }
