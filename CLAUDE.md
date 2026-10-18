@@ -21,6 +21,10 @@ Controle vóór elke push: `find films -name '*.html' -not -path '*/bron/*'` mag
 
 Elke film heeft in de speler een **afspeelsnelheid** (0,75 / 1 / 1,25 / 1,5×) en een knop **Vragen aan/uit**. Beide worden onthouden over alle films heen (localStorage `bk-snelheid` en `bk-vragen`; ook `?snelheid=` en `?vragen=`). Bij Vragen uit vallen de vraagkaarten weg en wordt de gesproken vraagzin geknipt. Kamiel wil dit bij alle video's (16 okt 2026). Een nieuwe film in de FILMDATA-bouwvorm neemt de speler over van de nieuwste kerndoelenfilm (`films/onderbouw/32a/3-vertering/bron/src/player.js` of de haaienfilm), niet van een oudere kopie. Controle: `grep -L bk-vragen` op de films mag niets opleveren.
 
+## Flipkaarten bij begrippen
+
+Elke film met een begrippenlijst (`<div id="glossary">` met `.term` = `<b>begrip</b><p>uitleg</p>`) krijgt boven de lijst een knop 'Oefen met flipkaarten' (`js/flipkaarten.js`: omdraaien, wist ik / nog oefenen, schudden, uitleg eerst, gemiste opnieuw; alleen zichtbare begrippen, dus in de havo-stand zonder vwo-begrippen). Draai `python3 scripts/flipkaarten.py` na het toevoegen van een film (idempotent).
+
 ## Licentie
 
 Alles op de site valt onder CC BY-NC-SA 4.0 (© Kamiel Jacobs; uitleg in `gebruik.html`, tekst in `LICENSE.md`; examenvragen in de Examenatlas © CvTE). Elke pagina draagt onderaan of in de footer de licentievermelding: draai `python3 scripts/licentie_noot.py` na het toevoegen van een nieuwe pagina, film of tool (idempotent).

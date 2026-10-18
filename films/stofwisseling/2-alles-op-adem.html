@@ -4681,4 +4681,5 @@ function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.tes
 // transcript: klik op een tijd
 document.querySelectorAll('.tr .ts').forEach((b) => b.addEventListener('click', () => { const i = +b.dataset.ch, t = +b.dataset.t; window.__film.seek(window.__film.starts[i] + Math.max(0, t - 0.3)); document.getElementById('player').scrollIntoView({ behavior: 'smooth', block: 'start' }); }));
 </script>
+<script src="../../js/flipkaarten.js" defer></script>
 </body></html>
