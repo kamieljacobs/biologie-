@@ -64,25 +64,24 @@ Gekozen met letters/koppeltekens: H-plus (H⁺), H-P-A-as, I-V-F, Q-R-S-complex,
 
 Zoals het al in de film klonk (goed): o.a. Thorizon, ITER-varianten niet nodig, Hoeksche Waard, hysterese, PFAS, CO₂, pcb's, Qatar, GLUT4 en 432 gewone woorden.
 
-Afgekeurd, aanwijzing van Kamiel (nog uit te werken):
-| Woord | Kamiel | Nieuwe stem-invoer (voorstel) |
-|---|---|---|
-| A4'tjes | klemtoon op 4 | A-víertjes |
-| ADI | "adi, niet aadi" | (navragen) |
-| AGS | "nu aags, moet ags" | (navragen) |
-| bloedgroep A, B | "a b" | (navragen) |
-| E. coli | "niet ee-koolie, maar e-koolie" | (navragen) |
-| EPO | niet als losse letters | Epo |
-| gelelektroforese | gel als Engels woord | dzjel-elektroforese |
-| GGD | "ggd" | GGD |
-| gibberelline | gibbereline | gibbereline |
-| IgE | niet dubbel e | (navragen) |
-| in-vitrofertilisatie | in vitro fertilisatie | in vitro fertilisatie |
-| klonale | aan elkaar, niet kloon-ale | klonale |
-| leptine / serotonine | gewoon -ine | leptine / serotonine |
-| mRNA-vaccin | "mrna niet m" | (navragen) |
-| Niger | "nieger" | Niger (Nederlandse uitspraak) |
-| operator | als Nederlands woord | operaator |
-| poetsvissen | klinkt als boetsvissen | poets-vissen |
-| RNA | "niet ee, gewoon rna" | RNA |
-| transcriptiefactor | "tie" moet "zie" | transcriptsie-factor |
+Ronde 2 (19 okt 2026), gekozen stem-invoer:
+| Woord | Stem-invoer |
+|---|---|
+| A4'tjes | aa-víertjes |
+| ADI | ADI (gewoon) |
+| AGS | AGS (gewoon) |
+| bloedgroep AB | A B (met spatie) |
+| EPO | Epo |
+| gelelektroforese (v3) | gel-elektroforese |
+| GGD | GGD (gewoon) |
+| IgE | IgE (gewoon) |
+| in-vitrofertilisatie | in vitro fertilisatie |
+| klonale, leptine, serotonine | gewoon |
+| mRNA-vaccin | mRNA-vaccin (gewoon) |
+| Niger | Nieger |
+| operator (v3) | operaator |
+| poetsvissen | gewoon (zoals in de film) |
+| RNA (los woord) | er-en-aa |
+| transcriptiefactor | transcriptsie-factor |
+
+Nog open (ronde 3): E. coli (klemtoon zoals "è-koolie", maar met een gewone e), gibberelline (begin zoals in de film, eind zoals de gewone spelling).
