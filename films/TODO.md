@@ -19,7 +19,7 @@ Voorgestelde volgorde: eerst de twee milieufilms en de havo-stofwisselingsfilm (
 - Alles gaat rond: fosforkringloop
 - Plek genoeg?: eilandtheorie
 - Alles op adem: spiervezeltypen, myoglobine, melkzuur naar de lever (Cori-cyclus); aparte leverfilm niet nodig (Voeding 5)
-- Alles in het groen: chemosynthese, autotroof/heterotroof
+- ~~Alles in het groen: chemosynthese~~ (Kamiel 19 okt: hoeft niet)
 - Alles versneld: de vier structuurniveaus van eiwitten
 - Hoe een plant groeit: plantenhormonen als signaalcascade (ethyleen, abscisinezuur)
 - Transport in planten: bladbouw en aantal huidmondjes
