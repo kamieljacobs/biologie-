@@ -84,4 +84,6 @@ Ronde 2 (19 okt 2026), gekozen stem-invoer:
 | RNA (los woord) | er-en-aa |
 | transcriptiefactor | transcriptsie-factor |
 
-Nog open (ronde 3): E. coli (klemtoon zoals "è-koolie", maar met een gewone e), gibberelline (begin zoals in de film, eind zoals de gewone spelling).
+Ronde 4 (19 okt 2026): **E. coli** (eleven_v3) → stem-invoer "E. kóólie" (nadruk op kóólie); **gibberelline** → "giebereliene". Hiermee zijn alle woorden uit de test van 18 okt vastgelegd.
+
+Let op: "E. coli" bestaat uit twee tokens; vervang in de tekst zelf "E. coli" door "E. kóólie" (geen regel in uitspraak.json).
