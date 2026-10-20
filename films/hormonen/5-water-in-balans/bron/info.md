@@ -93,3 +93,22 @@ Begrippen: nier, nierslagader/nierader, ureum, nefron, glomerulus, voorurine, te
 
 ## Wijziging 18 okt 2026
 s10: 'veel ADH'-beeld op het juiste woord (cue 'veel',2 vond 'hoeveel'; nu 'veel',3).
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moeten klinken. Alleen de alinea's met die woorden zijn opnieuw ingesproken; de gesproken tekst is inhoudelijk gelijk gebleven.
+
+| Woord | Nieuwe stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| negenennegentig | negen en neguntig | s06 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+- Opnieuw ingesproken: s06. Roos (7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, ElevenLabs-flow `urmsa8zcNa5TFq8SVeBI` ("Herinspreken 19 okt · voeding, hormonen, voortplanting"). Stem-invoer = `voice` in `segments.json` (gemaakt met `make_segments.py` en de bijgewerkte vervangregels in `bouw/uitspraak_subs.json`).
+- Woordtijden: Scribe (connect_from = de TTS-node) → `align.py` → `stem/woordtijden/`. Mastering: `loudnorm=I=-15:TP=-1.5`, mono 44,1 kHz 96 kb/s.
+- Credits: TTS 542, Scribe ≈ 199 (≈ 36 s audio).
+- In de HTML (`window.FILMDATA`) zijn alleen bij deze segmenten `words` en `dur` vervangen en heeft de audio-URL `?v=2` gekregen; speler en beelden zijn ongewijzigd. Getest met Playwright (vwo/havo, Vragen aan/uit): geen JS-fouten, nieuwe audio laadt.
+- Niet aangepast: woorden die niet in de test zaten houden hun vorige stem-invoer, zodat ze in de hele film hetzelfde klinken (bijv. "receptor" zoals geschreven, terwijl de centrale lijst "reseptor" geeft).
+
+| Segment | TTS-node | Generatie | Credits | Duur |
+|---|---|---|---|---|
+| s06 | 6RXPH8FfUxgruwCzwVRV | RkJea2ziM3fV96fO0J4P | 542 | 36.61 s |

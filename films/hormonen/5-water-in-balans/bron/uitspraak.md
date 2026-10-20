@@ -20,3 +20,12 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | ADH | aa-dee-haa | zoals geschreven | doorlopend |
 
 **Wachtlijst voor Kamiel:** vooral "negenenneguntig" (de bestaande respelling van negentig is hier meegenomen; controleer of het natuurlijk klinkt), glomerulus, antidiuretisch, aquaporinen en lis van Henle. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s06.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| negenennegentig | negen en neguntig | s06 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
