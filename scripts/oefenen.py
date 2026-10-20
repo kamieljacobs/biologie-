@@ -5,7 +5,10 @@ Gebruik: python3 scripts/oefenen.py   (idempotent; controleert ook de JSON). Zon
 import json, os, re, subprocess, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 files = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard', 'films/*.html', 'films/**/*.html'], cwd=R, text=True).split()
-TAG = re.compile(r'<script src="[^"]*js/oefenen\.js"[^>]*></script>\n?')
+TAG = re.compile(r'<script src="[^"]*js/oefenen\.js(?:\?v=[0-9a-f]*)?"[^>]*></script>\n?')
+import hashlib
+# versie in de scriptlink, zodat browsers na een wijziging meteen de nieuwe oefenen.js laden (GitHub Pages cachet 10 min)
+V = hashlib.sha1(open(os.path.join(R, 'js', 'oefenen.js'), 'rb').read()).hexdigest()[:8]
 SOORTEN = {'volgorde', 'schema', 'uitleg', 'indelen', 'pijlen', 'grafiek', 'puzzel', 'stamboom'}
 
 
@@ -69,7 +72,7 @@ for f in sorted(set(files)):
         alle_fouten += controleer(kandidaat); met.append((f, os.path.relpath(kandidaat, R).replace(os.sep, '/')))
         root = os.path.relpath(R, d).replace(os.sep, '/') + '/'
         data = os.path.relpath(kandidaat, d).replace(os.sep, '/')
-        tag = f'<script src="{root}js/oefenen.js" data-oefenen="{data}" defer></script>\n'
+        tag = f'<script src="{root}js/oefenen.js?v={V}" data-oefenen="{data}" defer></script>\n'
         if TAG.search(s):
             s2 = TAG.sub(lambda m: tag, s, count=1)
         else:
@@ -97,6 +100,9 @@ for f, pad in sorted(met):
 regel = 'const OEFENEN = ' + json.dumps(lijst, ensure_ascii=False, separators=(',', ':')) + ';'
 idx2 = re.sub(r'^const OEFENEN = .*;$', lambda m: regel, idx, count=1, flags=re.M)
 if idx2 != idx: open(ip, 'w', encoding='utf-8').write(idx2); print('index.html: OEFENEN bijgewerkt')
+op = os.path.join(R, 'oefenen.html'); oh = open(op, encoding='utf-8').read()
+oh2 = re.sub(r"s\.src = 'js/oefenen\.js(?:\?v=[0-9a-f]*)?'", "s.src = 'js/oefenen.js?v=" + V + "'", oh)
+if oh2 != oh: open(op, 'w', encoding='utf-8').write(oh2); print('oefenen.html: versie bijgewerkt')
 lp = os.path.join(R, 'oefenlijst.json')
 oud = open(lp, encoding='utf-8').read() if os.path.exists(lp) else ''
 nieuw = json.dumps(lijst, ensure_ascii=False, indent=1) + '\n'
