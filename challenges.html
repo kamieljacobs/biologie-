@@ -100,6 +100,35 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .ch footer a{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
 .ch footer a:hover{color:var(--text);border-color:var(--line2)}
 .leeg{padding:40px 0;color:var(--text3)}
+/* Uitklapbare subvragen met context en hints */
+.ch li{display:block;padding:0}
+.ch .vraag{all:unset;box-sizing:border-box;display:grid;grid-template-columns:34px minmax(0,1fr) 22px;gap:10px;width:100%;padding:11px 22px;cursor:pointer}
+.ch .vraag:hover{background:color-mix(in srgb,var(--goud) 5%,transparent)}
+.ch .vraag:focus-visible{outline:2px solid var(--goud);outline-offset:-2px;border-radius:0}
+.ch .pijl{align-self:center;color:var(--text3);transition:transform .2s}
+.ch .vraag[aria-expanded="true"] .pijl{transform:rotate(180deg);color:var(--goud-text)}
+.ch .vraag[aria-expanded="true"]{background:color-mix(in srgb,var(--goud) 7%,transparent)}
+.hulp{padding:4px 22px 18px 66px;font-size:15.5px;line-height:1.5;background:color-mix(in srgb,var(--goud) 4%,transparent)}
+.hulp h3{font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:16px 0 6px}
+.hulp h3:first-child{margin-top:8px}
+.hulp p{margin:0;color:var(--text2)}
+.hulp .zelf{border-left:3px solid var(--goud);padding:8px 12px;background:var(--surface);border-radius:0 8px 8px 0;color:var(--text)}
+.hulp .let{margin-top:10px;border:1px solid color-mix(in srgb,var(--koraal) 50%,transparent);border-radius:8px;padding:8px 12px;color:var(--text)}
+.hulp .let b{color:var(--koraal)}
+.hints{list-style:none;margin:0;padding:0;border:0}
+.hints li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;border:0;padding:6px 0;color:var(--text)}
+.hints li .hn{font:600 11px/1.9 var(--meta);color:var(--goud-text);white-space:nowrap}
+.hulpknop{margin-top:8px;border:1px dashed var(--line2);background:none;border-radius:999px;padding:6px 14px;min-height:36px;font-size:14px;font-weight:600;color:var(--text2)}
+.hulpknop:hover{color:var(--text);border-color:var(--goud)}
+.zoek{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.zoek span{font:500 13px/1.3 var(--meta);border:1px solid var(--line2);border-radius:6px;padding:4px 8px;color:var(--text)}
+.klaar{list-style:none;margin:0;padding:0;border:0}
+.klaar li{display:block;border:0;padding:3px 0}
+.klaar label{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;cursor:pointer;color:var(--text2)}
+.klaar input{width:17px;height:17px;margin:3px 0 0;accent-color:var(--goud)}
+.klaar input:checked+span{color:var(--text);text-decoration:line-through;text-decoration-color:var(--goud);text-decoration-thickness:1.5px}
+.ch.open{scroll-margin-top:84px}
+
 
 footer.site{margin-top:56px;border-top:1px solid var(--line);color:var(--text3);font-size:14px}
 footer.site .wrap{display:flex;gap:12px 24px;flex-wrap:wrap;padding-block:26px 44px}
@@ -120,7 +149,7 @@ footer.site a:hover{color:var(--text)}
   .ch header{grid-template-columns:72px minmax(0,1fr);gap:14px;padding:18px 16px 12px}
   .ch .embleem{width:72px;height:72px}.ch .embleem svg{width:54px;height:54px}
   .ch h2{font-size:22px}
-  .ch .intro{padding:0 16px 12px}.ch li{padding:10px 16px}.ch footer{padding:12px 16px 16px}
+  .ch .intro{padding:0 16px 12px}.ch .vraag{padding:10px 16px}.hulp{padding:4px 16px 16px}.ch footer{padding:12px 16px 16px}
   .teller{width:100%;margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -176,6 +205,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
   <span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></div>
 </footer>
 
+<script src="js/challenges-hulp.js"></script>
 <script>
 /* ===== INHOUD — een nieuwe challenge: voeg een blok toe aan CHALLENGES en een tekening aan KUNST (sleutel = id).
    thema: mens | dier | plant | ecologie | erfelijkheid | gezondheid
@@ -340,7 +370,8 @@ function kaart(c){
   return `<article class="ch" id="${c.id}" style="--c:var(--${kl})">
     <header><span class="embleem">${kunst(c.id,kl,c.titel)}</span><div><span class="letter mono">Challenge ${esc(c.letter)} · ${c.thema.map(t=>esc(THEMA[t][0])).join(' · ')}</span><h2>${esc(c.titel)}</h2></div></header>
     <p class="intro">${esc(c.intro)}</p>
-    <ol>${c.vragen.map(([v,s],i)=>`<li><span class="nr">${esc(c.letter.toLowerCase())}${i+1}</span><div><p>${esc(v)}</p><span class="soort" data-s="${s}">${esc(SOORT[s]||s)}</span></div></li>`).join('')}</ol>
+    <ol>${c.vragen.map(([v,s],i)=>{const k=`${c.id}-${i+1}`, h=(window.HULP||{})[k];
+      return `<li id="${k}"><button class="vraag" type="button" ${h?`aria-expanded="false" aria-controls="hulp-${k}"`:'disabled'} data-k="${k}"><span class="nr">${esc(c.letter.toLowerCase())}${i+1}</span><div><p>${esc(v)}</p><span class="soort" data-s="${s}">${esc(SOORT[s]||s)}</span></div>${h?'<svg class="pijl" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>':''}</button>${h?`<div class="hulp" id="hulp-${k}" hidden></div>`:''}</li>`}).join('')}</ol>
     ${c.bij.length?`<footer><span class="mono">Past bij</span>${c.bij.map(([l,h])=>`<a href="${esc(h)}">${esc(l)}</a>`).join('')}</footer>`:''}
   </article>`;
 }
@@ -349,7 +380,7 @@ function render(){
   const lijst=CHALLENGES.filter(c=>!filter||c.thema.includes(filter));
   app.innerHTML=`<section class="kop"><div class="wrap">
       <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Zelf aan de slag</div><h1>Challenges</h1>
-      <p>Grote biologische vragen om zelf uit te zoeken. Elke challenge begint breed; kies een subvraag om het kleiner en concreter te maken, of werk ze allemaal af.</p></div>
+      <p>Grote biologische vragen om zelf uit te zoeken. Elke challenge begint breed; kies een subvraag om het kleiner en concreter te maken, of werk ze allemaal af. Klik op een subvraag voor wat achtergrond, tips om te beginnen en hints als je vastloopt.</p></div>
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
     <div class="wrap">
@@ -367,9 +398,44 @@ function render(){
       <div class="raster">${lijst.map(kaart).join('')||'<p class="leeg">Geen challenges bij dit thema.</p>'}</div>
     </div>`;
 }
-app.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
+/* Hulp per subvraag: context + 'denk eerst zelf', hints één voor één, zoektermen op verzoek, klaar-checklist.
+   Hoeveel hints iemand open heeft en welke punten afgevinkt zijn, blijft bewaard in deze browser. */
+const DENK={uitzoeken:'Schrijf eerst op wat je al weet of denkt, en welke deelvragen je moet beantwoorden. Open pas een hint als je vastloopt.',
+  experiment:'Bedenk eerst zelf: wat wil je vergelijken, wat verander je en wat houd je gelijk? Open pas een hint als je vastloopt.',
+  meten:'Bedenk eerst zelf: wat ga je meten, hoe vaak en waarmee? Open pas een hint als je vastloopt.',
+  ontwerpen:'Bedenk eerst zelf: voor wie of wat ontwerp je, en wanneer is je ontwerp geslaagd? Open pas een hint als je vastloopt.',
+  standpunt:'Schrijf eerst je eerste mening op, in één zin. Kijk aan het eind of je onderzoek die mening heeft veranderd. Open pas een hint als je vastloopt.'};
+const opgeslagen=k=>{try{return JSON.parse(lees('ch-hulp-'+k)||'{}')}catch(e){return {}}};
+const bewaar=(k,o)=>schrijf('ch-hulp-'+k,JSON.stringify(o));
+const open=new Set();
+function vulHulp(k){
+  const h=HULP[k], st=opgeslagen(k), n=Math.min(st.h||0,h.h.length), soort=document.querySelector(`[data-k="${k}"] .soort`)?.dataset.s;
+  const el=document.getElementById('hulp-'+k);
+  el.innerHTML=`<h3>Waar gaat het over?</h3><p>${esc(h.c)}</p>
+    <h3>Denk eerst zelf</h3><p class="zelf">${esc(DENK[soort]||DENK.uitzoeken)}</p>
+    ${h.let?`<p class="let"><b>Veilig werken.</b> ${esc(h.let)}</p>`:''}
+    <h3>Hints</h3>
+    ${n?`<ol class="hints">${h.h.slice(0,n).map((t,i)=>`<li><span class="hn">Hint ${i+1}</span><span>${esc(t)}</span></li>`).join('')}</ol>`:''}
+    ${n<h.h.length?`<button class="hulpknop" type="button" data-hint="${k}">${n?'Nog vast? Volgende hint':'Ik loop vast: geef een hint'} (${n+1} van ${h.h.length})</button>`:''}
+    <h3>Zoektermen</h3>
+    ${st.z?`<div class="zoek">${h.z.map(t=>`<span>${esc(t)}</span>`).join('')}</div>`:`<button class="hulpknop" type="button" data-zoek="${k}">Toon zoektermen</button>`}
+    <h3>Je bent klaar als…</h3>
+    <ul class="klaar">${h.k.map((t,i)=>`<li><label><input type="checkbox" data-klaar="${k}" data-i="${i}" ${(st.k||[]).includes(i)?'checked':''}><span>${esc(t)}</span></label></li>`).join('')}</ul>`;
+}
+function zetOpen(k,aan){
+  const b=document.querySelector(`[data-k="${k}"]`), el=document.getElementById('hulp-'+k); if(!b||!el) return;
+  b.setAttribute('aria-expanded',aan); el.hidden=!aan; if(aan){open.add(k);vulHulp(k)} else open.delete(k);
+}
+app.addEventListener('click',e=>{
+  const v=e.target.closest('.vraag[data-k]'); if(v){zetOpen(v.dataset.k,v.getAttribute('aria-expanded')!=='true');return}
+  const hb=e.target.closest('[data-hint]'); if(hb){const k=hb.dataset.hint, st=opgeslagen(k); st.h=(st.h||0)+1; bewaar(k,st); vulHulp(k); const nieuw=document.querySelectorAll(`#hulp-${k} .hints li`); nieuw[nieuw.length-1]?.scrollIntoView({block:'nearest'}); document.querySelector(`#hulp-${k} [data-hint]`)?.focus(); return}
+  const zb=e.target.closest('[data-zoek]'); if(zb){const k=zb.dataset.zoek, st=opgeslagen(k); st.z=1; bewaar(k,st); vulHulp(k); return}
+  const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render();open.forEach(k=>zetOpen(k,true))});
+app.addEventListener('change',e=>{const c=e.target.closest('[data-klaar]'); if(!c) return; const k=c.dataset.klaar, i=+c.dataset.i, st=opgeslagen(k); const s=new Set(st.k||[]); c.checked?s.add(i):s.delete(i); st.k=[...s]; bewaar(k,st)});
 themaKnop(); render();
-const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!THEMA[doel.id]) doel.scrollIntoView();
+const hash=(location.hash||'').slice(1);
+if(window.HULP&&HULP[hash]){zetOpen(hash,true); document.getElementById(hash)?.scrollIntoView({block:'center'})}
+else{const doel=document.getElementById(hash); if(doel&&!THEMA[doel.id]) doel.scrollIntoView();}
 })();
 </script>
 <script>
