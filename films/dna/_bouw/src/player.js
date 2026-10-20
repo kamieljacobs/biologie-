@@ -7,7 +7,7 @@ const state = {
   auto:false, captions:true, started:false,
   playing:false, items:[], idx:0, local:0, qPhase:null
 };
-const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8; const CD=seg=>(seg&&seg.think)||COUNTDOWN;
+/*SPELERFIX_MARK kaart*/ const CARD_DUR=1.3, TITLE_DUR=5, END_DUR=8, COUNTDOWN=8; const CD=seg=>(seg&&seg.think)||COUNTDOWN;
 const revealDur=seg=>seg.explain?6:2.5;
 
 // ---- timeline ----
@@ -53,7 +53,7 @@ function drawTitle(ctx,t){ bg(ctx,FILM.titleLook||'micro'); const a=ramp(t,0.2,0
   ctx.font=fTekst(40,600); ctx.fillStyle=C.text; ctx.textAlign='left'; wrapText(ctx,FILM.puzzle,120,560,820,54);
   metaText(ctx,(state.niveau==='havo'?'havo':'havo · vwo')+' · '+FILM.meta,W-80,60,C.text2,'right',28); ctx.restore();
   if(SCENES.__title){ ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); SCENES.__title(ctx,t); ctx.restore(); } }
-function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(.+?)\s—\s(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num+(it.level==='vwo'?' · vwo':''),W/2,430,it.level==='vwo'?C.paars:C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini=(FILM.mini||{})[it.chapter]; if(mini) text(ctx,mini,W/2,630,fTekst(40),C.text2,'center'); ctx.restore(); }
