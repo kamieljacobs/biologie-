@@ -6,7 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 5 van 12 |
 | Niveau | havo + vwo; vwo-blok s08 (orthosympathisch/parasympathisch, adrenaline, cortisol) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
-| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 7hVkaiVHzsXLtRvQMaIA; respellings amygdala → amígdala, co-regulatie → ko-regulatie (zie `uitspraak.md`) |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 7hVkaiVHzsXLtRvQMaIA; respelling co-regulatie → ko-regulatie; amygdala sinds 20 okt in gewone spelling (zie `uitspraak.md`) |
 | Duur | spraak 4:33 (vwo) / 4:03 (havo); speeltijd met kaarten en vragen ± 6 min |
 | Beeldstijl | Part C: Schema |
 | Personages | Bilal (castboek); ouder en peuter als eigen figuurtjes (uit film 4) |
@@ -51,7 +51,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gd5` (scenes.js uit `src/`, `words/` 
 - beeld: alleen `scenes.js` → `engine/build.py gd5` → pack. Let op deelwoorden: 'andere' vindt ook 'veranderen', 'zelf' ook 'zichzelf', 'stap' ook 'stappen'.
 
 ## Aandachtspunten
-- Uitspraakwachtlijst: amygdala (amígdala), co-regulatie (ko-regulatie), orthosympathische, parasympathische, cortisol, 'close'.
+- Uitspraakwachtlijst: co-regulatie (ko-regulatie), orthosympathische, parasympathische, cortisol, 'close'.
 - De balkjes en curven zijn schematisch (geen echte meetwaarden).
 
 ## Wijzigingen
@@ -60,3 +60,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gd5` (scenes.js uit `src/`, `words/` 
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). De gedragsfilms gebruiken vooral `tag`/`regel`/`chip`; geen scène toont `label()`. Alleen de functie is vervangen; geen andere wijslijnen gevonden. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+Uitspraak na de uitspraaktest van 18 okt: stem-invoer amígdala → amygdala (gewone spelling), regel uit `uitspraak_film.json` gehaald. Alinea's s04, s07 en s10 opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow 7hVkaiVHzsXLtRvQMaIA; 2.142 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden van die alinea's in `window.FILMDATA` zijn vervangen; beeld, speler en de rest van de film ongewijzigd. Spraak 4:33 → 4:34.
