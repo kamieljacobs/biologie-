@@ -69,3 +69,17 @@ Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.
 
 Elke pagina laadt `js/teller.js` (GoatCounter `biologiebijkamiel`, zonder cookies). Films tellen daarnaast `start/`, `halverwege/` (±45% van `duur` aan afgespeeld geluid) en `uitgekeken/` (±85%) als gebeurtenis; de duur komt uit `HOOFDSTUKKEN` en staat als `data-duur` op de scripttag. Draai `python3 scripts/teller.py` na het toevoegen van een nieuwe pagina, film of tool, of na het wijzigen van een filmduur (idempotent). Elke nacht haalt `.github/workflows/statistieken.yml` (secret `GOATCOUNTER_TOKEN`) de totalen op met `scripts/statistieken_ophalen.py` naar `statistieken/data.json`; het dashboard is `statistieken/index.html` (niet gelinkt, noindex).
 
+
+## Reviewtool
+
+Kamiel geeft zijn oordeel over films in de artifact Filmreview (https://claude.ai/artifact/5X2WM9veyo6tNJMVFGnAF5, bron `/home/claude/filmreview/filmreview.html`, db-collectie `status`: doc-id = href met niet-alfanumeriek → `_`, velden `href`, `status` ('open'/'feedback'/'ok'), `notitie`, `tijd`). Lees die collectie aan het begin van een werkronde, verwerk feedback en zet `REVIEW` in `index.html` gelijk. Nieuwe films: draai de filmlijst opnieuw in de pagina en publiceer.
+
+## Zuinig met tokens (20 okt 2026)
+
+- Feedback bundelen: Kamiel zet opmerkingen per film in de Filmreview; Claude leest ze in één keer en verwerkt ze per film in één ronde.
+- Hooguit 3–4 helpers tegelijk; geef elke helper een korte brief met verwijzingen (niet de inhoud overtypen).
+- Routinewerk (ondertitels, REVIEW, scripts draaien, kleine tekstfixes, herinspreken volgens een lijst) met een helper op `model: sonnet`; script schrijven, vakinhoud en nieuw beeld ontwerpen op het sterkste model.
+- Lees geen hele film-HTML (1000+ regels): zoek met grep of gebruik de regelnummers uit `bron/info.md`.
+- Stills alleen van de gewijzigde scènes bekijken, op lage resolutie; Playwright alleen op de gewijzigde film.
+- Geen 'alle films nalopen' tenzij het om een fout in de gedeelde speler gaat; gebruik de idempotente scripts.
+- Lange sessies worden duur (alles wordt steeds opnieuw meegestuurd): start per groot thema een nieuwe sessie; de afspraken staan hier en in de bronmappen.
