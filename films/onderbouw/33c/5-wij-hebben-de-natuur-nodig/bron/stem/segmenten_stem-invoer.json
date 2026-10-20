@@ -1,0 +1,163 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Lotte pakt haar lunch: een appel, een broodje en een flesje kraanwater. Wat daarvan heeft de natuur gratis voor haar gedaan? Wat denk je?"
+  ],
+  "display": "Lotte pakt haar lunch: een appel, een broodje en een flesje kraanwater. Wat daarvan heeft de natuur gratis voor haar gedaan? Wat denk je?",
+  "voice": "Lotte pakt haar lunch: een appel, een broodje en een flesje kraanwater. Wat daarvan heeft de natuur gratis voor haar gedaan? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "alleen de appel",
+   "de appel en het brood, maar niet het water",
+   "alles, ook het water"
+  ],
+  "q": "Lotte heeft een appel, een broodje en een flesje kraanwater. Wat daarvan heeft de natuur gratis voor haar gedaan?",
+  "correct": 2,
+  "explain": "Alles: insecten bestoven de appelboom, graan groeit op levende grond, en kraanwater wordt deels gezuiverd door duinzand en bacteriën."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wij hebben de natuur nodig. Wat levert de natuur ons gratis?"
+  ],
+  "display": "Wij hebben de natuur nodig. Wat levert de natuur ons gratis?",
+  "voice": "Wij hebben de natuur nodig. Wat levert de natuur ons gratis?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Een bij in je lunch",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is c. Het graan voor het brood groeit in levende grond, vol wormen en bacteriën. Begin bij de appel. In het voorjaar bloeit de appelboom. Een bij zoekt nectar in de bloem. Daarbij blijft er stuifmeel aan haar haren plakken.",
+   "In de volgende bloem valt een beetje stuifmeel af. Dat heet bestuiving. Alleen een bestoven bloem wordt een appel. Wat gebeurt er in een boomgaard zonder bijen? Wat denk je?"
+  ],
+  "display": "Het antwoord is c. Het graan voor het brood groeit in levende grond, vol wormen en bacteriën. Begin bij de appel. In het voorjaar bloeit de appelboom. Een bij zoekt nectar in de bloem. Daarbij blijft er stuifmeel aan haar haren plakken. In de volgende bloem valt een beetje stuifmeel af. Dat heet bestuiving. Alleen een bestoven bloem wordt een appel. Wat gebeurt er in een boomgaard zonder bijen? Wat denk je?",
+  "voice": "Het antwoord is cee. Het graan voor het brood groeit in levende grond, vol wormen en bacteriën. Begin bij de appel. In het voorjaar bloeit de appelboom. Een bij zoekt nectar in de bloem. Daarbij blijft er stuifmeel aan haar haren plakken. In de volgende bloem valt een beetje stuifmeel af. Dat heet bestuiving. Alleen een bestoven bloem wordt een appel. Wat gebeurt er in een boomgaard zonder bijen? Wat denk je?"
+ },
+ {
+  "id": "q05",
+  "chapter": "Hoofdstuk 1 — Een bij in je lunch",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "er komen net zoveel appels",
+   "er komen veel minder appels",
+   "de appels worden juist groter"
+  ],
+  "q": "Wat gebeurt er in een boomgaard zonder bijen?",
+  "correct": 1,
+  "explain": "Er komen veel minder appels: alleen een bestoven bloem wordt een appel. Zonder bestuivers moet het met de hand."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 1 — Een bij in je lunch",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Zonder bestuivers komen er veel minder appels. In een streek in China waren bijna geen bijen meer. Daar bestoven mensen de bloemen met de hand, met een kwastje. Dat is traag en duur werk.",
+   "Bijen, hommels en zweefvliegen doen het gratis. Van de belangrijkste soorten groente, fruit en noten heeft ongeveer driekwart bestuivers nodig, of groeit beter met hun hulp."
+  ],
+  "display": "Het antwoord is b. Zonder bestuivers komen er veel minder appels. In een streek in China waren bijna geen bijen meer. Daar bestoven mensen de bloemen met de hand, met een kwastje. Dat is traag en duur werk. Bijen, hommels en zweefvliegen doen het gratis. Van de belangrijkste soorten groente, fruit en noten heeft ongeveer driekwart bestuivers nodig, of groeit beter met hun hulp.",
+  "voice": "Het antwoord is bee. Zonder bestuivers komen er veel minder appels. In een streek in China waren bijna geen bijen meer. Daar bestoven mensen de bloemen met de hand, met een kwastje. Dat is traag en duur werk. Bijen, hommels en zweefvliegen doen het gratis. Van de belangrijkste soorten groente, fruit en noten heeft ongeveer driekwart bestuivers nodig, of groeit beter met hun hulp."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Water, lucht en koelte",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Nu het water. In Amsterdam en Den Haag komt een deel van het kraanwater uit de duinen. Rivierwater zakt daar langzaam door het zand. Het zand werkt als een filter, en bacteriën ruimen vuil op. Er komt schoon water uit.",
+   "De duinen doen nog meer. Ze houden de zee tegen bij een storm. Zonder duinen zou bij een zware storm een groot deel van het westen onder water lopen.",
+   "En de lucht? Planten en algen maken zuurstof. Bomen in de stad geven schaduw en koelte. Op een hete dag is het onder bomen een stuk koeler dan op de stenen.",
+   "Alles wat de natuur gratis voor ons doet, heet samen: ecosysteemdiensten. Voedsel, schoon water, bestuiving, bescherming, koelte."
+  ],
+  "display": "Nu het water. In Amsterdam en Den Haag komt een deel van het kraanwater uit de duinen. Rivierwater zakt daar langzaam door het zand. Het zand werkt als een filter, en bacteriën ruimen vuil op. Er komt schoon water uit. De duinen doen nog meer. Ze houden de zee tegen bij een storm. Zonder duinen zou bij een zware storm een groot deel van het westen onder water lopen. En de lucht? Planten en algen maken zuurstof. Bomen in de stad geven schaduw en koelte. Op een hete dag is het onder bomen een stuk koeler dan op de stenen. Alles wat de natuur gratis voor ons doet, heet samen: ecosysteemdiensten. Voedsel, schoon water, bestuiving, bescherming, koelte.",
+  "voice": "Nu het water. In Amsterdam en Den Haag komt een deel van het kraanwater uit de duinen. Rivierwater zakt daar langzaam door het zand. Het zand werkt als een filter, en bacteriën ruimen vuil op. Er komt schoon water uit. De duinen doen nog meer. Ze houden de zee tegen bij een storm. Zonder duinen zou bij een zware storm een groot deel van het westen onder water lopen. En de lucht? Planten en algen maken zuurstof. Bomen in de stad geven schaduw en koelte. Op een hete dag is het onder bomen een stuk koeler dan op de stenen. Alles wat de natuur gratis voor ons doet, heet samen: ecosysteemdiensten. Voedsel, schoon water, bestuiving, bescherming, koelte."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 3 — Zuinig zijn",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Maar die diensten zijn niet vanzelf. Een boer spuit een gif tegen luizen op zijn akker. Wat kan er dan ook gebeuren? Wat denk je?"
+  ],
+  "display": "Maar die diensten zijn niet vanzelf. Een boer spuit een gif tegen luizen op zijn akker. Wat kan er dan ook gebeuren? Wat denk je?",
+  "voice": "Maar die diensten zijn niet vanzelf. Een boer spuit een gif tegen luizen op zijn akker. Wat kan er dan ook gebeuren? Wat denk je?"
+ },
+ {
+  "id": "q09",
+  "chapter": "Hoofdstuk 3 — Zuinig zijn",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "alleen de luizen gaan dood",
+   "ook bijen en andere nuttige insecten raken gewond of gaan dood",
+   "de bijen worden er sterker van"
+  ],
+  "q": "Een boer spuit een gif tegen luizen. Wat kan er dan ook gebeuren?",
+  "correct": 1,
+  "explain": "Gif maakt vaak geen verschil tussen een luis en een bij. Zonder bijen minder bestuiving, en dus minder oogst."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Zuinig zijn",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is b. Gif maakt vaak geen verschil tussen een luis en een bij. En als bijen verdwijnen, verdwijnt de bestuiving. Dan krijgt de boer minder oogst.",
+   "Beschadig je een ecosysteem, dan raak je dus ook zijn diensten kwijt. Wij hangen af van de natuur, zoals elke andere soort.",
+   "Je kunt zelf helpen. Zaai bloemen voor bestuivers. Laat een hoekje van de tuin wild. Hang een bijenhotel op."
+  ],
+  "display": "Het antwoord is b. Gif maakt vaak geen verschil tussen een luis en een bij. En als bijen verdwijnen, verdwijnt de bestuiving. Dan krijgt de boer minder oogst. Beschadig je een ecosysteem, dan raak je dus ook zijn diensten kwijt. Wij hangen af van de natuur, zoals elke andere soort. Je kunt zelf helpen. Zaai bloemen voor bestuivers. Laat een hoekje van de tuin wild. Hang een bijenhotel op.",
+  "voice": "Het antwoord is bee. Gif maakt vaak geen verschil tussen een luis en een bij. En als bijen verdwijnen, verdwijnt de bestuiving. Dan krijgt de boer minder oogst. Beschadig je een ecosysteem, dan raak je dus ook zijn diensten kwijt. Wij hangen af van de natuur, zoals elke andere soort. Je kunt zelf helpen. Zaai bloemen voor bestuivers. Laat een hoekje van de tuin wild. Hang een bijenhotel op."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Zuinig zijn",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Waarom zijn veel soorten zo belangrijk? In een boomgaard vliegen wel twintig soorten bestuivers. Is het in een jaar te koud voor de honingbij? Dan vliegen hommels nog wel.",
+   "Hoe meer soorten, hoe kleiner de kans dat een dienst helemaal wegvalt. Veel verschillende soorten heet biodiversiteit."
+  ],
+  "display": "Waarom zijn veel soorten zo belangrijk? In een boomgaard vliegen wel twintig soorten bestuivers. Is het in een jaar te koud voor de honingbij? Dan vliegen hommels nog wel. Hoe meer soorten, hoe kleiner de kans dat een dienst helemaal wegvalt. Veel verschillende soorten heet biodiversiteit.",
+  "voice": "Waarom zijn veel soorten zo belangrijk? In een boomgaard vliegen wel twintig soorten bestuivers. Is het in een jaar te koud voor de honingbij? Dan vliegen hommels nog wel. Hoe meer soorten, hoe kleiner de kans dat een dienst helemaal wegvalt. Veel verschillende soorten heet biodiversiteit."
+ },
+ {
+  "id": "s12",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wat levert de natuur ons gratis? Bestuiving van fruit en groente. Schoon water uit de duinen. Bescherming tegen de zee. Zuurstof, schaduw en koelte. Dat zijn ecosysteemdiensten.",
+   "Wij zijn afhankelijk van ecosystemen. Wie de natuur beschadigt, raakt die diensten kwijt."
+  ],
+  "display": "Wat levert de natuur ons gratis? Bestuiving van fruit en groente. Schoon water uit de duinen. Bescherming tegen de zee. Zuurstof, schaduw en koelte. Dat zijn ecosysteemdiensten. Wij zijn afhankelijk van ecosystemen. Wie de natuur beschadigt, raakt die diensten kwijt.",
+  "voice": "Wat levert de natuur ons gratis? Bestuiving van fruit en groente. Schoon water uit de duinen. Bescherming tegen de zee. Zuurstof, schaduw en koelte. Dat zijn ecosysteemdiensten. Wij zijn afhankelijk van ecosystemen. Wie de natuur beschadigt, raakt die diensten kwijt."
+ },
+ {
+  "id": "s13",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]
