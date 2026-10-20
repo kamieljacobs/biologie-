@@ -547,7 +547,7 @@
     var teller = el('div', 'oe-teller'); doos.appendChild(teller);
     var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="bekijk">' + (SESSIE ? 'Lever in en bekijk' : 'Bekijk je uitleg') + '</button><button type="button" class="oe-knop" data-a="model">Toon modeluitleg</button><button type="button" class="oe-knop" data-a="wis">Wis</button>');
     doos.appendChild(knoppen);
-    doos.appendChild(el('p', 'oe-privacy', SESSIE ? 'Dit is een werksessie: je docent ziet wat je schrijft (in de bespreking zonder je naam).' : 'Je tekst blijft alleen op dit apparaat bewaard en wordt nergens naartoe gestuurd.'));
+    doos.appendChild(el('p', 'oe-privacy', SESSIE ? 'Dit is Klas live: je docent ziet wat je schrijft (in de bespreking zonder je naam).' : 'Je tekst blijft alleen op dit apparaat bewaard en wordt nergens naartoe gestuurd.'));
     var uitkomst = el('div', 'oe-uitkomst'); uitkomst.hidden = true; doos.appendChild(uitkomst);
     var model = el('div', 'oe-uitkomst'); model.hidden = true;
     model.innerHTML = '<div><h4>Modeluitleg</h4><div class="oe-model">' + (Array.isArray(o.model) ? o.model : [o.model]).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div></div>';

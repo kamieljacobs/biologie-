@@ -5,12 +5,12 @@
 <script src="../js/teller.js" data-root="../"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Werksessie (docent) · Biologie bij Kamiel</title>
+<title>Klas live (docent) · Biologie bij Kamiel</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="../tools/huisstijl.css">
 <link rel="stylesheet" href="sessie.css">
 <script src="../tools/huisstijl.js"></script>
-<script src="../js/oefenen.js?v=3f954cd3"></script>
+<script src="../js/oefenen.js?v=bc151008"></script>
 </head>
 <body>
 <div class="wrap">
@@ -23,7 +23,7 @@
 
   <!-- inloggen -->
   <section id="v-login" hidden>
-    <header class="tool-kop"><div class="mono">Werksessie</div><h1>Inloggen</h1><p>Alleen voor de docent.</p></header>
+    <header class="tool-kop"><div class="mono">Klas live</div><h1>Inloggen</h1><p>Alleen voor de docent.</p></header>
     <form class="paneel" id="f-login" style="max-width:460px">
       <label class="veld"><span>E-mail</span><input type="text" id="i-mail" autocomplete="username" required></label>
       <label class="veld"><span>Wachtwoord</span><input type="password" id="i-ww" autocomplete="current-password" required style="background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px;width:100%"></label>
@@ -34,7 +34,7 @@
 
   <!-- opzetten -->
   <section id="v-opzet" hidden>
-    <header class="tool-kop"><div class="mono">Werksessie</div><h1>Sessie klaarzetten</h1><p>Kies een film en de opdrachten. Leerlingen doen mee met een code op <b id="korteurl"></b>.</p></header>
+    <header class="tool-kop"><div class="mono">Klas live</div><h1>Sessie klaarzetten</h1><p>Kies een film en de opdrachten. Leerlingen doen mee met een code op <b id="korteurl"></b>.</p></header>
     <div id="lopend"></div>
     <form class="s-grid s-opzet" id="f-opzet">
       <div class="paneel s-stap">
@@ -70,7 +70,7 @@
 
   <!-- live overzicht -->
   <section id="v-live" hidden>
-    <header class="tool-kop" style="padding-bottom:6px"><div class="mono" id="l-eyebrow">Werksessie</div><h1 id="l-titel"></h1></header>
+    <header class="tool-kop" style="padding-bottom:6px"><div class="mono" id="l-eyebrow">Klas live</div><h1 id="l-titel"></h1></header>
     <div class="paneel s-codeblok">
       <div><div class="s-klein">Ga naar <b id="l-url"></b> en vul in</div><div class="s-code" id="l-code"></div></div>
       <div class="s-qr" id="l-qr"></div>
@@ -111,7 +111,7 @@
     </div>
   </section>
 
-  <footer class="tool-voet">Biologie bij Kamiel · werksessies<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+  <footer class="tool-voet">Biologie bij Kamiel · Klas live<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 <div class="s-overlay" id="overlay" hidden>
   <p>Ga naar <b id="o-url"></b></p>
@@ -249,7 +249,7 @@ const oef = (id) => data.oefeningen.find((o) => o.id === id);
 const leerlingen = () => Object.keys(D).sort((a, b) => D[a].naam.localeCompare(D[b].naam, 'nl'));
 
 function tekenLive() {
-  $('l-eyebrow').textContent = 'Werksessie · ' + (S.modus === 'samen' ? 'stap voor stap' : 'alles tegelijk') + (S.status === 'dicht' ? ' · afgesloten' : '');
+  $('l-eyebrow').textContent = 'Klas live · ' + (S.modus === 'samen' ? 'stap voor stap' : 'alles tegelijk') + (S.status === 'dicht' ? ' · afgesloten' : '');
   $('l-titel').textContent = S.filmtitel;
   const ids = S.opdrachten || [], L = leerlingen();
   $('l-aantal').textContent = L.length + (L.length === 1 ? ' leerling' : ' leerlingen');

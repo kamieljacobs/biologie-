@@ -27,7 +27,7 @@
       document.head.appendChild(st);
     }
     var b = document.createElement('div'); b.id = 'live-balk'; b.setAttribute('role', 'status');
-    b.innerHTML = '<div class="lb-in"><span class="lb-stip" aria-hidden="true"></span><span class="lb-mono">Live werksessie</span><span>' +
+    b.innerHTML = '<div class="lb-in"><span class="lb-stip" aria-hidden="true"></span><span class="lb-mono">Klas live</span><span>' +
       lijst.map(function (x) { return esc(x.titel); }).join(' · ') + '</span>' + (PLEK ? '' : '<a href="' + ROOT + 'sessie/">Doe mee met de code</a>') + '</div>';
     var p = PLEK && document.getElementById(PLEK);
     if (p) p.appendChild(b); else document.body.insertBefore(b, document.body.firstChild);

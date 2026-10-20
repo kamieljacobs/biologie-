@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="sessie.css">
 <script src="../tools/huisstijl.js"></script>
 <script src="../js/live.js" data-root="../" data-plek="live-plek" defer></script>
-<script src="../js/oefenen.js?v=3f954cd3"></script>
+<script src="../js/oefenen.js?v=bc151008"></script>
 </head>
 <body>
 <div class="wrap">
@@ -22,7 +22,7 @@
   <!-- meedoen -->
   <section id="v-meedoen">
     <header class="tool-kop" style="text-align:center">
-      <div class="mono">Werksessie</div>
+      <div class="mono">Klas live</div>
       <h1>Doe mee</h1>
       <p style="margin:0 auto">Vul de code in die op het bord staat en je voornaam.</p>
       <div id="live-plek" style="margin-top:14px"></div>
@@ -42,7 +42,7 @@
   <!-- werken -->
   <section id="v-werk" hidden>
     <header class="tool-kop">
-      <div class="mono" id="w-eyebrow">Werksessie</div>
+      <div class="mono" id="w-eyebrow">Klas live</div>
       <h1 id="w-titel">Opdrachten</h1>
       <p id="w-lead"></p>
     </header>
@@ -119,7 +119,7 @@ function opdrachten() {
 
 function teken() {
   document.body.classList.toggle('havo', sessie.niveau === 'havo');
-  $('w-eyebrow').textContent = 'Werksessie · ' + code;
+  $('w-eyebrow').textContent = 'Klas live · ' + code;
   $('w-titel').textContent = sessie.filmtitel || 'Opdrachten';
   const lijst = opdrachten(), totaal = (sessie.opdrachten || []).length;
   $('w-lead').textContent = sessie.modus === 'samen'
