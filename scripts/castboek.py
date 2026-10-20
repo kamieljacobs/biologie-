@@ -14,7 +14,7 @@ h = h.replace('</style>', css + '</style>', 1)
 bar = '<div id="bar"></div>'
 h = h.replace('<canvas id="c"', bar + '<canvas id="c"', 1)
 js = """<script>(function(){const bar=document.getElementById('bar');const knop=(t,f)=>{const k=document.createElement('button');k.textContent=t;k.onclick=()=>{bar.querySelectorAll('button').forEach(x=>x.classList.remove('on'));k.classList.add('on');f();};bar.appendChild(k);return k;};
-const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
+const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));if(window.jong)knop('Teun en baby',()=>jong());CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
 document.fonts.ready.then(()=>eerste.click());})();</script></body>"""
 h = h.replace('</body>', js, 1)
 (R / 'personages/index.html').write_text(h)

@@ -26,6 +26,8 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 ## Personages
 - Gebruik de vaste personages uit `personages/lib_cast.js` (castboek: `personages/index.html`).
 - **Geen grijze plaatsvervanger-poppetjes** (rond hoofd met smiley, blokvormig lijf, zonder huidskleur of kleding): waar een mens in beeld komt, altijd een van de vaste personages uit het castboek. Geldt ook voor bestaande films: bij een herziening de poppetjes vervangen (Kamiel, 20 okt 2026).
+- Aanvulling (20 okt 2026): een mens in beeld (leerling, proefpersoon, patiënt, opa, kind, baby) is altijd een vast personage uit het castboek, met gezicht, haar en kleding zoals in de cast. Ook **kinderen en baby's**: Teun (`'kind'`, ± 6 jaar) en de baby (`'baby'`). Geen zelfgetekende gezichtjes en geen half-aangepaste varianten (een personage met andere verhoudingen of overgekleurd). Organen mag je in of op de romp tekenen (een 'kijkje in de buik'). Uitzondering: telpoppetjes in een grafiek (bv. 100 mensen, 3 krijgen longkanker) blijven eenvoudige pictogrammen.
+- Een vast personage mag terugkomen in een film (bv. Opa Henk in de opening én als patiënt), zodat de kijker hem herkent.
 
 ## Processen in beeld
 - **Exocytose / endocytose:** laat het blaasje echt versmelten met het celmembraan (aanleggen, membraan opent, blaasje wordt deel van het membraan, inhoud naar buiten), niet een blaasje dat verdwijnt (15 okt 2026).
