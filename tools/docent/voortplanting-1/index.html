@@ -563,6 +563,7 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
   teken(ctx, S) {
     const A1 = C.teal, A2 = C.groen, B1 = C.koraal, B2 = C.goud, T = S.T;
     const a0 = S.on(0, 0.8), m = S.on(1, 1.4), b = S.on(2, 1.6), v = S.on(3, 1.4);
+    metaText(ctx, 'model: één chromosomenpaar · mens: 23 paren', 1840, 140, C.meta, 'right', 20, a0);
     const ouder = [[470, 330, [A1, A2], C.teal, 'ouder 1 · 2n = 2 (1 paar)'], [1450, 330, [B1, B2], C.koraal, 'ouder 2 · 2n = 2 (1 paar)']];
     ouder.forEach(([x, y, k, c, l]) => chromCel(ctx, x, y, 110, k, c, a0 * (1 - 0.5 * v), l));
     // geslachtscellen
