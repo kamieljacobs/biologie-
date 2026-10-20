@@ -16,7 +16,7 @@ Titelkaart: Antistoffen op maat. Hoe je afweer een ziekteverwekker herkent en on
 
 ## Hoofdstuk 1 — Een sleutel voor elk slot
 
-**s04** · 44.4 s · `audio/s04.mp3`
+**s04** · 45.5 s · `audio/s04.mp3`
 
 In de vorige film zag je fagocyten. Dat was aspecifieke afweer: snel, maar niet precies, en zonder geheugen. Je hebt ook een afweer die wél precies herkent: de specifieke afweer. Weet je nog: elke cel heeft vormpjes op zijn oppervlak. Zo'n vormpje, meestal een stukje eiwit, heet een antigeen. Ook je eigen cellen hebben antigenen. Je afweer reageert alleen op antigenen die vreemd zijn. De specifieke afweer werkt met een andere soort witte bloedcellen: lymfocyten. In deze film gaat het om één soort: de B-cellen. Op een B-cel zitten receptoren: eiwitten die op één vormpje passen, zoals een sleutel op één slot. Elke B-cel heeft zijn eigen sleutel.
 
@@ -36,7 +36,7 @@ Voor vwo gaan we hier nog een stap verder. Hoe kunnen er zoveel verschillende sl
 
 ## Hoofdstuk 2 — Kopiëren en vastplakken
 
-**s09** · 31.6 s · `audio/s09.mp3`
+**s09** · 30.9 s · `audio/s09.mp3`
 
 Komt het virus binnen, dan belandt het via de lymfevaten ook in je lymfeknopen. Daar komt het de B-cellen tegen die passen. Je lymfeknopen worden dan vaak dik. Een B-cel die past, gaat pas aan de slag als ook een T-helpercel het startsein geeft. Die hoort bij hetzelfde antigeen. Dan gaat de B-cel zich steeds opnieuw delen. Er ontstaat een leger van precies dezelfde cellen: een kloon. Dat heet klonale selectie: de passende cel wordt gekozen, en vermenigvuldigd.
 
@@ -66,7 +66,7 @@ Niet alle cellen van de kloon worden plasmacellen. Een deel wordt geheugencel. G
 
 **q16** (vraag): een piek die eerder komt, en veel hoger is · een even hoge piek, die alleen eerder komt · geen piek: de geheugencellen ruimen het virus op
 
-**s17** · 41.2 s · `audio/s17.mp3`
+**s17** · 40.5 s · `audio/s17.mp3`
 
 Antwoord aa. Misschien dacht je: de geheugencellen ruimen het virus zelf op. Maar ze delen snel, en worden plasmacellen. Die maken binnen een paar dagen veel meer antistoffen dan de eerste keer. Dat heet de secundaire afweerreactie. Het virus is opgeruimd voordat je er iets van merkt. Dat heet immuun zijn. Het virus komt wel binnen, maar je wordt niet ziek. Je hebt dus twee afweren die samenwerken. Fagocyten zijn er meteen, maar herkennen niets precies, en onthouden niets. B-cellen hebben de eerste keer een week nodig. Maar ze passen precies, en ze onthouden. En met hun antistoffen helpen ze de fagocyten.
 

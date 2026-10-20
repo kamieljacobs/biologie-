@@ -18,3 +18,9 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b / c | antwoord AA / BEE / SEE | `Antwoord aa.` / `bee.` / `cee.` | s07, s13, s17, s20 |
 
 **Wachtlijst voor Kamiel:** vooral bee-cel, tee-helpercel, limfosieten, reseptoren, kloonaale, "letter ei", immunoglobuline en humorale. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026: goedgekeurd
+
+- **fagocyt(en)**: `fagocyt / fagocyten` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s04, s13, s17 op 19–20 okt 2026.
+- **klonale**: `klonale` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s09 op 19–20 okt 2026.
