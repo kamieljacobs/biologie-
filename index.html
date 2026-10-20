@@ -199,6 +199,12 @@ a.kd:hover{border-color:var(--goud);transform:translateY(-2px)}
 @media (max-width:1040px){.kdgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:600px){.kdgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+.extra-tag{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--paars);border:1px solid color-mix(in srgb,var(--paars) 45%,transparent);border-radius:999px;padding:2px 8px;vertical-align:middle;font-weight:600}
+.extra-lijst{margin-top:28px;padding:20px 22px 8px;border:1px dashed color-mix(in srgb,var(--paars) 45%,transparent);border-radius:18px;background:color-mix(in srgb,var(--paars) 5%,transparent)}
+.extra-lijst h2{display:flex;align-items:center;gap:12px}
+.extra-uitleg{margin:4px 0 8px;color:var(--text2);font-size:15px}
+.film.is-extra .n,.kort.is-extra .n{color:var(--paars)}
+
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
 .kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
@@ -1158,47 +1164,56 @@ const HOOFDSTUKKEN = {
    {
     "titel": "Waarom worden we oud?",
     "vraag": "Kun je je biologische klok terugdraaien? Wat het onderzoek wel en niet laat zien.",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "dna"
    },
    {
     "titel": "CRISPR: knippen in DNA",
     "vraag": "Hoe repareer je een gen, en mag dat zomaar?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "dna"
    },
    {
     "titel": "mRNA-vaccins",
     "vraag": "Van coronaprik tot kankervaccin: hoe leert een boodschap je afweer iets nieuws?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "afweer"
    },
    {
     "titel": "Antibioticaresistentie",
     "vraag": "Waarom werkt een antibioticum ineens niet meer?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "evolutie"
    },
    {
     "titel": "Je microbioom en je brein",
     "vraag": "Praten je darmbacteriën mee over hoe je je voelt?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "voeding"
    },
    {
     "titel": "Slaap en je biologische klok",
     "vraag": "Waarom ben je als puber 's avonds klaarwakker?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "gedrag"
    },
    {
     "titel": "Kunnen planten communiceren?",
     "vraag": "Wat gebeurt er onder de grond tussen bomen en schimmels?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "ecologie"
    },
    {
     "titel": "Het eten van de toekomst",
     "vraag": "Kweekvlees, insecten of algen: wat eten we straks?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "voeding"
    },
    {
     "titel": "Biodiversiteit in Nederland",
     "vraag": "Wat hebben de wolf, de bij en stikstof met elkaar te maken?",
-    "niveau": "havo · vwo"
+    "niveau": "havo · vwo",
+    "thema": "ecologie"
    }
   ],
   "films": [
@@ -1208,7 +1223,8 @@ const HOOFDSTUKKEN = {
     "vraag": "Hoe kom je achter iets nieuws, als bijna iedereen iets anders gelooft?",
     "tekst": "Geschiedenis van de biologie: van Aristoteles, Vesalius en Harvey via Van Leeuwenhoek, Linnaeus, Darwin, Mendel, Semmelweis, Pasteur en Fleming tot Franklin, Carson en CRISPR. Hoe ze het vonden, wat het veranderde aan ons mensbeeld en de samenleving, en wie geen erkenning kreeg",
     "duur": 14,
-    "bij": "Geschiedenis · havo en vwo"
+    "bij": "Geschiedenis · havo en vwo",
+    "thema": "cellen"
    }
   ],
   "tools": [],
@@ -1259,8 +1275,7 @@ const HOOFDSTUKKEN = {
   ]
  },
  "kerndoelen": {
-  "komt": [
-  ],
+  "komt": [],
   "label": "Onderbouw",
   "titel": "Kerndoelen onderbouw",
   "meta": "nieuwe kerndoelen mens en natuur · voor de hele onderbouw",
@@ -1835,20 +1850,6 @@ const NIVEAUS = {
      ]
     ],
     "naam": "Het lichaam van binnen"
-   },
-   {
-    "code": "Nieuwsgierig?",
-    "w": 0,
-    "subs": [
-     [
-      "Extra",
-      "Nieuwsgierig?",
-      "verder kijken dan het PTA",
-      "9 films komen nog",
-      "#extra"
-     ]
-    ],
-    "naam": "Nieuwsgierig?"
    }
   ]
  },
@@ -2002,20 +2003,6 @@ const NIVEAUS = {
      ]
     ],
     "naam": "Jouw eigen keuze"
-   },
-   {
-    "code": "Nieuwsgierig?",
-    "w": 0,
-    "subs": [
-     [
-      "Extra",
-      "Nieuwsgierig?",
-      "verder kijken dan het PTA",
-      "9 films komen nog",
-      "#extra"
-     ]
-    ],
-    "naam": "Nieuwsgierig?"
    }
   ]
  },
@@ -2415,12 +2402,14 @@ document.getElementById('thema').addEventListener('click',()=>{const n=root.getA
 window.__niveau=niveau;
 document.addEventListener('click',e=>{const b=e.target.closest('[data-niveau]');if(!b)return;niveau=window.__niveau=b.dataset.niveau;schrijf('niveau',niveau);render()});
 
+const extraVan=id=>{const x=HOOFDSTUKKEN.extra||{films:[],komt:[]};return{films:x.films.filter(f=>f.thema===id),komt:(x.komt||[]).filter(f=>f.thema===id)}};
 function telling(id,kd){
   const h=HOOFDSTUKKEN[id]; if(!h) return '';
   /* onderbouw: alle films staan in één hoofdstuk; tel per kerndoel via 'bij' (films) en 'kerndoel' (tools) */
   const hoort=x=>!kd||new RegExp('\\b'+kd+'\\b').test((x.bij||'')+' '+(x.kerndoel||''));
   const n=h.films.filter(hoort).length, t=h.tools.filter(x=>x.href&&hoort(x)).length, d=[];
   if(n) d.push(`${n} ${n===1?'film':'films'}`); if(t) d.push(`${t} ${t===1?'tool':'tools'}`);
+  if(!kd&&id!=='extra'){const e=extraVan(id).films.length;if(e)d.push(`+${e} extra`)}
   return d.join(' · ');
 }
 
@@ -2505,7 +2494,6 @@ function home(){
     <article class="vlak vlak-basis" id="vlak-basis">
       <header><span class="mono vlak-lbl">Alle thema's · havo en vwo</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen.</p></header>
       <div class="vlak-groepen">${BASIS.map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('')}</div>
-      ${HOOFDSTUKKEN.extra?`<a class="vlak-extra" href="#extra"><span class="tk">${kunst('extra')}</span><span><b>Nieuwsgierig?</b><span>Verder kijken dan de lesstof: verdieping en biologie van nu</span></span><span class="mat">${esc(telling('extra'))}</span></a>`:''}
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
       <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
@@ -2536,6 +2524,11 @@ function onderbouwPagina(){
     <div class="binnenkort"><a class="link-atlas" href="#kerndoelen">Alle onderbouwfilms en tools →</a></div></section>`;
 }
 
+const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}${extra?' is-extra':''}" data-href="${esc(f.href)}">
+      <span class="nr"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${extra?'+':i+1}</span>${rv(f.href)}</span>
+      <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
+      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: korte animaties om zelf stap voor stap uit te leggen">Uitleg in stappen</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
+    </article>`};
 function hoofdstuk(id){
   const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
   let out=`<section class="kop"><div class="wrap">
@@ -2549,12 +2542,9 @@ function hoofdstuk(id){
     <div class="groot">${kunst(id,h.titel)}</div>
   </div></section>
   <div class="wrap smal">`;
-  if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}" data-href="${esc(f.href)}">
-      <span class="nr"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}</span>${rv(f.href)}</span>
-      <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
-      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: korte animaties om zelf stap voor stap uit te leggen">Uitleg in stappen</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
-    </article>`}).join('')}</section>`;
+  if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
+  if(id!=='extra'){const E=extraVan(id);if(E.films.length||E.komt.length) out+=`<section class="lijst extra-lijst" id="${id}-extra"><h2>Extra <span class="extra-tag mono">buiten het PTA</span></h2><p class="extra-uitleg">Voor wie nieuwsgierig is en verder wil kijken. Deze films horen niet bij je toets of examen.</p>${E.films.map((f,i)=>filmRij(f,i,id,true)).join('')}${E.komt.length?`<div class="komt-lijst">${E.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em> <span class="extra-tag mono">extra</span>${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div>`:''}</section>`;}
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
   if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
@@ -2576,7 +2566,7 @@ function films(){
   const zoekTekst=(...x)=>esc(x.filter(Boolean).join(' ').toLowerCase());
   const reeks=(id)=>{const h=HOOFDSTUKKEN[id]; const min=h.films.reduce((a,f)=>a+(+f.duur||0),0);
     const meta=[h.films.length?`${h.films.length} ${h.films.length===1?'film':'films'}`:'',min?`± ${min} min`:'',(h.komt||[]).length?`${h.komt.length} komt nog`:''].filter(Boolean).join(' · ');
-    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
+    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${extraVan(id).films.map(f=>`<a class="kort is-extra" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel,'extra')}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">+</span><span><b>${esc(f.titel)} <span class="extra-tag mono">extra</span></b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
   }
   const gehad=new Set(), volgorde=[]; let lijst='';
   for(const o of NIVEAUS[niveau].ond){
@@ -2588,7 +2578,6 @@ function films(){
   }
   const rest=Object.keys(HOOFDSTUKKEN).filter(id=>!gehad.has(id)&&id!=='extra'&&!(id==='kerndoelen'&&niveau!=='onderbouw')&&heeft(id));
   if(rest.length){lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Overig</span><h2>${niveau==="onderbouw"?"Uit de bovenbouw":"Overige films"}</h2></div>`;for(const id of rest){volgorde.push(id);lijst+=reeks(id)}lijst+=`</div>`}
-  if(heeft('extra')){volgorde.push('extra');lijst+=`<div class="ond-blok"><div class="ond-scheiding"><span class="mono">Extra</span><h2>Nieuwsgierig?</h2></div>${reeks('extra')}</div>`}
   out+=`<div class="filmzoek"><input id="filmzoek" type="search" placeholder="Zoek een film, bv. osmose of CRISPR" autocomplete="off" aria-label="Zoek in alle films"><div class="snel">${volgorde.map(id=>`<button type="button" data-open="${id}">${esc(HOOFDSTUKKEN[id].titel)}</button>`).join('')}</div><p class="zoek-leeg" hidden>Geen film gevonden. Probeer een ander woord.</p></div>`;
   return out+lijst+`</div>`;
 }
