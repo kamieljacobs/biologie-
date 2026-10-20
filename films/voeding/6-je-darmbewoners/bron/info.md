@@ -101,3 +101,7 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 - Bewust **niet** vervangen: de kleine pictogrammen in s18 (rij van 10 bij 'loting' en de 2 × 10 patiënten 'genezen / niet genezen', groen/koraal). Dat zijn telpoppetjes in een grafiek, geen personages.
 - Onthoud-kaart (s13) nagekeken: klopt.
 - **Bouwen na deze wijziging**: pas `src/scenes.js` aan en zet het in de film met `python3 bron/bouw/vervang.py films/voeding/6-je-darmbewoners.html films/voeding/6-je-darmbewoners/bron [--filmdata <filmdata.json> --nieuw sNN]` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; niet volledig herbouwen met build.py, de HTML heeft latere spelerwijzigingen die niet in `src/player.js` staan). Scènesblok: regel 947–1612 (`const SCENES` op 1347).
+
+## Wijziging 20 okt 2026 (tweede ronde)
+
+- **Opa Henk als terugkerend personage**: in de opening (s01) staat Henk eerst naast het bed met zijn naam 'Opa Henk · zeventig jaar' (longontsteking, geneest), ligt in bed bij de diarree (`bedMan(..., { inBed })`) en staat weer, zwaaiend en lachend, bij 'beter'. In de recap (s25) staat hij gezond naast het lege bed zodra 'zijn donorbacteriën namen de vrije plekken in'. De naam beweegt mee met waar hij is.

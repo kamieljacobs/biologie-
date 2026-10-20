@@ -88,12 +88,12 @@ function populaties(ctx, u, a = 1, o = {}) { if (a <= 0.01) return; const { x = 
   ctx.restore(); }
 
 // ---------- patiënt (Macro): man in bed + tijdlijn ----------
-function bedMan(ctx, x, y, s = 1, a = 1, o = {}) { if (a <= 0.01) return; const { ziek = 0 } = o; ctx.save(); ctx.globalAlpha *= a;
+function bedMan(ctx, x, y, s = 1, a = 1, o = {}) { if (a <= 0.01) return; const { ziek = 0, inBed = 1 } = o; ctx.save(); ctx.globalAlpha *= a;
   // patiënt = Opa Henk (vast personage, 71) in bed (20 okt 2026; vervangt het kale hoofdje)
   roundRect(ctx, x - 300 * s, y - 20 * s, 600 * s, 160 * s, 24 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 2);
   roundRect(ctx, x - 290 * s, y + 140 * s, 30 * s, 60 * s, 6 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); roundRect(ctx, x + 260 * s, y + 140 * s, 30 * s, 60 * s, 6 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5);
   roundRect(ctx, x - 285 * s, y - 34 * s, 150 * s, 96 * s, 30 * s); shape(ctx, rgba('#E6E1D3', 0.85), rgba('#E6E1D3', 1), 1.5); // kussen
-  ctx.save(); ctx.beginPath(); ctx.rect(x - 300 * s, y - 160 * s, 160 * s, 320 * s); ctx.clip(); liggend(ctx, 'henk', x - 205 * s, y + 12 * s, 520 * s, { uit: ziek > 0.5 ? 'bezorgd' : 'blij' }); ctx.restore(); // lijf onder de deken
+  if (inBed > 0.01) { ctx.save(); ctx.globalAlpha *= inBed; ctx.beginPath(); ctx.rect(x - 300 * s, y - 160 * s, 160 * s, 320 * s); ctx.clip(); liggend(ctx, 'henk', x - 205 * s, y + 12 * s, 520 * s, { uit: ziek > 0.5 ? 'bezorgd' : 'blij' }); ctx.restore(); } // lijf onder de deken (inBed = 0: leeg bed, Henk staat ernaast)
   roundRect(ctx, x - 150 * s, y - 44 * s, 430 * s, 150 * s, 30 * s); shape(ctx, rgba('#2F5F78', 0.96), rgba(C.teal, 0.9), 1.5); // deken
   ctx.strokeStyle = rgba(C.teal, 0.35); ctx.lineWidth = 2 * s; for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(x - 150 * s + k * 100 * s, y - 40 * s); ctx.lineTo(x - 150 * s + k * 100 * s, y + 100 * s); ctx.stroke(); }
   ctx.restore(); }
@@ -128,8 +128,11 @@ const SCENES = {
   // ---------- Cold open (Macro) ----------
   s01(ctx, t, q) { bg(ctx, 'macro');
     const z = q.on('diarree', 1, 1.0), d = q.on('donor', 1, 1.0), b = q.on('beter', 1, 0.8);
-    bedMan(ctx, 760, 420, 1.3, 1, { ziek: z * (1 - b) });
-    metaText(ctx, 'ZEVENTIG JAAR', 760, 180, C.grain, 'center', 26);
+    // Opa Henk (vast personage): staat eerst naast het bed (longontsteking, geneest), ligt in bed bij de diarree, staat weer op als hij beter is (20 okt 2026)
+    const st = Math.max(1 - q.on('diarree', 1, 0.8), b), ziekA = 1 - q.on('geneest', 1, 0.8);
+    bedMan(ctx, 700, 420, 1.3, 1, { ziek: z * (1 - b), inBed: 1 - st });
+    persoon(ctx, 'henk', 1340, 760, 500, { a: st, uit: b > 0.5 ? 'lacht' : ziekA > 0.5 && q.on('Een', 1) > 0.01 ? 'bezorgd' : 'blij', pose: b > 0.5 ? 'zwaai' : 'staan', kijk: -1, t });
+    naamBij(ctx, 'Opa Henk', 'zeventig jaar', lerp(440, 1340, st), lerp(300, 180, st), 1, 'center');
     tijdlijn(ctx, 260, 800, 1400, [[0.04, 'kuur', q.on('antibiotica')], [0.22, 'diarree', z], [0.36, 'kuur', q.on('kuur')], [0.5, 'diarree', q.on('terug')], [0.68, 'donor', d], [0.86, 'beter', b]], q.on('antibiotica'));
     if (d > 0.01) { ctx.save(); ctx.globalAlpha *= d; ctx.strokeStyle = rgba(C.bruin, 0.8); ctx.lineWidth = 4; ctx.setLineDash([6, 8]); ctx.beginPath(); ctx.moveTo(1212, 740); ctx.quadraticCurveTo(1150, 600, 940, 470); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); }
     vraagteken(ctx, 1560, 360, q.on('Waarom'), 130);
@@ -366,7 +369,7 @@ const SCENES = {
   // ---------- Recap ----------
   s25(ctx, t, q) { bg(ctx, 'macro');
     const na = q.on('namen', 1, 1.0), ru = q.on('ruimte', 1, 0.8), ant = q.on('Antwoord', 1, 0.8), vast = q.on('vastgesteld', 1, 0.8), waar = q.on('waarschijnlijk', 1, 0.8);
-    bedMan(ctx, 600, 400, 1.1, 1, { ziek: 1 - na });
+    bedMan(ctx, 520, 400, 1.1, 1, { ziek: 1, inBed: 1 - na }); persoon(ctx, 'henk', 1000, 820, 470, { a: na, uit: 'lacht', kijk: -1, t }); naamBij(ctx, 'Opa Henk', null, lerp(330, 1000, na), lerp(320, 300, na), 1, 'center');
     roundRect(ctx, 1100, 260, 640, 300, 24); shape(ctx, rgba(C.bgMicro, 0.8), C.line, 1.4); metaText(ctx, 'ZIJN DIKKE DARM', 1420, 300, C.grain, 'center', 22);
     zwerm(ctx, 1140, 330, 560, 190, 36, t, 1, { mixk: na > 0.5 ? [0.4, 0.3, 0.3, 0] : [0, 0, 0.1, 0.9] });
     tag(ctx, 'plek en voedsel weer ingenomen', 1420, 620, C.groen, na * (1 - ru));
