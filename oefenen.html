@@ -70,7 +70,7 @@ body.havo .oe-kaart.vwo{display:none}
       zet(n);
       seg.addEventListener('click', function(e){ var b = e.target.closest('[data-n]'); if(!b) return; zet(b.dataset.n); try{ localStorage.setItem('bk-niveau', b.dataset.n); }catch(er){} });
     }
-    var s = document.createElement('script'); s.src = 'js/oefenen.js?v=a4d77ed3'; s.setAttribute('data-oefenen', f.json); document.body.appendChild(s);
+    var s = document.createElement('script'); s.src = 'js/oefenen.js?v=7828a46e'; s.setAttribute('data-oefenen', f.json); document.body.appendChild(s);
   }).catch(function(){ document.getElementById('lead').textContent = 'De oefeningen konden niet worden geladen. Herlaad de pagina.'; });
 
   function overzicht(lijst){
