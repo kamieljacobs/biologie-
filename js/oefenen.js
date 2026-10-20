@@ -7,6 +7,7 @@
      indelen   – kaartjes naar twee tot vier groepen slepen (of tik-tik)
      pijlen    – voorspel per grootheid: neemt toe, neemt af of blijft gelijk (een keten van oorzaak en gevolg)
      grafiek   – een eigen lijntekening van een grafiek aflezen: getal invullen of een keuze maken
+     stamboom  – genotype per persoon kiezen (AA, Aa, aa, A_) en controleren of het kan
      puzzel    – stap voor stap invullen met controle (genotypen, kansen, getallen); de volgende stap verschijnt na een goede
    Alles gebeurt in de browser; de tekst van de leerling blijft alleen lokaal (localStorage), er wordt niets verstuurd.
    Oefeningen met "vwo": true zijn in de havo-stand (body.havo) verborgen, net als .term.vwo.
@@ -127,6 +128,14 @@
     '.oe-keuze[aria-pressed="true"]{background:var(--oe-goud);border-color:var(--oe-goud);color:var(--oe-goud-ink)}' +
     '.oe-stapknoppen{display:flex;gap:8px;flex-wrap:wrap}.oe-tip{margin:0;font-size:14.5px;color:var(--oe-goud)}' +
     '.oe-puzzel .oe-vraag:not(.goed):not(.fout){border-color:rgba(224,182,74,.55)}' +
+    /* stamboom */
+    '.oe-gt{position:absolute;transform:translate(-50%,-50%);list-style:none}' +
+    '.oe-gt label{display:flex;align-items:center;gap:6px}' +
+    '.oe-gt .oe-gtnr{display:none;color:var(--oe-zacht);font-size:14.5px;min-width:7em}' +
+    '.oe-gt .oe-in{min-height:34px;padding:4px 6px;font:600 15px/1 "IBM Plex Mono",monospace;border-radius:8px}' +
+    '.oe-gt.goed .oe-in{border-color:var(--oe-goed);box-shadow:0 0 0 1px var(--oe-goed)}.oe-gt.half .oe-in{border-color:var(--oe-goud);box-shadow:0 0 0 1px var(--oe-goud)}.oe-gt.fout .oe-in{border-color:var(--oe-fout);box-shadow:0 0 0 1px var(--oe-fout)}' +
+    '.oe-terug li.half b::before{content:"~ ";color:var(--oe-goud)}' +
+    '.oe-stamboom.smal .oe-vakken{display:grid;gap:8px;margin-top:10px}.oe-stamboom.smal .oe-gt{position:static;transform:none}.oe-stamboom.smal .oe-gt .oe-gtnr{display:inline}' +
     /* smal: vakjes als genummerde lijst onder de tekening */
     '.oe-schema.smal .oe-teken svg .nrbol{display:inline}' +
     '.oe-schema.smal .oe-vakken{display:grid;gap:8px}' +
@@ -170,9 +179,10 @@
     indelen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h7v9H3zM14 11h7v9h-7z"/><path d="M8 3h8v4H8z"/><path d="M10 7l-3 4M14 7l3 4"/></svg>',
     pijlen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V5M3.5 8.5L7 5l3.5 3.5"/><path d="M17 4v15M13.5 15.5L17 19l3.5-3.5"/></svg>',
     grafiek: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M7 16c3-1 4-9 7-9s3 5 5 6"/><path d="M14 7v13" stroke-dasharray="2 2.5"/></svg>',
+    stamboom: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"/><circle cx="18" cy="6" r="3"/><path d="M9 6h6M12 6v6M7 12h10M7 12v4M17 12v4"/><rect x="4" y="16" width="6" height="5" rx="1"/><circle cx="17" cy="18.5" r="2.5"/></svg>',
     puzzel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h4a2 2 0 1 1 4 0h4v4a2 2 0 1 1 0 4v4H4z"/></svg>'
   };
-  var SOORTNAAM = { volgorde: 'Zet in de goede volgorde', schema: 'Sleep de namen op het schema', uitleg: 'Leg het uit', indelen: 'Deel in', pijlen: 'Voorspel met pijlen', grafiek: 'Lees de grafiek', puzzel: 'Puzzel stap voor stap' };
+  var SOORTNAAM = { volgorde: 'Zet in de goede volgorde', schema: 'Sleep de namen op het schema', uitleg: 'Leg het uit', indelen: 'Deel in', pijlen: 'Voorspel met pijlen', grafiek: 'Lees de grafiek', puzzel: 'Puzzel stap voor stap', stamboom: 'Vul de stamboom in' };
   var GREEP = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="5" cy="4" r="1.3"/><circle cx="11" cy="4" r="1.3"/><circle cx="5" cy="8" r="1.3"/><circle cx="11" cy="8" r="1.3"/><circle cx="5" cy="12" r="1.3"/><circle cx="11" cy="12" r="1.3"/></svg>';
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -559,8 +569,9 @@
   function meld(m, tekst, soort) { m.textContent = tekst; m.className = 'oe-melding' + (soort ? ' ' + soort : ''); }
   // getal uit invoer: komma of punt, breuk 3/4, procentteken mag erachter
   function leesGetal(s) {
-    s = String(s || '').trim().replace(/\s+/g, '').replace(',', '.').replace(/%$/, '');
+    s = String(s || '').trim().toLowerCase().replace(/\s*op\s*/, '/').replace(/\s+/g, '').replace(',', '.');
     if (!s) return NaN;
+    if (/%$/.test(s)) { var pr = leesGetal(s.slice(0, -1)); return pr / 100; }
     var b = s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
     if (b) return +b[1] / +b[2];
     return /^-?\d*\.?\d+$/.test(s) ? +s : NaN;
@@ -785,6 +796,8 @@
       var fout = 0;
       function klaar(getoond) {
         li.classList.remove('fout'); li.classList.add('goed');
+        rij.querySelectorAll('.oe-invul').forEach(function (w) { w.classList.remove('fout'); });
+        var tipEl = li.querySelector('.oe-tip'); if (tipEl) tipEl.remove(); meld(melding, '');
         rij.querySelectorAll('.oe-in').forEach(function (x) { x.disabled = true; });
         kn.remove();
         li.appendChild(el('div', 'oe-uitleg', '<em>' + (getoond ? 'Zo zit het.' : 'Goed.') + '</em> ' + esc(s.uitleg || '')));
@@ -812,6 +825,106 @@
     }
     onder.addEventListener('click', function (e) { if (e.target.closest('[data-a="opnieuw"]')) { lijst.innerHTML = ''; meld(melding, ''); toonStap(0); } });
     toonStap(0);
+  }
+
+  /* ---------- stamboom: genotype per persoon kiezen, controleren of het kan ---------- */
+  // personen: {nr, x, y, ziek, ouders:[nr,nr]?}; x/y = midden van de keuzelijst in de tekening.
+  // erfgang 'recessief' (ziek = aa) of 'dominant' (ziek = minstens één A). Autosomaal.
+  var GT = ['AA', 'Aa', 'aa'];
+  function bouwStamboom(o, doos) {
+    var W = o.breed || 640, H = o.hoog || 400, dom = o.erfgang === 'dominant';
+    var P = o.personen, idx = {}; P.forEach(function (p, i) { idx[p.nr] = i; });
+    var keuzes = o.keuzes || ['AA', 'Aa', 'aa', 'A_'];
+    function set(k) { return k === 'A_' ? ['AA', 'Aa'] : k === 'a_' ? ['Aa', 'aa'] : [k]; }
+    function past(p, g) { var ziek = dom ? g !== 'aa' : g === 'aa'; return ziek === !!p.ziek; }
+    function kind(g1, g2, g) { // kan g uit g1 × g2?
+      for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) { var x = [g1[i], g2[j]].sort().join(''); if (x === g.split('').sort().join('')) return true; }
+      return false;
+    }
+    // alle toewijzingen die bij fenotypen en afstamming passen
+    function oplossingen(beperk) {
+      var uit = [], g = new Array(P.length);
+      (function zoek(i) {
+        if (i === P.length) { uit.push(g.slice()); return; }
+        var p = P[i], opties = beperk && beperk[i] ? beperk[i] : GT;
+        opties.forEach(function (x) {
+          if (!past(p, x)) return;
+          g[i] = x;
+          // controleer ouders zodra die al ingevuld zijn (ouders staan in de lijst vóór hun kinderen)
+          if (p.ouders) { var a = idx[p.ouders[0]], b = idx[p.ouders[1]]; if (a < i && b < i && !kind(g[a], g[b], x)) return; }
+          zoek(i + 1);
+        });
+      })(0);
+      return uit;
+    }
+    var alle = oplossingen(null);
+    var mogelijk = P.map(function (p, i) { var s = {}; alle.forEach(function (a) { s[a[i]] = 1; }); return GT.filter(function (x) { return s[x]; }); });
+
+    doos.appendChild(el('p', 'oe-hulp', 'Je kunt ook eerst een paar personen invullen en dan op ‘Kan dit?’ klikken.'));
+    var wrap = el('div', 'oe-schema oe-stamboom');
+    var teken = el('div', 'oe-teken');
+    teken.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(o.alt || o.titel) + '">' + o.svg + '</svg>';
+    var lijst = el('ul', 'oe-vakken');
+    P.forEach(function (p, i) {
+      var li = el('li', 'oe-gt'); li.dataset.i = i;
+      li.style.left = (100 * p.x / W) + '%'; li.style.top = (100 * p.y / H) + '%';
+      li.innerHTML = '<label><span class="oe-gtnr">' + esc(p.naam || ('persoon ' + p.nr)) + '</span><select class="oe-in" aria-label="Genotype van ' + esc(p.naam || ('persoon ' + p.nr)) + '"><option value="">?</option>' +
+        keuzes.map(function (k) { return '<option>' + k + '</option>'; }).join('') + '</select></label>';
+      lijst.appendChild(li);
+    });
+    teken.appendChild(lijst); wrap.appendChild(teken); doos.appendChild(wrap);
+    function maat() { var b = wrap.getBoundingClientRect().width; if (b) wrap.classList.toggle('smal', b < 560); var smal = wrap.classList.contains('smal'); if (smal && lijst.parentNode !== wrap) wrap.appendChild(lijst); if (!smal && lijst.parentNode !== teken) teken.appendChild(lijst); }
+    if (window.ResizeObserver) new ResizeObserver(maat).observe(wrap); else window.addEventListener('resize', maat);
+    maat();
+    var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Kan dit?</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
+    var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite'); k.appendChild(melding); doos.appendChild(k);
+    var terug = el('ul', 'oe-terug'); doos.appendChild(terug);
+    function items() { return Array.prototype.slice.call(lijst.children); }
+    function wis() { meld(melding, ''); terug.innerHTML = ''; items().forEach(function (li) { li.classList.remove('goed', 'half', 'fout'); }); }
+    lijst.addEventListener('change', wis);
+    function naam(i) { return P[i].naam || ('Persoon ' + P[i].nr); }
+    function waarom(i, c) {
+      var p = P[i];
+      if (!c.some(function (g) { return past(p, g); })) return p.ziek ? (dom ? 'is ziek, dus heeft minstens één A.' : 'is ziek, dus moet aa zijn.') : (dom ? 'is gezond, dus moet aa zijn.' : 'is gezond, dus heeft minstens één A.');
+      if (p.ouders) { var b = {}; b[i] = c; if (!oplossingen(b).length) {
+        var a = idx[p.ouders[0]], m = idx[p.ouders[1]];
+        var ok = c.some(function (g) { return mogelijk[a].some(function (x) { return mogelijk[m].some(function (y) { return kind(x, y, g); }); }); });
+        if (!ok) return 'kan niet uit deze ouders komen.';
+      } }
+      var kids = P.map(function (q, j) { return j; }).filter(function (j) { return P[j].ouders && P[j].ouders.indexOf(p.nr) >= 0; });
+      var nietMogelijk = kids.filter(function (j) {
+        var partner = idx[P[j].ouders[0] === p.nr ? P[j].ouders[1] : P[j].ouders[0]];
+        return !c.some(function (x) { return mogelijk[partner].some(function (y) { return GT.some(function (z) { return past(P[j], z) && kind(x, y, z); }); }); });
+      });
+      if (nietMogelijk.length) return 'dan kan ' + nietMogelijk.map(function (j) { return naam(j).replace(/^Persoon/, 'persoon'); }).join(' en ') + ' niet ontstaan' + (nietMogelijk.length === 1 && P[nietMogelijk[0]].ziek ? ' (die is ziek, dus aa)' : '') + '.';
+      return 'past niet bij de rest van de stamboom.';
+    }
+    k.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a]'); if (!a) return;
+      wis();
+      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('select').forEach(function (s) { s.value = ''; }); return; }
+      var kies = items().map(function (li) { return li.querySelector('select').value; });
+      var leeg = kies.filter(function (x) { return !x; }).length;
+      var goed = 0, half = 0, fout = 0;
+      kies.forEach(function (x, i) {
+        if (!x) return;
+        var c = set(x), m = mogelijk[i], li = items()[i], tekst, st;
+        var raak = c.filter(function (g) { return m.indexOf(g) >= 0; });
+        if (!raak.length) { st = 'fout'; var w = waarom(i, c); tekst = x + ' kan niet: ' + (/^dan |^kan |^past /.test(w) ? '' : naam(i).replace(/^Persoon/, 'persoon') + ' ') + w; fout++; }
+        else if (raak.length === c.length && c.length === m.length) { st = 'goed'; tekst = x + ' klopt' + (m.length > 1 ? ': meer weet je niet.' : ', dat is zeker.'); goed++; }
+        else if (c.length < m.length) { st = 'half'; tekst = x + ' kan, maar is niet zeker: ' + m.filter(function (g) { return c.indexOf(g) < 0; }).join(' of ') + ' kan ook.' + (m.join() === 'AA,Aa' ? ' Schrijf A_.' : ''); half++; }
+        else { st = 'half'; tekst = x + ' kan, maar je weet meer: het moet ' + m.join(' of ') + ' zijn.'; half++; }
+        li.classList.add(st);
+        terug.appendChild(el('li', st, '<b>' + esc(naam(i)) + '</b> ' + esc(tekst)));
+      });
+      // samen: kan de hele invulling tegelijk?
+      var beperk = kies.map(function (x) { return x ? set(x) : null; });
+      var samen = fout === 0 && oplossingen(beperk).length > 0;
+      if (fout === 0 && !samen) terug.insertAdjacentHTML('afterbegin', '<li class="fout"><b>Samen</b> Elk genotype kan los, maar niet allemaal tegelijk. Kijk naar de ouders en hun kinderen.</li>');
+      if (!leeg && goed === P.length) meld(melding, 'Klopt helemaal, en je hebt overal zo precies mogelijk ingevuld!', 'goed');
+      else if (fout || !samen) meld(melding, 'Dit kan nog niet. Kijk naar de rode personen.', 'half');
+      else meld(melding, 'Dit kan!' + (half ? ' Bij ' + half + (half === 1 ? ' persoon' : ' personen') + ' kun je het preciezer of voorzichtiger zeggen.' : '') + (leeg ? ' Nog ' + leeg + ' leeg.' : ''), half || leeg ? 'half' : 'goed');
+    });
   }
 
   /* ---------- opbouw ---------- */
@@ -872,6 +985,7 @@
           else if (o.soort === 'pijlen') bouwPijlen(o, doos);
           else if (o.soort === 'grafiek') bouwGrafiek(o, doos);
           else if (o.soort === 'puzzel') bouwPuzzel(o, doos);
+          else if (o.soort === 'stamboom') bouwStamboom(o, doos);
         } catch (err) { doos.appendChild(el('p', 'oe-hulp', 'Deze oefening kon niet worden geladen.')); if (window.console) console.error(err); }
       }
       kaart.addEventListener('toggle', function () { if (kaart.open) bouw(); });

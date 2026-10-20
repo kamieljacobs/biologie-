@@ -6,7 +6,7 @@ import json, os, re, subprocess, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 files = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard', 'films/*.html', 'films/**/*.html'], cwd=R, text=True).split()
 TAG = re.compile(r'<script src="[^"]*js/oefenen\.js"[^>]*></script>\n?')
-SOORTEN = {'volgorde', 'schema', 'uitleg', 'indelen', 'pijlen', 'grafiek', 'puzzel'}
+SOORTEN = {'volgorde', 'schema', 'uitleg', 'indelen', 'pijlen', 'grafiek', 'puzzel', 'stamboom'}
 
 
 def controleer(pad):
@@ -41,6 +41,13 @@ def controleer(pad):
             for q in o.get('vragen', []):
                 if 'antwoord' not in q: fouten.append(f'{w}: vraag zonder antwoord')
                 elif q.get('keuzes') and not (isinstance(q['antwoord'], int) and 0 <= q['antwoord'] < len(q['keuzes'])): fouten.append(f'{w}: keuze-antwoord buiten de lijst')
+        if o.get('soort') == 'stamboom':
+            nrs = []
+            for q in o.get('personen', []):
+                if not {'nr', 'x', 'y'} <= set(q): fouten.append(f'{w}: persoon mist nr/x/y')
+                for ou in q.get('ouders') or []:
+                    if ou not in nrs: fouten.append(f'{w}: ouder {ou} moet vóór persoon {q.get("nr")} staan')
+                nrs.append(q.get('nr'))
         if o.get('soort') == 'puzzel':
             if not o.get('stappen'): fouten.append(f'{w}: stappen ontbreken')
             for st in o.get('stappen', []):
