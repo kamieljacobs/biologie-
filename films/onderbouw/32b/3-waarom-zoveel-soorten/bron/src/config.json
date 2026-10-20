@@ -1,0 +1,17 @@
+{
+ "titel": "Waarom zoveel soorten?",
+ "ondertitel": "Hoe ontstaat een nieuwe soort?",
+ "meta": "32B · film 3",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes3.js"],
+ "hold": {"s13": 12.0},
+ "mini": {"Hoofdstuk 1": "Iedereen een beetje anders", "Hoofdstuk 2": "Wie overleeft?", "Hoofdstuk 3": "Van één soort naar twee", "Samenvatting": "Mutatie, selectie, soortvorming"},
+ "checkvragen": [
+  {"titel": "Mutatie", "pts": "1 punt", "vraag": "Wat is een mutatie? A. een dier dat zich aanpast omdat het moet · B. een verandering in een gen · C. een nieuwe soort", "antwoord": "B (1): een mutatie is een (kleine) verandering in een gen, vaak een foutje bij het kopiëren."},
+  {"titel": "Soort", "pts": "1 punt", "vraag": "Wanneer horen twee dieren bij dezelfde soort? A. als ze op elkaar lijken · B. als ze samen vruchtbare jongen kunnen krijgen · C. als ze in hetzelfde gebied wonen", "antwoord": "B (1): bij één soort horen dieren die samen vruchtbare jongen kunnen krijgen."},
+  {"titel": "Strandmuizen", "pts": "2 punten", "vraag": "Op een wit strand komen na veel generaties vooral lichte muizen voor. Leg uit hoe dat komt.", "antwoord": "Lichte muizen vallen minder op en worden minder vaak gepakt, dus ze overleven vaker en krijgen meer jongen (1). Die jongen erven de lichte vacht, zodat er elke generatie meer lichte muizen zijn: natuurlijke selectie (1)."},
+  {"titel": "Cichliden", "pts": "2 punten", "vraag": "In het Victoriameer ontstonden honderden soorten cichliden uit een paar voorouders. Leg uit hoe dat kan.", "antwoord": "Groepen vissen leefden op verschillende plekken met ander voedsel; daar werden andere eigenschappen geselecteerd (1). Na veel generaties waren de groepen zo verschillend dat ze geen jongen meer samen kregen: nieuwe soorten (1).", "uitdaging": true}
+ ]
+}
