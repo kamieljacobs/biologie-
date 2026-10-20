@@ -20,3 +20,16 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 | ICSI | iksie | s13, s15 | wachtlijst |
 | PGT | pee-gee-tee | s14 | wachtlijst |
 | embryoselectie, Rijksvaccinatieprogramma, antibioticum | zoals geschreven | s09, s10, s14 | wachtlijst |
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s06, s07, s09, s11, s14, s15.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| soa / soa's / Soa's | soa / soa's / Soa's (gewone spelling) | s06, s07, s09, s15 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| chlamydia | chlamydia (gewone spelling) | s07, s09, s11 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| GGD | GGD (gewone spelling) | s09 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| in-vitrofertilisatie | in vitro fertilisatie | s11 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| ivf | I-V-F | s11, s14, s15 | goedgekeurd (uitspraaktest 18–19 okt 2026) |

@@ -64,3 +64,31 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp3` (scenes.js uit `src/`, `words/` 
 
 ## Wijziging 16 okt 2026
 Op verzoek van Kamiel: alle hoofdstukken zijn voor havo en vwo hetzelfde. s10 (resistentie bij gonorroe) en s14 (embryoselectie/PGT) staan nu op niveau `basis` in `FILMDATA`, `segments.json` en `script_v2.md` (markers `[VWO-START]/[VWO-END]` weg); de vwo-labels in de begrippenlijst (`film.py`/`film.json`) en checkvraag 5 (`vwo-only`) zijn weg. Audio ongewijzigd.
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moeten klinken. Alleen de alinea's met die woorden zijn opnieuw ingesproken; de gesproken tekst is inhoudelijk gelijk gebleven.
+
+| Woord | Nieuwe stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| soa / soa's / Soa's | soa / soa's / Soa's (gewone spelling) | s06, s07, s09, s15 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| chlamydia | chlamydia (gewone spelling) | s07, s09, s11 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| GGD | GGD (gewone spelling) | s09 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| in-vitrofertilisatie | in vitro fertilisatie | s11 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| ivf | I-V-F | s11, s14, s15 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+- Opnieuw ingesproken: s06, s07, s09, s11, s14, s15. Roos (7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, ElevenLabs-flow `urmsa8zcNa5TFq8SVeBI` ("Herinspreken 19 okt · voeding, hormonen, voortplanting"). Stem-invoer = `voice` in `segments.json` (gemaakt met `make_segments.py` en de bijgewerkte vervangregels in `bouw/uitspraak_subs.json` en `uitspraak_film.json`).
+- Woordtijden: Scribe (connect_from = de TTS-node) → `align.py` → `stem/woordtijden/`. Mastering: `loudnorm=I=-15:TP=-1.5`, mono 44,1 kHz 96 kb/s.
+- Credits: TTS 3561, Scribe ≈ 1292 (≈ 235 s audio).
+- In de HTML (`window.FILMDATA`) zijn alleen bij deze segmenten `words` en `dur` vervangen en heeft de audio-URL `?v=2` gekregen; speler en beelden zijn ongewijzigd. Getest met Playwright (vwo/havo, Vragen aan/uit): geen JS-fouten, nieuwe audio laadt.
+- Niet aangepast: woorden die niet in de test zaten houden hun vorige stem-invoer, zodat ze in de hele film hetzelfde klinken (bijv. "receptor" zoals geschreven, terwijl de centrale lijst "reseptor" geeft).
+
+| Segment | TTS-node | Generatie | Credits | Duur |
+|---|---|---|---|---|
+| s06 | KDhUbNtAXilDsGuRbz8O | duG1HiPpUUwtxtlwtEZ8 | 502 | 32.45 s |
+| s07 | ppoxPk9QEW0s8Ozheupc | 2ivK5W9YsNxb3gavDV0m | 223 | 15.73 s |
+| s09 | 6lXuuYtOGXmYcdmf4BZc | wE9iZj1LRC5LdamovhLc | 1400 | 93.01 s |
+| s11 | Uq2gSBPK70lBHNJzZKpn | HPeUC9lYxMh5tlpMyIFw | 543 | 36.13 s |
+| s14 | wcttaDotVSATWnNLu0sw | 0P61UlxW8OZ78oQuQ9zo | 501 | 32.61 s |
+| s15 | LSPkquw3ogSjAQ8lKhtN | HPRsK5U51OVv32X1EXXV | 392 | 27.73 s |
