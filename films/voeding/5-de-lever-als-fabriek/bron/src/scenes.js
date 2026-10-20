@@ -20,19 +20,14 @@ function mix(h1, h2, u) { const a = parseInt(h1.slice(1), 16), b = parseInt(h2.s
 
 // ---------- baby (Macro) ----------
 function baby(ctx, x, y, s = 1, a = 1, o = {}) { if (a <= 0.01) return; const { geel = 0, licht = 0, t = 0, ogen = true } = o; ctx.save(); ctx.globalAlpha *= a;
-  const huid = mix(HUID_ROZE, HUID_GEEL, geel), wit = mix('#F4F1EA', '#E8D48A', geel);
   // wiegje
   roundRect(ctx, x - 300 * s, y - 60 * s, 600 * s, 300 * s, 40 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 2);
   roundRect(ctx, x - 280 * s, y - 40 * s, 560 * s, 180 * s, 30 * s); ctx.fillStyle = rgba('#E6E1D3', 0.35); ctx.fill();
-  // dekentje
-  roundRect(ctx, x - 150 * s, y + 20 * s, 380 * s, 120 * s, 40 * s); shape(ctx, rgba(C.teal, 0.35), rgba(C.teal, 0.8), 1.5);
-  // hoofd
-  const hx = x - 150 * s, hy = y + 10 * s, r = 78 * s; ctx.beginPath(); ctx.arc(hx, hy, r, 0, 6.283); shape(ctx, huid, rgba('#8C5A3A', 0.6), 1.5);
-  // oogwit + pupil (gesloten/open volgens t)
-  if (ogen) { for (const d of [-1, 1]) { ctx.beginPath(); ctx.ellipse(hx + d * 26 * s, hy - 8 * s, 12 * s, 8 * s, 0, 0, 6.283); shape(ctx, wit, rgba('#8C5A3A', 0.5), 1); ctx.fillStyle = '#2B2B33'; ctx.beginPath(); ctx.arc(hx + d * 26 * s, hy - 8 * s, 4.5 * s, 0, 6.283); ctx.fill(); } }
-  ctx.strokeStyle = rgba('#8C5A3A', 0.7); ctx.lineWidth = 2.5 * s; ctx.beginPath(); ctx.arc(hx, hy + 22 * s, 14 * s, 0.3, 2.84); ctx.stroke();
-  // handje
-  ctx.beginPath(); ctx.arc(x + 40 * s, y + 20 * s, 18 * s, 0, 6.283); shape(ctx, huid, rgba('#8C5A3A', 0.6), 1.2);
+  // de baby uit het castboek (20 okt 2026): ligt op de rug, hoofd links; gele huid bij geelzucht
+  persoon(ctx, 'baby', x - 43 * s, y + 76 * s, 330 * s, { uit: licht > 0.5 ? 'slaapt' : (ogen ? 'neutraal' : 'slaapt'), geel, t });
+  // dekentje over het lijfje
+  roundRect(ctx, x - 112 * s, y - 62 * s, 290 * s, 168 * s, 40 * s); shape(ctx, '#2F5F78', rgba(C.teal, 0.85), 1.5);
+  ctx.strokeStyle = rgba(C.teal, 0.35); ctx.lineWidth = 2 * s; for (let k = 1; k < 3; k++) { ctx.beginPath(); ctx.moveTo(x - 112 * s + k * 96 * s, y - 58 * s); ctx.lineTo(x - 112 * s + k * 96 * s, y + 102 * s); ctx.stroke(); }
   // blauw licht
   if (licht > 0.01) { ctx.save(); ctx.globalAlpha *= licht; roundRect(ctx, x - 320 * s, y - 260 * s, 640 * s, 26 * s, 13 * s); shape(ctx, rgba(C.teal, 0.5), C.teal, 1.5);
     const g = ctx.createLinearGradient(0, y - 240 * s, 0, y + 40 * s); g.addColorStop(0, rgba('#5BA4F0', 0.32)); g.addColorStop(1, rgba('#5BA4F0', 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.moveTo(x - 300 * s, y - 234 * s); ctx.lineTo(x + 300 * s, y - 234 * s); ctx.lineTo(x + 360 * s, y + 60 * s); ctx.lineTo(x - 360 * s, y + 60 * s); ctx.closePath(); ctx.fill(); ctx.restore(); }
@@ -111,7 +106,7 @@ function biliRoute(ctx, o = {}) { const { a = 1, t = 0, afbraak = 0, ijzer = 0, 
   // drie uitkomsten uit de milt
   const y0 = R3.milt[1];
   if (ijzer > 0.01) { ctx.save(); ctx.globalAlpha *= ijzer; arrow(ctx, R3.milt[0] + 110, y0 - 30, 800, 230, C.line, 1, 2); ctx.beginPath(); ctx.arc(830, 220, 10, 0, 6.283); shape(ctx, rgba(C.text2, 0.6), C.text2, 1.4); text(ctx, 'ijzer → rood beenmerg', 860, 228, fTekst(28, 600), C.text, 'left'); ctx.restore(); }
-  if (eiwit > 0.01) { ctx.save(); ctx.globalAlpha *= eiwit; arrow(ctx, R3.milt[0] + 110, y0 + 30, 800, 560, C.line, 1, 2); for (let i = 0; i < 4; i++) aminozuur(ctx, 830 + i * 22, 560, 8, [0, 5, 9, 14][i]); text(ctx, 'eiwit → aminozuren', 940, 568, fTekst(28, 600), C.text, 'left'); ctx.restore(); }
+  if (eiwit > 0.01) { ctx.save(); ctx.globalAlpha *= eiwit; arrow(ctx, R3.milt[0], y0 + 104, R3.milt[0], 600, C.line, 1, 2); for (let i = 0; i < 4; i++) aminozuur(ctx, R3.milt[0] - 33 + i * 22, 628, 8, [0, 5, 9, 14][i]); text(ctx, 'eiwit → aminozuren', R3.milt[0], 680, fTekst(28, 600), C.text, 'center'); /* onder de milt, los van de galgang (20 okt 2026) */ ctx.restore(); }
   arrow(ctx, R3.milt[0] + 110, y0, R3.lever[0] - 130, y0, C.line, geel, 2);
   if (geel > 0.01) { ctx.save(); ctx.globalAlpha *= geel; bili(ctx, 740, y0 - 10, 1, 11, 0); text(ctx, 'bilirubine', 740, y0 - 36, fTekst(28, 600), BILI, 'center'); ctx.restore(); }
   orgaanBlok(ctx, R3.lever[0], R3.lever[1], 240, 120, 'lever', LEVER, geel);

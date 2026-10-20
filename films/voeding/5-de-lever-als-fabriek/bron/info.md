@@ -100,3 +100,8 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 - **Noor i.p.v. het kale lichaam** (s04, regel 1375): `noorLever(ctx, x, top, hh, t, o)` (regel 1357) tekent Noor rechtsboven, met een donker 'kijkje' in haar buik: de lever rechtsboven in haar buik (links in beeld, onder de ribben) en vaag de darm eronder. Naam 'RECHTSBOVEN' eronder. Gesproken tekst ongewijzigd.
 - **Bouwen na deze wijziging**: pas `src/scenes.js` aan en zet het in de film met `python3 bron/bouw/vervang.py films/voeding/5-de-lever-als-fabriek.html films/voeding/5-de-lever-als-fabriek/bron [--filmdata <filmdata.json> --nieuw sNN]` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; niet volledig herbouwen met build.py, de HTML heeft latere spelerwijzigingen die niet in `src/player.js` staan). Scènesblok: regel 952–1569 (`const SCENES` op 1363).
+
+## Wijziging 20 okt 2026 (tweede ronde)
+
+- **Baby uit het castboek** (s01, s27, s28; `baby()` in `src/scenes.js`): het wiegje, het licht en de gele kleur blijven, maar de baby zelf is nu `persoon(ctx, 'baby', …)` (vlak, geen omlijning, één schaduwtint; ligt op de rug, hoofd links), met `geel` voor de gele huid en ogen dicht onder de lamp; dekentje over het lijfje.
+- **Overlap rond 6:59 (havo, s23)**: de tak 'eiwit → aminozuren' liep door de galgang en de namen 'gal'/'galgang'. Die tak staat nu onder de milt (pijl omlaag, aminozuren en tekst eronder).
