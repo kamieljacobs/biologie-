@@ -4,15 +4,15 @@
 // ---------- gedeelde scènestukken ----------
 const FOODS_L = ['vlees', 'kaas', 'melk'], FOODS_R = ['brood', 'bonen', 'tofu'];
 function twoStudents(ctx, t, o = {}) {
-  const { a = 1, aL = 1, aR = 1, foodsL = 1, foodsR = 1, tagL = 1, tagR = 1, hlR = 0, y = 800 } = o;
+  const { a = 1, aL = 1, aR = 1, foodsL = 1, foodsR = 1, tagL = 1, tagR = 1, hlR = 0, y = 880 } = o;
   ctx.save(); ctx.globalAlpha *= a;
   // links: vleeseter
-  ctx.save(); ctx.globalAlpha *= aL; human(ctx, 520, y, 330); ctx.restore();
+  ctx.save(); ctx.globalAlpha *= aL; persoon(ctx, 'sam', 520, y, 330, { uit: 'blij', kijk: 1, t }); ctx.restore();
   FOODS_L.forEach((f, i) => foodIcon(ctx, f, 300 + i * 140, 360, 1, foodsL * aL));
   plateLine(ctx, 220, 760, 410, foodsL * aL);
   ctx.save(); ctx.globalAlpha *= tagL * aL; text(ctx, 'eet vlees, kaas en melk', 520, 270, fTekst(36, 600), C.text, 'center'); metaText(ctx, '60 g eiwit per dag', 520, 455, C.grain, 'center', 28); ctx.restore();
   // rechts: vegan
-  ctx.save(); ctx.globalAlpha *= aR; human(ctx, 1400, y, 330); if (hlR > 0) { ctx.strokeStyle = rgba(C.goud, hlR); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(1400, y - 160, 210, 0, 6.283); ctx.stroke(); } ctx.restore();
+  ctx.save(); ctx.globalAlpha *= aR; persoon(ctx, 'noor', 1400, y, 330, { uit: hlR > 0.5 ? 'denkt' : 'neutraal', kijk: -1, t }); if (hlR > 0) { ctx.strokeStyle = rgba(C.goud, hlR); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(1400, y - 170, 215, 0, 6.283); ctx.stroke(); } ctx.restore();
   FOODS_R.forEach((f, i) => foodIcon(ctx, f, 1180 + i * 140, 360, 1, foodsR * aR));
   plateLine(ctx, 1100, 1640, 410, foodsR * aR);
   ctx.save(); ctx.globalAlpha *= tagR * aR; text(ctx, 'vegan: alleen plantaardig', 1400, 270, fTekst(36, 600), C.text, 'center'); metaText(ctx, '60 g eiwit per dag', 1400, 455, C.grain, 'center', 28); ctx.restore();
@@ -91,7 +91,7 @@ const SCENES = {
     arrow(ctx, gx(5), 245, tx(3), 465, C.teal, q.on('regelen'), 2); arrow(ctx, gx(4), 245, tx(3) - 40, 465, C.teal, q.on('regelen'), 2);
     if (q.on('Calcium') > 0.01) bigLine(ctx, 'calcium → botten', tx(0), 660, q.on('Calcium') * (1 - q.on('Water')), C.text, 34);
     // lichaam voor meer dan de helft water
-    const wa = q.on('helft'); if (wa > 0.01) { ctx.save(); ctx.globalAlpha *= wa; human(ctx, 1700, 880, 260); ctx.save(); ctx.beginPath(); ctx.rect(1560, 880 - 260 * 0.6 * ramp(t, q.at('helft'), 1.2), 300, 300); ctx.clip(); human(ctx, 1700, 880, 260, 1, C.teal); ctx.restore(); text(ctx, 'ruim 50% water', 1460, 760, fTekst(36, 600), C.teal, 'center'); ctx.restore(); }
+    const wa = q.on('helft'); if (wa > 0.01) { ctx.save(); ctx.globalAlpha *= wa; persoonTint(ctx, 'noor', 1700, 880, 260, { uit: 'blij', t }, C.teal, 0.6 * ramp(t, q.at('helft'), 1.2), 0.62); text(ctx, 'ruim 50% water', 1460, 760, fTekst(36, 600), C.teal, 'center'); ctx.restore(); }
     // vraag: nieuwe eiwitten
     const qa = q.on('enzymen'); if (qa > 0.01) { ctx.save(); ctx.globalAlpha *= qa; text(ctx, 'nieuwe enzymen en spiereiwit: bouwstenen uit …?', 60, 700, fTekst(40, 600), C.goud); ctx.restore(); }
   },
@@ -132,8 +132,8 @@ const SCENES = {
       atoms(930, 260, 6, 12, 6, 'glucose', 1);
       atoms(930, 580, 16, 32, 2, 'vetzuur', 1);
       const z = q.on('zuurstofatomen'); if (z > 0.01) { ctx.save(); ctx.globalAlpha *= z; ctx.strokeStyle = C.teal; ctx.lineWidth = 1.5; roundRect(ctx, 990, 360, 200, 40, 10); ctx.stroke(); ctx.restore(); }
-      naamBij(ctx, 'al veel zuurstof', 'al half verbrand', 1475, 392, q.on('half'), 'left');
-      naamBij(ctx, 'bijna alleen C en H', 'meer te verbranden', 1475, 618, q.on('koolstof'), 'left');
+      naamBij(ctx, 'al veel zuurstof', 'al deels geoxideerd', 1475, 392, q.on('half'), 'left');
+      naamBij(ctx, 'bijna alleen C en H', 'nog veel te oxideren', 1475, 618, q.on('koolstof'), 'left');
       ctx.restore(); }
   },
   s12(ctx, t, q) { bg(ctx, 'schema');
@@ -254,7 +254,7 @@ const SCENES = {
   },
   s21(ctx, t, q) { bg(ctx, 'schema');
     const g = q.on('meten', 1, 1), rise = q.on('stijging', 1, 2.5), ne = q.on('niet-essentiële', 1, 1.5);
-    human(ctx, 220, 760, 300, ramp(t, 0, 0.6)); foodIcon(ctx, 'kaas', 360, 700, 0.9, q.on('maaltijd'));
+    persoon(ctx, 'sam', 220, 760, 300, { a: ramp(t, 0, 0.6), uit: 'blij', t }); foodIcon(ctx, 'kaas', 360, 700, 0.9, q.on('maaltijd'));
     if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; const x0 = 560, x1 = 1800, y0 = 760, y1 = 200;
       ctx.fillStyle = 'rgba(255,255,255,0.03)'; for (let i = 0; i < 6; i++) ctx.fillRect(x0, y1 + i * 112, x1 - x0, 1);
       ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x0, y1); ctx.lineTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke();
@@ -320,14 +320,14 @@ const SCENES = {
   s27(ctx, t, q) { bg(ctx, 'schema');
     const adi = q.on('ADI'), asp = q.on('aspartaam'), sx = q.on('Zestig', 1, 0.8), blik = q.on('blikje', 1, 0.6), kind = q.on('kind', 1, 0.8);
     if (adi > 0.01) { ctx.save(); ctx.globalAlpha *= adi * (1 - kind * 0.5); roundRect(ctx, 120, 120, 820, 170, 14); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 1.5); text(ctx, 'ADI · aanvaardbare dagelijkse inname', 150, 180, fTekst(36, 600), C.goud); text(ctx, asp > 0.5 ? 'aspartaam: 40 mg per kg per dag' : 'mg per kg lichaamsgewicht per dag', 150, 250, fTekst(36, 600), C.text); ctx.restore(); }
-    if (sx > 0.01) { ctx.save(); ctx.globalAlpha *= sx * (1 - kind * 0.5); human(ctx, 260, 820, 300); text(ctx, '60 kg', 260, 860, fTekst(36, 600), C.text, 'center'); text(ctx, '60 × 40 = 2400 mg per dag', 430, 400, fTekst(44, 600), C.text); ctx.restore(); }
+    if (sx > 0.01) { ctx.save(); ctx.globalAlpha *= sx * (1 - kind * 0.5); persoon(ctx, 'noor', 260, 820, 300, { uit: 'neutraal', t }); text(ctx, '60 kg', 260, 860, fTekst(36, 600), C.text, 'center'); text(ctx, '60 × 40 = 2400 mg per dag', 430, 400, fTekst(44, 600), C.text); ctx.restore(); }
     if (blik > 0.01) { const n = Math.min(12, Math.floor(ramp(t, q.at('blikje'), 2) * 12 + 0.001)); ctx.save(); ctx.globalAlpha *= blik * (1 - kind * 0.5); for (let i = 0; i < n; i++) foodIcon(ctx, 'blikje', 470 + (i % 12) * 66, 560, 0.9); metaText(ctx, '200 mg per blikje · 12 blikjes = 2400 mg', 440, 650, C.grain, 'left', 28); ctx.restore(); }
-    if (kind > 0.01) { ctx.save(); ctx.globalAlpha *= kind; human(ctx, 1500, 840, 200); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); text(ctx, 'na hoeveel blikjes?', 1500, 560, fTekst(44, 600), C.goud, 'center'); ctx.restore(); }
+    if (kind > 0.01) { ctx.save(); ctx.globalAlpha *= kind; kindFiguur(ctx, 'daan', 1500, 840, 200, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); text(ctx, 'na hoeveel blikjes?', 1500, 560, fTekst(44, 600), C.goud, 'center'); ctx.restore(); }
   },
   s29(ctx, t, q) { bg(ctx, 'schema');
-    ctx.save(); human(ctx, 1500, 840, 200); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); ctx.restore();
+    ctx.save(); kindFiguur(ctx, 'daan', 1500, 840, 200, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); ctx.restore();
     const a = q.on('Twintig'); if (a > 0.01) { bigLine(ctx, '20 × 40 = 800 mg = 4 blikjes', 1500, 420, a, C.text, 44); for (let i = 0; i < 4; i++) foodIcon(ctx, 'blikje', 1380 + i * 80, 540, 0.9, a); }
-    const m = q.on('honderd', 1, 1.2); if (m > 0.01) { ctx.save(); ctx.globalAlpha *= m; plateLine(ctx, 160, 1100, 700); ctx.fillStyle = C.line;
+    const m = q.on('honderd', 2, 1.2); if (m > 0.01) { ctx.save(); ctx.globalAlpha *= m; plateLine(ctx, 160, 1100, 700); ctx.fillStyle = C.line;
       roundRect(ctx, 1000, 260, 60, 440, 8); shape(ctx, rgba(V.neutraal, 0.3), V.neutraal, 1.2); text(ctx, 'geen schadelijk effect', 1030, 230, fTekst(36, 600), C.text2, 'center'); metaText(ctx, 'proefdieren', 1030, 740, C.grain, 'center', 28);
       roundRect(ctx, 300, 696, 60, 4.4, 2); shape(ctx, C.goud, C.goud, 1); text(ctx, 'ADI', 330, 670, fTekst(36, 600), C.goud, 'center'); metaText(ctx, '100× lager', 600, 560, C.goud, 'center', 28); arrow(ctx, 980, 500, 380, 680, C.goud, 1); ctx.restore(); }
     haak(ctx, 160, 1100, 760, 'elke dag, je hele leven lang', C.groen, q.on('elke'));
