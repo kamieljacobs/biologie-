@@ -205,6 +205,15 @@ a.kd:hover{border-color:var(--goud);transform:translateY(-2px)}
 .extra-uitleg{margin:4px 0 8px;color:var(--text2);font-size:15px}
 .film.is-extra .n,.kort.is-extra .n{color:var(--paars)}
 
+#app{position:relative}
+.kunstgrond{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.kunstgrond span{position:absolute;display:block;opacity:.17;transform-origin:center}
+.kunstgrond svg{width:100%;height:auto;display:block}
+.kunstgrond svg *{stroke-width:.9px;vector-effect:non-scaling-stroke}
+:root[data-theme="dark"] .kunstgrond span{opacity:.16}
+.kunstgrond ~ section{position:relative;z-index:1}
+@media (max-width:900px){.kunstgrond span{opacity:.08}}
+
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
 .kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
@@ -2477,12 +2486,25 @@ const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 1
  <path d="M60 34v64" stroke-width="1.4"/><path d="M26 40c8-1 18 0 26 4M26 52c8-1 18 0 26 4M68 44c8-4 18-5 26-4M68 56c8-4 18-5 26-4" stroke-width="1" opacity=".6"/>
  <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`};
 const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
+/* Kunstzinnige achtergrond op de hoofdpagina: grote, ijle lijntekeningen (geen korrel) */
+const GROND=[
+  ['cellen',  '60%','10px', 480,-8],
+  ['dna',     '86%','10px', 260,18],
+  ['evolutie','-6%','520px',300,-12],
+  ['regeling','94%','620px',280,8],
+  ['ecologie','-4%','1180px',320,0],
+  ['planten', '93%','1260px',300,-10],
+  ['voeding', '-5%','1800px',260,14],
+  ['afweer',  '95%','1860px',240,-6],
+];
+const grondLaag=()=>`<div class="kunstgrond" aria-hidden="true">${GROND.filter(([id])=>KUNST[id]).map(([id,x,y,w,r])=>`<span style="left:${x};top:${y};width:${w}px;transform:rotate(${r}deg)">${kunst(id)}</span>`).join('')}</div>`;
+
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<li><a href="#${id}"><span class="tk">${kunst(id)}</span><b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
   const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
-  let out=`<section class="wrap hero hero-kort">
+  let out=grondLaag()+`<section class="wrap hero hero-kort">
     <div>
       <span class="mono">Biologie bij Kamiel</span>
       <h1>Wat ga je vandaag leren?</h1>
