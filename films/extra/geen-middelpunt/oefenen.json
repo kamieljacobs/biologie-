@@ -1,0 +1,263 @@
+{
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-tijdlijn-oud",
+   "soort": "volgorde",
+   "titel": "Van boek naar eigen ogen",
+   "opdracht": "Zet deze ontdekkingen op de tijdlijn: van vroeg naar laat.",
+   "stappen": [
+    {
+     "tekst": "Aristoteles zet alle levende wezens op een ladder, met de mens bovenaan.",
+     "uitleg": "± 340 voor Christus. Vereenvoudigd: de 'ladder van de natuur'."
+    },
+    {
+     "tekst": "Galenus beschrijft het lichaam na het ontleden van apen, varkens en honden.",
+     "uitleg": "± 170 na Christus. Meer dan duizend jaar het leerboek voor artsen."
+    },
+    {
+     "tekst": "Ibn al-Nafis schrijft dat het bloed van het hart door de longen stroomt.",
+     "uitleg": "± 1242. In Europa bleef dat eeuwenlang onbekend."
+    },
+    {
+     "tekst": "Vesalius ontleedt zelf mensen en vindt honderden fouten bij Galenus.",
+     "uitleg": "1543, De humani corporis fabrica."
+    },
+    {
+     "tekst": "Harvey rekent uit dat het bloed moet rondgaan: de bloedsomloop.",
+     "uitleg": "1628. Het hart pompt veel meer bloed weg dan de lever kan maken."
+    },
+    {
+     "tekst": "Hooke ziet in kurk kleine hokjes en noemt ze cellen.",
+     "uitleg": "1665, Micrographia. Malpighi zag in 1661 al de haarvaten."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-tijdlijn-nieuw",
+   "soort": "volgorde",
+   "titel": "Van druppel tot DNA-schaar",
+   "opdracht": "Zet deze ontdekkingen op de tijdlijn: van vroeg naar laat.",
+   "stappen": [
+    {
+     "tekst": "Van Leeuwenhoek ziet bacteriën en zaadcellen met één piepklein lensje.",
+     "uitleg": "1676–1677. Hooke deed het in 1677 na."
+    },
+    {
+     "tekst": "Linnaeus geeft de mens de naam Homo sapiens, bij de primaten.",
+     "uitleg": "1758, tiende druk van Systema Naturae."
+    },
+    {
+     "tekst": "Darwin en Wallace laten hun idee over natuurlijke selectie samen voorlezen.",
+     "uitleg": "1858; Darwins boek verscheen in 1859."
+    },
+    {
+     "tekst": "Pasteur laat met zijn zwanenhalsfles zien dat leven van ander leven komt.",
+     "uitleg": "1859–1862. Mendel publiceerde in 1866."
+    },
+    {
+     "tekst": "Fleming ziet dat een schimmel bacteriën doodt: penicilline.",
+     "uitleg": "1928. Een medicijn werd het pas rond 1940 in Oxford."
+    },
+    {
+     "tekst": "Watson en Crick bouwen het model van de dubbele helix, mede dankzij foto 51.",
+     "uitleg": "1953. Foto 51 maakten Franklin en Gosling in 1952."
+    },
+    {
+     "tekst": "Charpentier en Doudna vinden een manier om DNA precies te knippen.",
+     "uitleg": "2012, CRISPR. Carsons Silent Spring was in 1962."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-semmelweis",
+   "soort": "volgorde",
+   "titel": "Semmelweis zoekt de oorzaak",
+   "opdracht": "Zet de stappen van Semmelweis in Wenen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Op de afdeling van artsen sterven ongeveer vier keer zoveel moeders als op die van vroedvrouwen.",
+     "uitleg": "De waarneming waar het mee begint (1846–1847)."
+    },
+    {
+     "tekst": "Hij ziet het verschil: de artsen komen vaak rechtstreeks van het onderzoek aan lijken.",
+     "uitleg": "Stinkende lucht kan het verschil niet verklaren: de lucht in het ziekenhuis is overal dezelfde."
+    },
+    {
+     "tekst": "Hij laat iedereen de handen wassen met chloorkalk.",
+     "uitleg": "Vanaf half mei 1847."
+    },
+    {
+     "tekst": "De sterfte daalt van ruim tien naar ongeveer twee procent.",
+     "uitleg": "Het resultaat van de ingreep."
+    },
+    {
+     "tekst": "Veel artsen geloven hem niet, en hij moet weg uit Wenen.",
+     "uitleg": "Er was nog geen verklaring; en artsen wilden niet horen dat zij zelf de ziekte overbrachten."
+    },
+    {
+     "tekst": "Pasteur en anderen laten zien dat micro-organismen ziekte veroorzaken.",
+     "uitleg": "Pas daarna, na de dood van Semmelweis (1865), kreeg hij gelijk."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-harvey",
+   "soort": "uitleg",
+   "titel": "Waarom het bloed rondgaat",
+   "opdracht": "Galenus dacht dat de lever steeds nieuw bloed maakt en dat de organen het opmaken. Leg uit hoe Harvey met een berekening liet zien dat dat niet kan.",
+   "begrippen": [
+    {
+     "naam": "per slag",
+     "varianten": [
+      "slag",
+      "hartslag"
+     ]
+    },
+    {
+     "naam": "per uur",
+     "varianten": [
+      "uur",
+      "half uur"
+     ]
+    },
+    {
+     "naam": "lever",
+     "varianten": []
+    },
+    {
+     "naam": "bloedsomloop",
+     "varianten": [
+      "rondgaat",
+      "rond"
+     ]
+    },
+    {
+     "naam": "meten",
+     "varianten": [
+      "rekenen",
+      "berekening",
+      "schatten"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem wat Harvey schatte en telde: bloed per slag en het aantal slagen.",
+    "Ik leg uit dat het hart per uur veel meer bloed wegpompt dan er in je lichaam zit.",
+    "Ik concludeer dat de lever dat nooit kan bijmaken, dus dat hetzelfde bloed steeds rondgaat."
+   ],
+   "model": [
+    "Harvey schatte hoeveel bloed het hart bij elke slag wegpompt, en telde hoeveel slagen het hart maakt.",
+    "Daaruit volgde dat het hart al in een half uur meer bloed wegpompt dan er in het hele lichaam zit; met wat we nu weten is het zo'n driehonderd liter per uur.",
+    "Zoveel bloed kan de lever nooit uit voedsel maken. Het moet dus hetzelfde bloed zijn dat steeds rondgaat: een bloedsomloop, met het hart als pomp."
+   ]
+  },
+  {
+   "id": "uitleg-sociaal-darwinisme",
+   "soort": "uitleg",
+   "titel": "De sterkste overleeft?",
+   "opdracht": "Iemand zegt: 'Volgens Darwin overleeft de sterkste. Dus is het natuurlijk dat zwakke mensen geen hulp krijgen.' Leg uit wat er mis is met deze redenering.",
+   "begrippen": [
+    {
+     "naam": "natuurlijke selectie",
+     "varianten": [
+      "selectie"
+     ]
+    },
+    {
+     "naam": "passen",
+     "varianten": [
+      "past",
+      "best passend",
+      "aangepast"
+     ]
+    },
+    {
+     "naam": "nakomelingen",
+     "varianten": [
+      "voortplanten",
+      "jongen"
+     ]
+    },
+    {
+     "naam": "sociaal-darwinisme",
+     "varianten": [
+      "sociaal darwinisme"
+     ]
+    },
+    {
+     "naam": "moraal",
+     "varianten": [
+      "hoe we met elkaar omgaan",
+      "normen",
+      "waarden"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het bij natuurlijke selectie gaat om wie het best past bij de omgeving en de meeste nakomelingen krijgt, niet om de sterkste.",
+    "Ik leg uit dat evolutie beschrijft hoe de natuur werkt, niet hoe mensen met elkaar moeten omgaan.",
+    "Ik noem dat deze redenering sociaal-darwinisme heet en misbruikt is (bijvoorbeeld eugenetica)."
+   ],
+   "model": [
+    "Bij natuurlijke selectie gaat het niet om de sterkste, maar om wie het best past bij zijn omgeving en daardoor meer nakomelingen krijgt.",
+    "Bovendien beschrijft de evolutietheorie hoe de natuur werkt. Daaruit volgt niet wat goed of rechtvaardig is: hoe we met elkaar omgaan, kiezen mensen zelf.",
+    "Deze redenering heet sociaal-darwinisme. Ze werd gebruikt om armoede natuurlijk te noemen en leidde tot eugenetica, met gedwongen sterilisaties en ergere misdaden."
+   ]
+  },
+  {
+   "id": "uitleg-kiembaan",
+   "soort": "uitleg",
+   "titel": "Een patiënt of een embryo",
+   "opdracht": "Leg uit waarom het veranderen van DNA met CRISPR bij een patiënt met sikkelcelziekte iets anders is dan bij een embryo.",
+   "begrippen": [
+    {
+     "naam": "bloedstamcellen",
+     "varianten": [
+      "bloedcellen",
+      "lichaamscellen"
+     ]
+    },
+    {
+     "naam": "erfelijk",
+     "varianten": [
+      "erven",
+      "doorgeven",
+      "nakomelingen"
+     ]
+    },
+    {
+     "naam": "geslachtscellen",
+     "varianten": [
+      "eicellen",
+      "zaadcellen",
+      "kiembaan"
+     ]
+    },
+    {
+     "naam": "generaties",
+     "varianten": [
+      "generatie"
+     ]
+    },
+    {
+     "naam": "Embryowet",
+     "varianten": [
+      "verboden",
+      "mag niet"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat bij de patiënt alleen lichaamscellen (bloedstamcellen) veranderen, die hij niet doorgeeft.",
+    "Ik leg uit dat bij een embryo de verandering in alle cellen zit, ook in de latere ei- of zaadcellen, zodat alle volgende generaties hem erven.",
+    "Ik noem een bezwaar: onbekende gevolgen, het kind kan niet kiezen, of het verbod in Nederland."
+   ],
+   "model": [
+    "Bij de patiënt veranderen artsen alleen het DNA in bloedstamcellen. Dat zijn lichaamscellen: de verandering gaat niet over op zijn kinderen.",
+    "Bij een embryo zit de verandering in alle cellen, ook in de cellen waaruit later eicellen of zaadcellen ontstaan. Dan erven alle volgende generaties de verandering.",
+    "Niemand weet wat de gevolgen op lange termijn zijn, en het kind kan er niet zelf voor kiezen. In Nederland is het daarom verboden (Embryowet)."
+   ]
+  }
+ ]
+}

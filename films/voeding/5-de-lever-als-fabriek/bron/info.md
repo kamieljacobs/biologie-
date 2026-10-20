@@ -95,3 +95,8 @@ Begrippen: poortader, leverslagader, leverader, onderste holle ader, glycogeen, 
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: sinusoïden (links van het leverlobje), centrale ader (rechts naast het lobje). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+- **Noor i.p.v. het kale lichaam** (s04, regel 1375): `noorLever(ctx, x, top, hh, t, o)` (regel 1357) tekent Noor rechtsboven, met een donker 'kijkje' in haar buik: de lever rechtsboven in haar buik (links in beeld, onder de ribben) en vaag de darm eronder. Naam 'RECHTSBOVEN' eronder. Gesproken tekst ongewijzigd.
+- **Bouwen na deze wijziging**: pas `src/scenes.js` aan en zet het in de film met `python3 bron/bouw/vervang.py films/voeding/5-de-lever-als-fabriek.html films/voeding/5-de-lever-als-fabriek/bron [--filmdata <filmdata.json> --nieuw sNN]` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; niet volledig herbouwen met build.py, de HTML heeft latere spelerwijzigingen die niet in `src/player.js` staan). Scènesblok: regel 952–1569 (`const SCENES` op 1363).

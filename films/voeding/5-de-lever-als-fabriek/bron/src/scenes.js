@@ -128,6 +128,13 @@ function biliRoute(ctx, o = {}) { const { a = 1, t = 0, afbraak = 0, ijzer = 0, 
     arrow(ctx, R3.lever[0] + 120, R3.lever[1] + 10, R3.nier[0] - 110, R3.nier[1], BILI, 1, 2.5); orgaanBlok(ctx, R3.nier[0], R3.nier[1], 220, 90, 'urine: donker', '#8C6A2B', 1); ctx.restore(); }
   ctx.restore(); }
 
+// Noor (vast personage) tot de heupen, met lever (rechtsboven in haar buik = links in beeld) en vaag de darm (20 okt 2026; vervangt het kale lichaam)
+function noorLever(ctx, x, top, hh, t, o = {}) { const { a = 1, darmA = 0.3, onder = CAPTION_Y } = o; if (a <= 0.01) return;
+  const L = CAST.noor.lengte || 1, H = 6.1 * hh, h = H / L, y = top + H, m = rompMaat('noor', x, y, h);
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.rect(0, 0, W, onder); ctx.clip(); persoon(ctx, 'noor', x, y, h, { uit: 'neutraal', t });
+  ctx.save(); rompPad(ctx, m); ctx.clip(); const cy = (m.taille - 0.7 * hh + m.heup + 0.3 * hh) / 2; ctx.beginPath(); ctx.ellipse(x, cy, 0.95 * hh, 0.95 * hh, 0, 0, 6.283); ctx.fillStyle = rgba(C.bgMicro, 0.62); ctx.fill();
+  const k = 1.4 * hh / 340, pts = DARM_PTS.map(p => [x + p[0] * k, cy + 0.15 * hh + (p[1] - 20) * k]); ctx.save(); ctx.globalAlpha *= darmA; buisPad(ctx, pts, 40 * k, 1, V.neutraal, C.fill, { seed: 2, glad: true }); ctx.restore();
+  leverVorm(ctx, x - 0.3 * hh, m.taille - 0.68 * hh, 1.45 * hh, 0.8 * hh, 1, rgba(LEVER, 0.95)); ctx.restore(); ctx.restore(); }
 const SCENES = {
   title(ctx, t) { leverVorm(ctx, 1480, 560, 560, 320, 1); vat(ctx, [[1120, 780], [1300, 700], [1330, 620]], ZARM, 10, 1); vat(ctx, [[1800, 800], [1680, 700], [1620, 640]], ZRIJK, 8, 1); vat(ctx, [[1500, 420], [1540, 300], [1560, 200]], ZARM, 9, 1); for (let i = 0; i < 5; i++) { const w = wander(i, t, 8, 1.4); glucose(ctx, 1180 + i * 40 + w.x, 760 - i * 24 + w.y, 10, 0.9); } },
 
@@ -144,7 +151,7 @@ const SCENES = {
     const v = q.on('verteerd', 1, 0.8), p = q.on('poortader', 1, 1.0), l = q.on('lever', 2, 1.0);
     leverSchema(ctx, { t, lever: l, poort: p, glu: v, labels: 1 });
     if (v > 0.01 && p < 0.5) { ctx.save(); ctx.globalAlpha *= v * (1 - p * 2); for (let i = 0; i < 8; i++) { const w = wander(i, t, 10, 1.4); glucose(ctx, 250 + hash(i * 3) * 120 + w.x, 650 + hash(i * 3 + 1) * 80 + w.y); aminozuur(ctx, 250 + hash(i * 5 + 2) * 120 + w.y, 650 + hash(i * 5 + 3) * 80 + w.x, 8, [0, 5, 9, 14][i % 4]); } ctx.restore(); }
-    const rb = q.on('rechtsboven', 1, 0.8); if (rb > 0.01) { ctx.save(); ctx.globalAlpha *= rb; lichaam(ctx, 1640, 420, 0.42, 1, { darm: 1, darmA: 0.5 }); leverVorm(ctx, 1585, 345, 130, 80, 1); metaText(ctx, 'RECHTSBOVEN', 1640, 640, C.grain, 'center', 22); ctx.restore(); }
+    const rb = q.on('rechtsboven', 1, 0.8); if (rb > 0.01) { ctx.save(); ctx.globalAlpha *= rb; noorLever(ctx, 1640, 150, 100, t, { onder: 610 }); metaText(ctx, 'RECHTSBOVEN', 1640, 640, C.grain, 'center', 22); ctx.restore(); }
     tag(ctx, '≈ 1,5 kg', 900, 350, C.goud, q.on('anderhalve'));
     tag(ctx, 'drie grote bloedvaten', 960, 870, C.goud, q.on('drie'));
   },
