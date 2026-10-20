@@ -468,7 +468,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 </header>
 
 <main id="app"></main>
-<script src="js/themakunst.js?v=2da61061"></script>
+<script src="js/themakunst.js?v=3dd4b735"></script>
 
 <footer>
   <div class="wrap">
@@ -1274,7 +1274,7 @@ const HOOFDSTUKKEN = {
  "ecologie": {
   "label": "Ecologie",
   "titel": "Ecologie",
-  "meta": "havo thema 7 · vwo H6, H8 + H9 · 4 films, kijk ze op volgorde",
+  "meta": "havo thema 7 · vwo H6 + H8 (film 3 en 4 horen bij vwo H9 Mens en milieu) · 4 films, kijk ze op volgorde",
   "films": [
    {
     "href": "films/ecologie/plek-genoeg/index.html",
@@ -1308,6 +1308,37 @@ const HOOFDSTUKKEN = {
     "duur": 9,
     "bij": "Film 4 · plaagbestrijding en natuurbeheer"
    }
+  ],
+  "tools": [],
+  "oefenen": [
+   "Begrippen trainen",
+   "Uit het examen"
+  ]
+ },
+ "milieu": {
+  "label": "H9",
+  "titel": "Mens en milieu",
+  "meta": "vwo H9 Systeem Aarde en de mens · havo thema 7 (slot) · kijk eerst Alles gaat rond (hoofdstuk 9 en 10: de koolstofkringloop en de Keelingcurve)",
+  "films": [
+   {
+    "href": "films/ecologie/3-een-aarde.html",
+    "titel": "Eén aarde",
+    "vraag": "Hoeveel aardes heb jij nodig?",
+    "tekst": "Ecologische voetafdruk, broeikaseffect en klimaatverandering, eutrofiëring en stikstofdepositie, accumulatie van gifstoffen en de ADI, duurzame keuzes, en wat techniek (kernenergie, kernfusie, woestijnherstel, CO₂-afvang) wel en niet kan",
+    "duur": 11,
+    "bij": "Film 1 · ook bij Ecologie"
+   },
+   {
+    "href": "films/ecologie/4-ingrijpen-of-laten-gaan.html",
+    "titel": "Ingrijpen of laten gaan?",
+    "vraag": "Waarom maakt een biologische bestrijder het soms erger?",
+    "tekst": "Monocultuur en plagen, spuiten en resistentie, biologische bestrijding (sluipwesp, Aziatisch lieveheersbeestje, rietpad), geïntegreerde bestrijding en bloemranden, natuurbeheer, stabiliteit, veerkracht en omslagpunten (Veluwemeer)",
+    "duur": 9,
+    "bij": "Film 2 · ook bij Ecologie"
+   }
+  ],
+  "komt": [
+   {"titel": "Binnen de grenzen", "vraag": "Wat als de bijen verdwijnen?", "niveau": "havo + vwo"}
   ],
   "tools": [],
   "oefenen": [
@@ -1931,9 +1962,9 @@ const NIVEAUS = {
       "#evolutie"
      ],
      [
-      "H6, H8 + H9",
+      "H6 + H8",
       "Ecologie",
-      "Soorten en populaties · Kenmerken van ecosystemen · Mens en milieu",
+      "Soorten en populaties · Kenmerken van ecosystemen",
       "Plek genoeg · Alles gaat rond · Eén aarde · Ingrijpen of laten gaan? · Terrariumlab",
       "#ecologie"
      ]
@@ -1948,8 +1979,8 @@ const NIVEAUS = {
       "H9",
       "Mens en milieu",
       "Systeem Aarde en de mens · 5 vwo",
-      "",
-      ""
+      "Eén aarde · Ingrijpen of laten gaan? · Binnen de grenzen (komt)",
+      "#milieu"
      ],
      [
       "H17",
@@ -2096,7 +2127,7 @@ const NIVEAUS = {
  }
 };
 /* Kleur en tekening per hoofdstuk (tekeningen staan in KUNST hieronder). */
-const KLEUR = {extra:'paars',cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen',gedrag:'oker',planten:'groen'};
+const KLEUR = {extra:'paars',cellen:'teal',voortplanting:'koraal',erfelijkheid:'paars',evolutie:'oker',ecologie:'groen',milieu:'teal',stofwisseling:'groen',dna:'teal',regeling:'koraal',voeding:'oker',transport:'koraal',gaswisseling:'teal',afweer:'koraal',kerndoelen:'groen',gedrag:'oker',planten:'groen'};
 /* ===== einde inhoud ===== */
 
 /* Lijntekeningen (viewBox 0 0 120 120). currentColor = kleur van het hoofdstuk, .acc = goud. */
@@ -2121,6 +2152,7 @@ evolutie:`<path d="M60 104V72M60 72L34 46M60 72l24-22M34 46L20 26M34 46l12-22M84
  <g stroke-width="1.4"><circle cx="20" cy="22" r="4"/><circle cx="46" cy="20" r="4"/><circle cx="76" cy="22" r="4"/><circle cx="102" cy="28" r="4"/></g>
  <circle cx="60" cy="72" r="3" class="acc" fill="currentColor" stroke="none"/><circle cx="34" cy="46" r="2.4" class="acc" fill="currentColor" stroke="none"/><circle cx="84" cy="50" r="2.4" class="acc" fill="currentColor" stroke="none"/>
  <path d="M44 104h32" stroke-width="1" opacity=".5"/>`,
+milieu:`<circle cx="60" cy="60" r="36" stroke-width="1.7"/><path d="M24 60h72M60 24c-14 10-14 62 0 72M60 24c14 10 14 62 0 72M30 42h60M30 78h60" stroke-width="1" opacity=".6"/><path d="M60 96c-2-14 4-24 18-30 4 12-2 26-18 30z" class="acc" stroke="currentColor" stroke-width="1.5"/><circle cx="60" cy="60" r="48" stroke-width="1" stroke-dasharray="3 5"/>`,
 ecologie:`<path d="M10 92c20-10 40-12 56-6s30 4 44-4" stroke-width="1.4"/>
  <g stroke-width="1.5" stroke-linejoin="round"><path d="M30 86V70M30 30l-12 22h7l-9 18h28l-9-18h7z"/><path d="M84 82V68M84 36l-10 18h6l-8 14h24l-8-14h6z"/></g>
  <circle cx="62" cy="26" r="9" class="acc" stroke="currentColor" stroke-width="1.4"/>
@@ -2159,6 +2191,7 @@ cellen:()=>R(9,i=>{const x=34+i*66,r=14+(i%3)*3;return `<circle cx="${x}" cy="24
 voortplanting:()=>`<circle cx="560" cy="24" r="18" stroke-width="1.5"/><circle cx="560" cy="24" r="5" class="acc" stroke="currentColor" stroke-width="1.2"/>${R(14,i=>{const a=i/14*Math.PI*2;return `<circle cx="${(560+23*Math.cos(a)).toFixed(1)}" cy="${(24+23*Math.sin(a)).toFixed(1)}" r="1.4" stroke-width=".9"/>`})}${R(7,i=>{const x=40+i*66,y=12+(i*13)%26;return `<ellipse cx="${x+18}" cy="${y}" rx="4.5" ry="3" stroke-width="1.3"/><path d="${golf(y,2.5,14,i,x-22,x+13)}" stroke-width="1"/>`})}`,
 erfelijkheid:()=>R(14,i=>{const x=22+i*41,h=34-(i%7)*3,y=24-h/2;return `<rect x="${x}" y="${y}" width="7" height="${h}" rx="3.5" stroke-width="1.3"/><rect x="${x+11}" y="${y}" width="7" height="${h}" rx="3.5" stroke-width="1.3" ${i%5===2?'class="acc"':''}/><path d="M${x} ${y+h*.35}h7M${x+11} ${y+h*.35}h7M${x} ${y+h*.7}h7M${x+11} ${y+h*.7}h7" stroke-width=".8" opacity=".7"/>`}),
 evolutie:()=>`<path d="M8 40H592" stroke-width="1" opacity=".4"/>${R(6,i=>{const x=50+i*100;return `<path d="M${x} 40V30M${x} 30L${x-18} 16M${x} 30L${x+18} 16M${x-18} 16L${x-26} 6M${x-18} 16L${x-10} 6M${x+18} 16L${x+26} 6" stroke-width="1.3"/><circle cx="${x}" cy="30" r="2.2" class="acc" fill="currentColor" stroke="none"/>${R(3,j=>`<circle cx="${x-26+j*16+(j===2?20:0)}" cy="5" r="2.2" stroke-width="1"/>`)}`})}`,
+milieu:()=>`${R(9,i=>{const x=34+i*66;return `<circle cx="${x}" cy="24" r="14" stroke-width="1.2"/><path d="M${x-14} 24h28M${x} 10c-6 5-6 23 0 28M${x} 10c6 5 6 23 0 28" stroke-width=".8" opacity=".6"/>`})}<circle cx="34" cy="24" r="20" class="acc" stroke="currentColor" stroke-width="1" stroke-dasharray="2 4"/>`,
 ecologie:()=>`<path d="M0 42c60-8 120-10 180-4s130 4 200-6 150-4 220 2" stroke-width="1.2"/>${R(16,i=>{const x=20+i*37+(i%3)*6,h=14+(i*7)%12,b=40-(i%4);return `<path d="M${x} ${b}V${b-4}M${x} ${b-4-h}l-${h*.35} ${h*.55}h${h*.18}l-${h*.28} ${h*.45}h${h*.9}l-${h*.28}-${h*.45}h${h*.18}z" stroke-width="1.2" stroke-linejoin="round"/>`})}<circle cx="470" cy="12" r="7" class="acc" stroke="currentColor" stroke-width="1.2"/>`,
 stofwisseling:()=>R(10,i=>{const x=30+i*60,y=24,r=(i%2?-1:1)*30;return `<g transform="rotate(${r} ${x} ${y})"><path d="M${x-16} ${y}C${x-8} ${y-12} ${x+8} ${y-12} ${x+16} ${y}C${x+8} ${y+12} ${x-8} ${y+12} ${x-16} ${y}z" stroke-width="1.3"/><path d="M${x-16} ${y}H${x+12}" stroke-width=".9"/></g>${i%3===1?`<circle cx="${x+30}" cy="${y}" r="5" class="acc" stroke="currentColor" stroke-width="1.1"/>`:''}`}),
 regeling:()=>`<path d="M0 30H120l6 0 4-22 4 30 3-8H260l6 0 4-22 4 30 3-8H400l6 0 4-22 4 30 3-8H600" stroke-width="1.4"/>${R(3,i=>`<circle cx="${126+i*140}" cy="8" r="2.4" class="acc" fill="currentColor" stroke="none"/>`)}${R(12,i=>`<rect x="${12+i*50}" y="38" width="22" height="6" rx="3" stroke-width="1" opacity=".6"/>`)}`,
@@ -2444,7 +2477,7 @@ const alleFilms=[...new Map(Object.values(HOOFDSTUKKEN).flatMap(h=>h.films).map(
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
 const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?\b/g,'').replace(/\s*·\s*\d+:\d+\b/g,'');
-const ATLAS=new Set(['cellen','voortplanting','erfelijkheid','evolutie','regeling','ecologie','stofwisseling','dna','voeding','transport','gaswisseling','afweer']);
+const ATLAS=new Set(['cellen','voortplanting','erfelijkheid','evolutie','regeling','ecologie','stofwisseling','dna','voeding','transport','gaswisseling','afweer','milieu']);
 const pijl='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
 const play='<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
 
@@ -2525,7 +2558,7 @@ const BASIS=[
   ['Cel en molecuul','het kleinste niveau',['cellen','dna','stofwisseling']],
   ['Het lichaam van binnen','hoe je lijf werkt',['voeding','transport','gaswisseling','afweer','regeling']],
   ['Doorgeven','van ouder op kind, van soort op soort',['voortplanting','erfelijkheid','evolutie']],
-  ['Samenleven','gedrag, planten en ecosystemen',['gedrag','planten','ecologie']],
+  ['Samenleven','gedrag, planten, ecosystemen en milieu',['gedrag','planten','ecologie','milieu']],
 ];
 const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 10 0 24 12 24 2 12 18 18 28 10z" stroke-width="1.7"/>
  <path d="M60 22c10-8 28-4 30 10 12 2 18 16 10 26 6 10 0 24-12 24-2 12-18 18-28 10z" stroke-width="1.7"/>
