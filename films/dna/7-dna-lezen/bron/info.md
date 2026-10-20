@@ -212,3 +212,7 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'bloed van de dader', 'witte bloedcel', 'afkoelen', 'opwarmen', 'korte stukken', 'banden', 'band', 'variant'. Gecontroleerd op stills van alle scènes met namen.
+
+## Wijziging 20 okt 2026
+
+Na de uitspraaktest (19 okt, ronde 2): in de stem-invoer van **n9** (gelelektroforese) is `zjel-elektroforese` → `gel-elektroforese`; het losse woord 'gel' blijft `zjel` (niet getest). n9 opnieuw ingesproken: Roos, eleven_v3, 1 take, flow JD2UESGKMNlGNBWFo1ti; 466 credits TTS + Scribe voor de woordtijden; genormaliseerd met `_bouw/norm16.sh`. In de gepubliceerde film is alleen het segment n9 in `window.FILMDATA` vervangen (audio, woordtijden, `bounds` [8,59; 17,867; 22,87], `dur` 35,839 → 32,836 s); speler, beeld en de andere segmenten ongewijzigd. Ook bijgewerkt: `_bouw/data/afl7_stem.json` en `afl7_words.json`. Getest (Playwright): vwo/havo, Vragen aan/uit, geen JS-fouten.

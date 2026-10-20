@@ -44,12 +44,13 @@ Nu heb je genoeg DNA. Maar hoe maak je er een profiel van? Het lab gebruikt stuk
 
 > stem-invoer: Nu heb je genoeg deeënaa. Maar hoe maak je er een profiel van? Het lab gebruikt stukken deeënaa die niet voor een eiwit coderen, waar een kort motief steeds herhaald wordt. Zoiets als G A T A, G A T A, G A T A. Hoeveel keer dat motief herhaald wordt, verschilt per mens. En je hebt van elke plek twee versies: één van je vader, één van je moeder. Bijvoorbeeld acht keer en elf keer.
 
-## n9 · Hoofdstuk 2 — Sorteren · basis
+## n9 · Hoofdstuk 2 — Sorteren · basis · opnieuw ingesproken 20-10-2026
 *begin 3:34 / 3:03 · 35.8 s*
 
 PCR kopieert zo'n stuk, en dan moet je weten hoe lang het is. Dat doe je met gelelektroforese. DNA is negatief geladen, dus in een gel met stroom kruipt het naar de pluspool. Korte stukken komen makkelijker door de mazen dan lange. Na een tijdje zie je banden. Hoe verder van de start, hoe korter het stuk. Doe dit op een stuk of twintig plekken in het DNA, en de combinatie van lengtes is uniek: een DNA-profiel. Een streepjescode van een mens.
 
-> stem-invoer: pee cee er kopieert zo'n stuk, en dan moet je weten hoe lang het is. Dat doe je met zjel-elektroforese. deeënaa is negatief geladen, dus in een zjel met stroom kruipt het naar de pluspool. Korte stukken komen makkelijker door de mazen dan lange. Na een tijdje zie je banden. Hoe verder van de start, hoe korter het stuk. Doe dit op een stuk of twintig plekken in het deeënaa, en de combinatie van lengtes is uniek: een deeënaa-profiel. Een streepjescode van een mens.
+> stem-invoer: pee cee er kopieert zo'n stuk, en dan moet je weten hoe lang het is. Dat doe je met gel-elektroforese. deeënaa is negatief geladen, dus in een zjel met stroom kruipt het naar de pluspool. Korte stukken komen makkelijker door de mazen dan lange. Na een tijdje zie je banden. Hoe verder van de start, hoe korter het stuk. Doe dit op een stuk of twintig plekken in het deeënaa, en de combinatie van lengtes is uniek: een deeënaa-profiel. Een streepjescode van een mens.
+> heropname 20-10-2026 (uitspraaktest): gelelektroforese als `gel-elektroforese` (was `zjel-elektroforese`); losse 'gel' blijft `zjel`. Roos, eleven_v3, 1 take, nieuwe woordtijden (Scribe). Duur 35,8 → 32,8 s.
 
 ## q10 · Hoofdstuk 2 — Sorteren · basis · vraag
 *begin 4:10 / 3:39 · 17.9 s*
