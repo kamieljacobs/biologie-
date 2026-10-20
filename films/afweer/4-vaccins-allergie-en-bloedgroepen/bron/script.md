@@ -54,7 +54,7 @@ Sommige mensen krijgen elk voorjaar hooikoorts: niezen, een loopneus, jeukende o
 
 Antwoord cee. Misschien dacht je: een allergie betekent een zwakke afweer. Maar het is juist andersom. Een stof waar je allergisch voor bent, heet een allergeen. Bij het eerste contact merk je nog niets. Maar je afweer ziet het allergeen als vreemd. Plasmacellen maken antistoffen tegen het stuifmeel. Die gaan vastzitten op mestcellen in je neus en je ogen. Weet je nog: mestcellen zaten ook bij de splinter, in de eerste film.
 
-**s14** · 27.3 s · `audio/s14.mp3`
+**s14** · 27.5 s · `audio/s14.mp3`
 
 Bij het volgende contact bindt het stuifmeel aan die antistoffen. Dan geven de mestcellen histamine af, net als bij een ontsteking. De haarvaten worden wijder en lekken vocht. Daarom loopt je neus, en jeuken je ogen. Pillen tegen hooikoorts, antihistaminica, blokkeren de werking van histamine. Bij sommige allergieën, zoals voor pinda's of wespensteken, kan de reactie zo sterk zijn dat het levensgevaarlijk wordt.
 
@@ -62,14 +62,14 @@ Bij het volgende contact bindt het stuifmeel aan die antistoffen. Dan geven de m
 
 Soms gaat het nog verder mis: je afweer ziet je eigen cellen als vreemd. Dat heet een auto-immuunziekte. Normaal worden afweercellen die op je eigen stoffen reageren uitgeschakeld. Maar soms ontsnappen er een paar. Een voorbeeld is diabetes type één. Daarbij vallen T-killercellen de cellen in je alvleesklier aan die insuline maken. Daarom moet je dan je leven lang insuline spuiten.
 
-**s16** · vwo · 28.2 s · `audio/s16.mp3`
+**s16** · vwo · 27.5 s · `audio/s16.mp3`
 
 Voor vwo gaan we hier nog een stap verder. Bij een allergie maak je een speciale klasse antistoffen: IgE. Weet je nog de letter Y uit de tweede film? Een IgE-antistof zit met de steel van die Y, het constante deel, vast op de mestcel. De armen steken naar buiten. Pas als een allergeen twee IgE-antistoffen tegelijk verbindt, geeft de mestcel zijn histamine af. Terug naar de basis.
 
 ## Hoofdstuk 3 — Vormpjes op je bloed
 > **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
 
-**s17** · 36.0 s · `audio/s17.mp3`
+**s17** · 33.9 s · `audio/s17.mp3`
 
 Ook je rode bloedcellen hebben vormpjes op hun oppervlak. Heb je antigeen A, dan heb je bloedgroep A. Heb je antigeen B, dan bloedgroep B. Heb je ze allebei, dan AB. Geen van beide, dan O. In je plasma zitten antistoffen tegen de antigenen die jij niet hebt. Iemand met A heeft antistoffen tegen B. Iemand met O heeft ze tegen A en tegen B. Die heb je al vanaf je eerste levensjaar, ook als je nog nooit bloed van een ander kreeg.
 
@@ -84,7 +84,7 @@ Krijgt iemand met A bloed van B, dan binden zijn antistoffen aan de rode bloedce
 Antwoord bee. Misschien dacht je: in bloed van O zitten geen antistoffen. Maar het plasma van O bevat juist antistoffen tegen A en tegen B. Het gaat om de rode bloedcellen: daar zit geen A en geen B op. De antistoffen van de ontvanger hebben dus niets om op te binden. Daarom geeft de bloedbank vaak alleen de rode bloedcellen, en heet O de universele donor voor rode bloedcellen.
 [nieuw] Voor plasma is het precies andersom. In het plasma van AB zitten geen antistoffen tegen A en geen tegen B, dus voor plasma is AB de universele donor.
 
-**s21** · 33.2 s · `audio/s21.mp3`
+**s21** · 30.9 s · `audio/s21.mp3`
 
 Naast ABO is er de resusfactor: het antigeen D. Heb je dat, dan ben je resuspositief. Ruim acht op de tien mensen is dat. Maar hier gaat het anders dan bij A en B. Antistoffen tegen D heb je niet vanzelf. Die maak je pas als je resuspositief bloed binnenkrijgt. Wie aan iedereen rode bloedcellen kan geven, heeft dus O, resusnegatief. En iemand met AB, resuspositief, kan van iedereen rode bloedcellen krijgen.
 
@@ -92,7 +92,7 @@ Naast ABO is er de resusfactor: het antigeen D. Heb je dat, dan ben je resusposi
 
 Voor vwo gaan we hier nog een stap verder. Een resusnegatieve moeder kan een resuspositief kind krijgen. Bij de bevalling komt wat bloed van het kind in haar bloed. Haar afweer ziet D als vreemd, en maakt antistoffen en geheugencellen. Het eerste kind is dan al geboren, en heeft er meestal geen last van. Maar bij een volgend resuspositief kind gaan haar antistoffen door de placenta. Ze binden aan de rode bloedcellen van het kind, en die worden afgebroken. Het kind kan ernstige bloedarmoede krijgen. Dat heet resusantagonisme.
 
-**s23** · vwo · 26.8 s · `audio/s23.mp3`
+**s23** · vwo · 26.6 s · `audio/s23.mp3`
 
 Daarom krijgt een resusnegatieve moeder van een resuspositief kind een anti-D-injectie: rond de dertigste week, en kort na de bevalling. Die kant-en-klare antistoffen markeren de rode bloedcellen van het kind, zodat ze worden opgeruimd voordat haar eigen afweer ze ziet. Ze maakt dan geen geheugencellen. Dat is passieve immunisatie, en die is bij elke zwangerschap opnieuw nodig. Terug naar de basis.
 
@@ -102,7 +102,7 @@ Daarom krijgt een resusnegatieve moeder van een resuspositief kind een anti-D-in
 
 Waarom krijgt Noor een tweede prik? De eerste prik liet haar afweer oefenen, zonder dat ze ziek werd. Er ontstonden geheugencellen. Bij de tweede prik reageren die snel, met veel meer antistoffen. Zo is ze jarenlang beschermd. Het antwoord was dus: je afweer heeft de eerste prik onthouden, en reageert nu sterker.
 
-**s25** · 22.4 s · `audio/s25.mp3`
+**s25** · 22.5 s · `audio/s25.mp3`
 
 Dit was de laatste film. Kijk nog even terug. Bij de splinter hielden je huid en je fagocyten de bacteriën tegen: snel, maar niet op maat. Bij de waterpokken van Sam vond de afweer van Noor de passende B-cellen terug, en werd ze niet ziek. Bij de griep ruimden T-killercellen de gekaapte cellen op. En vandaag liet een vaccin haar afweer oefenen.
 

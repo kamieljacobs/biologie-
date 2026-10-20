@@ -101,3 +101,22 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'IgE'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe deze woorden moeten klinken. Opnieuw ingesproken: **s04, s14, s16, s17, s21, s22, s23, s25** (alleen deze alinea's; de rest van de audio is ongewijzigd). Stem-invoer = de oude invoer van die alinea met alleen deze woorden vervangen (inhoud gelijk):
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Alinea's |
+|---|---|---|---|
+| mRNA-vaccin | `em-erenaa-vaccin` | `mRNA-vaccin` | s04 |
+| histamine | `histaminuh` | `histamine` | s14, s16 |
+| IgE | `ie-gee-ee` | `IgE` | s16 |
+| AB (bloedgroep) | `aa-bee` | `A B` | s17, s21 |
+| resus… | `reezus…` | `resus…` | s21, s22, s23 |
+| ABO | `aa-bee-oo` | `A B O` | s21 |
+| fagocyt(en) | `faagosieten` | `fagocyt / fagocyten` | s25 |
+
+Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea (flow zOFT3hqvc7LAgfwdQgn6; nieuwe nodes in `stem/takes.json`, generatie-id's en duur in `stem/gen.json` met `heropname: uitspraaktest 19 okt 2026`). TTS-credits: 3446; Scribe-woordtijden (eleven_scribe_v1) per take, op de ondertitelwoorden uitgelijnd met `align.py` (alle takes ratio 1,0, geen verschillen); ruwe transcripten in `stem/status_timing_uitspraak_19okt.json`. In de HTML zijn alleen de woordtijden en `dur` van deze segmenten in `window.FILMDATA` vervangen (speler, beeld en cues ongewijzigd; de ondertitels waren al goed). `segments.json` (voice + vmap) en de duren in `script.md` zijn bijgewerkt. Bij opnieuw bouwen: de nieuwe invoer staat in `segments.json`; `bouw/uitspraak_subs.json` heeft de oude respellings voor deze woorden niet meer.
+
+Let op: getest was alleen "AB" (bloedgroep) → `A B`. "ABO" is naar analogie `A B O` geworden (s21). De losse letters (`aa`, `bee`, `oo`, `dee`) en `antie-histamienieka` zijn niet getest en ongewijzigd; s18 en s20 (alleen losse letters) zijn daarom niet opnieuw ingesproken. s25 (fagocyten) is extra meegenomen omdat fagocyten in de test is goedgekeurd. `bouw/uitspraak_film.json` en `bouw/uitspraak_subs.json` zijn hierop aangepast.

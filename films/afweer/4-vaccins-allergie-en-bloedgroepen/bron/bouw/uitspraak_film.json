@@ -1,1 +1,1 @@
-[["^A([:.,?!]?)$", "aa\\1"], ["^B([:.,?!]?)$", "bee\\1"], ["^AB([:.,?!]?)$", "aa-bee\\1"], ["^O([:.,?!]?)$", "oo\\1"], ["^D([:.,?!]?)$", "dee\\1"], ["^ABO", "aa-bee-oo"], ["^antihistaminica", "antie-histamienieka"], ["^tetanus", "teetanus"], ["^Bloedgroepenlab", "Bloedgroepen-lab"]]
+[["^A([:.,?!]?)$", "aa\\1"], ["^B([:.,?!]?)$", "bee\\1"], ["^AB([:.,?!]?)$", "A B\\1"], ["^O([:.,?!]?)$", "oo\\1"], ["^D([:.,?!]?)$", "dee\\1"], ["^ABO", "A B O"], ["^antihistaminica", "antie-histamienieka"], ["^tetanus", "teetanus"], ["^Bloedgroepenlab", "Bloedgroepen-lab"]]
