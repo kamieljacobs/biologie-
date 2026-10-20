@@ -137,10 +137,11 @@ Niveau: havo + vwo, met vwo-blok(ken) *(vwo)* en havo-alinea [havo]
 
 **Take 3c** · 3:20.3–3:43.2 (hoofdstuk 54,85–77,70 s)
 
-**Take 3h [havo]** · nieuw 18-10-2026 · hoofdstuk 54.80–63.81 s (stem 54.95 s), alleen havo  
+**Take 3h [havo]** · nieuw 18-10-2026, opnieuw ingesproken 20-10-2026 · hoofdstuk 54.80–64.23 s (stem 54.95 s), alleen havo  
 [havo · 54.95 s] Met de energie van de elektronen maakt de chloroplast ATP.  
-[havo · 58.71 s] Aan het eind van de keten neemt een hulpmolecuul de elektronen en H⁺ op.  
-> Stem-invoer (Roos, eleven_multilingual_v2, 1 take): Met de energie van de elektronen maakt de chloroplast ATP. Aan het eind van de keten neemt een hulpmolecuul de elektronen en haa-plus op.  
+[havo · 59.13 s] Aan het eind van de keten neemt een hulpmolecuul de elektronen en H⁺ op.  
+> Stem-invoer (Roos, eleven_multilingual_v2, 1 take, 20 okt 2026): Met de energie van de elektronen maakt de chloroplast ATP. Aan het eind van de keten neemt een hulpmolecuul de elektronen en H-plus op.  
+> Uitspraak: H⁺ als `H-plus` (goedgekeurd in de uitspraaktest van 18 okt; was `haa-plus`). Alles in H3 na deze take schuift in de havo-tijdlijn 0,42 s op (de vwo-tijden hieronder zijn ongewijzigd ten opzichte van de film zonder havo-alinea's).
 
 [3:20.3] Onderweg geven de elektronen energie af. *(vwo)*  
 [3:23.1] Met die energie pompt een *(vwo)*  
