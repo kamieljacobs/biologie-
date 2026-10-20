@@ -3,15 +3,44 @@
  "ondertitel": "Zeelui hadden genoeg eten en werden toch ziek. Wat heeft je lichaam echt nodig?",
  "meta": "32C · film 1",
  "kerndoel": "32C",
- "versie": "1.0", "datum": "20 oktober 2026",
+ "versie": "1.0",
+ "datum": "20 oktober 2026",
  "titelseg": "s03",
  "scenes": "scenes_32c1.js",
- "hold": {"s15": 12.0},
- "mini": {"Hoofdstuk 1": "Energie, bouwen, beschermen", "Hoofdstuk 2": "Bot leeft", "Hoofdstuk 3": "Signaal en bouwstof", "Samenvatting": "Wat je lichaam nodig heeft"},
+ "hold": {
+  "s15": 12.0
+ },
+ "mini": {
+  "Hoofdstuk 1": "Energie, bouwen, beschermen",
+  "Hoofdstuk 2": "Bot leeft",
+  "Hoofdstuk 3": "Signaal en bouwstof",
+  "Samenvatting": "Wat je lichaam nodig heeft"
+ },
  "checkvragen": [
-  {"titel": "Drie taken", "pts": "1 punt", "vraag": "Welke stoffen gebruikt je lichaam vooral om te groeien en zich te herstellen? A. brandstoffen, zoals zetmeel · B. bouwstoffen, zoals eiwitten · C. vitamines", "antwoord": "B (1): eiwitten zijn de belangrijkste bouwstoffen; brandstoffen geven energie, vitamines beschermen."},
-  {"titel": "Astronaut", "pts": "1 punt", "vraag": "Waarom sporten astronauten in het ruimtestation elke dag? A. om warm te blijven · B. omdat hun botten en spieren anders zwakker worden · C. om minder te hoeven eten", "antwoord": "B (1): zonder gewicht worden botten en spieren nauwelijks belast; dan worden ze zwakker."},
-  {"titel": "Zeelui", "pts": "2 punten", "vraag": "De zeelui aten genoeg beschuit en vlees, maar werden toch ziek. Leg uit wat er misging en waarom citroenen hielpen.", "antwoord": "Ze kregen genoeg energie, maar geen vitamine C (1). Citroenen bevatten vitamine C; die is nodig voor gezond tandvlees en huid (1)."},
-  {"titel": "Getraind hart", "pts": "2 punten", "vraag": "Een goed getrainde sporter heeft in rust een lagere hartslag. Leg uit hoe dat komt.", "antwoord": "Het hart is een spier die door training sterker wordt en per slag meer bloed pompt (1); daardoor zijn er in rust minder slagen nodig (1).", "uitdaging": true}
+  {
+   "titel": "Drie taken",
+   "pts": "1 punt",
+   "vraag": "Welke stoffen gebruikt je lichaam vooral om te groeien en zich te herstellen? A. bouwstoffen, zoals eiwitten · B. brandstoffen, zoals zetmeel · C. vitamines",
+   "antwoord": "A (1): eiwitten zijn de belangrijkste bouwstoffen; brandstoffen geven energie, vitamines beschermen."
+  },
+  {
+   "titel": "Astronaut",
+   "pts": "1 punt",
+   "vraag": "Waarom sporten astronauten in het ruimtestation elke dag? A. om warm te blijven · B. omdat hun botten en spieren anders zwakker worden · C. om minder te hoeven eten",
+   "antwoord": "B (1): zonder gewicht worden botten en spieren nauwelijks belast; dan worden ze zwakker."
+  },
+  {
+   "titel": "Zeelui",
+   "pts": "2 punten",
+   "vraag": "De zeelui aten genoeg beschuit en vlees, maar werden toch ziek. Leg uit wat er misging en waarom citroenen hielpen.",
+   "antwoord": "Ze kregen genoeg energie, maar geen vitamine C (1). Citroenen bevatten vitamine C; die is nodig voor gezond tandvlees en huid (1)."
+  },
+  {
+   "titel": "Getraind hart",
+   "pts": "2 punten",
+   "vraag": "Een goed getrainde sporter heeft in rust een lagere hartslag. Leg uit hoe dat komt.",
+   "antwoord": "Het hart is een spier die door training sterker wordt en per slag meer bloed pompt (1); daardoor zijn er in rust minder slagen nodig (1).",
+   "uitdaging": true
+  }
  ]
 }

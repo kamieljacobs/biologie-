@@ -55,9 +55,9 @@
 
 | Id | Vraag | Opties | Goed |
 |---|---|---|---|
-| q02 | De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er? | genoeg energie · een stof uit vers fruit en groente · genoeg drinkwater | b |
-| q07 | Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten? | sterker · zwakker · niets | b |
-| q12 | Sams beenspieren worden sterker. Waar maakt zijn lichaam die extra spier van? | suiker · eiwitten · vet | b |
+| q02 | De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er? | genoeg energie uit hun eten · genoeg drinkwater · een stof uit vers fruit en groente | c |
+| q07 | Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten? | ze worden zwakker · ze worden sterker · er verandert niets | a |
+| q12 | Sams beenspieren worden sterker. Waar maakt zijn lichaam die extra spier van? | van suiker uit zijn eten · van eiwitten uit zijn eten · van vet uit zijn eten | b |
 | eindkaart | Een astronaut komt terug op aarde. Waarom moet hij weer leren lopen, en wat helpt? | open | — |
 
 ## Begrippen
@@ -93,6 +93,8 @@ Geen blobs: `film.src.html` = `index.html`, regelnummers zijn gelijk.
 Gewone spelling (eleven_v4); jaartal als "in het jaar 1747". Blinde Scribe-controle: alle takes kwamen terug zoals bedoeld. **Wachtlijst:** scheepsbeschuit (s01), vitamine(s) (s04, s05, s14), mineralen (s04), calcium (s04), Schijf van Vijf (s05), 1747 (s05), Gezondheidsraad (s09). Zie `uitspraak.md`.
 
 ## Aandachtspunten
+
+- De volgorde van de antwoordopties is na de bouw gewisseld (eerst was b steeds goed); de opties worden niet voorgelezen, dus de audio bleef gelijk (`bouw/herorden.py`).
 
 - De reviewpasses en de eindreview zijn in deze sessie door de bouwer zelf gedaan (er was geen aparte helper beschikbaar); zie `reviews/`.
 - Geen dieet- of caloriedoelen; reflectie zit in het beweegdagboek (eindkaart, docentdeel).

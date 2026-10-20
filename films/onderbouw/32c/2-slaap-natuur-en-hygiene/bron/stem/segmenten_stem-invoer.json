@@ -16,12 +16,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "niets, het staat even uit",
    "het herstelt, en je hersenen slaan dingen op",
+   "niets, het staat even uit",
    "het verteert alleen je eten"
   ],
   "q": "Wat doet je lichaam eigenlijk als je slaapt?",
-  "correct": 1,
+  "correct": 0,
   "explain": "Je lichaam staat niet uit. Je hersenen slaan op wat je hebt geleerd, je lichaam groeit en herstelt, en je afweer werkt beter."
  },
  {
@@ -65,11 +65,11 @@
   "kind": "question",
   "options": [
    "vlak voor bedtijd nog lang in fel licht kijken",
-   "overdag naar buiten, en 's avonds minder fel licht",
-   "vlak voor bedtijd heel hard sporten"
+   "vlak voor bedtijd heel hard sporten",
+   "overdag naar buiten, en 's avonds minder fel licht"
   ],
   "q": "Wat helpt om 's avonds goed in slaap te vallen?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Daglicht zet je biologische klok gelijk. Fel licht in de avond, ook van een scherm, zet je klok later. Vlak voor bedtijd hard sporten maakt je juist wakker."
  },
  {

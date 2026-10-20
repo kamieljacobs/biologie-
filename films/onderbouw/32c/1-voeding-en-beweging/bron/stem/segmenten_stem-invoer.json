@@ -18,11 +18,11 @@
   "kind": "question",
   "options": [
    "genoeg energie uit hun eten",
-   "een stof uit vers fruit en groente",
-   "genoeg drinkwater"
+   "genoeg drinkwater",
+   "een stof uit vers fruit en groente"
   ],
   "q": "De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er?",
-  "correct": 1,
+  "correct": 2,
   "explain": "Ze hadden genoeg energie uit beschuit en vlees. Maar ze kregen geen vitamine C binnen, en die zit in vers fruit en groente. Daardoor kregen ze scheurbuik."
  },
  {
@@ -79,12 +79,12 @@
   "level": "basis",
   "kind": "question",
   "options": [
-   "ze worden sterker",
    "ze worden zwakker",
+   "ze worden sterker",
    "er verandert niets"
   ],
   "q": "Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten?",
-  "correct": 1,
+  "correct": 0,
   "explain": "Bot leeft en past zich aan. Zonder gewicht hoeven zijn botten niets te dragen, dus worden ze zwakker: ongeveer één procent per maand."
  },
  {

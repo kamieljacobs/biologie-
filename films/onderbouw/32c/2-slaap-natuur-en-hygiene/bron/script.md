@@ -8,7 +8,7 @@ Filmtijd = stand Uitdaging, Vragen aan, zonder wachten op een antwoord (hoofdstu
 **s01** (0:00.0, 13.4 s, `audio/s01.mp3`)  
 Na een logeerpartij heb je maar vier uur geslapen. De volgende dag ben je chagrijnig en je kunt slecht opletten. Na een gewone nacht word je fris wakker. Wat doet je lichaam eigenlijk als je slaapt? Wat denk je?
 
-**q02** vraag (0:13.4): Wat doet je lichaam eigenlijk als je slaapt? — niets, het staat even uit · **het herstelt, en je hersenen slaan dingen op** · het verteert alleen je eten
+**q02** vraag (0:13.4): Wat doet je lichaam eigenlijk als je slaapt? — **het herstelt, en je hersenen slaan dingen op** · niets, het staat even uit · het verteert alleen je eten
 
 
 ## Titel
@@ -25,7 +25,7 @@ Als je slaapt, staat je lichaam niet uit. Je hersenen slaan op wat je overdag he
 **s05** (0:52.7, 11.7 s, `audio/s05.mp3`)  
 In je hersenen zit een klok. Die zegt wanneer je wakker bent en wanneer je moe wordt. Dat is je biologische klok. Wat helpt om 's avonds goed in slaap te vallen? Wat denk je?
 
-**q06** vraag (1:04.3): Wat helpt om 's avonds goed in slaap te vallen? — vlak voor bedtijd nog lang in fel licht kijken · **overdag naar buiten, en 's avonds minder fel licht** · vlak voor bedtijd heel hard sporten
+**q06** vraag (1:04.3): Wat helpt om 's avonds goed in slaap te vallen? — vlak voor bedtijd nog lang in fel licht kijken · vlak voor bedtijd heel hard sporten · **overdag naar buiten, en 's avonds minder fel licht**
 
 **s07** (1:12.3, 11.8 s, `audio/s07.mp3`)  
 Overdag naar buiten. Daglicht zet je biologische klok elke ochtend gelijk. Fel licht in de avond, ook van een scherm, zet je klok later. Dan word je pas laat moe.

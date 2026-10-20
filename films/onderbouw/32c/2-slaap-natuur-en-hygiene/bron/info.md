@@ -54,9 +54,9 @@
 
 | Id | Vraag | Opties | Goed |
 |---|---|---|---|
-| q02 | Wat doet je lichaam eigenlijk als je slaapt? | niets, het staat uit · het herstelt en je hersenen slaan op · het verteert alleen | b |
-| q06 | Wat helpt om 's avonds goed in slaap te vallen? | lang in fel licht kijken · overdag naar buiten, 's avonds minder fel licht · heel hard sporten | b |
-| q11 | Waarom werkt zeep beter dan alleen water? | warmer · maakt vet en vuil los, ziekteverwekkers spoelen weg · doodt alles meteen | b |
+| q02 | Wat doet je lichaam eigenlijk als je slaapt? | het herstelt, en je hersenen slaan dingen op · niets, het staat even uit · het verteert alleen je eten | a |
+| q06 | Wat helpt om 's avonds goed in slaap te vallen? | vlak voor bedtijd nog lang in fel licht kijken · vlak voor bedtijd heel hard sporten · overdag naar buiten, en 's avonds minder fel licht | c |
+| q11 | Waarom werkt zeep beter dan alleen water? | zeep is warmer dan water · zeep maakt vet en vuil los, zodat ziekteverwekkers wegspoelen · zeep doodt meteen alle ziekteverwekkers | b |
 | eindkaart | Semmelweis wist niets van bacteriën. Hoe kon hij zien dat handen wassen hielp? | open | — |
 
 ## Begrippen

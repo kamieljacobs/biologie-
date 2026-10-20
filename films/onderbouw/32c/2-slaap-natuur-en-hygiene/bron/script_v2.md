@@ -23,7 +23,7 @@ Wijzigingen t.o.v. v1 (`reviews/`): H1 korter en zonder slaapfasen (dat is de bo
 
 ## Cold open [Macro-nacht: slaapkamer → ochtend]
 Na een logeerpartij heb je maar vier uur geslapen. De volgende dag ben je chagrijnig en je kunt slecht opletten. Na een gewone nacht word je fris wakker. Wat doet je lichaam eigenlijk als je slaapt? Wat denk je?
-[VRAAG] (a) niets, het staat even uit · (b) het herstelt, en je hersenen slaan dingen op · (c) het verteert alleen je eten
+[VRAAG] (a) het herstelt, en je hersenen slaan dingen op · (b) niets, het staat even uit · (c) het verteert alleen je eten
 
 ## Titel
 Slaap, natuur en hygiëne. Waarom word je fris van slapen?
@@ -33,7 +33,7 @@ Als je slaapt, staat je lichaam niet uit. Je hersenen slaan op wat je overdag he
 Daarom heb je als tiener veel slaap nodig: ongeveer acht tot tien uur per nacht. Slaap je te kort, dan kun je slechter opletten en word je sneller boos. Hoe het slapen precies werkt, zie je later in de film over slaap.
 
 In je hersenen zit een klok. Die zegt wanneer je wakker bent en wanneer je moe wordt. Dat is je biologische klok. Wat helpt om 's avonds goed in slaap te vallen? Wat denk je?
-[VRAAG] (a) vlak voor bedtijd nog lang in fel licht kijken · (b) overdag naar buiten, en 's avonds minder fel licht · (c) vlak voor bedtijd heel hard sporten
+[VRAAG] (a) vlak voor bedtijd nog lang in fel licht kijken · (b) vlak voor bedtijd heel hard sporten · (c) overdag naar buiten, en 's avonds minder fel licht
 
 Overdag naar buiten. Daglicht zet je biologische klok elke ochtend gelijk. Fel licht in de avond, ook van een scherm, zet je klok later. Dan word je pas laat moe.
 [VWO-START] Hoe weet je lichaam dat het avond is? Als het donker wordt, maken je hersenen een hormoon: melatonine. Melatonine maakt je slaperig. Fel licht remt het maken van melatonine. Daarom word je in het donker sneller moe. [VWO-END]

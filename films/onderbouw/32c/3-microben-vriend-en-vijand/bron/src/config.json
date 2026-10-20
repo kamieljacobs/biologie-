@@ -1,0 +1,46 @@
+{
+ "titel": "Microben: vriend en vijand",
+ "ondertitel": "Op en in je lichaam wonen evenveel bacteriën als je eigen cellen. Zijn alle bacteriën slecht?",
+ "meta": "32C · film 3",
+ "kerndoel": "32C",
+ "versie": "1.0",
+ "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes_32c3.js",
+ "hold": {
+  "s13": 12.0
+ },
+ "mini": {
+  "Hoofdstuk 1": "Bacterie, schimmel, virus",
+  "Hoofdstuk 2": "Huid, darm en penicilline",
+  "Hoofdstuk 3": "Delen, gif en kapen",
+  "Samenvatting": "Vriend en vijand"
+ },
+ "checkvragen": [
+  {
+   "titel": "Drie microben",
+   "pts": "1 punt",
+   "vraag": "Welke microbe is geen cel? A. virus · B. bacterie · C. schimmel",
+   "antwoord": "A (1): een virus is een pakketje met een bouwtekening; het kan zich alleen in de cel van een ander vermenigvuldigen."
+  },
+  {
+   "titel": "Antibioticum",
+   "pts": "1 punt",
+   "vraag": "Tegen welke ziekte helpt een antibioticum? A. griep, door een virus · B. een ontsteking door bacteriën · C. verkoudheid",
+   "antwoord": "B (1): antibiotica doden bacteriën; tegen virussen (griep, verkoudheid) doen ze niets."
+  },
+  {
+   "titel": "Vrienden",
+   "pts": "2 punten",
+   "vraag": "Noem twee manieren waarop microben je gezond helpen houden.",
+   "antwoord": "Twee van (1 per stuk): huidbacteriën houden de plek bezet voor ziekteverwekkers; darmbacteriën breken vezels af en maken vitamine K; een schimmel maakt penicilline, een medicijn tegen bacteriën."
+  },
+  {
+   "titel": "Resistent",
+   "pts": "2 punten",
+   "vraag": "Leg uit hoe bacteriën resistent kunnen worden tegen een antibioticum.",
+   "antwoord": "Door een toevallig verschil overleeft een enkele bacterie het antibioticum (1); die deelt verder, en al zijn nakomelingen overleven het ook (1).",
+   "uitdaging": true
+  }
+ ]
+}

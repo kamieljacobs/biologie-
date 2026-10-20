@@ -102,7 +102,7 @@ pb = pb.replace("onderbouw · kerndoelen · film 3", f"onderbouw · kerndoelen �
 pb = pb.replace("it.seg.id==='s03'", f"it.seg.id==='{cfg['titelseg']}'")
 mini = json.dumps(cfg['mini'], ensure_ascii=False)
 pb = re.sub(r"const mini=\{.*?\}\[num\|\|it\.chapter\];", lambda m: f"const mini={mini}[num||it.chapter];", pb, count=1)
-assert 'film 3' not in pb and 'Mond en slokdarm' not in pb
+assert 'kerndoelen · film 3"' not in pb and 'Mond en slokdarm' not in pb
 scripts = open(B + 'lib.js', encoding='utf-8').read() + '\n' + open(B + 'helpers.js', encoding='utf-8').read() + '\n' + open('/home/claude/wt-32c/personages/lib_cast.js', encoding='utf-8').read() + '\nfunction circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke();} }\n' + (open(f'{D}/src/lib_32c.js', encoding='utf-8').read()+'\n' if os.path.exists(f'{D}/src/lib_32c.js') else '') + open(f'{D}/src/{cfg["scenes"]}', encoding='utf-8').read()
 page = head + body + '<script>window.FILMDATA=' + json.dumps(fd, ensure_ascii=False) + ';</script>\n<script>' + scripts + '\n</script>\n' + pb + open(B + 'tail.html', encoding='utf-8').read()
 os.makedirs(f'{D}/film', exist_ok=True)

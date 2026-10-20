@@ -24,7 +24,7 @@ Wijzigingen t.o.v. v1 (`reviews/`): opening met een herkenbare zin vóór het sc
 ## Cold open [Macro-nacht: zeilschip]
 Je eet elke dag. Maar wat heeft je lichaam er echt aan? Zeelui ontdekten het vroeger op de harde manier.
 Ze voeren maanden over zee. Er was genoeg eten aan boord: harde scheepsbeschuit en gezouten vlees. Toch werden ze ziek. Hun tandvlees ging bloeden en ze werden doodmoe. Wat ontbrak er? Wat denk je?
-[VRAAG] (a) genoeg energie uit hun eten · (b) een stof uit vers fruit en groente · (c) genoeg drinkwater
+[VRAAG] (a) genoeg energie uit hun eten · (b) genoeg drinkwater · (c) een stof uit vers fruit en groente
 
 ## Titel
 Voeding en beweging. Wat heeft je lichaam echt nodig?
@@ -40,7 +40,7 @@ Geen enkel product heeft alles. Daarom helpt het om afwisselend te eten. De Schi
 
 ## Hoofdstuk 2 — Gebouwd om te bewegen [Macro-nacht: ruimtestation; Schema: bot]
 Een astronaut zit een half jaar in het ruimtestation. Daar zweeft alles. Zijn benen hoeven hem nooit te dragen. Wat gebeurt er met zijn botten? Wat denk je?
-[VRAAG] (a) ze worden sterker · (b) ze worden zwakker · (c) er verandert niets
+[VRAAG] (a) ze worden zwakker · (b) ze worden sterker · (c) er verandert niets
 
 Ze worden zwakker. Elke maand verliest hij ongeveer één procent van zijn bot. Ook zijn spieren worden dunner.
 Bot leeft. Je botten en spieren passen zich aan aan wat je doet. Moeten ze vaak hard werken, dan worden ze sterker. Gebruik je ze weinig, dan worden ze zwakker.

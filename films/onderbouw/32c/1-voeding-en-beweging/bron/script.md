@@ -8,7 +8,7 @@ Filmtijd = stand Uitdaging, Vragen aan, zonder wachten op een antwoord (hoofdstu
 **s01** (0:00.0, 21.4 s, `audio/s01.mp3`)  
 Je eet elke dag. Maar wat heeft je lichaam er echt aan? Zeelui ontdekten het vroeger op de harde manier. Ze voeren maanden over zee. Er was genoeg eten aan boord: harde scheepsbeschuit en gezouten vlees. Toch werden ze ziek. Hun tandvlees ging bloeden en ze werden doodmoe. Wat ontbrak er? Wat denk je?
 
-**q02** vraag (0:21.4): De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er? — genoeg energie uit hun eten · **een stof uit vers fruit en groente** · genoeg drinkwater
+**q02** vraag (0:21.4): De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er? — genoeg energie uit hun eten · genoeg drinkwater · **een stof uit vers fruit en groente**
 
 
 ## Titel
@@ -31,7 +31,7 @@ Dat ging mis bij de zeelui. Ze hadden genoeg energie, maar geen vitamine C. Die 
 **s06** (1:55.4, 10.5 s, `audio/s06.mp3`)  
 Een astronaut zit een half jaar in het ruimtestation. Daar zweeft alles. Zijn benen hoeven hem nooit te dragen. Wat gebeurt er met zijn botten? Wat denk je?
 
-**q07** vraag (2:06.0): Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten? — ze worden sterker · **ze worden zwakker** · er verandert niets
+**q07** vraag (2:06.0): Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten? — **ze worden zwakker** · ze worden sterker · er verandert niets
 
 **s08** (2:14.0, 29.6 s, `audio/s08.mp3`)  
 Ze worden zwakker. Elke maand verliest hij ongeveer één procent van zijn bot. Ook zijn spieren worden dunner. Bot leeft. Je botten en spieren passen zich aan aan wat je doet. Moeten ze vaak hard werken, dan worden ze sterker. Gebruik je ze weinig, dan worden ze zwakker. Daarom sporten astronauten elke dag twee uur. Op een loopband, vastgemaakt met elastieken. En op een apparaat dat gewicht nadoet. Zo helpt techniek hun lichaam sterk te houden.

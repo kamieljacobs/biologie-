@@ -1,5 +1,17 @@
 {
- "vraag1": {"q": "De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er?", "goed": "b", "uitleg": "Ze hadden genoeg energie uit beschuit en vlees. Maar ze kregen geen vitamine C binnen, en die zit in vers fruit en groente. Daardoor kregen ze scheurbuik."},
- "vraag2": {"q": "Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten?", "goed": "b", "uitleg": "Bot leeft en past zich aan. Zonder gewicht hoeven zijn botten niets te dragen, dus worden ze zwakker: ongeveer één procent per maand."},
- "vraag3": {"q": "Sams beenspieren worden sterker door te trainen. Waar maakt zijn lichaam die extra spier van?", "goed": "b", "uitleg": "Spieren zijn vooral gebouwd van eiwitten. Trainen geeft het signaal, eiwitten uit zijn eten zijn het bouwmateriaal. Suiker en vet zijn vooral brandstof."}
+ "vraag1": {
+  "q": "De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er?",
+  "goed": "c",
+  "uitleg": "Ze hadden genoeg energie uit beschuit en vlees. Maar ze kregen geen vitamine C binnen, en die zit in vers fruit en groente. Daardoor kregen ze scheurbuik."
+ },
+ "vraag2": {
+  "q": "Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten?",
+  "goed": "a",
+  "uitleg": "Bot leeft en past zich aan. Zonder gewicht hoeven zijn botten niets te dragen, dus worden ze zwakker: ongeveer één procent per maand."
+ },
+ "vraag3": {
+  "q": "Sams beenspieren worden sterker door te trainen. Waar maakt zijn lichaam die extra spier van?",
+  "goed": "b",
+  "uitleg": "Spieren zijn vooral gebouwd van eiwitten. Trainen geeft het signaal, eiwitten uit zijn eten zijn het bouwmateriaal. Suiker en vet zijn vooral brandstof."
+ }
 }

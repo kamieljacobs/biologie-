@@ -3,15 +3,44 @@
  "ondertitel": "Na vier uur slaap ben je chagrijnig, na een gewone nacht fris. Waarom word je fris van slapen?",
  "meta": "32C · film 2",
  "kerndoel": "32C",
- "versie": "1.0", "datum": "20 oktober 2026",
+ "versie": "1.0",
+ "datum": "20 oktober 2026",
  "titelseg": "s03",
  "scenes": "scenes_32c2.js",
- "hold": {"s14": 12.0},
- "mini": {"Hoofdstuk 1": "Je lichaam werkt door", "Hoofdstuk 2": "Bomen, licht en ogen", "Hoofdstuk 3": "Zeep spoelt weg", "Samenvatting": "Fris wakker"},
+ "hold": {
+  "s14": 12.0
+ },
+ "mini": {
+  "Hoofdstuk 1": "Je lichaam werkt door",
+  "Hoofdstuk 2": "Bomen, licht en ogen",
+  "Hoofdstuk 3": "Zeep spoelt weg",
+  "Samenvatting": "Fris wakker"
+ },
  "checkvragen": [
-  {"titel": "Slaap", "pts": "1 punt", "vraag": "Welke zin over slaap klopt? A. Als je slaapt, staat je lichaam uit. · B. Als je slaapt, slaan je hersenen op wat je leerde en herstelt je lichaam. · C. Tieners hebben minder slaap nodig dan volwassenen.", "antwoord": "B (1): je lichaam werkt door in de slaap; tieners hebben ongeveer 8 tot 10 uur nodig."},
-  {"titel": "Zeep", "pts": "1 punt", "vraag": "Hoe helpt zeep tegen ziekteverwekkers op je handen? A. Zeep doodt ze allemaal meteen. · B. Zeep maakt vet en vuil los, zodat ze wegspoelen. · C. Zeep maakt je handen warm.", "antwoord": "B (1): ziekteverwekkers zitten vast in vet en vuil; zeep maakt dat los, wrijven en spoelen haalt ze weg."},
-  {"titel": "Licht en slaap", "pts": "2 punten", "vraag": "Daan kijkt elke avond tot laat in fel licht van een scherm. Leg uit waarom hij daardoor later moe kan worden, en wat helpt.", "antwoord": "Fel licht in de avond zet zijn biologische klok later (1). Overdag naar buiten (daglicht) en 's avonds minder fel licht helpen de klok gelijk te houden (1)."},
-  {"titel": "Melatonine", "pts": "2 punten", "vraag": "Leg uit wat melatonine met slapen te maken heeft en wat licht ermee doet.", "antwoord": "Als het donker wordt, maken de hersenen melatonine, een hormoon dat je slaperig maakt (1). Fel licht remt het maken van melatonine (1).", "uitdaging": true}
+  {
+   "titel": "Slaap",
+   "pts": "1 punt",
+   "vraag": "Welke zin over slaap klopt? A. Als je slaapt, staat je lichaam uit. · B. Als je slaapt, slaan je hersenen op wat je leerde en herstelt je lichaam. · C. Tieners hebben minder slaap nodig dan volwassenen.",
+   "antwoord": "B (1): je lichaam werkt door in de slaap; tieners hebben ongeveer 8 tot 10 uur nodig."
+  },
+  {
+   "titel": "Zeep",
+   "pts": "1 punt",
+   "vraag": "Hoe helpt zeep tegen ziekteverwekkers op je handen? A. Zeep doodt ze allemaal meteen. · B. Zeep maakt je handen warm. · C. Zeep maakt vet en vuil los, zodat ze wegspoelen.",
+   "antwoord": "C (1): ziekteverwekkers zitten vast in vet en vuil; zeep maakt dat los, wrijven en spoelen haalt ze weg."
+  },
+  {
+   "titel": "Licht en slaap",
+   "pts": "2 punten",
+   "vraag": "Daan kijkt elke avond tot laat in fel licht van een scherm. Leg uit waarom hij daardoor later moe kan worden, en wat helpt.",
+   "antwoord": "Fel licht in de avond zet zijn biologische klok later (1). Overdag naar buiten (daglicht) en 's avonds minder fel licht helpen de klok gelijk te houden (1)."
+  },
+  {
+   "titel": "Melatonine",
+   "pts": "2 punten",
+   "vraag": "Leg uit wat melatonine met slapen te maken heeft en wat licht ermee doet.",
+   "antwoord": "Als het donker wordt, maken de hersenen melatonine, een hormoon dat je slaperig maakt (1). Fel licht remt het maken van melatonine (1).",
+   "uitdaging": true
+  }
  ]
 }
