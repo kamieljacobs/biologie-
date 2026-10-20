@@ -6,7 +6,7 @@
 | Reeks | Ecologie (hoofdstuk `ecologie`), film 3 — mens en milieu: havo Biologie voor jou thema 7 Ecologie en milieu (slot), vwo Nectar 4.1 H9 Systeem aarde en de mens. Sluit aan op *Plek genoeg?* en *Alles gaat rond* |
 | Niveau | havo + vwo; één vwo-blok: s07 (methaanvorming in de pens). Verder zien havo en vwo dezelfde film |
 | Versie / datum | 1.0 · 18 oktober 2026 |
-| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 3ZltUu2iBX1XFf38j3pC; respellings in `uitspraak_film.json` (CO₂ → cee-oo-twee, pcb's → pee-cee-bees, PFAS → pee-fas, decimalen uitgeschreven, thorium → toorium, Thorizon → Toraizon, ITER → Ieter, Qatar → Katar, Niger → Niezjèr, gesmolten-zoutreactor); ADI en 'neguntig' via de globale lijst. Zie `uitspraak.md` (wachtlijst) |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 3ZltUu2iBX1XFf38j3pC; respellings in `uitspraak_film.json` (CO₂ → cee-oo-twee, pcb's → pee-cee-bees, PFAS → pee-fas, decimalen uitgeschreven, Thorizon → Toraizon, ITER → Iter, Qatar → Katar, gesmolten-zoutreactor); ADI en 'neguntig' via de globale lijst. Zie `uitspraak.md` (wachtlijst) |
 | Duur | spraak 10:54 (vwo) / 10:26 (havo); speeltijd met kaarten en vragen ± 12 min (vwo) / ± 11,5 min (havo) / ± 10,5 min (havo, vragen uit) |
 | Beeldstijl | Part C: Schema; eigen tekeningen (aarde, moleculen CO₂/CH₄/H₂O, koe, kerncentrale, zeewaterkas, orka, enz.) bovenin `src/scenes.js` |
 | Personages | Daan (castboek, rode draad: voetafdruktest en ADI-som), Noor (s11, 'ons' bij PFAS) |
@@ -53,7 +53,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/ec3` (scenes.js uit `src/`, `words/` 
 - getallen in H4 verouderen snel (SMR's, Thorizon, ITER, kerncentrales in Nederland): controleer bij een nieuwe versie de bronnen in het docentdeel.
 
 ## Aandachtspunten
-- Uitspraakwachtlijst (`uitspraak.md`): CO₂, pcb's, PFAS, decimalen, thorium, Thorizon, ITER, Qatar, Sahara Forest Project, Niger (let extra op: moet als 'Nie-zjèr' klinken).
+- Uitspraakwachtlijst (`uitspraak.md`): CO₂, pcb's, PFAS, decimalen, Sahara Forest Project; thorium, Thorizon, ITER (Iter), Qatar en Niger (Nieger) zijn goedgekeurd.
 - Herhaalt geen hoofdthema van *Plek genoeg?* (eutrofiëring in de beek, zonnedauw, pcb's bij zeehonden) en *Alles gaat rond* (koolstofkringloop): korte verwijzing, nieuwe voorbeelden (orka's, PFAS, stikstofdepositie in cijfers).
 - De ADI-som gebruikt gekozen getallen ('Stel'); echte residuen zijn meestal veel lager (staat in de film).
 - Voetafdruk 'bijna drie aardes' volgt de Dutch Overshoot Day 2025 (5 mei); de landenfactsheet met data 2022 zegt ± 4. Uitleg in het docentdeel.
@@ -63,3 +63,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/ec3` (scenes.js uit `src/`, `words/` 
 
 ## Wijzigingen
 - 1.0 (18 okt 2026): eerste versie. Script na eigen review (zie `reviews/review_v1.md`), hoofdstuk 4 (innovatie) toegevoegd op verzoek van Kamiel, beeld-QA verwerkt; checkpoint in `checkpoint.html`.
+
+## Wijziging 20 okt 2026
+
+Uitspraak na de uitspraaktest van 18/19 okt: stem-invoer toorium → thorium, Ieter → Iter, Niezjèr → Nieger (centrale lijst); de regels voor thorium en Niger zijn uit `uitspraak_film.json` gehaald, ITER → Iter staat er nu in. Alinea's s21, s22 en s23 opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow 3ZltUu2iBX1XFf38j3pC; 2.049 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden van die alinea's in `window.FILMDATA` zijn vervangen; beeld, speler en de rest van de film ongewijzigd. Spraak 10:54 → 10:53.
