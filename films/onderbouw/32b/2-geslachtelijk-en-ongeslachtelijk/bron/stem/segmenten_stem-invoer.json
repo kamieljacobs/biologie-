@@ -1,0 +1,166 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In het voorjaar heeft opa Henk één aardbeienplant. Aan het eind van de zomer staan er twintig. Hij heeft niets gezaaid.",
+   "De meeste dieren hebben juist twee ouders nodig: een vader en een moeder. Waarom eigenlijk? Wat denk je?"
+  ],
+  "display": "In het voorjaar heeft opa Henk één aardbeienplant. Aan het eind van de zomer staan er twintig. Hij heeft niets gezaaid. De meeste dieren hebben juist twee ouders nodig: een vader en een moeder. Waarom eigenlijk? Wat denk je?",
+  "voice": "In het voorjaar heeft opa Henk één aardbeienplant. Aan het eind van de zomer staan er twintig. Hij heeft niets gezaaid. De meeste dieren hebben juist twee ouders nodig: een vader en een moeder. Waarom eigenlijk? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "met twee ouders krijg je meer jongen",
+   "de jongen krijgen een mengsel van eigenschappen, en verschillen van elkaar",
+   "met één ouder kan een dier niet groeien"
+  ],
+  "q": "De meeste dieren hebben twee ouders nodig: een vader en een moeder. Waarom eigenlijk?",
+  "correct": 1,
+  "explain": "Met twee ouders krijgt elk jong een nieuwe mix van eigenschappen. De jongen verschillen dus van elkaar. Meer jongen krijg je juist met één ouder: dat gaat sneller."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Geslachtelijk en ongeslachtelijk. Waarom hebben de meeste dieren twee ouders?"
+  ],
+  "display": "Geslachtelijk en ongeslachtelijk. Waarom hebben de meeste dieren twee ouders?",
+  "voice": "Geslachtelijk en ongeslachtelijk. Waarom hebben de meeste dieren twee ouders?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Eén ouder",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Kijk naar de aardbei. Hij maakt lange stengels over de grond: uitlopers. Aan het eind groeit een nieuw plantje, met eigen wortels.",
+   "Eén ouder, zonder bloemen of zaad. Dat heet ongeslachtelijke voortplanting.",
+   "Het nieuwe plantje heeft dezelfde genen als de moederplant. Het is een kopie: een kloon."
+  ],
+  "display": "Kijk naar de aardbei. Hij maakt lange stengels over de grond: uitlopers. Aan het eind groeit een nieuw plantje, met eigen wortels. Eén ouder, zonder bloemen of zaad. Dat heet ongeslachtelijke voortplanting. Het nieuwe plantje heeft dezelfde genen als de moederplant. Het is een kopie: een kloon.",
+  "voice": "Kijk naar de aardbei. Hij maakt lange stengels over de grond: uitlopers. Aan het eind groeit een nieuw plantje, met eigen wortels. Eén ouder, zonder bloemen of zaad. Dat heet ongeslachtelijke voortplanting. Het nieuwe plantje heeft dezelfde genen als de moederplant. Het is een kopie: een kloon."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Eén ouder",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Er zijn meer manieren. Een aardappel die je laat liggen, maakt nieuwe plantjes. Een stekje van een plant groeit uit tot een nieuwe plant.",
+   "Een bacterie deelt zich gewoon in tweeën. Twintig minuten later delen ze allebei weer. Zo worden het er snel heel veel.",
+   "Snel en makkelijk. Je hebt geen partner nodig. Maar alle nakomelingen zijn kopieën. Ze lijken precies op elkaar."
+  ],
+  "display": "Er zijn meer manieren. Een aardappel die je laat liggen, maakt nieuwe plantjes. Een stekje van een plant groeit uit tot een nieuwe plant. Een bacterie deelt zich gewoon in tweeën. Twintig minuten later delen ze allebei weer. Zo worden het er snel heel veel. Snel en makkelijk. Je hebt geen partner nodig. Maar alle nakomelingen zijn kopieën. Ze lijken precies op elkaar.",
+  "voice": "Er zijn meer manieren. Een aardappel die je laat liggen, maakt nieuwe plantjes. Een stekje van een plant groeit uit tot een nieuwe plant. Een bacterie deelt zich gewoon in tweeën. Twintig minuten later delen ze allebei weer. Zo worden het er snel heel veel. Snel en makkelijk. Je hebt geen partner nodig. Maar alle nakomelingen zijn kopieën. Ze lijken precies op elkaar."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Twee ouders",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "De meeste dieren en planten planten zich geslachtelijk voort. Dan zijn er twee ouders.",
+   "Elke ouder maakt speciale cellen: geslachtscellen. Een vrouwtje maakt eicellen. Een mannetje maakt zaadcellen.",
+   "Een zaadcel smelt samen met een eicel. Dat heet bevruchting. Uit die ene cel groeit een nieuw dier."
+  ],
+  "display": "De meeste dieren en planten planten zich geslachtelijk voort. Dan zijn er twee ouders. Elke ouder maakt speciale cellen: geslachtscellen. Een vrouwtje maakt eicellen. Een mannetje maakt zaadcellen. Een zaadcel smelt samen met een eicel. Dat heet bevruchting. Uit die ene cel groeit een nieuw dier.",
+  "voice": "De meeste dieren en planten planten zich geslachtelijk voort. Dan zijn er twee ouders. Elke ouder maakt speciale cellen: geslachtscellen. Een vrouwtje maakt eicellen. Een mannetje maakt zaadcellen. Een zaadcel smelt samen met een eicel. Dat heet bevruchting. Uit die ene cel groeit een nieuw dier."
+ },
+ {
+  "id": "s07",
+  "chapter": "Hoofdstuk 2 — Twee ouders",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Bij kikkers gebeurt de bevruchting in het water. Het vrouwtje legt eitjes, het mannetje laat er zaadcellen over los.",
+   "Bij planten zit het in de bloem. Een bij brengt stuifmeel van de ene bloem naar de andere. Daarin zit wat de zaadcel is bij een plant. Het smelt samen met een eicel in de bloem. Zo ontstaat een zaadje.",
+   "Ook de aardbei van opa Henk bloeit. Uit zijn bloemen groeien aardbeien, vol zaadjes."
+  ],
+  "display": "Bij kikkers gebeurt de bevruchting in het water. Het vrouwtje legt eitjes, het mannetje laat er zaadcellen over los. Bij planten zit het in de bloem. Een bij brengt stuifmeel van de ene bloem naar de andere. Daarin zit wat de zaadcel is bij een plant. Het smelt samen met een eicel in de bloem. Zo ontstaat een zaadje. Ook de aardbei van opa Henk bloeit. Uit zijn bloemen groeien aardbeien, vol zaadjes.",
+  "voice": "Bij kikkers gebeurt de bevruchting in het water. Het vrouwtje legt eitjes, het mannetje laat er zaadcellen over los. Bij planten zit het in de bloem. Een bij brengt stuifmeel van de ene bloem naar de andere. Daarin zit wat de zaadcel is bij een plant. Het smelt samen met een eicel in de bloem. Zo ontstaat een zaadje. Ook de aardbei van opa Henk bloeit. Uit zijn bloemen groeien aardbeien, vol zaadjes."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 3 — Waarom twee?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wat is het voordeel van twee ouders? Het nieuwe dier krijgt genen van allebei. Elke keer een andere mix.",
+   "Daarom lijken broers en zussen op elkaar, maar zijn ze niet hetzelfde.",
+   "Stel: er komt een nieuwe ziekte. Welke groep heeft de meeste kans dat een paar dieren het overleven? Wat denk je?"
+  ],
+  "display": "Wat is het voordeel van twee ouders? Het nieuwe dier krijgt genen van allebei. Elke keer een andere mix. Daarom lijken broers en zussen op elkaar, maar zijn ze niet hetzelfde. Stel: er komt een nieuwe ziekte. Welke groep heeft de meeste kans dat een paar dieren het overleven? Wat denk je?",
+  "voice": "Wat is het voordeel van twee ouders? Het nieuwe dier krijgt genen van allebei. Elke keer een andere mix. Daarom lijken broers en zussen op elkaar, maar zijn ze niet hetzelfde. Stel: er komt een nieuwe ziekte. Welke groep heeft de meeste kans dat een paar dieren het overleven? Wat denk je?"
+ },
+ {
+  "id": "q09",
+  "chapter": "Hoofdstuk 3 — Waarom twee?",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "een groep kopieën van één ouder",
+   "een groep jongen van twee ouders",
+   "dat maakt niets uit"
+  ],
+  "q": "Er komt een nieuwe ziekte. Welke groep heeft de meeste kans dat een paar dieren het overleven?",
+  "correct": 1,
+  "explain": "Jongen van twee ouders zijn allemaal een beetje anders. Grote kans dat er een paar tegen de ziekte kunnen. Kopieën zijn allemaal even zwak."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Waarom twee?",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een groep jongen van twee ouders. Ze zijn allemaal een beetje anders. Grote kans dat er een paar tegen de ziekte kunnen.",
+   "Een groep kopieën is overal even goed, of even zwak. Valt de ziekte één aan, dan vaak allemaal.",
+   "Ongeslachtelijk is snel. Geslachtelijk geeft variatie. Veel planten doen allebei, zoals de aardbei."
+  ],
+  "display": "Een groep jongen van twee ouders. Ze zijn allemaal een beetje anders. Grote kans dat er een paar tegen de ziekte kunnen. Een groep kopieën is overal even goed, of even zwak. Valt de ziekte één aan, dan vaak allemaal. Ongeslachtelijk is snel. Geslachtelijk geeft variatie. Veel planten doen allebei, zoals de aardbei.",
+  "voice": "Een groep jongen van twee ouders. Ze zijn allemaal een beetje anders. Grote kans dat er een paar tegen de ziekte kunnen. Een groep kopieën is overal even goed, of even zwak. Valt de ziekte één aan, dan vaak allemaal. Ongeslachtelijk is snel. Geslachtelijk geeft variatie. Veel planten doen allebei, zoals de aardbei."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Waarom twee?",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Ook bladluizen doen allebei. In de zomer krijgen vrouwtjes jongen zonder mannetje. Allemaal kopieën, heel snel heel veel. In de herfst komen er mannetjes. Dan leggen ze bevruchte eitjes, met nieuwe mixen. Die eitjes overleven de winter."
+  ],
+  "display": "Ook bladluizen doen allebei. In de zomer krijgen vrouwtjes jongen zonder mannetje. Allemaal kopieën, heel snel heel veel. In de herfst komen er mannetjes. Dan leggen ze bevruchte eitjes, met nieuwe mixen. Die eitjes overleven de winter.",
+  "voice": "Ook bladluizen doen allebei. In de zomer krijgen vrouwtjes jongen zonder mannetje. Allemaal kopieën, heel snel heel veel. In de herfst komen er mannetjes. Dan leggen ze bevruchte eitjes, met nieuwe mixen. Die eitjes overleven de winter."
+ },
+ {
+  "id": "s12",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ongeslachtelijk: één ouder, de nakomelingen zijn kopieën. Snel en makkelijk.",
+   "Geslachtelijk: twee ouders, eicel en zaadcel smelten samen. Elk jong is een nieuwe mix.",
+   "Daarom hebben de meeste dieren twee ouders. Zo verschillen hun jongen. En dat helpt als er iets verandert."
+  ],
+  "display": "Ongeslachtelijk: één ouder, de nakomelingen zijn kopieën. Snel en makkelijk. Geslachtelijk: twee ouders, eicel en zaadcel smelten samen. Elk jong is een nieuwe mix. Daarom hebben de meeste dieren twee ouders. Zo verschillen hun jongen. En dat helpt als er iets verandert.",
+  "voice": "Ongeslachtelijk: één ouder, de nakomelingen zijn kopieën. Snel en makkelijk. Geslachtelijk: twee ouders, eicel en zaadcel smelten samen. Elk jong is een nieuwe mix. Daarom hebben de meeste dieren twee ouders. Zo verschillen hun jongen. En dat helpt als er iets verandert."
+ },
+ {
+  "id": "s13",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

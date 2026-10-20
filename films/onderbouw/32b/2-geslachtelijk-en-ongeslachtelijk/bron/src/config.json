@@ -1,0 +1,17 @@
+{
+ "titel": "Geslachtelijk en ongeslachtelijk",
+ "ondertitel": "Waarom hebben de meeste dieren twee ouders?",
+ "meta": "32B · film 2",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes2.js"],
+ "hold": {"s13": 12.0},
+ "mini": {"Hoofdstuk 1": "Eén ouder", "Hoofdstuk 2": "Twee ouders", "Hoofdstuk 3": "Waarom twee?", "Samenvatting": "Kopie of nieuwe mix"},
+ "checkvragen": [
+  {"titel": "Welke soort?", "pts": "1 punt", "vraag": "Een aardbeienplant maakt via een uitloper een nieuw plantje. Wat voor voortplanting is dat? A. geslachtelijk · B. ongeslachtelijk · C. bevruchting", "antwoord": "B (1): één ouder, geen bloem en geen zaad; het nieuwe plantje is een kloon."},
+  {"titel": "Bevruchting", "pts": "1 punt", "vraag": "Wat is bevruchting? A. een bacterie deelt zich in tweeën · B. een zaadcel smelt samen met een eicel · C. een stekje krijgt wortels", "antwoord": "B (1): bij bevruchting smelten twee geslachtscellen samen, een zaadcel en een eicel."},
+  {"titel": "Twee ouders", "pts": "2 punten", "vraag": "Leg uit waarom jongen van twee ouders meer kans hebben dat een paar een nieuwe ziekte overleven dan kopieën van één ouder.", "antwoord": "Jongen van twee ouders krijgen elk een andere mix van genen en verschillen dus van elkaar (1). Grote kans dat een paar tegen de ziekte kunnen; kopieën zijn allemaal even zwak (1)."},
+  {"titel": "Bladluizen", "pts": "2 punten", "vraag": "Bladluizen krijgen in de zomer jongen zonder mannetje, en leggen in de herfst bevruchte eitjes. Noem van elke manier één voordeel.", "antwoord": "Zomer, ongeslachtelijk: heel snel heel veel jongen (1). Herfst, geslachtelijk: de eitjes zijn nieuwe mixen, dus variatie (en ze overleven de winter) (1).", "uitdaging": true}
+ ]
+}
