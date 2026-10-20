@@ -333,6 +333,81 @@ function tekenBord() {
   const m = window.BKOefenen.kaart(od.o); l.appendChild(m.kaart); m.kaart.open = true; m.bouw();
 }
 
+/* ---- bespreken: de opdracht zelf, ingevuld met wat de klas antwoordde ---- */
+const pct = (a, b) => Math.round(100 * a / Math.max(b, 1));
+const kleur = (p) => (p >= 75 ? 'goed' : p >= 50 ? 'half' : 'fout');
+let bespreekBlok = null;
+function inhoud() { if (!bespreekBlok) bespreekBlok = window.BKOefenen.blok($('b-inhoud')); return bespreekBlok; }
+function gesorteerd(telling) { return Object.keys(telling).sort((a, b) => telling[b] - telling[a]); }
+// een antwoord met hoe vaak het gekozen is; na 'toon goede antwoorden' groen of rood
+function chip(tekst, aantal, p) {
+  const k = !B.juist ? '' : (p.goed.has(tekst) ? ' goed' : ' fout');
+  return '<span class="s-ant' + k + '">' + esc(tekst) + ' <b>' + aantal + '×</b></span>';
+}
+function lastigst(o, per) {
+  const r = [...per.entries()].filter(([, p]) => p.ok < p.n).sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).slice(0, 3);
+  if (!r.length) return '<div class="s-band groen">Iedereen had alles goed.</div>';
+  const naam = (label, p) => (o.soort === 'schema' ? label + ' (' + p.juist + ')' : label);
+  return '<div class="s-lastig"><div class="s-nr">Hier ging het het vaakst mis</div><ol>' + r.map(([label, p]) => '<li><span>' + esc(naam(label, p)) + '</span><b>' + pct(p.ok, p.n) + '% goed</b></li>').join('') + '</ol></div>';
+}
+function klasWeergave(o, per) {
+  if (!per.size) return '<p class="s-stil">Nog geen antwoorden.</p>';
+  let h = B.juist ? lastigst(o, per) : '<p class="s-klein" style="margin:0 0 10px">Zo heeft de klas het ingevuld. Klik op ‘Toon goede antwoorden’ om te zien wat klopt.</p>';
+  if (o.soort === 'schema') h += klasSchema(o, per);
+  else if (o.soort === 'volgorde') h += klasVolgorde(o, per);
+  else if (o.soort === 'indelen') h += klasIndelen(o, per);
+  else h += klasRijen(per);
+  return h;
+}
+// schema: de tekening, met in elk vakje de namen die de klas daar neerzette
+function klasSchema(o, per) {
+  const W = o.breed || 640, H = o.hoog || 400, VB = o.vakbreed || 150;
+  const wijs = o.vakjes.map((v) => '<line class="wijs" x1="' + v.x + '" y1="' + v.y + '" x2="' + v.punt[0] + '" y2="' + v.punt[1] + '"/><circle class="wijspunt" cx="' + v.punt[0] + '" cy="' + v.punt[1] + '" r="4.5"/>').join('');
+  const vakken = o.vakjes.map((v, k) => {
+    const p = per.get('Vakje ' + (k + 1)); if (!p) return '';
+    const namen = gesorteerd(p.telling);
+    let binnen;
+    if (!B.juist) binnen = namen.slice(0, 3).map((g) => '<div>' + esc(g) + ' <b>' + p.telling[g] + '</b></div>').join('') + (namen.length > 3 ? '<div class="s-klein">+' + (namen.length - 3) + ' andere</div>' : '');
+    else binnen = '<div class="s-svjuist">' + esc(v.naam) + ' <b>' + pct(p.ok, p.n) + '%</b></div>' + namen.filter((g) => !p.goed.has(g)).slice(0, 2).map((g) => '<div class="s-svfout">' + esc(g) + ' <b>' + p.telling[g] + '</b></div>').join('');
+    return '<div class="s-svak ' + (B.juist ? kleur(pct(p.ok, p.n)) : '') + '" style="left:' + (100 * v.x / W) + '%;top:' + (100 * v.y / H) + '%;min-width:' + (100 * VB / W) + '%"><span class="s-svnr">' + (k + 1) + '</span><div>' + binnen + '</div></div>';
+  }).join('');
+  return '<div class="oe-teken s-schema"><svg viewBox="0 0 ' + W + ' ' + H + '">' + o.svg + wijs + '</svg>' + vakken + '</div>';
+}
+// volgorde: de stappen in de volgorde waarin de klas ze gemiddeld zette; daarna de goede volgorde met % goed
+function klasVolgorde(o, per) {
+  const st = o.stappen.map((s, i) => {
+    const p = per.get(s.tekst) || { telling: {}, n: 0, ok: 0, goed: new Set() };
+    let som = 0; Object.keys(p.telling).forEach((g) => { som += (parseInt(g.replace(/\D/g, ''), 10) || 0) * p.telling[g]; });
+    return { i, s, p, gem: p.n ? som / p.n : i + 1 };
+  });
+  const volgorde = B.juist ? st : st.slice().sort((a, b) => a.gem - b.gem);
+  return '<ol class="s-volg">' + volgorde.map((x) => {
+    const plekken = gesorteerd(x.p.telling).slice(0, 3).map((g) => g + ' <b>' + x.p.telling[g] + '×</b>').join(' · ');
+    return '<li class="' + (B.juist ? kleur(pct(x.p.ok, x.p.n)) : '') + '"><span class="s-vnr">' + (B.juist ? x.i + 1 : '') + '</span><div><div>' + esc(x.s.tekst) + '</div><div class="s-klein">' +
+      (B.juist ? '<b>' + pct(x.p.ok, x.p.n) + '% op de goede plek</b> · ' : 'gemiddeld op plek ' + x.gem.toFixed(1).replace('.', ',') + ' · ') + plekken + '</div></div></li>';
+  }).join('') + '</ol>' + (B.juist ? '' : '<p class="s-klein">Volgorde hierboven = gemiddelde van de klas, nog niet de goede volgorde.</p>');
+}
+// indelen: de groepen, met elk kaartje in de groep waar de meeste leerlingen het neerlegden
+function klasIndelen(o, per) {
+  const bakken = o.bakken.map((b) => (typeof b === 'string' ? b : b.naam));
+  const kol = bakken.map(() => []);
+  o.kaartjes.forEach((c) => {
+    const p = per.get(c.tekst); if (!p) return;
+    const juist = typeof c.bak === 'number' ? bakken[c.bak] : c.bak;
+    const meest = gesorteerd(p.telling)[0];
+    const waar = bakken.indexOf(B.juist ? juist : meest);
+    if (waar < 0) return;
+    const ander = gesorteerd(p.telling).filter((g) => g !== (B.juist ? juist : meest)).map((g) => g + ' ' + p.telling[g] + '×').join(', ');
+    kol[waar].push('<div class="s-kaartje ' + (B.juist ? kleur(pct(p.ok, p.n)) : '') + '">' + esc(c.tekst) + '<div class="s-klein">' + (B.juist ? pct(p.ok, p.n) + '% goed' : p.telling[meest] + ' van ' + p.n) + (ander ? ' · ook: ' + esc(ander) : '') + '</div></div>');
+  });
+  return '<div class="s-kolommen">' + bakken.map((b, k) => '<div class="s-kolom"><div class="s-nr">' + esc(b) + '</div>' + kol[k].join('') + '</div>').join('') + '</div>';
+}
+// pijlen, grafiek, puzzel: per regel de gegeven antwoorden als labels
+function klasRijen(per) {
+  return '<div class="s-rijen">' + [...per.entries()].map(([label, p], k) => '<div class="s-rijitem ' + (B.juist ? kleur(pct(p.ok, p.n)) : '') + '"><div class="s-rijlabel"><span class="s-vnr">' + (k + 1) + '</span>' + esc(label) +
+    (B.juist ? ' <b class="s-klein">' + pct(p.ok, p.n) + '% goed</b>' : '') + '</div><div>' + gesorteerd(p.telling).map((g) => chip(g, p.telling[g], p)).join('') +
+    (B.juist && !p.goed.size ? '<span class="s-ant goed">' + esc(p.juist) + ' <b>0×</b></span>' : '') + '</div></div>').join('') + '</div>';
+}
 function balken(telling, totaal, juistSet) {
   return Object.keys(telling).sort((a, b) => telling[b] - telling[a]).map((g) => {
     const j = B.juist && juistSet.has(g);
@@ -341,7 +416,7 @@ function balken(telling, totaal, juistSet) {
 }
 function tekenBespreek() {
   const lijstO = onderdelen(), od = lijstO[B.nr];
-  if (!od) { $('b-inhoud').innerHTML = '<p class="s-stil">Er is nog niets om te bespreken.</p>'; return; }
+  if (!od) { inhoud().innerHTML = '<p class="s-stil">Er is nog niets om te bespreken.</p>'; return; }
   $('b-nr').textContent = (B.nr + 1) + ' / ' + lijstO.length;
   $('b-vorige').disabled = B.nr === 0; $('b-volgende').disabled = B.nr === lijstO.length - 1;
   $('b-juist').textContent = B.juist ? 'Verberg goede antwoorden' : (od.soort === 'oef' && od.o.soort === 'uitleg' ? 'Toon modeluitleg' : 'Toon goede antwoorden');
@@ -376,19 +451,15 @@ function tekenBespreek() {
       if (it.goed) { p.goed.add(it.gekozen); p.ok++; }
       if (o.soort === 'uitleg') p.goed.add('gebruikt');
     }));
-    if (per.size) {
-      if (o.soort === 'uitleg') h += '<h3 style="margin:18px 0 6px">Kernbegrippen in de uitleg</h3>';
-      per.forEach((p, label) => {
-        h += '<div class="s-item"><h3>' + esc(label) + (B.juist && o.soort !== 'uitleg' ? '<small>' + Math.round(100 * p.ok / p.n) + '% goed</small>' : '') + '</h3>' + balken(p.telling, p.n, p.goed) +
-          (B.juist && o.soort !== 'uitleg' ? '<p class="s-klein" style="margin:4px 0 0">Goed antwoord: <b>' + esc(p.juist) + '</b></p>' : '') + '</div>';
-      });
-    } else if (o.soort !== 'uitleg') h += '<p class="s-stil">Nog geen antwoorden.</p>';
+    if (o.soort === 'uitleg') {
+      if (per.size) { h += '<h3 style="margin:18px 0 6px">Kernbegrippen in de uitleg</h3>'; per.forEach((p, label) => { h += '<div class="s-item"><h3>' + esc(label) + '</h3>' + balken(p.telling, p.n, p.goed) + '</div>'; }); }
+    } else h += klasWeergave(o, per);
     if (B.juist && o.soort === 'uitleg') {
       h += '<div class="s-model" style="margin-top:16px"><div class="s-nr" style="margin-bottom:6px">Modeluitleg</div>' + [].concat(o.model || []).map((p) => '<p>' + esc(p) + '</p>').join('') +
         (o.checklist ? '<div class="s-nr" style="margin:10px 0 6px">Dit moet erin zitten</div><ul style="margin:0">' + o.checklist.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>' : '') + '</div>';
     }
   }
-  $('b-inhoud').innerHTML = h;
+  inhoud().innerHTML = h;
 }
 </script>
 </body>
