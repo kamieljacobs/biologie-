@@ -24,7 +24,7 @@ De onderzoeker was Niko Tinbergen, een Nederlandse bioloog. Hij wilde weten: waa
 
 **s06** · 34.0 s · `audio/s06.mp3`
 
-Antwoord bee. De ruwe klodders met rood werden fel aangevallen. De echte vorm zonder rood bijna niet. Het mannetje reageert dus niet op het hele plaatje. Eén kenmerk is al genoeg om de aanval uit te lokken: rood aan de onderkant. Zo'n kenmerk heet een sleutelprikkel. Het past als een sleutel op een slot, en zet een vaste reactie in gang. Daarom reageerde het mannetje ook op de rode postauto. Een prikkel, een reactie. Zo kijkt een bioloog naar gedrag: wat neemt het dier waar, en wat doet het dan?
+Antwoord B. De ruwe klodders met rood werden fel aangevallen. De echte vorm zonder rood bijna niet. Het mannetje reageert dus niet op het hele plaatje. Eén kenmerk is al genoeg om de aanval uit te lokken: rood aan de onderkant. Zo'n kenmerk heet een sleutelprikkel. Het past als een sleutel op een slot, en zet een vaste reactie in gang. Daarom reageerde het mannetje ook op de rode postauto. Een prikkel, een reactie. Zo kijkt een bioloog naar gedrag: wat neemt het dier waar, en wat doet het dan?
 
 ## Hoofdstuk 2 — Aangeboren of aangeleerd?
 
@@ -36,7 +36,7 @@ Moet een stekelbaars dat aanvallen leren? Nee. Een mannetje dat alleen is opgegr
 
 **s09** · 21.5 s · `audio/s09.mp3`
 
-Antwoord bee. Hij zingt wel, dus de aanleg is aangeboren. Maar het liedje is kaal: de mooie slotroffel ontbreekt. Het complete lied leert hij alleen als hij in zijn eerste levensjaar volwassen vinken hoort. Aangeboren en aangeleerd werken dus samen. Over zo'n tijdvenster gaat een latere film: de sensitieve periode.
+Antwoord B. Hij zingt wel, dus de aanleg is aangeboren. Maar het liedje is kaal: de mooie slotroffel ontbreekt. Het complete lied leert hij alleen als hij in zijn eerste levensjaar volwassen vinken hoort. Aangeboren en aangeleerd werken dus samen. Over zo'n tijdvenster gaat een latere film: de sensitieve periode.
 
 ## Hoofdstuk 3 — Vier vragen
 
@@ -48,7 +48,7 @@ Waarom valt de stekelbaars aan? Dat lijkt één vraag. Maar Tinbergen zag dat je
 
 **s12** · 18.8 s · `audio/s12.mp3`
 
-Antwoord bee. Sam noemt de functie: wat het gedrag oplevert. Maar de vis weet dat niet. Hij denkt niet: ik bescherm mijn nest. Hij ziet rood aan de onderkant, en valt aan. De functie verklaart waarom dit gedrag bij de soort is gebleven. Niet wat het dier op dat moment denkt.
+Antwoord B. Sam noemt de functie: wat het gedrag oplevert. Maar de vis weet dat niet. Hij denkt niet: ik bescherm mijn nest. Hij ziet rood aan de onderkant, en valt aan. De functie verklaart waarom dit gedrag bij de soort is gebleven. Niet wat het dier op dat moment denkt.
 
 **s13** · vwo · 34.2 s · `audio/s13.mp3`
 
@@ -60,9 +60,9 @@ De vier vragen werken ook bij mensen. Waarom gaap jij? Oorzaak: je bent moe, of 
 
 ## Recap
 
-**s15** · 26.0 s · `audio/s15.mp3`
+**s15** · 29.4 s · `audio/s15.mp3`
 
-De stekelbaars reageerde op de rode postauto alsof het een rivaal was. Niet uit angst, en niet omdat hij iets geleerd had. Rood is voor hem een sleutelprikkel, en die zet een aangeboren reactie in gang. Veel gedrag is een mix van aangeboren en aangeleerd, zoals de zang van de vink. En bij elk gedrag kun je vier vragen stellen: oorzaak, ontwikkeling, functie en evolutie.
+De stekelbaars reageerde op de rode postauto alsof het een rivaal was. Of hij daarbij iets voelt, zoals angst, kunnen we niet weten. We zien wel dat rood voor hem een sleutelprikkel is. Die zet een aangeboren reactie in gang, die zonder leren al werkt. Veel gedrag is een mix van aangeboren en aangeleerd, zoals de zang van de vink. En bij elk gedrag kun je vier vragen stellen: oorzaak, ontwikkeling, functie en evolutie.
 
 ## Eindkaart
 

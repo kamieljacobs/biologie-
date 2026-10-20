@@ -62,3 +62,9 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 ## Wijziging 20 okt 2026
 
 Uitspraak na de uitspraaktest van 18 okt: stem-invoer Djoons → Jones (gewone spelling), regel uit `uitspraak_film.json` gehaald. Alinea's s06 en s09 opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jo9SUZEeggaQUQWumcqN; 1.058 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden van die alinea's in `window.FILMDATA` zijn vervangen; beeld, speler en de rest van de film ongewijzigd. Duur vrijwel gelijk.
+
+## Wijziging 20 okt 2026
+
+- **Ondertitel B in plaats van 'bee'** (Kamiel: "wie kiest voor 'bee'" moet "B" zijn). In `script_v2.md`: "Antwoord bee, dus." → "Antwoord B, dus." (s05), "niet voor bee." → "niet voor B." (s05), "Antwoord bee." → "Antwoord B." (s08). De stem-invoer blijft "bee" via de film-eigen regel `^B([.,:]?)$` → `bee` in `uitspraak_film.json`; de audio is ongewijzigd, alleen de woordtekst in `stem/woordtijden/s05.json` en `s08.json` is aangepast (tijden gelijk). Andere opties: in deze film komen geen gesproken 'aa'/'cee' voor; de vraagkaarten tonen a/b/c al als letters.
+- Nog open (niet in deze ronde): "Jones" staat in `hw/herinspreken.json` als goedgekeurd in gewone spelling (was Djoons, s06 en s09); niet opnieuw ingesproken, want de opdracht was alleen tekst.
+- Kamiel keurde de film goed: REVIEW 'ok'.

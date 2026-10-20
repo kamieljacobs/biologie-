@@ -24,7 +24,7 @@ Mensen willen weten waarom iets gebeurt. Dat zoeken naar een oorzaak heet attrib
 
 **s05** · 53.3 s · `audio/s05.mp3`
 
-Antwoord bee, dus. Wie denkt: ik ben er gewoon slecht in, voelt zich al snel machteloos, en gaat de volgende keer eerder minder moeite doen. Waarom zou je ook? Wie denkt: ik heb verkeerd geleerd, gaat het anders aanpakken: zichzelf overhoren met oefenvragen, in plaats van alleen lezen. Een oorzaak waar je zelf invloed op hebt, geeft hoop. Dat is geen trucje om jezelf iets wijs te maken. Soms was de toets echt moeilijk. Het gaat erom dat je eerlijk kijkt, en zoekt naar iets waar je invloed op hebt. Toch kiezen we bij een slecht cijfer vaak niet voor bee. Een tien? Dat komt door mij. Een vier? Dat komt door die toets. De meeste mensen doen dat, al is het in sommige culturen minder sterk. Waarschijnlijk helpt het je om je goed over jezelf te blijven voelen. Het heet de zelfdienende vertekening, in het Engels self-serving bias.
+Antwoord B, dus. Wie denkt: ik ben er gewoon slecht in, voelt zich al snel machteloos, en gaat de volgende keer eerder minder moeite doen. Waarom zou je ook? Wie denkt: ik heb verkeerd geleerd, gaat het anders aanpakken: zichzelf overhoren met oefenvragen, in plaats van alleen lezen. Een oorzaak waar je zelf invloed op hebt, geeft hoop. Dat is geen trucje om jezelf iets wijs te maken. Soms was de toets echt moeilijk. Het gaat erom dat je eerlijk kijkt, en zoekt naar iets waar je invloed op hebt. Toch kiezen we bij een slecht cijfer vaak niet voor B. Een tien? Dat komt door mij. Een vier? Dat komt door die toets. De meeste mensen doen dat, al is het in sommige culturen minder sterk. Waarschijnlijk helpt het je om je goed over jezelf te blijven voelen. Het heet de zelfdienende vertekening, in het Engels self-serving bias.
 
 ## Hoofdstuk 3 — En de ander?
 
@@ -36,7 +36,7 @@ Bij anderen doen we iets opvallends. Sam loopt je voorbij, en groet niet terug. 
 
 **s08** · 33.1 s · `audio/s08.mp3`
 
-Antwoord bee. Ook als het standpunt was opgelegd, schatten de lezers de schrijver toch positiever over Castro in dan iemand die een opgelegd opstel tegen Castro schreef. Minder sterk dan bij een vrije keuze, maar het verschil bleef. We onderschatten de situatie, en overschatten het karakter. Dat heet de fundamentele attributiefout. In culturen waar mensen gedrag vaker vanuit de omstandigheden verklaren, zoals in Oost-Azië, is die fout gemiddeld kleiner, vooral als de situatie duidelijk zichtbaar is.
+Antwoord B. Ook als het standpunt was opgelegd, schatten de lezers de schrijver toch positiever over Castro in dan iemand die een opgelegd opstel tegen Castro schreef. Minder sterk dan bij een vrije keuze, maar het verschil bleef. We onderschatten de situatie, en overschatten het karakter. Dat heet de fundamentele attributiefout. In culturen waar mensen gedrag vaker vanuit de omstandigheden verklaren, zoals in Oost-Azië, is die fout gemiddeld kleiner, vooral als de situatie duidelijk zichtbaar is.
 
 **s09** · vwo · 26.9 s · `audio/s09.mp3`
 

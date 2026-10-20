@@ -4,7 +4,7 @@ film = {
  "title": "Waarom doet een dier wat het doet?", "sub": "Gedrag onderzoeken als bioloog",
  "puzzle": "In het voorjaar van 1935 schiet een stekelbaarsmannetje in een aquarium in dreighouding naar de ruit als buiten een rode postauto voorbijrijdt. Waarom?",
  "meta": "gedrag · sleutelprikkel en vier vragen", "version": "1.0 · oktober 2026", "titleLook": "schema",
- "seriesline": "Biologie bij Kamiel · Gedrag · film 1 van 9",
+ "seriesline": "Biologie bij Kamiel · Gedrag · film 1 van 12",
  "lead": "Gedrag is een reactie op prikkels. Een sleutelprikkel is één kenmerk dat een vaste reactie uitlokt, zoals rood aan de onderkant bij een stekelbaars. Aangeboren gedrag hoeft een dier niet te leren; aangeleerd gedrag ontstaat door ervaring, en veel gedrag is een mix, zoals de zang van de vink. Bij elk gedrag kun je vier vragen stellen (Tinbergen): oorzaak, ontwikkeling, functie en evolutie.",
  "endHaak": "welke van de vier vragen beantwoord je eigenlijk?",
  "minis": {"Hoofdstuk 1": "Waar reageert de stekelbaars precies op?", "Hoofdstuk 2": "Moet een dier zijn gedrag leren?", "Hoofdstuk 3": "Welke vier vragen kun je bij gedrag stellen?", "Recap": "Waarom viel de stekelbaars de postauto aan?"},

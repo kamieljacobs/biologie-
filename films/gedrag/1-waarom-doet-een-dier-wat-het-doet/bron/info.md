@@ -62,3 +62,10 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gd1` (scenes.js uit `src/`, `words/` 
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). De gedragsfilms gebruiken vooral `tag`/`regel`/`chip`; geen scène toont `label()`. Alleen de functie is vervangen; geen andere wijslijnen gevonden. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+- **Slot genuanceerd** (Kamiel: "We weten niet of de vis angst voelt bij een sleutelprikkel of bij aangeleerd gedrag"). Recap s15: "Niet uit angst, en niet omdat hij iets geleerd had. Rood is voor hem een sleutelprikkel, en die zet een aangeboren reactie in gang." → "Of hij daarbij iets voelt, zoals angst, kunnen we niet weten. We zien wel dat rood voor hem een sleutelprikkel is. Die zet een aangeboren reactie in gang, die zonder leren al werkt." Alleen s15 opnieuw ingesproken (Roos, eleven_v4, één take, flow B6T2bDxsChWVXh8fuYNA, node cY498Ql72uBaWsIBexlm, generatie FdQc8OLl0hZftRpONall; 422 credits TTS + Scribe). Cue-woorden (postauto, sleutelprikkel, mix, vier) ongewijzigd; scène s15 niet aangepast. s15 duurt nu 28,9 s (was 25,5 s).
+- **Ondertitel antwoordletters**: "Antwoord bee." toont nu "Antwoord B." (s06, s09, s12; alleen de ondertitel, de stem-invoer blijft "bee" via `^B([.,:]?)$` → `bee` in `uitspraak_film.json`).
+- Rest van de film goedgekeurd door Kamiel: REVIEW 'ok'.
+- Tekstbron: `script_v2.md` (regel Recap). Bouw zoals onder "Hoe je de film aanpast"; werkmap `hw/gd1`.
