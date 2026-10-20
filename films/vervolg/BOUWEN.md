@@ -9,7 +9,7 @@ rm -f $H/engine/scenes_g4.js $H/engine/teken_g4.js; cp $V/BOUWEN.md $H/
 for p in "l1 leraar-1-waar-blijft-je-vet" "l2 leraar-2-een-practicum-dat-werkt"; do set -- $p; mkdir -p $H/$1
   (cd $V/$2/bron && cp film.py sections.html script_v2.md segments.json film.json src/scenes_$1.js src/teken_$1.js $H/$1/); done
 ```
-Neem steeds de bronmap van de laatst gebouwde film als bron van `engine/` (nieuwste fixes, bv. ondertitels na "Dr." en "E. coli"). `maakinfo.py` (eerste versie van `bron/info.md`) zit niet in de bronmappen; schrijf info.md anders met de hand volgens `films/BRONMAPPEN.md`.
+Neem steeds de bronmap van de laatst gebouwde film als bron van `engine/` (nieuwste fixes, bv. ondertitels na "Dr." en "E. coli"). `maakinfo.py` (eerste versie van `info.md`, `uitspraak.md` en `brief.md`) zit sinds de Farmacie-films in `bron/bouw/`; draai hem vóór `pak.py`. Helpers: gebruik in de gedeelde scratchpad unieke bestandsnamen per film (bv. `sheet_f1.png`), anders overschrijven ze elkaar.
 
 Voorbeeld van een complete, goedgekeurde film: `l1/` (Waar blijft je vet?) — kijk naar `l1/film.py`, `l1/sections.html`, `l1/teken_l1.js`, `l1/scenes_l1.js`. Nog een voorbeeld: `l2/`.
 
@@ -20,7 +20,7 @@ Voorbeeld van een complete, goedgekeurde film: `l1/` (Waar blijft je vet?) — k
 - `teken_<d>.js` — eigen tekenfuncties; `scenes_<d>.js` — `Object.assign(SCENES, { title(ctx,t){…}, s01(ctx,t,q){…}, … })`, één functie per gesproken alinea (sNN).
 
 ## Inspreken
-Stem Roos, eleven_v4, één take per alinea. Pas eerst de vervangregels uit `films/uitspraak.json` toe (zie ook `films/UITSPRAAK.md`); "Dr." als "dokter". Nieuwe risicowoorden op de wachtlijst van de film (`bron/uitspraak.md`), geen uitspraaktest vooraf. Zoek IPA op voor lastige woorden. De opties van vraagkaarten en de eindkaart worden niet uitgesproken.
+Per film één helper (model sonnet): één flow, per alinea precies één `creative_generate_speech` (voice_id `7qdUFMklKPaaAVMsBTBt`, model_id `eleven_v4`, generations_count 1, prompt = veld `voice` uit segments.json), nooit herhalen; downloaden met curl naar `raw/` en `audio/`, `silalign.py`, `stem/sessions.json` en `stem/gen.json` schrijven. Stem Roos, eleven_v4, één take per alinea. Pas eerst de vervangregels uit `films/uitspraak.json` toe (zie ook `films/UITSPRAAK.md`); "Dr." als "dokter". Nieuwe risicowoorden op de wachtlijst van de film (`bron/uitspraak.md`), geen uitspraaktest vooraf. Zoek IPA op voor lastige woorden. De opties van vraagkaarten en de eindkaart worden niet uitgesproken.
 
 ## API (engine/lib.js, engine/scenes.js r.1–32, engine/lib_cast.js, engine/extra.js, engine/teken.js, engine/brein.js)
 - Beeld 1920×1080, niets onder y≈880 behalve ondertitels. `bg(ctx,'schema')` eerst.
@@ -41,4 +41,4 @@ python3 engine/sheet.py <d>/qa <scratchpad>/sheet.png 4   # contactsheet, bekijk
 Kijk de contactsheet na op overlap, tekst buiten beeld, timing (beeld past bij wat er gezegd wordt) en lege schermen; herstel en bouw opnieuw. Helpers: niet publiceren, niet pushen: dat doet de hoofdsessie.
 
 ## In de repo zetten (hoofdsessie)
-`python3 engine/pak.py <d> <gebied>` (film + bronmap naar `films/vervolg/`), film in `GEBIEDEN` van `vervolg.html` van planobject naar `[titel, href]`, duur in `films/vervolg/films.json`, lijntekening per film, dan `scripts/spelerfix.py`, `flipkaarten.py`, `teller.py`, `licentie_noot.py`, `vervolg_films.py`, `tabel_mobiel.py`; controle `spelerfix.py --check` en bronmap aanwezig. Eerst een scriptreview (feiten met bronnen), na het bouwen een frisse beeldreview.
+`python3 engine/maakinfo.py <d> script_v2.md <gebied> '<reeks>' '<beeldstijl>' '<wachtlijst>' '<aandachtspunten met |>' '<notes>'`, dan `python3 engine/pak.py <d> <gebied>` (film + bronmap naar `films/vervolg/`), film in `GEBIEDEN` van `vervolg.html` van planobject naar `[titel, href]`, duur in `films/vervolg/films.json`, lijntekening per film in `FILMKUNST` van `index.html`, `git add` van de nieuwe bestanden (anders slaan `licentie_noot.py` en `tabel_mobiel.py` ze over), dan `scripts/spelerfix.py`, `flipkaarten.py`, `teller.py`, `licentie_noot.py`, `vervolg_films.py`, `tabel_mobiel.py`; controle `spelerfix.py --check` en bronmap aanwezig. Eerst een scriptreview (feiten met bronnen), na het bouwen een frisse beeldreview.
