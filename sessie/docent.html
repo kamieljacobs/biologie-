@@ -175,7 +175,16 @@ async function naarOpzet() {
   $('lopend').innerHTML = mijn.length ? '<div class="paneel" style="margin-bottom:16px"><h3>Sessies van vandaag</h3><p class="sub">Antwoorden worden een dag na de start gewist.</p>' + mijn.map(([c, s]) =>
     '<div class="s-rij" style="padding:6px 0;border-top:1px solid var(--line)"><b style="font-family:var(--meta)">' + c + '</b><span>' + esc(s.filmtitel) + '</span><span class="s-klein">' + new Date(s.gemaakt).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' }) + (s.status === 'dicht' ? ' · afgesloten' : '') + '</span><button class="knop klein duw" type="button" data-open="' + c + '">' + (s.status === 'dicht' ? 'Antwoorden bekijken' : 'Verder') + '</button><button class="knop stil klein" type="button" data-wis="' + c + '">Wissen</button></div>').join('') + '</div>' : '';
 }
-async function wis(c) { await Promise.all([db.weg('sessies/' + c), db.weg('deelnemers/' + c), db.weg('antwoorden/' + c)]); }
+async function wis(c) {
+  const s = await db.lees('sessies/' + c);
+  await Promise.all([db.weg('sessies/' + c), db.weg('deelnemers/' + c), db.weg('antwoorden/' + c)].concat(s && s.liveId ? [db.weg('live/' + s.liveId)] : []));
+}
+// melding 'Live werksessie' op de site (js/live.js): alleen filmtitel en starttijd, nooit de code
+async function zetLive(s) {
+  if (!s || !s.liveId) return;
+  if (s.status === 'dicht') await db.weg('live/' + s.liveId).catch(() => { });
+  else await db.zet('live/' + s.liveId, { titel: s.filmtitel, sinds: s.gemaakt }).catch((e) => console.warn('live-melding mislukt', e));
+}
 $('lopend').addEventListener('click', async (e) => {
   const o = e.target.closest('[data-open]'), w = e.target.closest('[data-wis]');
   if (o) openSessie(o.dataset.open);
@@ -209,7 +218,8 @@ $('f-opzet').addEventListener('submit', async (e) => {
     await db.zet('sessies/' + c, {
       eigenaar: db.uid(), gemaakt: Date.now(), film, filmtitel: f.titel, json: f.json, niveau: niveau(),
       opdrachten: ids, modus, vrij: modus === 'samen' ? 1 : ids.length,
-      wacht: { begrippen: $('w-begrippen').checked, extra: $('w-extra').checked, vragen }, status: 'open'
+      wacht: { begrippen: $('w-begrippen').checked, extra: $('w-extra').checked, vragen }, status: 'open',
+      liveId: Math.random().toString(36).slice(2, 12)
     });
     try { localStorage.setItem('bk-sessie-film', film); } catch (er) { }
     openSessie(c);
@@ -231,6 +241,7 @@ async function openSessie(c) {
   $('l-code').textContent = c; $('o-code').textContent = c;
   $('l-url').textContent = kortUrl(); $('o-url').textContent = kortUrl();
   qr($('l-qr')); qr($('o-qr'));
+  zetLive(s);
   toon('v-live');
 }
 function ververs() { if (!S) return; if (!$('v-live').hidden) tekenLive(); if (!$('v-bespreek').hidden) tekenBespreek(); }
@@ -274,6 +285,7 @@ $('b-vrij').addEventListener('click', () => db.werkBij('sessies/' + code, { vrij
 $('b-afsluiten').addEventListener('click', async () => {
   if (!confirm('Sessie afsluiten? Leerlingen kunnen dan niets meer invullen. Je kunt de antwoorden vandaag nog bekijken; morgen worden ze gewist.')) return;
   await db.werkBij('sessies/' + code, { status: 'dicht' });
+  await zetLive(Object.assign({}, S, { status: 'dicht' }));
 });
 $('b-groot').addEventListener('click', () => { $('overlay').hidden = false; });
 $('b-sluitgroot').addEventListener('click', () => { $('overlay').hidden = true; });

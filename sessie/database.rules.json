@@ -2,6 +2,12 @@
   "rules": {
     ".read": false,
     ".write": false,
+    "live": {
+      ".read": true,
+      "$id": {
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'"
+      }
+    },
     "sessies": {
       ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
       "$code": {
