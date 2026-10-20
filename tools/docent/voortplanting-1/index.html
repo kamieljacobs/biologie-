@@ -838,8 +838,8 @@ document.addEventListener('keydown', e => {
 });
 document.addEventListener('themawissel', zetPalet);
 
-zetNiveau(vwo);
-(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } markeer(); tekstKaart(); })();
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
 (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
 </script>
 </body>
