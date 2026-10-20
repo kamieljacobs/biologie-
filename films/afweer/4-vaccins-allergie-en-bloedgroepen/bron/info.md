@@ -120,3 +120,34 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe deze woorden moeten 
 Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea (flow zOFT3hqvc7LAgfwdQgn6; nieuwe nodes in `stem/takes.json`, generatie-id's en duur in `stem/gen.json` met `heropname: uitspraaktest 19 okt 2026`). TTS-credits: 3446; Scribe-woordtijden (eleven_scribe_v1) per take, op de ondertitelwoorden uitgelijnd met `align.py` (alle takes ratio 1,0, geen verschillen); ruwe transcripten in `stem/status_timing_uitspraak_19okt.json`. In de HTML zijn alleen de woordtijden en `dur` van deze segmenten in `window.FILMDATA` vervangen (speler, beeld en cues ongewijzigd; de ondertitels waren al goed). `segments.json` (voice + vmap) en de duren in `script.md` zijn bijgewerkt. Bij opnieuw bouwen: de nieuwe invoer staat in `segments.json`; `bouw/uitspraak_subs.json` heeft de oude respellings voor deze woorden niet meer.
 
 Let op: getest was alleen "AB" (bloedgroep) → `A B`. "ABO" is naar analogie `A B O` geworden (s21). De losse letters (`aa`, `bee`, `oo`, `dee`) en `antie-histamienieka` zijn niet getest en ongewijzigd; s18 en s20 (alleen losse letters) zijn daarom niet opnieuw ingesproken. s25 (fagocyten) is extra meegenomen omdat fagocyten in de test is goedgekeurd. `bouw/uitspraak_film.json` en `bouw/uitspraak_subs.json` zijn hierop aangepast.
+
+## Versie 1.1 · 20 oktober 2026 (beeld na feedback Kamiel)
+
+Alleen beeld. Audio, script, vraagteksten en cues in de woordtijden zijn ongewijzigd. Overgenomen uit film 1: `antigeen(nx, ny)`, `bacterie` (antigenen rondom), `tCel` (receptor in vaste vorm; hier met kleur en draaiing erbij), `wissel`, `naamBij` en geen korrels op de achtergrond (`grainCanvas` 1×1). Castboek `lib_cast.js` staat in `src/` en is toegevoegd aan /*LIBSERIES*/ in `bouw/build.py`. Ingebouwd met de vervangmethode uit de brief, zonder herbouw.
+
+Nieuwe helpers: `opp()` (vormpje met de basis óp een oppervlak, punt langs de normaal), `rbcPunten()`/`rbcAg()` (A, B en D loodrecht rondom de rode bloedcel; `kapot` = membraan scheurt en de inhoud lekt weg), `bindY()` (een antistof die met zijn bindplaats precies op de punt van een antigeen zit), `ySteel()` (IgE met de steel op de mestcel), `brugY()`/`bruggen()` (anti-A/anti-B als brug tussen twee cellen = agglutinatie), `virus()` (antigenen op steeltjes, RNA binnenin), `moederBuik()` (Dr. Kim zwanger, met een kijkje in de buik: baarmoeder, placenta, baby uit het castboek), `bloedzak()`, `mrna()`, `ribosoom()`, `eiwitKeten()`.
+
+| Scène | Wat er veranderde |
+|---|---|
+| s01, s24 | Grijze poppetjes vervangen: Dr. Kim (labjas) geeft Noor de prik in de bovenarm; Noor kijkt bij 'Waarom' bedenkelijk, in s24 blij bij 'jarenlang'. Prikpost gespiegeld (Kim links, tafel met spullen) |
+| s04 | Virus met antigenen loodrecht rondom; de geheugencel met passende receptor komt in beeld en het virus schuift ernaartoe. mRNA-deel: een ribosoom loopt over de mRNA-slier, de eiwitketen komt eruit en vouwt op, daarna verschijnen de viruseiwitten één voor één loodrecht op het celmembraan; het recept valt in stukjes uiteen; de kern met chromatine licht op bij 'DNA'. Vijf vaccinsoorten: stukje = antigenen op steeltjes, gif = zeshoekjes. Tekstbalken via `wissel` |
+| s05 | Klonale selectie: vijf B-cellen met verschillende receptoren, de passende (vorm 0) licht op en deelt tot een kloon, twee worden geheugencel ★; hetzelfde bij T-cellen. Antigeen uit het vaccin bovenaan |
+| s06 | Grafiek gelijk; ernaast geheugencellen: eerst 3, na de tweede prik 9. Tekstbalken via `wissel` (overlap opgeheven) |
+| s07 | Telpoppetjes blijven (beeldafspraak: pictogrammen in een telling mogen). Bij 95 % ketsen virusjes af op de beschermde buren. Tekstbalken via `wissel` |
+| s08 | Bilal (sport) met de wond aan zijn been; inzoomcirkel met tetanusbacteriën (antigenen rondom); de serum-antistoffen binden met hun bindplaats óp de antigenen |
+| s10 | Grafiek gelijk; 'geen B-cel, geen geheugencel' als doorgestreepte geheugencel. Moeder → baby: Dr. Kim zwanger (kijkje in de buik), antistoffen gaan via de placenta naar de baby |
+| s11 | Lotte (zomer) in plaats van grijze persoon; ze niest bij 'niezen' (kijkt bezorgd, druppeltjes); bloeiende grassen; tekstbalken via `wissel` |
+| s13 | Schaal als kleurbalk; de stip schuift eerst naar 'te zwak' en dan naar 'te sterk'. Stuifmeel komt bij de B-cel, die wordt plasmacel; de antistoffen vliegen naar de mestcel en gaan er met hun steel op vastzitten. Vijf tekstbalken via `wissel` |
+| s14 | IgE met de steel op de mestcel; stuifmeel komt aan en verbindt telkens twee armen; namen mestcel en histamine erbij |
+| s15 | Uitgeschakelde afweercellen (grijs) vervagen; drie T-killercellen met receptor naar de cellen trekken naar het eilandje, gloeien en de cellen vallen uiteen. Tekstbalken via `wissel` |
+| s16 | IgE met de steel precies op het membraan (`ySteel`); het allergeen zakt tussen twee IgE en verbindt hun armen |
+| s17 | Antigenen A/B loodrecht rondom (nieuwe `rbcAg`); antistoffen in het plasma bewegen zacht |
+| s18 | Transfusie B → A: de cellen schuiven samen en anti-B vormt bruggen tussen antigenen van twee cellen (echte agglutinatie); bij 'kapot' scheuren de cellen. Bloedgroepbepaling: druppel serum valt in elk putje; in anti-A klonteren de cellen tot drie klontjes met bruggen, in anti-B blijven ze los. Bij 'wel' een vinkje bij donor O |
+| s20 | Antistoffen van de ontvanger zweven rond de O-cel zonder te binden; bloedzak 'O · rode bloedcellen' in plaats van een rood blok. Tekstbalken via `wissel` |
+| s21 | Alleen de nieuwe `rbcAg` (D loodrecht rondom) en zachte beweging |
+| s22 | Twee keer Dr. Kim zwanger (kijkje in de buik) i.p.v. ovalen. Eerste kind: inzoom 'bloed van de moeder' waarin bij de bevalling D-positieve cellen binnenkomen, daarna anti-D en een geheugencel. Volgend kind: inzoom op de placenta (moeder | kind); anti-D gaat erdoor, bindt op D en de cellen van het kind scheuren |
+| s23 | Anti-D bindt met de bindplaats op de D-antigenen van de cellen van het kind; de fagocyt neemt de gemarkeerde cellen één voor één op. Tekstbalken via `wissel` |
+| s25 | Vaccinpaneel met Noor; bacterie en virus met antigenen rondom; T-cel met receptor |
+| s26 | Virus met antigenen loodrecht; tekstbalken via `wissel` |
+
+Bewust gelaten: de grafieken in s06 en s10 en het schema actief/passief (die zijn al duidelijk), de telpoppetjes in s07, de opbouw van s17 en s21 (alleen nieuwe cellen), de titelkaart. `lCel` (eigen cellen met MHC) is ongewijzigd; die stukjes stonden al loodrecht. Gecontroleerd met stills van alle scènes (geen JS-fouten, geen overlappende tekstbalken).
