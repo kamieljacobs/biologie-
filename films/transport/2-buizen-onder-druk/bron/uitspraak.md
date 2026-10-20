@@ -8,3 +8,13 @@ Geen uitspraaktest vooraf (afspraak 13 okt 2026). Stem-invoer gekozen op basis v
 | diastole | die-as-to-lee | s07, s13 |
 | honderdtwintig over tachtig | zoals geschreven | s07 |
 | windketelwerking, poortader, aorta | zoals geschreven | s13 |
+
+
+## Uitspraaktest 19 okt 2026 — verwerkt
+
+Deze keuzes vervangen de stem-invoer hierboven voor deze woorden (opnieuw ingesproken: s07, s13).
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| systole | `sis-to-lee` | `systole` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| diastole | `die-as-to-lee` | `diastole` | goedgekeurd (uitspraaktest 19 okt 2026) |

@@ -92,3 +92,21 @@ Aanvulling 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als [
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: rechterkamer ('dunne wand'), boezem/kamer ('dunne/dikke spierwand'); 'hartklep' staat rechtsonder de klep (overlapte 'halvemaanvormige klep'). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+
+## Wijziging 19–20 okt 2026: opnieuw ingesproken na de uitspraaktest
+
+Alinea's opnieuw opgenomen: s11, s15, s16, s17. Alleen de stem-invoer van de geteste woorden is veranderd; de gesproken tekst, ondertitels en beelden zijn gelijk gebleven.
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| systole | `sis-to-lee` | `systole` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| QRS-complex | `koe-er-es-complex` | `Q-R-S-complex` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| diastole | `die-as-to-lee` | `diastole` | goedgekeurd (uitspraaktest 19 okt 2026) |
+
+- Stem Roos (`7qdUFMklKPaaAVMsBTBt`), model eleven_v4, één generatie per alinea, op de bestaande flow; nieuwe generatie-id's in `stem/gen.json` (met `vorige_generation_id`).
+- mp3 genormaliseerd zoals de andere takes (loudnorm −15 LUFS, −1,5 dBTP, mono 44,1 kHz 96 kb/s) in `audio/`.
+- Woordtijden: lokaal met `bouw/silalign.py` (zoals de rest van de film); `stem/woordtijden/sNN.json` en `window.FILMDATA` in de HTML zijn alleen voor deze alinea's bijgewerkt (woorden en `dur`). De film is niet opnieuw gebouwd: de speler in de HTML is ongewijzigd gebleven.
+- `bron/segments.json` (`voice`) en `bouw/uitspraak_subs.json` volgen de nieuwe keuzes (oude respellings eruit, EPO → `Epo`), zodat een nieuwe build dezelfde uitspraak geeft.
+- Duurverschil per alinea < 1 s; filmduur in `index.html` ongewijzigd.
+- Credits: TTS 2719; geen Scribe.

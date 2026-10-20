@@ -19,7 +19,7 @@
 |---|---|
 | `script_v2.md` | Definitief script met leerdoelen, misconcepties, getallen en wat de reviews veranderden. Lege regel = nieuwe alinea = nieuwe take. `script_v1.md` = vóór de reviews |
 | `script.md` | Tekst per take met duur en audiobestand |
-| `segments.json` | Uitvoer van `make_segments.py`: per alinea `display` (ondertitel), `voice` (stem-invoer met respellings) en `vmap`. Let op: in s20 is `ee-pee-oo` na een punt met de hand naar `Ee-pee-oo` gezet |
+| `segments.json` | Uitvoer van `make_segments.py`: per alinea `display` (ondertitel), `voice` (stem-invoer met respellings) en `vmap`. Sinds 20 okt 2026 is EPO in s20 gewoon `Epo` (uitspraaktest); de oude handmatige `Ee-pee-oo` is vervallen |
 | `film.py` → `film.json` | Titel, vraagteksten met juist antwoord, begrippen, checkvragen en docentdeel (HTML) |
 | `checkpoint.html` | Zelfcheck: contactsheets uit de speler, wat de reviews veranderden, script |
 | `uitspraak.md` | Risicowoorden met stem-invoer; wachtlijst voor Kamiel |
@@ -29,7 +29,7 @@
 | `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` |
 | `reviews/` | Expert, didactiek + taal, curriculum (met checkvragen), eindreview (fresh eyes, na de bouw) |
 
-**Werkmap opzetten:** maak `g2/` met `script_v2.md`, `film.py`, `scenes.js` (uit `src/`), `words/` (= `stem/woordtijden/`) en `film/2-gas-op-reis/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py g2 script_v2.md && (cd g2 && python3 film.py) && python3 engine/build_data.py g2 && python3 engine/build.py g2` → `g2/film/2-gas-op-reis.html`. (Zet daarna in `segments.json` s20 weer `Ee-pee-oo` na een punt, als je die alinea opnieuw opneemt.)
+**Werkmap opzetten:** maak `g2/` met `script_v2.md`, `film.py`, `scenes.js` (uit `src/`), `words/` (= `stem/woordtijden/`) en `film/2-gas-op-reis/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py g2 script_v2.md && (cd g2 && python3 film.py) && python3 engine/build_data.py g2 && python3 engine/build.py g2` → `g2/film/2-gas-op-reis.html`.
 
 ## Opbouw
 
@@ -107,3 +107,20 @@ Aanvullingen 15-10-2026 na de vergelijking met Gewoon Uitgelegd (tekst staat als
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'ijzer', 'zuurstof', 'longslagader', 'longader', 'weefsels ≈ 2–5 kPa', 'CO₂ op het eiwit', 'O₂ op het ijzer', 'ademcentrum', 'chemoreceptoren', 'koolmonoxide op de ijzerplek'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+
+## Wijziging 19–20 okt 2026: opnieuw ingesproken na de uitspraaktest
+
+Alinea's opnieuw opgenomen: s14, s20. Alleen de stem-invoer van de geteste woorden is veranderd; de gesproken tekst, ondertitels en beelden zijn gelijk gebleven.
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| Bohr-effect | `Boor-effect` | `Bohr-effect` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| EPO | `ee-pee-oo` | `Epo` | goedgekeurd (uitspraaktest 19 okt 2026) |
+
+- Stem Roos (`7qdUFMklKPaaAVMsBTBt`), model eleven_v4, één generatie per alinea, op de bestaande flow; nieuwe generatie-id's in `stem/gen.json` (met `vorige_generation_id`).
+- mp3 genormaliseerd zoals de andere takes (loudnorm −15 LUFS, −1,5 dBTP, mono 44,1 kHz 96 kb/s) in `audio/`.
+- Woordtijden: Scribe (eleven_scribe_v1) + `bouw/align.py` op de ondertitelwoorden; `stem/woordtijden/sNN.json` en `window.FILMDATA` in de HTML zijn alleen voor deze alinea's bijgewerkt (woorden en `dur`). De film is niet opnieuw gebouwd: de speler in de HTML is ongewijzigd gebleven.
+- `bron/segments.json` (`voice`) en `bouw/uitspraak_subs.json` volgen de nieuwe keuzes (oude respellings eruit, EPO → `Epo`), zodat een nieuwe build dezelfde uitspraak geeft.
+- Duurverschil per alinea < 1 s; filmduur in `index.html` ongewijzigd.
+- Credits: TTS 984; Scribe meldde 0 credits.

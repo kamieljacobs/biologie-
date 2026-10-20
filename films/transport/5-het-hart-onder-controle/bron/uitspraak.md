@@ -11,3 +11,12 @@ Geen uitspraaktest vooraf (afspraak 13 okt 2026). Stem-invoer gekozen op basis v
 | honderdnegentig | honderdneguntig | s07 |
 | koolstofdioxide | koolstofdie-oxide | s12 |
 | atherosclerose, orthosympathische, parasympathische, nervus vagus, baroreceptoren, kamerfibrilleren, hartminuutvolume | zoals geschreven | s15 |
+
+
+## Uitspraaktest 19 okt 2026 — verwerkt
+
+Deze keuzes vervangen de stem-invoer hierboven voor deze woorden (opnieuw ingesproken: s15).
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| plaque | `plak` | `plaque` | goedgekeurd (uitspraaktest 19 okt 2026) |

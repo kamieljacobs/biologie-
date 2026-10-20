@@ -19,3 +19,14 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b | antwoord AA / BEE | `Antwoord aa.` / `Antwoord bee.` | s06, s10, s13, s17, s20 |
 
 **Wachtlijst voor Kamiel:** vooral dialieze (moet als dialyse klinken, niet als "dia-lieze" met nadruk op dia), peritonee-aale, homeostase en shunt. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 19 okt 2026 — verwerkt
+
+Deze keuzes vervangen de stem-invoer hierboven voor deze woorden (opnieuw ingesproken: s12, s13, s14, s17, s21).
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| dialyse | `dialieze` | `dialyse` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| peritoneale | `peritonee-aale` | `peritoneale` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| hemodialyse, dialysevloeistof | `heemodialieze, dialiezevloeistof` | `heemodialyse, dialysevloeistof` | goedgekeurd (uitspraaktest 19 okt 2026) |

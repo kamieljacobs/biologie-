@@ -13,3 +13,14 @@ Geen uitspraaktest vooraf (afspraak 13 okt 2026). Stem-invoer gekozen op basis v
 | bundel van His | zoals geschreven | s17 |
 | koolstofdioxide | koolstofdie-oxide | s08 |
 | aorta, kransslagaders, halvemaanvormige, boem-tak, peesdraden | zoals geschreven | s05, s09, s12 |
+
+
+## Uitspraaktest 19 okt 2026 — verwerkt
+
+Deze keuzes vervangen de stem-invoer hierboven voor deze woorden (opnieuw ingesproken: s11, s15, s16, s17).
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| systole | `sis-to-lee` | `systole` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| QRS-complex | `koe-er-es-complex` | `Q-R-S-complex` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| diastole | `die-as-to-lee` | `diastole` | goedgekeurd (uitspraaktest 19 okt 2026) |

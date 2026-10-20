@@ -36,7 +36,7 @@ De haarvaten komen samen in kleine aders, en die in steeds grotere aders. Een ad
 
 Bij elke hartslag trekt de linkerkamer samen: de systole. Het bloed spuit de aorta in, en de druk schiet omhoog. Dat is de bovendruk. Daarna ontspant de kamer: de diastole. De druk zakt, maar niet tot nul. De rekbare wand van de aorta duwt dan nog bloed na. Dat is de onderdruk. Bij een jongvolwassene in rust is dat ongeveer honderdtwintig over tachtig, in millimeter kwik.
 
-> stem-invoer: Bij elke hartslag trekt de linkerkamer samen: de sis-to-lee. Het bloed spuit de aorta in, en de druk schiet omhoog. Dat is de bovendruk. Daarna ontspant de kamer: de die-as-to-lee. De druk zakt, maar niet tot nul. De rekbare wand van de aorta duwt dan nog bloed na. Dat is de onderdruk. Bij een jongvolwassene in rust is dat ongeveer honderdtwintig over tachtig, in millimeter kwik.
+> stem-invoer: Bij elke hartslag trekt de linkerkamer samen: de systole. Het bloed spuit de aorta in, en de druk schiet omhoog. Dat is de bovendruk. Daarna ontspant de kamer: de diastole. De druk zakt, maar niet tot nul. De rekbare wand van de aorta duwt dan nog bloed na. Dat is de onderdruk. Bij een jongvolwassene in rust is dat ongeveer honderdtwintig over tachtig, in millimeter kwik.
 
 **s08** · basis · 30.13 s · `2-buizen-onder-druk/audio/s08.mp3`
 
@@ -60,7 +60,7 @@ Antwoord bee. Misschien dacht je aan een tuinslang met je duim erop. Bij één s
 
 Per seconde stroomt overal in het traject even veel bloed. Dat volume per seconde is de doorsnede maal de snelheid. Is de totale doorsnede duizend keer zo groot, dan is de snelheid duizend keer zo klein. En nu de onderdruk preciezer. Bij elke systole rekt de elastische wand van de aorta uit. Hij slaat zo een deel van het bloed op. Tijdens de diastole veert de wand terug, en duwt dat bloed verder. Dat heet de windketelwerking van de elastische slagaders. Zo wordt een stotende stroom uit het hart een bijna gelijkmatige stroom in de haarvaten. Terug naar de basis.
 
-> stem-invoer: Per seconde stroomt overal in het traject even veel bloed. Dat volume per seconde is de doorsnede maal de snelheid. Is de totale doorsnede duizend keer zo groot, dan is de snelheid duizend keer zo klein. En nu de onderdruk preciezer. Bij elke sis-to-lee rekt de elastische wand van de aorta uit. Hij slaat zo een deel van het bloed op. Tijdens de die-as-to-lee veert de wand terug, en duwt dat bloed verder. Dat heet de windketelwerking van de elastische slagaders. Zo wordt een stotende stroom uit het hart een bijna gelijkmatige stroom in de haarvaten. Terug naar de basis.
+> stem-invoer: Per seconde stroomt overal in het traject even veel bloed. Dat volume per seconde is de doorsnede maal de snelheid. Is de totale doorsnede duizend keer zo groot, dan is de snelheid duizend keer zo klein. En nu de onderdruk preciezer. Bij elke systole rekt de elastische wand van de aorta uit. Hij slaat zo een deel van het bloed op. Tijdens de diastole veert de wand terug, en duwt dat bloed verder. Dat heet de windketelwerking van de elastische slagaders. Zo wordt een stotende stroom uit het hart een bijna gelijkmatige stroom in de haarvaten. Terug naar de basis.
 
 
 ## Hoofdstuk 3 — Terug naar het hart

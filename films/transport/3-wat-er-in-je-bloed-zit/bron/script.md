@@ -64,7 +64,7 @@ Na ongeveer honderdtwintig dagen is een rode bloedcel versleten. Hij wordt dan v
 
 Is er weinig zuurstof in je bloed, bijvoorbeeld hoog in de bergen? Dan maken je nieren het hormoon EPO. Dat zet het beenmerg aan om meer rode bloedcellen te maken. Zijn er weer genoeg, dan maken je nieren minder EPO. Zo blijft het aantal gelijk. Na een bloeddonatie is het plasma binnen een à twee dagen weer aangevuld. De rode bloedcellen pas na een paar weken. Daarom zit er minstens acht weken tussen twee donaties. Bij vrouwen zelfs vier maanden. Je lichaam moet eerst weer genoeg ijzer hebben.
 
-> stem-invoer: Is er weinig zuurstof in je bloed, bijvoorbeeld hoog in de bergen? Dan maken je nieren het hormoon ee-pee-oo. Dat zet het beenmerg aan om meer rode bloedcellen te maken. Zijn er weer genoeg, dan maken je nieren minder ee-pee-oo. Zo blijft het aantal gelijk. Na een bloeddonatie is het plasma binnen een à twee dagen weer aangevuld. De rode bloedcellen pas na een paar weken. Daarom zit er minstens acht weken tussen twee donaties. Bij vrouwen zelfs vier maanden. Je lichaam moet eerst weer genoeg ijzer hebben.
+> stem-invoer: Is er weinig zuurstof in je bloed, bijvoorbeeld hoog in de bergen? Dan maken je nieren het hormoon Epo. Dat zet het beenmerg aan om meer rode bloedcellen te maken. Zijn er weer genoeg, dan maken je nieren minder Epo. Zo blijft het aantal gelijk. Na een bloeddonatie is het plasma binnen een à twee dagen weer aangevuld. De rode bloedcellen pas na een paar weken. Daarom zit er minstens acht weken tussen twee donaties. Bij vrouwen zelfs vier maanden. Je lichaam moet eerst weer genoeg ijzer hebben.
 
 
 ## Hoofdstuk 3 — Een lek dichten

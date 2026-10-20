@@ -21,19 +21,19 @@ Een warme middag. Je plant in de vensterbank hangt slap, terwijl de aarde nog vo
 
 Ook een plant vervoert stoffen. Snijd je een stengel door, dan zie je bundeltjes vaten: vaatbundels. In een blad zie je ze als de nerven. Elke vaatbundel heeft twee soorten vaten. Het xyleem, of de houtvaten, vervoert water met mineralen van de wortels omhoog naar de bladeren. Altijd één kant op. Een houtvat is een rij dode cellen. Hun inhoud en tussenwanden zijn verdwenen. Zo ontstaat een lange, holle buis met een stevige wand van houtstof.
 
-> stem-invoer: Ook een plant vervoert stoffen. Snijd je een stengel door, dan zie je bundeltjes vaten: vaatbundels. In een blad zie je ze als de nerven. Elke vaatbundel heeft twee soorten vaten. Het ksie-leem, of de houtvaten, vervoert water met mineralen van de wortels omhoog naar de bladeren. Altijd één kant op. Een houtvat is een rij dode cellen. Hun inhoud en tussenwanden zijn verdwenen. Zo ontstaat een lange, holle buis met een stevige wand van houtstof.
+> stem-invoer: Ook een plant vervoert stoffen. Snijd je een stengel door, dan zie je bundeltjes vaten: vaatbundels. In een blad zie je ze als de nerven. Elke vaatbundel heeft twee soorten vaten. Het xyleem, of de houtvaten, vervoert water met mineralen van de wortels omhoog naar de bladeren. Altijd één kant op. Een houtvat is een rij dode cellen. Hun inhoud en tussenwanden zijn verdwenen. Zo ontstaat een lange, holle buis met een stevige wand van houtstof.
 
 **s05** · basis · 44.78 s · `6-transport-in-planten/audio/s05.mp3`
 
 Het floëem, of de bastvaten, vervoert opgeloste suiker. De bladeren maken die suiker bij de fotosynthese. Veel mensen denken dat een plant zijn voedsel uit de bodem haalt. Maar uit de bodem komen alleen water en mineralen. De suiker maakt de plant zelf. Het floëem brengt de suiker naar plekken die suiker verbruiken of opslaan. Denk aan wortels, vruchten en groeipunten. In de zomer gaat suiker uit de bladeren omlaag naar de wortels. In het voorjaar gaat opgeslagen suiker omhoog naar nieuwe bladeren. Het floëem werkt dus in twee richtingen. Bastvaten zijn levende cellen. Hun tussenwanden zitten vol gaatjes, als een zeef. Daarom heten ze ook zeefvaten.
 
-> stem-invoer: Het flo-eem, of de bastvaten, vervoert opgeloste suiker. De bladeren maken die suiker bij de fotosynthese. Veel mensen denken dat een plant zijn voedsel uit de bodem haalt. Maar uit de bodem komen alleen water en mineralen. De suiker maakt de plant zelf. Het flo-eem brengt de suiker naar plekken die suiker verbruiken of opslaan. Denk aan wortels, vruchten en groeipunten. In de zomer gaat suiker uit de bladeren omlaag naar de wortels. In het voorjaar gaat opgeslagen suiker omhoog naar nieuwe bladeren. Het flo-eem werkt dus in twee richtingen. Bastvaten zijn levende cellen. Hun tussenwanden zitten vol gaatjes, als een zeef. Daarom heten ze ook zeefvaten.
+> stem-invoer: Het floëem, of de bastvaten, vervoert opgeloste suiker. De bladeren maken die suiker bij de fotosynthese. Veel mensen denken dat een plant zijn voedsel uit de bodem haalt. Maar uit de bodem komen alleen water en mineralen. De suiker maakt de plant zelf. Het floëem brengt de suiker naar plekken die suiker verbruiken of opslaan. Denk aan wortels, vruchten en groeipunten. In de zomer gaat suiker uit de bladeren omlaag naar de wortels. In het voorjaar gaat opgeslagen suiker omhoog naar nieuwe bladeren. Het floëem werkt dus in twee richtingen. Bastvaten zijn levende cellen. Hun tussenwanden zitten vol gaatjes, als een zeef. Daarom heten ze ook zeefvaten.
 
 **s06** · basis · 13.71 s · `6-transport-in-planten/audio/s06.mp3`
 
 Bij een boom is het hout xyleem. Het floëem zit in de bast, net buiten het hout. Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Wat gebeurt er? Wat denk je?
 
-> stem-invoer: Bij een boom is het hout ksie-leem. Het flo-eem zit in de bast, net buiten het hout. Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Wat gebeurt er? Wat denk je?
+> stem-invoer: Bij een boom is het hout xyleem. Het floëem zit in de bast, net buiten het hout. Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Wat gebeurt er? Wat denk je?
 
 **q07** · vraag (basis): Iemand snijdt rondom een boom een ring bast weg, maar laat het hout heel. Wat gebeurt er? — opties: a) de boom droogt snel uit, want het water kan niet meer omhoog · b) de wortels krijgen geen suiker meer, en de boom sterft langzaam · c) er gebeurt niets, want de bast is alleen bescherming — juist: b
 
@@ -41,7 +41,7 @@ Bij een boom is het hout xyleem. Het floëem zit in de bast, net buiten het hout
 
 Antwoord bee. Het xyleem in het hout is nog heel, dus water komt nog omhoog. Maar het floëem is doorgesneden. Suiker uit de bladeren kan niet meer naar de wortels. Na een tijd sterven de wortels af. Dan komt er ook geen water meer, en gaat de hele boom dood.
 
-> stem-invoer: Antwoord bee. Het ksie-leem in het hout is nog heel, dus water komt nog omhoog. Maar het flo-eem is doorgesneden. Suiker uit de bladeren kan niet meer naar de wortels. Na een tijd sterven de wortels af. Dan komt er ook geen water meer, en gaat de hele boom dood.
+> stem-invoer: Antwoord bee. Het xyleem in het hout is nog heel, dus water komt nog omhoog. Maar het floëem is doorgesneden. Suiker uit de bladeren kan niet meer naar de wortels. Na een tijd sterven de wortels af. Dan komt er ook geen water meer, en gaat de hele boom dood.
 
 
 ## Hoofdstuk 2 — Water omhoog
@@ -74,7 +74,7 @@ Voor vwo gaan we hier nog een stap verder. Waarom breekt die lange waterkolom ni
 
 Ook in het floëem stroomt het door een drukverschil. Naast elk zeefvat ligt een begeleidende cel. In een blad, de bron, pompt die suiker het zeefvat in. Daardoor stijgt de osmotische waarde. Water uit de houtvaten ernaast stroomt erin. De druk wordt hoog. In een groeipunt, vrucht of wortel, de put, worden de suikers eruit gehaald. Water gaat ook weg, en de druk is daar laag. Het sap stroomt van hoge naar lage druk, van bron naar put. Dat heet de drukstroomtheorie.
 
-> stem-invoer: Ook in het flo-eem stroomt het door een drukverschil. Naast elk zeefvat ligt een begeleidende cel. In een blad, de bron, pompt die suiker het zeefvat in. Daardoor stijgt de osmotische waarde. Water uit de houtvaten ernaast stroomt erin. De druk wordt hoog. In een groeipunt, vrucht of wortel, de put, worden de suikers eruit gehaald. Water gaat ook weg, en de druk is daar laag. Het sap stroomt van hoge naar lage druk, van bron naar put. Dat heet de drukstroomtheorie.
+> stem-invoer: Ook in het floëem stroomt het door een drukverschil. Naast elk zeefvat ligt een begeleidende cel. In een blad, de bron, pompt die suiker het zeefvat in. Daardoor stijgt de osmotische waarde. Water uit de houtvaten ernaast stroomt erin. De druk wordt hoog. In een groeipunt, vrucht of wortel, de put, worden de suikers eruit gehaald. Water gaat ook weg, en de druk is daar laag. Het sap stroomt van hoge naar lage druk, van bron naar put. Dat heet de drukstroomtheorie.
 
 **s15** · vwo · 7.54 s · `6-transport-in-planten/audio/s15.mp3`
 
@@ -93,7 +93,7 @@ Antwoord bee. Het sap in het zeefvat staat onder druk. Het wordt vanzelf de blad
 
 Een plant heeft twee soorten vaten. Het xyleem brengt water en mineralen omhoog, getrokken door de zuigkracht van de bladeren. Het floëem verdeelt de suiker uit de bladeren over de hele plant. Huidmondjes laten koolstofdioxide binnen, maar ook water ontsnappen. Op een warme middag verdampte je plant meer dan hij kon opnemen, en zakte hij in. 's Avonds was het tekort weer ingehaald.
 
-> stem-invoer: Een plant heeft twee soorten vaten. Het ksie-leem brengt water en mineralen omhoog, getrokken door de zuigkracht van de bladeren. Het flo-eem verdeelt de suiker uit de bladeren over de hele plant. Huidmondjes laten koolstofdie-oxide binnen, maar ook water ontsnappen. Op een warme middag verdampte je plant meer dan hij kon opnemen, en zakte hij in. 's Avonds was het tekort weer ingehaald.
+> stem-invoer: Een plant heeft twee soorten vaten. Het xyleem brengt water en mineralen omhoog, getrokken door de zuigkracht van de bladeren. Het floëem verdeelt de suiker uit de bladeren over de hele plant. Huidmondjes laten koolstofdie-oxide binnen, maar ook water ontsnappen. Op een warme middag verdampte je plant meer dan hij kon opnemen, en zakte hij in. 's Avonds was het tekort weer ingehaald.
 
 
 ## Eindkaart

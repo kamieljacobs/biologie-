@@ -19,3 +19,13 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b | antwoord AA / BEE | `Antwoord aa.` / `Antwoord bee.` | s07, s11, s14, s19 |
 
 **Wachtlijst voor Kamiel:** vooral chemoreceptoren (ch als g?), koolzuuranhydrase, EPO en Boor-effect. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 19 okt 2026 — verwerkt
+
+Deze keuzes vervangen de stem-invoer hierboven voor deze woorden (opnieuw ingesproken: s14, s20).
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| Bohr-effect | `Boor-effect` | `Bohr-effect` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| EPO | `ee-pee-oo` | `Epo` | goedgekeurd (uitspraaktest 19 okt 2026) |

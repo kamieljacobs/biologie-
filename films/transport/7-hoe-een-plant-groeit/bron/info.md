@@ -67,3 +67,20 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 ## Wijziging 18 okt 2026
 s11: cue 'iets' vond eerst 'niets'; nu 'iets van de top'.
+
+
+## Wijziging 19–20 okt 2026: opnieuw ingesproken na de uitspraaktest
+
+Alinea's opnieuw opgenomen: s11, s12, s13, s14, s16, s17, s18. Alleen de stem-invoer van de geteste woorden is veranderd; de gesproken tekst, ondertitels en beelden zijn gelijk gebleven.
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Status |
+|---|---|---|---|
+| auxine | `auxinuh` | `auxine` | goedgekeurd (uitspraaktest 19 okt 2026) |
+| gibberelline | `Gibberellinuh` | `giebereliene` | goedgekeurd (uitspraaktest 19 okt 2026) |
+
+- Stem Roos (`7qdUFMklKPaaAVMsBTBt`), model eleven_v4, één generatie per alinea, op de bestaande flow; nieuwe generatie-id's in `stem/gen.json` (met `vorige_generation_id`).
+- mp3 genormaliseerd zoals de andere takes (loudnorm −15 LUFS, −1,5 dBTP, mono 44,1 kHz 96 kb/s) in `audio/`.
+- Woordtijden: Scribe (eleven_scribe_v1) + `bouw/align.py` op de ondertitelwoorden; `stem/woordtijden/sNN.json` en `window.FILMDATA` in de HTML zijn alleen voor deze alinea's bijgewerkt (woorden en `dur`). De film is niet opnieuw gebouwd: de speler in de HTML is ongewijzigd gebleven.
+- `bron/segments.json` (`voice`) en `bouw/uitspraak_subs.json` volgen de nieuwe keuzes (oude respellings eruit, EPO → `Epo`), zodat een nieuwe build dezelfde uitspraak geeft.
+- Duurverschil per alinea < 1 s; filmduur in `index.html` ongewijzigd.
+- Credits: TTS 3246; Scribe meldde 0 credits.
