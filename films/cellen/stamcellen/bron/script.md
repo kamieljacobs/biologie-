@@ -78,7 +78,7 @@ Antwoord cee. Bloedstamcellen kunnen alleen bloedcellen maken. Ze hebben wel all
 
 In het lab kloppen zulke hartspiercellen echt. Eén losse cel klopt al, maar in zijn eigen tempo. Leg je veel cellen tegen elkaar, dan geven ze een signaal aan elkaar door. Dan kloppen ze allemaal tegelijk, in één ritme. Dat kan één cel niet. Een groep gelijke cellen met dezelfde taak is een weefsel. Zo'n nieuwe eigenschap van het geheel, die de losse delen niet hebben, heet een emergente eigenschap.
 
-**s19** · 33.3 s · `audio/s19.mp3`
+**s19** · 32.5 s · `audio/s19.mp3`
 
 Embryonale stamcellen roepen vragen op. Om ze te kweken, gaat een embryo verloren. In Nederland gebruiken onderzoekers daarvoor restembryo's van ivf. Dat zijn embryo's die over zijn, en die ouders aan de wetenschap geven. De regels zijn streng. Geïnduceerde stamcellen hebben dat probleem niet. En omdat het je eigen cellen zijn, worden ze niet afgestoten. Maar ze delen zich zo makkelijk, dat er soms tumoren uit ontstaan. Daarom worden ze nu vooral in het lab gebruikt, en nog maar in een paar proeven bij patiënten.
 

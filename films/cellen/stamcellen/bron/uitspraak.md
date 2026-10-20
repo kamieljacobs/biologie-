@@ -14,3 +14,8 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b / c | antwoord AA / BEE / CEE | `Antwoord aa.` / `bee.` / `cee.` | s08, s11, s17, s21 |
 
 **Wachtlijst voor Kamiel (batchtest):** Yamanaka, Geurdun, totipotent, pluripotent, multipotent, unipotent, ie-pee-es-cel, histonen, methylgroep, promotor, epigenetica, kiemlaag, verhoornt, restembryo's, ie-vee-ef, chemo, ee-mer-gente, gedifferentieerd. De transcriptie herkende alle woorden (100 % overeenkomst); een blinde luistercontrole was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026: goedgekeurd
+
+- **ivf**: `I-V-F` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s19 op 19–20 okt 2026.
