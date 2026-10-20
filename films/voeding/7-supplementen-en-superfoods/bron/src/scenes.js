@@ -29,8 +29,9 @@ function potje(ctx, x, y, s = 1, lab = 'vitamine C', sub = '1000 mg', col = VC, 
 function keuken(ctx, t, o = {}) { const { noor = 1, opaX = 700, spullen = 1, noorX = 1600 } = o;
   ctx.fillStyle = '#4A3F36'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#5E5044'; ctx.fillRect(0, 0, W, 90); ctx.fillStyle = '#3A2F28'; ctx.fillRect(0, 780, W, H - 780);
   for (let i = 0; i < 6; i++) { roundRect(ctx, 1280 + (i % 3) * 180, 150 + Math.floor(i / 3) * 170, 160, 150, 8); shape(ctx, '#6B5848', '#8C7660', 2); }
-  person(ctx, opaX, 900, 500, 1, Object.assign({}, OPA, { armR: { a1: 0.9, a2: 1.4 } }));
-  if (noor > 0.01) person(ctx, noorX, 900, 470, noor, { armL: { a1: 0.4, a2: 0.6 } });
+  // vaste personages (20 okt 2026): Opa Henk wijst naar zijn tabletten, Noor (zijn kleindochter) ernaast
+  persoon(ctx, 'henk', opaX, 900, 510, { pose: 'wijs', kijk: 1, uit: o.uitOpa || 'blij', t });
+  if (noor > 0.01) persoon(ctx, 'noor', noorX, 900, 490, { a: noor, kijk: -1, uit: o.uitNoor || 'denkt', pose: o.poseNoor || 'staan', t });
   roundRect(ctx, 820, 600, 640, 26, 6); shape(ctx, '#8C6A44', '#6B4E3A', 2); ctx.fillStyle = '#6B4E3A'; ctx.fillRect(850, 626, 16, 160); ctx.fillRect(1414, 626, 16, 160);
   if (spullen > 0.01) { ctx.save(); ctx.globalAlpha *= spullen; potje(ctx, 960, 590, 0.55);
     roundRect(ctx, 1060, 480, 110, 120, 10); shape(ctx, '#C9483E', '#8C2A2A', 2); text(ctx, 'goji', 1115, 545, fTekst(22, 700), '#F2F2EE', 'center'); for (let i = 0; i < 5; i++) circ(ctx, 1080 + i * 18, 575, 6, '#E05A4A');

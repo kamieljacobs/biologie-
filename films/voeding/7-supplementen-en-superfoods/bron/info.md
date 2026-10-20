@@ -125,3 +125,9 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | s23 | QproMCb5BYSSaGQviPCp | z3Wn5bUhaugBrXWsJgRG | 562 | 37.81 s |
 | s24 | Spsv5lWscECbLBxvcFw1 | udyMEwV0OHz6jRTOqvig | 506 | 33.25 s |
 | s26 | kbauaJAcSqjaxUG3Izab | 7CN345EXT6BESgekHmmm | 429 | 30.69 s |
+
+## Wijziging 20 okt 2026
+
+- **Vaste personages in de keuken** (s01, s28, s29; `keuken()` regel 1515): Opa Henk (wijst naar zijn tablet vitamine C) en Noor, uit `personages/lib_cast.js`, i.p.v. de oudere tekening uit `lib_hormonen.js`. Opties `uitOpa`, `uitNoor`, `poseNoor` in `keuken(ctx, t, o)`. Bewust niet vervangen: de 100 telpoppetjes in s18/s20 (pictogram bij het rokersonderzoek).
+- **Nieuwe audio** (herinspreekhelper 19–20 okt: B-twaalf, chiazaad, creatine, niacine) zit nu in de HTML: FILMDATA opnieuw uit `segments.json` + `stem/woordtijden/`, audio-URL met `?v=2` voor s05, s07, s12, s17, s21, s23, s24, s26.
+- **Bouwen na deze wijziging**: pas `src/scenes.js` aan en zet het in de film met `python3 bron/bouw/vervang.py films/voeding/7-supplementen-en-superfoods.html films/voeding/7-supplementen-en-superfoods/bron [--filmdata <filmdata.json> --nieuw sNN]` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; niet volledig herbouwen met build.py, de HTML heeft latere spelerwijzigingen die niet in `src/player.js` staan). Scènesblok: regel 1213–1695 (`const SCENES` op 1554).
