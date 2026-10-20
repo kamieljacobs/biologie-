@@ -1,4 +1,6 @@
 {
+ "flow": "gfOie31DgvpWcDsoKOiX",
+ "model": "eleven_v4",
  "s01": {
   "generation_id": "YoCab1vmP9b9911GzvFS",
   "node": "IylrOdoeHXEfjSKkizdC",
@@ -42,10 +44,12 @@
   "dur": 45.92
  },
  "s11": {
-  "generation_id": "pYoCC4AkN02JWSdxPct4",
-  "node": "D1843bdHTB7Ee7fij1x2",
-  "session": "RV6QVPbKmAMe83vpzbOh",
-  "dur": 30.48
+  "generation_id": "HN6glN9lx55fiSh8s7un",
+  "node": "pVGBM8X0q5MGOearOdyt",
+  "session": "1L3wUlqJBTJOOQ5vrwrf",
+  "dur": 29.57,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "pYoCC4AkN02JWSdxPct4"
  },
  "s12": {
   "generation_id": "NAGpilqYg9ipBL9mL22i",
@@ -60,22 +64,28 @@
   "dur": 6.56
  },
  "s15": {
-  "generation_id": "pi5LWXdDOOysb0MpVJgD",
-  "node": "bBQxAJ6MAGocvF38RW88",
-  "session": "BZ027zi5czmJLN5VjmQd",
-  "dur": 45.76
+  "generation_id": "ic3ZS6oJ8SwdX2V3ZGVW",
+  "node": "GAJiUPbt2ATs8bMaHPej",
+  "session": "qvswnazbQ0a9z0wTAQua",
+  "dur": 45.64,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "pi5LWXdDOOysb0MpVJgD"
  },
  "s16": {
-  "generation_id": "Sh6mVbsKQ1dQ5M2NJbWx",
-  "node": "p2Z41Lj8I7DEL5hy8l88",
-  "session": "hgWln5OMmeGrvG8Id5RJ",
-  "dur": 40.0
+  "generation_id": "I7oqQpWodutWLrbokjtJ",
+  "node": "3drwNZ8qDiN0f1xmmuhw",
+  "session": "Qtw7OPzE7mq0vB9I5Bwq",
+  "dur": 40.05,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "Sh6mVbsKQ1dQ5M2NJbWx"
  },
  "s17": {
-  "generation_id": "BcfhAW3LBrtMep0pGah9",
-  "node": "CtWxLyoTyreAtk9bXto8",
-  "session": "hsdYslBr7D7NSu5RV2U8",
-  "dur": 64.16
+  "generation_id": "WfVyv6g3XfEKI8LVYHVQ",
+  "node": "SWvfk2PRK8yU14rOMeCH",
+  "session": "m4cEmh1UNVfwOsTq7U0k",
+  "dur": 64.84,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "BcfhAW3LBrtMep0pGah9"
  },
  "s18": {
   "generation_id": "o6IDKDvBlOYdzxjFLUrP",
@@ -83,7 +93,5 @@
   "session": "hmk8cyHDuoqRqdr3bzhz",
   "dur": 24.16
  },
- "flow": "gfOie31DgvpWcDsoKOiX",
- "model": "eleven_v4",
  "voice": "Roos 7qdUFMklKPaaAVMsBTBt"
 }
