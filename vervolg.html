@@ -89,8 +89,14 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .tags a,.tags span{font-size:14px;font-weight:600;color:var(--text2);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
 .tags a:hover{color:var(--text);border-color:var(--line2)}
 .opbouw{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px;border:1px solid var(--line2);border-radius:4px;background:var(--surface)}
-.opbouw div{padding:16px 18px;border-right:1px solid var(--line)}
-.opbouw div:last-child{border-right:0}
+.opbouw button{padding:16px 18px;border:0;border-right:1px solid var(--line);background:none;text-align:left;cursor:pointer;color:var(--text);position:relative;font:inherit}
+.opbouw button:last-child{border-right:0}
+.opbouw button:hover{background:color-mix(in srgb,var(--goud) 6%,transparent)}
+.opbouw button[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 -3px 0 var(--goud)}
+.opbouw button:focus-visible{outline:2px solid var(--goud);outline-offset:-2px}
+.opbouw .later:not([aria-pressed="true"]) b{color:var(--text2)}
+.opbouw-hint{margin:8px 0 0;color:var(--text3);font-size:14px}
+@media (max-width:720px){.opbouw{grid-template-columns:repeat(2,minmax(0,1fr))}.opbouw button:nth-child(2){border-right:0}.opbouw button:nth-child(-n+2){border-bottom:1px solid var(--line)}.opbouw button span:not(.mono){display:none}.opbouw button{padding:12px 14px}.opbouw button b{font-size:16px;margin-top:4px}.opbouw button .mono{font-size:10px;letter-spacing:.06em;white-space:nowrap}}
 .opbouw b{display:block;font-family:var(--titel);font-size:18px;margin:6px 0 2px}
 .opbouw span:not(.mono){color:var(--text2);font-size:15px;line-height:1.45;display:block}
 .opbouw .mono{color:var(--goud-text)}
@@ -114,20 +120,9 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .gb li:last-child{border-bottom:0}
 .gb li .nr{font:600 12px/1.9 var(--meta);color:var(--text3)}
 .komt{font:600 10.5px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);border:1px dashed var(--line2);border-radius:999px;padding:4px 8px;white-space:nowrap}
-.gb .stappen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.gb .stappen button{background:none;border:0;border-right:1px solid var(--line);padding:10px 8px 9px;text-align:left;cursor:pointer;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-1px;min-width:0}
-.gb .stappen button:last-child{border-right:0}
-.gb .stappen .mono{display:block;font-size:10.5px;color:var(--text3)}
-.gb .stappen b{display:block;font-size:14px;line-height:1.2;margin-top:3px;font-weight:600}
-.gb .stappen button[aria-selected="true"]{border-bottom-color:var(--c);color:var(--text);background:color-mix(in srgb,var(--c) 7%,transparent)}
-.gb .stappen button[aria-selected="true"] .mono{color:var(--c)}
-.gb .stappen .st-later{opacity:.62}
-.gb .stappen button:hover{color:var(--text)}
-.gb .stappen button:focus-visible{outline:2px solid var(--c);outline-offset:-2px}
-.gb .st-paneel>.basis{border-top:0}
-.gb .st-paneel .ol-in{padding:14px 22px 16px}
+.gb .ol-in{padding:14px 22px 16px;border-top:1px solid var(--line)}
+.gb .st-leeg{border-top:1px solid var(--line)}
 .raster{align-items:start}
-@media (max-width:520px){.gb .stappen button{padding:9px 6px 8px}.gb .stappen b{font-size:12.5px}.gb .stappen .mono{font-size:9.5px;letter-spacing:.06em}}
 .st-leeg{margin:0;padding:18px 22px;color:var(--text3);font-size:15px;line-height:1.45}
 .ol-in{padding:0 22px 16px}
 .ol-jaar{margin:0 0 6px;color:var(--text3);font-size:14px}
@@ -173,9 +168,6 @@ footer.site a:hover{color:var(--text)}
   .kop .groot svg{width:84px;height:84px}
   .kop .lbl{margin-top:4px}
   .raster{grid-template-columns:1fr}
-  .opbouw{grid-template-columns:1fr 1fr}
-  .opbouw div:nth-child(2){border-right:0}
-  .opbouw div:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .hoe{grid-template-columns:1fr 1fr}
   .hoe div:nth-child(2){border-right:0}
   .hoe div:nth-child(-n+2){border-bottom:1px solid var(--line)}
@@ -185,7 +177,7 @@ footer.site a:hover{color:var(--text)}
   .gb header{padding:16px 16px 10px}
   .gb .intro{padding:0 16px 10px}.gb .basis{padding:10px 16px 4px}.gb .pta{padding:10px 16px 6px}.gb footer{padding:10px 16px 16px}
   .kern{grid-template-columns:1fr;padding:18px 16px}
-  .opbouw{grid-template-columns:1fr}.opbouw div{border-right:0;border-bottom:1px solid var(--line)}
+
   .teller{width:100%;margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -574,6 +566,8 @@ const kunst=(id,kl,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none"
 const hfst=([l,id])=>`<a href="index.html#${esc(id)}">${esc(l)}</a>`;
 const CL=Object.fromEntries(CLUSTERS.map(c=>[c.id,c]));
 let filter=(location.hash||'').slice(1); if(!CL[filter]) filter='';
+/* Gekozen stap (1 = films, standaard) geldt voor alle vakgebieden; ?stap=4 linkt direct naar een stap. */
+let stap=(()=>{const q=+new URLSearchParams(location.search).get('stap');return q>=1&&q<=4?q:1})();
 
 function themaKnop(){
   const d=root.getAttribute('data-theme')!=='light', b=document.getElementById('thema');
@@ -628,22 +622,22 @@ function opleidingenBlok(g){
     <p class="ol-check">Gecontroleerd op ${esc(o.gecontroleerd)}. Eisen en plaatsen veranderen per jaar: check altijd de site van de opleiding.</p>
   </div>`;
 }
-const STAPPEN=[{kort:'Films'},{kort:'Dag uit het werk',later:true},{kort:'Praktijk',later:true},{kort:'Opleidingen',later:true}];
+const STAPPEN=[
+  {naam:'Theoretische basis',tekst:'De biologie die je nodig hebt, met films en oefeningen.',status:'in de maak'},
+  {naam:'Een dag uit het werk',tekst:'Wat doe je eigenlijk de hele dag?',status:'later',leeg:'Komt later: een film waarin je een werkdag meeloopt en ziet welke biologie je gebruikt.'},
+  {naam:'Praktijkopdracht',tekst:'Probeer zelf een stukje van het vak.',status:'later',leeg:'Komt later: hier probeer je zelf een stukje van het vak.'},
+  {naam:'Opleidingen',tekst:'Welke opleiding, op welk niveau, en hoe kom je erin.',status:'in de maak'}];
 function kaart(g){
   const c=CL[g.cluster], basis=g.basis.filter(zichtbaar), klaar=basis.filter(b=>Array.isArray(b)).length;
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
     <header><span class="embleem">${kunst(c.id,c.kleur)}</span><div><span class="niv mono">${esc(g.niveau)}</span><h3>${esc(g.naam)}</h3></div></header>
     <p class="intro">${esc(g.intro)}</p>
-    <div class="stappen" role="tablist" aria-label="Stappen voor ${esc(g.naam)}">${STAPPEN.map((s,k)=>`<button type="button" role="tab" data-stap="${k+1}" aria-selected="${k===0}"${s.later&&!(k===3&&g.opleidingen)?' class="st-later"':''}><span class="mono">Stap ${k+1}</span><b>${s.kort}</b></button>`).join('')}</div>
-    <div class="st-paneel" data-paneel="1">
+    ${stap===1?`
     <div class="basis"><span class="mono"><span>Extra voor dit vak · buiten het PTA</span><span>${klaar} van ${basis.filter(b=>!b.schrappen).length} klaar</span></span>
       <div class="frs">${basis.map((b,i)=>Array.isArray(b)?filmRij(b[1],i+1,b[0]):komtRij(b,i+1,g)).join('')}</div></div>
     ${TOON_PTA&&(g.pta||[]).length?`<div class="pta"><span class="mono"><span>Al op de site · uit de lesstof (PTA)</span><span>${g.pta.length} films</span></span>
       <div class="frs">${g.pta.filter(h=>FILMS[h]).map(h=>filmRij(h,0)).join('')}</div></div>`:''}
-    </div>
-    <div class="st-paneel" data-paneel="2" hidden><p class="st-leeg">Een dag uit het werk komt later: een film waarin je een werkdag meeloopt en ziet welke biologie je gebruikt.</p></div>
-    <div class="st-paneel" data-paneel="3" hidden><p class="st-leeg">De praktijkopdracht komt later: hier probeer je zelf een stukje van het vak.</p></div>
-    <div class="st-paneel" data-paneel="4" hidden>${opleidingenBlok(g)}</div>
+    `:stap===4?opleidingenBlok(g):`<p class="st-leeg">${esc(STAPPEN[stap-1].leeg)}</p>`}
     ${g.bouwt.length?`<footer><span class="mono">Bouwt voort op</span>${g.bouwt.map(hfst).join('')}</footer>`:''}
   </article>`;
 }
@@ -656,12 +650,8 @@ function render(){
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
     <div class="wrap">
-      <div class="opbouw" aria-label="Opbouw per gebied">
-        <div><span class="mono">Stap 1 · in de maak</span><b>Theoretische basis</b><span>De biologie die je nodig hebt, met films en oefeningen.</span></div>
-        <div class="later"><span class="mono">Stap 2 · later</span><b>Een dag uit het werk</b><span>Wat doe je eigenlijk de hele dag?</span></div>
-        <div class="later"><span class="mono">Stap 3 · later</span><b>Praktijkopdracht</b><span>Probeer zelf een stukje van het vak.</span></div>
-        <div><span class="mono">Stap 4 · in de maak</span><b>Opleidingen</b><span>Welke opleiding, op welk niveau, en hoe kom je erin.</span></div>
-      </div>
+      <div class="opbouw" role="group" aria-label="Kies een stap; dat geldt voor alle vakgebieden">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><span>${s.tekst}</span></button>`).join('')}</div>
+      <p class="opbouw-hint">Klik op een stap: alle vakgebieden hieronder laten dan die stap zien.</p>
       ${TOON_KERN?`<section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
         <span class="mono" style="color:var(--goud-text)">Voor elk gebied</span><h2>De gedeelde kern</h2>
         <p>Deze onderwerpen heb je bij bijna elke biologische vervolgopleiding nodig. Ze staan al op de site; per gebied komt er een verdieping bovenop.</p>
@@ -675,7 +665,7 @@ function render(){
         <div class="raster">${GEBIEDEN.filter(g=>g.cluster===c.id).map(kaart).join('')}</div></section>`).join('')}
     </div>`;
 }
-app.addEventListener('click',e=>{const s=e.target.closest('[data-stap]');if(s){const a=s.closest('.gb'),n=s.dataset.stap;a.querySelectorAll('[data-stap]').forEach(x=>x.setAttribute('aria-selected',x===s));a.querySelectorAll('[data-paneel]').forEach(x=>x.hidden=x.dataset.paneel!==n);return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
+app.addEventListener('click',e=>{const s=e.target.closest('[data-stap]');if(s){const y=s.getBoundingClientRect().top;stap=+s.dataset.stap;const u=new URL(location.href);if(stap===1)u.searchParams.delete('stap');else u.searchParams.set('stap',stap);history.replaceState(null,'',u);render();const n=document.querySelector(`.opbouw [data-stap="${stap}"]`);if(n)scrollBy(0,n.getBoundingClientRect().top-y);return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
 themaKnop(); render();
 const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[doel.id]) doel.scrollIntoView();
 })();
