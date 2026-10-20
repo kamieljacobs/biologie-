@@ -9,7 +9,7 @@ const state = {
   qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
   board:[0,0,0,0,0,0]
 };
-const CARD_DUR=3.5, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
+/*SPELERFIX_MARK kaart*/ const CARD_DUR=1.3, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
 
 // ---- build timeline ----
 function buildTimeline(){
@@ -58,7 +58,7 @@ function drawTitle(ctx,t){ bg(ctx,'micro'); const a=ramp(t,0.2,0.8);
   ctx.font=fTekst(34); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'Hoe krijgt één cel het voor elkaar om enzymen te maken en netjes naar buiten te brengen?',120,540,760,44);
   metaText(ctx,(state.niveau==='havo'?'HAVO':'HAVO · VWO')+' · CEL 2/3',W-80,60,C.text2,'right',24); ctx.restore();
   const L=cellLayout(1420,540,400,250); ctx.save(); ctx.globalAlpha=ramp(t,0.6,1); drawCell(ctx,L,t,{motion:0.3}); ctx.restore(); }
-function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini={'Hoofdstuk 1':'Wat moet één cel allemaal kunnen?','Hoofdstuk 1b':'Hoe ziet een kliercel eruit?','Hoofdstuk 2':'Waar liggen de bouwtekeningen?','Hoofdstuk 3':'Hoe wordt een eiwit gemaakt en verpakt?','Hoofdstuk 4':'Waar komt de energie vandaan?','Hoofdstuk 5':'Hoe blijft een cel schoon en stevig?','Hoofdstuk 6':'Wat gaat erin, eruit, en wat beweegt?','Hoofdstuk 7':'Wat heeft een plantencel extra?','Recap':'Wat hebben we gezien?'}[num||it.chapter];
