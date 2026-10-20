@@ -671,6 +671,50 @@
    ]
   ]
  },
+ "films/extra/geen-middelpunt.html": {
+  "titel": "Geen middelpunt",
+  "hoofdstuk": "extra",
+  "htitel": "Nieuwsgierig?",
+  "json": "films/extra/geen-middelpunt/oefenen.json",
+  "oef": [
+   [
+    "volgorde-tijdlijn-oud",
+    "Van boek naar eigen ogen",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-tijdlijn-nieuw",
+    "Van druppel tot DNA-schaar",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-semmelweis",
+    "Semmelweis zoekt de oorzaak",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-harvey",
+    "Waarom het bloed rondgaat",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-sociaal-darwinisme",
+    "De sterkste overleeft?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-kiembaan",
+    "Een patiënt of een embryo",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/gaswisseling/1-adem-in-adem-uit.html": {
   "titel": "Adem in, adem uit",
   "hoofdstuk": "gaswisseling",
