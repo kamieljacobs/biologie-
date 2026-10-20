@@ -4,99 +4,126 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-goed-slapen",
+   "id": "indelen-klok",
    "soort": "indelen",
-   "titel": "Helpt het om te slapen?",
-   "opdracht": "Helpt dit om 's avonds goed in slaap te vallen?",
+   "titel": "Wat doet het met je klok?",
+   "opdracht": "Wat doet dit met je biologische klok en je slaap?",
    "bakken": [
     {
-     "naam": "Helpt"
+     "naam": "Zet je klok gelijk",
+     "uitleg": "je lichaam weet dat het dag is"
     },
     {
-     "naam": "Helpt niet"
+     "naam": "Laat je slaperig worden",
+     "uitleg": "je hersenen maken melatonine"
+    },
+    {
+     "naam": "Zet je klok later",
+     "uitleg": "je wordt pas laat moe"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Overdag naar buiten gaan.",
+     "tekst": "Je fietst 's ochtends naar school.",
      "bak": 0,
-     "uitleg": "Daglicht zet je biologische klok elke ochtend gelijk."
+     "uitleg": "Daglicht in de ochtend zet je biologische klok gelijk. Dan word je 's avonds op tijd moe."
     },
     {
-     "tekst": "'s Avonds minder fel licht.",
+     "tekst": "Je eet je ontbijt bij het raam, in de zon.",
      "bak": 0,
-     "uitleg": "Dan wordt je klok niet later gezet."
+     "uitleg": "Ook dit is ochtendlicht. Buitenlicht is veel sterker dan lamplicht binnen."
     },
     {
-     "tekst": "Een dag vol beweging.",
+     "tekst": "Je speelt in de middagpauze buiten.",
      "bak": 0,
-     "uitleg": "Na een dag vol beweging slaap je vaak beter."
+     "uitleg": "Licht overdag laat je klok weten dat het dag is. Wie overdag buiten is, slaapt vaak beter."
     },
     {
-     "tekst": "Vlak voor bedtijd lang op een fel scherm kijken.",
+     "tekst": "Een uur voor bedtijd doe je de grote lamp uit en lees je bij een klein lampje.",
      "bak": 1,
-     "uitleg": "Fel licht in de avond zet je klok later. Dan word je pas laat moe."
+     "uitleg": "Weinig licht remt melatonine niet. Je hersenen maken het, en je wordt slaperig."
     },
     {
-     "tekst": "Vlak voor bedtijd heel hard sporten.",
+     "tekst": "Je hangt dikke gordijnen op, zodat je kamer echt donker is.",
      "bak": 1,
-     "uitleg": "Bewegen overdag helpt, maar niet vlak voor je gaat slapen."
+     "uitleg": "In het donker maken je hersenen melatonine. Dat maakt je slaperig."
     },
     {
-     "tekst": "Tot laat in fel licht blijven zitten.",
+     "tekst": "Je legt je telefoon om negen uur 's avonds in de keuken.",
      "bak": 1,
-     "uitleg": "Dan word je pas laat moe."
+     "uitleg": "Geen schermlicht meer vlak voor het slapen. Dan kan je lichaam melatonine maken."
+    },
+    {
+     "tekst": "Je gamet tot middernacht op een groot scherm.",
+     "bak": 2,
+     "uitleg": "Licht in de avond remt melatonine en zet je klok later. Dan word je pas laat moe."
+    },
+    {
+     "tekst": "Je kijkt in bed nog een uur filmpjes.",
+     "bak": 2,
+     "uitleg": "Ook een klein scherm geeft licht vlak bij je ogen. Je klok gaat later, en je slaapt later in."
     }
    ]
   },
   {
-   "id": "indelen-hygiene",
+   "id": "indelen-route",
    "soort": "indelen",
-   "titel": "Klopt het?",
-   "opdracht": "Klopt deze zin over hygiëne, of klopt hij niet?",
+   "titel": "Welke route blokkeer je?",
+   "opdracht": "Ziekteverwekkers komen binnen via je handen, de lucht, je eten of een wondje. Welke route blokkeer je met deze maatregel?",
    "bakken": [
     {
-     "naam": "Klopt"
+     "naam": "Via je handen"
     },
     {
-     "naam": "Klopt niet"
+     "naam": "Via de lucht"
+    },
+    {
+     "naam": "Via je eten"
+    },
+    {
+     "naam": "Via een wondje"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Zeep maakt vet en vuil los, zodat ziekteverwekkers wegspoelen.",
+     "tekst": "Je wast je handen met zeep na de wc.",
      "bak": 0,
-     "uitleg": "Door te wrijven en te spoelen gaan ze van je handen af."
+     "uitleg": "Zeep maakt vet en vuil los. Je spoelt de ziekteverwekkers weg voordat je je gezicht of je eten aanraakt."
     },
     {
-     "tekst": "Was je handen twintig seconden, ook tussen je vingers.",
+     "tekst": "De conciërge maakt de deurklinken in school schoon.",
      "bak": 0,
-     "uitleg": "Zo spoel je de meeste ziekteverwekkers weg."
+     "uitleg": "Een deurklink raakt iedereen aan. Zo gaan ziekteverwekkers van hand naar hand."
     },
     {
-     "tekst": "Tandplak is een dun laagje bacteriën.",
-     "bak": 0,
-     "uitleg": "Poetsen haalt het weg, voordat het gaatjes maakt."
-    },
-    {
-     "tekst": "Niezen in je elleboog houdt ziekteverwekkers van je handen.",
-     "bak": 0,
-     "uitleg": "En dus ook van de deurklink."
-    },
-    {
-     "tekst": "Zeep doodt meteen alle ziekteverwekkers.",
+     "tekst": "Een verkouden leraar draagt een mondkapje.",
      "bak": 1,
-     "uitleg": "Zeep spoelt ze vooral weg."
+     "uitleg": "Bij hoesten en praten komen kleine druppeltjes vrij. Het kapje houdt ze tegen."
     },
     {
-     "tekst": "Ziekteverwekkers op je handen zie je meteen.",
+     "tekst": "In een volle klas zet je het raam open.",
      "bak": 1,
-     "uitleg": "Je ziet ze niet."
+     "uitleg": "Verse lucht voert de zwevende druppeltjes af. Zo adem je er minder van in."
     },
     {
-     "tekst": "Alleen water werkt net zo goed als zeep.",
-     "bak": 1,
-     "uitleg": "Zonder zeep blijven vet en vuil zitten, met de ziekteverwekkers erin."
+     "tekst": "Je bakt de kipburger helemaal gaar.",
+     "bak": 2,
+     "uitleg": "Door de hitte gaan bacteriën in het vlees dood. Dan eet je ze niet op."
+    },
+    {
+     "tekst": "Je zet de restjes van het avondeten snel in de koelkast.",
+     "bak": 2,
+     "uitleg": "In de kou groeien bacteriën veel langzamer. Ze maken dan minder gif."
+    },
+    {
+     "tekst": "Je spoelt een schaafwond schoon en doet er een pleister op.",
+     "bak": 3,
+     "uitleg": "Door de wond kunnen ziekteverwekkers je lichaam in. Schoonspoelen en afdekken houdt ze buiten."
+    },
+    {
+     "tekst": "Een kat krabt je. Je maakt het krasje meteen schoon.",
+     "bak": 3,
+     "uitleg": "Op nagels zitten bacteriën. Via het krasje kunnen ze naar binnen."
     }
    ]
   },

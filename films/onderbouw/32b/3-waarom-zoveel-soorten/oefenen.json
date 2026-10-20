@@ -36,58 +36,64 @@
    ]
   },
   {
-   "id": "indelen-klopt-het",
+   "id": "indelen-drie-stappen",
    "soort": "indelen",
-   "titel": "Klopt het?",
-   "opdracht": "Klopt deze zin, of klopt hij niet?",
+   "titel": "Welke stap zie je?",
+   "opdracht": "Een nieuwe soort ontstaat in stappen. Welke stap zie je hier?",
    "bakken": [
     {
-     "naam": "Klopt"
+     "naam": "Mutatie",
+     "uitleg": "een nieuw verschil"
     },
     {
-     "naam": "Klopt niet"
+     "naam": "Natuurlijke selectie",
+     "uitleg": "wie past, krijgt meer jongen"
+    },
+    {
+     "naam": "Scheiding",
+     "uitleg": "groepen komen elkaar niet meer tegen"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Wie toevallig goed past, krijgt meer jongen.",
+     "tekst": "Een kalf wordt geboren zonder hoorns. Zijn ouders hebben wel hoorns. Zijn jongen krijgen ook geen hoorns.",
      "bak": 0,
-     "uitleg": "Zo werkt natuurlijke selectie."
+     "uitleg": "Er is iets veranderd in een gen van het kalf. Dat nieuwe verschil erft het door: een mutatie."
     },
     {
-     "tekst": "Een mutatie is een klein foutje bij het kopiëren van een gen.",
+     "tekst": "Eén kuiken in het nest heeft een veel langere snavel dan al zijn broers en zussen, door een verandering in zijn DNA.",
      "bak": 0,
-     "uitleg": "De meeste doen niets, sommige zijn schadelijk, heel soms is er een handig."
+     "uitleg": "Een nieuw verschil door een foutje bij het kopiëren: een mutatie. Of het handig is, merk je pas later."
     },
     {
-     "tekst": "Groepen die elkaar niet meer tegenkomen, veranderen elk op hun eigen manier.",
-     "bak": 0,
-     "uitleg": "Na heel lange tijd kunnen het twee soorten worden."
-    },
-    {
-     "tekst": "Dieren die samen vruchtbare jongen kunnen krijgen, horen bij één soort.",
-     "bak": 0,
-     "uitleg": "Zo bepaal je wat een soort is."
-    },
-    {
-     "tekst": "Een muis wordt lichter omdat hij dat wil.",
+     "tekst": "Op donkere boomstammen pakken vogels vooral de lichte motten.",
      "bak": 1,
-     "uitleg": "Geen enkel dier doet het expres."
+     "uitleg": "De donkere motten vallen minder op. Zij overleven vaker en krijgen meer jongen."
     },
     {
-     "tekst": "Alle mutaties zijn schadelijk.",
+     "tekst": "Hazen die het snelst rennen, ontsnappen vaker aan de vos. Zij krijgen de meeste jongen.",
      "bak": 1,
-     "uitleg": "De meeste doen niets. Heel soms is een mutatie handig."
+     "uitleg": "Wie toevallig goed past, krijgt meer jongen. De jongen erven het snelle rennen: natuurlijke selectie."
     },
     {
-     "tekst": "Paard en ezel zijn één soort, want ze krijgen samen een muilezel.",
+     "tekst": "In een droog jaar overleven vooral de vinken met een dikke snavel. Alleen zij kraken de harde zaden.",
      "bak": 1,
-     "uitleg": "Een muilezel kan zelf bijna nooit jongen krijgen. Paard en ezel zijn twee soorten."
+     "uitleg": "De vinken kiezen dat niet. De dikke snavel past toevallig beter, dus die vinken krijgen meer jongen."
     },
     {
-     "tekst": "Een nieuwe soort ontstaat in één generatie.",
-     "bak": 1,
-     "uitleg": "Dat duurt heel veel generaties."
+     "tekst": "Een rivier verandert van loop en deelt een groep apen in tweeën.",
+     "bak": 2,
+     "uitleg": "De twee groepen komen elkaar niet meer tegen. Elke groep verandert nu op zijn eigen manier."
+    },
+    {
+     "tekst": "Een paar hagedissen drijven op een boomstam naar een eiland ver van de kust.",
+     "bak": 2,
+     "uitleg": "Die hagedissen zijn gescheiden van de rest. Na heel veel generaties kan er een nieuwe soort ontstaan."
+    },
+    {
+     "tekst": "Op een hoge bergtop leeft een groepje kevers. De dalen eromheen zijn voor hen te warm.",
+     "bak": 2,
+     "uitleg": "De kevers kunnen niet naar andere bergtoppen. Zo blijft hun groep apart."
     }
    ]
   },

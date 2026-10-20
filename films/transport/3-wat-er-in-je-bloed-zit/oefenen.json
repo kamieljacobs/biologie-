@@ -2,24 +2,67 @@
  "intro": "Oefen met de bestanddelen van je bloed, waar ze vandaan komen en hoe een wond dichtgaat. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-taak",
+   "id": "indelen-bloed-hoofdrol",
    "soort": "indelen",
-   "titel": "Wie doet wat in je bloed?",
-   "opdracht": "Sleep elk bestanddeel van je bloed naar zijn taak.",
+   "titel": "Welk deel van je bloed?",
+   "opdracht": "Bij elk kaartje speelt één bestanddeel van je bloed de hoofdrol: omdat er te weinig van is, of juist meer. Welk bestanddeel?",
    "bakken": [
-    {"naam": "Zuurstof vervoeren"},
-    {"naam": "Afweer", "uitleg": "ziekteverwekkers bestrijden"},
-    {"naam": "Stolling", "uitleg": "een lek dichten"},
-    {"naam": "Opgeloste stoffen vervoeren"}
+    {
+     "naam": "Rode bloedcellen",
+     "uitleg": "met hemoglobine"
+    },
+    {
+     "naam": "Witte bloedcellen"
+    },
+    {
+     "naam": "Bloedplaatjes"
+    },
+    {
+     "naam": "Bloedplasma",
+     "uitleg": "het vloeibare deel, met opgeloste stoffen en eiwitten"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Rode bloedcel", "bak": 0, "uitleg": "Zit vol hemoglobine. Bijna alle zuurstof reist zo."},
-    {"tekst": "Hemoglobine", "bak": 0, "uitleg": "Een eiwit met ijzer, dat in de longen zuurstof bindt."},
-    {"tekst": "Witte bloedcel", "bak": 1, "uitleg": "Groter, met een kern; bestrijdt ziekteverwekkers."},
-    {"tekst": "Antistoffen in het plasma", "bak": 1, "uitleg": "Een deel van de plasma-eiwitten zijn antistoffen."},
-    {"tekst": "Bloedplaatje", "bak": 2, "uitleg": "Plakt aan de beschadigde wand en aan elkaar, en geeft stoffen af die de stolling op gang brengen."},
-    {"tekst": "Fibrinogeen", "bak": 2, "uitleg": "Een plasma-eiwit dat wordt omgezet in fibrinedraden."},
-    {"tekst": "Bloedplasma", "bak": 3, "uitleg": "Voor negen tiende water, met glucose, aminozuren, zouten, hormonen en afvalstoffen."}
+    {
+     "tekst": "Iemand met bloedarmoede is snel moe en buiten adem op de trap.",
+     "bak": 0,
+     "uitleg": "Te weinig rode bloedcellen of hemoglobine: de spieren krijgen minder zuurstof."
+    },
+    {
+     "tekst": "Een wielrenner traint drie weken hoog in de bergen. Daarna presteert hij beter.",
+     "bak": 0,
+     "uitleg": "Weinig zuurstof → de nieren maken EPO → het beenmerg maakt meer rode bloedcellen."
+    },
+    {
+     "tekst": "Na een infectie is het aantal van deze cellen in je bloed tijdelijk veel hoger.",
+     "bak": 1,
+     "uitleg": "Je lichaam maakt extra witte bloedcellen om de ziekteverwekkers op te ruimen."
+    },
+    {
+     "tekst": "Na een chemokuur krijgt iemand steeds weer een infectie.",
+     "bak": 1,
+     "uitleg": "Chemo remt delende cellen, ook de stamcellen in het beenmerg. Er komen te weinig witte bloedcellen."
+    },
+    {
+     "tekst": "Een bloedtest telt te weinig van deze deeltjes. Nu blijft een sneetje lang bloeden, en krijgt ze snel blauwe plekken.",
+     "bak": 2,
+     "uitleg": "Zonder genoeg bloedplaatjes wordt een lek niet snel gedicht, en komt de stolling slecht op gang."
+    },
+    {
+     "tekst": "Bij een kleine snee plakt er binnen een minuut een propje aan de wand van het bloedvat.",
+     "bak": 2,
+     "uitleg": "Bloedplaatjes plakken aan de wand en aan elkaar."
+    },
+    {
+     "tekst": "Iemand met hemofilie mist een stollingsfactor. Zijn bloedplaatjes zijn normaal, toch blijft een wond bloeden.",
+     "bak": 3,
+     "uitleg": "Stollingsfactoren zijn eiwitten in het plasma, gemaakt door de lever. Mist er één, dan loopt de cascade vast."
+    },
+    {
+     "tekst": "Na een bord pasta stijgt het glucosegehalte van je bloed.",
+     "bak": 3,
+     "uitleg": "Glucose uit je darm is opgelost in het plasma, en zo reist het naar je cellen."
+    }
    ]
   },
   {
@@ -28,12 +71,30 @@
    "titel": "Een snee in je vinger",
    "opdracht": "Je snijdt in je vinger. Zet in de goede volgorde hoe het bloeden stopt.",
    "stappen": [
-    {"tekst": "Het beschadigde bloedvat trekt zich samen.", "uitleg": "Er stroomt minder bloed doorheen."},
-    {"tekst": "Bloedplaatjes plakken aan de beschadigde wand en aan elkaar: een prop.", "uitleg": "Ze geven ook stoffen af die de stolling op gang brengen."},
-    {"tekst": "Stollingsfactoren in het plasma worden actief.", "uitleg": "Deze eiwitten zitten altijd al in je plasma."},
-    {"tekst": "Protrombine wordt omgezet in trombine.", "uitleg": "Trombine is het enzym voor de volgende stap."},
-    {"tekst": "Trombine zet het opgeloste fibrinogeen om in fibrinedraden.", "uitleg": "Fibrine vormt lange draden."},
-    {"tekst": "De draden vormen een net waarin rode bloedcellen verstrikt raken: een stolsel.", "uitleg": "Aan de buitenkant ontstaat een korstje. Stolling is geen indrogen."}
+    {
+     "tekst": "Het beschadigde bloedvat trekt zich samen.",
+     "uitleg": "Er stroomt minder bloed doorheen."
+    },
+    {
+     "tekst": "Bloedplaatjes plakken aan de beschadigde wand en aan elkaar: een prop.",
+     "uitleg": "Ze geven ook stoffen af die de stolling op gang brengen."
+    },
+    {
+     "tekst": "Stollingsfactoren in het plasma worden actief.",
+     "uitleg": "Deze eiwitten zitten altijd al in je plasma."
+    },
+    {
+     "tekst": "Protrombine wordt omgezet in trombine.",
+     "uitleg": "Trombine is het enzym voor de volgende stap."
+    },
+    {
+     "tekst": "Trombine zet het opgeloste fibrinogeen om in fibrinedraden.",
+     "uitleg": "Fibrine vormt lange draden."
+    },
+    {
+     "tekst": "De draden vormen een net waarin rode bloedcellen verstrikt raken: een stolsel.",
+     "uitleg": "Aan de buitenkant ontstaat een korstje. Stolling is geen indrogen."
+    }
    ]
   },
   {
@@ -42,11 +103,26 @@
    "titel": "Het leven van een rode bloedcel",
    "opdracht": "Zet het leven van een rode bloedcel in de goede volgorde.",
    "stappen": [
-    {"tekst": "Een stamcel in het rode beenmerg deelt zich; één dochtercel blijft stamcel.", "uitleg": "Alle bloedcellen komen uit dezelfde soort stamcel."},
-    {"tekst": "De andere dochtercel deelt zich nog vaak en rijpt.", "uitleg": "Pas daarna ontstaan echte bloedcellen."},
-    {"tekst": "De rijpende cel stoot zijn kern uit en zit vol hemoglobine.", "uitleg": "Er past meer hemoglobine in, maar hij kan geen nieuwe eiwitten maken."},
-    {"tekst": "Ongeveer 120 dagen vervoert hij zuurstof.", "uitleg": "Daarna is hij versleten."},
-    {"tekst": "Hij wordt afgebroken, vooral in de milt en de lever.", "uitleg": "Het ijzer gaat terug naar het beenmerg; de rest van de hemoglobine wordt galkleurstof."}
+    {
+     "tekst": "Een stamcel in het rode beenmerg deelt zich; één dochtercel blijft stamcel.",
+     "uitleg": "Alle bloedcellen komen uit dezelfde soort stamcel."
+    },
+    {
+     "tekst": "De andere dochtercel deelt zich nog vaak en rijpt.",
+     "uitleg": "Pas daarna ontstaan echte bloedcellen."
+    },
+    {
+     "tekst": "De rijpende cel stoot zijn kern uit en zit vol hemoglobine.",
+     "uitleg": "Er past meer hemoglobine in, maar hij kan geen nieuwe eiwitten maken."
+    },
+    {
+     "tekst": "Ongeveer 120 dagen vervoert hij zuurstof.",
+     "uitleg": "Daarna is hij versleten."
+    },
+    {
+     "tekst": "Hij wordt afgebroken, vooral in de milt en de lever.",
+     "uitleg": "Het ijzer gaat terug naar het beenmerg; de rest van de hemoglobine wordt galkleurstof."
+    }
    ]
   },
   {
@@ -56,11 +132,31 @@
    "opdracht": "Je verblijft een paar weken hoog in de bergen. Voorspel wat er gebeurt.",
    "situatie": "Er zit minder zuurstof in je bloed.",
    "rijen": [
-    {"naam": "EPO dat je nieren maken", "antwoord": "+", "uitleg": "Bij weinig zuurstof maken de nieren het hormoon EPO."},
-    {"naam": "Aanmaak van rode bloedcellen in het beenmerg", "antwoord": "+", "uitleg": "EPO zet het beenmerg aan om meer rode bloedcellen te maken."},
-    {"naam": "Aantal rode bloedcellen in je bloed", "antwoord": "+", "uitleg": "Er komen meer cellen bij dan er kapotgaan."},
-    {"naam": "Zuurstof die je bloed kan vervoeren", "antwoord": "+", "uitleg": "Meer rode bloedcellen, meer hemoglobine."},
-    {"naam": "EPO, als er weer genoeg rode bloedcellen zijn", "antwoord": "-", "uitleg": "Dan maken de nieren minder EPO. Zo blijft het aantal gelijk."}
+    {
+     "naam": "EPO dat je nieren maken",
+     "antwoord": "+",
+     "uitleg": "Bij weinig zuurstof maken de nieren het hormoon EPO."
+    },
+    {
+     "naam": "Aanmaak van rode bloedcellen in het beenmerg",
+     "antwoord": "+",
+     "uitleg": "EPO zet het beenmerg aan om meer rode bloedcellen te maken."
+    },
+    {
+     "naam": "Aantal rode bloedcellen in je bloed",
+     "antwoord": "+",
+     "uitleg": "Er komen meer cellen bij dan er kapotgaan."
+    },
+    {
+     "naam": "Zuurstof die je bloed kan vervoeren",
+     "antwoord": "+",
+     "uitleg": "Meer rode bloedcellen, meer hemoglobine."
+    },
+    {
+     "naam": "EPO, als er weer genoeg rode bloedcellen zijn",
+     "antwoord": "-",
+     "uitleg": "Dan maken de nieren minder EPO. Zo blijft het aantal gelijk."
+    }
    ]
   },
   {
@@ -70,10 +166,31 @@
    "titel": "Waarom stolt donorbloed niet?",
    "opdracht": "In een zakje donorbloed van Sanquin zit citraat. Daardoor stolt het bloed niet. Leg uit hoe dat werkt.",
    "begrippen": [
-    {"naam": "cascade", "varianten": ["stollingscascade", "stollingsfactoren"]},
-    {"naam": "calciumionen", "varianten": ["calcium"]},
-    {"naam": "trombine", "varianten": ["protrombine"]},
-    {"naam": "fibrine", "varianten": ["fibrinogeen"]}
+    {
+     "naam": "cascade",
+     "varianten": [
+      "stollingscascade",
+      "stollingsfactoren"
+     ]
+    },
+    {
+     "naam": "calciumionen",
+     "varianten": [
+      "calcium"
+     ]
+    },
+    {
+     "naam": "trombine",
+     "varianten": [
+      "protrombine"
+     ]
+    },
+    {
+     "naam": "fibrine",
+     "varianten": [
+      "fibrinogeen"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat stolling een cascade is van eiwitten die elkaar activeren.",

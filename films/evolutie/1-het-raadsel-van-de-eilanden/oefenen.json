@@ -2,43 +2,54 @@
  "intro": "Oefen met de aanwijzingen van Darwin en Wallace. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-welke-aanwijzing",
-   "soort": "indelen",
-   "titel": "Welke aanwijzing?",
-   "opdracht": "Darwin verzamelde drie aanwijzingen op zijn reis. Bij welke aanwijzing hoort elke waarneming?",
-   "bakken": [
-    {"naam": "1 · De fossielen", "uitleg": "Argentinië, 1832"},
-    {"naam": "2 · De nandoes", "uitleg": "Patagonië"},
-    {"naam": "3 · De Galápagos", "uitleg": "september 1835"}
-   ],
-   "kaartjes": [
-    {"tekst": "Het pantser van een Glyptodon, zo groot als een auto.", "bak": 0, "uitleg": "Een uitgestorven reus, gevonden in een rivieroever."},
-    {"tekst": "Een gordeldier van dertig centimeter, met precies zo'n pantser.", "bak": 0, "uitleg": "Het kleine dier van nu leeft op dezelfde plek als de uitgestorven reus."},
-    {"tekst": "Twee soorten loopvogels die elkaar langs een lijn op de kaart aflossen.", "bak": 1, "uitleg": "Waar de ene soort ophoudt, begint de andere."},
-    {"tekst": "Een kleinere soort met andere veren, verder naar het zuiden.", "bak": 1, "uitleg": "De gauchos vertelden Darwin over Darwins nandoe."},
-    {"tekst": "Spotlijsters die per eiland nét iets anders zijn.", "bak": 2, "uitleg": "Elk eiland zijn eigen variant."},
-    {"tekst": "Aan het schild zie je van welk eiland een reuzenschildpad komt.", "bak": 2, "uitleg": "Dat vertelde de gouverneur aan Darwin."},
-    {"tekst": "De eilanddieren lijken op die van het vasteland, duizend kilometer verderop.", "bak": 2, "uitleg": "Niet op dieren van andere tropische eilanden met hetzelfde klimaat."},
-    {"tekst": "Botten van een luiaard ter grootte van een olifant.", "bak": 0, "uitleg": "Ook een uitgestorven reus, met een kleine luiaard van nu als familie."}
-   ]
-  },
-  {
    "id": "indelen-wat-voorspelt-het-idee",
    "soort": "indelen",
    "titel": "Welk idee voorspelt dit?",
    "opdracht": "Een goed idee voorspelt wat je zult zien. Welk idee voorspelt elke uitspraak?",
    "bakken": [
-    {"naam": "Soorten veranderen niet", "uitleg": "elke soort apart gemaakt"},
-    {"naam": "Het klimaat bepaalt de vorm"},
-    {"naam": "Afstamming", "uitleg": "gemeenschappelijke voorouder"}
+    {
+     "naam": "Soorten veranderen niet",
+     "uitleg": "elke soort apart gemaakt"
+    },
+    {
+     "naam": "Het klimaat bepaalt de vorm"
+    },
+    {
+     "naam": "Afstamming",
+     "uitleg": "gemeenschappelijke voorouder"
+    }
    ],
    "kaartjes": [
-    {"tekst": "De plek van een fossiel zegt niets over de dieren die daar nu leven.", "bak": 0, "uitleg": "Als soorten los van elkaar gemaakt zijn, voorspelt de plek niets."},
-    {"tekst": "Galápagos-dieren lijken op dieren van andere tropische eilanden.", "bak": 1, "uitleg": "Hetzelfde klimaat zou dezelfde vormen geven. Dat zag Darwin niet."},
-    {"tekst": "Galápagos-dieren lijken op dieren van het vasteland waar ze vandaan kwamen.", "bak": 2, "uitleg": "Ze zijn ooit overgewaaid en daarna op elk eiland een eigen kant op gegaan."},
-    {"tekst": "Een uitgestorven reus lijkt op het kleine dier dat er nu leeft.", "bak": 2, "uitleg": "Ze lijken op elkaar omdat ze familie zijn."},
-    {"tekst": "Op twee eilanden met hetzelfde klimaat leven dezelfde soort dieren.", "bak": 1, "uitleg": "Dat voorspelt het klimaat-idee, maar bij Bali en Lombok klopt het niet."},
-    {"tekst": "Overeenkomsten tussen soorten op dezelfde plek zijn toeval.", "bak": 0, "uitleg": "Drie keer hetzelfde toeval op drie plekken is geen verklaring meer."}
+    {
+     "tekst": "De plek van een fossiel zegt niets over de dieren die daar nu leven.",
+     "bak": 0,
+     "uitleg": "Als soorten los van elkaar gemaakt zijn, voorspelt de plek niets."
+    },
+    {
+     "tekst": "Galápagos-dieren lijken op dieren van andere tropische eilanden.",
+     "bak": 1,
+     "uitleg": "Hetzelfde klimaat zou dezelfde vormen geven. Dat zag Darwin niet."
+    },
+    {
+     "tekst": "Galápagos-dieren lijken op dieren van het vasteland waar ze vandaan kwamen.",
+     "bak": 2,
+     "uitleg": "Ze zijn ooit overgewaaid en daarna op elk eiland een eigen kant op gegaan."
+    },
+    {
+     "tekst": "Een uitgestorven reus lijkt op het kleine dier dat er nu leeft.",
+     "bak": 2,
+     "uitleg": "Ze lijken op elkaar omdat ze familie zijn."
+    },
+    {
+     "tekst": "Op twee eilanden met hetzelfde klimaat leven dezelfde soort dieren.",
+     "bak": 1,
+     "uitleg": "Dat voorspelt het klimaat-idee, maar bij Bali en Lombok klopt het niet."
+    },
+    {
+     "tekst": "Welke soorten op een eiland leven, heeft niets te maken met welk land het dichtst bij ligt.",
+     "bak": 0,
+     "uitleg": "Als elke soort apart gemaakt is en niet verandert, verwacht je geen verband met de buren. Darwin zag dat verband juist wel."
+    }
    ]
   },
   {
@@ -47,12 +58,30 @@
    "titel": "Van de Beagle tot het boek",
    "opdracht": "Zet de gebeurtenissen uit de film in de goede volgorde.",
    "stappen": [
-    {"tekst": "Darwin vertrekt op de Beagle om kevers te verzamelen.", "uitleg": "December 1831. Hij is 22 jaar."},
-    {"tekst": "Darwin vindt in Argentinië botten van uitgestorven reuzen.", "uitleg": "1832: Glyptodon en een reuzenluiaard."},
-    {"tekst": "Darwin vangt spotlijsters op de Galápagos.", "uitleg": "September 1835."},
-    {"tekst": "Darwin tekent een vertakkende lijn en schrijft erboven: I think.", "uitleg": "Engeland, 1837."},
-    {"tekst": "Wallace schrijft met koorts op Ternate zijn idee op en stuurt het naar Darwin.", "uitleg": "1858, na twintig jaar stilte van Darwin."},
-    {"tekst": "On the Origin of Species verschijnt.", "uitleg": "1859, een jaar nadat de teksten van Darwin en Wallace samen zijn voorgelezen."}
+    {
+     "tekst": "Darwin vertrekt op de Beagle om kevers te verzamelen.",
+     "uitleg": "December 1831. Hij is 22 jaar."
+    },
+    {
+     "tekst": "Darwin vindt in Argentinië botten van uitgestorven reuzen.",
+     "uitleg": "1832: Glyptodon en een reuzenluiaard."
+    },
+    {
+     "tekst": "Darwin vangt spotlijsters op de Galápagos.",
+     "uitleg": "September 1835."
+    },
+    {
+     "tekst": "Darwin tekent een vertakkende lijn en schrijft erboven: I think.",
+     "uitleg": "Engeland, 1837."
+    },
+    {
+     "tekst": "Wallace schrijft met koorts op Ternate zijn idee op en stuurt het naar Darwin.",
+     "uitleg": "1858, na twintig jaar stilte van Darwin."
+    },
+    {
+     "tekst": "On the Origin of Species verschijnt.",
+     "uitleg": "1859, een jaar nadat de teksten van Darwin en Wallace samen zijn voorgelezen."
+    }
    ]
   },
   {
@@ -61,11 +90,37 @@
    "titel": "Net niet helemaal hetzelfde",
    "opdracht": "De spotlijsters op de Galápagos lijken op die van het Zuid-Amerikaanse vasteland, maar ze zijn net anders. En op elk eiland zijn ze weer nét iets anders. Leg uit hoe Darwin dat verklaarde.",
    "begrippen": [
-    {"naam": "gemeenschappelijke voorouder", "varianten": ["voorouder"]},
-    {"naam": "afstamming", "varianten": ["afstammen", "stammen af"]},
-    {"naam": "vasteland", "varianten": ["Zuid-Amerika"]},
-    {"naam": "klimaat", "varianten": []},
-    {"naam": "soorten veranderen", "varianten": ["veranderen", "verandering", "evolutie"]}
+    {
+     "naam": "gemeenschappelijke voorouder",
+     "varianten": [
+      "voorouder"
+     ]
+    },
+    {
+     "naam": "afstamming",
+     "varianten": [
+      "afstammen",
+      "stammen af"
+     ]
+    },
+    {
+     "naam": "vasteland",
+     "varianten": [
+      "Zuid-Amerika"
+     ]
+    },
+    {
+     "naam": "klimaat",
+     "varianten": []
+    },
+    {
+     "naam": "soorten veranderen",
+     "varianten": [
+      "veranderen",
+      "verandering",
+      "evolutie"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat de spotlijsters lijken op die van het vasteland omdat ze daar vandaan komen.",

@@ -89,48 +89,60 @@
    ]
   },
   {
-   "id": "indelen-vrouwtje-mannetje",
+   "id": "indelen-wie-kiest",
    "soort": "indelen",
-   "titel": "Wie investeert het meest?",
-   "opdracht": "Past elk kenmerk bij veel diersoorten vooral bij het vrouwtje of vooral bij het mannetje?",
+   "titel": "Wie kiest, wie concurreert?",
+   "opdracht": "Wie het meest investeert in elk jong, is meestal kieskeurig. De andere sekse moet opvallen of vechten. Kiest dit dier vooral, of concurreert het om partners? Let op: soms is het andersom dan je gewend bent.",
    "bakken": [
     {
-     "naam": "Vaak het vrouwtje"
+     "naam": "Kiest de partner",
+     "uitleg": "investeert het meest"
     },
     {
-     "naam": "Vaak het mannetje"
+     "naam": "Concurreert om partners",
+     "uitleg": "vecht of showt"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Maakt weinig geslachtscellen, groot en kostbaar.",
+     "tekst": "Een pauwhen: legt de eieren, broedt en zorgt alleen voor de kuikens.",
      "bak": 0,
-     "uitleg": "Eicellen zijn groot en er zijn er weinig."
+     "uitleg": "Zij investeert het meest. Een slechte keuze is voor haar duur."
     },
     {
-     "tekst": "Maakt miljoenen kleine geslachtscellen.",
+     "tekst": "Een widavogelvrouwtje: bouwt het nest en voedt de jongen.",
+     "bak": 0,
+     "uitleg": "Veel zorg per jong, dus kieskeurig. Zij kiest op staartlengte."
+    },
+    {
+     "tekst": "Een franjepootmannetje: broedt de eieren uit en zorgt alleen voor de jongen.",
+     "bak": 0,
+     "uitleg": "Hier investeert het mannetje het meest, dus kiest hij. Het principe is hetzelfde, alleen de rollen zijn omgedraaid."
+    },
+    {
+     "tekst": "Een zeenaaldmannetje: draagt de eitjes in een buidel tot ze uitkomen.",
+     "bak": 0,
+     "uitleg": "Hij kan maar één legsel tegelijk dragen. Zijn investering is groot, dus is hij kieskeurig."
+    },
+    {
+     "tekst": "Een edelhertmannetje: maakt miljoenen zaadcellen en zorgt niet voor de jongen.",
      "bak": 1,
-     "uitleg": "Zaadcellen zijn klein en goedkoop."
+     "uitleg": "Weinig investering per jong: meer partners levert meer jongen op. Hij vecht met zijn gewei."
     },
     {
-     "tekst": "Broedt, draagt of zoogt de jongen.",
-     "bak": 0,
-     "uitleg": "Vaak zorgt het vrouwtje na de bevruchting ook nog voor de jongen."
-    },
-    {
-     "tekst": "Investeert meer in elk jong.",
-     "bak": 0,
-     "uitleg": "Grote eicel en vaak ook de zorg: een slechte keuze is voor haar duur."
-    },
-    {
-     "tekst": "Is kieskeurig bij het kiezen van een partner.",
-     "bak": 0,
-     "uitleg": "Wie meer investeert, kiest kritischer."
-    },
-    {
-     "tekst": "Moet opvallen, door te vechten of te showen.",
+     "tekst": "Een franjepootvrouwtje: legt de eieren en vertrekt. Ze is feller gekleurd dan het mannetje.",
      "bak": 1,
-     "uitleg": "Zoals edelherten met hun gewei en de pauw met zijn staart."
+     "uitleg": "Zij investeert minder dan het mannetje. Daarom concurreert zij, en is zij het opvallende dier."
+    },
+    {
+     "tekst": "Een jacanavrouwtje: verdedigt een gebied met een paar mannetjes, die elk een legsel uitbroeden.",
+     "bak": 1,
+     "uitleg": "De mannetjes broeden, dus zijn zij schaars. De vrouwtjes vechten om ze."
+    },
+    {
+     "tekst": "Een zeenaaldvrouwtje: geeft haar eitjes af aan het mannetje en zorgt verder niet.",
+     "bak": 1,
+     "uitleg": "Zij kan sneller opnieuw eitjes afgeven dan een mannetje ze kan dragen. Daarom concurreren de vrouwtjes."
     }
    ]
   },

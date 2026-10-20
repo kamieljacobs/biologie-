@@ -4,60 +4,6 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-kolonie",
-   "soort": "indelen",
-   "titel": "Wie doet wat?",
-   "opdracht": "Bij wie in de mierenkolonie hoort elke beschrijving?",
-   "bakken": [
-    {
-     "naam": "Koningin"
-    },
-    {
-     "naam": "Werksters"
-    },
-    {
-     "naam": "Mannetjes"
-    }
-   ],
-   "kaartjes": [
-    {
-     "tekst": "Legt de eitjes.",
-     "bak": 0,
-     "uitleg": "Dat is haar taak."
-    },
-    {
-     "tekst": "Geeft geen bevelen, en weet niet wat er buiten gebeurt.",
-     "bak": 0,
-     "uitleg": "De kolonie heeft een koningin, maar geen baas."
-    },
-    {
-     "tekst": "Vrouwtjes die zelf meestal geen eitjes leggen.",
-     "bak": 1,
-     "uitleg": "Dat zijn de werksters, vaak duizenden."
-    },
-    {
-     "tekst": "Verzorgen eitjes, larven en poppen. Vaak de jongere.",
-     "bak": 1,
-     "uitleg": "Jonge werksters blijven vaak binnen."
-    },
-    {
-     "tekst": "Zoeken voedsel en verdedigen het nest. Vaak de oudere.",
-     "bak": 1,
-     "uitleg": "Buiten is gevaarlijk werk, dat doen vooral oudere werksters."
-    },
-    {
-     "tekst": "Zijn er alleen in een bepaalde tijd van het jaar.",
-     "bak": 2,
-     "uitleg": "Mannetjes zijn er niet altijd."
-    },
-    {
-     "tekst": "Zijn er om te paren.",
-     "bak": 2,
-     "uitleg": "Dat is de rol van de mannetjes."
-    }
-   ]
-  },
-  {
    "id": "volgorde-geurspoor",
    "soort": "volgorde",
    "titel": "Een spoor van geur",

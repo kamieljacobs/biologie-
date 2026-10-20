@@ -5,22 +5,66 @@
    "id": "indelen-soort-overerving",
    "soort": "indelen",
    "titel": "Welke soort overerving?",
-   "opdracht": "Bij elk voorbeeld past één soort overerving uit de film. Sleep het naar de goede groep.",
+   "opdracht": "Bij elke uitkomst past één soort overerving. Sleep hem naar de goede groep.",
    "bakken": [
-    {"naam": "Intermediair", "uitleg": "de heterozygoot zit ertussenin"},
-    {"naam": "Codominant", "uitleg": "beide allelen volledig zichtbaar"},
-    {"naam": "Letale factor", "uitleg": "één genotype overleeft niet"},
-    {"naam": "Polygeen", "uitleg": "veel genen samen, vloeiende reeks"}
+    {
+     "naam": "Intermediair",
+     "uitleg": "de heterozygoot zit ertussenin"
+    },
+    {
+     "naam": "Codominant",
+     "uitleg": "beide allelen volledig zichtbaar"
+    },
+    {
+     "naam": "Letale factor",
+     "uitleg": "één genotype overleeft niet"
+    },
+    {
+     "naam": "Polygeen",
+     "uitleg": "veel genen samen, vloeiende reeks"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Rode × witte leeuwenbek geeft alleen roze nakomelingen.", "bak": 0, "uitleg": "RW maakt half zoveel pigment: roze ligt tussen rood en wit."},
-    {"tekst": "Roze × roze geeft 1 rood : 2 roze : 1 wit.", "bak": 0, "uitleg": "Bij intermediair zie je het genotype direct aan het fenotype."},
-    {"tekst": "Iemand met IᴬIᴮ heeft antigeen A én antigeen B op zijn rode bloedcellen.", "bak": 1, "uitleg": "Beide enzymen werken: bloedgroep AB."},
-    {"tekst": "Twee gele muizen krijgen 2 gele op 1 grijze jongen.", "bak": 2, "uitleg": "YY-embryo's ontwikkelen zich niet: 3 : 1 wordt 2 : 1."},
-    {"tekst": "Een allel is dominant voor de kleur, maar in dubbele dosis dodelijk.", "bak": 2, "uitleg": "Dat is precies wat een letale factor doet."},
-    {"tekst": "Lichaamslengte van mensen vormt een klokvormige verdeling.", "bak": 3, "uitleg": "Heel veel genen tellen op, en het milieu doet er iets bij."},
-    {"tekst": "Met drie genen zie je al zeven groepen.", "bak": 3, "uitleg": "Hoe meer genen, hoe meer groepen, tot een vloeiende reeks."},
-    {"tekst": "Bij bloedgroep AB komen beide allelen volledig tot uiting.", "bak": 1, "uitleg": "Dat is de definitie van codominantie."}
+    {
+     "tekst": "Rode × witte leeuwenbek geeft alleen roze nakomelingen.",
+     "bak": 0,
+     "uitleg": "RW maakt half zoveel pigment: roze ligt tussen rood en wit."
+    },
+    {
+     "tekst": "Roze × roze geeft 1 rood : 2 roze : 1 wit.",
+     "bak": 0,
+     "uitleg": "Bij intermediair zie je het genotype direct aan het fenotype."
+    },
+    {
+     "tekst": "Iemand met IᴬIᴮ heeft antigeen A én antigeen B op zijn rode bloedcellen.",
+     "bak": 1,
+     "uitleg": "Beide allelen maken hun eigen enzym: bloedgroep AB."
+    },
+    {
+     "tekst": "Een zwarte × witte kip geeft kuikens met zwarte én witte veren door elkaar.",
+     "bak": 1,
+     "uitleg": "Geen grijze mengkleur: elk allel is volledig te zien, naast elkaar. Grijs zou intermediair zijn."
+    },
+    {
+     "tekst": "Twee gele muizen krijgen 2 gele op 1 grijze jongen.",
+     "bak": 2,
+     "uitleg": "YY-embryo's ontwikkelen zich niet: 3 : 1 wordt 2 : 1."
+    },
+    {
+     "tekst": "Twee katten zonder staart krijgen 2 jongen zonder staart op 1 met staart.",
+     "bak": 2,
+     "uitleg": "Weer 2 : 1 in plaats van 3 : 1. De homozygote jongen zonder staart sterven al vóór de geboorte."
+    },
+    {
+     "tekst": "Lichaamslengte van mensen vormt een klokvormige verdeling.",
+     "bak": 3,
+     "uitleg": "Heel veel genen tellen op, en het milieu doet er iets bij."
+    },
+    {
+     "tekst": "Huidskleur van mensen loopt in kleine stapjes van heel licht naar heel donker.",
+     "bak": 3,
+     "uitleg": "Geen paar duidelijke groepen, maar een vloeiende reeks: veel genen samen."
+    }
    ]
   },
   {
@@ -31,32 +75,79 @@
    "stappen": [
     {
      "vraag": "Wat is het genotype van het kind met bloedgroep O?",
-     "velden": [{"label": "genotype kind:", "antwoord": ["ii"], "hoofdletters": true}],
+     "velden": [
+      {
+       "label": "genotype kind:",
+       "antwoord": [
+        "ii"
+       ],
+       "hoofdletters": true
+      }
+     ],
      "uitleg": "Bloedgroep O betekent: geen antigeen A en geen antigeen B. Dat kan alleen met twee keer het allel i.",
      "tip": "Welk allel levert een enzym dat niet werkt?"
     },
     {
      "vraag": "Welk allel kreeg het kind van zijn moeder?",
-     "velden": [{"label": "allel:", "antwoord": ["i"], "hoofdletters": true, "breed": 4}],
+     "velden": [
+      {
+       "label": "allel:",
+       "antwoord": [
+        "i"
+       ],
+       "hoofdletters": true,
+       "breed": 4
+      }
+     ],
      "uitleg": "Elk kind krijgt één allel van elke ouder. Het kind is ii, dus van beide ouders een i."
     },
     {
      "vraag": "Wat is dan het genotype van de moeder en van de vader?",
      "velden": [
-      {"label": "moeder:", "antwoord": ["IAi", "iIA", "Iᴬi", "iIᴬ"], "hoofdletters": true},
-      {"label": "vader:", "antwoord": ["IBi", "iIB", "Iᴮi", "iIᴮ"], "hoofdletters": true}
+      {
+       "label": "moeder:",
+       "antwoord": [
+        "IAi",
+        "iIA",
+        "Iᴬi",
+        "iIᴬ"
+       ],
+       "hoofdletters": true
+      },
+      {
+       "label": "vader:",
+       "antwoord": [
+        "IBi",
+        "iIB",
+        "Iᴮi",
+        "iIᴮ"
+       ],
+       "hoofdletters": true
+      }
      ],
      "uitleg": "De moeder heeft bloedgroep A en een i: Iᴬi. De vader heeft bloedgroep B en een i: Iᴮi. Met IᴬIᴬ of IᴮIᴮ had het kind nooit O kunnen worden."
     },
     {
      "vraag": "Hoe groot is bij deze ouders de kans op een kind met bloedgroep O?",
-     "velden": [{"label": "kans:", "antwoord": 0.25, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.25,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "Elke ouder geeft met kans ½ een i door: ½ × ½ = ¼.",
      "tip": "Je mag een breuk typen, zoals 1/4."
     },
     {
      "vraag": "En de kans op een kind met bloedgroep AB?",
-     "velden": [{"label": "kans:", "antwoord": 0.25, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.25,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "Iᴬ van moeder (½) en Iᴮ van vader (½): ¼. Bij deze ouders zijn A, B, AB en O alle vier even waarschijnlijk."
     }
    ]
@@ -69,22 +160,49 @@
    "stappen": [
     {
      "vraag": "Wat is het genotype van een roze plant?",
-     "velden": [{"label": "genotype:", "antwoord": ["RW", "WR"], "hoofdletters": true}],
+     "velden": [
+      {
+       "label": "genotype:",
+       "antwoord": [
+        "RW",
+        "WR"
+       ],
+       "hoofdletters": true
+      }
+     ],
      "uitleg": "Roze ligt tussen rood (RR) en wit (WW): de heterozygoot, RW."
     },
     {
      "vraag": "Welk deel van de nakomelingen is naar verwachting roze?",
-     "velden": [{"label": "deel:", "antwoord": 0.5, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "deel:",
+       "antwoord": 0.5,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "RW × RW geeft 1 RR : 2 RW : 1 WW. Twee van de vier vakjes zijn RW: de helft."
     },
     {
      "vraag": "Hoeveel van de 200 nakomelingen verwacht je met witte bloemen?",
-     "velden": [{"label": "wit:", "antwoord": 50, "eenheid": "planten"}],
+     "velden": [
+      {
+       "label": "wit:",
+       "antwoord": 50,
+       "eenheid": "planten"
+      }
+     ],
      "uitleg": "Een kwart is WW: ¼ × 200 = 50."
     },
     {
      "vraag": "Je kruist een roze plant met een witte. Welk deel van de nakomelingen is roze?",
-     "velden": [{"label": "deel:", "antwoord": 0.5, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "deel:",
+       "antwoord": 0.5,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "RW × WW: de witte plant geeft altijd W. De helft krijgt R van de roze ouder (RW, roze), de helft W (WW, wit)."
     }
    ]
@@ -95,11 +213,38 @@
    "titel": "Waar is de rest gebleven?",
    "opdracht": "Je kruist steeds twee gele muizen. Je verwacht drie gele op één grijze, maar je telt twee gele op één grijze. Leg uit hoe dat komt.",
    "begrippen": [
-    {"naam": "letale factor", "varianten": ["letaal", "dodelijk"]},
-    {"naam": "dominant", "varianten": []},
-    {"naam": "homozygoot", "varianten": ["YY", "twee gele allelen"]},
-    {"naam": "embryo", "varianten": ["embryo's"]},
-    {"naam": "kruisingsschema", "varianten": ["vakje", "vakjes", "schema"]}
+    {
+     "naam": "letale factor",
+     "varianten": [
+      "letaal",
+      "dodelijk"
+     ]
+    },
+    {
+     "naam": "dominant",
+     "varianten": []
+    },
+    {
+     "naam": "homozygoot",
+     "varianten": [
+      "YY",
+      "twee gele allelen"
+     ]
+    },
+    {
+     "naam": "embryo",
+     "varianten": [
+      "embryo's"
+     ]
+    },
+    {
+     "naam": "kruisingsschema",
+     "varianten": [
+      "vakje",
+      "vakjes",
+      "schema"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat gele muizen heterozygoot zijn (Yy), want ze krijgen grijze jongen.",
@@ -119,10 +264,32 @@
    "titel": "Is lengte erfelijk?",
    "opdracht": "Een klasgenoot zegt: 'Lengte is niet erfelijk, want je ziet geen duidelijke groepen zoals bij erwten.' Leg uit waarom dat niet klopt.",
    "begrippen": [
-    {"naam": "polygeen", "varianten": ["polygene", "veel genen"]},
-    {"naam": "Mendel", "varianten": []},
-    {"naam": "milieu", "varianten": ["voeding", "gezondheid", "omgeving"]},
-    {"naam": "normale verdeling", "varianten": ["klokvorm", "vloeiende reeks"]}
+    {
+     "naam": "polygeen",
+     "varianten": [
+      "polygene",
+      "veel genen"
+     ]
+    },
+    {
+     "naam": "Mendel",
+     "varianten": []
+    },
+    {
+     "naam": "milieu",
+     "varianten": [
+      "voeding",
+      "gezondheid",
+      "omgeving"
+     ]
+    },
+    {
+     "naam": "normale verdeling",
+     "varianten": [
+      "klokvorm",
+      "vloeiende reeks"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat lengte door heel veel genen tegelijk wordt beïnvloed: polygene overerving.",

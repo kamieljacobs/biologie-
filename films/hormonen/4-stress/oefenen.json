@@ -7,7 +7,7 @@
    "id": "indelen-adrenaline-cortisol",
    "soort": "indelen",
    "titel": "Adrenaline of cortisol?",
-   "opdracht": "Past elk kenmerk bij adrenaline of bij cortisol?",
+   "opdracht": "Past elk kenmerk of elke situatie bij adrenaline of bij cortisol?",
    "bakken": [
     {
      "naam": "Adrenaline",
@@ -25,14 +25,19 @@
      "uitleg": "Het merg zit binnenin de bijnier."
     },
     {
-     "tekst": "Gemaakt in de bijnierschors.",
-     "bak": 1,
-     "uitleg": "De schors ligt om het merg heen."
+     "tekst": "Ligt al klaar in blaasjes; binnen seconden in je bloed.",
+     "bak": 0,
+     "uitleg": "Het merg heeft een voorraad."
     },
     {
-     "tekst": "De klier wordt aangezet door een zenuw.",
+     "tekst": "Een hond blaft opeens vlak naast je. Binnen een paar seconden bonkt je hart.",
      "bak": 0,
-     "uitleg": "Het orthosympathische zenuwstelsel zet het merg direct aan."
+     "uitleg": "Zo snel kan alleen adrenaline: een zenuw zet het merg direct aan."
+    },
+    {
+     "tekst": "Je moet een spreekbeurt houden. Vlak voor je begint, trillen je handen.",
+     "bak": 0,
+     "uitleg": "Een korte, snelle reactie op spanning: adrenaline."
     },
     {
      "tekst": "De klier wordt aangezet door ACTH van de hypofyse.",
@@ -40,24 +45,19 @@
      "uitleg": "Twee extra stappen: daarom trager."
     },
     {
-     "tekst": "Ligt al klaar in blaasjes; binnen seconden in je bloed.",
-     "bak": 0,
-     "uitleg": "Het merg heeft een voorraad."
-    },
-    {
-     "tekst": "Het hoogst na twintig minuten tot een half uur.",
+     "tekst": "Drie weken examenstress: de hele dag zit er meer van in je bloed.",
      "bak": 1,
-     "uitleg": "De schors moet cortisol eerst nog maken."
+     "uitleg": "Bij stress die lang duurt, blijft de langzame route aanstaan."
     },
     {
-     "tekst": "Laat je hart bonken bij een schrik.",
-     "bak": 0,
-     "uitleg": "Dat doet adrenaline, niet cortisol."
-    },
-    {
-     "tekst": "Laat je lever nieuwe glucose maken, en remt je afweer.",
+     "tekst": "Laat je lever nieuwe glucose maken, onder andere uit aminozuren.",
      "bak": 1,
-     "uitleg": "Cortisol maakt glucose uit onder andere aminozuren, en remt afweer en ontstekingen."
+     "uitleg": "Zo houdt cortisol je bloedsuiker op peil als de stress lang duurt."
+    },
+    {
+     "tekst": "Na een lange, drukke periode word je sneller verkouden.",
+     "bak": 1,
+     "uitleg": "Cortisol remt je afweer. Duurt de stress lang, dan krijgen ziekteverwekkers meer kans."
     }
    ]
   },

@@ -7,19 +7,60 @@
    "titel": "Welke manier van leren?",
    "opdracht": "Deel elk voorbeeld in bij de manier van leren die erbij past.",
    "bakken": [
-    {"naam": "Gewenning", "uitleg": "niet meer reageren op een prikkel zonder gevolgen"},
-    {"naam": "Klassieke conditionering", "uitleg": "twee prikkels worden gekoppeld"},
-    {"naam": "Operante conditionering", "uitleg": "gedrag wordt gekoppeld aan een gevolg"}
+    {
+     "naam": "Gewenning",
+     "uitleg": "niet meer reageren op een prikkel zonder gevolgen"
+    },
+    {
+     "naam": "Klassieke conditionering",
+     "uitleg": "twee prikkels worden gekoppeld"
+    },
+    {
+     "naam": "Operante conditionering",
+     "uitleg": "gedrag wordt gekoppeld aan een gevolg"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Na een week hoor je het tikken van de klok in je nieuwe kamer niet meer.", "bak": 0, "uitleg": "De prikkel komt steeds terug en heeft geen gevolgen."},
-    {"tekst": "Een zeehaas trekt zijn sifon steeds minder in als je er steeds zachtjes tegen tikt.", "bak": 0, "uitleg": "Het voorbeeld uit de film: de reactie wordt zwakker zonder dat er iets gebeurt."},
-    {"tekst": "Een hond kwijlt al als hij de metronoom hoort die altijd bij het eten tikte.", "bak": 1, "uitleg": "Pavlov: het geluid is gekoppeld aan het eten."},
-    {"tekst": "Je krijgt buikpijn als je alleen al het restaurant ziet waar je ooit ziek werd.", "bak": 1, "uitleg": "De plek (eerst neutraal) is gekoppeld aan het ziek worden."},
-    {"tekst": "Een rat drukt steeds vaker op de hendel omdat er dan voer uit valt.", "bak": 2, "uitleg": "Skinner: het gedrag (drukken) wordt bekrachtigd door het gevolg (voer)."},
-    {"tekst": "Je pakt je telefoon bij elk trilletje, omdat er soms iets leuks op staat.", "bak": 2, "uitleg": "Het gedrag (kijken) wordt af en toe beloond."},
-    {"tekst": "Een kind steekt vaker zijn vinger op sinds de juf hem ervoor prijst.", "bak": 2, "uitleg": "Gedrag met een prettig gevolg neemt toe: bekrachtiging."},
-    {"tekst": "Je kat rent naar de keuken als hij het blikopenergeluid hoort.", "bak": 1, "uitleg": "Het geluid is gekoppeld aan eten, net als bij Pavlov."}
+    {
+     "tekst": "Na een week hoor je het tikken van de klok in je nieuwe kamer niet meer.",
+     "bak": 0,
+     "uitleg": "De prikkel komt steeds terug en heeft geen gevolgen."
+    },
+    {
+     "tekst": "Een zeehaas trekt zijn sifon steeds minder in als je er steeds zachtjes tegen tikt.",
+     "bak": 0,
+     "uitleg": "Het voorbeeld uit de film: de reactie wordt zwakker zonder dat er iets gebeurt."
+    },
+    {
+     "tekst": "Een hond kwijlt al als hij de metronoom hoort die altijd bij het eten tikte.",
+     "bak": 1,
+     "uitleg": "Pavlov: het geluid is gekoppeld aan het eten."
+    },
+    {
+     "tekst": "Je krijgt buikpijn als je alleen al het restaurant ziet waar je ooit ziek werd.",
+     "bak": 1,
+     "uitleg": "De plek (eerst neutraal) is gekoppeld aan het ziek worden."
+    },
+    {
+     "tekst": "Een rat drukt steeds vaker op de hendel omdat er dan voer uit valt.",
+     "bak": 2,
+     "uitleg": "Skinner: het gedrag (drukken) wordt bekrachtigd door het gevolg (voer)."
+    },
+    {
+     "tekst": "Je pakt je telefoon bij elk trilletje, omdat er soms iets leuks op staat.",
+     "bak": 2,
+     "uitleg": "Het gedrag (kijken) wordt af en toe beloond."
+    },
+    {
+     "tekst": "Een kind steekt vaker zijn vinger op sinds de juf hem ervoor prijst.",
+     "bak": 2,
+     "uitleg": "Gedrag met een prettig gevolg neemt toe: bekrachtiging."
+    },
+    {
+     "tekst": "Je kat rent naar de keuken als hij het blikopenergeluid hoort.",
+     "bak": 1,
+     "uitleg": "Het geluid is gekoppeld aan eten, net als bij Pavlov."
+    }
    ]
   },
   {
@@ -28,16 +69,113 @@
    "titel": "Vaker of minder vaak?",
    "opdracht": "Bij operante conditionering bepaalt het gevolg of gedrag vaker of minder vaak voorkomt. Is elk gevolg een bekrachtiging of een straf?",
    "bakken": [
-    {"naam": "Bekrachtiging", "uitleg": "gedrag komt vaker voor"},
-    {"naam": "Straf", "uitleg": "gedrag komt minder vaak voor"}
+    {
+     "naam": "Bekrachtiging",
+     "uitleg": "gedrag komt vaker voor"
+    },
+    {
+     "naam": "Straf",
+     "uitleg": "gedrag komt minder vaak voor"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Een rat krijgt een voerkorrel als hij op de hendel drukt.", "bak": 0, "uitleg": "Iets prettigs volgt: het drukken neemt toe."},
-    {"tekst": "Je verveling stopt zodra je je telefoon pakt.", "bak": 0, "uitleg": "Iets vervelends houdt op. Ook dat maakt gedrag vaker, dus ook bekrachtiging."},
-    {"tekst": "Je krijgt een boete als je door rood fietst.", "bak": 1, "uitleg": "Een onprettig gevolg: het gedrag neemt af."},
-    {"tekst": "Een hond krijgt een snoepje als hij gaat zitten.", "bak": 0, "uitleg": "Het zitten wordt beloond en neemt toe."},
-    {"tekst": "Je brandt je hand aan een hete pan.", "bak": 1, "uitleg": "Pijn maakt de kans kleiner dat je de pan weer zo pakt."},
-    {"tekst": "Na een grap in de groepsapp krijg je tien hartjes.", "bak": 0, "uitleg": "Een prettig gevolg: je gaat vaker grappen sturen."}
+    {
+     "tekst": "Een rat krijgt een voerkorrel als hij op de hendel drukt.",
+     "bak": 0,
+     "uitleg": "Iets prettigs volgt: het drukken neemt toe."
+    },
+    {
+     "tekst": "Je verveling stopt zodra je je telefoon pakt.",
+     "bak": 0,
+     "uitleg": "Iets vervelends houdt op. Ook dat maakt gedrag vaker, dus ook bekrachtiging."
+    },
+    {
+     "tekst": "Je krijgt een boete als je door rood fietst.",
+     "bak": 1,
+     "uitleg": "Een onprettig gevolg: het gedrag neemt af."
+    },
+    {
+     "tekst": "Een hond krijgt een snoepje als hij gaat zitten.",
+     "bak": 0,
+     "uitleg": "Het zitten wordt beloond en neemt toe."
+    },
+    {
+     "tekst": "Je brandt je hand aan een hete pan.",
+     "bak": 1,
+     "uitleg": "Pijn maakt de kans kleiner dat je de pan weer zo pakt."
+    },
+    {
+     "tekst": "Na een grap in de groepsapp krijg je tien hartjes.",
+     "bak": 0,
+     "uitleg": "Een prettig gevolg: je gaat vaker grappen sturen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vier-gevolgen",
+   "soort": "indelen",
+   "vwo": true,
+   "titel": "Positief of negatief?",
+   "opdracht": "Positief: er komt iets bij. Negatief: er gaat iets weg. Bekrachtiging maakt gedrag vaker, straf minder vaak. Deel elk gevolg in.",
+   "bakken": [
+    {
+     "naam": "Positieve bekrachtiging",
+     "uitleg": "iets prettigs komt erbij"
+    },
+    {
+     "naam": "Negatieve bekrachtiging",
+     "uitleg": "iets vervelends gaat weg"
+    },
+    {
+     "naam": "Positieve straf",
+     "uitleg": "iets vervelends komt erbij"
+    },
+    {
+     "naam": "Negatieve straf",
+     "uitleg": "iets prettigs gaat weg"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een rat krijgt een voerkorrel als hij op de hendel drukt.",
+     "bak": 0,
+     "uitleg": "Er komt iets prettigs bij, en het drukken neemt toe."
+    },
+    {
+     "tekst": "Na een grap in de groepsapp krijg je tien hartjes.",
+     "bak": 0,
+     "uitleg": "Iets prettigs komt erbij: je stuurt vaker grappen."
+    },
+    {
+     "tekst": "Je verveling stopt zodra je je telefoon pakt.",
+     "bak": 1,
+     "uitleg": "Iets vervelends gaat weg. Het pakken neemt toe, dus bekrachtiging."
+    },
+    {
+     "tekst": "Je drukt op snooze en het piepen van de wekker stopt.",
+     "bak": 1,
+     "uitleg": "Het vervelende geluid verdwijnt: je drukt de volgende keer weer op snooze."
+    },
+    {
+     "tekst": "Je brandt je hand aan een hete pan.",
+     "bak": 2,
+     "uitleg": "Er komt pijn bij: je pakt de pan minder snel zo vast."
+    },
+    {
+     "tekst": "Een hond krijgt een harde 'nee!' als hij op de bank springt.",
+     "bak": 2,
+     "uitleg": "Er komt iets onprettigs bij, het springen neemt af."
+    },
+    {
+     "tekst": "Je krijgt een boete als je door rood fietst.",
+     "bak": 3,
+     "uitleg": "Er gaat iets weg: je geld. Het door rood fietsen neemt af. Negatief betekent hier weghalen, niet 'slecht'."
+    },
+    {
+     "tekst": "Je moet je telefoon een avond inleveren, omdat je te laat thuis was.",
+     "bak": 3,
+     "uitleg": "Iets prettigs wordt afgepakt, zodat je minder vaak te laat komt."
+    }
    ]
   },
   {
@@ -46,11 +184,26 @@
    "titel": "De hond van Pavlov",
    "opdracht": "Zet de stappen van Pavlovs proef in de goede volgorde.",
    "stappen": [
-    {"tekst": "De hond krijgt eten en kwijlt: een aangeboren reflex.", "uitleg": "Het eten is de onvoorwaardelijke prikkel, het kwijlen de onvoorwaardelijke reflex."},
-    {"tekst": "De metronoom tikt, de hond reageert niet met kwijlen.", "uitleg": "Het tikken is nog een neutrale prikkel."},
-    {"tekst": "Steeds opnieuw tikt de metronoom vlak voor het eten.", "uitleg": "De twee prikkels komen vaak samen voor."},
-    {"tekst": "De hond kwijlt al bij het tikken, zonder eten.", "uitleg": "Het tikken is nu een voorwaardelijke prikkel."},
-    {"tekst": "Het tikken komt steeds zonder eten, het kwijlen wordt minder.", "uitleg": "Uitdoving. De koppeling is niet gewist: later kan het kwijlen snel terugkomen."}
+    {
+     "tekst": "De hond krijgt eten en kwijlt: een aangeboren reflex.",
+     "uitleg": "Het eten is de onvoorwaardelijke prikkel, het kwijlen de onvoorwaardelijke reflex."
+    },
+    {
+     "tekst": "De metronoom tikt, de hond reageert niet met kwijlen.",
+     "uitleg": "Het tikken is nog een neutrale prikkel."
+    },
+    {
+     "tekst": "Steeds opnieuw tikt de metronoom vlak voor het eten.",
+     "uitleg": "De twee prikkels komen vaak samen voor."
+    },
+    {
+     "tekst": "De hond kwijlt al bij het tikken, zonder eten.",
+     "uitleg": "Het tikken is nu een voorwaardelijke prikkel."
+    },
+    {
+     "tekst": "Het tikken komt steeds zonder eten, het kwijlen wordt minder.",
+     "uitleg": "Uitdoving. De koppeling is niet gewist: later kan het kwijlen snel terugkomen."
+    }
    ]
   },
   {
@@ -59,10 +212,34 @@
    "titel": "Waarom je je telefoon blijft pakken",
    "opdracht": "Daan pakt zijn telefoon bij elk trilletje, ook al is het meestal reclame. Leg uit hoe dat komt. Gebruik de proef met rat A en rat B.",
    "begrippen": [
-    {"naam": "operante conditionering", "varianten": ["operant"]},
-    {"naam": "bekrachtiging", "varianten": ["bekrachtigd", "beloning", "beloond"]},
-    {"naam": "onvoorspelbaar", "varianten": ["af en toe", "soms"]},
-    {"naam": "uitdoving", "varianten": ["uitdooft", "stoppen"]}
+    {
+     "naam": "operante conditionering",
+     "varianten": [
+      "operant"
+     ]
+    },
+    {
+     "naam": "bekrachtiging",
+     "varianten": [
+      "bekrachtigd",
+      "beloning",
+      "beloond"
+     ]
+    },
+    {
+     "naam": "onvoorspelbaar",
+     "varianten": [
+      "af en toe",
+      "soms"
+     ]
+    },
+    {
+     "naam": "uitdoving",
+     "varianten": [
+      "uitdooft",
+      "stoppen"
+     ]
+    }
    ],
    "checklist": [
     "Ik noem dat kijken het gedrag is en een leuk bericht de bekrachtiging.",

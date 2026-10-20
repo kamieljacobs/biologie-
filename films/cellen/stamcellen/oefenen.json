@@ -7,11 +7,26 @@
    "titel": "Zo vernieuwt je opperhuid",
    "opdracht": "Je hebt je knie geschaafd. Zet in de goede volgorde hoe je opperhuid nieuwe cellen maakt.",
    "stappen": [
-    {"tekst": "Een stamcel in de kiemlaag, onderin de opperhuid, deelt zich.", "uitleg": "Een stamcel is nog niet gespecialiseerd en kan zich blijven delen."},
-    {"tekst": "Eén dochtercel blijft stamcel.", "uitleg": "Zo blijft de voorraad stamcellen op peil."},
-    {"tekst": "De andere dochtercel schuift omhoog.", "uitleg": "Deze cel gaat zich specialiseren."},
-    {"tekst": "Onderweg verhoornt de cel.", "uitleg": "Hij differentieert tot een huidcel."},
-    {"tekst": "Bovenaan is de cel dood en schilfert hij af.", "uitleg": "In ongeveer vier weken is je opperhuid helemaal nieuw."}
+    {
+     "tekst": "Een stamcel in de kiemlaag, onderin de opperhuid, deelt zich.",
+     "uitleg": "Een stamcel is nog niet gespecialiseerd en kan zich blijven delen."
+    },
+    {
+     "tekst": "Eén dochtercel blijft stamcel.",
+     "uitleg": "Zo blijft de voorraad stamcellen op peil."
+    },
+    {
+     "tekst": "De andere dochtercel schuift omhoog.",
+     "uitleg": "Deze cel gaat zich specialiseren."
+    },
+    {
+     "tekst": "Onderweg verhoornt de cel.",
+     "uitleg": "Hij differentieert tot een huidcel."
+    },
+    {
+     "tekst": "Bovenaan is de cel dood en schilfert hij af.",
+     "uitleg": "In ongeveer vier weken is je opperhuid helemaal nieuw."
+    }
    ]
   },
   {
@@ -20,29 +35,84 @@
    "titel": "Een stamceltransplantatie bij leukemie",
    "opdracht": "Zet de stappen van de behandeling in de goede volgorde.",
    "stappen": [
-    {"tekst": "Het beenmerg maakt afwijkende bloedcellen die zich ongeremd delen.", "uitleg": "Ze verdringen de gezonde cellen: leukemie."},
-    {"tekst": "Artsen zoeken een donor met bijna dezelfde herkenningseiwitten.", "uitleg": "Past de donor niet, dan volgt afstoting."},
-    {"tekst": "Het zieke beenmerg wordt vernietigd met chemo, soms ook met bestraling.", "uitleg": "Zo is er plaats voor de nieuwe stamcellen."},
-    {"tekst": "De patiënt krijgt via een infuus bloedstamcellen van de donor.", "uitleg": "Die zoeken zelf hun weg naar het beenmerg."},
-    {"tekst": "De donorstamcellen maken weer gezond bloed, met het DNA en de bloedgroep van de donor.", "uitleg": "Huid en geslachtscellen van de patiënt houden hun eigen DNA."}
+    {
+     "tekst": "Het beenmerg maakt afwijkende bloedcellen die zich ongeremd delen.",
+     "uitleg": "Ze verdringen de gezonde cellen: leukemie."
+    },
+    {
+     "tekst": "Artsen zoeken een donor met bijna dezelfde herkenningseiwitten.",
+     "uitleg": "Past de donor niet, dan volgt afstoting."
+    },
+    {
+     "tekst": "Het zieke beenmerg wordt vernietigd met chemo, soms ook met bestraling.",
+     "uitleg": "Zo is er plaats voor de nieuwe stamcellen."
+    },
+    {
+     "tekst": "De patiënt krijgt via een infuus bloedstamcellen van de donor.",
+     "uitleg": "Die zoeken zelf hun weg naar het beenmerg."
+    },
+    {
+     "tekst": "De donorstamcellen maken weer gezond bloed, met het DNA en de bloedgroep van de donor.",
+     "uitleg": "Huid en geslachtscellen van de patiënt houden hun eigen DNA."
+    }
    ]
   },
   {
    "id": "indelen-stamcel-soort",
    "soort": "indelen",
    "titel": "Volwassen of embryonaal?",
-   "opdracht": "Over welk soort stamcel gaat elk kaartje?",
+   "opdracht": "Over welk soort stamcel gaat elk kaartje? Denk ook aan hoe ze in de zorg en het onderzoek worden gebruikt.",
    "bakken": [
-    {"naam": "Volwassen stamcel", "uitleg": "maakt alleen cellen van het eigen weefsel"},
-    {"naam": "Embryonale stamcel", "uitleg": "kan elke celsoort van het lichaam worden"}
+    {
+     "naam": "Volwassen stamcel",
+     "uitleg": "maakt alleen cellen van het eigen weefsel"
+    },
+    {
+     "naam": "Embryonale stamcel",
+     "uitleg": "kan elke celsoort van het lichaam worden"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Zit in de kiemlaag van je opperhuid.", "bak": 0, "uitleg": "Maakt nieuwe huidcellen."},
-    {"tekst": "Zit in je rode beenmerg en maakt rode en witte bloedcellen en bloedplaatjes.", "bak": 0, "uitleg": "Een bloedstamcel maakt bloedcellen, geen huid."},
-    {"tekst": "Vernieuwt elke drie tot vijf dagen de binnenste laag van je darmwand.", "bak": 0, "uitleg": "Ook dit is een volwassen stamcel van zijn eigen weefsel."},
-    {"tekst": "Komt uit het klompje cellen binnenin een embryo van vijf dagen.", "bak": 1, "uitleg": "Die cellen kunnen nog elke celsoort worden."},
-    {"tekst": "Om hem te kweken, gaat een embryo verloren.", "bak": 1, "uitleg": "Daarom roepen embryonale stamcellen ethische vragen op."},
-    {"tekst": "In Nederland gekweekt uit restembryo's van ivf.", "bak": 1, "uitleg": "Embryo's die over zijn en die ouders aan de wetenschap geven."}
+    {
+     "tekst": "Zit in de kiemlaag van je opperhuid.",
+     "bak": 0,
+     "uitleg": "Maakt nieuwe huidcellen, geen andere celsoorten."
+    },
+    {
+     "tekst": "Zit in je rode beenmerg en maakt rode en witte bloedcellen en bloedplaatjes.",
+     "bak": 0,
+     "uitleg": "Een bloedstamcel maakt alleen bloedcellen, geen huid of spier."
+    },
+    {
+     "tekst": "Een beenmergdonor geeft stamcellen aan iemand met leukemie.",
+     "bak": 0,
+     "uitleg": "De stamcellen uit beenmerg maken bij de ontvanger nieuwe bloedcellen. Het zijn bloedstamcellen."
+    },
+    {
+     "tekst": "Na de geboorte wordt bloed uit de navelstreng ingevroren, voor een kind met een bloedziekte.",
+     "bak": 0,
+     "uitleg": "Navelstrengbloed bevat bloedstamcellen. Ze maken alleen bloedcellen, dus tellen ze bij de stamcellen van het eigen weefsel, ook al komen ze van een baby."
+    },
+    {
+     "tekst": "Komt uit het klompje cellen binnenin een embryo van vijf dagen.",
+     "bak": 1,
+     "uitleg": "Die cellen kunnen nog elke celsoort van het lichaam worden."
+    },
+    {
+     "tekst": "Om hem te kweken, gaat een embryo verloren.",
+     "bak": 1,
+     "uitleg": "Daarom roepen embryonale stamcellen ethische vragen op."
+    },
+    {
+     "tekst": "In Nederland gekweekt uit restembryo's van ivf.",
+     "bak": 1,
+     "uitleg": "Embryo's die over zijn en die ouders aan de wetenschap geven."
+    },
+    {
+     "tekst": "Onderzoekers kweken uit één soort stamcel zowel hartspiercellen als zenuwcellen.",
+     "bak": 1,
+     "uitleg": "Hartspier en zenuw zijn heel verschillende weefsels. Alleen een stamcel die elke celsoort kan worden, kan dat allebei."
+    }
    ]
   },
   {
@@ -52,18 +122,54 @@
    "titel": "Hoeveel kan de cel nog worden?",
    "opdracht": "Sleep elke cel naar wat hij nog kan worden.",
    "bakken": [
-    {"naam": "Totipotent", "uitleg": "het hele lichaam én de placenta"},
-    {"naam": "Pluripotent", "uitleg": "elke celsoort van het lichaam, geen placenta"},
-    {"naam": "Multipotent", "uitleg": "een paar celsoorten van het eigen weefsel"},
-    {"naam": "Unipotent", "uitleg": "maar één celsoort"}
+    {
+     "naam": "Totipotent",
+     "uitleg": "het hele lichaam én de placenta"
+    },
+    {
+     "naam": "Pluripotent",
+     "uitleg": "elke celsoort van het lichaam, geen placenta"
+    },
+    {
+     "naam": "Multipotent",
+     "uitleg": "een paar celsoorten van het eigen weefsel"
+    },
+    {
+     "naam": "Unipotent",
+     "uitleg": "maar één celsoort"
+    }
    ],
    "kaartjes": [
-    {"tekst": "De bevruchte eicel", "bak": 0, "uitleg": "Kan het hele lichaam maken, en ook de placenta."},
-    {"tekst": "Een van de eerste cellen na de bevruchting", "bak": 0, "uitleg": "Ook de eerste cellen daarna zijn nog totipotent."},
-    {"tekst": "Een cel uit de binnenste celmassa", "bak": 1, "uitleg": "Elke celsoort van het lichaam, maar geen placenta."},
-    {"tekst": "Een iPS-cel, gemaakt uit een huidcel", "bak": 1, "uitleg": "Een geïnduceerde pluripotente stamcel."},
-    {"tekst": "Een bloedstamcel in het beenmerg", "bak": 2, "uitleg": "Rode en witte bloedcellen en bloedplaatjes: een paar celsoorten."},
-    {"tekst": "Een stamcel in de kiemlaag van de huid", "bak": 3, "uitleg": "Maakt maar één soort cel."}
+    {
+     "tekst": "De bevruchte eicel",
+     "bak": 0,
+     "uitleg": "Kan het hele lichaam maken, en ook de placenta."
+    },
+    {
+     "tekst": "Een van de eerste cellen na de bevruchting",
+     "bak": 0,
+     "uitleg": "Ook de eerste cellen daarna zijn nog totipotent."
+    },
+    {
+     "tekst": "Een cel uit de binnenste celmassa",
+     "bak": 1,
+     "uitleg": "Elke celsoort van het lichaam, maar geen placenta."
+    },
+    {
+     "tekst": "Een iPS-cel, gemaakt uit een huidcel",
+     "bak": 1,
+     "uitleg": "Een geïnduceerde pluripotente stamcel."
+    },
+    {
+     "tekst": "Een bloedstamcel in het beenmerg",
+     "bak": 2,
+     "uitleg": "Rode en witte bloedcellen en bloedplaatjes: een paar celsoorten."
+    },
+    {
+     "tekst": "Een stamcel in de kiemlaag van de huid",
+     "bak": 3,
+     "uitleg": "Maakt maar één soort cel."
+    }
    ]
   },
   {
@@ -72,10 +178,31 @@
    "titel": "Knie wel, hart niet",
    "opdracht": "Een schaafwond op je knie is na twee weken bijna weg. Na een hartinfarct ontstaat littekenweefsel. Leg uit waarom je huid zich wel herstelt en je hartspier bijna niet.",
    "begrippen": [
-    {"naam": "stamcellen", "varianten": ["stamcel"]},
-    {"naam": "kiemlaag", "varianten": []},
-    {"naam": "differentiatie", "varianten": ["gedifferentieerd", "gespecialiseerd", "specialisatie"]},
-    {"naam": "delen", "varianten": ["deling", "deelt"]}
+    {
+     "naam": "stamcellen",
+     "varianten": [
+      "stamcel"
+     ]
+    },
+    {
+     "naam": "kiemlaag",
+     "varianten": []
+    },
+    {
+     "naam": "differentiatie",
+     "varianten": [
+      "gedifferentieerd",
+      "gespecialiseerd",
+      "specialisatie"
+     ]
+    },
+    {
+     "naam": "delen",
+     "varianten": [
+      "deling",
+      "deelt"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat in de kiemlaag van de huid stamcellen zitten die zich blijven delen.",
@@ -95,10 +222,32 @@
    "titel": "Zelfde DNA, andere cel",
    "opdracht": "Je zenuwcellen en je spiercellen hebben hetzelfde DNA. Toch zien ze er heel anders uit en doen ze iets anders. Leg uit hoe dat kan.",
    "begrippen": [
-    {"naam": "mitose", "varianten": ["deling", "kopie"]},
-    {"naam": "genen", "varianten": ["gen"]},
-    {"naam": "aan", "varianten": ["aanstaan", "uit"]},
-    {"naam": "differentiatie", "varianten": ["gedifferentieerd"]}
+    {
+     "naam": "mitose",
+     "varianten": [
+      "deling",
+      "kopie"
+     ]
+    },
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "aan",
+     "varianten": [
+      "aanstaan",
+      "uit"
+     ]
+    },
+    {
+     "naam": "differentiatie",
+     "varianten": [
+      "gedifferentieerd"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat alle cellen uit één bevruchte eicel komen en bij elke mitose een kopie van hetzelfde DNA krijgen.",

@@ -2,24 +2,69 @@
  "intro": "Oefen met het bewijs voor evolutie: lagen, botten en DNA. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-soort-bewijs",
+   "id": "indelen-soort-bewijs-begrippen",
    "soort": "indelen",
-   "titel": "Welk spoor?",
-   "opdracht": "De film volgt drie sporen dat de walvis van landdieren afstamt. Bij welk spoor hoort elk voorbeeld?",
+   "titel": "Welk soort bewijs?",
+   "opdracht": "Voor evolutie zijn vier soorten bewijs. Bij welk soort bewijs hoort elk voorbeeld?",
    "bakken": [
-    {"naam": "In de grond", "uitleg": "lagen en fossielen"},
-    {"naam": "In het lichaam", "uitleg": "bouw, restanten, embryo"},
-    {"naam": "In het DNA"}
+    {
+     "naam": "Fossielen",
+     "uitleg": "resten in de aardlagen"
+    },
+    {
+     "naam": "Vergelijkende anatomie",
+     "uitleg": "bouw van volwassen dieren, ook rudimentaire organen"
+    },
+    {
+     "naam": "Embryologie",
+     "uitleg": "ontwikkeling vóór de geboorte"
+    },
+    {
+     "naam": "Moleculair bewijs",
+     "uitleg": "DNA en eiwitten vergelijken"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Pakicetus, 50 miljoen jaar oud, op vier poten met een walvisoor.", "bak": 0, "uitleg": "Een fossiel in de laag waar het volgens de voorspelling moet liggen."},
-    {"tekst": "Basilosaurus, een echte walvis met piepkleine achterpootjes.", "bak": 0, "uitleg": "Een fossiel van 40 miljoen jaar oud."},
-    {"tekst": "Een walvisvin heeft dezelfde botten als een mensenarm.", "bak": 1, "uitleg": "Homologe organen: dezelfde bouw, een andere functie."},
-    {"tekst": "Twee bekkenbotjes zonder poten, los van de wervelkolom.", "bak": 1, "uitleg": "Een rudimentair orgaan: een restant."},
-    {"tekst": "Een walvisembryo krijgt achterpootknoppen die weer verdwijnen.", "bak": 1, "uitleg": "Het programma voor poten staat er nog in."},
-    {"tekst": "Walvis en nijlpaard delen zeldzame stukjes ingevoegd DNA op dezelfde plek.", "bak": 2, "uitleg": "Zoiets gebeurt niet twee keer toevallig."},
-    {"tekst": "Aan het aantal verschillen schat je hoe lang geleden twee soorten zich splitsten.", "bak": 2, "uitleg": "De moleculaire klok."},
-    {"tekst": "Wat dieper ligt, is ouder.", "bak": 0, "uitleg": "Relatieve datering, zolang de lagen niet gekanteld zijn."}
+    {
+     "tekst": "Archaeopteryx, 150 miljoen jaar oud: veren, maar ook tanden en een lange staart met wervels.",
+     "bak": 0,
+     "uitleg": "Een overgangsvorm in de aardlagen: kenmerken van reptielen en vogels samen."
+    },
+    {
+     "tekst": "Een vis van 375 miljoen jaar oud met botten in zijn vinnen, zoals een pols.",
+     "bak": 0,
+     "uitleg": "Een overgangsvorm tussen vis en landdier, gevonden in lagen van de juiste ouderdom."
+    },
+    {
+     "tekst": "Mensen hebben een staartbeen: een paar vergroeide wervels, zonder staart.",
+     "bak": 1,
+     "uitleg": "Een rudimentair orgaan bij een volwassene: een restant van een voorouder met een staart."
+    },
+    {
+     "tekst": "Een python heeft vlak bij zijn cloaca piepkleine restjes van een bekken en achterpoten.",
+     "bak": 1,
+     "uitleg": "Ook een rudimentair orgaan: slangen stammen af van dieren met poten."
+    },
+    {
+     "tekst": "Een mens heeft in de vijfde week van de ontwikkeling een staartje, dat daarna weer verdwijnt.",
+     "bak": 2,
+     "uitleg": "Het programma voor een staart staat er nog in en wordt even aangezet. Vergelijk met het staartbeen: dat is de volwassen bouw."
+    },
+    {
+     "tekst": "Een mens krijgt vóór de geboorte plooien in de hals, zoals bij een visembryo; ze worden later kaak en oor.",
+     "bak": 2,
+     "uitleg": "Verwante dieren lijken als embryo meer op elkaar dan als volwassene."
+    },
+    {
+     "tekst": "Het eiwit cytochroom c van een chimpansee is gelijk aan dat van een mens. Dat van een paard verschilt op twaalf plekken.",
+     "bak": 3,
+     "uitleg": "Hoe nauwer verwant, hoe minder verschillen in de aminozuurvolgorde."
+    },
+    {
+     "tekst": "Mens en chimpansee hebben op dezelfde plek in hun DNA hetzelfde kapotte gen voor vitamine C.",
+     "bak": 3,
+     "uitleg": "Dezelfde fout op dezelfde plek: geërfd van een gemeenschappelijke voorouder."
+    }
    ]
   },
   {
@@ -28,16 +73,46 @@
    "titel": "Homoloog of analoog?",
    "opdracht": "Homoloog: dezelfde bouw, vaak een andere functie. Analoog: dezelfde functie, een andere bouw. Deel de paren in.",
    "bakken": [
-    {"naam": "Homoloog", "uitleg": "wijst op een gemeenschappelijke voorouder"},
-    {"naam": "Analoog", "uitleg": "zegt niets over verwantschap"}
+    {
+     "naam": "Homoloog",
+     "uitleg": "wijst op een gemeenschappelijke voorouder"
+    },
+    {
+     "naam": "Analoog",
+     "uitleg": "zegt niets over verwantschap"
+    }
    ],
    "kaartjes": [
-    {"tekst": "walvisvin en mensenarm", "bak": 0, "uitleg": "Eén bovenarmbot, twee onderarmbotten, handwortelbeentjes, vingers."},
-    {"tekst": "walvisvin en haaienvin", "bak": 1, "uitleg": "Van buiten gelijk, van binnen botten tegenover kraakbeenstralen."},
-    {"tekst": "mensenarm en hondenpoot", "bak": 0, "uitleg": "Dezelfde botten in dezelfde volgorde, alleen andere verhoudingen."},
-    {"tekst": "hondenpoot en walvisvin", "bak": 0, "uitleg": "Ook hier dezelfde botten: een andere functie, dezelfde bouw."},
-    {"tekst": "twee vormen die gelijk werden doordat zwemmen dezelfde vorm vraagt", "bak": 1, "uitleg": "Niet-verwante soorten gaan door dezelfde selectiedruk op elkaar lijken: convergentie."},
-    {"tekst": "hetzelfde bot dat bij verwante soorten een andere functie kreeg", "bak": 0, "uitleg": "Verwante soorten groeien uit elkaar: divergentie."}
+    {
+     "tekst": "walvisvin en mensenarm",
+     "bak": 0,
+     "uitleg": "Eén bovenarmbot, twee onderarmbotten, handwortelbeentjes, vingers."
+    },
+    {
+     "tekst": "walvisvin en haaienvin",
+     "bak": 1,
+     "uitleg": "Van buiten gelijk, van binnen botten tegenover kraakbeenstralen."
+    },
+    {
+     "tekst": "mensenarm en hondenpoot",
+     "bak": 0,
+     "uitleg": "Dezelfde botten in dezelfde volgorde, alleen andere verhoudingen."
+    },
+    {
+     "tekst": "vleugel van een vleermuis en vleugel van een vlinder",
+     "bak": 1,
+     "uitleg": "Allebei om te vliegen, maar de vlindervleugel is een vlies zonder botten. Apart ontstaan."
+    },
+    {
+     "tekst": "de botten in de vleugel van een vleermuis en in de vleugel van een vogel",
+     "bak": 0,
+     "uitleg": "Als voorpoot dezelfde bouw: bovenarm, onderarm, vingers. Het vliegen zelf ontstond wel apart."
+    },
+    {
+     "tekst": "doorn van een cactus en stekel van een roos",
+     "bak": 1,
+     "uitleg": "Een cactusdoorn is een omgevormd blad, een rozenstekel een uitgroeisel van de opperhuid. Dezelfde functie, andere oorsprong."
+    }
    ]
   },
   {
@@ -51,12 +126,46 @@
    "vakbreed": 190,
    "svg": "<rect stroke-width=\"2.4\" x=\"326\" y=\"30\" width=\"28\" height=\"120\" rx=\"12\"/><rect stroke-width=\"2.4\" x=\"304\" y=\"162\" width=\"22\" height=\"100\" rx=\"10\"/><rect stroke-width=\"2.4\" x=\"354\" y=\"162\" width=\"22\" height=\"100\" rx=\"10\"/><g class=\"acc\" stroke-width=\"2.2\"><circle cx=\"300\" cy=\"284\" r=\"9\"/><circle cx=\"322\" cy=\"280\" r=\"9\"/><circle cx=\"344\" cy=\"278\" r=\"9\"/><circle cx=\"366\" cy=\"280\" r=\"9\"/><circle cx=\"388\" cy=\"284\" r=\"9\"/><circle cx=\"311\" cy=\"302\" r=\"8\"/><circle cx=\"333\" cy=\"300\" r=\"8\"/><circle cx=\"355\" cy=\"300\" r=\"8\"/><circle cx=\"377\" cy=\"302\" r=\"8\"/></g><g stroke-width=\"2.4\"><path d=\"M286 316 L278 340 M276 348 L270 370\"/><path d=\"M314 318 L310 346 M309 354 L306 382\"/><path d=\"M344 318 L344 350 M344 358 L344 392\"/><path d=\"M374 318 L378 346 M379 354 L382 382\"/><path d=\"M402 316 L410 340 M412 348 L418 370\"/></g>",
    "vakjes": [
-    {"naam": "bovenarmbot", "x": 130, "y": 80, "punt": [326, 90]},
-    {"naam": "onderarmbotten", "x": 550, "y": 200, "punt": [376, 212]},
-    {"naam": "handwortelbeentjes", "x": 130, "y": 270, "punt": [291, 284]},
-    {"naam": "vingers", "x": 550, "y": 370, "punt": [416, 362]}
+    {
+     "naam": "bovenarmbot",
+     "x": 130,
+     "y": 80,
+     "punt": [
+      326,
+      90
+     ]
+    },
+    {
+     "naam": "onderarmbotten",
+     "x": 550,
+     "y": 200,
+     "punt": [
+      376,
+      212
+     ]
+    },
+    {
+     "naam": "handwortelbeentjes",
+     "x": 130,
+     "y": 270,
+     "punt": [
+      291,
+      284
+     ]
+    },
+    {
+     "naam": "vingers",
+     "x": 550,
+     "y": 370,
+     "punt": [
+      416,
+      362
+     ]
+    }
    ],
-   "afleiders": ["kraakbeenstralen"]
+   "afleiders": [
+    "kraakbeenstralen"
+   ]
   },
   {
    "id": "volgorde-walvisfossielen",
@@ -64,10 +173,22 @@
    "titel": "Van landdier naar walvis",
    "opdracht": "Zet de fossielen uit Pakistan en India op volgorde, van oud naar jong.",
    "stappen": [
-    {"tekst": "Pakicetus: zo groot als een wolf, op vier poten, met een walvisoor.", "uitleg": "50 miljoen jaar oud."},
-    {"tekst": "Ambulocetus: leefde als een krokodil, een zwemmer met poten.", "uitleg": "48 miljoen jaar oud."},
-    {"tekst": "Rodhocetus: zwempoten, en neusgaten een stukje naar achteren.", "uitleg": "46 miljoen jaar oud."},
-    {"tekst": "Basilosaurus: een echte walvis, met piepkleine achterpootjes.", "uitleg": "40 miljoen jaar oud."}
+    {
+     "tekst": "Pakicetus: zo groot als een wolf, op vier poten, met een walvisoor.",
+     "uitleg": "50 miljoen jaar oud."
+    },
+    {
+     "tekst": "Ambulocetus: leefde als een krokodil, een zwemmer met poten.",
+     "uitleg": "48 miljoen jaar oud."
+    },
+    {
+     "tekst": "Rodhocetus: zwempoten, en neusgaten een stukje naar achteren.",
+     "uitleg": "46 miljoen jaar oud."
+    },
+    {
+     "tekst": "Basilosaurus: een echte walvis, met piepkleine achterpootjes.",
+     "uitleg": "40 miljoen jaar oud."
+    }
    ]
   },
   {
@@ -76,11 +197,41 @@
    "titel": "Twee methoden, één antwoord",
    "opdracht": "Volgens de moleculaire klok splitsten walvis en nijlpaard zich ongeveer 50 miljoen jaar geleden. De fossielen in de lagen zeggen ook ongeveer 50 miljoen jaar. Leg uit waarom dat zo'n sterk bewijs is.",
    "begrippen": [
-    {"naam": "moleculaire klok", "varianten": ["klok"]},
-    {"naam": "mutaties", "varianten": ["mutatie", "verschillen"]},
-    {"naam": "fossielen", "varianten": ["fossiel", "lagen", "aardlagen"]},
-    {"naam": "onafhankelijk", "varianten": ["verschillende methoden", "los van elkaar"]},
-    {"naam": "gemeenschappelijke voorouder", "varianten": ["voorouder", "splitsing"]}
+    {
+     "naam": "moleculaire klok",
+     "varianten": [
+      "klok"
+     ]
+    },
+    {
+     "naam": "mutaties",
+     "varianten": [
+      "mutatie",
+      "verschillen"
+     ]
+    },
+    {
+     "naam": "fossielen",
+     "varianten": [
+      "fossiel",
+      "lagen",
+      "aardlagen"
+     ]
+    },
+    {
+     "naam": "onafhankelijk",
+     "varianten": [
+      "verschillende methoden",
+      "los van elkaar"
+     ]
+    },
+    {
+     "naam": "gemeenschappelijke voorouder",
+     "varianten": [
+      "voorouder",
+      "splitsing"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat mutaties zich gemiddeld gelijkmatig opstapelen, zodat meer verschil in DNA meer tijd betekent.",

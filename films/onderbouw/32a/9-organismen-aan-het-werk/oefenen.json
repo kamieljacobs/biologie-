@@ -4,64 +4,64 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-wie-werkt",
+   "id": "indelen-welk-werk",
    "soort": "indelen",
-   "titel": "Wie doet het werk?",
-   "opdracht": "Welk organisme doet dit werk voor ons?",
+   "titel": "Welk werk is dit?",
+   "opdracht": "Een organisme werkt hier voor ons. Wat voor werk doet het?",
    "bakken": [
     {
-     "naam": "Gist"
+     "naam": "Gas en alcohol maken"
     },
     {
-     "naam": "Melkzuurbacteriën"
+     "naam": "Zuur maken"
     },
     {
-     "naam": "Sluipwespen"
+     "naam": "Een plaag opruimen"
     },
     {
-     "naam": "Bacteriën in de pens"
+     "naam": "Afbreken"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Pizzadeeg rijst.",
+     "tekst": "Krentenbollen worden in de bakkerij twee keer zo groot.",
      "bak": 0,
-     "uitleg": "Gist maakt het gas koolstofdioxide. De belletjes blazen het deeg op."
+     "uitleg": "Gist breekt suiker af en maakt het gas koolstofdioxide. De belletjes blazen het deeg op."
     },
     {
-     "tekst": "Brood zit vol gaatjes.",
+     "tekst": "Een brouwer maakt bier met bubbels en alcohol.",
      "bak": 0,
-     "uitleg": "In de oven zetten de belletjes van de gist nog verder uit."
+     "uitleg": "Ook hier werkt gist. Het maakt van suiker alcohol en koolstofdioxide."
     },
     {
-     "tekst": "Melk wordt zuur en dik: yoghurt.",
+     "tekst": "Gesneden kool in een pot wordt zuurkool en blijft maanden goed.",
      "bak": 1,
-     "uitleg": "Ze maken melkzuur van de melksuiker."
+     "uitleg": "Melkzuurbacteriën maken van de suiker in de kool melkzuur. In het zuur kunnen bederfbacteriën slecht groeien."
     },
     {
-     "tekst": "Kuilvoer bederft niet.",
+     "tekst": "Van melk maakt een boer kaas.",
      "bak": 1,
-     "uitleg": "Ze maken het gras zuur, net als bij yoghurt."
+     "uitleg": "Melkzuurbacteriën maken de melk zuur. Dat is de eerste stap naar kaas, net als bij yoghurt."
     },
     {
-     "tekst": "Bladluizen in een paprikakas verdwijnen.",
+     "tekst": "Een tuinder zet lieveheersbeestjes uit tussen de rozen.",
      "bak": 2,
-     "uitleg": "Zonder gif: biologische bestrijding."
+     "uitleg": "Lieveheersbeestjes eten bladluizen op. Zo ruim je de plaag op zonder gif: biologische bestrijding."
     },
     {
-     "tekst": "Een eitje wordt in een bladluis gelegd.",
+     "tekst": "In een kas met komkommers laat de tuinder roofmijten los.",
      "bak": 2,
-     "uitleg": "De larve eet de luis van binnen op."
+     "uitleg": "Roofmijten eten kleine plaagdiertjes op de bladeren. Ook dat is biologische bestrijding."
     },
     {
-     "tekst": "Gras wordt afgebroken.",
+     "tekst": "Groente- en fruitafval wordt in een paar maanden compost.",
      "bak": 3,
-     "uitleg": "Een koe kan gras zelf niet verteren."
+     "uitleg": "Bacteriën en schimmels breken het afval af tot rijke grond."
     },
     {
-     "tekst": "De koe leeft van wat zij maken.",
+     "tekst": "Een koe leeft van gras, terwijl ze het zelf niet kan verteren.",
      "bak": 3,
-     "uitleg": "En de koe verteert die bacteriën zelf ook."
+     "uitleg": "Bacteriën in haar pens breken het gras af. De koe leeft van wat ze maken."
     }
    ]
   },

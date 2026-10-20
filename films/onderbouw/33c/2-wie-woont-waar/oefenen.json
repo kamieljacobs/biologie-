@@ -62,56 +62,62 @@
    ]
   },
   {
-   "id": "indelen-wie-is-het",
+   "id": "indelen-aanpassing",
    "soort": "indelen",
-   "titel": "IJsbeer, fennek of pissebed?",
-   "opdracht": "Bij welk dier past dit?",
+   "titel": "Waartegen helpt het?",
+   "opdracht": "Elk organisme past bij zijn plek. Waar helpt deze aanpassing bij?",
    "bakken": [
     {
-     "naam": "IJsbeer"
+     "naam": "Tegen de kou"
     },
     {
-     "naam": "Fennek"
+     "naam": "Tegen hitte en droogte"
     },
     {
-     "naam": "Pissebed"
+     "naam": "Leven op een vochtige plek",
+     "uitleg": "droogt snel uit"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Onder de vacht zit een laag vet van soms tien centimeter.",
+     "tekst": "Een keizerspinguïn heeft een dikke vetlaag en veren die dicht op elkaar zitten.",
      "bak": 0,
-     "uitleg": "Die houdt hem warm in de kou."
+     "uitleg": "Vet en veren houden de warmte binnen, net als het vet van de ijsbeer."
     },
     {
-     "tekst": "Wacht bij een gat in het ijs op een zeehond.",
+     "tekst": "Een poolvos heeft kleine oortjes en een korte snuit.",
      "bak": 0,
-     "uitleg": "Zonder ijs kan hij niet jagen."
+     "uitleg": "Het omgekeerde van de fennek: kleine oren, dus weinig plek waar hij warmte kwijtraakt."
     },
     {
-     "tekst": "Enorme oren waar veel bloed door stroomt.",
+     "tekst": "In de winter staan keizerspinguïns in een grote groep dicht tegen elkaar aan.",
+     "bak": 0,
+     "uitleg": "Zo houden ze elkaar warm. Ook gedrag kan een aanpassing zijn."
+    },
+    {
+     "tekst": "Een kameel kan dagen lopen zonder te drinken.",
      "bak": 1,
-     "uitleg": "Zo raakt hij warmte kwijt."
+     "uitleg": "Hij raakt heel weinig water kwijt. Zo overleeft hij in de hete, droge woestijn."
     },
     {
-     "tekst": "Haalt het meeste water uit zijn eten.",
+     "tekst": "Een cactus heeft stekels in plaats van bladeren, en een dikke stengel vol water.",
      "bak": 1,
-     "uitleg": "Hij hoeft bijna nooit te drinken."
+     "uitleg": "Via stekels verdampt veel minder water dan via bladeren. In de stengel bewaart hij water."
     },
     {
-     "tekst": "Hoort insecten onder het zand.",
+     "tekst": "Een woestijnspringmuis blijft overdag in zijn hol en komt pas 's nachts naar buiten.",
      "bak": 1,
-     "uitleg": "Ook daarvoor zijn de grote oren."
+     "uitleg": "'s Nachts is het koeler. In zijn hol ontloopt hij de hitte van de dag."
     },
     {
-     "tekst": "Woont onder een steen, waar het donker en vochtig is.",
+     "tekst": "Een regenworm kruipt bij droog weer diep de grond in.",
      "bak": 2,
-     "uitleg": "In de schooltuin."
+     "uitleg": "Een regenworm ademt door zijn natte huid. Droogt die uit, dan gaat hij dood. Diep in de grond is het vochtig."
     },
     {
-     "tekst": "Gaat snel dood op droog zand.",
+     "tekst": "Een slak sluit op een droge dag zijn huisje af met een laagje slijm.",
      "bak": 2,
-     "uitleg": "Hij heeft een vochtige plek nodig."
+     "uitleg": "Zo blijft hij vochtig tot het weer regent, net zoals een pissebed onder een steen."
     }
    ]
   },

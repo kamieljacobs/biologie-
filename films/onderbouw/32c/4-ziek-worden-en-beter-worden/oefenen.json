@@ -39,7 +39,7 @@
    "id": "indelen-vaccin-medicijn",
    "soort": "indelen",
    "titel": "Vaccin, antibioticum of paracetamol?",
-   "opdracht": "Past dit bij een vaccin, een antibioticum of paracetamol?",
+   "opdracht": "Past dit bij een vaccin, een antibioticum of paracetamol? Bij een situatie: wat helpt hier?",
    "bakken": [
     {
      "naam": "Vaccin"
@@ -63,9 +63,9 @@
      "uitleg": "Zo voorkomt een vaccin dat je ziek wordt."
     },
     {
-     "tekst": "Jenner gaf het eerste, tegen pokken.",
+     "tekst": "Een baby krijgt een prik, zodat hij later geen mazelen krijgt.",
      "bak": 0,
-     "uitleg": "In het jaar 1796. Pokken is nu van de aarde verdwenen."
+     "uitleg": "Dit is vooraf, voordat hij ziek is. Dat kan alleen een vaccin."
     },
     {
      "tekst": "Doodt bacteriën.",
@@ -73,19 +73,24 @@
      "uitleg": "Maar een virus is geen cel, dus daar doet het niets tegen."
     },
     {
-     "tekst": "De dokter geeft het bij sommige ziektes door bacteriën.",
+     "tekst": "Je hebt een blaasontsteking door bacteriën.",
      "bak": 1,
-     "uitleg": "Tegen waterpokken helpt het niet."
+     "uitleg": "Tegen bacteriën helpt een antibioticum. De dokter beslist of het echt nodig is."
     },
     {
      "tekst": "Maakt koorts en pijn minder.",
      "bak": 2,
-     "uitleg": "Teun voelt zich er beter door."
+     "uitleg": "Je voelt je er beter door. Maar het doodt de ziekteverwekker niet: dat doet je afweer."
     },
     {
-     "tekst": "Doodt de ziekteverwekker niet.",
+     "tekst": "Je hebt griep en je hoofd bonkt.",
      "bak": 2,
-     "uitleg": "Dat doet de afweer van Teun."
+     "uitleg": "Griep komt door een virus. Een antibioticum helpt niet, en een vaccin werkt alleen vooraf. Paracetamol maakt de pijn minder; je afweer ruimt het virus op."
+    },
+    {
+     "tekst": "Je hebt keelpijn door een verkoudheid.",
+     "bak": 2,
+     "uitleg": "Een verkoudheid komt door een virus. Een antibioticum helpt dus niet. Paracetamol verzacht de pijn."
     }
    ]
   },

@@ -82,58 +82,64 @@
    ]
   },
   {
-   "id": "indelen-inprenting",
+   "id": "indelen-inprenting-of-niet",
    "soort": "indelen",
-   "titel": "Klopt het over inprenting?",
-   "opdracht": "Klopt elke uitspraak met wat je in de film zag, of niet?",
+   "titel": "Inprenting, conditionering of aangeboren?",
+   "opdracht": "Inprenting is leren in een korte gevoelige periode, zonder beloning, en het blijft. Is elk voorbeeld inprenting, conditionering of aangeboren gedrag?",
    "bakken": [
     {
-     "naam": "Klopt"
+     "naam": "Inprenting",
+     "uitleg": "sensitieve periode, geen beloning, blijvend"
     },
     {
-     "naam": "Klopt niet"
+     "naam": "Conditionering",
+     "uitleg": "geleerd door een koppeling met een prikkel of gevolg"
+    },
+    {
+     "naam": "Aangeboren",
+     "uitleg": "zonder leren, de eerste keer al goed"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Het gansje volgt het eerste bewegende wezen dat het ziet.",
+     "tekst": "Een kuiken ziet vlak na het uitkomen een rode bal bewegen en loopt die bal daarna overal achterna.",
      "bak": 0,
-     "uitleg": "Wat beweegt, geluid maakt en dichtbij is, dat is moeder."
+     "uitleg": "Het volgt het eerste bewegende ding uit de sensitieve periode. Wát het volgt, is geleerd."
     },
     {
-     "tekst": "Inprenting gaat snel, in de eerste uren.",
+     "tekst": "Een zalm zwemt na jaren in zee terug naar de rivier waar hij uit het ei kwam. Hij vindt die op de geur.",
      "bak": 0,
-     "uitleg": "Het gansje leert het heel snel na het uitkomen."
+     "uitleg": "De geur van die rivier is vastgelegd toen hij jong was, in een korte periode, en blijft jaren bewaard."
     },
     {
-     "tekst": "Het effect blijft lang bestaan.",
+     "tekst": "Een gans die als gansje alleen mensen zag, wil later met een mens paren in plaats van met een gans.",
      "bak": 0,
-     "uitleg": "Dat is een kenmerk van inprenting."
+     "uitleg": "Ook de partnervoorkeur wordt vroeg vastgelegd en blijft."
     },
     {
-     "tekst": "Het jong krijgt eten als beloning voor het volgen.",
+     "tekst": "Een hond gaat zitten, omdat hij daar steeds een snoepje voor kreeg.",
      "bak": 1,
-     "uitleg": "Er is geen eten of andere beloning nodig."
+     "uitleg": "Gedrag met een beloning komt vaker: operante conditionering. Bij inprenting is geen beloning nodig."
     },
     {
-     "tekst": "Het gansje kiest zelf bewust wie zijn moeder is.",
+     "tekst": "Een kat rent naar de keuken zodra hij de blikopener hoort.",
      "bak": 1,
-     "uitleg": "Het kiest niet: zijn hersenen leggen het vanzelf vast."
+     "uitleg": "Het geluid is gekoppeld aan eten: klassieke conditionering. Dat kan op elke leeftijd."
     },
     {
-     "tekst": "Inprenting kan op elk moment in het leven.",
-     "bak": 1,
-     "uitleg": "Het kan alleen in een korte periode: de sensitieve periode."
+     "tekst": "Een pasgeboren baby zuigt meteen als je iets in zijn mond legt.",
+     "bak": 2,
+     "uitleg": "Een reflex: dat hoeft niet geleerd te worden."
     },
     {
-     "tekst": "Mensen prenten in zoals ganzen.",
-     "bak": 1,
-     "uitleg": "Mensen prenten niet in zoals ganzen. Sensitieve periodes hebben we wel."
+     "tekst": "Een spin weeft een perfect web, zonder ooit een ander web te hebben gezien.",
+     "bak": 2,
+     "uitleg": "Niets om van te leren: het gedrag is aangeboren."
     },
     {
-     "tekst": "Ook mensen hebben sensitieve periodes, bijvoorbeeld voor zien en taalklanken.",
-     "bak": 0,
-     "uitleg": "Denk aan het luie oog en de klanken ra en la."
+     "tekst": "Een koekoeksjong duwt de eieren van zijn pleegouders uit het nest.",
+     "bak": 2,
+     "uitleg": "Het heeft dat nooit gezien en doet het toch: aangeboren."
     }
    ]
   },

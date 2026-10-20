@@ -78,60 +78,68 @@
    ]
   },
   {
-   "id": "indelen-afdelingen",
+   "id": "indelen-lever-processen",
    "soort": "indelen",
-   "titel": "Welke afdeling van de fabriek?",
-   "opdracht": "De lever is een fabriek met afdelingen. Bij welke afdeling hoort elk kaartje?",
+   "titel": "Wat doet de lever hier?",
+   "opdracht": "Bij elk kaartje doet de lever iets. Welk soort werk is het?",
    "bakken": [
     {
-     "naam": "Suiker"
+     "naam": "Opbouwen",
+     "uitleg": "nieuwe stoffen maken die je lichaam gebruikt"
     },
     {
-     "naam": "Eiwit"
+     "naam": "Afbreken en ontgiften",
+     "uitleg": "stoffen afbreken of onschadelijk maken"
     },
     {
-     "naam": "Afbreken",
-     "uitleg": "ontgiften"
+     "naam": "Opslaan",
+     "uitleg": "bewaren voor later"
     },
     {
-     "naam": "Gal"
+     "naam": "Gal maken",
+     "uitleg": "stoffen naar de darm sturen"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Glucose wordt na een maaltijd glycogeen.",
+     "tekst": "Van aminozuren maakt de lever eiwitten voor je bloedplasma, zoals stollingsfactoren.",
      "bak": 0,
-     "uitleg": "Ongeveer honderd gram, genoeg voor een nacht."
+     "uitleg": "Uit bouwstenen maakt de lever nieuwe stoffen die je nodig hebt."
     },
     {
      "tekst": "Melkzuur uit je spieren wordt weer glucose.",
      "bak": 0,
-     "uitleg": "Ook dat doet de suikerafdeling."
+     "uitleg": "Uit een kleine stof maakt de lever een nieuwe brandstof voor je lichaam."
     },
     {
-     "tekst": "Van aminozuren worden eiwitten in je bloedplasma gemaakt.",
+     "tekst": "Iemand slikt paracetamol. Na een paar uur werkt het niet meer.",
      "bak": 1,
-     "uitleg": "De lever maakt eiwitten van de aminozuren uit de kaas."
+     "uitleg": "De lever plakt een stukje aan het medicijn, zodat het oplost in water en de nieren het uitplassen."
     },
     {
-     "tekst": "Het stikstofdeel van een aminozuur wordt ureum.",
+     "tekst": "Van aminozuren die je over hebt, wordt het stikstofdeel ureum.",
      "bak": 1,
-     "uitleg": "Ureum gaat met het bloed naar de nieren."
+     "uitleg": "Voor aminozuren is er geen voorraad. De lever haalt ze uit elkaar en maakt van het stikstofdeel een afvalstof."
     },
     {
-     "tekst": "Alcohol wordt stap voor stap afgebroken tot koolstofdioxide en water.",
+     "tekst": "Na het ontbijt koppelt de lever glucose aan elkaar tot glycogeen, voor vannacht.",
      "bak": 2,
-     "uitleg": "Zeven lukt niet: alcohol is bijna zo klein als water."
+     "uitleg": "Glycogeen is een voorraadstof: tussen de maaltijden knipt de lever het weer tot glucose."
     },
     {
-     "tekst": "Aan een medicijn wordt een stukje geplakt, zodat het in water oplost.",
+     "tekst": "Je eet een flinke portie wortels. De vitamine A die je niet meteen nodig hebt, blijft maanden in je lever.",
      "bak": 2,
-     "uitleg": "Zo kunnen je nieren het uitplassen."
+     "uitleg": "De lever bewaart vitamine A, zodat je niet elke dag wortels hoeft te eten."
     },
     {
-     "tekst": "Galzouten die het vet emulgeren",
+     "tekst": "Galzouten om vet in de darm te emulgeren.",
      "bak": 3,
-     "uitleg": "De lever maakt elke dag een halve tot een liter gal."
+     "uitleg": "Gal is geen enzym: de galzouten maken van grote vetdruppels kleine."
+    },
+    {
+     "tekst": "De lever stuurt cholesterol met een vloeistof naar de darm, zodat het met de ontlasting je lichaam verlaat.",
+     "bak": 3,
+     "uitleg": "Met de gal scheidt de lever stoffen uit die je kwijt moet."
     }
    ]
   },

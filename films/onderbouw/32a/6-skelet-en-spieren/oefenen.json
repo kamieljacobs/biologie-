@@ -104,7 +104,7 @@
    "id": "indelen-gewrichten",
    "soort": "indelen",
    "titel": "Scharnier of kogel?",
-   "opdracht": "Hoort dit bij een scharniergewricht of bij een kogelgewricht?",
+   "opdracht": "Is dit gewricht (of deze beweging) een scharniergewricht of een kogelgewricht?",
    "bakken": [
     {
      "naam": "Scharniergewricht"
@@ -117,17 +117,22 @@
     {
      "tekst": "elleboog",
      "bak": 0,
-     "uitleg": "Werkt als een scharnier, zoals een deur."
+     "uitleg": "Werkt als een scharnier, zoals een deur: buigen en strekken."
     },
     {
      "tekst": "knie",
      "bak": 0,
-     "uitleg": "Ook een scharnier."
+     "uitleg": "Ook een scharnier. Je onderbeen kan niet opzij draaien."
     },
     {
-     "tekst": "beweegt maar één kant op",
+     "tekst": "de gewrichtjes in je vingers",
      "bak": 0,
-     "uitleg": "Zoals een deur."
+     "uitleg": "Een vinger kan alleen buigen en strekken: scharniergewrichtjes."
+    },
+    {
+     "tekst": "Je buigt je tenen om iets van de grond te pakken.",
+     "bak": 0,
+     "uitleg": "Ook je tenen buigen maar één kant op, met scharniergewrichtjes."
     },
     {
      "tekst": "schouder",
@@ -140,9 +145,14 @@
      "uitleg": "Ook een kogel in een kom."
     },
     {
-     "tekst": "kan alle kanten op",
+     "tekst": "Je zwaait je arm in een grote cirkel, als een molen.",
      "bak": 1,
-     "uitleg": "De kogel kan in de kom alle kanten op draaien."
+     "uitleg": "Dat kan alleen in een kogelgewricht: je schouder. De kogel draait alle kanten op in de kom."
+    },
+    {
+     "tekst": "Je tilt je been opzij om over een hek te stappen.",
+     "bak": 1,
+     "uitleg": "Je been beweegt opzij. Dat kan in je heup, een kogelgewricht. Je knie kan dat niet."
     }
    ]
   },

@@ -80,60 +80,64 @@
    ]
   },
   {
-   "id": "indelen-zenuw-hormoon",
+   "id": "indelen-zenuw-hormoon-allebei",
    "soort": "indelen",
-   "titel": "Brief of folder?",
-   "opdracht": "Past elk kenmerk of voorbeeld bij het zenuwstelsel of bij het hormoonstelsel?",
+   "titel": "Brief, folder of allebei?",
+   "opdracht": "Werkt je lichaam hier met het zenuwstelsel, met het hormoonstelsel, of met allebei na elkaar?",
    "bakken": [
     {
      "naam": "Zenuwstelsel",
-     "uitleg": "een brief met één adres"
+     "uitleg": "een brief met één adres: snel en kort"
     },
     {
      "naam": "Hormoonstelsel",
-     "uitleg": "een folder bij iedereen in de bus"
+     "uitleg": "een folder bij iedereen in de bus: trager en langer"
+    },
+    {
+     "naam": "Allebei",
+     "uitleg": "een zenuw zet het in gang, een hormoon houdt het vol"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Een signaal langs een vaste lijn, naar één plek.",
-     "bak": 0,
-     "uitleg": "Een zenuwcel stuurt het bericht gericht."
-    },
-    {
-     "tekst": "Tot honderd meter per seconde.",
-     "bak": 0,
-     "uitleg": "Zenuwen zijn snel."
-    },
-    {
-     "tekst": "Het bericht is snel weer voorbij.",
-     "bak": 0,
-     "uitleg": "Kort en gericht: zenuwstelsel."
-    },
-    {
      "tekst": "Je trekt je hand terug van een hete pan.",
      "bak": 0,
-     "uitleg": "Dat moet snel: met zenuwen."
+     "uitleg": "Dat moet binnen een fractie van een seconde, naar precies die spieren: zenuwen."
     },
     {
-     "tekst": "Een stof gaat met het bloed het hele lichaam door.",
-     "bak": 1,
-     "uitleg": "Zo werkt een hormoon."
+     "tekst": "Je ziet een bal aankomen en vangt hem.",
+     "bak": 0,
+     "uitleg": "Ogen, hersenen en spieren in je arm werken snel en gericht samen via zenuwen."
     },
     {
-     "tekst": "Werkt meestal trager, maar langer.",
+     "tekst": "Je knippert als er een vlieg naar je oog schiet.",
+     "bak": 0,
+     "uitleg": "Een snelle reflex naar één spiertje: zenuwen."
+    },
+    {
+     "tekst": "Na een schrik bonkt je hart nog minuten door, ook als het gevaar al weg is.",
+     "bak": 2,
+     "uitleg": "Een zenuw zet het bijniermerg aan. Daarna zit er adrenaline in je bloed, en die is pas na een paar minuten afgebroken."
+    },
+    {
+     "tekst": "Een baby zuigt aan de borst, en even later stroomt de melk.",
+     "bak": 2,
+     "uitleg": "Zenuwen in de tepel sturen een signaal naar de hersenen. Daarna gaat een hormoon met het bloed naar de borst."
+    },
+    {
+     "tekst": "In de puberteit wordt je stem in een paar jaar lager.",
      "bak": 1,
-     "uitleg": "Het hormoon moet eerst via het bloed rond, en wordt pas langzaam afgebroken."
+     "uitleg": "Een langzame verandering die jaren duurt: hormonen."
+    },
+    {
+     "tekst": "Na een maaltijd zakt je bloedsuiker weer naar normaal.",
+     "bak": 1,
+     "uitleg": "Insuline gaat met het bloed naar lever en spieren. Die nemen glucose op."
     },
     {
      "tekst": "Je groeit, jaren lang.",
      "bak": 1,
-     "uitleg": "Groeien gaat met hormonen."
-    },
-    {
-     "tekst": "Je bloedsuiker en je waterbalans blijven op peil.",
-     "bak": 1,
-     "uitleg": "Ook die worden met hormonen geregeld."
+     "uitleg": "Groeihormoon werkt in je hele lichaam, en lang."
     }
    ]
   },

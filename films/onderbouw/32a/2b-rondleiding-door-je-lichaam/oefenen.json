@@ -4,73 +4,19 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-ronde-1",
+   "id": "indelen-stelsel-aan-het-werk",
    "soort": "indelen",
-   "titel": "Ronde 1: de ochtend",
-   "opdracht": "Je wordt wakker en eet een boterham. Bij welk stelsel hoort elk orgaan?",
+   "titel": "Welk stelsel werkt hier?",
+   "opdracht": "Je lichaam doet iets. Welk stelsel is hier vooral aan het werk?",
    "bakken": [
     {
      "naam": "Zenuwstelsel",
      "uitleg": "aansturen"
     },
     {
-     "naam": "Spijsverteringsstelsel",
-     "uitleg": "eten klein maken en opnemen"
-    },
-    {
      "naam": "Ademhalingsstelsel",
-     "uitleg": "zuurstof"
-    }
-   ],
-   "kaartjes": [
-    {
-     "tekst": "hersenen",
-     "bak": 0,
-     "uitleg": "Ze sturen alles aan: bewegen, voelen, denken."
+     "uitleg": "lucht in en uit"
     },
-    {
-     "tekst": "ruggenmerg",
-     "bak": 0,
-     "uitleg": "Signalen gaan door je ruggenmerg en je zenuwen, heen en weer."
-    },
-    {
-     "tekst": "ogen",
-     "bak": 0,
-     "uitleg": "Je ogen vangen licht. Ook zij horen bij je zenuwstelsel."
-    },
-    {
-     "tekst": "maag",
-     "bak": 1,
-     "uitleg": "Daar wordt het eten gemengd met zuur, tot een papje."
-    },
-    {
-     "tekst": "dunne darm",
-     "bak": 1,
-     "uitleg": "Haalt de voedingsstoffen uit je eten."
-    },
-    {
-     "tekst": "lever",
-     "bak": 1,
-     "uitleg": "De lever maakt een sap dat helpt bij het verteren van vet."
-    },
-    {
-     "tekst": "luchtpijp",
-     "bak": 2,
-     "uitleg": "Lucht gaat door je neus en je luchtpijp naar je longen."
-    },
-    {
-     "tekst": "longen",
-     "bak": 2,
-     "uitleg": "Hier gaat zuurstof je bloed in."
-    }
-   ]
-  },
-  {
-   "id": "indelen-ronde-2",
-   "soort": "indelen",
-   "titel": "Ronde 2: overdag",
-   "opdracht": "Je fietst naar school en zit in de les. Bij welk stelsel hoort elk orgaan?",
-   "bakken": [
     {
      "naam": "Bloedvatenstelsel",
      "uitleg": "rondbrengen"
@@ -78,109 +24,48 @@
     {
      "naam": "Uitscheidingsstelsel",
      "uitleg": "afval eruit"
-    },
-    {
-     "naam": "Afweersysteem",
-     "uitleg": "ziekteverwekkers tegenhouden"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "hart",
+     "tekst": "Je raakt een hete pan en trekt meteen je hand terug.",
      "bak": 0,
-     "uitleg": "Pompt je bloed rond, honderdduizend keer per dag."
+     "uitleg": "Je huid voelt de hitte. Via je zenuwen gaat een signaal heen en terug, en je spieren trekken je hand weg."
     },
     {
-     "tekst": "bloedvaten",
+     "tekst": "Je ziet een bal aankomen en vangt hem.",
      "bak": 0,
-     "uitleg": "Brengen het bloed tot in je tenen."
+     "uitleg": "Je ogen zien de bal. Je hersenen sturen je armen en handen aan."
     },
     {
-     "tekst": "nieren",
+     "tekst": "Na een sprint hijg je en adem je veel dieper.",
      "bak": 1,
-     "uitleg": "Maken je bloed schoon, dag en nacht."
+     "uitleg": "Je spieren hebben meer zuurstof nodig. Je longen halen meer lucht binnen en meer koolstofdioxide eruit."
     },
     {
-     "tekst": "urineleiders",
+     "tekst": "In je longen komt zuurstof in je bloed.",
      "bak": 1,
-     "uitleg": "Brengen de urine van je nieren naar je blaas."
+     "uitleg": "Dat gebeurt in je longen, dus bij je ademhalingsstelsel. Het rondbrengen komt daarna."
     },
     {
-     "tekst": "blaas",
-     "bak": 1,
-     "uitleg": "Hier verzamelt de urine zich."
-    },
-    {
-     "tekst": "witte bloedcellen",
+     "tekst": "Je fietst hard en je hart klopt sneller.",
      "bak": 2,
-     "uitleg": "Ze vallen ziekteverwekkers aan."
+     "uitleg": "Je hart pompt dan meer bloed rond. Zo krijgen je beenspieren meer zuurstof."
     },
     {
-     "tekst": "lymfeklieren",
+     "tekst": "Zuurstof uit je longen komt in je tenen terecht.",
      "bak": 2,
-     "uitleg": "In je hals en je oksels: de verzamelplaats van witte bloedcellen."
-    }
-   ]
-  },
-  {
-   "id": "indelen-ronde-3",
-   "soort": "indelen",
-   "titel": "Ronde 3: de avond",
-   "opdracht": "Bewegen, groeien en nieuw leven. Bij welk stelsel hoort elk orgaan?",
-   "bakken": [
-    {
-     "naam": "Skelet"
+     "uitleg": "Je bloed brengt de zuurstof rond, door je bloedvaten, tot in je tenen."
     },
     {
-     "naam": "Spierstelsel"
-    },
-    {
-     "naam": "Hormoonstelsel"
-    },
-    {
-     "naam": "Voortplantingsstelsel"
-    }
-   ],
-   "kaartjes": [
-    {
-     "tekst": "schedel",
-     "bak": 0,
-     "uitleg": "Beschermt je hersenen. Hoort bij je skelet."
-    },
-    {
-     "tekst": "botten",
-     "bak": 0,
-     "uitleg": "Ongeveer tweehonderd. Ze geven je lichaam vorm en stevigheid."
-    },
-    {
-     "tekst": "spieren",
-     "bak": 1,
-     "uitleg": "Ze worden korter en trekken aan je botten."
-    },
-    {
-     "tekst": "hypofyse",
-     "bak": 2,
-     "uitleg": "Onder je hersenen. Regelt je groei met hormonen."
-    },
-    {
-     "tekst": "schildklier",
-     "bak": 2,
-     "uitleg": "In je hals. Regelt hoe snel je lichaam werkt."
-    },
-    {
-     "tekst": "eierstokken",
+     "tekst": "Na een grote fles water moet je steeds plassen.",
      "bak": 3,
-     "uitleg": "Gaan in de puberteit eicellen maken."
+     "uitleg": "Je nieren halen het water dat je te veel hebt uit je bloed. Dat wordt urine."
     },
     {
-     "tekst": "baarmoeder",
+     "tekst": "Op een warme dag zonder drinken is je urine donkergeel.",
      "bak": 3,
-     "uitleg": "Hoort bij het voortplantingsstelsel."
-    },
-    {
-     "tekst": "zaadballen",
-     "bak": 3,
-     "uitleg": "Gaan in de puberteit zaadcellen maken."
+     "uitleg": "Je nieren houden dan zoveel mogelijk water vast. Er gaat weinig water mee met de afvalstoffen."
     }
    ]
   },

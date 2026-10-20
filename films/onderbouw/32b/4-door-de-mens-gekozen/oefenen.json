@@ -4,59 +4,64 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-veredelen-fokken-gm",
+   "id": "indelen-wie-kiest",
    "soort": "indelen",
-   "titel": "Veredelen, fokken of genetische modificatie?",
-   "opdracht": "Welke manier gebruiken de mensen hier?",
+   "titel": "Wie kiest er?",
+   "opdracht": "Een eigenschap komt steeds vaker voor, of is nieuw. Hoe komt dat?",
    "bakken": [
     {
-     "naam": "Veredelen",
-     "uitleg": "planten kiezen en kruisen"
-    },
-    {
-     "naam": "Fokken",
-     "uitleg": "dieren kiezen"
+     "naam": "Kunstmatige selectie",
+     "uitleg": "de mens kiest wie nakomelingen krijgt (veredelen bij planten, fokken bij dieren)"
     },
     {
      "naam": "Genetische modificatie",
-     "uitleg": "zelf de genen veranderen"
+     "uitleg": "de mens verandert zelf de genen"
+    },
+    {
+     "naam": "Natuurlijke selectie",
+     "uitleg": "de omgeving bepaalt wie nakomelingen krijgt"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Steeds de zaadjes van de grootste tomaten opnieuw zaaien.",
+     "tekst": "Een kweker zaait elk jaar alleen de zaadjes van de zoetste aardbeien.",
      "bak": 0,
-     "uitleg": "De mens kiest, generatie na generatie."
+     "uitleg": "De mens kiest, generatie na generatie. Bij planten heet dat veredelen."
     },
     {
-     "tekst": "Stuifmeel van een grote tomaat naar de bloem van een sterke tomaat brengen.",
+     "tekst": "Uit één wilde koolplant maakten mensen in honderden jaren spruitjes, bloemkool en boerenkool.",
      "bak": 0,
-     "uitleg": "Twee planten kruisen hoort ook bij veredelen."
+     "uitleg": "Steeds kozen mensen de planten met de grootste knoppen, bloemen of bladeren. Zo ontstonden heel verschillende groenten."
     },
     {
-     "tekst": "Uit de wolf ontstaan de chihuahua en de Duitse herder.",
+     "tekst": "Een fokker laat alleen schapen met een gen voor extra dikke wol jongen krijgen.",
+     "bak": 0,
+     "uitleg": "Er staat 'gen', maar niemand verandert hier een gen. De fokker kiest welke schapen jongen krijgen: fokken."
+    },
+    {
+     "tekst": "Onderzoekers zetten een stukje DNA van een kwal in een vis. Nu licht de vis op.",
      "bak": 1,
-     "uitleg": "Mensen kozen steeds de honden die ze het handigst of mooist vonden."
+     "uitleg": "Er komt een gen van een heel andere soort bij. Dat kan alleen met genetische modificatie."
     },
     {
-     "tekst": "Steeds verder gaan met de koeien die de meeste melk geven.",
+     "tekst": "Een bacterie krijgt in een lab het recept voor menselijke insuline erbij.",
      "bak": 1,
-     "uitleg": "Daarom geeft een koe nu veel meer melk dan vroeger."
+     "uitleg": "Onderzoekers veranderen zelf wat er in de bacterie zit. Een bacterie kun je dat niet aanleren door te kiezen."
     },
     {
-     "tekst": "Een mopshond met een heel korte neus.",
-     "bak": 1,
-     "uitleg": "Een nadeel van fokken: hij ademt slecht."
-    },
-    {
-     "tekst": "Maïs met een gen van een bacterie.",
+     "tekst": "Op wit zand overleven vooral de lichte muizen. Er komen steeds meer lichte muizen.",
      "bak": 2,
-     "uitleg": "Onderzoekers plakken een gen van een ander organisme erin."
+     "uitleg": "Niemand kiest. Uilen pakken de donkere muizen vaker: natuurlijke selectie."
     },
     {
-     "tekst": "Onderzoekers veranderen zelf iets in de genen.",
+     "tekst": "Boeren spuiten elk jaar gif. Steeds meer muggen kunnen er tegen.",
      "bak": 2,
-     "uitleg": "Dat gaat sneller dan veredelen of fokken."
+     "uitleg": "De mens veroorzaakt het, maar kiest de muggen niet uit. Muggen die toevallig tegen het gif kunnen, overleven en krijgen jongen."
+    },
+    {
+     "tekst": "Hazen die het snelst rennen, ontsnappen vaker aan de vos en krijgen meer jongen.",
+     "bak": 2,
+     "uitleg": "De vos 'kiest' niet expres. Wie toevallig snel is, overleeft vaker: natuurlijke selectie."
     }
    ]
   },

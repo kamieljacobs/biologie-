@@ -7,69 +7,162 @@
    "titel": "Van XY tot jongenslichaam",
    "opdracht": "Een embryo is XY. Zet de lagen in de goede volgorde, van bevruchting tot puberteit.",
    "stappen": [
-    {"tekst": "Een zaadcel met een Y-chromosoom bevrucht de eicel: het embryo is XY.", "uitleg": "Van je moeder krijg je altijd een X. De zaadcel bepaalt of er een X of een Y bij komt."},
-    {"tekst": "Rond week 7 gaat het SRY-gen op het Y-chromosoom aan.", "uitleg": "Tot ongeveer week 6 ziet de aanleg er bij elk embryo hetzelfde uit."},
-    {"tekst": "De aanleg wordt een zaadbal.", "uitleg": "Zonder SRY gaan andere genen aan en wordt de aanleg een eierstok."},
-    {"tekst": "De zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt.", "uitleg": "Dit is de hormoonlaag. Zonder die hormonen ontstaan juist een baarmoeder en eileiders."},
-    {"tekst": "Uit de gedeelde aanleg groeien een penis en een balzak: de primaire geslachtskenmerken.", "uitleg": "Penis en clitoris, balzak en schaamlippen groeien uit dezelfde aanleg."},
-    {"tekst": "In de puberteit geven hypothalamus en hypofyse het startsein; de zaadballen maken meer testosteron.", "uitleg": "Zo ontstaan secundaire geslachtskenmerken, zoals een lage stem en baardgroei."}
+    {
+     "tekst": "Een zaadcel met een Y-chromosoom bevrucht de eicel: het embryo is XY.",
+     "uitleg": "Van je moeder krijg je altijd een X. De zaadcel bepaalt of er een X of een Y bij komt."
+    },
+    {
+     "tekst": "Rond week 7 gaat het SRY-gen op het Y-chromosoom aan.",
+     "uitleg": "Tot ongeveer week 6 ziet de aanleg er bij elk embryo hetzelfde uit."
+    },
+    {
+     "tekst": "De aanleg wordt een zaadbal.",
+     "uitleg": "Zonder SRY gaan andere genen aan en wordt de aanleg een eierstok."
+    },
+    {
+     "tekst": "De zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt.",
+     "uitleg": "Dit is de hormoonlaag. Zonder die hormonen ontstaan juist een baarmoeder en eileiders."
+    },
+    {
+     "tekst": "Uit de gedeelde aanleg groeien een penis en een balzak: de primaire geslachtskenmerken.",
+     "uitleg": "Penis en clitoris, balzak en schaamlippen groeien uit dezelfde aanleg."
+    },
+    {
+     "tekst": "In de puberteit geven hypothalamus en hypofyse het startsein; de zaadballen maken meer testosteron.",
+     "uitleg": "Zo ontstaan secundaire geslachtskenmerken, zoals een lage stem en baardgroei."
+    }
    ]
   },
   {
-   "id": "indelen-welke-laag",
+   "id": "indelen-welke-laag-vier",
    "soort": "indelen",
    "titel": "Welke laag loopt anders?",
-   "opdracht": "Bij elke variatie loopt één laag anders dan meestal. Sleep elk kaartje naar de laag waar het verschil zit.",
+   "opdracht": "Bij elke variatie loopt één laag anders dan meestal. Sleep elk kaartje naar de laag waar het verschil begint.",
    "bakken": [
-    {"naam": "Chromosomen", "uitleg": "een ander aantal X- of Y-chromosomen"},
-    {"naam": "Hormonen", "uitleg": "te veel hormoon, of cellen die er niet op reageren"},
-    {"naam": "Gewoon de lagen", "uitleg": "alle lagen passen bij elkaar"}
+    {
+     "naam": "Chromosomen",
+     "uitleg": "een ander aantal X- of Y-chromosomen"
+    },
+    {
+     "naam": "Geslachtsklier (SRY)",
+     "uitleg": "het SRY-gen beslist: zaadbal of eierstok"
+    },
+    {
+     "naam": "Hormoonproductie",
+     "uitleg": "te veel of te weinig hormoon"
+    },
+    {
+     "naam": "Hormoonreceptor",
+     "uitleg": "het hormoon is er, maar de cellen reageren niet"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Syndroom van Klinefelter: X, X en Y.", "bak": 0, "uitleg": "Er is een extra X. Door de Y met SRY ontstaan wel zaadballen."},
-    {"tekst": "Syndroom van Turner: maar één X.", "bak": 0, "uitleg": "Er ontbreekt een tweede geslachtschromosoom."},
-    {"tekst": "Androgeen-ongevoeligheid: XY, zaadballen maken testosteron, maar de receptor werkt niet.", "bak": 1, "uitleg": "Het hormoon is er wel, maar de cellen reageren er niet op."},
-    {"tekst": "AGS: de bijnieren maken te veel mannelijke hormonen.", "bak": 1, "uitleg": "Een meisje met XX en eierstokken kan zo geslachtsorganen krijgen die meer op die van een jongen lijken."},
-    {"tekst": "XY, SRY gaat aan, zaadballen, penis en balzak.", "bak": 2, "uitleg": "Alle lagen passen hier bij elkaar."},
-    {"tekst": "XX, geen SRY, eierstokken, baarmoeder en eileiders.", "bak": 2, "uitleg": "Zonder SRY wordt de aanleg een eierstok; ook hier passen de lagen bij elkaar."}
+    {
+     "tekst": "Een jongen met X, X en Y. Pas als hij kinderen wil, blijkt hij onvruchtbaar.",
+     "bak": 0,
+     "uitleg": "Het syndroom van Klinefelter: een extra X. De Y met SRY zorgt wel voor zaadballen."
+    },
+    {
+     "tekst": "Een meisje met maar één X, dat kleiner blijft en bij wie de eierstokken niet goed werken.",
+     "bak": 0,
+     "uitleg": "Het syndroom van Turner: een tweede geslachtschromosoom ontbreekt."
+    },
+    {
+     "tekst": "Een man met twee X-chromosomen. Bij de vorming van de zaadcel ging het SRY-gen mee naar een X.",
+     "bak": 1,
+     "uitleg": "De chromosomen zijn XX, maar het SRY-gen is er toch. Dus ontstaan zaadballen."
+    },
+    {
+     "tekst": "Iemand met XY bij wie het SRY-gen niet werkt: er komen geen zaadballen, wel een baarmoeder.",
+     "bak": 1,
+     "uitleg": "De chromosomen zijn gewoon XY. Het verschil begint bij het gen dat de klier aanstuurt."
+    },
+    {
+     "tekst": "Een meisje met XX en eierstokken. Haar bijnieren maken veel mannelijk hormoon, en haar geslachtsorganen lijken meer op die van een jongen.",
+     "bak": 2,
+     "uitleg": "AGS: de bijnieren maken te veel mannelijke hormonen."
+    },
+    {
+     "tekst": "Een kind met XY en zaadballen. Een enzym dat testosteron maakt, werkt niet goed. Uitwendig lijkt het kind meer op een meisje.",
+     "bak": 2,
+     "uitleg": "De zaadballen zijn er wel, maar ze maken te weinig testosteron."
+    },
+    {
+     "tekst": "XY, zaadballen in de buik, genoeg testosteron in het bloed. Toch ontwikkelt het lichaam zich uitwendig als dat van een meisje.",
+     "bak": 3,
+     "uitleg": "Androgeen-ongevoeligheid: het hormoon is er, maar de receptor werkt niet."
+    },
+    {
+     "tekst": "Iemand met XY en zaadballen krijgt extra testosteron, maar er verandert niets aan het lichaam.",
+     "bak": 3,
+     "uitleg": "Meer hormoon helpt niet als de cellen het niet kunnen opvangen: het probleem zit in de receptor."
+    }
    ]
   },
   {
-   "id": "indelen-dieren",
-   "soort": "indelen",
-   "titel": "Wie bepaalt de sekse?",
-   "opdracht": "Bij andere dieren is sekse soms heel anders geregeld. Wat bepaalt bij elk dier of het mannetje of vrouwtje wordt?",
-   "bakken": [
-    {"naam": "Chromosomen"},
-    {"naam": "Temperatuur van het nest"},
-    {"naam": "De groep"}
-   ],
-   "kaartjes": [
-    {"tekst": "Mens", "bak": 0, "uitleg": "XX of XY; het SRY-gen op de Y maakt het verschil."},
-    {"tekst": "Kip", "bak": 0, "uitleg": "Bij vogels is juist het vrouwtje ZW en het mannetje ZZ."},
-    {"tekst": "Veel schildpadden", "bak": 1, "uitleg": "Warm nest: vooral vrouwtjes. Koeler: vooral mannetjes."},
-    {"tekst": "Krokodil", "bak": 1, "uitleg": "Ook bij krokodillen hangt het af van de temperatuur."},
-    {"tekst": "Clownvis", "bak": 2, "uitleg": "Gaat het vrouwtje dood, dan wordt het mannetje een vrouwtje."}
-   ]
-  },
-  {
-   "id": "indelen-vier-begrippen",
+   "id": "indelen-vier-begrippen-casus",
    "soort": "indelen",
    "titel": "Vier begrippen uit elkaar houden",
-   "opdracht": "Over welk begrip gaat elk kaartje?",
+   "opdracht": "Elk kaartje vertelt iets over iemand. Over welk begrip gaat het kaartje?",
    "bakken": [
-    {"naam": "Sekse", "uitleg": "je biologische geslacht"},
-    {"naam": "Genderidentiteit", "uitleg": "hoe je jezelf ervaart"},
-    {"naam": "Genderexpressie", "uitleg": "hoe je dat laat zien"},
-    {"naam": "Seksuele oriëntatie", "uitleg": "tot wie je je aangetrokken voelt"}
+    {
+     "naam": "Sekse",
+     "uitleg": "je biologische geslacht"
+    },
+    {
+     "naam": "Genderidentiteit",
+     "uitleg": "hoe je jezelf ervaart"
+    },
+    {
+     "naam": "Genderexpressie",
+     "uitleg": "hoe je dat laat zien"
+    },
+    {
+     "naam": "Seksuele oriëntatie",
+     "uitleg": "tot wie je je aangetrokken voelt"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Je hebt eierstokken of zaadballen.", "bak": 0, "uitleg": "Geslachtsklieren horen bij de sekse."},
-    {"tekst": "Je bent XX of XY.", "bak": 0, "uitleg": "Chromosomen horen bij de sekse."},
-    {"tekst": "Je voelt je een man, een vrouw, of anders.", "bak": 1, "uitleg": "Zo ervaar je jezelf: genderidentiteit."},
-    {"tekst": "Je voelt je niet alleen man of alleen vrouw: non-binair.", "bak": 1, "uitleg": "Non-binair gaat over hoe je jezelf ervaart."},
-    {"tekst": "Je kiest je kleding en je kapsel.", "bak": 2, "uitleg": "Zo laat je zien wie je bent: genderexpressie."},
-    {"tekst": "Op wie je verliefd wordt.", "bak": 3, "uitleg": "Dat is seksuele oriëntatie, iets anders dan genderidentiteit."}
+    {
+     "tekst": "Sam is XY en heeft zaadballen.",
+     "bak": 0,
+     "uitleg": "Chromosomen en geslachtsklieren horen bij de sekse."
+    },
+    {
+     "tekst": "Sam voelt zich een meisje.",
+     "bak": 1,
+     "uitleg": "Zo ervaart Sam zichzelf: genderidentiteit. Die past bij Sam niet bij de sekse: transgender."
+    },
+    {
+     "tekst": "Sam draagt het liefst jurken en lange oorbellen.",
+     "bak": 2,
+     "uitleg": "Kleding en sieraden: zo laat Sam zien wie ze is."
+    },
+    {
+     "tekst": "Jesse voelt zich helemaal een jongen, en draagt op het podium graag make-up.",
+     "bak": 2,
+     "uitleg": "De make-up gaat over genderexpressie. Aan Jesses genderidentiteit verandert het niets."
+    },
+    {
+     "tekst": "Lieke heeft XX en eierstokken. Bij haar geboorte schreven ze 'meisje' op.",
+     "bak": 0,
+     "uitleg": "Wat bij de geboorte wordt vastgesteld, gaat over het lichaam: sekse."
+    },
+    {
+     "tekst": "Mo voelt zich niet alleen man of alleen vrouw.",
+     "bak": 1,
+     "uitleg": "Non-binair gaat over hoe je jezelf ervaart."
+    },
+    {
+     "tekst": "Mo wordt verliefd op zowel jongens als meisjes.",
+     "bak": 3,
+     "uitleg": "Op wie je verliefd wordt, is seksuele oriëntatie, iets anders dan genderidentiteit."
+    },
+    {
+     "tekst": "Na zijn transitie is Daan, een trans man, nog steeds verliefd op dezelfde vrouw.",
+     "bak": 3,
+     "uitleg": "Een transitie verandert het lichaam en de expressie, niet op wie je verliefd bent. Dat is seksuele oriëntatie."
+    }
    ]
   },
   {
@@ -78,10 +171,32 @@
    "titel": "Twee X-chromosomen, toch zaadballen",
    "opdracht": "Iemand met X, X en Y krijgt zaadballen, ook al zijn er twee X-chromosomen. Leg uit hoe dat komt. Gebruik de lagen uit de film.",
    "begrippen": [
-    {"naam": "Y-chromosoom", "varianten": ["Y"]},
-    {"naam": "SRY-gen", "varianten": ["SRY"]},
-    {"naam": "zaadbal", "varianten": ["zaadballen", "teelbal"]},
-    {"naam": "testosteron", "varianten": ["hormoon", "hormonen"]}
+    {
+     "naam": "Y-chromosoom",
+     "varianten": [
+      "Y"
+     ]
+    },
+    {
+     "naam": "SRY-gen",
+     "varianten": [
+      "SRY"
+     ]
+    },
+    {
+     "naam": "zaadbal",
+     "varianten": [
+      "zaadballen",
+      "teelbal"
+     ]
+    },
+    {
+     "naam": "testosteron",
+     "varianten": [
+      "hormoon",
+      "hormonen"
+     ]
+    }
    ],
    "checklist": [
     "Ik noem dat er een Y-chromosoom is met het SRY-gen.",
@@ -102,10 +217,33 @@
    "titel": "Een man met XX",
    "opdracht": "Heel soms heeft een man twee X-chromosomen. Leg uit hoe dat kan, en waarom hij onvruchtbaar is.",
    "begrippen": [
-    {"naam": "SRY-gen", "varianten": ["SRY"]},
-    {"naam": "uitwisselen", "varianten": ["uitwisseling", "wisselen", "stukje"]},
-    {"naam": "SOX9", "varianten": ["cascade", "andere genen"]},
-    {"naam": "zaadcellen", "varianten": ["zaadcel"]}
+    {
+     "naam": "SRY-gen",
+     "varianten": [
+      "SRY"
+     ]
+    },
+    {
+     "naam": "uitwisselen",
+     "varianten": [
+      "uitwisseling",
+      "wisselen",
+      "stukje"
+     ]
+    },
+    {
+     "naam": "SOX9",
+     "varianten": [
+      "cascade",
+      "andere genen"
+     ]
+    },
+    {
+     "naam": "zaadcellen",
+     "varianten": [
+      "zaadcel"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat X en Y bij de vorming van zaadcellen een stukje uitwisselen, waarbij het SRY-gen naar de X kan gaan.",

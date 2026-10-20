@@ -5,7 +5,7 @@
    "id": "indelen-enzym-substraat",
    "soort": "indelen",
    "titel": "Welke schaar voor welk molecuul?",
-   "opdracht": "Elk enzym knipt maar één soort stof. Sleep elk enzym naar de voedingsstof die het knipt.",
+   "opdracht": "Elk enzym knipt maar één soort stof. Sleep elk enzym naar de voedingsstof die het knipt. Ken je het enzym niet? Kijk naar de naam.",
    "bakken": [
     {
      "naam": "Koolhydraten"
@@ -24,14 +24,19 @@
      "uitleg": "Knipt zetmeel tot maltose."
     },
     {
-     "tekst": "Maltase uit de darmwand",
-     "bak": 0,
-     "uitleg": "Knipt maltose tot losse glucose."
-    },
-    {
      "tekst": "Lactase uit de darmwand",
      "bak": 0,
-     "uitleg": "Knipt lactose tot glucose en galactose."
+     "uitleg": "Knipt lactose (melksuiker) tot glucose en galactose."
+    },
+    {
+     "tekst": "Sucrase",
+     "bak": 0,
+     "uitleg": "Sucrose is gewone suiker, een koolhydraat. De naam van een enzym is vaak de naam van de stof plus -ase."
+    },
+    {
+     "tekst": "Cellulase, dat bacteriën in de pens van een koe maken",
+     "bak": 0,
+     "uitleg": "Cellulose is een koolhydraat uit plantencelwanden. Mensen hebben geen cellulase."
     },
     {
      "tekst": "Pepsine in de maag",
@@ -41,61 +46,17 @@
     {
      "tekst": "Peptidasen in de darmwand",
      "bak": 1,
-     "uitleg": "Maken van de stukken losse aminozuren."
+     "uitleg": "Peptiden zijn stukjes eiwit. Peptidasen maken er losse aminozuren van."
     },
     {
      "tekst": "Lipase uit de alvleesklier",
      "bak": 2,
      "uitleg": "Knipt vet in glycerol en vetzuren."
-    }
-   ]
-  },
-  {
-   "id": "indelen-waar",
-   "soort": "indelen",
-   "titel": "Waar wordt geknipt?",
-   "opdracht": "Waar doet elk enzym zijn werk?",
-   "bakken": [
-    {
-     "naam": "Mond"
     },
     {
-     "naam": "Maag"
-    },
-    {
-     "naam": "Twaalfvingerige en dunne darm"
-    }
-   ],
-   "kaartjes": [
-    {
-     "tekst": "Amylase uit het speeksel",
-     "bak": 0,
-     "uitleg": "Daarom wordt een cracker zoet als je erop kauwt."
-    },
-    {
-     "tekst": "Pepsine",
-     "bak": 1,
-     "uitleg": "Werkt het best bij pH 2, zo zuur als in je maag."
-    },
-    {
-     "tekst": "Lipase",
+     "tekst": "Lipase in waspoeder, tegen een vlek van frietsaus",
      "bak": 2,
-     "uitleg": "Komt met het alvleessap in de twaalfvingerige darm, waar ook de gal binnenkomt."
-    },
-    {
-     "tekst": "Amylase uit de alvleesklier",
-     "bak": 2,
-     "uitleg": "Maakt het knippen van zetmeel in de darm af."
-    },
-    {
-     "tekst": "Maltase",
-     "bak": 2,
-     "uitleg": "Gemaakt door klieren in de wand van de dunne darm."
-    },
-    {
-     "tekst": "Lactase",
-     "bak": 2,
-     "uitleg": "Ook uit de wand van de dunne darm."
+     "uitleg": "Ook buiten je lichaam knipt lipase vet."
     }
    ]
   },

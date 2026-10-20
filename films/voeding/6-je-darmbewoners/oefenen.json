@@ -34,63 +34,6 @@
    ]
   },
   {
-   "id": "indelen-bewijsbord",
-   "soort": "indelen",
-   "titel": "Het bewijsbord",
-   "opdracht": "In welk vak van het bewijsbord hoort elke bewering, volgens de film?",
-   "bakken": [
-    {
-     "naam": "Vastgesteld",
-     "uitleg": "meerdere onderzoeken met controlegroep, of geteld en gemeten"
-    },
-    {
-     "naam": "Waarschijnlijk",
-     "uitleg": "een onderzoek, maar klein of niet overal gevonden effect"
-    },
-    {
-     "naam": "Hypothese",
-     "uitleg": "bij mensen nog niet met een controlegroep getest"
-    }
-   ],
-   "kaartjes": [
-    {
-     "tekst": "In je dikke darm leven ongeveer veertig biljoen bacteriën, zonder zuurstof.",
-     "bak": 0,
-     "uitleg": "Geteld en gemeten."
-    },
-    {
-     "tekst": "Darmbacteriën maken korte vetzuren, die je darmwand als brandstof gebruikt.",
-     "bak": 0,
-     "uitleg": "In veel onderzoeken gemeten."
-    },
-    {
-     "tekst": "Een poeptransplantatie geneest een terugkerende infectie met C. difficile.",
-     "bak": 0,
-     "uitleg": "Onderzoek met loting: ruim acht van de tien tegenover drie van de tien."
-    },
-    {
-     "tekst": "Een poeptransplantatie werkt doordat de donorbacteriën plek en voedsel weer innemen.",
-     "bak": 1,
-     "uitleg": "De beste verklaring, maar dat dit de reden is, is niet vastgesteld."
-    },
-    {
-     "tekst": "Een probioticum voorkomt diarree tijdens een antibioticakuur.",
-     "bak": 1,
-     "uitleg": "Bij sommige soorten scheelt het iets, bij andere niets."
-    },
-    {
-     "tekst": "Darmbacteriën veroorzaken overgewicht.",
-     "bak": 2,
-     "uitleg": "Bij muizen gezien, bij mensen alleen een verband."
-    },
-    {
-     "tekst": "Darmbacteriën veroorzaken bij mensen een depressie.",
-     "bak": 2,
-     "uitleg": "Er is een verband, maar een onderzoek met controlegroep ontbreekt nog."
-    }
-   ]
-  },
-  {
    "id": "volgorde-bonen",
    "soort": "volgorde",
    "titel": "Een bord bonen",

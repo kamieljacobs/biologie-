@@ -95,58 +95,66 @@
    ]
   },
   {
-   "id": "indelen-haai-klopt",
+   "id": "indelen-welk-zintuig",
    "soort": "indelen",
-   "titel": "Film of echt?",
-   "opdracht": "Klopt deze zin over haaien, of klopt hij niet?",
+   "titel": "Welk zintuig helpt?",
+   "opdracht": "Welk zintuig helpt de haai hier het meest om de prooi te vinden?",
    "bakken": [
     {
-     "naam": "Klopt"
+     "naam": "Reuk"
     },
     {
-     "naam": "Klopt niet"
+     "naam": "Ogen"
+    },
+    {
+     "naam": "Zijlijn",
+     "uitleg": "voelt trillingen in het water"
+    },
+    {
+     "naam": "Elektrisch zintuig",
+     "uitleg": "voelt elektrische signalen van spieren"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Het skelet van een haai is van kraakbeen.",
+     "tekst": "Een gewonde vis bloedt een paar honderd meter verderop. De stroming komt van die kant.",
      "bak": 0,
-     "uitleg": "Stevig, maar buigzaam en lichter dan bot."
+     "uitleg": "De stroming brengt de geur naar de haai. Hij zwemt tegen de stroming in, de geur achterna."
     },
     {
-     "tekst": "Een grote lever vol olie helpt een haai drijven.",
+     "tekst": "Een dode zeehond drijft ver weg, achter een rots. De haai kan hem niet zien.",
      "bak": 0,
-     "uitleg": "Olie is lichter dan water."
+     "uitleg": "Zien kan niet, en een dode zeehond trilt of spartelt niet. Alleen de geur komt bij de haai."
     },
     {
-     "tekst": "Valt er een tand uit, dan schuift de volgende door.",
-     "bak": 0,
-     "uitleg": "Een haai verbruikt tienduizenden tanden."
-    },
-    {
-     "tekst": "Mensen doden veel meer haaien dan haaien mensen.",
-     "bak": 0,
-     "uitleg": "Ongeveer 80 miljoen haaien per jaar."
-    },
-    {
-     "tekst": "Een haai ruikt één druppel bloed van kilometers ver.",
+     "tekst": "In helder water zwemt een school vissen tien meter verderop.",
      "bak": 1,
-     "uitleg": "Hooguit een paar honderd meter, als de stroming meezit."
+     "uitleg": "In helder water ziet een haai een vis op zo'n vijftien meter."
     },
     {
-     "tekst": "Elke haai moet altijd zwemmen om te ademen.",
+     "tekst": "Het is avond en het water is helder. Boven de haai zwemt een zeehond.",
      "bak": 1,
-     "uitleg": "Een verpleegsterhaai ligt op de bodem en pompt water met zijn wangspieren."
+     "uitleg": "Haaienogen werken ook goed in het donker. Tegen het lichtere wateroppervlak ziet hij de vorm."
     },
     {
-     "tekst": "Een haai heeft een zwemblaas vol gas.",
-     "bak": 1,
-     "uitleg": "Veel vissen wel, haaien niet."
+     "tekst": "In troebel water spartelt een vis twee meter naast de haai.",
+     "bak": 2,
+     "uitleg": "Zien lukt niet in troebel water. Maar het spartelen maakt trillingen. Die voelt de zijlijn op een paar meter."
     },
     {
-     "tekst": "Een haai kreeg een goede zijlijn omdat hij dat wilde.",
-     "bak": 1,
-     "uitleg": "Een haai die beter voelt, krijgt vaker jongen: natuurlijke selectie."
+     "tekst": "Een duiker zwemt vlak achter de haai, buiten zijn zicht.",
+     "bak": 2,
+     "uitleg": "De zwemslagen van de duiker maken trillingen. De zijlijn loopt langs het hele lijf en voelt ze."
+    },
+    {
+     "tekst": "Een platvis ligt doodstil, ingegraven in het zand onder de snuit van de haai.",
+     "bak": 3,
+     "uitleg": "Hij is niet te zien en trilt niet. Maar zijn hart en spieren maken kleine elektrische signalen."
+    },
+    {
+     "tekst": "Een krab zit verstopt in een spleet, vijftien centimeter van de snuit.",
+     "bak": 3,
+     "uitleg": "Zo dichtbij werkt het elektrisch zintuig: de gaatjes in de snuit voelen zijn spieren."
     }
    ]
   },

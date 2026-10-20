@@ -118,58 +118,60 @@
    ]
   },
   {
-   "id": "indelen-stamboom-klopt",
+   "id": "indelen-geerfd-of-apart",
    "soort": "indelen",
-   "titel": "Klopt het?",
-   "opdracht": "Klopt deze zin over stambomen, of klopt hij niet?",
+   "titel": "Geërfd of apart ontstaan?",
+   "opdracht": "Twee soorten hebben hetzelfde kenmerk. Hebben ze het allebei geërfd van een gezamenlijke voorouder? Of is het bij elk apart ontstaan?",
    "bakken": [
     {
-     "naam": "Klopt"
+     "naam": "Geërfd van een gezamenlijke voorouder",
+     "uitleg": "het kenmerk zegt iets over verwantschap"
     },
     {
-     "naam": "Klopt niet"
+     "naam": "Apart ontstaan",
+     "uitleg": "zelfde taak, maar geen bewijs van verwantschap"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Elke splitsing in een stamboom is een voorouder.",
+     "tekst": "Haren bij de muis en de vleermuis",
      "bak": 0,
-     "uitleg": "Een soort die zich splitste in twee groepen."
+     "uitleg": "Alle zoogdieren hebben haren. Muis en vleermuis erfden ze van hun gezamenlijke voorouder."
     },
     {
-     "tekst": "Mens en chimpansee hebben samen een voorouder.",
+     "tekst": "Melk voor de jongen bij de walvis en het nijlpaard",
      "bak": 0,
-     "uitleg": "Die voorouder zag er anders uit dan allebei."
+     "uitleg": "Allebei zoogdieren. Ook hun DNA lijkt op elkaar: ze zijn nauw verwant."
     },
     {
-     "tekst": "Hoe meer DNA-letters gelijk zijn, hoe nauwer verwant.",
+     "tekst": "Een ruggengraat bij de kip en de mens",
      "bak": 0,
-     "uitleg": "Zo bouwen biologen tegenwoordig stambomen."
+     "uitleg": "De kip splitst vroeg af, maar heel vroeg hadden ze samen een voorouder met een ruggengraat."
     },
     {
-     "tekst": "Vleugels zijn bij vleermuis en vogel apart ontstaan.",
+     "tekst": "Cellen met een kern bij de mens en een paddenstoel",
      "bak": 0,
-     "uitleg": "De vleermuis is een zoogdier, net als de muis."
+     "uitleg": "Planten, schimmels en dieren zijn allemaal eukaryoten. De celkern ontstond één keer, heel lang geleden."
     },
     {
-     "tekst": "De mens stamt af van de chimpansee.",
+     "tekst": "Vleugels bij de vleermuis en de vogel",
      "bak": 1,
-     "uitleg": "Ze hebben samen een voorouder. Dat is iets anders."
+     "uitleg": "De vleermuis is een zoogdier, nauwer verwant aan de muis. Vleugels zijn bij allebei apart ontstaan."
     },
     {
-     "tekst": "Een vleermuis is nauwer verwant aan een vogel, want ze kunnen allebei vliegen.",
+     "tekst": "Vleugels bij een vlinder en een merel",
      "bak": 1,
-     "uitleg": "Haren en melk geven: de vleermuis is een zoogdier. Ook zijn DNA lijkt meer op dat van de muis."
+     "uitleg": "Een vlinder is een insect, een merel een vogel. Hun vleugels zijn heel anders gebouwd."
     },
     {
-     "tekst": "De eerste cellen hadden al een celkern.",
+     "tekst": "Een gestroomlijnd lijf met vinnen bij de walvis en de haai",
      "bak": 1,
-     "uitleg": "Cellen met een kern kwamen pas later."
+     "uitleg": "De walvis is een zoogdier, de haai een vis. In het water is zo'n lijf handig, dus het ontstond bij allebei."
     },
     {
-     "tekst": "Er waren al dieren toen de eerste cellen ontstonden.",
+     "tekst": "Graafpoten bij de mol en de molkrekel",
      "bak": 1,
-     "uitleg": "Meercellig leven kwam als laatste grote stap."
+     "uitleg": "De mol is een zoogdier, de molkrekel een insect. Wie onder de grond leeft, heeft baat bij graafpoten."
     }
    ]
   },

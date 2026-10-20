@@ -74,10 +74,10 @@
    ]
   },
   {
-   "id": "indelen-vorm-selectie",
+   "id": "indelen-vorm-selectie-drie",
    "soort": "indelen",
    "titel": "Welke vorm van selectie?",
-   "opdracht": "Sleep elk voorbeeld naar de vorm van selectie die erbij hoort.",
+   "opdracht": "Kijk wat er met de verdeling van het kenmerk gebeurt. Schuift het gemiddelde op, wordt de spreiding kleiner, of verdwijnt het midden?",
    "bakken": [
     {
      "naam": "Gericht",
@@ -90,10 +90,6 @@
     {
      "naam": "Splitsend",
      "uitleg": "het midden verdwijnt"
-    },
-    {
-     "naam": "Seksueel",
-     "uitleg": "partnerkeuze"
     }
    ],
    "kaartjes": [
@@ -108,6 +104,11 @@
      "uitleg": "Nu hebben de lichte vlinders het voordeel: het gemiddelde schuift terug."
     },
     {
+     "tekst": "Pauwhennen kiezen steeds de hanen met de langste staart.",
+     "bak": 0,
+     "uitleg": "Partnerkeuze is seksuele selectie, maar de vorm is gericht: het gemiddelde schuift naar langere staarten."
+    },
+    {
      "tekst": "Het aantal eieren van een koolmees blijft generaties lang ongeveer gelijk.",
      "bak": 1,
      "uitleg": "Het kenmerk zit al ongeveer goed en selectie houdt het daar."
@@ -118,19 +119,77 @@
      "uitleg": "Het midden heeft de hoogste fitness."
     },
     {
+     "tekst": "Vliegenlarven in een gal: kleine gallen worden door wespen aangeprikt, grote door vogels opengepikt.",
+     "bak": 1,
+     "uitleg": "Beide uitersten verliezen, het midden wint: de spreiding krimpt."
+    },
+    {
      "tekst": "Zaadkrakers met een middelgrote snavel krijgen de minste jongen.",
      "bak": 2,
      "uitleg": "Het midden wordt leeggegeten: twee groepen blijven over."
     },
     {
-     "tekst": "De pauwenstaart wordt langer dan goed is voor overleven.",
-     "bak": 3,
-     "uitleg": "Vrouwtjes kiezen de langste staart: meer nakomelingen, ondanks meer vossen."
+     "tekst": "In een meer vangen kleine vissen genoeg in het ondiepe en grote in het open water; middelgrote vissen vangen in allebei te weinig.",
+     "bak": 2,
+     "uitleg": "Twee uitersten winnen: de populatie splitst in twee groepen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-natuurlijk-seksueel",
+   "soort": "indelen",
+   "titel": "Natuurlijke of seksuele selectie?",
+   "opdracht": "Allebei geven ze sommige individuen meer nakomelingen. Komt dat voordeel door beter overleven, of door meer partners krijgen?",
+   "bakken": [
+    {
+     "naam": "Natuurlijke selectie",
+     "uitleg": "verschil in overleven"
     },
     {
-     "tekst": "Mannetjes met het mooiste gezang krijgen de meeste partners.",
-     "bak": 3,
-     "uitleg": "Seksuele selectie verklaart geweien, gezang, kleuren en gevechten."
+     "naam": "Seksuele selectie",
+     "uitleg": "verschil in partners krijgen"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Bacteriën met resistentie overleven een kuur.",
+     "bak": 0,
+     "uitleg": "Het voordeel zit in overleven."
+    },
+    {
+     "tekst": "Lichte berkenspanners worden op schone bomen minder vaak door vogels gezien.",
+     "bak": 0,
+     "uitleg": "Minder opgegeten worden: overleven."
+    },
+    {
+     "tekst": "Vinken met een diepe snavel komen een droogte beter door.",
+     "bak": 0,
+     "uitleg": "Ze krijgen de harde zaden open en overleven."
+    },
+    {
+     "tekst": "Baby's met een heel laag gewicht overleven minder vaak.",
+     "bak": 0,
+     "uitleg": "Het gaat om overleven, niet om partners."
+    },
+    {
+     "tekst": "Edelherten met een groter gewei winnen meer gevechten en paren vaker.",
+     "bak": 1,
+     "uitleg": "Het gewei helpt niet tegen roofdieren of honger, maar wel in de strijd om vrouwtjes."
+    },
+    {
+     "tekst": "Een felgekleurd guppymannetje wordt vaker opgegeten, maar vrouwtjes kiezen hem vaker.",
+     "bak": 1,
+     "uitleg": "Hij overleeft slechter en krijgt toch meer jongen: het voordeel zit in partners."
+    },
+    {
+     "tekst": "Zangvogels met een groter repertoire aan liedjes krijgen meer partners.",
+     "bak": 1,
+     "uitleg": "Gezang helpt om te paren, niet om te overleven."
+    },
+    {
+     "tekst": "Widavogelmannetjes met een langere staart krijgen meer nesten.",
+     "bak": 1,
+     "uitleg": "De vrouwtjes kiezen op staartlengte."
     }
    ]
   },

@@ -282,8 +282,8 @@
     0
    ],
    [
-    "indelen-variabelen-pasteur",
-    "Variabelen bij Pasteur",
+    "indelen-variabelen-bonen",
+    "Variabelen bij kiemende bonen",
     "indelen",
     0
    ],
@@ -804,8 +804,8 @@
     0
    ],
    [
-    "indelen-milieuprobleem",
-    "Welk milieuprobleem?",
+    "indelen-milieu-mechanisme",
+    "Welk mechanisme zit erachter?",
     "indelen",
     0
    ],
@@ -1112,8 +1112,8 @@
     0
    ],
    [
-    "indelen-wie-ziet-wat",
-    "Normaal, draagster of kleurenblind?",
+    "indelen-zeker-of-kans",
+    "Zeker normaal, misschien of zeker kleurenblind?",
     "indelen",
     0
    ],
@@ -1176,12 +1176,6 @@
   "json": "films/evolutie/1-het-raadsel-van-de-eilanden/oefenen.json",
   "oef": [
    [
-    "indelen-welke-aanwijzing",
-    "Welke aanwijzing?",
-    "indelen",
-    0
-   ],
-   [
     "indelen-wat-voorspelt-het-idee",
     "Welk idee voorspelt dit?",
     "indelen",
@@ -1208,8 +1202,8 @@
   "json": "films/evolutie/2-verrassend-simpel/oefenen.json",
   "oef": [
    [
-    "indelen-klopt-misvatting",
-    "Klopt het, of is het een misvatting?",
+    "indelen-welke-denkfout",
+    "Klopt het, of welke denkfout?",
     "indelen",
     0
    ],
@@ -1246,8 +1240,8 @@
   "json": "films/evolutie/3-hoe-weten-we-dat/oefenen.json",
   "oef": [
    [
-    "indelen-soort-bewijs",
-    "Welk spoor?",
+    "indelen-soort-bewijs-begrippen",
+    "Welk soort bewijs?",
     "indelen",
     0
    ],
@@ -1290,15 +1284,15 @@
     0
    ],
    [
-    "indelen-welk-onderdeel",
-    "Welk onderdeel?",
-    "indelen",
-    0
-   ],
-   [
     "pijlen-rna-plasje",
     "Het plasje met RNA",
     "pijlen",
+    0
+   ],
+   [
+    "uitleg-omhulsel",
+    "Waarom een omhulsel?",
+    "uitleg",
     0
    ],
    [
@@ -1360,8 +1354,14 @@
     0
    ],
    [
-    "indelen-vorm-selectie",
+    "indelen-vorm-selectie-drie",
     "Welke vorm van selectie?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-natuurlijk-seksueel",
+    "Natuurlijke of seksuele selectie?",
     "indelen",
     0
    ],
@@ -1716,7 +1716,7 @@
   "json": "films/gedrag/11-slimme-dieren/oefenen.json",
   "oef": [
    [
-    "indelen-leren",
+    "indelen-proberen-inzicht",
     "Proberen of inzicht?",
     "indelen",
     0
@@ -1760,8 +1760,8 @@
     0
    ],
    [
-    "indelen-inprenting",
-    "Klopt het over inprenting?",
+    "indelen-inprenting-of-niet",
+    "Inprenting, conditionering of aangeboren?",
     "indelen",
     0
    ],
@@ -1792,8 +1792,8 @@
     0
    ],
    [
-    "indelen-vrouwtje-mannetje",
-    "Wie investeert het meest?",
+    "indelen-wie-kiest",
+    "Wie kiest, wie concurreert?",
     "indelen",
     0
    ],
@@ -1894,6 +1894,12 @@
     0
    ],
    [
+    "indelen-vier-gevolgen",
+    "Positief of negatief?",
+    "indelen",
+    1
+   ],
+   [
     "volgorde-pavlov",
     "De hond van Pavlov",
     "volgorde",
@@ -1913,12 +1919,6 @@
   "htitel": "Gedrag",
   "json": "films/gedrag/9-mierenkolonie/oefenen.json",
   "oef": [
-   [
-    "indelen-kolonie",
-    "Wie doet wat?",
-    "indelen",
-    0
-   ],
    [
     "volgorde-geurspoor",
     "Een spoor van geur",
@@ -1958,8 +1958,8 @@
     0
    ],
    [
-    "indelen-zenuw-hormoon",
-    "Brief of folder?",
+    "indelen-zenuw-hormoon-allebei",
+    "Brief, folder of allebei?",
     "indelen",
     0
    ],
@@ -2224,20 +2224,8 @@
   "json": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/oefenen.json",
   "oef": [
    [
-    "indelen-ronde-1",
-    "Ronde 1: de ochtend",
-    "indelen",
-    0
-   ],
-   [
-    "indelen-ronde-2",
-    "Ronde 2: overdag",
-    "indelen",
-    0
-   ],
-   [
-    "indelen-ronde-3",
-    "Ronde 3: de avond",
+    "indelen-stelsel-aan-het-werk",
+    "Welk stelsel werkt hier?",
     "indelen",
     0
    ],
@@ -2442,8 +2430,8 @@
   "json": "films/onderbouw/32a/9-organismen-aan-het-werk/oefenen.json",
   "oef": [
    [
-    "indelen-wie-werkt",
-    "Wie doet het werk?",
+    "indelen-welk-werk",
+    "Welk werk is dit?",
     "indelen",
     0
    ],
@@ -2544,8 +2532,8 @@
     0
    ],
    [
-    "indelen-klopt-het",
-    "Klopt het?",
+    "indelen-drie-stappen",
+    "Welke stap zie je?",
     "indelen",
     0
    ],
@@ -2564,8 +2552,8 @@
   "json": "films/onderbouw/32b/4-door-de-mens-gekozen/oefenen.json",
   "oef": [
    [
-    "indelen-veredelen-fokken-gm",
-    "Veredelen, fokken of genetische modificatie?",
+    "indelen-wie-kiest",
+    "Wie kiest er?",
     "indelen",
     0
    ],
@@ -2666,8 +2654,8 @@
     0
    ],
    [
-    "indelen-stamboom-klopt",
-    "Klopt het?",
+    "indelen-geerfd-of-apart",
+    "Geërfd of apart ontstaan?",
     "indelen",
     0
    ],
@@ -2712,14 +2700,14 @@
   "json": "films/onderbouw/32c/2-slaap-natuur-en-hygiene/oefenen.json",
   "oef": [
    [
-    "indelen-goed-slapen",
-    "Helpt het om te slapen?",
+    "indelen-klok",
+    "Wat doet het met je klok?",
     "indelen",
     0
    ],
    [
-    "indelen-hygiene",
-    "Klopt het?",
+    "indelen-route",
+    "Welke route blokkeer je?",
     "indelen",
     0
    ],
@@ -2814,8 +2802,8 @@
     0
    ],
    [
-    "indelen-haai-klopt",
-    "Film of echt?",
+    "indelen-welk-zintuig",
+    "Welk zintuig helpt?",
     "indelen",
     0
    ],
@@ -2840,8 +2828,8 @@
     0
    ],
    [
-    "indelen-wie-is-het",
-    "IJsbeer, fennek of pissebed?",
+    "indelen-aanpassing",
+    "Waartegen helpt het?",
     "indelen",
     0
    ],
@@ -3194,8 +3182,8 @@
   "json": "films/transport/3-wat-er-in-je-bloed-zit/oefenen.json",
   "oef": [
    [
-    "indelen-taak",
-    "Wie doet wat in je bloed?",
+    "indelen-bloed-hoofdrol",
+    "Welk deel van je bloed?",
     "indelen",
     0
    ],
@@ -3364,8 +3352,8 @@
   "json": "films/transport/7-hoe-een-plant-groeit/oefenen.json",
   "oef": [
    [
-    "indelen-proeven",
-    "Wat doet het plantje?",
+    "indelen-voorspel-plantje",
+    "Voorspel: wat doet het plantje?",
     "indelen",
     0
    ],
@@ -3508,12 +3496,6 @@
     0
    ],
    [
-    "indelen-waar",
-    "Waar wordt geknipt?",
-    "indelen",
-    0
-   ],
-   [
     "volgorde-amylase",
     "Eén knip van amylase",
     "volgorde",
@@ -3608,8 +3590,8 @@
     0
    ],
    [
-    "indelen-afdelingen",
-    "Welke afdeling van de fabriek?",
+    "indelen-lever-processen",
+    "Wat doet de lever hier?",
     "indelen",
     0
    ],
@@ -3649,12 +3631,6 @@
     "volgorde-c-difficile",
     "Van antibioticakuur tot diarree",
     "volgorde",
-    0
-   ],
-   [
-    "indelen-bewijsbord",
-    "Het bewijsbord",
-    "indelen",
     0
    ],
    [
@@ -3790,7 +3766,7 @@
     0
    ],
    [
-    "indelen-bacterie-virus",
+    "indelen-bacterie-virus-situatie",
     "Bacterie of virus?",
     "indelen",
     0
@@ -3828,19 +3804,13 @@
     0
    ],
    [
-    "indelen-welke-laag",
+    "indelen-welke-laag-vier",
     "Welke laag loopt anders?",
     "indelen",
     0
    ],
    [
-    "indelen-dieren",
-    "Wie bepaalt de sekse?",
-    "indelen",
-    0
-   ],
-   [
-    "indelen-vier-begrippen",
+    "indelen-vier-begrippen-casus",
     "Vier begrippen uit elkaar houden",
     "indelen",
     0

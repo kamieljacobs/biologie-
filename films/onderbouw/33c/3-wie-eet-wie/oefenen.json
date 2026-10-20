@@ -24,14 +24,14 @@
    ],
    "kaartjes": [
     {
-     "tekst": "kruiden",
-     "bak": 0,
-     "uitleg": "Een plant maakt zijn eigen voedsel, met zonlicht."
-    },
-    {
      "tekst": "eik",
      "bak": 0,
-     "uitleg": "Ook een boom is een plant."
+     "uitleg": "Een boom is een plant. Hij maakt zijn eigen voedsel, met zonlicht."
+    },
+    {
+     "tekst": "zonnedauw, een plantje dat insecten vangt",
+     "bak": 0,
+     "uitleg": "Lastig! Zonnedauw vangt insecten voor extra mineralen. Maar zijn voedsel maakt hij zelf, met zonlicht. Hij blijft een producent."
     },
     {
      "tekst": "ree",
@@ -39,14 +39,9 @@
      "uitleg": "Eet kruiden en jonge boompjes."
     },
     {
-     "tekst": "wolf",
-     "bak": 1,
-     "uitleg": "Eet reeën, edelherten en wilde zwijnen."
-    },
-    {
      "tekst": "wild zwijn",
      "bak": 1,
-     "uitleg": "Eet eikels, wortels en muizen."
+     "uitleg": "Eet eikels, wortels en muizen. Planten en dieren: altijd een consument."
     },
     {
      "tekst": "uil",
@@ -54,14 +49,19 @@
      "uitleg": "Eet onder andere muizen."
     },
     {
-     "tekst": "schimmels in de bosgrond",
+     "tekst": "een paddenstoel op een dode boomstam",
      "bak": 2,
-     "uitleg": "Ze breken dode bladeren af tot mineralen."
+     "uitleg": "Lastig! Een paddenstoel lijkt op een plant, maar het is een schimmel. Hij maakt geen voedsel met licht. Hij breekt het dode hout af."
+    },
+    {
+     "tekst": "schimmel op een rotte appel onder de boom",
+     "bak": 2,
+     "uitleg": "De schimmel breekt de dode appel af tot mineralen voor de bodem."
     },
     {
      "tekst": "bacteriën in de bosgrond",
      "bak": 2,
-     "uitleg": "Ook zij ruimen dode resten op."
+     "uitleg": "Ook zij ruimen dode resten op, tot mineralen voor de planten."
     }
    ]
   },

@@ -4,50 +4,59 @@
  "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
  "oefeningen": [
   {
-   "id": "indelen-leren",
+   "id": "indelen-proberen-inzicht",
    "soort": "indelen",
    "titel": "Proberen of inzicht?",
-   "opdracht": "Is dit proefondervindelijk leren (proberen, en wat werkt vaker doen) of inzichtelijk leren (een plotselinge oplossing)?",
+   "opdracht": "Proefondervindelijk leren gaat geleidelijk: wat werkt, komt vaker terug. Bij inzichtelijk leren komt de oplossing in één keer, zonder alles af te gaan. Welke past bij elk geval?",
    "bakken": [
     {
      "naam": "Proefondervindelijk",
      "uitleg": "trial-and-error"
     },
     {
-     "naam": "Inzichtelijk",
-     "uitleg": "plotseling, zonder alles te proberen"
+     "naam": "Inzichtelijk"
     }
    ],
    "kaartjes": [
     {
-     "tekst": "Een dier probeert van alles; wat werkt, doet het daarna vaker.",
+     "tekst": "Een kat springt tegen de deur, krabt en miauwt. Na een keer of tien hangt hij aan de klink en gaat de deur open. Elke dag gaat hij sneller naar de klink.",
      "bak": 0,
-     "uitleg": "Dat is precies proefondervindelijk leren."
+     "uitleg": "Het gedrag dat werkte komt steeds sneller terug: geleidelijk, door gevolgen."
     },
     {
-     "tekst": "Een kind probeert sleutels één voor één, tot de deur opengaat.",
+     "tekst": "Een rat in een doolhof maakt elke dag minder fouten, tot hij zonder omweg bij het voer komt.",
      "bak": 0,
-     "uitleg": "Alles uitproberen tot het werkt."
+     "uitleg": "Langzaam verdwijnen de verkeerde keuzes: proefondervindelijk."
     },
     {
-     "tekst": "Kraaien leren in de eerste pogingen dat zinkende voorwerpen het water laten stijgen.",
+     "tekst": "Een kraai ziet een hapje op water in een smalle buis. Na een paar keer gooien kiest hij vaker zinkende steentjes dan drijvende.",
      "bak": 0,
-     "uitleg": "Die keuze leerden ze door te proberen."
+     "uitleg": "Zijn keuze verschuift door wat er gebeurde bij eerdere worpen."
     },
     {
-     "tekst": "Chimpansees leren kisten stapelen, maar dat kost veel oefenen.",
+     "tekst": "Een hond loopt met een lange stok in zijn bek steeds vast tussen twee paaltjes. Na heel wat keren pakt hij de stok aan het uiteinde.",
      "bak": 0,
-     "uitleg": "Veel oefenen, stap voor stap."
+     "uitleg": "Veel mislukte pogingen, tot er één werkt."
     },
     {
-     "tekst": "Chimpansees stoppen, kijken rond, en schuiven ineens een kist onder de banaan.",
+     "tekst": "Een kind kijkt een tijd naar een puzzel zonder iets te doen, en legt dan de stukjes in één keer goed.",
      "bak": 1,
-     "uitleg": "Een plotselinge oplossing zonder alles te proberen."
+     "uitleg": "Eerst nadenken, daarna meteen de oplossing: inzichtelijk."
     },
     {
-     "tekst": "Je ziet ineens hoe een puzzel in elkaar zit, zonder nog te proberen.",
+     "tekst": "Een chimpansee zit stil, kijkt van de banaan naar de kist en zet de kist dan onder de banaan.",
      "bak": 1,
-     "uitleg": "Een plotseling inzicht."
+     "uitleg": "Geen reeks pogingen: de oplossing komt in één keer."
+    },
+    {
+     "tekst": "Een kraai die eerder takjes heeft gebogen, ziet een rechte draad naast een buisje met eten en maakt er zonder aarzelen een haakje van.",
+     "bak": 1,
+     "uitleg": "Hij past eerdere ervaring toe op een nieuw probleem. Inzicht bouwt voort op ervaring."
+    },
+    {
+     "tekst": "Je hebt geen schroevendraaier, kijkt rond in de keuken en draait het schroefje los met de punt van een mes.",
+     "bak": 1,
+     "uitleg": "Je bedenkt de oplossing voordat je iets uitprobeert."
     }
    ]
   },

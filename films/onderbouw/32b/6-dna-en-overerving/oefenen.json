@@ -56,9 +56,14 @@
      "uitleg": "Het zwart-gen wint. Het wit-gen zit verborgen."
     },
     {
-     "tekst": "De ouders van Yasmin",
+     "tekst": "Een jong van een witte moeder en een vader met twee zwart-genen",
      "bak": 0,
-     "uitleg": "Allebei zwart, met een verborgen wit-gen."
+     "uitleg": "Van zijn moeder krijgt het een wit-gen, van zijn vader een zwart-gen. Zwart wint: het jong is zwart."
+    },
+    {
+     "tekst": "Een cavia die met een witte partner zowel zwarte als witte jongen krijgt",
+     "bak": 0,
+     "uitleg": "De witte jongen kregen van deze cavia een wit-gen. De zwarte jongen kregen een zwart-gen. Deze cavia heeft dus één zwart-gen en één wit-gen: hij is zwart."
     },
     {
      "tekst": "Twee wit-genen",
@@ -66,14 +71,14 @@
      "uitleg": "Wit zie je alleen als er twee wit-genen zijn."
     },
     {
-     "tekst": "Een jong dat van allebei de ouders een wit-gen kreeg",
+     "tekst": "Een jong van twee zwarte ouders, dat van allebei een wit-gen kreeg",
      "bak": 1,
-     "uitleg": "Twee wit-genen: wit."
+     "uitleg": "Twee wit-genen: wit. Ook al zijn de ouders zwart."
     },
     {
      "tekst": "Een jong van twee witte cavia's",
      "bak": 1,
-     "uitleg": "Witte cavia's kunnen alleen wit doorgeven."
+     "uitleg": "Witte cavia's hebben alleen wit-genen. Ze kunnen alleen wit doorgeven."
     }
    ]
   },

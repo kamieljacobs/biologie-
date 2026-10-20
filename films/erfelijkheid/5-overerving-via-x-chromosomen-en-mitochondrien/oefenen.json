@@ -10,35 +10,80 @@
     {
      "vraag": "Wat zijn de genotypen van de moeder en de vader?",
      "velden": [
-      {"label": "moeder:", "antwoord": ["XNXn", "XnXN"], "hoofdletters": true},
-      {"label": "vader:", "antwoord": ["XNY"], "hoofdletters": true}
+      {
+       "label": "moeder:",
+       "antwoord": [
+        "XNXn",
+        "XnXN"
+       ],
+       "hoofdletters": true
+      },
+      {
+       "label": "vader:",
+       "antwoord": [
+        "XNY"
+       ],
+       "hoofdletters": true
+      }
      ],
      "uitleg": "Een draagster ziet normaal maar heeft één afwijkend allel: XᴺXⁿ. Een man die normaal ziet heeft op zijn enige X het allel Xᴺ: XᴺY."
     },
     {
      "vraag": "Welk chromosoom krijgt een zoon altijd van zijn vader?",
-     "velden": [{"label": "chromosoom:", "antwoord": ["Y"], "hoofdletters": true, "breed": 4}],
+     "velden": [
+      {
+       "label": "chromosoom:",
+       "antwoord": [
+        "Y"
+       ],
+       "hoofdletters": true,
+       "breed": 4
+      }
+     ],
      "uitleg": "Een zoon is XY. De Y komt van zijn vader, de X dus altijd van zijn moeder."
     },
     {
      "vraag": "Hoe groot is de kans dat een zoon kleurenblind is?",
-     "velden": [{"label": "kans:", "antwoord": 0.5, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.5,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "De zoon krijgt met kans ½ de Xⁿ van zijn moeder. Dan is hij XⁿY en kleurenblind.",
      "tip": "Je mag een breuk typen, zoals 1/2."
     },
     {
      "vraag": "Hoe groot is de kans dat een dochter kleurenblind is?",
-     "velden": [{"label": "kans:", "antwoord": 0}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0
+      }
+     ],
      "uitleg": "Een dochter krijgt van haar vader altijd Xᴺ. Ze ziet dus normaal."
     },
     {
      "vraag": "Hoe groot is de kans dat een dochter draagster is?",
-     "velden": [{"label": "kans:", "antwoord": 0.5, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.5,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "Ze krijgt Xᴺ van vader en met kans ½ de Xⁿ van moeder: XᴺXⁿ, draagster."
     },
     {
      "vraag": "Hoe groot is de kans dat het volgende kind van dit paar een kleurenblinde zoon is?",
-     "velden": [{"label": "kans:", "antwoord": 0.25, "marge": 0.01}],
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.25,
+       "marge": 0.01
+      }
+     ],
      "uitleg": "Kans op een zoon is ½, kans dat die zoon kleurenblind is ook ½: ½ × ½ = ¼. Let op het verschil met de vorige vragen: daar wist je al dat het een zoon of dochter was.",
      "tip": "Het geslacht is nu nog niet bekend."
     }
@@ -50,38 +95,119 @@
    "titel": "X-chromosoom of mitochondriën?",
    "opdracht": "Past de uitspraak bij een X-chromosomaal recessieve aandoening, bij een aandoening in het mitochondriaal DNA, of bij allebei?",
    "bakken": [
-    {"naam": "X-chromosomaal recessief", "uitleg": "een gen op de X, in de kern"},
-    {"naam": "Mitochondriaal", "uitleg": "DNA buiten de kern"},
-    {"naam": "Allebei"}
+    {
+     "naam": "X-chromosomaal recessief",
+     "uitleg": "een gen op de X, in de kern"
+    },
+    {
+     "naam": "Mitochondriaal",
+     "uitleg": "DNA buiten de kern"
+    },
+    {
+     "naam": "Allebei"
+    }
    ],
    "kaartjes": [
-    {"tekst": "Komt veel vaker voor bij mannen dan bij vrouwen.", "bak": 0, "uitleg": "Een man heeft maar één X: één afwijkend allel is genoeg."},
-    {"tekst": "Een vrouw met de aandoening geeft hem door aan al haar kinderen.", "bak": 1, "uitleg": "Zij geeft haar mitochondriën via de eicel aan zonen én dochters."},
-    {"tekst": "Een vader geeft hem nooit door aan een zoon.", "bak": 2, "uitleg": "Een zoon krijgt de Y van zijn vader, geen X. En een vader geeft geen mitochondriën door."},
-    {"tekst": "Een vader geeft hem nooit door aan zijn kinderen, ook niet aan dochters.", "bak": 1, "uitleg": "De paar tientallen mitochondriën uit de zaadcel worden na de bevruchting afgebroken."},
-    {"tekst": "Een vrouw kan draagster zijn zonder het kenmerk te hebben.", "bak": 0, "uitleg": "XᴺXⁿ: haar tweede X vangt de fout op."},
-    {"tekst": "Het gaat om een gen op een chromosoom in de kern.", "bak": 0, "uitleg": "Het X-chromosoom ligt in de kern."},
-    {"tekst": "Het DNA is klein en rond, met 37 genen.", "bak": 1, "uitleg": "Dat is het mitochondriaal DNA."},
-    {"tekst": "Hemofilie bij de zoon van koningin Victoria.", "bak": 0, "uitleg": "Hemofilie erft net als kleurenblindheid X-chromosomaal recessief."}
+    {
+     "tekst": "Komt veel vaker voor bij mannen dan bij vrouwen.",
+     "bak": 0,
+     "uitleg": "Een man heeft maar één X: één afwijkend allel is genoeg."
+    },
+    {
+     "tekst": "Een vrouw met de aandoening geeft hem door aan al haar kinderen.",
+     "bak": 1,
+     "uitleg": "Zij geeft haar mitochondriën via de eicel aan zonen én dochters."
+    },
+    {
+     "tekst": "Een vader geeft hem nooit door aan een zoon.",
+     "bak": 2,
+     "uitleg": "Een zoon krijgt de Y van zijn vader, geen X. En een vader geeft geen mitochondriën door."
+    },
+    {
+     "tekst": "Een vader geeft hem nooit door aan zijn kinderen, ook niet aan dochters.",
+     "bak": 1,
+     "uitleg": "De paar tientallen mitochondriën uit de zaadcel worden na de bevruchting afgebroken."
+    },
+    {
+     "tekst": "Een vrouw kan draagster zijn zonder het kenmerk te hebben.",
+     "bak": 0,
+     "uitleg": "XᴺXⁿ: haar tweede X vangt de fout op."
+    },
+    {
+     "tekst": "Het gaat om een gen op een chromosoom in de kern.",
+     "bak": 0,
+     "uitleg": "Het X-chromosoom ligt in de kern."
+    },
+    {
+     "tekst": "Het DNA is klein en rond, met 37 genen.",
+     "bak": 1,
+     "uitleg": "Dat is het mitochondriaal DNA."
+    },
+    {
+     "tekst": "Hemofilie bij de zoon van koningin Victoria.",
+     "bak": 0,
+     "uitleg": "Hemofilie erft net als kleurenblindheid X-chromosomaal recessief."
+    }
    ]
   },
   {
-   "id": "indelen-wie-ziet-wat",
+   "id": "indelen-zeker-of-kans",
    "soort": "indelen",
-   "titel": "Normaal, draagster of kleurenblind?",
-   "opdracht": "Sleep elk genotype naar het goede fenotype.",
+   "titel": "Zeker normaal, misschien of zeker kleurenblind?",
+   "opdracht": "Kleurenblindheid is X-chromosomaal recessief. Ziet dit kind zeker normaal, kan het kleurenblind zijn, of is het zeker kleurenblind? Denk na welke X het kind van wie krijgt.",
    "bakken": [
-    {"naam": "Ziet normaal"},
-    {"naam": "Draagster", "uitleg": "ziet normaal, heeft één Xⁿ"},
-    {"naam": "Kleurenblind"}
+    {
+     "naam": "Ziet zeker normaal"
+    },
+    {
+     "naam": "Kan kleurenblind zijn",
+     "uitleg": "kans groter dan 0, kleiner dan 1"
+    },
+    {
+     "naam": "Zeker kleurenblind"
+    }
    ],
    "kaartjes": [
-    {"tekst": "XᴺY", "bak": 0, "uitleg": "Een man met het normale allel op zijn enige X."},
-    {"tekst": "XⁿY", "bak": 2, "uitleg": "Een man heeft geen tweede X die de fout opvangt."},
-    {"tekst": "XᴺXᴺ", "bak": 0, "uitleg": "Twee normale allelen."},
-    {"tekst": "XᴺXⁿ", "bak": 1, "uitleg": "Eén normaal allel is genoeg, maar ze kan Xⁿ doorgeven."},
-    {"tekst": "XⁿXⁿ", "bak": 2, "uitleg": "Een vrouw met twee afwijkende allelen: één van moeder én één van vader. Zeldzaam, maar het kan."},
-    {"tekst": "XⁿXᴺ", "bak": 1, "uitleg": "Zelfde genotype als XᴺXⁿ, alleen andersom geschreven."}
+    {
+     "tekst": "Een zoon van een kleurenblinde vader en een moeder met XᴺXᴺ.",
+     "bak": 0,
+     "uitleg": "Een zoon krijgt de Y van zijn vader en een X van zijn moeder. Die X is altijd Xᴺ: XᴺY."
+    },
+    {
+     "tekst": "Een dochter van een kleurenblinde vader en een moeder met XᴺXᴺ.",
+     "bak": 0,
+     "uitleg": "Ze krijgt Xⁿ van vader en Xᴺ van moeder: XᴺXⁿ. Ze is draagster, maar ziet normaal."
+    },
+    {
+     "tekst": "Een vrouw met XᴺXⁿ.",
+     "bak": 0,
+     "uitleg": "Eén Xᴺ is genoeg om normaal te zien. Een draagster ziet dus normaal; ze kan Xⁿ wel doorgeven."
+    },
+    {
+     "tekst": "Een zoon van een draagster en een vader die normaal ziet.",
+     "bak": 1,
+     "uitleg": "Hij krijgt met kans ½ de Xⁿ van zijn moeder: dan is hij XⁿY."
+    },
+    {
+     "tekst": "Een dochter van een draagster en een kleurenblinde vader.",
+     "bak": 1,
+     "uitleg": "Van vader krijgt ze zeker Xⁿ. Van moeder met kans ½ ook Xⁿ: dan is ze XⁿXⁿ."
+    },
+    {
+     "tekst": "Een zoon van een draagster en een kleurenblinde vader.",
+     "bak": 1,
+     "uitleg": "De vader doet er voor een zoon niet toe: die geeft de Y. Van moeder krijgt hij met kans ½ Xⁿ."
+    },
+    {
+     "tekst": "Een zoon van een kleurenblinde moeder en een vader die normaal ziet.",
+     "bak": 2,
+     "uitleg": "Moeder is XⁿXⁿ en heeft alleen Xⁿ om door te geven. Elke zoon is XⁿY."
+    },
+    {
+     "tekst": "Een dochter van een kleurenblinde moeder en een kleurenblinde vader.",
+     "bak": 2,
+     "uitleg": "Ze krijgt Xⁿ van moeder én Xⁿ van vader: XⁿXⁿ."
+    }
    ]
   },
   {
@@ -90,11 +216,35 @@
    "titel": "Waarom zonen wel en dochters niet?",
    "opdracht": "Een draagster van kleurenblindheid krijgt kinderen met een man die normaal ziet. De kans op een kleurenblinde zoon is ½, op een kleurenblinde dochter 0. Leg uit waarom dat verschilt.",
    "begrippen": [
-    {"naam": "X-chromosoom", "varianten": ["X"]},
-    {"naam": "Y-chromosoom", "varianten": ["Y"]},
-    {"naam": "draagster", "varianten": ["XᴺXⁿ", "XNXn"]},
-    {"naam": "allel", "varianten": ["allelen"]},
-    {"naam": "recessief", "varianten": []}
+    {
+     "naam": "X-chromosoom",
+     "varianten": [
+      "X"
+     ]
+    },
+    {
+     "naam": "Y-chromosoom",
+     "varianten": [
+      "Y"
+     ]
+    },
+    {
+     "naam": "draagster",
+     "varianten": [
+      "XᴺXⁿ",
+      "XNXn"
+     ]
+    },
+    {
+     "naam": "allel",
+     "varianten": [
+      "allelen"
+     ]
+    },
+    {
+     "naam": "recessief",
+     "varianten": []
+    }
    ],
    "checklist": [
     "Ik leg uit dat de genen voor het rode en groene eiwit op het X-chromosoom liggen en niet op het Y.",
@@ -114,11 +264,34 @@
    "titel": "Je oer-oermoeder terugvinden",
    "opdracht": "Via je mitochondriaal DNA kun je je oer-oermoeder terugvinden, maar niet je oer-oervader. Leg uit waarom.",
    "begrippen": [
-    {"naam": "mitochondriaal DNA", "varianten": ["mitochondriën", "mitochondrien"]},
-    {"naam": "eicel", "varianten": []},
-    {"naam": "zaadcel", "varianten": []},
-    {"naam": "afgebroken", "varianten": ["afbreken", "verdwijnen"]},
-    {"naam": "kern", "varianten": ["buiten de kern"]}
+    {
+     "naam": "mitochondriaal DNA",
+     "varianten": [
+      "mitochondriën",
+      "mitochondrien"
+     ]
+    },
+    {
+     "naam": "eicel",
+     "varianten": []
+    },
+    {
+     "naam": "zaadcel",
+     "varianten": []
+    },
+    {
+     "naam": "afgebroken",
+     "varianten": [
+      "afbreken",
+      "verdwijnen"
+     ]
+    },
+    {
+     "naam": "kern",
+     "varianten": [
+      "buiten de kern"
+     ]
+    }
    ],
    "checklist": [
     "Ik leg uit dat mitochondriën eigen DNA hebben, buiten de kern.",
