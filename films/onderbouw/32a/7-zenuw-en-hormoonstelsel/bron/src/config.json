@@ -1,0 +1,17 @@
+{
+ "titel": "Zenuw- en hormoonstelsel",
+ "ondertitel": "Het brandalarm gaat: je springt op, en je hart bonkt nog minuten door. Hoe praten je organen met elkaar?",
+ "meta": "film 7",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s02",
+ "scenes": "scenes7.js",
+ "hold": {"s15": 12.0},
+ "mini": {"Hoofdstuk 1": "Zintuig, zenuw, hersenen", "Hoofdstuk 2": "Hormonen in je bloed", "Hoofdstuk 3": "Snel en kort, of langzaam en lang", "Samenvatting": "Twee manieren"},
+ "checkvragen": [
+  {"titel": "De weg van een bericht", "pts": "1 punt", "vraag": "Je ziet een bal op je afkomen en vangt hem. Welke volgorde klopt? A. oog → zenuw → spier · B. oog → zenuw → hersenen → ruggenmerg → zenuw → spier · C. oog → bloed → hersenen → spier.", "antwoord": "B (1): het bericht gaat eerst via een zenuw naar je hersenen; die sturen via je ruggenmerg en zenuwen je spieren aan."},
+  {"titel": "Adrenaline", "pts": "1 punt", "vraag": "Adrenaline komt in je bloed. Welke zin klopt? A. Adrenaline gaat alleen naar je hart. · B. Alle organen reageren op adrenaline. · C. Adrenaline komt overal, maar alleen sommige organen reageren.", "antwoord": "C (1): het bloed brengt adrenaline overal; alleen organen die hem herkennen (hart, longen, lever) reageren."},
+  {"titel": "Twee manieren", "pts": "2 punten", "vraag": "Noem twee verschillen tussen een bericht via een zenuw en een bericht via een hormoon.", "antwoord": "Twee van: zenuw snel, hormoon langzamer (1); zenuw naar één plek, hormoon overal via het bloed (1); zenuw kort, hormoon werkt lang door (1)."},
+  {"titel": "Na de schrik", "pts": "2 punten", "vraag": "Je hart bonkt nog minuten na de schrik, je benen trillen al niet meer. Leg uit hoe dat kan.", "antwoord": "Je benen kregen een kort signaal via zenuwen, dat is snel voorbij (1). Je hart reageert op adrenaline; die blijft een paar minuten in je bloed (1)."},
+  {"titel": "Reflex", "pts": "2 punten", "vraag": "Je trekt je hand terug van een hete pan en voelt pas daarna de pijn. Leg uit hoe dat kan.", "antwoord": "Het signaal gaat via je ruggenmerg meteen terug naar je armspier: een reflex, zonder dat je hersenen eerst beslissen (1). Het bericht naar je hersenen komt later aan; dan voel je pas de pijn (1).", "uitdaging": true}
+ ]
+}
