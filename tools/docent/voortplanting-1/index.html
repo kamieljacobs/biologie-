@@ -557,13 +557,13 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
   stappen: [
     { t: '<b>Geslachtelijke voortplanting</b>: twee ouders. Elke cel heeft chromosomen in paren.', th: '<b>Geslachtelijke voortplanting</b>: twee ouders. Elke lichaamscel heeft chromosomen in paren.', n: 'Eén paar getekend; de mens heeft er 23. 2n = diploïd.' },
     { t: 'Door <b>meiose</b> maakt elke ouder <b>geslachtscellen</b> met van elk paar één chromosoom (n). Zo zijn er per ouder <b>2 soorten</b>.', n: 'Hier staan de soorten, niet de aantallen: meiose geeft 4 cellen (bij de eicel blijft er maar één over). Welke soort een geslachtscel wordt, is toeval.' },
-    { t: '<b>Bevruchting</b>: zaadcel en eicel versmelten tot een <b>zygote</b> (2n).', n: 'Van elk paar komt er één van de vader en één van de moeder.' },
+    { t: '<b>Bevruchting</b>: zaadcel en eicel versmelten tot een <b>zygote</b> (2n).', n: 'Model met één chromosomenpaar: 2n = 2, n = 1. Zygote: 1 + 1 = 2. Zonder halvering in de meiose zou de zygote er 4 hebben, het dubbele van de ouders. Mens: 23 + 23 = 46.' },
     { t: '2 soorten zaadcellen × 2 soorten eicellen = <b>4 mogelijke combinaties</b>. Elk kind is er één van: <b>variatie</b>.', n: 'Dit zijn mogelijke combinaties bij één chromosomenpaar, geen vier cellen uit meiose en geen vier kinderen tegelijk. Met 23 paren: 2^23 ≈ 8 miljoen soorten geslachtscellen per ouder, nog zonder crossing-over.' }
   ],
   teken(ctx, S) {
     const A1 = C.teal, A2 = C.groen, B1 = C.koraal, B2 = C.goud, T = S.T;
     const a0 = S.on(0, 0.8), m = S.on(1, 1.4), b = S.on(2, 1.6), v = S.on(3, 1.4);
-    const ouder = [[470, 330, [A1, A2], C.teal, 'ouder 1 · 2n'], [1450, 330, [B1, B2], C.koraal, 'ouder 2 · 2n']];
+    const ouder = [[470, 330, [A1, A2], C.teal, 'ouder 1 · 2n = 2 (1 paar)'], [1450, 330, [B1, B2], C.koraal, 'ouder 2 · 2n = 2 (1 paar)']];
     ouder.forEach(([x, y, k, c, l]) => chromCel(ctx, x, y, 110, k, c, a0 * (1 - 0.5 * v), l));
     // geslachtscellen
     const zc = [[360, 640, A1], [580, 640, A2]], ec = [[1340, 640, B1], [1560, 640, B2]];
@@ -572,9 +572,9 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
       zaadcel(ctx, bx, by, kies && b > 0.01 ? Math.atan2(640 - y, 900 - x) : 0, T + i, 2.4, aa, C.text, k); });
     ec.forEach(([x, y, k], i) => { const kies = i === 1; const bx = kies ? lerp(x, 980, b) : x; const aa = m * (kies ? (1 - ease((b - 0.85) / 0.15)) : (1 - 0.7 * b)) * (1 - v);
       if (aa > 0.01) { eicel(ctx, bx, y, 50, aa); ctx.save(); ctx.globalAlpha *= aa; ctx.fillStyle = k; roundRect(ctx, bx - 8, y - 32, 16, 64, 8); ctx.fill(); ctx.restore(); } });
-    regel(ctx, '2 soorten zaadcellen · n', 470, 740, m * (1 - b), C.text2, 28, 'center', 600); regel(ctx, '2 soorten eicellen · n', 1450, 740, m * (1 - b), C.text2, 28, 'center', 600);
+    regel(ctx, '2 soorten zaadcellen · n = 1', 470, 740, m * (1 - b), C.text2, 28, 'center', 600); regel(ctx, '2 soorten eicellen · n = 1', 1450, 740, m * (1 - b), C.text2, 28, 'center', 600);
     // zygote
-    const z = ease((b - 0.75) / 0.25); chromCel(ctx, 960, 640, 90, [A1, B2], C.oker, z * (1 - v), 'zygote · 2n');
+    const z = ease((b - 0.75) / 0.25); chromCel(ctx, 960, 640, 90, [A1, B2], C.oker, z * (1 - v), 'zygote · 1 + 1 = 2 (weer 1 paar)');
     if (z > 0.01) regel(ctx, 'bevruchting', 960, 500, z * (1 - v), C.goud, 34, 'center', 700);
     // de vier mogelijke combinaties als kruisingstabel (2 soorten zaadcellen × 2 soorten eicellen)
     if (v > 0.01) { const cx = [880, 1120], ry = [620, 830], hx = 640, hy = 470;
