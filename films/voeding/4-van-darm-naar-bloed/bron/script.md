@@ -84,18 +84,28 @@ Antwoord c. Glycerol en vetzuren gaan eerst de epitheelcel in. Daar maakt de cel
 
 Voor vwo gaan we nog een stap verder. De vetbolletjes heten chylomicronen. Een chylomicron is een druppel vet met een laagje van fosfolipiden en eiwit eromheen. In de epitheelcel koppelt de cel de lange vetzuren weer aan glycerol. Dat vet verpakt de cel tot chylomicronen. Korte vetzuren lossen goed op in water. Die gaan wel direct de haarvaten in, naar de poortader. Terug naar de hoofdlijn: het meeste vet gaat via de lymfe.
 
+**s22** · 29.7 s · `audio/s22.mp3` · basis · nieuw 20 okt 2026
+
+Hoe komt dat vet dan in je vetcellen? Alle lymfe uit je buik komt samen in één groot lymfevat langs je ruggengraat: de borstbuis. Die komt uit in een ader vlak bij je hart. Zo komen de vetbolletjes in het bloed, en het bloed brengt ze overal naartoe. In de haarvaten van je vetweefsel zit een enzym in de wand. Dat knipt het vet uit de bolletjes weer in vetzuren en glycerol. De vetzuren gaan de vetcel in. Daar maakt de vetcel er weer vet van, en slaat het op.
+
+**s23** · 22.7 s · `audio/s23.mp3` · vwo · nieuw 20 okt 2026
+
+Dat enzym heet lipoproteïnelipase. Het zit aan de binnenkant van de haarvaten in vetweefsel en spieren. Het knipt de triglyceriden in de chylomicronen in vetzuren en glycerol. In de vetcel worden de vetzuren weer aan glycerol gekoppeld tot triglyceriden. De glycerol uit het bloed en wat er van de chylomicron overblijft, gaan naar de lever.
+
+Stem-invoer s23 (wijkt af): Dat enzym heet lipoproteïne-lipase. Het zit aan de binnenkant van de haarvaten in vetweefsel en spieren. Het knipt de triglyceriden in de chylomicronen in vetzuren en glycerol. In de vetcel worden de vetzuren weer aan glycerol gekoppeld tot triglyceriden. De glycerol uit het bloed en wat er van de chylomicron overblijft, gaan naar de lever.
+
 ## Recap
 
-**s22** · 17.5 s · `audio/s22.mp3` · basis
+**s24** · 17.5 s · `audio/s24.mp3` · basis
 
 Terug naar de puzzel. Hoe past dertig vierkante meter in je buik? De binnenwand is geplooid. Op de plooien staan vlokken, en op de cellen van de vlokken staan microvilli. Het antwoord is c. Door al dat oppervlak gaan de kleine moleculen snel genoeg het bloed in.
 
-**s23** · 18.9 s · `audio/s23.mp3` · basis
+**s25** · 18.9 s · `audio/s25.mp3` · basis
 
 En het broodje kaas? Glucose en aminozuren gaan door de epitheelcel het haarvat in. Via de poortader gaan ze naar de lever. Het vet uit de kaas en de melk gaat als vetbolletjes het lymfevat in. Bij je sleutelbeen komt het in het bloed. Wat de lever met al die stoffen doet, zie je in film vijf.
 
 ## Eindkaart
 
-**s24** · card
+**s26** · card
 
 Totaal spraak: 7 min 20 s (vwo).

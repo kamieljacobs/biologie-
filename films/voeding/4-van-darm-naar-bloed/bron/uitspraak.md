@@ -27,3 +27,14 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 | Woord | Stem-invoer | Alinea's | Status |
 |---|---|---|---|
 | A4'tjes | aa-víertjes | s05 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+## Wachtlijst 20 okt 2026 (nieuwe alinea's s22, s23; nog niet beluisterd)
+
+| Woord | Verwachte uitspraak (IPA) | Stem-invoer | Alinea |
+|---|---|---|---|
+| lipoproteïnelipase | [ˌlipoːproːteːˈinə liˈpaːzə] (lipoproteïne + lipase; lipase al goedgekeurd in voeding 3) | lipoproteïne-lipase (koppelteken: twee delen, elk met eigen klemtoon) | s23 |
+| triglyceriden | [triɣlisəˈridə(n)] | zoals geschreven | s23 |
+| chylomicronen / chylomicron | eerder blind goed teruggekomen (13 okt) | zoals geschreven | s23 |
+| borstbuis | [ˈbɔrstbœys] | zoals geschreven | s22 |
+
+Scribe gaf alle woorden letterlijk terug (s22 en s23: geen verschillen). Geen IPA-bron gevonden voor de samenstelling lipoproteïnelipase (Wiktionary heeft geen Nederlandse uitspraak van lipase); verwachting op basis van de delen.

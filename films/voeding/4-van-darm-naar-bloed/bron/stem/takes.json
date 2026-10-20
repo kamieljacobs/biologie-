@@ -19,8 +19,10 @@
   "s18": "srjjBryEPEP1Ay79lAap",
   "s20": "tz2TH7T0FWdYg1fJd8Mi",
   "s21": "BskemstntJZRkIhhL7e2",
-  "s22": "TiyiW3ATEnXwB4TrsAIm",
-  "s23": "Gq6iHiXbkVfUEvKWh02g"
+  "s22": "qWPjwCo1jnP4PSbjCQAB",
+  "s23": "Uc6yjUZZsDwUpAwAXoKO",
+  "s24": "TiyiW3ATEnXwB4TrsAIm",
+  "s25": "Gq6iHiXbkVfUEvKWh02g"
  },
  "sessions": {
   "s01": "tGhSrrVZdzrFwyq1uKxQ",
@@ -38,8 +40,8 @@
   "s18": "NWZao4eIYkUEABvwap10",
   "s20": "KC0KqWdRs8czIys3D0b3",
   "s21": "jmTzx3sTMI7De9nnqa5z",
-  "s22": "ija7DOrVvLv249k0BlnH",
-  "s23": "gGKlnOIVAbFAxHwZIdhO"
+  "s24": "ija7DOrVvLv249k0BlnH",
+  "s25": "gGKlnOIVAbFAxHwZIdhO"
  },
  "takes": {
   "s01": [
@@ -87,11 +89,27 @@
   "s21": [
    "UL7fuAFoM81Ruhkijojx"
   ],
-  "s22": [
+  "s24": [
    "0opJQvqbYdk9bCKlfJbc"
   ],
-  "s23": [
+  "s25": [
    "Z7LipUxhCav3vdUtNo13"
   ]
+ },
+ "nieuw_20okt": {
+  "flow": "inuD4OTqACt4hLT7vrtd",
+  "s22": {
+   "node": "qWPjwCo1jnP4PSbjCQAB",
+   "generation": "XCMBsliPpPU4H8m91qzT",
+   "scribe": "1saccaspT1PH6mD8yQjn",
+   "credits": 461
+  },
+  "s23": {
+   "node": "Uc6yjUZZsDwUpAwAXoKO",
+   "generation": "GDWzFrJSAkQVf9ta0uQY",
+   "scribe": "obnBLzfwX5blhqPmPyyN",
+   "credits": 342
+  },
+  "hernummerd": "oude s22 -> s24, s23 -> s25, kaart s24 -> s26"
  }
 }

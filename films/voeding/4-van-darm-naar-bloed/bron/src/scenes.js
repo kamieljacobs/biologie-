@@ -258,6 +258,78 @@ function noorDarm(ctx, x, top, hh, t, o = {}) { const { darm = 1, uit = 'neutraa
   ctx.save(); rompPad(ctx, m); ctx.clip(); ctx.beginPath(); ctx.ellipse(x, cy, 1.0 * hh * 0.95, (y1 - y0) * 0.62, 0, 0, 6.283); ctx.fillStyle = rgba(C.bgMicro, 0.62); ctx.fill();
   if (darm > 0.01) buisPad(ctx, darm >= 1 ? pts : padDeel(pts, darm), 44 * k, 1, V.neutraal, C.fill, { seed: 2, glad: darm >= 1 });
   ctx.restore(); ctx.restore(); return gladC(pts); }
+// ---------- H3 slot (20 okt 2026): van de lymfe naar de vetcel ----------
+// Macro: Noor met de route van de vetbolletjes: lymfevaten uit de darm -> borstbuis langs de ruggengraat -> ader bij het hart -> hart
+function vetRoute(ctx, t, q, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const x = 600, top = 30, hh = 205; noorDarm(ctx, x, top, hh, t, { darm: 1, uit: 'neutraal' });
+  const L = CAST.noor.lengte || 1, H = 6.1 * hh, m = rompMaat('noor', x, top + H, H / L), cx = m.cx;
+  const sY = m.schouder, tY = m.taille;
+  const hart = [cx + 0.32 * hh, sY + 0.95 * hh], kruis = [cx + 0.5 * hh, sY + 0.22 * hh], cist = [cx - 0.04 * hh, tY + 0.02 * hh];
+  const borst = [cist, [cx - 0.06 * hh, sY + 1.2 * hh], [cx - 0.02 * hh, sY + 0.5 * hh], [cx + 0.22 * hh, sY + 0.12 * hh], kruis];
+  const ader = [[cx + 0.86 * hh, sY + 0.12 * hh], kruis, [cx + 0.42 * hh, sY + 0.55 * hh], [hart[0], hart[1] - 0.18 * hh]];
+  const lymfeIn = [[cx - 0.5 * hh, tY + 0.55 * hh], [cx - 0.25 * hh, tY + 0.25 * hh], cist];
+  const rl = q.on('lymfe', 1, 0.8), rb = q.on('borstbuis', 1, 0.8), ra = q.on('ader', 1, 0.8), rh = q.on('hart', 1, 0.8), rov = q.on('overal', 1, 1.0);
+  ctx.save(); rompPad(ctx, m); ctx.clip(); ctx.beginPath(); ctx.ellipse(cx, sY + 0.85 * hh, 0.95 * hh, 0.8 * hh, 0, 0, 6.283); ctx.fillStyle = rgba(C.bgMicro, 0.62 * rl); ctx.fill();
+  // hart (persoon links = rechts in beeld) en de ader erheen
+  if (rl > 0.01) { ctx.save(); ctx.globalAlpha *= rl; ctx.translate(hart[0], hart[1]); ctx.beginPath(); ctx.moveTo(0, 0.28 * hh); ctx.bezierCurveTo(-0.42 * hh, 0.02 * hh, -0.3 * hh, -0.3 * hh, 0, -0.12 * hh); ctx.bezierCurveTo(0.3 * hh, -0.3 * hh, 0.42 * hh, 0.02 * hh, 0, 0.28 * hh); ctx.fillStyle = rgba(BLOED, 0.85); ctx.fill(); ctx.restore();
+    ctx.lineCap = 'round'; ctx.strokeStyle = rgba('#5B7FC9', 0.95); ctx.lineWidth = 11; ctx.beginPath(); gladC(ader).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); }
+  // lymfevaten en borstbuis
+  if (rl > 0.01) { ctx.save(); ctx.globalAlpha *= rl; ctx.lineCap = 'round'; ctx.strokeStyle = LYMFE; ctx.lineWidth = 5; [[-0.5, 0.55], [-0.15, 0.62], [0.3, 0.5]].forEach(([dx, dy]) => { ctx.beginPath(); ctx.moveTo(cx + dx * hh, tY + dy * hh); ctx.quadraticCurveTo(cx + dx * 0.5 * hh, tY + 0.2 * hh, cist[0], cist[1]); ctx.stroke(); });
+    ctx.lineWidth = 9 + 3 * rb; ctx.strokeStyle = rb > 0.01 ? lighten(LYMFE, 0.15 * rb) : LYMFE; ctx.beginPath(); padDeel(borst, ease(rl)).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+  // vetbolletjes: darm -> lymfevat -> borstbuis -> ader -> hart; na 'overal' het bloed in
+  const t0 = q.at('lymfe'), t1 = q.at('hart'); if (isFinite(t0) && t > t0) { const route = gladC(lymfeIn.concat(borst.slice(1), ader.slice(2))); let Lr = 0; for (let i = 1; i < route.length; i++) Lr += Math.hypot(route[i][0] - route[i - 1][0], route[i][1] - route[i - 1][1]);
+    const v = Lr / Math.max(2, t1 - t0 + 0.3); for (let k = 0; k * 0.45 < t - t0; k++) { const u = (t - t0 - k * 0.45) * v / Lr; if (u > 1) continue; const [px, py] = padPunt(route, u, false); ctx.fillStyle = '#F2EBD3'; ctx.beginPath(); ctx.arc(px, py, 5.5, 0, 6.283); ctx.fill(); } }
+  ctx.restore();
+  // namen direct bij de onderdelen
+  naamBij(ctx, 'lymfevaten', null, cx - 0.62 * hh, tY + 0.62 * hh, rl * (1 - rov), 'right', LYMFE);
+  naamBij(ctx, 'borstbuis', 'langs de ruggengraat', cx - 0.2 * hh, sY + 1.32 * hh, rb, 'right', LYMFE);
+  naamBij(ctx, 'ader', null, cx + 0.95 * hh, sY + 0.2 * hh, ra, 'left', '#8FB0EE');
+  naamBij(ctx, 'hart', null, hart[0] + 0.45 * hh, hart[1] + 0.12 * hh, rh, 'left', lighten(BLOED, 0.35));
+  if (rov > 0.01) { ctx.save(); ctx.globalAlpha *= rov; [[1, -0.2], [1, 0.4], [0.7, 1]].forEach(([dx, dy], i) => arrow(ctx, hart[0] + 0.35 * hh, hart[1], hart[0] + 0.35 * hh + dx * 260, hart[1] + dy * 260, BLOED, 1, 3)); ctx.restore();
+    tag(ctx, 'vetbolletjes in het bloed, overal naartoe', 1350, 860, LYMFE, rov); }
+  ctx.restore(); }
+// Micro: haarvat in vetweefsel, enzym in de wand, vetcel eronder. T = tijden {kom, knip, cel, maak, weg, rest}; lab = zichtbaarheid van namen
+const VC = { capY: 214, capR: 60, ex: 820, cx: 900, cy: 590, R: 222 };
+const VC_PAD = Array.from({ length: 361 }, (_, i) => [VC.cx + Math.cos(i / 360 * 6.2832) * VC.R, VC.cy + Math.sin(i / 360 * 6.2832) * VC.R]);
+function vetcelMicro(ctx, t, T, lab = {}, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const { capY: y, capR: r, ex } = VC;
+  ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, CAPTION_Y);
+  // haarvat met wand van platte cellen
+  ctx.fillStyle = rgba(BLOED, 0.14); ctx.fillRect(0, y - r, W, 2 * r); ctx.strokeStyle = rgba(BLOED, 0.85); ctx.lineWidth = 6; for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(0, y + s * r); ctx.lineTo(W, y + s * r); ctx.stroke(); }
+  for (let k = 0; k < 9; k++) { const xx = ((k * 223 + t * 80) % (W + 120)) - 60; ctx.beginPath(); ctx.ellipse(xx, y - 22 + (k % 3) * 22, 22, 13, 0, 0, 6.283); shape(ctx, rgba(BLOED, 0.5), rgba(BLOED, 0.9), 1); }
+  for (let k = 0; k < 4; k++) { const xx = ((k * 487 + 200 + t * 60) % (W + 160)) - 80; if (Math.abs(xx - ex) < 160) continue; chylomicron(ctx, xx, y + 8 - (k % 2) * 30, 18, 0.9); }
+  metaText(ctx, 'HAARVAT IN VETWEEFSEL', 60, y - r - 22, C.grain, 'left', 24);
+  // buurcellen: vetweefsel = veel vetcellen naast elkaar
+  for (const [bx, by] of [[VC.cx - 510, VC.cy + 30], [VC.cx + 510, VC.cy + 20]]) { ctx.save(); ctx.translate(bx - VC.cx, by - VC.cy); ctx.globalAlpha *= 0.55; ctx.beginPath(); ctx.arc(VC.cx, VC.cy, VC.R, 0, 6.283); ctx.fillStyle = rgba(V.kh, 0.12); ctx.fill(); dubbellaag(ctx, VC_PAD, { d: 7, r: 2.6, stap: 7 }); ctx.beginPath(); ctx.arc(VC.cx - 10, VC.cy + 18, 165, 0, 6.283); ctx.fillStyle = rgba(V.vt, 0.6); ctx.fill(); ctx.restore(); }
+  // vetcel: rond, dubbellaag, grote vetdruppel, kern opzij
+  ctx.beginPath(); ctx.arc(VC.cx, VC.cy, VC.R, 0, 6.283); ctx.fillStyle = rgba(V.kh, 0.12); ctx.fill(); dubbellaag(ctx, VC_PAD, { d: 7, r: 2.6, stap: 7 });
+  const groei = ramp(t, T.maak + 0.6, 2.0); ctx.beginPath(); ctx.arc(VC.cx - 10, VC.cy + 18, 160 + 14 * groei, 0, 6.283); ctx.fillStyle = rgba(V.vt, 0.6); ctx.fill(); ctx.strokeStyle = rgba(V.vtR, 0.8); ctx.lineWidth = 1.5; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(VC.cx + 168, VC.cy - 120, 40, 20, -0.7, 0, 6.283); shape(ctx, rgba(C.kern, 0.7), C.kernR, 1.2);
+  naamBij(ctx, 'vetcel', null, VC.cx + VC.R + 20, VC.cy + 10, 1, 'left');
+  naamBij(ctx, lab.opslag ? 'opgeslagen vet' : 'vetdruppel', null, VC.cx - 10, VC.cy + 30, 1, 'center', lighten(V.vt, 0.5));
+  // vervoerder voor vetzuren in het celmembraan (boven)
+  const cIn = t > T.cel && t < T.cel + 1.6 ? Math.sin(clamp((t - T.cel - 0.5) / 1.0, 0, 1) * Math.PI) : 0; drager(ctx, VC.cx, VC.cy - VC.R, 0, cIn, C.teal, 0.75);
+  // enzym in de wand (opgevouwen keten)
+  const ea = lab.enzym == null ? 1 : lab.enzym; if (ea > 0.01) { ctx.save(); ctx.globalAlpha *= ea; const pts = []; for (let i = 0; i < 10; i++) { const an = i * 0.95; pts.push([ex + Math.cos(an) * (14 + i * 2.2), y + r - 22 + Math.sin(an) * (10 + i * 1.6)]); } proteinChain(ctx, pts, [3, 7, 11, 5, 9, 13, 2, 6, 10, 4], 10); ctx.restore(); }
+  naamBij(ctx, lab.lpl ? 'lipoproteïnelipase' : 'enzym in de wand', lab.lpl ? 'in haarvaten van vetweefsel en spieren' : null, ex - 60, y + r + 44, ea * (lab.enzymNaam || 0), 'right', C.enzym === undefined ? C.text : lighten(C.enzym, 0.35));
+  // het gevolgde vetbolletje: komt aan, wordt geknipt, de rest drijft verder
+  const aan = ease(ramp(t, T.kom, 1.2)), sp = ease(ramp(t, T.knip, 1.3)), rest = ramp(t, T.rest, 3.0);
+  const hx = lerp(-60, ex, aan) + rest * 900, hy = y + 6, hr = 30 - 8 * sp;
+  if (t >= T.kom) chylomicron(ctx, hx, hy, hr, 1 - ramp(rest, 0.7, 0.3));
+  if (lab.restNaam) naamBij(ctx, 'rest van de chylomicron', 'naar de lever', hx, hy - 48, lab.restNaam * (1 - ramp(rest, 0.7, 0.3)), 'center');
+  // triglyceride uit het bolletje; vetzuren los; glycerol blijft in het bloed en drijft weg
+  if (t >= T.knip) { const tg = ramp(t, T.knip, 0.5), fa = ease(ramp(t, T.cel, 2.0)), wg = ramp(t, T.weg, 3.0), mk = ramp(t, T.maak, 1.0);
+    ctx.save(); ctx.globalAlpha *= tg * (1 - ramp(wg, 0.75, 0.25)); glycerolMol(ctx, ex + 40 + wg * 820, y - 4, 0.9); ctx.restore();
+    naamBij(ctx, 'glycerol', lab.glyLever ? 'naar de lever' : null, ex + 40 + wg * 820, y - 42, (lab.gly || 0) * (1 - ramp(wg, 0.75, 0.25)), 'center', lighten(V.vt, 0.5));
+    for (let i = 0; i < 3; i++) { const x0 = ex + 56 + sp * 30 * (1 + i * 0.4), y0 = y - 28 + i * 24 + sp * (i - 1) * 10;
+      const tx = VC.cx - 30 + i * 2, ty = VC.cy - VC.R + 60 + i * 26; const via = [VC.cx - 40 + i * 10, VC.cy - VC.R - 50];
+      let px, py; if (fa < 0.55) { const v = fa / 0.55; px = lerp(x0, via[0], v); py = lerp(y0, via[1], v); } else { const v = (fa - 0.55) / 0.45; px = lerp(via[0], tx, v); py = lerp(via[1], ty, v); }
+      if (mk < 1) fattyAcid(ctx, px + mk * (VC.cx - 60 - px), py + mk * (VC.cy - VC.R + 120 + i * 24 - py), 80, 0.8, tg * (1 - ramp(t, T.maak + 1.0, 0.6))); }
+    if (mk > 0.01) { ctx.save(); ctx.globalAlpha *= mk * (1 - ramp(t, T.maak + 1.0, 0.6)); glycerolMol(ctx, VC.cx - 80, VC.cy - VC.R + 144, 0.8); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= ramp(t, T.maak + 0.8, 0.4) * (1 - ramp(t, T.maak + 2.2, 0.6)); triglyceride(ctx, VC.cx - 80, VC.cy - VC.R + 144, 0.55); ctx.restore(); }
+    naamBij(ctx, 'vetzuren', null, ex + 200, y - 52, (lab.fa || 0) * (1 - fa), 'left', lighten(V.vt, 0.5)); }
+  if (lab.koppel) naamBij(ctx, 'vetzuren + glycerol → triglyceride', 'in de vetcel', VC.cx + VC.R + 20, VC.cy - 150, lab.koppel, 'left', lighten(V.vt, 0.5));
+  ctx.restore(); }
+
 const SCENES = {
   title(ctx, t) { darmvlok(ctx, 1500, 900, 560, 240, 1, { t, cellen: 13 }); for (let i = 0; i < 6; i++) { const w = wander(i, t, 12, 1.5); glucose(ctx, 1320 + hash(i * 3) * 360 + w.x, 300 + hash(i * 3 + 1) * 80 + w.y, 11, 0.9); } },
 
@@ -427,8 +499,21 @@ const SCENES = {
     tag(ctx, 'het meeste vet: via de lymfe', 960, 870, LYMFE, q.on('hoofdlijn'));
   },
 
+  // ---------- H3 slot: van de lymfe naar de vetcel (20 okt 2026) ----------
+  s22(ctx, t, q) { bg(ctx, 'schema');
+    const m = q.on('haarvaten', 1, 0.8);
+    vetRoute(ctx, t, q, 1 - m);
+    const kom = q.at('haarvaten') + 0.6;
+    vetcelMicro(ctx, t, { kom, knip: q.at('knipt'), cel: q.at('vetcel', 2) - 1.2, maak: q.at('maakt'), weg: q.at('glycerol') + 1.6, rest: q.at('slaat') }, { enzym: q.on('enzym', 1, 0.8), enzymNaam: q.on('enzym', 1, 0.8), fa: q.on('vetzuren', 1, 0.6), gly: q.on('glycerol', 1, 0.6), opslag: q.on('slaat', 1, 0.6) > 0.5 }, m);
+    tag(ctx, 'vetzuren de vetcel in: weer vet', 960, 868, V.vt, q.on('maakt', 1, 0.8) * m);
+  },
+  s23(ctx, t, q) { bg(ctx, 'micro');
+    vetcelMicro(ctx, t, { kom: -0.6, knip: q.at('triglyceriden', 1) + 0.6, cel: q.at('vetcel') - 0.8, maak: q.at('gekoppeld'), weg: q.at('glycerol', 3), rest: q.at('chylomicron', 2) + 0.2 },
+      { enzym: 1, enzymNaam: 1, lpl: q.on('lipoproteïnelipase', 1, 0.6) > 0.01 || t > 1, fa: q.on('vetzuren', 1, 0.6), gly: q.on('glycerol', 3, 0.6), glyLever: true, restNaam: q.on('chylomicron', 2, 0.6), koppel: q.on('gekoppeld', 1, 0.6) * (1 - q.on('glycerol', 3, 0.6)) });
+  },
+
   // ---------- Recap ----------
-  s22(ctx, t, q) { bg(ctx, 'macro');
+  s24(ctx, t, q) { bg(ctx, 'macro');
     const dp = noorDarm(ctx, 400, 40, 200, t, { darm: 1, uit: q.on('antwoord') > 0.5 ? 'blij' : 'denkt' }), bron = dp[Math.floor(dp.length * 0.2)];
     const p = q.on('geplooid', 1, 0.8), v = q.on('vlokken', 1, 0.8), m = q.on('microvilli', 1, 0.8);
     zoomCircle(ctx, 900, 420, 150, bron[0], bron[1], 'plooien', p, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(700, 220, 400, 400); plooiWand(ctx, 740, 1060, 440, 90, 1, 4); });
@@ -437,7 +522,7 @@ const SCENES = {
     const c = q.on('antwoord'); if (c > 0.01) { ctx.save(); ctx.globalAlpha *= c; text(ctx, 'c', 1250, 760, fTitel(96), C.goud, 'center'); ctx.restore(); }
     tag(ctx, 'groot oppervlak: snelle opname', 1250, 860, C.groen, q.on('snel'));
   },
-  s23(ctx, t, q) { bg(ctx, 'schema');
+  s25(ctx, t, q) { bg(ctx, 'schema');
     const g = q.on('Glucose', 1, 0.8), p = q.on('poortader', 1, 0.8), v = q.on('vetbolletjes', 1, 0.8), s = q.on('sleutelbeen', 1, 0.8);
     routeKaart(ctx, { t, bloed: g, lymf: v, lever: g, hart: 1, glu: g, vet: v });
     tag(ctx, 'glucose en aminozuren: poortader → lever', 960, 880, V.kh, p * (1 - v));

@@ -19,29 +19,108 @@
  },
  "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
  "questions": {
-  "q02": {"q": "Je dunne darm is drie meter lang, maar vanbinnen dertig vierkante meter. Hoe past dat in je buik?", "correct": 2, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 1 en aan het eind."},
-  "q08": {"q": "Bij coeliakie worden de darmvlokken korter, soms bijna plat. Wat gebeurt er met de opname?", "correct": 1, "explain": "Zonder vlokken is het oppervlak veel kleiner. Er gaan minder moleculen tegelijk door de wand, ook al is de darm even lang."},
-  "q12": {"q": "Er is minder glucose in de darm dan in de epitheelcel. Wordt die laatste glucose nog opgenomen?", "correct": 0, "explain": "Ja, door actief transport: de cel haalt glucose tegen het concentratieverschil in naar binnen. Dat kost energie."},
-  "q15": {"q": "Het transporteiwit voor glucose en galactose werkt niet. Wat gebeurt er met een baby die melk drinkt?", "correct": 0, "explain": "De suikers blijven in de darm en houden water vast. Dat geeft diarree. Melksuiker (lactose) bestaat uit glucose en galactose."},
-  "q19": {"q": "Glycerol en vetzuren zijn kleine moleculen. Hoe komen die in het bloed?", "correct": 2, "explain": "In de epitheelcel wordt er weer vet van gemaakt, verpakt in bolletjes. Die zijn te groot voor de wand van een haarvat en gaan het lymfevat in."}
+  "q02": {
+   "q": "Je dunne darm is drie meter lang, maar vanbinnen dertig vierkante meter. Hoe past dat in je buik?",
+   "correct": 2,
+   "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 1 en aan het eind."
+  },
+  "q08": {
+   "q": "Bij coeliakie worden de darmvlokken korter, soms bijna plat. Wat gebeurt er met de opname?",
+   "correct": 1,
+   "explain": "Zonder vlokken is het oppervlak veel kleiner. Er gaan minder moleculen tegelijk door de wand, ook al is de darm even lang."
+  },
+  "q12": {
+   "q": "Er is minder glucose in de darm dan in de epitheelcel. Wordt die laatste glucose nog opgenomen?",
+   "correct": 0,
+   "explain": "Ja, door actief transport: de cel haalt glucose tegen het concentratieverschil in naar binnen. Dat kost energie."
+  },
+  "q15": {
+   "q": "Het transporteiwit voor glucose en galactose werkt niet. Wat gebeurt er met een baby die melk drinkt?",
+   "correct": 0,
+   "explain": "De suikers blijven in de darm en houden water vast. Dat geeft diarree. Melksuiker (lactose) bestaat uit glucose en galactose."
+  },
+  "q19": {
+   "q": "Glycerol en vetzuren zijn kleine moleculen. Hoe komen die in het bloed?",
+   "correct": 2,
+   "explain": "In de epitheelcel wordt er weer vet van gemaakt, verpakt in bolletjes. Die zijn te groot voor de wand van een haarvat en gaan het lymfevat in."
+  }
  },
  "glossary": [
-  {"t": "opname (resorptie)", "d": "Het opnemen van verteerde voedingsstoffen door de darmwand, in het bloed of de lymfe."},
-  {"t": "darmplooien", "d": "Kringvormige plooien van de binnenwand van de dunne darm. Ze maken het oppervlak ongeveer anderhalf keer zo groot."},
-  {"t": "darmvlokken", "d": "Miljoenen uitsteeksels van een halve tot een hele millimeter op de darmwand. In elke vlok liggen haarvaten en een lymfevat."},
-  {"t": "darmepitheelcel", "d": "Cel van het dekweefsel (epitheel) dat over de darmvlokken ligt. Voedingsstoffen gaan erdoorheen naar het bloed."},
-  {"t": "microvilli", "d": "Duizenden piepkleine uitstulpingen van het celmembraan van een epitheelcel, aan de kant van het voedsel. Ongeveer een micrometer lang."},
-  {"t": "diffusie", "d": "Verplaatsing van stoffen van een plek met veel naar een plek met weinig. Kost geen energie."},
-  {"t": "actief transport", "d": "Opname tegen het concentratieverschil in, door een transporteiwit. Kost de cel energie."},
-  {"t": "transporteiwit", "d": "Eiwit in het celmembraan waar een bepaalde stof doorheen gaat. Glucose heeft een ander transporteiwit dan een aminozuur."},
-  {"t": "osmose", "d": "Diffusie van water door een membraan, naar de kant met de meeste opgeloste stoffen."},
-  {"t": "haarvat", "d": "Het kleinste bloedvat, met een dunne wand. In elke darmvlok ligt een netwerk van haarvaten."},
-  {"t": "poortader", "d": "De ader die het bloed uit de darm verzamelt en naar de lever brengt, niet naar het hart."},
-  {"t": "lymfevat", "d": "Vat dat vocht (lymfe) uit het weefsel afvoert naar het bloed. In de darmvlok neemt het vet op."},
-  {"t": "bovenste holle ader", "d": "Grote ader die bloed uit het bovenlichaam naar het hart brengt. Daar komt ook de lymfe met het vet in het bloed."},
-  {"t": "chylomicron", "d": "Vetbolletje dat de epitheelcel maakt: een druppel vet met een laagje fosfolipiden en eiwit eromheen. Gaat via de lymfe naar het bloed.", "vwo": true},
-  {"t": "natrium-kaliumpomp", "d": "Pomp in het celmembraan die natrium de cel uit pompt en daarvoor ATP gebruikt. Het natriumverschil drijft de opname van glucose aan.", "vwo": true},
-  {"t": "coeliakie", "d": "Ziekte waarbij het afweersysteem in de darmwand reageert op gluten. De darmvlokken worden korter, de opname slechter."}
+  {
+   "t": "opname (resorptie)",
+   "d": "Het opnemen van verteerde voedingsstoffen door de darmwand, in het bloed of de lymfe."
+  },
+  {
+   "t": "darmplooien",
+   "d": "Kringvormige plooien van de binnenwand van de dunne darm. Ze maken het oppervlak ongeveer anderhalf keer zo groot."
+  },
+  {
+   "t": "darmvlokken",
+   "d": "Miljoenen uitsteeksels van een halve tot een hele millimeter op de darmwand. In elke vlok liggen haarvaten en een lymfevat."
+  },
+  {
+   "t": "darmepitheelcel",
+   "d": "Cel van het dekweefsel (epitheel) dat over de darmvlokken ligt. Voedingsstoffen gaan erdoorheen naar het bloed."
+  },
+  {
+   "t": "microvilli",
+   "d": "Duizenden piepkleine uitstulpingen van het celmembraan van een epitheelcel, aan de kant van het voedsel. Ongeveer een micrometer lang."
+  },
+  {
+   "t": "diffusie",
+   "d": "Verplaatsing van stoffen van een plek met veel naar een plek met weinig. Kost geen energie."
+  },
+  {
+   "t": "actief transport",
+   "d": "Opname tegen het concentratieverschil in, door een transporteiwit. Kost de cel energie."
+  },
+  {
+   "t": "transporteiwit",
+   "d": "Eiwit in het celmembraan waar een bepaalde stof doorheen gaat. Glucose heeft een ander transporteiwit dan een aminozuur."
+  },
+  {
+   "t": "osmose",
+   "d": "Diffusie van water door een membraan, naar de kant met de meeste opgeloste stoffen."
+  },
+  {
+   "t": "haarvat",
+   "d": "Het kleinste bloedvat, met een dunne wand. In elke darmvlok ligt een netwerk van haarvaten."
+  },
+  {
+   "t": "poortader",
+   "d": "De ader die het bloed uit de darm verzamelt en naar de lever brengt, niet naar het hart."
+  },
+  {
+   "t": "lymfevat",
+   "d": "Vat dat vocht (lymfe) uit het weefsel afvoert naar het bloed. In de darmvlok neemt het vet op."
+  },
+  {
+   "t": "bovenste holle ader",
+   "d": "Grote ader die bloed uit het bovenlichaam naar het hart brengt. Daar komt ook de lymfe met het vet in het bloed."
+  },
+  {
+   "t": "chylomicron",
+   "d": "Vetbolletje dat de epitheelcel maakt: een druppel vet met een laagje fosfolipiden en eiwit eromheen. Gaat via de lymfe naar het bloed.",
+   "vwo": true
+  },
+  {
+   "t": "natrium-kaliumpomp",
+   "d": "Pomp in het celmembraan die natrium de cel uit pompt en daarvoor ATP gebruikt. Het natriumverschil drijft de opname van glucose aan.",
+   "vwo": true
+  },
+  {
+   "t": "coeliakie",
+   "d": "Ziekte waarbij het afweersysteem in de darmwand reageert op gluten. De darmvlokken worden korter, de opname slechter."
+  },
+  {
+   "t": "borstbuis",
+   "d": "Groot lymfevat langs de ruggengraat. Alle lymfe uit de buik, met de vetbolletjes, komt erin samen; het mondt uit in een ader vlak bij het hart."
+  },
+  {
+   "t": "lipoproteïnelipase",
+   "d": "Enzym aan de binnenkant van haarvaten in vetweefsel en spieren. Knipt de triglyceriden in chylomicronen in vetzuren en glycerol; de vetzuren gaan de cel in.",
+   "vwo": true
+  }
  ],
  "sections": "\n  <section><h2>Checkvragen</h2>\n    <p class=\"meta\">examenstijl · antwoorden ingeklapt</p>\n    <div class=\"q\"><b>1. Biggen met een darminfectie</b> <span class=\"pts\">2 punten</span><p>Bij een darminfectie bij biggen worden de darmvlokken korter. De biggen eten evenveel als gezonde biggen, maar groeien minder snel.</p><p>Verklaar dit.</p>\n      <details><summary>Antwoord</summary><p>Kortere darmvlokken geven een kleiner (resorptie)oppervlak (1). Daardoor worden er minder voedingsstoffen (bijvoorbeeld aminozuren of glucose) opgenomen, dus zijn er minder bouwstoffen voor groei (1).</p></details></div>\n    <div class=\"q\"><b>2. De weg van een aminozuur</b> <span class=\"pts\">2 punten</span><p>Een aminozuur wordt in de dunne darm opgenomen en komt daarna in de lever. Bloedvaten: 1 aorta · 2 darmslagader · 3 haarvaten in een darmvlok · 4 leverader · 5 poortader.</p><p>Noteer de nummers van de bloedvaten die het aminozuur op de kortste weg passeert, in de juiste volgorde.</p>\n      <details><summary>Antwoord</summary><p>3 → 5 (2). Bij 2 → 3 → 5, of een juiste volgorde met één extra vat: 1.</p></details></div>\n    <div class=\"q\"><b>3. Juist of onjuist</b> <span class=\"pts\">2 punten</span><p>1 Glucose kan alleen worden opgenomen zolang de concentratie in de darm hoger is dan in de epitheelcel.<br>2 Voor opname van glucose tegen het concentratieverschil in is energie (ATP) nodig.<br>3 Water wordt in de dunne darm opgenomen door osmose.</p><p>Noteer bij elke uitspraak of die juist of onjuist is.</p>\n      <details><summary>Antwoord</summary><p>1 onjuist, 2 juist, 3 juist. Drie goed: 2; twee goed: 1.</p></details></div>\n    <div class=\"q\"><b>4. De weg van vet</b> <span class=\"pts\">2 punten</span><p>Na een vette maaltijd worden vetzuren en glycerol in de epitheelcel weer omgezet in vet. Komt dit vet eerst in de poortader of in de bovenste holle ader? En gaat het eerst door de lever of eerst door het hart?</p><p>A poortader, lever · B poortader, hart · C bovenste holle ader, lever · D bovenste holle ader, hart</p>\n      <details><summary>Antwoord</summary><p>D (2). Het vet gaat via het lymfestelsel naar de bovenste holle ader en passeert dus eerst het hart.</p></details></div>\n    <div class=\"q vwo-only\"><b>5. Transporteiwit en osmose</b> <span class=\"vwo-badge\">vwo</span> <span class=\"pts\">3 punten</span><p>Bij een erfelijke aandoening werkt het transporteiwit dat glucose samen met natriumionen de darmepitheelcel in brengt niet. Fructose wordt via een ander transporteiwit wel normaal opgenomen.</p><p>a (2p) Leg uit dat een baby met deze aandoening na het drinken van melk met lactose waterige diarree krijgt.<br>b (1p) Leg uit waarom het vervangen van lactose door fructose de klachten verhelpt.</p>\n      <details><summary>Antwoord</summary><p>a Lactose wordt gesplitst in glucose en galactose, en die worden niet opgenomen; de osmotische waarde van de darminhoud blijft hoog (1). Daardoor wordt er minder water geresorbeerd of trekt er water naar de darm, en dat geeft diarree (1).<br>b Fructose gaat via een ander, specifiek transporteiwit, wordt dus wel opgenomen en houdt geen water vast in de darm (1).</p></details></div>\n  </section>\n  <section><h2>Voor de docent</h2>\n    <h3>Hoe de film het uitlegt</h3>\n    <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Kernbeeld</th></tr>\n      <tr><td>Cold open</td><td>B · Macro</td><td>Lichaam met de opgevouwen dunne darm; drie meter; dertig vierkante meter als half klaslokaal</td></tr>\n      <tr><td>1 Een gladde buis is te klein</td><td>B structuur en functie · Macro → zoomcirkel → Micro</td><td>Gladde buis = vier A4'tjes; oppervlakteller die bij plooien, vlokken en microvilli groeit; coeliakie: platte vlokken</td></tr>\n      <tr><td>2 Door de cel heen</td><td>B · Micro</td><td>Epitheelcel met microvilli; glucose door transporteiwitten; diffusie en actief transport; water volgt; vwo: natrium-koppeling en glucose-galactose-malabsorptie</td></tr>\n      <tr><td>3 Twee routes naar het bloed</td><td>B · Micro-doorsnede van een vlok + Schema-routekaart</td><td>Haarvaten en lymfevat in de vlok; poortader naar de lever; vet als bolletjes het lymfevat in, melkwitte lymfe, bovenste holle ader; vwo: chylomicronen</td></tr>\n    </table>\n    <h3>Misconcepties die de film aanpakt</h3>\n    <ul><li>De darm is een gladde buis → plooien, vlokken en microvilli (teller in H1).</li><li>\"Zo groot als een tennisveld\" → nieuwere metingen: ongeveer 30 m² (Helander &amp; Fändriks 2014).</li><li>Opname is altijd diffusie → actief transport, kost energie (vraag in H2).</li><li>Alles gaat via de poortader → vet gaat via de lymfe (vraag in H3).</li><li>Vet gaat direct het bloed in → eerst de lymfe, dan de bovenste holle ader (H3).</li></ul>\n    <h3>Examenaansluiting (havo)</h3>\n    <p>Darmvlokken en opname: 2024-II vr 4. Kortere darm en minder opname (ook minder tijd): 2026-I vr 30. Vet via het lymfestelsel naar de bovenste holle ader, eerst door het hart: 2023-II vr 23. Poortader in routevragen: 2024-I vr 26, 2021-I vr 16, 2025-II vr 42; stroomrichting van de poortader: 2021-II vr 28. Transporteiwit in een darmcel: 2022-II vr 3. Monosachariden opgenomen in de dunne darm: 2026-II vr 40. Diffusie, osmose en actief transport: 2018-I, 2019-I, 2026-II vr 11.</p>\n    <h3>Getallen in de film</h3>\n    <table><tr><th>Getal</th><th>Waarde</th><th>Afronding</th></tr>\n      <tr><td>Lengte dunne darm</td><td>gemiddeld 291 cm bij een levend mens; 6–7 m is gemeten na de dood (Helander &amp; Fändriks 2014)</td><td>\"ongeveer drie meter\"</td></tr>\n      <tr><td>Gladde buis</td><td>π × 0,025 m × 2,91 m = 0,23 m² (vier A4'tjes = 0,25 m²)</td><td>\"een kwart vierkante meter\"</td></tr>\n      <tr><td>Plooien</td><td>× 1,6</td><td>\"anderhalf keer\"</td></tr>\n      <tr><td>Vlokken + microvilli</td><td>× 60 tot 120</td><td>samen met plooien \"meer dan honderd keer\" (0,23 → 30 m² is ≈ ×130)</td></tr>\n      <tr><td>Oppervlak dunne darm</td><td>≈ 30 m² (hele kanaal ≈ 32 m²); oude schatting 200–300 m² (\"tennisveld\")</td><td>\"dertig vierkante meter · een half klaslokaal\"</td></tr>\n      <tr><td>Darmvlok</td><td>0,5–1 mm hoog, enkele miljoenen (histologie: Ross, Junqueira)</td><td>\"een halve tot een hele millimeter\"</td></tr>\n      <tr><td>Microvilli</td><td>1–2 µm lang, 0,1 µm dik, 1000–3000 per cel</td><td>\"duizenden\"</td></tr>\n      <tr><td>Vetbolletje (chylomicron)</td><td>0,1–1 µm; haarvat 5–8 µm wijd (Boron &amp; Boulpaep)</td><td>\"te groot voor de wand van een haarvat\"</td></tr>\n      <tr><td>Water</td><td>≈ 9 L per dag inclusief verteringssappen, 7–8 L opgenomen in de dunne darm (Guyton)</td><td>\"het meeste water\"</td></tr>\n    </table>\n    <h3>Vereenvoudigingen</h3>\n    <p>De cel neemt vooral vetzuren en monoglyceriden op, geen vrije glycerol; de film zegt \"glycerol en vetzuren\", zoals Binas en het CE. Glucose gaat de cel in via SGLT1 (met natrium, secundair actief) en GLUT2; \"een deel door diffusie\" is de havo-vereenvoudiging (gefaciliteerde diffusie). Het lymfevat in de vlok heet het centrale lymfevat (chylvat). De lymfe komt via de borstbuis uit in de linker ader-hoek onder het sleutelbeen; de film zegt \"een ader onder je linker sleutelbeen\" en daarna \"bovenste holle ader\", de CE-term. Ook di- en tripeptiden worden opgenomen; de film houdt het bij aminozuren.</p>\n    <h3>Bewust weggelaten</h3>\n    <p>De lever zelf (film 5), waterresorptie in de dikke darm (film 2 en 6), opname van vitaminen, ijzer en mineralen, galzouten die worden hergebruikt (film 5), de bouw van de darmwand (spierlagen) en de namen SGLT1/GLUT.</p>\n  </section>\n"
 }

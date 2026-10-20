@@ -93,6 +93,10 @@ In de epitheelcel koppelt de cel de lange vetzuren weer aan glycerol. Dat vet ve
 Korte vetzuren lossen goed op in water. Die gaan wel direct de haarvaten in, naar de poortader.
 Terug naar de hoofdlijn: het meeste vet gaat via de lymfe. [VWO-END]
 
+Hoe komt dat vet dan in je vetcellen? Alle lymfe uit je buik komt samen in één groot lymfevat langs je ruggengraat: de borstbuis. Die komt uit in een ader vlak bij je hart. Zo komen de vetbolletjes in het bloed, en het bloed brengt ze overal naartoe. In de haarvaten van je vetweefsel zit een enzym in de wand. Dat knipt het vet uit de bolletjes weer in vetzuren en glycerol. De vetzuren gaan de vetcel in. Daar maakt de vetcel er weer vet van, en slaat het op.
+
+[VWO-START] Dat enzym heet lipoproteïnelipase. Het zit aan de binnenkant van de haarvaten in vetweefsel en spieren. Het knipt de triglyceriden in de chylomicronen in vetzuren en glycerol. In de vetcel worden de vetzuren weer aan glycerol gekoppeld tot triglyceriden. De glycerol uit het bloed en wat er van de chylomicron overblijft, gaan naar de lever. [VWO-END]
+
 ## Recap [Macro + Schema-routekaart]
 Terug naar de puzzel. Hoe past dertig vierkante meter in je buik?
 De binnenwand is geplooid. Op de plooien staan vlokken, en op de cellen van de vlokken staan microvilli. Het antwoord is c.
