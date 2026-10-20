@@ -61,6 +61,10 @@ Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die v
 
 Tools gebruiken dezelfde opmaak als site en films via `tools/huisstijl.css` (kleuren als variabelen, licht/donker, Fraunces/Source Sans 3/IBM Plex Mono, sitebalk, knoppen, panelen, voet) en `tools/huisstijl.js` (themaknop met `data-thema-knop`, zelfde voorkeur `thema` als de site). Nieuwe of aangepaste tools gebruiken die; geen eigen lettertypes of vaste kleuren. Al omgezet: Aardappellab, Eiwitfabriek (Celbouwer en Virtuele microscoop zaten al dicht bij de stijl); de overige tools volgen.
 
+## Uitleg in stappen (docententools)
+
+Kamiel wil per film een korte tool waarmee hij zelf uitlegt: per scherm korte animaties die hij stap voor stap afspeelt (Kamiel 20 okt 2026). Hij bouwt ze langzaam op door het jaar: steeds ± een week voordat hij een onderwerp in de klas uitlegt, afgestemd op die les. Plek: `tools/docent/<reeks>-<nr>/index.html`, gekoppeld in `HOOFDSTUKKEN.<hoofdstuk>.tools` (naam begint met 'Uitleg in stappen', dan krijgt de tegel de lijntekening uit `TOOLPLAAT`). Sjabloon = `tools/docent/voortplanting-1/` (les 1 Voortplanting: Flora, ongeslachtelijk/geslachtelijk, de race, startsein, kenmerken, zaadcel, eierstok): canvas 1920×1080, kleuren licht/donker via `zetPalet()`, `SCHERMEN` met per scherm `titel`, `deel`, `stappen` (`t`, `th` = havotekst, `n` = notitie voor de docent, `vwo: true`) en `teken(ctx, S)` met `S.on(stap, duur, vertraging)`; bediening →/spatie/presenter, ←, ↑↓, R, L (namen), F (presenteren), `?niveau=havo`, `#<scherm>`. Weinig tekst op het beeld, géén denkvragen (die stelt Kamiel zelf), namen direct bij het onderdeel (`naam()`), personages via `pers()` (castboek). Hergebruik tekenfuncties uit de bijbehorende film (bv. `manSchema`, `vrouwSchema`) maar maak eigen opbouw, geen stills. Na het bouwen: `scripts/licentie_noot.py` en `scripts/teller.py` (bestand eerst `git add`).
+
 ## Personages
 
 Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films.
