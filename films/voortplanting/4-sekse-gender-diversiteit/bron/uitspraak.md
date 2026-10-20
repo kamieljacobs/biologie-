@@ -14,3 +14,12 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 | clownvissen | Klaunvissen | s09 | wachtlijst |
 | intersekse, non-binair, transgender, genderidentiteit, genderexpressie, adrenogenitaal, androgeen-ongevoeligheid | zoals geschreven | s08, s11, s12 | wachtlijst |
 | hypothalamus, oestrogeen, receptor | globale subs (hiepo-taalamus, eustrogeen, reseptor) | s04, s08 | eerder goedgekeurd |
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s08.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| AGS | AGS (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |

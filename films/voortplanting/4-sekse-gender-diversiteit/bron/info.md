@@ -60,3 +60,22 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp4` (scenes.js uit `src/`, `words/` 
 
 ## Wijzigingen
 - 1.0 (16 okt 2026): eerste versie. Script na eigen review (zie `reviews/review_v1.md`).
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moeten klinken. Alleen de alinea's met die woorden zijn opnieuw ingesproken; de gesproken tekst is inhoudelijk gelijk gebleven.
+
+| Woord | Nieuwe stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| AGS | AGS (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+- Opnieuw ingesproken: s08. Roos (7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, ElevenLabs-flow `urmsa8zcNa5TFq8SVeBI` ("Herinspreken 19 okt · voeding, hormonen, voortplanting"). Stem-invoer = `voice` in `segments.json` (gemaakt met `make_segments.py` en de bijgewerkte vervangregels in `bouw/uitspraak_subs.json` en `uitspraak_film.json`).
+- Woordtijden: Scribe (connect_from = de TTS-node) → `align.py` → `stem/woordtijden/`. Mastering: `loudnorm=I=-15:TP=-1.5`, mono 44,1 kHz 96 kb/s.
+- Credits: TTS 1639, Scribe ≈ 575 (≈ 105 s audio).
+- In de HTML (`window.FILMDATA`) zijn alleen bij deze segmenten `words` en `dur` vervangen en heeft de audio-URL `?v=2` gekregen; speler en beelden zijn ongewijzigd. Getest met Playwright (vwo/havo, Vragen aan/uit): geen JS-fouten, nieuwe audio laadt.
+- Niet aangepast: woorden die niet in de test zaten houden hun vorige stem-invoer, zodat ze in de hele film hetzelfde klinken (bijv. "receptor" zoals geschreven, terwijl de centrale lijst "reseptor" geeft).
+
+| Segment | TTS-node | Generatie | Credits | Duur |
+|---|---|---|---|---|
+| s08 | G5EpINWhFNu0WQHH0yn2 | pIozUZLdCWDTtHwDH1ce | 1639 | 105.01 s |
