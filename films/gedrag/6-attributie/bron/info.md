@@ -6,7 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 6 van 12 |
 | Niveau | havo + vwo; vwo-blok s09 (actor-observer-effect, meta-analyse) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
-| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow jo9SUZEeggaQUQWumcqN; respellings Weiner → Wainer, Jones → Djoons (zie `uitspraak.md`) |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow jo9SUZEeggaQUQWumcqN; respelling Weiner → Wainer; Jones sinds 20 okt in gewone spelling (zie `uitspraak.md`) |
 | Duur | spraak 4:16 (vwo) / 3:49 (havo); speeltijd met kaarten en vragen ± 5,5 min |
 | Beeldstijl | Part C: Schema |
 | Personages | Noor en Sam (castboek) |
@@ -49,7 +49,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gd6` (scenes.js uit `src/`, `words/` 
 - beeld: alleen `scenes.js` → `engine/build.py gd6` → pack. Let op: 'Wat' vindt ook 'wat' (hoofdletterongevoelig).
 
 ## Aandachtspunten
-- Uitspraakwachtlijst: Weiner (Wainer), Jones (Djoons), Harris, Fidel Castro, self-serving bias, actor-observer-effect.
+- Uitspraakwachtlijst: Weiner (Wainer), Harris, Fidel Castro, self-serving bias, actor-observer-effect.
 - Term 'zelfdienende vertekening' gekozen; controleer of de methode (Nectar / Biologie voor jou) een andere term gebruikt.
 
 ## Wijzigingen
@@ -58,3 +58,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gd6` (scenes.js uit `src/`, `words/` 
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). De gedragsfilms gebruiken vooral `tag`/`regel`/`chip`; geen scène toont `label()`. Alleen de functie is vervangen; geen andere wijslijnen gevonden. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+Uitspraak na de uitspraaktest van 18 okt: stem-invoer Djoons → Jones (gewone spelling), regel uit `uitspraak_film.json` gehaald. Alinea's s06 en s09 opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jo9SUZEeggaQUQWumcqN; 1.058 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden van die alinea's in `window.FILMDATA` zijn vervangen; beeld, speler en de rest van de film ongewijzigd. Duur vrijwel gelijk.
