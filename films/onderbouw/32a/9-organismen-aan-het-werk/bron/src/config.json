@@ -1,0 +1,17 @@
+{
+ "titel": "Organismen aan het werk",
+ "ondertitel": "Pizzadeeg is na een uur twee keer zo groot. Wat doen gist en bacteriën voor ons?",
+ "meta": "film 9",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes9.js",
+ "hold": {"s14": 12.0},
+ "mini": {"Hoofdstuk 1": "Levende cellen in het deeg", "Hoofdstuk 2": "Yoghurt, kaas en karnemelk", "Hoofdstuk 3": "Kas, koe en kuilvoer", "Samenvatting": "Biotechnologie"},
+ "checkvragen": [
+  {"titel": "Deeg", "pts": "1 punt", "vraag": "Waardoor rijst brooddeeg? A. doordat water uitzet · B. doordat gistcellen koolstofdioxide maken · C. doordat de bloem opzwelt", "antwoord": "B (1): levende gistcellen breken suiker af en maken het gas koolstofdioxide; de belletjes blijven in het deeg hangen."},
+  {"titel": "Bacteriën", "pts": "1 punt", "vraag": "Welke zin over bacteriën klopt? A. Alle bacteriën maken je ziek. · B. De meeste bacteriën zijn onschuldig of nuttig. · C. In voedsel zitten nooit levende bacteriën.", "antwoord": "B (1): maar een klein deel maakt je ziek; melkzuurbacteriën maken bijvoorbeeld yoghurt."},
+  {"titel": "In de kas", "pts": "2 punten", "vraag": "Een tuinder laat sluipwespen los in zijn kas. Leg uit hoe dat helpt en waarom dat biologische bestrijding heet.", "antwoord": "Een sluipwesp legt een eitje in een bladluis; de larve eet de luis op, zo verdwijnen de luizen (1). Het is bestrijding met een ander organisme in plaats van met gif (1)."},
+  {"titel": "Koud deeg", "pts": "2 punten", "vraag": "Je zet pizzadeeg in de koelkast in plaats van op een warme plek. Wat gebeurt er en waarom?", "antwoord": "Het deeg rijst veel langzamer (1), want gist werkt traag in de kou en maakt dan minder koolstofdioxide (1)."},
+  {"titel": "Insuline", "pts": "2 punten", "vraag": "Hoe kan een bacterie menselijke insuline maken?", "antwoord": "Onderzoekers geven de bacterie het stukje menselijke bouwtekening voor insuline (1); de bacterie maakt dan menselijke insuline, in grote tanks met miljarden tegelijk (1).", "uitdaging": true}
+ ]
+}

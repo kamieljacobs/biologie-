@@ -1,0 +1,12 @@
+# Review film en beeld — Organismen aan het werk, script v1
+
+1. **Kleuren (Part C)**: bacteriën en schimmels in **teal en grijs** (Macro-bibliotheek), ook in de Micro-zoom; suiker oker (zeshoek, zelfde vorm als film 8), zetmeel als ketting van zeshoeken (Vertering tekende zetmeel als kralenketting: zeshoeken passen beter bij BEELDAFSPRAKEN en film 8, kralen alleen als ze hetzelfde betekenen — kies zeshoeken), koolstofdioxide grijs met drie bolletjes (zelfde vorm als film 8). Melkzuur als klein koraal-randje? Nee: koraal betekent energie. Melkzuur in neutraal met naam; het zuur-worden als een pH-loos "zuur"-label en een dikker wordende melk.
+2. **Gistcel**: ovaal met lichte rand, celkern (paars, Part C-kern), vacuole (kleine heldere blaas, film 1-tekening) en een knopje (knopvorming: zo vermeerdert gist). In het deeg: belletjes CO₂ die groeien.
+3. **Cold open Macro-dag keuken**: keuken uit film 1/3 (`kitchenBase`, `bowl`); Sam (persoon) kneedt; theedoek over de kom; Meta "1 uur later"; deeg twee keer zo hoog. Geen raster/foto.
+4. **Temperatuur**: thermometer (lab-bibliotheek) met drie zones: koelkast (teal), lauw ± 30 °C (goud focus), heet (koraal); gistcel bij elke zone: traag / actief / dood (35 % dim).
+5. **Yoghurt in Schema**: vier stappen op één grondlijn: melk → schepje erbij → klok "een paar uur, warm" → yoghurt; zoomcirkel in de pot: staafjes en bolletjes (teal) die melksuiker opnemen.
+6. **Kas (Macro-dag)**: kasframe als lijnen, paprikaplanten (groen, paprika's oker-oranje gedempt), bladluizen als kleine groene druppelvormpjes, sluipwesp als smal silhouet (oker). Opa Henk als tuinder met een doosje sluipwespen. Inzet: wesp prikt een ei in een luis, luis wordt een bolletje ('mummie').
+7. **Koe (Macro-dag wei)**: koe in zijaanzicht (oker/bruin, Part C zoogdieren), gras; zoomcirkel naar de pens: grasvezels (groen streepjes) met teal bacteriën erop die ze afbreken. Kuilbalen (wit, grijze rand) in de wei.
+8. **Uitdaging (Schema)**: bacterie (teal staafje) krijgt een klein paars stukje bouwtekening (paars = DNA); daarna veel bacteriën in een tank (lab-tekening), flesje insuline (paars = hormoon). Varken als lijnicoon met kruis bij "vroeger".
+9. **Samenvatting**: vier kaarten op één grondlijn (gist · melkzuurbacteriën · sluipwesp · pens), elk met zijn product (brood · yoghurt · paprika · melk); groene annotatiehaak "biotechnologie". Max 5 elementen: de haak telt als vijfde.
+10. **Labels**: `naamBij`; nooit op de deegkom of in de ondertitelzone.
