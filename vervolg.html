@@ -548,6 +548,8 @@ function komtRij(b,nr,g){
     ${KMODUS&&b.was?`<p class="fr-ook">Was: ${esc(b.was)} · ${esc(b.advies||'')}</p>`:''}
   </div></details>`;
 }
+/* Blok 'Al op de site · uit de lesstof (PTA)' staat uit (Kamiel, 20 okt 2026: te chaotisch). Data in 'pta' blijft bewaard; zet op true om het terug te zetten. */
+const TOON_PTA=false;
 function kaart(g){
   const c=CL[g.cluster], basis=g.basis.filter(zichtbaar), klaar=basis.filter(b=>Array.isArray(b)).length;
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
@@ -555,7 +557,7 @@ function kaart(g){
     <p class="intro">${esc(g.intro)}</p>
     <div class="basis"><span class="mono"><span>Extra voor dit vak · buiten het PTA</span><span>${klaar} van ${basis.filter(b=>!b.schrappen).length} klaar</span></span>
       <div class="frs">${basis.map((b,i)=>Array.isArray(b)?filmRij(b[1],i+1,b[0]):komtRij(b,i+1,g)).join('')}</div></div>
-    ${(g.pta||[]).length?`<div class="pta"><span class="mono"><span>Al op de site · uit de lesstof (PTA)</span><span>${g.pta.length} films</span></span>
+    ${TOON_PTA&&(g.pta||[]).length?`<div class="pta"><span class="mono"><span>Al op de site · uit de lesstof (PTA)</span><span>${g.pta.length} films</span></span>
       <div class="frs">${g.pta.filter(h=>FILMS[h]).map(h=>filmRij(h,0)).join('')}</div></div>`:''}
     ${g.bouwt.length?`<footer><span class="mono">Bouwt voort op</span>${g.bouwt.map(hfst).join('')}</footer>`:''}
   </article>`;
@@ -565,7 +567,7 @@ function render(){
   const cl=CLUSTERS.filter(c=>!filter||c.id===filter);
   app.innerHTML=`<section class="kop"><div class="wrap">
       <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
-      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied zie je twee dingen: films uit de lesstof (PTA) die je al kunt kijken, en extra films voor dat vak, buiten het PTA: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
+      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied vind je extra films voor dat vak, buiten het PTA: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
     <div class="wrap">
