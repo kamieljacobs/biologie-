@@ -50,8 +50,8 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;align-items:center;gap:10px 28px;min-height:66px;flex-wrap:wrap;padding-block:8px}
 .merk{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--titel);white-space:nowrap}
-.nav{display:flex;gap:4px;flex-wrap:wrap}
-.nav a{padding:7px 12px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
+.nav{display:flex;gap:0;flex-wrap:wrap}
+.nav a{padding:7px 10px;border-radius:8px;color:var(--text2);font-weight:600;font-size:15px}
 .nav a:hover{color:var(--text)}
 .nav a[aria-current]{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud);border-radius:0}
 .rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
@@ -140,7 +140,7 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 /* Hoofdpagina: drie vlakken */
 .hero-kort{grid-template-columns:minmax(0,1fr);padding-block:44px 28px}
 .hero-kort p a{color:var(--goud-text);font-weight:700}
-body.op-home .seg{display:none}
+.seg-pagina{display:inline-flex;margin:22px 0 0}
 .vlakken{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
 .vlak{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;min-width:0}
 .vlak-basis{grid-column:1/-1}
@@ -150,14 +150,19 @@ body.op-home .seg{display:none}
 .vlak-lbl{color:var(--goud-text);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
 .vlak h2{font-size:32px;line-height:1.08;letter-spacing:-.015em;margin:10px 0 8px}
 .vlak header p{margin:0;color:var(--text2);font-size:15px}
-.vlak-groepen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.vgroep{padding:16px 0 8px;border-bottom:1px solid var(--line)}
-.vgroep{border-right:1px solid var(--line)}.vgroep:nth-child(4n){border-right:0}
-.vgroep-kop{padding:0 22px 6px;display:flex;flex-direction:column;gap:2px}
-.vgroep-kop h3{font-size:20px}
-.vgroep-kop .mono{color:var(--text3);font-size:11px}
 .vlak ul{list-style:none;margin:0;padding:4px 0 8px}
-.vgroep li a{display:grid;grid-template-columns:40px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:9px 22px}.vgroep li a .tk{grid-row:1/3}.vgroep li a .mat{grid-column:2;margin-top:1px}
+.vgroep{display:grid;grid-template-columns:210px minmax(0,1fr);align-items:stretch;border-bottom:1px solid var(--line)}
+.vgroep-kop{padding:22px 24px;display:flex;flex-direction:column;justify-content:center;gap:4px;border-right:1px solid var(--line)}
+.vgroep-kop h3{font-size:21px;line-height:1.15}
+.vgroep-kop .mono{color:var(--text3);font-size:11px;line-height:1.5}
+.vlak .vgroep ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:0}
+.vgroep li{border-top:0!important}
+.vgroep li a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:16px 8px 14px;height:100%}
+.vgroep li .tk{width:56px;height:56px;margin-bottom:2px}
+.vgroep li .tk svg{width:40px;height:40px}
+.vgroep li b{font-size:16px;line-height:1.2}
+.vgroep li .mat{font-size:12px}
+.vgroep li a:hover .tk{border-color:var(--goud)}
 .tk{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
 .tk svg{width:28px;height:28px}
 .vlak li b{font:700 18px/1.25 var(--titel)}
@@ -170,16 +175,29 @@ body.op-home .seg{display:none}
 .vlak-extra b{font:700 18px/1.25 var(--titel)}
 .vlak-extra:hover{background:var(--goud-soft)}
 .vlak-onder li a,.vlak-onder li.leeg{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;padding:9px 24px}
-.vlak-onder li .lbl{grid-column:1/-1;color:var(--text3);font-size:11px}
+.vlak-onder li a{grid-template-columns:40px minmax(0,1fr) auto!important;column-gap:14px!important;align-items:center}.vlak-onder li .tk{grid-row:1/3}.vlak-onder li b{grid-column:2}.vlak-onder li .sub{grid-column:2;grid-row:2;color:var(--text3);font-size:14px}.vlak-onder li .mat{grid-column:3;grid-row:1/3;align-self:center}
 .vlak-onder li.leeg{opacity:.5}
 .vlak li + li{border-top:1px solid var(--line)}
-.vlak-later li a{display:flex;align-items:center;gap:12px;padding:11px 24px}
+.vlak-later li a{display:flex;align-items:center;gap:14px;padding:9px 24px}
 .vlak-later li a svg{margin-left:auto;color:var(--text3)}
 .stip{width:10px;height:10px;border-radius:99px;flex:none}
 .vlak-naar{display:flex;align-items:center;gap:8px;padding:14px 24px;border-top:1px solid var(--line);color:var(--goud-text);font-weight:700;margin-top:auto}
 .vlak-naar:hover{background:var(--goud-soft)}
-@media (max-width:1040px){.vlak-groepen{grid-template-columns:repeat(2,minmax(0,1fr))}.vgroep:nth-child(2n){border-right:0}}
-@media (max-width:700px){.vlakken{grid-template-columns:1fr}.vlak-groepen{grid-template-columns:1fr}.vgroep{border-right:0}.vgroep li a{padding-inline:16px}.vlak>header{padding:20px 16px 14px}}
+@media (max-width:1040px){.vgroep{grid-template-columns:1fr}.vgroep-kop{border-right:0;padding:18px 22px 4px}.vlak .vgroep ul{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
+@media (max-width:700px){.vlakken{grid-template-columns:1fr}.vgroep-kop{padding-inline:16px}.vlak .vgroep ul{grid-template-columns:repeat(2,minmax(0,1fr))}.vlak>header{padding:20px 16px 14px}}
+
+.kdgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.kd{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:28px 18px 22px;border:1px solid var(--line2);border-radius:18px;background:var(--surface);transition:border-color .2s,transform .2s}
+a.kd:hover{border-color:var(--goud);transform:translateY(-2px)}
+.kd-kunst{width:96px;height:96px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.kd-kunst svg{width:70px;height:70px}
+.kd-code{color:var(--goud-text);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.kd b{font:700 21px/1.2 var(--titel)}
+.kd-sub{color:var(--text2);font-size:14px}
+.kd-mat{color:var(--text3);font-size:12px;margin-top:auto;padding-top:6px}
+.kd.leeg{opacity:.5;border-style:dashed}
+@media (max-width:1040px){.kdgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:600px){.kdgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
@@ -351,6 +369,25 @@ svg.kunst.leeft-draai{animation:bk-draai 3s ease-in-out}
 @keyframes bk-adem{0%,100%{transform:scale(1,1)}50%{transform:scale(1.04,.97)}}
 @keyframes bk-draai{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
+
+/* Hoofdmenu: één regel, Agora als uitklapmenu */
+@media (min-width:1101px){.bar .wrap{flex-wrap:nowrap}.bar .nav{flex:1;justify-content:center;flex-wrap:nowrap}}
+.nav a,.menu summary{white-space:nowrap}
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer;padding:7px 10px;color:var(--text2);font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.menu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.menu summary:hover,.menu[open] summary{color:var(--text)}
+.menu[data-actief] summary{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud)}
+.menu-lijst{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:280px;padding:8px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);box-shadow:0 14px 40px rgba(0,0,0,.14);z-index:30;display:flex;flex-direction:column}
+.menu-lijst a{display:flex;flex-direction:column;gap:2px;padding:10px 12px!important;border-radius:10px!important;box-shadow:none!important}
+.menu-lijst a b{font:700 16px/1.2 var(--titel);color:var(--text)}
+.menu-lijst a span{font-size:13px;color:var(--text3);font-weight:400}
+.menu-lijst a:hover,.menu-lijst a[aria-current]{background:var(--goud-soft)}
+.menu-lijst a:hover b{color:var(--goud-text)}
+.nav-sessie{color:var(--text3)!important}
+@media (max-width:600px){.menu-lijst{position:fixed;left:16px;right:16px;top:auto;margin-top:8px;transform:none;min-width:0}}
 </style>
 </head>
 <body>
@@ -363,21 +400,22 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
     </a>
     <nav class="nav" aria-label="Hoofdmenu">
       <a href="#home" data-nav="home">Thema's</a>
-      <a href="#pta" data-nav="pta">PTA Agora</a>
       <a href="#films" data-nav="films">Films</a>
       <a href="#tools" data-nav="tools">Tools</a>
+      <details class="menu">
+        <summary>Agora</summary>
+        <div class="menu-lijst">
+          <a href="#pta" data-nav="pta"><b>PTA Agora</b><span>havo en vwo per PTA-onderdeel</span></a>
+          <a href="#onderbouw" data-nav="onderbouw"><b>Agora onderbouw</b><span>de kerndoelen mens en natuur</span></a>
+          <a href="pta-route.html"><b>PTA-route</b><span>wat je wanneer doet</span></a>
+          <a href="examenatlas.html"><b>Examenatlas</b><span>wat komt terug op het examen</span></a>
+        </div>
+      </details>
       <a href="challenges.html">Challenges</a>
       <a href="vervolg.html">Wat word jij?</a>
-      <a href="pta-route.html">PTA-route</a>
-      <a href="examenatlas.html">Examenatlas</a>
-      <a href="sessie/">Werksessie</a>
+      <a href="sessie/" class="nav-sessie">Werksessie</a>
     </nav>
     <div class="rechts">
-      <div class="seg" role="group" aria-label="Kies je niveau">
-        <button type="button" data-niveau="havo">havo</button>
-        <button type="button" data-niveau="vwo">vwo</button>
-        <button type="button" data-niveau="onderbouw">onderbouw</button>
-      </div>
       <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
     </div>
   </div>
@@ -1673,6 +1711,7 @@ const HOOFDSTUKKEN = {
   ]
  }
 };
+const NIVEAUS_STAND=()=>window.__niveau||'havo';
 const NIVEAUS = {
  "havo": {
   "intro": "Kies het PTA-onderdeel waar je aan werkt en daarin je thema. Je vindt er de films op volgorde, de tools om het zelf te proberen en een oefentoets.",
@@ -2357,7 +2396,7 @@ const lees=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
 const schrijf=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 const KMODUS=(()=>{const q=new URLSearchParams(location.search).get('k');if(q==='1'){schrijf('k','1');}if(q==='0'){try{localStorage.removeItem('k')}catch(e){}return false;}return lees('k')==='1';})();
 const rv=href=>KMODUS?`<i class="rv rv-${REVIEW[href]||'open'}" title="${{ok:'klaar',feedback:'feedback'}[REVIEW[href]]||'nog bekijken'}"></i>`:'';
-let niveau=lees('niveau'); if(!NIVEAUS[niveau]) niveau='havo';
+let niveau=lees('niveau'); if(!NIVEAUS[niveau]||niveau==='onderbouw') niveau='havo';
 let gezien={}; try{gezien=JSON.parse(lees('gezien')||'{}')||{}}catch(e){gezien={}}
 const alleFilms=[...new Map(Object.values(HOOFDSTUKKEN).flatMap(h=>h.films).map(f=>[f.href,f])).values()];
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
@@ -2373,7 +2412,8 @@ function themaKnop(){
   b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
 }
 document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
-document.querySelectorAll('[data-niveau]').forEach(b=>b.addEventListener('click',()=>{niveau=b.dataset.niveau;schrijf('niveau',niveau);render()}));
+window.__niveau=niveau;
+document.addEventListener('click',e=>{const b=e.target.closest('[data-niveau]');if(!b)return;niveau=window.__niveau=b.dataset.niveau;schrijf('niveau',niveau);render()});
 
 function telling(id,kd){
   const h=HOOFDSTUKKEN[id]; if(!h) return '';
@@ -2384,14 +2424,15 @@ function telling(id,kd){
   return d.join(' · ');
 }
 
-function pta(){
-  const N=NIVEAUS[niveau];
+function pta(nv){
+  const niveau=nv||NIVEAUS_STAND(), N=NIVEAUS[niveau], ob=niveau==='onderbouw';
   let out=`<section class="wrap hero">
     <div>
-      <span class="mono">PTA Agora · ${esc(niveau)}</span>
-      <h1>Werk aan je PTA</h1>
-      <p>De thema's geordend per PTA-onderdeel, met de weging. Kies bovenin havo, vwo of onderbouw.</p>
-      <div class="knoppen"><a class="knop" href="#pta-hoofdstukken">Kies je onderdeel</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+      <span class="mono">${ob?'Agora onderbouw · mens en natuur':'PTA Agora · '+esc(niveau)}</span>
+      <h1>${ob?'Werk aan de kerndoelen':'Werk aan je PTA'}</h1>
+      <p>${ob?'De onderbouwstof geordend per kerndoel. Bij elk kerndoel vind je korte video\'s, onderzoekjes en opdrachten.':'De thema\'s geordend per PTA-onderdeel, met de weging.'}</p>
+      ${ob?'':`<div class="seg seg-pagina" role="group" aria-label="Kies je niveau"><button type="button" data-niveau="havo" aria-pressed="${niveau==='havo'}">havo</button><button type="button" data-niveau="vwo" aria-pressed="${niveau==='vwo'}">vwo</button></div>`}
+      <div class="knoppen"><a class="knop" href="#${ob?'onderbouw':'pta'}-hoofdstukken">${ob?'Kies je kerndoel':'Kies je onderdeel'}</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
     </div>
     <div class="plaat" aria-hidden="true">
       <figure>${kunst('cellen')}<figcaption>Fig. 1 · cel</figcaption></figure>
@@ -2400,7 +2441,7 @@ function pta(){
       <figure>${kunst('evolutie')}<figcaption>Fig. 4 · stamboom</figcaption></figure>
     </div>
   </section>
-  <section class="wrap blok" id="pta-hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
+  <section class="wrap blok" id="${ob?'onderbouw':'pta'}-hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
     <div class="ondgrid">`;
   for(const o of N.ond){
     const jaar=niveau==='vwo'&&/^OND[12]$/.test(o.code)?'jaar 1':niveau==='vwo'&&/^OND[34]$/.test(o.code)?'jaar 2':'';
@@ -2422,7 +2463,7 @@ function pta(){
     out+=`</ul></article>`;
   }
   out+=`</div>
-    <div class="binnenkort"><span class="mono bk-lbl" style="color:var(--text3)">Examentraining</span><a class="link-atlas" href="examenatlas.html">Examenatlas: wat komt terug?</a><a class="link-atlas" href="examenatlas.html#begrippen">Begrippen trainen</a>${niveau==='havo'?'<a class="link-atlas" href="examenatlas.html#binas">Binas oefenen</a>':''}</div>
+    ${ob?'':`<div class="binnenkort"><span class="mono bk-lbl" style="color:var(--text3)">Examentraining</span><a class="link-atlas" href="examenatlas.html">Examenatlas: wat komt terug?</a><a class="link-atlas" href="examenatlas.html#begrippen">Begrippen trainen</a>${niveau==='havo'?'<a class="link-atlas" href="examenatlas.html#binas">Binas oefenen</a>':''}</div>`}
   </section>`;
   return out;
 }
@@ -2434,12 +2475,24 @@ const BASIS=[
   ['Doorgeven','van ouder op kind, van soort op soort',['voortplanting','erfelijkheid','evolutie']],
   ['Samenleven','gedrag, planten en ecosystemen',['gedrag','planten','ecologie']],
 ];
+const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 10 0 24 12 24 2 12 18 18 28 10z" stroke-width="1.7"/>
+ <path d="M60 22c10-8 28-4 30 10 12 2 18 16 10 26 6 10 0 24-12 24-2 12-18 18-28 10z" stroke-width="1.7"/>
+ <path d="M60 22v70" stroke-width="1.1" opacity=".6"/><path d="M36 48c6 0 10 4 12 10M84 48c-6 0-10 4-12 10M40 72c6-2 10-6 10-12" stroke-width="1.2" opacity=".8"/>
+ <circle cx="72" cy="58" r="3" class="acc" fill="currentColor" stroke="none"/><path d="M72 58l12 14" class="acc" stroke="currentColor" stroke-width="1.3" stroke-dasharray="2 4"/>`,zorg:`<path d="M60 96C30 76 16 58 18 42c2-14 18-22 30-14 6 4 10 10 12 14 2-4 6-10 12-14 12-8 28 0 30 14 2 16-12 34-42 54z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M54 46h12v10h10v12H66v10H54V68H44V56h10z" class="acc" stroke="currentColor" stroke-width="1.6"/>`,lab:`<path d="M48 14h24M52 14v32L26 96c-2 6 2 12 8 12h52c6 0 10-6 8-12L68 46V14" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M34 80c10-4 18 4 26 0s16-4 26 0" class="acc" stroke="currentColor" stroke-width="1.5"/>
+ <circle cx="50" cy="92" r="3" stroke-width="1.2"/><circle cx="64" cy="96" r="2" stroke-width="1.1"/><circle cx="72" cy="88" r="2.6" stroke-width="1.1"/>`,voeding:`<path d="M62 34c-4-12 4-20 12-22M60 36c-18-10-38 2-38 24 0 22 16 42 30 38 4-1 6-2 8-2s4 1 8 2c14 4 30-16 30-38 0-22-20-34-38-24z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M72 22c8-6 16-4 18 2-8 4-14 4-18-2z" class="acc" stroke="currentColor" stroke-width="1.4"/>`,groen:`<path d="M24 100C24 56 52 26 100 20c-4 46-32 76-76 80z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M24 100L80 40" stroke-width="1.5"/><path d="M44 78l-4-16M56 64l-2-18M44 78l16 0M56 64l18 2M68 52l16 0" stroke-width="1.1" opacity=".75"/>
+ <circle cx="96" cy="96" r="5" class="acc" fill="currentColor" stroke="none"/>`,onderwijs:`<path d="M60 34C48 26 30 24 16 26v64c14-2 32 0 44 8 12-8 30-10 44-8V26c-14-2-32 0-44 8z" stroke-width="1.7" stroke-linejoin="round"/>
+ <path d="M60 34v64" stroke-width="1.4"/><path d="M26 40c8-1 18 0 26 4M26 52c8-1 18 0 26 4M68 44c8-4 18-5 26-4M68 56c8-4 18-5 26-4" stroke-width="1" opacity=".6"/>
+ <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`};
 const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<li><a href="#${id}"><span class="tk">${kunst(id)}</span><b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
-  const ob=NIVEAUS.onderbouw.ond[0].subs;
+  const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
   let out=`<section class="wrap hero hero-kort">
     <div>
       <span class="mono">Biologie bij Kamiel</span>
@@ -2455,17 +2508,32 @@ function home(){
       ${HOOFDSTUKKEN.extra?`<a class="vlak-extra" href="#extra"><span class="tk">${kunst('extra')}</span><span><b>Nieuwsgierig?</b><span>Verder kijken dan de lesstof: verdieping en biologie van nu</span></span><span class="mat">${esc(telling('extra'))}</span></a>`:''}
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
-      <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten bij de kerndoelen.</p></header>
-      <ul>${ob.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';return href?`<li><a href="#kerndoelen"><span class="lbl mono">${esc(lbl)}</span><b>${esc(naam)}</b><span class="mat">${esc(t||'volgt')}</span></a></li>`:`<li class="leeg"><span class="lbl mono">${esc(lbl)}</span><b>${esc(naam)}</b><span class="mat">volgt</span></li>`}).join('')}</ul>
-      <a class="vlak-naar" href="#kerndoelen">Naar de onderbouw ${pijl}</a>
+      <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
+      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen"><span class="tk">${kunst(ic)}</span><b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
+      <a class="vlak-naar" href="#onderbouw">Naar Agora onderbouw ${pijl}</a>
     </article>
     <article class="vlak vlak-later" id="vlak-later">
       <header><span class="mono vlak-lbl">Wat word jij? · studie en beroep</span><h2>Een kijkje vooruit</h2><p>Welke opleidingen en beroepen draaien om biologie, en wat doe je daar echt?</p></header>
-      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}"><span class="stip" style="background:var(--${k})"></span><b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
+      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}"><span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span><b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
       <a class="vlak-naar" href="vervolg.html">Alle richtingen ${pijl}</a>
     </article>
   </section>`;
   return out;
+}
+
+/* Agora onderbouw: kerndoelen als kaarten */
+const OBKUNST={'32A':'cellen','32B':'evolutie','32C':'afweer','32D':'voortplanting','33C':'ecologie'};
+function onderbouwPagina(){
+  const subs=NIVEAUS.onderbouw.ond[0].subs;
+  return `<section class="wrap hero hero-kort"><div>
+      <span class="mono">Agora onderbouw · mens en natuur</span>
+      <h1>Werk aan de kerndoelen</h1>
+      <p>De onderbouwstof per kerndoel. Bij elk kerndoel vind je korte video's, onderzoekjes en opdrachten.</p>
+    </div></section>
+  <section class="wrap blok"><div class="kdgrid">${subs.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';
+    const binnen=`<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
+    return href?`<a class="kd" href="#kerndoelen">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
+    <div class="binnenkort"><a class="link-atlas" href="#kerndoelen">Alle onderbouwfilms en tools →</a></div></section>`;
 }
 
 function hoofdstuk(id){
@@ -2546,14 +2614,16 @@ function render(){
   document.querySelectorAll('[data-niveau]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.niveau===niveau)));
   const h=(location.hash||'#home').slice(1), id=h.split('-')[0];
   let pagina='home';
-  if(id==='pta'){app.innerHTML=pta();pagina='pta'}
+  if(id==='pta'){app.innerHTML=pta(niveau);pagina='pta'}
+  else if(id==='onderbouw'){app.innerHTML=onderbouwPagina();pagina='onderbouw'}
   else if(h==='films'){app.innerHTML=films();pagina='films'}
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
   else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id);pagina=id}
   else app.innerHTML=home();
-  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(pagina==='films'||pagina==='tools'||pagina==='pta'?pagina:'home')));
-  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
-  document.body.classList.toggle('op-home',pagina==='home');
+  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(['films','tools','pta','onderbouw'].includes(pagina)?pagina:'home')));
+  document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
+  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
+  document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
@@ -2578,5 +2648,9 @@ themaKnop(); render();
   setInterval(stap,3200); })();
 </script>
 <script src="js/live.js" data-root="./" defer></script>
+<script>/* Agora-menu sluiten bij klik buiten of na kiezen */
+document.addEventListener('click',e=>{document.querySelectorAll('details.menu[open]').forEach(d=>{if(!d.contains(e.target)||e.target.closest('.menu-lijst a'))d.removeAttribute('open')})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('details.menu[open]').forEach(d=>d.removeAttribute('open'))});
+</script>
 </body>
 </html>

@@ -250,6 +250,25 @@ a.fr:hover .fb{border-color:var(--goud)}
 .fr-ook a{text-decoration:underline;text-underline-offset:2px}
 .fr-weg>summary .fm{border-color:var(--koraal);color:var(--koraal)}
 @media (max-width:600px){.fr-op{margin-left:0}}
+
+/* Hoofdmenu: één regel, Agora als uitklapmenu */
+@media (min-width:1101px){.bar .wrap{flex-wrap:nowrap}.bar .nav{flex:1;justify-content:center;flex-wrap:nowrap}}
+.nav a,.menu summary{white-space:nowrap}
+.menu{position:relative}
+.menu summary{list-style:none;cursor:pointer;padding:7px 10px;color:var(--text2);font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.menu[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.menu summary:hover,.menu[open] summary{color:var(--text)}
+.menu[data-actief] summary{color:var(--text);box-shadow:inset 0 -2px 0 var(--goud)}
+.menu-lijst{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:280px;padding:8px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);box-shadow:0 14px 40px rgba(0,0,0,.14);z-index:30;display:flex;flex-direction:column}
+.menu-lijst a{display:flex;flex-direction:column;gap:2px;padding:10px 12px!important;border-radius:10px!important;box-shadow:none!important}
+.menu-lijst a b{font:700 16px/1.2 var(--titel);color:var(--text)}
+.menu-lijst a span{font-size:13px;color:var(--text3);font-weight:400}
+.menu-lijst a:hover,.menu-lijst a[aria-current]{background:var(--goud-soft)}
+.menu-lijst a:hover b{color:var(--goud-text)}
+.nav-sessie{color:var(--text3)!important}
+@media (max-width:600px){.menu-lijst{position:fixed;left:16px;right:16px;top:auto;margin-top:8px;transform:none;min-width:0}}
 </style>
 </head>
 <body>
@@ -261,13 +280,21 @@ a.fr:hover .fb{border-color:var(--goud)}
       Biologie bij Kamiel
     </a>
     <nav class="nav" aria-label="Hoofdmenu">
-      <a href="index.html#home">Hoofdstukken</a>
+      <a href="index.html#home">Thema's</a>
       <a href="index.html#films">Films</a>
       <a href="index.html#tools">Tools</a>
+      <details class="menu">
+        <summary>Agora</summary>
+        <div class="menu-lijst">
+          <a href="index.html#pta"><b>PTA Agora</b><span>havo en vwo per PTA-onderdeel</span></a>
+          <a href="index.html#onderbouw"><b>Agora onderbouw</b><span>de kerndoelen mens en natuur</span></a>
+          <a href="pta-route.html"><b>PTA-route</b><span>wat je wanneer doet</span></a>
+          <a href="examenatlas.html"><b>Examenatlas</b><span>wat komt terug op het examen</span></a>
+        </div>
+      </details>
       <a href="challenges.html">Challenges</a>
       <a href="vervolg.html" aria-current="page">Wat word jij?</a>
-      <a href="pta-route.html">PTA-route</a>
-      <a href="examenatlas.html">Examenatlas</a>
+      <a href="sessie/" class="nav-sessie">Werksessie</a>
     </nav>
     <div class="rechts">
       <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
@@ -658,7 +685,7 @@ function kaart(g){
 function render(){
   const cl=CLUSTERS.filter(c=>!filter||c.id===filter);
   app.innerHTML=`<section class="kop"><div class="wrap">
-      <div><a class="terug" href="index.html#home">← Alle hoofdstukken</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
+      <div><a class="terug" href="index.html#home">← Alle thema's</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
       <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied vind je extra films voor dat vak, buiten het PTA: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
@@ -704,6 +731,10 @@ const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[d
     let s=SOORT[Math.floor(Math.random()*SOORT.length)]; if(s==='draai'&&(el.classList.contains('plaatje')||Math.random()<.5)) s='drijf';
     el.classList.add('leeft-'+s); el.addEventListener('animationend',()=>el.classList.remove('leeft-'+s),{once:true}); }
   setInterval(stap,3200); })();
+</script>
+<script>/* Agora-menu sluiten bij klik buiten of na kiezen */
+document.addEventListener('click',e=>{document.querySelectorAll('details.menu[open]').forEach(d=>{if(!d.contains(e.target)||e.target.closest('.menu-lijst a'))d.removeAttribute('open')})});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('details.menu[open]').forEach(d=>d.removeAttribute('open'))});
 </script>
 </body>
 </html>
