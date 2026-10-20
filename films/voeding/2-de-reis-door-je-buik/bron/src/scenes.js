@@ -58,6 +58,30 @@ function dikkeDarmBuis(ctx, x0, x1, yc, r, t, v, o = {}) {
 }
 
 const DD_PTS = [[260, 250], [520, 235], [760, 260], [830, 320], [760, 375], [520, 360], [330, 385], [270, 445], [340, 500], [560, 490], [790, 515], [850, 580], [780, 635], [540, 625], [320, 650], [260, 710], [330, 765], [600, 770], [800, 760]];
+// --- s20: afvoerbuizen naar de twaalfvingerige darm (20 okt 2026) ---
+// papil = gezamenlijke uitmonding (papil van Vater) in de bovenwand van de darm; galgang en afvoerbuis alvleesklier komen vlak ervoor samen
+const DUO = (() => { const papil = [990, 516], J = [990, 470];
+  const alvK = [[1520, 312], [1400, 318], [1280, 330], [1160, 350], [1100, 372]]; // afvoerbuis in de klier (staart -> kop)
+  const alvB = [[1100, 372], [1050, 405], [1010, 440], J, papil];                  // van de kop naar de darm
+  const galB = [[650, 292], [730, 330], [800, 360], [880, 400], [950, 440], J, papil]; // lever -> darm (levergang + galgang)
+  const blaas = [700, 430], blaasB = [[742, 404], [775, 380], [800, 360]];            // galblaasbuisje naar de galgang
+  return { papil, J, alvK, alvB, galB, blaas, blaasB,
+    alvAll: alvK.concat(alvB.slice(1)),
+    levNaarBlaas: [[650, 292], [730, 330], [800, 360], [775, 380], [742, 404], [716, 420]],
+    blaasNaarDarm: [[716, 420], [742, 404], [775, 380], [800, 360], [880, 400], [950, 440], J, papil] }; })();
+// deeltjes sap: elke dt s vertrekt er één bij het begin van pad; snelheid v px/s; naarDarm = daarna de darm in (verspreiden, naar rechts)
+function sapStroom(ctx, t, t0, t1, pad, kleur, v, a = 1, naarDarm = 1) { if (a <= 0.01 || !isFinite(t0) || t < t0) return;
+  const D = gladC(pad); let L = 0; for (let i = 1; i < D.length; i++) L += Math.hypot(D[i][0] - D[i - 1][0], D[i][1] - D[i - 1][1]);
+  const dt = 0.16, Tb = L / v, Td = naarDarm ? 2.6 : 0.3, kMax = Math.floor((Math.min(t, t1) - t0) / dt), kMin = Math.max(0, Math.floor((t - t0 - Tb - Td) / dt));
+  ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = kleur;
+  for (let k = kMin; k <= kMax; k++) { const age = t - (t0 + k * dt); if (age < 0) continue; let x, y, al = 1;
+    if (age <= Tb) { [x, y] = padPunt(D, age / Tb, false); }
+    else { const w = age - Tb; if (w > Td) continue; if (!naarDarm) { al = 1 - w / Td; [x, y] = D[D.length - 1]; }
+      else { const ang = (hash(k * 1.7) - 0.25) * 2.2, sp = 70 + hash(k * 3.1) * 90; x = D[D.length - 1][0] + Math.cos(ang) * sp * w * 0.6 + 70 * w; y = D[D.length - 1][1] + 12 + Math.abs(Math.sin(ang)) * sp * w * 0.35 + 8 * Math.sin(w * 3 + k); y = Math.min(y, 660); al = 1 - w / Td; } }
+    ctx.globalAlpha = a * al; ctx.beginPath(); ctx.arc(x, y, 5.5, 0, 6.283); ctx.fill(); }
+  ctx.restore(); }
+// positie op de routekaart, gekoppeld aan woordtijden: keys = [[tijd, halte], ...] (vloeiend tussen de sleutels; 20 okt 2026)
+function sleutels(t, keys) { if (t <= keys[0][0]) return keys[0][1]; for (let i = 1; i < keys.length; i++) { const [t1, p1] = keys[i], [t0, p0] = keys[i - 1]; if (t < t1) return lerp(p0, p1, ease((t - t0) / Math.max(0.01, t1 - t0))); } return keys[keys.length - 1][1]; }
 const SCENES = {
   title(ctx, t) { // rechts: kaartlijn verticaal met broodje
     ctx.save(); ctx.strokeStyle = C.line; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(1640, 300); ctx.bezierCurveTo(1640, 480, 1800, 480, 1800, 600); ctx.bezierCurveTo(1800, 740, 1580, 720, 1580, 840); ctx.stroke(); ctx.restore();
@@ -130,7 +154,7 @@ const SCENES = {
     label(ctx, 'slokdarm', null, x + 50, 300, x + 240, 260, ramp(t, 0.6, 0.6));
     hoekKlok(ctx, (t - q.at('seconden')) * 0.08, 'seconden', q.on('seconden'));
     // mens ondersteboven
-    const h = q.on('hoofd'); if (h > 0.01) { ctx.save(); ctx.globalAlpha *= h; ctx.translate(1300, 470); ctx.rotate(Math.PI); human(ctx, 0, -170, 300); ctx.restore(); plateLine(ctx, 1150, 1450, 812, h); vraagteken(ctx, 1520, 400, h); }
+    const h = q.on('hoofd'); if (h > 0.01) { ctx.save(); ctx.globalAlpha *= h; ctx.translate(1300, 806); ctx.rotate(Math.PI); persoon(ctx, 'sam', 0, 316, 300, { outfit: 'sport', uit: 'lacht', pose: 'schouders', t }); ctx.restore(); plateLine(ctx, 1150, 1450, 812, h); vraagteken(ctx, 1520, 400, h); }
   },
   s09(ctx, t, q) { bg(ctx, 'schema'); miniKaart(ctx, 1, 1.4);
     const x0 = 200, x1 = 1720, yc = 470; const cyc = ((t - q.at('Zo')) * 0.18) % 1; const moving = q.on('Zo', 1, 0.4);
@@ -150,7 +174,7 @@ const SCENES = {
     label(ctx, 'maag', 'ruim 1 liter', 640, 520, 700, 800, q.on('liter') || ramp(t, 0.5, 0.6));
     tag(ctx, 'kneden = mechanische vertering', 1300, 420, C.groen, q.on('mechanische') * (1 - q.on('maagsap')));
     tag(ctx, 'maagsap met zoutzuur', 1300, 420, C.koraal, q.on('maagsap'));
-    phSchaal(ctx, 1000, 600, 620, [{ v: 2, label: 'maag ≈ 2', col: C.koraal, a: q.on('ongeveer') }], q.on('zuur,') || q.on('zuur'));
+    phSchaal(ctx, 1000, 600, 620, [{ v: 2, label: 'maag ≈ 2', col: C.koraal, a: q.on('ongeveer') }], q.on('zuur', 2));
     const am = q.on('amylase'); if (am > 0.01) { ctx.save(); ctx.globalAlpha *= am; schaar(ctx, 1100, 800, 1.4, 0.2, C.line); strike(ctx, 1060, 800, 1150, C.koraal, q.on('stopt')); text(ctx, 'amylase stopt', 1180, 812, fTekst(36, 600), C.text, 'left'); ctx.restore(); }
     refCard(ctx, 'waarom → film 3', 1440, 150, q.on('Waarom'));
   },
@@ -233,28 +257,37 @@ const SCENES = {
     ctx.save(); ctx.globalAlpha *= q.on('Niet'); text(ctx, 'maag', 1390, 560, fTekst(48, 600), C.text2, 'center'); ctx.restore(); strike(ctx, 1310, 548, 1470, C.koraal, q.on('Niet', 1, 0.8));
   },
   s20(ctx, t, q) { bg(ctx, 'schema'); miniKaart(ctx, 3, 3);
-    // twaalfvingerige darm horizontaal met twee afvoerbuizen van boven
+    // twaalfvingerige darm horizontaal; galgang en afvoerbuis van de alvleesklier komen samen en monden samen uit in de darm (20 okt 2026)
     const yc = 600; darmBuis(ctx, 160, 1760, yc, 90, () => 0, 1);
     label(ctx, 'twaalfvingerige darm', null, 300, yc - 100, 300, 760, ramp(t, 0.3, 0.6), C.text);
-    const alv = q.on('alvleesklier'), gal = q.on('gal.') || q.on('gal'), gb = q.on('galblaas'), dw = q.on('darmsap');
-    // alvleesklier rechts boven
-    if (alv > 0.01) { ctx.save(); ctx.globalAlpha *= alv; blob(ctx, 1280, 280, 170, 50, 0.05, 8); shape(ctx, rgba(C.koraal, 0.3), C.koraal, 2); text(ctx, 'alvleesklier', 1470, 292, fTekst(36, 600), C.text, 'left');
-      ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(1180, 320); ctx.lineTo(1080, 500); ctx.stroke();
-      const e = q.on('koolhydraten'), ew = q.on('eiwitten'), v = q.on('vetten');
-      for (let i = 0; i < 6; i++) { const u = (t * 0.3 + i / 6) % 1; const x = lerp(1180, 1080, u), y = lerp(320, 500, u); ctx.fillStyle = C.koraal; ctx.beginPath(); ctx.arc(x, y, 5, 0, 6.283); ctx.fill(); }
+    const buis = q.on('afvoerbuizen', 1, 1.2), alv = q.on('alvleesklier'), sapA = q.on('alvleessap', 1, 0.8), lev = q.on('lever'), gal = q.on('gal.'), gb = q.on('galblaas'), kn = q.on('geknepen', 1, 0.6), dw = q.on('darmsap');
+    const P = DUO.papil;
+    // buizen (worden getekend vanaf de darm omhoog, op 'afvoerbuizen')
+    if (buis > 0.01) { const u = ease(buis); buisPad(ctx, padDeel(DUO.alvB.slice().reverse(), u), 20, 1, C.koraal, C.fill); buisPad(ctx, padDeel(DUO.galB.slice().reverse(), u), 20, 1, V.neutraal, C.fill); buisPad(ctx, padDeel(DUO.blaasB.slice().reverse(), clamp(u * 2 - 1, 0, 1)), 18, 1, V.neutraal, C.fill);
+      ctx.save(); ctx.globalAlpha *= buis; ctx.beginPath(); ctx.ellipse(P[0], P[1] + 4, 22, 10, 0, 0, 6.283); shape(ctx, rgba(C.goud, 0.25 * (1 - alv)), rgba(C.goud, 0.9 * (1 - alv * 0.6)), 2); ctx.restore();
+      naamBij(ctx, 'galgang', null, 860, 470, buis * (1 - dw * 0.6), 'right', V.neutraal); naamBij(ctx, 'afvoerbuis alvleesklier', null, 1060, 470, buis * (1 - dw * 0.6), 'left', C.koraal); }
+    // alvleesklier rechtsboven, met de afvoerbuis door de klier heen
+    if (alv > 0.01) { ctx.save(); ctx.globalAlpha *= alv; ctx.save(); ctx.translate(1310, 320); ctx.rotate(-0.08); blob(ctx, 0, 0, 230, 52, 0.05, 8); ctx.restore(); shape(ctx, rgba(C.koraal, 0.28), C.koraal, 2);
+      ctx.strokeStyle = rgba(C.koraal, 0.9); ctx.lineWidth = 7; ctx.beginPath(); gladC(DUO.alvK).forEach((p, k) => k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+      text(ctx, 'alvleesklier', 1310, 238, fTekst(36, 600), C.text, 'center'); ctx.restore(); }
+    // lever + galblaas linksboven
+    if (lev > 0.01) { ctx.save(); ctx.globalAlpha *= lev; blob(ctx, 560, 230, 200, 70, 0.04, 3); shape(ctx, rgba('#8C5A3A', 0.45), '#B07A5A', 2); text(ctx, 'lever', 560, 145, fTekst(36, 600), C.text, 'center'); ctx.restore(); }
+    { const ga = Math.max(gal * 0.5, gb); if (ga > 0.01) { const vol = 1 + 0.12 * ramp(t, q.at('galblaas'), 2.2) - 0.32 * kn; ctx.save(); ctx.globalAlpha *= ga; ctx.translate(DUO.blaas[0], DUO.blaas[1]); ctx.rotate(-0.55); ctx.beginPath(); ctx.ellipse(0, 0, 50 * vol, 30 * vol, 0, 0, 6.283); shape(ctx, rgba(V.neutraal, 0.22 + 0.25 * gb * (1 - kn * 0.6)), V.neutraal, 2); ctx.restore();
+      naamBij(ctx, 'galblaas', null, DUO.blaas[0] - 66, DUO.blaas[1] + 12, gb, 'right'); } }
+    // sap stroomt door de buizen en de darm in
+    const t0A = q.at('alvleessap'), t0G = q.at('gal.'), tGB = q.at('galblaas'), tKn = q.at('geknepen');
+    sapStroom(ctx, t, t0A, Infinity, DUO.alvAll, C.koraal, 160, sapA, 1);
+    sapStroom(ctx, t, t0G, Infinity, DUO.levNaarBlaas, V.neutraal, 120, gal, 0); // lever -> galblaas (bewaren)
+    sapStroom(ctx, t, tKn, Infinity, DUO.blaasNaarDarm, V.neutraal, 190, kn, 1); // galblaas knijpt -> darm
+    // enzymen in het alvleessap
+    if (alv > 0.01) { ctx.save(); ctx.globalAlpha *= alv; const e = q.on('koolhydraten'), ew = q.on('eiwitten'), v = q.on('vetten');
       schaar(ctx, 1080, 790, 1.4, 0.5 + 0.4 * Math.sin(t * 5), C.text, e); hexagon(ctx, 1150, 790, 20, rgba(V.kh, 0.6), V.kh, 1.3, 0); ctx.globalAlpha = alv * e;
       ctx.globalAlpha = alv; schaar(ctx, 1290, 790, 1.4, 0.5 + 0.4 * Math.sin(t * 5 + 1), C.text, ew); bead(ctx, 1360, 790, 18, 5, { alpha: ew });
       schaar(ctx, 1500, 790, 1.4, 0.5 + 0.4 * Math.sin(t * 5 + 2), C.text, v); if (v > 0.01) { ctx.globalAlpha = alv * v; triglyceride(ctx, 1560, 790, 0.6); }
       ctx.globalAlpha = alv; [['koolhydraten', 1120, e], ['eiwitten', 1330, ew], ['vetten', 1540, v]].forEach(([n, x, aa]) => { if (aa > 0.01) { ctx.save(); ctx.globalAlpha *= aa; text(ctx, n, x, 862, fTekst(36), C.text2, 'center'); ctx.restore(); } });
       ctx.restore(); }
-    // lever + galblaas links boven
-    if (gal > 0.01) { ctx.save(); ctx.globalAlpha *= gal; blob(ctx, 560, 230, 200, 70, 0.04, 3); shape(ctx, rgba('#8C5A3A', 0.45), '#B07A5A', 2); text(ctx, 'lever', 560, 145, fTekst(36, 600), C.text, 'center');
-      ctx.globalAlpha = gal * Math.max(gb, 0.4); blob(ctx, 720, 360, 40, 28, 0.05, 5); shape(ctx, rgba(V.neutraal, 0.5), V.neutraal, 2); ctx.globalAlpha = gal; if (gb > 0.01) label(ctx, 'galblaas', null, 690, 370, 420, 400, gb);
-      ctx.strokeStyle = V.neutraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(620, 290); ctx.lineTo(760, 380); ctx.lineTo(880, 500); ctx.stroke();
-      const sq = q.on('geknepen', 1, 0.6); for (let i = 0; i < 6; i++) { const u = (t * (0.15 + 0.35 * sq) + i / 6) % 1; ctx.fillStyle = V.neutraal; ctx.beginPath(); ctx.arc(lerp(760, 880, u), lerp(380, 500, u), 5, 0, 6.283); ctx.fill(); }
-      text(ctx, 'gal', 900, 450, fTekst(36, 600), V.neutraal, 'left'); ctx.restore(); }
     // darmwand-enzymen onderaan de wand
-    if (dw > 0.01) { for (let i = 0; i < 10; i++) schaar(ctx, 300 + i * 140, yc + 66, 0.7, 0.5 + 0.3 * Math.sin(t * 4 + i), C.text, dw); tag(ctx, 'darmsap (darmwand)', 660, 860, C.enzym, dw * (1 - q.on('knipwerk', 1, 1) * 0)); }
+    if (dw > 0.01) { for (let i = 0; i < 10; i++) schaar(ctx, 300 + i * 140, yc + 66, 0.7, 0.5 + 0.3 * Math.sin(t * 4 + i), C.text, dw); tag(ctx, 'darmsap (darmwand)', 660, 860, C.enzym, dw); }
   },
   s21(ctx, t, q) { bg(ctx, 'schema'); miniKaart(ctx, 3, 3);
     tag(ctx, 'gal is geen enzym', 960, 250, C.koraal, ramp(t, 0.1, 0.6));
@@ -308,7 +341,7 @@ const SCENES = {
   s28(ctx, t, q) { bg(ctx, 'schema');
     const notes = { 0: 'zetmeel knippen', 2: 'eiwit knippen, bacteriën doden', 4: 'bijna alles knippen en opnemen' };
     const na = Math.max(q.on('Mond') * (q.on('Maag') < 0.5 ? 1 : 1), 0);
-    kanaalKaart(ctx, { y: 380, pos: ramp(t, 0, 6) * 4.4, glands: 0, names: 1, dimOthers: 0, cur: q.on('Dunne') > 0.5 ? 4 : q.on('Maag') > 0.5 ? 2 : 0, notes: { 0: q.on('Mond') ? notes[0] : '', 2: q.on('Maag') > 0.01 ? notes[2] : '', 4: q.on('Dunne') > 0.01 ? notes[4] : '' }, notesA: na });
+    kanaalKaart(ctx, { y: 380, pos: sleutels(t, [[0, 0], [q.at('knippen', 1) + 0.3, 0], [q.at('Maag'), 2], [q.at('doden') + 0.3, 2], [q.at('Dunne'), 4], [q.at('opnemen') + 0.5, 4.4]]), glands: 0, names: 1, dimOthers: 0, cur: q.on('Dunne') > 0.5 ? 4 : q.on('Maag') > 0.5 ? 2 : 0, notes: { 0: q.on('Mond') ? notes[0] : '', 2: q.on('Maag') > 0.01 ? notes[2] : '', 4: q.on('Dunne') > 0.01 ? notes[4] : '' }, notesA: na });
     hoekKlok(ctx, 7 + (t - q.at('klok')) * 0.4, '6–9 uur', q.on('klok'));
   },
 
@@ -380,7 +413,7 @@ const SCENES = {
     tag(ctx, 'meeste: dunne darm', 120, 430, C.goud, q.on('meeste'), 'left');
   },
   s35(ctx, t, q) { bg(ctx, 'schema');
-    kanaalKaart(ctx, { y: 380, pos: Math.min(7, ramp(t, 0.2, 6) * 7), names: 1, cur: -1, notes: { 0: 'seconden', 2: '2–4 uur', 4: '3–5 uur', 6: '1–2 dagen' }, notesA: ramp(t, 0.6, 1.0) });
+    kanaalKaart(ctx, { y: 380, pos: sleutels(t, [[0, 0], [q.at('mond'), 0], [q.at('maag'), 2], [q.at('darm', 1), 4], [q.at('dikke'), 6], [q.at('dikke') + 1.3, 7]]), names: 1, cur: -1, notes: { 0: q.on('Seconden') > 0.01 ? 'seconden' : '', 2: q.on('uren') > 0.01 ? '2–4 uur' : '', 4: q.on('darm', 1) > 0.01 ? '3–5 uur' : '', 6: q.on('dag') > 0.01 ? '1–2 dagen' : '' }, notesA: ramp(t, q.at('Seconden'), 0.6) });
     refCard(ctx, 'film 3: de enzymen', 760, 760, q.on('volgende'));
   }
 };
