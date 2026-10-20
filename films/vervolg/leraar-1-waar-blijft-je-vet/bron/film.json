@@ -1,0 +1,80 @@
+{
+ "slug": "leraar-1-waar-blijft-je-vet",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Waar blijft je vet?",
+ "sub": "misvattingen en hoe je ze aanpakt",
+ "puzzle": "Waarom denken zoveel mensen dat vet bij afvallen energie wordt?",
+ "meta": "leraar biologie · didactiek",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Leraar biologie",
+ "lead": "Waar blijft je vet als je afvalt? De meeste mensen zeggen: het wordt energie. Maar de atomen verdwijnen niet: je ademt het meeste uit als koolstofdioxide. Zulke misvattingen zijn hardnekkig, ook bij artsen en trainers. Een leraar maakt ze zichtbaar en laat ze wankelen: eerst voorspellen, dan waarnemen, dan verklaren. Ook over leren zelf bestaan misvattingen: ophalen werkt beter dan herlezen. En een leraar ziet de draden die door de hoofdstukken lopen, zoals oppervlaktevergroting.",
+ "endHaak": "welk idee over biologie had jij lang verkeerd?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom is 'het wordt energie' fout?",
+  "Hoofdstuk 2": "Hoe laat je een misvatting wankelen?",
+  "Hoofdstuk 3": "Waarom werkt ophalen beter dan herlezen?",
+  "Hoofdstuk 4": "Wat verbindt darm, long en wortel?",
+  "Recap": "Waar is het vet van Sam gebleven?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Mevrouw Visser, Sam, Noor, Daan en Yasmin (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Sam is tien kilo afgevallen. Waar is dat vet gebleven?",
+   "correct": 1,
+   "explain": "Het meeste is uitgeademd als koolstofdioxide; de rest verlaat je lichaam als water. De energie komt vrij, maar de atomen moeten ergens heen."
+  },
+  "q06": {
+   "q": "Waarom verdwijnt een misvatting niet als iemand het goede antwoord hoort?",
+   "correct": 0,
+   "explain": "Nieuwe kennis wordt vastgeplakt aan wat je al dacht. Past het niet, dan blijft het oude idee vaak staan."
+  },
+  "q09": {
+   "q": "Groep A las de tekst vier keer; groep B las één keer en haalde drie keer op. Wie wist na een week het meest?",
+   "correct": 2,
+   "explain": "De groep die ophaalde: ongeveer 61 tegen 40 procent, terwijl de leesgroep dacht het beter te kennen."
+  },
+  "q12": {
+   "q": "Wat hebben darmvlokken, longblaasjes en wortelharen gemeen?",
+   "correct": 0,
+   "explain": "Ze vergroten het oppervlak voor uitwisseling: hoe groter het oppervlak, hoe meer stof er tegelijk overgaat."
+  }
+ },
+ "glossary": [
+  {
+   "t": "misvatting",
+   "d": "Een idee dat logisch voelt maar biologisch niet klopt, zoals 'vet wordt energie'; vaak hardnekkig, ook bij volwassenen."
+  },
+  {
+   "t": "voorkennis",
+   "d": "Wat een leerling al denkt en weet; nieuwe kennis wordt daaraan vastgemaakt."
+  },
+  {
+   "t": "voorspellen, waarnemen, verklaren",
+   "d": "Werkwijze om een misvatting te laten wankelen: eerst een voorspelling, dan de waarneming, dan zelf de verklaring geven."
+  },
+  {
+   "t": "leren door ophalen",
+   "d": "Jezelf overhoren of opschrijven wat je nog weet, zonder te kijken; werkt op lange termijn beter dan herlezen (testeffect)."
+  },
+  {
+   "t": "gespreid oefenen",
+   "d": "Oefenen verdeeld over meerdere momenten in plaats van alles in één keer; zie Leren en onthouden."
+  },
+  {
+   "t": "oppervlaktevergroting",
+   "d": "Bouw die het oppervlak voor uitwisseling groter maakt, zoals darmvlokken, longblaasjes en wortelharen; een rode draad door de biologie."
+  },
+  {
+   "t": "groot idee",
+   "d": "Een concept dat in veel hoofdstukken terugkomt, zoals structuur en functie of evenwicht; een leraar bouwt lessen eromheen."
+  },
+  {
+   "t": "lerarenopleiding",
+   "d": "Op het hbo voor de onderbouw en het vmbo (tweedegraads); met een master ook voor de bovenbouw van havo en vwo (eerstegraads)."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Iemand zegt: 'Als je afvalt, wordt je vet omgezet in energie.' Leg uit wat hier niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij de verbranding komt energie vrij, maar de atomen van het vet verdwijnen niet (1p). Ze komen in koolstofdioxide en water terecht; het meeste adem je uit als koolstofdioxide (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een leraar legt in een les goed uit waar het hout van een boom vandaan komt. Een maand later denken veel leerlingen toch weer 'uit de grond'. Verklaar dit en geef aan wat de leraar anders kan doen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Nieuwe kennis wordt vastgemaakt aan wat leerlingen al denken; botst het, dan blijft het oude idee vaak staan (1p). De leraar kan eerst laten voorspellen, zodat het oude idee zichtbaar wordt (1p), dan laten waarnemen of tonen, en leerlingen het daarna zelf laten verklaren (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Je hebt drie avonden om een toets te leren. Gebruik deze film en Leren en onthouden om een plan te maken. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Verspreid over de drie avonden (gespreid oefenen) (1p) en vooral jezelf overhoren of opschrijven wat je nog weet, in plaats van herlezen (ophalen) (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Noem nog een voorbeeld van oppervlaktevergroting dat niet in de film voorkomt, en leg uit waarom een leraar zulke voorbeelden naast elkaar zet. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bijvoorbeeld kieuwen, de plooien van de maagwand of de microvilli van niercellen (1p). Wie het principe ziet, hoeft niet alles los te onthouden en kan het toepassen op nieuwe gevallen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Leraar biologie. Bouwt voort op <i>Alles in het groen</i> (Van Helmont, atomen tellen), <i>Alles op adem</i> (verbranding), <i>Leren en onthouden</i> (gespreid oefenen) en <i>Kun je je geheugen vertrouwen?</i>. Mevrouw Visser (docent, nieuw in het castboek) en haar klas zijn de rode draad.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> waar vet blijft (Meerman &amp; Brown 2014) en waarom misvattingen hardnekkig zijn. <b>H2</b> voorkennis en voorspellen–waarnemen–verklaren, met kalkwater. <b>H3</b> leren door ophalen (Roediger &amp; Karpicke 2006). <b>H4</b> een les rond één groot idee: oppervlaktevergroting.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Waar vet blijft</td><td>van 10 kg vet 8,4 kg via koolstofdioxide, 1,6 kg via water</td><td>Meerman &amp; Brown 2014, BMJ 349:g7257</td></tr>\n<tr><td>Enquête</td><td>150 artsen, diëtisten en personal trainers; 3 goed</td><td>idem</td></tr>\n<tr><td>Ophalen tegenover herlezen</td><td>na een week ± 61 % tegen 40 %; direct na afloop leesgroep beter</td><td>Roediger &amp; Karpicke 2006, Psychological Science 17</td></tr>\n<tr><td>Routes leraar</td><td>hbo-bachelor: tweedegraads; master (hbo of universitair na biologie): eerstegraads</td><td>onderwijsloket.com</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>'Voorspellen, waarnemen, verklaren' (POE, White &amp; Gunstone) is één van de werkwijzen voor conceptuele verandering; de film noemt alleen deze.</li><li>In de proef van Roediger &amp; Karpicke kreeg de herhaalgroep meer leestijd; de film vat dat samen als 'vier keer lezen'.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Stel de cold-openvraag zelf in de klas vóór de film, laat leerlingen hun antwoord opschrijven en kom er na de film op terug.</li></ul>\n</section>\n"
+}
