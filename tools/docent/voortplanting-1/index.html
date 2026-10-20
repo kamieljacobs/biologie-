@@ -450,24 +450,31 @@ SCHERMEN.push({ titel: 'Flora', deel: 'Opening',
   } });
 
 // ---------- 2 · ongeslachtelijk ----------
+// Eén mitose = één cel wordt twee cellen. Twee rondes na elkaar, in kolommen, zodat niet de indruk ontstaat dat mitose vier cellen geeft.
 SCHERMEN.push({ titel: 'Eén ouder', deel: 'Eén ouder of twee',
   stappen: [
-    { t: '<b>Ongeslachtelijke voortplanting</b>: één ouder.', n: 'Hier als eencellige; bij meercelligen gaat het met een groepje cellen (scherm 3).' },
-    { t: 'De ouder deelt zich door <b>mitose</b>: eerst het DNA kopiëren, dan delen.', n: 'De streepjescode in de kern = het DNA. Let op: beide kernen krijgen dezelfde code.' },
-    { t: 'Alle nakomelingen hebben hetzelfde DNA: het zijn <b>klonen</b>.', n: 'Verschillen alleen door een zeldzame mutatie.' }
+    { t: '<b>Ongeslachtelijke voortplanting</b>: één ouder.', n: 'Hier als eencellige; bij meercelligen gaat het met een groepje cellen (scherm 4).' },
+    { t: 'Bij <b>mitose</b> wordt het DNA eerst gekopieerd. Dan deelt de cel: uit <b>één cel</b> worden <b>twee cellen</b>.', n: 'De streepjescode in de kern = het DNA. Beide kernen krijgen dezelfde code.' },
+    { t: 'Delen ze nog een keer, dan wordt elke cel weer twee. Allemaal hetzelfde DNA: <b>klonen</b>.', n: 'Twee keer mitose na elkaar geeft vier cellen. Let op het verschil met meiose (één ronde van twee delingen, vier cellen met de helft van het DNA): volgend scherm.' }
   ],
   teken(ctx, S) {
-    const k = C.teal, cx = 960, cy = 560, r = 118;
-    const a0 = S.on(0, 0.8), u1 = S.on(1, 1.8), u2 = S.on(2, 1.8);
-    if (u2 <= 0.001) delendeCel(ctx, cx, cy, r, u1, k, a0);
-    else { const d = r * 1.2; delendeCel(ctx, cx - d, cy, r, u2, k, 1, true, Math.PI / 2); delendeCel(ctx, cx + d, cy, r, u2, k, 1, true, Math.PI / 2); }
-    naam(ctx, 'ouder', cx, cy - r - 40, a0 * (1 - u1), 'center');
-    regel(ctx, 'mitose', cx, 300, u1 * (1 - u2), C.goud, 40, 'center', 700);
-    if (u1 > 0.2) { pijl(ctx, cx - 70, 316, cx - 200, 316, C.goud, 4, u1 * (1 - u2)); pijl(ctx, cx + 70, 316, cx + 200, 316, C.goud, 4, u1 * (1 - u2)); }
-    regel(ctx, 'mitose', cx, 210, u2, C.goud, 40, 'center', 700);
-    const kl = S.on(2, 0.8, 1.6); if (kl > 0.01) { regel(ctx, '4 klonen · zelfde DNA', cx, 1010, kl, C.text, 40, 'center', 700); }
-    // rechts: zelfde code
-    const c = S.on(1, 0.8, 1.6); if (c > 0.01 && u2 < 0.5) { regel(ctx, 'zelfde DNA', cx, 840, c * (1 - u2 * 2), C.text2, 32, 'center', 600); }
+    const k = C.teal, cy = 560, X = [300, 900, 1500];
+    const a0 = S.on(0, 0.8), u1 = S.on(1, 1.8, 0.6), u2 = S.on(2, 1.8, 0.6);
+    const p1 = S.on(1, 0.6), p2 = S.on(2, 0.6);
+    // kolom 1: de ouder
+    delendeCel(ctx, X[0], cy, 110, 0, k, a0);
+    naam(ctx, 'ouder', X[0], cy - 150, a0, 'center');
+    regel(ctx, '1 cel', X[0], 935, a0, C.text2, 32, 'center', 600);
+    // kolom 2: één mitose
+    pijl(ctx, X[0] + 140, cy, X[1] - 150, cy, C.goud, 5, p1, 20); regel(ctx, 'mitose', (X[0] + X[1]) / 2, cy - 24, p1, C.goud, 36, 'center', 700);
+    if (p1 > 0.01) delendeCel(ctx, X[1], cy, 100, u1, k, p1, true, Math.PI / 2);
+    regel(ctx, 'na 1 keer mitose: 2 cellen', X[1], 935, S.on(1, 0.6, 2.2), C.text2, 32, 'center', 600);
+    // kolom 3: elke cel nog een keer
+    const yb = [cy - 120, cy + 120], yd = [cy - 215, cy + 205];
+    if (p2 > 0.01) { for (let i = 0; i < 2; i++) { pijl(ctx, X[1] + 130, yb[i], X[2] - 200, yd[i], C.goud, 5, p2, 20); delendeCel(ctx, X[2], yd[i], 76, u2, k, p2); }
+      regel(ctx, 'mitose', (X[1] + X[2]) / 2 + 10, cy - 10, p2, C.goud, 36, 'center', 700); }
+    regel(ctx, 'na 2 keer mitose: 4 cellen', X[2], 935, S.on(2, 0.6, 2.2), C.text2, 32, 'center', 600);
+    regel(ctx, 'allemaal hetzelfde DNA: klonen', 960, 1035, S.on(2, 0.6, 2.6), C.text, 40, 'center', 700);
   } });
 
 // ---------- 3 · vormen ----------
