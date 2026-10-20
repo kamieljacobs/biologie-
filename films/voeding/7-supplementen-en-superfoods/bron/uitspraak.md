@@ -25,3 +25,15 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 **Wachtlijst voor Kamiel (ook hoofdstuk 4):** kree-aa-tinuh, nie-jaa-sinuh, en-aa-dee plus, en-em-en, magnesium-tree-oo-naat, pellagra.
 
 **Wachtlijst voor Kamiel:** vooral de losse vitaminenletters, bee-twaalf, tsjia-zaad, goji, superfood, detox, placebo en meta-analieze. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s05, s07, s12, s17, s21, s23, s24, s26.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| chiazaad | chiazaad (gewone spelling) | s12 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| niacine / Niacine | niacine (gewone spelling) | s23, s24, s26 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| vitamine B12 | B-twaalf | s05, s07, s17 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| creatine | creatine (gewone spelling) | s21 | goedgekeurd (uitspraaktest 18–19 okt 2026) |

@@ -96,3 +96,32 @@ Begrippen: supplement, Schijf van Vijf, vitamine D, vitamine B12, foliumzuur, wa
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Geen scènes met `label()` in beeld; alleen de functie is vervangen. In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moeten klinken. Alleen de alinea's met die woorden zijn opnieuw ingesproken; de gesproken tekst is inhoudelijk gelijk gebleven.
+
+| Woord | Nieuwe stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| chiazaad | chiazaad (gewone spelling) | s12 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| niacine / Niacine | niacine (gewone spelling) | s23, s24, s26 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| vitamine B12 | B-twaalf | s05, s07, s17 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| creatine | creatine (gewone spelling) | s21 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+- Opnieuw ingesproken: s05, s07, s12, s17, s21, s23, s24, s26. Roos (7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, ElevenLabs-flow `urmsa8zcNa5TFq8SVeBI` ("Herinspreken 19 okt · voeding, hormonen, voortplanting"). Stem-invoer = `voice` in `segments.json` (gemaakt met `make_segments.py` en de bijgewerkte vervangregels in `bouw/uitspraak_subs.json` en `uitspraak_film.json`).
+- Woordtijden: Scribe (connect_from = de TTS-node) → `align.py` → `stem/woordtijden/`. Mastering: `loudnorm=I=-15:TP=-1.5`, mono 44,1 kHz 96 kb/s.
+- Credits: TTS 3890, Scribe ≈ 1408 (≈ 256 s audio).
+- **HTML nog niet bijgewerkt**: de voedingshelper bouwt deze film opnieuw (nieuwe beelden) en neemt de nieuwe audio, `segments.json` en woordtijden mee. Tot die build staan in de HTML nog de oude woordtijden (afwijking < 1 s per alinea).
+- Niet aangepast: woorden die niet in de test zaten houden hun vorige stem-invoer, zodat ze in de hele film hetzelfde klinken (bijv. "receptor" zoals geschreven, terwijl de centrale lijst "reseptor" geeft).
+
+| Segment | TTS-node | Generatie | Credits | Duur |
+|---|---|---|---|---|
+| s05 | FFELdLpA2hpCYwC64Hwf | oIi96wwGBsCksdJjpJNa | 347 | 20.85 s |
+| s07 | wU9VloKg31U0bwNrP1JH | LW5To3nIX1hizSNdJazV | 540 | 35.97 s |
+| s12 | JiGKOwSGIr2kHm3NCfbo | MhfwpD1l0HnS27YgmclO | 567 | 37.57 s |
+| s17 | qdvNXaAJsKKYyWwOFNnh | 92yCA7JA1cnNtloQIKcv | 491 | 34.85 s |
+| s21 | 4zNKgXwnko2t2ybNzALH | xZyJF20qPRyC1pChH94t | 448 | 28.61 s |
+| s23 | QproMCb5BYSSaGQviPCp | z3Wn5bUhaugBrXWsJgRG | 562 | 37.81 s |
+| s24 | Spsv5lWscECbLBxvcFw1 | udyMEwV0OHz6jRTOqvig | 506 | 33.25 s |
+| s26 | kbauaJAcSqjaxUG3Izab | 7CN345EXT6BESgekHmmm | 429 | 30.69 s |
