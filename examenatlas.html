@@ -637,17 +637,20 @@ function vFlip(key){
 
 /* ---------- per jaar ---------- */
 function jaarTop(j){ const t={}; D.vragen.forEach(v=>{ if(D.exams[v.e].jaar===j&&v.on.length){ const s=D.onderwerpen[v.on[0]].sub; t[s]=(t[s]||0)+v.p; } }); return Object.entries(t).sort((a,b)=>b[1]-a[1]); }
+/* filmbesprekingen van hele examens (films/examens/, thema Examen op de hoofdpagina), per niveau en examen-id */
+const BESPREKING={vwo:{'2018-tv2':{href:'films/examens/vwo-2018-2.html',titel:'Examenbespreking vwo 2018-II',duur:35}}};
+const besp=e=>(BESPREKING[LV]||{})[e.id];
 function vJaren(){
   app.innerHTML=`<section class="kop"><div class="wrap"><span class="mono">Examenatlas · ${esc(LV)}</span><h1>Examens per jaar</h1>
     <p class="lede">Per jaar de twee examens (tijdvak 1 en 2) met hun opgaven en de onderwerpen die getoetst werden. In 2020 was er geen centraal examen.</p></div></section>
-  <section class="wrap blok"><div class="jaren">${D.jaren.map(j=>{const ex=D.exams.filter(e=>e.jaar===j); return `<a href="#jaar/${j}"><b>${j}</b><span>${ex.length} examens · ${ex.reduce((a,e)=>a+e.nq,0)} vragen</span></a>`;}).join('')}</div></section>`;
+  <section class="wrap blok"><div class="jaren">${D.jaren.map(j=>{const ex=D.exams.filter(e=>e.jaar===j); return `<a href="#jaar/${j}"><b>${j}</b><span>${ex.length} examens · ${ex.reduce((a,e)=>a+e.nq,0)} vragen${ex.some(besp)?' · met filmbespreking':''}</span></a>`;}).join('')}</div></section>`;
 }
 function vJaar(arg){
   const j=+arg, i=D.jaren.indexOf(j); if(i<0){ vJaren(); return; }
   const exs=D.exams.map((e,k)=>[e,k]).filter(([e])=>e.jaar===j);
   app.innerHTML=`<section class="kop"><div class="wrap"><a class="terug" href="#jaren">${pijl} Alle jaren</a><br><span class="mono">Centraal examen ${esc(LV)}</span><h1>${j}</h1>
     <p class="lede">Zwaartepunten: ${jaarTop(j).slice(0,4).map(([s,p])=>`${esc(D.sub[s].n)} (${p}p)`).join(' · ')}</p></div></section>
-  <section class="wrap blok"><div class="examens">${exs.map(([e,k])=>`<article class="excard"><header><b>Tijdvak ${e.tv}</b><span class="stil" style="font-size:14px">${e.nq} vragen · ${e.pts} punten</span></header>
+  <section class="wrap blok"><div class="examens">${exs.map(([e,k])=>`<article class="excard"><header><b>Tijdvak ${e.tv}</b><span class="stil" style="font-size:14px">${e.nq} vragen · ${e.pts} punten</span></header>${besp(e)?`<p style="margin:4px 0 14px"><a class="knop" href="${besp(e).href}">▶ Bespreking in een film · ${besp(e).duur} min</a></p>`:''}
     ${e.ops.map(([t,c,a,b])=>{ const ons=[...new Set(D.vragen.filter(v=>v.e===k&&v.nr>=a&&v.nr<=b).flatMap(v=>v.on))];
       return `<div class="op"><div class="t">${esc(t)}<span>vr. ${a}–${b}</span></div><div class="c">${esc(c)}</div><div class="chips">${ons.map(o=>`<button type="button" class="chip" data-ow="${o}">${esc(D.onderwerpen[o].n)}</button>`).join('')}</div><div class="chips" style="margin-top:6px">${D.vragen.map((v,qi)=>[v,qi]).filter(([v])=>v.e===k&&v.nr>=a&&v.nr<=b&&v.ni).map(([v,qi])=>`<button type="button" class="chip" data-open="${qi}" title="Bekijk vraag ${v.nr}">vr. ${v.nr}</button>`).join('')}</div></div>`;}).join('')}</article>`).join('')}</div>
     <div class="jaarnav">${i>0?`<a class="knop stil" href="#jaar/${D.jaren[i-1]}">← ${D.jaren[i-1]}</a>`:'<span></span>'}${i<D.jaren.length-1?`<a class="knop stil" href="#jaar/${D.jaren[i+1]}">${D.jaren[i+1]} →</a>`:''}</div></section>`;
