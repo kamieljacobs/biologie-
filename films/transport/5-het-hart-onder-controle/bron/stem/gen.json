@@ -1,5 +1,6 @@
 {
  "flow": "n3UjKyupg9qQcHl1xrf8",
+ "model": "eleven_v4",
  "s01": {
   "generation_id": "gADzw54yAaP2b2DZt4XS",
   "node": "ArwN8tZH7RWrXYHYiKpD",
@@ -61,10 +62,12 @@
   "dur": 51.958
  },
  "s15": {
-  "generation_id": "xJCswIjCsUWSRLJV3yXy",
-  "node": "IOuMdft5ObLKtsTXk4e4",
-  "session": "WnzJgOIOXV7omF4Oa1Cz",
-  "dur": 36.519
+  "generation_id": "1mVnRA0pXeuTiMRj0Uz4",
+  "node": "EFwD3RtXDhbWJTLlstaO",
+  "session": "boP2wwpjgXcoVYIzPuFG",
+  "dur": 36.28,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "xJCswIjCsUWSRLJV3yXy"
  },
  "s16": {
   "generation_id": "wt8zjYbBtD7Y7y1Mq8fC",
@@ -90,6 +93,5 @@
   "session": "TFcHgtJTK6DkQLS9wcfP",
   "dur": 30.589
  },
- "model": "eleven_v4",
  "voice": "Roos 7qdUFMklKPaaAVMsBTBt"
 }
