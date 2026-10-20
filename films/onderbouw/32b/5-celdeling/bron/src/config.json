@@ -1,0 +1,17 @@
+{
+ "titel": "Celdeling",
+ "ondertitel": "Hoe wordt één cel er twee?",
+ "meta": "32B · film 5",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes5.js"],
+ "hold": {"s15": 12.0},
+ "mini": {"Hoofdstuk 1": "Eén cel wordt twee", "Hoofdstuk 2": "Hoeveel chromosomen?", "Hoofdstuk 3": "Mitose of meiose?", "Samenvatting": "Kopiëren en verdelen"},
+ "checkvragen": [
+  {"titel": "Mitose", "pts": "1 punt", "vraag": "Wat gebeurt er eerst bij mitose? A. de cel snoert in · B. de chromosomen worden gekopieerd · C. de kern verdwijnt voor altijd", "antwoord": "B (1): eerst worden alle chromosomen gekopieerd (ze worden dubbel, als een X), daarna worden ze verdeeld."},
+  {"titel": "Tellen", "pts": "1 punt", "vraag": "Een huidcel van een mens heeft 46 chromosomen. Hoeveel heeft een eicel? A. 92 · B. 46 · C. 23", "antwoord": "C (1): geslachtscellen hebben de helft, 23."},
+  {"titel": "Twee delingen", "pts": "2 punten", "vraag": "Leg uit waarom geslachtscellen door meiose moeten ontstaan en niet door mitose.", "antwoord": "Bij mitose houden de cellen 46 chromosomen; dan zou een kind na de bevruchting 92 hebben (1). Meiose halveert het aantal tot 23, zodat eicel + zaadcel samen weer 46 geven (1)."},
+  {"titel": "Paren", "pts": "2 punten", "vraag": "Waarom zijn twee zaadcellen van dezelfde man niet precies gelijk?", "antwoord": "De chromosomen zitten in paren, één van moeder en één van vader (1). Bij meiose is het toeval welk chromosoom van elk paar in een zaadcel komt, dus elke zaadcel krijgt een andere mix (1).", "uitdaging": true}
+ ]
+}
