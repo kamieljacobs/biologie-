@@ -2035,7 +2035,7 @@ const Player = (() => {
     ci = i; ri = -1; setChrome();
     audio.src = CHAPTERS[i].audio;
     const go = () => { mode = 'play'; audio.playbackRate = SV.r; audio.currentTime = offset || 0; pendingSeek = offset || 0; audio.play().catch(() => {}); };
-    if (withSlate && CHAPTERS[i].num >= 1 && CHAPTERS[i].num <= 8) { mode = 'slate'; slate(i); slateTimer = setTimeout(go, 2200); }   // hoofdstukkaart 2,2 s (15 okt 2026; was 2,6 s)
+    if (withSlate && CHAPTERS[i].num >= 1 && CHAPTERS[i].num <= 8) { mode = 'slate'; slate(i); slateTimer = setTimeout(go, 1300); }   // hoofdstukkaart 1,3 s (20 okt 2026; was 2,2 s)
     else go();
     setPlayIcon(true);
   }
@@ -2056,7 +2056,7 @@ const Player = (() => {
     if (mode === 'play' || mode === 'pausecard' || mode === 'end') {
       const t = audio.currentTime;
       const i = rowAt(t);
-      if (mode === 'play' && SV.v === 'uit' && !audio.paused) { const rw = TIMING[CHAPTERS[ci].key].rows[i]; if (rw && rw.sents.length === 1 && /stil\.$/.test(rw.sents[0].x) && ci < CHAPTERS.length - 1) { load(ci + 1, 0, true); requestAnimationFrame(tick); return; } }
+      if (mode === 'play' && SV.v === 'uit' && !audio.paused) { const rw = TIMING[CHAPTERS[ci].key].rows[i]; if (rw && rw.sents.length === 1 && /stil\.$/.test(rw.sents[0].x) && ci < CHAPTERS.length - 1) { /*SPELERFIX_MARK onderzoek*/ audio.muted = true; setTimeout(() => { audio.muted = false; }, 300); load(ci + 1, 0, true); requestAnimationFrame(tick); return; } }
       if (i !== ri) { ri = i; build(i, t); }
       if (scene) scene.update(t);
       // ondertitel
