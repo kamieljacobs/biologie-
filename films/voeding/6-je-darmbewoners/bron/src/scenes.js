@@ -89,14 +89,13 @@ function populaties(ctx, u, a = 1, o = {}) { if (a <= 0.01) return; const { x = 
 
 // ---------- patiënt (Macro): man in bed + tijdlijn ----------
 function bedMan(ctx, x, y, s = 1, a = 1, o = {}) { if (a <= 0.01) return; const { ziek = 0 } = o; ctx.save(); ctx.globalAlpha *= a;
+  // patiënt = Opa Henk (vast personage, 71) in bed (20 okt 2026; vervangt het kale hoofdje)
   roundRect(ctx, x - 300 * s, y - 20 * s, 600 * s, 160 * s, 24 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 2);
   roundRect(ctx, x - 290 * s, y + 140 * s, 30 * s, 60 * s, 6 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); roundRect(ctx, x + 260 * s, y + 140 * s, 30 * s, 60 * s, 6 * s); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5);
-  roundRect(ctx, x - 150 * s, y - 10 * s, 430 * s, 110 * s, 30 * s); shape(ctx, rgba(C.teal, 0.3), rgba(C.teal, 0.8), 1.5);
-  const huid = mix('#E8B9A0', '#D9CBB0', ziek); ctx.beginPath(); ctx.arc(x - 200 * s, y + 20 * s, 56 * s, 0, 6.283); shape(ctx, huid, rgba('#8C5A3A', 0.6), 1.5);
-  ctx.fillStyle = '#2B2B33'; for (const d of [-1, 1]) { ctx.beginPath(); ctx.arc(x - 200 * s + d * 18 * s, y + 10 * s, 4 * s, 0, 6.283); ctx.fill(); }
-  ctx.strokeStyle = rgba('#8C5A3A', 0.7); ctx.lineWidth = 2.5 * s; ctx.beginPath(); if (ziek > 0.5) ctx.arc(x - 200 * s, y + 46 * s, 12 * s, 3.4, 6.0); else ctx.arc(x - 200 * s, y + 30 * s, 12 * s, 0.3, 2.84); ctx.stroke();
-  // haar (grijs)
-  ctx.strokeStyle = rgba('#C9CDD3', 0.9); ctx.lineWidth = 6 * s; ctx.beginPath(); ctx.arc(x - 200 * s, y + 20 * s, 56 * s, 3.3, 5.9); ctx.stroke();
+  roundRect(ctx, x - 285 * s, y - 34 * s, 150 * s, 96 * s, 30 * s); shape(ctx, rgba('#E6E1D3', 0.85), rgba('#E6E1D3', 1), 1.5); // kussen
+  ctx.save(); ctx.beginPath(); ctx.rect(x - 300 * s, y - 160 * s, 160 * s, 320 * s); ctx.clip(); liggend(ctx, 'henk', x - 205 * s, y + 12 * s, 520 * s, { uit: ziek > 0.5 ? 'bezorgd' : 'blij' }); ctx.restore(); // lijf onder de deken
+  roundRect(ctx, x - 150 * s, y - 44 * s, 430 * s, 150 * s, 30 * s); shape(ctx, rgba('#2F5F78', 0.96), rgba(C.teal, 0.9), 1.5); // deken
+  ctx.strokeStyle = rgba(C.teal, 0.35); ctx.lineWidth = 2 * s; for (let k = 1; k < 4; k++) { ctx.beginPath(); ctx.moveTo(x - 150 * s + k * 100 * s, y - 40 * s); ctx.lineTo(x - 150 * s + k * 100 * s, y + 100 * s); ctx.stroke(); }
   ctx.restore(); }
 function pil(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(-0.5); roundRect(ctx, -22 * s, -9 * s, 44 * s, 18 * s, 9 * s); shape(ctx, rgba(AB, 0.5), AB, 1.4); ctx.fillStyle = rgba(C.text, 0.85); ctx.beginPath(); ctx.moveTo(0, -9 * s); ctx.lineTo(22 * s, -9 * s); ctx.arcTo(22 * s + 9 * s, -9 * s, 22 * s + 9 * s, 0, 9 * s); ctx.lineTo(0, 9 * s); ctx.closePath(); ctx.restore(); }
 function tijdlijn(ctx, x, y, w, items, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; axisBase(ctx, x, x + w, y, 1);
@@ -181,7 +180,7 @@ const SCENES = {
     const ie = q.on('iets', 1, 0.8), zij = q.on('Zij', 1, 0.8), jij = q.on('jij', 1, 0.8), mu = q.on('mutualisme', 1, 1.0), gev = q.on('gevaarlijk', 1, 0.8), bord = q.on('bord', 1, 1.0), vast = q.on('vastgesteld', 2, 0.8), wat = q.on('Wat', 1, 0.8);
     if (bord < 0.99) { ctx.save(); ctx.globalAlpha *= (1 - bord);
       // mens links, bacteriën rechts, pijlen heen en weer
-      human(ctx, 480, 760, 420, 1); zwerm(ctx, 1100, 300, 500, 300, 24, t, 1, { s: 1.4 });
+      persoon(ctx, 'noor', 480, 780, 430, { uit: 'blij', pose: 'wijs', t }); zwerm(ctx, 1100, 300, 500, 300, 24, t, 1, { s: 1.4 });
       if (zij > 0.01) { arrow(ctx, 640, 480, 1060, 400, C.goud, zij, 3); tag(ctx, 'warme plek · eten', 850, 400, C.goud, zij); }
       if (jij > 0.01) { arrow(ctx, 1060, 560, 640, 620, C.groen, jij, 3); tag(ctx, 'brandstof · bescherming', 850, 660, C.groen, jij); }
       naamBij(ctx, 'mutualisme', 'VOORDEEL VOOR ALLEBEI', 850, 518, mu, 'center', C.text);
@@ -294,10 +293,10 @@ const SCENES = {
   s18(ctx, t, q) { bg(ctx, 'schema');
     const don = q.on('donor', 1, 0.8), ver = q.on('Verdund', 1, 1.0), sl = q.on('slangetje', 1, 1.0), pt = q.on('poeptransplantatie', 1, 1.0), bew = q.on('bewezen', 1, 1.0), lot = q.on('loting', 1, 1.0), g1 = q.on('alleen', 1, 0.8), g2 = q.on('andere', 1, 0.8), acht = q.on('ruim', 1, 1.0), drie = q.on('drie', 1, 1.0), gest = q.on('gestopt', 1, 1.0), later = q.on('Later', 1, 0.8), vast = q.on('vastgesteld', 1, 1.0), waar = q.on('Waarom', 1, 1.0), bord = q.on('waarschijnlijk', 1, 0.8);
     if (bew < 0.99) { ctx.save(); ctx.globalAlpha *= (1 - bew);
-      human(ctx, 300, 760, 440, 1, C.groen); metaText(ctx, 'GEZONDE DONOR', 300, 810, lighten(C.groen, 0.2), 'center', 22);
+      persoon(ctx, 'sam', 300, 780, 440, { uit: 'blij', t }); metaText(ctx, 'GEZONDE DONOR', 300, 810, lighten(C.groen, 0.2), 'center', 22);
       if (don > 0.01) { ctx.save(); ctx.globalAlpha *= don; roundRect(ctx, 520, 500, 140, 180, 20); shape(ctx, rgba(C.bruin, 0.35), C.bruin, 1.5); for (let k = 0; k < 14; k++) bact(ctx, 545 + hash(k) * 90, 530 + hash(k + 5) * 120, k % 3, 0.5, hash(k + 7) * 3, 1); metaText(ctx, 'ONTLASTING VOL DARMBACTERIËN', 590, 720, C.grain, 'center', 20); ctx.restore(); }
       if (ver > 0.01) { ctx.save(); ctx.globalAlpha *= ver; arrow(ctx, 680, 590, 800, 590, C.line, 1, 2); roundRect(ctx, 820, 520, 90, 140, 16); shape(ctx, rgba(V.neutraal, 0.15), V.neutraal, 1.5); metaText(ctx, 'VERDUND · GEZEEFD', 865, 700, C.grain, 'center', 20); ctx.restore(); }
-      if (sl > 0.01) { ctx.save(); ctx.globalAlpha *= sl; bedMan(ctx, 1400, 440, 1.0, 1, { ziek: 0.6 }); ctx.strokeStyle = rgba(C.bruin, 0.9); ctx.lineWidth = 4; ctx.setLineDash([6, 8]); ctx.beginPath(); ctx.moveTo(920, 580); ctx.quadraticCurveTo(1100, 560, 1230, 470); ctx.quadraticCurveTo(1350, 420, 1480, 480); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'VOORBIJ DE MAAG', 1200, 520, C.grain, 'center', 20); ctx.restore(); }
+      if (sl > 0.01) { ctx.save(); ctx.globalAlpha *= sl; bedMan(ctx, 1400, 440, 1.0, 1, { ziek: 0.6 }); ctx.strokeStyle = rgba(C.bruin, 0.9); ctx.lineWidth = 4; ctx.setLineDash([6, 8]); ctx.beginPath(); ctx.moveTo(920, 580); ctx.quadraticCurveTo(1100, 560, 1230, 470); ctx.quadraticCurveTo(1350, 420, 1480, 480); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, 'VOORBIJ DE MAAG', 1080, 600, C.grain, 'center', 20); ctx.restore(); }
       naamBij(ctx, 'poeptransplantatie', 'DONORBACTERIËN IN DE DARM', 1400, 330, pt, 'center', C.text);
       ctx.restore(); }
     if (bew > 0.01 && vast < 0.99) { ctx.save(); ctx.globalAlpha *= bew * (1 - vast);

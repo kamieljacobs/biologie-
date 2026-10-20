@@ -94,3 +94,10 @@ Begrippen: microbioom, waterresorptie, vezels, anaerobe dissimilatie (gisting), 
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: mutualisme (tussen de pijlen), poeptransplantatie (boven het bed). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+- **Vaste personages i.p.v. kale poppetjes**: de man van zeventig in bed (s01, s18, s25; `bedMan` regel 1311) is nu **Opa Henk** (71), liggend met zijn hoofd op een kussen en zijn lijf onder de deken (`liggend()` uit `cast_hulp.js`; bezorgd gezicht als hij ziek is, blij als hij beter is); s08 (mens en bacteriën, mutualisme, regel 1399): **Noor** die naar de bacteriën wijst; s18 (gezonde donor, regel 1513): **Sam** (groene hoodie). 'VOORBIJ DE MAAG' staat nu onder het slangetje, niet meer over Henks hoofd.
+- Bewust **niet** vervangen: de kleine pictogrammen in s18 (rij van 10 bij 'loting' en de 2 × 10 patiënten 'genezen / niet genezen', groen/koraal). Dat zijn telpoppetjes in een grafiek, geen personages.
+- Onthoud-kaart (s13) nagekeken: klopt.
+- **Bouwen na deze wijziging**: pas `src/scenes.js` aan en zet het in de film met `python3 bron/bouw/vervang.py films/voeding/6-je-darmbewoners.html films/voeding/6-je-darmbewoners/bron [--filmdata <filmdata.json> --nieuw sNN]` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; niet volledig herbouwen met build.py, de HTML heeft latere spelerwijzigingen die niet in `src/player.js` staan). Scènesblok: regel 947–1612 (`const SCENES` op 1347).
