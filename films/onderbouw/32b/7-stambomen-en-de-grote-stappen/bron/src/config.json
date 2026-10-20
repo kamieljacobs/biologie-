@@ -1,0 +1,17 @@
+{
+ "titel": "Stambomen en de grote stappen in de evolutie",
+ "ondertitel": "Hoe lees je een stamboom?",
+ "meta": "32B · film 7",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes7.js"],
+ "hold": {"s16": 12.0},
+ "mini": {"Hoofdstuk 1": "Een stamboom lezen", "Hoofdstuk 2": "Hoe maak je een stamboom?", "Hoofdstuk 3": "De grote stappen", "Samenvatting": "Van één cel tot Daan"},
+ "checkvragen": [
+  {"titel": "Lezen", "pts": "1 punt", "vraag": "Wat betekent een splitsing in een stamboom van soorten? A. een soort die uitstierf · B. een gezamenlijke voorouder · C. de soort van nu", "antwoord": "B (1): op een splitsing staat een voorouder die zich splitste in twee groepen."},
+  {"titel": "Volgorde", "pts": "1 punt", "vraag": "Welke volgorde klopt? A. meercellig → celkern → DNA · B. DNA → celkern → meercellig · C. celkern → meercellig → DNA", "antwoord": "B (1)."},
+  {"titel": "Vleermuis", "pts": "2 punten", "vraag": "Een vleermuis kan vliegen, net als een vogel. Leg uit waarom de vleermuis in de stamboom toch dichter bij de muis staat.", "antwoord": "De vleermuis deelt meer kenmerken met de muis: haren, melk voor de jongen (zoogdier) (1). Ook het DNA lijkt meer op dat van de muis; vleugels zijn bij vleermuis en vogel apart ontstaan (1)."},
+  {"titel": "Walvis", "pts": "2 punten", "vraag": "Waarom staat de walvis in de stamboom naast het nijlpaard en niet bij de vissen?", "antwoord": "Hij ademt lucht en geeft melk, net als andere zoogdieren (1), en zijn DNA lijkt het meest op dat van het nijlpaard (1).", "uitdaging": true}
+ ]
+}
