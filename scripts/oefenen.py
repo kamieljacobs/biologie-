@@ -45,12 +45,14 @@ def controleer(pad):
                 if 'antwoord' not in q: fouten.append(f'{w}: vraag zonder antwoord')
                 elif q.get('keuzes') and not (isinstance(q['antwoord'], int) and 0 <= q['antwoord'] < len(q['keuzes'])): fouten.append(f'{w}: keuze-antwoord buiten de lijst')
         if o.get('soort') == 'stamboom':
-            nrs = []
-            for q in o.get('personen', []):
-                if not {'nr', 'x', 'y'} <= set(q): fouten.append(f'{w}: persoon mist nr/x/y')
-                for ou in q.get('ouders') or []:
-                    if ou not in nrs: fouten.append(f'{w}: ouder {ou} moet vóór persoon {q.get("nr")} staan')
-                nrs.append(q.get('nr'))
+            stambomen = o.get('items') if o.get('modus') == 'reeks' else [o]
+            if o.get('modus') not in ('bewijs', 'reeks', 'hypothese'): fouten.append(f'{w}: modus moet bewijs, reeks of hypothese zijn')
+            for st in stambomen or []:
+                nrs = {q.get('nr') for q in st.get('personen', [])}
+                for q in st.get('personen', []):
+                    if not {'nr', 'sekse', 'x', 'gen'} <= set(q): fouten.append(f'{w}: persoon mist nr/sekse/x/gen')
+                    for ou in q.get('ouders') or []:
+                        if ou not in nrs: fouten.append(f'{w}: onbekende ouder {ou}')
         if o.get('soort') == 'puzzel':
             if not o.get('stappen'): fouten.append(f'{w}: stappen ontbreken')
             for st in o.get('stappen', []):

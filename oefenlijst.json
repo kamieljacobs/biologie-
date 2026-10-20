@@ -690,8 +690,20 @@
   "json": "films/erfelijkheid/6-stambomen-en-kansrekenen/oefenen.json",
   "oef": [
    [
-    "stamboom-genotypen",
-    "Stamboom: wie heeft welk genotype?",
+    "stamboom-reeks",
+    "Zes kleine stambomen",
+    "stamboom",
+    0
+   ],
+   [
+    "stamboom-bewijs",
+    "Stamboom: bewijs het met personen",
+    "stamboom",
+    0
+   ],
+   [
+    "stamboom-hypothese",
+    "Stamboom: toets de hypothesen",
     "stamboom",
     0
    ],

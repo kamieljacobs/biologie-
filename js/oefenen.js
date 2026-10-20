@@ -7,7 +7,7 @@
      indelen   – kaartjes naar twee tot vier groepen slepen (of tik-tik)
      pijlen    – voorspel per grootheid: neemt toe, neemt af of blijft gelijk (een keten van oorzaak en gevolg)
      grafiek   – een eigen lijntekening van een grafiek aflezen: getal invullen of een keuze maken
-     stamboom  – eerst aantonen (bv. recessief), dan per persoon alle mogelijke genotypen aanzetten en controleren of het kan
+     stamboom  – modus bewijs (conclusie + bewijs aanklikken), reeks (kleine stambomen) of hypothese (hypothesen toetsen met genotypen)
      puzzel    – stap voor stap invullen met controle (genotypen, kansen, getallen); de volgende stap verschijnt na een goede
    Alles gebeurt in de browser; de tekst van de leerling blijft alleen lokaal (localStorage), er wordt niets verstuurd.
    Oefeningen met "vwo": true zijn in de havo-stand (body.havo) verborgen, net als .term.vwo.
@@ -129,16 +129,22 @@
     '.oe-stapknoppen{display:flex;gap:8px;flex-wrap:wrap}.oe-tip{margin:0;font-size:14.5px;color:var(--oe-goud)}' +
     '.oe-puzzel .oe-vraag:not(.goed):not(.fout){border-color:rgba(224,182,74,.55)}' +
     /* stamboom */
-    '.oe-gt{position:absolute;transform:translate(-50%,-50%);list-style:none;display:flex;align-items:center;gap:6px}' +
-    '.oe-gtnr{display:none;color:var(--oe-zacht);font-size:14.5px;min-width:6.5em}' +
-    '.oe-gtknop{display:flex;gap:3px;padding:3px;border-radius:10px;border:1.5px solid transparent;background:var(--oe-kaart)}' +
-    '.oe-gk{font:600 14px/1 "IBM Plex Mono",monospace;min-width:38px;min-height:32px;padding:0 4px;border-radius:7px;border:1px solid var(--oe-rand);background:transparent;color:var(--oe-tekst);cursor:pointer}' +
-    '.oe-gk[aria-pressed="true"]{background:var(--oe-goud);border-color:var(--oe-goud);color:var(--oe-goud-ink)}' +
-    '.oe-gk:disabled{cursor:default;opacity:.35}.oe-gk:focus-visible{outline:2px solid var(--oe-goud);outline-offset:2px}' +
-    '.oe-gtnot{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;font:600 13px "IBM Plex Mono",monospace;color:var(--oe-goud);white-space:nowrap}' +
-    '.oe-gt.goed .oe-gtknop{border-color:var(--oe-goed)}.oe-gt.half .oe-gtknop{border-color:var(--oe-goud)}.oe-gt.fout .oe-gtknop{border-color:var(--oe-fout)}' +
+    '.oe-stamteken svg .pers[data-nr]{cursor:pointer;outline:none}.oe-stamteken svg .halo{display:none;fill:none;stroke:var(--oe-goud);stroke-width:3}' +
+    '.oe-stamteken svg .pers[aria-pressed="true"] .halo{display:inline}.oe-stamteken svg .pers:focus-visible .halo{display:inline;stroke-dasharray:4 3}' +
+    '.oe-stamteken svg .pers.markeer .halo{display:inline;stroke:var(--oe-goed)}' +
+    '.oe-stamitem{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--oe-rand)}.oe-stamitem:first-child{border-top:0}' +
+    '.oe-stamkop{margin:0;font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--oe-goud)}' +
+    '.oe-stamitem .oe-teken{margin:0}' +
+    '.oe-legenda{display:flex;align-items:center;gap:6px 8px;flex-wrap:wrap;font-size:13.5px;color:var(--oe-zacht);margin:6px 0 0}' +
+    '.oe-legenda span{display:inline-block;width:13px;height:13px;border:2px solid var(--oe-lijn);margin-left:8px}.oe-legenda .oe-lg-v{border-radius:50%}.oe-legenda .oe-lg-z{background:var(--oe-lijn)}' +
+    '.oe-bewijs .oe-klikhulp{margin:0}.oe-vraag .oe-uitleg em{font-style:normal;font-weight:600}' +
+    '.oe-hyps .oe-keuze.af{opacity:.6;text-decoration:line-through}.oe-hst{font-weight:600;margin-left:4px}' +
+    '.oe-gt{position:absolute;transform:translate(-50%,-50%);list-style:none}' +
+    '.oe-gt label{display:flex;align-items:center;gap:6px}.oe-gtnr{display:none;color:var(--oe-zacht);font-size:14.5px;min-width:6.5em}' +
+    '.oe-gt .oe-in{min-height:34px;padding:4px 6px;font:600 15px/1 "IBM Plex Mono",monospace;border-radius:8px}' +
+    '.oe-gt.goed .oe-in{border-color:var(--oe-goed);box-shadow:0 0 0 1px var(--oe-goed)}.oe-gt.fout .oe-in{border-color:var(--oe-fout);box-shadow:0 0 0 1px var(--oe-fout)}' +
     '.oe-terug li.half b::before{content:"~ ";color:var(--oe-goud)}' +
-    '.oe-stamboom.smal .oe-vakken{display:grid;gap:8px;margin-top:10px}.oe-stamboom.smal .oe-gt{position:static;transform:none}.oe-stamboom.smal .oe-gtnr{display:inline}.oe-stamboom.smal .oe-gtnot{position:static;transform:none;margin:0}' +
+    '.oe-stamboom.smal .oe-vakken{display:grid;gap:8px;margin-top:10px}.oe-stamboom.smal .oe-gt{position:static;transform:none}.oe-stamboom.smal .oe-gtnr{display:inline}' +
     /* smal: vakjes als genummerde lijst onder de tekening */
     '.oe-schema.smal .oe-teken svg .nrbol{display:inline}' +
     '.oe-schema.smal .oe-vakken{display:grid;gap:8px}' +
@@ -830,125 +836,285 @@
     toonStap(0);
   }
 
-  /* ---------- stamboom: per persoon alle mogelijke genotypen aanzetten, controleren of het kan ---------- */
-  // personen: {nr, naam, x, y, ziek, ouders:[nr,nr]?}; x/y = midden van de knoppenrij in de tekening.
-  // erfgang 'recessief' (ziek = aa) of 'dominant' (ziek = minstens één A). Autosomaal.
-  // eerst: optionele vragen {vraag, keuzes[], antwoord: index, uitleg} die goed moeten zijn voordat de genotypen opengaan.
-  var GT = ['AA', 'Aa', 'aa'];
-  function bouwStamboom(o, doos) {
-    var W = o.breed || 640, H = o.hoog || 400, dom = o.erfgang === 'dominant';
-    var P = o.personen, idx = {}; P.forEach(function (p, i) { idx[p.nr] = i; });
-    function past(p, g) { var ziek = dom ? g !== 'aa' : g === 'aa'; return ziek === !!p.ziek; }
-    function kind(g1, g2, g) { var z = g.split('').sort().join(''); for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) if ([g1[i], g2[j]].sort().join('') === z) return true; return false; }
-    var alle = [], g = new Array(P.length);
-    (function zoek(i) {
-      if (i === P.length) { alle.push(g.slice()); return; }
-      var p = P[i];
-      GT.forEach(function (x) {
-        if (!past(p, x)) return;
-        if (p.ouders) { var a = idx[p.ouders[0]], b = idx[p.ouders[1]]; if (!kind(g[a], g[b], x)) return; }
-        g[i] = x; zoek(i + 1);
-      });
-    })(0);
-    var mogelijk = P.map(function (p, i) { var s = {}; alle.forEach(function (a) { s[a[i]] = 1; }); return GT.filter(function (x) { return s[x]; }); });
-    function naam(i) { return P[i].naam || ('Persoon ' + P[i].nr); }
-    function klein(t) { return t.replace(/^Persoon/, 'persoon'); }
-    function waarom(i, x) {
-      var p = P[i];
-      if (!past(p, x)) return p.ziek ? (dom ? klein(naam(i)) + ' is ziek, dus heeft minstens één A.' : klein(naam(i)) + ' is ziek, dus aa.') : (dom ? klein(naam(i)) + ' is gezond, dus aa.' : klein(naam(i)) + ' is gezond, dus heeft minstens één A.');
-      if (p.ouders) {
-        var a = idx[p.ouders[0]], b = idx[p.ouders[1]];
-        var ok = mogelijk[a].some(function (u) { return mogelijk[b].some(function (v) { return kind(u, v, x); }); });
-        if (!ok) return 'dat kan niet uit de ouders (' + mogelijk[a].join(' of ') + ' × ' + mogelijk[b].join(' of ') + ') komen.';
-      }
-      var kids = P.map(function (q, j) { return j; }).filter(function (j) { return P[j].ouders && P[j].ouders.indexOf(p.nr) >= 0; });
-      var niet = kids.filter(function (j) {
-        var partner = idx[P[j].ouders[0] === p.nr ? P[j].ouders[1] : P[j].ouders[0]];
-        return !mogelijk[partner].some(function (y) { return GT.some(function (z) { return past(P[j], z) && kind(x, y, z); }); });
-      });
-      if (niet.length) return 'dan kan ' + niet.map(function (j) { return klein(naam(j)); }).join(' en ') + ' niet ontstaan' + (niet.length === 1 && P[niet[0]].ziek && !dom ? ' (die is ziek, dus aa)' : '') + '.';
-      return 'dat past niet bij de rest van de stamboom.';
+  /* ---------- stamboom ----------
+     modus 'bewijs'    : één stamboom met vragen (dominant/recessief, autosomaal/X); leerling kiest de conclusie en klikt de personen die het bewijzen
+     modus 'reeks'     : meerdere kleine stambomen (items), elk met één vraag
+     modus 'hypothese' : leerling kiest een hypothese (AD, AR, XD, XR), vult genotypen in en verklaart hypothesen ongeldig
+     personen: {nr, sekse 'm'|'v', ziek, x, gen, ouders:[nr,nr]?}; optioneel paren [[nr,nr]] en vraagkind {ouders:[nr,nr], x}.
+     De pagina rekent zelf uit welke erfgangen passen en of een gekozen groep personen iets bewijst. */
+  var ERFNAAM = { AD: 'autosomaal dominant', AR: 'autosomaal recessief', XD: 'X-chromosomaal dominant', XR: 'X-chromosomaal recessief' };
+  function gtOpties(erf, sekse) { return erf[0] === 'X' && sekse === 'm' ? ['A', 'a'] : ['AA', 'Aa', 'aa']; }
+  function gtTekst(erf, g) {
+    if (erf[0] !== 'X') return g;
+    var x = function (c) { return 'X' + (c === 'A' ? 'ᴬ' : 'ᵃ'); };
+    return g.length === 1 ? x(g) + 'Y' : x(g[0]) + x(g[1]);
+  }
+  function isZiek(erf, g) { var heeft = g.indexOf('A') >= 0; return erf[1] === 'D' ? heeft : !heeft; }
+  function paar(a, b) { return [a, b].sort().join(''); }
+  function kindKan(erf, gv, gm, gk, sekse) {
+    var i, j;
+    if (erf[0] === 'X') {
+      if (sekse === 'm') return gk.length === 1 && gm.indexOf(gk) >= 0;
+      for (j = 0; j < gm.length; j++) if (paar(gv, gm[j]) === gk) return true;
+      return false;
     }
+    for (i = 0; i < 2; i++) for (j = 0; j < 2; j++) if (paar(gv[i], gm[j]) === gk) return true;
+    return false;
+  }
+  // deelstamboom: alleen personen in 'kies' (alle als null); een ouder buiten de keuze wordt een vrije persoon
+  function maakNet(P, kies) {
+    var in_ = function (nr) { return !kies || kies.indexOf(nr) >= 0; };
+    var net = [], idx = {}, sekse = {};
+    P.forEach(function (p) { sekse[p.nr] = p.sekse; });
+    P.forEach(function (p) { if (in_(p.nr)) { idx[p.nr] = net.length; net.push({ nr: p.nr, sekse: p.sekse, ziek: p.ziek, ouders: null }); } });
+    P.forEach(function (p) {
+      if (!in_(p.nr) || !p.ouders) return;
+      var o = p.ouders.filter(in_); if (!o.length) return;
+      var paren = p.ouders.map(function (nr) {
+        if (in_(nr)) return idx[nr];
+        var key = 'vrij-' + nr; if (idx[key] == null) { idx[key] = net.length; net.push({ nr: key, sekse: sekse[nr], ziek: null, ouders: null }); }
+        return idx[key];
+      });
+      net[idx[p.nr]].ouders = paren;
+    });
+    // volgorde: ouders voor kinderen
+    var orde = [], gehad = {};
+    while (orde.length < net.length) {
+      var voor = orde.length;
+      net.forEach(function (q, i) { if (gehad[i]) return; if (!q.ouders || q.ouders.every(function (k) { return gehad[k]; })) { gehad[i] = 1; orde.push(i); } });
+      if (orde.length === voor) break;
+    }
+    return { net: net, orde: orde };
+  }
+  function past(erf, N, vast) { // bestaat er een invulling? vast: {index: genotype}
+    var g = new Array(N.net.length);
+    function zoek(k) {
+      if (k === N.orde.length) return true;
+      var i = N.orde[k], q = N.net[i];
+      var opties = vast && vast[i] ? [vast[i]] : gtOpties(erf, q.sekse);
+      for (var t = 0; t < opties.length; t++) {
+        var x = opties[t];
+        if (q.ziek !== null && q.ziek !== undefined && isZiek(erf, x) !== !!q.ziek) continue;
+        if (q.ouders) {
+          var a = N.net[q.ouders[0]], v = a.sekse === 'm' ? q.ouders[0] : q.ouders[1], m = v === q.ouders[0] ? q.ouders[1] : q.ouders[0];
+          if (!kindKan(erf, g[v], g[m], x, q.sekse)) continue;
+        }
+        g[i] = x; if (zoek(k + 1)) return true;
+      }
+      return false;
+    }
+    return zoek(0);
+  }
+  function welke(erfs, P, kies) { var N = maakNet(P, kies); return erfs.filter(function (e) { return past(e, N); }); }
 
-    var wrap = el('div', 'oe-schema oe-stamboom');
-    var teken = el('div', 'oe-teken');
-    teken.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(o.alt || o.titel) + '">' + o.svg + '</svg>';
-    var lijst = el('ul', 'oe-vakken');
-    P.forEach(function (p, i) {
-      var li = el('li', 'oe-gt'); li.dataset.i = i;
-      li.style.left = (100 * p.x / W) + '%'; li.style.top = (100 * p.y / H) + '%';
-      li.innerHTML = '<span class="oe-gtnr">' + esc(naam(i)) + '</span><span class="oe-gtknop" role="group" aria-label="Mogelijke genotypen van ' + esc(naam(i)) + '">' +
-        GT.map(function (x) { return '<button type="button" class="oe-gk" data-g="' + x + '" aria-pressed="false">' + x + '</button>'; }).join('') + '</span><span class="oe-gtnot" aria-live="polite"></span>';
+  // tekening
+  function tekenStamboom(st, opt) {
+    opt = opt || {};
+    var P = st.personen, dy = opt.dy || 130, top = 40;
+    var Y = function (gen) { return top + (gen - 1) * dy; };
+    var pos = {}; P.forEach(function (p) { pos[p.nr] = p; });
+    var maxX = 0, maxG = 1; P.forEach(function (p) { maxX = Math.max(maxX, p.x); maxG = Math.max(maxG, p.gen); });
+    if (st.vraagkind) maxG = Math.max(maxG, pos[st.vraagkind.ouders[0]].gen + 1);
+    var W = st.breed || maxX + 70, H = st.hoog || Y(maxG) + (opt.extra || 60);
+    var s = [], gezinnen = {};
+    P.forEach(function (p) { if (p.ouders) { var k = p.ouders.slice().sort().join('|'); (gezinnen[k] = gezinnen[k] || { ouders: p.ouders, kids: [] }).kids.push(p); } });
+    (st.paren || []).forEach(function (pr) { var k = pr.slice().sort().join('|'); gezinnen[k] = gezinnen[k] || { ouders: pr, kids: [] }; });
+    if (st.vraagkind) { var kk = st.vraagkind.ouders.slice().sort().join('|'); gezinnen[kk] = gezinnen[kk] || { ouders: st.vraagkind.ouders, kids: [] }; gezinnen[kk].vraag = st.vraagkind; }
+    Object.keys(gezinnen).forEach(function (k) {
+      var gz = gezinnen[k], a = pos[gz.ouders[0]], b = pos[gz.ouders[1]], l = a.x < b.x ? a : b, r = l === a ? b : a, y = Y(l.gen);
+      s.push('<line x1="' + (l.x + 19) + '" y1="' + y + '" x2="' + (r.x - 19) + '" y2="' + y + '" stroke-width="2"/>');
+      var kx = gz.kids.map(function (c) { return c.x; }); if (gz.vraag) kx.push(gz.vraag.x);
+      if (!kx.length) return;
+      var mid = (l.x + r.x) / 2, bar = y + dy * (opt.bar || 0.5);
+      s.push('<line x1="' + mid + '" y1="' + y + '" x2="' + mid + '" y2="' + bar + '" stroke-width="2"/>');
+      var x0 = Math.min.apply(null, kx.concat(mid)), x1 = Math.max.apply(null, kx.concat(mid));
+      if (x1 > x0) s.push('<line x1="' + x0 + '" y1="' + bar + '" x2="' + x1 + '" y2="' + bar + '" stroke-width="2"/>');
+      kx.forEach(function (x) { s.push('<line x1="' + x + '" y1="' + bar + '" x2="' + x + '" y2="' + (Y(l.gen + 1) - 19) + '" stroke-width="2"/>'); });
+      if (gz.vraag) { var yv = Y(l.gen + 1), xv = gz.vraag.x; s.push('<path d="M' + xv + ' ' + (yv - 19) + ' L' + (xv + 19) + ' ' + yv + ' L' + xv + ' ' + (yv + 19) + ' L' + (xv - 19) + ' ' + yv + ' Z" stroke-width="2.5" stroke-dasharray="4 4"/><text x="' + xv + '" y="' + (yv + 6) + '" text-anchor="middle" style="font-size:16px">?</text>'); }
+    });
+    P.forEach(function (p) {
+      var x = p.x, y = Y(p.gen), vul = p.ziek ? ' class="vul"' : '';
+      var sym = p.sekse === 'm' ? '<rect x="' + (x - 18) + '" y="' + (y - 18) + '" width="36" height="36" rx="3" stroke-width="2.5"' + vul + '/>' : '<circle cx="' + x + '" cy="' + y + '" r="19" stroke-width="2.5"' + vul + '/>';
+      if (p.ziek) sym += p.sekse === 'm' ? '<rect x="' + (x - 18) + '" y="' + (y - 18) + '" width="36" height="36" rx="3" stroke-width="2.5"/>' : '<circle cx="' + x + '" cy="' + y + '" r="19" stroke-width="2.5"/>';
+      var halo = p.sekse === 'm' ? '<rect class="halo" x="' + (x - 25) + '" y="' + (y - 25) + '" width="50" height="50" rx="6"/>' : '<circle class="halo" cx="' + x + '" cy="' + y + '" r="26"/>';
+      var klik = opt.klik ? ' class="pers" data-nr="' + esc(p.nr) + '" tabindex="0" role="button" aria-pressed="false" aria-label="Persoon ' + esc(p.nr) + (p.ziek ? ', ziek' : ', gezond') + '"' : ' class="pers"';
+      s.push('<g' + klik + '>' + halo + '<rect x="' + (x - 30) + '" y="' + (y - 30) + '" width="60" height="60" fill="transparent" stroke="none"/>' + sym + '<text x="' + x + '" y="' + (y + 40) + '" text-anchor="middle" style="font-size:14px">' + esc(p.naam || p.nr) + '</text></g>');
+    });
+    var t = el('div', 'oe-teken oe-stamteken');
+    if (opt.smal) t.style.maxWidth = opt.smal + 'px';
+    t.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Stamboom">' + s.join('') + '</svg>';
+    t._W = W; t._H = H; t._Y = Y;
+    return t;
+  }
+  function opsom(nrs) { return nrs.length === 1 ? 'persoon ' + nrs[0] : 'personen ' + nrs.slice(0, -1).join(', ') + ' en ' + nrs[nrs.length - 1]; }
+  function legenda() { return el('p', 'oe-legenda', '<span class="oe-lg-m"></span> man <span class="oe-lg-v"></span> vrouw <span class="oe-lg-z"></span> ziek'); }
+  function kiesbaar(teken, opNa) {
+    var svg = teken.querySelector('svg');
+    function zet(g) { g.setAttribute('aria-pressed', g.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); if (opNa) opNa(); }
+    svg.addEventListener('click', function (e) { var g = e.target.closest('.pers[data-nr]'); if (g && !teken.classList.contains('dicht')) zet(g); });
+    svg.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.pers[data-nr]')) { e.preventDefault(); zet(e.target); } });
+    return {
+      gekozen: function () { return Array.prototype.slice.call(svg.querySelectorAll('.pers[aria-pressed="true"]')).map(function (g) { return g.dataset.nr; }); },
+      wis: function () { svg.querySelectorAll('.pers[data-nr]').forEach(function (g) { g.setAttribute('aria-pressed', 'false'); }); },
+      markeer: function (nrs) { svg.querySelectorAll('.pers[data-nr]').forEach(function (g) { g.classList.toggle('markeer', nrs.indexOf(g.dataset.nr) >= 0); }); }
+    };
+  }
+  var VRAAGTYPE = {
+    dom: { vraag: 'Is de aandoening dominant of recessief?', keuzes: [['dominant', ['AD', 'XD']], ['recessief', ['AR', 'XR']], ['niet te bepalen', null]] },
+    xa: { vraag: 'Ligt het gen op een autosoom of op het X-chromosoom?', keuzes: [['autosomaal', ['AD', 'AR']], ['X-chromosomaal', ['XD', 'XR']], ['niet te bepalen', null]] }
+  };
+  // één vraag bij een stamboom: conclusie kiezen + bewijs aanklikken
+  function bewijsVraag(doos, P, q, kiezer, klaar) {
+    var T = VRAAGTYPE[q.type], binnen = q.binnen || ['AD', 'AR', 'XD', 'XR'];
+    var keuzes = q.zonderOnbepaald ? T.keuzes.slice(0, 2) : T.keuzes;
+    var passend = welke(binnen, P, null);
+    var juist = -1; keuzes.forEach(function (k, i) { if (k[1] && passend.every(function (e) { return k[1].indexOf(e) >= 0; })) juist = i; });
+    if (juist < 0) juist = keuzes.length - 1;
+    var li = el('div', 'oe-vraag oe-bewijs');
+    li.appendChild(el('p', 'oe-vraagtekst', esc(q.vraag || T.vraag)));
+    var rij = el('div', 'oe-invulrij oe-keuzes');
+    keuzes.forEach(function (k, i) { var b = el('button', 'oe-keuze', esc(k[0])); b.type = 'button'; b.dataset.j = i; b.setAttribute('aria-pressed', 'false'); rij.appendChild(b); });
+    li.appendChild(rij);
+    li.appendChild(el('p', 'oe-hulp oe-klikhulp', 'Klik in de stamboom de personen aan die je conclusie bewijzen. Klik nog eens om iemand weg te halen.'));
+    var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="wis">Wis aangeklikte personen</button>');
+    li.appendChild(kn);
+    var uit = el('div', 'oe-uitleg'); uit.hidden = true; li.appendChild(uit);
+    doos.appendChild(li);
+    var keuze = -1;
+    rij.addEventListener('click', function (e) { var b = e.target.closest('.oe-keuze'); if (!b || li.classList.contains('goed')) return; keuze = +b.dataset.j; rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); uit.hidden = true; li.classList.remove('fout'); });
+    function zeg(st, html) { uit.innerHTML = html; uit.hidden = false; li.classList.remove('goed', 'fout'); if (st) li.classList.add(st); }
+    function bewijst(kies, set) { if (!kies.length) return false; var w = welke(binnen, P, kies); return w.every(function (e) { return set.indexOf(e) >= 0; }); }
+    kn.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a]'); if (!a) return;
+      if (a.dataset.a === 'wis') { kiezer.wis(); kiezer.markeer([]); uit.hidden = true; return; }
+      kiezer.markeer([]);
+      if (keuze < 0) return zeg('fout', '<em>Kies eerst een conclusie.</em>');
+      var k = keuzes[keuze], kies = kiezer.gekozen();
+      if (keuze !== juist) {
+        if (!keuzes[juist][1]) return zeg('fout', '<em>Dat is hier niet te bewijzen.</em> Deze stamboom past bij ' + esc(passend.map(function (e) { return ERFNAAM[e]; }).join(', ')) + '. Zoek je bewijs nog eens kritisch na.');
+        if (!k[1]) return zeg('fout', '<em>Het is wél te bepalen.</em> ' + esc(q.tip || 'Zoek een gezin waarin het kind iets laat zien wat de ouders niet hebben.'));
+        return zeg('fout', '<em>Dat klopt niet.</em> ' + esc(q.tip || 'Kijk naar ouders en hun kinderen.'));
+      }
+      if (!k[1]) { zeg('goed', '<em>Klopt.</em> ' + esc(q.uitleg || '')); kn.remove(); rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.disabled = true; }); if (klaar) klaar(); return; }
+      if (!kies.length) return zeg('fout', '<em>De conclusie klopt.</em> Klik nu in de stamboom de personen aan die het bewijzen.');
+      if (!bewijst(kies, k[1])) {
+        var alt = welke(binnen, P, kies).filter(function (e) { return k[1].indexOf(e) < 0; });
+        return zeg('fout', '<em>De conclusie klopt, maar deze personen bewijzen het nog niet.</em> Bij ' + esc(opsom(kies)) + ' kan het ook ' + esc(alt.map(function (e) { return ERFNAAM[e]; }).join(' of ')) + ' zijn.');
+      }
+      var minder = kies.length > 1 && kies.some(function (nr) { return bewijst(kies.filter(function (x) { return x !== nr; }), k[1]); });
+      zeg('goed', '<em>Klopt, en ' + esc(opsom(kies)) + (kies.length === 1 ? ' bewijst' : ' bewijzen') + ' het.</em> ' + esc(q.uitleg || '') + (minder ? ' (Het kan ook met minder personen.)' : ''));
+      kiezer.markeer(kies); kn.remove(); rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.disabled = true; });
+      if (klaar) klaar();
+    });
+    return li;
+  }
+  function bouwStamboom(o, doos) {
+    if (o.modus === 'reeks') return bouwStamReeks(o, doos);
+    if (o.modus === 'hypothese') return bouwStamHyp(o, doos);
+    var teken = tekenStamboom(o, { klik: true });
+    doos.appendChild(teken); doos.appendChild(legenda());
+    var kiezer = kiesbaar(teken);
+    var lijst = el('div', 'oe-vragen'); doos.appendChild(lijst);
+    var melding = el('p', 'oe-melding'); doos.appendChild(melding);
+    var k = 0;
+    (function volgende() {
+      if (k >= o.vragen.length) { meld(melding, 'Alles bewezen!', 'goed'); return; }
+      kiezer.wis(); kiezer.markeer([]);
+      bewijsVraag(lijst, o.personen, o.vragen[k++], kiezer, volgende);
+    })();
+  }
+  function bouwStamReeks(o, doos) {
+    var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
+    var goed = 0;
+    o.items.forEach(function (it, n) {
+      var blok = el('div', 'oe-stamitem');
+      blok.appendChild(el('h4', 'oe-stamkop', 'Stamboom ' + (n + 1) + (it.bekend ? ' · ' + esc(it.bekend) : '')));
+      var teken = tekenStamboom(it, { klik: true, dy: 110, extra: 55, smal: 420 });
+      blok.appendChild(teken);
+      var kiezer = kiesbaar(teken);
+      bewijsVraag(blok, it.personen, it, kiezer, function () { goed++; meld(melding, goed + ' van ' + o.items.length + ' stambomen goed' + (goed === o.items.length ? '. Knap gedaan!' : '.'), goed === o.items.length ? 'goed' : 'half'); });
+      doos.appendChild(blok);
+    });
+    doos.appendChild(legenda());
+    doos.appendChild(melding);
+  }
+  function bouwStamHyp(o, doos) {
+    var P = o.personen, erfs = o.erfgangen || ['AD', 'AR', 'XD', 'XR'];
+    var N = maakNet(P, null), idx = {}; N.net.forEach(function (q, i) { idx[q.nr] = i; });
+    var echt = erfs.filter(function (e) { return past(e, N); });
+    var status = {}, invul = {}, hyp = null;
+    var kies = el('div', 'oe-invulrij oe-keuzes oe-hyps');
+    erfs.forEach(function (e) { var b = el('button', 'oe-keuze', esc(ERFNAAM[e]) + '<span class="oe-hst"></span>'); b.type = 'button'; b.dataset.e = e; b.setAttribute('aria-pressed', 'false'); kies.appendChild(b); });
+    doos.appendChild(el('p', 'oe-opdracht', '<b>Kies een hypothese om te toetsen:</b>'));
+    doos.appendChild(kies);
+    var teken = tekenStamboom(o, { klik: false, dy: 150, extra: 90, bar: 0.66 });
+    var wrap = el('div', 'oe-schema oe-stamboom'); wrap.appendChild(teken); doos.appendChild(wrap); doos.appendChild(legenda());
+    var lijst = el('ul', 'oe-vakken'); teken.appendChild(lijst);
+    P.forEach(function (p) {
+      var li = el('li', 'oe-gt'); li.dataset.nr = p.nr;
+      li.style.left = (100 * p.x / teken._W) + '%'; li.style.top = (100 * (teken._Y(p.gen) + 62) / teken._H) + '%';
+      li.innerHTML = '<label><span class="oe-gtnr">Persoon ' + esc(p.nr) + '</span><select class="oe-in" disabled aria-label="Genotype van persoon ' + esc(p.nr) + '"><option value="">?</option></select></label>';
       lijst.appendChild(li);
     });
-    teken.appendChild(lijst); wrap.appendChild(teken);
-
-    // eerst aantonen (bijv. dominant of recessief)
-    var eerst = o.eerst || [], stap = 0;
-    var vooraf = el('ol', 'oe-vragen'); 
-    var hulp = el('p', 'oe-hulp', 'Zet bij elke persoon álle genotypen aan die kunnen. Kunnen er twee, zet dan allebei aan. Je kunt ook eerst een paar personen doen en dan op ‘Kan dit?’ klikken.');
-    doos.appendChild(wrap);
-    if (eerst.length) doos.appendChild(vooraf);
-    doos.appendChild(hulp);
-    var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Kan dit?</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
-    var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite'); k.appendChild(melding); doos.appendChild(k);
+    var maat = function () { var b = wrap.getBoundingClientRect().width; if (b) wrap.classList.toggle('smal', b < 560); var sm = wrap.classList.contains('smal'); if (sm && lijst.parentNode !== wrap) wrap.appendChild(lijst); if (!sm && lijst.parentNode !== teken) teken.appendChild(lijst); };
+    if (window.ResizeObserver) new ResizeObserver(maat).observe(wrap); maat();
+    var kn = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer mijn invulling</button><button type="button" class="oe-knop" data-a="kanniet">Deze hypothese kan niet</button>');
+    var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite'); kn.appendChild(melding); doos.appendChild(kn);
     var terug = el('ul', 'oe-terug'); doos.appendChild(terug);
-    function open(aan) { wrap.classList.toggle('dicht', !aan); hulp.hidden = k.hidden = !aan; lijst.querySelectorAll('.oe-gk').forEach(function (b) { b.disabled = !aan; }); }
-    function toonVraag() {
-      if (stap >= eerst.length) { open(true); return; }
-      var q = eerst[stap], li = el('li', 'oe-vraag');
-      li.appendChild(el('p', 'oe-vraagtekst', esc(q.vraag)));
-      var rij = el('div', 'oe-invulrij oe-keuzes');
-      q.keuzes.forEach(function (c, j) { var b = el('button', 'oe-keuze', esc(c)); b.type = 'button'; b.dataset.j = j; rij.appendChild(b); });
-      li.appendChild(rij); vooraf.appendChild(li);
-      rij.addEventListener('click', function (e) {
-        var b = e.target.closest('.oe-keuze'); if (!b || li.classList.contains('goed')) return;
-        var u = li.querySelector('.oe-uitleg'); if (u) u.remove();
-        rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-        if (+b.dataset.j === q.antwoord) {
-          li.classList.remove('fout'); li.classList.add('goed');
-          rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.disabled = true; });
-          li.appendChild(el('div', 'oe-uitleg', '<em>Goed.</em> ' + esc(q.uitleg || '')));
-          stap++; toonVraag();
-        } else {
-          li.classList.add('fout');
-          li.appendChild(el('div', 'oe-uitleg', '<em>Nog niet.</em> ' + esc(q.tip || 'Kijk nog eens goed naar de stamboom.')));
-        }
-      });
-    }
-    open(!eerst.length); toonVraag();
-
-    var maat = function () { var b = wrap.getBoundingClientRect().width; if (b) wrap.classList.toggle('smal', b < 560); var smal = wrap.classList.contains('smal'); if (smal && lijst.parentNode !== wrap) wrap.appendChild(lijst); if (!smal && lijst.parentNode !== teken) teken.appendChild(lijst); };
-    if (window.ResizeObserver) new ResizeObserver(maat).observe(wrap); else window.addEventListener('resize', maat);
-    maat();
+    var eind = el('p', 'oe-melding'); doos.appendChild(eind);
     function items() { return Array.prototype.slice.call(lijst.children); }
-    function gekozen(li) { return Array.prototype.slice.call(li.querySelectorAll('.oe-gk[aria-pressed="true"]')).map(function (b) { return b.dataset.g; }); }
-    function notatie(li) { var c = gekozen(li); li.querySelector('.oe-gtnot').textContent = c.join() === 'AA,Aa' ? '= A_' : ''; }
-    function wis() { meld(melding, ''); terug.innerHTML = ''; items().forEach(function (li) { li.classList.remove('goed', 'half', 'fout'); }); }
-    lijst.addEventListener('click', function (e) {
-      var b = e.target.closest('.oe-gk'); if (!b || b.disabled) return;
-      wis(); b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); notatie(b.closest('.oe-gt'));
+    function bewaarInvul() { if (!hyp) return; invul[hyp] = {}; items().forEach(function (li) { invul[hyp][li.dataset.nr] = li.querySelector('select').value; }); }
+    function wis() { meld(melding, ''); terug.innerHTML = ''; items().forEach(function (li) { li.classList.remove('goed', 'fout', 'half'); }); }
+    function toonStatus() {
+      kies.querySelectorAll('.oe-keuze').forEach(function (b) { var s = status[b.dataset.e]; b.querySelector('.oe-hst').textContent = s === 'kan' ? ' ✓ kan' : s === 'niet' ? ' ✗ valt af' : ''; b.classList.toggle('af', s === 'niet'); });
+      var open = erfs.filter(function (e) { return !status[e]; });
+      if (!open.length) meld(eind, 'Klaar! Deze stamboom past alleen bij: ' + echt.map(function (e) { return ERFNAAM[e]; }).join(' en ') + '.', 'goed');
+      else meld(eind, (erfs.length - open.length) + ' van ' + erfs.length + ' hypothesen getoetst.', '');
+    }
+    kies.addEventListener('click', function (e) {
+      var b = e.target.closest('.oe-keuze'); if (!b) return;
+      bewaarInvul(); wis(); hyp = b.dataset.e;
+      kies.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      items().forEach(function (li) {
+        var p = P.filter(function (q) { return q.nr === li.dataset.nr; })[0], sel = li.querySelector('select'), oud = (invul[hyp] || {})[p.nr] || '';
+        sel.innerHTML = '<option value="">?</option>' + gtOpties(hyp, p.sekse).map(function (g) { return '<option value="' + g + '"' + (g === oud ? ' selected' : '') + '>' + gtTekst(hyp, g) + '</option>'; }).join('');
+        sel.disabled = status[hyp] === 'niet';
+      });
     });
-    k.addEventListener('click', function (e) {
+    lijst.addEventListener('change', wis);
+    function waarom(nr) { var p = P.filter(function (q) { return q.nr === nr; })[0]; return 'persoon ' + nr + ' is ' + (p.ziek ? 'ziek' : 'gezond') + ', dat past niet bij dit genotype bij ' + ERFNAAM[hyp] + '.'; }
+    kn.addEventListener('click', function (e) {
       var a = e.target.closest('[data-a]'); if (!a) return;
       wis();
-      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-gk').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); }); items().forEach(notatie); return; }
-      var leeg = 0, goed = 0, half = 0, fout = 0;
-      items().forEach(function (li, i) {
-        var c = gekozen(li), m = mogelijk[i], st, tekst;
-        if (!c.length) { leeg++; return; }
-        var kanNiet = c.filter(function (x) { return m.indexOf(x) < 0; });
-        var mist = m.filter(function (x) { return c.indexOf(x) < 0; });
-        if (kanNiet.length) { st = 'fout'; fout++; tekst = kanNiet.join(' en ') + ' kan niet: ' + waarom(i, kanNiet[0]); }
-        else if (mist.length) { st = 'half'; half++; tekst = c.join(' of ') + ' kan, maar ' + mist.join(' en ') + ' kan ook. Zet ' + (mist.length === 1 ? 'die' : 'die') + ' er ook bij.'; }
-        else { st = 'goed'; goed++; tekst = m.length > 1 ? m.join(' of ') + ': klopt, meer weet je niet' + (m.join() === 'AA,Aa' ? ' (genoteerd als A_).' : '.') : m[0] + ': klopt, dat is zeker.'; }
-        li.classList.add(st);
-        terug.appendChild(el('li', st, '<b>' + esc(naam(i)) + '</b> ' + esc(tekst)));
+      if (!hyp) return meld(melding, 'Kies eerst een hypothese.', 'half');
+      if (a.dataset.a === 'kanniet') {
+        if (echt.indexOf(hyp) >= 0) return meld(melding, 'Deze hypothese kan wél. Probeer een invulling te vinden waarbij alles klopt.', 'half');
+        // zoek een gezin (ouders + één kind) dat het al onmogelijk maakt
+        var gezin = null;
+        P.some(function (p) { if (!p.ouders) return false; var sub = p.ouders.concat([p.nr]); if (!past(hyp, maakNet(P, sub))) { gezin = sub; return true; } return false; });
+        status[hyp] = 'niet'; toonStatus(); items().forEach(function (li) { li.querySelector('select').disabled = true; });
+        meld(melding, 'Klopt, ' + ERFNAAM[hyp] + ' valt af.', 'goed');
+        terug.appendChild(el('li', 'goed', gezin ? '<b>Waar loopt het vast?</b> Bij ' + esc(opsom(gezin)) + ': met ' + esc(ERFNAAM[hyp]) + ' kan persoon ' + esc(gezin[2]) + ' (' + (P.filter(function (q) { return q.nr === gezin[2]; })[0].ziek ? 'ziek' : 'gezond') + ') geen kind zijn van deze ouders.' : '<b>Waar loopt het vast?</b> Geen enkele invulling past bij de hele stamboom.'));
+        return;
+      }
+      var g = {}, leeg = 0, fout = 0;
+      items().forEach(function (li) { var v = li.querySelector('select').value; if (v) g[li.dataset.nr] = v; else leeg++; });
+      items().forEach(function (li) {
+        var nr = li.dataset.nr, v = g[nr]; if (!v) return;
+        var p = P.filter(function (q) { return q.nr === nr; })[0], tekst = null;
+        if (isZiek(hyp, v) !== !!p.ziek) tekst = waarom(nr);
+        else if (p.ouders && g[p.ouders[0]] && g[p.ouders[1]]) {
+          var va = P.filter(function (q) { return q.nr === p.ouders[0]; })[0].sekse === 'm' ? p.ouders[0] : p.ouders[1], mo = va === p.ouders[0] ? p.ouders[1] : p.ouders[0];
+          if (!kindKan(hyp, g[va], g[mo], v, p.sekse)) tekst = gtTekst(hyp, v) + ' kan niet uit ' + gtTekst(hyp, g[va]) + ' × ' + gtTekst(hyp, g[mo]) + ' (persoon ' + va + ' en ' + mo + ').';
+        }
+        if (tekst) { fout++; li.classList.add('fout'); terug.appendChild(el('li', 'fout', '<b>Persoon ' + esc(nr) + '</b> ' + esc(tekst))); } else li.classList.add('goed');
       });
-      if (!leeg && goed === P.length) meld(melding, 'Klopt helemaal: bij iedereen staan precies de genotypen die kunnen!', 'goed');
-      else if (fout) meld(melding, 'Dit kan nog niet. Kijk naar de rode personen.', 'half');
-      else meld(melding, 'Wat je hebt aangezet kan.' + (half ? ' Bij ' + half + (half === 1 ? ' persoon' : ' personen') + ' kan er nog meer.' : '') + (leeg ? ' Nog ' + leeg + ' leeg.' : ''), 'half');
+      if (fout) return meld(melding, 'Zo kan het niet. Pas de rode personen aan, of besluit dat de hypothese niet kan.', 'half');
+      if (leeg) return meld(melding, 'Tot nu toe klopt het. Nog ' + leeg + ' personen leeg.', 'half');
+      status[hyp] = 'kan'; toonStatus();
+      meld(melding, 'Alles klopt: ' + ERFNAAM[hyp] + ' kan bij deze stamboom.', 'goed');
     });
+    toonStatus();
   }
 
   /* ---------- opbouw ---------- */
