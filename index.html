@@ -215,9 +215,14 @@ body.op-home footer{position:relative;z-index:1}
 :root[data-theme="dark"] .grondset.aan{opacity:.5}
 @keyframes zweef{from{transform:scale(1) translate(0,0)}to{transform:scale(1.04) translate(-12px,-10px)}}
 .grondset svg{width:100%;height:100%;display:block}
-body.grond-vol .vlak{background:color-mix(in srgb,var(--surface) 62%,transparent);-webkit-backdrop-filter:blur(2.5px);backdrop-filter:blur(2.5px)}
-body.grond-vol .vlak>header{background-color:transparent}
-body.grond-vol .tk{background:color-mix(in srgb,var(--bg) 75%,transparent)}
+body[data-kunst="rustig"] .vlak,body[data-kunst="intens"] .vlak{background:color-mix(in srgb,var(--surface) 76%,transparent);-webkit-backdrop-filter:blur(1px);backdrop-filter:blur(1px)}
+body[data-kunst="intens"] .vlak{background:color-mix(in srgb,var(--surface) 80%,transparent);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px)}
+body[data-kunst] .vlak>header{background-color:transparent}
+body[data-kunst="rustig"] .tk,body[data-kunst="intens"] .tk{background:color-mix(in srgb,var(--bg) 80%,transparent)}
+.kunstgrond.intens .grondset.aan{opacity:.85}
+:root[data-theme="dark"] .kunstgrond.intens .grondset.aan{opacity:.9}
+body[data-kunst="intens"] .hero-kort>div{background:color-mix(in srgb,var(--bg) 72%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;padding:28px 32px;max-width:760px}
+#kunstknop[data-stand="intens"]{color:var(--goud-text);border-color:var(--goud)}
 @media (max-width:900px){.grondset.aan{opacity:.28}}
 @media (prefers-reduced-motion:reduce){.grondset{transition:none}.grondset.aan{animation:none}}
 
@@ -438,6 +443,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
       <a href="sessie/" class="nav-sessie">Klas live</a>
     </nav>
     <div class="rechts">
+      <button class="icoon" id="kunstknop" type="button"></button>
       <button class="icoon" id="thema" type="button" aria-label="Wissel tussen licht en donker"></button>
     </div>
   </div>
@@ -2426,6 +2432,14 @@ window.__niveau=niveau;
 document.addEventListener('click',e=>{const b=e.target.closest('[data-niveau]');if(!b)return;niveau=window.__niveau=b.dataset.niveau;schrijf('niveau',niveau);render()});
 
 const extraVan=id=>{const x=HOOFDSTUKKEN.extra||{films:[],komt:[]};return{films:x.films.filter(f=>f.thema===id),komt:(x.komt||[]).filter(f=>f.thema===id)}};
+/* knop kunst: rustig → intens → uit */
+const KUNSTICOON={rustig:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c9 0 14-6 14-14C11 5 5 10 5 19z"/><path d="M5 19l8-8"/></svg>',
+  intens:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>',
+  uit:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c9 0 14-6 14-14C11 5 5 10 5 19z" opacity=".45"/><path d="M3 3l18 18"/></svg>'};
+const KUNSTTEKST={rustig:'Kunst: rustig. Klik voor intens',intens:'Kunst: intens. Klik om uit te zetten',uit:'Kunst: uit. Klik om aan te zetten'};
+function kunstKnop(zicht){const b=document.getElementById('kunstknop');if(!b)return;b.innerHTML=KUNSTICOON[kunstStand];b.title=KUNSTTEKST[kunstStand];b.setAttribute('aria-label',KUNSTTEKST[kunstStand]);b.dataset.stand=kunstStand;b.hidden=!zicht}
+document.getElementById('kunstknop').addEventListener('click',()=>{kunstStand=KUNSTSTANDEN[(KUNSTSTANDEN.indexOf(kunstStand)+1)%KUNSTSTANDEN.length];try{localStorage.setItem('kunst',kunstStand)}catch(e){}const y=scrollY;render();scrollTo(0,y)});
+
 function telling(id,kd){
   const h=HOOFDSTUKKEN[id]; if(!h) return '';
   /* onderbouw: alle films staan in één hoofdstuk; tel per kerndoel via 'bij' (films) en 'kerndoel' (tools) */
@@ -2501,52 +2515,72 @@ const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 1
  <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`};
 const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
 /* Kunstzinnige achtergrond op de hoofdpagina: grote, ijle lijntekeningen (geen korrel) */
-/* Kunstzinnige achtergrond: vier eigen bio-art-platen, procedureel getekend (geen korrel) */
-const GROND_VOL=(()=>{const q=new URLSearchParams(location.search).get('grond');try{if(q==='vol'||q==='marge')localStorage.setItem('grond',q)}catch(e){}try{return (q||localStorage.getItem('grond'))==='vol'}catch(e){return q==='vol'}})();
+/* Kunstzinnige achtergrond: vier eigen bio-art-platen, procedureel getekend (geen korrel).
+   Standen (knop naast licht/donker, localStorage 'kunst'): rustig · intens · uit */
+const KUNSTSTANDEN=['rustig','intens','uit'];
+let kunstStand=(()=>{const q=new URLSearchParams(location.search).get('kunst');let v=null;try{v=q||localStorage.getItem('kunst')}catch(e){v=q}return KUNSTSTANDEN.includes(v)?v:'rustig'})();
 const KUNSTPLATEN=(()=>{
   const rnd=seed=>()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646};
-  const f=n=>Math.round(n*10)/10, P=(c,d,w,extra='')=>`<path d="${d}" stroke="var(--${c})" stroke-width="${w}" ${extra}/>`;
-  const C=(c,x,y,r,w,extra='')=>`<circle cx="${f(x)}" cy="${f(y)}" r="${f(r)}" stroke="var(--${c})" stroke-width="${w}" ${extra}/>`;
-  /* 1 · groei: zonnebloemspiraal, varens en zaadjes */
-  const zon=(cx,cy,n,sc,c)=>{let o='';const g=137.508*Math.PI/180;for(let i=1;i<n;i++){const r=sc*Math.sqrt(i),a=i*g;o+=C(i%9===0?'goud':c,cx+r*Math.cos(a),cy+r*Math.sin(a),0.9+Math.sqrt(i)*0.11,.9)}return o};
+  let W=1;
+  const f=n=>Math.round(n*10)/10, P=(c,d,w,extra='')=>`<path d="${d}" stroke="var(--${c})" stroke-width="${f(w*W)}" ${extra}/>`;
+  const C=(c,x,y,r,w,extra='')=>`<circle cx="${f(x)}" cy="${f(y)}" r="${f(r)}" stroke="var(--${c})" stroke-width="${f(w*W)}" ${extra}/>`;
+  const KL=['goud','teal','groen','koraal','paars','oker'];
+  /* kleurwolken voor de intense stand */
+  const wolken=(seed,n)=>{const r=rnd(seed);return `<defs><filter id="wz${seed}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="60"/></filter></defs><g filter="url(#wz${seed})">`+[...Array(n)].map((_,k)=>`<circle cx="${f(r()*1600)}" cy="${f(r()*1000)}" r="${f(120+r()*220)}" fill="var(--${KL[k%KL.length]})" fill-opacity="${f(0.16+r()*0.16)}" stroke="none"/>`).join('')+`</g>`};
+  const vul=(c,o)=>`fill="var(--${c})" fill-opacity="${o}"`;
+  /* 1 · groei */
+  const zon=(cx,cy,n,sc,c,I)=>{let o='';const g=137.508*Math.PI/180;for(let i=1;i<n;i++){const r=sc*Math.sqrt(i),a=i*g;o+=C(i%9===0?'goud':c,cx+r*Math.cos(a),cy+r*Math.sin(a),0.9+Math.sqrt(i)*0.11,.9,I>1&&i%5===0?vul(i%2?'goud':c,.45):'')}return o};
   const varen=(x,y,len,ang,c,diep)=>{let o='',px=x,py=y,a=ang;const st=26;let d=`M${f(x)} ${f(y)}`;
     for(let k=0;k<st;k++){const t=k/st,l=len/st;a+=0.028;px+=l*Math.cos(a);py+=l*Math.sin(a);d+=` L${f(px)} ${f(py)}`;
       const bl=len*0.24*(1-t)*(1-t*0.2);if(bl<6)continue;for(const z of[-1,1]){const ba=a+z*1.05;
         if(diep>0&&len>380) o+=varen(px,py,bl*1.6,ba,c,diep-1);
         else o+=P(c,`M${f(px)} ${f(py)} Q${f(px+bl*0.6*Math.cos(ba-z*0.25))} ${f(py+bl*0.6*Math.sin(ba-z*0.25))} ${f(px+bl*Math.cos(ba))} ${f(py+bl*Math.sin(ba))}`,.8)}}
     return P(c,d,1.3)+o};
-  const plaat1=()=>zon(1300,240,520,10.5,'oker')+zon(260,860,240,7,'oker')+varen(70,1020,620,-1.25,'groen',1)+varen(1560,1060,520,-1.95,'groen',0)+varen(900,1080,360,-1.6,'teal',0)
+  const plaat1=I=>{let o=zon(1300,240,520,10.5,'oker',I)+zon(260,860,240,7,'oker',I)+varen(70,1020,620,-1.25,'groen',1)+varen(1560,1060,520,-1.95,'groen',0)+varen(900,1080,360,-1.6,'teal',0)
     +[...Array(14)].map((_,k)=>{const r=rnd(k+3);const x=420+r()*820,y=60+r()*880;return C('goud',x,y,2+r()*3,1)+P('goud',`M${f(x)} ${f(y)} q${f(10+r()*20)} ${f(-20-r()*30)} ${f(30+r()*30)} ${f(-40-r()*20)}`,.7)}).join('');
-  /* 2 · onder de microscoop: radiolariën en diatomeeën (naar oude natuurplaten) */
-  const radio=(cx,cy,R,k,c,seed)=>{const r=rnd(seed);let o=C(c,cx,cy,R,1.2)+C(c,cx,cy,R*0.62,.9)+C(c,cx,cy,R*0.25,.9);
-    for(let i=0;i<k;i++){const a=i/k*2*Math.PI,a2=a+Math.PI/k;o+=P(c,`M${f(cx+R*Math.cos(a))} ${f(cy+R*Math.sin(a))} L${f(cx+R*(1.55+0.25*(i%2))*Math.cos(a))} ${f(cy+R*(1.55+0.25*(i%2))*Math.sin(a))}`,1);
-      o+=C(c,cx+R*0.81*Math.cos(a2),cy+R*0.81*Math.sin(a2),R*0.13,.8);o+=P(c,`M${f(cx+R*0.25*Math.cos(a))} ${f(cy+R*0.25*Math.sin(a))} L${f(cx+R*0.62*Math.cos(a))} ${f(cy+R*0.62*Math.sin(a))}`,.7)}
+    if(I>1){const r=rnd(77);o=wolken(1,7)+o+zon(760,520,700,13,'koraal',I)+zon(1500,880,300,8,'paars',I)+zon(60,180,260,8,'teal',I)
+      +varen(1200,1100,700,-1.45,'groen',1)+varen(420,-60,520,1.35,'teal',0)+varen(1650,300,480,2.6,'oker',0)
+      +[...Array(40)].map(()=>{const x=r()*1600,y=r()*1000,R=4+r()*14,c=KL[Math.floor(r()*6)];return C(c,x,y,R,1.2,vul(c,.35))}).join('')}
     return o};
-  const diatoom=(cx,cy,L,ang,c)=>{const co=Math.cos(ang),si=Math.sin(ang);const pt=(u,v)=>`${f(cx+u*co-v*si)} ${f(cy+u*si+v*co)}`;
-    let o=P(c,`M${pt(-L,0)} Q${pt(0,-L*0.42)} ${pt(L,0)} Q${pt(0,L*0.42)} ${pt(-L,0)}Z`,1.1)+P(c,`M${pt(-L*0.85,0)} L${pt(L*0.85,0)}`,.8);
+  /* 2 · onder de microscoop */
+  const radio=(cx,cy,R,k,c,seed,I)=>{let o=C(c,cx,cy,R,1.2,I>1?vul(c,.12):'')+C(c,cx,cy,R*0.62,.9)+C(c,cx,cy,R*0.25,.9,I>1?vul(c,.4):'');
+    for(let i=0;i<k;i++){const a=i/k*2*Math.PI,a2=a+Math.PI/k;o+=P(c,`M${f(cx+R*Math.cos(a))} ${f(cy+R*Math.sin(a))} L${f(cx+R*(1.55+0.25*(i%2))*Math.cos(a))} ${f(cy+R*(1.55+0.25*(i%2))*Math.sin(a))}`,1);
+      o+=C(c,cx+R*0.81*Math.cos(a2),cy+R*0.81*Math.sin(a2),R*0.13,.8,I>1&&i%2?vul(c,.5):'');o+=P(c,`M${f(cx+R*0.25*Math.cos(a))} ${f(cy+R*0.25*Math.sin(a))} L${f(cx+R*0.62*Math.cos(a))} ${f(cy+R*0.62*Math.sin(a))}`,.7)}
+    return o};
+  const diatoom=(cx,cy,L,ang,c,I)=>{const co=Math.cos(ang),si=Math.sin(ang);const pt=(u,v)=>`${f(cx+u*co-v*si)} ${f(cy+u*si+v*co)}`;
+    let o=P(c,`M${pt(-L,0)} Q${pt(0,-L*0.42)} ${pt(L,0)} Q${pt(0,L*0.42)} ${pt(-L,0)}Z`,1.1,I>1?vul(c,.18):'')+P(c,`M${pt(-L*0.85,0)} L${pt(L*0.85,0)}`,.8);
     for(let u=-L*0.8;u<=L*0.8;u+=L/9){const h=L*0.2*Math.sqrt(1-(u/L)**2);o+=P(c,`M${pt(u,-h)} L${pt(u,h)}`,.6)}return o};
-  const plaat2=()=>radio(1280,250,95,14,'teal',5)+radio(230,330,62,10,'paars',7)+radio(1440,720,70,12,'koraal',9)+radio(180,880,48,8,'teal',11)+radio(760,90,40,9,'goud',13)+radio(820,930,55,11,'paars',15)
-    +diatoom(470,620,90,0.5,'oker')+diatoom(1080,560,70,-0.7,'groen')+diatoom(1560,380,60,1.2,'oker')+diatoom(80,560,55,-0.2,'groen')+diatoom(1150,960,65,0.3,'teal');
-  /* 3 · netwerk: schimmeldraden en sporen, ook een beetje een brein */
-  const draad=(x,y,a,len,d,c,r)=>{if(d===0||len<8) return C(c,x,y,1.8,.9);const x2=x+len*Math.cos(a),y2=y+len*Math.sin(a);
+  const plaat2=I=>{let o=radio(1280,250,95,14,'teal',5,I)+radio(230,330,62,10,'paars',7,I)+radio(1440,720,70,12,'koraal',9,I)+radio(180,880,48,8,'teal',11,I)+radio(760,90,40,9,'goud',13,I)+radio(820,930,55,11,'paars',15,I)
+    +diatoom(470,620,90,0.5,'oker',I)+diatoom(1080,560,70,-0.7,'groen',I)+diatoom(1560,380,60,1.2,'oker',I)+diatoom(80,560,55,-0.2,'groen',I)+diatoom(1150,960,65,0.3,'teal',I);
+    if(I>1){const r=rnd(31);o=wolken(2,8)+o;for(let k=0;k<26;k++){const x=r()*1600,y=r()*1000,c=KL[k%6];o+=k%3?radio(x,y,18+r()*60,7+Math.floor(r()*10),c,k+40,I):diatoom(x,y,30+r()*70,r()*3,c,I)}}
+    return o};
+  /* 3 · netwerk */
+  const draad=(x,y,a,len,d,c,r,I)=>{if(d===0||len<8) return C(c,x,y,1.8*(I>1?2:1),.9,I>1?vul(c,.6):'');const x2=x+len*Math.cos(a),y2=y+len*Math.sin(a);
     const mx=(x+x2)/2+(r()-0.5)*len*0.3,my=(y+y2)/2+(r()-0.5)*len*0.3;let o=P(c,`M${f(x)} ${f(y)} Q${f(mx)} ${f(my)} ${f(x2)} ${f(y2)}`,Math.max(.5,d*0.28));
-    const n=r()<0.35?3:2;for(let k=0;k<n;k++) o+=draad(x2,y2,a+(r()-0.5)*1.25,len*(0.68+r()*0.15),d-1,c,r);return o};
-  const plaat3=()=>{const r=rnd(42);return draad(-20,980,-0.6,170,7,'groen',r)+draad(1640,1020,-2.4,170,7,'teal',r)+draad(800,-30,1.6,130,6,'paars',r)+draad(-30,120,0.25,140,6,'oker',r)+draad(1650,80,3.0,130,6,'koraal',r)
-    +[...Array(10)].map((_,k)=>{const q=rnd(k*7+1);const x=200+q()*1200,y=150+q()*700;return C('goud',x,y,10+q()*16,.8,'stroke-dasharray="2 4"')+C('goud',x,y,2.5,.8)}).join('')};
-  /* 4 · in zee: kwallen, nautilus en belletjes */
-  const kwal=(cx,cy,w,c,seed)=>{const r=rnd(seed);let o=P(c,`M${f(cx-w)} ${f(cy)} C${f(cx-w)} ${f(cy-w*1.25)} ${f(cx+w)} ${f(cy-w*1.25)} ${f(cx+w)} ${f(cy)}`,1.3);
+    const n=r()<0.35?3:2;for(let k=0;k<n;k++) o+=draad(x2,y2,a+(r()-0.5)*1.25,len*(0.68+r()*0.15),d-1,c,r,I);return o};
+  const plaat3=I=>{const r=rnd(42);let o=draad(-20,980,-0.6,170,7,'groen',r,I)+draad(1640,1020,-2.4,170,7,'teal',r,I)+draad(800,-30,1.6,130,6,'paars',r,I)+draad(-30,120,0.25,140,6,'oker',r,I)+draad(1650,80,3.0,130,6,'koraal',r,I)
+    +[...Array(10)].map((_,k)=>{const q=rnd(k*7+1);const x=200+q()*1200,y=150+q()*700;return C('goud',x,y,10+q()*16,.8,'stroke-dasharray="2 4"')+C('goud',x,y,2.5,.8)}).join('');
+    if(I>1){o=wolken(3,8)+o+draad(800,1040,-1.57,190,8,'koraal',r,I)+draad(-40,560,0,170,7,'paars',r,I)+draad(1660,520,3.14,170,7,'groen',r,I)+draad(400,-40,1.2,140,6,'teal',r,I)+draad(1200,-40,1.9,140,6,'goud',r,I)}
+    return o};
+  /* 4 · in zee */
+  const kwal=(cx,cy,w,c,seed,I)=>{const r=rnd(seed);let o=P(c,`M${f(cx-w)} ${f(cy)} C${f(cx-w)} ${f(cy-w*1.25)} ${f(cx+w)} ${f(cy-w*1.25)} ${f(cx+w)} ${f(cy)}`,1.3,I>1?vul(c,.25):'');
     let sc=`M${f(cx-w)} ${f(cy)}`;for(let i=0;i<8;i++){const x1=cx-w+(i+0.5)*w/4,x2=cx-w+(i+1)*w/4;sc+=` Q${f(x1)} ${f(cy+w*0.16)} ${f(x2)} ${f(cy)}`}o+=P(c,sc,1);
     for(let i=0;i<7;i++){const x0=cx-w*0.8+i*w*0.27,L=w*(2.2+r()*1.6);let d=`M${f(x0)} ${f(cy+4)}`;for(let t=1;t<=12;t++){d+=` L${f(x0+Math.sin(t*0.9+i+seed)*w*0.14)} ${f(cy+4+t*L/12)}`}o+=P(c,d,i%3===1?1.1:.7)}
     o+=P(c,`M${f(cx-w*0.55)} ${f(cy-w*0.3)} Q${f(cx)} ${f(cy-w*0.9)} ${f(cx+w*0.55)} ${f(cy-w*0.3)}`,.7);return o};
-  const nautilus=(cx,cy,s,c)=>{const b=0.1759;let d='',ri=[];for(let t=0;t<=4.2*Math.PI;t+=0.08){const r=s*Math.exp(b*t);d+=(d?' L':'M')+`${f(cx+r*Math.cos(t))} ${f(cy+r*Math.sin(t))}`}
-    let o=P(c,d,1.3);for(let t=2*Math.PI;t<=4.2*Math.PI;t+=Math.PI/7){const r1=s*Math.exp(b*(t-2*Math.PI)),r2=s*Math.exp(b*t);o+=P(c,`M${f(cx+r1*Math.cos(t))} ${f(cy+r1*Math.sin(t))} Q${f(cx+(r1+r2)/2*Math.cos(t+0.25))} ${f(cy+(r1+r2)/2*Math.sin(t+0.25))} ${f(cx+r2*Math.cos(t))} ${f(cy+r2*Math.sin(t))}`,.8)}return o};
-  const plaat4=()=>kwal(1300,170,90,'paars',3)+kwal(200,300,60,'teal',8)+kwal(1500,620,50,'koraal',12)+kwal(700,60,40,'teal',17)+nautilus(250,820,12,'oker')+nautilus(1180,900,7,'goud')
+  const nautilus=(cx,cy,s,c,I)=>{const b=0.1759;let d='';for(let t=0;t<=4.2*Math.PI;t+=0.08){const r=s*Math.exp(b*t);d+=(d?' L':'M')+`${f(cx+r*Math.cos(t))} ${f(cy+r*Math.sin(t))}`}
+    let o=P(c,d,1.3,I>1?vul(c,.15):'');for(let t=2*Math.PI;t<=4.2*Math.PI;t+=Math.PI/7){const r1=s*Math.exp(b*(t-2*Math.PI)),r2=s*Math.exp(b*t);o+=P(c,`M${f(cx+r1*Math.cos(t))} ${f(cy+r1*Math.sin(t))} Q${f(cx+(r1+r2)/2*Math.cos(t+0.25))} ${f(cy+(r1+r2)/2*Math.sin(t+0.25))} ${f(cx+r2*Math.cos(t))} ${f(cy+r2*Math.sin(t))}`,.8)}return o};
+  const plaat4=I=>{let o=kwal(1300,170,90,'paars',3,I)+kwal(200,300,60,'teal',8,I)+kwal(1500,620,50,'koraal',12,I)+kwal(700,60,40,'teal',17,I)+nautilus(250,820,12,'oker',I)+nautilus(1180,900,7,'goud',I)
     +[...Array(26)].map((_,k)=>{const q=rnd(k*5+2);const x=q()*1600,y=q()*1000;return C('teal',x,y,2+q()*7,.8)}).join('')
     +P('teal',`M0 980 C200 930 400 1010 600 960 S1000 920 1200 970 S1500 940 1600 960`,.9)+P('teal',`M0 1000 C220 960 420 1030 640 990 S1020 960 1220 1000 S1500 980 1600 990`,.6);
-  return [['Groei',plaat1],['Onder de microscoop',plaat2],['Netwerk',plaat3],['In zee',plaat4]];
+    if(I>1){const r=rnd(55);o=wolken(4,9)+o;for(let k=0;k<12;k++)o+=kwal(r()*1600,r()*900,25+r()*70,KL[k%6],k+60,I);o+=nautilus(820,520,16,'koraal',I)+nautilus(1520,180,8,'groen',I)
+      +[...Array(60)].map(()=>{const x=r()*1600,y=r()*1000,c=KL[Math.floor(r()*6)];return C(c,x,y,2+r()*10,1,vul(c,.3))}).join('')
+      +[0,1,2,3].map(k=>P(KL[k],`M0 ${880+k*30} C300 ${820+k*30} 500 ${960+k*30} 800 ${880+k*30} S1300 ${820+k*30} 1600 ${900+k*30}`,1.6)).join('')}
+    return o};
+  const PL=[['Groei',plaat1],['Onder de microscoop',plaat2],['Netwerk',plaat3],['In zee',plaat4]];
+  return PL.map(([naam,fn])=>[naam,I=>{W=I>1?1.7:1;const o=fn(I);W=1;return o}]);
 })();
-const grondLaag=()=>{const start=Math.floor(Math.random()*KUNSTPLATEN.length);
-  return `<div class="kunstgrond" aria-hidden="true">${KUNSTPLATEN.map(([naam,teken],n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}" data-naam="${naam}"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">${teken()}</svg></div>`).join('')}</div>`};
+const grondLaag=()=>{if(kunstStand==='uit') return '';const I=kunstStand==='intens'?2:1,start=Math.floor(Math.random()*KUNSTPLATEN.length);
+  return `<div class="kunstgrond${I>1?' intens':''}" aria-hidden="true">${KUNSTPLATEN.map(([naam,teken],n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}" data-naam="${naam}"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">${teken(I)}</svg></div>`).join('')}</div>`};
 /* wisselen: elke 14 s vloeit de volgende compositie rustig in (niet bij 'minder beweging') */
 let grondTimer=null;
 function grondWissel(){
@@ -2693,7 +2727,8 @@ function render(){
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
   document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
   if(pagina==='home') grondWissel(); else clearInterval(grondTimer);
-  document.body.classList.toggle('grond-vol',GROND_VOL&&pagina==='home');
+  document.body.dataset.kunst=pagina==='home'?kunstStand:'uit';
+  kunstKnop(pagina==='home');
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
