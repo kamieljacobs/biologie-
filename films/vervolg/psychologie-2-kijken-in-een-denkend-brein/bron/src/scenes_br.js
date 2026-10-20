@@ -9,7 +9,8 @@ function nieuwsKaart(ctx, x, y, s, a = 1, vlekA = 1, t = 0, kop = 'Wetenschapper
 function hartIcoon(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.beginPath(); ctx.moveTo(0, 30); ctx.bezierCurveTo(-60, -10, -40, -60, 0, -30); ctx.bezierCurveTo(40, -60, 60, -10, 0, 30); shape(ctx, C.koraal, lighten(C.koraal, 0.4), 2); ctx.restore(); }
 function chocoIcoon(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -50, -34, 100, 68, 6); shape(ctx, '#6A4A3A', '#8C6A54', 2); ctx.strokeStyle = '#8C6A54'; ctx.lineWidth = 2; for (let i = 1; i < 3; i++) { ctx.beginPath(); ctx.moveTo(-50 + i * 33, -34); ctx.lineTo(-50 + i * 33, 34); ctx.stroke(); } ctx.beginPath(); ctx.moveTo(-50, 0); ctx.lineTo(50, 0); ctx.stroke(); ctx.restore(); }
 function gameIcoon(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -60, -30, 120, 60, 28); shape(ctx, '#3A4458', '#AFC0D0', 2); ctx.fillStyle = '#AFC0D0'; ctx.fillRect(-38, -4, 24, 8); ctx.fillRect(-30, -12, 8, 24); circ(ctx, 28, -6, 7, C.groen); circ(ctx, 42, 8, 7, C.koraal); ctx.restore(); }
-function gezichtIcoon(ctx, x, y, s, a = 1, col = '#E3B998') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 34 * s, col, lighten(col, 0.3), 2); circ(ctx, x - 12 * s, y - 6 * s, 4 * s, '#2A2420'); circ(ctx, x + 12 * s, y - 6 * s, 4 * s, '#2A2420'); ctx.strokeStyle = '#2A2420'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y + 4 * s, 12 * s, 0.3, 2.84); ctx.stroke(); ctx.restore(); }
+function gezichtIcoon(ctx, x, y, s, a = 1, id = 'noor') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 44 * s, y - 50 * s, 88 * s, 100 * s, 8); shape(ctx, '#F2EEE4', '#B8B0A0', 2); ctx.beginPath(); ctx.rect(x - 40 * s, y - 46 * s, 80 * s, 92 * s); ctx.clip(); const L = (CAST[id] && CAST[id].lengte) || 1; persoon(ctx, id, x, y + s * (360 * L - 44), 360 * s, {}); ctx.restore(); }
+function _oudGezicht(ctx, x, y, s, a = 1, col = '#E3B998') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 34 * s, col, lighten(col, 0.3), 2); circ(ctx, x - 12 * s, y - 6 * s, 4 * s, '#2A2420'); circ(ctx, x + 12 * s, y - 6 * s, 4 * s, '#2A2420'); ctx.strokeStyle = '#2A2420'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.arc(x, y + 4 * s, 12 * s, 0.3, 2.84); ctx.stroke(); ctx.restore(); }
 function huisIcoon(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -32, -6, 64, 46, 4); shape(ctx, '#C9A35C', '#E0C890', 2); ctx.beginPath(); ctx.moveTo(-40, -4); ctx.lineTo(0, -40); ctx.lineTo(40, -4); ctx.closePath(); shape(ctx, C.koraal, null); ctx.fillStyle = '#5A4632'; ctx.fillRect(-8, 14, 16, 26); ctx.restore(); }
 function postkoets(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -110, -90, 220, 110, 14); shape(ctx, '#8C5A3A', '#B08A5C', 2); roundRect(ctx, -80, -70, 60, 50, 6); shape(ctx, '#3A4458', null); roundRect(ctx, 20, -70, 60, 50, 6); shape(ctx, '#3A4458', null);
   [-70, 70].forEach(dx => { circ(ctx, dx, 34, 34, null, '#2E3A55', 7); circ(ctx, dx, 34, 6, '#2E3A55'); }); ctx.restore(); }
@@ -25,7 +26,7 @@ function boldGrafiek(ctx, x, y, w, h, a = 1, u = 1) { if (a <= 0.01) return; ctx
 // gemiddelde EEG-golven voor gezicht en huis (N170)
 function erpGrafiek(ctx, x, y, w, h, a = 1, uG = 1, uH = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y + h / 2); ctx.lineTo(x + w, y + h / 2); ctx.moveTo(x, y); ctx.lineTo(x, y + h); ctx.stroke();
   metaText(ctx, '0', x, y + h + 36, C.grain, 'center', 28); metaText(ctx, '0,2 S', x + w * 0.4, y + h + 36, C.grain, 'center', 28); metaText(ctx, '0,5 S', x + w, y + h + 36, C.grain, 'right', 28);
-  const curve = (col, dip, u) => { ctx.strokeStyle = col; ctx.lineWidth = 3.5; ctx.beginPath(); const N = 120; for (let i = 0; i <= N * u; i++) { const tt = i / N * 0.5; const v = 0.35 * Math.exp(-(((tt - 0.1) / 0.03) ** 2)) - dip * Math.exp(-(((tt - 0.17) / 0.025) ** 2)) + 0.25 * Math.exp(-(((tt - 0.3) / 0.06) ** 2)); const px = x + tt / 0.5 * w, py = y + h / 2 - v * h * 0.8; if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); } ctx.stroke(); };
+  const curve = (col, dip, u) => { ctx.strokeStyle = col; ctx.lineWidth = 3.5; ctx.beginPath(); const N = 120; for (let i = 0; i <= N * u; i++) { const tt = i / N * 0.5; const v = 0.35 * Math.exp(-(((tt - 0.1) / 0.03) ** 2)) - dip * Math.exp(-(((tt - 0.17) / 0.025) ** 2)) + 0.25 * Math.exp(-(((tt - 0.3) / 0.06) ** 2)); const px = x + tt / 0.5 * w, py = y + h / 2 - v * h * 0.5; if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py); } ctx.stroke(); };
   curve(C.oker, 0.25, uH); curve(C.teal, 0.85, uG); ctx.restore(); }
 
 Object.assign(SCENES, {
@@ -93,7 +94,7 @@ Object.assign(SCENES, {
     for (let i = 0; i < 4; i++) golf(ctx, 940, 260 + i * 110, 820, 22, q.on('optelsom', 1) * (1 - G * 0.6), { t, seed: i + 1, freq: 3 + i });
     tag(ctx, 'optelsom van miljoenen neuronen, in hetzelfde ritme', 1350, 720, C.teal, q.on('ritme', 1) * (1 - q.on('Berger', 1)), 'center', 28);
     const B = q.on('Berger', 1) * (1 - G); if (B > 0.01) { metaText(ctx, 'HANS BERGER · 1924', 1350, 720, C.grain, 'center', 28); golf(ctx, 940, 800, 820, 26, q.on('rustige', 1), { t, freq: 10, schaal: 1, seed: 9, col: C.groen }); tag(ctx, '± 10 per seconde', 1350, 760, C.groen, q.on('tien', 1), 'center', 28); }
-    if (G > 0.01) { for (let i = 0; i < 6; i++) { const huis = i === 3; const a = G * clamp((t - q.at('reeks', 1)) * 2 - i * 0.5, 0, 1); if (huis) huisIcoon(ctx, 1000 + i * 130, 790, 1, a); else gezichtIcoon(ctx, 1000 + i * 130, 790, 1, a); } } },
+    if (G > 0.01) { for (let i = 0; i < 6; i++) { const huis = i === 3; const a = G * clamp((t - q.at('reeks', 1)) * 2 - i * 0.5, 0, 1); if (huis) huisIcoon(ctx, 1000 + i * 130, 790, 1, a); else gezichtIcoon(ctx, 1000 + i * 130, 790, 1, a, ['noor', 'sam', 'daan', 'lotte', 'bilal', 'kim'][i]); } } },
 
   s12(ctx, t, q) { bg(ctx, 'schema'); const M = q.on('middelt', 1, 1), R = q.on('waar', 1, 0.8) * (1 - q.on('bord', 1, 0.8)), Bd = q.on('bord', 1, 0.8);
     regel(ctx, 'Antwoord a: wanneer', 120, 140, 1, C.groen, 40, 'left', 700);
@@ -126,12 +127,12 @@ Object.assign(SCENES, {
   s15(ctx, t, q) { bg(ctx, 'schema'); const AF = q.on('trekt', 1, 0.8), W = q.on('werk', 1, 0.8);
     const sel = q.on('kleurt', 1); voxelRaster(ctx, 160, 220, 640, 480, 16, q.on('blokjes', 1) * (1 - W * 0.6), sel > 0.01 ? [[9, 7, '#F0A04A', sel], [10, 7, '#F0A04A', sel], [9, 8, '#F0A04A', sel * 0.7]] : null);
     tag(ctx, 'elk blokje: paar miljoen neuronen', 480, 760, C.text2, q.on('miljoen', 1) * (1 - AF), 'center', 28);
-    const B = q.on('afwisselend', 1) * (1 - AF * 0.4); if (B > 0.01) { const k = Math.floor((t - q.at('afwisselend', 1)) / 1.2) % 2; for (let i = 0; i < 4; i++) { const on = (i % 2) === k; if (i % 2 === 0) gezichtIcoon(ctx, 1000 + i * 180, 300, 1.2, B * (on ? 1 : 0.35)); else huisIcoon(ctx, 1000 + i * 180, 300, 1.2, B * (on ? 1 : 0.35)); } tag(ctx, 'afwisselend in blokjes', 1270, 400, C.text2, B, 'center', 28); }
+    const B = q.on('afwisselend', 1) * (1 - AF * 0.4); if (B > 0.01) { const k = Math.floor((t - q.at('afwisselend', 1)) / 1.2) % 2; for (let i = 0; i < 4; i++) { const on = (i % 2) === k; if (i % 2 === 0) gezichtIcoon(ctx, 1000 + i * 180, 300, 1.2, B * (on ? 1 : 0.35), i ? 'sam' : 'noor'); else huisIcoon(ctx, 1000 + i * 180, 300, 1.2, B * (on ? 1 : 0.35)); } tag(ctx, 'afwisselend in blokjes', 1270, 400, C.text2, B, 'center', 28); }
     if (AF > 0.01) { ctx.save(); ctx.globalAlpha *= AF * (1 - W * 0.5); regel(ctx, 'gezichten', 1000, 560, 1, C.teal, 36, 'left', 700); regel(ctx, '−  huizen', 1220, 560, 1, C.oker, 36, 'left', 700); regel(ctx, '=  vlek', 1460, 560, sel, '#F0A04A', 36, 'left', 700); ctx.restore(); tag(ctx, 'geen foto, maar een berekening', 1320, 660, C.goud, q.on('berekening', 1) * (1 - W), 'center', 32); }
     if (W > 0.01) haak(ctx, 960, 1700, 720, 'taak en controletaak bedenken: werk van de psycholoog', C.groen, W); },
 
   s16(ctx, t, q) { bg(ctx, 'schema'); metaText(ctx, '2009', 120, 140, C.grain, 'left', 30); scanner(ctx, 760, 520, 0.9, 1); zalm(ctx, 1080, 600, 1.1, q.on('zalm', 1));
-    nieuwsKaart(ctx, 1280, 160, 0.55, q.on('foto', 1), 0, t, 'Hoe voelt deze persoon zich?'); vraagteken(ctx, 760, 260, q.on('vonden', 1), 110); },
+    const fo = q.on('foto', 1); if (fo > 0.01) { gezichtIcoon(ctx, 1400, 230, 1.4, fo, 'lotte'); gezichtIcoon(ctx, 1560, 230, 1.4, fo, 'bilal'); tag(ctx, 'foto\'s van mensen', 1480, 360, C.text2, fo, 'center', 28); } vraagteken(ctx, 760, 260, q.on('vonden', 1), 110); },
 
   s18(ctx, t, q) { bg(ctx, 'schema'); const C2 = q.on('correctie', 1, 1), IG = q.on('Nobelprijs', 1, 0.8);
     regel(ctx, 'Antwoord b: een paar blokjes', 120, 140, 1, C.groen, 40, 'left', 700);
@@ -149,9 +150,9 @@ Object.assign(SCENES, {
 
   // ---------- H4 ----------
   s20(ctx, t, q) { bg(ctx, 'schema'); const N = q.on('benoemen', 1, 0.8);
-    persoon(ctx, 'kim', 300, 880, 600, { pose: 'vasthouden', t }); naamBij(ctx, 'Dr. Kim', 'onderzoeker', 60, 200, 1);
+    persoon(ctx, 'kim', 330, 880, 600, { pose: 'vasthouden', t }); naamBij(ctx, 'Dr. Kim', 'onderzoeker', 60, 200, 1);
     const hTr = q.on('trekt', 1, 0.2) * (1 - q.on('zelf', 1, 0.6)); persoon(ctx, 'yasmin', 720, 880, 580, { pose: hTr > 0.3 ? 'wijs' : 'staan', uit: hTr > 0.3 ? 'verbaasd' : 'neutraal', t });
-    spoel(ctx, 720, 880 - 580 * 1.05, 0.8, q.on('spoel', 1), q.on('stroomstoot', 1) * (1 - q.on('heet', 1)) + hTr, t);
+    ctx.save(); ctx.strokeStyle = '#5A6478'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(430, 600); ctx.quadraticCurveTo(560, 120, 720, 880 - 580 * 1.05 - 160 * 0.8); ctx.stroke(); ctx.restore(); spoel(ctx, 720, 880 - 580 * 1.05, 0.8, q.on('spoel', 1), q.on('stroomstoot', 1) * (1 - q.on('heet', 1)) + hTr, t);
     tag(ctx, 'TMS', 900, 200, C.teal, q.on('TMS', 1), 'center', 44);
     if (N > 0.01) { ctx.save(); ctx.globalAlpha *= N; roundRect(ctx, 1080, 200, 680, 280, 16); shape(ctx, rgba(C.fill, 0.7), C.line, 1.5); regel(ctx, 'plaatjes benoemen', 1110, 250, 1, C.text, 32, 'left', 600);
       huisIcoon(ctx, 1200, 360, 1.3, 1); regel(ctx, '"... huis"', 1300, 380, 1, C.text, 36, 'left', 700);
@@ -159,15 +160,15 @@ Object.assign(SCENES, {
       regel(ctx, 'verstoord: gebied van Broca', 1110, 580, br, C.koraal, 30, 'left', 640); ctx.fillStyle = C.koraal; roundRect(ctx, 1110, 610, 520 * br, 34, 8); ctx.fill(); regel(ctx, 'trager, soms fout', 1110, 680, q.on('trager', 1), C.koraal, 28, 'left', 600);
       regel(ctx, 'controle: gebied achterin', 1110, 740, ach, C.groen, 30, 'left', 640); ctx.fillStyle = C.groen; roundRect(ctx, 1110, 760, 300 * ach, 30, 8); ctx.fill(); ctx.restore(); } },
 
-  s22(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord a: het gebied helpt bij de taak', 120, 140, 1, C.groen, 40, 'left', 700);
+  s22(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord a: het gebied is nodig voor de taak', 120, 140, 1, C.groen, 40, 'left', 700);
     kruis(ctx, 180, 290, 26, q.on('anders', 1)); regel(ctx, 'niet: het doet niets anders', 230, 304, q.on('anders', 1), C.text, 34, 'left', 800);
-    kruis(ctx, 180, 380, 26, q.on('onmisbaar', 1)); regel(ctx, 'niet: het is onmisbaar', 230, 394, q.on('onmisbaar', 1), C.text, 34, 'left', 800);
+    regel(ctx, 'valt het lang uit: andere gebieden nemen soms deel over', 230, 394, q.on('overnemen', 1), C.text2, 34, 'left', 700);
     const D = q.on('buitenste', 1); if (D > 0.01) { brein(ctx, 1380, 560, 0.95, D, {}); ctx.save(); ctx.globalAlpha *= D; ctx.strokeStyle = C.teal; ctx.lineWidth = 10; ctx.setLineDash([4, 8]); ctx.beginPath(); ctx.ellipse(1390, 560, 270, 190, 0, 3.6, 5.9); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); tag(ctx, 'alleen de buitenste laag, paar cm diep', 1380, 820, C.teal, q.on('diep', 1), 'center', 30); }
     chip(ctx, 'reeksen pulsen: ook behandeling bij depressie', 600, 620, C.groen, q.on('depressie', 1), 30); },
 
   s23(ctx, t, q) { bg(ctx, 'schema'); const Bd = clamp((t - q.at('2026', 1) - 2) / 1.5, 0, 1), O = 1 - Bd;
     if (O > 0.01) { ctx.save(); ctx.globalAlpha *= O; muis(ctx, 460, 640, 1.3, q.on('muizen', 1), q.on('aan', 1) * (1 - q.on('uit', 1)), t);
-      chip(ctx, 'gen uit een groene alg', 460, 240, C.groen, q.on('alg', 1), 30); tag(ctx, 'alleen in één soort neuronen', 460, 300, C.text2, q.on('soort', 1), 'center', 28);
+      chip(ctx, 'gen uit een groene alg', 760, 200, C.groen, q.on('alg', 1), 30); tag(ctx, 'alleen in één soort neuronen', 760, 260, C.text2, q.on('soort', 1), 'center', 28);
       lichtKanaal(ctx, 1320, 420, 1, q.on('blauw', 1) * (0.5 + 0.5 * Math.sin(t * 3)) * (1 - q.on('uit', 1)), q.on('kanaaltje', 1), t); tag(ctx, 'kanaaltje: open bij blauw licht', 1320, 600, C.teal, q.on('blauw', 1), 'center', 30);
       naamBij(ctx, 'optogenetica', 'aan en uit met licht', 1120, 700, q.on('optogenetica', 1));
       tag(ctx, 'aan → gedrag verschijnt: kan het veroorzaken', 1320, 790, C.groen, q.on('verschijnt', 1), 'center', 28); tag(ctx, 'uit → gedrag verdwijnt: nodig', 1320, 850, C.groen, q.on('verdwijnt', 1), 'center', 28);

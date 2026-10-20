@@ -4,8 +4,8 @@
 // ---------- methodenbord ----------
 // rows: [{n, waar (0..1), wanneer (0..1), oorzaak: 'ja'|'nee'|'?', a (0..1), hi (0..1)}]
 const BORD_RIJEN = {
-  laesie:  { n: 'laesie',        waar: 0.35, wanneer: 0.05, oorzaak: 'ja?' },
-  cel:     { n: 'elektrode in één cel', waar: 0.95, wanneer: 0.97, oorzaak: 'nee' },
+  laesie:  { n: 'laesie',        waar: 0.5,  wanneer: 0.05, oorzaak: 'ja?' },
+  cel:     { n: 'elektrode bij één cel', waar: 0.95, wanneer: 0.97, oorzaak: 'nee' },
   eeg:     { n: 'EEG',           waar: 0.22, wanneer: 0.95, oorzaak: 'nee' },
   fmri:    { n: 'fMRI',          waar: 0.8,  wanneer: 0.2,  oorzaak: 'nee' },
   tms:     { n: 'TMS',           waar: 0.55, wanneer: 0.85, oorzaak: 'ja' },
@@ -109,7 +109,7 @@ function muis(ctx, x, y, s, a = 1, licht = 0, t = 0) { if (a <= 0.01) return; ct
   ctx.restore(); }
 // lichtgevoelig kanaaltje in een membraan: open = ionen erdoor
 function lichtKanaal(ctx, x, y, s, open = 0, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  ctx.beginPath(); ctx.moveTo(-320, 0); ctx.quadraticCurveTo(0, -24, 320, 0); ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 3; ctx.stroke(); ctx.beginPath(); ctx.moveTo(-320, 40); ctx.quadraticCurveTo(0, 16, 320, 40); ctx.stroke();
+  ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 700, 700, -Math.PI / 2 - 0.47, -Math.PI / 2 + 0.47); ctx.stroke(); ctx.beginPath(); ctx.arc(0, 740, 700, -Math.PI / 2 - 0.47, -Math.PI / 2 + 0.47); ctx.stroke();
   const g = 18 + open * 26; roundRect(ctx, -g - 40, -40, 40, 120, 14); shape(ctx, '#7A8BA8', '#AFC0D0', 1.5); roundRect(ctx, g, -40, 40, 120, 14); shape(ctx, '#7A8BA8', '#AFC0D0', 1.5);
   if (open > 0.05) { for (let k = 0; k < 4; k++) { const u = (t * 0.9 + k * 0.25) % 1; circ(ctx, Math.sin(k * 2) * 6, lerp(-110, 150, u), 9, rgba(C.goud, open), lighten(C.goud, 0.4), 1); } }
   ctx.restore(); }

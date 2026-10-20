@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/psychologie-2-kijken-in-een-denkend-brein.html` (audio in `psychologie-2-kijken-in-een-denkend-brein/audio/`) |
 | Reeks | Wat word jij? · gedeelde film van Psychologie en Neurowetenschappen (`id: hersenmeten` in GEBIEDEN van vervolg.html) |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 20 oktober 2026 |
+| Versie | 1.1 · 20 oktober 2026 |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, flow q7TiGffg8rNkGI8jwEov |
 | Duur | spraak 10:54 (654 s); met vragen en kaarten ± 12 min |
 | Beeldstijl | Part C · Schema, met cast (Yasmin, Dr. Kim, Opa Henk) |
@@ -65,3 +65,6 @@ Werkmap: kopieer `bron/` naar een werkmap `hw/br`; zet `bron/src/*` + `bron/bouw
 - Woordtijden komen uit `silalign.py` (stiltes + leestekens); bij s09 vielen 5 van de 7 leestekens niet op een stilte, daar zijn cues iets minder precies.
 - De film staat niet in `HOOFDSTUKKEN` van `index.html`; de duur voor de teller staat in `films/vervolg/films.json`.
 - Geen loudness-normalisatie gedaan; alle takes uit één stem en model.
+
+## Wijziging 20 okt 2026 (v1.1, na de eindreview)
+Eindreview door een frisse helper (`reviews/review_eind.md`, 13 MOET-punten) verwerkt. Opnieuw ingesproken: s10 ('ruim honderd jaar geleden'), s13 ('een paar duizend cellen'), s22 (ingrijpen laat zien dat een gebied nodig is; bij lange uitval kunnen andere gebieden overnemen), samen 2.047 credits. Beeld: bord breder (OORZAAK? past), label 'elektrode bij één cel', laesie bij waar middelmatig; Dr. Kim houdt de TMS-spoel aan een kabel; gezichten als stimuli zijn nu castpersonages in fotolijstjes; zalm krijgt foto's van mensen; membraan bij optogenetica gebogen; muislabels uit de lichtvezel; EEG-curves binnen de assen; Gage-staaf schuin.
