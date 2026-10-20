@@ -42,7 +42,7 @@ function document_(ctx, x, y, s, col, a = 1) { if (a <= 0.01) return; ctx.save()
 
 const MB_KOL = [['ZEGGEN', C.teal], ['DOEN', C.groen], ['LICHAAM', C.koraal]];
 function meetBord(ctx, x, y, s, items, a = 1, hi = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  MB_KOL.forEach(([k, col], i) => { const xx = i * 300; roundRect(ctx, xx, 0, 280, 360, 16); shape(ctx, rgba(C.fill, hi === i ? 0.95 : 0.7), hi === i ? col : rgba(C.line, 0.6), hi === i ? 2.5 : 1.5); text(ctx, k, xx + 140, 50, fMeta(28), col, 'center');
+  MB_KOL.forEach(([k, col], i) => { const xx = i * 300; roundRect(ctx, xx, 0, 280, 400, 16); shape(ctx, rgba(C.fill, hi === i ? 0.95 : 0.7), hi === i ? col : rgba(C.line, 0.6), hi === i ? 2.5 : 1.5); text(ctx, k, xx + 140, 50, fMeta(28), col, 'center');
     (items[i] || []).forEach(([t2, a2], j) => { if (a2 <= 0.01) return; ctx.save(); ctx.globalAlpha *= a2; roundRect(ctx, xx + 20, 80 + j * 80, 240, 60, 10); shape(ctx, rgba(col, 0.18), col, 1.5); text(ctx, t2, xx + 140, 120 + j * 80, fTekst(26, 700), C.text, 'center'); ctx.restore(); }); });
   ctx.restore(); }
 function hartslagGrafiek(ctx, x, y, w, h, a = 1, u = 1, piek = 0, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 12); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.5), 1); metaText(ctx, 'HARTSLAG', x + 20, y + 40, C.koraal, 'left', 28);
@@ -61,9 +61,9 @@ Object.assign(SCENES, {
   // ---------- Cold open ----------
   s01(ctx, t, q) { bg(ctx, 'schema');
     persoon(ctx, 'lotte', 480, 880, 560, { t, uit: q.on('schiet', 1) > 0.5 ? 'verbaasd' : 'neutraal' }); naamBij(ctx, 'Lotte', 'proefpersoon', 660, 330, q.on('Lotte', 1)); polsband(ctx, 400, 610, 1.2, q.on('hartslagmeter', 1), t);
-    persoon(ctx, 'kim', 980, 880, 600, { a: q.on('Kim', 1), t, pose: 'vasthouden', kijk: -1 }); naamBij(ctx, 'Dr. Kim', 'onderzoeker', 1060, 280, q.on('Kim', 1));
+    persoon(ctx, 'kim', 980, 880, 600, { a: q.on('Kim', 1), t, pose: 'vasthouden', kijk: -1 }); naamBij(ctx, 'Dr. Kim', 'onderzoeker', 1070, 250, q.on('Kim', 1));
     const P = q.on('pot', 1); if (P > 0.01) { ctx.fillStyle = '#5A4632'; roundRect(ctx, 620, 720, 260, 24, 6); ctx.fill(); pot(ctx, 750, 718, 0.9, P); spin(ctx, 750, 660, 0.8, P, t); }
-    hartslagGrafiek(ctx, 1240, 300, 560, 300, q.on('hartslag', 1), clamp((t - q.at('hartslag', 1)) / 2.5, 0, 1), q.on('schiet', 1)); vraagteken(ctx, 1520, 700, q.on('bewijs', 1), 100); },
+    hartslagGrafiek(ctx, 1260, 340, 560, 300, q.on('hartslag', 1), clamp((t - q.at('hartslag', 1)) / 2.5, 0, 1), q.on('schiet', 1)); vraagteken(ctx, 1520, 700, q.on('bewijs', 1), 100); },
 
   // ---------- H1 ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); const O = q.on('operationaliseren', 1, 0.8);
@@ -88,19 +88,19 @@ Object.assign(SCENES, {
       const st = q.on('sturende', 1); if (st > 0.01) vraagKaartje(ctx, 1080, 640, 680, 'Je bent toch ook bang voor spinnen?', st, 'STUREND'); ctx.restore(); }
     if (S * (1 - T) > 0.01) { ctx.save(); ctx.globalAlpha *= S * (1 - T); regel(ctx, 'vaste schaal', 960, 240, 1, C.text, 40, 'center', 700); schaal15(ctx, 740, 420, 1, Math.floor((t * 0.8) % 5)); ctx.restore(); }
     if (T * (1 - W) > 0.01) { ctx.save(); ctx.globalAlpha *= T * (1 - W); for (let i = 0; i < 10; i++) { const v = 2 + Math.round(hash(i + 3) * 2) + (i === 4 ? 2 : 0); roundRect(ctx, 300 + i * 80, 600 - v * 60, 50, v * 60, 8); shape(ctx, rgba(C.teal, i === 4 ? 0.3 : 0.6), i === 4 ? C.koraal : C.teal, 1.5); } tag(ctx, 'één vraag valt scheef uit', 600, 680, C.koraal, q.on('scheef', 1), 'center', 30); tag(ctx, 'opgeteld: toevallige fouten vallen weg', 600, 760, C.groen, q.on('weg', 1), 'center', 32); ['vermijden', 'piekeren', 'schrikken'].forEach((w, i) => chip(ctx, w, 1400, 320 + i * 90, C.teal, q.on(w, 1), 32)); ctx.restore(); }
-    if (W > 0.01) { ctx.save(); ctx.globalAlpha *= W; regel(ctx, 'sociaal wenselijk antwoorden', 960, 260, 1, C.koraal, 44, 'center', 700); bubbel(ctx, 960, 420, 'nee hoor, valt wel mee', '#F2F2EE', 1, 34); chip(ctx, 'anoniem invullen helpt', 700, 620, C.groen, q.on('Anoniem', 1), 32); chip(ctx, 'vraag naar concreet gedrag', 1220, 620, C.groen, q.on('concreet', 1), 32); ctx.restore(); } },
+    if (W > 0.01) { ctx.save(); ctx.globalAlpha *= W; regel(ctx, 'sociaal wenselijk antwoorden', 960, 260, 1, C.koraal, 44, 'center', 700); persoon(ctx, 'lotte', 700, 860, 420, { t }); bubbel(ctx, 1000, 420, 'nee hoor, valt wel mee', '#F2F2EE', 1, 34); chip(ctx, 'anoniem invullen helpt', 1300, 620, C.groen, q.on('Anoniem', 1), 32); chip(ctx, 'vraag naar concreet gedrag', 1300, 720, C.groen, q.on('concreet', 1), 32); ctx.restore(); } },
 
   // ---------- H3 ----------
   s09(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'betrouwbaar', 520, 260, q.on('Betrouwbaar', 1), C.teal, 48, 'center', 700); regel(ctx, 'opnieuw meten → ongeveer hetzelfde', 520, 330, q.on('opnieuw', 1), C.text, 30, 'center', 700);
     regel(ctx, 'valide', 1400, 260, q.on('Valide', 1), C.groen, 48, 'center', 700); regel(ctx, 'je meet wat je wilt meten', 1400, 330, q.on('echt', 1), C.text, 30, 'center', 700);
-    const W = q.on('weegschaal', 1); weegschaal(ctx, 960, 620, 1.6, W, (72 + 2) + ' kg'); tag(ctx, 'echt: 72 kg · steeds +2', 960, 760, C.koraal, q.on('twee', 1), 'center', 30); },
+    const W = q.on('weegschaal', 1); weegschaal(ctx, 960, 620, 1.6, W, (72 + 2) + ' kg'); tag(ctx, 'echt: 72 kg · steeds +2', 960, 760, C.koraal, q.on('kilo', 1), 'center', 30); },
   s11(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord a: betrouwbaar, niet valide', 120, 140, 1, C.groen, 40, 'left', 700);
-    weegschaal(ctx, 420, 420, 1.4, 1, '74 kg'); weegschaal(ctx, 420, 560, 1.4, 1, '74 kg'); vink_(ctx, 700, 490, 34, q.on('betrouwbaar', 1), C.teal); kruis(ctx, 760, 490, 30, q.on('valide', 1), C.koraal);
+    weegschaal(ctx, 420, 420, 1.4, 1, '74 kg'); weegschaal(ctx, 420, 560, 1.4, 1, '74 kg'); vink_(ctx, 680, 440, 30, q.on('betrouwbaar', 1), C.teal); regel(ctx, 'betrouwbaar', 720, 452, q.on('betrouwbaar', 1), C.teal, 30, 'left', 700); kruis(ctx, 680, 530, 26, q.on('valide', 1), C.koraal); regel(ctx, 'valide', 720, 542, q.on('valide', 1), C.koraal, 30, 'left', 700);
     const P = q.on('pijlen', 1); schijf(ctx, 1300, 460, 170, P, [[0.55, -0.45], [0.6, -0.38], [0.5, -0.5], [0.62, -0.5]]); tag(ctx, 'dicht bij elkaar, naast de roos', 1300, 690, C.text, P, 'center', 30);
     haak(ctx, 1100, 1500, 760, 'betrouwbaar is nodig, niet genoeg', C.goud, q.on('genoeg', 1)); },
   s12(ctx, t, q) { bg(ctx, 'schema'); const V = q.on('validiteit', 1, 0.8);
-    regel(ctx, 'betrouwbaarheid', 500, 200, 1, C.teal, 40, 'center', 700); metaText(ctx, 'TEST  ·  TWEE WEKEN LATER', 500, 260, C.grain, 'center', 28);
-    const tw = q.on('twee', 1); for (let i = 0; i < 8; i++) { const v = hash(i * 3 + 1); circ(ctx, 300 + i * 50, 320 + (1 - v) * 220, 9, C.teal); circ(ctx, 300 + i * 50, 320 + (1 - v) * 220 + (hash(i + 50) - 0.5) * 30, 9, rgba(C.oker, tw), null); }
+    regel(ctx, 'betrouwbaarheid', 500, 200, 1, C.teal, 40, 'center', 700); metaText(ctx, 'TEST', 330, 260, C.teal, 'left', 28); metaText(ctx, '· TWEE WEKEN LATER', 420, 260, C.oker, 'left', 28);
+    const tw = q.on('twee', 1); for (let i = 0; i < 8; i++) { const v = hash(i * 3 + 1); circ(ctx, 280 + i * 50, 320 + (1 - v) * 220, 9, C.teal); circ(ctx, 300 + i * 50, 320 + (1 - v) * 220 + (hash(i + 50) - 0.5) * 30, 9, rgba(C.oker, tw), null); }
     tag(ctx, 'scores lijken op elkaar', 500, 600, C.teal, q.on('Lijken', 1), 'center', 28); tag(ctx, 'hoog op de ene vraag → hoog op de andere', 500, 680, C.text2, q.on('andere', 1), 'center', 28);
     if (V > 0.01) { ctx.save(); ctx.globalAlpha *= V; regel(ctx, 'validiteit', 1400, 200, 1, C.groen, 40, 'center', 700); roundRect(ctx, 1120, 280, 260, 200, 14); shape(ctx, rgba(C.teal, 0.15), C.teal, 2); text(ctx, 'angstlijst', 1250, 360, fTekst(28, 700), C.text, 'center'); text(ctx, 'score: hoog', 1250, 410, fTekst(28, 700), C.teal, 'center');
       pijl(ctx, 1390, 380, 1450, 380, C.goud, q.on('spin', 1), 3, 14); looplijn(ctx, 1460, 360, 300, 1, q.on('spin', 1)); tag(ctx, 'blijft ver van de spin', 1600, 460, C.groen, q.on('spin', 1), 'center', 28); regel(ctx, 'dan meet je lijst waarschijnlijk echt angst', 1400, 600, q.on('waarschijnlijk', 1), C.groen, 30, 'center', 700); ctx.restore(); } },
@@ -122,12 +122,12 @@ Object.assign(SCENES, {
     if (L * (1 - Z) > 0.01) { ctx.save(); ctx.globalAlpha *= L * (1 - Z); persoon(ctx, 'lotte', 300, 880, 520, { t }); [['WEB', C.groen], ['POTEN', C.koraal], ['SPIN', C.teal]].forEach(([w, c], i) => kleurWoord(ctx, 800 + i * 280, 300, w, c, q.on('web', 1), 70)); [['TAFEL', C.koraal], ['BOEK', C.groen], ['LAMP', C.teal]].forEach(([w, c], i) => kleurWoord(ctx, 800 + i * 280, 440, w, c, q.on('gewone', 1), 70));
       hoogteBalkMe(ctx, 700, 560, 800, 0.75, C.koraal, 'spinnenwoorden', q.on('trager', 1)); hoogteBalkMe(ctx, 700, 660, 800, 0.6, C.teal, 'gewone woorden', q.on('trager', 1)); tag(ctx, 'een verklaring: aandacht blijft hangen', 1100, 790, C.text2, q.on('verklaring', 1), 'center', 28); ctx.restore();
       meetBord(ctx, 1260, 120, 0.45, [[['vragen', 1]], [['gedragstest', 1], ['tijdmeting', q.on('doen', 1)]], [['hartslag', 1]]], L * (1 - Z) * q.on('meetbord', 1), 1); }
-    if (Z > 0.01) { ctx.save(); ctx.globalAlpha *= Z; meetBord(ctx, 510, 170, 1, [[['vragenlijst', 1], ['mooier voordoen', q.on('vragenlijst', 1)]], [['gedragstest', 1], ['kost tijd, echte spin', q.on('gedragstest', 1)], ['tijdmeting', 1], ['per persoon wankel', q.on('wankel', 1)]], [['hartslag · zweet', 1], ['reageert op meer', q.on('andere', 1)]]], 1); haak(ctx, 520, 1400, 590, 'samen het beste beeld', C.goud, q.on('beeld', 1)); ctx.restore(); } },
+    if (Z > 0.01) { ctx.save(); ctx.globalAlpha *= Z; meetBord(ctx, 510, 170, 1, [[['vragenlijst', 1], ['mooier voordoen', q.on('vragenlijst', 1)]], [['gedragstest', 1], ['kost tijd, echte spin', q.on('gedragstest', 1)], ['tijdmeting: wankel', q.on('wankel', 1)]], [['hartslag · zweet', 1], ['reageert op meer', q.on('andere', 1)]]], 1); haak(ctx, 520, 1400, 590, 'samen het beste beeld', C.goud, q.on('beeld', 1)); ctx.restore(); } },
 
   // ---------- Recap ----------
   s17(ctx, t, q) { bg(ctx, 'schema'); const V = q.on('vak', 1, 0.8);
     if (V < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - V; persoon(ctx, 'lotte', 420, 880, 540, { t }); polsband(ctx, 340, 610, 1.2, 1, t); meetBord(ctx, 800, 220, 0.8, [[['wat ze zegt', q.on('zegt', 1)]], [['wat ze doet', q.on('doet', 1)]], [['hartslag', 1]]], 1); ctx.restore(); }
     if (V > 0.01) { ctx.save(); ctx.globalAlpha *= V; regel(ctx, 'de psycholoog als onderzoeker', 960, 200, 1, C.goud, 44, 'center', 700);
-      [['begrip operationaliseren', 'operationaliseert'], ['heldere vragen', 'heldere'], ['betrouwbaar en valide?', 'betrouwbaar'], ['wat kan je meting niet?', 'niet']].forEach(([s2, w], i) => chip(ctx, s2, 960, 320 + i * 90, C.groen, q.on(w, w === 'niet' ? 2 : 1), 34)); chip(ctx, 'studie psychologie: methodeleer en testtheorie', 960, 720, C.teal, q.on('testtheorie', 1), 30); ctx.restore(); } }
+      [['begrip operationaliseren', 'operationaliseert'], ['heldere vragen', 'heldere'], ['betrouwbaar en valide?', 'betrouwbaar'], ['wat kan je meting niet?', 'niet']].forEach(([s2, w], i) => chip(ctx, s2, 960, 320 + i * 90, C.groen, q.on(w, w === 'niet' ? 2 : 1), 34)); chip(ctx, 'studie psychologie: methodeleer en testtheorie', 960, 720, C.teal, q.on('eerste', 1), 30); ctx.restore(); } }
 });
 function hoogteBalkMe(ctx, x, y, w, v, col, label, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 40, 10); shape(ctx, '#2A3A58', rgba(C.line, 0.6), 1.5); roundRect(ctx, x, y, w * v, 40, 10); shape(ctx, rgba(col, 0.8), col, 1.5); text(ctx, label, x + 16, y + 29, fTekst(26, 700), '#121A26', 'left'); metaText(ctx, 'TIJD', x + w + 50, y + 30, C.grain, 'left', 28); ctx.restore(); }

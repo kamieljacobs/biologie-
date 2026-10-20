@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/psychologie-4-meten-wat-je-niet-kunt-zien.html` (audio in `psychologie-4-meten-wat-je-niet-kunt-zien/audio/`) |
 | Reeks | Wat word jij? · Psychologie |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 20 oktober 2026 |
+| Versie | 1.1 · 20 oktober 2026 |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea (flow in `stem/sessions.json`), 5.502 credits |
 | Duur | spraak 6:07 (367 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema, met cast (Lotte, Dr. Kim) |
@@ -43,3 +43,6 @@ Zoals bij Kijken in een denkend brein (zie die info.md), met werkmap `hw/me` en 
 ## Aandachtspunten
 - Stroop-kleuren: koraal staat voor rood, teal voor blauw, groen voor groen, paars voor 'geel'-woorden (Part C kent geen geel); het woord 'rood' staat in teal ('blauw').
 - Woordtijden via silalign; bij 7 alinea's vielen enkele leestekens niet op een stilte.
+
+## Wijziging 20 okt 2026 (v1.1, na de eindreview)
+Eindreview (`reviews/review_eind.md`, 5 MOET-punten) verwerkt, alleen beeld: label 'echt 72 kg' op het woord kilo; namen bij vinkje en kruisje (betrouwbaar/valide); meetbordkolommen hoger en korte chip 'tijdmeting: wankel'; labels Dr. Kim en hartslagpaneel uit elkaar; chip methodeleer/testtheorie eerder; Lotte als spreker bij 'sociaal wenselijk'; test en hertest in twee kleuren. Geen nieuwe audio.
