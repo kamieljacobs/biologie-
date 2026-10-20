@@ -15,3 +15,12 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | hét (stresshormoon) | met nadruk | zoals geschreven | s08 |
 
 **Wachtlijst voor Kamiel:** vooral HPA-as, orthosympathische, steroïdhormoon, prednison en de klemtoon in "hét stresshormoon". Een blinde controle was niet mogelijk (de uploadtool voor losse audio was in deze sessie niet beschikbaar).
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s14.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| HPA-as | H-P-A-as | s14 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
