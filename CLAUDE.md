@@ -91,3 +91,7 @@ Kamiel geeft zijn oordeel over films in de artifact Filmreview (https://claude.a
 - Stills alleen van de gewijzigde scènes bekijken, op lage resolutie; Playwright alleen op de gewijzigde film.
 - Geen 'alle films nalopen' tenzij het om een fout in de gedeelde speler gaat; gebruik de idempotente scripts.
 - Lange sessies worden duur (alles wordt steeds opnieuw meegestuurd): start per groot thema een nieuwe sessie; de afspraken staan hier en in de bronmappen.
+
+## Examenbesprekingen (thema Examen)
+
+Sinds 21 okt 2026 is er een thema `examens` ('Examen', eigen rij in `BASIS`, kleur goud, plaat en hoofdfiguur in `js/themakunst.js`) met films die een heel centraal examen doorlopend bespreken (Kamiel: één lange film per examen, geen pauzemomenten, per vraag stof → aanpak → antwoord volgens het correctievoorschrift, examenfiguren nagetekend in Schema-look). Films in `films/examens/<niveau>-<jaar>-<tijdvak>.html`; eerste: `vwo-2018-2`. Bouwen in de FILMDATA-straat; de gedeelde examen-UI (vraagChip, vraagKaart, punten, opties, welNiet, valkuil, tipKaart) staat in `bron/src/teken_ex18_0.js` van die film — hergebruik hem voor volgende examens. In de Examenatlas verschijnt per examen een knop 'Bespreking in een film' via `BESPREKING` bovenin `vJaren()` in `examenatlas.html` (de atlas leest ook `?niveau=`).
