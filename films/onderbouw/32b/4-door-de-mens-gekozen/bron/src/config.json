@@ -1,0 +1,17 @@
+{
+ "titel": "Door de mens gekozen",
+ "ondertitel": "Hoe maak je een betere tomaat?",
+ "meta": "32B · film 4",
+ "kerndoel": "32B",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": ["lib32b.js", "scenes4.js"],
+ "hold": {"s13": 12.0},
+ "mini": {"Hoofdstuk 1": "Veredeling", "Hoofdstuk 2": "Fokken", "Hoofdstuk 3": "Genetische modificatie", "Samenvatting": "Kiezen of veranderen"},
+ "checkvragen": [
+  {"titel": "Veredeling", "pts": "1 punt", "vraag": "Wat is veredeling? A. planten bemesten zodat ze groter worden · B. steeds de beste planten kiezen om verder mee te kweken · C. een gen van een bacterie in een plant zetten", "antwoord": "B (1): bij veredeling kiest de mens steeds de beste planten (of kruist er twee) en kweekt daarmee verder."},
+  {"titel": "Kiezen of veranderen", "pts": "1 punt", "vraag": "Wat is het verschil tussen fokken en genetische modificatie? A. er is geen verschil · B. bij fokken kies je uit wat er al is, bij genetische modificatie verander je de genen zelf · C. fokken kan alleen bij planten", "antwoord": "B (1)."},
+  {"titel": "Rashonden", "pts": "2 punten", "vraag": "Leg uit waarom erfelijke ziektes vaker voorkomen bij rashonden.", "antwoord": "Rashonden zijn vaak familie van elkaar (inteelt) (1). Dan hebben jongen vaker van beide ouders hetzelfde zwakke gen, waardoor de ziekte zich toont (1)."},
+  {"titel": "CRISPR", "pts": "1 punt", "vraag": "Wat doet CRISPR?", "antwoord": "Het knipt het DNA op precies één plek, zodat onderzoekers daar iets (bijvoorbeeld één letter) kunnen veranderen (1).", "uitdaging": true}
+ ]
+}
