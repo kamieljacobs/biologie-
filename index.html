@@ -207,12 +207,17 @@ a.kd:hover{border-color:var(--goud);transform:translateY(-2px)}
 
 #app{position:relative}
 .kunstgrond{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
-.kunstgrond span{position:absolute;display:block;opacity:.17;transform-origin:center}
+.grondset{position:absolute;inset:0;opacity:0;transition:opacity 3.5s ease}
+.grondset.aan{opacity:1}
+.kunstgrond span{position:absolute;display:block;opacity:.22;transform:rotate(var(--r));transform-origin:center}
+.grondset.aan span{animation:zweef 22s ease-in-out infinite alternate;animation-delay:calc(-1 * var(--d))}
+@keyframes zweef{from{transform:rotate(var(--r)) translateY(0)}to{transform:rotate(calc(var(--r) + 4deg)) translateY(-14px)}}
 .kunstgrond svg{width:100%;height:auto;display:block}
-.kunstgrond svg *{stroke-width:.9px;vector-effect:non-scaling-stroke}
-:root[data-theme="dark"] .kunstgrond span{opacity:.16}
+.kunstgrond svg *{stroke-width:1.1px;vector-effect:non-scaling-stroke}
+:root[data-theme="dark"] .kunstgrond span{opacity:.24}
+@media (prefers-reduced-motion:reduce){.grondset{transition:none}.grondset.aan span{animation:none}}
 .kunstgrond ~ section{position:relative;z-index:1}
-@media (max-width:900px){.kunstgrond span{opacity:.08}}
+@media (max-width:900px){.kunstgrond span{opacity:.1}}
 
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
@@ -2487,17 +2492,22 @@ const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 1
  <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`};
 const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
 /* Kunstzinnige achtergrond op de hoofdpagina: grote, ijle lijntekeningen (geen korrel) */
-const GROND=[
-  ['cellen',  '60%','10px', 480,-8],
-  ['dna',     '86%','10px', 260,18],
-  ['evolutie','-6%','520px',300,-12],
-  ['regeling','94%','620px',280,8],
-  ['ecologie','-4%','1180px',320,0],
-  ['planten', '93%','1260px',300,-10],
-  ['voeding', '-5%','1800px',260,14],
-  ['afweer',  '95%','1860px',240,-6],
+const GRONDEN=[
+  {naam:'De cel',stukken:[['cellen','58%','0px',500,-8],['dna','86%','20px',260,18],['stofwisseling','-5%','520px',300,-14],['afweer','94%','640px',260,10],['voeding','-4%','1200px',280,6],['gaswisseling','94%','1280px',280,-8],['transport','-5%','1820px',260,12],['regeling','93%','1880px',280,-6]]},
+  {naam:'Het lichaam',stukken:[['transport','60%','10px',440,6],['gaswisseling','86%','40px',280,-12],['regeling','-6%','520px',320,-6],['voeding','94%','620px',280,12],['afweer','-4%','1180px',280,-10],['voortplanting','93%','1260px',300,8],['cellen','-5%','1820px',260,4],['dna','95%','1860px',240,-16]]},
+  {naam:'Doorgeven',stukken:[['evolutie','60%','0px',460,0],['erfelijkheid','87%','30px',260,14],['voortplanting','-6%','520px',320,-10],['dna','94%','620px',280,16],['cellen','-4%','1180px',300,-4],['evolutie','93%','1260px',280,8],['erfelijkheid','-5%','1820px',260,-12],['voortplanting','95%','1860px',240,6]]},
+  {naam:'Samenleven',stukken:[['ecologie','58%','10px',480,-4],['planten','86%','30px',270,10],['gedrag','-6%','520px',320,8],['evolutie','94%','620px',280,-10],['planten','-4%','1180px',300,-12],['ecologie','93%','1260px',280,6],['gedrag','-5%','1820px',260,10],['stofwisseling','95%','1860px',240,-8]]},
 ];
-const grondLaag=()=>`<div class="kunstgrond" aria-hidden="true">${GROND.filter(([id])=>KUNST[id]).map(([id,x,y,w,r])=>`<span style="left:${x};top:${y};width:${w}px;transform:rotate(${r}deg)">${kunst(id)}</span>`).join('')}</div>`;
+const grondLaag=()=>{const start=Math.floor(Math.random()*GRONDEN.length);
+  return `<div class="kunstgrond" aria-hidden="true">${GRONDEN.map((g,n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}">${g.stukken.filter(([id])=>KUNST[id]).map(([id,x,y,w,r],k)=>`<span style="left:${x};top:${y};width:${w}px;--r:${r}deg;--d:${(k%4)*1.5}s">${kunst(id)}</span>`).join('')}</div>`).join('')}</div>`};
+/* wisselen: elke 14 s vloeit de volgende compositie rustig in (niet bij 'minder beweging') */
+let grondTimer=null;
+function grondWissel(){
+  clearInterval(grondTimer);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  grondTimer=setInterval(()=>{const sets=[...document.querySelectorAll('.kunstgrond .grondset')];if(!sets.length){clearInterval(grondTimer);return}
+    const i=sets.findIndex(x=>x.classList.contains('aan'));sets.forEach(x=>x.classList.remove('aan'));sets[(i+1)%sets.length].classList.add('aan')},14000);
+}
 
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
@@ -2635,6 +2645,7 @@ function render(){
   document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
   document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
+  if(pagina==='home') grondWissel(); else clearInterval(grondTimer);
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
