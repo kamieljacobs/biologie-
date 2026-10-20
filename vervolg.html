@@ -550,6 +550,8 @@ function komtRij(b,nr,g){
 }
 /* Blok 'Al op de site · uit de lesstof (PTA)' staat uit (Kamiel, 20 okt 2026: te chaotisch). Data in 'pta' blijft bewaard; zet op true om het terug te zetten. */
 const TOON_PTA=false;
+/* Blok 'De gedeelde kern' staat uit (Kamiel, 20 okt 2026: eerst het hele curriculum, dan deze films). */
+const TOON_KERN=false;
 function kaart(g){
   const c=CL[g.cluster], basis=g.basis.filter(zichtbaar), klaar=basis.filter(b=>Array.isArray(b)).length;
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
@@ -577,10 +579,10 @@ function render(){
         <div class="later"><span class="mono">Stap 3 · later</span><b>Praktijkopdracht</b><span>Probeer zelf een stukje van het vak.</span></div>
         <div class="later"><span class="mono">Stap 4 · later</span><b>Opleidingen</b><span>Welke opleiding, op welk niveau, en hoe kom je erin.</span></div>
       </div>
-      <section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
+      ${TOON_KERN?`<section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
         <span class="mono" style="color:var(--goud-text)">Voor elk gebied</span><h2>De gedeelde kern</h2>
         <p>Deze onderwerpen heb je bij bijna elke biologische vervolgopleiding nodig. Ze staan al op de site; per gebied komt er een verdieping bovenop.</p>
-        <div class="tags">${KERN.map(hfst).join('')}</div></div></section>
+        <div class="tags">${KERN.map(hfst).join('')}</div></div></section>`:''}
       <div class="filters" role="group" aria-label="Filter op richting"><span class="mono">Richting</span>
         <button class="chip" type="button" data-f="" aria-pressed="${!filter}">Alles</button>
         ${CLUSTERS.map(c=>`<button class="chip" type="button" data-f="${c.id}" aria-pressed="${filter===c.id}">${esc(c.naam)}</button>`).join('')}
