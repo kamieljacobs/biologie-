@@ -8,7 +8,7 @@
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow WDDkZooQMTSMDrONtSkX; nodes in `stem/takes.json`) |
 | Duur | spraak 6:40 (vwo) / 5:37 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 8 min |
-| Beeldstijl | Part C: Macro (woonkamer met Noor en Sam), Micro (virus met antigenen, B-cellen met receptor-'sleutels', beenmerg, lymfeknoop met kloon, plasmacel met antistoffen, neutraliseren, klonteren, fagocyt), Schema (genstukjes, bouw van een antistof, grafiek primaire/secundaire reactie, vergelijkingstabel). Kleuren in `scenes.js`: ziekteverwekkers `VIR #E07A5F`, B-cellen `BCOL #5BA4C9`, T-cellen `TCOL #7FC48F`, antistoffen `AS #E0B64A`, eigen cellen `EIGEN #8C7BBF`, griep `#C9708F`; antigeenvormpjes in `VORMKL` |
+| Beeldstijl | Part C: Macro (woonkamer met Noor en Bram), Micro (virus met antigenen, B-cellen met receptor-'sleutels', beenmerg, lymfeknoop met kloon, plasmacel met antistoffen, neutraliseren, klonteren, fagocyt), Schema (genstukjes, bouw van een antistof, grafiek primaire/secundaire reactie, vergelijkingstabel). Kleuren in `scenes.js`: ziekteverwekkers `VIR #E07A5F`, B-cellen `BCOL #5BA4C9`, T-cellen `TCOL #7FC48F`, antistoffen `AS #E0B64A`, eigen cellen `EIGEN #8C7BBF`, griep `#C9708F`; antigeenvormpjes in `VORMKL` |
 | Audio-opslag | 15 losse mp3's in audio/ (s01 … s21), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |
 | Herkomst | gebouwd op 14 oktober 2026 met de bouwstraat van de voedingsreeks (`bouw/`) en de bibliotheek `lib_hormonen.js` (algemene helpers) |
@@ -35,7 +35,7 @@
 
 | Hoofdstuk | Type · look | Kernbeeld |
 |---|---|---|
-| Cold open (s01, q02) | I · Macro | Woonkamer: Sam (5) met waterpokken op de bank, zijn grote zus Noor; vraag q02 |
+| Cold open (s01, q02) | I · Macro | Woonkamer: Bram (5) met waterpokken op de bank, zijn grote zus Noor; vraag q02 |
 | Titel | Micro | Plasmacel die antistoffen (gouden Y's) afgeeft; virus met antistoffen erop |
 | H1 Een sleutel voor elk slot (s04–s08) | D · Micro | Fagocyt (aspecifiek) tegenover B-cel (specifiek); virus met antigenen en eigen cel met eigen antigenen; B-cel met receptoren, sleutel ↔ slot; rij B-cellen met elk een eigen sleutel; vraag q06; beenmerg maakt steeds nieuwe B-cellen, de passende wordt gekozen (meestal een paar). Vwo s08: V-, D- en J-genstukjes willekeurig gecombineerd; B-cel die op eigen stoffen past wordt uitgeschakeld |
 | H2 Kopiëren en vastplakken (s09–s14) | D · Micro | Lymfeknoop (wordt dik) met lymfevat; passende B-cel licht op; T-helpercel geeft startsein; kloon; plasmacel, receptor = antistof (losse kopie), Y met twee bindplaatsen, ± 2000 per seconde, humorale afweer; neutraliseren; klonteren; vraag q12; bacterie met antistoffen als vlaggetje, fagocyt ruimt op. Vwo s14: zware en lichte ketens, constant en variabel deel; B-cel presenteert antigeen, T-helpercel geeft startsein |
@@ -47,7 +47,7 @@
 
 | Id | Niveau | Vraag | Juist |
 |---|---|---|---|
-| q02 | basis | Waarom wordt Noor niet ziek van de waterpokken van Sam? | a haar lichaam onthoudt het virus nog van de vorige keer (onthulling in de recap s21) |
+| q02 | basis | Waarom wordt Noor niet ziek van de waterpokken van Bram? | a haar lichaam onthoudt het virus nog van de vorige keer (onthulling in de recap s21) |
 | q06 | basis | Hoe komt je lichaam aan een B-cel die past op een virus dat het nooit heeft gezien? | a er zijn al heel veel soorten B-cellen, en één past |
 | q12 | basis | Wat gebeurt er met een bacterie waar antistoffen op zitten? | b de bacterie zit vast, en een fagocyt eet hem makkelijker op |
 | q16 | basis | Hoe ziet de grafiek eruit bij een tweede besmetting? | a een piek die eerder komt, en veel hoger is |
@@ -120,3 +120,7 @@ Alleen beeld, geen nieuwe audio; script, vraagteksten en timing gelijk. Helpers 
 - **s15, s17:** B-cellen veranderen zichtbaar in plasmacellen (met uitgestoten antistoffen) of geheugencellen; in de grafiek staan 'primaire' en 'secundaire afweerreactie' als naam bij de piek in plaats van zwevende balken; één tekstbalk tegelijk.
 - **s20:** de antigenen van het griepvirus veranderen in beeld van vorm (mutatie); het virus probeert in het slot van de geheugencel te passen en past net niet (✗); het waterpokkenvirus meert wel precies aan (✓).
 - Bewust gelaten: s05 en s18 (korte vraagscènes, alleen nieuwe virus- en B-celtekening), de tabel in s17, de grafiek zelf (vorm en getallen) en de titelkaart.
+
+## Versie 1.2 · 20 oktober 2026
+
+Het broertje heet nu **Bram** (was Sam; Sam is in het castboek een leerling van 16). In beeld is hij het castpersonage `'kind'`. s01 en s21 opnieuw ingesproken (eleven_v4, Roos, één take; generaties in `stem/gen.json`), woordtijden met Scribe; ondertitels, script, docentdeel, openingsvraag en het label 'Bram: waterpokken' aangepast.

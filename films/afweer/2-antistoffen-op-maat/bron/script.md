@@ -6,7 +6,7 @@ Afweer 2/4 · Roos (eleven_v4) · één take per alinea · audio in `../audio/sN
 
 **s01** · 16.9 s · `audio/s01.mp3`
 
-Sam is vijf, en heeft waterpokken: overal jeukende rode vlekjes. Zijn grote zus Noor speelt elke dag met hem. Noor had waterpokken toen ze zelf klein was. Nu wordt ze niet ziek, hoe vaak ze ook bij Sam zit. Hoe kan dat? Wat denk je?
+Bram is vijf, en heeft waterpokken: overal jeukende rode vlekjes. Zijn grote zus Noor speelt elke dag met hem. Noor had waterpokken toen ze zelf klein was. Nu wordt ze niet ziek, hoe vaak ze ook bij Bram zit. Hoe kan dat? Wat denk je?
 
 **q02** (vraag): haar lichaam onthoudt het virus nog van de vorige keer · haar fagocyten zijn sinds de vorige keer sterker geworden · bij oudere kinderen komt het virus niet meer naar binnen
 
@@ -84,7 +84,7 @@ Antwoord cee. Door mutaties veranderen de antigenen van het griepvirus steeds ee
 
 **s21** · 46.0 s · `audio/s21.mp3`
 
-Waarom wordt Noor niet ziek van de waterpokken van Sam? Toen ze klein was, vond haar lichaam de B-cellen die pasten op het waterpokkenvirus. Die deelden, maakten antistoffen, en een deel werd geheugencel. Nu worden die geheugencellen snel plasmacellen. Het virus van Sam komt bij Noor wel binnen, maar is opgeruimd voordat ze ziek wordt. Het antwoord was dus: haar lichaam onthoudt het virus nog van de vorige keer. Toch is er een addertje. Het oude waterpokkenvirus van Noor zelf is nooit helemaal weg. Het verstopt zich in zenuwcellen, waar antistoffen niet bij kunnen. Op latere leeftijd kan het terugkomen als gordelroos. Voor virussen in cellen heb je T-cellen nodig. Daarover gaat de volgende film.
+Waarom wordt Noor niet ziek van de waterpokken van Bram? Toen ze klein was, vond haar lichaam de B-cellen die pasten op het waterpokkenvirus. Die deelden, maakten antistoffen, en een deel werd geheugencel. Nu worden die geheugencellen snel plasmacellen. Het virus van Bram komt bij Noor wel binnen, maar is opgeruimd voordat ze ziek wordt. Het antwoord was dus: haar lichaam onthoudt het virus nog van de vorige keer. Toch is er een addertje. Het oude waterpokkenvirus van Noor zelf is nooit helemaal weg. Het verstopt zich in zenuwcellen, waar antistoffen niet bij kunnen. Op latere leeftijd kan het terugkomen als gordelroos. Voor virussen in cellen heb je T-cellen nodig. Daarover gaat de volgende film.
 
 ## Eindkaart
 

@@ -182,7 +182,7 @@ const SCENES = {
     virus(ctx, cx - 330, cy + 230, 60, [3], t, { rot: 0.2 + t * 0.03, ast: i => i % 2 ? 1 : 0 }); },
 
   s01(ctx, t, q) { kamer(ctx, t, { noorUit: q.on('Hoe', 2) > 0.5 ? 'denkt' : q.on('speelt', 1) > 0.5 ? 'blij' : 'neutraal' });
-    tag(ctx, 'Sam: waterpokken', 760, 500, C.koraal, q.on('vlekjes', 1) * (1 - q.on('Hoe', 2)));
+    tag(ctx, 'Bram: waterpokken', 760, 500, C.koraal, q.on('vlekjes', 1) * (1 - q.on('Hoe', 2)));
     wissel(ctx, q, [['Noor had het al, toen ze klein was', 'klein', 1, BCOL], ['nu: niet ziek', 'niet', 1, C.groen]], 1430, 600);
     vraagteken(ctx, 420, 250, q.on('Hoe', 2), 140); },
 
