@@ -676,7 +676,7 @@ SCHERMEN.push({ titel: 'De race', deel: 'Eén ouder of twee',
   stappen: [
     { t: 'Twee soorten <b>dieren</b>. Links alleen vrouwtjes, die zichzelf klonen. Rechts vrouwtjes én mannetjes. Elk vrouwtje krijgt <b>4 jongen</b>.', n: 'Denkmodel met hele dieren (denk aan bladluizen), niet met cellen. Verder is alles gelijk: evenveel jongen per vrouwtje, niemand gaat dood, elke generatie vervangt de vorige. Het getal 4 maakt niet uit; met 2 jongen blijft het rechts 2 → 2 → 2 en groeit het links 1 → 2 → 4 → 8.' },
     { t: 'Generatie 1. Links worden alle 4 jongen later moeder. Rechts zijn 2 van de 4 <b>mannetjes</b>: die krijgen zelf geen jongen.', n: 'Dit is het enige verschil tussen links en rechts.' },
-    { t: 'Generatie 2. Links ×4, rechts maar ×2.', n: '' },
+    { t: 'Generatie 2. Alleen de vrouwtjes krijgen jongen: links 4 × 4 = 16, rechts maar 2 × 4 = 8.', n: 'Het aantal vrouwtjes bepaalt de groei. Rechts is steeds maar de helft vrouwtje.' },
     { t: 'Generatie 3: <b>64</b> tegen <b>16</b>. Mannetjes kosten een soort de helft van de groei.', n: 'Biologen noemen dit de dubbele kosten van seks. Toch planten de meeste dieren zich geslachtelijk voort: er moet een groot voordeel tegenover staan.' },
     { t: 'Er komt een <b>ziekte</b> die dieren van één type (blauw) doodt. De klonen zijn allemaal dat type: <b>allemaal dood</b>. Rechts sterven alleen de blauwe.', n: 'Klonen hebben hetzelfde DNA, dus dezelfde zwakke plek: een ziekteverwekker die één kloon kan aanvallen, kan ze allemaal aanvallen. Rechts blijven vrouwtjes én mannetjes over, dus de soort gaat door. Ziekteverwekkers veranderen steeds, dus variatie blijft nodig (vwo-verdieping: Rode Koningin-hypothese).' },
     { t: 'Ongeslachtelijk: <b>snel</b>, geen partner nodig. Geslachtelijk: <b>variatie</b>, dus bij een verandering overleeft een deel.', n: 'Bladluis doet allebei: in de zomer snel klonen, in de herfst seks en wintereieren. Ook Flora: maagdelijke voortplanting als noodoplossing zonder mannetje.' }
@@ -702,7 +702,12 @@ SCHERMEN.push({ titel: 'De race', deel: 'Eén ouder of twee',
     ctx.save(); ctx.globalAlpha *= a0 * (1 - sam); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), L[0] + 36, 830, C.meta, 'left', 22); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), R[0] + 36, 830, C.meta, 'left', 22);
     const groei = (P, rij, fac) => { let x = P[0] + 36; rij.forEach((n, i) => { if (i) { const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; text(ctx, '→', x + 4, 900, fTekst(40, 600), C.text2); text(ctx, fac, x + 18, 858, fTekst(24, 700), C.goud, 'center'); ctx.restore(); x += 58; }
         const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; const f = fTitel(i === g ? 64 : 44); ctx.font = f; const w = ctx.measureText(String(n)).width; text(ctx, String(n), x, 900, f, i === g && ziek <= 0.6 ? C.goud : C.text); ctx.restore(); x += w + 20; }); };
-    if (ziek <= 0.6) { groei(L, nL, '×4'); groei(R, nR, '×2'); }
+    if (ziek <= 0.6) { groei(L, nL, '×4'); groei(R, nR, '×2');
+      // hoeveel vrouwtjes er zijn: alleen zij krijgen jongen
+      const vr = (P, dieren, vrouw) => { const xr = P[0] + P[2] - 36; ctx.font = fTekst(30, 700); const w2 = ctx.measureText(vrouw + ' vrouwtjes').width;
+        regel(ctx, vrouw + ' vrouwtjes', xr, 832, 1, C.goud, 30, 'right', 700); regel(ctx, dieren + ' dieren · ', xr - w2, 832, 1, C.text2, 30, 'right', 600);
+        if (g < 3) { const k = S.on(g, 0.6, 1.2); regel(ctx, 'volgende: ' + vrouw + ' × 4 jongen = ' + vrouw * 4, xr, 900, k, C.text2, 28, 'right', 600); } };
+      vr(L, nL[g], nL[g]); vr(R, nR[g], nR[g] / 2); }
     else { text(ctx, cntL + ' over', L[0] + 36, 900, fTitel(64), C.koraal); regel(ctx, 'uitgestorven', L[0] + 300, 896, 1, C.koraal, 34, 'left', 700); text(ctx, cntR + ' over', R[0] + 36, 900, fTitel(64), C.text); regel(ctx, 'de soort gaat door', R[0] + 330, 896, 1, C.groen, 34, 'left', 700); }
     ctx.restore();
     if (ziek > 0.01 && ziek < 1) { for (let i = 0; i < 10; i++) { const vx = lerp(-100, 2020, (ziek * 1.1 - hash(i) * 0.1)), vy = 300 + hash(i * 7) * 460; ctx.save(); ctx.globalAlpha *= 0.8; circ(ctx, vx, vy, 12, rgba(C.koraal, 0.5), C.koraal, 2); for (let j = 0; j < 8; j++) { const an = j / 8 * 6.283; ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(vx + Math.cos(an) * 12, vy + Math.sin(an) * 12); ctx.lineTo(vx + Math.cos(an) * 19, vy + Math.sin(an) * 19); ctx.stroke(); } ctx.restore(); } }
