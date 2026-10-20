@@ -11,7 +11,7 @@ for f in ['script_v1.md','script_v2.md','docentdeel.md','begrippen.json','brief.
 for f in glob.glob(f'{D}/src/*'): shutil.copy(f,b+'/src/')
 for f in ['head.html','lib.js','helpers.js','tail.html']: shutil.copy(f'{HERE}/../_base/{f}',b+'/src/')
 shutil.copy(f'{HERE}/../_engine/player_block.html',b+'/src/'); shutil.copy(f'{WT}/personages/lib_cast.js',b+'/src/')
-for f in glob.glob(f'{HERE}/*.py'): shutil.copy(f,b+'/bouw/')
+for f in glob.glob(f'{HERE}/*.py')+glob.glob(f'{HERE}/*.sh'): shutil.copy(f,b+'/bouw/')
 for f in glob.glob(f'{D}/reviews/*'): shutil.copy(f,b+'/reviews/')
 shutil.copy(f'{D}/segmenten.json',b+'/stem/segmenten_stem-invoer.json')
 for f in ['generaties.json','offsets.json']:
