@@ -19,7 +19,6 @@ film = {
  },
  "glossary": [
   {"t": "supplement", "d": "Pil, poeder of druppels met extra vitaminen, mineralen of andere stoffen naast je gewone eten."},
-  {"t": "Schijf van Vijf", "d": "Advies van het Voedingscentrum voor gevarieerd en gezond eten; wie zo eet, krijgt bijna alles binnen."},
   {"t": "vitamine D", "d": "Gemaakt in de huid onder invloed van zonlicht; nodig voor de opname van calcium (sterke botten). Advies voor o.a. jonge kinderen, zwangeren, donkere huid, weinig buiten, vrouwen vanaf 50, iedereen vanaf 70."},
   {"t": "vitamine B12", "d": "Zit bijna alleen in dierlijke producten; supplement aanbevolen bij veganistisch eten."},
   {"t": "foliumzuur", "d": "Vitamine die de kans op een open ruggetje verkleint; advies vanaf 4 weken vóór tot 8 weken na de bevruchting."},

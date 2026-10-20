@@ -37,3 +37,10 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 | niacine / Niacine | niacine (gewone spelling) | s23, s24, s26 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
 | vitamine B12 | B-twaalf | s05, s07, s17 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
 | creatine | creatine (gewone spelling) | s21 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+## Feedback Filmreview 20 okt 2026 (opnieuw ingesproken: s01, s04, s10, s11, s28, s29)
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| vitamine A | vitamine A (letter, geen "aa" meer; regel `^A` uit `bouw/uitspraak_film.json` gehaald) | s10, s11 | Kamiel: klonk als dubbele a, moet enkel. **Wachtlijst: nog beluisteren** |
+| tablet | tablét (Nederlands, klemtoon op -blet, /taˈblɛt/; "tabletten" zoals geschreven) | s01, s28, s29 | Kamiel: moet het Nederlandse woord voor pil zijn, niet het apparaat. **Wachtlijst: nog beluisteren** |

@@ -39,9 +39,24 @@ function keuken(ctx, t, o = {}) { const { noor = 1, opaX = 700, spullen = 1, noo
 }
 function bot(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(-0.4); ctx.scale(s, s); roundRect(ctx, -30, -130, 60, 260, 30); shape(ctx, rgba('#E6D8A8', 0.3), '#E6D8A8', 3); for (const sy of [-1, 1]) for (const sx of [-1, 1]) circ(ctx, sx * 26, sy * 130, 32, rgba('#E6D8A8', 0.35), '#E6D8A8', 3); ctx.restore(); }
 function zon(ctx, x, y, r, t, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 12; i++) { const an = i * 0.524 + t * 0.2; ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x + Math.cos(an) * r * 1.2, y + Math.sin(an) * r * 1.2); ctx.lineTo(x + Math.cos(an) * r * 1.6, y + Math.sin(an) * r * 1.6); ctx.stroke(); } circ(ctx, x, y, r, rgba(C.goud, 0.85), C.goud, 2); ctx.restore(); }
-function schijf(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const vak = [['groente en fruit', '#7FC48F'], ['smeer- en bereidingsvetten', '#E8D27A'], ['vis, peulvruchten, vlees, ei, noten, zuivel', '#E07A5F'], ['brood, graanproducten, aardappelen', '#C9A35C'], ['dranken', '#5BA4C9']]; const ang = [0, 1.6, 2.4, 3.9, 5.4, 6.283];
-  vak.forEach(([n, col], i) => { ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, r, ang[i] - 1.571, ang[i + 1] - 1.571); ctx.closePath(); shape(ctx, rgba(col, 0.55), '#1A2740', 3); });
-  circ(ctx, x, y, r * 0.3, '#1A2740'); text(ctx, 'Schijf', x, y - 4, fTekst(24, 700), C.text, 'center'); text(ctx, 'van Vijf', x, y + 24, fTekst(24, 700), C.text, 'center'); ctx.restore(); }
+function gevarieerdBord(ctx, x, y, r, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); const k = r / 230; ctx.scale(k, k);
+  // een bord met verschillend eten: groente, fruit, brood, ei, peulvruchten, vis (geen voedingsmodel, gewoon gevarieerd)
+  ctx.beginPath(); ctx.arc(0, 0, 230, 0, 6.283); shape(ctx, '#DCE3EC', '#8FA0B5', 3); ctx.beginPath(); ctx.arc(0, 0, 175, 0, 6.283); shape(ctx, '#EEF2F6', 'rgba(143,160,181,.5)', 2);
+  // broccoli
+  ctx.save(); ctx.translate(-70, -70); ctx.fillStyle = '#5E9E6B'; ctx.fillRect(-8, 0, 16, 45); [[-28, -6], [0, -24], [28, -6], [-14, -30], [16, -32]].forEach(([dx, dy]) => circ(ctx, dx, dy, 24, '#7FC48F', '#4E8A5B')); ctx.restore();
+  // tomaatjes
+  [[60, -110], [100, -80]].forEach(([dx, dy]) => { circ(ctx, dx, dy, 24, '#E0614A', '#A8402E'); circ(ctx, dx - 6, dy - 22, 5, '#5E9E6B'); });
+  // sneetje volkorenbrood
+  ctx.save(); ctx.translate(90, 20); ctx.rotate(0.25); roundRect(ctx, -55, -45, 110, 95, 26); shape(ctx, '#B98A55', '#7F5A34', 3); roundRect(ctx, -42, -32, 84, 70, 18); shape(ctx, '#D9B27A', null); for (let i = 0; i < 9; i++) circ(ctx, -30 + (i * 23) % 64, -20 + (i * 37) % 52, 3, '#A97C45'); ctx.restore();
+  // ei
+  ctx.beginPath(); ctx.ellipse(-20, 70, 62, 48, -0.2, 0, 6.283); shape(ctx, '#FFFFFF', '#C9D3DF', 2); circ(ctx, -14, 66, 22, '#F2C14E', '#D9A230');
+  // bonen
+  [[-125, 40], [-110, 70], [-140, 75], [-120, 100], [-95, 95]].forEach(([dx, dy], i) => { ctx.beginPath(); ctx.ellipse(dx, dy, 15, 10, i, 0, 6.283); shape(ctx, '#9A5A43', '#6E3E2D', 2); });
+  // stukje vis
+  ctx.save(); ctx.translate(70, 125); ctx.rotate(-0.15); ctx.beginPath(); ctx.ellipse(0, 0, 58, 26, 0, 0, 6.283); shape(ctx, '#F0A78C', '#C77A5F', 2); for (let i = -2; i <= 2; i++) { ctx.beginPath(); ctx.moveTo(i * 16, -18); ctx.lineTo(i * 16 + 6, 18); ctx.strokeStyle = 'rgba(255,255,255,.6)'; ctx.lineWidth = 3; ctx.stroke(); } ctx.restore();
+  // partje sinaasappel
+  ctx.save(); ctx.translate(-30, -150); ctx.beginPath(); ctx.arc(0, 0, 34, 0, Math.PI); ctx.closePath(); shape(ctx, '#F5A54A', '#C97A1E', 3); ctx.restore();
+  ctx.restore(); }
 function broodje(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.beginPath(); ctx.ellipse(0, -20, 150, 60, 0, Math.PI, 0); shape(ctx, '#C9A35C', '#8C6A44', 3); ctx.fillStyle = '#F0D78C'; ctx.fillRect(-150, -24, 300, 22); ctx.beginPath(); ctx.ellipse(0, 0, 150, 26, 0, 0, Math.PI); shape(ctx, '#B08A5C', '#8C6A44', 3);
   roundRect(ctx, 210, -150, 90, 170, 10); shape(ctx, rgba('#F2F2EE', 0.9), '#C9D2DE', 2); ctx.restore(); }
 function poppetjes100(ctx, x, y, n, rood, half = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { const px = x + (i % 20) * 52, py = y + Math.floor(i / 20) * 82; const col = i < rood ? C.koraal : C.text2; circ(ctx, px, py - 26, 10, col); roundRect(ctx, px - 11, py - 12, 22, 32, 9); ctx.fillStyle = col; ctx.fill();
@@ -66,7 +81,7 @@ function hypeItems(q, stage) { // cumulatief: stage = nummer van de scène in H4
 function muis(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = '#C9B896'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-60, 10); ctx.quadraticCurveTo(-110, 0, -120, -30); ctx.stroke(); ctx.beginPath(); ctx.ellipse(0, 0, 66, 40, 0, 0, 6.283); shape(ctx, '#9AA3B2', null); circ(ctx, 60, -10, 30, '#9AA3B2'); circ(ctx, 50, -40, 16, '#C9A0A8'); circ(ctx, 74, -14, 4, '#1A2740'); circ(ctx, 90, -6, 5, '#C9708F'); ctx.restore(); }
 function nadMol(ctx, x, y, a = 1, lab = 'NAD+') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 70, y - 30, 140, 60, 30); shape(ctx, rgba(C.teal, 0.25), C.teal, 2); text(ctx, lab, x, y + 10, fTekst(30, 700), C.text, 'center'); ctx.restore(); }
 const SCENES = {
-  title(ctx, t) { bg(ctx, 'schema'); potje(ctx, 1500, 700, 1.2); schijf(ctx, 1720, 360, 110); vraagteken(ctx, 1300, 620, 0.6 + 0.4 * Math.sin(t), 120); },
+  title(ctx, t) { bg(ctx, 'schema'); potje(ctx, 1500, 700, 1.2); gevarieerdBord(ctx, 1720, 360, 120); vraagteken(ctx, 1300, 620, 0.6 + 0.4 * Math.sin(t), 120); },
 
   s01(ctx, t, q) { keuken(ctx, t);
     tag(ctx, '1000 mg vitamine C, elke ochtend', 960, 300, VC, q.on('Duizend', 1) * (1 - q.on('bewijs', 1)));
@@ -77,7 +92,7 @@ const SCENES = {
     const p2 = q.on('Toch', 1), p1 = 1 - p2;
     if (p1 > 0.01) { ctx.save(); ctx.globalAlpha *= p1; broodje(ctx, 520, 520, 1.3); regel(ctx, 'broodje kaas met melk (film 1)', 600, 720, 1, C.text2, 28, 'center', 700);
       for (let i = 0; i < 8; i++) circ(ctx, 380 + i * 40, 300 + 20 * Math.sin(i + t), 7, [VD, VC, VA, VB][i % 4], null); regel(ctx, 'vitaminen en mineralen: kleine hoeveelheden', 520, 240, q.on('Vitaminen', 1), C.text, 26, 'center', 700);
-      schijf(ctx, 1340, 470, 230, q.on('Schijf', 1)); regel(ctx, 'gevarieerd eten: bijna alles binnen', 1340, 780, q.on('binnen', 1), C.groen, 28, 'center', 700); ctx.restore(); }
+      gevarieerdBord(ctx, 1340, 470, 230, q.on('gevarieerd', 1)); regel(ctx, 'gevarieerd eten: bijna alles binnen', 1340, 780, q.on('binnen', 1), C.groen, 28, 'center', 700); ctx.restore(); }
     if (p2 > 0.01) { ctx.save(); ctx.globalAlpha *= p2;
       zon(ctx, 220, 220, 60, t); const hd = q.on('huid', 1); roundRect(ctx, 140, 380, 300, 80, 20); shape(ctx, rgba('#E8C2A4', 0.5 * hd), '#E8C2A4', 2); regel(ctx, 'huid', 290, 432, hd, C.text, 26, 'center', 700);
       ctx.strokeStyle = rgba(C.goud, 0.6 * hd); ctx.lineWidth = 3; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(240 + i * 30, 300); ctx.lineTo(260 + i * 30, 380); ctx.stroke(); }

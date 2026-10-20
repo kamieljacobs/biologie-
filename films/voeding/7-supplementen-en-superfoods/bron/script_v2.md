@@ -3,7 +3,7 @@
 Film 7 van de reeks Voeding (los slotstuk, op verzoek van Kamiel, 14 okt 2026). Havo + vwo bovenbouw; vwo-blokken gelabeld [VWO-START] … [VWO-END]. Voice Roos (eleven_v4). Rode draad: wat een supplement toevoegt aan een gevarieerd eetpatroon (het broodje kaas met melk uit film 1), en hoe je een gezondheidsclaim toetst (het bewijsbord uit film 6: vastgesteld / waarschijnlijk / hypothese, nu met een vak erbij: weerlegd). Puzzel: opa slikt elke dag vitamine C en is "al jaren niet verkouden": bewijst dat dat het werkt? Type H (bewijs beoordelen) met I (toepassing). Expert: voedingswetenschapper/arts. As: wie heeft er echt baat bij → meer is niet beter → hoe toets je een claim.
 
 Leerdoelen
-1. basis — uitleggen dat je bij een gevarieerd eetpatroon volgens de Schijf van Vijf bijna alles binnenkrijgt, en voor welke groepen een supplement wél wordt aangeraden: vitamine D (jonge kinderen, zwangeren, donkere huid of weinig buiten, vrouwen vanaf 50, iedereen vanaf 70), vitamine B12 bij veganisten, foliumzuur rond de bevruchting, ijzer alleen bij een vastgesteld tekort
+1. basis — uitleggen dat je bij een gevarieerd eetpatroon bijna alles binnenkrijgt, en voor welke groepen een supplement wél wordt aangeraden: vitamine D (jonge kinderen, zwangeren, donkere huid of weinig buiten, vrouwen vanaf 50, iedereen vanaf 70), vitamine B12 bij veganisten, foliumzuur rond de bevruchting, ijzer alleen bij een vastgesteld tekort
 2. basis — uitleggen waarom meer niet beter is: een teveel aan vitamine C halen je nieren uit je bloed, vetoplosbare vitaminen (A, D, E, K) stapelen zich op; ook van sommige wateroplosbare vitaminen (B6) kan te veel schaden; losse bètacaroteenpillen gaven rokers juist méér longkanker; natuurlijk is niet automatisch veilig
 3. basis — uitleggen dat 'detox' en 'superfood' geen wetenschappelijke begrippen zijn: lever en nieren ontgiften; in de EU mag een verpakking alleen goedgekeurde gezondheidsclaims dragen
 4. basis — een gezondheidsclaim toetsen: proefgroep en controlegroep, loting, placebo (placebo-effect), dubbelblind, genoeg deelnemers, effectgrootte, wie betaalde; één persoon is geen bewijs; het bewijsbord met 'weerlegd'
@@ -25,8 +25,8 @@ Is dat het bewijs dat vitamine C werkt? Wat denk je?
 ## Titel
 Supplementen en superfoods. Wat je lichaam echt nodig heeft, en hoe je een claim toetst.
 
-## Hoofdstuk 1 — Wie heeft er iets aan? [Schema: broodje kaas met melk; Schijf van Vijf; vitaminen en mineralen in kleine hoeveelheden; groepen met hun supplement]
-In de eerste film volgden we een broodje kaas met een glas melk. Daar zat al veel in van wat je lichaam nodig heeft. Vitaminen en mineralen heb je maar in kleine hoeveelheden nodig. Eet je gevarieerd, volgens de Schijf van Vijf, dan krijg je bijna alles binnen.
+## Hoofdstuk 1 — Wie heeft er iets aan? [Schema: broodje kaas met melk; gevarieerd bord; vitaminen en mineralen in kleine hoeveelheden; groepen met hun supplement]
+In de eerste film volgden we een broodje kaas met een glas melk. Daar zat al veel in van wat je lichaam nodig heeft. Vitaminen en mineralen heb je maar in kleine hoeveelheden nodig. Eet je gevarieerd, dan krijg je bijna alles binnen.
 Toch is een supplement voor sommige mensen een goed idee. Je huid maakt zelf vitamine D, onder invloed van zonlicht. Je hebt het nodig om calcium op te nemen, voor sterke botten. Jonge kinderen, zwangere vrouwen, mensen met een donkere huid of die weinig buiten komen, vrouwen vanaf vijftig en iedereen vanaf zeventig krijgen het advies om extra vitamine D te slikken.
 
 Vrouwen die zwanger willen worden, krijgen het advies om foliumzuur te slikken, al vanaf een maand vóór de zwangerschap. Dat verkleint de kans op een open ruggetje bij het kind. Het ruggetje sluit zich al in de eerste weken, vaak voordat een vrouw weet dat ze zwanger is.

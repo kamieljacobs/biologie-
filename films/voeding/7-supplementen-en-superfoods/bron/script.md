@@ -18,7 +18,7 @@ Titelkaart: Supplementen en superfoods. Wat je lichaam echt nodig heeft, en hoe 
 
 **s04** · 39.3 s · `audio/s04.mp3`
 
-In de eerste film volgden we een broodje kaas met een glas melk. Daar zat al veel in van wat je lichaam nodig heeft. Vitaminen en mineralen heb je maar in kleine hoeveelheden nodig. Eet je gevarieerd, volgens de Schijf van Vijf, dan krijg je bijna alles binnen. Toch is een supplement voor sommige mensen een goed idee. Je huid maakt zelf vitamine D, onder invloed van zonlicht. Je hebt het nodig om calcium op te nemen, voor sterke botten. Jonge kinderen, zwangere vrouwen, mensen met een donkere huid of die weinig buiten komen, vrouwen vanaf vijftig en iedereen vanaf zeventig krijgen het advies om extra vitamine D te slikken.
+In de eerste film volgden we een broodje kaas met een glas melk. Daar zat al veel in van wat je lichaam nodig heeft. Vitaminen en mineralen heb je maar in kleine hoeveelheden nodig. Eet je gevarieerd, dan krijg je bijna alles binnen. Toch is een supplement voor sommige mensen een goed idee. Je huid maakt zelf vitamine D, onder invloed van zonlicht. Je hebt het nodig om calcium op te nemen, voor sterke botten. Jonge kinderen, zwangere vrouwen, mensen met een donkere huid of die weinig buiten komen, vrouwen vanaf vijftig en iedereen vanaf zeventig krijgen het advies om extra vitamine D te slikken.
 
 **s05** · 21.0 s · `audio/s05.mp3`
 
