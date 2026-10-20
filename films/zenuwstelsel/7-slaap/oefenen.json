@@ -1,0 +1,104 @@
+{
+ "intro": "Oefen met een nacht slaap. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "grafiek-hypnogram",
+   "soort": "grafiek",
+   "titel": "Een nacht van Noor",
+   "opdracht": "Dit is de slaapgrafiek van Noor, gemeten met een EEG. Lees de grafiek af en beantwoord de vragen.",
+   "breed": 680,
+   "hoog": 330,
+   "alt": "Slaapgrafiek van één nacht van 23:00 tot 06:30 met wakker, REM-slaap, lichte en diepe slaap",
+   "svg": "<line class=\"zacht\" x1=\"150\" y1=\"48\" x2=\"655\" y2=\"48\" stroke-dasharray=\"2 6\"/><text x=\"138\" y=\"53\" text-anchor=\"end\" style=\"font-size:13px\">wakker</text><line class=\"zacht\" x1=\"150\" y1=\"98\" x2=\"655\" y2=\"98\" stroke-dasharray=\"2 6\"/><text x=\"138\" y=\"103\" text-anchor=\"end\" style=\"font-size:13px\">REM-slaap</text><line class=\"zacht\" x1=\"150\" y1=\"158\" x2=\"655\" y2=\"158\" stroke-dasharray=\"2 6\"/><text x=\"138\" y=\"163\" text-anchor=\"end\" style=\"font-size:13px\">lichte slaap</text><line class=\"zacht\" x1=\"150\" y1=\"222\" x2=\"655\" y2=\"222\" stroke-dasharray=\"2 6\"/><text x=\"138\" y=\"227\" text-anchor=\"end\" style=\"font-size:13px\">diepe slaap</text><line x1=\"150\" y1=\"262\" x2=\"655\" y2=\"262\"/><line x1=\"150.0\" y1=\"262\" x2=\"150.0\" y2=\"270\"/><text x=\"150.0\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">23:00</text><line class=\"zacht\" x1=\"183.7\" y1=\"262\" x2=\"183.7\" y2=\"267\"/><line x1=\"217.3\" y1=\"262\" x2=\"217.3\" y2=\"270\"/><text x=\"217.3\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">00:00</text><line class=\"zacht\" x1=\"251.0\" y1=\"262\" x2=\"251.0\" y2=\"267\"/><line x1=\"284.7\" y1=\"262\" x2=\"284.7\" y2=\"270\"/><text x=\"284.7\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">01:00</text><line class=\"zacht\" x1=\"318.3\" y1=\"262\" x2=\"318.3\" y2=\"267\"/><line x1=\"352.0\" y1=\"262\" x2=\"352.0\" y2=\"270\"/><text x=\"352.0\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">02:00</text><line class=\"zacht\" x1=\"385.7\" y1=\"262\" x2=\"385.7\" y2=\"267\"/><line x1=\"419.3\" y1=\"262\" x2=\"419.3\" y2=\"270\"/><text x=\"419.3\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">03:00</text><line class=\"zacht\" x1=\"453.0\" y1=\"262\" x2=\"453.0\" y2=\"267\"/><line x1=\"486.7\" y1=\"262\" x2=\"486.7\" y2=\"270\"/><text x=\"486.7\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">04:00</text><line class=\"zacht\" x1=\"520.3\" y1=\"262\" x2=\"520.3\" y2=\"267\"/><line x1=\"554.0\" y1=\"262\" x2=\"554.0\" y2=\"270\"/><text x=\"554.0\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">05:00</text><line class=\"zacht\" x1=\"587.7\" y1=\"262\" x2=\"587.7\" y2=\"267\"/><line x1=\"621.3\" y1=\"262\" x2=\"621.3\" y2=\"270\"/><text x=\"621.3\" y=\"290\" text-anchor=\"middle\" style=\"font-size:13px\">06:00</text><text x=\"402.5\" y=\"318\" text-anchor=\"middle\" style=\"font-size:13px\">tijd (uur)</text><path class=\"acc\" d=\"M150.0 48 L156.7 48 L156.7 158 L176.9 158 L176.9 222 L234.2 222 L234.2 158 L240.9 158 L240.9 98 L251.0 98 L251.0 158 L271.2 158 L271.2 222 L318.3 222 L318.3 158 L331.8 158 L331.8 98 L352.0 98 L352.0 158 L378.9 158 L378.9 222 L405.9 222 L405.9 158 L419.3 158 L419.3 98 L453.0 98 L453.0 158 L500.1 158 L500.1 222 L510.2 222 L510.2 158 L513.6 158 L513.6 98 L554.0 98 L554.0 158 L604.5 158 L604.5 98 L648.3 98 L648.3 48 L655.0 48\" stroke-width=\"3\"/><line class=\"acc\" x1=\"240.9\" y1=\"98\" x2=\"251.0\" y2=\"98\" stroke-width=\"7\" opacity=\".45\"/><line class=\"acc\" x1=\"331.8\" y1=\"98\" x2=\"352.0\" y2=\"98\" stroke-width=\"7\" opacity=\".45\"/><line class=\"acc\" x1=\"419.3\" y1=\"98\" x2=\"453.0\" y2=\"98\" stroke-width=\"7\" opacity=\".45\"/><line class=\"acc\" x1=\"513.6\" y1=\"98\" x2=\"554.0\" y2=\"98\" stroke-width=\"7\" opacity=\".45\"/><line class=\"acc\" x1=\"604.5\" y1=\"98\" x2=\"648.3\" y2=\"98\" stroke-width=\"7\" opacity=\".45\"/>",
+   "vragen": [
+    {
+     "vraag": "Hoeveel REM-periodes heeft Noor deze nacht?",
+     "antwoord": 5,
+     "uitleg": "Tel de dikke stukken op de REM-lijn: vijf. Elke REM-periode sluit een slaapcyclus af."
+    },
+    {
+     "vraag": "Hoe lang duurt één slaapcyclus ongeveer?",
+     "antwoord": 1.5,
+     "marge": 0.25,
+     "eenheid": "uur",
+     "uitleg": "Van het begin van de ene cyclus tot de volgende is ongeveer anderhalf uur. In 7,5 uur passen er dus vijf."
+    },
+    {
+     "vraag": "In welk deel van de nacht heeft Noor de meeste diepe slaap?",
+     "keuzes": [
+      "aan het begin",
+      "in het midden",
+      "tegen de ochtend"
+     ],
+     "antwoord": 0,
+     "uitleg": "De eerste twee cycli zakken lang naar de diepe slaap. Tegen de ochtend komt Noor er bijna niet meer."
+    },
+    {
+     "vraag": "Wat gebeurt er met de REM-periodes in de loop van de nacht?",
+     "keuzes": [
+      "ze worden korter",
+      "ze blijven even lang",
+      "ze worden langer"
+     ],
+     "antwoord": 2,
+     "uitleg": "De eerste REM-periode is kort, de laatste duurt ongeveer drie kwartier."
+    },
+    {
+     "vraag": "Noor moet een keer om 04:00 opstaan. Welke slaap mist ze dan vooral?",
+     "keuzes": [
+      "diepe slaap",
+      "REM-slaap",
+      "allebei evenveel"
+     ],
+     "antwoord": 1,
+     "uitleg": "De diepe slaap zit vooral in de eerste uren, die heeft ze dan al gehad. De lange REM-periodes komen pas na 04:00."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-bilal-sam",
+   "soort": "uitleg",
+   "titel": "Om acht uur wakker, 's middags kapot",
+   "opdracht": "Bilal en Sam gamen de hele nacht door. Om vier uur zijn ze doodmoe, om acht uur voelen ze zich weer wakker, en 's middags storten ze in. Leg dat uit met de twee systemen uit de film.",
+   "begrippen": [
+    {
+     "naam": "slaapdruk",
+     "varianten": [
+      "adenosine"
+     ]
+    },
+    {
+     "naam": "biologische klok",
+     "varianten": [
+      "klok",
+      "circadiaans"
+     ]
+    },
+    {
+     "naam": "wekker-signaal",
+     "varianten": [
+      "wekkersignaal",
+      "wekker"
+     ]
+    },
+    {
+     "naam": "licht",
+     "varianten": [
+      "daglicht"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de slaapdruk (adenosine) de hele nacht blijft oplopen.",
+    "Ik noem dat de klok om vier uur op het diepste punt staat.",
+    "Ik leg uit dat de klok rond acht uur een wekker-signaal geeft dat tegen de slaapdruk in duwt.",
+    "Ik leg uit dat adenosine alleen tijdens slaap wordt opgeruimd, dus dat ze later alsnog instorten."
+   ],
+   "model": [
+    "Twee systemen bepalen wanneer je moe bent: de slaapdruk en de biologische klok.",
+    "Omdat Bilal en Sam niet slapen, stapelt adenosine zich de hele nacht op: de slaapdruk loopt steeds verder op. Om vier uur staat hun klok bovendien op het diepste punt, dus ze zijn dubbel slaperig.",
+    "Rond acht uur geeft de klok een wekker-signaal, geholpen door het daglicht. Dat duwt tegen de slaapdruk in, dus ze voelen zich wakkerder. Maar de adenosine wordt alleen opgeruimd als je slaapt. De slaapdruk is dus nog steeds hoog, en 's middags storten ze in."
+   ]
+  }
+ ]
+}

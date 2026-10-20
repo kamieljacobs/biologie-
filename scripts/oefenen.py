@@ -6,7 +6,7 @@ import json, os, re, subprocess, sys
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 files = subprocess.check_output(['git', 'ls-files', '--cached', '--others', '--exclude-standard', 'films/*.html', 'films/**/*.html'], cwd=R, text=True).split()
 TAG = re.compile(r'<script src="[^"]*js/oefenen\.js"[^>]*></script>\n?')
-SOORTEN = {'volgorde', 'schema', 'uitleg'}
+SOORTEN = {'volgorde', 'schema', 'uitleg', 'indelen', 'pijlen', 'grafiek', 'puzzel'}
 
 
 def controleer(pad):
@@ -25,6 +25,29 @@ def controleer(pad):
         if o.get('soort') == 'uitleg':
             for veld in ('begrippen', 'checklist', 'model'):
                 if not o.get(veld): fouten.append(f'{w}: {veld} ontbreekt')
+        if o.get('soort') == 'indelen':
+            namen = [b if isinstance(b, str) else b.get('naam') for b in o.get('bakken', [])]
+            if not 2 <= len(namen) <= 4: fouten.append(f'{w}: 2–4 bakken verwacht')
+            for c in o.get('kaartjes', []):
+                b = c.get('bak')
+                if not (isinstance(b, int) and 0 <= b < len(namen)) and b not in namen: fouten.append(f'{w}: kaartje {c.get("tekst")!r} heeft een onbekende bak')
+            if len(o.get('kaartjes', [])) < 4: fouten.append(f'{w}: minstens 4 kaartjes verwacht')
+        if o.get('soort') == 'pijlen':
+            for r in o.get('rijen', []):
+                if r.get('antwoord') not in ('+', '-', '='): fouten.append(f'{w}: rij {r.get("naam")!r}: antwoord moet + - of = zijn')
+            if not o.get('rijen'): fouten.append(f'{w}: rijen ontbreken')
+        if o.get('soort') == 'grafiek':
+            if not o.get('svg'): fouten.append(f'{w}: svg ontbreekt')
+            for q in o.get('vragen', []):
+                if 'antwoord' not in q: fouten.append(f'{w}: vraag zonder antwoord')
+                elif q.get('keuzes') and not (isinstance(q['antwoord'], int) and 0 <= q['antwoord'] < len(q['keuzes'])): fouten.append(f'{w}: keuze-antwoord buiten de lijst')
+        if o.get('soort') == 'puzzel':
+            if not o.get('stappen'): fouten.append(f'{w}: stappen ontbreken')
+            for st in o.get('stappen', []):
+                if not st.get('velden'): fouten.append(f'{w}: stap zonder velden')
+                for v in st.get('velden', []):
+                    if 'antwoord' not in v: fouten.append(f'{w}: veld zonder antwoord')
+                    elif v.get('opties') and v['antwoord'] not in v['opties']: fouten.append(f'{w}: antwoord {v["antwoord"]!r} staat niet in de opties')
     return fouten
 
 

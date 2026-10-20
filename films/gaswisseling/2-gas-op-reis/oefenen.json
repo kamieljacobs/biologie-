@@ -1,0 +1,135 @@
+{
+ "intro": "Oefen met het vervoer van zuurstof en koolstofdioxide. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "pijlen-adem-inhouden",
+   "soort": "pijlen",
+   "titel": "Adem inhouden",
+   "opdracht": "Je houdt je adem in. Voorspel wat er gebeurt tot je wel weer móet ademen.",
+   "situatie": "Je houdt je adem zo lang mogelijk in.",
+   "rijen": [
+    {
+     "naam": "Koolstofdioxide in je bloed",
+     "antwoord": "+",
+     "uitleg": "Je cellen blijven CO₂ maken, maar je ademt het niet uit."
+    },
+    {
+     "naam": "pH van je bloed",
+     "antwoord": "-",
+     "uitleg": "CO₂ reageert met water tot waterstofcarbonaat, en er komt zuur vrij: het bloed wordt zuurder."
+    },
+    {
+     "naam": "Prikkels van de chemoreceptoren naar het ademcentrum",
+     "antwoord": "+",
+     "uitleg": "De sensoren meten vooral de stijgende CO₂ en het zuur."
+    },
+    {
+     "naam": "Je ademdrang",
+     "antwoord": "+",
+     "uitleg": "Het ademcentrum stuurt steeds sterker de ademspieren aan, tot je moet ademen. Het is dus niet het zuurstoftekort dat je dwingt: je hemoglobine is dan nog bijna vol."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-zuurstofbinding",
+   "soort": "grafiek",
+   "vwo": true,
+   "titel": "De zuurstofbindingscurve",
+   "opdracht": "Curve A is de zuurstofbindingscurve van hemoglobine in normaal bloed. Curve B geldt voor bloed in een hard werkende spier. Lees de grafiek af.",
+   "breed": 640,
+   "hoog": 360,
+   "alt": "Twee S-vormige zuurstofbindingscurven; curve B ligt rechts van curve A",
+   "svg": "<line class=\"zacht\" x1=\"78\" y1=\"300.0\" x2=\"610\" y2=\"300.0\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"305.0\" text-anchor=\"end\" style=\"font-size:13px\">0</text><line class=\"zacht\" x1=\"78\" y1=\"247.2\" x2=\"610\" y2=\"247.2\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"252.2\" text-anchor=\"end\" style=\"font-size:13px\">20</text><line class=\"zacht\" x1=\"78\" y1=\"194.4\" x2=\"610\" y2=\"194.4\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"199.4\" text-anchor=\"end\" style=\"font-size:13px\">40</text><line class=\"zacht\" x1=\"78\" y1=\"141.6\" x2=\"610\" y2=\"141.6\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"146.6\" text-anchor=\"end\" style=\"font-size:13px\">60</text><line class=\"zacht\" x1=\"78\" y1=\"88.8\" x2=\"610\" y2=\"88.8\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"93.8\" text-anchor=\"end\" style=\"font-size:13px\">80</text><line class=\"zacht\" x1=\"78\" y1=\"36.0\" x2=\"610\" y2=\"36.0\" stroke-dasharray=\"2 6\"/><text x=\"68\" y=\"41.0\" text-anchor=\"end\" style=\"font-size:13px\">100</text><line class=\"zacht\" x1=\"78.0\" y1=\"300\" x2=\"78.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"78.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">0</text><line class=\"zacht\" x1=\"154.0\" y1=\"300\" x2=\"154.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"154.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">2</text><line class=\"zacht\" x1=\"230.0\" y1=\"300\" x2=\"230.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"230.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">4</text><line class=\"zacht\" x1=\"306.0\" y1=\"300\" x2=\"306.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"306.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">6</text><line class=\"zacht\" x1=\"382.0\" y1=\"300\" x2=\"382.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"382.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">8</text><line class=\"zacht\" x1=\"458.0\" y1=\"300\" x2=\"458.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"458.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">10</text><line class=\"zacht\" x1=\"534.0\" y1=\"300\" x2=\"534.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"534.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">12</text><line class=\"zacht\" x1=\"610.0\" y1=\"300\" x2=\"610.0\" y2=\"36\" stroke-dasharray=\"2 6\"/><text x=\"610.0\" y=\"322\" text-anchor=\"middle\" style=\"font-size:13px\">14</text><path d=\"M78 36 L78 300 L610 300\"/><text x=\"344.0\" y=\"348\" text-anchor=\"middle\" style=\"font-size:13px\">zuurstofspanning (kPa)</text><text x=\"22\" y=\"168.0\" text-anchor=\"middle\" transform=\"rotate(-90 22 168.0)\" style=\"font-size:13px\">verzadiging hemoglobine (%)</text><path class=\"acc\" d=\"M78.0 300.0 L81.8 300.0 L85.6 299.9 L89.4 299.7 L93.2 299.2 L97.0 298.6 L100.8 297.8 L104.6 296.6 L108.4 295.2 L112.2 293.4 L116.0 291.3 L119.8 288.9 L123.6 286.1 L127.4 283.0 L131.2 279.5 L135.0 275.7 L138.8 271.5 L142.6 267.1 L146.4 262.4 L150.2 257.4 L154.0 252.3 L157.8 246.9 L161.6 241.4 L165.4 235.7 L169.2 230.0 L173.0 224.1 L176.8 218.3 L180.6 212.4 L184.4 206.6 L188.2 200.8 L192.0 195.1 L195.8 189.4 L199.6 183.9 L203.4 178.5 L207.2 173.2 L211.0 168.0 L214.8 163.0 L218.6 158.1 L222.4 153.4 L226.2 148.9 L230.0 144.5 L233.8 140.2 L237.6 136.2 L241.4 132.2 L245.2 128.5 L249.0 124.9 L252.8 121.4 L256.6 118.1 L260.4 114.9 L264.2 111.9 L268.0 108.9 L271.8 106.1 L275.6 103.5 L279.4 100.9 L283.2 98.5 L287.0 96.2 L290.8 93.9 L294.6 91.8 L298.4 89.8 L302.2 87.8 L306.0 85.9 L309.8 84.2 L313.6 82.5 L317.4 80.8 L321.2 79.3 L325.0 77.8 L328.8 76.3 L332.6 75.0 L336.4 73.7 L340.2 72.4 L344.0 71.2 L347.8 70.1 L351.6 69.0 L355.4 67.9 L359.2 66.9 L363.0 65.9 L366.8 65.0 L370.6 64.1 L374.4 63.2 L378.2 62.4 L382.0 61.6 L385.8 60.8 L389.6 60.1 L393.4 59.4 L397.2 58.7 L401.0 58.0 L404.8 57.4 L408.6 56.8 L412.4 56.2 L416.2 55.7 L420.0 55.1 L423.8 54.6 L427.6 54.1 L431.4 53.6 L435.2 53.1 L439.0 52.7 L442.8 52.3 L446.6 51.8 L450.4 51.4 L454.2 51.0 L458.0 50.6 L461.8 50.3 L465.6 49.9 L469.4 49.6 L473.2 49.3 L477.0 48.9 L480.8 48.6 L484.6 48.3 L488.4 48.0 L492.2 47.7 L496.0 47.5 L499.8 47.2 L503.6 46.9 L507.4 46.7 L511.2 46.5 L515.0 46.2 L518.8 46.0 L522.6 45.8 L526.4 45.6 L530.2 45.4 L534.0 45.2 L537.8 45.0 L541.6 44.8 L545.4 44.6 L549.2 44.4 L553.0 44.2 L556.8 44.1 L560.6 43.9 L564.4 43.7 L568.2 43.6 L572.0 43.4 L575.8 43.3 L579.6 43.1 L583.4 43.0 L587.2 42.9 L591.0 42.7 L594.8 42.6 L598.6 42.5 L602.4 42.3 L606.2 42.2 L610.0 42.1\" stroke-width=\"3\"/><path d=\"M78.0 300.0 L81.8 300.0 L85.6 299.9 L89.4 299.8 L93.2 299.6 L97.0 299.3 L100.8 298.9 L104.6 298.4 L108.4 297.7 L112.2 296.8 L116.0 295.8 L119.8 294.6 L123.6 293.2 L127.4 291.6 L131.2 289.8 L135.0 287.8 L138.8 285.6 L142.6 283.2 L146.4 280.6 L150.2 277.8 L154.0 274.8 L157.8 271.6 L161.6 268.3 L165.4 264.8 L169.2 261.1 L173.0 257.3 L176.8 253.4 L180.6 249.4 L184.4 245.2 L188.2 241.0 L192.0 236.7 L195.8 232.4 L199.6 227.9 L203.4 223.5 L207.2 219.1 L211.0 214.6 L214.8 210.2 L218.6 205.7 L222.4 201.3 L226.2 196.9 L230.0 192.6 L233.8 188.3 L237.6 184.1 L241.4 180.0 L245.2 175.9 L249.0 171.9 L252.8 168.0 L256.6 164.2 L260.4 160.4 L264.2 156.8 L268.0 153.2 L271.8 149.7 L275.6 146.3 L279.4 143.1 L283.2 139.9 L287.0 136.8 L290.8 133.7 L294.6 130.8 L298.4 128.0 L302.2 125.2 L306.0 122.6 L309.8 120.0 L313.6 117.5 L317.4 115.1 L321.2 112.8 L325.0 110.5 L328.8 108.3 L332.6 106.2 L336.4 104.2 L340.2 102.2 L344.0 100.3 L347.8 98.4 L351.6 96.7 L355.4 94.9 L359.2 93.3 L363.0 91.7 L366.8 90.1 L370.6 88.6 L374.4 87.2 L378.2 85.7 L382.0 84.4 L385.8 83.1 L389.6 81.8 L393.4 80.6 L397.2 79.4 L401.0 78.3 L404.8 77.1 L408.6 76.1 L412.4 75.0 L416.2 74.0 L420.0 73.1 L423.8 72.1 L427.6 71.2 L431.4 70.3 L435.2 69.5 L439.0 68.6 L442.8 67.8 L446.6 67.1 L450.4 66.3 L454.2 65.6 L458.0 64.9 L461.8 64.2 L465.6 63.5 L469.4 62.9 L473.2 62.3 L477.0 61.7 L480.8 61.1 L484.6 60.5 L488.4 60.0 L492.2 59.4 L496.0 58.9 L499.8 58.4 L503.6 57.9 L507.4 57.4 L511.2 57.0 L515.0 56.5 L518.8 56.1 L522.6 55.6 L526.4 55.2 L530.2 54.8 L534.0 54.4 L537.8 54.1 L541.6 53.7 L545.4 53.3 L549.2 53.0 L553.0 52.6 L556.8 52.3 L560.6 52.0 L564.4 51.7 L568.2 51.4 L572.0 51.1 L575.8 50.8 L579.6 50.5 L583.4 50.2 L587.2 49.9 L591.0 49.7 L594.8 49.4 L598.6 49.2 L602.4 48.9 L606.2 48.7 L610.0 48.5\" stroke-width=\"2.5\" stroke-dasharray=\"7 5\"/><text x=\"351.6\" y=\"55.0\" style=\"font-size:13px\">A</text><text x=\"290.8\" y=\"159.7\" style=\"font-size:13px\">B</text>",
+   "vragen": [
+    {
+     "vraag": "In de longen is de zuurstofspanning ongeveer 13 kPa. Hoeveel procent van de hemoglobine is daar verzadigd (curve A)?",
+     "antwoord": 97,
+     "marge": 3,
+     "eenheid": "%",
+     "uitleg": "Het vlakke stuk bovenaan: de hemoglobine is bijna vol."
+    },
+    {
+     "vraag": "In een spier in rust is de zuurstofspanning ongeveer 5 kPa. Hoeveel procent is daar nog verzadigd (curve A)?",
+     "antwoord": 72,
+     "marge": 5,
+     "eenheid": "%",
+     "uitleg": "Rond de 70 à 75 procent: het bloed in je aders is dus zeker niet leeg."
+    },
+    {
+     "vraag": "Welk deel van de zuurstof laat hemoglobine dan in rust los?",
+     "keuzes": [
+      "ongeveer een kwart",
+      "ongeveer de helft",
+      "bijna alles"
+     ],
+     "antwoord": 0,
+     "uitleg": "Van ongeveer 97 naar ongeveer 72 procent: zo'n kwart."
+    },
+    {
+     "vraag": "Waarom is het handig dat de curve bij de longen zo vlak is?",
+     "keuzes": [
+      "Ook als de zuurstofspanning in de longen wat daalt, raakt hemoglobine bijna vol",
+      "Dan laat hemoglobine in de longen extra zuurstof los",
+      "Dan bindt hemoglobine ook koolstofdioxide"
+     ],
+     "antwoord": 0,
+     "uitleg": "Op het vlakke stuk verandert de verzadiging nauwelijks, bijvoorbeeld op een berg of bij een longziekte."
+    },
+    {
+     "vraag": "Bij een zuurstofspanning van 3 kPa: laat hemoglobine in de werkende spier (curve B) meer of minder zuurstof los dan volgens curve A?",
+     "keuzes": [
+      "meer",
+      "minder",
+      "evenveel"
+     ],
+     "antwoord": 0,
+     "uitleg": "Curve B ligt lager: bij dezelfde spanning is minder hemoglobine verzadigd, dus is er meer losgelaten. Dat is het Bohr-effect: CO₂, zuur en warmte schuiven de curve naar rechts."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-koolmonoxide",
+   "soort": "uitleg",
+   "titel": "Een sluipend gas",
+   "opdracht": "Bij een koolmonoxidevergiftiging is de zuurstofspanning in het bloed gewoon normaal, en toch krijgen je cellen te weinig zuurstof. Leg uit hoe dat kan, en waarom je ademcentrum geen alarm slaat.",
+   "begrippen": [
+    {
+     "naam": "hemoglobine",
+     "varianten": [
+      "ijzer"
+     ]
+    },
+    {
+     "naam": "koolmonoxide",
+     "varianten": [
+      "CO"
+     ]
+    },
+    {
+     "naam": "zuurstofspanning",
+     "varianten": [
+      "opgeloste zuurstof"
+     ]
+    },
+    {
+     "naam": "koolstofdioxide",
+     "varianten": [
+      "CO2",
+      "CO₂"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat koolmonoxide op de ijzerplekken van hemoglobine bindt.",
+    "Ik leg uit dat hemoglobine dan minder zuurstof kan vervoeren.",
+    "Ik leg uit dat de zuurstofspanning alleen over opgeloste zuurstof gaat en dus normaal blijft.",
+    "Ik leg uit dat het ademcentrum vooral op koolstofdioxide reageert, en dat is normaal."
+   ],
+   "model": [
+    "Koolmonoxide bindt op dezelfde ijzerplekken van hemoglobine als zuurstof, en veel sterker. Daardoor kan hemoglobine veel minder zuurstof vervoeren, en krijgen je cellen te weinig.",
+    "De zuurstofspanning meet alleen de zuurstof die los in het plasma is opgelost, en die is normaal. Ook het koolstofdioxide in je bloed is normaal.",
+    "Je ademcentrum reageert vooral op koolstofdioxide en zuur. Omdat die niet veranderen, slaat het geen alarm. Je merkt dus weinig, terwijl je cellen zuurstof tekortkomen. Daarom is een koolmonoxidemelder nodig."
+   ]
+  }
+ ]
+}

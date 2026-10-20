@@ -213,6 +213,84 @@
    ]
   },
   {
+   "id": "pijlen-fles-water",
+   "soort": "pijlen",
+   "titel": "Een fles water op een rustige dag",
+   "opdracht": "Je drinkt op een rustige dag in korte tijd een hele fles water. Voorspel wat er gebeurt.",
+   "situatie": "Je drinkt een fles water, zonder te sporten of te zweten.",
+   "rijen": [
+    {
+     "naam": "Osmotische waarde van je bloed",
+     "antwoord": "-",
+     "uitleg": "Het extra water verdunt je bloed: er zijn minder stoffen per liter opgelost."
+    },
+    {
+     "naam": "ADH-afgifte door de hypofyse",
+     "antwoord": "-",
+     "uitleg": "De hypothalamus meet de lage osmotische waarde en de hypofyse geeft minder ADH af."
+    },
+    {
+     "naam": "Doorlaatbaarheid van de verzamelbuis voor water",
+     "antwoord": "-",
+     "uitleg": "Met weinig ADH blijft de wand van de verzamelbuis bijna dicht."
+    },
+    {
+     "naam": "Water dat terug naar het bloed gaat",
+     "antwoord": "-",
+     "uitleg": "Er gaat minder water door osmose het zoute niermerg in."
+    },
+    {
+     "naam": "Hoeveelheid urine",
+     "antwoord": "+",
+     "uitleg": "Het water stroomt door naar je blaas: je plast veel."
+    },
+    {
+     "naam": "Hoe donker de urine is",
+     "antwoord": "-",
+     "uitleg": "Veel water, dezelfde hoeveelheid afval: de urine is licht."
+    },
+    {
+     "naam": "Hoeveelheid voorurine per dag",
+     "antwoord": "=",
+     "uitleg": "De filtratie in de glomerulus gaat gewoon door. Veel plassen betekent niet dat je nieren harder werken; er is alleen weinig ADH."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-alcohol",
+   "soort": "pijlen",
+   "titel": "Een avond met alcohol",
+   "opdracht": "Alcohol remt de afgifte van ADH. Voorspel wat er daardoor verandert.",
+   "situatie": "Je drinkt een paar glazen alcohol.",
+   "rijen": [
+    {
+     "naam": "ADH in je bloed",
+     "antwoord": "-",
+     "uitleg": "Alcohol remt de afgifte van ADH door de hypofyse."
+    },
+    {
+     "naam": "Water dat de verzamelbuis terughaalt",
+     "antwoord": "-",
+     "uitleg": "Zonder ADH blijft de wand van de verzamelbuis bijna dicht voor water."
+    },
+    {
+     "naam": "Hoeveelheid urine",
+     "antwoord": "+",
+     "uitleg": "Er gaat meer water naar je blaas, soms meer dan je hebt gedronken."
+    },
+    {
+     "naam": "Osmotische waarde van je bloed, later op de avond",
+     "antwoord": "+",
+     "uitleg": "Je verliest meer water dan er binnenkomt: je bloed raakt geconcentreerd. Daarom droogt alcohol uit."
+    },
+    {
+     "naam": "Glucose in je urine",
+     "antwoord": "=",
+     "uitleg": "Alcohol verandert de terugresorptie van glucose niet: alle glucose gaat gewoon terug, dus er zit nog steeds geen glucose in je urine."
+    }
+   ]
+  },
+  {
    "id": "uitleg-alcohol",
    "soort": "uitleg",
    "titel": "Alcohol droogt uit",

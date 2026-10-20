@@ -1,9 +1,13 @@
 /* Zelf aan de slag: oefeningen onder een film (Biologie bij Kamiel).
    Leest de oefeningen uit een JSON-bestand naast de film (pad in data-oefenen op de scripttag, relatief aan de pagina)
-   en zet onder de begrippen (na #glossary) een blok 'Zelf aan de slag' met drie soorten oefeningen:
+   en zet onder de begrippen (na #glossary) een blok 'Zelf aan de slag' met deze soorten oefeningen:
      volgorde  – stappen van een proces in de goede volgorde zetten (slepen met muis/touch of knoppen ↑/↓)
      schema    – namen op een eigen lijntekening slepen (of tik-tik: naam kiezen, dan vakje)
      uitleg    – 'Leg het uit': eigen tekst, kernbegrippen tellen (stam-matching), checklist, modeluitleg
+     indelen   – kaartjes naar twee tot vier groepen slepen (of tik-tik)
+     pijlen    – voorspel per grootheid: neemt toe, neemt af of blijft gelijk (een keten van oorzaak en gevolg)
+     grafiek   – een eigen lijntekening van een grafiek aflezen: getal invullen of een keuze maken
+     puzzel    – stap voor stap invullen met controle (genotypen, kansen, getallen); de volgende stap verschijnt na een goede
    Alles gebeurt in de browser; de tekst van de leerling blijft alleen lokaal (localStorage), er wordt niets verstuurd.
    Oefeningen met "vwo": true zijn in de havo-stand (body.havo) verborgen, net als .term.vwo.
    Ingeladen door scripts/oefenen.py op elke film waar een oefenen.json bij hoort. */
@@ -85,6 +89,44 @@
     '.oe-chip.sleept{opacity:.35}' +
     '.oe-terug{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:14.5px;color:var(--oe-zacht)}' +
     '.oe-terug li b{color:var(--oe-tekst)}.oe-terug li.goed b::before{content:"✓ ";color:var(--oe-goed)}.oe-terug li.fout b::before{content:"✗ ";color:var(--oe-fout)}' +
+    /* indelen */
+    '.oe-bakken{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}' +
+    '.oe-indeel{display:flex;flex-direction:column;gap:8px;min-height:130px;padding:10px;border-radius:12px;border:1.5px dashed var(--oe-zacht);background:var(--oe-kaart);cursor:pointer;min-width:0}' +
+    '.oe-indeel h4{margin:0;font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--oe-goud)}' +
+    '.oe-bakuitleg{margin:-4px 0 0;font-size:13.5px;color:var(--oe-zacht);line-height:1.35}' +
+    '.oe-inbak{display:flex;flex-direction:column;gap:6px;flex:1}' +
+    '.oe-indeel.over,.oe-indeel.wacht{border-color:var(--oe-goud);border-style:solid;background:var(--oe-kaart2)}' +
+    '.oe-chip.goed{border-color:var(--oe-goed);box-shadow:inset 4px 0 0 var(--oe-goed)}.oe-chip.fout{border-color:var(--oe-fout);box-shadow:inset 4px 0 0 var(--oe-fout)}' +
+    /* pijlen */
+    '.oe-situatie{margin:0 0 12px;padding:10px 14px;border-radius:10px;background:var(--oe-kaart2);border-left:4px solid var(--oe-goud);font-weight:600;color:var(--oe-tekst)}' +
+    '.oe-pijlrijen{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:pr}' +
+    '.oe-pijlrij{counter-increment:pr;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center;padding:8px 10px 8px 12px;border-radius:12px;border:1px solid var(--oe-rand);background:var(--oe-kaart2)}' +
+    '.oe-pijlnaam::before{content:counter(pr) ". ";font:600 12px "IBM Plex Mono",monospace;color:var(--oe-goud)}' +
+    '.oe-pijlknop{display:flex;gap:4px}' +
+    '.oe-pk{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 10px;border-radius:999px;border:1px solid var(--oe-rand);background:transparent;color:var(--oe-tekst);cursor:pointer;font:600 14px/1 "Source Sans 3",system-ui,sans-serif}' +
+    '.oe-pk b{font-size:18px;line-height:1}' +
+    '.oe-pk[aria-pressed="true"]{background:var(--oe-goud);border-color:var(--oe-goud);color:var(--oe-goud-ink)}' +
+    '.oe-pk:focus-visible,.oe-keuze:focus-visible,.oe-in:focus-visible{outline:2px solid var(--oe-goud);outline-offset:2px}' +
+    '.oe-pijlrij.goed{border-color:var(--oe-goed);box-shadow:inset 4px 0 0 var(--oe-goed)}.oe-pijlrij.fout{border-color:var(--oe-fout);box-shadow:inset 4px 0 0 var(--oe-fout)}' +
+    '.oe-pijlrij .oe-uitleg,.oe-vraag .oe-uitleg{grid-column:1/-1;font-size:14.5px;color:var(--oe-zacht);line-height:1.45}' +
+    '.oe-pijlrij .oe-uitleg em,.oe-vraag .oe-uitleg em{font-style:normal;font-weight:600}' +
+    '.oe-pijlrij.goed .oe-uitleg em,.oe-vraag.goed .oe-uitleg em{color:var(--oe-goed)}.oe-pijlrij.fout .oe-uitleg em,.oe-vraag.fout .oe-uitleg em{color:var(--oe-fout)}' +
+    '@media (max-width:560px){.oe-pijlrij{grid-template-columns:1fr}.oe-pk span{display:none}.oe-pk{min-width:52px;justify-content:center}}' +
+    /* grafiek en puzzel */
+    '.oe-vragen{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px;counter-reset:vr}' +
+    '.oe-vraag{counter-increment:vr;display:grid;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--oe-rand);background:var(--oe-kaart2)}' +
+    '.oe-vraag.goed{border-color:var(--oe-goed);box-shadow:inset 4px 0 0 var(--oe-goed)}.oe-vraag.fout{border-color:var(--oe-fout);box-shadow:inset 4px 0 0 var(--oe-fout)}' +
+    '.oe-vraagtekst{margin:0;color:var(--oe-tekst);line-height:1.45}.oe-vraagtekst::before{content:counter(vr) ". ";font:600 12px "IBM Plex Mono",monospace;color:var(--oe-goud)}' +
+    '.oe-invulrij{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}' +
+    '.oe-invul{display:inline-flex;align-items:center;gap:6px;flex-wrap:wrap}' +
+    '.oe-invullabel{color:var(--oe-zacht);font-size:14.5px}.oe-eenheid{color:var(--oe-zacht);font-size:14.5px}' +
+    '.oe-in{font:600 16px/1.2 "IBM Plex Mono",monospace;color:var(--oe-tekst);background:var(--oe-veld);border:1px solid var(--oe-rand);border-radius:8px;padding:8px 10px;min-height:40px;max-width:100%}' +
+    'select.oe-in{font-family:"Source Sans 3",system-ui,sans-serif}' +
+    '.oe-in:disabled{opacity:.85}.oe-invul.fout .oe-in{border-color:var(--oe-fout);box-shadow:0 0 0 1px var(--oe-fout)}' +
+    '.oe-keuze{font:600 15px/1.2 "Source Sans 3",system-ui,sans-serif;padding:8px 14px;min-height:40px;border-radius:999px;border:1px solid var(--oe-rand);background:transparent;color:var(--oe-tekst);cursor:pointer;text-align:left}' +
+    '.oe-keuze[aria-pressed="true"]{background:var(--oe-goud);border-color:var(--oe-goud);color:var(--oe-goud-ink)}' +
+    '.oe-stapknoppen{display:flex;gap:8px;flex-wrap:wrap}.oe-tip{margin:0;font-size:14.5px;color:var(--oe-goud)}' +
+    '.oe-puzzel .oe-vraag:not(.goed):not(.fout){border-color:rgba(224,182,74,.55)}' +
     /* smal: vakjes als genummerde lijst onder de tekening */
     '.oe-schema.smal .oe-teken svg .nrbol{display:inline}' +
     '.oe-schema.smal .oe-vakken{display:grid;gap:8px}' +
@@ -124,9 +166,13 @@
   var ICOON = {
     volgorde: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 5l1-1v4M3.5 11h2l-2 3h2M3.5 17h2l-1 1 1 1h-2"/></svg>',
     schema: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="13" r="6"/><path d="M14 9l4-4h3"/><circle cx="9" cy="13" r="1.5"/></svg>',
-    uitleg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>'
+    uitleg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg>',
+    indelen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11h7v9H3zM14 11h7v9h-7z"/><path d="M8 3h8v4H8z"/><path d="M10 7l-3 4M14 7l3 4"/></svg>',
+    pijlen: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20V5M3.5 8.5L7 5l3.5 3.5"/><path d="M17 4v15M13.5 15.5L17 19l3.5-3.5"/></svg>',
+    grafiek: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M7 16c3-1 4-9 7-9s3 5 5 6"/><path d="M14 7v13" stroke-dasharray="2 2.5"/></svg>',
+    puzzel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h4a2 2 0 1 1 4 0h4v4a2 2 0 1 1 0 4v4H4z"/></svg>'
   };
-  var SOORTNAAM = { volgorde: 'Zet in de goede volgorde', schema: 'Sleep de namen op het schema', uitleg: 'Leg het uit' };
+  var SOORTNAAM = { volgorde: 'Zet in de goede volgorde', schema: 'Sleep de namen op het schema', uitleg: 'Leg het uit', indelen: 'Deel in', pijlen: 'Voorspel met pijlen', grafiek: 'Lees de grafiek', puzzel: 'Puzzel stap voor stap' };
   var GREEP = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="5" cy="4" r="1.3"/><circle cx="11" cy="4" r="1.3"/><circle cx="5" cy="8" r="1.3"/><circle cx="11" cy="8" r="1.3"/><circle cx="5" cy="12" r="1.3"/><circle cx="11" cy="12" r="1.3"/></svg>';
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -504,6 +550,270 @@
     });
   }
 
+  /* ---------- gedeeld voor de nieuwe soorten ---------- */
+  function knoppenRij(doos, extra) {
+    var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>' + (extra || ''));
+    var m = el('p', 'oe-melding'); m.setAttribute('aria-live', 'polite'); k.appendChild(m); doos.appendChild(k);
+    return { knoppen: k, melding: m };
+  }
+  function meld(m, tekst, soort) { m.textContent = tekst; m.className = 'oe-melding' + (soort ? ' ' + soort : ''); }
+  // getal uit invoer: komma of punt, breuk 3/4, procentteken mag erachter
+  function leesGetal(s) {
+    s = String(s || '').trim().replace(/\s+/g, '').replace(',', '.').replace(/%$/, '');
+    if (!s) return NaN;
+    var b = s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+    if (b) return +b[1] / +b[2];
+    return /^-?\d*\.?\d+$/.test(s) ? +s : NaN;
+  }
+  function toonGetal(x) { return String(Math.round(x * 1000) / 1000).replace('.', ','); }
+  function getalGoed(invoer, v) {
+    var x = leesGetal(invoer); if (isNaN(x)) return false;
+    return Math.abs(x - v.antwoord) <= (v.marge || 0) + 1e-9;
+  }
+
+  /* ---------- indelen ---------- */
+  function bouwIndelen(o, doos) {
+    var bakken = o.bakken.map(function (b) { return typeof b === 'string' ? { naam: b } : b; });
+    var kaartjes = o.kaartjes.map(function (c, i) {
+      var b = typeof c.bak === 'number' ? c.bak : bakken.map(function (x) { return x.naam; }).indexOf(c.bak);
+      return { i: i, tekst: c.tekst, bak: b, uitleg: c.uitleg || '' };
+    });
+    doos.appendChild(el('p', 'oe-hulp', 'Sleep elk kaartje naar de goede groep. Of tik eerst op een kaartje en dan op een groep. Tik op een kaartje in een groep om het terug te zetten.'));
+    var pool = el('div', 'oe-bak'); pool.setAttribute('aria-label', 'Kaartjes');
+    doos.appendChild(pool);
+    var raster = el('div', 'oe-bakken'); doos.appendChild(raster);
+    bakken.forEach(function (b, k) {
+      var g = el('div', 'oe-indeel'); g.dataset.b = k; g.tabIndex = 0; g.setAttribute('role', 'button'); g.setAttribute('aria-label', 'Groep ' + b.naam);
+      g.innerHTML = '<h4>' + esc(b.naam) + '</h4>' + (b.uitleg ? '<p class="oe-bakuitleg">' + esc(b.uitleg) + '</p>' : '') + '<div class="oe-inbak"></div>';
+      raster.appendChild(g);
+    });
+    var kr = knoppenRij(doos), melding = kr.melding;
+    var terug = el('ul', 'oe-terug'); doos.appendChild(terug);
+    var gekozen = null;
+    function groepen() { return Array.prototype.slice.call(raster.children); }
+    function wis() { meld(melding, ''); terug.innerHTML = ''; doos.querySelectorAll('.oe-chip').forEach(function (c) { c.classList.remove('goed', 'fout'); }); }
+    function leegCheck() {
+      var over = pool.querySelector('.oe-chip'), leeg = pool.querySelector('.oe-leeg');
+      if (!over && !leeg) pool.appendChild(el('span', 'oe-leeg', 'Alle kaartjes zijn ingedeeld.'));
+      if (over && leeg) leeg.remove();
+    }
+    function kies(c) {
+      if (gekozen) gekozen.setAttribute('aria-pressed', 'false');
+      gekozen = c && c !== gekozen ? c : null;
+      if (gekozen) gekozen.setAttribute('aria-pressed', 'true');
+      groepen().forEach(function (g) { g.classList.toggle('wacht', !!gekozen); });
+    }
+    function zetIn(c, g) { wis(); (g ? g.querySelector('.oe-inbak') : pool).appendChild(c); kies(null); leegCheck(); }
+    function maak(k) {
+      var c = el('button', 'oe-chip oe-kaartje'); c.type = 'button'; c.textContent = k.tekst; c.dataset.i = k.i; c.setAttribute('aria-pressed', 'false');
+      var over = null;
+      sleepbaar(c, null, {
+        start: function () { kies(null); wis(); },
+        beweeg: function (x, y) {
+          var d = document.elementFromPoint(x, y), g = d && d.closest('.oe-indeel');
+          if (g && g.parentNode !== raster) g = null;
+          if (over !== g) { if (over) over.classList.remove('over'); over = g; if (g) g.classList.add('over'); }
+          pool.classList.toggle('over', !!(d && d.closest('.oe-bak') === pool));
+        },
+        los: function (x, y, echt) {
+          if (over) over.classList.remove('over'); pool.classList.remove('over');
+          var d = echt && document.elementFromPoint(x, y), g = d && d.closest('.oe-indeel');
+          if (g && g.parentNode === raster) zetIn(c, g); else if (d && d.closest('.oe-bak') === pool) zetIn(c, null);
+          over = null;
+        }
+      });
+      c.addEventListener('click', function (e) {
+        e.stopPropagation(); if (c.dataset.netGesleept) return;
+        if (c.closest('.oe-indeel') && !gekozen) { zetIn(c, null); c.focus(); return; }
+        if (gekozen && gekozen !== c && c.closest('.oe-indeel')) { zetIn(gekozen, c.closest('.oe-indeel')); return; }
+        kies(c);
+      });
+      return c;
+    }
+    raster.addEventListener('click', function (e) { var g = e.target.closest('.oe-indeel'); if (!g || !gekozen) return; var c = gekozen; zetIn(c, g); c.focus(); });
+    raster.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('oe-indeel') && gekozen) { e.preventDefault(); var c = gekozen; zetIn(c, e.target); c.focus(); } });
+    function begin() { kies(null); pool.innerHTML = ''; groepen().forEach(function (g) { g.querySelector('.oe-inbak').innerHTML = ''; }); schud(kaartjes.slice()).forEach(function (k) { pool.appendChild(maak(k)); }); wis(); leegCheck(); }
+    kr.knoppen.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a]'); if (!a) return;
+      if (a.dataset.a === 'opnieuw') return begin();
+      wis(); kies(null);
+      var los = pool.querySelectorAll('.oe-chip').length;
+      if (los) return meld(melding, 'Deel eerst alle kaartjes in (nog ' + los + ' over).', 'half');
+      var goed = 0;
+      groepen().forEach(function (g) {
+        g.querySelectorAll('.oe-chip').forEach(function (c) {
+          var k = kaartjes[+c.dataset.i], ok = k.bak === +g.dataset.b; if (ok) goed++;
+          c.classList.add(ok ? 'goed' : 'fout');
+        });
+      });
+      kaartjes.forEach(function (k) {
+        var c = doos.querySelector('.oe-chip[data-i="' + k.i + '"]'), ok = c.classList.contains('goed');
+        terug.appendChild(el('li', ok ? 'goed' : 'fout', '<b>' + esc(k.tekst) + '</b> → ' + esc(bakken[k.bak].naam) + (k.uitleg ? '. ' + esc(k.uitleg) : '')));
+      });
+      if (goed === kaartjes.length) meld(melding, 'Alles goed ingedeeld!', 'goed');
+      else meld(melding, goed + ' van ' + kaartjes.length + ' goed. Lees de uitleg, verschuif de rode kaartjes en controleer opnieuw.', 'half');
+    });
+    begin();
+  }
+
+  /* ---------- voorspel met pijlen ---------- */
+  var PIJLKEUZE = [['+', '↑', 'neemt toe'], ['-', '↓', 'neemt af'], ['=', '=', 'blijft gelijk']];
+  function bouwPijlen(o, doos) {
+    doos.appendChild(el('p', 'oe-hulp', 'Kies bij elke regel: neemt toe, neemt af of blijft gelijk. Werk van boven naar beneden: elke regel volgt uit de vorige.'));
+    if (o.situatie) doos.appendChild(el('p', 'oe-situatie', esc(o.situatie)));
+    var lijst = el('ol', 'oe-pijlrijen'); doos.appendChild(lijst);
+    o.rijen.forEach(function (r, k) {
+      var li = el('li', 'oe-pijlrij'); li.dataset.k = k;
+      li.innerHTML = '<span class="oe-pijlnaam">' + esc(r.naam) + '</span><span class="oe-pijlknop" role="group" aria-label="' + esc(r.naam) + '">' +
+        PIJLKEUZE.map(function (p) { return '<button type="button" class="oe-pk" data-w="' + p[0] + '" aria-pressed="false" title="' + p[2] + '"><b aria-hidden="true">' + p[1] + '</b><span>' + p[2] + '</span></button>'; }).join('') + '</span>';
+      lijst.appendChild(li);
+    });
+    var kr = knoppenRij(doos), melding = kr.melding;
+    function rijen() { return Array.prototype.slice.call(lijst.children); }
+    function wis() { meld(melding, ''); rijen().forEach(function (li) { li.classList.remove('goed', 'fout'); var u = li.querySelector('.oe-uitleg'); if (u) u.remove(); }); }
+    lijst.addEventListener('click', function (e) {
+      var b = e.target.closest('.oe-pk'); if (!b) return;
+      wis();
+      b.parentNode.querySelectorAll('.oe-pk').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+    kr.knoppen.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a]'); if (!a) return;
+      wis();
+      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-pk').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); return; }
+      var open = rijen().filter(function (li) { return !li.querySelector('.oe-pk[aria-pressed="true"]'); }).length;
+      if (open) return meld(melding, 'Kies eerst bij elke regel een pijl (nog ' + open + ' open).', 'half');
+      var goed = 0;
+      rijen().forEach(function (li) {
+        var r = o.rijen[+li.dataset.k], w = li.querySelector('.oe-pk[aria-pressed="true"]').dataset.w, ok = w === r.antwoord; if (ok) goed++;
+        var juist = PIJLKEUZE.filter(function (p) { return p[0] === r.antwoord; })[0];
+        li.classList.add(ok ? 'goed' : 'fout');
+        li.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Juist is ' + juist[1] + ' ' + juist[2] + '.</em> ') + esc(r.uitleg || '')));
+      });
+      if (goed === o.rijen.length) meld(melding, 'Alles goed voorspeld!', 'goed');
+      else meld(melding, goed + ' van ' + o.rijen.length + ' goed. Volg de keten nog eens en controleer opnieuw.', 'half');
+    });
+  }
+
+  /* ---------- invulvelden (grafiek en puzzel) ---------- */
+  function maakVeld(v, naam) {
+    var w = el('span', 'oe-invul');
+    if (v.label) w.appendChild(el('span', 'oe-invullabel', esc(v.label)));
+    var inp;
+    if (v.opties) {
+      inp = el('select', 'oe-in'); inp.innerHTML = '<option value="">kies…</option>' + v.opties.map(function (x) { return '<option>' + esc(x) + '</option>'; }).join('');
+    } else {
+      inp = el('input', 'oe-in'); inp.type = 'text'; inp.autocomplete = 'off'; inp.spellcheck = false; inp.setAttribute('autocapitalize', 'off');
+      if (typeof v.antwoord === 'number') inp.inputMode = 'decimal';
+      inp.style.width = (v.breed || (typeof v.antwoord === 'number' ? 6 : 7)) + 'em';
+    }
+    inp.setAttribute('aria-label', v.label || naam || 'antwoord');
+    w.appendChild(inp);
+    if (v.eenheid) w.appendChild(el('span', 'oe-eenheid', esc(v.eenheid)));
+    w._v = v; w._in = inp;
+    return w;
+  }
+  function veldGoed(w) {
+    var v = w._v, x = w._in.value;
+    if (typeof v.antwoord === 'number') return getalGoed(x, v);
+    var lijst = Array.isArray(v.antwoord) ? v.antwoord : [v.antwoord];
+    var n = function (s) { s = String(s).replace(/\s+/g, '').replace(/[×x]/g, '×'); return v.hoofdletters ? s : s.toLowerCase(); };
+    return lijst.some(function (a) { return n(a) === n(x); });
+  }
+  function veldAntwoord(v) {
+    if (typeof v.antwoord === 'number') return toonGetal(v.antwoord) + (v.eenheid ? ' ' + v.eenheid : '');
+    return Array.isArray(v.antwoord) ? v.antwoord[0] : v.antwoord;
+  }
+  function tekening(o, doos) {
+    if (!o.svg) return;
+    var t = el('div', 'oe-teken');
+    t.innerHTML = '<svg viewBox="0 0 ' + (o.breed || 640) + ' ' + (o.hoog || 400) + '" role="img" aria-label="' + esc(o.alt || o.titel) + '">' + o.svg + '</svg>';
+    doos.appendChild(t);
+  }
+
+  /* ---------- grafiek lezen ---------- */
+  function bouwGrafiek(o, doos) {
+    tekening(o, doos);
+    var lijst = el('ol', 'oe-vragen'); doos.appendChild(lijst);
+    o.vragen.forEach(function (q, k) {
+      var li = el('li', 'oe-vraag'); li.dataset.k = k;
+      li.appendChild(el('p', 'oe-vraagtekst', esc(q.vraag)));
+      var rij = el('div', 'oe-invulrij');
+      if (q.keuzes) {
+        rij.classList.add('oe-keuzes');
+        q.keuzes.forEach(function (c, j) { var b = el('button', 'oe-keuze', esc(c)); b.type = 'button'; b.dataset.j = j; b.setAttribute('aria-pressed', 'false'); rij.appendChild(b); });
+      } else rij.appendChild(maakVeld(q, 'antwoord'));
+      li.appendChild(rij); lijst.appendChild(li);
+    });
+    var kr = knoppenRij(doos), melding = kr.melding;
+    function vragen() { return Array.prototype.slice.call(lijst.children); }
+    function wis() { meld(melding, ''); vragen().forEach(function (li) { li.classList.remove('goed', 'fout'); var u = li.querySelector('.oe-uitleg'); if (u) u.remove(); }); }
+    lijst.addEventListener('click', function (e) { var b = e.target.closest('.oe-keuze'); if (!b) return; wis(); b.parentNode.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); }); });
+    lijst.addEventListener('input', wis);
+    lijst.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.classList.contains('oe-in')) { e.preventDefault(); kr.knoppen.querySelector('[data-a="check"]').click(); } });
+    kr.knoppen.addEventListener('click', function (e) {
+      var a = e.target.closest('[data-a]'); if (!a) return;
+      wis();
+      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-in').forEach(function (x) { x.value = ''; }); lijst.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); return; }
+      var goed = 0;
+      vragen().forEach(function (li) {
+        var q = o.vragen[+li.dataset.k], ok, juist;
+        if (q.keuzes) { var g = li.querySelector('.oe-keuze[aria-pressed="true"]'); ok = !!g && +g.dataset.j === q.antwoord; juist = q.keuzes[q.antwoord]; }
+        else { var w = li.querySelector('.oe-invul'); ok = veldGoed(w); juist = veldAntwoord(q); }
+        if (ok) goed++;
+        li.classList.add(ok ? 'goed' : 'fout');
+        li.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Antwoord: ' + esc(juist) + (q.marge ? ' (± ' + toonGetal(q.marge) + ')' : '') + '.</em> ') + esc(q.uitleg || '')));
+      });
+      if (goed === o.vragen.length) meld(melding, 'Alles goed afgelezen!', 'goed');
+      else meld(melding, goed + ' van ' + o.vragen.length + ' goed. Kijk nog eens naar de grafiek bij de rode vragen.', 'half');
+    });
+  }
+
+  /* ---------- puzzel met invullen (stap voor stap) ---------- */
+  function bouwPuzzel(o, doos) {
+    tekening(o, doos);
+    doos.appendChild(el('p', 'oe-hulp', 'Werk stap voor stap. Na een goede stap verschijnt de volgende. Lukt het niet, dan kun je het antwoord laten zien.'));
+    var lijst = el('ol', 'oe-vragen oe-puzzel'); doos.appendChild(lijst);
+    var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
+    var onder = el('div', 'oe-knoppen', '<button type="button" class="oe-knop" data-a="opnieuw">Opnieuw beginnen</button>'); onder.appendChild(melding); doos.appendChild(onder);
+    function toonStap(k) {
+      if (k >= o.stappen.length) { meld(melding, 'Puzzel opgelost!', 'goed'); return; }
+      var s = o.stappen[k], li = el('li', 'oe-vraag'); li.dataset.k = k;
+      li.appendChild(el('p', 'oe-vraagtekst', esc(s.vraag)));
+      var rij = el('div', 'oe-invulrij'); s.velden.forEach(function (v) { rij.appendChild(maakVeld(v)); }); li.appendChild(rij);
+      var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="stap">Controleer</button><button type="button" class="oe-knop" data-a="toon" hidden>Laat het antwoord zien</button>');
+      li.appendChild(kn); lijst.appendChild(li);
+      var fout = 0;
+      function klaar(getoond) {
+        li.classList.remove('fout'); li.classList.add('goed');
+        rij.querySelectorAll('.oe-in').forEach(function (x) { x.disabled = true; });
+        kn.remove();
+        li.appendChild(el('div', 'oe-uitleg', '<em>' + (getoond ? 'Zo zit het.' : 'Goed.') + '</em> ' + esc(s.uitleg || '')));
+        toonStap(k + 1);
+      }
+      kn.addEventListener('click', function (e) {
+        var a = e.target.closest('[data-a]'); if (!a) return;
+        if (a.dataset.a === 'toon') {
+          rij.querySelectorAll('.oe-invul').forEach(function (w) { var v = w._v; w._in.value = typeof v.antwoord === 'number' ? toonGetal(v.antwoord) : (Array.isArray(v.antwoord) ? v.antwoord[0] : v.antwoord); });
+          return klaar(true);
+        }
+        var velden = Array.prototype.slice.call(rij.querySelectorAll('.oe-invul'));
+        if (velden.some(function (w) { return !w._in.value.trim(); })) { meld(melding, 'Vul eerst alle vakjes van deze stap in.', 'half'); return; }
+        meld(melding, '');
+        var ok = velden.every(veldGoed);
+        velden.forEach(function (w) { w.classList.toggle('fout', !veldGoed(w)); });
+        if (ok) { velden.forEach(function (w) { w.classList.remove('fout'); }); return klaar(false); }
+        fout++; li.classList.add('fout');
+        var h = li.querySelector('.oe-tip'); if (!h) { h = el('p', 'oe-tip'); li.insertBefore(h, kn); }
+        h.textContent = s.tip && fout === 1 ? 'Tip: ' + s.tip : 'Nog niet goed. Kijk naar de rode vakjes.';
+        kn.querySelector('[data-a="toon"]').hidden = false;
+      });
+      rij.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.classList.contains('oe-in')) { e.preventDefault(); kn.querySelector('[data-a="stap"]').click(); } });
+      rij.addEventListener('input', function (e) { var w = e.target.closest('.oe-invul'); if (w) w.classList.remove('fout'); });
+    }
+    onder.addEventListener('click', function (e) { if (e.target.closest('[data-a="opnieuw"]')) { lijst.innerHTML = ''; meld(melding, ''); toonStap(0); } });
+    toonStap(0);
+  }
+
   /* ---------- opbouw ---------- */
   function thema(blok) {
     // licht of donker: kijk naar de achtergrond van de pagina
@@ -558,6 +868,10 @@
           if (o.soort === 'volgorde') bouwVolgorde(o, doos);
           else if (o.soort === 'schema') bouwSchema(o, doos);
           else if (o.soort === 'uitleg') bouwUitleg(o, doos);
+          else if (o.soort === 'indelen') bouwIndelen(o, doos);
+          else if (o.soort === 'pijlen') bouwPijlen(o, doos);
+          else if (o.soort === 'grafiek') bouwGrafiek(o, doos);
+          else if (o.soort === 'puzzel') bouwPuzzel(o, doos);
         } catch (err) { doos.appendChild(el('p', 'oe-hulp', 'Deze oefening kon niet worden geladen.')); if (window.console) console.error(err); }
       }
       kaart.addEventListener('toggle', function () { if (kaart.open) bouw(); });

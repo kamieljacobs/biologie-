@@ -608,6 +608,18 @@
     0
    ],
    [
+    "puzzel-witte-nakomeling",
+    "Puzzel: twee paarse ouders, een witte nakomeling",
+    "puzzel",
+    0
+   ],
+   [
+    "puzzel-terugkruising",
+    "Puzzel: AA of Aa?",
+    "puzzel",
+    0
+   ],
+   [
     "uitleg-witte-nakomeling",
     "Twee paarse ouders, een witte nakomeling",
     "uitleg",
@@ -667,6 +679,26 @@
     "uitleg-genkaart",
     "Een genkaart lezen",
     "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/erfelijkheid/6-stambomen-en-kansrekenen.html": {
+  "titel": "Stambomen en kansrekenen",
+  "hoofdstuk": "erfelijkheid",
+  "htitel": "Erfelijkheid",
+  "json": "films/erfelijkheid/6-stambomen-en-kansrekenen/oefenen.json",
+  "oef": [
+   [
+    "puzzel-sanne-tom",
+    "Puzzel: het kind van Sanne en Tom",
+    "puzzel",
+    0
+   ],
+   [
+    "puzzel-twee-dragers",
+    "Puzzel: drie kinderen van twee dragers",
+    "puzzel",
     0
    ]
   ]
@@ -759,6 +791,32 @@
    ]
   ]
  },
+ "films/gaswisseling/2-gas-op-reis.html": {
+  "titel": "Gas op reis",
+  "hoofdstuk": "gaswisseling",
+  "htitel": "Gaswisseling en uitscheiding",
+  "json": "films/gaswisseling/2-gas-op-reis/oefenen.json",
+  "oef": [
+   [
+    "pijlen-adem-inhouden",
+    "Adem inhouden",
+    "pijlen",
+    0
+   ],
+   [
+    "grafiek-zuurstofbinding",
+    "De zuurstofbindingscurve",
+    "grafiek",
+    1
+   ],
+   [
+    "uitleg-koolmonoxide",
+    "Een sluipend gas",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/gaswisseling/3-uitscheiding-en-evenwicht.html": {
   "titel": "Uitscheiding en evenwicht",
   "hoofdstuk": "gaswisseling",
@@ -800,6 +858,70 @@
     "Tegenstroom in de filter",
     "uitleg",
     1
+   ]
+  ]
+ },
+ "films/gedrag/6-attributie.html": {
+  "titel": "Wiens schuld is het? Interne en externe attributie",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/6-attributie/oefenen.json",
+  "oef": [
+   [
+    "indelen-intern-extern",
+    "Lag het aan jou of aan de situatie?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-blijvend-tijdelijk",
+    "Blijft het zo, of kan het anders?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-vertekening",
+    "Welke denkfout zie je?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-noor",
+    "De gedachte die Noor helpt",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/7-leren.html": {
+  "titel": "Leren: van Pavlov tot je telefoon",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/7-leren/oefenen.json",
+  "oef": [
+   [
+    "indelen-drie-soorten",
+    "Welke manier van leren?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-bekrachtiging-straf",
+    "Vaker of minder vaak?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-pavlov",
+    "De hond van Pavlov",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-telefoon",
+    "Waarom je je telefoon blijft pakken",
+    "uitleg",
+    0
    ]
   ]
  },
@@ -907,6 +1029,18 @@
     "volgorde-adh",
     "Na twee uur sporten",
     "volgorde",
+    0
+   ],
+   [
+    "pijlen-fles-water",
+    "Een fles water op een rustige dag",
+    "pijlen",
+    0
+   ],
+   [
+    "pijlen-alcohol",
+    "Een avond met alcohol",
+    "pijlen",
     0
    ],
    [
@@ -1514,6 +1648,58 @@
    [
     "uitleg-opruimen",
     "De spleet opruimen",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/zenuwstelsel/4-knoeien-met-de-spleet.html": {
+  "titel": "Knoeien met de synaps",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/zenuwstelsel/4-knoeien-met-de-spleet/oefenen.json",
+  "oef": [
+   [
+    "pijlen-ssri",
+    "Een SSRI in de spleet",
+    "pijlen",
+    0
+   ],
+   [
+    "pijlen-koffie",
+    "Een kop koffie in de middag",
+    "pijlen",
+    0
+   ],
+   [
+    "pijlen-stoppen-koffie",
+    "Elke dag vier koppen, dan ineens niets",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-alcohol-losser",
+    "Eerst losser, dan trager",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/zenuwstelsel/7-slaap.html": {
+  "titel": "Slaap",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/zenuwstelsel/7-slaap/oefenen.json",
+  "oef": [
+   [
+    "grafiek-hypnogram",
+    "Een nacht van Noor",
+    "grafiek",
+    0
+   ],
+   [
+    "uitleg-bilal-sam",
+    "Om acht uur wakker, 's middags kapot",
     "uitleg",
     0
    ]

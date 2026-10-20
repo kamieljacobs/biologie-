@@ -56,6 +56,179 @@
    ]
   },
   {
+   "id": "puzzel-witte-nakomeling",
+   "soort": "puzzel",
+   "titel": "Puzzel: twee paarse ouders, een witte nakomeling",
+   "opdracht": "Twee paarse erwtenplanten worden gekruist. Tussen de nakomelingen zitten ook witte planten. Gebruik A en a voor de allelen.",
+   "stappen": [
+    {
+     "vraag": "Welke bloemkleur is dominant?",
+     "velden": [
+      {
+       "label": "dominant:",
+       "antwoord": "paars",
+       "opties": [
+        "paars",
+        "wit"
+       ]
+      }
+     ],
+     "uitleg": "Twee paarse ouders hebben een allel voor wit verborgen bij zich. Wat verborgen kan blijven, is recessief: paars is dominant.",
+     "tip": "Bij welke kleur kan een allel 'verstopt' zitten?"
+    },
+    {
+     "vraag": "Wat is het genotype van een witte nakomeling?",
+     "velden": [
+      {
+       "label": "genotype:",
+       "antwoord": [
+        "aa"
+       ],
+       "hoofdletters": true
+      }
+     ],
+     "uitleg": "Wit is recessief, dus een witte plant heeft twee keer het allel a: aa."
+    },
+    {
+     "vraag": "Wat zijn de genotypen van de twee paarse ouders?",
+     "velden": [
+      {
+       "label": "ouder 1:",
+       "antwoord": [
+        "Aa",
+        "aA"
+       ],
+       "hoofdletters": true
+      },
+      {
+       "label": "ouder 2:",
+       "antwoord": [
+        "Aa",
+        "aA"
+       ],
+       "hoofdletters": true
+      }
+     ],
+     "uitleg": "De witte nakomeling kreeg van elke ouder een a. Beide ouders zijn paars, dus ze hebben ook een A: allebei Aa.",
+     "tip": "De witte nakomeling (aa) kreeg van elke ouder één allel."
+    },
+    {
+     "vraag": "Hoeveel van de vier vakjes in het kruisingsschema Aa × Aa zijn aa?",
+     "velden": [
+      {
+       "label": "aantal vakjes:",
+       "antwoord": 1
+      }
+     ],
+     "uitleg": "Het schema geeft AA, Aa, Aa en aa: één van de vier vakjes is aa."
+    },
+    {
+     "vraag": "Welke verhouding paars : wit verwacht je bij de nakomelingen?",
+     "velden": [
+      {
+       "label": "paars : wit =",
+       "antwoord": [
+        "3:1",
+        "3 : 1"
+       ],
+       "breed": 5
+      }
+     ],
+     "uitleg": "AA, Aa en Aa zijn paars, aa is wit: 3 : 1. Dat is een verwachting; bij weinig nakomelingen kan het echte aantal afwijken."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-terugkruising",
+   "soort": "puzzel",
+   "titel": "Puzzel: AA of Aa?",
+   "opdracht": "Je wilt weten of een paarse plant AA of Aa is. Je kruist hem met een witte plant. Je krijgt 12 paarse en 11 witte nakomelingen.",
+   "stappen": [
+    {
+     "vraag": "Wat is het genotype van de witte plant?",
+     "velden": [
+      {
+       "label": "genotype:",
+       "antwoord": [
+        "aa"
+       ],
+       "hoofdletters": true
+      }
+     ],
+     "uitleg": "Wit is recessief, dus aa. Daarom gebruik je een witte plant: je weet zeker welke allelen hij heeft."
+    },
+    {
+     "vraag": "Welk allel zit in alle geslachtscellen van de witte plant?",
+     "velden": [
+      {
+       "label": "allel:",
+       "antwoord": [
+        "a"
+       ],
+       "hoofdletters": true,
+       "breed": 4
+      }
+     ],
+     "uitleg": "Een plant met aa kan alleen geslachtscellen met a maken."
+    },
+    {
+     "vraag": "Er komen witte nakomelingen (aa). Welk allel heeft de paarse plant dan aan hen doorgegeven?",
+     "velden": [
+      {
+       "label": "allel:",
+       "antwoord": [
+        "a"
+       ],
+       "hoofdletters": true,
+       "breed": 4
+      }
+     ],
+     "uitleg": "Elke witte nakomeling heeft één a van de witte en één a van de paarse ouder."
+    },
+    {
+     "vraag": "Wat is dus het genotype van de paarse plant?",
+     "velden": [
+      {
+       "label": "genotype:",
+       "antwoord": [
+        "Aa",
+        "aA"
+       ],
+       "hoofdletters": true
+      }
+     ],
+     "uitleg": "Paars, en hij kan een a doorgeven: Aa."
+    },
+    {
+     "vraag": "Welke verhouding paars : wit verwacht je bij de kruising Aa × aa?",
+     "velden": [
+      {
+       "label": "paars : wit =",
+       "antwoord": [
+        "1:1",
+        "1 : 1"
+       ],
+       "breed": 5
+      }
+     ],
+     "uitleg": "De helft krijgt A (paars), de helft a (wit): 1 : 1. 12 en 11 past daar goed bij."
+    },
+    {
+     "vraag": "Stel dat alle 23 nakomelingen paars waren geweest. Welk genotype had de paarse ouder dan bijna zeker?",
+     "velden": [
+      {
+       "label": "genotype:",
+       "antwoord": [
+        "AA"
+       ],
+       "hoofdletters": true
+      }
+     ],
+     "uitleg": "Een Aa-plant zou bij 23 nakomelingen vrijwel zeker ook witte geven. Alleen maar paars wijst op AA."
+    }
+   ]
+  },
+  {
    "id": "uitleg-witte-nakomeling",
    "soort": "uitleg",
    "titel": "Twee paarse ouders, een witte nakomeling",

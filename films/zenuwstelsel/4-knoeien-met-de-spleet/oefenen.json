@@ -1,0 +1,68 @@
+{
+ "intro": "Oefen met wat stoffen in de synaps doen. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "pijlen-ssri",
+   "soort": "pijlen",
+   "titel": "Een SSRI in de spleet",
+   "opdracht": "Een SSRI remt de heropname van serotonine. Voorspel wat er in de synaps verandert.",
+   "situatie": "Iemand slikt een SSRI.",
+   "rijen": [
+    {"naam": "Heropname van serotonine in het eindknopje", "antwoord": "-", "uitleg": "Dat is precies wat een SSRI doet: het terugpompen wordt geremd."},
+    {"naam": "Hoe lang serotonine in de spleet blijft", "antwoord": "+", "uitleg": "Wat niet wordt teruggepompt, blijft langer hangen."},
+    {"naam": "Serotonine die het eindknopje aanmaakt", "antwoord": "=", "uitleg": "Een SSRI maakt geen extra serotonine. Hij verandert alleen het opruimen."},
+    {"naam": "Signaal naar de volgende cel", "antwoord": "+", "uitleg": "De serotonine kan vaker aan de receptoren binden, dus de volgende cel krijgt meer signaal."}
+   ]
+  },
+  {
+   "id": "pijlen-koffie",
+   "soort": "pijlen",
+   "titel": "Een kop koffie in de middag",
+   "opdracht": "Cafeïne is een antagonist op de adenosinereceptor. Voorspel wat er gebeurt in het uur na een kop koffie.",
+   "situatie": "Je drinkt na een lange ochtend een kop koffie.",
+   "rijen": [
+    {"naam": "Adenosine dat aan receptoren bindt", "antwoord": "-", "uitleg": "Cafeïne zit in de receptor en houdt adenosine buiten."},
+    {"naam": "Remming van je zenuwcellen door adenosine", "antwoord": "-", "uitleg": "Minder binding betekent minder remming."},
+    {"naam": "Hoe slaperig je je voelt", "antwoord": "-", "uitleg": "Je merkt de slaapdruk niet: cafeïne verbergt je vermoeidheid."},
+    {"naam": "Adenosine dat zich in je hersenen ophoopt", "antwoord": "=", "uitleg": "Cafeïne ruimt adenosine niet op. Het hoopt gewoon verder op. Als de cafeïne is afgebroken, bindt alles tegelijk: de dip."}
+   ]
+  },
+  {
+   "id": "pijlen-stoppen-koffie",
+   "soort": "pijlen",
+   "titel": "Elke dag vier koppen, dan ineens niets",
+   "opdracht": "Iemand drinkt maandenlang elke dag vier koppen koffie en stopt dan ineens. Voorspel wat er gebeurt.",
+   "situatie": "Eerst maandenlang veel koffie, dan stoppen.",
+   "rijen": [
+    {"naam": "Aantal adenosinereceptoren, na maanden koffie", "antwoord": "+", "uitleg": "De cel krijgt te weinig adenosinesignaal en maakt extra receptoren: gewenning."},
+    {"naam": "Effect van één kop koffie, na maanden koffie", "antwoord": "-", "uitleg": "Er zijn meer receptoren om te blokkeren, dus dezelfde kop doet minder: tolerantie."},
+    {"naam": "Adenosine dat bindt, de eerste dagen na het stoppen", "antwoord": "+", "uitleg": "Zonder cafeïne bindt adenosine nu aan al die extra receptoren."},
+    {"naam": "Vermoeidheid en hoofdpijn in die dagen", "antwoord": "+", "uitleg": "Ontwenning: de aangepaste cel krijgt nu juist te veel remming."},
+    {"naam": "Aantal receptoren, na een paar weken zonder koffie", "antwoord": "-", "uitleg": "De cel stelt het aantal receptoren weer bij naar normaal; de klachten verdwijnen."}
+   ]
+  },
+  {
+   "id": "uitleg-alcohol-losser",
+   "soort": "uitleg",
+   "titel": "Eerst losser, dan trager",
+   "opdracht": "Alcohol remt je hele zenuwstelsel. Leg uit waarom iemand na één glas toch eerst losser en spraakzamer wordt.",
+   "begrippen": [
+    {"naam": "GABA", "varianten": ["remmende neurotransmitter"]},
+    {"naam": "glutamaat", "varianten": ["exciterende neurotransmitter"]},
+    {"naam": "remmend", "varianten": ["remt", "rem"]},
+    {"naam": "exciterend", "varianten": ["stimulerend", "aanzet"]}
+   ],
+   "checklist": [
+    "Ik noem dat alcohol remmende (GABA) synapsen versterkt en exciterende (glutamaat) remt.",
+    "Ik leg uit dat eerst de cellen worden geremd die jouw gedrag afremmen.",
+    "Ik leg uit dat de rem dan wegvalt: je wordt losser.",
+    "Ik leg uit dat bij meer alcohol ook de rest wordt geremd: je wordt trager."
+   ],
+   "model": [
+    "Alcohol versterkt de werking van GABA, de belangrijkste remmende neurotransmitter, en remt de werking van glutamaat, de belangrijkste exciterende. Zo wordt het netwerk trager.",
+    "Na één glas worden eerst de zenuwcellen geremd die jouw gedrag normaal afremmen. Een rem op de rem: daardoor word je losser en spraakzamer.",
+    "Drink je meer, dan worden ook de andere cellen geremd. Dan word je traag: je reageert langzamer en praat met dubbele tong."
+   ]
+  }
+ ]
+}
