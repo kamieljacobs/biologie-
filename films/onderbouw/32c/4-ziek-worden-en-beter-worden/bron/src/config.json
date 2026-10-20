@@ -1,0 +1,17 @@
+{
+ "titel": "Ziek worden en beter worden",
+ "ondertitel": "Teun heeft waterpokken, Noor speelt gewoon met hem. Wat doet je afweer, en wat doet een vaccin?",
+ "meta": "32C · film 4",
+ "kerndoel": "32C",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes_32c4.js",
+ "hold": {"s14": 12.0},
+ "mini": {"Hoofdstuk 1": "Binnenkomen en vermenigvuldigen", "Hoofdstuk 2": "Afweer, geheugen en vaccin", "Hoofdstuk 3": "Koorts, rust en medicijnen", "Samenvatting": "Een vaccin voorkomt"},
+ "checkvragen": [
+  {"titel": "Vaccin", "pts": "1 punt", "vraag": "Wat zit er in een vaccin? A. een medicijn dat ziekteverwekkers doodt · B. de echte ziekteverwekker, die je een beetje ziek maakt · C. een onschadelijk stukje of een verzwakte vorm van de ziekteverwekker", "antwoord": "C (1): je afweer oefent ermee en maakt geheugencellen, zonder dat je ziek wordt."},
+  {"titel": "Paracetamol", "pts": "1 punt", "vraag": "Wat doet een medicijn als paracetamol bij waterpokken? A. Het maakt koorts en pijn minder. · B. Het doodt het virus. · C. Het werkt als een vaccin.", "antwoord": "A (1): het maakt de klachten minder; de afweer ruimt het virus op."},
+  {"titel": "Één keer waterpokken", "pts": "2 punten", "vraag": "Leg uit waarom je waterpokken meestal maar één keer krijgt.", "antwoord": "Na de eerste keer blijven er geheugencellen over die het virus onthouden (1). Komt het terug, dan maakt je afweer meteen veel antistoffen, zodat je niet ziek wordt (1)."},
+  {"titel": "Groepsbescherming", "pts": "2 punten", "vraag": "Een baby is te jong voor een vaccin. Leg uit hoe vaccineren van de mensen om hem heen hem toch beschermt.", "antwoord": "Als bijna iedereen gevaccineerd is, kan de ziekteverwekker zich niet verspreiden (1); daardoor komt hij ook niet bij de baby: groepsbescherming (1).", "uitdaging": true}
+ ]
+}

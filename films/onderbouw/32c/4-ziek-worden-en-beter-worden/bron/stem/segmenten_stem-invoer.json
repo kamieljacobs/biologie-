@@ -1,0 +1,174 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Teun, het broertje van Noor, zit onder de rode vlekjes. Hij heeft waterpokken. Noor had waterpokken toen ze klein was. Ze speelt gewoon met hem. Krijgt Noor het nu weer? Wat denk je?"
+  ],
+  "display": "Teun, het broertje van Noor, zit onder de rode vlekjes. Hij heeft waterpokken. Noor had waterpokken toen ze klein was. Ze speelt gewoon met hem. Krijgt Noor het nu weer? Wat denk je?",
+  "voice": "Teun, het broertje van Noor, zit onder de rode vlekjes. Hij heeft waterpokken. Noor had waterpokken toen ze klein was. Ze speelt gewoon met hem. Krijgt Noor het nu weer? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ja, ze speelt met hem, dus ze wordt ook ziek",
+   "alleen als ze haar handen niet wast",
+   "nee, haar lichaam onthoudt de ziekteverwekker"
+  ],
+  "q": "Noor had vroeger waterpokken. Nu speelt ze met Teun, die waterpokken heeft. Krijgt Noor het weer?",
+  "correct": 2,
+  "explain": "Nee. Na waterpokken onthoudt haar afweer het virus met geheugencellen. Komt het terug, dan ruimt haar afweer het meteen op."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ziek worden en beter worden. Wat doet een vaccin?"
+  ],
+  "display": "Ziek worden en beter worden. Wat doet een vaccin?",
+  "voice": "Ziek worden en beter worden. Wat doet een vaccin?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Ziek worden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Waterpokken komt door een virus. Teun heeft het opgelopen op school. Iemand niesde, en hij ademde de kleine druppeltjes in.",
+   "Ziekteverwekkers komen je lichaam binnen via je neus en mond, via je handen, via eten of via een wondje. Binnen gaan ze zich vermenigvuldigen. Dat heet een infectie.",
+   "Je merkt eerst nog niets. Bij waterpokken duurt het ongeveer twee weken voordat je ziek wordt. Pas als er heel veel virussen zijn, krijg je klachten."
+  ],
+  "display": "Waterpokken komt door een virus. Teun heeft het opgelopen op school. Iemand niesde, en hij ademde de kleine druppeltjes in. Ziekteverwekkers komen je lichaam binnen via je neus en mond, via je handen, via eten of via een wondje. Binnen gaan ze zich vermenigvuldigen. Dat heet een infectie. Je merkt eerst nog niets. Bij waterpokken duurt het ongeveer twee weken voordat je ziek wordt. Pas als er heel veel virussen zijn, krijg je klachten.",
+  "voice": "Waterpokken komt door een virus. Teun heeft het opgelopen op school. Iemand niesde, en hij ademde de kleine druppeltjes in. Ziekteverwekkers komen je lichaam binnen via je neus en mond, via je handen, via eten of via een wondje. Binnen gaan ze zich vermenigvuldigen. Dat heet een infectie. Je merkt eerst nog niets. Bij waterpokken duurt het ongeveer twee weken voordat je ziek wordt. Pas als er heel veel virussen zijn, krijg je klachten."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 2 — Beter worden, en onthouden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Gelukkig heeft je lichaam een afweer. Je bloed vervoert witte bloedcellen. Die zoeken ziekteverwekkers en ruimen ze op.",
+   "Je afweer maakt ook antistoffen. Die passen precies op één soort ziekteverwekker. Ze plakken eraan vast. Dan vinden de witte bloedcellen ze makkelijk.",
+   "Het maken van de goede antistoffen duurt de eerste keer ongeveer een week. Daarom ben je een tijdje ziek.",
+   "Daarna blijven er geheugencellen over. Die onthouden de ziekteverwekker. Komt hij terug, dan maakt je afweer meteen veel antistoffen. Dan word je niet eens ziek. Daarom krijgt Noor geen waterpokken meer."
+  ],
+  "display": "Gelukkig heeft je lichaam een afweer. Je bloed vervoert witte bloedcellen. Die zoeken ziekteverwekkers en ruimen ze op. Je afweer maakt ook antistoffen. Die passen precies op één soort ziekteverwekker. Ze plakken eraan vast. Dan vinden de witte bloedcellen ze makkelijk. Het maken van de goede antistoffen duurt de eerste keer ongeveer een week. Daarom ben je een tijdje ziek. Daarna blijven er geheugencellen over. Die onthouden de ziekteverwekker. Komt hij terug, dan maakt je afweer meteen veel antistoffen. Dan word je niet eens ziek. Daarom krijgt Noor geen waterpokken meer.",
+  "voice": "Gelukkig heeft je lichaam een afweer. Je bloed vervoert witte bloedcellen. Die zoeken ziekteverwekkers en ruimen ze op. Je afweer maakt ook antistoffen. Die passen precies op één soort ziekteverwekker. Ze plakken eraan vast. Dan vinden de witte bloedcellen ze makkelijk. Het maken van de goede antistoffen duurt de eerste keer ongeveer een week. Daarom ben je een tijdje ziek. Daarna blijven er geheugencellen over. Die onthouden de ziekteverwekker. Komt hij terug, dan maakt je afweer meteen veel antistoffen. Dan word je niet eens ziek. Daarom krijgt Noor geen waterpokken meer."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Beter worden, en onthouden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Kan je afweer ook oefenen, zonder dat je eerst ziek wordt? Dat doet een vaccin. Wat zit er in een vaccin? Wat denk je?"
+  ],
+  "display": "Kan je afweer ook oefenen, zonder dat je eerst ziek wordt? Dat doet een vaccin. Wat zit er in een vaccin? Wat denk je?",
+  "voice": "Kan je afweer ook oefenen, zonder dat je eerst ziek wordt? Dat doet een vaccin. Wat zit er in een vaccin? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Beter worden, en onthouden",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "een onschadelijk stukje of een verzwakte vorm van de ziekteverwekker",
+   "de echte ziekteverwekker, die je een beetje ziek maakt",
+   "een medicijn dat ziekteverwekkers doodt"
+  ],
+  "q": "Wat zit er in een vaccin?",
+  "correct": 0,
+  "explain": "Een onschadelijk stukje of een verzwakte vorm van de ziekteverwekker. Je afweer oefent ermee en maakt geheugencellen, zonder dat je ziek wordt."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Beter worden, en onthouden",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een onschadelijk stukje, of een verzwakte vorm. Je afweer leert hem kennen en maakt geheugencellen. Je wordt er niet ziek van. Soms heb je wel even een zere arm of een beetje koorts.",
+   "In het jaar 1796 gaf de Engelse arts Jenner het eerste vaccin, tegen pokken. Nu krijgen kinderen in Nederland vaccins tegen meer dan tien ziektes. Pokken is zelfs helemaal van de aarde verdwenen."
+  ],
+  "display": "Een onschadelijk stukje, of een verzwakte vorm. Je afweer leert hem kennen en maakt geheugencellen. Je wordt er niet ziek van. Soms heb je wel even een zere arm of een beetje koorts. In het jaar 1796 gaf de Engelse arts Jenner het eerste vaccin, tegen pokken. Nu krijgen kinderen in Nederland vaccins tegen meer dan tien ziektes. Pokken is zelfs helemaal van de aarde verdwenen.",
+  "voice": "Een onschadelijk stukje, of een verzwakte vorm. Je afweer leert hem kennen en maakt geheugencellen. Je wordt er niet ziek van. Soms heb je wel even een zere arm of een beetje koorts. In het jaar 1796 gaf de Engelse arts Jenner het eerste vaccin, tegen pokken. Nu krijgen kinderen in Nederland vaccins tegen meer dan tien ziektes. Pokken is zelfs helemaal van de aarde verdwenen."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Beter worden, en onthouden",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Een vaccin beschermt niet alleen jou. Een baby is soms nog te jong voor een vaccin. Als bijna iedereen om hem heen gevaccineerd is, kan de ziekteverwekker zich niet verspreiden. Dan is ook de baby beschermd. Dat heet groepsbescherming."
+  ],
+  "display": "Een vaccin beschermt niet alleen jou. Een baby is soms nog te jong voor een vaccin. Als bijna iedereen om hem heen gevaccineerd is, kan de ziekteverwekker zich niet verspreiden. Dan is ook de baby beschermd. Dat heet groepsbescherming.",
+  "voice": "Een vaccin beschermt niet alleen jou. Een baby is soms nog te jong voor een vaccin. Als bijna iedereen om hem heen gevaccineerd is, kan de ziekteverwekker zich niet verspreiden. Dan is ook de baby beschermd. Dat heet groepsbescherming."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Behandelen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Teun heeft ook koorts. Zijn temperatuur is negenendertig graden. Is koorts slecht? Wat denk je?"
+  ],
+  "display": "Teun heeft ook koorts. Zijn temperatuur is negenendertig graden. Is koorts slecht? Wat denk je?",
+  "voice": "Teun heeft ook koorts. Zijn temperatuur is negenendertig graden. Is koorts slecht? Wat denk je?"
+ },
+ {
+  "id": "q11",
+  "chapter": "Hoofdstuk 3 — Behandelen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ja, koorts maakt de ziekteverwekker sterker",
+   "koorts helpt je afweer bij het opruimen",
+   "koorts betekent dat je afweer verliest"
+  ],
+  "q": "Teun heeft koorts: 39 graden. Is koorts slecht?",
+  "correct": 1,
+  "explain": "Koorts helpt je afweer: veel ziekteverwekkers groeien minder goed als het warmer is. Is de koorts erg hoog of duurt hij lang, ga dan naar een dokter."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Behandelen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Koorts helpt je afweer. Veel ziekteverwekkers groeien minder goed als het warmer is. Is de koorts erg hoog, of duurt hij lang? Ga dan naar een dokter.",
+   "Wat helpt Teun? Rust, en veel drinken. Een medicijn als paracetamol maakt de koorts en de pijn minder. Maar het doodt de ziekteverwekker niet: dat doet zijn afweer.",
+   "Bij sommige ziektes door bacteriën geeft de dokter een antibioticum. Tegen een virus, zoals bij waterpokken, helpt dat niet."
+  ],
+  "display": "Koorts helpt je afweer. Veel ziekteverwekkers groeien minder goed als het warmer is. Is de koorts erg hoog, of duurt hij lang? Ga dan naar een dokter. Wat helpt Teun? Rust, en veel drinken. Een medicijn als paracetamol maakt de koorts en de pijn minder. Maar het doodt de ziekteverwekker niet: dat doet zijn afweer. Bij sommige ziektes door bacteriën geeft de dokter een antibioticum. Tegen een virus, zoals bij waterpokken, helpt dat niet.",
+  "voice": "Koorts helpt je afweer. Veel ziekteverwekkers groeien minder goed als het warmer is. Is de koorts erg hoog, of duurt hij lang? Ga dan naar een dokter. Wat helpt Teun? Rust, en veel drinken. Een medicijn als paracetamol maakt de koorts en de pijn minder. Maar het doodt de ziekteverwekker niet: dat doet zijn afweer. Bij sommige ziektes door bacteriën geeft de dokter een antibioticum. Tegen een virus, zoals bij waterpokken, helpt dat niet."
+ },
+ {
+  "id": "s13",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je wordt ziek als een ziekteverwekker binnenkomt en zich vermenigvuldigt. Je afweer ruimt hem op en onthoudt hem.",
+   "Een vaccin laat je afweer oefenen, zonder dat je ziek wordt. Zo voorkomt een vaccin dat je ziek wordt."
+  ],
+  "display": "Je wordt ziek als een ziekteverwekker binnenkomt en zich vermenigvuldigt. Je afweer ruimt hem op en onthoudt hem. Een vaccin laat je afweer oefenen, zonder dat je ziek wordt. Zo voorkomt een vaccin dat je ziek wordt.",
+  "voice": "Je wordt ziek als een ziekteverwekker binnenkomt en zich vermenigvuldigt. Je afweer ruimt hem op en onthoudt hem. Een vaccin laat je afweer oefenen, zonder dat je ziek wordt. Zo voorkomt een vaccin dat je ziek wordt."
+ },
+ {
+  "id": "s14",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]
