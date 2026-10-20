@@ -95,6 +95,17 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .opbouw button[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 -3px 0 var(--goud)}
 .opbouw button:focus-visible{outline:2px solid var(--goud);outline-offset:-2px}
 .opbouw .later:not([aria-pressed="true"]) b{color:var(--text2)}
+.stapbalk{position:sticky;top:var(--navh,64px);z-index:15;background:var(--bg);padding-top:0;margin-top:0}
+.stapbalk .opbouw{transition:none}
+.stapbalk.vast{padding:8px 0;box-shadow:0 1px 0 var(--line),0 8px 18px -12px rgba(0,0,0,.35)}
+.stapbalk.vast .opbouw{margin-top:0}
+.stapbalk.vast .opbouw button{padding:8px 14px}
+.stapbalk.vast .opbouw button span:not(.mono),.stapbalk.vast .opbouw-hint{display:none}
+.stapbalk.vast .opbouw b{font-size:15px;margin:3px 0 0}
+.stapbalk.vast .opbouw .mono{font-size:10px}
+.stapmerk{height:1px}
+.opbouw .kort{display:none;font-style:normal}
+@media (max-width:720px){.stapbalk.vast .opbouw{grid-template-columns:repeat(4,minmax(0,1fr))}.stapbalk.vast .opbouw button{border-bottom:0;border-right:1px solid var(--line);padding:9px 4px;text-align:center}.stapbalk.vast .opbouw button:last-child{border-right:0}.stapbalk.vast .opbouw .mono,.stapbalk.vast .opbouw b{display:none}.stapbalk.vast .opbouw .kort{display:block;font-weight:600;font-size:13.5px}.stapbalk.vast .opbouw .later:not([aria-pressed="true"]) .kort{color:var(--text2)}}
 .opbouw-hint{margin:8px 0 0;color:var(--text3);font-size:14px}
 @media (max-width:720px){.opbouw{grid-template-columns:repeat(2,minmax(0,1fr))}.opbouw button:nth-child(2){border-right:0}.opbouw button:nth-child(-n+2){border-bottom:1px solid var(--line)}.opbouw button span:not(.mono){display:none}.opbouw button{padding:12px 14px}.opbouw button b{font-size:16px;margin-top:4px}.opbouw button .mono{font-size:10px;letter-spacing:.06em;white-space:nowrap}}
 .opbouw b{display:block;font-family:var(--titel);font-size:18px;margin:6px 0 2px}
@@ -623,10 +634,10 @@ function opleidingenBlok(g){
   </div>`;
 }
 const STAPPEN=[
-  {naam:'Theoretische basis',tekst:'De biologie die je nodig hebt, met films en oefeningen.',status:'in de maak'},
-  {naam:'Een dag uit het werk',tekst:'Wat doe je eigenlijk de hele dag?',status:'later',leeg:'Komt later: een film waarin je een werkdag meeloopt en ziet welke biologie je gebruikt.'},
-  {naam:'Praktijkopdracht',tekst:'Probeer zelf een stukje van het vak.',status:'later',leeg:'Komt later: hier probeer je zelf een stukje van het vak.'},
-  {naam:'Opleidingen',tekst:'Welke opleiding, op welk niveau, en hoe kom je erin.',status:'in de maak'}];
+  {naam:'Theoretische basis',kort:'Films',tekst:'De biologie die je nodig hebt, met films en oefeningen.',status:'in de maak'},
+  {naam:'Een dag uit het werk',kort:'Werkdag',tekst:'Wat doe je eigenlijk de hele dag?',status:'later',leeg:'Komt later: een film waarin je een werkdag meeloopt en ziet welke biologie je gebruikt.'},
+  {naam:'Praktijkopdracht',kort:'Praktijk',tekst:'Probeer zelf een stukje van het vak.',status:'later',leeg:'Komt later: hier probeer je zelf een stukje van het vak.'},
+  {naam:'Opleidingen',kort:'Opleiding',tekst:'Welke opleiding, op welk niveau, en hoe kom je erin.',status:'in de maak'}];
 function kaart(g){
   const c=CL[g.cluster], basis=g.basis.filter(zichtbaar), klaar=basis.filter(b=>Array.isArray(b)).length;
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
@@ -650,8 +661,10 @@ function render(){
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
     <div class="wrap">
-      <div class="opbouw" role="group" aria-label="Kies een stap; dat geldt voor alle vakgebieden">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><span>${s.tekst}</span></button>`).join('')}</div>
+      <div class="stapmerk" aria-hidden="true"></div><div class="stapbalk">
+      <div class="opbouw" role="group" aria-label="Kies een stap; dat geldt voor alle vakgebieden">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><i class="kort">${s.kort}</i><span>${s.tekst}</span></button>`).join('')}</div>
       <p class="opbouw-hint">Klik op een stap: alle vakgebieden hieronder laten dan die stap zien.</p>
+      </div>
       ${TOON_KERN?`<section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
         <span class="mono" style="color:var(--goud-text)">Voor elk gebied</span><h2>De gedeelde kern</h2>
         <p>Deze onderwerpen heb je bij bijna elke biologische vervolgopleiding nodig. Ze staan al op de site; per gebied komt er een verdieping bovenop.</p>
@@ -665,8 +678,17 @@ function render(){
         <div class="raster">${GEBIEDEN.filter(g=>g.cluster===c.id).map(kaart).join('')}</div></section>`).join('')}
     </div>`;
 }
-app.addEventListener('click',e=>{const s=e.target.closest('[data-stap]');if(s){const y=s.getBoundingClientRect().top;stap=+s.dataset.stap;const u=new URL(location.href);if(stap===1)u.searchParams.delete('stap');else u.searchParams.set('stap',stap);history.replaceState(null,'',u);render();const n=document.querySelector(`.opbouw [data-stap="${stap}"]`);if(n)scrollBy(0,n.getBoundingClientRect().top-y);return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
-themaKnop(); render();
+app.addEventListener('click',e=>{const s=e.target.closest('[data-stap]');if(s){const vast=document.querySelector('.stapbalk.vast'),bh=vast?vast.getBoundingClientRect().bottom:0;let anker=null,dy=0;
+  if(vast){anker=[...document.querySelectorAll('.gb')].find(x=>x.getBoundingClientRect().bottom>bh+40);if(anker)dy=anker.getBoundingClientRect().top;}
+  const y=s.getBoundingClientRect().top;stap=+s.dataset.stap;const u=new URL(location.href);if(stap===1)u.searchParams.delete('stap');else u.searchParams.set('stap',stap);history.replaceState(null,'',u);render();
+  if(anker){const n=document.getElementById(anker.id);if(n)scrollBy(0,n.getBoundingClientRect().top-Math.max(dy,bh+12));}
+  else{const n=document.querySelector(`.opbouw [data-stap="${stap}"]`);if(n)scrollBy(0,n.getBoundingClientRect().top-y);}
+  plak();return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render();plak()});
+/* Stappenbalk blijft bovenin staan onder de menubalk; compact zodra hij vastzit. */
+function plak(){const nav=document.querySelector('.bar'),h=nav?nav.offsetHeight:0;document.documentElement.style.setProperty('--navh',h+'px');
+  const m=document.querySelector('.stapmerk'),b=document.querySelector('.stapbalk');if(m&&b)b.classList.toggle('vast',m.getBoundingClientRect().top<h);}
+addEventListener('scroll',plak,{passive:true});addEventListener('resize',plak);
+themaKnop(); render(); plak();
 const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[doel.id]) doel.scrollIntoView();
 })();
 </script>
