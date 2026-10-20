@@ -109,3 +109,6 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026). Toegepast: koolstofdioxide → 
 - Eén slagader naar de kuit en één ader terug staan voor alle bloedvaten; de longslagader (zuurstofarm) wordt in de basis niet genoemd.
 - De tellers bij sport (± 15 → 40 ademhalingen, ± 70 → 150 slagen per minuut) zijn "ongeveer"-waarden, geen meting.
 - Het zwembad volgt de Macro-dag-variant; Noor komt half boven water (lichaam achter een doorzichtig watervlak).
+
+## Wijziging 20 okt 2026 (later die dag)
+Cues hoofdlettergevoelig gemaakt (`exactAt`: "Je" ≠ "je"), zodat elke `T(woord,n)` op het bedoelde woord valt; enkele cue-indexen aangepast. Gecontroleerd met `bouw/cuectx.py` (nieuw). Geen nieuwe audio.

@@ -870,10 +870,10 @@ function circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.
 // Hulpjes uit film 1–3 staan hierboven (helpers.js) en personages (lib_cast.js). Nieuw: routekaart lichaam (BM, bodyMap), zuurstof- en koolstofdioxidevormpjes,
 // zwembad, longblaasje, haarvat bij spiercel, pols, twee pompen (uitdaging), ketting.
 
-// exacte woord-cue (heel woord, n-de keer) in het huidige segment; T(k,n) in de scènes gebruikt dit
+// exacte woord-cue (heel woord, hoofdlettergevoelig, n-de keer) in het huidige segment; T(k,n) in de scènes gebruikt dit
 const _ewCache=new Map();
 function exactAt(w,n=1){ const it=state.items[state.idx]; const seg=it&&it.seg; if(!seg||!seg.words) return Infinity; const key=seg.id+'|'+w+'|'+n; if(_ewCache.has(key)) return _ewCache.get(key);
-  const nm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,''); let c=0, r=Infinity; for(const x of seg.words){ if(nm(x.t)===nm(w)){ c++; if(c===n){ r=x.s; break; } } } _ewCache.set(key,r); return r; }
+  const nm=s=>s.replace(/[^A-Za-zÀ-ÿ0-9]/g,''); /* hoofdlettergevoelig */ let c=0, r=Infinity; for(const x of seg.words){ if(nm(x.t)===nm(w)){ c++; if(c===n){ r=x.s; break; } } } _ewCache.set(key,r); return r; }
 // ---------- moleculen ----------
 function o2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-6,0],[6,0]].forEach(([dx])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,8.5*s,0,6.283); shape(ctx,C.teal,lighten(C.teal,0.45),1.4); }); ctx.restore(); }
 function co2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-11,6.5],[11,6.5],[0,8.5]].forEach(([dx,r])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,r*s,0,6.283); shape(ctx,dx?'#B9C0CC':'#7E8796',lighten('#9AA3B2',0.4),1.3); }); ctx.restore(); }
@@ -1041,9 +1041,9 @@ s06(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const swap=ramp(t,T
     alpha(ctx,ramp(t,T('waterdamp'),0.5),()=>{ for(let k=0;k<3;k++){ ctx.beginPath(); ctx.arc(1460+k*40,700,8,0,6.283); ctx.strokeStyle=lighten(C.teal,0.3); ctx.lineWidth=2; ctx.stroke(); } metaText(ctx,'+ waterdamp',1540,708,C.text2,'left',22); });
     metaText(ctx,'grijze stip: andere gassen (vooral stikstof)',960,850,C.text2,'center',22); });
   alpha(ctx,swap,()=>{ const beat=beatOf(t); bodyMap({t,beat,longen:0.6,middenrif:0.3,hartHl:ramp(t,T('hart'),0.5)}); const u=ramp(t,T('Het',2)+0.2,T('hart')-T('Het',2)); const p=along(LUNG2HEART,u); rbc2(p[0]+10,p[1]+8,14,1,ROOD); o2(p[0],p[1]-4,1,1);
-    bodyLabels([['rode bloedcel','neemt de zuurstof mee',700,500,'left',T('rode'),T('Het',3)],['hart','pompt',700,540,'left',T('hart')]],t,q);
+    bodyLabels([['rode bloedcel','neemt de zuurstof mee',700,500,'left',T('rode'),T('Je')],['hart','pompt',700,540,'left',T('hart')]],t,q);
     alpha(ctx,ramp(t,T('zeventig'),0.5),()=>counterPill(1300,400,'hartslag in rust','± 70 × per minuut',1));
-    alpha(ctx,ramp(t,T('Je',2),0.5),()=>heartAt(1460,700,1.8,1,beat)); });
+    alpha(ctx,ramp(t,T('Je'),0.5),()=>heartAt(1460,700,1.8,1,beat)); });
 },
 s07(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const beat=beatOf(t); const zc=ramp(t,T('Die')-0.3,0.8);
   bodyMap({t,beat,longen:0.4,middenrif:0.2,slagHl:ramp(t,T('slagader.'),0.5)*(1-zc)});
@@ -1053,7 +1053,7 @@ s07(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const beat=beatOf(t
   bodyLabels([['slagader','van je hart af · dikke wand',650,640,'left',T('slagader.'),T('Die')-0.3],['haarvaten','',360,800,'right',T('haarvaten.'),T('Die')-0.3]],t,q);
   alpha(ctx,ramp(t,T('onthouden:'),0.5)*(1-ramp(t,T('De'),0.5)),()=>{ text(ctx,'slag',1180,450,fTitel(110),C.goud,'left'); ctx.font=fTitel(110); const w=ctx.measureText('slag').width; text(ctx,'ader',1180+w,450,fTitel(110),C.text,'left'); metaText(ctx,'je voelt de slag van je hart',1180,520,C.grain,'left',24); });
   alpha(ctx,ramp(t,T('vertakken'),0.5)*(1-zc),()=>{ for(let k=0;k<6;k++){ polyStroke([[492,790],[450+k*18,840+(k%2)*10]],ROOD,1.5); } });
-  zoomCircle(ctx,1300,440,300,KUIT[0],KUIT[1],'haarvaten in je kuit · vergroot',zc,()=>capillaryCell(1300,440,t,{spier:0,cells:ramp(t,T('Haarvaten',2),0.6)}));
+  zoomCircle(ctx,1300,440,300,KUIT[0],KUIT[1],'haarvaten in je kuit · vergroot',zc,()=>capillaryCell(1300,440,t,{spier:0,cells:ramp(t,T('Haarvaten'),0.6)}));
   alpha(ctx,ramp(t,T('één'),0.5)*zc,()=>pill(ctx,1300,84,'één voor één',C.goud,1,32));
 },
 s08(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); bodyMap({t,beat:beatOf(t),longen:0.4,middenrif:0.2}); o2(KUIT[0],KUIT[1]-10,1,1);

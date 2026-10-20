@@ -1,0 +1,1206 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../../js/teller.js" data-root="../../../../" data-duur="5"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Skelet en spieren · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1A2740;--micro:#121A26;--kast:#0D1420;--text:#F2F2EE;--text2:#9AA3B2;--line:#8FA0B5;--goud:#E0B64A;--groen:#7FC48F;--koraal:#E07A5F;--paars:#8C7BBF;--teal:#5BA4C9;--oker:#C9A35C;--fill:#2A3A58;--grain:#C9B896;
+ --titel:"Fraunces","Playfair Display",Georgia,serif;--tekst:"Source Sans 3","Inter",system-ui,sans-serif;--meta:"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--micro);color:var(--text);font-family:var(--tekst);font-size:18px;line-height:1.5}
+header{padding:28px 16px 8px;max-width:1200px;margin:0 auto}
+header h1{font-family:var(--titel);font-size:clamp(32px,5vw,56px);margin:0;line-height:1.05}
+header p{color:var(--text2);margin:6px 0 0}
+.nav{display:flex;gap:18px;margin-bottom:14px;font-size:16px}
+.nav a{color:var(--text2);text-decoration:none;border:1px solid rgba(143,160,181,.35);border-radius:999px;padding:6px 14px;min-height:36px;display:inline-flex;align-items:center}
+.nav a:hover,.nav a:focus-visible{color:var(--goud);border-color:var(--goud)}
+.nav a.terug{color:var(--goud)}
+.meta{font-family:var(--meta);letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--grain)}
+#playerwrap{max-width:1200px;margin:12px auto;padding:0 16px}
+.stagebox{position:relative;background:var(--micro);border-radius:12px;overflow:hidden;border:1px solid rgba(143,160,181,.35)}
+canvas#stage{display:block;width:100%;height:auto;aspect-ratio:16/9;touch-action:manipulation}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 0}
+button,.tog button{font:inherit;color:var(--text);background:var(--fill);border:1px solid rgba(143,160,181,.5);border-radius:10px;padding:8px 14px;cursor:pointer;min-height:44px}
+button.on,.tog button.on{border-color:var(--goud);color:var(--goud)}
+button#cc.off{color:var(--text2);text-decoration:line-through}
+#seek{flex:1 1 200px;accent-color:var(--goud);min-width:160px}
+#time{font-family:var(--meta);font-size:14px;color:var(--text2);min-width:90px}
+.tog{display:inline-flex;border-radius:10px;overflow:hidden}
+.tog button{border-radius:0}
+label.auto{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:15px}
+.pseudo-fs{position:fixed;inset:0;max-width:none;margin:0;padding:0;background:var(--micro);z-index:50;display:flex;flex-direction:column;justify-content:center}
+.pseudo-fs .stagebox{border-radius:0;border:0}
+.hint{display:none;color:var(--text2);font-size:14px;text-align:center}
+.pseudo-fs .hint{display:block}
+main{max-width:1200px;margin:0 auto;padding:0 16px 80px}
+section{margin-top:40px}
+h2{font-family:var(--titel);font-size:30px;margin:0 0 12px}
+h3{font-size:20px;margin:22px 0 8px;color:var(--grain)}
+#chapters{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+#chapters li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(42,58,88,.6);border:1px solid rgba(143,160,181,.3);border-radius:10px;cursor:pointer}
+#chapters li.on{border-color:var(--goud)}
+#chapters li em{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em}
+#chapters li small{margin-left:auto;font-family:var(--meta);color:var(--text2)}
+.vwo-badge,.term i,.transcript i,#transcript i{font:12px var(--meta);color:var(--paars);border:1px solid var(--paars);border-radius:6px;padding:1px 6px;font-style:normal;letter-spacing:.08em;vertical-align:middle}
+#glossary{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term{background:rgba(42,58,88,.5);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:12px 14px}
+.term p{margin:4px 0 0;color:var(--text2)}
+body.basis .term.vwo,body.basis #transcript p.vwo,body.basis .vwo-only{display:none}
+#transcript p.vwo{border-left:6px solid var(--paars);padding-left:12px}
+details{background:rgba(42,58,88,.4);border:1px solid rgba(143,160,181,.3);border-radius:10px;padding:10px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+table{border-collapse:collapse;width:100%;font-size:16px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid rgba(143,160,181,.3);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--grain);font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.q{margin:14px 0}
+.q .pts{font-family:var(--meta);color:var(--text2);font-size:13px}
+footer{color:var(--text2);font-size:14px;max-width:1200px;margin:0 auto;padding:0 16px 40px}
+@media (max-width:700px){ body{font-size:16px} .controls button{padding:8px 10px} }
+</style>
+<style id="bk-tabel-mobiel">@media (max-width:760px){table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}</style>
+</head>
+<body>
+<header>
+  <nav class="sitenav nav"><a href="../../../../index.html#home">Biologie bij Kamiel</a><a href="../../../../index.html#kerndoelen" id="back" class="terug">← Terug naar Kerndoelen onderbouw</a></nav><script>document.getElementById("back").addEventListener("click",function(e){ try{ if(document.referrer && new URL(document.referrer).origin===location.origin && history.length>1){ e.preventDefault(); history.back(); } }catch(_){} });</script>
+  <div class="meta">Biologie bij Kamiel · Kerndoelen onderbouw · film 6 · kerndoel 32A</div>
+  <h1>Skelet en spieren</h1>
+  <p>Sam springt en scoort. Hoe beweeg je eigenlijk? Over botten, gewrichten, pezen en spieren die alleen kunnen trekken.</p>
+</header>
+
+<div id="playerwrap">
+  <div class="stagebox"><canvas id="stage" aria-label="Animatie Skelet en spieren"></canvas><audio id="narration" preload="auto"></audio></div>
+  <p class="hint">Draai je telefoon een kwartslag voor volledig beeld.</p>
+  <div class="controls">
+    <button id="play" aria-label="Afspelen">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Tijdlijn">
+    <span id="time">0:00</span>
+    <button id="verder" title="Bij een vraag: verder">verder ›</button>
+    <button id="cc" title="Ondertitels">CC</button>
+    <button id="fs" title="Volledig scherm">⛶</button>
+  </div>
+  <div class="controls">
+    <span class="tog" id="niveau"><button data-v="basis">Basis</button><button data-v="havovwo">Uitdaging</button></span>
+    <span class="tog" id="modus"><button data-v="leerling">Leerling</button><button data-v="klas">Klas</button></span>
+    <span class="tog" id="snelheid" title="Afspeelsnelheid (wordt onthouden)"><button data-v="0.75">0,75×</button><button data-v="1">1×</button><button data-v="1.25">1,25×</button><button data-v="1.5">1,5×</button></span> <span class="tog" id="vragen" title="Tussendoorvragen aan of uit (wordt onthouden)"><button data-v="aan">Vragen aan</button><button data-v="uit">Vragen uit</button></span> <label class="auto"><input id="auto" type="checkbox"> vragen automatisch verder</label>
+  </div>
+</div>
+
+<main>
+  <section><h2>Hoofdstukken</h2><ul id="chapters"></ul></section>
+
+  <section><h2>Begrippen</h2><div id="glossary"></div></section>
+
+  <section><h2>Checkvragen</h2>
+    <p class="meta">antwoorden ingeklapt</p>
+    <div class="q"><b>1. Taken van het skelet</b> <span class="pts">2 punten</span><p>Noem twee taken van je skelet en geef bij één taak een voorbeeld.</p>
+      <details><summary>Antwoord</summary><p>Twee van: vorm en stevigheid; bescherming (schedel beschermt de hersenen, ribben het hart en de longen); bewegen (samen met spieren); bloedcellen maken in het beenmerg (1 + 1).</p></details></div>
+    <div class="q"><b>2. Gewrichten</b> <span class="pts">1 punt</span><p>Welk gewricht kan alle kanten op bewegen? A. elleboog · B. knie · C. schouder.</p>
+      <details><summary>Antwoord</summary><p>C: de schouder is een kogel in een kom.</p></details></div>
+    <div class="q"><b>3. Biceps en triceps</b> <span class="pts">2 punten</span><p>Leg uit waarom je twee spieren nodig hebt om je arm te buigen én te strekken.</p>
+      <details><summary>Antwoord</summary><p>Een spier kan alleen trekken (korter worden), niet duwen (1). De biceps buigt de arm, de triceps strekt hem; ze werken als tegenwerkers (1).</p></details></div>
+    <div class="q"><b>4. De astronaut</b> <span class="pts">2 punten</span><p>Een astronaut hoeft een half jaar bijna niets te tillen. Wat gebeurt er met zijn spieren en botten? Leg uit.</p>
+      <details><summary>Antwoord</summary><p>Spieren die weinig gebruikt worden, worden kleiner en zwakker (1); botten die niet belast worden, worden ook zwakker (1). (Daarom trainen astronauten elke dag.)</p></details></div>
+    <div class="q vwo-only"><b>5. Hefboom</b> <span class="vwo-badge">uitdaging</span> <span class="pts">2 punten</span><p>De biceps zit vlak bij de elleboog vast. Noem een voordeel en een nadeel daarvan.</p>
+      <details><summary>Antwoord</summary><p>Voordeel: een klein stukje korter worden geeft een grote, snelle beweging van je hand (1). Nadeel: de biceps moet veel harder trekken dan het gewicht in je hand (± 7 keer) (1).</p></details></div>
+
+  </section>
+
+  <section><h2>Transcript</h2><div id="transcript"></div></section>
+
+  <section><h2>Voor de docent</h2>
+    <h3>Doelgroep en kerndoel</h3>
+    <p>Onderbouw leerjaar 1–3. Kerndoel 32A, bullet 3: verklaren hoe samenwerking van organen leidt tot functionerende orgaanstelsels, hier het skelet en het spierstelsel (met het zenuwstelsel en het bloedvatenstelsel als partners); bullet 4: redeneren hoe samenwerkende stelsels een dier in leven houden (signaal, energie uit verbranding, gebruik en training). Het blok over de arm als hefboom (eind hoofdstuk 2) is extra (stand <b>Uitdaging</b>) en valt in de stand <b>Basis</b> weg. Vooraf: film 2 (spiercel, kuitspier, bot leeft) en film 4 (zuurstof naar de spieren).</p>
+    <h3>Hoe de film het uitlegt</h3>
+    <table><tr><th>Deel</th><th>Look</th><th>Kernbeeld</th></tr>
+      <tr><td>Cold open</td><td>Buitenveld met basket</td><td>Sam springt en scoort; zoomcirkel naar botten en spieren van de arm. Vraag: hoe beweegt hij eigenlijk?</td></tr>
+      <tr><td>1 Botten en gewrichten</td><td>Schema (skelet) + zoomcirkels</td><td>Zonder skelet een pudding; ± 200 botten; schedel en ribben beschermen; beenmerg maakt bloedcellen. Vraag: baby ± 300 botten? Heupbot: drie → één. Gewricht met kraakbeen en banden; scharnier en kogel in een kom.</td></tr>
+      <tr><td>2 Spieren trekken</td><td>Schema (arm van opzij)</td><td>Pees als touw; spiercellen worden korter, spier kort en dik, trekt; biceps buigt. Vraag: hoe strek je weer? Triceps; alleen trekken; tegenwerkers.</td></tr>
+      <tr><td>2 uitdaging</td><td>Schema</td><td>De arm als hefboom: ± 4 cm van de elleboog; kleine verkorting, grote beweging; 1 kg in de hand ≈ 7 kg trekkracht (vereenvoudigd).</td></tr>
+      <tr><td>3 Samen bewegen</td><td>Schema → buitenveld</td><td>Hersenen → ruggenmerg → zenuw → spier; zuurstof uit het bloed voor energie. Vraag: arm na zes weken gips dunner? Gebruik en training; botten sterker door belasting; Sams sprong met alle stelsels.</td></tr>
+      <tr><td>Samenvatting</td><td>Schema</td><td>Skelet en arm naast elkaar; signaal → spier trekt → bot draait</td></tr>
+    </table>
+    <h3>Misconcepties die de film aanpakt</h3>
+    <ol><li>Botten zijn dood en veranderen niet (vraag H1, H3: sterker door belasten).</li><li>Een spier kan duwen (vraag H2).</li><li>Een spier beweegt uit zichzelf (H3: signaal uit de hersenen).</li><li>Spieren werken los van de rest van het lichaam (H3: zuurstof, zenuwen).</li><li>Een ongebruikte spier blijft even sterk (vraag H3).</li></ol>
+    <h3>Pauzemomenten en Probeer het zelf</h3>
+    <p>Drie voorspelvragen met 8 s denktijd; in Klas-modus blijft elke vraag staan tot "verder". Extra: armmodel van karton met een splitpen en twee elastiekjes; met de docent een kippenvleugel onderzoeken (gewricht, kraakbeen, pees). Open vraag op de eindkaart: de astronaut. Niemand hoeft zijn eigen lichaam te laten zien of te meten.</p>
+    <h3>Getallen in de film</h3>
+    <table><tr><th>Getal</th><th>Waarde</th><th>Bron</th></tr>
+      <tr><td>Botten volwassene</td><td>"ongeveer tweehonderd" (206)</td><td>leerboekwaarde</td></tr>
+      <tr><td>Botten pasgeborene</td><td>"ongeveer driehonderd" (270–300, deels nog kraakbeen)</td><td>leerboekwaarde</td></tr>
+      <tr><td>Spieren</td><td>"honderden" (± 600 skeletspieren)</td><td>leerboekwaarde</td></tr>
+      <tr><td>Heupbot</td><td>drie botten (darmbeen, zitbeen, schaambeen) groeien samen, klaar rond 15–25 jaar</td><td>anatomieboeken</td></tr>
+      <tr><td>Hefboom (uitdaging)</td><td>aanhechting ± 4–5 cm, hand ± 30–35 cm: ± 1 : 7</td><td>vereenvoudigd, gewicht onderarm niet meegeteld</td></tr>
+    </table>
+    <h3>Vereenvoudigingen</h3>
+    <ul><li>Hoe een spiercel korter wordt (eiwitdraadjes die langs elkaar schuiven) staat niet in de film.</li><li>Gezichtsspieren krijgen hun signaal niet via het ruggenmerg; de film noemt alleen de route naar arm en been.</li><li>Het hart is ook een spier, maar klopt zonder signaal uit de hersenen; daarom zegt de film "deze spieren".</li><li>De knie kan gebogen ook iets draaien; in de film is hij een scharnier.</li></ul>
+    <h3>Kerndoel en dekking</h3>
+    <table><tr><th>Leerdoel</th><th>Niveau</th><th>Deel</th><th>Vraag</th></tr>
+      <tr><td>Taken van het skelet; bot leeft</td><td>basis</td><td>H1</td><td>voorspel 1, check 1</td></tr>
+      <tr><td>Gewricht, kraakbeen, banden; scharnier en kogel</td><td>basis</td><td>H1</td><td>check 2</td></tr>
+      <tr><td>Hoe een spier beweegt: korter, pees, bot draait</td><td>basis</td><td>H2</td><td>check 3</td></tr>
+      <tr><td>Alleen trekken: tegenwerkers</td><td>basis</td><td>H2</td><td>voorspel 2, check 3</td></tr>
+      <tr><td>Samenwerking: signaal, zuurstof, gebruik en training</td><td>basis</td><td>H3</td><td>voorspel 3, check 4</td></tr>
+      <tr><td>De arm als hefboom</td><td>uitdaging</td><td>H2-blok</td><td>check 5</td></tr>
+    </table>
+
+  </section>
+</main>
+<footer>Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage Sam uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · 20 oktober 2026.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<script>window.FILMDATA={"segments": [{"id": "s01", "kind": "speech", "level": "basis", "chapter": "Cold open", "words": [{"t": "Sam", "s": 0, "e": 0.32}, {"t": "springt", "s": 0.4, "e": 0.96}, {"t": "en", "s": 1.04, "e": 1.12}, {"t": "gooit", "s": 1.2, "e": 1.44}, {"t": "de", "s": 1.52, "e": 1.6}, {"t": "bal", "s": 1.72, "e": 1.84}, {"t": "in", "s": 1.88, "e": 1.92}, {"t": "de", "s": 2, "e": 2.08}, {"t": "basket.", "s": 2.36, "e": 2.96}, {"t": "Het", "s": 3.04, "e": 3.12}, {"t": "ziet", "s": 3.173, "e": 3.28}, {"t": "er", "s": 3.36, "e": 3.44}, {"t": "makkelijk", "s": 3.52, "e": 3.84}, {"t": "uit.", "s": 4, "e": 4.64}, {"t": "Maar", "s": 4.667, "e": 4.72}, {"t": "in", "s": 4.8, "e": 4.88}, {"t": "zijn", "s": 4.96, "e": 5.12}, {"t": "lichaam", "s": 5.2, "e": 5.52}, {"t": "werken", "s": 5.6, "e": 6}, {"t": "honderden", "s": 6.04, "e": 6.48}, {"t": "spieren", "s": 6.56, "e": 6.96}, {"t": "en", "s": 7.04, "e": 7.12}, {"t": "botten", "s": 7.2, "e": 7.52}, {"t": "samen.", "s": 7.56, "e": 8.4}, {"t": "Hoe", "s": 8.48, "e": 8.56}, {"t": "beweegt", "s": 8.64, "e": 8.96}, {"t": "hij", "s": 9, "e": 9.12}, {"t": "eigenlijk?", "s": 9.16, "e": 10}, {"t": "Wat", "s": 10.08, "e": 10.16}, {"t": "denk", "s": 10.24, "e": 10.4}, {"t": "je?", "s": 10.48, "e": 10.88}], "audio": "audio/s01.mp3", "dur": 11.33}, {"id": "s02", "kind": "speech", "level": "basis", "chapter": "Titel", "words": [{"t": "Skelet", "s": 0, "e": 0.56}, {"t": "en", "s": 0.64, "e": 0.72}, {"t": "spieren.", "s": 0.8, "e": 1.56}, {"t": "Hoe", "s": 1.76, "e": 1.92}, {"t": "beweeg", "s": 2, "e": 2.32}, {"t": "je", "s": 2.36, "e": 2.4}, {"t": "eigenlijk?", "s": 2.48, "e": 3.28}], "audio": "audio/s02.mp3", "dur": 3.73}, {"id": "s03", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Botten en gewrichten", "words": [{"t": "Zonder", "s": 0, "e": 0.32}, {"t": "skelet", "s": 0.36, "e": 0.88}, {"t": "zou", "s": 0.92, "e": 1.04}, {"t": "je", "s": 1.12, "e": 1.2}, {"t": "in", "s": 1.24, "e": 1.28}, {"t": "elkaar", "s": 1.36, "e": 1.68}, {"t": "zakken,", "s": 1.76, "e": 2.4}, {"t": "als", "s": 2.48, "e": 2.56}, {"t": "een", "s": 2.68, "e": 2.8}, {"t": "pudding.", "s": 2.84, "e": 3.28}, {"t": "Je", "s": 3.76, "e": 3.84}, {"t": "skelet", "s": 3.88, "e": 4.32}, {"t": "heeft", "s": 4.36, "e": 4.56}, {"t": "ongeveer", "s": 4.64, "e": 4.96}, {"t": "tweehonderd", "s": 5.2, "e": 5.84}, {"t": "botten.", "s": 5.92, "e": 6.44}, {"t": "Ze", "s": 6.64, "e": 6.8}, {"t": "geven", "s": 6.84, "e": 7.04}, {"t": "je", "s": 7.08, "e": 7.12}, {"t": "lichaam", "s": 7.2, "e": 7.52}, {"t": "vorm", "s": 7.6, "e": 7.92}, {"t": "en", "s": 8.08, "e": 8.16}, {"t": "stevigheid.", "s": 8.24, "e": 9.24}, {"t": "Ze", "s": 9.44, "e": 9.52}, {"t": "beschermen", "s": 9.6, "e": 10.08}, {"t": "ook.", "s": 10.16, "e": 10.6}, {"t": "Je", "s": 10.8, "e": 10.96}, {"t": "schedel", "s": 11.12, "e": 11.44}, {"t": "beschermt", "s": 11.52, "e": 11.84}, {"t": "je", "s": 11.92, "e": 12}, {"t": "hersenen.", "s": 12.08, "e": 12.68}, {"t": "Je", "s": 12.88, "e": 12.96}, {"t": "ribben", "s": 13.04, "e": 13.36}, {"t": "beschermen", "s": 13.44, "e": 13.92}, {"t": "je", "s": 14, "e": 14.08}, {"t": "hart", "s": 14.24, "e": 14.4}, {"t": "en", "s": 14.48, "e": 14.56}, {"t": "je", "s": 14.6, "e": 14.64}, {"t": "longen.", "s": 14.72, "e": 15.24}, {"t": "En", "s": 15.44, "e": 15.52}, {"t": "binnenin", "s": 15.6, "e": 16}, {"t": "sommige", "s": 16.04, "e": 16.4}, {"t": "botten", "s": 16.48, "e": 16.8}, {"t": "zit", "s": 16.88, "e": 17.12}, {"t": "beenmerg.", "s": 17.28, "e": 18.04}, {"t": "Daar", "s": 18.24, "e": 18.4}, {"t": "worden", "s": 18.48, "e": 18.72}, {"t": "je", "s": 18.76, "e": 18.8}, {"t": "bloedcellen", "s": 18.88, "e": 19.36}, {"t": "gemaakt.", "s": 19.44, "e": 20.2}, {"t": "Een", "s": 20.48, "e": 20.64}, {"t": "baby", "s": 20.84, "e": 21.04}, {"t": "heeft", "s": 21.12, "e": 21.36}, {"t": "meer", "s": 21.44, "e": 21.6}, {"t": "botten", "s": 21.68, "e": 21.92}, {"t": "dan", "s": 22, "e": 22.08}, {"t": "jij:", "s": 22.16, "e": 22.72}, {"t": "ongeveer", "s": 22.8, "e": 23.2}, {"t": "driehonderd.", "s": 23.36, "e": 24.52}, {"t": "Hoe", "s": 24.72, "e": 24.88}, {"t": "kan", "s": 24.96, "e": 25.04}, {"t": "dat?", "s": 25.12, "e": 25.76}, {"t": "Wat", "s": 25.84, "e": 25.92}, {"t": "denk", "s": 26, "e": 26.16}, {"t": "je?", "s": 26.24, "e": 26.64}], "audio": "audio/s03.mp3", "dur": 27.09}, {"id": "q04", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 1 — Botten en gewrichten", "q": "Een baby heeft meer botten dan jij. Hoe kan dat?", "options": ["een baby verliest botten als hij groeit", "sommige botten groeien aan elkaar vast", "dat klopt niet, een baby heeft er juist minder"], "correct": 1, "explain": "Tijdens het groeien groeien sommige botten aan elkaar vast, zoals drie botten in je heup tot één heupbot."}, {"id": "s05", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 1 — Botten en gewrichten", "words": [{"t": "Sommige", "s": 0, "e": 0.4}, {"t": "botten", "s": 0.48, "e": 0.8}, {"t": "groeien", "s": 0.88, "e": 1.2}, {"t": "aan", "s": 1.24, "e": 1.28}, {"t": "elkaar", "s": 1.36, "e": 1.6}, {"t": "vast.", "s": 1.68, "e": 2.32}, {"t": "In", "s": 2.56, "e": 2.64}, {"t": "je", "s": 2.72, "e": 2.8}, {"t": "heup", "s": 2.88, "e": 3.2}, {"t": "groeien", "s": 3.24, "e": 3.6}, {"t": "drie", "s": 3.64, "e": 3.84}, {"t": "botten", "s": 3.92, "e": 4.24}, {"t": "samen", "s": 4.28, "e": 4.64}, {"t": "tot", "s": 4.72, "e": 4.96}, {"t": "één", "s": 5.04, "e": 5.28}, {"t": "heupbot.", "s": 5.36, "e": 6.12}, {"t": "Dat", "s": 6.32, "e": 6.4}, {"t": "is", "s": 6.48, "e": 6.56}, {"t": "pas", "s": 6.68, "e": 6.8}, {"t": "klaar", "s": 6.84, "e": 7.2}, {"t": "als", "s": 7.28, "e": 7.36}, {"t": "je", "s": 7.44, "e": 7.52}, {"t": "bijna", "s": 7.64, "e": 7.92}, {"t": "volwassen", "s": 8, "e": 8.4}, {"t": "bent.", "s": 8.507, "e": 8.96}, {"t": "Bot", "s": 9.2, "e": 9.44}, {"t": "leeft", "s": 9.6, "e": 10.08}, {"t": "en", "s": 10.16, "e": 10.24}, {"t": "groeit.", "s": 10.32, "e": 11}, {"t": "Waar", "s": 11.28, "e": 11.44}, {"t": "twee", "s": 11.48, "e": 11.68}, {"t": "botten", "s": 11.84, "e": 12.08}, {"t": "elkaar", "s": 12.16, "e": 12.4}, {"t": "raken,", "s": 12.48, "e": 13.04}, {"t": "zit", "s": 13.093, "e": 13.2}, {"t": "een", "s": 13.24, "e": 13.28}, {"t": "gewricht.", "s": 13.4, "e": 14.32}, {"t": "Daar", "s": 14.4, "e": 14.64}, {"t": "kun", "s": 14.72, "e": 14.8}, {"t": "je", "s": 14.88, "e": 14.96}, {"t": "bewegen.", "s": 15.04, "e": 16}, {"t": "De", "s": 16.08, "e": 16.16}, {"t": "uiteinden", "s": 16.32, "e": 16.72}, {"t": "van", "s": 16.76, "e": 16.8}, {"t": "de", "s": 16.88, "e": 16.96}, {"t": "botten", "s": 17, "e": 17.36}, {"t": "zijn", "s": 17.4, "e": 17.52}, {"t": "bedekt", "s": 17.6, "e": 18}, {"t": "met", "s": 18.08, "e": 18.16}, {"t": "kraakbeen.", "s": 18.24, "e": 19.2}, {"t": "Dat", "s": 19.28, "e": 19.36}, {"t": "is", "s": 19.44, "e": 19.52}, {"t": "glad,", "s": 19.6, "e": 20.08}, {"t": "zodat", "s": 20.133, "e": 20.32}, {"t": "ze", "s": 20.44, "e": 20.56}, {"t": "soepel", "s": 20.6, "e": 20.88}, {"t": "langs", "s": 21, "e": 21.12}, {"t": "elkaar", "s": 21.2, "e": 21.44}, {"t": "glijden.", "s": 21.52, "e": 22.4}, {"t": "Stevige", "s": 22.48, "e": 23.04}, {"t": "banden", "s": 23.16, "e": 23.52}, {"t": "houden", "s": 23.6, "e": 23.84}, {"t": "de", "s": 23.92, "e": 24}, {"t": "botten", "s": 24.08, "e": 24.24}, {"t": "bij", "s": 24.32, "e": 24.4}, {"t": "elkaar.", "s": 24.48, "e": 25.36}, {"t": "Je", "s": 25.44, "e": 25.52}, {"t": "elleboog", "s": 25.6, "e": 26.08}, {"t": "en", "s": 26.12, "e": 26.16}, {"t": "je", "s": 26.24, "e": 26.28}, {"t": "knie", "s": 26.32, "e": 26.72}, {"t": "werken", "s": 26.8, "e": 27.12}, {"t": "als", "s": 27.16, "e": 27.2}, {"t": "een", "s": 27.28, "e": 27.36}, {"t": "scharnier,", "s": 27.4, "e": 28.16}, {"t": "zoals", "s": 28.2, "e": 28.4}, {"t": "een", "s": 28.48, "e": 28.56}, {"t": "deur:", "s": 28.64, "e": 29.2}, {"t": "één", "s": 29.24, "e": 29.36}, {"t": "kant", "s": 29.44, "e": 29.6}, {"t": "op.", "s": 29.68, "e": 30.32}, {"t": "Je", "s": 30.4, "e": 30.48}, {"t": "schouder", "s": 30.56, "e": 30.96}, {"t": "en", "s": 31, "e": 31.04}, {"t": "je", "s": 31.12, "e": 31.16}, {"t": "heup", "s": 31.2, "e": 31.6}, {"t": "zijn", "s": 31.68, "e": 31.84}, {"t": "een", "s": 31.92, "e": 32}, {"t": "kogel", "s": 32.04, "e": 32.48}, {"t": "in", "s": 32.52, "e": 32.56}, {"t": "een", "s": 32.64, "e": 32.8}, {"t": "kom.", "s": 32.92, "e": 33.44}, {"t": "Die", "s": 33.56, "e": 33.68}, {"t": "kunnen", "s": 33.76, "e": 34.08}, {"t": "alle", "s": 34.2, "e": 34.32}, {"t": "kanten", "s": 34.36, "e": 34.64}, {"t": "op.", "s": 34.76, "e": 35.12}], "audio": "audio/s05.mp3", "dur": 35.57}, {"id": "s06", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Spieren trekken", "words": [{"t": "Botten", "s": 0, "e": 0.32}, {"t": "bewegen", "s": 0.4, "e": 0.8}, {"t": "niet", "s": 0.88, "e": 1.04}, {"t": "zelf.", "s": 1.12, "e": 1.72}, {"t": "Dat", "s": 1.84, "e": 2}, {"t": "doen", "s": 2.04, "e": 2.24}, {"t": "spieren.", "s": 2.32, "e": 3.04}, {"t": "Een", "s": 3.28, "e": 3.44}, {"t": "spier", "s": 3.52, "e": 3.84}, {"t": "zit", "s": 3.92, "e": 4.08}, {"t": "met", "s": 4.16, "e": 4.24}, {"t": "een", "s": 4.32, "e": 4.4}, {"t": "pees", "s": 4.48, "e": 4.8}, {"t": "aan", "s": 4.88, "e": 4.96}, {"t": "een", "s": 5, "e": 5.04}, {"t": "bot", "s": 5.12, "e": 5.28}, {"t": "vast.", "s": 5.36, "e": 5.96}, {"t": "Een", "s": 6.16, "e": 6.32}, {"t": "pees", "s": 6.4, "e": 6.72}, {"t": "is", "s": 6.8, "e": 6.88}, {"t": "stevig,", "s": 6.96, "e": 7.76}, {"t": "als", "s": 7.84, "e": 7.92}, {"t": "een", "s": 8, "e": 8.16}, {"t": "touw.", "s": 8.2, "e": 8.56}, {"t": "Een", "s": 9.04, "e": 9.2}, {"t": "spier", "s": 9.28, "e": 9.6}, {"t": "bestaat", "s": 9.68, "e": 10}, {"t": "uit", "s": 10.12, "e": 10.24}, {"t": "duizenden", "s": 10.32, "e": 10.88}, {"t": "lange", "s": 10.96, "e": 11.2}, {"t": "spiercellen.", "s": 11.28, "e": 12.24}, {"t": "Krijgt", "s": 12.48, "e": 12.72}, {"t": "de", "s": 12.76, "e": 12.8}, {"t": "spier", "s": 12.88, "e": 13.12}, {"t": "een", "s": 13.2, "e": 13.28}, {"t": "signaal,", "s": 13.4, "e": 14}, {"t": "dan", "s": 14.08, "e": 14.16}, {"t": "worden", "s": 14.24, "e": 14.4}, {"t": "die", "s": 14.48, "e": 14.56}, {"t": "cellen", "s": 14.64, "e": 14.96}, {"t": "korter.", "s": 15, "e": 15.6}, {"t": "De", "s": 15.84, "e": 15.92}, {"t": "spier", "s": 16, "e": 16.32}, {"t": "wordt", "s": 16.4, "e": 16.56}, {"t": "kort", "s": 16.64, "e": 16.88}, {"t": "en", "s": 16.96, "e": 17.04}, {"t": "dik,", "s": 17.2, "e": 17.6}, {"t": "en", "s": 17.64, "e": 17.68}, {"t": "trekt", "s": 17.84, "e": 18.16}, {"t": "aan", "s": 18.24, "e": 18.32}, {"t": "de", "s": 18.36, "e": 18.4}, {"t": "pees.", "s": 18.48, "e": 19.12}, {"t": "Het", "s": 19.36, "e": 19.52}, {"t": "bot", "s": 19.6, "e": 19.84}, {"t": "draait", "s": 19.92, "e": 20.32}, {"t": "in", "s": 20.36, "e": 20.4}, {"t": "het", "s": 20.48, "e": 20.56}, {"t": "gewricht.", "s": 20.64, "e": 21.4}, {"t": "Je", "s": 21.68, "e": 21.76}, {"t": "biceps,", "s": 21.84, "e": 22.56}, {"t": "voor", "s": 22.64, "e": 22.8}, {"t": "op", "s": 22.88, "e": 22.96}, {"t": "je", "s": 23, "e": 23.04}, {"t": "bovenarm,", "s": 23.12, "e": 24}, {"t": "buigt", "s": 24.08, "e": 24.4}, {"t": "zo", "s": 24.48, "e": 24.56}, {"t": "je", "s": 24.64, "e": 24.72}, {"t": "arm.", "s": 24.8, "e": 25.12}, {"t": "Maar", "s": 25.6, "e": 25.84}, {"t": "hoe", "s": 26.08, "e": 26.24}, {"t": "strek", "s": 26.32, "e": 26.64}, {"t": "je", "s": 26.72, "e": 26.76}, {"t": "je", "s": 26.8, "e": 26.88}, {"t": "arm", "s": 26.96, "e": 27.12}, {"t": "weer?", "s": 27.2, "e": 27.84}, {"t": "Wat", "s": 27.92, "e": 28}, {"t": "denk", "s": 28.08, "e": 28.24}, {"t": "je?", "s": 28.32, "e": 28.72}], "audio": "audio/s06.mp3", "dur": 29.17}, {"id": "q07", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 2 — Spieren trekken", "q": "Je biceps buigt je arm. Hoe strek je je arm weer?", "options": ["een spier aan de achterkant trekt hem recht", "de biceps duwt hem terug", "de botten in je elleboog veren terug"], "correct": 0, "explain": "Een spier aan de achterkant van je bovenarm, de triceps, trekt hem recht. Een spier kan alleen trekken, nooit duwen."}, {"id": "s08", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 2 — Spieren trekken", "words": [{"t": "Een", "s": 0, "e": 0.133}, {"t": "spier", "s": 0.16, "e": 0.427}, {"t": "aan", "s": 0.48, "e": 0.613}, {"t": "de", "s": 0.64, "e": 0.76}, {"t": "achterkant", "s": 0.8, "e": 1.44}, {"t": "trekt", "s": 1.52, "e": 1.76}, {"t": "hem", "s": 1.84, "e": 1.92}, {"t": "recht:", "s": 2.12, "e": 2.64}, {"t": "je", "s": 2.72, "e": 2.8}, {"t": "triceps.", "s": 2.88, "e": 3.52}, {"t": "Een", "s": 4, "e": 4.08}, {"t": "spier", "s": 4.16, "e": 4.4}, {"t": "kan", "s": 4.48, "e": 4.64}, {"t": "alleen", "s": 4.76, "e": 5.04}, {"t": "trekken,", "s": 5.16, "e": 5.76}, {"t": "nooit", "s": 5.84, "e": 6.16}, {"t": "duwen.", "s": 6.24, "e": 6.88}, {"t": "Daarom", "s": 7.12, "e": 7.52}, {"t": "werken", "s": 7.6, "e": 7.84}, {"t": "spieren", "s": 7.92, "e": 8.24}, {"t": "in", "s": 8.32, "e": 8.4}, {"t": "tweetallen.", "s": 8.48, "e": 9.28}, {"t": "Ze", "s": 9.44, "e": 9.52}, {"t": "werken", "s": 9.6, "e": 9.84}, {"t": "elkaar", "s": 9.92, "e": 10.24}, {"t": "tegen:", "s": 10.32, "e": 11.04}, {"t": "de", "s": 11.12, "e": 11.2}, {"t": "een", "s": 11.32, "e": 11.44}, {"t": "buigt,", "s": 11.52, "e": 12.16}, {"t": "de", "s": 12.2, "e": 12.24}, {"t": "ander", "s": 12.32, "e": 12.64}, {"t": "strekt.", "s": 12.76, "e": 13.2}, {"t": "Zulke", "s": 13.68, "e": 13.92}, {"t": "spieren", "s": 14, "e": 14.4}, {"t": "heten", "s": 14.48, "e": 14.8}, {"t": "tegenwerkers.", "s": 14.88, "e": 16.08}], "audio": "audio/s08.mp3", "dur": 16.53}, {"id": "s09", "kind": "speech", "level": "vwo", "chapter": "Hoofdstuk 2 — Spieren trekken", "words": [{"t": "Je", "s": 0, "e": 0.12}, {"t": "arm", "s": 0.16, "e": 0.453}, {"t": "werkt", "s": 0.56, "e": 0.8}, {"t": "als", "s": 0.88, "e": 1.013}, {"t": "een", "s": 1.04, "e": 1.2}, {"t": "hefboom.", "s": 1.24, "e": 2}, {"t": "Je", "s": 2.24, "e": 2.32}, {"t": "biceps", "s": 2.4, "e": 2.88}, {"t": "zit", "s": 2.92, "e": 3.04}, {"t": "maar", "s": 3.08, "e": 3.2}, {"t": "een", "s": 3.28, "e": 3.36}, {"t": "paar", "s": 3.4, "e": 3.52}, {"t": "centimeter", "s": 3.68, "e": 4.32}, {"t": "onder", "s": 4.4, "e": 4.64}, {"t": "je", "s": 4.72, "e": 4.8}, {"t": "elleboog", "s": 4.92, "e": 5.28}, {"t": "vast.", "s": 5.32, "e": 6.08}, {"t": "Wordt", "s": 6.16, "e": 6.28}, {"t": "hij", "s": 6.32, "e": 6.4}, {"t": "een", "s": 6.48, "e": 6.56}, {"t": "klein", "s": 6.64, "e": 6.8}, {"t": "stukje", "s": 6.88, "e": 7.28}, {"t": "korter,", "s": 7.36, "e": 7.92}, {"t": "dan", "s": 8, "e": 8.08}, {"t": "beweegt", "s": 8.16, "e": 8.4}, {"t": "je", "s": 8.48, "e": 8.56}, {"t": "hand", "s": 8.72, "e": 8.88}, {"t": "een", "s": 8.96, "e": 9.12}, {"t": "heel", "s": 9.2, "e": 9.36}, {"t": "stuk.", "s": 9.44, "e": 10.32}, {"t": "Zo", "s": 10.36, "e": 10.48}, {"t": "kun", "s": 10.56, "e": 10.64}, {"t": "je", "s": 10.72, "e": 10.88}, {"t": "snel", "s": 10.92, "e": 11.28}, {"t": "en", "s": 11.4, "e": 11.52}, {"t": "ver", "s": 11.64, "e": 11.76}, {"t": "bewegen.", "s": 11.84, "e": 12.72}, {"t": "Maar", "s": 12.8, "e": 13.04}, {"t": "het", "s": 13.12, "e": 13.2}, {"t": "kost", "s": 13.24, "e": 13.52}, {"t": "veel", "s": 13.6, "e": 13.84}, {"t": "kracht.", "s": 13.92, "e": 14.8}, {"t": "Houd", "s": 14.853, "e": 14.96}, {"t": "je", "s": 15.04, "e": 15.08}, {"t": "een", "s": 15.12, "e": 15.2}, {"t": "fles", "s": 15.28, "e": 15.52}, {"t": "van", "s": 15.56, "e": 15.6}, {"t": "een", "s": 15.68, "e": 15.84}, {"t": "kilo", "s": 15.88, "e": 16.08}, {"t": "vast,", "s": 16.24, "e": 16.8}, {"t": "dan", "s": 16.88, "e": 16.96}, {"t": "trekt", "s": 17.04, "e": 17.2}, {"t": "je", "s": 17.28, "e": 17.36}, {"t": "biceps", "s": 17.44, "e": 17.84}, {"t": "ongeveer", "s": 17.92, "e": 18.32}, {"t": "zo", "s": 18.44, "e": 18.56}, {"t": "hard", "s": 18.68, "e": 18.8}, {"t": "als", "s": 18.88, "e": 19.12}, {"t": "zeven", "s": 19.2, "e": 19.6}, {"t": "kilo.", "s": 19.68, "e": 20.32}], "audio": "audio/s09.mp3", "dur": 20.77}, {"id": "s10", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Samen bewegen", "words": [{"t": "Maar", "s": 0, "e": 0.24}, {"t": "wie", "s": 0.48, "e": 0.64}, {"t": "geeft", "s": 0.68, "e": 0.88}, {"t": "de", "s": 0.92, "e": 0.96}, {"t": "spier", "s": 1.04, "e": 1.28}, {"t": "dat", "s": 1.36, "e": 1.44}, {"t": "signaal?", "s": 1.52, "e": 2.08}, {"t": "Je", "s": 2.56, "e": 2.64}, {"t": "hersenen.", "s": 2.72, "e": 3.28}, {"t": "Via", "s": 3.76, "e": 4}, {"t": "je", "s": 4.08, "e": 4.16}, {"t": "ruggenmerg", "s": 4.2, "e": 4.8}, {"t": "en", "s": 4.88, "e": 4.92}, {"t": "je", "s": 4.96, "e": 5.04}, {"t": "zenuwen", "s": 5.12, "e": 5.6}, {"t": "gaat", "s": 5.68, "e": 5.84}, {"t": "het", "s": 5.92, "e": 6}, {"t": "naar", "s": 6.04, "e": 6.12}, {"t": "de", "s": 6.16, "e": 6.24}, {"t": "spier.", "s": 6.32, "e": 6.96}, {"t": "Zonder", "s": 7.2, "e": 7.52}, {"t": "signaal", "s": 7.6, "e": 8}, {"t": "doen", "s": 8.16, "e": 8.32}, {"t": "deze", "s": 8.4, "e": 8.56}, {"t": "spieren", "s": 8.64, "e": 9.04}, {"t": "niets.", "s": 9.12, "e": 9.76}, {"t": "En", "s": 10, "e": 10.04}, {"t": "een", "s": 10.08, "e": 10.16}, {"t": "spier", "s": 10.24, "e": 10.56}, {"t": "heeft", "s": 10.64, "e": 10.8}, {"t": "energie", "s": 10.96, "e": 11.28}, {"t": "nodig.", "s": 11.36, "e": 12}, {"t": "Die", "s": 12.16, "e": 12.24}, {"t": "komt", "s": 12.32, "e": 12.56}, {"t": "uit", "s": 12.64, "e": 12.72}, {"t": "verbranding,", "s": 12.84, "e": 13.6}, {"t": "met", "s": 13.64, "e": 13.68}, {"t": "de", "s": 13.76, "e": 13.84}, {"t": "zuurstof", "s": 13.92, "e": 14.4}, {"t": "die", "s": 14.44, "e": 14.48}, {"t": "je", "s": 14.56, "e": 14.64}, {"t": "bloed", "s": 14.72, "e": 14.88}, {"t": "brengt.", "s": 14.96, "e": 15.56}, {"t": "Daarom", "s": 15.76, "e": 16.16}, {"t": "klopt", "s": 16.24, "e": 16.4}, {"t": "je", "s": 16.48, "e": 16.56}, {"t": "hart", "s": 16.68, "e": 16.8}, {"t": "sneller", "s": 16.88, "e": 17.2}, {"t": "als", "s": 17.28, "e": 17.36}, {"t": "je", "s": 17.44, "e": 17.52}, {"t": "sport.", "s": 17.72, "e": 18}, {"t": "Sam", "s": 18.64, "e": 18.88}, {"t": "brak", "s": 18.96, "e": 19.2}, {"t": "vorig", "s": 19.24, "e": 19.52}, {"t": "jaar", "s": 19.6, "e": 19.76}, {"t": "zijn", "s": 19.8, "e": 20}, {"t": "arm.", "s": 20.16, "e": 20.4}, {"t": "Zes", "s": 20.8, "e": 21.12}, {"t": "weken", "s": 21.2, "e": 21.52}, {"t": "zat", "s": 21.56, "e": 21.68}, {"t": "hij", "s": 21.76, "e": 21.84}, {"t": "in", "s": 21.88, "e": 21.92}, {"t": "het", "s": 22, "e": 22.08}, {"t": "gips.", "s": 22.12, "e": 22.68}, {"t": "Daarna", "s": 22.88, "e": 23.28}, {"t": "was", "s": 23.36, "e": 23.44}, {"t": "zijn", "s": 23.52, "e": 23.68}, {"t": "armspier", "s": 23.84, "e": 24.24}, {"t": "dunner", "s": 24.32, "e": 24.72}, {"t": "en", "s": 24.76, "e": 24.8}, {"t": "zwakker.", "s": 24.88, "e": 25.44}, {"t": "Hoe", "s": 25.84, "e": 26}, {"t": "kan", "s": 26.08, "e": 26.16}, {"t": "dat?", "s": 26.24, "e": 26.88}, {"t": "Wat", "s": 26.96, "e": 27.04}, {"t": "denk", "s": 27.12, "e": 27.28}, {"t": "je?", "s": 27.36, "e": 27.76}], "audio": "audio/s10.mp3", "dur": 28.21}, {"id": "q11", "kind": "question", "level": "basis", "chapter": "Hoofdstuk 3 — Samen bewegen", "q": "Na zes weken gips is Sams armspier dunner en zwakker. Hoe kan dat?", "options": ["het gips heeft de spier platgedrukt", "de breuk heeft de spier beschadigd", "een spier die je niet gebruikt, wordt kleiner"], "correct": 2, "explain": "Een spier die je niet gebruikt, wordt kleiner. Gebruik en training maken hem weer groter en sterker."}, {"id": "s12", "kind": "speech", "level": "basis", "chapter": "Hoofdstuk 3 — Samen bewegen", "words": [{"t": "Een", "s": 0, "e": 0.12}, {"t": "spier", "s": 0.16, "e": 0.48}, {"t": "die", "s": 0.56, "e": 0.64}, {"t": "je", "s": 0.68, "e": 0.72}, {"t": "niet", "s": 0.8, "e": 0.96}, {"t": "gebruikt,", "s": 1.04, "e": 1.6}, {"t": "wordt", "s": 1.68, "e": 1.84}, {"t": "kleiner.", "s": 1.96, "e": 2.6}, {"t": "Gebruik", "s": 2.8, "e": 3.2}, {"t": "je", "s": 3.28, "e": 3.32}, {"t": "hem", "s": 3.36, "e": 3.44}, {"t": "weer,", "s": 3.52, "e": 4}, {"t": "dan", "s": 4.08, "e": 4.16}, {"t": "groeit", "s": 4.2, "e": 4.4}, {"t": "hij", "s": 4.44, "e": 4.56}, {"t": "terug.", "s": 4.64, "e": 5.2}, {"t": "Train", "s": 5.44, "e": 5.76}, {"t": "je", "s": 5.8, "e": 5.84}, {"t": "hem,", "s": 5.92, "e": 6.4}, {"t": "dan", "s": 6.44, "e": 6.48}, {"t": "wordt", "s": 6.56, "e": 6.72}, {"t": "hij", "s": 6.773, "e": 6.88}, {"t": "sterker.", "s": 7.04, "e": 7.52}, {"t": "Ook", "s": 8, "e": 8.16}, {"t": "je", "s": 8.24, "e": 8.32}, {"t": "botten", "s": 8.4, "e": 8.72}, {"t": "worden", "s": 8.8, "e": 8.96}, {"t": "sterker", "s": 9.08, "e": 9.44}, {"t": "als", "s": 9.52, "e": 9.6}, {"t": "je", "s": 9.68, "e": 9.76}, {"t": "rent", "s": 9.84, "e": 10.16}, {"t": "en", "s": 10.24, "e": 10.32}, {"t": "springt.", "s": 10.52, "e": 11.16}, {"t": "Terug", "s": 11.44, "e": 11.68}, {"t": "naar", "s": 11.76, "e": 11.88}, {"t": "de", "s": 11.92, "e": 12}, {"t": "sprong.", "s": 12.08, "e": 12.48}, {"t": "Sams", "s": 12.96, "e": 13.28}, {"t": "hersenen", "s": 13.32, "e": 13.84}, {"t": "geven", "s": 13.92, "e": 14.16}, {"t": "een", "s": 14.2, "e": 14.24}, {"t": "signaal.", "s": 14.32, "e": 14.88}, {"t": "Zijn", "s": 15.2, "e": 15.36}, {"t": "beenspieren", "s": 15.44, "e": 16.08}, {"t": "trekken,", "s": 16.16, "e": 16.72}, {"t": "zijn", "s": 16.76, "e": 16.96}, {"t": "knieën", "s": 17, "e": 17.36}, {"t": "strekken:", "s": 17.44, "e": 18.16}, {"t": "hij", "s": 18.2, "e": 18.32}, {"t": "springt.", "s": 18.4, "e": 19.16}, {"t": "Zijn", "s": 19.36, "e": 19.6}, {"t": "triceps", "s": 19.64, "e": 20.16}, {"t": "strekt", "s": 20.24, "e": 20.64}, {"t": "zijn", "s": 20.693, "e": 20.8}, {"t": "arm.", "s": 20.88, "e": 21.36}, {"t": "Zijn", "s": 21.52, "e": 21.68}, {"t": "bloed", "s": 21.76, "e": 22.08}, {"t": "brengt", "s": 22.16, "e": 22.48}, {"t": "zuurstof.", "s": 22.56, "e": 23.2}, {"t": "Skelet,", "s": 23.6, "e": 24.32}, {"t": "spieren,", "s": 24.4, "e": 25.12}, {"t": "zenuwen", "s": 25.16, "e": 25.6}, {"t": "en", "s": 25.64, "e": 25.68}, {"t": "bloed", "s": 25.76, "e": 26.08}, {"t": "maken", "s": 26.16, "e": 26.48}, {"t": "samen", "s": 26.56, "e": 26.96}, {"t": "één", "s": 27.04, "e": 27.28}, {"t": "beweging.", "s": 27.36, "e": 28.24}], "audio": "audio/s12.mp3", "dur": 28.69}, {"id": "s13", "kind": "speech", "level": "basis", "chapter": "Samenvatting", "words": [{"t": "Je", "s": 0, "e": 0.16}, {"t": "skelet", "s": 0.2, "e": 0.64}, {"t": "geeft", "s": 0.68, "e": 0.96}, {"t": "stevigheid", "s": 1.04, "e": 1.76}, {"t": "en", "s": 1.8, "e": 1.84}, {"t": "bescherming.", "s": 2, "e": 2.8}, {"t": "Waar", "s": 3.04, "e": 3.2}, {"t": "botten", "s": 3.28, "e": 3.52}, {"t": "elkaar", "s": 3.6, "e": 3.92}, {"t": "raken,", "s": 3.96, "e": 4.56}, {"t": "zit", "s": 4.6, "e": 4.72}, {"t": "een", "s": 4.8, "e": 4.88}, {"t": "gewricht.", "s": 5, "e": 5.72}, {"t": "Spieren", "s": 6, "e": 6.56}, {"t": "zitten", "s": 6.6, "e": 6.8}, {"t": "met", "s": 6.92, "e": 7.04}, {"t": "pezen", "s": 7.16, "e": 7.52}, {"t": "aan", "s": 7.6, "e": 7.68}, {"t": "je", "s": 7.72, "e": 7.76}, {"t": "botten.", "s": 7.84, "e": 8.36}, {"t": "Een", "s": 8.56, "e": 8.64}, {"t": "spier", "s": 8.72, "e": 9.12}, {"t": "kan", "s": 9.2, "e": 9.36}, {"t": "alleen", "s": 9.48, "e": 9.76}, {"t": "trekken.", "s": 9.84, "e": 10.64}, {"t": "Daarom", "s": 10.72, "e": 11.12}, {"t": "werken", "s": 11.2, "e": 11.44}, {"t": "spieren", "s": 11.52, "e": 11.84}, {"t": "als", "s": 11.92, "e": 12.08}, {"t": "tegenwerkers:", "s": 12.16, "e": 13.36}, {"t": "de", "s": 13.44, "e": 13.52}, {"t": "een", "s": 13.64, "e": 13.76}, {"t": "buigt,", "s": 13.84, "e": 14.48}, {"t": "de", "s": 14.52, "e": 14.56}, {"t": "ander", "s": 14.64, "e": 14.88}, {"t": "strekt.", "s": 14.96, "e": 15.44}, {"t": "Zo", "s": 15.92, "e": 16.08}, {"t": "beweeg", "s": 16.16, "e": 16.56}, {"t": "je:", "s": 16.64, "e": 17.2}, {"t": "je", "s": 17.28, "e": 17.36}, {"t": "hersenen", "s": 17.4, "e": 17.84}, {"t": "geven", "s": 17.92, "e": 18.16}, {"t": "een", "s": 18.2, "e": 18.24}, {"t": "signaal,", "s": 18.32, "e": 19.12}, {"t": "je", "s": 19.2, "e": 19.28}, {"t": "spieren", "s": 19.36, "e": 19.76}, {"t": "trekken,", "s": 19.88, "e": 20.48}, {"t": "en", "s": 20.56, "e": 20.64}, {"t": "je", "s": 20.72, "e": 20.8}, {"t": "botten", "s": 20.84, "e": 21.12}, {"t": "draaien", "s": 21.2, "e": 21.68}, {"t": "in", "s": 21.76, "e": 21.84}, {"t": "je", "s": 21.88, "e": 21.92}, {"t": "gewrichten.", "s": 22.04, "e": 22.88}], "audio": "audio/s13.mp3", "dur": 23.33}, {"id": "s14", "kind": "speech", "level": "basis", "chapter": "Eindkaart", "words": [{"t": "Probeer", "s": 0, "e": 0.4}, {"t": "het", "s": 0.48, "e": 0.56}, {"t": "zelf.", "s": 0.8, "e": 1.28}], "audio": "audio/s14.mp3", "dur": 12.0}], "chapters": ["Cold open", "Titel", "Hoofdstuk 1 — Botten en gewrichten", "Hoofdstuk 2 — Spieren trekken", "Hoofdstuk 3 — Samen bewegen", "Samenvatting", "Eindkaart"]};</script>
+<script>// ===== Part C tokens =====
+const C = {
+  bgMicro:'#121A26', bgMacroSky:'#1E2E4A', bgMacroHill:'#2F4A3A', bgMacroFront:'#3A5540', bgSchema:'#1A2740',
+  goud:'#E0B64A', koraal:'#E07A5F', groen:'#7FC48F', teal:'#5BA4C9', paars:'#8C7BBF', oker:'#C9A35C',
+  text:'#F2F2EE', text2:'#9AA3B2', line:'#8FA0B5', grain:'#C9B896', fill:'#2A3A58', kast:'#0D1420',
+  mito:'#D88E7A', mitoR:'#F0B8A6', golgi:'#C98A3E', er:'#AFC0D0', lyso:'#3E9A78', ves:'#D4A83C', vesR:'#F0CC7A',
+  kern:'#6E5A9E', kernR:'#A392D6', chloro:'#5FA86E', ribo:'#C9B896', enzym:'#7A8BA8', mens:'#9AA3B2',
+  berg:'#4B5878', bergTop:'#B8C0D0', water:'#2E6FBF', bruin:'#8C5A3A', okerD:'#B08A5C'
+};
+const F = { titel:'"Fraunces","Playfair Display",Georgia,serif', tekst:'"Source Sans 3","Inter",system-ui,sans-serif', meta:'"IBM Plex Mono","JetBrains Mono",ui-monospace,monospace' };
+const W = 1920, H = 1080, CAPTION_Y = 900; // nothing below CAPTION_Y except captions
+
+// ===== deterministic helpers =====
+function hash(n){ let x = Math.sin(n*127.1+311.7)*43758.5453; return x - Math.floor(x); }
+// smooth pseudo-random wander for particle i at time t (deterministic for any t)
+function wander(i, t, amp, speed){
+  const a = hash(i*3+1)*6.283, b = hash(i*3+2)*6.283, c = hash(i*3+3)*6.283;
+  const s = speed*(0.7+0.6*hash(i*7+5));
+  return { x: amp*(Math.sin(t*s+a)*0.6+Math.sin(t*s*2.3+b)*0.3+Math.sin(t*s*5.1+c)*0.1),
+           y: amp*(Math.cos(t*s*1.1+b)*0.6+Math.cos(t*s*2.7+c)*0.3+Math.cos(t*s*4.3+a)*0.1) };
+}
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,u)=>a+(b-a)*clamp(u,0,1);
+const ease=(u)=>{u=clamp(u,0,1);return u*u*(3-2*u);};
+// ramp: 0→1 between t0 and t0+d
+const ramp=(t,t0,d=0.6)=>ease((t-t0)/d);
+function lighten(hex, k){ const n=parseInt(hex.slice(1),16); let r=n>>16,g=(n>>8)&255,b=n&255; r=Math.round(r+(255-r)*k); g=Math.round(g+(255-g)*k); b=Math.round(b+(255-b)*k); return `rgb(${r},${g},${b})`; }
+function rgba(hex,a){ const n=parseInt(hex.slice(1),16); return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`; }
+
+// ===== grain texture (cached once) =====
+let grainCanvas=null;
+function grain(ctx){
+  if(!grainCanvas){
+    grainCanvas=document.createElement('canvas'); grainCanvas.width=W; grainCanvas.height=H;
+    const g=grainCanvas.getContext('2d');
+    for(let i=0;i<1400;i++){ const x=hash(i*2)*W, y=hash(i*2+1)*H; if(y>CAPTION_Y-20) continue;
+      g.fillStyle=rgba(C.grain,0.06+0.08*hash(i*5)); g.beginPath(); g.arc(x,y,0.8+1.2*hash(i*9),0,6.283); g.fill(); }
+  }
+  ctx.drawImage(grainCanvas,0,0);
+}
+function bg(ctx, look){
+  ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
+  ctx.fillRect(0,0,W,H);
+  if(look==='micro') grain(ctx);
+}
+
+// ===== shape primitives =====
+function shape(ctx, fill, stroke, lw=1.5){ ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function blob(ctx, x, y, rx, ry, wob=0, seed=0, t=0){ // organic ellipse
+  ctx.beginPath();
+  for(let i=0;i<=40;i++){ const a=i/40*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    const px=x+Math.cos(a)*rx*r, py=y+Math.sin(a)*ry*r; i?ctx.lineTo(px,py):ctx.moveTo(px,py); }
+  ctx.closePath();
+}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function text(ctx, s, x, y, font, color, align='left', base='alphabetic'){ ctx.font=font; ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline=base; ctx.fillText(s,x,y); }
+const fTitel=(px)=>`700 ${px}px ${F.titel}`, fTekst=(px,w=400)=>`${w} ${px}px ${F.tekst}`, fMeta=(px)=>`500 ${px}px ${F.meta}`;
+function metaText(ctx,s,x,y,color=C.grain,align='left',px=28){ ctx.save(); ctx.font=fMeta(px); ctx.fillStyle=color; ctx.textAlign=align; ctx.textBaseline='alphabetic'; ctx.letterSpacing='3px'; ctx.fillText(s.toUpperCase(),x,y); ctx.restore(); }
+
+// ===== UI layer =====
+// naam bij een onderdeel, zonder wijslijn (15 okt 2026); alpha for fade
+function naamBij(ctx, name, meta, x, y, alpha=1, align='left', color=C.text){
+  // naam (+ korte toelichting) direct bij een onderdeel, met donkere rand voor leesbaarheid; geen wijslijn
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.textBaseline='alphabetic'; ctx.lineJoin='round';
+  const regels=[[name,fTekst(36,600),color,0,'0px']]; if(meta) regels.push([meta.toUpperCase(),fMeta(26),C.grain,28,'3px']);
+  const maat=regels.map(([s,f,,,ls])=>{ ctx.font=f; ctx.letterSpacing=ls; return ctx.measureText(s).width; }); const w=Math.max(...maat);
+  let bx = align==='left'?x:(align==='right'?x-w:x-w/2); bx=Math.max(24,Math.min(W-24-w,bx));
+  regels.forEach(([s,f,col,dy,ls],i)=>{ ctx.font=f; ctx.letterSpacing=ls; ctx.textAlign='left'; const lx = align==='left'?bx:(align==='right'?bx+w-maat[i]:bx+(w-maat[i])/2); ctx.strokeStyle=rgba(C.bgMicro,0.85); ctx.lineWidth=7; ctx.strokeText(s,lx,y+dy); ctx.fillStyle=col; ctx.fillText(s,lx,y+dy); });
+  ctx.letterSpacing='0px'; ctx.restore();
+}
+function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlign=null){
+  // naam direct bij het onderdeel, zonder wijslijn (15 okt 2026): de richting ax,ay -> lx,ly bepaalt aan welke kant de naam staat
+  if(alpha<=0.01) return;
+  const dx=lx-ax, dy=ly-ay, L=Math.hypot(dx,dy)||1, ux=dx/L, uy=dy/L, D=Math.min(L,34);
+  const x=ax+ux*D, y=ay+uy*D;
+  const align = L<1 ? 'center' : (Math.abs(ux)>0.5 ? (ux<0?'right':'left') : 'center');
+  let ny = L<1 ? y-(meta?2:-12) : (uy<-0.5 ? y-(meta?34:6) : (uy>0.5 ? y+30 : y+(meta?-2:12)));
+  ny=Math.max(48,Math.min(CAPTION_Y-(meta?44:16),ny));
+  naamBij(ctx,name,meta,x,ny,alpha,align,color);
+}
+function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
+  ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo((x1+x2)/2,y+14); ctx.lineTo((x1+x2)/2,y+26); ctx.stroke();
+  text(ctx,msg,(x1+x2)/2,y+66,fTekst(36,600),color,'center'); ctx.restore();
+}
+function zoomCircle(ctx, x, y, r, sx, sy, caption, alpha=1, drawInside){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha;
+  ctx.strokeStyle=C.goud; ctx.lineWidth=1.5;
+  // two straight leader lines from source to circle tangents
+  const ang=Math.atan2(y-sy,x-sx); for(const d of [-1,1]){ const a=ang+d*Math.PI/2; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r); ctx.stroke(); }
+  ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); drawInside&&drawInside(); ctx.restore();
+  ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.stroke();
+  if(caption) metaText(ctx,caption,x,y+r+40,C.grain,'center',26);
+  ctx.restore();
+}
+function dim(ctx, fn, a=0.35){ ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
+function scaleBar(ctx, txt='schematisch · niet op schaal'){ metaText(ctx,txt,W-40,H-22,C.text2,'right',22); }
+
+// ===== organelle library (Part C2) =====
+function membrane(ctx, x, y, rx, ry, color=C.er, wob=0.04, seed=1, t=0){
+  blob(ctx,x,y,rx,ry,wob,seed,t); ctx.strokeStyle=color; ctx.lineWidth=2; ctx.stroke();
+  blob(ctx,x,y,rx-7,ry-7,wob,seed,t); ctx.lineWidth=1.2; ctx.stroke();
+  // phospholipid heads as regular dots
+  ctx.fillStyle=color; const n=Math.round((rx+ry)/9);
+  for(let i=0;i<n;i++){ const a=i/n*6.283; const r=1+wob*(Math.sin(a*3+seed)*0.5+Math.sin(a*5+seed*2+t*0.3)*0.3);
+    ctx.beginPath(); ctx.arc(x+Math.cos(a)*(rx-3.5)*r, y+Math.sin(a)*(ry-3.5)*r, 1.6,0,6.283); ctx.fill(); }
+}
+const _nucCache={};
+function nucleus(ctx,x,y,r,alpha=1,t=0){
+  const key=Math.round(r); let c=_nucCache[key];
+  if(!c){ c=document.createElement('canvas'); const pad=14; c.width=Math.ceil(2*(r+pad)); c.height=c.width; const g=c.getContext('2d'); const cx=r+pad, cy=r+pad;
+    blob(g,cx,cy,r,r*0.92,0.03,4,0); shape(g,C.kern,C.kernR,1.5);
+    for(let i=0;i<Math.round(r*1.2);i++){ const a=hash(i*11+3)*6.283, d=Math.sqrt(hash(i*11+7))*r*0.85; g.fillStyle=rgba(C.kernR,0.35); g.beginPath(); g.arc(cx+Math.cos(a)*d,cy+Math.sin(a)*d*0.92,1.4,0,6.283); g.fill(); }
+    g.strokeStyle=C.kernR; g.lineWidth=1.2; const pores=10;
+    for(let i=0;i<pores;i++){ const a0=i/pores*6.283+0.08, a1=(i+1)/pores*6.283-0.08; g.beginPath(); g.ellipse(cx,cy,r+7,(r+7)*0.92,0,a0,a1); g.stroke(); }
+    _nucCache[key]=c; }
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.drawImage(c,x-c.width/2,y-c.height/2); ctx.restore();
+}
+function mitochondrion(ctx,x,y,len,rot=0,alpha=1,cristae=5,t=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  const h=len*0.42, k=Math.max(1,len/110);
+  roundRect(ctx,-len/2,-h/2,len,h,h/2); shape(ctx,C.mito,C.mitoR,1.5*k);
+  const inset=6*k; roundRect(ctx,-len/2+inset,-h/2+inset,len-2*inset,h-2*inset,(h-2*inset)/2); ctx.fillStyle=rgba(C.bgMicro,0.18); ctx.fill(); ctx.strokeStyle=C.mitoR; ctx.lineWidth=1.2*k; ctx.stroke();
+  // cristae: folds of the inner membrane, drawn as narrow loops
+  ctx.strokeStyle=lighten(C.mitoR,0.15); ctx.lineWidth=1.3*k; ctx.fillStyle=C.mito;
+  for(let i=0;i<cristae;i++){ const px=-len/2+inset+10*k+(len-2*inset-20*k)*(i+0.5)/cristae; const dir=i%2?1:-1; const y0=dir*(h/2-inset), depth=h*0.6, w=Math.max(3,len/40);
+    ctx.beginPath(); ctx.moveTo(px-w,y0); ctx.lineTo(px-w,y0-dir*depth); ctx.arc(px,y0-dir*depth,w,Math.PI,0,dir>0); ctx.lineTo(px+w,y0); ctx.fill(); ctx.stroke(); }
+  ctx.restore();
+}
+function golgi(ctx,x,y,w,alpha=1){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=lighten(C.golgi,0.25); ctx.fillStyle=C.golgi; const gap=Math.max(12,w*0.075), th=Math.max(8,w*0.05);
+  for(let i=0;i<5;i++){ const ww=w*(1-i*0.12), yy=y-i*gap; ctx.beginPath(); ctx.moveTo(x-ww/2,yy); ctx.quadraticCurveTo(x,yy-th*2.2,x+ww/2,yy); ctx.quadraticCurveTo(x,yy-th*0.6,x-ww/2,yy); ctx.closePath(); ctx.fill(); ctx.lineWidth=1; ctx.stroke(); }
+  ctx.restore();
+}
+function roughER(ctx,x,y,w,rows=3,alpha=1,ribos=true){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.er; ctx.lineWidth=1.5;
+  for(let r=0;r<rows;r++){ const yy=y+r*26;
+    for(const off of [0,8]){ ctx.beginPath(); for(let i=0;i<=24;i++){ const px=x-w/2+w*i/24, py=yy+off+Math.sin(i/24*6.283*1.5+r)*7; i?ctx.lineTo(px,py):ctx.moveTo(px,py);} ctx.stroke(); }
+    if(ribos){ ctx.fillStyle=C.ribo; for(let i=0;i<14;i++){ const px=x-w/2+w*(i+0.5)/14, py=yy-5+Math.sin((i+0.5)/14*6.283*1.5+r)*7; ctx.beginPath(); ctx.arc(px,py,3,0,6.283); ctx.fill(); } }
+  }
+  ctx.restore();
+}
+function vesicle(ctx,x,y,r=9,alpha=1,fill=C.ves,ring=C.vesR){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,fill,ring,1.2); ctx.restore(); }
+function lysosome(ctx,x,y,r=12,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,C.lyso,lighten(C.lyso,0.3),1.2); ctx.restore(); }
+function ribosome(ctx,x,y,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=C.ribo; ctx.beginPath(); ctx.arc(x,y,3.2,0,6.283); ctx.fill(); ctx.restore(); }
+function chloroplast(ctx,x,y,len,alpha=1,rot=0){
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.translate(x,y); ctx.rotate(rot);
+  ctx.beginPath(); ctx.ellipse(0,0,len/2,len*0.3,0,0,6.283); shape(ctx,C.chloro,lighten(C.chloro,0.3),1.5);
+  ctx.fillStyle=lighten(C.chloro,0.4); ctx.strokeStyle=rgba(C.bgMicro,0.7); ctx.lineWidth=Math.max(0.8,len/120);
+  for(let g=0;g<3;g++){ const gx=-len*0.28+g*len*0.28; for(let k=0;k<5;k++){ roundRect(ctx,gx-len*0.1,-len*0.11+k*len*0.045,len*0.2,len*0.035,len*0.012); ctx.fill(); ctx.stroke(); } }
+  ctx.restore();
+}
+function vacuole(ctx,x,y,rx,ry,alpha=1,fill=0.9){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx*fill,ry*fill,0.03,9); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),1.5); ctx.restore(); }
+function cellWall(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; blob(ctx,x,y,rx,ry,0.0,0); ctx.strokeStyle=C.groen; ctx.lineWidth=14; ctx.stroke(); ctx.strokeStyle=lighten(C.groen,0.3); ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+function cytoskeleton(ctx,x,y,rx,ry,alpha=1){ ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.line; ctx.lineWidth=0.75;
+  for(let i=0;i<14;i++){ const a=hash(i*13)*6.283, a2=a+2.2+hash(i*13+1)*1.5; ctx.beginPath(); ctx.moveTo(x+Math.cos(a)*rx*0.95,y+Math.sin(a)*ry*0.95); ctx.quadraticCurveTo(x+(hash(i)*2-1)*rx*0.4,y+(hash(i+9)*2-1)*ry*0.4,x+Math.cos(a2)*rx*0.95,y+Math.sin(a2)*ry*0.95); ctx.stroke(); }
+  ctx.restore(); }
+
+// ===== the standard cell (series library: fixed in film 2) =====
+// returns organelle positions so scenes can reference them
+function cellLayout(cx=960, cy=520, rx=560, ry=330){
+  const sx=rx/560, sy=ry/330, s=Math.min(sx,sy);
+  return { cx,cy,rx,ry,
+    kern:{x:cx-180*sx,y:cy-30*sy,r:118*s},
+    er:{x:cx+40*sx,y:cy-150*sy,w:420*sx},
+    golgi:{x:cx+300*sx,y:cy+40*sy,w:170*s},
+    mitos:[{x:cx-430*sx,y:cy+90*sy,len:120*s,rot:-0.5},{x:cx+120*sx,y:cy+190*sy,len:110*s,rot:0.3},{x:cx-120*sx,y:cy+200*sy,len:100*s,rot:0.1},{x:cx+420*sx,y:cy-170*sy,len:95*s,rot:0.9}],
+    lysos:[{x:cx+230*sx,y:cy+220*sy},{x:cx+470*sx,y:cy+150*sy}],
+    vesicles:[{x:cx+170*sx,y:cy-40*sy},{x:cx+200*sx,y:cy-10*sy},{x:cx+395*sx,y:cy+10*sy},{x:cx+440*sx,y:cy-60*sy}],
+    s
+  };
+}
+function drawCell(ctx, L, t, opts={}){
+  const {alpha=1, focus=null, showER=true, showGolgi=true, showMito=true, showLyso=true, showVes=true, showKern=true, showRibo=true, showSkel=false, motion=0} = opts;
+  const dimOthers = focus? 0.35 : 1;
+  const A = (name)=> (focus===null||focus===name||(Array.isArray(focus)&&focus.includes(name)))?alpha:alpha*dimOthers;
+  ctx.save();
+  if(showSkel) cytoskeleton(ctx,L.cx,L.cy,L.rx,L.ry,A('skel'));
+  if(showRibo){ for(let i=0;i<120;i++){ const a=hash(i*17)*6.283, d=Math.sqrt(hash(i*17+1)); const px=L.cx+Math.cos(a)*d*L.rx*0.9, py=L.cy+Math.sin(a)*d*L.ry*0.9; const dk=Math.hypot(px-L.kern.x,py-L.kern.y); if(dk<L.kern.r+20) continue; const w=wander(i,t,10*motion,0.8); ribosome(ctx,px+w.x,py+w.y,A('ribo')*0.8); } }
+  if(showER) roughER(ctx,L.er.x,L.er.y,L.er.w,(L.s||1)<0.7?2:3,A('er'));
+  if(showKern) nucleus(ctx,L.kern.x,L.kern.y,L.kern.r,A('kern'),t);
+  if(showGolgi) golgi(ctx,L.golgi.x,L.golgi.y,L.golgi.w,A('golgi'));
+  if(showMito) L.mitos.forEach((m,i)=>{ const w=wander(i+50,t,40*motion,0.5); mitochondrion(ctx,m.x+w.x,m.y+w.y,m.len,m.rot+ (motion?Math.sin(t*0.4+i)*0.1:0),A('mito')); });
+  if(showLyso) L.lysos.forEach((l,i)=>{ const w=wander(i+70,t,50*motion,0.9); lysosome(ctx,l.x+w.x,l.y+w.y,12*(L.s||1),A('lyso')); });
+  if(showVes) L.vesicles.forEach((v,i)=>{ const w=wander(i+90,t,90*motion,1.3); vesicle(ctx,v.x+w.x,v.y+w.y,9*(L.s||1),A('ves')); });
+  membrane(ctx,L.cx,L.cy,L.rx,L.ry,C.er,0.04,1,t*motion);
+  ctx.restore();
+}
+
+// ===== levenskenmerken bord (Schema card, top-right; six fixed slots) =====
+const KENMERKEN=['stoffen omzetten','groeien','zich voortplanten','bewegen','reageren op de omgeving','in evenwicht houden'];
+function board(ctx, lit, alpha=1, x=60, y=76, w=1800){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
+  const cw=(w-2*12)/3, ch=50;
+  KENMERKEN.forEach((k,i)=>{ const col=i%3,row=Math.floor(i/3); const xx=x+col*(cw+12), yy=y+row*(ch+8); const u=lit[i]||0;
+    roundRect(ctx,xx,yy,cw,ch,10); ctx.fillStyle = u>0? rgba(C.groen,0.16*u+0.06): rgba(C.bgSchema,0.85); ctx.fill(); ctx.strokeStyle = u>0? rgba(C.groen,0.45+0.55*u): rgba(C.line,0.45); ctx.lineWidth=1; ctx.stroke();
+    text(ctx,k,xx+18,yy+34,fTekst(28,u>0?600:400),u>0?C.text:C.text2,'left');
+    if(u>0){ ctx.save(); ctx.globalAlpha*=u; ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(xx+cw-22,yy+25,6,0,6.283); ctx.fill(); ctx.restore(); }
+  });
+  ctx.restore();
+}
+</script>
+<script>// ---------- algemene hulpjes ----------
+function fadeIO(t,a,b,d=0.5){ return ramp(t,a,d)*(1-ramp(t,b,d)); }
+function dot(ctx,x,y,r,fill,stroke,lw=1.2){ ctx.beginPath(); ctx.arc(x,y,r,0,6.2832); ctx.fillStyle=fill; ctx.fill(); if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } }
+function arrow(ctx,x1,y1,x2,y2,color,lw=4,head=16,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=lw; ctx.lineCap='round';
+  const a=Math.atan2(y2-y1,x2-x1), bx=x2-Math.cos(a)*head*0.8, by=y2-Math.sin(a)*head*0.8; ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(bx,by); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-Math.cos(a-0.45)*head,y2-Math.sin(a-0.45)*head); ctx.lineTo(x2-Math.cos(a+0.45)*head,y2-Math.sin(a+0.45)*head); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function crossOut(ctx,x,y,s,alpha=1){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=C.koraal; ctx.lineWidth=6; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-s,y-s); ctx.lineTo(x+s,y+s); ctx.moveTo(x+s,y-s); ctx.lineTo(x-s,y+s); ctx.stroke(); ctx.restore(); }
+function pill(ctx,x,y,s,color=C.goud,alpha=1,size=30){ if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.font=fTekst(size,600); const w=ctx.measureText(s).width+44; roundRect(ctx,x-w/2,y-size*0.95,w,size*1.65,size*0.8); shape(ctx,rgba(C.bgSchema,0.94),color,1.5); text(ctx,s,x,y+size*0.32,fTekst(size,600),color,'center'); ctx.restore(); }
+function wrap(ctx, s, x, y, maxW, lh){ const words=s.split(' '); let line=''; for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW&&line){ ctx.fillText(line,x,y); y+=lh; line=w; } else line=test; } if(line) ctx.fillText(line,x,y); return y; }
+function alpha(ctx,a,fn){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
+function chips(ctx,items,y){ // row of term chips, centred; items: [label, alpha, color]
+  ctx.save(); ctx.font=fTekst(32,600); const ws=items.map(i=>ctx.measureText(i[0]).width+48); const gap=18; const tot=ws.reduce((a,b)=>a+b,0)+gap*(items.length-1); let x=W/2-tot/2;
+  items.forEach((it,i)=>{ const a=it[1]; if(a>0.01){ ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y-34,ws[i],58,29); shape(ctx,rgba(C.bgSchema,0.94),it[2]||C.text,1.5); text(ctx,it[0],x+ws[i]/2,y+6,fTekst(32,600),it[2]||C.text,'center'); ctx.restore(); }
+    else { ctx.save(); ctx.setLineDash([6,6]); roundRect(ctx,x,y-34,ws[i],58,29); ctx.strokeStyle=rgba(C.line,0.35); ctx.lineWidth=1; ctx.stroke(); ctx.restore(); }
+    x+=ws[i]+gap; }); ctx.restore(); }
+function inset(cx,cy,r,a,fn){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,r,0,6.283); ctx.clip(); ctx.fillStyle=C.bgSchema; ctx.fillRect(cx-r,cy-r,2*r,2*r); fn(); ctx.restore(); ctx.beginPath(); ctx.arc(cx,cy,r,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=1.5; ctx.stroke(); ctx.restore(); }
+function human(ctx,x,y,h,a=1,color=C.mens){ ctx.save(); ctx.globalAlpha*=a; ctx.fillStyle=color; const u=h/8;
+  ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();
+  roundRect(ctx,x-u*1.3,y-h+u*2.1,u*2.6,u*3.6,u*0.8); ctx.fill();
+  roundRect(ctx,x-u*1.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill(); roundRect(ctx,x+u*0.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x-u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.arc(x+u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.fill();
+  ctx.strokeStyle=C.bgSchema; ctx.lineWidth=u*0.08; ctx.beginPath(); ctx.arc(x,y-h+u*1.1,u*0.3,0.3,2.84); ctx.stroke(); ctx.restore(); }
+function cat(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a; const c=C.okerD;
+  ctx.beginPath(); ctx.ellipse(x,y-55*s,95*s,48*s,0,0,6.283); shape(ctx,c,lighten(c,0.3),2);
+  ctx.beginPath(); ctx.arc(x+92*s,y-110*s,40*s,0,6.283); shape(ctx,c,lighten(c,0.3),2);
+  ctx.beginPath(); ctx.moveTo(x+66*s,y-136*s); ctx.lineTo(x+70*s,y-176*s); ctx.lineTo(x+92*s,y-148*s); ctx.closePath(); ctx.moveTo(x+104*s,y-148*s); ctx.lineTo(x+124*s,y-176*s); ctx.lineTo(x+126*s,y-134*s); ctx.closePath(); shape(ctx,c,lighten(c,0.3),2);
+  [[-60,0],[-30,0],[40,0],[70,0]].forEach(([dx])=>{ roundRect(ctx,x+dx*s-9*s,y-30*s,18*s,30*s,8*s); shape(ctx,c,lighten(c,0.3),1.5); });
+  ctx.strokeStyle=c; ctx.lineWidth=14*s; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-88*s,y-70*s); ctx.quadraticCurveTo(x-150*s,y-80*s,x-140*s,y-150*s); ctx.stroke();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x+80*s,y-116*s,4*s,0,6.283); ctx.arc(x+106*s,y-116*s,4*s,0,6.283); ctx.fill(); ctx.restore(); }
+function oak(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a;
+  ctx.beginPath(); ctx.moveTo(x-22*s,y); ctx.lineTo(x-14*s,y-150*s); ctx.lineTo(x+14*s,y-150*s); ctx.lineTo(x+22*s,y); ctx.closePath(); shape(ctx,C.bruin,lighten(C.bruin,0.3),2);
+  [[0,-250,110],[-90,-200,80],[90,-205,85],[-50,-300,80],[55,-305,78],[0,-180,90]].forEach(([dx,dy,r],i)=>{ blob(ctx,x+dx*s,y+dy*s,r*s,r*0.85*s,0.06,i); shape(ctx,'#4E8A5C',lighten('#4E8A5C',0.3),2); });
+  ctx.restore(); }
+function microscope(ctx,x,y,s,a=1){ ctx.save(); ctx.globalAlpha*=a; const f=C.fill, l=C.line;
+  roundRect(ctx,x-90*s,y-24*s,180*s,24*s,6*s); shape(ctx,f,l,2);
+  ctx.beginPath(); ctx.moveTo(x+40*s,y-24*s); ctx.quadraticCurveTo(x+80*s,y-160*s,x+20*s,y-250*s); ctx.lineWidth=26*s; ctx.strokeStyle=l; ctx.lineCap='round'; ctx.stroke(); ctx.lineWidth=20*s; ctx.strokeStyle=f; ctx.stroke();
+  roundRect(ctx,x-80*s,y-120*s,150*s,14*s,4*s); shape(ctx,f,l,2);
+  ctx.save(); ctx.translate(x-10*s,y-200*s); ctx.rotate(-0.35); roundRect(ctx,-18*s,-90*s,36*s,150*s,6*s); shape(ctx,f,l,2); roundRect(ctx,-24*s,-110*s,48*s,24*s,6*s); shape(ctx,f,l,2); ctx.restore();
+  ctx.restore(); }
+
+// ---------- sla en keuken (stijlframe 1, vlak) ----------
+function blobPath(cx,cy,rx,ry,rot,seed,waves,amp){ const N=140, pts=[];
+  for(let i=0;i<N;i++){ const th=i/N*6.283; const r=1+(amp*Math.sin(th*waves+seed)+amp*0.5*Math.sin(th*waves*2.2+seed*1.7)+amp*0.35*Math.abs(Math.sin(th*waves*4.1+seed)));
+    const x=Math.cos(th)*rx*r, y=Math.sin(th)*ry*r; pts.push([cx+x*Math.cos(rot)-y*Math.sin(rot), cy+x*Math.sin(rot)+y*Math.cos(rot)]); }
+  ctx.beginPath(); pts.forEach((q,i)=>{ const n=pts[(i+1)%N], m=[(q[0]+n[0])/2,(q[1]+n[1])/2]; if(!i) ctx.moveTo(m[0],m[1]); else ctx.quadraticCurveTo(q[0],q[1],m[0],m[1]); }); ctx.closePath(); }
+function leafPath(pts){ ctx.beginPath(); pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.closePath(); }
+function lettuceLeaf(cx,cy,rx,ry,rot,seed,lx,ly,col,vein,o){ o=o||{}; const wv=o.waves||11, am=o.amp||0.07;
+  blobPath(cx,cy,rx,ry,rot,seed,wv,am); shape(ctx,col,lighten(col,0.32),2);
+  ctx.save(); blobPath(cx,cy,rx,ry,rot,seed,wv,am); ctx.clip(); ctx.strokeStyle=rgba(vein,0.35); ctx.lineWidth=2; ctx.lineCap='round';
+  for(let k=0;k<3;k++){ const a=rot+(k-1)*0.45; const ex=cx+Math.cos(a-1.57)*rx*0.85, ey=cy+Math.sin(a-1.57)*ry*0.85; ctx.beginPath(); ctx.moveTo(lx,ly); ctx.quadraticCurveTo((lx+ex)/2,(ly+ey)/2+8,ex,ey); ctx.stroke(); }
+  ctx.restore(); }
+const G1='#5FA86E', G2='#6FB57C', G3='#9ACB8E', V1='#D8EBCF';
+function stevigeKrop(x,y,s){ const L=(cx,cy,rx,ry,rot,seed,c,o)=>lettuceLeaf(x+cx*s,y+cy*s,rx*s,ry*s,rot,seed,x,y+40*s,c,V1,o);
+  L(-150,60,150,95,-0.35,1,G1); L(150,60,150,95,0.35,2,G1); L(-90,95,140,80,-0.1,3,G1); L(95,98,140,80,0.12,4,G1);
+  L(-175,-20,120,120,-0.6,5,G1); L(175,-20,120,120,0.6,6,G1); L(-110,-95,120,105,-0.4,7,G1); L(110,-95,120,105,0.4,8,G1); L(0,-140,140,90,0,9,G1);
+  L(-80,-30,115,120,-0.25,10,G2,{amp:0.06}); L(85,-30,115,120,0.25,11,G2,{amp:0.06}); L(0,-60,120,110,0,12,G2,{amp:0.06});
+  L(-35,10,85,95,-0.15,13,G3,{amp:0.05,waves:9}); L(40,15,85,92,0.15,14,G3,{amp:0.05,waves:9});
+  L(0,55,120,70,0,15,G1,{amp:0.06}); L(-40,110,135,55,-0.05,16,G1); L(55,112,130,52,0.08,17,G1); }
+function slappeKrop(x,y,s){ const top=[x+4*s,y-165*s], hemY=y+10*s;
+  const SF=['#9AA068','#939A62'], SB=['#7C8452','#81894F'];
+  [[-275,-120,0,0],[110,280,1,0],[-230,-20,2,0],[40,235,3,0],[-170,30,4,1],[-40,170,5,1],[-110,0,6,1],[-5,105,7,1]].forEach(([a,b,k,front])=>{
+    const h=hash(k*4.7+1), c=front?SF[k%2]:SB[k%2]; const xa=x+a*s, xb=x+b*s, bulge=(32+30*h)*s;
+    const edge=(xe,dir,t)=>{ const bx=top[0]+(xe-top[0])*t, by=top[1]+(hemY-top[1])*Math.pow(t,0.9); return [bx+dir*bulge*Math.sin(Math.PI*t)*0.9, by-bulge*0.35*Math.sin(Math.PI*t)]; };
+    const pts=[], N=36; for(let i=0;i<=N;i++) pts.push(edge(xa,-1,i/N));
+    for(let i=0;i<=N;i++){ const t=i/N; pts.push([xa+(xb-xa)*t, hemY+(Math.sin(t*14+k*2)*11+Math.abs(Math.sin(t*37+k))*7)*s-(front?0:14*s)]); }
+    for(let i=N;i>=0;i--) pts.push(edge(xb,1,i/N));
+    leafPath(pts); shape(ctx,c,lighten(c,0.3),2);
+    ctx.save(); leafPath(pts); ctx.clip();
+    if(front){ const mx=(xa+xb)/2+(h-0.5)*40*s; ctx.globalAlpha=0.6; ctx.strokeStyle='#D8D6B8'; ctx.lineCap='round';
+      for(let i=0;i<12;i++){ const t1=i/12, t2=(i+1)/12; ctx.lineWidth=(7-5*t1)*s; ctx.beginPath(); ctx.moveTo(top[0]+(mx-top[0])*t1+Math.sin(t1*3)*12*s, top[1]+(hemY-top[1])*t1); ctx.lineTo(top[0]+(mx-top[0])*t2+Math.sin(t2*3)*12*s, top[1]+(hemY-top[1])*t2); ctx.stroke(); } }
+    ctx.globalAlpha=0.25; ctx.strokeStyle=lighten(c,0.35); ctx.lineWidth=2;
+    for(let w=0;w<5;w++){ const t=0.45+0.5*hash(k*9+w), u=hash(k*13+w*3); const p1=edge(xa,-1,t), p2=edge(xb,1,t); const px=p1[0]+(p2[0]-p1[0])*u, py=p1[1]+(p2[1]-p1[1])*u;
+      ctx.beginPath(); ctx.moveTo(px,py); ctx.quadraticCurveTo(px+(hash(w+k)-0.5)*30*s,py+20*s,px+(hash(w*2+k)-0.5)*24*s,py+42*s); ctx.stroke(); }
+    ctx.restore(); });
+  ctx.beginPath(); ctx.ellipse(top[0],top[1]+4*s,18*s,9*s,0,0,6.283); shape(ctx,C.oker,lighten(C.oker,0.3),2); }
+// krop op basislijn yb (onderkant op het aanrecht); u = 0 stevig … 1 slap (snelle overvloeier met een klein inzakken)
+function krop(x,yb,s,u,a=1){ if(a<=0.01) return; u=clamp(u,0,1);
+  if(u<0.99){ ctx.save(); ctx.globalAlpha*=a*(1-u); ctx.translate(x,yb); ctx.scale(1+0.08*u,1-0.3*u); ctx.translate(-x,-yb); stevigeKrop(x,yb-163*s,s); ctx.restore(); }
+  if(u>0.01){ ctx.save(); ctx.globalAlpha*=a*u; ctx.translate(x,yb); ctx.scale(1,0.75+0.25*u); ctx.translate(-x,-yb); slappeKrop(x,yb-10*s,s); ctx.restore(); } }
+function ridge(x0,x1,base,amp,seed,step){ const pts=[]; for(let x=x0;x<=x1+step;x+=step){ const u=x*0.004+seed; pts.push([x, base-amp*(0.55*Math.abs(Math.sin(u))+0.3*Math.sin(u*2.3+1)+0.15*Math.sin(u*5.1))]); } return pts; }
+function treeLine(X,Wd,base,hMin,hVar,step,seed){ const pts=[[X-20,base+400]]; for(let x=X-20;x<=X+Wd+20;x+=step*(0.7+0.6*hash(x*0.11+seed))){ const h=hMin+hVar*hash(x*0.37+seed); pts.push([x-step*0.45,base-h*0.35]); pts.push([x,base-h]); pts.push([x+step*0.45,base-h*0.35]); } pts.push([X+Wd+20,base+400]); return pts; }
+function windowView(X,Y,Wd,Hd,sun,dusk=0){ // sun: 0 morning (left low) … 1 evening (right low)
+  ctx.save(); ctx.beginPath(); ctx.rect(X,Y,Wd,Hd); ctx.clip();
+  ctx.fillStyle=C.bgMacroSky; ctx.fillRect(X,Y,Wd,Hd); if(dusk>0){ ctx.fillStyle=rgba('#0D1420',0.45*dusk); ctx.fillRect(X,Y,Wd,Hd); }
+  const sx=X+Wd*(0.12+0.76*sun), sy=Y+Hd*(0.55-0.42*Math.sin(Math.PI*sun)); dot(ctx,sx,sy,22,C.goud);
+  leafPath([[X,Y+300],[X+90,Y+240],[X+170,Y+270],[X+290,Y+150],[X+350,Y+120],[X+430,Y+190],[X+520,Y+230],[X+590,Y+210],[X+Wd,Y+240],[X+Wd,Y+Hd],[X,Y+Hd]]); ctx.fillStyle=C.berg; ctx.fill();
+  leafPath([[X+350,Y+120],[X+400,Y+165],[X+380,Y+172],[X+362,Y+160],[X+345,Y+182],[X+325,Y+160],[X+305,Y+170],[X+290,Y+150]]); ctx.fillStyle=C.bergTop; ctx.fill();
+  ctx.fillStyle=C.bgMacroHill; leafPath(treeLine(X,Wd,Y+330,26,30,18,3)); ctx.fill();
+  ctx.fillStyle=C.bgMacroFront; leafPath(treeLine(X,Wd,Y+385,40,50,30,8)); ctx.fill();
+  ctx.restore(); ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.strokeRect(X,Y,Wd,Hd); ctx.beginPath(); ctx.moveTo(X+Wd/2,Y); ctx.lineTo(X+Wd/2,Y+Hd); ctx.stroke(); }
+const COUNTER=790;
+function counter(){ ctx.beginPath(); ctx.rect(0,COUNTER,W,26); shape(ctx,C.bruin,lighten(C.bruin,0.3),2); }
+function bowl(bx,a=1,level=1,inner){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const top=640, bot=COUNTER-2;
+  if(inner) inner();
+  const wy=top+40+(1-level)*30; ctx.beginPath(); ctx.moveTo(bx-150+(1-level)*8,wy); ctx.lineTo(bx+150-(1-level)*8,wy); ctx.lineTo(bx+118,bot-2); ctx.lineTo(bx-118,bot-2); ctx.closePath(); ctx.fillStyle=rgba(C.water,0.45); ctx.fill();
+  ctx.strokeStyle=rgba(C.teal,0.6); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(bx-146,wy); ctx.lineTo(bx+146,wy); ctx.stroke();
+  ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(bx-165,top); ctx.lineTo(bx-120,bot); ctx.lineTo(bx+120,bot); ctx.lineTo(bx+165,top); ctx.stroke(); ctx.restore(); }
+function kitchenBase(sun=0.5,dusk=0){ bg(ctx,'schema'); windowView(1160,110,640,420,sun,dusk); counter(); }
+
+// ---------- cellen ----------
+function cytoFill(cx,cy,rx,ry,hl=0,seed=3){ blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.fillStyle=rgba(C.er,0.07+0.12*hl); ctx.fill();
+  ctx.save(); blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.clip(); ctx.fillStyle=rgba(C.grain,0.35); for(let i=0;i<160;i++){ const a=hash(i*7+seed)*6.283, d=Math.sqrt(hash(i*7+1+seed)); ctx.beginPath(); ctx.arc(cx+Math.cos(a)*d*rx,cy+Math.sin(a)*d*ry,1.4,0,6.283); ctx.fill(); } ctx.restore(); }
+function hlRing(cx,cy,rx,ry,a,seed=3){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; blob(ctx,cx,cy,rx,ry,0.04,seed,0); ctx.strokeStyle=C.goud; ctx.lineWidth=5; ctx.stroke(); ctx.restore(); }
+// dierlijke cel (wangcel, schematisch): o = {cyto, kern, mitos, org, hlMem, hlCyto, hlKern, t}
+function animalCell(cx,cy,rx,ry,o={}){ const t=o.t||0;
+  cytoFill(cx,cy,rx,ry,o.hlCyto||0,3);
+  if(o.org){ alpha(ctx,o.org,()=>{ for(let i=0;i<5;i++){ const a=1.1+i*1.05, w=wander(i+30,t,10,0.5); vesicle(ctx,cx+Math.cos(a)*rx*0.55+w.x,cy+Math.sin(a)*ry*0.5+w.y,9); } }); }
+  if(o.mitos){ alpha(ctx,o.mitos,()=>{ [[0.42,0.38,0.3],[-0.15,0.62,-0.2],[0.6,-0.3,1.1],[-0.55,0.45,0.6],[0.15,-0.62,0.1]].forEach(([u,v,r],i)=>{ const w=wander(i+40,t,8,0.4); mitochondrion(ctx,cx+u*rx+w.x,cy+v*ry+w.y,Math.max(44,rx*0.16),r,1,4,t); }); }); }
+  membrane(ctx,cx,cy,rx,ry,C.er,0.04,3,t*0.3); hlRing(cx,cy,rx,ry,o.hlMem||0);
+  if(o.kern!==0){ alpha(ctx,o.kern===undefined?1:o.kern,()=>{ nucleus(ctx,cx-rx*0.28,cy-ry*0.08,Math.max(30,ry*0.3),1,t); if(o.hlKern) { ctx.save(); ctx.globalAlpha*=o.hlKern; ctx.beginPath(); ctx.arc(cx-rx*0.28,cy-ry*0.08,Math.max(30,ry*0.3)+10,0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.stroke(); ctx.restore(); } }); } }
+// plantencel (stijlframe 2): o = {wall, chloro, vac (0..1 grootte), kern, mitos, hlWall, hlMem, hlCyto, hlMito, sugar, t}
+const CHL=[[-0.78,-0.55,0.3],[-0.15,-0.82,0],[0.55,-0.7,-0.3],[0.86,0.05,1.2],[0.55,0.72,0.4],[-0.3,0.82,-0.2],[-0.86,0.25,1.4]];
+function plantCellV(cx,cy,rx,ry,o={}){ const t=o.t||0, v=o.vac===undefined?1:o.vac;
+  const turg=o.turg===undefined?1:o.turg; // 1 strak, 0 slap (membraan iets van de wand)
+  if(o.wall) alpha(ctx,o.wall,()=>{ cellWall(ctx,cx,cy,rx,ry,1); if(o.hlWall){ ctx.save(); ctx.globalAlpha*=o.hlWall; blob(ctx,cx,cy,rx,ry,0,0); ctx.strokeStyle=C.goud; ctx.lineWidth=5; ctx.stroke(); ctx.restore(); } });
+  const mrx=(rx-12)*(0.94+0.06*turg), mry=(ry-12)*(0.9+0.1*turg);
+  cytoFill(cx,cy+(1-turg)*8,mrx,mry,o.hlCyto||0,3);
+  if(v>0.02){ vacuole(ctx,cx+10,cy+6,mrx*0.82,mry*0.74,1,0.25+0.75*v);
+    if(o.sugar) alpha(ctx,o.sugar,()=>{ for(let i=0;i<18;i++){ const a=hash(i*3.1)*6.283, d=Math.sqrt(hash(i*5.7))*0.7, w=wander(i+60,t,6,0.8); dot(ctx,cx+10+Math.cos(a)*d*mrx*0.82*(0.25+0.75*v)+w.x,cy+6+Math.sin(a)*d*mry*0.74*(0.25+0.75*v)+w.y,5,C.oker); } }); }
+  membrane(ctx,cx,cy+(1-turg)*8,mrx,mry,C.er,0.01+0.05*(1-turg),3,0); hlRing(cx,cy+(1-turg)*8,mrx,mry,o.hlMem||0);
+  if(o.chloro) alpha(ctx,o.chloro,()=>CHL.forEach(([u,w,r])=>chloroplast(ctx,cx+u*mrx*(0.98+0.02*turg),cy+w*mry*(0.95+0.05*turg),Math.max(40,rx*0.2),1,r)));
+  if(o.kern!==0) alpha(ctx,o.kern===undefined?1:o.kern,()=>nucleus(ctx,cx-mrx*0.62,cy-mry*0.05,Math.max(26,rx*0.13),1,t));
+  if(o.mitos) alpha(ctx,o.mitos,()=>{ mitochondrion(ctx,cx+mrx*0.2,cy+mry*0.86,Math.max(36,rx*0.15),0.2,1,4,t); mitochondrion(ctx,cx-mrx*0.35,cy-mry*0.7,Math.max(32,rx*0.13),-0.4,1,4,t);
+    if(o.hlMito){ ctx.save(); ctx.globalAlpha*=o.hlMito; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(cx+mrx*0.2,cy+mry*0.86,Math.max(36,rx*0.15)*0.75,22,0.2,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.ellipse(cx-mrx*0.35,cy-mry*0.7,Math.max(32,rx*0.13)*0.75,20,-0.4,0,6.283); ctx.stroke(); ctx.restore(); } }); }
+// microscoopbeeld van wangcellen (methyleenblauw)
+function wangcel(x,y,r,rot,seed){ const n=7+Math.floor(hash(seed)*3), pts=[];
+  for(let i=0;i<n;i++){ const a=rot+i/n*6.283+(hash(seed+i*1.3)-0.5)*0.5, rr=r*(0.78+0.35*hash(seed*2+i)); pts.push([x+Math.cos(a)*rr, y+Math.sin(a)*rr]); }
+  ctx.beginPath(); pts.forEach((p,i)=>{ const q=pts[(i+1)%n], m=[(p[0]+q[0])/2,(p[1]+q[1])/2]; if(!i){ const l=pts[n-1]; ctx.moveTo((l[0]+p[0])/2,(l[1]+p[1])/2); } ctx.quadraticCurveTo(p[0],p[1],m[0],m[1]); });
+  ctx.closePath(); ctx.fillStyle='rgba(120,155,205,0.22)'; ctx.fill(); ctx.strokeStyle='rgba(55,85,145,0.55)'; ctx.lineWidth=1.6; ctx.stroke();
+  ctx.beginPath(); const f=hash(seed+9)*6.283; ctx.moveTo(x+Math.cos(f)*r*0.75,y+Math.sin(f)*r*0.75); ctx.quadraticCurveTo(x+Math.cos(f+1.4)*r*0.25,y+Math.sin(f+1.4)*r*0.25,x+Math.cos(f+2.4)*r*0.7,y+Math.sin(f+2.4)*r*0.7); ctx.strokeStyle='rgba(55,85,145,0.28)'; ctx.lineWidth=2.2; ctx.stroke();
+  ctx.fillStyle='rgba(60,90,150,0.25)'; for(let i=0;i<26;i++){ const a=hash(seed+i*2.1)*6.283, d=Math.sqrt(hash(seed*3+i))*r*0.7; ctx.beginPath(); ctx.arc(x+Math.cos(a)*d,y+Math.sin(a)*d,1.4,0,6.283); ctx.fill(); }
+  const nx=x+(hash(seed+4)-0.5)*r*0.3, ny=y+(hash(seed+5)-0.5)*r*0.3; ctx.beginPath(); ctx.ellipse(nx,ny,r*0.13,r*0.1,rot,0,6.283); ctx.fillStyle='rgba(42,62,128,0.85)'; ctx.fill(); }
+const WANG=[[380,300,92,0.2],[560,250,100,1.1],[730,330,95,2.0],[300,470,90,0.7],[470,430,105,2.6],[660,500,98,1.7],[820,470,85,0.4],[390,640,96,1.9],[570,660,92,0.9],[750,660,88,2.9],[230,330,80,1.5],[880,300,78,0.8],[240,610,76,2.2],[540,90,90,0.1],[900,640,80,1.2]];
+function microField(cx,cy,R,s=1){ ctx.save(); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.clip(); ctx.fillStyle='#E6ECEF'; ctx.fillRect(cx-R,cy-R,2*R,2*R);
+  ctx.translate(cx,cy); ctx.scale(s,s); ctx.translate(-560,-470); WANG.forEach(([x,y,r,rot],i)=>wangcel(x,y,r,rot,i*5.7+2));
+  ctx.fillStyle='rgba(42,62,128,0.7)'; for(let i=0;i<40;i++){ const a=hash(i*3.3)*6.283, d=Math.sqrt(hash(i*7.1))*390; ctx.beginPath(); ctx.ellipse(560+Math.cos(a)*d,470+Math.sin(a)*d,2.6,1.5,a,0,6.283); ctx.fill(); }
+  ctx.restore(); ctx.beginPath(); ctx.arc(cx,cy,R,0,6.283); ctx.strokeStyle='#05080D'; ctx.lineWidth=10; ctx.stroke(); }
+// bladweefsel: honingraat van plantencellen (in een zoomcirkel)
+function tissue(cx,cy,R,t=0,turg=1){ for(let r=-4;r<=4;r++) for(let c=-5;c<=5;c++){ const x=cx+c*92+(r%2?46:0), y=cy+r*70; if(Math.hypot(x-cx,y-cy)>R+80) continue;
+  ctx.beginPath(); ctx.ellipse(x,y,44,32*(0.9+0.1*turg),0,0,6.283); shape(ctx,rgba(C.teal,0.18),C.groen,5);
+  for(let k=0;k<4;k++){ const a=k*1.6+hash(r*11+c); dot(ctx,x+Math.cos(a)*30,y+Math.sin(a)*20,6,C.chloro); } } }
+
+// ===== Van cel tot lichaam — scènes (kerndoelen onderbouw, film 2) =====
+// Hulpjes uit film 1 staan hierboven (helpers1.js). Nieuwe tekeningen: gymzaal, spiercel, weefseltegels, kuitspier, bot, lichaam met tien stelsels, slaplant met organen, bladdoorsnede, gespecialiseerde cellen, trap.
+
+// ---------- film 2: nieuwe tekeningen ----------
+function muscleCell(x,y,len,a=1,ry=24){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.moveTo(x-len/2,y); ctx.quadraticCurveTo(x-len/4,y-ry-2,x,y-ry); ctx.quadraticCurveTo(x+len/4,y-ry-2,x+len/2,y); ctx.quadraticCurveTo(x+len/4,y+ry+2,x,y+ry); ctx.quadraticCurveTo(x-len/4,y+ry+2,x-len/2,y); ctx.closePath(); shape(ctx,rgba(C.koraal,0.35),lighten(C.koraal,0.2),2);
+  ctx.strokeStyle=rgba(C.koraal,0.6); ctx.lineWidth=1.5; for(let k=-2;k<=2;k++){ ctx.beginPath(); ctx.moveTo(x-len/2+30,y+k*ry/3); ctx.lineTo(x+len/2-30,y+k*ry/3); ctx.stroke(); }
+  nucleus(ctx,x-len*0.18,y-ry*0.25,Math.min(11,ry*0.45),1,0); nucleus(ctx,x+len*0.22,y+ry*0.2,Math.min(11,ry*0.45),1,0); ctx.restore(); }
+function neuron(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=C.paars; ctx.lineCap='round';
+  ctx.lineWidth=5*s; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+420*s,y+10*s); ctx.stroke();
+  [[-60,-70],[-80,10],[-50,80],[20,-85],[30,80]].forEach(([dx,dy])=>{ ctx.lineWidth=3*s; ctx.beginPath(); ctx.moveTo(x,y); ctx.quadraticCurveTo(x+dx*0.5*s,y+dy*0.7*s,x+dx*s,y+dy*s); ctx.stroke(); });
+  [[-20,-30],[-20,30],[20,30]].forEach(([dx,dy])=>{ ctx.lineWidth=2.5*s; ctx.beginPath(); ctx.moveTo(x+420*s,y+10*s); ctx.lineTo(x+420*s+dx*s,y+10*s+dy*s); ctx.stroke(); });
+  ctx.beginPath(); ctx.ellipse(x,y,34*s,30*s,0,0,6.283); shape(ctx,rgba(C.paars,0.5),lighten(C.paars,0.3),2); nucleus(ctx,x,y,12*s,1,0); ctx.restore(); }
+function rbc(x,y,r,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,r,r*0.95,0,0,6.283); shape(ctx,'#B85A5A','#D88080',2); ctx.beginPath(); ctx.ellipse(x,y,r*0.45,r*0.4,0,0,6.283); ctx.fillStyle=rgba('#7A3838',0.5); ctx.fill(); ctx.restore(); }
+function bone(x,y,len,rot,a=1,s=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.rotate(rot); const w=26*s, k=30*s;
+  roundRect(ctx,-len/2,-w/2,len,w,w/2); shape(ctx,'#E9E4D6','#B8B2A2',2);
+  [[-len/2,-1],[len/2,1]].forEach(([ex])=>{ ctx.beginPath(); ctx.arc(ex,-k*0.55,k*0.6,0,6.283); ctx.arc(ex,k*0.55,k*0.6,0,6.283); shape(ctx,'#E9E4D6','#B8B2A2',2); });
+  ctx.restore(); }
+function boneCells(x,y,len,a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let i=0;i<14;i++){ const px=x-len/2+40+(i*(len-80)/13), py=y+(hash(i*3.3)-0.5)*16; ctx.beginPath(); ctx.ellipse(px,py,9,6,hash(i)*3,0,6.283); shape(ctx,rgba(C.kern,0.8),lighten(C.kern,0.3),1); for(let k=0;k<5;k++){ const an=k*1.26+hash(i+k); ctx.strokeStyle=rgba(C.kern,0.6); ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(px+Math.cos(an)*9,py+Math.sin(an)*6); ctx.lineTo(px+Math.cos(an)*20,py+Math.sin(an)*14); ctx.stroke(); } } ctx.restore(); }
+// gymzaal: vloer, lijnen, rennend poppetje
+function runner(x,y,h,t,a=1,color=C.mens){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.fillStyle=color; ctx.strokeStyle=color; ctx.lineCap='round'; const u=h/8, ph=t*9;
+  const by=y-h+u*2.2+Math.abs(Math.sin(ph))*u*0.15;
+  ctx.beginPath(); ctx.arc(x+u*0.2,by-u*1.1,u*0.9,0,6.283); ctx.fill();
+  ctx.save(); ctx.translate(x,by); ctx.rotate(0.18); roundRect(ctx,-u*1.3,0,u*2.6,u*3.4,u*0.8); ctx.fill(); ctx.restore();
+  ctx.lineWidth=u*0.8; [[1,0],[-1,Math.PI]].forEach(([d,o])=>{ const sw=Math.sin(ph+o); const kx=x+sw*u*1.4, ky=by+u*3.2+u*1.6; const fx=kx+Math.max(0,sw)*u*0.6+u*0.3, fy=by+u*6.6-Math.max(0,-sw)*u*1.2; ctx.beginPath(); ctx.moveTo(x+u*0.2,by+u*3.2); ctx.lineTo(kx,ky); ctx.lineTo(fx,fy); ctx.stroke(); });
+  ctx.lineWidth=u*0.6; [[1,Math.PI],[-1,0]].forEach(([d,o])=>{ const sw=Math.sin(ph+o); ctx.beginPath(); ctx.moveTo(x+u*0.3,by+u*0.8); ctx.lineTo(x+u*0.3+sw*u*1.4,by+u*2.2); ctx.lineTo(x+u*0.3+sw*u*1.6+u*0.8,by+u*1.6); ctx.stroke(); });
+  ctx.restore(); }
+function gymHall(t){ bg(ctx,'schema'); const fy=800;
+  ctx.fillStyle='#22324D'; ctx.fillRect(0,fy,W,H-fy); ctx.strokeStyle=rgba(C.goud,0.35); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(0,fy); ctx.lineTo(W,fy); ctx.stroke();
+  ctx.strokeStyle=rgba(C.text,0.12); ctx.lineWidth=2; for(let x=200;x<W;x+=380){ ctx.beginPath(); ctx.moveTo(x,fy+10); ctx.lineTo(x,H-10); ctx.stroke(); }
+  // wandrek links, basket rechts
+  ctx.strokeStyle=rgba(C.line,0.45); ctx.lineWidth=3; for(let k=0;k<7;k++){ ctx.beginPath(); ctx.moveTo(90,230+k*70); ctx.lineTo(290,230+k*70); ctx.stroke(); } ctx.beginPath(); ctx.moveTo(90,200); ctx.lineTo(90,fy); ctx.moveTo(290,200); ctx.lineTo(290,fy); ctx.stroke();
+  ctx.beginPath(); ctx.rect(1700,300,140,100); ctx.stroke(); ctx.beginPath(); ctx.ellipse(1740,410,40,10,0,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(1840,300); ctx.lineTo(1840,fy); ctx.stroke();
+  return fy; }
+function heart(x,y,s,a=1,beat=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); const k=1+0.12*Math.max(0,Math.sin(beat)); ctx.scale(s*k,s*k); ctx.beginPath(); ctx.moveTo(0,28); ctx.bezierCurveTo(-40,-6,-30,-40,0,-18); ctx.bezierCurveTo(30,-40,40,-6,0,28); ctx.closePath(); shape(ctx,C.koraal,lighten(C.koraal,0.25),2); ctx.restore(); }
+function lungs(x,y,s,a=1,breath=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const k=1+0.08*Math.max(0,Math.sin(breath)); [[-1,0],[1,0]].forEach(([d])=>{ ctx.beginPath(); ctx.ellipse(x+d*40*s,y,30*s*k,52*s*k,0,0,6.283); shape(ctx,rgba(C.teal,0.55),lighten(C.teal,0.2),2); }); ctx.strokeStyle=lighten(C.teal,0.2); ctx.lineWidth=5*s; ctx.beginPath(); ctx.moveTo(x,y-80*s); ctx.lineTo(x,y-20*s); ctx.stroke(); ctx.restore(); }
+function kidney(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,14*s,24*s,0,0,6.283); shape(ctx,'#9A4A4A','#C47070',1.5); ctx.restore(); }
+// lichaam-schema: silhouet + organen per stelsel; o = {zenuw, spijs, adem, bloed, uitsch, skelet, spier, afweer, hormoon, voortpl, hl:'naam', t, labels}
+const BODY={cx:960,yb:920,h:760};
+function bodyOrgans(o={}){ const {cx,yb,h}=BODY, u=h/8, top=yb-h, t=o.t||0; const A=k=>o[k]===undefined?0:o[k];
+  ctx.save(); ctx.globalAlpha*=(o.sil===undefined?0.3:o.sil); human(ctx,cx,yb,h,1,C.mens); ctx.restore();
+  const hl=n=>o.hl===n?1:0;
+  // skelet: wervelkolom, ribben, benen
+  alpha(ctx,A('skelet'),()=>{ ctx.strokeStyle='#E9E4D6'; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(cx,top+u*1.9); ctx.lineTo(cx,top+u*5.5); ctx.stroke(); ctx.lineWidth=2.5; for(let k=0;k<5;k++){ const y=top+u*2.5+k*u*0.35; ctx.beginPath(); ctx.moveTo(cx-10,y); ctx.quadraticCurveTo(cx-70,y+6,cx-95,y+22); ctx.moveTo(cx+10,y); ctx.quadraticCurveTo(cx+70,y+6,cx+95,y+22); ctx.stroke(); }
+    bone(cx-u*0.7,top+u*6.6,u*1.9,Math.PI/2,1,0.55); bone(cx+u*0.7,top+u*6.6,u*1.9,Math.PI/2,1,0.55); });
+  // spieren: op de benen en bovenarmen
+  alpha(ctx,A('spier'),()=>{ [[cx-u*0.75,top+u*6.5,0],[cx+u*0.75,top+u*6.5,0],[cx-u*1.55,top+u*3.1,0.25],[cx+u*1.55,top+u*3.1,-0.25]].forEach(([x,y,r])=>{ ctx.save(); ctx.translate(x,y); ctx.rotate(r); ctx.beginPath(); ctx.ellipse(0,0,22,u*0.75,0,0,6.283); shape(ctx,rgba(C.koraal,0.55),lighten(C.koraal,0.2),2); ctx.restore(); }); });
+  // spijsvertering: mond, slokdarm, maag, darm
+  alpha(ctx,A('spijs'),()=>{ ctx.strokeStyle=C.oker; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(cx+6,top+u*1.3); ctx.lineTo(cx+10,top+u*4.0); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx+20,top+u*4.3,48,34,-0.3,0,6.283); shape(ctx,C.oker,lighten(C.oker,0.25),2);
+    ctx.strokeStyle=C.okerD; ctx.lineWidth=14; ctx.beginPath(); ctx.moveTo(cx-60,top+u*4.9); ctx.quadraticCurveTo(cx+60,top+u*4.9,cx+50,top+u*5.2); ctx.quadraticCurveTo(cx-70,top+u*5.2,cx-50,top+u*5.5); ctx.stroke();
+    ctx.strokeStyle=lighten(C.okerD,0.15); ctx.lineWidth=12; ctx.beginPath(); ctx.moveTo(cx-85,top+u*5.5); ctx.lineTo(cx-85,top+u*4.75); ctx.lineTo(cx+90,top+u*4.75); ctx.lineTo(cx+90,top+u*5.6); ctx.stroke(); });
+  // ademhaling: neus/luchtpijp + longen
+  alpha(ctx,A('adem'),()=>{ lungs(cx-10,top+u*3.1,1.25,1,o.breath||0); });
+  // bloedvaten: hart + vaten
+  alpha(ctx,A('bloed'),()=>{ ctx.strokeStyle=rgba('#C47070',0.8); ctx.lineWidth=3; [[cx-30,top+u*2.9,cx-u*1.6,top+u*4.4],[cx-30,top+u*2.9,cx+u*1.6,top+u*4.4],[cx-30,top+u*2.9,cx-u*0.7,top+u*7.6],[cx-30,top+u*2.9,cx+u*0.7,top+u*7.6],[cx-30,top+u*2.9,cx,top+u*0.6]].forEach(([a,b,c,d])=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.quadraticCurveTo((a+c)/2-20,(b+d)/2,c,d); ctx.stroke(); }); heart(cx-30,top+u*2.95,1.1,1,o.beat||0); });
+  // zenuwstelsel: hersenen + zenuwen
+  alpha(ctx,A('zenuw'),()=>{ ctx.strokeStyle=C.paars; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx,top+u*1.6); ctx.lineTo(cx,top+u*5.4); ctx.moveTo(cx,top+u*2.4); ctx.lineTo(cx-u*1.6,top+u*4.6); ctx.moveTo(cx,top+u*2.4); ctx.lineTo(cx+u*1.6,top+u*4.6); ctx.moveTo(cx,top+u*5.4); ctx.lineTo(cx-u*0.7,top+u*7.7); ctx.moveTo(cx,top+u*5.4); ctx.lineTo(cx+u*0.7,top+u*7.7); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx,top+u*0.5,u*0.55,u*0.3,0,0,6.283); shape(ctx,rgba(C.paars,0.65),lighten(C.paars,0.3),1.5); });
+  // uitscheiding: nieren + blaas
+  alpha(ctx,A('uitsch'),()=>{ kidney(cx-60,top+u*4.55,1); kidney(cx+90,top+u*4.55,1); ctx.strokeStyle='#C47070'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx-55,top+u*4.8); ctx.lineTo(cx+5,top+u*5.75); ctx.moveTo(cx+85,top+u*4.8); ctx.lineTo(cx+25,top+u*5.75); ctx.stroke(); ctx.beginPath(); ctx.ellipse(cx+15,top+u*5.85,26,18,0,0,6.283); shape(ctx,rgba(C.teal,0.5),lighten(C.teal,0.2),1.5); });
+  // afweer: lymfeklieren
+  alpha(ctx,A('afweer'),()=>{ [[cx-40,top+u*1.5],[cx+40,top+u*1.5],[cx-u*1.35,top+u*2.5],[cx+u*1.35,top+u*2.5],[cx-u*0.5,top+u*5.9],[cx+u*0.6,top+u*5.9]].forEach(([x,y])=>dot(ctx,x,y,7,C.groen,lighten(C.groen,0.3),1.5)); });
+  // hormoon: hypofyse, schildklier, bijnieren
+  alpha(ctx,A('hormoon'),()=>{ dot(ctx,cx,top+u*0.85,8,C.goud,lighten(C.goud,0.3),1.5); ctx.beginPath(); ctx.ellipse(cx-10,top+u*1.65,18,9,0,0,6.283); ctx.ellipse(cx+10,top+u*1.65,18,9,0,0,6.283); shape(ctx,rgba(C.goud,0.7),lighten(C.goud,0.3),1.5); dot(ctx,cx-60,top+u*4.2,7,C.goud,lighten(C.goud,0.3),1.5); dot(ctx,cx+90,top+u*4.2,7,C.goud,lighten(C.goud,0.3),1.5); });
+  // voortplanting
+  alpha(ctx,A('voortpl'),()=>{ ctx.beginPath(); ctx.ellipse(cx+10,top+u*5.45,30,22,0,0,6.283); shape(ctx,rgba(C.koraal,0.4),lighten(C.koraal,0.2),1.5); dot(ctx,cx-30,top+u*5.4,7,C.koraal); dot(ctx,cx+50,top+u*5.4,7,C.koraal); });
+}
+const SYS={ // naam, sleutel, aanwijspunt (relatief in u), labelpositie, taak
+  spijs:['spijsverteringsstelsel',0.3,4.3,1400,470,'eten klein maken, opnemen'],
+  adem:['ademhalingsstelsel',-0.9,3.1,440,330,'zuurstof erin, koolstofdioxide eruit'],
+  bloed:['bloedvatenstelsel',-0.3,2.95,440,210,'alles rondbrengen'],
+  zenuw:['zenuwstelsel',0,0.5,1400,120,'signalen doorgeven'],
+  skelet:['skelet',0.7,6.6,1400,760,'stevigheid en bescherming'],
+  spier:['spierstelsel',-1.55,3.1,440,600,'bewegen'],
+  uitsch:['uitscheidingsstelsel',0.95,4.55,1400,600,'afval uit je bloed'],
+  afweer:['afweersysteem',1.35,2.5,1400,300,'tegen ziekteverwekkers'],
+  hormoon:['hormoonstelsel',0,0.85,440,110,'regelen met stoffen in je bloed'],
+  voortpl:['voortplantingsstelsel',0.1,5.45,440,760,'nieuw leven'],
+};
+function sysLabel(k,a,meta=true){ const s=SYS[k]; if(a<=0.01) return; const u=BODY.h/8, top=BODY.yb-BODY.h; label(ctx,s[0],meta?s[5]:'',BODY.cx+s[1]*u,top+s[2]*u,s[3],s[4],a); }
+// kuitspier als orgaan (doorsnede-achtig, vlak)
+function calf(x,y,s,a=1,o={}){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s);
+  ctx.beginPath(); ctx.ellipse(0,0,120,250,0,0,6.283); shape(ctx,rgba(C.koraal,0.5),lighten(C.koraal,0.2),2);
+  ctx.strokeStyle=rgba(C.koraal,0.7); ctx.lineWidth=1.5; for(let k=-4;k<=4;k++){ ctx.beginPath(); ctx.moveTo(k*22,-230+Math.abs(k)*12); ctx.lineTo(k*22,230-Math.abs(k)*12); ctx.stroke(); }
+  if(o.zenuw){ ctx.save(); ctx.globalAlpha*=o.zenuw; ctx.strokeStyle=C.paars; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(-20,-250); ctx.quadraticCurveTo(20,-60,-10,200); ctx.stroke(); [[-80,-60],[60,0],[-70,80],[50,120]].forEach(([dx,dy])=>{ ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,dy-60); ctx.quadraticCurveTo(dx*0.5,dy-20,dx,dy); ctx.stroke(); }); ctx.restore(); }
+  if(o.vat){ ctx.save(); ctx.globalAlpha*=o.vat; ctx.strokeStyle='#C47070'; ctx.lineWidth=5; ctx.beginPath(); ctx.moveTo(30,-250); ctx.quadraticCurveTo(-30,0,20,230); ctx.stroke(); ctx.strokeStyle=C.teal; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(50,-245); ctx.quadraticCurveTo(0,20,40,225); ctx.stroke(); ctx.restore(); }
+  if(o.bind){ ctx.save(); ctx.globalAlpha*=o.bind; ctx.beginPath(); ctx.ellipse(0,0,134,262,0,0,6.283); ctx.strokeStyle=C.grain; ctx.lineWidth=10; ctx.stroke(); ctx.restore(); }
+  if(o.pees){ ctx.save(); ctx.globalAlpha*=o.pees; ctx.strokeStyle='#E9E4D6'; ctx.lineWidth=12; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(0,-250); ctx.lineTo(0,-320); ctx.moveTo(0,250); ctx.lineTo(0,330); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// weefseltegel: cirkel met een patroon
+function tissueTile(x,y,r,kind,a,t=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.fillStyle=C.bgMicro; ctx.fill(); ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); ctx.translate(x,y);
+  if(kind==='spier'){ for(let k=-3;k<=3;k++) muscleCell(0,k*44,r*2.4,1,16); }
+  if(kind==='zenuw'){ neuron(-110,-40,0.55); neuron(-60,70,0.45); neuron(-150,120,0.4); }
+  if(kind==='bot'){ ctx.fillStyle='#E9E4D6'; ctx.fillRect(-r,-r,2*r,2*r); for(let i=0;i<4;i++){ ctx.strokeStyle='#C9C3B3'; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,30+i*32,0,6.283); ctx.stroke(); } for(let i=0;i<22;i++){ const an=hash(i*2.1)*6.283, d=35+hash(i*5.3)*(r-45); ctx.beginPath(); ctx.ellipse(Math.cos(an)*d,Math.sin(an)*d,7,4,an,0,6.283); shape(ctx,rgba(C.kern,0.8),lighten(C.kern,0.3),1); } }
+  if(kind==='bind'){ ctx.strokeStyle=C.grain; ctx.lineWidth=2.5; for(let i=0;i<16;i++){ const an=hash(i*1.7)*6.283, px=(hash(i*3.1)-0.5)*2*r, py=(hash(i*4.3)-0.5)*2*r; ctx.beginPath(); ctx.moveTo(px-Math.cos(an)*120,py-Math.sin(an)*120); ctx.lineTo(px+Math.cos(an)*120,py+Math.sin(an)*120); ctx.stroke(); } for(let i=0;i<9;i++){ const px=(hash(i*7.1)-0.5)*1.6*r, py=(hash(i*8.3)-0.5)*1.6*r; ctx.beginPath(); ctx.ellipse(px,py,16,9,hash(i)*3,0,6.283); shape(ctx,rgba(C.grain,0.35),C.grain,1.2); nucleus(ctx,px,py,5,1,0); } }
+  if(kind==='dek'){ for(let row=-2;row<=2;row++) for(let c=-4;c<=4;c++){ const px=c*60+(row%2?30:0), py=row*34; ctx.beginPath(); ctx.ellipse(px,py,31,17,0,0,6.283); shape(ctx,'rgba(120,155,205,0.22)','rgba(55,85,145,0.6)',1.5); dot(ctx,px,py,6,'rgba(42,62,128,0.85)'); } }
+  if(kind==='bloed'){ ctx.fillStyle=rgba('#E8D9A8',0.18); ctx.fillRect(-r,-r,2*r,2*r); for(let i=0;i<14;i++){ const px=(hash(i*2.7)-0.5)*1.8*r, py=(hash(i*3.9)-0.5)*1.8*r+(t*20+i*13)%40-20; rbc(px,py,22); } dot(ctx,30,-40,18,'rgba(235,235,245,0.9)','#C9C3D6',1.5); dot(ctx,-70,60,16,'rgba(235,235,245,0.9)','#C9C3D6',1.5); }
+  ctx.restore(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.stroke(); ctx.restore(); }
+// bloedvat (schematisch, verticaal) met bewegende cellen
+function vessel(x,y,w,h,t,a=1,label=true){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x-w/2,y,w,h,w/2); shape(ctx,rgba('#9A4A4A',0.35),'#C47070',2); ctx.save(); roundRect(ctx,x-w/2,y,w,h,w/2); ctx.clip(); for(let i=0;i<12;i++){ const py=y+((t*70+i*(h/9))%h), px=x+(hash(i*3.3)-0.5)*(w-70); rbc(px,py,20+hash(i)*6); } dot(ctx,x+10,y+((t*55+200)%h),17,'rgba(235,235,245,0.9)','#C9C3D6',1.5); ctx.restore(); ctx.restore(); }
+// slaplant met organen (bloeiende sla: stengel, bloem), in de grond
+function groundLine(y){ ctx.fillStyle='#2A2119'; ctx.fillRect(0,y,W,H-y); ctx.strokeStyle=lighten(C.bruin,0.2); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+function roots(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle='#D9CFA8'; ctx.lineCap='round'; [[0,0,-30,120,-60,250,5],[0,0,40,100,90,230,4.5],[0,0,-90,80,-180,170,3.5],[0,0,100,60,200,150,3.5],[0,0,-20,160,20,300,3],[-30,120,-110,140,-150,220,2],[40,100,120,150,150,260,2],[-60,250,-90,290,-100,340,1.5],[90,230,130,280,160,330,1.5]].forEach(([ax,ay,bx,by,cx2,cy2,w])=>{ ctx.lineWidth=w*s; ctx.beginPath(); ctx.moveTo(x+ax*s,y+ay*s); ctx.quadraticCurveTo(x+bx*s,y+by*s,x+cx2*s,y+cy2*s); ctx.stroke(); }); ctx.restore(); }
+function flower(x,y,s,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let k=0;k<8;k++){ const an=k/8*6.283; ctx.beginPath(); ctx.ellipse(x+Math.cos(an)*22*s,y+Math.sin(an)*22*s,20*s,9*s,an,0,6.283); shape(ctx,C.goud,lighten(C.goud,0.3),1.5); } dot(ctx,x,y,12*s,C.oker,lighten(C.oker,0.3),1.5); ctx.restore(); }
+function slaPlant(x,yg,s,o={}){ // x, grondlijn yg; o: {wortel,stengel,blad,bloem,hl}
+  const A=k=>o[k]===undefined?1:o[k];
+  roots(x,yg,s*0.9,A('wortel'));
+  alpha(ctx,A('stengel'),()=>{ ctx.strokeStyle=G1; ctx.lineWidth=16*s; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x,yg); ctx.quadraticCurveTo(x+10*s,yg-250*s,x-6*s,yg-470*s); ctx.stroke(); ctx.strokeStyle=lighten(G1,0.3); ctx.lineWidth=2; ctx.stroke(); });
+  alpha(ctx,A('blad'),()=>{ [[-90,-120,0.9,-0.9,1],[95,-140,0.9,0.9,2],[-80,-250,0.75,-1.0,3],[85,-270,0.75,1.0,4],[-60,-360,0.6,-1.1,5],[60,-380,0.6,1.1,6]].forEach(([dx,dy,sc,rot,seed])=>{ lettuceLeaf(x+dx*s,yg+dy*s,95*s*sc,55*s*sc,rot,seed,x,yg+dy*s+40*s,seed%2?G1:G2,V1,{amp:0.06}); }); });
+  flower(x-6*s,yg-490*s,s*1.1,A('bloem'));
+  if(o.hl){ const P={wortel:[x,yg+150*s,200*s],stengel:[x,yg-230*s,70*s],blad:[x+95*s,yg-140*s,110*s],bloem:[x-6*s,yg-490*s,60*s]}[o.hl]; ctx.save(); ctx.setLineDash([10,8]); ctx.beginPath(); ctx.arc(P[0],P[1],P[2],0,6.283); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); } }
+// bladdoorsnede: opperhuid boven en onder, bladmoes, vaatbundel
+function leafCross(x,y,w,o={}){ const A=k=>o[k]===undefined?1:o[k]; const h=360;
+  ctx.save(); ctx.beginPath(); ctx.rect(x-w/2,y-h/2,w,h); ctx.fillStyle=C.bgMicro; ctx.fill(); ctx.strokeStyle=rgba(C.line,0.3); ctx.lineWidth=1; ctx.stroke();
+  alpha(ctx,A('moes'),()=>{ for(let r=0;r<4;r++) for(let c=0;c<Math.floor(w/70);c++){ const px=x-w/2+45+c*70+(r%2?20:0), py=y-110+r*72; if(Math.abs(px-x)<70&&r>=1&&r<=2) continue; ctx.beginPath(); ctx.ellipse(px,py,30,32,0,0,6.283); shape(ctx,rgba(C.teal,0.18),C.groen,3); for(let k=0;k<4;k++){ const an=k*1.6+hash(r*11+c); chloroplast(ctx,px+Math.cos(an)*14,py+Math.sin(an)*15,16,1,an); } } });
+  alpha(ctx,A('opper'),()=>{ [y-h/2+22,y+h/2-22].forEach(py=>{ for(let c=0;c<Math.floor(w/60);c++){ const px=x-w/2+32+c*60; ctx.beginPath(); ctx.ellipse(px,py,29,19,0,0,6.283); shape(ctx,rgba('#C9D6E6',0.25),'#9FB3CC',2); dot(ctx,px,py,5,'rgba(42,62,128,0.85)'); } }); });
+  alpha(ctx,A('vaat'),()=>{ ctx.beginPath(); ctx.ellipse(x,y+10,64,78,0,0,6.283); shape(ctx,rgba(C.oker,0.2),C.oker,3); [[-22,-30],[22,-30],[0,-5],[-24,22],[24,22],[0,45]].forEach(([dx,dy])=>{ ctx.beginPath(); ctx.arc(x+dx,y+10+dy,14,0,6.283); shape(ctx,rgba(C.teal,0.35),lighten(C.teal,0.2),2); }); });
+  if(o.hl){ const P={opper:[x,y-h/2+22,w,50],moes:[x,y-25,w,200],vaat:[x,y+10,150,180]}[o.hl]; ctx.save(); ctx.setLineDash([10,8]); roundRect(ctx,P[0]-P[2]/2,P[1]-P[3]/2,P[2],P[3],12); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// trap van vijf treden
+const TRAP=[['cel','',C.koraal],['weefsel','dezelfde cellen, dezelfde taak'],['orgaan','verschillende weefsels samen'],['orgaanstelsel','organen die samenwerken'],['organisme','alles samen: één levend wezen']];
+function trap(al,sub=true){ const x0=120,y0=780,sw=330,sh=118;
+  TRAP.forEach((s,i)=>{ const a=al[i]; if(a<=0.01) return; alpha(ctx,a,()=>{ const x=x0+i*sw, y=y0-i*sh; ctx.beginPath(); ctx.rect(x,y,sw-6,H-y-200); shape(ctx,rgba(C.fill,0.9),C.line,1.5); text(ctx,s[0],x+24,y+52,fTekst(40,700),C.goud); if(sub&&s[1]){ ctx.font=fTekst(26); ctx.fillStyle=C.text2; ctx.textAlign='left'; wrap(ctx,s[1],x+24,y+92,sw-50,32); } }); }); }
+function trapArt(al,t){ // tekeningen op de treden: mens
+  alpha(ctx,al[0],()=>muscleCell(285,560,200));
+  alpha(ctx,al[1],()=>{ for(let k=0;k<5;k++) muscleCell(615,470+k*20-40,210,0.9); });
+  alpha(ctx,al[2],()=>calf(945,390,0.5,1,{zenuw:1,vat:1,bind:1}));
+  alpha(ctx,al[3],()=>{ ctx.save(); ctx.globalAlpha*=0.35; human(ctx,1275,420,300,1,C.mens); ctx.restore(); heart(1268,262,0.5,1,t*5); ctx.strokeStyle='#C47070'; ctx.lineWidth=3; ctx.lineCap='round'; [[1268,282,1250,400],[1268,282,1290,400],[1268,244,1268,160],[1262,250,1232,300],[1274,250,1304,300]].forEach(([a,b,c,d])=>{ ctx.beginPath(); ctx.moveTo(a,b); ctx.quadraticCurveTo((a+c)/2+6,(b+d)/2,c,d); ctx.stroke(); }); });
+  alpha(ctx,al[4],()=>human(ctx,1600,300,300,1,C.mens)); }
+
+
+
+// ===== Vaste personages — Biologie bij Kamiel (15 okt 2026) =====
+// Zes vaste mensen die in alle films terugkomen. Vlak getekend (Part C: geen omlijning, één schaduwtint), warm en herkenbaar.
+// Gebruik:  persoon(ctx, 'noor', x, y, h, { uit: 'blij', pose: 'wijs', a: 1, kijk: 1, t })
+//   x, y = midden tussen de voeten op de grond · h = lengte in px · uit = gezichtsuitdrukking · pose = houding · kijk = -1/1 kijkrichting
+//   Geeft ankerpunten terug: { hoofd:{x,y,r}, handR, handL, heup } voor pijlen, labels en vastgehouden voorwerpen.
+// Uitdrukkingen: neutraal, blij, lacht, verbaasd, denkt, bezorgd, praat (mond open/dicht op t)
+// Houdingen: staan, zwaai, wijs, wijsOmhoog, denk, schouders, handenHeup, vasthouden (o.hold(ctx,x,y) tekent iets in de rechterhand)
+
+const CAST = {
+  noor:   { naam: 'Noor', leeftijd: 16, rol: 'leerling · nieuwsgierig, stelt de vragen', huid: '#D9A982', haar: '#3A2418', kapsel: 'golf', wenkbrauw: '#2A1A12',
+            top: 'trui', topKleur: '#E0A43A', topAccent: '#C98A2A', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#D86A5A', accessoire: ['oorbel'], lengte: 0.97,
+            garderobe: { school: {}, zomer: { top: 'tshirt', topKleur: '#E07A5F', topAccent: '#C9654B', broek: '#5B7FA8' },
+              winter: { top: 'jas', topKleur: '#2E5C6E', topAccent: '#244A59', sjaal: '#E0A43A', broek: '#33415C', schoen: '#5A4030', schoenAccent: '#3A2A20' },
+              sport: { top: 'tshirt', topKleur: '#5BA4C9', topAccent: '#4A8BB0', broek: '#2A2F3E', kort: true, schoen: '#F2F2EE', schoenAccent: '#5BA4C9' },
+              practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#E0A43A', veiligheidsbril: true } } },
+  sam:    { naam: 'Sam', leeftijd: 16, rol: 'leerling · sportief, doet proefjes', huid: '#7A5440', haar: '#1E1612', kapsel: 'krul', wenkbrauw: '#140E0A',
+            top: 'hoodie', topKleur: '#4F8F6A', topAccent: '#3E7556', broek: '#2A2F3E', schoen: '#F2F2EE', schoenAccent: '#4F8F6A', accessoire: [], lengte: 1.04,
+            garderobe: { school: {}, zomer: { top: 'tshirt', topKleur: '#F2C14E', topAccent: '#D9A93A', broek: '#4A5A78' },
+              winter: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#4F8F6A', broek: '#2A2F3E', schoen: '#2A2F3E', schoenAccent: '#4F8F6A' },
+              sport: { top: 'tshirt', topKleur: '#D8573F', topAccent: '#B9452F', broek: '#2A2F3E', kort: true, schoen: '#F2F2EE', schoenAccent: '#D8573F' },
+              practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#4F8F6A', veiligheidsbril: true } } },
+  daan:   { naam: 'Daan', leeftijd: 15, rol: 'leerling · rustig, denkt na, houdt van getallen', huid: '#EBC6A6', haar: '#D8B26A', kapsel: 'pony', wenkbrauw: '#B8904E',
+            top: 'overhemd', topKleur: '#5B8CC9', topAccent: '#4A76AD', broek: '#5A4A3A', schoen: '#3A3F4E', schoenAccent: '#6B7287', accessoire: ['bril', 'sproeten'], lengte: 0.95 },
+  yasmin: { naam: 'Yasmin', leeftijd: 16, rol: 'leerling · scherp, wil later arts worden', huid: '#B98563', haar: '#2A1C16', kapsel: 'knot', wenkbrauw: '#2A1C16',
+            top: 'jasje', topKleur: '#E8E2D4', topAccent: '#CFC7B4', binnen: '#2E3A55', broek: '#2E3A55', schoen: '#2A2F3E', schoenAccent: '#C8463C', accessoire: ['oorbel'], lengte: 0.98 },
+  bilal:  { naam: 'Bilal', leeftijd: 17, rol: 'broer van Yasmin · grapjas, gamet graag', huid: '#B07A58', haar: '#1E1512', kapsel: 'kort', wenkbrauw: '#1E1512', stoppels: true,
+            top: 'trui', topKleur: '#B23A3A', topAccent: '#962F2F', broek: '#2A2F3E', schoen: '#F2F2EE', schoenAccent: '#B23A3A', accessoire: [], lengte: 1.08,
+            garderobe: { school: {}, zomer: { top: 'tshirt', topKleur: '#E8E2D4', topAccent: '#CFC7B4', broek: '#4D6E9C' },
+              winter: { top: 'jas', topKleur: '#4A5240', topAccent: '#3C4334', sjaal: '#B23A3A', schoen: '#2A2F3E', schoenAccent: '#B23A3A' },
+              sport: { top: 'tshirt', topKleur: '#2A2F3E', topAccent: '#1F2330', broek: '#2A2F3E', kort: true, schoenAccent: '#B23A3A' },
+              practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#B23A3A', veiligheidsbril: true } } },
+  kim:    { naam: 'Dr. Kim', leeftijd: 42, rol: 'arts en onderzoeker · legt uit in lab en spreekkamer', huid: '#E6C09C', haar: '#1A1418', kapsel: 'golf', golfLang: 0.3, zijpony: true, wimpers: true, lippen: '#B4544C', wenkbrauw: '#1A1418',
+            top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#3E8E9A', broek: '#2A3242', schoen: '#2A2F3E', schoenAccent: '#3E8E9A', accessoire: ['stethoscoop', 'oorbel'], lengte: 1.02 },
+  lotte:  { naam: 'Lotte', leeftijd: 16, rol: 'leerling · fietst overal heen, nuchter en direct', huid: '#F1D2B8', haar: '#E6C27A', kapsel: 'staart', wenkbrauw: '#C29A55', oog: '#5A8FC4',
+            top: 'trui', strepen: '#F4F1EA', topKleur: '#2B3F66', topAccent: '#223354', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#2B3F66', accessoire: [], lengte: 1.06,
+            garderobe: { school: {}, zomer: { top: 'tshirt', strepen: null, topKleur: '#4FB3A5', topAccent: '#3E978B', broek: '#7FA3C9' },
+              winter: { top: 'jas', strepen: null, topKleur: '#C9503C', topAccent: '#A8402F', sjaal: '#2B3F66', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C' },
+              sport: { top: 'tshirt', strepen: null, topKleur: '#2B3F66', topAccent: '#223354', broek: '#F4F1EA', kort: true, schoen: '#F2F2EE', schoenAccent: '#E8833A' },
+              koningsdag: { top: 'tshirt', strepen: null, topKleur: '#F08A24', topAccent: '#D9741A', broek: '#4D6E9C' },
+              practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#2B3F66', strepen: null, veiligheidsbril: true } } },
+  henk:   { naam: 'Opa Henk', leeftijd: 71, rol: 'opa van Noor · tuiniert, af en toe patiënt', huid: '#E3B998', haar: '#D9D9D4', kapsel: 'kalend', baard: true, wenkbrauw: '#BDBDB6',
+            top: 'vest', topKleur: '#8A6A4E', topAccent: '#735740', binnen: '#E6E1D3', broek: '#4A5240', schoen: '#4A3A2E', schoenAccent: '#6B5440', accessoire: ['bril'], lengte: 0.96, krom: 0.03 }
+};
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk'];
+
+function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
+const _donker = (h, k) => _mix(h, k, '#000000'), _licht = (h, k) => _mix(h, k, '#FFFFFF');
+
+const POSES = {
+  staan:      { R: [0.14, 0.06], L: [0.14, 0.06] },
+  zwaai:      { R: [2.5, 2.9], L: [0.14, 0.06] },
+  wijs:       { R: [1.45, 1.55], L: [0.14, 0.06] },
+  wijsOmhoog: { R: [2.3, 2.7], L: [0.14, 0.06] },
+  denk:       { R: [0.3, -2.75], L: [0.35, -1.45] },
+  schouders:  { R: [0.75, 2.2], L: [0.75, 2.2] },
+  handenHeup: { R: [0.75, -0.55], L: [0.75, -0.55] },
+  vasthouden: { R: [0.55, 1.55], L: [0.14, 0.06] }
+};
+
+function persoon(ctx, id, x, y, h, o = {}) {
+  const P0 = CAST[id]; if (!P0) return {}; const P = Object.assign({}, P0, (P0.garderobe && o.outfit && P0.garderobe[o.outfit]) || {}); const a = o.a == null ? 1 : o.a; if (a <= 0.01) return {};
+  const t = o.t || 0, uit = o.uit || 'neutraal', pose = POSES[o.pose || 'staan'] || POSES.staan, kijk = o.kijk || 1;
+  h *= P.lengte || 1;
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const hh = h / 6.1, top = y - h, cx = x + (P.krom ? hh * 0.15 : 0);
+  const hoofdY = top + hh * 0.55, schouderY = top + hh * 1.42, tailleY = top + hh * 3.0, heupY = top + hh * 3.45, voetY = y;
+  const sw = hh * (P.leeftijd > 30 ? 1.95 : 1.8), hw2 = hh * 1.45; const huidS = _donker(P.huid, 0.12);
+  const ink = _donker(P.huid, 0.68);
+  { const fw0 = hh * 0.86, hy0 = hoofdY; if (P.kapsel === 'golf') { ctx.fillStyle = P.haar; const onder = schouderY + hh * (P.golfLang ?? 1.05), N = 18;
+      ctx.beginPath(); ctx.moveTo(cx - fw0 * 0.6, hy0 - hh * 0.2);
+      for (let k = 0; k <= N; k++) { const u = k / N, yy = hy0 - hh * 0.2 + (onder - hy0 + hh * 0.2) * u, bw = fw0 * (0.64 + 0.32 * Math.sin(Math.min(1, u * 1.4) * 1.57)) + Math.sin(u * 12) * hh * 0.07; ctx.lineTo(cx - bw, yy); }
+      for (let k = 0; k <= 6; k++) { const u = k / 6; ctx.lineTo(cx - fw0 * 0.9 + fw0 * 1.8 * u, onder + Math.sin(u * 9.4) * hh * 0.08); }
+      for (let k = N; k >= 0; k--) { const u = k / N, yy = hy0 - hh * 0.2 + (onder - hy0 + hh * 0.2) * u, bw = fw0 * (0.64 + 0.32 * Math.sin(Math.min(1, u * 1.4) * 1.57)) + Math.sin(u * 12 + 1) * hh * 0.07; ctx.lineTo(cx + bw, yy); }
+      ctx.closePath(); ctx.fill(); }
+    if (P.kapsel === 'staart') { ctx.fillStyle = P.haar; const bx = cx + fw0 * 0.42, by = hy0 - hh * 0.3;
+      ctx.beginPath(); ctx.moveTo(bx - hh * 0.1, by); ctx.bezierCurveTo(bx + hh * 0.55, by + hh * 0.1, bx + hh * 0.5, by + hh * 0.9, bx + hh * 0.18, schouderY + hh * 0.55);
+      ctx.bezierCurveTo(bx + hh * 0.3, by + hh * 0.85, bx + hh * 0.15, by + hh * 0.35, bx - hh * 0.1, by + hh * 0.18); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = _donker(P.haar, 0.15); ctx.beginPath(); ctx.moveTo(bx + hh * 0.25, by + hh * 0.3); ctx.bezierCurveTo(bx + hh * 0.4, by + hh * 0.7, bx + hh * 0.3, schouderY, bx + hh * 0.18, schouderY + hh * 0.5); ctx.bezierCurveTo(bx + hh * 0.28, schouderY, bx + hh * 0.3, by + hh * 0.7, bx + hh * 0.25, by + hh * 0.3); ctx.fill(); } }
+  // --- benen + schoenen
+  for (const s of [-1, 1]) {
+    const lx = cx + s * hw2 * 0.24;
+    ctx.strokeStyle = s < 0 ? P.broek : _donker(P.broek, 0.12); ctx.lineWidth = hh * 0.6;
+    const kn = heupY + (voetY - heupY) * 0.42; ctx.beginPath(); ctx.moveTo(lx, heupY); ctx.lineTo(lx + s * hh * (P.kort ? 0.02 : 0.05), P.kort ? kn : voetY - hh * 0.32); ctx.stroke();
+    if (P.kort) { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.4; ctx.beginPath(); ctx.moveTo(lx + s * hh * 0.02, kn + hh * 0.05); ctx.lineTo(lx + s * hh * 0.05, voetY - hh * 0.3); ctx.stroke(); ctx.strokeStyle = '#F2F2EE'; ctx.lineWidth = hh * 0.36; ctx.beginPath(); ctx.moveTo(lx + s * hh * 0.045, voetY - hh * 0.42); ctx.lineTo(lx + s * hh * 0.05, voetY - hh * 0.3); ctx.stroke(); }
+    const sx = lx + s * hh * 0.08 + hh * 0.06; ctx.fillStyle = P.schoen; ctx.beginPath(); ctx.ellipse(sx, voetY - hh * 0.15, hh * 0.42, hh * 0.18, 0, Math.PI, 0); ctx.lineTo(sx + hh * 0.42, voetY - hh * 0.04); ctx.lineTo(sx - hh * 0.42, voetY - hh * 0.04); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = P.schoenAccent; ctx.fillRect(sx - hh * 0.42, voetY - hh * 0.07, hh * 0.84, hh * 0.05);
+  }
+  // --- romp (vorm per kledingstuk)
+  const romp = (breed) => { ctx.beginPath(); ctx.moveTo(cx, schouderY - hh * 0.1);
+    ctx.bezierCurveTo(cx + breed * 0.46, schouderY - hh * 0.12, cx + breed * 0.56, schouderY + hh * 0.12, cx + breed * 0.5, schouderY + hh * 0.62);
+    ctx.bezierCurveTo(cx + breed * 0.45, tailleY - hh * 0.3, cx + hw2 * 0.52, heupY - hh * 0.2, cx + hw2 * 0.54, heupY + hh * 0.22);
+    ctx.quadraticCurveTo(cx, heupY + hh * 0.36, cx - hw2 * 0.54, heupY + hh * 0.22);
+    ctx.bezierCurveTo(cx - hw2 * 0.52, heupY - hh * 0.2, cx - breed * 0.45, tailleY - hh * 0.3, cx - breed * 0.5, schouderY + hh * 0.62);
+    ctx.bezierCurveTo(cx - breed * 0.56, schouderY + hh * 0.12, cx - breed * 0.46, schouderY - hh * 0.12, cx, schouderY - hh * 0.1); ctx.closePath(); };
+  const schaduwRomp = (kleur) => { ctx.save(); ctx.clip(); ctx.fillStyle = kleur; ctx.beginPath(); ctx.ellipse(cx + sw * 0.66, tailleY, sw * 0.36, hh * 2.6, 0, 0, 6.283); ctx.fill(); ctx.restore(); };
+  if (P.top === 'labjas') { // lange jas tot over de heup
+    ctx.fillStyle = P.binnen; romp(sw); ctx.fill();
+    ctx.fillStyle = P.topKleur; ctx.beginPath(); ctx.moveTo(cx - sw * 0.5, schouderY + hh * 0.05); ctx.quadraticCurveTo(cx - sw * 0.56, schouderY + hh * 0.5, cx - sw * 0.52, heupY + hh * 0.75);
+    ctx.lineTo(cx - hh * 0.12, heupY + hh * 0.75); ctx.lineTo(cx - hh * 0.2, schouderY + hh * 0.2); ctx.lineTo(cx - hh * 0.05, schouderY - hh * 0.1); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(cx + sw * 0.5, schouderY + hh * 0.05); ctx.quadraticCurveTo(cx + sw * 0.56, schouderY + hh * 0.5, cx + sw * 0.52, heupY + hh * 0.75);
+    ctx.lineTo(cx + hh * 0.12, heupY + hh * 0.75); ctx.lineTo(cx + hh * 0.2, schouderY + hh * 0.2); ctx.lineTo(cx + hh * 0.05, schouderY - hh * 0.1); ctx.closePath(); ctx.fillStyle = P.topAccent; ctx.fill();
+    ctx.fillStyle = _donker(P.topKleur, 0.08); ctx.fillRect(cx + sw * 0.22, tailleY + hh * 0.1, hh * 0.38, hh * 0.05); ctx.fillRect(cx - sw * 0.22 - hh * 0.38, tailleY + hh * 0.1, hh * 0.38, hh * 0.05);
+  } else {
+    ctx.fillStyle = P.topKleur; romp(sw); ctx.fill(); romp(sw); schaduwRomp(P.topAccent);
+    if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; roundRect(ctx, cx - hh * 0.55, tailleY - hh * 0.05, hh * 1.1, hh * 0.5, hh * 0.18); ctx.fill();
+      ctx.strokeStyle = _licht(P.topKleur, 0.5); ctx.lineWidth = hh * 0.035; for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx + s * hh * 0.14, schouderY + hh * 0.05); ctx.lineTo(cx + s * hh * 0.17, schouderY + hh * 0.55); ctx.stroke(); } }
+    if (P.top === 'trui' && !P.strepen) { ctx.fillStyle = P.topAccent; for (let i = 0; i < 2; i++) ctx.fillRect(cx - sw * 0.5, tailleY - hh * (0.55 - i * 0.22), sw, hh * 0.07); }
+    if (P.strepen) { romp(sw); ctx.save(); ctx.clip(); ctx.fillStyle = P.strepen; for (let yy = schouderY + hh * 0.45; yy < heupY + hh * 0.3; yy += hh * 0.36) ctx.fillRect(cx - sw, yy, sw * 2, hh * 0.15); ctx.fillStyle = rgba('#000000', 0.12); ctx.beginPath(); ctx.ellipse(cx + sw * 0.66, tailleY, sw * 0.36, hh * 2.6, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
+    if (P.top === 'overhemd') { ctx.strokeStyle = P.topAccent; ctx.lineWidth = hh * 0.035; ctx.beginPath(); ctx.moveTo(cx, schouderY + hh * 0.1); ctx.lineTo(cx, heupY + hh * 0.2); ctx.stroke();
+      ctx.fillStyle = _licht(P.topKleur, 0.6); for (let i = 0; i < 4; i++) circ(ctx, cx + hh * 0.06, schouderY + hh * (0.45 + i * 0.45), hh * 0.035, _licht(P.topKleur, 0.6));
+      ctx.fillStyle = _licht(P.topKleur, 0.15); for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx, schouderY + hh * 0.05); ctx.lineTo(cx + s * hh * 0.32, schouderY - hh * 0.05); ctx.lineTo(cx + s * hh * 0.18, schouderY + hh * 0.3); ctx.closePath(); ctx.fill(); } }
+    if (P.top === 'jasje') { ctx.fillStyle = P.binnen; ctx.beginPath(); ctx.moveTo(cx - hh * 0.28, schouderY); ctx.lineTo(cx + hh * 0.28, schouderY); ctx.lineTo(cx, tailleY - hh * 0.2); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = P.topAccent; for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx + s * hh * 0.28, schouderY); ctx.lineTo(cx + s * hh * 0.42, schouderY + hh * 0.5); ctx.lineTo(cx, tailleY - hh * 0.2); ctx.closePath(); ctx.fill(); } }
+    if (P.top === 'jas') { ctx.strokeStyle = _donker(P.topKleur, 0.3); ctx.lineWidth = hh * 0.04; ctx.beginPath(); ctx.moveTo(cx, schouderY + hh * 0.1); ctx.lineTo(cx, heupY + hh * 0.3); ctx.stroke();
+      ctx.fillStyle = P.topAccent; for (const s of [-1, 1]) roundRect(ctx, cx + s * sw * 0.18 - hh * 0.2, tailleY, hh * 0.4, hh * 0.32, hh * 0.06), ctx.fill(); }
+    if (P.top === 'vest') { ctx.fillStyle = P.binnen; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.08, heupY + hh * 0.3); ctx.lineTo(cx - hh * 0.08, heupY + hh * 0.3); ctx.closePath(); ctx.fill();
+      for (let i = 0; i < 4; i++) circ(ctx, cx + hh * 0.17, schouderY + hh * (0.7 + i * 0.42), hh * 0.05, _donker(P.topKleur, 0.3)); }
+  }
+  // --- armen
+  const arm = (s, cfg) => { const [a1, a2] = cfg; const L1 = hh * 1.32, L2 = hh * 1.2, sx = cx + s * sw * 0.4, sy = schouderY + hh * 0.25;
+    const ex = sx + s * Math.sin(a1) * L1, ey = sy + Math.cos(a1) * L1, hx = ex + s * Math.sin(a2) * L2, hy = ey + Math.cos(a2) * L2;
+    const mouw = P.top === 'labjas' ? (s < 0 ? P.topKleur : P.topAccent) : (s < 0 ? P.topKleur : P.topAccent);
+    ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.27; ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(hx, hy); ctx.stroke();
+    const kort = P.top === 'hoodie' || P.top === 'trui' || P.top === 'vest' || P.top === 'labjas' || P.top === 'jasje' || P.top === 'overhemd' || P.top === 'jas';
+    if (P.top === 'tshirt') { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.29; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke(); ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.46; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(sx + (ex - sx) * 0.45, sy + (ey - sy) * 0.45); ctx.stroke(); }
+    if (P.top !== 'tshirt') { ctx.strokeStyle = mouw; ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); } if (kort) ctx.lineTo(ex + (hx - ex) * 0.72, ey + (hy - ey) * 0.72); if (P.top !== 'tshirt') ctx.stroke();
+    if (kort) { ctx.strokeStyle = _donker(mouw, 0.12); ctx.lineWidth = hh * 0.44; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
+    const ang = Math.atan2(hy - ey, hx - ex); ctx.fillStyle = P.huid; ctx.beginPath(); ctx.ellipse(hx + Math.cos(ang) * hh * 0.08, hy + Math.sin(ang) * hh * 0.08, hh * 0.19, hh * 0.15, ang, 0, 6.283); ctx.fill();
+    if (Math.abs(a2 - a1) > 1.2 || a2 > 1.3) { ctx.strokeStyle = P.huid; ctx.lineWidth = hh * 0.08; ctx.beginPath(); ctx.moveTo(hx + Math.cos(ang) * hh * 0.18, hy + Math.sin(ang) * hh * 0.18); ctx.lineTo(hx + Math.cos(ang) * hh * 0.36, hy + Math.sin(ang) * hh * 0.36); ctx.stroke(); }
+    return { x: hx + Math.cos(ang) * hh * 0.12, y: hy + Math.sin(ang) * hh * 0.12, ang }; };
+  let R = pose.R.slice(), L = pose.L.slice();
+  if (o.pose === 'zwaai') R[1] += 0.25 * Math.sin(t * 7);
+  if (kijk < 0) [R, L] = [L, R];
+  const handR = arm(kijk, R), handL = arm(-kijk, L);
+  if (o.hold) o.hold(ctx, handR.x, handR.y, handR.ang);
+  if (P.kapsel === 'golf') { for (const s of [-1, 1]) { const N = 14, y0 = hoofdY + hh * 0.05, y1 = schouderY + hh * (P.golfLang ?? 1.05); const xs = (u, off) => cx + s * (hh * (0.36 + 0.22 * u) + off + Math.sin(u * 9 + (s > 0 ? 0.6 : 0)) * hh * 0.07);
+      ctx.fillStyle = P.haar; ctx.beginPath(); for (let k = 0; k <= N; k++) { const u = k / N; ctx.lineTo(xs(u, hh * 0.26 * (1 - u * 0.35)), y0 + (y1 - y0) * u); }
+      for (let k = N; k >= 0; k--) { const u = k / N; ctx.lineTo(xs(u, -hh * 0.04), y0 + (y1 - y0) * u); } ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = _donker(P.haar, 0.3); ctx.lineWidth = hh * 0.025; ctx.beginPath(); for (let k = 2; k <= N - 1; k++) { const u = k / N; ctx.lineTo(xs(u, hh * 0.1), y0 + (y1 - y0) * u); } ctx.stroke(); } }
+  if (P.kapsel === 'vlecht') { for (const s of [-1, 1]) { const x0 = cx + s * hh * 0.4, y0 = hoofdY + hh * 0.12, x1 = cx + s * hh * 0.52, y1 = schouderY + hh * 1.1;
+      const pt = (u) => [x0 + (x1 - x0) * u + s * Math.sin(u * 2.6) * hh * 0.07, y0 + (y1 - y0) * u];
+      ctx.strokeStyle = P.haar; ctx.lineCap = 'round'; ctx.beginPath(); for (let k = 0; k <= 20; k++) { const u = k / 20, [bx, by] = pt(u); ctx.lineWidth = hh * (0.3 - u * 0.08); k ? ctx.lineTo(bx, by) : ctx.moveTo(bx, by); } ctx.lineWidth = hh * 0.27; ctx.stroke();
+      const n = 10; for (let k = 0; k < n; k++) { const u = (k + 0.5) / n, [bx, by] = pt(u), w = hh * (0.15 - u * 0.04), zij = k % 2 ? -1 : 1;
+        ctx.fillStyle = _donker(P.haar, 0.28); ctx.beginPath(); ctx.ellipse(bx + zij * w * 0.35, by, w * 0.75, w * 0.42, zij * 0.75, 0, 6.283); ctx.fill();
+        ctx.fillStyle = _licht(P.haar, 0.08); ctx.beginPath(); ctx.ellipse(bx + zij * w * 0.42, by - w * 0.12, w * 0.45, w * 0.18, zij * 0.75, 0, 6.283); ctx.fill(); }
+      ctx.fillStyle = P.elastiek; roundRect(ctx, x1 + s * hh * 0.0 - hh * 0.1, y1 + hh * 0.06, hh * 0.2, hh * 0.08, hh * 0.04); ctx.fill();
+      ctx.fillStyle = P.haar; ctx.beginPath(); ctx.moveTo(x1 - hh * 0.09, y1 + hh * 0.14); ctx.quadraticCurveTo(x1 - hh * 0.04, y1 + hh * 0.36, x1 + hh * 0.02, y1 + hh * 0.4); ctx.quadraticCurveTo(x1 + hh * 0.06, y1 + hh * 0.3, x1 + hh * 0.09, y1 + hh * 0.14); ctx.closePath(); ctx.fill(); } }
+  if (P.sjaal) { ctx.fillStyle = P.sjaal; roundRect(ctx, cx - hh * 0.5, schouderY - hh * 0.2, hh * 1.0, hh * 0.38, hh * 0.18); ctx.fill(); ctx.fillStyle = _donker(P.sjaal, 0.12); roundRect(ctx, cx + hh * 0.08, schouderY + hh * 0.05, hh * 0.3, hh * 1.0, hh * 0.08); ctx.fill(); for (let k = 0; k < 3; k++) ctx.fillRect(cx + hh * (0.1 + k * 0.1), schouderY + hh * 1.05, hh * 0.05, hh * 0.15); }
+  // --- nek
+  ctx.fillStyle = huidS; roundRect(ctx, cx - hh * 0.16, hoofdY + hh * 0.3, hh * 0.32, schouderY - hoofdY - hh * 0.22, hh * 0.1); ctx.fill();
+  if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.ellipse(cx, schouderY - hh * 0.02, hh * 0.55, hh * 0.2, 0, 0, Math.PI); ctx.fill(); }
+  if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx - hh * 0.32, schouderY + hh * 0.9, cx - hh * 0.08, schouderY + hh * 1.15); ctx.moveTo(cx + hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx + hh * 0.34, schouderY + hh * 0.7, cx + hh * 0.22, schouderY + hh * 0.95); ctx.stroke(); circ(ctx, cx + hh * 0.22, schouderY + hh * 1.0, hh * 0.09, '#9AA3B2'); }
+  // --- hoofd
+  const hy = hoofdY, fw = hh * 0.86, ax = kijk * hh * 0.03; // kleine draai in kijkrichting
+  // haar achter
+  ctx.fillStyle = P.haar;
+  if (P.kapsel === 'krul') { for (let k = 0; k < 14; k++) { const an = Math.PI * (0.95 + k / 13 * 1.1); circ(ctx, cx + Math.cos(an) * fw * 0.6, hy - hh * 0.08 + Math.sin(an) * hh * 0.62, hh * 0.21, P.haar); } }
+  if (P.kapsel === 'bob') { ctx.beginPath(); ctx.moveTo(cx - fw * 0.6, hy - hh * 0.2); ctx.quadraticCurveTo(cx - fw * 0.66, hy + hh * 0.42, cx - fw * 0.5, hy + hh * 0.46); ctx.lineTo(cx + fw * 0.5, hy + hh * 0.46); ctx.quadraticCurveTo(cx + fw * 0.66, hy + hh * 0.42, cx + fw * 0.6, hy - hh * 0.2); ctx.closePath(); ctx.fill(); }
+  if (P.kapsel === 'knot') { circ(ctx, cx + fw * 0.04, hy - hh * 0.64, hh * 0.28, P.haar); ctx.strokeStyle = _licht(P.haar, 0.14); ctx.lineWidth = Math.max(1, hh * 0.035); ctx.beginPath(); ctx.arc(cx + fw * 0.04, hy - hh * 0.66, hh * 0.15, 3.6, 5.9); ctx.stroke();
+    ctx.fillStyle = P.haar; ctx.beginPath(); ctx.moveTo(cx - fw * 0.6, hy - hh * 0.1); ctx.quadraticCurveTo(cx - fw * 0.66, hy + hh * 0.35, cx - fw * 0.5, hy + hh * 0.4); ctx.lineTo(cx + fw * 0.5, hy + hh * 0.4); ctx.quadraticCurveTo(cx + fw * 0.66, hy + hh * 0.35, cx + fw * 0.6, hy - hh * 0.1); ctx.closePath(); ctx.fill(); }
+  if (P.kapsel === 'hoofddoek' && P.doekKlein) { ctx.fillStyle = P.doekKleur; // losse doek: achterhoofd tot kaaklijn, hals vrij, lus laag om de hals
+    ctx.beginPath(); ctx.moveTo(cx - fw * 0.66, hy - hh * 0.1); ctx.bezierCurveTo(cx - fw * 0.72, hy + hh * 0.3, cx - fw * 0.6, hy + hh * 0.52, cx - fw * 0.2, hy + hh * 0.5); ctx.lineTo(cx + fw * 0.2, hy + hh * 0.5);
+    ctx.bezierCurveTo(cx + fw * 0.6, hy + hh * 0.52, cx + fw * 0.72, hy + hh * 0.3, cx + fw * 0.66, hy - hh * 0.1); ctx.bezierCurveTo(cx + fw * 0.7, hy - hh * 0.9, cx - fw * 0.7, hy - hh * 0.9, cx - fw * 0.66, hy - hh * 0.1); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(cx - fw * 0.68, hy + hh * 0.2); ctx.quadraticCurveTo(cx - fw * 0.68, schouderY + hh * 0.04, cx - fw * 0.3, schouderY + hh * 0.16); ctx.quadraticCurveTo(cx, schouderY + hh * 0.24, cx + fw * 0.3, schouderY + hh * 0.16);
+    ctx.quadraticCurveTo(cx + fw * 0.68, schouderY + hh * 0.04, cx + fw * 0.68, hy + hh * 0.2); ctx.lineTo(cx + fw * 0.4, hy + hh * 0.42); ctx.quadraticCurveTo(cx + fw * 0.36, schouderY - hh * 0.06, cx, schouderY + hh * 0.03);
+    ctx.quadraticCurveTo(cx - fw * 0.36, schouderY - hh * 0.06, cx - fw * 0.4, hy + hh * 0.42); ctx.closePath(); ctx.fill();
+    ctx.strokeStyle = P.doekAccent; ctx.lineWidth = Math.max(1, hh * 0.03); ctx.beginPath(); ctx.moveTo(cx - fw * 0.5, schouderY + hh * 0.06); ctx.quadraticCurveTo(cx, schouderY + hh * 0.2, cx + fw * 0.5, schouderY + hh * 0.06); ctx.stroke();
+    ctx.fillStyle = P.doekAccent; ctx.beginPath(); ctx.moveTo(cx + fw * 0.3, schouderY + hh * 0.0); ctx.quadraticCurveTo(cx + fw * 0.62, schouderY + hh * 0.05, cx + fw * 0.72, schouderY + hh * 0.42); ctx.lineTo(cx + fw * 0.5, schouderY + hh * 0.46); ctx.quadraticCurveTo(cx + fw * 0.46, schouderY + hh * 0.2, cx + fw * 0.2, schouderY + hh * 0.12); ctx.closePath(); ctx.fill(); }
+  else if (P.kapsel === 'hoofddoek') { ctx.fillStyle = P.doekKleur; ctx.beginPath(); ctx.moveTo(cx - fw * 0.66, hy - hh * 0.05); ctx.bezierCurveTo(cx - fw * 0.74, hy + hh * 0.7, cx - sw * 0.42, schouderY + hh * 0.3, cx - sw * 0.3, schouderY + hh * 0.75);
+    ctx.lineTo(cx + sw * 0.3, schouderY + hh * 0.75); ctx.bezierCurveTo(cx + sw * 0.42, schouderY + hh * 0.3, cx + fw * 0.74, hy + hh * 0.7, cx + fw * 0.66, hy - hh * 0.05); ctx.bezierCurveTo(cx + fw * 0.7, hy - hh * 0.85, cx - fw * 0.7, hy - hh * 0.85, cx - fw * 0.66, hy - hh * 0.05); ctx.fill();
+    ctx.fillStyle = P.doekAccent; ctx.beginPath(); ctx.moveTo(cx + fw * 0.2, schouderY + hh * 0.05); ctx.quadraticCurveTo(cx + sw * 0.3, schouderY + hh * 0.3, cx + sw * 0.3, schouderY + hh * 0.75); ctx.lineTo(cx + sw * 0.12, schouderY + hh * 0.75); ctx.closePath(); ctx.fill(); }
+  // oren
+  if (P.kapsel !== 'hoofddoek') for (const s of [-1, 1]) { ctx.fillStyle = huidS; ctx.beginPath(); ctx.ellipse(cx + s * fw * 0.5, hy + hh * 0.05, hh * 0.1, hh * 0.13, 0, 0, 6.283); ctx.fill(); }
+  if (P.accessoire.includes('oorbel')) circ(ctx, cx - fw * 0.5, hy + hh * 0.2, hh * 0.045, '#E0B64A');
+  // gezicht: zacht ei met iets smallere kin
+  ctx.fillStyle = P.huid; ctx.beginPath(); ctx.moveTo(cx + ax, hy - hh * 0.5);
+  ctx.bezierCurveTo(cx + ax + fw * 0.3, hy - hh * 0.5, cx + ax + fw * 0.5, hy - hh * 0.3, cx + ax + fw * 0.5, hy);
+  ctx.bezierCurveTo(cx + ax + fw * 0.5, hy + hh * 0.3, cx + ax + fw * 0.25, hy + hh * 0.5, cx + ax, hy + hh * 0.52);
+  ctx.bezierCurveTo(cx + ax - fw * 0.25, hy + hh * 0.5, cx + ax - fw * 0.5, hy + hh * 0.3, cx + ax - fw * 0.5, hy);
+  ctx.bezierCurveTo(cx + ax - fw * 0.5, hy - hh * 0.3, cx + ax - fw * 0.3, hy - hh * 0.5, cx + ax, hy - hh * 0.5); ctx.fill();
+  ctx.save(); ctx.clip(); ctx.fillStyle = _donker(P.huid, 0.06); ctx.beginPath(); ctx.ellipse(cx + ax - kijk * fw * 0.58, hy, fw * 0.25, hh * 0.7, 0, 0, 6.283); ctx.fill(); ctx.restore();
+  // haar voor
+  ctx.fillStyle = P.haar;
+  const kap = (diep) => { ctx.beginPath(); ctx.moveTo(cx - fw * 0.53, hy + hh * 0.02); ctx.bezierCurveTo(cx - fw * 0.6, hy - hh * 0.7, cx + fw * 0.6, hy - hh * 0.74, cx + fw * 0.53, hy + hh * 0.02); ctx.bezierCurveTo(cx + fw * 0.46, hy - hh * diep, cx + fw * 0.15, hy - hh * (diep + 0.06), cx - fw * 0.05, hy - hh * (diep + 0.04)); ctx.bezierCurveTo(cx - fw * 0.3, hy - hh * diep, cx - fw * 0.46, hy - hh * (diep - 0.08), cx - fw * 0.53, hy + hh * 0.02); ctx.fill(); };
+  if (P.kapsel === 'lang' || P.kapsel === 'vlecht' || P.kapsel === 'golf' || P.kapsel === 'staart' || P.kapsel === 'knot') { kap(0.22); if (!P.zijpony) { ctx.fillStyle = _donker(P.haar, 0.25); ctx.fillRect(cx + fw * 0.06, hy - hh * 0.5, hh * 0.035, hh * 0.22); } }
+  if (P.zijpony) { ctx.fillStyle = P.haar; ctx.beginPath(); ctx.moveTo(cx - fw * 0.2, hy - hh * 0.62); ctx.bezierCurveTo(cx + fw * 0.25, hy - hh * 0.6, cx + fw * 0.5, hy - hh * 0.35, cx + fw * 0.56, hy + hh * 0.05); ctx.bezierCurveTo(cx + fw * 0.4, hy - hh * 0.2, cx + fw * 0.1, hy - hh * 0.3, cx - fw * 0.25, hy - hh * 0.3); ctx.bezierCurveTo(cx - fw * 0.4, hy - hh * 0.3, cx - fw * 0.5, hy - hh * 0.2, cx - fw * 0.53, hy - hh * 0.05); ctx.bezierCurveTo(cx - fw * 0.55, hy - hh * 0.4, cx - fw * 0.42, hy - hh * 0.6, cx - fw * 0.2, hy - hh * 0.62); ctx.fill(); ctx.strokeStyle = _licht(P.haar, 0.12); ctx.lineWidth = Math.max(1, hh * 0.025); ctx.beginPath(); ctx.moveTo(cx - fw * 0.05, hy - hh * 0.52); ctx.bezierCurveTo(cx + fw * 0.25, hy - hh * 0.48, cx + fw * 0.42, hy - hh * 0.3, cx + fw * 0.48, hy - hh * 0.08); ctx.stroke(); }
+  if (P.kapsel === 'kort') { ctx.beginPath(); ctx.moveTo(cx - fw * 0.53, hy - hh * 0.05); ctx.bezierCurveTo(cx - fw * 0.6, hy - hh * 0.62, cx - fw * 0.3, hy - hh * 0.78, cx + fw * 0.05, hy - hh * 0.76);
+    ctx.bezierCurveTo(cx + fw * 0.4, hy - hh * 0.76, cx + fw * 0.62, hy - hh * 0.6, cx + fw * 0.53, hy - hh * 0.05); ctx.lineTo(cx + fw * 0.47, hy - hh * 0.18); ctx.quadraticCurveTo(cx + fw * 0.45, hy - hh * 0.36, cx + fw * 0.2, hy - hh * 0.38);
+    ctx.quadraticCurveTo(cx - fw * 0.1, hy - hh * 0.42, cx - fw * 0.42, hy - hh * 0.34); ctx.quadraticCurveTo(cx - fw * 0.48, hy - hh * 0.3, cx - fw * 0.47, hy - hh * 0.18); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = rgba(P.haar, 0.35); for (const sd of [-1, 1]) { ctx.beginPath(); ctx.ellipse(cx + sd * fw * 0.5, hy - hh * 0.06, fw * 0.06, hh * 0.16, 0, 0, 6.283); ctx.fill(); } ctx.fillStyle = P.haar; }
+  if (P.stoppels) { ctx.fillStyle = rgba(P.haar, 0.14); ctx.beginPath(); ctx.moveTo(cx - fw * 0.48, hy + hh * 0.05); ctx.bezierCurveTo(cx - fw * 0.42, hy + hh * 0.56, cx + fw * 0.42, hy + hh * 0.56, cx + fw * 0.48, hy + hh * 0.05);
+    ctx.bezierCurveTo(cx + fw * 0.34, hy + hh * 0.24, cx + fw * 0.2, hy + hh * 0.2, cx, hy + hh * 0.24); ctx.bezierCurveTo(cx - fw * 0.2, hy + hh * 0.2, cx - fw * 0.34, hy + hh * 0.24, cx - fw * 0.48, hy + hh * 0.05); ctx.fill(); ctx.fillStyle = P.haar; }
+  if (P.kapsel === 'krul') { for (let k = 0; k < 9; k++) { const an = Math.PI * (1.08 + k / 8 * 0.84); circ(ctx, cx + Math.cos(an) * fw * 0.48, hy - hh * 0.1 + Math.sin(an) * hh * 0.48, hh * 0.17, P.haar); } }
+  if (P.kapsel === 'pony') { ctx.beginPath(); ctx.moveTo(cx - fw * 0.54, hy + hh * 0.0); ctx.bezierCurveTo(cx - fw * 0.62, hy - hh * 0.72, cx + fw * 0.62, hy - hh * 0.74, cx + fw * 0.54, hy - hh * 0.02);
+    ctx.bezierCurveTo(cx + fw * 0.4, hy - hh * 0.2, cx + fw * 0.1, hy - hh * 0.16, cx - fw * 0.12, hy - hh * 0.26); ctx.bezierCurveTo(cx - fw * 0.3, hy - hh * 0.16, cx - fw * 0.46, hy - hh * 0.2, cx - fw * 0.54, hy); ctx.fill(); }
+  if (P.kapsel === 'bob') { ctx.beginPath(); ctx.moveTo(cx - fw * 0.56, hy + hh * 0.1); ctx.bezierCurveTo(cx - fw * 0.62, hy - hh * 0.72, cx + fw * 0.62, hy - hh * 0.74, cx + fw * 0.56, hy + hh * 0.1);
+    ctx.lineTo(cx + fw * 0.44, hy - hh * 0.22); ctx.quadraticCurveTo(cx, hy - hh * 0.3, cx - fw * 0.44, hy - hh * 0.22); ctx.closePath(); ctx.fill(); }
+  if (P.kapsel === 'kalend') { for (const s of [-1, 1]) { ctx.beginPath(); ctx.ellipse(cx + s * fw * 0.48, hy - hh * 0.08, fw * 0.12, hh * 0.24, s * 0.2, 0, 6.283); ctx.fill(); } ctx.fillStyle = _donker(P.huid, 0.08); ctx.beginPath(); ctx.ellipse(cx, hy - hh * 0.36, fw * 0.3, hh * 0.08, 0, Math.PI, 0); ctx.fill(); }
+  if (P.kapsel === 'hoofddoek' && P.doekKlein) { ctx.fillStyle = P.haar; kap(0.24); // haar zichtbaar onder de losse doek
+    ctx.fillStyle = P.doekKleur; ctx.beginPath(); ctx.moveTo(cx - fw * 0.66, hy + hh * 0.3); ctx.bezierCurveTo(cx - fw * 0.76, hy - hh * 0.6, cx - fw * 0.42, hy - hh * 0.9, cx, hy - hh * 0.88);
+    ctx.bezierCurveTo(cx + fw * 0.42, hy - hh * 0.9, cx + fw * 0.76, hy - hh * 0.6, cx + fw * 0.66, hy + hh * 0.3); ctx.lineTo(cx + fw * 0.6, hy + hh * 0.28);
+    ctx.bezierCurveTo(cx + fw * 0.66, hy - hh * 0.25, cx + fw * 0.45, hy - hh * 0.66, cx, hy - hh * 0.68); ctx.bezierCurveTo(cx - fw * 0.45, hy - hh * 0.66, cx - fw * 0.66, hy - hh * 0.25, cx - fw * 0.6, hy + hh * 0.28); ctx.closePath(); ctx.fill(); }
+  else if (P.kapsel === 'hoofddoek') { ctx.fillStyle = P.doekKleur; ctx.beginPath(); ctx.moveTo(cx - fw * 0.56, hy + hh * 0.35); ctx.bezierCurveTo(cx - fw * 0.64, hy - hh * 0.72, cx + fw * 0.64, hy - hh * 0.72, cx + fw * 0.56, hy + hh * 0.35);
+    ctx.bezierCurveTo(cx + fw * 0.5, hy - hh * 0.1, cx + fw * 0.4, hy - hh * 0.36, cx, hy - hh * 0.38); ctx.bezierCurveTo(cx - fw * 0.4, hy - hh * 0.36, cx - fw * 0.5, hy - hh * 0.1, cx - fw * 0.56, hy + hh * 0.35); ctx.fill();
+    ctx.fillStyle = P.doekAccent; ctx.beginPath(); ctx.moveTo(cx - fw * 0.5, hy - hh * 0.2); ctx.quadraticCurveTo(cx, hy - hh * 0.46, cx + fw * 0.5, hy - hh * 0.2); ctx.quadraticCurveTo(cx, hy - hh * 0.38, cx - fw * 0.5, hy - hh * 0.2); ctx.fill(); }
+  if (P.baard) { ctx.fillStyle = P.haar; ctx.beginPath(); ctx.moveTo(cx - fw * 0.46, hy + hh * 0.08); ctx.bezierCurveTo(cx - fw * 0.4, hy + hh * 0.62, cx + fw * 0.4, hy + hh * 0.62, cx + fw * 0.46, hy + hh * 0.08); ctx.bezierCurveTo(cx + fw * 0.3, hy + hh * 0.3, cx - fw * 0.3, hy + hh * 0.3, cx - fw * 0.46, hy + hh * 0.08); ctx.fill(); }
+  // gezicht: wenkbrauwen, ogen, neus, mond (per uitdrukking)
+  const E = { neutraal: [0, 0, 'glim'], blij: [0.02, 0, 'lach'], lacht: [0.04, 0, 'open'], verbaasd: [0.07, 0, 'o'], denkt: [0.03, -0.06, 'scheef'], bezorgd: [-0.02, 0.07, 'zuur'], praat: [0.01, 0, Math.sin(t * 11) > 0 ? 'open' : 'glim'] }[uit] || [0, 0, 'glim'];
+  const [browUp, browTilt, mond] = E; const ex0 = cx + ax, ey0 = hy + hh * 0.0, klein = hh < 34;
+  for (const s of [-1, 1]) {
+    const bx = ex0 + s * fw * 0.2; ctx.strokeStyle = P.wenkbrauw; ctx.lineWidth = Math.max(1.4, hh * 0.045);
+    ctx.beginPath(); ctx.moveTo(bx - fw * 0.1, ey0 - hh * (0.16 + browUp) + s * hh * browTilt * 0.5); ctx.quadraticCurveTo(bx, ey0 - hh * (0.21 + browUp), bx + fw * 0.1, ey0 - hh * (0.17 + browUp) - s * hh * browTilt * 0.5); ctx.stroke();
+    if (klein) { circ(ctx, bx, ey0 + hh * 0.02, hh * 0.05, ink); }
+    else { ctx.fillStyle = '#FBF8F2'; ctx.beginPath(); ctx.ellipse(bx, ey0 + hh * 0.02, fw * 0.1, hh * (uit === 'verbaasd' ? 0.085 : 0.065), 0, 0, 6.283); ctx.fill();
+      if (P.oog) { circ(ctx, bx + kijk * fw * 0.025, ey0 + hh * 0.025, hh * 0.058, P.oog); circ(ctx, bx + kijk * fw * 0.025, ey0 + hh * 0.025, hh * 0.032, ink); } else circ(ctx, bx + kijk * fw * 0.025, ey0 + hh * 0.025, hh * 0.058, ink); circ(ctx, bx + kijk * fw * 0.025 + hh * 0.02, ey0 + hh * 0.005, hh * 0.018, '#FFFFFF');
+      if (uit === 'lacht') { ctx.fillStyle = P.huid; ctx.fillRect(bx - fw * 0.12, ey0 + hh * 0.05, fw * 0.24, hh * 0.06); } }
+    circ(ctx, ex0 + s * fw * 0.3, ey0 + hh * 0.2, hh * 0.075, rgba('#E07A5F', 0.16));
+  }
+  if (P.wimpers && hh >= 34) { ctx.strokeStyle = ink; ctx.lineWidth = Math.max(1.2, hh * 0.03); for (const s of [-1, 1]) { const bx = ex0 + s * fw * 0.2, ey = ey0 + hh * 0.02; ctx.beginPath(); ctx.ellipse(bx, ey, fw * 0.105, hh * 0.07, 0, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke(); ctx.beginPath(); ctx.moveTo(bx + s * fw * 0.095, ey - hh * 0.03); ctx.lineTo(bx + s * fw * 0.15, ey - hh * 0.065); ctx.stroke(); } }
+  if (P.accessoire.includes('sproeten')) { ctx.fillStyle = rgba(_donker(P.huid, 0.35), 0.6); for (let k = 0; k < 7; k++) circ(ctx, ex0 + (k % 2 ? 1 : -1) * fw * (0.12 + (k % 3) * 0.06), ey0 + hh * (0.13 + (k % 3) * 0.03), hh * 0.014, _donker(P.huid, 0.3)); }
+  if (P.accessoire.includes('bril') || P.accessoire.includes('bril-dun')) { const dun = P.accessoire.includes('bril-dun'); ctx.strokeStyle = dun ? '#5A5F6E' : '#2A2F3E'; ctx.lineWidth = Math.max(1.4, hh * (dun ? 0.025 : 0.04));
+    for (const s of [-1, 1]) { ctx.beginPath(); dun ? ctx.ellipse(ex0 + s * fw * 0.2, ey0 + hh * 0.025, fw * 0.15, hh * 0.1, 0, 0, 6.283) : roundRect(ctx, ex0 + s * fw * 0.2 - fw * 0.15, ey0 - hh * 0.08, fw * 0.3, hh * 0.2, hh * 0.07); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.05, ey0 + hh * 0.0); ctx.quadraticCurveTo(ex0, ey0 - hh * 0.03, ex0 + fw * 0.05, ey0); ctx.stroke(); }
+  if (P.veiligheidsbril) { ctx.fillStyle = 'rgba(200,230,240,0.35)'; ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = Math.max(1.4, hh * 0.03); roundRect(ctx, ex0 - fw * 0.42, ey0 - hh * 0.1, fw * 0.84, hh * 0.24, hh * 0.1); ctx.fill(); ctx.stroke(); ctx.strokeStyle = '#5A5F6E'; ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.42, ey0); ctx.lineTo(ex0 - fw * 0.52, ey0 - hh * 0.02); ctx.moveTo(ex0 + fw * 0.42, ey0); ctx.lineTo(ex0 + fw * 0.52, ey0 - hh * 0.02); ctx.stroke(); }
+  ctx.strokeStyle = _donker(P.huid, 0.3); ctx.lineWidth = Math.max(1.2, hh * 0.03); ctx.beginPath(); ctx.moveTo(ex0 + kijk * fw * 0.02, ey0 + hh * 0.08); ctx.quadraticCurveTo(ex0 + kijk * fw * 0.08, ey0 + hh * 0.17, ex0, ey0 + hh * 0.19); ctx.stroke();
+  const my = ey0 + hh * 0.3; ctx.strokeStyle = P.lippen || ink; ctx.fillStyle = _donker(P.huid, 0.6); ctx.lineWidth = Math.max(1.4, hh * (P.lippen ? 0.045 : 0.035));
+  if (mond === 'glim') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.12, my); ctx.quadraticCurveTo(ex0, my + hh * 0.05, ex0 + fw * 0.12, my); ctx.stroke(); }
+  if (mond === 'lach') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.16, my - hh * 0.01); ctx.quadraticCurveTo(ex0, my + hh * 0.11, ex0 + fw * 0.16, my - hh * 0.01); ctx.stroke(); }
+  if (mond === 'open') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.15, my - hh * 0.01); ctx.quadraticCurveTo(ex0, my + hh * 0.17, ex0 + fw * 0.15, my - hh * 0.01); ctx.closePath(); ctx.fill(); ctx.fillStyle = '#FBF8F2'; ctx.fillRect(ex0 - fw * 0.1, my - hh * 0.005, fw * 0.2, hh * 0.03); }
+  if (mond === 'o') { ctx.beginPath(); ctx.ellipse(ex0, my + hh * 0.03, fw * 0.06, hh * 0.07, 0, 0, 6.283); ctx.fill(); }
+  if (mond === 'scheef') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.1, my + hh * 0.02); ctx.quadraticCurveTo(ex0 + fw * 0.02, my + hh * 0.03, ex0 + fw * 0.13, my - hh * 0.02); ctx.stroke(); }
+  if (mond === 'zuur') { ctx.beginPath(); ctx.moveTo(ex0 - fw * 0.11, my + hh * 0.04); ctx.quadraticCurveTo(ex0, my - hh * 0.02, ex0 + fw * 0.11, my + hh * 0.04); ctx.stroke(); }
+  if (P.baard) { ctx.fillStyle = P.haar; ctx.beginPath(); ctx.ellipse(ex0, my - hh * 0.07, fw * 0.2, hh * 0.05, 0, Math.PI, 0); ctx.fill(); }
+  ctx.restore();
+  return { hoofd: { x: cx, y: hy, r: hh * 0.55 }, handR, handL, heup: { x: cx, y: heupY }, top: hy - hh * 0.75 };
+}
+
+// ===== Skelet en spieren — scènes (kerndoelen onderbouw, film 6) =====
+// Gedeelde hulpjes uit film 4 (moleculen, paden, exacte cues, tellers) staan hieronder; daarna de tekeningen van deze film.
+function circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke();} }
+// Hulpjes uit film 1–3 staan hierboven (helpers.js) en personages (lib_cast.js). Nieuw: routekaart lichaam (BM, bodyMap), zuurstof- en koolstofdioxidevormpjes,
+// zwembad, longblaasje, haarvat bij spiercel, pols, twee pompen (uitdaging), ketting.
+
+// exacte woord-cue (heel woord, hoofdlettergevoelig, n-de keer) in het huidige segment; T(k,n) in de scènes gebruikt dit
+const _ewCache=new Map();
+function exactAt(w,n=1){ const it=state.items[state.idx]; const seg=it&&it.seg; if(!seg||!seg.words) return Infinity; const key=seg.id+'|'+w+'|'+n; if(_ewCache.has(key)) return _ewCache.get(key);
+  const nm=s=>s.replace(/[^A-Za-zÀ-ÿ0-9]/g,''); /* hoofdlettergevoelig */ let c=0, r=Infinity; for(const x of seg.words){ if(nm(x.t)===nm(w)){ c++; if(c===n){ r=x.s; break; } } } _ewCache.set(key,r); return r; }
+// ---------- moleculen ----------
+function o2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-6,0],[6,0]].forEach(([dx])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,8.5*s,0,6.283); shape(ctx,C.teal,lighten(C.teal,0.45),1.4); }); ctx.restore(); }
+function co2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-11,6.5],[11,6.5],[0,8.5]].forEach(([dx,r])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,r*s,0,6.283); shape(ctx,dx?'#B9C0CC':'#7E8796',lighten('#9AA3B2',0.4),1.3); }); ctx.restore(); }
+function voedsel(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); for(let k=0;k<6;k++){ const an=k/6*6.283+0.5; const px=x+Math.cos(an)*9*s, py=y+Math.sin(an)*9*s; k?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.closePath(); shape(ctx,C.oker,lighten(C.oker,0.4),1.4); ctx.restore(); }
+const ROOD='#E07A5F', DONKER='#9A4A4A';
+function rbc2(x,y,r,a=1,col=ROOD){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,y,r,r*0.92,0,0,6.283); shape(ctx,col,lighten(col,0.35),1.6); ctx.beginPath(); ctx.ellipse(x,y,r*0.45,r*0.4,0,0,6.283); ctx.fillStyle=rgba('#5A2626',0.35); ctx.fill(); ctx.restore(); }
+
+// ---------- pad-hulp: punt op een polylijn (booglengte) ----------
+function along(P,u){ u=clamp(u,0,1); let L=0; const seg=[]; for(let i=1;i<P.length;i++){ const d=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]); seg.push(d); L+=d; } let s=u*L; for(let i=0;i<seg.length;i++){ if(s<=seg[i]||i===seg.length-1){ const k=seg[i]?s/seg[i]:0; return [lerp(P[i][0],P[i+1][0],k),lerp(P[i][1],P[i+1][1],k)]; } s-=seg[i]; } return P[P.length-1]; }
+function polyStroke(P,col,lw,a=1,dash=null){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=col; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.lineJoin='round'; if(dash) ctx.setLineDash(dash); ctx.beginPath(); P.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke(); ctx.restore(); }
+function heartAt(x,y,s,a=1,beat=0,hl=0){ if(a<=0.01) return; heart(x,y,s,a,beat); if(hl>0.01){ ctx.save(); ctx.globalAlpha*=a*hl; ctx.translate(x,y); ctx.scale(s,s); ctx.beginPath(); ctx.moveTo(0,28); ctx.bezierCurveTo(-40,-6,-30,-40,0,-18); ctx.bezierCurveTo(30,-40,40,-6,0,28); ctx.strokeStyle=C.goud; ctx.lineWidth=4/s; ctx.stroke(); ctx.restore(); } }
+function bodyLabels(names,t,q){ // names: [[naam,meta,x,y,align,t0]]
+  names.forEach(([n,m,x,y,al,t0,t1])=>naamBij(ctx,n,m,x,y,ramp(t,t0,0.5)*(t1?1-ramp(t,t1,0.5):1),al||'left')); }
+function focusRing(x,y,r,a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.stroke(); ctx.restore(); }
+function beatOf(t,bpm=70){ return t*bpm/60*6.283; }
+function counterPill(x,y,label,val,a=1,col=C.goud){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x,y,400,92,14); shape(ctx,rgba(C.bgSchema,0.92),C.line,1); metaText(ctx,label,x+20,y+32,C.grain,'left',22); text(ctx,val,x+20,y+76,fTekst(38,700),col); ctx.restore(); }
+
+// ---------- botten ----------
+const BOT='#E9E4D6', BOTR='#B8B2A2', KRAAK='#AFC0D0', SPIER='#E07A5F', PEES='#D9D4C7';
+function botLijn(x1,y1,x2,y2,w,a=1,hl=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; const an=Math.atan2(y2-y1,x2-x1), L=Math.hypot(x2-x1,y2-y1); ctx.translate(x1,y1); ctx.rotate(an);
+  roundRect(ctx,0,-w/2,L,w,w/2); shape(ctx,BOT,hl?C.goud:BOTR,hl?3:1.5); for(const ex of [0,L]){ ctx.beginPath(); ctx.arc(ex,-w*0.32,w*0.5,0,6.283); ctx.arc(ex,w*0.32,w*0.5,0,6.283); shape(ctx,BOT,hl?C.goud:BOTR,hl?3:1.5); } ctx.restore(); }
+// skelet van voren; o: {schedel, ribben, heup (0..1 = hoeveel samengegroeid), hl:{...}}
+function skelet(cx,yb,h,o={}){ const u=h/8, top=yb-h, A=k=>o[k]===undefined?1:o[k], HL=k=>o.hl&&o.hl[k]?o.hl[k]:0; ctx.save(); ctx.globalAlpha*=A('a');
+  // benen en armen
+  botLijn(cx-u*0.45,top+u*4.55,cx-u*0.55,top+u*6.2,u*0.28); botLijn(cx+u*0.45,top+u*4.55,cx+u*0.55,top+u*6.2,u*0.28);
+  botLijn(cx-u*0.55,top+u*6.3,cx-u*0.6,top+u*7.85,u*0.24); botLijn(cx+u*0.55,top+u*6.3,cx+u*0.6,top+u*7.85,u*0.24);
+  botLijn(cx-u*1.15,top+u*2.0,cx-u*1.45,top+u*3.6,u*0.24,1,HL('arm')); botLijn(cx+u*1.15,top+u*2.0,cx+u*1.45,top+u*3.6,u*0.24,1,HL('arm'));
+  botLijn(cx-u*1.48,top+u*3.7,cx-u*1.6,top+u*5.0,u*0.2,1,HL('arm')); botLijn(cx+u*1.48,top+u*3.7,cx+u*1.6,top+u*5.0,u*0.2,1,HL('arm'));
+  // wervelkolom
+  for(let k=0;k<14;k++){ roundRect(ctx,cx-u*0.13,top+u*1.55+k*u*0.2,u*0.26,u*0.16,4); shape(ctx,BOT,BOTR,1.2); }
+  // ribben
+  ctx.save(); ctx.strokeStyle=HL('ribben')?C.goud:BOT; ctx.lineWidth=u*0.09; ctx.lineCap='round'; for(let k=0;k<6;k++){ const y=top+u*2.15+k*u*0.3; for(const d of [-1,1]){ ctx.beginPath(); ctx.moveTo(cx+d*u*0.15,y); ctx.quadraticCurveTo(cx+d*u*1.05,y-u*0.05,cx+d*u*0.9,y+u*0.45); ctx.stroke(); } } ctx.restore();
+  // schouderblad/sleutelbeen
+  botLijn(cx-u*0.2,top+u*1.85,cx-u*1.1,top+u*1.95,u*0.14); botLijn(cx+u*0.2,top+u*1.85,cx+u*1.1,top+u*1.95,u*0.14);
+  // heup (bekken): twee helften, elk drie stukken die samengroeien
+  heupBot(cx-u*0.45,top+u*4.4,u*0.9,-1,o.heup===undefined?1:o.heup,HL('heup')); heupBot(cx+u*0.45,top+u*4.4,u*0.9,1,o.heup===undefined?1:o.heup,HL('heup'));
+  // schedel
+  ctx.beginPath(); ctx.ellipse(cx,top+u*0.75,u*0.62,u*0.7,0,0,6.283); shape(ctx,BOT,HL('schedel')?C.goud:BOTR,HL('schedel')?4:1.5);
+  dot(ctx,cx-u*0.22,top+u*0.75,u*0.13,rgba(C.bgSchema,0.8)); dot(ctx,cx+u*0.22,top+u*0.75,u*0.13,rgba(C.bgSchema,0.8)); roundRect(ctx,cx-u*0.3,top+u*1.15,u*0.6,u*0.3,8); shape(ctx,BOT,BOTR,1.2);
+  ctx.restore(); }
+function heupBot(x,y,s,side,merge=1,hl=0){ const gap=(1-merge)*s*0.18; const parts=[[0,-0.25,0.42,0.3],[0.15,0.22,0.22,0.18],[-0.18,0.24,0.2,0.18]];
+  parts.forEach(([dx,dy,rx,ry],i)=>{ ctx.beginPath(); ctx.ellipse(x+side*dx*s+side*(i?gap:-gap)*(i===1?1:i===2?-0.5:0.4),y+dy*s+(i?gap:-gap),rx*s,ry*s,side*0.4,0,6.283); shape(ctx,BOT,hl?C.goud:BOTR,hl?3:1.5); });
+  if(merge>0.95){ ctx.beginPath(); ctx.ellipse(x+side*0.02*s,y+0.02*s,0.46*s,0.5*s,side*0.3,0,6.283); ctx.fillStyle=rgba(BOT,1); ctx.fill(); ctx.strokeStyle=hl?C.goud:BOTR; ctx.lineWidth=hl?3:1.5; ctx.stroke(); dot(ctx,x+side*0.1*s,y+0.25*s,0.12*s,rgba(C.bgSchema,0.8)); } }
+
+// ---------- de arm van opzij (Schema) ----------
+// phi: hoek van de onderarm t.o.v. recht naar beneden (0 = gestrekt, ~2 = gebogen); o: {bic, tri (activatie 0..1), dun (spier dunner 0..1), gips, fles, labels}
+const SCH=[760,170], ELL=[760,570], OARM=360;
+function armGeo(phi){ const d=[Math.sin(phi),Math.cos(phi)]; const hand=[ELL[0]+d[0]*OARM,ELL[1]+d[1]*OARM]; const ins=[ELL[0]+d[0]*62+d[1]*16,ELL[1]+d[1]*62-d[0]*16]; const ole=[ELL[0]-d[0]*26-14,ELL[1]-d[1]*26+4]; return {d,hand,ins,ole}; }
+function spoel(p1,p2,dik,col,a=1,hl=0){ if(a<=0.01) return; const L=Math.hypot(p2[0]-p1[0],p2[1]-p1[1]); const an=Math.atan2(p2[1]-p1[1],p2[0]-p1[0]); ctx.save(); ctx.globalAlpha*=a; ctx.translate(p1[0],p1[1]); ctx.rotate(an);
+  const t0=L*0.16, t1=L*0.84; ctx.strokeStyle=PEES; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(t0,0); ctx.moveTo(t1,0); ctx.lineTo(L,0); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(t0,0); ctx.quadraticCurveTo(L/2,-dik*1.25,t1,0); ctx.quadraticCurveTo(L/2,dik*1.25,t0,0); ctx.closePath(); shape(ctx,rgba(col,0.85),hl?C.goud:lighten(col,0.3),hl?3:1.5);
+  ctx.strokeStyle=rgba(lighten(col,0.4).replace('rgb(','rgba(').replace(')',',0.6)'),1); ctx.lineWidth=1; for(let k=-2;k<=2;k++){ ctx.beginPath(); ctx.moveTo(t0+12,k*dik*0.22); ctx.quadraticCurveTo(L/2,k*dik*0.4,t1-12,k*dik*0.22); ctx.stroke(); } ctx.restore(); }
+function arm(phi,o={}){ const g=armGeo(phi); const A=k=>o[k]===undefined?1:o[k];
+  // romp-aanzet
+  ctx.save(); ctx.globalAlpha*=0.3*A('romp'); roundRect(ctx,SCH[0]-280,SCH[1]-90,230,460,60); ctx.fillStyle=C.mens; ctx.fill(); ctx.restore();
+  // botten: opperarmbeen + onderarm
+  botLijn(SCH[0],SCH[1],ELL[0],ELL[1],34,A('botten'),o.botHl); botLijn(ELL[0],ELL[1],g.hand[0],g.hand[1],28,A('botten'),o.botHl);
+  alpha(ctx,A('hand'),()=>{ ctx.beginPath(); ctx.ellipse(g.hand[0]+g.d[0]*24,g.hand[1]+g.d[1]*24,30,22,Math.atan2(g.d[1],g.d[0]),0,6.283); shape(ctx,rgba(C.mens,0.5),C.mens,1.5); });
+  if(o.fles) alpha(ctx,o.fles,()=>{ const hx=g.hand[0]+g.d[0]*30, hy=g.hand[1]+g.d[1]*30; roundRect(ctx,hx-20,hy-10,40,90,10); shape(ctx,rgba(C.teal,0.4),'#AFC0D0',2); });
+  // spieren: lengte bepaalt dikte
+  const bL=Math.hypot(g.ins[0]-SCH[0]-16,g.ins[1]-SCH[1]), tL=Math.hypot(g.ole[0]-SCH[0]+18,g.ole[1]-SCH[1]-30);
+  const dun=1-0.45*(o.dun||0), sterk=1+0.3*(o.sterk||0);
+  const bDik=clamp(11000/bL,24,64)*dun*sterk, tDik=clamp(11000/tL,24,64)*dun*sterk;
+  spoel([SCH[0]+16,SCH[1]+10],g.ins,bDik,SPIER,A('spieren')*(0.55+0.45*(o.bic||0)),o.bicHl);
+  spoel([SCH[0]-18,SCH[1]+30],g.ole,tDik,SPIER,A('spieren')*(0.55+0.45*(o.tri||0)),o.triHl);
+  if(o.gips) alpha(ctx,o.gips,()=>{ ctx.save(); ctx.translate(ELL[0],ELL[1]); roundRect(ctx,-36,-140,72,140+OARM*0.8,30); ctx.restore(); ctx.save(); ctx.translate(ELL[0],ELL[1]); ctx.rotate(-phi); roundRect(ctx,-34,-20,68,OARM*0.85,28); ctx.fillStyle=rgba('#F2F2EE',0.85); ctx.fill(); ctx.strokeStyle='#C9CDD3'; ctx.lineWidth=2; ctx.stroke(); ctx.restore(); });
+  return g; }
+function spierLabels(phi,t,o){ const g=armGeo(phi); if(o.bic) naamBij(ctx,'biceps',o.bicMeta||'',(SCH[0]+g.ins[0])/2+60,(SCH[1]+g.ins[1])/2,o.bic,'left'); if(o.tri) naamBij(ctx,'triceps',o.triMeta||'',SCH[0]-80,(SCH[1]+ELL[1])/2+40,o.tri,'right'); }
+
+// ---------- gewricht, iconen, beenmerg, spiercellen ----------
+function gewricht(cx,cy,t,o){ ctx.fillStyle=C.bgSchema; ctx.fillRect(cx-320,cy-320,640,640); const rot=(o.glij||0)*Math.sin(t*1.5)*0.35;
+  ctx.save(); ctx.translate(cx,cy-20); roundRect(ctx,-70,-300,140,250,30); shape(ctx,BOT,BOTR,2); ctx.beginPath(); ctx.arc(0,-50,90,0,Math.PI); shape(ctx,BOT,BOTR,2);
+  alpha(ctx,o.kraak||0,()=>{ ctx.beginPath(); ctx.arc(0,-50,90,0.05,Math.PI-0.05); ctx.strokeStyle=o.kraakHl?C.goud:KRAAK; ctx.lineWidth=14; ctx.stroke(); }); ctx.restore();
+  ctx.save(); ctx.translate(cx,cy+60); ctx.rotate(rot); ctx.beginPath(); ctx.moveTo(-95,30); ctx.quadraticCurveTo(0,-30,95,30); ctx.lineTo(70,260); ctx.lineTo(-70,260); ctx.closePath(); shape(ctx,BOT,BOTR,2);
+  alpha(ctx,o.kraak||0,()=>{ ctx.beginPath(); ctx.moveTo(-88,26); ctx.quadraticCurveTo(0,-24,88,26); ctx.strokeStyle=o.kraakHl?C.goud:KRAAK; ctx.lineWidth=12; ctx.stroke(); }); ctx.restore();
+  alpha(ctx,o.band||0,()=>{ for(const d of [-1,1]){ polyStroke([[cx+d*100,cy-120],[cx+d*108,cy+40],[cx+d*90,cy+180]],o.bandHl?C.goud:PEES,7); } }); }
+function scharnierIcoon(x,y,a=1,t=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x-90,y-110,180,220,16); shape(ctx,rgba(C.fill,0.95),C.line,1.2); ctx.save(); ctx.translate(x-60,y-80); const op=0.5+0.4*Math.sin(t*2); ctx.scale(Math.cos(op),1); roundRect(ctx,0,0,120,160,6); shape(ctx,rgba(C.oker,0.5),lighten(C.oker,0.3),1.5); ctx.restore(); for(const yy of [y-60,y+50]) dot(ctx,x-60,yy,7,C.goud); text(ctx,'scharnier',x,y+150,fTekst(32,600),C.text,'center'); metaText(ctx,'één kant op',x,y+182,C.grain,'center',20); ctx.restore(); }
+function kogelIcoon(x,y,a=1,t=0){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; roundRect(ctx,x-90,y-110,180,220,16); shape(ctx,rgba(C.fill,0.95),C.line,1.2); ctx.beginPath(); ctx.arc(x,y,48,0.2*Math.PI,0.8*Math.PI,true); ctx.strokeStyle=BOTR; ctx.lineWidth=16; ctx.stroke(); const an=t*1.6; dot(ctx,x,y,34,BOT,BOTR,2); botLijn(x,y,x+Math.cos(an)*90,y+Math.sin(an)*50+40,22); dot(ctx,x,y,34,BOT,BOTR,2); text(ctx,'kogel in een kom',x,y+150,fTekst(32,600),C.text,'center'); metaText(ctx,'alle kanten op',x,y+182,C.grain,'center',20); ctx.restore(); }
+function beenmerg(cx,cy,t,a=1){ ctx.fillStyle=C.bgSchema; ctx.fillRect(cx-320,cy-320,640,640); roundRect(ctx,cx-280,cy-90,560,180,90); shape(ctx,BOT,BOTR,2); roundRect(ctx,cx-240,cy-55,480,110,55); shape(ctx,'#B0574A','#D88080',1.5);
+  for(let i=0;i<9;i++){ const k=((t*0.25+i/9)%1); rbc2(cx-200+i*50+Math.sin(i)*8,cy-20+k*(i%2?-160:160)*0.4+(i%3)*12,12,a); } }
+function spierBundel(cx,cy,t,k,a=1){ ctx.fillStyle=C.bgMicro; ctx.fillRect(cx-320,cy-320,640,640); for(let i=0;i<5;i++){ const len=420*(1-0.28*k), ry=22*(1+0.4*k); muscleCell(cx,cy-160+i*80,len,a,ry); } }
+
+// ---------- buitenveld met basket (Macro-dag) ----------
+function court(t){ ctx.fillStyle='#6E8CA8'; ctx.fillRect(0,0,W,600); ctx.fillStyle='#8FA7BD'; ctx.fillRect(0,520,W,80); ctx.fillStyle='#4E6274'; ctx.fillRect(0,600,W,H-600); ctx.strokeStyle=rgba('#F2F2EE',0.5); ctx.lineWidth=4; ctx.beginPath(); ctx.ellipse(1500,900,420,140,0,Math.PI,2*Math.PI); ctx.stroke();
+  ctx.fillStyle='#3A3F4E'; ctx.fillRect(1640,300,22,620); roundRect(ctx,1480,230,220,150,8); shape(ctx,'#F2F2EE','#9AA3B2',3); roundRect(ctx,1545,290,90,60,4); ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.stroke();
+  ctx.strokeStyle=C.koraal; ctx.lineWidth=6; ctx.beginPath(); ctx.ellipse(1520,380,48,10,0,0,6.283); ctx.stroke(); for(let k=0;k<5;k++){ polyStroke([[1476+k*22,384],[1490+k*16,440]],rgba('#F2F2EE',0.6),2); } }
+function basketbal(x,y,r=30){ dot(ctx,x,y,r,'#D8743A','#A5552A',2); ctx.strokeStyle='#5A2E14'; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x-r,y); ctx.lineTo(x+r,y); ctx.moveTo(x,y-r); ctx.lineTo(x,y+r); ctx.stroke(); ctx.beginPath(); ctx.arc(x-r*1.3,y,r,-0.7,0.7); ctx.stroke(); ctx.beginPath(); ctx.arc(x+r*1.3,y,r,Math.PI-0.7,Math.PI+0.7); ctx.stroke(); }
+function samSprong(t,t0,x=900){ const k=clamp((t-t0)/1.6,0,1); const lift=Math.sin(k*Math.PI)*120; persoon(ctx,'sam',x,900-lift,460,{outfit:'sport',pose:k>0.15&&k<0.8?'wijsOmhoog':'staan',uit:'lacht',t});
+  const bk=clamp((t-t0-0.5)/1.4,0,1); const bx=lerp(x+60,1520,bk), by=lerp(900-lift-470,380,bk)-Math.sin(bk*Math.PI)*260; if(bk<1) basketbal(bx,by,30); else basketbal(1520,380+clamp((t-t0-1.9)*500,0,420),30); return lift; }
+
+// ================= SCÈNES =================
+const SCENES={
+s01(ctx,t,q){ const T=(k,n)=>exactAt(k,n); court(t); samSprong(t,0.2);
+  zoomCircle(ctx,420,330,230,900,640,'botten en spieren',ramp(t,T('Maar'),0.7),()=>{ ctx.fillStyle=C.bgSchema; ctx.fillRect(190,100,460,460); ctx.save(); ctx.translate(420-800*0.5,330-560*0.5); ctx.scale(0.5,0.5); arm(1.6+0.5*Math.sin(t*2),{romp:0,bic:1}); ctx.restore(); });
+  alpha(ctx,ramp(t,T('Hoe'),0.5),()=>text(ctx,'?',700,180,fTitel(90),C.goud)); },
+s02(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Skelet en spieren',120,250,fTitel(80),C.text); text(ctx,'Hoe beweeg je eigenlijk?',120,330,fTekst(44),C.text2); metaText(ctx,'onderbouw · kerndoelen · film 6',W-60,60,C.text2,'right',22);
+  ctx.save(); ctx.translate(600,60); ctx.scale(0.9,0.9); const ph=1.0+0.9*Math.sin(t*1.6); arm(ph,{bic:ph>1?1:0,tri:ph>1?0:1}); ctx.restore(); },
+s03(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const sk=ramp(t,T('skelet',2)-0.2,0.8); const cx=560;
+  // pudding: silhouet zakt in elkaar zonder skelet
+  const sag=1-sk; ctx.save(); ctx.translate(cx,870); ctx.scale(1+0.35*sag,1-0.45*sag+0.03*Math.sin(t*6)*sag); ctx.globalAlpha*=0.3; human(ctx,0,0,760,1,C.mens); ctx.restore();
+  skelet(cx,870,760,{a:sk,hl:{schedel:t>T('schedel')&&t<T('Je',3)?1:0,ribben:t>T('ribben')&&t<T('En')?1:0}});
+  alpha(ctx,ramp(t,T('tweehonderd'),0.5)*(1-ramp(t,T('Ze',2),0.5)),()=>pill(ctx,1300,300,'± 200 botten',C.goud,1,40));
+  alpha(ctx,ramp(t,T('stevigheid.'),0.5)*(1-ramp(t,T('Ze',2),0.5)),()=>pill(ctx,1300,400,'vorm en stevigheid',C.text2,1,34));
+  alpha(ctx,ramp(t,T('schedel'),0.5)*(1-ramp(t,T('En'),0.5)),()=>{ ctx.beginPath(); ctx.ellipse(cx,205,40,30,0,0,6.283); shape(ctx,rgba(C.paars,0.6),lighten(C.paars,0.3),1.5); naamBij(ctx,'schedel','beschermt je hersenen',cx+80,190,1,'left'); });
+  alpha(ctx,ramp(t,T('ribben'),0.5)*(1-ramp(t,T('En'),0.5)),()=>{ heart(cx+20,420,0.7,1,t*7); naamBij(ctx,'ribben','beschermen hart en longen',cx+130,400,1,'left'); });
+  const bm=ramp(t,T('beenmerg.')-0.3,0.6)*(1-ramp(t,T('Een'),0.5));
+  zoomCircle(ctx,1300,430,280,cx-50,700,'beenmerg in een bot · vergroot',bm,()=>beenmerg(1300,430,t,ramp(t,T('Daar'),0.5)));
+  alpha(ctx,ramp(t,T('baby'),0.5),()=>{ pill(ctx,1200,320,'baby: ± 300 botten',C.text,1,36); pill(ctx,1200,420,'jij: ± 200 botten',C.text,1,36); });
+  alpha(ctx,ramp(t,T('Hoe'),0.5),()=>text(ctx,'?',1520,300,fTitel(90),C.goud)); },
+s05(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const g=ramp(t,T('Waar')-0.3,0.6);
+  alpha(ctx,1-g,()=>{ skelet(560,870,760,{heup:ramp(t,T('heup')+0.6,2.4),hl:{heup:1}}); zoomCircle(ctx,1300,430,280,560-43,620,'heup · vergroot',ramp(t,T('heup'),0.6),()=>{ ctx.fillStyle=C.bgSchema; ctx.fillRect(1000,130,600,600); heupBot(1300,430,260,1,ramp(t,T('heup')+0.6,2.4),0); });
+    naamBij(ctx,'heupbot','drie botten → één',1600,720,ramp(t,T('heupbot.'),0.5),'left'); alpha(ctx,ramp(t,T('Bot'),0.5),()=>pill(ctx,1300,84,'bot leeft en groeit',C.groen,1,34)); });
+  alpha(ctx,g*(1-ramp(t,T('Je')-0.3,0.6)),()=>{ skelet(560,870,760,{hl:{arm:1}});
+    zoomCircle(ctx,1300,430,300,698,452,'gewricht · vergroot',1,()=>gewricht(1300,430,t,{kraak:ramp(t,T('kraakbeen.'),0.5),kraakHl:t>T('kraakbeen.')&&t<T('Stevige'),glij:ramp(t,T('glad,'),0.6),band:ramp(t,T('Stevige'),0.5),bandHl:t>T('Stevige')}));
+    naamBij(ctx,'kraakbeen','glad',1640,330,ramp(t,T('kraakbeen.'),0.5),'left'); naamBij(ctx,'banden','houden de botten bij elkaar',1630,560,ramp(t,T('banden'),0.5),'left'); });
+  alpha(ctx,ramp(t,T('Je')-0.3,0.6),()=>{ scharnierIcoon(700,430,1,t); kogelIcoon(1220,430,ramp(t,T('schouder'),0.5),t); metaText(ctx,'elleboog · knie',700,640,C.text2,'center',22); alpha(ctx,ramp(t,T('schouder'),0.5),()=>metaText(ctx,'schouder · heup',1220,640,C.text2,'center',22)); }); },
+s06(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const phi=lerp(0.25,2.1,ramp(t,T('trekt')-0.2,2.4));
+  arm(phi,{spieren:ramp(t,T('spieren.'),0.6),bic:ramp(t,T('signaal,'),0.6),bicHl:t>T('pees')&&t<T('Een',3)});
+  const g=armGeo(phi); alpha(ctx,ramp(t,T('pees'),0.5)*(1-ramp(t,T('Een',3),0.5)),()=>{ focusRing(g.ins[0],g.ins[1],26,1); naamBij(ctx,'pees','stevig, als een touw',g.ins[0]+40,g.ins[1]+40,1,'left'); });
+  const zc=ramp(t,T('Een',3),0.6)*(1-ramp(t,T('De')-0.2,0.6)); zoomCircle(ctx,1380,380,260,(SCH[0]+g.ins[0])/2+20,(SCH[1]+g.ins[1])/2,'spiercellen · vergroot',zc,()=>spierBundel(1380,380,t,ramp(t,T('korter.'),1.0)));
+  alpha(ctx,ramp(t,T('kort'),0.5)*(1-ramp(t,T('biceps,'),0.5)),()=>pill(ctx,1300,84,'kort en dik → trekt aan de pees',C.koraal,1,32));
+  alpha(ctx,ramp(t,T('draait'),0.5)*(1-ramp(t,T('biceps,'),0.5)),()=>{ ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(ELL[0],ELL[1],70,0.4,1.5); ctx.stroke(); });
+  spierLabels(phi,t,{bic:ramp(t,T('biceps,'),0.5),bicMeta:'buigt je arm'});
+  alpha(ctx,ramp(t,T('strek'),0.5),()=>text(ctx,'?',1500,300,fTitel(90),C.goud)); },
+s08(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n);
+  let phi; if(t<T('Daarom')) phi=lerp(2.1,0.25,ramp(t,0.3,2.2)); else { const c=Math.sin((t-T('Daarom'))*1.3); phi=1.2-0.95*c; }
+  const buig=t>T('Daarom')?(Math.cos((t-T('Daarom'))*1.3)>0?0:1):0; const triAct=t<T('Daarom')?1:(Math.cos((t-T('Daarom'))*1.3)<0?1:0);
+  arm(phi,{bic:1-triAct,tri:triAct,triHl:t<T('Een')});
+  spierLabels(phi,t,{bic:ramp(t,T('Daarom'),0.5),tri:ramp(t,T('triceps.'),0.5),triMeta:'strekt je arm',bicMeta:'buigt'});
+  alpha(ctx,ramp(t,T('alleen'),0.5)*(1-ramp(t,T('Daarom'),0.5)),()=>{ pill(ctx,1350,300,'trekken: ja',C.groen,1,36); pill(ctx,1350,400,'duwen: nee',C.koraal,1,36); });
+  alpha(ctx,ramp(t,T('tegenwerkers.'),0.5),()=>pill(ctx,1350,300,'tegenwerkers: de een buigt, de ander strekt',C.goud,1,34)); },
+s09(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const kracht=ramp(t,T('Houd'),0.6); const wig=kracht>0?1.57:1.57-0.6*Math.max(0,Math.sin((t-T('Wordt'))*1.4))*ramp(t,T('Wordt'),0.4)*(1-ramp(t,T('Maar'),0.4));
+  const g=arm(wig,{bic:1,fles:kracht});
+  alpha(ctx,ramp(t,T('centimeter'),0.5),()=>{ polyStroke([[ELL[0],ELL[1]+40],[g.ins[0],ELL[1]+40]],C.goud,2); metaText(ctx,'± 4 cm',(ELL[0]+g.ins[0])/2,ELL[1]+80,C.goud,'center',22); });
+  alpha(ctx,ramp(t,T('heel'),0.5)*(1-kracht),()=>{ ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.setLineDash([8,8]); ctx.beginPath(); ctx.arc(ELL[0],ELL[1],OARM+30,-1.4+Math.PI/2-1.57+0.0,-0.2,false); ctx.stroke(); ctx.setLineDash([]); metaText(ctx,'grote beweging van je hand',ELL[0]+260,ELL[1]-260,C.goud,'left',22); });
+  alpha(ctx,kracht,()=>{ arrow(ctx,g.hand[0]+30,g.hand[1]+40,g.hand[0]+30,g.hand[1]+140,C.teal,5,16); metaText(ctx,'1 kg',g.hand[0]+60,g.hand[1]+120,C.teal,'left',24); arrow(ctx,g.ins[0],g.ins[1],SCH[0]+30,SCH[1]+120,C.koraal,10,22,ramp(t,T('zeven'),0.5)); metaText(ctx,'± 7 kg',SCH[0]+90,SCH[1]+190,C.koraal,'left',26); });
+  alpha(ctx,ramp(t,0.1,0.5),()=>pill(ctx,1350,120,'hefboom · vereenvoudigd',C.text2,1,30)); },
+s10(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const gip=ramp(t,T('Sam')-0.3,0.6);
+  alpha(ctx,1-gip,()=>{ const ph=1.2+0.4*Math.sin(t*1.2); arm(ph,{bic:1,romp:0.6});
+    // hersenen + ruggenmerg + zenuw
+    ctx.beginPath(); ctx.ellipse(380,160,110,70,0,0,6.283); shape(ctx,rgba(C.paars,0.6),lighten(C.paars,0.3),2); naamBij(ctx,'hersenen','',380,260,ramp(t,T('hersenen.'),0.5),'center');
+    const NZ=[[420,220],[460,300],[500,320],[620,330],[700,360],[(SCH[0]+armGeo(ph).ins[0])/2+20,(SCH[1]+armGeo(ph).ins[1])/2]]; polyStroke(NZ,C.paars,4,ramp(t,T('ruggenmerg'),0.5)); naamBij(ctx,'zenuw','',560,300,ramp(t,T('zenuwen'),0.5),'center');
+    if(t>T('Via')&&t<T('Zonder')+1){ const k=((t-T('Via'))*0.8)%1; const p=along(NZ,k); focusRing(p[0],p[1],12,1); dot(ctx,p[0],p[1],7,C.goud); }
+    alpha(ctx,ramp(t,T('Zonder'),0.5)*(1-ramp(t,T('En'),0.5)),()=>pill(ctx,1350,300,'geen signaal → spier doet niets',C.paars,1,32));
+    alpha(ctx,ramp(t,T('energie'),0.5),()=>{ polyStroke([[1200,700],[1000,560],(()=>{ const g=armGeo(ph); return [(SCH[0]+g.ins[0])/2+40,(SCH[1]+g.ins[1])/2+20]; })()],ROOD,6); for(let i=0;i<3;i++){ const k=((t*0.5)+i/3)%1; const p=along([[1200,700],[1000,560],[900,440]],k); o2(p[0],p[1],1,1); } heartAt(1260,740,1.2,1,beatOf(t,70+60*ramp(t,T('sneller'),1))); naamBij(ctx,'bloed met zuurstof','energie uit verbranding',1320,640,1,'left'); }); });
+  alpha(ctx,gip,()=>{ const dun=ramp(t,T('Daarna'),1.2); arm(1.5,{bic:0.5,gips:1-ramp(t,T('Daarna')-0.3,0.6),dun}); persoon(ctx,'sam',1500,900,420,{outfit:'school',pose:'staan',uit:dun>0.5?'verbaasd':'neutraal',t}); counterPill(1180,120,'in het gips','6 weken',ramp(t,T('weken'),0.5));
+    alpha(ctx,ramp(t,T('Daarna'),0.5),()=>pill(ctx,1300,300,'dunner en zwakker',C.koraal,1,34)); alpha(ctx,ramp(t,T('Hoe'),0.5),()=>text(ctx,'?',1700,300,fTitel(90),C.goud)); }); },
+s12(ctx,t,q){ const T=(k,n)=>exactAt(k,n); const sp=ramp(t,T('Terug')-0.3,0.6);
+  if(sp<0.99){ bg(ctx,'schema'); alpha(ctx,1-sp,()=>{ const dun=1-ramp(t,T('Gebruik'),1.0); const st=ramp(t,T('Train'),1.0); arm(1.5,{bic:1,dun,sterk:st}); alpha(ctx,st,()=>{ const g=armGeo(1.5); roundRect(ctx,g.hand[0]+10,g.hand[1]-70,22,140,6); shape(ctx,'#5A6478','#8FA0B5',2); });
+    pill(ctx,1350,240,t<T('Gebruik')?'niet gebruikt: kleiner':t<T('Train')?'weer gebruikt: groeit terug':'getraind: sterker',t<T('Gebruik')?C.koraal:C.groen,1,34);
+    alpha(ctx,ramp(t,T('Ook'),0.5),()=>{ pill(ctx,1350,360,'botten: sterker door rennen en springen',C.groen,1,32); }); }); }
+  if(sp>0.01){ ctx.save(); ctx.globalAlpha*=sp; court(t); const lift=samSprong(t,T('springt.')-0.9,900); const hy=900-lift-460;
+    focusRing(900,hy+70,70,ramp(t,T('hersenen'),0.4)*(1-ramp(t,T('Zijn'),0.4))); alpha(ctx,ramp(t,T('hersenen'),0.4)*(1-ramp(t,T('Zijn'),0.4)),()=>pill(ctx,900,hy-40,'signaal',C.paars,1,30));
+    alpha(ctx,ramp(t,T('beenspieren'),0.4)*(1-ramp(t,T('triceps'),0.4)),()=>pill(ctx,1150,820-lift,'beenspieren trekken',C.koraal,1,30));
+    alpha(ctx,ramp(t,T('triceps'),0.4)*(1-ramp(t,T('bloed'),0.4)),()=>pill(ctx,1150,hy+180,'triceps strekt de arm',C.koraal,1,30));
+    alpha(ctx,ramp(t,T('bloed'),0.4),()=>pill(ctx,1150,hy+260,'bloed brengt zuurstof',C.teal,1,30));
+    alpha(ctx,ramp(t,T('Skelet,'),0.5),()=>{ roundRect(ctx,120,120,700,110,18); shape(ctx,rgba(C.bgSchema,0.9),C.goud,1.5); text(ctx,'skelet · spieren · zenuwen · bloed',470,190,fTekst(36,600),C.text,'center'); }); ctx.restore(); } },
+s13(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); ctx.save(); ctx.translate(-120,40); ctx.scale(0.85,0.85); skelet(560,980,760,{hl:{schedel:t<T('Waar')?1:0}}); ctx.restore();
+  ctx.save(); ctx.translate(420,40); ctx.scale(0.85,0.85); const ph=t<T('Daarom')?1.2:1.2+0.9*Math.sin((t-T('Daarom'))*1.5); arm(ph,{bic:ph>1.2?1:0.2,tri:ph>1.2?0.2:1,romp:0.5,bicHl:t>T('pezen')&&t<T('Een')}); ctx.restore();
+  alpha(ctx,ramp(t,T('gewricht.'),0.5),()=>pill(ctx,1560,240,'gewricht',C.text,1,32)); alpha(ctx,ramp(t,T('pezen'),0.5),()=>pill(ctx,1560,320,'pezen',C.text,1,32)); alpha(ctx,ramp(t,T('alleen'),0.5),()=>pill(ctx,1560,400,'alleen trekken',C.koraal,1,32)); alpha(ctx,ramp(t,T('tegenwerkers:'),0.5),()=>pill(ctx,1560,480,'tegenwerkers',C.goud,1,32));
+  alpha(ctx,ramp(t,T('Zo'),0.5),()=>{ roundRect(ctx,1220,580,660,170,18); shape(ctx,rgba(C.bgSchema,0.95),C.goud,1.5); ctx.font=fTekst(32,600); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'signaal uit je hersenen → spier trekt → bot draait in het gewricht',1250,640,600,42); }); },
+s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'hoe beweeg je eigenlijk',120,260,C.grain,'left',26);
+  const P=[['Bouw een arm','Twee stroken karton, een splitpen als elleboog, twee elastiekjes als spieren. Welk elastiek moet korter worden om de arm te buigen? En om te strekken?'],['Kippenvleugel','Met je docent: zoek in een kippenvleugel een gewricht, kraakbeen en een pees. Trek aan de pees: wat beweegt er?'],['Ademhaling','Kijk de film Ademhaling en bloedsomloop: hoe komt de zuurstof bij je spiercellen?']];
+  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
+  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een astronaut is een half jaar in de ruimte en hoeft daar bijna niets te tillen. Wat gebeurt er met zijn spieren en botten, en waarom?',120,720,1680,46); });
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+};
+</script>
+<script>
+const GLOSSARY=[{"t": "skelet", "d": "Alle botten samen (ongeveer tweehonderd). Geeft vorm en stevigheid, beschermt (schedel, ribben) en maakt bewegen mogelijk."}, {"t": "beenmerg", "d": "Zacht weefsel binnenin sommige botten. Daar worden je bloedcellen gemaakt."}, {"t": "gewricht", "d": "De plek waar twee botten elkaar raken en kunnen bewegen, bijvoorbeeld een scharnier (elleboog, knie) of een kogel in een kom (schouder, heup)."}, {"t": "kraakbeen", "d": "Glad, stevig laagje op de uiteinden van de botten in een gewricht, zodat ze soepel langs elkaar glijden."}, {"t": "pees", "d": "Stevige band, als een touw, waarmee een spier aan een bot vastzit."}, {"t": "tegenwerkers", "d": "Twee spieren die elkaar tegenwerken: de een buigt, de ander strekt (biceps en triceps). Nodig omdat een spier alleen kan trekken."}, {"t": "hefboom", "d": "Je onderarm draait om de elleboog; de biceps zit er vlak bij vast. Een klein stukje korter geeft een grote beweging van je hand, maar kost veel kracht.", "vwo": true}];
+const FILMMETA="onderbouw · kerndoelen · film 6";
+const MINI={"Hoofdstuk 1": "Stevigheid, bescherming, gewrichten", "Hoofdstuk 2": "Pezen, trekken en tegenwerkers", "Hoofdstuk 3": "Hersenen, bloed en training", "Samenvatting": "Zo beweeg je"};
+// ===== Player =====
+const DATA = window.FILMDATA;
+const params = new URLSearchParams(location.search);
+const state = {
+  niveau: params.get('niveau')==='basis' ? 'basis' : 'havovwo',
+  modus: params.get('modus')==='klas' ? 'klas' : 'leerling',
+  auto: false, captions: true, snelheid: (()=>{ const p=parseFloat(params.get('snelheid')); if([0.75,1,1.25,1.5].includes(p)) return p; try{ const v=parseFloat(localStorage.getItem('bk-snelheid')); return [0.75,1,1.25,1.5].includes(v)?v:1; }catch(e){ return 1; } })(), vragen: params.get('vragen')==='uit' ? 'uit' : params.get('vragen')==='aan' ? 'aan' : (()=>{ try{ return localStorage.getItem('bk-vragen')==='uit'?'uit':'aan'; }catch(e){ return 'aan'; } })(),
+  playing:false, t:0, items:[], idx:0, local:0,
+  qPhase:null // {phase:'countdown'|'wait'|'reveal', start, chosen}
+};
+const CARD_DUR=1.3, COUNTDOWN=8, REVEAL=6;
+const NO_CARD=['Cold open','Titel','Eindkaart'];
+
+// ---- build timeline ----
+// 'Voor vwo ...' niet uitspreken (de havo/vwo-keuze zit in de speler): losse aankondigingen helemaal, 'Voor vwo:' als voorzetsel weg
+function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
+  while(i<w.length){ let j=i; while(j<w.length&&!/[.?!]$/.test(w[j].t)) j++; const zin=w.slice(i,j+1), txt=zin.map(x=>x.t).join(' ');
+    if(/^Voor (havo en )?vwo\b/.test(txt)){ const nxt=w[j+1];
+      if(/^Voor (havo en )?vwo (gaan we )?(hier )?(nog )?(een |één |drie )?stap(pen)? verder(, de lever in)?\.$|^Voor vwo nog (een|één) stap( verder)?\.$|^Voor vwo volgen we die prikkel door het hart\.$|^Voor vwo kijken we preciezer naar [^.]*\.$/.test(txt)) cuts.push([zin[0].s-0.03, nxt?nxt.s-0.03:(seg.dur||zin[zin.length-1].e+0.3)]);
+      else { let k=-1; const m=txt.match(/^(Voor vwo(, tot slot)?:|Voor vwo nog (een|één) stap( verder)?:|Voor vwo(?= een ))/i);
+        if(m){ let n=0, acc=''; for(let q=0;q<zin.length;q++){ acc+=(q?' ':'')+zin[q].t; if(acc.length>=m[0].trim().length){ k=q; break; } }
+          if(k>=0&&zin[k+1]){ if(/, tot slot:$/i.test(m[0])){ k=1; } cuts.push([zin[0].s-0.03, zin[k+1].s-0.03]); const r=zin[k+1]; if(!r._hoofd){ r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); r._hoofd=1; } } } } }
+    i=j+1; }
+  return cuts; }
+/*SPELERFIX_MARK v2 20okt2026: knippen op de echte stilte*/ const KNIP_ENV={}; function knipEnv(seg){ const u=seg.audio; if(!u||KNIP_ENV[u]) return; KNIP_ENV[u]='bezig'; try{ const OAC=window.OfflineAudioContext||window.webkitOfflineAudioContext; fetch(u).then(r=>{ if(!r.ok) throw 0; return r.arrayBuffer(); }).then(b=>new OAC(1,16000,16000).decodeAudioData(b)).then(buf=>{ const x=buf.getChannelData(0), hop=Math.round(buf.sampleRate/100), n=Math.floor(x.length/hop), e=new Float32Array(n); for(let i=0;i<n;i++){ let q=0; for(let k=i*hop;k<(i+1)*hop;k++) q+=x[k]*x[k]; e[i]=Math.sqrt(q/hop); } const so=Array.from(e).sort((a,b)=>a-b); KNIP_ENV[u]={e,thr:Math.max(0.002,(so[Math.floor(n*0.9)]||0)*0.03)}; knipHerzie(u); }).catch(()=>{ KNIP_ENV[u]='mis'; }); }catch(err){ KNIP_ENV[u]='mis'; } } function knipRun(env,t0,t1){ const e=env.e, i0=Math.max(0,Math.floor(t0*100)), i1=Math.min(e.length-1,Math.floor(t1*100)); let end=-1,run=0; for(let i=i1;i>=i0;i--){ if(e[i]<env.thr){ if(end<0) end=i; run++; } else { if(run>=3) return [(i+1)/100,(end+1)/100]; end=-1; run=0; } } return run>=3?[i0/100,(end+1)/100]:null; } function knipMin(env,t0,t1){ let b=-1,v=1e9; for(let i=Math.max(0,Math.floor(t0*100));i<=Math.min(env.e.length-1,Math.floor(t1*100));i++) if(env.e[i]<v){ v=env.e[i]; b=i; } return b<0?null:(b+0.5)/100; } function knipMarge(seg,cuts){ const w=seg.words||[], env=KNIP_ENV[seg.audio]; if(!cuts._o) cuts._o=cuts.map(c=>c.slice()); if(!env) knipEnv(seg); const goed=env&&env.e, nw=cuts._o.map(c=>c.slice()); for(const c of nw){ const i=w.findIndex(x=>x.s>=c[0]-0.001); if(i>=0&&w[i].s-c[0]<0.12&&c[0]>0.05){ const q=w[i].s, p=w[i-1], bodem=p?p.s+0.08:0; if(goed){ const r=knipRun(env,q-0.45,q+0.02); let t; if(r){ const g=r[1]-r[0]; t=g>=0.17?r[1]-0.12:r[0]+Math.min(0.05,g/2); } else t=knipMin(env,q-0.3,q+0.02); if(t!==null) c[0]=Math.max(bodem,Math.min(t,q)); } else if(!p||/[.?!:]$/.test(p.t)) c[0]=Math.max(bodem,Math.min(c[0],q-0.18)); } const j=w.findIndex(x=>x.s>=c[1]-0.001); if(goed&&j>0&&w[j].s-c[1]<0.12){ const q=w[j].s, r=knipRun(env,q-0.45,q+0.02); let t=r?Math.max(r[0],r[1]-0.03):knipMin(env,q-0.3,q+0.02); if(t!==null) c[1]=Math.max(c[0]+0.01,w[j-1].s+0.08,Math.min(t,q)); } } const m=knipSamen(nw); cuts.length=0; m.forEach(x=>cuts.push(x)); return cuts; } function knipHerzie(u){ let raak=false; for(const it of (state.items||[])){ if(it.type==='speech'&&it.seg&&it.seg.audio===u&&it.cuts&&it.cuts._o){ knipMarge(it.seg,it.cuts); it.dur=it.seg.dur-it.cuts.reduce((a,c)=>a+c[1]-c[0],0); raak=true; } } if(raak){ let t=0; for(const it of state.items){ it.start=t; t+=it.dur; } state.total=t; } } function knipSamen(c){ c=c.filter(x=>x[1]>x[0]).sort((a,b)=>a[0]-b[0]); const o=[]; for(const x of c){ const l=o[o.length-1]; if(l&&x[0]<=l[1]) l[1]=Math.max(l[1],x[1]); else o.push([Math.max(0,x[0]),x[1]]); } return o; }
+function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ seg2.push(cur); cur=[]; } } if(cur.length) seg2.push(cur); seg2.forEach((z,i)=>{ const txt=z.map(x=>x.t).join(' '); const hit=(/\bantwoord\b/i.test(txt)&&!/begin/i.test(txt)&&z.some(x=>/^(aa|bee|cee|a|b|c)[.,:]?$/i.test(x.t)))||/^(dat (is|was) )?[abc]\.$/i.test(txt); if(hit){ const a=Math.max(0,z[0].s-0.05), b=seg2[i+1]?Math.max(a,seg2[i+1][0].s-0.05):(seg.dur||z[z.length-1].e+0.3); cuts.push([a,b]); } }); return cuts; }function losAntwCuts(seg,aan){ const w=seg.words||[]; for(const x of w){ if(x._t0!==undefined){ x.t=x._t0; delete x._t0; } } if(!aan) return [];
+  const z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur);
+  const LET=/^(aa|bee|cee|a|b|c)[.,:]?$/i, OK=/^(het|antwoord|op|de|vraag|van|aan|begin|was|is|dus|dat|daar|beste|aa|bee|cee|a|b|c)[.,:]?$/i, cuts=[];
+  z.forEach((s,i)=>{ const txt=s.map(x=>x.t).join(' '); if(!/\bantwoord\b/i.test(txt)||!s.some(x=>LET.test(x.t))) return;
+    const k=s.findIndex(x=>/:$/.test(x.t));
+    if(k<0){ if(s.length<=12&&s.every(x=>OK.test(x.t))){ const a=Math.max(0,s[0].s-0.05), b=z[i+1]?z[i+1][0].s-0.05:(seg.dur||s[s.length-1].e+0.3); cuts.push([a,b]); } return; }
+    const pre=s.slice(0,k+1); if(k+1<s.length&&pre.length<=11&&pre.every(x=>OK.test(x.t))&&pre.some(x=>LET.test(x.t))&&pre.some(x=>/^antwoord/i.test(x.t))){ cuts.push([Math.max(0,s[0].s-0.05),s[k+1].s-0.03]); const r=s[k+1]; r._t0=r.t; r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); } });
+  return cuts; } function antwKopCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=0; while(i<z.length&&/^(antwoord\b.*|(het )?antwoord is [abc]\.|[abc]\.)$/i.test(z[i].map(x=>x.t).join(' '))&&z[i].length<=4) i++; if(!i) return []; return [[Math.max(0,z[0][0].s-0.05),z[i]?z[i][0].s-0.05:(seg.dur||w[w.length-1].e+0.3)]]; } function vraagCuts(seg){ const w=seg.words||[], z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur); let i=z.length; while(i>0&&/\?$/.test(z[i-1][z[i-1].length-1].t)) i--; if(i>=z.length||!z.length) return []; return [[Math.max(0,z[i][0].s-0.05),seg.dur||(w[w.length-1].e+0.3)]]; } function aud2it(it,t){ let d=t; for(const c of (it.cuts||[])){ if(t>c[0]) d-=Math.min(t,c[1])-c[0]; } return d; } function it2aud(it,u){ let t=u; for(const c of (it.cuts||[])){ if(t>=c[0]) t+=c[1]-c[0]; } return t; } function buildTimeline(){
+  const items=[]; let prevChapter=null, naQ=false, naKop=false;
+  const SEGS=DATA.segments.filter(s=>!(state.niveau==='havo'&&s.level==='vwo')); for(let si=0;si<SEGS.length;si++){ const seg=SEGS[si];
+    if(state.niveau==='basis' && seg.level==='vwo') continue;
+    if(seg.chapter!==prevChapter && !NO_CARD.includes(seg.chapter)){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
+    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); knipMarge(seg,cuts); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
+    else if(seg.kind==='question' && state.vragen==='uit'){ if(seg.chapter==='Cold open') naKop=true; else naQ=seg.chapter; } else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
+  }
+  let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
+}
+function makeQ(seg){
+  const words=seg.words||[]; const norm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,'');
+  const cache={};
+  return { at(w,n=1){ const key=w+'|'+n; if(key in cache) return cache[key]; let c=0; const nw=norm(w); for(const x of words){ if(norm(x.t).includes(nw)){ c++; if(c===n){ cache[key]=x.s; return x.s; } } } cache[key]=Infinity; return Infinity; },
+           on(w,n=1,d=0.6){ return ramp(this.localT, this.at(w,n), d); }, localT:0 };
+}
+
+// ---- canvas ----
+const canvas=document.getElementById('stage'); const ctx=canvas.getContext('2d');
+canvas.width=W; canvas.height=H;
+function render(){
+  const it=state.items[state.idx]; if(!it) return; const t=state.local; const gt=it.start+t;
+  ctx.save();
+  if(it.type==='card') drawChapterCard(ctx,it,t);
+  else if(it.type==='question') drawQuestion(ctx,it,t);
+  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); }
+  // UI layer: vwo marker
+  if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'uitdaging',60,46,C.paars,'left',24); }
+  // series meta top-left
+  else if(!(it.seg&&it.seg.chapter==='Titel')) metaText(ctx,FILMMETA,60,46,C.text2,'left',20);
+  // captions
+  if(state.captions && it.type==='speech') drawCaption(ctx,it.seg,t);
+  ctx.restore();
+}
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
+  const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
+  if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
+  const mini=MINI[num||it.chapter];
+  if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
+function drawQuestion(ctx,it,t){
+  bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};
+  text(ctx,'Wat denk je?',120,200,fTitel(64),C.text); ctx.font=fTekst(40,600); ctx.fillStyle=C.text; wrap(ctx,seg.q,120,290,1680,52);
+  const revealed = ph.phase==='reveal';
+  seg.options.forEach((o,i)=>{ const y=430+i*112; const chosen=ph.chosen===i; const correct=i===seg.correct;
+    roundRect(ctx,120,y,1680,96,14); let fill=C.fill, stroke=C.line;
+    if(revealed){ if(correct){ fill=rgba(C.groen,0.25); stroke=C.groen; } else if(chosen){ fill=rgba(C.koraal,0.25); stroke=C.koraal; } }
+    else if(chosen){ stroke=C.goud; }
+    shape(ctx,fill,stroke,1.5); text(ctx,String.fromCharCode(97+i),160,y+62,fMeta(32),C.grain); text(ctx,o,220,y+62,fTekst(36),C.text);
+    if(revealed&&correct){ ctx.fillStyle=C.groen; ctx.beginPath(); ctx.arc(1750,y+48,12,0,6.283); ctx.fill(); }
+  });
+  if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/COUNTDOWN,0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,CAPTION_Y-40); ctx.lineTo(120+1680*(1-u),CAPTION_Y-40); ctx.stroke(); metaText(ctx,'denk na…',120,CAPTION_Y-60,C.grain,'left',24); }
+  else if(ph.phase==='wait'){ metaText(ctx, state.modus==='klas'?'klas: druk op verder':'tik op een antwoord',120,CAPTION_Y-50,C.goud,'left',26); }
+  else { ctx.save(); roundRect(ctx,120,H-150,1680,110,14); shape(ctx,rgba(C.groen,0.12),C.groen,1.5); ctx.font=fTekst(32); ctx.fillStyle=C.text; wrap(ctx,seg.explain,150,H-105,1620,40); ctx.restore(); }
+  // option hit zones stored
+  state.optionZones=seg.options.map((o,i)=>({x:120,y:430+i*112,w:1680,h:96,i}));
+}
+// captions: phrase chunks of ≤ 2 lines ≤ 44 chars
+function chunks(seg){ const it=state.items[state.idx]; const cu=(it&&it.seg===seg&&it.cuts)||[]; const cs=chunks0(seg); return cu.length?cs.map(c=>c.filter(w=>!cu.some(k=>w.s>=k[0]-0.02&&w.s<k[1]-0.02))).filter(c=>c.length):cs; } function chunks0(seg){ if(seg._chunks) return seg._chunks; const out=[]; let cur=[]; let len=0;
+  for(const w of seg.words){ const t=w.t; cur.push({...w,t}); len+=t.length+1; const endS=/[.?!:]$/.test(t);
+    if(len>80||(endS&&len>30)){ out.push(cur); cur=[]; len=0; } }
+  if(cur.length) out.push(cur); seg._chunks=out; return out; }
+function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && t<=c[c.length-1].e+0.6); if(!ch) return;
+  const s=ch.map(w=>w.t).join(' '); ctx.font=fTekst(44,700); const words=s.split(' '); const lines=[]; let line='';
+  for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>1500&&line){ lines.push(line); line=w; } else line=test; } if(line) lines.push(line);
+  const wmax=Math.max(...lines.map(l=>ctx.measureText(l).width)); const bh=lines.length*54+30, bw=wmax+60; const x=W/2-bw/2, y=H-40-bh;
+  roundRect(ctx,x,y,bw,bh,12); ctx.fillStyle=rgba(C.kast,0.9); ctx.fill();
+  lines.forEach((l,i)=>text(ctx,l,W/2,y+54+i*54-8,fTekst(44,700),C.text,'center')); }
+
+// ---- transport ----
+const audio=document.getElementById('narration'); function zetSnelheid(r){ if(state.items&&state.items[state.idx]&&state.items[state.idx].type!=='speech'){ clockBase=state.local; clockStart=performance.now()/1000; } state.snelheid=r; audio.defaultPlaybackRate=r; audio.playbackRate=r; try{ audio.preservesPitch=true; }catch(e){} document.querySelectorAll('#snelheid button').forEach(b=>b.classList.toggle('on',+b.dataset.v===r)); } let clockStart=0, clockBase=0; let raf=0;
+function gotoItem(i, local=0){ knipVrij(); state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local=it2aud(it,local); state.local=local; state.items.forEach(x=>x._clock=null); state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+  if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; const want=local; if(want>0.05) audio.muted=true; const zet=()=>{ if(state.items[state.idx]===it&&audio.currentTime<want-0.05) audio.currentTime=want; if(audio.currentTime>=want-0.05||state.items[state.idx]!==it) audio.muted=false; }; audio.addEventListener('loadedmetadata',zet,{once:true}); audio.addEventListener('playing',zet,{once:true}); audio.addEventListener('seeked',zet,{once:true}); setTimeout(()=>{ audio.muted=false; },1500); } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
+  else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
+  updateChapterUI(); }
+function seekGlobal(g){ g=clamp(g,0,state.total-0.01); const i=state.items.findIndex(it=>g<it.start+it.dur); gotoItem(i, g-state.items[i].start); }
+function play(){ state.playing=true; document.getElementById('play').textContent='❚❚'; const it=state.items[state.idx]; if(it.type==='speech'){ audio.play().catch(()=>{}); } else { clockBase=state.local; clockStart=performance.now()/1000; } }
+function pause(){ const it=state.items[state.idx]; if(it) it._clock=null; state.playing=false; document.getElementById('play').textContent='▶'; audio.pause(); }
+/*SPELERFIX_MARK knip*/ let knipStil=false, knipTimer=0; function knipVrij(){ clearTimeout(knipTimer); if(knipStil){ knipStil=false; audio.muted=false; } } function knipCheck(it){ const t=state.local, vooruit=0.03*(state.snelheid||1); const cc=(it.cuts||[]).find(c=>t+vooruit>=c[0]&&t<c[1]-0.03); if(!cc) return; audio.muted=true; knipStil=true; clearTimeout(knipTimer); const eind=Math.min(it.seg.dur||1e9,isFinite(audio.duration)?audio.duration:1e9); if(cc[1]>=eind-0.05){ audio.pause(); state.local=cc[1]; return; } audio.currentTime=cc[1]; state.local=cc[1]; const vrij=()=>{ clearTimeout(knipTimer); knipTimer=setTimeout(()=>{ if(knipStil){ knipStil=false; audio.muted=false; } },40); }; audio.addEventListener('seeked',vrij,{once:true}); knipTimer=setTimeout(vrij,400); } audio.addEventListener('timeupdate',()=>{ const it=state.items[state.idx]; if(!state.playing||!it||it.type!=='speech'||audio.paused) return; state.local=audio.currentTime; knipCheck(it); if(state.items[state.idx]===it&&aud2it(it,state.local)>=it.dur-0.02) next(); });
+function tick(){
+  const it=state.items[state.idx];
+  if(state.playing && it){
+    if(it.type==='speech'){ if(!audio.ended){ state.local=audio.currentTime; knipCheck(it); } else { if(!it._clock) it._clock={base:Math.max(state.local,audio.duration||0),start:performance.now()/1000}; state.local=it._clock.base+(performance.now()/1000-it._clock.start); } if(aud2it(it,state.local)>=it.dur-0.02){ next(); } }
+    else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid; const ph=state.qPhase;
+      if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
+      else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
+    } else { state.local=clockBase+(performance.now()/1000-clockStart)*(it.type==='card'?Math.min(1,state.snelheid):state.snelheid); if(state.local>=it.dur) next(); }
+  }
+  render(); updateTimeUI(); raf=requestAnimationFrame(tick);
+}
+function next(){ if(state.idx>=state.items.length-1){ pause(); state.local=state.items[state.idx].dur-0.01; return; } gotoItem(state.idx+1,0); }
+function answer(i){ const ph=state.qPhase; if(!ph||ph.phase==='reveal') return; ph.chosen=i; if(state.modus==='leerling'){ ph.phase='reveal'; ph.start=state.local; } }
+function verder(){ const ph=state.qPhase; if(!ph) return; if(ph.phase!=='reveal'){ ph.phase='reveal'; ph.start=state.local; } else next(); }
+
+// ---- UI wiring ----
+function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+function updateTimeUI(){ const it=state.items[state.idx]; if(!it) return; const g=it.start+aud2it(it,state.local); document.getElementById('time').textContent=fmt(g)+' / '+fmt(state.total); const sl=document.getElementById('seek'); if(!sl.matches(':active')) sl.value=g/state.total*1000; }
+function updateChapterUI(){ const it=state.items[state.idx]; document.querySelectorAll('#chapters li').forEach(li=>li.classList.toggle('on', li.dataset.ch===it.chapter)); }
+function buildChapterList(){ const ul=document.getElementById('chapters'); ul.innerHTML=''; const seen=new Set();
+  for(const it of state.items){ if(seen.has(it.chapter)) continue; seen.add(it.chapter); const li=document.createElement('li'); li.dataset.ch=it.chapter; const hasV=DATA.segments.some(s=>s.chapter===it.chapter&&s.level==='vwo');
+    li.innerHTML=`<span>${it.chapter.replace(' — ',' · ')}</span>${hasV&&state.niveau==='havovwo'?'<em>uitdaging</em>':''}<small>${fmt(it.start)}</small>`; li.onclick=()=>{ gotoItem(state.items.indexOf(it),0); }; ul.appendChild(li); } }
+function init(){
+  buildTimeline(); buildChapterList(); gotoItem(0,0);
+  document.getElementById('play').onclick=()=>state.playing?pause():play();
+  document.getElementById('seek').oninput=e=>seekGlobal(e.target.value/1000*state.total);
+  document.getElementById('verder').onclick=verder;
+  document.getElementById('cc').onclick=e=>{ state.captions=!state.captions; e.target.classList.toggle('off',!state.captions); };
+  document.getElementById('fs').onclick=()=>{ const el=document.getElementById('playerwrap'); if(document.fullscreenElement){ document.exitFullscreen(); } else if(el.requestFullscreen){ el.requestFullscreen(); } else { el.classList.toggle('pseudo-fs'); } };
+  const setToggle=(id,key,vals)=>{ const el=document.getElementById(id); el.querySelectorAll('button').forEach(b=>{ b.classList.toggle('on',b.dataset.v===state[key]); b.onclick=()=>{ const was=state.items[state.idx]; const g=was.start+state.local; state[key]=b.dataset.v; el.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); if(key==='vragen'){ try{ localStorage.setItem('bk-vragen',state.vragen); }catch(e){} buildTimeline(); buildChapterList(); let i=state.items.findIndex(it=>it.seg&&it.seg===was.seg); if(i<0) i=Math.max(0,state.items.findIndex(it=>it.chapter===was.chapter)); gotoItem(i,0); } if(key==='niveau'){ buildTimeline(); buildChapterList(); // re-seek to same chapter
+        const ch=was.chapter; const i=Math.max(0,state.items.findIndex(it=>it.chapter===ch)); gotoItem(i,0); document.body.classList.toggle('basis',state.niveau==='basis'); } }; }); };
+  setToggle('niveau','niveau'); setToggle('modus','modus'); setToggle('vragen','vragen'); document.querySelectorAll('#snelheid button').forEach(b=>b.onclick=()=>{ zetSnelheid(+b.dataset.v); try{ localStorage.setItem('bk-snelheid',String(state.snelheid)); }catch(e){} }); zetSnelheid(state.snelheid); document.body.classList.toggle('basis',state.niveau==='basis');
+  document.getElementById('auto').onchange=e=>state.auto=e.target.checked;
+  canvas.addEventListener('pointerdown',e=>{ const it=state.items[state.idx]; if(!it||it.type!=='question') return; const r=canvas.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width*W, y=(e.clientY-r.top)/r.height*H; const z=(state.optionZones||[]).find(z=>x>=z.x&&x<=z.x+z.w&&y>=z.y&&y<=z.y+z.h); if(z) answer(z.i); });
+  document.addEventListener('keydown',e=>{ if(e.code==='Space'){ e.preventDefault(); state.playing?pause():play(); } if(e.code==='ArrowRight') seekGlobal(state.items[state.idx].start+state.local+5); if(e.code==='ArrowLeft') seekGlobal(state.items[state.idx].start+state.local-5); });
+  // glossary + transcript
+  const gl=document.getElementById('glossary'); GLOSSARY.forEach(g=>{ const d=document.createElement('div'); d.className='term'+(g.vwo?' vwo':''); d.innerHTML=`<b>${g.t}</b>${g.vwo?' <i>uitdaging</i>':''}<p>${g.d}</p>`; gl.appendChild(d); });
+  const tr=document.getElementById('transcript'); DATA.segments.filter(s=>s.kind==='speech').forEach(s=>{ const p=document.createElement('p'); p.className=s.level; p.innerHTML=(s.level==='vwo'?'<i>uitdaging</i> ':'')+s.words.map(w=>w.t).join(' ').replace(/^Voor havo en vwo gaan we nog een stap verder\. /,''); tr.appendChild(p); });
+  tick();
+}
+window.addEventListener('load',init);
+
+
+</script>
+<script src="../../../../js/flipkaarten.js" defer></script>
+</body>
+</html>

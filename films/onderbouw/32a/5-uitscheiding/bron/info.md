@@ -87,3 +87,6 @@ Toegepast: koolstofdioxide → "koolstofdie-oxide", 's avonds → "Savonds". **W
 - De vraag "wat hoort niet bij uitscheiding" gebruikt bewust "appelresten in je ontlasting": galkleurstof in de ontlasting is formeel wél uitscheiding (docentdeel).
 - De nier als filter is een schema met deeltjes die het pad volgen (`along`); het aantal teruggaande waterdeeltjes (`waterTerug`) is een beeld, geen meting.
 - Daan is het enige personage; niemand wordt gevraagd iets over zijn eigen plas te vertellen.
+
+## Wijziging 20 okt 2026 (later die dag)
+Cues hoofdlettergevoelig gemaakt (`exactAt`: "Je" ≠ "je"), zodat elke `T(woord,n)` op het bedoelde woord valt; enkele cue-indexen aangepast. Gecontroleerd met `bouw/cuectx.py` (nieuw). Geen nieuwe audio.

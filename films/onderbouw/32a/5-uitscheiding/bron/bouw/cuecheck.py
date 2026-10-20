@@ -2,6 +2,7 @@
 import re, json, glob, unicodedata
 src=open(sorted(glob.glob('src/scenes[0-9]*.js'))[0]).read()
 data=json.load(open('filmdata.json')); segs={s['id']:s for s in data['segments'] if 'words' in s}
+def normC(w): return re.sub(r'[^A-Za-zÀ-ÿ0-9]','',w)
 def norm(w): return re.sub(r'[^a-zà-ÿ0-9]','',w.lower())
 bad=0
 for m in re.finditer(r"^(s\d\d)\(ctx,t,q\)\{(.*?)(?=^s\d\d\(ctx|^\};)",src,flags=re.S|re.M):
@@ -12,7 +13,7 @@ for m in re.finditer(r"^(s\d\d)\(ctx,t,q\)\{(.*?)(?=^s\d\d\(ctx|^\};)",src,flags
         kind,w,n=cm.group(1),cm.group(2),int(cm.group(3) or 1); c=0; hit=None
         exact=kind in ('T','exactAt')
         for x in words:
-            if (norm(w)==norm(x)) if exact else (norm(w) in norm(x)):
+            if (normC(w)==normC(x)) if exact else (norm(w) in norm(x)):
                 c+=1
                 if c==n: hit=x; break
         if not hit: print(sid,'ONTBREEKT',w,n); bad+=1

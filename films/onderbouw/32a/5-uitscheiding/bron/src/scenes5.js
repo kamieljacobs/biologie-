@@ -4,10 +4,10 @@ function circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.
 // Hulpjes uit film 1–3 staan hierboven (helpers.js) en personages (lib_cast.js). Nieuw: routekaart lichaam (BM, bodyMap), zuurstof- en koolstofdioxidevormpjes,
 // zwembad, longblaasje, haarvat bij spiercel, pols, twee pompen (uitdaging), ketting.
 
-// exacte woord-cue (heel woord, n-de keer) in het huidige segment; T(k,n) in de scènes gebruikt dit
+// exacte woord-cue (heel woord, hoofdlettergevoelig, n-de keer) in het huidige segment; T(k,n) in de scènes gebruikt dit
 const _ewCache=new Map();
 function exactAt(w,n=1){ const it=state.items[state.idx]; const seg=it&&it.seg; if(!seg||!seg.words) return Infinity; const key=seg.id+'|'+w+'|'+n; if(_ewCache.has(key)) return _ewCache.get(key);
-  const nm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,''); let c=0, r=Infinity; for(const x of seg.words){ if(nm(x.t)===nm(w)){ c++; if(c===n){ r=x.s; break; } } } _ewCache.set(key,r); return r; }
+  const nm=s=>s.replace(/[^A-Za-zÀ-ÿ0-9]/g,''); /* hoofdlettergevoelig */ let c=0, r=Infinity; for(const x of seg.words){ if(nm(x.t)===nm(w)){ c++; if(c===n){ r=x.s; break; } } } _ewCache.set(key,r); return r; }
 // ---------- moleculen ----------
 function o2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-6,0],[6,0]].forEach(([dx])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,8.5*s,0,6.283); shape(ctx,C.teal,lighten(C.teal,0.45),1.4); }); ctx.restore(); }
 function co2(x,y,s=1,a=1){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; [[-11,6.5],[11,6.5],[0,8.5]].forEach(([dx,r])=>{ ctx.beginPath(); ctx.arc(x+dx*s,y,r*s,0,6.283); shape(ctx,dx?'#B9C0CC':'#7E8796',lighten('#9AA3B2',0.4),1.3); }); ctx.restore(); }
@@ -146,7 +146,7 @@ s04(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n);
   if(t>T('longen')&&t<T('huid')+1) for(let i=0;i<3;i++){ const k=((t-T('longen'))*0.5+i/3)%1; const p=along([[560,330],[552,214],[400,170]],k); co2(p[0],p[1],1,1); }
   alpha(ctx,ramp(t,T('Daarin'),0.5),()=>{ glas(1300,720,0.7,1,1,160,240); const items=[['water',T('water,')],['ureum',T('ureum,')],['zout',T('zout')],['kleurstof',T('kleurstof.')]]; items.forEach(([s,t0],k)=>{ const a=ramp(t,t0,0.4); const x=1480, y=470+k*70; if(s==='kleurstof') kleurstof(x,y,1.4,a); else teken(s,x,y,a); naamBij(ctx,s==='kleurstof'?'gele kleurstof':s,'',x+30,y+12,a,'left'); }); metaText(ctx,'urine',1300,770,C.grain,'center',22); });
   alpha(ctx,ramp(t,T('Welke'),0.5),()=>text(ctx,'?',1760,300,fTitel(90),C.goud)); },
-s06(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const nk=ramp(t,T('Je',2)-0.3,0.6);
+s06(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const nk=ramp(t,T('Je')-0.3,0.6);
   alpha(ctx,1-nk,()=>{ // darm: appelrest reist mee, gaat niet het bloed in
     polyStroke([[200,520],[500,460],[800,560],[1100,460],[1400,560],[1700,500]],rgba(C.okerD,0.8),60); polyStroke([[200,400],[1700,400]],ROOD,10); metaText(ctx,'bloed',220,380,C.grain,'left',22); metaText(ctx,'darm',220,600,C.grain,'left',22);
     const u=clamp(t/7.5,0,1); const p=along([[200,520],[500,460],[800,560],[1100,460],[1400,560],[1700,500]],u); ctx.beginPath(); ctx.ellipse(p[0],p[1],22,14,0.4,0,6.283); shape(ctx,'#9C6B3E',lighten('#9C6B3E',0.3),1.5);
@@ -161,7 +161,7 @@ s07(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const terug=ramp(t,
   filterDeeltjes(t,{mode:terug>0.5?'terug':'eruit',a:ramp(t,T('Eerst')+0.4,0.6),waterTerug:0.9});
   alpha(ctx,ramp(t,T('Bloedcellen'),0.5)*(1-ramp(t,T('Dat'),0.5)),()=>pill(ctx,960,130,'bloedcellen blijven in het bloed: te groot',ROOD,1,32));
   alpha(ctx,ramp(t,T('honderdtachtig'),0.5)*(1-ramp(t,T('Daarna'),0.5)),()=>{ badkuip(1600,760,1); metaText(ctx,'± 180 liter per dag',1600,850,C.goud,'center',24); });
-  alpha(ctx,ramp(t,T('Alle'),0.4)*(1-ramp(t,T('Wat'),0.5)),()=>pill(ctx,1100,130,t<T('Bijna')?'alle suiker terug':t<T('En',2)?'bijna al het water terug':'zout: zoveel als je nodig hebt',C.groen,1,32));
+  alpha(ctx,ramp(t,T('Alle'),0.4)*(1-ramp(t,T('Wat'),0.5)),()=>pill(ctx,1100,130,t<T('Bijna')?'alle suiker terug':t<T('En')?'bijna al het water terug':'zout: zoveel als je nodig hebt',C.groen,1,32));
   alpha(ctx,ramp(t,T('overblijft,'),0.5),()=>{ glas(GLAS_X,860,0.45,0.6,1,90,140); naamBij(ctx,'urine','± 1,5 liter per dag',GLAS_X-70,800,ramp(t,T('anderhalve'),0.5),'right'); });
   alpha(ctx,ramp(t,T('Daan'),0.5),()=>{ persoon(ctx,'daan',1800,880,300,{outfit:'sport',t}); }); alpha(ctx,ramp(t,T('Wat',2),0.5),()=>text(ctx,'?',1720,560,fTitel(90),C.goud)); },
 s09(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n); const av=ramp(t,T("'s Avonds")-0.3,0.8);
