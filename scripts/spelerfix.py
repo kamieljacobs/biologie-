@@ -21,7 +21,7 @@ FILMDATA-speler (hoofdengine, DNA-bouwstraat, onderbouw-Uitgelegd-engine; zie fi
 De oudere bouwvormen (window.FILM, const TL, __TIMELINE__, TIMELINE, Onderzoek doen, DNA-technieken)
 krijgen hun eigen variant; zie /home/claude/hw/SPELER_FIX.md.
 """
-import re, sys, glob, os
+import re, sys, glob, os, json
 
 MARK = 'SPELERFIX_MARK'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -191,14 +191,188 @@ def fix_oud_filmdata_bron(s):
 FIXERS = []  # (naam, herken(s)->bool, fix(s)->(s,log)) ; oudere bouwvormen worden hieronder toegevoegd
 
 
-def fix_text(s):
+# ---------------------------------------------------------------- bk-knip-laag (15 okt) van de oudere bouwvormen
+# Evolutie (const TL), Erfelijkheid (__TIMELINE__), Zenuwstelsel 1-6 (window.FILM), Stofwisseling 1-3 en
+# Voortplanting 1 (window.FILM, audio per hoofdstuk), Plek genoeg / Alles gaat rond (TIMELINE), DNA-technieken 1.
+BK_OLD_IN = "function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}"
+BK_NEW_IN = ("/*SPELERFIX_MARK bk 20okt2026: demp vóór de sprong, 0,045 s vooruitkijken*/"
+    "var BK_VOOR=0.045,BK_MEDIA=[];(function(){try{var p=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){if(BK_MEDIA.indexOf(this)<0)BK_MEDIA.push(this);return p.apply(this,arguments);};}catch(e){}})();"
+    "function bkDemp(){var l=BK_MEDIA.concat([].slice.call(document.querySelectorAll('audio,video')));l.forEach(function(a){if(a.paused||a.__bkd)return;a.__bkd={v:a.volume,m:a.muted};try{a.volume=0;}catch(e){}a.muted=true;"
+    "var vrij=function(){clearTimeout(a.__bkt);a.__bkt=setTimeout(function(){var d=a.__bkd;if(!d)return;a.__bkd=null;try{a.volume=d.v;}catch(e){}a.muted=d.m;},60);};"
+    "a.addEventListener('seeked',vrij,{once:true});a.addEventListener('pause',vrij,{once:true});a.__bkt=setTimeout(vrij,400);});}"
+    "function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-BK_VOOR&&x<c[1]-0.03){bkDemp();return c[1];}}return null;}")
+BK_OLD_VS = "return i<z.length?z[i].s:null;}"
+BK_NEW_VS = "return i<z.length?(window.BK_DIPS?z[i].s:Math.max(0,i>0&&z[i-1].e!=null?Math.max(z[i].s-0.2,Math.min(z[i-1].e+0.03,z[i].s-0.06)):z[i].s-0.12)):null;}"
+# hoofdstukkaart: de kaartknip houdt 0,8 s begin + 0,8 s eind (was 1,0/1,1 + 1,2/1,1) = 1,6 s bij 1x
+BK_KAART = [
+    ("s.end-s.start>2.3){ l.push([s.start+1.1,s.end-1.1]);", "s.end-s.start>1.7){ l.push([s.start+0.8,s.end-0.8]);"),
+    ("c.t_first - c.t > 2.3) l.push([c.t + 1.0, c.t_first - 1.2]);", "c.t_first - c.t > 1.7) l.push([c.t + 0.8, c.t_first - 0.8]);"),
+    ("ch.narrStart - ch.start > 2.3) l.push([ch.start + 1.0, ch.narrStart - 1.2]);", "ch.narrStart - ch.start > 1.7) l.push([ch.start + 0.8, ch.narrStart - 0.8]);"),
+    ("g.t1 - g.t0 > 2.3) l.push([o + g.t0 + 1.0, o + g.t1 - 1.2]);", "g.t1 - g.t0 > 1.7) l.push([o + g.t0 + 0.8, o + g.t1 - 0.8]);"),
+    # Zenuwstelsel 1-6: kaart is een eigen tijdlijnstuk (klok x snelheid) -> 1,3 s en niet sneller dan 1x
+    ("if(s.kind==='card'&&s.dur>2.2) s.dur=2.2;", "if(s.kind==='card'&&s.dur>1.3) s.dur=1.3;"),
+]
+BK_ZENUW_KLOK = ("const dt=(S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0)*S.snelheid;",
+                 "const dt=(S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0)*(segAt(S.T).kind==='card'?Math.min(1,S.snelheid):S.snelheid);")
+
+
+def fix_bk(s):
+    log = []
+    if BK_OLD_IN not in s:
+        return s, ['BKIN-PATROON ONTBREEKT']
+    s = s.replace(BK_OLD_IN, BK_NEW_IN); log.append('bkIn+demp')
+    if BK_OLD_VS in s:
+        s = s.replace(BK_OLD_VS, BK_NEW_VS); log.append('vraagstart')
+    n = 0
+    for a, b in BK_KAART:
+        if a in s:
+            s = s.replace(a, b); n += 1
+    log.append(f'kaart x{n}')
+    if BK_ZENUW_KLOK[0] in s:
+        s = s.replace(*BK_ZENUW_KLOK); log.append('kaartklok')
+    return s, log
+
+
+FIXERS.append(('bk-knip', lambda s: 'function bkIn(x)' in s and 'bk-knip' in s, fix_bk))
+
+
+# ---- knippunten op de echte stilte (oudere bouwvormen): BK_DIPS = stiltes in filmtijd, offline uit de audio
+BK_SNAP_JS = ("/*SPELERFIX_MARK bksnap*/function bkSnap(l){var D=window.BK_DIPS,D2=window.BK_DIPS2||[];if(!D||!D.length)return l;"
+    "function rond(t){for(var i=0;i<D.length;i+=2){if(t>=D[i]&&t<=D[i+1])return [D[i],D[i+1]];}return null;}"
+    "function naast(L,t,max){var b=null,bd=max;for(var i=0;i<L.length;i+=2){var d=t<L[i]?L[i]-t:(t>L[i+1]?t-L[i+1]:0);if(d<bd){bd=d;b=[L[i],L[i+1]];}}return b;}"
+    "return l.map(function(x){var a=x[0],b=x[1],r=rond(a);"
+    "if(!r||r[1]-a<0.06){var ref=a+0.08,n=naast(D,ref,0.4);if(n){var g=n[1]-n[0];a=g>=0.17?Math.max(n[0]+0.02,n[1]-0.12):(n[0]+n[1])/2;}else{n=naast(D2,ref,0.3);if(n)a=(n[0]+n[1])/2;}}"
+    "var r2=rond(b);if(!r2){var n2=naast(D,b,0.3);if(n2&&n2[1]>a+0.05)b=Math.max(n2[0],n2[1]-0.03);}"
+    "return [a,Math.max(b,a+0.02)];});}")
+BK_ZET_OLD = "function bkZet(l){l=l.filter("
+BK_ZET_NEW = "function bkZet(l){l=bkSnap(l);l=l.filter("
+
+
+def _pcm_env(data=None, path=None):
+    import subprocess
+    import numpy as np
+    cmd = ['ffmpeg', '-v', 'quiet', '-i', path or 'pipe:0', '-ac', '1', '-ar', '16000', '-f', 's16le', '-']
+    x = np.frombuffer(subprocess.run(cmd, input=data, capture_output=True).stdout, np.int16).astype(float) / 32768
+    n = len(x) // 160
+    r = np.sqrt((x[:n * 160].reshape(n, 160) ** 2).mean(1))
+    return r, max(0.002, float(np.percentile(r, 90)) * 0.03)
+
+
+def _runs(r, thr, off=0.0, minlen=3):
+    """stille stukken: >= minlen frames van 10 ms onder thr, als platte lijst [van, tot, ...] in s"""
+    out, i, n = [], 0, len(r)
+    while i < n:
+        if r[i] < thr:
+            j = i
+            while j < n and r[j] < thr:
+                j += 1
+            if j - i >= minlen:
+                out += [round(off + i / 100, 2), round(off + j / 100, 2)]
+            i = j
+        else:
+            i += 1
+    return out
+
+
+def bk_dips(path, s):
+    """Stiltes (>= 30 ms) in filmtijd voor films met de bk-knip-laag; None als de audio niet te vinden is."""
+    import base64, json as _j
+    d = os.path.dirname(path)
+    m = re.search(r'window\.FILM\s*=\s*', s)
+    if m and 'window.__AUDIO =' in s:
+        F, _ = _j.JSONDecoder().raw_decode(s, m.end())
+        if isinstance(F, str):
+            F = _j.loads(F)
+        ma = re.search(r'window\.__AUDIO\s*=\s*', s)
+        A, _ = _j.JSONDecoder().raw_decode(s, ma.end())
+        out, acc = [[], []], 0.0
+        for c in F['chapters']:
+            b = A.get(c['audio'])
+            if b is None:
+                return None
+            r, thr = _pcm_env(base64.b64decode(b))
+            out[0] += _runs(r, thr, acc); out[1] += _runs(r, thr * 4, acc, 2)
+            acc += c['dur']
+        return out
+    if 'window.FILM_AUDIO' in s:
+        return None  # Zenuwstelsel 1-6: knippen op segmentgrenzen, geen tabel nodig
+    m = re.search(r'au\.src="data:audio/mpeg;base64,([^"]+)"', s) or re.search(r'__AUDIO_B64__\s*=\s*"([^"]+)"', s)
+    if m:
+        r, thr = _pcm_env(base64.b64decode(m.group(1)))
+        return [_runs(r, thr), _runs(r, thr * 4, 0.0, 2)]
+    p = os.path.join(d, 'narration.mp3')
+    if os.path.exists(p):
+        r, thr = _pcm_env(path=p)
+        return [_runs(r, thr), _runs(r, thr * 4, 0.0, 2)]
+    return None
+
+
+def fix_bk_snap(path, s):
+    """Zet/vernieuw BK_DIPS en bkSnap. Idempotent: de tabel wordt elke keer uit de audio herberekend."""
+    if 'function bkIn(x)' not in s or 'bk-knip' not in s:
+        return s, []
+    dips = bk_dips(path, s)
+    if dips is None:
+        return s, ['geen stiltetabel']
+    tab = ('/*BK_DIPS*/window.BK_DIPS=' + json.dumps(dips[0], separators=(',', ':')) + ';window.BK_DIPS2='
+           + json.dumps(dips[1], separators=(',', ':')) + ';')
+    if '/*BK_DIPS*/' in s:
+        s = re.sub(r'/\*BK_DIPS\*/window\.BK_DIPS=\[[^\]]*\];(window\.BK_DIPS2=\[[^\]]*\];)?', lambda m: tab, s, count=1)
+    else:
+        s = s.replace(BK_ZET_OLD, tab + BK_SNAP_JS + BK_ZET_NEW, 1)
+    return s, [f'stiltetabel {len(dips[0])//2}+{len(dips[1])//2}']
+
+
+# ---------------------------------------------------------------- DNA-technieken 2 (eigen 'vensters') en Onderzoek doen
+OMG_DEMP = ("/*SPELERFIX_MARK omg*/function omgDemp(){ if(audio.paused) return; audio.muted=true; clearTimeout(omgDemp.t); "
+            "const v=()=>{ clearTimeout(omgDemp.t); omgDemp.t=setTimeout(()=>{ audio.muted=false; },60); }; "
+            "audio.addEventListener('seeked',v,{once:true}); omgDemp.t=setTimeout(v,400); }\n  ")
+
+
+def fix_omg2(s, path=None):
+    log = []
+    a = "const vensters = Qs.map("
+    b = ": q.t + 0.1)]; });\n  function slaVraagOver"
+    c = "if (now >= a && now < b - 0.05) { try { audio.currentTime = b; } catch (e) {}"
+    if a not in s or b not in s or c not in s:
+        return s, ['OMG2-PATROON ONTBREEKT']
+    tab = ''
+    if path:
+        mp3 = os.path.join(os.path.dirname(path), 'gelfilm.mp3')
+        if os.path.exists(mp3):
+            r, thr = _pcm_env(path=mp3)
+            tab = ('/*BK_DIPS*/window.BK_DIPS=' + json.dumps(_runs(r, thr), separators=(',', ':')) + ';window.BK_DIPS2='
+                   + json.dumps(_runs(r, thr * 4, 0.0, 2), separators=(',', ':')) + ';')
+            log.append('stiltetabel')
+    s = s.replace(a, tab + BK_SNAP_JS + '\n  ' + OMG_DEMP + "const vensters = bkSnap(Qs.map(", 1)
+    s = s.replace(b, ": q.t + 0.1)]; }));\n  function slaVraagOver", 1)
+    s = s.replace(c, "if (now >= a - 0.045 && now < b - 0.05) { omgDemp(); try { audio.currentTime = b; } catch (e) {}", 1)
+    log.append('vensters+demp')
+    return s, log
+
+
+def fix_onderzoek(s):
+    a = "if (rw && rw.sents.length === 1 && /stil\\.$/.test(rw.sents[0].x) && ci < CHAPTERS.length - 1) { load(ci + 1, 0, true);"
+    b = "slateTimer = setTimeout(go, 2200); }   // hoofdstukkaart 2,2 s (15 okt 2026; was 2,6 s)"
+    if a not in s or b not in s:
+        return s, ['ONDERZOEK-PATROON ONTBREEKT']
+    s = s.replace(a, "if (rw && rw.sents.length === 1 && /stil\\.$/.test(rw.sents[0].x) && ci < CHAPTERS.length - 1) { /*SPELERFIX_MARK onderzoek*/ audio.muted = true; setTimeout(() => { audio.muted = false; }, 300); load(ci + 1, 0, true);", 1)
+    s = s.replace(b, "slateTimer = setTimeout(go, 1300); }   // hoofdstukkaart 1,3 s (20 okt 2026; was 2,2 s)", 1)
+    return s, ['stil-sprong gedempt', 'kaart 1.3']
+
+
+FIXERS.append(('omg2', lambda s: 'const vensters = Qs.map(' in s and 'function slaVraagOver' in s, None))
+FIXERS.append(('onderzoek', lambda s: 'slateTimer = setTimeout(go, 2200)' in s, fix_onderzoek))
+
+
+def fix_text(s, path=None):
     if 'function vraagCuts(' in s and 'function knipSamen(' in s:
         return fix_filmdata(s)
     if MARK in s:
         return s, ['al gefixt']
     for naam, herken, fix in FIXERS:
         if herken(s):
-            s2, log = fix(s)
+            s2, log = (fix_omg2(s, path) if naam == 'omg2' else fix(s))
             return s2, [naam] + log
     if re.search(r'CARD_DUR=(2\.2|3\.5)', s) and 'drawChapterCard' in s:
         return fix_oud_filmdata_bron(s)
@@ -220,7 +394,12 @@ def main(argv):
     bad = 0
     for f in fs:
         s = open(f, encoding='utf-8').read()
-        s2, log = fix_text(s)
+        s2, log = fix_text(s, f)
+        if 'bk-knip' in s2 and 'function bkIn(x)' in s2:
+            s3, log2 = fix_bk_snap(f, s2)
+            if s3 != s2 and '/*BK_DIPS*/' in s2 and s3.replace(' ', '') == s2.replace(' ', ''):
+                pass
+            s2 = s3; log += log2
         if check:
             ok = MARK in s
             if not ok:
