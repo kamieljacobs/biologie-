@@ -1,0 +1,31 @@
+{
+ "intro": "Oefen met bestuivers, ecosysteemdiensten, de oorzaken van biodiversiteitsverlies en de planetaire grenzen. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {"id": "indelen-diensten", "soort": "indelen", "titel": "Welke ecosysteemdienst?",
+   "opdracht": "Bij elk kaartje zie je iets wat mensen uit de natuur halen. Welke soort ecosysteemdienst is het?",
+   "bakken": [{"naam": "Leveren", "uitleg": "productie: spullen uit de natuur"}, {"naam": "Regelen", "uitleg": "regulatie: processen die iets voor ons doen"}, {"naam": "Beleven", "uitleg": "cultureel: rust, sport, schoonheid"}],
+   "kaartjes": [
+    {"tekst": "Een boer plant een houtwal met bloeiende struiken naast zijn perenboomgaard. Zijn oogst wordt groter.", "bak": 1, "uitleg": "De struiken trekken wilde bestuivers aan. Bestuiving is een regelende dienst: de oogst zelf is wel 'leveren', maar wat hier verbetert is het bestuiven."},
+    {"tekst": "Na een hoosbui loopt het water in een stad met veel parken en groene daken minder snel over de straat.", "bak": 1, "uitleg": "Bodem en planten vangen water op en geven het langzaam af: regelen."},
+    {"tekst": "Een geneesmiddel tegen kanker is ontdekt in de bast van een boom.", "bak": 0, "uitleg": "Grondstoffen voor medicijnen zijn een leverende dienst."},
+    {"tekst": "Een school organiseert een les in het bos, omdat leerlingen daar rustiger worden.", "bak": 2, "uitleg": "Tot rust komen in de natuur is beleving: een culturele dienst."},
+    {"tekst": "Een rietveld bij een camping zuivert het afvalwater voordat het in de plas stroomt.", "bak": 1, "uitleg": "Riet en bacteriën in de bodem zuiveren water: regelen."},
+    {"tekst": "Een timmerman maakt een tafel van eikenhout uit een Nederlands bos.", "bak": 0, "uitleg": "Hout is een product uit de natuur: leveren."},
+    {"tekst": "Op het eiland in de Waal bij Nijmegen gaan in de zomer veel mensen zwemmen.", "bak": 2, "uitleg": "Zwemmen en recreëren is beleving. Bij hoogwater levert dezelfde plek een regelende dienst."}
+   ]},
+  {"id": "pijlen-amazone", "soort": "pijlen", "titel": "Een bos dat droogt",
+   "opdracht": "Door kap, brand en droogte neemt een regenwoud minder koolstofdioxide op. Wat gebeurt er in deze keten? Kies bij elke stap omhoog, omlaag of gelijk.", "vwo": true,
+   "situatie": "Een groot deel van een regenwoud wordt gekapt en droogt uit.",
+   "rijen": [
+    {"naam": "opname van CO₂ door het bos", "antwoord": "-", "uitleg": "Minder bomen en drogere bomen maken minder glucose met fotosynthese, dus ze nemen minder CO₂ op."},
+    {"naam": "hoeveelheid CO₂ in de lucht", "antwoord": "+", "uitleg": "Er komt CO₂ vrij bij brand en afbraak, en er wordt minder opgenomen."},
+    {"naam": "opwarming", "antwoord": "+", "uitleg": "Meer CO₂ versterkt het broeikaseffect."},
+    {"naam": "droogte in het bos", "antwoord": "+", "uitleg": "Warmer weer en een langere droge tijd maken het bos droger: de keten versterkt zichzelf (positieve terugkoppeling)."}
+   ]},
+  {"id": "uitleg-bestuivers", "soort": "uitleg", "titel": "Leg het uit: waarom veel soorten bestuivers?",
+   "opdracht": "Een fruitteler zegt: 'Ik heb genoeg honingbijen, wilde bijen heb ik niet nodig.' Leg uit waarom veel soorten bestuivers de oogst betrouwbaarder maken.",
+   "begrippen": [{"naam": "biodiversiteit", "varianten": ["biodiversiteit", "veel soorten", "verschillende soorten"]}, {"naam": "hommel", "varianten": ["hommel"]}, {"naam": "weer of temperatuur", "varianten": ["koud", "kou", "bewolkt", "weer", "temperatuur", "regen"]}, {"naam": "vruchtzetting of oogst", "varianten": ["vrucht", "oogst", "opbrengst"]}],
+   "checklist": ["Ik noem dat verschillende bestuivers onder verschillende omstandigheden vliegen (bijvoorbeeld hommels bij kou).", "Ik noem dat bestuivers verschillende bloemen of delen van bloemen bezoeken.", "Ik noem dat als één soort wegvalt, andere soorten het overnemen.", "Ik koppel dat aan een grotere of betrouwbaardere oogst."],
+   "model": ["Verschillende soorten bestuivers vullen elkaar aan. Een hommel vliegt ook als het koud en bewolkt is, als honingbijen in de kast blijven. Andere wilde bijen bezoeken bloemen die de honingbij overslaat.", "Valt in een slecht jaar één soort weg, dan nemen andere soorten het werk over. Onderzoek in honderden boomgaarden en akkers liet zien: met meer wilde bestuivers zetten meer bloemen vrucht, hoeveel honingbijen er ook waren. Meer biodiversiteit geeft dus een betrouwbaardere oogst."]}
+ ]
+}

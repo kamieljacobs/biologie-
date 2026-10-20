@@ -24,7 +24,7 @@ Voorgestelde volgorde: eerst de twee milieufilms en de havo-stofwisselingsfilm (
 - Hoe een plant groeit: plantenhormonen als signaalcascade (ethyleen, abscisinezuur)
 - Transport in planten: bladbouw en aantal huidmondjes
 
-Vwo H9 Mens en milieu heeft sinds 20 okt 2026 een eigen hoofdstukpagina (`#milieu`) met Eén aarde en Ingrijpen of laten gaan?; sluitstuk Binnen de grenzen (biodiversiteit, ecosysteemdiensten, planetaire grenzen) in de maak. Temperatuurregulatie (vwo 17 vragen) hoort bij Regeling.
+Vwo H9 Mens en milieu heeft sinds 20 okt 2026 een eigen hoofdstukpagina (`#milieu`) met Eén aarde en Ingrijpen of laten gaan?; sluitstuk *Binnen de grenzen* (biodiversiteit, ecosysteemdiensten, planetaire grenzen) gebouwd op 21 okt 2026, wacht op review. Temperatuurregulatie (vwo 17 vragen) hoort bij Regeling.
 
 ## Overige openstaande punten
 - In 27 films staan aanvullingen als `[nieuw]` in `bron/script.md` die nog niet zijn ingesproken (vergelijking met Gewoon Uitgelegd); alleen de nieuwe alinea's inspreken.
