@@ -105,3 +105,31 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe deze woorden moeten 
 | RNA (los woord) | `erenaa` | `er-en-aa` | s18 |
 
 Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea (flow WcsexV97auoKZ8EXmbLl; nieuwe nodes in `stem/takes.json`, generatie-id's en duur in `stem/gen.json` met `heropname: uitspraaktest 19 okt 2026`). TTS-credits: 3124; Scribe-woordtijden (eleven_scribe_v1) per take, op de ondertitelwoorden uitgelijnd met `align.py` (alle takes ratio 1,0, geen verschillen); ruwe transcripten in `stem/status_timing_uitspraak_19okt.json`. In de HTML zijn alleen de woordtijden en `dur` van deze segmenten in `window.FILMDATA` vervangen (speler, beeld en cues ongewijzigd; de ondertitels waren al goed). `segments.json` (voice + vmap) en de duren in `script.md` zijn bijgewerkt. Bij opnieuw bouwen: de nieuwe invoer staat in `segments.json`; `bouw/uitspraak_subs.json` heeft de oude respellings voor deze woorden niet meer.
+
+## Versie 1.1 · 20 oktober 2026 (beeld na feedback Kamiel)
+
+Alleen beeld: audio, script, vragen en cues op de stem zijn gelijk gebleven (nieuwe cue-woorden gecontroleerd in `stem/woordtijden`). `src/lib_cast.js` (castboek) is toegevoegd en zit in `bouw/build.py` bij /*LIBSERIES*/. In de film is alleen het scenes-blok vervangen door lib_cast.js + de nieuwe scenes.js (speler, spelerfix en teller ongewijzigd). Geen korrels meer op de achtergrond (`grainCanvas` 1×1).
+
+Algemeen (nieuwe of vervangen helpers in `scenes.js`): `antigeen(x, y, nx, ny)` uit film 1, overal loodrecht óp het oppervlak; `virus` met envelop, uitsteeksels en een antigeen op elke punt; `antistofOp` laat een antistof met zijn bindplaats precies óp een antigeen zitten; `mhc()` tekent MHC-I (grijs), MHC-II (goud) en vreemde MHC (roze) loodrecht op het membraan; `lCel` heeft een gebogen membraan met deuken/bulten (`celPad`), rustige cytoplasmatextuur, viruseiwitketentjes en `aanvoer` (stukjes virus reizen van binnen naar de houders); `tCel` heeft T-celreceptoren rondom en richt er één op een doel (gloed bij binden); `bCel` heeft membraan-antistoffen als receptoren; `bacterie`, `lymfeknoop`, `wissel`, `fagocyt` uit film 1. Alle overlappende tekstbalken → `wissel`; alle `label()`-wijslijnen → `naamBij`.
+
+| Scène | Wat veranderde |
+|---|---|
+| title | T-killercel richt zijn receptor op de geïnfecteerde cel en licht op |
+| s01 | Noor (cast, zomer-outfit) rechtop in bed met rode wangen, thermometer en zweetdruppel; grijze poppetjes (moeder) weg: telefoon met belgolfjes ('mama belt de huisarts') en Dr. Kim als huisarts in een rond inzetje; tekstbalken via `wissel` |
+| s04 | Celwand-naam zonder wijslijn; het antibioticum lost op en moleculen gaan naar de celwand, die dan openbreekt; zoomcirkel van het virus met erfelijk materiaal (8 RNA-stukjes) dat verschijnt op 'erfelijk' |
+| s05 | Infectie stap voor stap: virus hecht, membraan deukt in en sluit een blaasje om het virus, erfelijk materiaal gaat naar de kern, kern licht op ('bevel'), nieuwe virusdeeltjes vullen de cel, knoppen uit het membraan (bulten) en vliegen naar de buurcellen, die dan ook geïnfecteerd raken; gekaapte cel kleurt koraal |
+| s06 | Antibioticummoleculen zweven door de darm; de ongevoelige bacteriën (goud omrand) delen zich zichtbaar (1 → 2 → 4 → 8) |
+| s07 | Antistoffen binden één voor één met de bindplaats op de antigenen van het vrije virus |
+| s09 | Fagocyt probeert het virus eruit te halen (kruis); Noor (cast) met kijkje in de romp: beenmerg in het dijbeen, thymus achter het borstbeen, jonge T-cel reist van beenmerg naar thymus, zoomcirkel waarin T-cellen rijpen (krijgen receptoren); geïnfecteerde cel: stukjes virus reizen van binnen naar de MHC-houders |
+| s10 | T-killercel nadert en zijn receptor past op het stukje virus in de houder; inzet B-cel/T-cel met binding (B-cel bindt los virus, T-cel alleen een stukje op een cel); doden: T-killercel hecht, korrels met stoffen, gaatjes, cel zwelt op en valt uiteen in blaasjes, fagocyt komt en neemt de resten op; antistoffen binden op ontsnapte virussen |
+| s11 | Lymfeknoop als boonvorm met follikels (film 1); fagocyt met MHC-II en stukjes virus; de passende T-helpercel komt uit een groepje en koppelt; signaalstoffen stromen naar B-cel en T-killercel; klonale deling 1 → 2 → 4 → 8 → 16, laatste drie worden geheugencellen ★; B-cel geeft antistoffen af bij 'humoraal' |
+| s12 | Echte zenuwcel (dendrieten, lange uitloper naar de huid); virussen rusten in het cellichaam en reizen langs de uitloper naar de huid (blaasjes); Opa Henk (cast) verschijnt bij 'latere leeftijd' met een band blaasjes op één kant van de romp |
+| s13 | MHC-I-cel: stukjes van binnen gaan naar de houders, T-killercel komt en koppelt; MHC-II: fagocyt neemt een virus op en toont dan stukjes in MHC-II, T-helpercel koppelt |
+| s14 | Thymus: T-cellen die op de eigen stukjes van een thymuscel passen, worden uitgeschakeld (vallen uiteen); donornier: Opa Henk (cast) met de nier in de buik en een zoomcirkel; donorcellen met roze (vreemde) MHC, jouw T-killercel koppelt, korrels, cel valt uiteen; bij 'medicijnen' houdt Henk een pil vast |
+| s15 | Klein inzetje: hiv bindt aan een T-helpercel (op 'infecteert', verdwijnt als de grafiek start) |
+| s17 | T-helpercel kapot met hiv-deeltjes eruit; signaalstofjes naar B-/T-killercel stoppen bij 'regelaar'; andere ziekteverwekkers vermenigvuldigen zich; fagocyt pakt er één, maar niet genoeg |
+| s18 | Hiv nadert en versmelt met de T-helpercel; RNA-streng, reverse transcriptase loopt erlangs en maakt dubbelstrengs DNA; dat gaat de kern in en wordt in een opening in het DNA van de cel ingebouwd; hiv-remmer (molecuul) blokkeert reverse transcriptase (kruis) |
+| s19 | Sam en Lotte (cast) knuffelen bij 'niet via'; rijtje pillen langs de tijdas ('elke dag'); tekstbalken via `wissel` |
+| s20 | Grijze poppetjes weg: Noor (cast, beter, school-outfit) staat naast haar bed, denkt bij de vraag over oefenen |
+
+Bewust gelaten: grafieken van s15 en s19 (kloppen en zijn al dynamisch), de lijstjes van s19 en de recap-balken in s20 (een opsomming die tegelijk zichtbaar moet blijven), de pil-/bacterievergelijking in s06 (eerste deel), het schema-overzicht in s17 (pijlen T-helpercel → B-cel/T-killercel).
