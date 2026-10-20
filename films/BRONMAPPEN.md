@@ -46,6 +46,10 @@ De films zijn in verschillende sessies gebouwd en hebben daardoor verschillende 
 | Wat word jij? · Psychologie 1 *Welke therapie werkt?* (16 oktober 2026; `films/vervolg/`, duur in `films/vervolg/films.json`) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden lokaal met `bouw/silalign.py`; bron in `bron/src` + `bron/bouw` (straat van Gedrag 12) | alleen die alinea opnieuw; daarna `silalign.py` voor die take |
 | Nieuwsgierig? · Geen middelpunt (geschiedenis van de biologie, 20 oktober 2026; `films/extra/`) | losse mp3 per alinea naast de HTML (`<slug>/audio/`) | `window.FILMDATA`, woordtijden (Scribe) per take; bron in `bron/src` + `bron/bouw` (straat van Ecologie 4; scènes in `bron/scenes_lib.js` + `bron/scenes_main.js`) | alleen die alinea opnieuw |
 
+## Speler: knippen bij Vragen uit en hoofdstukkaart (20 oktober 2026)
+
+Alle bouwvormen krijgen de spelerfix via `python3 scripts/spelerfix.py` (idempotent; zonder argumenten: alle films en `bron/src/player*.js`; `--check` meldt films zonder fix). FILMDATA-speler: knippunt op de echte stilte (audio wordt in de browser geanalyseerd), dempen vóór de sprong, hoofdstukkaart 1,3 s (niet sneller dan 1x). Oudere bouwvormen met de bk-knip-laag: stiltetabel `BK_DIPS` uit de audio (opnieuw draaien na elke audiowijziging), dempen vóór de sprong, kaart 1,6 s. Draai het script na elke (her)bouw of nieuwe opname. Let op: een aantal `bron/src/player.js` is ouder dan Vragen aan/uit; de actuele speler staat in de film-HTML en in `films/gedrag/*/bron/src/player.js`.
+
 ## Gevonden bij de reconstructie
 
 Verbeterd op 12 oktober 2026 (alleen code en tekst, geen nieuwe opnamen):
