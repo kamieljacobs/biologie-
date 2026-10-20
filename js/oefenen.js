@@ -7,7 +7,7 @@
      indelen   – kaartjes naar twee tot vier groepen slepen (of tik-tik)
      pijlen    – voorspel per grootheid: neemt toe, neemt af of blijft gelijk (een keten van oorzaak en gevolg)
      grafiek   – een eigen lijntekening van een grafiek aflezen: getal invullen of een keuze maken
-     stamboom  – genotype per persoon kiezen (AA, Aa, aa, A_) en controleren of het kan
+     stamboom  – eerst aantonen (bv. recessief), dan per persoon alle mogelijke genotypen aanzetten en controleren of het kan
      puzzel    – stap voor stap invullen met controle (genotypen, kansen, getallen); de volgende stap verschijnt na een goede
    Alles gebeurt in de browser; de tekst van de leerling blijft alleen lokaal (localStorage), er wordt niets verstuurd.
    Oefeningen met "vwo": true zijn in de havo-stand (body.havo) verborgen, net als .term.vwo.
@@ -129,13 +129,16 @@
     '.oe-stapknoppen{display:flex;gap:8px;flex-wrap:wrap}.oe-tip{margin:0;font-size:14.5px;color:var(--oe-goud)}' +
     '.oe-puzzel .oe-vraag:not(.goed):not(.fout){border-color:rgba(224,182,74,.55)}' +
     /* stamboom */
-    '.oe-gt{position:absolute;transform:translate(-50%,-50%);list-style:none}' +
-    '.oe-gt label{display:flex;align-items:center;gap:6px}' +
-    '.oe-gt .oe-gtnr{display:none;color:var(--oe-zacht);font-size:14.5px;min-width:7em}' +
-    '.oe-gt .oe-in{min-height:34px;padding:4px 6px;font:600 15px/1 "IBM Plex Mono",monospace;border-radius:8px}' +
-    '.oe-gt.goed .oe-in{border-color:var(--oe-goed);box-shadow:0 0 0 1px var(--oe-goed)}.oe-gt.half .oe-in{border-color:var(--oe-goud);box-shadow:0 0 0 1px var(--oe-goud)}.oe-gt.fout .oe-in{border-color:var(--oe-fout);box-shadow:0 0 0 1px var(--oe-fout)}' +
+    '.oe-gt{position:absolute;transform:translate(-50%,-50%);list-style:none;display:flex;align-items:center;gap:6px}' +
+    '.oe-gtnr{display:none;color:var(--oe-zacht);font-size:14.5px;min-width:6.5em}' +
+    '.oe-gtknop{display:flex;gap:3px;padding:3px;border-radius:10px;border:1.5px solid transparent;background:var(--oe-kaart)}' +
+    '.oe-gk{font:600 14px/1 "IBM Plex Mono",monospace;min-width:38px;min-height:32px;padding:0 4px;border-radius:7px;border:1px solid var(--oe-rand);background:transparent;color:var(--oe-tekst);cursor:pointer}' +
+    '.oe-gk[aria-pressed="true"]{background:var(--oe-goud);border-color:var(--oe-goud);color:var(--oe-goud-ink)}' +
+    '.oe-gk:disabled{cursor:default;opacity:.35}.oe-gk:focus-visible{outline:2px solid var(--oe-goud);outline-offset:2px}' +
+    '.oe-gtnot{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:2px;font:600 13px "IBM Plex Mono",monospace;color:var(--oe-goud);white-space:nowrap}' +
+    '.oe-gt.goed .oe-gtknop{border-color:var(--oe-goed)}.oe-gt.half .oe-gtknop{border-color:var(--oe-goud)}.oe-gt.fout .oe-gtknop{border-color:var(--oe-fout)}' +
     '.oe-terug li.half b::before{content:"~ ";color:var(--oe-goud)}' +
-    '.oe-stamboom.smal .oe-vakken{display:grid;gap:8px;margin-top:10px}.oe-stamboom.smal .oe-gt{position:static;transform:none}.oe-stamboom.smal .oe-gt .oe-gtnr{display:inline}' +
+    '.oe-stamboom.smal .oe-vakken{display:grid;gap:8px;margin-top:10px}.oe-stamboom.smal .oe-gt{position:static;transform:none}.oe-stamboom.smal .oe-gtnr{display:inline}.oe-stamboom.smal .oe-gtnot{position:static;transform:none;margin:0}' +
     /* smal: vakjes als genummerde lijst onder de tekening */
     '.oe-schema.smal .oe-teken svg .nrbol{display:inline}' +
     '.oe-schema.smal .oe-vakken{display:grid;gap:8px}' +
@@ -827,40 +830,46 @@
     toonStap(0);
   }
 
-  /* ---------- stamboom: genotype per persoon kiezen, controleren of het kan ---------- */
-  // personen: {nr, x, y, ziek, ouders:[nr,nr]?}; x/y = midden van de keuzelijst in de tekening.
+  /* ---------- stamboom: per persoon alle mogelijke genotypen aanzetten, controleren of het kan ---------- */
+  // personen: {nr, naam, x, y, ziek, ouders:[nr,nr]?}; x/y = midden van de knoppenrij in de tekening.
   // erfgang 'recessief' (ziek = aa) of 'dominant' (ziek = minstens één A). Autosomaal.
+  // eerst: optionele vragen {vraag, keuzes[], antwoord: index, uitleg} die goed moeten zijn voordat de genotypen opengaan.
   var GT = ['AA', 'Aa', 'aa'];
   function bouwStamboom(o, doos) {
     var W = o.breed || 640, H = o.hoog || 400, dom = o.erfgang === 'dominant';
     var P = o.personen, idx = {}; P.forEach(function (p, i) { idx[p.nr] = i; });
-    var keuzes = o.keuzes || ['AA', 'Aa', 'aa', 'A_'];
-    function set(k) { return k === 'A_' ? ['AA', 'Aa'] : k === 'a_' ? ['Aa', 'aa'] : [k]; }
     function past(p, g) { var ziek = dom ? g !== 'aa' : g === 'aa'; return ziek === !!p.ziek; }
-    function kind(g1, g2, g) { // kan g uit g1 × g2?
-      for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) { var x = [g1[i], g2[j]].sort().join(''); if (x === g.split('').sort().join('')) return true; }
-      return false;
-    }
-    // alle toewijzingen die bij fenotypen en afstamming passen
-    function oplossingen(beperk) {
-      var uit = [], g = new Array(P.length);
-      (function zoek(i) {
-        if (i === P.length) { uit.push(g.slice()); return; }
-        var p = P[i], opties = beperk && beperk[i] ? beperk[i] : GT;
-        opties.forEach(function (x) {
-          if (!past(p, x)) return;
-          g[i] = x;
-          // controleer ouders zodra die al ingevuld zijn (ouders staan in de lijst vóór hun kinderen)
-          if (p.ouders) { var a = idx[p.ouders[0]], b = idx[p.ouders[1]]; if (a < i && b < i && !kind(g[a], g[b], x)) return; }
-          zoek(i + 1);
-        });
-      })(0);
-      return uit;
-    }
-    var alle = oplossingen(null);
+    function kind(g1, g2, g) { var z = g.split('').sort().join(''); for (var i = 0; i < 2; i++) for (var j = 0; j < 2; j++) if ([g1[i], g2[j]].sort().join('') === z) return true; return false; }
+    var alle = [], g = new Array(P.length);
+    (function zoek(i) {
+      if (i === P.length) { alle.push(g.slice()); return; }
+      var p = P[i];
+      GT.forEach(function (x) {
+        if (!past(p, x)) return;
+        if (p.ouders) { var a = idx[p.ouders[0]], b = idx[p.ouders[1]]; if (!kind(g[a], g[b], x)) return; }
+        g[i] = x; zoek(i + 1);
+      });
+    })(0);
     var mogelijk = P.map(function (p, i) { var s = {}; alle.forEach(function (a) { s[a[i]] = 1; }); return GT.filter(function (x) { return s[x]; }); });
+    function naam(i) { return P[i].naam || ('Persoon ' + P[i].nr); }
+    function klein(t) { return t.replace(/^Persoon/, 'persoon'); }
+    function waarom(i, x) {
+      var p = P[i];
+      if (!past(p, x)) return p.ziek ? (dom ? klein(naam(i)) + ' is ziek, dus heeft minstens één A.' : klein(naam(i)) + ' is ziek, dus aa.') : (dom ? klein(naam(i)) + ' is gezond, dus aa.' : klein(naam(i)) + ' is gezond, dus heeft minstens één A.');
+      if (p.ouders) {
+        var a = idx[p.ouders[0]], b = idx[p.ouders[1]];
+        var ok = mogelijk[a].some(function (u) { return mogelijk[b].some(function (v) { return kind(u, v, x); }); });
+        if (!ok) return 'dat kan niet uit de ouders (' + mogelijk[a].join(' of ') + ' × ' + mogelijk[b].join(' of ') + ') komen.';
+      }
+      var kids = P.map(function (q, j) { return j; }).filter(function (j) { return P[j].ouders && P[j].ouders.indexOf(p.nr) >= 0; });
+      var niet = kids.filter(function (j) {
+        var partner = idx[P[j].ouders[0] === p.nr ? P[j].ouders[1] : P[j].ouders[0]];
+        return !mogelijk[partner].some(function (y) { return GT.some(function (z) { return past(P[j], z) && kind(x, y, z); }); });
+      });
+      if (niet.length) return 'dan kan ' + niet.map(function (j) { return klein(naam(j)); }).join(' en ') + ' niet ontstaan' + (niet.length === 1 && P[niet[0]].ziek && !dom ? ' (die is ziek, dus aa)' : '') + '.';
+      return 'dat past niet bij de rest van de stamboom.';
+    }
 
-    doos.appendChild(el('p', 'oe-hulp', 'Je kunt ook eerst een paar personen invullen en dan op ‘Kan dit?’ klikken.'));
     var wrap = el('div', 'oe-schema oe-stamboom');
     var teken = el('div', 'oe-teken');
     teken.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(o.alt || o.titel) + '">' + o.svg + '</svg>';
@@ -868,62 +877,77 @@
     P.forEach(function (p, i) {
       var li = el('li', 'oe-gt'); li.dataset.i = i;
       li.style.left = (100 * p.x / W) + '%'; li.style.top = (100 * p.y / H) + '%';
-      li.innerHTML = '<label><span class="oe-gtnr">' + esc(p.naam || ('persoon ' + p.nr)) + '</span><select class="oe-in" aria-label="Genotype van ' + esc(p.naam || ('persoon ' + p.nr)) + '"><option value="">?</option>' +
-        keuzes.map(function (k) { return '<option>' + k + '</option>'; }).join('') + '</select></label>';
+      li.innerHTML = '<span class="oe-gtnr">' + esc(naam(i)) + '</span><span class="oe-gtknop" role="group" aria-label="Mogelijke genotypen van ' + esc(naam(i)) + '">' +
+        GT.map(function (x) { return '<button type="button" class="oe-gk" data-g="' + x + '" aria-pressed="false">' + x + '</button>'; }).join('') + '</span><span class="oe-gtnot" aria-live="polite"></span>';
       lijst.appendChild(li);
     });
-    teken.appendChild(lijst); wrap.appendChild(teken); doos.appendChild(wrap);
-    function maat() { var b = wrap.getBoundingClientRect().width; if (b) wrap.classList.toggle('smal', b < 560); var smal = wrap.classList.contains('smal'); if (smal && lijst.parentNode !== wrap) wrap.appendChild(lijst); if (!smal && lijst.parentNode !== teken) teken.appendChild(lijst); }
-    if (window.ResizeObserver) new ResizeObserver(maat).observe(wrap); else window.addEventListener('resize', maat);
-    maat();
+    teken.appendChild(lijst); wrap.appendChild(teken);
+
+    // eerst aantonen (bijv. dominant of recessief)
+    var eerst = o.eerst || [], stap = 0;
+    var vooraf = el('ol', 'oe-vragen'); 
+    var hulp = el('p', 'oe-hulp', 'Zet bij elke persoon álle genotypen aan die kunnen. Kunnen er twee, zet dan allebei aan. Je kunt ook eerst een paar personen doen en dan op ‘Kan dit?’ klikken.');
+    doos.appendChild(wrap);
+    if (eerst.length) doos.appendChild(vooraf);
+    doos.appendChild(hulp);
     var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Kan dit?</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
     var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite'); k.appendChild(melding); doos.appendChild(k);
     var terug = el('ul', 'oe-terug'); doos.appendChild(terug);
-    function items() { return Array.prototype.slice.call(lijst.children); }
-    function wis() { meld(melding, ''); terug.innerHTML = ''; items().forEach(function (li) { li.classList.remove('goed', 'half', 'fout'); }); }
-    lijst.addEventListener('change', wis);
-    function naam(i) { return P[i].naam || ('Persoon ' + P[i].nr); }
-    function waarom(i, c) {
-      var p = P[i];
-      if (!c.some(function (g) { return past(p, g); })) return p.ziek ? (dom ? 'is ziek, dus heeft minstens één A.' : 'is ziek, dus moet aa zijn.') : (dom ? 'is gezond, dus moet aa zijn.' : 'is gezond, dus heeft minstens één A.');
-      if (p.ouders) { var b = {}; b[i] = c; if (!oplossingen(b).length) {
-        var a = idx[p.ouders[0]], m = idx[p.ouders[1]];
-        var ok = c.some(function (g) { return mogelijk[a].some(function (x) { return mogelijk[m].some(function (y) { return kind(x, y, g); }); }); });
-        if (!ok) return 'kan niet uit deze ouders komen.';
-      } }
-      var kids = P.map(function (q, j) { return j; }).filter(function (j) { return P[j].ouders && P[j].ouders.indexOf(p.nr) >= 0; });
-      var nietMogelijk = kids.filter(function (j) {
-        var partner = idx[P[j].ouders[0] === p.nr ? P[j].ouders[1] : P[j].ouders[0]];
-        return !c.some(function (x) { return mogelijk[partner].some(function (y) { return GT.some(function (z) { return past(P[j], z) && kind(x, y, z); }); }); });
+    function open(aan) { wrap.classList.toggle('dicht', !aan); hulp.hidden = k.hidden = !aan; lijst.querySelectorAll('.oe-gk').forEach(function (b) { b.disabled = !aan; }); }
+    function toonVraag() {
+      if (stap >= eerst.length) { open(true); return; }
+      var q = eerst[stap], li = el('li', 'oe-vraag');
+      li.appendChild(el('p', 'oe-vraagtekst', esc(q.vraag)));
+      var rij = el('div', 'oe-invulrij oe-keuzes');
+      q.keuzes.forEach(function (c, j) { var b = el('button', 'oe-keuze', esc(c)); b.type = 'button'; b.dataset.j = j; rij.appendChild(b); });
+      li.appendChild(rij); vooraf.appendChild(li);
+      rij.addEventListener('click', function (e) {
+        var b = e.target.closest('.oe-keuze'); if (!b || li.classList.contains('goed')) return;
+        var u = li.querySelector('.oe-uitleg'); if (u) u.remove();
+        rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        if (+b.dataset.j === q.antwoord) {
+          li.classList.remove('fout'); li.classList.add('goed');
+          rij.querySelectorAll('.oe-keuze').forEach(function (x) { x.disabled = true; });
+          li.appendChild(el('div', 'oe-uitleg', '<em>Goed.</em> ' + esc(q.uitleg || '')));
+          stap++; toonVraag();
+        } else {
+          li.classList.add('fout');
+          li.appendChild(el('div', 'oe-uitleg', '<em>Nog niet.</em> ' + esc(q.tip || 'Kijk nog eens goed naar de stamboom.')));
+        }
       });
-      if (nietMogelijk.length) return 'dan kan ' + nietMogelijk.map(function (j) { return naam(j).replace(/^Persoon/, 'persoon'); }).join(' en ') + ' niet ontstaan' + (nietMogelijk.length === 1 && P[nietMogelijk[0]].ziek ? ' (die is ziek, dus aa)' : '') + '.';
-      return 'past niet bij de rest van de stamboom.';
     }
+    open(!eerst.length); toonVraag();
+
+    var maat = function () { var b = wrap.getBoundingClientRect().width; if (b) wrap.classList.toggle('smal', b < 560); var smal = wrap.classList.contains('smal'); if (smal && lijst.parentNode !== wrap) wrap.appendChild(lijst); if (!smal && lijst.parentNode !== teken) teken.appendChild(lijst); };
+    if (window.ResizeObserver) new ResizeObserver(maat).observe(wrap); else window.addEventListener('resize', maat);
+    maat();
+    function items() { return Array.prototype.slice.call(lijst.children); }
+    function gekozen(li) { return Array.prototype.slice.call(li.querySelectorAll('.oe-gk[aria-pressed="true"]')).map(function (b) { return b.dataset.g; }); }
+    function notatie(li) { var c = gekozen(li); li.querySelector('.oe-gtnot').textContent = c.join() === 'AA,Aa' ? '= A_' : ''; }
+    function wis() { meld(melding, ''); terug.innerHTML = ''; items().forEach(function (li) { li.classList.remove('goed', 'half', 'fout'); }); }
+    lijst.addEventListener('click', function (e) {
+      var b = e.target.closest('.oe-gk'); if (!b || b.disabled) return;
+      wis(); b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); notatie(b.closest('.oe-gt'));
+    });
     k.addEventListener('click', function (e) {
       var a = e.target.closest('[data-a]'); if (!a) return;
       wis();
-      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('select').forEach(function (s) { s.value = ''; }); return; }
-      var kies = items().map(function (li) { return li.querySelector('select').value; });
-      var leeg = kies.filter(function (x) { return !x; }).length;
-      var goed = 0, half = 0, fout = 0;
-      kies.forEach(function (x, i) {
-        if (!x) return;
-        var c = set(x), m = mogelijk[i], li = items()[i], tekst, st;
-        var raak = c.filter(function (g) { return m.indexOf(g) >= 0; });
-        if (!raak.length) { st = 'fout'; var w = waarom(i, c); tekst = x + ' kan niet: ' + (/^dan |^kan |^past /.test(w) ? '' : naam(i).replace(/^Persoon/, 'persoon') + ' ') + w; fout++; }
-        else if (raak.length === c.length && c.length === m.length) { st = 'goed'; tekst = x + ' klopt' + (m.length > 1 ? ': meer weet je niet.' : ', dat is zeker.'); goed++; }
-        else if (c.length < m.length) { st = 'half'; tekst = x + ' kan, maar is niet zeker: ' + m.filter(function (g) { return c.indexOf(g) < 0; }).join(' of ') + ' kan ook.' + (m.join() === 'AA,Aa' ? ' Schrijf A_.' : ''); half++; }
-        else { st = 'half'; tekst = x + ' kan, maar je weet meer: het moet ' + m.join(' of ') + ' zijn.'; half++; }
+      if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-gk').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); }); items().forEach(notatie); return; }
+      var leeg = 0, goed = 0, half = 0, fout = 0;
+      items().forEach(function (li, i) {
+        var c = gekozen(li), m = mogelijk[i], st, tekst;
+        if (!c.length) { leeg++; return; }
+        var kanNiet = c.filter(function (x) { return m.indexOf(x) < 0; });
+        var mist = m.filter(function (x) { return c.indexOf(x) < 0; });
+        if (kanNiet.length) { st = 'fout'; fout++; tekst = kanNiet.join(' en ') + ' kan niet: ' + waarom(i, kanNiet[0]); }
+        else if (mist.length) { st = 'half'; half++; tekst = c.join(' of ') + ' kan, maar ' + mist.join(' en ') + ' kan ook. Zet ' + (mist.length === 1 ? 'die' : 'die') + ' er ook bij.'; }
+        else { st = 'goed'; goed++; tekst = m.length > 1 ? m.join(' of ') + ': klopt, meer weet je niet' + (m.join() === 'AA,Aa' ? ' (genoteerd als A_).' : '.') : m[0] + ': klopt, dat is zeker.'; }
         li.classList.add(st);
         terug.appendChild(el('li', st, '<b>' + esc(naam(i)) + '</b> ' + esc(tekst)));
       });
-      // samen: kan de hele invulling tegelijk?
-      var beperk = kies.map(function (x) { return x ? set(x) : null; });
-      var samen = fout === 0 && oplossingen(beperk).length > 0;
-      if (fout === 0 && !samen) terug.insertAdjacentHTML('afterbegin', '<li class="fout"><b>Samen</b> Elk genotype kan los, maar niet allemaal tegelijk. Kijk naar de ouders en hun kinderen.</li>');
-      if (!leeg && goed === P.length) meld(melding, 'Klopt helemaal, en je hebt overal zo precies mogelijk ingevuld!', 'goed');
-      else if (fout || !samen) meld(melding, 'Dit kan nog niet. Kijk naar de rode personen.', 'half');
-      else meld(melding, 'Dit kan!' + (half ? ' Bij ' + half + (half === 1 ? ' persoon' : ' personen') + ' kun je het preciezer of voorzichtiger zeggen.' : '') + (leeg ? ' Nog ' + leeg + ' leeg.' : ''), half || leeg ? 'half' : 'goed');
+      if (!leeg && goed === P.length) meld(melding, 'Klopt helemaal: bij iedereen staan precies de genotypen die kunnen!', 'goed');
+      else if (fout) meld(melding, 'Dit kan nog niet. Kijk naar de rode personen.', 'half');
+      else meld(melding, 'Wat je hebt aangezet kan.' + (half ? ' Bij ' + half + (half === 1 ? ' persoon' : ' personen') + ' kan er nog meer.' : '') + (leeg ? ' Nog ' + leeg + ' leeg.' : ''), 'half');
     });
   }
 
