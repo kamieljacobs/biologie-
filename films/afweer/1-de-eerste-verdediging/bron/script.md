@@ -16,7 +16,7 @@ Titelkaart: De eerste verdediging. Hoe je lichaam indringers tegenhoudt en oprui
 
 ## Hoofdstuk 1 — Muren en grachten
 
-**s04** · 50.6 s · `audio/s04.mp3`
+**s04** · 50.5 s · `audio/s04.mp3`
 
 Elke dag komen er bacteriën, virussen en schimmels op je af. De meeste komen niet eens binnen. Je huid is de eerste muur. De buitenste laag bestaat uit dode, verhoornde cellen, die steeds afschilferen. Zweet en talg maken je huid ook een beetje zuur. Dat vinden veel bacteriën niet prettig. In je luchtwegen vangt slijm ziekteverwekkers, en trilharen voeren het af. Dat zag je in de film Adem in, adem uit. Traanvocht en speeksel bevatten lysozym: een enzym dat de celwand van bacteriën afbreekt. En in je maag doodt zoutzuur de meeste bacteriën uit je eten. Op je huid en in je darmen leven ook ontelbaar veel bacteriën die je geen kwaad doen: ongeveer net zoveel als je eigen cellen. Ze bezetten de plek, eten het voedsel op, en maken zelfs stoffen die ziekteverwekkers remmen.
 
@@ -32,7 +32,7 @@ Antwoord bee. Antibiotica maken geen onderscheid tussen goede en slechte bacteri
 
 ## Hoofdstuk 2 — Alles opeten
 
-**s08** · 27.7 s · `audio/s08.mp3`
+**s08** · 28.1 s · `audio/s08.mp3`
 
 Maar een splinter prikt dwars door de muur. Bacteriën van de splinter komen in je weefsel terecht. Daar wachten macrofagen: grote witte bloedcellen die in je weefsels leven. Het zijn fagocyten, eetcellen. Een fagocyt omsluit een bacterie met uitstulpingen, schijnvoetjes, en neemt hem op in een blaasje. Lysosomen versmelten met dat blaasje, en hun enzymen breken de bacterie af. Dat heet fagocytose.
 
@@ -42,11 +42,11 @@ Je krijgt vandaag een bacterie binnen die je lichaam nog nooit heeft gezien. Kan
 
 **q10** (vraag): nee, eerst moet hij leren hoe die bacterie eruitziet · ja, hij herkent kenmerken die veel bacteriën hebben · alleen als je ertegen bent ingeënt
 
-**s11** · 27.1 s · `audio/s11.mp3`
+**s11** · 26.9 s · `audio/s11.mp3`
 
 Antwoord bee. Elke cel heeft vormpjes op zijn oppervlak. Je eigen cellen hebben jouw vormpjes. Een fagocyt herkent vormpjes die veel bacteriën gemeen hebben, maar die jouw cellen niet hebben. Zo weet hij: dit is vreemd. Welke bacteriesoort het precies is, ziet hij niet. Daarom heet dit aspecifieke afweer: snel, en altijd klaar, maar niet op maat. En hij onthoudt niets.
 
-**s12** · vwo · 35.1 s · `audio/s12.mp3`
+**s12** · vwo · 35.3 s · `audio/s12.mp3`
 
 Voor vwo gaan we hier nog een stap verder. Sommige fagocyten doen meer dan opruimen: vooral dendritische cellen. Ze knippen de bacterie in stukjes, en zetten een paar stukjes op hun eigen oppervlak, als een opsporingsbericht. Zo'n vreemd stukje heet een antigeen. Het laten zien heet antigeenpresentatie. Met dat bericht reizen ze via de lymfe naar een lymfeknoop. Daar zoeken ze T-helpercellen die precies bij dat antigeen passen, en starten zo de specifieke afweer. Die zie je in de volgende twee films. Terug naar de basis.
 
@@ -70,7 +70,7 @@ Antwoord bee. Misschien dacht je: de ziekteverwekkers maken de warmte. Maar dat 
 
 ## Recap
 
-**s17** · 39.0 s · `audio/s17.mp3`
+**s17** · 39.9 s · `audio/s17.mp3`
 
 Waarom werd het plekje bij de splinter rood, warm en dik? Histamine maakte de bloedvaatjes wijder: meer bloed, dus rood en warm. De wand ging meer doorlaten: vocht en witte bloedcellen gingen het weefsel in, dus dik. Daar ruimden de fagocyten de bacteriën op. Het antwoord was dus: je lichaam doet het zelf. Vaatjes worden wijder en lekken vocht. Een paar dagen later is alles opgeruimd. Fagocyten zijn snel, maar ze herkennen niets precies. Tegelijk start je lichaam ook een afweer op maat. Die heeft een paar dagen nodig, maar hij onthoudt een ziekteverwekker. Daarover gaat de volgende film.
 

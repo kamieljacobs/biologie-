@@ -20,3 +20,10 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b | antwoord AA / BEE | `Antwoord aa.` / `Antwoord bee.` | s07, s11, s13, s16 |
 
 **Wachtlijst voor Kamiel:** vooral faagosiet/faagosie-toze, histaminuh, liezoziem en "een en veertig" (de ondertitel toont eenenveertig). Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026: goedgekeurd
+
+- **lysozym**: `lysozym` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s04 op 19–20 okt 2026.
+- **fagocyt(en)**: `fagocyt / fagocyten` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s08, s09, s11, s12, s13, s17 op 19–20 okt 2026.
+- **histamine**: `histamine` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s13, s17 op 19–20 okt 2026.
