@@ -105,6 +105,11 @@ if idx2 != idx: open(ip, 'w', encoding='utf-8').write(idx2); print('index.html: 
 op = os.path.join(R, 'oefenen.html'); oh = open(op, encoding='utf-8').read()
 oh2 = re.sub(r"s\.src = 'js/oefenen\.js(?:\?v=[0-9a-f]*)?'", "s.src = 'js/oefenen.js?v=" + V + "'", oh)
 if oh2 != oh: open(op, 'w', encoding='utf-8').write(oh2); print('oefenen.html: versie bijgewerkt')
+for sp in ('sessie/index.html', 'sessie/docent.html'):  # werksessies laden oefenen.js zonder data-oefenen
+    sp = os.path.join(R, sp)
+    if not os.path.exists(sp): continue
+    sh = open(sp, encoding='utf-8').read(); sh2 = re.sub(r'\.\./js/oefenen\.js(?:\?v=[0-9a-f]*)?"', '../js/oefenen.js?v=' + V + '"', sh)
+    if sh2 != sh: open(sp, 'w', encoding='utf-8').write(sh2); print(os.path.relpath(sp, R) + ': versie bijgewerkt')
 lp = os.path.join(R, 'oefenlijst.json')
 oud = open(lp, encoding='utf-8').read() if os.path.exists(lp) else ''
 nieuw = json.dumps(lijst, ensure_ascii=False, indent=1) + '\n'

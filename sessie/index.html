@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Doe mee met de sessie · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<link rel="stylesheet" href="sessie.css">
+<script src="../tools/huisstijl.js"></script>
+<script src="../js/oefenen.js?v=80ae609d"></script>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="../index.html">Biologie bij Kamiel</a>
+    <span class="rechts"><span class="s-chip" id="wie" hidden></span><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+
+  <!-- meedoen -->
+  <section id="v-meedoen">
+    <header class="tool-kop" style="text-align:center">
+      <div class="mono">Werksessie</div>
+      <h1>Doe mee</h1>
+      <p style="margin:0 auto">Vul de code in die op het bord staat en je voornaam.</p>
+    </header>
+    <form class="paneel s-meedoen" id="f-meedoen" autocomplete="off">
+      <label class="veld"><span>Code</span><input type="text" id="i-code" class="s-code-in" maxlength="4" inputmode="text" autocapitalize="characters" spellcheck="false" required></label>
+      <label class="veld"><span>Je voornaam</span><input type="text" id="i-naam" maxlength="30" required></label>
+      <button class="knop" type="submit" id="b-meedoen">Meedoen</button>
+      <p class="s-melding fout" id="m-meedoen" aria-live="polite"></p>
+      <p class="s-klein" style="margin:12px 0 0">Je docent ziet je naam en je antwoorden. Na de les worden ze gewist.</p>
+    </form>
+  </section>
+
+  <!-- werken -->
+  <section id="v-werk" hidden>
+    <header class="tool-kop">
+      <div class="mono" id="w-eyebrow">Werksessie</div>
+      <h1 id="w-titel">Opdrachten</h1>
+      <p id="w-lead"></p>
+    </header>
+    <div id="w-band"></div>
+    <div class="s-kaarten" id="w-opdrachten"></div>
+    <div id="w-klaar" hidden style="margin-top:22px">
+      <div class="s-band groen" id="w-klaartekst">Klaar! Wacht op de anderen, of ga verder met:</div>
+      <div class="s-keuzes" id="w-keuzes"></div>
+      <div id="w-wacht" style="margin-top:16px"></div>
+    </div>
+  </section>
+
+  <footer class="tool-voet">Biologie bij Kamiel · <a href="docent.html">docent</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script type="module">
+import { maakDb, esc, normCode } from './db.js';
+
+const $ = (id) => document.getElementById(id);
+const schud = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+let db, code, uid, naam, sessie = null, data = null, begrippen = null, mijn = {};
+const kaarten = new Map();          // opdracht-id -> {kaart, doos, bouw}
+let blokHoofd = null, blokExtra = null, wachtKeuze = null, laatsteVrij = 0, gestart = false;
+
+// code uit de link (?code=K7M4) en eerdere invoer (na herladen meteen terug)
+const qs = new URLSearchParams(location.search);
+$('i-code').value = normCode(qs.get('code') || '');
+try { const b = JSON.parse(sessionStorage.getItem('bk-sessie') || 'null'); if (b) { if (!$('i-code').value) $('i-code').value = b.code; $('i-naam').value = b.naam; } } catch (e) { }
+$('i-code').addEventListener('input', (e) => { e.target.value = normCode(e.target.value); });
+if ($('i-code').value) $('i-naam').focus(); else $('i-code').focus();
+
+$('f-meedoen').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const m = $('m-meedoen'); m.textContent = '';
+  const c = normCode($('i-code').value), n = $('i-naam').value.trim().slice(0, 30);
+  if (c.length !== 4) { m.textContent = 'De code heeft 4 tekens.'; return; }
+  if (!n) { m.textContent = 'Vul je voornaam in.'; return; }
+  $('b-meedoen').disabled = true;
+  try {
+    db = db || await maakDb();
+    uid = await db.leerlingLogin();
+    const s = await db.lees('sessies/' + c);
+    if (!s) { m.textContent = 'Deze code bestaat niet (meer). Kijk nog eens op het bord.'; return; }
+    if (s.status === 'dicht') { m.textContent = 'Deze sessie is al afgesloten.'; return; }
+    const oud = await db.lees('deelnemers/' + c + '/' + uid);
+    await db.zet('deelnemers/' + c + '/' + uid, { naam: n, binnen: (oud && oud.binnen) || Date.now() });
+    code = c; naam = n;
+    try { sessionStorage.setItem('bk-sessie', JSON.stringify({ code, naam })); } catch (er) { }
+    await start(s);
+  } catch (er) {
+    console.error(er); m.textContent = 'Meedoen lukte niet. Controleer je internet en probeer het opnieuw.';
+  } finally { $('b-meedoen').disabled = false; }
+});
+
+async function start(s) {
+  $('v-meedoen').hidden = true; $('v-werk').hidden = false;
+  const w = $('wie'); w.hidden = false; w.textContent = naam + ' · ' + code;
+  history.replaceState(null, '', '?code=' + code);
+  const r = await fetch('../' + s.json, { cache: 'no-cache' }); data = await r.json();
+  (data.oefeningen || []).forEach((o, k) => { if (!o.id) o.id = 'o' + (k + 1); });
+  mijn = (await db.lees('antwoorden/' + code + '/' + uid)) || {};
+  blokHoofd = window.BKOefenen.blok($('w-opdrachten'), { sessie: true, sleutel: 'bk-sessie:' + code + ':' + uid + ':' });
+  blokHoofd.addEventListener('oe-resultaat', opslaan);
+  db.luister('sessies/' + code, (x) => { if (x) { sessie = x; teken(); } else einde('De sessie is gestopt.'); });
+  gestart = true;
+}
+
+function opdrachten() {
+  if (!sessie || !data) return [];
+  const ids = sessie.opdrachten || [];
+  const zicht = sessie.modus === 'samen' ? ids.slice(0, sessie.vrij || 0) : ids;
+  return zicht.map((id) => data.oefeningen.find((o) => o.id === id)).filter(Boolean);
+}
+
+function teken() {
+  document.body.classList.toggle('havo', sessie.niveau === 'havo');
+  $('w-eyebrow').textContent = 'Werksessie · ' + code;
+  $('w-titel').textContent = sessie.filmtitel || 'Opdrachten';
+  const lijst = opdrachten(), totaal = (sessie.opdrachten || []).length;
+  $('w-lead').textContent = sessie.modus === 'samen'
+    ? 'Je docent geeft de opdrachten één voor één vrij. Werk de opdracht uit en klik op Controleer.'
+    : 'Werk de ' + (totaal === 1 ? 'opdracht' : totaal + ' opdrachten') + ' uit. Klik steeds op Controleer: je docent ziet je antwoorden.';
+  // band bovenaan
+  const band = $('w-band');
+  if (sessie.status === 'bespreken') band.innerHTML = '<div class="s-band teal">We bespreken de antwoorden. Kijk mee op het bord.</div>';
+  else if (sessie.status === 'dicht') return einde('De sessie is afgesloten. Goed gewerkt!');
+  else if (sessie.modus === 'samen' && lijst.length < totaal) band.innerHTML = '<div class="s-band">Opdracht ' + lijst.length + ' van ' + totaal + '. De volgende komt als je docent hem vrijgeeft.</div>';
+  else band.innerHTML = '';
+  // nieuwe kaarten erbij (bestaande blijven staan, met wat de leerling al deed)
+  lijst.forEach((o, k) => {
+    if (kaarten.has(o.id)) return;
+    const m = window.BKOefenen.kaart(o);
+    m.kaart.querySelector('.oe-soort').insertAdjacentHTML('afterbegin', 'Opdracht ' + (k + 1) + ' · ');
+    blokHoofd.querySelector('.oe-lijstje') || blokHoofd.appendChild(Object.assign(document.createElement('div'), { className: 'oe-lijstje' }));
+    blokHoofd.querySelector('.oe-lijstje').appendChild(m.kaart);
+    kaarten.set(o.id, m);
+    if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af');
+  });
+  // open de eerste opdracht die nog niet af is (alleen bij start of als er een nieuwe is vrijgegeven)
+  if (lijst.length !== laatsteVrij) {
+    const open = lijst.find((o) => !(mijn[o.id] && mijn[o.id].klaar));
+    if (open) { const m = kaarten.get(open.id); m.kaart.open = true; m.bouw(); if (laatsteVrij) m.kaart.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    laatsteVrij = lijst.length;
+  }
+  klaarCheck();
+}
+
+function opslaan(e) {
+  const d = JSON.parse(JSON.stringify(e.detail));
+  const oud = mijn[d.id] || {};
+  const nieuw = { laatste: d, pogingen: (oud.pogingen || 0) + (d.concept ? 0 : 1), klaar: !!(d.klaar || oud.klaar), tijd: Date.now() };
+  nieuw.eerste = oud.eerste || (d.concept ? null : d);
+  if (!nieuw.eerste) delete nieuw.eerste;
+  mijn[d.id] = nieuw;
+  db.zet('antwoorden/' + code + '/' + uid + '/' + d.id, nieuw).catch((er) => console.warn('opslaan mislukt', er));
+  const m = kaarten.get(d.id); if (m && nieuw.klaar) m.kaart.classList.add('s-af');
+  klaarCheck();
+}
+
+function klaarCheck() {
+  const lijst = opdrachten();
+  const af = lijst.length > 0 && lijst.every((o) => mijn[o.id] && mijn[o.id].klaar);
+  const w = sessie.wacht || {};
+  const opties = [];
+  if (w.begrippen) opties.push(['begrippen', 'Begrippen oefenen', 'Welk begrip hoort bij de uitleg?']);
+  if (w.extra && extraLijst().length) opties.push(['extra', 'Extra opdrachten', extraLijst().length + ' opdrachten bij deze film']);
+  if (w.vragen && w.vragen.length) opties.push(['vragen', 'Verdiepingsvragen', w.vragen.length === 1 ? 'Eén vraag om over na te denken' : w.vragen.length + ' vragen om over na te denken']);
+  $('w-klaar').hidden = !af;
+  const alles = sessie.modus !== 'samen' || lijst.length === (sessie.opdrachten || []).length;
+  $('w-klaartekst').textContent = (alles ? 'Klaar met alle opdrachten!' : 'Klaar met deze opdracht!') + (opties.length ? (alles ? ' Wacht op de anderen, of ga verder met:' : ' Tot de volgende opdracht kun je verder met:') : ' Wacht even op de anderen.');
+  const k = $('w-keuzes'), sleutel = opties.map((o) => o[0]).join();
+  if (k.dataset.s !== sleutel) {
+    k.dataset.s = sleutel;
+    k.innerHTML = opties.map((o) => '<button type="button" class="s-keuze" data-w="' + o[0] + '" aria-pressed="' + (wachtKeuze === o[0]) + '"><b>' + esc(o[1]) + '</b><span>' + esc(o[2]) + '</span></button>').join('');
+  }
+}
+$('w-keuzes').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-w]'); if (!b) return;
+  wachtKeuze = b.dataset.w;
+  $('w-keuzes').querySelectorAll('[data-w]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  const doos = $('w-wacht'); doos.innerHTML = ''; blokExtra = null;
+  if (wachtKeuze === 'begrippen') toonBegrippen(doos);
+  if (wachtKeuze === 'extra') toonExtra(doos);
+  if (wachtKeuze === 'vragen') toonVragen(doos);
+  doos.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+/* ---- wachtopdracht: overige opdrachten van de film ---- */
+function extraLijst() {
+  const hoofd = new Set(sessie.opdrachten || []);
+  return (data.oefeningen || []).filter((o) => !hoofd.has(o.id) && !(o.vwo && sessie.niveau === 'havo'));
+}
+function toonExtra(doos) {
+  blokExtra = window.BKOefenen.blok(doos, { sessie: true });
+  blokExtra.addEventListener('oe-resultaat', opslaan);
+  const l = document.createElement('div'); l.className = 'oe-lijstje'; blokExtra.appendChild(l);
+  extraLijst().forEach((o, k) => { const m = window.BKOefenen.kaart(o); l.appendChild(m.kaart); kaarten.set(o.id, m); if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af'); if (k === 0) { m.kaart.open = true; m.bouw(); } });
+}
+
+/* ---- wachtopdracht: begrippen oefenen (uitleg → kies het begrip) ---- */
+async function toonBegrippen(doos) {
+  if (!begrippen) {
+    try { const r = await fetch('begrippen.json', { cache: 'no-cache' }); const alle = await r.json(); begrippen = (alle[sessie.film] || []).filter((b) => !(b.vwo && sessie.niveau === 'havo')); }
+    catch (e) { begrippen = []; }
+  }
+  if (begrippen.length < 4) { doos.innerHTML = '<p class="s-stil">Bij deze film zijn (nog) geen begrippen om te oefenen.</p>'; return; }
+  const st = mijn._begrippen || { goed: 0, totaal: 0 };
+  let rij = schud(begrippen), i = 0;
+  doos.innerHTML = '<div class="paneel s-quiz"><div class="s-rij"><h3 style="margin:0">Welk begrip hoort bij deze uitleg?</h3><span class="s-score duw" id="q-score"></span></div><div class="s-quizuitleg" id="q-uitleg"></div><div class="s-opties" id="q-opties"></div><div class="s-rij"><span id="q-terug" class="s-stil"></span><button class="knop klein duw" id="q-volgende" type="button" hidden>Volgende</button></div></div>';
+  const score = () => { $('q-score').textContent = st.goed + ' van ' + st.totaal + ' goed'; };
+  function vraag() {
+    if (i >= rij.length) { rij = schud(begrippen); i = 0; }
+    const b = rij[i++];
+    const wegwoord = new RegExp(b.t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+    $('q-uitleg').textContent = b.d.replace(wegwoord, '…');
+    const opties = schud([b].concat(schud(begrippen.filter((x) => x !== b)).slice(0, 3)));
+    $('q-opties').innerHTML = opties.map((o) => '<button type="button" class="s-optie" data-t="' + esc(o.t) + '">' + esc(o.t) + '</button>').join('');
+    $('q-terug').textContent = ''; $('q-volgende').hidden = true;
+    $('q-opties').onclick = (e) => {
+      const k = e.target.closest('.s-optie'); if (!k || $('q-opties').dataset.af === '1') return;
+      $('q-opties').dataset.af = '1';
+      const ok = k.dataset.t === b.t;
+      st.totaal++; if (ok) st.goed++;
+      k.classList.add(ok ? 'goed' : 'fout');
+      if (!ok) $('q-opties').querySelectorAll('.s-optie').forEach((x) => { if (x.dataset.t === b.t) x.classList.add('goed'); });
+      $('q-terug').textContent = ok ? 'Goed!' : 'Het is ' + b.t + '.';
+      score(); $('q-volgende').hidden = false; $('q-volgende').focus();
+      mijn._begrippen = { goed: st.goed, totaal: st.totaal };
+      db.zet('antwoorden/' + code + '/' + uid + '/_begrippen', mijn._begrippen).catch(() => { });
+    };
+    $('q-opties').dataset.af = '0';
+  }
+  $('q-volgende').onclick = vraag;
+  score(); vraag();
+}
+
+/* ---- wachtopdracht: verdiepingsvragen van de docent ---- */
+function toonVragen(doos) {
+  const vragen = (sessie.wacht && sessie.wacht.vragen) || [];
+  doos.innerHTML = vragen.map((v, k) => '<div class="paneel" style="margin-bottom:12px"><div class="s-nr">Verdiepingsvraag ' + (k + 1) + '</div><h3 style="margin:6px 0 10px">' + esc(v) + '</h3><textarea data-k="' + k + '" rows="5" placeholder="Jouw antwoord…">' + esc((mijn['_vraag' + k] || {}).tekst || '') + '</textarea><p class="s-klein" data-s="' + k + '" style="margin:6px 0 0"></p></div>').join('');
+  const timers = {};
+  doos.addEventListener('input', (e) => {
+    const t = e.target.closest('textarea[data-k]'); if (!t) return;
+    const k = t.dataset.k, s = doos.querySelector('[data-s="' + k + '"]'); s.textContent = 'Opslaan…';
+    clearTimeout(timers[k]);
+    timers[k] = setTimeout(() => {
+      mijn['_vraag' + k] = { tekst: t.value.slice(0, 4000), tijd: Date.now() };
+      db.zet('antwoorden/' + code + '/' + uid + '/_vraag' + k, mijn['_vraag' + k]).then(() => { s.textContent = 'Opgeslagen. Je docent kan je antwoord zien.'; }).catch(() => { s.textContent = 'Opslaan lukte niet.'; });
+    }, 1200);
+  });
+}
+
+function einde(tekst) {
+  $('w-band').innerHTML = '<div class="s-band groen">' + esc(tekst) + '</div>';
+  $('w-klaar').hidden = true;
+  try { sessionStorage.removeItem('bk-sessie'); } catch (e) { }
+}
+
+// na herladen: automatisch terug in de sessie
+if (qs.get('code')) { try { const b = JSON.parse(sessionStorage.getItem('bk-sessie') || 'null'); if (b && b.code === normCode(qs.get('code'))) $('f-meedoen').requestSubmit(); } catch (e) { } }
+</script>
+</body>
+</html>

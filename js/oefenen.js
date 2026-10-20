@@ -10,13 +10,16 @@
      stamboom  – modus bewijs (conclusie + bewijs aanklikken), reeks (kleine stambomen) of hypothese (hypothesen toetsen met genotypen)
      puzzel    – stap voor stap invullen met controle (genotypen, kansen, getallen); de volgende stap verschijnt na een goede
    Alles gebeurt in de browser; de tekst van de leerling blijft alleen lokaal (localStorage), er wordt niets verstuurd.
+   Werksessies (sessie/): zonder data-oefenen start er niets vanzelf, maar staat window.BKOefenen klaar (blok, kaart, bouw).
+   Na elke controle stuurt een oefening het event 'oe-resultaat' (bubbles) met {id, soort, items:[{label, gekozen, juist, goed}],
+   goed, totaal, klaar, tekst?}; de sessiepagina stuurt dat door naar de docent. Op een gewone filmpagina luistert niemand.
    Oefeningen met "vwo": true zijn in de havo-stand (body.havo) verborgen, net als .term.vwo.
    Ingeladen door scripts/oefenen.py op elke film waar een oefenen.json bij hoort. */
 (function () {
   'use strict';
   var SCRIPT = document.currentScript;
   var PAD = SCRIPT && SCRIPT.getAttribute('data-oefenen');
-  if (!PAD) return;
+  var SESSIE = false; // true in een werksessie: de docent ziet de antwoorden
 
   var CSS = '' +
     '.oe-blok{--oe-kaart:#1C2A42;--oe-kaart2:#22314D;--oe-rand:rgba(143,160,181,.35);--oe-tekst:#EEF2F7;--oe-zacht:#A9B5C6;--oe-goud:#E0B64A;--oe-goud-ink:#1A1405;--oe-goed:#7FC48F;--oe-fout:#E8876C;--oe-lijn:#C3CEDC;--oe-vwo:#A392D6;--oe-veld:#121A26;' +
@@ -203,6 +206,13 @@
       if (waarde === null) localStorage.removeItem(sleutel); else localStorage.setItem(sleutel, JSON.stringify(waarde));
     } catch (e) { return null; }
   }
+  // resultaat van een controle doorgeven (werksessie); items = [{label, gekozen, juist, goed}]
+  function rapport(doos, o, items, extra) {
+    var goed = items.filter(function (x) { return x.goed; }).length;
+    var d = { id: o.id, soort: o.soort, items: items, goed: goed, totaal: items.length, klaar: goed === items.length };
+    if (extra) Object.keys(extra).forEach(function (k) { d[k] = extra[k]; });
+    try { doos.dispatchEvent(new CustomEvent('oe-resultaat', { bubbles: true, detail: d })); } catch (e) { /* oude browser */ }
+  }
   // sleutel per film (via het pad van oefenen.json), zodat de filmpagina en de losse oefenpagina dezelfde antwoorden delen
   var SLEUTEL = 'bk-oefenen:' + (function () { try { return new URL(PAD, location.href).pathname; } catch (e) { return location.pathname; } })() + ':';
 
@@ -345,12 +355,14 @@
       wisUitslag(); kies(null);
       var r = slots(), leeg = r.filter(function (v) { return !v.querySelector('.oe-chip'); }).length;
       if (leeg) { melding.textContent = 'Zet eerst alle stappen op een plek (nog ' + leeg + ' leeg).'; melding.className = 'oe-melding half'; return; }
-      var goed = 0;
+      var goed = 0, uit = [];
       r.forEach(function (slot, k) {
         var i = +slot.querySelector('.oe-chip').dataset.i, pl = plekken(i), ok = pl.indexOf(k) >= 0; if (ok) goed++;
+        uit[i] = { label: stappen[i].tekst, gekozen: 'plek ' + (k + 1), juist: 'plek ' + pl.map(function (n) { return n + 1; }).join(' of '), goed: ok };
         slot.classList.add(ok ? 'goed' : 'fout');
         slot.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Hoort op plek ' + pl.map(function (n) { return n + 1; }).join(' of ') + '.</em> ') + esc(stappen[i].uitleg)));
       });
+      rapport(doos, o, uit);
       if (goed === r.length) { melding.textContent = 'Helemaal goed! Lees de uitleg bij elke stap nog eens.'; melding.className = 'oe-melding goed'; }
       else { melding.textContent = goed + ' van ' + r.length + ' op de goede plek. Lees de uitleg, verschuif en controleer opnieuw.'; melding.className = 'oe-melding half'; }
     });
@@ -482,14 +494,16 @@
       var a = e.target.closest('[data-a]'); if (!a) return;
       if (a.dataset.a === 'opnieuw') return begin();
       wisUitslag(); kies(null);
-      var goed = 0;
+      var goed = 0, uit = [];
       vakken().forEach(function (vak) {
         var v = vakjes[+vak.dataset.k], chip = vak.querySelector('.oe-chip'), ok = !!chip && chip.dataset.naam === v.naam;
         if (ok) goed++;
+        uit[v.k] = { label: 'Vakje ' + (v.k + 1), gekozen: chip ? chip.dataset.naam : '(leeg)', juist: v.naam, goed: ok };
         vak.classList.add(ok ? 'goed' : 'fout');
         var li = el('li', ok ? 'goed' : 'fout', '<b>' + (v.k + 1) + '. ' + esc(v.naam) + '</b>' + (ok ? '' : (chip ? ' (jij: ' + esc(chip.dataset.naam) + ')' : ' (leeg)')) + (v.uitleg ? ' — ' + esc(v.uitleg) : ''));
         terug.appendChild(li);
       });
+      rapport(doos, o, uit);
       if (goed === vakjes.length) { melding.textContent = 'Alles goed!'; melding.className = 'oe-melding goed'; }
       else { melding.textContent = goed + ' van ' + vakjes.length + ' goed. Verbeter de rode vakjes en controleer opnieuw.'; melding.className = 'oe-melding half'; }
     });
@@ -531,7 +545,7 @@
     var teller = el('div', 'oe-teller'); doos.appendChild(teller);
     var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="bekijk">Bekijk je uitleg</button><button type="button" class="oe-knop" data-a="model">Toon modeluitleg</button><button type="button" class="oe-knop" data-a="wis">Wis</button>');
     doos.appendChild(knoppen);
-    doos.appendChild(el('p', 'oe-privacy', 'Je tekst blijft alleen op dit apparaat bewaard en wordt nergens naartoe gestuurd.'));
+    doos.appendChild(el('p', 'oe-privacy', SESSIE ? 'Dit is een werksessie: je docent ziet wat je schrijft (in de bespreking zonder je naam).' : 'Je tekst blijft alleen op dit apparaat bewaard en wordt nergens naartoe gestuurd.'));
     var uitkomst = el('div', 'oe-uitkomst'); uitkomst.hidden = true; doos.appendChild(uitkomst);
     var model = el('div', 'oe-uitkomst'); model.hidden = true;
     model.innerHTML = '<div><h4>Modeluitleg</h4><div class="oe-model">' + (Array.isArray(o.model) ? o.model : [o.model]).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div></div>';
@@ -539,7 +553,16 @@
 
     function telWoorden() { var n = norm(veld.value).split(' ').filter(Boolean).length; teller.textContent = n + (n === 1 ? ' woord' : ' woorden'); }
     function bewaar() { bewaard.tekst = veld.value; opslag(sl, bewaard.tekst || (bewaard.vink && bewaard.vink.some(Boolean)) ? bewaard : null); }
-    veld.addEventListener('input', function () { telWoorden(); bewaar(); });
+    var wachtRapport = null;
+    function begripRes() {
+      var tokens = norm(veld.value).split(' ').filter(Boolean);
+      return o.begrippen.map(function (b) { var vars = [b.naam].concat(b.varianten || []); return { naam: b.naam, ja: vars.some(function (v) { return bevat(tokens, v); }) }; });
+    }
+    function stuur(concept) {
+      if (!SESSIE) return;
+      rapport(doos, o, begripRes().map(function (r) { return { label: r.naam, gekozen: r.ja ? 'gebruikt' : 'niet gebruikt', juist: 'gebruikt', goed: r.ja }; }), { tekst: veld.value, klaar: !!veld.value.trim(), concept: !!concept });
+    }
+    veld.addEventListener('input', function () { telWoorden(); bewaar(); clearTimeout(wachtRapport); wachtRapport = setTimeout(function () { stuur(true); }, 2500); });
     telWoorden();
 
     function bekijk() {
@@ -563,7 +586,7 @@
     });
     knoppen.addEventListener('click', function (e) {
       var a = e.target.closest('[data-a]'); if (!a) return;
-      if (a.dataset.a === 'bekijk') { bekijk(); if (!veld.value.trim()) uitkomst.insertAdjacentHTML('afterbegin', '<p class="oe-melding half">Schrijf eerst je eigen uitleg; dan kun je hem vergelijken.</p>'); }
+      if (a.dataset.a === 'bekijk') { bekijk(); clearTimeout(wachtRapport); stuur(false); if (!veld.value.trim()) uitkomst.insertAdjacentHTML('afterbegin', '<p class="oe-melding half">Schrijf eerst je eigen uitleg; dan kun je hem vergelijken.</p>'); }
       else if (a.dataset.a === 'model') { model.hidden = !model.hidden; a.textContent = model.hidden ? 'Toon modeluitleg' : 'Verberg modeluitleg'; }
       else if (a.dataset.a === 'wis') { veld.value = ''; bewaard = {}; opslag(sl, null); telWoorden(); uitkomst.hidden = true; uitkomst.innerHTML = ''; veld.focus(); }
     });
@@ -666,6 +689,10 @@
           c.classList.add(ok ? 'goed' : 'fout');
         });
       });
+      rapport(doos, o, kaartjes.map(function (k) {
+        var c = doos.querySelector('.oe-chip[data-i="' + k.i + '"]'), g = c && c.closest('[data-b]');
+        return { label: k.tekst, gekozen: g ? bakken[+g.dataset.b].naam : '(leeg)', juist: bakken[k.bak].naam, goed: c.classList.contains('goed') };
+      }));
       kaartjes.forEach(function (k) {
         var c = doos.querySelector('.oe-chip[data-i="' + k.i + '"]'), ok = c.classList.contains('goed');
         terug.appendChild(el('li', ok ? 'goed' : 'fout', '<b>' + esc(k.tekst) + '</b> → ' + esc(bakken[k.bak].naam) + (k.uitleg ? '. ' + esc(k.uitleg) : '')));
@@ -702,13 +729,15 @@
       if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-pk').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); return; }
       var open = rijen().filter(function (li) { return !li.querySelector('.oe-pk[aria-pressed="true"]'); }).length;
       if (open) return meld(melding, 'Kies eerst bij elke regel een pijl (nog ' + open + ' open).', 'half');
-      var goed = 0;
+      var goed = 0, uit = [];
       rijen().forEach(function (li) {
         var r = o.rijen[+li.dataset.k], w = li.querySelector('.oe-pk[aria-pressed="true"]').dataset.w, ok = w === r.antwoord; if (ok) goed++;
-        var juist = PIJLKEUZE.filter(function (p) { return p[0] === r.antwoord; })[0];
+        var juist = PIJLKEUZE.filter(function (p) { return p[0] === r.antwoord; })[0], jij = PIJLKEUZE.filter(function (p) { return p[0] === w; })[0];
+        uit.push({ label: r.naam, gekozen: jij[1] + ' ' + jij[2], juist: juist[1] + ' ' + juist[2], goed: ok });
         li.classList.add(ok ? 'goed' : 'fout');
         li.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Juist is ' + juist[1] + ' ' + juist[2] + '.</em> ') + esc(r.uitleg || '')));
       });
+      rapport(doos, o, uit);
       if (goed === o.rijen.length) meld(melding, 'Alles goed voorspeld!', 'goed');
       else meld(melding, goed + ' van ' + o.rijen.length + ' goed. Volg de keten nog eens en controleer opnieuw.', 'half');
     });
@@ -774,15 +803,17 @@
       var a = e.target.closest('[data-a]'); if (!a) return;
       wis();
       if (a.dataset.a === 'opnieuw') { lijst.querySelectorAll('.oe-in').forEach(function (x) { x.value = ''; }); lijst.querySelectorAll('.oe-keuze').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); }); return; }
-      var goed = 0;
+      var goed = 0, uit = [];
       vragen().forEach(function (li) {
-        var q = o.vragen[+li.dataset.k], ok, juist;
-        if (q.keuzes) { var g = li.querySelector('.oe-keuze[aria-pressed="true"]'); ok = !!g && +g.dataset.j === q.antwoord; juist = q.keuzes[q.antwoord]; }
-        else { var w = li.querySelector('.oe-invul'); ok = veldGoed(w); juist = veldAntwoord(q); }
+        var q = o.vragen[+li.dataset.k], ok, juist, jij;
+        if (q.keuzes) { var g = li.querySelector('.oe-keuze[aria-pressed="true"]'); ok = !!g && +g.dataset.j === q.antwoord; juist = q.keuzes[q.antwoord]; jij = g ? q.keuzes[+g.dataset.j] : '(leeg)'; }
+        else { var w = li.querySelector('.oe-invul'); ok = veldGoed(w); juist = veldAntwoord(q); jij = w._in.value.trim() || '(leeg)'; }
         if (ok) goed++;
+        uit.push({ label: q.vraag, gekozen: jij, juist: juist, goed: ok });
         li.classList.add(ok ? 'goed' : 'fout');
         li.appendChild(el('div', 'oe-uitleg', (ok ? '<em>Goed.</em> ' : '<em>Antwoord: ' + esc(juist) + (q.marge ? ' (± ' + toonGetal(q.marge) + ')' : '') + '.</em> ') + esc(q.uitleg || '')));
       });
+      rapport(doos, o, uit);
       if (goed === o.vragen.length) meld(melding, 'Alles goed afgelezen!', 'goed');
       else meld(melding, goed + ' van ' + o.vragen.length + ' goed. Kijk nog eens naar de grafiek bij de rode vragen.', 'half');
     });
@@ -795,6 +826,15 @@
     var lijst = el('ol', 'oe-vragen oe-puzzel'); doos.appendChild(lijst);
     var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
     var onder = el('div', 'oe-knoppen', '<button type="button" class="oe-knop" data-a="opnieuw">Opnieuw beginnen</button>'); onder.appendChild(melding); doos.appendChild(onder);
+    var stand = [], aantal = o.stappen.reduce(function (n, s) { return n + s.velden.length; }, 0);
+    function noteer(k, velden, getoond) {
+      if (stand[k] && stand[k].vast) return;
+      var s = o.stappen[k];
+      stand[k] = velden.map(function (w) { var v = w._v; return { label: s.vraag + (v.label ? ' · ' + v.label : ''), gekozen: getoond ? (w._in.value.trim() ? w._in.value.trim() + ' (daarna antwoord bekeken)' : '(antwoord bekeken)') : (w._in.value.trim() || '(leeg)'), juist: veldAntwoord(v), goed: !getoond && veldGoed(w) }; });
+      if (getoond || stand[k].every(function (x) { return x.goed; })) stand[k].vast = true;
+      var items = []; stand.forEach(function (r) { if (r) items = items.concat(r); });
+      rapport(doos, o, items, { totaal: aantal, klaar: stand.length === o.stappen.length && stand.every(function (r) { return r && r.vast; }) });
+    }
     function toonStap(k) {
       if (k >= o.stappen.length) { meld(melding, 'Puzzel opgelost!', 'goed'); return; }
       var s = o.stappen[k], li = el('li', 'oe-vraag'); li.dataset.k = k;
@@ -815,6 +855,7 @@
       kn.addEventListener('click', function (e) {
         var a = e.target.closest('[data-a]'); if (!a) return;
         if (a.dataset.a === 'toon') {
+          noteer(k, Array.prototype.slice.call(rij.querySelectorAll('.oe-invul')), true);
           rij.querySelectorAll('.oe-invul').forEach(function (w) { var v = w._v; w._in.value = typeof v.antwoord === 'number' ? toonGetal(v.antwoord) : (Array.isArray(v.antwoord) ? v.antwoord[0] : v.antwoord); });
           return klaar(true);
         }
@@ -822,6 +863,7 @@
         if (velden.some(function (w) { return !w._in.value.trim(); })) { meld(melding, 'Vul eerst alle vakjes van deze stap in.', 'half'); return; }
         meld(melding, '');
         var ok = velden.every(veldGoed);
+        noteer(k, velden, false);
         velden.forEach(function (w) { w.classList.toggle('fout', !veldGoed(w)); });
         if (ok) { velden.forEach(function (w) { w.classList.remove('fout'); }); return klaar(false); }
         fout++; li.classList.add('fout');
@@ -832,7 +874,7 @@
       rij.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.classList.contains('oe-in')) { e.preventDefault(); kn.querySelector('[data-a="stap"]').click(); } });
       rij.addEventListener('input', function (e) { var w = e.target.closest('.oe-invul'); if (w) w.classList.remove('fout'); });
     }
-    onder.addEventListener('click', function (e) { if (e.target.closest('[data-a="opnieuw"]')) { lijst.innerHTML = ''; meld(melding, ''); toonStap(0); } });
+    onder.addEventListener('click', function (e) { if (e.target.closest('[data-a="opnieuw"]')) { lijst.innerHTML = ''; meld(melding, ''); stand = []; toonStap(0); } });
     toonStap(0);
   }
 
@@ -1127,6 +1169,38 @@
     blok.classList.toggle('oe-licht', lum > 140);
   }
 
+  function zorgCss() {
+    if (document.getElementById('oe-css')) return;
+    var st = document.createElement('style'); st.id = 'oe-css'; st.textContent = CSS; document.head.appendChild(st);
+  }
+
+  function bouwEen(o, doos) {
+    try {
+      if (o.soort === 'volgorde') bouwVolgorde(o, doos);
+      else if (o.soort === 'schema') bouwSchema(o, doos);
+      else if (o.soort === 'uitleg') bouwUitleg(o, doos);
+      else if (o.soort === 'indelen') bouwIndelen(o, doos);
+      else if (o.soort === 'pijlen') bouwPijlen(o, doos);
+      else if (o.soort === 'grafiek') bouwGrafiek(o, doos);
+      else if (o.soort === 'puzzel') bouwPuzzel(o, doos);
+      else if (o.soort === 'stamboom') bouwStamboom(o, doos);
+    } catch (err) { doos.appendChild(el('p', 'oe-hulp', 'Deze oefening kon niet worden geladen.')); if (window.console) console.error(err); }
+  }
+
+  // één uitklapkaart; de oefening wordt pas gebouwd bij het openen
+  function maakKaart(o) {
+    var kaart = el('details', 'oe-kaart' + (o.vwo ? ' vwo' : '')); kaart.id = 'oe-' + o.id;
+    var soort = SOORTNAAM[o.soort] || '';
+    kaart.innerHTML = '<summary><span class="oe-ico">' + (ICOON[o.soort] || '') + '</span><span class="oe-sumtekst"><span class="oe-soort">' + esc(soort) + (o.vwo ? '<span class="oe-vwo">vwo</span>' : '') + '</span><span class="oe-titel">' + esc(o.titel) + '</span></span><span class="oe-pijl" aria-hidden="true">›</span></summary>';
+    var doos = el('div', 'oe-inhoud');
+    if (o.opdracht) doos.appendChild(el('p', 'oe-opdracht', esc(o.opdracht)));
+    kaart.appendChild(doos);
+    var gebouwd = false;
+    function bouw() { if (gebouwd) return; gebouwd = true; bouwEen(o, doos); }
+    kaart.addEventListener('toggle', function () { if (kaart.open) bouw(); });
+    return { kaart: kaart, doos: doos, bouw: bouw };
+  }
+
   function plaats(data) {
     if (document.querySelector('.oe-blok')) return;
     var hier = document.getElementById('oefen-hier'); // losse oefenpagina (oefenen.html)
@@ -1157,36 +1231,20 @@
     (data.oefeningen || []).forEach(function (o, k) { var id = o.id || ('o' + (k + 1)); if (h === id || h === 'oe-' + id) doel = id; });
     (data.oefeningen || []).forEach(function (o, k) {
       if (!o.id) o.id = 'o' + (k + 1);
-      var kaart = el('details', 'oe-kaart' + (o.vwo ? ' vwo' : '')); kaart.id = 'oe-' + o.id;
-      var soort = SOORTNAAM[o.soort] || '';
-      kaart.innerHTML = '<summary><span class="oe-ico">' + (ICOON[o.soort] || '') + '</span><span class="oe-sumtekst"><span class="oe-soort">' + esc(soort) + (o.vwo ? '<span class="oe-vwo">vwo</span>' : '') + '</span><span class="oe-titel">' + esc(o.titel) + '</span></span><span class="oe-pijl" aria-hidden="true">›</span></summary>';
-      var doos = el('div', 'oe-inhoud');
-      if (o.opdracht) doos.appendChild(el('p', 'oe-opdracht', esc(o.opdracht)));
-      kaart.appendChild(doos);
-      lijst.appendChild(kaart);
-      var gebouwd = false;
-      function bouw() {
-        if (gebouwd) return; gebouwd = true;
-        try {
-          if (o.soort === 'volgorde') bouwVolgorde(o, doos);
-          else if (o.soort === 'schema') bouwSchema(o, doos);
-          else if (o.soort === 'uitleg') bouwUitleg(o, doos);
-          else if (o.soort === 'indelen') bouwIndelen(o, doos);
-          else if (o.soort === 'pijlen') bouwPijlen(o, doos);
-          else if (o.soort === 'grafiek') bouwGrafiek(o, doos);
-          else if (o.soort === 'puzzel') bouwPuzzel(o, doos);
-          else if (o.soort === 'stamboom') bouwStamboom(o, doos);
-        } catch (err) { doos.appendChild(el('p', 'oe-hulp', 'Deze oefening kon niet worden geladen.')); if (window.console) console.error(err); }
-      }
-      kaart.addEventListener('toggle', function () { if (kaart.open) bouw(); });
-      if (doel ? doel === o.id : (eerste && !o.vwo)) { kaart.open = true; bouw(); eerste = false; }
+      var m = maakKaart(o);
+      lijst.appendChild(m.kaart);
+      if (doel ? doel === o.id : (eerste && !o.vwo)) { m.kaart.open = true; m.bouw(); eerste = false; }
     });
 
-    var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+    zorgCss();
     thema(blok);
     // vanuit de filmlijst (knop 'Oefenen', link naar #oefenen): meteen naar het blok
     if (doel) setTimeout(function () { var k = document.getElementById('oe-' + doel); if (k) k.scrollIntoView({ block: 'start' }); }, 60);
     else if (location.hash === '#oefenen') setTimeout(function () { blok.scrollIntoView({ block: 'start' }); }, 60);
+    volgThema(blok);
+  }
+
+  function volgThema(blok) {
     try {
       new MutationObserver(function () { thema(blok); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'data-thema', 'class'] });
       if (window.matchMedia) { var mq = window.matchMedia('(prefers-color-scheme: dark)'); (mq.addEventListener ? mq.addEventListener('change', function () { thema(blok); }) : mq.addListener(function () { thema(blok); })); }
@@ -1201,5 +1259,23 @@
       (function probeer() { if (document.getElementById('oefen-hier') || document.getElementById('glossary') || n > 40) return plaats(data); n++; setTimeout(probeer, 150); })();
     }).catch(function (e) { if (window.console) console.warn('Oefeningen niet geladen:', e); });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+  if (PAD) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start(); }
+
+  // voor werksessies (sessie/index.html en sessie/docent.html)
+  window.BKOefenen = {
+    // leeg blok met de juiste stijl en licht/donker; opties: {sessie: true, sleutel: 'bk-sessie:<code>:'}
+    blok: function (houder, opties) {
+      opties = opties || {};
+      if (opties.sessie) SESSIE = true;
+      if (opties.sleutel) SLEUTEL = opties.sleutel;
+      zorgCss();
+      var b = el('div', 'oe-blok'); houder.appendChild(b);
+      ['keydown', 'keyup', 'keypress'].forEach(function (t) { b.addEventListener(t, function (e) { e.stopPropagation(); }); });
+      thema(b); volgThema(b);
+      return b;
+    },
+    kaart: maakKaart,
+    bouw: bouwEen,
+    soortnaam: SOORTNAAM
+  };
 })();

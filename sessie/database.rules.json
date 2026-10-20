@@ -1,0 +1,39 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "sessies": {
+      ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'"
+      }
+    },
+    "deelnemers": {
+      "$code": {
+        ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        "$uid": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid && root.child('sessies').child($code).child('status').exists() && root.child('sessies').child($code).child('status').val() !== 'dicht'",
+          ".validate": "newData.child('naam').isString() && newData.child('naam').val().length > 0 && newData.child('naam').val().length <= 30"
+        }
+      }
+    },
+    "antwoorden": {
+      "$code": {
+        ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        "$uid": {
+          ".read": "auth != null && auth.uid === $uid",
+          ".write": "auth != null && auth.uid === $uid && root.child('sessies').child($code).child('status').exists() && root.child('sessies').child($code).child('status').val() !== 'dicht'",
+          "$opdracht": {
+            "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+            "eerste": { "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" } },
+            "laatste": { "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" } }
+          }
+        }
+      }
+    }
+  }
+}

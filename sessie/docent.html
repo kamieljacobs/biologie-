@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Werksessie (docent) · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<link rel="stylesheet" href="sessie.css">
+<script src="../tools/huisstijl.js"></script>
+<script src="../js/oefenen.js?v=80ae609d"></script>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="../index.html">Biologie bij Kamiel</a>
+    <span class="s-chip">Docent</span>
+    <span class="rechts"><button class="knop stil klein" id="b-uit" type="button" hidden>Uitloggen</button><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+  <div id="demoband" hidden class="s-band teal">Demomodus: alles blijft in deze browser. Open de leerlingpagina in een ander tabblad om mee te doen (elk tabblad is een leerling).</div>
+
+  <!-- inloggen -->
+  <section id="v-login" hidden>
+    <header class="tool-kop"><div class="mono">Werksessie</div><h1>Inloggen</h1><p>Alleen voor de docent.</p></header>
+    <form class="paneel" id="f-login" style="max-width:460px">
+      <label class="veld"><span>E-mail</span><input type="text" id="i-mail" autocomplete="username" required></label>
+      <label class="veld"><span>Wachtwoord</span><input type="password" id="i-ww" autocomplete="current-password" required style="background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px;width:100%"></label>
+      <button class="knop" type="submit">Inloggen</button>
+      <p class="s-melding fout" id="m-login" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- opzetten -->
+  <section id="v-opzet" hidden>
+    <header class="tool-kop"><div class="mono">Werksessie</div><h1>Sessie klaarzetten</h1><p>Kies een film en de opdrachten. Leerlingen doen mee met een code op <b id="korteurl"></b>.</p></header>
+    <div id="lopend"></div>
+    <form class="s-grid s-opzet" id="f-opzet">
+      <div class="paneel s-stap">
+        <h2>Film</h2>
+        <div class="s-rij"><select id="i-film" style="max-width:520px"></select>
+          <div class="seg" id="i-niveau" role="group" aria-label="Niveau"><button type="button" data-n="havo" aria-pressed="false">havo</button><button type="button" data-n="vwo" aria-pressed="true">vwo</button></div></div>
+      </div>
+      <div class="paneel s-stap">
+        <h2>Opdrachten</h2>
+        <p class="sub">In deze volgorde krijgen leerlingen ze te zien.</p>
+        <div class="s-oeflijst" id="i-oef"></div>
+      </div>
+      <div class="paneel s-stap">
+        <h2>Werkwijze</h2>
+        <div class="s-keuzes" id="i-modus">
+          <button type="button" class="s-keuze" data-m="vrij" aria-pressed="true"><b>Alles tegelijk</b><span>Leerlingen werken de opdrachten in hun eigen tempo af.</span></button>
+          <button type="button" class="s-keuze" data-m="samen" aria-pressed="false"><b>Stap voor stap</b><span>Jij geeft de opdrachten één voor één vrij.</span></button>
+        </div>
+      </div>
+      <div class="paneel s-stap">
+        <h2>Als ze klaar zijn</h2>
+        <p class="sub">Wat snelle leerlingen kunnen doen terwijl ze wachten.</p>
+        <div class="s-oeflijst">
+          <label><input type="checkbox" id="w-begrippen" checked><span><b>Begrippen oefenen</b><br><span class="s-stil">Uitleg uit de begrippenlijst van de film: kies het goede begrip.</span></span></label>
+          <label><input type="checkbox" id="w-extra"><span><b>Extra opdrachten</b><br><span class="s-stil">De overige opdrachten bij deze film.</span></span></label>
+          <label><input type="checkbox" id="w-vragen"><span><b>Verdiepingsvragen</b><br><span class="s-stil">Je eigen open vragen; je ziet de antwoorden in de bespreking.</span></span></label>
+        </div>
+        <textarea id="i-vragen" rows="3" placeholder="Eén vraag per regel" hidden></textarea>
+      </div>
+      <div class="s-rij"><button class="knop" type="submit" id="b-start">Sessie starten</button><span class="s-melding fout" id="m-opzet"></span></div>
+    </form>
+  </section>
+
+  <!-- live overzicht -->
+  <section id="v-live" hidden>
+    <header class="tool-kop" style="padding-bottom:6px"><div class="mono" id="l-eyebrow">Werksessie</div><h1 id="l-titel"></h1></header>
+    <div class="paneel s-codeblok">
+      <div><div class="s-klein">Ga naar <b id="l-url"></b> en vul in</div><div class="s-code" id="l-code"></div></div>
+      <div class="s-qr" id="l-qr"></div>
+      <div class="s-rij duw" style="flex-direction:column;align-items:stretch">
+        <button class="knop stil klein" id="b-groot" type="button">Code groot op het bord</button>
+        <button class="knop stil klein" id="b-afsluiten" type="button">Sessie afsluiten</button>
+      </div>
+    </div>
+    <div class="s-rij" style="margin:16px 0">
+      <span class="s-chip goud" id="l-aantal"></span>
+      <button class="knop" id="b-vrij" type="button" hidden></button>
+      <button class="knop duw" id="b-bespreek" type="button">Bespreken</button>
+    </div>
+    <div class="paneel tabel-wrap"><table class="tabel s-tabel" id="l-tabel"></table></div>
+    <p class="s-klein">✓ = klaar (tussen haakjes: score bij de eerste controle) · 3/5 = bezig, laatste controle · · = nog niet gecontroleerd</p>
+  </section>
+
+  <!-- bespreken -->
+  <section id="v-bespreek" hidden>
+    <div class="s-rij" style="margin:18px 0 6px">
+      <button class="knop stil klein" id="b-terug" type="button">← Overzicht</button>
+      <button class="icoon" id="b-vorige" type="button" aria-label="Vorige">‹</button>
+      <span class="s-chip goud" id="b-nr"></span>
+      <button class="icoon" id="b-volgende" type="button" aria-label="Volgende">›</button>
+      <span class="duw"></span>
+      <div class="seg" id="b-poging" role="group" aria-label="Welke poging"><button type="button" data-p="eerste" aria-pressed="true">eerste poging</button><button type="button" data-p="laatste" aria-pressed="false">laatste</button></div>
+    </div>
+    <div class="paneel s-bespreek">
+      <div><div class="s-nr" id="b-soort"></div><h2 id="b-titel" style="font-size:30px;margin:4px 0 6px"></h2><p id="b-opdracht" class="s-stil" style="margin:0;font-size:18px"></p></div>
+      <div class="s-rij">
+        <button class="knop" id="b-juist" type="button">Toon goede antwoorden</button>
+        <button class="knop stil klein" id="b-bord" type="button">Opdracht op het bord</button>
+        <button class="knop stil klein" id="b-namen" type="button" hidden>Namen tonen</button>
+        <span class="s-chip duw" id="b-teller"></span>
+      </div>
+      <div id="b-inhoud"></div>
+      <div id="b-bordplek" class="s-bord" hidden></div>
+    </div>
+  </section>
+
+  <footer class="tool-voet">Biologie bij Kamiel · werksessies<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+<div class="s-overlay" id="overlay" hidden>
+  <p>Ga naar <b id="o-url"></b></p>
+  <div class="s-code" id="o-code"></div>
+  <div class="s-qr" id="o-qr"></div>
+  <button class="knop stil" id="b-sluitgroot" type="button">Sluiten</button>
+</div>
+
+<script type="module">
+import { maakDb, esc, nieuweCode } from './db.js';
+
+const $ = (id) => document.getElementById(id);
+const DAG = 24 * 3600 * 1000;
+const SOORT = window.BKOefenen.soortnaam;
+let db, lijst = {}, code = null, S = null, D = {}, A = {}, data = null, uit = [];
+const B = { nr: 0, poging: 'eerste', juist: false, namen: false, bord: false };
+const views = ['v-login', 'v-opzet', 'v-live', 'v-bespreek'];
+const toon = (v) => views.forEach((x) => { $(x).hidden = x !== v; });
+const leerlingUrl = () => new URL('./' + (code ? '?code=' + code : ''), location.href).href + (db && db.modus === 'demo' && new URLSearchParams(location.search).has('demo') ? (code ? '&' : '?') + 'demo=1' : '');
+const kortUrl = () => new URL('./', location.href).href.replace(/^https?:\/\//, '');
+
+(async function init() {
+  db = await maakDb();
+  $('demoband').hidden = db.modus !== 'demo';
+  $('korteurl').textContent = kortUrl();
+  lijst = await (await fetch('../oefenlijst.json', { cache: 'no-cache' })).json();
+  if (db.modus === 'firebase' && !db.isDocent()) toon('v-login'); else naarOpzet();
+})();
+
+/* ---------------- inloggen ---------------- */
+$('f-login').addEventListener('submit', async (e) => {
+  e.preventDefault(); $('m-login').textContent = '';
+  try {
+    const ok = await db.docentLogin($('i-mail').value.trim(), $('i-ww').value);
+    if (!ok) { $('m-login').textContent = 'Ingelogd, maar dit account is niet als docent ingesteld. User UID: ' + db.uid(); return; }
+    $('i-ww').value = ''; naarOpzet();
+  } catch (er) { $('m-login').textContent = 'Inloggen mislukt: controleer e-mail en wachtwoord.'; }
+});
+$('b-uit').addEventListener('click', async () => { await db.uitloggen(); location.reload(); });
+
+/* ---------------- opzetten ---------------- */
+async function naarOpzet() {
+  toon('v-opzet'); $('b-uit').hidden = db.modus !== 'firebase'; stopLuisteren();
+  // filmkeuze, gegroepeerd per hoofdstuk
+  const groep = {};
+  Object.keys(lijst).forEach((h) => { (groep[lijst[h].htitel] = groep[lijst[h].htitel] || []).push(h); });
+  $('i-film').innerHTML = Object.keys(groep).map((g) => '<optgroup label="' + esc(g) + '">' + groep[g].map((h) => '<option value="' + esc(h) + '">' + esc(lijst[h].titel) + '</option>').join('') + '</optgroup>').join('');
+  let vorige = null; try { vorige = localStorage.getItem('bk-sessie-film'); } catch (e) { }
+  if (vorige && lijst[vorige]) $('i-film').value = vorige;
+  try { zetNiveau(localStorage.getItem('bk-sessie-niveau') || 'vwo'); } catch (e) { zetNiveau('vwo'); }
+  tekenOef();
+  // lopende sessies; sessies ouder dan een dag worden gewist (privacy)
+  const alle = (await db.lees('sessies')) || {};
+  const mijn = [];
+  for (const c of Object.keys(alle)) {
+    const s = alle[c]; if (s.eigenaar !== db.uid()) continue;
+    if (Date.now() - (s.gemaakt || 0) > DAG) { await wis(c); continue; }
+    mijn.push([c, s]);
+  }
+  mijn.sort((a, b) => b[1].gemaakt - a[1].gemaakt);
+  $('lopend').innerHTML = mijn.length ? '<div class="paneel" style="margin-bottom:16px"><h3>Sessies van vandaag</h3><p class="sub">Antwoorden worden een dag na de start gewist.</p>' + mijn.map(([c, s]) =>
+    '<div class="s-rij" style="padding:6px 0;border-top:1px solid var(--line)"><b style="font-family:var(--meta)">' + c + '</b><span>' + esc(s.filmtitel) + '</span><span class="s-klein">' + new Date(s.gemaakt).toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' }) + (s.status === 'dicht' ? ' · afgesloten' : '') + '</span><button class="knop klein duw" type="button" data-open="' + c + '">' + (s.status === 'dicht' ? 'Antwoorden bekijken' : 'Verder') + '</button><button class="knop stil klein" type="button" data-wis="' + c + '">Wissen</button></div>').join('') + '</div>' : '';
+}
+async function wis(c) { await Promise.all([db.weg('sessies/' + c), db.weg('deelnemers/' + c), db.weg('antwoorden/' + c)]); }
+$('lopend').addEventListener('click', async (e) => {
+  const o = e.target.closest('[data-open]'), w = e.target.closest('[data-wis]');
+  if (o) openSessie(o.dataset.open);
+  if (w && confirm('Sessie ' + w.dataset.wis + ' en alle antwoorden wissen?')) { await wis(w.dataset.wis); naarOpzet(); }
+});
+function zetNiveau(n) { $('i-niveau').querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.n === n))); }
+const niveau = () => $('i-niveau').querySelector('[aria-pressed="true"]').dataset.n;
+$('i-niveau').addEventListener('click', (e) => { const b = e.target.closest('[data-n]'); if (!b) return; zetNiveau(b.dataset.n); try { localStorage.setItem('bk-sessie-niveau', b.dataset.n); } catch (er) { } tekenOef(); });
+$('i-film').addEventListener('change', tekenOef);
+function tekenOef() {
+  const f = lijst[$('i-film').value]; if (!f) return;
+  const havo = niveau() === 'havo';
+  $('i-oef').innerHTML = f.oef.map(([id, titel, soort, vwo], k) => {
+    const uit = soort === 'stamboom' || (vwo && havo);
+    return '<label class="' + (uit ? 'uit' : '') + '"><input type="checkbox" value="' + esc(id) + '"' + (uit ? ' disabled' : (k < 2 ? ' checked' : '')) + '><span><b>' + esc(titel) + '</b>' + (vwo ? ' <span class="vwo-label">vwo</span>' : '') + (soort === 'stamboom' ? '<br><span class="s-klein">Stamboom-opdrachten werken nog niet in een sessie.</span>' : '') + '</span><span class="s-chip">' + esc(SOORT[soort] || soort) + '</span></label>';
+  }).join('');
+}
+$('i-modus').addEventListener('click', (e) => { const b = e.target.closest('[data-m]'); if (!b) return; $('i-modus').querySelectorAll('[data-m]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); });
+$('w-vragen').addEventListener('change', () => { $('i-vragen').hidden = !$('w-vragen').checked; if ($('w-vragen').checked) $('i-vragen').focus(); });
+
+$('f-opzet').addEventListener('submit', async (e) => {
+  e.preventDefault(); const m = $('m-opzet'); m.textContent = '';
+  const film = $('i-film').value, f = lijst[film];
+  const ids = [...$('i-oef').querySelectorAll('input:checked')].map((x) => x.value);
+  if (!ids.length) { m.textContent = 'Kies minstens één opdracht.'; return; }
+  const modus = $('i-modus').querySelector('[aria-pressed="true"]').dataset.m;
+  const vragen = $('w-vragen').checked ? $('i-vragen').value.split('\n').map((x) => x.trim()).filter(Boolean) : [];
+  $('b-start').disabled = true;
+  try {
+    let c; for (let i = 0; i < 20; i++) { c = nieuweCode(); if (!(await db.lees('sessies/' + c))) break; }
+    await db.zet('sessies/' + c, {
+      eigenaar: db.uid(), gemaakt: Date.now(), film, filmtitel: f.titel, json: f.json, niveau: niveau(),
+      opdrachten: ids, modus, vrij: modus === 'samen' ? 1 : ids.length,
+      wacht: { begrippen: $('w-begrippen').checked, extra: $('w-extra').checked, vragen }, status: 'open'
+    });
+    try { localStorage.setItem('bk-sessie-film', film); } catch (er) { }
+    openSessie(c);
+  } catch (er) { console.error(er); m.textContent = 'Starten lukte niet: ' + (er.message || er); }
+  finally { $('b-start').disabled = false; }
+});
+
+/* ---------------- live ---------------- */
+function stopLuisteren() { uit.forEach((f) => f()); uit = []; }
+async function openSessie(c) {
+  stopLuisteren(); code = c; S = null; D = {}; A = {}; data = null;
+  const s = await db.lees('sessies/' + c); if (!s) return naarOpzet();
+  data = await (await fetch('../' + s.json, { cache: 'no-cache' })).json();
+  (data.oefeningen || []).forEach((o, k) => { if (!o.id) o.id = 'o' + (k + 1); });
+  document.body.classList.toggle('havo', s.niveau === 'havo');
+  uit.push(db.luister('sessies/' + c, (x) => { S = x; if (!S) return naarOpzet(); ververs(); }));
+  uit.push(db.luister('deelnemers/' + c, (x) => { D = x || {}; ververs(); }));
+  uit.push(db.luister('antwoorden/' + c, (x) => { A = x || {}; ververs(); }));
+  $('l-code').textContent = c; $('o-code').textContent = c;
+  $('l-url').textContent = kortUrl(); $('o-url').textContent = kortUrl();
+  qr($('l-qr')); qr($('o-qr'));
+  toon('v-live');
+}
+function ververs() { if (!S) return; if (!$('v-live').hidden) tekenLive(); if (!$('v-bespreek').hidden) tekenBespreek(); }
+const oef = (id) => data.oefeningen.find((o) => o.id === id);
+const leerlingen = () => Object.keys(D).sort((a, b) => D[a].naam.localeCompare(D[b].naam, 'nl'));
+
+function tekenLive() {
+  $('l-eyebrow').textContent = 'Werksessie · ' + (S.modus === 'samen' ? 'stap voor stap' : 'alles tegelijk') + (S.status === 'dicht' ? ' · afgesloten' : '');
+  $('l-titel').textContent = S.filmtitel;
+  const ids = S.opdrachten || [], L = leerlingen();
+  $('l-aantal').textContent = L.length + (L.length === 1 ? ' leerling' : ' leerlingen');
+  const bv = $('b-vrij');
+  bv.hidden = S.modus !== 'samen' || S.vrij >= ids.length || S.status === 'dicht';
+  bv.textContent = 'Opdracht ' + (S.vrij + 1) + ' vrijgeven';
+  const w = S.wacht || {}, wachtKol = w.begrippen || w.extra || (w.vragen && w.vragen.length);
+  let h = '<thead><tr><th>Naam</th>' + ids.map((id, k) => '<th class="s-kol" title="' + esc((oef(id) || {}).titel) + '">' + (k + 1) + '. ' + esc(((oef(id) || {}).titel || id).slice(0, 26)) + '</th>').join('') + (wachtKol ? '<th class="s-kol">Daarna</th>' : '') + '</tr></thead><tbody>';
+  if (!L.length) h += '<tr><td colspan="' + (ids.length + 2) + '" class="s-stil">Nog niemand. Leerlingen verschijnen hier zodra ze meedoen.</td></tr>';
+  L.forEach((u) => {
+    const a = A[u] || {};
+    h += '<tr><td>' + esc(D[u].naam) + '</td>' + ids.map((id, k) => {
+      if (S.modus === 'samen' && k >= S.vrij) return '<td class="s-cel dicht">–</td>';
+      const x = a[id];
+      if (!x || !x.laatste) return '<td class="s-cel niet">·</td>';
+      if (x.klaar) return '<td class="s-cel af">✓' + (x.eerste && x.eerste.totaal && (oef(id) || {}).soort !== 'uitleg' ? ' <span class="s-klein">(' + x.eerste.goed + '/' + x.eerste.totaal + ')</span>' : '') + '</td>';
+      return '<td class="s-cel bezig">' + x.laatste.goed + '/' + x.laatste.totaal + '</td>';
+    }).join('');
+    if (wachtKol) {
+      const d = [];
+      if (a._begrippen) d.push('begrippen ' + a._begrippen.goed + '/' + a._begrippen.totaal);
+      const ex = Object.keys(a).filter((k) => k[0] !== '_' && !ids.includes(k) && a[k].klaar).length; if (ex) d.push(ex + ' extra');
+      const vr = Object.keys(a).filter((k) => /^_vraag/.test(k) && a[k].tekst && a[k].tekst.trim()).length; if (vr) d.push(vr + (vr === 1 ? ' vraag' : ' vragen'));
+      h += '<td class="s-cel s-klein" style="text-align:left">' + (d.join(' · ') || '') + '</td>';
+    }
+    h += '</tr>';
+  });
+  h += '</tbody>';
+  if (L.length) h += '<tfoot><tr><td>Klaar</td>' + ids.map((id) => '<td>' + L.filter((u) => A[u] && A[u][id] && A[u][id].klaar).length + '/' + L.length + '</td>').join('') + (wachtKol ? '<td></td>' : '') + '</tr></tfoot>';
+  $('l-tabel').innerHTML = h;
+}
+$('b-vrij').addEventListener('click', () => db.werkBij('sessies/' + code, { vrij: Math.min((S.vrij || 0) + 1, S.opdrachten.length) }));
+$('b-afsluiten').addEventListener('click', async () => {
+  if (!confirm('Sessie afsluiten? Leerlingen kunnen dan niets meer invullen. Je kunt de antwoorden vandaag nog bekijken; morgen worden ze gewist.')) return;
+  await db.werkBij('sessies/' + code, { status: 'dicht' });
+});
+$('b-groot').addEventListener('click', () => { $('overlay').hidden = false; });
+$('b-sluitgroot').addEventListener('click', () => { $('overlay').hidden = true; });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') $('overlay').hidden = true; });
+
+let qrLib = null;
+function qr(el) {
+  el.innerHTML = '';
+  qrLib = qrLib || new Promise((ok, nee) => { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'; s.onload = ok; s.onerror = nee; document.head.appendChild(s); });
+  qrLib.then(() => { el.innerHTML = ''; new window.QRCode(el, { text: leerlingUrl(), width: 256, height: 256, correctLevel: window.QRCode.CorrectLevel.M }); el.title = leerlingUrl(); }).catch(() => { el.hidden = true; });
+}
+
+/* ---------------- bespreken ---------------- */
+// onderdelen: de opdrachten (voor zover vrijgegeven) en de verdiepingsvragen
+function onderdelen() {
+  const ids = (S.opdrachten || []).slice(0, S.modus === 'samen' ? S.vrij : undefined);
+  const r = ids.map((id, k) => ({ soort: 'oef', o: oef(id), nr: k + 1 })).filter((x) => x.o);
+  ((S.wacht && S.wacht.vragen) || []).forEach((v, k) => r.push({ soort: 'vraag', vraag: v, k }));
+  return r;
+}
+$('b-bespreek').addEventListener('click', async () => {
+  B.nr = 0; B.juist = false; B.bord = false; B.namen = false;
+  if (S.status !== 'dicht') await db.werkBij('sessies/' + code, { status: 'bespreken' });
+  toon('v-bespreek'); nieuwOnderdeel(); tekenBespreek();
+});
+$('b-terug').addEventListener('click', async () => { if (S.status === 'bespreken') await db.werkBij('sessies/' + code, { status: 'open' }); toon('v-live'); tekenLive(); });
+$('b-vorige').addEventListener('click', () => { if (B.nr > 0) { B.nr--; nieuwOnderdeel(); tekenBespreek(); } });
+$('b-volgende').addEventListener('click', () => { if (B.nr < onderdelen().length - 1) { B.nr++; nieuwOnderdeel(); tekenBespreek(); } });
+$('b-juist').addEventListener('click', () => { B.juist = !B.juist; tekenBespreek(); });
+$('b-namen').addEventListener('click', () => { B.namen = !B.namen; tekenBespreek(); });
+$('b-poging').addEventListener('click', (e) => { const b = e.target.closest('[data-p]'); if (!b) return; B.poging = b.dataset.p; $('b-poging').querySelectorAll('[data-p]').forEach((x) => x.setAttribute('aria-pressed', String(x === b))); tekenBespreek(); });
+$('b-bord').addEventListener('click', () => { B.bord = !B.bord; tekenBord(); });
+document.addEventListener('keydown', (e) => {
+  if ($('v-bespreek').hidden || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || e.target.closest('.oe-blok')) return;
+  if (e.key === 'ArrowRight') $('b-volgende').click(); if (e.key === 'ArrowLeft') $('b-vorige').click();
+});
+function nieuwOnderdeel() { B.juist = false; B.bord = false; tekenBord(); }
+function tekenBord() {
+  const p = $('b-bordplek'), od = onderdelen()[B.nr];
+  $('b-bord').textContent = B.bord ? 'Opdracht verbergen' : 'Opdracht op het bord';
+  p.innerHTML = ''; p.hidden = !B.bord || !od || od.soort !== 'oef';
+  if (p.hidden) return;
+  const blok = window.BKOefenen.blok(p, { sleutel: 'bk-sessie-bord:' });
+  const l = document.createElement('div'); l.className = 'oe-lijstje'; blok.appendChild(l);
+  const m = window.BKOefenen.kaart(od.o); l.appendChild(m.kaart); m.kaart.open = true; m.bouw();
+}
+
+function balken(telling, totaal, juistSet) {
+  return Object.keys(telling).sort((a, b) => telling[b] - telling[a]).map((g) => {
+    const j = B.juist && juistSet.has(g);
+    return '<div class="s-balk' + (j ? ' juist' : '') + '"><span class="s-bl">' + esc(g) + '</span><span class="s-bb"><i style="width:' + Math.round(100 * telling[g] / Math.max(totaal, 1)) + '%"></i></span><span class="s-bn">' + telling[g] + '</span></div>';
+  }).join('');
+}
+function tekenBespreek() {
+  const lijstO = onderdelen(), od = lijstO[B.nr];
+  if (!od) { $('b-inhoud').innerHTML = '<p class="s-stil">Er is nog niets om te bespreken.</p>'; return; }
+  $('b-nr').textContent = (B.nr + 1) + ' / ' + lijstO.length;
+  $('b-vorige').disabled = B.nr === 0; $('b-volgende').disabled = B.nr === lijstO.length - 1;
+  $('b-juist').textContent = B.juist ? 'Verberg goede antwoorden' : (od.soort === 'oef' && od.o.soort === 'uitleg' ? 'Toon modeluitleg' : 'Toon goede antwoorden');
+  $('b-bord').hidden = od.soort !== 'oef';
+  const L = leerlingen(), n = L.length;
+  let h = '';
+  const teksten = (lijst2) => '<div class="s-teksten">' + (lijst2.length ? lijst2.map(([u, t]) => '<div class="s-tekst">' + (B.namen ? '<b>' + esc(D[u].naam) + '</b>' : '') + esc(t) + '</div>').join('') : '<p class="s-stil">Nog geen antwoorden.</p>') + '</div>';
+  if (od.soort === 'vraag') {
+    $('b-soort').textContent = 'Verdiepingsvraag ' + (od.k + 1);
+    $('b-titel').textContent = od.vraag; $('b-opdracht').textContent = '';
+    $('b-namen').hidden = false; $('b-juist').hidden = true;
+    $('b-namen').textContent = B.namen ? 'Namen verbergen' : 'Namen tonen';
+    const t = L.map((u) => [u, ((A[u] || {})['_vraag' + od.k] || {}).tekst || '']).filter((x) => x[1].trim());
+    $('b-teller').textContent = t.length + ' van ' + n + ' beantwoord';
+    h = teksten(t);
+  } else {
+    const o = od.o;
+    $('b-juist').hidden = false;
+    $('b-soort').textContent = 'Opdracht ' + od.nr + ' · ' + (SOORT[o.soort] || o.soort);
+    $('b-titel').textContent = o.titel; $('b-opdracht').textContent = o.opdracht || '';
+    $('b-namen').hidden = o.soort !== 'uitleg';
+    $('b-namen').textContent = B.namen ? 'Namen verbergen' : 'Namen tonen';
+    // per leerling het resultaat van de gekozen poging (uitleg: altijd de laatste tekst)
+    const res = L.map((u) => [u, ((A[u] || {})[o.id] || {})[o.soort === 'uitleg' ? 'laatste' : B.poging]]).filter((x) => x[1]);
+    $('b-teller').textContent = res.length + ' van ' + n + ' ingeleverd';
+    if (o.soort === 'uitleg') h += teksten(res.map(([u, r]) => [u, r.tekst || '']).filter((x) => x[1].trim()));
+    // per onderdeel: welke antwoorden kwamen hoe vaak voor
+    const per = new Map();
+    res.forEach(([u, r]) => (r.items || []).forEach((it) => {
+      if (!per.has(it.label)) per.set(it.label, { telling: {}, goed: new Set(), juist: it.juist, n: 0, ok: 0 });
+      const p = per.get(it.label); p.telling[it.gekozen] = (p.telling[it.gekozen] || 0) + 1; p.n++;
+      if (it.goed) { p.goed.add(it.gekozen); p.ok++; }
+      if (o.soort === 'uitleg') p.goed.add('gebruikt');
+    }));
+    if (per.size) {
+      if (o.soort === 'uitleg') h += '<h3 style="margin:18px 0 6px">Kernbegrippen in de uitleg</h3>';
+      per.forEach((p, label) => {
+        h += '<div class="s-item"><h3>' + esc(label) + (B.juist && o.soort !== 'uitleg' ? '<small>' + Math.round(100 * p.ok / p.n) + '% goed</small>' : '') + '</h3>' + balken(p.telling, p.n, p.goed) +
+          (B.juist && o.soort !== 'uitleg' ? '<p class="s-klein" style="margin:4px 0 0">Goed antwoord: <b>' + esc(p.juist) + '</b></p>' : '') + '</div>';
+      });
+    } else if (o.soort !== 'uitleg') h += '<p class="s-stil">Nog geen antwoorden.</p>';
+    if (B.juist && o.soort === 'uitleg') {
+      h += '<div class="s-model" style="margin-top:16px"><div class="s-nr" style="margin-bottom:6px">Modeluitleg</div>' + [].concat(o.model || []).map((p) => '<p>' + esc(p) + '</p>').join('') +
+        (o.checklist ? '<div class="s-nr" style="margin:10px 0 6px">Dit moet erin zitten</div><ul style="margin:0">' + o.checklist.map((c) => '<li>' + esc(c) + '</li>').join('') + '</ul>' : '') + '</div>';
+    }
+  }
+  $('b-inhoud').innerHTML = h;
+}
+</script>
+</body>
+</html>
