@@ -18,3 +18,12 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Stem-invoer gekoze
 | glycogeen | glie-koo-GEEN | zoals geschreven | s13 |
 
 **Wachtlijst voor Kamiel:** alle woorden hierboven. Let vooral op hypothalamus (respelling voor het eerst gebruikt), oestrogeen, adrenaline (de -ne aan het eind) en hypofyse. Een fout woord = alleen die alinea opnieuw.
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s16.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| transcriptiefactor | transcriptsie-factor | s16 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
