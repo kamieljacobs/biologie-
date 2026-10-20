@@ -1,4 +1,4 @@
-// Gedrag 5 · Emotieregulatie — scènes per alinea (v1.0, 15 okt 2026). Bilal (castboek) verliest een potje; amygdala en prefrontale cortex; vier stappen; proef onderdrukken vs herwaarderen; co-regulatie.
+// Gedrag 5 · Emotieregulatie — scènes per alinea (v1.0, 15 okt 2026; v1.1, 20 okt 2026: hoofdstuk 3 'Eerst je adem' = s21–s27, recap met vijf panelen). Bilal (castboek) verliest een potje; amygdala en prefrontale cortex; vier stappen; proef onderdrukken vs herwaarderen; co-regulatie.
 
 function tag(ctx, s, x, y, col, a = 1, align = 'center', px = 32) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 600); const w = ctx.measureText(s).width + 40; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - px - 6, w, px + 22, (px + 22) / 2); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(px, 600), C.text, 'center'); ctx.restore(); }
 function regel(ctx, s, x, y, a = 1, col = C.text, px = 32, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, x, y, fTekst(px, w), col, align); ctx.restore(); }
@@ -58,6 +58,21 @@ function lijf(ctx, x, y, s, o = {}) { const { a = 1, hart = 0, long = 0, spier =
   ctx.restore(); }
 function balk(ctx, x, y, w, v, col, a = 1, lbl = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 40, 8); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); roundRect(ctx, x, y, Math.max(8, w * v), 40, 8); shape(ctx, rgba(col, 0.6), col, 1.5); if (lbl) regel(ctx, lbl, x - 16, y + 30, 1, C.text, 26, 'right', 600); ctx.restore(); }
 const STAP = [['situatie', 'even weg van het scherm', 'situatie', 1, 'veranderen', 1], ['aandacht', 'ergens anders naar kijken', 'aandacht', 1, 'verleggen', 1], ['betekenis', 'herwaarderen: anders bekijken', 'betekenis', 1, 'herwaarderen', 1], ['reactie', 'onderdrukken: niets laten merken', 'reageert', 1, 'onderdrukken', 1]];
+
+
+// ---------- hoofdstuk 3 (adem, 20 okt 2026) ----------
+// ademcirkel: v = 0 (uitgeademd) … 1 (vol); fase 'in' / 'uit' / ''; tel = getal in de cirkel
+function ademCirkel(ctx, x, y, R, v, o = {}) { const { a = 1, fase = '', tel = 0, klein = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const r0 = R * 0.42, r = r0 + (R - r0) * clamp(v, 0, 1);
+  ctx.setLineDash([6, 10]); circ(ctx, x, y, R, null, rgba(C.teal, 0.45), 2); circ(ctx, x, y, r0, null, rgba(C.teal, 0.3), 2); ctx.setLineDash([]);
+  const gr = ctx.createRadialGradient(x, y, r * 0.2, x, y, r); gr.addColorStop(0, rgba(C.teal, 0.55)); gr.addColorStop(1, rgba(C.teal, 0.18)); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fillStyle = gr; ctx.fill(); ctx.strokeStyle = C.teal; ctx.lineWidth = 4; ctx.stroke();
+  if (!klein) { if (fase) text(ctx, fase, x, y - 18, fTekst(40, 700), C.text, 'center'); if (tel) text(ctx, String(tel), x, y + 62, fTitel(88), C.text, 'center'); }
+  ctx.restore(); }
+// spanningsgolf: piek, dan zakken; snel = hoe snel hij zakt (0..1); p = hoe ver getekend (0..1)
+function golf(ctx, x, y, w, h, p, snel, col, a = 1, dash = 0) { if (a <= 0.01 || p <= 0.001) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.lineCap = 'round'; if (dash) ctx.setLineDash([12, 12]); ctx.beginPath();
+  for (let i = 0; i <= 120 * p; i++) { const u = i / 120; const k = u < 0.12 ? u / 0.12 : Math.exp(-(u - 0.12) * lerp(1.6, 4.2, snel)); const yy = y + h - (0.08 + 0.86 * k) * h; i ? ctx.lineTo(x + u * w, yy) : ctx.moveTo(x, yy); } ctx.stroke(); ctx.restore(); }
+function ademGolfje(ctx, x, y, w, h, perMin, t, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); for (let px = 0; px <= w; px += 3) { const ph = (px / w) * perMin / 3 + t * perMin / 60; const v = 0.5 - 0.5 * Math.cos(ph * 6.283); px ? ctx.lineTo(x + px, y + h - v * h) : ctx.moveTo(x, y + h - v * h); } ctx.stroke(); ctx.restore(); }
+function mensjes(ctx, x, y, n, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < n; i++) { const xx = x + i * 46; circ(ctx, xx, y - 52, 13, rgba(col, 0.85)); roundRect(ctx, xx - 15, y - 36, 30, 36, 12); shape(ctx, rgba(col, 0.55), null); } ctx.restore(); }
 
 // =======================================================================================
 const SCENES = {
@@ -135,7 +150,97 @@ const SCENES = {
     box(1400, 260, 420, 'parasympathisch zenuwstelsel', C.teal, ps); pijl(ctx, 1500, 346, 1300, 420, C.teal, ps, 3, 12);
     const ua = q.on('uitademen', 1); if (ua > 0.01) { ctx.save(); ctx.globalAlpha *= ua; ctx.strokeStyle = C.teal; ctx.lineWidth = 4; ctx.beginPath(); for (let px = 0; px <= 420; px += 4) { const ph = ((px / 420) * 2 + t * 0.15) % 1; const v = ph < 0.35 ? ph / 0.35 : 1 - (ph - 0.35) / 0.65; px ? ctx.lineTo(1400 + px, 760 - v * 80) : ctx.moveTo(1400, 760 - v * 80); } ctx.stroke(); regel(ctx, 'in kort · uit lang', 1610, 820, 1, C.teal, 26, 'center', 700); ctx.restore(); } },
 
-  // ---------- H3 ----------
+
+  // ---------- H3 · Eerst je adem ----------
+  s21(ctx, t, q) { bg(ctx, 'schema'); const st = q.on('stress', 1), pr = q.on('proef', 1, 0.8);
+    persoon(ctx, 'bilal', 360, 880, 560, { uit: 'bezorgd', pose: 'staan', kijk: 1, t });
+    hartje(ctx, 560, 360, 1.5 * (1 + 0.22 * Math.max(0, Math.sin(t * 11))), 1); hartslag(ctx, 470, 430, 200, 50, t, 1, 1);
+    wolk(ctx, 520, 130, 420, 130, 'anders bekijken?', q.on('herwaarderen', 1) * (1 - pr), '#E8F0F8', 30);
+    kruis(ctx, 900, 170, 26, q.on('tegen', 1) * (1 - pr));
+    if (pr < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - pr; brein(ctx, 1320, 560, 1.25, { t, amy: 1, pfc: 1, alarm: 1, dim: st });
+      tag(ctx, 'veel stress: prefrontale cortex werkt minder goed', 1320, 260, C.koraal, st, 'center', 28); ctx.restore(); }
+    if (pr > 0.01) { ctx.save(); ctx.globalAlpha *= pr; regel(ctx, 'herwaarderen lukt…', 1000, 330, 1, C.text, 32, 'left', 700);
+      const g = q.on('gestrest', 1), sl = q.on('slechter', 1);
+      balk(ctx, 1240, 400, 520, 0.85 * pr, C.teal, 1, 'zonder stress'); balk(ctx, 1240, 500, 520, lerp(0.85, 0.3, sl), C.koraal, g, 'na stress');
+      metaText(ctx, 'schematisch · naar Raio e.a. (2013)', 1760, 600, C.text2, 'right', 18); ctx.restore(); } },
+
+  s22(ctx, t, q) { bg(ctx, 'schema'); const hb = q.on('hoort', 1, 0.8);
+    if (hb < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - hb; const x = 220, y = 220, w = 1100, h = 520;
+      ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + h); ctx.lineTo(x + w, y + h); ctx.stroke();
+      metaText(ctx, 'spanning', x, y - 20, C.text2, 'left', 20); metaText(ctx, 'tijd', x + w, y + h + 40, C.text2, 'right', 20);
+      const thr = y + h * 0.62; ctx.save(); ctx.setLineDash([8, 10]); ctx.strokeStyle = rgba(C.groen, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, thr); ctx.lineTo(x + w, thr); ctx.stroke(); ctx.restore();
+      regel(ctx, 'ruimte om te kiezen', x + w - 10, thr + 40, q.on('golf', 1), C.groen, 24, 'right', 700);
+      const p0 = clamp(t / 2.2, 0, 1); golf(ctx, x, y, w, h, p0, 0, C.text2, 0.8, 1);
+      const pa = clamp((t - q.at('langzaam')) / 6, 0, 1); golf(ctx, x, y, w, h, pa, 1, C.teal, 1);
+      const lx = x + w * 0.58; ctx.save(); ctx.globalAlpha *= p0; ctx.setLineDash([10, 8]); ctx.strokeStyle = C.text2; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(lx, y + 30); ctx.lineTo(lx + 50, y + 30); ctx.stroke(); ctx.restore(); regel(ctx, 'zonder', lx + 66, y + 39, p0, C.text2, 24, 'left', 600);
+      ctx.save(); ctx.globalAlpha *= pa; ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(lx, y + 76); ctx.lineTo(lx + 50, y + 76); ctx.stroke(); ctx.restore(); regel(ctx, 'met langzaam ademen', lx + 66, y + 85, pa, C.teal, 24, 'left', 700);
+      ademCirkel(ctx, 1600, 330, 110, 0.5 - 0.5 * Math.cos(t * 6.283 / 10), { a: q.on('langzaam', 1), klein: 1 });
+      tag(ctx, '± 6 per minuut · lang uit', 1600, 520, C.teal, q.on('uitademing', 1), 'center', 26);
+      const hs = q.on('hartslag', 1); hartje(ctx, 1600, 640, 1.2 * (1 + 0.18 * Math.max(0, Math.sin(t * lerp(10, 5, hs)))), hs); regel(ctx, 'hartslag zakt wat', 1600, 720, hs, C.koraal, 24, 'center', 700);
+      tag(ctx, 'alarm blijft, de golf zakt', 1600, 820, C.goud, q.on('alarm', 1), 'center', 26); ctx.restore(); }
+    if (hb > 0.01) { ctx.save(); ctx.globalAlpha *= hb; const nm = ['situatie', 'aandacht', 'betekenis', 'reactie'];
+      nm.forEach((n, i) => { const x = 140 + i * 430; roundRect(ctx, x, 240, 360, 100, 16); shape(ctx, rgba(i === 3 ? C.teal : C.fill, i === 3 ? 0.25 : 0.5), i === 3 ? C.teal : C.line, i === 3 ? 3 : 1.5); text(ctx, n, x + 180, 305, fTekst(36, 700), C.text, 'center'); if (i < 3) pijl(ctx, x + 366, 290, x + 424, 290, C.line, 1, 4, 14); });
+      ademCirkel(ctx, 1610, 450, 70, 0.5 - 0.5 * Math.cos(t * 6.283 / 10), { klein: 1 }); regel(ctx, 'ademen', 1610, 560, 1, C.teal, 28, 'center', 700);
+      const rm = q.on('ruimte', 1); ctx.save(); ctx.globalAlpha *= rm; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.setLineDash([10, 10]); ctx.beginPath(); ctx.moveTo(1560, 380); ctx.bezierCurveTo(1300, 470, 900, 470, 760, 350); ctx.stroke(); ctx.setLineDash([]); pijl(ctx, 790, 380, 760, 350, C.goud, 1, 4, 16); ctx.restore();
+      regel(ctx, 'ruimte voor de andere stappen', 1160, 500, rm, C.goud, 28, 'center', 700);
+      ['benoemen', 'herwaarderen', 'even weglopen'].forEach((c, i) => tag(ctx, c, 600 + i * 360, 680, C.groen, q.on('kiezen', 1, 0.5 + i * 0.3), 'center', 30)); ctx.restore(); } },
+
+  s23(ctx, t, q) { bg(ctx, 'schema'); const zu = q.on('zucht', 1, 0.6);
+    const i1 = q.at('in', 1), u1 = q.at('uit', 1), i2 = q.at('in', 2), u2 = q.at('uit', 2);
+    let v = 0, fase = '', tel = 0;
+    const inh = (a0, a1) => { const u = clamp((t - a0) / (a1 - a0), 0, 1); v = 0.5 - 0.5 * Math.cos(u * Math.PI); fase = 'in'; tel = Math.min(4, Math.floor(t - a0) + 1); };
+    const exh = (a0) => { const u = clamp((t - a0) / 6, 0, 1); v = 0.5 + 0.5 * Math.cos(u * Math.PI); fase = u < 1 ? 'uit' : ''; tel = u < 1 ? Math.min(6, Math.floor(t - a0) + 1) : 0; };
+    if (t >= i1 && t < u1) inh(i1, u1); else if (t >= u1 && t < i2) exh(u1); else if (t >= i2 && t < u2) inh(i2, u2); else if (t >= u2) exh(u2);
+    const big = 1 - zu; ademCirkel(ctx, 760, 470, 300, v, { a: 1, fase: big > 0.5 ? fase : '', tel: big > 0.5 ? tel : 0 });
+    regel(ctx, 'probeer het zelf', 140, 140, 1, C.text, 40, 'left', 700); metaText(ctx, 'door je neus · in 4 · uit 6', 140, 190, C.text2, 'left', 22);
+    persoon(ctx, 'bilal', 1680, 880, 520, { uit: t > u1 ? 'neutraal' : 'bezorgd', pose: 'staan', kijk: -1, t });
+    if (zu > 0.01) { ctx.save(); ctx.globalAlpha *= zu; const x = 1080, y = 640, w = 360, h = 150; roundRect(ctx, x - 30, y - 70, w + 60, h + 120, 16); shape(ctx, rgba(C.fill, 0.85), C.teal, 2);
+      regel(ctx, 'de zucht', x + w / 2, y - 24, 1, C.teal, 30, 'center', 700);
+      const pg = clamp((t - q.at('twee', 5)) / 3.2, 0, 1); ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath();
+      for (let i = 0; i <= 100 * pg; i++) { const u = i / 100; const vv = u < 0.2 ? 0.7 * Math.sin(u / 0.2 * Math.PI / 2) : u < 0.3 ? 0.7 + 0.3 * Math.sin((u - 0.2) / 0.1 * Math.PI / 2) : Math.cos((u - 0.3) / 0.7 * Math.PI / 2); const yy = y + h - vv * h * 0.9; i ? ctx.lineTo(x + u * w, yy) : ctx.moveTo(x, yy); } ctx.stroke();
+      metaText(ctx, 'in · kort in · heel lang uit', x + w / 2, y + h + 36, C.text2, 'center', 18); ctx.restore(); } },
+
+  s24(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'werkt dat echt?', 140, 140, 1, C.text, 40, 'left', 700);
+    tag(ctx, '400 volwassenen · 1 maand · elke dag 10 minuten', 960, 240, C.text2, q.on('Vierhonderd', 1), 'center', 28);
+    const A = q.on('ene', 2), B = q.on('andere', 1);
+    ctx.save(); ctx.globalAlpha *= A; roundRect(ctx, 160, 320, 1600, 190, 18); shape(ctx, rgba(C.teal, 0.1), C.teal, 2); regel(ctx, 'langzaam · ± 6 per minuut', 200, 380, 1, C.teal, 30, 'left', 700); mensjes(ctx, 230, 480, 8, C.teal); ademGolfje(ctx, 700, 400, 1000, 80, 6, t, C.teal); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= B; roundRect(ctx, 160, 550, 1600, 190, 18); shape(ctx, rgba(C.goud, 0.1), C.goud, 2); regel(ctx, 'gewoon tempo · ± 12 per minuut', 200, 610, 1, C.goud, 30, 'left', 700); mensjes(ctx, 230, 710, 8, C.goud); ademGolfje(ctx, 700, 630, 1000, 80, 12, t, C.goud); ctx.restore();
+    vraagteken(ctx, 1700, 860, q.on('Wat', 1), 100); },
+
+  s26(ctx, t, q) { bg(ctx, 'schema'); const bx = 260, by = 700, bw = 120, H0 = 380;
+    const dl = q.on('daalde', 1, 1.2);
+    [['langzaam', C.teal, 0], ['gewoon tempo', C.goud, 1]].forEach(([nm, col, i]) => { const x = bx + i * 420;
+      roundRect(ctx, x, by - H0, bw, H0, 8); shape(ctx, rgba(C.text2, 0.35), C.text2, 1.5); const hn = H0 * lerp(1, 0.68, dl); roundRect(ctx, x + bw + 30, by - hn, bw, hn, 8); shape(ctx, rgba(col, 0.6), col, 2);
+      text(ctx, 'voor', x + bw / 2, by + 36, fTekst(24, 600), C.text2, 'center'); text(ctx, 'na', x + bw * 1.5 + 30, by + 36, fTekst(24, 600), C.text2, 'center'); regel(ctx, nm, x + bw + 15, by + 80, 1, col, 28, 'center', 700); });
+    metaText(ctx, 'stress · schematisch · naar Fincham e.a. (2023)', bx, by - H0 - 40, C.text2, 'left', 18);
+    tag(ctx, 'ongeveer evenveel', 520, 200, C.text, q.on('evenveel', 1), 'center', 30);
+    tag(ctx, 'even stoppen en op je adem letten', 1400, 330, C.text2, q.on('stopt', 1), 'center', 28);
+    tag(ctx, 'klein effect, vooral in het moment zelf', 1400, 440, C.text2, q.on('proeven', 1), 'center', 28);
+    tag(ctx, 'geen wondermiddel', 1400, 550, C.koraal, q.on('wondermiddel', 1), 'center', 30);
+    tag(ctx, 'wel een handige eerste stap', 1400, 650, C.groen, q.on('handige', 1), 'center', 30);
+    tag(ctx, 'eerst de golf laten zakken, dan kiezen', 1400, 790, C.goud, q.on('golf', 1), 'center', 34); },
+
+  s27(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'adem en hartslag', 140, 140, 1, C.text, 40, 'left', 700);
+    const zs = q.on('zes', 1, 1.5), bar = q.on('baroreflex', 1, 0.8), var2 = q.on('variabiliteit', 2);
+    const per = lerp(12, 6, zs), amp = lerp(0.35, 1, zs), x = 220, w = 1060;
+    // adem (boven) en hartslag (onder), in fase
+    metaText(ctx, 'adem', x - 20, 270, C.teal, 'right', 20); metaText(ctx, 'hartslag', x - 20, 470, C.koraal, 'right', 20);
+    ctx.save(); ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.beginPath(); for (let px = 0; px <= w; px += 3) { const ph = px / w * per / 3 - t * per / 60; const v = Math.sin(ph * 6.283); const yy = 260 - v * 60; px ? ctx.lineTo(x + px, yy) : ctx.moveTo(x, yy); } ctx.stroke(); ctx.restore();
+    const hb = q.on('hartslag', 1); ctx.save(); ctx.globalAlpha *= hb; ctx.strokeStyle = C.koraal; ctx.lineWidth = 5; ctx.beginPath(); for (let px = 0; px <= w; px += 3) { const ph = px / w * per / 3 - t * per / 60; const v = Math.sin(ph * 6.283 - 0.5) * amp; const yy = 470 - v * 70; px ? ctx.lineTo(x + px, yy) : ctx.moveTo(x, yy); } ctx.stroke(); ctx.restore();
+    tag(ctx, 'in: vagus remt minder → hartslag omhoog', 760, 620, C.text2, q.on('inademen', 1) * (1 - bar), 'center', 26);
+    tag(ctx, 'uit: vagus remt → hartslag omlaag', 760, 700, C.text2, q.on('uitademen', 1) * (1 - bar), 'center', 26);
+    tag(ctx, 'hartritmevariabiliteit', 760, 380, C.goud, q.on('hartritmevariabiliteit', 1), 'center', 30);
+    regel(ctx, (zs > 0.5 ? '± 6' : '± 12') + ' per minuut', x + w, 160, 1, C.text2, 26, 'right', 700);
+    if (bar > 0.01) { ctx.save(); ctx.globalAlpha *= bar; const bx = 1420, by = 210; const box = (s2, y, col) => { roundRect(ctx, bx, y, 380, 70, 12); shape(ctx, rgba(col, 0.14), col, 2); text(ctx, s2, bx + 190, y + 46, fTekst(26, 700), C.text, 'center'); };
+      regel(ctx, 'baroreflex', bx + 190, by - 20, 1, C.goud, 30, 'center', 700);
+      box('bloeddruk omhoog', by + 20, C.koraal); pijl(ctx, bx + 190, by + 94, bx + 190, by + 130, C.line, 1, 3, 12);
+      box('drukzintuigen in slagaders', by + 136, C.goud); pijl(ctx, bx + 190, by + 210, bx + 190, by + 246, C.line, 1, 3, 12);
+      box('nervus vagus', by + 252, C.teal); pijl(ctx, bx + 190, by + 326, bx + 190, by + 362, C.line, 1, 3, 12);
+      box('hartslag omlaag', by + 368, C.koraal); ctx.restore(); }
+    tag(ctx, 'hoge variabiliteit ↔ betere emotieregulatie', 760, 800, C.groen, var2, 'center', 28);
+    vraagteken(ctx, 1290, 860, q.on('oorzaak', 1), 80); regel(ctx, 'oorzaak of gevolg?', 1240, 850, q.on('oorzaak', 1), C.text2, 26, 'right', 600); },
+
+  // ---------- H4 ----------
   s09(ctx, t, q) { bg(ctx, 'schema'); const gr = q.on('groot', 1, 0.8);
     if (gr < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - gr; const kalm = q.on('wiegen', 1, 2);
       ouder(ctx, 760, 860, 460, { t, armen: 1, flip: -1 }); peuter(ctx, 700, 560, 0.8, { t, huil: 1 - kalm, blij: kalm > 0.8 ? 1 : 0, armen: 1 });
@@ -149,11 +254,12 @@ const SCENES = {
       const vw = q.on('Volwassenen', 1); if (vw > 0.01) { ouder(ctx, 1250, 860, 340, { t, a: vw, jas: '#4A6A8A', haar: '#3A2A20', lang: 0 }); ouder(ctx, 1450, 860, 330, { t, a: vw, flip: -1, armen: 0.4 }); regel(ctx, 'volwassenen ook', 1350, 900 - 0, vw, C.text2, 26, 'center', 600); }
       ctx.restore(); } },
 
-  s10(ctx, t, q) { bg(ctx, 'schema'); const pw = 400, gap = 40, x0 = (W - 4 * pw - 3 * gap) / 2, y0 = 220, ph = 520;
-    const panel = (i, titel, a, draw) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const x = x0 + i * (pw + gap); roundRect(ctx, x, y0, pw, ph, 14); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); regel(ctx, titel, x + pw / 2, y0 + 50, 1, C.text, 28, 'center', 700); ctx.save(); ctx.beginPath(); ctx.rect(x, y0 + 60, pw, ph - 60); ctx.clip(); draw(x); ctx.restore(); ctx.restore(); };
-    panel(0, 'alarm en rem', q.on('Emoties', 1), (x) => brein(ctx, x + 200, 480, 0.75, { t, amy: 1, pfc: 1, alarm: 0.6, rem: 1 }));
-    panel(1, 'vier stappen', q.on('situatie', 1), (x) => { ['situatie', 'aandacht', 'betekenis', 'reactie'].forEach((s2, i) => { roundRect(ctx, x + 80, 320 + i * 100, 240, 64, 10); shape(ctx, rgba(C.teal, 0.14), C.teal, 1.5); text(ctx, s2, x + 200, 362 + i * 100, fTekst(26, 700), C.text, 'center'); }); });
-    panel(2, 'onderdrukken vs herwaarderen', q.on('Onderdrukken', 1), (x) => { [['A', 0.8, C.koraal], ['B', 0.45, C.teal]].forEach(([n, v, col], i) => { roundRect(ctx, x + 90 + i * 140, 680 - v * 300, 90, v * 300, 8); shape(ctx, rgba(col, 0.55), col, 2); text(ctx, n, x + 135 + i * 140, 720, fTekst(26, 700), col, 'center'); }); metaText(ctx, 'lichaam', x + 200, 330, C.text2, 'center', 18); });
-    panel(3, 'eerst samen, dan zelf', q.on('samen', 1), (x) => { ouder(ctx, x + 250, 700, 280, { t, armen: 1, flip: -1 }); peuter(ctx, x + 180, 600, 0.6, { t, blij: 1, armen: 1 }); });
-    tag(ctx, 'de beste keuze hangt af van de situatie', 960, 850, C.goud, q.on('keuze', 1)); },
+  s10(ctx, t, q) { bg(ctx, 'schema'); const pw = 328, gap = 24, x0 = (W - 5 * pw - 4 * gap) / 2, y0 = 220, ph = 520;
+    const panel = (i, titel, a, draw) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const x = x0 + i * (pw + gap); roundRect(ctx, x, y0, pw, ph, 14); shape(ctx, rgba(C.fill, 0.5), C.line, 1.5); titel.split('\n').forEach((r, k) => regel(ctx, r, x + pw / 2, y0 + 46 + k * 32, 1, C.text, 26, 'center', 700)); ctx.save(); ctx.beginPath(); ctx.rect(x, y0 + 90, pw, ph - 90); ctx.clip(); draw(x); ctx.restore(); ctx.restore(); };
+    panel(0, 'alarm en rem', q.on('Emoties', 1), (x) => brein(ctx, x + 170, 500, 0.62, { t, amy: 1, pfc: 1, alarm: 0.6, rem: 1 }));
+    panel(1, 'vier stappen', q.on('situatie', 1), (x) => { ['situatie', 'aandacht', 'betekenis', 'reactie'].forEach((s2, i) => { roundRect(ctx, x + 54, 330 + i * 96, 220, 62, 10); shape(ctx, rgba(C.teal, 0.14), C.teal, 1.5); text(ctx, s2, x + 164, 371 + i * 96, fTekst(26, 700), C.text, 'center'); }); });
+    panel(2, 'onderdrukken of\nherwaarderen', q.on('Onderdrukken', 1), (x) => { [['A', 0.8, C.koraal], ['B', 0.45, C.teal]].forEach(([n, v, col], i) => { roundRect(ctx, x + 64 + i * 120, 680 - v * 300, 80, v * 300, 8); shape(ctx, rgba(col, 0.55), col, 2); text(ctx, n, x + 104 + i * 120, 720, fTekst(26, 700), col, 'center'); }); metaText(ctx, 'lichaam', x + 164, 340, C.text2, 'center', 18); });
+    panel(3, 'eerst de adem', q.on('Langzaam', 1), (x) => { ademCirkel(ctx, x + 164, 470, 110, 0.5 - 0.5 * Math.cos(t * 6.283 / 10), { klein: 1 }); text(ctx, 'in 4 · uit 6', x + 164, 640, fTekst(26, 700), C.teal, 'center'); text(ctx, 'dan kiezen', x + 164, 690, fTekst(24, 600), C.text2, 'center'); });
+    panel(4, 'eerst samen,\ndan zelf', q.on('samen', 1), (x) => { ouder(ctx, x + 220, 700, 260, { t, armen: 1, flip: -1 }); peuter(ctx, x + 150, 610, 0.55, { t, blij: 1, armen: 1 }); });
+    tag(ctx, 'de beste keuze hangt af van de situatie', 960, 850, C.goud, q.on('keuze', 1) * (1 - q.on('Langzaam', 1))); },
 };
