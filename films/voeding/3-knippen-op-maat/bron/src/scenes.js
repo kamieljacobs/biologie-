@@ -82,6 +82,19 @@ function koelkast(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.glo
 function reageerbuis(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x - 30, y - 140); ctx.lineTo(x - 30, y + 60); ctx.arc(x, y + 60, 30, Math.PI, 0, true); ctx.lineTo(x + 30, y - 140); ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.stroke(); ctx.fillStyle = rgba(C.teal, 0.35); ctx.fillRect(x - 28, y - 20, 56, 80); ctx.beginPath(); ctx.arc(x, y + 60, 28, 0, Math.PI); ctx.fill(); ctx.restore(); }
 function waspoeder(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 80, y - 110, 160, 200, 10); shape(ctx, rgba(C.teal, 0.25), C.teal, 2); text(ctx, 'was', x, y - 20, fTekst(36, 700), C.text, 'center'); for (let i = 0; i < 6; i++) { ctx.fillStyle = C.text; ctx.beginPath(); ctx.arc(x - 50 + (i % 3) * 50, y + 30 + Math.floor(i / 3) * 30, 6, 0, 6.283); ctx.fill(); } ctx.restore(); }
 
+// lange, vertakte zetmeelketen (20 okt 2026): laatste glucose rechts op (ax, ay); de keten loopt naar links en omhoog tot buiten beeld,
+// met een zijtak (vertakking) die ook buiten beeld doorloopt. r = straal zeshoek, stap = afstand tussen de glucoses.
+function zetmeelLang(ctx, ax, ay, o = {}) { const { r = 15, a = 1, ph = 0, top = 210, tak = 11 } = o; if (a <= 0.01) return; const stap = r * 1.75;
+  const pad = (s) => [ax - s, ay + (top - ay) * ease(s / 520) + Math.sin(s / 95 + ph) * 16 * Math.min(1, s / 200)];
+  const pts = [[ax, ay]]; let last = pts[0];
+  for (let s = 2; s < 2400 && pts.length < 90; s += 2) { const p = pad(s); if (Math.hypot(p[0] - last[0], p[1] - last[1]) >= stap) { pts.push(p); last = p; if (p[0] < -40) break; } }
+  const zij = [], b = pts[Math.min(tak, pts.length - 1)]; // zijtak schuin omhoog vanaf glucose nr. tak (vertakking)
+  for (let i = 1; i < 30; i++) { const ang = -1.1 + 0.2 * Math.sin(i * 0.7 + ph); const pv = i === 1 ? b : zij[zij.length - 1]; const p = [pv[0] + Math.cos(ang) * stap, pv[1] + Math.sin(ang) * stap]; zij.push(p); if (p[1] < -40) break; }
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = V.kh; ctx.lineWidth = 2;
+  ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(b[0], b[1]); zij.forEach(p => ctx.lineTo(p[0], p[1])); ctx.stroke();
+  pts.concat(zij).forEach(p => hexagon(ctx, p[0], p[1], r, rgba(V.kh, 0.55), V.kh, 1.4, 0));
+  ctx.restore(); }
 const SCENES = {
   title(ctx, t) { enzym(ctx, 1500, 640, 1.9, { soort: 'amylase', t, gloed: 0.5 + 0.5 * Math.sin(t * 2) }); zetmeelKeten(ctx, 1230, 470, 6, 20, { amp: 0, cuts: [2], gap: 26 + 10 * Math.sin(t * 2) }); },
 
@@ -116,25 +129,31 @@ const SCENES = {
     const EX = 960, EY = 640, S = 2.2; const notchY = EY - 40 * S;
     enzym(ctx, EX, EY, S, { soort: 'amylase', t, gloed: q.on('actieve') * (1 - q.on('los')) });
     label(ctx, 'amylase', 'enzym', EX + 150, EY + 40, 1420, 780, q.on('amylase'));
-    label(ctx, 'actief centrum', null, EX + 40, notchY - 4, 1420, 420, q.on('actieve'));
-    // substraat: keten van 4 zeshoeken zakt in het kuiltje
+    label(ctx, 'actief centrum', null, EX + 112, notchY + 6, 1420, 430, q.on('actieve'));
+    // substraat: het uiteinde van een lange, vertakte zetmeelketen zakt in het kuiltje; het enzym knipt er maltose (2 glucoses) af (20 okt 2026)
     const in_ = q.on('Past', 1, 1.2), knip = ramp(t, q.at('watermolecuul') + 0.6, 0.6), los = q.on('los', 1, 1.6);
-    const sy = lerp(230, notchY - 26, in_);
-    if (los < 0.01) { zetmeelKeten(ctx, EX - 3 * 26.25 + 0, sy, 4, 15, { amp: 0, cuts: knip > 0.5 ? [1] : [], gap: 14 * knip }); }
-    else { maltose(ctx, EX - 26 - 260 * los, sy - 160 * los, 15, 1, -0.4 * los); maltose(ctx, EX + 26 + 260 * los, sy - 160 * los, 15, 1, 0.4 * los); }
-    label(ctx, 'substraat', 'zetmeel', EX - 60, sy, 520, 300, q.on('substraat') * (1 - los));
+    const sy = lerp(230, notchY - 26, in_), zx = EX - 26 - 150 * los, zy = sy - 70 * los; // laatste glucose van de keten (links van de knip)
+    zetmeelLang(ctx, zx, zy, { ph: 0.4 });
+    if (los < 0.01) { const g = 14 * knip; ctx.save(); ctx.strokeStyle = V.kh; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(EX - 26, sy); ctx.lineTo(EX + 26 + g, sy); if (knip < 0.5) ctx.stroke(); ctx.beginPath(); ctx.moveTo(EX + 26 + g, sy); ctx.lineTo(EX + 79 + g, sy); ctx.stroke(); ctx.restore();
+      hexagon(ctx, EX + 26 + g, sy, 15, rgba(V.kh, 0.55), V.kh, 1.4, 0); hexagon(ctx, EX + 79 + g, sy, 15, rgba(V.kh, 0.55), V.kh, 1.4, 0); }
+    else maltose(ctx, EX + 66 + 260 * los, sy - 160 * los, 15, 1, 0.4 * los);
+    naamBij(ctx, 'substraat', 'zetmeel: lange keten', EX + 10, sy - 64, q.on('substraat') * (1 - los), 'left');
     tag(ctx, 'enzym-substraatcomplex', 520, 520, C.goud, q.on('enzym-substraatcomplex') * (1 - los));
     const w = q.on('gebruikt', 1, 1.4); if (w > 0.01 && knip < 0.9) water(ctx, lerp(EX + 300, EX + 6, w), lerp(notchY - 160, notchY - 30, w), 11, 1);
     tag(ctx, 'hydrolyse = knippen met water', 520, 620, C.teal, q.on('hydrolyse'));
     tag(ctx, 'producten: maltose', 1440, 230, V.kh, q.on('producten'));
     tag(ctx, 'maltose smaakt zoet', 1440, 320, C.goud, q.on('zoet'));
   },
-  s07(ctx, t, q) { bg(ctx, 'micro'); enzym(ctx, 960, 640, 2.2, { soort: 'amylase', t }); maltose(ctx, 960 - 290, 410, 15, 1, -0.4); maltose(ctx, 960 + 290, 410, 15, 1, 0.4); vraagteken(ctx, 960, 330, q.on('Wat')); },
+  s07(ctx, t, q) { bg(ctx, 'micro'); enzym(ctx, 960, 640, 2.2, { soort: 'amylase', t }); zetmeelLang(ctx, 960 - 176, 410 - 70, { ph: 0.4 }); maltose(ctx, 960 + 326, 410, 15, 1, 0.4); vraagteken(ctx, 960, 330, q.on('Wat')); },
   s09(ctx, t, q) { bg(ctx, 'micro');
     const cyc = (t * 0.9) % 1, n = Math.floor(t * 0.9); const EX = 760, EY = 600, S = 1.6, ny = EY - 40 * S;
     enzym(ctx, EX, EY, S, { soort: 'amylase', t, gloed: cyc < 0.5 ? 1 : 0 });
-    const sy = cyc < 0.4 ? lerp(260, ny - 20, cyc / 0.4) : ny - 20; if (cyc < 0.55) zetmeelKeten(ctx, EX - 40, sy, 3, 12, { amp: 0, cuts: cyc > 0.45 ? [0] : [], gap: 10 }); else { maltose(ctx, EX - 120 - (cyc - 0.55) * 400, ny - 60 - (cyc - 0.55) * 300, 12); }
-    for (let i = 0; i < Math.min(n, 14); i++) maltose(ctx, 160 + (i % 7) * 80, 220 + Math.floor(i / 7) * 60, 11, 0.7);
+    // lange zetmeelketen: het uiteinde ligt in het actieve centrum; elke ronde gaat er één maltose af en schuift de keten door (20 okt 2026)
+    const st = 21, my = ny - 20, kx = cyc < 0.45 ? EX + 1.5 * st : cyc < 0.55 ? EX - 0.5 * st : EX - 0.5 * st + 2 * st * ease((cyc - 0.55) / 0.45);
+    zetmeelLang(ctx, kx, my, { r: 12, ph: 0.4, top: 230 });
+    if (cyc >= 0.45 && cyc < 0.55) { const g = 10 * (cyc - 0.45) / 0.1; ctx.save(); ctx.strokeStyle = V.kh; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(EX + 0.5 * st + g, my); ctx.lineTo(EX + 1.5 * st + g, my); ctx.stroke(); ctx.restore(); hexagon(ctx, EX + 0.5 * st + g, my, 12, rgba(V.kh, 0.55), V.kh, 1.4, 0); hexagon(ctx, EX + 1.5 * st + g, my, 12, rgba(V.kh, 0.55), V.kh, 1.4, 0); }
+    else if (cyc >= 0.55) maltose(ctx, EX + 40 + (cyc - 0.55) * 500, my - 40 - (cyc - 0.55) * 300, 12);
+    for (let i = 0; i < Math.min(n, 14); i++) maltose(ctx, 1100 + (i % 7) * 80, 140 + Math.floor(i / 7) * 55, 11, 0.7);
     tag(ctx, 'onveranderd · raakt niet op', EX, 860, C.groen, q.on('onveranderd') * (1 - q.on('leeft')));
     tag(ctx, 'echt: honderden per seconde', 1450, 260, C.goud, q.on('honderden'));
     const l = q.on('leeft'); tag(ctx, 'een molecuul, geen cel', 1450, 380, C.enzym, l);
@@ -153,7 +172,7 @@ const SCENES = {
     tag(ctx, 'remmer: het slot zit dicht', 1400, 640, C.koraal, r * (1 - sum));
     ctx.restore();
     if (sum > 0.01) { ctx.save(); ctx.globalAlpha *= sum; roundRect(ctx, 460, 300, 1000, 380, 22); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 1.5); text(ctx, 'Onthoud', 520, 380, fTitel(56), C.goud);
-      ['knipt met water (hydrolyse)', 'past op één soort stof', 'raakt niet op'].forEach((s, i) => { ctx.save(); ctx.globalAlpha *= q.on(['water', 'soort', 'niet'][i], [1, 2, 3][i]); text(ctx, (i + 1) + '  ' + s, 520, 470 + i * 70, fTekst(44, 600), C.text); ctx.restore(); }); ctx.restore(); }
+      ['knipt met water (hydrolyse)', 'past op één soort stof', 'raakt niet op'].forEach((s, i) => { ctx.save(); ctx.globalAlpha *= q.on(['water', 'soort', 'raakt'][i], [1, 2, 1][i]); text(ctx, (i + 1) + '  ' + s, 520, 470 + i * 70, fTekst(44, 600), C.text); ctx.restore(); }); ctx.restore(); }
   },
   s11(ctx, t, q) { bg(ctx, 'schema');
     const X = 360, Y = 760, Wd = 1200, Hd = 480; const a = ramp(t, 0.3, 0.8);
