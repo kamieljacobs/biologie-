@@ -1,0 +1,97 @@
+{
+ "slug": "neurowetenschappen-2-brein-en-computer",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Brein en computer",
+ "sub": "van neuron tot kunstmatig netwerk",
+ "puzzle": "Een AI leert plaatjes herkennen. Leert hij zoals jouw hersenen?",
+ "meta": "neurowetenschappen · computationeel",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Neurowetenschappen",
+ "lead": "Een neuron telt prikkelende en remmende signalen op en vuurt een pulsje als de som boven een drempel komt. McCulloch en Pitts maakten daar in 1943 een rekensom van; latere versies kregen gewichten. Leren is in zo'n netwerk: gewichten aanpassen na een fout, zoals het perceptron van Rosenblatt deed. Moderne netwerken hebben lagen, net als de visuele schors, maar ze leren anders: vanaf nul met veel meer voorbeelden, met veel meer energie, en met een foutsignaal dat precies door alle lagen terugrekent. Neurowetenschappers programmeren om metingen van honderden cellen te lezen, en om met een chip in de hersenen een robotarm te sturen.",
+ "endHaak": "welke app op jouw telefoon gebruikt een neuraal netwerk?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe beslist een neuron of het vuurt?",
+  "Hoofdstuk 2": "Hoe leert een netwerk van fouten?",
+  "Hoofdstuk 3": "Waar lijkt AI op het brein, en waar niet?",
+  "Hoofdstuk 4": "Waarom programmeren neurowetenschappers?",
+  "Recap": "Leert een AI zoals jij?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Daan, Dr. Kim en Teun (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Een neuraal netwerk vindt Daans kattenfoto's. Leert het zoals jouw hersenen?",
+   "correct": 1,
+   "explain": "Deels: de makers leenden ideeën van de hersenen (neuron als rekensom, lagen, gewichten), maar het leert op een andere manier."
+  },
+  "q06": {
+   "q": "Signalen +2, +2, +1 en −3; de drempel is 3. Vuurt dit neuron?",
+   "correct": 2,
+   "explain": "Nee: 2 + 2 + 1 − 3 = 2, en dat is onder de drempel. Een half pulsje bestaat niet."
+  },
+  "q09": {
+   "q": "Het netwerk zegt 'kruis', maar het was een rondje. Wat verandert er?",
+   "correct": 1,
+   "explain": "De verbindingen van de zwarte hokjes worden een beetje zwakker, zodat de som de volgende keer lager uitvalt."
+  },
+  "q13": {
+   "q": "Wie heeft meer voorbeelden nodig om een nieuw dier te leren herkennen: een kind of een netwerk dat vanaf nul leert?",
+   "correct": 1,
+   "explain": "Het netwerk: dat leerde van ongeveer duizend foto's per soort. Een kind begint wel niet bij nul: het heeft al jaren rondgekeken."
+  },
+  "q18": {
+   "q": "Een chipje in de bewegingsschors meet tientallen cellen. Hoe weet de computer welke beweging iemand wil maken?",
+   "correct": 1,
+   "explain": "Een programma leert welk vuurpatroon bij welke bedoelde beweging hoort, met gewichten, en stuurt daarmee een robotarm."
+  }
+ },
+ "glossary": [
+  {
+   "t": "neuron",
+   "d": "Zenuwcel; telt prikkelende en remmende signalen op en vuurt een pulsje als de som boven een drempel komt."
+  },
+  {
+   "t": "drempel",
+   "d": "Waarde waarboven (bij een kunstmatig neuron: op of waarboven) het neuron vuurt; eronder gebeurt niets."
+  },
+  {
+   "t": "alles-of-niets",
+   "d": "Een pulsje is er helemaal of helemaal niet, en is altijd even groot."
+  },
+  {
+   "t": "kunstmatig neuron",
+   "d": "Rekensom die signalen met hun gewichten optelt en met een drempel vergelijkt: uitkomst één of nul."
+  },
+  {
+   "t": "gewicht",
+   "d": "Sterkte van een verbinding in een kunstmatig netwerk; plus voor prikkelend, min voor remmend. Lijkt op de sterkte van een synaps."
+  },
+  {
+   "t": "perceptron",
+   "d": "Eenvoudig netwerk van Rosenblatt (1958) dat zijn gewichten na elke fout een beetje aanpast."
+  },
+  {
+   "t": "neuraal netwerk",
+   "d": "Programma met lagen kunstmatige neuronen dat leert door gewichten aan te passen."
+  },
+  {
+   "t": "laag",
+   "d": "Groep kunstmatige neuronen; de eerste lagen reageren op randjes, latere op vormen en onderdelen."
+  },
+  {
+   "t": "fout terugrekenen",
+   "d": "Methode waarmee de computer uitrekent hoeveel elk gewicht aan een fout bijdroeg, door alle lagen terug (backpropagation)."
+  },
+  {
+   "t": "meetnaald",
+   "d": "Dunne naald met honderden meetpunten die de pulsjes van honderden neuronen tegelijk meet."
+  },
+  {
+   "t": "chip die een robotarm stuurt",
+   "d": "Brein-computerinterface: systeem dat hersensignalen meet en een programma laat leren welke bedoelde beweging erbij hoort, om bijvoorbeeld een robotarm te sturen."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een kunstmatig neuron krijgt de signalen +3, +1 en −1. De drempel is 2. Vuurt het neuron? Wat verandert er als het signaal −1 wegvalt? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>3 + 1 − 1 = 3: dat is boven de drempel, dus de uitkomst is één (1p). Zonder −1 is de som 4, ook boven de drempel: nog steeds één, want het pulsje wordt niet groter (alles of niets) (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit wat 'leren' is in een perceptron, en vergelijk het met leren in de hersenen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Na een fout worden de gewichten van de verbindingen die aan stonden een beetje aangepast: zwakker als het antwoord ten onrechte 'kruis' was, sterker andersom (1p). In de hersenen worden synapsen sterker of zwakker; de sterkte van een synaps lijkt op een gewicht (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Noem drie verschillen tussen leren in je hersenen en leren in een groot kunstmatig netwerk. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Bijvoorbeeld: een netwerk dat vanaf nul leert heeft veel meer voorbeelden nodig; het trainen kost veel meer energie (hersenen ± 20 W); een netwerk rekent de fout precies door alle lagen terug, van de hersenen is niet bekend of ze dat doen; neuronen sturen pulsjes op precieze momenten, de meeste netwerken getallen (per verschil 1p, max 3).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Waarom moeten neurowetenschappers kunnen programmeren? Geef twee redenen uit de film. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Om grote hoeveelheden metingen te verwerken (honderden neuronen, dertigduizend keer per seconde) en patronen te vinden (1p). Om in een brein-computerinterface een programma te laten leren welk vuurpatroon bij welke beweging hoort (1p). Ook goed: modellen bouwen om te testen hoe hersenen werken.</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Neurowetenschappen. Bouwt voort op <i>Het kabelnetwerk</i> (pulsje), <i>De spleet</i> (synaps), <i>Leren en onthouden</i> (synapsen worden sterker) en <i>Kijken in een denkend brein</i> (Hubel en Wiesel). Daan is de rode draad; Dr. Kim is hier neurowetenschapper.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul>\n<li><b>H1</b> neuron als som met drempel; McCulloch en Pitts (1943) zonder gewichten, latere versies met gewichten; rekenvraag.</li>\n<li><b>H2</b> gewicht als synapssterkte; het perceptron (Rosenblatt 1958). De training in beeld is een echte simulatie: negen hokjes, startgewichten vast, leerregel w += 0,25·(doel − uitkomst)·x, drempel 0,5.</li>\n<li><b>H3</b> lagen (geïnspireerd op de visuele schors via Fukushima's neocognitron); verschillen: voorbeelden, energie, foutterugrekening, timing.</li>\n<li><b>H4</b> Neuropixels-achtige meetnaald, analyse in Python, brein-computerinterface (BrainGate).</li>\n</ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Model van een neuron</td><td>1943, optellen en drempel</td><td>McCulloch &amp; Pitts 1943, Bull. Math. Biophysics 5</td></tr>\n<tr><td>Perceptron</td><td>1958 (artikel; machine Mark I in 1959)</td><td>Rosenblatt 1958, Psychological Review 65</td></tr>\n<tr><td>Trainingsfoto's</td><td>± 1000 per soort, ± 1,2 miljoen totaal</td><td>ImageNet (ILSVRC 2012)</td></tr>\n<tr><td>Vermogen hersenen</td><td>± 20 W</td><td>The Physics Factbook</td></tr>\n<tr><td>Trainen groot model</td><td>duizenden chips; honderdduizenden keren 20 W</td><td>bv. Llama 3 405B: ± 16.000 H100's à 700 W</td></tr>\n<tr><td>Meetnaald</td><td>honderden neuronen, 30.000 metingen per seconde</td><td>Jun e.a. 2017, Nature 551 (Neuropixels)</td></tr>\n<tr><td>Robotarm</td><td>2011 koffie gedronken, bijna 15 jaar na een beroerte; 96 elektroden</td><td>Hochberg e.a. 2012, Nature 485</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Echte neuronen zijn ingewikkelder (plek van de synaps op de dendriet, timing); de film zegt dit.</li><li>BrainGate gebruikte een Kalmanfilter, geen perceptron; wel een lineair model met gewichten.</li><li>Moderne netwerken gebruiken geen harde drempel maar een gladde functie; voor het idee maakt dat niet uit.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen met de hand drie rondes van het perceptron uitrekenen. Startgewichten in de film (hokjes 1–9, rij voor rij): −0,35; 0,36; −0,39; 0,48; −0,06; −0,38; 0,06; 0,48; 0,40. Drempel 0,5, leerstap 0,25.</li><li>Laat leerlingen een eenvoudig netwerk trainen in de browser (bijvoorbeeld een gratis 'teachable machine') met twee soorten handgebaren, en bespreek hoeveel voorbeelden nodig zijn.</li></ul>\n</section>\n"
+}

@@ -1,0 +1,35 @@
+<section id="checkvragen"><h2>Checkvragen</h2>
+<div class="q"><p><b>1.</b> Een kunstmatig neuron krijgt de signalen +3, +1 en −1. De drempel is 2. Vuurt het neuron? Wat verandert er als het signaal −1 wegvalt? <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>3 + 1 − 1 = 3: dat is boven de drempel, dus de uitkomst is één (1p). Zonder −1 is de som 4, ook boven de drempel: nog steeds één, want het pulsje wordt niet groter (alles of niets) (1p).</p></details></div>
+<div class="q"><p><b>2.</b> Leg uit wat 'leren' is in een perceptron, en vergelijk het met leren in de hersenen. <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>Na een fout worden de gewichten van de verbindingen die aan stonden een beetje aangepast: zwakker als het antwoord ten onrechte 'kruis' was, sterker andersom (1p). In de hersenen worden synapsen sterker of zwakker; de sterkte van een synaps lijkt op een gewicht (1p).</p></details></div>
+<div class="q"><p><b>3.</b> Noem drie verschillen tussen leren in je hersenen en leren in een groot kunstmatig netwerk. <span class="pts">(3p)</span></p>
+<details><summary>Antwoord</summary><p>Bijvoorbeeld: een netwerk dat vanaf nul leert heeft veel meer voorbeelden nodig; het trainen kost veel meer energie (hersenen ± 20 W); een netwerk rekent de fout precies door alle lagen terug, van de hersenen is niet bekend of ze dat doen; neuronen sturen pulsjes op precieze momenten, de meeste netwerken getallen (per verschil 1p, max 3).</p></details></div>
+<div class="q"><p><b>4.</b> Waarom moeten neurowetenschappers kunnen programmeren? Geef twee redenen uit de film. <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>Om grote hoeveelheden metingen te verwerken (honderden neuronen, dertigduizend keer per seconde) en patronen te vinden (1p). Om in een brein-computerinterface een programma te laten leren welk vuurpatroon bij welke beweging hoort (1p). Ook goed: modellen bouwen om te testen hoe hersenen werken.</p></details></div>
+</section>
+<section id="docent"><h2>Voor de docent</h2>
+<h3>Plaats</h3>
+<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Neurowetenschappen. Bouwt voort op <i>Het kabelnetwerk</i> (pulsje), <i>De spleet</i> (synaps), <i>Leren en onthouden</i> (synapsen worden sterker) en <i>Kijken in een denkend brein</i> (Hubel en Wiesel). Daan is de rode draad; Dr. Kim is hier neurowetenschapper.</p>
+<h3>Hoe de film het uitlegt</h3>
+<ul>
+<li><b>H1</b> neuron als som met drempel; McCulloch en Pitts (1943) zonder gewichten, latere versies met gewichten; rekenvraag.</li>
+<li><b>H2</b> gewicht als synapssterkte; het perceptron (Rosenblatt 1958). De training in beeld is een echte simulatie: negen hokjes, startgewichten vast, leerregel w += 0,25·(doel − uitkomst)·x, drempel 0,5.</li>
+<li><b>H3</b> lagen (geïnspireerd op de visuele schors via Fukushima's neocognitron); verschillen: voorbeelden, energie, foutterugrekening, timing.</li>
+<li><b>H4</b> Neuropixels-achtige meetnaald, analyse in Python, brein-computerinterface (BrainGate).</li>
+</ul>
+<h3>Getallen en bronnen</h3>
+<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>
+<tr><td>Model van een neuron</td><td>1943, optellen en drempel</td><td>McCulloch &amp; Pitts 1943, Bull. Math. Biophysics 5</td></tr>
+<tr><td>Perceptron</td><td>1958 (artikel; machine Mark I in 1959)</td><td>Rosenblatt 1958, Psychological Review 65</td></tr>
+<tr><td>Trainingsfoto's</td><td>± 1000 per soort, ± 1,2 miljoen totaal</td><td>ImageNet (ILSVRC 2012)</td></tr>
+<tr><td>Vermogen hersenen</td><td>± 20 W</td><td>The Physics Factbook</td></tr>
+<tr><td>Trainen groot model</td><td>duizenden chips; honderdduizenden keren 20 W</td><td>bv. Llama 3 405B: ± 16.000 H100's à 700 W</td></tr>
+<tr><td>Meetnaald</td><td>honderden neuronen, 30.000 metingen per seconde</td><td>Jun e.a. 2017, Nature 551 (Neuropixels)</td></tr>
+<tr><td>Robotarm</td><td>2011 koffie gedronken, bijna 15 jaar na een beroerte; 96 elektroden</td><td>Hochberg e.a. 2012, Nature 485</td></tr>
+</table>
+<h3>Vereenvoudigingen</h3>
+<ul><li>Echte neuronen zijn ingewikkelder (plek van de synaps op de dendriet, timing); de film zegt dit.</li><li>BrainGate gebruikte een Kalmanfilter, geen perceptron; wel een lineair model met gewichten.</li><li>Moderne netwerken gebruiken geen harde drempel maar een gladde functie; voor het idee maakt dat niet uit.</li></ul>
+<h3>Lessuggesties</h3>
+<ul><li>Laat leerlingen met de hand drie rondes van het perceptron uitrekenen. Startgewichten in de film (hokjes 1–9, rij voor rij): −0,35; 0,36; −0,39; 0,48; −0,06; −0,38; 0,06; 0,48; 0,40. Drempel 0,5, leerstap 0,25.</li><li>Laat leerlingen een eenvoudig netwerk trainen in de browser (bijvoorbeeld een gratis 'teachable machine') met twee soorten handgebaren, en bespreek hoeveel voorbeelden nodig zijn.</li></ul>
+</section>
