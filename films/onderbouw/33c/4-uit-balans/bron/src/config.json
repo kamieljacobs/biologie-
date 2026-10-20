@@ -1,0 +1,17 @@
+{
+ "titel": "Uit balans",
+ "ondertitel": "Hoe herstelt een bos na een brand? Dynamisch evenwicht, verstoring en successie.",
+ "meta": "ecosystemen 4",
+ "kerndoel": "33C",
+ "versie": "1.0", "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes4.js",
+ "hold": {"s13": 12.0},
+ "mini": {"Hoofdstuk 1": "Muizen, uilen en eikels", "Hoofdstuk 2": "Brand, storm en water", "Hoofdstuk 3": "Pioniers, struiken, bomen", "Samenvatting": "Een nieuw evenwicht"},
+ "checkvragen": [
+  {"titel": "Evenwicht", "pts": "1 punt", "vraag": "Wat betekent 'dynamisch evenwicht' in een bos? A. het aantal dieren blijft elk jaar precies gelijk · B. het aantal gaat op en neer, maar rond hetzelfde niveau · C. het aantal dieren groeit elk jaar", "antwoord": "B (1): het beweegt steeds, maar blijft ongeveer rond hetzelfde niveau."},
+  {"titel": "Na de brand", "pts": "1 punt", "vraag": "Waarom spoelen na een brand veel mineralen weg? A. de as lost op in de lucht · B. er zijn geen wortels meer die ze opnemen · C. de reducenten eten ze op", "antwoord": "B (1): zonder planten neemt niemand de mineralen op, dus de regen spoelt een deel weg."},
+  {"titel": "Successie", "pts": "2 punten", "vraag": "Zet in de goede volgorde en leg uit waarom de pioniers verdwijnen: eiken en beuken · grassen en kruiden · struiken en berken.", "antwoord": "Grassen en kruiden → struiken en berken → eiken en beuken (1). Struiken en berken groeien boven de pioniers uit en maken schaduw; pioniers hebben veel licht nodig (1)."},
+  {"titel": "Den en vuur", "pts": "2 punten", "vraag": "Een den in Canada heeft kegels die dichtgeplakt zitten met hars. Leg uit waarom zo'n den baat heeft bij een bosbrand.", "antwoord": "De hitte smelt de hars, de kegels gaan open (1); de zaadjes vallen op kale, rijke grond waar veel licht is en weinig concurrentie (1).", "uitdaging": true}
+ ]
+}
