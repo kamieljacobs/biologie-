@@ -25,6 +25,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 
 ## Personages
 - Gebruik de vaste personages uit `personages/lib_cast.js` (castboek: `personages/index.html`).
+- **Geen grijze plaatsvervanger-poppetjes** (rond hoofd met smiley, blokvormig lijf, zonder huidskleur of kleding): waar een mens in beeld komt, altijd een van de vaste personages uit het castboek. Geldt ook voor bestaande films: bij een herziening de poppetjes vervangen (Kamiel, 20 okt 2026).
 
 ## Processen in beeld
 - **Exocytose / endocytose:** laat het blaasje echt versmelten met het celmembraan (aanleggen, membraan opent, blaasje wordt deel van het membraan, inhoud naar buiten), niet een blaasje dat verdwijnt (15 okt 2026).
