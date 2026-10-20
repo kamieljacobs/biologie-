@@ -226,6 +226,23 @@ body[data-kunst="intens"] .hero-kort>div{background:color-mix(in srgb,var(--bg) 
 @media (max-width:900px){.grondset.aan{opacity:.28}}
 @media (prefers-reduced-motion:reduce){.grondset{transition:none}.grondset.aan{animation:none}}
 
+/* Themakunst op de themapagina's */
+.kunstgrond.thema ~ section,.kunstgrond.thema ~ div{position:relative;z-index:1}
+.kunstgrond.thema .grondset.aan{opacity:.5;animation:zweef 50s ease-in-out infinite alternate}
+body[data-kunst="intens"] .kunstgrond.thema .grondset.aan{opacity:1}
+:root[data-theme="dark"] body[data-kunst="intens"] .kunstgrond.thema .grondset.aan{opacity:1}
+body.op-thema .kop{border-bottom:0}
+body.op-thema .kop .wrap>div:first-child,body.op-thema #app>.wrap.smal{background:color-mix(in srgb,var(--bg) 84%,transparent);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border:1px solid var(--line);border-radius:22px}
+body.op-thema .kop .wrap>div:first-child{padding:20px 30px 26px}
+body.op-thema #app>.wrap.smal{padding:6px 30px 30px;margin-bottom:48px}
+body[data-kunst="intens"].op-thema .kop .wrap>div:first-child,body[data-kunst="intens"].op-thema #app>.wrap.smal{background:color-mix(in srgb,var(--bg) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+body.op-thema footer{position:relative;z-index:1;background:var(--bg)}
+@media (max-width:700px){body.op-thema #app>.wrap.smal{padding:4px 14px 20px;border-radius:16px}body.op-thema .kop .wrap>div:first-child{padding:16px 18px}}
+body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
+.kop .groot.held{width:380px;height:auto;max-height:560px;border:0;border-radius:0;background:none}
+.kop .groot.held svg{width:100%;height:auto;max-height:560px;filter:drop-shadow(0 6px 24px color-mix(in srgb,var(--bg) 60%,transparent))}
+@media (max-width:900px){body.op-thema .kop .wrap{grid-template-columns:1fr}.kop .groot.held{justify-self:center;width:260px}}
+
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
 .kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
@@ -450,6 +467,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 </header>
 
 <main id="app"></main>
+<script src="js/themakunst.js?v=09b4a698"></script>
 
 <footer>
   <div class="wrap">
@@ -2646,9 +2664,10 @@ const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="fi
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
       <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: korte animaties om zelf stap voor stap uit te leggen">Uitleg in stappen</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`};
+const themaLaag=id=>{if(kunstStand==='uit'||!window.THEMAKUNST||!THEMAKUNST[id]) return '';return `<div class="kunstgrond thema" aria-hidden="true"><div class="grondset aan"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><radialGradient id="heldgat"><stop offset=".55" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="heldmasker" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><rect width="1600" height="1000" fill="#fff"/><ellipse cx="1180" cy="330" rx="300" ry="330" fill="url(#heldgat)"/></mask></defs><g mask="url(#heldmasker)">${THEMAKUNST[id]()}</g></svg></div></div>`};
 function hoofdstuk(id){
   const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
-  let out=`<section class="kop"><div class="wrap">
+  let out=themaLaag(id)+`<section class="kop"><div class="wrap">
     <div>
       <a class="terug" href="#home">← Alle thema's</a>
       <div class="lbl mono" style="--c:var(--${KLEUR[id]||'goud'})">${esc(h.label)}</div>
@@ -2656,7 +2675,7 @@ function hoofdstuk(id){
       <p>${esc(h.meta)}</p>
       ${n>1?`<div class="voortgang"><div class="balk"><i style="width:${Math.round(100*k/n)}%"></i></div><span>${k} van ${n} films gezien</span></div>`:''}
     </div>
-    <div class="groot">${kunst(id,h.titel)}</div>
+    <div class="groot${kunstStand!=='uit'&&window.THEMAHELD&&THEMAHELD[id]?' held':''}">${kunstStand!=='uit'&&window.THEMAHELD&&THEMAHELD[id]?THEMAHELD[id]():kunst(id,h.titel)}</div>
   </div></section>
   <div class="wrap smal">`;
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
@@ -2731,8 +2750,10 @@ function render(){
   document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
   document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
   if(pagina==='home') grondWissel(); else clearInterval(grondTimer);
-  document.body.dataset.kunst=pagina==='home'?kunstStand:'uit';
-  kunstKnop(pagina==='home');
+  const metKunst=pagina==='home'||(HOOFDSTUKKEN[pagina]&&window.THEMAKUNST&&THEMAKUNST[pagina]);
+  document.body.dataset.kunst=metKunst?kunstStand:'uit';
+  document.body.classList.toggle('op-thema',!!metKunst&&pagina!=='home');
+  kunstKnop(!!metKunst);
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
