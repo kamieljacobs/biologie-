@@ -20,7 +20,8 @@
 .s-kaartkop{display:flex;align-items:center;gap:10px;margin:0 0 6px}
 .s-kaartkop .s-chip{margin-left:auto}
 .s-nr{font:600 12px var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text)}
-.oe-kaart.s-af>summary .oe-titel::after{content:"  ✓";color:var(--groen)}
+.oe-kaart.s-in>summary .oe-titel::after{content:"  · ingeleverd";font:600 12px var(--meta);letter-spacing:.06em;color:var(--goud-text)}
+.oe-kaart.s-af>summary .oe-titel::after{content:"  ✓ ingeleverd";font:600 12px var(--meta);letter-spacing:.06em;color:var(--groen)}
 .s-keuzes{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 .s-keuze{text-align:left;border:1px solid var(--line2);background:var(--surface);border-radius:var(--radius);padding:14px 16px;display:grid;gap:4px}
 .s-keuze b{font:700 18px/1.2 var(--titel)}

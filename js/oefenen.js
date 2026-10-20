@@ -206,6 +206,8 @@
       if (waarde === null) localStorage.removeItem(sleutel); else localStorage.setItem(sleutel, JSON.stringify(waarde));
     } catch (e) { return null; }
   }
+  // in een werksessie heet de controleknop 'Lever in en controleer': dan ziet de docent het antwoord
+  function ctrl() { return SESSIE ? 'Lever in en controleer' : 'Controleer'; }
   // resultaat van een controle doorgeven (werksessie); items = [{label, gekozen, juist, goed}]
   function rapport(doos, o, items, extra) {
     var goed = items.filter(function (x) { return x.goed; }).length;
@@ -271,7 +273,7 @@
       li.innerHTML = '<span class="oe-nr">' + (k + 1) + '</span><span class="oe-plek"></span>';
       sloten.appendChild(li);
     });
-    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
+    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">' + ctrl() + '</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
     var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
     knoppen.appendChild(melding); doos.appendChild(knoppen);
     var gekozen = null;
@@ -399,7 +401,7 @@
     var bak = el('div', 'oe-bak'); bak.setAttribute('aria-label', 'Namen');
     wrap.appendChild(bak);
     doos.appendChild(wrap);
-    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
+    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">' + ctrl() + '</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>');
     var melding = el('p', 'oe-melding'); melding.setAttribute('aria-live', 'polite');
     knoppen.appendChild(melding); doos.appendChild(knoppen);
     var terug = el('ul', 'oe-terug'); doos.appendChild(terug);
@@ -543,7 +545,7 @@
     veld.setAttribute('aria-label', 'Jouw uitleg'); veld.value = bewaard.tekst || '';
     doos.appendChild(veld);
     var teller = el('div', 'oe-teller'); doos.appendChild(teller);
-    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="bekijk">Bekijk je uitleg</button><button type="button" class="oe-knop" data-a="model">Toon modeluitleg</button><button type="button" class="oe-knop" data-a="wis">Wis</button>');
+    var knoppen = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="bekijk">' + (SESSIE ? 'Lever in en bekijk' : 'Bekijk je uitleg') + '</button><button type="button" class="oe-knop" data-a="model">Toon modeluitleg</button><button type="button" class="oe-knop" data-a="wis">Wis</button>');
     doos.appendChild(knoppen);
     doos.appendChild(el('p', 'oe-privacy', SESSIE ? 'Dit is een werksessie: je docent ziet wat je schrijft (in de bespreking zonder je naam).' : 'Je tekst blijft alleen op dit apparaat bewaard en wordt nergens naartoe gestuurd.'));
     var uitkomst = el('div', 'oe-uitkomst'); uitkomst.hidden = true; doos.appendChild(uitkomst);
@@ -594,7 +596,7 @@
 
   /* ---------- gedeeld voor de nieuwe soorten ---------- */
   function knoppenRij(doos, extra) {
-    var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>' + (extra || ''));
+    var k = el('div', 'oe-knoppen', '<button type="button" class="oe-knop goud" data-a="check">' + ctrl() + '</button><button type="button" class="oe-knop" data-a="opnieuw">Opnieuw</button>' + (extra || ''));
     var m = el('p', 'oe-melding'); m.setAttribute('aria-live', 'polite'); k.appendChild(m); doos.appendChild(k);
     return { knoppen: k, melding: m };
   }
@@ -840,7 +842,7 @@
       var s = o.stappen[k], li = el('li', 'oe-vraag'); li.dataset.k = k;
       li.appendChild(el('p', 'oe-vraagtekst', esc(s.vraag)));
       var rij = el('div', 'oe-invulrij'); s.velden.forEach(function (v) { rij.appendChild(maakVeld(v)); }); li.appendChild(rij);
-      var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="stap">Controleer</button><button type="button" class="oe-knop" data-a="toon" hidden>Laat het antwoord zien</button>');
+      var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="stap">' + ctrl() + '</button><button type="button" class="oe-knop" data-a="toon" hidden>Laat het antwoord zien</button>');
       li.appendChild(kn); lijst.appendChild(li);
       var fout = 0;
       function klaar(getoond) {
@@ -1018,7 +1020,7 @@
     keuzes.forEach(function (k, i) { var b = el('button', 'oe-keuze', esc(k[0])); b.type = 'button'; b.dataset.j = i; b.setAttribute('aria-pressed', 'false'); rij.appendChild(b); });
     li.appendChild(rij);
     li.appendChild(el('p', 'oe-hulp oe-klikhulp', 'Klik in de stamboom de personen aan die je conclusie bewijzen. Klik nog eens om iemand weg te halen.'));
-    var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="check">Controleer</button><button type="button" class="oe-knop" data-a="wis">Wis aangeklikte personen</button>');
+    var kn = el('div', 'oe-stapknoppen', '<button type="button" class="oe-knop goud" data-a="check">' + ctrl() + '</button><button type="button" class="oe-knop" data-a="wis">Wis aangeklikte personen</button>');
     li.appendChild(kn);
     var uit = el('div', 'oe-uitleg'); uit.hidden = true; li.appendChild(uit);
     doos.appendChild(li);

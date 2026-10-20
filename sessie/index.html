@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="sessie.css">
 <script src="../tools/huisstijl.js"></script>
 <script src="../js/live.js" data-root="../" data-plek="live-plek" defer></script>
-<script src="../js/oefenen.js?v=7828a46e"></script>
+<script src="../js/oefenen.js?v=3f954cd3"></script>
 </head>
 <body>
 <div class="wrap">
@@ -123,8 +123,8 @@ function teken() {
   $('w-titel').textContent = sessie.filmtitel || 'Opdrachten';
   const lijst = opdrachten(), totaal = (sessie.opdrachten || []).length;
   $('w-lead').textContent = sessie.modus === 'samen'
-    ? 'Je docent geeft de opdrachten één voor één vrij. Werk de opdracht uit en klik op Controleer.'
-    : 'Werk de ' + (totaal === 1 ? 'opdracht' : totaal + ' opdrachten') + ' uit. Klik steeds op Controleer: je docent ziet je antwoorden.';
+    ? 'Je docent geeft de opdrachten één voor één vrij. Klaar met een opdracht? Klik op ‘Lever in en controleer’. Daarna mag je nog verbeteren.'
+    : 'Werk de ' + (totaal === 1 ? 'opdracht' : totaal + ' opdrachten') + ' uit. Klaar met een opdracht? Klik op ‘Lever in en controleer’: dan ziet je docent je antwoord. Daarna mag je nog verbeteren.';
   // band bovenaan
   const band = $('w-band');
   if (sessie.status === 'bespreken') band.innerHTML = '<div class="s-band teal">We bespreken de antwoorden. Kijk mee op het bord.</div>';
@@ -139,7 +139,7 @@ function teken() {
     blokHoofd.querySelector('.oe-lijstje') || blokHoofd.appendChild(Object.assign(document.createElement('div'), { className: 'oe-lijstje' }));
     blokHoofd.querySelector('.oe-lijstje').appendChild(m.kaart);
     kaarten.set(o.id, m);
-    if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af');
+    if (mijn[o.id] && mijn[o.id].laatste) m.kaart.classList.add('s-in'); if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af');
   });
   // open de eerste opdracht die nog niet af is (alleen bij start of als er een nieuwe is vrijgegeven)
   if (lijst.length !== laatsteVrij) {
@@ -158,7 +158,7 @@ function opslaan(e) {
   if (!nieuw.eerste) delete nieuw.eerste;
   mijn[d.id] = nieuw;
   db.zet('antwoorden/' + code + '/' + uid + '/' + d.id, nieuw).catch((er) => console.warn('opslaan mislukt', er));
-  const m = kaarten.get(d.id); if (m && nieuw.klaar) m.kaart.classList.add('s-af');
+  const m = kaarten.get(d.id); if (m && !d.concept) m.kaart.classList.add('s-in'); if (m && nieuw.klaar) m.kaart.classList.add('s-af');
   klaarCheck();
 }
 
@@ -199,7 +199,7 @@ function toonExtra(doos) {
   blokExtra = window.BKOefenen.blok(doos, { sessie: true });
   blokExtra.addEventListener('oe-resultaat', opslaan);
   const l = document.createElement('div'); l.className = 'oe-lijstje'; blokExtra.appendChild(l);
-  extraLijst().forEach((o, k) => { const m = window.BKOefenen.kaart(o); l.appendChild(m.kaart); kaarten.set(o.id, m); if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af'); if (k === 0) { m.kaart.open = true; m.bouw(); } });
+  extraLijst().forEach((o, k) => { const m = window.BKOefenen.kaart(o); l.appendChild(m.kaart); kaarten.set(o.id, m); if (mijn[o.id] && mijn[o.id].laatste) m.kaart.classList.add('s-in'); if (mijn[o.id] && mijn[o.id].klaar) m.kaart.classList.add('s-af'); if (k === 0) { m.kaart.open = true; m.bouw(); } });
 }
 
 /* ---- wachtopdracht: begrippen oefenen (uitleg → kies het begrip) ---- */
