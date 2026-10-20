@@ -14,3 +14,12 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | adamsappel | AA-dams-ap-pəl | zoals geschreven | s08 |
 
 **Wachtlijst voor Kamiel:** vooral hypothalamus (klemtoon), thyroxine, Graves en TRH ("releasing hormoon" is Engels). Een blinde controle was niet mogelijk (de uploadtool voor losse audio was in deze sessie niet beschikbaar).
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s16.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| Graves | Graves (gewone spelling) | s16 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
