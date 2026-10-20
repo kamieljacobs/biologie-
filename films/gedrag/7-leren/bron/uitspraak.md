@@ -3,5 +3,5 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 
 | Woord | Stem-invoer | Alinea's | Status |
 |---|---|---|---|
-| Dopamine / dopamine-neuronen | Dopaminuh / dopaminuh-neuronen | s11 | wachtlijst |
+| Dopamine / dopamine-neuronen | Dopamine / dopamine-neuronen (gewone spelling; was dopaminuh) | s11 | goedgekeurd (uitspraaktest 18 okt); opnieuw ingesproken 20 okt |
 | Pavlov, Skinner, loot boxes, zeehaas, sifon, metronoom | zoals geschreven | s04, s05, s07, s08, s10 | wachtlijst |
