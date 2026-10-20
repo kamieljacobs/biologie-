@@ -1385,16 +1385,19 @@ const HOOFDSTUKKEN = {
    {
     "href": "tools/celbouwer/index.html",
     "naam": "Celbouwer",
+    "kerndoel": "32A",
     "tekst": "Bouw een dierlijke cel en een plantencel uit losse onderdelen, en test jezelf: wat is het? · bij Alles is cel"
    },
    {
     "href": "tools/virtuele-microscoop/index.html",
     "naam": "Virtuele microscoop",
+    "kerndoel": "32A",
     "tekst": "Uienvlies, wangcellen en waterpest: stel scherp, vergroot en zoek celwand, celkern en bladgroenkorrels · bij Alles is cel"
    },
    {
     "href": "tools/virtuele-microscoop/echt.html",
     "naam": "Microscoop: echte preparaten",
+    "kerndoel": "32A",
     "tekst": "Echte foto's van weefsels (epitheel, bindweefsel, bloed, kraakbeen, spier) van 40× tot 400×: stel scherp, vergroot en wijs de onderdelen aan"
    }
   ],
@@ -1948,7 +1951,7 @@ const NIVEAUS = {
       "Gezond leven",
       "voeding, beweging, slaap en ziekte",
       "video · onderzoekje · opdracht",
-      ""
+      "#kerndoelen"
      ],
      [
       "32D",
@@ -1962,7 +1965,7 @@ const NIVEAUS = {
       "Ecosystemen",
       "wie woont waar en wie eet wie",
       "video · onderzoekje · opdracht",
-      ""
+      "#kerndoelen"
      ]
     ],
     "naam": "Mens en natuur"
@@ -2305,9 +2308,11 @@ function themaKnop(){
 document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
 document.querySelectorAll('[data-niveau]').forEach(b=>b.addEventListener('click',()=>{niveau=b.dataset.niveau;schrijf('niveau',niveau);render()}));
 
-function telling(id){
+function telling(id,kd){
   const h=HOOFDSTUKKEN[id]; if(!h) return '';
-  const n=h.films.length, t=h.tools.filter(x=>x.href).length, d=[];
+  /* onderbouw: alle films staan in één hoofdstuk; tel per kerndoel via 'bij' (films) en 'kerndoel' (tools) */
+  const hoort=x=>!kd||new RegExp('\\b'+kd+'\\b').test((x.bij||'')+' '+(x.kerndoel||''));
+  const n=h.films.filter(hoort).length, t=h.tools.filter(x=>x.href&&hoort(x)).length, d=[];
   if(n) d.push(`${n} ${n===1?'film':'films'}`); if(t) d.push(`${t} ${t===1?'tool':'tools'}`);
   return d.join(' · ');
 }
@@ -2343,7 +2348,7 @@ function home(){
     for(const [lbl,naam,hfd,mat,href] of o.subs){
       const id=hoofdstukVan(href), echt=href&&HOOFDSTUKKEN[id];
       const titel=niveau==='onderbouw'&&/^\[/.test(naam)?`Kerndoel ${lbl}`:naam;
-      out+=echt?`<li><a href="${esc(href)}"><span class="lbl mono">${esc(lbl)}</span><b>${esc(titel)}</b><span class="mat">${esc(telling(id))}</span></a></li>`
+      out+=echt?`<li><a href="${esc(href)}"><span class="lbl mono">${esc(lbl)}</span><b>${esc(titel)}</b><span class="mat">${esc(telling(id,niveau==='onderbouw'&&id==='kerndoelen'?lbl:''))}</span></a></li>`
                :`<li class="leeg"><span class="lbl mono">${esc(lbl)}</span><b>${esc(titel)}</b><span class="mat">volgt</span></li>`;
     }
     out+=`</ul></article>`;
