@@ -1,0 +1,17 @@
+{
+ "vraag1": {
+  "q": "Twee zwarte cavia's krijgen een wit jong. Hoe kan dat?",
+  "goed": "b",
+  "uitleg": "De ouders hebben allebei een verborgen gen voor wit. Het jong kreeg van allebei dat wit-gen mee."
+ },
+ "vraag2": {
+  "q": "Een cavia heeft één zwart-gen en één wit-gen. Welke kleur heeft hij?",
+  "goed": "a",
+  "uitleg": "Zwart. Het zwart-gen wint: het is dominant. Wit (recessief) zie je alleen met twee wit-genen. Genen mengen niet tot grijs."
+ },
+ "vraag3": {
+  "q": "Twee witte cavia's krijgen jongen. Welke kleur hebben die jongen?",
+  "goed": "a",
+  "uitleg": "Allemaal wit. Witte cavia's hebben twee wit-genen en kunnen dus alleen wit doorgeven."
+ }
+}
