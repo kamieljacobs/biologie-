@@ -537,7 +537,7 @@ const SEGS = D.plan.timeline.map(s=>Object.assign({},s));
 let total=0;
 for(const s of SEGS){
   s.start=total;
-  if(s.kind==='card'&&s.dur>2.2) s.dur=2.2;   // hoofdstukkaart 2,2 s (15 okt 2026)
+  if(s.kind==='card'&&s.dur>1.3) s.dur=1.3;   // hoofdstukkaart 2,2 s (15 okt 2026)
   if(s.kind==='narration'){ s.dur=D.timing[s.id].duration; s.words=D.timing[s.id].words; s.phrases=D.timing[s.id].phrases; }
   total+=s.dur;
 }
@@ -590,10 +590,10 @@ var BK={k:[]};try{window.__BK=BK;}catch(e){}
 function bkZet(l){l=l.filter(function(x){return x[1]>x[0]+0.01;}).sort(function(a,b){return a[0]-b[0];});var o=[];l.forEach(function(x){var p=o[o.length-1];if(p&&x[0]<=p[1])p[1]=Math.max(p[1],x[1]);else o.push([x[0],x[1]]);});BK.k=o;}
 function bkF2V(x){var d=x;BK.k.forEach(function(c){if(x>c[0])d-=Math.min(x,c[1])-c[0];});return d;}
 function bkV2F(u){var x=u;BK.k.forEach(function(c){if(x>=c[0])x+=c[1]-c[0];});return x;}
-function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-0.001&&x<c[1]-0.03)return c[1];}return null;}
+/*SPELERFIX_MARK bk 20okt2026: demp vóór de sprong, 0,045 s vooruitkijken*/var BK_VOOR=0.045,BK_MEDIA=[];(function(){try{var p=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(){if(BK_MEDIA.indexOf(this)<0)BK_MEDIA.push(this);return p.apply(this,arguments);};}catch(e){}})();function bkDemp(){var l=BK_MEDIA.concat([].slice.call(document.querySelectorAll('audio,video')));l.forEach(function(a){if(a.paused||a.__bkd)return;a.__bkd={v:a.volume,m:a.muted};try{a.volume=0;}catch(e){}a.muted=true;var vrij=function(){clearTimeout(a.__bkt);a.__bkt=setTimeout(function(){var d=a.__bkd;if(!d)return;a.__bkd=null;try{a.volume=d.v;}catch(e){}a.muted=d.m;},60);};a.addEventListener('seeked',vrij,{once:true});a.addEventListener('pause',vrij,{once:true});a.__bkt=setTimeout(vrij,400);});}function bkIn(x){for(var i=0;i<BK.k.length;i++){var c=BK.k[i];if(x>=c[0]-BK_VOOR&&x<c[1]-0.03){bkDemp();return c[1];}}return null;}
 var BK_LEAD=/^(wat denk je|denk (even |goed )?na|voorspel|eerst (nog )?(een |één |twee |drie )?(voorspelling|vra(ag|gen))|nog (een |één |twee |drie )?vra(ag|gen))\b/i;
 var BK_ANTW=/^((het )?(goede )?antwoord( is)? ([a-d]|aa|bee|cee|dee)\b|[a-d]\.$|(ja|nee|precies|klopt|inderdaad|niet per se|wel degelijk)\b)/i;
-function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?z[i].s:null;}
+function bkVraagStart(z){var i=z.length;while(i>0&&(/\?\s*$/.test(z[i-1].x)||BK_LEAD.test(String(z[i-1].x).trim())))i--;return i<z.length?(window.BK_DIPS?z[i].s:Math.max(0,i>0&&z[i-1].e!=null?Math.max(z[i].s-0.2,Math.min(z[i-1].e+0.03,z[i].s-0.06)):z[i].s-0.12)):null;}
 function bkIsAntw(x){x=String(x).trim();return BK_ANTW.test(x)&&(/antwoord/i.test(x)||x.split(/\s+/).length<=3);}
 function bkBouw(){ const l=[];
   if(S.vragen==='uit') SEGS.forEach(s=>{ if(s.question||s.kind==='countdown') l.push([s.start,s.start+s.dur]); else if(s.reveal){ const c=antwCut(s); if(c>0) l.push([s.start,s.start+c]); } });
@@ -950,7 +950,7 @@ function render(T){
 function mmss(t){ t=Math.max(0,Math.floor(t)); return Math.floor(t/60)+':'+String(t%60).padStart(2,'0'); }
 /* ---------- clock ---------- */
 function tick(now){
-  const dt=(S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0)*S.snelheid; S.lastRaf=now; { const sb=bkIn(S.T); if(sb!==null){ S.T=Math.min(sb,TOTAL-0.001); S.holdQ=null; const sg=segAt(S.T); syncAudio(sg,S.T-sg.start,true); } }
+  const dt=(S.lastRaf?Math.min(0.1,(now-S.lastRaf)/1000):0)*(segAt(S.T).kind==='card'?Math.min(1,S.snelheid):S.snelheid); S.lastRaf=now; { const sb=bkIn(S.T); if(sb!==null){ S.T=Math.min(sb,TOTAL-0.001); S.holdQ=null; const sg=segAt(S.T); syncAudio(sg,S.T-sg.start,true); } }
   const seg=segAt(S.T); const tl=S.T-seg.start;
   if(S.playing){
     if(seg.kind==='narration'){ const a=AUD[seg.id]; syncAudio(seg,tl,false); if(!a.paused&&a.readyState>=2){ S.T=seg.start+a.currentTime; } else if(a.ended){ S.T=seg.start+seg.dur; }
