@@ -611,12 +611,12 @@ SCHERMEN.push({ titel: 'De race', deel: 'Eén ouder of twee',
     const T = S.T, L = [60, 160, 870, 780], R = [990, 160, 870, 780];
     const a0 = S.on(0, 0.8);
     paneel(ctx, ...L, a0); paneel(ctx, ...R, a0);
-    ctx.save(); ctx.globalAlpha *= a0; text(ctx, 'één ouder', L[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'alleen vrouwtjes · klonen', L[0] + 36, 258, C.meta, 'left', 20);
-    text(ctx, 'twee ouders', R[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, '● vrouwtje   ○ mannetje', R[0] + 36, 258, C.meta, 'left', 20); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= a0; text(ctx, 'één ouder', L[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje: 4 jongen · allemaal vrouwtje', L[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, 'klonen: zelfde DNA = zelfde kleur', L[0] + 36, 290, C.text2, 'left', 18);
+    text(ctx, 'twee ouders', R[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje: 4 jongen · de helft mannetje', R[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, '● vrouwtje  ○ mannetje · elke kleur = ander DNA', R[0] + 36, 290, C.text2, 'left', 18); ctx.restore();
     let g = 0; for (let k = 1; k <= 3; k++) if (S.on(k, 0.01) > 0) g = k;
     const nL = [1, 4, 16, 64], nR = [2, 4, 8, 16];
     const ziek = S.on(4, 2.4), sam = S.on(5, 0.8);
-    const vak = (P) => [P[0] + 40, 290, P[2] - 80, sam > 0 ? lerp(470, 330, sam) : 470];
+    const vak = (P) => [P[0] + 40, 320, P[2] - 80, sam > 0 ? lerp(470, 330, sam) : 470];
     const teken = (P, n, links, gen, a) => { const [x, y, w, h] = vak(P); rooster(n, x, y, w, h).forEach(([px, py, r], i) => {
         const man = !links && i % 2 === 1; const kl = links ? C.teal : TYPES()[Math.floor(hash(i * 3.7 + 1) * 6)];
         const kwetsbaar = links || kl === C.teal || i % 5 === 0; const dood = kwetsbaar ? ease((ziek - 0.25 - hash(i) * 0.4) / 0.35) : 0;
@@ -625,8 +625,12 @@ SCHERMEN.push({ titel: 'De race', deel: 'Eén ouder of twee',
     // tellers
     const cntL = ziek > 0.6 ? 0 : nL[g]; let overR = 0; if (g === 3) { for (let i = 0; i < 16; i++) { const kl = TYPES()[Math.floor(hash(i * 3.7 + 1) * 6)]; if (!(kl === C.teal || i % 5 === 0)) overR++; } }
     const cntR = ziek > 0.6 ? overR : nR[g];
-    ctx.save(); ctx.globalAlpha *= a0 * (1 - sam); metaText(ctx, 'generatie ' + g, L[0] + 36, 830, C.meta, 'left', 22); metaText(ctx, 'generatie ' + g, R[0] + 36, 830, C.meta, 'left', 22);
-    text(ctx, cntL + (ziek > 0.6 ? ' over' : ''), L[0] + L[2] - 36, 900, fTitel(64), ziek > 0.6 ? C.koraal : C.text, 'right'); text(ctx, cntR + (ziek > 0.6 ? ' over' : ''), R[0] + R[2] - 36, 900, fTitel(64), C.text, 'right'); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= a0 * (1 - sam); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), L[0] + 36, 830, C.meta, 'left', 22); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), R[0] + 36, 830, C.meta, 'left', 22);
+    const groei = (P, rij) => { let x = P[0] + 36; rij.forEach((n, i) => { if (i) { const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; text(ctx, '→', x, 900, fTekst(40, 600), C.text2); ctx.restore(); x += 54; }
+        const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; const f = fTitel(i === g ? 64 : 44); ctx.font = f; const w = ctx.measureText(String(n)).width; text(ctx, String(n), x, 900, f, i === g && ziek <= 0.6 ? C.goud : C.text); ctx.restore(); x += w + 20; }); };
+    if (ziek <= 0.6) { groei(L, nL); groei(R, nR); }
+    else { text(ctx, cntL + ' over', L[0] + 36, 900, fTitel(64), C.koraal); text(ctx, cntR + ' over', R[0] + 36, 900, fTitel(64), C.text); }
+    ctx.restore();
     if (ziek > 0.01 && ziek < 1) { for (let i = 0; i < 10; i++) { const vx = lerp(-100, 2020, (ziek * 1.1 - hash(i) * 0.1)), vy = 300 + hash(i * 7) * 460; ctx.save(); ctx.globalAlpha *= 0.8; circ(ctx, vx, vy, 12, rgba(C.koraal, 0.5), C.koraal, 2); for (let j = 0; j < 8; j++) { const an = j / 8 * 6.283; ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(vx + Math.cos(an) * 12, vy + Math.sin(an) * 12); ctx.lineTo(vx + Math.cos(an) * 19, vy + Math.sin(an) * 19); ctx.stroke(); } ctx.restore(); } }
     if (sam > 0.01) {
       const rij = (x, y, plus, s, d) => { const k = S.on(5, 0.5, d); regel(ctx, plus ? '+' : '−', x, y, k, plus ? C.groen : C.koraal, 44, 'left', 700); regel(ctx, s, x + 44, y, k, C.text, 34, 'left', 600); };
