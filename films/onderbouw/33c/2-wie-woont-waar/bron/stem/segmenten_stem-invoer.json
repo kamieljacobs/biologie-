@@ -1,0 +1,185 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een ijsbeer op het zee-ijs. Zet hem eens in de woestijn. Dat gaat mis. Maar waarom eigenlijk? Wat denk je?"
+  ],
+  "display": "Een ijsbeer op het zee-ijs. Zet hem eens in de woestijn. Dat gaat mis. Maar waarom eigenlijk? Wat denk je?",
+  "voice": "Een ijsbeer op het zee-ijs. Zet hem eens in de woestijn. Dat gaat mis. Maar waarom eigenlijk? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "het is daar te warm voor hem",
+   "er zijn daar geen zeehonden om te vangen",
+   "allebei"
+  ],
+  "q": "Zet een ijsbeer in de woestijn. Waarom gaat dat mis?",
+  "correct": 2,
+  "explain": "Allebei: de woestijn is te heet voor een dier met een dikke vetlaag (abiotisch), en er zijn geen zeehonden om te vangen (biotisch)."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Wie woont waar? Waarom leeft een ijsbeer niet in de woestijn?"
+  ],
+  "display": "Wie woont waar? Waarom leeft een ijsbeer niet in de woestijn?",
+  "voice": "Wie woont waar? Waarom leeft een ijsbeer niet in de woestijn?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Wat een ijsbeer nodig heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het antwoord is c. De woestijn is te heet voor hem. En er is niets te eten.",
+   "Kijk naar waar een ijsbeer wel woont. Het is er koud, tot min veertig graden. Een groot deel van het jaar ligt er ijs op de zee.",
+   "Kou, ijs, zout water, sneeuw: dat zijn dingen zonder leven. We noemen ze abiotische factoren.",
+   "Een ijsbeer jaagt op zeehonden. Hij wacht bij een gat in het ijs, waar de zeehond komt ademen. Zeehonden, vissen, andere ijsberen: dat zijn levende dingen om hem heen. We noemen ze biotische factoren."
+  ],
+  "display": "Het antwoord is c. De woestijn is te heet voor hem. En er is niets te eten. Kijk naar waar een ijsbeer wel woont. Het is er koud, tot min veertig graden. Een groot deel van het jaar ligt er ijs op de zee. Kou, ijs, zout water, sneeuw: dat zijn dingen zonder leven. We noemen ze abiotische factoren. Een ijsbeer jaagt op zeehonden. Hij wacht bij een gat in het ijs, waar de zeehond komt ademen. Zeehonden, vissen, andere ijsberen: dat zijn levende dingen om hem heen. We noemen ze biotische factoren.",
+  "voice": "Het antwoord is cee. De woestijn is te heet voor hem. En er is niets te eten. Kijk naar waar een ijsbeer wel woont. Het is er koud, tot min veertig graden. Een groot deel van het jaar ligt er ijs op de zee. Kou, ijs, zout water, sneeuw: dat zijn dingen zonder leven. We noemen ze abiotische factoren. Een ijsbeer jaagt op zeehonden. Hij wacht bij een gat in het ijs, waar de zeehond komt ademen. Zeehonden, vissen, andere ijsberen: dat zijn levende dingen om hem heen. We noemen ze biotische factoren."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Wat een ijsbeer nodig heeft",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zijn lijf past bij die plek. Onder zijn vacht zit een dikke laag vet, soms wel tien centimeter. Die houdt hem warm in de kou. In de woestijn wordt hij daardoor juist veel te warm.",
+   "Alles wat leeft op een plek, samen met de bodem, het water en het weer: dat is een ecosysteem. In een ecosysteem werkt alles op elkaar in."
+  ],
+  "display": "Zijn lijf past bij die plek. Onder zijn vacht zit een dikke laag vet, soms wel tien centimeter. Die houdt hem warm in de kou. In de woestijn wordt hij daardoor juist veel te warm. Alles wat leeft op een plek, samen met de bodem, het water en het weer: dat is een ecosysteem. In een ecosysteem werkt alles op elkaar in.",
+  "voice": "Zijn lijf past bij die plek. Onder zijn vacht zit een dikke laag vet, soms wel tien centimeter. Die houdt hem warm in de kou. In de woestijn wordt hij daardoor juist veel te warm. Alles wat leeft op een plek, samen met de bodem, het water en het weer: dat is een ecosysteem. In een ecosysteem werkt alles op elkaar in."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Iedereen zijn eigen plek",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "In de woestijn woont wel een vos: de fennek. Hij is klein en heeft enorme oren. Waar zijn die grote oren voor? Wat denk je?"
+  ],
+  "display": "In de woestijn woont wel een vos: de fennek. Hij is klein en heeft enorme oren. Waar zijn die grote oren voor? Wat denk je?",
+  "voice": "In de woestijn woont wel een vos: de fennek. Hij is klein en heeft enorme oren. Waar zijn die grote oren voor? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Iedereen zijn eigen plek",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "om warmte kwijt te raken",
+   "om schaduw op zijn ogen te maken",
+   "hij had ze nodig, dus zijn ze gegroeid"
+  ],
+  "q": "Een fennek heeft enorme oren. Waar zijn die vooral voor?",
+  "correct": 0,
+  "explain": "Door de grote oren stroomt veel bloed; daar raakt de fennek warmte kwijt. Ze zijn niet gegroeid omdat hij ze nodig had: fenneks met grotere oren overleefden vaker."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Iedereen zijn eigen plek",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Door die grote oren stroomt veel bloed. Daar raakt de fennek warmte kwijt. Ook hoort hij er insecten mee onder het zand. Hij hoeft bijna nooit te drinken. Het meeste water haalt hij uit zijn eten.",
+   "Zo heeft elke soort een plek waar hij het best kan leven. Daar is het niet te warm en niet te koud. En daar is zijn voedsel."
+  ],
+  "display": "Door die grote oren stroomt veel bloed. Daar raakt de fennek warmte kwijt. Ook hoort hij er insecten mee onder het zand. Hij hoeft bijna nooit te drinken. Het meeste water haalt hij uit zijn eten. Zo heeft elke soort een plek waar hij het best kan leven. Daar is het niet te warm en niet te koud. En daar is zijn voedsel.",
+  "voice": "Door die grote oren stroomt veel bloed. Daar raakt de fennek warmte kwijt. Ook hoort hij er insecten mee onder het zand. Hij hoeft bijna nooit te drinken. Het meeste water haalt hij uit zijn eten. Zo heeft elke soort een plek waar hij het best kan leven. Daar is het niet te warm en niet te koud. En daar is zijn voedsel."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Iedereen zijn eigen plek",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Het hoeft niet ver weg te zijn. Til in de schooltuin een steen op. Daar zitten pissebedden. Onder de steen is het donker en vochtig. Op het droge zand gaan ze snel dood.",
+   "Levend en niet-levend werken ook samen. Een boom geeft schaduw. Onder de bomen blijft de grond koel en nat. Dode bladeren rotten weg en maken de bodem rijk. Zo maken levende dingen de omgeving voor anderen."
+  ],
+  "display": "Het hoeft niet ver weg te zijn. Til in de schooltuin een steen op. Daar zitten pissebedden. Onder de steen is het donker en vochtig. Op het droge zand gaan ze snel dood. Levend en niet-levend werken ook samen. Een boom geeft schaduw. Onder de bomen blijft de grond koel en nat. Dode bladeren rotten weg en maken de bodem rijk. Zo maken levende dingen de omgeving voor anderen.",
+  "voice": "Het hoeft niet ver weg te zijn. Til in de schooltuin een steen op. Daar zitten pissebedden. Onder de steen is het donker en vochtig. Op het droge zand gaan ze snel dood. Levend en niet-levend werken ook samen. Een boom geeft schaduw. Onder de bomen blijft de grond koel en nat. Dode bladeren rotten weg en maken de bodem rijk. Zo maken levende dingen de omgeving voor anderen."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 3 — Als de omgeving verandert",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Terug naar de ijsbeer. Het wordt warmer op aarde. Het zee-ijs smelt in het voorjaar steeds eerder. Wat betekent dat voor de ijsbeer? Wat denk je?"
+  ],
+  "display": "Terug naar de ijsbeer. Het wordt warmer op aarde. Het zee-ijs smelt in het voorjaar steeds eerder. Wat betekent dat voor de ijsbeer? Wat denk je?",
+  "voice": "Terug naar de ijsbeer. Het wordt warmer op aarde. Het zee-ijs smelt in het voorjaar steeds eerder. Wat betekent dat voor de ijsbeer? Wat denk je?"
+ },
+ {
+  "id": "q11",
+  "chapter": "Hoofdstuk 3 — Als de omgeving verandert",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "niets, hij gaat gewoon op het land jagen",
+   "hij heeft minder tijd om te jagen en wordt magerder",
+   "hij past zich in een paar jaar aan"
+  ],
+  "q": "Het zee-ijs smelt in het voorjaar steeds eerder. Wat betekent dat voor de ijsbeer?",
+  "correct": 1,
+  "explain": "Zonder ijs kan hij geen zeehonden vangen. Hij heeft minder tijd om te jagen en teert op zijn vet. Aanpassen gaat niet in een paar jaar."
+ },
+ {
+  "id": "s12",
+  "chapter": "Hoofdstuk 3 — Als de omgeving verandert",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Zonder ijs kan hij geen zeehonden vangen. Op het land vindt hij bijna niets. Hij moet dan maanden teren op zijn vet. Een ijsbeer kan zich niet snel aanpassen. Dat gaat over heel veel generaties, door natuurlijke selectie. Dat zag je in de film over de haai.",
+   "Eén abiotische factor verandert: het ijs. En meteen verandert er iets biotisch: minder eten."
+  ],
+  "display": "Zonder ijs kan hij geen zeehonden vangen. Op het land vindt hij bijna niets. Hij moet dan maanden teren op zijn vet. Een ijsbeer kan zich niet snel aanpassen. Dat gaat over heel veel generaties, door natuurlijke selectie. Dat zag je in de film over de haai. Eén abiotische factor verandert: het ijs. En meteen verandert er iets biotisch: minder eten.",
+  "voice": "Zonder ijs kan hij geen zeehonden vangen. Op het land vindt hij bijna niets. Hij moet dan maanden teren op zijn vet. Een ijsbeer kan zich niet snel aanpassen. Dat gaat over heel veel generaties, door natuurlijke selectie. Dat zag je in de film over de haai. Eén abiotische factor verandert: het ijs. En meteen verandert er iets biotisch: minder eten."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Als de omgeving verandert",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Ook buren kunnen een soort verdringen. Hoog in het noorden woont de kleine poolvos. Door de warmte trekt de grotere rode vos steeds verder naar het noorden.",
+   "De rode vos eet hetzelfde voedsel. Hij jaagt de poolvos weg, en doodt hem soms. Soorten die strijden om hetzelfde eten of dezelfde plek: dat heet concurrentie. Ook dat is een biotische factor."
+  ],
+  "display": "Ook buren kunnen een soort verdringen. Hoog in het noorden woont de kleine poolvos. Door de warmte trekt de grotere rode vos steeds verder naar het noorden. De rode vos eet hetzelfde voedsel. Hij jaagt de poolvos weg, en doodt hem soms. Soorten die strijden om hetzelfde eten of dezelfde plek: dat heet concurrentie. Ook dat is een biotische factor.",
+  "voice": "Ook buren kunnen een soort verdringen. Hoog in het noorden woont de kleine poolvos. Door de warmte trekt de grotere rode vos steeds verder naar het noorden. De rode vos eet hetzelfde voedsel. Hij jaagt de poolvos weg, en doodt hem soms. Soorten die strijden om hetzelfde eten of dezelfde plek: dat heet concurrentie. Ook dat is een biotische factor."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Waarom leeft een ijsbeer niet in de woestijn? Twee redenen. Het is er te warm voor zijn vetlaag: abiotisch. En er zijn geen zeehonden: biotisch.",
+   "Elke soort leeft waar die factoren bij hem passen. Verandert er één, dan verandert er meer in het ecosysteem."
+  ],
+  "display": "Waarom leeft een ijsbeer niet in de woestijn? Twee redenen. Het is er te warm voor zijn vetlaag: abiotisch. En er zijn geen zeehonden: biotisch. Elke soort leeft waar die factoren bij hem passen. Verandert er één, dan verandert er meer in het ecosysteem.",
+  "voice": "Waarom leeft een ijsbeer niet in de woestijn? Twee redenen. Het is er te warm voor zijn vetlaag: abiotisch. En er zijn geen zeehonden: biotisch. Elke soort leeft waar die factoren bij hem passen. Verandert er één, dan verandert er meer in het ecosysteem."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]

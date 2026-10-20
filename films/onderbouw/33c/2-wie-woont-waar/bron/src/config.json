@@ -1,0 +1,46 @@
+{
+ "titel": "Wie woont waar",
+ "ondertitel": "Waarom leeft een ijsbeer niet in de woestijn? Biotische en abiotische factoren in een ecosysteem.",
+ "meta": "ecosystemen 2",
+ "kerndoel": "33C",
+ "versie": "1.0",
+ "datum": "20 oktober 2026",
+ "titelseg": "s03",
+ "scenes": "scenes2.js",
+ "hold": {
+  "s15": 12.0
+ },
+ "mini": {
+  "Hoofdstuk 1": "Kou, ijs en zeehonden",
+  "Hoofdstuk 2": "Fennek en pissebed",
+  "Hoofdstuk 3": "Minder ijs",
+  "Samenvatting": "Biotisch en abiotisch"
+ },
+ "checkvragen": [
+  {
+   "titel": "Biotisch of abiotisch",
+   "pts": "1 punt",
+   "vraag": "Welke factor is abiotisch? A. de zeehonden die een ijsbeer eet · B. de temperatuur van het water · C. de bacteriën in de bodem",
+   "antwoord": "B (1): temperatuur leeft niet; zeehonden en bacteriën wel."
+  },
+  {
+   "titel": "Pissebedden",
+   "pts": "1 punt",
+   "vraag": "Waarom vind je pissebedden vooral onder stenen en dode bladeren? A. daar is het donker en vochtig · B. daar is het warm en droog · C. daar zijn geen andere dieren",
+   "antwoord": "A (1): op een droge plek drogen pissebedden snel uit."
+  },
+  {
+   "titel": "Minder ijs",
+   "pts": "2 punten",
+   "vraag": "Leg uit hoe één abiotische factor (het zee-ijs) iets biotisch verandert voor de ijsbeer.",
+   "antwoord": "Minder ijs (abiotisch) betekent dat de ijsbeer minder zeehonden kan vangen (1); hij heeft dus minder voedsel en wordt magerder (biotisch) (1)."
+  },
+  {
+   "titel": "Buren",
+   "pts": "2 punten",
+   "vraag": "De rode vos trekt naar het noorden. Leg uit waarom het daar slechter gaat met de poolvos.",
+   "antwoord": "Beide vossen eten hetzelfde voedsel: concurrentie (1); de grotere rode vos jaagt de poolvos weg of doodt hem (1).",
+   "uitdaging": true
+  }
+ ]
+}
