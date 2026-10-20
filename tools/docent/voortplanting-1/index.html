@@ -129,8 +129,8 @@ details.docent[open]>summary::after{content:"–"}
       </ul>
       <h3>Lesopbouw (± 50 minuten)</h3>
       <ol>
-        <li><b>Opening</b> (5 min): Flora, de komodovaraan zonder vader. Laat de klas raden hoe dat kan; het antwoord komt bij scherm 4 en 6.</li>
-        <li><b>Eén ouder of twee</b> (15 min): ongeslachtelijk (mitose, klonen, vijf vormen) en geslachtelijk (meiose, bevruchting, variatie). De race op scherm 6 maakt de voor- en nadelen voelbaar.</li>
+        <li><b>Opening</b> (5 min): Flora, de komodovaraan zonder vader. Laat de klas raden hoe dat kan; het antwoord komt bij scherm 4 (maagdelijke voortplanting).</li>
+        <li><b>Eén ouder of twee</b> (15 min): ongeslachtelijk (mitose, klonen, vijf vormen) en geslachtelijk (meiose, bevruchting, variatie). Scherm 6 laat de schaal van de variatie zien (1, 2, 3 en 23 chromosomenparen); de race op scherm 7 maakt de voor- en nadelen voelbaar.</li>
         <li><b>Puberteit</b> (10 min): het startsein van hypothalamus naar geslachtsklier, primaire en secundaire geslachtskenmerken, groeispurt.</li>
         <li><b>Organen</b> (15 min): de route van een zaadcel en de bouw van eierstok, eileider en baarmoeder.</li>
         <li><b>Huiswerk</b>: de films <a href="../../../films/voortplanting/celdeling/index.html">Celdeling</a> (vanaf 8:26) en <a href="../../../films/voortplanting/2-geslachtsorganen-puberteit.html">Geslachtsorganen en puberteit</a>.</li>
@@ -140,7 +140,7 @@ details.docent[open]>summary::after{content:"–"}
       <h3>Achtergrond en vereenvoudigingen</h3>
       <ul>
         <li><b>Flora</b> leefde in Chester Zoo (Engeland) zonder mannetje en legde in 2006 eieren waar jongen uit kwamen; in London Zoo gebeurde hetzelfde bij een tweede vrouwtje. DNA-onderzoek liet zien dat de jongen geen vader hadden (Watts e.a., <i>Nature</i> 2006). Alle jongen waren mannetjes: bij varanen is het vrouwtje ZW en het mannetje ZZ. Een eicel krijgt één Z of één W; bij maagdelijke voortplanting wordt dat dubbel (ZZ of WW) en WW leeft niet.</li>
-        <li><b>De race</b> is een denkmodel: elk vrouwtje krijgt vier jongen, bij twee ouders is de helft mannetje. Zo groeit de kloonpopulatie per generatie twee keer zo hard (biologen noemen dit de 'dubbele kosten van seks'). De ziekte treft één type; klonen zijn allemaal dat type.</li>
+        <li><b>De race</b> is een denkmodel: elk vrouwtje krijgt vier jongen, bij twee ouders is de helft mannetje. Zo groeit de kloonpopulatie per generatie twee keer zo hard (biologen noemen dit de 'dubbele kosten van seks'). De ziekte treft één type (blauw); de klonen zijn allemaal dat type, rechts sterven er 3 van de 16 en blijven vrouwtjes én mannetjes over. Verder is alles gelijk gehouden (evenveel jongen, niemand gaat dood), zodat het enige verschil de mannetjes zijn.</li>
         <li><b>Bladluizen</b> krijgen in de zomer levende jongen zonder bevruchting; in de herfst komen er mannetjes en leggen ze bevruchte wintereieren.</li>
         <li><b>Startsein</b>: rond 8 tot 14 jaar gaan GnRH-cellen in de hypothalamus in stoten afgeven. Kisspeptine (vwo) zet die cellen aan; leptine uit vetweefsel geeft door of er genoeg reserve is. Oksel- en schaamhaar komen deels door hormonen uit de bijnieren; vereenvoudigd tot testosteron en oestrogeen.</li>
         <li><b>Groeisnelheid</b>: schematische curves; piek bij meisjes rond 12 jaar, bij jongens rond 14 jaar (zoals in de film).</li>
@@ -425,7 +425,7 @@ SCHERMEN.push({ titel: 'Flora', deel: 'Opening',
     { t: 'Toch legt Flora <b>eieren</b>.', n: 'Laat de klas raden: zijn de eieren bevrucht? Door wie dan?' },
     { t: 'En daar komen <b>jongen</b> uit. Zonder vader.', n: 'DNA-onderzoek: de jongen hebben alleen DNA van Flora (Watts e.a., Nature 2006).' },
     { t: 'Alle jongen zijn <b>mannetjes</b>: bij varanen is het vrouwtje ZW, het mannetje ZZ.', n: 'Eicel krijgt Z of W en wordt verdubbeld: ZZ (mannetje) of WW (leeft niet). Komt terug in film 4 (Sekse).', vwo: true },
-    { t: 'Hoe kan dat? Voortplanting met <b>één ouder</b> of met <b>twee</b>.', n: 'Het antwoord komt bij scherm 3 (maagdelijke voortplanting) en 4.' }
+    { t: 'Hoe kan dat? Voortplanting met <b>één ouder</b> of met <b>twee</b>.', n: 'Het antwoord komt bij scherm 4 (maagdelijke voortplanting).' }
   ],
   teken(ctx, S) {
     const T = S.T, gy = 820;
@@ -589,48 +589,121 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
       const t2 = S.on(3, 0.6, 2.0); regel(ctx, '2 × 2 = 4', 1320, 690, t2, C.goud, 44, 'left', 700); regel(ctx, 'mogelijke combinaties', 1320, 740, t2, C.text, 34, 'left', 600); regel(ctx, 'elk kind is er één van', 1320, 790, t2, C.text2, 30, 'left', 400); }
   } });
 
-// ---------- 5 · de race ----------
+// ---------- 5 · meer paren, meer combinaties ----------
+// Stap voor stap uitbreiden: 1, 2, 3 paren, dan de mens (23 paren), dan crossing-over.
+const PAAR_LEN = [1, 0.72, 0.48];
+function chromBalk(ctx, x, y, len, bw, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = kleur; roundRect(ctx, x - bw / 2, y - len / 2, bw, len, bw / 2); ctx.fill(); ctx.restore(); }
+// paren = lijst per paar met de kleuren die erin zitten (2 in een lichaamscel, 1 in een geslachtscel)
+function parenRij(ctx, x, y, paren, basis, bw, a = 1) {
+  const gap = bw * 0.45, pg = bw * 1.6; let w = 0; paren.forEach(p => { w += p.length * bw + (p.length - 1) * gap + pg; }); w -= pg;
+  let cx = x - w / 2; paren.forEach((p, k) => { const L = basis * PAAR_LEN[k % 3]; p.forEach((kl, i) => { chromBalk(ctx, cx + bw / 2, y, L, bw, kl, a); cx += bw + (i < p.length - 1 ? gap : 0); }); cx += pg; });
+}
+const fmtNL = (n) => Math.round(n).toLocaleString('nl-NL');
+SCHERMEN.push({ titel: 'Meer paren', deel: 'Eén ouder of twee',
+  stappen: [
+    { t: '<b>1 paar</b>: 2 soorten geslachtscellen per ouder. Samen 2 × 2 = <b>4</b> combinaties.', n: 'Herhaling van het vorige scherm, nu met de getallen in een tabel. De kleuren: één exemplaar van elk paar komt van de eigen vader (teal), één van de eigen moeder (groen).' },
+    { t: '<b>2 paren</b>: elk paar verdeelt zich los van het andere. 2 × 2 = <b>4</b> soorten geslachtscellen, samen 4 × 4 = <b>16</b> combinaties.', n: 'Onafhankelijke verdeling: welk exemplaar van paar 1 in een geslachtscel komt, zegt niets over paar 2.' },
+    { t: '<b>3 paren</b>: 2 × 2 × 2 = <b>8</b> soorten, samen 8 × 8 = <b>64</b> combinaties. Elk paar erbij verdubbelt het aantal soorten.', n: '' },
+    { t: 'De mens: <b>23 paren</b>. Per ouder ruim <b>8 miljoen</b> soorten geslachtscellen, samen ± <b>70 biljoen</b> combinaties.', n: '2^23 = 8.388.608; 2^46 = 70.368.744.177.664. Ter vergelijking: er hebben ooit ± 117 miljard mensen geleefd (schatting Population Reference Bureau). Broers en zussen (geen eeneiige tweeling) zijn dus vrijwel nooit genetisch gelijk.' },
+    { t: 'En <b>crossing-over</b> ruilt ook nog stukjes binnen een paar: vrijwel elke geslachtscel is uniek.', n: 'Crossing-over in de eerste deling van de meiose; zie de film Celdeling.' }
+  ],
+  teken(ctx, S) {
+    const A = C.teal, B = C.groen, b = S.b;
+    let n = 1; for (let k = 1; k <= 2; k++) if (S.on(k, 0.01) > 0) n = k + 1; const mens = S.on(3, 0.8), co = S.on(4, 1.0);
+    const fase = b <= 2 ? S.on(b, 0.6) : 1; // in- en uitfaden bij een nieuwe stap
+    const px = 300, py = 520, links = 1 - mens;
+    // links: lichaamscel met n paren → 2^n soorten geslachtscellen
+    if (links > 0.01) { const a = links * fase;
+      celVorm(ctx, [[px, py, 150, 150]], C.teal, a); ctx.save(); ctx.globalAlpha *= a; circ(ctx, px, py, 104, rgba(C.paars, C.licht ? 0.12 : 0.22), rgba(C.paars, 0.7), 2); ctx.restore();
+      parenRij(ctx, px, py, Array.from({ length: n }, () => [A, B]), 130, 15, a);
+      regel(ctx, n === 1 ? '1 paar' : n + ' paren', px, py + 205, a, C.text2, 30, 'center', 600);
+      pijl(ctx, px + 175, py, 610, py, C.goud, 5, a, 20); regel(ctx, 'meiose', 545, py - 22, a, C.goud, 30, 'center', 700);
+      const soorten = 1 << n, cols = soorten > 4 ? 2 : (soorten === 4 ? 2 : 1), rows = Math.ceil(soorten / cols), r = soorten > 4 ? 50 : 58, gy = soorten > 4 ? 135 : 160;
+      for (let i = 0; i < soorten; i++) { const c = i % cols, rr = Math.floor(i / cols); const gx = cols === 1 ? 800 : 730 + c * 150, yy = py + (rr - (rows - 1) / 2) * gy; const ga = a * S.on(Math.min(b, 2), 0.5, 0.5 + i * 0.12);
+        celVorm(ctx, [[gx, yy, r, r]], C.oker, ga); parenRij(ctx, gx, yy, Array.from({ length: n }, (_, k) => [((i >> (n - 1 - k)) & 1) ? B : A]), r * 1.15, 11, ga); }
+      regel(ctx, soorten + ' soorten geslachtscellen', 800, soorten > 4 ? 1010 : 880, a, C.text, 30, 'center', 700); }
+    // links bij de mens: 23 paren
+    if (mens > 0.01) { const a = mens * (1 - co);
+      celVorm(ctx, [[px + 40, py, 190, 190]], C.teal, a); ctx.save(); ctx.globalAlpha *= a; circ(ctx, px + 40, py, 140, rgba(C.paars, C.licht ? 0.12 : 0.22), rgba(C.paars, 0.7), 2); ctx.restore();
+      for (let k = 0; k < 23; k++) { const rij = k < 12 ? 0 : 1, kk = rij ? k - 12 : k, aantal = rij ? 11 : 12; const x = px + 40 + (kk - (aantal - 1) / 2) * 19, y = py + (rij ? 52 : -52), L = lerp(84, 26, k / 22);
+        chromBalk(ctx, x - 4, y, L, 6, A, a); chromBalk(ctx, x + 4, y, L, 6, B, a); }
+      regel(ctx, 'mens: 23 paren', px + 40, py + 250, a, C.text2, 30, 'center', 600);
+      regel(ctx, '2 × 2 × 2 × … (23 keer)', px + 40, py + 300, a * S.on(3, 0.6, 0.6), C.text2, 30, 'center', 600); }
+    // crossing-over
+    if (co > 0.01) { const cx = 420, cy = 520, L = 420, w = 34, k = ease(S.on(4, 2.0, 0.6)), sw = 0.62; ctx.save(); ctx.globalAlpha *= co;
+      const deel = (x, y0, y1, kl) => { ctx.fillStyle = kl; roundRect(ctx, x - w / 2, y0, w, y1 - y0, w / 2); ctx.fill(); };
+      const top = cy - L / 2, knip = top + L * sw, bot = cy + L / 2;
+      deel(cx - 40, top, knip, A); deel(cx + 40, top, knip, B);
+      const oA = lerp(0, 80, k), oB = lerp(0, -80, k); deel(cx - 40 + (k < 0.5 ? oA * 0 : 0), knip + 4, bot, k > 0.5 ? B : A); deel(cx + 40, knip + 4, bot, k > 0.5 ? A : B);
+      if (k > 0.05 && k < 0.95) { ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(cx - 60, knip - 20); ctx.lineTo(cx + 60, knip + 20); ctx.moveTo(cx + 60, knip - 20); ctx.lineTo(cx - 60, knip + 20); ctx.stroke(); }
+      ctx.restore(); regel(ctx, 'crossing-over: stukjes ruilen', cx, cy + L / 2 + 70, co, C.goud, 34, 'center', 700); regel(ctx, '1 paar', cx, top - 30, co, C.text2, 28, 'center', 600); }
+    // rechts: de tabel
+    const tx = [1020, 1290, 1640], hy = 236, a0 = S.on(0, 0.6);
+    metaText(ctx, 'paren', tx[0], hy, C.meta, 'center', 20, a0); metaText(ctx, 'soorten', tx[1], hy - 28, C.meta, 'center', 20, a0); metaText(ctx, 'geslachtscellen', tx[1], hy, C.meta, 'center', 20, a0); metaText(ctx, 'combinaties', tx[2], hy - 28, C.meta, 'center', 20, a0); metaText(ctx, 'bij een kind', tx[2], hy, C.meta, 'center', 20, a0);
+    ctx.save(); ctx.globalAlpha *= a0; ctx.strokeStyle = rgba(C.line, 0.4); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(960, hy + 22); ctx.lineTo(1860, hy + 22); ctx.stroke(); ctx.restore();
+    const rijen = [[1, 2, 4, '2 × 2'], [2, 4, 16, '4 × 4'], [3, 8, 64, '8 × 8']];
+    rijen.forEach(([p, so, co2, som], i) => { const a = S.on(i, 0.6, 0.3); if (a <= 0.01) return; const y = 330 + i * 95, cur = b === i;
+      regel(ctx, String(p), tx[0], y, a, cur ? C.goud : C.text, 46, 'center', 700); regel(ctx, String(so), tx[1], y, a, cur ? C.goud : C.text, 46, 'center', 700);
+      regel(ctx, som + ' =', tx[2] - 20, y - 2, a, C.text2, 28, 'right', 400); regel(ctx, String(co2), tx[2], y, a, cur ? C.goud : C.text, 46, 'left', 700); });
+    if (mens > 0.01) { const y = 660, p = ease(S.on(3, 2.6, 0.6)), cur = b === 3;
+      regel(ctx, '⋮', tx[0], 590, mens, C.text2, 40, 'center', 700);
+      regel(ctx, '23', tx[0], y, mens, cur ? C.goud : C.text, 50, 'center', 700);
+      regel(ctx, fmtNL(8388608 * p), tx[1], y, mens, cur ? C.goud : C.text, 44, 'center', 700);
+      regel(ctx, fmtNL(70368744177664 * p), tx[2], y, mens, cur ? C.goud : C.text, 38, 'center', 700);
+      const z = S.on(3, 0.8, 3.2); regel(ctx, '± 70 biljoen', tx[2], y + 60, z, C.goud, 36, 'center', 700);
+      regel(ctx, 'Er hebben ooit ± 117 miljard mensen geleefd.', 1000, 850, S.on(3, 0.8, 4.0), C.text2, 32, 'left', 600);
+      regel(ctx, 'Elk kind krijgt één van deze combinaties.', 1000, 900, S.on(3, 0.8, 4.4), C.text, 32, 'left', 600); }
+    if (co > 0.01) regel(ctx, '+ crossing-over: vrijwel elke geslachtscel uniek', 1000, 990, S.on(4, 0.8, 1.6), C.goud, 34, 'left', 700);
+  } });
+
+// ---------- 6 · de race ----------
 function rooster(n, x, y, w, h) { const cols = Math.ceil(Math.sqrt(n * w / h)), rows = Math.ceil(n / cols); const cw = w / cols, ch = h / rows, r = Math.min(34, Math.min(cw, ch) * 0.36);
   return Array.from({ length: n }, (_, i) => { const c = i % cols, rr = Math.floor(i / cols); const inRij = rr === rows - 1 ? n - rr * cols : cols; const off = (cols - inRij) * cw / 2; return [x + off + cw * (c + 0.5), y + ch * (rr + 0.5), r]; }); }
-function beestje(ctx, x, y, r, col, man, a = 1, dood = 0) {
+function beestje(ctx, x, y, r, col, man, a = 1, dood = 0) { // klein diertje (bladluis-achtig): gevuld = vrouwtje, omtrek = mannetje
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const k = dood > 0 ? mix(col, C.licht ? '#C9CED6' : '#4A5468', dood) : col;
-  if (man) circ(ctx, x, y, r * 0.86, rgba(C.bg, 1), k, r * 0.28); else circ(ctx, x, y, r, k);
+  ctx.strokeStyle = k; ctx.lineCap = 'round'; ctx.lineWidth = Math.max(2, r * 0.1);
+  for (let i = -1; i <= 1; i++) for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(x + i * r * 0.45, y + d * r * 0.3); ctx.lineTo(x + i * r * 0.55 - r * 0.15, y + d * r * 0.85); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(x + r * 1.05, y - r * 0.15); ctx.quadraticCurveTo(x + r * 1.4, y - r * 0.7, x + r * 1.55, y - r * 0.75); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(x - r * 0.1, y, r * 0.85, r * 0.6, 0, 0, 6.283); if (man) { ctx.fillStyle = C.bg; ctx.fill(); ctx.lineWidth = r * 0.22; ctx.stroke(); } else { ctx.fillStyle = k; ctx.fill(); }
+  circ(ctx, x + r * 0.85, y - r * 0.05, r * 0.32, man ? C.bg : k, man ? k : null, r * 0.16);
   if (dood > 0.3) { ctx.globalAlpha *= (dood - 0.3) / 0.7; ctx.strokeStyle = C.text2; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x - r * 0.5, y - r * 0.5); ctx.lineTo(x + r * 0.5, y + r * 0.5); ctx.moveTo(x + r * 0.5, y - r * 0.5); ctx.lineTo(x - r * 0.5, y + r * 0.5); ctx.stroke(); }
   ctx.restore();
 }
 const TYPES = () => [C.teal, C.goud, C.groen, C.koraal, C.paars, C.oker];
+// vaste kleurvolgorde rechts (index in TYPES): blauw (0) op plek 0, 4 (vrouwtjes) en 11 (mannetje), zodat de ziekte rechts precies 3 van de 16 treft
+const RACE_KL = [0, 2, 1, 3, 0, 4, 5, 1, 2, 3, 5, 0, 4, 2, 1, 3];
 SCHERMEN.push({ titel: 'De race', deel: 'Eén ouder of twee',
   stappen: [
-    { t: 'Een race: links alleen vrouwtjes zonder bevruchting, rechts vrouwtjes én mannetjes. Elk vrouwtje krijgt <b>4 jongen</b>.', n: 'Denkmodel. Vraag: welke populatie groeit het snelst?' },
-    { t: 'Generatie 1.', n: 'Rechts is de helft van de jongen mannetje; die krijgen zelf geen jongen.' },
-    { t: 'Generatie 2.', n: '' },
-    { t: 'Generatie 3: <b>64</b> tegen <b>16</b>. Zonder mannetjes groei je twee keer zo snel per generatie.', n: 'Biologen noemen dit de dubbele kosten van seks. Waarom bestaan er dan toch mannetjes?' },
-    { t: 'Er komt een <b>ziekte</b> die één type aantast. Links zijn ze allemaal dat type.', n: 'Klonen zijn genetisch gelijk: dezelfde zwakke plek. Rechts overleven er een aantal: variatie.' },
-    { t: 'Ongeslachtelijk: <b>snel</b>, geen partner nodig. Geslachtelijk: <b>variatie</b>, beter bestand tegen veranderingen.', n: 'Bladluis doet allebei: zomers klonen, in de herfst seks en wintereieren.' }
+    { t: 'Twee soorten <b>dieren</b>. Links alleen vrouwtjes, die zichzelf klonen. Rechts vrouwtjes én mannetjes. Elk vrouwtje krijgt <b>4 jongen</b>.', n: 'Denkmodel met hele dieren (denk aan bladluizen), niet met cellen. Verder is alles gelijk: evenveel jongen per vrouwtje, niemand gaat dood, elke generatie vervangt de vorige. Het getal 4 maakt niet uit; met 2 jongen blijft het rechts 2 → 2 → 2 en groeit het links 1 → 2 → 4 → 8.' },
+    { t: 'Generatie 1. Links worden alle 4 jongen later moeder. Rechts zijn 2 van de 4 <b>mannetjes</b>: die krijgen zelf geen jongen.', n: 'Dit is het enige verschil tussen links en rechts.' },
+    { t: 'Generatie 2. Links ×4, rechts maar ×2.', n: '' },
+    { t: 'Generatie 3: <b>64</b> tegen <b>16</b>. Mannetjes kosten een soort de helft van de groei.', n: 'Biologen noemen dit de dubbele kosten van seks. Toch planten de meeste dieren zich geslachtelijk voort: er moet een groot voordeel tegenover staan.' },
+    { t: 'Er komt een <b>ziekte</b> die dieren van één type (blauw) doodt. De klonen zijn allemaal dat type: <b>allemaal dood</b>. Rechts sterven alleen de blauwe.', n: 'Klonen hebben hetzelfde DNA, dus dezelfde zwakke plek: een ziekteverwekker die één kloon kan aanvallen, kan ze allemaal aanvallen. Rechts blijven vrouwtjes én mannetjes over, dus de soort gaat door. Ziekteverwekkers veranderen steeds, dus variatie blijft nodig (vwo-verdieping: Rode Koningin-hypothese).' },
+    { t: 'Ongeslachtelijk: <b>snel</b>, geen partner nodig. Geslachtelijk: <b>variatie</b>, dus bij een verandering overleeft een deel.', n: 'Bladluis doet allebei: in de zomer snel klonen, in de herfst seks en wintereieren. Ook Flora: maagdelijke voortplanting als noodoplossing zonder mannetje.' }
   ],
   teken(ctx, S) {
     const T = S.T, L = [60, 160, 870, 780], R = [990, 160, 870, 780];
     const a0 = S.on(0, 0.8);
     paneel(ctx, ...L, a0); paneel(ctx, ...R, a0);
-    ctx.save(); ctx.globalAlpha *= a0; text(ctx, 'één ouder', L[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje: 4 jongen · allemaal vrouwtje', L[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, 'klonen: zelfde DNA = zelfde kleur', L[0] + 36, 290, C.text2, 'left', 18);
-    text(ctx, 'twee ouders', R[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje: 4 jongen · de helft mannetje', R[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, '● vrouwtje  ○ mannetje · elke kleur = ander DNA', R[0] + 36, 290, C.text2, 'left', 18); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= a0; text(ctx, 'dieren met één ouder', L[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje krijgt 4 jongen · allemaal vrouwtje', L[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, 'klonen: zelfde DNA = zelfde kleur', L[0] + 36, 290, C.text2, 'left', 18);
+    text(ctx, 'dieren met twee ouders', R[0] + 36, 220, fTekst(36, 700), C.text); metaText(ctx, 'elk vrouwtje krijgt 4 jongen · de helft mannetje', R[0] + 36, 258, C.meta, 'left', 20); metaText(ctx, '● vrouwtje  ○ mannetje · elke kleur = ander DNA', R[0] + 36, 290, C.text2, 'left', 18); ctx.restore();
     let g = 0; for (let k = 1; k <= 3; k++) if (S.on(k, 0.01) > 0) g = k;
     const nL = [1, 4, 16, 64], nR = [2, 4, 8, 16];
     const ziek = S.on(4, 2.4), sam = S.on(5, 0.8);
     const vak = (P) => [P[0] + 40, 320, P[2] - 80, sam > 0 ? lerp(470, 330, sam) : 470];
     const teken = (P, n, links, gen, a) => { const [x, y, w, h] = vak(P); rooster(n, x, y, w, h).forEach(([px, py, r], i) => {
-        const man = !links && i % 2 === 1; const kl = links ? C.teal : TYPES()[Math.floor(hash(i * 3.7 + 1) * 6)];
-        const kwetsbaar = links || kl === C.teal || i % 5 === 0; const dood = kwetsbaar ? ease((ziek - 0.25 - hash(i) * 0.4) / 0.35) : 0;
+        const man = !links && i % 2 === 1; const kl = links ? C.teal : TYPES()[RACE_KL[i % 16]];
+        const kwetsbaar = links || RACE_KL[i % 16] === 0; const dood = kwetsbaar ? ease((ziek - 0.25 - hash(i) * 0.4) / 0.35) : 0;
         const pop = gen === g ? S.on(g, 0.5, 0.25 + (i / n) * 0.8) : 1; beestje(ctx, px, py, r * (0.5 + 0.5 * pop), kl, man, a * pop, dood); }); };
     teken(L, nL[g], true, g, a0); teken(R, nR[g], false, g, a0);
     // tellers
-    const cntL = ziek > 0.6 ? 0 : nL[g]; let overR = 0; if (g === 3) { for (let i = 0; i < 16; i++) { const kl = TYPES()[Math.floor(hash(i * 3.7 + 1) * 6)]; if (!(kl === C.teal || i % 5 === 0)) overR++; } }
+    const cntL = ziek > 0.6 ? 0 : nL[g]; const overR = RACE_KL.slice(0, nR[g]).filter(x => x !== 0).length;
     const cntR = ziek > 0.6 ? overR : nR[g];
     ctx.save(); ctx.globalAlpha *= a0 * (1 - sam); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), L[0] + 36, 830, C.meta, 'left', 22); metaText(ctx, 'generatie ' + g + (ziek > 0.6 ? ' · na de ziekte' : ''), R[0] + 36, 830, C.meta, 'left', 22);
-    const groei = (P, rij) => { let x = P[0] + 36; rij.forEach((n, i) => { if (i) { const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; text(ctx, '→', x, 900, fTekst(40, 600), C.text2); ctx.restore(); x += 54; }
+    const groei = (P, rij, fac) => { let x = P[0] + 36; rij.forEach((n, i) => { if (i) { const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; text(ctx, '→', x + 4, 900, fTekst(40, 600), C.text2); text(ctx, fac, x + 18, 858, fTekst(24, 700), C.goud, 'center'); ctx.restore(); x += 58; }
         const al = i <= g ? 1 : 0.18; ctx.save(); ctx.globalAlpha *= al; const f = fTitel(i === g ? 64 : 44); ctx.font = f; const w = ctx.measureText(String(n)).width; text(ctx, String(n), x, 900, f, i === g && ziek <= 0.6 ? C.goud : C.text); ctx.restore(); x += w + 20; }); };
-    if (ziek <= 0.6) { groei(L, nL); groei(R, nR); }
-    else { text(ctx, cntL + ' over', L[0] + 36, 900, fTitel(64), C.koraal); text(ctx, cntR + ' over', R[0] + 36, 900, fTitel(64), C.text); }
+    if (ziek <= 0.6) { groei(L, nL, '×4'); groei(R, nR, '×2'); }
+    else { text(ctx, cntL + ' over', L[0] + 36, 900, fTitel(64), C.koraal); regel(ctx, 'uitgestorven', L[0] + 300, 896, 1, C.koraal, 34, 'left', 700); text(ctx, cntR + ' over', R[0] + 36, 900, fTitel(64), C.text); regel(ctx, 'de soort gaat door', R[0] + 330, 896, 1, C.groen, 34, 'left', 700); }
     ctx.restore();
     if (ziek > 0.01 && ziek < 1) { for (let i = 0; i < 10; i++) { const vx = lerp(-100, 2020, (ziek * 1.1 - hash(i) * 0.1)), vy = 300 + hash(i * 7) * 460; ctx.save(); ctx.globalAlpha *= 0.8; circ(ctx, vx, vy, 12, rgba(C.koraal, 0.5), C.koraal, 2); for (let j = 0; j < 8; j++) { const an = j / 8 * 6.283; ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(vx + Math.cos(an) * 12, vy + Math.sin(an) * 12); ctx.lineTo(vx + Math.cos(an) * 19, vy + Math.sin(an) * 19); ctx.stroke(); } ctx.restore(); } }
     if (sam > 0.01) {
@@ -802,7 +875,7 @@ function frame(now) {
   try { sc.teken(ctx, S); } catch (e) { console.error(e); }
   requestAnimationFrame(frame);
 }
-const KOPPEN = ['', 'Een moeder zonder vader', 'Eén ouder', 'Vormen van ongeslachtelijke voortplanting', 'Twee ouders', 'De race: waarom mannetjes?', 'Het startsein', 'Geslachtskenmerken', 'De route van een zaadcel', 'Eierstok en baarmoeder'];
+const KOPPEN = ['', 'Een moeder zonder vader', 'Eén ouder', 'Vormen van ongeslachtelijke voortplanting', 'Twee ouders', 'Meer paren, meer combinaties', 'De race: waarom mannetjes?', 'Het startsein', 'Geslachtskenmerken', 'De route van een zaadcel', 'Eierstok en baarmoeder'];
 function kopVan(sc) { return KOPPEN[SCHERMEN.indexOf(sc)] || sc.titel; }
 
 const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
