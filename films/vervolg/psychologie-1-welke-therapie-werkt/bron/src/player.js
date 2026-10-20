@@ -9,7 +9,7 @@ const state = { reduce:false,
   qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
   board:[0,0,0,0,0,0]
 };
-const CARD_DUR=2.2, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
+const CARD_DUR=1.3, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
 
 // ---- build timeline ----
 // 'Voor vwo ...' niet uitspreken (de havo/vwo-keuze zit in de speler): losse aankondigingen helemaal, 'Voor vwo:' als voorzetsel weg
@@ -22,7 +22,7 @@ function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
           if(k>=0&&zin[k+1]){ if(/, tot slot:$/i.test(m[0])){ k=1; } cuts.push([zin[0].s-0.03, zin[k+1].s-0.03]); const r=zin[k+1]; if(!r._hoofd){ r.t=r.t.charAt(0).toUpperCase()+r.t.slice(1); r._hoofd=1; } } } } }
     i=j+1; }
   return cuts; }
-function knipSamen(c){ c=c.filter(x=>x[1]>x[0]).sort((a,b)=>a[0]-b[0]); const o=[]; for(const x of c){ const l=o[o.length-1]; if(l&&x[0]<=l[1]) l[1]=Math.max(l[1],x[1]); else o.push([Math.max(0,x[0]),x[1]]); } return o; }
+/*SPELERFIX_MARK v1 20okt2026*/ function knipMarge(seg,cuts){ const w=seg.words||[]; for(const c of cuts){ const i=w.findIndex(x=>x.s>=c[0]-0.001); if(i>0&&/[.?!]$/.test(w[i-1].t)) c[0]=Math.max(Math.min(c[0],w[i].s-0.25),w[i-1].s+0.1); else if(i===0) c[0]=Math.min(c[0],Math.max(0,w[0].s-0.25)); const j=w.findIndex(x=>x.s>=c[1]-0.001); if(j>0&&w[j].s-c[1]<0.12&&/[.?!]$/.test(w[j-1].t)) c[1]=Math.max(Math.min(c[1],w[j].s-0.1),w[j-1].s+0.1,c[0]); } const m=knipSamen(cuts); cuts.length=0; m.forEach(x=>cuts.push(x)); return cuts; } function knipSamen(c){ c=c.filter(x=>x[1]>x[0]).sort((a,b)=>a[0]-b[0]); const o=[]; for(const x of c){ const l=o[o.length-1]; if(l&&x[0]<=l[1]) l[1]=Math.max(l[1],x[1]); else o.push([Math.max(0,x[0]),x[1]]); } return o; }
 function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ seg2.push(cur); cur=[]; } } if(cur.length) seg2.push(cur); seg2.forEach((z,i)=>{ const txt=z.map(x=>x.t).join(' '); const hit=(/\bantwoord\b/i.test(txt)&&!/begin/i.test(txt)&&z.some(x=>/^(aa|bee|cee|a|b|c)[.,:]?$/i.test(x.t)))||/^(dat (is|was) )?[abc]\.$/i.test(txt); if(hit){ const a=Math.max(0,z[0].s-0.05), b=seg2[i+1]?Math.max(a,seg2[i+1][0].s-0.05):(seg.dur||z[z.length-1].e+0.3); cuts.push([a,b]); } }); return cuts; }function losAntwCuts(seg,aan){ const w=seg.words||[]; for(const x of w){ if(x._t0!==undefined){ x.t=x._t0; delete x._t0; } } if(!aan) return [];
   const z=[]; let cur=[]; for(const x of w){ cur.push(x); if(/[.?!]$/.test(x.t)){ z.push(cur); cur=[]; } } if(cur.length) z.push(cur);
   const LET=/^(aa|bee|cee|a|b|c)[.,:]?$/i, OK=/^(het|antwoord|op|de|vraag|van|aan|begin|was|is|dus|dat|daar|beste|aa|bee|cee|a|b|c)[.,:]?$/i, cuts=[];
@@ -37,7 +37,7 @@ function antwCuts(seg){ const w=seg.words||[], seg2=[], cuts=[]; let cur=[]; for
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='card'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Cold open'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:'basis'}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
+    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); knipMarge(seg,cuts); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
     else if(seg.kind==='question' && state.vragen==='uit'){ if(seg.chapter==='Cold open') naKop=true; else naQ=seg.chapter; } else if(seg.kind==='question') items.push({type:'question',seg,dur:COUNTDOWN+REVEAL,level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
@@ -75,7 +75,7 @@ function drawTitle(ctx,t){ const f=DATA.film; bg(ctx,f.titleLook||'schema'); con
   ctx.save(); ctx.globalAlpha=a; text(ctx,f.title,120,360,fTitel(f.title.length>22?96:120),C.text); text(ctx,f.sub,120,440,fTekst(44),C.text2);
   ctx.font=fTekst(36); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,f.puzzle,120,540,820,48);
   metaText(ctx,(f.alleen?f.alleen.toUpperCase():(state.niveau==='havo'?'HAVO':'HAVO · VWO'))+' · '+f.meta.toUpperCase(),W-80,60,C.text2,'right',28); ctx.restore(); }
-function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini=(DATA.film.minis||{})[num||it.chapter];
@@ -114,21 +114,22 @@ function drawCaption(ctx,seg,t){ const ch=chunks(seg).find(c=>t>=c[0].s-0.15 && 
 
 // ---- transport ----
 const audio=document.getElementById('narration'); function zetSnelheid(r){ if(state.items&&state.items[state.idx]&&state.items[state.idx].type!=='speech'){ clockBase=state.local; clockStart=performance.now()/1000; } state.snelheid=r; audio.defaultPlaybackRate=r; audio.playbackRate=r; try{ audio.preservesPitch=true; }catch(e){} document.querySelectorAll('#snelheid button').forEach(b=>b.classList.toggle('on',+b.dataset.v===r)); } let clockStart=0, clockBase=0; let raf=0;
-function gotoItem(i, local=0){ state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local=it2aud(it,local); state.local=local; state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
+function gotoItem(i, local=0){ knipVrij(); state.idx=clamp(i,0,state.items.length-1); const it=state.items[state.idx]; local=it2aud(it,local); state.local=local; state.qPhase= it.type==='question'? {phase:'countdown',start:0,chosen:null}:null;
   if(it.type==='speech'){ if(audio.src.indexOf(it.seg.audio)<0){ audio.src=it.seg.audio; const want=local; if(want>0.05) audio.muted=true; const zet=()=>{ if(state.items[state.idx]===it&&audio.currentTime<want-0.05) audio.currentTime=want; if(audio.currentTime>=want-0.05||state.items[state.idx]!==it) audio.muted=false; }; audio.addEventListener('loadedmetadata',zet,{once:true}); audio.addEventListener('playing',zet,{once:true}); audio.addEventListener('seeked',zet,{once:true}); setTimeout(()=>{ audio.muted=false; },1500); } audio.currentTime=local; if(state.playing) audio.play().catch(()=>{}); }
   else { audio.pause(); clockBase=local; clockStart=performance.now()/1000; }
   updateChapterUI(); }
 function seekGlobal(g){ g=clamp(g,0,state.total-0.01); const i=state.items.findIndex(it=>g<it.start+it.dur); gotoItem(i, g-state.items[i].start); }
 function play(){ state.playing=true; document.getElementById('play').textContent='❚❚'; const it=state.items[state.idx]; if(it.type==='speech'){ audio.play().catch(()=>{}); } else { clockBase=state.local; clockStart=performance.now()/1000; } }
 function pause(){ state.playing=false; document.getElementById('play').textContent='▶'; audio.pause(); }
+/*SPELERFIX_MARK knip*/ let knipStil=false, knipTimer=0; function knipVrij(){ clearTimeout(knipTimer); if(knipStil){ knipStil=false; audio.muted=false; } } function knipCheck(it){ const t=state.local, vooruit=0.03*(state.snelheid||1); const cc=(it.cuts||[]).find(c=>t+vooruit>=c[0]&&t<c[1]-0.03); if(!cc) return; audio.muted=true; knipStil=true; clearTimeout(knipTimer); const eind=Math.min(it.seg.dur||1e9,isFinite(audio.duration)?audio.duration:1e9); if(cc[1]>=eind-0.05){ audio.pause(); state.local=cc[1]; return; } audio.currentTime=cc[1]; state.local=cc[1]; const vrij=()=>{ clearTimeout(knipTimer); knipTimer=setTimeout(()=>{ if(knipStil){ knipStil=false; audio.muted=false; } },40); }; audio.addEventListener('seeked',vrij,{once:true}); knipTimer=setTimeout(vrij,400); } audio.addEventListener('timeupdate',()=>{ const it=state.items[state.idx]; if(!state.playing||!it||it.type!=='speech'||audio.paused) return; state.local=audio.currentTime; knipCheck(it); if(state.items[state.idx]===it&&aud2it(it,state.local)>=it.dur-0.02) next(); });
 function tick(){
   const it=state.items[state.idx];
   if(state.playing && it){
-    if(it.type==='speech'){ state.local=audio.currentTime; const cc=(it.cuts||[]).find(c=>state.local>=c[0]&&state.local<c[1]-0.03); if(cc){ audio.currentTime=cc[1]; state.local=cc[1]; } if(audio.ended || aud2it(it,state.local)>=it.dur-0.02){ next(); } }
+    if(it.type==='speech'){ state.local=audio.currentTime; knipCheck(it); if(audio.ended || aud2it(it,state.local)>=it.dur-0.02){ next(); } }
     else if(it.type==='question'){ state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid; const ph=state.qPhase;
       if(ph.phase==='countdown' && state.local-ph.start>=COUNTDOWN){ if(state.auto){ ph.phase='reveal'; ph.start=state.local; } else { ph.phase='wait'; ph.start=state.local; } }
       else if(ph.phase==='reveal' && state.local-ph.start>=REVEAL){ next(); }
-    } else { state.local=clockBase+(performance.now()/1000-clockStart)*state.snelheid; if(state.local>=it.dur) next(); }
+    } else { state.local=clockBase+(performance.now()/1000-clockStart)*(it.type==='card'?Math.min(1,state.snelheid):state.snelheid); if(state.local>=it.dur) next(); }
   }
   render(); updateTimeUI(); raf=requestAnimationFrame(tick);
 }

@@ -15,8 +15,8 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 ## Nieuw in v2.0 (16 okt 2026)
 | Woord | Stem-invoer | Alinea's | Status |
 |---|---|---|---|
-| amygdala | amigdala | s14 | wachtlijst |
-| serotonine | serotoninuh (Nederlandse -ine) | s14, s16 | wachtlijst |
+| amygdala | amygdala (gewone spelling; was amigdala) | s14 | goedgekeurd (uitspraaktest 18 okt); opnieuw ingesproken 20 okt |
+| serotonine | serotonine (gewone spelling; was serotoninuh) | s14, s16 | goedgekeurd (uitspraaktest 18 okt / ronde 2); opnieuw ingesproken 20 okt |
 | synaps | sinaps | s14 | wachtlijst |
 | SSRI | es-es-er-ie | s14 | wachtlijst |
 | GGZ, basis-GGZ | gee-gee-zet, basis-gee-gee-zet | s20 | wachtlijst |
