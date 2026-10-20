@@ -12,3 +12,13 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 | hypofyse | /ˌhi.poˈfi.zə/ | zoals geschreven (zo ook in Hormonen 3) | s05, s19 | wachtlijst |
 | zaadblaasjes, bijbal, zaadleider, zwellichamen, eileider, baarmoederhals, strottenhoofd, testosteron | standaard | zoals geschreven | H1–H3 | wachtlijst |
 | in het jaar 1850 | — | cijfers met 'het jaar' (Kamiels regel) | s08 | ok volgens regel |
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s08.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| kisspeptine | kisspeptine (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+| leptine | leptine (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
