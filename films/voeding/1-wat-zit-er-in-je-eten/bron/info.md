@@ -103,3 +103,9 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 - **s29**: de grafiek '100× lager' kwam te vroeg (cue `honderd` trof eerst 'achthonderd'); nu `q.on('honderd', 2)`.
 - **Bouwen na deze wijziging**: de HTML op de site bevat latere aanpassingen die niet in `src/page.html`/`src/player.js` staan (speler: snelheid, Vragen aan/uit, spelerfix; flipkaarten, oefenen, teller, licentie, tabellen). Pas scènes aan in `src/scenes.js` en zet ze in de film met `python3 bron/bouw/vervang.py films/voeding/1-wat-zit-er-in-je-eten.html films/voeding/1-wat-zit-er-in-je-eten/bron` (vervangt alleen het blok tussen `/*@@SCENES*/` en `/*@@/SCENES*/` = `src/lib_cast.js` + `src/cast_hulp.js` + `src/scenes.js`; met `--filmdata <filmdata.json> [--nieuw sNN,…]` ook FILMDATA, met `?v=N+1` voor opnieuw ingesproken alinea's). `build.py` voegt lib_cast.js en cast_hulp.js nu ook in. `src/lib_cast.js` is een kopie van `personages/lib_cast.js`.
 - **Waar in de HTML** (regelnummers 20 okt): scènesblok 621–1250 (lib_cast.js vanaf 621, `cast_hulp.js` vanaf 859, `const SCENES` op 937). Regelnummers hierboven onder 'Techniek' zijn daardoor ±275 regels opgeschoven.
+
+## Wijziging 20 okt 2026 (tweede ronde)
+
+- Het kind van 20 kg (s27, s29) is nu **Teun**, het kind uit het castboek (`persoon(ctx, 'kind', …)`), i.p.v. de eigen kinderversie van Daan (`kindFiguur` is weg).
+- 'Ruim 50 % water' (s07): Noor gewoon zoals in de cast, met ernaast een meterstreep die tot ± 60 % volloopt (i.p.v. Noor overgekleurd; `persoonTint` is weg).
+- `src/lib_cast.js` is de nieuwe versie van het castboek (met Teun en de baby).

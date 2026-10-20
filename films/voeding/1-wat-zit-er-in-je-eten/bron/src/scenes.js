@@ -91,7 +91,7 @@ const SCENES = {
     arrow(ctx, gx(5), 245, tx(3), 465, C.teal, q.on('regelen'), 2); arrow(ctx, gx(4), 245, tx(3) - 40, 465, C.teal, q.on('regelen'), 2);
     if (q.on('Calcium') > 0.01) bigLine(ctx, 'calcium → botten', tx(0), 660, q.on('Calcium') * (1 - q.on('Water')), C.text, 34);
     // lichaam voor meer dan de helft water
-    const wa = q.on('helft'); if (wa > 0.01) { ctx.save(); ctx.globalAlpha *= wa; persoonTint(ctx, 'noor', 1700, 880, 260, { uit: 'blij', t }, C.teal, 0.6 * ramp(t, q.at('helft'), 1.2), 0.62); text(ctx, 'ruim 50% water', 1460, 760, fTekst(36, 600), C.teal, 'center'); ctx.restore(); }
+    const wa = q.on('helft'); if (wa > 0.01) { ctx.save(); ctx.globalAlpha *= wa; persoon(ctx, 'noor', 1720, 880, 260, { uit: 'blij', t }); { const f = 0.6 * ramp(t, q.at('helft'), 1.2); roundRect(ctx, 1590, 624, 36, 256, 18); shape(ctx, rgba(C.teal, 0.12), rgba(C.teal, 0.8), 2); ctx.save(); roundRect(ctx, 1590, 624, 36, 256, 18); ctx.clip(); ctx.fillStyle = rgba(C.teal, 0.85); ctx.fillRect(1590, 880 - 256 * f, 36, 256 * f); ctx.restore(); } text(ctx, 'ruim 50% water', 1460, 760, fTekst(36, 600), C.teal, 'center'); ctx.restore(); }
     // vraag: nieuwe eiwitten
     const qa = q.on('enzymen'); if (qa > 0.01) { ctx.save(); ctx.globalAlpha *= qa; text(ctx, 'nieuwe enzymen en spiereiwit: bouwstenen uit …?', 60, 700, fTekst(40, 600), C.goud); ctx.restore(); }
   },
@@ -322,10 +322,10 @@ const SCENES = {
     if (adi > 0.01) { ctx.save(); ctx.globalAlpha *= adi * (1 - kind * 0.5); roundRect(ctx, 120, 120, 820, 170, 14); shape(ctx, rgba(C.bgSchema, 0.96), C.goud, 1.5); text(ctx, 'ADI · aanvaardbare dagelijkse inname', 150, 180, fTekst(36, 600), C.goud); text(ctx, asp > 0.5 ? 'aspartaam: 40 mg per kg per dag' : 'mg per kg lichaamsgewicht per dag', 150, 250, fTekst(36, 600), C.text); ctx.restore(); }
     if (sx > 0.01) { ctx.save(); ctx.globalAlpha *= sx * (1 - kind * 0.5); persoon(ctx, 'noor', 260, 820, 300, { uit: 'neutraal', t }); text(ctx, '60 kg', 260, 860, fTekst(36, 600), C.text, 'center'); text(ctx, '60 × 40 = 2400 mg per dag', 430, 400, fTekst(44, 600), C.text); ctx.restore(); }
     if (blik > 0.01) { const n = Math.min(12, Math.floor(ramp(t, q.at('blikje'), 2) * 12 + 0.001)); ctx.save(); ctx.globalAlpha *= blik * (1 - kind * 0.5); for (let i = 0; i < n; i++) foodIcon(ctx, 'blikje', 470 + (i % 12) * 66, 560, 0.9); metaText(ctx, '200 mg per blikje · 12 blikjes = 2400 mg', 440, 650, C.grain, 'left', 28); ctx.restore(); }
-    if (kind > 0.01) { ctx.save(); ctx.globalAlpha *= kind; kindFiguur(ctx, 'daan', 1500, 840, 200, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); text(ctx, 'na hoeveel blikjes?', 1500, 560, fTekst(44, 600), C.goud, 'center'); ctx.restore(); }
+    if (kind > 0.01) { ctx.save(); ctx.globalAlpha *= kind; persoon(ctx, 'kind', 1500, 840, 210, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); text(ctx, 'na hoeveel blikjes?', 1500, 560, fTekst(44, 600), C.goud, 'center'); ctx.restore(); }
   },
   s29(ctx, t, q) { bg(ctx, 'schema');
-    ctx.save(); kindFiguur(ctx, 'daan', 1500, 840, 200, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); ctx.restore();
+    ctx.save(); persoon(ctx, 'kind', 1500, 840, 210, { uit: 'blij', t }); text(ctx, '20 kg', 1500, 880, fTekst(36, 600), C.text, 'center'); ctx.restore();
     const a = q.on('Twintig'); if (a > 0.01) { bigLine(ctx, '20 × 40 = 800 mg = 4 blikjes', 1500, 420, a, C.text, 44); for (let i = 0; i < 4; i++) foodIcon(ctx, 'blikje', 1380 + i * 80, 540, 0.9, a); }
     const m = q.on('honderd', 2, 1.2); if (m > 0.01) { ctx.save(); ctx.globalAlpha *= m; plateLine(ctx, 160, 1100, 700); ctx.fillStyle = C.line;
       roundRect(ctx, 1000, 260, 60, 440, 8); shape(ctx, rgba(V.neutraal, 0.3), V.neutraal, 1.2); text(ctx, 'geen schadelijk effect', 1030, 230, fTekst(36, 600), C.text2, 'center'); metaText(ctx, 'proefdieren', 1030, 740, C.grain, 'center', 28);
