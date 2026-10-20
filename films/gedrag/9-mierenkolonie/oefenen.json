@@ -1,0 +1,197 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/9-mierenkolonie.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-kolonie",
+   "soort": "indelen",
+   "titel": "Wie doet wat?",
+   "opdracht": "Bij wie in de mierenkolonie hoort elke beschrijving?",
+   "bakken": [
+    {
+     "naam": "Koningin"
+    },
+    {
+     "naam": "Werksters"
+    },
+    {
+     "naam": "Mannetjes"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Legt de eitjes.",
+     "bak": 0,
+     "uitleg": "Dat is haar taak."
+    },
+    {
+     "tekst": "Geeft geen bevelen, en weet niet wat er buiten gebeurt.",
+     "bak": 0,
+     "uitleg": "De kolonie heeft een koningin, maar geen baas."
+    },
+    {
+     "tekst": "Vrouwtjes die zelf meestal geen eitjes leggen.",
+     "bak": 1,
+     "uitleg": "Dat zijn de werksters, vaak duizenden."
+    },
+    {
+     "tekst": "Verzorgen eitjes, larven en poppen. Vaak de jongere.",
+     "bak": 1,
+     "uitleg": "Jonge werksters blijven vaak binnen."
+    },
+    {
+     "tekst": "Zoeken voedsel en verdedigen het nest. Vaak de oudere.",
+     "bak": 1,
+     "uitleg": "Buiten is gevaarlijk werk, dat doen vooral oudere werksters."
+    },
+    {
+     "tekst": "Zijn er alleen in een bepaalde tijd van het jaar.",
+     "bak": 2,
+     "uitleg": "Mannetjes zijn er niet altijd."
+    },
+    {
+     "tekst": "Zijn er om te paren.",
+     "bak": 2,
+     "uitleg": "Dat is de rol van de mannetjes."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-geurspoor",
+   "soort": "volgorde",
+   "titel": "Een spoor van geur",
+   "opdracht": "Zet in de goede volgorde hoe een mierenstraat naar een kruimel ontstaat, en weer verdwijnt.",
+   "stappen": [
+    {
+     "tekst": "Een mier vindt voedsel.",
+     "uitleg": "Eerst komt er één mier langs."
+    },
+    {
+     "tekst": "Op de terugweg naar het nest drukt ze steeds de punt van haar achterlijf op de grond: een geurspoor.",
+     "uitleg": "Mieren communiceren met geurstoffen: feromonen."
+    },
+    {
+     "tekst": "Andere mieren ruiken het spoor met hun voelsprieten en volgen het.",
+     "uitleg": "Geen mier stuurt ze; ze reageren op de geur."
+    },
+    {
+     "tekst": "Ook zij vinden voedsel en leggen op de terugweg geur neer.",
+     "uitleg": "Er komt geur bij op het spoor."
+    },
+    {
+     "tekst": "Het spoor wordt sterker, en er volgen nog meer mieren.",
+     "uitleg": "Dat versterkt zichzelf: positieve terugkoppeling."
+    },
+    {
+     "tekst": "Het voedsel is op: niemand legt nog geur, en het spoor verdampt.",
+     "uitleg": "Verdampen werkt als een rem."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-twee-bruggen",
+   "soort": "pijlen",
+   "titel": "Twee bruggetjes",
+   "opdracht": "Tussen een nest en voedsel liggen een korte en een lange brug. In het begin lopen mieren over allebei. Voorspel wat er daarna in de loop van de tijd gebeurt.",
+   "situatie": "Er gaat tijd voorbij, terwijl de mieren heen en weer lopen.",
+   "rijen": [
+    {
+     "naam": "Geur op de korte brug",
+     "antwoord": "+",
+     "uitleg": "Mieren op de korte brug zijn eerder terug, dus daar komt sneller geur bij."
+    },
+    {
+     "naam": "Mieren die de korte brug kiezen",
+     "antwoord": "+",
+     "uitleg": "Meer geur trekt meer mieren, en die leggen weer geur."
+    },
+    {
+     "naam": "Mieren die de lange brug kiezen",
+     "antwoord": "-",
+     "uitleg": "Er gaan steeds meer mieren naar de korte brug."
+    },
+    {
+     "naam": "Geur op de lange brug",
+     "antwoord": "-",
+     "uitleg": "Er komt minder geur bij, en de geur verdampt."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-oogstmieren",
+   "soort": "pijlen",
+   "vwo": true,
+   "titel": "Oogstmieren en veel voedsel",
+   "opdracht": "Oogstmieren zoeken zaadjes. Er komt ineens veel voedsel in de buurt. Voorspel wat er verandert.",
+   "situatie": "Er liggen veel zaadjes in de buurt van het nest.",
+   "rijen": [
+    {
+     "naam": "Tijd die een voedselzoeker nodig heeft om terug te komen",
+     "antwoord": "-",
+     "uitleg": "Met veel voedsel vinden ze snel een zaadje en zijn ze snel terug."
+    },
+    {
+     "naam": "Contacten bij de ingang met terugkerende mieren met een zaadje",
+     "antwoord": "+",
+     "uitleg": "Er komen vaker mieren met een zaadje binnen."
+    },
+    {
+     "naam": "Aantal mieren dat op pad gaat",
+     "antwoord": "+",
+     "uitleg": "Een mier in de ingang gaat vaker op pad als ze vaak zulke mieren tegenkomt."
+    },
+    {
+     "naam": "Aantal mieren dat binnen blijft",
+     "antwoord": "-",
+     "uitleg": "Er gaan meer mieren naar buiten."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-zonder-baas",
+   "soort": "uitleg",
+   "titel": "De korte route, zonder baas",
+   "opdracht": "Geen enkele mier vergelijkt de twee bruggen. Toch lopen na een tijd bijna alle mieren over de korte brug. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "feromoon",
+     "varianten": [
+      "feromonen",
+      "geur"
+     ]
+    },
+    {
+     "naam": "positieve terugkoppeling",
+     "varianten": [
+      "terugkoppeling"
+     ]
+    },
+    {
+     "naam": "verdampt",
+     "varianten": [
+      "verdampen",
+      "verdamping"
+     ]
+    },
+    {
+     "naam": "zelforganisatie",
+     "varianten": [
+      "regels"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat mieren met voedsel een geurspoor van feromonen leggen, en dat andere mieren de sterkste geur volgen.",
+    "Ik leg uit dat mieren op de korte brug eerder terug zijn, zodat daar sneller geur bijkomt.",
+    "Ik leg uit dat meer geur meer mieren trekt: positieve terugkoppeling. Op de lange brug verdampt de geur.",
+    "Ik noem dat elke mier eenvoudige regels volgt, en dat de kolonie zo slim gedrag laat zien: zelforganisatie."
+   ],
+   "model": [
+    "Een mier met voedsel legt op de terugweg een geurspoor van feromonen. Andere mieren volgen de sterkste geur.",
+    "Mieren op de korte brug zijn eerder terug, dus daar komt sneller geur bij. Meer geur trekt meer mieren, die weer geur leggen: positieve terugkoppeling. Op de lange brug verdampt de geur, en komen er steeds minder mieren.",
+    "Geen mier overziet het geheel. Elke mier volgt eenvoudige regels, en samen vinden ze de korte route. Dat heet zelforganisatie."
+   ]
+  }
+ ]
+}

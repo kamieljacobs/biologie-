@@ -1,0 +1,200 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/6-dna-en-overerving/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-groot-naar-klein",
+   "soort": "volgorde",
+   "titel": "Van cel tot gen",
+   "opdracht": "Zet op volgorde van groot naar klein.",
+   "stappen": [
+    {
+     "tekst": "Een cel van de cavia",
+     "uitleg": "In elke cel zit een celkern."
+    },
+    {
+     "tekst": "De celkern",
+     "uitleg": "Daarin liggen de chromosomen."
+    },
+    {
+     "tekst": "Een chromosoom",
+     "uitleg": "Een heel lange, opgerolde draad."
+    },
+    {
+     "tekst": "DNA: een rij van miljarden letters",
+     "uitleg": "Er zijn maar vier soorten letters."
+    },
+    {
+     "tekst": "Een gen: een stukje van die rij",
+     "uitleg": "Een recept voor één eigenschap, zoals de kleur van de vacht."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vachtkleur",
+   "soort": "indelen",
+   "titel": "Zwart of wit?",
+   "opdracht": "Zwart is dominant, wit is recessief. Welke kleur heeft deze cavia?",
+   "bakken": [
+    {
+     "naam": "Zwart"
+    },
+    {
+     "naam": "Wit"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Twee zwart-genen",
+     "bak": 0,
+     "uitleg": "Alleen zwart: de cavia is zwart."
+    },
+    {
+     "tekst": "Eén zwart-gen en één wit-gen",
+     "bak": 0,
+     "uitleg": "Het zwart-gen wint. Het wit-gen zit verborgen."
+    },
+    {
+     "tekst": "De ouders van Yasmin",
+     "bak": 0,
+     "uitleg": "Allebei zwart, met een verborgen wit-gen."
+    },
+    {
+     "tekst": "Twee wit-genen",
+     "bak": 1,
+     "uitleg": "Wit zie je alleen als er twee wit-genen zijn."
+    },
+    {
+     "tekst": "Een jong dat van allebei de ouders een wit-gen kreeg",
+     "bak": 1,
+     "uitleg": "Twee wit-genen: wit."
+    },
+    {
+     "tekst": "Een jong van twee witte cavia's",
+     "bak": 1,
+     "uitleg": "Witte cavia's kunnen alleen wit doorgeven."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-cavias",
+   "soort": "puzzel",
+   "titel": "Het witte jong van Yasmin",
+   "opdracht": "Yasmin heeft twee zwarte cavia's. Ze krijgen een wit jong. Los het stap voor stap op.",
+   "stappen": [
+    {
+     "vraag": "Welke kleur is dominant?",
+     "velden": [
+      {
+       "label": "dominant:",
+       "antwoord": "zwart",
+       "opties": [
+        "zwart",
+        "wit"
+       ]
+      }
+     ],
+     "uitleg": "Zwart wint het van wit: zwart is dominant."
+    },
+    {
+     "vraag": "Welke genen heeft het witte jong?",
+     "velden": [
+      {
+       "label": "genen:",
+       "antwoord": "twee wit-genen",
+       "opties": [
+        "twee zwart-genen",
+        "een zwart-gen en een wit-gen",
+        "twee wit-genen"
+       ]
+      }
+     ],
+     "uitleg": "Wit is recessief. Wit zie je alleen met twee wit-genen."
+    },
+    {
+     "vraag": "Welke genen hebben de zwarte ouders dan?",
+     "velden": [
+      {
+       "label": "genen:",
+       "antwoord": "een zwart-gen en een wit-gen",
+       "opties": [
+        "twee zwart-genen",
+        "een zwart-gen en een wit-gen",
+        "twee wit-genen"
+       ]
+      }
+     ],
+     "uitleg": "Het jong kreeg van elke ouder een wit-gen. Toch zijn de ouders zwart. Ze hebben dus ook een zwart-gen.",
+     "tip": "Elke ouder geeft één van zijn twee genen door."
+    },
+    {
+     "vraag": "Hoe groot is de kans dat een jong van deze ouders wit is?",
+     "velden": [
+      {
+       "label": "kans:",
+       "antwoord": 0.25,
+       "marge": 0.01
+      }
+     ],
+     "uitleg": "Gemiddeld is één op de vier jongen wit. Je mag dat schrijven als 1 op 4, 1/4 of 25%.",
+     "tip": "Elke ouder geeft met de helft van de kans het wit-gen door, net als een munt opgooien."
+    },
+    {
+     "vraag": "Yasmin laat twee witte cavia's jongen krijgen. Welke kleur hebben die jongen?",
+     "velden": [
+      {
+       "label": "jongen:",
+       "antwoord": "allemaal wit",
+       "opties": [
+        "allemaal wit",
+        "zwart en wit door elkaar",
+        "allemaal zwart"
+       ]
+      }
+     ],
+     "uitleg": "Witte cavia's hebben alleen wit-genen. Ze kunnen alleen wit doorgeven."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-wit-jong",
+   "soort": "uitleg",
+   "titel": "Een wit jong van zwarte ouders",
+   "opdracht": "Twee zwarte cavia's krijgen een wit jong. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "dominant",
+     "varianten": []
+    },
+    {
+     "naam": "recessief",
+     "varianten": []
+    },
+    {
+     "naam": "gen",
+     "varianten": [
+      "genen",
+      "wit-gen"
+     ]
+    },
+    {
+     "naam": "toeval",
+     "varianten": [
+      "kans",
+      "doorgeven"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een cavia van elk gen twee exemplaren heeft, één van elke ouder.",
+    "Ik leg uit dat zwart dominant is, en dat de zwarte ouders allebei een verborgen wit-gen hebben.",
+    "Ik leg uit dat het jong door toeval van allebei de ouders het wit-gen kreeg, en daardoor wit is."
+   ],
+   "model": [
+    "Een cavia heeft van elk gen twee exemplaren: één van zijn moeder en één van zijn vader. Zwart is dominant, wit is recessief.",
+    "De ouders zijn zwart, maar hebben allebei een verborgen wit-gen. Elke ouder geeft door toeval één van zijn twee genen door. Kreeg het jong van allebei het wit-gen, dan heeft het twee wit-genen en is het wit."
+   ]
+  }
+ ]
+}

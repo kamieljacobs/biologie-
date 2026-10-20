@@ -1,0 +1,193 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/6-skelet-en-spieren/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-arm",
+   "soort": "schema",
+   "titel": "Je arm",
+   "opdracht": "Je ziet een gebogen arm van opzij. De hand zit rechts. Sleep de namen naar de goede vakjes.",
+   "alt": "Lijntekening van een gebogen arm: een rechtop staand bot, een liggend bot naar de hand, een spier aan de voorkant en een spier aan de achterkant, met dikke lijntjes naar de botten.",
+   "breed": 680,
+   "hoog": 400,
+   "vakbreed": 150,
+   "svg": "<rect x=\"248\" y=\"40\" width=\"24\" height=\"245\" rx=\"12\" stroke-width=\"2.4\"/><rect x=\"244\" y=\"292\" width=\"316\" height=\"22\" rx=\"11\" stroke-width=\"2.4\"/><ellipse cx=\"590\" cy=\"302\" rx=\"34\" ry=\"22\" stroke-width=\"2.4\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M276 70 C332 112 348 200 302 262 C288 205 284 122 276 70 Z\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M244 70 C188 122 184 230 236 280 C240 245 241 150 244 70 Z\"/><path stroke-width=\"3.4\" d=\"M302 262 L312 292 M236 280 L250 296 M276 70 L268 48 M244 70 L252 48\"/>",
+   "vakjes": [
+    {
+     "naam": "bot",
+     "x": 95,
+     "y": 50,
+     "punt": [
+      260,
+      120
+     ],
+     "uitleg": "geeft stevigheid; een spier trekt eraan."
+    },
+    {
+     "naam": "triceps",
+     "x": 95,
+     "y": 185,
+     "punt": [
+      210,
+      180
+     ],
+     "uitleg": "de spier aan de achterkant; strekt je arm."
+    },
+    {
+     "naam": "gewricht",
+     "x": 95,
+     "y": 330,
+     "punt": [
+      258,
+      289
+     ],
+     "uitleg": "hier raken twee botten elkaar; je elleboog werkt als een scharnier."
+    },
+    {
+     "naam": "biceps",
+     "x": 590,
+     "y": 120,
+     "punt": [
+      325,
+      170
+     ],
+     "uitleg": "de spier voor op je bovenarm; buigt je arm."
+    },
+    {
+     "naam": "pees",
+     "x": 590,
+     "y": 260,
+     "punt": [
+      307,
+      277
+     ],
+     "uitleg": "stevig als een touw; zet de spier vast aan het bot."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-arm-buigen",
+   "soort": "pijlen",
+   "titel": "Je buigt je arm",
+   "opdracht": "Voorspel wat er verandert als je je arm buigt.",
+   "situatie": "Je hersenen geven je biceps een signaal. Je buigt je arm.",
+   "rijen": [
+    {
+     "naam": "Lengte van je biceps",
+     "antwoord": "-",
+     "uitleg": "De spiercellen worden korter. De spier trekt aan de pees."
+    },
+    {
+     "naam": "Dikte van je biceps",
+     "antwoord": "+",
+     "uitleg": "De spier wordt kort en dik."
+    },
+    {
+     "naam": "Lengte van je triceps",
+     "antwoord": "+",
+     "uitleg": "De triceps is de tegenwerker. Hij ontspant en wordt uitgerekt."
+    },
+    {
+     "naam": "Hoek in je elleboog",
+     "antwoord": "-",
+     "uitleg": "Het bot draait in het gewricht: je arm buigt."
+    },
+    {
+     "naam": "Lengte van je botten",
+     "antwoord": "=",
+     "uitleg": "Botten bewegen niet zelf en worden niet korter. Ze draaien alleen in het gewricht."
+    }
+   ]
+  },
+  {
+   "id": "indelen-gewrichten",
+   "soort": "indelen",
+   "titel": "Scharnier of kogel?",
+   "opdracht": "Hoort dit bij een scharniergewricht of bij een kogelgewricht?",
+   "bakken": [
+    {
+     "naam": "Scharniergewricht"
+    },
+    {
+     "naam": "Kogelgewricht"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "elleboog",
+     "bak": 0,
+     "uitleg": "Werkt als een scharnier, zoals een deur."
+    },
+    {
+     "tekst": "knie",
+     "bak": 0,
+     "uitleg": "Ook een scharnier."
+    },
+    {
+     "tekst": "beweegt maar één kant op",
+     "bak": 0,
+     "uitleg": "Zoals een deur."
+    },
+    {
+     "tekst": "schouder",
+     "bak": 1,
+     "uitleg": "Een kogel in een kom."
+    },
+    {
+     "tekst": "heup",
+     "bak": 1,
+     "uitleg": "Ook een kogel in een kom."
+    },
+    {
+     "tekst": "kan alle kanten op",
+     "bak": 1,
+     "uitleg": "De kogel kan in de kom alle kanten op draaien."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-tegenwerkers",
+   "soort": "uitleg",
+   "titel": "Waarom twee spieren?",
+   "opdracht": "Om je arm te buigen én weer te strekken heb je twee spieren nodig. Leg uit waarom één spier niet genoeg is.",
+   "begrippen": [
+    {
+     "naam": "trekken",
+     "varianten": [
+      "trekt"
+     ]
+    },
+    {
+     "naam": "biceps",
+     "varianten": []
+    },
+    {
+     "naam": "triceps",
+     "varianten": []
+    },
+    {
+     "naam": "tegenwerkers",
+     "varianten": [
+      "tegenwerker"
+     ]
+    },
+    {
+     "naam": "pees",
+     "varianten": [
+      "pezen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een spier alleen kan trekken, nooit duwen.",
+    "Ik leg uit dat de biceps je arm buigt en de triceps je arm strekt.",
+    "Ik noem dat zulke spieren tegenwerkers heten."
+   ],
+   "model": [
+    "Een spier zit met een pees aan een bot vast. Als de spier korter wordt, trekt hij aan het bot. Maar een spier kan alleen trekken, nooit duwen.",
+    "Je biceps, aan de voorkant, buigt je arm. Om hem weer te strekken, trekt een spier aan de achterkant: je triceps. Zulke spieren werken elkaar tegen. Ze heten tegenwerkers."
+   ]
+  }
+ ]
+}

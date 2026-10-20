@@ -1,0 +1,216 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32c/3-microben-vriend-en-vijand/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-drie-microben",
+   "soort": "indelen",
+   "titel": "Bacterie, schimmel of virus?",
+   "opdracht": "Bij welke soort microbe past dit?",
+   "bakken": [
+    {
+     "naam": "Bacterie"
+    },
+    {
+     "naam": "Schimmel"
+    },
+    {
+     "naam": "Virus"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Eén cel. Duizend naast elkaar passen op één millimeter.",
+     "bak": 0,
+     "uitleg": "Bacteriën zitten overal: in de grond, in water, op je huid."
+    },
+    {
+     "tekst": "Deelt zich elke twintig minuten in tweeën.",
+     "bak": 0,
+     "uitleg": "Zo worden het er snel heel veel."
+    },
+    {
+     "tekst": "Groeit vaak als lange, dunne draden.",
+     "bak": 1,
+     "uitleg": "Op oud brood zie je dan een pluizig vlekje."
+    },
+    {
+     "tekst": "Gist is er een voorbeeld van.",
+     "bak": 1,
+     "uitleg": "Een schimmel kan ook één cel zijn."
+    },
+    {
+     "tekst": "Maakte de penicilline van Fleming.",
+     "bak": 1,
+     "uitleg": "Rond die schimmel gingen de bacteriën dood."
+    },
+    {
+     "tekst": "Geen cel, maar een pakketje met een bouwtekening.",
+     "bak": 2,
+     "uitleg": "Een virus is nog veel kleiner dan een bacterie."
+    },
+    {
+     "tekst": "Kan zich alleen vermenigvuldigen in de cel van een ander.",
+     "bak": 2,
+     "uitleg": "Het laat de cel nieuwe virussen maken."
+    },
+    {
+     "tekst": "Zorgt voor griep en verkoudheid.",
+     "bak": 2,
+     "uitleg": "Daar helpt een antibioticum niet tegen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vriend-vijand",
+   "soort": "indelen",
+   "titel": "Vriend of vijand?",
+   "opdracht": "Is deze microbe hier een vriend of een vijand?",
+   "bakken": [
+    {
+     "naam": "Vriend"
+    },
+    {
+     "naam": "Vijand"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Bacteriën op je huid nemen de plek en het voedsel in.",
+     "bak": 0,
+     "uitleg": "Een ziekteverwekker vindt dan moeilijk een plekje."
+    },
+    {
+     "tekst": "Darmbacteriën breken vezels af.",
+     "bak": 0,
+     "uitleg": "Vezels die jij zelf niet kunt verteren."
+    },
+    {
+     "tekst": "Darmbacteriën maken vitamine K.",
+     "bak": 0,
+     "uitleg": "Die heb je nodig."
+    },
+    {
+     "tekst": "Een schimmel maakt penicilline.",
+     "bak": 0,
+     "uitleg": "Het eerste antibioticum."
+    },
+    {
+     "tekst": "Bacteriën in eten dat te lang warm stond, maken gif.",
+     "bak": 1,
+     "uitleg": "Daarom word je ziek van zulk eten."
+    },
+    {
+     "tekst": "Een schimmel tussen je tenen.",
+     "bak": 1,
+     "uitleg": "Dat jeukt."
+    },
+    {
+     "tekst": "Een griepvirus dringt je cellen binnen.",
+     "bak": 1,
+     "uitleg": "Het laat je cellen nieuwe virussen maken."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-bacterie-deelt",
+   "soort": "puzzel",
+   "titel": "Eén bacterie in je lunch",
+   "opdracht": "In een warm lunchtrommeltje zit één bacterie. Elke twintig minuten deelt elke bacterie zich in tweeën. Reken het uit.",
+   "stappen": [
+    {
+     "vraag": "Hoe vaak deelt een bacterie zich in één uur?",
+     "velden": [
+      {
+       "label": "keer:",
+       "antwoord": 3
+      }
+     ],
+     "uitleg": "Een uur is 60 minuten. 60 : 20 = 3 keer."
+    },
+    {
+     "vraag": "Hoeveel bacteriën zijn er na één uur?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 8
+      }
+     ],
+     "uitleg": "1 → 2 → 4 → 8.",
+     "tip": "Elke deling verdubbelt het aantal."
+    },
+    {
+     "vraag": "Hoeveel bacteriën zijn er na twee uur?",
+     "velden": [
+      {
+       "label": "aantal:",
+       "antwoord": 64
+      }
+     ],
+     "uitleg": "Nog drie keer verdubbelen: 8 → 16 → 32 → 64."
+    },
+    {
+     "vraag": "Waarom bederft eten in de koelkast minder snel?",
+     "velden": [
+      {
+       "label": "omdat:",
+       "antwoord": "bacteriën groeien in de kou veel langzamer",
+       "opties": [
+        "de kou doodt alle bacteriën",
+        "bacteriën groeien in de kou veel langzamer",
+        "in de koelkast zitten geen bacteriën"
+       ]
+      }
+     ],
+     "uitleg": "In de koelkast groeien ze veel langzamer. Ze gaan niet allemaal dood."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-griep",
+   "soort": "uitleg",
+   "titel": "Antibiotica tegen griep?",
+   "opdracht": "Sam heeft griep. Hij vraagt de dokter om een antibioticum. De dokter zegt nee. Leg uit waarom.",
+   "begrippen": [
+    {
+     "naam": "virus",
+     "varianten": [
+      "virussen"
+     ]
+    },
+    {
+     "naam": "antibioticum",
+     "varianten": [
+      "antibiotica"
+     ]
+    },
+    {
+     "naam": "bacteriën",
+     "varianten": [
+      "bacterie"
+     ]
+    },
+    {
+     "naam": "cel",
+     "varianten": []
+    },
+    {
+     "naam": "darmbacteriën",
+     "varianten": [
+      "goede bacteriën"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat griep door een virus komt.",
+    "Ik leg uit dat een antibioticum bacteriën doodt, maar niets doet tegen een virus, omdat een virus geen cel is.",
+    "Ik leg uit dat een antibioticum ook je goede darmbacteriën doodt, dus dat je het alleen slikt als het echt nodig is."
+   ],
+   "model": [
+    "Griep komt door een virus. Een antibioticum doodt bacteriën. Een virus is geen cel, dus daar doet een antibioticum niets tegen.",
+    "Bovendien doodt een antibioticum ook je goede darmbacteriën. Daarom slik je het alleen als het echt nodig is."
+   ]
+  }
+ ]
+}

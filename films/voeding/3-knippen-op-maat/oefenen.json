@@ -1,0 +1,301 @@
+{
+ "intro": "Oefen met enzymen: welke schaar knipt wat, waar, en wanneer werkt hij goed? Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-enzym-substraat",
+   "soort": "indelen",
+   "titel": "Welke schaar voor welk molecuul?",
+   "opdracht": "Elk enzym knipt maar één soort stof. Sleep elk enzym naar de voedingsstof die het knipt.",
+   "bakken": [
+    {
+     "naam": "Koolhydraten"
+    },
+    {
+     "naam": "Eiwitten"
+    },
+    {
+     "naam": "Vetten"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Amylase uit je speeksel",
+     "bak": 0,
+     "uitleg": "Knipt zetmeel tot maltose."
+    },
+    {
+     "tekst": "Maltase uit de darmwand",
+     "bak": 0,
+     "uitleg": "Knipt maltose tot losse glucose."
+    },
+    {
+     "tekst": "Lactase uit de darmwand",
+     "bak": 0,
+     "uitleg": "Knipt lactose tot glucose en galactose."
+    },
+    {
+     "tekst": "Pepsine in de maag",
+     "bak": 1,
+     "uitleg": "Knipt eiwitten in kortere stukken. Een uitzondering: geen -ase."
+    },
+    {
+     "tekst": "Peptidasen in de darmwand",
+     "bak": 1,
+     "uitleg": "Maken van de stukken losse aminozuren."
+    },
+    {
+     "tekst": "Lipase uit de alvleesklier",
+     "bak": 2,
+     "uitleg": "Knipt vet in glycerol en vetzuren."
+    }
+   ]
+  },
+  {
+   "id": "indelen-waar",
+   "soort": "indelen",
+   "titel": "Waar wordt geknipt?",
+   "opdracht": "Waar doet elk enzym zijn werk?",
+   "bakken": [
+    {
+     "naam": "Mond"
+    },
+    {
+     "naam": "Maag"
+    },
+    {
+     "naam": "Twaalfvingerige en dunne darm"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Amylase uit het speeksel",
+     "bak": 0,
+     "uitleg": "Daarom wordt een cracker zoet als je erop kauwt."
+    },
+    {
+     "tekst": "Pepsine",
+     "bak": 1,
+     "uitleg": "Werkt het best bij pH 2, zo zuur als in je maag."
+    },
+    {
+     "tekst": "Lipase",
+     "bak": 2,
+     "uitleg": "Komt met het alvleessap in de twaalfvingerige darm, waar ook de gal binnenkomt."
+    },
+    {
+     "tekst": "Amylase uit de alvleesklier",
+     "bak": 2,
+     "uitleg": "Maakt het knippen van zetmeel in de darm af."
+    },
+    {
+     "tekst": "Maltase",
+     "bak": 2,
+     "uitleg": "Gemaakt door klieren in de wand van de dunne darm."
+    },
+    {
+     "tekst": "Lactase",
+     "bak": 2,
+     "uitleg": "Ook uit de wand van de dunne darm."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-amylase",
+   "soort": "volgorde",
+   "titel": "Eén knip van amylase",
+   "opdracht": "Zet in de goede volgorde wat er gebeurt als amylase een stuk zetmeel knipt.",
+   "stappen": [
+    {
+     "tekst": "Een stuk zetmeel botst tegen amylase.",
+     "uitleg": "Enzym en substraat moeten elkaar tegenkomen."
+    },
+    {
+     "tekst": "Het zetmeel past in het actieve centrum: het enzym-substraatcomplex.",
+     "uitleg": "Het actieve centrum heeft een precieze vorm, als een slot."
+    },
+    {
+     "tekst": "Het enzym knipt een binding door met een watermolecuul: hydrolyse.",
+     "uitleg": "Knippen met water heet hydrolyse."
+    },
+    {
+     "tekst": "De producten laten los: maltose.",
+     "uitleg": "Maltose is twee glucosemoleculen aan elkaar, en smaakt zoet."
+    },
+    {
+     "tekst": "Het enzym is onveranderd en knipt het volgende stuk.",
+     "uitleg": "Een enzym raakt niet op. Eén amylase kan honderden keren per seconde knippen."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-ph-optimum",
+   "soort": "grafiek",
+   "titel": "Twee optimumkrommen",
+   "opdracht": "De grafiek laat de reactiesnelheid van twee enzymen bij verschillende pH zien. Het ene enzym is pepsine, het andere amylase uit het speeksel.",
+   "breed": 680,
+   "hoog": 330,
+   "alt": "Grafiek met twee optimumkrommen: kromme A met een top bij pH 2, kromme B met een top bij pH 7.",
+   "svg": "<line x1=\"100\" y1=\"260\" x2=\"640\" y2=\"260\"/><line x1=\"100\" y1=\"260\" x2=\"100\" y2=\"40\"/><line x1=\"100.0\" y1=\"260\" x2=\"100.0\" y2=\"268\"/><text x=\"100.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">0</text><line x1=\"145.0\" y1=\"260\" x2=\"145.0\" y2=\"265\" class=\"zacht\"/><line x1=\"190.0\" y1=\"260\" x2=\"190.0\" y2=\"268\"/><text x=\"190.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">2</text><line x1=\"235.0\" y1=\"260\" x2=\"235.0\" y2=\"265\" class=\"zacht\"/><line x1=\"280.0\" y1=\"260\" x2=\"280.0\" y2=\"268\"/><text x=\"280.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">4</text><line x1=\"325.0\" y1=\"260\" x2=\"325.0\" y2=\"265\" class=\"zacht\"/><line x1=\"370.0\" y1=\"260\" x2=\"370.0\" y2=\"268\"/><text x=\"370.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">6</text><line x1=\"415.0\" y1=\"260\" x2=\"415.0\" y2=\"265\" class=\"zacht\"/><line x1=\"460.0\" y1=\"260\" x2=\"460.0\" y2=\"268\"/><text x=\"460.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">8</text><line x1=\"505.0\" y1=\"260\" x2=\"505.0\" y2=\"265\" class=\"zacht\"/><line x1=\"550.0\" y1=\"260\" x2=\"550.0\" y2=\"268\"/><text x=\"550.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">10</text><line x1=\"595.0\" y1=\"260\" x2=\"595.0\" y2=\"265\" class=\"zacht\"/><line x1=\"640.0\" y1=\"260\" x2=\"640.0\" y2=\"268\"/><text x=\"640.0\" y=\"286\" text-anchor=\"middle\" style=\"font-size:13px\">12</text><text x=\"370\" y=\"314\" text-anchor=\"middle\" style=\"font-size:13px\">pH</text><text x=\"40\" y=\"155\" text-anchor=\"middle\" transform=\"rotate(-90 40 155)\" style=\"font-size:13px\">reactiesnelheid</text><path class=\"acc\" stroke-width=\"3\" d=\"M100.0 251.2 L102.2 249.8 L104.5 248.1 L106.8 246.2 L109.0 244.1 L111.2 241.8 L113.5 239.1 L115.8 236.2 L118.0 233.0 L120.2 229.5 L122.5 225.6 L124.8 221.4 L127.0 216.9 L129.2 212.0 L131.5 206.7 L133.8 201.1 L136.0 195.2 L138.2 189.0 L140.5 182.5 L142.8 175.7 L145.0 168.7 L147.2 161.4 L149.5 154.0 L151.8 146.6 L154.0 139.0 L156.2 131.4 L158.5 124.0 L160.8 116.6 L163.0 109.4 L165.2 102.5 L167.5 95.9 L169.8 89.7 L172.0 83.9 L174.2 78.7 L176.5 74.0 L178.8 70.0 L181.0 66.6 L183.2 64.0 L185.5 62.1 L187.8 60.9 L190.0 60.5 L192.2 60.9 L194.5 62.1 L196.8 64.0 L199.0 66.6 L201.2 70.0 L203.5 74.0 L205.8 78.7 L208.0 83.9 L210.2 89.7 L212.5 95.9 L214.8 102.5 L217.0 109.4 L219.2 116.6 L221.5 124.0 L223.8 131.4 L226.0 139.0 L228.2 146.6 L230.5 154.0 L232.8 161.4 L235.0 168.7 L237.2 175.7 L239.5 182.5 L241.8 189.0 L244.0 195.2 L246.2 201.1 L248.5 206.7 L250.8 212.0 L253.0 216.9 L255.2 221.4 L257.5 225.6 L259.8 229.5 L262.0 233.0 L264.2 236.2 L266.5 239.1 L268.8 241.8 L271.0 244.1 L273.2 246.2 L275.5 248.1 L277.8 249.8 L280.0 251.2 L282.2 252.5 L284.5 253.6 L286.8 254.6 L289.0 255.5 L291.2 256.2 L293.5 256.8 L295.8 257.3 L298.0 257.8 L300.2 258.2 L302.5 258.5 L304.8 258.8 L307.0 259.0\"/><path stroke-width=\"3\" d=\"M253.0 259.1 L255.2 258.9 L257.5 258.7 L259.8 258.5 L262.0 258.3 L264.2 258.1 L266.5 257.8 L268.8 257.5 L271.0 257.1 L273.2 256.7 L275.5 256.2 L277.8 255.7 L280.0 255.2 L282.2 254.5 L284.5 253.8 L286.8 253.0 L289.0 252.2 L291.2 251.2 L293.5 250.2 L295.8 249.0 L298.0 247.8 L300.2 246.4 L302.5 244.9 L304.8 243.3 L307.0 241.5 L309.2 239.6 L311.5 237.6 L313.8 235.4 L316.0 233.0 L318.2 230.5 L320.5 227.8 L322.8 224.9 L325.0 221.8 L327.2 218.5 L329.5 215.1 L331.8 211.5 L334.0 207.7 L336.2 203.7 L338.5 199.6 L340.8 195.2 L343.0 190.7 L345.2 186.1 L347.5 181.3 L349.8 176.3 L352.0 171.2 L354.2 166.1 L356.5 160.8 L358.8 155.4 L361.0 150.0 L363.2 144.5 L365.5 139.0 L367.8 133.5 L370.0 128.0 L372.2 122.6 L374.5 117.2 L376.8 112.0 L379.0 106.9 L381.2 101.9 L383.5 97.1 L385.8 92.5 L388.0 88.1 L390.2 83.9 L392.5 80.1 L394.8 76.5 L397.0 73.3 L399.2 70.3 L401.5 67.8 L403.8 65.6 L406.0 63.8 L408.2 62.3 L410.5 61.3 L412.8 60.7 L415.0 60.5 L417.2 60.7 L419.5 61.3 L421.8 62.3 L424.0 63.8 L426.2 65.6 L428.5 67.8 L430.8 70.3 L433.0 73.3 L435.2 76.5 L437.5 80.1 L439.8 83.9 L442.0 88.1 L444.2 92.5 L446.5 97.1 L448.8 101.9 L451.0 106.9 L453.2 112.0 L455.5 117.2 L457.8 122.6 L460.0 128.0 L462.2 133.5 L464.5 139.0 L466.8 144.5 L469.0 150.0 L471.2 155.4 L473.5 160.8 L475.8 166.1 L478.0 171.2 L480.2 176.3 L482.5 181.3 L484.8 186.1 L487.0 190.7 L489.2 195.2 L491.5 199.6 L493.8 203.7 L496.0 207.7 L498.2 211.5 L500.5 215.1 L502.8 218.5 L505.0 221.8 L507.2 224.9 L509.5 227.8 L511.8 230.5 L514.0 233.0 L516.2 235.4 L518.5 237.6 L520.8 239.6 L523.0 241.5 L525.2 243.3 L527.5 244.9 L529.8 246.4 L532.0 247.8 L534.2 249.0 L536.5 250.2 L538.8 251.2 L541.0 252.2 L543.2 253.0 L545.5 253.8 L547.8 254.5 L550.0 255.2 L552.2 255.7 L554.5 256.2 L556.8 256.7 L559.0 257.1 L561.2 257.5 L563.5 257.8 L565.8 258.1 L568.0 258.3 L570.2 258.5 L572.5 258.7 L574.8 258.9 L577.0 259.1\"/><text x=\"190.0\" y=\"48.5\" text-anchor=\"middle\" style=\"font-size:15px\">A</text><text x=\"415.0\" y=\"48.5\" text-anchor=\"middle\" style=\"font-size:15px\">B</text>",
+   "vragen": [
+    {
+     "vraag": "Bij welke pH werkt enzym A het best?",
+     "antwoord": 2,
+     "marge": 0.3,
+     "uitleg": "De top van kromme A ligt bij pH 2: het optimum."
+    },
+    {
+     "vraag": "Welk enzym is A?",
+     "keuzes": [
+      "pepsine",
+      "amylase uit het speeksel"
+     ],
+     "antwoord": 0,
+     "uitleg": "Pepsine werkt het best bij pH 2, zo zuur als in je maag."
+    },
+    {
+     "vraag": "Bij welke pH werkt enzym B het best?",
+     "antwoord": 7,
+     "marge": 0.3,
+     "uitleg": "Amylase uit het speeksel werkt het best rond pH 7."
+    },
+    {
+     "vraag": "Een hap cracker komt in de maag, bij pH 2. Wat doet enzym B daar?",
+     "keuzes": [
+      "het knipt sneller",
+      "het knipt even snel",
+      "het knipt (bijna) niet meer"
+     ],
+     "antwoord": 2,
+     "uitleg": "Bij pH 2 ligt kromme B op nul. Het actieve centrum verandert, en het knippen stopt."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-temperatuur",
+   "soort": "pijlen",
+   "titel": "Amylase in de warmte",
+   "opdracht": "Je verwarmt amylase in een reageerbuis van 37 °C naar 70 °C. Voorspel wat er gebeurt.",
+   "situatie": "Amylase met zetmeel gaat van 37 °C naar 70 °C.",
+   "rijen": [
+    {
+     "naam": "Snelheid waarmee de moleculen bewegen",
+     "antwoord": "+",
+     "uitleg": "Hoe warmer, hoe sneller de moleculen bewegen."
+    },
+    {
+     "naam": "Aantal gedenatureerde enzymen",
+     "antwoord": "+",
+     "uitleg": "Boven het optimum veranderen steeds meer enzymen van vorm."
+    },
+    {
+     "naam": "Aantal enzymen waarin het zetmeel nog past",
+     "antwoord": "-",
+     "uitleg": "In een gedenatureerd enzym past het substraat niet meer in het actieve centrum."
+    },
+    {
+     "naam": "Reactiesnelheid",
+     "antwoord": "-",
+     "uitleg": "Er werken bijna geen enzymen meer. Warmer is niet altijd sneller."
+    },
+    {
+     "naam": "Reactiesnelheid nadat je weer afkoelt tot 37 °C",
+     "antwoord": "-",
+     "uitleg": "Denatureren is blijvend, net als een gekookt ei. De snelheid blijft veel lager dan eerst."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-cracker",
+   "soort": "uitleg",
+   "titel": "De cracker in je maag",
+   "opdracht": "Kauw je op een cracker, dan wordt hij zoet. In je maag stopt het knippen van zetmeel al snel. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "amylase",
+     "varianten": []
+    },
+    {
+     "naam": "maltose",
+     "varianten": [
+      "zoet"
+     ]
+    },
+    {
+     "naam": "pH",
+     "varianten": [
+      "zuur",
+      "maagzuur"
+     ]
+    },
+    {
+     "naam": "optimum",
+     "varianten": []
+    },
+    {
+     "naam": "actieve centrum",
+     "varianten": [
+      "actief centrum"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat amylase uit het speeksel zetmeel knipt tot maltose, en dat maltose zoet smaakt.",
+    "Ik noem dat amylase een optimum heeft rond pH 7, en dat het in de maag ongeveer pH 2 is.",
+    "Ik leg uit dat het actieve centrum bij die pH verandert, zodat het zetmeel niet meer past.",
+    "Ik noem dat amylase uit de alvleesklier en maltase het knippen in de dunne darm afmaken."
+   ],
+   "model": [
+    "In je mond knipt amylase uit je speeksel het zetmeel tot maltose. Maltose smaakt zoet, daarom wordt de cracker zoet.",
+    "Amylase werkt het best rond pH 7. In je maag komt het maagzuur erbij en wordt de pH ongeveer 2, ver buiten het optimum. Het actieve centrum verandert, het zetmeel past niet meer, en het knippen stopt.",
+    "Het zetmeel is dan nog lang niet op. In de dunne darm maken amylase uit de alvleesklier en maltase uit de darmwand het af."
+   ]
+  },
+  {
+   "id": "uitleg-exopeptidasen",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Knippen in het midden",
+   "opdracht": "Stel dat je alleen exopeptidasen had, en geen endopeptidasen. Leg uit waarom de eiwitvertering dan langzamer gaat.",
+   "begrippen": [
+    {
+     "naam": "endopeptidasen",
+     "varianten": [
+      "endopeptidase",
+      "pepsine",
+      "trypsine",
+      "midden"
+     ]
+    },
+    {
+     "naam": "exopeptidasen",
+     "varianten": [
+      "exopeptidase"
+     ]
+    },
+    {
+     "naam": "uiteinden",
+     "varianten": [
+      "uiteinde"
+     ]
+    },
+    {
+     "naam": "aminozuren",
+     "varianten": [
+      "aminozuur"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat exopeptidasen steeds één aminozuur van een uiteinde knippen.",
+    "Ik leg uit dat endopeptidasen midden in de keten knippen.",
+    "Ik leg uit dat elke knip in het midden twee nieuwe uiteinden geeft.",
+    "Ik concludeer dat er zonder endopeptidasen veel minder uiteinden zijn, dus dat het langzamer gaat."
+   ],
+   "model": [
+    "Exopeptidasen knippen steeds één aminozuur van het uiteinde van een eiwit af. Endopeptidasen, zoals pepsine en trypsine, knippen midden in de keten.",
+    "Elke knip in het midden geeft twee nieuwe uiteinden. Daar kunnen de exopeptidasen weer aan knippen. Samen gaat het dus veel sneller.",
+    "Heb je alleen exopeptidasen, dan heeft een lange eiwitketen maar weinig uiteinden. De vertering gaat dan veel langzamer."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,298 @@
+{
+ "intro": "Oefen met de bloedvaten van de lever, de leverfabriek en de gele kleurstof. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-lever",
+   "soort": "schema",
+   "titel": "Drie buizen naar en van de lever",
+   "opdracht": "Je ziet de lever met de darm, de grote bloedvaten en de galblaas. Sleep de namen naar de goede vakjes. Let op de pijlen.",
+   "alt": "Lijntekening van de lever. Linksonder een darm met een bloedvat omhoog naar de lever. Rechts twee verticale bloedvaten: een ader met een pijl omhoog en een slagader met een pijl omlaag. Een kort vat gaat van de lever naar de ader, een gebogen vat van de slagader naar de lever. Onder de lever een gele buis met een zakje.",
+   "breed": 810,
+   "hoog": 420,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2.8\" d=\"M190 120 C200 70 320 55 420 70 C480 78 520 95 515 130 C510 170 470 200 420 222 C360 248 280 262 230 250 C190 240 180 180 190 120 Z\"/><path stroke-width=\"2\" d=\"M551 30 L551 270 M569 30 L569 270\"/><path stroke-width=\"2\" d=\"M566.3 64.0 L560.0 55.0 L553.7 64.0\"/><path stroke-width=\"2\" d=\"M616 30 L616 400 M634 30 L634 400\"/><path stroke-width=\"2\" d=\"M618.7 361.0 L625.0 370.0 L631.3 361.0\"/><path stroke-width=\"2\" d=\"M508 101 L551 101 M509 117 L551 117\"/><path stroke-width=\"2\" d=\"M527.0 115.3 L536.0 109.0 L527.0 102.7\"/><path stroke-width=\"2\" d=\"M616 314 C540 314 500 280 452 214 M616 330 C532 330 488 292 440 220\"/><path stroke-width=\"2\" d=\"M502.9 267.2 L492.0 266.0 L494.6 276.7\"/><path class=\"zacht\" stroke-width=\"2\" d=\"M60 330 C100 300 140 360 180 330 C220 300 260 360 300 330 M60 352 C100 322 140 382 180 352 C220 322 260 382 300 352\"/><path stroke-width=\"2\" d=\"M222 334 C226 304 240 282 252 252 M238 336 C242 306 256 286 266 255\"/><path stroke-width=\"2\" d=\"M248.5 294.7 L246.0 284.0 L236.8 290.0\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M395 232 C398 262 400 292 398 330 C396 350 380 360 340 354\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M399 270 C420 270 444 280 450 300 C456 324 440 342 424 334 C408 326 406 300 399 282\"/>",
+   "vakjes": [
+    {
+     "naam": "poortader",
+     "x": 95,
+     "y": 250,
+     "punt": [
+      246,
+      290
+     ],
+     "uitleg": "Brengt zuurstofarm bloed met opgenomen voedingsstoffen van de darm naar de lever."
+    },
+    {
+     "naam": "leverslagader",
+     "x": 722,
+     "y": 220,
+     "punt": [
+      520,
+      292
+     ],
+     "uitleg": "Brengt zuurstofrijk bloed van de aorta naar de lever."
+    },
+    {
+     "naam": "leverader",
+     "x": 440,
+     "y": 30,
+     "punt": [
+      528,
+      109
+     ],
+     "uitleg": "Al het bloed gaat de lever uit door de leverader."
+    },
+    {
+     "naam": "onderste holle ader",
+     "x": 722,
+     "y": 40,
+     "punt": [
+      569,
+      170
+     ],
+     "uitleg": "Hierin komt de leverader uit; zo gaat het bloed naar het hart."
+    },
+    {
+     "naam": "aorta",
+     "x": 722,
+     "y": 380,
+     "punt": [
+      634,
+      360
+     ],
+     "uitleg": "De grote slagader; de leverslagader takt ervan af."
+    },
+    {
+     "naam": "galblaas",
+     "x": 300,
+     "y": 395,
+     "punt": [
+      430,
+      312
+     ],
+     "uitleg": "Slaat de gal op en knijpt hem bij een maaltijd in de twaalfvingerige darm."
+    }
+   ],
+   "afleiders": [
+    "nierader"
+   ]
+  },
+  {
+   "id": "indelen-afdelingen",
+   "soort": "indelen",
+   "titel": "Welke afdeling van de fabriek?",
+   "opdracht": "De lever is een fabriek met afdelingen. Bij welke afdeling hoort elk kaartje?",
+   "bakken": [
+    {
+     "naam": "Suiker"
+    },
+    {
+     "naam": "Eiwit"
+    },
+    {
+     "naam": "Afbreken",
+     "uitleg": "ontgiften"
+    },
+    {
+     "naam": "Gal"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Glucose wordt na een maaltijd glycogeen.",
+     "bak": 0,
+     "uitleg": "Ongeveer honderd gram, genoeg voor een nacht."
+    },
+    {
+     "tekst": "Melkzuur uit je spieren wordt weer glucose.",
+     "bak": 0,
+     "uitleg": "Ook dat doet de suikerafdeling."
+    },
+    {
+     "tekst": "Van aminozuren worden eiwitten in je bloedplasma gemaakt.",
+     "bak": 1,
+     "uitleg": "De lever maakt eiwitten van de aminozuren uit de kaas."
+    },
+    {
+     "tekst": "Het stikstofdeel van een aminozuur wordt ureum.",
+     "bak": 1,
+     "uitleg": "Ureum gaat met het bloed naar de nieren."
+    },
+    {
+     "tekst": "Alcohol wordt stap voor stap afgebroken tot koolstofdioxide en water.",
+     "bak": 2,
+     "uitleg": "Zeven lukt niet: alcohol is bijna zo klein als water."
+    },
+    {
+     "tekst": "Aan een medicijn wordt een stukje geplakt, zodat het in water oplost.",
+     "bak": 2,
+     "uitleg": "Zo kunnen je nieren het uitplassen."
+    },
+    {
+     "tekst": "Galzouten die het vet emulgeren",
+     "bak": 3,
+     "uitleg": "De lever maakt elke dag een halve tot een liter gal."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-bilirubine",
+   "soort": "volgorde",
+   "titel": "Van rode bloedcel tot bruine ontlasting",
+   "opdracht": "Volg de rode kleurstof uit een oude rode bloedcel. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een rode bloedcel van ongeveer 120 dagen oud wordt afgebroken, vooral in de milt en de lever.",
+     "uitleg": "Het ijzer gaat naar het rode beenmerg, het eiwitdeel wordt aminozuren."
+    },
+    {
+     "tekst": "De rode kleurstof, zonder ijzer, wordt omgebouwd tot een gele stof: bilirubine.",
+     "uitleg": "Bilirubine lost slecht op in water."
+    },
+    {
+     "tekst": "Een levercel plakt er een stukje aan, en dan lost het wel op in water.",
+     "uitleg": "Dezelfde truc als bij ontgiften."
+    },
+    {
+     "tekst": "De bilirubine gaat met de gal naar de darm.",
+     "uitleg": "Via de galgang, met de gal uit de galblaas."
+    },
+    {
+     "tekst": "Darmbacteriën maken er een bruine stof van.",
+     "uitleg": "Dat is de kleur van je ontlasting."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-galsteen",
+   "soort": "pijlen",
+   "titel": "Een galsteen in de galgang",
+   "opdracht": "Een galsteen sluit de galgang af. Voorspel wat er verandert.",
+   "situatie": "De gal kan niet meer naar de darm.",
+   "rijen": [
+    {
+     "naam": "Bilirubine die in de darm komt",
+     "antwoord": "-",
+     "uitleg": "De gal met de kleurstof komt niet meer in de darm."
+    },
+    {
+     "naam": "Hoe bruin de ontlasting is",
+     "antwoord": "-",
+     "uitleg": "Zonder kleurstof wordt de ontlasting bleek en grijs."
+    },
+    {
+     "naam": "Bilirubine in het bloed",
+     "antwoord": "+",
+     "uitleg": "De bilirubine die de levercel al oplosbaar had gemaakt, gaat terug het bloed in."
+    },
+    {
+     "naam": "Hoe donker de urine is",
+     "antwoord": "+",
+     "uitleg": "De nieren halen de oplosbare bilirubine uit het bloed."
+    },
+    {
+     "naam": "Hoe geel de huid is",
+     "antwoord": "+",
+     "uitleg": "Bilirubine komt in de huid en het oogwit."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-gele-baby",
+   "soort": "uitleg",
+   "titel": "Waarom wordt een baby geel?",
+   "opdracht": "Een baby van drie dagen wordt geel, ook haar oogwit. Na een week of twee is het vanzelf over. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "rode bloedcellen",
+     "varianten": [
+      "rode bloedcel",
+      "bloedcellen"
+     ]
+    },
+    {
+     "naam": "bilirubine",
+     "varianten": []
+    },
+    {
+     "naam": "enzym",
+     "varianten": [
+      "enzymen"
+     ]
+    },
+    {
+     "naam": "lever",
+     "varianten": [
+      "levercel",
+      "levercellen"
+     ]
+    },
+    {
+     "naam": "oplosbaar",
+     "varianten": [
+      "oplossen",
+      "lost op"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de baby in de buik extra rode bloedcellen had, die na de geboorte massaal worden afgebroken.",
+    "Ik leg uit dat daarbij veel bilirubine ontstaat.",
+    "Ik leg uit dat het enzym dat bilirubine oplosbaar maakt nog bijna niet werkt, zodat de lever het niet snel genoeg kwijt kan.",
+    "Ik leg uit waarom het na een week of twee vanzelf overgaat."
+   ],
+   "model": [
+    "In de buik had de baby extra veel rode bloedcellen, want daar was weinig zuurstof. Na de geboorte zijn die niet meer nodig en worden er heel veel tegelijk afgebroken. Daarbij ontstaat veel bilirubine, een gele stof.",
+    "In de lever maakt een enzym de bilirubine oplosbaar, zodat het met de gal weg kan. Bij een pasgeboren baby werkt dat enzym nog maar op een paar procent. De bilirubine blijft in het bloed en komt in de huid en het oogwit.",
+    "Na een week of twee werkt het enzym goed genoeg en is de afbraakgolf voorbij. Dan verdwijnt het geel vanzelf."
+   ]
+  },
+  {
+   "id": "uitleg-ureum",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Van ammoniak naar ureum",
+   "opdracht": "Je eet meer eiwit dan je nodig hebt. Leg uit wat de lever met het stikstofdeel van de aminozuren doet, en waarom hij er ureum van maakt.",
+   "begrippen": [
+    {
+     "naam": "deaminering",
+     "varianten": [
+      "aminogroep"
+     ]
+    },
+    {
+     "naam": "ammoniak",
+     "varianten": []
+    },
+    {
+     "naam": "giftig",
+     "varianten": [
+      "gif"
+     ]
+    },
+    {
+     "naam": "ureum",
+     "varianten": []
+    },
+    {
+     "naam": "nieren",
+     "varianten": [
+      "nier",
+      "urine"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat er geen voorraadstof voor aminozuren is, dus dat de lever wat over is afbreekt.",
+    "Ik leg uit dat bij deaminering de aminogroep vrijkomt als ammoniak, en dat ammoniak giftig is.",
+    "Ik leg uit dat de lever twee aminogroepen met een koolstofdioxide koppelt tot ureum.",
+    "Ik leg uit dat ureum minder giftig is en goed oplost, zodat het bloed het naar de nieren kan brengen."
+   ],
+   "model": [
+    "Voor aminozuren bestaat geen voorraadstof. Wat over is, haalt de lever uit elkaar. Het afhalen van de aminogroep heet deaminering; de rest wordt brandstof of vet.",
+    "De aminogroep komt vrij als ammoniak, en ammoniak is al in kleine hoeveelheden giftig. Daarom koppelt de lever twee aminogroepen met een koolstofdioxide tot ureum.",
+    "Ureum is veel minder giftig en lost goed op in water. Zo kan het bloed het veilig naar de nieren brengen, die het met de urine uitscheiden."
+   ]
+  }
+ ]
+}

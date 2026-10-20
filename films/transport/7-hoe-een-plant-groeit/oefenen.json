@@ -1,0 +1,109 @@
+{
+ "intro": "Oefen met groeien, auxine en buigen. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-proeven",
+   "soort": "indelen",
+   "titel": "Wat doet het plantje?",
+   "opdracht": "Je ziet de proeven uit de film. Wat doet het plantje of de stengel in elke proef?",
+   "bakken": [
+    {"naam": "Buigt naar het licht"},
+    {"naam": "Blijft recht"},
+    {"naam": "Buigt, zonder licht", "uitleg": "in het donker"}
+   ],
+   "kaartjes": [
+    {"tekst": "Darwin: een kiemplantje van kanariegras naast een raam.", "bak": 0, "uitleg": "Het topje merkt van welke kant het licht komt; de schaduwkant strekt meer."},
+    {"tekst": "Darwin: een kapje op het topje, licht van opzij.", "bak": 1, "uitleg": "Het topje merkt het licht niet op, dus de auxine verdeelt zich niet ongelijk."},
+    {"tekst": "Darwin: een kapje lager op de stengel, licht van opzij.", "bak": 0, "uitleg": "Het topje ziet het licht nog; het kapje lager maakt niets uit."},
+    {"tekst": "Daans zonnebloempje op de vensterbank.", "bak": 0, "uitleg": "Fototropie: de schaduwkant wordt langer dan de lichtkant."},
+    {"tekst": "Went: een agarblokje met stof uit de top, scheef op een stengel zonder top.", "bak": 2, "uitleg": "In het donker boog de stengel, weg van de kant met het blokje. Daar strekten de cellen meer."},
+    {"tekst": "De stengel van een kiemplantje dat op zijn kant ligt.", "bak": 2, "uitleg": "Gravitropie: de stengel buigt omhoog."},
+    {"tekst": "De wortel van een kiemplantje dat op zijn kant ligt.", "bak": 2, "uitleg": "Gravitropie: de wortel buigt omlaag."}
+   ]
+  },
+  {
+   "id": "volgorde-fototropie",
+   "soort": "volgorde",
+   "titel": "Zo buigt de zonnebloem naar het raam",
+   "opdracht": "Daans zonnebloem krijgt licht van één kant. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {"tekst": "Het licht komt van één kant.", "uitleg": "Het raam staat aan één kant van de plant."},
+    {"tekst": "De top merkt van welke kant het licht komt.", "uitleg": "Darwin liet zien: het topje merkt het licht op."},
+    {"tekst": "Auxine gaat naar de schaduwkant van de stengel.", "uitleg": "De auxine verdeelt zich ongelijk."},
+    {"tekst": "Aan de schaduwkant wordt de celwand soepeler.", "uitleg": "Auxine maakt de celwand soepel."},
+    {"tekst": "De cellen aan de schaduwkant strekken meer door turgor.", "uitleg": "De vacuole neemt water op door osmose en duwt tegen de wand."},
+    {"tekst": "De schaduwkant wordt langer dan de lichtkant: de stengel buigt naar het licht.", "uitleg": "De lichtkant trekt niet: de schaduwkant duwt. Dit heet fototropie."}
+   ]
+  },
+  {
+   "id": "volgorde-strekken",
+   "soort": "volgorde",
+   "titel": "Van meristeem tot houtvat",
+   "opdracht": "Volg een cel vanaf de stengeltop naar beneden. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {"tekst": "In het meristeem in de top deelt een kleine cel zich.", "uitleg": "Het meristeem is het groeipunt."},
+    {"tekst": "De cel neemt water op in zijn vacuole, door osmose.", "uitleg": "Zo begint het strekken."},
+    {"tekst": "De vacuole duwt tegen de celwand: turgor. De wand is soepel gemaakt en de cel rekt uit in de lengte.", "uitleg": "Een cel kan wel tien keer zo lang worden. De meeste lengtewinst komt van strekken."},
+    {"tekst": "De cel krijgt een eigen bouw en taak, bijvoorbeeld als houtvat.", "uitleg": "Dat heet differentiëren."}
+   ]
+  },
+  {
+   "id": "pijlen-wortel-op-zijn-kant",
+   "soort": "pijlen",
+   "titel": "Een wortel op zijn kant",
+   "opdracht": "Daans kiemplantje ligt op zijn kant, in het donker. Kijk alleen naar de wortel. Voorspel wat er aan de onderkant van de wortel verandert.",
+   "situatie": "Het kiemplantje ligt op zijn kant; de wortel ligt horizontaal.",
+   "rijen": [
+    {"naam": "Statolieten aan de onderkant van de cellen in de wortelmuts", "antwoord": "+", "uitleg": "De zware zetmeelkorrels zakken naar de onderkant."},
+    {"naam": "Auxine aan de onderkant van de wortel", "antwoord": "+", "uitleg": "Door de statolieten wordt auxine naar de onderkant vervoerd."},
+    {"naam": "Strekking van de cellen aan de onderkant van de wortel", "antwoord": "-", "uitleg": "De wortel is heel gevoelig: deze concentratie remt de strekking."},
+    {"naam": "Lengte van de onderkant vergeleken met de bovenkant", "antwoord": "-", "uitleg": "De bovenkant strekt gewoon door, de onderkant blijft korter."},
+    {"naam": "Buigen van de wortel naar beneden", "antwoord": "+", "uitleg": "Door de kortere onderkant buigt de wortel omlaag: gravitropie."}
+   ]
+  },
+  {
+   "id": "indelen-hormonen",
+   "soort": "indelen",
+   "titel": "Welk plantenhormoon?",
+   "opdracht": "Sleep elk effect naar het plantenhormoon dat het veroorzaakt.",
+   "bakken": [
+    {"naam": "Gibberelline"},
+    {"naam": "Cytokinine"},
+    {"naam": "Abscisinezuur"},
+    {"naam": "Ethyleen"}
+   ],
+   "kaartjes": [
+    {"tekst": "Laat stengels strekken.", "bak": 0, "uitleg": "Gibberelline laat stengels strekken."},
+    {"tekst": "Laat zaden kiemen.", "bak": 0, "uitleg": "Ook dat doet gibberelline."},
+    {"tekst": "Laat cellen delen, vooral in de meristemen.", "bak": 1, "uitleg": "Cytokinine stimuleert celdeling."},
+    {"tekst": "Sluit de huidmondjes als het droog is.", "bak": 2, "uitleg": "Zo verliest de plant minder water."},
+    {"tekst": "Een gas dat vruchten laat rijpen.", "bak": 3, "uitleg": "Ethyleen is een gas."},
+    {"tekst": "Eén rijpe banaan maakt de andere bananen in de fruitschaal sneller rijp.", "bak": 3, "uitleg": "De rijpe banaan geeft ethyleen af."}
+   ]
+  },
+  {
+   "id": "uitleg-stengel-wortel",
+   "soort": "uitleg",
+   "titel": "Eén hormoon, twee kanten op",
+   "opdracht": "Een kiemplantje ligt op zijn kant. In de stengel én in de wortel komt meer auxine aan de onderkant. Toch buigt de stengel omhoog en de wortel omlaag. Leg uit hoe dat kan.",
+   "begrippen": [
+    {"naam": "auxine", "varianten": []},
+    {"naam": "gevoelig", "varianten": ["gevoeliger", "gevoeligheid"]},
+    {"naam": "concentratie", "varianten": []},
+    {"naam": "strekking", "varianten": ["strekken", "strekt"]},
+    {"naam": "remt", "varianten": ["remmen", "geremd"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat de wortel veel gevoeliger is voor auxine dan de stengel.",
+    "Ik leg uit dat de concentratie aan de onderkant de strekking in de stengel versnelt: de onderkant wordt langer en de stengel buigt omhoog.",
+    "Ik leg uit dat dezelfde concentratie de strekking in de wortel remt: de onderkant blijft korter en de wortel buigt omlaag.",
+    "Ik noem dat dit gravitropie heet."
+   ],
+   "model": [
+    "Liggen stengel en wortel op hun kant, dan komt in allebei meer auxine aan de onderkant. Het verschil zit in de gevoeligheid: de wortel is veel gevoeliger voor auxine dan de stengel.",
+    "De stengel heeft een hoge concentratie nodig voor de snelste strekking. Meer auxine aan de onderkant versnelt daar dus de strekking. De onderkant wordt langer dan de bovenkant, en de stengel buigt omhoog.",
+    "De wortel heeft al genoeg aan heel weinig auxine. Bij deze hogere concentratie remt auxine de strekking juist. De onderkant blijft korter, de bovenkant strekt gewoon door, en de wortel buigt omlaag. Dat reageren op de zwaartekracht heet gravitropie."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "intro": "Oefen met mutaties: hoe ze ontstaan, wat ze doen en of ze erfelijk zijn. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-uv-mutatie",
+   "soort": "volgorde",
+   "titel": "Van zonlicht naar mutatie",
+   "opdracht": "Je verbrandt op het strand. Zet in de goede volgorde hoe uit UV-schade een mutatie ontstaat.",
+   "stappen": [
+    {"tekst": "UV-licht dringt door tot in de kern van een huidcel.", "uitleg": "Zonlicht bevat ultraviolet licht."},
+    {"tekst": "UV plakt twee basen die naast elkaar in één streng zitten aan elkaar, meestal twee T's.", "uitleg": "Dit is schade, nog geen mutatie."},
+    {"tekst": "De cel kopieert haar DNA terwijl de schade er nog zit.", "uitleg": "Meestal knippen herstelenzymen de schade eerst weg. Na veel verbranden lukt dat niet altijd."},
+    {"tekst": "De polymerase zet tegenover de vastgeplakte basen een verkeerde base.", "uitleg": "Die verkeerde base blijft staan: nu is het een mutatie."},
+    {"tekst": "Elke dochtercel krijgt de mutatie mee.", "uitleg": "De mutatie zit nu in een plukje huid."}
+   ]
+  },
+  {
+   "id": "indelen-gevolg-mutatie",
+   "soort": "indelen",
+   "titel": "Wat doet de mutatie met het eiwit?",
+   "opdracht": "Elk kaartje beschrijft een mutatie in het mRNA. Wat gebeurt er met het eiwit? Gebruik de codontabel als je twijfelt.",
+   "bakken": [
+    {"naam": "Stil", "uitleg": "hetzelfde aminozuur"},
+    {"naam": "Ander aminozuur"},
+    {"naam": "Stopcodon", "uitleg": "eiwit te kort"},
+    {"naam": "Alles erna anders", "uitleg": "geen codon klopt meer"}
+   ],
+   "kaartjes": [
+    {"tekst": "G U G wordt G U A.", "bak": 0, "uitleg": "Allebei valine. De mutatie is er wel, maar je merkt er niets van."},
+    {"tekst": "G G C wordt G G A.", "bak": 0, "uitleg": "Allebei glycine. Vaak is een verandering van de derde base stil."},
+    {"tekst": "G U G wordt G A G.", "bak": 1, "uitleg": "Valine wordt glutaminezuur. Het eiwit kan een andere vorm krijgen."},
+    {"tekst": "C A U wordt C A A.", "bak": 1, "uitleg": "Histidine wordt glutamine, zoals bij de ziekte van Wilson."},
+    {"tekst": "U G G wordt U A G.", "bak": 2, "uitleg": "Tryptofaan wordt stop. Het ribosoom stopt daar."},
+    {"tekst": "U G G wordt U G A.", "bak": 2, "uitleg": "U G A is ook een stopcodon."},
+    {"tekst": "Er komt één base bij, vlak na het startcodon.", "bak": 3, "uitleg": "Het ribosoom leest per drie zonder spaties: vanaf de insertie klopt geen codon meer."},
+    {"tekst": "Er vallen twee basen weg, midden in een exon.", "bak": 3, "uitleg": "Twee is geen drievoud: vanaf hier leest het ribosoom alle codons verkeerd in."}
+   ]
+  },
+  {
+   "id": "indelen-erfelijk",
+   "soort": "indelen",
+   "titel": "Erfelijk of niet?",
+   "opdracht": "Kan de mutatie worden doorgegeven aan een kind?",
+   "bakken": [
+    {"naam": "Erfelijk", "uitleg": "kan naar een kind"},
+    {"naam": "Niet erfelijk", "uitleg": "blijft bij jou"}
+   ],
+   "kaartjes": [
+    {"tekst": "Een mutatie in een huidcel na een middag verbranden.", "bak": 1, "uitleg": "Alleen de dochtercellen van die huidcel krijgen hem mee."},
+    {"tekst": "Een mutatie in een zaadcel.", "bak": 0, "uitleg": "Na de bevruchting zit hij in alle cellen van het kind."},
+    {"tekst": "Een mutatie in een eicel.", "bak": 0, "uitleg": "Het kind ontstaat uit de bevruchte eicel."},
+    {"tekst": "Een mutatie in een levercel.", "bak": 1, "uitleg": "Een lichaamscel: de mutatie blijft bij jou."},
+    {"tekst": "Een mutatie in de allereerste cel van een embryo.", "bak": 0, "uitleg": "Alle cellen stammen van die cel af, ook de cellen die later geslachtscellen maken."},
+    {"tekst": "Een mutatie in een darmcel door stoffen uit voeding.", "bak": 1, "uitleg": "Ook een darmcel is een lichaamscel."},
+    {"tekst": "Een mutatie in de huid van een moederkip die veel in de zon zit.", "bak": 1, "uitleg": "De zon verandert haar huidcellen, niet haar eicellen."}
+   ]
+  },
+  {
+   "id": "volgorde-wilson",
+   "soort": "volgorde",
+   "titel": "Van één base naar een ziek mens",
+   "opdracht": "Bij de ziekte van Wilson staat op één plek glutamine waar histidine hoort. Volg de gevolgen van molecuul tot mens.",
+   "stappen": [
+    {"tekst": "Eén basenpaar in het DNA is anders.", "uitleg": "Een puntmutatie: een substitutie."},
+    {"tekst": "In het mRNA wordt het codon C A U of C A C nu C A A of C A G.", "uitleg": "De derde base is anders."},
+    {"tekst": "Het ribosoom bouwt glutamine in waar histidine hoort.", "uitleg": "Het eiwit krijgt een andere vorm: molecuulniveau."},
+    {"tekst": "De levercel kan geen koper meer naar buiten brengen.", "uitleg": "Celniveau."},
+    {"tekst": "De lever vult zich met koper en raakt beschadigd.", "uitleg": "Orgaanniveau."},
+    {"tekst": "De patiënt krijgt leverklachten.", "uitleg": "Organismeniveau."}
+   ]
+  },
+  {
+   "id": "uitleg-zonverbranding",
+   "soort": "uitleg",
+   "titel": "Waarom zonverbranding kanker kan geven",
+   "opdracht": "Leg uit waarom vaak verbranden in de zon de kans op huidkanker vergroot, en waarom het meestal pas na jaren misgaat.",
+   "begrippen": [
+    {"naam": "UV", "varianten": ["ultraviolet"]},
+    {"naam": "schade", "varianten": ["beschadigd", "beschadiging"]},
+    {"naam": "herstel", "varianten": ["herstelenzymen", "repareren"]},
+    {"naam": "mutatie", "varianten": ["mutaties"]},
+    {"naam": "celdeling", "varianten": ["deling", "delen"]},
+    {"naam": "tumor", "varianten": ["kanker"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat UV buurbasen in het DNA van huidcellen aan elkaar plakt: schade.",
+    "Ik leg uit dat herstelenzymen veel repareren, maar dat bij veel schade soms een verkeerde base blijft staan: een mutatie.",
+    "Ik leg uit dat een tumor ontstaat als genen die de celdeling remmen kapot raken.",
+    "Ik leg uit dat daarvoor meerdere mutaties in dezelfde cel nodig zijn, zodat het jaren duurt."
+   ],
+   "model": [
+    "UV-licht plakt twee basen die naast elkaar zitten aan elkaar. Dat is schade. Herstelenzymen knippen het meeste eruit. Maar na veel verbranden kopieert een cel soms haar DNA terwijl de schade er nog zit. Dan zet de polymerase er een verkeerde base tegenover: een mutatie.",
+    "De meeste mutaties doen niets. Maar raakt een mutatie een gen dat de celdeling remt, dan deelt de cel door terwijl dat niet moet. Zo kan een tumor ontstaan.",
+    "Een cel heeft meer dan één rem, zoals apoptose en de telomeren. Er zijn dus meerdere mutaties in dezelfde cel nodig. Elke zomer komen er mutaties bij. Daarom duurt het vaak jaren en komt huidkanker vooral op latere leeftijd."
+   ]
+  },
+  {
+   "id": "uitleg-gaspedaal-rem",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Gaspedaal en rem",
+   "opdracht": "Leg uit waarom bij een proto-oncogen één gemuteerd allel genoeg is voor ongeremde deling, terwijl bij een tumorsuppressorgen beide allelen moeten uitvallen.",
+   "begrippen": [
+    {"naam": "proto-oncogen", "varianten": ["oncogen", "gaspedaal"]},
+    {"naam": "tumorsuppressorgen", "varianten": ["rem", "p53"]},
+    {"naam": "allel", "varianten": ["allelen"]},
+    {"naam": "celdeling", "varianten": ["deling"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat een proto-oncogen de deling aanzet, en na een mutatie kan blijven aanstaan.",
+    "Ik leg uit dat één vastgezet gaspedaal al genoeg is, ook naast een normaal allel.",
+    "Ik leg uit dat een tumorsuppressorgen de deling remt, en dat één werkend allel nog genoeg rem geeft.",
+    "Ik noem dat bij een erfelijke vorm het eerste kapotte allel al in elke cel zit."
+   ],
+   "model": [
+    "Een proto-oncogen zet de celdeling aan. Door een mutatie kan het blijven aanstaan, als een gaspedaal dat vastzit. Dat werkt al naast het normale allel, dus één gemuteerd allel is genoeg.",
+    "Een tumorsuppressorgen, zoals het gen voor p53, remt de deling of laat een beschadigde cel zichzelf opruimen. Zolang één allel werkt, is er nog rem. Pas als beide allelen uitvallen, is de rem weg.",
+    "Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. In een van de vele cellen valt vroeg of laat ook het tweede uit."
+   ]
+  }
+ ]
+}

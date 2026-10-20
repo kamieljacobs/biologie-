@@ -1,0 +1,147 @@
+{
+ "intro": "Oefen met de onderzoekscyclus en met de twee vragen uit de film: is het betrouwbaar, en is het valide? Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-onderzoekscyclus",
+   "soort": "volgorde",
+   "titel": "De onderzoekscyclus van Semmelweis",
+   "opdracht": "Zet de stappen van het onderzoek van Semmelweis in de volgorde van de onderzoekscyclus.",
+   "stappen": [
+    {"tekst": "Waarneming: in de kliniek van de artsen sterven veel meer vrouwen aan kraamvrouwenkoorts.", "uitleg": "Een waarneming roept een vraag op."},
+    {"tekst": "Onderzoeksvraag: waarom sterven er in de kliniek van de artsen zoveel meer vrouwen?", "uitleg": "De vraag die het onderzoek moet beantwoorden."},
+    {"tekst": "Hypothese: deeltjes van lijken aan de handen van de artsen veroorzaken de koorts.", "uitleg": "Een mogelijk antwoord, dat je kunt toetsen. Hij kwam erop door inductie."},
+    {"tekst": "Verwachting: als artsen hun handen wassen met chloorkalk, dan daalt de sterfte.", "uitleg": "Van de hypothese naar een concrete voorspelling: deductie."},
+    {"tekst": "Experiment: in mei 1847 voert hij het handenwassen in.", "uitleg": "Hij toetst de verwachting."},
+    {"tekst": "Resultaten: in april stierf achttien procent, in juli iets meer dan één procent.", "uitleg": "De verwachting komt uit."},
+    {"tekst": "Conclusie en discussie: de sterfte daalt, maar hij vergeleek alleen vóór en ná.", "uitleg": "In de discussie kijk je kritisch terug: wat als er tegelijk nog iets anders veranderde?"}
+   ]
+  },
+  {
+   "id": "indelen-variabelen-pasteur",
+   "soort": "indelen",
+   "titel": "Variabelen bij Pasteur",
+   "opdracht": "Pasteur vergelijkt kolven met en zonder zwanenhals. Sleep elk onderdeel van zijn proef naar de juiste groep.",
+   "bakken": [
+    {"naam": "Onafhankelijke variabele", "uitleg": "wat de onderzoeker verandert"},
+    {"naam": "Afhankelijke variabele", "uitleg": "wat de onderzoeker meet"},
+    {"naam": "Constante variabele", "uitleg": "wat gelijk blijft"},
+    {"naam": "Controle", "uitleg": "de vergelijking zonder de behandeling"}
+   ],
+   "kaartjes": [
+    {"tekst": "Of stof met microben de bouillon kan bereiken", "bak": 0, "uitleg": "Dat verandert Pasteur met de zwanenhals."},
+    {"tekst": "Of de bouillon troebel wordt", "bak": 1, "uitleg": "Dat meet hij."},
+    {"tekst": "Dezelfde bouillon", "bak": 2, "uitleg": "Gelijk in alle kolven."},
+    {"tekst": "Dezelfde kooktijd en temperatuur", "bak": 2, "uitleg": "Ook dit houdt hij gelijk."},
+    {"tekst": "Lucht in alle kolven", "bak": 2, "uitleg": "Daarmee is het argument van de critici van tafel."},
+    {"tekst": "Een kolf waarvan de hals is afgebroken", "bak": 3, "uitleg": "Nu kan stof erin: de bouillon wordt snel troebel."}
+   ]
+  },
+  {
+   "id": "indelen-meetfout",
+   "soort": "indelen",
+   "titel": "Toevallig of systematisch?",
+   "opdracht": "Is het een toevallige fout of een systematische fout?",
+   "bakken": [
+    {"naam": "Toevallige fout", "uitleg": "soms te hoog, soms te laag; middelt uit"},
+    {"naam": "Systematische fout", "uitleg": "steeds dezelfde kant op; middelt niet uit"}
+   ],
+   "kaartjes": [
+    {"tekst": "Van Helmont weegt de afgevallen bladeren van vier herfsten niet.", "bak": 1, "uitleg": "De groei valt daardoor altijd te laag uit, nooit te hoog."},
+    {"tekst": "Mendel deelt twijfelgevallen in bij de groep die hij verwachtte.", "bak": 1, "uitleg": "Onbewuste bias duwt steeds dezelfde kant op."},
+    {"tekst": "De ene erwtenplant heeft 43 ronde en 2 gerimpelde erwten, een andere 14 ronde en 15 gerimpelde.", "bak": 0, "uitleg": "Spreiding door toeval: tel je duizenden erwten, dan verschijnt het patroon."},
+    {"tekst": "Je leest een thermometer de ene keer net iets te hoog af, de andere keer net te laag.", "bak": 0, "uitleg": "Herhaal je vaak genoeg, dan middelt dat uit."},
+    {"tekst": "Je weegschaal geeft altijd 5 gram te veel aan.", "bak": 1, "uitleg": "Steeds in dezelfde richting: vaker meten helpt niet."},
+    {"tekst": "Je telt in een reageerbuis bacteriën en zit er per telling een paar naast, nu eens meer, dan eens minder.", "bak": 0, "uitleg": "Kleine afwijkingen naar beide kanten: toevallig."}
+   ]
+  },
+  {
+   "id": "indelen-correlatie",
+   "soort": "indelen",
+   "titel": "Waarom gaat het samen?",
+   "opdracht": "Bij een correlatie zijn er andere verklaringen dan 'A veroorzaakt B'. Welke verklaring past bij elk kaartje?",
+   "bakken": [
+    {"naam": "Omgekeerde causaliteit", "uitleg": "B veroorzaakt A"},
+    {"naam": "Verstorende variabele", "uitleg": "een derde factor veroorzaakt allebei"}
+   ],
+   "kaartjes": [
+    {"tekst": "Fisher: misschien veroorzaakt een beginnende ontsteking in de longen juist de behoefte om te roken.", "bak": 0, "uitleg": "Het gevolg zou dan de oorzaak zijn."},
+    {"tekst": "Fisher: misschien laat een erfelijke aanleg mensen zowel roken als longkanker krijgen.", "bak": 1, "uitleg": "Een derde factor die beide veroorzaakt."},
+    {"tekst": "Bij warm weer worden er meer ijsjes verkocht én verdrinken er meer mensen.", "bak": 1, "uitleg": "Warm weer veroorzaakt beide."},
+    {"tekst": "Leerlingen die ontbijten halen hogere cijfers, omdat er thuis meer structuur en regelmaat is.", "bak": 1, "uitleg": "Structuur thuis kan zowel ontbijten als goede cijfers geven."},
+    {"tekst": "Leerlingen die ontbijten halen hogere cijfers, maar wie het goed doet op school heeft meer rust om te ontbijten.", "bak": 0, "uitleg": "Dan komen de goede cijfers eerst."},
+    {"tekst": "Mensen met hoofdpijn slikken vaker paracetamol, dus paracetamol zou hoofdpijn geven.", "bak": 0, "uitleg": "De hoofdpijn komt eerst, en is de reden om te slikken."}
+   ]
+  },
+  {
+   "id": "puzzel-gele-muizen",
+   "soort": "puzzel",
+   "titel": "Chi-kwadraat: de gele muizen",
+   "opdracht": "Twee gele muizen krijgen samen 80 gele en 40 niet-gele jongen. Past dat bij 3 : 1? Doe de chi-kwadraattoets met grenswaarde 3,84.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel jongen verwacht je bij 3 : 1?",
+     "velden": [
+      {"label": "geel:", "antwoord": 90},
+      {"label": "niet-geel:", "antwoord": 30}
+     ],
+     "uitleg": "Er zijn 120 jongen. Drie kwart is 90 geel, een kwart is 30 niet-geel.",
+     "tip": "Tel eerst alle jongen op."
+    },
+    {
+     "vraag": "Bereken per groep (waargenomen − verwacht)² gedeeld door verwacht.",
+     "velden": [
+      {"label": "geel:", "antwoord": 1.11, "marge": 0.02},
+      {"label": "niet-geel:", "antwoord": 3.33, "marge": 0.02}
+     ],
+     "uitleg": "Geel: (80 − 90)² / 90 = 100 / 90 = 1,11. Niet-geel: (40 − 30)² / 30 = 100 / 30 = 3,33.",
+     "tip": "Kwadrateer het verschil en deel door het verwachte aantal van die groep."
+    },
+    {
+     "vraag": "Hoe groot is χ²?",
+     "velden": [
+      {"label": "χ² =", "antwoord": 4.44, "marge": 0.05}
+     ],
+     "uitleg": "1,11 + 3,33 = 4,44."
+    },
+    {
+     "vraag": "Wat concludeer je?",
+     "velden": [
+      {"label": "conclusie:", "antwoord": "3 : 1 wordt verworpen", "opties": ["3 : 1 wordt verworpen", "het past bij 3 : 1"]}
+     ],
+     "uitleg": "4,44 is groter dan 3,84. De afwijking is significant: zo'n grote afwijking krijg je bijna nooit door toeval."
+    },
+    {
+     "vraag": "Reken nu met 2 : 1. Hoe groot is χ² dan?",
+     "velden": [
+      {"label": "χ² =", "antwoord": 0, "marge": 0.01}
+     ],
+     "uitleg": "Bij 2 : 1 verwacht je 80 geel en 40 niet-geel: precies wat er is. χ² = 0, dus 2 : 1 past veel beter. Een verklaring: muizen die homozygoot geel zijn, overleven niet.",
+     "tip": "Twee derde van 120 is geel."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-van-helmont",
+   "soort": "uitleg",
+   "titel": "Nauwkeurig, maar niet valide",
+   "opdracht": "Van Helmont woog zijn wilg en de aarde heel nauwkeurig. Toch is zijn conclusie dat de boom uit water alleen groeide niet goed. Beoordeel zijn proef met de twee vragen uit de film.",
+   "begrippen": [
+    {"naam": "betrouwbaar", "varianten": ["betrouwbaarheid", "herhaling", "herhalen"]},
+    {"naam": "valide", "varianten": ["validiteit"]},
+    {"naam": "systematische fout", "varianten": ["systematisch"]},
+    {"naam": "controle", "varianten": ["controlegroep"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat één boom te weinig is: de proef is niet betrouwbaar, meer herhalingen zijn nodig.",
+    "Ik noem de afgevallen bladeren als systematische fout.",
+    "Ik leg uit dat hij water en lucht niet meenam, terwijl het hout vooral uit koolstofdioxide uit de lucht is gemaakt: niet valide.",
+    "Ik noem een controle, zoals een pot met aarde zonder boom."
+   ],
+   "model": [
+    "Betrouwbaar is de proef niet: Van Helmont had maar één boom. Wilgen verschillen, dus je weet niet of het resultaat toeval is. Met meer bomen wordt het betrouwbaarder. Een pot aarde zonder boom als controle had laten zien of de aarde zelf van gewicht veranderde.",
+    "De afgevallen bladeren woog hij niet. Dat is een systematische fout: de groei valt altijd te laag uit.",
+    "De echte fout zit in de validiteit. Hij mat het water niet en liet de lucht buiten beschouwing. Het grootste deel van het droge hout komt van koolstofdioxide uit de lucht, via fotosynthese. Je kunt heel precies meten, en toch het verkeerde meten."
+   ]
+  }
+ ]
+}

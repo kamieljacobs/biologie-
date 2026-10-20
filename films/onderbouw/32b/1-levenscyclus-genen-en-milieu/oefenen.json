@@ -1,0 +1,158 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/1-levenscyclus-genen-en-milieu/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-genen-milieu",
+   "soort": "indelen",
+   "titel": "Genen, milieu of allebei?",
+   "opdracht": "Komt dit vooral door de genen, vooral door het milieu, of door allebei?",
+   "bakken": [
+    {
+     "naam": "Genen"
+    },
+    {
+     "naam": "Milieu",
+     "uitleg": "licht, water, voedsel, temperatuur, grond"
+    },
+    {
+     "naam": "Allebei"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een boon wordt altijd een boonplant, nooit een zonnebloem.",
+     "bak": 0,
+     "uitleg": "De bouwtekening in de celkern bepaalt wat voor plant het wordt."
+    },
+    {
+     "tekst": "Noor en Teun hebben donker haar, net als hun ouders.",
+     "bak": 0,
+     "uitleg": "Je genen krijg je van je ouders."
+    },
+    {
+     "tekst": "De boon in de schaduw is lang, dun en bleek.",
+     "bak": 1,
+     "uitleg": "Te weinig licht. De genen van de twee boontjes zijn bijna gelijk."
+    },
+    {
+     "tekst": "Sam heeft sterke beenspieren omdat hij elke dag traint.",
+     "bak": 1,
+     "uitleg": "Trainen verandert je spieren, niet je genen."
+    },
+    {
+     "tekst": "Een hortensia bloeit blauw in zure grond.",
+     "bak": 1,
+     "uitleg": "Zelfde genen, andere grond."
+    },
+    {
+     "tekst": "In een warme sloot wordt een kikkervisje sneller een kikker.",
+     "bak": 1,
+     "uitleg": "De temperatuur verandert de levenscyclus."
+    },
+    {
+     "tekst": "Hoe lang je wordt.",
+     "bak": 2,
+     "uitleg": "Dat hangt af van je genen, maar ook van wat je eet."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-kikker",
+   "soort": "volgorde",
+   "titel": "De levenscyclus van een kikker",
+   "opdracht": "Zet de levenscyclus van een kikker in de goede volgorde. Begin bij het eitje.",
+   "stappen": [
+    {
+     "tekst": "Een eitje in de sloot",
+     "uitleg": "Hier begint de levenscyclus."
+    },
+    {
+     "tekst": "Een kikkervisje met een staart",
+     "uitleg": "Het komt uit het eitje."
+    },
+    {
+     "tekst": "Het kikkervisje krijgt pootjes.",
+     "uitleg": "In een warme sloot gaat dit sneller."
+    },
+    {
+     "tekst": "De staart verdwijnt: het is een kikker.",
+     "uitleg": "Nu is hij volwassen."
+    },
+    {
+     "tekst": "De kikker legt zelf weer eitjes.",
+     "uitleg": "Zo is de cyclus rond."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-boon-schaduw",
+   "soort": "pijlen",
+   "titel": "De boon in de schaduw",
+   "opdracht": "Vergelijk de boon in de schaduw met de boon in de zon. Is het bij de schaduwboon meer, minder of gelijk?",
+   "situatie": "Twee boontjes van dezelfde plant. Eén groeit in de zon, één in de schaduw van de schuur.",
+   "rijen": [
+    {
+     "naam": "Licht dat de plant krijgt",
+     "antwoord": "-",
+     "uitleg": "In de schaduw krijgt de plant te weinig licht."
+    },
+    {
+     "naam": "Lengte van de stengel",
+     "antwoord": "+",
+     "uitleg": "Met te weinig licht groeit de stengel snel in de lengte."
+    },
+    {
+     "naam": "Bladgroen dat de plant maakt",
+     "antwoord": "-",
+     "uitleg": "Daarom is hij bleek."
+    },
+    {
+     "naam": "Genen van de plant",
+     "antwoord": "=",
+     "uitleg": "De twee boontjes hebben bijna dezelfde genen. Het verschil komt door het milieu."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-hortensia",
+   "soort": "uitleg",
+   "titel": "Blauw of roze?",
+   "opdracht": "Opa Henk kweekte twee hortensia's uit stekjes van één plant. De ene bloeit blauw, de andere roze. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "milieu",
+     "varianten": []
+    },
+    {
+     "naam": "zure grond",
+     "varianten": [
+      "zuur"
+     ]
+    },
+    {
+     "naam": "kalkrijke grond",
+     "varianten": [
+      "kalk"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de twee planten dezelfde genen hebben, omdat ze uit stekjes van één plant komen.",
+    "Ik leg uit dat ze in andere grond staan: een ander milieu.",
+    "Ik noem dat de bloemen in zure grond blauw worden en in kalkrijke grond roze."
+   ],
+   "model": [
+    "De twee hortensia's komen uit stekjes van één plant. Ze hebben dus dezelfde genen.",
+    "Het verschil zit in het milieu: ze staan in andere grond. In zure grond worden de bloemen blauw, in kalkrijke grond roze. Zelfde genen, ander milieu."
+   ]
+  }
+ ]
+}

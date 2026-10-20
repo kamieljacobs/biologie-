@@ -1,0 +1,163 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/4-ademhaling-en-bloedsomloop/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-zuurstofdeeltje",
+   "soort": "volgorde",
+   "titel": "De reis van een zuurstofdeeltje",
+   "opdracht": "Volg één zuurstofdeeltje van de lucht tot een spiercel in je kuit. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "In je neus wordt de lucht warm en vochtig.",
+     "uitleg": "Haartjes en slijm vangen stof."
+    },
+    {
+     "tekst": "De lucht gaat door je luchtpijp naar je longen.",
+     "uitleg": "De luchtpijp splitst zich naar je linker- en rechterlong."
+    },
+    {
+     "tekst": "In een longblaasje gaat het zuurstofdeeltje door de dunne wand, het bloed in.",
+     "uitleg": "In het blaasje is veel zuurstof, in het bloed weinig."
+    },
+    {
+     "tekst": "Het bloed gaat naar je hart.",
+     "uitleg": "Je hart is een spier die pompt."
+    },
+    {
+     "tekst": "Je hart pompt het bloed in een slagader.",
+     "uitleg": "Slagaders voeren bloed van je hart af."
+    },
+    {
+     "tekst": "In een haarvat bij een spiercel laat de zuurstof los en gaat de cel in.",
+     "uitleg": "De cel verbrandt er voedingsstoffen mee."
+    }
+   ]
+  },
+  {
+   "id": "indelen-bloedvaten",
+   "soort": "indelen",
+   "titel": "Slagader, ader of haarvat?",
+   "opdracht": "Bij welk soort bloedvat past dit kenmerk?",
+   "bakken": [
+    {
+     "naam": "Slagader"
+    },
+    {
+     "naam": "Ader"
+    },
+    {
+     "naam": "Haarvat"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Voert bloed van je hart af.",
+     "bak": 0,
+     "uitleg": "In een slagader zit de slag."
+    },
+    {
+     "tekst": "Heeft een dikke, stevige wand.",
+     "bak": 0,
+     "uitleg": "Bij elke slag voel je hem kloppen."
+    },
+    {
+     "tekst": "Voert bloed naar je hart toe.",
+     "bak": 1,
+     "uitleg": "Via aders gaat het bloed terug naar je hart."
+    },
+    {
+     "tekst": "Lijkt blauw in je pols, maar het bloed erin is donkerrood.",
+     "bak": 1,
+     "uitleg": "Dat hij blauw lijkt, komt door hoe licht door je huid gaat."
+    },
+    {
+     "tekst": "Zo dun dat rode bloedcellen er één voor één door moeten.",
+     "bak": 2,
+     "uitleg": "De dunste bloedvaatjes."
+    },
+    {
+     "tekst": "Ligt vlak langs bijna elke cel.",
+     "bak": 2,
+     "uitleg": "Hier gaat zuurstof de cel in."
+    },
+    {
+     "tekst": "Ligt als een netje om elk longblaasje.",
+     "bak": 2,
+     "uitleg": "Hier gaat zuurstof het bloed in."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-onder-water",
+   "soort": "pijlen",
+   "titel": "Noor onder water",
+   "opdracht": "Voorspel wat er in Noor verandert terwijl ze onder water zwemt.",
+   "situatie": "Noor zwemt onder water en houdt haar adem in. Haar hart pompt door en haar cellen verbranden door.",
+   "rijen": [
+    {
+     "naam": "Nieuwe zuurstof die haar longen binnenkomt",
+     "antwoord": "-",
+     "uitleg": "Ze ademt niet, dus er komt geen nieuwe zuurstof bij."
+    },
+    {
+     "naam": "Zuurstof in haar bloed",
+     "antwoord": "-",
+     "uitleg": "Haar cellen gebruiken steeds zuurstof, en er komt niets bij."
+    },
+    {
+     "naam": "Koolstofdioxide in haar bloed",
+     "antwoord": "+",
+     "uitleg": "Haar cellen maken het, en ze ademt het niet uit. Het hoopt zich op."
+    },
+    {
+     "naam": "Seintje van haar hersenen: omhoog!",
+     "antwoord": "+",
+     "uitleg": "Haar hersenen merken het koolstofdioxide. Daarom moet ze omhoog."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-rode-bloedcellen",
+   "soort": "uitleg",
+   "titel": "Snel moe bij sport",
+   "opdracht": "Iemand heeft te weinig rode bloedcellen. Zijn longen en zijn hart werken goed. Toch is hij bij sport snel moe. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "rode bloedcellen",
+     "varianten": [
+      "rode bloedcel"
+     ]
+    },
+    {
+     "naam": "zuurstof",
+     "varianten": []
+    },
+    {
+     "naam": "spieren",
+     "varianten": [
+      "spiercellen",
+      "spier"
+     ]
+    },
+    {
+     "naam": "verbranden",
+     "varianten": [
+      "verbranding",
+      "energie"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat rode bloedcellen zuurstof vervoeren.",
+    "Ik leg uit dat zijn spieren daardoor te weinig zuurstof krijgen.",
+    "Ik leg uit dat spieren zuurstof nodig hebben om voedingsstoffen te verbranden voor energie."
+   ],
+   "model": [
+    "Zuurstof gaat mee met de rode bloedcellen. Met te weinig rode bloedcellen kan zijn bloed minder zuurstof meenemen naar zijn spieren.",
+    "Zijn spieren hebben die zuurstof nodig om voedingsstoffen te verbranden. Dat geeft energie. Met te weinig zuurstof krijgen ze te weinig energie, en is hij snel moe. Het is een ketting: breekt er één schakel, dan krijgen je cellen te weinig zuurstof."
+   ]
+  }
+ ]
+}

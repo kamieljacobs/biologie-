@@ -1,0 +1,262 @@
+{
+ "intro": "Oefen met je microbioom: wat de bacteriën doen, wat er misgaat na een kuur, en hoe je weet of iets bewezen is. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-c-difficile",
+   "soort": "volgorde",
+   "titel": "Van antibioticakuur tot diarree",
+   "opdracht": "De man van zeventig krijgt antibiotica voor een longontsteking. Zet in de goede volgorde hoe hij steeds opnieuw diarree krijgt.",
+   "stappen": [
+    {
+     "tekst": "Het antibioticum doodt ook een groot deel van de gewone darmbacteriën.",
+     "uitleg": "Een antibioticum kiest niet."
+    },
+    {
+     "tekst": "Clostridioides difficile overleeft de kuur als spore.",
+     "uitleg": "Een spore is een slapende cel met een dikke wand; het antibioticum komt er niet doorheen."
+    },
+    {
+     "tekst": "Na de kuur ontwaakt de spore en groeit de bacterie enorm uit, zonder concurrentie om voedsel en ruimte.",
+     "uitleg": "Hij zat er eerst ook al, in kleine aantallen, zonder last."
+    },
+    {
+     "tekst": "De bacterie maakt gifstoffen; de wand van de dikke darm raakt ontstoken.",
+     "uitleg": "De ontsteking geeft ook koorts."
+    },
+    {
+     "tekst": "De ontstoken wand neemt geen water meer terug en lekt zelf vocht: diarree.",
+     "uitleg": "Bij diarree blijft er meer water in de darm dan de darm terugneemt."
+    },
+    {
+     "tekst": "Een nieuwe kuur doodt de actieve bacteriën, maar de sporen blijven: het komt terug.",
+     "uitleg": "En de gewone bewoners zijn nog steeds niet terug."
+    }
+   ]
+  },
+  {
+   "id": "indelen-bewijsbord",
+   "soort": "indelen",
+   "titel": "Het bewijsbord",
+   "opdracht": "In welk vak van het bewijsbord hoort elke bewering, volgens de film?",
+   "bakken": [
+    {
+     "naam": "Vastgesteld",
+     "uitleg": "meerdere onderzoeken met controlegroep, of geteld en gemeten"
+    },
+    {
+     "naam": "Waarschijnlijk",
+     "uitleg": "een onderzoek, maar klein of niet overal gevonden effect"
+    },
+    {
+     "naam": "Hypothese",
+     "uitleg": "bij mensen nog niet met een controlegroep getest"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "In je dikke darm leven ongeveer veertig biljoen bacteriën, zonder zuurstof.",
+     "bak": 0,
+     "uitleg": "Geteld en gemeten."
+    },
+    {
+     "tekst": "Darmbacteriën maken korte vetzuren, die je darmwand als brandstof gebruikt.",
+     "bak": 0,
+     "uitleg": "In veel onderzoeken gemeten."
+    },
+    {
+     "tekst": "Een poeptransplantatie geneest een terugkerende infectie met C. difficile.",
+     "bak": 0,
+     "uitleg": "Onderzoek met loting: ruim acht van de tien tegenover drie van de tien."
+    },
+    {
+     "tekst": "Een poeptransplantatie werkt doordat de donorbacteriën plek en voedsel weer innemen.",
+     "bak": 1,
+     "uitleg": "De beste verklaring, maar dat dit de reden is, is niet vastgesteld."
+    },
+    {
+     "tekst": "Een probioticum voorkomt diarree tijdens een antibioticakuur.",
+     "bak": 1,
+     "uitleg": "Bij sommige soorten scheelt het iets, bij andere niets."
+    },
+    {
+     "tekst": "Darmbacteriën veroorzaken overgewicht.",
+     "bak": 2,
+     "uitleg": "Bij muizen gezien, bij mensen alleen een verband."
+    },
+    {
+     "tekst": "Darmbacteriën veroorzaken bij mensen een depressie.",
+     "bak": 2,
+     "uitleg": "Er is een verband, maar een onderzoek met controlegroep ontbreekt nog."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-bonen",
+   "soort": "volgorde",
+   "titel": "Een bord bonen",
+   "opdracht": "Iemand eet een bord bonen. Zet in de goede volgorde wat er in de dikke darm gebeurt.",
+   "stappen": [
+    {
+     "tekst": "De vezels uit de bonen komen onverteerd in de dikke darm.",
+     "uitleg": "Jouw eigen enzymen kunnen ze niet knippen."
+    },
+    {
+     "tekst": "Darmbacteriën knippen een deel van de vezels in losse suikers.",
+     "uitleg": "Zij hebben die enzymen wel."
+    },
+    {
+     "tekst": "De bacteriën vergisten de suikers, zonder zuurstof.",
+     "uitleg": "Anaerobe dissimilatie: er is daar bijna geen zuurstof."
+    },
+    {
+     "tekst": "Er ontstaan gassen en korte vetzuren.",
+     "uitleg": "Koolstofdioxide en waterstof, bij een op de drie mensen ook methaan."
+    },
+    {
+     "tekst": "Je darmwand neemt de korte vetzuren op en gebruikt ze als brandstof; de gassen worden winden.",
+     "uitleg": "Zo komt vijf tot tien procent van je energie uit vezels."
+    }
+   ]
+  },
+  {
+   "id": "indelen-controlegroep",
+   "soort": "indelen",
+   "titel": "Mag je dit concluderen?",
+   "opdracht": "Bij elk kaartje staat een onderzoek. Mag je concluderen dat het middel werkt, of ontbreekt er iets?",
+   "bakken": [
+    {
+     "naam": "Ja, goede vergelijking"
+    },
+    {
+     "naam": "Nee, er ontbreekt iets"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Honderd mensen nemen een probioticum tijdens een kuur; zeventig krijgen geen diarree.",
+     "bak": 1,
+     "uitleg": "Er is geen controlegroep: misschien hadden er zonder drankje ook zeventig geen diarree gekregen."
+    },
+    {
+     "tekst": "Door loting krijgt de ene groep alleen antibiotica, de andere een kuur plus poeptransplantatie.",
+     "bak": 0,
+     "uitleg": "Zo was het Amsterdamse onderzoek: twee groepen en het lot beslist."
+    },
+    {
+     "tekst": "Mensen met een depressie hebben vaak een ander microbioom.",
+     "bak": 1,
+     "uitleg": "Een verband is geen oorzaak; een depressie verandert ook wat je eet."
+    },
+    {
+     "tekst": "Muizen worden door loting verdeeld; de helft krijgt darmbacteriën, de andere helft niet, en je meet hun gedrag.",
+     "bak": 0,
+     "uitleg": "Je verandert één ding en vergelijkt met een controlegroep."
+    },
+    {
+     "tekst": "Een fabrikant laat twintig vrijwilligers zelf kiezen of ze het drankje nemen.",
+     "bak": 1,
+     "uitleg": "Zonder loting kunnen de groepen al vooraf verschillen."
+    },
+    {
+     "tekst": "Twee even grote groepen krijgen dezelfde kuur; het lot bepaalt wie het drankje krijgt.",
+     "bak": 0,
+     "uitleg": "Pas zo'n vergelijking laat zien of het drankje werkt."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-poeptransplantatie",
+   "soort": "uitleg",
+   "titel": "Waarom werkt een poeptransplantatie?",
+   "opdracht": "De man krijgt steeds opnieuw diarree door Clostridioides difficile. Een poeptransplantatie van een gezonde donor maakt hem beter. Leg uit waarom dat werkt, en waarom een nieuwe kuur niet hielp.",
+   "begrippen": [
+    {
+     "naam": "antibioticum",
+     "varianten": [
+      "antibiotica",
+      "kuur"
+     ]
+    },
+    {
+     "naam": "concurrentie",
+     "varianten": [
+      "concurreren",
+      "voedsel en ruimte",
+      "plek"
+     ]
+    },
+    {
+     "naam": "spore",
+     "varianten": [
+      "sporen"
+     ]
+    },
+    {
+     "naam": "donorbacteriën",
+     "varianten": [
+      "donor",
+      "gewone darmbacteriën"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat het antibioticum ook de gewone darmbacteriën doodde, zodat C. difficile geen concurrentie meer had.",
+    "Ik leg uit dat C. difficile als spore de kuur overleeft, en dat een nieuwe kuur daarom niet helpt.",
+    "Ik leg uit dat de donorbacteriën de plek en het voedsel weer innemen, zodat de ziekmaker geen ruimte krijgt.",
+    "Ik noem dat het werkt vastgesteld is, en de verklaring waarschijnlijk."
+   ],
+   "model": [
+    "Het antibioticum doodde ook een groot deel van de gewone darmbacteriën. C. difficile overleefde als spore. Na de kuur had hij geen concurrentie om voedsel en ruimte, en groeide hij enorm uit.",
+    "Een nieuwe kuur doodt de actieve bacteriën, maar niet de sporen. En de gewone bewoners zijn nog steeds niet terug. Daarom komt de infectie steeds terug.",
+    "De ontlasting van een gezonde donor zit vol gewone darmbacteriën. Die nemen de plek en het voedsel weer in, en de ziekmaker krijgt geen ruimte meer. Dát het werkt is vastgesteld met een onderzoek met loting; dat dit de reden is, is waarschijnlijk."
+   ]
+  },
+  {
+   "id": "uitleg-schaaltje",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Het open schaaltje",
+   "opdracht": "Een leerling doet ontlasting op een voedingsbodem in een open schaaltje, in een stoof van 37 °C. Er groeit bijna niets. Leg uit hoe dat komt, en hoe ze het beter kan doen.",
+   "begrippen": [
+    {
+     "naam": "zuurstof",
+     "varianten": [
+      "lucht"
+     ]
+    },
+    {
+     "naam": "obligaat anaeroob",
+     "varianten": [
+      "anaeroob",
+      "giftig"
+     ]
+    },
+    {
+     "naam": "darmwand",
+     "varianten": [
+      "wand",
+      "bloed"
+     ]
+    },
+    {
+     "naam": "nabootsen",
+     "varianten": [
+      "zonder zuurstof",
+      "afgesloten"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat er in een open schaaltje zuurstof is.",
+    "Ik leg uit dat de meeste darmbacteriën obligaat anaeroob zijn: voor hen is zuurstof giftig.",
+    "Ik leg uit dat er in de darm bijna geen zuurstof is, omdat de wandcellen en de bacteriën bij de wand die opgebruiken.",
+    "Ik noem dat ze de darm moet nabootsen: geen zuurstof, 37 °C, licht zuur tot neutraal."
+   ],
+   "model": [
+    "In een open schaaltje zit lucht, dus zuurstof. De meeste darmbacteriën zijn obligaat anaeroob: voor hen is zuurstof giftig.",
+    "In de darm is er bijna geen zuurstof. Zuurstof komt via het bloed naar de darmwand. De wandcellen gebruiken het, en de bacteriën vlak bij de wand de rest.",
+    "Wil de leerling darmbacteriën kweken, dan moet ze de darm nabootsen: zonder zuurstof, bij lichaamstemperatuur, en licht zuur tot neutraal."
+   ]
+  }
+ ]
+}

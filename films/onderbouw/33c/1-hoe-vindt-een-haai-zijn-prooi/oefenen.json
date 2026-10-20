@@ -1,0 +1,183 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-zintuigen",
+   "soort": "volgorde",
+   "titel": "Van ver naar dichtbij",
+   "opdracht": "Een gewonde vis spartelt honderden meters verderop. Zet de zintuigen van de haai in de volgorde waarin hij ze gebruikt.",
+   "stappen": [
+    {
+     "tekst": "Horen: hij hoort het gespartel.",
+     "uitleg": "Geluid draagt ver onder water."
+    },
+    {
+     "tekst": "Ruiken: hij ruikt het bloed en zwemt de geur achterna.",
+     "uitleg": "Hooguit een paar honderd meter, als de stroming meezit."
+    },
+    {
+     "tekst": "Zien: in helder water ziet hij de vis op zo'n vijftien meter.",
+     "uitleg": "Haaienogen werken ook goed in het donker."
+    },
+    {
+     "tekst": "Zijlijn: hij voelt trillingen in het water, op een paar meter.",
+     "uitleg": "Zonder de vis aan te raken."
+    },
+    {
+     "tekst": "Elektrisch zintuig: hij voelt de vis in het zand, op zo'n twintig centimeter.",
+     "uitleg": "Elke spierbeweging maakt kleine elektrische signalen."
+    }
+   ]
+  },
+  {
+   "id": "schema-haai",
+   "soort": "schema",
+   "titel": "De zintuigen van een haai",
+   "opdracht": "Sleep de namen naar de goede vakjes op de haai.",
+   "alt": "Lijntekening van een haai van opzij, met de kop rechts. Een stippellijn loopt over de lengte van het lijf. Op de snuit staan stipjes, eronder een klein gaatje. Achter de kop vier boogjes.",
+   "breed": 760,
+   "hoog": 360,
+   "vakbreed": 150,
+   "svg": "<path stroke-width=\"2.6\" d=\"M650 182 C610 150 530 136 430 136 L372 72 L336 140 C260 146 190 160 132 172 L70 92 L110 182 L80 242 L132 194 C210 206 310 226 430 229 C530 231 610 216 650 182 Z\"/><path stroke-width=\"2.4\" d=\"M478 226 L438 292 L428 229\"/><circle cx=\"590\" cy=\"166\" r=\"6\" stroke-width=\"2.2\"/><path stroke-width=\"2.4\" d=\"M594 207 C598 201 605 201 609 206\"/><path stroke-width=\"2\" d=\"M518 168 C512 182 512 196 518 208\"/><path stroke-width=\"2\" d=\"M530 168 C524 182 524 196 530 208\"/><path stroke-width=\"2\" d=\"M542 168 C536 182 536 196 542 208\"/><path stroke-width=\"2\" d=\"M554 168 C548 182 548 196 554 208\"/><path class=\"acc\" stroke-width=\"2.4\" stroke-dasharray=\"7 6\" d=\"M572 158 C500 150 420 152 330 160 C250 166 190 172 140 176\"/><circle class=\"vul\" cx=\"628\" cy=\"178\" r=\"2.3\"/><circle class=\"vul\" cx=\"636\" cy=\"181\" r=\"2.3\"/><circle class=\"vul\" cx=\"643\" cy=\"184\" r=\"2.3\"/><circle class=\"vul\" cx=\"630\" cy=\"187\" r=\"2.3\"/><circle class=\"vul\" cx=\"638\" cy=\"189\" r=\"2.3\"/><circle class=\"vul\" cx=\"622\" cy=\"183\" r=\"2.3\"/>",
+   "vakjes": [
+    {
+     "naam": "zijlijn",
+     "x": 200,
+     "y": 40,
+     "punt": [
+      260,
+      166
+     ],
+     "uitleg": "een rij zintuigcellen langs lijf en kop; voelt trillingen op een paar meter."
+    },
+    {
+     "naam": "oog",
+     "x": 450,
+     "y": 40,
+     "punt": [
+      590,
+      166
+     ],
+     "uitleg": "ziet een vis op zo'n vijftien meter, ook in het donker."
+    },
+    {
+     "naam": "elektrisch zintuig",
+     "x": 650,
+     "y": 40,
+     "punt": [
+      636,
+      181
+     ],
+     "uitleg": "kleine gaatjes in de snuit; voelt elektrische signalen op zo'n twintig centimeter."
+    },
+    {
+     "naam": "kieuwen",
+     "x": 460,
+     "y": 330,
+     "punt": [
+      536,
+      200
+     ],
+     "uitleg": "hiermee ademt de haai."
+    },
+    {
+     "naam": "neusgat",
+     "x": 660,
+     "y": 300,
+     "punt": [
+      601,
+      204
+     ],
+     "uitleg": "hiermee ruikt de haai het bloed."
+    }
+   ]
+  },
+  {
+   "id": "indelen-haai-klopt",
+   "soort": "indelen",
+   "titel": "Film of echt?",
+   "opdracht": "Klopt deze zin over haaien, of klopt hij niet?",
+   "bakken": [
+    {
+     "naam": "Klopt"
+    },
+    {
+     "naam": "Klopt niet"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Het skelet van een haai is van kraakbeen.",
+     "bak": 0,
+     "uitleg": "Stevig, maar buigzaam en lichter dan bot."
+    },
+    {
+     "tekst": "Een grote lever vol olie helpt een haai drijven.",
+     "bak": 0,
+     "uitleg": "Olie is lichter dan water."
+    },
+    {
+     "tekst": "Valt er een tand uit, dan schuift de volgende door.",
+     "bak": 0,
+     "uitleg": "Een haai verbruikt tienduizenden tanden."
+    },
+    {
+     "tekst": "Mensen doden veel meer haaien dan haaien mensen.",
+     "bak": 0,
+     "uitleg": "Ongeveer 80 miljoen haaien per jaar."
+    },
+    {
+     "tekst": "Een haai ruikt één druppel bloed van kilometers ver.",
+     "bak": 1,
+     "uitleg": "Hooguit een paar honderd meter, als de stroming meezit."
+    },
+    {
+     "tekst": "Elke haai moet altijd zwemmen om te ademen.",
+     "bak": 1,
+     "uitleg": "Een verpleegsterhaai ligt op de bodem en pompt water met zijn wangspieren."
+    },
+    {
+     "tekst": "Een haai heeft een zwemblaas vol gas.",
+     "bak": 1,
+     "uitleg": "Veel vissen wel, haaien niet."
+    },
+    {
+     "tekst": "Een haai kreeg een goede zijlijn omdat hij dat wilde.",
+     "bak": 1,
+     "uitleg": "Een haai die beter voelt, krijgt vaker jongen: natuurlijke selectie."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-tijgerhaaien",
+   "soort": "pijlen",
+   "titel": "Een baai zonder haaien",
+   "opdracht": "Voorspel wat er in de baai verandert.",
+   "situatie": "In een baai in Australië verdwijnen de tijgerhaaien.",
+   "rijen": [
+    {
+     "naam": "Angst van zeekoeien en zeeschildpadden voor het ondiepe water",
+     "antwoord": "-",
+     "uitleg": "Er jagen geen tijgerhaaien meer."
+    },
+    {
+     "naam": "Hoeveel er gegraasd wordt in het ondiepe water",
+     "antwoord": "+",
+     "uitleg": "De grazers durven nu overal te komen."
+    },
+    {
+     "naam": "Hoeveelheid zeegras",
+     "antwoord": "-",
+     "uitleg": "Het zeegras kan kaal gegeten worden."
+    },
+    {
+     "naam": "Schuilplekken voor jonge vissen",
+     "antwoord": "-",
+     "uitleg": "Jonge vissen schuilen juist in het zeegras."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32c/4-ziek-worden-en-beter-worden/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-waterpokken",
+   "soort": "volgorde",
+   "titel": "Teun heeft waterpokken",
+   "opdracht": "Zet in de goede volgorde wat er gebeurt, van besmetting tot bescherming.",
+   "stappen": [
+    {
+     "tekst": "Iemand niest. Teun ademt de kleine druppeltjes met het virus in.",
+     "uitleg": "Ziekteverwekkers komen binnen via je neus en mond, je handen, eten of een wondje."
+    },
+    {
+     "tekst": "Het virus vermenigvuldigt zich in zijn lichaam: een infectie.",
+     "uitleg": "Teun merkt eerst nog niets."
+    },
+    {
+     "tekst": "Na ongeveer twee weken zijn er heel veel virussen: Teun wordt ziek.",
+     "uitleg": "Pas dan krijg je klachten."
+    },
+    {
+     "tekst": "Zijn afweer maakt antistoffen die precies op dit virus passen.",
+     "uitleg": "De eerste keer duurt dat ongeveer een week."
+    },
+    {
+     "tekst": "Witte bloedcellen ruimen de virussen op. Teun wordt beter.",
+     "uitleg": "De antistoffen plakken aan het virus, zo vinden de witte bloedcellen het makkelijk."
+    },
+    {
+     "tekst": "Er blijven geheugencellen over die het virus onthouden.",
+     "uitleg": "Komt het terug, dan maakt zijn afweer meteen veel antistoffen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vaccin-medicijn",
+   "soort": "indelen",
+   "titel": "Vaccin, antibioticum of paracetamol?",
+   "opdracht": "Past dit bij een vaccin, een antibioticum of paracetamol?",
+   "bakken": [
+    {
+     "naam": "Vaccin"
+    },
+    {
+     "naam": "Antibioticum"
+    },
+    {
+     "naam": "Paracetamol"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Bevat een onschadelijk stukje of een verzwakte vorm van een ziekteverwekker.",
+     "bak": 0,
+     "uitleg": "Je afweer leert hem kennen, zonder dat je ziek wordt."
+    },
+    {
+     "tekst": "Laat je afweer oefenen en geheugencellen maken.",
+     "bak": 0,
+     "uitleg": "Zo voorkomt een vaccin dat je ziek wordt."
+    },
+    {
+     "tekst": "Jenner gaf het eerste, tegen pokken.",
+     "bak": 0,
+     "uitleg": "In het jaar 1796. Pokken is nu van de aarde verdwenen."
+    },
+    {
+     "tekst": "Doodt bacteriën.",
+     "bak": 1,
+     "uitleg": "Maar een virus is geen cel, dus daar doet het niets tegen."
+    },
+    {
+     "tekst": "De dokter geeft het bij sommige ziektes door bacteriën.",
+     "bak": 1,
+     "uitleg": "Tegen waterpokken helpt het niet."
+    },
+    {
+     "tekst": "Maakt koorts en pijn minder.",
+     "bak": 2,
+     "uitleg": "Teun voelt zich er beter door."
+    },
+    {
+     "tekst": "Doodt de ziekteverwekker niet.",
+     "bak": 2,
+     "uitleg": "Dat doet de afweer van Teun."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-noor",
+   "soort": "uitleg",
+   "titel": "Waarom wordt Noor niet ziek?",
+   "opdracht": "Noor had waterpokken toen ze klein was. Nu speelt ze met Teun, die waterpokken heeft. Ze wordt niet ziek. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "geheugencellen",
+     "varianten": [
+      "geheugencel"
+     ]
+    },
+    {
+     "naam": "antistoffen",
+     "varianten": [
+      "antistof"
+     ]
+    },
+    {
+     "naam": "afweer",
+     "varianten": [
+      "afweersysteem"
+     ]
+    },
+    {
+     "naam": "virus",
+     "varianten": [
+      "ziekteverwekker"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat Noors afweer de eerste keer antistoffen maakte die precies op het waterpokkenvirus passen.",
+    "Ik leg uit dat er daarna geheugencellen overbleven die het virus onthouden.",
+    "Ik leg uit dat haar afweer nu meteen veel antistoffen maakt, zodat ze niet eens ziek wordt."
+   ],
+   "model": [
+    "Toen Noor klein was, maakte haar afweer antistoffen die precies op het waterpokkenvirus passen. Dat duurde ongeveer een week, daarom was ze toen ziek.",
+    "Daarna bleven er geheugencellen over. Die onthouden het virus. Komt het virus nu terug, dan maakt haar afweer meteen veel antistoffen. Het virus wordt opgeruimd voordat ze ziek wordt."
+   ]
+  }
+ ]
+}

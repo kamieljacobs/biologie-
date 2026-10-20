@@ -1,0 +1,170 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/9-organismen-aan-het-werk/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-wie-werkt",
+   "soort": "indelen",
+   "titel": "Wie doet het werk?",
+   "opdracht": "Welk organisme doet dit werk voor ons?",
+   "bakken": [
+    {
+     "naam": "Gist"
+    },
+    {
+     "naam": "Melkzuurbacteriën"
+    },
+    {
+     "naam": "Sluipwespen"
+    },
+    {
+     "naam": "Bacteriën in de pens"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Pizzadeeg rijst.",
+     "bak": 0,
+     "uitleg": "Gist maakt het gas koolstofdioxide. De belletjes blazen het deeg op."
+    },
+    {
+     "tekst": "Brood zit vol gaatjes.",
+     "bak": 0,
+     "uitleg": "In de oven zetten de belletjes van de gist nog verder uit."
+    },
+    {
+     "tekst": "Melk wordt zuur en dik: yoghurt.",
+     "bak": 1,
+     "uitleg": "Ze maken melkzuur van de melksuiker."
+    },
+    {
+     "tekst": "Kuilvoer bederft niet.",
+     "bak": 1,
+     "uitleg": "Ze maken het gras zuur, net als bij yoghurt."
+    },
+    {
+     "tekst": "Bladluizen in een paprikakas verdwijnen.",
+     "bak": 2,
+     "uitleg": "Zonder gif: biologische bestrijding."
+    },
+    {
+     "tekst": "Een eitje wordt in een bladluis gelegd.",
+     "bak": 2,
+     "uitleg": "De larve eet de luis van binnen op."
+    },
+    {
+     "tekst": "Gras wordt afgebroken.",
+     "bak": 3,
+     "uitleg": "Een koe kan gras zelf niet verteren."
+    },
+    {
+     "tekst": "De koe leeft van wat zij maken.",
+     "bak": 3,
+     "uitleg": "En de koe verteert die bacteriën zelf ook."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-deeg",
+   "soort": "volgorde",
+   "titel": "Van deeg tot brood",
+   "opdracht": "Zet in de goede volgorde wat er gebeurt, van deeg tot brood.",
+   "stappen": [
+    {
+     "tekst": "In het natte deeg wordt een deel van het zetmeel uit de bloem suiker.",
+     "uitleg": "Van die suiker leeft de gist."
+    },
+    {
+     "tekst": "De gistcellen breken de suiker af en halen er energie uit.",
+     "uitleg": "Gist is een schimmel van één cel."
+    },
+    {
+     "tekst": "Daarbij maken ze het gas koolstofdioxide.",
+     "uitleg": "Gist maakt ook een beetje alcohol."
+    },
+    {
+     "tekst": "De belletjes blijven hangen in het taaie deeg: het deeg rijst.",
+     "uitleg": "Gist werkt het best als het lauw is."
+    },
+    {
+     "tekst": "In de oven zetten de belletjes verder uit en gaat de gist dood.",
+     "uitleg": "De alcohol verdampt."
+    },
+    {
+     "tekst": "Het brood zit vol gaatjes.",
+     "uitleg": "Elk gaatje was een gasbelletje."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-koelkast",
+   "soort": "pijlen",
+   "titel": "Deeg in de koelkast",
+   "opdracht": "Voorspel wat er verandert. Vergelijk met deeg op een lauwe plek.",
+   "situatie": "Je zet het pizzadeeg in de koelkast in plaats van op een lauwe plek.",
+   "rijen": [
+    {
+     "naam": "Temperatuur van het deeg",
+     "antwoord": "-",
+     "uitleg": "In de koelkast is het koud."
+    },
+    {
+     "naam": "Hoe snel de gist suiker afbreekt",
+     "antwoord": "-",
+     "uitleg": "Gist werkt het best rond de dertig graden. In de kou werkt hij traag."
+    },
+    {
+     "naam": "Gas dat de gist per uur maakt",
+     "antwoord": "-",
+     "uitleg": "Minder werk, minder koolstofdioxide."
+    },
+    {
+     "naam": "Hoe snel het deeg rijst",
+     "antwoord": "-",
+     "uitleg": "Minder belletjes per uur: het rijst veel langzamer."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-yoghurt",
+   "soort": "uitleg",
+   "titel": "Van melk tot yoghurt",
+   "opdracht": "Je doet een schepje yoghurt in gewone melk en houdt het een paar uur warm. Dan heb je een pot yoghurt. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "melkzuurbacteriën",
+     "varianten": [
+      "melkzuurbacterie",
+      "bacteriën"
+     ]
+    },
+    {
+     "naam": "melksuiker",
+     "varianten": [
+      "suiker"
+     ]
+    },
+    {
+     "naam": "melkzuur",
+     "varianten": []
+    },
+    {
+     "naam": "warm",
+     "varianten": [
+      "warmte"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat in het schepje yoghurt levende bacteriën zitten.",
+    "Ik leg uit dat die bacteriën de melksuiker eten en er melkzuur van maken.",
+    "Ik leg uit dat de melk door het melkzuur zuur en dik wordt."
+   ],
+   "model": [
+    "In het schepje yoghurt zitten levende melkzuurbacteriën. In de warmte eten ze de melksuiker uit de melk. Ze maken er melkzuur van.",
+    "Door het melkzuur wordt de melk zuur en dik: yoghurt. Een organisme voor je laten werken om iets te maken, heet biotechnologie."
+   ]
+  }
+ ]
+}

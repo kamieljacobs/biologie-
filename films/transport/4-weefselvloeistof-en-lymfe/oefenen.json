@@ -1,0 +1,240 @@
+{
+ "intro": "Oefen met weefselvloeistof, lymfe en oedeem. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-vocht",
+   "soort": "volgorde",
+   "titel": "De reis van het vocht",
+   "opdracht": "Volg wat water uit het bloed. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Aan het begin van het haarvat duwt de bloeddruk water met kleine stoffen door de wand: filtratie.",
+     "uitleg": "Rode bloedcellen en de meeste eiwitten blijven binnen."
+    },
+    {
+     "tekst": "Het vocht ligt als weefselvloeistof tussen de cellen; stoffen diffunderen naar de cellen.",
+     "uitleg": "Bijna geen cel ligt verder dan een tiende millimeter van een haarvat."
+    },
+    {
+     "tekst": "Aan het eind van het haarvat trekken de plasma-eiwitten het meeste vocht terug: resorptie.",
+     "uitleg": "De bloeddruk is daar zo laag dat de trek van de eiwitten wint."
+    },
+    {
+     "tekst": "Het vocht dat over is, loopt een doodlopend lymfevaatje in: lymfe.",
+     "uitleg": "Elke dag een paar liter."
+    },
+    {
+     "tekst": "De lymfe gaat door lymfeknopen, waar witte bloedcellen ziekteverwekkers vangen.",
+     "uitleg": "Daarom worden de klieren in je hals dik bij keelpijn."
+    },
+    {
+     "tekst": "Via de borstbuis komt de lymfe bij je linkersleutelbeen terug in het bloed.",
+     "uitleg": "Via een ader naar de bovenste holle ader."
+    }
+   ]
+  },
+  {
+   "id": "indelen-bloed-weefselvloeistof",
+   "soort": "indelen",
+   "titel": "Plasma of weefselvloeistof?",
+   "opdracht": "Waar zit elk bestanddeel in? Alleen in het bloed, of ook in weefselvloeistof?",
+   "bakken": [
+    {
+     "naam": "Ook in weefselvloeistof",
+     "uitleg": "gaat door de wand van het haarvat"
+    },
+    {
+     "naam": "Vooral in het bloed",
+     "uitleg": "blijft in het haarvat"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Water",
+     "bak": 0,
+     "uitleg": "Wordt door de bloeddruk naar buiten geduwd."
+    },
+    {
+     "tekst": "Zouten",
+     "bak": 0,
+     "uitleg": "Kleine stoffen gaan mee door de wand."
+    },
+    {
+     "tekst": "Glucose",
+     "bak": 0,
+     "uitleg": "Gaat door diffusie naar je cellen."
+    },
+    {
+     "tekst": "Zuurstof",
+     "bak": 0,
+     "uitleg": "Diffundeert van veel naar weinig, naar de cellen."
+    },
+    {
+     "tekst": "Rode bloedcellen",
+     "bak": 1,
+     "uitleg": "Te groot voor de wand."
+    },
+    {
+     "tekst": "De meeste plasma-eiwitten",
+     "bak": 1,
+     "uitleg": "Blijven binnen, en trekken daardoor water terug."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-vliegtuig",
+   "soort": "pijlen",
+   "titel": "Tien uur in het vliegtuig",
+   "opdracht": "Je zit tien uur stil, met je benen naar beneden. Voorspel wat er in je onderbenen gebeurt.",
+   "situatie": "Je kuitspieren doen urenlang niets.",
+   "rijen": [
+    {
+     "naam": "Druk in je beenaders",
+     "antwoord": "+",
+     "uitleg": "De kuitspieren helpen het bloed niet omhoog."
+    },
+    {
+     "naam": "Druk aan het eind van de haarvaten",
+     "antwoord": "+",
+     "uitleg": "De druk in de aders werkt terug tot in de haarvaten."
+    },
+    {
+     "naam": "Vocht dat het weefsel in gaat",
+     "antwoord": "+",
+     "uitleg": "Er gaat meer vocht naar buiten."
+    },
+    {
+     "naam": "Vocht dat terug het haarvat in gaat",
+     "antwoord": "-",
+     "uitleg": "De hogere druk werkt de resorptie tegen."
+    },
+    {
+     "naam": "Afvoer van lymfe",
+     "antwoord": "-",
+     "uitleg": "Lymfe stroomt vooral als je spieren bewegen."
+    },
+    {
+     "naam": "Dikte van je enkels",
+     "antwoord": "+",
+     "uitleg": "Er hoopt vocht op: oedeem."
+    }
+   ]
+  },
+  {
+   "id": "indelen-oedeem",
+   "soort": "indelen",
+   "titel": "Waarom hoopt het vocht op?",
+   "opdracht": "Bij elke situatie hoopt er vocht op in het weefsel: oedeem. Waardoor?",
+   "bakken": [
+    {
+     "naam": "Er gaat meer vocht uit het haarvat"
+    },
+    {
+     "naam": "Er komt minder vocht terug in het haarvat"
+    },
+    {
+     "naam": "De lymfe kan niet goed weg"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een zwak hart: het bloed stroomt slecht terug en de druk in de aders stijgt.",
+     "bak": 0,
+     "uitleg": "Hogere druk duwt meer vocht naar buiten."
+    },
+    {
+     "tekst": "Ernstig eiwittekort: er zitten te weinig eiwitten in het plasma.",
+     "bak": 1,
+     "uitleg": "Minder eiwitten trekken minder vocht terug."
+    },
+    {
+     "tekst": "Na een operatie zijn lymfeknopen in de oksel weggehaald.",
+     "bak": 2,
+     "uitleg": "De arm kan dan dik worden."
+    },
+    {
+     "tekst": "Uren stilzitten met je benen naar beneden: de druk in je beenaders stijgt.",
+     "bak": 0,
+     "uitleg": "De hogere druk duwt meer vocht uit de haarvaten. Ook de lymfe stroomt dan trager."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-eiwittekort",
+   "soort": "pijlen",
+   "vwo": true,
+   "titel": "Te weinig eiwit",
+   "opdracht": "Een kind eet al lang veel te weinig eiwit. Voorspel wat er verandert.",
+   "situatie": "Er zitten minder eiwitten in het bloedplasma.",
+   "rijen": [
+    {
+     "naam": "Osmotische waarde van het plasma",
+     "antwoord": "-",
+     "uitleg": "Minder opgeloste eiwitten: een lagere osmotische waarde."
+    },
+    {
+     "naam": "Bloeddruk aan het begin van het haarvat",
+     "antwoord": "=",
+     "uitleg": "De bloeddruk verandert hierdoor niet."
+    },
+    {
+     "naam": "Vocht dat aan het eind terug het haarvat in gaat",
+     "antwoord": "-",
+     "uitleg": "De eiwitten trekken minder water terug."
+    },
+    {
+     "naam": "Weefselvloeistof in benen en buik",
+     "antwoord": "+",
+     "uitleg": "Het vocht hoopt zich op: oedeem."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-filtratie-resorptie",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Eruit aan het begin, terug aan het eind",
+   "opdracht": "Aan het begin van een haarvat gaat vocht naar buiten, aan het eind komt het meeste terug. Leg uit hoe dat komt, met de twee krachten uit de film.",
+   "begrippen": [
+    {
+     "naam": "bloeddruk",
+     "varianten": [
+      "druk"
+     ]
+    },
+    {
+     "naam": "plasma-eiwitten",
+     "varianten": [
+      "eiwitten"
+     ]
+    },
+    {
+     "naam": "osmotische waarde",
+     "varianten": [
+      "osmose",
+      "osmotisch"
+     ]
+    },
+    {
+     "naam": "filtratie",
+     "varianten": []
+    },
+    {
+     "naam": "resorptie",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de bloeddruk water naar buiten duwt, en dat die druk langs het haarvat daalt.",
+    "Ik leg uit dat de plasma-eiwitten binnen blijven, zodat plasma een hogere osmotische waarde heeft dan weefselvloeistof.",
+    "Ik leg uit dat die trek langs het hele haarvat ongeveer even groot is.",
+    "Ik leg uit dat aan het begin de bloeddruk wint (filtratie) en aan het eind de osmotische waarde (resorptie)."
+   ],
+   "model": [
+    "Er werken twee krachten. De bloeddruk duwt water naar buiten. De plasma-eiwitten blijven binnen; daardoor heeft plasma een hogere osmotische waarde dan weefselvloeistof, en trekt het water naar binnen.",
+    "De trek van de eiwitten is langs het hele haarvat ongeveer even groot, maar de bloeddruk daalt.",
+    "Aan het begin wint de bloeddruk: vocht gaat naar buiten, filtratie. Aan het eind wint de osmotische waarde: het meeste vocht komt terug, resorptie. Wat overblijft, voert de lymfe af."
+   ]
+  }
+ ]
+}

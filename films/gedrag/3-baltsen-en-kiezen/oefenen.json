@@ -1,0 +1,234 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/3-baltsen-en-kiezen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-stekelbaars-balts",
+   "soort": "volgorde",
+   "titel": "De dans van de stekelbaars",
+   "opdracht": "Elke handeling is de prikkel voor de volgende. Zet de actie-reactieketen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Een vrouwtje met een dikke buik vol eieren zwemt langs.",
+     "uitleg": "De dikke buik is de prikkel voor het mannetje."
+    },
+    {
+     "tekst": "Het mannetje maakt een zigzagdans.",
+     "uitleg": "De dans is weer de prikkel voor het vrouwtje."
+    },
+    {
+     "tekst": "Het vrouwtje zwemt met haar kop omhoog naar hem toe.",
+     "uitleg": "Dat is de prikkel voor hem om naar het nest te gaan."
+    },
+    {
+     "tekst": "Hij zwemt naar zijn nest, zij volgt, en hij wijst met zijn bek de ingang aan.",
+     "uitleg": "Het aanwijzen is de prikkel om erin te kruipen."
+    },
+    {
+     "tekst": "Het vrouwtje kruipt in het nest.",
+     "uitleg": "Nu kan hij de volgende prikkel geven."
+    },
+    {
+     "tekst": "Hij stoot met trillende bek tegen haar staartwortel, en zij legt haar eieren.",
+     "uitleg": "Tinbergen deed dit na met een glazen staafje, en ook dan legde ze eieren."
+    },
+    {
+     "tekst": "Zij zwemt weg, en hij zwemt door het nest en bevrucht de eieren.",
+     "uitleg": "De bevruchting gebeurt buiten het lichaam, dus het moet vlak na het leggen."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-widavogel",
+   "soort": "grafiek",
+   "titel": "Staarten knippen en plakken",
+   "opdracht": "Bij widavogels werd de staart van mannetjes korter geknipt, verlengd, of doorgeknipt en weer vastgeplakt (controle). De grafiek is schematisch. Lees hem af.",
+   "alt": "Staafdiagram met nesten per mannetje: korter 0,5, controle 1,3, verlengd 2,2.",
+   "breed": 640,
+   "hoog": 340,
+   "svg": "<line class=\"zacht\" x1=\"90\" y1=\"226.0\" x2=\"610\" y2=\"226.0\" stroke-dasharray=\"2 6\"/><line class=\"zacht\" x1=\"90\" y1=\"182.0\" x2=\"610\" y2=\"182.0\" stroke-dasharray=\"2 6\"/><line class=\"zacht\" x1=\"90\" y1=\"138.0\" x2=\"610\" y2=\"138.0\" stroke-dasharray=\"2 6\"/><line class=\"zacht\" x1=\"90\" y1=\"94.0\" x2=\"610\" y2=\"94.0\" stroke-dasharray=\"2 6\"/><line class=\"zacht\" x1=\"90\" y1=\"50.0\" x2=\"610\" y2=\"50.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"270.0\" x2=\"90\" y2=\"270.0\"/><text x=\"78.0\" y=\"275.0\" text-anchor=\"end\" style=\"font-size:13px\">0</text><line x1=\"84\" y1=\"226.0\" x2=\"90\" y2=\"226.0\"/><text x=\"78.0\" y=\"231.0\" text-anchor=\"end\" style=\"font-size:13px\">0,5</text><line x1=\"84\" y1=\"182.0\" x2=\"90\" y2=\"182.0\"/><text x=\"78.0\" y=\"187.0\" text-anchor=\"end\" style=\"font-size:13px\">1</text><line x1=\"84\" y1=\"138.0\" x2=\"90\" y2=\"138.0\"/><text x=\"78.0\" y=\"143.0\" text-anchor=\"end\" style=\"font-size:13px\">1,5</text><line x1=\"84\" y1=\"94.0\" x2=\"90\" y2=\"94.0\"/><text x=\"78.0\" y=\"99.0\" text-anchor=\"end\" style=\"font-size:13px\">2</text><line x1=\"84\" y1=\"50.0\" x2=\"90\" y2=\"50.0\"/><text x=\"78.0\" y=\"55.0\" text-anchor=\"end\" style=\"font-size:13px\">2,5</text><line x1=\"90\" y1=\"270\" x2=\"610\" y2=\"270\"/><line x1=\"90\" y1=\"270\" x2=\"90\" y2=\"42\"/><text x=\"86.0\" y=\"32.0\" text-anchor=\"start\" style=\"font-size:13px\">nesten per mannetje (schematisch)</text><rect class=\"\" x=\"136.7\" y=\"226.0\" width=\"80\" height=\"44.0\" stroke-width=\"2.5\"/><text x=\"176.7\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">korter</text><rect class=\"\" x=\"310.0\" y=\"155.6\" width=\"80\" height=\"114.4\" stroke-width=\"2.5\"/><text x=\"350.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">controle</text><rect class=\"acc\" x=\"483.3\" y=\"76.4\" width=\"80\" height=\"193.6\" stroke-width=\"2.5\"/><text x=\"523.3\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">verlengd</text><text x=\"350.0\" y=\"322.0\" text-anchor=\"middle\" style=\"font-size:13px\">staart van het mannetje</text>",
+   "vragen": [
+    {
+     "vraag": "Welke groep mannetjes kreeg de meeste nesten?",
+     "keuzes": [
+      "korter geknipt",
+      "controle",
+      "verlengd"
+     ],
+     "antwoord": 2,
+     "uitleg": "De mannetjes met de verlengde staart kregen de meeste nesten, die met de korte staart de minste."
+    },
+    {
+     "vraag": "Hoeveel keer zoveel nesten kreeg een verlengd mannetje als een kort geknipt mannetje, in deze grafiek?",
+     "antwoord": 4.4,
+     "marge": 0.6,
+     "eenheid": "keer",
+     "uitleg": "2,2 gedeeld door 0,5 is 4,4."
+    },
+    {
+     "vraag": "Waarom werd bij de controlegroep de staart doorgeknipt en weer vastgeplakt?",
+     "keuzes": [
+      "om te laten zien dat knippen en plakken zelf geen verschil maakt",
+      "om te zien of de staart teruggroeit",
+      "om de vogels te laten wennen aan de onderzoeker"
+     ],
+     "antwoord": 0,
+     "uitleg": "Omdat het knippen en plakken zelf geen verschil maakte, ligt het verschil aan de lengte van de staart."
+    },
+    {
+     "vraag": "Wat concludeer je?",
+     "keuzes": [
+      "een lange staart helpt het mannetje overleven",
+      "vrouwtjes kiezen op staartlengte",
+      "vrouwtjes kiezen bewust de mooiste"
+     ],
+     "antwoord": 1,
+     "uitleg": "Vrouwtjes kiezen echt op staartlengte. Ze reageren op een prikkel: hoe langer de staart, hoe sterker de prikkel. Ze denken niet \"ik kies de mooiste\"."
+    }
+   ]
+  },
+  {
+   "id": "indelen-vrouwtje-mannetje",
+   "soort": "indelen",
+   "titel": "Wie investeert het meest?",
+   "opdracht": "Past elk kenmerk bij veel diersoorten vooral bij het vrouwtje of vooral bij het mannetje?",
+   "bakken": [
+    {
+     "naam": "Vaak het vrouwtje"
+    },
+    {
+     "naam": "Vaak het mannetje"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Maakt weinig geslachtscellen, groot en kostbaar.",
+     "bak": 0,
+     "uitleg": "Eicellen zijn groot en er zijn er weinig."
+    },
+    {
+     "tekst": "Maakt miljoenen kleine geslachtscellen.",
+     "bak": 1,
+     "uitleg": "Zaadcellen zijn klein en goedkoop."
+    },
+    {
+     "tekst": "Broedt, draagt of zoogt de jongen.",
+     "bak": 0,
+     "uitleg": "Vaak zorgt het vrouwtje na de bevruchting ook nog voor de jongen."
+    },
+    {
+     "tekst": "Investeert meer in elk jong.",
+     "bak": 0,
+     "uitleg": "Grote eicel en vaak ook de zorg: een slechte keuze is voor haar duur."
+    },
+    {
+     "tekst": "Is kieskeurig bij het kiezen van een partner.",
+     "bak": 0,
+     "uitleg": "Wie meer investeert, kiest kritischer."
+    },
+    {
+     "tekst": "Moet opvallen, door te vechten of te showen.",
+     "bak": 1,
+     "uitleg": "Zoals edelherten met hun gewei en de pauw met zijn staart."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-pauwenstaart",
+   "soort": "uitleg",
+   "titel": "Een staart die niet helpt overleven",
+   "opdracht": "Een pauwenstaart kost veel energie en valt op bij een vos. Toch is hij er nog. Leg uit hoe dat kan, en waarom juist de hen kiest.",
+   "begrippen": [
+    {
+     "naam": "seksuele selectie",
+     "varianten": [
+      "seksueel"
+     ]
+    },
+    {
+     "naam": "paren",
+     "varianten": [
+      "paring",
+      "partner"
+     ]
+    },
+    {
+     "naam": "investeert",
+     "varianten": [
+      "investering",
+      "investeren"
+     ]
+    },
+    {
+     "naam": "eicellen",
+     "varianten": [
+      "eicel"
+     ]
+    },
+    {
+     "naam": "jongen",
+     "varianten": [
+      "nakomelingen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat natuurlijke selectie vooral kenmerken verklaart die helpen overleven, en dat de staart dat niet doet.",
+    "Ik leg uit dat hennen vaak hanen met een indrukwekkende staart kiezen: seksuele selectie.",
+    "Ik leg uit dat die hanen meer jongen krijgen en de staart doorgeven.",
+    "Ik leg uit dat de hen kiest omdat zij meer investeert in elk jong."
+   ],
+   "model": [
+    "Natuurlijke selectie verklaart vooral kenmerken die helpen overleven. Een pauwenstaart helpt daar niet bij: hij kost energie en valt op.",
+    "Maar pauwhennen paren vaker met hanen die een indrukwekkende staart hebben. Die hanen krijgen meer jongen, en geven hun staart door. Een kenmerk dat helpt om te paren blijft zo bestaan: seksuele selectie.",
+    "De hen kiest, omdat zij meer investeert in elk jong: een grote, kostbare eicel en vaak ook de zorg. Voor haar is een slechte keuze duur. Daarom is zij kieskeurig, en moet de haan opvallen."
+   ]
+  },
+  {
+   "id": "uitleg-handicapprincipe",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Kun je de staart vertrouwen?",
+   "opdracht": "Een zwak mannetje kan toch ook een grote staart laten groeien om een hen te misleiden? Leg met het handicapprincipe uit waarom dat niet lukt.",
+   "begrippen": [
+    {
+     "naam": "handicapprincipe",
+     "varianten": [
+      "handicap"
+     ]
+    },
+    {
+     "naam": "duur",
+     "varianten": [
+      "kost",
+      "energie"
+     ]
+    },
+    {
+     "naam": "gezond",
+     "varianten": [
+      "sterk"
+     ]
+    },
+    {
+     "naam": "eerlijk",
+     "varianten": [
+      "betrouwbaar"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat zo'n staart veel energie kost en roofdieren aantrekt.",
+    "Ik leg uit dat alleen een gezond, sterk mannetje zich dat kan veroorloven.",
+    "Ik leg uit dat een zwak mannetje met zo'n staart wordt gepakt of de energie niet heeft.",
+    "Ik concludeer dat het signaal eerlijk is omdat het duur is."
+   ],
+   "model": [
+    "Een grote staart kost veel energie en valt op bij roofdieren zoals de vos. Het is een handicap.",
+    "Alleen een gezond, sterk mannetje kan die handicap dragen. Een zwak mannetje met zo'n staart wordt gepakt, of heeft er de energie niet voor.",
+    "Juist omdat het signaal duur is, kan een zwak mannetje het niet nadoen: het signaal is eerlijk. Bij pauwen zijn hanen met een mooiere staart gemiddeld gezonder, en hun jongen overleven beter."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "intro": "Oefen met de ladder van organisatieniveaus en met de vraag wat leven is. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-molecuul-organisme",
+   "soort": "volgorde",
+   "titel": "Van molecuul tot koolmees",
+   "opdracht": "Zet de niveaus op volgorde, van klein naar groot. Begin bij een eiwit in een spiercel van de koolmees.",
+   "stappen": [
+    {"tekst": "Molecuul: een eiwit", "uitleg": "Het kleinste niveau op de ladder. Een los eiwit leeft niet."},
+    {"tekst": "Organel: de celkern", "uitleg": "Veel moleculen samen vormen een organel."},
+    {"tekst": "Cel: een spiercel", "uitleg": "De cel is het kleinste niveau dat leeft."},
+    {"tekst": "Weefsel: spierweefsel", "uitleg": "Cellen met dezelfde bouw en functie samen."},
+    {"tekst": "Orgaan: het hart", "uitleg": "Verschillende weefsels samen vormen een orgaan."},
+    {"tekst": "Orgaanstelsel: het bloedvatenstelsel", "uitleg": "Hart en bloedvaten werken samen."},
+    {"tekst": "Organisme: één koolmees", "uitleg": "Alle orgaanstelsels samen. Bij een bacterie is één cel meteen het hele organisme."}
+   ]
+  },
+  {
+   "id": "volgorde-organisme-biosfeer",
+   "soort": "volgorde",
+   "titel": "Van koolmees tot biosfeer",
+   "opdracht": "Ga verder omhoog op de ladder. Zet de niveaus op volgorde, van klein naar groot.",
+   "stappen": [
+    {"tekst": "Organisme: één koolmees", "uitleg": "Eén levend wezen."},
+    {"tekst": "Populatie: alle koolmezen in één bos", "uitleg": "Eén soort, in één gebied, die zich onderling kan voortplanten."},
+    {"tekst": "Levensgemeenschap: koolmezen, merels, rupsen, eiken en schimmels in dat bos", "uitleg": "Alle populaties in het gebied samen."},
+    {"tekst": "Ecosysteem: het bos met alles wat leeft, plus bodem, water, licht en temperatuur", "uitleg": "Levensgemeenschap plus de abiotische factoren."},
+    {"tekst": "Biosfeer: alle ecosystemen op aarde", "uitleg": "Het hoogste niveau."}
+   ]
+  },
+  {
+   "id": "indelen-welk-niveau",
+   "soort": "indelen",
+   "titel": "Welk niveau onderzoekt ze?",
+   "opdracht": "Een onderzoeker doet verschillende metingen in een bos. Op welk niveau kijkt ze bij elke meting?",
+   "bakken": [
+    {"naam": "Populatie", "uitleg": "één soort in één gebied"},
+    {"naam": "Levensgemeenschap", "uitleg": "alle soorten samen"},
+    {"naam": "Ecosysteem", "uitleg": "levend plus levenloos"}
+   ],
+   "kaartjes": [
+    {"tekst": "Ze telt hoeveel koolmezen er in het bos broeden.", "bak": 0, "uitleg": "Alleen koolmezen: één soort, in één gebied."},
+    {"tekst": "Ze volgt hoeveel jonge koolmezen er elk jaar uitvliegen.", "bak": 0, "uitleg": "Een geboortecijfer hoort bij een populatie."},
+    {"tekst": "Ze telt rupsen, merels, koolmezen en eiken.", "bak": 1, "uitleg": "Alleen levende soorten: een levensgemeenschap."},
+    {"tekst": "Ze onderzoekt welke dieren de rupsen van de eik eten.", "bak": 1, "uitleg": "Het gaat om verschillende soorten en hun relaties, zonder levenloze factoren."},
+    {"tekst": "Ze meet of een warm voorjaar de rupsen eerder laat komen.", "bak": 2, "uitleg": "Temperatuur is een abiotische factor: dan kijk je naar een ecosysteem."},
+    {"tekst": "Ze meet hoe nat de bodem is onder de eiken.", "bak": 2, "uitleg": "Bodem en water zijn abiotische factoren."}
+   ]
+  },
+  {
+   "id": "indelen-leeft-het",
+   "soort": "indelen",
+   "titel": "Leeft het?",
+   "opdracht": "Leg elk kaartje naast de lijst met levenskenmerken. Leeft het, of niet?",
+   "bakken": [
+    {"naam": "Leeft", "uitleg": "heeft de levenskenmerken"},
+    {"naam": "Leeft niet", "uitleg": "mist de levenskenmerken"}
+   ],
+   "kaartjes": [
+    {"tekst": "Een koolmees", "bak": 0, "uitleg": "Hij eet, groeit, legt eieren, reageert en blijft warm."},
+    {"tekst": "Een bacterie", "bak": 0, "uitleg": "Maar één cel, en toch heeft hij alle levenskenmerken."},
+    {"tekst": "Eén spiercel van de koolmees", "bak": 0, "uitleg": "De cel is het kleinste niveau dat leeft."},
+    {"tekst": "Een los eiwit uit de koolmees", "bak": 1, "uitleg": "Het neemt geen stoffen op en plant zich niet voort."},
+    {"tekst": "Een DNA-molecuul", "bak": 1, "uitleg": "Erfelijk materiaal is een molecuul, en een los molecuul leeft niet."},
+    {"tekst": "Een griepvirus op een deurklink", "bak": 1, "uitleg": "Geen cel en geen eigen stofwisseling. Sommige biologen noemen een virus een grensgeval."}
+   ]
+  },
+  {
+   "id": "uitleg-virus",
+   "soort": "uitleg",
+   "titel": "Leeft een griepvirus?",
+   "opdracht": "Noor heeft griep. In haar keel worden miljoenen nieuwe virussen gemaakt, en ze veranderen steeds. Toch zeggen de meeste biologen dat een griepvirus niet leeft. Leg uit waarom.",
+   "begrippen": [
+    {"naam": "cel", "varianten": ["cellen"]},
+    {"naam": "stofwisseling", "varianten": []},
+    {"naam": "levenskenmerken", "varianten": ["levenskenmerk"]},
+    {"naam": "erfelijk materiaal", "varianten": ["molecuul", "RNA"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat een virus geen cel is, en dat de cel het kleinste niveau is dat leeft.",
+    "Ik leg uit dat een virus geen eigen stofwisseling heeft en niet zelf groeit.",
+    "Ik leg uit dat de gastheercel de nieuwe virussen maakt, met haar eigen stoffen en energie.",
+    "Ik noem waarom sommige biologen een virus een grensgeval noemen."
+   ],
+   "model": [
+    "Een virus is geen cel, maar een pakketje erfelijk materiaal in een eiwitmantel. De cel is het kleinste niveau dat leeft.",
+    "Leg je het virus naast de levenskenmerken, dan mist het bijna alles: geen eigen stofwisseling, het groeit niet en reageert niet op prikkels. Het virus maakt ook zijn kopieën niet zelf: het dringt een cel binnen, en die cel maakt nieuwe virussen met haar eigen stoffen en energie.",
+    "Er komen wel steeds meer virussen bij, en ze evolueren. Daarom noemen sommige biologen een virus een grensgeval."
+   ]
+  },
+  {
+   "id": "uitleg-emergent",
+   "soort": "uitleg",
+   "vwo": true,
+   "titel": "Meer dan de optelsom",
+   "opdracht": "Geen enkel molecuul in een cel leeft, maar de cel wel. Leg uit wat een emergente eigenschap is, met dit voorbeeld en met een voorbeeld van een populatie.",
+   "begrippen": [
+    {"naam": "emergente eigenschap", "varianten": ["emergent"]},
+    {"naam": "samenwerken", "varianten": ["samen", "delen"]},
+    {"naam": "populatie", "varianten": []},
+    {"naam": "dichtheid", "varianten": ["geboortecijfer", "evolutie", "evolueren"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat een emergente eigenschap ontstaat doordat de delen samenwerken.",
+    "Ik leg uit dat de losse delen die eigenschap niet hebben: het is meer dan de optelsom.",
+    "Ik gebruik het voorbeeld dat leven zelf een emergente eigenschap is van een cel vol moleculen.",
+    "Ik geef een voorbeeld van een populatie: dichtheid, geboortecijfer of evolutie."
+   ],
+   "model": [
+    "Een emergente eigenschap is een nieuwe eigenschap van het geheel, die ontstaat doordat de delen samenwerken. De losse delen hebben die eigenschap niet.",
+    "Geen enkel molecuul leeft, maar een cel vol moleculen wel. Leven zelf is dus een emergente eigenschap.",
+    "Ook een populatie heeft eigenschappen die één koolmees niet heeft: een dichtheid en een geboortecijfer. En alleen een populatie kan evolueren."
+   ]
+  }
+ ]
+}

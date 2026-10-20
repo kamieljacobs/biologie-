@@ -1,0 +1,162 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-bestuiving",
+   "soort": "volgorde",
+   "titel": "Van bloesem tot appel",
+   "opdracht": "Zet in de goede volgorde hoe er een appel aan de boom komt.",
+   "stappen": [
+    {
+     "tekst": "In het voorjaar bloeit de appelboom.",
+     "uitleg": "Een bloem wordt pas een appel na bestuiving."
+    },
+    {
+     "tekst": "Een bij zoekt nectar in een bloem.",
+     "uitleg": "Bijen, hommels en zweefvliegen doen dit werk."
+    },
+    {
+     "tekst": "Er blijft stuifmeel aan haar haren plakken.",
+     "uitleg": "Ze neemt het mee."
+    },
+    {
+     "tekst": "In de volgende bloem valt een beetje stuifmeel af: bestuiving.",
+     "uitleg": "Zonder bestuivers komen er veel minder appels."
+    },
+    {
+     "tekst": "De bestoven bloem groeit uit tot een appel.",
+     "uitleg": "De natuur doet dit gratis."
+    }
+   ]
+  },
+  {
+   "id": "indelen-ecosysteemdiensten",
+   "soort": "indelen",
+   "titel": "Wat doet de natuur gratis?",
+   "opdracht": "Bij welke ecosysteemdienst hoort dit?",
+   "bakken": [
+    {
+     "naam": "Voedsel"
+    },
+    {
+     "naam": "Schoon water"
+    },
+    {
+     "naam": "Bescherming"
+    },
+    {
+     "naam": "Lucht en koelte"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Bijen bestuiven appelbloesem.",
+     "bak": 0,
+     "uitleg": "Zonder bestuiving veel minder appels."
+    },
+    {
+     "tekst": "Graan groeit in levende grond, vol wormen en bacteriën.",
+     "bak": 0,
+     "uitleg": "Zo komt er brood in je lunch."
+    },
+    {
+     "tekst": "Rivierwater zakt in de duinen langzaam door het zand.",
+     "bak": 1,
+     "uitleg": "Het zand werkt als een filter."
+    },
+    {
+     "tekst": "Bacteriën in de duinen ruimen vuil op.",
+     "bak": 1,
+     "uitleg": "Er komt schoon kraanwater uit."
+    },
+    {
+     "tekst": "Duinen houden de zee tegen bij een storm.",
+     "bak": 2,
+     "uitleg": "Anders zou een groot deel van het westen onder water lopen."
+    },
+    {
+     "tekst": "Planten en algen maken zuurstof.",
+     "bak": 3,
+     "uitleg": "Die heb je nodig om te ademen."
+    },
+    {
+     "tekst": "Bomen in de stad geven schaduw.",
+     "bak": 3,
+     "uitleg": "Onder bomen is het op een hete dag een stuk koeler."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-gif",
+   "soort": "pijlen",
+   "titel": "Gif op de akker",
+   "opdracht": "Voorspel wat er kan gebeuren.",
+   "situatie": "Een boer spuit een gif tegen luizen op zijn akker.",
+   "rijen": [
+    {
+     "naam": "Aantal luizen",
+     "antwoord": "-",
+     "uitleg": "Daar is het gif voor."
+    },
+    {
+     "naam": "Aantal bijen en andere nuttige insecten",
+     "antwoord": "-",
+     "uitleg": "Gif maakt vaak geen verschil tussen een luis en een bij."
+    },
+    {
+     "naam": "Bestuiving van de bloemen",
+     "antwoord": "-",
+     "uitleg": "Als bijen verdwijnen, verdwijnt de bestuiving."
+    },
+    {
+     "naam": "Oogst van de boer",
+     "antwoord": "-",
+     "uitleg": "Minder bestuiving: minder oogst. Je raakt de dienst van het ecosysteem kwijt."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-twintig-bestuivers",
+   "soort": "uitleg",
+   "titel": "Twintig soorten bestuivers",
+   "opdracht": "In een boomgaard vliegen wel twintig soorten bestuivers. Leg uit waarom het goed is dat er zoveel verschillende soorten zijn.",
+   "begrippen": [
+    {
+     "naam": "biodiversiteit",
+     "varianten": []
+    },
+    {
+     "naam": "bestuiving",
+     "varianten": [
+      "bestuiven",
+      "bestuivers"
+     ]
+    },
+    {
+     "naam": "soorten",
+     "varianten": [
+      "soort"
+     ]
+    },
+    {
+     "naam": "hommels",
+     "varianten": [
+      "hommel",
+      "honingbij"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat niet elke soort onder dezelfde omstandigheden vliegt, bijvoorbeeld als het koud is.",
+    "Ik leg uit dat andere soorten het werk dan overnemen, zodat de bestuiving doorgaat.",
+    "Ik noem dat veel verschillende soorten biodiversiteit heet, en dat die de kans kleiner maakt dat een dienst wegvalt."
+   ],
+   "model": [
+    "Is het in een jaar te koud voor de honingbij, dan vliegen hommels nog wel. Zo gaat de bestuiving van de appelbloesem gewoon door.",
+    "Hoe meer soorten, hoe kleiner de kans dat een dienst helemaal wegvalt. Veel verschillende soorten heet biodiversiteit."
+   ]
+  }
+ ]
+}

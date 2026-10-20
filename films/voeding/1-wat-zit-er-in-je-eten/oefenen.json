@@ -1,0 +1,148 @@
+{
+ "intro": "Oefen met voedingsstoffen, hun taken en het etiket. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-taken",
+   "soort": "indelen",
+   "titel": "Bouwen, branden, bewaren of regelen?",
+   "opdracht": "Je lichaam gebruikt voedingsstoffen voor vier taken. Welke taak heeft de stof in elk kaartje?",
+   "bakken": [
+    {"naam": "Bouwstof", "uitleg": "je lichaam maken en herstellen"},
+    {"naam": "Brandstof", "uitleg": "energie uit halen"},
+    {"naam": "Reservestof", "uitleg": "energie bewaren voor later"},
+    {"naam": "Regelstof", "uitleg": "de stofwisseling laten lopen"}
+   ],
+   "kaartjes": [
+    {"tekst": "Aminozuren uit de kaas worden nieuw spiereiwit.", "bak": 0, "uitleg": "Alleen eiwit levert de bouwstenen voor nieuw eiwit."},
+    {"tekst": "Calcium uit de melk in je botten", "bak": 0, "uitleg": "Calcium is bouwstof voor je botten."},
+    {"tekst": "Vetachtige stoffen in elk celmembraan", "bak": 0, "uitleg": "Ook vet is bouwstof."},
+    {"tekst": "Glucose uit het zetmeel van het brood wordt in je cellen verbrand.", "bak": 1, "uitleg": "Koolhydraten leveren het snelst energie."},
+    {"tekst": "Glycogeen in je lever en spieren", "bak": 2, "uitleg": "Een klein beetje energie bewaar je als glycogeen."},
+    {"tekst": "Het vet dat een trekvogel meeneemt voor zijn reis", "bak": 2, "uitleg": "Vet is de lichtste manier om energie te bewaren."},
+    {"tekst": "Vitaminen, in kleine hoeveelheden", "bak": 3, "uitleg": "Je lichaam gebruikt ze om processen te regelen."}
+   ]
+  },
+  {
+   "id": "volgorde-kaas-eiwit",
+   "soort": "volgorde",
+   "titel": "Van kaas tot je eigen eiwit",
+   "opdracht": "Volg het eiwit uit de kaas. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {"tekst": "Je eet kaas: eiwit, een lange keten van aminozuren.", "uitleg": "Er zijn twintig soorten aminozuren."},
+    {"tekst": "Je lichaam knipt het eiwit in losse aminozuren.", "uitleg": "Het eiwit uit de kaas kun je niet zomaar gebruiken."},
+    {"tekst": "De aminozuren komen in je bloed.", "uitleg": "Onderzoekers meten zo hoeveel eiwit echt wordt opgenomen."},
+    {"tekst": "Je cellen bouwen met die aminozuren je eigen eiwitten, zoals enzymen en spiereiwit.", "uitleg": "Met twintig soorten maak je tienduizenden verschillende eiwitten."},
+    {"tekst": "Aminozuren die over zijn, worden in je lever afgebroken: het stikstofdeel wordt ureum.", "uitleg": "De rest wordt brandstof of wordt als vet opgeslagen. Een eiwitvoorraad heb je niet."}
+   ]
+  },
+  {
+   "id": "puzzel-etiket-melk",
+   "soort": "puzzel",
+   "titel": "Rekenen met het etiket",
+   "opdracht": "Op het etiket van halfvolle melk staat per 100 ml: 3,5 g eiwit, 1,5 g vet en 4,7 g koolhydraten. Eiwit en koolhydraat leveren 17 kJ per gram, vet 37 kJ per gram.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel energie levert elke voedingsstof in 100 ml melk?",
+     "velden": [
+      {"label": "eiwit (kJ):", "antwoord": 59.5, "marge": 0.5},
+      {"label": "vet (kJ):", "antwoord": 55.5, "marge": 0.5},
+      {"label": "koolhydraten (kJ):", "antwoord": 79.9, "marge": 0.5}
+     ],
+     "uitleg": "Eiwit: 3,5 × 17 = 59,5 kJ. Vet: 1,5 × 37 = 55,5 kJ. Koolhydraten: 4,7 × 17 = 79,9 kJ.",
+     "tip": "Vermenigvuldig het aantal gram met de kilojoules per gram."
+    },
+    {
+     "vraag": "Hoeveel energie zit er in totaal in 100 ml?",
+     "velden": [
+      {"label": "totaal (kJ):", "antwoord": 195, "marge": 1}
+     ],
+     "uitleg": "59,5 + 55,5 + 79,9 = 194,9, afgerond 195 kJ. Dat staat ook op het etiket."
+    },
+    {
+     "vraag": "Je drinkt een glas van 250 ml. Hoeveel energie is dat?",
+     "velden": [
+      {"label": "glas (kJ):", "antwoord": 487, "marge": 4}
+     ],
+     "uitleg": "250 ml is 2,5 keer 100 ml: 2,5 × 195 ≈ 487 kJ."
+    },
+    {
+     "vraag": "Vet levert per gram ruim twee keer zoveel energie als koolhydraat. Waarom?",
+     "velden": [
+      {"label": "omdat:", "antwoord": "in glucose zitten al veel zuurstofatomen", "opties": ["in glucose zitten al veel zuurstofatomen", "vet bevat meer water", "vet wordt sneller verbrand"]}
+     ],
+     "uitleg": "Glucose is als het ware al half verbrand. Een vetzuur is bijna alleen koolstof en waterstof: daar valt meer te verbranden."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-adi-aspartaam",
+   "soort": "puzzel",
+   "vwo": true,
+   "titel": "Hoeveel blikjes?",
+   "opdracht": "De ADI van de zoetstof aspartaam is 40 mg per kilogram lichaamsgewicht per dag. In één blikje frisdrank zit 200 mg aspartaam. Een kind weegt 30 kilogram.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel aspartaam mag het kind per dag binnenkrijgen?",
+     "velden": [
+      {"label": "mg per dag:", "antwoord": 1200}
+     ],
+     "uitleg": "De ADI geldt per kilogram: 30 × 40 = 1200 mg per dag.",
+     "tip": "Vermenigvuldig eerst met het lichaamsgewicht."
+    },
+    {
+     "vraag": "Na hoeveel blikjes zit het kind aan de ADI?",
+     "velden": [
+      {"label": "blikjes:", "antwoord": 6}
+     ],
+     "uitleg": "1200 gedeeld door 200 = 6 blikjes. Iemand van 60 kg zit pas na 12 blikjes aan de ADI."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-vegan",
+   "soort": "uitleg",
+   "titel": "Genoeg eiwit, toch opletten",
+   "opdracht": "Een vleeseter en een vegan eten allebei zestig gram eiwit per dag. Toch krijgt de vegan het advies: let extra goed op je eiwit. Leg uit waarom.",
+   "begrippen": [
+    {"naam": "aminozuren", "varianten": ["aminozuur", "bouwstenen"]},
+    {"naam": "essentieel", "varianten": ["essentiële", "zelf maken"]},
+    {"naam": "afgebroken", "varianten": ["afbreken", "ureum", "lever"]},
+    {"naam": "combineren", "varianten": ["aanvullen", "vullen elkaar aan", "peulvruchten", "granen"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat negen aminozuren essentieel zijn: je moet ze eten.",
+    "Ik leg uit dat er in plantaardig eiwit van één of twee essentiële aminozuren vaak weinig zit.",
+    "Ik leg uit dat het essentiële aminozuur dat het eerst op is, bepaalt hoeveel eiwit je kunt bouwen; de rest wordt afgebroken.",
+    "Ik leg uit dat granen en peulvruchten elkaar kunnen aanvullen."
+   ],
+   "model": [
+    "Eiwit is een keten van aminozuren. Negen daarvan kan je lichaam niet zelf maken: de essentiële aminozuren. Die moeten in je voeding zitten.",
+    "Plantaardig voedsel bevat alle negen, maar van één of twee zit er vaak weinig in. Het essentiële aminozuur dat het eerst op is, bepaalt hoeveel eiwit je kunt bouwen. De aminozuren die over zijn, worden in de lever afgebroken.",
+    "Daarom moet de vegan verschillende plantaardige bronnen combineren. Granen en peulvruchten vullen elkaar aan, en soja heeft alle negen in een goede verhouding."
+   ]
+  },
+  {
+   "id": "uitleg-trekvogel",
+   "soort": "uitleg",
+   "titel": "Waarom bewaar je energie als vet?",
+   "opdracht": "Een trekvogel vliegt dagen zonder te eten. Hij bewaart zijn brandstof als vet, en niet als glycogeen. Leg uit waarom dat voordelig is.",
+   "begrippen": [
+    {"naam": "vet", "varianten": []},
+    {"naam": "glycogeen", "varianten": []},
+    {"naam": "energie per gram", "varianten": ["kilojoule", "kJ", "per gram"]},
+    {"naam": "water", "varianten": []}
+   ],
+   "checklist": [
+    "Ik leg uit dat vet per gram ruim twee keer zoveel energie levert als koolhydraat.",
+    "Ik leg uit dat glycogeen water bindt: bij elke gram ongeveer drie gram water.",
+    "Ik leg uit dat vet bijna zonder water wordt opgeslagen.",
+    "Ik concludeer dat vet per gram die de vogel meesjouwt bijna negen keer zoveel energie levert."
+   ],
+   "model": [
+    "Eén gram vet levert ongeveer 37 kJ, één gram koolhydraat ongeveer 17 kJ. Vet levert dus ruim twee keer zoveel energie per gram.",
+    "Bovendien bindt glycogeen water: bij elke gram zit ongeveer drie gram water. Vet wordt bijna zonder water opgeslagen.",
+    "Per gram die de vogel meesjouwt, levert vet dus bijna negen keer zoveel energie. Zo blijft hij licht genoeg om dagen te vliegen."
+   ]
+  }
+ ]
+}

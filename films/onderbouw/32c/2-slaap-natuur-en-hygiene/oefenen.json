@@ -1,0 +1,176 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32c/2-slaap-natuur-en-hygiene/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-goed-slapen",
+   "soort": "indelen",
+   "titel": "Helpt het om te slapen?",
+   "opdracht": "Helpt dit om 's avonds goed in slaap te vallen?",
+   "bakken": [
+    {
+     "naam": "Helpt"
+    },
+    {
+     "naam": "Helpt niet"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Overdag naar buiten gaan.",
+     "bak": 0,
+     "uitleg": "Daglicht zet je biologische klok elke ochtend gelijk."
+    },
+    {
+     "tekst": "'s Avonds minder fel licht.",
+     "bak": 0,
+     "uitleg": "Dan wordt je klok niet later gezet."
+    },
+    {
+     "tekst": "Een dag vol beweging.",
+     "bak": 0,
+     "uitleg": "Na een dag vol beweging slaap je vaak beter."
+    },
+    {
+     "tekst": "Vlak voor bedtijd lang op een fel scherm kijken.",
+     "bak": 1,
+     "uitleg": "Fel licht in de avond zet je klok later. Dan word je pas laat moe."
+    },
+    {
+     "tekst": "Vlak voor bedtijd heel hard sporten.",
+     "bak": 1,
+     "uitleg": "Bewegen overdag helpt, maar niet vlak voor je gaat slapen."
+    },
+    {
+     "tekst": "Tot laat in fel licht blijven zitten.",
+     "bak": 1,
+     "uitleg": "Dan word je pas laat moe."
+    }
+   ]
+  },
+  {
+   "id": "indelen-hygiene",
+   "soort": "indelen",
+   "titel": "Klopt het?",
+   "opdracht": "Klopt deze zin over hygiëne, of klopt hij niet?",
+   "bakken": [
+    {
+     "naam": "Klopt"
+    },
+    {
+     "naam": "Klopt niet"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Zeep maakt vet en vuil los, zodat ziekteverwekkers wegspoelen.",
+     "bak": 0,
+     "uitleg": "Door te wrijven en te spoelen gaan ze van je handen af."
+    },
+    {
+     "tekst": "Was je handen twintig seconden, ook tussen je vingers.",
+     "bak": 0,
+     "uitleg": "Zo spoel je de meeste ziekteverwekkers weg."
+    },
+    {
+     "tekst": "Tandplak is een dun laagje bacteriën.",
+     "bak": 0,
+     "uitleg": "Poetsen haalt het weg, voordat het gaatjes maakt."
+    },
+    {
+     "tekst": "Niezen in je elleboog houdt ziekteverwekkers van je handen.",
+     "bak": 0,
+     "uitleg": "En dus ook van de deurklink."
+    },
+    {
+     "tekst": "Zeep doodt meteen alle ziekteverwekkers.",
+     "bak": 1,
+     "uitleg": "Zeep spoelt ze vooral weg."
+    },
+    {
+     "tekst": "Ziekteverwekkers op je handen zie je meteen.",
+     "bak": 1,
+     "uitleg": "Je ziet ze niet."
+    },
+    {
+     "tekst": "Alleen water werkt net zo goed als zeep.",
+     "bak": 1,
+     "uitleg": "Zonder zeep blijven vet en vuil zitten, met de ziekteverwekkers erin."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-semmelweis",
+   "soort": "volgorde",
+   "titel": "Het onderzoek van Semmelweis",
+   "opdracht": "Zet het verhaal van Semmelweis in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "In een ziekenhuis in Wenen krijgen veel moeders na de bevalling hoge koorts.",
+     "uitleg": "Het jaar 1847. Veel van hen gaan dood."
+    },
+    {
+     "tekst": "Semmelweis ziet dat artsen de moeders onderzoeken met handen die nog vuil zijn van ander werk.",
+     "uitleg": "Hij zoekt naar een oorzaak."
+    },
+    {
+     "tekst": "Hij laat de artsen hun handen wassen met chloorwater.",
+     "uitleg": "Dat is zijn proef."
+    },
+    {
+     "tekst": "Daarna gaan veel minder moeders dood.",
+     "uitleg": "Het werkte. Toch geloofden veel artsen hem niet."
+    },
+    {
+     "tekst": "Nu weten we: op vuile handen zitten ziekteverwekkers.",
+     "uitleg": "Bacteriën en virussen die je ziek kunnen maken."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-zeep",
+   "soort": "uitleg",
+   "titel": "Waarom zeep?",
+   "opdracht": "Leg uit waarom je handen beter schoon worden met zeep dan met alleen water.",
+   "begrippen": [
+    {
+     "naam": "ziekteverwekkers",
+     "varianten": [
+      "ziekteverwekker",
+      "bacteriën",
+      "virussen"
+     ]
+    },
+    {
+     "naam": "vet",
+     "varianten": [
+      "vuil"
+     ]
+    },
+    {
+     "naam": "wegspoelen",
+     "varianten": [
+      "spoelen",
+      "spoelt"
+     ]
+    },
+    {
+     "naam": "wrijven",
+     "varianten": [
+      "wrijft"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat ziekteverwekkers vastzitten in vet en vuil op je handen.",
+    "Ik leg uit dat zeep dat vet en vuil losmaakt.",
+    "Ik leg uit dat je ze door te wrijven en te spoelen van je handen haalt; zeep doodt ze niet allemaal."
+   ],
+   "model": [
+    "Op je handen zitten ziekteverwekkers, vast in vet en vuil. Met alleen water blijft dat vet zitten.",
+    "Zeep maakt het vet en vuil los. Door te wrijven en te spoelen gaan de ziekteverwekkers dan van je handen af. Zeep doodt ze dus niet allemaal: hij spoelt ze weg."
+   ]
+  }
+ ]
+}

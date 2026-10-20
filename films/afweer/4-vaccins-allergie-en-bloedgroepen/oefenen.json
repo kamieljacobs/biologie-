@@ -1,0 +1,292 @@
+{
+ "versie": 1,
+ "film": "films/afweer/4-vaccins-allergie-en-bloedgroepen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-immunisatie",
+   "soort": "indelen",
+   "titel": "Actief of passief?",
+   "opdracht": "Maakt je lichaam zelf de afweer (actief) of krijg je kant-en-klare antistoffen (passief)? En gaat het natuurlijk of kunstmatig?",
+   "bakken": [
+    {
+     "naam": "Actief, kunstmatig"
+    },
+    {
+     "naam": "Actief, natuurlijk"
+    },
+    {
+     "naam": "Passief, kunstmatig"
+    },
+    {
+     "naam": "Passief, natuurlijk"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Noor krijgt een prik tegen mazelen.",
+     "bak": 0,
+     "uitleg": "Een vaccin: je lichaam maakt zelf antistoffen en geheugencellen."
+    },
+    {
+     "tekst": "Je krijgt een mRNA-vaccin.",
+     "bak": 0,
+     "uitleg": "Je eigen cellen maken een tijdje een viruseiwit, en je afweer oefent daarop."
+    },
+    {
+     "tekst": "Sam heeft de waterpokken gehad.",
+     "bak": 1,
+     "uitleg": "Na een echte infectie houd je zelf geheugencellen over."
+    },
+    {
+     "tekst": "Je hebt de griep doorgemaakt.",
+     "bak": 1,
+     "uitleg": "Ook een echte infectie: je afweer maakte zelf geheugencellen."
+    },
+    {
+     "tekst": "Na een diepe, vuile wond krijgt iemand een injectie met serum tegen tetanus.",
+     "bak": 2,
+     "uitleg": "Kant-en-klare antistoffen: meteen, maar na een paar weken afgebroken."
+    },
+    {
+     "tekst": "Een baby krijgt antistoffen via de placenta.",
+     "bak": 3,
+     "uitleg": "Van de moeder, op een natuurlijke manier."
+    },
+    {
+     "tekst": "Een baby krijgt antistoffen via moedermelk.",
+     "bak": 3,
+     "uitleg": "Ook natuurlijk en passief: de baby maakt ze niet zelf."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-twee-prikken",
+   "soort": "grafiek",
+   "titel": "De eerste en de tweede prik",
+   "opdracht": "De grafiek laat zien hoeveel antistoffen er in je bloed komen na de eerste prik en na de tweede prik (een half jaar later). Beide lijnen beginnen op de dag van de prik. De grafiek is schematisch.",
+   "alt": "Grafiek: antistoffen tegen dagen na de prik. Na de eerste prik een lage, late bult met een top van 10 rond dag 14. Na de tweede prik een snelle stijging tot 100 rond dag 7, die langzaam daalt.",
+   "breed": 680,
+   "hoog": 350,
+   "svg": "<line x1=\"84\" y1=\"280.0\" x2=\"90\" y2=\"280.0\"/><text x=\"78.0\" y=\"285.0\" text-anchor=\"end\" style=\"font-size:13px\">0</text><line class=\"zacht\" x1=\"90\" y1=\"236.0\" x2=\"650\" y2=\"236.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"236.0\" x2=\"90\" y2=\"236.0\"/><text x=\"78.0\" y=\"241.0\" text-anchor=\"end\" style=\"font-size:13px\">20</text><line class=\"zacht\" x1=\"90\" y1=\"192.0\" x2=\"650\" y2=\"192.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"192.0\" x2=\"90\" y2=\"192.0\"/><text x=\"78.0\" y=\"197.0\" text-anchor=\"end\" style=\"font-size:13px\">40</text><line class=\"zacht\" x1=\"90\" y1=\"148.0\" x2=\"650\" y2=\"148.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"148.0\" x2=\"90\" y2=\"148.0\"/><text x=\"78.0\" y=\"153.0\" text-anchor=\"end\" style=\"font-size:13px\">60</text><line class=\"zacht\" x1=\"90\" y1=\"104.0\" x2=\"650\" y2=\"104.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"104.0\" x2=\"90\" y2=\"104.0\"/><text x=\"78.0\" y=\"109.0\" text-anchor=\"end\" style=\"font-size:13px\">80</text><line class=\"zacht\" x1=\"90\" y1=\"60.0\" x2=\"650\" y2=\"60.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"60.0\" x2=\"90\" y2=\"60.0\"/><text x=\"78.0\" y=\"65.0\" text-anchor=\"end\" style=\"font-size:13px\">100</text><line x1=\"90.0\" y1=\"280\" x2=\"90.0\" y2=\"287\"/><text x=\"90.0\" y=\"305.0\" text-anchor=\"middle\" style=\"font-size:13px\">0</text><line x1=\"230.0\" y1=\"280\" x2=\"230.0\" y2=\"287\"/><text x=\"230.0\" y=\"305.0\" text-anchor=\"middle\" style=\"font-size:13px\">7</text><line x1=\"370.0\" y1=\"280\" x2=\"370.0\" y2=\"287\"/><text x=\"370.0\" y=\"305.0\" text-anchor=\"middle\" style=\"font-size:13px\">14</text><line x1=\"510.0\" y1=\"280\" x2=\"510.0\" y2=\"287\"/><text x=\"510.0\" y=\"305.0\" text-anchor=\"middle\" style=\"font-size:13px\">21</text><line x1=\"650.0\" y1=\"280\" x2=\"650.0\" y2=\"287\"/><text x=\"650.0\" y=\"305.0\" text-anchor=\"middle\" style=\"font-size:13px\">28</text><line x1=\"90\" y1=\"280\" x2=\"650\" y2=\"280\"/><line x1=\"90\" y1=\"280\" x2=\"90\" y2=\"52\"/><text x=\"370.0\" y=\"332.0\" text-anchor=\"middle\" style=\"font-size:13px\">dagen na de prik</text><text x=\"86.0\" y=\"42.0\" text-anchor=\"start\" style=\"font-size:13px\">antistoffen in je bloed (schematisch)</text><path stroke-width=\"3\" stroke-dasharray=\"8 6\" d=\"M90.0 280.0 L94.0 280.0 L98.0 280.0 L102.0 280.0 L106.0 280.0 L110.0 280.0 L114.0 280.0 L118.0 280.0 L122.0 280.0 L126.0 280.0 L130.0 280.0 L134.0 280.0 L138.0 280.0 L142.0 280.0 L146.0 280.0 L150.0 280.0 L154.0 280.0 L158.0 280.0 L162.0 280.0 L166.0 280.0 L170.0 280.0 L174.0 280.0 L178.0 280.0 L182.0 280.0 L186.0 280.0 L190.0 280.0 L194.0 280.0 L198.0 280.0 L202.0 280.0 L206.0 280.0 L210.0 280.0 L214.0 280.0 L218.0 279.9 L222.0 279.7 L226.0 279.5 L230.0 279.2 L234.0 278.8 L238.0 278.4 L242.0 277.9 L246.0 277.4 L250.0 276.8 L254.0 276.1 L258.0 275.5 L262.0 274.7 L266.0 274.0 L270.0 273.2 L274.0 272.4 L278.0 271.6 L282.0 270.7 L286.0 269.9 L290.0 269.0 L294.0 268.1 L298.0 267.3 L302.0 266.4 L306.0 265.6 L310.0 264.8 L314.0 264.0 L318.0 263.3 L322.0 262.5 L326.0 261.9 L330.0 261.2 L334.0 260.6 L338.0 260.1 L342.0 259.6 L346.0 259.2 L350.0 258.8 L354.0 258.5 L358.0 258.3 L362.0 258.1 L366.0 258.0 L370.0 258.0 L374.0 258.3 L378.0 258.6 L382.0 258.9 L386.0 259.2 L390.0 259.5 L394.0 259.8 L398.0 260.1 L402.0 260.4 L406.0 260.7 L410.0 260.9 L414.0 261.2 L418.0 261.5 L422.0 261.7 L426.0 262.0 L430.0 262.2 L434.0 262.5 L438.0 262.7 L442.0 263.0 L446.0 263.2 L450.0 263.5 L454.0 263.7 L458.0 263.9 L462.0 264.2 L466.0 264.4 L470.0 264.6 L474.0 264.8 L478.0 265.0 L482.0 265.3 L486.0 265.5 L490.0 265.7 L494.0 265.9 L498.0 266.1 L502.0 266.3 L506.0 266.5 L510.0 266.7 L514.0 266.8 L518.0 267.0 L522.0 267.2 L526.0 267.4 L530.0 267.6 L534.0 267.8 L538.0 267.9 L542.0 268.1 L546.0 268.3 L550.0 268.4 L554.0 268.6 L558.0 268.8 L562.0 268.9 L566.0 269.1 L570.0 269.2 L574.0 269.4 L578.0 269.5 L582.0 269.7 L586.0 269.8 L590.0 270.0 L594.0 270.1 L598.0 270.3 L602.0 270.4 L606.0 270.5 L610.0 270.7 L614.0 270.8 L618.0 270.9 L622.0 271.1 L626.0 271.2 L630.0 271.3 L634.0 271.4 L638.0 271.6 L642.0 271.7 L646.0 271.8 L650.0 271.9\"/><path class=\"acc\" stroke-width=\"3\" d=\"M90.0 280.0 L94.0 280.0 L98.0 280.0 L102.0 280.0 L106.0 280.0 L110.0 280.0 L114.0 280.0 L118.0 280.0 L122.0 280.0 L126.0 280.0 L130.0 280.0 L134.0 279.1 L138.0 276.5 L142.0 272.3 L146.0 266.4 L150.0 259.0 L154.0 250.2 L158.0 240.1 L162.0 228.9 L166.0 216.8 L170.0 204.0 L174.0 190.6 L178.0 176.9 L182.0 163.1 L186.0 149.4 L190.0 136.0 L194.0 123.2 L198.0 111.1 L202.0 99.9 L206.0 89.8 L210.0 81.0 L214.0 73.6 L218.0 67.7 L222.0 63.5 L226.0 60.9 L230.0 60.0 L234.0 60.7 L238.0 61.5 L242.0 62.2 L246.0 62.9 L250.0 63.6 L254.0 64.4 L258.0 65.1 L262.0 65.8 L266.0 66.5 L270.0 67.2 L274.0 67.9 L278.0 68.6 L282.0 69.3 L286.0 70.0 L290.0 70.7 L294.0 71.4 L298.0 72.1 L302.0 72.8 L306.0 73.5 L310.0 74.2 L314.0 74.9 L318.0 75.6 L322.0 76.2 L326.0 76.9 L330.0 77.6 L334.0 78.3 L338.0 78.9 L342.0 79.6 L346.0 80.3 L350.0 80.9 L354.0 81.6 L358.0 82.3 L362.0 82.9 L366.0 83.6 L370.0 84.2 L374.0 84.9 L378.0 85.5 L382.0 86.2 L386.0 86.8 L390.0 87.5 L394.0 88.1 L398.0 88.7 L402.0 89.4 L406.0 90.0 L410.0 90.6 L414.0 91.3 L418.0 91.9 L422.0 92.5 L426.0 93.2 L430.0 93.8 L434.0 94.4 L438.0 95.0 L442.0 95.6 L446.0 96.2 L450.0 96.9 L454.0 97.5 L458.0 98.1 L462.0 98.7 L466.0 99.3 L470.0 99.9 L474.0 100.5 L478.0 101.1 L482.0 101.7 L486.0 102.3 L490.0 102.9 L494.0 103.4 L498.0 104.0 L502.0 104.6 L506.0 105.2 L510.0 105.8 L514.0 106.4 L518.0 106.9 L522.0 107.5 L526.0 108.1 L530.0 108.7 L534.0 109.2 L538.0 109.8 L542.0 110.4 L546.0 110.9 L550.0 111.5 L554.0 112.1 L558.0 112.6 L562.0 113.2 L566.0 113.7 L570.0 114.3 L574.0 114.8 L578.0 115.4 L582.0 115.9 L586.0 116.5 L590.0 117.0 L594.0 117.6 L598.0 118.1 L602.0 118.6 L606.0 119.2 L610.0 119.7 L614.0 120.2 L618.0 120.8 L622.0 121.3 L626.0 121.8 L630.0 122.4 L634.0 122.9 L638.0 123.4 L642.0 123.9 L646.0 124.5 L650.0 125.0\"/><line x1=\"430\" y1=\"180\" x2=\"470\" y2=\"180\" stroke-width=\"3\" stroke-dasharray=\"8 6\"/><text x=\"480.0\" y=\"185.0\" text-anchor=\"start\" style=\"font-size:13px\">eerste prik</text><line class=\"acc\" x1=\"430\" y1=\"206\" x2=\"470\" y2=\"206\" stroke-width=\"3\"/><text x=\"480.0\" y=\"211.0\" text-anchor=\"start\" style=\"font-size:13px\">tweede prik</text>",
+   "vragen": [
+    {
+     "vraag": "Na hoeveel dagen is de hoeveelheid antistoffen na de eerste prik het hoogst?",
+     "antwoord": 14,
+     "marge": 2,
+     "eenheid": "dagen",
+     "uitleg": "De primaire reactie is traag: de top ligt rond dag 14."
+    },
+    {
+     "vraag": "En na de tweede prik?",
+     "antwoord": 7,
+     "marge": 1,
+     "eenheid": "dagen",
+     "uitleg": "De secundaire reactie is sneller: de top ligt rond dag 7."
+    },
+    {
+     "vraag": "Hoeveel keer zoveel antistoffen zijn er op de top na de tweede prik als na de eerste, in deze grafiek?",
+     "antwoord": 10,
+     "marge": 1,
+     "eenheid": "keer",
+     "uitleg": "100 gedeeld door 10 is 10."
+    },
+    {
+     "vraag": "Waarom is de reactie na de tweede prik zoveel sneller en sterker?",
+     "keuzes": [
+      "de tweede prik bevat meer antigenen",
+      "na de eerste prik zijn er geheugencellen, die nu snel reageren",
+      "de antistoffen van de eerste prik zitten nog in je bloed"
+     ],
+     "antwoord": 1,
+     "uitleg": "De tweede prik is meestal precies dezelfde. Het verschil zit in jou: de geheugencellen van de eerste prik."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-bloedtransfusie",
+   "soort": "puzzel",
+   "titel": "Bloed voor de spoedeisende hulp",
+   "opdracht": "Iemand op de spoedeisende hulp heeft rode bloedcellen nodig. Eerst bepaal je de bloedgroep, daarna zoek je een donor.",
+   "stappen": [
+    {
+     "vraag": "Je druppelt antiserum bij het bloed. Het klontert met anti-A, niet met anti-B. Welke bloedgroep (ABO) heeft hij?",
+     "velden": [
+      {
+       "label": "bloedgroep:",
+       "antwoord": "A",
+       "opties": [
+        "A",
+        "B",
+        "AB",
+        "O"
+       ]
+      }
+     ],
+     "uitleg": "Anti-A bindt aan antigeen A op zijn rode bloedcellen en laat ze klonteren. Er zit geen B op.",
+     "tip": "Klonteren betekent: het antiserum vond zijn antigeen."
+    },
+    {
+     "vraag": "Welke antistoffen zitten in zijn plasma?",
+     "velden": [
+      {
+       "label": "antistoffen:",
+       "antwoord": "anti-B",
+       "opties": [
+        "anti-A",
+        "anti-B",
+        "anti-A en anti-B",
+        "geen"
+       ]
+      }
+     ],
+     "uitleg": "In je plasma zitten antistoffen tegen de antigenen die jij niet hebt. Hij heeft A, dus anti-B."
+    },
+    {
+     "vraag": "Mag hij rode bloedcellen krijgen van deze donoren?",
+     "velden": [
+      {
+       "label": "donor B:",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      },
+      {
+       "label": "donor O:",
+       "antwoord": "ja",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      },
+      {
+       "label": "donor AB:",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "Zijn anti-B bindt aan cellen met B: dat zijn B en AB. Die klonteren en gaan kapot. Op cellen van O zit geen A en geen B.",
+     "tip": "Kijk welke donorcellen antigeen B dragen."
+    },
+    {
+     "vraag": "Hij is resusnegatief en kreeg nog nooit bloed van een ander. Heeft hij antistoffen tegen D?",
+     "velden": [
+      {
+       "label": "anti-D:",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "Antistoffen tegen D heb je niet vanzelf. Die maak je pas als je resuspositief bloed binnenkrijgt."
+    },
+    {
+     "vraag": "Als er geen tijd is om de bloedgroep te bepalen: welke rode bloedcellen kan iedereen krijgen?",
+     "velden": [
+      {
+       "label": "donor:",
+       "antwoord": "O resusnegatief",
+       "opties": [
+        "O resuspositief",
+        "O resusnegatief",
+        "AB resuspositief",
+        "AB resusnegatief"
+       ]
+      }
+     ],
+     "uitleg": "Op die cellen zit geen A, geen B en geen D. De antistoffen van de ontvanger hebben dus niets om op te binden."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-anti-d",
+   "soort": "pijlen",
+   "vwo": true,
+   "titel": "De anti-D-injectie",
+   "opdracht": "Een resusnegatieve moeder heeft net een resuspositief kind gekregen. Ze krijgt kort na de bevalling een anti-D-injectie. Vergelijk met een moeder die géén injectie kreeg.",
+   "situatie": "Moeder met anti-D-injectie, vergeleken met een moeder zonder.",
+   "rijen": [
+    {
+     "naam": "Rode bloedcellen van het kind die in haar bloed blijven",
+     "antwoord": "-",
+     "uitleg": "De anti-D markeert ze, zodat ze worden opgeruimd."
+    },
+    {
+     "naam": "Antistoffen en geheugencellen tegen D die zij zelf maakt",
+     "antwoord": "-",
+     "uitleg": "De cellen zijn weg voordat haar eigen afweer ze ziet."
+    },
+    {
+     "naam": "Anti-D die bij een volgend resuspositief kind door de placenta gaat",
+     "antwoord": "-",
+     "uitleg": "Ze heeft zelf geen anti-D gemaakt. De gespoten anti-D is dan al afgebroken."
+    },
+    {
+     "naam": "Kans op ernstige bloedarmoede bij het volgende resuspositieve kind",
+     "antwoord": "-",
+     "uitleg": "Zo wordt resusantagonisme voorkomen. Bij elke zwangerschap is de injectie opnieuw nodig."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-hooikoorts",
+   "soort": "uitleg",
+   "titel": "Niezen in het voorjaar",
+   "opdracht": "Iemand met hooikoorts gaat niezen en krijgt jeukende ogen als er stuifmeel in de lucht is. Leg uit hoe dat komt, vanaf het eerste contact met stuifmeel.",
+   "begrippen": [
+    {
+     "naam": "allergeen",
+     "varianten": [
+      "allergenen"
+     ]
+    },
+    {
+     "naam": "antistoffen",
+     "varianten": [
+      "antistof"
+     ]
+    },
+    {
+     "naam": "plasmacellen",
+     "varianten": [
+      "plasmacel"
+     ]
+    },
+    {
+     "naam": "mestcellen",
+     "varianten": [
+      "mestcel"
+     ]
+    },
+    {
+     "naam": "histamine",
+     "varianten": []
+    },
+    {
+     "naam": "haarvaten",
+     "varianten": [
+      "haarvat"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de afweer het onschuldige stuifmeel bij het eerste contact als vreemd ziet: het is een allergeen.",
+    "Ik leg uit dat plasmacellen antistoffen maken, die vast gaan zitten op mestcellen in neus en ogen.",
+    "Ik leg uit dat bij een volgend contact het stuifmeel aan die antistoffen bindt, en mestcellen histamine afgeven.",
+    "Ik leg uit dat haarvaten daardoor wijder worden en vocht lekken: loopneus en jeukende ogen."
+   ],
+   "model": [
+    "Bij het eerste contact merk je nog niets. Maar je afweer ziet het stuifmeel als vreemd: het is een allergeen. Plasmacellen maken antistoffen tegen het stuifmeel, en die gaan vastzitten op mestcellen in je neus en je ogen.",
+    "Bij het volgende contact bindt het stuifmeel aan die antistoffen. Dan geven de mestcellen histamine af. De haarvaten worden wijder en lekken vocht. Daarom loopt je neus, en jeuken je ogen.",
+    "Een allergie is dus geen zwakke afweer: hij reageert juist te sterk, op iets onschuldigs."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,212 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/10-helpen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-helpen",
+   "soort": "indelen",
+   "titel": "Waarom helpt dit dier?",
+   "opdracht": "Past elk voorbeeld bij verwantschapsselectie, bij wederkerig altruïsme, of is het geen altruïsme?",
+   "bakken": [
+    {
+     "naam": "Verwantschapsselectie",
+     "uitleg": "familie helpen"
+    },
+    {
+     "naam": "Wederkerig altruïsme",
+     "uitleg": "ik help jou, jij helpt mij later"
+    },
+    {
+     "naam": "Geen altruïsme",
+     "uitleg": "het kost de helper niets, of helpt alleen zichzelf"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een grondeekhoorn met zussen en dochters in de buurt slaat alarm.",
+     "bak": 0,
+     "uitleg": "Ze helpt familie, en daarmee ook een deel van haar eigen genen."
+    },
+    {
+     "tekst": "Een werkster helpt de koningin om zussen groot te brengen.",
+     "bak": 0,
+     "uitleg": "Ze krijgt zelf meestal geen jongen, maar haar genen komen zo toch verder."
+    },
+    {
+     "tekst": "Je helpt je eigen broer vaker dan een vreemde.",
+     "bak": 0,
+     "uitleg": "Mensen helpen familie vaak meer dan vreemden."
+    },
+    {
+     "tekst": "Een vampiervleermuis braakt bloed op voor een buur die haar eerder voerde.",
+     "bak": 1,
+     "uitleg": "De buur is geen familie, maar heeft eerder geholpen."
+    },
+    {
+     "tekst": "Twee vrienden helpen elkaar over en weer.",
+     "bak": 1,
+     "uitleg": "Helpen over en weer, ook zonder bewuste afspraak."
+    },
+    {
+     "tekst": "Een eekhoorn ziet de wezel en rent zonder geluid zijn hol in.",
+     "bak": 2,
+     "uitleg": "Dat kost hem niets en helpt alleen hemzelf."
+    },
+    {
+     "tekst": "Een vleermuis drinkt genoeg bloed en deelt niets.",
+     "bak": 2,
+     "uitleg": "Er wordt niemand geholpen."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-voor-de-soort",
+   "soort": "pijlen",
+   "titel": "Werkt het \"voor de soort\"?",
+   "opdracht": "Stel dat alarm slaan alleen \"voor de soort\" zou zijn. Voorspel wat er gebeurt, eerst voor één eekhoorn en daarna in de groep.",
+   "situatie": "Een eekhoorn zonder familie in de buurt slaat nooit meer alarm.",
+   "rijen": [
+    {
+     "naam": "Kans dat hij door de wezel wordt gepakt",
+     "antwoord": "-",
+     "uitleg": "De roeper valt op. Wie zwijgt, loopt minder risico."
+    },
+    {
+     "naam": "Zijn gemiddelde aantal jongen",
+     "antwoord": "+",
+     "uitleg": "Wie langer leeft, krijgt gemiddeld meer jongen."
+    },
+    {
+     "naam": "Aandeel van zijn genen in de volgende generaties",
+     "antwoord": "+",
+     "uitleg": "Zijn genen worden elke generatie vaker."
+    },
+    {
+     "naam": "Aandeel eekhoorns in de groep dat alarm slaat, na veel generaties",
+     "antwoord": "-",
+     "uitleg": "Het gedrag zou verdwijnen. Selectie werkt via individuen en hun genen, niet \"voor de soort\"."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-hamilton",
+   "soort": "puzzel",
+   "vwo": true,
+   "titel": "De regel van Hamilton",
+   "opdracht": "Helpen loont volgens Hamilton als r × B > C. Een dier verliest door te helpen gemiddeld 1 nakomeling (C = 1). Het familielid dat geholpen wordt, krijgt er 3 nakomelingen bij (B = 3).",
+   "stappen": [
+    {
+     "vraag": "Het dier helpt een zus (zelfde ouders). Hoe groot is r?",
+     "velden": [
+      {
+       "label": "r =",
+       "antwoord": 0.5,
+       "marge": 0.01
+      }
+     ],
+     "uitleg": "Van elk gen zit met een kans van een half hetzelfde exemplaar in je broer of zus: r = ½.",
+     "tip": "Jullie hebben je genen van dezelfde ouders."
+    },
+    {
+     "vraag": "Reken r × B uit.",
+     "velden": [
+      {
+       "label": "r × B =",
+       "antwoord": 1.5,
+       "marge": 0.01
+      }
+     ],
+     "uitleg": "½ × 3 = 1,5."
+    },
+    {
+     "vraag": "Loont het helpen van de zus volgens de regel?",
+     "velden": [
+      {
+       "label": "loont het?",
+       "antwoord": "ja",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "1,5 is groter dan C = 1, dus helpen loont."
+    },
+    {
+     "vraag": "Nu helpt het dier een neef. Hoe groot is r?",
+     "velden": [
+      {
+       "label": "r =",
+       "antwoord": 0.125,
+       "marge": 0.01
+      }
+     ],
+     "uitleg": "Bij een neef of nicht is die kans een achtste: r = ⅛."
+    },
+    {
+     "vraag": "Reken r × B uit, en zeg of helpen loont.",
+     "velden": [
+      {
+       "label": "r × B =",
+       "antwoord": 0.375,
+       "marge": 0.01
+      },
+      {
+       "label": "loont het?",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "⅛ × 3 = 0,375. Dat is kleiner dan C = 1: helpen loont niet. Hoe nauwer verwant, hoe meer helpen loont.",
+     "tip": "3 gedeeld door 8."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-alarm",
+   "soort": "uitleg",
+   "titel": "Alarm voor de familie",
+   "opdracht": "Iemand zegt: \"De grondeekhoorn slaat alarm voor het voortbestaan van de soort.\" Leg uit waarom dat niet klopt, en geef de betere verklaring.",
+   "begrippen": [
+    {
+     "naam": "fitness",
+     "varianten": []
+    },
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "natuurlijke selectie",
+     "varianten": [
+      "selectie"
+     ]
+    },
+    {
+     "naam": "verwantschapsselectie",
+     "varianten": [
+      "verwant",
+      "familie"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat alarm slaan de roeper fitness kost: ze valt op en loopt meer risico.",
+    "Ik leg uit dat dieren die nooit alarm slaan dan meer jongen krijgen, zodat hun genen vaker worden.",
+    "Ik concludeer dat selectie werkt via individuen en hun genen, niet \"voor de soort\".",
+    "Ik leg uit dat vrouwtjes met familie in de buurt vaker alarm slaan, omdat ze zo een deel van hun eigen genen helpen: verwantschapsselectie."
+   ],
+   "model": [
+    "Alarm slaan kost de roeper fitness: de wezel gaat juist achter haar aan. Dieren die nooit alarm slaan, lopen minder risico en krijgen gemiddeld meer jongen. Hun genen worden elke generatie vaker, en het gedrag zou verdwijnen. Selectie werkt dus via individuen en hun genen, niet \"voor de soort\".",
+    "De betere verklaring is familie. Vrouwtjes blijven wonen bij hun moeder, zussen en dochters. Die hebben voor een deel dezelfde genen. Door hen te helpen overleven, help je ook je eigen genen verder.",
+    "Dat heet verwantschapsselectie. Het past bij wat onderzoekers zagen: vrouwtjes met familie in de buurt slaan vaker alarm dan vrouwtjes zonder familie, en veel vaker dan mannetjes die zijn weggetrokken."
+   ]
+  }
+ ]
+}

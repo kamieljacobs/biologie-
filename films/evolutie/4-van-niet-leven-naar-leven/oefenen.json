@@ -1,0 +1,99 @@
+{
+ "intro": "Oefen met de stappen van niet-leven naar leven. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-naar-protocel",
+   "soort": "volgorde",
+   "titel": "Van gloeiende bol naar LUCA",
+   "opdracht": "Zet de stappen uit de film in de goede volgorde.",
+   "stappen": [
+    {"tekst": "De aarde is een hete, vloeibare bol zonder zee en zonder leven.", "uitleg": "4,5 miljard jaar geleden."},
+    {"tekst": "De korst koelt af en waterdamp uit vulkanen regent uit tot oceanen.", "uitleg": "De lucht bevat geen zuurstof, wel veel energie: bliksem, UV en hitte."},
+    {"tekst": "Uit simpele stoffen en energie ontstaan bouwstenen zoals aminozuren.", "uitleg": "Stap één. Dat liet Miller zien, en het zit ook in meteorieten."},
+    {"tekst": "RNA-strengen kopiëren zichzelf, met fouten.", "uitleg": "Stap twee. Variatie, erfelijkheid en selectie: evolutie vóór het leven."},
+    {"tekst": "Vetzuren vormen blaasjes met RNA erin: een protocel.", "uitleg": "Stap drie. Een omhulsel dat groeit en deelt."},
+    {"tekst": "LUCA, met DNA en ribosomen, is de voorouder van alles wat nu leeft.", "uitleg": "De laatste cel waar alle takken van de stamboom samenkomen."}
+   ]
+  },
+  {
+   "id": "indelen-welk-onderdeel",
+   "soort": "indelen",
+   "titel": "Welk onderdeel?",
+   "opdracht": "Een levend ding heeft volgens de film drie onderdelen nodig. Bij welk onderdeel hoort elk kaartje?",
+   "bakken": [
+    {"naam": "Bouwstenen"},
+    {"naam": "Iets dat zichzelf kopieert"},
+    {"naam": "Een omhulsel"}
+   ],
+   "kaartjes": [
+    {"tekst": "Aminozuren in de kolf van Miller.", "bak": 0, "uitleg": "Gemaakt uit gas, water en vonken, zonder levende cel."},
+    {"tekst": "Meer dan zeventig aminozuren in de meteoriet van Murchison.", "bak": 0, "uitleg": "Bouwstenen ontstaan ook in de ruimte."},
+    {"tekst": "Een ribozym: een RNA-molecuul dat werkt als enzym.", "bak": 1, "uitleg": "RNA is bouwtekening en gereedschap in één."},
+    {"tekst": "Snellere strengen krijgen meer kopieën.", "bak": 1, "uitleg": "Selectie door schaarste van losse letters."},
+    {"tekst": "Een kop die water opzoekt en een staart die water vermijdt.", "bak": 2, "uitleg": "Zo is een vetzuur gebouwd."},
+    {"tekst": "Een dubbele laag met koppen naar buiten en naar binnen.", "bak": 2, "uitleg": "Vetzuren vormen vanzelf zulke blaasjes."},
+    {"tekst": "De winst van een snelle kopieerder is voor het eerst alleen van haarzelf.", "bak": 2, "uitleg": "Dat lukt pas als het RNA in een blaasje zit."}
+   ]
+  },
+  {
+   "id": "pijlen-rna-plasje",
+   "soort": "pijlen",
+   "titel": "Het plasje met RNA",
+   "opdracht": "Voorspel wat er in de simulatie gebeurt in de loop van de rondes.",
+   "situatie": "In een plasje kopiëren korte RNA-strengen zichzelf. Soms gaat er een letter fout. De losse letters raken op.",
+   "rijen": [
+    {"naam": "Aantal losse RNA-letters", "antwoord": "-", "uitleg": "Elke kopie gebruikt letters, dus ze raken op."},
+    {"naam": "Deel van de kopieën dat afkomstig is van snelle strengen", "antwoord": "+", "uitleg": "Snellere strengen nemen de schaarse letters in en hebben meer kopieën in de volgende ronde."},
+    {"naam": "Gemiddelde kopieersnelheid", "antwoord": "+", "uitleg": "Een fout die een streng sneller maakt, wordt doorgegeven. Dat is selectie."},
+    {"naam": "Kans dat één fout een streng sneller maakt", "antwoord": "=", "uitleg": "De fouten blijven willekeurig. De meeste maken een streng trager; alleen wie mag kopiëren, is niet willekeurig."}
+   ]
+  },
+  {
+   "id": "uitleg-miller",
+   "soort": "uitleg",
+   "titel": "Wat bewees Miller wel en niet?",
+   "opdracht": "Iemand zegt: 'Miller heeft in 1953 laten zien hoe het leven is ontstaan.' Leg uit wat zijn proef wel liet zien, en wat niet.",
+   "begrippen": [
+    {"naam": "aminozuren", "varianten": ["aminozuur", "bouwstenen"]},
+    {"naam": "energie", "varianten": ["vonken", "bliksem"]},
+    {"naam": "zonder leven", "varianten": ["zonder levende cel", "vanzelf"]},
+    {"naam": "kopiëren", "varianten": ["kopieert", "RNA"]},
+    {"naam": "omhulsel", "varianten": ["blaasje", "vetzuren"]}
+   ],
+   "checklist": [
+    "Ik beschrijf de proef: water, methaan, ammoniak, waterstof, warmte en vonken, een week lang.",
+    "Ik leg uit dat er aminozuren ontstonden zonder levende cel.",
+    "Ik leg uit dat bouwstenen nog geen leven zijn: er ontstond geen cel.",
+    "Ik noem dat ook iets dat zichzelf kopieert en een omhulsel nodig zijn."
+   ],
+   "model": [
+    "Miller bouwde de jonge aarde na in glas: water als oceaan, de gassen methaan, ammoniak en waterstof, warmte en vonken als bliksem. Na een week zaten er aminozuren in de kolf, de bouwstenen van eiwitten.",
+    "Dat liet zien dat bouwstenen vanzelf kunnen ontstaan uit simpele stoffen en energie, zonder levende cel. Stap één kan dus zonder leven.",
+    "Maar bouwstenen zijn nog geen leven. In de kolf ontstond geen cel. Voor leven heb je ook iets nodig dat zichzelf kopieert, zoals RNA, en een omhulsel. Hoe die stappen precies in elkaar grepen, weet niemand."
+   ]
+  },
+  {
+   "id": "uitleg-een-code",
+   "soort": "uitleg",
+   "titel": "Eén code, één voorouder",
+   "opdracht": "Een bacterie, een eik en jij gebruiken dezelfde genetische code. Leg uit waarom dat wijst op één gemeenschappelijke voorouder.",
+   "begrippen": [
+    {"naam": "genetische code", "varianten": ["code", "codetabel"]},
+    {"naam": "LUCA", "varianten": ["gemeenschappelijke voorouder", "voorouder"]},
+    {"naam": "geërfd", "varianten": ["erfenis", "erven"]},
+    {"naam": "aminozuur", "varianten": ["aminozuren", "drie letters"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat bij alle organismen drie letters één aminozuur bepalen, met overal dezelfde tabel.",
+    "Ik leg uit dat andere codes chemisch ook kunnen werken.",
+    "Ik leg uit dat dezelfde code dus een erfenis is van één voorouder: LUCA.",
+    "Ik leg uit waarom 'meerdere keren apart ontstaan' onwaarschijnlijk is."
+   ],
+   "model": [
+    "Alle organismen lezen hun DNA af met dezelfde code: drie letters bepalen één aminozuur, en de tabel is overal gelijk.",
+    "Die code is niet de enige die chemisch kan: in het lab werken andere tabellen ook. Als het leven meerdere keren apart was begonnen, zou je verschillende codes verwachten. Dat een tabel van 64 codons meerdere keren precies hetzelfde uitvalt, is heel onwaarschijnlijk.",
+    "De beste verklaring is dat alles de code van dezelfde voorouder heeft geërfd: LUCA, de laatste gemeenschappelijke voorouder van alles wat leeft."
+   ]
+  }
+ ]
+}

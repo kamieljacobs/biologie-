@@ -137,6 +137,44 @@
    ]
   ]
  },
+ "films/afweer/4-vaccins-allergie-en-bloedgroepen.html": {
+  "titel": "Vaccins, allergie en bloedgroepen",
+  "hoofdstuk": "afweer",
+  "htitel": "Bescherming en afweer",
+  "json": "films/afweer/4-vaccins-allergie-en-bloedgroepen/oefenen.json",
+  "oef": [
+   [
+    "indelen-immunisatie",
+    "Actief of passief?",
+    "indelen",
+    0
+   ],
+   [
+    "grafiek-twee-prikken",
+    "De eerste en de tweede prik",
+    "grafiek",
+    0
+   ],
+   [
+    "puzzel-bloedtransfusie",
+    "Bloed voor de spoedeisende hulp",
+    "puzzel",
+    0
+   ],
+   [
+    "pijlen-anti-d",
+    "De anti-D-injectie",
+    "pijlen",
+    1
+   ],
+   [
+    "uitleg-hooikoorts",
+    "Niezen in het voorjaar",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/cellen/celorganellen/index.html": {
   "titel": "Celorganellen",
   "hoofdstuk": "cellen",
@@ -231,6 +269,138 @@
    ]
   ]
  },
+ "films/cellen/onderzoek-doen/index.html": {
+  "titel": "Onderzoek doen in de biologie",
+  "hoofdstuk": "cellen",
+  "htitel": "Cellen",
+  "json": "films/cellen/onderzoek-doen/oefenen.json",
+  "oef": [
+   [
+    "volgorde-onderzoekscyclus",
+    "De onderzoekscyclus van Semmelweis",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-variabelen-pasteur",
+    "Variabelen bij Pasteur",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-meetfout",
+    "Toevallig of systematisch?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-correlatie",
+    "Waarom gaat het samen?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-gele-muizen",
+    "Chi-kwadraat: de gele muizen",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-van-helmont",
+    "Nauwkeurig, maar niet valide",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/cellen/stamcellen.html": {
+  "titel": "Stamcellen",
+  "hoofdstuk": "cellen",
+  "htitel": "Cellen",
+  "json": "films/cellen/stamcellen/oefenen.json",
+  "oef": [
+   [
+    "volgorde-kiemlaag",
+    "Zo vernieuwt je opperhuid",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-leukemie",
+    "Een stamceltransplantatie bij leukemie",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-stamcel-soort",
+    "Volwassen of embryonaal?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-potentie",
+    "Hoeveel kan de cel nog worden?",
+    "indelen",
+    1
+   ],
+   [
+    "uitleg-knie-hart",
+    "Knie wel, hart niet",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-zelfde-dna",
+    "Zelfde DNA, andere cel",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/cellen/van-molecuul-tot-biosfeer.html": {
+  "titel": "Van molecuul tot biosfeer",
+  "hoofdstuk": "cellen",
+  "htitel": "Cellen",
+  "json": "films/cellen/van-molecuul-tot-biosfeer/oefenen.json",
+  "oef": [
+   [
+    "volgorde-molecuul-organisme",
+    "Van molecuul tot koolmees",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-organisme-biosfeer",
+    "Van koolmees tot biosfeer",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-welk-niveau",
+    "Welk niveau onderzoekt ze?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-leeft-het",
+    "Leeft het?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-virus",
+    "Leeft een griepvirus?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-emergent",
+    "Meer dan de optelsom",
+    "uitleg",
+    1
+   ]
+  ]
+ },
  "films/dna-technieken/1-op-maat-gekopieerd/index.html": {
   "titel": "Op maat gekopieerd · PCR",
   "hoofdstuk": "dna",
@@ -316,6 +486,44 @@
     "Een extra bandje",
     "uitleg",
     0
+   ]
+  ]
+ },
+ "films/dna/1-wat-is-dna.html": {
+  "titel": "Wat is DNA?",
+  "hoofdstuk": "dna",
+  "htitel": "DNA",
+  "json": "films/dna/1-wat-is-dna/oefenen.json",
+  "oef": [
+   [
+    "schema-dna-ladder",
+    "De ladder van DNA",
+    "schema",
+    0
+   ],
+   [
+    "volgorde-klein-groot",
+    "Van klein naar groot",
+    "volgorde",
+    0
+   ],
+   [
+    "puzzel-basenparing",
+    "Puzzel: ken je één streng",
+    "puzzel",
+    0
+   ],
+   [
+    "puzzel-5-3",
+    "Puzzel: de juiste richting",
+    "puzzel",
+    1
+   ],
+   [
+    "uitleg-smelten",
+    "Welk stukje laat eerst los?",
+    "uitleg",
+    1
    ]
   ]
  },
@@ -451,6 +659,50 @@
    ]
   ]
  },
+ "films/dna/5-mutaties.html": {
+  "titel": "Mutaties",
+  "hoofdstuk": "dna",
+  "htitel": "DNA",
+  "json": "films/dna/5-mutaties/oefenen.json",
+  "oef": [
+   [
+    "volgorde-uv-mutatie",
+    "Van zonlicht naar mutatie",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-gevolg-mutatie",
+    "Wat doet de mutatie met het eiwit?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-erfelijk",
+    "Erfelijk of niet?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-wilson",
+    "Van één base naar een ziek mens",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-zonverbranding",
+    "Waarom zonverbranding kanker kan geven",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-gaspedaal-rem",
+    "Gaspedaal en rem",
+    "uitleg",
+    1
+   ]
+  ]
+ },
  "films/dna/6-genen-aan-en-uit.html": {
   "titel": "Genen aan en uit",
   "hoofdstuk": "dna",
@@ -498,6 +750,88 @@
     "Waarom lapjeskatten poezen zijn",
     "uitleg",
     1
+   ]
+  ]
+ },
+ "films/dna/7-dna-lezen.html": {
+  "titel": "DNA lezen",
+  "hoofdstuk": "dna",
+  "htitel": "DNA",
+  "json": "films/dna/7-dna-lezen/oefenen.json",
+  "oef": [
+   [
+    "grafiek-gel-dader",
+    "Wie past bij het bloedspoor?",
+    "grafiek",
+    0
+   ],
+   [
+    "grafiek-gel-vader",
+    "Wie is de vader?",
+    "grafiek",
+    0
+   ],
+   [
+    "volgorde-pcr",
+    "Eén PCR-cyclus",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-insuline-bacterie",
+    "Een bacterie die insuline maakt",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-cdna",
+    "Waarom cDNA?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/ecologie/3-een-aarde.html": {
+  "titel": "Eén aarde",
+  "hoofdstuk": "ecologie",
+  "htitel": "Ecologie",
+  "json": "films/ecologie/3-een-aarde/oefenen.json",
+  "oef": [
+   [
+    "volgorde-eutrofiering",
+    "Van mest tot dode vissen",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-milieuprobleem",
+    "Welk milieuprobleem?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-stikstof-heide",
+    "Stikstof op de heide",
+    "pijlen",
+    0
+   ],
+   [
+    "puzzel-adi",
+    "Rekenen met de ADI",
+    "puzzel",
+    0
+   ],
+   [
+    "volgorde-methaan-pens",
+    "Methaan uit de pens",
+    "volgorde",
+    1
+   ],
+   [
+    "uitleg-orka",
+    "Waarom juist de orka?",
+    "uitleg",
+    0
    ]
   ]
  },
@@ -589,6 +923,44 @@
    ]
   ]
  },
+ "films/erfelijkheid/1-chromosomen.html": {
+  "titel": "Chromosomen",
+  "hoofdstuk": "erfelijkheid",
+  "htitel": "Erfelijkheid",
+  "json": "films/erfelijkheid/1-chromosomen/oefenen.json",
+  "oef": [
+   [
+    "schema-homoloog-paar",
+    "Een homoloog paar",
+    "schema",
+    0
+   ],
+   [
+    "indelen-haploid-diploid",
+    "Eén set of twee sets?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-genotype-fenotype",
+    "Genotype of fenotype?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-tellen-in-de-cel",
+    "Puzzel: tellen in de cel",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-albinisme",
+    "Een kind met albinisme",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/erfelijkheid/2-monohybride-kruisingen.html": {
   "titel": "Monohybride kruisingen",
   "hoofdstuk": "erfelijkheid",
@@ -639,6 +1011,44 @@
    ]
   ]
  },
+ "films/erfelijkheid/3-voorbij-dominant-en-recessief.html": {
+  "titel": "Voorbij dominant en recessief",
+  "hoofdstuk": "erfelijkheid",
+  "htitel": "Erfelijkheid",
+  "json": "films/erfelijkheid/3-voorbij-dominant-en-recessief/oefenen.json",
+  "oef": [
+   [
+    "indelen-soort-overerving",
+    "Welke soort overerving?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-bloedgroep-o",
+    "Puzzel: moeder A, vader B, kind O",
+    "puzzel",
+    0
+   ],
+   [
+    "puzzel-leeuwenbek",
+    "Puzzel: roze leeuwenbekken",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-gele-muizen",
+    "Waar is de rest gebleven?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-lengte-erfelijk",
+    "Is lengte erfelijk?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html": {
   "titel": "Dihybride kruising en gekoppelde overerving",
   "hoofdstuk": "erfelijkheid",
@@ -683,6 +1093,44 @@
    ]
   ]
  },
+ "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html": {
+  "titel": "Overerving via X-chromosomen en mitochondriën",
+  "hoofdstuk": "erfelijkheid",
+  "htitel": "Erfelijkheid",
+  "json": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien/oefenen.json",
+  "oef": [
+   [
+    "puzzel-kleurenblind",
+    "Puzzel: een draagster en een man die normaal ziet",
+    "puzzel",
+    0
+   ],
+   [
+    "indelen-x-of-mito",
+    "X-chromosoom of mitochondriën?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-wie-ziet-wat",
+    "Normaal, draagster of kleurenblind?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-zoon-dochter",
+    "Waarom zonen wel en dochters niet?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-moederlijn",
+    "Je oer-oermoeder terugvinden",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/erfelijkheid/6-stambomen-en-kansrekenen.html": {
   "titel": "Stambomen en kansrekenen",
   "hoofdstuk": "erfelijkheid",
@@ -717,6 +1165,324 @@
     "puzzel-twee-dragers",
     "Puzzel: drie kinderen van twee dragers",
     "puzzel",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/1-het-raadsel-van-de-eilanden.html": {
+  "titel": "Het raadsel van de eilanden",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/1-het-raadsel-van-de-eilanden/oefenen.json",
+  "oef": [
+   [
+    "indelen-welke-aanwijzing",
+    "Welke aanwijzing?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-wat-voorspelt-het-idee",
+    "Welk idee voorspelt dit?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-tijdlijn-darwin",
+    "Van de Beagle tot het boek",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-spotlijsters",
+    "Net niet helemaal hetzelfde",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/2-verrassend-simpel.html": {
+  "titel": "Verrassend simpel",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/2-verrassend-simpel/oefenen.json",
+  "oef": [
+   [
+    "indelen-klopt-misvatting",
+    "Klopt het, of is het een misvatting?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-vier-ingredienten",
+    "Welk ingrediënt?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-el-nino",
+    "Na El Niño",
+    "pijlen",
+    0
+   ],
+   [
+    "volgorde-droogte-1977",
+    "De droogte van 1977",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-jongen-1978",
+    "Waarom is dit evolutie?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/3-hoe-weten-we-dat.html": {
+  "titel": "Hoe weten we dat?",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/3-hoe-weten-we-dat/oefenen.json",
+  "oef": [
+   [
+    "indelen-soort-bewijs",
+    "Welk spoor?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-homoloog-analoog",
+    "Homoloog of analoog?",
+    "indelen",
+    0
+   ],
+   [
+    "schema-vin-arm",
+    "Dezelfde botten",
+    "schema",
+    0
+   ],
+   [
+    "volgorde-walvisfossielen",
+    "Van landdier naar walvis",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-twee-methoden",
+    "Twee methoden, één antwoord",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/4-van-niet-leven-naar-leven.html": {
+  "titel": "Van niet-leven naar leven",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/4-van-niet-leven-naar-leven/oefenen.json",
+  "oef": [
+   [
+    "volgorde-naar-protocel",
+    "Van gloeiende bol naar LUCA",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-welk-onderdeel",
+    "Welk onderdeel?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-rna-plasje",
+    "Het plasje met RNA",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-miller",
+    "Wat bewees Miller wel en niet?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-een-code",
+    "Eén code, één voorouder",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/5-de-grote-lijn.html": {
+  "titel": "De grote lijn",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/5-de-grote-lijn/oefenen.json",
+  "oef": [
+   [
+    "volgorde-grote-lijn",
+    "Van bacterie tot dinosauriër",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-zuurstof-ijzer",
+    "Waar bleef de zuurstof?",
+    "pijlen",
+    0
+   ],
+   [
+    "puzzel-jaar-van-de-aarde",
+    "Puzzel: het jaar van de aarde",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-endosymbiose",
+    "Mitochondriën waren bacteriën",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/6-selectie-van-dichtbij.html": {
+  "titel": "Selectie van dichtbij",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/6-selectie-van-dichtbij/oefenen.json",
+  "oef": [
+   [
+    "grafiek-drie-vormen",
+    "Drie vormen van selectie",
+    "grafiek",
+    0
+   ],
+   [
+    "indelen-vorm-selectie",
+    "Welke vorm van selectie?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-resistentie",
+    "Resistentie ontstaat",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-fitness-muizen",
+    "Welke muis is het meest fit?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-pauwenstaart",
+    "De pauwenstaart",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/7-hoe-een-soort-er-twee-wordt.html": {
+  "titel": "Hoe één soort er twee wordt",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/7-hoe-een-soort-er-twee-wordt/oefenen.json",
+  "oef": [
+   [
+    "volgorde-allopatrisch",
+    "Soortvorming met een barrière",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-een-of-twee",
+    "Eén soort of twee?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-isolatie",
+    "Vóór of na de bevruchting?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-cichliden",
+    "500 soorten in één meer",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/evolutie/8-toeval.html": {
+  "titel": "Toeval",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/8-toeval/oefenen.json",
+  "oef": [
+   [
+    "indelen-drift-selectie",
+    "Drift of selectie?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-flessenhals",
+    "Door de flessenhals",
+    "pijlen",
+    0
+   ],
+   [
+    "puzzel-rood-haar",
+    "Puzzel: hoeveel dragers?",
+    "puzzel",
+    1
+   ],
+   [
+    "puzzel-pingelap",
+    "Puzzel: kleurenblind op Pingelap",
+    "puzzel",
+    1
+   ],
+   [
+    "uitleg-meetlat",
+    "Hardy-Weinberg als meetlat",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/evolutie/9-veertig-jaar-daphne-major.html": {
+  "titel": "Veertig jaar Daphne Major",
+  "hoofdstuk": "evolutie",
+  "htitel": "Evolutie",
+  "json": "films/evolutie/9-veertig-jaar-daphne-major/oefenen.json",
+  "oef": [
+   [
+    "grafiek-droogte-1977",
+    "De droogte van 1977",
+    "grafiek",
+    0
+   ],
+   [
+    "puzzel-fokkersvergelijking",
+    "Puzzel: de jongen van 1978",
+    "puzzel",
+    0
+   ],
+   [
+    "pijlen-concurrent-2004",
+    "Een concurrent erbij",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-evolutie-gemeten",
+    "Waarom is dit evolutie?",
+    "uitleg",
     0
    ]
   ]
@@ -879,6 +1645,204 @@
    ]
   ]
  },
+ "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html": {
+  "titel": "Waarom doet een dier wat het doet?",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/1-waarom-doet-een-dier-wat-het-doet/oefenen.json",
+  "oef": [
+   [
+    "indelen-aangeboren-aangeleerd",
+    "Aangeboren of aangeleerd?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-vier-vragen",
+    "De vier vragen van Tinbergen",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-nabij-uiteindelijk",
+    "Nabij of uiteindelijk?",
+    "indelen",
+    1
+   ],
+   [
+    "uitleg-postauto",
+    "Aanval op de postauto",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/10-helpen.html": {
+  "titel": "Waarom helpen dieren elkaar?",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/10-helpen/oefenen.json",
+  "oef": [
+   [
+    "indelen-helpen",
+    "Waarom helpt dit dier?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-voor-de-soort",
+    "Werkt het \"voor de soort\"?",
+    "pijlen",
+    0
+   ],
+   [
+    "puzzel-hamilton",
+    "De regel van Hamilton",
+    "puzzel",
+    1
+   ],
+   [
+    "uitleg-alarm",
+    "Alarm voor de familie",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/11-slimme-dieren.html": {
+  "titel": "Slimme dieren",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/11-slimme-dieren/oefenen.json",
+  "oef": [
+   [
+    "indelen-leren",
+    "Proberen of inzicht?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-spiegeltest",
+    "De spiegeltest",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-slimme-hans",
+    "De slimme Hans",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-hond-spiegel",
+    "Zakt de hond echt?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/2-inprenting-en-de-sensitieve-periode.html": {
+  "titel": "Inprenting en de sensitieve periode",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/2-inprenting-en-de-sensitieve-periode/oefenen.json",
+  "oef": [
+   [
+    "volgorde-eierproef",
+    "De eierproef van Lorenz",
+    "volgorde",
+    0
+   ],
+   [
+    "grafiek-inprenting",
+    "Wanneer lukt inprenting?",
+    "grafiek",
+    0
+   ],
+   [
+    "indelen-inprenting",
+    "Klopt het over inprenting?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-lui-oog",
+    "Waarom nu al afplakken?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/3-baltsen-en-kiezen.html": {
+  "titel": "Baltsen en kiezen",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/3-baltsen-en-kiezen/oefenen.json",
+  "oef": [
+   [
+    "volgorde-stekelbaars-balts",
+    "De dans van de stekelbaars",
+    "volgorde",
+    0
+   ],
+   [
+    "grafiek-widavogel",
+    "Staarten knippen en plakken",
+    "grafiek",
+    0
+   ],
+   [
+    "indelen-vrouwtje-mannetje",
+    "Wie investeert het meest?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-pauwenstaart",
+    "Een staart die niet helpt overleven",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-handicapprincipe",
+    "Kun je de staart vertrouwen?",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/gedrag/4-hechting.html": {
+  "titel": "Hechting: van baby tot verliefd",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/4-hechting/oefenen.json",
+  "oef": [
+   [
+    "indelen-vreemde-situatie",
+    "De Vreemde Situatie",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-appje-lotte",
+    "Nog geen antwoord",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-harlow",
+    "De zachte moeder",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-geen-vonnis",
+    "Geen vonnis",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/gedrag/6-attributie.html": {
   "titel": "Wiens schuld is het? Interne en externe attributie",
   "hoofdstuk": "gedrag",
@@ -938,6 +1902,82 @@
    [
     "uitleg-telefoon",
     "Waarom je je telefoon blijft pakken",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/gedrag/9-mierenkolonie.html": {
+  "titel": "Een mierenkolonie zonder baas",
+  "hoofdstuk": "gedrag",
+  "htitel": "Gedrag",
+  "json": "films/gedrag/9-mierenkolonie/oefenen.json",
+  "oef": [
+   [
+    "indelen-kolonie",
+    "Wie doet wat?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-geurspoor",
+    "Een spoor van geur",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-twee-bruggen",
+    "Twee bruggetjes",
+    "pijlen",
+    0
+   ],
+   [
+    "pijlen-oogstmieren",
+    "Oogstmieren en veel voedsel",
+    "pijlen",
+    1
+   ],
+   [
+    "uitleg-zonder-baas",
+    "De korte route, zonder baas",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/hormonen/1-post-voor-iedereen.html": {
+  "titel": "Post voor iedereen",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/hormonen/1-post-voor-iedereen/oefenen.json",
+  "oef": [
+   [
+    "schema-hormoon-doelcel",
+    "Van klier tot doelcel",
+    "schema",
+    0
+   ],
+   [
+    "indelen-zenuw-hormoon",
+    "Brief of folder?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-receptor-plek",
+    "Op het membraan of in de cel?",
+    "indelen",
+    1
+   ],
+   [
+    "grafiek-afbraak-adrenaline",
+    "Hoe lang blijft adrenaline?",
+    "grafiek",
+    0
+   ],
+   [
+    "uitleg-knal",
+    "Waarom blijft je hart bonken?",
     "uitleg",
     0
    ]
@@ -1019,6 +2059,44 @@
    ]
   ]
  },
+ "films/hormonen/4-stress.html": {
+  "titel": "Stress",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/hormonen/4-stress/oefenen.json",
+  "oef": [
+   [
+    "indelen-adrenaline-cortisol",
+    "Adrenaline of cortisol?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-langzame-route",
+    "De langzame route",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-toetsweek",
+    "Een week lang stress",
+    "pijlen",
+    0
+   ],
+   [
+    "pijlen-prednison",
+    "Een jaar prednison",
+    "pijlen",
+    1
+   ],
+   [
+    "uitleg-ziek-na-toetsweek",
+    "Ziek na de toetsweek",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/hormonen/5-water-in-balans.html": {
   "titel": "Water in balans",
   "hoofdstuk": "regeling",
@@ -1072,6 +2150,808 @@
     "De kangoeroerat",
     "uitleg",
     1
+   ]
+  ]
+ },
+ "films/onderbouw/32a/1-alles-is-cel/index.html": {
+  "titel": "Alles is cel",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/1-alles-is-cel/oefenen.json",
+  "oef": [
+   [
+    "schema-plantencel",
+    "Een plantencel",
+    "schema",
+    0
+   ],
+   [
+    "indelen-plant-dier",
+    "Plant of dier?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-slappe-sla",
+    "Slap en weer stevig",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-slappe-sla",
+    "Waarom wordt de sla weer stevig?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/2-van-cel-tot-lichaam/index.html": {
+  "titel": "Van cel tot lichaam",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/2-van-cel-tot-lichaam/oefenen.json",
+  "oef": [
+   [
+    "volgorde-cel-tot-organisme",
+    "Van klein naar groot",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-cel-weefsel-orgaan",
+    "Cel, weefsel of orgaan?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-orgaanstelsels",
+    "Welk orgaanstelsel?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-gymles",
+    "Sprinten in de gymles",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/index.html": {
+  "titel": "Een rondleiding door je lichaam",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/oefenen.json",
+  "oef": [
+   [
+    "indelen-ronde-1",
+    "Ronde 1: de ochtend",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-ronde-2",
+    "Ronde 2: overdag",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-ronde-3",
+    "Ronde 3: de avond",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-boterham",
+    "De reis van je boterham",
+    "volgorde",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/3-vertering/index.html": {
+  "titel": "Vertering",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/3-vertering/oefenen.json",
+  "oef": [
+   [
+    "volgorde-hap-appel",
+    "De reis van een hap appel",
+    "volgorde",
+    0
+   ],
+   [
+    "schema-spijsverteringsstelsel",
+    "Je spijsverteringsstelsel",
+    "schema",
+    0
+   ],
+   [
+    "indelen-wat-gebeurt-waar",
+    "Wat gebeurt waar?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-alvleesklier",
+    "Als je alvleesklier stopt",
+    "pijlen",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/4-ademhaling-en-bloedsomloop/index.html": {
+  "titel": "Ademhaling en bloedsomloop",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/4-ademhaling-en-bloedsomloop/oefenen.json",
+  "oef": [
+   [
+    "volgorde-zuurstofdeeltje",
+    "De reis van een zuurstofdeeltje",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-bloedvaten",
+    "Slagader, ader of haarvat?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-onder-water",
+    "Noor onder water",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-rode-bloedcellen",
+    "Snel moe bij sport",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/5-uitscheiding/index.html": {
+  "titel": "Uitscheiding",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/5-uitscheiding/oefenen.json",
+  "oef": [
+   [
+    "schema-uitscheidingsstelsel",
+    "Je uitscheidingsstelsel",
+    "schema",
+    0
+   ],
+   [
+    "volgorde-cel-tot-plas",
+    "Van cel tot plas",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-uitscheiding",
+    "Uitscheiding of niet?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-daan-voetbalt",
+    "Daan voetbalt in de zon",
+    "pijlen",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/6-skelet-en-spieren/index.html": {
+  "titel": "Skelet en spieren",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/6-skelet-en-spieren/oefenen.json",
+  "oef": [
+   [
+    "schema-arm",
+    "Je arm",
+    "schema",
+    0
+   ],
+   [
+    "pijlen-arm-buigen",
+    "Je buigt je arm",
+    "pijlen",
+    0
+   ],
+   [
+    "indelen-gewrichten",
+    "Scharnier of kogel?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-tegenwerkers",
+    "Waarom twee spieren?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/7-zenuw-en-hormoonstelsel/index.html": {
+  "titel": "Zenuw- en hormoonstelsel",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/7-zenuw-en-hormoonstelsel/oefenen.json",
+  "oef": [
+   [
+    "indelen-zenuw-hormoon",
+    "Appje of omroep?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-brandalarm",
+    "Het brandalarm",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-hart-bonkt",
+    "Waarom bonkt je hart nog?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/8-hoe-een-plant-in-leven-blijft/index.html": {
+  "titel": "Hoe een plant in leven blijft",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/8-hoe-een-plant-in-leven-blijft/oefenen.json",
+  "oef": [
+   [
+    "schema-blad",
+    "Wat gaat het blad in en uit?",
+    "schema",
+    0
+   ],
+   [
+    "puzzel-van-helmont",
+    "Het wilgje van Van Helmont",
+    "puzzel",
+    0
+   ],
+   [
+    "pijlen-donkere-kast",
+    "Twee weken in de kast",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-wilg",
+    "Waar komt de wilg vandaan?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32a/9-organismen-aan-het-werk/index.html": {
+  "titel": "Organismen aan het werk",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32a/9-organismen-aan-het-werk/oefenen.json",
+  "oef": [
+   [
+    "indelen-wie-werkt",
+    "Wie doet het werk?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-deeg",
+    "Van deeg tot brood",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-koelkast",
+    "Deeg in de koelkast",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-yoghurt",
+    "Van melk tot yoghurt",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/1-levenscyclus-genen-en-milieu/index.html": {
+  "titel": "Levenscyclus: genen en milieu",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/1-levenscyclus-genen-en-milieu/oefenen.json",
+  "oef": [
+   [
+    "indelen-genen-milieu",
+    "Genen, milieu of allebei?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-kikker",
+    "De levenscyclus van een kikker",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-boon-schaduw",
+    "De boon in de schaduw",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-hortensia",
+    "Blauw of roze?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/2-geslachtelijk-en-ongeslachtelijk/index.html": {
+  "titel": "Geslachtelijk en ongeslachtelijk",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/2-geslachtelijk-en-ongeslachtelijk/oefenen.json",
+  "oef": [
+   [
+    "indelen-voortplanting",
+    "Eén ouder of twee?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-kenmerken",
+    "Kopie of nieuwe mix?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-zaadje",
+    "Van bloem tot zaadje",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-aardbeienveld",
+    "Een veld vol kopieën",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/3-waarom-zoveel-soorten/index.html": {
+  "titel": "Waarom zoveel soorten?",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/3-waarom-zoveel-soorten/oefenen.json",
+  "oef": [
+   [
+    "volgorde-strandmuizen",
+    "Lichte muizen op het strand",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-klopt-het",
+    "Klopt het?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-strandmuizen",
+    "Waarom zijn de strandmuizen licht?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/4-door-de-mens-gekozen/index.html": {
+  "titel": "Door de mens gekozen",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/4-door-de-mens-gekozen/oefenen.json",
+  "oef": [
+   [
+    "indelen-veredelen-fokken-gm",
+    "Veredelen, fokken of genetische modificatie?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-kruisen",
+    "Een betere tomaat",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-rashonden",
+    "Problemen bij rashonden",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/5-celdeling/index.html": {
+  "titel": "Celdeling",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/5-celdeling/oefenen.json",
+  "oef": [
+   [
+    "volgorde-mitose",
+    "Eén cel wordt twee",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-mitose-meiose",
+    "Mitose of meiose?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-chromosomen",
+    "Hoeveel chromosomen?",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-sams-knie",
+    "Sams knie gaat dicht",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/6-dna-en-overerving/index.html": {
+  "titel": "DNA en overerving",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/6-dna-en-overerving/oefenen.json",
+  "oef": [
+   [
+    "volgorde-groot-naar-klein",
+    "Van cel tot gen",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-vachtkleur",
+    "Zwart of wit?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-cavias",
+    "Het witte jong van Yasmin",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-wit-jong",
+    "Een wit jong van zwarte ouders",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32b/7-stambomen-en-de-grote-stappen/index.html": {
+  "titel": "Stambomen en de grote stappen in de evolutie",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32b/7-stambomen-en-de-grote-stappen/oefenen.json",
+  "oef": [
+   [
+    "puzzel-stamboom",
+    "Lees de stamboom",
+    "puzzel",
+    0
+   ],
+   [
+    "volgorde-grote-stappen",
+    "De grote stappen",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-stamboom-klopt",
+    "Klopt het?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-vleermuis",
+    "Vleermuis, vogel of muis?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32c/1-voeding-en-beweging/index.html": {
+  "titel": "Voeding en beweging",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32c/1-voeding-en-beweging/oefenen.json",
+  "oef": [
+   [
+    "indelen-drie-taken",
+    "Drie taken van je eten",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-astronaut",
+    "Een half jaar zweven",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-zeelui",
+    "Zieke zeelui",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32c/2-slaap-natuur-en-hygiene/index.html": {
+  "titel": "Slaap, natuur en hygiëne",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32c/2-slaap-natuur-en-hygiene/oefenen.json",
+  "oef": [
+   [
+    "indelen-goed-slapen",
+    "Helpt het om te slapen?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-hygiene",
+    "Klopt het?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-semmelweis",
+    "Het onderzoek van Semmelweis",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-zeep",
+    "Waarom zeep?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32c/3-microben-vriend-en-vijand/index.html": {
+  "titel": "Microben: vriend en vijand",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32c/3-microben-vriend-en-vijand/oefenen.json",
+  "oef": [
+   [
+    "indelen-drie-microben",
+    "Bacterie, schimmel of virus?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-vriend-vijand",
+    "Vriend of vijand?",
+    "indelen",
+    0
+   ],
+   [
+    "puzzel-bacterie-deelt",
+    "Eén bacterie in je lunch",
+    "puzzel",
+    0
+   ],
+   [
+    "uitleg-griep",
+    "Antibiotica tegen griep?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/32c/4-ziek-worden-en-beter-worden/index.html": {
+  "titel": "Ziek worden en beter worden",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/32c/4-ziek-worden-en-beter-worden/oefenen.json",
+  "oef": [
+   [
+    "volgorde-waterpokken",
+    "Teun heeft waterpokken",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-vaccin-medicijn",
+    "Vaccin, antibioticum of paracetamol?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-noor",
+    "Waarom wordt Noor niet ziek?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/index.html": {
+  "titel": "Hoe vindt een haai zijn prooi?",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/oefenen.json",
+  "oef": [
+   [
+    "volgorde-zintuigen",
+    "Van ver naar dichtbij",
+    "volgorde",
+    0
+   ],
+   [
+    "schema-haai",
+    "De zintuigen van een haai",
+    "schema",
+    0
+   ],
+   [
+    "indelen-haai-klopt",
+    "Film of echt?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-tijgerhaaien",
+    "Een baai zonder haaien",
+    "pijlen",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/33c/2-wie-woont-waar/index.html": {
+  "titel": "Wie woont waar",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/33c/2-wie-woont-waar/oefenen.json",
+  "oef": [
+   [
+    "indelen-abiotisch-biotisch",
+    "Levend of niet-levend?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-wie-is-het",
+    "IJsbeer, fennek of pissebed?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-ijs-smelt",
+    "Het ijs smelt eerder",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-ijsbeer-woestijn",
+    "Een ijsbeer in de woestijn",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/33c/3-wie-eet-wie/index.html": {
+  "titel": "Wie eet wie",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/33c/3-wie-eet-wie/oefenen.json",
+  "oef": [
+   [
+    "indelen-producent-consument-reducent",
+    "Producent, consument of reducent?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-kringloop",
+    "Een blad gaat rond",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-zonder-wolf",
+    "De wolf verdwijnt",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-wolf",
+    "Waarom de wolf telt",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/33c/4-uit-balans/index.html": {
+  "titel": "Uit balans",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/33c/4-uit-balans/oefenen.json",
+  "oef": [
+   [
+    "volgorde-successie",
+    "Na de brand",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-eikeljaar",
+    "Een jaar met veel eikels",
+    "pijlen",
+    0
+   ],
+   [
+    "indelen-verstoring",
+    "Verstoring of gewoon op en neer?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-pioniers",
+    "Eerst gras, later eiken",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/index.html": {
+  "titel": "Wij hebben de natuur nodig",
+  "hoofdstuk": "kerndoelen",
+  "htitel": "Kerndoelen onderbouw",
+  "json": "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/oefenen.json",
+  "oef": [
+   [
+    "volgorde-bestuiving",
+    "Van bloesem tot appel",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-ecosysteemdiensten",
+    "Wat doet de natuur gratis?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-gif",
+    "Gif op de akker",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-twintig-bestuivers",
+    "Twintig soorten bestuivers",
+    "uitleg",
+    0
    ]
   ]
  },
@@ -1307,6 +3187,132 @@
    ]
   ]
  },
+ "films/transport/3-wat-er-in-je-bloed-zit.html": {
+  "titel": "Wat er in je bloed zit",
+  "hoofdstuk": "transport",
+  "htitel": "Transport",
+  "json": "films/transport/3-wat-er-in-je-bloed-zit/oefenen.json",
+  "oef": [
+   [
+    "indelen-taak",
+    "Wie doet wat in je bloed?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-stolling",
+    "Een snee in je vinger",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-rode-bloedcel",
+    "Het leven van een rode bloedcel",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-epo",
+    "Hoog in de bergen",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-citraat",
+    "Waarom stolt donorbloed niet?",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/transport/4-weefselvloeistof-en-lymfe.html": {
+  "titel": "Weefselvloeistof en lymfe",
+  "hoofdstuk": "transport",
+  "htitel": "Transport",
+  "json": "films/transport/4-weefselvloeistof-en-lymfe/oefenen.json",
+  "oef": [
+   [
+    "volgorde-vocht",
+    "De reis van het vocht",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-bloed-weefselvloeistof",
+    "Plasma of weefselvloeistof?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-vliegtuig",
+    "Tien uur in het vliegtuig",
+    "pijlen",
+    0
+   ],
+   [
+    "indelen-oedeem",
+    "Waarom hoopt het vocht op?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-eiwittekort",
+    "Te weinig eiwit",
+    "pijlen",
+    1
+   ],
+   [
+    "uitleg-filtratie-resorptie",
+    "Eruit aan het begin, terug aan het eind",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/transport/5-het-hart-onder-controle.html": {
+  "titel": "Het hart onder controle",
+  "hoofdstuk": "transport",
+  "htitel": "Transport",
+  "json": "films/transport/5-het-hart-onder-controle/oefenen.json",
+  "oef": [
+   [
+    "pijlen-sprint",
+    "Een sprint",
+    "pijlen",
+    0
+   ],
+   [
+    "puzzel-hartminuutvolume",
+    "Rekenen aan je hart",
+    "puzzel",
+    0
+   ],
+   [
+    "volgorde-infarct",
+    "Van aderverkalking tot hartinfarct",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-reanimeren",
+    "Iemand valt neer in de sporthal",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-opstaan",
+    "Snel opstaan",
+    "pijlen",
+    1
+   ],
+   [
+    "uitleg-aed",
+    "Waarom helpt een AED?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
  "films/transport/6-transport-in-planten.html": {
   "titel": "Transport in planten",
   "hoofdstuk": "planten",
@@ -1348,6 +3354,94 @@
     "Een waterdraad van honderd meter",
     "uitleg",
     1
+   ]
+  ]
+ },
+ "films/transport/7-hoe-een-plant-groeit.html": {
+  "titel": "Hoe een plant groeit",
+  "hoofdstuk": "planten",
+  "htitel": "Planten",
+  "json": "films/transport/7-hoe-een-plant-groeit/oefenen.json",
+  "oef": [
+   [
+    "indelen-proeven",
+    "Wat doet het plantje?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-fototropie",
+    "Zo buigt de zonnebloem naar het raam",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-strekken",
+    "Van meristeem tot houtvat",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-wortel-op-zijn-kant",
+    "Een wortel op zijn kant",
+    "pijlen",
+    0
+   ],
+   [
+    "indelen-hormonen",
+    "Welk plantenhormoon?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-stengel-wortel",
+    "Eén hormoon, twee kanten op",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/voeding/1-wat-zit-er-in-je-eten.html": {
+  "titel": "Wat zit er in je eten?",
+  "hoofdstuk": "voeding",
+  "htitel": "Voeding",
+  "json": "films/voeding/1-wat-zit-er-in-je-eten/oefenen.json",
+  "oef": [
+   [
+    "indelen-taken",
+    "Bouwen, branden, bewaren of regelen?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-kaas-eiwit",
+    "Van kaas tot je eigen eiwit",
+    "volgorde",
+    0
+   ],
+   [
+    "puzzel-etiket-melk",
+    "Rekenen met het etiket",
+    "puzzel",
+    0
+   ],
+   [
+    "puzzel-adi-aspartaam",
+    "Hoeveel blikjes?",
+    "puzzel",
+    1
+   ],
+   [
+    "uitleg-vegan",
+    "Genoeg eiwit, toch opletten",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-trekvogel",
+    "Waarom bewaar je energie als vet?",
+    "uitleg",
+    0
    ]
   ]
  },
@@ -1401,6 +3495,56 @@
    ]
   ]
  },
+ "films/voeding/3-knippen-op-maat.html": {
+  "titel": "Knippen op maat",
+  "hoofdstuk": "voeding",
+  "htitel": "Voeding",
+  "json": "films/voeding/3-knippen-op-maat/oefenen.json",
+  "oef": [
+   [
+    "indelen-enzym-substraat",
+    "Welke schaar voor welk molecuul?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-waar",
+    "Waar wordt geknipt?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-amylase",
+    "Eén knip van amylase",
+    "volgorde",
+    0
+   ],
+   [
+    "grafiek-ph-optimum",
+    "Twee optimumkrommen",
+    "grafiek",
+    0
+   ],
+   [
+    "pijlen-temperatuur",
+    "Amylase in de warmte",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-cracker",
+    "De cracker in je maag",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-exopeptidasen",
+    "Knippen in het midden",
+    "uitleg",
+    1
+   ]
+  ]
+ },
  "films/voeding/4-van-darm-naar-bloed.html": {
   "titel": "Van darm naar bloed",
   "hoofdstuk": "voeding",
@@ -1446,6 +3590,94 @@
    [
     "uitleg-baby",
     "Een baby die geen melk verdraagt",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/voeding/5-de-lever-als-fabriek.html": {
+  "titel": "De lever als fabriek",
+  "hoofdstuk": "voeding",
+  "htitel": "Voeding",
+  "json": "films/voeding/5-de-lever-als-fabriek/oefenen.json",
+  "oef": [
+   [
+    "schema-lever",
+    "Drie buizen naar en van de lever",
+    "schema",
+    0
+   ],
+   [
+    "indelen-afdelingen",
+    "Welke afdeling van de fabriek?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-bilirubine",
+    "Van rode bloedcel tot bruine ontlasting",
+    "volgorde",
+    0
+   ],
+   [
+    "pijlen-galsteen",
+    "Een galsteen in de galgang",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-gele-baby",
+    "Waarom wordt een baby geel?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-ureum",
+    "Van ammoniak naar ureum",
+    "uitleg",
+    1
+   ]
+  ]
+ },
+ "films/voeding/6-je-darmbewoners.html": {
+  "titel": "Je darmbewoners",
+  "hoofdstuk": "voeding",
+  "htitel": "Voeding",
+  "json": "films/voeding/6-je-darmbewoners/oefenen.json",
+  "oef": [
+   [
+    "volgorde-c-difficile",
+    "Van antibioticakuur tot diarree",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-bewijsbord",
+    "Het bewijsbord",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-bonen",
+    "Een bord bonen",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-controlegroep",
+    "Mag je dit concluderen?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-poeptransplantatie",
+    "Waarom werkt een poeptransplantatie?",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-schaaltje",
+    "Het open schaaltje",
     "uitleg",
     1
    ]
@@ -1545,6 +3777,88 @@
    ]
   ]
  },
+ "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html": {
+  "titel": "Anticonceptie, soa's en voortplantingstechniek",
+  "hoofdstuk": "voortplanting",
+  "htitel": "Voortplanting",
+  "json": "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/oefenen.json",
+  "oef": [
+   [
+    "indelen-schakel",
+    "Welke schakel haalt het weg?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-bacterie-virus",
+    "Bacterie of virus?",
+    "indelen",
+    0
+   ],
+   [
+    "volgorde-ivf",
+    "Een ivf-behandeling",
+    "volgorde",
+    0
+   ],
+   [
+    "volgorde-resistentie",
+    "Hoe gonorroe resistent wordt",
+    "volgorde",
+    0
+   ],
+   [
+    "uitleg-chlamydia",
+    "Waarom testen, zonder klachten?",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/voortplanting/4-sekse-gender-diversiteit.html": {
+  "titel": "Sekse, gender en diversiteit",
+  "hoofdstuk": "voortplanting",
+  "htitel": "Voortplanting",
+  "json": "films/voortplanting/4-sekse-gender-diversiteit/oefenen.json",
+  "oef": [
+   [
+    "volgorde-xy-zaadbal",
+    "Van XY tot jongenslichaam",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-welke-laag",
+    "Welke laag loopt anders?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-dieren",
+    "Wie bepaalt de sekse?",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-vier-begrippen",
+    "Vier begrippen uit elkaar houden",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-xxy",
+    "Twee X-chromosomen, toch zaadballen",
+    "uitleg",
+    0
+   ],
+   [
+    "uitleg-xx-man",
+    "Een man met XX",
+    "uitleg",
+    1
+   ]
+  ]
+ },
  "films/voortplanting/celdeling/index.html": {
   "titel": "Celdeling",
   "hoofdstuk": "voortplanting",
@@ -1586,6 +3900,44 @@
     "Een chromosoom te veel",
     "uitleg",
     1
+   ]
+  ]
+ },
+ "films/zenuwstelsel/1-een-seconde.html": {
+  "titel": "Eén seconde",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/zenuwstelsel/1-een-seconde/oefenen.json",
+  "oef": [
+   [
+    "volgorde-reflexboog",
+    "De bal tegen je vingers",
+    "volgorde",
+    0
+   ],
+   [
+    "schema-reflexboog",
+    "De reflexboog",
+    "schema",
+    0
+   ],
+   [
+    "indelen-animaal-autonoom",
+    "Animaal of autonoom?",
+    "indelen",
+    0
+   ],
+   [
+    "pijlen-veilig-op-de-stoep",
+    "Het kind staat veilig",
+    "pijlen",
+    0
+   ],
+   [
+    "uitleg-reflex",
+    "Eerst weg, dan pijn",
+    "uitleg",
+    0
    ]
   ]
  },
@@ -1698,6 +4050,70 @@
    [
     "uitleg-alcohol-losser",
     "Eerst losser, dan trager",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/zenuwstelsel/5-het-hoofdkantoor.html": {
+  "titel": "Het hoofdkantoor",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/zenuwstelsel/5-het-hoofdkantoor/oefenen.json",
+  "oef": [
+   [
+    "schema-hersenen",
+    "De plattegrond van je hersenen",
+    "schema",
+    0
+   ],
+   [
+    "volgorde-van-oor-tot-nummer",
+    "Van twee tonen tot jouw nummer",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-wie-regelt-het",
+    "Welke afdeling regelt het?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-beroerte-links",
+    "Een beroerte links",
+    "uitleg",
+    0
+   ]
+  ]
+ },
+ "films/zenuwstelsel/6-leren-en-onthouden.html": {
+  "titel": "Leren en onthouden",
+  "hoofdstuk": "regeling",
+  "htitel": "Regeling",
+  "json": "films/zenuwstelsel/6-leren-en-onthouden/oefenen.json",
+  "oef": [
+   [
+    "volgorde-sterkere-synaps",
+    "Een synaps wordt sterker",
+    "volgorde",
+    0
+   ],
+   [
+    "indelen-conditionering",
+    "Pavlov en de friet",
+    "indelen",
+    0
+   ],
+   [
+    "indelen-twee-geheugens",
+    "Weten wát of weten hoe?",
+    "indelen",
+    0
+   ],
+   [
+    "uitleg-gespreid-leren",
+    "Drie uur leren",
     "uitleg",
     0
    ]

@@ -1,0 +1,131 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/4-door-de-mens-gekozen/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-veredelen-fokken-gm",
+   "soort": "indelen",
+   "titel": "Veredelen, fokken of genetische modificatie?",
+   "opdracht": "Welke manier gebruiken de mensen hier?",
+   "bakken": [
+    {
+     "naam": "Veredelen",
+     "uitleg": "planten kiezen en kruisen"
+    },
+    {
+     "naam": "Fokken",
+     "uitleg": "dieren kiezen"
+    },
+    {
+     "naam": "Genetische modificatie",
+     "uitleg": "zelf de genen veranderen"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Steeds de zaadjes van de grootste tomaten opnieuw zaaien.",
+     "bak": 0,
+     "uitleg": "De mens kiest, generatie na generatie."
+    },
+    {
+     "tekst": "Stuifmeel van een grote tomaat naar de bloem van een sterke tomaat brengen.",
+     "bak": 0,
+     "uitleg": "Twee planten kruisen hoort ook bij veredelen."
+    },
+    {
+     "tekst": "Uit de wolf ontstaan de chihuahua en de Duitse herder.",
+     "bak": 1,
+     "uitleg": "Mensen kozen steeds de honden die ze het handigst of mooist vonden."
+    },
+    {
+     "tekst": "Steeds verder gaan met de koeien die de meeste melk geven.",
+     "bak": 1,
+     "uitleg": "Daarom geeft een koe nu veel meer melk dan vroeger."
+    },
+    {
+     "tekst": "Een mopshond met een heel korte neus.",
+     "bak": 1,
+     "uitleg": "Een nadeel van fokken: hij ademt slecht."
+    },
+    {
+     "tekst": "Maïs met een gen van een bacterie.",
+     "bak": 2,
+     "uitleg": "Onderzoekers plakken een gen van een ander organisme erin."
+    },
+    {
+     "tekst": "Onderzoekers veranderen zelf iets in de genen.",
+     "bak": 2,
+     "uitleg": "Dat gaat sneller dan veredelen of fokken."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-kruisen",
+   "soort": "volgorde",
+   "titel": "Een betere tomaat",
+   "opdracht": "Je wilt een tomaat die groot is én goed tegen een ziekte kan. Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Kies een tomatenplant die groot is, en een die goed tegen de ziekte kan.",
+     "uitleg": "Je begint met wat er al is."
+    },
+    {
+     "tekst": "Breng stuifmeel van de ene plant naar de bloem van de andere.",
+     "uitleg": "Zo kruis je de twee planten."
+    },
+    {
+     "tekst": "Zaai de zaadjes die zo ontstaan.",
+     "uitleg": "Er groeien nakomelingen met een mix van eigenschappen."
+    },
+    {
+     "tekst": "Zoek de nakomelingen die groot én sterk zijn.",
+     "uitleg": "Maar een paar nakomelingen hebben allebei."
+    },
+    {
+     "tekst": "Ga verder met die planten, generatie na generatie.",
+     "uitleg": "Veredelen gaat langzaam. Het duurt vaak tientallen jaren."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-rashonden",
+   "soort": "uitleg",
+   "titel": "Problemen bij rashonden",
+   "opdracht": "Bij rashonden komen erfelijke problemen vaker voor dan bij andere honden. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "inteelt",
+     "varianten": []
+    },
+    {
+     "naam": "familie",
+     "varianten": [
+      "verwant"
+     ]
+    },
+    {
+     "naam": "genen",
+     "varianten": [
+      "gen"
+     ]
+    },
+    {
+     "naam": "fokken",
+     "varianten": [
+      "fokker"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat rashonden vaak familie van elkaar zijn.",
+    "Ik leg uit dat ze daardoor veel dezelfde genen delen, ook de zwakke.",
+    "Ik noem dat dit inteelt heet."
+   ],
+   "model": [
+    "Bij het fokken kiezen mensen steeds honden uit een kleine groep. Daardoor zijn rashonden vaak familie van elkaar.",
+    "Familie deelt veel dezelfde genen, ook de zwakke. Zo komen erfelijke problemen vaker voor. Dat heet inteelt."
+   ]
+  }
+ ]
+}

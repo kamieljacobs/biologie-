@@ -1,0 +1,207 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/8-hoe-een-plant-in-leven-blijft/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-blad",
+   "soort": "schema",
+   "titel": "Wat gaat het blad in en uit?",
+   "opdracht": "Overdag maakt een blad voedsel. Kijk naar de richting van de pijlen. Sleep de namen naar de goede pijl. Eén naam blijft over.",
+   "alt": "Lijntekening van een blad aan een stengel. Een zon met een pijl naar het blad. Een pijl omhoog door de stengel. Een pijl van buiten het blad in, en een pijl van het blad naar buiten.",
+   "breed": 700,
+   "hoog": 440,
+   "vakbreed": 170,
+   "svg": "<path stroke-width=\"2.6\" d=\"M170 250 C240 130 430 110 580 200 C480 320 280 350 170 250 Z\"/><path class=\"zacht\" stroke-width=\"1.8\" d=\"M170 250 L580 200 M260 239 L310 170 M340 229 L400 155 M420 219 L470 160 M300 234 L350 300 M390 223 L440 290\"/><path stroke-width=\"2.6\" d=\"M170 250 C140 290 110 330 90 410\"/><circle cx=\"90\" cy=\"70\" r=\"26\" stroke-width=\"2.4\" class=\"acc\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M126 70 L138 70\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M115 95 L124 104\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M90 106 L90 118\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M65 95 L56 104\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M54 70 L42 70\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M65 45 L56 36\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M90 34 L90 22\"/><path class=\"acc\" stroke-width=\"2.2\" d=\"M115 45 L124 36\"/><path class=\"acc\" stroke-width=\"3\" d=\"M130 105 L250 180\"/><path class=\"acc\" stroke-width=\"3\" d=\"M238.1 178.7 L250 180 L243.6 169.8\"/><path stroke-width=\"3\" d=\"M72 400 L118 300\"/><path stroke-width=\"3\" d=\"M118.2 312.0 L118 300 L108.7 307.6\"/><path stroke-width=\"3\" d=\"M520 390 L455 298\"/><path stroke-width=\"3\" d=\"M465.5 303.8 L455 298 L457.0 309.8\"/><path stroke-width=\"3\" d=\"M330 300 L285 400\"/><path stroke-width=\"3\" d=\"M284.7 388.0 L285 400 L294.2 392.3\"/>",
+   "vakjes": [
+    {
+     "naam": "licht",
+     "x": 260,
+     "y": 60,
+     "punt": [
+      200,
+      145
+     ],
+     "uitleg": "vangen de bladgroenkorrels; daarmee maakt de plant suiker."
+    },
+    {
+     "naam": "water",
+     "x": 230,
+     "y": 390,
+     "punt": [
+      100,
+      345
+     ],
+     "uitleg": "halen de wortels uit de grond; de stengel brengt het omhoog."
+    },
+    {
+     "naam": "koolstofdioxide",
+     "x": 600,
+     "y": 330,
+     "punt": [
+      495,
+      355
+     ],
+     "uitleg": "komt uit de lucht, door de huidmondjes het blad in."
+    },
+    {
+     "naam": "zuurstof",
+     "x": 440,
+     "y": 410,
+     "punt": [
+      305,
+      360
+     ],
+     "uitleg": "komt vrij bij de fotosynthese en gaat door de huidmondjes naar buiten."
+    }
+   ],
+   "afleiders": [
+    "aarde"
+   ]
+  },
+  {
+   "id": "puzzel-van-helmont",
+   "soort": "puzzel",
+   "titel": "Het wilgje van Van Helmont",
+   "opdracht": "Van Helmont zette een wilgje van 2 kilo in een pot met droge aarde. Hij gaf alleen water. Na vijf jaar woog de wilg 77 kilo. De aarde was maar ongeveer 60 gram lichter. Los het stap voor stap op.",
+   "stappen": [
+    {
+     "vraag": "Hoeveel kilo is de wilg zwaarder geworden?",
+     "velden": [
+      {
+       "label": "kilo:",
+       "antwoord": 75
+      }
+     ],
+     "uitleg": "77 − 2 = 75 kilo erbij."
+    },
+    {
+     "vraag": "Kan de wilg die 75 kilo uit de aarde hebben gehaald?",
+     "velden": [
+      {
+       "label": "antwoord:",
+       "antwoord": "nee",
+       "opties": [
+        "ja",
+        "nee"
+       ]
+      }
+     ],
+     "uitleg": "Nee. De aarde werd maar ongeveer 60 gram lichter, zo zwaar als een ei.",
+     "tip": "60 gram is veel minder dan 75 kilo."
+    },
+    {
+     "vraag": "Uit welk gas in de lucht is het stevige hout vooral gemaakt?",
+     "velden": [
+      {
+       "label": "gas:",
+       "antwoord": [
+        "koolstofdioxide",
+        "co2",
+        "kooldioxide"
+       ]
+      }
+     ],
+     "uitleg": "Koolstofdioxide. Samen met water maakt de plant er suiker van, en daarmee bouwt hij celwanden. Hout is vooral celwand."
+    },
+    {
+     "vraag": "Wat gaf de plant de energie om van water en koolstofdioxide suiker te maken?",
+     "velden": [
+      {
+       "label": "energie uit:",
+       "antwoord": [
+        "licht",
+        "zonlicht",
+        "zon"
+       ]
+      }
+     ],
+     "uitleg": "Licht. Bladgroenkorrels vangen het licht. Dat heet fotosynthese."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-donkere-kast",
+   "soort": "pijlen",
+   "titel": "Twee weken in de kast",
+   "opdracht": "Voorspel wat er met de plant gebeurt.",
+   "situatie": "Een plant staat twee weken in een donkere kast. Hij krijgt wel water.",
+   "rijen": [
+    {
+     "naam": "Licht voor de bladgroenkorrels",
+     "antwoord": "-",
+     "uitleg": "In de kast is het donker."
+    },
+    {
+     "naam": "Suiker die de plant maakt",
+     "antwoord": "-",
+     "uitleg": "Zonder licht geen fotosynthese."
+    },
+    {
+     "naam": "Zuurstof die het blad afgeeft",
+     "antwoord": "-",
+     "uitleg": "Zuurstof komt vrij bij de fotosynthese, en die ligt stil."
+    },
+    {
+     "naam": "Voorraad suiker in de plant",
+     "antwoord": "-",
+     "uitleg": "De plant verbrandt wel suiker, dag en nacht. Zo raakt zijn voorraad op."
+    },
+    {
+     "naam": "Hoe groen en stevig de plant is",
+     "antwoord": "-",
+     "uitleg": "Hij wordt geel en slap."
+    },
+    {
+     "naam": "Water dat de plant krijgt",
+     "antwoord": "=",
+     "uitleg": "Hij krijgt gewoon water. Maar water alleen is geen voedsel."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-wilg",
+   "soort": "uitleg",
+   "titel": "Waar komt de wilg vandaan?",
+   "opdracht": "De wilg van Van Helmont werd 75 kilo zwaarder. De aarde werd maar 60 gram lichter. Leg uit waar de wilg zijn kilo's vandaan haalde.",
+   "begrippen": [
+    {
+     "naam": "fotosynthese",
+     "varianten": []
+    },
+    {
+     "naam": "koolstofdioxide",
+     "varianten": [
+      "co2"
+     ]
+    },
+    {
+     "naam": "water",
+     "varianten": []
+    },
+    {
+     "naam": "licht",
+     "varianten": [
+      "zonlicht"
+     ]
+    },
+    {
+     "naam": "suiker",
+     "varianten": [
+      "glucose"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de wilg zijn kilo's niet uit de aarde haalde.",
+    "Ik leg uit dat een plant met licht van water en koolstofdioxide suiker maakt: fotosynthese.",
+    "Ik leg uit dat de plant met die suiker bouwt, bijvoorbeeld celwanden en hout."
+   ],
+   "model": [
+    "De aarde werd bijna niet lichter, dus de wilg haalde zijn kilo's niet uit de grond. Een plant eet geen aarde.",
+    "Een plant maakt zijn eigen voedsel: fotosynthese. Bladgroenkorrels vangen licht. Met die energie maken ze van water en koolstofdioxide uit de lucht suiker.",
+    "Met die suiker bouwt de wilg celwanden. Hout is vooral celwand. De wilg is dus vooral gemaakt van water en lucht."
+   ]
+  }
+ ]
+}

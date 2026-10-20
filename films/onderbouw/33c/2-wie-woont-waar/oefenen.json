@@ -1,0 +1,190 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/33c/2-wie-woont-waar/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-abiotisch-biotisch",
+   "soort": "indelen",
+   "titel": "Levend of niet-levend?",
+   "opdracht": "Is dit een abiotische of een biotische factor?",
+   "bakken": [
+    {
+     "naam": "Abiotisch",
+     "uitleg": "zonder leven"
+    },
+    {
+     "naam": "Biotisch",
+     "uitleg": "levend"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "kou tot min veertig graden",
+     "bak": 0,
+     "uitleg": "Temperatuur is niet levend."
+    },
+    {
+     "tekst": "ijs op de zee",
+     "bak": 0,
+     "uitleg": "IJs is een ding zonder leven."
+    },
+    {
+     "tekst": "zout water",
+     "bak": 0,
+     "uitleg": "Niet-levend."
+    },
+    {
+     "tekst": "donker en vochtig onder een steen",
+     "bak": 0,
+     "uitleg": "Licht en vocht zijn abiotisch."
+    },
+    {
+     "tekst": "zeehonden",
+     "bak": 1,
+     "uitleg": "Het voedsel van de ijsbeer: levend."
+    },
+    {
+     "tekst": "andere ijsberen",
+     "bak": 1,
+     "uitleg": "Ook soortgenoten zijn biotische factoren."
+    },
+    {
+     "tekst": "insecten onder het zand",
+     "bak": 1,
+     "uitleg": "Het voedsel van de fennek."
+    },
+    {
+     "tekst": "de rode vos die de poolvos verdringt",
+     "bak": 1,
+     "uitleg": "Concurrentie is een biotische factor."
+    }
+   ]
+  },
+  {
+   "id": "indelen-wie-is-het",
+   "soort": "indelen",
+   "titel": "IJsbeer, fennek of pissebed?",
+   "opdracht": "Bij welk dier past dit?",
+   "bakken": [
+    {
+     "naam": "IJsbeer"
+    },
+    {
+     "naam": "Fennek"
+    },
+    {
+     "naam": "Pissebed"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Onder de vacht zit een laag vet van soms tien centimeter.",
+     "bak": 0,
+     "uitleg": "Die houdt hem warm in de kou."
+    },
+    {
+     "tekst": "Wacht bij een gat in het ijs op een zeehond.",
+     "bak": 0,
+     "uitleg": "Zonder ijs kan hij niet jagen."
+    },
+    {
+     "tekst": "Enorme oren waar veel bloed door stroomt.",
+     "bak": 1,
+     "uitleg": "Zo raakt hij warmte kwijt."
+    },
+    {
+     "tekst": "Haalt het meeste water uit zijn eten.",
+     "bak": 1,
+     "uitleg": "Hij hoeft bijna nooit te drinken."
+    },
+    {
+     "tekst": "Hoort insecten onder het zand.",
+     "bak": 1,
+     "uitleg": "Ook daarvoor zijn de grote oren."
+    },
+    {
+     "tekst": "Woont onder een steen, waar het donker en vochtig is.",
+     "bak": 2,
+     "uitleg": "In de schooltuin."
+    },
+    {
+     "tekst": "Gaat snel dood op droog zand.",
+     "bak": 2,
+     "uitleg": "Hij heeft een vochtige plek nodig."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-ijs-smelt",
+   "soort": "pijlen",
+   "titel": "Het ijs smelt eerder",
+   "opdracht": "Voorspel wat er met de ijsbeer gebeurt.",
+   "situatie": "Het wordt warmer op aarde. Het zee-ijs smelt in het voorjaar steeds eerder.",
+   "rijen": [
+    {
+     "naam": "Tijd dat er ijs op de zee ligt",
+     "antwoord": "-",
+     "uitleg": "Eén abiotische factor verandert: het ijs."
+    },
+    {
+     "naam": "Tijd om zeehonden te vangen",
+     "antwoord": "-",
+     "uitleg": "Zonder ijs kan hij geen zeehonden vangen."
+    },
+    {
+     "naam": "Voedsel dat de ijsbeer vindt",
+     "antwoord": "-",
+     "uitleg": "Op het land vindt hij bijna niets. Zo verandert er iets biotisch."
+    },
+    {
+     "naam": "Dikte van zijn vetlaag",
+     "antwoord": "-",
+     "uitleg": "Hij moet maanden teren op zijn vet en wordt magerder."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-ijsbeer-woestijn",
+   "soort": "uitleg",
+   "titel": "Een ijsbeer in de woestijn",
+   "opdracht": "Leg uit waarom een ijsbeer niet in de woestijn kan leven. Noem een abiotische en een biotische reden.",
+   "begrippen": [
+    {
+     "naam": "abiotisch",
+     "varianten": [
+      "abiotische"
+     ]
+    },
+    {
+     "naam": "biotisch",
+     "varianten": [
+      "biotische"
+     ]
+    },
+    {
+     "naam": "vetlaag",
+     "varianten": [
+      "vet"
+     ]
+    },
+    {
+     "naam": "zeehonden",
+     "varianten": [
+      "zeehond",
+      "voedsel"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik noem een abiotische reden: het is er te warm voor zijn dikke vetlaag.",
+    "Ik noem een biotische reden: er zijn geen zeehonden om te vangen.",
+    "Ik leg uit dat elke soort leeft waar die factoren bij hem passen."
+   ],
+   "model": [
+    "Een ijsbeer heeft onder zijn vacht een dikke laag vet. Die houdt hem warm in de kou. In de woestijn wordt hij daardoor veel te warm. Dat is een abiotische reden.",
+    "Een ijsbeer jaagt op zeehonden, en die zijn er niet in de woestijn. Dat is een biotische reden. Elke soort leeft op de plek waar de factoren bij hem passen."
+   ]
+  }
+ ]
+}

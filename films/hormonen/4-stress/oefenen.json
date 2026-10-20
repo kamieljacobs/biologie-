@@ -1,0 +1,214 @@
+{
+ "versie": 1,
+ "film": "films/hormonen/4-stress.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-adrenaline-cortisol",
+   "soort": "indelen",
+   "titel": "Adrenaline of cortisol?",
+   "opdracht": "Past elk kenmerk bij adrenaline of bij cortisol?",
+   "bakken": [
+    {
+     "naam": "Adrenaline",
+     "uitleg": "de snelle route"
+    },
+    {
+     "naam": "Cortisol",
+     "uitleg": "de langzame route"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Gemaakt in het bijniermerg.",
+     "bak": 0,
+     "uitleg": "Het merg zit binnenin de bijnier."
+    },
+    {
+     "tekst": "Gemaakt in de bijnierschors.",
+     "bak": 1,
+     "uitleg": "De schors ligt om het merg heen."
+    },
+    {
+     "tekst": "De klier wordt aangezet door een zenuw.",
+     "bak": 0,
+     "uitleg": "Het orthosympathische zenuwstelsel zet het merg direct aan."
+    },
+    {
+     "tekst": "De klier wordt aangezet door ACTH van de hypofyse.",
+     "bak": 1,
+     "uitleg": "Twee extra stappen: daarom trager."
+    },
+    {
+     "tekst": "Ligt al klaar in blaasjes; binnen seconden in je bloed.",
+     "bak": 0,
+     "uitleg": "Het merg heeft een voorraad."
+    },
+    {
+     "tekst": "Het hoogst na twintig minuten tot een half uur.",
+     "bak": 1,
+     "uitleg": "De schors moet cortisol eerst nog maken."
+    },
+    {
+     "tekst": "Laat je hart bonken bij een schrik.",
+     "bak": 0,
+     "uitleg": "Dat doet adrenaline, niet cortisol."
+    },
+    {
+     "tekst": "Laat je lever nieuwe glucose maken, en remt je afweer.",
+     "bak": 1,
+     "uitleg": "Cortisol maakt glucose uit onder andere aminozuren, en remt afweer en ontstekingen."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-langzame-route",
+   "soort": "volgorde",
+   "titel": "De langzame route",
+   "opdracht": "Zet de stappen van de langzame stressroute in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Je schrikt, of je hebt stress.",
+     "uitleg": "Je hersenen zetten de hypothalamus aan."
+    },
+    {
+     "tekst": "De hypothalamus zet de hypofyse aan.",
+     "uitleg": "Net als bij de schildklier, maar nu met een andere klier."
+    },
+    {
+     "tekst": "De hypofyse geeft ACTH af aan het bloed.",
+     "uitleg": "ACTH is het hormoon dat de bijnierschors aanzet."
+    },
+    {
+     "tekst": "De bijnierschors maakt cortisol.",
+     "uitleg": "De schors heeft geen voorraad: cortisol moet eerst gemaakt worden."
+    },
+    {
+     "tekst": "Na twintig minuten tot een half uur is de cortisol in je bloed het hoogst.",
+     "uitleg": "Twee extra stappen en geen voorraad: daarom duurt het langer."
+    },
+    {
+     "tekst": "Cortisol remt de hypothalamus en de hypofyse: er komt minder ACTH.",
+     "uitleg": "Het eindproduct remt zijn eigen aanmaak: negatieve terugkoppeling."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-toetsweek",
+   "soort": "pijlen",
+   "titel": "Een week lang stress",
+   "opdracht": "Voorspel wat er gebeurt als de stress dagen aanhoudt.",
+   "situatie": "Toetsweek: vijf dagen toetsen, en elke avond tot laat leren.",
+   "rijen": [
+    {
+     "naam": "Hoe vaak je hersenen de hypothalamus aanzetten",
+     "antwoord": "+",
+     "uitleg": "Zolang de stress duurt, blijft het gaspedaal ingedrukt."
+    },
+    {
+     "naam": "ACTH uit de hypofyse",
+     "antwoord": "+",
+     "uitleg": "De hypothalamus zet de hypofyse aan."
+    },
+    {
+     "naam": "Cortisol in je bloed, ook 's avonds",
+     "antwoord": "+",
+     "uitleg": "Het gaspedaal is sterker dan de rem: de cortisol blijft dagen wat hoger."
+    },
+    {
+     "naam": "Je afweer",
+     "antwoord": "-",
+     "uitleg": "Cortisol remt je afweer."
+    },
+    {
+     "naam": "Kans dat een verkoudheidsvirus je ziek maakt",
+     "antwoord": "+",
+     "uitleg": "Met een geremde afweer krijgt een virus makkelijker een kans."
+    },
+    {
+     "naam": "Glucose in je bloed",
+     "antwoord": "+",
+     "uitleg": "Cortisol laat je lever nieuwe glucose maken."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-prednison",
+   "soort": "pijlen",
+   "vwo": true,
+   "titel": "Een jaar prednison",
+   "opdracht": "Prednison lijkt op cortisol. Voorspel wat er gebeurt.",
+   "situatie": "Iemand slikt een jaar lang prednison tegen reuma.",
+   "rijen": [
+    {
+     "naam": "Remming van de hypothalamus en de hypofyse",
+     "antwoord": "+",
+     "uitleg": "Prednison remt ze, net als cortisol zelf."
+    },
+    {
+     "naam": "CRH uit de hypothalamus",
+     "antwoord": "-",
+     "uitleg": "Een jaar lang weinig CRH."
+    },
+    {
+     "naam": "ACTH uit de hypofyse",
+     "antwoord": "-",
+     "uitleg": "Ook weinig ACTH."
+    },
+    {
+     "naam": "Grootte van de eigen bijnierschors",
+     "antwoord": "-",
+     "uitleg": "Zonder ACTH wordt de bijnierschors kleiner."
+    },
+    {
+     "naam": "Eigen cortisol, vlak nadat hij in één keer stopt",
+     "antwoord": "-",
+     "uitleg": "De kleine schors maakt te weinig cortisol. Daarom bouwen artsen zo'n medicijn langzaam af."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-ziek-na-toetsweek",
+   "soort": "uitleg",
+   "titel": "Ziek na de toetsweek",
+   "opdracht": "De dag na de laatste toets lig je verkouden in bed. Leg uit hoe een week stress daarvoor kan zorgen.",
+   "begrippen": [
+    {
+     "naam": "bijnierschors",
+     "varianten": [
+      "schors"
+     ]
+    },
+    {
+     "naam": "cortisol",
+     "varianten": []
+    },
+    {
+     "naam": "ACTH",
+     "varianten": [
+      "hypofyse"
+     ]
+    },
+    {
+     "naam": "afweer",
+     "varianten": []
+    },
+    {
+     "naam": "adrenaline",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat adrenaline uit het bijniermerg snel weer weg is, en dat het daar dus niet aan ligt.",
+    "Ik leg uit dat lange stress via hypothalamus, hypofyse en ACTH de bijnierschors aan het werk houdt.",
+    "Ik leg uit dat de cortisol daardoor dagen wat hoger blijft.",
+    "Ik leg uit dat cortisol je afweer remt, zodat een virus makkelijker een kans krijgt."
+   ],
+   "model": [
+    "Bij elke toets zet je bijniermerg je in een paar seconden klaar met adrenaline. Maar die is na een paar minuten weer weg.",
+    "Een week stress houdt ook de langzame route aan: de hypothalamus zet de hypofyse aan, die geeft ACTH af, en de bijnierschors maakt cortisol. Zolang de stress duurt, is het gaspedaal sterker dan de rem, en blijft de cortisol dagen wat hoger.",
+    "Cortisol remt je afweer. Een verkoudheidsvirus krijgt tijdens die week dus makkelijker een kans. Pas een paar dagen later merk je dat: net als de toetsen voorbij zijn."
+   ]
+  }
+ ]
+}

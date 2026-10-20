@@ -85,7 +85,7 @@
     '.oe-bak.over{border-color:var(--oe-goud)}' +
     '.oe-bak .oe-leeg{color:var(--oe-zacht);font-size:14px}' +
     '.oe-chip{font:600 15px/1.15 "Source Sans 3",system-ui,sans-serif;padding:9px 14px;min-height:40px;border-radius:999px;border:1px solid var(--oe-goud);background:var(--oe-kaart2);color:var(--oe-tekst);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;text-align:left}' +
-    '.oe-vak .oe-chip{padding:6px 10px;min-height:30px;font-size:14px;max-width:100%;overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}' +
+    '.oe-vak .oe-chip{padding:6px 10px;min-height:30px;font-size:14px;overflow-wrap:normal;word-break:normal;hyphens:manual;-webkit-hyphens:manual}' +
     '.oe-chip[aria-pressed="true"]{background:var(--oe-goud);color:var(--oe-goud-ink)}' +
     '.oe-chip.sleept{opacity:.35}' +
     '.oe-terug{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px;font-size:14.5px;color:var(--oe-zacht)}' +
@@ -378,7 +378,7 @@
       var li = el('li', 'oe-vak');
       li.dataset.k = v.k; li.tabIndex = 0; li.setAttribute('role', 'button');
       li.setAttribute('aria-label', 'Vakje ' + (v.k + 1));
-      li.style.left = (100 * v.x / W) + '%'; li.style.top = (100 * v.y / H) + '%'; li.style.width = (100 * VB / W) + '%';
+      li.style.left = (100 * v.x / W) + '%'; li.style.top = (100 * v.y / H) + '%'; li.style.minWidth = (100 * VB / W) + '%';
       li.innerHTML = '<span class="oe-nr">' + (v.k + 1) + '</span><span class="oe-plek"><span class="oe-leeg">sleep hier</span></span>';
       vakkenLijst.appendChild(li);
     });

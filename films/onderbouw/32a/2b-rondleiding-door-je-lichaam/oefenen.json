@@ -1,0 +1,216 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-ronde-1",
+   "soort": "indelen",
+   "titel": "Ronde 1: de ochtend",
+   "opdracht": "Je wordt wakker en eet een boterham. Bij welk stelsel hoort elk orgaan?",
+   "bakken": [
+    {
+     "naam": "Zenuwstelsel",
+     "uitleg": "aansturen"
+    },
+    {
+     "naam": "Spijsverteringsstelsel",
+     "uitleg": "eten klein maken en opnemen"
+    },
+    {
+     "naam": "Ademhalingsstelsel",
+     "uitleg": "zuurstof"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "hersenen",
+     "bak": 0,
+     "uitleg": "Ze sturen alles aan: bewegen, voelen, denken."
+    },
+    {
+     "tekst": "ruggenmerg",
+     "bak": 0,
+     "uitleg": "Signalen gaan door je ruggenmerg en je zenuwen, heen en weer."
+    },
+    {
+     "tekst": "ogen",
+     "bak": 0,
+     "uitleg": "Je ogen vangen licht. Ook zij horen bij je zenuwstelsel."
+    },
+    {
+     "tekst": "maag",
+     "bak": 1,
+     "uitleg": "Daar wordt het eten gemengd met zuur, tot een papje."
+    },
+    {
+     "tekst": "dunne darm",
+     "bak": 1,
+     "uitleg": "Haalt de voedingsstoffen uit je eten."
+    },
+    {
+     "tekst": "lever",
+     "bak": 1,
+     "uitleg": "De lever maakt een sap dat helpt bij het verteren van vet."
+    },
+    {
+     "tekst": "luchtpijp",
+     "bak": 2,
+     "uitleg": "Lucht gaat door je neus en je luchtpijp naar je longen."
+    },
+    {
+     "tekst": "longen",
+     "bak": 2,
+     "uitleg": "Hier gaat zuurstof je bloed in."
+    }
+   ]
+  },
+  {
+   "id": "indelen-ronde-2",
+   "soort": "indelen",
+   "titel": "Ronde 2: overdag",
+   "opdracht": "Je fietst naar school en zit in de les. Bij welk stelsel hoort elk orgaan?",
+   "bakken": [
+    {
+     "naam": "Bloedvatenstelsel",
+     "uitleg": "rondbrengen"
+    },
+    {
+     "naam": "Uitscheidingsstelsel",
+     "uitleg": "afval eruit"
+    },
+    {
+     "naam": "Afweersysteem",
+     "uitleg": "ziekteverwekkers tegenhouden"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "hart",
+     "bak": 0,
+     "uitleg": "Pompt je bloed rond, honderdduizend keer per dag."
+    },
+    {
+     "tekst": "bloedvaten",
+     "bak": 0,
+     "uitleg": "Brengen het bloed tot in je tenen."
+    },
+    {
+     "tekst": "nieren",
+     "bak": 1,
+     "uitleg": "Maken je bloed schoon, dag en nacht."
+    },
+    {
+     "tekst": "urineleiders",
+     "bak": 1,
+     "uitleg": "Brengen de urine van je nieren naar je blaas."
+    },
+    {
+     "tekst": "blaas",
+     "bak": 1,
+     "uitleg": "Hier verzamelt de urine zich."
+    },
+    {
+     "tekst": "witte bloedcellen",
+     "bak": 2,
+     "uitleg": "Ze vallen ziekteverwekkers aan."
+    },
+    {
+     "tekst": "lymfeklieren",
+     "bak": 2,
+     "uitleg": "In je hals en je oksels: de verzamelplaats van witte bloedcellen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-ronde-3",
+   "soort": "indelen",
+   "titel": "Ronde 3: de avond",
+   "opdracht": "Bewegen, groeien en nieuw leven. Bij welk stelsel hoort elk orgaan?",
+   "bakken": [
+    {
+     "naam": "Skelet"
+    },
+    {
+     "naam": "Spierstelsel"
+    },
+    {
+     "naam": "Hormoonstelsel"
+    },
+    {
+     "naam": "Voortplantingsstelsel"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "schedel",
+     "bak": 0,
+     "uitleg": "Beschermt je hersenen. Hoort bij je skelet."
+    },
+    {
+     "tekst": "botten",
+     "bak": 0,
+     "uitleg": "Ongeveer tweehonderd. Ze geven je lichaam vorm en stevigheid."
+    },
+    {
+     "tekst": "spieren",
+     "bak": 1,
+     "uitleg": "Ze worden korter en trekken aan je botten."
+    },
+    {
+     "tekst": "hypofyse",
+     "bak": 2,
+     "uitleg": "Onder je hersenen. Regelt je groei met hormonen."
+    },
+    {
+     "tekst": "schildklier",
+     "bak": 2,
+     "uitleg": "In je hals. Regelt hoe snel je lichaam werkt."
+    },
+    {
+     "tekst": "eierstokken",
+     "bak": 3,
+     "uitleg": "Gaan in de puberteit eicellen maken."
+    },
+    {
+     "tekst": "baarmoeder",
+     "bak": 3,
+     "uitleg": "Hoort bij het voortplantingsstelsel."
+    },
+    {
+     "tekst": "zaadballen",
+     "bak": 3,
+     "uitleg": "Gaan in de puberteit zaadcellen maken."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-boterham",
+   "soort": "volgorde",
+   "titel": "De reis van je boterham",
+   "opdracht": "Zet de organen in de volgorde waarin je boterham erdoor gaat.",
+   "stappen": [
+    {
+     "tekst": "Mond: tanden maken het eten klein, speeksel maakt het nat.",
+     "uitleg": "Hier begint je spijsverteringsstelsel."
+    },
+    {
+     "tekst": "Slokdarm: duwt het eten naar je maag.",
+     "uitleg": "Een buis van je mond naar je maag."
+    },
+    {
+     "tekst": "Maag: mengt het eten met zuur, tot een papje.",
+     "uitleg": "Daarna gaat het papje verder."
+    },
+    {
+     "tekst": "Dunne darm: haalt de voedingsstoffen eruit. Die gaan je bloed in.",
+     "uitleg": "Je alvleesklier en lever helpen hier met hun sappen."
+    },
+    {
+     "tekst": "Dikke darm: haalt het water eruit.",
+     "uitleg": "Wat overblijft, gaat de wc in."
+    }
+   ]
+  }
+ ]
+}

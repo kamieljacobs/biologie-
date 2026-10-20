@@ -1,0 +1,192 @@
+{
+ "intro": "Oefen met DNA vermeerderen, sorteren en veranderen. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "grafiek-gel-dader",
+   "soort": "grafiek",
+   "titel": "Wie past bij het bloedspoor?",
+   "opdracht": "Het lab maakt een DNA-profiel van het bloed op de kapotte ruit en van drie verdachten, A, B en C. In het laatste spoor zit een schoon wattenstaafje. Bekijk de gel en beantwoord de vragen.",
+   "breed": 680,
+   "hoog": 380,
+   "alt": "Gel met vijf sporen: spoor, A, B, C en leeg. Bovenaan de minpool, onderaan de pluspool. Spoor en B hebben precies dezelfde vijf banden. A en C hebben ook vijf banden, maar op andere hoogtes. Het lege spoor heeft geen banden.",
+   "svg": "<rect class=\"zacht\" stroke-width=\"2\" x=\"80\" y=\"56\" width=\"580\" height=\"298\" rx=\"8\"/><text x=\"44\" y=\"76\" text-anchor=\"middle\" style=\"font-size:22px\">−</text><text x=\"44\" y=\"344\" text-anchor=\"middle\" style=\"font-size:22px\">+</text><path class=\"zacht\" stroke-width=\"1.6\" d=\"M44 92 L44 318 M38 310 L44 318 L50 310\"/><text x=\"135.0\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">spoor</text><rect stroke-width=\"1.8\" x=\"106.0\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"102\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"147\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"252\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"297\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"257.5\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">A</text><rect stroke-width=\"1.8\" x=\"228.5\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"230.5\" y=\"95\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"230.5\" y=\"147\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"230.5\" y=\"212\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"230.5\" y=\"252\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"230.5\" y=\"309\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"380.0\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">B</text><rect stroke-width=\"1.8\" x=\"351.0\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"353.0\" y=\"102\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"353.0\" y=\"147\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"353.0\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"353.0\" y=\"252\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"353.0\" y=\"297\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"502.5\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">C</text><rect stroke-width=\"1.8\" x=\"473.5\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"475.5\" y=\"115\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"475.5\" y=\"162\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"475.5\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"475.5\" y=\"235\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"475.5\" y=\"297\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"625.0\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">leeg</text><rect stroke-width=\"1.8\" x=\"596.0\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/>",
+   "vragen": [
+    {
+     "vraag": "Welke verdachte heeft hetzelfde profiel als het bloedspoor?",
+     "keuzes": [
+      "A",
+      "B",
+      "C"
+     ],
+     "antwoord": 1,
+     "uitleg": "Alleen bij B staan alle banden op dezelfde hoogte als bij het spoor."
+    },
+    {
+     "vraag": "Waarom zit er een schoon wattenstaafje in het laatste spoor?",
+     "keuzes": [
+      "als controle: daar hoort geen band te staan",
+      "om te laten zien hoe ver het kortste stuk loopt",
+      "om de gel af te sluiten"
+     ],
+     "antwoord": 0,
+     "uitleg": "Een schoon wattenstaafje is de controle. Staat daar toch een band, dan is er iets verontreinigd."
+    },
+    {
+     "vraag": "Waar zitten de kortste stukken DNA?",
+     "keuzes": [
+      "bovenaan, bij de minpool",
+      "onderaan, bij de pluspool",
+      "dat kun je niet zien"
+     ],
+     "antwoord": 1,
+     "uitleg": "DNA is negatief geladen en loopt naar de pluspool. Korte stukken komen makkelijker door de gel en lopen verder."
+    },
+    {
+     "vraag": "Verdachte B heeft een eeneiige tweelingbroer. Wat zou zijn profiel laten zien?",
+     "keuzes": [
+      "precies hetzelfde als B",
+      "de helft van de banden van B",
+      "een heel ander patroon"
+     ],
+     "antwoord": 0,
+     "uitleg": "Een eeneiige tweeling ontstaat uit één bevruchte eicel en deelt hetzelfde profiel. Het profiel alleen kan ze niet onderscheiden."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-gel-vader",
+   "soort": "grafiek",
+   "titel": "Wie is de vader?",
+   "opdracht": "Van elke plek in je DNA heb je twee versies: één van je vader, één van je moeder. Elke band van het kind komt dus van de moeder of van de vader. Bekijk de gel.",
+   "breed": 680,
+   "hoog": 380,
+   "alt": "Gel met vier sporen: moeder, kind, man 1 en man 2. Het kind heeft zes banden. Drie daarvan liggen even hoog als banden van de moeder. De andere drie liggen even hoog als banden van man 1. Man 2 mist twee van die drie banden.",
+   "svg": "<rect class=\"zacht\" stroke-width=\"2\" x=\"80\" y=\"56\" width=\"580\" height=\"298\" rx=\"8\"/><text x=\"44\" y=\"76\" text-anchor=\"middle\" style=\"font-size:22px\">−</text><text x=\"44\" y=\"344\" text-anchor=\"middle\" style=\"font-size:22px\">+</text><path class=\"zacht\" stroke-width=\"1.6\" d=\"M44 92 L44 318 M38 310 L44 318 L50 310\"/><text x=\"135.0\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">moeder</text><rect stroke-width=\"1.8\" x=\"106.0\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"97\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"157\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"187\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"247\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"108.0\" y=\"277\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"298.3\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">kind</text><rect stroke-width=\"1.8\" x=\"269.3\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"97\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"127\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"187\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"247\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"271.3\" y=\"262\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"461.7\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">man 1</text><rect stroke-width=\"1.8\" x=\"432.7\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"127\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"142\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"172\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"262\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"434.7\" y=\"292\" width=\"54\" height=\"7\" rx=\"2\"/><text x=\"625.0\" y=\"44\" text-anchor=\"middle\" style=\"font-size:14px\">man 2</text><rect stroke-width=\"1.8\" x=\"596.0\" y=\"64\" width=\"58\" height=\"10\" rx=\"2\"/><rect class=\"vul\" x=\"598.0\" y=\"142\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"598.0\" y=\"157\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"598.0\" y=\"202\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"598.0\" y=\"277\" width=\"54\" height=\"7\" rx=\"2\"/><rect class=\"vul\" x=\"598.0\" y=\"292\" width=\"54\" height=\"7\" rx=\"2\"/>",
+   "vragen": [
+    {
+     "vraag": "Hoeveel banden van het kind liggen even hoog als een band van de moeder?",
+     "antwoord": 3,
+     "uitleg": "De eerste, de derde en de vijfde band van het kind komen overeen met banden van de moeder."
+    },
+    {
+     "vraag": "Hoeveel banden van het kind moeten dan van de vader komen?",
+     "antwoord": 3,
+     "uitleg": "Het kind heeft zes banden; drie komen niet van de moeder, dus van de vader."
+    },
+    {
+     "vraag": "Welke man kan de vader zijn?",
+     "keuzes": [
+      "man 1",
+      "man 2",
+      "allebei",
+      "geen van beiden"
+     ],
+     "antwoord": 0,
+     "uitleg": "Man 1 heeft alle drie de banden die het kind niet van de moeder heeft. Man 2 mist er twee, dus hij kan de vader niet zijn."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-pcr",
+   "soort": "volgorde",
+   "titel": "Eén PCR-cyclus",
+   "opdracht": "Zet de stappen van PCR in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Verhit tot bijna honderd graden: de strengen gaan uit elkaar.",
+     "uitleg": "De waterstofbruggen tussen de basen breken."
+    },
+    {
+     "tekst": "Koel af: primers binden aan het begin van het stuk dat je wilt kopiëren.",
+     "uitleg": "De primers bepalen welk stuk gekopieerd wordt."
+    },
+    {
+     "tekst": "Warm op tot zo'n zeventig graden: de polymerase bouwt vanaf elke primer een nieuwe streng.",
+     "uitleg": "Een hittebestendige polymerase, uit een bacterie uit hete bronnen."
+    },
+    {
+     "tekst": "Na één cyclus heb je twee keer zoveel kopieën.",
+     "uitleg": "Elke cyclus verdubbelt het aantal."
+    },
+    {
+     "tekst": "Na dertig cycli heb je meer dan een miljard kopieën.",
+     "uitleg": "Twee tot de macht dertig is ruim een miljard."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-insuline-bacterie",
+   "soort": "volgorde",
+   "titel": "Een bacterie die insuline maakt",
+   "opdracht": "Zet de stappen van genetische modificatie in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Haal uit cellen van de alvleesklier het mRNA van het insulinegen.",
+     "uitleg": "Uit het mRNA zijn de introns al weggeknipt."
+    },
+    {
+     "tekst": "Reverse transcriptase schrijft het mRNA over naar cDNA.",
+     "uitleg": "cDNA is het gen zonder introns."
+    },
+    {
+     "tekst": "Knip een plasmide en het cDNA met hetzelfde restrictie-enzym.",
+     "uitleg": "Dan krijgen ze dezelfde plakkerige uiteinden."
+    },
+    {
+     "tekst": "Ligase plakt het cDNA in het plasmide.",
+     "uitleg": "Dat heet een recombinant plasmide."
+    },
+    {
+     "tekst": "Breng de plasmiden in bacteriën en kweek ze op een bodem met een antibioticum.",
+     "uitleg": "Alleen bacteriën met het plasmide, met het resistentiegen, groeien."
+    },
+    {
+     "tekst": "De bacteriën lezen het insulinegen af en maken menselijke insuline.",
+     "uitleg": "Zo'n bacterie heet genetisch gemodificeerd."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-cdna",
+   "soort": "uitleg",
+   "titel": "Waarom cDNA?",
+   "opdracht": "Onderzoekers bouwen cDNA van het insulinegen in een bacterie, en niet het insulinegen zoals het in het DNA van de mens ligt. Leg uit waarom, en hoe dat cDNA gemaakt wordt.",
+   "begrippen": [
+    {
+     "naam": "intron",
+     "varianten": [
+      "introns"
+     ]
+    },
+    {
+     "naam": "mRNA",
+     "varianten": []
+    },
+    {
+     "naam": "reverse transcriptase",
+     "varianten": []
+    },
+    {
+     "naam": "cDNA",
+     "varianten": []
+    },
+    {
+     "naam": "alvleesklier",
+     "varianten": [
+      "alvleeskliercellen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat een menselijk gen introns bevat, die in de kern uit het mRNA worden geknipt.",
+    "Ik leg uit dat een bacterie geen introns kan verwijderen en dus een verkeerd eiwit zou maken.",
+    "Ik leg uit dat je het mRNA uit alvleeskliercellen haalt, waar de introns al uit zijn.",
+    "Ik leg uit dat reverse transcriptase dat mRNA overschrijft naar DNA: cDNA, het gen zonder introns."
+   ],
+   "model": [
+    "Een menselijk gen bevat introns: stukken die niet in het eiwit terechtkomen. In de kern van een menselijke cel worden die uit het mRNA geknipt. Een bacterie kan dat niet. Met het gewone gen zou de bacterie dus een verkeerd eiwit maken.",
+    "Daarom haal je het mRNA van het insulinegen uit cellen van de alvleesklier. Daar zijn de introns al uit. Het enzym reverse transcriptase schrijft dat mRNA over naar DNA. Dat heet cDNA: het gen zonder introns. Dat cDNA kan de bacterie wel goed aflezen."
+   ]
+  }
+ ]
+}

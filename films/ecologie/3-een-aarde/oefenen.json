@@ -1,0 +1,118 @@
+{
+ "intro": "Oefen met broeikaseffect, vermesting, gifstoffen en de ADI. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-eutrofiering",
+   "soort": "volgorde",
+   "titel": "Van mest tot dode vissen",
+   "opdracht": "Er komt te veel mest op een akker naast een beek. Zet de stappen van eutrofiëring in de goede volgorde.",
+   "stappen": [
+    {"tekst": "Nitraat en fosfaat uit de mest spoelen de beek in.", "uitleg": "Stikstof en fosfaat zijn voedingsstoffen voor planten en algen."},
+    {"tekst": "Algen groeien explosief: algenbloei.", "uitleg": "Er is ineens veel voedsel voor de algen."},
+    {"tekst": "De algen sterven massaal.", "uitleg": "Zo'n bloei houdt niet lang stand."},
+    {"tekst": "Bacteriën breken de dode algen af en verbruiken daarbij de zuurstof.", "uitleg": "Niet de levende algen maken de zuurstof op, maar de afbraak van de dode."},
+    {"tekst": "Er is te weinig zuurstof in het water: vissen stikken.", "uitleg": "Dit heet eutrofiëring, of vermesting."}
+   ]
+  },
+  {
+   "id": "indelen-milieuprobleem",
+   "soort": "indelen",
+   "titel": "Welk milieuprobleem?",
+   "opdracht": "Bij welk probleem uit de film hoort elk kaartje?",
+   "bakken": [
+    {"naam": "Broeikaseffect", "uitleg": "extra CO₂ en methaan"},
+    {"naam": "Te veel stikstof en fosfaat"},
+    {"naam": "Accumulatie van gifstoffen", "uitleg": "stoffen die blijven"}
+   ],
+   "kaartjes": [
+    {"tekst": "Fossiele brandstoffen en ontbossing", "bak": 0, "uitleg": "De grootste bronnen van extra CO₂."},
+    {"tekst": "Koeien boeren methaan op.", "bak": 0, "uitleg": "Methaan houdt over honderd jaar ongeveer dertig keer zoveel warmte vast als CO₂."},
+    {"tekst": "De rupsenpiek is voorbij als de jonge koolmezen uitkomen.", "bak": 0, "uitleg": "Door de opwarming lopen eiken eerder uit, en raakt de timing verstoord."},
+    {"tekst": "Algenbloei in een beek", "bak": 1, "uitleg": "Door nitraat en fosfaat uit mest."},
+    {"tekst": "Grassen en brandnetels verdringen de zonnedauw op de heide.", "bak": 1, "uitleg": "Stikstofdepositie: planten van arme grond verdwijnen."},
+    {"tekst": "Orka's bij Schotland krijgen geen jongen meer.", "bak": 2, "uitleg": "Ze zitten vol pcb's, die zich ophopen in de voedselketen."},
+    {"tekst": "PFAS uit blusschuim komen via drinkwater bij ons binnen.", "bak": 2, "uitleg": "PFAS breken bijna niet af: ze zijn persistent."}
+   ]
+  },
+  {
+   "id": "pijlen-stikstof-heide",
+   "soort": "pijlen",
+   "titel": "Stikstof op de heide",
+   "opdracht": "Er slaat elk jaar meer stikstof neer op een heideveld. Voorspel wat er gebeurt.",
+   "situatie": "Ammoniak uit mest en stikstofoxiden uit verkeer slaan neer op de heide.",
+   "rijen": [
+    {"naam": "Stikstof in de bodem van de heide", "antwoord": "+", "uitleg": "Dit heet stikstofdepositie."},
+    {"naam": "Groei van grassen en brandnetels", "antwoord": "+", "uitleg": "Zij groeien hard op voedselrijke grond."},
+    {"naam": "Aantal zonnedauwplanten", "antwoord": "-", "uitleg": "Planten van arme grond worden verdrongen."},
+    {"naam": "Aantal plantensoorten op de heide", "antwoord": "-", "uitleg": "Een paar snelle groeiers nemen het over: het aantal soorten daalt."}
+   ]
+  },
+  {
+   "id": "puzzel-adi",
+   "soort": "puzzel",
+   "titel": "Rekenen met de ADI",
+   "opdracht": "Een bestrijdingsmiddel heeft een ADI van 0,02 milligram per kilo lichaamsgewicht. Op één appel zit 0,1 milligram. Een kind weegt 30 kilo. Hoeveel appels mag het kind per dag eten?",
+   "stappen": [
+    {
+     "vraag": "Hoeveel milligram mag het kind per dag binnenkrijgen?",
+     "velden": [
+      {"label": "toegestaan:", "antwoord": 0.6, "marge": 0.001}
+     ],
+     "uitleg": "De ADI geldt per kilo lichaamsgewicht: 0,02 × 30 = 0,6 milligram per dag.",
+     "tip": "Vermenigvuldig de ADI eerst met het lichaamsgewicht."
+    },
+    {
+     "vraag": "Hoeveel appels per dag is dat?",
+     "velden": [
+      {"label": "appels:", "antwoord": 6, "marge": 0.01}
+     ],
+     "uitleg": "0,6 gedeeld door 0,1 = 6 appels. Op echt fruit zit meestal veel minder."
+    },
+    {
+     "vraag": "Daan weegt 50 kilo. Mag hij meer of minder appels dan het kind?",
+     "velden": [
+      {"label": "Daan mag:", "antwoord": "meer", "opties": ["meer", "evenveel", "minder"]}
+     ],
+     "uitleg": "Daan mag 0,02 × 50 = 1 milligram, dus 10 appels. Hoe lichter je bent, hoe minder je mag."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-methaan-pens",
+   "soort": "volgorde",
+   "vwo": true,
+   "titel": "Methaan uit de pens",
+   "opdracht": "Zet in de goede volgorde hoe een koe methaan maakt.",
+   "stappen": [
+    {"tekst": "De koe eet gras.", "uitleg": "Het gras komt in de pens."},
+    {"tekst": "Micro-organismen in de pens breken het gras af, zonder zuurstof.", "uitleg": "Dit is vergisting."},
+    {"tekst": "Bij de vergisting ontstaan onder andere waterstof en CO₂.", "uitleg": "Hoe meer koolhydraten er vergist worden, hoe meer."},
+    {"tekst": "Methaanvormende micro-organismen maken daar methaan van.", "uitleg": "Een stof in het voer die hen remt, kan de uitstoot met ongeveer een derde verlagen."},
+    {"tekst": "De koe boert het methaan op.", "uitleg": "Het meeste methaan komt dus uit de bek."}
+   ]
+  },
+  {
+   "id": "uitleg-orka",
+   "soort": "uitleg",
+   "titel": "Waarom juist de orka?",
+   "opdracht": "In zeewater zit maar heel weinig pcb. Toch zitten orka's er vol mee. Leg uit hoe dat komt.",
+   "begrippen": [
+    {"naam": "persistent", "varianten": ["breken niet af", "afbreken"]},
+    {"naam": "vet", "varianten": ["vetweefsel", "uitgescheiden", "uitscheiden"]},
+    {"naam": "accumulatie", "varianten": ["ophopen", "stapelen"]},
+    {"naam": "voedselketen", "varianten": ["prooien", "toppredator"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat pcb's bijna niet afbreken: ze zijn persistent.",
+    "Ik leg uit dat ze in vet oplossen en slecht worden uitgescheiden, zodat ze zich ophopen in een lichaam.",
+    "Ik leg uit dat bij elke stap in de voedselketen de concentratie stijgt.",
+    "Ik leg uit dat het niet komt doordat de orka groot is, maar doordat hij het gif van al zijn prooien bij elkaar eet."
+   ],
+   "model": [
+    "Pcb's breken bijna niet af: ze zijn persistent. Ze lossen op in vet en worden slecht uitgescheiden. Daardoor hopen ze zich op in een lichaam: accumulatie.",
+    "Een vis eet heel veel plankton, een zeehond heel veel vissen, en een orka heel veel zeehonden. Bij elke stap in de voedselketen stijgt de concentratie.",
+    "De orka is een toppredator. Niet omdat hij groot is, maar omdat hij het gif van al zijn prooien bij elkaar eet, zit hij er vol mee."
+   ]
+  }
+ ]
+}

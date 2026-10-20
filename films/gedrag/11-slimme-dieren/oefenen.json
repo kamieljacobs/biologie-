@@ -1,0 +1,171 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/11-slimme-dieren.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-leren",
+   "soort": "indelen",
+   "titel": "Proberen of inzicht?",
+   "opdracht": "Is dit proefondervindelijk leren (proberen, en wat werkt vaker doen) of inzichtelijk leren (een plotselinge oplossing)?",
+   "bakken": [
+    {
+     "naam": "Proefondervindelijk",
+     "uitleg": "trial-and-error"
+    },
+    {
+     "naam": "Inzichtelijk",
+     "uitleg": "plotseling, zonder alles te proberen"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een dier probeert van alles; wat werkt, doet het daarna vaker.",
+     "bak": 0,
+     "uitleg": "Dat is precies proefondervindelijk leren."
+    },
+    {
+     "tekst": "Een kind probeert sleutels één voor één, tot de deur opengaat.",
+     "bak": 0,
+     "uitleg": "Alles uitproberen tot het werkt."
+    },
+    {
+     "tekst": "Kraaien leren in de eerste pogingen dat zinkende voorwerpen het water laten stijgen.",
+     "bak": 0,
+     "uitleg": "Die keuze leerden ze door te proberen."
+    },
+    {
+     "tekst": "Chimpansees leren kisten stapelen, maar dat kost veel oefenen.",
+     "bak": 0,
+     "uitleg": "Veel oefenen, stap voor stap."
+    },
+    {
+     "tekst": "Chimpansees stoppen, kijken rond, en schuiven ineens een kist onder de banaan.",
+     "bak": 1,
+     "uitleg": "Een plotselinge oplossing zonder alles te proberen."
+    },
+    {
+     "tekst": "Je ziet ineens hoe een puzzel in elkaar zit, zonder nog te proberen.",
+     "bak": 1,
+     "uitleg": "Een plotseling inzicht."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-spiegeltest",
+   "soort": "volgorde",
+   "titel": "De spiegeltest",
+   "opdracht": "Zet de stappen van een eerlijke spiegeltest in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Zet ongemerkt een vlekje op een plek die het dier alleen in de spiegel kan zien.",
+     "uitleg": "Bijvoorbeeld op het voorhoofd, of een stickertje op de keel bij eksters."
+    },
+    {
+     "tekst": "Kijk eerst zonder spiegel of het dier aan die plek zit.",
+     "uitleg": "Dat is de controle: misschien voelt het dier het vlekje."
+    },
+    {
+     "tekst": "Zet de spiegel neer.",
+     "uitleg": "Nu kan het dier de vlek zien."
+    },
+    {
+     "tekst": "Kijk of het dier nu wel aan de vlek zit.",
+     "uitleg": "Bijvoorbeeld proberen het stickertje van de eigen keel te krijgen."
+    },
+    {
+     "tekst": "Zit het alleen met spiegel aan de vlek, dan lijkt het te snappen: dat ben ik.",
+     "uitleg": "Veel chimpansees slagen, makaken niet."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-slimme-hans",
+   "soort": "uitleg",
+   "titel": "De slimme Hans",
+   "opdracht": "Het paard Hans leek te kunnen rekenen. Leg uit hoe Hans de goede antwoorden gaf, hoe Pfungst dat ontdekte, en wat de regel van Morgan hiermee te maken heeft.",
+   "begrippen": [
+    {
+     "naam": "signalen",
+     "varianten": [
+      "signaal"
+     ]
+    },
+    {
+     "naam": "vraagsteller",
+     "varianten": []
+    },
+    {
+     "naam": "controle",
+     "varianten": [
+      "controles",
+      "eerlijk testen"
+     ]
+    },
+    {
+     "naam": "regel van Morgan",
+     "varianten": [
+      "Morgan",
+      "eenvoudiger"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de vraagsteller bij het goede aantal onbewust een beetje rechtop ging staan, en dat Hans dan stopte.",
+    "Ik beschrijf de controle: als de vraagsteller het antwoord niet wist of Hans hem niet zag, zat Hans er bijna altijd naast.",
+    "Ik leg uit dat je dus eerlijk moet testen, met controles.",
+    "Ik leg uit dat je volgens de regel van Morgan het eenvoudigere vermogen kiest: signalen lezen in plaats van rekenen."
+   ],
+   "model": [
+    "Hans keek naar de vraagsteller. Bij het goede aantal ging die heel even een beetje rechtop staan, zonder het zelf te merken. Daar stopte Hans met tikken.",
+    "Pfungst testte dit met controles. Wist de vraagsteller het antwoord zelf niet, of kon Hans hem niet zien, dan zat Hans er bijna altijd naast. Zo bleek dat Hans signalen las, en niet rekende.",
+    "Kun je gedrag verklaren met een eenvoudiger vermogen, zoals signalen lezen, dan kies je niet voor een slimmer vermogen, zoals rekenen. Dat is de regel van Morgan."
+   ]
+  },
+  {
+   "id": "uitleg-hond-spiegel",
+   "soort": "uitleg",
+   "titel": "Zakt de hond echt?",
+   "opdracht": "Honden slagen niet voor de spiegeltest. Leg uit waarom je daaruit niet zomaar mag concluderen dat honden zichzelf niet herkennen.",
+   "begrippen": [
+    {
+     "naam": "spiegeltest",
+     "varianten": [
+      "spiegel"
+     ]
+    },
+    {
+     "naam": "geur",
+     "varianten": [
+      "ruiken",
+      "snuffelen"
+     ]
+    },
+    {
+     "naam": "zelfherkenning",
+     "varianten": [
+      "herkennen"
+     ]
+    },
+    {
+     "naam": "past bij het dier",
+     "varianten": [
+      "passen",
+      "past"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de spiegeltest zelfherkenning met de ogen meet.",
+    "Ik noem dat honden vooral in een wereld van geur leven.",
+    "Ik beschrijf dat honden langer snuffelen aan hun eigen plas als er een extra geurtje bij is.",
+    "Ik concludeer dat een test moet passen bij het dier."
+   ],
+   "model": [
+    "De spiegeltest meet of een dier zichzelf herkent met zijn ogen. Honden slagen daar niet voor.",
+    "Maar honden leven vooral in een wereld van geur. Ze snuffelen langer aan hun eigen plas als onderzoekers er een extra geurtje aan toevoegden. Ze merken dus dat hun eigen geur veranderd is.",
+    "Misschien herkennen ze zichzelf wel, maar niet met hun ogen. Een test moet passen bij het dier, anders meet je iets anders dan je wilt."
+   ]
+  }
+ ]
+}

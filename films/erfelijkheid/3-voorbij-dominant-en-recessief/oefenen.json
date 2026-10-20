@@ -1,0 +1,140 @@
+{
+ "intro": "Oefen met overerving die niet netjes dominant en recessief is. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-soort-overerving",
+   "soort": "indelen",
+   "titel": "Welke soort overerving?",
+   "opdracht": "Bij elk voorbeeld past één soort overerving uit de film. Sleep het naar de goede groep.",
+   "bakken": [
+    {"naam": "Intermediair", "uitleg": "de heterozygoot zit ertussenin"},
+    {"naam": "Codominant", "uitleg": "beide allelen volledig zichtbaar"},
+    {"naam": "Letale factor", "uitleg": "één genotype overleeft niet"},
+    {"naam": "Polygeen", "uitleg": "veel genen samen, vloeiende reeks"}
+   ],
+   "kaartjes": [
+    {"tekst": "Rode × witte leeuwenbek geeft alleen roze nakomelingen.", "bak": 0, "uitleg": "RW maakt half zoveel pigment: roze ligt tussen rood en wit."},
+    {"tekst": "Roze × roze geeft 1 rood : 2 roze : 1 wit.", "bak": 0, "uitleg": "Bij intermediair zie je het genotype direct aan het fenotype."},
+    {"tekst": "Iemand met IᴬIᴮ heeft antigeen A én antigeen B op zijn rode bloedcellen.", "bak": 1, "uitleg": "Beide enzymen werken: bloedgroep AB."},
+    {"tekst": "Twee gele muizen krijgen 2 gele op 1 grijze jongen.", "bak": 2, "uitleg": "YY-embryo's ontwikkelen zich niet: 3 : 1 wordt 2 : 1."},
+    {"tekst": "Een allel is dominant voor de kleur, maar in dubbele dosis dodelijk.", "bak": 2, "uitleg": "Dat is precies wat een letale factor doet."},
+    {"tekst": "Lichaamslengte van mensen vormt een klokvormige verdeling.", "bak": 3, "uitleg": "Heel veel genen tellen op, en het milieu doet er iets bij."},
+    {"tekst": "Met drie genen zie je al zeven groepen.", "bak": 3, "uitleg": "Hoe meer genen, hoe meer groepen, tot een vloeiende reeks."},
+    {"tekst": "Bij bloedgroep AB komen beide allelen volledig tot uiting.", "bak": 1, "uitleg": "Dat is de definitie van codominantie."}
+   ]
+  },
+  {
+   "id": "puzzel-bloedgroep-o",
+   "soort": "puzzel",
+   "titel": "Puzzel: moeder A, vader B, kind O",
+   "opdracht": "Een moeder heeft bloedgroep A, de vader bloedgroep B. Hun kind heeft bloedgroep O. Gebruik Iᴬ, Iᴮ en i. Typ Iᴬ als IA en Iᴮ als IB.",
+   "stappen": [
+    {
+     "vraag": "Wat is het genotype van het kind met bloedgroep O?",
+     "velden": [{"label": "genotype kind:", "antwoord": ["ii"], "hoofdletters": true}],
+     "uitleg": "Bloedgroep O betekent: geen antigeen A en geen antigeen B. Dat kan alleen met twee keer het allel i.",
+     "tip": "Welk allel levert een enzym dat niet werkt?"
+    },
+    {
+     "vraag": "Welk allel kreeg het kind van zijn moeder?",
+     "velden": [{"label": "allel:", "antwoord": ["i"], "hoofdletters": true, "breed": 4}],
+     "uitleg": "Elk kind krijgt één allel van elke ouder. Het kind is ii, dus van beide ouders een i."
+    },
+    {
+     "vraag": "Wat is dan het genotype van de moeder en van de vader?",
+     "velden": [
+      {"label": "moeder:", "antwoord": ["IAi", "iIA", "Iᴬi", "iIᴬ"], "hoofdletters": true},
+      {"label": "vader:", "antwoord": ["IBi", "iIB", "Iᴮi", "iIᴮ"], "hoofdletters": true}
+     ],
+     "uitleg": "De moeder heeft bloedgroep A en een i: Iᴬi. De vader heeft bloedgroep B en een i: Iᴮi. Met IᴬIᴬ of IᴮIᴮ had het kind nooit O kunnen worden."
+    },
+    {
+     "vraag": "Hoe groot is bij deze ouders de kans op een kind met bloedgroep O?",
+     "velden": [{"label": "kans:", "antwoord": 0.25, "marge": 0.01}],
+     "uitleg": "Elke ouder geeft met kans ½ een i door: ½ × ½ = ¼.",
+     "tip": "Je mag een breuk typen, zoals 1/4."
+    },
+    {
+     "vraag": "En de kans op een kind met bloedgroep AB?",
+     "velden": [{"label": "kans:", "antwoord": 0.25, "marge": 0.01}],
+     "uitleg": "Iᴬ van moeder (½) en Iᴮ van vader (½): ¼. Bij deze ouders zijn A, B, AB en O alle vier even waarschijnlijk."
+    }
+   ]
+  },
+  {
+   "id": "puzzel-leeuwenbek",
+   "soort": "puzzel",
+   "titel": "Puzzel: roze leeuwenbekken",
+   "opdracht": "Bij de leeuwenbek levert allel R een enzym voor rood pigment, allel W een enzym dat niet werkt. Je kruist twee roze planten en krijgt 200 nakomelingen.",
+   "stappen": [
+    {
+     "vraag": "Wat is het genotype van een roze plant?",
+     "velden": [{"label": "genotype:", "antwoord": ["RW", "WR"], "hoofdletters": true}],
+     "uitleg": "Roze ligt tussen rood (RR) en wit (WW): de heterozygoot, RW."
+    },
+    {
+     "vraag": "Welk deel van de nakomelingen is naar verwachting roze?",
+     "velden": [{"label": "deel:", "antwoord": 0.5, "marge": 0.01}],
+     "uitleg": "RW × RW geeft 1 RR : 2 RW : 1 WW. Twee van de vier vakjes zijn RW: de helft."
+    },
+    {
+     "vraag": "Hoeveel van de 200 nakomelingen verwacht je met witte bloemen?",
+     "velden": [{"label": "wit:", "antwoord": 50, "eenheid": "planten"}],
+     "uitleg": "Een kwart is WW: ¼ × 200 = 50."
+    },
+    {
+     "vraag": "Je kruist een roze plant met een witte. Welk deel van de nakomelingen is roze?",
+     "velden": [{"label": "deel:", "antwoord": 0.5, "marge": 0.01}],
+     "uitleg": "RW × WW: de witte plant geeft altijd W. De helft krijgt R van de roze ouder (RW, roze), de helft W (WW, wit)."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-gele-muizen",
+   "soort": "uitleg",
+   "titel": "Waar is de rest gebleven?",
+   "opdracht": "Je kruist steeds twee gele muizen. Je verwacht drie gele op één grijze, maar je telt twee gele op één grijze. Leg uit hoe dat komt.",
+   "begrippen": [
+    {"naam": "letale factor", "varianten": ["letaal", "dodelijk"]},
+    {"naam": "dominant", "varianten": []},
+    {"naam": "homozygoot", "varianten": ["YY", "twee gele allelen"]},
+    {"naam": "embryo", "varianten": ["embryo's"]},
+    {"naam": "kruisingsschema", "varianten": ["vakje", "vakjes", "schema"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat gele muizen heterozygoot zijn (Yy), want ze krijgen grijze jongen.",
+    "Ik leg uit dat het gele allel voor de kleur dominant is, maar ook een gen beschadigt dat een embryo nodig heeft.",
+    "Ik leg uit dat YY-embryo's zich niet ontwikkelen, zodat één vakje uit het schema wegvalt.",
+    "Ik concludeer dat van de drie overgebleven vakjes er twee geel zijn en één grijs: 2 : 1."
+   ],
+   "model": [
+    "Twee gele muizen krijgen ook grijze jongen, dus ze zijn allebei heterozygoot: Yy. Volgens het kruisingsschema verwacht je 1 YY : 2 Yy : 1 yy, dus 3 geel : 1 grijs.",
+    "Het gele allel doet twee dingen. Voor de kleur is het dominant. Maar het beschadigt ook een gen dat een embryo nodig heeft om te groeien. Met één geel allel gaat dat goed, met twee niet: YY-embryo's ontwikkelen zich niet.",
+    "Het vakje YY valt dus weg. Van de drie vakjes die overblijven zijn er twee Yy (geel) en één yy (grijs): 2 : 1. Zo'n allel heet een letale factor."
+   ]
+  },
+  {
+   "id": "uitleg-lengte-erfelijk",
+   "soort": "uitleg",
+   "titel": "Is lengte erfelijk?",
+   "opdracht": "Een klasgenoot zegt: 'Lengte is niet erfelijk, want je ziet geen duidelijke groepen zoals bij erwten.' Leg uit waarom dat niet klopt.",
+   "begrippen": [
+    {"naam": "polygeen", "varianten": ["polygene", "veel genen"]},
+    {"naam": "Mendel", "varianten": []},
+    {"naam": "milieu", "varianten": ["voeding", "gezondheid", "omgeving"]},
+    {"naam": "normale verdeling", "varianten": ["klokvorm", "vloeiende reeks"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat lengte door heel veel genen tegelijk wordt beïnvloed: polygene overerving.",
+    "Ik leg uit dat elk van die genen gewoon volgens Mendel erft.",
+    "Ik leg uit dat meer genen meer groepen geven, en dat het milieu de groepen laat overlopen tot een normale verdeling.",
+    "Ik noem dat lange ouders daarom vaak, maar niet altijd, lange kinderen hebben."
+   ],
+   "model": [
+    "Lengte wordt niet door één gen bepaald, maar door heel veel genen samen. Dat heet polygene overerving. Elk van die genen erft gewoon volgens Mendel.",
+    "Met één gen zie je drie groepen, met twee genen vijf, met drie al zeven. De effecten van alle genen tellen op. Voeding en gezondheid doen er nog iets bij, zodat de groepen in elkaar overlopen tot een klokvormige, normale verdeling.",
+    "Lengte is dus wel erfelijk: lange ouders hebben vaak lange kinderen. Maar niet altijd, want elk kind krijgt een andere combinatie van allelen en groeit op in een ander milieu."
+   ]
+  }
+ ]
+}

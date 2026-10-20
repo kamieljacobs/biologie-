@@ -1,0 +1,184 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/5-uitscheiding/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-uitscheidingsstelsel",
+   "soort": "schema",
+   "titel": "Je uitscheidingsstelsel",
+   "opdracht": "Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening van twee boonvormige nieren, met twee dunne buizen naar een zak eronder, en een buis naar buiten.",
+   "breed": 640,
+   "hoog": 420,
+   "vakbreed": 150,
+   "svg": "<path stroke-width=\"2.6\" d=\"M230 60 C270 60 285 95 270 120 C262 133 262 140 270 152 C285 178 265 190 230 190 C190 190 170 160 170 125 C170 90 190 60 230 60 Z\"/><path stroke-width=\"2.6\" d=\"M410 60 C370 60 355 95 370 120 C378 133 378 140 370 152 C355 178 375 190 410 190 C450 190 470 160 470 125 C470 90 450 60 410 60 Z\"/><path class=\"acc\" stroke-width=\"2.6\" d=\"M266 136 C285 180 295 240 300 288 M374 136 C355 180 345 240 340 288\"/><path stroke-width=\"2.6\" d=\"M300 285 C270 290 262 320 270 340 C280 365 300 368 320 368 C340 368 360 365 370 340 C378 320 370 290 340 285 C330 283 310 283 300 285 Z\"/><path class=\"acc\" stroke-width=\"2.4\" d=\"M314 368 L314 410 M326 368 L326 410\"/>",
+   "vakjes": [
+    {
+     "naam": "nier",
+     "x": 90,
+     "y": 120,
+     "punt": [
+      185,
+      120
+     ],
+     "uitleg": "zo groot als een vuist; filtert je bloed en maakt urine."
+    },
+    {
+     "naam": "urineleider",
+     "x": 90,
+     "y": 250,
+     "punt": [
+      290,
+      235
+     ],
+     "uitleg": "dunne buis van de nier naar de blaas."
+    },
+    {
+     "naam": "blaas",
+     "x": 550,
+     "y": 300,
+     "punt": [
+      368,
+      320
+     ],
+     "uitleg": "een rekbare zak met spieren in de wand."
+    },
+    {
+     "naam": "plasbuis",
+     "x": 550,
+     "y": 395,
+     "punt": [
+      326,
+      400
+     ],
+     "uitleg": "hierdoor gaat de urine naar buiten."
+    }
+   ],
+   "afleiders": [
+    "dikke darm"
+   ]
+  },
+  {
+   "id": "volgorde-cel-tot-plas",
+   "soort": "volgorde",
+   "titel": "Van cel tot plas",
+   "opdracht": "Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {
+     "tekst": "Als je cellen eiwitten afbreken, ontstaat een giftige stof.",
+     "uitleg": "Je cellen werken dag en nacht, en daarbij ontstaat afval."
+    },
+    {
+     "tekst": "Je lever maakt daar ureum van.",
+     "uitleg": "Ureum is minder giftig en lost goed op in water."
+    },
+    {
+     "tekst": "Je bloed stroomt door je nieren.",
+     "uitleg": "De hele dag door."
+    },
+    {
+     "tekst": "Piepkleine filtertjes persen water, zout, suiker en ureum uit het bloed.",
+     "uitleg": "Bloedcellen blijven in het bloed: die zijn te groot."
+    },
+    {
+     "tekst": "De nier haalt terug wat je nodig hebt: alle suiker, bijna al het water.",
+     "uitleg": "Wat overblijft, is urine."
+    },
+    {
+     "tekst": "De urine gaat door de urineleiders naar je blaas.",
+     "uitleg": "Wordt je blaas voller, dan krijg je een seintje."
+    },
+    {
+     "tekst": "Via de plasbuis gaat de urine naar buiten.",
+     "uitleg": "Ongeveer anderhalve liter per dag."
+    }
+   ]
+  },
+  {
+   "id": "indelen-uitscheiding",
+   "soort": "indelen",
+   "titel": "Uitscheiding of niet?",
+   "opdracht": "Uitscheiding is: afval uit je cellen en je bloed, en wat je te veel hebt, je lichaam uit. Is dit uitscheiding?",
+   "bakken": [
+    {
+     "naam": "Uitscheiding"
+    },
+    {
+     "naam": "Geen uitscheiding"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Koolstofdioxide uitademen",
+     "bak": 0,
+     "uitleg": "Afval van je cellen. Je longen scheiden het uit."
+    },
+    {
+     "tekst": "Ureum in je urine",
+     "bak": 0,
+     "uitleg": "Afval uit eiwitten, uit je bloed gehaald door je nieren."
+    },
+    {
+     "tekst": "Water en zout uitzweten",
+     "bak": 0,
+     "uitleg": "Je huid scheidt het uit, vooral om af te koelen."
+    },
+    {
+     "tekst": "De gele kleurstof in je urine",
+     "bak": 0,
+     "uitleg": "Ook die kleurstof is afval."
+    },
+    {
+     "tekst": "Appelresten in je ontlasting",
+     "bak": 1,
+     "uitleg": "Die zijn nooit in je bloed geweest. Ze reisden alleen door je darmen."
+    },
+    {
+     "tekst": "Een heel gebleven pit in je ontlasting",
+     "bak": 1,
+     "uitleg": "Ook de pit kwam nooit in je bloed."
+    },
+    {
+     "tekst": "Suiker die de nier terughaalt naar het bloed",
+     "bak": 1,
+     "uitleg": "Die suiker blijft juist in je lichaam."
+    },
+    {
+     "tekst": "Bloedcellen die in het bloed blijven",
+     "bak": 1,
+     "uitleg": "Ze zijn te groot voor de filtertjes en gaan er niet uit."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-daan-voetbalt",
+   "soort": "pijlen",
+   "titel": "Daan voetbalt in de zon",
+   "opdracht": "Voorspel wat de nieren van Daan doen. Vergelijk met een gewone dag.",
+   "situatie": "Daan voetbalt de hele dag in de zon. Hij zweet veel en drinkt weinig.",
+   "rijen": [
+    {
+     "naam": "Water dat zijn nieren terughalen naar het bloed",
+     "antwoord": "+",
+     "uitleg": "Zijn nieren houden veel water vast."
+    },
+    {
+     "naam": "Hoeveelheid urine",
+     "antwoord": "-",
+     "uitleg": "Er blijft weinig urine over."
+    },
+    {
+     "naam": "Afval in zijn urine, zoals ureum en de gele kleurstof",
+     "antwoord": "=",
+     "uitleg": "Er zit evenveel afval in, maar in minder water."
+    },
+    {
+     "naam": "Hoe donker zijn urine is",
+     "antwoord": "+",
+     "uitleg": "Evenveel kleurstof in minder water: donkergeel."
+    }
+   ]
+  }
+ ]
+}

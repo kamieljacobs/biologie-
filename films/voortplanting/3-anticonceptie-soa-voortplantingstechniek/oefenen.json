@@ -1,0 +1,95 @@
+{
+ "intro": "Oefen met de keten van eisprong tot innesteling, met soa's en met ivf. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-schakel",
+   "soort": "indelen",
+   "titel": "Welke schakel haalt het weg?",
+   "opdracht": "Een zwangerschap is een keten: eisprong, zaadcel bij de eicel, innesteling. Sleep elke methode naar de schakel die hij weghaalt.",
+   "bakken": [
+    {"naam": "Geen eisprong", "uitleg": "schakel 1"},
+    {"naam": "Zaadcel komt niet bij de eicel", "uitleg": "schakel 2"},
+    {"naam": "Geen innesteling", "uitleg": "schakel 3"}
+   ],
+   "kaartjes": [
+    {"tekst": "De pil", "bak": 0, "uitleg": "De hormonen in de pil remmen de eisprong."},
+    {"tekst": "Het staafje in je arm", "bak": 0, "uitleg": "Ook het staafje bevat hormonen die de eisprong remmen."},
+    {"tekst": "De morning-afterpil", "bak": 0, "uitleg": "Hij stelt de eisprong uit. Daarom werkt hij alleen als de eisprong nog niet geweest is."},
+    {"tekst": "Het condoom", "bak": 1, "uitleg": "Een condoom houdt de zaadcellen tegen."},
+    {"tekst": "Het hormoonspiraaltje", "bak": 1, "uitleg": "Het maakt de slijmprop in de baarmoederhals dik en taai."},
+    {"tekst": "Sterilisatie", "bak": 1, "uitleg": "De zaadleiders of de eileiders worden afgesloten."},
+    {"tekst": "Het koperspiraaltje: het slijmvlies van de baarmoeder wordt ongeschikt", "bak": 2, "uitleg": "Het koperspiraaltje werkt ook op schakel 2: koper is giftig voor zaadcellen."}
+   ]
+  },
+  {
+   "id": "indelen-bacterie-virus",
+   "soort": "indelen",
+   "titel": "Bacterie of virus?",
+   "opdracht": "Sleep elke soa naar de juiste groep. Let op: alleen de ene groep is te genezen met antibiotica.",
+   "bakken": [
+    {"naam": "Bacterie: te genezen met antibiotica"},
+    {"naam": "Virus: antibiotica helpen niet"}
+   ],
+   "kaartjes": [
+    {"tekst": "Chlamydia", "bak": 0, "uitleg": "Een bacterie. Zonder behandeling kan het de eileiders ontsteken."},
+    {"tekst": "Gonorroe", "bak": 0, "uitleg": "Een bacterie, die wel steeds vaker resistent wordt."},
+    {"tekst": "Syfilis", "bak": 0, "uitleg": "Ook syfilis wordt veroorzaakt door een bacterie."},
+    {"tekst": "Hiv", "bak": 1, "uitleg": "Niet te genezen, maar met hiv-remmers kun je er goed mee leven."},
+    {"tekst": "HPV", "bak": 1, "uitleg": "Een virus; er is een vaccin, rond je tiende."},
+    {"tekst": "Herpes", "bak": 1, "uitleg": "Een virus vermenigvuldigt zich in je eigen cellen; antibiotica doen daar niets tegen."},
+    {"tekst": "Hepatitis B", "bak": 1, "uitleg": "Een virus; ook hiertegen bestaat een vaccin."}
+   ]
+  },
+  {
+   "id": "volgorde-ivf",
+   "soort": "volgorde",
+   "titel": "Een ivf-behandeling",
+   "opdracht": "De eileiders van een vrouw zitten dicht. Zet de stappen van ivf in de goede volgorde.",
+   "stappen": [
+    {"tekst": "De vrouw krijgt ongeveer tien dagen hormooninjecties met FSH.", "uitleg": "Normaal rijpt er één follikel per cyclus. Met extra FSH rijpen er meerdere tegelijk."},
+    {"tekst": "Met een dunne naald haalt de arts de eicellen uit de eierstokken.", "uitleg": "Zo heb je in één keer meerdere eicellen."},
+    {"tekst": "In een schaaltje komen de eicellen bij zaadcellen. Zijn er weinig goede zaadcellen, dan spuit de arts één zaadcel in de eicel (ICSI).", "uitleg": "In vitro betekent: buiten het lichaam."},
+    {"tekst": "De bevruchte eicellen groeien een paar dagen in het lab uit tot embryo's.", "uitleg": "Op dag vijf kun je ook een paar cellen testen: embryoselectie."},
+    {"tekst": "De arts plaatst meestal één embryo terug in de baarmoeder; andere goede embryo's gaan de vriezer in.", "uitleg": "Eén embryo voorkomt een tweeling, want die zwangerschap is riskanter."},
+    {"tekst": "Het lichaam bepaalt zelf of het embryo zich innestelt.", "uitleg": "Lang niet elke poging lukt."}
+   ]
+  },
+  {
+   "id": "volgorde-resistentie",
+   "soort": "volgorde",
+   "titel": "Hoe gonorroe resistent wordt",
+   "opdracht": "Zet de stappen in de goede volgorde.",
+   "stappen": [
+    {"tekst": "In een groep gonorroebacteriën hebben een paar bacteriën toevallig een mutatie.", "uitleg": "De mutatie ontstaat toevallig, niet door het antibioticum."},
+    {"tekst": "Iemand krijgt een kuur antibiotica.", "uitleg": "Het antibioticum doodt de gevoelige bacteriën."},
+    {"tekst": "De bacteriën met de mutatie overleven.", "uitleg": "Zij zijn resistent tegen dit middel."},
+    {"tekst": "De overlevende bacteriën vermenigvuldigen zich.", "uitleg": "Nu zijn bijna alle bacteriën resistent."},
+    {"tekst": "Het middel is onbruikbaar geworden; er is bijna nog maar één soort antibioticum dat overal goed werkt.", "uitleg": "Daarom zoeken onderzoekers naar nieuwe middelen."}
+   ]
+  },
+  {
+   "id": "uitleg-chlamydia",
+   "soort": "uitleg",
+   "titel": "Waarom testen, zonder klachten?",
+   "opdracht": "Sam merkt niets, maar zijn ex heeft chlamydia. Toch laat hij zich testen. Leg uit waarom dat verstandig is, ook voor later.",
+   "begrippen": [
+    {"naam": "klachten", "varianten": ["merkt niets", "zonder klachten", "niets merken"]},
+    {"naam": "bacterie", "varianten": ["bacteriën"]},
+    {"naam": "antibiotica", "varianten": ["antibioticum", "kuur"]},
+    {"naam": "eileiders", "varianten": ["eileider"]},
+    {"naam": "onvruchtbaar", "varianten": ["onvruchtbaarheid"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat veel mensen met chlamydia geen klachten hebben, maar het wel kunnen doorgeven.",
+    "Ik leg uit dat chlamydia door een bacterie komt en dus te genezen is met antibiotica.",
+    "Ik leg uit dat onbehandelde chlamydia de eileiders kan ontsteken, met littekens.",
+    "Ik leg uit dat een vrouw daardoor onvruchtbaar kan worden."
+   ],
+   "model": [
+    "Veel mensen met chlamydia merken niets: ongeveer zeven op de tien vrouwen en de helft van de mannen. Toch kun je het doorgeven. Daarom weet je het alleen zeker met een test.",
+    "Chlamydia komt door een bacterie. Met een kuur antibiotica is het te genezen.",
+    "Blijft het onbehandeld, dan kan het bij een vrouw de eileiders ontsteken. Er ontstaan littekens en de eileider kan dichtgaan. Dan kan de vrouw onvruchtbaar worden, en is later misschien ivf nodig."
+   ]
+  }
+ ]
+}

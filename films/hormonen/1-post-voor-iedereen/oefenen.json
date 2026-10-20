@@ -1,0 +1,288 @@
+{
+ "versie": 1,
+ "film": "films/hormonen/1-post-voor-iedereen.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-hormoon-doelcel",
+   "soort": "schema",
+   "titel": "Van klier tot doelcel",
+   "opdracht": "Een hormoonklier geeft een hormoon af aan het bloed. Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening: bovenaan een klier met hormoonbolletjes, één bolletje gaat naar een bloedvat met een stroompijl. Onder het bloedvat twee cellen: links een cel zonder receptoren, rechts een cel met receptoren, waarop een hormoonbolletje past.",
+   "breed": 760,
+   "hoog": 430,
+   "vakbreed": 165,
+   "svg": "<path stroke-width=\"2.6\" d=\"M230 95 C250 60 330 58 350 90 C368 118 350 160 320 168 C300 174 290 172 280 172 C250 172 215 135 230 95 Z\"/><circle class=\"vulacc\" cx=\"270\" cy=\"110\" r=\"5\"/><circle class=\"vulacc\" cx=\"300\" cy=\"95\" r=\"5\"/><circle class=\"vulacc\" cx=\"320\" cy=\"130\" r=\"5\"/><circle class=\"vulacc\" cx=\"285\" cy=\"145\" r=\"5\"/><path class=\"zacht\" stroke-width=\"1.5\" d=\"M292 176 L292 214\" stroke-dasharray=\"3 5\"/><circle class=\"vulacc\" cx=\"292\" cy=\"196\" r=\"5\"/><path stroke-width=\"2.6\" d=\"M190 220 L600 220 M190 266 L600 266\"/><path stroke-width=\"2\" d=\"M560 243 L585 243 M577 236 L586 243 L577 250\"/><circle class=\"vulacc\" cx=\"330\" cy=\"236\" r=\"5\"/><circle class=\"vulacc\" cx=\"390\" cy=\"250\" r=\"5\"/><circle class=\"vulacc\" cx=\"450\" cy=\"234\" r=\"5\"/><circle class=\"vulacc\" cx=\"515\" cy=\"252\" r=\"5\"/><circle cx=\"360\" cy=\"352\" r=\"48\" stroke-width=\"2.4\"/><circle class=\"zacht\" cx=\"352\" cy=\"358\" r=\"14\"/><circle class=\"vulacc\" cx=\"372\" cy=\"290\" r=\"5\"/><circle cx=\"500\" cy=\"352\" r=\"48\" stroke-width=\"2.4\"/><circle class=\"zacht\" cx=\"508\" cy=\"360\" r=\"14\"/><path stroke-width=\"2.4\" transform=\"rotate(-20 484 307)\" d=\"M477 307 L477 296 M491 307 L491 296\"/><path stroke-width=\"2.4\" transform=\"rotate(20 516 307)\" d=\"M509 307 L509 296 M523 307 L523 296\"/><path stroke-width=\"2.4\" transform=\"rotate(62 545 335)\" d=\"M538 335 L538 324 M552 335 L552 324\"/><circle class=\"vulacc\" cx=\"516\" cy=\"300\" r=\"5\"/><path class=\"acc\" stroke-width=\"2\" d=\"M516 284 L516 278 M506 288 L500 284 M526 288 L532 284\"/>",
+   "vakjes": [
+    {
+     "naam": "hormoonklier",
+     "x": 95,
+     "y": 60,
+     "punt": [
+      232,
+      100
+     ],
+     "uitleg": "geeft het hormoon rechtstreeks af aan het bloed, zonder afvoerbuis."
+    },
+    {
+     "naam": "hormoon",
+     "x": 95,
+     "y": 175,
+     "punt": [
+      292,
+      196
+     ],
+     "uitleg": "een stof die door een klier aan het bloed wordt afgegeven."
+    },
+    {
+     "naam": "bloedvat",
+     "x": 670,
+     "y": 175,
+     "punt": [
+      596,
+      222
+     ],
+     "uitleg": "het bloed neemt het hormoon mee, het hele lichaam door."
+    },
+    {
+     "naam": "receptor",
+     "x": 670,
+     "y": 290,
+     "punt": [
+      546,
+      330
+     ],
+     "uitleg": "een eiwit waar het hormoon in past zoals een sleutel in een slot."
+    },
+    {
+     "naam": "doelcel",
+     "x": 670,
+     "y": 395,
+     "punt": [
+      534,
+      384
+     ],
+     "uitleg": "een cel met de passende receptor: die reageert op het hormoon."
+    },
+    {
+     "naam": "cel zonder passende receptor",
+     "x": 110,
+     "y": 360,
+     "punt": [
+      313,
+      355
+     ],
+     "uitleg": "het hormoon komt er wel langs, maar er gebeurt niets."
+    }
+   ],
+   "afleiders": [
+    "afvoerbuis"
+   ]
+  },
+  {
+   "id": "indelen-zenuw-hormoon",
+   "soort": "indelen",
+   "titel": "Brief of folder?",
+   "opdracht": "Past elk kenmerk of voorbeeld bij het zenuwstelsel of bij het hormoonstelsel?",
+   "bakken": [
+    {
+     "naam": "Zenuwstelsel",
+     "uitleg": "een brief met één adres"
+    },
+    {
+     "naam": "Hormoonstelsel",
+     "uitleg": "een folder bij iedereen in de bus"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een signaal langs een vaste lijn, naar één plek.",
+     "bak": 0,
+     "uitleg": "Een zenuwcel stuurt het bericht gericht."
+    },
+    {
+     "tekst": "Tot honderd meter per seconde.",
+     "bak": 0,
+     "uitleg": "Zenuwen zijn snel."
+    },
+    {
+     "tekst": "Het bericht is snel weer voorbij.",
+     "bak": 0,
+     "uitleg": "Kort en gericht: zenuwstelsel."
+    },
+    {
+     "tekst": "Je trekt je hand terug van een hete pan.",
+     "bak": 0,
+     "uitleg": "Dat moet snel: met zenuwen."
+    },
+    {
+     "tekst": "Een stof gaat met het bloed het hele lichaam door.",
+     "bak": 1,
+     "uitleg": "Zo werkt een hormoon."
+    },
+    {
+     "tekst": "Werkt meestal trager, maar langer.",
+     "bak": 1,
+     "uitleg": "Het hormoon moet eerst via het bloed rond, en wordt pas langzaam afgebroken."
+    },
+    {
+     "tekst": "Je groeit, jaren lang.",
+     "bak": 1,
+     "uitleg": "Groeien gaat met hormonen."
+    },
+    {
+     "tekst": "Je bloedsuiker en je waterbalans blijven op peil.",
+     "bak": 1,
+     "uitleg": "Ook die worden met hormonen geregeld."
+    }
+   ]
+  },
+  {
+   "id": "indelen-receptor-plek",
+   "soort": "indelen",
+   "vwo": true,
+   "titel": "Op het membraan of in de cel?",
+   "opdracht": "Zit de receptor op het celmembraan of in de cel? Sleep elk kenmerk naar de goede groep.",
+   "bakken": [
+    {
+     "naam": "Receptor op het membraan"
+    },
+    {
+     "naam": "Receptor in de cel"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Adrenaline",
+     "bak": 0,
+     "uitleg": "Lost goed op in water en kan niet door het membraan."
+    },
+    {
+     "tekst": "Insuline",
+     "bak": 0,
+     "uitleg": "Lost ook goed op in water: receptor op het membraan."
+    },
+    {
+     "tekst": "Cortisol",
+     "bak": 1,
+     "uitleg": "Een steroïdhormoon uit de bijnierschors: gaat door het membraan."
+    },
+    {
+     "tekst": "Gemaakt van cholesterol, lost op in vet",
+     "bak": 1,
+     "uitleg": "Steroïdhormonen gaan dwars door het membraan."
+    },
+    {
+     "tekst": "Tweede boodschapper cAMP en een kettingreactie van enzymen",
+     "bak": 0,
+     "uitleg": "Signaaltransductie: het hormoon zelf komt de cel niet in."
+    },
+    {
+     "tekst": "Werkt als transcriptiefactor: zet genen aan of uit",
+     "bak": 1,
+     "uitleg": "Hormoon en receptor gaan samen naar de kern."
+    },
+    {
+     "tekst": "Groot effect binnen seconden, snel weer voorbij",
+     "bak": 0,
+     "uitleg": "Past bij een receptor op het membraan."
+    },
+    {
+     "tekst": "Schildklierhormoon: werkt pas na uren, effect duurt dagen",
+     "bak": 1,
+     "uitleg": "Het gaat om de werking: een receptor in de cel die genen aanzet."
+    }
+   ]
+  },
+  {
+   "id": "grafiek-afbraak-adrenaline",
+   "soort": "grafiek",
+   "titel": "Hoe lang blijft adrenaline?",
+   "opdracht": "Na de knal gaat de kraan dicht: het bijniermerg geeft geen adrenaline meer af. De grafiek laat zien hoeveel adrenaline er dan nog in je bloed zit. Lees hem af.",
+   "alt": "Grafiek: adrenaline in het bloed in procent tegen minuten. De lijn begint op 100 en halveert elke twee minuten.",
+   "breed": 680,
+   "hoog": 340,
+   "svg": "<line x1=\"84\" y1=\"270.0\" x2=\"90\" y2=\"270.0\"/><text x=\"78.0\" y=\"275.0\" text-anchor=\"end\" style=\"font-size:13px\">0</text><line class=\"zacht\" x1=\"90\" y1=\"215.0\" x2=\"650\" y2=\"215.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"215.0\" x2=\"90\" y2=\"215.0\"/><text x=\"78.0\" y=\"220.0\" text-anchor=\"end\" style=\"font-size:13px\">25</text><line class=\"zacht\" x1=\"90\" y1=\"160.0\" x2=\"650\" y2=\"160.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"160.0\" x2=\"90\" y2=\"160.0\"/><text x=\"78.0\" y=\"165.0\" text-anchor=\"end\" style=\"font-size:13px\">50</text><line class=\"zacht\" x1=\"90\" y1=\"105.0\" x2=\"650\" y2=\"105.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"105.0\" x2=\"90\" y2=\"105.0\"/><text x=\"78.0\" y=\"110.0\" text-anchor=\"end\" style=\"font-size:13px\">75</text><line class=\"zacht\" x1=\"90\" y1=\"50.0\" x2=\"650\" y2=\"50.0\" stroke-dasharray=\"2 6\"/><line x1=\"84\" y1=\"50.0\" x2=\"90\" y2=\"50.0\"/><text x=\"78.0\" y=\"55.0\" text-anchor=\"end\" style=\"font-size:13px\">100</text><line x1=\"90.0\" y1=\"270\" x2=\"90.0\" y2=\"277\"/><text x=\"90.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">0</text><line x1=\"202.0\" y1=\"270\" x2=\"202.0\" y2=\"277\"/><text x=\"202.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">2</text><line x1=\"314.0\" y1=\"270\" x2=\"314.0\" y2=\"277\"/><text x=\"314.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">4</text><line x1=\"426.0\" y1=\"270\" x2=\"426.0\" y2=\"277\"/><text x=\"426.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">6</text><line x1=\"538.0\" y1=\"270\" x2=\"538.0\" y2=\"277\"/><text x=\"538.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">8</text><line x1=\"650.0\" y1=\"270\" x2=\"650.0\" y2=\"277\"/><text x=\"650.0\" y=\"295.0\" text-anchor=\"middle\" style=\"font-size:13px\">10</text><line x1=\"90\" y1=\"270\" x2=\"650\" y2=\"270\"/><line x1=\"90\" y1=\"270\" x2=\"90\" y2=\"42\"/><text x=\"370.0\" y=\"322.0\" text-anchor=\"middle\" style=\"font-size:13px\">minuten nadat de kraan dichtging</text><text x=\"86.0\" y=\"32.0\" text-anchor=\"start\" style=\"font-size:13px\">adrenaline in je bloed (%)</text><line class=\"zacht\" x1=\"146.0\" y1=\"270\" x2=\"146.0\" y2=\"274\"/><line class=\"zacht\" x1=\"258.0\" y1=\"270\" x2=\"258.0\" y2=\"274\"/><line class=\"zacht\" x1=\"370.0\" y1=\"270\" x2=\"370.0\" y2=\"274\"/><line class=\"zacht\" x1=\"482.0\" y1=\"270\" x2=\"482.0\" y2=\"274\"/><line class=\"zacht\" x1=\"594.0\" y1=\"270\" x2=\"594.0\" y2=\"274\"/><path class=\"acc\" stroke-width=\"3\" d=\"M90.0 50.0 L95.6 57.5 L101.2 64.7 L106.8 71.7 L112.4 78.5 L118.0 85.0 L123.6 91.3 L129.2 97.4 L134.8 103.3 L140.4 109.0 L146.0 114.4 L151.6 119.7 L157.2 124.9 L162.8 129.8 L168.4 134.6 L174.0 139.2 L179.6 143.6 L185.2 147.9 L190.8 152.1 L196.4 156.1 L202.0 160.0 L207.6 163.7 L213.2 167.4 L218.8 170.9 L224.4 174.2 L230.0 177.5 L235.6 180.7 L241.2 183.7 L246.8 186.6 L252.4 189.5 L258.0 192.2 L263.6 194.9 L269.2 197.4 L274.8 199.9 L280.4 202.3 L286.0 204.6 L291.6 206.8 L297.2 209.0 L302.8 211.1 L308.4 213.1 L314.0 215.0 L319.6 216.9 L325.2 218.7 L330.8 220.4 L336.4 222.1 L342.0 223.8 L347.6 225.3 L353.2 226.8 L358.8 228.3 L364.4 229.7 L370.0 231.1 L375.6 232.4 L381.2 233.7 L386.8 234.9 L392.4 236.1 L398.0 237.3 L403.6 238.4 L409.2 239.5 L414.8 240.5 L420.4 241.5 L426.0 242.5 L431.6 243.4 L437.2 244.3 L442.8 245.2 L448.4 246.1 L454.0 246.9 L459.6 247.7 L465.2 248.4 L470.8 249.2 L476.4 249.9 L482.0 250.6 L487.6 251.2 L493.2 251.9 L498.8 252.5 L504.4 253.1 L510.0 253.6 L515.6 254.2 L521.2 254.7 L526.8 255.3 L532.4 255.8 L538.0 256.2 L543.6 256.7 L549.2 257.2 L554.8 257.6 L560.4 258.0 L566.0 258.4 L571.6 258.8 L577.2 259.2 L582.8 259.6 L588.4 259.9 L594.0 260.3 L599.6 260.6 L605.2 260.9 L610.8 261.2 L616.4 261.5 L622.0 261.8 L627.6 262.1 L633.2 262.4 L638.8 262.6 L644.4 262.9 L650.0 263.1\"/>",
+   "vragen": [
+    {
+     "vraag": "Hoeveel procent is er na 2 minuten nog over?",
+     "antwoord": 50,
+     "marge": 3,
+     "eenheid": "%",
+     "uitleg": "Elke twee minuten wordt de helft afgebroken: van 100 naar 50."
+    },
+    {
+     "vraag": "En na 4 minuten?",
+     "antwoord": 25,
+     "marge": 3,
+     "eenheid": "%",
+     "uitleg": "Weer de helft: van 50 naar 25."
+    },
+    {
+     "vraag": "Na hoeveel minuten is er nog ongeveer 12 procent over?",
+     "antwoord": 6,
+     "marge": 0.5,
+     "eenheid": "minuten",
+     "uitleg": "Na zes minuten: 100, 50, 25, ongeveer 12."
+    },
+    {
+     "vraag": "Waarom bonkt je hart na vier minuten nog een beetje?",
+     "keuzes": [
+      "het bijniermerg geeft nog steeds adrenaline af",
+      "er zit nog adrenaline in je bloed, en je hartcellen hebben er receptoren voor",
+      "je hart maakt zelf adrenaline"
+     ],
+     "antwoord": 1,
+     "uitleg": "De kraan is dicht, maar er is nog een kwart over. Zolang er genoeg adrenaline is, blijven je doelcellen reageren."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-knal",
+   "soort": "uitleg",
+   "titel": "Waarom blijft je hart bonken?",
+   "opdracht": "Achter je valt een stoel om. Je schrikt, en je hart blijft nog minuten bonken, ook al weet je dat er niets aan de hand is. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "bijniermerg",
+     "varianten": [
+      "bijnier"
+     ]
+    },
+    {
+     "naam": "adrenaline",
+     "varianten": []
+    },
+    {
+     "naam": "bloed",
+     "varianten": []
+    },
+    {
+     "naam": "receptor",
+     "varianten": [
+      "receptoren",
+      "doelcel"
+     ]
+    },
+    {
+     "naam": "afgebroken",
+     "varianten": [
+      "afbraak",
+      "afbreken"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je zenuwstelsel het bijniermerg aanzet, en dat dat adrenaline afgeeft aan het bloed.",
+    "Ik leg uit dat het bloed de adrenaline overal brengt, en dat cellen met een passende receptor reageren, zoals je hart.",
+    "Ik leg uit dat je zenuwen snel kalmeren, maar dat de adrenaline pas in een paar minuten wordt afgebroken.",
+    "Ik concludeer dat je hart blijft bonken zolang er genoeg adrenaline in je bloed zit."
+   ],
+   "model": [
+    "Bij de knal stuurt je zenuwstelsel meteen een signaal naar je bijniermerg. Dat geeft binnen een paar seconden adrenaline af aan het bloed.",
+    "Het bloed brengt de adrenaline overal. Je hart heeft receptoren die bij adrenaline passen, en gaat sneller en harder kloppen.",
+    "Je zenuwen kalmeren snel weer, maar de adrenaline zit dan al in je bloed. Ongeveer elke twee minuten wordt de helft afgebroken. Zolang er genoeg over is, blijft je hart bonken."
+   ]
+  }
+ ]
+}

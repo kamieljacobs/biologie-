@@ -1,0 +1,164 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/33c/4-uit-balans/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-successie",
+   "soort": "volgorde",
+   "titel": "Na de brand",
+   "opdracht": "Zet in de goede volgorde hoe het bos terugkomt na de brand.",
+   "stappen": [
+    {
+     "tekst": "Alles is zwart. De dode bladeren zijn as geworden.",
+     "uitleg": "Bomen en struiken zijn verbrand."
+    },
+    {
+     "tekst": "Grassen en snelle kruiden groeien in het volle licht: de pioniers.",
+     "uitleg": "Zaadjes waaien aan, of lagen al in de bodem."
+    },
+    {
+     "tekst": "Struiken en jonge berken groeien boven de grassen uit en maken schaduw.",
+     "uitleg": "Na een paar jaar."
+    },
+    {
+     "tekst": "De pioniers verdwijnen.",
+     "uitleg": "Ze hebben vol licht nodig."
+    },
+    {
+     "tekst": "Eiken en beuken komen op. Hun jonge boompjes groeien ook in de schaduw.",
+     "uitleg": "Elke groep planten verandert de plek voor de volgende."
+    },
+    {
+     "tekst": "Na vijftig tot honderd jaar staat er weer een echt bos.",
+     "uitleg": "Die vaste volgorde heet successie."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-eikeljaar",
+   "soort": "pijlen",
+   "titel": "Een jaar met veel eikels",
+   "opdracht": "Voorspel wat er gebeurt. Lees de rijen van boven naar beneden: het gaat over twee jaar.",
+   "situatie": "In een bos vallen dit jaar heel veel eikels.",
+   "rijen": [
+    {
+     "naam": "Aantal muizen, dit jaar",
+     "antwoord": "+",
+     "uitleg": "Veel eikels: veel voedsel voor muizen."
+    },
+    {
+     "naam": "Jongen van uilen en vossen, dit jaar",
+     "antwoord": "+",
+     "uitleg": "Meer muizen om te eten."
+    },
+    {
+     "naam": "Uilen en vossen die muizen eten, volgend jaar",
+     "antwoord": "+",
+     "uitleg": "De jongen van dit jaar jagen volgend jaar mee."
+    },
+    {
+     "naam": "Aantal muizen, volgend jaar",
+     "antwoord": "-",
+     "uitleg": "Meer eters, en vaak minder eikels. Het aantal gaat op en neer rond hetzelfde niveau: een dynamisch evenwicht."
+    }
+   ]
+  },
+  {
+   "id": "indelen-verstoring",
+   "soort": "indelen",
+   "titel": "Verstoring of gewoon op en neer?",
+   "opdracht": "Is dit een verstoring van het evenwicht, of hoort het bij het gewone op en neer in een bos?",
+   "bakken": [
+    {
+     "naam": "Verstoring",
+     "uitleg": "groot en plotseling"
+    },
+    {
+     "naam": "Gewoon op en neer",
+     "uitleg": "dynamisch evenwicht"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Een bosbrand in een droge zomer",
+     "bak": 0,
+     "uitleg": "Een grote, plotselinge gebeurtenis die het evenwicht kapotmaakt."
+    },
+    {
+     "tekst": "Een storm die bomen omblaast",
+     "bak": 0,
+     "uitleg": "Ook een verstoring."
+    },
+    {
+     "tekst": "Een overstroming",
+     "bak": 0,
+     "uitleg": "Ook een verstoring."
+    },
+    {
+     "tekst": "Mensen die een bos kappen",
+     "bak": 0,
+     "uitleg": "Mensen kunnen ook een verstoring veroorzaken."
+    },
+    {
+     "tekst": "Een jaar met veel eikels en veel muizen",
+     "bak": 1,
+     "uitleg": "Daarna gaat het aantal weer omlaag."
+    },
+    {
+     "tekst": "Meer jongen bij uilen na een muizenjaar",
+     "bak": 1,
+     "uitleg": "Zo komt het aantal muizen weer terug."
+    },
+    {
+     "tekst": "Bladeren vallen en worden afgebroken",
+     "bak": 1,
+     "uitleg": "De kringloop gaat gewoon rond."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-pioniers",
+   "soort": "uitleg",
+   "titel": "Eerst gras, later eiken",
+   "opdracht": "Na een bosbrand groeien eerst grassen en kruiden, en pas veel later eiken en beuken. Leg uit waarom het in die volgorde gaat.",
+   "begrippen": [
+    {
+     "naam": "pioniers",
+     "varianten": [
+      "pionier"
+     ]
+    },
+    {
+     "naam": "licht",
+     "varianten": [
+      "zonlicht"
+     ]
+    },
+    {
+     "naam": "schaduw",
+     "varianten": []
+    },
+    {
+     "naam": "successie",
+     "varianten": []
+    },
+    {
+     "naam": "struiken",
+     "varianten": [
+      "berken"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat grassen en snelle kruiden goed groeien in het volle licht na de brand: de pioniers.",
+    "Ik leg uit dat struiken en berken erboven uitgroeien en schaduw maken, zodat de pioniers verdwijnen.",
+    "Ik leg uit dat jonge eiken en beuken in de schaduw kunnen groeien, en dat die vaste volgorde successie heet."
+   ],
+   "model": [
+    "Na de brand is het kaal en licht. Grassen en snelle kruiden groeien goed in het volle licht. Zij komen als eerste: de pioniers.",
+    "Na een paar jaar groeien struiken en jonge berken boven de grassen uit. Ze maken schaduw, en de pioniers verdwijnen. Jonge eiken en beuken kunnen wel in de schaduw groeien. Zo verandert elke groep planten de plek voor de volgende. Die vaste volgorde heet successie."
+   ]
+  }
+ ]
+}

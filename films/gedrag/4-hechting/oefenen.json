@@ -1,0 +1,203 @@
+{
+ "versie": 1,
+ "film": "films/gedrag/4-hechting.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-vreemde-situatie",
+   "soort": "indelen",
+   "titel": "De Vreemde Situatie",
+   "opdracht": "Je ziet hoe kinderen van een jaar reageren in de Vreemde Situatie. Bij welk patroon past elke beschrijving?",
+   "bakken": [
+    {
+     "naam": "Veilig",
+     "uitleg": "zoekt troost en kalmeert snel"
+    },
+    {
+     "naam": "Onveilig-vermijdend",
+     "uitleg": "laat weinig zien"
+    },
+    {
+     "naam": "Onveilig-ambivalent",
+     "uitleg": "wil troost en duwt die weg"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Kruipt bij de terugkomst meteen naar moeder, laat zich troosten en speelt even later verder.",
+     "bak": 0,
+     "uitleg": "Zo deed Mila: moeder is haar veilige haven."
+    },
+    {
+     "tekst": "Huilt bij het afscheid, en kalmeert snel als vader terug is.",
+     "bak": 0,
+     "uitleg": "Huilen bij het afscheid zegt niet zo veel. Het gaat om de terugkomst: snel kalmeren past bij veilig."
+    },
+    {
+     "tekst": "Speelt en kijkt af en toe om naar de ouder.",
+     "bak": 0,
+     "uitleg": "De ouder is een veilige basis om de wereld te ontdekken."
+    },
+    {
+     "tekst": "Kijkt nauwelijks op als moeder terugkomt.",
+     "bak": 1,
+     "uitleg": "Zo deed Ties. Hij lijkt rustig."
+    },
+    {
+     "tekst": "Speelt door als moeder weggaat, maar de hartslag gaat wél omhoog.",
+     "bak": 1,
+     "uitleg": "Kinderen zoals Ties zijn wel gespannen, ze laten het alleen niet zien."
+    },
+    {
+     "tekst": "Blijft huilen en klampt zich vast, maar is tegelijk boos.",
+     "bak": 2,
+     "uitleg": "Het kind wil troost en duwt die tegelijk weg."
+    },
+    {
+     "tekst": "Wil opgetild worden, en duwt de ouder dan weg.",
+     "bak": 2,
+     "uitleg": "Troost zoeken en wegduwen tegelijk: ambivalent."
+    }
+   ]
+  },
+  {
+   "id": "indelen-appje-lotte",
+   "soort": "indelen",
+   "titel": "Nog geen antwoord",
+   "opdracht": "Lotte stuurt een appje en krijgt een uur geen antwoord. Welke gedachte past bij welk patroon?",
+   "bakken": [
+    {
+     "naam": "Veilig"
+    },
+    {
+     "naam": "Angstig"
+    },
+    {
+     "naam": "Vermijdend"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Die ander is vast druk.",
+     "bak": 0,
+     "uitleg": "Je verwacht dat je op de ander kunt rekenen."
+    },
+    {
+     "tekst": "Ik hoor het straks wel.",
+     "bak": 0,
+     "uitleg": "Rustig afwachten past bij een veilig patroon."
+    },
+    {
+     "tekst": "Die vindt me vast niet leuk meer.",
+     "bak": 1,
+     "uitleg": "Je twijfelt of je de moeite waard bent."
+    },
+    {
+     "tekst": "Ik stuur nog drie appjes.",
+     "bak": 1,
+     "uitleg": "Steeds bevestiging zoeken past bij een angstig patroon."
+    },
+    {
+     "tekst": "Maakt niet uit, ik red me wel alleen.",
+     "bak": 2,
+     "uitleg": "Je houdt afstand en rekent liever niet op de ander."
+    },
+    {
+     "tekst": "Ik heb eigenlijk niemand nodig.",
+     "bak": 2,
+     "uitleg": "Afstand houden past bij een vermijdend patroon."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-harlow",
+   "soort": "uitleg",
+   "titel": "De zachte moeder",
+   "opdracht": "Harlow gaf jonge aapjes een draadmoeder met melk en een zachte moeder zonder melk. Leg uit wat deze proef laat zien over hechting.",
+   "begrippen": [
+    {
+     "naam": "troost",
+     "varianten": [
+      "contact",
+      "kalmeren",
+      "kalmeerden"
+     ]
+    },
+    {
+     "naam": "voedsel",
+     "varianten": [
+      "melk",
+      "eten"
+     ]
+    },
+    {
+     "naam": "veilige haven",
+     "varianten": [
+      "haven"
+     ]
+    },
+    {
+     "naam": "veilige basis",
+     "varianten": [
+      "basis",
+      "verkennen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik beschrijf dat de aapjes snel dronken bij de draadmoeder, en daarna urenlang bij de zachte moeder bleven.",
+    "Ik beschrijf dat ze bij schrik naar de zachte moeder renden, daar kalmeerden en daarna gingen verkennen.",
+    "Ik concludeer dat contact en troost belangrijker zijn dan voedsel.",
+    "Ik gebruik de begrippen veilige haven en veilige basis."
+   ],
+   "model": [
+    "De aapjes dronken snel bij de draadmoeder, maar klampten zich daarna urenlang vast aan de zachte moeder. Als ze bang werden, renden ze naar de zachte moeder.",
+    "Hechting gaat dus niet om eten. Contact en troost zijn belangrijker dan voedsel.",
+    "De zachte moeder was een veilige haven als ze bang waren, en een veilige basis: daar kalmeerden ze, en daarna durfden ze de kooi te verkennen."
+   ]
+  },
+  {
+   "id": "uitleg-geen-vonnis",
+   "soort": "uitleg",
+   "titel": "Geen vonnis",
+   "opdracht": "Iemand zegt: \"Ik was als baby onveilig gehecht, dus ik krijg later toch geen goede relatie.\" Leg uit wat er volgens de film klopt en wat niet.",
+   "begrippen": [
+    {
+     "naam": "binnenwerkmodel",
+     "varianten": [
+      "verwachtingen"
+     ]
+    },
+    {
+     "naam": "verband",
+     "varianten": []
+    },
+    {
+     "naam": "vriendschappen",
+     "varianten": [
+      "vrienden",
+      "relaties"
+     ]
+    },
+    {
+     "naam": "veranderen",
+     "varianten": [
+      "verandert",
+      "veiliger"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je uit vroege ervaringen een binnenwerkmodel bouwt: verwachtingen over jezelf en anderen.",
+    "Ik leg uit dat er een verband is met latere relaties, maar dat het niet sterk is en kleiner wordt na veel jaren.",
+    "Ik noem dat latere zorg en vriendschappen minstens zo zwaar tellen.",
+    "Ik noem dat een patroon veiliger kan worden, bijvoorbeeld door goede vriendschappen of hulp."
+   ],
+   "model": [
+    "Uit ervaringen als baby bouw je een binnenwerkmodel: verwachtingen over jezelf en anderen. Die neem je mee naar latere relaties. De kans op een onveilig patroon is dus wat groter.",
+    "Maar het verband is niet sterk. Hoe meer jaren ertussen zitten, hoe kleiner het wordt. Hoe er daarna voor je gezorgd wordt en je vriendschappen tellen minstens zo zwaar.",
+    "Hechting is dus geen vonnis. Goede vriendschappen, betrouwbare mensen of hulp van een psycholoog kunnen je patroon veiliger maken. Het begint vaak met herkennen hoe je zelf reageert."
+   ]
+  }
+ ]
+}

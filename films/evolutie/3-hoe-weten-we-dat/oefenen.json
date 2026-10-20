@@ -1,0 +1,98 @@
+{
+ "intro": "Oefen met het bewijs voor evolutie: lagen, botten en DNA. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-soort-bewijs",
+   "soort": "indelen",
+   "titel": "Welk spoor?",
+   "opdracht": "De film volgt drie sporen dat de walvis van landdieren afstamt. Bij welk spoor hoort elk voorbeeld?",
+   "bakken": [
+    {"naam": "In de grond", "uitleg": "lagen en fossielen"},
+    {"naam": "In het lichaam", "uitleg": "bouw, restanten, embryo"},
+    {"naam": "In het DNA"}
+   ],
+   "kaartjes": [
+    {"tekst": "Pakicetus, 50 miljoen jaar oud, op vier poten met een walvisoor.", "bak": 0, "uitleg": "Een fossiel in de laag waar het volgens de voorspelling moet liggen."},
+    {"tekst": "Basilosaurus, een echte walvis met piepkleine achterpootjes.", "bak": 0, "uitleg": "Een fossiel van 40 miljoen jaar oud."},
+    {"tekst": "Een walvisvin heeft dezelfde botten als een mensenarm.", "bak": 1, "uitleg": "Homologe organen: dezelfde bouw, een andere functie."},
+    {"tekst": "Twee bekkenbotjes zonder poten, los van de wervelkolom.", "bak": 1, "uitleg": "Een rudimentair orgaan: een restant."},
+    {"tekst": "Een walvisembryo krijgt achterpootknoppen die weer verdwijnen.", "bak": 1, "uitleg": "Het programma voor poten staat er nog in."},
+    {"tekst": "Walvis en nijlpaard delen zeldzame stukjes ingevoegd DNA op dezelfde plek.", "bak": 2, "uitleg": "Zoiets gebeurt niet twee keer toevallig."},
+    {"tekst": "Aan het aantal verschillen schat je hoe lang geleden twee soorten zich splitsten.", "bak": 2, "uitleg": "De moleculaire klok."},
+    {"tekst": "Wat dieper ligt, is ouder.", "bak": 0, "uitleg": "Relatieve datering, zolang de lagen niet gekanteld zijn."}
+   ]
+  },
+  {
+   "id": "indelen-homoloog-analoog",
+   "soort": "indelen",
+   "titel": "Homoloog of analoog?",
+   "opdracht": "Homoloog: dezelfde bouw, vaak een andere functie. Analoog: dezelfde functie, een andere bouw. Deel de paren in.",
+   "bakken": [
+    {"naam": "Homoloog", "uitleg": "wijst op een gemeenschappelijke voorouder"},
+    {"naam": "Analoog", "uitleg": "zegt niets over verwantschap"}
+   ],
+   "kaartjes": [
+    {"tekst": "walvisvin en mensenarm", "bak": 0, "uitleg": "Eén bovenarmbot, twee onderarmbotten, handwortelbeentjes, vingers."},
+    {"tekst": "walvisvin en haaienvin", "bak": 1, "uitleg": "Van buiten gelijk, van binnen botten tegenover kraakbeenstralen."},
+    {"tekst": "mensenarm en hondenpoot", "bak": 0, "uitleg": "Dezelfde botten in dezelfde volgorde, alleen andere verhoudingen."},
+    {"tekst": "hondenpoot en walvisvin", "bak": 0, "uitleg": "Ook hier dezelfde botten: een andere functie, dezelfde bouw."},
+    {"tekst": "twee vormen die gelijk werden doordat zwemmen dezelfde vorm vraagt", "bak": 1, "uitleg": "Niet-verwante soorten gaan door dezelfde selectiedruk op elkaar lijken: convergentie."},
+    {"tekst": "hetzelfde bot dat bij verwante soorten een andere functie kreeg", "bak": 0, "uitleg": "Verwante soorten groeien uit elkaar: divergentie."}
+   ]
+  },
+  {
+   "id": "schema-vin-arm",
+   "soort": "schema",
+   "titel": "Dezelfde botten",
+   "opdracht": "Dit is de bouw die een walvisvin, een mensenarm en een hondenpoot delen. Sleep de namen naar de goede botten. Eén naam blijft over.",
+   "alt": "Lijntekening van een voorpoot van boven naar beneden: één lang bot, daaronder twee botten naast elkaar, daaronder een groepje kleine botjes, en onderaan vijf rijen kleine botjes als vingers.",
+   "breed": 680,
+   "hoog": 420,
+   "vakbreed": 190,
+   "svg": "<rect stroke-width=\"2.4\" x=\"326\" y=\"30\" width=\"28\" height=\"120\" rx=\"12\"/><rect stroke-width=\"2.4\" x=\"304\" y=\"162\" width=\"22\" height=\"100\" rx=\"10\"/><rect stroke-width=\"2.4\" x=\"354\" y=\"162\" width=\"22\" height=\"100\" rx=\"10\"/><g class=\"acc\" stroke-width=\"2.2\"><circle cx=\"300\" cy=\"284\" r=\"9\"/><circle cx=\"322\" cy=\"280\" r=\"9\"/><circle cx=\"344\" cy=\"278\" r=\"9\"/><circle cx=\"366\" cy=\"280\" r=\"9\"/><circle cx=\"388\" cy=\"284\" r=\"9\"/><circle cx=\"311\" cy=\"302\" r=\"8\"/><circle cx=\"333\" cy=\"300\" r=\"8\"/><circle cx=\"355\" cy=\"300\" r=\"8\"/><circle cx=\"377\" cy=\"302\" r=\"8\"/></g><g stroke-width=\"2.4\"><path d=\"M286 316 L278 340 M276 348 L270 370\"/><path d=\"M314 318 L310 346 M309 354 L306 382\"/><path d=\"M344 318 L344 350 M344 358 L344 392\"/><path d=\"M374 318 L378 346 M379 354 L382 382\"/><path d=\"M402 316 L410 340 M412 348 L418 370\"/></g>",
+   "vakjes": [
+    {"naam": "bovenarmbot", "x": 130, "y": 80, "punt": [326, 90]},
+    {"naam": "onderarmbotten", "x": 550, "y": 200, "punt": [376, 212]},
+    {"naam": "handwortelbeentjes", "x": 130, "y": 270, "punt": [291, 284]},
+    {"naam": "vingers", "x": 550, "y": 370, "punt": [416, 362]}
+   ],
+   "afleiders": ["kraakbeenstralen"]
+  },
+  {
+   "id": "volgorde-walvisfossielen",
+   "soort": "volgorde",
+   "titel": "Van landdier naar walvis",
+   "opdracht": "Zet de fossielen uit Pakistan en India op volgorde, van oud naar jong.",
+   "stappen": [
+    {"tekst": "Pakicetus: zo groot als een wolf, op vier poten, met een walvisoor.", "uitleg": "50 miljoen jaar oud."},
+    {"tekst": "Ambulocetus: leefde als een krokodil, een zwemmer met poten.", "uitleg": "48 miljoen jaar oud."},
+    {"tekst": "Rodhocetus: zwempoten, en neusgaten een stukje naar achteren.", "uitleg": "46 miljoen jaar oud."},
+    {"tekst": "Basilosaurus: een echte walvis, met piepkleine achterpootjes.", "uitleg": "40 miljoen jaar oud."}
+   ]
+  },
+  {
+   "id": "uitleg-twee-methoden",
+   "soort": "uitleg",
+   "titel": "Twee methoden, één antwoord",
+   "opdracht": "Volgens de moleculaire klok splitsten walvis en nijlpaard zich ongeveer 50 miljoen jaar geleden. De fossielen in de lagen zeggen ook ongeveer 50 miljoen jaar. Leg uit waarom dat zo'n sterk bewijs is.",
+   "begrippen": [
+    {"naam": "moleculaire klok", "varianten": ["klok"]},
+    {"naam": "mutaties", "varianten": ["mutatie", "verschillen"]},
+    {"naam": "fossielen", "varianten": ["fossiel", "lagen", "aardlagen"]},
+    {"naam": "onafhankelijk", "varianten": ["verschillende methoden", "los van elkaar"]},
+    {"naam": "gemeenschappelijke voorouder", "varianten": ["voorouder", "splitsing"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat mutaties zich gemiddeld gelijkmatig opstapelen, zodat meer verschil in DNA meer tijd betekent.",
+    "Ik leg uit dat fossielen in lagen gedateerd worden met de volgorde van de lagen en radioactief verval.",
+    "Ik leg uit dat de twee methoden niets met elkaar te maken hebben.",
+    "Ik concludeer dat het geen toeval is dat ze hetzelfde antwoord geven."
+   ],
+   "model": [
+    "De moleculaire klok werkt met mutaties. Na de splitsing van een gemeenschappelijke voorouder stapelen verschillen in het DNA zich gemiddeld gelijkmatig op. Tel je de verschillen, dan weet je ongeveer hoe lang geleden de splitsing was.",
+    "De fossielen worden op een heel andere manier gedateerd: met de volgorde van de aardlagen en met radioactief verval in het gesteente.",
+    "Twee onafhankelijke methoden, de ene in het DNA en de andere in de grond, komen op ongeveer 50 miljoen jaar uit. Als afstamming niet klopte, zou dat een heel groot toeval zijn. Daarom is het bewijs."
+   ]
+  }
+ ]
+}

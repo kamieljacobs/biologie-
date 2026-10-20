@@ -1,0 +1,175 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/33c/3-wie-eet-wie/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-producent-consument-reducent",
+   "soort": "indelen",
+   "titel": "Producent, consument of reducent?",
+   "opdracht": "Welke rol heeft dit organisme in het bos?",
+   "bakken": [
+    {
+     "naam": "Producent",
+     "uitleg": "maakt zelf voedsel"
+    },
+    {
+     "naam": "Consument",
+     "uitleg": "eet iets anders op"
+    },
+    {
+     "naam": "Reducent",
+     "uitleg": "breekt dode resten af"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "kruiden",
+     "bak": 0,
+     "uitleg": "Een plant maakt zijn eigen voedsel, met zonlicht."
+    },
+    {
+     "tekst": "eik",
+     "bak": 0,
+     "uitleg": "Ook een boom is een plant."
+    },
+    {
+     "tekst": "ree",
+     "bak": 1,
+     "uitleg": "Eet kruiden en jonge boompjes."
+    },
+    {
+     "tekst": "wolf",
+     "bak": 1,
+     "uitleg": "Eet reeën, edelherten en wilde zwijnen."
+    },
+    {
+     "tekst": "wild zwijn",
+     "bak": 1,
+     "uitleg": "Eet eikels, wortels en muizen."
+    },
+    {
+     "tekst": "uil",
+     "bak": 1,
+     "uitleg": "Eet onder andere muizen."
+    },
+    {
+     "tekst": "schimmels in de bosgrond",
+     "bak": 2,
+     "uitleg": "Ze breken dode bladeren af tot mineralen."
+    },
+    {
+     "tekst": "bacteriën in de bosgrond",
+     "bak": 2,
+     "uitleg": "Ook zij ruimen dode resten op."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-kringloop",
+   "soort": "volgorde",
+   "titel": "Een blad gaat rond",
+   "opdracht": "In de herfst valt een blad op de bosgrond. Zet in de goede volgorde wat er daarna gebeurt.",
+   "stappen": [
+    {
+     "tekst": "Het dode blad ligt op de bosgrond.",
+     "uitleg": "In de herfst vallen er miljoenen."
+    },
+    {
+     "tekst": "Pissebedden en wormen eten van het blad.",
+     "uitleg": "Ze maken het kleiner."
+    },
+    {
+     "tekst": "Schimmels en bacteriën breken de resten af tot mineralen in de bodem.",
+     "uitleg": "Zij heten reducenten."
+    },
+    {
+     "tekst": "Een plant neemt de mineralen op met zijn wortels en groeit.",
+     "uitleg": "Een plant is een producent."
+    },
+    {
+     "tekst": "Een ree eet de plant.",
+     "uitleg": "Zo gaan de stoffen steeds rond: een kringloop."
+    }
+   ]
+  },
+  {
+   "id": "pijlen-zonder-wolf",
+   "soort": "pijlen",
+   "titel": "De wolf verdwijnt",
+   "opdracht": "Voorspel wat er in het bos verandert.",
+   "situatie": "De wolf verdwijnt uit het bos, en mensen jagen niet.",
+   "rijen": [
+    {
+     "naam": "Aantal reeën en herten",
+     "antwoord": "+",
+     "uitleg": "Er is niemand meer die ze opeet."
+    },
+    {
+     "naam": "Jonge boompjes",
+     "antwoord": "-",
+     "uitleg": "De reeën en herten eten overal jonge boompjes op."
+    },
+    {
+     "naam": "Nieuwe bomen in het bos",
+     "antwoord": "-",
+     "uitleg": "Dan groeien er minder nieuwe bomen."
+    },
+    {
+     "naam": "Aantal vossen",
+     "antwoord": "+",
+     "uitleg": "De wolf jaagt geen vossen meer weg."
+    },
+    {
+     "naam": "Eieren en jongen van vogels die op de grond broeden",
+     "antwoord": "-",
+     "uitleg": "Vossen eten eieren en jongen van grondbroeders."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-wolf",
+   "soort": "uitleg",
+   "titel": "Waarom de wolf telt",
+   "opdracht": "Een wolf eet nooit jonge boompjes. Toch komen er minder jonge boompjes als de wolf verdwijnt. Leg uit hoe dat kan.",
+   "begrippen": [
+    {
+     "naam": "voedselketen",
+     "varianten": [
+      "voedselweb",
+      "keten"
+     ]
+    },
+    {
+     "naam": "reeën",
+     "varianten": [
+      "ree",
+      "herten"
+     ]
+    },
+    {
+     "naam": "consument",
+     "varianten": [
+      "consumenten"
+     ]
+    },
+    {
+     "naam": "producent",
+     "varianten": [
+      "producenten",
+      "plant"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de wolf reeën en herten eet, en die eten jonge boompjes.",
+    "Ik leg uit dat er zonder wolf meer reeën en herten komen.",
+    "Ik leg uit dat zij meer jonge boompjes opeten, en dat zo het hele voedselweb verandert."
+   ],
+   "model": [
+    "In de voedselketen jonge boompjes → ree → wolf staat de wolf bovenaan. Hij eet reeën en herten.",
+    "Verdwijnt de wolf, dan komen er meer reeën en herten. Die eten overal jonge boompjes op, en dan groeien er minder nieuwe bomen. Eén soort verdwijnt, en het hele web verandert mee. Ook planten die de wolf nooit eet."
+   ]
+  }
+ ]
+}

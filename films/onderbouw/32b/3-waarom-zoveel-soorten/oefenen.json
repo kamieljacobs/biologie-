@@ -1,0 +1,144 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32b/3-waarom-zoveel-soorten/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-strandmuizen",
+   "soort": "volgorde",
+   "titel": "Lichte muizen op het strand",
+   "opdracht": "Zet in de goede volgorde hoe er op het strand steeds meer lichte muizen komen.",
+   "stappen": [
+    {
+     "tekst": "Bij één muis maakt een mutatie de vacht licht, zandkleurig.",
+     "uitleg": "Een mutatie is een klein foutje bij het kopiëren van een gen."
+    },
+    {
+     "tekst": "Een paar muizen komen terecht op een strand met wit zand.",
+     "uitleg": "Daar jagen uilen en reigers."
+    },
+    {
+     "tekst": "Uilen en reigers pakken vaker de donkere muizen.",
+     "uitleg": "Op wit zand vallen die op."
+    },
+    {
+     "tekst": "Lichte muizen overleven vaker en krijgen meer jongen.",
+     "uitleg": "De muizen kiezen dit niet: wie toevallig goed past, krijgt meer jongen."
+    },
+    {
+     "tekst": "De jongen erven de lichte vacht.",
+     "uitleg": "De vachtkleur zit in de genen."
+    },
+    {
+     "tekst": "Generatie na generatie worden er meer lichte muizen.",
+     "uitleg": "Dat heet natuurlijke selectie."
+    }
+   ]
+  },
+  {
+   "id": "indelen-klopt-het",
+   "soort": "indelen",
+   "titel": "Klopt het?",
+   "opdracht": "Klopt deze zin, of klopt hij niet?",
+   "bakken": [
+    {
+     "naam": "Klopt"
+    },
+    {
+     "naam": "Klopt niet"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Wie toevallig goed past, krijgt meer jongen.",
+     "bak": 0,
+     "uitleg": "Zo werkt natuurlijke selectie."
+    },
+    {
+     "tekst": "Een mutatie is een klein foutje bij het kopiëren van een gen.",
+     "bak": 0,
+     "uitleg": "De meeste doen niets, sommige zijn schadelijk, heel soms is er een handig."
+    },
+    {
+     "tekst": "Groepen die elkaar niet meer tegenkomen, veranderen elk op hun eigen manier.",
+     "bak": 0,
+     "uitleg": "Na heel lange tijd kunnen het twee soorten worden."
+    },
+    {
+     "tekst": "Dieren die samen vruchtbare jongen kunnen krijgen, horen bij één soort.",
+     "bak": 0,
+     "uitleg": "Zo bepaal je wat een soort is."
+    },
+    {
+     "tekst": "Een muis wordt lichter omdat hij dat wil.",
+     "bak": 1,
+     "uitleg": "Geen enkel dier doet het expres."
+    },
+    {
+     "tekst": "Alle mutaties zijn schadelijk.",
+     "bak": 1,
+     "uitleg": "De meeste doen niets. Heel soms is een mutatie handig."
+    },
+    {
+     "tekst": "Paard en ezel zijn één soort, want ze krijgen samen een muilezel.",
+     "bak": 1,
+     "uitleg": "Een muilezel kan zelf bijna nooit jongen krijgen. Paard en ezel zijn twee soorten."
+    },
+    {
+     "tekst": "Een nieuwe soort ontstaat in één generatie.",
+     "bak": 1,
+     "uitleg": "Dat duurt heel veel generaties."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-strandmuizen",
+   "soort": "uitleg",
+   "titel": "Waarom zijn de strandmuizen licht?",
+   "opdracht": "Na heel veel generaties leven er op het witte strand bijna alleen lichte muizen. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "mutatie",
+     "varianten": [
+      "mutaties",
+      "variatie"
+     ]
+    },
+    {
+     "naam": "natuurlijke selectie",
+     "varianten": [
+      "selectie"
+     ]
+    },
+    {
+     "naam": "overleven",
+     "varianten": [
+      "overleeft"
+     ]
+    },
+    {
+     "naam": "jongen",
+     "varianten": []
+    },
+    {
+     "naam": "erven",
+     "varianten": [
+      "erft",
+      "genen"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de muizen van elkaar verschillen, en dat een mutatie een lichte vacht gaf.",
+    "Ik leg uit dat lichte muizen op wit zand minder vaak gepakt worden, dus vaker overleven.",
+    "Ik leg uit dat ze meer jongen krijgen die de lichte vacht erven: natuurlijke selectie.",
+    "Ik noem dat de muizen dit niet expres doen."
+   ],
+   "model": [
+    "De muizen verschillen een beetje van elkaar: variatie. Door een mutatie kreeg een muis een lichte vacht.",
+    "Op het witte strand zien uilen en reigers de donkere muizen het best. Lichte muizen overleven vaker en krijgen meer jongen. Die jongen erven de lichte vacht.",
+    "Generatie na generatie worden er zo meer lichte muizen. Dat heet natuurlijke selectie. De muizen kiezen het niet: wie toevallig goed past, krijgt meer jongen."
+   ]
+  }
+ ]
+}

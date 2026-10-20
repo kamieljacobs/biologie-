@@ -1,0 +1,223 @@
+{
+ "versie": 1,
+ "film": "films/zenuwstelsel/5-het-hoofdkantoor.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "schema-hersenen",
+   "soort": "schema",
+   "titel": "De plattegrond van je hersenen",
+   "opdracht": "Je ziet de linkerhersenhelft van opzij; voorkant links. Sleep de namen naar de goede vakjes. Eén naam blijft over.",
+   "alt": "Lijntekening van de hersenen van opzij, voorkant links. De grote hersenen met een groeve van boven naar beneden, een groeve schuin opzij en een stippellijn achteraan. Achter onder de kleine hersenen met strepen, en daarvoor de hersenstam die naar beneden loopt.",
+   "breed": 820,
+   "hoog": 440,
+   "vakbreed": 180,
+   "svg": "<path stroke-width=\"2.8\" d=\"M215 250 C175 230 170 150 220 110 C270 70 360 55 440 65 C520 75 590 120 600 180 C605 215 590 240 560 250 C520 262 480 262 450 268 C415 282 360 298 320 292 C285 287 258 274 242 258 C232 262 220 258 215 250 Z\"/><path stroke-width=\"2.4\" d=\"M420 64 C412 110 398 160 382 205\"/><path stroke-width=\"2.4\" d=\"M246 240 C300 222 360 214 425 200\"/><path class=\"zacht\" stroke-width=\"2\" stroke-dasharray=\"6 6\" d=\"M536 82 C532 140 522 200 508 258\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M260 130 C285 120 300 140 325 128 M250 185 C280 175 300 195 330 182 M450 110 C470 100 490 120 510 108 M440 165 C465 155 485 175 505 160 M330 255 C355 245 380 260 405 248 M555 150 C565 160 575 170 580 190\"/><path stroke-width=\"2.6\" d=\"M480 268 C490 248 540 246 575 250 C605 255 618 280 605 305 C590 330 520 334 490 315 C474 303 472 282 480 268 Z\"/><path class=\"zacht\" stroke-width=\"1.4\" d=\"M490 280 C530 272 570 274 605 282 M486 296 C530 290 570 292 608 296 M495 311 C530 308 565 310 598 312\"/><path stroke-width=\"2.6\" d=\"M432 276 C436 310 440 350 444 405 M472 268 C472 310 476 350 482 405\"/>",
+   "vakjes": [
+    {
+     "naam": "voorhoofdskwab",
+     "x": 100,
+     "y": 100,
+     "punt": [
+      290,
+      150
+     ],
+     "uitleg": "vooraan; hier ligt de strook voor bewegen, en veel associatieve schors: plannen, kiezen, je inhouden."
+    },
+    {
+     "naam": "slaapkwab",
+     "x": 100,
+     "y": 340,
+     "punt": [
+      335,
+      262
+     ],
+     "uitleg": "opzij, onder de schuine groeve; hier ligt de primaire gehoorschors."
+    },
+    {
+     "naam": "wandbeenkwab",
+     "x": 470,
+     "y": 30,
+     "punt": [
+      468,
+      115
+     ],
+     "uitleg": "bovenop, achter de groeve over je kruin; hier ligt de strook voor voelen."
+    },
+    {
+     "naam": "achterhoofdskwab",
+     "x": 725,
+     "y": 120,
+     "punt": [
+      568,
+      190
+     ],
+     "uitleg": "achteraan; hier ligt de primaire schors voor zien."
+    },
+    {
+     "naam": "kleine hersenen",
+     "x": 725,
+     "y": 300,
+     "punt": [
+      596,
+      292
+     ],
+     "uitleg": "achteronder; sturen bewegingen bij: timing en evenwicht."
+    },
+    {
+     "naam": "hersenstam",
+     "x": 725,
+     "y": 405,
+     "punt": [
+      478,
+      380
+     ],
+     "uitleg": "gaat over in het ruggenmerg; regelt ademhaling en hartslag."
+    }
+   ],
+   "afleiders": [
+    "hersenbalk"
+   ]
+  },
+  {
+   "id": "volgorde-van-oor-tot-nummer",
+   "soort": "volgorde",
+   "titel": "Van twee tonen tot jouw nummer",
+   "opdracht": "Zet de weg van het geluid in de goede volgorde, tot je weet: dit is mijn nummer.",
+   "stappen": [
+    {
+     "tekst": "In het slakkenhuis trilt het basilair membraan, op een eigen plek per toon.",
+     "uitleg": "Begin smal en stijf: hoge tonen. Top breed en slap: lage tonen."
+    },
+    {
+     "tekst": "Zintuigcellen geven impulsen af aan de gehoorzenuw.",
+     "uitleg": "Elke toon prikkelt zijn eigen zintuigcellen."
+    },
+    {
+     "tekst": "De impulsen gaan naar de hersenstam.",
+     "uitleg": "Alle banen lopen door de hersenstam."
+    },
+    {
+     "tekst": "Ze gaan langs de thalamus.",
+     "uitleg": "Een schakelstation voor bijna alle zintuigen."
+    },
+    {
+     "tekst": "In de primaire gehoorschors komen toonhoogte en luidheid binnen.",
+     "uitleg": "In de slaapkwab, met elke toon op zijn eigen plek."
+    },
+    {
+     "tekst": "De associatieve schors eromheen herkent: dit is jouw nummer.",
+     "uitleg": "Die legt verbanden met wat je al kent. Horen is iets anders dan herkennen."
+    }
+   ]
+  },
+  {
+   "id": "indelen-wie-regelt-het",
+   "soort": "indelen",
+   "titel": "Welke afdeling regelt het?",
+   "opdracht": "Je hoort je lievelingsnummer. Welk deel van je hersenen regelt elk onderdeel?",
+   "bakken": [
+    {
+     "naam": "Grote hersenen"
+    },
+    {
+     "naam": "Kleine hersenen"
+    },
+    {
+     "naam": "Hersenstam"
+    },
+    {
+     "naam": "Hypothalamus"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Toonhoogte en luidheid komen binnen.",
+     "bak": 0,
+     "uitleg": "In de primaire gehoorschors, in de slaapkwab."
+    },
+    {
+     "tekst": "Na twee tonen herken je je nummer.",
+     "bak": 0,
+     "uitleg": "De associatieve schors legt verbanden met wat je al kent."
+    },
+    {
+     "tekst": "Je tik valt precies op de tel.",
+     "bak": 1,
+     "uitleg": "De kleine hersenen vergelijken het plan met wat er echt gebeurt, en sturen bij."
+    },
+    {
+     "tekst": "Je houdt je evenwicht als je meedanst.",
+     "bak": 1,
+     "uitleg": "Zonder kleine hersenen wordt je evenwicht slechter."
+    },
+    {
+     "tekst": "Je blijft ademen, ook als je slaapt.",
+     "bak": 2,
+     "uitleg": "Het verlengde merg, onderin de hersenstam, heeft een centrum voor ademhaling."
+    },
+    {
+     "tekst": "Het tempo van je hart wordt geregeld.",
+     "bak": 2,
+     "uitleg": "Ook daarvoor zit een centrum in het verlengde merg."
+    },
+    {
+     "tekst": "Je temperatuur, honger en dorst blijven op peil.",
+     "bak": 3,
+     "uitleg": "De hypothalamus houdt je lichaam op peil."
+    },
+    {
+     "tekst": "Via de hypofyse worden veel hormonen aangestuurd.",
+     "bak": 3,
+     "uitleg": "De hypothalamus stuurt de hypofyse aan."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-beroerte-links",
+   "soort": "uitleg",
+   "titel": "Een beroerte links",
+   "opdracht": "Na een beroerte in de linkerhersenhelft kan iemand zijn rechterhand slecht bewegen, en heeft zijn rug minder last. Leg beide uit.",
+   "begrippen": [
+    {
+     "naam": "motorische schors",
+     "varianten": [
+      "motorisch"
+     ]
+    },
+    {
+     "naam": "kruisen",
+     "varianten": [
+      "kruising",
+      "kruislings"
+     ]
+    },
+    {
+     "naam": "hersenstam",
+     "varianten": []
+    },
+    {
+     "naam": "homunculus",
+     "varianten": []
+    },
+    {
+     "naam": "fijn",
+     "varianten": [
+      "fijne"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat de motorische schors links de rechterhand stuurt.",
+    "Ik leg uit dat de banen in de hersenstam naar de andere kant kruisen.",
+    "Ik leg uit dat de hand een groot stuk motorische schors heeft, en de rug een klein stuk (homunculus).",
+    "Ik leg uit dat de grootte afhangt van hoe fijn je een lichaamsdeel beweegt."
+   ],
+   "model": [
+    "De motorische schors links stuurt je rechterhand. De banen kruisen in de hersenstam naar de andere kant. Schade links treft dus de rechterkant van je lichaam.",
+    "Op de strook motorische schors heeft elk lichaamsdeel zijn eigen stuk. Teken je dat als mannetje, de homunculus, dan zie je enorme handen en een smalle rug.",
+    "Hoe groot een stuk schors is, hangt af van hoe fijn je het lichaamsdeel beweegt. De hand heeft veel schors, dus bij schade valt daar veel uit. De rug heeft maar een klein stuk."
+   ]
+  }
+ ]
+}

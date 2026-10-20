@@ -1,0 +1,144 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/7-zenuw-en-hormoonstelsel/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-zenuw-hormoon",
+   "soort": "indelen",
+   "titel": "Appje of omroep?",
+   "opdracht": "Past dit bij je zenuwstelsel of bij je hormoonstelsel?",
+   "bakken": [
+    {
+     "naam": "Zenuwstelsel",
+     "uitleg": "een appje naar één persoon"
+    },
+    {
+     "naam": "Hormoonstelsel",
+     "uitleg": "de omroep op school"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "Supersnel: tot wel honderd meter per seconde.",
+     "bak": 0,
+     "uitleg": "Een heel voetbalveld in één seconde."
+    },
+    {
+     "tekst": "Gaat precies naar één plek.",
+     "bak": 0,
+     "uitleg": "Zoals een appje naar één persoon."
+    },
+    {
+     "tekst": "Het bericht is snel weer voorbij.",
+     "bak": 0,
+     "uitleg": "Snel en kort."
+    },
+    {
+     "tekst": "Je knippert als er iets naar je oog vliegt.",
+     "bak": 0,
+     "uitleg": "Dat moet snel, op één plek."
+    },
+    {
+     "tekst": "Het bericht reist met je bloed.",
+     "bak": 1,
+     "uitleg": "Een hormoon is een stof die een hormoonklier aan je bloed afgeeft."
+    },
+    {
+     "tekst": "Komt overal in je lichaam.",
+     "bak": 1,
+     "uitleg": "Je bloed neemt de stof overal mee. Alleen sommige organen doen er iets mee."
+    },
+    {
+     "tekst": "Werkt lang door.",
+     "bak": 1,
+     "uitleg": "Adrenaline blijft minuten in je bloed. Groeien duurt jaren."
+    },
+    {
+     "tekst": "Je groeit in een jaar vijf centimeter.",
+     "bak": 1,
+     "uitleg": "Groeien duurt lang en gebeurt in je hele lichaam."
+    }
+   ]
+  },
+  {
+   "id": "volgorde-brandalarm",
+   "soort": "volgorde",
+   "titel": "Het brandalarm",
+   "opdracht": "Het brandalarm gaat. Zet in de goede volgorde wat er in je lichaam gebeurt. Twee stappen gebeuren tegelijk: die mogen onderling wisselen.",
+   "stappen": [
+    {
+     "tekst": "Je oren vangen het geluid en maken er een klein elektrisch signaal van.",
+     "uitleg": "Je oren zijn zintuigen."
+    },
+    {
+     "tekst": "Het signaal gaat door een zenuw naar je hersenen.",
+     "uitleg": "Een zenuw is een bundel lange, dunne draden."
+    },
+    {
+     "tekst": "Je hersenen herkennen het geluid: alarm!",
+     "uitleg": "Ze sturen nieuwe signalen."
+    },
+    {
+     "tekst": "Een signaal gaat door je ruggenmerg en zenuwen naar je beenspieren: je springt op.",
+     "uitleg": "De spieren worden korter.",
+     "groep": "tegelijk"
+    },
+    {
+     "tekst": "Een seintje gaat via een zenuw naar je bijnieren: die geven adrenaline af aan je bloed.",
+     "uitleg": "Dit gebeurt tegelijk met het signaal naar je benen.",
+     "groep": "tegelijk"
+    },
+    {
+     "tekst": "Je bloed brengt de adrenaline overal heen. Je hart herkent hem en klopt sneller.",
+     "uitleg": "Je bloed gaat in ongeveer een minuut je hele lichaam rond."
+    },
+    {
+     "tekst": "Buiten bonkt je hart nog minutenlang.",
+     "uitleg": "De adrenaline blijft een paar minuten in je bloed."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-hart-bonkt",
+   "soort": "uitleg",
+   "titel": "Waarom bonkt je hart nog?",
+   "opdracht": "Het brandalarm is uit en je staat buiten op het plein. Toch bonkt je hart nog minutenlang. Leg uit hoe dat komt.",
+   "begrippen": [
+    {
+     "naam": "adrenaline",
+     "varianten": []
+    },
+    {
+     "naam": "bijnieren",
+     "varianten": [
+      "bijnier"
+     ]
+    },
+    {
+     "naam": "hormoon",
+     "varianten": [
+      "hormonen"
+     ]
+    },
+    {
+     "naam": "bloed",
+     "varianten": []
+    },
+    {
+     "naam": "hart",
+     "varianten": []
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je bijnieren het hormoon adrenaline aan je bloed afgeven.",
+    "Ik leg uit dat je bloed de adrenaline naar je hart brengt, en dat je hart dan sneller klopt.",
+    "Ik leg uit dat de adrenaline een paar minuten in je bloed blijft, ook als het alarm al uit is."
+   ],
+   "model": [
+    "Toen het alarm ging, stuurden je hersenen een seintje naar je bijnieren. Die geven het hormoon adrenaline af aan je bloed. Je bloed brengt de adrenaline overal heen, ook naar je hart. Je hart herkent hem en gaat sneller kloppen.",
+    "Een hormoon werkt lang door. De adrenaline blijft een paar minuten in je bloed. Zo lang bonkt je hart, ook als het alarm al uit is."
+   ]
+  }
+ ]
+}

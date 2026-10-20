@@ -1,0 +1,203 @@
+{
+ "versie": 1,
+ "film": "films/onderbouw/32a/2-van-cel-tot-lichaam/index.html",
+ "intro": "Oefen met wat je in de film zag. Open een opdracht, werk hem uit en controleer jezelf. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "volgorde-cel-tot-organisme",
+   "soort": "volgorde",
+   "titel": "Van klein naar groot",
+   "opdracht": "Zet de stappen op volgorde, van klein naar groot.",
+   "stappen": [
+    {
+     "tekst": "Een spiercel",
+     "uitleg": "De kleinste bouwsteen die zelf leeft: een cel."
+    },
+    {
+     "tekst": "Spierweefsel: veel spiercellen met dezelfde taak",
+     "uitleg": "Een weefsel is een groep van dezelfde cellen met dezelfde taak."
+    },
+    {
+     "tekst": "De kuitspier: spierweefsel, zenuwweefsel, bloedvaten en bindweefsel samen",
+     "uitleg": "Verschillende weefsels samen, met een eigen taak: een orgaan."
+    },
+    {
+     "tekst": "Al je spieren samen: je spierstelsel",
+     "uitleg": "Organen die samenwerken: een orgaanstelsel."
+    },
+    {
+     "tekst": "Jij: alle orgaanstelsels samen",
+     "uitleg": "Eén levend wezen: een organisme."
+    }
+   ]
+  },
+  {
+   "id": "indelen-cel-weefsel-orgaan",
+   "soort": "indelen",
+   "titel": "Cel, weefsel of orgaan?",
+   "opdracht": "Is dit een cel, een weefsel of een orgaan?",
+   "bakken": [
+    {
+     "naam": "Cel"
+    },
+    {
+     "naam": "Weefsel",
+     "uitleg": "dezelfde cellen, dezelfde taak"
+    },
+    {
+     "naam": "Orgaan",
+     "uitleg": "verschillende weefsels samen"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "spiercel",
+     "bak": 0,
+     "uitleg": "Eén lange, dunne cel die korter kan worden."
+    },
+    {
+     "tekst": "rode bloedcel",
+     "bak": 0,
+     "uitleg": "Eén cel, die zuurstof vervoert."
+    },
+    {
+     "tekst": "spierweefsel",
+     "bak": 1,
+     "uitleg": "Miljoenen spiercellen naast elkaar, met dezelfde taak."
+    },
+    {
+     "tekst": "bloed",
+     "bak": 1,
+     "uitleg": "Bloed zit vol cellen met dezelfde taak: vervoeren. Ze zwemmen alleen in vocht."
+    },
+    {
+     "tekst": "bladmoes in een blad",
+     "bak": 1,
+     "uitleg": "Cellen vol bladgroenkorrels, die samen voedsel maken."
+    },
+    {
+     "tekst": "kuitspier",
+     "bak": 2,
+     "uitleg": "Spierweefsel, zenuwweefsel, bloedvaten en bindweefsel samen."
+    },
+    {
+     "tekst": "hart",
+     "bak": 2,
+     "uitleg": "Ook een orgaan: verschillende weefsels samen."
+    },
+    {
+     "tekst": "een blad van de sla",
+     "bak": 2,
+     "uitleg": "Opperhuid, bladmoes en vaatbundels samen: een orgaan van de plant."
+    }
+   ]
+  },
+  {
+   "id": "indelen-orgaanstelsels",
+   "soort": "indelen",
+   "titel": "Welk orgaanstelsel?",
+   "opdracht": "Bij welk orgaanstelsel hoort dit orgaan?",
+   "bakken": [
+    {
+     "naam": "Spijsverteringsstelsel"
+    },
+    {
+     "naam": "Ademhalingsstelsel"
+    },
+    {
+     "naam": "Bloedvatenstelsel"
+    },
+    {
+     "naam": "Uitscheidingsstelsel"
+    }
+   ],
+   "kaartjes": [
+    {
+     "tekst": "slokdarm",
+     "bak": 0,
+     "uitleg": "Mond, slokdarm, maag en darmen: eten klein maken en opnemen."
+    },
+    {
+     "tekst": "maag",
+     "bak": 0,
+     "uitleg": "Hoort bij je spijsverteringsstelsel."
+    },
+    {
+     "tekst": "luchtpijp",
+     "bak": 1,
+     "uitleg": "Neus, luchtpijp en longen: zuurstof naar binnen."
+    },
+    {
+     "tekst": "longen",
+     "bak": 1,
+     "uitleg": "Zuurstof naar binnen, koolstofdioxide naar buiten."
+    },
+    {
+     "tekst": "hart",
+     "bak": 2,
+     "uitleg": "Je hart en bloedvaten brengen alles rond."
+    },
+    {
+     "tekst": "bloedvaten",
+     "bak": 2,
+     "uitleg": "Hoort bij je bloedvatenstelsel."
+    },
+    {
+     "tekst": "nieren",
+     "bak": 3,
+     "uitleg": "Je nieren halen afval uit je bloed."
+    },
+    {
+     "tekst": "blaas",
+     "bak": 3,
+     "uitleg": "Nieren en blaas: je uitscheidingsstelsel."
+    }
+   ]
+  },
+  {
+   "id": "uitleg-gymles",
+   "soort": "uitleg",
+   "titel": "Sprinten in de gymles",
+   "opdracht": "Je sprint naar de overkant. Vooral je beenspieren werken hard. Toch ga je sneller ademen en bonkt je hart. Leg uit waarom.",
+   "begrippen": [
+    {
+     "naam": "zuurstof",
+     "varianten": []
+    },
+    {
+     "naam": "voedingsstoffen",
+     "varianten": [
+      "voedingsstof"
+     ]
+    },
+    {
+     "naam": "bloed",
+     "varianten": []
+    },
+    {
+     "naam": "longen",
+     "varianten": [
+      "long"
+     ]
+    },
+    {
+     "naam": "orgaanstelsel",
+     "varianten": [
+      "orgaanstelsels",
+      "stelsels"
+     ]
+    }
+   ],
+   "checklist": [
+    "Ik leg uit dat je beenspieren voedingsstoffen verbranden met zuurstof.",
+    "Ik leg uit dat de zuurstof uit je longen komt en de voedingsstoffen uit je darmen.",
+    "Ik leg uit dat je bloed alles naar je spiercellen brengt, en dat je hart dat bloed pompt.",
+    "Ik concludeer dat je orgaanstelsels samenwerken."
+   ],
+   "model": [
+    "Je beenspieren verbranden voedingsstoffen met zuurstof. Als ze hard werken, hebben ze daar meer van nodig.",
+    "De zuurstof halen je longen uit de lucht, de voedingsstoffen haalden je darmen uit je eten. Je bloed brengt ze naar de spiercellen. Daarom adem je sneller en pompt je hart harder. Je orgaanstelsels werken samen."
+   ]
+  }
+ ]
+}

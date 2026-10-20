@@ -1,0 +1,97 @@
+{
+ "intro": "Oefen met natuurlijke selectie op Daphne Major. Kies een opdracht om hem te openen. Je antwoorden blijven op je eigen apparaat.",
+ "oefeningen": [
+  {
+   "id": "indelen-klopt-misvatting",
+   "soort": "indelen",
+   "titel": "Klopt het, of is het een misvatting?",
+   "opdracht": "Over de vinken van Daphne Major hoor je van alles. Welke uitspraken kloppen, en welke zijn een misvatting uit de film?",
+   "bakken": [
+    {"naam": "Klopt"},
+    {"naam": "Misvatting"}
+   ],
+   "kaartjes": [
+    {"tekst": "Door de droogte liet elke vink haar snavel een stukje groeien.", "bak": 1, "uitleg": "Een vink kan haar snavel niet laten groeien. Individuen passen zich niet aan."},
+    {"tekst": "Vinken met een diepe snavel kregen meer jongen die overleefden.", "bak": 0, "uitleg": "Zo verschuift de verdeling: sommige individuen krijgen meer nakomelingen."},
+    {"tekst": "De sterkste vinken overleefden de droogte.", "bak": 1, "uitleg": "Kracht helpt niet bij een zaad dat je niet open krijgt. De best passende overleeft."},
+    {"tekst": "Door de droogte ontstonden er meer mutaties voor grote snavels.", "bak": 1, "uitleg": "Mutaties zijn toeval: in een droog jaar ontstaan net zo goed kleine snavels."},
+    {"tekst": "Na de droogte lag het gemiddelde hoger, omdat de kleine snavels er niet meer waren.", "bak": 0, "uitleg": "Selectie verandert geen individuen; ze verandert wie er overblijft."},
+    {"tekst": "Evolutie werkt toe naar steeds grotere snavels.", "bak": 1, "uitleg": "Na El Niño keerde de selectie om. Evolutie heeft geen doel."},
+    {"tekst": "Een kleine, tamme vink kan een hogere fitness hebben dan een grote, sterke.", "bak": 0, "uitleg": "Fitness is het aantal nakomelingen dat zelf weer overleeft."},
+    {"tekst": "De populatie evolueert, de individuen niet.", "bak": 0, "uitleg": "De erfelijke eigenschappen van de populatie veranderen van generatie op generatie."}
+   ]
+  },
+  {
+   "id": "indelen-vier-ingredienten",
+   "soort": "indelen",
+   "titel": "Welk ingrediënt?",
+   "opdracht": "Natuurlijke selectie heeft vier ingrediënten. Bij welk ingrediënt hoort elke waarneming van de Grants?",
+   "bakken": [
+    {"naam": "Variatie"},
+    {"naam": "Erfelijkheid"},
+    {"naam": "Overproductie"},
+    {"naam": "Verschil in overleving en voortplanting"}
+   ],
+   "kaartjes": [
+    {"tekst": "De snaveldiepte vormt een verdeling: de meeste rond het gemiddelde, een paar klein, een paar groot.", "bak": 0, "uitleg": "Geen individu is precies hetzelfde."},
+    {"tekst": "De jongen lijken op hun ouders.", "bak": 1, "uitleg": "Snaveldiepte gaat over op de nakomelingen."},
+    {"tekst": "Een paar legt elk jaar een paar legsels van drie tot vier eieren.", "bak": 2, "uitleg": "Als alle jongen overleven, verdubbelt de populatie in een paar jaar."},
+    {"tekst": "Het eiland heeft maar zoveel zaden.", "bak": 2, "uitleg": "Er worden meer jongen geboren dan er kunnen overleven: de gedachte van Malthus."},
+    {"tekst": "Alleen vinken met een diepe snavel kraken de harde zaden van Tribulus.", "bak": 3, "uitleg": "De omgeving bepaalt welke varianten de meeste nakomelingen krijgen."},
+    {"tekst": "De jongen van 1978 hebben gemiddeld diepere snavels.", "bak": 1, "uitleg": "Doordat snaveldiepte erfelijk is, zie je de selectie terug in de volgende generatie."},
+    {"tekst": "Na El Niño hebben vinken met kleine snavels het voordeel.", "bak": 3, "uitleg": "Kleine zaden eet je sneller met een kleine snavel."}
+   ]
+  },
+  {
+   "id": "pijlen-el-nino",
+   "soort": "pijlen",
+   "titel": "Na El Niño",
+   "opdracht": "Voorspel wat er gebeurt in de jaren na het natte El Niño-jaar 1983.",
+   "situatie": "Het regent maandenlang. Het eiland raakt bedekt met planten vol kleine, zachte zaden.",
+   "rijen": [
+    {"naam": "Hoeveelheid kleine, zachte zaden", "antwoord": "+", "uitleg": "Door de regen groeien er overal planten met kleine zaden."},
+    {"naam": "Voordeel van een diepe, grote snavel", "antwoord": "-", "uitleg": "Kleine zaden eet je sneller met een kleine snavel. Een grote snavel is nu een nadeel."},
+    {"naam": "Nakomelingen van vinken met kleine snavels", "antwoord": "+", "uitleg": "Zij hebben nu het voordeel, en krijgen meer jongen die overleven."},
+    {"naam": "Gemiddelde snaveldiepte van de populatie", "antwoord": "-", "uitleg": "Het gemiddelde zakte weer. De selectie keerde om."},
+    {"naam": "Snavel van een volwassen vink die al leefde", "antwoord": "=", "uitleg": "Een vink kan haar snavel niet laten krimpen. Alleen de populatie verandert."}
+   ]
+  },
+  {
+   "id": "volgorde-droogte-1977",
+   "soort": "volgorde",
+   "titel": "De droogte van 1977",
+   "opdracht": "Zet in de goede volgorde wat er in 1977 en 1978 op Daphne Major gebeurde.",
+   "stappen": [
+    {"tekst": "Er valt geen regen; planten zetten geen nieuwe zaden.", "uitleg": "Het begin van de droogte."},
+    {"tekst": "De kleine, zachte zaden zijn als eerste op.", "uitleg": "Wat overblijft zijn de grote, harde zaden van Tribulus."},
+    {"tekst": "Vinken met een ondiepe snavel krijgen de harde zaden niet open en sterven.", "uitleg": "Van ongeveer 1200 vinken blijven er minder dan 200 over."},
+    {"tekst": "De overlevers hebben gemiddeld diepere snavels.", "uitleg": "Niet omdat ze groeiden, maar omdat de kleine snavels er niet meer zijn."},
+    {"tekst": "De jongen van 1978 hebben gemiddeld diepere snavels, mét variatie.", "uitleg": "Snaveldiepte is erfelijk. De verdeling is als geheel opgeschoven: evolutie."}
+   ]
+  },
+  {
+   "id": "uitleg-jongen-1978",
+   "soort": "uitleg",
+   "titel": "Waarom is dit evolutie?",
+   "opdracht": "De jongen van 1978 hadden gemiddeld diepere snavels dan de vinken vóór de droogte. Leg uit hoe dat komt en waarom dit evolutie is.",
+   "begrippen": [
+    {"naam": "variatie", "varianten": ["verdeling"]},
+    {"naam": "selectie", "varianten": ["natuurlijke selectie", "geselecteerd"]},
+    {"naam": "erfelijk", "varianten": ["erfelijkheid"]},
+    {"naam": "populatie", "varianten": []},
+    {"naam": "generatie", "varianten": ["generaties"]}
+   ],
+   "checklist": [
+    "Ik leg uit dat er variatie in snaveldiepte was.",
+    "Ik leg uit dat in de droogte vooral vinken met diepe snavels overleefden, omdat alleen zij de harde zaden kraakten.",
+    "Ik leg uit dat snaveldiepte erfelijk is, zodat de jongen op de overlevers lijken.",
+    "Ik leg uit dat de populatie veranderde van generatie op generatie, niet de individuen."
+   ],
+   "model": [
+    "In de populatie was variatie: sommige vinken hadden een ondiepe snavel, andere een diepe. In de droogte bleven alleen grote, harde zaden over. Die kraak je alleen met een diepe snavel.",
+    "Vinken met een ondiepe snavel stierven vaker. De overlevers hadden gemiddeld diepere snavels. Snaveldiepte is erfelijk, dus hun jongen in 1978 hadden ook gemiddeld diepere snavels.",
+    "Dit is evolutie: de erfelijke eigenschappen van de populatie veranderden van de ene generatie op de volgende. Geen enkele vink liet haar snavel groeien; de populatie veranderde doordat sommige vinken meer nakomelingen kregen."
+   ]
+  }
+ ]
+}
