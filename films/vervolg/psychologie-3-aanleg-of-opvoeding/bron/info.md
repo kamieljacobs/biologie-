@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/psychologie-3-aanleg-of-opvoeding.html` (audio in `psychologie-3-aanleg-of-opvoeding/audio/`) |
 | Reeks | Wat word jij? · Psychologie |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 20 oktober 2026 |
+| Versie | 1.1 · 20 oktober 2026 |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea (flow in `stem/sessions.json`), 6.706 credits |
 | Duur | spraak 7:14 (434 s); met vragen en kaarten ± 9 min |
 | Beeldstijl | Part C · Schema, met cast (Yasmin, Bilal, Dr. Kim, Teun) |
@@ -49,3 +49,6 @@ Zoals bij Kijken in een denkend brein (zie die info.md), met werkmap `hw/ao` en 
 - Gevoelig: depressie en ADHD; groepsgetallen, hulpkaart (mentor, huisarts) in s18.
 - Tweelingen bewust als eicellen en DNA-balken, niet als zelfgetekende poppetjes; mensen alleen uit het castboek.
 - Woordtijden via silalign; bij 9 alinea's vielen 1–4 leestekens niet op een stilte.
+
+## Wijziging 20 okt 2026 (v1.1, na de eindreview)
+Eindreview (`reviews/review_eind.md`, 5 MOET-punten) verwerkt, alleen beeld: eeneiige tweeling als één eicel die zichtbaar splitst (binnen één ring); kranen vervangen door een 2×2-raster (aanleg × zware gebeurtenis, alleen samen veel); ouders als kaartjes en gezinnen als huisje in plaats van rasterblokjes; VS- en Europa-balken bouwen op in hun eigen kader; titelgrafiek kleiner; rekenkader verdwijnt bij 'apart'; notitie 'overige 0,1: gedeeld gezin'; bril bij bijziendheid. Geen nieuwe audio.

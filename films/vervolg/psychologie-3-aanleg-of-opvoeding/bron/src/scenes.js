@@ -62,8 +62,11 @@ function emmer(ctx, x, y, vul, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.g
 function gebouw(ctx, x, y, s, label, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 90 * s, y - 120 * s, 180 * s, 120 * s, 8); shape(ctx, '#2A3A58', '#AFC0D0', 2); for (let i = 0; i < 3; i++) for (let j = 0; j < 2; j++) { roundRect(ctx, x - 70 * s + i * 50 * s, y - 100 * s + j * 46 * s, 34 * s, 30 * s, 4); shape(ctx, rgba(C.oker, 0.5), null); } metaText(ctx, label, x, y + 40, C.grain, 'center', 28); ctx.restore(); }
 function hoogteBalk(ctx, x, y, w, v, col, label, a = 1, tekst = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 44, 10); shape(ctx, '#2A3A58', rgba(C.line, 0.6), 1.5); if (v > 0.01) { roundRect(ctx, x, y, w * v, 44, 10); shape(ctx, rgba(col, 0.8), col, 1.5); } text(ctx, label, x, y - 14, fTekst(30, 700), C.text, 'left'); if (tekst) text(ctx, tekst, x + w + 20, y + 32, fTekst(30, 700), col, 'left'); ctx.restore(); }
 
+function ouderKaart(ctx, x, y, label, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 50, 260, 100, 14); shape(ctx, rgba(C.fill, 0.8), C.line, 1.5); text(ctx, label, x, y + 10, fTekst(30, 700), C.text, 'center'); ctx.restore(); }
+function huis(ctx, x, y, s, label, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); roundRect(ctx, -60, -40, 120, 80, 6); shape(ctx, '#C9A35C', '#E0C890', 2); ctx.beginPath(); ctx.moveTo(-75, -38); ctx.lineTo(0, -95); ctx.lineTo(75, -38); ctx.closePath(); shape(ctx, C.koraal, null); ctx.fillStyle = '#5A4632'; ctx.fillRect(-14, 0, 28, 40); ctx.restore(); ctx.save(); ctx.globalAlpha *= a; text(ctx, label, x, y + 80 * s, fTekst(28, 700), C.text2, 'center'); ctx.restore(); }
+function bril(ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#AFC0D0'; ctx.lineWidth = 4; circ(ctx, x - 40 * s, y, 30 * s, rgba(C.teal, 0.2), '#AFC0D0', 4); circ(ctx, x + 40 * s, y, 30 * s, rgba(C.teal, 0.2), '#AFC0D0', 4); ctx.beginPath(); ctx.moveTo(x - 10 * s, y); ctx.lineTo(x + 10 * s, y); ctx.stroke(); ctx.restore(); }
 Object.assign(SCENES, {
-  title(ctx, t) { tweelingPlot(ctx, 1080, 380, 620, 440, 0.9, 1, { n: 50, seed: 3 }); },
+  title(ctx, t) { tweelingPlot(ctx, 1220, 470, 540, 380, 0.9, 1, { n: 50, seed: 3 }); },
 
   // ---------- Cold open ----------
   s01(ctx, t, q) { bg(ctx, 'schema');
@@ -76,25 +79,25 @@ Object.assign(SCENES, {
 
   // ---------- H1 ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord b: genen en opvoeding lopen door elkaar', 120, 140, 1, C.groen, 40, 'left', 700);
-    gebouw(ctx, 500, 520, 1.3, 'OUDERS', 1); persoon(ctx, 'yasmin', 1400, 820, 460, { t });
+    ouderKaart(ctx, 500, 460, 'ouders', 1); persoon(ctx, 'yasmin', 1400, 820, 460, { t });
     const g = q.on('genen', 1), o = q.on('opvoeding', 1); pijl(ctx, 640, 420, 1280, 440, C.paars, g, 6, 22); tag(ctx, 'genen', 960, 400, C.paars, g, 'center', 32);
     pijl(ctx, 640, 480, 1280, 500, C.oker, o, 6, 22); tag(ctx, 'opvoeding', 960, 560, C.oker, o, 'center', 32);
     const w = q.on('wiskundegen', 1); chip(ctx, 'wiskundegen', 960, 720, C.text2, w, 34); kruis(ctx, 1120, 720, 26, q.on('bestaat', 1)); },
 
   s05(ctx, t, q) { bg(ctx, 'schema'); const E = q.on('Eeneiige', 1), T = q.on('Twee-eiige', 1);
     regel(ctx, 'eeneiig', 380, 180, E, C.teal, 40, 'center', 700); regel(ctx, 'twee-eiig', 1300, 180, T, C.oker, 40, 'center', 700);
-    if (E > 0.01) { const sp = clamp((t - q.at('eicel', 1)) / 1.5, 0, 1); eicel(ctx, 380 - sp * 100, 360, 70, E); eicel(ctx, 380 + sp * 100, 360, 70, E * sp); zaadcel(ctx, 280, 260, 1.4, E * (1 - sp), t); dnaBalk(ctx, 160, 520, 360, 1, q.on('hetzelfde', 1), 'bijna 100 %'); metaText(ctx, 'GEDEELD VARIABEL DNA', 160, 600, C.grain, 'left', 28); }
+    if (E > 0.01) { const sp = clamp((t - q.at('eicel', 1) - 0.8) / 2.5, 0, 1); circ(ctx, 380, 360, 110 + sp * 70, null, rgba(C.oker, 0.6 * E), 2); eicel(ctx, 380 - sp * 85, 360, 70 - sp * 10, E); eicel(ctx, 380 + sp * 85, 360, 60, E * sp); tag(ctx, 'één eicel splitst', 380, 250, C.oker, E * clamp(sp * 2, 0, 1), 'center', 28); zaadcel(ctx, 280, 260, 1.4, E * (1 - sp), t); dnaBalk(ctx, 160, 520, 360, 1, q.on('hetzelfde', 1), 'bijna 100 %'); metaText(ctx, 'GEDEELD VARIABEL DNA', 160, 600, C.grain, 'left', 28); }
     if (T > 0.01) { eicel(ctx, 1200, 360, 66, T); eicel(ctx, 1400, 360, 66, T); zaadcel(ctx, 1110, 280, 1.4, q.on('zaadcellen', 1), t); zaadcel(ctx, 1310, 280, 1.4, q.on('zaadcellen', 1), t + 1); dnaBalk(ctx, 1080, 520, 360, 0.5, q.on('helft', 1), '± 50 %'); metaText(ctx, 'NET ALS BROERS EN ZUSSEN', 1080, 600, C.grain, 'left', 28); }
-    const H = q.on('gezin', 1); if (H > 0.01) { gebouw(ctx, 380, 820, 0.8, 'ZELFDE GEZIN', H); gebouw(ctx, 1300, 820, 0.8, 'ZELFDE GEZIN', H); } },
+    const H = q.on('gezin', 1); if (H > 0.01) { huis(ctx, 380, 800, 0.9, 'zelfde gezin', H); huis(ctx, 1300, 800, 0.9, 'zelfde gezin', H); } },
 
   s07(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord a: genen maken daar waarschijnlijk verschil', 120, 140, 1, C.groen, 40, 'left', 700);
-    gebouw(ctx, 520, 460, 1.1, 'GEZIN: GELIJK', q.on('gezin', 1)); dnaBalk(ctx, 1100, 340, 420, 1, q.on('DNA', 1), 'eeneiig'); dnaBalk(ctx, 1100, 420, 420, 0.5, q.on('DNA', 1), 'twee-eiig');
+    huis(ctx, 520, 460, 1.4, 'gezin: gelijk', q.on('gezin', 1)); dnaBalk(ctx, 1100, 340, 420, 1, q.on('DNA', 1), 'eeneiig'); dnaBalk(ctx, 1100, 420, 420, 0.5, q.on('DNA', 1), 'twee-eiig');
     const B = q.on('behandeld', 1); if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; roundRect(ctx, 380, 640, 1160, 150, 16); shape(ctx, rgba(C.koraal, 0.1), C.koraal, 2); regel(ctx, 'aanname: eeneiigen worden niet veel gelijker behandeld', 960, 705, 1, C.text, 32, 'center', 700); regel(ctx, 'gecontroleerd: het effect is klein', 960, 760, q.on('klein', 1), C.groen, 30, 'center', 700); ctx.restore(); } },
 
   s08(ctx, t, q) { bg(ctx, 'schema'); const M = q.on('Minnesota', 1, 0.8), N = q.on('Nederland', 1, 0.8), A = (1 - M) * (1 - N);
-    if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; regel(ctx, 'adoptie', 960, 160, 1, C.text, 40, 'center', 700); gebouw(ctx, 440, 480, 1, 'BIOLOGISCHE OUDERS', q.on('biologische', 1)); gebouw(ctx, 1480, 480, 1, 'ADOPTIEOUDERS', q.on('adoptieouders', 1)); persoon(ctx, 'kind', 960, 820, 320, { t });
+    if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; regel(ctx, 'adoptie', 960, 160, 1, C.text, 40, 'center', 700); ouderKaart(ctx, 440, 420, 'biologische ouders', q.on('biologische', 1)); ouderKaart(ctx, 1480, 420, 'adoptieouders', q.on('adoptieouders', 1)); persoon(ctx, 'kind', 960, 820, 320, { t });
       pijl(ctx, 560, 440, 900, 600, C.paars, q.on('genen', 1), 5, 20); tag(ctx, 'genen', 720, 500, C.paars, q.on('genen', 1), 'center', 30); pijl(ctx, 1360, 440, 1020, 600, C.oker, q.on('opvoeding', 1), 5, 20); tag(ctx, 'opvoeding', 1200, 500, C.oker, q.on('opvoeding', 1), 'center', 30); vraagteken(ctx, 960, 420, q.on('wie', 1), 90); ctx.restore(); }
-    if (M * (1 - N) > 0.01) { ctx.save(); ctx.globalAlpha *= M * (1 - N); metaText(ctx, 'MINNESOTA · VANAF 1979', 120, 160, C.grain, 'left', 30); regel(ctx, 'eeneiige tweelingen, apart opgegroeid', 960, 260, 1, C.text, 36, 'center', 700); gebouw(ctx, 620, 520, 1, 'GEZIN A', 1); gebouw(ctx, 1300, 520, 1, 'GEZIN B', 1);
+    if (M * (1 - N) > 0.01) { ctx.save(); ctx.globalAlpha *= M * (1 - N); metaText(ctx, 'MINNESOTA · VANAF 1979', 120, 160, C.grain, 'left', 30); regel(ctx, 'eeneiige tweelingen, apart opgegroeid', 960, 260, 1, C.text, 36, 'center', 700); huis(ctx, 620, 520, 1.2, 'gezin A', 1); huis(ctx, 1300, 520, 1.2, 'gezin B', 1);
       hoogteBalk(ctx, 520, 680, 600, 0.74 * q.on('scores', 1, 1.2), C.teal, 'apart opgegroeid', q.on('scores', 1), '± 0,7'); hoogteBalk(ctx, 520, 790, 600, 0.8 * q.on('samen', 1, 1.2), C.teal, 'samen opgegroeid', q.on('samen', 1), '± 0,8'); ctx.restore(); }
     if (N > 0.01) { ctx.save(); ctx.globalAlpha *= N; gebouw(ctx, 520, 480, 1.4, 'VU AMSTERDAM', 1); naamBij(ctx, 'Nederlands Tweelingen Register', 'sinds de jaren tachtig', 760, 300, 1); regel(ctx, 'meer dan 200.000 deelnemers', 760, 420, q.on('tweehonderdduizend', 1), C.oker, 40, 'left', 700); tag(ctx, 'tweelingen, ouders, broers en zussen', 1060, 490, C.text2, q.on('zussen', 1), 'center', 28);
       persoon(ctx, 'kim', 1560, 880, 520, { a: q.on('Kim', 1), t, pose: 'wijs' }); naamBij(ctx, 'Dr. Kim', 'onderzoeker', 1640, 330, q.on('Kim', 1)); ['vragenlijsten', 'metingen', 'DNA'].forEach((w, i) => chip(ctx, w, 560 + i * 250, 640, C.teal, q.on(w, 1), 30)); ctx.restore(); } },
@@ -105,8 +108,8 @@ Object.assign(SCENES, {
     tag(ctx, 'elke stip = één tweelingpaar', 500, 690, C.text2, q.on('stip', 1) * (1 - q.on('Nul', 1)), 'center', 30);
     tag(ctx, '0 = geen verband · 1 = precies op de lijn', 960, 690, C.goud, q.on('Nul', 1) * (1 - q.on('negen', 1)), 'center', 30);
     regel(ctx, '0,9', 780, 240, q.on('negen', 1), C.teal, 56, 'center', 700); regel(ctx, '0,5', 1660, 240, q.on('vijf', 1), C.oker, 56, 'center', 700);
-    if (R2 > 0.01) { ctx.save(); ctx.globalAlpha *= R2; roundRect(ctx, 360, 650, 1200, 200, 16); shape(ctx, rgba('#1A2740', 0.96), C.goud, 2); regel(ctx, '2 × (0,9 − 0,5) = 0,8', 960, 740, q.on('vier', 1), C.text, 56, 'center', 700); regel(ctx, 'ruwe schatting van de erfelijkheidsgraad', 960, 810, q.on('ruwe', 1), C.goud, 32, 'center', 700); ctx.restore(); }
-    tag(ctx, 'rest 0,1: eigen ervaringen + meetfout', 500, 690, C.koraal, q.on('apart', 1), 'center', 28); },
+    if (R2 * (1 - q.on('apart', 1)) > 0.01) { ctx.save(); ctx.globalAlpha *= R2 * (1 - q.on('apart', 1)); roundRect(ctx, 360, 650, 1200, 200, 16); shape(ctx, rgba('#1A2740', 0.96), C.goud, 2); regel(ctx, '2 × (0,9 − 0,5) = 0,8', 960, 740, q.on('vier', 1), C.text, 56, 'center', 700); regel(ctx, 'ruwe schatting van de erfelijkheidsgraad', 960, 810, q.on('ruwe', 1), C.goud, 32, 'center', 700); ctx.restore(); }
+    tag(ctx, 'rest 0,1: eigen ervaringen + meetfout', 500, 690, C.koraal, q.on('apart', 1), 'center', 28); { const oa = q.on('apart', 1); if (oa > 0.01) { ctx.save(); ctx.globalAlpha *= oa; metaText(ctx, 'OVERIGE 0,1: GEDEELD GEZIN (VEREENVOUDIGD)', 1380, 690, C.grain, 'center', 28); ctx.restore(); } } },
   s10(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'erfelijkheidsgraad', 960, 380, 1, C.text2, 40, 'center', 700); regel(ctx, '0,8', 960, 540, 1, C.goud, 140, 'center', 700); vraagteken(ctx, 1200, 540, q.on('betekent', 1), 110); },
   s12(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'Antwoord b: verschillen in een groep', 120, 140, 1, C.groen, 40, 'left', 700);
     for (let i = 0; i < 9; i++) { const hh = 220 + hash(i * 5 + 2) * 180; roundRect(ctx, 260 + i * 80, 720 - hh, 46, hh, 10); shape(ctx, rgba(C.teal, 0.55), C.teal, 1.5); } haak(ctx, 250, 960, 750, 'verschillen tussen mensen', C.groen, q.on('groep', 1));
@@ -119,21 +122,25 @@ Object.assign(SCENES, {
       akker(ctx, 1040, 480, 760, on, [4, 0, 3, 0, 4, 1, 0], q.on('andere', 1), t); metaText(ctx, 'WATER ONGELIJK', 1420, 560, C.grain, 'center', 28); tag(ctx, 'verschillen: vooral water', 1420, 620, C.teal, q.on('water', 2), 'center', 30);
       regel(ctx, 'zelfde zaden, andere erfelijkheidsgraad', 960, 760, q.on('Zelfde', 1), C.goud, 36, 'center', 700); ctx.restore(); }
     if (VS > 0.01) { ctx.save(); ctx.globalAlpha *= VS; regel(ctx, 'intelligentie: hoe sterk hangen verschillen samen met genen?', 960, 160, 1, C.text, 34, 'center', 700);
-      paneel(ctx, 160, 230, 740, 480, '', 1); regel(ctx, 'Verenigde Staten', 530, 300, 1, C.text, 36, 'center', 700); hoogteBalk(ctx, 220, 420, 420, 0.3, C.paars, 'weinig geld', q.on('weinig', 1)); hoogteBalk(ctx, 220, 560, 420, 0.65, C.paars, 'meer geld', q.on('weinig', 1));
-      paneel(ctx, 1020, 230, 740, 480, '', q.on('Nederland', 1)); regel(ctx, 'Nederland en West-Europa', 1390, 300, q.on('Nederland', 1), C.text, 36, 'center', 700); hoogteBalk(ctx, 1080, 420, 420, 0.6, C.paars, 'weinig geld', q.on('verschil', 2)); hoogteBalk(ctx, 1080, 560, 420, 0.6, C.paars, 'meer geld', q.on('verschil', 2));
+      paneel(ctx, 160, 230, 740, 480, '', 1); regel(ctx, 'Verenigde Staten', 530, 300, 1, C.text, 36, 'center', 700); hoogteBalk(ctx, 220, 420, 420, 0.3 * q.on('weinig', 1), C.paars, 'weinig geld', 1); hoogteBalk(ctx, 220, 560, 420, 0.65 * q.on('weinig', 1), C.paars, 'meer geld', 1);
+      paneel(ctx, 1020, 230, 740, 480, '', q.on('Nederland', 1)); regel(ctx, 'Nederland en West-Europa', 1390, 300, q.on('Nederland', 1), C.text, 36, 'center', 700); hoogteBalk(ctx, 1080, 420, 420, 0.6, C.paars, 'weinig geld', q.on('Nederland', 1)); hoogteBalk(ctx, 1080, 560, 420, 0.6, C.paars, 'meer geld', q.on('Nederland', 1));
       tag(ctx, 'misschien: school en zorg bereikbaarder', 1390, 780, C.groen, q.on('Misschien', 1), 'center', 30); metaText(ctx, 'SCHEMATISCH', 160, 760, C.grain, 'left', 28); ctx.restore(); } },
   s14(ctx, t, q) { bg(ctx, 'schema'); regel(ctx, 'erfelijk ≠ vastgelegd', 960, 160, q.on('vastgelegd', 1), C.goud, 48, 'center', 700);
     persoon(ctx, 'kind', 520, 860, 380, { a: q.on('binnen', 1), t, pose: 'vasthouden' }); boekStapel(ctx, 600, 640, 0.6, q.on('dichtbij', 1)); tag(ctx, 'veel binnen, dichtbij kijken', 520, 380, C.koraal, q.on('binnen', 1), 'center', 30);
     persoon(ctx, 'kind', 1180, 860, 380, { a: q.on('Buiten', 1), t, pose: 'zwaai', uit: 'blij' }); zon(ctx, 1420, 300, 50, q.on('Buiten', 1), t); tag(ctx, 'buiten spelen beschermt', 1180, 380, C.groen, q.on('beschermt', 1), 'center', 30);
-    chip(ctx, 'bril lost het op', 1600, 600, C.teal, q.on('bril', 1), 32); },
+    bril(ctx, 1600, 520, 1.4, q.on('bril', 1)); chip(ctx, 'bril lost het op', 1600, 620, C.teal, q.on('bril', 1), 32); },
 
   // ---------- H4 ----------
   s15(ctx, t, q) { bg(ctx, 'schema'); const O = q.on('omgeving', 1, 0.8), Z = q.on('zoeken', 1, 0.8), A = 1 - O;
     if (A > 0.01) { ctx.save(); ctx.globalAlpha *= A; regel(ctx, 'erwten: één gen', 480, 200, q.on('erwten', 1), C.text, 36, 'center', 700); circ(ctx, 400, 320, 40, '#C9C44A'); circ(ctx, 560, 320, 40, C.groen); tag(ctx, 'A of a', 480, 420, C.paars, q.on('kleur', 1), 'center', 30);
       regel(ctx, 'gedrag: duizenden kleine stukjes', 1360, 200, q.on('genvarianten', 1), C.text, 36, 'center', 700); for (let i = 0; i < 120; i++) { const a = clamp((t - q.at('genvarianten', 1)) * 3 - i * 0.02, 0, 1); ctx.fillStyle = rgba(C.paars, 0.8 * a); ctx.fillRect(1000 + (i % 30) * 24, 280 + Math.floor(i / 30) * 30, 16, 6 + hash(i) * 14); }
       hoogteBalk(ctx, 1000, 480, 720, 0.55 * q.on('Opgeteld', 1, 1.5), C.paars, 'aanleg', q.on('Opgeteld', 1)); kruis(ctx, 480, 640, 30, q.on('wiskunde', 1)); regel(ctx, 'geen gen voor wiskunde, depressie of ADHD', 480, 720, q.on('wiskunde', 1), C.text2, 30, 'center', 700); ctx.restore(); }
-    if (O * (1 - Z) > 0.01) { ctx.save(); ctx.globalAlpha *= O * (1 - Z); const aan = 0.5 + 0.5 * q.on('aanleg', 3, 1), st = q.on('verlies', 1, 1.2);
-      kraan(ctx, 640, 300, aan, 'aanleg', C.paars, 1, t); kraan(ctx, 1080, 300, st, 'zware gebeurtenis', C.koraal, 1, t); emmer(ctx, 860, 760, 0.1 + 0.75 * aan * st, 1); regel(ctx, 'samen pas veel', 1260, 700, st, C.goud, 34, 'left', 700); metaText(ctx, 'MODEL · ONDERZOEKERS DENKEN DAT…', 1260, 760, C.grain, 'left', 28); ctx.restore(); }
+    if (O * (1 - Z) > 0.01) { ctx.save(); ctx.globalAlpha *= O * (1 - Z); const st = q.on('verlies', 1, 1.2);
+      regel(ctx, 'kans op depressie (model)', 960, 200, 1, C.text, 36, 'center', 700); metaText(ctx, 'ONDERZOEKERS DENKEN DAT…', 960, 245, C.grain, 'center', 28);
+      metaText(ctx, 'GEEN ZWARE GEBEURTENIS', 860, 330, C.grain, 'center', 28); metaText(ctx, 'ZWARE GEBEURTENIS', 1260, 330, C.koraal, 'center', 28 ); metaText(ctx, 'WEINIG AANLEG', 560, 470, C.grain, 'right', 28); metaText(ctx, 'VEEL AANLEG', 560, 670, C.paars, 'right', 28);
+      const cel = (x, y, v, a2) => { roundRect(ctx, x - 170, y - 80, 340, 160, 14); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.6), 1.5); if (a2 > 0.01) { ctx.save(); ctx.globalAlpha *= a2; roundRect(ctx, x - 140, y + 40 - 100 * v, 280, 100 * v, 8); shape(ctx, rgba(C.koraal, 0.75), C.koraal, 1.5); ctx.restore(); } };
+      cel(860, 460, 0.12, 1); cel(860, 660, 0.18, q.on('aanleg', 2)); cel(1260, 460, 0.3, st); cel(1260, 660, 0.85, st);
+      haak(ctx, 1100, 1420, 760, 'pas samen veel', C.goud, q.on('pesten', 1)); ctx.restore(); }
     if (Z > 0.01) { ctx.save(); ctx.globalAlpha *= Z; persoon(ctx, 'kind', 600, 860, 420, { t, uit: 'blij', pose: 'vasthouden' }); gebouw(ctx, 1200, 560, 1.3, 'BIBLIOTHEEK', 1); for (let i = 0; i < 4; i++) boekStapel(ctx, 760 + i * 70, 860, 0.5 + i * 0.12, q.on('boeken', 1) * clamp((t - q.at('boeken', 1)) - i * 0.4, 0, 1)); regel(ctx, 'klein verschil kan groter worden', 960, 200, q.on('groter', 1), C.goud, 36, 'center', 700); ctx.restore(); } },
 
   // ---------- H5 ----------
@@ -145,7 +152,7 @@ Object.assign(SCENES, {
       tag(ctx, '9 jaar: ± 0,4', X(9) + 60, Y(0.41) + 50, C.text, q.on('negen', 1), 'left', 28); tag(ctx, 'volwassen: ± 0,8', X(30), Y(0.8) - 40, C.text, q.on('volwassenen', 1), 'center', 28); vraagteken(ctx, 1600, 400, q.on('kan', 1), 100); ctx.restore(); } },
   s18(ctx, t, q) { bg(ctx, 'schema'); const L = q.on('Let', 1, 0.8);
     if (L < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - L; regel(ctx, 'Antwoord a: zelf een omgeving kiezen', 120, 140, 1, C.groen, 40, 'left', 700);
-      persoon(ctx, 'kind', 440, 860, 360, { t }); gebouw(ctx, 440, 420, 0.9, 'GEZIN', q.on('kind', 1)); persoon(ctx, 'yasmin', 1240, 860, 560, { t, pose: 'wijs' }); ['opleiding', 'werk', 'vrienden', "hobby's"].forEach((w, i) => chip(ctx, w, 1560, 300 + i * 80, C.paars, q.on(w.replace("'", ''), 1), 30));
+      persoon(ctx, 'kind', 440, 860, 360, { t }); huis(ctx, 440, 420, 1.1, 'gezin', q.on('kind', 1)); persoon(ctx, 'yasmin', 1240, 860, 560, { t, pose: 'wijs' }); ['opleiding', 'werk', 'vrienden', "hobby's"].forEach((w, i) => chip(ctx, w, 1560, 300 + i * 80, C.paars, q.on(w.replace("'", ''), 1), 30));
       regel(ctx, 'genen tellen zwaarder, het gezin van vroeger minder', 960, 820, q.on('zwaarder', 1), C.goud, 32, 'center', 700); ctx.restore(); }
     if (L > 0.01) { ctx.save(); ctx.globalAlpha *= L; regel(ctx, 'getallen voor groepen, niet voor jou', 960, 220, 1, C.goud, 44, 'center', 700);
       chip(ctx, 'hulp en oefening werken ook bij hoge erfelijkheid', 960, 360, C.groen, q.on('oefening', 1), 32); chip(ctx, 'ADHD: begeleiding, soms medicijnen', 700, 470, C.teal, q.on('begeleiding', 1), 30); chip(ctx, 'depressie: therapie', 1240, 470, C.teal, q.on('therapie', 1), 30);
