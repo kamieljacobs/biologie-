@@ -8,7 +8,7 @@ const state = {
   playing:false, t:0, items:[], idx:0, local:0,
   qPhase:null // {phase:'countdown'|'wait'|'reveal', start, chosen}
 };
-const CARD_DUR=3.5, COUNTDOWN=8, REVEAL=6;
+/*SPELERFIX_MARK kaart*/ const CARD_DUR=1.3, COUNTDOWN=8, REVEAL=6;
 const NO_CARD=['Cold open','Titel','Eindkaart'];
 
 // ---- build timeline ----
@@ -46,7 +46,7 @@ function render(){
   if(state.captions && it.type==='speech') drawCaption(ctx,it.seg,t);
   ctx.restore();
 }
-function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.1,0.5)*(1-ramp(t,it.dur-0.5,0.5)); ctx.save(); ctx.globalAlpha=a;
+function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(1-ramp(t,it.dur-0.3,0.3)); ctx.save(); ctx.globalAlpha=a;
   const m=it.chapter.match(/^(Hoofdstuk [^—]+)—\s*(.*)$/); const num=m?m[1].trim():''; const title=m?m[2]:it.chapter;
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini={'Hoofdstuk 1':'Waar is alles van gemaakt?','Hoofdstuk 2':'Waar haalt een cel zijn energie vandaan?','Hoofdstuk 3':'Wat heeft een plantencel extra?','Samenvatting':'Plantencel en dierlijke cel'}[num||it.chapter];
