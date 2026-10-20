@@ -1,4 +1,4 @@
-# Geen middelpunt — script v1
+# Geschiedenis van de biologie — script v1
 
 Hoofdstuk Nieuwsgierig? (extra, buiten het PTA), havo + vwo (één niveau, geen vwo-blokken). Voice Roos (eleven_v4). Rode draad: twee lijnen door 2400 jaar biologie. (1) Methode: hoe kom je achter iets nieuws als bijna iedereen iets anders gelooft? Zelf kijken, meten, laten nadoen. (2) Tijdgeest: elke ontdekking verschoof het beeld van de mens, van middelpunt naar deel van de natuur, en gaf de mens tegelijk meer macht over leven. Steeds terugkerend beeld: een tijdlijn bovenin. Noor (castboek) leidt in met een microscoop.
 
@@ -17,7 +17,7 @@ Noor kijkt door een microscoop naar een druppel slootwater. Ze ziet meteen klein
 [VRAAG] (a) ze geloofden hem op zijn woord · (b) ze probeerden het zelf na te doen · (c) ze lachten hem uit, en vergaten de brief
 
 ## Titel
-Geen middelpunt
+Geschiedenis van de biologie
 
 ## Hoofdstuk 1 — Kijk zelf [Schema: tijdlijn; Aristoteles met inktvis en ladder; Galenus met varken; Vesalius met snijtafel en kaakbot; Harvey met hart en rekensom; Ibn al-Nafis]
 Antwoord bee. Eerst lukte het niet. Pas in het jaar 1677 zag Robert Hooke de diertjes ook, met een betere microscoop. Toen geloofden de geleerden het. Dat is de kern van wetenschap: wat jij ziet, moet een ander ook kunnen zien. Maar heel lang werkte het anders. Eeuwenlang gold: wat in de oude boeken staat, is waar.

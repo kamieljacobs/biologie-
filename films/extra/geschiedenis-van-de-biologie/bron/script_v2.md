@@ -1,4 +1,4 @@
-# Geen middelpunt — script v2
+# Geschiedenis van de biologie — script v2
 
 Hoofdstuk Nieuwsgierig? (extra, buiten het PTA), havo + vwo (één niveau, geen vwo-blokken). Voice Roos (eleven_v4). Rode draad: twee lijnen door ruim 2000 jaar biologie. (1) Methode: hoe kom je achter iets nieuws als bijna iedereen iets anders gelooft? Zelf kijken, meten, laten nadoen. (2) Mensbeeld: elke ontdekking verschoof de plek van de mens, van de top van de ladder (Aristoteles) via de primaten (Linnaeus) en de stamboom (Darwin) naar het voedselweb (Carson), en gaf de mens tegelijk meer macht over leven. Terugkerende beelden: de tijdlijn bovenin, en ladder → boom → web. Noor (castboek) stelt de vraag in de cold open. Na review 1 (vakinhoud) en review 2 (begrijpelijkheid en film), zie reviews/review_v1.md.
 
@@ -15,7 +15,7 @@ Noor kijkt door een microscoop naar een druppel slootwater. Ze ziet kleine beest
 [VRAAG] (a) ze geloofden hem op zijn woord · (b) ze probeerden het zelf na te doen · (c) ze lachten hem uit, en vergaten de brief
 
 ## Titel
-Geen middelpunt
+Geschiedenis van de biologie
 
 ## Hoofdstuk 1 — Kijk zelf [Schema: tijdlijn; Aristoteles met inktvis en ladder; Galenus met varken en lever; Vesalius met kaakbot; Harvey met hart en rekensom; Ibn al-Nafis]
 Antwoord bee. De geleerden probeerden het zelf. Eerst lukte dat niet. Pas in het jaar 1677 zag Robert Hooke de diertjes ook, met een betere microscoop. Toen geloofden ze het. Dat is de kern van wetenschap: wat jij ziet, moet een ander ook kunnen zien. Maar heel lang werkte het anders. Eeuwenlang gold: wat in de oude boeken staat, is waar.

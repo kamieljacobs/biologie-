@@ -1,4 +1,4 @@
-# Geen middelpunt — gesproken tekst per opname
+# Geschiedenis van de biologie — gesproken tekst per opname
 
 Geschiedenis van de biologie · Roos (eleven_v4) · één take per alinea · audio in `../audio/sNN.mp3`. Vwo-alinea's gemarkeerd.
 
@@ -12,7 +12,7 @@ Noor kijkt door een microscoop naar een druppel slootwater. Ze ziet kleine beest
 
 ## Titel
 
-Titelkaart: Geen middelpunt
+Titelkaart: Geschiedenis van de biologie
 
 ## Hoofdstuk 1 — Kijk zelf
 

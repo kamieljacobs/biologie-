@@ -1,8 +1,8 @@
-# Geen middelpunt — bronmap
+# Geschiedenis van de biologie — bronmap
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/extra/geen-middelpunt.html (audio in films/extra/geen-middelpunt/audio/) |
+| Bestand | films/extra/geschiedenis-van-de-biologie.html (audio in films/extra/geschiedenis-van-de-biologie/audio/) |
 | Reeks | Nieuwsgierig? (hoofdstuk `extra`, buiten het PTA) · geschiedenis van de biologie |
 | Niveau | havo · vwo, één niveau (`alleen: "havo · vwo"`, geen vwo-blokken; de Havo/Vwo-knop is verborgen) |
 | Versie / datum | 1.0 · 20 oktober 2026 |
@@ -67,11 +67,11 @@ Zie `uitspraak.md`. Film-eigen stem-invoer: Hooke → Hoek, CRISPR → krisper, 
 - regel 1557 e.v.: objecten (`microscoop`, `lensje`, `druppelInhoud`, `brief`, `ladder`, `kaak`, `hart`, `kurk`, `schip`, `vink`, `stamboom`, `erwtenplant`, `pomp`, `zwanenhals`, `petrischaal`, `foto51`, `helix`, `voedselweb`, …); regel 1642 e.v.: `skelet`, `openBoek`, `groepje`, `stank`, `balk`, `kaartSnow`, `oxfordTeam`
 - regel 1669: `const SCENES` (title, s01 1673, s04 1688, s05 1696, s06 1706, s07 1715, s09 1720, s10 1734, s11 1742, s12 1753, s13 1760, s15 1769, s16 1781, s17 1792, s18 1802, s20 1811, s21 1820, s22 1827, s23 1834, s24 1842, s25 1852, s26 1860, s28 1866, s29 1873)
 - regel 1887 e.v.: speler (snelheid, Vragen aan/uit, spelerfix 20 okt: knipmarge, demping, CARD_DUR 1,3 s)
-- regel 2070: oefeningen (`data-oefenen`, data in `geen-middelpunt/oefenen.json`)
+- regel 2070: oefeningen (`data-oefenen`, data in `geschiedenis-van-de-biologie/oefenen.json`)
 
 ## Hoe je de film aanpast
-Werkmap opzetten: kopieer `bron/` naar `hw/gs1` (`scenes_lib.js` + `scenes_main.js` → `scenes.js`; `words/` = `stem/woordtijden/`; `film/geen-middelpunt/audio/` = `../audio/`), engine = `src/*.js` + `bouw/*` (zelfde als `hw/engine`).
-- tekst: `script_v2.md` aanpassen → `python3 engine/make_segments.py gs1 script_v2.md` → alleen gewijzigde alinea's opnieuw inspreken (Roos, eleven_v4, één take) → Scribe (connect_from = de TTS-node) → `fetch_flow.py` → `engine/align.py` → `python3 film.py` → `engine/build_data.py gs1` → `engine/build.py gs1` → `bash pack.sh gs1 geen-middelpunt extra` → `python3 scripts/spelerfix.py films/extra/geen-middelpunt.html` en de scripts uit CLAUDE.md.
+Werkmap opzetten: kopieer `bron/` naar `hw/gs1` (`scenes_lib.js` + `scenes_main.js` → `scenes.js`; `words/` = `stem/woordtijden/`; `film/geschiedenis-van-de-biologie/audio/` = `../audio/`), engine = `src/*.js` + `bouw/*` (zelfde als `hw/engine`).
+- tekst: `script_v2.md` aanpassen → `python3 engine/make_segments.py gs1 script_v2.md` → alleen gewijzigde alinea's opnieuw inspreken (Roos, eleven_v4, één take) → Scribe (connect_from = de TTS-node) → `fetch_flow.py` → `engine/align.py` → `python3 film.py` → `engine/build_data.py gs1` → `engine/build.py gs1` → `bash pack.sh gs1 geschiedenis-van-de-biologie extra` → `python3 scripts/spelerfix.py films/extra/geschiedenis-van-de-biologie.html` en de scripts uit CLAUDE.md.
 - beeld: `scenes_lib.js` of `scenes_main.js` → `cat scenes_lib.js scenes_main.js > scenes.js` → `python3 cuecheck.py gs1` → `engine/build.py gs1` → pack.
 - Deelwoord-cues (q.on vindt het n-de woord dat de tekst bevat): s05 'duizend' n = 2 (eerst 'tweeduizend'); s06 'hond' n = 2 ('honderden'), 'les' n = 2 ('alles'); s09 'pomp' n = 2 ('pompt'); s21 'water' n = 2 ('waterpomp'), 'uitbraak' n = 1 = "De uitbraak nam toen al af"; s22 'Leven' n = 2 ('bleven'); s28 'cel' n = 5 (bloedcellen, cellen, eicellen, zaadcellen); s29 'zelf' n = 2 ('dezelfde'), 'weten' n = 2 ('wetenschap'); s18 'artsen' n = 2.
 

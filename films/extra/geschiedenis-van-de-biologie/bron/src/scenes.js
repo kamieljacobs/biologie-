@@ -1,4 +1,4 @@
-// Geen middelpunt · Geschiedenis van de biologie — scènes per alinea (v1.0, 20 okt 2026).
+// Geschiedenis van de biologie — scènes per alinea (v1.0, 20 okt 2026).
 // Schema-look; tijdlijn bovenin als terugkerend beeld; onderzoekers als vlakke figuren (castboekstijl) met één attribuut; ladder → stamboom → voedselweb.
 
 // ---------- algemene helpers (zelfde stijl als Ecologie 4) ----------

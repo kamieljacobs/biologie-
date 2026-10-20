@@ -1,7 +1,7 @@
 import json, os
 film = {
- "slug": "geen-middelpunt", "hoofdstuk": "extra", "hoofdstukNaam": "Nieuwsgierig?",
- "title": "Geen middelpunt", "sub": "Ontdekkingen die ons denken veranderden",
+ "slug": "geschiedenis-van-de-biologie", "hoofdstuk": "extra", "hoofdstukNaam": "Nieuwsgierig?",
+ "title": "Geschiedenis van de biologie", "sub": "Ontdekkingen die ons denken veranderden",
  "puzzle": "Hoe kom je achter iets nieuws, als bijna iedereen iets anders gelooft?",
  "meta": "geschiedenis van de biologie", "version": "1.0 · oktober 2026", "titleLook": "schema", "alleen": "havo · vwo",
  "seriesline": "Biologie bij Kamiel · Nieuwsgierig?",
