@@ -137,6 +137,50 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 @media (max-width:1040px){.ondgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.ondgrid{grid-template-columns:1fr}}
 
+/* Hoofdpagina: drie vlakken */
+.hero-kort{grid-template-columns:minmax(0,1fr);padding-block:44px 28px}
+.hero-kort p a{color:var(--goud-text);font-weight:700}
+body.op-home .seg{display:none}
+.vlakken{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.vlak{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;min-width:0}
+.vlak-basis{grid-column:1/-1}
+.vlak>header{padding:24px 24px 18px;border-bottom:1px solid var(--line);background:radial-gradient(320px 140px at 100% 0,var(--goud-soft),transparent)}
+.vlak-onder>header{background:radial-gradient(320px 140px at 100% 0,color-mix(in srgb,var(--groen) 16%,transparent),transparent)}
+.vlak-later>header{background:radial-gradient(320px 140px at 100% 0,color-mix(in srgb,var(--paars) 16%,transparent),transparent)}
+.vlak-lbl{color:var(--goud-text);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.vlak h2{font-size:32px;line-height:1.08;letter-spacing:-.015em;margin:10px 0 8px}
+.vlak header p{margin:0;color:var(--text2);font-size:15px}
+.vlak-groepen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.vgroep{padding:16px 0 8px;border-bottom:1px solid var(--line)}
+.vgroep{border-right:1px solid var(--line)}.vgroep:nth-child(4n){border-right:0}
+.vgroep-kop{padding:0 22px 6px;display:flex;flex-direction:column;gap:2px}
+.vgroep-kop h3{font-size:20px}
+.vgroep-kop .mono{color:var(--text3);font-size:11px}
+.vlak ul{list-style:none;margin:0;padding:4px 0 8px}
+.vgroep li a{display:grid;grid-template-columns:40px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:9px 22px}.vgroep li a .tk{grid-row:1/3}.vgroep li a .mat{grid-column:2;margin-top:1px}
+.tk{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
+.tk svg{width:28px;height:28px}
+.vlak li b{font:700 18px/1.25 var(--titel)}
+.vlak li .mat,.vlak-extra .mat{color:var(--text3);font-size:13px;white-space:nowrap}
+.vlak li a:hover{background:var(--goud-soft)}
+.vlak li a:hover b{color:var(--goud-text)}
+.vwo-tag{font-size:10px;color:var(--text3);border:1px solid var(--line2);border-radius:999px;padding:2px 6px;vertical-align:middle;margin-left:4px}
+.vlak-extra{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 22px}
+.vlak-extra span span{display:block;color:var(--text2);font-size:14px}
+.vlak-extra b{font:700 18px/1.25 var(--titel)}
+.vlak-extra:hover{background:var(--goud-soft)}
+.vlak-onder li a,.vlak-onder li.leeg{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;padding:9px 24px}
+.vlak-onder li .lbl{grid-column:1/-1;color:var(--text3);font-size:11px}
+.vlak-onder li.leeg{opacity:.5}
+.vlak li + li{border-top:1px solid var(--line)}
+.vlak-later li a{display:flex;align-items:center;gap:12px;padding:11px 24px}
+.vlak-later li a svg{margin-left:auto;color:var(--text3)}
+.stip{width:10px;height:10px;border-radius:99px;flex:none}
+.vlak-naar{display:flex;align-items:center;gap:8px;padding:14px 24px;border-top:1px solid var(--line);color:var(--goud-text);font-weight:700;margin-top:auto}
+.vlak-naar:hover{background:var(--goud-soft)}
+@media (max-width:1040px){.vlak-groepen{grid-template-columns:repeat(2,minmax(0,1fr))}.vgroep:nth-child(2n){border-right:0}}
+@media (max-width:700px){.vlakken{grid-template-columns:1fr}.vlak-groepen{grid-template-columns:1fr}.vgroep{border-right:0}.vgroep li a{padding-inline:16px}.vlak>header{padding:20px 16px 14px}}
+
 /* Hoofdstukpagina */
 .kop{border-bottom:1px solid var(--line)}
 .kop .wrap{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:center;padding-block:44px 40px}
@@ -318,7 +362,8 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
       Biologie bij Kamiel
     </a>
     <nav class="nav" aria-label="Hoofdmenu">
-      <a href="#home" data-nav="home">Hoofdstukken</a>
+      <a href="#home" data-nav="home">Thema's</a>
+      <a href="#pta" data-nav="pta">PTA Agora</a>
       <a href="#films" data-nav="films">Films</a>
       <a href="#tools" data-nav="tools">Tools</a>
       <a href="challenges.html">Challenges</a>
@@ -2339,13 +2384,14 @@ function telling(id,kd){
   return d.join(' · ');
 }
 
-function home(){
+function pta(){
   const N=NIVEAUS[niveau];
   let out=`<section class="wrap hero">
     <div>
-      <span class="mono">Biologie · ${esc(niveau)}</span>
-      <h1>Wat ga je vandaag leren?</h1>
-      <div class="knoppen"><a class="knop" href="#hoofdstukken">Kies je onderdeel</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+      <span class="mono">PTA Agora · ${esc(niveau)}</span>
+      <h1>Werk aan je PTA</h1>
+      <p>De thema's geordend per PTA-onderdeel, met de weging. Kies bovenin havo, vwo of onderbouw.</p>
+      <div class="knoppen"><a class="knop" href="#pta-hoofdstukken">Kies je onderdeel</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
     </div>
     <div class="plaat" aria-hidden="true">
       <figure>${kunst('cellen')}<figcaption>Fig. 1 · cel</figcaption></figure>
@@ -2354,7 +2400,7 @@ function home(){
       <figure>${kunst('evolutie')}<figcaption>Fig. 4 · stamboom</figcaption></figure>
     </div>
   </section>
-  <section class="wrap blok" id="hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
+  <section class="wrap blok" id="pta-hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
     <div class="ondgrid">`;
   for(const o of N.ond){
     const jaar=niveau==='vwo'&&/^OND[12]$/.test(o.code)?'jaar 1':niveau==='vwo'&&/^OND[34]$/.test(o.code)?'jaar 2':'';
@@ -2381,11 +2427,52 @@ function home(){
   return out;
 }
 
+/* Hoofdpagina: drie vlakken, los van het PTA */
+const BASIS=[
+  ['Cel en molecuul','het kleinste niveau',['cellen','dna','stofwisseling']],
+  ['Het lichaam van binnen','hoe je lijf werkt',['voeding','transport','gaswisseling','afweer','regeling']],
+  ['Doorgeven','van ouder op kind, van soort op soort',['voortplanting','erfelijkheid','evolutie']],
+  ['Samenleven','gedrag, planten en ecosystemen',['gedrag','planten','ecologie']],
+];
+const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
+function home(){
+  const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
+  const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
+    return `<li><a href="#${id}"><span class="tk">${kunst(id)}</span><b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
+  const ob=NIVEAUS.onderbouw.ond[0].subs;
+  let out=`<section class="wrap hero hero-kort">
+    <div>
+      <span class="mono">Biologie bij Kamiel</span>
+      <h1>Wat ga je vandaag leren?</h1>
+      <p>Alle thema's op één plek, van molecuul tot ecosysteem. Werk je aan je PTA? Kijk dan bij <a href="#pta">PTA Agora</a>.</p>
+      <div class="knoppen"><a class="knop" href="#vlak-basis">Kies een thema</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+    </div>
+  </section>
+  <section class="wrap blok vlakken" aria-label="Kies waar je begint">
+    <article class="vlak vlak-basis" id="vlak-basis">
+      <header><span class="mono vlak-lbl">Alle thema's · havo en vwo</span><h2>Van molecuul tot planeet</h2><p>Biologie geordend van klein naar groot. Elk thema heeft films, tools en oefeningen.</p></header>
+      <div class="vlak-groepen">${BASIS.map(([naam,sub,ids])=>`<div class="vgroep"><div class="vgroep-kop"><h3>${esc(naam)}</h3><span class="mono">${esc(sub)}</span></div><ul>${ids.map(thema).join('')}</ul></div>`).join('')}</div>
+      ${HOOFDSTUKKEN.extra?`<a class="vlak-extra" href="#extra"><span class="tk">${kunst('extra')}</span><span><b>Nieuwsgierig?</b><span>Verder kijken dan de lesstof: verdieping en biologie van nu</span></span><span class="mat">${esc(telling('extra'))}</span></a>`:''}
+    </article>
+    <article class="vlak vlak-onder" id="vlak-onderbouw">
+      <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten bij de kerndoelen.</p></header>
+      <ul>${ob.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';return href?`<li><a href="#kerndoelen"><span class="lbl mono">${esc(lbl)}</span><b>${esc(naam)}</b><span class="mat">${esc(t||'volgt')}</span></a></li>`:`<li class="leeg"><span class="lbl mono">${esc(lbl)}</span><b>${esc(naam)}</b><span class="mat">volgt</span></li>`}).join('')}</ul>
+      <a class="vlak-naar" href="#kerndoelen">Naar de onderbouw ${pijl}</a>
+    </article>
+    <article class="vlak vlak-later" id="vlak-later">
+      <header><span class="mono vlak-lbl">Wat word jij? · studie en beroep</span><h2>Een kijkje vooruit</h2><p>Welke opleidingen en beroepen draaien om biologie, en wat doe je daar echt?</p></header>
+      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}"><span class="stip" style="background:var(--${k})"></span><b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
+      <a class="vlak-naar" href="vervolg.html">Alle richtingen ${pijl}</a>
+    </article>
+  </section>`;
+  return out;
+}
+
 function hoofdstuk(id){
   const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
   let out=`<section class="kop"><div class="wrap">
     <div>
-      <a class="terug" href="#home">← Alle hoofdstukken</a>
+      <a class="terug" href="#home">← Alle thema's</a>
       <div class="lbl mono" style="--c:var(--${KLEUR[id]||'goud'})">${esc(h.label)}</div>
       <h1>${esc(h.titel)}</h1>
       <p>${esc(h.meta)}</p>
@@ -2413,7 +2500,7 @@ function toolRij(t){
 }
 
 function kopPagina(lbl,titel,tekst,id){
-  return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle hoofdstukken</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
+  return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle thema's</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
 }
 function films(){
   let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
@@ -2459,12 +2546,14 @@ function render(){
   document.querySelectorAll('[data-niveau]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.niveau===niveau)));
   const h=(location.hash||'#home').slice(1), id=h.split('-')[0];
   let pagina='home';
-  if(h==='films'){app.innerHTML=films();pagina='films'}
+  if(id==='pta'){app.innerHTML=pta();pagina='pta'}
+  else if(h==='films'){app.innerHTML=films();pagina='films'}
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
   else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id);pagina=id}
   else app.innerHTML=home();
-  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(pagina==='films'||pagina==='tools'?pagina:'home')));
-  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
+  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(pagina==='films'||pagina==='tools'||pagina==='pta'?pagina:'home')));
+  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
+  document.body.classList.toggle('op-home',pagina==='home');
   const el=h&&h!==pagina&&h!=='home'?document.getElementById(h):null;
   if(el) el.scrollIntoView(); else window.scrollTo(0,0);
 }
