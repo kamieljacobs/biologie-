@@ -114,13 +114,21 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .gb li:last-child{border-bottom:0}
 .gb li .nr{font:600 12px/1.9 var(--meta);color:var(--text3)}
 .komt{font:600 10.5px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);border:1px dashed var(--line2);border-radius:999px;padding:4px 8px;white-space:nowrap}
-.gb .opl{border-top:1px solid var(--line)}
-.gb .opl>summary{list-style:none;cursor:pointer;padding:12px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center}
-.gb .opl>summary::-webkit-details-marker{display:none}
-.gb .opl>summary .mono{color:var(--c);grid-column:1}
-.gb .opl>summary b{font-family:var(--titel);font-size:17px;grid-column:1}
-.gb .opl>summary .fpijl{grid-column:2;grid-row:1/3}
-.gb .opl>summary:hover b{color:var(--goud-text)}
+.gb .stappen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.gb .stappen button{background:none;border:0;border-right:1px solid var(--line);padding:10px 8px 9px;text-align:left;cursor:pointer;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-1px;min-width:0}
+.gb .stappen button:last-child{border-right:0}
+.gb .stappen .mono{display:block;font-size:10.5px;color:var(--text3)}
+.gb .stappen b{display:block;font-size:14px;line-height:1.2;margin-top:3px;font-weight:600}
+.gb .stappen button[aria-selected="true"]{border-bottom-color:var(--c);color:var(--text);background:color-mix(in srgb,var(--c) 7%,transparent)}
+.gb .stappen button[aria-selected="true"] .mono{color:var(--c)}
+.gb .stappen .st-later{opacity:.62}
+.gb .stappen button:hover{color:var(--text)}
+.gb .stappen button:focus-visible{outline:2px solid var(--c);outline-offset:-2px}
+.gb .st-paneel>.basis{border-top:0}
+.gb .st-paneel .ol-in{padding:14px 22px 16px}
+.raster{align-items:start}
+@media (max-width:520px){.gb .stappen button{padding:9px 6px 8px}.gb .stappen b{font-size:12.5px}.gb .stappen .mono{font-size:9.5px;letter-spacing:.06em}}
+.st-leeg{margin:0;padding:18px 22px;color:var(--text3);font-size:15px;line-height:1.45}
 .ol-in{padding:0 22px 16px}
 .ol-jaar{margin:0 0 6px;color:var(--text3);font-size:14px}
 .ol-r{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
@@ -224,7 +232,7 @@ a.fr:hover .fb{border-color:var(--goud)}
 .fr-det[open] .fv{white-space:normal}
 .fpijl{width:30px;height:30px;border-radius:999px;border:1px dashed var(--line2);display:flex;align-items:center;justify-content:center}
 .fpijl::before{content:"";width:7px;height:7px;border-right:1.6px solid var(--text2);border-bottom:1.6px solid var(--text2);transform:translateY(-2px) rotate(45deg);transition:transform .2s}
-.fr-det[open] .fpijl::before,.opl[open]>summary .fpijl::before{transform:translateY(2px) rotate(-135deg)}
+.fr-det[open] .fpijl::before{transform:translateY(2px) rotate(-135deg)}
 .fr-op{margin:0 0 12px 56px;padding:10px 14px 12px;border-left:2px solid color-mix(in srgb,var(--c,var(--goud)) 55%,transparent);background:color-mix(in srgb,var(--bg) 45%,transparent);border-radius:0 8px 8px 0;font-size:14.5px;line-height:1.45;color:var(--text2)}
 .fr-op ol{margin:0;padding:0 0 0 20px}
 .fr-op ol li{display:list-item;padding:2px 0;border:0;color:var(--text)}
@@ -605,31 +613,37 @@ const TOON_PTA=false;
 /* Blok 'De gedeelde kern' staat uit (Kamiel, 20 okt 2026: eerst het hele curriculum, dan deze films). */
 const TOON_KERN=false;
 function opleidingenBlok(g){
-  const o=g.opleidingen; if(!o) return '';
+  const o=g.opleidingen; if(!o) return `<p class="st-leeg">De opleidingen voor ${esc(g.naam.toLowerCase())} komen hier binnenkort: welke opleiding, op welk niveau, en hoe je erin komt.</p>`;
   const r=o.routes.map(x=>`<div class="ol-r"><span class="ol-niv mono">${esc(x.niveau)}</span><div>
       <b>${x.link?`<a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.naam)}</a>`:esc(x.naam)}</b>
       ${x.waar||x.duur?`<span class="ol-waar">${esc([x.waar,x.duur].filter(Boolean).join(' · '))}</span>`:''}
       <p>${esc(x.toelating)}</p>${x.selectie?`<p class="ol-sel">${esc(x.selectie)}</p>`:''}</div></div>`).join('');
   const lijst=(kop,a)=>a&&a.length?`<div class="ol-k"><span class="mono">${kop}</span><ul>${a.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`:'';
-  return `<details class="opl"><summary><span class="mono">Stap 4 · Opleidingen</span><b>Welke opleiding, en hoe kom je erin?</b><span class="fpijl" aria-hidden="true"></span></summary><div class="ol-in">
+  return `<div class="ol-in">
     <p class="ol-jaar">Voor de ${esc(o.jaar)} · dicht bij huis eerst</p>
     ${r}
     ${o.let?`<p class="ol-let"><span class="mono">Let op</span>${esc(o.let)}</p>`:''}
     ${lijst('Daarna',o.doorstroom)}${lijst('Kennismaken',o.kennismaken)}
     ${(o.meer||[]).length?`<div class="ol-meer">${o.meer.map(m=>`<a href="${esc(m[1])}" target="_blank" rel="noopener">${esc(m[0])} ↗</a>`).join('')}</div>`:''}
     <p class="ol-check">Gecontroleerd op ${esc(o.gecontroleerd)}. Eisen en plaatsen veranderen per jaar: check altijd de site van de opleiding.</p>
-  </div></details>`;
+  </div>`;
 }
+const STAPPEN=[{kort:'Films'},{kort:'Dag uit het werk',later:true},{kort:'Praktijk',later:true},{kort:'Opleidingen',later:true}];
 function kaart(g){
   const c=CL[g.cluster], basis=g.basis.filter(zichtbaar), klaar=basis.filter(b=>Array.isArray(b)).length;
   return `<article class="gb" id="${g.id}" style="--c:var(--${c.kleur})">
     <header><span class="embleem">${kunst(c.id,c.kleur)}</span><div><span class="niv mono">${esc(g.niveau)}</span><h3>${esc(g.naam)}</h3></div></header>
     <p class="intro">${esc(g.intro)}</p>
+    <div class="stappen" role="tablist" aria-label="Stappen voor ${esc(g.naam)}">${STAPPEN.map((s,k)=>`<button type="button" role="tab" data-stap="${k+1}" aria-selected="${k===0}"${s.later&&!(k===3&&g.opleidingen)?' class="st-later"':''}><span class="mono">Stap ${k+1}</span><b>${s.kort}</b></button>`).join('')}</div>
+    <div class="st-paneel" data-paneel="1">
     <div class="basis"><span class="mono"><span>Extra voor dit vak · buiten het PTA</span><span>${klaar} van ${basis.filter(b=>!b.schrappen).length} klaar</span></span>
       <div class="frs">${basis.map((b,i)=>Array.isArray(b)?filmRij(b[1],i+1,b[0]):komtRij(b,i+1,g)).join('')}</div></div>
     ${TOON_PTA&&(g.pta||[]).length?`<div class="pta"><span class="mono"><span>Al op de site · uit de lesstof (PTA)</span><span>${g.pta.length} films</span></span>
       <div class="frs">${g.pta.filter(h=>FILMS[h]).map(h=>filmRij(h,0)).join('')}</div></div>`:''}
-    ${opleidingenBlok(g)}
+    </div>
+    <div class="st-paneel" data-paneel="2" hidden><p class="st-leeg">Een dag uit het werk komt later: een film waarin je een werkdag meeloopt en ziet welke biologie je gebruikt.</p></div>
+    <div class="st-paneel" data-paneel="3" hidden><p class="st-leeg">De praktijkopdracht komt later: hier probeer je zelf een stukje van het vak.</p></div>
+    <div class="st-paneel" data-paneel="4" hidden>${opleidingenBlok(g)}</div>
     ${g.bouwt.length?`<footer><span class="mono">Bouwt voort op</span>${g.bouwt.map(hfst).join('')}</footer>`:''}
   </article>`;
 }
@@ -661,7 +675,7 @@ function render(){
         <div class="raster">${GEBIEDEN.filter(g=>g.cluster===c.id).map(kaart).join('')}</div></section>`).join('')}
     </div>`;
 }
-app.addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
+app.addEventListener('click',e=>{const s=e.target.closest('[data-stap]');if(s){const a=s.closest('.gb'),n=s.dataset.stap;a.querySelectorAll('[data-stap]').forEach(x=>x.setAttribute('aria-selected',x===s));a.querySelectorAll('[data-paneel]').forEach(x=>x.hidden=x.dataset.paneel!==n);return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render()});
 themaKnop(); render();
 const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[doel.id]) doel.scrollIntoView();
 })();
