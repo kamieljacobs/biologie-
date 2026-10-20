@@ -26,7 +26,7 @@
 | `stem/woordtijden/sNN.json` | Woordtijden per take (Scribe, op de ondertitelwoorden) |
 | `stem/takes.json`, `stem/gen.json` | ElevenLabs-flow en node per take; generatie-id en duur |
 | `src/` | `scenes.js` (deze film), `lib.js`, `lib_voeding.js`, `lib_hormonen.js`, `player.js`, `page.html`, `fonts.css` |
-| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` (reeks) en **`uitspraak_film.json`** (alleen deze film: rodopsine, Eustachius, decibel, basilair, lichtreceptoren) |
+| `bouw/` | `make_segments.py`, `align.py`, `build_data.py`, `build.py`, `stills.py`, `fake_words.py`, `uitspraak_subs.json` (reeks) en **`uitspraak_film.json`** (alleen deze film: decibel, lichtreceptoren; rodopsine, Eustachius en basilair sinds 20 okt in gewone spelling) |
 | `reviews/` | Expert (oogarts/audioloog), didactiek + taal, curriculum (met checkvragen, ook los in `checkvragen.html`), eindreview `eind.md` |
 
 **Werkmap opzetten:** maak `z8/` met `script_v2.md`, `film.py`, `sections.html`, `scenes.js` (uit `src/`), `uitspraak_film.json` (uit `bouw/`), `words/` (= `stem/woordtijden/`) en `film/8-zintuigen/audio/` (= `../audio/`); zet `src/*.js` (behalve scenes.js), `src/page.html`, `src/fonts.css` en `bouw/*` samen in `engine/`. Dan: `python3 engine/make_segments.py z8 script_v2.md && (cd z8 && python3 film.py) && python3 engine/build_data.py z8 && python3 engine/build.py z8` → `z8/film/8-zintuigen.html`.
@@ -84,7 +84,7 @@ Begrippen: zintuig, adequate prikkel, hoornvlies, iris en pupil, pupilreflex, le
 
 ## Aandachtspunten
 
-- Uitspraak: zie `uitspraak.md`, vooral Eu-staagie-jus, rodopsinuh, baazie-lèr, deesie-bel en accommoderen. Een blinde controle was in deze sessie niet mogelijk.
+- Uitspraak: zie `uitspraak.md`; nog te controleren: deesie-bel en accommoderen (rodopsine, Eustachius, basilair zijn goedgekeurd). Een blinde controle was in deze sessie niet mogelijk.
 - Getallen staan in de kop van `script_v2.md` en in het docentdeel (pupil ± 16×, gehoorbeentjes ± 20×, 80 dB 40 uur per week, 3-dB-regel).
 - De film heet in de index "film 8"; film 7 (Slaap en stress) bestaat nog niet. De andere zenuwstelselfilms noemen zelf hun eigen nummer.
 - Eindreview: 15 punten, alle verwerkt zonder nieuwe opname (zie `reviews/eind.md`).
@@ -93,3 +93,7 @@ Begrippen: zintuig, adequate prikkel, hoornvlies, iris en pupil, pupilreflex, le
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). 'lens' (s04, s05) staat rechts van de lens; gele vlek en blinde vlek nu `naamBij` naast/onder het kleine oog; de tag 'groot → klein: druk ± 20× groter' staat rechtsonder (overlapte de gehoorbeentjes). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+## Wijziging 20 okt 2026
+
+Uitspraak na de uitspraaktest van 18 okt: stem-invoer rodopsinuh → rodopsine (s13, vwo), Eu-staagie-jus → Eustachius (s15), baazie-lèr → basilair (s19, vwo); regels uit `bouw/uitspraak_film.json` gehaald. Deze drie alinea's opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jwxXn0Jgpax90BkTRIQ3; nodes in `stem/takes.json`; 1.497 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden in `window.FILMDATA` zijn vervangen; beeld en speler ongewijzigd. Duur vrijwel gelijk (spraak 8:08 → 8:07).
