@@ -355,7 +355,7 @@ function themaKnop(){
 document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop()});
 themaKnop();
 
-let LV=lees('niveau'); if(LV!=='havo'&&LV!=='vwo') LV='havo';
+let LV=new URLSearchParams(location.search).get('niveau')||lees('niveau'); if(LV!=='havo'&&LV!=='vwo') LV='havo';
 const CACHE={}; let D=null;
 async function laad(lv){
   if(!CACHE[lv]){
