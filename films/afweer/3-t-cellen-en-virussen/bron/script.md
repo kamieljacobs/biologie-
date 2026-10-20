@@ -40,11 +40,11 @@ In de vorige film zag je antistoffen. Die vangen een virus zolang het buiten een
 
 Antwoord cee. Misschien dacht je: een afweercel haalt het virus eruit. Maar dat kan niet. De hele cel moet weg. Daarvoor heb je T-cellen. Ook die ontstaan in je beenmerg, maar ze rijpen in de thymus, een klier achter je borstbeen. Daar komt de T vandaan. Weet je nog: elke cel heeft vormpjes op zijn oppervlak. Bijna al je cellen laten daar ook stukjes zien van de eiwitten die ze maken. Een geïnfecteerde cel maakt ook viruseiwitten. Dus laat hij ook stukjes virus zien. Hij verraadt zichzelf.
 
-**s10** · 31.8 s · `audio/s10.mp3`
+**s10** · 32.3 s · `audio/s10.mp3`
 
 Een T-killercel heeft een receptor die precies past op zo'n stukje virus. Let op het verschil met B-cellen: een T-cel herkent nooit een los virus, alleen een stukje virus op een cel. Vindt de T-killercel zo'n cel, dan hecht hij zich eraan. Hij geeft stoffen af die gaatjes maken, en de cel aanzetten om zichzelf af te breken. Het virus in die cel wordt mee afgebroken. Fagocyten ruimen de resten op. Zo stopt de virusfabriek. Virussen die al ontsnapt zijn, vangen de antistoffen.
 
-**s11** · 32.1 s · `audio/s11.mp3`
+**s11** · 31.9 s · `audio/s11.mp3`
 
 Wie geeft het startsein? De T-helpercel. Die krijgt in je lymfeknopen stukjes virus te zien van een fagocyt die virussen heeft opgegeten. Een T-helpercel die past, zet met signaalstoffen B-cellen en T-killercellen aan het werk. Daarna gaat het net als bij B-cellen. De passende T-killercellen worden gekozen, en vermenigvuldigd tot een kloon. En er blijven geheugencellen over. Afweer met antistoffen heet humoraal. Afweer met cellen die cellen doden, heet de cellulaire afweer.
 
@@ -52,27 +52,27 @@ Wie geeft het startsein? De T-helpercel. Die krijgt in je lymfeknopen stukjes vi
 
 Weet je nog, het waterpokkenvirus dat zich verstopt in zenuwcellen? T-cellen houden het daar jarenlang in toom. Worden je T-cellen op latere leeftijd minder sterk, dan kan het virus terugkomen. Dat is gordelroos.
 
-**s13** · vwo · 30.8 s · `audio/s13.mp3`
+**s13** · vwo · 30.9 s · `audio/s13.mp3`
 
 Voor vwo gaan we hier nog een stap verder. De stukjes eiwit worden getoond in houders: MHC-eiwitten. MHC-één zit op al je cellen met een kern. Het laat stukjes zien van eiwitten van binnen in de cel. Daar kijken T-killercellen naar. MHC-twee zit alleen op antigeenpresenterende cellen, zoals macrofagen, dendritische cellen en B-cellen. Die laten stukjes zien van wat ze van buiten hebben opgenomen. Daar kijken T-helpercellen naar.
 
-**s14** · vwo · 26.9 s · `audio/s14.mp3`
+**s14** · vwo · 26.7 s · `audio/s14.mp3`
 
 In de thymus worden T-cellen die op je eigen stoffen reageren uitgeschakeld, net als B-cellen in het beenmerg. Maar je MHC-eiwitten verschillen sterk per persoon. Krijg je een nier van een ander, dan zien je T-cellen zijn MHC als vreemd, en vallen de nier aan. Daarom zoek je een donor met zoveel mogelijk dezelfde MHC, en slik je daarna medicijnen die je afweer remmen. Terug naar de basis.
 
 ## Hoofdstuk 3 — Als de regelaar wegvalt
 
-**s15** · 34.5 s · `audio/s15.mp3`
+**s15** · 33.6 s · `audio/s15.mp3`
 
 Hiv is een virus dat juist T-helpercellen infecteert. In de eerste weken voelen veel mensen zich even grieperig. Daarna merk je er jaren weinig van: zonder behandeling gemiddeld zo'n tien jaar. Maar ondertussen daalt het aantal T-helpercellen langzaam. Normaal heb je er vijfhonderd tot vijftienhonderd per microliter bloed. Zakt het onder de tweehonderd, dan spreek je van aids. Dan wordt iemand ziek van infecties die anderen nauwelijks merken, zoals een bepaalde longontsteking, of schimmels in de mond. Hoe komt dat? Wat denk je?
 
 **q16** (vraag): hiv maakt die andere ziekteverwekkers sterker · zonder T-helpercellen krijgen B-cellen en T-killercellen geen startsein · de infecties komen van hiv zelf, dat steeds meer organen aantast
 
-**s17** · 24.4 s · `audio/s17.mp3`
+**s17** · 23.3 s · `audio/s17.mp3`
 
 Antwoord bee. Misschien dacht je: hiv maakt je zelf zo ziek. Maar je wordt vooral ziek van andere ziekteverwekkers. Zonder regelaar krijgen B-cellen en T-killercellen te weinig startsein. Je fagocyten werken nog wel, maar die zijn niet genoeg. Je specifieke afweer werkt bijna niet meer, ook niet tegen ziekteverwekkers die je normaal zonder moeite opruimt.
 
-**s18** · vwo · 28.6 s · `audio/s18.mp3`
+**s18** · vwo · 28.4 s · `audio/s18.mp3`
 
 Voor vwo gaan we hier nog een stap verder. Hiv heeft geen DNA, maar RNA. Met het enzym reverse transcriptase maakt het daar DNA van. Dat bouwt het in het DNA van de T-helpercel. Zo'n virus heet een retrovirus. Het virus zit dan voorgoed in je cellen. Daarom kunnen medicijnen je niet genezen. Veel hiv-remmers remmen juist reverse transcriptase. Terug naar de basis.
 

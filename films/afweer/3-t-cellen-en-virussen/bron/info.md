@@ -91,3 +91,17 @@ Begrippen: virus, antibiotica, resistentie, T-cellen, T-killercel, T-helpercel, 
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'ribosomen', 'eiwitmantel', 'erfelijk materiaal', 'receptor', 'MHC'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe deze woorden moeten klinken. Opnieuw ingesproken: **s10, s11, s13, s14, s15, s17, s18** (alleen deze alinea's; de rest van de audio is ongewijzigd). Stem-invoer = de oude invoer van die alinea met alleen deze woorden vervangen (inhoud gelijk):
+
+| Woord | Oude stem-invoer | Nieuwe stem-invoer | Alinea's |
+|---|---|---|---|
+| fagocyt(en) | `faagosieten` | `Fagocyten` | s10, s11, s17 |
+| MHC | `em-haa-cee` | `MHC` | s13, s14 |
+| aids | `eets` | `aids` | s15 |
+| RNA (los woord) | `erenaa` | `er-en-aa` | s18 |
+
+Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea (flow WcsexV97auoKZ8EXmbLl; nieuwe nodes in `stem/takes.json`, generatie-id's en duur in `stem/gen.json` met `heropname: uitspraaktest 19 okt 2026`). TTS-credits: 3124; Scribe-woordtijden (eleven_scribe_v1) per take, op de ondertitelwoorden uitgelijnd met `align.py` (alle takes ratio 1,0, geen verschillen); ruwe transcripten in `stem/status_timing_uitspraak_19okt.json`. In de HTML zijn alleen de woordtijden en `dur` van deze segmenten in `window.FILMDATA` vervangen (speler, beeld en cues ongewijzigd; de ondertitels waren al goed). `segments.json` (voice + vmap) en de duren in `script.md` zijn bijgewerkt. Bij opnieuw bouwen: de nieuwe invoer staat in `segments.json`; `bouw/uitspraak_subs.json` heeft de oude respellings voor deze woorden niet meer.

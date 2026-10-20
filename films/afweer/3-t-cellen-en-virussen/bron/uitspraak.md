@@ -22,3 +22,11 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | Antwoord a / b / c | antwoord AA / BEE / SEE | `Antwoord aa.` / `bee.` / `cee.` | s06, s09, s17 |
 
 **Wachtlijst voor Kamiel:** vooral haa-ie-vee, eets, em-haa-cee, tiemus, tee-killercel, erenaa en reverse transcriptase. Een blinde controle was niet mogelijk.
+
+
+## Uitspraaktest 18–19 okt 2026: goedgekeurd
+
+- **fagocyt(en)**: `Fagocyten` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s10, s11, s17 op 19–20 okt 2026.
+- **MHC**: `MHC` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s13, s14 op 19–20 okt 2026.
+- **aids**: `aids` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s15 op 19–20 okt 2026.
+- **RNA (los woord)**: `er-en-aa` — goedgekeurd (Kamiel, uitspraaktest); opnieuw ingesproken in s18 op 19–20 okt 2026.
