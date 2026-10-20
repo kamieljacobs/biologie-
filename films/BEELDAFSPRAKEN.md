@@ -30,6 +30,10 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - Een vast personage mag terugkomen in een film (bv. Opa Henk in de opening én als patiënt), zodat de kijker hem herkent.
 
 ## Processen in beeld
+- **Mooier animeren, niet alleen kloppen** (Kamiel, 20 okt 2026, n.a.v. *De eerste verdediging*): de inhoud mag goed zijn, maar schema-achtige plaatjes (een rondje met een streepje als 'thermostaat', een groene ovaal met bolletjes als 'lymfeknoop') zijn niet genoeg. Teken een herkenbaar ding en laat het proces echt gebeuren. Voorbeelden uit die film: thermostaat = ronde knop met schaal 35–42 °C, gouden wijzer (instelling) en koraal boog (lichaamstemperatuur) die meeloopt met de grafiek, plus hersenen in zijaanzicht met een gloeiende hypothalamus; lymfeknoop = boonvorm met kapsel, follikels en uitgaand lymfevat, de dendritische cel reist zichtbaar door een lymfevat naar binnen en één T-cel met de passende receptorvorm komt erop af en licht op.
+- **Antigenen liggen óp het oppervlak en staan loodrecht naar buiten** (20 okt 2026): basis van het vormpje op de wand, punt naar buiten, rondom de hele cel of bacterie (ook op de kopse kanten), nooit scheef of los ernaast. Helper: `antigeen(ctx, x, y, nx, ny)` in `films/afweer/1-de-eerste-verdediging/bron/src/scenes.js`.
+- **Eén tekstbalk tegelijk**: als de bovenste tekstbalk wisselt, eerst de oude weg en dan de nieuwe (helper `wissel()` in dezelfde scenes.js); geen twee balken die over elkaar heen faden.
+- Deze verbeteringen gelden voor veel films: bij een herziening de plaatjes van die soort ook aanpakken.
 - **Exocytose / endocytose:** laat het blaasje echt versmelten met het celmembraan (aanleggen, membraan opent, blaasje wordt deel van het membraan, inhoud naar buiten), niet een blaasje dat verdwijnt (15 okt 2026).
 - **DNA in de kern** als losse, zacht kronkelende draden (chromatine), geen zigzag- of veerpatroon (15 okt 2026).
 

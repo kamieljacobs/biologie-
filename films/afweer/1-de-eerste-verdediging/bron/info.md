@@ -107,3 +107,13 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe deze woorden moeten 
 Roos (7qdUFMklKPaaAVMsBTBt), eleven_v4, één take per alinea (flow pK7aJG7i94E8UIDBLy2L; nieuwe nodes in `stem/takes.json`, generatie-id's en duur in `stem/gen.json` met `heropname: uitspraaktest 19 okt 2026`). TTS-credits: 3691; Scribe-woordtijden (eleven_scribe_v1) per take, op de ondertitelwoorden uitgelijnd met `align.py` (alle takes ratio 1,0, geen verschillen); ruwe transcripten in `stem/status_timing_uitspraak_19okt.json`. In de HTML zijn alleen de woordtijden en `dur` van deze segmenten in `window.FILMDATA` vervangen (speler, beeld en cues ongewijzigd; de ondertitels waren al goed). `segments.json` (voice + vmap) en de duren in `script.md` zijn bijgewerkt. Bij opnieuw bouwen: de nieuwe invoer staat in `segments.json`; `bouw/uitspraak_subs.json` heeft de oude respellings voor deze woorden niet meer.
 
 Niet getest en daarom ongewijzigd gelaten: `faagosie-toze` (fagocytose, s08), `makrofaagen`, `Liezosomen`. Staan nog op de wachtlijst.
+
+## Versie 1.1 · 20 oktober 2026 (beeld na feedback Kamiel)
+
+Alleen beeld, geen nieuwe audio. Kamiel: inhoud goed, animaties mooier.
+- Grijze poppetjes vervangen door Noor uit het castboek (`lib_cast.js` staat nu in `src/` en wordt door `build.py` meegenomen): tuin (s01, s17) en Noor tot de heupen met een kijkje in de romp (s04–s07, `noorBuik()`).
+- Bacteriën: antigenen rondom, loodrecht op de wand (`antigeen()`).
+- s12: nieuwe dendritische cel met golvende uitlopers die een bacterie opneemt, in stukjes knipt en de stukjes als antigenen op het oppervlak zet; reist door een lymfevat naar een boonvormige lymfeknoop; de passende T-helpercel komt erop af, licht op en deelt.
+- s16: thermostaatknop (35–42 °C) + hersenen met hypothalamus; stoffen van witte bloedcellen stromen naar de hypothalamus; rillen/vaatjes nauwer en zweten in beeld; één tekstbalk tegelijk.
+- Geen korrels meer op de micro-achtergrond; wijslijnen in s08 en s13 vervangen door namen bij het onderdeel.
+- In de HTML is `scenes.js` vervangen door `lib_cast.js` + nieuwe `scenes.js` (regelnummers hierboven schuiven daardoor op).
