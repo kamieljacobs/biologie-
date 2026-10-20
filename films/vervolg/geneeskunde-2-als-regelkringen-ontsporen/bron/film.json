@@ -1,0 +1,75 @@
+{
+ "slug": "geneeskunde-2-als-regelkringen-ontsporen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Als regelkringen ontsporen",
+ "sub": "van bloedverlies tot shock",
+ "puzzle": "Waarom kan het na bloedverlies ineens heel snel misgaan, terwijl het eerst goed leek te gaan?",
+ "meta": "geneeskunde · intensive care",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Geneeskunde",
+ "lead": "Na bloedverlies houden hart, bloedvaten en nieren de bloeddruk eerst overeind: negatieve terugkoppeling. Na ongeveer een derde verlies lukt dat niet meer. Dan krijgt de hartspier zelf te weinig zuurstof, pompt slechter, en de druk zakt verder: positieve terugkoppeling, een vicieuze cirkel. Dat heet shock. Bij sepsis zetten afweerstoffen de vaten wijd open en vallen meerdere organen tegelijk uit. Op de intensive care nemen arts en apparaten tijdelijk de regelkringen over.",
+ "endHaak": "welke regelkring in je lichaam zou jij als eerste willen kunnen overnemen, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe houdt je lichaam de bloeddruk overeind?",
+  "Hoofdstuk 2": "Waarom gaat het na het kantelpunt zo snel?",
+  "Hoofdstuk 3": "Wat gaat er mis bij sepsis?",
+  "Hoofdstuk 4": "Wat doet een intensivist?",
+  "Recap": "Wat zei Bilals bloeddruk eigenlijk?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Bilal en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bilal verliest bloed, maar zijn bloeddruk blijft bijna normaal. Hoe kan dat?",
+   "correct": 0,
+   "explain": "Drukzintuigen zien de daling; het hart klopt sneller en de vaten in huid en darmen knijpen samen. Negatieve terugkoppeling."
+  },
+  "q06": {
+   "q": "Na het kantelpunt zakt de bloeddruk steeds sneller. Waarom?",
+   "correct": 1,
+   "explain": "De hartspier krijgt zelf te weinig zuurstof en pompt slechter, waardoor de druk verder zakt: positieve terugkoppeling."
+  },
+  "q09": {
+   "q": "Wat is bij sepsis het grootste gevaar?",
+   "correct": 2,
+   "explain": "Dat meerdere organen tegelijk te weinig bloed krijgen en uitvallen: meerdere regelkringen falen tegelijk."
+  }
+ },
+ "glossary": [
+  {
+   "t": "drukzintuigen",
+   "d": "Zintuigen in de wand van grote slagaders die de bloeddruk meten en het hart en de vaten bijsturen."
+  },
+  {
+   "t": "compenseren",
+   "d": "Het lichaam werkt een verandering tegen, zodat een waarde zoals de bloeddruk gelijk blijft."
+  },
+  {
+   "t": "negatieve terugkoppeling",
+   "d": "Regeling die een verandering tegenwerkt en zo het evenwicht herstelt."
+  },
+  {
+   "t": "positieve terugkoppeling",
+   "d": "Regeling die een verandering versterkt: een vicieuze cirkel, zoals bij shock."
+  },
+  {
+   "t": "shock",
+   "d": "Toestand waarin de organen te weinig bloed en zuurstof krijgen, door bloedverlies, een zwak hart of wijde, lekkende vaten."
+  },
+  {
+   "t": "melkzuur (lactaat)",
+   "d": "Ontstaat als cellen energie maken zonder zuurstof; een hoog lactaat in het bloed is een teken van shock."
+  },
+  {
+   "t": "sepsis",
+   "d": "Een infectie waarbij het afweersysteem zo heftig reageert dat het lichaam zelf schade oploopt; organen kunnen uitvallen."
+  },
+  {
+   "t": "intensive care",
+   "d": "Afdeling waar arts en apparaten tijdelijk lichaamsfuncties overnemen, zoals ademen, bloeddruk en nierfunctie."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Noem drie manieren waarop het lichaam de bloeddruk na bloedverlies overeind houdt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Het hart klopt sneller en krachtiger (1p); de vaten in huid en darmen vernauwen (1p); de nieren houden water vast (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom de compensatie na bloedverlies een voorbeeld is van negatieve terugkoppeling, en het kantelpunt van positieve terugkoppeling. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij compensatie wordt de daling van de bloeddruk tegengewerkt (1p). Na het kantelpunt versterkt de daling zichzelf: te lage druk → te weinig zuurstof voor de hartspier → zwakkere pomp → nog lagere druk (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Bij sepsis is er geen bloed verloren en toch zakt de bloeddruk. Verklaar dit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Alarmstoffen van het afweersysteem zetten de bloedvaten wijd open, waardoor de druk daalt (1p), en de vaten lekken, waardoor vocht uit de bloedbaan verdwijnt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Waarom zegt een normale bloeddruk na een ongeluk niet dat het goed gaat? <span class=\"pts\">(1p)</span></p>\n<details><summary>Antwoord</summary><p>Het lichaam compenseert: de bloeddruk blijft gelijk doordat hart en vaten hard werken; signalen zijn eerder een snelle hartslag en een bleke, koude huid (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Geneeskunde. Bouwt voort op <i>Buizen onder druk</i>, <i>Het hart onder controle</i>, <i>Water in balans</i>, <i>Suiker in balans</i> (regelkringen) en <i>Alles op adem</i> (melkzuur). Bilal is de patiënt, Dr. Kim de intensivist.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> compensatie na bloedverlies (baroreceptoren, vasoconstrictie, nieren). <b>H2</b> het kantelpunt: positieve terugkoppeling en melkzuur. <b>H3</b> sepsis. <b>H4</b> operatiekamer en intensive care: meten en bijsturen.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Bloedvolume volwassene</td><td>ongeveer 5 liter</td><td>leerboeken fysiologie</td></tr>\n<tr><td>Bloedverlies en bloeddruk</td><td>tot ± 30 % (± 1,5 l) wordt de bloeddruk gecompenseerd; bij 30–40 % daalt hij</td><td>ATLS-indeling hemorragische shock (klasse I–III)</td></tr>\n<tr><td>Sepsis</td><td>elk uur telt: snel antibiotica en vocht</td><td>Surviving Sepsis Campaign</td></tr>\n<tr><td>Opleiding intensivist</td><td>na anesthesiologie of interne geneeskunde nog 2 jaar intensive care</td><td>NVIC</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Strikt genomen is er al vóór de bloeddrukdaling sprake van 'gecompenseerde shock' (snelle hartslag, bleke koude huid); de film noemt het pas shock na het kantelpunt.</li><li>De ATLS-klassen zijn een richtlijn; jonge, fitte mensen compenseren vaak langer.</li><li>Bij sepsis speelt ook de verminderde pompkracht en de stolling een rol; de film noemt wijde, lekkende vaten.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen de regelkring van de bloeddruk tekenen met normwaarde, sensor, regelcentrum en effectoren, en daarna de vicieuze cirkel van shock ernaast.</li></ul>\n</section>\n"
+}
