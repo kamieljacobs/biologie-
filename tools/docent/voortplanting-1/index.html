@@ -592,6 +592,8 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
 // ---------- 5 · meer paren, meer combinaties ----------
 // Stap voor stap uitbreiden: 1, 2, 3 paren, dan de mens (23 paren), dan crossing-over.
 const PAAR_LEN = [1, 0.72, 0.48];
+// elk paar een eigen kleur: donker = exemplaar van de eigen vader, licht = van de eigen moeder
+const PAAR_KL = (k) => { const h = [C.teal, C.koraal, C.paars, C.groen, C.goud, C.oker][k % 6]; return [mix(h, '#000000', C.licht ? 0.2 : 0.12), mix(h, '#FFFFFF', C.licht ? 0.5 : 0.45)]; };
 function chromBalk(ctx, x, y, len, bw, kleur, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = kleur; roundRect(ctx, x - bw / 2, y - len / 2, bw, len, bw / 2); ctx.fill(); ctx.restore(); }
 // paren = lijst per paar met de kleuren die erin zitten (2 in een lichaamscel, 1 in een geslachtscel)
 function parenRij(ctx, x, y, paren, basis, bw, a = 1) {
@@ -601,7 +603,7 @@ function parenRij(ctx, x, y, paren, basis, bw, a = 1) {
 const fmtNL = (n) => Math.round(n).toLocaleString('nl-NL');
 SCHERMEN.push({ titel: 'Meer paren', deel: 'Eén ouder of twee',
   stappen: [
-    { t: '<b>1 paar</b>: 2 soorten geslachtscellen per ouder. Samen 2 × 2 = <b>4</b> combinaties.', n: 'Herhaling van het vorige scherm, nu met de getallen in een tabel. De kleuren: één exemplaar van elk paar komt van de eigen vader (teal), één van de eigen moeder (groen).' },
+    { t: '<b>1 paar</b>: 2 soorten geslachtscellen per ouder. Samen 2 × 2 = <b>4</b> combinaties.', n: 'Herhaling van het vorige scherm, nu met de getallen in een tabel. Elk paar heeft een eigen kleur; donker = het exemplaar van de eigen vader, licht = dat van de eigen moeder.' },
     { t: '<b>2 paren</b>: elk paar verdeelt zich los van het andere. 2 × 2 = <b>4</b> soorten geslachtscellen, samen 4 × 4 = <b>16</b> combinaties.', n: 'Onafhankelijke verdeling: welk exemplaar van paar 1 in een geslachtscel komt, zegt niets over paar 2.' },
     { t: '<b>3 paren</b>: 2 × 2 × 2 = <b>8</b> soorten, samen 8 × 8 = <b>64</b> combinaties. Elk paar erbij verdubbelt het aantal soorten.', n: '' },
     { t: 'De mens: <b>23 paren</b>. Per ouder ruim <b>8 miljoen</b> soorten geslachtscellen, samen ± <b>70 biljoen</b> combinaties.', n: '2^23 = 8.388.608; 2^46 = 70.368.744.177.664. Ter vergelijking: er hebben ooit ± 117 miljard mensen geleefd (schatting Population Reference Bureau). Broers en zussen (geen eeneiige tweeling) zijn dus vrijwel nooit genetisch gelijk.' },
@@ -615,26 +617,26 @@ SCHERMEN.push({ titel: 'Meer paren', deel: 'Eén ouder of twee',
     // links: lichaamscel met n paren → 2^n soorten geslachtscellen
     if (links > 0.01) { const a = links * fase;
       celVorm(ctx, [[px, py, 150, 150]], C.teal, a); ctx.save(); ctx.globalAlpha *= a; circ(ctx, px, py, 104, rgba(C.paars, C.licht ? 0.12 : 0.22), rgba(C.paars, 0.7), 2); ctx.restore();
-      parenRij(ctx, px, py, Array.from({ length: n }, () => [A, B]), 130, 15, a);
-      regel(ctx, n === 1 ? '1 paar' : n + ' paren', px, py + 205, a, C.text2, 30, 'center', 600);
+      parenRij(ctx, px, py, Array.from({ length: n }, (_, k) => PAAR_KL(k)), 130, 15, a);
+      regel(ctx, n === 1 ? '1 paar' : n + ' paren', px, py + 205, a, C.text2, 30, 'center', 600); metaText(ctx, 'één kleur per paar · donker en licht', px, py + 245, C.meta, 'center', 18, a);
       pijl(ctx, px + 175, py, 610, py, C.goud, 5, a, 20); regel(ctx, 'meiose', 545, py - 22, a, C.goud, 30, 'center', 700);
       const soorten = 1 << n, cols = soorten > 4 ? 2 : (soorten === 4 ? 2 : 1), rows = Math.ceil(soorten / cols), r = soorten > 4 ? 50 : 58, gy = soorten > 4 ? 135 : 160;
       for (let i = 0; i < soorten; i++) { const c = i % cols, rr = Math.floor(i / cols); const gx = cols === 1 ? 800 : 730 + c * 150, yy = py + (rr - (rows - 1) / 2) * gy; const ga = a * S.on(Math.min(b, 2), 0.5, 0.5 + i * 0.12);
-        celVorm(ctx, [[gx, yy, r, r]], C.oker, ga); parenRij(ctx, gx, yy, Array.from({ length: n }, (_, k) => [((i >> (n - 1 - k)) & 1) ? B : A]), r * 1.15, 11, ga); }
+        celVorm(ctx, [[gx, yy, r, r]], C.oker, ga); parenRij(ctx, gx, yy, Array.from({ length: n }, (_, k) => [PAAR_KL(k)[(i >> (n - 1 - k)) & 1]]), r * 1.15, 11, ga); }
       regel(ctx, soorten + ' soorten geslachtscellen', 800, soorten > 4 ? 1010 : 880, a, C.text, 30, 'center', 700); }
     // links bij de mens: 23 paren
     if (mens > 0.01) { const a = mens * (1 - co);
       celVorm(ctx, [[px + 40, py, 190, 190]], C.teal, a); ctx.save(); ctx.globalAlpha *= a; circ(ctx, px + 40, py, 140, rgba(C.paars, C.licht ? 0.12 : 0.22), rgba(C.paars, 0.7), 2); ctx.restore();
       for (let k = 0; k < 23; k++) { const rij = k < 12 ? 0 : 1, kk = rij ? k - 12 : k, aantal = rij ? 11 : 12; const x = px + 40 + (kk - (aantal - 1) / 2) * 19, y = py + (rij ? 52 : -52), L = lerp(84, 26, k / 22);
-        chromBalk(ctx, x - 4, y, L, 6, A, a); chromBalk(ctx, x + 4, y, L, 6, B, a); }
+        const [d1, l1] = PAAR_KL(k); chromBalk(ctx, x - 4, y, L, 6, d1, a); chromBalk(ctx, x + 4, y, L, 6, l1, a); }
       regel(ctx, 'mens: 23 paren', px + 40, py + 250, a, C.text2, 30, 'center', 600);
       regel(ctx, '2 × 2 × 2 × … (23 keer)', px + 40, py + 300, a * S.on(3, 0.6, 0.6), C.text2, 30, 'center', 600); }
     // crossing-over
     if (co > 0.01) { const cx = 420, cy = 520, L = 420, w = 34, k = ease(S.on(4, 2.0, 0.6)), sw = 0.62; ctx.save(); ctx.globalAlpha *= co;
       const deel = (x, y0, y1, kl) => { ctx.fillStyle = kl; roundRect(ctx, x - w / 2, y0, w, y1 - y0, w / 2); ctx.fill(); };
       const top = cy - L / 2, knip = top + L * sw, bot = cy + L / 2;
-      deel(cx - 40, top, knip, A); deel(cx + 40, top, knip, B);
-      const oA = lerp(0, 80, k), oB = lerp(0, -80, k); deel(cx - 40 + (k < 0.5 ? oA * 0 : 0), knip + 4, bot, k > 0.5 ? B : A); deel(cx + 40, knip + 4, bot, k > 0.5 ? A : B);
+      const [cd, cl] = PAAR_KL(0); deel(cx - 40, top, knip, cd); deel(cx + 40, top, knip, cl);
+      const oA = lerp(0, 80, k), oB = lerp(0, -80, k); deel(cx - 40, knip + 4, bot, k > 0.5 ? cl : cd); deel(cx + 40, knip + 4, bot, k > 0.5 ? cd : cl);
       if (k > 0.05 && k < 0.95) { ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(cx - 60, knip - 20); ctx.lineTo(cx + 60, knip + 20); ctx.moveTo(cx + 60, knip - 20); ctx.lineTo(cx - 60, knip + 20); ctx.stroke(); }
       ctx.restore(); regel(ctx, 'crossing-over: stukjes ruilen', cx, cy + L / 2 + 70, co, C.goud, 34, 'center', 700); regel(ctx, '1 paar', cx, top - 30, co, C.text2, 28, 'center', 600); }
     // rechts: de tabel
