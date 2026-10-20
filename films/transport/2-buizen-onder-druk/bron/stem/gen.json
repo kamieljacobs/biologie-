@@ -1,5 +1,6 @@
 {
  "flow": "V43XupyWogKZDvZ8lFBU",
+ "model": "eleven_v4",
  "s01": {
   "generation_id": "ZjjKuXXTYLdyrM7MMYYo",
   "node": "oqPjVkxJKlClqtw4Rcv1",
@@ -25,10 +26,12 @@
   "dur": 45.166
  },
  "s07": {
-  "generation_id": "BZdFwOmC5ytm91BLMItu",
-  "node": "H9QE1RC4eNRUImlYWcdq",
-  "session": "pd3AycMrJY0HQXCO3T1L",
-  "dur": 26.671
+  "generation_id": "ucVpp3bM02XfIpQF9F7e",
+  "node": "l52DzVZ0zt9F6EPHcbNX",
+  "session": "rTUoplsX9XzPxf3Gswgr",
+  "dur": 26.28,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "BZdFwOmC5ytm91BLMItu"
  },
  "s08": {
   "generation_id": "SiLOY2hqnlpmZZ87X8u0",
@@ -55,10 +58,12 @@
   "dur": 38.766
  },
  "s13": {
-  "generation_id": "AnLJkV6mjM75ZNStopvY",
-  "node": "WoKZOSSclx7IOY2VzkPV",
-  "session": "B1nC9RqnygoHLHeuXIeT",
-  "dur": 39.001
+  "generation_id": "tfgZHqGcTekvrR1XR7qD",
+  "node": "CqGJW7vHnn2kP5PdCbOc",
+  "session": "QTYQdDzycPX0fADfjUBU",
+  "dur": 38.19,
+  "heropname": "19-20 okt 2026: uitspraaktest (nieuwe stem-invoer)",
+  "vorige_generation_id": "AnLJkV6mjM75ZNStopvY"
  },
  "s14": {
   "generation_id": "7uTM91bvG8NA7FDAqOdZ",
@@ -66,18 +71,17 @@
   "session": "nTNj65p2KodNiJ5UrIyi",
   "dur": 28.918
  },
- "s16": {
-  "generation_id": "Vvhj00AIB1g0pBK6DaLC",
-  "node": "G3iwr6CMXN26ScUKKzkz",
-  "session": "0OeeCjqMRZ00bzh0J3Zq",
-  "dur": 27.638
- },
  "s15": {
   "generation_id": "sLWhbbrTSD9dx7VjYMYc",
   "node": "dqHjRyqlHFK5JvNUfP0w",
   "session": "dnXkzXbqKwOjwxnAsbWu",
   "dur": 67.318
  },
- "model": "eleven_v4",
+ "s16": {
+  "generation_id": "Vvhj00AIB1g0pBK6DaLC",
+  "node": "G3iwr6CMXN26ScUKKzkz",
+  "session": "0OeeCjqMRZ00bzh0J3Zq",
+  "dur": 27.638
+ },
  "voice": "Roos 7qdUFMklKPaaAVMsBTBt"
 }
