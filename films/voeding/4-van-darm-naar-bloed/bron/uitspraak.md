@@ -18,3 +18,12 @@ Reeksregels (pH → pee-haa, DNA → deeënaa, …) staan in `bouw/uitspraak_sub
 De takes s06, s07, s14, s17, s20 en s21 zijn als los audiobestand (zonder tekst) door Scribe teruggetranscribeerd. Alle risicowoorden kwamen letterlijk terug: darmepitheelcellen (als "darm epitheelcellen"), microvilli, coeliakie, galactose, natrium-kaliumpomp, ATP, lymfe, micrometer, poortader, sleutelbeen, bovenste holle ader, lymfestelsel, chylomicronen, fosfolipiden. Geen verschillen behalve spaties. Geen respellings gebruikt; stem-invoer = weergavetekst.
 
 Uitspraakwachtlijst voor Kamiel (nog niet beluisterd): darmepitheelcellen (s06), microvilli (s06, s10, s22), coeliakie (s07, s09), A4'tjes (s05), galactose (s14, s16), chylomicronen (s21), fosfolipiden (s21).
+
+
+## Uitspraaktest 18–19 okt 2026 (goedgekeurd door Kamiel)
+
+Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw ingesproken op 19 okt 2026: s05.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| A4'tjes | aa-víertjes | s05 | goedgekeurd (uitspraaktest 18–19 okt 2026) |

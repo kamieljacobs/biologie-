@@ -91,3 +91,22 @@ Regelnummers in `4-van-darm-naar-bloed.html` (geen blobs; de audio staat ernaast
 ## Wijziging 15 okt 2026
 
 Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `label()` tekent geen lijntje en stip meer; de nieuwe `naamBij(ctx, naam, meta, x, y, alpha, align, kleur)` zet de naam (met donkere rand rond de letters) direct naast of op het onderdeel, en `label()` gebruikt de richting ax,ay → lx,ly alleen nog om te bepalen aan welke kant de naam staat (zelfde functies als Celorganellen; ook in `bron/src/lib.js`). Nu `naamBij`: microvilli (boven de cel), ATP (boven het transporteiwit), lymfevat (rechts van de vlok, boven 'haarvaten'). In de gedeelde maag-bypass-tekening (`bypassSchema`, lib_voeding) staan 'alvleesklier' en 'dunne darm' nu met `naamBij` vast naast het orgaan.
+
+
+## Wijziging 19–20 okt 2026: alinea's opnieuw ingesproken na de uitspraaktest
+
+Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moeten klinken. Alleen de alinea's met die woorden zijn opnieuw ingesproken; de gesproken tekst is inhoudelijk gelijk gebleven.
+
+| Woord | Nieuwe stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| A4'tjes | aa-víertjes | s05 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+- Opnieuw ingesproken: s05. Roos (7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, ElevenLabs-flow `urmsa8zcNa5TFq8SVeBI` ("Herinspreken 19 okt · voeding, hormonen, voortplanting"). Stem-invoer = `voice` in `segments.json` (gemaakt met `make_segments.py` en de bijgewerkte vervangregels in `bouw/uitspraak_subs.json`).
+- Woordtijden: Scribe (connect_from = de TTS-node) → `align.py` → `stem/woordtijden/`. Mastering: `loudnorm=I=-15:TP=-1.5`, mono 44,1 kHz 96 kb/s.
+- Credits: TTS 284, Scribe ≈ 103 (≈ 19 s audio).
+- **HTML nog niet bijgewerkt**: de voedingshelper bouwt deze film opnieuw (nieuwe beelden) en neemt de nieuwe audio, `segments.json` en woordtijden mee. Tot die build staan in de HTML nog de oude woordtijden (afwijking < 1 s per alinea).
+- Niet aangepast: woorden die niet in de test zaten houden hun vorige stem-invoer, zodat ze in de hele film hetzelfde klinken (bijv. "receptor" zoals geschreven, terwijl de centrale lijst "reseptor" geeft).
+
+| Segment | TTS-node | Generatie | Credits | Duur |
+|---|---|---|---|---|
+| s05 | rmB9zT2h2K3usHmktO1W | GlY3GPWvVTbgsz0zTNKX | 284 | 19.25 s |
