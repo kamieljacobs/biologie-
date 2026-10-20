@@ -1,0 +1,186 @@
+[
+ {
+  "id": "s01",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je eet elke dag. Maar wat heeft je lichaam er echt aan? Zeelui ontdekten het vroeger op de harde manier.",
+   "Ze voeren maanden over zee. Er was genoeg eten aan boord: harde scheepsbeschuit en gezouten vlees. Toch werden ze ziek. Hun tandvlees ging bloeden en ze werden doodmoe. Wat ontbrak er? Wat denk je?"
+  ],
+  "display": "Je eet elke dag. Maar wat heeft je lichaam er echt aan? Zeelui ontdekten het vroeger op de harde manier. Ze voeren maanden over zee. Er was genoeg eten aan boord: harde scheepsbeschuit en gezouten vlees. Toch werden ze ziek. Hun tandvlees ging bloeden en ze werden doodmoe. Wat ontbrak er? Wat denk je?",
+  "voice": "Je eet elke dag. Maar wat heeft je lichaam er echt aan? Zeelui ontdekten het vroeger op de harde manier. Ze voeren maanden over zee. Er was genoeg eten aan boord: harde scheepsbeschuit en gezouten vlees. Toch werden ze ziek. Hun tandvlees ging bloeden en ze werden doodmoe. Wat ontbrak er? Wat denk je?"
+ },
+ {
+  "id": "q02",
+  "chapter": "Cold open",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "genoeg energie uit hun eten",
+   "een stof uit vers fruit en groente",
+   "genoeg drinkwater"
+  ],
+  "q": "De zeelui hadden genoeg eten aan boord, maar werden toch ziek. Wat ontbrak er?",
+  "correct": 1,
+  "explain": "Ze hadden genoeg energie uit beschuit en vlees. Maar ze kregen geen vitamine C binnen, en die zit in vers fruit en groente. Daardoor kregen ze scheurbuik."
+ },
+ {
+  "id": "s03",
+  "chapter": "Titel",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Voeding en beweging. Wat heeft je lichaam echt nodig?"
+  ],
+  "display": "Voeding en beweging. Wat heeft je lichaam echt nodig?",
+  "voice": "Voeding en beweging. Wat heeft je lichaam echt nodig?"
+ },
+ {
+  "id": "s04",
+  "chapter": "Hoofdstuk 1 — Drie taken van je eten",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je eten doet drie dingen voor je. Het eerste is energie. Daarvoor heb je brandstoffen nodig. Die zitten vooral in brood, pasta, rijst en aardappels. En in vet, zoals boter en olie.",
+   "Het tweede is bouwen. Je groeit, en je lichaam repareert zich elke dag. Daarvoor heb je bouwstoffen nodig, vooral eiwitten. Die zitten in vis, vlees, eieren, bonen, noten en melk.",
+   "Het derde is beschermen. Vitamines en mineralen houden alles goed werkend. Ze geven geen energie. Je hebt er maar heel weinig van nodig. Maar zonder gaat het mis. Calcium maakt je botten stevig. Vitamine C houdt je tandvlees en je huid gezond."
+  ],
+  "display": "Je eten doet drie dingen voor je. Het eerste is energie. Daarvoor heb je brandstoffen nodig. Die zitten vooral in brood, pasta, rijst en aardappels. En in vet, zoals boter en olie. Het tweede is bouwen. Je groeit, en je lichaam repareert zich elke dag. Daarvoor heb je bouwstoffen nodig, vooral eiwitten. Die zitten in vis, vlees, eieren, bonen, noten en melk. Het derde is beschermen. Vitamines en mineralen houden alles goed werkend. Ze geven geen energie. Je hebt er maar heel weinig van nodig. Maar zonder gaat het mis. Calcium maakt je botten stevig. Vitamine C houdt je tandvlees en je huid gezond.",
+  "voice": "Je eten doet drie dingen voor je. Het eerste is energie. Daarvoor heb je brandstoffen nodig. Die zitten vooral in brood, pasta, rijst en aardappels. En in vet, zoals boter en olie. Het tweede is bouwen. Je groeit, en je lichaam repareert zich elke dag. Daarvoor heb je bouwstoffen nodig, vooral eiwitten. Die zitten in vis, vlees, eieren, bonen, noten en melk. Het derde is beschermen. Vitamines en mineralen houden alles goed werkend. Ze geven geen energie. Je hebt er maar heel weinig van nodig. Maar zonder gaat het mis. Calcium maakt je botten stevig. Vitamine C houdt je tandvlees en je huid gezond."
+ },
+ {
+  "id": "s05",
+  "chapter": "Hoofdstuk 1 — Drie taken van je eten",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Dat ging mis bij de zeelui. Ze hadden genoeg energie, maar geen vitamine C. Die zit in vers fruit en groente. In het jaar 1747 gaf een scheepsarts zieke zeelui citroenen en sinaasappels. Binnen een week knapten ze op.",
+   "Je hebt ook water nodig, en vezels. Vezels zitten in groente, fruit en volkoren brood. Ze houden je darmen in beweging.",
+   "Geen enkel product heeft alles. Daarom helpt het om afwisselend te eten. De Schijf van Vijf laat zien welke groepen er zijn."
+  ],
+  "display": "Dat ging mis bij de zeelui. Ze hadden genoeg energie, maar geen vitamine C. Die zit in vers fruit en groente. In het jaar 1747 gaf een scheepsarts zieke zeelui citroenen en sinaasappels. Binnen een week knapten ze op. Je hebt ook water nodig, en vezels. Vezels zitten in groente, fruit en volkoren brood. Ze houden je darmen in beweging. Geen enkel product heeft alles. Daarom helpt het om afwisselend te eten. De Schijf van Vijf laat zien welke groepen er zijn.",
+  "voice": "Dat ging mis bij de zeelui. Ze hadden genoeg energie, maar geen vitamine C. Die zit in vers fruit en groente. In het jaar 1747 gaf een scheepsarts zieke zeelui citroenen en sinaasappels. Binnen een week knapten ze op. Je hebt ook water nodig, en vezels. Vezels zitten in groente, fruit en volkoren brood. Ze houden je darmen in beweging. Geen enkel product heeft alles. Daarom helpt het om afwisselend te eten. De Schijf van Vijf laat zien welke groepen er zijn."
+ },
+ {
+  "id": "s06",
+  "chapter": "Hoofdstuk 2 — Gebouwd om te bewegen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Een astronaut zit een half jaar in het ruimtestation. Daar zweeft alles. Zijn benen hoeven hem nooit te dragen. Wat gebeurt er met zijn botten? Wat denk je?"
+  ],
+  "display": "Een astronaut zit een half jaar in het ruimtestation. Daar zweeft alles. Zijn benen hoeven hem nooit te dragen. Wat gebeurt er met zijn botten? Wat denk je?",
+  "voice": "Een astronaut zit een half jaar in het ruimtestation. Daar zweeft alles. Zijn benen hoeven hem nooit te dragen. Wat gebeurt er met zijn botten? Wat denk je?"
+ },
+ {
+  "id": "q07",
+  "chapter": "Hoofdstuk 2 — Gebouwd om te bewegen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "ze worden sterker",
+   "ze worden zwakker",
+   "er verandert niets"
+  ],
+  "q": "Een astronaut zweeft een half jaar in de ruimte. Wat gebeurt er met zijn botten?",
+  "correct": 1,
+  "explain": "Bot leeft en past zich aan. Zonder gewicht hoeven zijn botten niets te dragen, dus worden ze zwakker: ongeveer één procent per maand."
+ },
+ {
+  "id": "s08",
+  "chapter": "Hoofdstuk 2 — Gebouwd om te bewegen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Ze worden zwakker. Elke maand verliest hij ongeveer één procent van zijn bot. Ook zijn spieren worden dunner.",
+   "Bot leeft. Je botten en spieren passen zich aan aan wat je doet. Moeten ze vaak hard werken, dan worden ze sterker. Gebruik je ze weinig, dan worden ze zwakker.",
+   "Daarom sporten astronauten elke dag twee uur. Op een loopband, vastgemaakt met elastieken. En op een apparaat dat gewicht nadoet. Zo helpt techniek hun lichaam sterk te houden."
+  ],
+  "display": "Ze worden zwakker. Elke maand verliest hij ongeveer één procent van zijn bot. Ook zijn spieren worden dunner. Bot leeft. Je botten en spieren passen zich aan aan wat je doet. Moeten ze vaak hard werken, dan worden ze sterker. Gebruik je ze weinig, dan worden ze zwakker. Daarom sporten astronauten elke dag twee uur. Op een loopband, vastgemaakt met elastieken. En op een apparaat dat gewicht nadoet. Zo helpt techniek hun lichaam sterk te houden.",
+  "voice": "Ze worden zwakker. Elke maand verliest hij ongeveer één procent van zijn bot. Ook zijn spieren worden dunner. Bot leeft. Je botten en spieren passen zich aan aan wat je doet. Moeten ze vaak hard werken, dan worden ze sterker. Gebruik je ze weinig, dan worden ze zwakker. Daarom sporten astronauten elke dag twee uur. Op een loopband, vastgemaakt met elastieken. En op een apparaat dat gewicht nadoet. Zo helpt techniek hun lichaam sterk te houden."
+ },
+ {
+  "id": "s09",
+  "chapter": "Hoofdstuk 2 — Gebouwd om te bewegen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Op aarde werkt het net zo. Rennen, springen en klimmen maken je botten sterker. Bewegen traint ook je hart en je longen. En na een dag vol beweging slaap je vaak beter.",
+   "De Gezondheidsraad raadt jongeren aan om elke dag minstens een uur te bewegen. Fietsen naar school telt ook mee."
+  ],
+  "display": "Op aarde werkt het net zo. Rennen, springen en klimmen maken je botten sterker. Bewegen traint ook je hart en je longen. En na een dag vol beweging slaap je vaak beter. De Gezondheidsraad raadt jongeren aan om elke dag minstens een uur te bewegen. Fietsen naar school telt ook mee.",
+  "voice": "Op aarde werkt het net zo. Rennen, springen en klimmen maken je botten sterker. Bewegen traint ook je hart en je longen. En na een dag vol beweging slaap je vaak beter. De Gezondheidsraad raadt jongeren aan om elke dag minstens een uur te bewegen. Fietsen naar school telt ook mee."
+ },
+ {
+  "id": "s10",
+  "chapter": "Hoofdstuk 2 — Gebouwd om te bewegen",
+  "level": "vwo",
+  "kind": "speech",
+  "lines": [
+   "Wat doet trainen met je hart? Je hart is ook een spier. Train je vaak, dan wordt hij sterker. Hij pompt dan meer bloed per slag. In rust hoeft hij daarom minder vaak te kloppen. Bij goed getrainde sporters soms maar vijftig keer per minuut."
+  ],
+  "display": "Wat doet trainen met je hart? Je hart is ook een spier. Train je vaak, dan wordt hij sterker. Hij pompt dan meer bloed per slag. In rust hoeft hij daarom minder vaak te kloppen. Bij goed getrainde sporters soms maar vijftig keer per minuut.",
+  "voice": "Wat doet trainen met je hart? Je hart is ook een spier. Train je vaak, dan wordt hij sterker. Hij pompt dan meer bloed per slag. In rust hoeft hij daarom minder vaak te kloppen. Bij goed getrainde sporters soms maar vijftig keer per minuut."
+ },
+ {
+  "id": "s11",
+  "chapter": "Hoofdstuk 3 — Eten en bewegen samen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Sam traint een paar weken voor de sportdag. Zijn beenspieren worden sterker. Waar maakt zijn lichaam die extra spier van? Wat denk je?"
+  ],
+  "display": "Sam traint een paar weken voor de sportdag. Zijn beenspieren worden sterker. Waar maakt zijn lichaam die extra spier van? Wat denk je?",
+  "voice": "Sam traint een paar weken voor de sportdag. Zijn beenspieren worden sterker. Waar maakt zijn lichaam die extra spier van? Wat denk je?"
+ },
+ {
+  "id": "q12",
+  "chapter": "Hoofdstuk 3 — Eten en bewegen samen",
+  "level": "basis",
+  "kind": "question",
+  "options": [
+   "van suiker uit zijn eten",
+   "van eiwitten uit zijn eten",
+   "van vet uit zijn eten"
+  ],
+  "q": "Sams beenspieren worden sterker door te trainen. Waar maakt zijn lichaam die extra spier van?",
+  "correct": 1,
+  "explain": "Spieren zijn vooral gebouwd van eiwitten. Trainen geeft het signaal, eiwitten uit zijn eten zijn het bouwmateriaal. Suiker en vet zijn vooral brandstof."
+ },
+ {
+  "id": "s13",
+  "chapter": "Hoofdstuk 3 — Eten en bewegen samen",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Van eiwitten. Het trainen geeft het signaal: word sterker. De eiwitten uit zijn eten zijn het bouwmateriaal. En de brandstoffen geven de energie om te kunnen trainen.",
+   "Wie veel beweegt, gebruikt meer energie. Dan krijg je vanzelf ook meer honger. Zo werken eten en bewegen samen."
+  ],
+  "display": "Van eiwitten. Het trainen geeft het signaal: word sterker. De eiwitten uit zijn eten zijn het bouwmateriaal. En de brandstoffen geven de energie om te kunnen trainen. Wie veel beweegt, gebruikt meer energie. Dan krijg je vanzelf ook meer honger. Zo werken eten en bewegen samen.",
+  "voice": "Van eiwitten. Het trainen geeft het signaal: word sterker. De eiwitten uit zijn eten zijn het bouwmateriaal. En de brandstoffen geven de energie om te kunnen trainen. Wie veel beweegt, gebruikt meer energie. Dan krijg je vanzelf ook meer honger. Zo werken eten en bewegen samen."
+ },
+ {
+  "id": "s14",
+  "chapter": "Samenvatting",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig. En water en vezels.",
+   "Je botten en spieren worden sterker als je ze gebruikt. En de zeelui? Die misten vitamine C."
+  ],
+  "display": "Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig. En water en vezels. Je botten en spieren worden sterker als je ze gebruikt. En de zeelui? Die misten vitamine C.",
+  "voice": "Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig. En water en vezels. Je botten en spieren worden sterker als je ze gebruikt. En de zeelui? Die misten vitamine C."
+ },
+ {
+  "id": "s15",
+  "chapter": "Eindkaart",
+  "level": "basis",
+  "kind": "speech",
+  "lines": [
+   "Probeer het zelf."
+  ],
+  "display": "Probeer het zelf.",
+  "voice": "Probeer het zelf."
+ }
+]
