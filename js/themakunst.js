@@ -4,17 +4,22 @@
    Gebruik: window.THEMAKUNST[id]() geeft de binnenkant van een <svg>. Kamiel 20 okt 2026:
    'nog dikker en kleurrijker, geïnspireerd door het thema zelf' (bijv. Darwin bij Evolutie). */
 (function () {
-  var W = 2.4; // lijndikte-factor: dik en expressief
+  var W = 1.15; // fijne inktlijnen (Kamiel 20 okt: realistischer en serieuzer, kleur alleen waar het iets toevoegt)
+  var ACC = [];  // kleuren die op de huidige plaat mogen; de rest wordt inkt
+  var ACCENT = { cellen: ['paars', 'koraal'], dna: ['teal'], stofwisseling: ['groen'], voeding: ['koraal'], transport: ['koraal'], gaswisseling: ['koraal', 'teal'], afweer: ['paars'], regeling: [], voortplanting: ['koraal'], erfelijkheid: ['groen'], evolutie: [], ecologie: ['groen'], gedrag: ['goud'], planten: ['groen'], kerndoelen: ['groen'], extra: [] };
+  function kleur(c) { return ACC.indexOf(c) >= 0 ? c : (c === 'inktdonker' ? 'text' : 'text2'); }
+  var DEFS = '<defs><pattern id="tk-arc" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="var(--text2)" stroke-width=".7"/></pattern><pattern id="tk-kruis" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5M0 0H5" stroke="var(--text2)" stroke-width=".6"/></pattern><pattern id="tk-stip" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" fill="var(--text2)"/><circle cx="4.5" cy="4.5" r=".5" fill="var(--text2)"/></pattern></defs>';
   var KL = ['goud', 'teal', 'groen', 'koraal', 'paars', 'oker'];
   function rnd(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
   function f(n) { return Math.round(n * 10) / 10; }
-  function P(c, d, w, extra) { return '<path d="' + d + '" stroke="var(--' + c + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
-  function C(c, x, y, r, w, extra) { return '<circle cx="' + f(x) + '" cy="' + f(y) + '" r="' + f(r) + '" stroke="var(--' + c + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
-  function E(c, x, y, rx, ry, rot, w, extra) { return '<ellipse cx="' + f(x) + '" cy="' + f(y) + '" rx="' + f(rx) + '" ry="' + f(ry) + '" transform="rotate(' + f(rot) + ' ' + f(x) + ' ' + f(y) + ')" stroke="var(--' + c + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
-  function vul(c, o) { return 'fill="var(--' + c + ')" fill-opacity="' + o + '"'; }
-  function wolken(seed, n) {
-    var r = rnd(seed), o = '<defs><filter id="tk' + seed + '" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter></defs><g filter="url(#tk' + seed + ')">';
-    for (var k = 0; k < n; k++) o += '<circle cx="' + f(r() * 1600) + '" cy="' + f(r() * 1000) + '" r="' + f(150 + r() * 240) + '" fill="var(--' + KL[k % 6] + ')" fill-opacity="' + f(0.22 + r() * 0.18) + '" stroke="none"/>';
+  function P(c, d, w, extra) { return '<path d="' + d + '" stroke="var(--' + kleur(c) + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
+  function C(c, x, y, r, w, extra) { return '<circle cx="' + f(x) + '" cy="' + f(y) + '" r="' + f(r) + '" stroke="var(--' + kleur(c) + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
+  function E(c, x, y, rx, ry, rot, w, extra) { return '<ellipse cx="' + f(x) + '" cy="' + f(y) + '" rx="' + f(rx) + '" ry="' + f(ry) + '" transform="rotate(' + f(rot) + ' ' + f(x) + ' ' + f(y) + ')" stroke="var(--' + kleur(c) + ')" stroke-width="' + f(w * W) + '" ' + (extra || '') + '/>'; }
+  /* vulling: een toegestane kleur blijft kleur (licht), al het andere wordt arcering zoals in een gravure */
+  function vul(c, o) { return ACC.indexOf(c) >= 0 ? 'fill="var(--' + c + ')" fill-opacity="' + f(Math.min(.55, o * .9)) + '"' : 'fill="url(#' + (o > .45 ? 'tk-kruis' : o > .2 ? 'tk-arc' : 'tk-stip') + ')" fill-opacity="' + f(Math.min(1, .35 + o)) + '"'; }
+  function wolken(seed) { // sober: papiertoon met een vleugje accentkleur
+    var r = rnd(seed), o = '<defs><filter id="tk' + seed + '" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="90"/></filter></defs><g filter="url(#tk' + seed + ')">';
+    for (var k = 0; k < 4; k++) o += '<circle cx="' + f(r() * 1600) + '" cy="' + f(r() * 1000) + '" r="' + f(220 + r() * 220) + '" fill="var(--' + (ACC.length && k % 2 ? ACC[k % ACC.length] : 'oker') + ')" fill-opacity="' + f(0.07 + r() * 0.06) + '" stroke="none"/>';
     return o + '</g>';
   }
   function g(tr, inner) { return '<g transform="' + tr + '">' + inner + '</g>'; }
@@ -78,50 +83,69 @@
   function rank(x, y, s, c) { var d = 'M' + x + ' ' + y; for (var t = 0; t < 7 * Math.PI; t += .25) { var r2 = s * (1 - t / (7 * Math.PI)); d += ' L' + f(x + s + r2 * Math.cos(t + Math.PI)) + ' ' + f(y + r2 * Math.sin(t + Math.PI)); } return P(c, d, .8); }
   function vlok(x, y, w, h, c) { return P(c, 'M' + f(x - w / 2) + ' ' + y + ' L' + f(x - w / 2) + ' ' + f(y - h + w / 2) + ' A' + f(w / 2) + ' ' + f(w / 2) + ' 0 0 1 ' + f(x + w / 2) + ' ' + f(y - h + w / 2) + ' L' + f(x + w / 2) + ' ' + y, 1.2, vul(c, .25)) + P('koraal', 'M' + f(x - w * .2) + ' ' + y + ' L' + f(x - w * .2) + ' ' + f(y - h * .8) + ' Q' + x + ' ' + f(y - h * .95) + ' ' + f(x + w * .2) + ' ' + f(y - h * .8) + ' L' + f(x + w * .2) + ' ' + y, .6) + P('goud', 'M' + x + ' ' + y + ' L' + x + ' ' + f(y - h * .7), .6); }
   function rbc(x, y, s, a) { return E('koraal', x, y, s, s * .55, a, 1.1, vul('koraal', .5)) + E('koraal', x, y, s * .45, s * .2, a, .6); }
-  function hart(x, y, s) {
-    return P('koraal', 'M' + x + ' ' + f(y + s) + ' C' + f(x - s * 1.4) + ' ' + f(y + s * .2) + ' ' + f(x - s * 1.1) + ' ' + f(y - s * .9) + ' ' + f(x - s * .2) + ' ' + f(y - s * .6) + ' C' + f(x + s * .1) + ' ' + f(y - s * 1) + ' ' + f(x + s * 1.3) + ' ' + f(y - s * .7) + ' ' + f(x + s * 1.05) + ' ' + f(y + s * .1) + ' C' + f(x + s * .9) + ' ' + f(y + s * .6) + ' ' + f(x + s * .3) + ' ' + f(y + s * .9) + ' ' + x + ' ' + f(y + s) + 'Z', 2, vul('koraal', .3))
-      + P('koraal', 'M' + f(x - s * .1) + ' ' + f(y - s * .65) + ' C' + f(x - s * .1) + ' ' + f(y - s * 1.5) + ' ' + f(x + s * .8) + ' ' + f(y - s * 1.5) + ' ' + f(x + s * .8) + ' ' + f(y - s * .9), 2.2)
-      + P('teal', 'M' + f(x - s * .5) + ' ' + f(y - s * .55) + ' L' + f(x - s * .6) + ' ' + f(y - s * 1.3), 2.2) + P('teal', 'M' + f(x + s * .3) + ' ' + f(y - s * .6) + ' L' + f(x + s * .35) + ' ' + f(y - s * 1.2), 1.8)
-      + P('koraal', 'M' + f(x - s * .3) + ' ' + f(y - s * .2) + ' Q' + f(x + s * .1) + ' ' + f(y + s * .3) + ' ' + f(x + s * .05) + ' ' + f(y + s * .85), .8);
+  function hart(x, y, s) { // anatomischer: kamers, aortaboog, longslagader, holle aders, kransvaten, arcering
+    var k = function (u, v) { return f(x + u * s) + ' ' + f(y + v * s); };
+    var o = '<path d="M' + k(-.15, -.55) + ' C' + k(-.75, -.6) + ' ' + k(-1.05, -.1) + ' ' + k(-.85, .35) + ' C' + k(-.65, .8) + ' ' + k(-.15, 1.05) + ' ' + k(.12, 1.18) + ' C' + k(.35, .95) + ' ' + k(.85, .55) + ' ' + k(.9, .05) + ' C' + k(.95, -.35) + ' ' + k(.6, -.6) + ' ' + k(.25, -.55) + 'Z" ' + vul('koraal', .35) + ' stroke="var(--' + kleur('koraal') + ')" stroke-width="' + f(1.8 * W) + '"/>';
+    o += P('koraal', 'M' + k(-.05, -.5) + ' C' + k(-.1, -1.05) + ' ' + k(.55, -1.2) + ' ' + k(.7, -.85) + ' L' + k(.72, -.55), 2.4) + P('koraal', 'M' + k(.22, -.98) + ' L' + k(.24, -1.25) + ' M' + k(.4, -1.02) + ' L' + k(.45, -1.28) + ' M' + k(.55, -.95) + ' L' + k(.66, -1.18), 1.4);
+    o += P('teal', 'M' + k(.15, -.5) + ' C' + k(.2, -.8) + ' ' + k(-.1, -.95) + ' ' + k(-.35, -.9), 2.2) + P('teal', 'M' + k(-.55, -.45) + ' L' + k(-.6, -1.2) + ' M' + k(-.6, .5) + ' L' + k(-.75, .95), 2.2);
+    o += P('koraal', 'M' + k(-.1, -.4) + ' C' + k(.1, .1) + ' ' + k(0, .6) + ' ' + k(.1, 1.05), .9) + P('koraal', 'M' + k(-.05, -.2) + ' q' + f(-.25 * s) + ' ' + f(.15 * s) + ' ' + f(-.45 * s) + ' ' + f(.1 * s) + ' M' + k(.05, .3) + ' q' + f(.2 * s) + ' ' + f(.05 * s) + ' ' + f(.4 * s) + ' ' + f(-.1 * s), .6);
+    o += '<path d="M' + k(.3, .9) + ' C' + k(.7, .6) + ' ' + k(.92, .2) + ' ' + k(.9, -.1) + ' C' + k(.7, .25) + ' ' + k(.5, .6) + ' ' + k(.3, .9) + 'Z" fill="url(#tk-arc)" fill-opacity=".8" stroke="none"/>';
+    return o;
   }
 
-  /* ---------- Darwin: een eigen, expressieve schets (oudere Darwin, grote baard) ---------- */
+
+  /* ---------- Darwin: eigen gravure-achtige portretschets, zwart-wit (oudere Darwin, grote witte baard) ---------- */
   function darwin(tx, ty, sc) {
-    var r = rnd(1809), o = '';
-    // jas en schouders
-    o += P('teal', 'M40 540 C60 450 110 405 150 392 L200 440 L250 392 C290 405 340 450 360 540', 2.4, vul('teal', .22));
-    o += P('teal', 'M150 392 L178 520 M250 392 L222 520', 1.2) + P('goud', 'M186 452 L200 500 L214 452', 1, vul('goud', .3));
-    // schedel: kale kruin, groot voorhoofd
-    o += P('oker', 'M128 222 C118 150 140 70 205 62 C268 58 292 130 284 222', 2.2, vul('oker', .12));
-    o += P('oker', 'M150 120 C170 96 220 90 248 108', .8) + P('oker', 'M160 145 C185 132 225 130 246 140', .6);
-    // grijze haren aan de zijkant
-    o += veel(10, 3, function (q, k) { var y = 175 + k * 6, s = k % 2 ? 1 : -1; return P('paars', 'M' + (k % 2 ? 128 : 284) + ' ' + y + ' q' + f(s * -(10 + q() * 12)) + ' ' + f(8 + q() * 10) + ' ' + f(s * -(4 + q() * 8)) + ' ' + f(22 + q() * 10), .7); });
-    // oor
-    o += P('oker', 'M284 205 C302 200 304 232 286 242', 1.2);
-    // zware wenkbrauwen, diepliggende ogen
-    o += P('paars', 'M146 196 C162 178 190 176 200 190', 3) + P('paars', 'M214 190 C226 176 256 178 270 196', 3);
-    o += P('paars', 'M150 199 l6 -10 M162 192 l5 -11 M176 189 l3 -12 M248 189 l-3 -12 M260 192 l-4 -11', .7);
-    o += P('oker', 'M160 210 Q176 202 192 210', 1) + C('paars', 176, 212, 3.5, .6, vul('paars', .9)) + P('oker', 'M222 210 Q238 202 254 210', 1) + C('paars', 238, 212, 3.5, .6, vul('paars', .9));
-    o += P('oker', 'M162 222 Q176 228 190 222 M224 222 Q238 228 252 222', .6);
-    // neus
-    o += P('oker', 'M207 196 C204 222 212 240 220 250 C214 258 200 258 194 250', 1.6);
-    // snor
-    o += P('goud', 'M168 272 C182 258 200 262 207 268 C214 262 234 258 248 272', 2.2);
-    // baard: veel golvende lijnen van wangen naar een volle punt
-    for (var k = 0; k <= 44; k++) {
-      var t = k / 44, sx = 136 + t * 144, sy = 236 + Math.sin(t * Math.PI) * 36, ex = 112 + t * 196 + (t - .5) * 30, ey = 400 + Math.sin(t * Math.PI) * 70;
-      var cx1 = sx + (r() - .5) * 30, cy1 = sy + 60 + r() * 30, cx2 = ex + (r() - .5) * 40, cy2 = ey - 70 - r() * 30;
-      o += P(k % 5 === 0 ? 'goud' : (k % 3 ? 'paars' : 'teal'), 'M' + f(sx) + ' ' + f(sy) + ' C' + f(cx1) + ' ' + f(cy1) + ' ' + f(cx2) + ' ' + f(cy2) + ' ' + f(ex) + ' ' + f(ey), k % 4 ? .6 : 1);
+    var r = rnd(1809), o = '', I = 'text', I2 = 'text2';
+    function L(d, w, op) { return '<path d="' + d + '" stroke="var(--' + I + ')" stroke-opacity="' + (op || .85) + '" stroke-width="' + f(w) + '" fill="none"/>'; }
+    function arc(x1, y1, x2, y2, n, dx, dy, w, op) { var q = ''; for (var k = 0; k < n; k++) { var t = k / (n - 1 || 1); q += L('M' + f(x1 + (x2 - x1) * t) + ' ' + f(y1 + (y2 - y1) * t) + ' l' + f(dx + (r() - .5) * 2) + ' ' + f(dy + (r() - .5) * 3), w, op); } return q; }
+    // ovaal medaillon, oude foto
+    o += '<ellipse cx="200" cy="300" rx="190" ry="280" fill="var(--oker)" fill-opacity=".10" stroke="var(--text2)" stroke-opacity=".5" stroke-width="1.2"/><ellipse cx="200" cy="300" rx="180" ry="270" fill="none" stroke="var(--text2)" stroke-opacity=".35" stroke-width=".6"/>';
+    // jas: donkere schouders met kruisarcering, witte kraag en das onder de baard
+    o += '<path d="M36 560 C44 470 92 426 150 410 C170 404 230 404 250 410 C308 426 356 470 364 560 Z" fill="url(#tk-kruis)" fill-opacity=".95" stroke="var(--text)" stroke-width="1.3"/>';
+    o += L('M150 412 C156 460 166 510 176 560 M250 412 C244 460 234 510 224 560', 1.1) + L('M108 440 C120 470 126 510 128 556 M292 440 C280 470 274 510 272 556', .7, .6);
+    o += '<path d="M168 404 L200 424 L232 404 L226 440 L200 452 L174 440Z" fill="var(--bg)" stroke="var(--text)" stroke-width=".9"/>';
+    // schedel: hoog en breed, kaal; licht van rechts dus schaduw links
+    o += L('M126 250 C112 196 112 128 140 92 C168 56 236 52 266 84 C294 116 298 196 284 250', 1.6, .95);
+    o += arc(132, 118, 128, 236, 24, 13, 4, .55, .45);
+    o += L('M158 118 C186 104 226 104 254 116', .7, .4) + L('M152 136 C186 122 228 122 258 134', .7, .35) + L('M160 152 C190 143 222 142 250 150', .6, .3);
+    // grijze haren rond de oren
+    for (var k = 0; k < 30; k++) { var side = k % 2, y = 160 + (k >> 1) * 5; o += L('M' + (side ? 284 : 126) + ' ' + f(y) + ' q' + f((side ? 1 : -1) * (6 + r() * 14)) + ' ' + f(6 + r() * 8) + ' ' + f((side ? 1 : -1) * (2 + r() * 10)) + ' ' + f(18 + r() * 16), .5, .55); }
+    o += L('M285 192 C302 190 304 224 287 234', 1) + L('M125 192 C110 190 108 224 124 234', .9, .7);
+    // zware, borstelige wenkbrauwen
+    for (var b = 0; b < 2; b++) for (var k2 = 0; k2 < 26; k2++) { var t = k2 / 25, x = b ? 214 + t * 54 : 144 + t * 54, y = 184 - Math.sin(t * Math.PI) * 9 + (b ? t * 5 : (1 - t) * 5); o += L('M' + f(x) + ' ' + f(y) + ' l' + f((b ? 1 : -1) * (3 + r() * 6)) + ' ' + f(-4 - r() * 7), .8, .9); }
+    // diepliggende ogen
+    o += arc(152, 194, 198, 194, 12, 0, 10, .5, .5) + arc(216, 194, 262, 194, 12, 0, 10, .5, .4);
+    o += L('M158 209 Q176 201 194 209', 1) + L('M220 209 Q239 201 256 209', 1);
+    o += '<circle cx="177" cy="210" r="3.8" fill="var(--text)"/><circle cx="239" cy="210" r="3.8" fill="var(--text)"/>';
+    o += L('M162 219 Q177 226 192 220 M224 220 Q239 226 254 219', .5, .5) + L('M154 226 Q160 236 172 238 M260 226 Q256 236 244 238', .5, .35);
+    // neus: brede rug, schaduwzijde gearceerd
+    o += L('M206 198 C202 220 205 240 214 252 C208 260 196 260 189 254', 1.3) + arc(197, 206, 194, 248, 10, -7, 2, .5, .45) + L('M218 252 C223 256 222 261 215 262', .8);
+    // wangen
+    o += arc(136, 238, 150, 262, 9, 9, 6, .5, .35) + arc(270, 240, 262, 262, 6, -6, 6, .45, .25);
+    // baard: één volle, witte massa die over jas en kraag valt (silhouet in papierkleur), met golvende haren
+    o += '<path d="M128 248 C116 290 108 330 120 372 C136 424 172 462 200 482 C228 462 264 424 280 372 C292 330 284 290 280 248 C250 268 226 270 206 264 C186 270 160 268 128 248Z" fill="var(--bg)" stroke="none"/>';
+    o += '<path d="M128 248 C116 290 108 330 120 372 C136 424 172 462 200 482 C228 462 264 424 280 372 C292 330 284 290 280 248 C250 268 226 270 206 264 C186 270 160 268 128 248Z" class="tk-licht" fill="var(--oker)" fill-opacity=".06" stroke="none"/>';
+    for (var k3 = 0; k3 <= 78; k3++) {
+      var t3 = k3 / 78, u = (t3 - .5) * 2, sx = 128 + t3 * 152, sy = 250 + (1 - u * u) * 18;
+      var ex = 200 + u * 84 * (1 - Math.abs(u) * .08), ey = 380 + (1 - u * u) * 98;
+      var cx1 = sx + u * 40 + (r() - .5) * 12, cy1 = sy + 55 + r() * 20, cx2 = ex + u * 18 + (r() - .5) * 16, cy2 = ey - 70 - r() * 25;
+      var rand = Math.abs(u), op = .22 + rand * rand * .6 + (k3 % 5 === 0 ? .15 : 0);
+      o += L('M' + f(sx) + ' ' + f(sy) + ' C' + f(cx1) + ' ' + f(cy1) + ' ' + f(cx2) + ' ' + f(cy2) + ' ' + f(ex) + ' ' + f(ey), .4 + rand * .45, op);
+      if (k3 % 3 === 0) o += L('M' + f(ex + (r() - .5) * 6) + ' ' + f(ey - 40 - r() * 60) + ' q' + f(u * 6 + (r() - .5) * 6) + ' ' + f(18 + r() * 10) + ' ' + f(u * 4) + ' ' + f(34 + r() * 14), .4, .25 + rand * .3);
     }
-    o += P('paars', 'M118 300 C112 360 130 430 205 478 C280 430 298 360 292 300', 1.8);
-    o += '<text x="200" y="590" text-anchor="middle" fill="var(--goud)" fill-opacity=".9" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="34">Charles Darwin</text>';
-    o += '<text x="200" y="622" text-anchor="middle" fill="var(--oker)" font-family="IBM Plex Mono, monospace" font-size="16" letter-spacing="3">1809 – 1882</text>';
+    o += L('M128 250 C116 290 108 330 120 372 C136 424 172 462 200 482 C228 462 264 424 280 372 C292 330 284 290 280 250', .9, .6);
+    // snor eroverheen
+    for (var m = 0; m < 40; m++) { var tm = m / 39, xm = 158 + tm * 100, ym = 262 - Math.sin(tm * Math.PI) * 6; o += L('M' + f(xm) + ' ' + f(ym) + ' q' + f((tm - .5) * 12) + ' ' + f(10 + r() * 6) + ' ' + f((tm - .5) * 30) + ' ' + f(20 + r() * 8), .55, .75); }
+    // onderschrift in oude letters
+    o += '<text x="200" y="604" text-anchor="middle" fill="var(--text)" fill-opacity=".85" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="30">Charles Darwin</text>';
+    o += '<text x="200" y="632" text-anchor="middle" fill="var(--text2)" font-family="IBM Plex Mono, monospace" font-size="14" letter-spacing="3">1809 – 1882</text>';
     return g('translate(' + tx + ' ' + ty + ') scale(' + sc + ')', o);
   }
   function ithink(x, y, s) { // zijn beroemde notitieboekschets uit 1837, vrij nagetekend
-    var r = rnd(1837), o = '<text x="' + f(x - s * .2) + '" y="' + f(y - s * 1.1) + '" fill="var(--oker)" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="' + f(s * .32) + '">I think</text>';
+    var r = rnd(1837), o = '<text x="' + f(x - s * .2) + '" y="' + f(y - s * 1.1) + '" fill="var(--text2)" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="' + f(s * .32) + '">I think</text>';
     o += C('oker', x, y + s * .35, 6, .8, vul('oker', .9)) + boom(x, y + s * .35, -1.57, s * .3, 5, 'oker', r, function (ex, ey) { return P('oker', 'M' + f(ex - 6) + ' ' + f(ey) + ' L' + f(ex + 6) + ' ' + f(ey), 1); });
-    o += '<text x="' + f(x - s * .7) + '" y="' + f(y - s * .55) + '" fill="var(--oker)" font-family="Fraunces, Georgia, serif" font-size="' + f(s * .16) + '">A</text><text x="' + f(x + s * .45) + '" y="' + f(y - s * .7) + '" fill="var(--oker)" font-family="Fraunces, Georgia, serif" font-size="' + f(s * .16) + '">B</text>';
+    o += '<text x="' + f(x - s * .7) + '" y="' + f(y - s * .55) + '" fill="var(--text2)" font-family="Fraunces, Georgia, serif" font-size="' + f(s * .16) + '">A</text><text x="' + f(x + s * .45) + '" y="' + f(y - s * .7) + '" fill="var(--text2)" font-family="Fraunces, Georgia, serif" font-size="' + f(s * .16) + '">B</text>';
     return o;
   }
   function vink(x, y, s, snavel, c) {
@@ -134,7 +158,7 @@
   function schip(x, y, s) {
     var o = P('oker', 'M' + f(x - s) + ' ' + y + ' L' + f(x + s * 1.1) + ' ' + y + ' L' + f(x + s * .8) + ' ' + f(y + s * .3) + ' L' + f(x - s * .8) + ' ' + f(y + s * .3) + 'Z', 1.4, vul('oker', .3));
     [-.5, .1, .6].forEach(function (m, i) { var mx = x + m * s, h = s * (1.4 - i * .2); o += P('oker', 'M' + f(mx) + ' ' + y + ' L' + f(mx) + ' ' + f(y - h), 1.1); for (var z = 0; z < 3; z++) o += P('goud', 'M' + f(mx - s * .25) + ' ' + f(y - h * (.3 + z * .25)) + ' Q' + f(mx) + ' ' + f(y - h * (.3 + z * .25) - s * .12) + ' ' + f(mx + s * .25) + ' ' + f(y - h * (.3 + z * .25)) + ' L' + f(mx + s * .2) + ' ' + f(y - h * (.12 + z * .25)) + ' L' + f(mx - s * .2) + ' ' + f(y - h * (.12 + z * .25)) + 'Z', .7, vul('goud', .25)); });
-    return o + '<text x="' + f(x - s * .3) + '" y="' + f(y + s * .62) + '" fill="var(--oker)" font-family="IBM Plex Mono, monospace" font-size="' + f(s * .17) + '" letter-spacing="2">HMS BEAGLE</text>';
+    return o + '<text x="' + f(x - s * .3) + '" y="' + f(y + s * .62) + '" fill="var(--text2)" font-family="IBM Plex Mono, monospace" font-size="' + f(s * .17) + '" letter-spacing="2">HMS BEAGLE</text>';
   }
   function schildpad(x, y, s) { var o = P('groen', 'M' + f(x - s) + ' ' + y + ' C' + f(x - s) + ' ' + f(y - s * 1.1) + ' ' + f(x + s) + ' ' + f(y - s * 1.1) + ' ' + f(x + s) + ' ' + y + 'Z', 1.4, vul('groen', .25)); o += raat(x - s * .55, y - s * .62, s * .2, 3, 'groen'); return o + P('groen', 'M' + f(x + s) + ' ' + f(y - s * .2) + ' Q' + f(x + s * 1.5) + ' ' + f(y - s * .5) + ' ' + f(x + s * 1.6) + ' ' + f(y - s * .2), 1.4) + P('groen', 'M' + f(x - s * .6) + ' ' + y + ' l0 ' + f(s * .3) + ' M' + f(x + s * .6) + ' ' + y + ' l0 ' + f(s * .3), 1.4); }
 
@@ -146,12 +170,12 @@
     return o + veel(30, 5, function (q, k) { return C(KL[k % 6], q() * 1600, q() * 1000, 3 + q() * 9, .7, vul(KL[k % 6], .5)); }); };
   T.dna = function () { var o = wolken(21, 9); o += helix(-50, 120, 1650, 420, 70, 9, 'teal', 'paars') + helix(-50, 900, 1650, 640, 55, 8, 'koraal', 'goud') + helix(1200, -50, 1450, 1050, 45, 6, 'groen', 'teal');
     o += chromosoom(260, 520, 90, .3, 'paars') + chromosoom(1420, 160, 70, -.4, 'koraal') + chromosoom(820, 980, 60, .9, 'teal') + chromosoom(560, 90, 50, 1.2, 'groen');
-    return o + veel(40, 8, function (q, k) { return '<text x="' + f(q() * 1600) + '" y="' + f(q() * 1000) + '" fill="var(--' + KL[k % 6] + ')" fill-opacity=".8" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="' + f(18 + q() * 22) + '">' + 'ATCG'[k % 4] + '</text>'; }); };
+    return o + veel(40, 8, function (q, k) { return '<text x="' + f(q() * 1600) + '" y="' + f(q() * 1000) + '" fill="var(--' + kleur(KL[k % 6]) + ')" fill-opacity=".7" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="' + f(18 + q() * 22) + '">' + 'ATCG'[k % 4] + '</text>'; }); };
   T.stofwisseling = function () { var o = wolken(31, 9); // zon, bladeren, mitochondriën, energie
     o += C('goud', 1350, 170, 110, 2, vul('goud', .35)) + veel(24, 2, function (q, k) { var a = k / 24 * 6.28; return P('goud', 'M' + f(1350 + 130 * Math.cos(a)) + ' ' + f(170 + 130 * Math.sin(a)) + ' L' + f(1350 + (190 + (k % 2) * 50) * Math.cos(a)) + ' ' + f(170 + (190 + (k % 2) * 50) * Math.sin(a)), 1.4); });
     o += veel(16, 4, function (q) { return blad(q() * 1500, 200 + q() * 800, 80 + q() * 120, q() * 6.28, q() < .5 ? 'groen' : 'teal'); });
     o += veel(10, 6, function (q) { var x = q() * 1500, y = q() * 950, a = q() * 180; return E('koraal', x, y, 70, 34, a, 1.4, vul('koraal', .3)) + P('koraal', 'M' + (x - 50) + ' ' + y + ' l12 -18 l12 30 l12 -30 l12 30 l12 -30 l12 30 l12 -12', .8, 'transform="rotate(' + f(a) + ' ' + f(x) + ' ' + f(y) + ')"'); });
-    return o + veel(18, 9, function (q, k) { return '<text x="' + f(q() * 1600) + '" y="' + f(q() * 1000) + '" fill="var(--' + KL[k % 6] + ')" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="' + f(20 + q() * 18) + '">' + ['ATP', 'O₂', 'CO₂', 'H₂O', 'C₆H₁₂O₆'][k % 5] + '</text>'; }); };
+    return o + veel(18, 9, function (q, k) { return '<text x="' + f(q() * 1600) + '" y="' + f(q() * 1000) + '" fill="var(--' + kleur(KL[k % 6]) + ')" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="' + f(20 + q() * 18) + '">' + ['ATP', 'O₂', 'CO₂', 'H₂O', 'C₆H₁₂O₆'][k % 5] + '</text>'; }); };
   T.voeding = function () { var o = wolken(41, 9); o += veel(1, 1, function () { var q = ''; for (var i = 0; i < 18; i++) q += vlok(60 + i * 88, 1000, 60, 220 + (i % 3) * 50, KL[i % 6]); return q; });
     o += P('oker', 'M-40 120 C300 40 420 300 700 200 S1100 40 1300 220 S1500 420 1680 300', 3, vul('oker', .08)) + P('oker', 'M-40 190 C300 110 420 370 700 270 S1100 110 1300 290 S1500 490 1680 370', 3);
     o += veel(40, 3, function (q, k) { var x = q() * 1600, y = 120 + q() * 600; return k % 3 ? C(KL[k % 6], x, y, 6 + q() * 12, .8, vul(KL[k % 6], .5)) : P(KL[k % 6], 'M' + f(x) + ' ' + f(y) + ' l14 -8 l14 8 l14 -8 l14 8', 1); });
@@ -163,7 +187,7 @@
     o += P('teal', 'M790 60 L790 330', 6) + P('teal', 'M790 330 C700 360 620 420 520 470 M790 330 C880 360 960 420 1080 470', 4);
     o += P('teal', 'M760 340 C560 300 360 420 360 700 C360 900 600 940 740 860 Z', 2, vul('teal', .1)) + P('teal', 'M820 340 C1020 300 1240 420 1240 700 C1240 900 1000 940 860 860 Z', 2, vul('teal', .1));
     o += boom(520, 470, 2.0, 120, 6, 'koraal', r, function (x, y) { return C('koraal', x, y, 9, .6, vul('koraal', .5)) + C('koraal', x + 9, y + 6, 7, .5, vul('koraal', .4)); }) + boom(1080, 470, 1.1, 120, 6, 'koraal', r, function (x, y) { return C('koraal', x, y, 9, .6, vul('koraal', .5)) + C('koraal', x - 9, y + 6, 7, .5, vul('koraal', .4)); });
-    return o + veel(40, 4, function (q, k) { var x = q() * 1600, y = q() * 1000; return C(k % 2 ? 'teal' : 'goud', x, y, 8 + q() * 20, .8, k % 3 ? '' : vul('teal', .3)) + (k % 5 === 0 ? '<text x="' + f(x) + '" y="' + f(y) + '" fill="var(--' + (k % 2 ? 'teal' : 'goud') + ')" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22">' + (k % 2 ? 'O₂' : 'CO₂') + '</text>' : ''); }); };
+    return o + veel(40, 4, function (q, k) { var x = q() * 1600, y = q() * 1000; return C(k % 2 ? 'teal' : 'goud', x, y, 8 + q() * 20, .8, k % 3 ? '' : vul('teal', .3)) + (k % 5 === 0 ? '<text x="' + f(x) + '" y="' + f(y) + '" fill="var(--' + kleur(k % 2 ? 'teal' : 'goud') + ')" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="22">' + (k % 2 ? 'O₂' : 'CO₂') + '</text>' : ''); }); };
   T.afweer = function () { var o = wolken(71, 9); o += veel(14, 3, function (q, k) { return virus(q() * 1600, q() * 1000, 22 + q() * 34, ['koraal', 'paars', 'goud'][k % 3]); });
     o += veel(30, 5, function (q, k) { return antistof(q() * 1600, q() * 1000, 26 + q() * 26, q() * 360, ['teal', 'groen', 'paars'][k % 3]); });
     o += veel(4, 8, function (q) { var x = 200 + q() * 1200, y = 150 + q() * 700, d = '', R = 110; for (var t = 0; t <= 6.3; t += .3) { var rr = R * (1 + .25 * Math.sin(t * 4 + x)); d += (d ? ' L' : 'M') + f(x + rr * Math.cos(t)) + ' ' + f(y + rr * Math.sin(t)); } return P('teal', d + 'Z', 1.6, vul('teal', .15)) + C('paars', x, y, 34, 1, vul('paars', .35)); });
@@ -180,7 +204,7 @@
     o += veel(10, 7, function (q, k) { var x = (k % 2 ? 180 : 560) + (q() - .5) * 60, y = 100 + k * 90; return blad(x, y, 80 + q() * 40, k % 2 ? -.4 : 3.5, 'groen') + rank(x + 30, y + 40, 18, 'groen'); });
     o += veel(9, 3, function (q) { return erwtepeul(250 + q() * 1200, 450 + q() * 520, 130 + q() * 60, q() * 6.28); });
     return o + veel(30, 5, function (q, k) { return C(k % 2 ? 'goud' : 'groen', q() * 1600, q() * 1000, 6 + q() * 10, .8, vul(k % 2 ? 'goud' : 'groen', .8)); }) + chromosoom(900, 200, 70, .4, 'koraal') + chromosoom(1450, 620, 60, -.3, 'teal'); };
-  T.evolutie = function () { var o = wolken(111, 10); o += ithink(170, 470, 260) + schildpad(1430, 640, 70) + vink(1470, 380, 60, 2, 'paars');
+  T.evolutie = function () { var o = wolken(111, 10); o += ithink(150, 640, 190) + schildpad(1430, 640, 70) + vink(1470, 380, 60, 2, 'paars');
     o += vink(160, 760, 70, 0, 'goud') + vink(380, 820, 60, 1, 'koraal') + vink(600, 760, 55, 2, 'teal') + vink(840, 880, 50, 0, 'groen');
     o += golf(960, 14, 'teal', 1.2) + golf(990, 12, 'teal', .8) + schip(1450, 930, 110);
     return o + veel(10, 4, function (q) { return blad(q() * 1600, q() * 200, 50 + q() * 40, q() * 6.28, 'groen'); }); };
@@ -200,10 +224,11 @@
     return o + veel(8, 4, function (q) { return blad(q() * 1600, q() * 1000, 70 + q() * 60, q() * 6.28, 'groen'); }) + bij(900, 200, 26) + vink(1400, 820, 60, 1, 'koraal') + veel(20, 2, function (q, k) { return C(KL[k % 6], q() * 1600, q() * 1000, 5 + q() * 9, .7, vul(KL[k % 6], .5)); }); };
   T.extra = function () { var o = wolken(161, 9); return o + helix(-40, 200, 1640, 500, 60, 8, 'paars', 'teal') + cel(1300, 760, 150, 9) + virus(300, 760, 50, 'koraal') + neuron(500, 300, 300, .4, 'goud', 9) + ithink(1350, 260, 260); };
 
+  Object.keys(T).forEach(function (id) { var fn = T[id]; T[id] = function () { ACC = ACCENT[id] || []; var o = DEFS + fn(); ACC = []; return o; }; });
   window.THEMAKUNST = T;
   /* hoofdfiguur per thema, groot in de kop van de themapagina: [viewBox, inhoud] */
   var H = {
-    evolutie: ['0 0 400 640', function () { return darwin(0, 0, 1); }],
+    evolutie: ['0 0 400 645', function () { return darwin(0, 0, 1); }],
     cellen: ['0 0 400 400', function () { return cel(200, 200, 165, 3); }],
     dna: ['0 0 400 400', function () { return helix(200, -10, 200, 410, 80, 2.5, 'teal', 'paars') + chromosoom(90, 300, 55, .4, 'koraal') + chromosoom(320, 110, 45, -.5, 'groen'); }],
     stofwisseling: ['0 0 400 400', function () { return C('goud', 280, 110, 60, 1.6, vul('goud', .4)) + blad(40, 300, 260, -.6, 'groen') + blad(120, 360, 160, -1.2, 'teal'); }],
@@ -213,7 +238,7 @@
     afweer: ['0 0 400 400', function () { return virus(200, 200, 90, 'koraal') + antistof(60, 90, 40, -30, 'teal') + antistof(340, 110, 36, 40, 'paars') + antistof(330, 330, 40, 140, 'groen') + antistof(70, 320, 34, -140, 'teal'); }],
     regeling: ['0 0 400 400', function () { return neuron(110, 170, 300, .35, 'paars', 1); }],
     voortplanting: ['0 0 400 400', function () { var o = C('koraal', 250, 210, 120, 2.2, vul('koraal', .22)) + C('goud', 250, 210, 36, 1.2, vul('goud', .45)); for (var k = 0; k < 22; k++) { var a = k / 22 * 6.28; o += C('oker', 250 + 140 * Math.cos(a), 210 + 140 * Math.sin(a), 7, .6, vul('oker', .4)); } return o + zaadcel(60, 120, 36, .4, 'teal') + zaadcel(50, 300, 32, -.3, 'paars') + zaadcel(110, 360, 30, -.8, 'groen'); }],
-    erfelijkheid: ['0 0 400 400', function () { var o = '', x0 = 120, y0 = 30, s = 80; for (var i = 0; i <= 2; i++) o += P('paars', 'M' + x0 + ' ' + (y0 + i * s) + ' l' + (2 * s) + ' 0', 1) + P('paars', 'M' + (x0 + i * s) + ' ' + y0 + ' l0 ' + (2 * s), 1); [['AA', 'Aa'], ['Aa', 'aa']].forEach(function (rij, j) { rij.forEach(function (t, i) { o += '<text x="' + (x0 + i * s + 18) + '" y="' + (y0 + j * s + 52) + '" fill="var(--' + (t === 'aa' ? 'groen' : 'goud') + ')" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="34">' + t + '</text>'; }); }); return o + erwtepeul(30, 300, 230, -.25) + erwtepeul(200, 370, 170, -.1) + rank(40, 230, 20, 'groen'); }],
+    erfelijkheid: ['0 0 400 400', function () { var o = '', x0 = 120, y0 = 30, s = 80; for (var i = 0; i <= 2; i++) o += P('paars', 'M' + x0 + ' ' + (y0 + i * s) + ' l' + (2 * s) + ' 0', 1) + P('paars', 'M' + (x0 + i * s) + ' ' + y0 + ' l0 ' + (2 * s), 1); [['AA', 'Aa'], ['Aa', 'aa']].forEach(function (rij, j) { rij.forEach(function (t, i) { o += '<text x="' + (x0 + i * s + 18) + '" y="' + (y0 + j * s + 52) + '" fill="var(--' + kleur(t === 'aa' ? 'groen' : 'goud') + ')" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="34">' + t + '</text>'; }); }); return o + erwtepeul(30, 300, 230, -.25) + erwtepeul(200, 370, 170, -.1) + rank(40, 230, 20, 'groen'); }],
     ecologie: ['0 0 400 400', function () { return C('goud', 320, 70, 40, 1.4, vul('goud', .4)) + loofboom(120, 360, 300, 'groen', 2) + den(290, 370, 230, 'groen') + vogel(220, 90, 18, 'paars') + vogel(260, 130, 12, 'paars') + P('oker', 'M0 370 L400 370', 1.2); }],
     gedrag: ['0 0 400 400', function () { return raat(70, 60, 40, 4, 'goud') + bij(300, 300, 40) + P('oker', 'M120 320 C120 250 230 250 230 320 C230 390 120 390 120 320 Z M175 270 L175 370', 1.2, 'stroke-dasharray="8 6"'); }],
     planten: ['0 0 400 400', function () { var r = rnd(4); return boom(200, 300, 1.57, 40, 5, 'oker', r) + P('groen', 'M200 300 C190 220 215 150 200 80', 2.4) + blad(200, 250, 110, -.5, 'groen') + blad(200, 200, 100, 3.6, 'teal') + bloem(200, 70, 40, 'koraal', 9) + P('oker', 'M20 300 L380 300', 1); }],
@@ -221,6 +246,6 @@
     extra: ['0 0 400 400', function () { return ithink(200, 200, 300); }]
   };
   window.THEMAHELD = {};
-  Object.keys(H).forEach(function (id) { window.THEMAHELD[id] = function () { return '<svg viewBox="' + H[id][0] + '" fill="none" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="">' + H[id][1]() + '</svg>'; }; });
+  Object.keys(H).forEach(function (id) { window.THEMAHELD[id] = function () { ACC = ACCENT[id] || []; var o = '<svg viewBox="' + H[id][0] + '" fill="none" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="' + (id === 'evolutie' ? 'Schets van Charles Darwin' : '') + '">' + DEFS + H[id][1]() + '</svg>'; ACC = []; return o; }; });
 
 })();
