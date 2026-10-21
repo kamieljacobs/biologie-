@@ -304,7 +304,13 @@
     o += vink(160, 760, 70, 0, 'goud') + vink(380, 820, 60, 1, 'koraal') + vink(600, 760, 55, 2, 'teal') + vink(840, 880, 50, 0, 'groen');
     o += golf(960, 14, 'teal', 1.2) + golf(990, 12, 'teal', .8) + schip(1450, 930, 110);
     return o + veel(10, 4, function (q) { return blad(q() * 1600, q() * 200, 50 + q() * 40, q() * 6.28, 'groen'); }); };
-  T.ecologie = function () { return woud(121); };
+  T.ecologie = function () { // ElevenLabs-gravure (Kamiel 21 okt 2026: strakke versie uitproberen); vroeger woud(121)
+    var x = 470, y = 14, w = 1060, h = 596;
+    return '<defs><radialGradient id="ecoVaag" cx=".5" cy=".45" r=".62"><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>'
+      + '<mask id="ecoMasker"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="url(#ecoVaag)"/></mask></defs>'
+      + '<rect width="1600" height="1000" fill="#0F1726"/>'
+      + '<image href="img/themakunst/ecologie-wolf.webp" x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" preserveAspectRatio="xMidYMid slice" mask="url(#ecoMasker)"/>';
+  };
   T.gedrag = function () { var o = wolken(131, 9); // spreeuwenwolk, bijendans, raat
     var r = rnd(3); for (var k = 0; k < 140; k++) { var t = k / 140, x = 200 + t * 1200 + Math.sin(t * 9) * 160, y = 220 + Math.sin(t * 5) * 120 + (r() - .5) * 120; o += vogel(x, y, 6 + r() * 10, k % 3 ? 'paars' : 'teal'); }
     o += raat(980, 560, 40, 7, 'goud') + P('oker', 'M200 700 C200 560 420 560 420 700 C420 840 200 840 200 700 Z M310 600 L310 800', 1.6, 'stroke-dasharray="10 8"');
@@ -357,7 +363,7 @@
     regeling: ['0 0 400 400', function () { return neuron(110, 170, 300, .35, 'paars', 1); }],
     voortplanting: ['0 0 400 400', function () { var o = C('koraal', 250, 210, 120, 2.2, vul('koraal', .22)) + C('goud', 250, 210, 36, 1.2, vul('goud', .45)); for (var k = 0; k < 22; k++) { var a = k / 22 * 6.28; o += C('oker', 250 + 140 * Math.cos(a), 210 + 140 * Math.sin(a), 7, .6, vul('oker', .4)); } return o + zaadcel(60, 120, 36, .4, 'teal') + zaadcel(50, 300, 32, -.3, 'paars') + zaadcel(110, 360, 30, -.8, 'groen'); }],
     erfelijkheid: ['0 0 400 400', function () { var o = '', x0 = 120, y0 = 30, s = 80; for (var i = 0; i <= 2; i++) o += P('paars', 'M' + x0 + ' ' + (y0 + i * s) + ' l' + (2 * s) + ' 0', 1) + P('paars', 'M' + (x0 + i * s) + ' ' + y0 + ' l0 ' + (2 * s), 1); [['AA', 'Aa'], ['Aa', 'aa']].forEach(function (rij, j) { rij.forEach(function (t, i) { o += '<text x="' + (x0 + i * s + 18) + '" y="' + (y0 + j * s + 52) + '" fill="var(--' + kleur(t === 'aa' ? 'groen' : 'goud') + ')" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="34">' + t + '</text>'; }); }); return o + erwtepeul(30, 300, 230, -.25) + erwtepeul(200, 370, 170, -.1) + rank(40, 230, 20, 'groen'); }],
-    ecologie: ['20 0 470 310', function () { return wolf(0, 0, 1, 'h'); }],
+    ecologie: ['20 0 470 310', function () { return ''; }], // de wolf staat nu in de plaat zelf; vroeger wolf(0, 0, 1, 'h')
     gedrag: ['0 0 400 400', function () { return raat(70, 60, 40, 4, 'goud') + bij(300, 300, 40) + P('oker', 'M120 320 C120 250 230 250 230 320 C230 390 120 390 120 320 Z M175 270 L175 370', 1.2, 'stroke-dasharray="8 6"'); }],
     examens: ['0 0 400 400', function () { var o = P('text2', 'M80 40h190l50 50v270H80z', 1.8, vul('text2', .08)) + P('text2', 'M270 40v50h50', 1.2); for (var k = 0; k < 7; k++) o += P('text2', 'M110 ' + (120 + k * 30) + 'h' + (150 + (k % 3) * 30), 1, 'opacity=".6"'); return o + P('groen', 'M120 330l20 20 50-60', 4) + C('goud', 320, 320, 56, 1.8, vul('goud', .3)) + P('koraal', 'M320 320v-38M320 320l26 14', 2.6) + g('rotate(-40 230 250)', P('goud', 'M150 240h170l26 12-26 12H150z', 1.4, vul('goud', .45))); }],
     milieu: ['0 0 400 400', function () { var o = C('teal', 200, 200, 110, 1.8, vul('teal', .25)) + E('text2', 200, 200, 55, 110, 0, .8) + P('text2', 'M90 200H310M108 140H292M108 260H292', .8); for (var k = 0; k < 9; k++) { var a0 = k / 9 * 6.283 + .06, a1 = (k + 1) / 9 * 6.283 - .06, rr = 140 + (k % 3 === 0 ? 50 : 25); o += P(k % 3 === 0 ? 'koraal' : 'groen', 'M' + f(200 + Math.cos(a0) * 122) + ' ' + f(200 + Math.sin(a0) * 122) + 'L' + f(200 + Math.cos(a0) * rr) + ' ' + f(200 + Math.sin(a0) * rr) + 'A' + rr + ' ' + rr + ' 0 0 1 ' + f(200 + Math.cos(a1) * rr) + ' ' + f(200 + Math.sin(a1) * rr) + 'L' + f(200 + Math.cos(a1) * 122) + ' ' + f(200 + Math.sin(a1) * 122) + 'Z', 1.1, vul(k % 3 === 0 ? 'koraal' : 'groen', .3)); } return o + C('goud', 200, 200, 172, 1.2, 'stroke-dasharray="6 6"'); }],
