@@ -2845,7 +2845,6 @@ function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
     return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="88" height="88" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
-  const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
   let out=grondLaag()+`<section class="wrap hero hero-kort">
     <div>
       <span class="mono">Biologie bij Kamiel</span>
@@ -2861,7 +2860,7 @@ function home(){
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
       <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
-      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen">${HICOON.includes('ob-'+kd)?`<span class="tk foto"><img src="img/kunst/iconen/home/ob-${kd}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk">${kunst(ic)}</span>`}<b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
+      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen-${kd}">${HICOON.includes('ob-'+kd)?`<span class="tk foto"><img src="img/kunst/iconen/home/ob-${kd}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk">${kunst(ic)}</span>`}<b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
       <a class="vlak-naar" href="#onderbouw">Naar Agora onderbouw ${pijl}</a>
     </article>
     <article class="vlak vlak-later" id="vlak-later">
@@ -2887,7 +2886,7 @@ function onderbouwPagina(){
   <section class="wrap blok"><div class="kdgrid">${subs.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';
     const pl=KDPLAAT.includes(lbl);
     const binnen=`${pl?`<span class="kdplaat" aria-hidden="true" style="--kp:url(img/kunst/onderbouw/${lbl}.webp?v=1)"></span>`:''}<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
-    return href?`<a class="kd${pl?' met-plaat':''}" href="#kerndoelen">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
+    return href?`<a class="kd${pl?' met-plaat':''}" href="#kerndoelen-${lbl}">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
     <div class="binnenkort"><a class="link-atlas" href="#kerndoelen">Alle onderbouwfilms en tools →</a></div></section>`;
 }
 
@@ -2919,11 +2918,19 @@ function lessen(){
   }
   return out+`</div>`;
 }
-function hoofdstuk(id){
-  const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
+const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
+function hoofdstuk(id,kd){
+  const H=HOOFDSTUKKEN[id];
+  /* onderbouw: #kerndoelen-32A toont alleen de films en tools van dat kerndoel */
+  const kdRij=kd&&id==='kerndoelen'?(NIVEAUS.onderbouw.ond[0].subs.find(x=>x[0]===kd)||null):null;
+  if(!kdRij) kd=null;
+  const hoort=x=>!kd||new RegExp('\\b'+kd+'\\b').test((x.bij||'')+' '+(x.kerndoel||''));
+  const ob=OB.find(x=>x[0]===kd);
+  const h=kd?{...H,titel:ob?ob[1]:kdRij[1],label:'Onderbouw · kerndoel '+kd,meta:ob?ob[2]:(kdRij[2]||H.meta),films:H.films.filter(hoort),tools:H.tools.filter(hoort),lessen:(H.lessen||[]).filter(hoort),komt:(H.komt||[]).filter(hoort)}:H;
+  const n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
   let out=themaLaag(id)+`<section class="kop"><div class="wrap">
     <div>
-      <a class="terug" href="#home">← Alle thema's</a>
+      <a class="terug" href="#home">← Alle thema's</a>${kd?` <a class="terug" href="#kerndoelen">· Alle onderbouwfilms</a>`:''}
       <div class="lbl mono" style="--c:var(--${KLEUR[id]||'goud'})">${esc(h.label)}</div>
       <h1>${esc(h.titel)}</h1>
       <p>${esc(h.meta)}</p>
@@ -2935,7 +2942,7 @@ function hoofdstuk(id){
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
   if((h.lessen||[]).length) out+=`<section class="lijst" id="${id}-lessen"><h2>Lessen <span class="extra-tag mono les-tag">voor de docent</span></h2><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
-  if(id!=='extra'){const E=extraVan(id);if(E.films.length||E.komt.length) out+=`<section class="lijst extra-lijst" id="${id}-extra"><h2>Extra <span class="extra-tag mono">buiten het PTA</span></h2><p class="extra-uitleg">Voor wie nieuwsgierig is en verder wil kijken. Deze films horen niet bij je toets of examen.</p>${E.films.map((f,i)=>filmRij(f,i,id,true)).join('')}${E.komt.length?`<div class="komt-lijst">${E.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em> <span class="extra-tag mono">extra</span>${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div>`:''}</section>`;}
+  if(id!=='extra'&&!kd){const E=extraVan(id);if(E.films.length||E.komt.length) out+=`<section class="lijst extra-lijst" id="${id}-extra"><h2>Extra <span class="extra-tag mono">buiten het PTA</span></h2><p class="extra-uitleg">Voor wie nieuwsgierig is en verder wil kijken. Deze films horen niet bij je toets of examen.</p>${E.films.map((f,i)=>filmRij(f,i,id,true)).join('')}${E.komt.length?`<div class="komt-lijst">${E.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em> <span class="extra-tag mono">extra</span>${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div>`:''}</section>`;}
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
   if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
@@ -2999,7 +3006,7 @@ function render(){
   else if(h==='films'){app.innerHTML=films();pagina='films'}
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
   else if(id==='lessen'){app.innerHTML=lessen();pagina='lessen'}
-  else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id);pagina=id}
+  else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id,id==='kerndoelen'?h.split('-')[1]:null);pagina=id}
   else app.innerHTML=home();
   document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(['films','tools','lessen','pta','onderbouw'].includes(pagina)?pagina:'home')));
   document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
