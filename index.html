@@ -184,6 +184,9 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .vlak li + li{border-top:1px solid var(--line)}
 .vlak-later li a{display:flex;align-items:center;gap:14px;padding:9px 24px}
 .vlak-later li a svg{margin-left:auto;color:var(--text3)}
+.vlak-onder li .tk.foto,.vlak-later li .tk.foto{width:56px;height:56px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
+.vlak-onder li:has(.tk.foto) a{grid-template-columns:56px minmax(0,1fr) auto!important}
+.vlak-onder li a:hover .tk.foto img,.vlak-later li a:hover .tk.foto img{transform:scale(1.06)}
 .stip{width:10px;height:10px;border-radius:99px;flex:none}
 .vlak-naar{display:flex;align-items:center;gap:8px;padding:14px 24px;border-top:1px solid var(--line);color:var(--goud-text);font-weight:700;margin-top:auto}
 .vlak-naar:hover{background:var(--goud-soft)}
@@ -2569,6 +2572,8 @@ const filmKunst=(href,id)=>{const slug=String(href).replace(/\/index\.html$/,'')
   return k?`<svg class="kunst" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${KLEUR[id]||'goud'})">${k}</svg>`:kunst(id)};
 
 /* themapictogrammen op de hoofdpagina als ElevenLabs-medaillon (21 okt 2026; vel in img/kunst/varianten/iconen-1..4, uitgeknipt uit vel 1); niet in de lijst = oude lijntekening */
+/* medaillons voor de rijen 'Eerste ontdekkingen' (ob-<kerndoel>) en 'Een kijkje vooruit' (v-<richting>) op de hoofdpagina, 21 okt 2026: img/kunst/iconen/home/ */
+const HICOON=['ob-32A','ob-32B','ob-32C','ob-33C','v-gedrag','v-zorg','v-lab','v-voeding','v-groen','v-onderwijs'];
 const ICOON=['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens'];
 const kunst=(id,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="${label||''}" style="--c:var(--${KLEUR[id]||'goud'})">${KUNST[id]||KUNST.cellen}</svg>`;
 
@@ -2811,12 +2816,12 @@ function home(){
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
       <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
-      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen"><span class="tk">${kunst(ic)}</span><b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
+      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen">${HICOON.includes('ob-'+kd)?`<span class="tk foto"><img src="img/kunst/iconen/home/ob-${kd}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk">${kunst(ic)}</span>`}<b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
       <a class="vlak-naar" href="#onderbouw">Naar Agora onderbouw ${pijl}</a>
     </article>
     <article class="vlak vlak-later" id="vlak-later">
       <header><span class="mono vlak-lbl">Wat word jij? · studie en beroep</span><h2>Een kijkje vooruit</h2><p>Welke opleidingen en beroepen draaien om biologie, en wat doe je daar echt?</p></header>
-      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}"><span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span><b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
+      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="tk foto"><img src="img/kunst/iconen/home/v-${id}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
       <a class="vlak-naar" href="vervolg.html">Alle richtingen ${pijl}</a>
     </article>
   </section>`;
