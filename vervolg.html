@@ -293,6 +293,22 @@ a.fr:hover .fb{border-color:var(--goud)}
 .ovg li a:hover .tk img{transform:scale(1.06)}
 @media (max-width:1040px){.ovg{grid-template-columns:1fr}.ovg-kop{border-right:0;padding:18px 22px 4px}.ovg ul{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}}
 @media (max-width:600px){.ovz>header{padding:20px 16px 14px}.ovg-kop{padding-inline:16px}.ovg ul{grid-template-columns:repeat(2,minmax(0,1fr))}.ovg .tk{width:72px;height:72px}}
+.gebiedkop .lbl{color:var(--c)}
+.kop .groot.foto{overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
+.kop .groot.foto img{width:100%;height:100%;display:block;border-radius:999px}
+.los{margin-top:22px}
+.los .gb>header,.los .gb>.intro{display:none}
+.los .gb .basis{border-top:0}
+.buren{margin-top:40px}
+.buren>.mono{color:var(--text3)}
+.buren ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.buren a{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:1px solid var(--line2);border-radius:999px;background:var(--surface)}
+.buren a:hover{border-color:var(--goud)}
+.buren a:hover b{color:var(--goud-text)}
+.buren .tk{width:40px;height:40px;border-radius:999px;overflow:hidden;display:flex;align-items:center;justify-content:center;flex:none;background:#0F1726}
+.buren .tk img{width:100%;height:100%}
+.buren .tk svg{width:28px;height:28px}
+.buren b{font:700 15px/1.2 var(--titel)}
 </style>
 </head>
 <body>
@@ -714,38 +730,40 @@ const VICOON=['geneeskunde','diergeneeskunde','tandheelkunde','farmacie','verlos
 function overzicht(){
   const tel=g=>{const b=g.basis.filter(zichtbaar),k=b.filter(x=>Array.isArray(x)).length,n=b.filter(x=>!Array.isArray(x)&&!x.schrappen).length;
     return [k?`${k} ${k===1?'film':'films'}`:'',n?`${n} komt nog`:''].filter(Boolean).join(' · ')||'komt nog'};
-  const tegel=g=>{const c=CL[g.cluster];return `<li><a href="#${g.id}" data-g="${g.id}"><span class="tk">${VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="88" height="88" loading="lazy" decoding="async">`:kunst(c.id,c.kleur)}</span><b>${esc(g.naam).replace(/(\S)wetenschappen/g,'$1\u00ADwetenschappen')}</b><span class="mat">${esc(tel(g))}</span></a></li>`};
+  const tegel=g=>{const c=CL[g.cluster];return `<li><a href="${stap>1?'?stap='+stap:''}#${g.id}"><span class="tk">${VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="88" height="88" loading="lazy" decoding="async">`:kunst(c.id,c.kleur)}</span><b>${esc(g.naam).replace(/(\S)wetenschappen/g,'$1\u00ADwetenschappen')}</b><span class="mat">${esc(tel(g))}</span></a></li>`};
   return `<section class="ovz" aria-label="Alle vakgebieden"><header><span class="mono">Alle richtingen · studie en beroep</span><h2>Van spreekkamer tot veldwerk</h2><p>Kies een vakgebied. Elk gebied heeft extra films buiten het PTA, en straks ook een werkdag, een praktijkopdracht en de opleidingen.</p></header>
-    ${CLUSTERS.map(c=>`<div class="ovg"><div class="ovg-kop"><h3>${esc(c.naam)}</h3><span class="mono">${esc(c.sub||'')}</span></div><ul>${GEBIEDEN.filter(g=>g.cluster===c.id).map(tegel).join('')}</ul></div>`).join('')}</section>`;
+    ${CLUSTERS.map(c=>`<div class="ovg" id="${c.id}"><div class="ovg-kop"><h3>${esc(c.naam)}</h3><span class="mono">${esc(c.sub||'')}</span></div><ul>${GEBIEDEN.filter(g=>g.cluster===c.id).map(tegel).join('')}</ul></div>`).join('')}</section>`;
 }
 function render(){
-  const cl=CLUSTERS.filter(c=>!filter||c.id===filter);
+  const g=GB[(location.hash||'').slice(1)];
+  document.title=(g?g.naam+' · ':'')+'Wat word jij? · Biologie bij Kamiel';
+  if(g) return gebiedPagina(g);
   app.innerHTML=`<section class="kop"><div class="wrap">
       <div><a class="terug" href="index.html#home">← Alle thema's</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
-      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Per gebied vind je extra films voor dat vak, buiten het PTA: de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
+      <p>Arts, dierenarts, psycholoog, ecoloog of forensisch onderzoeker? Hier vind je opleidingen en beroepen waarin biologie een grote rol speelt. Kies een vakgebied: per gebied vind je extra films voor dat vak, buiten het PTA, de biologie die je echt moet beheersen om aan die opleiding te beginnen.</p></div>
       <div class="groot">${kunst('kop','goud')}</div>
     </div></section>
+    <div class="wrap">${overzicht()}</div>`;
+}
+/* Eigen pagina per vakgebied: vervolg.html#<gebied> (Kamiel 21 okt 2026) */
+function gebiedPagina(g){
+  const c=CL[g.cluster], buren=GEBIEDEN.filter(x=>x.cluster===g.cluster&&x!==g);
+  const beeld=VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="220" height="220">`:kunst(c.id,c.kleur);
+  app.innerHTML=`<section class="kop gebiedkop" style="--c:var(--${c.kleur})"><div class="wrap">
+      <div><a class="terug" href="vervolg.html${stap>1?'?stap='+stap:''}">← Alle vakgebieden</a><div class="lbl mono">${esc(c.naam)} · ${esc(g.niveau)}</div><h1>${esc(g.naam)}</h1>
+      <p>${esc(g.intro)}</p></div>
+      <div class="groot${VICOON.includes(g.id)?' foto':''}">${beeld}</div>
+    </div></section>
     <div class="wrap">
-      ${overzicht()}
       <div class="stapmerk" aria-hidden="true"></div><div class="stapbalk">
-      <div class="opbouw" role="group" aria-label="Kies een stap; dat geldt voor alle vakgebieden">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><i class="kort">${s.kort}</i><span>${s.tekst}</span></button>`).join('')}</div>
-      <p class="opbouw-hint">Klik op een stap: alle vakgebieden hieronder laten dan die stap zien.</p>
+      <div class="opbouw" role="group" aria-label="Kies een stap">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><i class="kort">${s.kort}</i><span>${s.tekst}</span></button>`).join('')}</div>
+      <p class="opbouw-hint">Klik op een stap om die te bekijken.</p>
       </div>
-      ${TOON_KERN?`<section class="kern" aria-label="Gedeelde kern"><span class="embleem">${kunst('kern','goud')}</span><div>
-        <span class="mono" style="color:var(--goud-text)">Voor elk gebied</span><h2>De gedeelde kern</h2>
-        <p>Deze onderwerpen heb je bij bijna elke biologische vervolgopleiding nodig. Ze staan al op de site; per gebied komt er een verdieping bovenop.</p>
-        <div class="tags">${KERN.map(hfst).join('')}</div></div></section>`:''}
-      <div class="filters" role="group" aria-label="Filter op richting"><span class="mono">Richting</span>
-        <button class="chip" type="button" data-f="" aria-pressed="${!filter}">Alles</button>
-        ${CLUSTERS.map(c=>`<button class="chip" type="button" data-f="${c.id}" aria-pressed="${filter===c.id}">${esc(c.naam)}</button>`).join('')}
-        <span class="teller">${GEBIEDEN.filter(g=>!filter||g.cluster===filter).length} gebieden</span>
-      </div>
-      ${cl.map(c=>`<section class="cluster" style="--c:var(--${c.kleur})"><h2><span class="stip"></span>${esc(c.naam)}</h2><p>${esc(c.tekst)}</p>
-        <div class="raster">${GEBIEDEN.filter(g=>g.cluster===c.id).map(kaart).join('')}</div></section>`).join('')}
+      <div class="los">${kaart(g)}</div>
+      ${buren.length?`<section class="buren"><span class="mono">Ook in ${esc(c.naam.toLowerCase())}</span><ul>${buren.map(x=>`<li><a href="#${x.id}"><span class="tk">${VICOON.includes(x.id)?`<img src="img/kunst/iconen/vervolg/${x.id}.webp?v=1" alt="" width="56" height="56" loading="lazy">`:kunst(c.id,c.kleur)}</span><b>${esc(x.naam)}</b></a></li>`).join('')}</ul></section>`:''}
     </div>`;
 }
-app.addEventListener('click',e=>{const t=e.target.closest('[data-g]');if(t){e.preventDefault();const g=GB[t.dataset.g];if(filter&&g&&g.cluster!==filter){filter='';render();plak()}
-  const n=document.getElementById(t.dataset.g);if(n){const vast=document.querySelector('.stapbalk'),bh=(document.querySelector('.bar')||{offsetHeight:0}).offsetHeight+(vast?92:0);scrollTo({top:scrollY+n.getBoundingClientRect().top-bh-12,behavior:'smooth'});history.replaceState(null,'','#'+t.dataset.g)}return}
+app.addEventListener('click',e=>{
   const s=e.target.closest('[data-stap]');if(s){const vast=document.querySelector('.stapbalk.vast'),bh=vast?vast.getBoundingClientRect().bottom:0;let anker=null,dy=0;
   if(vast){anker=[...document.querySelectorAll('.gb')].find(x=>x.getBoundingClientRect().bottom>bh+40);if(anker)dy=anker.getBoundingClientRect().top;}
   const y=s.getBoundingClientRect().top;stap=+s.dataset.stap;const u=new URL(location.href);if(stap===1)u.searchParams.delete('stap');else u.searchParams.set('stap',stap);history.replaceState(null,'',u);render();
@@ -757,7 +775,8 @@ function plak(){const nav=document.querySelector('.bar'),h=nav?nav.offsetHeight:
   const m=document.querySelector('.stapmerk'),b=document.querySelector('.stapbalk');if(m&&b)b.classList.toggle('vast',m.getBoundingClientRect().top<h);}
 addEventListener('scroll',plak,{passive:true});addEventListener('resize',plak);
 themaKnop(); render(); plak();
-const doel=document.getElementById((location.hash||'').slice(1)); if(doel&&!CL[doel.id]) doel.scrollIntoView();
+addEventListener('hashchange',()=>{const h=(location.hash||'').slice(1);if(GB[h]||!h){render();plak();scrollTo(0,0)}else if(!document.getElementById(h)){render();plak()}const d=document.getElementById(h);if(d&&CL[h])d.scrollIntoView({behavior:'smooth',block:'start'})});
+{const h=(location.hash||'').slice(1);if(CL[h]){const d=document.getElementById(h);if(d)d.scrollIntoView()}}
 })();
 </script>
 <script>
