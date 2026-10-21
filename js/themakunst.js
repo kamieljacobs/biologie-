@@ -305,7 +305,7 @@
     o += golf(960, 14, 'teal', 1.2) + golf(990, 12, 'teal', .8) + schip(1450, 930, 110);
     return o + veel(10, 4, function (q) { return blad(q() * 1600, q() * 200, 50 + q() * 40, q() * 6.28, 'groen'); }); };
   T.ecologie = function () { // ElevenLabs-gravure (Kamiel 21 okt 2026: strakke versie uitproberen); vroeger woud(121)
-    var x = 470, y = 115, w = 1060, h = 596;
+    var x = 830, y = 215, w = 780, h = 439; // kleiner en lager (21 okt 2026): maan en wolf niet meer achter de menubalk of buiten beeld
     return '<defs><radialGradient id="ecoVaag" cx=".5" cy=".45" r=".62"><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>'
       + '<mask id="ecoMasker"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" fill="url(#ecoVaag)"/></mask></defs>'
       + '<rect width="1600" height="1000" fill="#0F1726"/>'
