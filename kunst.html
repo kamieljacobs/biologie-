@@ -40,7 +40,7 @@ a.figlink{display:block;text-decoration:none}
 <div id="lijst"></div>
 <section class="thema">
   <h2>Pictogrammen van de thema's</h2>
-  <p>De ronde medaillons op de hoofdpagina, uitgeknipt uit één vel zodat ze dezelfde stijl hebben (img/kunst/iconen/; Kamiel 21 okt 2026: de eerste, klassieke versie voelde te vergankelijk, dus nu een frissere; de klassieke staat in iconen/klassiek/).</p>
+  <p>De ronde medaillons op de hoofdpagina, uitgeknipt uit één vel zodat ze dezelfde stijl hebben (img/kunst/iconen/; Kamiel 21 okt 2026: de eerste, klassieke versie voelde te vergankelijk, daarna een frisse, glanzende versie (iconen/fris/), en nu een tussenversie: fijne inktlijnen met heldere aquarelkleuren; de klassieke staat in iconen/klassiek/).</p>
   <div id="iconen" style="display:flex;flex-wrap:wrap;gap:14px"></div>
   <p class="lbl">Alle vellen</p><div class="var"></div>
 </section>
@@ -72,7 +72,7 @@ const THEMAS=[
 const fig=(src,cap,cls='',alt='')=>`<a class="figlink" href="${src}"><figure class="${cls}"><img src="${src}" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure></a>`;
 const ICONEN=['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens'];
 document.getElementById('iconen').innerHTML=ICONEN.map(i=>`<figure style="width:96px;background:none;border:0;text-align:center"><img src="img/kunst/iconen/${i}.webp" alt="Pictogram ${i}" style="width:80px;height:80px;aspect-ratio:1;border-radius:999px;margin:0 auto;border:1px solid var(--goud)"><figcaption style="padding:4px 0 0">${i}</figcaption></figure>`).join('');
-document.querySelector('#iconen').parentElement.querySelector('.var').innerHTML=[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-fris-${k}.webp`,`Fris vel ${k}${k===3?' · gebruikt':''}`,k===3?'gekozen':'',`Pictogramvel fris ${k}`)).join('')+[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-${k}.webp`,`Klassiek vel ${k}`,'',`Pictogramvel klassiek ${k}`)).join('');
+document.querySelector('#iconen').parentElement.querySelector('.var').innerHTML=[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-midden-${k}.webp`,`Tussenvel ${k}${k===3?' · gebruikt':''}`,k===3?'gekozen':'',`Pictogramvel tussen ${k}`)).join('')+[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-fris-${k}.webp`,`Fris vel ${k}`,'',`Pictogramvel fris ${k}`)).join('')+[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-${k}.webp`,`Klassiek vel ${k}`,'',`Pictogramvel klassiek ${k}`)).join('');
 document.getElementById('proef').innerHTML=['cellen','dna','evolutie'].flatMap(t=>['gravure','kleur'].map(st=>fig(`img/kunst/thema/${t}-${st}.webp`,`${t} · ${st}`,'',`${t} in ${st}stijl`))).join('');
 document.getElementById('lijst').innerHTML=THEMAS.map(t=>`<section class="thema">
   <h2>${t.naam}</h2><p>${t.tekst}</p>
