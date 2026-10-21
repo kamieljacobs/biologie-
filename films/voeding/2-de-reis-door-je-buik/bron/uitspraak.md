@@ -5,7 +5,7 @@ Uitspraaktest: `stem/uitspraaktest.mp3` (12 okt 2026). Let op: een Scribe-transc
 | Woord in de ondertitel | Stem-invoer | Waarom |
 |---|---|---|
 | gastric bypass | gastric bypass | Scribe hoorde de Engelse vorm terug; "gestrik baaipas" klonk vernederlandst |
-| pH | pee-haa | ondubbelzinnig Nederlands |
+| pH | pee-haa (s25, s27); P-H (s10) | Kamiel 21 okt 2026: de eerste pH (s10) klonk fout met "pee-haa"; s10 opnieuw ingesproken met "P-H" (zelfde patroon als E-R), take 1 van 2, blind teruggehoord als "pH" |
 | (HCO₃⁻) | ha cee oo drie min | losse letters + lading voluit |
 | pepsine, gastrine, amylase, lysozymen, maagportier, waterresorptie, één tot twee | zoals geschreven | kwamen correct terug in het transcript |
 
