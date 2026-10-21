@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="js/teller.js" data-root="./"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Achtergronden vergelijken</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0F1726;--surface:#141E33;--line:rgba(143,160,181,.16);--text:#F2F2EE;--text2:#A3ACBA;--text3:#7D8899;--goud:#E0B64A;--teal:#6DB3D6;
+  --titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.55 var(--tekst)}
+main{max-width:1240px;margin:0 auto;padding:32px 16px 80px}
+a{color:var(--goud)}
+h1{font:600 clamp(28px,4vw,40px)/1.15 var(--titel);margin:0 0 8px}
+h2{font:600 24px/1.2 var(--titel);margin:0 0 4px}
+.intro{color:var(--text2);max-width:70ch;margin:0 0 32px}
+.thema{border-top:1px solid var(--line);padding:28px 0}
+.thema p{color:var(--text2);margin:0 0 16px;max-width:70ch}
+.rij{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.var{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+figure img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#0B1220}
+figcaption{font:13px/1.4 var(--meta);color:var(--text3);padding:8px 10px}
+figure.gekozen{border-color:var(--goud)}
+figure.gekozen figcaption{color:var(--goud)}
+.lbl{font:12px var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:18px 0 0}
+a.figlink{display:block;text-decoration:none}
+@media (max-width:800px){.rij{grid-template-columns:1fr}.var{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<main>
+<p><a href="index.html">← Terug naar de site</a></p>
+<h1>Achtergronden vergelijken</h1>
+<p class="intro">Alle achtergronden van de hoofdpagina op één plek: de oude, met code getekende platen naast de nieuwe beelden die met ElevenLabs zijn gemaakt. Op de hoofdpagina wisselen ze nu allemaal door elkaar (de nieuwe alleen in de donkere stand). Klik op een beeld om het groot te zien.</p>
+<div id="lijst"></div>
+<section class="thema">
+  <h2>Themapagina's</h2>
+  <p>Platen die bij één thema horen, niet in de roulatie van de hoofdpagina.</p>
+  <div class="rij">
+    <a class="figlink" href="img/themakunst/ecologie-wolf.webp"><figure><img src="img/themakunst/ecologie-wolf.webp" alt="Gravure van een huilende wolf bij maanlicht" loading="lazy"><figcaption>Ecologie · wolf (ElevenLabs)</figcaption></figure></a>
+  </div>
+</section>
+</main>
+<script>
+/* Per thema: oude plaat (img/kunst/oud/<oud>-rustig|intens.svg) en het nieuwe beeld (img/kunst/<nieuw>.webp).
+   Varianten staan in img/kunst/varianten/<voorvoegsel>-1..4.webp; 'gekozen' = welke nu op de site staat. */
+const THEMAS=[
+  {naam:'Onder de microscoop',oud:'onder-de-microscoop',nieuw:'plankton',tekst:'Radiolariën en diatomeeën. Het nieuwe beeld: Haeckel-achtig plankton in diep blauw water.',varianten:null},
+  {naam:'Groei',oud:'groei',nieuw:'groei',tekst:'Zonnebloemspiraal en varens. Nieuw: zonnebloem, opkrullende varens, nautilus en pluizenbollen.',varianten:'groei',gekozen:2},
+  {naam:'Netwerk',oud:'netwerk',nieuw:'netwerk',tekst:'Schimmeldraden. Nieuw: een oplichtend mycelium tussen boomwortels met paddenstoelen.',varianten:'netwerk',gekozen:2},
+  {naam:'In zee',oud:'in-zee',nieuw:'zee',tekst:'Kwallen en nautilus. Nieuw: kwallen, nautilus en ribkwallen met licht van boven.',varianten:'zee',gekozen:2}
+];
+const fig=(src,cap,cls='',alt='')=>`<a class="figlink" href="${src}"><figure class="${cls}"><img src="${src}" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure></a>`;
+document.getElementById('lijst').innerHTML=THEMAS.map(t=>`<section class="thema">
+  <h2>${t.naam}</h2><p>${t.tekst}</p>
+  <div class="rij">
+    ${fig(`img/kunst/oud/${t.oud}-rustig.svg`,'Oud · getekend · rustig','',`Oude getekende plaat ${t.naam}, rustige stand`)}
+    ${fig(`img/kunst/oud/${t.oud}-intens.svg`,'Oud · getekend · intens','',`Oude getekende plaat ${t.naam}, intense stand`)}
+    ${fig(`img/kunst/${t.nieuw}.webp`,'Nieuw · ElevenLabs · op de site','gekozen',`Nieuw beeld ${t.naam}`)}
+  </div>
+  ${t.varianten?`<p class="lbl">Alle varianten</p><div class="var">${[1,2,3,4].map(k=>fig(`img/kunst/varianten/${t.varianten}-${k}.webp`,`Variant ${k}${k===t.gekozen?' · gekozen':''}`,k===t.gekozen?'gekozen':'',`Variant ${k} van ${t.naam}`)).join('')}</div>`:''}
+</section>`).join('');
+</script>
+<p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
+</body>
+</html>

@@ -2708,7 +2708,7 @@ const KUNSTPLATEN=(()=>{
   return PL.map(([naam,fn])=>[naam,I=>{W=I>1?1.7:1;const o=fn(I);W=1;return o}]);
 })();
 /* extra platen als beeld (geen tekening); doen mee in de roulatie, alleen in de donkere stand */
-const FOTOPLATEN=[['Extra: plankton','img/kunst/plankton.webp']];
+const FOTOPLATEN=[['Nieuw: plankton','img/kunst/plankton.webp'],['Nieuw: groei','img/kunst/groei.webp'],['Nieuw: netwerk','img/kunst/netwerk.webp'],['Nieuw: in zee','img/kunst/zee.webp']];
 const grondLaag=()=>{if(kunstStand==='uit') return '';const I=kunstStand==='intens'?2:1,donker=root.getAttribute('data-theme')!=='light',
     n0=KUNSTPLATEN.length,start=Math.floor(Math.random()*(n0+(donker?FOTOPLATEN.length:0)));
   return `<div class="kunstgrond${I>1?' intens':''}" aria-hidden="true">${KUNSTPLATEN.map(([naam,teken],n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}" data-naam="${naam}"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">${teken(I)}</svg></div>`).join('')}${FOTOPLATEN.map(([naam,src],k)=>`<div class="grondset foto${n0+k===start?' aan':''}" data-set="${n0+k}" data-naam="${naam}"><img src="${src}" alt="" decoding="async" loading="lazy"></div>`).join('')}</div>`};
