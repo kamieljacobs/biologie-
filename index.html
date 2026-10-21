@@ -212,6 +212,17 @@ a.kd:hover{border-color:var(--goud);transform:translateY(-2px)}
 .kd-sub{color:var(--text2);font-size:14px}
 .kd-mat{color:var(--text3);font-size:12px;margin-top:auto;padding-top:6px}
 .kd.leeg{opacity:.5;border-style:dashed}
+.kd{position:relative;isolation:isolate;overflow:hidden}
+/* Vullende plaat achter de kerndoelkaart (Kamiel 21 okt 2026: bioart, iets kinderlijker voor de onderbouw); alleen in de donkere stand; lijst KDPLAAT */
+.kd .kdplaat{position:absolute;inset:0;z-index:-1;background:var(--kp) no-repeat center top/100% auto;opacity:.7;transition:opacity .25s}
+.kd .kdplaat::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--surface) 0%,color-mix(in srgb,var(--surface) 85%,transparent) 40%,transparent 66%)}
+a.kd:hover .kdplaat{opacity:.9}
+:root:not([data-theme="light"]) .kd.met-plaat{justify-content:flex-end;min-height:440px}
+:root:not([data-theme="light"]) .kd.met-plaat .kd-kunst{display:none}
+:root:not([data-theme="light"]) .kd.met-plaat .kd-code{margin-top:auto}
+:root:not([data-theme="light"]) .kd.met-plaat .kd-mat{margin-top:0}
+:root[data-theme="light"] .kd .kdplaat{display:none}
+@media (max-width:600px){:root:not([data-theme="light"]) .kd.met-plaat{min-height:300px;padding:18px 12px 16px}}
 @media (max-width:1040px){.kdgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:600px){.kdgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
@@ -2863,6 +2874,8 @@ function home(){
 }
 
 /* Agora onderbouw: kerndoelen als kaarten */
+/* Vullende gravureplaat per kerndoel: img/kunst/onderbouw/<kerndoel>.webp (21 okt 2026) */
+const KDPLAAT=['32A','32B','32C','33C'];
 const OBKUNST={'32A':'cellen','32B':'evolutie','32C':'afweer','32D':'voortplanting','33C':'ecologie'};
 function onderbouwPagina(){
   const subs=NIVEAUS.onderbouw.ond[0].subs;
@@ -2872,8 +2885,9 @@ function onderbouwPagina(){
       <p>De onderbouwstof per kerndoel. Bij elk kerndoel vind je korte video's, onderzoekjes en opdrachten.</p>
     </div></section>
   <section class="wrap blok"><div class="kdgrid">${subs.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';
-    const binnen=`<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
-    return href?`<a class="kd" href="#kerndoelen">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
+    const pl=KDPLAAT.includes(lbl);
+    const binnen=`${pl?`<span class="kdplaat" aria-hidden="true" style="--kp:url(img/kunst/onderbouw/${lbl}.webp?v=1)"></span>`:''}<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
+    return href?`<a class="kd${pl?' met-plaat':''}" href="#kerndoelen">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
     <div class="binnenkort"><a class="link-atlas" href="#kerndoelen">Alle onderbouwfilms en tools →</a></div></section>`;
 }
 
