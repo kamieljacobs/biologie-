@@ -1,6 +1,6 @@
 # Test: De reis door je buik met stills als opener
 
-- **Bestand:** `films/voeding/test-reis-hybride.html` (niet gelinkt, noindex). Kopie van `2-de-reis-door-je-buik.html` van 21 okt 2026 met één toevoeging; audio komt uit `2-de-reis-door-je-buik/audio/`.
+- **Bestand:** `films/voeding/test-reis-hybride.html` (noindex; sinds 21 okt 2026 in de Voeding-lijst als "versie 3, met stills"). Kopie van `2-de-reis-door-je-buik.html` van 21 okt 2026 met één toevoeging; audio komt uit `2-de-reis-door-je-buik/audio/`.
 - **Wat:** Kamiel wilde stills uit ElevenLabs combineren met de bestaande animatie (21 okt 2026, keuze: stills als opener, eerst als testpagina).
 - **Beeld:** 9 stills (gpt-image-2.5-sunburst, 190 credits per stuk, 1.713 totaal) in `test-reis-hybride/stills/`. ElevenLabs-flow: https://elevenlabs.io/app/flows/UmwcmFbMmTl4G82I4uaG
 - **Waar het zit:** blok `// ===== Stills uit ElevenLabs als opener` vlak boven `function render()`:
