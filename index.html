@@ -2890,7 +2890,7 @@ function onderbouwPagina(){
     </div></section>
   <section class="wrap blok"><div class="kdgrid">${subs.map(([lbl,naam,hfd,mat,href])=>{const t=href?telling('kerndoelen',lbl):'';
     const pl=KDPLAAT.includes(lbl);
-    const binnen=`${pl?`<span class="kdplaat" aria-hidden="true" style="--kp:url(img/kunst/onderbouw/${lbl}.webp?v=1)"></span>`:''}<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
+    const binnen=`${pl?`<span class="kdplaat" aria-hidden="true" style="--kp:url(img/kunst/onderbouw/${lbl}.webp?v=2)"></span>`:''}<span class="kd-kunst">${kunst(OBKUNST[lbl]||'cellen')}</span><span class="kd-code mono">Kerndoel ${esc(lbl)}</span><b>${esc(naam)}</b>${hfd?`<span class="kd-sub">${esc(hfd)}</span>`:''}<span class="kd-mat mono">${esc(t||'volgt')}</span>`;
     return href?`<a class="kd${pl?' met-plaat':''}" href="#kerndoelen-${lbl}">${binnen}</a>`:`<div class="kd leeg">${binnen}</div>`}).join('')}</div>
     <div class="binnenkort"><a class="link-atlas" href="#kerndoelen">Alle onderbouwfilms en tools →</a></div></section>`;
 }
