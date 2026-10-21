@@ -1,10 +1,13 @@
 """Knipt de 16 ronde themapictogrammen uit een ElevenLabs-vel (raster 6x3 op 16:9, laatste twee vakken leeg).
-Gebruik: python3 scripts/iconen_knippen.py <vel.png> <uitmap> [voorbeeld.png]
+Gebruik: python3 scripts/iconen_knippen.py <vel.png> <uitmap> [voorbeeld.png] [--ids a,b,c]
+(--ids: andere volgorde/namen, bv. de vakgebieden van vervolg.html; vakken na de laatste id worden overgeslagen)
 Zoekt per vak de gouden rand, knipt net binnen de rand en maakt er een ronde webp (192 px) van."""
 import sys, os
 import numpy as np
 from PIL import Image, ImageDraw
 IDS = ['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens']
+if '--ids' in sys.argv:
+    k = sys.argv.index('--ids'); IDS = sys.argv[k + 1].split(','); del sys.argv[k:k + 2]
 vel, uit = sys.argv[1], sys.argv[2]
 os.makedirs(uit, exist_ok=True)
 im = Image.open(vel).convert('RGB'); a = np.asarray(im).astype(int); H, W = a.shape[:2]
