@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 3 · Ingrijpen en variatie · Voortplanting · Biologie bij Kamiel</title>
+<meta name="description" content="Uitlegtool voor de docent, les 3 Voortplanting: anticonceptie als schakel uit de keten, de pil en terugkoppeling, betrouwbaarheid, soa's door bacteriën en virussen, ivf en embryoselectie, sekse in lagen, variaties en intersekse, sekse bij dieren, sekse en gender. Korte animaties, stap voor stap. Havo en vwo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Voortplanting · les 3 · versie 1.0 · 21 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .breed{width:min(100%, calc((100vh - 140px) * 16 / 9))}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-voortplanting">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#voortplanting">Voortplanting</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 3 · Voortplanting · voor de docent</div>
+  <h1>Ingrijpen en variatie</h1>
+  <p>Korte animaties om zelf uit te leggen, stap voor stap: anticonceptie als schakel uit de keten, de pil, betrouwbaarheid, soa's, ivf en embryoselectie, sekse in lagen, variaties, sekse bij dieren en sekse naast gender. Past bij de films <a href="../../../films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html">Anticonceptie, soa's en voortplantingstechniek</a> en <a href="../../../films/voortplanting/4-sekse-gender-diversiteit.html">Sekse, gender en diversiteit</a>.</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen bij de organen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Presentatiemodus, volledig scherm (F)">Presenteren</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Stop met presenteren (Esc)">Stop presenteren</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> presenteren. Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+    <div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. Vwo-stappen zijn paars omrand in de stippenrij; in havo worden ze overgeslagen.</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf de hormonen en organen noemen.</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#3</code> achter de link (scherm 3).</li>
+      </ul>
+      <h3>Lesopbouw (± 50 minuten)</h3>
+      <ol>
+        <li><b>Opening</b> (5 min): Lotte bij dokter Kim. Laat de klas schatten hoeveel van de 100 vrouwen met de pil in een jaar zwanger worden (scherm 2).</li>
+        <li><b>Anticonceptie</b> (12 min): de keten met een schakel eruit (scherm 3), de pil via terugkoppeling (scherm 4, koppeling met les 2) en de betrouwbaarheid (scherm 5).</li>
+        <li><b>Soa's</b> (8 min): bacterie of virus (scherm 6) en vaak zonder klachten, met chlamydia en de eileider als brug naar ivf (scherm 7).</li>
+        <li><b>Voortplantingstechniek</b> (10 min): welke schakel hapert (scherm 8), ivf stap voor stap (scherm 9) en keuzes: embryoselectie, biologisch tegenover ethisch argument (scherm 10).</li>
+        <li><b>Sekse</b> (12 min): sekse in lagen (scherm 11), als een laag anders loopt (scherm 12), dieren (scherm 13) en sekse naast gender (scherm 14). Is de tijd krap, doe dan scherm 13 snel.</li>
+        <li><b>Vooruitblik</b> (1 min, scherm 15): de toets.</li>
+        <li><b>Huiswerk</b>: de films <a href="../../../films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html">Anticonceptie, soa's en voortplantingstechniek</a> en <a href="../../../films/voortplanting/4-sekse-gender-diversiteit.html">Sekse, gender en diversiteit</a>; vwo ook <a href="../../../films/voortplanting/1-precies-op-tijd.html">Van bevruchting tot baby</a> H8, H10 en H11 (12:45–14:29 en 15:12–einde).</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Pearl-index</b>: schematische waarden voor perfect en normaal gebruik; de pil (&lt; 1 tegen ± 7) en het condoom (2 tegen ± 13) zoals in de film. De exacte waarden per methode en de bronnen staan in de briefing.</li>
+        <li><b>De pil</b> werkt via negatieve terugkoppeling op FSH en LH; het progestageen maakt ook het slijm in de baarmoederhals taai. De bloeding in de stopweek is een onttrekkingsbloeding. Mifepriston (vwo) blokkeert de progesteronreceptor.</li>
+        <li><b>Soa's</b>: bacterieel (chlamydia, gonorroe, syfilis) te genezen met antibiotica; viraal (hiv, HPV, herpes, hepatitis B) niet. Chlamydia: ± 7 van de 10 vrouwen en ± de helft van de mannen merkt niets (film). Gratis testen bij de GGD is voor risicogroepen, zoals jongeren onder de 25; sinds 2025 geen standaard chlamydiatest meer zonder klachten (zie de briefing).</li>
+        <li><b>Ivf</b>: FSH-stimulatie, onderdrukking van de eigen LH-piek en een hCG-trigger (vwo), punctie, bevruchting of ICSI, kweek tot dag 3–5, meestal één embryo terug, de rest ingevroren. In Nederland is een donor niet anoniem.</li>
+        <li><b>Sekse in lagen</b> zoals in film 4; Wolff en Müller en de SRY → SOX9-cascade zijn vwo-stappen. Frequenties (Klinefelter ± 1 op 700 jongens, Turner ± 1 op 2500 meisjes, androgeen-ongevoeligheid ± 1 op 20 000 of minder, AGS ± 15–20 per jaar in Nederland volgens het RIVM; de film zegt 10–15). Ranges in de briefing.</li>
+        <li><b>Sekse en gender</b>: definities zoals in de film. Feitelijk en neutraal; waar genderidentiteit vandaan komt, is wetenschappelijk nog niet goed bekend.</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>Films <a href="../../../films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html">Anticonceptie, soa's en voortplantingstechniek</a>, <a href="../../../films/voortplanting/4-sekse-gender-diversiteit.html">Sekse, gender en diversiteit</a> en <a href="../../../films/voortplanting/1-precies-op-tijd.html">Van bevruchting tot baby</a> met hun bronmappen; Biologie voor jou (havo, thema Voortplanting) en Nectar 4.1 H4 (vwo).</li>
+      </ul>
+    </div>
+  </div>
+</details>
+<details class="briefing" id="briefing">
+  <summary><h2>Briefing voor de docent</h2></summary>
+  <div class="intro"><p>Verdieping op docentniveau bij les 3, per onderwerp: hoe het werkt, getallen, misvattingen en wat je zegt als een leerling doorvraagt. Waar bronnen verschillen staat een range; punten die niet met een bron zijn gecontroleerd, staan er cursief bij.</p></div>
+  <details class="onderwerp"><summary>Anticonceptie als keten</summary><div><p>Elk middel grijpt in op een andere schakel: eisprong, transport van zaadcellen, bevruchting of innesteling.</p>
+<p>De <strong>combinatiepil</strong> (oestrogeen + progestageen) remt via negatieve terugkoppeling op hypothalamus en hypofyse de afgifte van FSH en LH. Er rijpt geen dominante follikel en er komt geen LH-piek, dus geen eisprong. Het progestageen maakt het cervixslijm bovendien taai. De bloeding in de stopweek is een onttrekkingsbloeding: de hormonen vallen weg, maar het is geen echte menstruatie. Prikpil, staafje en ring werken op dezelfde manier, met alleen progestageen of met een combinatie.</p>
+<p>De <strong>hormoonspiraal</strong> werkt vooral plaatselijk: het slijm wordt taai en het baarmoederslijmvlies dun. Na een jaar was in een studie nog ± 45% van de cycli ovulatoir, na vier jaar ± 75%.</p>
+<p>De <strong>koperspiraal</strong> geeft koperionen af die giftig zijn voor zaadcellen, en geeft een steriele ontsteking van het slijmvlies. Hij heeft geen invloed op de eisprong.</p>
+<p>Condoom en pessarium zijn barrières; sterilisatie onderbreekt de eileiders of zaadleiders.</p>
+<p><strong>Misvatting:</strong> "Tijdens de stopweek ben je niet beschermd." Bij correct gebruik blijft de onderdrukking ook in de stopweek bestaan.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom krijg je met een hormoonspiraal soms nog een eisprong en werkt hij toch?": de bescherming komt vooral van het slijm en het slijmvlies, niet van het remmen van de eisprong.</p>
+<p><em>Niet met een bron gecontroleerd: de werkingsdetails van pil, prikpil, staafje, ring en pessarium (standaard leerboekkennis).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.ec-ec.org/wp-content/uploads/2021/11/NHG-NETHERLANDS-CONTRACEPTION-GUIDE-2020.pdf">NHG Netherlands Contraception Guide 2020</a> · <a target="_blank" rel="noopener" href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2008/021225s019lbl.pdf">FDA-label Mirena (2008)</a></p></div></details>
+  <details class="onderwerp"><summary>Morning-afterpil en abortuspil</summary><div><p><strong>Morning-afterpil.</strong> Er zijn twee middelen:</p>
+<ul>
+<li><strong>Levonorgestrel</strong> (1,5 mg) werkt tot 72 uur na de seks. Het verstoort de LH-piek vóór de eisprong.</li>
+<li><strong>Ulipristal</strong> (30 mg) werkt tot 120 uur. Het blokkeert de progesteronreceptor.</li>
+</ul>
+<p>Bij beide geldt: hoe eerder, hoe beter, liefst binnen 12 uur. Beide werken vooral door de eisprong uit te stellen. Is de eisprong al geweest, dan werken ze niet meer. Er is geen bewijs dat ze de innesteling tegengaan, en een bestaande zwangerschap breken ze niet af.</p>
+<p>De kans op zwangerschap na gebruik is ± 1 à 2%. Een koperspiraal als noodanticonceptie (tot 120 uur) werkt het best: 0,2 à 1%. Levonorgestrel is in Nederland zonder recept te koop bij apotheek en drogist. Ulipristal is sinds 7 januari 2015 receptvrij (EU-besluit).</p>
+<p><strong>Abortuspil.</strong> Die werkt heel anders. Mifepriston blokkeert progesteron, dat de zwangerschap nodig heeft. Misoprostol volgt 12 à 72 uur later en laat de baarmoeder samentrekken. Het middel wordt gegeven tot 63 dagen na de laatste menstruatie, en de combinatie werkt bij ± 99%. Sinds 2025 mogen huisartsen na een e-learning de abortuspil voorschrijven, tot 8 weken en 6 dagen. Begin 2026 waren dat er 568. De verplichte bedenktijd van vijf dagen is per 1 januari 2023 afgeschaft.</p>
+<p><strong>Misvatting:</strong> "De morning-afterpil is een abortuspil."</p>
+<p><strong>Als een leerling vraagt</strong> "werkt hij ook als je al zwanger bent?": nee. Hij verschuift alleen de eisprong.</p>
+<p><em>Niet met een bron gecontroleerd: dat ulipristal ook kort na het begin van de LH-piek nog werkt, en dat levonorgestrel minder goed werkt bij een hoog lichaamsgewicht.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.figo.org/mechanism-action-emergency-contraception">FIGO: mechanism of action EC</a> · <a target="_blank" rel="noopener" href="https://www.nps.org.au/assets/e8ea4c00a0956bee-6087ccbe5e73-Ulipristal-acetate-emergency-contraception.pdf">NPS: ulipristal</a> · <a target="_blank" rel="noopener" href="https://basg.gv.at/en/market-surveillance/official-announcements/detail/eu-commission-releases-ellaone-morning-after-pill-from-prescription-requirement">BASG: ellaOne receptvrij (2015)</a> · <a target="_blank" rel="noopener" href="https://apotheek.nl/assets/file-uploads/Informatiefolder_patient_abortus_met_medicijnen_januari2024.pdf">Apotheek.nl: abortus met medicijnen (2024)</a> · <a target="_blank" rel="noopener" href="https://nos.nl/l/2599500">NOS (jan 2026)</a> · <a target="_blank" rel="noopener" href="https://radar.avrotros.nl/artikel/abortuspil-straks-ook-op-recept-verkrijgbaar-bij-huisarts-53894">AVROTROS Radar (dec 2022)</a></p></div></details>
+  <details class="onderwerp"><summary>Betrouwbaarheid: perfect en normaal gebruik</summary><div><p>De Pearl-index is het aantal zwangerschappen per 100 vrouwjaren gebruik. Trussell (Contraceptive Technology) onderscheidt <strong>perfect gebruik</strong> (precies volgens de regels) van <strong>typisch gebruik</strong> (zoals mensen het echt doen). Het verschil laat zien hoeveel een middel van de gebruiker afhangt.</p>
+<p>Zwangerschappen per 100 vrouwen in het eerste jaar, typisch / perfect (range tussen edities):</p>
+<ul>
+<li>combinatiepil, ring, pleister: 5–9 / 0,1–0,3</li>
+<li>mannencondoom: 14–18 / 3</li>
+<li>terugtrekken: 19–22 / 4</li>
+<li>pessarium: 12–20 / 6</li>
+<li>prikpil: 0,3–6 / 0,3</li>
+<li>koperspiraal: 0,8 / 0,6</li>
+<li>hormoonspiraal: 0,1–0,2</li>
+<li>staafje: 0,05</li>
+<li>sterilisatie vrouw: 0,5</li>
+<li>vasectomie: 0,10–0,15</li>
+<li>geen middel: 85</li>
+</ul>
+<p>De tool gebruikt de afgeronde getallen uit de film (pil ± 7, condoom ± 13).</p>
+<p><strong>Misvatting:</strong> "De pil is 99% betrouwbaar." Dat geldt alleen bij perfect gebruik. Bij typisch gebruik raakt ± 1 op de 11–20 vrouwen per jaar zwanger.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom zijn spiraal en staafje zo veel betrouwbaarder?": je kunt ze niet vergeten, dus typisch en perfect gebruik liggen vrijwel gelijk.</p>
+<p><em>Niet met een bron gecontroleerd: een aparte NHG-tabel met Pearl-indexen (de NHG-gids 2020 geeft alleen een symbolenschaal).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://glowm.com/resources/glowm/cd/pages/v6/v6c003.html">Trussell: contraceptive efficacy (GLOWM)</a> · <a target="_blank" rel="noopener" href="https://fpnotebook.com/Gyn/Contraception/Cntrcptn.htm">FPnotebook: faalpercentages (Trussell 2011)</a> · <a target="_blank" rel="noopener" href="https://www.ec-ec.org/wp-content/uploads/2021/11/NHG-NETHERLANDS-CONTRACEPTION-GUIDE-2020.pdf">NHG Contraception Guide 2020</a></p></div></details>
+  <details class="onderwerp"><summary>Soa's: bacterie of virus, chlamydia, testen, cijfers</summary><div><p><strong>Bacterie of virus.</strong> Bacteriële soa's (chlamydia, gonorroe, syfilis) zijn te genezen met antibiotica. Virale soa's (hiv, HPV, herpes, hepatitis B) zijn alleen te remmen, of te voorkomen met een vaccin (HPV, hepatitis B).</p>
+<p><strong>Chlamydia</strong> geeft bij vrouwen tot 90% van de infecties in de geslachtsorganen geen klachten, bij mannen ± 50%. Vrouwen met chlamydia hebben 1,3 à 2,4 keer zoveel kans op een ontsteking van het kleine bekken (PID), en 1,3 à 4,2 keer zoveel kans op onvruchtbaarheid door de eileiders. Het absolute risico op onvruchtbaarheid na een infectie is wel laag: 0,5 à 1%. De behandeling is doxycycline, 7 dagen.</p>
+<p><strong>Testen bij de GGD.</strong> Gratis en anoniem testen bij een Centrum Seksuele Gezondheid kan als je tot een <strong>risicogroep</strong> hoort, bijvoorbeeld jonger dan 25, klachten hebt of door een partner gewaarschuwd bent, en een drempel voelt om naar de huisarts te gaan. Anders ga je naar de huisarts, waar het eigen risico geldt. Sinds januari 2025 testen de GGD's mensen zonder klachten niet meer routinematig op chlamydia.</p>
+<p><strong>Cijfers 2025 bij de Centra Seksuele Gezondheid:</strong></p>
+<ul>
+<li>146.982 consulten</li>
+<li>14.297 keer gonorroe</li>
+<li>1.927 keer infectieuze syfilis</li>
+<li>10.731 keer chlamydia (47% minder, door het stoppen met routinematig testen)</li>
+<li>191 keer hiv</li>
+</ul>
+<p>Huisartsen deden in 2024 ± 141.000 soa-diagnoses.</p>
+<p><strong>Misvatting:</strong> "Geen klachten, dus geen soa."</p>
+<p><strong>Als een leerling vraagt</strong> "word je van chlamydia onvruchtbaar?": het risico is verhoogd, maar in absolute zin klein. Daarom test de GGD mensen zonder klachten niet meer standaard.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.rivm.nl/bibliotheek/rapporten/2026-0047.pdf">RIVM: Soa in Nederland 2025 (rapport 2026-0047)</a> · <a target="_blank" rel="noopener" href="https://richtlijnendatabase.nl/richtlijn/seksueel_overdraagbare_aandoeningen/deel_c_specifieke_soa_s/c1_chlamydiasis_inclusief_lymphogranuloma_venereum.html">Richtlijn Soa: chlamydia</a> · <a target="_blank" rel="noopener" href="https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/gezondheid-en-preventie/seksuele-gezondheid/seksuele-gezondheidszorg">Rijksoverheid: seksuele gezondheidszorg</a></p></div></details>
+  <details class="onderwerp"><summary>HPV, baarmoederhalskanker en hepatitis B</summary><div><p><strong>HPV en baarmoederhalskanker.</strong> Een blijvende infectie met een hoogrisico-HPV kan via voorstadia leiden tot baarmoederhalskanker. HPV-16 en -18 veroorzaken ± 70% van de gevallen. Baarmoederhalskanker trof in 2023 ± 850 à 950 vrouwen, met ± 200 sterfgevallen. Het bevolkingsonderzoek (30–60 jaar) test eerst op hoogrisico-HPV; in 2024 was 12,4% positief.</p>
+<p><strong>HPV-vaccinatie.</strong> Meisjes van 12 kregen hem sinds 2010 in het Rijksvaccinatieprogramma, na een inhaalcampagne in 2009. Sinds 2022 krijgen jongens én meisjes een uitnodiging in het jaar dat ze 10 worden: twee prikken met een half jaar ertussen. In 2022–2023 liep een inhaalcampagne tot en met 26 jaar. In oktober 2025 adviseerde de Gezondheidsraad over te stappen van het tweewaardige naar het negenwaardige vaccin.</p>
+<p><strong>Hepatitis B.</strong> Alle kinderen geboren op of na 1 augustus 2011 krijgen het vaccin bij de zuigelingenprik. In 2025 werden 100 acute infecties gemeld, ± 60% via seks.</p>
+<p><strong>Misvatting:</strong> "HPV-vaccinatie is alleen voor meisjes." HPV veroorzaakt ook kanker van anus, penis en keel, en jongens geven het virus door.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom al op je tiende?": het vaccin werkt het best vóór het eerste seksuele contact, en de afweerreactie is jong sterker.</p>
+<p><em>Niet met een bron gecontroleerd: dat ± 8 op de 10 mensen ooit HPV oplopen, en of het negenwaardige vaccin al is ingevoerd.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.rivm.nl/sites/default/files/2025-12/factsheet-bevolkingsonderzoek-baarmoederhalskanker-2025.pdf">RIVM: factsheet BMHK 2025</a> · <a target="_blank" rel="noopener" href="https://www.nvmm.nl/pdf/articles/22721/thema-vaccinaties-1-10-jaar-hpv-vaccinatie.pdf">NVMM: HPV-vaccinatie (2019)</a> · <a target="_blank" rel="noopener" href="https://ggdwb.nl/?p=15671">GGD West-Brabant: HPV</a> · <a target="_blank" rel="noopener" href="https://www.rivm.nl/nieuws/ruim-twee-miljoen-uitnodigingen-hpv-vaccinatie-in-2023">RIVM: uitnodigingen HPV 2023</a> · <a target="_blank" rel="noopener" href="https://nos.nl/l/2585543">NOS (okt 2025)</a> · <a target="_blank" rel="noopener" href="https://rijksvaccinatieprogramma.nl/sites/default/files/2017-12/RVP%20nieuws%202010%2012.pdf">RVP-nieuws 2010: hepatitis B</a></p></div></details>
+  <details class="onderwerp"><summary>Hiv</summary><div><p><strong>Hoe het virus werkt.</strong> Hiv is een retrovirus. Het bindt aan CD4 (met CCR5 of CXCR4 als co-receptor) op T-helpercellen. Reverse transcriptase zet het RNA om in DNA, en integrase bouwt dat in het DNA van de cel in. Zo blijft het virus levenslang in rustende cellen. Zonder behandeling daalt het aantal CD4-cellen in jaren tot het niveau van aids (onder 200 per µl), met opportunistische infecties.</p>
+<p><strong>Behandeling.</strong> Combinatietherapie remt meerdere stappen tegelijk (reverse transcriptase, integrase, protease), zodat resistentie weinig kans krijgt.</p>
+<p><strong>Ondetecteerbaar = onoverdraagbaar.</strong> In de PARTNER 2-studie hadden stellen ± 77.000 keer seks zonder condoom terwijl de virale lading onder 200 kopieën/ml lag. Dat gaf nul gekoppelde overdrachten. Volgens de WHO (2023) is het risico onder 1000 kopieën/ml verwaarloosbaar.</p>
+<p><strong>Nederland, eind 2024:</strong></p>
+<ul>
+<li>± 25.890 mensen met hiv</li>
+<li>94% gediagnosticeerd, 89% behandeld, 86% viraal onderdrukt</li>
+<li>444 nieuwe diagnoses in 2024 (twintig jaar eerder ± 1200)</li>
+</ul>
+<p><strong>PrEP</strong> liep via de GGD eerst als proef (2019–2024) en wordt daar nog steeds gegeven, met controles elke 3 maanden. Bij goed gebruik is de bescherming bijna 100%. In 2025 hadden de GGD's 13.669 PrEP-gebruikers in zorg.</p>
+<p><strong>Misvatting:</strong> "Hiv-remmers genezen hiv." Het virus blijft ingebouwd in het DNA; stop je, dan komt het terug.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom niet gewoon één middel?": hiv muteert snel door een foutgevoelig reverse transcriptase. Tegen drie aangrijpingspunten tegelijk ontstaat veel moeilijker resistentie.</p>
+<p><em>Niet met een bron gecontroleerd: de mechanismebeschrijving (co-receptoren, CD4-grens 200), standaard leerboekkennis.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://i-base.info/htb/?p=34604">i-Base: PARTNER 2</a> · <a target="_blank" rel="noopener" href="https://codeblue.galencentre.org/2023/07/who-people-with-undetectable-hiv-viral-load-cant-infect-sexual-partners/">CodeBlue: WHO 2023</a> · <a target="_blank" rel="noopener" href="https://zoek.officielebekendmakingen.nl/blg-1225600.pdf">Kamerstuk: hiv-cijfers 2024</a> · <a target="_blank" rel="noopener" href="https://nltimes.nl/node/84674">NL Times: SHM 2025</a> · <a target="_blank" rel="noopener" href="https://lci.rivm.nl/sites/default/files/2026-03/08-hiv-prep.pdf">LCI-richtlijn hiv-PrEP (2026)</a> · <a target="_blank" rel="noopener" href="https://www.rivm.nl/bibliotheek/rapporten/2026-0047.pdf">RIVM rapport 2026-0047</a></p></div></details>
+  <details class="onderwerp"><summary>Antibioticaresistentie bij gonorroe</summary><div><p><strong>Hoe het kwam.</strong> Gonokokken nemen makkelijk DNA op en muteren snel. Daardoor raakten ze achtereenvolgens resistent tegen penicillines, smalspectrum-cefalosporines, tetracyclines, macroliden en fluorochinolonen.</p>
+<p><strong>Cijfers.</strong> De Nederlandse surveillance (GRAS) laat zien:</p>
+<ul>
+<li>tegen ciprofloxacine: ± 30% resistent in 2012–2018, 52% in 2021;</li>
+<li>tegen azitromycine: van 2,1% (2012) naar ± 17–18% (2021);</li>
+<li>tegen cefotaxim: laag (0,2%), maar de bacteriën worden geleidelijk minder gevoelig.</li>
+</ul>
+<p><strong>Behandeling.</strong> In Nederland is dat ceftriaxon, één injectie in de spier: 500 mg, of 1000 mg bij een keelinfectie. In 2025 werd voor het eerst in Nederland een stam gevonden die resistent is tegen ceftriaxon, opgelopen in Zuidoost-Azië en ook sterk resistent tegen azitromycine. De patiënt is met succes behandeld en de stam heeft zich niet verspreid.</p>
+<p><strong>Misvatting:</strong> "Resistentie betekent dat je lichaam gewend raakt aan antibiotica." Het is de bacteriepopulatie die door selectie verandert.</p>
+<p><strong>Als een leerling vraagt</strong> "wat als ceftriaxon ook niet meer werkt?": er zijn weinig opties over. Daarom is er surveillance, en worden partners gewaarschuwd en getest.</p>
+<p><em>Niet met een bron gecontroleerd: de exacte volgorde in de tijd en de GRAS-percentages over 2024–2025.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.rivm.nl/sites/default/files/2021-12/013333_GRAS_2021_V2_TG.pdf">RIVM: GRAS 2021</a> · <a target="_blank" rel="noopener" href="https://www.rivm.nl/gonorroe/gonokokken-resistentie">RIVM: gonokokkenresistentie</a> · <a target="_blank" rel="noopener" href="https://adult.nl.antibiotica.app/en/node/8129">SWAB: behandeling gonorroe</a> · <a target="_blank" rel="noopener" href="https://www.caister.com/hsp/abstracts/neisseria2/09.html">Caister: gonococcal AMR</a> · <a target="_blank" rel="noopener" href="https://www.rivm.nl/bibliotheek/rapporten/2026-0047.pdf">RIVM rapport 2026-0047</a></p></div></details>
+  <details class="onderwerp"><summary>Onvruchtbaarheid en ivf</summary><div><p><strong>Hoe vaak.</strong> Volgens de WHO (2023) krijgt wereldwijd ± 17,5% van de volwassenen ooit met onvruchtbaarheid te maken (± 1 op 6): na 12 maanden onbeschermde seks niet zwanger.</p>
+<p><strong>Oorzaken per schakel:</strong> geen eisprong (bijvoorbeeld bij PCOS), afgesloten eileiders (bijvoorbeeld na chlamydia), weinig of slecht bewegende zaadcellen, of geen aanwijsbare oorzaak.</p>
+<p><strong>De behandelingen.</strong> Bij <strong>IUI</strong> (inseminatie) worden opgewerkte zaadcellen in de baarmoeder gebracht. <strong>Ivf</strong> verloopt zo:</p>
+<ol>
+<li>FSH-injecties laten meerdere follikels groeien.</li>
+<li>Een GnRH-antagonist of -agonist voorkomt een eigen LH-piek.</li>
+<li>Een hCG-injectie zorgt voor de laatste rijping van de eicellen.</li>
+<li>± 36–38 uur later volgt de punctie.</li>
+<li>In het lab volgt de bevruchting, en de embryo's groeien 2 à 5 dagen.</li>
+</ol>
+<p>Bij <strong>ICSI</strong> wordt één zaadcel in de eicel gespoten, vooral bij slecht zaad.</p>
+<p><strong>Eén embryo terug.</strong> In Nederland krijgen vrouwen tot 38 jaar in de eerste twee cycli één embryo terug, anderen maximaal twee. De rest wordt ingevroren. Daardoor was in 2021 maar 2,8% van de doorgaande zwangerschappen een tweeling.</p>
+<p><strong>Slagingskans en regels.</strong> In 2021 leidde 19% (ivf) en 25% (ICSI) van de verse cycli tot een doorgaande zwangerschap, en 19% per cyclus met een ingevroren embryo. De basisverzekering vergoedt drie pogingen. Sinds 1 juni 2004 (Wet donorgegevens kunstmatige bevruchting) is donatie niet anoniem: vanaf 16 jaar kan een kind de identiteit van de donor opvragen.</p>
+<p><strong>Misvatting:</strong> "Ivf lukt bijna altijd." Per poging ± 20 à 25%.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom niet gewoon twee embryo's?": een tweelingzwangerschap geeft veel meer kans op vroeggeboorte en complicaties voor moeder en kinderen.</p>
+<p><em>Niet met een bron gecontroleerd: de verdeling van de oorzaken in percentages, en het jaar waarin het één-embryobeleid is ingevoerd.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.who.int/en/news/item/04-04-2023-1-in-6-people-globally-affected-by-infertility">WHO: 1 in 6 (2023)</a> · <a target="_blank" rel="noopener" href="https://www.nvog.nl/wp-content/uploads/2023/08/IVFlandelijk2021.pdf">NVOG: landelijke ivf-cijfers 2021</a> · <a target="_blank" rel="noopener" href="https://www.zorgsaam.org/app/uploads/2022/08/voorlichting-over-ivf-icsi.pdf">ZorgSaam: voorlichting ivf/ICSI</a> · <a target="_blank" rel="noopener" href="https://zoek.officielebekendmakingen.nl/blg-854070.pdf">Modelregeling embryotransfer (2018)</a> · <a target="_blank" rel="noopener" href="https://zoek.officielebekendmakingen.nl/blg-122940.pdf">Wet donorgegevens: evaluatie</a></p></div></details>
+  <details class="onderwerp"><summary>Embryoselectie (PGT)</summary><div><p><strong>Hoe het werkt.</strong> Bij <strong>PGT-M</strong> worden bij ivf-embryo's een paar cellen afgenomen en getest op een bekende erfelijke aandoening in de familie. Alleen embryo's zonder die aandoening gaan terug.</p>
+<p><strong>Wanneer het mag.</strong> In Nederland alleen voor paren met een hoog risico op een kind met een ernstige erfelijke aandoening. Een landelijke indicatiecommissie, met een ethicus erin, beoordeelt nieuwe aandoeningen. Alleen het Maastricht UMC+ doet de diagnostiek; de ivf zelf kan ook in Amsterdam, Groningen of Utrecht.</p>
+<p><strong>Hoe vaak.</strong> In 2023 werden 584 paren verwezen en waren er 785 analyses. Tot dan waren er in totaal 1648 kinderen na PGT geboren.</p>
+<p><strong>Wat niet mag.</strong> PGT-A (embryo's screenen om de slagingskans te verhogen) en PGT-P (polygene risicoscores) worden in Nederland niet toegepast. Selectie op geslacht is verboden (Embryowet, artikel 26), behalve bij een ernstige aandoening die aan het geslacht gekoppeld is.</p>
+<p><strong>Misvatting:</strong> "Met PGT kies je een designerbaby." Selecteren mag alleen op een specifieke, ernstige aandoening.</p>
+<p><strong>Als een leerling vraagt</strong> "waar ligt de grens van 'ernstig'?": precies daarover gaat het ethische debat, bijvoorbeeld bij aandoeningen die pas op latere leeftijd beginnen of niet altijd tot ziekte leiden. Ook de vraag wat dit zegt over hoe we mensen met die aandoening waarderen hoort daarbij.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://zoek.officielebekendmakingen.nl/blg-1163219.pdf">PGT Nederland: jaarverslag 2023</a> · <a target="_blank" rel="noopener" href="https://zoek.officielebekendmakingen.nl/kst-36417-3.pdf">Memorie van toelichting wijziging Embryowet (kst 36417-3)</a></p></div></details>
+  <details class="onderwerp"><summary>Geslachtsontwikkeling in lagen</summary><div><p><strong>De mannelijke route.</strong> Tot ± week 6 zijn de geslachtsklieren nog niet gedifferentieerd, en zijn de buizen van Müller en van Wolff allebei aanwezig. Daarna volgt bij een XY-embryo een keten:</p>
+<ul>
+<li><strong>SRY</strong> gaat aan in voorlopers van Sertolicellen (piek rond dag 44 na de bevruchting, ± week 7).</li>
+<li>SRY zet <strong>SOX9</strong> aan, dat zichzelf daarna in stand houdt.</li>
+<li>De Sertolicellen maken vanaf ± week 8 <strong>AMH</strong>: de buizen van Müller verdwijnen vóór week 10.</li>
+<li>De Leydigcellen maken vanaf week 8–9 <strong>testosteron</strong>: de buizen van Wolff worden zaadleider en zaadblaasjes.</li>
+<li>In de huid van de uitwendige geslachtsorganen zet <strong>5α-reductase</strong> testosteron om in het sterkere <strong>DHT</strong>, dat in week 9–20 penis en balzak vormt.</li>
+</ul>
+<p><strong>De vrouwelijke route</strong> is niet alleen "geen signaal". Er zijn ook actieve eierstokgenen (RSPO1/WNT4 via β-catenine, en FOXL2). Bij volwassen muizen veranderen eierstokcellen zelfs in testiscellen als je FOXL2 uitschakelt.</p>
+<p><strong>Als het anders loopt:</strong></p>
+<ul>
+<li><strong>XX-man:</strong> SRY is bij een ongelijke uitwisseling op het X-chromosoom terechtgekomen. Dit komt voor bij ± 1 op 20.000 jongens.</li>
+<li><strong>Swyer-syndroom:</strong> XY met gonaden die niet werken en een vrouwelijk uiterlijk, bij ± 1 op 80.000. Bij 10–20% daarvan ligt de oorzaak in SRY.</li>
+</ul>
+<p><strong>Misvatting:</strong> "Het Y-chromosoom maakt je man, verder niets." Het is een keten van signalen; elke schakel kan anders lopen.</p>
+<p><strong>Als een leerling vraagt</strong> "wat gebeurt er bij een tekort aan 5α-reductase?": de inwendige organen zijn mannelijk, maar de uitwendige geslachtsorganen zijn bij de geboorte vrouwelijk of onduidelijk. In de puberteit vermannelijkt het lichaam vaak alsnog.</p>
+<p><em>Niet met een bron gecontroleerd: de rol van DHT en 5α-reductase-tekort (leerboekkennis) en de details van de RSPO1/WNT4-route.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.frontiersin.org/articles/10.3389/fendo.2022.919670/full">Frontiers in Endocrinology: human sex development (2022)</a> · <a target="_blank" rel="noopener" href="https://abdn.elsevierpure.com/en/publications/somatic-sex-reprogramming-of-adult-ovaries-to-testes-by-foxl2-abl/">Uhlenhaut e.a. 2009: FOXL2</a> · <a target="_blank" rel="noopener" href="https://rjme.ro/archive/60/4/28/">RJME: 46,XX DSD</a> · <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10568573">Swyer-syndroom</a></p></div></details>
+  <details class="onderwerp"><summary>Variaties en DSD</summary><div><p><strong>Klinefelter (XXY).</strong> 1 op 500–1000 jongens (de film noemt ± 1 op 700). Maar 25–37% wordt ooit gediagnosticeerd, minder dan 10% vóór de puberteit.</p>
+<p><strong>Turner (X).</strong> ± 1 op 2500 meisjes. ± 45% heeft 45,X; de rest is meestal een mozaïek. ± 99% van de 45,X-zwangerschappen eindigt in een miskraam.</p>
+<p><strong>Complete androgeen-ongevoeligheid.</strong> 1 op 20.000–64.000. XY en zaadballen, maar de receptor voor testosteron werkt niet. Uiterlijk vrouwelijk, en geen baarmoeder, want AMH werkt wel.</p>
+<p><strong>AGS (21-hydroxylasedeficiëntie).</strong> De bijnier maakt te weinig cortisol en te veel mannelijke hormonen. Bij XX-meisjes vermannelijken de uitwendige geslachtsorganen. Bij de zoutverliezende vorm is er levensgevaarlijke uitdroging. AGS zit sinds 2002 in de hielprik. Volgens het RIVM worden er ± 15–20 kinderen per jaar met AGS geboren (± 1 op 17.000); de film zegt 10–15.</p>
+<p><strong>DSD</strong> (differences/disorders of sex development) is de medische overkoepelende term. Intersekse is de term die veel mensen zelf gebruiken. Hoe vaak het voorkomt, hangt sterk af van wat je meetelt:</p>
+<ul>
+<li>onduidelijk geslacht bij de geboorte: ± 1 op 4500;</li>
+<li>Fausto-Sterling: 1,7%, maar telt ook Klinefelter, Turner en milde, laat ontdekte AGS mee;</li>
+<li>Sax, met een smalle definitie: 0,018%;</li>
+<li>CBS 2024, op basis van zelfrapportage: 0,3%.</li>
+</ul>
+<p><strong>Misvatting:</strong> "Intersekse is hetzelfde als transgender." Intersekse gaat over lichamelijke geslachtskenmerken, transgender over genderidentiteit.</p>
+<p><strong>Als een leerling vraagt</strong> "welk getal klopt dan?": allemaal, bij hun eigen definitie. Vraag altijd wat er is meegeteld.</p>
+<p><em>Niet met een bron gecontroleerd: de ondergrens 1 op 5500 voor onduidelijk geslacht bij de geboorte.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK482314/">StatPearls: Klinefelter</a> · <a target="_blank" rel="noopener" href="https://www.merckmanuals.com/professional/pediatrics/chromosome-and-gene-abnormalities/turner-syndrome">MSD Manual: Turner</a> · <a target="_blank" rel="noopener" href="https://read.qxmd.com/read/22812659/androgen-insensitivity-syndrome">Gynecol Endocrinol 2013: AIS</a> · <a target="_blank" rel="noopener" href="https://www.pns.nl/sites/default/files/2019-10/83061_007747_AGS_Factsheet%20TG.pdf">PNS: factsheet AGS</a> · <a target="_blank" rel="noopener" href="https://adc.bmj.com/content/104/7/653">Arch Dis Child: CAH-screening NL</a> · <a target="_blank" rel="noopener" href="https://www.fsem.ac.uk/wp-content/uploads/2023/12/Disorders-of-Sex-Development-brief-statement.pdf">FSEM: DSD statement (2023)</a> · <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/12476264/">Sax 2002</a> · <a target="_blank" rel="noopener" href="https://www.cbs.nl/nl-nl/longread/statistische-trends/2024/hoeveel-lhbtqia-personen-telt-nederland-/4-discussie">CBS 2024</a></p></div></details>
+  <details class="onderwerp"><summary>Geslachtsbepaling bij dieren</summary><div><p><strong>Vogels.</strong> Mannetjes zijn ZZ, vrouwtjes ZW. Het gen DMRT1 op het Z-chromosoom werkt via dosis: met twee kopieën ontstaan zaadballen. Remt men DMRT1 in ZZ-embryo's, dan ontstaan gedeeltelijk vrouwelijke geslachtsklieren.</p>
+<p><strong>Temperatuur.</strong> Bij temperatuurafhankelijke geslachtsbepaling beslist de broedtemperatuur in het middelste derde deel van de broedtijd.</p>
+<ul>
+<li><strong>Zeeschildpadden:</strong> rond 29 °C 50/50, boven ± 31 °C alleen vrouwtjes, onder ± 27,7 °C alleen mannetjes. Op Raine Island (Australië) komen sinds de jaren negentig vrijwel alleen vrouwtjes van de soepschildpad uit.</li>
+<li><strong>Krokodillen:</strong> het patroon is vrouwtje–mannetje–vrouwtje: mannetjes bij middelhoge temperaturen, vrouwtjes bij lage én hoge. De drempels verschillen per soort en zelfs per populatie.</li>
+</ul>
+<p><strong>Vissen die van geslacht veranderen.</strong></p>
+<ul>
+<li><strong>Clownvissen</strong> zijn eerst mannetje: het grootste dier is het vrouwtje. Sterft zij, dan wordt het mannetje vrouwtje en groeit het grootste jonge dier uit tot mannetje.</li>
+<li>De <strong>blauwkoplipvis</strong> is eerst vrouwtje. Binnen minuten na het verdwijnen van het mannetje gedraagt het grootste vrouwtje zich als mannetje, en binnen ± 10 dagen zijn de eierstokken zaadballen geworden.</li>
+</ul>
+<p><strong>Misvatting:</strong> "Bij alle reptielen bepaalt de temperatuur het geslacht." Veel hagedissen en slangen hebben geslachtschromosomen.</p>
+<p><strong>Als een leerling vraagt</strong> "wat doet klimaatopwarming dan?": bij schildpadden ontstaan scheve geslachtsverhoudingen; men probeert al nesten te koelen.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1038/nature08298">Smith e.a. 2009: DMRT1 (Nature)</a> · <a target="_blank" rel="noopener" href="https://seaturtlestatus.org/articles/how-temperature-determines-sex-in-sea-turtles">SWOT: sea turtle TSD</a> · <a target="_blank" rel="noopener" href="https://datadryad.org/dataset/doi:10.5061/dryad.1t2p835">González e.a. 2019: krokodillen</a> · <a target="_blank" rel="noopener" href="https://blogs.nature.com/blog/how-changing-sex-helps-nemo-survive-and-adapt/">Nature blogs: clownvis</a> · <a target="_blank" rel="noopener" href="https://www.aip.org/inside-science/duplicate-genes-let-these-fish-switch-sex">Inside Science: blauwkoplipvis</a></p></div></details>
+  <details class="onderwerp"><summary>Sekse, genderidentiteit, genderexpressie en seksuele oriëntatie</summary><div><p><strong>Vier begrippen</strong> (definities van het NJi):</p>
+<ul>
+<li><strong>Sekse:</strong> de lichamelijke kenmerken (genen, hormonen, geslachtsorganen).</li>
+<li><strong>Genderidentiteit:</strong> hoe iemand zichzelf ervaart.</li>
+<li><strong>Genderexpressie:</strong> hoe iemand zich laat zien (kleding, gedrag, stem).</li>
+<li><strong>Seksuele oriëntatie:</strong> tot wie je je seksueel of romantisch aangetrokken voelt.</li>
+</ul>
+<p>Iemand is <strong>transgender</strong> als de genderidentiteit niet past bij het geslacht dat bij de geboorte is vastgesteld, en <strong>non-binair</strong> als die zich niet (alleen) man of vrouw voelt. Intersekse gaat over het lichaam.</p>
+<p><strong>Hoe genderidentiteit ontstaat</strong>, is weinig zeker:</p>
+<ul>
+<li>Een systematische review van tweelingstudies (2025) vond genetische én niet-gedeelde omgevingsinvloeden. De erfelijkheidsschattingen liepen van 0 tot 0,84: te uiteenlopend en met te kleine steekproeven om de grootte vast te stellen.</li>
+<li>In het grootste MRI-onderzoek tot nu toe (ENIGMA, 803 volwassenen zonder hormoonbehandeling) verschilden transgender en cisgender deelnemers gemiddeld in sommige hersenmaten. Het ging daarbij niet simpelweg om een patroon tussen man en vrouw in. Het zijn groepsgemiddelden; ze voorspellen niets over één persoon.</li>
+</ul>
+<p><strong>Hoe vaak in Nederland.</strong> SCP (2017) minstens 0,6 à 0,7%; CBS (2024) ± 1% transgender (15+); Rutgers (2023) 2,2% transgender of non-binair. De verschillen komen door de vraagstelling en de steekproef.</p>
+<p><strong>Misvatting:</strong> "Genderidentiteit en seksuele oriëntatie zijn hetzelfde."</p>
+<p><strong>Als een leerling vraagt</strong> "is het aangeboren of aangeleerd?": de wetenschap wijst op een combinatie van factoren; hoe groot elke bijdrage is, weten we niet.</p>
+<p><em>Niet met een bron gecontroleerd: definities van Transgender Netwerk Nederland, Rutgers of COC zelf (bovenstaande zijn van het NJi).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.nji.nl/kennis/seksualiteit-en-gender/wat-betekenen-sekse-en-gender">NJi: sekse en gender</a> · <a target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/s10519-025-10231-3">Conabere e.a. 2025: tweelingstudies (Behav Genet)</a> · <a target="_blank" rel="noopener" href="https://research.polyu.edu.hk/en/publications/the-neuroanatomy-of-transgender-identity-mega-analytic-findings-f/">Mueller e.a. 2021: ENIGMA</a> · <a target="_blank" rel="noopener" href="https://www.cbs.nl/nl-nl/longread/statistische-trends/2024/hoeveel-lhbtqia-personen-telt-nederland-/4-discussie">CBS 2024</a> · <a target="_blank" rel="noopener" href="https://scp.nl/binaries/scp/documenten/publicaties/2017/05/09/transgender-personen-in-nederland/Transgender%2Bpersonen%2Bin%2BNederland.pdf">SCP 2017: Transgender personen in Nederland</a></p></div></details>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 3 · versie 1.0 · 21 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase(), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Bouwstenen
+   ===================================================================================== */
+function zaadcel(ctx, x, y, ang, t, s = 1, a = 1, col = C.text, kopKleur = null) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); ctx.scale(s, s);
+  ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.beginPath();
+  for (let i = 0; i <= 20; i++) { const u = i / 20; const px = -10 - u * 46, py = Math.sin(u * 9 - t * 14) * 5 * u; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+  ctx.stroke(); ctx.beginPath(); ctx.ellipse(0, 0, 11, 7, 0, 0, 6.283); ctx.fillStyle = col; ctx.fill();
+  if (kopKleur) { ctx.fillStyle = kopKleur; roundRect(ctx, -4, -2.5, 9, 5, 2.5); ctx.fill(); }
+  ctx.restore();
+}
+function eicel(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r * 1.35, rgba(C.goud, 0.18), rgba(C.goud, 0.5), 1.5); circ(ctx, x, y, r, rgba('#F2E6C8', 0.95), C.goud, 2); circ(ctx, x + r * 0.15, y - r * 0.1, r * 0.32, rgba(C.paars, 0.7)); ctx.restore(); }
+
+// cel met kern; comps = lijst ellipsen die samen één vorm maken (voor delende cellen)
+function celVorm(ctx, comps, kleur, a = 1) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const vul = mix(kleur, C.bg, C.licht ? 0.78 : 0.62), rand = kleur;
+  ctx.strokeStyle = rand; ctx.lineWidth = 7; comps.forEach(([x, y, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x, y, Math.max(1, rx), Math.max(1, ry), 0, 0, 6.283); ctx.stroke(); });
+  ctx.fillStyle = vul; comps.forEach(([x, y, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x, y, Math.max(1, rx), Math.max(1, ry), 0, 0, 6.283); ctx.fill(); });
+  // rustig cytoplasma: een paar kleine deeltjes
+  ctx.fillStyle = rgba(kleur, 0.35); comps.slice(0, 2).forEach(([x, y, rx, ry], j) => { for (let i = 0; i < 6; i++) { const an = hash(i * 7 + j * 31) * 6.283, rr = 0.45 + 0.4 * hash(i * 13 + j); ctx.beginPath(); ctx.arc(x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 3, 0, 6.283); ctx.fill(); } });
+  ctx.restore();
+}
+// DNA als streepjescode in de kern (zelfde code = zelfde DNA)
+const CODE = ['#5BA4C9', '#E0B64A', '#7FC48F', '#E07A5F', '#8C7BBF', '#E0B64A', '#5BA4C9'];
+function kern(ctx, x, y, r, a = 1, code = CODE) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(C.paars, C.licht ? 0.16 : 0.28), rgba(C.paars, 0.8), 2.5);
+  const n = code.length, bw = r * 1.1 / n; code.forEach((c, i) => { ctx.fillStyle = c; roundRect(ctx, x - r * 0.55 + i * bw + 1, y - r * 0.42, bw - 2, r * 0.84, 2); ctx.fill(); });
+  ctx.restore();
+}
+// een cel die zich deelt (mitose) langs de x-as; u = 0..1
+function delendeCel(ctx, x, y, r, u, kleur, a = 1, metKern = true, hoek = 0) {
+  if (a <= 0.01) return; const e = ease(u), d = r * 1.2 * e, rr = r * (1 - 0.1 * Math.sin(Math.PI * e));
+  ctx.save(); ctx.translate(x, y); ctx.rotate(hoek);
+  const comps = [[-d, 0, rr, rr], [d, 0, rr, rr]]; if (e < 0.8) comps.push([0, 0, Math.max(d, 1), rr * (1 - e / 0.8)]);
+  celVorm(ctx, comps, kleur, a);
+  if (metKern) { ctx.save(); ctx.rotate(-hoek); const kx = Math.cos(hoek), ky = Math.sin(hoek);
+    if (e < 0.35) kern(ctx, 0, 0, r * 0.42, a); else { const dk = d; kern(ctx, -dk * kx, -dk * ky, r * 0.42, a * ease((e - 0.35) / 0.2)); kern(ctx, dk * kx, dk * ky, r * 0.42, a * ease((e - 0.35) / 0.2)); }
+    ctx.restore(); }
+  ctx.restore();
+}
+
+// komodovaraan (zijaanzicht, kijkt naar rechts bij kijk = 1)
+function varaan(ctx, x, y, s, o = {}) {
+  const { a = 1, t = 0, kleur = '#8C8266', tong = 0, kijk = 1, loop = 0 } = o; if (a <= 0.01) return;
+  if (a < 0.995) { laag(ctx, a, (l) => varaan(l, x, y, s, Object.assign({}, o, { a: 1 }))); return; }
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * kijk, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const donker = mix(kleur, '#000000', 0.38), buik = mix(kleur, '#FFFFFF', 0.22), stap = Math.sin(t * 5) * 12 * loop;
+  const poot = (px, py, ph, col) => { ctx.strokeStyle = col; ctx.lineWidth = 30; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 34 + ph, py + 50); ctx.lineTo(px + 14 + ph, py + 96); ctx.stroke();
+    ctx.lineWidth = 9; for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.moveTo(px + 14 + ph, py + 96); ctx.lineTo(px + 34 + ph + k * 12, py + 108 + Math.abs(k) * 2); ctx.stroke(); } };
+  poot(130, 4, stap, donker); poot(-150, 4, -stap, donker);
+  const zw = Math.sin(t * 1.3) * 12;
+  ctx.beginPath(); ctx.moveTo(-160, -36); ctx.bezierCurveTo(-340, -24, -480, 4 + zw * 0.3, -650, 62 + zw); ctx.bezierCurveTo(-480, 38 + zw * 0.3, -330, 50, -150, 56); ctx.closePath(); shape(ctx, kleur, donker, 3);
+  ctx.beginPath(); ctx.ellipse(0, 10, 205, 60, 0, 0, 6.283); shape(ctx, kleur, donker, 3);
+  ctx.beginPath(); ctx.ellipse(6, 42, 170, 20, 0, 0, 6.283); ctx.fillStyle = rgba(buik, 0.55); ctx.fill();
+  ctx.fillStyle = rgba(donker, 0.45); for (let i = 0; i < 16; i++) { ctx.beginPath(); ctx.arc(-170 + i * 22, -26 + hash(i * 3) * 26, 4 + hash(i) * 3, 0, 6.283); ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(150, -42); ctx.quadraticCurveTo(232, -64, 302, -52); ctx.quadraticCurveTo(374, -46, 396, -18); ctx.quadraticCurveTo(400, 2, 372, 8); ctx.quadraticCurveTo(302, 16, 252, 32); ctx.quadraticCurveTo(200, 48, 150, 50); shape(ctx, kleur, donker, 3);
+  ctx.strokeStyle = donker; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(394, -8); ctx.quadraticCurveTo(334, -2, 286, -14); ctx.stroke();
+  circ(ctx, 322, -34, 7, '#1A1A14'); circ(ctx, 324, -36, 2.2, '#FFFFFF');
+  if (tong > 0.01) { const L = 64 * tong; ctx.strokeStyle = '#E8C24A'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(394, -6); ctx.lineTo(394 + L, -6); ctx.lineTo(394 + L + 18, -16); ctx.moveTo(394 + L, -6); ctx.lineTo(394 + L + 18, 4); ctx.stroke(); }
+  poot(100, 18, -stap, kleur); poot(-180, 18, stap, kleur);
+  ctx.restore();
+}
+function ei(ctx, x, y, r, a = 1, scheur = 0) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); const rx = r * 0.78, n = 8;
+  const zig = (dir) => { for (let i = 0; i <= n; i++) { const u = dir > 0 ? i / n : 1 - i / n; ctx.lineTo(-rx + u * 2 * rx, (i % 2 ? -1 : 1) * r * 0.12); } };
+  if (scheur < 0.6) { ctx.beginPath(); ctx.ellipse(0, 0, rx, r, 0, 0, 6.283); shape(ctx, '#EDE6D6', '#BFB49C', 2.5);
+    if (scheur > 0.05) { ctx.save(); ctx.globalAlpha *= Math.min(1, scheur * 3); ctx.strokeStyle = '#8C8266'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-rx * 0.8, 0); for (let i = 1; i < n; i++) ctx.lineTo(-rx * 0.8 + i * rx * 1.6 / n, (i % 2 ? -1 : 1) * r * 0.12); ctx.stroke(); ctx.restore(); } }
+  else { const k = ease((scheur - 0.6) / 0.4);
+    ctx.beginPath(); ctx.moveTo(-rx, 0); ctx.ellipse(0, 0, rx, r, 0, Math.PI, 0, true); zig(-1); ctx.closePath(); shape(ctx, '#EDE6D6', '#BFB49C', 2.5);
+    ctx.save(); ctx.globalAlpha *= 1 - k; ctx.translate(r * 0.4 * k, -r * 1.1 * k); ctx.rotate(0.7 * k); ctx.beginPath(); ctx.moveTo(-rx, 0); ctx.ellipse(0, 0, rx, r, 0, Math.PI, 0, false); zig(-1); ctx.closePath(); shape(ctx, '#EDE6D6', '#BFB49C', 2.5); ctx.restore(); }
+  ctx.restore();
+}
+
+// hoofd in profiel met hypothalamus en hypofyse (zoals in de films)
+function hoofdProfiel(ctx, x, y, s = 1, o = {}) {
+  const { a = 1, hyp = 0, hth = 0 } = o; if (a <= 0.01) return { hth: [x + 60 * s, y + 10 * s], hyp: [x + 68 * s, y + 70 * s] }; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-40, 260); ctx.bezierCurveTo(-60, 160, -180, 120, -200, 0); ctx.bezierCurveTo(-220, -170, -80, -250, 40, -240); ctx.bezierCurveTo(170, -230, 230, -130, 220, -30); ctx.lineTo(250, 20); ctx.lineTo(220, 50); ctx.bezierCurveTo(230, 90, 220, 110, 200, 120); ctx.bezierCurveTo(210, 160, 180, 190, 140, 190); ctx.lineTo(120, 260); ctx.closePath(); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
+  ctx.beginPath(); ctx.ellipse(20, -80, 170, 120, -0.08, 0, 6.283); shape(ctx, rgba(C.paars, 0.16), rgba(C.paars, 0.6), 2);
+  regel(ctx, 'hersenen', -60, -110, 1, rgba(C.paars, 0.95), 28, 'center');
+  gloed(ctx, 60, 10, 80, C.oker, hth);
+  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hth; ctx.beginPath(); ctx.ellipse(60, 10, 34, 20, 0, 0, 6.283); shape(ctx, rgba(C.oker, 0.7), lighten(C.oker, 0.3), 2); ctx.restore();
+  ctx.strokeStyle = lighten(C.oker, 0.3); ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(60, 30); ctx.lineTo(66, 58); ctx.stroke();
+  gloed(ctx, 68, 70, 60, C.oker, hyp);
+  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hyp; ctx.beginPath(); ctx.arc(68, 70, 16, 0, 6.283); shape(ctx, rgba(C.oker, 0.85), lighten(C.oker, 0.3), 2); ctx.restore();
+  ctx.restore(); return { hth: [x + 60 * s, y + 10 * s], hyp: [x + 68 * s, y + 70 * s] };
+}
+
+/* ---------- mannelijke geslachtsorganen, schematische doorsnede (zijaanzicht, voorkant rechts) ----------
+   ontwerpcoördinaten rond (700, 480), zelfde tekening als film 2 */
+const MK = { zaadbal: '#D9A48F', bijbal: '#C9A35C', leider: '#E0B64A', blaasjes: '#7FC48F', prostaat: '#8C7BBF', blaas: '#5BA4C9', buis: '#C9CED6', zwel: '#B5574A' };
+const VAS = [[786, 752], [764, 700], [768, 630], [826, 586], [872, 470], [878, 360], [840, 285], [760, 262], [680, 290], [652, 360], [672, 440], [712, 480], [742, 498], [762, 516]];
+const URETHRA = [[765, 462], [762, 500], [764, 538], [790, 566], [850, 566], [884, 590], [900, 660], [918, 740], [934, 786]];
+const ZAADROUTE = [[808, 712], [792, 690], [772, 660], [770, 700], [782, 746]].concat(VAS.slice(1)).concat(URETHRA.slice(3)).concat([[948, 840]]);
+// indexen in ZAADROUTE: 0 zaadbal, 2 bijbal-kop, 4 bijbal-staart, 8 langs de blaas (voor), 13 bij het zaadblaasje, 15 prostaat, 17 urinebuis, 22 punt van de penis, 23 buiten
+function manSchema(ctx, ox, oy, s, o = {}) {
+  const { a = 1, hl = {}, zw = 0, kring = 0 } = o; const P = (x, y) => [ox + (x - 700) * s, oy + (y - 480) * s]; if (a <= 0.01) return P;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(ox, oy); ctx.scale(s, s); ctx.translate(-700, -480); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const buisKl = C.licht ? '#8E97A6' : MK.buis;
+  ctx.beginPath(); ctx.moveTo(430, 140); ctx.quadraticCurveTo(350, 400, 400, 600); ctx.quadraticCurveTo(440, 700, 580, 720); ctx.quadraticCurveTo(700, 730, 748, 650); ctx.lineTo(870, 548); ctx.quadraticCurveTo(940, 500, 950, 400); ctx.quadraticCurveTo(975, 260, 960, 140); ctx.closePath(); shape(ctx, rgba(C.mens, 0.14), rgba(C.mens, 0.7), 2);
+  ctx.beginPath(); ctx.ellipse(800, 706, 76, 88, 0.12, 0, 6.283); shape(ctx, rgba(C.mens, 0.2), rgba(C.mens, 0.7), 2);
+  gloed(ctx, 806, 706, 110, MK.zaadbal, hl.zaadbal || 0);
+  ctx.beginPath(); ctx.ellipse(808, 710, 40, 52, 0.2, 0, 6.283); shape(ctx, rgba(MK.zaadbal, 0.75), lighten(MK.zaadbal, 0.3), 2);
+  ctx.save(); ctx.beginPath(); ctx.ellipse(808, 710, 36, 48, 0.2, 0, 6.283); ctx.clip(); ctx.strokeStyle = rgba('#7A3A30', 0.55); ctx.lineWidth = 2.5; for (let r = 0; r < 4; r++) { ctx.beginPath(); for (let i = 0; i <= 40; i++) { const u = i / 40; const px = 778 + u * 64, py = 676 + r * 20 + Math.sin(u * 18 + r) * 7; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); } ctx.restore();
+  gloed(ctx, 774, 700, 70, MK.bijbal, hl.bijbal || 0);
+  ctx.strokeStyle = MK.bijbal; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(796, 662); ctx.quadraticCurveTo(758, 664, 762, 712); ctx.quadraticCurveTo(764, 744, 788, 752); ctx.stroke();
+  gloed(ctx, 770, 380, 140, MK.blaas, hl.blaas || 0);
+  ctx.beginPath(); ctx.ellipse(770, 378, 96, 86, 0, 0, 6.283); shape(ctx, rgba(MK.blaas, 0.3), MK.blaas, 2.5);
+  gloed(ctx, 662, 420, 90, MK.blaasjes, hl.blaasjes || 0);
+  ctx.save(); ctx.translate(664, 418); ctx.rotate(-0.35); ctx.beginPath(); for (let i = 0; i <= 40; i++) { const an = i / 40 * 6.283; const r = 1 + 0.12 * Math.sin(an * 5); const px = Math.cos(an) * 26 * r, py = Math.sin(an) * 60 * r; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(MK.blaasjes, 0.55), MK.blaasjes, 2); ctx.restore();
+  ctx.strokeStyle = MK.blaasjes; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(682, 468); ctx.quadraticCurveTo(700, 486, 726, 492); ctx.stroke();
+  gloed(ctx, 760, 502, 90, MK.prostaat, hl.prostaat || 0);
+  ctx.beginPath(); ctx.ellipse(760, 502, 50, 36, 0.1, 0, 6.283); shape(ctx, rgba(MK.prostaat, 0.55), lighten(MK.prostaat, 0.3), 2);
+  gloed(ctx, 870, 420, 80, MK.leider, hl.leider || 0);
+  lijnPad(ctx, VAS, MK.leider, 7 + 3 * (hl.leider || 0));
+  ctx.beginPath(); ctx.moveTo(866, 548); ctx.quadraticCurveTo(882, 660, 904, 770); ctx.quadraticCurveTo(930, 806, 956, 772); ctx.quadraticCurveTo(944, 650, 912, 524); ctx.closePath(); shape(ctx, rgba(C.mens, 0.24), rgba(C.mens, 0.75), 2);
+  if (zw > 0.01) { ctx.save(); ctx.globalAlpha *= 0.3 + 0.7 * zw; ctx.beginPath(); ctx.moveTo(880, 560); ctx.quadraticCurveTo(892, 660, 910, 752); ctx.quadraticCurveTo(926, 772, 940, 752); ctx.quadraticCurveTo(930, 650, 904, 548); ctx.closePath(); shape(ctx, rgba(MK.zwel, 0.25 + 0.45 * zw), rgba(MK.zwel, 0.8), 1.5); ctx.restore(); }
+  gloed(ctx, 880, 620, 80, buisKl, hl.buis || 0);
+  lijnPad(ctx, URETHRA, buisKl, 5 + 3 * (hl.buis || 0));
+  if (kring > 0.01) { ctx.save(); ctx.globalAlpha *= kring; ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(765, 466, 18, 8, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); return P;
+}
+
+/* ---------- vrouwelijke geslachtsorganen, schematisch vooraanzicht; ontwerpcoördinaten rond (960, 480) ---------- */
+const VK = { stok: '#C9A35C', leider: '#E0A08C', wand: '#C98A7E', slijm: '#B5574A', vagina: '#D9A48F' };
+const EILEIDER_L = [[884, 352], [820, 318], [744, 314], [688, 340], [656, 382]];
+const EIROUTE = [[1220, 448], [1262, 420]].concat(EILEIDER_L.map(([x, y]) => [1920 - x, y]).reverse().slice(1)).concat([[1000, 380]]);
+function vrouwSchema(ctx, ox, oy, s, o = {}) {
+  const { a = 1, hl = {}, dik = 0.3, eisprong = -1, eiA = 1, t = 0 } = o; const P = (x, y) => [ox + (x - 960) * s, oy + (y - 480) * s]; if (a <= 0.01) return P;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(ox, oy); ctx.scale(s, s); ctx.translate(-960, -480); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = rgba(C.mens, 0.35); ctx.lineWidth = 3; ctx.setLineDash([10, 12]); for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(960 + d * 400, 200); ctx.quadraticCurveTo(960 + d * 450, 520, 960 + d * 250, 860); ctx.stroke(); } ctx.setLineDash([]);
+  for (const d of [-1, 1]) {
+    const pts = EILEIDER_L.map(([x, y]) => [d < 0 ? x : 1920 - x, y]);
+    gloed(ctx, pts[2][0], pts[2][1], 110, VK.leider, hl.leider || 0); lijnPad(ctx, pts, VK.leider, 11);
+    const [fx, fy] = pts[pts.length - 1]; ctx.save(); ctx.translate(fx, fy); ctx.rotate(d < 0 ? 0.5 : -0.5); gloed(ctx, 0, 20, 70, VK.leider, hl.trechter || 0); ctx.beginPath(); ctx.moveTo(-6, -4); ctx.lineTo(-30, 34); ctx.lineTo(30, 34); ctx.lineTo(6, -4); ctx.closePath(); shape(ctx, rgba(VK.leider, 0.55), VK.leider, 2);
+    ctx.strokeStyle = VK.leider; ctx.lineWidth = 4; for (let i = 0; i < 6; i++) { const x0 = -28 + i * 11.2; ctx.beginPath(); ctx.moveTo(x0, 34); ctx.lineTo(x0 + Math.sin(t * 2 + i) * 3, 52 + (i % 2) * 6); ctx.stroke(); } ctx.restore();
+    const sx = d < 0 ? 700 : 1220, sy = 448; gloed(ctx, sx, sy, 90, VK.stok, hl.stok || 0);
+    ctx.strokeStyle = rgba(VK.wand, 0.6); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(sx - d * 44, sy - 4); ctx.lineTo(960 + d * 84, 400); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(sx, sy, 50, 30, d * 0.15, 0, 6.283); shape(ctx, rgba(VK.stok, 0.7), lighten(VK.stok, 0.3), 2);
+    for (let i = 0; i < 7; i++) circ(ctx, sx - 30 + hash(i * 5 + (d + 1)) * 60, sy - 16 + hash(i * 7 + 3 + d) * 32, 3 + 3 * hash(i * 11 + d), rgba('#F2E6C8', 0.8));
+  }
+  gloed(ctx, 960, 420, 170, VK.wand, hl.baarmoeder || 0);
+  ctx.beginPath(); ctx.moveTo(872, 344); ctx.quadraticCurveTo(856, 460, 926, 548); ctx.lineTo(932, 604); ctx.lineTo(988, 604); ctx.lineTo(994, 548); ctx.quadraticCurveTo(1064, 460, 1048, 344); ctx.quadraticCurveTo(960, 262, 872, 344); ctx.closePath(); shape(ctx, rgba(VK.wand, 0.6), lighten(VK.wand, 0.25), 2.5);
+  gloed(ctx, 960, 420, 110, VK.slijm, hl.slijm || 0);
+  ctx.beginPath(); ctx.moveTo(904, 360); ctx.quadraticCurveTo(960, 346, 1016, 360); ctx.quadraticCurveTo(990, 450, 964, 540); ctx.lineTo(956, 540); ctx.quadraticCurveTo(930, 450, 904, 360); ctx.closePath(); ctx.fillStyle = rgba(C.holte, C.licht ? 0.35 : 0.6); ctx.fill(); ctx.strokeStyle = rgba(VK.slijm, 0.85); ctx.lineWidth = 4 + 16 * dik; ctx.stroke();
+  gloed(ctx, 960, 580, 70, VK.wand, hl.hals || 0);
+  ctx.strokeStyle = rgba(C.holte, 0.8); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(960, 540); ctx.lineTo(960, 606); ctx.stroke();
+  gloed(ctx, 960, 700, 90, VK.vagina, hl.vagina || 0);
+  ctx.beginPath(); ctx.moveTo(926, 604); ctx.quadraticCurveTo(920, 700, 924, 800); ctx.lineTo(996, 800); ctx.quadraticCurveTo(1000, 700, 994, 604); ctx.closePath(); shape(ctx, rgba(VK.vagina, 0.45), lighten(VK.vagina, 0.25), 2);
+  ctx.strokeStyle = rgba(C.holte, 0.7); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(960, 610); ctx.lineTo(960, 800); ctx.stroke();
+  ctx.restore();
+  if (eisprong >= 0 && eiA > 0.01) { const L = padLengte(EIROUTE); const [x, y] = padPunt(EIROUTE, L[L.length - 1] * eisprong); const [sx, sy] = P(x, y); eicel(ctx, sx, sy, 11 * s, eiA); }
+  return P;
+}
+function eierstokGroot(ctx, x, y, rx, ry, o = {}) {
+  const { a = 1, n = 160, groei = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.35), lighten(VK.stok, 0.2), 2.5);
+  ctx.save(); ctx.beginPath(); ctx.ellipse(x, y, rx - 8, ry - 8, 0, 0, 6.283); ctx.clip();
+  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = 0.62 + 0.3 * v; /* rustende follikels alleen in de schors */ circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
+  ctx.restore();
+  const grp = [[x - 110, y - 36], [x - 36, y + 54], [x + 64, y - 60], [x + 118, y + 26], [x - 10, y - 80]];
+  grp.forEach(([px, py], i) => { const g = groei * (i === 3 ? 1 : 0.55); if (g <= 0.01) return; const r = 6 + (i === 3 ? 34 : 16) * g; circ(ctx, px, py, r, rgba(C.goud, 0.18), rgba(C.goud, 0.7), 2); eicel(ctx, px, py, 5 + 4 * g, 1); });
+  ctx.restore();
+}
+
+const fmtNL = (n) => Math.round(n).toLocaleString('nl-NL');
+/* =====================================================================================
+   Les 2 · hulpfuncties: hormoonkleuren, cyclus-krommen, blokken en terugkoppelpijlen
+   ===================================================================================== */
+// vaste kleur per hormoon (ook in de grafiek): FSH groen, LH goud, oestrogeen koraal, progesteron paars, testosteron teal, hCG oker
+const HK = () => ({ GnRH: C.oker, FSH: C.groen, LH: C.goud, oestrogeen: C.koraal, progesteron: C.paars, testosteron: C.teal, hCG: C.oker, oxytocine: C.teal });
+// schematische krommen over een cyclus van 28 dagen (dag, waarde 0..1)
+const KROM = {
+  FSH: [[0, 0.42], [3, 0.55], [7, 0.42], [11, 0.3], [13, 0.42], [14, 0.62], [15.5, 0.32], [20, 0.18], [26, 0.24], [28, 0.42]],
+  LH: [[0, 0.14], [10, 0.17], [12.5, 0.32], [14, 1.0], [15.5, 0.28], [18, 0.14], [28, 0.14]],
+  oestrogeen: [[0, 0.14], [6, 0.2], [10, 0.5], [12.6, 0.92], [14.2, 0.45], [16.5, 0.32], [21, 0.56], [25.5, 0.26], [28, 0.14]],
+  progesteron: [[0, 0.06], [14, 0.08], [16, 0.35], [21, 0.92], [24.5, 0.55], [27.5, 0.07], [28, 0.06]],
+  slijm: [[0, 0.55], [4.5, 0.12], [6, 0.14], [14, 0.6], [21, 0.92], [27.3, 1.0], [28, 0.55]]
+};
+function krom(pts, d) { if (d <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (d <= pts[i][0]) { const [d0, v0] = pts[i - 1], [d1, v1] = pts[i]; return lerp(v0, v1, ease((d - d0) / (d1 - d0))); } return pts[pts.length - 1][1]; }
+function lijnKrom(ctx, pts, x0, w, yb, h, col, tot = 28, a = 1, lw = 5, d0 = 0, d1 = 28) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.beginPath();
+  for (let d = d0, i = 0; d <= Math.min(tot, d1) + 1e-6; d += 0.1, i++) { const x = x0 + (d - d0) / (d1 - d0) * w, y = yb - krom(pts, d) * h; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore(); }
+// blok in een regelschema
+function blok(ctx, x, y, w, h, tekst, col, a = 1, gl = 0, sub = null) { if (a <= 0.01) return; gloed(ctx, x, y, w * 0.7, col, gl); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h / 2, w, h, 18); shape(ctx, rgba(col, C.licht ? 0.16 : 0.22), col, 3); ctx.restore();
+  regel(ctx, tekst, x, y + (sub ? -2 : 12), a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 34, a, C.text2, 24, 'center', 400); }
+// teken + of – in een rondje (stimuleren / remmen)
+function tekenPM(ctx, x, y, plus, a = 1, r = 24) { if (a <= 0.01) return; const col = plus ? C.groen : C.koraal; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, C.bg, col, 3.5); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x - r * 0.5, y); ctx.lineTo(x + r * 0.5, y); if (plus) { ctx.moveTo(x, y - r * 0.5); ctx.lineTo(x, y + r * 0.5); } ctx.stroke(); ctx.restore(); }
+// gebogen pijl via een controlepunt
+function boog(ctx, x1, y1, cx, cy, x2, y2, col, lw = 5, a = 1, kop = 18, dash = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; if (dash) ctx.setLineDash(dash);
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(cx, cy, x2, y2); ctx.stroke(); ctx.setLineDash([]); const an = Math.atan2(y2 - cy, x2 - cx);
+  ctx.beginPath(); ctx.moveTo(x2 + Math.cos(an) * 4, y2 + Math.sin(an) * 4); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore(); }
+// deeltjes die langs een recht stuk stromen
+function stroom(ctx, x1, y1, x2, y2, col, T, a = 1, n = 5, r = 7, v = 0.5) { if (a <= 0.01) return; for (let i = 0; i < n; i++) { const p = (T * v + i / n) % 1; circ(ctx, lerp(x1, x2, p), lerp(y1, y2, p), r, rgba(col, a * Math.min(1, Math.sin(Math.PI * p) * 2.5))); } }
+// meter (staafje) met label
+function meter(ctx, x, y, h, v, col, label, a = 1, w = 44) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h, w, h, 10); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.5), 2);
+  const vh = clamp(v, 0, 1) * (h - 8); roundRect(ctx, x - w / 2 + 4, y - 4 - vh, w - 8, Math.max(2, vh), 7); ctx.fillStyle = col; ctx.fill(); ctx.restore(); regel(ctx, label, x, y + 40, a, col, 28, 'center', 700); }
+// follikel: ring hulpcellen met eicel; holte = 0..1 (vochtholte bij een rijpe follikel)
+function follikel(ctx, x, y, r, a = 1, holte = 0, kl = C.goud) { if (a <= 0.01 || r < 1) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(kl, 0.2), rgba(kl, 0.8), 2.5);
+  if (holte > 0.01) circ(ctx, x + r * 0.12, y + r * 0.08, r * 0.62 * holte, rgba(C.licht ? '#DCEAF2' : '#7FA7C4', 0.35));
+  const n = Math.min(26, Math.round(r / 3)); for (let i = 0; i < n; i++) { const an = i / n * 6.283; circ(ctx, x + Math.cos(an) * r * 0.86, y + Math.sin(an) * r * 0.86, Math.max(1.5, r * 0.07), rgba(kl, 0.6)); }
+  ctx.restore(); eicel(ctx, x - r * 0.38 * holte, y - r * 0.3 * holte, Math.max(4, r * (holte > 0 ? 0.22 : 0.4)), a); }
+// slijmvlies als strook: dikte 0..1, los = 0..1 (afstoten)
+function slijmStrook(ctx, x, y, w, dik, a = 1, los = 0, T = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba(VK.wand, 0.55); ctx.fillRect(x, y, w, 34);
+  const h = 10 + 90 * dik; ctx.fillStyle = rgba(VK.slijm, 0.75); ctx.beginPath(); ctx.moveTo(x, y); for (let i = 0; i <= 40; i++) { const xx = x + i / 40 * w; ctx.lineTo(xx, y - h - Math.sin(i * 1.3) * 5 * dik); } ctx.lineTo(x + w, y); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = rgba(C.bloed, 0.7); ctx.lineWidth = 2.5; for (let i = 0; i < 9; i++) { const xx = x + (i + 0.5) / 9 * w; ctx.beginPath(); ctx.moveTo(xx, y); ctx.quadraticCurveTo(xx + 10, y - h * 0.5, xx - 4, y - h * 0.9); ctx.stroke(); }
+  if (los > 0.01) for (let i = 0; i < 14; i++) { const xx = x + hash(i * 3) * w, p = (T * 0.4 + hash(i * 7)) % 1; circ(ctx, xx, y + 30 + p * 120, 5 + 4 * hash(i), rgba(C.bloed, los * (1 - p))); }
+  ctx.restore(); }
+
+function eierstokDoorsnede(ctx, x, y, rx, ry, o = {}) {
+  const a = o.a == null ? 1 : o.a, rust = o.rust == null ? 1 : o.rust, pos = (an, d) => [x + Math.cos(an) * rx * d, y + Math.sin(an) * ry * d];
+  if (a <= 0.01) return pos;
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, C.licht ? 0.3 : 0.26), lighten(VK.stok, 0.2), 3);
+  ctx.beginPath(); ctx.ellipse(x, y, rx * 0.56, ry * 0.5, 0, 0, 6.283); shape(ctx, rgba(C.holte, C.licht ? 0.16 : 0.35), rgba(VK.stok, 0.5), 1.5);
+  ctx.strokeStyle = rgba(C.bloed, 0.55); ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (let i = 0; i < 6; i++) { const an = i / 6 * 6.283 + 0.3; ctx.beginPath(); ctx.moveTo(x - rx * 0.62, y + ry * 0.05); ctx.bezierCurveTo(x - rx * 0.2, y + Math.sin(an) * ry * 0.3, x + Math.cos(an) * rx * 0.2, y + Math.sin(an) * ry * 0.25, x + Math.cos(an) * rx * 0.48, y + Math.sin(an) * ry * 0.42); ctx.stroke(); }
+  for (let i = 0; i < 150; i++) { const an = hash(i * 3 + 1) * 6.283, d = 0.68 + 0.26 * hash(i * 3 + 2), [px, py] = pos(an, d); circ(ctx, px, py, 3.2, rgba(C.goud, 0.55 * rust)); }
+  ctx.restore(); return pos;
+}
+
+// ---------- vooruitblik op de volgende les ----------
+// tegels = [[titel, sub, tekenfunctie(ctx, x, y, a, T)], ...]; tekenfunctie tekent een klein beeld rond (x, y)
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+// les 2 → les 3
+function schakels(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.lineWidth = 10; [-1, 0, 1].forEach(k => { const uit = k === 0 ? 1 : 0; ctx.strokeStyle = k === 0 ? rgba(C.koraal, 0.9) : C.text2; ctx.beginPath(); ctx.ellipse(x + k * 95, y - uit * (40 + 8 * Math.sin(T * 2)), 60, 34, 0, 0, 6.283); ctx.stroke(); }); ctx.restore(); }
+function microben(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.translate(x - 70, y); ctx.rotate(-0.3); roundRect(ctx, -55, -24, 110, 48, 24); shape(ctx, rgba(C.groen, 0.5), C.groen, 3); ctx.restore();
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 12; i++) { const an = i / 12 * 6.283 + T * 0.3; ctx.strokeStyle = C.paars; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 80 + Math.cos(an) * 32, y + Math.sin(an) * 32); ctx.lineTo(x + 80 + Math.cos(an) * 46, y + Math.sin(an) * 46); ctx.stroke(); circ(ctx, x + 80 + Math.cos(an) * 48, y + Math.sin(an) * 48, 5, C.paars); }
+  circ(ctx, x + 80, y, 32, rgba(C.paars, 0.45), C.paars, 3); ctx.restore(); }
+function schaaltje(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y + 30, 140, 50, 0, 0, 6.283); shape(ctx, rgba(C.teal, 0.15), rgba(C.line, 0.8), 3); ctx.restore(); eicel(ctx, x - 10, y + 26, 30, a);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x + 60, y - 70 + 6 * Math.sin(T * 2)); ctx.rotate(0.55); roundRect(ctx, -6, -110, 12, 120, 5); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore(); }
+function lagen(ctx, x, y, a) { ['XX · XY', 'SRY-gen', 'hormonen', 'organen'].forEach((l, i) => { const yy = y - 90 + i * 52, c = [C.teal, C.goud, C.koraal, C.paars][i]; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130 + i * 10, yy - 20, 260 - i * 20, 42, 12); shape(ctx, rgba(c, 0.35), c, 2); ctx.restore(); regel(ctx, l, x, yy + 9, a, C.text, 24, 'center', 700); }); }
+
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel, stappen (t = tekst onder het beeld, th = havotekst, n = notitie voor de docent,
+   vwo = alleen in vwo) en teken(ctx, S). In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k
+   (1 als die stap al geweest is, 0 als hij nog moet komen), S.T = tijd sinds het begin van het scherm (s).
+   ===================================================================================== */
+const SCHERMEN = [];
+
+// kleine hulpfuncties voor les 3
+function kruis(ctx, x, y, r, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y - r); ctx.lineTo(x + r, y + r); ctx.moveTo(x + r, y - r); ctx.lineTo(x - r, y + r); ctx.stroke(); ctx.restore(); }
+function vink(ctx, x, y, r, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - r, y); ctx.lineTo(x - r * 0.3, y + r * 0.7); ctx.lineTo(x + r, y - r * 0.7); ctx.stroke(); ctx.restore(); }
+function schakel(ctx, x, y, a = 1, uit = 0, col = C.text2) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = uit > 0.5 ? C.koraal : col; ctx.lineWidth = 12; ctx.beginPath(); ctx.ellipse(x, y - 70 * uit, 120, 50, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
+function bacterie(ctx, x, y, s = 1, a = 1, col = C.groen, rot = -0.3) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); roundRect(ctx, -55, -24, 110, 48, 24); shape(ctx, rgba(col, 0.5), col, 3); ctx.strokeStyle = rgba(col, 0.9); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-30, 6); ctx.quadraticCurveTo(0, -14, 30, 6); ctx.stroke(); ctx.restore(); }
+function virus(ctx, x, y, s = 1, a = 1, T = 0, col = C.paars) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); for (let i = 0; i < 12; i++) { const an = i / 12 * 6.283 + T * 0.3; ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(Math.cos(an) * 32, Math.sin(an) * 32); ctx.lineTo(Math.cos(an) * 46, Math.sin(an) * 46); ctx.stroke(); circ(ctx, Math.cos(an) * 48, Math.sin(an) * 48, 5, col); } circ(ctx, 0, 0, 32, rgba(col, 0.45), col, 3); ctx.restore(); }
+function spuit(ctx, x, y, s = 1, a = 1, rot = 0.6) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(s, s); roundRect(ctx, -12, -70, 24, 90, 6); shape(ctx, rgba(C.teal, 0.35), C.text, 2.5); ctx.fillStyle = C.text; ctx.fillRect(-2, 20, 4, 36); ctx.fillRect(-18, -76, 36, 6); ctx.restore(); }
+function embryo(ctx, x, y, r, a = 1, n = 16, kleur = C.goud) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba('#F2E6C8', 0.55), kleur, 3); for (let i = 0; i < n; i++) { const an = i / n * 6.283; circ(ctx, x + Math.cos(an) * r * 0.82, y + Math.sin(an) * r * 0.82, r * 0.14, rgba(kleur, 0.8)); } circ(ctx, x - r * 0.35, y - r * 0.3, r * 0.36, rgba(C.paars, 0.7)); ctx.restore(); }
+function kaart(ctx, x, y, w, h, a = 1, rand = null, gl = 0) { if (a <= 0.01) return; if (gl > 0.01) gloed(ctx, x + w / 2, y + h / 2, w * 0.6, rand || C.goud, gl); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 22); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), rand || rgba(C.line, 0.45), rand ? 3 : 2); ctx.restore(); }
+
+// ---------- 0 · titel ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Voortplanting</b> · les 3: ingrijpen en variatie', n: 'Kies eerst havo of vwo. Presenteren (F) geeft volledig scherm.' }],
+  teken(ctx, S) {
+    const T = S.T;
+    metaText(ctx, 'Voortplanting · les 3', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Ingrijpen', 140, 470, fTitel(120), C.text); text(ctx, 'en variatie', 140, 610, fTitel(120), C.goud);
+    regel(ctx, 'anticonceptie · soa’s · ivf · sekse in lagen', 144, 700, 1, C.text2, 34, 'left', 400);
+    [-1, 0, 1].forEach(k => schakel(ctx, 1450 + k * 190, 400, 1, k === 0 ? 0.5 + 0.5 * Math.sin(T * 1.2) : 0));
+    lagen(ctx, 1450, 760, 1);
+  } });
+
+// ---------- 1 · opening: Lotte bij de huisarts ----------
+SCHERMEN.push({ titel: 'Lotte', deel: 'Anticonceptie',
+  stappen: [
+    { t: 'Lotte wil voorlopig niet zwanger worden. Ze denkt aan de <b>pil</b>.', n: 'Uit de film Anticonceptie, soa’s en voortplantingstechniek. Vraag de klas: van 100 vrouwen die een jaar de pil slikken, hoeveel worden er toch zwanger?' },
+    { t: '100 vrouwen slikken een jaar lang de pil.', n: 'Laat eerst schatten voordat je verder klikt.' },
+    { t: 'Bij normaal gebruik worden er ± <b>7</b> zwanger. Niet omdat de pil slecht werkt: mensen vergeten hem soms.', n: 'Dit getal heet de Pearl-index (scherm 5).' },
+    { t: 'Bij <b>perfect gebruik</b>: minder dan 1.', n: 'Het verschil zit in de gebruiker, niet in de pil.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), g = S.on(1, 1.6), z = S.on(2, 1.2), p = S.on(3, 1.0);
+    pers(ctx, 'lotte', 330, 930, 560, { a: a0, t: T, kijk: 1 }); pers(ctx, 'kim', 650, 930, 600, { a: a0, t: T, kijk: -1, pose: g > 0.5 ? 'wijs' : 'staan' });
+    regel(ctx, 'Lotte', 330, 990, a0, C.text2, 28, 'center', 600); regel(ctx, 'dokter Kim', 650, 990, a0, C.text2, 28, 'center', 600);
+    // 10 × 10 stippen
+    const gx = 1000, gy = 230, d = 64, rood = [14, 27, 41, 58, 63, 79, 92];
+    for (let i = 0; i < 100; i++) { const r = Math.floor(i / 10), c = i % 10, x = gx + c * d, y = gy + r * d, a = g * S.on(1, 0.2, 0.01 * i);
+      const isZ = rood.includes(i), k = isZ ? z * (i === rood[0] ? 1 : 1 - p) : 0;
+      circ(ctx, x, y, 22, rgba(k > 0.01 ? C.goud : C.text2, a * (0.35 + 0.65 * k)), null); if (k > 0.01) gloed(ctx, x, y, 40, C.goud, k * 0.6); }
+    regel(ctx, '100 vrouwen · 1 jaar de pil', gx + 4.5 * d, gy + 10 * d + 20, g, C.text, 32, 'center', 700);
+    regel(ctx, 'normaal gebruik: ± 7 zwanger', gx + 4.5 * d, gy + 10 * d + 70, z * (1 - p), C.goud, 34, 'center', 700);
+    regel(ctx, 'perfect gebruik: minder dan 1', gx + 4.5 * d, gy + 10 * d + 70, p, C.goud, 34, 'center', 700);
+  } });
+
+// ---------- 2 · de keten ----------
+const KETEN = [[330, 'eisprong'], [770, 'zaadcel bij de eicel'], [1210, 'bevruchting'], [1650, 'innesteling']];
+function ketenIcoon(ctx, i, x, y, a, T) { if (i === 0) eicel(ctx, x, y, 34, a); else if (i === 1) { eicel(ctx, x + 40, y, 26, a); zaadcel(ctx, x - 30, y, 0, T, 1.6, a); } else if (i === 2) { ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 34, rgba('#F2E6C8', 0.9), C.goud, 2); circ(ctx, x, y, 14, rgba(C.paars, 0.7)); ctx.restore(); } else { slijmStrook(ctx, x - 80, y + 40, 160, 0.6, a); embryo(ctx, x, y - 10, 24, a); } }
+SCHERMEN.push({ titel: 'Keten', deel: 'Anticonceptie',
+  stappen: [
+    { t: 'Een zwangerschap is een <b>keten</b>: eisprong, zaadcel bij de eicel, bevruchting, innesteling.', n: 'Elke vorm van anticonceptie haalt één schakel weg.' },
+    { t: '<b>Geen eisprong</b>: de pil, de prikpil, het staafje en de ring bevatten hormonen die de eisprong remmen.', n: 'Hoe dat werkt: volgend scherm (terugkoppeling).' },
+    { t: '<b>De zaadcel komt niet bij de eicel</b>: condoom, pessarium, het hormoonspiraaltje en sterilisatie.', n: 'Hormoonspiraal: maakt de slijmprop in de baarmoederhals dik en taai. Sterilisatie: zaadleiders of eileiders afgesloten.' },
+    { t: 'Het <b>koperspiraaltje</b>: koper is giftig voor zaadcellen, en het slijmvlies wordt ongeschikt voor innesteling.', n: 'Werkt dus op twee schakels.' },
+    { t: 'Ging het toch mis? De <b>morning-afterpil</b> stelt de eisprong uit. Hoe eerder, hoe beter. Het is geen abortuspil.', n: 'Binnen 3 tot 5 dagen (afhankelijk van het middel). Werkt alleen als de eisprong nog niet geweest is.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.2), u = [S.on(1, 0.8), S.on(2, 0.8), 0, S.on(3, 0.8)], k2 = S.on(3, 0.8), ma = S.on(4, 0.8);
+    KETEN.forEach(([x, l], i) => { const a = a0 * S.on(0, 0.4, i * 0.3), uit = i === 1 ? Math.max(u[1], k2) : u[i]; schakel(ctx, x, 340, a, uit); if (i < 3) { ctx.save(); ctx.globalAlpha *= a * 0.6; ctx.strokeStyle = C.text2; ctx.lineWidth = 12; ctx.beginPath(); ctx.moveTo(x + 120, 340); ctx.lineTo(x + 320, 340); ctx.stroke(); ctx.restore(); }
+      ketenIcoon(ctx, i, x, 340 - 70 * uit, a, T); regel(ctx, l, x, 450, a, uit > 0.5 ? C.koraal : C.text, 32, 'center', 700); if (uit > 0.5) kruis(ctx, x + 100, 260 - 70 * uit, 18, uit); });
+    const lijst = (x, items, a, y0 = 560) => items.forEach((s, j) => regel(ctx, s, x, y0 + j * 50, a * S.on(0, 0.01) , C.text, 32, 'center', 600));
+    lijst(330, ['pil', 'prikpil', 'staafje', 'ring'], u[0]); lijst(770, ['condoom', 'pessarium', 'hormoonspiraal', 'sterilisatie'], u[1]);
+    if (k2 > 0.01) { regel(ctx, 'koperspiraal', 1650, 560, k2, C.goud, 32, 'center', 700); regel(ctx, 'koperspiraal', 770, 760, k2, C.goud, 32, 'center', 700); }
+    if (ma > 0.01) { ctx.save(); ctx.globalAlpha *= ma; roundRect(ctx, 130, 830, 400, 120, 20); shape(ctx, rgba(C.bg, 0.9), C.goud, 3); ctx.restore(); regel(ctx, 'morning-afterpil', 330, 882, ma, C.goud, 32, 'center', 700); regel(ctx, 'stelt de eisprong uit', 330, 925, ma, C.text2, 26, 'center', 600);
+      pijl(ctx, 330, 830, 330, 760, C.goud, 4, ma, 16); }
+  } });
+
+// ---------- 3 · de pil en terugkoppeling ----------
+SCHERMEN.push({ titel: 'De pil', deel: 'Anticonceptie',
+  stappen: [
+    { t: 'De pil bevat hormonen die lijken op <b>oestrogeen</b> en <b>progesteron</b>.', n: 'Combinatiepil: een oestrogeen en een progestageen (nagemaakt progesteron).' },
+    { t: 'Die houden de spiegel hoog: <b>negatieve terugkoppeling</b>. De hypofyse maakt weinig FSH en LH.', n: 'Hetzelfde principe als de remmende terugkoppeling uit les 2.' },
+    { t: 'Er rijpt geen follikel en er komt geen <b>LH-piek</b>. Dus geen eisprong.', n: 'Rechts: de LH-lijn zonder pil (gestippeld) en met pil.' },
+    { t: 'In de stopweek dalen de hormonen en laat het slijmvlies los: een <b>onttrekkingsbloeding</b>, geen echte menstruatie.', n: 'Een vrouw die drie dagen de pil vergeet: de rem valt weg, FSH stijgt, er kan een follikel rijpen en een eisprong komen.' },
+    { t: 'Het nagemaakte progesteron maakt ook het slijm in de baarmoederhals <b>taai</b>.', n: 'Tweede schakel: zaadcellen komen er moeilijk doorheen.' },
+    { t: 'De <b>abortuspil</b> (mifepriston) blokkeert de progesteronreceptor: voor het slijmvlies valt progesteron weg, en het wordt afgestoten.', vwo: true, n: 'Grijpt dus later in dan anticonceptie. Wordt gecombineerd met een tweede middel (misoprostol).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), X = 430, a0 = S.on(0, 0.8), rem = S.on(1, 1.2), geen = S.on(2, 1.6), stop = S.on(3, 2.0), slijm = S.on(4, 1.0), mif = S.on(5, 1.2);
+    // pilstrip
+    ctx.save(); ctx.globalAlpha *= a0; roundRect(ctx, 150, 180, 560, 150, 20); shape(ctx, rgba(C.fill, 0.7), rgba(C.line, 0.6), 2); for (let i = 0; i < 21; i++) { const c = i % 7, r = Math.floor(i / 7); circ(ctx, 200 + c * 76, 215 + r * 42, 15, i < Math.round(21 * (1 - 0.0)) ? (C.licht ? '#F4E4C8' : '#E8D9B8') : null, rgba(C.line, 0.6), 1.5); } ctx.restore();
+    regel(ctx, 'oestrogeen + progestageen', X, 380, a0, C.text2, 28, 'center', 600);
+    blok(ctx, X, 540, 300, 100, 'hypofyse', C.oker, a0 * S.on(1, 0.6));
+    if (rem > 0.01) { pijl(ctx, X, 395, X, 482, hk.oestrogeen, 6, rem, 20); tekenPM(ctx, X + 50, 440, false, rem); }
+    const fl = 1 - 0.75 * rem; pijl(ctx, X - 50, 594, X - 50, 760, hk.FSH, 3 + 8 * fl, rem, 18); pijl(ctx, X + 50, 594, X + 50, 760, hk.LH, 3 + 8 * fl, rem, 18);
+    regel(ctx, 'FSH ↓', X - 80, 690, rem, hk.FSH, 30, 'right', 700); regel(ctx, 'LH ↓', X + 80, 690, rem, hk.LH, 30, 'left', 700);
+    // eierstok: kleine follikels die niet groeien
+    if (rem > 0.01) { const pos = eierstokDoorsnede(ctx, X, 870, 210, 100, { a: rem }); [-2.5, -1.4, 0.4, 1.6, 2.6].forEach(an => { const [px, py] = pos(an, 0.8); follikel(ctx, px, py, 10, rem, 0.2); }); naam(ctx, 'eierstok: geen follikel rijpt', X, 1010, rem, 'center', C.text2, 26); }
+    // grafiek LH
+    const gx = 900, gw = 900, gb = 560, gh = 300; const ga = S.on(2, 0.6); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb - gh); ctx.lineTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke(); ctx.restore(); metaText(ctx, 'LH', gx, gb - gh - 16, hk.LH, 'left', 22, ga);
+      ctx.save(); ctx.setLineDash([10, 10]); lijnKrom(ctx, KROM.LH, gx, gw, gb, gh, rgba(hk.LH, 0.6), 28, ga, 4); ctx.restore(); regel(ctx, 'zonder pil: LH-piek', gx + gw / 2 + 20, gb - gh - 10, ga, C.text2, 26, 'left', 600);
+      lijnKrom(ctx, [[0, 0.1], [28, 0.1]], gx, gw, gb, gh, hk.LH, 28 * geen, ga, 6); regel(ctx, 'met pil: geen piek', gx + gw, gb - 50, geen, hk.LH, 30, 'right', 700); kruis(ctx, gx + gw / 2, gb - gh * 0.55, 22, geen); }
+    // stopweek en slijmvlies
+    slijmStrook(ctx, 1000, 900, 700, 0.55 - 0.45 * stop, S.on(3, 0.5), stop, T); if (stop > 0.01) { regel(ctx, 'stopweek: onttrekkingsbloeding', 1350, 1000, stop, mix(C.bloed, C.text, 0.3), 30, 'center', 700); for (let i = 0; i < 7; i++) circ(ctx, 200 + i * 76, 299, 15, rgba(C.koraal, 0.25 * stop), rgba(C.koraal, stop), 2); }
+    // slijmprop
+    if (slijm > 0.01) { regel(ctx, 'taai slijm in de baarmoederhals', 1350, 680, slijm * (1 - mif), C.text, 30, 'center', 700); for (let i = 0; i < 4; i++) zaadcel(ctx, 1220 + i * 60, 750 + Math.sin(i) * 10, 0, T * 0.15 + i, 1.4, slijm * (1 - mif)); ctx.save(); ctx.globalAlpha *= slijm * (1 - mif); ctx.strokeStyle = rgba(C.groen, 0.8); ctx.lineWidth = 3; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(1460 + i * 14, 710); ctx.bezierCurveTo(1480 + i * 14, 740, 1440 + i * 14, 770, 1470 + i * 14, 800); ctx.stroke(); } ctx.restore(); }
+    // vwo: mifepriston
+    if (mif > 0.01) { const mx = 1350, my = 720; ctx.save(); ctx.globalAlpha *= mif; ctx.strokeStyle = C.goud; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(mx, my, 34, 0.2, Math.PI - 0.2); ctx.stroke(); ctx.restore(); circ(ctx, mx, my + 6, 16, rgba(C.text2, mif)); regel(ctx, 'mifepriston bezet de receptor', mx, my + 90, mif, C.text, 28, 'center', 700);
+      for (let i = 0; i < 3; i++) circ(ctx, mx - 120 + i * 30, my - 60 + Math.sin(T * 2 + i) * 6, 11, rgba(hk.progesteron, mif)); regel(ctx, 'progesteron kan niet binden', mx, my - 90, mif, hk.progesteron, 26, 'center', 600); }
+  } });
+
+// ---------- 4 · betrouwbaarheid ----------
+const PEARL = [['pil', 0.3, 7], ['condoom', 2, 13], ['hormoonspiraal', 0.2, 0.2], ['koperspiraal', 0.6, 0.8], ['staafje', 0.1, 0.1], ['sterilisatie', 0.5, 0.5]];
+SCHERMEN.push({ titel: 'Betrouwbaar', deel: 'Anticonceptie',
+  stappen: [
+    { t: 'De <b>Pearl-index</b>: hoeveel van de 100 vrouwen in een jaar toch zwanger worden.', n: 'Lagere waarde = betrouwbaarder.' },
+    { t: 'Er is een groot verschil tussen <b>perfect</b> en <b>normaal</b> gebruik: pil < 1 tegen ± 7, condoom 2 tegen ± 13.', n: 'Normaal gebruik = hoe mensen het echt doen, met vergeten pillen en een condoom dat te laat om gaat.' },
+    { t: 'Bij een spiraaltje, een staafje of sterilisatie kun je niets vergeten: minder dan 1.', n: 'Waarden schematisch afgerond (zie de briefing voor bronnen).' },
+    { t: 'Van al deze methodes beschermt alleen het <b>condoom</b> ook tegen <b>soa’s</b>.', n: 'Het voorkomt grotendeels contact tussen slijmvliezen en lichaamsvloeistoffen.' }
+  ],
+  teken(ctx, S) {
+    const a0 = S.on(0, 0.8), pn = S.on(1, 1.4), rest = S.on(2, 1.4), soa = S.on(3, 1.0), x0 = 560, w = 1180, max = 15, xs = (v) => x0 + v / max * w;
+    ctx.save(); ctx.globalAlpha *= a0; ctx.strokeStyle = rgba(C.line, 0.45); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0, 190); ctx.lineTo(x0, 900); ctx.stroke(); ctx.restore();
+    [0, 5, 10, 15].forEach(v => regel(ctx, String(v), xs(v), 940, a0, C.text2, 24, 'center', 600)); metaText(ctx, 'zwanger per 100 vrouwen per jaar', x0 + w / 2, 990, C.meta, 'center', 20, a0);
+    PEARL.forEach(([nm, p, n], i) => { const a = i < 2 ? (i === 0 ? a0 : pn) : rest * S.on(2, 0.4, (i - 2) * 0.2), y = 240 + i * 112, isC = nm === 'condoom';
+      if (a <= 0.01) return; if (isC && soa > 0.01) { gloed(ctx, x0 - 220, y + 10, 160, C.groen, soa); }
+      regel(ctx, nm, x0 - 30, y + 26, a, isC && soa > 0.5 ? C.groen : C.text, 34, 'right', 700);
+      ctx.save(); ctx.globalAlpha *= a * (i === 0 ? pn : 1); roundRect(ctx, x0, y - 14, Math.max(8, xs(p) - x0), 26, 8); ctx.fillStyle = rgba(C.teal, 0.85); ctx.fill(); ctx.restore(); ctx.save(); ctx.globalAlpha *= a;
+      const nv = i === 0 ? n * a0 : n; const nb = i === 0 ? 1 : 1; roundRect(ctx, x0, y + 18, Math.max(8, (xs(nv) - x0) * (i === 0 ? 1 : 1)), 26, 8); ctx.fillStyle = rgba(C.goud, 0.85); ctx.fill(); ctx.restore();
+      regel(ctx, (p < 1 ? '< 1' : String(p)), xs(p) + 14, y + 8, a * (i === 0 ? pn : 1), C.teal, 24, 'left', 700); regel(ctx, (n < 1 ? '< 1' : '± ' + n), xs(nv) + 14, y + 40, a, C.goud, 24, 'left', 700); });
+    // legenda
+    regel(ctx, '■ perfect gebruik', 1300, 170, pn, C.teal, 28, 'left', 700); regel(ctx, '■ normaal gebruik', 1560, 170, a0, C.goud, 28, 'left', 700);
+    if (soa > 0.01) { regel(ctx, 'beschermt ook tegen soa’s', x0 - 30, 240 + 112 + 70, soa, C.groen, 26, 'right', 700); }
+  } });
+
+// ---------- 5 · soa's: bacterie of virus ----------
+SCHERMEN.push({ titel: 'Soa’s', deel: 'Soa’s',
+  stappen: [
+    { t: 'Een <b>soa</b> is een seksueel overdraagbare aandoening. Sommige komen door een <b>bacterie</b>, andere door een <b>virus</b>.', n: 'Uit de film: Sam hoort dat een ex van hem chlamydia heeft. Zelf merkt hij niets.' },
+    { t: 'Bacterie: <b>chlamydia</b>, <b>gonorroe</b> en <b>syfilis</b>. Antibiotica doden bacteriën: deze soa’s zijn te <b>genezen</b>.', n: 'Antibiotica grijpen aan op onderdelen die bij bacteriën anders zijn dan bij ons, zoals de celwand of de ribosomen.' },
+    { t: 'Virus: <b>hiv</b>, <b>HPV</b>, <b>herpes</b> en <b>hepatitis B</b>. Een virus vermenigvuldigt zich in je eigen cellen: antibiotica helpen niet.', n: 'Een virus heeft geen celwand en geen eigen ribosomen. Er zijn wel virusremmers, die het virus onderdrukken maar niet verwijderen.' },
+    { t: 'Tegen <b>HPV</b> en <b>hepatitis B</b> bestaat een vaccin. Jongens en meisjes krijgen rond hun tiende de HPV-prik.', n: 'Sommige soorten HPV kunnen jaren later kanker veroorzaken, vooral baarmoederhalskanker. Rijksvaccinatieprogramma.' },
+    { t: 'Gonorroe wordt steeds vaker <b>resistent</b>. Een kuur doodt de gevoelige bacteriën; de paar met een toevallige mutatie overleven en vermenigvuldigen zich.', vwo: true, n: 'Er is bijna nog maar één soort antibioticum dat overal goed werkt. Koppeling met evolutie: selectie.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), b = S.on(1, 1.0), v = S.on(2, 1.0), vac = S.on(3, 1.0), res = S.on(4, 3.2);
+    const XL = 520, XR = 1400;
+    regel(ctx, 'bacterie', XL, 220, a0, C.groen, 46, 'center', 700); regel(ctx, 'virus', XR, 220, a0, C.paars, 46, 'center', 700);
+    bacterie(ctx, XL, 330, 1.3, a0 * (1 - 0.0)); virus(ctx, XR, 330, 1.2, a0, T);
+    ctx.save(); ctx.globalAlpha *= a0; ctx.strokeStyle = rgba(C.line, 0.35); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(960, 190); ctx.lineTo(960, 900); ctx.stroke(); ctx.restore();
+    ['chlamydia', 'gonorroe', 'syfilis'].forEach((s, i) => regel(ctx, s, XL, 480 + i * 52, b * S.on(1, 0.4, i * 0.2), C.text, 34, 'center', 700));
+    ['hiv', 'HPV', 'herpes', 'hepatitis B'].forEach((s, i) => regel(ctx, s, XR, 480 + i * 52, v * S.on(2, 0.4, i * 0.2), C.text, 34, 'center', 700));
+    if (b > 0.01) { vink(ctx, XL - 170, 700, 26, b * S.on(1, 0.4, 0.8)); regel(ctx, 'antibiotica: te genezen', XL - 130, 712, b * S.on(1, 0.4, 0.8), C.groen, 32, 'left', 700); }
+    if (v > 0.01) { kruis(ctx, XR - 210, 760, 20, v * S.on(2, 0.4, 0.9)); regel(ctx, 'antibiotica helpen niet', XR - 170, 772, v * S.on(2, 0.4, 0.9), C.koraal, 32, 'left', 700);
+      // virus in een eigen cel
+      const cx = XR + 260, cy = 330, va = v * S.on(2, 0.6, 0.4); ctx.save(); ctx.globalAlpha *= va; circ(ctx, cx, cy, 90, rgba(C.oker, 0.15), C.oker, 3); circ(ctx, cx, cy, 30, rgba(C.paars, 0.25), rgba(C.paars, 0.6), 2); ctx.restore(); for (let i = 0; i < 5; i++) virus(ctx, cx + Math.cos(i * 1.3 + T * 0.4) * 55, cy + Math.sin(i * 1.3 + T * 0.4) * 55, 0.25, va, T); naam(ctx, 'in je eigen cel', cx, cy + 130, va, 'center', C.text2, 26); }
+    if (vac > 0.01) { spuit(ctx, XR + 200, 640, 1.2, vac); regel(ctx, 'vaccin: HPV, hepatitis B', XR, 860, vac, C.teal, 32, 'center', 700); }
+    // vwo: resistentie bij gonorroe als selectie
+    if (res > 0.01) { const ox = 210, oy = 820, n = 24, kuur = clamp(res * 3 - 0.6, 0, 1), groei = clamp(res * 3 - 1.8, 0, 1); ctx.save(); ctx.globalAlpha *= S.on(4, 0.6); roundRect(ctx, ox - 70, oy - 80, 760, 210, 20); shape(ctx, rgba(C.bg, 0.92), rgba(C.line, 0.5), 2); ctx.restore();
+      for (let i = 0; i < n; i++) { const r = i === 5 || i === 17, x = ox + (i % 12) * 52, y = oy - 20 + Math.floor(i / 12) * 60; const al = r ? 1 : 1 - kuur; bacterie(ctx, x, y, 0.32, S.on(4, 0.6) * al, r ? C.koraal : C.groen, 0); }
+      for (let i = 0; i < 10; i++) bacterie(ctx, ox + 330 + (i % 5) * 52, oy - 20 + Math.floor(i / 5) * 60, 0.32, groei * S.on(4, 0.3, 2.2 + i * 0.05), C.koraal, 0);
+      regel(ctx, 'kuur', ox + 300, oy - 40, kuur * (1 - groei), C.text, 28, 'center', 700); regel(ctx, 'resistente bacteriën blijven over', ox + 310, oy + 110, S.on(4, 0.6, 1.6), C.koraal, 28, 'center', 700); }
+  } });
+
+// ---------- 6 · vaak zonder klachten ----------
+SCHERMEN.push({ titel: 'Klachten', deel: 'Soa’s',
+  stappen: [
+    { t: 'Veel soa’s geven <b>geen klachten</b>. Van de 10 vrouwen met chlamydia merken er ± 7 niets; bij mannen ± de helft.', n: 'Toch kun je het doorgeven.' },
+    { t: 'Onbehandeld kan chlamydia of gonorroe de <b>eileiders</b> ontsteken. Er ontstaan littekens en de eileider gaat dicht.', n: 'Zaadcellen komen er dan niet meer langs; of het veel grotere embryo blijft steken: een buitenbaarmoederlijke zwangerschap.' },
+    { t: 'Gevolg: een vrouw kan <b>onvruchtbaar</b> worden.', n: 'Brug naar scherm 8 (een handje helpen): dichte eileiders zijn een reden voor ivf.' },
+    { t: 'Daarom: <b>testen</b>. Bij de huisarts of de GGD; ben je jonger dan 25, dan is de test bij de GGD gratis.', n: 'Bij de GGD (Centrum Seksuele Gezondheid) is testen gratis voor wie tot een risicogroep hoort, zoals jongeren onder de 25 of wie door een partner gewaarschuwd is. Sinds 2025 testen de GGD\u2019s mensen zonder klachten niet meer standaard op chlamydia. Zie de briefing.' },
+    { t: '<b>Hiv</b> infecteert de <b>T-helpercellen</b>, die de afweer aansturen. Het maakt van zijn RNA een stuk DNA en bouwt dat in. Zonder behandeling: <b>aids</b>.', vwo: true, n: 'Langzaam daalt het aantal T-helpercellen, tot gewone infecties levensgevaarlijk worden.' },
+    { t: 'Hiv is niet te genezen, maar met <b>hiv-remmers</b> kun je er goed mee leven. Wie geen meetbaar virus meer heeft, geeft het via seks niet door. <b>PrEP</b> voorkomt besmetting.', n: 'PrEP: een pil voor mensen die veel risico lopen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 1.2), ont = S.on(1, 2.0), onv = S.on(2, 1.0), test = S.on(3, 1.0), hiv = S.on(4, 2.4), rem = S.on(5, 1.4);
+    const boven = 1 - hiv * (1 - rem) * 0 ;
+    // tien vrouwen, tien mannen als stippen
+    const rij = (y, l, stil, d) => { regel(ctx, l, 140, y + 12, a0, C.text2, 30, 'left', 700); for (let i = 0; i < 10; i++) { const a = a0 * S.on(0, 0.3, d + i * 0.06), k = i < stil; circ(ctx, 400 + i * 62, y, 22, k ? rgba(C.text2, 0.35 * a) : rgba(C.koraal, a), k ? rgba(C.text2, a) : null, 2); } };
+    if (1 - hiv > 0.01) { ctx.save(); ctx.globalAlpha *= 1 - hiv; rij(260, 'vrouwen', 7, 0); rij(340, 'mannen', 5, 0.6); circ(ctx, 400, 420, 12, rgba(C.text2, 0.35), C.text2, 2); regel(ctx, 'merkt niets', 424, 430, a0, C.text2, 26, 'left', 600); circ(ctx, 640, 420, 12, C.koraal); regel(ctx, 'klachten', 664, 430, a0, C.text2, 26, 'left', 600); ctx.restore(); }
+    // eileider met littekens
+    if (ont > 0.01 && 1 - hiv > 0.01) { const al = (1 - hiv); const P = [[1060, 300], [1260, 260], [1480, 290], [1680, 380]]; const lw = lerp(46, 18, ease((ont - 0.4) / 0.6)); lijnPad(ctx, P, VK.leider, 46, ont * al * 0.35); lijnPad(ctx, P.slice(0, 2).concat([[1370, 270]]), VK.leider, 46, ont * al * 0.6);
+      ctx.save(); ctx.globalAlpha *= ont * al; for (let i = 0; i < 5; i++) { const x = 1300 + i * 28, y = 268 + Math.sin(i) * 6; ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x - 10, y - 18); ctx.lineTo(x + 10, y + 18); ctx.stroke(); } ctx.restore();
+      gloed(ctx, 1340, 270, 90, C.koraal, ont * al * 0.7); regel(ctx, 'eileider ontstoken: littekens', 1370, 380, ont * al, C.koraal, 30, 'center', 700); eicel(ctx, 1600, 330, 20, ont * al); for (let i = 0; i < 3; i++) zaadcel(ctx, 1150 + i * 40, 280 + i * 4, 0, T + i, 1.3, ont * al); kruis(ctx, 1430, 270, 18, ease((ont - 0.6) / 0.4) * al); }
+    if (onv > 0.01) regel(ctx, 'onvruchtbaar', 1370, 450, onv * (1 - hiv), C.text, 40, 'center', 700);
+    if (test > 0.01) { pers(ctx, 'sam', 1120, 960, 380, { a: test * (1 - hiv), t: T }); ctx.save(); ctx.globalAlpha *= test * (1 - hiv); roundRect(ctx, 1260, 620, 520, 220, 22); shape(ctx, rgba(C.bg, 0.9), C.teal, 3); ctx.restore(); regel(ctx, 'testen', 1520, 690, test * (1 - hiv), C.teal, 44, 'center', 700); regel(ctx, 'huisarts of GGD', 1520, 745, test * (1 - hiv), C.text, 30, 'center', 600); regel(ctx, 'onder de 25: gratis bij de GGD', 1520, 795, test * (1 - hiv), C.text2, 26, 'center', 600); }
+    // vwo: hiv in een T-helpercel
+    if (hiv > 0.01) { const cx = 620, cy = 560, R = 240, a = hiv * (1 - rem * 0.5); ctx.save(); ctx.globalAlpha *= a; circ(ctx, cx, cy, R, rgba(C.teal, 0.12), C.teal, 3); circ(ctx, cx + 20, cy + 20, 90, rgba(C.paars, 0.2), C.paars, 2.5); ctx.restore(); regel(ctx, 'T-helpercel', cx, cy - R - 24, a, C.teal, 34, 'center', 700);
+      const p = S.on(4, 3.0, 0.4); virus(ctx, lerp(cx - R - 120, cx - R + 10, clamp(p * 3, 0, 1)), cy - 60, 0.6, a, T);
+      if (p > 0.33) { const q = clamp(p * 3 - 1, 0, 1); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.beginPath(); for (let i = 0; i <= 30; i++) { const x = lerp(cx - 160, cx - 40, i / 30), y = cy - 40 + Math.sin(i * 0.8) * 8; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore(); regel(ctx, 'RNA', cx - 160, cy - 70, a * q, C.koraal, 26, 'left', 700);
+        const r2 = clamp(p * 3 - 2, 0, 1); if (r2 > 0.01) { ctx.save(); ctx.globalAlpha *= a * r2; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(cx - 10, cy + 20); ctx.lineTo(cx + 50, cy + 20); ctx.stroke(); ctx.restore(); regel(ctx, 'als DNA ingebouwd', cx + 20, cy + 150, a * r2, C.goud, 26, 'center', 700); } }
+      // grafiek T-helpercellen
+      const gx = 1060, gw = 720, gb = 760, gh = 360; ctx.save(); ctx.globalAlpha *= hiv; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb - gh); ctx.lineTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke(); ctx.restore(); metaText(ctx, 'aantal T-helpercellen', gx, gb - gh - 16, C.meta, 'left', 20, hiv); regel(ctx, 'jaren →', gx + gw, gb + 40, hiv, C.text2, 24, 'right', 600);
+      const tot = S.on(4, 2.4, 0.6); ctx.save(); ctx.globalAlpha *= hiv; ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.beginPath(); for (let i = 0; i <= 100; i++) { const u = i / 100; if (u > tot) break; const v = 0.9 - 0.75 * u; i ? ctx.lineTo(gx + u * gw, gb - v * gh) : ctx.moveTo(gx + u * gw, gb - v * gh); } ctx.stroke(); ctx.restore();
+      regel(ctx, 'aids', gx + gw - 20, gb - 0.2 * gh - 20, hiv * (1 - rem), C.koraal, 34, 'right', 700);
+      if (rem > 0.01) { lijnKrom(ctx, [[0, 0.9], [6, 0.82], [10, 0.62], [14, 0.75], [28, 0.85]], gx, gw, gb, gh, C.groen, 28 * rem, rem, 5); regel(ctx, 'met hiv-remmers', gx + gw * 0.62, gb - 0.85 * gh - 20, rem, C.groen, 30, 'center', 700); regel(ctx, 'geen meetbaar virus = geeft het niet door', 1420, 880, rem, C.text, 28, 'center', 700); regel(ctx, 'PrEP: een pil die besmetting voorkomt', 1420, 930, rem, C.text2, 26, 'center', 600); } }
+    // havo: remmers zonder vwo-stap
+    if (rem > 0.01 && hiv <= 0.01) { regel(ctx, 'hiv: hiv-remmers · geen meetbaar virus = geeft het niet door · PrEP', 960, 1020, rem, C.groen, 28, 'center', 700); }
+  } });
+
+// ---------- 7 · een handje helpen ----------
+SCHERMEN.push({ titel: 'Hulp', deel: 'Voortplantingstechniek',
+  stappen: [
+    { t: 'Bij ± <b>1 op de 6</b> stellen lukt zwanger worden niet vanzelf. Welke <b>schakel</b> hapert?', n: 'Te weinig of slecht bewegende zaadcellen, geen eisprong, of eileiders die dicht zitten.' },
+    { t: 'Te weinig goede zaadcellen? <b>Kunstmatige inseminatie</b>: de arts spuit rond de eisprong zaadcellen hoog in de baarmoeder.', n: 'Dan hoeven de zaadcellen minder ver te zwemmen.' },
+    { t: 'Zitten de eileiders dicht, bijvoorbeeld door een oude chlamydia? Dan helpt <b>ivf</b>: bevruchting buiten het lichaam.', n: 'Ivf = in-vitrofertilisatie. Volgend scherm: de stappen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), ki = S.on(1, 1.8), ivf = S.on(2, 1.2);
+    // zes stelletjes als paren stippen
+    for (let i = 0; i < 6; i++) { const x = 260 + i * 120, y = 250, a = a0 * S.on(0, 0.3, i * 0.1), mis = i === 3; circ(ctx, x - 18, y, 20, rgba(mis ? C.koraal : C.teal, a)); circ(ctx, x + 18, y, 20, rgba(mis ? C.koraal : C.goud, a)); }
+    regel(ctx, '1 op de 6 stellen', 560, 330, a0, C.text, 34, 'center', 700);
+    [0, 1, 2, 3].forEach(i => { const x = 230 + i * 190, uit = i === 1 ? 0.5 + 0.5 * Math.sin(T * 2) : 0; ctx.save(); ctx.translate(0, 0); ctx.restore(); });
+    const P = vrouwSchema(ctx, 1300, 560, 0.9, { a: a0, dik: 0.6, t: T, hl: { leider: ivf * 0.8, baarmoeder: ki * 0.5 } });
+    naam(ctx, 'baarmoeder', 1300, 280, a0, 'center', C.text2, 28);
+    if (ki > 0.01) { const [hx, hy] = P(960, 800), [bx, by] = P(960, 420); ctx.save(); ctx.globalAlpha *= ki * (1 - ivf * 0.7); ctx.strokeStyle = C.text; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(hx, hy + 120); ctx.lineTo(bx, lerp(hy, by, ki)); ctx.stroke(); ctx.restore();
+      for (let i = 0; i < 6; i++) zaadcel(ctx, bx + (i - 2.5) * 22, by - 10 - (i % 2) * 18, -1.57, T + i, 1.0, ki * (1 - ivf * 0.7) * S.on(1, 0.5, 1.2)); regel(ctx, 'kunstmatige inseminatie', 1300, 960, ki * (1 - ivf), C.teal, 32, 'center', 700); }
+    if (ivf > 0.01) { [-1, 1].forEach(d => { const [x, y] = P(960 + d * 200, 330); kruis(ctx, x, y, 22, ivf); }); regel(ctx, 'eileiders dicht → ivf', 1300, 960, ivf, C.goud, 34, 'center', 700); }
+    regel(ctx, 'te weinig goede zaadcellen', 560, 520, ki, C.text, 30, 'center', 700); regel(ctx, '→ inseminatie', 560, 565, ki, C.teal, 30, 'center', 700);
+    regel(ctx, 'eileiders dicht', 560, 680, ivf, C.text, 30, 'center', 700); regel(ctx, '→ ivf', 560, 725, ivf, C.goud, 30, 'center', 700);
+  } });
+
+// ---------- 8 · ivf stap voor stap ----------
+const IVF_X = [230, 590, 960, 1330, 1690];
+SCHERMEN.push({ titel: 'Ivf', deel: 'Voortplantingstechniek',
+  stappen: [
+    { t: 'Eerst ± 10 dagen <b>FSH</b>-injecties: niet één, maar een stuk of tien follikels rijpen tegelijk.', n: 'Herhaling les 2: normaal stopt de remming van FSH de wedstrijd bij één follikel.' },
+    { t: 'Een ander middel onderdrukt de eigen LH-piek. Dan één <b>hCG</b>-injectie: die bootst de LH-piek na, de eicellen rijpen af.', vwo: true, n: 'Zo komen de eicellen niet te vroeg vrij. hCG lijkt op LH (les 2).' },
+    { t: 'Met een dunne naald haalt de arts de eicellen uit de follikels: de <b>punctie</b>.', n: '± anderhalve dag na de hCG-injectie.' },
+    { t: 'In een schaaltje komen eicellen en zaadcellen samen. Weinig goede zaadcellen? Dan <b>ICSI</b>: één zaadcel wordt in de eicel gespoten.', n: 'Vwo: bij ICSI worden capacitatie en acrosoomreactie overgeslagen.' },
+    { t: 'De embryo’s groeien een paar dagen in het lab. Meestal gaat er <b>één</b> terug in de baarmoeder: een tweeling is riskanter.', n: 'Vaak met extra progesteron: het gele lichaam maakt na zo’n behandeling niet altijd genoeg (vwo).' },
+    { t: 'De andere goede embryo’s gaan de <b>vriezer</b> in, voor een volgende poging. Of het embryo zich innestelt, bepaalt het lichaam zelf.', n: 'Lang niet elke poging lukt. Donor nodig? In Nederland is een donor niet anoniem: een kind kan later opvragen wie de donor is.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), st = [S.on(0, 1.4), S.on(1, 1.2), S.on(2, 1.4), S.on(3, 1.8), S.on(4, 1.6), S.on(5, 1.2)], y = 520;
+    const kop = ['FSH-injecties', 'hCG', 'punctie', 'schaaltje', 'één terug', 'vriezer']; ctx.save(); ctx.translate(0, 80);
+    // stappenbalk
+    const zicht = [st[0], st[1], st[2], st[3], Math.max(st[4], 0), st[5]];
+    const nrs = S.vwo ? [0, 1, 2, 3, 4] : [0, 2, 3, 4];
+    // 1: eierstok met veel follikels
+    { const a = st[0], x = IVF_X[0]; const pos = eierstokDoorsnede(ctx, x, y, 160, 110, { a, rust: 0.5 }); for (let i = 0; i < 9; i++) { const an = i / 9 * 6.283 + 0.2, [px, py] = pos(an, 0.78); follikel(ctx, px, py, 8 + 18 * st[0] - 12 * st[2], a, 0.6); } spuit(ctx, x + 140, y - 150, 1, a); regel(ctx, 'FSH', x + 60, y - 170, a, hk.FSH, 30, 'right', 700); regel(ctx, 'veel follikels', x, y + 170, a, C.text, 30, 'center', 700); }
+    // 1b (vwo): hCG
+    if (st[1] > 0.01) { const x = IVF_X[0]; spuit(ctx, x - 120, y - 150, 1, st[1], -0.6); regel(ctx, 'hCG', x - 70, y - 190, st[1], hk.hCG, 30, 'left', 700); regel(ctx, 'eigen LH-piek onderdrukt', x, y + 215, st[1], C.text2, 24, 'center', 600); }
+    // 2: punctie
+    { const a = st[2], x = IVF_X[1]; if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y + 30, 130, 90, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.28), lighten(VK.stok, 0.2), 3); ctx.restore(); follikel(ctx, x - 20, y + 20, 40, a, 0.6); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.text; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 150, y - 140); ctx.lineTo(x + lerp(140, 10, ease(S.on(2, 1.0, 0.3))), y + lerp(-130, 10, ease(S.on(2, 1.0, 0.3)))); ctx.stroke(); ctx.restore(); regel(ctx, 'punctie', x, y + 170, a, C.text, 30, 'center', 700); } }
+    // 3: schaaltje
+    { const a = st[3], x = IVF_X[2]; if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y + 30, 150, 60, 0, 0, 6.283); shape(ctx, rgba(C.teal, 0.15), rgba(C.line, 0.8), 3); ctx.restore(); eicel(ctx, x - 50, y + 26, 30, a); eicel(ctx, x + 50, y + 34, 26, a); for (let i = 0; i < 4; i++) zaadcel(ctx, x - 100 + i * 20, y + 60 - i * 8, 0.3, T + i, 1.0, a);
+      const ic = S.on(3, 1.0, 0.8); if (ic > 0.01) { ctx.save(); ctx.globalAlpha *= ic; ctx.translate(x + 140, y - 100); ctx.rotate(0.75); roundRect(ctx, -5, -10, 10, 120, 4); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore(); regel(ctx, 'ICSI', x + 160, y - 130, ic, C.goud, 30, 'left', 700); }
+      regel(ctx, 'bevruchting in een schaaltje', x, y + 170, a, C.text, 30, 'center', 700); } }
+    // 4: embryo's, één terug
+    { const a = st[4], x = IVF_X[3]; if (a > 0.01) { ['dag 1', 'dag 3', 'dag 5'].forEach((l, i) => { const xx = x - 110 + i * 110; if (i === 0) eicel(ctx, xx, y, 26, a); else embryo(ctx, xx, y, 26 + i * 6, a, i === 1 ? 8 : 16); regel(ctx, l, xx, y + 70, a, C.text2, 24, 'center', 600); });
+      const t = S.on(4, 1.0, 0.8); slijmStrook(ctx, x - 140, y + 140, 280, 0.6, t); embryo(ctx, x + 110, lerp(y, y + 100, t), 30, t); regel(ctx, 'één embryo terug', x, y + 220, a, C.text, 30, 'center', 700); } }
+    // 5: vriezer
+    { const a = st[5], x = IVF_X[4]; if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 90, y - 100, 180, 220, 18); shape(ctx, rgba(C.teal, 0.18), C.teal, 3); for (let i = 0; i < 6; i++) { ctx.strokeStyle = rgba('#FFFFFF', 0.6); ctx.lineWidth = 2; const sx = x - 60 + (i % 3) * 60, sy = y - 60 + Math.floor(i / 3) * 110; ctx.beginPath(); for (let k = 0; k < 6; k++) { const an = k * Math.PI / 3; ctx.moveTo(sx, sy); ctx.lineTo(sx + Math.cos(an) * 12, sy + Math.sin(an) * 12); } ctx.stroke(); } ctx.restore(); embryo(ctx, x - 30, y + 20, 22, a); embryo(ctx, x + 30, y + 30, 22, a); regel(ctx, '−196 °C', x, y + 170, a, C.teal, 30, 'center', 700); } }
+    // nummers en pijlen
+    IVF_X.forEach((x, i) => { const a = [st[0], st[2], st[3], st[4], st[5]][i]; if (a <= 0.01) return; circ(ctx, x, 240, 26, C.goud); regel(ctx, String(i + 1), x, 251, a, C.bg, 30, 'center', 700); if (i < 4) pijl(ctx, x + 90, 240, IVF_X[i + 1] - 90, 240, rgba(C.line, 0.7), 3, [st[2], st[3], st[4], st[5]][i], 14); }); ctx.restore();
+  } });
+
+// ---------- 9 · keuzes: embryoselectie en argumenten ----------
+SCHERMEN.push({ titel: 'Keuzes', deel: 'Voortplantingstechniek',
+  stappen: [
+    { t: 'Bij ivf kun je embryo’s ook testen: <b>embryoselectie</b>. Op dag 5 haalt de arts een paar cellen uit de buitenlaag en onderzoekt hun DNA.', n: 'Ook wel PGT genoemd. De binnenste celmassa (het latere kind) blijft onaangeroerd.' },
+    { t: 'Alleen een embryo zonder de <b>ernstige erfelijke ziekte</b> gaat terug. In Nederland mag dat niet om bijvoorbeeld het geslacht te kiezen.', n: 'Lastige vragen: welke ziekte is ernstig genoeg? Wat gebeurt er met de andere embryo’s? Waar ligt de grens met een baby op bestelling?' },
+    { t: '“Een embryo van vijf dagen is een bolletje cellen, zonder zenuwstelsel”: een <b>biologisch</b> argument. Het steunt op biologische kennis.', n: 'Uit de film Van bevruchting tot baby. Oefen het verschil: kun je het nagaan met onderzoek?' },
+    { t: '“Elk embryo is het begin van een mens”: een <b>ethisch</b> argument. Het steunt op normen en waarden.', n: 'Mensen denken hier verschillend over; de biologie beslist het niet.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), bi = S.on(0, 1.4, 0.6), kies = S.on(1, 1.4), ba = S.on(2, 0.8), ea = S.on(3, 0.8), weg = ba * 0.85;
+    // embryo en biopt
+    embryo(ctx, 520, 420, 120, a0 * (1 - weg)); naam(ctx, 'buitenlaag', 660, 330, a0 * (1 - weg), 'left', C.goud, 28); naam(ctx, 'binnenste celmassa', 380, 300, a0 * (1 - weg), 'right', C.paars, 28);
+    if (bi > 0.01) { ctx.save(); ctx.globalAlpha *= bi * (1 - weg); ctx.translate(lerp(820, 650, ease(bi)), 460); ctx.rotate(-0.1); roundRect(ctx, 0, -8, 260, 16, 6); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore(); for (let i = 0; i < 3; i++) circ(ctx, lerp(640, 900, ease((bi - 0.5) * 2)) + i * 16, 460, 10, rgba(C.goud, bi * (1 - weg)));
+      const dx = 1000; ctx.save(); ctx.globalAlpha *= bi * (1 - weg); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); for (let i = 0; i <= 40; i++) { const x = dx + i * 6; ctx.lineTo(x, 440 + Math.sin(i * 0.6) * 18); } ctx.stroke(); ctx.restore(); regel(ctx, 'DNA onderzoeken', dx + 120, 520, bi * (1 - weg), C.text, 28, 'center', 700); }
+    // drie embryo's, één goed
+    if (kies > 0.01) { [0, 1, 2].forEach(i => { const x = 1380 + i * 160, y = 420, ok = i === 1; embryo(ctx, x, y, 56, kies * (1 - weg) * (ok ? 1 : 1 - 0.5 * ease((kies - 0.5) * 2)), 14, ok ? C.groen : C.goud); if (kies > 0.5) (ok ? vink : kruis)(ctx, x, y + 100, 20, ease((kies - 0.5) * 2) * (1 - weg)); }); regel(ctx, 'alleen bij een ernstige ziekte', 1540, 600, kies * (1 - weg), C.text, 30, 'center', 700); regel(ctx, 'niet voor het geslacht', 1540, 645, kies * (1 - weg), C.text2, 28, 'center', 600); }
+    // argumenten
+    const arg = (x, kl, kop, tekst, a) => { if (a <= 0.01) return; kaart(ctx, x - 380, 560, 760, 330, a, kl); regel(ctx, kop, x, 630, a, kl, 40, 'center', 700); tekst.forEach((s, i) => regel(ctx, s, x, 710 + i * 48, a, C.text, 32, 'center', 600)); };
+    arg(520, C.teal, 'biologisch argument', ['“Een embryo van vijf dagen is', 'een bolletje cellen,', 'zonder zenuwstelsel”'], ba); arg(1400, C.paars, 'ethisch argument', ['“Elk embryo is', 'het begin van een mens,', 'en dat gooi je niet weg”'], ea);
+    regel(ctx, 'steunt op biologische kennis', 520, 940, ba, C.text2, 28, 'center', 600); regel(ctx, 'steunt op normen en waarden', 1400, 940, ea, C.text2, 28, 'center', 600);
+  } });
+
+// ---------- 10 · sekse in lagen ----------
+const LG = { L: 430, M: 960, R: 1490, y: [235, 355, 475, 595, 715, 835, 955] };
+function chromXY(ctx, x, y, letters, a) { if (a <= 0.01) return; letters.split('').forEach((l, i) => { const xx = x + (i - (letters.length - 1) / 2) * 70, col = l === 'Y' ? C.teal : C.koraal; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath();
+  if (l === 'X') { ctx.moveTo(xx - 18, y - 36); ctx.quadraticCurveTo(xx, y, xx - 18, y + 36); ctx.moveTo(xx + 18, y - 36); ctx.quadraticCurveTo(xx, y, xx + 18, y + 36); } else { ctx.moveTo(xx - 16, y - 26); ctx.quadraticCurveTo(xx, y - 4, xx + 16, y - 26); ctx.moveTo(xx, y - 6); ctx.lineTo(xx, y + 22); } ctx.stroke(); ctx.restore(); }); }
+SCHERMEN.push({ titel: 'Lagen', deel: 'Sekse',
+  stappen: [
+    { t: 'Tot ± week 6 ziet de aanleg van de geslachtsorganen er bij elk embryo <b>hetzelfde</b> uit.', n: 'Uit de film Sekse, gender en diversiteit. Op een echo van 20 weken is het verschil vaak al te zien.' },
+    { t: 'Laag 1: de <b>chromosomen</b>. Van je moeder altijd een X, van je vader een X of een Y.', n: 'Dat hangt af van de zaadcel die de eicel bevrucht.' },
+    { t: 'Laag 2: het <b>SRY-gen</b> op het Y-chromosoom. Rond week 7 gaat het aan, en de aanleg wordt een <b>zaadbal</b>. Zonder SRY wordt het een <b>eierstok</b>.', n: 'Zonder SRY gaan andere genen aan die de eierstok vormen.' },
+    { t: 'Laag 3: <b>hormonen</b>. De zaadballen maken testosteron en een hormoon waardoor de aanleg van baarmoeder en eileiders verdwijnt.', n: 'Zonder die hormonen ontstaan juist een baarmoeder en eileiders.' },
+    { t: 'Laag 4: de <b>geslachtsorganen</b>. Penis en balzak, of clitoris en schaamlippen, groeien uit dezelfde aanleg.', n: 'Primaire geslachtskenmerken. Daarom lijken ze bij een jong embryo zo op elkaar.' },
+    { t: 'Laag 5, jaren later: de <b>puberteit</b>. Testosteron of oestrogeen geven de secundaire geslachtskenmerken.', n: 'Koppeling met les 1 (startsein).' },
+    { t: 'Elk embryo heeft twee stelsels buisjes: die van <b>Wolff</b> en die van <b>Müller</b>. Anti-Müllerhormoon (AMH) ruimt Müller op, testosteron houdt Wolff in stand.', vwo: true, n: 'Wolff → bijbal, zaadleider, zaadblaasjes. Müller → eileiders, baarmoeder, bovenste deel van de vagina. Een afgeleide van testosteron (DHT) vormt penis en balzak. Voor de mannelijke route zijn actieve signalen nodig.' },
+    { t: 'Het SRY-gen is een schakelaar: het eiwit zet <b>SOX9</b> aan, dat weer andere genen aanzet. Eén gen zet een hele <b>cascade</b> in gang.', vwo: true, n: 'Komt SRY bij de vorming van zaadcellen op het X-chromosoom terecht, dan krijgt een kind met XX toch zaadballen (± 1 op 20 000 mannen); andersom kan XY zonder werkend SRY een baarmoeder krijgen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, { L, M, R, y } = LG, st = [0, 1, 2, 3, 4, 5].map(k => S.on(k, 1.0)), wm = S.on(6, 1.2), sox = S.on(7, 1.4), weg = 1 - wm;
+    regel(ctx, 'jongen', L, 170, st[1] * weg, C.teal, 40, 'center', 700); regel(ctx, 'meisje', R, 170, st[1] * weg, C.koraal, 40, 'center', 700);
+    const lagen = ['aanleg', '1 · chromosomen', '2 · SRY-gen', 'zaadbal of eierstok', '3 · hormonen', '4 · geslachtsorganen', '5 · puberteit'], rijStap = [0, 1, 2, 2, 3, 4, 5];
+    lagen.forEach((l, i) => { const a = st[rijStap[i]] * weg; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, M - 150, y[i] - 30, 300, 60, 30); shape(ctx, i === 3 ? rgba(C.bg, 0.4) : rgba(C.fill, 0.7), rgba(C.line, 0.5), 2); ctx.restore(); regel(ctx, l, M, y[i] + 10, a, i === 3 ? C.text2 : C.text, 28, 'center', 700);
+      if (i < 6) { const pa = st[rijStap[i + 1]] * weg; pijl(ctx, L, y[i] + 34, L, y[i + 1] - 34, rgba(C.line, 0.6), 3, pa, 12); pijl(ctx, R, y[i] + 34, R, y[i + 1] - 34, rgba(C.line, 0.6), 3, pa, 12); } });
+    // rij 0: zelfde aanleg
+    [L, R].forEach(x => { ctx.save(); ctx.globalAlpha *= st[0] * weg; ctx.beginPath(); ctx.ellipse(x, y[0], 70, 30, 0, 0, 6.283); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore(); });
+    regel(ctx, 'hetzelfde', L + 200, y[0] + 10, st[0] * weg, C.text2, 24, 'center', 600);
+    chromXY(ctx, L, y[1], 'XY', st[1] * weg); chromXY(ctx, R, y[1], 'XX', st[1] * weg);
+    if (st[2] > 0.01) { const a = st[2] * weg; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, L - 80, y[2] - 16, 160, 32, 16); ctx.fillStyle = rgba(C.teal, 0.5); ctx.fill(); ctx.fillStyle = C.goud; ctx.fillRect(L - 10, y[2] - 16, 26, 32); ctx.restore(); regel(ctx, 'SRY aan', L + 100, y[2] + 10, a, C.goud, 26, 'left', 700); regel(ctx, 'geen SRY', R, y[2] + 10, a, C.text2, 28, 'center', 700); }
+    if (st[2] > 0.01) { const a = st[2] * weg * S.on(2, 0.6, 0.6); ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(L, y[3], 60, 38, 0, 0, 6.283); shape(ctx, rgba('#D9A48F', 0.6), '#D9A48F', 3); ctx.beginPath(); ctx.ellipse(R, y[3], 60, 34, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.5), VK.stok, 3); ctx.restore(); for (let i = 0; i < 6; i++) circ(ctx, R - 36 + i * 14, y[3] + Math.sin(i * 2) * 10, 4, rgba(C.goud, a)); regel(ctx, 'zaadbal', L + 90, y[3] + 10, a, C.text, 26, 'left', 700); regel(ctx, 'eierstok', R + 90, y[3] + 10, a, C.text, 26, 'left', 700); }
+    regel(ctx, 'testosteron + AMH', L, y[4] + 10, st[3] * weg, C.teal, 30, 'center', 700); regel(ctx, 'geen testosteron of AMH', R, y[4] + 10, st[3] * weg, C.text2, 28, 'center', 700);
+    regel(ctx, 'penis en balzak', L, y[5] + 10, st[4] * weg, C.text, 30, 'center', 700); regel(ctx, 'clitoris en schaamlippen', R, y[5] + 10, st[4] * weg, C.text, 30, 'center', 700);
+    regel(ctx, 'lage stem, baardgroei', L, y[6] + 10, st[5] * weg, C.text, 28, 'center', 600); regel(ctx, 'borsten, bredere heupen', R, y[6] + 10, st[5] * weg, C.text, 28, 'center', 600);
+    // vwo: Wolff en Müller
+    if (wm > 0.01) { const a = wm * (1 - sox);
+      [[540, 'XY: zaadbal', true], [1380, 'XX: eierstok', false]].forEach(([x, l, man]) => { regel(ctx, l, x, 220, a, man ? C.teal : C.koraal, 38, 'center', 700);
+        ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x - 150, 330, 50, 34, 0, 0, 6.283); shape(ctx, man ? rgba('#D9A48F', 0.6) : rgba(VK.stok, 0.5), man ? '#D9A48F' : VK.stok, 3); ctx.restore();
+        const blijf = ease(S.on(6, 1.6, 0.8)); lijnPad(ctx, [[x - 110, 350], [x - 40, 460], [x - 20, 620], [x - 10, 800]], C.teal, 12, a * (man ? 1 : 1 - 0.85 * blijf)); lijnPad(ctx, [[x - 140, 290], [x + 40, 300], [x + 60, 460], [x + 20, 800]], C.koraal, 12, a * (man ? 1 - 0.85 * blijf : 1));
+        regel(ctx, 'Wolff', x - 60, 880, a * (man ? 1 : 1 - 0.7 * blijf), C.teal, 30, 'center', 700); regel(ctx, 'Müller', x + 60, 880, a * (man ? 1 - 0.7 * blijf : 1), C.koraal, 30, 'center', 700);
+        regel(ctx, man ? '→ bijbal, zaadleider' : '→ eileiders, baarmoeder', x, 940, a * blijf, C.text2, 26, 'center', 600);
+        if (man) { regel(ctx, 'AMH: Müller weg', x + 120, 520, a * blijf, C.goud, 26, 'left', 700); regel(ctx, 'testosteron: Wolff blijft', x + 120, 560, a * blijf, C.teal, 26, 'left', 700); } else regel(ctx, 'geen AMH, geen testosteron', x + 120, 540, a * blijf, C.text2, 26, 'left', 700); }); }
+    // vwo: cascade
+    if (sox > 0.01) { const genen = ['SRY', 'SOX9', 'andere genen', 'zaadbal'], kl = [C.goud, C.teal, C.paars, '#D9A48F']; genen.forEach((g, i) => { const x = 360 + i * 400, a = sox * S.on(7, 0.4, i * 0.35); blok(ctx, x, 520, 280, 100, g, kl[i], a, 0.4 * Math.max(0, Math.sin(T * 2 - i))); if (i < 3) pijl(ctx, x + 150, 520, x + 250, 520, kl[i], 5, a, 18); }); regel(ctx, 'één schakelaar, een hele cascade', 960, 700, S.on(7, 0.6, 1.6), C.text, 34, 'center', 700); }
+  } });
+
+// ---------- 11 · als een laag anders loopt ----------
+const VAR = [['Klinefelter', 'XXY', 0, 'jongen · ± 1 op 700', ['Y, dus SRY en zaadballen', 'vaak pas ontdekt bij', 'onvruchtbaarheid'], C.teal],
+             ['Turner', 'X', 0, 'meisje · ± 1 op 2500', ['eierstokken werken', 'meestal niet goed', 'hormonen → puberteit'], C.koraal],
+             ['androgeen-ongevoeligheid', 'XY', 2, '± 1 op 20 000 of minder', ['zaadballen maken testosteron', 'maar de receptor werkt niet', 'uitwendig: meisje'], C.paars],
+             ['AGS', 'XX', 2, 'NL: ± 15–20 baby’s per jaar', ['bijnieren maken te veel', 'mannelijke hormonen', 'test in de hielprik'], C.goud]];
+SCHERMEN.push({ titel: 'Anders', deel: 'Sekse',
+  stappen: [
+    { t: 'Meestal passen alle lagen bij elkaar. Maar bij elke laag kan het ook <b>anders</b> lopen.', n: 'Uit de film: iemand met X, X en Y, wordt dat een jongen of een meisje? Laat de klas redeneren met de lagen.' },
+    { t: '<b>Klinefelter</b>: XXY. Er is een Y, dus SRY, dus zaadballen: een jongen.', n: 'Veel van hen merken er lang weinig van, tot ze kinderen willen.' },
+    { t: '<b>Turner</b>: maar één X. Een meisje; de eierstokken werken meestal niet goed.', n: 'Vaak kleiner dan gemiddeld. Met hormonen kunnen ze toch in de puberteit komen.' },
+    { t: '<b>Androgeen-ongevoeligheid</b>: XY en zaadballen, maar de cellen reageren niet op testosteron. Uitwendig ontwikkelt het lichaam zich als dat van een meisje.', n: 'Vaak ontdekt in de puberteit, als de menstruatie uitblijft.' },
+    { t: '<b>AGS</b>: XX en eierstokken, maar de bijnieren maken te veel mannelijke hormonen.', n: 'Adrenogenitaal syndroom. Kan ook levensgevaarlijk zijn; daarom test de hielprik elke baby erop.' },
+    { t: 'Past het lichaam niet in het standaardplaatje van man of vrouw, dan heet dat <b>intersekse</b>. Artsen spreken van DSD.', n: 'Hoe vaak het voorkomt hangt af van wat je meetelt: bij ± 1 op de 5000 baby’s is bij de geboorte niet meteen duidelijk of het een jongen of een meisje is. Niet iedereen met zo’n variatie noemt zichzelf intersekse.' }
+  ],
+  teken(ctx, S) {
+    const a0 = S.on(0, 0.8), w = 400, gap = 30, x0 = 960 - (4 * w + 3 * gap) / 2, lagen = ['chromosomen', 'zaadbal of eierstok', 'hormonen', 'geslachtsorganen'];
+    VAR.forEach(([nm, kar, laag, freq, feit, kl], i) => { const x = x0 + i * (w + gap), r = S.on(i + 1, 1.0), a = a0;
+      kaart(ctx, x, 180, w, 740, a, r > 0.5 ? kl : null, r * 0.3);
+      lagen.forEach((l, j) => { const yy = 400 + j * 70, anders = r > 0.5 && j === laag; ctx.save(); ctx.globalAlpha *= a * (r > 0.01 ? 1 : 0.5); roundRect(ctx, x + 40, yy - 26, w - 80, 52, 26); shape(ctx, anders ? rgba(C.koraal, 0.35) : rgba(C.fill, 0.7), anders ? C.koraal : rgba(C.line, 0.4), 2); ctx.restore(); regel(ctx, l, x + w / 2, yy + 8, a * (r > 0.01 ? 1 : 0.5), anders ? C.koraal : C.text2, 24, 'center', 700); });
+      if (r > 0.01) { regel(ctx, nm, x + w / 2, 240, r, kl, nm.length > 14 ? 26 : 34, 'center', 700); chromXY(ctx, x + w / 2, 315, kar, r); feit.forEach((s, k) => regel(ctx, s, x + w / 2, 720 + k * 40, r, C.text, 26, 'center', 600)); regel(ctx, freq, x + w / 2, 880, r, C.text2, 24, 'center', 600); } });
+    const ix = S.on(5, 1.0); if (ix > 0.01) { ctx.save(); ctx.globalAlpha *= ix; roundRect(ctx, 460, 950, 1000, 90, 24); shape(ctx, rgba(C.bg, 0.92), C.goud, 3); ctx.restore(); regel(ctx, 'intersekse  ·  artsen: DSD', 960, 1008, ix, C.goud, 38, 'center', 700); }
+  } });
+
+// ---------- 12 · sekse bij dieren ----------
+function vogel(ctx, x, y, s, a, kl) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = kl; ctx.beginPath(); ctx.ellipse(0, 0, 60, 40, -0.15, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.arc(52, -38, 26, 0, 6.283); ctx.fill(); ctx.fillStyle = C.goud; ctx.beginPath(); ctx.moveTo(74, -40); ctx.lineTo(100, -34); ctx.lineTo(74, -28); ctx.fill(); circ(ctx, 58, -44, 4, C.bg); ctx.beginPath(); ctx.moveTo(-50, -10); ctx.lineTo(-100, -30); ctx.lineTo(-90, 10); ctx.fillStyle = kl; ctx.fill(); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(-10, 38); ctx.lineTo(-14, 70); ctx.moveTo(14, 38); ctx.lineTo(16, 70); ctx.stroke(); ctx.restore(); }
+function schildpad(ctx, x, y, s, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = rgba(C.groen, 0.7); [[-55, 30], [55, 30], [-50, -24], [50, -24]].forEach(([px, py]) => { ctx.beginPath(); ctx.ellipse(px, py, 20, 12, 0, 0, 6.283); ctx.fill(); }); ctx.beginPath(); ctx.ellipse(90, 0, 26, 18, 0, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(0, 0, 80, 52, 0, 0, 6.283); shape(ctx, rgba(C.oker, 0.8), C.oker, 3); ctx.strokeStyle = rgba(C.bg, 0.5); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-40, -40); ctx.lineTo(-20, 0); ctx.lineTo(-40, 40); ctx.moveTo(40, -40); ctx.lineTo(20, 0); ctx.lineTo(40, 40); ctx.moveTo(-20, 0); ctx.lineTo(20, 0); ctx.stroke(); ctx.restore(); }
+function clownvis(ctx, x, y, s, a, kleurLabel) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.fillStyle = '#E8833A'; ctx.beginPath(); ctx.ellipse(0, 0, 60, 30, 0, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.moveTo(-52, 0); ctx.lineTo(-86, -24); ctx.lineTo(-86, 24); ctx.fill(); ctx.fillStyle = '#F4F1EA'; [-26, 6, 34].forEach(bx => { ctx.beginPath(); ctx.ellipse(bx, 0, 7, 28 - Math.abs(bx) * 0.2, 0, 0, 6.283); ctx.fill(); }); circ(ctx, 44, -6, 5, '#1A1A1A'); ctx.restore(); }
+SCHERMEN.push({ titel: 'Dieren', deel: 'Sekse',
+  stappen: [
+    { t: 'Bij <b>vogels</b> is het andersom: het vrouwtje heeft twee verschillende geslachtschromosomen, <b>ZW</b>. Het mannetje is ZZ.', n: 'Net als de komodovaraan Flora uit les 1.' },
+    { t: 'Bij veel <b>schildpadden</b> beslist de <b>temperatuur</b> van het nest. Warm: vooral vrouwtjes. Koeler: vooral mannetjes.', n: 'Ook bij krokodillen hangt het af van de temperatuur (daar per soort anders). Klimaatverandering kan de verhouding scheeftrekken.' },
+    { t: 'Bij <b>clownvissen</b> is de grootste in de groep het vrouwtje, de tweede het mannetje.', n: 'Ze leven in een groepje in een zeeanemoon. Vraag: wat gebeurt er als het vrouwtje doodgaat?' },
+    { t: 'Sterft het vrouwtje, dan <b>verandert het mannetje in een vrouwtje</b>. De grootste van de rest wordt het nieuwe mannetje.', n: 'Eerst zijn gedrag, daarna zijn geslachtsklier: die gaat eicellen maken in plaats van zaadcellen.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, v = S.on(0, 0.8), s = S.on(1, 0.8), c = S.on(2, 0.8), w = S.on(3, 2.4);
+    kaart(ctx, 100, 170, 540, 800, v, null); kaart(ctx, 690, 170, 540, 800, s, null); kaart(ctx, 1280, 170, 540, 800, c, null);
+    regel(ctx, 'vogels', 370, 240, v, C.text, 40, 'center', 700); vogel(ctx, 260, 470, 1.0, v, rgba(C.paars, 0.8)); vogel(ctx, 480, 470, 1.0, v, rgba(C.teal, 0.8)); regel(ctx, '♀ ZW', 260, 620, v, C.paars, 40, 'center', 700); regel(ctx, '♂ ZZ', 480, 620, v, C.teal, 40, 'center', 700); regel(ctx, 'het vrouwtje heeft', 370, 750, v, C.text2, 28, 'center', 600); regel(ctx, 'twee verschillende', 370, 790, v, C.text2, 28, 'center', 600);
+    regel(ctx, 'schildpadden', 960, 240, s, C.text, 40, 'center', 700); schildpad(ctx, 960, 380, 1.0, s);
+    // thermometer met eieren
+    const tx = 760, ty0 = 520, ty1 = 860; ctx.save(); ctx.globalAlpha *= s; roundRect(ctx, tx - 14, ty0, 28, ty1 - ty0, 14); shape(ctx, rgba(C.fill, 0.8), C.text2, 2); const g = ctx.createLinearGradient(0, ty0, 0, ty1); g.addColorStop(0, C.koraal); g.addColorStop(1, C.teal); ctx.fillStyle = g; roundRect(ctx, tx - 7, ty0 + 6, 14, ty1 - ty0 - 12, 7); ctx.fill(); ctx.restore();
+    regel(ctx, 'warm', tx + 34, ty0 + 30, s, C.koraal, 28, 'left', 700); regel(ctx, 'koeler', tx + 34, ty1 - 10, s, C.teal, 28, 'left', 700);
+    for (let i = 0; i < 4; i++) { ei(ctx, 960 + i * 60, 600, 22, s); ei(ctx, 960 + i * 60, 800, 22, s); } regel(ctx, 'vooral ♀', 1060, 680, s, C.koraal, 30, 'center', 700); regel(ctx, 'vooral ♂', 1060, 880, s, C.teal, 30, 'center', 700);
+    regel(ctx, 'clownvissen', 1550, 240, c, C.text, 40, 'center', 700);
+    ctx.save(); ctx.globalAlpha *= c; ctx.strokeStyle = rgba(C.paars, 0.6); ctx.lineWidth = 6; for (let i = 0; i < 9; i++) { ctx.beginPath(); ctx.moveTo(1450 + i * 25, 900); ctx.quadraticCurveTo(1440 + i * 25 + Math.sin(T * 1.5 + i) * 14, 820, 1455 + i * 25 + Math.sin(T * 1.5 + i) * 18, 760); ctx.stroke(); } ctx.restore();
+    const vis = [[1550, 380, 1.4, '♀ grootste', 1 - w], [1550, 520, 1.1, '♂', 1], [1480, 640, 0.75, '', 1], [1640, 660, 0.7, '', 1]];
+    vis.forEach(([x, y, sc, l, al], i) => { const groei = i === 1 ? 1 + 0.3 * w : i === 2 ? 1 + 0.3 * w : 1; const yy = i === 1 ? lerp(y, 380, w) : i === 2 ? lerp(y, 520, w) : y; clownvis(ctx, x + Math.sin(T + i) * 10, yy, sc * groei, c * al); });
+    regel(ctx, '♀ grootste', 1700, 380, c * (1 - w), C.koraal, 28, 'left', 700); regel(ctx, '♂', 1700, lerp(520, 520, 0), c * (1 - w), C.teal, 30, 'left', 700);
+    if (w > 0.01) { regel(ctx, '♂ → ♀', 1720, 390, w, C.koraal, 32, 'left', 700); regel(ctx, 'nieuw ♂', 1720, 530, w, C.teal, 28, 'left', 700); }
+  } });
+
+// ---------- 13 · sekse en gender ----------
+const BEGRIP = [['sekse', 'je biologische geslacht: chromosomen, geslachtsklieren, hormonen, geslachtsorganen', C.teal], ['genderidentiteit', 'hoe je jezelf ervaart: als man, als vrouw, of anders', C.paars], ['genderexpressie', 'hoe je dat laat zien, bijvoorbeeld met kleding of je kapsel', C.goud], ['seksuele oriëntatie', 'op wie je verliefd wordt en tot wie je je aangetrokken voelt', C.koraal]];
+function regelsBreek(s, n) { const w = s.split(' '), r = []; let c = ''; w.forEach(x => { if ((c + ' ' + x).trim().length > n) { r.push(c.trim()); c = x; } else c += ' ' + x; }); if (c.trim()) r.push(c.trim()); return r; }
+SCHERMEN.push({ titel: 'Gender', deel: 'Sekse',
+  stappen: [
+    { t: 'Bij mensen moet je vier begrippen goed uit elkaar houden.', n: 'Feitelijk en rustig houden: de biologie beschrijft hoe het lichaam zich ontwikkelt.' },
+    { t: '<b>Sekse</b>: je biologische geslacht, het lichaam.', n: 'De lagen van de vorige schermen.' },
+    { t: '<b>Genderidentiteit</b>: hoe je jezelf ervaart. <b>Genderexpressie</b>: hoe je dat laat zien.', n: 'Bij de meeste mensen past de genderidentiteit bij de sekse, bij sommigen niet.' },
+    { t: '<b>Seksuele oriëntatie</b>: op wie je verliefd wordt. Dat is weer iets anders dan genderidentiteit.', n: '' },
+    { t: '<b>Transgender</b>: de genderidentiteit past niet bij de sekse die bij de geboorte is vastgesteld. <b>Non-binair</b>: niet alleen man of alleen vrouw. <b>Intersekse</b> gaat over het lichaam.', n: 'Waar genderidentiteit precies vandaan komt, weet de wetenschap nog niet goed; waarschijnlijk spelen meerdere dingen mee, ook biologische.' }
+  ],
+  teken(ctx, S) {
+    const zicht = [S.on(1, 0.8), S.on(2, 0.8), S.on(2, 0.8, 0.5), S.on(3, 0.8)], a0 = S.on(0, 0.8), w = 790, h = 280, xs = [150, 980], ys = [190, 510];
+    BEGRIP.forEach(([nm, uitleg, kl], i) => { const x = xs[i % 2], y = ys[Math.floor(i / 2)], r = zicht[i]; kaart(ctx, x, y, w, h, a0 * (0.4 + 0.6 * r), r > 0.5 ? kl : null); regel(ctx, nm, x + w / 2, y + 80, a0 * (0.4 + 0.6 * r), r > 0.5 ? kl : C.text2, 44, 'center', 700);
+      regelsBreek(uitleg, 40).forEach((s, k) => regel(ctx, s, x + w / 2, y + 150 + k * 44, r, C.text, 30, 'center', 600)); });
+    const t = S.on(4, 1.0); [['transgender', 'genderidentiteit ≠ sekse bij de geboorte', C.paars], ['non-binair', 'niet alleen man of alleen vrouw', C.paars], ['intersekse', 'gaat over het lichaam', C.teal]].forEach(([nm, u, kl], i) => { const x = 330 + i * 630, a = t * S.on(4, 0.4, i * 0.3); regel(ctx, nm, x, 890, a, kl, 36, 'center', 700); regel(ctx, u, x, 940, a, C.text2, 26, 'center', 600); });
+  } });
+
+// ---------- 14 · vooruitblik ----------
+function miniLes1(ctx, x, y, a) { [[C.teal, -40], [mix(C.teal, '#FFFFFF', 0.45), -10], [C.koraal, 30], [mix(C.koraal, '#FFFFFF', 0.45), 60]].forEach(([k, dx], i) => { ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = k; roundRect(ctx, x + dx - 10, y - (i < 2 ? 60 : 40), 20, i < 2 ? 120 : 80, 10); ctx.fill(); ctx.restore(); }); }
+function miniLes2(ctx, x, y, a) { const hk = HK(); [['FSH', hk.FSH], ['LH', hk.LH], ['oestrogeen', hk.oestrogeen], ['progesteron', hk.progesteron]].forEach(([k, c]) => lijnKrom(ctx, KROM[k], x - 140, 280, y + 70, 130, c, 28, a, 4)); }
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer: de <b>toets</b> over Voortplanting. Herhaal de films en oefen met de opdrachten op de site.', n: 'Toetsweek na deze drie lessen. Alle vijf de films van het thema horen erbij.' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'De toets', [['Les 1', 'één ouder of twee?', miniLes1], ['Les 2', 'precies op tijd', miniLes2], ['Les 3', 'ingrijpen en variatie', schakels]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+const KOPPEN = ['', 'Lotte bij de huisarts', 'Een schakel eruit', 'De pil en terugkoppeling', 'Hoe betrouwbaar?', 'Bacterie of virus', 'Vaak zonder klachten', 'Een handje helpen', 'Ivf stap voor stap', 'Keuzes', 'Sekse in lagen', 'Als een laag anders loopt', 'Sekse bij dieren', 'Sekse en gender', 'Volgende keer'];
+function kopVan(sc) { return KOPPEN[SCHERMEN.indexOf(sc)] || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = scr === 0 && p === 0;
+  document.getElementById('verder').disabled = scr === SCHERMEN.length - 1 && p === vis.length - 1;
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else if (scr < SCHERMEN.length - 1) { scr++; p = 0; tStap = tScherm = performance.now(); } else return; markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else if (scr > 0) { scr--; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } else return; tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { scr = clamp(i, 0, SCHERMEN.length - 1); p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) { document.body.classList.toggle('presenteer', aan); try { if (aan && !document.fullscreenElement) document.documentElement.requestFullscreen(); if (!aan && document.fullscreenElement) document.exitFullscreen(); } catch (e) {} }
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+</script>
+</body>
+</html>
