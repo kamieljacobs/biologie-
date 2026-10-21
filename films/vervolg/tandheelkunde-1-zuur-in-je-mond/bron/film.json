@@ -1,0 +1,79 @@
+{
+ "slug": "tandheelkunde-1-zuur-in-je-mond",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Zuur in je mond",
+ "sub": "tandplak, zuurcurve en erosie",
+ "puzzle": "Waarom is de hele dag door snoepen erger voor je tanden dan in één keer een zak leeg?",
+ "meta": "tandheelkunde en mondzorg · preventie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Tandheelkunde en mondzorg",
+ "lead": "Bilal en Sam eten even veel snoep, maar Bilal neemt de hele middag om het kwartier een snoepje. Tandplak is een biofilm van bacteriën die van suiker melkzuur maken; onder een pH van ongeveer 5,5 lost glazuur op, en speeksel herstelt het weer. Daarom telt hoe vaak je eet zwaarder dan hoeveel. Zuur uit frisdrank tast het glazuur ook aan, zonder bacteriën: erosie. Mondhygiënist Ilse laat zien hoe fluoride, speeksel en goed poetsen het glazuur beschermen.",
+ "endHaak": "hoeveel eet- en drinkmomenten had jij gisteren?",
+ "minis": {
+  "Hoofdstuk 1": "Wat is tandplak eigenlijk?",
+  "Hoofdstuk 2": "Waarom telt hoe vaak je eet?",
+  "Hoofdstuk 3": "Wat is erosie?",
+  "Hoofdstuk 4": "Hoe helpt fluoride?",
+  "Recap": "Waarom kreeg Bilal meer kans op gaatjes?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Mondhygiënist Ilse, Bilal en Sam (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bilal en Sam eten even veel snoep. Bilal neemt om het kwartier een snoepje, Sam eet de zak in één keer leeg. Wie loopt de meeste kans op gaatjes?",
+   "correct": 2,
+   "explain": "Bilal: na elk snoepje daalt de pH in de plak opnieuw, zodat zijn glazuur de hele middag geen kans krijgt om te herstellen."
+  },
+  "q11": {
+   "q": "Sam neemt na zijn snoep een suikervrije kauwgom. Helpt dat?",
+   "correct": 0,
+   "explain": "Ja: kauwen maakt veel speeksel aan, en dat brengt de pH sneller omhoog. Plak weghalen doet kauwgom niet."
+  },
+  "q15": {
+   "q": "Bilal stapt over op light cola. Is dat goed voor zijn tanden?",
+   "correct": 2,
+   "explain": "Half: zonder suiker maken bacteriën geen zuur, dus minder kans op gaatjes. Maar de cola is zelf zuur en tast het glazuur aan (erosie)."
+  }
+ },
+ "glossary": [
+  {
+   "t": "tandplak",
+   "d": "Biofilm op je tanden: bacteriën in een kleverige laag die ze zelf maken; spoelen helpt niet, poetsen wel."
+  },
+  {
+   "t": "biofilm",
+   "d": "Laag van micro-organismen die samen vastzitten in een slijm dat ze zelf maken, en daardoor beter beschermd zijn."
+  },
+  {
+   "t": "glazuur",
+   "d": "Buitenste laag van de tand, van kristallen van calcium en fosfaat; het hardste materiaal in je lichaam."
+  },
+  {
+   "t": "zuurcurve",
+   "d": "Hoe de pH in de plak na een hap suiker binnen minuten daalt en na een half uur tot een uur weer herstelt (Stephan-curve)."
+  },
+  {
+   "t": "kritische pH",
+   "d": "pH waaronder glazuur oplost: ongeveer 5,5; glazuur met fluoride houdt het langer vol, tot ongeveer 4,5."
+  },
+  {
+   "t": "cariës",
+   "d": "Gaatjes: glazuur en tandbeen lossen op door zuur dat bacteriën in de plak van suiker maken."
+  },
+  {
+   "t": "erosie",
+   "d": "Glazuur dat slijt door zuur uit eten en drinken of maagzuur, zonder dat er bacteriën aan te pas komen."
+  },
+  {
+   "t": "fluoride",
+   "d": "Stof in tandpasta die het ontkalken remt en het herstel van glazuur versnelt; daarom na het poetsen niet naspoelen."
+  },
+  {
+   "t": "mondhygiënist",
+   "d": "Mondzorgverlener (hbo Mondzorgkunde) die plak en tandsteen verwijdert, het tandvlees controleert en preventie geeft."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Leg uit waarom bacteriën in tandplak beter beschermd zijn dan losse bacteriën in je speeksel. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>In plak zitten ze samen in een kleverig slijm dat ze zelf maken (een biofilm) (1p); dat houdt ze vast, zodat spoelen of speeksel ze niet wegspoelt (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Schets de zuurcurve na één snoepje en na vier snoepjes met een kwartier ertussen. Leg met de schets uit waarom de tweede situatie slechter is voor het glazuur. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Na één snoepje: snelle daling tot onder 5,5, daarna herstel in een half uur tot een uur (1p). Bij vier snoepjes daalt de pH steeds opnieuw voordat hij hersteld is, en blijft hij lang onder 5,5 (1p). Het glazuur ontkalkt dan langer en krijgt geen tijd om calcium en fosfaat terug te halen uit speeksel (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Noem twee verschillen tussen cariës en erosie. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: bij cariës maken bacteriën het zuur, bij erosie komt het zuur uit eten, drinken of maagzuur (1p); cariës ontstaat waar plak blijft zitten, erosie op hele vlakken van de tand (1p); light frisdrank veroorzaakt wel erosie maar nauwelijks cariës.</p></details></div>\n<div class=\"q\"><p><b>4.</b> Iemand spoelt na het poetsen altijd goed na met water. Is dat verstandig? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Nee (1p): dan spoel je de fluoride weg, terwijl een beetje fluoride in je mond het ontkalken remt en het herstel van het glazuur versnelt (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Tandheelkunde en mondzorg (film 1 van 4). Bouwt voort op <i>De reis door je buik</i> (speeksel), <i>Je darmbewoners</i> (bacteriën), <i>Alles op adem</i> (melkzuurgisting) en <i>Wat zit er in je eten?</i>. Mondhygiënist Ilse (nieuw in het castboek), Bilal en Sam zijn de rode draad: één zak snoep, twee manieren van eten.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> tandplak als biofilm, plak kleuren met een plakverklikker. <b>H2</b> melkzuur, zuurcurve, kritische pH, herstel door speeksel, advies van zeven eet- en drinkmomenten. <b>H3</b> erosie: zuur zonder bacteriën, light cola. <b>H4</b> fluoride, poetsen zonder naspoelen, werk van de mondhygiënist.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Kritische pH glazuur</td><td>ongeveer 5,5 (in werkelijkheid 5,1–6,5, afhankelijk van calcium en fosfaat)</td><td>Dawes 2003, J Can Dent Assoc 69(11)</td></tr>\n<tr><td>Kritische pH met fluoride</td><td>ongeveer 4,5</td><td>Buzalaf e.a. 2011, Monogr Oral Sci 22; Dawes 2003</td></tr>\n<tr><td>pH plak na suiker</td><td>van ongeveer 7 naar onder de 5 binnen minuten; herstel in een half uur tot een uur</td><td>Stephan-curve; Ivoren Kruis, <i>Eten, drinken en een gezond gebit</i></td></tr>\n<tr><td>Eet- en drinkmomenten</td><td>hooguit 7 per dag (3 maaltijden + 4 tussendoor; water en thee zonder suiker tellen niet)</td><td>Ivoren Kruis</td></tr>\n<tr><td>pH dranken</td><td>cola ± 2,4, light ± 2,8; sportdrank en sap ± 3–4</td><td>Dawes 2003; PubMed 27056519</td></tr>\n<tr><td>Na zure drank</td><td>een uur wachten met poetsen</td><td>Ivoren Kruis</td></tr>\n<tr><td>Mondzorgkunde (hbo)</td><td>4 jaar; HAN Nijmegen, HU Utrecht, Inholland Amsterdam, Hanze Groningen; numerus fixus</td><td>studiekeuze123.nl (numerus fixus 2026-2027); han.nl</td></tr>\n<tr><td>Tandheelkunde (wo)</td><td>6 jaar; Nijmegen, Amsterdam (ACTA), Groningen</td><td>studiekeuze123.nl; uva.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De kritische pH is geen vaste grens maar hangt af van de hoeveelheid calcium en fosfaat in speeksel en plak; de film noemt 5,5 en 4,5 als ronde getallen.</li><li>Fluoride werkt vooral doordat er steeds een beetje van in plak en speeksel aanwezig is (remt ontkalken, versnelt herstel); de film noemt het sterkere nieuwe glazuur als gevolg.</li><li>Hoeveel suiker je eet telt ook mee; de film legt de nadruk op hoe vaak.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen van tevoren hun eet- en drinkmomenten van gisteren opschrijven en tellen; bespreek na de film wie boven de zeven zat.</li><li>Practicum: leg een stukje krijt of eierschaal in cola, light cola en water en vergelijk na een dag.</li></ul>\n</section>\n"
+}
