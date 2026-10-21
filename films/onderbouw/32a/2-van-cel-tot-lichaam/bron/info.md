@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/2-van-cel-tot-lichaam/index.html` (audio in `audio/` ernaast: 14 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 2 (32A Organismen, tweede bullet: bouw van orgaanstelsels, organen en weefsels, dier én plant) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t-niveau; één extra blok voor havo/vwo (s16, paarse balk "havo/vwo", gespecialiseerde cellen). Schakelaar **Basis / Havo/vwo** (standaard Havo/vwo; `?niveau=basis`) |
-| Versie / datum | 1.0 · 13 oktober 2026 |
+| Versie / datum | 1.1 · 21 oktober 2026 (beeld: castpersonages; zie onderaan) · eerder 1.0 · 13 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment (generations_count 1), flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 14 takes woord voor woord gelijk aan het script |
 | Duur | audio 345 s (speler-`dur` incl. 0,45 s staart; eindkaart 12 s); speeltijd Havo/vwo ± 6:50, Basis ± 6:05 (met 4 hoofdstukkaarten van 3,5 s en 4 vragen van 8 + 6 s) |
@@ -122,3 +122,13 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 ## Wijziging 16 okt 2026
 Geen havo/vwo meer in beeld of tekst (Kamiel): niveauknop **Basis / Uitdaging**, het extra blok heet "uitdaging" (canvaslabel, hoofdstukmenu, begrippen, transcript, checkvraag 5, docentdeel). De gesproken zin "Voor havo en vwo gaan we nog een stap verder." wordt door de speler weggeknipt (`vwoCuts`) en staat niet in het transcript. Interne sleutels (`level: vwo`, `data-v="havovwo"`) zijn ongewijzigd.
+
+## Versie 1.1 · 21 oktober 2026 (beeld)
+
+Grijze poppetjes en het 'Michelin'-lichaam vervangen (BEELDAFSPRAKEN, Personages en 'mooier animeren'). Geen wijziging aan audio, timing, tekst of ondertitels.
+
+- **'Jij' = Lotte** uit het castboek, net als in film 2b. s01: Lotte rent in sportkleding echt (zijaanzicht, `gang:'ren'`) door een nieuwe gymzaal (ramen, wandrek, basket, bank, houten vloer) die meeschuift zodat haar voeten niet over de vloer glijden; vanaf 'hart' klopt een echt hart in haar borst, vanaf 'ademt' zetten de longen uit en komen ademwolkjes uit de mond. s06: Lotte staat in sportkleding, stippelring en zoomlijnen vanaf haar kuit. s17: organisme-trede = Lotte; slot 'en de gymles?' = Lotte rent op de plaats over een meeschuivende vloer.
+- **'Een volwassen mens' (s04) = Mevrouw Visser** (volwassene, geen leerling).
+- **Lichaam met organen** (s03, s08, s10, s11, trede orgaanstelsel in s17) = `anatomie.js` (kopie van `personages/lib_anatomie.js`, `bodyOrgans`), `BODY={cx:960,yb:895,h:730}`. Namen van de stelsels in twee kolommen naast het lichaam (`sysPos`, zoals 2b), geen wijslijnen. s11: zuurstof en voedingsstoffen stromen langs de echte slagaders naar het been; inzet met mitochondriën vanaf de kuit.
+- **Losse organen realistischer**: kuitspier (`calf`) met twee koppen, vezelbundels, pezen, zenuw, slag- en ader, bindweefselvlies; namen in een kolom rechts ernaast. Rij hart · long · maag (via anatomie.js) en huid in doorsnede (`huidBlok`).
+- Bouw: `bouw/build.py` plakt nu `lib_cast.js + helpers1.js + anatomie.js + scenes2.js` tot `src/scenes.js`; in `index.html` is alleen het scèneblok vervangen (spelerfix, flipkaarten, oefenen, teller, licentie en sitebalk ongewijzigd). Eindkaart zegt versie 1.1. Let op: de regelnummers in 'Waar wat in de HTML zit' kloppen niet meer exact (het scèneblok is langer).

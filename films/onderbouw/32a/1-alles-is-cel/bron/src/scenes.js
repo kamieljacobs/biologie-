@@ -1,5 +1,8 @@
 // ===== Alles is cel — scènes (kerndoelen onderbouw, film 1) =====
 // Elke scène: SCENES.sNN(ctx, t, q). t = seconden in de take; q.at('woord', n) = begintijd van het n-de woord dat 'woord' bevat.
+// castboek heeft circ() nodig
+function circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke();} }
+// Versie 1.1 (21 okt 2026): 'jij' in s04 is Lotte uit het castboek (lib_cast.js, in build.py vóór dit bestand geplakt) i.p.v. het grijze poppetje; human() wordt niet meer gebruikt.
 // Tekenstijl: Part C, vlak, zoals Celorganellen en Diffusie. Sla, keuken en wangcellen zijn eigen tekeningen (stijlframes 12-10-2026).
 
 // ---------- algemene hulpjes ----------
@@ -178,11 +181,11 @@ s04(ctx,t,q){ bg(ctx,'schema'); const tK=q.at('kat');
     label(ctx,'cellen','piepkleine bouwstenen',1210,400,1520,180,ramp(t,q.at('cellen'),0.5)); });
   const a2=ramp(t,tK-0.2,0.6)*(1-ramp(t,q.at('microscoop')-0.4,0.6)*0.65);
   if(a2>0.01) alpha(ctx,a2,()=>{ const gy=780; ctx.strokeStyle=rgba(C.line,0.4); ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(160,gy); ctx.lineTo(1760,gy); ctx.stroke();
-    cat(ctx,420,gy,1.1,ramp(t,q.at('kat'),0.5)); oak(ctx,960,gy,1.05,ramp(t,q.at('eik'),0.5)); human(ctx,1500,gy,300,ramp(t,q.at('jij'),0.5));
+    cat(ctx,420,gy,1.1,ramp(t,q.at('kat'),0.5)); oak(ctx,960,gy,1.05,ramp(t,q.at('eik'),0.5)); persoon(ctx,'lotte',1500,gy,300,{uit:'blij',a:ramp(t,q.at('jij'),0.5),t});
     const zc=ramp(t,q.at('cellen',2),0.6);
     zoomCircle(ctx,420,260,105,470,gy-110,'',zc,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(300,140,240,240); for(let i=0;i<7;i++){ const a=i*0.9; ctx.beginPath(); ctx.ellipse(420+Math.cos(a)*(i?60:0),260+Math.sin(a)*(i?55:0),34,28,a,0,6.283); shape(ctx,rgba('#C9A3B0',0.3),'#D9B8C2',2); dot(ctx,420+Math.cos(a)*(i?60:0),260+Math.sin(a)*(i?55:0),8,C.kern); } });
     zoomCircle(ctx,960,200,105,960,gy-330,'',zc,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(840,80,240,240); tissue(960,200,105,t); });
-    zoomCircle(ctx,1500,260,105,1500,gy-200,'',zc,()=>{ ctx.fillStyle='#E6ECEF'; ctx.fillRect(1380,140,240,240); ctx.save(); ctx.translate(1500,260); ctx.scale(0.5,0.5); ctx.translate(-560,-470); [[470,430,105,2.6],[660,500,98,1.7],[380,300,92,0.2],[560,250,100,1.1],[390,640,96,1.9],[730,330,95,2]].forEach(([x,y,r,rot],i)=>wangcel(x,y,r,rot,i*5.7+2)); ctx.restore(); });
+    zoomCircle(ctx,1500,260,105,1512,gy-282,'',zc,()=>{ ctx.fillStyle='#E6ECEF'; ctx.fillRect(1380,140,240,240); ctx.save(); ctx.translate(1500,260); ctx.scale(0.5,0.5); ctx.translate(-560,-470); [[470,430,105,2.6],[660,500,98,1.7],[380,300,92,0.2],[560,250,100,1.1],[390,640,96,1.9],[730,330,95,2]].forEach(([x,y,r,rot],i)=>wangcel(x,y,r,rot,i*5.7+2)); ctx.restore(); });
     pill(ctx,960,120,'een cel: de kleinste bouwsteen die zelf leeft',C.goud,fadeIO(t,q.at('kleinste'),q.at('volwassen'),0.5),34);
     pill(ctx,1500,120,'≈ 30 000 miljard cellen',C.goud,fadeIO(t,q.at('volwassen'),q.at('microscoop')+3,0.5),34); });
   const mc=ramp(t,q.at('microscoop')-0.3,0.6); if(mc>0.01){ microscope(ctx,960,640,1.6,mc); pill(ctx,960,150,'één cel zie je alleen met een microscoop',C.text,mc,32); }
@@ -332,5 +335,5 @@ s19(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C
   const P=[['Uienvlies','Een dun vliesje van een ui. Kijk naar de celwand en de kern.'],['Wangcellen','Schraap zacht met een wattenstaafje. Kleur met methyleenblauw.'],['Blaadje waterpest','Een waterplant. Zoek de groene korrels.']];
   P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,450,480,42); }); });
   alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'In welk preparaat zie je bladgroenkorrels? En waarom zie je ze niet in het uienvlies?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/1-alles-is-cel/index.html` (audio in `audio/` ernaast: 15 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 1 (32A Organismen, eerste bullet) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t-niveau; één extra blok voor havo/vwo (s07, paarse balk "havo/vwo"). Schakelaar **Basis / Havo/vwo** (standaard Havo/vwo; `?niveau=basis`) |
-| Versie / datum | 1.0 · 12 oktober 2026 |
+| Versie / datum | 1.1 · 21 oktober 2026 (beeld: castpersonages; zie onderaan) · eerder 1.0 · 12 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment (generations_count 1) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 15 takes woord voor woord gelijk aan het script |
 | Duur | audio 278 s; speeltijd Havo/vwo 6:07, Basis 5:36 (met 4 hoofdstukkaarten van 3,5 s en 4 vragen van 8 + 6 s) |
@@ -111,3 +111,7 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 ## Wijziging 16 okt 2026
 Geen havo/vwo meer in beeld of tekst (Kamiel): niveauknop **Basis / Uitdaging**, het extra blok heet "uitdaging" (canvaslabel, hoofdstukmenu, begrippen, transcript, checkvraag 5, docentdeel). De gesproken zin "Voor havo en vwo gaan we nog een stap verder." wordt door de speler weggeknipt (`vwoCuts`) en staat niet in het transcript. Interne sleutels (`level: vwo`, `data-v="havovwo"`) zijn ongewijzigd.
+
+## Versie 1.1 · 21 oktober 2026 (beeld)
+
+Grijs plaatsvervanger-poppetje vervangen (BEELDAFSPRAKEN, Personages). In s04 ('een kat, een eik en jij') is 'jij' nu **Lotte** uit het castboek (zelfde 'jij' als in film 2 en 2b); de zoomcirkel met wangcellen wijst naar haar wang. `bron/src/lib_cast.js` = kopie van `personages/lib_cast.js`; `bouw/build.py` plakt hem vóór `scenes.js` in het scèneblok. `circ()` (nodig voor het castboek) staat bovenin `scenes.js`. De oude functie `human()` staat er nog, maar wordt niet meer gebruikt. Geen wijziging aan audio, timing, tekst of ondertitels; eindkaart zegt versie 1.1.
