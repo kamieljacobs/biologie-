@@ -715,8 +715,9 @@ function b_brein(ctx, x, y, s, a = 1, o = {}) { const { hyp = 0, t = 0 } = o; if
 const b_AF1_SNEL = [[0, 2, 4.45, 0.88], [4.4, 7.25, 10.1, 0.63], [10.05, 12.3, 14.6, 1.0]];
 const b_AF1_LANG = [[0, 7.9, 16.6, 0.37], [12, 18, 24, 0.30]];
 function b_boog(ctx, X, Y, b, prog) { const [t0, tp, t1, hp] = b; const N = 60; ctx.beginPath(); for (let k = 0; k <= N; k++) { const tt = t0 + (t1 - t0) * k / N * prog; const v = tt <= tp ? hp * Math.sin(Math.PI / 2 * (tt - t0) / (tp - t0)) : hp * Math.sin(Math.PI / 2 * (t1 - tt) / (t1 - tp)); k ? ctx.lineTo(X(tt), Y(Math.max(0, v))) : ctx.moveTo(X(tt), Y(Math.max(0, v))); } ctx.stroke(); }
-function b_afb1(ctx, x, y, w, h, o = {}) { const { a = 1, snel = 1, lang = 1, ax = 1, hl = -1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+function b_afb1(ctx, x, y, w, h, o = {}) { const { a = 1, snel = 1, lang = 1, ax = 1, hl = -1 } = o;
   const gx = x + 90, gw = w - 140, base = y + h - 170, top = y + 80; const X = (hr) => gx + gw * hr / 24, Y = (v) => base - (base - top) * v;
+  if (a <= 0.01) return { X, Y }; ctx.save(); ctx.globalAlpha *= a; // ook onzichtbaar de assen teruggeven (anders crasht s34 vóór 'snelwerkende')
   ctx.save(); ctx.globalAlpha *= ax; ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(gx, top - 10); ctx.lineTo(gx, base); ctx.lineTo(gx + gw, base); ctx.stroke();
   metaText(ctx, 'insulineactiviteit', gx + gw, top - 30, C.text2, 'right', 18);
   ['08:00', '12:00', '16:00', '20:00', '24:00', '04:00', '08:00'].forEach((s, i) => { ctx.beginPath(); ctx.moveTo(X(i * 4), base); ctx.lineTo(X(i * 4), base + 8); ctx.stroke(); text(ctx, s, X(i * 4), base + 36, fTekst(24, 600), C.text2, 'center'); });

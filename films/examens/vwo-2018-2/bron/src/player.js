@@ -59,7 +59,7 @@ function render(){
   else if(it.type==='card') drawChapterCard(ctx,it,t);
   else if(it.type==='end') drawEnd(ctx,it,t);
   else if(it.type==='question') drawQuestion(ctx,it,t);
-  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn) fn(ctx,t,q,state); else bg(ctx,'schema'); if(it.seg.verdieping){ metaText(ctx,'verdieping',W-60,46,C.goud,'right',28); } }
+  else { const q=makeQ(it.seg); q.localT=t; const fn=SCENES[it.seg.id]; if(fn){ try{ ctx.save(); fn(ctx,t,q,state); }catch(err){ if(!window.__sceneErr){ window.__sceneErr=1; console.error('scène '+it.seg.id,err); } } finally{ ctx.restore(); } } else bg(ctx,'schema'); if(it.seg.verdieping){ metaText(ctx,'verdieping',W-60,46,C.goud,'right',28); } }
   // UI layer: vwo marker
   if(it.level==='vwo'){ ctx.fillStyle=C.paars; ctx.fillRect(0,0,6,H); metaText(ctx,'vwo',60,46,C.paars,'left',28); }
   // series/level meta top-left (non-vwo items)
