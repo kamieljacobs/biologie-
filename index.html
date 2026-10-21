@@ -167,6 +167,15 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .tk.foto img{width:100%;height:100%;display:block;border-radius:999px;transition:transform .25s}
 .vgroep li a:hover .tk.foto img{transform:scale(1.06)}
 @media (max-width:600px){.vgroep li .tk.foto{width:72px;height:72px}}
+/* hover op de themarondjes: optillen, kantelen met de muis, gouden gloed, lichtglans */
+.tk.foto{position:relative;transform:perspective(420px) translateY(var(--ty,0)) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;will-change:transform}
+.tk.foto img{transition:transform .5s cubic-bezier(.2,.8,.2,1),filter .35s}
+.tk.foto::after{content:"";position:absolute;inset:0;border-radius:999px;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,240,200,.28) 50%,transparent 65%);background-size:250% 100%;background-position:120% 0;opacity:0}
+li a:hover .tk.foto,li a:focus-visible .tk.foto{--ty:-4px;border-color:var(--goud)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--goud) 35%,transparent),0 0 22px 2px color-mix(in srgb,var(--goud) 40%,transparent),0 10px 22px rgba(0,0,0,.35)}
+.vgroep li a:hover .tk.foto img,li a:hover .tk.foto img,li a:focus-visible .tk.foto img{transform:scale(1.1);filter:brightness(1.08) saturate(1.1)}
+li a:hover .tk.foto::after,li a:focus-visible .tk.foto::after{opacity:1;transition:background-position .9s ease-out;background-position:-20% 0}
+.vgroep li a b{transition:color .3s}
+.vgroep li a:hover b{color:var(--goud-text)}
 .tk{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
 .tk svg{width:28px;height:28px}
 .vlak li b{font:700 18px/1.25 var(--titel)}
@@ -3014,6 +3023,15 @@ themaKnop(); render();
 <script>/* Agora-menu sluiten bij klik buiten of na kiezen */
 document.addEventListener('click',e=>{document.querySelectorAll('details.menu[open]').forEach(d=>{if(!d.contains(e.target)||e.target.closest('.menu-lijst a'))d.removeAttribute('open')})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('details.menu[open]').forEach(d=>d.removeAttribute('open'))});
+</script>
+<script>
+/* themarondjes kantelen mee met de muis */
+(function(){if(!matchMedia('(hover:hover) and (pointer:fine)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.addEventListener('pointermove',e=>{const a=e.target.closest&&e.target.closest('li a');if(!a)return;const t=a.querySelector('.tk.foto');if(!t)return;
+const r=t.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/(r.width/2),y=(e.clientY-(r.top+r.height/2))/(r.height/2),c=v=>Math.max(-1,Math.min(1,v));
+t.style.setProperty('--ry',(c(x)*12).toFixed(1)+'deg');t.style.setProperty('--rx',(-c(y)*12).toFixed(1)+'deg')},{passive:true});
+document.addEventListener('pointerout',e=>{const a=e.target.closest&&e.target.closest('li a');if(!a||a.contains(e.relatedTarget))return;const t=a.querySelector('.tk.foto');if(t){t.style.removeProperty('--rx');t.style.removeProperty('--ry')}});
+})();
 </script>
 </body>
 </html>
