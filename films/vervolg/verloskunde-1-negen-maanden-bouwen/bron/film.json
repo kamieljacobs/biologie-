@@ -1,0 +1,79 @@
+{
+ "slug": "verloskunde-1-negen-maanden-bouwen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Negen maanden bouwen",
+ "sub": "van intake tot rijpe longen",
+ "puzzle": "Waarom moet je al foliumzuur slikken voordat je weet dat je zwanger bent?",
+ "meta": "verloskunde · ontwikkeling van het kind",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Verloskunde",
+ "lead": "Esra is zeven weken zwanger en heeft haar eerste afspraak bij Verloskundige Mirjam. Wat vraagt en adviseert een verloskundige bij de intake, en wat gebeurt er intussen in de buik? Van drie kiembladen en de kwetsbare weken van de orgaanvorming tot de longen die als laatste klaar zijn.",
+ "endHaak": "wat zou jij een zwangere vriendin aanraden, en waarom?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom komt het foliumzuuradvies zo vroeg?",
+  "Hoofdstuk 2": "Welke organen komen uit welk kiemblad?",
+  "Hoofdstuk 3": "Waarom zijn week 3 tot 8 het kwetsbaarst?",
+  "Hoofdstuk 4": "Waarom heeft een te vroeg geboren kind moeite met ademen?",
+  "Recap": "Wat doet Mirjam in deze weken vooral?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Verloskundige Mirjam en Esra (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom adviseert de verloskundige foliumzuur al vóór de zwangerschap?",
+   "correct": 0,
+   "explain": "Het ruggetje (de neurale buis) sluit al ongeveer vier weken na de bevruchting, vaak voordat je weet dat je zwanger bent."
+  },
+  "q15": {
+   "q": "Waarom geeft een stof die de aanleg van armen verstoort twintig weken na de bevruchting veel minder kans op schade dan vijf weken erna?",
+   "correct": 1,
+   "explain": "In week 20 zijn de armen al aangelegd; ze groeien alleen nog. De kwetsbare periode voor de aanleg ligt in week 3 tot 8 na de bevruchting."
+  },
+  "q20": {
+   "q": "Waarom krijgt de moeder de longrijpingsprik, en niet de baby na de geboorte?",
+   "correct": 2,
+   "explain": "Het hormoon gaat via de placenta naar het kind en zet de productie van surfactant aan; dat duurt een tot twee dagen en moet dus vóór de geboorte beginnen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "intake",
+   "d": "Eerste afspraak bij de verloskundige: termijn bepalen, vragen naar gezondheid, medicijnen en leefstijl, adviezen en een bloedtest."
+  },
+  {
+   "t": "zwangerschapsduur",
+   "d": "Gerekend vanaf de eerste dag van de laatste menstruatie; de bevruchting is ongeveer twee weken later. Een zwangerschap duurt zo gerekend ongeveer veertig weken."
+  },
+  {
+   "t": "neurale buis",
+   "d": "Buis op de rug van het embryo waaruit hersenen en ruggenmerg groeien; sluit ongeveer vier weken na de bevruchting. Sluit hij niet, dan ontstaat een open ruggetje."
+  },
+  {
+   "t": "foliumzuur",
+   "d": "Vitamine B11; slikken vanaf vóór de zwangerschap verkleint de kans op een open ruggetje."
+  },
+  {
+   "t": "alles-of-niets-principe",
+   "d": "In de eerste twee weken na de bevruchting herstelt een beschadigd embryo helemaal, of het overleeft niet."
+  },
+  {
+   "t": "kiembladen",
+   "d": "Drie cellagen in het jonge embryo: buitenste (huid, zenuwstelsel), middelste (spieren, botten, hart, bloed) en binnenste (darmkanaal, longen, lever)."
+  },
+  {
+   "t": "organogenese",
+   "d": "Het aanleggen van de organen, ongeveer week 3 tot 8 na de bevruchting; de kwetsbaarste periode voor schadelijke stoffen en infecties."
+  },
+  {
+   "t": "foetus",
+   "d": "Het kind vanaf ongeveer acht weken na de bevruchting, als alle organen zijn aangelegd en vooral nog groeien en rijpen."
+  },
+  {
+   "t": "surfactant",
+   "d": "Stof in de longblaasjes die de oppervlaktespanning van het waterlaagje verlaagt, zodat de blaasjes bij het uitademen open blijven; wordt pas in de laatste maanden gemaakt."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Esra is zeven weken zwanger. Hoe oud is haar embryo, en leg uit waarom het verschil ontstaat. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Ongeveer vijf weken (1p). De zwangerschapsduur wordt gerekend vanaf de eerste dag van de laatste menstruatie; de bevruchting is ongeveer twee weken later (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom het advies om foliumzuur te slikken al vóór de zwangerschap geldt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De neurale buis sluit ongeveer vier weken na de bevruchting (1p), vaak voordat een vrouw weet dat ze zwanger is; foliumzuur verkleint de kans op een open ruggetje alleen als het er op tijd is (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Softenon gaf alleen afwijkingen als de moeder het tussen ongeveer dag 20 en 36 na de bevruchting slikte. Verklaar dit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>In die periode worden armen en benen aangelegd (organogenese) (1p); daarna zijn ze al aangelegd en groeien ze alleen nog, dus een stof die de aanleg verstoort heeft dan veel minder effect (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een kind wordt bij 28 weken geboren. Leg uit waarom het moeite heeft met ademen en wat de longrijpingsprik bij de moeder doet. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Er is nog weinig surfactant (1p), waardoor de longblaasjes bij het uitademen dichtklappen door de oppervlaktespanning van het waterlaagje (1p). Het bijnierschorshormoon gaat via de placenta naar het kind en versnelt de productie van surfactant (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Verloskunde, deel 1 van vijf. De reeks volgt één cliënte, Esra (nieuw in het castboek), van intake tot kraamweek, met Verloskundige Mirjam (nieuw). Bouwt voort op <i>Van bevruchting tot baby</i> (innesteling, placenta), <i>Stamcellen</i>, <i>Genen aan en uit</i> en <i>Supplementen en superfoods</i> (foliumzuur).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> foliumzuur en de intake (termijn, vragen, eetadviezen, bloedtest). <b>H2</b> innesteling, alles-of-niets, drie kiembladen. <b>H3</b> organogenese als kwetsbare periode: Softenon, alcohol, rodehond, ibuprofen. <b>H4</b> groeien en rijpen, termijnecho, surfactant en longrijping.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Sluiten neurale buis</td><td>± 4 weken na de bevruchting</td><td>gpnotebook.nl: foliumzuur en neuraalbuisdefecten</td></tr>\n<tr><td>Softenon</td><td>± 10.000 kinderen; dag 20–36 na de bevruchting</td><td>embryology.med.unsw.edu.au: Thalidomide</td></tr>\n<tr><td>NSAID’s</td><td>vooral tweede helft: nieren, ductus</td><td>gpnotebook.nl: NSAID’s tijdens de zwangerschap; MHRA 2024</td></tr>\n<tr><td>Groei</td><td>12 wk ± 6 cm; 20 wk ± 25 cm, 300 g; à terme ± 50 cm, 3,5 kg</td><td>standaardgroeicurven</td></tr>\n<tr><td>Longrijping</td><td>twee prikken, 24 uur ertussen; effect na 1–2 dagen</td><td>richtlijnendatabase.nl: corticosteroïden bij dreigende vroeggeboorte</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De film noemt foetus vanaf acht weken na de bevruchting; in de praktijk spreekt men vaak vanaf tien weken zwangerschapsduur.</li><li>Kiembladen: de film geeft per laag de hoofdgroepen; uitzonderingen (bv. bijnierschors, deel van de lens) blijven weg.</li><li>Eetadviezen zijn ingekort; het Voedingscentrum geeft de volledige lijst.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen vóór de film zelf een lijst maken van vragen die een verloskundige bij de intake zou stellen, en vergelijk die met de film.</li></ul>\n</section>\n"
+}

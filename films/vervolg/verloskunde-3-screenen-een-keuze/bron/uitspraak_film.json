@@ -1,0 +1,1 @@
+[["^NIPT([:.,?!]?)$", "nipt\\1"], ["^NIPT-uitslag", "nipt-uitslag"], ["^B([,.:]?)$", "bé\\1"], ["^Dr\\.$", "dokter"]]
