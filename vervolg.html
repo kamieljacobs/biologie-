@@ -309,6 +309,15 @@ a.fr:hover .fb{border-color:var(--goud)}
 .buren .tk img{width:100%;height:100%}
 .buren .tk svg{width:28px;height:28px}
 .buren b{font:700 15px/1.2 var(--titel)}
+.gebiedkop{position:relative;overflow:hidden}
+.gebiedkop .wrap{position:relative}
+.gplaat{position:absolute;top:0;bottom:0;right:0;height:100%;aspect-ratio:16/9;max-width:100%;background:no-repeat center/cover;-webkit-mask-image:linear-gradient(90deg,transparent 22%,#000 48%),linear-gradient(0deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 22%,#000 48%),linear-gradient(0deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-composite:intersect;pointer-events:none}
+:root:not([data-theme="light"]) .metplaat .wrap{grid-template-columns:minmax(0,1fr);min-height:340px}
+:root:not([data-theme="light"]) .metplaat .groot{display:none}
+.metplaat .wrap>div{max-width:560px}
+:root[data-theme="light"] .gplaat{display:none}
+:root[data-theme="light"] .metplaat .wrap{min-height:0}
+@media (max-width:760px){.gplaat{opacity:.3}.metplaat .wrap{min-height:0}}
 </style>
 </head>
 <body>
@@ -745,11 +754,13 @@ function render(){
     </div></section>
     <div class="wrap">${overzicht()}</div>`;
 }
-/* Eigen pagina per vakgebied: vervolg.html#<gebied> (Kamiel 21 okt 2026) */
+/* Eigen pagina per vakgebied: vervolg.html#<gebied> (Kamiel 21 okt 2026). VPLAAT = gebieden met een gravure-achtergrond img/themakunst/vervolg/<id>.webp (dan vervalt het grote medaillon) */
+const VPLAAT=['psychologie','diergeneeskunde','ecologie'];
 function gebiedPagina(g){
   const c=CL[g.cluster], buren=GEBIEDEN.filter(x=>x.cluster===g.cluster&&x!==g);
   const beeld=VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="220" height="220">`:kunst(c.id,c.kleur);
-  app.innerHTML=`<section class="kop gebiedkop" style="--c:var(--${c.kleur})"><div class="wrap">
+  const plaat=VPLAAT.includes(g.id);
+  app.innerHTML=`<section class="kop gebiedkop${plaat?' metplaat':''}" style="--c:var(--${c.kleur})">${plaat?`<div class="gplaat" style="background-image:url(img/themakunst/vervolg/${g.id}.webp?v=1)" aria-hidden="true"></div>`:''}<div class="wrap">
       <div><a class="terug" href="vervolg.html${stap>1?'?stap='+stap:''}">← Alle vakgebieden</a><div class="lbl mono">${esc(c.naam)} · ${esc(g.niveau)}</div><h1>${esc(g.naam)}</h1>
       <p>${esc(g.intro)}</p></div>
       <div class="groot${VICOON.includes(g.id)?' foto':''}">${beeld}</div>
@@ -759,7 +770,7 @@ function gebiedPagina(g){
       <div class="opbouw" role="group" aria-label="Kies een stap">${STAPPEN.map((s,k)=>`<button type="button" data-stap="${k+1}" aria-pressed="${stap===k+1}" class="${s.status==='later'?'later':''}"><span class="mono">Stap ${k+1} · ${s.status}</span><b>${s.naam}</b><i class="kort">${s.kort}</i><span>${s.tekst}</span></button>`).join('')}</div>
       <p class="opbouw-hint">Klik op een stap om die te bekijken.</p>
       </div>
-      <div class="los">${kaart(g)}</div>
+      <div class="los">${kaart(g).replace(` id="${g.id}"`,'')}</div>
       ${buren.length?`<section class="buren"><span class="mono">Ook in ${esc(c.naam.toLowerCase())}</span><ul>${buren.map(x=>`<li><a href="#${x.id}"><span class="tk">${VICOON.includes(x.id)?`<img src="img/kunst/iconen/vervolg/${x.id}.webp?v=1" alt="" width="56" height="56" loading="lazy">`:kunst(c.id,c.kleur)}</span><b>${esc(x.naam)}</b></a></li>`).join('')}</ul></section>`:''}
     </div>`;
 }
