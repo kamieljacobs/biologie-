@@ -59,9 +59,15 @@ const CAST = {
             garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#C9654B', topAccent: '#A8523C', broek: '#33415C' } } }, // fysiotherapeut (21 okt 2026, Wat word jij? · Verpleegkunde en Fysiotherapie)
   ravi:   { naam: 'Apotheker Ravi', leeftijd: 35, rol: 'apotheker · achter de balie, controleert elk recept', huid: '#9C6B4E', haar: '#1A1412', kapsel: 'kort', wenkbrauw: '#1A1412', stoppels: true,
             top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#6A5A9A', broek: '#2E3442', schoen: '#2A2F3E', schoenAccent: '#6A5A9A', accessoire: ['bril'], lengte: 1.03,
-            garderobe: { werk: {}, gewoon: { top: 'overhemd', topKleur: '#6A5A9A', topAccent: '#584A82', broek: '#2E3442', accessoire: ['bril'] } } } // apotheker (20 okt 2026, Wat word jij? · Farmacie)
+            garderobe: { werk: {}, gewoon: { top: 'overhemd', topKleur: '#6A5A9A', topAccent: '#584A82', broek: '#2E3442', accessoire: ['bril'] } } }, // apotheker (20 okt 2026, Wat word jij? · Farmacie)
+  mirjam: { naam: 'Verloskundige Mirjam', leeftijd: 46, rol: 'verloskundige · luistert, meet en legt eerlijk uit', huid: '#E9C3A0', haar: '#B89A72', kapsel: 'golf', golfLang: 0.45, wenkbrauw: '#8A6E4C', wimpers: true, lippen: '#B4605A',
+            top: 'vest', topKleur: '#8C5A7A', topAccent: '#744A65', binnen: '#EEE6DA', broek: '#2E3442', schoen: '#3A3F4E', schoenAccent: '#8C5A7A', accessoire: ['bril', 'oorbel'], lengte: 0.99,
+            garderobe: { werk: {}, bevalling: { top: 'tshirt', topKleur: '#5E8FA8', topAccent: '#4D7A90', broek: '#5E8FA8', schoen: '#F2F2EE', schoenAccent: '#5E8FA8', accessoire: ['bril'] } } }, // verloskundige (21 okt 2026, Wat word jij? · Verloskunde)
+  esra:   { naam: 'Esra', leeftijd: 29, rol: 'zwanger van haar eerste kind · cliënte van Mirjam', huid: '#C99872', haar: '#2A1A14', kapsel: 'golf', golfLang: 1.2, wenkbrauw: '#24160F', wimpers: true, lippen: '#A9584E',
+            top: 'trui', topKleur: '#D9A441', topAccent: '#BF8C32', broek: '#3E4A63', schoen: '#F2F2EE', schoenAccent: '#C9654B', accessoire: ['oorbel'], lengte: 0.97, zwanger: 0.8,
+            garderobe: { gewoon: {}, jas: { top: 'jas', topKleur: '#6B4E3A', topAccent: '#584030', sjaal: '#D9A441' }, kraam: { top: 'vest', topKleur: '#8FA6B8', topAccent: '#7790A3', binnen: '#F2ECE2', zwanger: 0 } } } // cliënte (21 okt 2026, Wat word jij? · Verloskunde); o.zwanger 0..1 = buik (0 = niet zwanger)
 };
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra'];
 const CAST_JONG = ['kind', 'baby']; // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
@@ -137,6 +143,15 @@ function persoon(ctx, id, x, y, h, o = {}) {
     if (P.top === 'vest') { ctx.fillStyle = P.binnen; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.3, schouderY); ctx.lineTo(cx + hh * 0.08, heupY + hh * 0.3); ctx.lineTo(cx - hh * 0.08, heupY + hh * 0.3); ctx.closePath(); ctx.fill();
       for (let i = 0; i < 4; i++) circ(ctx, cx + hh * 0.17, schouderY + hh * (0.7 + i * 0.42), hh * 0.05, _donker(P.topKleur, 0.3)); }
   }
+  // --- zwangerschapsbuik (o.zwanger of P.zwanger, 0..1): ronde buik laag op de romp, licht naar de kijkrichting
+  { const zw = o.zwanger != null ? o.zwanger : (P.zwanger || 0); if (zw > 0.02 && !P.baby) {
+    const open = P.top === 'labjas' || P.top === 'vest' || P.top === 'jasje', kl = open ? (P.binnen || P.topKleur) : P.topKleur;
+    const rx = hh * (0.5 + 0.48 * zw), ry = hh * (0.5 + 0.5 * zw), bx = cx + kijk * hh * 0.12 * zw, by = heupY - hh * 0.5 + ry * 0.3;
+    ctx.fillStyle = kl; ctx.beginPath(); ctx.ellipse(bx, by, rx, ry, 0, 0, 6.283); ctx.fill();
+    ctx.strokeStyle = _donker(kl, 0.16); ctx.lineWidth = hh * 0.07; ctx.beginPath(); ctx.ellipse(bx, by, rx * 0.98, ry * 0.98, 0, 0.35, 2.8); ctx.stroke();
+    ctx.fillStyle = rgba('#FFFFFF', 0.13); ctx.beginPath(); ctx.ellipse(bx + kijk * rx * 0.3, by - ry * 0.45, rx * 0.3, ry * 0.17, -0.5 * kijk, 0, 6.283); ctx.fill();
+    if (open) { ctx.fillStyle = P.topKleur; for (const s2 of [-1, 1]) { ctx.beginPath(); ctx.moveTo(cx + s2 * sw * 0.5, schouderY + hh * 0.6); ctx.quadraticCurveTo(cx + s2 * Math.max(sw * 0.45, rx * 1.02), by, cx + s2 * Math.max(hw2 * 0.55, rx * 0.95), heupY + hh * 0.35); ctx.lineTo(cx + s2 * Math.max(hw2 * 0.55, rx * 0.95) + s2 * hh * 0.18, heupY + hh * 0.35); ctx.lineTo(cx + s2 * sw * 0.56, schouderY + hh * 0.6); ctx.closePath(); ctx.fill(); } }
+  } }
   // --- armen
   const arm = (s, cfg) => { const [a1, a2] = cfg; const L1 = hh * 1.32 * (P.armK || 1), L2 = hh * 1.2 * (P.armK || 1), sx = cx + s * sw * 0.4, sy = schouderY + hh * 0.25;
     const ex = sx + s * Math.sin(a1) * L1, ey = sy + Math.cos(a1) * L1, hx = ex + s * Math.sin(a2) * L2, hy = ey + Math.cos(a2) * L2;
