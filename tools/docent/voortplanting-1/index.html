@@ -496,7 +496,7 @@ function eierstokGroot(ctx, x, y, rx, ry, o = {}) {
   const { a = 1, n = 160, groei = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.35), lighten(VK.stok, 0.2), 2.5);
   ctx.save(); ctx.beginPath(); ctx.ellipse(x, y, rx - 8, ry - 8, 0, 0, 6.283); ctx.clip();
-  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = Math.sqrt(v) * 0.92; circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
+  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = 0.62 + 0.3 * v; /* rustende follikels alleen in de schors */ circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
   ctx.restore();
   const grp = [[x - 110, y - 36], [x - 36, y + 54], [x + 64, y - 60], [x + 118, y + 26], [x - 10, y - 80]];
   grp.forEach(([px, py], i) => { const g = groei * (i === 3 ? 1 : 0.55); if (g <= 0.01) return; const r = 6 + (i === 3 ? 34 : 16) * g; circ(ctx, px, py, r, rgba(C.goud, 0.18), rgba(C.goud, 0.7), 2); eicel(ctx, px, py, 5 + 4 * g, 1); });

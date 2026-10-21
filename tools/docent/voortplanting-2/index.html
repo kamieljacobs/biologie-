@@ -147,7 +147,7 @@ details.docent[open]>summary::after{content:"–"}
       <h3>Lesopbouw (± 50 minuten)</h3>
       <ol>
         <li><b>Opening</b> (5 min): eicel één dag, zaadcel vijf dagen. Alles moet op tijd: hoe regelt het lichaam dat?</li>
-        <li><b>Hormonen</b> (10 min): de as hypothalamus → hypofyse → geslachtsklier (scherm 3) en negatieve terugkoppeling bij de man met de bodybuilder als voorspelvraag (scherm 4).</li>
+        <li><b>Hormonen</b> (10–15 min): de as hypothalamus → hypofyse → geslachtsklier (scherm 3); bij de man op welke cellen LH en FSH werken (Leydig- en Sertolicellen), negatieve terugkoppeling en de bodybuilder als voorspelvraag (scherm 4).</li>
         <li><b>De cyclus</b> (15 min): de follikelwedstrijd (scherm 5), van rem naar gaspedaal en de LH-piek (scherm 6), en dan alles samen in de grafiek (scherm 7). Laat de klas met de dagschuif de grafiek lezen.</li>
         <li><b>Bevruchting en zwangerschap</b> (15 min): de ontmoeting (scherm 8), hCG als bericht aan het gele lichaam (scherm 9), de placenta (scherm 10).</li>
         <li><b>Geboorte</b> (5 min): oxytocine als tweede voorbeeld van positieve terugkoppeling (scherm 11).</li>
@@ -165,6 +165,7 @@ details.docent[open]>summary::after{content:"–"}
         <li><b>Bodybuilder</b>: extra testosteron (anabole steroïden) remt via negatieve terugkoppeling GnRH, LH en FSH; de eigen testosteron- en zaadcelproductie daalt.</li>
         <li><b>Bevruchting</b>: ± 200 miljoen zaadcellen bij een zaadlozing, een paar honderd bij de eicel. Corticale reactie: na het binnendringen van één zaadcel verandert de zona pellucida, zodat geen tweede zaadcel kan binden (anders drie sets chromosomen).</li>
         <li><b>hCG</b> lijkt op LH en bindt aan de LH-receptoren van het gele lichaam. Het komt pas na de innesteling (vanaf dag ± 6) in het bloed van de moeder. Rond week 8–10 neemt de placenta de productie van progesteron over.</li>
+        <li><b>Eierstok</b>: in doorsnede met schors en merg. De rustende follikels zijn in werkelijkheid microscopisch klein (± 0,03 mm) en liggen in de schors; per cyclus groeien er ± 10–20 tot een paar millimeter, en de dominante follikel wordt ± 2 cm in een eierstok van ± 3–4 cm. Hij puilt uit aan de rand, waar de eisprong plaatsvindt.</li>
         <li><b>Placenta</b>: getekend met twee vlokken; in werkelijkheid sterk vertakt. In de navelstreng twee slagaders en één ader van het kind.</li>
         <li><b>Geboorte</b>: rekzintuigen in de baarmoederhals → hypothalamus → achterkwab van de hypofyse → oxytocine. Vereenvoudigd tot 'hersenen · hypofyse'.</li>
       </ul>
@@ -517,7 +518,7 @@ function eierstokGroot(ctx, x, y, rx, ry, o = {}) {
   const { a = 1, n = 160, groei = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.35), lighten(VK.stok, 0.2), 2.5);
   ctx.save(); ctx.beginPath(); ctx.ellipse(x, y, rx - 8, ry - 8, 0, 0, 6.283); ctx.clip();
-  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = Math.sqrt(v) * 0.92; circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
+  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = 0.62 + 0.3 * v; /* rustende follikels alleen in de schors */ circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
   ctx.restore();
   const grp = [[x - 110, y - 36], [x - 36, y + 54], [x + 64, y - 60], [x + 118, y + 26], [x - 10, y - 80]];
   grp.forEach(([px, py], i) => { const g = groei * (i === 3 ? 1 : 0.55); if (g <= 0.01) return; const r = 6 + (i === 3 ? 34 : 16) * g; circ(ctx, px, py, r, rgba(C.goud, 0.18), rgba(C.goud, 0.7), 2); eicel(ctx, px, py, 5 + 4 * g, 1); });
@@ -657,79 +658,104 @@ SCHERMEN.push({ titel: 'Signalen', deel: 'Hormonen',
           regel(ctx, 'door het membraan, receptor in de cel', x, ys + 450, v * clamp(p * 1.6 - 0.6, 0, 1), C.text2, 28, 'center', 600); naam(ctx, 'genen aan of uit', kx + 90, ky, v * clamp(p * 2 - 1.2, 0, 1), 'left', C.goud, 26); } }); }
   } });
 
+// ---------- eierstok in doorsnede ----------
+// Schors (buiten) met de follikels, merg (binnen) met bloedvaten. Rustende follikels zijn piepklein en liggen alleen in de schors.
+// Geeft pos(hoek, diepte) terug: een punt in de eierstok (diepte 1 = de rand).
+function eierstokDoorsnede(ctx, x, y, rx, ry, o = {}) {
+  const a = o.a == null ? 1 : o.a, rust = o.rust == null ? 1 : o.rust, pos = (an, d) => [x + Math.cos(an) * rx * d, y + Math.sin(an) * ry * d];
+  if (a <= 0.01) return pos;
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, C.licht ? 0.3 : 0.26), lighten(VK.stok, 0.2), 3);
+  ctx.beginPath(); ctx.ellipse(x, y, rx * 0.56, ry * 0.5, 0, 0, 6.283); shape(ctx, rgba(C.holte, C.licht ? 0.16 : 0.35), rgba(VK.stok, 0.5), 1.5);
+  ctx.strokeStyle = rgba(C.bloed, 0.55); ctx.lineWidth = 4; ctx.lineCap = 'round';
+  for (let i = 0; i < 6; i++) { const an = i / 6 * 6.283 + 0.3; ctx.beginPath(); ctx.moveTo(x - rx * 0.62, y + ry * 0.05); ctx.bezierCurveTo(x - rx * 0.2, y + Math.sin(an) * ry * 0.3, x + Math.cos(an) * rx * 0.2, y + Math.sin(an) * ry * 0.25, x + Math.cos(an) * rx * 0.48, y + Math.sin(an) * ry * 0.42); ctx.stroke(); }
+  for (let i = 0; i < 150; i++) { const an = hash(i * 3 + 1) * 6.283, d = 0.68 + 0.26 * hash(i * 3 + 2), [px, py] = pos(an, d); circ(ctx, px, py, 3.2, rgba(C.goud, 0.55 * rust)); }
+  ctx.restore(); return pos;
+}
+
 // ---------- 3 · terugkoppeling bij de man ----------
+// Links de hormoonas, rechts een doorsnede van de zaadbal: LH werkt op de Leydigcellen, FSH op de Sertolicellen.
+const ZB = { x: 1390, y: 610, R: 270, buis: [[-105, -70], [110, -80], [0, 120]] };
+function zaadbuisje(ctx, x, y, r, a, T, glS = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  circ(ctx, x, y, r, rgba('#D9A48F', 0.22), '#D9A48F', 3); circ(ctx, x, y, r * 0.38, rgba(C.bg, 0.5));
+  for (let j = 0; j < 9; j++) { const an = j / 9 * 6.283 + 0.2; ctx.save(); ctx.translate(x + Math.cos(an) * r * 0.66, y + Math.sin(an) * r * 0.66); ctx.rotate(an + Math.PI / 2); ctx.beginPath(); ctx.ellipse(0, 0, 9, r * 0.27, 0, 0, 6.283); ctx.fillStyle = rgba(C.groen, 0.55 + 0.35 * glS); ctx.fill(); ctx.restore(); }
+  for (let j = 0; j < 14; j++) { const an = j / 14 * 6.283; circ(ctx, x + Math.cos(an) * r * 0.9, y + Math.sin(an) * r * 0.9, 5, rgba('#D9A48F', 0.9)); }
+  ctx.restore(); for (let j = 0; j < 4; j++) zaadcel(ctx, x + (j - 1.5) * 9, y + Math.sin(j * 2) * 6, -1.57 + (j - 1.5) * 0.25, T + j, 0.5, a, C.text); }
 SCHERMEN.push({ titel: 'Man', deel: 'Hormonen',
   stappen: [
-    { t: 'Bij de man: GnRH → hypofyse → <b>LH</b> en <b>FSH</b> → zaadbal.', n: 'Zelfde as als bij de vrouw; het eindorgaan verschilt.' },
-    { t: '<b>LH</b>: de zaadbal maakt <b>testosteron</b>. <b>FSH</b> en testosteron samen: <b>zaadcellen</b>.', n: 'Vanaf de puberteit honderden tot een paar duizend zaadcellen per seconde (schattingen lopen uiteen, zie de briefing).' },
-    { t: 'In de zaadbal: <b>Leydigcellen</b> maken testosteron, <b>Sertolicellen</b> verzorgen de zaadcellen en maken <b>inhibine</b>.', vwo: true, n: 'Leydigcellen liggen tussen de zaadbuisjes (LH-receptor), Sertolicellen in de wand van de buisjes (FSH-receptor). Inhibine remt vooral de afgifte van FSH.' },
+    { t: 'Bij de man: GnRH → hypofyse → <b>LH</b> en <b>FSH</b> → zaadballen.', n: 'Zelfde as als bij de vrouw; het eindorgaan verschilt. Rechts een doorsnede van de zaadbal: zaadbuisjes met daartussen bindweefsel.' },
+    { t: '<b>LH</b> werkt op de <b>Leydigcellen</b>, tussen de zaadbuisjes. Die maken <b>testosteron</b>.', n: 'Alleen de Leydigcellen hebben LH-receptoren. Testosteron gaat het bloed in (geslachtskenmerken, terugkoppeling) én het zaadbuisje in.' },
+    { t: '<b>FSH</b> werkt op de <b>Sertolicellen</b> in de wand van de zaadbuisjes. Samen met testosteron zorgen die dat er <b>zaadcellen</b> rijpen.', n: 'Sertolicellen zijn de verzorgers: ze voeden en begeleiden de zaadcellen van de wand naar de holte van het buisje. Vanaf de puberteit honderden tot een paar duizend zaadcellen per seconde.' },
+    { t: 'De Sertolicellen maken ook <b>inhibine</b>: dat remt vooral de afgifte van FSH.', vwo: true, n: 'Inhibine B. Zo heeft elk van de twee celtypen zijn eigen terugkoppeling: testosteron (Leydig) en inhibine (Sertoli).' },
     { t: 'Testosteron <b>remt</b> de hypothalamus en de hypofyse: <b>negatieve terugkoppeling</b>.', n: 'Het signaal remt zijn eigen oorzaak.' },
     { t: 'Zo blijft de testosteronspiegel <b>stabiel</b>, net als een thermostaat.', n: 'Te hoog → minder GnRH en LH → minder testosteron. Te laag → de rem gaat eraf → meer LH → meer testosteron.' },
     { t: 'Een bodybuilder spuit <b>extra testosteron</b>.', n: 'Laat de klas eerst voorspellen wat er met LH, de eigen testosteronproductie en de zaadcelproductie gebeurt.' },
-    { t: 'De rem werkt: <b>minder LH en FSH</b>. Zijn zaadballen maken zelf minder testosteron en <b>minder zaadcellen</b>.', n: 'Anabole steroïden kunnen daardoor tijdelijk onvruchtbaar maken; de zaadballen kunnen kleiner worden.' }
+    { t: 'De rem werkt: <b>minder LH en FSH</b>. Zijn Leydigcellen maken minder testosteron en er rijpen <b>minder zaadcellen</b>.', n: 'Hoog testosteron in het bloed, maar laag in de zaadbal. Anabole steroïden kunnen daardoor tijdelijk onvruchtbaar maken; de zaadballen kunnen kleiner worden.' }
   ],
   teken(ctx, S) {
-    const T = S.T, hk = HK(), X = 460, Y = [230, 470, 790];
-    const a0 = S.on(0, 0.8), t1 = S.on(1, 0.8), vw = S.on(2, 0.8), rem = S.on(3, 1.0), th = S.on(4, 1.0), bb = S.on(5, 1.0), res = S.on(6, 1.4);
-    const dal = 1 - 0.75 * res; // hoeveel LH/FSH er nog is
-    blok(ctx, X, Y[0], 330, 100, 'hypothalamus', C.oker, a0); blok(ctx, X, Y[1], 330, 100, 'hypofyse', C.oker, a0 * S.on(0, 0.6, 0.4)); blok(ctx, X, Y[2], 330, 110, 'zaadbal', '#D9A48F', a0 * S.on(0, 0.6, 0.8), 0, null);
+    const T = S.T, hk = HK(), X = 430, Y = [230, 470, 790];
+    const a0 = S.on(0, 0.8), ly = S.on(1, 1.4), se = S.on(2, 1.4), inh = S.on(3, 1.0), rem = S.on(4, 1.0), th = S.on(5, 1.0), bb = S.on(6, 1.0), res = S.on(7, 1.4);
+    const dal = 1 - 0.75 * res, zoom = a0 * (1 - th);
+    blok(ctx, X, Y[0], 330, 100, 'hypothalamus', C.oker, a0); blok(ctx, X, Y[1], 330, 100, 'hypofyse', C.oker, a0 * S.on(0, 0.6, 0.4)); blok(ctx, X, Y[2], 330, 110, 'zaadbal', '#D9A48F', a0 * S.on(0, 0.6, 0.8));
     pijl(ctx, X, Y[0] + 52, X, Y[1] - 54, hk.GnRH, 5 * (0.4 + 0.6 * dal), a0, 18); regel(ctx, 'GnRH', X - 24, (Y[0] + Y[1]) / 2 + 10, a0, hk.GnRH, 30, 'right', 700);
     pijl(ctx, X - 40, Y[1] + 52, X - 40, Y[2] - 58, hk.LH, 3 + 6 * dal, a0 * S.on(0, 0.6, 0.6), 20); pijl(ctx, X + 40, Y[1] + 52, X + 40, Y[2] - 58, hk.FSH, 3 + 6 * dal, a0 * S.on(0, 0.6, 0.6), 20);
     regel(ctx, 'LH', X - 64, 640, a0, hk.LH, 32, 'right', 700); regel(ctx, 'FSH', X + 64, 640, a0, hk.FSH, 32, 'left', 700);
     if (res > 0.01) { regel(ctx, '↓', X - 140, 640, res, C.koraal, 52, 'center', 700); regel(ctx, '↓', X + 150, 640, res, C.koraal, 52, 'center', 700); }
-    // producten van de zaadbal
-    const tp = t1 * (1 - 0.7 * res); regel(ctx, 'testosteron', X + 200, Y[2] + 12, t1, hk.testosteron, 32, 'left', 700); stroom(ctx, X + 170, Y[2], X + 190, Y[2], hk.testosteron, T, 0);
-    for (let i = 0; i < 4; i++) zaadcel(ctx, X - 120 + i * 70, Y[2] + 120 + (i % 2) * 14, 0.2, T + i, 1.3, t1 * (i < 4 * (1 - 0.75 * res) ? 1 : 0.15));
-    regel(ctx, 'zaadcellen', X, Y[2] + 200, t1, C.text2, 28, 'center', 600); if (res > 0.01) { regel(ctx, '↓', X + 140, Y[2] + 200, res, C.koraal, 44, 'center', 700); regel(ctx, '↓', X + 420, Y[2] + 12, res, C.koraal, 44, 'center', 700); }
-    // vwo: binnenkant zaadbal
-    if (vw > 0.01) { const zx = 1440, zy = 700; ctx.save(); ctx.globalAlpha *= vw * (1 - th); circ(ctx, zx, zy, 200, rgba('#D9A48F', 0.2), rgba('#D9A48F', 0.8), 2.5);
-      [[-90, -60], [90, -50], [0, 90]].forEach(([dx, dy]) => { circ(ctx, zx + dx, zy + dy, 70, rgba('#D9A48F', 0.25), '#D9A48F', 3); for (let j = 0; j < 8; j++) { const an = j / 8 * 6.283; circ(ctx, zx + dx + Math.cos(an) * 55, zy + dy + Math.sin(an) * 55, 9, rgba(C.groen, 0.7)); } for (let j = 0; j < 4; j++) zaadcel(ctx, zx + dx + (j - 1.5) * 12, zy + dy + Math.sin(j) * 10, -1.57, T + j, 0.45, 1, C.text); });
-      [[0, -10], [-120, 60], [120, 70], [-20, -150]].forEach(([dx, dy]) => circ(ctx, zx + dx, zy + dy, 13, rgba(C.teal, 0.8))); ctx.restore();
-      const a = vw * (1 - th); naam(ctx, 'Sertolicellen', zx + 210, zy - 110, a, 'left', C.groen, 28); naam(ctx, 'Leydigcellen', zx + 210, zy + 150, a, 'left', C.teal, 28); naam(ctx, 'zaadbuisjes', zx, zy - 230, a, 'center', C.text2, 26);
-      regel(ctx, 'inhibine', zx + 210, zy - 60, a, C.paars, 26, 'left', 700); }
+    regel(ctx, 'testosteron', X, Y[2] + 100, ly, hk.testosteron, 32, 'center', 700); if (res > 0.01) regel(ctx, '↓', X + 120, Y[2] + 100, res, C.koraal, 44, 'center', 700);
+    // doorsnede zaadbal
+    const { x: zx, y: zy, R } = ZB;
+    if (zoom > 0.01) { ctx.save(); ctx.globalAlpha *= zoom * 0.6; ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 2; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(X + 166, Y[2] - 40); ctx.lineTo(zx - R * 0.8, zy - R * 0.6); ctx.moveTo(X + 166, Y[2] + 40); ctx.lineTo(zx - R * 0.75, zy + R * 0.66); ctx.stroke(); ctx.restore();
+      ctx.save(); ctx.globalAlpha *= zoom; circ(ctx, zx, zy, R, rgba('#D9A48F', 0.12), rgba('#D9A48F', 0.8), 3); ctx.restore();
+      ZB.buis.forEach(([dx, dy]) => zaadbuisje(ctx, zx + dx, zy + dy, 92, zoom, T, se));
+      const LEY = [[0, -25], [-130, 60], [130, 60], [-20, -175]]; LEY.forEach(([dx, dy], i) => { gloed(ctx, zx + dx, zy + dy, 60, C.teal, ly * (1 - th) * (0.6 + 0.4 * Math.sin(T * 3 + i))); for (let k = 0; k < 3; k++) circ(ctx, zx + dx + (k - 1) * 13, zy + dy + (k % 2) * 10, 10, rgba(C.teal, 0.85 * zoom)); });
+      naam(ctx, 'zaadbuisje', zx + ZB.buis[1][0] + 100, zy + ZB.buis[1][1] - 92, zoom, 'left', C.text2, 26);
+      // LH → Leydigcellen → testosteron
+      if (ly > 0.01) { boog(ctx, X - 40, Y[1] + 120, zx - 380, zy - 260, zx - 26, zy - 30, hk.LH, 5, ly * (1 - th), 18); ctx.save(); ctx.globalAlpha *= ly * (1 - th); ctx.strokeStyle = rgba(C.teal, 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(zx + 14, zy - 25); ctx.lineTo(zx + R + 10, zy + 20); ctx.stroke(); ctx.restore(); regel(ctx, 'Leydigcellen', zx + R + 16, zy + 30, ly * (1 - th), C.teal, 28, 'left', 700);
+        for (let i = 0; i < 5; i++) { const p = (T * 0.4 + i / 5) % 1; circ(ctx, lerp(zx, zx + R + 60, p), zy - 25 - Math.sin(Math.PI * p) * 40, 7, rgba(hk.testosteron, ly * (1 - th) * (1 - p) * (1 - 0.6 * res))); } regel(ctx, 'testosteron', zx + R + 20, zy - 90, ly * (1 - th), hk.testosteron, 28, 'left', 700); }
+      // FSH → Sertolicellen → zaadcellen
+      if (se > 0.01) { const [bx, by] = ZB.buis[2]; boog(ctx, X + 40, Y[1] + 130, zx - 300, zy + 300, zx + bx - 80, zy + by + 40, hk.FSH, 5, se * (1 - th), 18); regel(ctx, 'Sertolicellen', zx + bx + 100, zy + by + 70, se * (1 - th), C.groen, 28, 'left', 700); regel(ctx, 'zaadcellen rijpen', zx + bx + 100, zy + by + 106, se * (1 - th), C.text2, 26, 'left', 600); }
+      if (inh > 0.01) { regel(ctx, 'inhibine', zx + R - 10, zy + R - 10, inh * (1 - th), C.paars, 28, 'left', 700); } }
     // negatieve terugkoppeling
-    if (rem > 0.01) { const rx = X + 380; boog(ctx, X + 170, Y[2] - 20, rx + 120, (Y[2] + Y[1]) / 2, X + 172, Y[1] + 10, hk.testosteron, 5, rem * (1 - 0.0), 18); boog(ctx, X + 170, Y[2] - 40, rx + 300, Y[1], X + 172, Y[0] + 6, hk.testosteron, 5, rem, 18);
-      tekenPM(ctx, X + 290, Y[1] + 120, false, rem); tekenPM(ctx, X + 330, Y[0] + 60, false, S.on(3, 0.6, 0.4)); 
-      if (vw > 0.01) { boog(ctx, X + 90, Y[2] - 56, X + 140, Y[1] + 120, X + 110, Y[1] + 54, C.paars, 4, rem * vw, 14, [8, 8]); tekenPM(ctx, X + 140, Y[1] + 150, false, rem * vw, 18); } }
-    // thermostaat: spiegel schommelt rond een vaste waarde
+    if (rem > 0.01) { const rx = X + 380; boog(ctx, X + 170, Y[2] - 20, rx + 120, (Y[2] + Y[1]) / 2, X + 172, Y[1] + 10, hk.testosteron, 5, rem, 18); boog(ctx, X + 170, Y[2] - 40, rx + 300, Y[1], X + 172, Y[0] + 6, hk.testosteron, 5, rem, 18);
+      tekenPM(ctx, X + 290, Y[1] + 120, false, rem); tekenPM(ctx, X + 330, Y[0] + 60, false, S.on(4, 0.6, 0.4));
+      if (inh > 0.01) { boog(ctx, X + 90, Y[2] - 56, X + 140, Y[1] + 120, X + 110, Y[1] + 54, C.paars, 4, rem * inh, 14); tekenPM(ctx, X + 140, Y[1] + 150, false, rem * inh, 18); } }
+    // thermostaat
     if (th > 0.01) { const gx = 1180, gw = 640, gb = 560, gh = 260, sp = gb - gh * 0.5; ctx.save(); ctx.globalAlpha *= th; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb - gh); ctx.lineTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke();
       ctx.setLineDash([10, 10]); ctx.strokeStyle = rgba(C.text2, 0.6); ctx.beginPath(); ctx.moveTo(gx, sp); ctx.lineTo(gx + gw, sp); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
-      metaText(ctx, 'testosteronspiegel', gx, gb - gh - 20, C.meta, 'left', 20, th); regel(ctx, 'normaal', gx + gw + 10, sp + 10, th, C.text2, 24, 'left', 600);
-      const tot = S.on(4, 3.0, 0.4); ctx.save(); ctx.globalAlpha *= th; ctx.strokeStyle = hk.testosteron; ctx.lineWidth = 5; ctx.beginPath();
+      metaText(ctx, 'testosteronspiegel in het bloed', gx, gb - gh - 20, C.meta, 'left', 20, th); regel(ctx, 'normaal', gx + gw + 10, sp + 10, th, C.text2, 24, 'left', 600);
+      const tot = S.on(5, 3.0, 0.4); ctx.save(); ctx.globalAlpha *= th; ctx.strokeStyle = hk.testosteron; ctx.lineWidth = 5; ctx.beginPath();
       for (let i = 0; i <= 300; i++) { const u = i / 300; if (u > tot) break; let v = Math.sin(u * 22) * 0.18 * Math.exp(-u * 0.6); if (bb > 0 && u > 0.55) v += 0.35 * bb * ease((u - 0.55) / 0.08); const y = sp - v * gh; i ? ctx.lineTo(gx + u * gw, y) : ctx.moveTo(gx + u * gw, y); } ctx.stroke(); ctx.restore();
-      if (bb > 0.01) { const sx = gx + 0.55 * gw, sy = sp - 0.55 * gh; ctx.save(); ctx.globalAlpha *= bb; ctx.translate(sx, sy - 70); ctx.rotate(0.6); roundRect(ctx, -12, -70, 24, 90, 6); shape(ctx, rgba(C.teal, 0.35), C.text, 2.5); ctx.fillStyle = C.text; ctx.fillRect(-2, 20, 4, 36); ctx.fillRect(-18, -76, 36, 6); ctx.restore(); regel(ctx, 'extra testosteron', sx + 40, sy - 110, bb, C.teal, 30, 'left', 700); } }
+      if (bb > 0.01) { const sx = gx + 0.55 * gw, sy = sp - 0.55 * gh; ctx.save(); ctx.globalAlpha *= bb; ctx.translate(sx, sy - 70); ctx.rotate(0.6); roundRect(ctx, -12, -70, 24, 90, 6); shape(ctx, rgba(C.teal, 0.35), C.text, 2.5); ctx.fillStyle = C.text; ctx.fillRect(-2, 20, 4, 36); ctx.fillRect(-18, -76, 36, 6); ctx.restore(); regel(ctx, 'extra testosteron', sx + 40, sy - 110, bb, C.teal, 30, 'left', 700); }
+      for (let i = 0; i < 4; i++) zaadcel(ctx, 1300 + i * 80, 720 + (i % 2) * 14, 0.2, T + i, 1.4, th * (i < 4 * (1 - 0.75 * res) ? 1 : 0.15)); regel(ctx, 'zaadcellen', 1420, 800, th, C.text2, 28, 'center', 600); if (res > 0.01) regel(ctx, '↓', 1560, 800, res, C.koraal, 44, 'center', 700); }
   } });
 
 // ---------- 4 · follikels ----------
 SCHERMEN.push({ titel: 'Follikels', deel: 'De cyclus',
   stappen: [
-    { t: 'Elke eicel ligt in de eierstok in een <b>follikel</b>: een blaasje van hulpcellen.', n: 'Duizenden kleine follikels in rust. Bij de vrouw ligt het ingewikkelder dan bij de man: elke maand precies één keer een piek.' },
-    { t: 'Aan het begin van de cyclus stijgt <b>FSH</b> een beetje. Een <b>groepje</b> follikels gaat groeien.', n: 'De follikels hebben FSH-receptoren.' },
+    { t: 'De eicellen liggen in de <b>schors</b> van de eierstok, elk in een piepklein <b>follikel</b>: een blaasje van hulpcellen.', n: 'Honderdduizenden rustende follikels, elk maar een paar honderdste millimeter: met het blote oog onzichtbaar. Binnenin (het merg) lopen bloedvaten. De eierstok zelf is ± 3 à 4 cm.' },
+    { t: 'Aan het begin van de cyclus stijgt <b>FSH</b> een beetje. Een <b>groepje</b> follikels gaat groeien.', n: 'Per cyclus ± 10 à 20 follikels van een paar millimeter, op een echo te zien als zwarte blaasjes. Ze hebben FSH-receptoren.' },
     { t: 'De groeiende follikels maken <b>oestrogeen</b>. Het baarmoederslijmvlies groeit weer aan.', n: 'Rechtsonder: het slijmvlies, net na de menstruatie.' },
-    { t: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na: de <b>dominante follikel</b>.', th: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na: de follikel die blijft groeien.', n: 'Alleen de follikel met de meeste FSH-receptoren redt het met weinig FSH. Een wedstrijd waarin de koploper zelf de regels strenger maakt.' },
+    { t: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na: de <b>dominante follikel</b>. Die wordt ± 2 cm en puilt uit aan de rand.', th: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na. Die groeit door tot ± 2 cm en puilt uit aan de rand.', n: 'Alleen de follikel met de meeste FSH-receptoren redt het met weinig FSH. Een wedstrijd waarin de koploper zelf de regels strenger maakt. Een rijpe follikel is dus groot ten opzichte van de eierstok.' },
     { t: 'Oestrogeen in twee stappen: de buitenste cellen maken onder invloed van <b>LH</b> een voorloper, de binnenste cellen maken er met <b>FSH</b> en het enzym <b>aromatase</b> oestrogeen van.', vwo: true, n: 'De voorloper is een mannelijk hormoon (androgeen). Thecacellen (buiten) en granulosacellen (binnen).' }
   ],
   teken(ctx, S) {
-    const T = S.T, hk = HK(), ex = 700, ey = 560;
-    const a0 = S.on(0, 0.8), g = S.on(1, 2.0), oe = S.on(2, 1.2), rem = S.on(3, 2.4), vw = S.on(4, 1.0);
+    const T = S.T, hk = HK(), ex = 680, ey = 560, rx = 470, ry = 310;
+    const a0 = S.on(0, 0.8), g = S.on(1, 2.0), oe = S.on(2, 1.2), rem = S.on(3, 2.4), vw = S.on(4, 1.0), weg = 1 - vw;
     const fsh = 0.25 + 0.35 * g - 0.38 * rem, oes = 0.12 + 0.35 * oe + 0.35 * rem;
-    ctx.save(); ctx.globalAlpha *= a0 * (1 - 0.8 * vw); ctx.beginPath(); ctx.ellipse(ex, ey, 460, 300, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.28), lighten(VK.stok, 0.2), 3); ctx.restore();
-    naam(ctx, 'eierstok', ex - 360, ey - 280, a0 * (1 - vw), 'center');
-    // rustende follikels
-    for (let i = 0; i < 46; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = 0.25 + 0.65 * Math.sqrt(v); const x = ex + Math.cos(an) * 420 * rr, y = ey + Math.sin(an) * 270 * rr; if (Math.hypot((x - ex) / 300, (y - ey) / 200) < 0.55) continue; follikel(ctx, x, y, 11, a0 * 0.8 * (1 - vw)); }
-    // het groepje
-    const G = [[ex - 210, ey - 90], [ex - 60, ey + 120], [ex + 110, ey - 110], [ex + 230, ey + 70], [ex - 40, ey - 40]], dom = 4;
-    G.forEach(([x, y], i) => { const groei = g * (i === dom ? 1 : 0.75), sterf = i === dom ? 0 : rem; const r = 12 + 60 * groei + (i === dom ? 70 * rem : -40 * sterf);
-      follikel(ctx, x, y, r, a0 * (1 - 0.85 * sterf) * (1 - vw), i === dom ? clamp(g * 0.4 + rem, 0, 1) : 0.3 * groei);
-      if (oe > 0.01 && sterf < 0.9) for (let j = 0; j < 2; j++) { const p = (T * 0.35 + j / 2 + i * 0.13) % 1; circ(ctx, x + (r + 10) * Math.cos(p * 6 + i), y - r - p * 90, 6, rgba(hk.oestrogeen, oe * (1 - p) * (1 - sterf) * (1 - vw))); } });
-    naam(ctx, 'follikel', G[0][0] - 90, G[0][1] - 70, a0 * (1 - g) , 'center');
-    if (rem > 0.3) naam(ctx, 'dominante follikel', G[dom][0], G[dom][1] - 170, ease((rem - 0.3) / 0.4) * (1 - vw), 'center', C.goud);
+    const pos = eierstokDoorsnede(ctx, ex, ey, rx, ry, { a: a0 * (1 - 0.85 * vw) });
+    naam(ctx, 'eierstok', ex + 330, ey - 300, a0 * weg, 'center'); naam(ctx, 'schors', ex + rx + 20, ey - 60, a0 * weg * (1 - g), 'left', C.goud, 28); naam(ctx, 'merg', ex, ey + 10, a0 * weg * (1 - g), 'center', C.text2, 26);
+    if (a0 * (1 - g) > 0.01) { const [px, py] = pos(-2.2, 0.8); ctx.save(); ctx.globalAlpha *= a0 * (1 - g); circ(ctx, px, py, 26, null, C.text, 2); ctx.restore(); pijl(ctx, px - 120, py - 120, px - 22, py - 22, C.text, 3, a0 * (1 - g), 14); regel(ctx, 'eicel in een follikel', px - 130, py - 132, a0 * (1 - g), C.text, 28, 'right', 700); }
+    // het groepje groeiende follikels in de schors; de dominante puilt uit aan de rand
+    const G = [[-2.6, 0.8], [-1.9, 0.82], [2.4, 0.8], [1.5, 0.82], [0.6, 0.8], [-0.55, 0.83]], dom = 5;
+    G.forEach(([an, d], i) => { const isD = i === dom, groei = g * (isD ? 1 : 0.8), sterf = isD ? 0 : rem; const r = 6 + 30 * groei + (isD ? 120 * rem : -26 * sterf); const [x, y] = pos(an, d);
+      follikel(ctx, x, y, r, a0 * (1 - 0.85 * sterf) * weg, isD ? clamp(g * 0.4 + rem, 0, 1) : 0.4 * groei);
+      if (oe > 0.01 && sterf < 0.9) for (let j = 0; j < 2; j++) { const p = (T * 0.35 + j / 2 + i * 0.13) % 1; circ(ctx, x + (r + 10) * Math.cos(p * 6 + i), y - r - p * 70, 6, rgba(hk.oestrogeen, oe * (1 - p) * (1 - sterf) * weg)); } });
+    if (rem > 0.3) { const [x, y] = pos(G[dom][0], G[dom][1]); naam(ctx, 'dominante follikel', x + 20, y - 180, ease((rem - 0.3) / 0.4) * weg, 'center', C.goud); }
     // meters
-    meter(ctx, 1320, 520, 300, fsh, hk.FSH, 'FSH', S.on(1, 0.6) * (1 - vw)); meter(ctx, 1450, 520, 300, oes, hk.oestrogeen, 'oestrogeen', oe * (1 - vw));
-    if (rem > 0.01) { boog(ctx, 1450, 200, 1385, 140, 1330, 200, hk.oestrogeen, 5, rem * (1 - vw), 16); tekenPM(ctx, 1388, 150, false, rem * (1 - vw)); }
-    if (g > 0.01) pijl(ctx, 1290, 380, 1000, 470, hk.FSH, 4, g * (1 - rem) * (1 - vw), 16);
+    meter(ctx, 1320, 520, 300, fsh, hk.FSH, 'FSH', S.on(1, 0.6) * weg); meter(ctx, 1450, 520, 300, oes, hk.oestrogeen, 'oestrogeen', oe * weg);
+    if (rem > 0.01) { boog(ctx, 1450, 200, 1385, 140, 1330, 200, hk.oestrogeen, 5, rem * weg, 16); tekenPM(ctx, 1388, 150, false, rem * weg); }
     // slijmvlies
-    slijmStrook(ctx, 1240, 900, 560, 0.12 + 0.45 * oe + 0.15 * rem, oe * (1 - vw)); naam(ctx, 'baarmoederslijmvlies', 1520, 970, oe * (1 - vw), 'center', C.text2, 26);
+    slijmStrook(ctx, 1240, 920, 560, 0.12 + 0.45 * oe + 0.15 * rem, oe * weg); naam(ctx, 'baarmoederslijmvlies', 1520, 990, oe * weg, 'center', C.text2, 26);
     // vwo: twee cellen, twee stappen
     if (vw > 0.01) { const fx = 760, fy = 560; ctx.save(); ctx.globalAlpha *= vw; circ(ctx, fx, fy, 330, rgba(C.oker, 0.16), C.oker, 3); circ(ctx, fx, fy, 230, rgba(C.goud, 0.16), C.goud, 3); circ(ctx, fx, fy, 130, rgba(C.licht ? '#DCEAF2' : '#7FA7C4', 0.3)); ctx.restore(); eicel(ctx, fx - 40, fy - 20, 40, vw);
       regel(ctx, 'buitenste cellen', fx - 300, fy - 300, vw, C.oker, 30, 'right', 700); regel(ctx, 'binnenste cellen', fx + 290, fy - 250, vw, C.goud, 30, 'left', 700);
@@ -744,38 +770,36 @@ SCHERMEN.push({ titel: 'LH-piek', deel: 'De cyclus',
   stappen: [
     { t: 'Is de oestrogeenspiegel laag of gemiddeld, dan <b>remt</b> oestrogeen de hypofyse.', n: 'Negatieve terugkoppeling, zoals bij de man.' },
     { t: 'Blijft oestrogeen ± twee dagen <b>hoog</b>, dan slaat het om: oestrogeen <b>stimuleert</b> juist de afgifte van LH. <b>Positieve terugkoppeling</b>.', n: 'Meer oestrogeen → meer LH → de follikel maakt nog meer oestrogeen. Het signaal versterkt zichzelf.' },
-    { t: 'Een enorme <b>LH-piek</b>. De follikel scheurt open: de <b>eisprong</b>.', n: 'Ongeveer anderhalve dag na het begin van de piek. De eicel maakt de eerste meiotische deling af en stopt dan in metafase II (vwo).' },
+    { t: 'Een enorme <b>LH-piek</b>. De follikel scheurt open aan de rand van de eierstok: de <b>eisprong</b>.', n: 'Ongeveer anderhalve dag na het begin van de piek. De trechter van de eileider vangt de eicel op. Vwo: de eicel maakt de eerste meiotische deling af en stopt dan in metafase II.' },
     { t: 'Wat van de follikel overblijft, wordt het <b>gele lichaam</b>. Dat maakt vooral <b>progesteron</b>.', n: 'Ook nog wat oestrogeen.' },
     { t: 'Progesteron maakt het slijmvlies <b>klaar voor een embryo</b> en <b>remt</b> de hypofyse: geen nieuwe follikels.', n: 'Slijmvlies dikker, rijker aan bloedvaten en klieren.' },
     { t: 'Geen embryo? Na ± 12 dagen sterft het gele lichaam af. Progesteron daalt: de <b>menstruatie</b>. De rem valt weg en FSH stijgt weer.', n: 'Kleine slagaders in het slijmvlies knijpen samen, het weefsel sterft af en wordt afgestoten. De cyclus begint opnieuw.' }
   ],
   teken(ctx, S) {
     const T = S.T, hk = HK(), X = 420, Yh = 280, Yf = 760;
-    const a0 = S.on(0, 0.8), pos = S.on(1, 1.4), piek = S.on(2, 1.6), gl = S.on(3, 1.4), pr = S.on(4, 1.2), men = S.on(5, 2.0);
-    const lh = 0.2 + 0.25 * pos + 0.55 * piek * (1 - gl), oes = 0.25 + 0.6 * pos * (1 - piek * 0.6) - 0.1 * gl;
+    const a0 = S.on(0, 0.8), pos1 = S.on(1, 1.4), piek = S.on(2, 1.6), gl = S.on(3, 1.4), pr = S.on(4, 1.2), men = S.on(5, 2.0);
+    const lh = 0.2 + 0.25 * pos1 + 0.55 * piek * (1 - gl), oes = 0.25 + 0.6 * pos1 * (1 - piek * 0.6) - 0.1 * gl;
     blok(ctx, X, Yh, 300, 100, 'hypofyse', C.oker, a0, 0.6 * piek * (1 - gl));
     blok(ctx, X, Yf, 300, 100, gl > 0.5 ? 'geel lichaam' : 'follikel', gl > 0.5 ? C.goud : C.oker, a0);
     pijl(ctx, X - 60, Yh + 52, X - 60, Yf - 54, hk.LH, 3 + 26 * lh, a0, 22 + 20 * lh); regel(ctx, 'LH', X - 100, (Yh + Yf) / 2, a0, hk.LH, 36, 'right', 700);
-    // oestrogeen terug naar de hypofyse
-    const oa = a0 * (1 - pr * 0.0) * (1 - gl);
+    const oa = a0 * (1 - gl);
     pijl(ctx, X + 60, Yf - 54, X + 60, Yh + 52, hk.oestrogeen, 3 + 12 * oes, oa, 20); regel(ctx, 'oestrogeen', X + 100, (Yh + Yf) / 2 + 60, oa, hk.oestrogeen, 32, 'left', 700);
-    tekenPM(ctx, X + 160, (Yh + Yf) / 2 - 10, pos > 0.5, oa, 30); if (pos > 0.01 && pos < 1) gloed(ctx, X + 160, (Yh + Yf) / 2 - 10, 80, C.goud, Math.sin(Math.PI * pos));
-    // progesteron remt
+    tekenPM(ctx, X + 160, (Yh + Yf) / 2 - 10, pos1 > 0.5, oa, 30); if (pos1 > 0.01 && pos1 < 1) gloed(ctx, X + 160, (Yh + Yf) / 2 - 10, 80, C.goud, Math.sin(Math.PI * pos1));
     if (gl > 0.01) { pijl(ctx, X + 60, Yf - 54, X + 60, Yh + 52, hk.progesteron, 3 + 12 * gl * (1 - men), gl * a0, 20); regel(ctx, 'progesteron', X + 100, (Yh + Yf) / 2 + 60, gl * (1 - men * 0.6), hk.progesteron, 32, 'left', 700); tekenPM(ctx, X + 160, (Yh + Yf) / 2 - 10, false, pr * (1 - men)); }
-    if (men > 0.01) { regel(ctx, 'FSH ↑', X - 100, (Yh + Yf) / 2 + 60, ease((men - 0.6) / 0.4), hk.FSH, 32, 'right', 700); }
-    // rechts: de follikel in de eierstok
-    const fx = 1200, fy = 470; ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(fx, fy, 330, 250, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.28), lighten(VK.stok, 0.2), 3); ctx.restore(); naam(ctx, 'eierstok', fx - 250, fy - 240, a0, 'center');
-    const scheur = piek > 0.5 ? ease((piek - 0.5) / 0.5) : 0, rf = 150 + 40 * pos;
-    if (gl < 0.98) follikel(ctx, fx, fy, rf * (1 - 0.5 * scheur), a0 * (1 - gl), 1 - scheur * 0.7);
-    if (scheur > 0.01) { const ex = lerp(fx - 60, fx + 420, scheur), ey = lerp(fy - 50, fy - 220, scheur); eicel(ctx, ex, ey, 30, 1 - pr); regel(ctx, 'eisprong', fx + 300, fy - 280, scheur * (1 - pr), C.goud, 36, 'center', 700); }
-    if (gl > 0.01) { const r = 140 * (1 - 0.65 * men); ctx.save(); ctx.globalAlpha *= gl; circ(ctx, fx, fy, r, rgba('#E8C840', 0.55 * (1 - men * 0.6)), C.goud, 3); for (let i = 0; i < 18; i++) { const an = i / 18 * 6.283; circ(ctx, fx + Math.cos(an) * r * 0.6, fy + Math.sin(an) * r * 0.6, r * 0.12, rgba(C.goud, 0.45 * (1 - men))); } ctx.restore();
-      naam(ctx, 'geel lichaam', fx, fy + r + 46, gl, 'center', C.goud); for (let i = 0; i < 4; i++) { const p = (T * 0.4 + i / 4) % 1; circ(ctx, fx - r - 10 - p * 120, fy - p * 60, 7, rgba(hk.progesteron, gl * (1 - men) * (1 - p))); } }
-    // slijmvlies
-    const dik = 0.15 + 0.35 * pos + 0.1 * piek + 0.4 * pr - 0.9 * men * (pr > 0 ? 1 : 0);
+    if (men > 0.01) regel(ctx, 'FSH ↑', X - 100, (Yh + Yf) / 2 + 60, ease((men - 0.6) / 0.4), hk.FSH, 32, 'right', 700);
+    // rechts: eierstok in doorsnede, de follikel puilt uit aan de rand en scheurt daar open
+    const fx = 1150, fy = 500, rx = 330, ry = 240, an = -0.5;
+    const pos = eierstokDoorsnede(ctx, fx, fy, rx, ry, { a: a0 }); naam(ctx, 'eierstok', fx - 250, fy - 250, a0, 'center');
+    const [dx, dy] = pos(an, 0.8), scheur = piek > 0.5 ? ease((piek - 0.5) / 0.5) : 0, rf = 120 + 30 * pos1;
+    if (gl < 0.98) follikel(ctx, dx, dy, rf * (1 - 0.45 * scheur), a0 * (1 - gl), 1 - scheur * 0.7);
+    if (scheur > 0.01) { const ox = dx + Math.cos(an) * (rf + 60) * scheur * 1.6, oy = dy + Math.sin(an) * (rf + 60) * scheur * 1.6; for (let i = 0; i < 8; i++) circ(ctx, lerp(dx, ox, 0.4 + 0.07 * i), lerp(dy, oy, 0.4 + 0.07 * i) + Math.sin(i * 2) * 10, 6, rgba(C.licht ? '#9CC3DB' : '#7FA7C4', scheur * (1 - pr) * 0.6));
+      eicel(ctx, ox, oy, 26, 1 - pr); regel(ctx, 'eisprong', ox + 40, oy - 30, scheur * (1 - pr), C.goud, 36, 'left', 700); }
+    if (gl > 0.01) { const r = 110 * (1 - 0.65 * men); ctx.save(); ctx.globalAlpha *= gl; circ(ctx, dx, dy, r, rgba('#E8C840', 0.55 * (1 - men * 0.6)), C.goud, 3); for (let i = 0; i < 16; i++) { const a2 = i / 16 * 6.283; circ(ctx, dx + Math.cos(a2) * r * 0.6, dy + Math.sin(a2) * r * 0.6, r * 0.12, rgba(C.goud, 0.45 * (1 - men))); } ctx.restore();
+      naam(ctx, 'geel lichaam', dx, dy + r + 44, gl, 'center', C.goud); for (let i = 0; i < 4; i++) { const p = (T * 0.4 + i / 4) % 1; circ(ctx, dx - r - 10 - p * 120, dy + p * 40, 7, rgba(hk.progesteron, gl * (1 - men) * (1 - p))); } }
+    const dik = 0.15 + 0.35 * pos1 + 0.1 * piek + 0.4 * pr - 0.9 * men * (pr > 0 ? 1 : 0);
     slijmStrook(ctx, 950, 960, 620, clamp(dik, 0.08, 1), a0, men, T); naam(ctx, 'baarmoederslijmvlies', 1260, 1030, a0, 'center', C.text2, 26);
     if (men > 0.01) regel(ctx, 'menstruatie', 1640, 940, men, mix(C.bloed, C.text, 0.3), 34, 'left', 700);
-    // LH-meter
-    meter(ctx, 1760, 560, 330, lh, hk.LH, 'LH', a0);
+    meter(ctx, 1760, 640, 330, lh, hk.LH, 'LH', a0);
   } });
 
 // ---------- 6 · de cyclus in één grafiek ----------
