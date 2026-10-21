@@ -304,6 +304,13 @@
     o += vink(160, 760, 70, 0, 'goud') + vink(380, 820, 60, 1, 'koraal') + vink(600, 760, 55, 2, 'teal') + vink(840, 880, 50, 0, 'groen');
     o += golf(960, 14, 'teal', 1.2) + golf(990, 12, 'teal', .8) + schip(1450, 930, 110);
     return o + veel(10, 4, function (q) { return blad(q() * 1600, q() * 200, 50 + q() * 40, q() * 6.28, 'groen'); }); };
+  /* ElevenLabs-gravure als themaplaat (Kamiel 21 okt 2026: 'de linkse', gravurestijl zoals de wolf); onderwerp rechts, links leeg navy */
+  function gravure(id, bestand, x, y, w) { var h = w * 9 / 16;
+    return '<defs><radialGradient id="grVaag' + id + '" cx=".7" cy=".5" r=".55"><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>'
+      + '<mask id="grMasker' + id + '"><rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + f(h) + '" fill="url(#grVaag' + id + ')"/></mask></defs>'
+      + '<rect width="1600" height="1000" fill="#0F1726"/>'
+      + '<image href="img/themakunst/' + bestand + '" x="' + x + '" y="' + y + '" width="' + w + '" height="' + f(h) + '" preserveAspectRatio="xMidYMid slice" mask="url(#grMasker' + id + ')"/>'; }
+  var GRAVURE = { cellen: ['cellen-gravure.webp', 640, 215, 900], dna: ['dna-gravure.webp', 640, 215, 900], evolutie: ['evolutie-gravure.webp', 640, 215, 900] };
   T.ecologie = function () { // ElevenLabs-gravure (Kamiel 21 okt 2026: strakke versie uitproberen); vroeger woud(121)
     var x = 830, y = 215, w = 780, h = 439; // kleiner en lager (21 okt 2026): maan en wolf niet meer achter de menubalk of buiten beeld
     return '<defs><radialGradient id="ecoVaag" cx=".5" cy=".45" r=".62"><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>'
@@ -347,9 +354,10 @@
     return o + veel(8, 4, function (q) { return blad(q() * 1600, q() * 1000, 70 + q() * 60, q() * 6.28, 'groen'); }) + bij(900, 200, 26) + vink(1400, 820, 60, 1, 'koraal') + veel(20, 2, function (q, k) { return C(KL[k % 6], q() * 1600, q() * 1000, 5 + q() * 9, .7, vul(KL[k % 6], .5)); }); };
   T.extra = function () { var o = wolken(161, 9); return o + helix(-40, 200, 1640, 500, 60, 8, 'paars', 'teal') + cel(1300, 760, 150, 9) + virus(300, 760, 50, 'koraal') + neuron(500, 300, 300, .4, 'goud', 9) + ithink(1350, 260, 260); };
 
+  Object.keys(GRAVURE).forEach(function (id) { var g_ = GRAVURE[id]; T[id] = function () { return gravure(id, g_[0], g_[1], g_[2], g_[3]); }; });
   Object.keys(T).forEach(function (id) { var fn = T[id]; T[id] = function () { ACC = ACCENT[id] || []; var o = DEFS + fn(); ACC = []; return o; }; });
   window.THEMAKUNST = T;
-  window.THEMAKUNST_ZONDERGAT = { ecologie: true }; // volledige scènes: geen uitsparing achter de hoofdfiguur
+  window.THEMAKUNST_ZONDERGAT = { ecologie: true }; Object.keys(GRAVURE).forEach(function (id) { window.THEMAKUNST_ZONDERGAT[id] = true; }); // volledige scènes: geen uitsparing achter de hoofdfiguur
   /* hoofdfiguur per thema, groot in de kop van de themapagina: [viewBox, inhoud] */
   var H = {
     evolutie: ['0 0 400 645', function () { return darwin(0, 0, 1); }],
@@ -371,6 +379,7 @@
     kerndoelen: ['0 0 400 400', function () { return cel(200, 200, 150, 5); }],
     extra: ['0 0 400 400', function () { return ithink(200, 200, 300); }]
   };
+  Object.keys(GRAVURE).forEach(function (id) { H[id] = ['20 0 470 310', function () { return ''; }]; }); // het onderwerp staat in de gravure zelf (zoals de wolf)
   window.THEMAHELD = {};
   Object.keys(H).forEach(function (id) { window.THEMAHELD[id] = function () { ACC = ACCENT[id] || []; var o = '<svg viewBox="' + H[id][0] + '" fill="none" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="' + (id === 'evolutie' ? 'Schets van Charles Darwin' : '') + '">' + DEFS + H[id][1]() + '</svg>'; ACC = []; return o; }; });
 
