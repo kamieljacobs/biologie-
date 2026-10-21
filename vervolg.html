@@ -768,7 +768,7 @@ function render(){
     <div class="wrap">${overzicht()}</div>`;
 }
 /* Eigen pagina per vakgebied: vervolg.html#<gebied> (Kamiel 21 okt 2026). VPLAAT = gebieden met een gravure-achtergrond img/themakunst/vervolg/<id>.webp (dan vervalt het grote medaillon) */
-const VPLAAT=['psychologie','diergeneeskunde','ecologie'];
+const VPLAAT=GEBIEDEN.map(g=>g.id); // alle 23 gebieden hebben een plaat
 function gebiedPagina(g){
   const c=CL[g.cluster], buren=GEBIEDEN.filter(x=>x.cluster===g.cluster&&x!==g);
   const beeld=VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="220" height="220">`:kunst(c.id,c.kleur);
