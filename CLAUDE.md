@@ -75,7 +75,7 @@ Kamiel wil per film een korte tool waarmee hij zelf uitlegt: per scherm korte an
 
 ## Personages
 
-Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films.
+Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films. Sinds 21 okt 2026 ook van opzij, lopend en rennend: `{ zij: true, kijk, gang: 'loop'|'ren', t }` (functie `_zij` onderaan lib_cast.js; castboekknop 'Zijaanzicht en lopen'). Een film heeft een eigen kopie van lib_cast.js in de bronmap: kopieer de actuele versie als je zijaanzicht nodig hebt.
 
 Realistisch lichaam met organen (vooraanzicht, echte verhoudingen, organen op hun echte plek, skelet, spieren, vaten, zenuwen, klieren, met animaties): `personages/lib_anatomie.js` (21 okt 2026, eerst gebruikt in film 2b Een rondleiding door je lichaam). Zet `BODY={cx,yb,h}` en roep `bodyOrgans({...})` aan (zelfde sleutels als het oude poppetje: zenuw, spijs, adem, bloed, uitsch, skelet, spier, afweer, hormoon, voortpl, plus beat, breath, impuls, urine); losse organen met gloed: `liver`, `pancreas`, `anHeart`, `anLungs`, `anBrain`, `anKidney`, `skin`, `testes`. Heeft `lib_cast.js` (en `circ`) nodig. Kamiel (21 okt 2026): lichamen en organen niet meer als dummy/Michelin-poppetje; mensen in scènes zijn castpersonages. Castboek kent nu ook `uit:'slaapt'` en `uit:'moe'` voor volwassenen/tieners.
 
