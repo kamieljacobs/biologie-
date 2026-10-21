@@ -148,6 +148,7 @@
   }
 
   function bouw() {
+    if (window.BK_GEEN_FEEDBACK) return; // kan later in de pagina gezet zijn dan dit script laadt
     var st = el('style', { id: 'bkfb-css' });
     st.textContent = CSS;
     document.head.appendChild(st);

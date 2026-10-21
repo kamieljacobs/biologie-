@@ -27,7 +27,7 @@
   // Feedback-knop (js/feedback.js) meeladen: teller.js staat al op elke pagina.
   try {
     var fb = document.createElement('script');
-    fb.src = new URL('js/feedback.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+    fb.src = new URL('js/feedback.js?v=2', new URL(me.getAttribute('data-root') || './', location.href)).href;
     fb.setAttribute('data-root', me.getAttribute('data-root') || './');
     (document.head || document.documentElement).appendChild(fb);
   } catch (e) {}
