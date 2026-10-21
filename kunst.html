@@ -53,14 +53,17 @@ const THEMAS=[
   {naam:'Onder de microscoop',oud:'onder-de-microscoop',nieuw:'plankton',tekst:'Radiolariën en diatomeeën. Het nieuwe beeld: Haeckel-achtig plankton in diep blauw water.',varianten:null},
   {naam:'Groei',oud:'groei',nieuw:'groei',tekst:'Zonnebloemspiraal en varens. Nieuw: zonnebloem, opkrullende varens, nautilus en pluizenbollen.',varianten:'groei',gekozen:2},
   {naam:'Netwerk',oud:'netwerk',nieuw:'netwerk',tekst:'Schimmeldraden. Nieuw: een oplichtend mycelium tussen boomwortels met paddenstoelen.',varianten:'netwerk',gekozen:2},
-  {naam:'In zee',oud:'in-zee',nieuw:'zee',tekst:'Kwallen en nautilus. Nieuw: kwallen, nautilus en ribkwallen met licht van boven.',varianten:'zee',gekozen:2}
+  {naam:'In zee',oud:'in-zee',nieuw:'zee',tekst:'Kwallen en nautilus. Nieuw: kwallen, nautilus en ribkwallen met licht van boven.',varianten:'zee',gekozen:2},
+  {naam:'Oerbos',oud:null,nieuw:'oerbos',tekst:'Nieuw thema (geen oude tekening): een oeroud bos met bemoste reuzenbomen, boomvarens, korstmossen en zwammen in de schemering.',varianten:'oerbos',gekozen:2},
+  {naam:'Mierenkolonie',oud:null,nieuw:'mieren',tekst:'Nieuw thema (geen oude tekening): doorsnede van een mierennest met gangen, kamers met broed en de koningin.',varianten:'mieren',gekozen:2},
+  {naam:'Kolibrie',oud:null,nieuw:'kolibrie',tekst:'Nieuw thema (geen oude tekening): een kolibrie bij trompetbloemen. Staat nu stil; een korte videoloop waarin hij af en toe met zijn vleugels slaat kan er later bij.',varianten:'kolibrie',gekozen:3}
 ];
 const fig=(src,cap,cls='',alt='')=>`<a class="figlink" href="${src}"><figure class="${cls}"><img src="${src}" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure></a>`;
 document.getElementById('lijst').innerHTML=THEMAS.map(t=>`<section class="thema">
   <h2>${t.naam}</h2><p>${t.tekst}</p>
   <div class="rij">
-    ${fig(`img/kunst/oud/${t.oud}-rustig.svg`,'Oud · getekend · rustig','',`Oude getekende plaat ${t.naam}, rustige stand`)}
-    ${fig(`img/kunst/oud/${t.oud}-intens.svg`,'Oud · getekend · intens','',`Oude getekende plaat ${t.naam}, intense stand`)}
+    ${t.oud?fig(`img/kunst/oud/${t.oud}-rustig.svg`,'Oud · getekend · rustig','',`Oude getekende plaat ${t.naam}, rustige stand`)
+      +fig(`img/kunst/oud/${t.oud}-intens.svg`,'Oud · getekend · intens','',`Oude getekende plaat ${t.naam}, intense stand`):''}
     ${fig(`img/kunst/${t.nieuw}.webp`,'Nieuw · ElevenLabs · op de site','gekozen',`Nieuw beeld ${t.naam}`)}
   </div>
   ${t.varianten?`<p class="lbl">Alle varianten</p><div class="var">${[1,2,3,4].map(k=>fig(`img/kunst/varianten/${t.varianten}-${k}.webp`,`Variant ${k}${k===t.gekozen?' · gekozen':''}`,k===t.gekozen?'gekozen':'',`Variant ${k} van ${t.naam}`)).join('')}</div>`:''}
