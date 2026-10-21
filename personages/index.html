@@ -541,9 +541,12 @@ const CAST = {
             garderobe: { gewoon: {}, jas: { top: 'jas', topKleur: '#6B4E3A', topAccent: '#584030', sjaal: '#D9A441' }, kraam: { top: 'vest', topKleur: '#8FA6B8', topAccent: '#7790A3', binnen: '#F2ECE2', zwanger: 0 } } }, // cliënte (21 okt 2026, Wat word jij? · Verloskunde); o.zwanger 0..1 = buik (0 = niet zwanger)
   mila:   { naam: 'Dierenarts Mila', leeftijd: 34, rol: 'dierenarts · van koe en paard tot kat, op het erf en in de praktijk', huid: '#E4B48E', haar: '#7A4A2A', kapsel: 'vlecht', wenkbrauw: '#5E3820',
             top: 'overhemd', topKleur: '#3E7C6A', topAccent: '#33685A', broek: '#2E3442', schoen: '#2A2F3E', schoenAccent: '#3E7C6A', accessoire: ['stethoscoop'], lengte: 1.0,
-            garderobe: { werk: {}, stal: { top: 'jas', topKleur: '#2F5D50', topAccent: '#264C42', broek: '#2F5D50', schoen: '#3A3F2E', schoenAccent: '#2A2E22', accessoire: [] }, gewoon: { top: 'trui', topKleur: '#B8743A', topAccent: '#9C6230', broek: '#33415C', accessoire: [] } } } // dierenarts (21 okt 2026, Wat word jij? · Diergeneeskunde): werk = praktijk met stethoscoop, stal = groene overall en laarzen
+            garderobe: { werk: {}, stal: { top: 'jas', topKleur: '#2F5D50', topAccent: '#264C42', broek: '#2F5D50', schoen: '#3A3F2E', schoenAccent: '#2A2E22', accessoire: [] }, gewoon: { top: 'trui', topKleur: '#B8743A', topAccent: '#9C6230', broek: '#33415C', accessoire: [] } } }, // dierenarts (21 okt 2026, Wat word jij? · Diergeneeskunde): werk = praktijk met stethoscoop, stal = groene overall en laarzen
+  gerrit: { naam: 'Veehouder Gerrit', leeftijd: 52, rol: 'veehouder · melkvee en varkens, kent elk dier', huid: '#D9A584', haar: '#8A7A66', kapsel: 'kort', wenkbrauw: '#6A5A48', stoppels: true,
+            top: 'jas', topKleur: '#3A5A8C', topAccent: '#2F4A74', broek: '#3A5A8C', schoen: '#2E3A2A', schoenAccent: '#1E261C', accessoire: [], lengte: 1.02,
+            garderobe: { stal: {}, gewoon: { top: 'overhemd', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C' } } } // veehouder (21 okt 2026, Wat word jij? · Diergeneeskunde, ook voor Landbouw): stal = blauwe overall en laarzen
 };
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit'];
 const CAST_JONG = ['kind', 'baby']; // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
