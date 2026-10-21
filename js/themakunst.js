@@ -6,7 +6,7 @@
 (function () {
   var W = 1.15; // fijne inktlijnen (Kamiel 20 okt: realistischer en serieuzer, kleur alleen waar het iets toevoegt)
   var ACC = [];  // kleuren die op de huidige plaat mogen; de rest wordt inkt
-  var ACCENT = { examens: ['goud', 'groen', 'koraal'], cellen: ['paars', 'koraal'], dna: ['teal'], stofwisseling: ['groen'], voeding: ['koraal'], transport: ['koraal'], gaswisseling: ['koraal', 'teal'], afweer: ['paars'], regeling: [], voortplanting: ['koraal'], erfelijkheid: ['groen'], evolutie: [], ecologie: ['groen'], milieu: ['teal', 'groen'], gedrag: ['goud'], planten: ['groen'], kerndoelen: ['groen'], extra: [] };
+  var ACCENT = { examens: ['goud', 'groen', 'koraal'], cellen: ['paars', 'koraal'], dna: ['teal'], stofwisseling: ['groen'], voeding: ['koraal'], transport: ['koraal'], gaswisseling: ['koraal', 'teal'], afweer: ['paars'], regeling: [], voortplanting: ['koraal'], erfelijkheid: ['groen'], evolutie: [], ecologie: ['goud'], milieu: ['teal', 'groen'], gedrag: ['goud'], planten: ['groen'], kerndoelen: ['groen'], extra: [] };
   function kleur(c) { return ACC.indexOf(c) >= 0 ? c : (c === 'inktdonker' ? 'text' : 'text2'); }
   var DEFS = '<defs><pattern id="tk-arc" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5" stroke="var(--text2)" stroke-width=".7"/></pattern><pattern id="tk-kruis" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(38)"><path d="M0 0V5M0 0H5" stroke="var(--text2)" stroke-width=".6"/></pattern><pattern id="tk-stip" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r=".7" fill="var(--text2)"/><circle cx="4.5" cy="4.5" r=".5" fill="var(--text2)"/></pattern></defs>';
   var KL = ['goud', 'teal', 'groen', 'koraal', 'paars', 'oker'];
@@ -162,6 +162,102 @@
   }
   function schildpad(x, y, s) { var o = P('groen', 'M' + f(x - s) + ' ' + y + ' C' + f(x - s) + ' ' + f(y - s * 1.1) + ' ' + f(x + s) + ' ' + f(y - s * 1.1) + ' ' + f(x + s) + ' ' + y + 'Z', 1.4, vul('groen', .25)); o += raat(x - s * .55, y - s * .62, s * .2, 3, 'groen'); return o + P('groen', 'M' + f(x + s) + ' ' + f(y - s * .2) + ' Q' + f(x + s * 1.5) + ' ' + f(y - s * .5) + ' ' + f(x + s * 1.6) + ' ' + f(y - s * .2), 1.4) + P('groen', 'M' + f(x - s * .6) + ' ' + y + ' l0 ' + f(s * .3) + ' M' + f(x + s * .6) + ' ' + y + ' l0 ' + f(s * .3), 1.4); }
 
+  /* ---------- Ecologie: een majestueuze wolf in een donker sparrenwoud (Kamiel 21 okt 2026: geen schema, een echt beest) ---------- */
+  function catmull(pts, n) { // gesloten Catmull-Rom → dichte puntenlijst
+    var out = [], L = pts.length;
+    for (var i = 0; i < L; i++) {
+      var p0 = pts[(i - 1 + L) % L], p1 = pts[i], p2 = pts[(i + 1) % L], p3 = pts[(i + 2) % L];
+      for (var k = 0; k < n; k++) { var t = k / n, t2 = t * t, t3 = t2 * t;
+        out.push([.5 * (2 * p1[0] + (-p0[0] + p2[0]) * t + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2 + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3),
+                  .5 * (2 * p1[1] + (-p0[1] + p2[1]) * t + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2 + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3)]); }
+    }
+    return out;
+  }
+  function binnen(pt, poly) { var x = pt[0], y = pt[1], c = false; for (var i = 0, j = poly.length - 1; i < poly.length; j = i++) { var a = poly[i], b = poly[j]; if ((a[1] > y) !== (b[1] > y) && x < (b[0] - a[0]) * (y - a[1]) / (b[1] - a[1]) + a[0]) c = !c; } return c; }
+  function wolf(tx, ty, sc, idSuffix) {
+    var r = rnd(1909), o = '', I = 'wolfinkt';
+    function H(x1, y1, x2, y2, w, op) { return '<path d="M' + f(x1) + ' ' + f(y1) + ' L' + f(x2) + ' ' + f(y2) + '" stroke="' + (I === 'wolfinkt' ? '#2b2824' : 'var(--' + I + ')') + '" stroke-opacity="' + f(op) + '" stroke-width="' + f(w) + '"/>'; }
+    // silhouet (kijkt naar links, staand, kop iets geheven): hand-uitgezette punten
+    var S = [[34,90],[48,82],[72,78],[94,72],[108,60],[122,50],[126,26],[136,4],[150,28],[158,42],[164,34],[176,10],[188,34],[192,52],
+      [206,64],[226,82],[250,92],[280,96],[312,98],[346,100],[378,98],[404,100],[426,110],[442,126],[460,152],[474,186],[478,214],[468,238],[452,242],
+      [444,214],[434,186],[428,172],[434,194],[446,222],[448,254],[444,284],[458,298],[428,300],[420,268],[408,234],[390,204],[366,190],[336,188],
+      [300,194],[272,202],[256,208],[252,232],[246,264],[246,286],[260,298],[224,300],[228,262],[224,232],[216,216],[212,250],[210,286],[220,298],[182,300],
+      [186,262],[182,228],[176,208],[164,186],[150,166],[132,150],[108,136],[84,124],[62,114],[44,104],[34,98]];
+    var poly = catmull(S, 6), d = 'M' + poly.map(function (p) { return f(p[0]) + ' ' + f(p[1]); }).join(' L') + 'Z';
+    var clip = 'wolfclip' + idSuffix;
+    o += '<defs><clipPath id="' + clip + '"><path d="' + d + '"/></clipPath><filter id="wolfzacht' + idSuffix + '" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter><radialGradient id="wolfgrond' + idSuffix + '"><stop offset="0" stop-color="#2b2824" stop-opacity=".35"/><stop offset="1" stop-color="#2b2824" stop-opacity="0"/></radialGradient></defs>';
+    o += '<ellipse cx="300" cy="302" rx="200" ry="14" fill="url(#wolfgrond' + idSuffix + ')"/>';
+    // ondergrond van de vacht: licht (papier) met een warme grijs-bruine waas, donkerder op rug en staart
+    o += '<path d="' + d + '" fill="#f1eee8"/><path d="' + d + '" fill="#2b2824" fill-opacity=".2"/><path d="' + d + '" fill="#8a6a3a" fill-opacity=".10"/>';
+    // lichte onderkant: buik, borst, binnenkant poten en snuit (wolven zijn daar bleek)
+    o += '<g clip-path="url(#' + clip + ')"><g filter="url(#wolfzacht' + idSuffix + ')" fill="#f1eee8" fill-opacity=".75"><ellipse cx="300" cy="198" rx="110" ry="16"/><ellipse cx="180" cy="160" rx="34" ry="40"/><ellipse cx="66" cy="110" rx="34" ry="10"/><ellipse cx="140" cy="122" rx="22" ry="12"/><rect x="186" y="230" width="18" height="70"/><rect x="226" y="236" width="16" height="64"/><rect x="424" y="250" width="16" height="50"/></g></g>';
+    // vachtstreken binnen het silhouet: richting en dichtheid per lichaamsdeel
+    var fur = '';
+    function regio(x, y) {
+      if (x > 424 && y > 110) return { a: 1.35, l: 12, op: y > 215 ? .95 : .6 };         // staart, donkere punt
+      if (x < 120 && y > 70) return { a: .05, l: 4, op: y > 104 ? .18 : .4 };             // snuit: kort, bleek aan de onderkant
+      if (x < 196 && y < 130) return { a: -.1, l: 6, op: y < 70 ? .7 : .5 };              // kop: donkerder voorhoofd
+      if (x < 240 && y >= 100 && y < 200) return { a: 1.15, l: 15, op: .4 };               // halskraag en borst: lang, naar beneden
+      if (y >= 205) return { a: 1.52, l: 5, op: .38 };                                     // poten
+      var zadel = y < 122 ? .95 : y < 145 ? .65 : y < 165 ? .4 : .2;                       // donker zadel, lichte buik
+      return { a: .12 + (y - 100) * .004, l: 11, op: zadel };
+    }
+    for (var n = 0; n < 5600; n++) {
+      var x = 30 + r() * 450, y = 8 + r() * 295; if (!binnen([x, y], poly)) continue;
+      var g0 = regio(x, y), a = g0.a + (r() - .5) * .35, l = g0.l * (.6 + r() * .8);
+      fur += H(x, y, x + Math.cos(a) * l, y + Math.sin(a) * l, .4 + r() * .45, g0.op * (.4 + r() * .5));
+    }
+    o += '<g clip-path="url(#' + clip + ')">' + fur + '</g>';
+    // rafelige vachtrand: korte haren naar buiten langs de omtrek, langer bij kraag, staart en buik
+    var rand = '';
+    for (var i = 0; i < poly.length; i += 1) {
+      var p = poly[i], q = poly[(i + 1) % poly.length], tx2 = q[0] - p[0], ty2 = q[1] - p[1], len = Math.sqrt(tx2 * tx2 + ty2 * ty2) || 1;
+      var nx = ty2 / len, ny = -tx2 / len; // buitennormaal (pad loopt met de klok mee in schermcoördinaten)
+      var lang = (p[0] > 140 && p[0] < 240 && p[1] > 110) ? 6 : (p[0] > 426) ? 4 : (p[1] > 180 && p[1] < 210) ? 4 : (p[1] > 280 || p[0] < 60) ? 0 : 1.6;
+      if (!lang) continue;
+      for (var k2 = 0; k2 < 1; k2++) { var s = r(), bx = p[0] + tx2 * s, by = p[1] + ty2 * s, ll = lang * (.4 + r()), aa = Math.atan2(ny * .45 + ty2 / len, nx * .45 + tx2 / len) + (r() - .5) * .4;
+        rand += H(bx - nx * 2, by - ny * 2, bx + Math.cos(aa) * ll, by + Math.sin(aa) * ll, .5 + r() * .3, .45 + r() * .25); }
+    }
+    o += rand + '<path d="' + d + '" fill="none" stroke="#2b2824" stroke-opacity=".45" stroke-width=".8"/>';
+    // gezicht: donker masker rond de ogen, amberkleurig oog, natte neus, mondlijn, oren
+    o += '<path d="M98 70 C108 62 124 62 134 70 C126 76 112 80 98 70Z" fill="#2b2824" fill-opacity=".55"/>';
+    o += '<path d="M104 70 C110 64 122 64 128 70 C122 74 110 75 104 70Z" fill="var(--' + kleur('goud') + ')" fill-opacity=".95"/>';
+    o += '<circle cx="117" cy="69.5" r="2.6" fill="#2b2824"/><circle cx="118.4" cy="68.6" r=".8" fill="#f1eee8"/>';
+    o += '<path d="M128 70 C138 72 146 76 154 82" stroke="#2b2824" stroke-opacity=".6" stroke-width="1" fill="none"/>';
+    o += '<path d="M29 88 C31 82 42 81 46 87 C47 94 37 98 30 95Z" fill="#2b2824"/><path d="M33 86 q4 -2 8 0" stroke="#f1eee8" stroke-opacity=".6" stroke-width=".6" fill="none"/>';
+    o += '<path d="M40 103 C56 110 74 114 94 112" stroke="#2b2824" stroke-opacity=".75" stroke-width="1.1" fill="none"/>';
+    o += '<path d="M138 26 L142 44 M144 24 L146 42 M176 22 L178 40 M172 26 L174 42" stroke="#2b2824" stroke-opacity=".5" stroke-width=".6"/>';
+    o += '<path d="M135 34 C140 40 146 44 152 44 C148 36 146 24 141 14Z" fill="#2b2824" fill-opacity=".35"/><path d="M168 40 C172 44 178 46 182 44 C180 34 178 26 174 18Z" fill="#2b2824" fill-opacity=".3"/>';
+    o += veel(16, 77, function (q, k) { var y = 84 + k * 2.2; return H(70 + q() * 30, y, 50 + q() * 20, y + 4 + q() * 4, .4, .45); }); // snorharen
+    // klauwen
+    o += [[452,299],[254,298],[214,298]].map(function (c) { return '<path d="M' + (c[0] - 22) + ' ' + c[1] + ' l3 3 M' + (c[0] - 15) + ' ' + c[1] + ' l3 3 M' + (c[0] - 8) + ' ' + c[1] + ' l3 3" stroke="#2b2824" stroke-opacity=".7" stroke-width=".8"/>'; }).join('');
+    return g('translate(' + tx + ' ' + ty + ') scale(' + sc + ')', o);
+  }
+  function spar(x, yb, h, op, fijn, r) { // spar: stam met hangende takken, dichter en korter naar de top
+    var o = '<path d="M' + f(x) + ' ' + f(yb) + ' L' + f(x) + ' ' + f(yb - h) + '" stroke="#0b1016" stroke-opacity="' + f(op) + '" stroke-width="' + f(1.2 + h / 260) + '"/>';
+    var n = fijn ? 46 : 22;
+    for (var i = 0; i < n; i++) {
+      var t = i / n, y = yb - h * (.08 + t * .9), w = h * .2 * Math.pow(1 - t, .95) * (.75 + r() * .5);
+      for (var z = -1; z <= 1; z += 2) { var ex = x + z * w, ey = y + w * (.35 + r() * .25);
+        o += '<path d="M' + f(x) + ' ' + f(y) + ' Q' + f(x + z * w * .55) + ' ' + f(y + w * .05) + ' ' + f(ex) + ' ' + f(ey) + '" stroke="#0b1016" stroke-opacity="' + f(op) + '" stroke-width="' + f(fijn ? .7 : 1) + '" fill="none"/>';
+        if (fijn) for (var k = 0; k < 4; k++) { var s = .3 + k * .18, nx = x + z * w * s, ny = y + w * s * s * .5; o += '<path d="M' + f(nx) + ' ' + f(ny) + ' l' + f(z * 3) + ' ' + f(5 + r() * 4) + '" stroke="#0b1016" stroke-opacity="' + f(op * .8) + '" stroke-width=".5"/>'; }
+      }
+    }
+    return o;
+  }
+  function sparSilhouet(x, yb, h, op, r, kl) { var d = 'M' + f(x) + ' ' + f(yb - h); for (var i = 1; i <= 9; i++) { var t = i / 9, y = yb - h * (1 - t), w = h * .2 * t; d += ' L' + f(x + w) + ' ' + f(y) + ' L' + f(x + w * .45) + ' ' + f(y - h * .03); } d += ' L' + f(x + h * .02) + ' ' + f(yb) + ' L' + f(x - h * .02) + ' ' + f(yb); for (var j = 9; j >= 1; j--) { var t2 = j / 9, y2 = yb - h * (1 - t2), w2 = h * .2 * t2; d += ' L' + f(x - w2 * .45) + ' ' + f(y2 - h * .03) + ' L' + f(x - w2) + ' ' + f(y2); } return '<path d="' + d + 'Z" fill="' + (kl || '#1a242e') + '" fill-opacity="' + f(op) + '" stroke="none"/>'; }
+  function woud(seed) {
+    var r = rnd(seed), o = '<defs><linearGradient id="woudlucht" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2a36"/><stop offset=".5" stop-color="#2a3a47"/><stop offset="1" stop-color="#0d131a"/></linearGradient><filter id="mist" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="28"/></filter><radialGradient id="maanhalo"><stop offset="0" stop-color="#efe9d8" stop-opacity=".45"/><stop offset="1" stop-color="#efe9d8" stop-opacity="0"/></radialGradient></defs>';
+    o += '<rect width="1600" height="1000" fill="url(#woudlucht)"/>';
+    o += '<circle cx="190" cy="170" r="190" fill="url(#maanhalo)"/><circle cx="190" cy="170" r="62" fill="#efe9d8"/>' + veel(9, 31, function (q) { return '<circle cx="' + f(160 + q() * 60) + '" cy="' + f(140 + q() * 60) + '" r="' + f(4 + q() * 10) + '" fill="#9a9384" fill-opacity=".18"/>'; }) + veel(70, 33, function (q) { return '<circle cx="' + f(q() * 1600) + '" cy="' + f(q() * 420) + '" r="' + f(.6 + q() * 1.3) + '" fill="#efe9d8" fill-opacity="' + f(.3 + q() * .6) + '"/>'; });
+    for (var k = 0; k < 34; k++) { var x = -40 + k * 50 + r() * 30; o += sparSilhouet(x, 760 + r() * 40, 320 + r() * 180, 1, r, '#34485a'); }       // verre rij
+    o += '<g filter="url(#mist)"><rect x="-100" y="640" width="1800" height="120" fill="#9fb1bd" fill-opacity=".35"/></g>';
+    for (var k2 = 0; k2 < 22; k2++) { var x2 = -30 + k2 * 78 + r() * 40; o += sparSilhouet(x2, 900 + r() * 40, 480 + r() * 260, 1, r, '#1d2a35'); } // middenrij
+    o += '<g filter="url(#mist)"><rect x="-100" y="820" width="1800" height="120" fill="#9fb1bd" fill-opacity=".22"/></g>';
+    [[40, 1040, 980], [1490, 1050, 1000], [1380, 1070, 760], [1580, 1040, 900]].forEach(function (s) { o += sparSilhouet(s[0], s[1], s[2], 1, r, '#0e151c') + spar(s[0], s[1], s[2], .9, true, r); }); // voorgrond, getekend
+    o += veel(60, 41, function (q) { var x = q() * 1600, y = 930 + q() * 70; return '<path d="M' + f(x) + ' ' + f(y) + ' q' + f(-2 + q() * 4) + ' -' + f(8 + q() * 14) + ' ' + f(-4 + q() * 8) + ' -' + f(16 + q() * 18) + '" stroke="#0b1016" stroke-opacity=".6" stroke-width=".7" fill="none"/>'; });
+    return o;
+  }
   /* ---------- platen per thema ---------- */
   var T = {};
   T.cellen = function () { var o = wolken(11, 9); o += cel(1250, 300, 230, 3) + cel(300, 760, 170, 7) + cel(820, 900, 120, 11) + cel(1480, 820, 110, 13) + cel(140, 160, 90, 17);
@@ -208,10 +304,7 @@
     o += vink(160, 760, 70, 0, 'goud') + vink(380, 820, 60, 1, 'koraal') + vink(600, 760, 55, 2, 'teal') + vink(840, 880, 50, 0, 'groen');
     o += golf(960, 14, 'teal', 1.2) + golf(990, 12, 'teal', .8) + schip(1450, 930, 110);
     return o + veel(10, 4, function (q) { return blad(q() * 1600, q() * 200, 50 + q() * 40, q() * 6.28, 'groen'); }); };
-  T.ecologie = function () { var o = wolken(121, 9), r = rnd(4); o += C('goud', 1350, 150, 80, 2, vul('goud', .4)) + P('oker', 'M-20 700 L260 420 L460 640 L700 360 L980 680 L1240 460 L1620 720', 2.2, vul('oker', .08));
-    o += veel(14, 2, function (q, k) { var x = q() * 1600; return k % 2 ? den(x, 860, 160 + q() * 120, 'groen') : loofboom(x, 860, 220 + q() * 120, 'groen', k); });
-    o += P('oker', 'M-20 860 L1620 860', 1.6) + boom(400, 870, 1.57, 60, 6, 'oker', r, function (x, y) { return C('goud', x, y, 4, .6, vul('goud', .8)); }) + boom(1150, 870, 1.57, 60, 6, 'oker', r, function (x, y) { return C('goud', x, y, 4, .6, vul('goud', .8)); });
-    return o + veel(22, 6, function (q) { return vogel(q() * 1600, 80 + q() * 300, 14 + q() * 16, 'paars'); }) + veel(8, 7, function (q) { return bloem(q() * 1600, 880 + q() * 60, 16, KL[Math.floor(q() * 6)], 6); }); };
+  T.ecologie = function () { return woud(121); };
   T.gedrag = function () { var o = wolken(131, 9); // spreeuwenwolk, bijendans, raat
     var r = rnd(3); for (var k = 0; k < 140; k++) { var t = k / 140, x = 200 + t * 1200 + Math.sin(t * 9) * 160, y = 220 + Math.sin(t * 5) * 120 + (r() - .5) * 120; o += vogel(x, y, 6 + r() * 10, k % 3 ? 'paars' : 'teal'); }
     o += raat(980, 560, 40, 7, 'goud') + P('oker', 'M200 700 C200 560 420 560 420 700 C420 840 200 840 200 700 Z M310 600 L310 800', 1.6, 'stroke-dasharray="10 8"');
@@ -250,6 +343,7 @@
 
   Object.keys(T).forEach(function (id) { var fn = T[id]; T[id] = function () { ACC = ACCENT[id] || []; var o = DEFS + fn(); ACC = []; return o; }; });
   window.THEMAKUNST = T;
+  window.THEMAKUNST_ZONDERGAT = { ecologie: true }; // volledige scènes: geen uitsparing achter de hoofdfiguur
   /* hoofdfiguur per thema, groot in de kop van de themapagina: [viewBox, inhoud] */
   var H = {
     evolutie: ['0 0 400 645', function () { return darwin(0, 0, 1); }],
@@ -263,7 +357,7 @@
     regeling: ['0 0 400 400', function () { return neuron(110, 170, 300, .35, 'paars', 1); }],
     voortplanting: ['0 0 400 400', function () { var o = C('koraal', 250, 210, 120, 2.2, vul('koraal', .22)) + C('goud', 250, 210, 36, 1.2, vul('goud', .45)); for (var k = 0; k < 22; k++) { var a = k / 22 * 6.28; o += C('oker', 250 + 140 * Math.cos(a), 210 + 140 * Math.sin(a), 7, .6, vul('oker', .4)); } return o + zaadcel(60, 120, 36, .4, 'teal') + zaadcel(50, 300, 32, -.3, 'paars') + zaadcel(110, 360, 30, -.8, 'groen'); }],
     erfelijkheid: ['0 0 400 400', function () { var o = '', x0 = 120, y0 = 30, s = 80; for (var i = 0; i <= 2; i++) o += P('paars', 'M' + x0 + ' ' + (y0 + i * s) + ' l' + (2 * s) + ' 0', 1) + P('paars', 'M' + (x0 + i * s) + ' ' + y0 + ' l0 ' + (2 * s), 1); [['AA', 'Aa'], ['Aa', 'aa']].forEach(function (rij, j) { rij.forEach(function (t, i) { o += '<text x="' + (x0 + i * s + 18) + '" y="' + (y0 + j * s + 52) + '" fill="var(--' + kleur(t === 'aa' ? 'groen' : 'goud') + ')" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="34">' + t + '</text>'; }); }); return o + erwtepeul(30, 300, 230, -.25) + erwtepeul(200, 370, 170, -.1) + rank(40, 230, 20, 'groen'); }],
-    ecologie: ['0 0 400 400', function () { return C('goud', 320, 70, 40, 1.4, vul('goud', .4)) + loofboom(120, 360, 300, 'groen', 2) + den(290, 370, 230, 'groen') + vogel(220, 90, 18, 'paars') + vogel(260, 130, 12, 'paars') + P('oker', 'M0 370 L400 370', 1.2); }],
+    ecologie: ['20 0 470 310', function () { return wolf(0, 0, 1, 'h'); }],
     gedrag: ['0 0 400 400', function () { return raat(70, 60, 40, 4, 'goud') + bij(300, 300, 40) + P('oker', 'M120 320 C120 250 230 250 230 320 C230 390 120 390 120 320 Z M175 270 L175 370', 1.2, 'stroke-dasharray="8 6"'); }],
     examens: ['0 0 400 400', function () { var o = P('text2', 'M80 40h190l50 50v270H80z', 1.8, vul('text2', .08)) + P('text2', 'M270 40v50h50', 1.2); for (var k = 0; k < 7; k++) o += P('text2', 'M110 ' + (120 + k * 30) + 'h' + (150 + (k % 3) * 30), 1, 'opacity=".6"'); return o + P('groen', 'M120 330l20 20 50-60', 4) + C('goud', 320, 320, 56, 1.8, vul('goud', .3)) + P('koraal', 'M320 320v-38M320 320l26 14', 2.6) + g('rotate(-40 230 250)', P('goud', 'M150 240h170l26 12-26 12H150z', 1.4, vul('goud', .45))); }],
     milieu: ['0 0 400 400', function () { var o = C('teal', 200, 200, 110, 1.8, vul('teal', .25)) + E('text2', 200, 200, 55, 110, 0, .8) + P('text2', 'M90 200H310M108 140H292M108 260H292', .8); for (var k = 0; k < 9; k++) { var a0 = k / 9 * 6.283 + .06, a1 = (k + 1) / 9 * 6.283 - .06, rr = 140 + (k % 3 === 0 ? 50 : 25); o += P(k % 3 === 0 ? 'koraal' : 'groen', 'M' + f(200 + Math.cos(a0) * 122) + ' ' + f(200 + Math.sin(a0) * 122) + 'L' + f(200 + Math.cos(a0) * rr) + ' ' + f(200 + Math.sin(a0) * rr) + 'A' + rr + ' ' + rr + ' 0 0 1 ' + f(200 + Math.cos(a1) * rr) + ' ' + f(200 + Math.sin(a1) * rr) + 'L' + f(200 + Math.cos(a1) * 122) + ' ' + f(200 + Math.sin(a1) * 122) + 'Z', 1.1, vul(k % 3 === 0 ? 'koraal' : 'groen', .3)); } return o + C('goud', 200, 200, 172, 1.2, 'stroke-dasharray="6 6"'); }],

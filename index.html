@@ -468,7 +468,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
 </header>
 
 <main id="app"></main>
-<script src="js/themakunst.js?v=3f8a5cde"></script>
+<script src="js/themakunst.js?v=d630e78d"></script>
 
 <footer>
   <div class="wrap">
@@ -2739,7 +2739,7 @@ const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="fi
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
       <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: korte animaties om zelf stap voor stap uit te leggen">Uitleg in stappen</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`};
-const themaLaag=id=>{if(kunstStand==='uit'||!window.THEMAKUNST||!THEMAKUNST[id]) return '';return `<div class="kunstgrond thema" aria-hidden="true"><div class="grondset aan"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><radialGradient id="heldgat"><stop offset=".55" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="heldmasker" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><rect width="1600" height="1000" fill="#fff"/><ellipse cx="1180" cy="330" rx="300" ry="330" fill="url(#heldgat)"/></mask></defs><g mask="url(#heldmasker)">${THEMAKUNST[id]()}</g></svg></div></div>`};
+const themaLaag=id=>{if(kunstStand==='uit'||!window.THEMAKUNST||!THEMAKUNST[id]) return '';return `<div class="kunstgrond thema" aria-hidden="true"><div class="grondset aan"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><radialGradient id="heldgat"><stop offset=".55" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="heldmasker" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><rect width="1600" height="1000" fill="#fff"/><ellipse cx="1180" cy="330" rx="300" ry="330" fill="url(#heldgat)"/></mask></defs><g ${window.THEMAKUNST_ZONDERGAT&&THEMAKUNST_ZONDERGAT[id]?'':'mask="url(#heldmasker)"'}>${THEMAKUNST[id]()}</g></svg></div></div>`};
 function hoofdstuk(id){
   const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
   let out=themaLaag(id)+`<section class="kop"><div class="wrap">
