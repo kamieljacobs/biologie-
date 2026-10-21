@@ -293,6 +293,9 @@ a.tool:hover{border-color:var(--text3);transform:translateY(-2px)}
 .plaatje .leid{stroke:var(--text3);stroke-width:.7}
 .tool > div{padding:14px 18px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
 .tool .open{margin-top:auto;padding-top:10px;color:var(--goud-text);font-weight:700;font-size:14px}
+.les-blok>.ond-scheiding{margin-top:34px}.les-thema{padding-top:4px}.les-kop{padding:14px 0 0}.les-kop .reeks-titel h3{font-size:24px;margin:0;font-family:var(--titel)}.les-kop h3 a{color:inherit;text-decoration:none}
+.les .les-films{font-size:12px;color:var(--text3);margin-top:6px}.les .les-niv{font-size:11px;color:var(--text3)}.les-tag{vertical-align:middle;font-size:11px}
+.les-uitleg{color:var(--text3);font-size:12px;margin:18px 0 0}.les-volgt{color:var(--text3);font-size:14px;margin:14px 0 4px}.les-volgt .mono{font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}.les-volgt a{color:var(--text2)}
 .tool .volgt{margin-top:auto;padding-top:10px;color:var(--text3)}
 .tool h3{font-size:19px;line-height:1.25}
 a.tool:hover h3{color:var(--goud-text)}
@@ -447,6 +450,7 @@ svg.kunst{transform-origin:50% 50%;transform-box:fill-box}
       <a href="#home" data-nav="home">Thema's</a>
       <a href="#films" data-nav="films">Films</a>
       <a href="#tools" data-nav="tools">Tools</a>
+      <a href="#lessen" data-nav="lessen">Lessen</a>
       <details class="menu">
         <summary>Agora</summary>
         <div class="menu-lijst">
@@ -644,11 +648,15 @@ const HOOFDSTUKKEN = {
     "bij": "Film 5 · anticonceptie, soa's en ivf · havo + vwo"
    }
   ],
-  "tools": [
+  "tools": [],
+  "lessen": [
    {
     "href": "tools/docent/voortplanting-1/index.html",
-    "naam": "Uitleg in stappen · les 1: één ouder of twee?",
-    "tekst": "Voor de docent: korte animaties om stap voor stap uit te leggen. Flora de komodovaraan, ongeslachtelijke en geslachtelijke voortplanting, waarom mannetjes, het startsein van de puberteit, geslachtskenmerken, route van een zaadcel, eierstok en baarmoeder (havo/vwo, presentatiemodus)"
+    "nr": 1,
+    "titel": "Eén ouder of twee?",
+    "tekst": "Flora de komodovaraan, ongeslachtelijke en geslachtelijke voortplanting, waarom er mannetjes zijn, het startsein van de puberteit, geslachtskenmerken, de route van een zaadcel, eierstok en baarmoeder",
+    "films": ["films/voortplanting/celdeling/index.html", "films/voortplanting/2-geslachtsorganen-puberteit.html"],
+    "niveau": "havo + vwo"
    }
   ],
   "oefenen": [
@@ -2541,7 +2549,8 @@ function telling(id,kd){
   /* onderbouw: alle films staan in één hoofdstuk; tel per kerndoel via 'bij' (films) en 'kerndoel' (tools) */
   const hoort=x=>!kd||new RegExp('\\b'+kd+'\\b').test((x.bij||'')+' '+(x.kerndoel||''));
   const n=h.films.filter(hoort).length, t=h.tools.filter(x=>x.href&&hoort(x)).length, d=[];
-  if(n) d.push(`${n} ${n===1?'film':'films'}`); if(t) d.push(`${t} ${t===1?'tool':'tools'}`);
+  const l=kd?0:(h.lessen||[]).length;
+  if(n) d.push(`${n} ${n===1?'film':'films'}`); if(l) d.push(`${l} ${l===1?'les':'lessen'}`); if(t) d.push(`${t} ${t===1?'tool':'tools'}`);
   if(!kd&&id!=='extra'){const e=extraVan(id).films.length;if(e)d.push(`+${e} extra`)}
   return d.join(' · ');
 }
@@ -2737,9 +2746,31 @@ function onderbouwPagina(){
 const filmRij=(f,i,id,extra)=>{const g=gezien[f.href];return `<article class="film${g?' is-gezien':''}${extra?' is-extra':''}" data-href="${esc(f.href)}">
       <span class="nr"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${extra?'+':i+1}</span>${rv(f.href)}</span>
       <div><h3><a href="${BASE+esc(f.href)}">${esc(f.titel)}</a></h3>${f.vraag?`<p class="vraag">${esc(f.vraag)}</p>`:''}<p class="tekst">${esc(f.tekst)}</p><div class="meta mono">${f.duur?`<span>${f.duur} min</span>`:''}${bijLabel(f.bij)?`<span>${esc(bijLabel(f.bij))}</span>`:''}</div>${oefRij(f.href)}</div>
-      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: korte animaties om zelf stap voor stap uit te leggen">Uitleg in stappen</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
+      <div class="acties"><a class="knop" href="${BASE+esc(f.href)}">${play} Bekijk</a>${OEFENEN[f.href]?`<a class="knop knop-pres" href="${BASE}oefenen.html?film=${encodeURIComponent(f.href)}" title="Oefeningen bij deze film: slepen, indelen, voorspellen, puzzelen en uitleggen">Oefenen</a>`:''}${f.pres?`<a class="knop knop-pres" href="${BASE+esc(f.pres)}" title="Klassikale uitleg met dia's, denkvragen en docentnotities">Presentatie</a>`:''}${f.uitleg?`<a class="knop knop-pres" href="${BASE+esc(f.uitleg)}" title="Voor de docent: de les met korte animaties om zelf stap voor stap uit te leggen">${lesLabel(f.uitleg)}</a>`:''}<button class="vink" type="button" aria-pressed="${g?'true':'false'}"><span class="box">${g?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':''}</span>gezien</button></div>
     </article>`};
 const themaLaag=id=>{if(kunstStand==='uit'||!window.THEMAKUNST||!THEMAKUNST[id]) return '';return `<div class="kunstgrond thema" aria-hidden="true"><div class="grondset aan"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><radialGradient id="heldgat"><stop offset=".55" stop-color="#000"/><stop offset="1" stop-color="#fff"/></radialGradient><mask id="heldmasker" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="1000"><rect width="1600" height="1000" fill="#fff"/><ellipse cx="1180" cy="330" rx="300" ry="330" fill="url(#heldgat)"/></mask></defs><g ${window.THEMAKUNST_ZONDERGAT&&THEMAKUNST_ZONDERGAT[id]?'':'mask="url(#heldmasker)"'}>${THEMAKUNST[id]()}</g></svg></div></div>`};
+/* Lessen: lestools voor de docent (uitleg in stappen), per thema in HOOFDSTUKKEN.<id>.lessen */
+const lesVan=href=>{const k=(href||'').split('#')[0];for(const h of Object.values(HOOFDSTUKKEN))for(const l of (h.lessen||[]))if(l.href===k)return l;return null};
+const lesLabel=href=>{const l=lesVan(href);return l?`Les ${l.nr}`:'Uitleg in stappen'};
+function lesKaart(l,id){
+  const fl=(l.films||[]).map(hr=>{const f=(HOOFDSTUKKEN[id].films||[]).find(x=>x.href===hr);return f?`<a href="${BASE+esc(hr)}">${esc(f.titel)}</a>`:''}).filter(Boolean);
+  return `<a class="tool les" href="${BASE+esc(l.href)}"><span class="ik">${toolKunst('Uitleg in stappen')}<span class="fig">${esc(HOOFDSTUKKEN[id].titel)} · les ${l.nr}</span></span><div><h3>${esc(l.titel)}</h3><p>${esc(l.tekst)}</p>${fl.length?`<p class="les-films mono">Bij ${fl.length===1?'de film':'de films'} ${fl.map(x=>x.replace(/<[^>]+>/g,'')).map(esc).join(' · ')}</p>`:''}${l.niveau?`<span class="mono les-niv">${esc(l.niveau)}</span>`:''}<span class="open">Open de les →</span></div></a>`;
+}
+function lessen(){
+  const met=id=>HOOFDSTUKKEN[id]&&(HOOFDSTUKKEN[id].lessen||[]).length;
+  const totaal=Object.values(HOOFDSTUKKEN).reduce((a,h)=>a+(h.lessen||[]).length,0);
+  let out=kopPagina('Lessen · voor de docent','Lessen',`Per thema de lessen die bij de films horen: korte animaties om in de klas zelf stap voor stap uit te leggen, op het bord of de beamer. Er komt steeds een les bij, vlak voordat het onderwerp in de klas aan bod komt.`,'voortplanting')+`<div class="wrap smal">`;
+  out+=`<p class="les-uitleg mono">${totaal} ${totaal===1?'les':'lessen'} · bediening: → of spatie verder, ← terug, F presenteren</p>`;
+  for(const [naam,sub,ids] of BASIS){
+    const wel=ids.filter(met), niet=ids.filter(id=>HOOFDSTUKKEN[id]&&!met(id));
+    out+=`<div class="les-blok"><div class="ond-scheiding"><span class="mono">${esc(sub)}</span><h2>${esc(naam)}</h2></div>`;
+    for(const id of wel){const h=HOOFDSTUKKEN[id];
+      out+=`<section class="lijst les-thema" id="lessen-${id}"><div class="reeks-kop les-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h3><a href="#${id}">${esc(h.titel)}</a></h3><span class="mono reeks-meta">${h.lessen.length} ${h.lessen.length===1?'les':'lessen'} · ${h.films.length} films</span></span></div><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;}
+    if(niet.length) out+=`<p class="les-volgt"><span class="mono">Nog geen lessen</span> ${niet.map(id=>`<a href="#${id}">${esc(HOOFDSTUKKEN[id].titel)}</a>`).join(' · ')}</p>`;
+    out+=`</div>`;
+  }
+  return out+`</div>`;
+}
 function hoofdstuk(id){
   const h=HOOFDSTUKKEN[id], n=h.films.length, k=h.films.filter(f=>gezien[f.href]).length;
   let out=themaLaag(id)+`<section class="kop"><div class="wrap">
@@ -2754,6 +2785,7 @@ function hoofdstuk(id){
   </div></section>
   <div class="wrap smal">`;
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
+  if((h.lessen||[]).length) out+=`<section class="lijst" id="${id}-lessen"><h2>Lessen <span class="extra-tag mono les-tag">voor de docent</span></h2><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
   if(id!=='extra'){const E=extraVan(id);if(E.films.length||E.komt.length) out+=`<section class="lijst extra-lijst" id="${id}-extra"><h2>Extra <span class="extra-tag mono">buiten het PTA</span></h2><p class="extra-uitleg">Voor wie nieuwsgierig is en verder wil kijken. Deze films horen niet bij je toets of examen.</p>${E.films.map((f,i)=>filmRij(f,i,id,true)).join('')}${E.komt.length?`<div class="komt-lijst">${E.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em> <span class="extra-tag mono">extra</span>${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div>`:''}</section>`;}
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
@@ -2818,11 +2850,12 @@ function render(){
   else if(id==='onderbouw'){app.innerHTML=onderbouwPagina();pagina='onderbouw'}
   else if(h==='films'){app.innerHTML=films();pagina='films'}
   else if(h==='tools'){app.innerHTML=tools();pagina='tools'}
+  else if(id==='lessen'){app.innerHTML=lessen();pagina='lessen'}
   else if(HOOFDSTUKKEN[id]){app.innerHTML=hoofdstuk(id);pagina=id}
   else app.innerHTML=home();
-  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(['films','tools','pta','onderbouw'].includes(pagina)?pagina:'home')));
+  document.querySelectorAll('[data-nav]').forEach(a=>a.toggleAttribute('aria-current',a.dataset.nav===(['films','tools','lessen','pta','onderbouw'].includes(pagina)?pagina:'home')));
   document.querySelectorAll('details.menu').forEach(d=>d.toggleAttribute('data-actief',pagina==='pta'||pagina==='onderbouw'));
-  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
+  document.title=pagina==='home'?'Biologie bij Kamiel':`${pagina==='films'?'Films':pagina==='tools'?'Tools':pagina==='lessen'?'Lessen':pagina==='pta'?'PTA Agora':pagina==='onderbouw'?'Agora onderbouw':HOOFDSTUKKEN[id].titel} · Biologie bij Kamiel`;
   document.body.classList.toggle('op-home',pagina==='home'||pagina==='onderbouw');
   if(pagina==='home') grondWissel(); else clearInterval(grondTimer);
   const metKunst=pagina==='home'||(HOOFDSTUKKEN[pagina]&&window.THEMAKUNST&&THEMAKUNST[pagina]);
