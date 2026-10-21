@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../../huisstijl.css">
 <script src="../../huisstijl.js"></script>
 <style>
-/* Uitleg in stappen · Voortplanting · les 1 · versie 1.0 · 20 oktober 2026
+/* Uitleg in stappen · Voortplanting · les 1 · versie 1.1 · 21 oktober 2026 (1.1: schermen Mitose en Meiose stap voor stap)
    Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
    Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
 .tool-kop{padding-bottom:10px}
@@ -130,16 +130,17 @@ details.docent[open]>summary::after{content:"–"}
       </ul>
       <h3>Lesopbouw (± 50 minuten)</h3>
       <ol>
-        <li><b>Opening</b> (5 min): Flora, de komodovaraan zonder vader. Laat de klas raden hoe dat kan; het antwoord komt bij scherm 4 (maagdelijke voortplanting).</li>
-        <li><b>Eén ouder of twee</b> (15 min): ongeslachtelijk (mitose, klonen, vijf vormen) en geslachtelijk (meiose, bevruchting, variatie). Scherm 6 laat de schaal van de variatie zien (1, 2, 3 en 23 chromosomenparen); de race op scherm 7 maakt de voor- en nadelen voelbaar.</li>
+        <li><b>Opening</b> (5 min): Flora, de komodovaraan zonder vader. Laat de klas raden hoe dat kan; het antwoord komt bij scherm 5 (maagdelijke voortplanting).</li>
+        <li><b>Eén ouder of twee</b> (20 min): ongeslachtelijk (mitose stap voor stap op scherm 4, klonen, vijf vormen) en geslachtelijk (meiose stap voor stap op scherm 7, bevruchting, variatie). Scherm 8 laat de schaal van de variatie zien (1, 2, 3 en 23 chromosomenparen); de race op scherm 9 maakt de voor- en nadelen voelbaar.</li>
         <li><b>Puberteit</b> (10 min): het startsein van hypothalamus naar geslachtsklier, primaire en secundaire geslachtskenmerken, groeispurt.</li>
-        <li><b>Organen</b> (15 min): de route van een zaadcel en de bouw van eierstok, eileider en baarmoeder.</li>
+        <li><b>Organen</b> (10 min): de route van een zaadcel en de bouw van eierstok, eileider en baarmoeder.</li>
         <li><b>Huiswerk</b>: de films <a href="../../../films/voortplanting/celdeling/index.html">Celdeling</a> (vanaf 8:26) en <a href="../../../films/voortplanting/2-geslachtsorganen-puberteit.html">Geslachtsorganen en puberteit</a>.</li>
       </ol>
     </div>
     <div>
       <h3>Achtergrond en vereenvoudigingen</h3>
       <ul>
+        <li><b>Mitose en meiose</b> (scherm 4 en 7) met een model van 2 chromosomenparen (2n = 4), in dezelfde kleuren als scherm 8: donker = van de vader, licht = van de moeder. Het kopiëren van het DNA valt in de interfase; profase en metafase zijn vereenvoudigd (geen prometafase, centriolen alleen als pool). Bij meiose gaat paar 1 donker en paar 2 licht naar links; dat is toeval per paar. Crossing-over is getekend als één ruil per paar, tussen de twee binnenste chromatiden. Meiose II staat haaks op meiose I, zodat de vier cellen naast elkaar passen.</li>
         <li><b>Flora</b> leefde in Chester Zoo (Engeland) zonder mannetje en legde in 2006 eieren waar jongen uit kwamen; in London Zoo gebeurde hetzelfde bij een tweede vrouwtje. DNA-onderzoek liet zien dat de jongen geen vader hadden (Watts e.a., <i>Nature</i> 2006). Alle jongen waren mannetjes: bij varanen is het vrouwtje ZW en het mannetje ZZ. Een eicel krijgt één Z of één W; bij maagdelijke voortplanting wordt dat dubbel (ZZ of WW) en WW leeft niet.</li>
         <li><b>De race</b> is een denkmodel: elk vrouwtje krijgt vier jongen, bij twee ouders is de helft mannetje. Zo groeit de kloonpopulatie per generatie twee keer zo hard (biologen noemen dit de 'dubbele kosten van seks'). De ziekte treft één type (blauw); de klonen zijn allemaal dat type, rechts sterven er 3 van de 16 en blijven vrouwtjes én mannetjes over. Verder is alles gelijk gehouden (evenveel jongen, niemand gaat dood), zodat het enige verschil de mannetjes zijn.</li>
         <li><b>Bladluizen</b> krijgen in de zomer levende jongen zonder bevruchting; in de herfst komen er mannetjes en leggen ze bevruchte wintereieren.</li>
@@ -157,7 +158,7 @@ details.docent[open]>summary::after{content:"–"}
   </div>
 </details>
 
-<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 1 · versie 1.0 · 20 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 1 · versie 1.1 · 21 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script src="../../../personages/lib_cast.js"></script>
@@ -426,7 +427,7 @@ SCHERMEN.push({ titel: 'Flora', deel: 'Opening',
     { t: 'Toch legt Flora <b>eieren</b>.', n: 'Laat de klas raden: zijn de eieren bevrucht? Door wie dan?' },
     { t: 'En daar komen <b>jongen</b> uit. Zonder vader.', n: 'DNA-onderzoek: de jongen hebben alleen DNA van Flora (Watts e.a., Nature 2006).' },
     { t: 'Alle jongen zijn <b>mannetjes</b>: bij varanen is het vrouwtje ZW, het mannetje ZZ.', n: 'Eicel krijgt Z of W en wordt verdubbeld: ZZ (mannetje) of WW (leeft niet). Komt terug in film 4 (Sekse).', vwo: true },
-    { t: 'Hoe kan dat? Voortplanting met <b>één ouder</b> of met <b>twee</b>.', n: 'Het antwoord komt bij scherm 4 (maagdelijke voortplanting).' }
+    { t: 'Hoe kan dat? Voortplanting met <b>één ouder</b> of met <b>twee</b>.', n: 'Het antwoord komt bij scherm 5 (maagdelijke voortplanting).' }
   ],
   teken(ctx, S) {
     const T = S.T, gy = 820;
@@ -454,9 +455,9 @@ SCHERMEN.push({ titel: 'Flora', deel: 'Opening',
 // Eén mitose = één cel wordt twee cellen. Twee rondes na elkaar, in kolommen, zodat niet de indruk ontstaat dat mitose vier cellen geeft.
 SCHERMEN.push({ titel: 'Eén ouder', deel: 'Eén ouder of twee',
   stappen: [
-    { t: '<b>Ongeslachtelijke voortplanting</b>: één ouder.', n: 'Hier als eencellige; bij meercelligen gaat het met een groepje cellen (scherm 4).' },
+    { t: '<b>Ongeslachtelijke voortplanting</b>: één ouder.', n: 'Hier als eencellige; bij meercelligen gaat het met een groepje cellen (scherm 5).' },
     { t: 'Bij <b>mitose</b> wordt het DNA eerst gekopieerd. Dan deelt de cel: uit <b>één cel</b> worden <b>twee cellen</b>.', n: 'De streepjescode in de kern = het DNA. Beide kernen krijgen dezelfde code.' },
-    { t: 'Delen ze nog een keer, dan wordt elke cel weer twee. Allemaal hetzelfde DNA: <b>klonen</b>.', n: 'Twee keer mitose na elkaar geeft vier cellen. Let op het verschil met meiose (één ronde van twee delingen, vier cellen met de helft van het DNA): volgend scherm.' }
+    { t: 'Delen ze nog een keer, dan wordt elke cel weer twee. Allemaal hetzelfde DNA: <b>klonen</b>.', n: 'Twee keer mitose na elkaar geeft vier cellen. Het volgende scherm laat één mitose stap voor stap zien; meiose volgt op scherm 7.' }
   ],
   teken(ctx, S) {
     const k = C.teal, cy = 560, X = [300, 900, 1500];
@@ -479,6 +480,95 @@ SCHERMEN.push({ titel: 'Eén ouder', deel: 'Eén ouder of twee',
   } });
 
 // ---------- 3 · vormen ----------
+// ---------- chromosomen tekenen (mitose en meiose) ----------
+// Eén chromatide langs een as door (x, y); hoek 0 = verticaal. draad 0 = kort en dik, 1 = lange dunne draad (interfase).
+// kant (-1 links, 1 rechts) en buig: de armen buigen van de centromeer naar buiten, zodat twee zusterchromatiden een X vormen.
+// ruil = { f, kleur }: het onderste deel (fractie f) krijgt een andere kleur (crossing-over).
+function chromatide(ctx, x, y, L, w, kleur, o = {}) {
+  const a = o.a == null ? 1 : o.a; if (a <= 0.01) return;
+  const hoek = o.hoek || 0, draad = o.draad || 0, kant = o.kant || 0, buig = o.buig || 0, fase = o.fase || 0;
+  const ax = Math.sin(hoek), ay = Math.cos(hoek), px = Math.cos(hoek), py = -Math.sin(hoek);
+  const Ld = L * (1 + 0.8 * draad), amp = 15 * draad, n = 32, pts = [];
+  for (let i = 0; i <= n; i++) { const s = i / n - 0.5, l = s * Ld, off = amp * Math.sin(l / 20 + fase) + kant * buig * Math.abs(l); pts.push([x + ax * l + px * off, y + ay * l + py * off]); }
+  const lw = lerp(w, 6, draad);
+  const lijn = (pp, kl) => { ctx.strokeStyle = kl; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); pp.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); };
+  ctx.save(); ctx.globalAlpha *= a; lijn(pts, kleur); if (o.ruil && o.ruil.f > 0) lijn(pts.slice(Math.round(n * (1 - o.ruil.f))), o.ruil.kleur); ctx.restore();
+}
+// chromosoom met dub = 0 (één chromatide) .. 1 (twee chromatiden, X-vorm); ruil = { '-1': {f, kleur}, '1': {...} } per chromatide
+function chromosoom(ctx, x, y, L, w, kleur, o = {}) {
+  const dub = o.dub || 0, hoek = o.hoek || 0, draad = o.draad || 0, a = o.a == null ? 1 : o.a;
+  if (dub <= 0.01) { chromatide(ctx, x, y, L, w, kleur, { hoek, draad, a, fase: o.fase }); return; }
+  const px = Math.cos(hoek), py = -Math.sin(hoek), sp = w * 0.48 * dub, buig = 0.16 * dub * (1 - draad) * (o.buig == null ? 1 : o.buig), ruil = o.ruil || {};
+  [-1, 1].forEach(k => chromatide(ctx, x + px * sp * k, y + py * sp * k, L, w, kleur, { hoek, draad, a: a * (k < 0 ? 1 : Math.min(1, dub * 2)), kant: k, buig, fase: o.fase, ruil: ruil[k] }));
+}
+function kernRand(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(C.paars, C.licht ? 0.12 : 0.22), rgba(C.paars, 0.75), 2.5); ctx.restore(); }
+function pool(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.goud, 0.6); ctx.lineWidth = 2.5;
+  for (let i = 0; i < 8; i++) { const an = i * Math.PI / 4; ctx.beginPath(); ctx.moveTo(x + Math.cos(an) * 13, y + Math.sin(an) * 13); ctx.lineTo(x + Math.cos(an) * 28, y + Math.sin(an) * 28); ctx.stroke(); }
+  circ(ctx, x, y, 9, C.goud); ctx.restore(); }
+function vezel(ctx, x1, y1, x2, y2, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.55); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke(); ctx.restore(); }
+function equator(ctx, x, y1, y2, a = 1, horizontaal = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.goud, 0.7); ctx.lineWidth = 3; ctx.setLineDash([14, 12]); ctx.beginPath();
+  if (horizontaal) { ctx.moveTo(y1, x); ctx.lineTo(y2, x); } else { ctx.moveTo(x, y1); ctx.lineTo(x, y2); } ctx.stroke(); ctx.restore(); }
+// delende cel: comps volgens dezelfde regel als delendeCel, maar los te plaatsen (richting 'x' of 'y')
+function deelVorm(x, y, R, r2, d, e, richting = 'x') {
+  const rr = lerp(R, r2, e), dd = d * ease(e), ex = ease(e);
+  const c = richting === 'x' ? [[x - dd, y, rr, rr], [x + dd, y, rr, rr]] : [[x, y - dd, rr, rr], [x, y + dd, rr, rr]];
+  if (ex < 0.8) c.push(richting === 'x' ? [x, y, Math.max(dd, 1), rr * (1 - ex / 0.8)] : [x, y, rr * (1 - ex / 0.8), Math.max(dd, 1)]);
+  return c;
+}
+// lijst met fasen rechts in beeld; cur = huidige fase
+function fasenLijst(ctx, items, cur, x, y, a = 1, dy = 100) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = rgba(C.line, 0.35); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + (items.length - 1) * dy); ctx.stroke();
+  items.forEach(([nm, sub], i) => { const yy = y + i * dy, nu = i === cur, al = i <= cur ? 1 : 0.4;
+    circ(ctx, x, yy, nu ? 15 : 10, nu ? C.goud : (i < cur ? C.text2 : C.bg), nu ? null : rgba(C.line, 0.7), 2.5);
+    regel(ctx, nm, x + 40, yy + 12, al, nu ? C.goud : C.text, 38, 'left', 700); if (sub) regel(ctx, sub, x + 40, yy + 48, al * 0.95, C.text2, 26, 'left', 400); });
+  ctx.restore();
+}
+const chromKl = (i) => PAAR_KL(i >> 1)[i & 1]; // i = 2 × paar + (0 = van de vader, donker; 1 = van de moeder, licht)
+
+// ---------- 3 · mitose stap voor stap ----------
+// Model met 2 paren (2n = 4), zelfde kleuren als 'Meer paren'. De cel deelt langs de x-as: polen links en rechts, equatorvlak verticaal.
+const MI = { cx: 720, cy: 560, R: 320, L: [140, 92], w: 26,
+  I0: [[-85, -50, 0.6], [55, -80, -0.5], [-55, 80, 1.3], [90, 40, 0.2]], // ligging in de kern (x, y, hoek)
+  My: [-207, 85, -61, 231] }; // plek in het equatorvlak
+SCHERMEN.push({ titel: 'Mitose', deel: 'Eén ouder of twee',
+  stappen: [
+    { t: 'Een lichaamscel in <b>interfase</b>. In de kern zijn de chromosomen lange, dunne draden.', n: 'Model met 2 chromosomenparen (2n = 4); de mens heeft 23 paren (2n = 46). Elk paar een eigen kleur: donker = van de vader, licht = van de moeder (zoals op scherm 8).' },
+    { t: 'Eerst wordt het DNA <b>gekopieerd</b>: elk chromosoom bestaat nu uit twee <b>chromatiden</b>.', n: 'Nog in de interfase. Nog steeds 4 chromosomen, maar elk met twee identieke chromatiden: de hoeveelheid DNA is verdubbeld.' },
+    { t: '<b>Profase</b>: de chromosomen worden kort en dik, het kernmembraan verdwijnt.', n: 'Opgerold kunnen ze verplaatst worden zonder in de knoop te raken; nu zie je de X-vorm. Vanaf de polen groeit de spoelfiguur.' },
+    { t: '<b>Metafase</b>: de chromosomen liggen in het <b>equatorvlak</b>, vast aan de draden van de spoelfiguur.', n: 'Elk chromosoom ligt los, niet naast zijn partner: dat is het verschil met meiose I (scherm 7).' },
+    { t: '<b>Anafase</b>: de chromatiden gaan uit elkaar, naar de polen.', n: 'Aan elke kant komt van elk chromosoom precies één chromatide: vier aan elke kant.' },
+    { t: '<b>Telofase</b>: er ontstaan twee kernen en de cel snoert in. Twee cellen met elk 2n = 4 en <b>hetzelfde DNA</b>.', n: 'Het insnoeren heet cytokinese. Daarna weer interfase: de chromosomen worden weer dunne draden. Na de volgende kopie kan de cel opnieuw delen.' }
+  ],
+  teken(ctx, S) {
+    const { cx, cy, R, w } = MI, T = S.T;
+    const a0 = S.on(0, 0.8), kop = S.on(1, 1.6, 0.2), cond = S.on(2, 1.6), pol = S.on(2, 0.8, 0.9), met = S.on(3, 1.6), vz = S.on(3, 0.8, 1.0), ana = S.on(4, 1.8, 0.2), tel = S.on(5, 2.2);
+    const rek = ana * (1 - ease(tel)); celVorm(ctx, deelVorm(cx, cy, R, 225, 255, tel).map(([x, y, rx, ry]) => [x, y, rx * (1 + 0.2 * rek), ry * (1 - 0.1 * rek)]), C.teal, a0);
+    kernRand(ctx, cx, cy, 215, a0 * (1 - cond)); naam(ctx, 'kern', cx + 175, cy - 205, a0 * (1 - cond), 'left');
+    [-1, 1].forEach(k => kernRand(ctx, cx + k * 255, cy, 150, ease((tel - 0.45) / 0.45)));
+    const pa = pol * (1 - tel), px0 = 290 + 60 * rek; [-1, 1].forEach(k => pool(ctx, cx + k * px0, cy, pa)); naam(ctx, 'spoelfiguur', cx - 290, cy - 60, pa * vz * (1 - ana), 'center', C.text, 30);
+    equator(ctx, cx, cy - R + 10, cy + R - 10, S.on(3, 0.6, 1.3) * (1 - ana)); naam(ctx, 'equatorvlak', cx, cy - R - 22, S.on(3, 0.6, 1.3) * (1 - ana), 'center');
+    for (let i = 0; i < 4; i++) {
+      const L = MI.L[i >> 1], kl = chromKl(i), [ix, iy, ih] = MI.I0[i];
+      const x = lerp(cx + ix, cx, met), y = lerp(cy + iy, cy + MI.My[i], met), hoek = lerp(ih, 0, met);
+      if (kop < 1) { chromosoom(ctx, x, y, L, w, kl, { dub: kop, hoek, draad: 1, fase: i * 1.7 + T * 0.5, a: a0 }); continue; }
+      [-1, 1].forEach(k => {
+        // anafase: de centromeer gaat voorop naar de pool, de armen slepen erachter (bijna horizontaal), zo passen ze in de cel
+        const ha = k * Math.PI / 2 * 0.7 * ease(ana), ay = lerp(y - cy, (y - cy) * 0.42, ana) + cy, ax = lerp(x + k * w * 0.48, cx + k * (300 - L * 0.42), ana);
+        const fx = cx + k * 255 + ix * 0.7, fy = cy + iy * 0.7;
+        const xx = lerp(ax, fx, tel), yy = lerp(ay, fy, tel), hh = lerp(hoek + ha, ih, tel), dr = (1 - cond) + 0.45 * tel;
+        const kx = xx + k * Math.sin(Math.abs(hh)) * L * 0.42 * ana * (1 - tel); // centromeer = kop van de chromatide
+        vezel(ctx, cx + k * px0, cy, lerp(xx, kx, 1), yy, vz * (1 - tel));
+        chromatide(ctx, xx, yy, L, w, kl, { hoek: hh, draad: dr, kant: k, buig: 0.16 * (1 - dr) * (1 - ana), fase: i * 1.7 + T * 0.5 * dr, a: a0 });
+      });
+    }
+    regel(ctx, '2n = 4', cx, cy + R + 60, a0 * (1 - tel), C.text2, 32, 'center', 600);
+    [-1, 1].forEach(k => regel(ctx, '2n = 4', cx + k * 255, cy + 285, S.on(5, 0.6, 2.0), C.text2, 32, 'center', 600));
+    regel(ctx, 'twee cellen, hetzelfde DNA', cx, 960, S.on(5, 0.6, 2.4), C.text, 38, 'center', 700);
+    const cur = [0, 0, 1, 2, 3, 4][S.b] || 0;
+    fasenLijst(ctx, [['interfase', 'DNA kopiëren'], ['profase', 'kort en dik'], ['metafase', 'in het equatorvlak'], ['anafase', 'chromatiden uit elkaar'], ['telofase', 'twee cellen']], cur, 1400, 300, a0, 125);
+  } });
+
 function panelen(n) { const x0 = 80, w = (1760 - (n - 1) * 20) / n; return Array.from({ length: n }, (_, i) => [x0 + i * (w + 20), w]); }
 function poliep(ctx, x, y, s, t, knop) { // zoetwaterpoliep op een steentje; knop = 0..1 (groei), 1..1.4 loslaten
   const g = C.groen, gd = mix(g, '#000000', 0.25); ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
@@ -590,6 +680,72 @@ SCHERMEN.push({ titel: 'Twee ouders', deel: 'Eén ouder of twee',
       const t2 = S.on(3, 0.6, 2.0); regel(ctx, '2 × 2 = 4', 1320, 690, t2, C.goud, 44, 'left', 700); regel(ctx, 'mogelijke combinaties', 1320, 740, t2, C.text, 34, 'left', 600); regel(ctx, 'elk kind is er één van', 1320, 790, t2, C.text2, 30, 'left', 400); }
   } });
 
+// ---------- 6 · meiose stap voor stap ----------
+// Zelfde model (2n = 4). Meiose I langs de x-as (paren uit elkaar), meiose II in elke cel langs de y-as (chromatiden uit elkaar).
+// Welk exemplaar naar links gaat is per paar toeval: hier paar 1 donker links, paar 2 licht links.
+const ME = { cx: 720, cy: 560, R: 320, L: [120, 80], w: 24,
+  I0: [[-85, -50, 0.6], [55, -80, -0.5], [-55, 80, 1.3], [90, 40, 0.2]],
+  kant1: [-1, 1, 1, -1], slotY: [-115, 115], slotX: [-78, 72], eindX: [-36, 36], d1: 250, d2: 148 };
+SCHERMEN.push({ titel: 'Meiose', deel: 'Eén ouder of twee',
+  stappen: [
+    { t: 'Een cel in de zaadbal of eierstok: 2n = 4. Van elk paar komt één chromosoom van de vader (donker) en één van de moeder (licht).', n: 'Zelfde model als bij mitose. Meiose gebeurt alleen bij het maken van geslachtscellen.' },
+    { t: 'Het DNA wordt <b>gekopieerd</b> en de chromosomen worden kort en dik: X-vormen.', n: 'Kopiëren gebeurt één keer, vóór meiose I. Vóór meiose II niet opnieuw: daarom halveert het aantal.' },
+    { t: '<b>Meiose I</b>: de chromosomen van een paar gaan <b>naast elkaar</b> liggen in het equatorvlak.', n: 'Het grote verschil met mitose: hier liggen paren in het equatorvlak, bij mitose losse chromosomen.' },
+    { t: 'Daarbij kunnen ze stukjes ruilen: <b>crossing-over</b>.', n: 'Een chromatide bevat daarna een stuk DNA van de vader en een stuk van de moeder. Dat stuk ging mee bij de deling, niet erbij.' },
+    { t: 'De <b>paren</b> gaan uit elkaar: elke cel krijgt van elk paar <b>één</b> chromosoom, nog als X. Nu <b>n = 2</b>.', n: 'Welk exemplaar naar welke kant gaat, is per paar toeval: hier gaat bij paar 1 het donkere naar links, bij paar 2 het lichte. Zo ontstaan de 2 × 2 soorten van scherm 8. Dit is de reductiedeling.' },
+    { t: '<b>Meiose II</b>: in beide cellen gaan de chromatiden uit elkaar, net als bij mitose.', n: 'Geen nieuwe kopie van het DNA vooraf. De chromosomen gaan weer in een equatorvlak liggen, dan gaan de chromatiden naar de polen.' },
+    { t: 'Vier geslachtscellen met elk <b>n = 2</b>, en <b>allemaal verschillend</b>.', n: 'Bij de man worden dit vier zaadcellen. Bij de vrouw krijgt één cel bijna al het cytoplasma (de eicel); de andere worden poollichaampjes die afsterven (film Van bevruchting tot baby).' },
+    { t: '<b>Mitose</b> en <b>meiose</b> naast elkaar.', n: 'Laat de klas de tabel eerst zelf invullen met Namen verbergen (L) uit.' }
+  ],
+  teken(ctx, S) {
+    const { cx, cy, R, w } = ME, T = S.T;
+    const a0 = S.on(0, 0.8), kop = S.on(1, 1.0), cond = S.on(1, 1.2, 1.0), paar = S.on(2, 1.6), vz1 = S.on(2, 0.8, 1.2), co = S.on(3, 2.0, 0.3), m1 = S.on(4, 1.8, 0.2), rot = S.on(5, 1.2), m2 = S.on(5, 1.8, 1.3), af = S.on(6, 0.8), cmp = S.on(7, 0.8);
+    // cellen
+    if (rot <= 0.001) celVorm(ctx, deelVorm(cx, cy, R, 225, ME.d1, m1), C.oker, a0);
+    else [-1, 1].forEach(s => celVorm(ctx, deelVorm(cx + s * ME.d1, cy, 225, 138, ME.d2, m2, 'y'), C.oker, a0));
+    kernRand(ctx, cx, cy, 215, a0 * (1 - cond));
+    // spoelfiguur meiose I en meiose II
+    const p1 = vz1 * (1 - m1); [-1, 1].forEach(k => pool(ctx, cx + k * 290, cy, p1));
+    equator(ctx, cx, cy - R + 10, cy + R - 10, S.on(2, 0.6, 1.4) * (1 - m1)); naam(ctx, 'equatorvlak', cx, cy - R - 22, S.on(2, 0.6, 1.4) * (1 - m1), 'center');
+    const p2 = S.on(5, 0.6, 0.6) * (1 - af);
+    [-1, 1].forEach(s => { const dx = cx + s * ME.d1; [-1, 1].forEach(k => pool(ctx, dx, cy + k * 205, p2)); equator(ctx, cy, dx - 210, dx + 210, p2 * (1 - m2), true); });
+    // chromosomen
+    for (let i = 0; i < 4; i++) {
+      const p = i >> 1, L = ME.L[p], kl = chromKl(i), [ix, iy, ih] = ME.I0[i], s = ME.kant1[i], dx = cx + s * ME.d1;
+      // crossing-over: de binnenste chromatide (kant -s) ruilt het onderste stuk met die van de partner
+      const partner = i ^ 1, ruil = co > 0.5 ? { [-s]: { f: 0.42, kleur: chromKl(partner) } } : {};
+      let x = lerp(cx + ix, cx + s * 44, paar), y = lerp(cy + iy, cy + ME.slotY[p], paar), hoek = lerp(ih, 0, paar);
+      x = lerp(x, dx, m1);
+      vezel(ctx, cx + s * 290, cy, x, y, vz1 * (1 - m1));
+      if (rot <= 0.001) { chromosoom(ctx, x, y, L, w, kl, { dub: kop, hoek, draad: 1 - cond, fase: i * 1.7 + T * 0.5 * (1 - cond), a: a0, ruil }); continue; }
+      // meiose II: draaien naar het equatorvlak van de eigen cel, daarna chromatiden omhoog en omlaag
+      const x2 = lerp(x, dx + ME.slotX[p], rot), y2 = lerp(y, cy, rot), h2 = lerp(0, Math.PI / 2, rot);
+      const recht = ease((m2 - 0.55) / 0.45); // in de nieuwe cel weer rechtop
+      [-1, 1].forEach(k => { const off = lerp(w * 0.48, ME.d2, m2), xx = lerp(x2, dx + ME.eindX[p], recht), yy = y2 - k * off;
+        vezel(ctx, dx, cy - k * 205, xx, yy, p2 * (1 - recht));
+        chromatide(ctx, xx, yy, L, w, kl, { hoek: lerp(h2, 0, recht), kant: k, buig: 0.16 * (1 - m2), a: a0, ruil: ruil[k] }); });
+    }
+    // crossing-over: markering tussen de partners
+    if (co > 0.03 && co < 0.97) { const k = Math.sin(Math.PI * co); ME.slotY.forEach((sy, p) => { const yy = cy + sy + ME.L[p] * 0.08; ctx.save(); ctx.globalAlpha *= k; ctx.strokeStyle = C.goud; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.moveTo(cx - 18, yy - 18); ctx.lineTo(cx + 18, yy + 18); ctx.moveTo(cx + 18, yy - 18); ctx.lineTo(cx - 18, yy + 18); ctx.stroke(); ctx.restore(); }); }
+    naam(ctx, 'crossing-over', cx, cy + R + 50, S.on(3, 0.6, 0.6) * (1 - m1), 'center', C.goud);
+    // getallen
+    regel(ctx, '2n = 4', cx, cy + R + 100, a0 * (1 - m1), C.text2, 32, 'center', 600);
+    [-1, 1].forEach(s => regel(ctx, 'n = 2', cx + s * ME.d1, cy + 285, S.on(4, 0.6, 1.8) * (1 - rot), C.text2, 32, 'center', 600));
+    [-1, 1].forEach(s => [-1, 1].forEach(k => regel(ctx, 'n = 2', cx + s * ME.d1, cy + k * ME.d2 + 98, af, C.text2, 26, 'center', 600)));
+    regel(ctx, 'vier geslachtscellen, allemaal verschillend', cx, 990, S.on(6, 0.6, 0.6), C.text, 38, 'center', 700);
+    // rechts: fasen, en bij de laatste stap de vergelijking met mitose
+    const cur = [0, 0, 1, 1, 2, 3, 4, 4][S.b] || 0;
+    fasenLijst(ctx, [['interfase', 'DNA kopiëren'], ['meiose I', 'paren naast elkaar'], ['meiose I', 'paren uit elkaar · n = 2'], ['meiose II', 'chromatiden uit elkaar'], ['resultaat', '4 cellen · n = 2']], cur, 1400, 300, a0 * (1 - cmp), 125);
+    if (cmp > 0.01) { const x0 = 1260, xm = 1520, xe = 1750, y0 = 290, dy = 105; ctx.save(); ctx.globalAlpha *= cmp;
+      ctx.fillStyle = rgba(C.bg, 0.92); roundRect(ctx, 1230, 200, 670, 740, 22); ctx.fill(); ctx.strokeStyle = rgba(C.line, 0.45); ctx.lineWidth = 2; ctx.stroke(); ctx.restore();
+      regel(ctx, 'mitose', xm, y0, cmp, C.teal, 40, 'center', 700); regel(ctx, 'meiose', xe, y0, cmp, C.goud, 40, 'center', 700);
+      const rij = [['delingen', '1', '2'], ['cellen', '2', '4'], ['per cel', '2n', 'n'], ['DNA', 'gelijk', 'verschillend'], ['waarvoor', 'groei, herstel,', 'geslachts-', 'klonen', 'cellen']];
+      rij.forEach(([l, m, e, m2b, e2b], j) => { const a = S.on(7, 0.5, 0.3 + j * 0.25), y = y0 + 95 + j * dy;
+        regel(ctx, l, x0, y, a, C.text2, 28, 'left', 600); regel(ctx, m, xm, y, a, C.text, j < 3 ? 40 : 28, 'center', 700); regel(ctx, e, xe, y, a, C.text, j < 3 ? 40 : 28, 'center', 700);
+        if (m2b) regel(ctx, m2b, xm, y + 36, a, C.text, 28, 'center', 700); if (e2b) regel(ctx, e2b, xe, y + 36, a, C.text, 28, 'center', 700); }); }
+  } });
+
 // ---------- 5 · meer paren, meer combinaties ----------
 // Stap voor stap uitbreiden: 1, 2, 3 paren, dan de mens (23 paren), dan crossing-over.
 const PAAR_LEN = [1, 0.72, 0.48];
@@ -604,7 +760,7 @@ function parenRij(ctx, x, y, paren, basis, bw, a = 1) {
 const fmtNL = (n) => Math.round(n).toLocaleString('nl-NL');
 SCHERMEN.push({ titel: 'Meer paren', deel: 'Eén ouder of twee',
   stappen: [
-    { t: '<b>1 paar</b>: 2 soorten geslachtscellen per ouder. Samen 2 × 2 = <b>4</b> combinaties.', n: 'Herhaling van het vorige scherm, nu met de getallen in een tabel. Elk paar heeft een eigen kleur; donker = het exemplaar van de eigen vader, licht = dat van de eigen moeder.' },
+    { t: '<b>1 paar</b>: 2 soorten geslachtscellen per ouder. Samen 2 × 2 = <b>4</b> combinaties.', n: 'Herhaling van scherm 6 en 7, nu met de getallen in een tabel. Elk paar heeft een eigen kleur; donker = het exemplaar van de eigen vader, licht = dat van de eigen moeder.' },
     { t: '<b>2 paren</b>: elk paar verdeelt zich los van het andere. 2 × 2 = <b>4</b> soorten geslachtscellen, samen 4 × 4 = <b>16</b> combinaties.', n: 'Onafhankelijke verdeling: welk exemplaar van paar 1 in een geslachtscel komt, zegt niets over paar 2.' },
     { t: '<b>3 paren</b>: 2 × 2 × 2 = <b>8</b> soorten, samen 8 × 8 = <b>64</b> combinaties. Elk paar erbij verdubbelt het aantal soorten.', n: '' },
     { t: 'De mens: <b>23 paren</b>. Per ouder ruim <b>8 miljoen</b> soorten geslachtscellen, samen ± <b>70 biljoen</b> combinaties.', n: '2^23 = 8.388.608; 2^46 = 70.368.744.177.664. Ter vergelijking: er hebben ooit ± 117 miljard mensen geleefd (schatting Population Reference Bureau). Broers en zussen (geen eeneiige tweeling) zijn dus vrijwel nooit genetisch gelijk.' },
@@ -883,7 +1039,7 @@ function frame(now) {
   try { sc.teken(ctx, S); } catch (e) { console.error(e); }
   requestAnimationFrame(frame);
 }
-const KOPPEN = ['', 'Een moeder zonder vader', 'Eén ouder', 'Vormen van ongeslachtelijke voortplanting', 'Twee ouders', 'Meer paren, meer combinaties', 'De race: waarom mannetjes?', 'Het startsein', 'Geslachtskenmerken', 'De route van een zaadcel', 'Eierstok en baarmoeder'];
+const KOPPEN = ['', 'Een moeder zonder vader', 'Eén ouder', 'Mitose: één cel wordt twee', 'Vormen van ongeslachtelijke voortplanting', 'Twee ouders', 'Meiose: vier verschillende cellen', 'Meer paren, meer combinaties', 'De race: waarom mannetjes?', 'Het startsein', 'Geslachtskenmerken', 'De route van een zaadcel', 'Eierstok en baarmoeder'];
 function kopVan(sc) { return KOPPEN[SCHERMEN.indexOf(sc)] || sc.titel; }
 
 const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
