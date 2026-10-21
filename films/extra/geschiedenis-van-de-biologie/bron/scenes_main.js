@@ -18,7 +18,9 @@ function vinkGroep(ctx, x, y, t, u, a = 1) { // natuurlijke selectie: snavels ve
   S.forEach((sn, i) => { const px = x + (i % 4) * 150, py = y + Math.floor(i / 4) * 120; const goed = sn > 0.6; const dim_ = u.sel > 0 && !goed ? 1 - 0.65 * u.sel : 1; vink(ctx, px, py, 1, sn, dim_, goed && u.sel > 0.5 ? '#B08A5C' : '#8C6A4A');
     if (goed && u.jong > 0.01) for (let k = 0; k < 2; k++) vink(ctx, px - 30 + k * 50, py + 56, 0.45, sn, u.jong); });
   ctx.restore(); }
-function oxfordTeam(ctx, x, y, a = 1, medA = 0) { if (a <= 0.01) return; const N = ['Florey', 'Chain', 'Heatley']; N.forEach((n, i) => { const px = x + i * 170; human(ctx, px, y, 220, a, C.mens); naamBij(ctx, n, null, px, y + 44, a, 'center'); if (i < 2) medaille(ctx, px, y - 100, 1.1, a * medA); else kruis(ctx, px, y - 100, 18, a * medA * 0.8, C.text2); }); }
+function oxfordTeam(ctx, x, y, a = 1, medA = 0, t = 0) { if (a <= 0.01) return; ['florey', 'chain', 'heatley'].forEach((id, i) => { const px = x + i * 170; geleerde(ctx, id, px, y, 250, { a, t, meta: null, kijk: i === 2 ? -1 : 1, uit: i === 2 && medA > 0.5 ? 'neutraal' : 'blij' }); if (i < 2) medaille(ctx, px, y - 140, 1.0, a * medA); else kruis(ctx, px, y - 150, 18, a * medA * 0.8, C.text2); }); }
+// v1.1: groepjes mensen als historische figuren (castboekstijl, kleding uit hun tijd) i.p.v. grijze poppetjes
+function royalSociety(ctx, x, y, h, a = 1, o = {}) { if (a <= 0.01) return; ['rs1', 'rs2', 'rs3'].forEach((id, i) => geleerde(ctx, id, x + (i - 1) * h * 0.56, y - (i === 1 ? 0 : 0), h * (i === 1 ? 1 : 0.96), { a, t: o.t || 0, naam: false, kijk: o.kijk || (i === 2 ? -1 : 1), uit: o.uit ? o.uit[i] || o.uit : 'neutraal', pose: o.pose ? o.pose[i] : 'staan' })); }
 function kaartSnow(ctx, X, Y, w, h, t, o = {}) { const { doden = 1, a = 1, hendel = 1, water = 0 } = o; if (a <= 0.01) return { px: X + w * 0.52, py: Y + h * 0.55 }; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, X, Y, w, h, 12); shape(ctx, '#EDE4CE', '#C8BC9E', 2);
   ctx.save(); roundRect(ctx, X, Y, w, h, 12); ctx.clip(); ctx.strokeStyle = '#B8AC8E'; ctx.lineWidth = 10; for (let i = 1; i < 5; i++) { ctx.beginPath(); ctx.moveTo(X, Y + h * i / 5 + Math.sin(i) * 14); ctx.lineTo(X + w, Y + h * i / 5 - Math.cos(i) * 14); ctx.stroke(); } for (let i = 1; i < 6; i++) { ctx.beginPath(); ctx.moveTo(X + w * i / 6 + Math.sin(i * 2) * 20, Y); ctx.lineTo(X + w * i / 6 - Math.sin(i) * 16, Y + h); ctx.stroke(); }
   const px = X + w * 0.52, py = Y + h * 0.55; const N = Math.floor(70 * doden); for (let k = 0; k < N; k++) { const an = hash(k * 3) * 6.283, d = Math.pow(hash(k * 3 + 1), 1.6) * Math.min(w, h) * 0.48; ctx.fillStyle = '#2A2420'; ctx.fillRect(px + Math.cos(an) * d - 7, py + Math.sin(an) * d * 0.8 - 3, 14, 6); }
@@ -36,7 +38,7 @@ const SCENES = {
       zoomCircle(ctx, 1380, 470, 250, 790, 560, 'druppel slootwater · vergroot', q.on('Ze', 1, 0.8), () => druppelInhoud(ctx, 1380, 470, 250, t, 16));
       vraagteken(ctx, 700, 330, q.on('eerste', 1), 110); });
     laag(ctx, B, () => { tijdlijn(ctx, { span: [1676, 1677], jaar: 1676 });
-      paneel(ctx, 140, 300, 560, 470, 'Londen · Royal Society', 1); groepje(ctx, 420, 720, 230, 3, 1, C.mens, true);
+      paneel(ctx, 140, 300, 560, 470, 'Londen · Royal Society', 1); royalSociety(ctx, 420, 720, 230, 1, { t, uit: ['denkt', 'neutraal', 'denkt'], kijk: 1 });
       paneel(ctx, 1220, 300, 560, 470, 'Delft', 1); fig(ctx, 'leeuwenhoek', 1420, 740, 300, { uit: 'blij', pose: 'vasthouden', kijk: -1, t, hold: (c, hx, hy) => lensje(c, hx, hy - 20, 0.6) });
       naamBij(ctx, 'een lakenhandelaar', 'delft · 1676', 1500, 400, 1, 'center');
       const vl = clamp((q.localT - q.at('schreef', 1)) / 3, 0, 1); brief(ctx, lerp(1300, 640, vl), 520 - Math.sin(vl * 3.14) * 120, 1.3, ramp(q.localT, q.at('schreef', 1), 0.4));
@@ -48,7 +50,7 @@ const SCENES = {
   // ---------- H1 Kijk zelf ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); const [A, B] = fasen(q, [null, ['Eeuwenlang', 1]]); const j = q.localT < q.at('Eeuwenlang', 1) ? 1677 : jaarNaar(q, 'Eeuwenlang', 1, 1677, -340, 2.2);
     tijdlijn(ctx, { span: B > 0.5 ? [-350, 1661] : [1676, 1677], jaar: j });
-    laag(ctx, A, () => { const pr = q.on('probeerden', 1); groepje(ctx, 300, 760, 220, 3, pr, C.mens, true); microscoop(ctx, 560, 780, 1, pr); kruis(ctx, 560, 470, 30, q.on('niet', 1) * (1 - q.on('Robert', 1)));
+    laag(ctx, A, () => { const pr = q.on('probeerden', 1); const nt = q.on('niet', 1) * (1 - q.on('Robert', 1)); royalSociety(ctx, 300, 780, 230, pr, { t, kijk: 1, uit: nt > 0.5 ? ['bezorgd', 'bezorgd', 'denkt'] : ['denkt', 'neutraal', 'denkt'], pose: ['staan', 'wijs', nt > 0.5 ? 'schouders' : 'staan'] }); microscoop(ctx, 560, 780, 1, pr); kruis(ctx, 560, 470, 30, q.on('niet', 1) * (1 - q.on('Robert', 1)));
       const ho = q.on('Robert', 1); geleerde(ctx, 'hooke', 980, 790, 340, { a: ho, uit: q.on('geloofden', 1) > 0.5 ? 'blij' : 'neutraal', t, kijk: 1 }); microscoop(ctx, 1180, 790, 1.1, ho);
       zoomCircle(ctx, 1560, 450, 190, 1170, 590, 'Londen · 1677', ho, () => druppelInhoud(ctx, 1560, 450, 190, t, 12)); vink_(ctx, 1700, 640, 30, q.on('geloofden', 1));
       laag(ctx, q.on('kern', 1), () => { ctx.fillStyle = rgba(C.bgSchema, 0.85); ctx.fillRect(0, 230, W, 660); regel(ctx, 'Delft', 560, 470, 1, C.text, 44, 'center', 700); regel(ctx, 'Londen', 1360, 470, 1, C.text, 44, 'center', 700); vink_(ctx, 560, 560, 34, 1); vink_(ctx, 1360, 560, 34, 1); pijl(ctx, 700, 520, 1220, 520, C.goud, 1, 4, 20); pijl(ctx, 1220, 540, 700, 540, C.goud, 1, 4, 20); haak(ctx, 460, 1460, 640, 'wat jij ziet, moet een ander ook kunnen zien', C.groen, 1); }); });
@@ -107,15 +109,25 @@ const SCENES = {
       regel(ctx, 'geslachtsnaam', 870, 640, q.on('geslachtsnaam', 1), C.oker, 30, 'center', 700); regel(ctx, 'soortnaam', 1270, 640, q.on('soortnaam', 1), C.oker, 30, 'center', 700); });
     laag(ctx, pr, () => { const mv = ease((q.localT - q.at('ladder', 1)) / 1.6); ladder(ctx, 700, 830, 420, 1, { mensA: 0 });
       paneel(ctx, 1000, 380, 820, 450, 'primaten', 1, C.goud); aap(ctx, 1150, 790, 1.1); aap(ctx, 1330, 790, 0.95, 1, '#6A5040'); aap(ctx, 1500, 790, 1.15, 1, '#8C6A4A');
-      const mx = lerp(700, 1680, mv), my = lerp(830 - 420 * 0.9, 790, mv) - Math.sin(mv * 3.14) * 140; human(ctx, mx, my, lerp(70, 160, mv), 1, C.goud);
+      const mx = lerp(700, 1680, mv), my = lerp(830 - 420 * 0.9, 790, mv) - Math.sin(mv * 3.14) * 140; fig(ctx, 'noor', mx, my, lerp(78, 170, mv), { uit: mv > 0.95 ? 'blij' : 'verbaasd', t });
       tag(ctx, 'een belediging!', 1410, 300, C.koraal, q.on('Critici', 1) * (1 - q.on('noem', 1)), 'center', 28);
       laag(ctx, q.on('noem', 1) * (1 - q.on('ladder', 1)), () => { roundRect(ctx, 500, 226, 920, 120, 16); shape(ctx, rgba(C.bgSchema, 0.95), C.goud, 2); regel(ctx, '"Noem mij één verschil tussen mens en aap.', 960, 278, 1, C.text, 34, 'center', 600); regel(ctx, 'Ik ken er geen."', 960, 324, q.on('ken', 1), C.goud, 34, 'center', 700); }); }); },
 
   s12(ctx, t, q) { bg(ctx, 'schema'); tijdlijn(ctx, { span: [1665, 1758], jaar: 1758 });
-    const G = ['Europa', 'Amerika', 'Azië', 'Afrika']; G.forEach((g, i) => { const x = 420 + i * 360; human(ctx, x, 700, 260, q.on('vier', 1), C.mens); regel(ctx, g, x, 760, q.on('werelddeel', 1), C.text2, 30, 'center', 700);
-      laag(ctx, q.on('karaktertrekken', 1), () => { roundRect(ctx, x - 120, 330, 240, 70, 12); shape(ctx, rgba(C.koraal, 0.12), C.koraal, 1.5); ctx.strokeStyle = rgba(C.koraal, 0.7); ctx.lineWidth = 4; for (let k = 0; k < 2; k++) { ctx.beginPath(); ctx.moveTo(x - 90, 356 + k * 20); ctx.lineTo(x + 90 - k * 50, 356 + k * 20); ctx.stroke(); } }); });
-    laag(ctx, q.on('waarneming', 1), () => { haak(ctx, 300, 1620, 250, '', C.koraal, 0); tag(ctx, 'geen waarneming, maar vooroordeel', 960, 300, C.koraal, 1, 'center', 34); });
-    tag(ctx, 'later misbruikt voor racisme', 960, 860 - 10, C.koraal, q.on('racisme', 1), 'center', 30); },
+    // v1.1: geen mensen-figuren bij deze indeling (geen stereotypen): Linnaeus en vier systeemkaarten uit zijn boek; de karaktertrekken blijven bewust onleesbaar
+    const wn = q.on('waarneming', 1);
+    geleerde(ctx, 'linnaeus', 230, 790, 330, { t, uit: 'neutraal', pose: q.on('vier', 1) > 0.5 && wn < 0.5 ? 'wijs' : 'staan', kijk: 1 });
+    const G = ['Europa', 'Amerika', 'Azië', 'Afrika']; G.forEach((g, i) => { const x = 680 + i * 330, a = ramp(q.localT, q.at('vier', 1) + i * 0.25, 0.4); if (a <= 0.01) return;
+      laag(ctx, a * (1 - 0.35 * wn), () => { ctx.save(); ctx.translate(x, 560); ctx.rotate((i % 2 ? 1 : -1) * 0.018);
+        roundRect(ctx, -125, -170, 250, 330, 10); shape(ctx, '#EDE4CE', '#C8BC9E', 2); ctx.fillStyle = rgba('#8C6A4A', 0.08); ctx.fillRect(-125, 120, 250, 40);
+        text(ctx, 'Homo sapiens', 0, -118, 'italic 600 28px ' + F.titel, '#4A3A2A', 'center'); ctx.strokeStyle = '#B8AC8E'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(-95, -96); ctx.lineTo(95, -96); ctx.stroke();
+        ctx.restore(); });
+      regel(ctx, g, x, 545, a * q.on('werelddeel', 1) * (1 - 0.35 * wn), '#2E2418', 34, 'center', 700);
+      laag(ctx, q.on('karaktertrekken', 1) * a * (1 - 0.35 * wn), () => { ctx.strokeStyle = rgba(C.koraal, 0.75); ctx.lineWidth = 5; ctx.lineCap = 'round'; for (let k = 0; k < 3; k++) { ctx.beginPath(); for (let u = 0; u <= 18; u++) { const xx = x - 90 + u * (180 - k * 40) / 18, yy = 610 + k * 34 + Math.sin(u * 1.7 + i + k) * 3; u ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); } ctx.stroke(); } }); });
+    regel(ctx, 'Systema Naturae · indeling van de mens', 1175, 345, q.on('vier', 1) * (1 - wn), C.text2, 28, 'center', 700);
+    laag(ctx, wn, () => { tag(ctx, 'geen waarneming, maar vooroordeel', 1175, 300, C.koraal, 1, 'center', 34);
+      ctx.save(); ctx.translate(1175, 560); ctx.rotate(-0.12); ctx.globalAlpha *= ease(clamp((q.localT - q.at('waarneming', 1)) / 0.6, 0, 1)); roundRect(ctx, -230, -46, 460, 92, 14); ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.stroke(); ctx.fillStyle = rgba(C.bgSchema, 0.75); ctx.fill(); text(ctx, 'ACHTERHAALD', 0, 18, fTitel(54), C.koraal, 'center'); ctx.restore(); });
+    tag(ctx, 'later misbruikt voor racisme', 1175, 860 - 10, C.koraal, q.on('racisme', 1), 'center', 30); },
 
   // ---------- H3 Waar komen we vandaan? ----------
   s13(ctx, t, q) { bg(ctx, 'schema'); const th = q.on('Thuis', 1); tijdlijn(ctx, { span: [1831, 1900], jaar: th > 0.5 ? jaarNaar(q, 'Thuis', 1, 1836, 1858, 6) : 1831 });
@@ -141,14 +153,15 @@ const SCENES = {
 
   s16(ctx, t, q) { bg(ctx, 'schema'); const [A, B, Cc] = fasen(q, [null, ['Galton', 1], ['evolutie', 1]]); tijdlijn(ctx, { span: [1831, 1900], jaar: q.on('Galton', 1) > 0.5 ? 1883 : 1864 });
     laag(ctx, A, () => { tag(ctx, '"de sterkste overleeft"', 960, 340, C.text2, 1, 'center', 44); kruis(ctx, 960, 320, 60, q.on('passen', 1));
-      laag(ctx, q.on('samenleving', 1) * (1 - q.on('passen', 1) * 0.5), () => { groepje(ctx, 700, 720, 200, 3, 1, C.mens); groepje(ctx, 1220, 720, 260, 2, 1, C.oker); regel(ctx, 'arm: "natuurlijk"', 700, 770, q.on('armoede', 1), C.koraal, 30, 'center', 700); regel(ctx, 'hulp: "onnatuurlijk"', 1220, 770, q.on('hulp', 1), C.koraal, 30, 'center', 700); });
+      laag(ctx, q.on('samenleving', 1) * (1 - q.on('passen', 1)), () => { geleerde(ctx, 'vader19', 610, 720, 215, { t, naam: false, uit: 'neutraal' }); geleerde(ctx, 'kind19', 700, 720, 140, { t, naam: false, uit: 'neutraal' }); geleerde(ctx, 'moeder19', 790, 720, 205, { t, naam: false, uit: 'neutraal', kijk: -1 });
+        { const r1 = geleerde(ctx, 'helpster19', 1150, 720, 235, { t, naam: false, uit: 'blij', kijk: 1, pose: 'wijs' }); geleerde(ctx, 'oude19', 1290, 720, 225, { t, naam: false, uit: 'blij', kijk: -1 }); } regel(ctx, 'arm: "natuurlijk"', 700, 770, q.on('armoede', 1), C.koraal, 30, 'center', 700); regel(ctx, 'hulp: "onnatuurlijk"', 1220, 770, q.on('hulp', 1), C.koraal, 30, 'center', 700); });
       tag(ctx, 'sociaal-darwinisme', 960, 470, C.koraal, q.on('sociaal-darwinisme', 1) * (1 - q.on('passen', 1)), 'center', 36);
       laag(ctx, q.on('passen', 1), () => { tag(ctx, 'Darwin: wie het best past, niet wie het sterkst is', 960, 500, C.groen, 1, 'center', 34); vink(ctx, 760, 640, 1.4, 1); vink(ctx, 1160, 640, 1.4, 0.15, 0.5); vink_(ctx, 760, 760, 26, 1); }); });
     laag(ctx, B, () => { geleerde(ctx, 'galton', 260, 790, 330, { t, uit: 'neutraal' }); tag(ctx, 'eugenetica · 1883', 760, 320, C.koraal, 1, 'center', 38); regel(ctx, 'de mens "verbeteren" door te bepalen wie kinderen krijgt', 760, 400, q.on('verbeteren', 1), C.text, 30, 'center', 600);
       paneel(ctx, 520, 470, 600, 300, '', q.on('Amerika', 1), C.koraal); regel(ctx, 'VS', 820, 540, q.on('Amerika', 1), C.koraal, 36, 'center', 700); regel(ctx, '± 60 000 mensen gedwongen', 820, 610, q.on('Amerika', 1), C.text, 30, 'center', 600); regel(ctx, 'onvruchtbaar gemaakt', 820, 652, q.on('Amerika', 1), C.text, 30, 'center', 600);
       paneel(ctx, 1180, 470, 600, 300, '', q.on('nazi-Duitsland', 1), C.koraal); regel(ctx, 'nazi-Duitsland', 1480, 540, q.on('nazi-Duitsland', 1), C.koraal, 36, 'center', 700); regel(ctx, 'gedwongen sterilisatie,', 1480, 610, q.on('nazi-Duitsland', 1), C.text, 30, 'center', 600); regel(ctx, 'moord op gehandicapten', 1480, 652, q.on('nazi-Duitsland', 1), C.text, 30, 'center', 600); });
     laag(ctx, Cc, () => { ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(960, 300); ctx.lineTo(960, 780); ctx.stroke(); stamboom(ctx, 560, 720, 400, 420, 1, { groei: 1, mensA: 1 }); regel(ctx, 'hoe de natuur werkt', 560, 790, 1, C.groen, 34, 'center', 700);
-      laag(ctx, q.on('omgaan', 1), () => { human(ctx, 1290, 700, 260, 1, C.mens); human(ctx, 1450, 700, 240, 1, C.oker); ctx.strokeStyle = C.mens; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(1330, 560); ctx.lineTo(1410, 560); ctx.stroke(); regel(ctx, 'hoe we met elkaar omgaan', 1370, 790, 1, C.goud, 34, 'center', 700); }); }); },
+      laag(ctx, q.on('omgaan', 1), () => { geleerde(ctx, 'helpster19', 1300, 720, 250, { t, naam: false, uit: 'blij', kijk: 1, pose: 'wijs' }); geleerde(ctx, 'oude19', 1445, 720, 240, { t, naam: false, uit: 'lacht', kijk: -1 }); regel(ctx, 'hoe we met elkaar omgaan', 1370, 790, 1, C.goud, 34, 'center', 700); }); }); },
 
   s17(ctx, t, q) { bg(ctx, 'schema'); tijdlijn(ctx, { span: [1831, 1900], jaar: q.on('1900', 1) > 0.5 ? 1900 : 1866 });
     geleerde(ctx, 'mendel', 230, 790, 330, { t, uit: q.on('drie', 1) > 0.5 ? 'blij' : 'neutraal', pose: q.on('telde', 1) > 0.5 && q.localT < q.at('eenheden', 1) ? 'wijs' : 'staan' });
@@ -175,7 +188,7 @@ const SCENES = {
       const wa = q.on('chloorkalk', 1); pijl(ctx, 480, 560, 1380, 560, C.koraal, 1 - wa, 4, 18); hand(ctx, 930, 470, 1.4, 1, (1 - wa) * q.on('wassen', 1), t); tag(ctx, 'zonder handen te wassen', 930, 330, C.koraal, q.on('wassen', 1) * (1 - wa), 'center', 30);
       laag(ctx, wa, () => { wasbak(ctx, 930, 680); tag(ctx, 'handen wassen met chloorkalk', 930, 330, C.teal, 1, 'center', 32); });
       const sd = q.on('sterfte', 1); const v = lerp(0.82, 0.16, ease((q.localT - q.at('sterfte', 1)) / 2)); balk(ctx, 1240, 860 - 40, 80, 200, v, C.koraal, sd, '', v > 0.5 ? '± 10 %' : '± 2 %'); });
-    laag(ctx, B, () => { geleerde(ctx, 'semmelweis', 500, 790, 340, { t, uit: 'bezorgd', a: 1 - 0.6 * q.on('1865', 1) }); groepje(ctx, 1200, 760, 230, 3, 1 - 0.5 * q.on('1865', 1), C.mens); tag(ctx, 'veel artsen geloofden hem niet', 1200, 400, C.koraal, 1, 'center', 32);
+    laag(ctx, B, () => { geleerde(ctx, 'semmelweis', 500, 790, 340, { t, uit: 'bezorgd', a: 1 - 0.6 * q.on('1865', 1) }); { const ad = 1 - 0.5 * q.on('1865', 1); geleerde(ctx, 'arts1', 1060, 790, 300, { t, a: ad, naam: false, kijk: -1, uit: 'neutraal', pose: 'handenHeup' }); geleerde(ctx, 'arts3', 1340, 790, 290, { t, a: ad, naam: false, kijk: -1, uit: 'denkt', pose: 'schouders' }); geleerde(ctx, 'arts2', 1200, 800, 310, { t, a: ad, naam: false, kijk: -1, uit: 'neutraal', pose: 'wijs' }); } tag(ctx, 'veel artsen geloofden hem niet', 1200, 400, C.koraal, 1, 'center', 32);
       tag(ctx, 'overleden in 1865', 500, 330, C.text2, q.on('1865', 1), 'center', 28); tag(ctx, 'gelijk pas na zijn dood', 1200, 300, C.groen, q.on('Gelijk', 1), 'center', 32); }); },
 
   s21(ctx, t, q) { bg(ctx, 'schema'); tijdlijn(ctx, { span: [1847, 1945], jaar: 1854 });
@@ -196,18 +209,18 @@ const SCENES = {
     geleerde(ctx, 'fleming', 230, 790, 330, { t, uit: q.on('niet', 1) > 0.5 ? 'verbaasd' : 'neutraal' }); medaille(ctx, 230, 380, 1.1, q.on('Nobelprijs', 1));
     laag(ctx, 1 - 0.65 * ox, () => { const p = petrischaal(ctx, 800, 520, 250, q.on('kweekschaaltje', 1), { schimmel: q.on('schimmel', 1), zone: q.on('niet', 1), t }); naamBij(ctx, 'schimmel', null, p.sx, p.sy - 50, q.on('schimmel', 1), 'center', C.groen); naamBij(ctx, 'bacteriën', null, 960, 820, q.on('bacteriën', 1) * (1 - ox), 'center', C.oker);
       tag(ctx, 'penicilline', 1280, 360, C.groen, q.on('penicilline', 1), 'center', 38); tag(ctx, 'nog 12 jaar tot medicijn', 1280, 460, C.text2, q.on('twaalf', 1), 'center', 30); });
-    laag(ctx, ox, () => { oxfordTeam(ctx, 1300, 760, 1, q.on('Nobelprijs', 1)); regel(ctx, 'Oxford', 1470, 330, 1, C.text2, 32, 'center', 700); });
+    laag(ctx, ox, () => { oxfordTeam(ctx, 1300, 790, 1, q.on('Nobelprijs', 1), t); regel(ctx, 'Oxford', 1470, 330, 1, C.text2, 32, 'center', 700); });
     tag(ctx, 'te weinig slikken → resistente bacteriën', 960, 300 - 20, C.koraal, q.on('waarschuwde', 1), 'center', 30); },
 
   // ---------- H5 Leven veranderen ----------
   s24(ctx, t, q) { bg(ctx, 'schema'); const n = q.on('Nobelprijs', 1); tijdlijn(ctx, { span: [1952, 2018], jaar: n > 0.5 ? 1962 : q.on('1953', 1) > 0.5 ? 1953 : 1952 });
     const ov = q.on('overleden', 1), er = q.on('erkenning', 1);
-    geleerde(ctx, 'franklin', 230, 790, 330, { t, a: 1 - 0.55 * ov * (1 - er), uit: q.on('Zonder', 1) > 0.5 && ov < 0.5 ? 'bezorgd' : 'neutraal', pose: q.on('foto', 1) > 0.5 && q.localT < q.at('Zonder', 1) ? 'wijs' : 'staan' }); human(ctx, 400, 800, 230, q.on('Gosling', 1) * (1 - q.on('Zonder', 1) * 0.6), C.mens); naamBij(ctx, 'Gosling', null, 400, 844, q.on('Gosling', 1) * (1 - q.on('Zonder', 1)), 'center');
+    geleerde(ctx, 'franklin', 230, 790, 330, { t, a: 1 - 0.55 * ov * (1 - er), uit: q.on('Zonder', 1) > 0.5 && ov < 0.5 ? 'bezorgd' : 'neutraal', pose: q.on('foto', 1) > 0.5 && q.localT < q.at('Zonder', 1) ? 'wijs' : 'staan' }); geleerde(ctx, 'gosling', 95, 790, 290, { t, a: q.on('Gosling', 1) * (1 - q.on('Zonder', 1) * 0.6), naam: false, kijk: -1, uit: 'neutraal' }); naamBij(ctx, 'Gosling', null, 95, 834, q.on('Gosling', 1) * (1 - q.on('Zonder', 1)), 'center');
     const fz = clamp((q.localT - q.at('zien', 1)) / 2, 0, 1); foto51(ctx, lerp(680, 1000, fz), lerp(460, 420, fz), lerp(260, 160, fz), q.on('röntgenfoto', 1)); laag(ctx, q.on('kruis', 1) * (1 - q.on('Zonder', 1)), () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(580, 360); ctx.lineTo(780, 560); ctx.moveTo(780, 360); ctx.lineTo(580, 560); ctx.stroke(); tag(ctx, 'kruis = spiraal', 680, 650, C.goud, 1, 'center', 30); });
-    laag(ctx, q.on('Zonder', 1), () => { human(ctx, 800, 790, 260, 1, C.mens); naamBij(ctx, 'collega (Wilkins)', null, 800, 834, 1, 'center'); tag(ctx, 'zonder dat zij het wist', 900, 300 - 20, C.koraal, 1 - q.on('Crick', 1), 'center', 28); pijl(ctx, 880, 520, 1100, 470, C.koraal, 1 - q.on('Crick', 1), 4, 16); });
+    laag(ctx, q.on('Zonder', 1), () => { geleerde(ctx, 'wilkins', 800, 790, 310, { t, naam: false, kijk: 1, uit: 'neutraal', pose: q.on('Crick', 1) > 0.5 ? 'staan' : 'wijs' }); naamBij(ctx, 'collega (Wilkins)', null, 800, 834, 1, 'center'); tag(ctx, 'zonder dat zij het wist', 900, 300 - 20, C.koraal, 1 - q.on('Crick', 1), 'center', 28); pijl(ctx, 880, 520, 1100, 470, C.koraal, 1 - q.on('Crick', 1), 4, 16); });
     geleerde(ctx, 'watson', 1260, 790, 330, { t, kijk: 1, a: q.on('Watson', 1), uit: 'blij' }); geleerde(ctx, 'crick', 1700, 790, 330, { t, kijk: -1, a: q.on('Crick', 1), uit: 'blij' });
     helix(ctx, 1480, 500, 380, t, q.on('helix', 1), 70); tag(ctx, 'zo kopieer je DNA', 1480, 300 - 20, C.paars, q.on('gekopieerd', 1) * (1 - n), 'center', 30);
-    for (const x of [800, 1260, 1700]) medaille(ctx, x, 470 - (x === 800 ? 0 : 60), 1.1, n * (1 - er * 0.3));
+    for (const x of [800, 1260, 1700]) medaille(ctx, x, 405, 1.1, n * (1 - er * 0.3));
     tag(ctx, 'overleden in 1958, 37 jaar', 300, 330, C.text2, ov * (1 - er), 'center', 28); tag(ctx, 'erkenning pas veel later', 330, 330, C.goud, er, 'center', 32); },
 
   s25(ctx, t, q) { bg(ctx, 'schema'); tijdlijn(ctx, { span: [1952, 2018], jaar: q.on('1972', 1) > 0.5 ? 1972 : 1962 }); const [A, B, Cc] = fasen(q, [null, ['breekt', 1], ['baas', 1]]);
@@ -222,10 +235,10 @@ const SCENES = {
     laag(ctx, A, () => { geleerde(ctx, 'charpentier', 230, 790, 330, { t, uit: 'blij' }); geleerde(ctx, 'doudna', 470, 790, 330, { t, uit: 'blij' }); const kn = q.on('knippen', 1);
       dnaStreng(ctx, 760, 520, 900, 1, ease((q.localT - q.at('knippen', 1)) / 0.8)); schaar(ctx, 1210, 420 - 60 * (1 - kn), 1.2, kn > 0.5 ? 0.1 + 0.3 * Math.abs(Math.sin(t * 3)) : 0.5, q.on('manier', 1)); tag(ctx, 'CRISPR: systeem uit bacteriën', 1210, 700, C.paars, q.on('CRISPR', 1), 'center', 32); medaille(ctx, 350, 380, 1.1, q.on('Nobelprijs', 1)); regel(ctx, 'Nobelprijs 2020', 350, 330, q.on('Nobelprijs', 1), C.goud, 28, 'center', 700); });
     laag(ctx, B, () => { paneel(ctx, 200, 260, 720, 560, 'patiënt met sikkelcelziekte', 1); cellenKlomp(ctx, 560, 540, 170, 40, 1, (k) => k % 5 === 0); regel(ctx, 'alleen bloedstamcellen', 560, 780, q.on('bloedstamcellen', 1), C.paars, 30, 'center', 700);
-      const em = q.on('embryo', 1); paneel(ctx, 1000, 260, 720, 560, 'embryo · 2018', em); cellenKlomp(ctx, 1360, 520, 150, 16, em, () => true); laag(ctx, q.on('tweeling', 1), () => { human(ctx, 1600, 790, 110, 1, C.paars); human(ctx, 1670, 790, 110, 1, C.paars); regel(ctx, 'tweeling', 1635, 330, 1, C.paars, 28, 'center', 700); }); vraagteken(ctx, 960, 560, q.on('verschil', 1), 120); }); },
+      const em = q.on('embryo', 1); paneel(ctx, 1000, 260, 720, 560, 'embryo · 2018', em); cellenKlomp(ctx, 1360, 520, 150, 16, em, () => true); laag(ctx, q.on('tweeling', 1), () => { ctx.save(); ctx.fillStyle = rgba(C.paars, 0.22); ctx.beginPath(); ctx.ellipse(1600, 680, 100, 84, 0, 0, 6.283); ctx.fill(); ctx.restore(); fig(ctx, 'baby', 1612, 656, 125, { uit: 'slaapt', t }); fig(ctx, 'baby', 1612, 738, 125, { uit: 'blij', t: t + 2 }); regel(ctx, 'tweeling', 1600, 572, 1, C.paars, 28, 'center', 700); }); vraagteken(ctx, 960, 560, q.on('verschil', 1), 120); }); },
 
   s28(ctx, t, q) { bg(ctx, 'schema'); tijdlijn(ctx, { span: [1952, 2018], jaar: 2018 });
-    paneel(ctx, 150, 310, 780, 560, 'patiënt', 1); cellenKlomp(ctx, 400, 540, 140, 30, 1, (k) => k % 5 === 0); human(ctx, 720, 760, 160, 1, C.mens); regel(ctx, 'kind', 720, 800, 1, C.text2, 26, 'center', 600); pijl(ctx, 560, 620, 660, 680, C.line, 1, 3, 12); tag(ctx, 'niet erfelijk', 540, 850, C.groen, q.on('door', 1), 'center', 30);
+    paneel(ctx, 150, 310, 780, 560, 'patiënt', 1); cellenKlomp(ctx, 400, 540, 140, 30, 1, (k) => k % 5 === 0); fig(ctx, 'kind', 730, 770, 180, { uit: 'blij', t }); regel(ctx, 'kind', 730, 810, 1, C.text2, 26, 'center', 600); pijl(ctx, 560, 620, 660, 680, C.line, 1, 3, 12); tag(ctx, 'niet erfelijk', 540, 850, C.groen, q.on('door', 1), 'center', 30);
     const em = q.on('embryo', 1); paneel(ctx, 990, 310, 780, 560, 'embryo', em); cellenKlomp(ctx, 1200, 540, 120, 20, em, () => true);
     laag(ctx, q.on('generaties', 1), () => { const L = [[1540, 420], [1460, 560], [1620, 560], [1420, 700], [1500, 700], [1580, 700], [1660, 700]]; ctx.strokeStyle = C.line; ctx.lineWidth = 2; [[0, 1], [0, 2], [1, 3], [1, 4], [2, 5], [2, 6]].forEach(([a, b]) => { ctx.beginPath(); ctx.moveTo(L[a][0], L[a][1] + 30); ctx.lineTo(L[b][0], L[b][1] - 34); ctx.stroke(); }); L.forEach(([x, y], i) => human(ctx, x, y + 34, i ? 70 : 90, ramp(q.localT, q.at('generaties', 1) + i * 0.15, 0.3), C.paars)); tag(ctx, 'erfelijk: alle volgende generaties', 1380, 850, C.koraal, 1, 'center', 28); });
     tag(ctx, 'gevolgen onbekend · de tweeling kon niet kiezen', 960, 300 - 20, C.koraal, q.on('kiezen', 1) * (1 - q.on('cel', 5)), 'center', 28); tag(ctx, '3 jaar cel', 960, 300 - 20, C.text2, q.on('cel', 5) * (1 - q.on('Nederland', 1)), 'center', 30); tag(ctx, 'in Nederland verboden (Embryowet)', 960, 300 - 20, C.goud, q.on('Nederland', 1), 'center', 30); },

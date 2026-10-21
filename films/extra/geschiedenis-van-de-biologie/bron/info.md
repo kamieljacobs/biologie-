@@ -5,11 +5,11 @@
 | Bestand | films/extra/geschiedenis-van-de-biologie.html (audio in films/extra/geschiedenis-van-de-biologie/audio/) |
 | Reeks | Nieuwsgierig? (hoofdstuk `extra`, buiten het PTA) · geschiedenis van de biologie |
 | Niveau | havo · vwo, één niveau (`alleen: "havo · vwo"`, geen vwo-blokken; de Havo/Vwo-knop is verborgen) |
-| Versie / datum | 1.0 · 20 oktober 2026 |
+| Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 20 oktober 2026) |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow rgmUuvSL6zMsLmaQnt6F; stem-invoer met respellings in `segments.json` (veld `voice`) en `stem/voice.json`; film-eigen regels in `uitspraak_film.json` |
 | Duur | spraak 12:19 (23 takes); speeltijd 13:51 met vragen (zonder wachten), 12:16 met Vragen uit; `duur` 14 in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Schema (tijdlijn, mensen en samenleving) |
-| Personages | Noor (castboek) in de cold open; onderzoekers als vlakke castboekfiguren met tijdskenmerk en attribuut (geen portretten), toegevoegd aan `CAST` in `scenes_lib.js` (`hist()`); Gosling, Wilkins, Florey, Chain en Heatley als neutrale figuren |
+| Personages | Noor (castboek) in de cold open en als 'de mens' op de ladder, in het primatenpaneel en in het voedselweb; onderzoekers als vlakke castboekfiguren met tijdskenmerk en attribuut (geen portretten), toegevoegd aan `CAST` in `scenes_lib.js` (`hist()`), sinds v1.1 ook Gosling, Wilkins, Florey, Chain en Heatley; anonieme mensen uit het verleden in dezelfde stijl met kleding uit hun tijd (`rs1–3` Royal Society met pruik en bef, `arts1–3` Weense artsen, `vader19`/`moeder19`/`kind19`/`helpster19`/`oude19` in s16); mensen van nu uit het castboek: Teun (`kind`) in s28, twee baby's (`baby`) als tweeling in s26 |
 | Audio-opslag | 23 losse mp3's in audio/ (s01, s04–s07, s09–s13, s15–s18, s20–s26, s28, s29), loudnorm −15 LUFS |
 | Herkomst | Hoofdengine (straat van Ecologie 4 / hormonen, `hw/engine`), werkmap `hw/gs1`; gebouwd met Claude op verzoek van Kamiel (video over de geschiedenis van de biologie) |
 
@@ -83,3 +83,13 @@ Werkmap opzetten: kopieer `bron/` naar `hw/gs1` (`scenes_lib.js` + `scenes_main.
 
 ## Wijzigingen
 - 1.0 (20 okt 2026): eerste versie. Script v1 → twee reviews (`reviews/review_v1.md`) → v2; beeld na twee rondes contactsheets.
+- 1.1 (22 okt 2026): geen grijze poppetjes meer (BEELDAFSPRAKEN, Personages). Alleen beeld; audio, timing, tekst en ondertitels ongewijzigd. Castboek in `src/lib_cast.js` bijgewerkt naar de actuele `personages/lib_cast.js`; het scèneblok in de HTML is exact vervangen (lib_cast + scenes_lib + scenes_main), nabewerkingen bleven staan.
+  - s01/s04: de geleerden van de Royal Society = drie figuren met lange pruik, jas en witte bef (`royalSociety()`); in s04 kijken ze bezorgd/schouderophalend als het niet lukt.
+  - s11, s05/s15/s29 (ladder), s25/s29 (voedselweb): 'de mens' = Noor i.p.v. een goud poppetje.
+  - s12 (Linnaeus' indeling van de mens): bewust **geen mensfiguren** (risico op stereotypen). In plaats daarvan Linnaeus wijzend naar vier vergeelde kaarten uit *Systema Naturae* ('Homo sapiens' + werelddeel, karaktertrekken als onleesbare rode krabbels); bij 'geen waarneming, maar vooroordeel' worden de kaarten gedimd en komt er een stempel ACHTERHAALD overheen.
+  - s16 (sociaal-darwinisme): links een gewoon arm gezin uit de 19e eeuw (vader, moeder, kind; eenvoudige nette kleding, neutrale gezichten, geen karikatuur), rechts een helpster die een oudere man ondersteunt; ze verdwijnen als 'Bij Darwin gaat het om passen' verschijnt. Aan het eind (hoe we met elkaar omgaan) dezelfde helpster en oude man, blij.
+  - s20: de artsen die Semmelweis niet geloofden = drie Weense artsen (geklede jas, strikje, baard), afwijzend (handen op de heup, schouders, wijzen).
+  - s23: Oxford-team Florey (jasje), Chain (labjas, snor, krullen), Heatley (labjas); medailles bij Florey en Chain, kruis bij Heatley.
+  - s24: Gosling naast Franklin (links, jasje), de collega (Wilkins) met bril; medailles op één hoogte boven de hoofden.
+  - s26: de tweeling = twee baby's uit het castboek in een paarse gloed; s28: 'kind' = Teun.
+
