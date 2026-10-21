@@ -34,10 +34,66 @@
           ".read": "auth != null && auth.uid === $uid",
           ".write": "auth != null && auth.uid === $uid && root.child('sessies').child($code).child('status').exists() && root.child('sessies').child($code).child('status').val() !== 'dicht'",
           "$opdracht": {
-            "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" },
-            "eerste": { "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" } },
-            "laatste": { "tekst": { ".validate": "newData.isString() && newData.val().length <= 4000" } }
+            "tekst": {
+              ".validate": "newData.isString() && newData.val().length <= 4000"
+            },
+            "eerste": {
+              "tekst": {
+                ".validate": "newData.isString() && newData.val().length <= 4000"
+              }
+            },
+            "laatste": {
+              "tekst": {
+                ".validate": "newData.isString() && newData.val().length <= 4000"
+              }
+            }
           }
+        }
+      }
+    },
+    "feedback": {
+      ".read": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+      ".indexOn": [
+        "tijd"
+      ],
+      "$id": {
+        ".write": "(auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2') || (!data.exists() && newData.exists())",
+        ".validate": "newData.hasChildren(['soort', 'tekst', 'pagina', 'status', 'tijd'])",
+        "soort": {
+          ".validate": "newData.isString() && newData.val().matches(/^(fout|onduidelijk|idee|compliment)$/)"
+        },
+        "tekst": {
+          ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 2000"
+        },
+        "naam": {
+          ".validate": "newData.isString() && newData.val().length <= 60"
+        },
+        "pagina": {
+          ".validate": "newData.isString() && newData.val().length <= 300"
+        },
+        "titel": {
+          ".validate": "newData.isString() && newData.val().length <= 200"
+        },
+        "plek": {
+          ".validate": "newData.isString() && newData.val().length <= 200"
+        },
+        "scherm": {
+          ".validate": "newData.isString() && newData.val().length <= 40"
+        },
+        "thema": {
+          ".validate": "newData.isString() && newData.val().length <= 10"
+        },
+        "notitie": {
+          ".validate": "(auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2') && newData.isString() && newData.val().length <= 2000"
+        },
+        "status": {
+          ".validate": "newData.val() === 'nieuw' || ((auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2') && newData.val() === 'verwerkt')"
+        },
+        "tijd": {
+          ".validate": "newData.isNumber() && (newData.val() === now || newData.val() === data.val())"
+        },
+        "$anders": {
+          ".validate": false
         }
       }
     }

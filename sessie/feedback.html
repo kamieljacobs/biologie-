@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Feedback (docent) · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<link rel="stylesheet" href="sessie.css">
+<script src="../tools/huisstijl.js"></script>
+<script>window.BK_GEEN_FEEDBACK = true;</script>
+<style>
+.fb-balk{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 16px}
+.fb-balk .rechtsaf{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.fb-lijst{display:grid;gap:12px;margin:0 0 40px}
+.fb-item{background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:14px 18px;display:grid;gap:8px}
+.fb-item.verwerkt{opacity:.62}
+.fb-kop{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;font-size:14px;color:var(--text2)}
+.fb-soort{font-weight:700;border-radius:999px;padding:3px 10px;font-size:13px}
+.fb-soort.fout{background:var(--koraal-soft);color:var(--koraal)}
+.fb-soort.onduidelijk{background:var(--goud-soft);color:var(--goud-text)}
+.fb-soort.idee{background:var(--teal-soft);color:var(--teal)}
+.fb-soort.compliment{background:var(--groen-soft);color:var(--groen)}
+.fb-tekst{white-space:pre-wrap;font-size:17px;line-height:1.45;margin:0}
+.fb-meta{font:500 12px/1.5 'IBM Plex Mono',ui-monospace,monospace;color:var(--text3);word-break:break-all}
+.fb-meta a{color:var(--text2)}
+.fb-acties{display:flex;gap:8px;flex-wrap:wrap}
+.fb-leeg{color:var(--text2);padding:24px 0}
+.fb-tel{font:600 13px/1 'IBM Plex Mono',ui-monospace,monospace;margin-left:4px;opacity:.75}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="../index.html">Biologie bij Kamiel</a>
+    <span class="s-chip">Docent</span>
+    <span class="rechts"><a class="knop stil klein" href="docent.html">Klas live</a><button class="knop stil klein" id="b-uit" type="button" hidden>Uitloggen</button><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+
+  <section id="v-login" hidden>
+    <header class="tool-kop"><div class="mono">Feedback</div><h1>Inloggen</h1><p>Alleen voor de docent.</p></header>
+    <form class="paneel" id="f-login" style="max-width:460px">
+      <label class="veld"><span>E-mail</span><input type="text" id="i-mail" autocomplete="username" required></label>
+      <label class="veld"><span>Wachtwoord</span><input type="password" id="i-ww" autocomplete="current-password" required style="background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px;width:100%"></label>
+      <button class="knop" type="submit">Inloggen</button>
+      <p class="s-melding fout" id="m-login" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="v-lijst" hidden>
+    <header class="tool-kop"><div class="mono">Feedback</div><h1>Wat bezoekers insturen</h1><p>Via de knop 'Feedback?' op elke pagina van de site. Pagina en plek in de film gaan automatisch mee.</p></header>
+    <div class="fb-balk">
+      <div class="seg" id="f-status" role="group" aria-label="Status">
+        <button type="button" data-v="nieuw" aria-pressed="true">Nieuw<span class="fb-tel" id="t-nieuw"></span></button>
+        <button type="button" data-v="verwerkt" aria-pressed="false">Verwerkt<span class="fb-tel" id="t-verwerkt"></span></button>
+        <button type="button" data-v="alles" aria-pressed="false">Alles</button>
+      </div>
+      <div class="seg" id="f-soort" role="group" aria-label="Soort">
+        <button type="button" data-v="" aria-pressed="true">Alle soorten</button>
+        <button type="button" data-v="fout" aria-pressed="false">Fout</button>
+        <button type="button" data-v="onduidelijk" aria-pressed="false">Onduidelijk</button>
+        <button type="button" data-v="idee" aria-pressed="false">Idee</button>
+        <button type="button" data-v="compliment" aria-pressed="false">Compliment</button>
+      </div>
+      <div class="rechtsaf"><button class="knop stil klein" id="b-kopie" type="button" title="Kopieer de zichtbare feedback als tekst, bv. om aan Claude te geven">Kopieer als lijst</button></div>
+    </div>
+    <p class="s-melding" id="m-lijst" aria-live="polite"></p>
+    <div class="fb-lijst" id="lijst"></div>
+  </section>
+
+  <footer class="tool-voet">Biologie bij Kamiel · Feedback<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script type="module">
+import { maakDb } from './db.js';
+const $ = (id) => document.getElementById(id);
+const NAAM = { fout: 'Fout gevonden', onduidelijk: 'Onduidelijk', idee: 'Idee', compliment: 'Compliment' };
+let db, alles = {}, fStatus = 'nieuw', fSoort = '', uit = null;
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const datum = (t) => t ? new Date(t).toLocaleString('nl-NL', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) : '';
+
+(async function init() {
+  db = await maakDb();
+  if (db.modus !== 'firebase') { toon('v-lijst'); $('m-lijst').textContent = 'Demomodus: feedback staat alleen in Firebase. Open deze pagina zonder ?demo=1.'; return; }
+  if (!db.isDocent()) toon('v-login'); else start();
+})();
+function toon(v) { ['v-login', 'v-lijst'].forEach((x) => { $(x).hidden = x !== v; }); }
+
+$('f-login').addEventListener('submit', async (e) => {
+  e.preventDefault(); $('m-login').textContent = '';
+  try {
+    const ok = await db.docentLogin($('i-mail').value.trim(), $('i-ww').value);
+    if (!ok) { $('m-login').textContent = 'Ingelogd, maar dit account is niet als docent ingesteld.'; return; }
+    $('i-ww').value = ''; start();
+  } catch (er) { $('m-login').textContent = 'Inloggen mislukt: controleer e-mail en wachtwoord.'; }
+});
+$('b-uit').addEventListener('click', async () => { await db.uitloggen(); location.reload(); });
+
+function start() {
+  toon('v-lijst'); $('b-uit').hidden = false;
+  if (uit) uit();
+  uit = db.luister('feedback', (v) => { alles = v || {}; teken(); });
+}
+
+function seg(id, zet) {
+  $(id).addEventListener('click', (e) => {
+    const b = e.target.closest('button'); if (!b) return;
+    $(id).querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    zet(b.dataset.v); teken();
+  });
+}
+seg('f-status', (v) => { fStatus = v; });
+seg('f-soort', (v) => { fSoort = v; });
+
+function zichtbaar() {
+  return Object.entries(alles)
+    .map(([id, f]) => ({ id, ...f }))
+    .filter((f) => (fStatus === 'alles' || (f.status || 'nieuw') === fStatus) && (!fSoort || f.soort === fSoort))
+    .sort((a, b) => (b.tijd || 0) - (a.tijd || 0));
+}
+
+function teken() {
+  const lijst = Object.values(alles);
+  const nNieuw = lijst.filter((f) => (f.status || 'nieuw') === 'nieuw').length;
+  $('t-nieuw').textContent = nNieuw ? ' ' + nNieuw : '';
+  $('t-verwerkt').textContent = lijst.length - nNieuw ? ' ' + (lijst.length - nNieuw) : '';
+  document.title = (nNieuw ? '(' + nNieuw + ') ' : '') + 'Feedback (docent) · Biologie bij Kamiel';
+  const z = zichtbaar();
+  if (!z.length) { $('lijst').innerHTML = '<p class="fb-leeg">' + (fStatus === 'nieuw' ? 'Geen nieuwe feedback.' : 'Niets gevonden.') + '</p>'; return; }
+  $('lijst').innerHTML = z.map((f) => {
+    const href = '../' + String(f.pagina || '').replace(/^\/+/, '') + ((f.plek || '').startsWith('#') ? f.plek.split(' ')[0] : '');
+    const nw = (f.status || 'nieuw') === 'nieuw';
+    return '<article class="fb-item' + (nw ? '' : ' verwerkt') + '" data-id="' + esc(f.id) + '">' +
+      '<div class="fb-kop"><span class="fb-soort ' + esc(f.soort) + '">' + esc(NAAM[f.soort] || f.soort) + '</span>' +
+      '<span>' + esc(datum(f.tijd)) + '</span>' + (f.naam ? '<span>· ' + esc(f.naam) + '</span>' : '') + '</div>' +
+      '<p class="fb-tekst">' + esc(f.tekst) + '</p>' +
+      '<div class="fb-meta"><a href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(f.titel || f.pagina) + '</a><br>' +
+      esc(f.pagina) + (f.plek ? ' · ' + esc(f.plek) : '') + (f.scherm ? ' · scherm ' + esc(f.scherm) : '') + (f.thema ? ' · ' + esc(f.thema) : '') + '</div>' +
+      '<div class="fb-acties">' +
+      (nw ? '<button class="knop klein" data-a="verwerkt" type="button">Verwerkt</button>' : '<button class="knop stil klein" data-a="nieuw" type="button">Terug naar nieuw</button>') +
+      '<button class="knop stil klein" data-a="weg" type="button">Verwijderen</button></div></article>';
+  }).join('');
+}
+
+$('lijst').addEventListener('click', async (e) => {
+  const b = e.target.closest('button[data-a]'); if (!b) return;
+  const id = b.closest('[data-id]').dataset.id;
+  try {
+    if (b.dataset.a === 'weg') { if (confirm('Deze feedback definitief verwijderen?')) await db.weg('feedback/' + id); }
+    else await db.werkBij('feedback/' + id, { status: b.dataset.a });
+  } catch (er) { $('m-lijst').textContent = 'Opslaan lukte niet: ' + (er && er.message || er); }
+});
+
+$('b-kopie').addEventListener('click', async () => {
+  const tekst = zichtbaar().map((f) => '- [' + (NAAM[f.soort] || f.soort) + '] ' + f.pagina + (f.plek ? ' (' + f.plek + ')' : '') + ': ' + String(f.tekst).replace(/\s+/g, ' ')).join('\n');
+  try { await navigator.clipboard.writeText(tekst); $('m-lijst').textContent = 'Gekopieerd (' + zichtbaar().length + ').'; }
+  catch (er) { $('m-lijst').textContent = 'Kopiëren lukte niet.'; }
+});
+</script>
+</body>
+</html>
