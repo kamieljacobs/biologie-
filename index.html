@@ -163,6 +163,9 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .vgroep li b{font-size:16px;line-height:1.2}
 .vgroep li .mat{font-size:12px}
 .vgroep li a:hover .tk{border-color:var(--goud)}
+.vgroep li .tk.foto{width:64px;height:64px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
+.tk.foto img{width:100%;height:100%;display:block;border-radius:999px;transition:transform .25s}
+.vgroep li a:hover .tk.foto img{transform:scale(1.06)}
 .tk{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
 .tk svg{width:28px;height:28px}
 .vlak li b{font:700 18px/1.25 var(--titel)}
@@ -2541,6 +2544,8 @@ const FILMKUNST = {
 const filmKunst=(href,id)=>{const slug=String(href).replace(/\/index\.html$/,'').replace(/\.html$/,'').split('/').pop();const k=FILMKUNST[slug];
   return k?`<svg class="kunst" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${KLEUR[id]||'goud'})">${k}</svg>`:kunst(id)};
 
+/* themapictogrammen op de hoofdpagina als ElevenLabs-medaillon (21 okt 2026; vel in img/kunst/varianten/iconen-1..4, uitgeknipt uit vel 1); niet in de lijst = oude lijntekening */
+const ICOON=['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens'];
 const kunst=(id,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="${label||''}" style="--c:var(--${KLEUR[id]||'goud'})">${KUNST[id]||KUNST.cellen}</svg>`;
 
 (function(){
@@ -2765,7 +2770,7 @@ function grondWissel(){
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
-    return `<li><a href="#${id}"><span class="tk">${kunst(id)}</span><b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
+    return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp" alt="" width="64" height="64" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
   const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
   let out=grondLaag()+`<section class="wrap hero hero-kort">
     <div>

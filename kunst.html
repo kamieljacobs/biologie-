@@ -39,6 +39,17 @@ a.figlink{display:block;text-decoration:none}
 <p class="intro">Alle achtergronden van de hoofdpagina op één plek: de oude, met code getekende platen naast de nieuwe beelden die met ElevenLabs zijn gemaakt. Op de hoofdpagina wisselen ze nu allemaal door elkaar (de nieuwe alleen in de donkere stand). Klik op een beeld om het groot te zien.</p>
 <div id="lijst"></div>
 <section class="thema">
+  <h2>Pictogrammen van de thema's</h2>
+  <p>De ronde medaillons op de hoofdpagina, uitgeknipt uit één vel zodat ze dezelfde stijl hebben (img/kunst/iconen/). De andere drie vellen staan in varianten/.</p>
+  <div id="iconen" style="display:flex;flex-wrap:wrap;gap:14px"></div>
+  <p class="lbl">Alle vellen</p><div class="var"></div>
+</section>
+<section class="thema">
+  <h2>Proef: themaplaten in twee stijlen</h2>
+  <p>Voor Cellen, DNA en Evolutie één gravure (zoals de wolf bij Ecologie) en één kleurversie (zoals de hoofdpagina). Nog niet op de themapagina's: kies per thema.</p>
+  <div class="rij" id="proef"></div>
+</section>
+<section class="thema">
   <h2>Themapagina's</h2>
   <p>Platen die bij één thema horen, niet in de roulatie van de hoofdpagina.</p>
   <div class="rij">
@@ -59,6 +70,10 @@ const THEMAS=[
   {naam:'Kolibrie',oud:null,nieuw:'kolibrie',tekst:'Nieuw thema (geen oude tekening): een kolibrie bij trompetbloemen. Op de site is dit een videoloop van 5 s (img/kunst/kolibrie.webm/.mp4) waarin hij met zijn vleugels slaat; hij wordt ook vóór de titelkaart getekend.',varianten:'kolibrie',gekozen:3}
 ];
 const fig=(src,cap,cls='',alt='')=>`<a class="figlink" href="${src}"><figure class="${cls}"><img src="${src}" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure></a>`;
+const ICONEN=['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens'];
+document.getElementById('iconen').innerHTML=ICONEN.map(i=>`<figure style="width:96px;background:none;border:0;text-align:center"><img src="img/kunst/iconen/${i}.webp" alt="Pictogram ${i}" style="width:80px;height:80px;aspect-ratio:1;border-radius:999px;margin:0 auto;border:1px solid var(--goud)"><figcaption style="padding:4px 0 0">${i}</figcaption></figure>`).join('');
+document.querySelector('#iconen').parentElement.querySelector('.var').innerHTML=[1,2,3,4].map(k=>fig(`img/kunst/varianten/iconen-${k}.webp`,`Vel ${k}${k===1?' · gebruikt':''}`,k===1?'gekozen':'',`Pictogramvel ${k}`)).join('');
+document.getElementById('proef').innerHTML=['cellen','dna','evolutie'].flatMap(t=>['gravure','kleur'].map(st=>fig(`img/kunst/thema/${t}-${st}.webp`,`${t} · ${st}`,'',`${t} in ${st}stijl`))).join('');
 document.getElementById('lijst').innerHTML=THEMAS.map(t=>`<section class="thema">
   <h2>${t.naam}</h2><p>${t.tekst}</p>
   <div class="rij">
