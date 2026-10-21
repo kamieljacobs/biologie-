@@ -221,6 +221,9 @@ body.op-home footer{position:relative;z-index:1}
 /* extra fotoplaat (ElevenLabs, 21 okt 2026): alleen in de donkere stand, want het beeld is zelf donker */
 .grondset.foto img,.grondset.foto video{width:100%;height:100%;object-fit:cover;display:block}
 /* plaat met 'voor'-figuur (kolibrie): de figuur wordt ook bovenop de titelkaart getekend; 'lighten' laat de donkere achtergrond wegvallen */
+/* kolibrie (plaat met data-voor) iets naar rechts, zodat hij naast het titelvlak vliegt; linkerrand loopt zacht uit */
+.grondset[data-voor] img,.grondset[data-voor] video{transform:translateX(9vw);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 18%);mask-image:linear-gradient(90deg,transparent 0,#000 18%)}
+@media (max-width:900px){.grondset[data-voor] img,.grondset[data-voor] video{transform:none;-webkit-mask-image:none;mask-image:none}}
 #kunstvoor{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;mix-blend-mode:lighten}
 :root:not([data-theme="dark"]) .grondset.foto{display:none}
 /* Kamiel 21 okt 2026: getekende platen in de donkere stand even uit (alleen de ElevenLabs-beelden); weer aan: TEKENPLATEN_DONKER=true en deze regel weg */
@@ -2748,7 +2751,7 @@ function voorLus(){const c=document.getElementById('kunstvoor');if(!c){voorRaf=0
   if(set&&kaarten.length){const op=+getComputedStyle(set).opacity;const v=set.querySelector('video'),im=set.querySelector('img');
     let bron=null;if(v&&v.readyState>=2)bron=v;else if(im&&im.complete&&im.naturalWidth)bron=im;
     else if(v&&v.poster){bron=voorPoster[v.poster]||(voorPoster[v.poster]=Object.assign(new Image(),{src:v.poster}));if(!bron.complete)bron=null}
-    if(bron&&op>.01){const nw=bron.videoWidth||bron.naturalWidth,nh=bron.videoHeight||bron.naturalHeight,r=set.getBoundingClientRect(),
+    if(bron&&op>.01){const nw=bron.videoWidth||bron.naturalWidth,nh=bron.videoHeight||bron.naturalHeight,r=(v&&getComputedStyle(v).display!=='none'?v:im||v||set).getBoundingClientRect(),
         sc=Math.max(r.width/nw,r.height/nh),dx=r.left+(r.width-nw*sc)/2,dy=r.top+(r.height-nh*sc)/2,
         [cx,cy,rx,ry]=set.dataset.voor.split(',').map(Number),ex=dx+cx*nw*sc,ey=dy+cy*nh*sc,erx=rx*nw*sc,ery=ry*nh*sc,ks=kaarten.map(x=>x.getBoundingClientRect());
       if(ks.some(k=>ex+erx>k.left&&ex-erx<k.right&&ey+ery>k.top&&ey-ery<k.bottom)){
