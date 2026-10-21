@@ -2773,7 +2773,7 @@ function grondWissel(){
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
-    return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp" alt="" width="64" height="64" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
+    return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=2" alt="" width="64" height="64" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
   const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
   let out=grondLaag()+`<section class="wrap hero hero-kort">
     <div>
