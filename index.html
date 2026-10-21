@@ -216,8 +216,12 @@ body.op-home footer{position:relative;z-index:1}
 @keyframes zweef{from{transform:scale(1) translate(0,0)}to{transform:scale(1.04) translate(-12px,-10px)}}
 .grondset svg{width:100%;height:100%;display:block}
 /* extra fotoplaat (ElevenLabs, 21 okt 2026): alleen in de donkere stand, want het beeld is zelf donker */
-.grondset.foto img{width:100%;height:100%;object-fit:cover;display:block}
+.grondset.foto img,.grondset.foto video{width:100%;height:100%;object-fit:cover;display:block}
+/* plaat met 'voor'-figuur (kolibrie): de figuur wordt ook bovenop de titelkaart getekend; 'lighten' laat de donkere achtergrond wegvallen */
+#kunstvoor{position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;mix-blend-mode:lighten}
 :root:not([data-theme="dark"]) .grondset.foto{display:none}
+/* Kamiel 21 okt 2026: getekende platen in de donkere stand even uit (alleen de ElevenLabs-beelden); weer aan: TEKENPLATEN_DONKER=true en deze regel weg */
+:root[data-theme="dark"] .kunstgrond.zonder-tekening .grondset:not(.foto){display:none}
 .kunstgrond:not(.intens) .grondset.foto.aan{opacity:.55}
 .kunstgrond.intens .grondset.foto.aan{opacity:.95}
 @media (max-width:900px){.kunstgrond:not(.intens) .grondset.foto.aan{opacity:.4}}
@@ -2562,7 +2566,8 @@ function themaKnop(){
   b.setAttribute('aria-label',d?'Zet licht thema aan':'Zet donker thema aan');
 }
 document.getElementById('thema').addEventListener('click',()=>{const n=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',n);schrijf('thema',n);themaKnop();
-  const a=document.querySelector('.kunstgrond .grondset.foto.aan');if(a&&n==='light'){a.classList.remove('aan');const z=document.querySelector('.kunstgrond .grondset:not(.foto)');if(z)z.classList.add('aan')}});
+  const a=document.querySelector('.kunstgrond .grondset.foto.aan');if(a&&n==='light'){a.classList.remove('aan');const z=document.querySelector('.kunstgrond .grondset:not(.foto)');if(z)z.classList.add('aan')}
+  const t=document.querySelector('.kunstgrond.zonder-tekening .grondset.aan:not(.foto)');if(t&&n==='dark'){t.classList.remove('aan');const f=document.querySelector('.kunstgrond .grondset.foto');if(f)f.classList.add('aan')}grondVideo()});
 window.__niveau=niveau;
 document.addEventListener('click',e=>{const b=e.target.closest('[data-niveau]');if(!b)return;niveau=window.__niveau=b.dataset.niveau;schrijf('niveau',niveau);render()});
 
@@ -2717,17 +2722,44 @@ const KUNSTPLATEN=(()=>{
   return PL.map(([naam,fn])=>[naam,I=>{W=I>1?1.7:1;const o=fn(I);W=1;return o}]);
 })();
 /* extra platen als beeld (geen tekening); doen mee in de roulatie, alleen in de donkere stand */
-const FOTOPLATEN=[['Nieuw: plankton','img/kunst/plankton.webp'],['Nieuw: groei','img/kunst/groei.webp'],['Nieuw: netwerk','img/kunst/netwerk.webp'],['Nieuw: in zee','img/kunst/zee.webp'],['Nieuw: oerbos','img/kunst/oerbos.webp'],['Nieuw: mierenkolonie','img/kunst/mieren.webp'],['Nieuw: kolibrie','img/kunst/kolibrie.webp']];
+const FOTOPLATEN=[['Nieuw: plankton','img/kunst/plankton.webp'],['Nieuw: groei','img/kunst/groei.webp'],['Nieuw: netwerk','img/kunst/netwerk.webp'],['Nieuw: in zee','img/kunst/zee.webp'],['Nieuw: oerbos','img/kunst/oerbos.webp'],['Nieuw: mierenkolonie','img/kunst/mieren.webp'],['Nieuw: kolibrie','img/kunst/kolibrie.webp','img/kunst/kolibrie.mp4',{voor:[.63,.44,.17,.31]}]];
+const TEKENPLATEN_DONKER=false;
 const grondLaag=()=>{if(kunstStand==='uit') return '';const I=kunstStand==='intens'?2:1,donker=root.getAttribute('data-theme')!=='light',
-    n0=KUNSTPLATEN.length,start=Math.floor(Math.random()*(n0+(donker?FOTOPLATEN.length:0)));
-  return `<div class="kunstgrond${I>1?' intens':''}" aria-hidden="true">${KUNSTPLATEN.map(([naam,teken],n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}" data-naam="${naam}"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">${teken(I)}</svg></div>`).join('')}${FOTOPLATEN.map(([naam,src],k)=>`<div class="grondset foto${n0+k===start?' aan':''}" data-set="${n0+k}" data-naam="${naam}"><img src="${src}" alt="" decoding="async" loading="lazy"></div>`).join('')}</div>`};
+    n0=KUNSTPLATEN.length,start=donker&&!TEKENPLATEN_DONKER?n0+Math.floor(Math.random()*FOTOPLATEN.length):Math.floor(Math.random()*(n0+(donker?FOTOPLATEN.length:0)));
+  return `<div class="kunstgrond${I>1?' intens':''}${TEKENPLATEN_DONKER?'':' zonder-tekening'}" aria-hidden="true">${KUNSTPLATEN.map(([naam,teken],n)=>`<div class="grondset${n===start?' aan':''}" data-set="${n}" data-naam="${naam}"><svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" fill="none" stroke-linecap="round" stroke-linejoin="round">${teken(I)}</svg></div>`).join('')}${FOTOPLATEN.map(([naam,src,vid,opt],k)=>`<div class="grondset foto${n0+k===start?' aan':''}" data-set="${n0+k}" data-naam="${naam}"${opt&&opt.voor?` data-voor="${opt.voor.join(',')}"`:''}>${vid?`<video poster="${src}" muted loop playsinline preload="none" aria-hidden="true"><source src="${vid.replace(/\.mp4$/,'.webm')}" type="video/webm"><source src="${vid}" type="video/mp4"></video>`:`<img src="${src}" alt="" decoding="async" loading="lazy">`}</div>`).join('')}</div><canvas id="kunstvoor" aria-hidden="true"></canvas>`};
 /* wisselen: elke 14 s vloeit de volgende compositie rustig in (niet bij 'minder beweging') */
 let grondTimer=null;
+/* videoplaat (bv. kolibrie): speelt alleen als hij zichtbaar is; bij 'minder beweging' blijft het startbeeld staan */
+function grondVideo(){const stil=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.kunstgrond .grondset video').forEach(v=>{const aan=!stil&&v.closest('.grondset').classList.contains('aan');
+    if(aan){if(v.paused){if(v.preload!=='auto'){v.preload='auto';v.load()}const p=v.play();if(p&&p.catch)p.catch(()=>{})}}else if(!v.paused)v.pause()})}
+/* figuur vóór de titelkaart: tekent het deel van de achtergrond binnen een zachte ellips (data-voor, in beeldfracties), alleen binnen de kaart */
+let voorRaf=0;const voorPoster={};
+function voorLus(){const c=document.getElementById('kunstvoor');if(!c){voorRaf=0;return}
+  const ctx=c.getContext('2d'),dpr=Math.min(devicePixelRatio||1,2),W=innerWidth,H=innerHeight;
+  if(c.width!==Math.round(W*dpr)||c.height!==Math.round(H*dpr)){c.width=Math.round(W*dpr);c.height=Math.round(H*dpr)}
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const set=document.querySelector('.kunstgrond .grondset.aan[data-voor]'),held=document.querySelector('.hero-kort'),kaart=held&&held.firstElementChild,kaarten=kaart?[kaart,held.nextElementSibling].filter(Boolean):[];
+  if(set&&kaarten.length){const op=+getComputedStyle(set).opacity;const v=set.querySelector('video'),im=set.querySelector('img');
+    let bron=null;if(v&&v.readyState>=2)bron=v;else if(im&&im.complete&&im.naturalWidth)bron=im;
+    else if(v&&v.poster){bron=voorPoster[v.poster]||(voorPoster[v.poster]=Object.assign(new Image(),{src:v.poster}));if(!bron.complete)bron=null}
+    if(bron&&op>.01){const nw=bron.videoWidth||bron.naturalWidth,nh=bron.videoHeight||bron.naturalHeight,r=set.getBoundingClientRect(),
+        sc=Math.max(r.width/nw,r.height/nh),dx=r.left+(r.width-nw*sc)/2,dy=r.top+(r.height-nh*sc)/2,
+        [cx,cy,rx,ry]=set.dataset.voor.split(',').map(Number),ex=dx+cx*nw*sc,ey=dy+cy*nh*sc,erx=rx*nw*sc,ery=ry*nh*sc,ks=kaarten.map(x=>x.getBoundingClientRect());
+      if(ks.some(k=>ex+erx>k.left&&ex-erx<k.right&&ey+ery>k.top&&ey-ery<k.bottom)){
+        const o=voorLus.o||(voorLus.o=document.createElement('canvas')),ow=Math.ceil(erx*2),oh=Math.ceil(ery*2);o.width=ow;o.height=oh;
+        const oc=o.getContext('2d');oc.drawImage(bron,(ex-erx-dx)/sc,(ey-ery-dy)/sc,ow/sc,oh/sc,0,0,ow,oh);
+        oc.globalCompositeOperation='destination-in';oc.save();oc.translate(ow/2,oh/2);oc.scale(1,ery/erx);
+        const g=oc.createRadialGradient(0,0,0,0,0,erx);g.addColorStop(0,'#000');g.addColorStop(.72,'#000');g.addColorStop(1,'rgba(0,0,0,0)');
+        oc.fillStyle=g;oc.fillRect(-erx,-erx,erx*2,erx*2);oc.restore();
+        ctx.save();ctx.beginPath();ks.forEach(k=>{if(ctx.roundRect)ctx.roundRect(k.left,k.top,k.width,k.height,22);else ctx.rect(k.left,k.top,k.width,k.height)});ctx.clip();
+        ctx.globalAlpha=op;ctx.drawImage(o,ex-erx,ey-ery);ctx.restore()}}}
+  voorRaf=requestAnimationFrame(voorLus)}
 function grondWissel(){
-  clearInterval(grondTimer);
+  clearInterval(grondTimer);grondVideo();if(!voorRaf&&document.getElementById('kunstvoor'))voorRaf=requestAnimationFrame(voorLus);
   if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   grondTimer=setInterval(()=>{const sets=[...document.querySelectorAll('.kunstgrond .grondset')];if(!sets.length){clearInterval(grondTimer);return}
-    const zicht=sets.filter(x=>getComputedStyle(x).display!=='none'),i=zicht.findIndex(x=>x.classList.contains('aan'));sets.forEach(x=>x.classList.remove('aan'));zicht[(i+1)%zicht.length].classList.add('aan')},14000);
+    const zicht=sets.filter(x=>getComputedStyle(x).display!=='none'),i=zicht.findIndex(x=>x.classList.contains('aan'));sets.forEach(x=>x.classList.remove('aan'));zicht[(i+1)%zicht.length].classList.add('aan');grondVideo()},14000);
 }
 
 function home(){

@@ -56,7 +56,7 @@ const THEMAS=[
   {naam:'In zee',oud:'in-zee',nieuw:'zee',tekst:'Kwallen en nautilus. Nieuw: kwallen, nautilus en ribkwallen met licht van boven.',varianten:'zee',gekozen:2},
   {naam:'Oerbos',oud:null,nieuw:'oerbos',tekst:'Nieuw thema (geen oude tekening): een oeroud bos met bemoste reuzenbomen, boomvarens, korstmossen en zwammen in de schemering.',varianten:'oerbos',gekozen:2},
   {naam:'Mierenkolonie',oud:null,nieuw:'mieren',tekst:'Nieuw thema (geen oude tekening): doorsnede van een mierennest met gangen, kamers met broed en de koningin.',varianten:'mieren',gekozen:2},
-  {naam:'Kolibrie',oud:null,nieuw:'kolibrie',tekst:'Nieuw thema (geen oude tekening): een kolibrie bij trompetbloemen. Staat nu stil; een korte videoloop waarin hij af en toe met zijn vleugels slaat kan er later bij.',varianten:'kolibrie',gekozen:3}
+  {naam:'Kolibrie',oud:null,nieuw:'kolibrie',tekst:'Nieuw thema (geen oude tekening): een kolibrie bij trompetbloemen. Op de site is dit een videoloop van 5 s (img/kunst/kolibrie.webm/.mp4) waarin hij met zijn vleugels slaat; hij wordt ook vóór de titelkaart getekend.',varianten:'kolibrie',gekozen:3}
 ];
 const fig=(src,cap,cls='',alt='')=>`<a class="figlink" href="${src}"><figure class="${cls}"><img src="${src}" alt="${alt}" loading="lazy"><figcaption>${cap}</figcaption></figure></a>`;
 document.getElementById('lijst').innerHTML=THEMAS.map(t=>`<section class="thema">
