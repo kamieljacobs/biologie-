@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../../js/teller.js" data-root="../../../"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Les 2 · Precies op tijd · Voortplanting · Biologie bij Kamiel</title>
+<meta name="description" content="Uitlegtool voor de docent, les 2 Voortplanting: hormonen en terugkoppeling, de menstruatiecyclus (follikels, LH-piek, eisprong, geel lichaam), bevruchting, innesteling en hCG, de placenta en de geboorte. Korte animaties, stap voor stap. Havo en vwo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../huisstijl.css">
+<script src="../../huisstijl.js"></script>
+<style>
+/* Uitleg in stappen · Voortplanting · les 2 · versie 1.0 · 21 oktober 2026
+   Docententool: per scherm korte animaties die de docent stap voor stap afspeelt (klik, → of de presenter).
+   Tekenruimte 1920x1080 op canvas; kleuren volgen licht/donker van de site. Inhoud en volgorde: zie SCHERMEN in het script. */
+.tool-kop{padding-bottom:10px}
+.tool-kop p a{color:var(--goud-text)}
+.bediening{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:center;margin:4px 0 14px}
+.bediening .niv-label{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:6px}
+.bediening .sp{flex:1}
+.knop.stil[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 0 0 1px var(--goud)}
+#speler{display:flex;flex-direction:column;gap:10px}
+.breed{width:min(100%, calc((100vh - 220px) * 16 / 9));min-width:min(100%,320px);margin-inline:auto}
+#stage{position:relative;aspect-ratio:16/9;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);overflow:hidden;cursor:pointer}
+#stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;background:var(--surface);border:1px solid var(--line2);border-radius:12px;padding:12px 16px;min-height:66px}
+.cap .txt{font-size:21px;line-height:1.4;min-width:0}
+.cap .txt b{color:var(--goud-text)}
+.cap .vwo-tag{display:inline-block;font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--paars);border:1px solid var(--paars);border-radius:999px;padding:4px 8px;margin-right:8px;vertical-align:3px}
+.cap .notitie{grid-column:1/-1;font-size:15px;color:var(--text2);border-top:1px dashed var(--line2);padding-top:6px}
+.cap .notitie:empty{display:none}
+.cap .notitie::before{content:"Docent · ";font:600 11px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:180px}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line2);display:block}
+.dots i.done{background:var(--text3)}
+.dots i.cur{background:var(--goud)}
+.dots i.vwo{box-shadow:0 0 0 2px var(--paars)}
+.knoppen{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.knoppen .teller{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2);margin-left:auto}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.chip{background:none;color:var(--text2);border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:14px;min-height:34px}
+.chip:hover{color:var(--text)}
+.chip.cur{background:var(--goud);color:var(--goud-ink);border-color:var(--goud)}
+.chip .n{font:600 12px var(--meta);margin-right:5px}
+.chip.deel{border:0;padding-left:0;font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);cursor:default}
+.hint{color:var(--text3);font-size:14px;margin-top:2px}
+kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;padding:0 5px}
+.draai{display:none}
+@media (max-width:640px){
+  .draai{display:block;margin:0 0 10px;color:var(--text2)}
+  .cap .txt{font-size:17px}
+  .cap{grid-template-columns:1fr}
+  .dots{justify-content:flex-start;max-width:none}
+  .hint{display:none}
+}
+body.presenteer{overflow:hidden}
+body.presenteer .wrap{max-width:none;padding:10px 16px}
+body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
+body.presenteer .breed{width:min(100%, calc((100vh - 140px) * 16 / 9))}
+body.presenteer .cap .txt{font-size:24px}
+#stopPres{display:none}
+body.presenteer #stopPres{display:inline-flex}
+details.docent{margin-top:28px}
+details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.docent>summary::-webkit-details-marker{display:none}
+details.docent>summary h2{font-size:24px}
+details.docent>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.docent[open]>summary::after{content:"–"}
+.docent .kolommen{display:grid;gap:8px 28px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:860px){.docent .kolommen{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+.docent h3{margin:16px 0 6px}
+.docent p,.docent li{color:var(--text2)}
+.docent ul,.docent ol{margin:4px 0;padding-left:20px}
+.docent li{margin:3px 0}
+.docent li b{color:var(--text)}
+.tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="sitenav" aria-label="Site">
+  <a class="merk" href="../../../index.html#home">Biologie bij Kamiel</a>
+  <a class="terug" href="../../../index.html#lessen-voortplanting">← Alle lessen</a>
+  <a class="terug" href="../../../index.html#voortplanting">Voortplanting</a>
+  <span class="rechts"><button type="button" class="icoon" data-thema-knop></button></span>
+</nav>
+
+<header class="tool-kop">
+  <div class="mono">Les 2 · Voortplanting · voor de docent</div>
+  <h1>Precies op tijd</h1>
+  <p>Korte animaties om zelf uit te leggen, stap voor stap: waarom alles op tijd moet, hormonen en terugkoppeling, de follikelwedstrijd en de LH-piek, de cyclus in één grafiek, de bevruchting, het bericht aan het gele lichaam, de placenta en de geboorte. Past bij de film <a href="../../../films/voortplanting/1-precies-op-tijd.html">Van bevruchting tot baby</a> (H2–H7 en H9).</p>
+</header>
+
+<p class="draai">Deze tool is gemaakt voor het digibord of de beamer. Op een telefoon: draai je scherm een kwartslag.</p>
+
+<div class="bediening">
+  <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
+  <span class="sp"></span>
+  <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen bij de organen verbergen of tonen (L)">Namen verbergen</button>
+  <button type="button" class="knop klein" id="presBtn" title="Presentatiemodus, volledig scherm (F)">Presenteren</button>
+</div>
+
+<section id="speler" aria-label="Uitleg in stappen">
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas></div>
+  <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
+  <div class="knoppen breed">
+    <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
+    <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
+    <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Stop met presenteren (Esc)">Stop presenteren</button>
+    <span class="teller" id="teller"></span>
+  </div>
+  <div class="chips breed" id="chips"></div>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> presenteren. Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+</section>
+
+<details class="docent">
+  <summary><h2>Voor de docent</h2></summary>
+  <div class="kolommen">
+    <div>
+      <h3>Zo gebruik je de tool</h3>
+      <ul>
+        <li><b>Stap voor stap.</b> Elke klik speelt één korte animatie af en blijft daarna staan, zodat je erbij kunt vertellen. Terug (←) toont de vorige stap meteen af; <kbd>R</kbd> speelt een stap opnieuw.</li>
+        <li><b>Weinig tekst.</b> Onder het beeld staat één korte zin; de grijze regel 'Docent' is alleen voor jou en verdwijnt in de presentatiemodus.</li>
+        <li><b>Havo of vwo</b> bovenaan, of in de link <code>?niveau=havo</code>. Vwo-stappen zijn paars omrand in de stippenrij; in havo worden ze overgeslagen.</li>
+        <li><b>Namen verbergen</b> (<kbd>L</kbd>): laat leerlingen zelf de hormonen en organen noemen.</li>
+        <li><b>Direct naar een scherm</b> met de knoppen onder het beeld, of met <code>#3</code> achter de link (scherm 3).</li>
+      </ul>
+      <h3>Lesopbouw (± 50 minuten)</h3>
+      <ol>
+        <li><b>Opening</b> (5 min): eicel één dag, zaadcel vijf dagen. Alles moet op tijd: hoe regelt het lichaam dat?</li>
+        <li><b>Hormonen</b> (10 min): de as hypothalamus → hypofyse → geslachtsklier (scherm 3) en negatieve terugkoppeling bij de man met de bodybuilder als voorspelvraag (scherm 4).</li>
+        <li><b>De cyclus</b> (15 min): de follikelwedstrijd (scherm 5), van rem naar gaspedaal en de LH-piek (scherm 6), en dan alles samen in de grafiek (scherm 7). Laat de klas met de dagschuif de grafiek lezen.</li>
+        <li><b>Bevruchting en zwangerschap</b> (15 min): de ontmoeting (scherm 8), hCG als bericht aan het gele lichaam (scherm 9), de placenta (scherm 10).</li>
+        <li><b>Geboorte</b> (5 min): oxytocine als tweede voorbeeld van positieve terugkoppeling (scherm 11).</li>
+        <li><b>Vooruitblik</b> (1 min, scherm 12): volgende keer anticonceptie, soa's, ivf en sekse in lagen.</li>
+        <li><b>Huiswerk</b>: de film <a href="../../../films/voortplanting/1-precies-op-tijd.html">Van bevruchting tot baby</a>, hoofdstuk 2 tot en met 7 en hoofdstuk 9 (2:28–12:45 en 14:29–15:12). Havo: de details over eiwit- en steroïdhormonen, aromatase, capacitatie en de acrosoomreactie mogen ze overslaan.</li>
+      </ol>
+    </div>
+    <div>
+      <h3>Achtergrond en vereenvoudigingen</h3>
+      <ul>
+        <li><b>Vruchtbare dagen</b>: een eicel leeft na de eisprong ± 12–24 uur, zaadcellen in het slijm van de baarmoederhals tot ± 5 dagen. De eisprong valt ± 14 dagen vóór de volgende menstruatie; de cyclus is getekend als 28 dagen, maar de lengte verschilt.</li>
+        <li><b>Hormoonkleuren</b> zijn in de hele tool gelijk: FSH groen, LH goud, oestrogeen koraal, progesteron paars, testosteron teal, hCG oker.</li>
+        <li><b>De grafiek</b> is schematisch (geen meetwaarden, elke lijn op een eigen schaal). Oestrogeen heeft een tweede, kleinere bult uit het gele lichaam; FSH stijgt aan het eind van de cyclus weer als progesteron en oestrogeen dalen.</li>
+        <li><b>Positieve terugkoppeling</b> bij de LH-piek: oestrogeen remt de hypofyse zolang de spiegel laag of gemiddeld is; blijft hij ± 2 dagen hoog, dan stimuleert hij de afgifte van LH. De eisprong volgt ± 1,5 dag na het begin van de piek. Het gele lichaam leeft ± 12 dagen zonder hCG.</li>
+        <li><b>Bodybuilder</b>: extra testosteron (anabole steroïden) remt via negatieve terugkoppeling GnRH, LH en FSH; de eigen testosteron- en zaadcelproductie daalt.</li>
+        <li><b>Bevruchting</b>: ± 200 miljoen zaadcellen bij een zaadlozing, een paar honderd bij de eicel. Corticale reactie: na het binnendringen van één zaadcel verandert de zona pellucida, zodat geen tweede zaadcel kan binden (anders drie sets chromosomen).</li>
+        <li><b>hCG</b> lijkt op LH en bindt aan de LH-receptoren van het gele lichaam. Het komt pas na de innesteling (vanaf dag ± 6) in het bloed van de moeder. Rond week 8–10 neemt de placenta de productie van progesteron over.</li>
+        <li><b>Placenta</b>: getekend met twee vlokken; in werkelijkheid sterk vertakt. In de navelstreng twee slagaders en één ader van het kind.</li>
+        <li><b>Geboorte</b>: rekzintuigen in de baarmoederhals → hypothalamus → achterkwab van de hypofyse → oxytocine. Vereenvoudigd tot 'hersenen · hypofyse'.</li>
+      </ul>
+      <h3>Bronnen</h3>
+      <ul>
+        <li>Film <a href="../../../films/voortplanting/1-precies-op-tijd.html">Van bevruchting tot baby</a> en de bronmap daarvan; Biologie voor jou (havo, thema Voortplanting) en Nectar 4.1 H4 (vwo).</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 2 · versie 1.0 · 21 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script src="../../../personages/lib_cast.js"></script>
+<script>
+'use strict';
+/* =====================================================================================
+   Basis: tekenruimte, kleuren (licht/donker), hulpfuncties
+   ===================================================================================== */
+const W = 1920, H = 1080;
+let C = {};
+function zetPalet() {
+  const licht = document.documentElement.getAttribute('data-theme') === 'light';
+  C = licht ? {
+    bg: '#FFFFFF', fill: '#E9EDF3', text: '#121C2E', text2: '#4E5A6C', line: '#6B7687', meta: '#8A650C',
+    goud: '#C9961F', koraal: '#C0583A', groen: '#2F8A47', teal: '#25729C', paars: '#6550AD', oker: '#A8822E',
+    mens: '#6B7687', holte: '#6A4A52', bloed: '#B5574A', grond: '#C9B896', water: '#25729C', licht: true
+  } : {
+    bg: '#1A2740', fill: '#2A3A58', text: '#F2F2EE', text2: '#9AA3B2', line: '#8FA0B5', meta: '#C9B896',
+    goud: '#E0B64A', koraal: '#E07A5F', groen: '#7FC48F', teal: '#5BA4C9', paars: '#8C7BBF', oker: '#C9A35C',
+    mens: '#9AA3B2', holte: '#1A1420', bloed: '#B5574A', grond: '#6B5A40', water: '#5BA4C9', licht: false
+  };
+}
+zetPalet();
+
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const lerp = (a, b, u) => a + (b - a) * clamp(u, 0, 1);
+const ease = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+function hash(n) { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function rgbVan(c) { // '#rrggbb' of 'rgb(r,g,b)' -> [r,g,b]
+  if (c[0] === '#') { const n = parseInt(c.slice(1), 16); return [n >> 16, (n >> 8) & 255, n & 255]; }
+  const m = c.match(/[\d.]+/g); return m ? m.slice(0, 3).map(Number) : [128, 128, 128];
+}
+function rgba(c, a) { if (typeof c === 'number') { return `rgba(${arguments[0]},${arguments[1]},${arguments[2]},${arguments[3]})`; } const [r, g, b] = rgbVan(c); return `rgba(${r},${g},${b},${a})`; }
+function mix(c1, c2, k) { const a = rgbVan(c1), b = rgbVan(c2); const m = a.map((v, i) => Math.round(v * (1 - k) + b[i] * k)); return '#' + m.map(v => v.toString(16).padStart(2, '0')).join(''); }
+const lighten = (c, k) => mix(c, '#FFFFFF', k);
+function shape(ctx, fill, stroke, lw = 1.5) { if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+function circ(ctx, x, y, r, fill, stroke, lw = 1.5) { ctx.beginPath(); ctx.arc(x, y, Math.max(0.1, r), 0, 6.283); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const F = { titel: '"Fraunces",Georgia,serif', tekst: '"Source Sans 3",system-ui,sans-serif', meta: '"IBM Plex Mono",ui-monospace,monospace' };
+const fTitel = (px) => `700 ${px}px ${F.titel}`, fTekst = (px, w = 400) => `${w} ${px}px ${F.tekst}`, fMeta = (px) => `500 ${px}px ${F.meta}`;
+function text(ctx, s, x, y, font, color, align = 'left', base = 'alphabetic') { ctx.font = font; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base; ctx.fillText(s, x, y); }
+function metaText(ctx, s, x, y, color = C.meta, align = 'left', px = 24, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; try { ctx.letterSpacing = '3px'; } catch (e) {} ctx.fillText(s.toUpperCase(), x, y); ctx.restore(); }
+// gewone tekst op het beeld, met rand in de achtergrondkleur voor leesbaarheid
+function regel(ctx, s, x, y, a = 1, col = C.text, px = 34, align = 'left', w = 600) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, w); ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.lineJoin = 'round'; ctx.strokeStyle = rgba(C.bg, 0.85); ctx.lineWidth = 7; ctx.strokeText(s, x, y); ctx.fillStyle = col; ctx.fillText(s, x, y); ctx.restore(); }
+// naam van een onderdeel, direct bij het onderdeel (geen wijslijn); verborgen met 'Namen verbergen'
+let toonNamen = true;
+function naam(ctx, s, x, y, a = 1, align = 'left', col = C.text, px = 34) { if (!toonNamen) return; regel(ctx, s, x, y, a, col, px, align, 600); }
+function pijl(ctx, x1, y1, x2, y2, col, lw = 4, a = 1, kop = 16) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round';
+  const an = Math.atan2(y2 - y1, x2 - x1); ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2 - Math.cos(an) * kop * 0.6, y2 - Math.sin(an) * kop * 0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2, y2); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore();
+}
+function paneel(ctx, x, y, w, h, a = 1, col = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, h, 18); shape(ctx, rgba(C.fill, C.licht ? 0.55 : 0.45), col || rgba(C.line, 0.45), 2); ctx.restore(); }
+// paden
+function gladPad(pts, step = 7) {
+  if (pts.length < 3) { const out = []; const [a, b] = pts; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); const n = Math.max(2, Math.ceil(L / step)); for (let i = 0; i <= n; i++) out.push([lerp(a[0], b[0], i / n), lerp(a[1], b[1], i / n)]); return out; }
+  const P = [pts[0], ...pts, pts[pts.length - 1]], out = [];
+  for (let i = 1; i < P.length - 2; i++) { const [p0, p1, p2, p3] = [P[i - 1], P[i], P[i + 1], P[i + 2]]; const L = Math.hypot(p2[0] - p1[0], p2[1] - p1[1]); const n = Math.max(2, Math.ceil(L / step));
+    for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; out.push([0, 1].map(d => 0.5 * (2 * p1[d] + (-p0[d] + p2[d]) * u + (2 * p0[d] - 5 * p1[d] + 4 * p2[d] - p3[d]) * u2 + (-p0[d] + 3 * p1[d] - 3 * p2[d] + p3[d]) * u3))); } }
+  out.push(pts[pts.length - 1]); return out;
+}
+const _glad = new Map();
+function gladC(pts) { const k = JSON.stringify(pts); let v = _glad.get(k); if (!v) { v = gladPad(pts); _glad.set(k, v); } return v; }
+function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
+function padPunt(pts, d) { const L = padLengte(pts); d = clamp(d, 0, L[L.length - 1]); let i = 1; while (i < pts.length - 1 && L[i] < d) i++; const u = (d - L[i - 1]) / ((L[i] - L[i - 1]) || 1); return [lerp(pts[i - 1][0], pts[i][0], u), lerp(pts[i - 1][1], pts[i][1], u), Math.atan2(pts[i][1] - pts[i - 1][1], pts[i][0] - pts[i - 1][0])]; }
+function lijnPad(ctx, pts, col, lw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); gladC(pts).forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+// tekent fn in een aparte laag en zet die met doorzichtigheid a op het beeld (geen doorschijnende overlap binnen één figuur)
+let _laagCv = null;
+function laag(ctx, a, fn) {
+  if (a <= 0.01) return; if (a >= 0.995) { fn(ctx); return; }
+  const c = ctx.canvas; if (!_laagCv) _laagCv = document.createElement('canvas'); const L = _laagCv; if (L.width !== c.width || L.height !== c.height) { L.width = c.width; L.height = c.height; }
+  const l = L.getContext('2d'); l.setTransform(1, 0, 0, 1, 0, 0); l.clearRect(0, 0, L.width, L.height); l.setTransform(ctx.getTransform()); fn(l);
+  ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= a; ctx.drawImage(L, 0, 0); ctx.restore();
+}
+function pers(ctx, id, x, y, h, o = {}) { const a = o.a == null ? 1 : o.a; laag(ctx, a, (l) => persoon(l, id, x, y, h, Object.assign({}, o, { a: 1 }))); }
+function gloed(ctx, x, y, r, col, k) { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); }
+
+/* =====================================================================================
+   Bouwstenen
+   ===================================================================================== */
+function zaadcel(ctx, x, y, ang, t, s = 1, a = 1, col = C.text, kopKleur = null) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); ctx.scale(s, s);
+  ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.beginPath();
+  for (let i = 0; i <= 20; i++) { const u = i / 20; const px = -10 - u * 46, py = Math.sin(u * 9 - t * 14) * 5 * u; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); }
+  ctx.stroke(); ctx.beginPath(); ctx.ellipse(0, 0, 11, 7, 0, 0, 6.283); ctx.fillStyle = col; ctx.fill();
+  if (kopKleur) { ctx.fillStyle = kopKleur; roundRect(ctx, -4, -2.5, 9, 5, 2.5); ctx.fill(); }
+  ctx.restore();
+}
+function eicel(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r * 1.35, rgba(C.goud, 0.18), rgba(C.goud, 0.5), 1.5); circ(ctx, x, y, r, rgba('#F2E6C8', 0.95), C.goud, 2); circ(ctx, x + r * 0.15, y - r * 0.1, r * 0.32, rgba(C.paars, 0.7)); ctx.restore(); }
+
+// cel met kern; comps = lijst ellipsen die samen één vorm maken (voor delende cellen)
+function celVorm(ctx, comps, kleur, a = 1) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const vul = mix(kleur, C.bg, C.licht ? 0.78 : 0.62), rand = kleur;
+  ctx.strokeStyle = rand; ctx.lineWidth = 7; comps.forEach(([x, y, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x, y, Math.max(1, rx), Math.max(1, ry), 0, 0, 6.283); ctx.stroke(); });
+  ctx.fillStyle = vul; comps.forEach(([x, y, rx, ry]) => { ctx.beginPath(); ctx.ellipse(x, y, Math.max(1, rx), Math.max(1, ry), 0, 0, 6.283); ctx.fill(); });
+  // rustig cytoplasma: een paar kleine deeltjes
+  ctx.fillStyle = rgba(kleur, 0.35); comps.slice(0, 2).forEach(([x, y, rx, ry], j) => { for (let i = 0; i < 6; i++) { const an = hash(i * 7 + j * 31) * 6.283, rr = 0.45 + 0.4 * hash(i * 13 + j); ctx.beginPath(); ctx.arc(x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 3, 0, 6.283); ctx.fill(); } });
+  ctx.restore();
+}
+// DNA als streepjescode in de kern (zelfde code = zelfde DNA)
+const CODE = ['#5BA4C9', '#E0B64A', '#7FC48F', '#E07A5F', '#8C7BBF', '#E0B64A', '#5BA4C9'];
+function kern(ctx, x, y, r, a = 1, code = CODE) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(C.paars, C.licht ? 0.16 : 0.28), rgba(C.paars, 0.8), 2.5);
+  const n = code.length, bw = r * 1.1 / n; code.forEach((c, i) => { ctx.fillStyle = c; roundRect(ctx, x - r * 0.55 + i * bw + 1, y - r * 0.42, bw - 2, r * 0.84, 2); ctx.fill(); });
+  ctx.restore();
+}
+// een cel die zich deelt (mitose) langs de x-as; u = 0..1
+function delendeCel(ctx, x, y, r, u, kleur, a = 1, metKern = true, hoek = 0) {
+  if (a <= 0.01) return; const e = ease(u), d = r * 1.2 * e, rr = r * (1 - 0.1 * Math.sin(Math.PI * e));
+  ctx.save(); ctx.translate(x, y); ctx.rotate(hoek);
+  const comps = [[-d, 0, rr, rr], [d, 0, rr, rr]]; if (e < 0.8) comps.push([0, 0, Math.max(d, 1), rr * (1 - e / 0.8)]);
+  celVorm(ctx, comps, kleur, a);
+  if (metKern) { ctx.save(); ctx.rotate(-hoek); const kx = Math.cos(hoek), ky = Math.sin(hoek);
+    if (e < 0.35) kern(ctx, 0, 0, r * 0.42, a); else { const dk = d; kern(ctx, -dk * kx, -dk * ky, r * 0.42, a * ease((e - 0.35) / 0.2)); kern(ctx, dk * kx, dk * ky, r * 0.42, a * ease((e - 0.35) / 0.2)); }
+    ctx.restore(); }
+  ctx.restore();
+}
+
+// komodovaraan (zijaanzicht, kijkt naar rechts bij kijk = 1)
+function varaan(ctx, x, y, s, o = {}) {
+  const { a = 1, t = 0, kleur = '#8C8266', tong = 0, kijk = 1, loop = 0 } = o; if (a <= 0.01) return;
+  if (a < 0.995) { laag(ctx, a, (l) => varaan(l, x, y, s, Object.assign({}, o, { a: 1 }))); return; }
+  ctx.save(); ctx.translate(x, y); ctx.scale(s * kijk, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const donker = mix(kleur, '#000000', 0.38), buik = mix(kleur, '#FFFFFF', 0.22), stap = Math.sin(t * 5) * 12 * loop;
+  const poot = (px, py, ph, col) => { ctx.strokeStyle = col; ctx.lineWidth = 30; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 34 + ph, py + 50); ctx.lineTo(px + 14 + ph, py + 96); ctx.stroke();
+    ctx.lineWidth = 9; for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.moveTo(px + 14 + ph, py + 96); ctx.lineTo(px + 34 + ph + k * 12, py + 108 + Math.abs(k) * 2); ctx.stroke(); } };
+  poot(130, 4, stap, donker); poot(-150, 4, -stap, donker);
+  const zw = Math.sin(t * 1.3) * 12;
+  ctx.beginPath(); ctx.moveTo(-160, -36); ctx.bezierCurveTo(-340, -24, -480, 4 + zw * 0.3, -650, 62 + zw); ctx.bezierCurveTo(-480, 38 + zw * 0.3, -330, 50, -150, 56); ctx.closePath(); shape(ctx, kleur, donker, 3);
+  ctx.beginPath(); ctx.ellipse(0, 10, 205, 60, 0, 0, 6.283); shape(ctx, kleur, donker, 3);
+  ctx.beginPath(); ctx.ellipse(6, 42, 170, 20, 0, 0, 6.283); ctx.fillStyle = rgba(buik, 0.55); ctx.fill();
+  ctx.fillStyle = rgba(donker, 0.45); for (let i = 0; i < 16; i++) { ctx.beginPath(); ctx.arc(-170 + i * 22, -26 + hash(i * 3) * 26, 4 + hash(i) * 3, 0, 6.283); ctx.fill(); }
+  ctx.beginPath(); ctx.moveTo(150, -42); ctx.quadraticCurveTo(232, -64, 302, -52); ctx.quadraticCurveTo(374, -46, 396, -18); ctx.quadraticCurveTo(400, 2, 372, 8); ctx.quadraticCurveTo(302, 16, 252, 32); ctx.quadraticCurveTo(200, 48, 150, 50); shape(ctx, kleur, donker, 3);
+  ctx.strokeStyle = donker; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(394, -8); ctx.quadraticCurveTo(334, -2, 286, -14); ctx.stroke();
+  circ(ctx, 322, -34, 7, '#1A1A14'); circ(ctx, 324, -36, 2.2, '#FFFFFF');
+  if (tong > 0.01) { const L = 64 * tong; ctx.strokeStyle = '#E8C24A'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(394, -6); ctx.lineTo(394 + L, -6); ctx.lineTo(394 + L + 18, -16); ctx.moveTo(394 + L, -6); ctx.lineTo(394 + L + 18, 4); ctx.stroke(); }
+  poot(100, 18, -stap, kleur); poot(-180, 18, stap, kleur);
+  ctx.restore();
+}
+function ei(ctx, x, y, r, a = 1, scheur = 0) {
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); const rx = r * 0.78, n = 8;
+  const zig = (dir) => { for (let i = 0; i <= n; i++) { const u = dir > 0 ? i / n : 1 - i / n; ctx.lineTo(-rx + u * 2 * rx, (i % 2 ? -1 : 1) * r * 0.12); } };
+  if (scheur < 0.6) { ctx.beginPath(); ctx.ellipse(0, 0, rx, r, 0, 0, 6.283); shape(ctx, '#EDE6D6', '#BFB49C', 2.5);
+    if (scheur > 0.05) { ctx.save(); ctx.globalAlpha *= Math.min(1, scheur * 3); ctx.strokeStyle = '#8C8266'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-rx * 0.8, 0); for (let i = 1; i < n; i++) ctx.lineTo(-rx * 0.8 + i * rx * 1.6 / n, (i % 2 ? -1 : 1) * r * 0.12); ctx.stroke(); ctx.restore(); } }
+  else { const k = ease((scheur - 0.6) / 0.4);
+    ctx.beginPath(); ctx.moveTo(-rx, 0); ctx.ellipse(0, 0, rx, r, 0, Math.PI, 0, true); zig(-1); ctx.closePath(); shape(ctx, '#EDE6D6', '#BFB49C', 2.5);
+    ctx.save(); ctx.globalAlpha *= 1 - k; ctx.translate(r * 0.4 * k, -r * 1.1 * k); ctx.rotate(0.7 * k); ctx.beginPath(); ctx.moveTo(-rx, 0); ctx.ellipse(0, 0, rx, r, 0, Math.PI, 0, false); zig(-1); ctx.closePath(); shape(ctx, '#EDE6D6', '#BFB49C', 2.5); ctx.restore(); }
+  ctx.restore();
+}
+
+// hoofd in profiel met hypothalamus en hypofyse (zoals in de films)
+function hoofdProfiel(ctx, x, y, s = 1, o = {}) {
+  const { a = 1, hyp = 0, hth = 0 } = o; if (a <= 0.01) return { hth: [x + 60 * s, y + 10 * s], hyp: [x + 68 * s, y + 70 * s] }; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  ctx.beginPath(); ctx.moveTo(-40, 260); ctx.bezierCurveTo(-60, 160, -180, 120, -200, 0); ctx.bezierCurveTo(-220, -170, -80, -250, 40, -240); ctx.bezierCurveTo(170, -230, 230, -130, 220, -30); ctx.lineTo(250, 20); ctx.lineTo(220, 50); ctx.bezierCurveTo(230, 90, 220, 110, 200, 120); ctx.bezierCurveTo(210, 160, 180, 190, 140, 190); ctx.lineTo(120, 260); ctx.closePath(); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
+  ctx.beginPath(); ctx.ellipse(20, -80, 170, 120, -0.08, 0, 6.283); shape(ctx, rgba(C.paars, 0.16), rgba(C.paars, 0.6), 2);
+  regel(ctx, 'hersenen', -60, -110, 1, rgba(C.paars, 0.95), 28, 'center');
+  gloed(ctx, 60, 10, 80, C.oker, hth);
+  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hth; ctx.beginPath(); ctx.ellipse(60, 10, 34, 20, 0, 0, 6.283); shape(ctx, rgba(C.oker, 0.7), lighten(C.oker, 0.3), 2); ctx.restore();
+  ctx.strokeStyle = lighten(C.oker, 0.3); ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(60, 30); ctx.lineTo(66, 58); ctx.stroke();
+  gloed(ctx, 68, 70, 60, C.oker, hyp);
+  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hyp; ctx.beginPath(); ctx.arc(68, 70, 16, 0, 6.283); shape(ctx, rgba(C.oker, 0.85), lighten(C.oker, 0.3), 2); ctx.restore();
+  ctx.restore(); return { hth: [x + 60 * s, y + 10 * s], hyp: [x + 68 * s, y + 70 * s] };
+}
+
+/* ---------- mannelijke geslachtsorganen, schematische doorsnede (zijaanzicht, voorkant rechts) ----------
+   ontwerpcoördinaten rond (700, 480), zelfde tekening als film 2 */
+const MK = { zaadbal: '#D9A48F', bijbal: '#C9A35C', leider: '#E0B64A', blaasjes: '#7FC48F', prostaat: '#8C7BBF', blaas: '#5BA4C9', buis: '#C9CED6', zwel: '#B5574A' };
+const VAS = [[786, 752], [764, 700], [768, 630], [826, 586], [872, 470], [878, 360], [840, 285], [760, 262], [680, 290], [652, 360], [672, 440], [712, 480], [742, 498], [762, 516]];
+const URETHRA = [[765, 462], [762, 500], [764, 538], [790, 566], [850, 566], [884, 590], [900, 660], [918, 740], [934, 786]];
+const ZAADROUTE = [[808, 712], [792, 690], [772, 660], [770, 700], [782, 746]].concat(VAS.slice(1)).concat(URETHRA.slice(3)).concat([[948, 840]]);
+// indexen in ZAADROUTE: 0 zaadbal, 2 bijbal-kop, 4 bijbal-staart, 8 langs de blaas (voor), 13 bij het zaadblaasje, 15 prostaat, 17 urinebuis, 22 punt van de penis, 23 buiten
+function manSchema(ctx, ox, oy, s, o = {}) {
+  const { a = 1, hl = {}, zw = 0, kring = 0 } = o; const P = (x, y) => [ox + (x - 700) * s, oy + (y - 480) * s]; if (a <= 0.01) return P;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(ox, oy); ctx.scale(s, s); ctx.translate(-700, -480); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const buisKl = C.licht ? '#8E97A6' : MK.buis;
+  ctx.beginPath(); ctx.moveTo(430, 140); ctx.quadraticCurveTo(350, 400, 400, 600); ctx.quadraticCurveTo(440, 700, 580, 720); ctx.quadraticCurveTo(700, 730, 748, 650); ctx.lineTo(870, 548); ctx.quadraticCurveTo(940, 500, 950, 400); ctx.quadraticCurveTo(975, 260, 960, 140); ctx.closePath(); shape(ctx, rgba(C.mens, 0.14), rgba(C.mens, 0.7), 2);
+  ctx.beginPath(); ctx.ellipse(800, 706, 76, 88, 0.12, 0, 6.283); shape(ctx, rgba(C.mens, 0.2), rgba(C.mens, 0.7), 2);
+  gloed(ctx, 806, 706, 110, MK.zaadbal, hl.zaadbal || 0);
+  ctx.beginPath(); ctx.ellipse(808, 710, 40, 52, 0.2, 0, 6.283); shape(ctx, rgba(MK.zaadbal, 0.75), lighten(MK.zaadbal, 0.3), 2);
+  ctx.save(); ctx.beginPath(); ctx.ellipse(808, 710, 36, 48, 0.2, 0, 6.283); ctx.clip(); ctx.strokeStyle = rgba('#7A3A30', 0.55); ctx.lineWidth = 2.5; for (let r = 0; r < 4; r++) { ctx.beginPath(); for (let i = 0; i <= 40; i++) { const u = i / 40; const px = 778 + u * 64, py = 676 + r * 20 + Math.sin(u * 18 + r) * 7; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); } ctx.restore();
+  gloed(ctx, 774, 700, 70, MK.bijbal, hl.bijbal || 0);
+  ctx.strokeStyle = MK.bijbal; ctx.lineWidth = 16; ctx.beginPath(); ctx.moveTo(796, 662); ctx.quadraticCurveTo(758, 664, 762, 712); ctx.quadraticCurveTo(764, 744, 788, 752); ctx.stroke();
+  gloed(ctx, 770, 380, 140, MK.blaas, hl.blaas || 0);
+  ctx.beginPath(); ctx.ellipse(770, 378, 96, 86, 0, 0, 6.283); shape(ctx, rgba(MK.blaas, 0.3), MK.blaas, 2.5);
+  gloed(ctx, 662, 420, 90, MK.blaasjes, hl.blaasjes || 0);
+  ctx.save(); ctx.translate(664, 418); ctx.rotate(-0.35); ctx.beginPath(); for (let i = 0; i <= 40; i++) { const an = i / 40 * 6.283; const r = 1 + 0.12 * Math.sin(an * 5); const px = Math.cos(an) * 26 * r, py = Math.sin(an) * 60 * r; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(MK.blaasjes, 0.55), MK.blaasjes, 2); ctx.restore();
+  ctx.strokeStyle = MK.blaasjes; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(682, 468); ctx.quadraticCurveTo(700, 486, 726, 492); ctx.stroke();
+  gloed(ctx, 760, 502, 90, MK.prostaat, hl.prostaat || 0);
+  ctx.beginPath(); ctx.ellipse(760, 502, 50, 36, 0.1, 0, 6.283); shape(ctx, rgba(MK.prostaat, 0.55), lighten(MK.prostaat, 0.3), 2);
+  gloed(ctx, 870, 420, 80, MK.leider, hl.leider || 0);
+  lijnPad(ctx, VAS, MK.leider, 7 + 3 * (hl.leider || 0));
+  ctx.beginPath(); ctx.moveTo(866, 548); ctx.quadraticCurveTo(882, 660, 904, 770); ctx.quadraticCurveTo(930, 806, 956, 772); ctx.quadraticCurveTo(944, 650, 912, 524); ctx.closePath(); shape(ctx, rgba(C.mens, 0.24), rgba(C.mens, 0.75), 2);
+  if (zw > 0.01) { ctx.save(); ctx.globalAlpha *= 0.3 + 0.7 * zw; ctx.beginPath(); ctx.moveTo(880, 560); ctx.quadraticCurveTo(892, 660, 910, 752); ctx.quadraticCurveTo(926, 772, 940, 752); ctx.quadraticCurveTo(930, 650, 904, 548); ctx.closePath(); shape(ctx, rgba(MK.zwel, 0.25 + 0.45 * zw), rgba(MK.zwel, 0.8), 1.5); ctx.restore(); }
+  gloed(ctx, 880, 620, 80, buisKl, hl.buis || 0);
+  lijnPad(ctx, URETHRA, buisKl, 5 + 3 * (hl.buis || 0));
+  if (kring > 0.01) { ctx.save(); ctx.globalAlpha *= kring; ctx.strokeStyle = C.koraal; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(765, 466, 18, 8, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); return P;
+}
+
+/* ---------- vrouwelijke geslachtsorganen, schematisch vooraanzicht; ontwerpcoördinaten rond (960, 480) ---------- */
+const VK = { stok: '#C9A35C', leider: '#E0A08C', wand: '#C98A7E', slijm: '#B5574A', vagina: '#D9A48F' };
+const EILEIDER_L = [[884, 352], [820, 318], [744, 314], [688, 340], [656, 382]];
+const EIROUTE = [[1220, 448], [1262, 420]].concat(EILEIDER_L.map(([x, y]) => [1920 - x, y]).reverse().slice(1)).concat([[1000, 380]]);
+function vrouwSchema(ctx, ox, oy, s, o = {}) {
+  const { a = 1, hl = {}, dik = 0.3, eisprong = -1, eiA = 1, t = 0 } = o; const P = (x, y) => [ox + (x - 960) * s, oy + (y - 480) * s]; if (a <= 0.01) return P;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(ox, oy); ctx.scale(s, s); ctx.translate(-960, -480); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.strokeStyle = rgba(C.mens, 0.35); ctx.lineWidth = 3; ctx.setLineDash([10, 12]); for (const d of [-1, 1]) { ctx.beginPath(); ctx.moveTo(960 + d * 400, 200); ctx.quadraticCurveTo(960 + d * 450, 520, 960 + d * 250, 860); ctx.stroke(); } ctx.setLineDash([]);
+  for (const d of [-1, 1]) {
+    const pts = EILEIDER_L.map(([x, y]) => [d < 0 ? x : 1920 - x, y]);
+    gloed(ctx, pts[2][0], pts[2][1], 110, VK.leider, hl.leider || 0); lijnPad(ctx, pts, VK.leider, 11);
+    const [fx, fy] = pts[pts.length - 1]; ctx.save(); ctx.translate(fx, fy); ctx.rotate(d < 0 ? 0.5 : -0.5); gloed(ctx, 0, 20, 70, VK.leider, hl.trechter || 0); ctx.beginPath(); ctx.moveTo(-6, -4); ctx.lineTo(-30, 34); ctx.lineTo(30, 34); ctx.lineTo(6, -4); ctx.closePath(); shape(ctx, rgba(VK.leider, 0.55), VK.leider, 2);
+    ctx.strokeStyle = VK.leider; ctx.lineWidth = 4; for (let i = 0; i < 6; i++) { const x0 = -28 + i * 11.2; ctx.beginPath(); ctx.moveTo(x0, 34); ctx.lineTo(x0 + Math.sin(t * 2 + i) * 3, 52 + (i % 2) * 6); ctx.stroke(); } ctx.restore();
+    const sx = d < 0 ? 700 : 1220, sy = 448; gloed(ctx, sx, sy, 90, VK.stok, hl.stok || 0);
+    ctx.strokeStyle = rgba(VK.wand, 0.6); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(sx - d * 44, sy - 4); ctx.lineTo(960 + d * 84, 400); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(sx, sy, 50, 30, d * 0.15, 0, 6.283); shape(ctx, rgba(VK.stok, 0.7), lighten(VK.stok, 0.3), 2);
+    for (let i = 0; i < 7; i++) circ(ctx, sx - 30 + hash(i * 5 + (d + 1)) * 60, sy - 16 + hash(i * 7 + 3 + d) * 32, 3 + 3 * hash(i * 11 + d), rgba('#F2E6C8', 0.8));
+  }
+  gloed(ctx, 960, 420, 170, VK.wand, hl.baarmoeder || 0);
+  ctx.beginPath(); ctx.moveTo(872, 344); ctx.quadraticCurveTo(856, 460, 926, 548); ctx.lineTo(932, 604); ctx.lineTo(988, 604); ctx.lineTo(994, 548); ctx.quadraticCurveTo(1064, 460, 1048, 344); ctx.quadraticCurveTo(960, 262, 872, 344); ctx.closePath(); shape(ctx, rgba(VK.wand, 0.6), lighten(VK.wand, 0.25), 2.5);
+  gloed(ctx, 960, 420, 110, VK.slijm, hl.slijm || 0);
+  ctx.beginPath(); ctx.moveTo(904, 360); ctx.quadraticCurveTo(960, 346, 1016, 360); ctx.quadraticCurveTo(990, 450, 964, 540); ctx.lineTo(956, 540); ctx.quadraticCurveTo(930, 450, 904, 360); ctx.closePath(); ctx.fillStyle = rgba(C.holte, C.licht ? 0.35 : 0.6); ctx.fill(); ctx.strokeStyle = rgba(VK.slijm, 0.85); ctx.lineWidth = 4 + 16 * dik; ctx.stroke();
+  gloed(ctx, 960, 580, 70, VK.wand, hl.hals || 0);
+  ctx.strokeStyle = rgba(C.holte, 0.8); ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(960, 540); ctx.lineTo(960, 606); ctx.stroke();
+  gloed(ctx, 960, 700, 90, VK.vagina, hl.vagina || 0);
+  ctx.beginPath(); ctx.moveTo(926, 604); ctx.quadraticCurveTo(920, 700, 924, 800); ctx.lineTo(996, 800); ctx.quadraticCurveTo(1000, 700, 994, 604); ctx.closePath(); shape(ctx, rgba(VK.vagina, 0.45), lighten(VK.vagina, 0.25), 2);
+  ctx.strokeStyle = rgba(C.holte, 0.7); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(960, 610); ctx.lineTo(960, 800); ctx.stroke();
+  ctx.restore();
+  if (eisprong >= 0 && eiA > 0.01) { const L = padLengte(EIROUTE); const [x, y] = padPunt(EIROUTE, L[L.length - 1] * eisprong); const [sx, sy] = P(x, y); eicel(ctx, sx, sy, 11 * s, eiA); }
+  return P;
+}
+function eierstokGroot(ctx, x, y, rx, ry, o = {}) {
+  const { a = 1, n = 160, groei = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.35), lighten(VK.stok, 0.2), 2.5);
+  ctx.save(); ctx.beginPath(); ctx.ellipse(x, y, rx - 8, ry - 8, 0, 0, 6.283); ctx.clip();
+  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = Math.sqrt(v) * 0.92; circ(ctx, x + Math.cos(an) * rx * rr, y + Math.sin(an) * ry * rr, 4, rgba(C.licht ? '#B08A3A' : '#F2E6C8', 0.75)); }
+  ctx.restore();
+  const grp = [[x - 110, y - 36], [x - 36, y + 54], [x + 64, y - 60], [x + 118, y + 26], [x - 10, y - 80]];
+  grp.forEach(([px, py], i) => { const g = groei * (i === 3 ? 1 : 0.55); if (g <= 0.01) return; const r = 6 + (i === 3 ? 34 : 16) * g; circ(ctx, px, py, r, rgba(C.goud, 0.18), rgba(C.goud, 0.7), 2); eicel(ctx, px, py, 5 + 4 * g, 1); });
+  ctx.restore();
+}
+
+const fmtNL = (n) => Math.round(n).toLocaleString('nl-NL');
+/* =====================================================================================
+   Les 2 · hulpfuncties: hormoonkleuren, cyclus-krommen, blokken en terugkoppelpijlen
+   ===================================================================================== */
+// vaste kleur per hormoon (ook in de grafiek): FSH groen, LH goud, oestrogeen koraal, progesteron paars, testosteron teal, hCG oker
+const HK = () => ({ GnRH: C.oker, FSH: C.groen, LH: C.goud, oestrogeen: C.koraal, progesteron: C.paars, testosteron: C.teal, hCG: C.oker, oxytocine: C.teal });
+// schematische krommen over een cyclus van 28 dagen (dag, waarde 0..1)
+const KROM = {
+  FSH: [[0, 0.42], [3, 0.55], [7, 0.42], [11, 0.3], [13, 0.42], [14, 0.62], [15.5, 0.32], [20, 0.18], [26, 0.24], [28, 0.42]],
+  LH: [[0, 0.14], [10, 0.17], [12.5, 0.32], [14, 1.0], [15.5, 0.28], [18, 0.14], [28, 0.14]],
+  oestrogeen: [[0, 0.14], [6, 0.2], [10, 0.5], [12.6, 0.92], [14.2, 0.45], [16.5, 0.32], [21, 0.56], [25.5, 0.26], [28, 0.14]],
+  progesteron: [[0, 0.06], [14, 0.08], [16, 0.35], [21, 0.92], [24.5, 0.55], [27.5, 0.07], [28, 0.06]],
+  slijm: [[0, 0.55], [4.5, 0.12], [6, 0.14], [14, 0.6], [21, 0.92], [27.3, 1.0], [28, 0.55]]
+};
+function krom(pts, d) { if (d <= pts[0][0]) return pts[0][1]; for (let i = 1; i < pts.length; i++) if (d <= pts[i][0]) { const [d0, v0] = pts[i - 1], [d1, v1] = pts[i]; return lerp(v0, v1, ease((d - d0) / (d1 - d0))); } return pts[pts.length - 1][1]; }
+function lijnKrom(ctx, pts, x0, w, yb, h, col, tot = 28, a = 1, lw = 5, d0 = 0, d1 = 28) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; ctx.beginPath();
+  for (let d = d0, i = 0; d <= Math.min(tot, d1) + 1e-6; d += 0.1, i++) { const x = x0 + (d - d0) / (d1 - d0) * w, y = yb - krom(pts, d) * h; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); ctx.restore(); }
+// blok in een regelschema
+function blok(ctx, x, y, w, h, tekst, col, a = 1, gl = 0, sub = null) { if (a <= 0.01) return; gloed(ctx, x, y, w * 0.7, col, gl); ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h / 2, w, h, 18); shape(ctx, rgba(col, C.licht ? 0.16 : 0.22), col, 3); ctx.restore();
+  regel(ctx, tekst, x, y + (sub ? -2 : 12), a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 34, a, C.text2, 24, 'center', 400); }
+// teken + of – in een rondje (stimuleren / remmen)
+function tekenPM(ctx, x, y, plus, a = 1, r = 24) { if (a <= 0.01) return; const col = plus ? C.groen : C.koraal; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, C.bg, col, 3.5); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x - r * 0.5, y); ctx.lineTo(x + r * 0.5, y); if (plus) { ctx.moveTo(x, y - r * 0.5); ctx.lineTo(x, y + r * 0.5); } ctx.stroke(); ctx.restore(); }
+// gebogen pijl via een controlepunt
+function boog(ctx, x1, y1, cx, cy, x2, y2, col, lw = 5, a = 1, kop = 18, dash = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; if (dash) ctx.setLineDash(dash);
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.quadraticCurveTo(cx, cy, x2, y2); ctx.stroke(); ctx.setLineDash([]); const an = Math.atan2(y2 - cy, x2 - cx);
+  ctx.beginPath(); ctx.moveTo(x2 + Math.cos(an) * 4, y2 + Math.sin(an) * 4); ctx.lineTo(x2 - Math.cos(an - 0.45) * kop, y2 - Math.sin(an - 0.45) * kop); ctx.lineTo(x2 - Math.cos(an + 0.45) * kop, y2 - Math.sin(an + 0.45) * kop); ctx.closePath(); ctx.fill(); ctx.restore(); }
+// deeltjes die langs een recht stuk stromen
+function stroom(ctx, x1, y1, x2, y2, col, T, a = 1, n = 5, r = 7, v = 0.5) { if (a <= 0.01) return; for (let i = 0; i < n; i++) { const p = (T * v + i / n) % 1; circ(ctx, lerp(x1, x2, p), lerp(y1, y2, p), r, rgba(col, a * Math.min(1, Math.sin(Math.PI * p) * 2.5))); } }
+// meter (staafje) met label
+function meter(ctx, x, y, h, v, col, label, a = 1, w = 44) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h, w, h, 10); shape(ctx, rgba(C.fill, 0.6), rgba(C.line, 0.5), 2);
+  const vh = clamp(v, 0, 1) * (h - 8); roundRect(ctx, x - w / 2 + 4, y - 4 - vh, w - 8, Math.max(2, vh), 7); ctx.fillStyle = col; ctx.fill(); ctx.restore(); regel(ctx, label, x, y + 40, a, col, 28, 'center', 700); }
+// follikel: ring hulpcellen met eicel; holte = 0..1 (vochtholte bij een rijpe follikel)
+function follikel(ctx, x, y, r, a = 1, holte = 0, kl = C.goud) { if (a <= 0.01 || r < 1) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, rgba(kl, 0.2), rgba(kl, 0.8), 2.5);
+  if (holte > 0.01) circ(ctx, x + r * 0.12, y + r * 0.08, r * 0.62 * holte, rgba(C.licht ? '#DCEAF2' : '#7FA7C4', 0.35));
+  const n = Math.min(26, Math.round(r / 3)); for (let i = 0; i < n; i++) { const an = i / n * 6.283; circ(ctx, x + Math.cos(an) * r * 0.86, y + Math.sin(an) * r * 0.86, Math.max(1.5, r * 0.07), rgba(kl, 0.6)); }
+  ctx.restore(); eicel(ctx, x - r * 0.38 * holte, y - r * 0.3 * holte, Math.max(4, r * (holte > 0 ? 0.22 : 0.4)), a); }
+// slijmvlies als strook: dikte 0..1, los = 0..1 (afstoten)
+function slijmStrook(ctx, x, y, w, dik, a = 1, los = 0, T = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = rgba(VK.wand, 0.55); ctx.fillRect(x, y, w, 34);
+  const h = 10 + 90 * dik; ctx.fillStyle = rgba(VK.slijm, 0.75); ctx.beginPath(); ctx.moveTo(x, y); for (let i = 0; i <= 40; i++) { const xx = x + i / 40 * w; ctx.lineTo(xx, y - h - Math.sin(i * 1.3) * 5 * dik); } ctx.lineTo(x + w, y); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = rgba(C.bloed, 0.7); ctx.lineWidth = 2.5; for (let i = 0; i < 9; i++) { const xx = x + (i + 0.5) / 9 * w; ctx.beginPath(); ctx.moveTo(xx, y); ctx.quadraticCurveTo(xx + 10, y - h * 0.5, xx - 4, y - h * 0.9); ctx.stroke(); }
+  if (los > 0.01) for (let i = 0; i < 14; i++) { const xx = x + hash(i * 3) * w, p = (T * 0.4 + hash(i * 7)) % 1; circ(ctx, xx, y + 30 + p * 120, 5 + 4 * hash(i), rgba(C.bloed, los * (1 - p))); }
+  ctx.restore(); }
+
+/* =====================================================================================
+   SCHERMEN — per scherm: titel, stappen (t = tekst onder het beeld, th = havotekst, n = notitie voor de docent,
+   vwo = alleen in vwo) en teken(ctx, S). In teken: S.on(k, duur, vertraging) = voortgang 0..1 van stap k
+   (1 als die stap al geweest is, 0 als hij nog moet komen), S.T = tijd sinds het begin van het scherm (s).
+   ===================================================================================== */
+const SCHERMEN = [];
+
+// ---------- 0 · titel ----------
+SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
+  stappen: [{ t: '<b>Voortplanting</b> · les 2: precies op tijd', n: 'Kies eerst havo of vwo. Presenteren (F) geeft volledig scherm.' }],
+  teken(ctx, S) {
+    const T = S.T, hk = HK();
+    metaText(ctx, 'Voortplanting · les 2', 140, 330, C.meta, 'left', 30);
+    text(ctx, 'Precies', 140, 470, fTitel(120), C.text); text(ctx, 'op tijd', 140, 610, fTitel(120), C.goud);
+    regel(ctx, 'hormonen · de cyclus · bevruchting · zwangerschap · geboorte', 144, 700, 1, C.text2, 34, 'left', 400);
+    const gx = 1120, gw = 680, gb = 720, gh = 330, tot = (T * 4) % 34;
+    ctx.save(); ctx.strokeStyle = rgba(C.line, 0.4); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke(); ctx.restore();
+    [['LH', 'LH'], ['FSH', 'FSH'], ['oestrogeen', 'oestrogeen'], ['progesteron', 'progesteron']].forEach(([k]) => lijnKrom(ctx, KROM[k], gx, gw, gb, gh, hk[k], tot, 0.9, 5));
+    metaText(ctx, 'een cyclus · 28 dagen', gx, gb + 44, C.meta, 'left', 20);
+  } });
+
+// ---------- 1 · opening: één dag, vijf dagen ----------
+SCHERMEN.push({ titel: 'Op tijd', deel: 'Opening',
+  stappen: [
+    { t: 'Een cyclus duurt ongeveer <b>vier weken</b>. Rond het midden komt de <b>eisprong</b>.', n: 'Dag 1 = eerste dag van de menstruatie. De lengte verschilt per persoon en per maand; de eisprong valt ± 14 dagen vóór de volgende menstruatie.' },
+    { t: 'Een <b>eicel</b> leeft na de eisprong ongeveer <b>één dag</b>.', n: 'Ongeveer 12 tot 24 uur.' },
+    { t: 'Een <b>zaadcel</b> overleeft in het lichaam van een vrouw hooguit <b>vijf dagen</b>.', n: 'In het slijm van de baarmoederhals rond de eisprong. In de vagina zelf maar kort (zuur).' },
+    { t: 'Alleen in een paar dagen per cyclus kan een zwangerschap ontstaan. Alles moet <b>precies op tijd</b>.', n: 'Vruchtbare periode ± 6 dagen: de 5 dagen vóór de eisprong en de dag zelf. Vraag: hoe weet het lichaam wanneer? Antwoord: hormonen (volgende schermen).' }
+  ],
+  teken(ctx, S) {
+    const x0 = 180, w = 1560, y = 560, dag = (d) => x0 + (d - 0.5) / 28 * w, T = S.T;
+    const a0 = S.on(0, 0.8);
+    for (let d = 1; d <= 28; d++) { const a = a0 * S.on(0, 0.3, d * 0.03); const x = dag(d), men = d <= 5;
+      ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 56 + 3, y - 34, w / 28 - 6, 68, 10); shape(ctx, men ? rgba(C.bloed, 0.45) : rgba(C.fill, 0.7), rgba(C.line, 0.35), 1.5); ctx.restore();
+      if (d === 1 || d % 7 === 0 || d === 14) regel(ctx, String(d), x, y + 74, a, C.text2, 26, 'center', 600); }
+    regel(ctx, 'menstruatie', dag(3), y - 54, a0, mix(C.bloed, C.text, 0.35), 28, 'center', 700); metaText(ctx, 'dag', x0 - 20, y + 74, C.meta, 'right', 20, a0);
+    // eisprong
+    const e = S.on(0, 0.8, 1.0); if (e > 0.01) { pijl(ctx, dag(14), y - 190, dag(14), y - 46, C.goud, 5, e, 20); regel(ctx, 'eisprong', dag(14), y - 210, e, C.goud, 36, 'center', 700); eicel(ctx, dag(14) + 60, y - 150, 22, e); }
+    // eicel: één dag
+    const ei = S.on(1, 1.0); if (ei > 0.01) { ctx.save(); ctx.globalAlpha *= ei; roundRect(ctx, dag(14) - w / 56, y + 110, w / 28 * 1.0, 40, 12); ctx.fillStyle = rgba(C.goud, 0.75); ctx.fill(); ctx.restore(); regel(ctx, 'eicel leeft ± 1 dag', dag(14.5) + 40, y + 140, ei, C.goud, 30, 'left', 700); }
+    // zaadcel: vijf dagen
+    const z = S.on(2, 1.4); if (z > 0.01) { const xa = dag(9) - w / 56, xb = lerp(xa, dag(14) + w / 56, z); ctx.save(); ctx.globalAlpha *= z; roundRect(ctx, xa, y + 170, xb - xa, 40, 12); ctx.fillStyle = rgba(C.teal, 0.7); ctx.fill(); ctx.restore();
+      zaadcel(ctx, xb - 8, y + 190, 0, T, 1.3, z, C.text); regel(ctx, 'zaadcel overleeft tot ± 5 dagen', xa - 20, y + 200, z, C.teal, 30, 'right', 700); }
+    // vruchtbare dagen
+    const v = S.on(3, 1.0); if (v > 0.01) { ctx.save(); ctx.globalAlpha *= v; roundRect(ctx, dag(9) - w / 56 - 6, y - 44, w / 28 * 6 + 12, 88, 14); ctx.strokeStyle = C.goud; ctx.lineWidth = 5; ctx.stroke(); ctx.restore();
+      regel(ctx, 'vruchtbare dagen', dag(11), y - 60, v, C.goud, 32, 'center', 700); regel(ctx, '± 6 dagen per cyclus', dag(11.5), y + 290, v, C.text, 40, 'center', 700); }
+  } });
+
+// ---------- 2 · signalen van boven ----------
+SCHERMEN.push({ titel: 'Signalen', deel: 'Hormonen',
+  stappen: [
+    { t: 'De <b>hypothalamus</b> geeft <b>GnRH</b> af aan de <b>hypofyse</b>, vlak eronder.', n: 'Herhaling van les 1 (startsein). GnRH hoeft maar een paar millimeter te reizen.' },
+    { t: 'De hypofyse geeft <b>FSH</b> en <b>LH</b> af aan het <b>bloed</b>. Die komen overal in het lichaam.', n: 'FSH = follikelstimulerend hormoon, LH = luteïniserend hormoon.' },
+    { t: 'Alleen cellen met de juiste <b>receptor</b> reageren: in de eierstok en de zaadbal.', n: 'Hormoon en receptor passen als sleutel en slot. Een spiercel heeft geen FSH-receptor en merkt er niets van.' },
+    { t: '<b>Eiwithormonen</b> (GnRH, FSH, LH) binden óp het membraan. <b>Steroïden</b> (testosteron, oestrogeen, progesteron) gaan de cel in.', vwo: true, n: 'Eiwithormonen lossen op in het plasma maar kunnen niet door het membraan: de receptor op het membraan start een kettingreactie binnen de cel. Steroïden zijn gemaakt van cholesterol, vetoplosbaar, liften in het bloed mee op transporteiwitten en binden aan een receptor in de cel die direct genen aan- of uitzet.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), a0 = S.on(0, 0.8), b = S.on(1, 1.0), r = S.on(2, 1.0), v = S.on(3, 1.0), weg = 1 - v;
+    const k = hoofdProfiel(ctx, 360, 430, 1.0, { a: a0 * (1 - v), hth: S.on(0, 1.0), hyp: S.on(0, 1.0, 0.8) }) || { hth: [420, 440], hyp: [428, 500] };
+    naam(ctx, 'hypothalamus', k.hth[0], k.hth[1] - 44, a0 * weg, 'center'); naam(ctx, 'hypofyse', k.hyp[0] - 32, k.hyp[1] + 44, a0 * weg, 'right');
+    for (let i = 0; i < 3; i++) { const p = (T * 0.9 + i / 3) % 1; circ(ctx, lerp(k.hth[0], k.hyp[0], p), lerp(k.hth[1] + 18, k.hyp[1] - 14, p), 5, rgba(hk.GnRH, S.on(0, 0.6, 0.6) * weg)); }
+    naam(ctx, 'GnRH', k.hth[0] + 44, k.hth[1] + 46, S.on(0, 0.6, 0.6) * weg, 'left', hk.GnRH, 30);
+    // bloedbaan
+    const BP = [[k.hyp[0], k.hyp[1] + 10], [440, 640], [520, 820], [800, 880], [1200, 880], [1600, 880], [1860, 880]];
+    lijnPad(ctx, BP, C.bloed, 22, b * 0.55 * weg); naam(ctx, 'bloed', 700, 940, b * weg, 'center', mix(C.bloed, C.text, 0.3), 28);
+    if (b > 0.01) { const L = padLengte(BP); for (let i = 0; i < 14; i++) { const p = (T * 0.08 + i / 14) % 1; const [x, y] = padPunt(BP, L[L.length - 1] * p); circ(ctx, x, y - 2, 7, rgba(i % 2 ? hk.FSH : hk.LH, b * weg)); }
+      regel(ctx, 'FSH', 410, 640, b * weg, hk.FSH, 32, 'right', 700); regel(ctx, 'LH', 410, 680, b * weg, hk.LH, 32, 'right', 700); }
+    // cellen langs het bloed
+    const cel = (x, l, rec, i) => { const a = b * weg * S.on(1, 0.6, 0.5 + i * 0.2); if (a <= 0.01) return; const y = 720; const gl = rec ? r : 0; gloed(ctx, x, y, 130, C.goud, gl);
+      ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 80, rgba(rec ? C.oker : C.mens, 0.25), rec ? C.oker : C.mens, 3); circ(ctx, x, y, 28, rgba(C.paars, 0.35), rgba(C.paars, 0.7), 2);
+      if (rec) for (let j = 0; j < 5; j++) { const an = Math.PI * (0.25 + j * 0.125); const rx = x + Math.cos(an) * 80, ry = y + Math.sin(an) * 80; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(rx, ry, 9, an + 0.6 * Math.PI, an + 1.4 * Math.PI, true); ctx.stroke(); if (r > 0.3) circ(ctx, rx + Math.cos(an) * 6, ry + Math.sin(an) * 6, 6, rgba(j % 2 ? hk.FSH : hk.LH, r)); }
+      ctx.restore(); regel(ctx, l, x, y - 100, a, C.text, 30, 'center', 700); if (rec && r > 0.01) naam(ctx, 'receptor', x + 90, y + 100, r, 'left', C.goud, 28);
+      if (!rec) regel(ctx, 'geen receptor', x, y + 125, a * r, C.text2, 26, 'center', 600); };
+    cel(980, 'spiercel', false, 0); cel(1290, 'huidcel', false, 1); cel(1640, 'eierstok / zaadbal', true, 2);
+    // vwo: twee soorten hormonen
+    if (v > 0.01) { const ys = 600, cs = [[620, 'eiwithormoon', hk.LH, false], [1320, 'steroïdhormoon', hk.oestrogeen, true]];
+      cs.forEach(([x, l, col, st]) => { ctx.save(); ctx.globalAlpha *= v; ctx.beginPath(); ctx.arc(x, ys + 60, 300, Math.PI * 1.05, Math.PI * 1.95); ctx.lineTo(x + 300, ys + 400); ctx.lineTo(x - 300, ys + 400); ctx.closePath(); ctx.fillStyle = rgba(C.oker, 0.12); ctx.fill();
+        ctx.beginPath(); ctx.arc(x, ys + 60, 300, Math.PI * 1.05, Math.PI * 1.95); ctx.strokeStyle = C.oker; ctx.lineWidth = 8; ctx.stroke(); ctx.restore();
+        regel(ctx, l, x, 290, v, col, 38, 'center', 700); naam(ctx, 'celmembraan', x + 300, ys - 70, v, 'left', C.oker, 26);
+        const kx = x, ky = ys + 300; ctx.save(); ctx.globalAlpha *= v; circ(ctx, kx, ky, 70, rgba(C.paars, 0.25), C.paars, 2.5); ctx.restore(); naam(ctx, 'kern', kx, ky + 100, v, 'center', C.text2, 26);
+        const p = ease((S.on(3, 2.4, 0.6)));
+        if (!st) { const ry = ys - 232; ctx.save(); ctx.globalAlpha *= v; ctx.strokeStyle = C.goud; ctx.lineWidth = 7; ctx.beginPath(); ctx.arc(x, ry - 2, 18, Math.PI * 1.05, Math.PI * 1.95, true); ctx.stroke(); ctx.restore();
+          circ(ctx, x, lerp(ry - 160, ry - 22, Math.min(1, p * 1.6)), 14, rgba(col, v)); naam(ctx, 'receptor op het membraan', x - 40, ry - 40, v * S.on(3, 0.6, 1.2), 'right', C.goud, 26);
+          const q = clamp(p * 1.6 - 1, 0, 1); if (q > 0.01) for (let i = 0; i < 4; i++) { const yy = lerp(ry + 30, ky - 80, (i + 1) / 4); circ(ctx, x + (i % 2 ? 22 : -22), yy, 9, rgba(C.goud, q * (i / 4 < q ? 1 : 0.2))); }
+          regel(ctx, 'kettingreactie in de cel', x, ys + 450, v * clamp(p * 1.6 - 1, 0, 1), C.text2, 28, 'center', 600); }
+        else { const sx = x, sy = lerp(ys - 400, ky - 30, p); circ(ctx, sx, sy, 13, rgba(col, v)); if (p > 0.55) { ctx.save(); ctx.globalAlpha *= v; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(sx, sy + 2, 22, 0.2, Math.PI - 0.2); ctx.stroke(); ctx.restore(); }
+          regel(ctx, 'door het membraan, receptor in de cel', x, ys + 450, v * clamp(p * 1.6 - 0.6, 0, 1), C.text2, 28, 'center', 600); naam(ctx, 'genen aan of uit', kx + 90, ky, v * clamp(p * 2 - 1.2, 0, 1), 'left', C.goud, 26); } }); }
+  } });
+
+// ---------- 3 · terugkoppeling bij de man ----------
+SCHERMEN.push({ titel: 'Man', deel: 'Hormonen',
+  stappen: [
+    { t: 'Bij de man: GnRH → hypofyse → <b>LH</b> en <b>FSH</b> → zaadbal.', n: 'Zelfde as als bij de vrouw; het eindorgaan verschilt.' },
+    { t: '<b>LH</b>: de zaadbal maakt <b>testosteron</b>. <b>FSH</b> en testosteron samen: <b>zaadcellen</b>.', n: 'Vanaf de puberteit ± 1000 zaadcellen per seconde.' },
+    { t: 'In de zaadbal: <b>Leydigcellen</b> maken testosteron, <b>Sertolicellen</b> verzorgen de zaadcellen en maken <b>inhibine</b>.', vwo: true, n: 'Leydigcellen liggen tussen de zaadbuisjes (LH-receptor), Sertolicellen in de wand van de buisjes (FSH-receptor). Inhibine remt vooral de afgifte van FSH.' },
+    { t: 'Testosteron <b>remt</b> de hypothalamus en de hypofyse: <b>negatieve terugkoppeling</b>.', n: 'Het signaal remt zijn eigen oorzaak.' },
+    { t: 'Zo blijft de testosteronspiegel <b>stabiel</b>, net als een thermostaat.', n: 'Te hoog → minder GnRH en LH → minder testosteron. Te laag → de rem gaat eraf → meer LH → meer testosteron.' },
+    { t: 'Een bodybuilder spuit <b>extra testosteron</b>.', n: 'Laat de klas eerst voorspellen wat er met LH, de eigen testosteronproductie en de zaadcelproductie gebeurt.' },
+    { t: 'De rem werkt: <b>minder LH en FSH</b>. Zijn zaadballen maken zelf minder testosteron en <b>minder zaadcellen</b>.', n: 'Anabole steroïden kunnen daardoor tijdelijk onvruchtbaar maken; de zaadballen kunnen kleiner worden.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), X = 460, Y = [230, 470, 790];
+    const a0 = S.on(0, 0.8), t1 = S.on(1, 0.8), vw = S.on(2, 0.8), rem = S.on(3, 1.0), th = S.on(4, 1.0), bb = S.on(5, 1.0), res = S.on(6, 1.4);
+    const dal = 1 - 0.75 * res; // hoeveel LH/FSH er nog is
+    blok(ctx, X, Y[0], 330, 100, 'hypothalamus', C.oker, a0); blok(ctx, X, Y[1], 330, 100, 'hypofyse', C.oker, a0 * S.on(0, 0.6, 0.4)); blok(ctx, X, Y[2], 330, 110, 'zaadbal', '#D9A48F', a0 * S.on(0, 0.6, 0.8), 0, null);
+    pijl(ctx, X, Y[0] + 52, X, Y[1] - 54, hk.GnRH, 5 * (0.4 + 0.6 * dal), a0, 18); regel(ctx, 'GnRH', X - 24, (Y[0] + Y[1]) / 2 + 10, a0, hk.GnRH, 30, 'right', 700);
+    pijl(ctx, X - 40, Y[1] + 52, X - 40, Y[2] - 58, hk.LH, 3 + 6 * dal, a0 * S.on(0, 0.6, 0.6), 20); pijl(ctx, X + 40, Y[1] + 52, X + 40, Y[2] - 58, hk.FSH, 3 + 6 * dal, a0 * S.on(0, 0.6, 0.6), 20);
+    regel(ctx, 'LH', X - 64, 640, a0, hk.LH, 32, 'right', 700); regel(ctx, 'FSH', X + 64, 640, a0, hk.FSH, 32, 'left', 700);
+    if (res > 0.01) { regel(ctx, '↓', X - 140, 640, res, C.koraal, 52, 'center', 700); regel(ctx, '↓', X + 150, 640, res, C.koraal, 52, 'center', 700); }
+    // producten van de zaadbal
+    const tp = t1 * (1 - 0.7 * res); regel(ctx, 'testosteron', X + 200, Y[2] + 12, t1, hk.testosteron, 32, 'left', 700); stroom(ctx, X + 170, Y[2], X + 190, Y[2], hk.testosteron, T, 0);
+    for (let i = 0; i < 4; i++) zaadcel(ctx, X - 120 + i * 70, Y[2] + 120 + (i % 2) * 14, 0.2, T + i, 1.3, t1 * (i < 4 * (1 - 0.75 * res) ? 1 : 0.15));
+    regel(ctx, 'zaadcellen', X, Y[2] + 200, t1, C.text2, 28, 'center', 600); if (res > 0.01) { regel(ctx, '↓', X + 140, Y[2] + 200, res, C.koraal, 44, 'center', 700); regel(ctx, '↓', X + 420, Y[2] + 12, res, C.koraal, 44, 'center', 700); }
+    // vwo: binnenkant zaadbal
+    if (vw > 0.01) { const zx = 1440, zy = 700; ctx.save(); ctx.globalAlpha *= vw * (1 - th); circ(ctx, zx, zy, 200, rgba('#D9A48F', 0.2), rgba('#D9A48F', 0.8), 2.5);
+      [[-90, -60], [90, -50], [0, 90]].forEach(([dx, dy]) => { circ(ctx, zx + dx, zy + dy, 70, rgba('#D9A48F', 0.25), '#D9A48F', 3); for (let j = 0; j < 8; j++) { const an = j / 8 * 6.283; circ(ctx, zx + dx + Math.cos(an) * 55, zy + dy + Math.sin(an) * 55, 9, rgba(C.groen, 0.7)); } for (let j = 0; j < 4; j++) zaadcel(ctx, zx + dx + (j - 1.5) * 12, zy + dy + Math.sin(j) * 10, -1.57, T + j, 0.45, 1, C.text); });
+      [[0, -10], [-120, 60], [120, 70], [-20, -150]].forEach(([dx, dy]) => circ(ctx, zx + dx, zy + dy, 13, rgba(C.teal, 0.8))); ctx.restore();
+      const a = vw * (1 - th); naam(ctx, 'Sertolicellen', zx + 210, zy - 110, a, 'left', C.groen, 28); naam(ctx, 'Leydigcellen', zx + 210, zy + 150, a, 'left', C.teal, 28); naam(ctx, 'zaadbuisjes', zx, zy - 230, a, 'center', C.text2, 26);
+      regel(ctx, 'inhibine', zx + 210, zy - 60, a, C.paars, 26, 'left', 700); }
+    // negatieve terugkoppeling
+    if (rem > 0.01) { const rx = X + 380; boog(ctx, X + 170, Y[2] - 20, rx + 120, (Y[2] + Y[1]) / 2, X + 172, Y[1] + 10, hk.testosteron, 5, rem * (1 - 0.0), 18); boog(ctx, X + 170, Y[2] - 40, rx + 300, Y[1], X + 172, Y[0] + 6, hk.testosteron, 5, rem, 18);
+      tekenPM(ctx, X + 290, Y[1] + 120, false, rem); tekenPM(ctx, X + 330, Y[0] + 60, false, S.on(3, 0.6, 0.4)); 
+      if (vw > 0.01) { boog(ctx, X + 90, Y[2] - 56, X + 140, Y[1] + 120, X + 110, Y[1] + 54, C.paars, 4, rem * vw, 14, [8, 8]); tekenPM(ctx, X + 140, Y[1] + 150, false, rem * vw, 18); } }
+    // thermostaat: spiegel schommelt rond een vaste waarde
+    if (th > 0.01) { const gx = 1180, gw = 640, gb = 560, gh = 260, sp = gb - gh * 0.5; ctx.save(); ctx.globalAlpha *= th; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb - gh); ctx.lineTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke();
+      ctx.setLineDash([10, 10]); ctx.strokeStyle = rgba(C.text2, 0.6); ctx.beginPath(); ctx.moveTo(gx, sp); ctx.lineTo(gx + gw, sp); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
+      metaText(ctx, 'testosteronspiegel', gx, gb - gh - 20, C.meta, 'left', 20, th); regel(ctx, 'normaal', gx + gw + 10, sp + 10, th, C.text2, 24, 'left', 600);
+      const tot = S.on(4, 3.0, 0.4); ctx.save(); ctx.globalAlpha *= th; ctx.strokeStyle = hk.testosteron; ctx.lineWidth = 5; ctx.beginPath();
+      for (let i = 0; i <= 300; i++) { const u = i / 300; if (u > tot) break; let v = Math.sin(u * 22) * 0.18 * Math.exp(-u * 0.6); if (bb > 0 && u > 0.55) v += 0.35 * bb * ease((u - 0.55) / 0.08); const y = sp - v * gh; i ? ctx.lineTo(gx + u * gw, y) : ctx.moveTo(gx + u * gw, y); } ctx.stroke(); ctx.restore();
+      if (bb > 0.01) { const sx = gx + 0.55 * gw, sy = sp - 0.55 * gh; ctx.save(); ctx.globalAlpha *= bb; ctx.translate(sx, sy - 70); ctx.rotate(0.6); roundRect(ctx, -12, -70, 24, 90, 6); shape(ctx, rgba(C.teal, 0.35), C.text, 2.5); ctx.fillStyle = C.text; ctx.fillRect(-2, 20, 4, 36); ctx.fillRect(-18, -76, 36, 6); ctx.restore(); regel(ctx, 'extra testosteron', sx + 40, sy - 110, bb, C.teal, 30, 'left', 700); } }
+  } });
+
+// ---------- 4 · follikels ----------
+SCHERMEN.push({ titel: 'Follikels', deel: 'De cyclus',
+  stappen: [
+    { t: 'Elke eicel ligt in de eierstok in een <b>follikel</b>: een blaasje van hulpcellen.', n: 'Duizenden kleine follikels in rust. Bij de vrouw ligt het ingewikkelder dan bij de man: elke maand precies één keer een piek.' },
+    { t: 'Aan het begin van de cyclus stijgt <b>FSH</b> een beetje. Een <b>groepje</b> follikels gaat groeien.', n: 'De follikels hebben FSH-receptoren.' },
+    { t: 'De groeiende follikels maken <b>oestrogeen</b>. Het baarmoederslijmvlies groeit weer aan.', n: 'Rechtsonder: het slijmvlies, net na de menstruatie.' },
+    { t: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na: de <b>dominante follikel</b>.', th: 'Oestrogeen <b>remt</b> de afgifte van FSH. De follikels sterven af, op één na: de follikel die blijft groeien.', n: 'Alleen de follikel met de meeste FSH-receptoren redt het met weinig FSH. Een wedstrijd waarin de koploper zelf de regels strenger maakt.' },
+    { t: 'Oestrogeen in twee stappen: de buitenste cellen maken onder invloed van <b>LH</b> een voorloper, de binnenste cellen maken er met <b>FSH</b> en het enzym <b>aromatase</b> oestrogeen van.', vwo: true, n: 'De voorloper is een mannelijk hormoon (androgeen). Thecacellen (buiten) en granulosacellen (binnen).' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), ex = 700, ey = 560;
+    const a0 = S.on(0, 0.8), g = S.on(1, 2.0), oe = S.on(2, 1.2), rem = S.on(3, 2.4), vw = S.on(4, 1.0);
+    const fsh = 0.25 + 0.35 * g - 0.38 * rem, oes = 0.12 + 0.35 * oe + 0.35 * rem;
+    ctx.save(); ctx.globalAlpha *= a0 * (1 - 0.8 * vw); ctx.beginPath(); ctx.ellipse(ex, ey, 460, 300, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.28), lighten(VK.stok, 0.2), 3); ctx.restore();
+    naam(ctx, 'eierstok', ex - 360, ey - 280, a0 * (1 - vw), 'center');
+    // rustende follikels
+    for (let i = 0; i < 46; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = 0.25 + 0.65 * Math.sqrt(v); const x = ex + Math.cos(an) * 420 * rr, y = ey + Math.sin(an) * 270 * rr; if (Math.hypot((x - ex) / 300, (y - ey) / 200) < 0.55) continue; follikel(ctx, x, y, 11, a0 * 0.8 * (1 - vw)); }
+    // het groepje
+    const G = [[ex - 210, ey - 90], [ex - 60, ey + 120], [ex + 110, ey - 110], [ex + 230, ey + 70], [ex - 40, ey - 40]], dom = 4;
+    G.forEach(([x, y], i) => { const groei = g * (i === dom ? 1 : 0.75), sterf = i === dom ? 0 : rem; const r = 12 + 60 * groei + (i === dom ? 70 * rem : -40 * sterf);
+      follikel(ctx, x, y, r, a0 * (1 - 0.85 * sterf) * (1 - vw), i === dom ? clamp(g * 0.4 + rem, 0, 1) : 0.3 * groei);
+      if (oe > 0.01 && sterf < 0.9) for (let j = 0; j < 2; j++) { const p = (T * 0.35 + j / 2 + i * 0.13) % 1; circ(ctx, x + (r + 10) * Math.cos(p * 6 + i), y - r - p * 90, 6, rgba(hk.oestrogeen, oe * (1 - p) * (1 - sterf) * (1 - vw))); } });
+    naam(ctx, 'follikel', G[0][0] - 90, G[0][1] - 70, a0 * (1 - g) , 'center');
+    if (rem > 0.3) naam(ctx, 'dominante follikel', G[dom][0], G[dom][1] - 170, ease((rem - 0.3) / 0.4) * (1 - vw), 'center', C.goud);
+    // meters
+    meter(ctx, 1320, 520, 300, fsh, hk.FSH, 'FSH', S.on(1, 0.6) * (1 - vw)); meter(ctx, 1450, 520, 300, oes, hk.oestrogeen, 'oestrogeen', oe * (1 - vw));
+    if (rem > 0.01) { boog(ctx, 1450, 200, 1385, 140, 1330, 200, hk.oestrogeen, 5, rem * (1 - vw), 16); tekenPM(ctx, 1388, 150, false, rem * (1 - vw)); }
+    if (g > 0.01) pijl(ctx, 1290, 380, 1000, 470, hk.FSH, 4, g * (1 - rem) * (1 - vw), 16);
+    // slijmvlies
+    slijmStrook(ctx, 1240, 900, 560, 0.12 + 0.45 * oe + 0.15 * rem, oe * (1 - vw)); naam(ctx, 'baarmoederslijmvlies', 1520, 970, oe * (1 - vw), 'center', C.text2, 26);
+    // vwo: twee cellen, twee stappen
+    if (vw > 0.01) { const fx = 760, fy = 560; ctx.save(); ctx.globalAlpha *= vw; circ(ctx, fx, fy, 330, rgba(C.oker, 0.16), C.oker, 3); circ(ctx, fx, fy, 230, rgba(C.goud, 0.16), C.goud, 3); circ(ctx, fx, fy, 130, rgba(C.licht ? '#DCEAF2' : '#7FA7C4', 0.3)); ctx.restore(); eicel(ctx, fx - 40, fy - 20, 40, vw);
+      regel(ctx, 'buitenste cellen', fx - 300, fy - 300, vw, C.oker, 30, 'right', 700); regel(ctx, 'binnenste cellen', fx + 290, fy - 250, vw, C.goud, 30, 'left', 700);
+      const p = S.on(4, 3.0, 0.4), px = lerp(fx - 290, fx - 170, clamp(p * 2, 0, 1)), py = lerp(fy + 120, fy + 60, clamp(p * 2, 0, 1)); pijl(ctx, fx - 480, fy + 120, fx - 330, fy + 120, hk.LH, 5, vw, 18); regel(ctx, 'LH', fx - 500, fy + 132, vw, hk.LH, 32, 'right', 700);
+      circ(ctx, px, py, 12, rgba(C.teal, vw)); regel(ctx, 'voorloper', fx - 290, fy + 200, vw * clamp(p * 3, 0, 1), C.teal, 28, 'center', 700);
+      pijl(ctx, fx + 480, fy + 40, fx + 240, fy + 40, hk.FSH, 5, vw, 18); regel(ctx, 'FSH', fx + 500, fy + 52, vw, hk.FSH, 32, 'left', 700);
+      const q = clamp(p * 2 - 1, 0, 1); if (q > 0.01) { circ(ctx, lerp(fx - 170, fx + 170, q), fy + 60, 12, rgba(q < 0.5 ? C.teal : hk.oestrogeen, vw)); regel(ctx, 'aromatase', fx + 170, fy + 130, vw * q, C.goud, 28, 'center', 700); regel(ctx, 'oestrogeen', fx + 360, fy + 230, vw * q, hk.oestrogeen, 32, 'left', 700); } }
+  } });
+
+// ---------- 5 · van rem naar gaspedaal ----------
+SCHERMEN.push({ titel: 'LH-piek', deel: 'De cyclus',
+  stappen: [
+    { t: 'Is de oestrogeenspiegel laag of gemiddeld, dan <b>remt</b> oestrogeen de hypofyse.', n: 'Negatieve terugkoppeling, zoals bij de man.' },
+    { t: 'Blijft oestrogeen ± twee dagen <b>hoog</b>, dan slaat het om: oestrogeen <b>stimuleert</b> juist de afgifte van LH. <b>Positieve terugkoppeling</b>.', n: 'Meer oestrogeen → meer LH → de follikel maakt nog meer oestrogeen. Het signaal versterkt zichzelf.' },
+    { t: 'Een enorme <b>LH-piek</b>. De follikel scheurt open: de <b>eisprong</b>.', n: 'Ongeveer anderhalve dag na het begin van de piek. De eicel maakt de eerste meiotische deling af en stopt dan in metafase II (vwo).' },
+    { t: 'Wat van de follikel overblijft, wordt het <b>gele lichaam</b>. Dat maakt vooral <b>progesteron</b>.', n: 'Ook nog wat oestrogeen.' },
+    { t: 'Progesteron maakt het slijmvlies <b>klaar voor een embryo</b> en <b>remt</b> de hypofyse: geen nieuwe follikels.', n: 'Slijmvlies dikker, rijker aan bloedvaten en klieren.' },
+    { t: 'Geen embryo? Na ± 12 dagen sterft het gele lichaam af. Progesteron daalt: de <b>menstruatie</b>. De rem valt weg en FSH stijgt weer.', n: 'Kleine slagaders in het slijmvlies knijpen samen, het weefsel sterft af en wordt afgestoten. De cyclus begint opnieuw.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), X = 420, Yh = 280, Yf = 760;
+    const a0 = S.on(0, 0.8), pos = S.on(1, 1.4), piek = S.on(2, 1.6), gl = S.on(3, 1.4), pr = S.on(4, 1.2), men = S.on(5, 2.0);
+    const lh = 0.2 + 0.25 * pos + 0.55 * piek * (1 - gl), oes = 0.25 + 0.6 * pos * (1 - piek * 0.6) - 0.1 * gl;
+    blok(ctx, X, Yh, 300, 100, 'hypofyse', C.oker, a0, 0.6 * piek * (1 - gl));
+    blok(ctx, X, Yf, 300, 100, gl > 0.5 ? 'geel lichaam' : 'follikel', gl > 0.5 ? C.goud : C.oker, a0);
+    pijl(ctx, X - 60, Yh + 52, X - 60, Yf - 54, hk.LH, 3 + 26 * lh, a0, 22 + 20 * lh); regel(ctx, 'LH', X - 100, (Yh + Yf) / 2, a0, hk.LH, 36, 'right', 700);
+    // oestrogeen terug naar de hypofyse
+    const oa = a0 * (1 - pr * 0.0) * (1 - gl);
+    pijl(ctx, X + 60, Yf - 54, X + 60, Yh + 52, hk.oestrogeen, 3 + 12 * oes, oa, 20); regel(ctx, 'oestrogeen', X + 100, (Yh + Yf) / 2 + 60, oa, hk.oestrogeen, 32, 'left', 700);
+    tekenPM(ctx, X + 160, (Yh + Yf) / 2 - 10, pos > 0.5, oa, 30); if (pos > 0.01 && pos < 1) gloed(ctx, X + 160, (Yh + Yf) / 2 - 10, 80, C.goud, Math.sin(Math.PI * pos));
+    // progesteron remt
+    if (gl > 0.01) { pijl(ctx, X + 60, Yf - 54, X + 60, Yh + 52, hk.progesteron, 3 + 12 * gl * (1 - men), gl * a0, 20); regel(ctx, 'progesteron', X + 100, (Yh + Yf) / 2 + 60, gl * (1 - men * 0.6), hk.progesteron, 32, 'left', 700); tekenPM(ctx, X + 160, (Yh + Yf) / 2 - 10, false, pr * (1 - men)); }
+    if (men > 0.01) { regel(ctx, 'FSH ↑', X - 100, (Yh + Yf) / 2 + 60, ease((men - 0.6) / 0.4), hk.FSH, 32, 'right', 700); }
+    // rechts: de follikel in de eierstok
+    const fx = 1200, fy = 470; ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(fx, fy, 330, 250, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.28), lighten(VK.stok, 0.2), 3); ctx.restore(); naam(ctx, 'eierstok', fx - 250, fy - 240, a0, 'center');
+    const scheur = piek > 0.5 ? ease((piek - 0.5) / 0.5) : 0, rf = 150 + 40 * pos;
+    if (gl < 0.98) follikel(ctx, fx, fy, rf * (1 - 0.5 * scheur), a0 * (1 - gl), 1 - scheur * 0.7);
+    if (scheur > 0.01) { const ex = lerp(fx - 60, fx + 420, scheur), ey = lerp(fy - 50, fy - 220, scheur); eicel(ctx, ex, ey, 30, 1 - pr); regel(ctx, 'eisprong', fx + 300, fy - 280, scheur * (1 - pr), C.goud, 36, 'center', 700); }
+    if (gl > 0.01) { const r = 140 * (1 - 0.65 * men); ctx.save(); ctx.globalAlpha *= gl; circ(ctx, fx, fy, r, rgba('#E8C840', 0.55 * (1 - men * 0.6)), C.goud, 3); for (let i = 0; i < 18; i++) { const an = i / 18 * 6.283; circ(ctx, fx + Math.cos(an) * r * 0.6, fy + Math.sin(an) * r * 0.6, r * 0.12, rgba(C.goud, 0.45 * (1 - men))); } ctx.restore();
+      naam(ctx, 'geel lichaam', fx, fy + r + 46, gl, 'center', C.goud); for (let i = 0; i < 4; i++) { const p = (T * 0.4 + i / 4) % 1; circ(ctx, fx - r - 10 - p * 120, fy - p * 60, 7, rgba(hk.progesteron, gl * (1 - men) * (1 - p))); } }
+    // slijmvlies
+    const dik = 0.15 + 0.35 * pos + 0.1 * piek + 0.4 * pr - 0.9 * men * (pr > 0 ? 1 : 0);
+    slijmStrook(ctx, 950, 960, 620, clamp(dik, 0.08, 1), a0, men, T); naam(ctx, 'baarmoederslijmvlies', 1260, 1030, a0, 'center', C.text2, 26);
+    if (men > 0.01) regel(ctx, 'menstruatie', 1640, 940, men, mix(C.bloed, C.text, 0.3), 34, 'left', 700);
+    // LH-meter
+    meter(ctx, 1760, 560, 330, lh, hk.LH, 'LH', a0);
+  } });
+
+// ---------- 6 · de cyclus in één grafiek ----------
+const GR = { x0: 330, w: 1490, dag(d) { return this.x0 + d / 28 * this.w; } };
+SCHERMEN.push({ titel: 'Grafiek', deel: 'De cyclus',
+  stappen: [
+    { t: 'Onderaan het <b>baarmoederslijmvlies</b>. Dag 1: de <b>menstruatie</b>.', n: 'Bouw de grafiek van onder naar boven op: eerst wat je ziet (bloeding), dan de oorzaak.' },
+    { t: 'De <b>eierstok</b>: een follikel groeit, de <b>eisprong</b>, dan het <b>gele lichaam</b>.', n: 'Eisprong rond dag 14; het gele lichaam leeft ± 12 dagen.' },
+    { t: '<b>Oestrogeen</b> komt uit de follikel, <b>progesteron</b> uit het gele lichaam.', n: 'Let op de tweede, kleinere oestrogeenbult: het gele lichaam maakt ook wat oestrogeen.' },
+    { t: '<b>FSH</b> en <b>LH</b> komen uit de hypofyse. Midden in de cyclus: de <b>LH-piek</b>.', n: 'Koppel aan de vorige schermen: oestrogeen hoog → positieve terugkoppeling → LH-piek → eisprong.' },
+    { t: 'Lees de grafiek: volg één dag van boven naar beneden.', n: 'Laat leerlingen per dag zeggen wat er in elke rij gebeurt. Met R start de dagschuif opnieuw.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), { x0, w } = GR, dag = (d) => GR.dag(d);
+    const rS = S.on(0, 1.6), rE = S.on(1, 1.6), rO = S.on(2, 2.0), rH = S.on(3, 2.0), rL = S.on(4, 0.6);
+    const rij = (y0, h, l, a) => { if (a <= 0.01) return; metaText(ctx, l, x0 - 30, y0 - h / 2 + 8, C.meta, 'right', 20, a); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(C.line, 0.35); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + w, y0); ctx.stroke(); ctx.restore(); };
+    // dagas
+    for (let d = 0; d <= 28; d += 7) regel(ctx, d === 0 ? 'dag 1' : 'dag ' + d, dag(d), 1040, rS, C.text2, 24, 'center', 600);
+    ctx.save(); ctx.globalAlpha *= 0.12 * rE; ctx.fillStyle = C.goud; ctx.fillRect(dag(13.6), 170, dag(14.4) - dag(13.6), 830); ctx.restore();
+    // rij 4: slijmvlies
+    const yS = 990; rij(yS, 150, 'slijmvlies', rS); if (rS > 0.01) { ctx.save(); ctx.globalAlpha *= rS; ctx.fillStyle = rgba(VK.slijm, 0.7); ctx.beginPath(); ctx.moveTo(x0, yS);
+      for (let d = 0; d <= 28 * rS; d += 0.1) ctx.lineTo(dag(d), yS - krom(KROM.slijm, d) * 140); ctx.lineTo(dag(28 * rS), yS); ctx.closePath(); ctx.fill(); ctx.restore();
+      for (let i = 0; i < 16; i++) circ(ctx, dag(0.3 + hash(i) * 4.3), yS - 10 - hash(i * 3) * 40, 5, rgba(C.bloed, rS)); regel(ctx, 'menstruatie', dag(2.4), yS - 90, rS, mix(C.bloed, C.text, 0.3), 26, 'center', 700); }
+    // rij 3: eierstok
+    const yE = 790; rij(yE + 60, 120, 'eierstok', rE); if (rE > 0.01) { const fasen = [[1, 9], [5, 18], [9, 30], [12, 46], [13.6, 56]]; fasen.forEach(([d, r], i) => follikel(ctx, dag(d), yE, r * 0.9, rE * S.on(1, 0.4, i * 0.15), i / 4));
+      const sp = S.on(1, 0.5, 0.9); eicel(ctx, dag(14.6), yE - 40, 12, sp); naam(ctx, 'eisprong', dag(14), yE - 80, sp, 'center', C.goud, 26);
+      [[16, 40, 1], [19.5, 52, 1], [23, 46, 0.8], [26.5, 24, 0.4]].forEach(([d, r, k], i) => { const a = rE * S.on(1, 0.4, 1.1 + i * 0.15); ctx.save(); ctx.globalAlpha *= a; circ(ctx, dag(d), yE, r * 0.9, rgba('#E8C840', 0.5 * k), rgba(C.goud, k), 2.5); ctx.restore(); });
+      naam(ctx, 'follikel', dag(6.5), yE - 62, rE, 'center', C.text2, 24); naam(ctx, 'geel lichaam', dag(21), yE - 72, rE * S.on(1, 0.4, 1.4), 'center', C.goud, 24); }
+    // rij 2: oestrogeen en progesteron
+    const yO = 650; rij(yO, 200, 'eierstokhormonen', rO); lijnKrom(ctx, KROM.oestrogeen, x0, w, yO, 190, hk.oestrogeen, 28 * Math.min(1, rO * 1.6), rO); lijnKrom(ctx, KROM.progesteron, x0, w, yO, 190, hk.progesteron, 28 * clamp(rO * 1.6 - 0.6, 0, 1), rO);
+    regel(ctx, 'oestrogeen', dag(11.6), yO - 196, rO, hk.oestrogeen, 28, 'right', 700); regel(ctx, 'progesteron', dag(21), yO - 196, clamp(rO * 1.6 - 0.6, 0, 1), hk.progesteron, 28, 'center', 700);
+    // rij 1: hypofysehormonen
+    const yH = 400; rij(yH, 220, 'hypofyse', rH); lijnKrom(ctx, KROM.FSH, x0, w, yH, 210, hk.FSH, 28 * Math.min(1, rH * 1.6), rH); lijnKrom(ctx, KROM.LH, x0, w, yH, 210, hk.LH, 28 * clamp(rH * 1.6 - 0.6, 0, 1), rH);
+    regel(ctx, 'FSH', dag(3), yH - 140, rH, hk.FSH, 28, 'center', 700); regel(ctx, 'LH-piek', dag(14) + 20, yH - 216, clamp(rH * 1.6 - 0.6, 0, 1), hk.LH, 28, 'left', 700);
+    // dagschuif
+    if (rL > 0.01) { const d = ((S.T - (S.start(4) || 0)) * 1.4) % 30; const dd = clamp(d, 0, 28), x = dag(dd); ctx.save(); ctx.globalAlpha *= rL; ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(x, 160); ctx.lineTo(x, 1000); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
+      [[KROM.FSH, yH, 210, hk.FSH], [KROM.LH, yH, 210, hk.LH], [KROM.oestrogeen, yO, 190, hk.oestrogeen], [KROM.progesteron, yO, 190, hk.progesteron], [KROM.slijm, yS, 140, VK.slijm]].forEach(([k, yb, h, c]) => circ(ctx, x, yb - krom(k, dd) * h, 10, c, C.bg, 2.5));
+      regel(ctx, 'dag ' + Math.max(1, Math.round(dd)), x, 150, rL, C.text, 32, 'center', 700); }
+  } });
+
+// ---------- 7 · de ontmoeting ----------
+SCHERMEN.push({ titel: 'Bevruchting', deel: 'Bevruchting',
+  stappen: [
+    { t: 'Bij een zaadlozing komen er ± <b>200 miljoen</b> zaadcellen in de vagina. Maar een paar honderd bereiken de eicel.', n: 'Zuur in de vagina, slijm in de baarmoederhals, afweercellen, de verkeerde eileider. De eicel wordt bevrucht in de eileider.' },
+    { t: 'Onderweg haalt de baarmoeder cholesterol uit het membraan van de zaadcel: <b>capacitatie</b>. Pas daarna kan hij bevruchten.', vwo: true, n: 'Een zaadcel die niet gecapaciteerd is, zwemt wel naar de eicel maar kan haar niet bevruchten.' },
+    { t: 'Om de eicel liggen follikelcellen en een stevige mantel: de <b>zona pellucida</b>.', th: 'Om de eicel liggen follikelcellen en een stevige mantel.', n: 'Zona pellucida = mantel van glycoproteïnen.' },
+    { t: 'Het <b>acrosoom</b> in de kop van de zaadcel opent: enzymen verteren een tunneltje. De <b>acrosoomreactie</b>.', vwo: true, n: 'Start zodra de zaadcel aan de zona pellucida bindt.' },
+    { t: 'Eén zaadcel versmelt met de eicel. Meteen verandert de mantel: <b>er kan geen tweede zaadcel meer in</b>.', n: 'Vwo: een golf van calciumionen; de corticale korrels lozen enzymen die de zona veranderen. Met twee zaadcellen zou de cel drie sets chromosomen krijgen.' },
+    { t: 'De kernen van eicel en zaadcel komen samen: een <b>zygote</b> met 46 chromosomen.', n: 'Vwo: de calciumgolf maakt de eicel wakker; ze maakt de tweede meiotische deling af en stoot het tweede poollichaampje af.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), cap = S.on(1, 1.0), zon = S.on(2, 1.0), acr = S.on(3, 2.0), ver = S.on(4, 2.2), zyg = S.on(5, 2.0);
+    // links: de teller
+    const n = Math.round(200e6 * Math.pow(1e-6, ease(S.on(0, 3.2, 0.6)))), lbl = n > 1000 ? fmtNL(n) : '± ' + Math.max(200, n);
+    metaText(ctx, 'zaadcellen', 120, 260, C.meta, 'left', 22, a0); regel(ctx, lbl, 120, 350, a0, C.goud, 70, 'left', 700);
+    ['zuur in de vagina', 'slijm in de baarmoederhals', 'afweercellen', 'de verkeerde eileider'].forEach((s, i) => { const a = S.on(0, 0.5, 0.8 + i * 0.55); regel(ctx, '− ' + s, 130, 440 + i * 56, a, C.text2, 30, 'left', 600); });
+    if (cap > 0.01) { regel(ctx, 'capacitatie', 130, 720, cap, C.teal, 34, 'left', 700); regel(ctx, 'het membraan van de kop verandert', 130, 762, cap, C.text2, 26, 'left', 400); }
+    // rechts: de eicel
+    const ex = 1240, ey = 560, R = 210, hk = HK();
+    const a1 = a0; ctx.save(); ctx.globalAlpha *= a1;
+    for (let i = 0; i < 26; i++) { const an = i / 26 * 6.283 + 0.1, rr = R + 56 + 10 * hash(i); circ(ctx, ex + Math.cos(an) * rr, ey + Math.sin(an) * rr, 22, rgba(C.goud, 0.22 * (1 - 0.6 * zyg)), rgba(C.goud, 0.5 * (1 - 0.6 * zyg)), 1.5); }
+    const zkl = ver > 0.3 ? mix(C.goud, C.paars, ease((ver - 0.3) / 0.5)) : C.goud; ctx.lineWidth = 26; ctx.strokeStyle = rgba(zkl, 0.4 + 0.3 * zon); ctx.beginPath(); ctx.arc(ex, ey, R + 18, 0, 6.283); ctx.stroke();
+    circ(ctx, ex, ey, R, rgba('#F2E6C8', 0.92), C.goud, 2); ctx.restore();
+    naam(ctx, 'zona pellucida', ex + R + 60, ey + R + 40, zon * (1 - zyg * 0.0), 'left', C.goud, 30); naam(ctx, 'follikelcellen', ex - R - 70, ey - R - 40, zon, 'right', C.text2, 28);
+    // corticale korrels (vwo-notitie): stipjes onder het membraan
+    for (let i = 0; i < 30; i++) { const an = i / 30 * 6.283, kk = ease((ver - 0.35 - (i % 6) * 0.03) / 0.3); const rr = lerp(R - 14, R + 14, kk); circ(ctx, ex + Math.cos(an) * rr, ey + Math.sin(an) * rr, 4, rgba(C.paars, (0.7 - 0.6 * kk) * a0)); }
+    // kern(en)
+    const kx = lerp(ex + 40, ex + 10, zyg), mx = lerp(ex - 80, ex - 10, zyg); circ(ctx, kx, ey + 10, lerp(46, 64, zyg), rgba(C.paars, 0.55), C.paars, 2);
+    if (ver > 0.6) { const k2 = ease((ver - 0.6) / 0.4); circ(ctx, mx, ey - 10, 30 * k2, rgba(C.teal, 0.55 * (1 - zyg)), rgba(C.teal, 1 - zyg), 2); }
+    if (zyg > 0.01) { regel(ctx, 'zygote · 46 chromosomen', ex, ey + R + 130, zyg, C.text, 36, 'center', 700); const pa = zyg; circ(ctx, ex + R * 0.9, ey - R * 0.55, 18, rgba('#F2E6C8', pa), C.goud, 2); naam(ctx, 'poollichaampje', ex + R + 20, ey - R * 0.7, pa * (S.vwo ? 1 : 0), 'left', C.text2, 26); }
+    // zaadcellen rond de eicel
+    for (let i = 0; i < 9; i++) { const an = Math.PI + (i - 4) * 0.33, win = i === 4; const near = win ? R + 46 - acr * 30 - ver * 40 : R + 60 + 30 * (0.5 + 0.5 * Math.sin(T * 2 + i)) * (ver > 0.4 ? 1.6 : 1);
+      const zx = ex + Math.cos(an) * near, zy = ey + Math.sin(an) * near; const aa = a0 * S.on(0, 0.6, 2.4) * (win ? (1 - ease((ver - 0.5) / 0.3)) : 1) * (1 - zyg * 0.7);
+      zaadcel(ctx, zx, zy, an + Math.PI, T + i, 2.2, aa, C.text, win && acr > 0.01 ? rgba(C.goud, acr) : null); }
+    if (acr > 0.01) { const an = Math.PI, zx = ex + Math.cos(an) * (R + 10), zy = ey; for (let i = 0; i < 10; i++) { const p = (T * 0.6 + i / 10) % 1; circ(ctx, zx + 30 - p * 40 + Math.cos(i) * 20 * p, zy + Math.sin(i * 2) * 26 * p, 5, rgba(C.goud, acr * (1 - p) * (1 - ver))); }
+      naam(ctx, 'acrosoom: enzymen', ex - R - 120, ey - 70, acr * (1 - ver), 'right', C.goud, 28); }
+    if (ver > 0.5) regel(ctx, 'geen tweede zaadcel', ex + R + 40, ey - R - 40, ease((ver - 0.5) / 0.3) * (1 - zyg), C.paars, 34, 'center', 700);
+  } });
+
+// ---------- 8 · een bericht aan het gele lichaam ----------
+SCHERMEN.push({ titel: 'Innesteling', deel: 'Zwangerschap',
+  stappen: [
+    { t: 'Op weg door de eileider deelt de zygote zich: 2, 4, 8, 16 cellen. De cellen groeien niet: ze worden steeds <b>kleiner</b>.', th: 'Op weg door de eileider deelt de zygote zich: 2, 4, 8, 16 cellen.', n: 'Klievingsdelingen. Trilharen en spiertjes in de wand brengen het embryo naar de baarmoeder. Het draait nog op het cytoplasma van de eicel.' },
+    { t: 'Na ± 5 dagen een holle bal: de <b>blastocyste</b>. Vanaf dag 6 nestelt die zich in het baarmoederslijmvlies: <b>innesteling</b>.', n: 'Buitenste laag (trofoblast) wordt het kindsdeel van de placenta; de binnenste celmassa wordt het kind.' },
+    { t: 'Maar het gele lichaam leeft maar ± 12 dagen. Dan daalt progesteron, en wordt het slijmvlies afgestoten. Mét het embryo.', n: 'Het embryo moet dus een bericht sturen.' },
+    { t: 'Het embryo maakt <b>hCG</b>. Dat houdt het gele lichaam in leven: progesteron blijft hoog, er komt <b>geen menstruatie</b>.', n: 'hCG lijkt sterk op LH en bindt aan de LH-receptoren van het gele lichaam.' },
+    { t: 'Een <b>zwangerschapstest</b> meet hCG in de urine.', n: 'Antistoffen in de test binden hCG en laten een streepje kleuren. hCG komt pas na de innesteling in het bloed: een test vier dagen na de bevruchting is nog negatief.' },
+    { t: 'Vanaf week 8 à 10 maakt de <b>placenta</b> zelf genoeg progesteron. Het gele lichaam is dan niet meer nodig.', n: '' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), a0 = S.on(0, 0.8), kl = S.on(0, 3.0, 0.4), bl = S.on(1, 1.6), pb = S.on(2, 1.6), h = S.on(3, 1.6), test = S.on(4, 1.0), pl = S.on(5, 1.6);
+    // eileider → baarmoeder (bovenste helft)
+    const PAD = [[1780, 330], [1560, 260], [1300, 250], [1060, 300], [860, 360], [640, 380]];
+    lijnPad(ctx, PAD, VK.leider, 70, a0 * 0.45); naam(ctx, 'eileider', 1300, 200, a0, 'center', C.text2, 28);
+    ctx.save(); ctx.globalAlpha *= a0; roundRect(ctx, 200, 200, 440, 300, 40); shape(ctx, rgba(VK.wand, 0.35), VK.wand, 3); ctx.restore(); slijmStrook(ctx, 240, 470, 360, 0.95 - 0.8 * pb * (1 - h), a0, pb * (1 - h), T); naam(ctx, 'baarmoeder', 420, 180, a0, 'center', C.text2, 28);
+    // het embryo onderweg
+    const stappen = [1, 2, 4, 8, 16]; const L = padLengte(PAD), u = kl * 0.85 + bl * 0.15, [px, py] = padPunt(PAD, L[L.length - 1] * Math.min(1, u)); const k = Math.min(4, Math.floor(kl * 5));
+    const bx = lerp(px, 420, bl), by = lerp(py, 438, ease((bl - 0.5) / 0.5) * 1);
+    if (bl < 0.4) { const n = stappen[k], r0 = 30; ctx.save(); ctx.globalAlpha *= a0; circ(ctx, px, py, r0 + 6, null, rgba(C.goud, 0.6), 3); for (let i = 0; i < n; i++) { const an = i / n * 6.283 + 0.3, rr = n === 1 ? 0 : r0 * 0.5; circ(ctx, px + Math.cos(an) * rr, py + Math.sin(an) * rr, n === 1 ? r0 : r0 * 0.5 / Math.sqrt(n / 2), rgba('#F2E6C8', 0.9), C.goud, 1.5); } ctx.restore();
+      regel(ctx, n + (n === 1 ? ' cel' : ' cellen'), px, py - 56, a0 * (1 - bl * 2.5), C.text, 30, 'center', 700); }
+    else { ctx.save(); ctx.globalAlpha *= bl; circ(ctx, bx, by, 38, rgba('#F2E6C8', 0.5), C.goud, 3); for (let i = 0; i < 16; i++) { const an = i / 16 * 6.283; circ(ctx, bx + Math.cos(an) * 32, by + Math.sin(an) * 32, 6, rgba(C.goud, 0.8)); } circ(ctx, bx - 14, by - 12, 14, rgba(C.paars, 0.7)); ctx.restore();
+      naam(ctx, 'blastocyste', bx + 60, by - 50, bl, 'left', C.goud, 28); }
+    [[0, 'dag 1'], [0.4, 'dag 3'], [0.75, 'dag 5']].forEach(([f, l]) => { const [x, y] = padPunt(PAD, L[L.length - 1] * f); regel(ctx, l, x, y + 80, a0 * S.on(0, 0.4, 0.4 + f * 3), C.text2, 24, 'center', 600); });
+    // grafiek progesteron (onderste helft)
+    const gx = 260, gw = 1080, gb = 960, gh = 280, d2x = (d) => gx + d / 42 * gw;
+    const ga = S.on(2, 0.8); if (ga > 0.01) { ctx.save(); ctx.globalAlpha *= ga; ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gb - gh); ctx.lineTo(gx, gb); ctx.lineTo(gx + gw, gb); ctx.stroke(); ctx.restore();
+      metaText(ctx, 'progesteron', gx, gb - gh - 16, C.meta, 'left', 20, ga); [0, 14, 28, 42].forEach(d => regel(ctx, 'dag ' + d, d2x(d), gb + 36, ga, C.text2, 22, 'center', 600));
+      lijnKrom(ctx, KROM.progesteron, gx, gw * 28 / 42, gb, gh, hk.progesteron, 28 * ease(S.on(2, 1.6, 0.3)), ga * (1 - 0.6 * h), 5); if (pb > 0.6) regel(ctx, 'zonder embryo', d2x(26), gb - 60, ga * (1 - 0.6 * h), C.text2, 24, 'right', 600); }
+    if (h > 0.01) { const zw = [[14, 0.08], [16, 0.35], [21, 0.92], [42, 1.0]]; lijnKrom(ctx, zw, gx, gw, gb, gh, hk.progesteron, 42 * ease(S.on(3, 1.8, 0.4)), h, 7, 0, 42); regel(ctx, 'met hCG: blijft hoog', d2x(36), gb - gh - 24, h, hk.progesteron, 28, 'center', 700);
+      // hCG-stroom van embryo naar eierstok
+      for (let i = 0; i < 5; i++) { const p = (T * 0.35 + i / 5) % 1; circ(ctx, lerp(460, 1830, p), lerp(420, 420, p) - Math.sin(Math.PI * p) * 160, 8, rgba(hk.hCG, h * (1 - pl))); } regel(ctx, 'hCG', 1100, 160, h * (1 - pl), hk.hCG, 36, 'center', 700);
+      ctx.save(); ctx.globalAlpha *= h * (1 - pl); circ(ctx, 1830, 420, 42, rgba('#E8C840', 0.55), C.goud, 3); ctx.restore(); naam(ctx, 'geel lichaam', 1830, 500, h * (1 - pl), 'center', C.goud, 26); }
+    // zwangerschapstest
+    if (test > 0.01) { const tx = 1560, ty = 600; ctx.save(); ctx.globalAlpha *= test * (1 - pl); ctx.translate(tx, ty); ctx.rotate(-0.25); roundRect(ctx, -40, -150, 80, 320, 26); shape(ctx, C.licht ? '#F4F4F2' : '#E8EAEE', rgba(C.line, 0.8), 2); roundRect(ctx, -22, -30, 44, 110, 8); shape(ctx, '#FFFFFF', rgba(C.line, 0.5), 1.5);
+      ctx.fillStyle = '#C0583A'; ctx.fillRect(-18, -4, 36, 7); ctx.fillStyle = rgba('#C0583A', ease(S.on(4, 1.2, 0.5))); ctx.fillRect(-18, 34, 36, 7); ctx.restore(); regel(ctx, 'zwanger', tx + 100, ty + 40, test * (1 - pl) * S.on(4, 0.5, 1.4), C.text, 32, 'left', 700); }
+    if (pl > 0.01) { regel(ctx, 'week 8–10:', 1620, 610, pl, C.text, 32, 'center', 700); regel(ctx, 'de placenta neemt het over', 1620, 652, pl, C.text, 32, 'center', 700); ctx.save(); ctx.globalAlpha *= pl; ctx.beginPath(); ctx.ellipse(1620, 760, 150, 46, 0, 0, 6.283); shape(ctx, rgba(C.bloed, 0.45), C.bloed, 3); ctx.restore(); for (let i = 0; i < 4; i++) { const p = (T * 0.4 + i / 4) % 1; circ(ctx, 1620 + (i - 1.5) * 50, 700 - p * 60, 7, rgba(hk.progesteron, pl * (1 - p))); } }
+  } });
+
+// ---------- 9 · placenta ----------
+SCHERMEN.push({ titel: 'Placenta', deel: 'Zwangerschap',
+  stappen: [
+    { t: 'Het kind is via de <b>navelstreng</b> verbonden met de <b>placenta</b>, vast aan de baarmoederwand.', n: 'In de navelstreng lopen twee slagaders en één ader van het kind.' },
+    { t: 'In de placenta hangen <b>vlokken</b> met bloedvaatjes van het kind in bloed van de moeder. Het bloed <b>mengt niet</b>: er zit altijd een dunne laag cellen tussen.', n: 'Ook belangrijk voor de afweer: voor de moeder is het kind voor de helft vreemd.' },
+    { t: '<b>Zuurstof</b> en voedingsstoffen gaan naar het kind, <b>koolstofdioxide</b> en afvalstoffen naar de moeder.', n: 'Zuurstof en koolstofdioxide door diffusie, van hoog naar laag. Vwo: glucose met transporteiwitten, aminozuren actief.' },
+    { t: 'Ook <b>antistoffen</b> van de moeder gaan mee: afweer voor de eerste maanden na de geboorte.', n: 'Sommige antistoffen worden actief doorgegeven.' },
+    { t: 'Maar de laag houdt niet alles tegen: <b>alcohol</b>, <b>nicotine</b> en sommige virussen gaan er ook doorheen.', n: 'Kleine, ongeladen moleculen gaan er bijna net zo makkelijk door als zuurstof.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, a0 = S.on(0, 0.8), vl = S.on(1, 1.2), uit = S.on(2, 1.0), af = S.on(3, 1.0), gif = S.on(4, 1.0);
+    // links: baarmoeder met kind
+    const ux = 470, uy = 560; ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(ux, uy, 330, 380, 0, 0, 6.283); shape(ctx, rgba(VK.wand, 0.4), VK.wand, 4); ctx.beginPath(); ctx.ellipse(ux, uy, 290, 340, 0, 0, 6.283); ctx.fillStyle = rgba(C.licht ? '#DCEAF2' : '#2E4566', 0.6); ctx.fill();
+    // placenta rechtsboven aan de wand
+    ctx.beginPath(); ctx.ellipse(ux + 200, uy - 200, 120, 60, -0.75, 0, 6.283); shape(ctx, rgba(C.bloed, 0.6), C.bloed, 3);
+    // kind (opgerold, hoofd onder)
+    ctx.fillStyle = rgba('#E8B8A0', 0.95); ctx.strokeStyle = '#B07A64'; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(ux - 30, uy + 170, 95, 90, 0, 0, 6.283); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(ux - 10, uy - 20, 120, 160, 0.25, 0, 6.283); ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.ellipse(ux + 40, uy - 120, 70, 40, 0.9, 0, 6.283); ctx.fill(); ctx.stroke(); ctx.restore();
+    lijnPad(ctx, [[ux + 40, uy + 20], [ux + 130, uy - 10], [ux + 110, uy - 110], [ux + 170, uy - 170]], '#C9CED6', 14, a0); lijnPad(ctx, [[ux + 40, uy + 20], [ux + 130, uy - 10], [ux + 110, uy - 110], [ux + 170, uy - 170]], C.teal, 4, a0);
+    naam(ctx, 'placenta', ux + 300, uy - 300, a0, 'left', C.bloed); naam(ctx, 'navelstreng', ux + 180, uy + 20, a0, 'left', C.text2, 28); naam(ctx, 'baarmoederwand', ux, uy + 430, a0, 'center', C.text2, 26);
+    // zoomlijnen
+    const zx = 1250, zy = 450, zr = 300; ctx.save(); ctx.globalAlpha *= vl * 0.6; ctx.strokeStyle = rgba(C.line, 0.6); ctx.lineWidth = 2; ctx.setLineDash([8, 8]); ctx.beginPath(); ctx.moveTo(ux + 250, uy - 250); ctx.lineTo(zx - 150, zy - 260); ctx.moveTo(ux + 240, uy - 140); ctx.lineTo(zx - 240, zy + 180); ctx.stroke(); ctx.restore();
+    if (vl > 0.01) { ctx.save(); ctx.globalAlpha *= vl; ctx.beginPath(); ctx.arc(zx, zy, zr, 0, 6.283); ctx.clip(); ctx.fillStyle = rgba(C.bloed, C.licht ? 0.28 : 0.35); ctx.fillRect(zx - zr, zy - zr, 2 * zr, 2 * zr);
+      for (let i = 0; i < 22; i++) { const x = zx - zr + hash(i * 3) * 2 * zr, y = zy - zr + hash(i * 5) * 2 * zr; ctx.beginPath(); ctx.ellipse(x, y, 14, 9, hash(i) * 3, 0, 6.283); ctx.fillStyle = rgba(C.bloed, 0.55); ctx.fill(); }
+      [[zx - 100, -0.12], [zx + 115, 0.1]].forEach(([vx, rot]) => { ctx.save(); ctx.translate(vx, zy - zr); ctx.rotate(rot); ctx.beginPath(); ctx.moveTo(-62, 0); ctx.lineTo(-62, 440); ctx.arc(0, 440, 62, Math.PI, 0, true); ctx.lineTo(62, 0); ctx.closePath(); shape(ctx, rgba(C.licht ? '#F3E3D6' : '#5A4A50', 0.95), C.oker, 4);
+        ctx.strokeStyle = C.teal; ctx.lineWidth = 11; ctx.beginPath(); ctx.moveTo(-25, 0); ctx.lineTo(-25, 440); ctx.arc(0, 440, 25, Math.PI, 0, true); ctx.lineTo(25, 0); ctx.stroke(); ctx.restore(); });
+      ctx.restore(); ctx.save(); ctx.globalAlpha *= vl; circ(ctx, zx, zy, zr, null, rgba(C.line, 0.8), 3); ctx.restore();
+      naam(ctx, 'vlok: bloed van het kind', zx + zr + 16, zy - 190, vl, 'left', C.teal, 26); naam(ctx, 'dunne laag cellen', zx + zr + 16, zy - 30, vl, 'left', C.oker, 26); naam(ctx, 'bloed van de moeder', zx + zr + 16, zy + 130, vl, 'left', mix(C.bloed, C.text, 0.3), 26); }
+    // stoffen over de grens, met een legenda onder de zoom
+    const stof = (k, col, naar, label, a, vorm) => { if (a <= 0.01) return; for (let i = 0; i < 3; i++) { const p = (T * 0.35 + i / 3 + k * 0.17) % 1, x = naar ? lerp(zx - 250, zx - 150, p) : lerp(zx - 150, zx - 250, p), y = zy - 170 + k * 62 + (i - 1) * 8;
+        if (vorm === 'Y') { ctx.save(); ctx.globalAlpha *= a * Math.sin(Math.PI * p); ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y + 10); ctx.lineTo(x, y); ctx.lineTo(x - 8, y - 9); ctx.moveTo(x, y); ctx.lineTo(x + 8, y - 9); ctx.stroke(); ctx.restore(); } else circ(ctx, x, y, 8, rgba(col, a * Math.sin(Math.PI * p))); }
+      const lx = k < 3 ? 900 : 1360, ly = 850 + (k % 3) * 58; circ(ctx, lx, ly - 9, 9, rgba(col, a)); regel(ctx, label, lx + 22, ly, a, col === C.text2 ? C.text : col, 28, 'left', 700); };
+    stof(0, C.koraal, true, 'zuurstof → kind', uit); stof(1, C.goud, true, 'voedingsstoffen → kind', uit * S.on(2, 0.5, 0.4)); stof(2, C.teal, false, 'koolstofdioxide → moeder', uit * S.on(2, 0.5, 0.8));
+    stof(3, C.groen, true, 'antistoffen → kind', af, 'Y'); stof(4, C.text2, true, 'alcohol, nicotine → kind', gif); stof(5, C.paars, true, 'sommige virussen → kind', gif * S.on(4, 0.5, 0.5));
+  } });
+
+// ---------- 10 · geboorte ----------
+SCHERMEN.push({ titel: 'Geboorte', deel: 'Zwangerschap',
+  stappen: [
+    { t: 'Na ± 9 maanden: het hoofd van het kind drukt op de <b>baarmoederhals</b>.', n: '' },
+    { t: 'Zintuigen in de baarmoederhals melden de <b>rek</b> aan de hersenen. De <b>hypofyse</b> geeft <b>oxytocine</b> af.', n: 'Vwo: oxytocine komt uit de achterkwab van de hypofyse; de hypothalamus stuurt die aan via zenuwcellen.' },
+    { t: 'Oxytocine laat de baarmoederwand samentrekken: een <b>wee</b>. Die duwt het kind harder tegen de baarmoederhals.', n: '' },
+    { t: 'Meer rek, meer oxytocine, sterkere weeën: <b>positieve terugkoppeling</b>, net als bij de LH-piek.', n: 'Een lus die zichzelf versterkt loopt vanzelf op, tot iets hem doorbreekt.' },
+    { t: 'De lus stopt pas bij de <b>geboorte</b>: de rek valt weg.', n: 'Vergelijk met negatieve terugkoppeling (testosteron): daar blijft de spiegel juist stabiel.' }
+  ],
+  teken(ctx, S) {
+    const T = S.T, hk = HK(), a0 = S.on(0, 0.8), ox = S.on(1, 1.2), wee = S.on(2, 1.0), lus = S.on(3, 1.0), geb = S.on(4, 2.2);
+    const sterk = clamp(0.25 * ox + 0.35 * wee + 0.6 * lus * (0.5 + 0.5 * ((T - (S.start(3) || 0)) / 8)), 0, 1) * (1 - geb);
+    const sp = 1.2 + 2.5 * sterk, kn = Math.pow(Math.max(0, Math.sin(T * sp)), 3) * (wee > 0 ? 1 : 0) * (1 - geb);
+    // links: baarmoeder met kind, hoofd naar beneden
+    const ux = 480, uy = 520, knijp = 18 * kn * (0.4 + sterk); ctx.save(); ctx.globalAlpha *= a0; ctx.beginPath(); ctx.ellipse(ux, uy, 300 - knijp, 360 - knijp * 0.5, 0, 0, 6.283); shape(ctx, rgba(VK.wand, 0.45), VK.wand, 6 + 8 * kn);
+    ctx.beginPath(); ctx.moveTo(ux - 60, uy + 350); ctx.lineTo(ux - 50, uy + 470); ctx.moveTo(ux + 60, uy + 350); ctx.lineTo(ux + 50, uy + 470); ctx.strokeStyle = VK.wand; ctx.lineWidth = 10; ctx.stroke();
+    const kd = 30 * kn + 380 * geb; ctx.fillStyle = rgba('#E8B8A0', 0.95 * (1 - geb)); ctx.strokeStyle = rgba('#B07A64', 1 - geb); ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(ux, uy + 250 + kd, 90, 85, 0, 0, 6.283); ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.ellipse(ux + 10, uy + 20 + kd, 130, 180, -0.1, 0, 6.283); ctx.fill(); ctx.stroke(); ctx.restore();
+    naam(ctx, 'baarmoederhals', ux + 80, uy + 420, a0 * (1 - geb), 'left', C.text2, 28);
+    gloed(ctx, ux, uy + 360, 110, C.goud, (0.3 + 0.7 * kn) * ox * (1 - geb));
+    if (wee > 0.01) regel(ctx, 'wee', ux - 330, uy, wee * (0.3 + 0.7 * kn) * (1 - geb), C.koraal, 44, 'right', 700);
+    if (geb > 0.6) { const a = ease((geb - 0.6) / 0.4); pers(ctx, 'baby', ux, uy + 520, 260, { a }); }
+    // rechts: de lus
+    const lx = 1280, ly = 560, R = 260, nodes = [[-90, 'rek in de baarmoederhals', C.text], [0, 'hypofyse', C.oker], [90, 'oxytocine in het bloed', hk.oxytocine], [180, 'wee', C.koraal]];
+    const zicht = [S.on(0, 0.6, 0.4), ox, ox * S.on(1, 0.5, 0.6), wee];
+    for (let i = 0; i < 4; i++) { const a1 = (nodes[i][0] + 18) * Math.PI / 180, a2 = (nodes[(i + 1) % 4][0] - 18) * Math.PI / 180 + (i === 3 ? 2 * Math.PI : 0); const am = (a1 + a2) / 2;
+      const al = (i < 3 ? zicht[i + 1] : lus) * (1 - 0.6 * geb); if (al <= 0.01) continue; boog(ctx, lx + Math.cos(a1) * R, ly + Math.sin(a1) * R, lx + Math.cos(am) * R * 1.42, ly + Math.sin(am) * R * 1.42, lx + Math.cos(a2) * R, ly + Math.sin(a2) * R, C.goud, 4 + 8 * sterk, al, 22); }
+    nodes.forEach(([deg, l, col], i) => { const an = deg * Math.PI / 180, x = lx + Math.cos(an) * R, y = ly + Math.sin(an) * R, a = zicht[i] * (1 - 0.6 * geb); if (a <= 0.01) return; gloed(ctx, x, y, 70, col, a * kn * 0.8); circ(ctx, x, y, 16, col); regel(ctx, l, x + (deg === 0 ? 30 : deg === 180 ? -30 : 0), y + (deg === -90 ? -34 : deg === 90 ? 56 : 10), a, col === C.text ? C.text : col, 30, deg === 0 ? 'left' : deg === 180 ? 'right' : 'center', 700); });
+    if (lus > 0.01) { tekenPM(ctx, lx, ly, true, lus * (1 - geb), 40); regel(ctx, 'positieve terugkoppeling', lx, ly + 80, lus * (1 - geb), C.groen, 28, 'center', 700); }
+    if (geb > 0.01) regel(ctx, 'geboren: de rek valt weg, de lus stopt', lx, ly + R + 160, ease((geb - 0.3) / 0.4), C.text, 34, 'center', 700);
+  } });
+
+
+// ---------- vooruitblik op de volgende les ----------
+// tegels = [[titel, sub, tekenfunctie(ctx, x, y, a, T)], ...]; tekenfunctie tekent een klein beeld rond (x, y)
+function vooruitblik(ctx, S, kop, tegels) {
+  const T = S.T, n = tegels.length, w = 380, gap = 40, x0 = 960 - (n * w + (n - 1) * gap) / 2;
+  metaText(ctx, 'volgende keer', 960, 250, C.meta, 'center', 24, S.on(0, 0.6));
+  text(ctx, kop, 960, 340, fTitel(76), C.goud, 'center');
+  tegels.forEach(([titel, sub, f], i) => { const a = S.on(0, 0.6, 0.4 + i * 0.25); if (a <= 0.01) return; const x = x0 + i * (w + gap) + w / 2, y = 640;
+    ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - 210, w, 420, 24); shape(ctx, rgba(C.fill, C.licht ? 0.5 : 0.4), rgba(C.line, 0.4), 2); ctx.restore();
+    f(ctx, x, y - 60, a, T); regel(ctx, titel, x, y + 110, a, C.text, 34, 'center', 700); if (sub) regel(ctx, sub, x, y + 156, a, C.text2, 26, 'center', 400); });
+}
+// les 2 → les 3
+function schakels(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.lineWidth = 10; [-1, 0, 1].forEach(k => { const uit = k === 0 ? 1 : 0; ctx.strokeStyle = k === 0 ? rgba(C.koraal, 0.9) : C.text2; ctx.beginPath(); ctx.ellipse(x + k * 95, y - uit * (40 + 8 * Math.sin(T * 2)), 60, 34, 0, 0, 6.283); ctx.stroke(); }); ctx.restore(); }
+function microben(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.translate(x - 70, y); ctx.rotate(-0.3); roundRect(ctx, -55, -24, 110, 48, 24); shape(ctx, rgba(C.groen, 0.5), C.groen, 3); ctx.restore();
+  ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 12; i++) { const an = i / 12 * 6.283 + T * 0.3; ctx.strokeStyle = C.paars; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 80 + Math.cos(an) * 32, y + Math.sin(an) * 32); ctx.lineTo(x + 80 + Math.cos(an) * 46, y + Math.sin(an) * 46); ctx.stroke(); circ(ctx, x + 80 + Math.cos(an) * 48, y + Math.sin(an) * 48, 5, C.paars); }
+  circ(ctx, x + 80, y, 32, rgba(C.paars, 0.45), C.paars, 3); ctx.restore(); }
+function schaaltje(ctx, x, y, a, T) { ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.ellipse(x, y + 30, 140, 50, 0, 0, 6.283); shape(ctx, rgba(C.teal, 0.15), rgba(C.line, 0.8), 3); ctx.restore(); eicel(ctx, x - 10, y + 26, 30, a);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x + 60, y - 70 + 6 * Math.sin(T * 2)); ctx.rotate(0.55); roundRect(ctx, -6, -110, 12, 120, 5); shape(ctx, rgba(C.text2, 0.3), C.text2, 2); ctx.restore(); }
+function lagen(ctx, x, y, a) { ['XX · XY', 'SRY-gen', 'hormonen', 'organen'].forEach((l, i) => { const yy = y - 90 + i * 52, c = [C.teal, C.goud, C.koraal, C.paars][i]; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130 + i * 10, yy - 20, 260 - i * 20, 42, 12); shape(ctx, rgba(c, 0.35), c, 2); ctx.restore(); regel(ctx, l, x, yy + 9, a, C.text, 24, 'center', 700); }); }
+
+// ---------- 11 · vooruitblik ----------
+SCHERMEN.push({ titel: 'Volgende keer', deel: 'Vooruitblik', geenKop: true,
+  stappen: [{ t: 'Volgende keer: <b>ingrijpen en variatie</b>.', n: 'Les 3: anticonceptie haalt een schakel uit de keten, soa\'s, ivf, en sekse in lagen. Huiswerk staat bij de lesopbouw.' }],
+  teken(ctx, S) { vooruitblik(ctx, S, 'Ingrijpen en variatie', [['Anticonceptie', 'een schakel uit de keten', schakels], ["Soa's", 'bacterie of virus?', microben], ['Ivf', 'bevruchting in een schaaltje', schaaltje], ['Sekse in lagen', 'en als een laag anders loopt', lagen]]); } });
+
+/* =====================================================================================
+   Speler
+   ===================================================================================== */
+const cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let vwo = true, scr = 0, p = 0, tStap = performance.now(), tScherm = performance.now();
+const startTijden = {};
+try { const q = new URLSearchParams(location.search).get('niveau'); const sv = localStorage.getItem('niveau'); vwo = q === 'havo' ? false : q === 'vwo' ? true : sv !== 'havo'; } catch (e) {}
+const zichtbaar = (i) => SCHERMEN[i].stappen.map((s, k) => k).filter(k => vwo || !SCHERMEN[i].stappen[k].vwo);
+
+function maat() { const r = cv.getBoundingClientRect(); const d = Math.min(2, window.devicePixelRatio || 1); const w = Math.max(320, Math.round(r.width * d)), h = Math.round(w * 9 / 16); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } }
+function frame(now) {
+  maat(); const sc = SCHERMEN[scr], vis = zichtbaar(scr), b = vis[Math.min(p, vis.length - 1)];
+  const tb = reduce ? 99 : (now - tStap) / 1000, T = (now - tScherm) / 1000;
+  const S = { b, T, vwo,
+    on(k, d = 0.9, del = 0) { const st = sc.stappen[k]; if (!st || (st.vwo && !vwo)) return 0; if (b > k) return 1; if (b < k) return 0; return ease((tb - del) / d); },
+    start(k) { return (startTijden[scr + ':' + k] || now) / 1000 - tScherm / 1000; } };
+  ctx.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0); ctx.clearRect(0, 0, W, H); ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  if (!sc.geenKop) { text(ctx, sc.titel === 'Start' ? '' : kopVan(sc), 80, 100, fTitel(54), C.text); metaText(ctx, sc.deel, 82, 140, C.meta, 'left', 20); }
+  try { sc.teken(ctx, S); } catch (e) { console.error(e); }
+  requestAnimationFrame(frame);
+}
+const KOPPEN = ['', 'Eén dag, vijf dagen', 'Signalen van boven', 'Terugkoppeling bij de man', 'Een wedstrijd tussen follikels', 'Van rem naar gaspedaal', 'De cyclus in één grafiek', 'De ontmoeting', 'Een bericht aan het gele lichaam', 'Dichtbij, maar gescheiden', 'Een lus die zichzelf versterkt', 'Volgende keer'];
+function kopVan(sc) { return KOPPEN[SCHERMEN.indexOf(sc)] || sc.titel; }
+
+const capTxt = document.getElementById('capTxt'), capNot = document.getElementById('capNot'), dots = document.getElementById('dots'), teller = document.getElementById('teller'), chips = document.getElementById('chips');
+function tekstKaart() {
+  const vis = zichtbaar(scr), k = vis[p], st = SCHERMEN[scr].stappen[k];
+  capTxt.innerHTML = (st.vwo ? '<span class="vwo-tag">vwo</span>' : '') + ((!vwo && st.th) ? st.th : st.t);
+  capNot.textContent = st.n || '';
+  dots.innerHTML = vis.map((kk, i) => `<i class="${i < p ? 'done' : i === p ? 'cur' : ''}${SCHERMEN[scr].stappen[kk].vwo ? ' vwo' : ''}"></i>`).join('');
+  teller.textContent = `scherm ${scr + 1}/${SCHERMEN.length} · stap ${p + 1}/${vis.length}`;
+  chips.querySelectorAll('.chip[data-i]').forEach(c => c.classList.toggle('cur', +c.dataset.i === scr));
+  document.getElementById('terug').disabled = scr === 0 && p === 0;
+  document.getElementById('verder').disabled = scr === SCHERMEN.length - 1 && p === vis.length - 1;
+  try { history.replaceState(null, '', '#' + (scr + 1)); } catch (e) {}
+}
+function markeer() { startTijden[scr + ':' + zichtbaar(scr)[p]] = performance.now(); }
+function verder() { const vis = zichtbaar(scr); if (p < vis.length - 1) { p++; tStap = performance.now(); } else if (scr < SCHERMEN.length - 1) { scr++; p = 0; tStap = tScherm = performance.now(); } else return; markeer(); tekstKaart(); }
+function terug() { if (p > 0) p--; else if (scr > 0) { scr--; p = zichtbaar(scr).length - 1; tScherm = performance.now() - 20000; } else return; tStap = performance.now() - 20000; markeer(); tekstKaart(); }
+function naarScherm(i) { scr = clamp(i, 0, SCHERMEN.length - 1); p = 0; tStap = tScherm = performance.now(); markeer(); tekstKaart(); }
+function opnieuw() { tStap = performance.now(); markeer(); }
+
+// chips per scherm, gegroepeerd per deel
+(function () { let deel = ''; chips.innerHTML = SCHERMEN.map((s, i) => { let h = ''; if (s.deel !== deel) { deel = s.deel; h += `<span class="chip deel">${deel}</span>`; } return h + `<button type="button" class="chip" data-i="${i}"><span class="n">${i + 1}</span>${s.titel}</button>`; }).join('');
+  chips.addEventListener('click', e => { const c = e.target.closest('.chip[data-i]'); if (c) naarScherm(+c.dataset.i); }); })();
+
+function zetNiveau(v) { vwo = v; document.getElementById('lvVwo').setAttribute('aria-pressed', v); document.getElementById('lvHavo').setAttribute('aria-pressed', !v); try { localStorage.setItem('niveau', v ? 'vwo' : 'havo'); } catch (e) {} p = Math.min(p, zichtbaar(scr).length - 1); tekstKaart(); }
+document.getElementById('lvVwo').onclick = () => zetNiveau(true);
+document.getElementById('lvHavo').onclick = () => zetNiveau(false);
+const lblBtn = document.getElementById('lblBtn');
+function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
+lblBtn.onclick = wisselNamen;
+function presenteer(aan) { document.body.classList.toggle('presenteer', aan); try { if (aan && !document.fullscreenElement) document.documentElement.requestFullscreen(); if (!aan && document.fullscreenElement) document.exitFullscreen(); } catch (e) {} }
+document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('stopPres').onclick = () => presenteer(false);
+document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
+document.getElementById('verder').onclick = verder;
+document.getElementById('terug').onclick = terug;
+document.getElementById('opnieuw').onclick = opnieuw;
+document.getElementById('stage').addEventListener('click', verder);
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea,select')) return; if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === ' ' || k === 'PageDown' || k === 'Enter') { if (k === 'Enter' && e.target.closest('button')) return; e.preventDefault(); verder(); }
+  else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); terug(); }
+  else if (k === 'ArrowDown') { e.preventDefault(); naarScherm(scr + 1); }
+  else if (k === 'ArrowUp') { e.preventDefault(); naarScherm(scr - 1); }
+  else if (k === 'Home') naarScherm(0);
+  else if (k === 'r' || k === 'R') opnieuw();
+  else if (k === 'l' || k === 'L') wisselNamen();
+  else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
+  else if (k === 'Escape') presenteer(false);
+});
+document.addEventListener('themawissel', zetPalet);
+
+(function () { const m = (location.hash.match(/^#(\d+)/) || [])[1]; if (m) { scr = clamp(+m - 1, 0, SCHERMEN.length - 1); } })();
+zetNiveau(vwo); markeer(); tekstKaart();
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(frame));
+</script>
+</body>
+</html>
