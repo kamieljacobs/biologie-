@@ -28,9 +28,9 @@ Het antwoord is bee. Waarom, dat zie je in hoofdstuk drie. Eerst het gesprek zel
 - b) Komt dat door thuis?
 - c) Hoe ziet zo'n slechte dag eruit?  ✓
 
-**s06** · audio `s06.mp3` · 58.9 s · generation `VXMSAZxhIy7uHG5hQabx`
+**s06** · audio `s06.mp3` · 60.6 s · generation `tP4wE8dlI0qnJKPxUm2L`
 
-Het antwoord is cee. Dat is een open vraag. Sam kan er alles op zeggen, in zijn eigen woorden. Vraag a is ook open. Maar een waaromvraag klinkt al snel als een verwijt. Vraag b is sturend. Jij bedenkt al een oorzaak, en Sam kan die makkelijk overnemen. Een gesloten vraag, waar je ja of nee op zegt, is handig om iets te checken. Niet om een gesprek te openen. Sam vertelt: ik lig tot drie uur wakker. En dan kom ik mijn bed niet uit. Nu vat jij samen. Je zegt: dus je ligt tot drie uur wakker. 's Ochtends kom je je bed niet uit. En daarom mis je de eerste uren. Klopt dat? Zo laat je zien dat je luistert. En Sam kan je verbeteren. Dan doorvragen. Wat doe je als je wakker ligt? Waar denk je dan aan? Zo kom je van een vaag verhaal naar concrete dingen. Luisteren, samenvatten, doorvragen. Dat oefen je veel in de opleiding, met acteurs en met video.
+Het antwoord is cee. Dat is een open vraag. Sam kan er alles op zeggen, in zijn eigen woorden. Vraag a is ook open. Maar een waaromvraag klinkt al snel als een verwijt. Vraag b is sturend. Jij bedenkt al een oorzaak, en Sam kan die makkelijk overnemen. Een gesloten vraag, waar je ja of nee op zegt, is handig om iets te checken. Niet om een gesprek te openen. Dus jij vraagt: hoe ziet zo'n slechte dag eruit? Sam vertelt: ik lig tot drie uur wakker. En dan kom ik mijn bed niet uit. Nu vat jij samen. Je zegt: dus je ligt tot drie uur wakker. 's Ochtends kom je je bed niet uit. En daarom mis je de eerste uren. Klopt dat? Zo laat je zien dat je luistert. En Sam kan je verbeteren. Dan doorvragen. Wat doe je als je wakker ligt? Waar denk je dan aan? Zo kom je van een vaag verhaal naar concrete dingen. Luisteren, samenvatten, doorvragen. Dat oefen je veel in de opleiding, met acteurs en met video.
 
 ## Hoofdstuk 2 — De intake: van klacht naar hulpvraag
 

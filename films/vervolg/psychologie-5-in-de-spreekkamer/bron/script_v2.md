@@ -26,7 +26,7 @@ Sam zegt: het gaat gewoon slecht op school. Welke vraag helpt hem het best om ve
 [VRAAG] (a) Waarom ga je niet meer naar school? · (b) Komt dat door thuis? · (c) Hoe ziet zo'n slechte dag eruit?
 
 Het antwoord is cee. Dat is een open vraag. Sam kan er alles op zeggen, in zijn eigen woorden. Vraag a is ook open. Maar een waaromvraag klinkt al snel als een verwijt. Vraag b is sturend. Jij bedenkt al een oorzaak, en Sam kan die makkelijk overnemen. Een gesloten vraag, waar je ja of nee op zegt, is handig om iets te checken. Niet om een gesprek te openen.
-Sam vertelt: ik lig tot drie uur wakker. En dan kom ik mijn bed niet uit. Nu vat jij samen. Je zegt: dus je ligt tot drie uur wakker. 's Ochtends kom je je bed niet uit. En daarom mis je de eerste uren. Klopt dat? Zo laat je zien dat je luistert. En Sam kan je verbeteren.
+Dus jij vraagt: hoe ziet zo'n slechte dag eruit? Sam vertelt: ik lig tot drie uur wakker. En dan kom ik mijn bed niet uit. Nu vat jij samen. Je zegt: dus je ligt tot drie uur wakker. 's Ochtends kom je je bed niet uit. En daarom mis je de eerste uren. Klopt dat? Zo laat je zien dat je luistert. En Sam kan je verbeteren.
 Dan doorvragen. Wat doe je als je wakker ligt? Waar denk je dan aan? Zo kom je van een vaag verhaal naar concrete dingen. Luisteren, samenvatten, doorvragen. Dat oefen je veel in de opleiding, met acteurs en met video.
 
 ## Hoofdstuk 2 — De intake: van klacht naar hulpvraag [Schema: kaart 'klacht' links, kaart 'hulpvraag' rechts, een pijl ertussen; lijstje intake; vragenlijst; toestemming per leeftijd]

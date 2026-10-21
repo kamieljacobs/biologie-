@@ -39,14 +39,15 @@ Object.assign(SCENES, {
     if (S > 0.01) { ctx.save(); ctx.globalAlpha *= S; persoon(ctx, 'sam', 1580, 880, 520, { t, uit: 'bezorgd', kijk: -1 }); samZegt(ctx, ['het gaat gewoon slecht op school'], 1, 1400, 200);
       ['a. Waarom ga je niet meer naar school?', 'b. Komt dat door thuis?', "c. Hoe ziet zo'n slechte dag eruit?"].forEach((s2, i) => vraagKaartje(ctx, 160, 380 + i * 140, 900, s2, q.on('Welke', 1))); vraagteken(ctx, 1160, 520, q.on('denk', 1), 110); ctx.restore(); } },
 
-  s06(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('vertelt', 1, 0.8), D = q.on('doorvragen', 1, 0.8);
+  s06(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('vraagt', 1, 0.8), D = q.on('doorvragen', 1, 0.8);
     if (B < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - B; regel(ctx, 'Het antwoord is c', 120, 140, 1, C.groen, 40, 'left', 700);
       vraagKaartje(ctx, 160, 230, 900, 'a. Waarom ga je niet meer naar school?', 1, q.on('verwijt', 1) > 0.5 ? 'VERWIJT?' : '', C.oker); vraagKaartje(ctx, 160, 370, 900, 'b. Komt dat door thuis?', 1, q.on('sturend', 1) > 0.5 ? 'STUREND' : '');
       vraagKaartje(ctx, 160, 510, 900, "c. Hoe ziet zo'n slechte dag eruit?", 1, q.on('open', 1) > 0.5 ? 'OPEN' : '', C.groen, q.on('open', 1) > 0.5);
       tag(ctx, 'open, maar klinkt als verwijt', 1420, 275, C.oker, q.on('verwijt', 1), 'center', 30); tag(ctx, 'jij bedenkt de oorzaak al', 1420, 415, C.koraal, q.on('oorzaak', 1), 'center', 30); tag(ctx, 'Sam vertelt in eigen woorden', 1420, 555, C.groen, q.on('woorden', 1), 'center', 30);
       chip(ctx, 'gesloten vraag (ja of nee): handig om te checken', 960, 760, C.text2, q.on('gesloten', 1), 32); ctx.restore(); }
     if (B > 0.01 && D < 0.99) { ctx.save(); ctx.globalAlpha *= B * (1 - D); spreek(ctx, q.on('verbeteren', 1) > 0.5 ? 'blij' : 'praat', t); const Z = q.on('samen', 1);
-      samZegt(ctx, ['Ik lig tot drie uur wakker.', 'En dan kom ik mijn bed niet uit.'], 1 - Z * 0.7, 1150, 110);
+      jijZegt(ctx, ["Hoe ziet zo'n slechte dag eruit?"], 1 - Z, 160, 640, 760); tag(ctx, 'open vraag', 540, 700, C.groen, q.on('vraagt', 1) * (1 - Z), 'center', 30);
+      samZegt(ctx, ['Ik lig tot drie uur wakker.', 'En dan kom ik mijn bed niet uit.'], q.on('vertelt', 1) * (1 - Z * 0.7), 1150, 110);
       jijZegt(ctx, ['Dus je ligt tot drie uur wakker.', "'s Ochtends kom je je bed niet uit.", 'En daarom mis je de eerste uren.', 'Klopt dat?'], Z, 160, 640, 760); tag(ctx, 'samenvatten: je laat zien dat je luistert', 1500, 680, C.goud, q.on('luistert', 1), 'center', 30); ctx.restore(); }
     if (D > 0.01) { ctx.save(); ctx.globalAlpha *= D; regel(ctx, 'doorvragen', 960, 180, 1, C.goud, 48, 'center', 700); chip(ctx, 'Wat doe je als je wakker ligt?', 960, 290, C.teal, q.on('doe', 1), 32); chip(ctx, 'Waar denk je dan aan?', 960, 380, C.teal, q.on('Waar', 1), 32);
       regel(ctx, 'vaag', 700, 500, q.on('vaag', 1), C.text2, 40, 'center', 700); pijl(ctx, 780, 488, 1100, 488, C.goud, q.on('concrete', 1), 4, 18); regel(ctx, 'concreet', 1220, 500, q.on('concrete', 1), C.groen, 40, 'center', 700);
