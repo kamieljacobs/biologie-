@@ -1,0 +1,75 @@
+{
+ "slug": "tandheelkunde-4-een-tand-door-bot",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Een tand door bot",
+ "sub": "hoe een beugel werkt",
+ "puzzle": "Hoe kan een beugel een tand door bot verplaatsen?",
+ "meta": "tandheelkunde · orthodontie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Tandheelkunde en mondzorg",
+ "lead": "Noors hoektand schuift met een beugel een paar millimeter op, door hard kaakbot. Een tand hangt met het wortelvlies in het bot, en bot is levend weefsel: aan de drukkant breken cellen het bot af, aan de trekkant bouwen ze nieuw bot op. Harder duwen gaat niet sneller, want dan sterft een stukje wortelvlies af. Na de beugel willen tanden terug; een draadje houdt ze op hun plek. En waarom zijn zoveel kaken te klein? Vooral door ons zachte eten.",
+ "endHaak": "welke andere delen van je lichaam passen zich aan aan hoe je ze belast?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe zit een tand vast?",
+  "Hoofdstuk 2": "Wat gebeurt er aan de drukkant en de trekkant?",
+  "Hoofdstuk 3": "Waarom een draadje na de beugel?",
+  "Hoofdstuk 4": "Waarom zijn zoveel kaken te klein?",
+  "Recap": "Wie verplaatste Noors tand eigenlijk?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Noor, Tandarts Wouter en Mondhygiënist Ilse (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Hoe kan een tand met een beugel door hard kaakbot bewegen?",
+   "correct": 2,
+   "explain": "Het bot wordt aan de drukkant afgebroken en aan de trekkant opgebouwd; de tand schuift met zijn hele bed mee."
+  },
+  "q09": {
+   "q": "Kan de beugel niet gewoon harder duwen?",
+   "correct": 1,
+   "explain": "Nee: bij te veel druk krijgt het wortelvlies geen bloed meer, sterft een stukje af, en staat de tand stil tot dat is opgeruimd."
+  },
+  "q13": {
+   "q": "Waarom is bij zoveel moderne mensen de kaak te klein voor hun tanden?",
+   "correct": 0,
+   "explain": "Ons eten is zacht; een kaak groeit minder als een kind weinig en zacht hoeft te kauwen. Dat ging te snel voor evolutie; erfelijkheid speelt ook mee."
+  }
+ },
+ "glossary": [
+  {
+   "t": "wortelvlies",
+   "d": "Laag van stevige vezels in de smalle spleet tussen wortel en kaakbot; hangt de tand op en vangt kauwkrachten op."
+  },
+  {
+   "t": "botafbrekers",
+   "d": "Cellen die bot oplossen (osteoclasten); aan de drukkant van een tand met een beugel."
+  },
+  {
+   "t": "botopbouwers",
+   "d": "Cellen die nieuw bot maken (osteoblasten); aan de trekkant van een tand met een beugel."
+  },
+  {
+   "t": "drukkant",
+   "d": "Kant waar de tand naartoe wordt geduwd; het wortelvlies wordt samengeknepen en het bot afgebroken."
+  },
+  {
+   "t": "trekkant",
+   "d": "Kant waar de tand vandaan beweegt; de vezels worden uitgerekt en er wordt nieuw bot neergelegd."
+  },
+  {
+   "t": "botombouw",
+   "d": "Het voortdurend afbreken en opbouwen van bot, waardoor bot zich aanpast aan hoe het belast wordt."
+  },
+  {
+   "t": "retentiedraad",
+   "d": "Dun draadje aan de binnenkant van de tanden dat ze na de beugel op hun plek houdt, vaak jarenlang."
+  },
+  {
+   "t": "orthodontist",
+   "d": "Tandarts die zich na de studie vier jaar specialiseert in de stand van tanden en kaken; een van de twee erkende tandheelkundige specialismen."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Beschrijf wat er aan de drukkant en aan de trekkant van een tand met een beugel gebeurt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Drukkant: wortelvlies samengeknepen, botafbrekers (osteoclasten) breken bot af (1p). Trekkant: vezels uitgerekt, botopbouwers (osteoblasten) leggen nieuw bot neer (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom een twee keer zo grote kracht een tand niet twee keer zo snel verplaatst. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij te veel druk worden de bloedvaatjes in het wortelvlies dichtgedrukt en sterft een stukje weefsel af (1p); de tand staat dan stil tot dat weefsel is opgeruimd (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Noor draagt haar retentiedraad niet meer. Voorspel wat er gebeurt en leg uit waarom. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De tanden schuiven (deels) terug naar hun oude plek (1p), doordat vezels in het tandvlees nog gespannen staan en het bot nog wordt omgebouwd; tanden blijven ook later nog wat schuiven (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Scheve tanden komen nu veel vaker voor dan bij jagers en verzamelaars. Waarom is evolutie door natuurlijke selectie hier geen goede verklaring? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De toename ging te snel (enkele eeuwen) voor veranderingen in het erfelijk materiaal van een hele populatie (1p); zacht voedsel verandert binnen één leven hoe de kaak groeit (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Tandheelkunde en mondzorg (film 4 van 4). Bouwt voort op <i>Hoe weefsel herstelt</i> (weefsel verbouwen), <i>Bloedend tandvlees</i> (kaakbot), <i>Zuur in je mond</i> (plak, witte plekjes) en <i>Selectie van dichtbij</i>. Noor met een beugel is de rode draad; Tandarts Wouter ziet haar bij de gewone controle, Mondhygiënist Ilse helpt met poetsen rond de blokjes.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>H1</b> wortelvlies en levend bot. <b>H2</b> drukkant en trekkant, ± 1 mm per maand, te veel kracht zet de tand stil. <b>H3</b> terugval en retentiedraad. <b>H4</b> te kleine kaken door zacht voedsel, en plak rond de beugel.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Breedte wortelvlies</td><td>een paar tiende millimeter (0,15–0,38 mm)</td><td>Nanci, Ten Cate's Oral Histology</td></tr>\n<tr><td>Snelheid tandbeweging</td><td>± 1 mm per maand, groot verschil tussen personen</td><td>Iwasaki e.a.; orthodonticproductsonline.com</td></tr>\n<tr><td>Te grote kracht</td><td>hyalinisatie, tijdelijke stilstand; geen vastgestelde optimale kracht</td><td>Ren, Maltha &amp; Kuijpers-Jagtman 2003, Angle Orthod 73; Krishnan &amp; Davidovitch 2006</td></tr>\n<tr><td>Terugval</td><td>door tandvleesvezels en botombouw; retentie vaak jaren tot levenslang</td><td>Cochrane-review retentie (CD002283)</td></tr>\n<tr><td>Kaakgrootte</td><td>minder scheve tanden bij jagers-verzamelaars; zacht voedsel geeft minder kaakgroei</td><td>Pinhasi e.a. 2015, PLoS One; Corruccini 1984</td></tr>\n<tr><td>Orthodontist</td><td>4 jaar voltijd na tandarts; erkende specialismen orthodontie en kaakchirurgie</td><td>Registratiecommissie Tandheelkundige Specialismen</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>De signalen tussen drukzone en botcellen (o.a. RANKL, prostaglandinen) laat de film weg.</li><li>De film noemt zacht voedsel als belangrijkste verklaring voor te kleine kaken; ook erfelijkheid en mondademen spelen mee.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen met een (gehad) beugel vertellen hoe vaak ze terug moesten en wat de orthodontist deed.</li><li>Koppel aan sport: ook botten en pezen passen zich aan aan belasting (zie <i>Trainen</i> bij Fysiotherapie).</li></ul>\n</section>\n"
+}
