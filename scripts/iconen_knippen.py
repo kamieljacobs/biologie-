@@ -31,8 +31,8 @@ for k, i in enumerate(IDS):
         A = np.c_[2 * X[sel], 2 * Y[sel], np.ones(sel.sum())]; b = X[sel] ** 2 + Y[sel] ** 2
         gx, gy, c = np.linalg.lstsq(A, b, rcond=None)[0]; R0 = np.sqrt(c + gx ** 2 + gy ** 2)
     cx, cy, rr = gx, gy, R0 - 10
-    t = im.crop((round(cx - rr), round(cy - rr), round(cx + rr), round(cy + rr))).resize((192, 192), Image.LANCZOS)
-    m = Image.new('L', (768, 768), 0); ImageDraw.Draw(m).ellipse([0, 0, 767, 767], fill=255); m = m.resize((192, 192), Image.LANCZOS)
+    t = im.crop((round(cx - rr), round(cy - rr), round(cx + rr), round(cy + rr))).resize((264, 264), Image.LANCZOS)
+    m = Image.new('L', (768, 768), 0); ImageDraw.Draw(m).ellipse([0, 0, 767, 767], fill=255); m = m.resize((264, 264), Image.LANCZOS)
     t.putalpha(m); t.save(os.path.join(uit, i + '.webp'), quality=86)
     k2 = t.resize((100, 100)); blad.paste(k2, ((k % 8) * 110 + 5, (k // 8) * 110 + 5), k2)
 if len(sys.argv) > 3: blad.save(sys.argv[3])

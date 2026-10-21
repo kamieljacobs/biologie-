@@ -163,9 +163,10 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .vgroep li b{font-size:16px;line-height:1.2}
 .vgroep li .mat{font-size:12px}
 .vgroep li a:hover .tk{border-color:var(--goud)}
-.vgroep li .tk.foto{width:64px;height:64px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
+.vgroep li .tk.foto{width:88px;height:88px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
 .tk.foto img{width:100%;height:100%;display:block;border-radius:999px;transition:transform .25s}
 .vgroep li a:hover .tk.foto img{transform:scale(1.06)}
+@media (max-width:600px){.vgroep li .tk.foto{width:72px;height:72px}}
 .tk{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;flex:none}
 .tk svg{width:28px;height:28px}
 .vlak li b{font:700 18px/1.25 var(--titel)}
@@ -2773,7 +2774,7 @@ function grondWissel(){
 function home(){
   const nf=id=>HOOFDSTUKKEN[id]?HOOFDSTUKKEN[id].films.length:0;
   const thema=id=>{const h=HOOFDSTUKKEN[id];if(!h)return '';const vwo=/^vwo\b/.test(h.meta||'')?' <span class="vwo-tag mono">vwo</span>':'';
-    return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=3" alt="" width="64" height="64" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
+    return `<li><a href="#${id}">${ICOON.includes(id)?`<span class="tk foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="88" height="88" decoding="async"></span>`:`<span class="tk">${kunst(id)}</span>`}<b>${esc(h.titel)}${vwo}</b><span class="mat">${esc(telling(id))}</span></a></li>`};
   const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
   let out=grondLaag()+`<section class="wrap hero hero-kort">
     <div>
