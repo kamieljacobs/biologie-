@@ -77,6 +77,8 @@ Kamiel wil per film een korte tool waarmee hij zelf uitlegt: per scherm korte an
 
 Vaste personages staan in `personages/lib_cast.js` (castboek: `personages/index.html`, niet gelinkt, noindex; opnieuw bouwen met `scripts/castboek.py`). Gebruik ze in nieuwe films.
 
+Realistisch lichaam met organen (vooraanzicht, echte verhoudingen, organen op hun echte plek, skelet, spieren, vaten, zenuwen, klieren, met animaties): `personages/lib_anatomie.js` (21 okt 2026, eerst gebruikt in film 2b Een rondleiding door je lichaam). Zet `BODY={cx,yb,h}` en roep `bodyOrgans({...})` aan (zelfde sleutels als het oude poppetje: zenuw, spijs, adem, bloed, uitsch, skelet, spier, afweer, hormoon, voortpl, plus beat, breath, impuls, urine); losse organen met gloed: `liver`, `pancreas`, `anHeart`, `anLungs`, `anBrain`, `anKidney`, `skin`, `testes`. Heeft `lib_cast.js` (en `circ`) nodig. Kamiel (21 okt 2026): lichamen en organen niet meer als dummy/Michelin-poppetje; mensen in scènes zijn castpersonages. Castboek kent nu ook `uit:'slaapt'` en `uit:'moe'` voor volwassenen/tieners.
+
 ## Kijkcijfers
 
 Elke pagina laadt `js/teller.js` (GoatCounter `biologiebijkamiel`, zonder cookies). Films tellen daarnaast `start/`, `halverwege/` (±45% van `duur` aan afgespeeld geluid) en `uitgekeken/` (±85%) als gebeurtenis; de duur komt uit `HOOFDSTUKKEN` en staat als `data-duur` op de scripttag. Draai `python3 scripts/teller.py` na het toevoegen van een nieuwe pagina, film of tool, of na het wijzigen van een filmduur (idempotent). Elke nacht haalt `.github/workflows/statistieken.yml` (secret `GOATCOUNTER_TOKEN`) de totalen op met `scripts/statistieken_ophalen.py` naar `statistieken/data.json`; het dashboard is `statistieken/index.html` (niet gelinkt, noindex).

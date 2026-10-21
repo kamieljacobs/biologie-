@@ -16,3 +16,7 @@ Volgende stap: uitspraaktest (hypofyse, schildklier, urineleiders, lymfeklieren,
 ## 13 oktober 2026 (middag): film 1.0 gepubliceerd
 
 Kamiel: "kun je ook 1 en 2 doen?" → zonder checkpoint direct ingesproken (16 takes, IPA vooraf opgezocht, wachtlijst in `info.md`), gebouwd, op de site en de homepage. Zie `info.md`.
+
+## 21 oktober 2026: versie 1.1 — realistisch lichaam en personages
+
+Kamiel: de animaties van lichamen en organen konden beter; de poppetjes (dummy/Michelin-vorm) moesten realistischere personages worden. Nieuw `src/anatomie.js` (ook als `personages/lib_anatomie.js`): echt lichaam met gezicht en haar, organen anatomisch op hun plek (hart en maag links in het lichaam, lever rechts), skelet, spieren, slagaders/aders met stromend bloed, zenuwen met impulsen, nieren met urinestroom, voedselbrok die echt door de darm reist, organen lichten op bij hun naam. Dagscènes met Lotte (en Daan in de klas) uit het castboek. Audio en timing ongewijzigd; alleen het scèneblok in `index.html` is vervangen (build-volgorde: lib_cast, helpers1, helpers2, anatomie, scenes2b).
