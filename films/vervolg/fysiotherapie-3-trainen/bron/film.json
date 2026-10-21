@@ -1,0 +1,79 @@
+{
+ "slug": "fysiotherapie-3-trainen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Trainen: hoe je lichaam zich aanpast",
+ "sub": "belasting, herstel en meten",
+ "puzzle": "Waarom word je fitter van trainen, en niet tijdens het trainen?",
+ "meta": "bewegingswetenschappen · training",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Fysiotherapie en bewegingswetenschappen",
+ "lead": "Noor begint met hardlopen en Bilal met krachttraining. Tien weken later zijn ze fitter en sterker, maar dat gebeurde in de rust na het trainen. Duurtraining geeft meer mitochondriën, meer haarvaten en een groter slagvolume; kracht groeit eerst via het zenuwstelsel en daarna via dikkere spiervezels. Training is specifiek en omkeerbaar, en bewegingswetenschappers meten het allemaal precies.",
+ "endHaak": "hoe zou jij een trainingsschema van tien weken opbouwen, met dit model in je achterhoofd?",
+ "minis": {
+  "Hoofdstuk 1": "Wat is supercompensatie?",
+  "Hoofdstuk 2": "Hoe pompt een getraind hart met minder slagen evenveel bloed?",
+  "Hoofdstuk 3": "Waarom word je eerst sterker zonder dikkere spieren?",
+  "Hoofdstuk 4": "Wat meet een bewegingswetenschapper?",
+  "Recap": "Waar gebeurt de aanpassing?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Noor, Bilal en Fysiotherapeut Femke (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Wanneer wordt Noor eigenlijk fitter?",
+   "correct": 2,
+   "explain": "In de rust na het trainen: dan herstelt het lichaam en bouwt het net iets meer op dan er was."
+  },
+  "q06": {
+   "q": "Noors rusthartslag daalt, maar haar lichaam krijgt evenveel zuurstof. Hoe kan dat?",
+   "correct": 0,
+   "explain": "Haar hart pompt per slag meer bloed (groter slagvolume); bloed per minuut = slagvolume × hartslag."
+  },
+  "q09": {
+   "q": "Bilal is na twee weken sterker, maar zijn spieren zijn nog even dik. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Zijn zenuwstelsel leert meer motorische eenheden tegelijk aan te zetten en beter te laten samenwerken."
+  }
+ },
+ "glossary": [
+  {
+   "t": "supercompensatie",
+   "d": "Model van trainen: na een training herstelt het lichaam tot net boven het oude niveau; train je op dat moment opnieuw, dan stapelt de winst."
+  },
+  {
+   "t": "duurtraining",
+   "d": "Lang achter elkaar matig intensief bewegen, zoals hardlopen of fietsen; traint vooral hart, bloedvaten en mitochondriën."
+  },
+  {
+   "t": "mitochondrium",
+   "d": "Celorganel waarin met zuurstof de meeste ATP wordt gemaakt; door duurtraining krijgen spiervezels er meer van."
+  },
+  {
+   "t": "haarvaten",
+   "d": "De kleinste bloedvaatjes; door training groeien er meer rond elke spiervezel, zodat zuurstof makkelijker de spier in komt."
+  },
+  {
+   "t": "slagvolume",
+   "d": "De hoeveelheid bloed die het hart per slag rondpompt; bloed per minuut = slagvolume × hartslag."
+  },
+  {
+   "t": "motorische eenheid",
+   "d": "Eén motorisch neuron met alle spiervezels die het aanstuurt; in het begin van krachttraining leer je er meer tegelijk aan te zetten."
+  },
+  {
+   "t": "hypertrofie",
+   "d": "Het dikker worden van spiervezels doordat er meer draden actine en myosine in komen."
+  },
+  {
+   "t": "specificiteit",
+   "d": "Je lichaam past zich aan aan precies de belasting die je geeft: hardlopen traint vooral je benen, niet je armen."
+  },
+  {
+   "t": "omkeerbaarheid",
+   "d": "Stop je met trainen, dan verdwijnt een deel van de winst weer, al na een paar weken."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een sporter traint elke dag zwaar en wordt steeds slechter. Verklaar dit met het model van supercompensatie. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Na een training daalt het niveau eerst en herstelt het pas in de rust daarna (1p). Traint hij opnieuw voordat hij hersteld is, dan begint hij steeds lager en stapelt hij vermoeidheid in plaats van winst (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Noem twee aanpassingen in een beenspier door duurtraining en leg van elk uit waarom de spier daardoor langer kan werken. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Meer mitochondriën: er kan meer ATP met zuurstof worden gemaakt (1p). Meer haarvaten: zuurstof en glucose komen makkelijker bij de spiervezels en afvalstoffen worden sneller afgevoerd (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Het hartminuutvolume van een sporter in rust is 5 liter per minuut, de hartslag 50 per minuut. Bereken het slagvolume in ml. <span class=\"pts\">(1p)</span></p>\n<details><summary>Antwoord</summary><p>5000 ml : 50 = 100 ml per slag (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een zwemmer en een hardloper doen allebei een inspanningstest op de loopband. Wie scoort waarschijnlijk hoger, en welk principe van training verklaart dat? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De hardloper (1p): training is specifiek; zijn beenspieren en de loopbeweging zijn getraind (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Fysiotherapie en bewegingswetenschappen. Bouwt voort op <i>Alles op adem</i> (ATP, mitochondriën, actine en myosine), <i>Het hart onder controle</i> (slagvolume en hartslag), <i>Gas op reis</i> en <i>Opnieuw leren bewegen</i> (motorische eenheid). Overbelasting en geleidelijk opbouwen zitten in <i>Hoe weefsel herstelt</i>.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> belasting en herstel: supercompensatie met drie scenario's. <b>H2</b> duurtraining: mitochondriën, haarvaten, slagvolume. <b>H3</b> krachttraining: eerst neurale aanpassing, daarna hypertrofie. <b>H4</b> specifiek en omkeerbaar, en hoe bewegingswetenschappers meten (zuurstofopname, krachtplaat, EMG, motion capture).</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Mitochondriën</td><td>na een paar weken tientallen procenten meer</td><td>Bishop e.a. 2014; Granata e.a. 2018, Sports Med</td></tr>\n<tr><td>Rusthartslag</td><td>een paar slagen lager (70 → 65)</td><td>Reimers e.a. 2018, J Clin Med (gemiddeld −3 tot −6 per minuut)</td></tr>\n<tr><td>Kracht eerst neuraal</td><td>vezels na een paar weken dikker, duidelijk na 6–8 weken</td><td>Moritani &amp; DeVries 1979; DeFreitas e.a. 2011</td></tr>\n<tr><td>Omkeerbaar</td><td>na drie weken stoppen al een deel van de winst weg</td><td>Coyle e.a. 1984, J Appl Physiol (VO₂max −7 % na 21 dagen)</td></tr>\n<tr><td>Landen na een sprong</td><td>3–5 × lichaamsgewicht</td><td>normwaarden krachtplaat, o.a. adolescenten gemiddeld ± 4,5 ×</td></tr>\n<tr><td>Opleiding</td><td>bewegingswetenschappen o.a. VU Amsterdam en RUG Groningen</td><td>vu.nl; rug.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Supercompensatie is een vereenvoudigd model; echte aanpassingen lopen per systeem in een ander tempo.</li><li>Het slagvolume neemt vooral toe door een groter bloedvolume en grotere, rekbaardere hartkamers; de film noemt alleen een sterkere spier en iets grotere kamers.</li><li>Niet iedereen reageert even sterk op dezelfde training; de film noemt die verschillen niet.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een week lang hun rusthartslag 's ochtends meten en bespreek waarom één meting weinig zegt.</li></ul>\n</section>\n"
+}
