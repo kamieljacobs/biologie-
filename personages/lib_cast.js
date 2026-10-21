@@ -72,8 +72,15 @@ const CAST = {
   gerrit: { naam: 'Veehouder Gerrit', leeftijd: 52, rol: 'veehouder · melkvee en varkens, kent elk dier', huid: '#D9A584', haar: '#8A7A66', kapsel: 'kort', wenkbrauw: '#6A5A48', stoppels: true,
             top: 'jas', topKleur: '#3A5A8C', topAccent: '#2F4A74', broek: '#3A5A8C', schoen: '#2E3A2A', schoenAccent: '#1E261C', accessoire: [], lengte: 1.02,
             garderobe: { stal: {}, gewoon: { top: 'overhemd', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C' } } } // veehouder (21 okt 2026, Wat word jij? · Diergeneeskunde, ook voor Landbouw): stal = blauwe overall en laarzen
+  ,
+  wouter: { naam: 'Tandarts Wouter', leeftijd: 44, rol: 'tandarts · kijkt, voelt, maakt foto\'s en boort pas als het moet', huid: '#E8BE9A', haar: '#5A4434', kapsel: 'kort', wenkbrauw: '#46342A', stoppels: true,
+            top: 'overhemd', topKleur: '#F4F6F8', topAccent: '#D8DFE6', broek: '#2E4A5C', schoen: '#F2F2EE', schoenAccent: '#2E8A9A', accessoire: ['bril'], lengte: 1.03,
+            garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#2E4A5C', topAccent: '#253C4B', broek: '#5A4A3A', schoen: '#3A3F4E', schoenAccent: '#2E8A9A' } } }, // tandarts (21 okt 2026, Wat word jij? · Tandheelkunde): werk = witte tuniek
+  ilse:   { naam: 'Mondhygiënist Ilse', leeftijd: 31, rol: 'mondhygiënist · meet het tandvlees, poetst mee en voorkomt gaatjes', huid: '#F0CFB4', haar: '#B4542E', kapsel: 'staart', wenkbrauw: '#8E3E22', wimpers: true, lippen: '#B4605A',
+            top: 'overhemd', topKleur: '#CFE6E2', topAccent: '#B2D2CC', broek: '#CFE6E2', schoen: '#F2F2EE', schoenAccent: '#3E9A8A', accessoire: ['oorbel'], lengte: 0.98,
+            garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#6A5A9A', topAccent: '#584A82', broek: '#33415C', schoen: '#3A3F4E', schoenAccent: '#6A5A9A' } } } // mondhygiënist (21 okt 2026, Wat word jij? · Tandheelkunde): werk = mintgroen pak
 };
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse'];
 const CAST_JONG = ['kind', 'baby']; // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
