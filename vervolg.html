@@ -318,6 +318,17 @@ a.fr:hover .fb{border-color:var(--goud)}
 :root[data-theme="light"] .gplaat{display:none}
 :root[data-theme="light"] .metplaat .wrap{min-height:0}
 @media (max-width:760px){.gplaat{opacity:.3}.metplaat .wrap{min-height:0}}
+/* Achtergrond van het overzicht 'Wat word jij?' (Kamiel 21 okt 2026: inspirerend, gloedstijl van de hoofdpagina); alleen donkere stand */
+.vgrond{position:fixed;inset:0;z-index:-1;background:var(--bg) url(img/kunst/vervolg-grond.webp?v=1) no-repeat 70% 20%/cover;opacity:0;transition:opacity .6s;pointer-events:none}
+body.overzicht .vgrond{opacity:.85}
+body.overzicht{background:transparent}
+html{background:var(--bg)}
+body.overzicht .kop{border-bottom-color:transparent}
+body.overzicht .ovz{background:color-mix(in srgb,var(--surface) 86%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+:root:not([data-theme="light"]) body.overzicht .kop .groot{visibility:hidden}
+.vgrond::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 92%,transparent) 0,color-mix(in srgb,var(--bg) 75%,transparent) 38%,transparent 62%),linear-gradient(0deg,var(--bg),transparent 45%)}
+:root[data-theme="light"] .vgrond{display:none}
+:root[data-theme="light"] body.overzicht{background:var(--bg)}
 </style>
 </head>
 <body>
@@ -353,6 +364,7 @@ a.fr:hover .fb{border-color:var(--goud)}
   </div>
 </header>
 
+<div class="vgrond" aria-hidden="true"></div>
 <main id="app"></main>
 
 <footer class="site">
@@ -746,6 +758,7 @@ function overzicht(){
 function render(){
   const g=GB[(location.hash||'').slice(1)];
   document.title=(g?g.naam+' · ':'')+'Wat word jij? · Biologie bij Kamiel';
+  document.body.classList.toggle('overzicht',!g);
   if(g) return gebiedPagina(g);
   app.innerHTML=`<section class="kop"><div class="wrap">
       <div><a class="terug" href="index.html#home">← Alle thema's</a><div class="lbl mono">Studie en beroep na je examen</div><h1>Wat word jij?</h1>
