@@ -56,15 +56,36 @@ function hapDot(x,y){ ctx.beginPath(); ctx.arc(x,y,14,0,6.283); shape(ctx,'#F2E8
 function beads(x,y,n,color,a=1,gap=26){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; for(let i=0;i<n;i++) dot(ctx,x+i*gap,y,11,color,lighten(color,0.3),1.5); if(n>1){ ctx.strokeStyle=lighten(color,0.3); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+(n-1)*gap,y); ctx.stroke(); } ctx.restore(); }
 function scissors(x,y,s,a,open=0.5){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=a; ctx.translate(x,y); ctx.scale(s,s); ctx.strokeStyle=C.teal; ctx.lineWidth=4; ctx.lineCap='round'; [[1],[-1]].forEach(([d])=>{ ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(-40,d*open*30); ctx.stroke(); ctx.beginPath(); ctx.arc(-52,d*open*36,10,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(34,-d*open*18); ctx.stroke(); }); ctx.restore(); }
 
+// ---- personage (versie 1.1, 22 okt 2026): 'jij' is Lotte uit het castboek (zoals in film 2b), geen grijs poppetje meer ----
+// rechterhand van een castpersonage naar een punt (tx,ty) brengen: twee-delige arm, elleboog naar buiten. Geeft [a1,a2] voor POSES.
+function armNaar(id,x,y,h,tx,ty){ const P=CAST[id]; h*=P.lengte||1; const hh=h/(P.kop||6.1), top=y-h, sw=hh*(P.schouderK||(P.leeftijd>30?1.95:1.8));
+  const sx=x+sw*0.4, sy=top+hh*1.42+hh*0.25, L1=hh*1.32*(P.armK||1), L2=hh*1.2*(P.armK||1);
+  let dx=tx-sx, dy=ty-sy, d=Math.hypot(dx,dy); const dm=Math.min(d,(L1+L2)*0.999), th=Math.atan2(dx,dy);
+  const al=Math.acos(clamp((L1*L1+dm*dm-L2*L2)/(2*L1*dm),-1,1)); const a1=th+al; const ex=sx+Math.sin(a1)*L1, ey=sy+Math.cos(a1)*L1;
+  const a2=Math.atan2(tx-ex,ty-ey); return [a1,a2]; }
+POSES.eet3={R:[0.55,1.55],L:[0.14,0.06]};
+POSES.ophang3={R:[2.95,3.05],L:[2.95,3.05]}; // armen boven het hoofd: hangt ze op haar kop, dan bungelen ze naar beneden
+// Lotte eet een appel: hap (u 0..1 = hand naar de mond), kauwen; geeft ankers terug
+function lotteEet(x,y,h,u,t,uit){ const P=CAST.lotte, hh=h*(P.lengte||1)/6.1, top=y-h*(P.lengte||1), mx=x+hh*0.22, my=top+hh*0.92;
+  const rust=[x+hh*1.15,top+hh*3.05]; const [tx,ty]=[lerp(rust[0],mx+hh*0.3,ease(u)),lerp(rust[1],my,ease(u))];
+  POSES.eet3.R=armNaar('lotte',x,y,h,tx,ty); const A=persoon(ctx,'lotte',x,y,h,{pose:'eet3',uit,kijk:1,t}); return { A, mond:[x+hh*0.0,top+hh*0.95], hh, top }; }
+// Lotte hangt op haar kop aan een rekstok (voeten bij de stok)
+function ophangen(x,barY,h,t,a=1){ if(a<=0.01) return; alpha(ctx,a,()=>{ ctx.strokeStyle='#9AA3B2'; ctx.lineWidth=10; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-h*0.35,barY-8); ctx.lineTo(x+h*0.35,barY-8); ctx.stroke(); ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(x-h*0.35,barY-8); ctx.lineTo(x-h*0.35,barY-120); ctx.moveTo(x+h*0.35,barY-8); ctx.lineTo(x+h*0.35,barY-120); ctx.stroke();
+  ctx.save(); ctx.translate(x,barY); ctx.rotate(Math.PI+0.04*Math.sin(t*1.3)); persoon(ctx,'lotte',0,0,h,{outfit:'sport',pose:'ophang3',uit:'blij',kijk:1,t}); ctx.restore(); }); }
+
 // ================= SCÈNES =================
 const SCENES={
 // ---- cold open: appel, pit, wc ----
-s01(ctx,t,q){ kitchenBase(0.3,0); const tD=q.at('dag'), tW=q.at('wc');
-  const a1=1-ramp(t,tD-0.3,0.6); alpha(ctx,a1,()=>{ human(ctx,620,COUNTER,420,1,C.mens); const bite=ramp(t,q.at('Hap'),0.3); apple(700,520,46,1,bite>0.5);
-    const sw=fadeIO(t,q.at('slik'),q.at('pit')+0.5,0.3); alpha(ctx,sw,()=>pitje(620,COUNTER-330+40*clamp((t-q.at('slik'))/1.2,0,1),1.2));
-    label(ctx,'pit','per ongeluk doorgeslikt',628,COUNTER-300,900,300,fadeIO(t,q.at('pit'),tD,0.4),C.goud); });
-  const a2=ramp(t,tD-0.3,0.6); alpha(ctx,a2,()=>{ pill(ctx,560,170,'een dag later',C.grain,1,30); human(ctx,520,COUNTER,420,1,C.mens);
-    alpha(ctx,ramp(t,q.at('weg'),0.4),()=>{ apple(700,520,46,0.35); crossOut(ctx,700,520,40,1); metaText(ctx,'de appel: weg',700,620,C.grain,'center',24); });
+s01(ctx,t,q){ kitchenBase(0.3,0); const tD=q.at('dag'), tW=q.at('wc'), tH=q.at('Hap'), tKa=q.at('kauw'), tSl=q.at('slik');
+  const LX=600, LH=440;
+  const a1=1-ramp(t,tD-0.3,0.6); alpha(ctx,a1,()=>{ const u=ramp(t,tH-0.7,0.6)*(1-ramp(t,tKa+0.15,0.5)); const kauw=t>tKa-0.1&&t<tSl+0.2;
+    const L=lotteEet(LX,COUNTER,LH,u,t,kauw?'praat':(t>q.at('Per')?'verbaasd':'blij'));
+    const hr=L.A.handR; apple(hr.x+8,hr.y-26,40,1,t>tH+0.05);
+    // de pit glijdt door de keel en slokdarm naar beneden (doorschijnend kijkje)
+    const sw=fadeIO(t,tSl,q.at('pit')+0.8,0.3), su=clamp((t-tSl)/2.2,0,1); alpha(ctx,sw,()=>{ const x0=LX, y0=L.top+L.hh*1.0, y1=L.top+L.hh*2.9; ctx.save(); ctx.strokeStyle=rgba('#D98C80',0.55); ctx.lineWidth=L.hh*0.14; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x0+L.hh*0.08,y1); ctx.stroke(); ctx.restore(); pitje(x0+L.hh*0.08*su,lerp(y0,y1,ease(su)),1.3); });
+    naamBij(ctx,'pit','per ongeluk doorgeslikt',LX-L.hh*1.6,L.top+L.hh*2.4,fadeIO(t,q.at('pit'),tD,0.4),'right',C.goud); });
+  const a2=ramp(t,tD-0.3,0.6); alpha(ctx,a2,()=>{ pill(ctx,560,170,'een dag later',C.grain,1,30); persoon(ctx,'lotte',LX,COUNTER,LH,{uit:t>q.at('Waarom')?'denkt':'verbaasd',pose:t>q.at('Waarom')?'denk':'staan',kijk:1,t});
+    alpha(ctx,ramp(t,q.at('weg'),0.4),()=>{ apple(860,520,46,0.35); crossOut(ctx,860,520,40,1); metaText(ctx,'de appel: weg',860,620,C.grain,'center',24); });
     const wc=ramp(t,tW,0.5); alpha(ctx,wc,()=>{ roundRect(ctx,1180,560,160,230,10); shape(ctx,C.fill,C.line,2); text(ctx,'WC',1260,640,fTekst(34,700),C.text,'center'); pitje(1260,730,2.2); });
     label(ctx,'de pit','heel',1270,730,1480,600,ramp(t,q.at('Heel'),0.4),C.goud); });
   pill(ctx,960,870,'waarom de appel wel en de pit niet?',C.goud,ramp(t,q.at('Waarom'),0.5),34);
@@ -97,7 +118,7 @@ s05(ctx,t,q){ bg(ctx,'schema'); const tS=q.at('slikt'), tK=q.at('kop');
     label(ctx,'tanden','snijden en malen',760,400,1100,250,ch,C.text); label(ctx,'speeksel','maakt nat en glad',540,350,440,180,sp,C.teal);
     pill(ctx,960,870,'zo kunnen de sappen er straks overal bij',C.goud,ramp(t,q.at('sappen'),0.5),30); });
   const a2=ramp(t,tS-0.3,0.6); alpha(ctx,a2,()=>{ tractMap({}); const u=lerp(ST.mond,ST.slokdarm+0.02,clamp((t-tS)/2,0,1)); hap(u,1,0,t); tractLabels({slokdarm:1});
-    const kop=ramp(t,tK-0.5,0.6); alpha(ctx,kop,()=>{ ctx.save(); ctx.translate(1400,540); ctx.rotate(Math.PI); human(ctx,0,200,400,1,C.mens); ctx.restore(); apple(1400,760,30,1,true); arrow(ctx,1400,700,1400,620,C.goud,3,14,1); metaText(ctx,'op je kop slikken?',1400,840,C.grain,'center',26); });
+    const kop=ramp(t,tK-0.5,0.6); alpha(ctx,kop,()=>{ inset(1690,300,190,1,()=>{ ophangen(1690,150,250,t,1); apple(1725,462,16,1,true); arrow(ctx,1690,440,1690,395,C.goud,3,12,1); }); metaText(ctx,'op je kop slikken?',1690,540,C.grain,'center',26); });
     pill(ctx,960,100,'komt het eten dan in je maag?',C.goud,ramp(t,q.at('Komt'),0.5),34); });
 },
 // ---- H2: slokdarm duwt; maag ----
@@ -107,7 +128,7 @@ s07(ctx,t,q){ bg(ctx,'schema'); const tM=q.at('maag');
     ctx.beginPath(); ctx.ellipse(960,y+60,70,40,0,0,6.283); shape(ctx,rgba(C.oker,0.6),lighten(C.oker,0.3),2); ctx.beginPath(); ctx.arc(960,y+150,38,0,6.283); shape(ctx,'#F2E8C8','#C94B4B',3);
     [[-1],[1]].forEach(([d])=>arrow(ctx,960+d*160,y+60,960+d*95,y+60,C.koraal,4,14,ramp(t,q.at('knijpen'),0.4)));
     label(ctx,'spieren in de wand','knijpen achter de hap, duwen hem voort',1060,y+60,1300,y-40,ramp(t,q.at('knijpen'),0.4),C.koraal);
-    alpha(ctx,ramp(t,q.at('kop'),0.4),()=>{ ctx.save(); ctx.translate(400,470); ctx.rotate(Math.PI); human(ctx,0,180,360,1,C.mens); ctx.restore(); pill(ctx,400,760,'ook op je kop',C.groen,1,28); }); });
+    alpha(ctx,ramp(t,q.at('kop'),0.4),()=>{ ophangen(400,260,340,t,1); pill(ctx,400,760,'ook op je kop',C.groen,1,28); }); });
   const a2=ramp(t,tM-0.3,0.6); alpha(ctx,a2,()=>{ const kn=ramp(t,q.at('kneedt'),0.5); stomachShape(760,470,2.6,1,1+0.08*kn*Math.sin(t*3));
     const sap=ramp(t,q.at('maagsap'),0.5); for(let i=0;i<14;i++){ const an=hash(i*2.1)*6.283, d=Math.sqrt(hash(i*4.3))*120; alpha(ctx,sap,()=>dot(ctx,740+Math.cos(an)*d,470+Math.sin(an)*d*0.8,6,C.teal)); }
     for(let i=0;i<4;i++){ const an=i*1.5+t*0.8; ctx.beginPath(); ctx.arc(740+Math.cos(an)*60,470+Math.sin(an)*50,22*(1-0.5*ramp(t,q.at('papje'),1)),0,6.283); shape(ctx,'#F2E8C8','#C94B4B',2); } kaas(760,430,0.5*(1-0.5*ramp(t,q.at('papje'),1)),ramp(t,q.at('eiwitten'),0.4)); label(ctx,'eiwit','bijvoorbeeld uit kaas',785,430,1200,330,fadeIO(t,q.at('eiwitten'),q.at('Twee'),0.4),C.paars);

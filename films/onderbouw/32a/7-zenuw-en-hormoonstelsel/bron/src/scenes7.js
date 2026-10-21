@@ -3,53 +3,84 @@
 // Lichaam: eigen schema (silhouet `human` + overlays), niet bodyOrgans: daar staat het zenuwstelsel paars.
 
 // ---------- algemene hulpjes film 7 ----------
-const LB={cx:960,yb:880,h:740}; const LU=LB.h/8, LT=LB.yb-LB.h; // lichaam: midden, voeten, lengte
-const P7={ // ankerpunten in het lichaam (px)
-  oor:[LB.cx+0.88*LU,LT+1.05*LU], brein:[LB.cx,LT+0.72*LU], hypo:[LB.cx,LT+1.12*LU], hals:[LB.cx,LT+1.95*LU],
-  rugTop:[LB.cx,LT+1.6*LU], rugBot:[LB.cx,LT+5.35*LU], hart:[LB.cx-0.3*LU,LT+3.0*LU], long:[LB.cx,LT+2.95*LU],
-  lever:[LB.cx-0.55*LU,LT+3.95*LU], alv:[LB.cx+0.3*LU,LT+4.35*LU], nierL:[LB.cx-0.62*LU,LT+4.55*LU], nierR:[LB.cx+0.62*LU,LT+4.55*LU],
-  bijL:[LB.cx-0.62*LU,LT+4.22*LU], bijR:[LB.cx+0.62*LU,LT+4.22*LU], gesl:[LB.cx,LT+5.3*LU],
-  beenL:[LB.cx-0.7*LU,LT+6.6*LU], beenR:[LB.cx+0.7*LU,LT+6.6*LU], voetL:[LB.cx-0.7*LU,LB.yb-12], voetR:[LB.cx+0.7*LU,LB.yb-12]
-};
-function lijf(a=1,sil=0.32){ alpha(ctx,a*sil,()=>human(ctx,LB.cx,LB.yb,LB.h,1,C.mens)); }
-// zenuwnet: hersenen, ruggenmerg, zenuwen (neutraal), o.hl = lijst van onderdelen in goud
-function zenuwnet(a=1,o={}){ if(a<=0.01) return; const hl=o.hl||[]; const G=k=>hl.includes(k);
+// Lichaam (versie 1.1, 22 okt 2026): het realistische lichaam uit lib_anatomie.js (zelfde als film 2b), organen op hun echte plek.
+// 'Jij' is Sam uit het castboek (cold open, plein, inzetjes). Kleuren film 7: zenuwen neutraal, zenuwsignaal teal, hormoonklieren en adrenaline paars, spieren rood.
+BODY.cx=960; BODY.yb=880; BODY.h=740;
+const LB=BODY; const LU=LB.h/8, LT=LB.yb-LB.h;
+// tijdelijk een ander lichaam (positie/maat), bv. klein in s11 of groot voor de hersenen in s06/s13
+function metLijf(cx,yb,h,fn){ const o={cx:BODY.cx,yb:BODY.yb,h:BODY.h}; BODY.cx=cx; BODY.yb=yb; BODY.h=h; try{ fn(); } finally { Object.assign(BODY,o); } }
+// ankerpunten (px) — let op: wordt opnieuw berekend binnen metLijf via P7f()
+function P7f(){ return { oor:AP(0.39,0.56), brein:AP(0,0.3), hypo:AP(0,0.56), hals:AP(0,1.22),
+  rugTop:AP(0,0.62), rugBot:AP(0,3.32), hart:AP(0.09,2.22), long:AP(0,2.0), lever:AP(-0.38,2.75), alv:AP(0.22,3.0),
+  nierL:AP(-0.37,3.1), nierR:AP(0.37,3.04), bijL:AP(-0.37,2.9), bijR:AP(0.37,2.84), gesl:AP(0,3.65),
+  beenL:AP(-0.5,4.45), beenR:AP(0.5,4.45), voetL:AP(-0.33,7.2), voetR:AP(0.33,7.2) }; }
+const P7=P7f();
+const XR=AP(1.52,0)[0], XL=AP(-1.52,0)[0]; // labelkolommen rechts en links van het lichaam (vrij van de armen)
+const YB=v=>AP(0,v)[1];
+function lijf(a=1,sil=0.3){ if(a<=0.01) return; alpha(ctx,a,()=>{ anFigure(Math.min(1,0.25+sil)); anCavity(0.21*Math.min(1,sil*3)); }); }
+// zenuwbanen (lichaamscoördinaten)
+const Z7={ oor:[[0.39,0.56],[0.31,0.61],[0.2,0.52],[0.08,0.38]], bij:s=>[[0,2.5],[s*0.12,2.66],[s*0.3,2.82]] };
+function z7Lijn(pts,col,w,glow=0){ ctx.save(); if(glow){ ctx.shadowColor=col; ctx.shadowBlur=14*glow; } anLine(pts,col,w); ctx.restore(); }
+const BREIN_VORM=anSym([[0,0.1],[0.17,0.1],[0.29,0.18],[0.33,0.32],[0.31,0.45],[0.22,0.5],[0.1,0.47],[0,0.44]]);
+// zenuwnet: hersenen, ruggenmerg, zenuwen (neutraal), o.hl = lijst van onderdelen in goud, o.bij = zenuw naar de bijnieren
+function zenuwnet(a=1,o={}){ if(a<=0.01) return; const hl=o.hl||[]; const G=k=>hl.includes(k); const HH=AHH(); const NEU='#C9D3E0';
   alpha(ctx,a,()=>{
-    // zenuwen
-    ctx.lineCap='round'; ctx.strokeStyle=rgba(C.line,0.9); ctx.lineWidth=2.5;
-    const [rx,ry]=P7.rugBot, [tx,ty]=P7.rugTop;
-    const zen=[[P7.oor,[LB.cx+0.45*LU,LT+0.9*LU]],[[tx,ty+0.7*LU],[LB.cx-1.25*LU,LT+4.2*LU]],[[tx,ty+0.7*LU],[LB.cx+1.25*LU,LT+4.2*LU]],[[rx,ry],P7.voetL],[[rx,ry],P7.voetR]];
-    zen.forEach(([p,q],i)=>{ ctx.strokeStyle=(G('zenuw')||(i===0&&G('oorzenuw'))||(i>=3&&G('beenzenuw')))?C.goud:rgba(C.line,0.9); ctx.beginPath(); ctx.moveTo(p[0],p[1]); ctx.quadraticCurveTo((p[0]+q[0])/2+(i%2?14:-14),(p[1]+q[1])/2,q[0],q[1]); ctx.stroke(); });
+    const arm=[AN_ZEN.arm(-1),AN_ZEN.arm(1)], been=[AN_ZEN.been(-1),AN_ZEN.been(1),AN_ZEN.been2(-1),AN_ZEN.been2(1)];
+    arm.forEach(p=>z7Lijn(p,G('zenuw')?C.goud:NEU,0.026*HH,G('zenuw')?1:0));
+    been.forEach(p=>z7Lijn(p,G('zenuw')||G('beenzenuw')?C.goud:NEU,0.026*HH,G('zenuw')||G('beenzenuw')?1:0));
+    // kleine zijtakken (romp, handen, voeten)
+    ctx.save(); ctx.globalAlpha*=0.3; for(let i=0;i<6;i++){ const y=1.72+i*0.2; for(const s of [-1,1]) anLine([[s*0.01,y],[s*0.3,y+0.02],[s*0.6,y+0.12]],NEU,1.2); }
+      for(const s of [-1,1]){ for(let k=0;k<4;k++) anLine([[s*1.25,4.42],[s*(1.17+k*0.04),4.6]],NEU,1.1); for(let k=0;k<4;k++) anLine([[s*0.33,7.2],[s*(0.24+k*0.07),7.28]],NEU,1.1); } ctx.restore();
+    if(o.bij) for(const s of [-1,1]) z7Lijn(Z7.bij(s),NEU,0.026*HH);
     // ruggenmerg
-    ctx.strokeStyle=G('rug')?C.goud:lighten(C.line,0.25); ctx.lineWidth=7; ctx.beginPath(); ctx.moveTo(tx,ty); ctx.lineTo(rx,ry); ctx.stroke();
-    // hersenen
-    ctx.beginPath(); ctx.ellipse(P7.brein[0],P7.brein[1],0.62*LU,0.4*LU,0,0,6.283); shape(ctx,rgba('#C9B8D6',0.55),G('brein')?C.goud:lighten(C.line,0.3),G('brein')?3:1.5);
-    ctx.strokeStyle=rgba(C.bgSchema,0.5); ctx.lineWidth=1.5; for(let k=-2;k<=2;k++){ ctx.beginPath(); ctx.arc(P7.brein[0]+k*14,P7.brein[1]-4,10,0.2,2.8); ctx.stroke(); }
-    // oor
-    ctx.beginPath(); ctx.ellipse(P7.oor[0]+6,P7.oor[1],12,20,0,0,6.283); shape(ctx,rgba(C.mens,0.9),G('oor')?C.goud:C.line,G('oor')?3:1.5);
+    z7Lijn(AN_ZEN.merg,G('rug')?C.goud:'#DCE3EC',0.055*HH,G('rug')?1:0);
+    // hersenen (echte vorm, met windingen); goud = rand met gloed
+    anBrain(1,G('brein')?0.5:0); if(G('brein')){ ctx.save(); ctx.shadowColor=C.goud; ctx.shadowBlur=18; anPath(ctx,APs(BREIN_VORM)); ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.stroke(); ctx.restore(); }
+    // gehoorzenuw van het oor naar de hersenen
+    z7Lijn(Z7.oor,G('oorzenuw')||G('zenuw')?C.goud:NEU,0.03*HH,G('oorzenuw')?1:0);
+    if(G('oor')){ const [ex,ey]=AP(0.385,0.53); ctx.save(); ctx.shadowColor=C.goud; ctx.shadowBlur=16; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(ex,ey,0.11*HH,0.17*HH,0,0,6.283); ctx.stroke(); ctx.restore(); }
   }); }
-function beenSpieren(a=1,kort=0){ if(a<=0.01) return; alpha(ctx,a,()=>{ [P7.beenL,P7.beenR].forEach(([x,y])=>{ const k=1-0.18*kort; ctx.beginPath(); ctx.ellipse(x,y-0.4*LU+0.4*LU*(1-k)*0.5,20,0.62*LU*k,0,0,6.283); shape(ctx,rgba(C.koraal,0.6),lighten(C.koraal,0.25),2); }); }); }
-// puls: teal stip langs een pad (lijst punten), u = 0..1
+// beenspieren (dijbeen en kuit), kort 0..1 = de spier trekt samen (korter en dikker)
+function beenSpieren(a=1,kort=0){ if(a<=0.01) return; alpha(ctx,a,()=>{ for(const s of [-1,1]){ const M=p=>anMir(p,s);
+  [[[0.34,3.75],[0.72,3.8],[0.7,4.4],[0.56,5.05],[0.38,5.1],[0.3,4.5]],[[0.42,5.35],[0.56,5.45],[0.6,5.9],[0.52,6.35],[0.44,6.1]]].forEach((pts,j)=>{
+    const y0=pts[0][1], cxm=pts.reduce((q,p)=>q+p[0],0)/pts.length; const ky=1-0.16*kort, kx=1+0.12*kort;
+    const P=M(pts.map(p=>[cxm+(p[0]-cxm)*kx,y0+(p[1]-y0)*ky]));
+    ctx.save(); if(kort>0.05){ ctx.shadowColor=C.koraal; ctx.shadowBlur=22*kort; } anShape(P,ANA.spier,ANA.spierL,1.5); ctx.restore();
+    ctx.save(); ctx.globalAlpha*=0.45; const f=M([[cxm+0.05,y0+0.12*ky],[cxm+0.07,y0+(j?0.8:1.2)*ky]].map(p=>[cxm+(p[0]-cxm)*kx,p[1]])); anLine(f,ANA.spierL,1.2); ctx.restore(); }); } }); }
+// puls: teal stip langs een pad (lijst punten in px), u = 0..1
 function padPunt(pad,u){ const L=[]; let tot=0; for(let i=1;i<pad.length;i++){ const d=Math.hypot(pad[i][0]-pad[i-1][0],pad[i][1]-pad[i-1][1]); L.push(d); tot+=d; }
   let r=clamp(u,0,1)*tot; for(let i=0;i<L.length;i++){ if(r<=L[i]) { const f=L[i]?r/L[i]:0; return [lerp(pad[i][0],pad[i+1][0],f),lerp(pad[i][1],pad[i+1][1],f)]; } r-=L[i]; } return pad[pad.length-1]; }
-function puls(pad,u,a=1,kleur=C.teal){ if(a<=0.01||u<=0||u>=1.02) return; const [x,y]=padPunt(pad,u); alpha(ctx,a,()=>{ ctx.strokeStyle=kleur; ctx.lineWidth=5; ctx.lineCap='round'; ctx.beginPath(); const [x0,y0]=padPunt(pad,Math.max(0,u-0.08)); ctx.moveTo(x0,y0); ctx.lineTo(x,y); ctx.stroke(); dot(ctx,x,y,11,kleur,lighten(kleur,0.4),2); }); }
-const PAD_OOR_BREIN=[P7.oor,[LB.cx+0.45*LU,LT+0.9*LU],P7.brein];
-const PAD_BREIN_BEEN=[P7.brein,P7.rugTop,P7.rugBot,[LB.cx-0.35*LU,LT+6.0*LU],P7.beenL];
-const PAD_BREIN_BEEN2=[P7.brein,P7.rugTop,P7.rugBot,[LB.cx+0.35*LU,LT+6.0*LU],P7.beenR];
-const PAD_BREIN_BIJ=[P7.brein,P7.rugTop,[LB.cx,LT+4.0*LU],P7.bijL];
-// hormoonklieren
-function klier(k,a=1,hl=false){ if(a<=0.01) return; alpha(ctx,a,()=>{ const st=hl?C.goud:lighten(C.paars,0.35), lw=hl?3:1.5;
-  if(k==='bij'){ [P7.bijL,P7.bijR].forEach(([x,y])=>{ ctx.beginPath(); ctx.ellipse(x,y,20,11,0,Math.PI,0); ctx.closePath(); shape(ctx,C.paars,st,lw); }); }
-  if(k==='hypo') dot(ctx,P7.hypo[0],P7.hypo[1],10,C.paars,st,lw);
-  if(k==='schild'){ ctx.beginPath(); ctx.ellipse(P7.hals[0]-14,P7.hals[1],17,10,0.3,0,6.283); ctx.ellipse(P7.hals[0]+14,P7.hals[1],17,10,-0.3,0,6.283); shape(ctx,C.paars,st,lw); }
-  if(k==='alv'){ ctx.beginPath(); ctx.ellipse(P7.alv[0],P7.alv[1],46,13,-0.15,0,6.283); shape(ctx,C.paars,st,lw); }
-  if(k==='gesl'){ dot(ctx,P7.gesl[0]-34,P7.gesl[1],10,C.paars,st,lw); dot(ctx,P7.gesl[0]+34,P7.gesl[1],10,C.paars,st,lw); }
-}); }
-function nieren(a=1){ alpha(ctx,a,()=>{ kidney(P7.nierL[0],P7.nierL[1],1.2); kidney(P7.nierR[0],P7.nierR[1],1.2); }); }
-function lever(a=1,hl=false){ if(a<=0.01) return; alpha(ctx,a,()=>{ const [x,y]=P7.lever; ctx.beginPath(); ctx.moveTo(x-70,y-24); ctx.quadraticCurveTo(x+10,y-46,x+70,y-20); ctx.quadraticCurveTo(x+10,y+30,x-60,y+22); ctx.closePath(); shape(ctx,'#8C4A3A',hl?C.goud:'#B06A58',hl?3:1.5); }); }
-// adrenaline: paarse deeltjes van de bijnieren naar doelen door het hele lichaam (deterministisch)
-const ADR_DOEL=[]; for(let i=0;i<46;i++){ const r=hash(i*3.7); let x,y; if(r<0.18){ x=LB.cx+(hash(i*1.3)-0.5)*0.9*LU; y=LT+(0.4+hash(i*2.9)*1.2)*LU; } else if(r<0.62){ x=LB.cx+(hash(i*1.3)-0.5)*2.2*LU; y=LT+(2.4+hash(i*2.9)*3.0)*LU; } else { const l=hash(i*5.1)<0.5?-1:1; x=LB.cx+l*0.7*LU+(hash(i*1.3)-0.5)*0.6*LU; y=LT+(5.6+hash(i*2.9)*2.2)*LU; } ADR_DOEL.push([x,y]); }
-function adrenaline(u,a=1,n=46,verval=0){ if(a<=0.01) return; alpha(ctx,a*(1-0.75*verval),()=>{ for(let i=0;i<n;i++){ const src=i%2?P7.bijL:P7.bijR, d=ADR_DOEL[i]; const ui=ease(clamp(u*1.4-hash(i*7.7)*0.4,0,1)); if(ui<=0) continue; const w=wander(i,u*20,6,1); dot(ctx,lerp(src[0],d[0],ui)+w.x,lerp(src[1],d[1],ui)+w.y,6,C.paars,lighten(C.paars,0.4),1.2); } }); }
+function puls(pad,u,a=1,kleur=C.teal){ if(a<=0.01||u<=0||u>=1.02) return; const [x,y]=padPunt(pad,u); alpha(ctx,a,()=>{ ctx.save(); ctx.shadowColor=kleur; ctx.shadowBlur=16; ctx.strokeStyle=kleur; ctx.lineWidth=5; ctx.lineCap='round'; ctx.lineJoin='round'; ctx.beginPath(); const u0=Math.max(0,u-0.1); for(let k=0;k<=8;k++){ const [px,py]=padPunt(pad,u0+(u-u0)*k/8); k?ctx.lineTo(px,py):ctx.moveTo(px,py); } ctx.stroke(); dot(ctx,x,y,9,kleur,lighten(kleur,0.45),2); ctx.restore(); }); }
+// paden van de pulsen (functies: ze volgen BODY, ook binnen metLijf)
+const PAD={ oor:()=>anDense(Z7.oor,30),
+  been:s=>anDense([[0,0.36],[0,0.62],[0,1.6],[0,2.6],[s*0.01,3.25],[s*0.2,3.7],[s*0.35,4.0],[s*0.38,4.5]],80),
+  bij:()=>anDense([[0,0.36],[0,0.62],[0,1.6],[0,2.5],[0.12,2.66],[0.3,2.82]],60) };
+// hormoonklieren (paars), op hun echte plek
+function klierGlow(hl){ if(hl){ ctx.shadowColor=C.goud; ctx.shadowBlur=22; } else { ctx.shadowColor=C.paars; ctx.shadowBlur=10; } }
+function klier(k,a=1,hl=false,t=0){ if(a<=0.01) return; const HH=AHH(); alpha(ctx,a,()=>{ const st=hl?C.goud:lighten(C.paars,0.35), lw=hl?3:1.5;
+  ctx.save(); klierGlow(hl);
+  if(k==='bij'){ for(const s of [-1,1]){ const cx=s*0.37, cy=(s<0?3.1:3.04); // kapje bovenop de nier
+    anShape([[cx-0.11,cy-0.11],[cx-0.08,cy-0.2],[cx,cy-0.25],[cx+0.08,cy-0.2],[cx+0.11,cy-0.11],[cx+0.04,cy-0.14],[cx-0.04,cy-0.14]],C.paars,st,lw); } }
+  if(k==='hypo'){ const [x,y]=AP(0,0.56); anLine([[0,0.47],[0,0.53]],lighten(C.paars,0.2),0.035*HH); dot(ctx,x,y,Math.max(6,0.075*HH),C.paars,st,lw); }
+  if(k==='schild') anShape([[0,1.2],[0.07,1.11],[0.13,1.14],[0.14,1.3],[0.07,1.34],[0,1.27],[-0.07,1.34],[-0.14,1.3],[-0.13,1.14],[-0.07,1.11]],C.paars,st,lw);
+  if(k==='alv') anShape(AN_ALV,C.paars,st,lw);
+  if(k==='gesl'){ const w=0.5+0.5*Math.cos(t*1.6); // eierstokken en zaadballen wisselen elkaar af ("eierstokken of zaadballen")
+    ctx.save(); ctx.globalAlpha*=w; for(const s of [-1,1]){ const [ox,oy]=AP(s*0.27,3.62); ctx.beginPath(); ctx.ellipse(ox,oy,0.065*HH,0.045*HH,0,0,6.283); shape(ctx,C.paars,st,lw); } ctx.restore();
+    ctx.save(); ctx.globalAlpha*=1-w; for(const s of [-1,1]){ const [x,y]=AP(s*0.065,4.1); ctx.beginPath(); ctx.ellipse(x,y,0.045*HH,0.06*HH,0,0,6.283); shape(ctx,C.paars,st,lw); } ctx.restore(); }
+  ctx.restore(); }); }
+function nieren(a=1){ if(a<=0.01) return; alpha(ctx,a,()=>{ anKidney(-1,1,0); anKidney(1,1,0); }); }
+function lever(a=1,hl=false){ if(a<=0.01) return; liver(a,hl?0.7:0); if(hl){ ctx.save(); ctx.globalAlpha*=a; ctx.shadowColor=C.goud; ctx.shadowBlur=14; anPath(ctx,APs(AN_LEVER)); ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.stroke(); ctx.restore(); } }
+// adrenaline: paarse deeltjes van de bijnieren naar doelen door het hele lichaam (deterministisch, lichaamscoördinaten)
+const ADR_DOEL=[]; for(let i=0;i<46;i++){ const r=hash(i*3.7), h1=hash(i*1.3), h2=hash(i*2.9), sd=hash(i*5.1)<0.5?-1:1; let x,y;
+  if(r<0.12){ x=(h1-0.5)*0.5; y=0.25+h2*0.5; } else if(r<0.55){ x=(h1-0.5)*1.05; y=1.55+h2*2.2; } else if(r<0.7){ x=sd*(0.92+h1*0.2); y=1.9+h2*2.2; } else { x=sd*(0.22+h1*0.26); y=4.2+h2*2.8; } ADR_DOEL.push([x,y]); }
+function adrenaline(u,a=1,n=46,verval=0){ if(a<=0.01) return; const HH=AHH(); alpha(ctx,a*(1-0.75*verval),()=>{ for(let i=0;i<n;i++){ const src=AP(i%2?-0.37:0.37,i%2?2.9:2.84), d=AP(ADR_DOEL[i][0],ADR_DOEL[i][1]); const ui=ease(clamp(u*1.4-hash(i*7.7)*0.4,0,1)); if(ui<=0) continue; const w=wander(i,u*20,0.05*HH,1); dot(ctx,lerp(src[0],d[0],ui)+w.x,lerp(src[1],d[1],ui)+w.y,Math.max(3,0.055*HH),C.paars,lighten(C.paars,0.45),1.2); } }); }
+// Sam (= jij) in een rond inzetje: plein, springt op, hart bonkt
+function samInzet(cx,cy,r,a,t,o={}){ inset(cx,cy,r,a,()=>{ const k=r/150; ctx.save(); ctx.translate(cx,cy); ctx.scale(k,k);
+  ctx.fillStyle='#6E8CA8'; ctx.fillRect(-160,-160,320,320); ctx.fillStyle='#3E4A62'; ctx.fillRect(-160,-150,320,170); ctx.fillStyle='#55627C'; for(let c=0;c<4;c++) for(let r2=0;r2<2;r2++){ roundRect(ctx,-140+c*75,-130+r2*80,45,55,3); ctx.fill(); }
+  ctx.fillStyle='#8A8F96'; ctx.fillRect(-160,95,320,70);
+  const sp=o.spring||0; persoon(ctx,'sam',0,128-70*Math.sin(Math.PI*clamp(sp,0,1)),245,{outfit:'school',uit:o.uit||'bezorgd',pose:sp>0&&sp<1?'schouders':'staan',kijk:1,t});
+  if(o.bonk){ heart(52,-10,0.45,o.bonk,t*13); }
+  ctx.restore(); }); }
 // bel met geluidsringen
 function alarmBel(x,y,s,t,aan){ ctx.save(); ctx.translate(x,y); ctx.rotate(aan?Math.sin(t*28)*0.12:0); ctx.beginPath(); ctx.arc(0,0,34*s,Math.PI,0); ctx.lineTo(40*s,22*s); ctx.lineTo(-40*s,22*s); ctx.closePath(); shape(ctx,C.fill,C.text,2.5); dot(ctx,0,30*s,7*s,C.text); ctx.restore();
   if(aan) for(let k=0;k<3;k++){ const f=((t*1.6+k/3)%1); ctx.save(); ctx.globalAlpha*=(1-f); ctx.strokeStyle=C.teal; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(x,y,50*s+f*120*s,-0.8,0.8); ctx.stroke(); ctx.beginPath(); ctx.arc(x,y,50*s+f*120*s,Math.PI-0.8,Math.PI+0.8); ctx.stroke(); ctx.restore(); } }
@@ -70,12 +101,30 @@ function luidspreker(x,y,s,t,a=1){ alpha(ctx,a,()=>{ ctx.beginPath(); ctx.moveTo
   for(let k=0;k<3;k++){ const f=((t*0.9+k/3)%1); ctx.save(); ctx.globalAlpha*=(1-f); ctx.strokeStyle=C.paars; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(x+30*s,y,(40+f*110)*s,-0.9,0.9); ctx.stroke(); ctx.restore(); } }); }
 function voetbalveld(x,y,w,t,a=1){ if(a<=0.01) return; const h=w*0.6; alpha(ctx,a,()=>{ ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.strokeRect(x,y,w,h); ctx.beginPath(); ctx.moveTo(x+w/2,y); ctx.lineTo(x+w/2,y+h); ctx.stroke(); ctx.beginPath(); ctx.arc(x+w/2,y+h/2,h*0.18,0,6.283); ctx.stroke(); ctx.strokeRect(x,y+h*0.25,w*0.14,h*0.5); ctx.strokeRect(x+w*0.86,y+h*0.25,w*0.14,h*0.5);
   const u=(t%1.6)/1.0; if(u<=1){ dot(ctx,x+w*u,y+h/2,10,C.teal,lighten(C.teal,0.4),2); } metaText(ctx,'± 100 m in 1 seconde',x+w/2,y+h+40,C.teal,'center',24); }); }
-// arm + pan (reflex-inzet)
-function armPan(x,y,weg,t){ // weg 0..1: hand trekt terug
-  ctx.fillStyle='#4A4F58'; ctx.fillRect(x-40,y+90,360,20); // fornuis
-  ctx.beginPath(); ctx.ellipse(x+160,y+60,110,36,0,0,6.283); shape(ctx,'#3A3F48',C.line,2); ctx.fillStyle=C.koraal; ctx.fillRect(x+270,y+50,90,16); // pan + steel
-  for(let k=0;k<3;k++){ const yy=y-((t*40+k*30)%90); ctx.strokeStyle=rgba(C.koraal,0.6); ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x+120+k*40,y+30); ctx.quadraticCurveTo(x+130+k*40,yy,x+120+k*40,yy-20); ctx.stroke(); }
-  const hx=lerp(x+300,x+80,ease(weg)), hy=lerp(y+40,y-140,ease(weg)); ctx.strokeStyle='#D9A982'; ctx.lineWidth=34; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(-40,y-120); ctx.quadraticCurveTo(x-60,hy-10,hx,hy); ctx.stroke(); dot(ctx,hx+8,hy,24,'#D9A982'); return [hx,hy]; }
+// Sam aan het fornuis (reflex, s06): rechterarm reikt naar de pan en schiet terug; geeft ankers voor zenuwen en labels
+// weg 0..1 = hand trekt terug. De arm wordt met een eigen houding (POSES.reflex7) getekend, zelfde rekenwerk als lib_cast.
+const SAM7={x:430,y:880,h:620};
+function samArm(weg){ const P=CAST.sam, h=SAM7.h*(P.lengte||1), hh=h/6.1, top=SAM7.y-h, sw=hh*1.8, sy=top+hh*1.42+hh*0.25, sx=SAM7.x+sw*0.4;
+  const e=ease(weg), a1=lerp(1.12,0.22,e), a2=lerp(1.32,-2.55,e); const L1=hh*1.32, L2=hh*1.2;
+  const ex=sx+Math.sin(a1)*L1, ey=sy+Math.cos(a1)*L1, hx=ex+Math.sin(a2)*L2, hy=ey+Math.cos(a2)*L2;
+  return { a1, a2, sx, sy, ex, ey, hx, hy, hh, top, rug:[SAM7.x,sy+hh*0.35], nek:[SAM7.x,top+hh*1.25], hoofd:[SAM7.x,top+hh*0.55], heup:[SAM7.x,top+hh*3.45] }; }
+function fornuis(t){ const X=760, Y=560; // aanrecht met kookplaat en pan
+  ctx.fillStyle='#4A5266'; ctx.fillRect(X-20,Y,560,H-Y-180+0); roundRect(ctx,X-40,Y-14,600,30,6); shape(ctx,'#6A7388','#8A93A8',2);
+  ctx.strokeStyle=rgba('#22293A',0.8); ctx.lineWidth=2; ctx.strokeRect(X+20,Y+50,230,200); ctx.strokeRect(X+280,Y+50,230,200); dot(ctx,X+230,Y+150,6,'#8A93A8'); dot(ctx,X+300,Y+150,6,'#8A93A8');
+  // pit met gloed
+  ctx.save(); ctx.shadowColor=C.koraal; ctx.shadowBlur=24; ctx.beginPath(); ctx.ellipse(X+250,Y-12,110,12,0,0,6.283); ctx.fillStyle=rgba(C.koraal,0.75+0.15*Math.sin(t*9)); ctx.fill(); ctx.restore();
+  // pan (opzij gezien) met steel naar links
+  roundRect(ctx,X+150,Y-90,200,76,14); shape(ctx,'#3A3F48','#5A606C',2); ctx.fillStyle='#2A2E36'; ctx.fillRect(X+150,Y-90,200,12);
+  ctx.save(); ctx.lineCap='round'; ctx.strokeStyle='#2A2E36'; ctx.lineWidth=16; ctx.beginPath(); ctx.moveTo(X+152,Y-74); ctx.lineTo(X+70,Y-66); ctx.stroke(); ctx.restore();
+  for(let k=0;k<3;k++){ const f=((t*0.6+k/3)%1); ctx.save(); ctx.globalAlpha*=0.7*(1-f); ctx.strokeStyle='#D8DEE8'; ctx.lineWidth=4; ctx.lineCap='round'; const x0=X+190+k*60; ctx.beginPath(); ctx.moveTo(x0,Y-100-f*20); ctx.bezierCurveTo(x0+18,Y-130-f*60,x0-18,Y-160-f*80,x0+6,Y-190-f*110); ctx.stroke(); ctx.restore(); }
+  return [X+80,Y-68]; }
+POSES.reflex7={R:[1.12,1.32],L:[0.14,0.06]};
+// spier als spoel met pezen en vezels; k = samentrekking 0..1
+function spierSpoel(x,y,k,t){ const L=150*(1-0.15*k), Wd=34*(1+0.25*k); ctx.save(); ctx.translate(x,y); ctx.rotate(Math.PI/2);
+  ctx.strokeStyle='#E8DCC8'; ctx.lineWidth=7; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(-L/2-34,0); ctx.lineTo(-L/2+6,0); ctx.moveTo(L/2-6,0); ctx.lineTo(L/2+34,0); ctx.stroke();
+  if(k>0.05){ ctx.shadowColor=C.koraal; ctx.shadowBlur=24*k; } ctx.beginPath(); ctx.moveTo(-L/2,0); ctx.bezierCurveTo(-L/4,-Wd,L/4,-Wd,L/2,0); ctx.bezierCurveTo(L/4,Wd,-L/4,Wd,-L/2,0); shape(ctx,ANA.spier,ANA.spierL,2); ctx.shadowBlur=0;
+  ctx.globalAlpha*=0.5; ctx.strokeStyle=ANA.spierL; ctx.lineWidth=1.5; for(const f of [-0.5,0,0.5]){ ctx.beginPath(); ctx.moveTo(-L/2+10,0); ctx.quadraticCurveTo(0,f*Wd*1.4,L/2-10,0); ctx.stroke(); } ctx.restore(); }
+function samFornuis(weg,t,uit){ const A=samArm(weg); POSES.reflex7.R=[A.a1,A.a2]; persoon(ctx,'sam',SAM7.x,SAM7.y,SAM7.h,{outfit:'school',pose:'reflex7',uit,kijk:1,t}); return A; }
 
 // ================= SCÈNES =================
 const SCENES={
@@ -92,68 +141,77 @@ s01(ctx,t,q){ const tB=q.at('buiten'), tAl=q.at('brandalarm'), tSp=q.at('springt
 },
 // ---- titel ----
 s02(ctx,t,q){ bg(ctx,'schema'); alpha(ctx,ramp(t,0.1,0.7),()=>{ text(ctx,'Zenuwen en hormonen',120,330,fTitel(104),C.text); text(ctx,'Hoe je organen met elkaar praten',120,410,fTekst(44),C.text2); });
-  ctx.save(); ctx.translate(820,60); ctx.scale(0.88,0.88); lijf(ramp(t,0.4,1)); zenuwnet(ramp(t,0.6,1)); klier('hypo',ramp(t,1,1)); klier('schild',ramp(t,1,1)); klier('bij',ramp(t,1,1)); puls(PAD_BREIN_BEEN,(t*0.5)%1.3,ramp(t,1,1)); ctx.restore();
+  metLijf(1430,870,700,()=>{ lijf(ramp(t,0.4,1)); zenuwnet(ramp(t,0.6,1)); nieren(ramp(t,1,1)*0.8); klier('hypo',ramp(t,1,1)); klier('schild',ramp(t,1,1)); klier('bij',ramp(t,1,1)); puls(PAD.been(-1),(t*0.5)%1.3,ramp(t,1,1)); puls(PAD.been(1),(t*0.5+0.4)%1.3,ramp(t,1,1)); });
   metaText(ctx,'ONDERBOUW · KERNDOELEN · FILM 7',W-80,60,C.text2,'right',24); },
 // ---- H1: zintuig, signaal, zenuw ----
 s03(ctx,t,q){ bg(ctx,'schema'); const tZ=q.at('zintuigen'), tSig=q.at('signaal'), tZen=q.at('zenuw.',2), tW=q.at('Welke');
   lijf(1); zenuwnet(ramp(t,0.3,0.8),{hl:t>tZ&&t<tSig+1?['oor']:t>tZen?['oorzenuw']:[]});
   pill(ctx,420,200,'1  zenuwen',C.teal,fadeIO(t,0.4,q.at('begint'),0.4),34); pill(ctx,420,290,'2  hormonen',C.paars,fadeIO(t,0.4,q.at('begint'),0.4)*0.45,34);
-  naamBij(ctx,'zintuig','het oor vangt geluid op',P7.oor[0]+40,P7.oor[1]+8,ramp(t,tZ,0.4),'left',C.goud);
+  naamBij(ctx,'zintuig','het oor vangt geluid op',P7.oor[0]+30,P7.oor[1]+8,ramp(t,tZ,0.4),'left',C.goud);
   // vier soorten prikkels
   const tG=q.at('Geluid'); [['geluid',0],['licht',1],['warmte',2],['aanraking',3]].forEach(([s,i])=>pill(ctx,330,300+i*90,s,C.text,fadeIO(t,tG+i*0.35,tSig,0.3),30));
   // signaal: puls bij het oor, dan over de zenuw tot halverwege
-  const pu=t<tZen?0.02+0.1*ramp(t,tSig,0.5):0.12+0.4*ramp(t,tZen,1.2); puls(PAD_OOR_BREIN,pu,ramp(t,tSig,0.3));
+  const pu=t<tZen?0.02+0.1*ramp(t,tSig,0.5):0.12+0.4*ramp(t,tZen,1.2); puls(PAD.oor(),pu,ramp(t,tSig,0.3));
   naamBij(ctx,'elektrisch signaal','',1260,250,fadeIO(t,tSig,tZen+2,0.4),'left',C.teal);
   // zoomcirkel: doorsnede zenuw
-  zoomCircle(ctx,1500,560,190,P7.oor[0]-40,P7.oor[1]+40,'doorsnede van een zenuw',ramp(t,q.at('bundel'),0.5),()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1310,370,380,380); ctx.beginPath(); ctx.arc(1500,560,150,0,6.283); shape(ctx,rgba(C.grain,0.15),C.grain,4); for(let i=0;i<24;i++){ const an=hash(i*2.3)*6.283, d=Math.sqrt(hash(i*4.1))*120; dot(ctx,1500+Math.cos(an)*d,560+Math.sin(an)*d,13,rgba(C.teal,0.3),C.teal,1.5); } });
+  zoomCircle(ctx,1500,560,190,P7.oor[0]-30,P7.oor[1]+20,'doorsnede van een zenuw',ramp(t,q.at('bundel'),0.5),()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1310,370,380,380); ctx.beginPath(); ctx.arc(1500,560,150,0,6.283); shape(ctx,rgba(C.grain,0.15),C.grain,4); for(let i=0;i<24;i++){ const an=hash(i*2.3)*6.283, d=Math.sqrt(hash(i*4.1))*120; dot(ctx,1500+Math.cos(an)*d,560+Math.sin(an)*d,13,rgba(C.teal,0.3),C.teal,1.5); } });
   naamBij(ctx,'zenuw','bundel draden van zenuwcellen',1500,330,ramp(t,q.at('bundel'),0.5),'center',C.goud);
-  alpha(ctx,ramp(t,tW,0.4),()=>{ text(ctx,'?',P7.beenL[0]-170,P7.beenL[1],fTitel(90),C.goud,'center'); });
+  alpha(ctx,ramp(t,tW,0.4),()=>{ text(ctx,'?',XL-60,P7.beenL[1]+120,fTitel(90),C.goud,'center'); });
   meta7(t); },
 // ---- H1: route via hersenen en ruggenmerg naar de beenspieren ----
 s05(ctx,t,q){ bg(ctx,'schema'); const tH=q.at('hersenen'), tA=q.at('alarm'), tR=q.at('ruggenmerg'), tSp=q.at('spieren'), tK=q.at('korter'), tS=q.at('samen'), tSn=q.at('snel.'), tV=q.at('voetbalveld');
   const vS=1-ramp(t,tSn-0.2,0.5);
-  alpha(ctx,vS,()=>{ lijf(1); const hl=t>tS?['brein','rug','zenuw','oor']:t>tR&&t<tSp?['rug']:t>tH&&t<tR?['brein']:[];
+  alpha(ctx,vS,()=>{ lijf(1); samInzet(290,560,150,fadeIO(t,tSp-1.2,tS+0.6,0.4),t,{spring:ramp(t,q.at('springt')-0.1,0.7),uit:'verbaasd'}); const hl=t>tS?['brein','rug','zenuw','oor']:t>tR&&t<tSp?['rug']:t>tH&&t<tR?['brein']:[];
     zenuwnet(1,{hl}); beenSpieren(ramp(t,tSp,0.4),ramp(t,tK,0.4)*(1-ramp(t,tK+1.4,0.4)));
-    puls(PAD_OOR_BREIN,ramp(t,0,1.1),1); pill(ctx,P7.brein[0],P7.brein[1]-120,'alarm!',C.goud,fadeIO(t,tA,tR,0.3),32);
-    puls(PAD_BREIN_BEEN,ramp(t,tA+0.6,(tSp-tA)+0.6),1); puls(PAD_BREIN_BEEN2,ramp(t,tA+0.6,(tSp-tA)+0.6),1);
-    naamBij(ctx,'hersenen','',P7.brein[0]+80,P7.brein[1]-50,fadeIO(t,tH,tS+3,0.4),'left',C.goud);
-    naamBij(ctx,'ruggenmerg','',P7.rugTop[0]+60,LT+3.6*LU,ramp(t,tR,0.4)*vS,'left',C.goud);
-    naamBij(ctx,'beenspieren','worden korter',P7.beenR[0]+60,P7.beenR[1],fadeIO(t,tSp,tS,0.4),'left',C.koraal);
+    puls(PAD.oor(),ramp(t,0,1.1),1); pill(ctx,P7.brein[0],P7.brein[1]-120,'alarm!',C.goud,fadeIO(t,tA,tR,0.3),32);
+    puls(PAD.been(-1),ramp(t,tA+0.6,(tSp-tA)+0.6),1); puls(PAD.been(1),ramp(t,tA+0.6,(tSp-tA)+0.6),1);
+    naamBij(ctx,'hersenen','',P7.brein[0]+70,P7.brein[1]-40,fadeIO(t,tH,tS+3,0.4),'left',C.goud);
+    naamBij(ctx,'ruggenmerg','in je rug',XR,YB(2.3),ramp(t,tR,0.4)*vS,'left',C.goud);
+    naamBij(ctx,'beenspieren','worden korter',XR,P7.beenR[1],fadeIO(t,tSp,tS,0.4),'left',C.koraal);
     naamBij(ctx,'zenuwstelsel','zintuigen · zenuwen · ruggenmerg · hersenen',360,200,ramp(t,tS,0.5),'center',C.goud);
     naamBij(ctx,'spieren voeren uit','',1500,P7.beenR[1],ramp(t,q.at('uit.'),0.4),'center',C.koraal); });
   alpha(ctx,ramp(t,tSn,0.5),()=>{ text(ctx,'Zo snel gaat een zenuwsignaal',W/2,220,fTitel(64),C.text,'center'); voetbalveld(560,340,800,t-tSn,1); text(ctx,'tot wel 100 m per seconde',W/2,300,fTekst(40,600),C.teal,'center'); });
   meta7(t); },
 // ---- H1 uitdaging: reflex ----
 s06(ctx,t,q){ bg(ctx,'schema'); const tP=q.at('pan'), tR=q.at('ruggenmerg'), tT=q.at('terug'), tW=q.at('weg',2), tTe=q.at('Tegelijk'), tAu=q.at('au'), tRe=q.at('reflex');
-  const weg=ramp(t,tW-0.25,0.35); const [hx,hy]=(()=>{ ctx.save(); const r=armPan(240,560,weg,t); ctx.restore(); return r; })();
-  // ruggenmerg als verticale balk rechts, hersenen bovenaan
-  const RX=1180; ctx.strokeStyle=lighten(C.line,0.25); ctx.lineWidth=8; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(RX,240); ctx.lineTo(RX,800); ctx.stroke();
-  ctx.beginPath(); ctx.ellipse(RX,170,120,74,0,0,6.283); shape(ctx,rgba('#C9B8D6',0.55),t>tAu?C.goud:lighten(C.line,0.3),t>tAu?3:1.5);
-  naamBij(ctx,'hersenen','',RX+140,170,1,'left'); naamBij(ctx,'ruggenmerg','',RX+30,620,ramp(t,tR,0.4),'left',C.goud);
-  const hand=[hx,hy], z1=[[hand[0],hand[1]],[800,560],[RX,560]], z2=[[RX,560],[820,520],[230,470]];
-  ctx.strokeStyle=rgba(C.line,0.8); ctx.lineWidth=2.5; [z1,z2].forEach(p=>{ ctx.beginPath(); ctx.moveTo(p[0][0],p[0][1]); ctx.lineTo(p[1][0],p[1][1]); ctx.lineTo(p[2][0],p[2][1]); ctx.stroke(); });
-  naamBij(ctx,'zintuigen in je huid','voelen de hitte',560,700,fadeIO(t,q.at('Zintuigen'),tT,0.4),'left',C.goud);
-  puls(z1,ramp(t,q.at('signaal'),tR-q.at('signaal')+0.4),1);
-  puls(z2,ramp(t,tT-0.2,tW-tT+0.2),1);
-  naamBij(ctx,'armspier','trekt je hand weg',200,380,fadeIO(t,tW-0.2,tTe+1,0.4),'left',C.koraal);
-  puls([[RX,560],[RX,250]],ramp(t,tTe,tAu-tTe+0.1),1);
-  pill(ctx,RX,60,'au!',C.koraal,ramp(t,tAu,0.25),40);
-  // tijdlijn klein: eerst hand weg, dan au
-  alpha(ctx,ramp(t,tAu+0.6,0.5),()=>{ metaText(ctx,'1. hand weg  →  2. au!',1500,820,C.grain,'center',26); });
-  naamBij(ctx,'reflex','snel, zonder nadenken',1500,420,ramp(t,tRe,0.4),'center',C.goud);
+  ctx.fillStyle='#22324D'; ctx.fillRect(0,880,W,H-880); ctx.strokeStyle=rgba(C.line,0.4); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,880); ctx.lineTo(W,880); ctx.stroke();
+  const weg=ramp(t,tW-0.25,0.35); fornuis(t);
+  const A=samFornuis(weg,t,t>tAu?'verbaasd':weg>0.5?'bezorgd':'neutraal');
+  // kijkje in Sam: ruggenmerg, hersenen en de zenuw in de arm (doorschijnend over de kleding)
+  const NEU='#E6ECF4', zArm=[[A.hx,A.hy],[A.ex,A.ey],[A.sx,A.sy],A.rug];
+  alpha(ctx,ramp(t,0.2,0.6),()=>{ ctx.save(); ctx.globalAlpha*=0.85; ctx.lineCap='round'; ctx.lineJoin='round';
+    ctx.strokeStyle=rgba(NEU,0.9); ctx.lineWidth=9; ctx.beginPath(); ctx.moveTo(A.nek[0],A.nek[1]); ctx.lineTo(A.heup[0],A.heup[1]); ctx.stroke();
+    ctx.lineWidth=3.5; ctx.beginPath(); zArm.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])); ctx.stroke(); ctx.restore();
+    // hersenen in het hoofd
+    // hersenen klein in de bovenkant van de schedel (boven de ogen), doorschijnend
+    const r=A.hh*0.55, HHb=0.62*r/0.33, cyB=A.hoofd[1]-0.42*r; metLijf(A.hoofd[0],cyB-0.3*HHb+7.3*HHb,7.3*HHb,()=>{ ctx.save(); ctx.globalAlpha*=0.8; ctx.beginPath(); ctx.rect(A.hoofd[0]-r*1.2,cyB-r,r*2.4,r*1.2); ctx.clip(); anBrain(1,t>tAu?0.8:0); ctx.restore(); }); });
+  naamBij(ctx,'ruggenmerg','',A.rug[0]-70,A.heup[1]-60,ramp(t,tR,0.4),'right',C.goud);
+  naamBij(ctx,'zintuigen in je huid','voelen de hitte',1080,330,fadeIO(t,q.at('Zintuigen'),tT,0.4),'center',C.goud);
+  if(fadeIO(t,q.at('Zintuigen'),tT,0.4)>0.01){ ctx.save(); ctx.globalAlpha*=fadeIO(t,q.at('Zintuigen'),tT,0.4); ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.shadowColor=C.goud; ctx.shadowBlur=14; ctx.beginPath(); ctx.arc(A.hx,A.hy,34,0,6.283); ctx.stroke(); ctx.restore(); }
+  // signaal hand -> ruggenmerg, dan meteen terug naar de armspier
+  const tSg=q.at('signaal'); puls(zArm,ramp(t,tSg,tR-tSg+0.4),1-ramp(t,tR+0.5,0.3));
+  const spier=[(A.sx+A.ex)/2,(A.sy+A.ey)/2]; puls([A.rug,[A.sx,A.sy],spier],ramp(t,tT-0.2,tW-tT+0.2),1-ramp(t,tW+0.4,0.3));
+  alpha(ctx,fadeIO(t,tW-0.25,tTe+1,0.3),()=>{ ctx.save(); ctx.shadowColor=C.koraal; ctx.shadowBlur=24; ctx.strokeStyle=rgba(C.koraal,0.9); ctx.lineWidth=A.hh*0.36; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(A.sx+(A.ex-A.sx)*0.2,A.sy+(A.ey-A.sy)*0.2); ctx.lineTo(A.sx+(A.ex-A.sx)*0.8,A.sy+(A.ey-A.sy)*0.8); ctx.stroke(); ctx.restore(); });
+  naamBij(ctx,'armspier','trekt je hand weg',spier[0]+70,spier[1]-30,fadeIO(t,tW-0.2,tTe+1,0.4),'left',C.koraal);
+  // tegelijk: bericht omhoog naar de hersenen; pas daarna 'au!'
+  puls([A.rug,A.nek,[A.hoofd[0],A.hoofd[1]-A.hh*0.3]],ramp(t,tTe,tAu-tTe+0.1),1-ramp(t,tAu+0.5,0.3));
+  pill(ctx,A.hoofd[0],A.hoofd[1]-A.hh*1.05,'au!',C.koraal,ramp(t,tAu,0.25),40);
+  naamBij(ctx,'hersenen','',A.hoofd[0]-A.hh*0.8,A.hoofd[1]-10,fadeIO(t,tTe,tRe+2,0.4),'right',C.goud);
+  alpha(ctx,ramp(t,tAu+0.6,0.5),()=>{ metaText(ctx,'1. hand weg  →  2. au!',1500,250,C.grain,'center',26); });
+  naamBij(ctx,'reflex','snel, zonder nadenken',1500,170,ramp(t,tRe,0.4),'center',C.goud);
 },
 // ---- H2: het plein, seintje naar de bijnieren, adrenaline ----
 s07(ctx,t,q){ const tTw=q.at('tweede'), tSe=q.at('seintje'), tKa=q.at('kapjes'), tHk=q.at('hormoonklieren'), tAd=q.at('adrenaline'), tHo=q.at('hormoon.',3), tWa=q.at('Waar');
   if(t<tTw-0.2){ plein(); persoon(ctx,'sam',760,880,470,{outfit:'school',uit:'bezorgd',kijk:1,t}); persoon(ctx,'lotte',540,880,455,{outfit:'school',uit:'neutraal',kijk:1,t}); hartPil(1500,140,t,1); pill(ctx,760,150,'het alarm is uit',C.text,ramp(t,q.at('uit.'),0.4),30); return; }
-  bg(ctx,'schema'); lijf(1); zenuwnet(0.45); nieren(ramp(t,tKa-0.4,0.4)); heart(P7.hart[0],P7.hart[1],0.9,1,t*9);
+  bg(ctx,'schema'); lijf(1); zenuwnet(0.45,{bij:true}); nieren(ramp(t,tKa-0.4,0.4)); anHeart(1,t*9,0.15);
   pill(ctx,420,200,'1  zenuwen',C.teal,0.4,34); pill(ctx,420,290,'2  hormonen',C.paars,ramp(t,tTw,0.4),34);
-  puls(PAD_BREIN_BIJ,ramp(t,tSe,1.6),1); naamBij(ctx,'via een zenuw','',LB.cx+170,LT+3.3*LU,fadeIO(t,q.at('Via'),tKa,0.3),'left',C.teal);
-  klier('bij',ramp(t,tKa,0.4),t>tKa&&t<tAd+1); naamBij(ctx,'bijnieren','op je nieren',P7.bijR[0]+50,P7.bijR[1]-10,ramp(t,tKa,0.4),'left',C.paars);
+  puls(PAD.bij(),ramp(t,tSe,1.6),1); naamBij(ctx,'via een zenuw','',XR,YB(2.45),fadeIO(t,q.at('Via'),tKa,0.3),'left',C.teal);
+  klier('bij',ramp(t,tKa,0.4),t>tKa&&t<tAd+1); naamBij(ctx,'bijnieren','op je nieren',XR,YB(3.0),ramp(t,tKa,0.4),'left',C.paars);
   naamBij(ctx,'hormoonklier','maakt een stof',300,520,fadeIO(t,tHk,tWa,0.4),'center',C.paars);
   adrenaline(0.12*ramp(t,tAd,1.5),ramp(t,tAd,0.4),46);
-  naamBij(ctx,'adrenaline','',P7.bijL[0]-60,P7.bijL[1]+70,ramp(t,tAd,0.4),'right',C.paars);
-  alpha(ctx,ramp(t,tHo,0.5),()=>{ roundRect(ctx,1300,420,520,190,14); shape(ctx,rgba(C.bgSchema,0.95),C.paars,1.5); text(ctx,'hormoon',1330,475,fTekst(40,700),C.paars); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'een stof die een hormoonklier aan je bloed afgeeft',1330,525,470,38); });
-  alpha(ctx,ramp(t,tWa,0.4),()=>{ text(ctx,'?',P7.hart[0]-120,P7.hart[1]+20,fTitel(90),C.goud,'center'); });
+  naamBij(ctx,'adrenaline','',XL,YB(3.25),ramp(t,tAd,0.4),'right',C.paars);
+  alpha(ctx,ramp(t,tHo,0.5),()=>{ roundRect(ctx,1370,420,520,190,14); shape(ctx,rgba(C.bgSchema,0.95),C.paars,1.5); text(ctx,'hormoon',1400,475,fTekst(40,700),C.paars); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'een stof die een hormoonklier aan je bloed afgeeft',1400,525,470,38); });
+  alpha(ctx,ramp(t,tWa,0.4),()=>{ text(ctx,'?',XL-60,P7.hart[1]+30,fTitel(90),C.goud,'center'); });
   meta7(t); },
 // ---- H2: overal; de schoolomroep; organen die het herkennen ----
 s09(ctx,t,q){ const tOm=q.at('omroep'), tZo=q.at('Zo'), tHa=q.at('hart',1), tAd=q.at('ademt'), tLe=q.at('lever'), tMi=q.at('minuten');
@@ -167,30 +225,29 @@ s09(ctx,t,q){ const tOm=q.at('omroep'), tZo=q.at('Zo'), tHa=q.at('hart',1), tAd=
   bg(ctx,'schema'); lijf(1); zenuwnet(0.3); nieren(1); klier('bij',1);
   const u=0.12+0.88*ramp(t,0,2.2); const verval=t>tMi?ramp(t,tMi,3):0; adrenaline(u,1,46,verval);
   pill(ctx,1500,200,'± 1 minuut: bloed één keer rond',C.text,fadeIO(t,q.at('minuut'),tOm,0.4),28);
-  const dimA=t>tZo?1:0; const hh=(a)=>alpha(ctx,a,()=>{});
   // organen die het herkennen
-  alpha(ctx,t>tZo?1:0.5,()=>{ lungs(P7.long[0],P7.long[1]-10,1.1,t>tAd?1:0.35,t*3); heart(P7.hart[0],P7.hart[1],0.9,t>tHa&&t>tZo?1:0.35,t*(t>tHa&&t>tZo?14:7)); lever(t>tLe?1:0.35,t>tLe&&t<tMi); });
-  naamBij(ctx,'hart','klopt sneller',P7.hart[0]-170,P7.hart[1]-20,ramp(t,tHa,0.4)*(t>tZo?1:0),'right',C.koraal);
-  naamBij(ctx,'longen','dieper ademen',LB.cx+170,P7.long[1]-60,ramp(t,tAd,0.4),'left',C.teal);
-  naamBij(ctx,'lever','geeft suiker af',P7.lever[0]-120,P7.lever[1]+50,ramp(t,tLe,0.4),'right',C.oker);
+  alpha(ctx,t>tZo?1:0.55,()=>{ const ad=t>tAd&&t>tZo, ha=t>tHa&&t>tZo; anLungs(ad?1:0.45,t*(ad?4.5:2.5),ad?0.5*fadeIO(t,tAd,tMi,0.5):0); anHeart(ha?1:0.5,t*(ha?14:7),ha?0.5*fadeIO(t,tHa,tMi,0.5):0); lever(t>tLe?1:0.45,t>tLe&&t<tMi); });
+  naamBij(ctx,'hart','klopt sneller',XL,YB(2.0),ramp(t,tHa,0.4)*(t>tZo?1:0),'right',C.koraal);
+  naamBij(ctx,'longen','dieper ademen',XR,YB(1.75),ramp(t,tAd,0.4),'left',C.teal);
+  naamBij(ctx,'lever','geeft suiker af',XL,YB(2.85),ramp(t,tLe,0.4),'right',C.oker);
   // concentratiebalkje
   alpha(ctx,ramp(t,tMi,0.4),()=>{ metaText(ctx,'adrenaline in je bloed',1560,600,C.paars,'center',24); roundRect(ctx,1410,620,300,40,10); shape(ctx,rgba(C.bgMicro,0.8),C.line,1.5); const v=1-0.85*ramp(t,tMi+0.3,5); roundRect(ctx,1414,624,292*v,32,8); ctx.fillStyle=C.paars; ctx.fill(); metaText(ctx,'een paar minuten',1560,700,C.text2,'center',22); });
   meta7(t); },
 // ---- H2: meer hormoonklieren ----
 s10(ctx,t,q){ bg(ctx,'schema'); lijf(1,0.25);
-  const K=[['hypo','hypofyse','onder andere groei',q.at('hypofyse'),[LB.cx+90,P7.hypo[1]-10],'left'],['schild','schildklier','hoe snel je lichaam werkt',q.at('schildklier'),[LB.cx+70,P7.hals[1]+10],'left'],['bij','bijnieren','adrenaline',0,[P7.bijR[0]+50,P7.bijR[1]],'left'],['alv','alvleesklier','suiker in je bloed',q.at('alvleesklier'),[P7.alv[0]-110,P7.alv[1]+60],'right'],['gesl','eierstokken of zaadballen','puberteit',q.at('eierstokken'),[LB.cx+70,P7.gesl[1]+40],'left']];
+  const K=[['hypo','hypofyse','onder andere groei',q.at('hypofyse'),[XR-AHH()*0.5,YB(0.5)],'left'],['schild','schildklier','hoe snel je lichaam werkt',q.at('schildklier'),[XR-AHH()*0.5,YB(1.3)],'left'],['bij','bijnieren','adrenaline',0,[XR,YB(2.95)],'left'],['alv','alvleesklier','suiker in je bloed',q.at('alvleesklier'),[XL,YB(3.05)],'right'],['gesl','eierstokken of zaadballen','puberteit',q.at('eierstokken'),[XR,YB(3.85)],'left']];
   nieren(0.6);
-  K.forEach(([k,naam,taak,tk,[lx,ly],al])=>{ const a=k==='bij'?1:ramp(t,tk,0.4); klier(k,a,t>tk&&t<tk+2.5&&k!=='bij'); naamBij(ctx,naam,taak,lx,ly,a,al,C.paars); });
+  K.forEach(([k,naam,taak,tk,[lx,ly],al])=>{ const a=k==='bij'?1:ramp(t,tk,0.4); klier(k,a,t>tk&&t<tk+2.5&&k!=='bij',t); naamBij(ctx,naam,taak,lx,ly,a,al,C.paars); });
   pill(ctx,400,180,'namen hoef je niet te onthouden',C.text2,fadeIO(t,q.at('namen'),q.at('hypofyse')+1.5,0.4),28);
-  const tL=q.at('lang'); alpha(ctx,ramp(t,tL,0.5),()=>{ roundRect(ctx,100,560,520,230,14); shape(ctx,rgba(C.bgSchema,0.95),C.paars,1.5); text(ctx,'hormonen regelen',130,610,fTekst(34,700),C.paars); ['groeien','de puberteit','energie voor een hele dag'].forEach((s,i)=>{ alpha(ctx,ramp(t,q.at(['Groeien','puberteit','energie'][i],i===1?2:1),0.4),()=>text(ctx,'· '+s,140,665+i*42,fTekst(32),C.text)); }); });
+  const tL=q.at('lang'); alpha(ctx,ramp(t,tL,0.5),()=>{ roundRect(ctx,100,600,520,230,14); shape(ctx,rgba(C.bgSchema,0.95),C.paars,1.5); text(ctx,'hormonen regelen',130,650,fTekst(34,700),C.paars); ['groeien','de puberteit','energie voor een hele dag'].forEach((s,i)=>{ alpha(ctx,ramp(t,q.at(['Groeien','puberteit','energie'][i],i===1?2:1),0.4),()=>text(ctx,'· '+s,140,705+i*42,fTekst(32),C.text)); }); });
   meta7(t); },
 // ---- H3: vergelijking app en omroep ----
 s11(ctx,t,q){ bg(ctx,'schema'); const tAp=q.at('appje'), tOm=q.at('omroep'), tW=q.at('Welk');
   ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(160,700); ctx.lineTo(1760,700); ctx.stroke();
   alpha(ctx,ramp(t,0.1,0.5),()=>{ text(ctx,'zenuwstelsel',560,170,fTitel(56),C.teal,'center'); });
   alpha(ctx,ramp(t,tOm-0.3,0.5),()=>{ text(ctx,'hormoonstelsel',1360,170,fTitel(56),C.paars,'center'); });
-  alpha(ctx,ramp(t,tAp,0.4),()=>{ telefoon(400,380,1.1,1); arrow(ctx,470,380,640,380,C.teal,5,18,ramp(t,tAp+0.5,0.4)); ctx.beginPath(); ctx.ellipse(700,380,26,70,0,0,6.283); shape(ctx,rgba(C.koraal,0.6),lighten(C.koraal,0.25),2); metaText(ctx,'één spier',700,490,C.text2,'center',22); });
-  alpha(ctx,ramp(t,tOm,0.4),()=>{ luidspreker(1150,380,1,t,1); ctx.save(); ctx.globalAlpha*=0.5; human(ctx,1560,560,300,1,C.mens); ctx.restore(); for(let i=0;i<14;i++) dot(ctx,1530+hash(i*3.1)*60,300+hash(i*5.3)*240,6,C.paars); metaText(ctx,'het hele lichaam',1560,610,C.text2,'center',22); });
+  alpha(ctx,ramp(t,tAp,0.4),()=>{ telefoon(400,380,1.1,1); arrow(ctx,470,380,640,380,C.teal,5,18,ramp(t,tAp+0.5,0.4)); spierSpoel(720,380,ramp(t,tAp+0.9,0.3)*(1-ramp(t,tAp+1.8,0.4)),t); metaText(ctx,'één spier',720,490,C.text2,'center',22); });
+  alpha(ctx,ramp(t,tOm,0.4),()=>{ luidspreker(1150,380,1,t,1); metLijf(1560,600,340,()=>{ lijf(1); adrenaline(ramp(t,tOm+0.4,2.4),1,46); }); metaText(ctx,'het hele lichaam',1560,650,C.text2,'center',22); });
   const R=[['SNEL','LANGZAMER',q.at('Snel'),q.at('Langzamer')],['ÉÉN PLEK','OVERAL',q.at('plek'),q.at('overal')],['KORT','LANG',q.at('kort'),q.at('lang',2)]];
   R.forEach(([a,b,ta,tb],i)=>{ metaText(ctx,a,560,760+i*44,C.teal,'center',28); metaText(ctx,b,1360,760+i*44,C.paars,'center',28); ctx.save(); ctx.globalAlpha=0; ctx.restore(); });
   // rijen verschijnen op de woorden (overdekken met achtergrond tot het woord)
@@ -203,7 +260,7 @@ s13(ctx,t,q){ bg(ctx,'schema'); const tSa=q.at('samen'), tTe=q.at('Terug',2), tT
     cards.forEach(([s,x,tc,col],i)=>{ const u=ramp(t,tc,0.8); const y0=420, yy=lerp(y0,330+(i===2?160:i===1?20:80),u); const xx=lerp(960,x,u); pill(ctx,xx,yy,s,u>0.9?col:C.text,1,34); });
     return; }
   if(t<tTe-0.3){ // hersenen -> zenuwen en hypofyse -> klieren
-    const a=ramp(t,tSa-0.3,0.4); alpha(ctx,a,()=>{ ctx.beginPath(); ctx.ellipse(960,220,170,100,0,0,6.283); shape(ctx,rgba('#C9B8D6',0.55),C.goud,2); text(ctx,'hersenen',960,232,fTekst(40,700),C.text,'center');
+    const a=ramp(t,tSa-0.3,0.4); alpha(ctx,a,()=>{ { const HHb=170/0.33; metLijf(960,220-0.3*HHb+7.3*HHb,7.3*HHb,()=>{ ctx.save(); anBrain(1,0.35); ctx.restore(); }); } naamBij(ctx,'hersenen','',760,200,1,'right',C.goud);
       arrow(ctx,860,310,560,500,C.teal,5,18,ramp(t,q.at('zenuwen'),0.4)); text(ctx,'zenuwen',520,560,fTekst(38,600),C.teal,'center');
       arrow(ctx,1060,310,1300,440,C.teal,5,18,ramp(t,q.at('hypofyse'),0.4)); dot(ctx,1340,470,22,C.paars,lighten(C.paars,0.4),2); alpha(ctx,ramp(t,q.at('hypofyse'),0.4),()=>text(ctx,'hypofyse',1340,540,fTekst(38,600),C.paars,'center'));
       [[1180,700],[1340,720],[1500,700]].forEach(([x,y],i)=>{ arrow(ctx,1340,560,x,y-30,C.paars,4,14,ramp(t,q.at('andere')+i*0.2,0.4)); dot(ctx,x,y,16,C.paars,lighten(C.paars,0.4),2); }); alpha(ctx,ramp(t,q.at('andere'),0.4),()=>metaText(ctx,'andere hormoonklieren',1340,790,C.text2,'center',24)); });
@@ -225,10 +282,10 @@ s14(ctx,t,q){ bg(ctx,'schema'); const tZ=q.at('zenuwstelsel'), tH=q.at('hormoons
   if(t<tD-0.3){ text(ctx,'Je organen praten op twee manieren',W/2,150,fTitel(60),C.text,'center');
     [[480,'zenuwstelsel',C.teal,tZ,['zintuig → zenuw → hersenen','→ ruggenmerg → spier','snel · kort · één plek']],[1440,'hormoonstelsel',C.paars,tH,['hormoonklier → bloed','→ organen die het herkennen','langzamer · overal · lang']]].forEach(([x,ttl,col,tt,rg])=>{ alpha(ctx,ramp(t,tt-0.2,0.5),()=>{ roundRect(ctx,x-380,220,760,420,16); shape(ctx,rgba(C.bgSchema,0.95),col,2); text(ctx,ttl,x,300,fTitel(52),col,'center'); rg.forEach((s,i)=>text(ctx,s,x,390+i*72,fTekst(i===2?40:36,i===2?700:400),i===2?col:C.text,'center')); }); });
     return; }
-  lijf(1); zenuwnet(0.5); beenSpieren(1,0); klier('bij',1); heart(P7.hart[0],P7.hart[1],0.9,1,t*12); adrenaline(1,ramp(t,tD,0.4),30);
-  puls(PAD_BREIN_BEEN,(t*0.6)%1.2,ramp(t,q.at('benen'),0.4));
-  naamBij(ctx,'benen','via je zenuwen',P7.beenR[0]+60,P7.beenR[1],ramp(t,q.at('benen'),0.4),'left',C.teal);
-  naamBij(ctx,'hart','via adrenaline in je bloed',P7.hart[0]-170,P7.hart[1],ramp(t,q.at('hart'),0.4),'right',C.paars);
+  lijf(1); zenuwnet(0.5); nieren(0.7); beenSpieren(1,0); klier('bij',1); anHeart(1,t*12,0.4*ramp(t,q.at('hart'),0.4)); adrenaline(1,ramp(t,tD,0.4),30);
+  puls(PAD.been(-1),(t*0.6)%1.2,ramp(t,q.at('benen'),0.4)); puls(PAD.been(1),(t*0.6+0.5)%1.2,ramp(t,q.at('benen'),0.4));
+  naamBij(ctx,'benen','via je zenuwen',XR,P7.beenR[1],ramp(t,q.at('benen'),0.4),'left',C.teal);
+  naamBij(ctx,'hart','via adrenaline in je bloed',XL,YB(2.25),ramp(t,q.at('hart'),0.4),'right',C.paars);
 },
 // ---- eindkaart ----
 s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'zenuwen en hormonen',120,260,C.grain,'left',26);

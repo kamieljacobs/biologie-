@@ -33,6 +33,17 @@ function insuline(x,y,s=1,a=1){ alpha(ctx,a,()=>{ roundRect(ctx,x-20*s,y-50*s,40
 function meta9(){ metaText(ctx,'schematisch · niet op schaal',W-40,CAPTION_Y-14,C.text2,'right',22); }
 
 // ================= SCÈNES =================
+// lichaam met dikke darm vol bacteriën (versie 1.1, 22 okt 2026: realistisch lichaam uit lib_anatomie.js i.p.v. het grijze poppetje)
+function darmBewoners(t,g){ const o={cx:BODY.cx,yb:BODY.yb,h:BODY.h}; BODY.cx=270; BODY.yb=872; BODY.h=600; const HH=AHH();
+  anFigure(0.5); anCavity(0.25); anDigest(0.35,t);
+  // dikke darm licht op
+  ctx.save(); ctx.globalAlpha*=0.4*g; ctx.filter='blur(6px)'; anLine(AN_DIK,C.teal,0.12*HH+14); ctx.restore();
+  anTube(AN_DIK,0.12,ANA.dik,ANA.dikS,t,0.04);
+  // bacteriën wemelen door de dikke darm
+  const P=anDense(AN_DIK,60); for(let i=0;i<34;i++){ const u=(hash(i*3.3)+t*0.02*(0.5+hash(i)))%1; const [x,y]=anAlong(P,u); const w=wander(i,t,0.035*HH,1.2);
+    bacterie(x+w.x,y+w.y,0.4,i%3?'staaf':'bol',g,hash(i)*6+t*0.6,i%4===0?C.groen:C.teal); }
+  naamBij(ctx,'dikke darm','vol bacteriën',BODY.cx,BODY.yb-BODY.h-40,g,'center',C.teal);
+  Object.assign(BODY,o); }
 const SCENES={
 // ---- cold open: pizzadeeg ----
 s01(ctx,t,q){ kitchenBase(0.35,0); const tG=q.at('gist.'), tAf=q.at('dekt'), tU=q.at('uur.'), tNu=q.at('Nu',2), tW=q.at('Wat',2);
@@ -98,10 +109,10 @@ s06(ctx,t,q){ bg(ctx,'schema'); const tM=q.at('melk.'), tS=q.at('schepje'), tW=q
   alpha(ctx,ramp(t,tIs,0.4),()=>text(ctx,'?',1500,420,fTitel(100),C.goud,'center')); },
 // ---- H2: de meeste bacteriën zijn onschuldig ----
 s08(ctx,t,q){ bg(ctx,'schema'); const tK=q.at('klein'), tO=q.at('onschuldig,'), tN=q.at('nuttig.'), tD=q.at('darm');
-  yoghurtPot(260,420,1.4,1,1,'yoghurt'); pill(ctx,260,230,'gemaakt door bacteriën',C.groen,ramp(t,0.3,0.4),26);
+  const yA=1-ramp(t,tD-0.6,0.5); alpha(ctx,yA,()=>{ yoghurtPot(260,420,1.4,1,1,'yoghurt'); pill(ctx,260,230,'gemaakt door bacteriën',C.groen,ramp(t,0.3,0.4),26); });
   for(let r=0;r<6;r++) for(let c=0;c<9;c++){ const i=r*10+c, x=600+c*90, y=230+r*80, ziek=(i%17===3||i===41); const col=ziek&&t>tK?C.koraal:(t>tN&&i%3===0?C.groen:C.teal); bacterie(x,y,0.9,i%3?'staaf':'bol',ramp(t,0.2+i*0.01,0.3)*(ziek||t<tK?1:(t>tO?1:0.7)),hash(i)*2,col); }
   naamBij(ctx,'een klein deel maakt je ziek','',1500,240,ramp(t,tK,0.4),'left',C.koraal); naamBij(ctx,'de meeste: onschuldig of nuttig','',1500,420,ramp(t,tO,0.4),'left',C.groen);
-  alpha(ctx,ramp(t,tD,0.4),()=>{ ctx.save(); ctx.globalAlpha*=0.5; human(ctx,260,860,300,1,C.mens); ctx.restore(); ctx.strokeStyle=C.okerD; ctx.lineWidth=8; ctx.beginPath(); ctx.moveTo(220,720); ctx.lineTo(220,680); ctx.lineTo(300,680); ctx.lineTo(300,740); ctx.stroke(); for(let i=0;i<6;i++) dot(ctx,220+hash(i)*80,690+hash(i*3)*40,4,C.teal); naamBij(ctx,'dikke darm','',340,720,1,'left',C.text2); });
+  alpha(ctx,ramp(t,tD-0.4,0.5),()=>darmBewoners(t,ramp(t,tD+0.3,0.6)));
   meta9(); },
 // ---- H3: kas met sluipwespen; de koe ----
 s09(ctx,t,q){ const tK=q.at('koe');

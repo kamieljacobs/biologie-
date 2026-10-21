@@ -84,3 +84,7 @@ Stem-invoer: gewone spelling (eleven_v4), plus de goedgekeurde regel koolstofdio
 - In s05 staat een open denkvraag ("Wat gebeurt er als je het deeg in de koelkast zet? Wat denk je?") zonder vraagkaart; hij wordt direct beantwoord en blijft ook bij Vragen uit hoorbaar.
 - "Bacteriën" in de pens: ook eencelligen en schimmels (docentdeel). Kaas: ook stremsel.
 - De ballonproef op de eindkaart is nog geen werkblad op de site; link later toevoegen.
+
+## Versie 1.1 · 21 oktober 2026: realistisch lichaam bij 'je eigen dikke darm'
+
+Alleen beeld. In s08 is het grijze poppetje met een buisje vervangen door het realistische lichaam uit `lib_anatomie.js` (kopie in `src/lib_anatomie.js`): de dikke darm licht op en er wemelen bacteriën doorheen (`darmBewoners`). Als het lichaam verschijnt, vervaagt de yoghurtpot. `src/lib_cast.js` is bijgewerkt naar het actuele castboek; `bouw.py` neemt de eigen kopieën (castboek en anatomie) vóór `scenes9.js`. In `index.html` zijn alleen het castblok en het scèneblok vervangen.
