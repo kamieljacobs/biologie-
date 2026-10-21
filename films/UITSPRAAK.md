@@ -52,6 +52,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | aminozuren op -ine | voluit, Nederlands (valine = valinuh) | |
 | codons | met koppeltekens (C-A-U) | |
 | abiotisch | zoals geschreven | |
+| B (antwoordletter) | bé (Nederlandse B; "bee" klonk Engels) — staat in uitspraak.json; oudere films met "bee" in de stem-invoer: zie WACHTLIJST.md | 21 okt |
 | emergente | emergénte | |
 
 ## Uitspraaktest 18 okt 2026 (eleven_v4, 521 woorden)

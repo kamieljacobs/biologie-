@@ -72,11 +72,11 @@ Vraag 3, één punt. De borstvinspieren maken de meeste warmte, de buikholte vee
 
 Vraag 4, meerkeuze. Twee uitspraken. Eén: naast de borstvinspier is er nog een ander gebied waar veel warmte wordt gemaakt. Twee: uit de grote spreiding bij de schedel blijkt dat die metingen niet valide zijn. Welke wordt ondersteund door de tabel?
 
-**s17** · audio `s17.mp3` · 30.7 s · generation `bm1hgHWXxqmLmKTX7pZU`
+**s17** · audio `s17.mp3` · 30.1 s · generation `WGXqKMxiKoDHKhDFKoo7`
 
 Uitspraak één: de schedel is gemiddeld zestien graden, warmer dan de borstvinspier. Daar moet dus ook warmte vandaan komen. Ondersteund. Uitspraak twee gaat over het woord valide. Een meting is valide als je meet wat je wilt meten. Spreiding zegt iets anders: de temperatuur in de schedel verschilt gewoon veel tussen vissen. Niet ondersteund. Het antwoord is B, alleen uitspraak één. Leer het verschil tussen valide en betrouwbaar, het komt vaak terug.
 
-_Stem-invoer:_ Uitspraak één: de schedel is gemiddeld zestien graden, warmer dan de borstvinspier. Daar moet dus ook warmte vandaan komen. Ondersteund. Uitspraak twee gaat over het woord valide. Een meting is valide als je meet wat je wilt meten. Spreiding zegt iets anders: de temperatuur in de schedel verschilt gewoon veel tussen vissen. Niet ondersteund. Het antwoord is bee, alleen uitspraak één. Leer het verschil tussen valide en betrouwbaar, het komt vaak terug.
+_Stem-invoer:_ Uitspraak één: de schedel is gemiddeld zestien graden, warmer dan de borstvinspier. Daar moet dus ook warmte vandaan komen. Ondersteund. Uitspraak twee gaat over het woord valide. Een meting is valide als je meet wat je wilt meten. Spreiding zegt iets anders: de temperatuur in de schedel verschilt gewoon veel tussen vissen. Niet ondersteund. Het antwoord is bé, alleen uitspraak één. Leer het verschil tussen valide en betrouwbaar, het komt vaak terug.
 
 **s18** · audio `s18.mp3` · 16.0 s · generation `x5A8LrMrqhRw3OS53bA8`
 
@@ -158,17 +158,17 @@ Insuline zorgt dat cellen glucose opnemen uit het bloed. Zonder insuline nemen d
 
 Ruth spuit snelwerkende insuline voor elke maaltijd en twee keer per dag langzaam werkende. Toch schommelt haar glucose. 's Nachts kan hij te laag worden. En vroeg in de ochtend, vóór het ontbijt, stijgt hij. Dat heet het dageraadfenomeen.
 
-**s35** · audio `s35.mp3` · 24.7 s · generation `XM1uwtCEorK3FzfQEDWQ`
+**s35** · audio `s35.mp3` · 24.7 s · generation `1U8lTutLUWv4bzJfbfnx`
 
 Vraag 12, meerkeuze. Hoe is het dageraadfenomeen het best te verklaren? A: minder insuline, dus minder aerobe dissimilatie. B: minder insuline, dus de lever slaat minder glucose op. C: het glucosegehalte is gedaald, dus de alvleesklier maakt glucagon. D: tijdens de slaap wordt minder glucose verbruikt.
 
-_Stem-invoer:_ Vraag 12, meerkeuze. Hoe is het dageraadfenomeen het best te verklaren? aa: minder insuline, dus minder aerobe dissimilatie. bee: minder insuline, dus de lever slaat minder glucose op. cee: het glucosegehalte is gedaald, dus de alvleesklier maakt glucagon. dee: tijdens de slaap wordt minder glucose verbruikt.
+_Stem-invoer:_ Vraag 12, meerkeuze. Hoe is het dageraadfenomeen het best te verklaren? aa: minder insuline, dus minder aerobe dissimilatie. bé: minder insuline, dus de lever slaat minder glucose op. cee: het glucosegehalte is gedaald, dus de alvleesklier maakt glucagon. dee: tijdens de slaap wordt minder glucose verbruikt.
 
-**s36** · audio `s36.mp3` · 29.9 s · generation `aD9ohCPc9GMJb5EZ00NF`
+**s36** · audio `s36.mp3` · 29.6 s · generation `hZP9NZCCLU3RuT5MpglD`
 
 Gebruik de zin vlak voor de vraag. Er staat dat de glucose 's nachts te laag kan worden. Wat doet je lichaam bij een lage bloedsuikerspiegel? De alvleesklier geeft glucagon af. Glucagon laat de lever glycogeen afbreken tot glucose. Gevolg: 's ochtends een stijging. Het antwoord is C. A, B en D verklaren hooguit dat de glucose minder daalt. Een stijging vraagt om glucose die vrijkomt. Dat doet glucagon.
 
-_Stem-invoer:_ Gebruik de zin vlak voor de vraag. Er staat dat de glucose 's nachts te laag kan worden. Wat doet je lichaam bij een lage bloedsuikerspiegel? De alvleesklier geeft glucagon af. Glucagon laat de lever glycogeen afbreken tot glucose. Gevolg: 's ochtends een stijging. Het antwoord is cee. aa, bee en dee verklaren hooguit dat de glucose minder daalt. Een stijging vraagt om glucose die vrijkomt. Dat doet glucagon.
+_Stem-invoer:_ Gebruik de zin vlak voor de vraag. Er staat dat de glucose 's nachts te laag kan worden. Wat doet je lichaam bij een lage bloedsuikerspiegel? De alvleesklier geeft glucagon af. Glucagon laat de lever glycogeen afbreken tot glucose. Gevolg: 's ochtends een stijging. Het antwoord is cee. aa, bé en dee verklaren hooguit dat de glucose minder daalt. Een stijging vraagt om glucose die vrijkomt. Dat doet glucagon.
 
 **s37** · audio `s37.mp3` · 12.3 s · generation `yzmdXxP1akFFSen0L2nz`
 

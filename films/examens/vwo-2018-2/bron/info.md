@@ -56,3 +56,7 @@ Werkmap `hw/ex18` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` 
 - Melkveehouder in s84–s85 is Bilal (castleerling); vervangen als er een volwassen boer in het castboek komt
 - Scènes in vier delen gemaakt (teken_/scenes_ex18_a–d.js, prefix a_–d_), gedeelde examen-UI in teken_ex18_0.js
 - Nog niet gedaan: beeldreview punt 14 (s48, label promotor bij de polymerase)
+
+
+## Versies
+- 21 okt 2026: s17, s35 en s36 opnieuw ingesproken met "bé" voor de antwoordletter B (Kamiel: B als Nederlandse B; "bee" klonk Engels). Oude takes niet bewaard in de repo.
