@@ -62,6 +62,22 @@ body.presenteer .breed{width:min(100%, calc((100vh - 140px) * 16 / 9))}
 body.presenteer .cap .txt{font-size:24px}
 #stopPres{display:none}
 body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
 details.docent{margin-top:28px}
 details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
 details.docent>summary::-webkit-details-marker{display:none}
@@ -158,6 +174,112 @@ details.docent[open]>summary::after{content:"–"}
       </ul>
     </div>
   </div>
+</details>
+<details class="briefing" id="briefing">
+  <summary><h2>Briefing voor de docent</h2></summary>
+  <div class="intro"><p>Verdieping op docentniveau bij les 2, per onderwerp: hoe het werkt, getallen, misvattingen en wat je zegt als een leerling doorvraagt. Waar bronnen verschillen staat een range; punten die niet met een bron zijn gecontroleerd, staan er cursief bij.</p></div>
+  <details class="onderwerp"><summary>Het vruchtbare venster</summary><div><p>Wilcox e.a. (1995) volgden 221 vrouwen (625 cycli, 192 bevruchtingen) met dagelijkse hormoonmetingen in de urine. Een zwangerschap ontstond alleen na gemeenschap in de <strong>6 dagen die eindigen op de dag van de eisprong</strong>. De kans per dag liep op van ±10% (5 dagen ervoor) tot ±33% (de dag zelf). Na de eisprong was er geen enkele bevruchting, al is een kleine kans op de dag erna statistisch niet uitgesloten.</p>
+<p>Een eicel is ±12 à 24 uur bevruchtbaar. Zaadcellen leven meestal 2 à 3 dagen, soms tot 5 dagen, in de plooien van de baarmoederhals.</p>
+<p><strong>Misvatting:</strong> "De vruchtbaarste dag is de dag na de eisprong." Het is andersom: het zaad moet al klaarliggen.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom werkt temperatuur meten slecht als anticonceptie?": de temperatuur stijgt pas ná de eisprong, als het venster al voorbij is.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.talmudology.com/s/TIMING-OF-SEXUAL-INTERCOURSE-IN-RELATION-TO-OVULATION-NEJM-1995.pdf">Wilcox e.a. 1995, NEJM</a> · <a target="_blank" rel="noopener" href="https://www.ghz.nl/media/pgrgvaok/04-06-152-normale-cyclus.pdf">Groene Hart Ziekenhuis: normale cyclus</a></p></div></details>
+  <details class="onderwerp"><summary>Eiwit- en steroïdhormonen, en waarom GnRH in pulsen moet</summary><div><p><strong>Eiwit- en peptidehormonen</strong> (GnRH, LH, FSH, hCG, oxytocine) zijn wateroplosbaar. Ze binden aan receptoren in het membraan, meestal G-eiwitgekoppeld, die een second messenger aanzetten: cAMP bij LH en FSH, IP₃ en Ca²⁺ bij GnRH. Het effect is er binnen minuten.</p>
+<p><strong>Steroïden</strong> (oestradiol, progesteron, testosteron) zijn vetoplosbaar. Ze gaan door het membraan naar receptoren in de cel, die als transcriptiefactor genen aan- of uitzetten. Dat is trager (uren) en het effect duurt langer.</p>
+<p><strong>GnRH en pulsen.</strong> Belchetz, Knobil e.a. (1978) gaven apen zonder werkende hypothalamus GnRH. Eén puls per uur herstelde de afgifte van LH en FSH. Een continu infuus deed dat niet. Continu GnRH maakt de hypofyse ongevoelig. Daarop berusten <strong>GnRH-agonisten</strong> (bij prostaatkanker, endometriose, puberteitsremmers en in ivf-protocollen): eerst een korte opleving van LH en FSH, daarna onderdrukking.</p>
+<p><strong>Misvatting:</strong> "Meer hormoon geeft altijd meer effect." Hier telt het patroon, niet de dosis.</p>
+<p><em>Niet met een bron gecontroleerd: het mechanisme achter de ongevoeligheid (ontkoppeling en internalisatie van de receptor).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.jci.org/references/scholar/26136/B5">Belchetz e.a. 1978, Science</a> · <a target="_blank" rel="noopener" href="https://themedicalbiochemistrypage.org/?p=1850">Medical Biochemistry Page: peptidehormoonreceptoren</a></p></div></details>
+  <details class="onderwerp"><summary>Hormonen bij de man en anabole steroïden</summary><div><p>LH zet de <strong>Leydigcellen</strong> (tussen de zaadbuisjes) aan tot het maken van testosteron. FSH en een hoge lokale testosteronconcentratie stimuleren de <strong>Sertolicellen</strong>. Die voeden de zaadcellen, vormen de bloed-testisbarrière en maken <strong>inhibine B</strong>. Testosteron (deels na omzetting tot oestradiol) remt GnRH en LH; inhibine B remt vooral FSH.</p>
+<p><strong>Anabole steroïden</strong> onderdrukken LH en FSH sterk. Het testosteron ín de zaadbal daalt dan, de zaadcelvorming stopt en de zaadballen krimpen. In een Nederlandse studie (Smit e.a. 2021, 100 gebruikers) had twee derde aan het eind van een kuur weinig of geen zaadcellen. Het herstel van de zaadcellen duurde gemiddeld 47 à 56 weken, soms langer; het testosteron herstelde bij de meesten binnen ±3 maanden.</p>
+<p><strong>Misvatting:</strong> "Meer testosteron maakt vruchtbaarder." Het is omgekeerd: hoog in het bloed, laag in de zaadbal.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom krimpen de zaadballen?": het grootste deel van het volume bestaat uit zaadbuisjes. Valt de zaadcelvorming stil, dan krimpt de zaadbal.</p>
+<p><em>Niet met een bron gecontroleerd: het percentage zaadbuisjes in het volume van de zaadbal (± 80–90%).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK553142/">StatPearls: spermatogenese</a> · <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10620455/">Review AAS-hypogonadisme 2023</a> · <a target="_blank" rel="noopener" href="https://medicalrepublic.com.au/how-long-do-fertility-and-testosterone-take-to-recover-from-steroids/41044">Medical Republic: Smit e.a. 2021</a></p></div></details>
+  <details class="onderwerp"><summary>Follikelgroei en het twee-cellenmodel</summary><div><p>Primordiale follikels liggen jarenlang stil. De groei tot een follikel met een holte duurt maanden en gebeurt grotendeels zonder FSH.</p>
+<p>Aan het eind van de vorige cyclus stijgt het FSH. Dat haalt een groepje follikels binnen (dag 1 à 4). Rond dag 5 à 7 wordt er één geselecteerd: de follikel met de meeste FSH-receptoren en de laagste drempel. Die maakt het meeste oestradiol en inhibine B. Daardoor daalt het FSH, en de andere follikels zakken onder hun drempel en sterven af. De dominante follikel overleeft, onder andere omdat hij ook op LH gaat reageren. Hij groeit ±2 mm per dag tot 18 à 29 mm.</p>
+<p><strong>Twee cellen, twee hormonen:</strong></p>
+<ul>
+<li>De <strong>thecacellen</strong> (buiten) hebben LH-receptoren en maken androgenen.</li>
+<li>Die gaan naar de <strong>granulosacellen</strong> (binnen), waar FSH het enzym <strong>aromatase</strong> activeert dat de androgenen omzet in oestradiol.</li>
+</ul>
+<p>Granulosacellen kunnen zelf geen androgenen maken, en thecacellen hebben nauwelijks aromatase.</p>
+<p><strong>Misvatting:</strong> "De eicel maakt oestrogeen." Dat doen de follikelcellen.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom krijgen vrouwen bij ivf meer eicellen?": met veel FSH blijven meerdere follikels boven hun drempel, zodat de selectie wordt omzeild.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://endotext.org/wp-content/uploads/pdfs/the-normal-menstrual-cycle-and-the-control-of-ovulation.pdf">Endotext: The normal menstrual cycle</a> · <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK500020/">StatPearls: menstruatiecyclus</a></p></div></details>
+  <details class="onderwerp"><summary>Positieve terugkoppeling, eisprong en geel lichaam</summary><div><p>Laag oestradiol remt LH. Blijft het oestradiol <strong>hoog (boven ±200 pg/ml) gedurende ±36 à 50 uur</strong>, dan slaat de terugkoppeling om naar positief. Er volgt een LH-piek van ±10 keer de basiswaarde. Kisspeptineneuronen in de hypothalamus spelen daarbij een rol; bij knaagdieren is dat goed aangetoond, bij de mens minder duidelijk.</p>
+<p>De eisprong volgt <strong>±34 à 36 uur na het begin</strong> van de piek (andere bronnen: tot 44 uur). De LH-piek laat de eicel de meiose I afmaken: het eerste poollichaampje wordt afgesnoerd en de eicel blijft in <strong>metafase II</strong> staan tot een eventuele bevruchting.</p>
+<p>De lege follikel wordt het <strong>gele lichaam</strong>, dat progesteron en oestradiol maakt. Zonder hCG begint de afbraak na 9 à 11 dagen. De <strong>tweede helft van de cyclus is vrij constant (±14 dagen)</strong>; verschillen in cycluslengte zitten vooral in de eerste helft.</p>
+<p><strong>Misvatting:</strong> "De eisprong is altijd op dag 14." Dat geldt alleen bij een cyclus van 28 dagen. Je moet terugrekenen vanaf de volgende menstruatie.</p>
+<p><strong>Als een leerling vraagt</strong> "hoe werkt een ovulatietest?": die meet de LH-piek in de urine. De eisprong volgt dan binnen ongeveer 1 à 1,5 dag.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://endotext.org/wp-content/uploads/pdfs/the-normal-menstrual-cycle-and-the-control-of-ovulation.pdf">Endotext</a> · <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK500020/">StatPearls</a></p></div></details>
+  <details class="onderwerp"><summary>Menstruatie</summary><div><p>Als het gele lichaam afsterft, dalen progesteron en oestradiol. Die <strong>progesteronterugval</strong> zet een ontstekingsachtige reactie in gang:</p>
+<ul>
+<li>De <strong>spiraalarteriën</strong> in de bovenste laag van het slijmvlies trekken samen, waardoor het weefsel zuurstof tekortkomt.</li>
+<li><strong>Prostaglandines</strong> laten de baarmoederspier samentrekken.</li>
+<li>Enzymen breken het bindweefsel af.</li>
+</ul>
+<p>De onderste laag blijft zitten en vormt onder invloed van nieuw oestradiol het slijmvlies opnieuw. Een menstruatie duurt ±4 à 6 dagen, met gemiddeld ±30 ml bloedverlies; meer dan 80 ml heet hevig.</p>
+<p><strong>Misvatting:</strong> "Bij de menstruatie komt de eicel naar buiten." Wat naar buiten komt is vooral slijmvlies en bloed; de eicel is al eerder vergaan.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom helpt ibuprofen tegen menstruatiepijn?": het remt de aanmaak van prostaglandines.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://endotext.org/wp-content/uploads/pdfs/the-normal-menstrual-cycle-and-the-control-of-ovulation.pdf">Endotext</a> · <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK500020/">StatPearls</a></p></div></details>
+  <details class="onderwerp"><summary>Bevruchting</summary><div><p>Van de honderden miljoenen zaadcellen bereiken er ±100 à 1000 het bovenste deel van de eileider, en 20 à 200 komen bij de eicel.</p>
+<p><strong>Capacitatie</strong> gebeurt in het lichaam van de vrouw, in stappen:</p>
+<ul>
+<li>Albumine haalt cholesterol uit het membraan, waardoor dat vloeibaarder wordt.</li>
+<li>Bicarbonaat zet in de zaadcel een signaalketen aan.</li>
+<li>Calcium komt binnen via kanalen in de staart (CatSper). Dat geeft <strong>hyperactivatie</strong>: krachtige, zweepachtige slagen.</li>
+</ul>
+<p><strong>Binding en fusie.</strong> Bij de mens bindt de zaadcel aan het eiwit ZP2 van de zona pellucida. Het oude muismodel met ZP3 als receptor blijkt voor de mens onvolledig. Bij de acrosoomreactie komen enzymen vrij en dringt de zaadcel door de zona. Daarna versmelten de membranen.</p>
+<p><strong>Activatie van de eicel.</strong> De zaadcel brengt het enzym <strong>PLCζ</strong> mee. Dat laat het calcium in de eicel uren lang in golven stijgen. Die calciumgolven:</p>
+<ul>
+<li>zetten de <strong>corticale reactie</strong> in gang: een enzym knipt ZP2, zodat geen tweede zaadcel meer kan binden;</li>
+<li>laten de eicel de meiose II afmaken en het tweede poollichaampje afsnoeren.</li>
+</ul>
+<p>Er vormen zich twee voorkernen. Die versmelten niet echt: na hun DNA-replicatie gaan ze samen de eerste mitose in.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom lukt ICSI soms niet?": soms ontbreekt PLCζ of werkt het niet, en dan wordt de eicel niet geactiveerd.</p>
+<p><em>Niet met een bron gecontroleerd: de fusie-eiwitten Izumo1 (zaadcel) en Juno (eicel).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://iastate.pressbooks.pub/humanreproduction/chapter/fertilization/">Iowa State: Human Reproduction</a> · <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3720105/">Ickowicz e.a. 2012: capacitatie</a> · <a target="_blank" rel="noopener" href="https://rupress.org/jcb/article/197/7/897/36901/Human-sperm-bind-to-the-N-terminal-domain-of-ZP2">Baibakov e.a. 2012, JCB: ZP2</a> · <a target="_blank" rel="noopener" href="https://www.unite.it/UniTE/Engine/RAServeFile.php/f/File_Prof/GIOIA_295/Swann_et_al_2006.pdf">Swann e.a. 2006: PLCζ</a></p></div></details>
+  <details class="onderwerp"><summary>Van klieving tot zwangerschapstest</summary><div><p><strong>Van klieving tot innesteling.</strong> Rond dag 4 is er een morula, rond dag 5 een blastocyste met binnenste celmassa en trofoblast. De blastocyste "broedt uit" uit de zona en nestelt zich in. Volgens Wilcox e.a. (1999) gebeurde dat 6 à 12 dagen na de eisprong, in 84% van de gevallen op dag 8 à 10. Hoe later de innesteling, hoe groter de kans op een miskraam: 13% bij innesteling tot dag 9, 82% na dag 11.</p>
+<p><strong>hCG</strong> bestaat uit twee delen:</p>
+<ul>
+<li>een α-deel dat gelijk is aan dat van LH, FSH en TSH;</li>
+<li>een β-deel dat sterk op dat van LH lijkt, maar een extra staart heeft waardoor hCG langer in het bloed blijft.</li>
+</ul>
+<p>hCG werkt op <strong>dezelfde receptor als LH</strong> en houdt zo het gele lichaam in leven.</p>
+<p><strong>De test.</strong> Een bloedtest is positief vanaf ±5 mIU/ml; urinetests hebben een grens van 20 à 100 mIU/ml. Op de dag dat de menstruatie uitblijft, is het hCG in de urine mediaan maar ±49 mIU/ml. Een test van 25 mIU/ml mist dan nog een deel van de zwangerschappen.</p>
+<p>Rond week 7 à 9 (soms tot 10) neemt de placenta het maken van progesteron over.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom geeft een test soms vals positief?": na een miskraam of een hCG-injectie (bij ivf) is hCG nog wekenlang aantoonbaar.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://insight.jci.org/references/scholar/31/B40">Wilcox e.a. 1999, NEJM</a> · <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Human_chorionic_gonadotropin">hCG: overzicht</a> · <a target="_blank" rel="noopener" href="https://www.aafp.org/pubs/afp/issues/2004/1001/p1370.html">AAFP over Cole e.a. 2004</a> · <a target="_blank" rel="noopener" href="https://www.endotext.org/?p=896">Endotext: luteo-placentaire overgang</a></p></div></details>
+  <details class="onderwerp"><summary>Placenta</summary><div><p>De <strong>vlokken</strong> hangen direct in bloed van de moeder; er zit geen vaatwand van de moeder tussen. Hun oppervlak groeit van ±1,5 m² in het eerste trimester naar 12 à 14 m² aan het eind. De scheidende laag (syncytiotrofoblast) wordt dunner, van ±10 naar ±1,7 µm. Het is één doorlopende laag zonder celgrenzen, dus stoffen kunnen er niet tussen de cellen door.</p>
+<p>Het transport verloopt via verschillende routes:</p>
+<ul>
+<li><strong>Zuurstof en CO₂</strong>: diffusie. Foetaal hemoglobine bindt zuurstof sterker dan dat van de moeder.</li>
+<li><strong>Glucose</strong>: gefaciliteerde diffusie via dragers (GLUT1).</li>
+<li><strong>Aminozuren</strong>: actief transport, zodat de concentratie bij het kind hoger is.</li>
+<li><strong>Antistoffen (IgG)</strong>: een speciale receptor (FcRn) neemt ze op en geeft ze door, vooral in het derde trimester.</li>
+</ul>
+<p>Wat er ook doorheen gaat:</p>
+<ul>
+<li><strong>Alcohol</strong>: het gehalte bij het kind wordt gelijk aan dat van de moeder, en het kind kan alcohol nauwelijks afbreken.</li>
+<li><strong>Nicotine</strong> en veel medicijnen.</li>
+<li><strong>Virussen</strong> zoals CMV, rubella en zika omzeilen de scheidende laag vaak via andere celtypen. Hoe vroeger in de zwangerschap de infectie, hoe ernstiger de schade.</li>
+</ul>
+<p><strong>Misvatting:</strong> "Moeder en kind delen hun bloed." Het bloed mengt normaal niet.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom houdt die afweer van de moeder op?": IgG wordt niet aangevuld en is na enkele maanden afgebroken.</p>
+<p><em>Niet met een bron gecontroleerd: het FcRn-mechanisme en de timing ervan (de bron was niet te openen).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://glowm.com/resources/glowm/cd/pages/v3/v3c059.html">GLOWM: placentafysiologie</a> · <a target="_blank" rel="noopener" href="https://www.frontiersin.org/journals/virology/articles/10.3389/fviro.2022.831754/full">Frontiers in Virology 2022: virussen en placenta</a> · <a target="_blank" rel="noopener" href="https://sites.duke.edu/apep/module-5-alcohol-and-babies/content-how-does-alcohol-get-to-the-fetus/">Duke: alcohol en de foetus</a></p></div></details>
+  <details class="onderwerp"><summary>Geboorte</summary><div><p>Tijdens de zwangerschap houdt <strong>progesteron</strong> de baarmoederspier stil. Bij de mens daalt het progesteron in het bloed vóór de bevalling niet. Er is wel een "functionele" daling: de gevoeligheid voor progesteron verandert en er treedt een lokale ontstekingsreactie op.</p>
+<p>De baarmoederspier wordt in die periode gevoeliger:</p>
+<ul>
+<li>Het aantal <strong>oxytocinereceptoren stijgt ±12 keer</strong> tussen week 13–17 en week 37–41, met een piek tijdens de bevalling.</li>
+<li>De spiercellen krijgen meer onderlinge verbindingen (gap junctions).</li>
+<li><strong>Prostaglandines</strong> maken de baarmoederhals rijp en versterken de weeën.</li>
+</ul>
+<p><strong>Oxytocine</strong> wordt gemaakt in de hypothalamus en afgegeven door de achterkwab van de hypofyse. De <strong>Ferguson-reflex</strong> is de lus: rek van de baarmoederhals geeft meer oxytocine, dat geeft sterkere weeën, en die rekken de hals verder op. Opvallend is dat het oxytocine in het bloed maar weinig stijgt: vooral de gevoeligheid van de spier verandert.</p>
+<p><strong>Startsignaal.</strong> Bij schapen geeft cortisol van het lam het startsignaal. Bij de mens maakt de placenta het hormoon <strong>CRH</strong>, dat exponentieel stijgt. McLean e.a. (1995, 485 vrouwen) konden al op 16 à 20 weken voorspellen of een vrouw vroeg, op tijd of laat zou bevallen: de "placentaire klok".</p>
+<p><em>Eerlijk: het precieze startsignaal bij de mens is nog onbekend. Waarschijnlijk is het een netwerk van signalen van het kind, de placenta en een ontstekingsreactie.</em></p>
+<p><strong>Als een leerling vraagt</strong> "beslist de baby wanneer hij geboren wordt?": deels misschien, via de rijping van de bijnier en de longen van het kind, maar bij de mens is dat niet bewezen.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ferguson_reflex">Ferguson-reflex</a> · <a target="_blank" rel="noopener" href="https://insight.jci.org/references/scholar/4470/B65">Fuchs e.a. 1984: oxytocinereceptoren</a> · <a target="_blank" rel="noopener" href="https://research.regionh.dk/en/publications/oxytocin-and-the-initiation-of-parturition-a-review/">Review: oxytocine en het begin van de bevalling</a> · <a target="_blank" rel="noopener" href="https://rrmacademy.org/library/a-placental-clock-controlling-the-length-of-human-pregnancy-rec24vx8aafssdmyw">McLean e.a. 1995: placentaire klok</a> · <a target="_blank" rel="noopener" href="https://read.qxmd.com/read/38329421/the-hormonal-control-of-parturition">Physiological Reviews 2024</a></p></div></details>
 </details>
 
 <footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 2 · versie 1.0 · 21 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
@@ -539,7 +661,7 @@ SCHERMEN.push({ titel: 'Signalen', deel: 'Hormonen',
 SCHERMEN.push({ titel: 'Man', deel: 'Hormonen',
   stappen: [
     { t: 'Bij de man: GnRH → hypofyse → <b>LH</b> en <b>FSH</b> → zaadbal.', n: 'Zelfde as als bij de vrouw; het eindorgaan verschilt.' },
-    { t: '<b>LH</b>: de zaadbal maakt <b>testosteron</b>. <b>FSH</b> en testosteron samen: <b>zaadcellen</b>.', n: 'Vanaf de puberteit ± 1000 zaadcellen per seconde.' },
+    { t: '<b>LH</b>: de zaadbal maakt <b>testosteron</b>. <b>FSH</b> en testosteron samen: <b>zaadcellen</b>.', n: 'Vanaf de puberteit honderden tot een paar duizend zaadcellen per seconde (schattingen lopen uiteen, zie de briefing).' },
     { t: 'In de zaadbal: <b>Leydigcellen</b> maken testosteron, <b>Sertolicellen</b> verzorgen de zaadcellen en maken <b>inhibine</b>.', vwo: true, n: 'Leydigcellen liggen tussen de zaadbuisjes (LH-receptor), Sertolicellen in de wand van de buisjes (FSH-receptor). Inhibine remt vooral de afgifte van FSH.' },
     { t: 'Testosteron <b>remt</b> de hypothalamus en de hypofyse: <b>negatieve terugkoppeling</b>.', n: 'Het signaal remt zijn eigen oorzaak.' },
     { t: 'Zo blijft de testosteronspiegel <b>stabiel</b>, net als een thermostaat.', n: 'Te hoog → minder GnRH en LH → minder testosteron. Te laag → de rem gaat eraf → meer LH → meer testosteron.' },

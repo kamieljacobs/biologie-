@@ -62,6 +62,22 @@ body.presenteer .breed{width:min(100%, calc((100vh - 140px) * 16 / 9))}
 body.presenteer .cap .txt{font-size:24px}
 #stopPres{display:none}
 body.presenteer #stopPres{display:inline-flex}
+details.briefing{margin-top:18px}
+details.briefing>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
+details.briefing>summary::-webkit-details-marker{display:none}
+details.briefing>summary h2{font-size:24px}
+details.briefing>summary::after{content:"+";margin-left:auto;font:600 22px/1 var(--meta);color:var(--goud-text)}
+details.briefing[open]>summary::after{content:"–"}
+.briefing .intro{color:var(--text2);max-width:72ch}
+.briefing details.onderwerp{border-top:1px solid var(--line2);padding:4px 0}
+.briefing details.onderwerp>summary{cursor:pointer;font-weight:700;padding:10px 0;font-size:18px}
+.briefing details.onderwerp>div{max-width:76ch;padding-bottom:10px}
+.briefing details.onderwerp p{margin:8px 0;line-height:1.55}
+.briefing details.onderwerp ul,.briefing details.onderwerp ol{margin:6px 0 8px;padding-left:22px;line-height:1.5}
+.briefing details.onderwerp p:last-child{font-size:14px;color:var(--text2)}
+.briefing details.onderwerp a{color:var(--goud-text)}
+.briefing details.onderwerp em{color:var(--text2)}
+body.presenteer details.briefing{display:none!important}
 details.docent{margin-top:28px}
 details.docent>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;min-height:44px}
 details.docent>summary::-webkit-details-marker{display:none}
@@ -157,6 +173,92 @@ details.docent[open]>summary::after{content:"–"}
       </ul>
     </div>
   </div>
+</details>
+<details class="briefing" id="briefing">
+  <summary><h2>Briefing voor de docent</h2></summary>
+  <div class="intro"><p>Verdieping op docentniveau bij les 1, per onderwerp: hoe het werkt, getallen, misvattingen en wat je zegt als een leerling doorvraagt. Waar bronnen verschillen staat een range; punten die niet met een bron zijn gecontroleerd, staan er cursief bij.</p></div>
+  <details class="onderwerp"><summary>Maagdelijke voortplanting bij de komodovaraan</summary><div><p>Flora (Chester Zoo) had nooit een mannetje gezien en legde in 2006 toch 25 eieren. Daarvan zakten er drie in tijdens het broeden. DNA-onderzoek liet zien dat de jongen alleen genetisch materiaal van Flora hadden, op alle loci homozygoot. Begin 2007 kwamen er acht uit. Sungai (London Zoo) kreeg in dezelfde periode vier jongen zonder dat ze nog contact met een mannetje had.</p>
+<p>Het mechanisme heet <strong>automixis</strong>: de meiose verloopt gewoon, maar daarna versmelt de eicel met een poollichaampje (terminal fusion), of het haploïde genoom verdubbelt zich. De nakomeling krijgt zo twee kopieën van één moederlijke set. Varanen hebben een <strong>ZW-systeem</strong>: het vrouwtje is ZW, het mannetje ZZ. Een verdubbelde set geeft ZZ (mannetje) of WW, en WW is niet levensvatbaar. Daarom zijn alle jongen mannetjes.</p>
+<p>Het is ook vastgesteld bij haaien (een hamerhaai in Omaha, bevestigd in 2007, en een zwartpunthaai in 2008) en bij kalkoenen (Olsen, jaren '50, ook allemaal mannelijke jongen).</p>
+<p><strong>Misvatting:</strong> "Het jong is een kloon van de moeder." Het jong is sterk ingeteeld maar niet identiek, en het heeft ook nog een ander geslacht.</p>
+<p><strong>Als een leerling vraagt</strong> "kan een mens dat ook?": nee. Bij zoogdieren werken sommige genen alleen als ze van de vader komen (genomische imprinting). Zonder die genen ontwikkelt de placenta zich niet.</p>
+<p><em>Onzeker: of het bij Flora terminal fusion of genoomverdubbeling was, is met de gebruikte merkers niet altijd te onderscheiden.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.nature.com/news/2006/061218/full/news061218-7.html">Nature news 2006</a> · <a target="_blank" rel="noopener" href="https://www.nationalgeographic.com/science/article/virgin-birth-by-komodo-dragons">National Geographic</a> · <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/17183308/">Watts e.a. 2006, PubMed</a> · <a target="_blank" rel="noopener" href="https://discovery.fiu.edu/display/pub135385">Chapman e.a. 2007 (hamerhaai)</a> · <a target="_blank" rel="noopener" href="https://you.stonybrook.edu/somas/2008/10/11/virgin-birth-by-shark-confirmed-second-case-ever">Stony Brook: zwartpunthaai</a> · <a target="_blank" rel="noopener" href="https://academic.oup.com/jhered/article/112/7/569/6412509">Ryder e.a. 2021</a></p></div></details>
+  <details class="onderwerp"><summary>Vormen van ongeslachtelijke voortplanting</summary><div><p>De vormen zijn:</p>
+<ul>
+<li><strong>deling</strong> (bacteriën, eencelligen);</li>
+<li><strong>knopvorming</strong> (gist, hydra);</li>
+<li><strong>uitlopers</strong> (aardbei);</li>
+<li><strong>stekken</strong> (plantencellen zijn totipotent, dus een stukje stengel kan wortels maken);</li>
+<li><strong>maagdelijke voortplanting</strong>.</li>
+</ul>
+<p>Bladluizen hebben <strong>cyclische parthenogenese</strong>. In het voorjaar komen er uit overwinterde eieren alleen vrouwtjes. Daarna volgen 10 tot 30 generaties die levende jongen baren zonder bevruchting. Die parthenogenese verloopt zonder meiose, dus de dochters zijn klonen. In een moeder groeit al een dochter, en in die dochter al een kleindochter ("telescopische" generaties).</p>
+<p>Korte dagen in de herfst leiden tot mannetjes en eierleggende vrouwtjes. Bij de erwtenluis ligt de kritische daglengte rond 13 à 14 uur. Mannetjes ontstaan doordat één X-chromosoom verloren gaat (XO). Zaadcellen zonder X sterven af, dus de bevruchte wintereieren worden allemaal vrouwtjes. Ongeveer 3% van de bladluissoorten is volledig ongeslachtelijk.</p>
+<p><strong>Misvatting:</strong> "Ongeslachtelijk is primitief." Bladluizen en varanen wisselen juist flexibel tussen beide vormen.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom dan nog seks in de herfst?": het winterei is bestand tegen kou, en recombinatie levert nieuwe combinaties voor het volgende jaar.</p>
+<p>Bron: <a target="_blank" rel="noopener" href="https://www.frontiersin.org/articles/10.3389/fphys.2014.00001/full">Ogawa &amp; Miura 2014, Frontiers in Physiology</a></p></div></details>
+  <details class="onderwerp"><summary>De celcyclus</summary><div><p>De fasen zijn:</p>
+<ul>
+<li><strong>G1</strong>: de cel groeit en maakt eiwitten.</li>
+<li><strong>S</strong>: het DNA wordt gerepliceerd.</li>
+<li><strong>G2</strong>: de cel bereidt de deling voor.</li>
+<li><strong>M</strong>: mitose plus cytokinese.</li>
+<li><strong>G0</strong>: rust buiten de cyclus. Neuronen en de meeste spiercellen blijven daar vrijwel permanent; levercellen kunnen terugkeren.</li>
+</ul>
+<p>Een snel delende menselijke cel in kweek doet ongeveer 24 uur over een cyclus: G1 ±11 u, S ±8 u, G2 ±4 u, M maar ±1 u.</p>
+<p>Er zijn drie belangrijke checkpoints:</p>
+<ul>
+<li><strong>G1/S</strong>: is de cel groot genoeg, zijn er groeifactoren, is het DNA heel? Bij schade houdt p53 de cyclus aan.</li>
+<li><strong>G2/M</strong>: is de replicatie compleet en correct?</li>
+<li><strong>Spoelcheckpoint</strong>: de anafase start pas als elk kinetochoor goed aan de spoel vastzit. Dat voorkomt non-disjunctie.</li>
+</ul>
+<p><strong>Misvatting:</strong> "In de interfase rust de cel." De interfase is juist de drukste periode; de mitose is maar ±4% van de tijd.</p>
+<p><strong>Als een leerling vraagt</strong> "wat heeft dit met kanker te maken?": bij kanker zijn checkpointgenen zoals p53 vaak gemuteerd. De rem is er dan af.</p>
+<p><em>Vereenvoudigd: de getallen gelden voor snelle cellen in kweek. Darmepitheel en embryonale cellen hebben heel andere tijden.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://bionumbers.hms.harvard.edu/bionumber.aspx?id=112260">BioNumbers (Cooper &amp; Hausman, The Cell)</a> · <a target="_blank" rel="noopener" href="https://old-ib.bioninja.com.au/standard-level/topic-1-cell-biology/16-cell-division/cell-checkpoints.html">BioNinja: checkpoints</a></p></div></details>
+  <details class="onderwerp"><summary>Mitose en meiose I: het echte verschil</summary><div><p><strong>Mitose.</strong> Bij elk chromosoom (twee chromatiden) worden de zusterkinetochoren naar tegenovergestelde polen getrokken. Het cohesine tussen de zusterchromatiden wordt in één keer door separase geknipt. Er ontstaan twee identieke diploïde cellen.</p>
+<p><strong>Meiose I</strong> verschilt op drie punten:</p>
+<ol>
+<li><strong>Synapsis</strong>: de homologe chromosomen zoeken elkaar op. Het synaptonemale complex ritst ze aan elkaar tot een <strong>bivalent</strong> (tetrade).</li>
+<li><strong>Chiasmata</strong>: crossing-overs vormen fysieke verbindingen die, samen met het cohesine op de armen, het bivalent bij elkaar houden. Zonder minstens één chiasma volgt vaak non-disjunctie.</li>
+<li><strong>Kinetochoren</strong>: de zusterkinetochoren werken als één eenheid en wijzen naar dezelfde pool. Daardoor gaan de <em>homologen</em> uit elkaar (reductiedeling).</li>
+</ol>
+<p>Separase knipt in meiose I alleen het cohesine op de armen. <strong>Shugoshin</strong> (met PP2A) beschermt het cohesine bij het centromeer, zodat de zusterchromatiden tot meiose II bij elkaar blijven. <strong>Meiose II</strong> lijkt op een mitose van een haploïde cel, maar zonder S-fase ervoor.</p>
+<p><strong>Misvatting:</strong> "Na meiose I is de cel nog diploïd, want elk chromosoom heeft twee chromatiden." Ploïdie telt chromosomen, niet chromatiden. Na meiose I is de cel haploïd.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom krijgen oudere moeders vaker een kind met trisomie?": eicellen blijven tientallen jaren in profase I staan. Het cohesine slijt en wordt niet vervangen. Dit is een sterke hypothese, maar niet de enige verklaring.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://www.nature.com/articles/nrm2331">Cesari 2008, Nat Rev Mol Cell Biol: shugoshin</a> · <a target="_blank" rel="noopener" href="https://www.nature.com/articles/ncb1923">Li &amp; Dawe 2009, Nat Cell Biol</a></p></div></details>
+  <details class="onderwerp"><summary>Crossing-over en onafhankelijke verdeling</summary><div><p>In metafase I ligt elk homoloog paar willekeurig georiënteerd. Met 23 paren geeft dat 2²³ ≈ <strong>8,4 miljoen</strong> soorten geslachtscellen per persoon, zonder crossing-over. Twee ouders samen geven 2²³ × 2²³ ≈ 7·10¹³ combinaties. Crossing-over maakt het aantal in de praktijk onbegrensd.</p>
+<p>Per meiose vinden gemiddeld <strong>±27 crossovers bij mannen en ±42 bij vrouwen</strong> plaats. Dat is 1 à 3 per chromosoom: lange chromosomen hebben er meer, en elk chromosoom minstens één (de "obligate crossover"). Crossovers clusteren in hotspots; bij mannen liggen ze meer naar de uiteinden.</p>
+<p><strong>Misvatting:</strong> "Crossing-over gebeurt tussen zusterchromatiden." Genetisch telt alleen uitwisseling tussen niet-zusterchromatiden van homologen.</p>
+<p><strong>Als een leerling vraagt</strong> "waarom lijken broers en zussen dan toch op elkaar?": ze delen gemiddeld 50% van hun DNA, en in grote blokken, omdat er per chromosoom maar een paar crossovers zijn.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://doi.org/10.1371/journal.pgen.1000658">Chowdhury e.a. 2009, PLoS Genetics</a> · <a target="_blank" rel="noopener" href="https://dna-explained.com/2017/11/09/concepts-dna-recombination-and-crossovers/">DNAeXplained (samenvatting)</a></p></div></details>
+  <details class="onderwerp"><summary>De race: dubbele kosten van seks en de Rode Koningin</summary><div><p>Maynard Smith stelde: een ongeslachtelijk vrouwtje maakt alleen dochters, en die maken allemaal weer nakomelingen. Een geslachtelijk vrouwtje besteedt de helft van haar nakomelingen aan zonen. Bij evenveel jongen groeit een kloonlijn dus twee keer zo snel. Daar komen nog andere kosten bij: een partner zoeken, soa's, en goede genencombinaties die weer opgebroken worden. Gibson, Delph &amp; Lively (2017) maten de minstens tweevoudige kosten echt bij de slak <em>Potamopyrgus</em>.</p>
+<p>De <strong>Rode Koningin-hypothese</strong> zegt dat parasieten zich aanpassen aan de genotypen die het meest voorkomen. Een kloon is dan een stilstaand doelwit, en seks maakt zeldzame, nieuwe combinaties. In het experiment van Morran e.a. (2011) stierven zelfbevruchtende <em>C. elegans</em>-populaties snel uit als de bacterie <em>Serratia</em> mee kon evolueren. Uitkruisende populaties overleefden.</p>
+<p><strong>Misvatting:</strong> "Seks bestaat om de soort te helpen." Selectie werkt op individuen en genen. De vraag is juist waarom seks individueel loont.</p>
+<p><strong>Als een leerling vraagt</strong> "is de Rode Koningin dé verklaring?": nee. Er zijn concurrerende verklaringen, zoals het opruimen van schadelijke mutaties (Mullers ratel). Waarschijnlijk is het een combinatie.</p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://biology.indiana.edu/news-events/news/2017/gibson-two-fold-cost-of-sex.html">Indiana University: Gibson e.a. 2017</a> · <a target="_blank" rel="noopener" href="https://www.sciencedaily.com/releases/2011/07/110707141158.htm">ScienceDaily: Morran e.a. 2011</a></p></div></details>
+  <details class="onderwerp"><summary>Het startsein: GnRH-pulsen, kisspeptine en leptine</summary><div><p><strong>Pulsen.</strong> GnRH-neuronen moeten in pulsen afgeven: bij volwassenen ongeveer elk uur tot elke paar uur een puls.</p>
+<p><strong>De pulsgenerator.</strong> Die bestaat uit <strong>KNDy-neuronen</strong> in de nucleus arcuatus (bij de mens de nucleus infundibularis). De naam komt van drie stoffen die ze maken:</p>
+<ul>
+<li><strong>Kisspeptine</strong> zet de GnRH-neuronen aan via de receptor <strong>GPR54 (KISS1R)</strong>.</li>
+<li><strong>Neurokinine B</strong> wekt de KNDy-neuronen zelf op, zodat ze tegelijk vuren.</li>
+<li><strong>Dynorfine</strong> remt en beëindigt elke puls.</li>
+</ul>
+<p>Dit is een werkmodel, nog geen volledig bewezen schakeling. Mutaties in <em>TAC3</em>/<em>TACR3</em> (neurokinine B en de receptor daarvan) geven bij mensen een uitblijvende puberteit.</p>
+<p><strong>Ontdekking.</strong> In 2003 vonden twee groepen het tegelijk. De Roux e.a. (PNAS) vonden in een familie met uitblijvende puberteit een deletie in GPR54. Seminara e.a. (NEJM) vonden een mutatie in hetzelfde gen, en hun GPR54-knock-outmuizen kregen ook geen puberteit. De naam kisspeptine komt van Hershey (Pennsylvania, de stad van de chocolade Hershey's Kisses), waar KISS1 in 1996 werd gevonden als gen dat uitzaaiing van tumoren remt.</p>
+<p><strong>Leptine</strong> uit vetweefsel is een <strong>toelatend</strong> signaal: er is genoeg energievoorraad. Zonder leptine komt de puberteit niet op gang, en behandeling met leptine herstelt dat. Maar extra leptine vervroegt de puberteit niet. Het werkt waarschijnlijk deels via andere neuronen dan de kisspeptineneuronen.</p>
+<p><strong>Seculaire trend.</strong> De mediane leeftijd van de eerste menstruatie in Nederland daalde van 13,66 jaar (1955) naar <strong>13,05 jaar (2009)</strong>. Na correctie voor BMI bleef die daling bestaan.</p>
+<p><strong>Adrenarche</strong> is de rijping van de bijnier, vanaf ongeveer 6 à 8 jaar. Die geeft schaam- en okselhaar, lichaamsgeur en acne, los van de rijping van de geslachtsklieren.</p>
+<p><strong>Als een leerling vraagt</strong> "wat start de puberteit dan precies?": dat weet niemand helemaal. In de kindertijd houdt een centrale rem de pulsgenerator stil, en die rem gaat eraf. Kisspeptine is het gaspedaal, niet de bekende ontsteking.</p>
+<p><em>Niet met een bron gecontroleerd: de rol van GABA en het gen MKRN3 in die rem.</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6600864">Uenoyama e.a. 2019</a> · <a target="_blank" rel="noopener" href="https://www.frontiersin.org/articles/10.3389/fendo.2012.00048/pdf">Frontiers in Endocrinology 2012: KNDy</a> · <a target="_blank" rel="noopener" href="https://insight.jci.org/references/scholar/6074/B12">de Roux e.a. 2003</a> · <a target="_blank" rel="noopener" href="https://www.qxmd.com/r/14573733">Seminara e.a. 2003</a> · <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kisspeptin">Kisspeptine: geschiedenis</a> · <a target="_blank" rel="noopener" href="https://pages.ucsd.edu/~mboyle/COGS163/pdf-files/Leptin-reproductive-disorders.pdf">Chou &amp; Mantzoros 2014: leptine</a> · <a target="_blank" rel="noopener" href="https://www.jci.org/articles/view/45813/files/pdf">Ahima 2011, JCI</a> · <a target="_blank" rel="noopener" href="https://publications.tno.nl/publication/34606694/SIkE8m/talma-2013-trends.pdf">Talma e.a. 2013 (TNO)</a> · <a target="_blank" rel="noopener" href="https://www.rightdecisions.scot.nhs.uk/speg-scottish-paediatric-endocrine-group/adrenarche/">SPEG: adrenarche</a></p></div></details>
+  <details class="onderwerp"><summary>Geslachtsorganen in getallen</summary><div><p><strong>Zaadballen.</strong> De balzak is 2 à 4 °C koeler dan de kern van het lichaam; warmte schaadt de zaadcelvorming. De zaadcelvorming duurt 64 à 74 dagen. De productie is ±45 à 207 miljoen zaadcellen per dag, ongeveer 500 à 2400 per seconde. Ongeveer 75% van de kiemcellen gaat onderweg verloren.</p>
+<p><strong>Sperma.</strong> Zaadcellen zijn maar 2 à 5% van het volume. De zaadblaasjes leveren ±60–70% (fructose, alkalisch vocht), de prostaat ±25–30% (PSA, zink). Een ejaculaat is 2 à 5 ml met ±200 à 300 miljoen zaadcellen.</p>
+<p><strong>Eicellen.</strong> Rond 20 weken zwangerschap zijn er de meeste, <strong>±7 miljoen</strong>. Bij de geboorte zijn er nog 1 à 2 miljoen, bij de puberteit ±300.000 à 400.000. Daarvan komen er ±400 tot een eisprong; de rest gaat te gronde (atresie).</p>
+<p><strong>Misvatting:</strong> "Je verbruikt elke maand één eicel." Per cyclus gaan er tientallen tot honderden verloren.</p>
+<p><strong>Als een leerling vraagt</strong> "kunnen vrouwen nieuwe eicellen maken?": volgens de gangbare opvatting niet. Over stamcellen in de eierstok wordt gediscussieerd, maar dat is niet geaccepteerd.</p>
+<p><em>Niet met een bron gecontroleerd: het koelmechanisme (tegenstroom in de plexus pampiniformis, cremaster- en dartosspier).</em></p>
+<p>Bronnen: <a target="_blank" rel="noopener" href="https://public-pages-files-2025.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2022.1104326/text">Frontiers 2022: temperatuur van de testis</a> · <a target="_blank" rel="noopener" href="https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110319">BioNumbers: duur spermatogenese</a> · <a target="_blank" rel="noopener" href="https://embryology.med.unsw.edu.au/embryology/index.php/Template_talk:Human_Spermatozoa_Statistics_table">UNSW Embryology</a> · <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK553142/">StatPearls: spermatogenese</a> · <a target="_blank" rel="noopener" href="https://www.britannica.com/topic/semen">Britannica: semen</a> · <a target="_blank" rel="noopener" href="https://www.msdmanuals.com/home/multimedia/table/how-many-eggs">MSD Manual: eicelaantallen</a></p></div></details>
 </details>
 
 <footer class="tool-voet">Biologie bij Kamiel · Uitleg in stappen · Voortplanting les 1 · versie 1.2 · 21 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
