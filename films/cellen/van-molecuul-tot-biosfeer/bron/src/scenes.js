@@ -174,7 +174,6 @@ const SCENES = {
 
   s16(ctx, t, q) { bg(ctx, 'schema'); const up = q.on('populatie', 1);
     ladder(ctx, NIV.map((_, i) => i === 2 ? Math.max(0.5, q.on('kleinste', 1)) : i < 2 ? 0.5 : i <= 6 ? Math.max(0.5, q.on('differentiatie', 1)) : i === 7 ? Math.max(0.5, up) : i === 8 ? Math.max(0.5, q.on('levensgemeenschap', 1)) : i === 9 ? Math.max(0.5, q.on('ecosysteem', 1)) : Math.max(0.5, q.on('biosfeer', 1))), { virus: q.on('ernaast', 1) > 0 ? q.on('ernaast', 1) : q.on('Leeft', 1), t, cur: q.on('kleinste', 1) > 0.5 && q.on('differentiatie', 1) < 0.5 ? 2 : (q.on('ladder', 1) > 0.5 ? 6 : -1) });
-    ctx.save(); ctx.globalAlpha *= q.on('ladder', 1); ctx.setLineDash([6, 6]); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(1030, 520); ctx.lineTo(500, 444); ctx.moveTo(1480, 560); ctx.lineTo(500, 444); ctx.stroke(); ctx.restore();
     tag(ctx, 'antwoord a', 1250, 160, C.goud, q.on('antwoord', 1)); tag(ctx, 'geen eigen stofwisseling, het laat een cel werken', 1250, 240, C.koraal, q.on('stofwisseling', 1));
-    koolmees(ctx, 1150, 560, 1.2, q.on('koolmees', 1)); person(ctx, 1550, 800, 380, q.on('Noor', 1), {}); griepvirus(ctx, 1700, 520, 30, t, q.on('griepvirus', 2)); },
+    koolmees(ctx, 640, 440, 0.9, q.on('koolmees', 1)); person(ctx, 850, 580, 270, q.on('Noor', 1), {}); griepvirus(ctx, 1700, 520, 30, t, q.on('griepvirus', 2)); },
 };
