@@ -136,6 +136,22 @@ Uitleg na antwoord: 23: de paren gaan in meiose I uit elkaar. Elk chromosoom hee
 
 Drieëntwintig. Van elk paar gaat één chromosoom naar elke kant, elk nog met twee chromatiden. Het halveren gebeurt dus al in meiose één. In meiose twee gaan de chromatiden uit elkaar, net als bij de mitose. Bij een man ontstaan zo vier zaadcellen. Bij een vrouw verloopt de deling scheef: er ontstaat maar één eicel. De andere cellen zijn klein en sterven af.
 
+**x01** [extra] · nieuw 22 okt 2026 (eicel: meiose staat decennia stil) · duur 47.15 s · audio/x01.mp3
+
+Extra uitdaging: wanneer deelt een eicel eigenlijk? Zaadcellen worden vanaf de puberteit elke dag opnieuw gemaakt. Bij een vrouw begint de meiose al vóór haar eigen geboorte. In de eierstokken van een meisje in de baarmoeder delen de voorlopers van eicellen eerst door mitose, tot zo'n zeven miljoen. Vanaf ongeveer de derde maand beginnen ze aan meiose één. De crossing-over vindt nog plaats, en dan stopt alles, in de profase van meiose één. Zo'n cel heet een primaire oöcyt. Veel ervan gaan te gronde. Bij de geboorte zijn er nog één tot twee miljoen, in de puberteit zo'n driehonderdduizend. Een vrouw van veertig heeft een eisprong. Hoe lang heeft meiose één van die eicel stilgestaan? Wat denk je?
+
+> Stem-invoer: Extra uitdaging: wanneer deelt een eicel eigenlijk? Zaadcellen worden vanaf de puberteit elke dag opnieuw gemaakt. Bij een vrouw begint de meiose al vóór haar eigen geboorte. In de eierstokken van een meisje in de baarmoeder delen de voorlopers van eicellen eerst door mitose, tot zo'n zeven miljoen. Vanaf ongeveer de derde maand beginnen ze aan meiose één. De crossing-over vindt nog plaats, en dan stopt alles, in de profase van meiose één. Zo'n cel heet een primaire oo-oosiet. Veel ervan gaan te gronde. Bij de geboorte zijn er nog één tot twee miljoen, in de puberteit zo'n driehonderdduizend. Een vrouw van veertig heeft een eisprong. Hoe lang heeft meiose één van die eicel stilgestaan? Wat denk je?
+
+**xq** [extra] · vraag op scherm (8 s + 6 s): Een vrouw van 40 heeft een eisprong. Hoe lang heeft meiose I van die eicel stilgestaan?  
+Opties: vier weken: één cyclus · sinds de puberteit: zo'n 27 jaar · **ruim veertig jaar**  
+Uitleg na antwoord: Ruim veertig jaar: meiose I begon al vóór haar eigen geboorte en stond sindsdien stil in de profase.
+
+**x02** [extra] · duur 45.09 s · audio/x02.mp3
+
+Ruim veertig jaar: sinds vóór haar eigen geboorte. Elke cyclus maakt één oöcyt, vlak voor de eisprong, meiose één af. Er ontstaan een grote cel en een klein poollichaampje. De grote cel begint meteen aan meiose twee, maar stopt opnieuw, in de metafase. Zo komt hij bij de eisprong vrij. Pas als een zaadcel binnendringt, wordt meiose twee afgemaakt, en ontstaat een tweede poollichaampje. Wordt de eicel niet bevrucht, dan maakt hij de meiose nooit af. Die lange stilstand heeft een prijs. Al die jaren houden cohesineringen de chromosomen bij elkaar, en die slijten langzaam. Daarom gaan bij oudere moeders chromosomen vaker niet goed uit elkaar. Terug naar de hoofdlijn.
+
+> Stem-invoer: Ruim veertig jaar: sinds vóór haar eigen geboorte. Elke cyclus maakt één oo-oosiet, vlak voor de eisprong, meiose één af. Er ontstaan een grote cel en een klein poollichaampje. De grote cel begint meteen aan meiose twee, maar stopt opnieuw, in de metafase. Zo komt hij bij de eisprong vrij. Pas als een zaadcel binnendringt, wordt meiose twee afgemaakt, en ontstaat een tweede poollichaampje. Wordt de eicel niet bevrucht, dan maakt hij de meiose nooit af. Die lange stilstand heeft een prijs. Al die jaren houden cohesineringen de chromosomen bij elkaar, en die slijten langzaam. Daarom gaan bij oudere moeders chromosomen vaker niet goed uit elkaar. Terug naar de hoofdlijn.
+
 **s25** · 10:43 · duur 9.79 s · audio/s25.mp3
 
 In de grafiek: het DNA gaat van p naar twee p, na meiose één terug naar p, en na meiose twee naar een half p.

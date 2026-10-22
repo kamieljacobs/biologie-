@@ -29,3 +29,7 @@ Opnieuw ingesproken in flow G9H4qGFv1wgBMnnLpTBa: s12, s13, s15, s26, s27, s30, 
 ## Voortplanting v01 en v02 (16 okt 2026)
 
 Ingesproken in flow G9H4qGFv1wgBMnnLpTBa (eleven_v4, Roos, één take, generations_count 1), woordtijden met eleven_scribe_v1. Stem-invoer = schermtekst, behalve haploïde → "haaploïde". Geen uitspraaktest vooraf (afspraak 13 okt 2026); op de wachtlijst voor de batchtest: ongeslachtelijke / geslachtelijke, zoetwaterpoliep (/ˈzut.ʋaː.tər.poːˌlip/), bladluis (/ˈblɑt.lœy̯s/), klonen, zygote (/ziˈɣoː.tə/), eencellige.
+
+## Extra uitdaging eicel x01 en x02 (22 okt 2026)
+
+Ingesproken in flow G9H4qGFv1wgBMnnLpTBa (eleven_v4, Roos, één take), woordtijden met eleven_scribe_v1. Stem-invoer = schermtekst, behalve oöcyt → "oo-oosiet" (/oː.oːˈsit/). Op de wachtlijst voor de batchtest: oöcyt, poollichaampje, cohesineringen.
