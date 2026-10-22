@@ -216,3 +216,13 @@ Regelnummers in 7-dna-lezen.html (de base64-audio staat binnen FILMDATA op één
 ## Wijziging 20 okt 2026
 
 Na de uitspraaktest (19 okt, ronde 2): in de stem-invoer van **n9** (gelelektroforese) is `zjel-elektroforese` → `gel-elektroforese`; het losse woord 'gel' blijft `zjel` (niet getest). n9 opnieuw ingesproken: Roos, eleven_v3, 1 take, flow JD2UESGKMNlGNBWFo1ti; 466 credits TTS + Scribe voor de woordtijden; genormaliseerd met `_bouw/norm16.sh`. In de gepubliceerde film is alleen het segment n9 in `window.FILMDATA` vervangen (audio, woordtijden, `bounds` [8,59; 17,867; 22,87], `dur` 35,839 → 32,836 s); speler, beeld en de andere segmenten ongewijzigd. Ook bijgewerkt: `_bouw/data/afl7_stem.json` en `afl7_words.json`. Getest (Playwright): vwo/havo, Vragen aan/uit, geen JS-fouten.
+
+
+## Wijziging 22 okt 2026: castpersonages in plaats van poppetjes (versie 1.3)
+Alleen beeld; audio, timing, tekst en ondertitels ongewijzigd. Het castboek (`personages/lib_cast.js`, gekopieerd naar `_bouw/src/lib_cast.js`) staat als eigen `<script>` vlak vóór het scèneblok; `build.py` neemt het mee voor film 7 en 8. Vaste rollen (zelfde als in aflevering 8, `ROL` + `rol()` bovenin `scenes7.js`): jij = Yasmin, ouders = Femke en Ravi (outfit gewoon), broer = Bilal, verdachte/dader = Jesse (gewoon), achterneef = Sam, patiënt = Opa Henk, zwangere vrouw (NIPT) = Esra, eeneiige tweeling = 2× Daan.
+- h2v (vwo, n12): tweeling = twee keer Daan.
+- h3b (n16): de zwangere vrouw is Esra; placenta als gloeiende cirkel op haar buik.
+- h4b (n21): 'jij / ouders / grootouders' zijn castpersonages (Yasmin; Femke en Ravi; Mirjam, Henk, Visser, Gerrit); de acht overgrootouders blijven telpictogrammen (⅛ elk). In de stamboom zijn dader (Jesse) en achterneef (Sam) castpersonages met een gouden gloed; de overige knopen blijven pictogrammen (schema). Wattenstaafje: Jesse, het staafje komt naar zijn wang.
+- h4cr (vwo, n22v): de patiënt bij 'cellen buiten het lichaam' en bij 'somatisch' is Opa Henk.
+- recap2 (n26): Yasmin met haar familie (Femke, Ravi, Bilal, Henk) in plaats van vier pictogrammen.
+- Blijft pictogram (telling): h4a 60 mensjes op de stamboomsite.

@@ -169,3 +169,15 @@ De eerder klaargezette [nieuw]-zinnen voor n9 (aanvulling na vergelijking met Ge
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'hielprik', 'BRCA1'. Gecontroleerd op stills van alle scènes met namen.
+
+
+## Wijziging 22 okt 2026: castpersonages in plaats van poppetjes (versie 1.3)
+Alleen beeld; audio, timing, tekst en ondertitels ongewijzigd. Het castboek (`personages/lib_cast.js`, gekopieerd naar `_bouw/src/lib_cast.js`) staat als eigen `<script>` vlak vóór het scèneblok; `build.py` neemt het mee. Vaste rollen (`ROL` + `rol()` bovenin `scenes8.js`, dezelfde als aflevering 7): jij = Yasmin, moeder = Femke, vader = Ravi, broer = Bilal, tante = Dierenarts Mila (outfit gewoon), nichtje = de baby, arts/klinisch geneticus = Dr. Kim, patiënt (chemokuur) = Opa Henk, zwangere vrouw (NIPT) = Esra, de boer = Veehouder Gerrit, je eigen kinderen later = Teun en de baby.
+- open: 'jij' = Yasmin, 'de dokter' = Dr. Kim.
+- h1a (n3): 'jouw SNP's' = Yasmin met gouden gloed. h1b (n5): broer, moeder en nichtje als personages.
+- h2a (n7): Esra bij de NIPT. h2b (n9): Yasmin als drager.
+- h3a (n11): de tante (Mila) met telefoon aan het oor; 'ook mannen' = Bilal.
+- h3b (n13): stamboom moeder (variant, koraal gloed) → jij → twee kinderen (Teun, baby); vader Ravi met vraagteken; klinisch geneticus = Dr. Kim.
+- h4a (n15): patiënt = Opa Henk. h4b (n17): de boer = Gerrit.
+- recap2 (n20): Yasmin.
+- Blijven pictogram (tellingen): 1 op 3 (diabetes), menigte bij de hielprik, 1 op 30 drager, 1 op 4, weten/niet weten, 1 op 5, de drie groepen in de afkomstvergelijking.
