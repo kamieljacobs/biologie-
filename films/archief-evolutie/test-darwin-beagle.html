@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../../js/teller.js" data-root="../../"></script>
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Testfilm Darwin en de Beagle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: één filmzaal-kolom — schermpje bovenaan, A/B-schakelaar eronder, daarna kosten en notities. Bewust één donkere wereld (de stills zijn donker en goud). */
+:root{
+  --ink:#0c131c;        /* pagina */
+  --panel:#131d29;      /* vlakken */
+  --line:#24344a;       /* lijnen */
+  --paper:#ece5d6;      /* tekst */
+  --muted:#9aa7b4;      /* bijtekst */
+  --brass:#d6a64e;      /* accent, lamplicht uit de stills */
+  --sea:#5fb3b0;        /* tweede accent, zee */
+  --f-display:"IM Fell English", "Iowan Old Style", Georgia, serif;
+  --f-ui:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme:dark;
+}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--f-ui);font-size:15px;line-height:1.55;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:28px 56px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4.4vw,44px);line-height:1.1;margin:0;text-wrap:balance}
+h2{font-family:var(--f-display);font-weight:400;font-size:24px;margin:0;text-wrap:balance}
+.lede{color:var(--muted);max-width:62ch;margin:0}
+
+/* ---------- toggle ---------- */
+.versions{display:flex;flex-wrap:wrap;gap:8px}
+.versions button{font:inherit;font-size:14px;color:var(--paper);background:var(--panel);border:1px solid var(--line);
+  border-radius:999px;padding:8px 16px;cursor:pointer;display:flex;gap:8px;align-items:baseline}
+.versions button b{font-family:var(--f-display);font-weight:400;font-size:17px;color:var(--brass)}
+.versions button[aria-pressed="true"]{border-color:var(--brass);background:#1d2633}
+.versions button:focus-visible,.ctrl button:focus-visible,#scrub:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+/* ---------- stage ---------- */
+.player{display:flex;flex-direction:column;gap:10px}
+.stage{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;background:#05080c;overflow:hidden;border-radius:6px;
+  container-type:inline-size;box-shadow:0 20px 60px -30px #000}
+.scene{position:absolute;inset:0;opacity:0;visibility:hidden}
+.scene.vis{visibility:visible}
+.frame{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform}
+.frame img,.frame video,.frame svg.full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.frame video{opacity:0}
+.stage.vA .frame video.ready{opacity:1}
+.ov{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+
+/* captions in de film */
+.chip{position:absolute;font-family:var(--f-display);color:var(--paper);background:rgba(8,12,18,.62);
+  border:1px solid rgba(214,166,78,.45);padding:.35em .8em;border-radius:3px;font-size:2.3cqw;line-height:1.2;
+  opacity:0;transform:translateY(.6cqw);transition:opacity .6s ease, transform .6s ease;white-space:nowrap}
+.chip small{display:block;font-family:var(--f-ui);font-size:.55em;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.chip.on{opacity:1;transform:none}
+.big{position:absolute;left:8%;right:8%;text-align:center;font-family:var(--f-display);font-size:3.6cqw;line-height:1.2;
+  text-shadow:0 2px 18px #000;opacity:0;transition:opacity .8s ease;text-wrap:balance}
+.big.on{opacity:1}
+.ov .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.4s ease}
+.ov .draw.on{stroke-dashoffset:0}
+.ov .fade{opacity:0;transition:opacity .6s ease}
+.ov .fade.on{opacity:1}
+.tag{position:absolute;top:2.2cqw;left:2.2cqw;font-size:1.5cqw;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--paper);background:rgba(8,12,18,.6);padding:.3em .7em;border-radius:99px;z-index:20}
+.endcard{position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2cqw;
+  background:rgba(5,8,12,.82);opacity:0;pointer-events:none;transition:opacity .8s ease}
+.endcard.on{opacity:1;pointer-events:auto}
+.endcard p{margin:0;font-family:var(--f-display);font-size:3cqw}
+.bigplay{position:absolute;inset:0;margin:auto;width:11cqw;height:11cqw;border-radius:50%;border:1px solid var(--brass);
+  background:rgba(8,12,18,.55);color:var(--paper);cursor:pointer;z-index:25;display:grid;place-items:center}
+.bigplay svg{width:38%;height:38%;margin-left:8%}
+.bigplay:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+/* controls */
+.ctrl{display:flex;align-items:center;gap:12px}
+.ctrl button{font:inherit;color:var(--paper);background:var(--panel);border:1px solid var(--line);border-radius:6px;
+  padding:6px 12px;cursor:pointer;min-width:84px}
+#scrub{flex:1;min-width:0;accent-color:var(--brass)}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;min-width:86px;text-align:right}
+.diffnote{color:var(--muted);font-size:13.5px;margin:0}
+
+/* ---------- kosten ---------- */
+section{display:flex;flex-direction:column;gap:14px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:baseline}
+th{font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+td.n,th.n{text-align:right}
+td .m{display:block;color:var(--muted);font-size:13px}
+tr.total td{border-bottom:none;font-weight:600;padding-top:14px}
+tr.total td.n{color:var(--brass)}
+.none{color:#53616f}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.card h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:20px}
+.card .fig{font-size:26px;font-variant-numeric:tabular-nums;color:var(--brass)}
+.card p{margin:0;color:var(--muted);font-size:14px}
+ul.plain{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px;max-width:68ch}
+ul.plain li::marker{color:var(--brass)}
+code{font-family:ui-monospace,Menlo,monospace;font-size:.92em;color:var(--sea)}
+@media (prefers-reduced-motion: reduce){.chip,.big,.ov .draw,.ov .fade{transition:none}}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<nav class="sitenav" style="display:flex;gap:18px;align-items:center;padding:0 0 18px;max-width:980px;margin:0 auto;font:600 15px/1.3 'Source Sans 3',system-ui,sans-serif"><a href="../../index.html#home" style="color:#9AA3B2;text-decoration:none">Biologie bij Kamiel</a><span style="color:#4A5E82">·</span><a href="../../index.html#evolutie" style="color:#E0B64A;text-decoration:none">← Terug naar Evolutie</a></nav>
+
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Test · beeld uit ElevenLabs + animatie door Claude</span>
+    <h1>Darwin en de Beagle</h1>
+    <p class="lede">Twee versies van dezelfde film van een minuut. Stem, stills en alle labels en schema's zijn gelijk. Alleen het openingsshot en het slotshot verschillen: in versie A zijn dat echte videoclips, in versie B stills die Claude laat bewegen.</p>
+  </header>
+
+  <div class="player">
+    <div class="versions" role="group" aria-label="Versie kiezen">
+      <button id="btnA" aria-pressed="true"><b>A</b> stills + 2 videoclips</button>
+      <button id="btnB" aria-pressed="false"><b>B</b> alleen stills</button>
+    </div>
+    <div class="stage vA" id="stage">
+      <span class="tag" id="tag">Versie A</span>
+      <button class="bigplay" id="bigplay" aria-label="Film afspelen"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z" fill="currentColor"/></svg></button>
+      <div class="endcard" id="endcard"><p>Einde van de test</p><button class="ctrl-btn" id="again" style="font:inherit;color:var(--paper);background:var(--panel);border:1px solid var(--brass);border-radius:6px;padding:6px 14px;cursor:pointer">Opnieuw afspelen</button></div>
+      <!-- scènes worden door het script gevuld -->
+    </div>
+    <div class="ctrl">
+      <button id="play">Afspelen</button>
+      <input type="range" id="scrub" min="0" max="60.4" step="0.05" value="0" aria-label="Tijd in de film">
+      <span class="time" id="time">0:00 / 1:00</span>
+    </div>
+    <p class="diffnote">Tip: schakel tijdens het afspelen tussen A en B. De film loopt gewoon door, zodat je de shots direct naast elkaar ziet. Verschil zit in 0:00–0:10 (de Beagle) en 0:56–1:00 (de vink).</p>
+  </div>
+
+  <section>
+    <h2>Wat het kostte</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Onderdeel</th><th class="n">Versie A</th><th class="n">Versie B</th></tr></thead>
+        <tbody>
+          <tr><td>Voice-over, 60 s<span class="m">Roos, eleven_v4, 877 tekens</span></td><td class="n">877</td><td class="n">877</td></tr>
+          <tr><td>6 stills in schilderstijl<span class="m">gpt-image-2.5, 1280×720, 190 per beeld</span></td><td class="n">1.142</td><td class="n">1.142</td></tr>
+          <tr><td>Videoclip Beagle, 8 s<span class="m">Veo 3.1 Fast, vanaf de still</span></td><td class="n">7.272</td><td class="n none">–</td></tr>
+          <tr><td>Videoclip vink, 5 s<span class="m">Kling 2.5 Turbo, vanaf de still</span></td><td class="n">2.121</td><td class="n none">–</td></tr>
+          <tr><td>Beweging, labels, stamboom<span class="m">Claude, in de pagina zelf</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr class="total"><td>Totaal credits<span class="m">volgens ElevenLabs: $1,88 tegen $0,33</span></td><td class="n">11.412</td><td class="n">2.019</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Hele film van 9 min, aanpak A</h3><span class="fig">± 100.000 credits</span><p>Met twee clips per minuut. Ongeveer $17, nog zonder overgedane takes. Dat is bijna het hele Creator-pakket.</p></div>
+      <div class="card"><h3>Hele film van 9 min, aanpak B</h3><span class="fig">± 18.000 credits</span><p>Stem plus zo'n zes stills per minuut. Ongeveer $3. Er passen er een stuk of zes in Creator per maand.</p></div>
+    </div>
+    <p class="diffnote">De videoclips maken 82% van de kosten van versie A uit. Eén clip van Veo kost evenveel als 38 stills.</p>
+  </section>
+
+  <section>
+    <h2>Uitspraak om te controleren</h2>
+    <ul class="plain">
+      <li><strong>Beagle</strong> moet Engels klinken, /ˈbiːɡəl/. Ingevoerd zoals het geschreven wordt.</li>
+      <li><strong>John Gould</strong>, /ɡuːld/. Ingevoerd als <code>John Goeld</code>.</li>
+      <li><strong>Galápagoseilanden</strong>. Ingevoerd zoals het geschreven wordt.</li>
+    </ul>
+  </section>
+</div>
+
+<footer style="max-width:980px;margin:28px auto 0;color:#9aa7b4;font-size:14px">Test 21 oktober 2026 · stem: Roos (ElevenLabs, eleven_v4) · beeld: ElevenLabs-stills en -clips, animatie door Claude.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<audio id="voice" src="test-darwin-beagle/voice.mp3" preload="auto"></audio>
+
+<script>
+(() => {
+const DUR = 60.4;
+const stage = document.getElementById('stage');
+const audio = document.getElementById('voice');
+let version = 'A';
+
+// ---- helpers ----
+const ease = x => x<.5 ? 2*x*x : 1-Math.pow(-2*x+2,2)/2;
+const clamp = (x,a=0,b=1) => Math.max(a,Math.min(b,x));
+const svgNS = 'http://www.w3.org/2000/svg';
+
+// kleine vinkenkop als pictogram (Claude-tekening); beak: 'dik' | 'middel' | 'dun' | 'lang'
+function finchHead(x,y,s,beak,col){
+  const beaks = {
+    dik:   'M12,-7 L30,0 L12,9 Z',
+    middel:'M12,-5 L26,1 L12,6 Z',
+    dun:   'M12,-3 L28,0 L12,3 Z',
+    lang:  'M12,-3 L34,2 L12,4 Z'
+  };
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <ellipse cx="-6" cy="10" rx="16" ry="11" fill="${col}" opacity=".85"/>
+    <circle cx="0" cy="0" r="13" fill="${col}"/>
+    <path d="${beaks[beak]}" fill="#d6a64e"/>
+    <circle cx="5" cy="-3" r="2.2" fill="#0c131c"/>
+  </g>`;
+}
+
+// ---- scènes ----
+// t in seconden; kb = ken burns [schaal, x%, y%] van -> naar
+const scenes = [
+  { id:'s1', start:0, end:10.45, img:'test-darwin-beagle/beagle.jpg', clip:{src:'test-darwin-beagle/clip-beagle.mp4', rate:0.8},
+    kb:[[1.0,0,0],[1.12,-3,1]],
+    ov:`<div class="chip" data-in="0.6" style="left:4%;bottom:7%"><small>Engeland</small>1831</div>
+        <div class="chip" data-in="4.1" style="left:24%;top:18%"><small>Het schip</small>HMS Beagle</div>` },
+  { id:'s2', start:10.45, end:17.7, img:'test-darwin-beagle/darwin.jpg',
+    kb:[[1.08,3,0],[1.18,-1,2]],
+    ov:`<div class="chip" data-in="10.9" style="left:4%;bottom:7%"><small>Natuuronderzoeker, 22 jaar</small>Charles Darwin</div>
+        <div class="chip" data-in="13.0" style="right:4%;top:8%"><small>Verzamelt</small>fossielen · planten · dieren</div>` },
+  { id:'s3', start:17.7, end:29.7, img:'test-darwin-beagle/galapagos.jpg',
+    kb:[[1.0,0,0],[1.2,8,6]],
+    svg:`<circle class="draw" data-in="24.8" cx="115" cy="76" r="44" style="--len:280"/>
+         <circle class="draw" data-in="25.4" cx="205" cy="378" r="66" style="--len:420"/>
+         <circle class="draw" data-in="26.0" cx="585" cy="505" r="52" style="--len:330"/>`,
+    ov:`<div class="chip" data-in="18.2" style="right:4%;top:8%"><small>Stille Oceaan</small>1835 · Galápagoseilanden</div>
+        <div class="chip" data-in="25.0" style="right:4%;bottom:7%"><small>Darwin vindt ze</small>niet bijzonder</div>` },
+  { id:'s4', start:29.7, end:37.3, img:'test-darwin-beagle/gould.jpg',
+    kb:[[1.05,0,-2],[1.22,2,-7]],
+    svg:`<path class="draw" data-in="35.3" d="M330,605 Q590,650 860,605" style="--len:560"/>`,
+    ov:`<div class="chip" data-in="30.0" style="left:4%;top:8%"><small>Londen</small>1837</div>
+        <div class="chip" data-in="33.0" style="right:4%;top:8%"><small>Vogelkenner</small>John Gould</div>
+        <div class="chip" data-in="35.5" style="left:50%;bottom:6%;translate:-50% 0"><small>Zijn conclusie</small>allemaal vinken</div>` },
+  { id:'s5', start:37.3, end:46.9, kind:'split',
+    kb:[[1.0,0,0],[1.06,0,1]],
+    svg:`<circle class="draw" data-in="40.2" cx="600" cy="248" r="50" style="--len:320"/>
+         <circle class="draw" data-in="43.7" cx="700" cy="186" r="48" style="--len:310"/>`,
+    ov:`<div class="chip" data-in="40.4" style="left:3%;bottom:7%"><small>Dikke, sterke snavel</small>harde zaden kraken</div>
+        <div class="chip" data-in="43.9" style="right:3%;bottom:7%"><small>Dunne, spitse snavel</small>insecten pakken</div>
+        <div class="chip" data-in="37.6" style="left:50%;top:6%;translate:-50% 0">elke soort een andere snavel</div>` },
+  { id:'s6', start:46.9, end:56.45, kind:'tree',
+    kb:[[1.0,0,0],[1.04,0,0]] },
+  { id:'s7', start:56.45, end:DUR+1, img:'test-darwin-beagle/grondvink.jpg', clip:{src:'test-darwin-beagle/clip-vink.mp4', rate:0.92},
+    kb:[[1.0,0,0],[1.1,4,2]],
+    ov:`<div class="big" data-in="57.5" style="top:8%">Waarom zouden hun snavels<br>zo verschillend zijn geworden?</div>` }
+];
+
+// boom-scène tekenen (alles in 1280×720)
+function treeSVG(){
+  const islands = [
+    {x:800,y:230,beak:'dik'},{x:960,y:170,beak:'middel'},{x:1110,y:280,beak:'dun'},
+    {x:900,y:420,beak:'lang'},{x:1110,y:500,beak:'middel'}];
+  const hub = {x:860,y:330};
+  let s = `<image href="test-darwin-beagle/galapagos.jpg" x="0" y="0" width="1280" height="720" preserveAspectRatio="xMidYMid slice" style="filter:brightness(.28) saturate(.6) blur(3px)"/>`;
+  // vasteland
+  s += `<path class="fade" data-in="47.0" d="M0,0 L250,0 C230,90 300,150 270,240 C240,330 330,420 290,520 C260,600 300,660 280,720 L0,720 Z" fill="#1d2a1f" stroke="#6f8a5f" stroke-width="2"/>`;
+  s += `<text class="fade" data-in="47.2" x="40" y="60" fill="#c9d1b8" font-family="IM Fell English, Georgia, serif" font-size="30">vasteland</text>`;
+  s += `<text class="fade" data-in="47.2" x="40" y="92" fill="#9aa7b4" font-family="IBM Plex Sans, sans-serif" font-size="18" letter-spacing="2">ZUID-AMERIKA</text>`;
+  // eilanden
+  islands.forEach((p,i)=>{
+    s += `<ellipse class="fade" data-in="${47.3+i*0.12}" cx="${p.x}" cy="${p.y+34}" rx="74" ry="26" fill="#2b3426" stroke="#8a9a6b" stroke-width="2"/>`;
+  });
+  s += `<text class="fade" data-in="47.8" x="1240" y="680" text-anchor="end" fill="#9aa7b4" font-family="IBM Plex Sans, sans-serif" font-size="18" letter-spacing="2">GALÁPAGOSEILANDEN</text>`;
+  // voorouder
+  s += `<g class="fade" data-in="48.4">${finchHead(170,370,2.2,'middel','#d9cfba')}</g>`;
+  s += `<text class="fade" data-in="48.6" x="170" y="460" text-anchor="middle" fill="#ece5d6" font-family="IM Fell English, Georgia, serif" font-size="30">voorouder?</text>`;
+  // vlucht naar de eilanden
+  s += `<path class="draw" data-in="50.3" d="M230,360 C420,220 640,260 ${hub.x},${hub.y}" fill="none" stroke="#d6a64e" stroke-width="3" stroke-dasharray="10 10" style="--len:760"/>`;
+  // vertakkingen
+  islands.forEach((p,i)=>{
+    const len = Math.hypot(p.x-hub.x, p.y-hub.y)+40;
+    s += `<path class="draw" data-in="${52.2+i*0.35}" d="M${hub.x},${hub.y} Q${(hub.x+p.x)/2},${hub.y} ${p.x},${p.y}" fill="none" stroke="#d6a64e" stroke-width="3" style="--len:${len.toFixed(0)}"/>`;
+    s += `<g class="fade" data-in="${52.7+i*0.35}">${finchHead(p.x,p.y,1.35,p.beak,'#ece5d6')}</g>`;
+  });
+  s += `<circle class="fade" data-in="52.0" cx="${hub.x}" cy="${hub.y}" r="7" fill="#d6a64e"/>`;
+  return s;
+}
+
+// ---- DOM opbouwen ----
+const layers = scenes.map(sc => {
+  const el = document.createElement('div');
+  el.className = 'scene';
+  const fr = document.createElement('div');
+  fr.className = 'frame';
+  if (sc.kind === 'split') {
+    fr.innerHTML = `<svg class="full" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">
+      <defs><clipPath id="cl"><rect x="0" y="0" width="640" height="720"/></clipPath><clipPath id="cr"><rect x="640" y="0" width="640" height="720"/></clipPath></defs>
+      <g clip-path="url(#cl)"><image href="test-darwin-beagle/grondvink.jpg" x="-20" y="0" width="1280" height="720"/></g>
+      <g clip-path="url(#cr)"><image href="test-darwin-beagle/zangervink.jpg" x="70" y="0" width="1280" height="720"/></g>
+      <line x1="640" y1="0" x2="640" y2="720" stroke="#d6a64e" stroke-width="2" opacity=".7"/></svg>`;
+  } else if (sc.kind === 'tree') {
+    fr.innerHTML = `<svg class="full ov" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice">${treeSVG()}</svg>`;
+  } else {
+    fr.innerHTML = `<img src="${sc.img}" alt="">`;
+    if (sc.clip) {
+      const v = document.createElement('video');
+      v.src = sc.clip.src; v.muted = true; v.playsInline = true; v.preload = 'auto';
+      v.addEventListener('loadeddata', () => v.classList.add('ready'));
+      fr.appendChild(v);
+      sc.video = v;
+    }
+  }
+  if (sc.svg) fr.insertAdjacentHTML('beforeend',
+    `<svg class="ov" viewBox="0 0 1280 720" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#d6a64e" stroke-width="4">${sc.svg}</svg>`);
+  el.appendChild(fr);
+  if (sc.ov) el.insertAdjacentHTML('beforeend', `<div class="ov">${sc.ov}</div>`);
+  stage.appendChild(el);
+  sc.el = el; sc.frame = fr;
+  sc.timed = [...el.querySelectorAll('[data-in]')].map(n => ({n, t:parseFloat(n.dataset.in)}));
+  return el;
+});
+
+// ---- renderen op tijdstip t ----
+const XF = 0.7; // overvloei
+function render(t, playing){
+  scenes.forEach((sc,i) => {
+    const first = i === 0;
+    const vis = t >= sc.start - (first?1:0) && t < sc.end + XF;
+    sc.el.classList.toggle('vis', vis);
+    if (!vis) { if (sc.video && !sc.video.paused) sc.video.pause(); return; }
+    sc.el.style.opacity = first ? 1 : clamp((t - sc.start)/XF);
+    sc.el.style.zIndex = i + 1;
+    const p = ease(clamp((t - sc.start)/(sc.end - sc.start)));
+    const [a,b] = sc.kb;
+    const s = a[0] + (b[0]-a[0])*p, x = a[1]+(b[1]-a[1])*p, y = a[2]+(b[2]-a[2])*p;
+    // in versie A neemt de clip zelf de beweging over
+    const useClip = version === 'A' && sc.video && sc.video.classList.contains('ready');
+    sc.frame.style.transform = useClip ? 'none' : `scale(${s}) translate(${x}%, ${y}%)`;
+    sc.timed.forEach(o => o.n.classList.toggle('on', t >= o.t));
+    if (sc.video) {
+      if (version === 'A') {
+        const local = clamp((t - sc.start) * sc.clip.rate, 0, (sc.video.duration || 8) - 0.05);
+        sc.video.playbackRate = sc.clip.rate;
+        if (Math.abs(sc.video.currentTime - local) > 0.25) { try { sc.video.currentTime = local; } catch(e){} }
+        if (playing && sc.video.paused && local < (sc.video.duration||8) - 0.1) sc.video.play().catch(()=>{});
+        if (!playing && !sc.video.paused) sc.video.pause();
+      } else if (!sc.video.paused) sc.video.pause();
+    }
+  });
+}
+
+// ---- bediening ----
+const playBtn = document.getElementById('play'), big = document.getElementById('bigplay');
+const scrub = document.getElementById('scrub'), timeEl = document.getElementById('time');
+const endcard = document.getElementById('endcard');
+const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+function loop(){
+  const t = audio.currentTime;
+  render(t, !audio.paused);
+  scrub.value = t; timeEl.textContent = `${fmt(t)} / 1:00`;
+  if (!audio.paused) requestAnimationFrame(loop);
+}
+function play(){ endcard.classList.remove('on'); big.hidden = true; audio.play().then(()=>{playBtn.textContent='Pauze'; requestAnimationFrame(loop);}).catch(()=>{}); }
+function pause(){ audio.pause(); playBtn.textContent='Afspelen'; render(audio.currentTime,false); }
+playBtn.addEventListener('click', () => audio.paused ? play() : pause());
+big.addEventListener('click', play);
+document.getElementById('again').addEventListener('click', () => { audio.currentTime = 0; play(); });
+audio.addEventListener('ended', () => { playBtn.textContent='Afspelen'; render(DUR,false); setTimeout(()=>endcard.classList.add('on'), 900); });
+scrub.addEventListener('input', () => { audio.currentTime = parseFloat(scrub.value); big.hidden = true; endcard.classList.remove('on'); render(audio.currentTime, !audio.paused); timeEl.textContent = `${fmt(audio.currentTime)} / 1:00`; });
+
+function setVersion(v){
+  version = v;
+  stage.classList.toggle('vA', v==='A');
+  document.getElementById('tag').textContent = v==='A' ? 'Versie A · videoclips' : 'Versie B · alleen stills';
+  document.getElementById('btnA').setAttribute('aria-pressed', v==='A');
+  document.getElementById('btnB').setAttribute('aria-pressed', v==='B');
+  render(audio.currentTime, !audio.paused);
+}
+document.getElementById('btnA').addEventListener('click', () => setVersion('A'));
+document.getElementById('btnB').addEventListener('click', () => setVersion('B'));
+document.addEventListener('keydown', e => { if (e.code==='Space' && e.target===document.body){ e.preventDefault(); audio.paused?play():pause(); }});
+
+setVersion(location.hash==='#B'?'B':'A');
+render(0,false);
+})();
+</script>
+
+</body>
+</html>
