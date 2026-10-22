@@ -1,0 +1,37 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
+<style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button></nav>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
+<script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
+<script src="lib_bio.js"></script>
+<script>const ctx=document.getElementById('c').getContext('2d');
+function lab(s,x,y){ text(ctx,s,x,y,fMeta(22),C.text2,'center'); }
+function draw(page){ const t=page*0.37+1.3; ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H);
+ if(page<=1){
+  hoofdHersenen(ctx,300,420,1.1,{hth:1,hyp:0.6}); lab('hoofdHersenen',300,1040);
+  bloedvat(ctx,[[620,200],[800,260],[980,220],[1160,300]],22,t,{deeltjes:{n:8,col:C.teal}}); lab('bloedvat',900,360);
+  bloedvat(ctx,[[620,450],[900,470],[1160,440]],6,t,{haarvat:true,n:7}); lab('haarvat',900,520);
+  zenuwcel(ctx,1350,200,{naar:[1800,420],col:C.paars,seed:2,puls:(t%1)}); lab('zenuwcel',1550,520);
+  vetweefsel(ctx,900,800,560,330,{t}); lab('vetweefsel',900,1000);
+  vetcel(ctx,1500,800,120,{}); lab('vetcel',1500,960);
+  for(let i=0;i<3;i++) zaadcelEcht(ctx,1700+ (i?0:0),620+i*60,0,t+i*0.2,1.2+i*0.4);
+  lab('zaadcelEcht',1700,820);
+ } else {
+  eierstokDoorsnede(ctx,330,300,280,180,{n:160,groei:page>=3?1:0.6,eis:page>=4?0.7:0,t}); lab('eierstok',330,520);
+  for(let i=0;i<5;i++) follikel(ctx,720+i*95,140,i/4,{R:48,seed:i}); lab('follikel 0→1',900,230);
+  baarmoederwand(ctx,1450,250,700,300,page>=4?0.9:0.35,{kronkel:page>=3?1:0,los:page>=5?0.6:0,t}); lab('baarmoederwand',1450,430);
+  zetmeelSpiraal(ctx,80,620,14,22,{open:0}); zetmeelSpiraal(ctx,80,760,14,22,{open:0.5}); lab('zetmeelSpiraal',350,860);
+  celluloseBundel(ctx,700,580,10,16,{}); lab('celluloseBundel',850,700);
+  const kinds=Array.from({length:34},(_,i)=>Math.floor(hash(i*13+5)*20));
+  eiwitVouw(ctx,1200,640,1,page>=3?1:0.5,kinds); lab('eiwitVouw',1200,800);
+  membraanBoog(ctx,1650,1500,900,-2.0,-1.1,{eiwitten:[-1.55]}); lab('membraanBoog',1650,700);
+  celRond(ctx,1650,890,140,{t}); 
+  grutto(ctx,250,980,1.6,(t*0.7)%1); lab('grutto',250,1060);
+  spierBundel(ctx,520,960,360,{}); lab('spierBundel',700,1060);
+  leverVoor(ctx,1050,960,0.7); lab('leverVoor',1050,1060);
+  darmwand(ctx,1220,1420,960,40,(x)=>Math.exp(-((x-1320)**2)/1500),{dikte:30}); enzymKluwen(ctx,1470,960,30,{}); lab('darmwand · enzym',1350,1060);
+ }
+}
+
+draw(1);</script></body></html>

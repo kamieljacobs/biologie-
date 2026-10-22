@@ -41,7 +41,7 @@ function grain(ctx){
 function bg(ctx, look){
   ctx.fillStyle = look==='micro'?C.bgMicro: look==='macro'?C.bgMacroSky : C.bgSchema;
   ctx.fillRect(0,0,W,H);
-  if(look==='micro') grain(ctx);
+  // korrel weg (Kamiel 15 okt 2026 / prompt v8): egale achtergrond; textuur alleen binnen een cel
 }
 
 // ===== shape primitives =====

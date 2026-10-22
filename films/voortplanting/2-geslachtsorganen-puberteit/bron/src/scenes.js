@@ -13,14 +13,8 @@ function knoop(ctx, x, y, w, h, t1, t2, col, a = 1, gloed = 0) { if (a <= 0.01) 
 const fadeIn = (q, w, n = 1) => q.on(w, n);
 
 // ---------- hoofd in profiel met hypothalamus en hypofyse (zoals Hormonen 3) ----------
-function hoofdProfiel(ctx, x, y, s = 1, o = {}) { const { a = 1, hyp = 0, hth = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  ctx.beginPath(); ctx.moveTo(-40, 260); ctx.bezierCurveTo(-60, 160, -180, 120, -200, 0); ctx.bezierCurveTo(-220, -170, -80, -250, 40, -240); ctx.bezierCurveTo(170, -230, 230, -130, 220, -30); ctx.lineTo(250, 20); ctx.lineTo(220, 50); ctx.bezierCurveTo(230, 90, 220, 110, 200, 120); ctx.bezierCurveTo(210, 160, 180, 190, 140, 190); ctx.lineTo(120, 260); ctx.closePath(); shape(ctx, rgba(C.mens, 0.18), rgba(C.mens, 0.8), 2);
-  ctx.beginPath(); ctx.ellipse(20, -80, 170, 120, -0.08, 0, 6.283); shape(ctx, rgba(C.paars, 0.16), rgba(C.paars, 0.6), 2); text(ctx, 'hersenen', -60, -110, fTekst(30, 600), rgba(C.paars, 0.9), 'center');
-  if (hth > 0.01) { const g = ctx.createRadialGradient(60, 10, 0, 60, 10, 80); g.addColorStop(0, rgba(HK.klier, 0.45 * hth)); g.addColorStop(1, rgba(HK.klier, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(60, 10, 80, 0, 6.283); ctx.fill(); }
-  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hth; ctx.beginPath(); ctx.ellipse(60, 10, 34, 20, 0, 0, 6.283); shape(ctx, rgba(HK.klier, 0.7), HK.klierR, 2); ctx.restore();
-  ctx.strokeStyle = HK.klierR; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(60, 30); ctx.lineTo(66, 58); ctx.stroke();
-  ctx.save(); ctx.globalAlpha *= 0.45 + 0.55 * hyp; ctx.beginPath(); ctx.arc(68, 70, 16, 0, 6.283); shape(ctx, rgba(HK.klier, 0.85), HK.klierR, 2); ctx.restore();
-  ctx.restore(); return { hth: [x + 60 * s, y + 10 * s], hyp: [x + 68 * s, y + 70 * s] }; }
+function hoofdProfiel(ctx, x, y, s = 1, o = {}) { // v1.1: echte hersenen in zijaanzicht (lib_bio hoofdHersenen); oorsprong blijft gelijk
+  const { a = 1, hyp = 0, hth = 0 } = o; return hoofdHersenen(ctx, x + 60 * s, y + 10 * s, s * 0.72, { a, hth: Math.max(0.15, hth), hyp: Math.max(0.15, hyp), hthCol: HK.klier, hypCol: HK.klier }); }
 
 // ---------- startlamp boven een hoofd: rood = nog niet, groen = begonnen ----------
 function startlamp(ctx, x, y, groen, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 26, y - 62, 52, 104, 12); shape(ctx, '#2A2F3E', '#6B7287', 2); circ(ctx, x, y - 34, 16, groen > 0.5 ? '#5A2A2A' : '#E05A4A'); circ(ctx, x, y + 14, 16, groen > 0.5 ? '#6FD08A' : '#25402E'); ctx.restore(); }
@@ -28,8 +22,8 @@ function startlamp(ctx, x, y, groen, a = 1) { if (a <= 0.01) return; ctx.save();
 function meetlat(ctx, x, y0, y1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 22, y1, 44, y0 - y1, 6); shape(ctx, '#E6D7B0', '#B8A27A', 2); ctx.strokeStyle = '#6A5A3A'; ctx.lineWidth = 2; for (let yy = y0; yy > y1 + 4; yy -= 20) { const k = Math.round((y0 - yy) / 20) % 5 === 0; ctx.beginPath(); ctx.moveTo(x - 22, yy); ctx.lineTo(x - (k ? 0 : 10), yy); ctx.stroke(); } ctx.restore(); }
 
 // ---------- zaadcel en eicel ----------
-function zaadcel(ctx, x, y, ang, t, s = 1, a = 1, col = '#F2F2EE') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); ctx.scale(s, s); ctx.strokeStyle = col; ctx.lineWidth = 2.5; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 20; i++) { const u = i / 20; const px = -10 - u * 46, py = Math.sin(u * 9 - t * 14) * 5 * u; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.beginPath(); ctx.ellipse(0, 0, 11, 7, 0, 0, 6.283); ctx.fillStyle = col; ctx.fill(); ctx.restore(); }
-function eicel(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r * 1.35, rgba(C.goud, 0.18), rgba(C.goud, 0.5), 1.5); circ(ctx, x, y, r, rgba('#F2E6C8', 0.95), C.goud, 2); circ(ctx, x + r * 0.15, y - r * 0.1, r * 0.32, rgba(C.paars, 0.7)); ctx.restore(); }
+function zaadcel(ctx, x, y, ang, t, s = 1, a = 1, col = '#F2F2EE') { zaadcelEcht(ctx, x, y, ang, t, s * 0.9, { a, col, slag: 1.6 }); } // v1.1: kop + staart ± 10× zo lang (lib_bio)
+function eicel(ctx, x, y, r, a = 1) { eicelEcht(ctx, x, y, r * 0.78, a, r >= 12); } // v1.1: eicel met doorzichtige laag en stralenkrans (lib_bio)
 
 // polyline-helpers voor routes
 function padLengte(pts) { const L = [0]; for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return L; }
@@ -51,6 +45,9 @@ function manSchema(ctx, ox, oy, s, o = {}) {
   const glow = (x, y, r, col, k) => { if (k <= 0.01) return; const g = ctx.createRadialGradient(x, y, 0, x, y, r); g.addColorStop(0, rgba(col, 0.45 * k)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); };
   // lichaam
   ctx.beginPath(); ctx.moveTo(430, 140); ctx.quadraticCurveTo(350, 400, 400, 600); ctx.quadraticCurveTo(440, 700, 580, 720); ctx.quadraticCurveTo(700, 730, 748, 650); ctx.lineTo(870, 548); ctx.quadraticCurveTo(940, 500, 950, 400); ctx.quadraticCurveTo(975, 260, 960, 140); ctx.closePath(); shape(ctx, rgba(C.mens, 0.14), rgba(C.mens, 0.7), 2);
+  // endeldarm (achter blaas en prostaat) en schaambeen (vóór de blaas): oriëntatie
+  ctx.save(); ctx.strokeStyle = rgba('#9A7A6A', 0.4); ctx.lineWidth = 36; ctx.beginPath(); ctx.moveTo(560, 230); ctx.bezierCurveTo(575, 360, 585, 470, 640, 600); ctx.stroke(); ctx.strokeStyle = rgba(C.bgSchema, 0.75); ctx.lineWidth = 28; ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.translate(856, 478); ctx.rotate(-0.35); ctx.beginPath(); ctx.ellipse(0, 0, 17, 44, 0, 0, 6.283); shape(ctx, rgba(BIO.bot, 0.55), BIO.botS, 2); ctx.restore();
   // balzak
   ctx.beginPath(); ctx.ellipse(800, 706, 76, 88, 0.12, 0, 6.283); shape(ctx, rgba(C.mens, 0.2), rgba(C.mens, 0.7), 2);
   glow(806, 706, 110, MK.zaadbal, hl.zaadbal || 0);
@@ -141,16 +138,8 @@ function buitenSchema(ctx, x, y, s, o = {}) { const { a = 1, lip = 1, cli = 0, b
   ctx.restore(); }
 
 // ---------- eierstok vergroot met eicellen (follikels) ----------
-function eierstokGroot(ctx, x, y, rx, ry, o = {}) { const { a = 1, n = 160, groei = 0, eis = 0, t = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.35), lighten(VK.stok, 0.2), 2.5);
-  ctx.save(); ctx.beginPath(); ctx.ellipse(x, y, rx - 8, ry - 8, 0, 0, 6.283); ctx.clip();
-  for (let i = 0; i < n; i++) { const u = hash(i * 3 + 1), v = hash(i * 3 + 2); const an = u * 6.283, rr = Math.sqrt(v) * 0.92; const px = x + Math.cos(an) * rx * rr, py = y + Math.sin(an) * ry * rr; circ(ctx, px, py, 4, rgba('#F2E6C8', 0.75)); }
-  ctx.restore();
-  // een groepje rijpt, één wint
-  const grp = [[x - 120, y - 40], [x - 40, y + 60], [x + 70, y - 70], [x + 130, y + 30], [x - 10, y - 90]];
-  grp.forEach(([px, py], i) => { const g = groei * (i === 3 ? 1 : 0.55); if (g <= 0.01) return; const r = 6 + (i === 3 ? 38 : 18) * g * (i === 3 ? 1 : 1 - eis * 0.8); circ(ctx, px, py, r, rgba(C.goud, 0.18), rgba(C.goud, 0.7), 2); if (i !== 3 || eis < 0.5) eicel(ctx, px, py, 5 + 4 * g, 1); });
-  if (eis > 0.01) { const ex = lerp(x + 130, x + rx + 120, eis), ey = lerp(y + 30, y - 40, eis); eicel(ctx, ex, ey, 12, 1); }
-  ctx.restore(); }
+function eierstokGroot(ctx, x, y, rx, ry, o = {}) { // v1.1: doorsnede met schors vol follikels, merg met vaten, rijping en eisprong (lib_bio)
+  const { a = 1, n = 160, groei = 0, eis = 0, t = 0 } = o; return eierstokDoorsnede(ctx, x, y, rx, ry, { a, n: Math.round(n * 0.55), groei, eis, t }); }
 
 // ---------- cyclusklok ----------
 function cyclusKlok(ctx, cx, cy, r, dag, o = {}) { const { a = 1, fasen = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
@@ -189,7 +178,7 @@ const SCENES = {
 
   // ---------- H1 ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); const H = hoofdProfiel(ctx, 470, 500, 1.35, { hth: q.on('hypothalamus', 1) * 0.6 + 0.4 * Math.max(q.on('stoten', 1) * (0.5 + 0.5 * Math.sin(t * 5)), 0), hyp: 0 });
-    naamBij(ctx, 'hypothalamus', 'deel van de hersenen', H.hth[0] + 50, H.hth[1] - 14, q.on('hypothalamus', 1), 'left');
+    naamBij(ctx, 'hypothalamus', null, H.hth[0] + 38, H.hth[1] + 60, q.on('hypothalamus', 1), 'left');
     const ge = q.on('geboorte', 1); if (ge > 0.01) { ctx.save(); ctx.globalAlpha *= ge; paneel(ctx, 1020, 150, 780, 200, ''); ctx.beginPath(); ctx.ellipse(1180, 250, 34, 44, 0.2, 0, 6.283); shape(ctx, rgba(MK.zaadbal, 0.75), lighten(MK.zaadbal, 0.3), 2); naamBij(ctx, 'zaadballen', null, 1230, 262, 1, 'left');
       ctx.beginPath(); ctx.ellipse(1530, 250, 44, 28, 0, 0, 6.283); shape(ctx, rgba(VK.stok, 0.7), lighten(VK.stok, 0.3), 2); naamBij(ctx, 'eierstokken', null, 1590, 262, 1, 'left'); regel(ctx, 'al vanaf je geboorte', 1410, 330, 1, C.text2, 24, 'center', 600);
       const st = q.on('stil', 1); chip(ctx, 'kindertijd: bijna stil', 1410, 140, C.text2, st, 24); ctx.restore(); }
@@ -203,32 +192,40 @@ const SCENES = {
 
   s05(ctx, t, q) { bg(ctx, 'schema'); const y0 = 400, A1 = q.on('hypofyse', 1), A2 = q.on('FSH', 1), A3 = q.on('bloed', 1), A4 = q.on('hormonen', 2), A5 = q.on('geslachtscellen', 1);
     knoop(ctx, 250, y0, 330, 120, 'hypothalamus', 'in je hersenen', HK.klier, 1, 0.5 + 0.5 * Math.sin(t * 4));
-    pijl(ctx, 420, y0, 540, y0, C.goud, A1, 5, 18); regel(ctx, 'GnRH', 480, y0 - 26, A1, C.goud, 30, 'center', 800);
+    bloedvat(ctx, [[420, y0], [480, y0 + 8], [545, y0]], 9, t, { a: A1, n: 3, cel: 6, speed: 0.25, deeltjes: { n: 4, col: C.goud, rr: 5, sp: 0.35 } }); regel(ctx, 'GnRH', 480, y0 - 26, A1, C.goud, 30, 'center', 800);
     knoop(ctx, 700, y0, 300, 120, 'hypofyse', 'klier onder de hypothalamus', HK.klier, A1);
-    regel(ctx, 'FSH + LH', 960, y0 - 130, A2, C.teal, 30, 'center', 800); regel(ctx, 'via het bloed', 960, y0 - 96, A3, C.text2, 22, 'center', 600);
-    pijl(ctx, 855, y0 - 20, 1040, 290, C.teal, A3, 5, 18); pijl(ctx, 855, y0 + 20, 1040, 550, C.teal, A3, 5, 18);
-    for (let i = 0; i < 6; i++) { const u = ((t * 0.4 + i / 6) % 1); if (A3 > 0.01) { circ(ctx, lerp(860, 1035, u), lerp(y0 - 20, 292, u), 7, rgba(C.teal, A3)); circ(ctx, lerp(860, 1035, u), lerp(y0 + 20, 548, u), 7, rgba(C.teal, A3)); } }
+    regel(ctx, 'FSH + LH', 960, y0 - 130, A2, C.teal, 30, 'center', 800); regel(ctx, 'via het bloed', 1020, y0 + 8, A3, C.text2, 22, 'center', 600);
+    bloedvat(ctx, [[855, y0 - 24], [930, y0 - 90], [1045, 290]], 15, t, { a: A3, n: 6, cel: 8, speed: 0.16, deeltjes: { n: 7, col: C.teal, rr: 6 } });
+    bloedvat(ctx, [[855, y0 + 24], [930, y0 + 110], [1045, 560]], 15, t + 0.4, { a: A3, n: 6, cel: 8, speed: 0.16, deeltjes: { n: 7, col: C.teal, rr: 6 } });
     knoop(ctx, 1200, 280, 300, 110, 'zaadballen', null, MK.zaadbal, A2); knoop(ctx, 1200, 560, 300, 110, 'eierstokken', null, VK.stok, A2);
     pijl(ctx, 1355, 280, 1470, 280, C.koraal, A4, 5, 18); pijl(ctx, 1355, 560, 1470, 560, C.paars, q.on('oestrogeen', 1), 5, 18);
     knoop(ctx, 1640, 280, 300, 110, 'testosteron', null, C.koraal, q.on('testosteron', 1)); knoop(ctx, 1640, 560, 300, 110, 'oestrogeen', null, C.paars, q.on('oestrogeen', 1));
     if (A5 > 0.01) { const zc = q.on('zaadcellen', 1), ec = q.on('eicellen', 1);
-      zaadcel(ctx, 1230, 420, 0, t, 1.3, zc); regel(ctx, 'zaadcellen', 1150, 432, zc, C.text, 28, 'right', 700);
+      zaadcel(ctx, 1360, 420, 0, t, 1.4, zc); regel(ctx, 'zaadcellen', 1390, 432, zc, C.text, 28, 'left', 700);
       eicel(ctx, 1200, 712, 22, ec); regel(ctx, 'eicellen rijpen', 1240, 722, ec, C.text, 28, 'left', 700); }
     // klein hoofd linksonder als geheugensteun
     hoofdProfiel(ctx, 250, 720, 0.42, { hth: 1, hyp: A1, a: 0.9 }); },
 
-  s06(ctx, t, q) { bg(ctx, 'schema');
-    persoon(ctx, 'sam', 230, 880, 540 / 1.04, { uit: 'blij', pose: 'staan', kijk: 1, t }); persoon(ctx, 'noor', 1690, 880, 540 / 0.97, { uit: 'blij', pose: 'staan', kijk: -1, t });
-    tag(ctx, 'primaire geslachtskenmerken: de geslachtsorganen, al bij de geboorte', 960, 140, C.text2, q.on('primaire', 1), 'center', 26);
-    tag(ctx, 'secundaire geslachtskenmerken: komen in de puberteit', 960, 214, C.goud, q.on('secundaire', 1), 'center', 26);
-    const J = q.on('jongens', 1); regel(ctx, 'jongens', 640, 300, J, C.teal, 28, 'center', 800);
-    chip(ctx, 'haar op de kin', 640, 360, C.teal, q.on('kin', 1)); chip(ctx, 'bredere schouders', 640, 426, C.teal, q.on('schouders', 1)); chip(ctx, 'sterkere spieren', 640, 492, C.teal, q.on('spieren', 1)); chip(ctx, 'groter strottenhoofd → lagere stem', 640, 558, C.teal, q.on('strottenhoofd', 1));
-    regel(ctx, 'meisjes', 1280, 300, q.on('meisjes', 1), C.koraal, 28, 'center', 800);
-    chip(ctx, 'borsten groeien', 1280, 360, C.koraal, q.on('borsten', 1)); chip(ctx, 'bredere heupen', 1280, 426, C.koraal, q.on('heupen', 1));
-    regel(ctx, 'iedereen', 960, 640, q.on('iedereen', 1), C.goud, 28, 'center', 800);
-    chip(ctx, 'okselhaar en schaamhaar', 800, 700, C.goud, q.on('oksels', 1)); chip(ctx, 'groeispurt', 1170, 700, C.goud, q.on('groeispurt', 1));
-    chip(ctx, 'geslachtsorganen groeien en gaan werken', 960, 780, C.text2, q.on('werken', 1), 24);
-    chip(ctx, 'eerste zaadlozing', 700, 856, C.teal, q.on('zaadlozing', 1), 24); chip(ctx, 'eerste menstruatie', 1220, 856, C.koraal, q.on('menstruatie', 1), 24); },
+  s06(ctx, t, q) { bg(ctx, 'schema'); // v1.1: kenmerken staan bij het lichaamsdeel zelf
+    const on = (w) => q.on(w, 1), gs = on('groeispurt'); const hS = 560 * (1 + 0.04 * gs), hN = 545 * (1 + 0.04 * gs);
+    const S = persoon(ctx, 'sam', 640, 880, hS, { uit: 'blij', pose: 'staan', kijk: 1, t }) || {}; const N = persoon(ctx, 'noor', 1280, 880, hN, { uit: 'blij', pose: 'staan', kijk: -1, t }) || {};
+    const plek = (P, x, h, f) => [x, 880 - h * f];
+    const merk = (x, y, col, a, rr = 16) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, rr, 0, 6.283); ctx.stroke(); ctx.restore(); };
+    tag(ctx, 'primaire geslachtskenmerken: de geslachtsorganen, al bij de geboorte', 960, 140, C.text2, on('primaire'), 'center', 26);
+    tag(ctx, 'secundaire geslachtskenmerken: komen in de puberteit', 960, 214, C.goud, on('secundaire'), 'center', 26);
+    // jongens: links van Sam, meisjes: rechts van Noor (naam direct naast het lichaamsdeel)
+    const J = [['haar op de kin', 'kin', 0.865, 0.035], ['bredere schouders', 'schouders', 0.79, 0.11], ['sterkere spieren', 'spieren', 0.68, 0.13], ['groter strottenhoofd', 'strottenhoofd', 0.83, 0.02]];
+    const LY = { kin: 360, strottenhoofd: 412, schouders: 494, spieren: 552 };
+    J.forEach(([l, w, f, dx]) => { const a = on(w); const [mx, my] = [640 - hS * dx, 880 - hS * f]; merk(mx, my, C.teal, a, 14); naamBij(ctx, l, w === 'strottenhoofd' ? 'lagere stem' : null, 640 - hS * 0.2 - 70, LY[w], a, 'right', C.teal); });
+    const M = [['borsten groeien', 'borsten', 0.69, 0.06], ['bredere heupen', 'heupen', 0.5, 0.12]];
+    M.forEach(([l, w, f, dx]) => { const a = on(w); const [mx, my] = [1280 + hN * dx, 880 - hN * f]; merk(mx, my, C.koraal, a, 16); naamBij(ctx, l, null, 1280 + hN * 0.2 + 24, my + 10, a, 'left', C.koraal); });
+    // iedereen: tussen de twee in, met een merkje bij beiden
+    const ok = on('oksels'); merk(640 + hS * 0.12, 880 - hS * 0.74, C.goud, ok, 12); merk(1280 - hN * 0.12, 880 - hN * 0.74, C.goud, ok, 12);
+    regel(ctx, 'iedereen', 960, 330, on('iedereen'), C.goud, 28, 'center', 800);
+    naamBij(ctx, 'okselhaar en schaamhaar', null, 960, 470, ok, 'center', C.goud);
+    if (gs > 0.01) { naamBij(ctx, 'groeispurt', null, 960, 560, gs, 'center', C.goud); pijl(ctx, 960, 640, 960, 590, C.goud, gs, 4, 14); }
+    chip(ctx, 'geslachtsorganen gaan werken', 960, 720, C.text2, on('werken'), 24);
+    chip(ctx, 'eerste zaadlozing', 960, 780, C.teal, on('zaadlozing'), 24); chip(ctx, 'eerste menstruatie', 960, 840, C.koraal, on('menstruatie'), 24); },
 
   s07(ctx, t, q) { bg(ctx, 'schema'); const B = q.on('verschillen', 1, 0.8), A = 1 - B;
     const v = (age, pk, ph) => { const pre = Math.max(0, 6.2 - 0.32 * (age - 6)); let s2 = pre + ph * Math.exp(-Math.pow((age - pk) / 1.05, 2)); if (age > pk) s2 *= Math.exp(-(age - pk) / 1.6); return s2; };
@@ -252,12 +249,14 @@ const SCENES = {
       // hypothalamus vergroot: kisspeptinecel → GnRH-cel
       circ(ctx, 520, 440, 280, rgba(HK.klier, 0.1), rgba(HK.klier, 0.6), 2); metaText(ctx, 'hypothalamus · vergroot', 520, 140, C.grain, 'center', 22);
       const kc = q.on('kisspeptine', 1), gc = q.on('GnRH', 1), rx = q.on('receptor', 1);
-      const neuron = (x, y, col, a, naam) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.lineCap = 'round'; for (let k = 0; k < 5; k++) { const an = k * 1.25 + 0.3; ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + Math.cos(an) * 50, y + Math.sin(an) * 50 + 10, x + Math.cos(an) * 80, y + Math.sin(an) * 70); ctx.stroke(); } circ(ctx, x, y, 34, rgba(col, 0.6), col, 2.5); circ(ctx, x + 6, y - 4, 12, rgba(C.bgSchema, 0.7)); naamBij(ctx, naam, null, x, y + 92, 1, 'center'); ctx.restore(); };
-      neuron(380, 400, C.paars, kc, 'kisspeptinecel'); neuron(660, 470, C.goud, gc, 'GnRH-cel');
-      if (gc > 0.01) { pijl(ctx, 420, 410, 610, 456, C.paars, gc, 4, 16); for (let i = 0; i < 4; i++) { const u = (t * 0.5 + i / 4) % 1; circ(ctx, lerp(424, 600, u), lerp(412, 452, u), 6, rgba(C.paars, gc * (1 - rx))); } }
-      kruis(ctx, 610, 452, 26, rx * (1 - q.on('vetreserve', 1))); chip(ctx, 'receptor werkt niet: geen startsein', 520, 690, C.koraal, rx * (1 - q.on('vetreserve', 1)), 22);
+      const kp = ((t * 0.6) % 1); // v1.1: zenuwcellen volgens recept (lib_bio zenuwcel)
+      const eind = zenuwcel(ctx, 330, 360, { a: kc, s: 0.85, col: C.paars, naar: [610, 455], seed: 2, puls: gc > 0.01 ? kp : -1, pulsCol: lighten(C.paars, 0.4) });
+      zenuwcel(ctx, 660, 490, { a: gc, s: 0.85, col: C.goud, naar: [700, 700], seed: 5, takken: 5 });
+      naamBij(ctx, 'kisspeptinecel', null, 300, 470, kc, 'center'); naamBij(ctx, 'GnRH-cel', null, 790, 520, gc, 'left');
+      if (gc > 0.01 && eind) { for (let i = 0; i < 5; i++) { const u = (t * 0.5 + i / 5) % 1; circ(ctx, lerp(eind[0] - 10, 640, u), lerp(eind[1] - 4, 482, u) + Math.sin(u * 7 + i) * 6, 5, rgba(C.paars, gc * (1 - rx))); } }
+      kruis(ctx, 632, 470, 24, rx * (1 - q.on('vetreserve', 1))); chip(ctx, 'receptor werkt niet: geen startsein', 520, 690, C.koraal, rx * (1 - q.on('vetreserve', 1)), 22);
       // vetweefsel → leptine
-      const vw = q.on('Vetweefsel', 1); if (vw > 0.01) { ctx.save(); ctx.globalAlpha *= vw; for (let i = 0; i < 9; i++) { const px = 1440 + (i % 3) * 110 + (Math.floor(i / 3) % 2) * 55, py = 330 + Math.floor(i / 3) * 100; circ(ctx, px, py, 52, rgba('#F2D88A', 0.35), '#E0C070', 2); circ(ctx, px + 30, py + 28, 8, rgba(C.paars, 0.6)); } naamBij(ctx, 'vetweefsel', null, 1550, 680, 1, 'center'); ctx.restore(); }
+      const vw = q.on('Vetweefsel', 1); if (vw > 0.01) { ctx.save(); ctx.globalAlpha *= vw; vetweefsel(ctx, 1560, 450, 400, 330, { t, d: 100, seed: 7 }); naamBij(ctx, 'vetweefsel', 'vetcellen · vergroot', 1560, 670, 1, 'center'); ctx.restore(); }
       const lp = q.on('leptine', 1); if (lp > 0.01) { regel(ctx, 'leptine', 1100, 300, lp, C.goud, 30, 'center', 800); for (let i = 0; i < 7; i++) { const u = (t * 0.3 + i / 7) % 1; circ(ctx, lerp(1380, 820, u), lerp(420, 430, u) + Math.sin(u * 9 + i) * 14, 8, rgba(C.goud, lp)); } pijl(ctx, 1380, 380, 830, 380, rgba(C.goud, 0.5), lp * 0.6, 3, 14); }
       chip(ctx, 'veel leptine = genoeg energie opgeslagen', 1100, 790, C.groen, q.on('genoeg', 1) * (1 - q.on('weinig', 1)), 24);
       chip(ctx, 'heel weinig lichaamsvet: eerste menstruatie later, of stopt', 1100, 790, C.koraal, q.on('weinig', 1), 24); ctx.restore(); }
@@ -273,7 +272,7 @@ const SCENES = {
     manNamen(ctx, P, { zaadbal: z, balzak: q.on('balzak', 1) });
     const ko = q.on('koeler', 1); if (ko > 0.01) { ctx.save(); ctx.globalAlpha *= ko; roundRect(ctx, 1240, 220, 40, 260, 20); shape(ctx, '#E6E1D3', '#9AA3B2', 2); const lvl = lerp(0.8, 0.6, clamp((t - q.at('koeler')) / 1.5, 0, 1)); roundRect(ctx, 1250, 230 + 240 * (1 - lvl), 20, 240 * lvl, 10); shape(ctx, C.teal, null); circ(ctx, 1260, 500, 34, C.teal, '#9AA3B2', 2);
       regel(ctx, 'een paar graden koeler dan in de buik', 1320, 330, 1, C.text, 30, 'left', 700); regel(ctx, 'nodig om goed zaadcellen te maken', 1320, 380, q.on('nodig', 1), C.text2, 26, 'left', 600); ctx.restore(); }
-    const mi = q.on('honderd', 1); if (mi > 0.01) { ctx.save(); ctx.globalAlpha *= mi; const n = Math.round(100 * clamp((t - q.at('honderd')) / 1.6, 0, 1)); regel(ctx, '± ' + n + ' 000 000', 1300, 640, 1, C.goud, 64, 'left', 800); regel(ctx, 'zaadcellen per dag', 1300, 694, 1, C.text, 30, 'left', 600); for (let i = 0; i < 7; i++) zaadcel(ctx, 1340 + i * 70, 760 + Math.sin(t * 2 + i) * 8, 0, t + i, 0.8, 1); ctx.restore(); }
+    const mi = q.on('honderd', 1); if (mi > 0.01) { ctx.save(); ctx.globalAlpha *= mi; const n = Math.round(100 * clamp((t - q.at('honderd')) / 1.6, 0, 1)); regel(ctx, '± ' + n + ' 000 000', 1300, 640, 1, C.goud, 64, 'left', 800); regel(ctx, 'zaadcellen per dag', 1300, 694, 1, C.text, 30, 'left', 600); for (let i = 0; i < 6; i++) { const px = 1450 + (i % 3) * 170 + (Math.floor(i / 3) % 2) * 70 + ((t * 18 + i * 37) % 60), py = 744 + Math.floor(i / 3) * 44 + Math.sin(t * 1.3 + i) * 6; zaadcel(ctx, px, py, 0.08 * Math.sin(t + i), t + i * 0.37, 1.1, 1); } ctx.restore(); }
     chip(ctx, 'vanaf de puberteit, tot op hoge leeftijd', 1500, 856, C.text2, q.on('leeftijd', 1), 24); },
 
   s10(ctx, t, q) { bg(ctx, 'schema');
@@ -283,7 +282,7 @@ const SCENES = {
     const P = manSchema(ctx, 720, 486, 1.08, { t, buisjes: q.on('buisjes', 1), zw: q.on('bloed', 1), kring: q.on('kringspier', 1),
       hl: { zaadbal: hlw('ontstaat', 'bijbal'), bijbal: hlw('bijbal', 'zaadleider'), leider: hlw('zaadleider', 'zaadblaasjes'), blaasjes: hlw('zaadblaasjes', 'prostaat'), prostaat: hlw('prostaat', 'urinebuis'), buis: hlw('urinebuis', 'tegelijk') + q.on('dezelfde', 1) * (1 - q.on('zwellichamen', 1)) } });
     manNamen(ctx, P, { zaadbal: fase('ontstaat'), balzak: 0, bijbal: fase('bijbal'), leider: fase('zaadleider'), blaas: fase('blaas'), blaasjes: fase('zaadblaasjes'), prostaat: fase('prostaat'), buis: fase('urinebuis'), penis: fase('penis'), kring: fase('kringspier'), zwel: fase('zwellichamen') });
-    if (t > q.at('ontstaat') - 0.3 && t < q.at('tegelijk') + 0.5) { const [x, y, an] = padPunt(ZAADROUTE, d); const [sx, sy] = P(x, y); zaadcel(ctx, sx, sy, an, t, 0.7, 1); }
+    if (t > q.at('ontstaat') - 0.3 && t < q.at('tegelijk') + 0.5) { const [x, y, an] = padPunt(ZAADROUTE, d); const [sx, sy] = P(x, y); zaadcel(ctx, sx, sy, an, t, 1.4, 1); }
     // rechts: de route als lijstje
     const R = [['zaadbal', 'ontstaat', MK.zaadbal], ['bijbal', 'bijbal', MK.bijbal], ['zaadleider', 'zaadleider', MK.leider], ['+ zaadblaasjes', 'zaadblaasjes', MK.blaasjes], ['prostaat', 'prostaat', MK.prostaat], ['urinebuis', 'urinebuis', MK.buis]];
     R.forEach(([s2, w, col], i) => { const a = q.on(w, 1); if (a <= 0.01) return; const y = 220 + i * 92; roundRect(ctx, 1380, y - 40, 360, 64, 32); ctx.save(); ctx.globalAlpha *= a; shape(ctx, rgba(col, 0.2), col, 2); text(ctx, s2, 1560, y + 2, fTekst(30, 700), C.text, 'center'); if (i) pijl(ctx, 1560, y - 74, 1560, y - 46, C.text2, 1, 3, 10); ctx.restore(); });
@@ -295,7 +294,7 @@ const SCENES = {
     manNamen(ctx, P, { zaadbal: 1, blaasjes: 1, prostaat: 1 });
     const badge = (l, x, y) => { const [sx, sy] = P(x, y); ctx.save(); ctx.globalAlpha *= k; circ(ctx, sx, sy, 24, C.goud); text(ctx, l, sx, sy + 10, fTekst(30, 800), '#121A26', 'center'); ctx.restore(); };
     badge('a', 870, 760); badge('b', 690, 350); badge('c', 812, 530);
-    const sp = q.on('Sperma', 1); if (sp > 0.01) { ctx.save(); ctx.globalAlpha *= sp; regel(ctx, 'sperma', 1300, 300, 1, C.text, 34, 'left', 800); roundRect(ctx, 1300, 340, 480, 70, 14); shape(ctx, rgba(C.fill, 0.5), C.line, 2); for (let i = 0; i < 4; i++) zaadcel(ctx, 1340 + i * 120, 375 + Math.sin(t * 2 + i) * 6, 0, t + i, 0.6, 1); ctx.restore(); }
+    const sp = q.on('Sperma', 1); if (sp > 0.01) { ctx.save(); ctx.globalAlpha *= sp; regel(ctx, 'sperma', 1300, 300, 1, C.text, 34, 'left', 800); roundRect(ctx, 1300, 340, 480, 70, 14); shape(ctx, rgba(C.fill, 0.5), C.line, 2); for (let i = 0; i < 3; i++) zaadcel(ctx, 1470 + i * 150, 375 + Math.sin(t * 2 + i) * 5, 0, t + i * 0.41, 0.8, 1); ctx.restore(); }
     vraagteken(ctx, 1540, 560, q.on('vandaan', 1), 120); },
 
   s13(ctx, t, q) { bg(ctx, 'schema'); const zb = q.on('zaadblaasjes', 1), pr = q.on('prostaat', 1), zc = q.on('procent', 1);
@@ -344,11 +343,14 @@ const SCENES = {
     let dag = 1; for (let i = 0; i < keys.length; i++) { const t0 = q.at(keys[i][0], keys[i][0] === 'menstruatie' ? 2 : 1); if (t < t0) break; const from = i ? keys[i - 1][1] : 1; dag = lerp(from, keys[i][1], ease((t - t0) / 2.4)); }
     const dg = ((dag - 1) % 28) + 1;
     cyclusKlok(ctx, 470, 470, 270, dg, { fasen: q.on('cyclus', 1) });
-    regel(ctx, 'ongeveer 4 weken', 470, 160, q.on('weken', 1), C.text, 30, 'center', 700);
-    // slijmvlies-strook rechts
-    const gx = 960, gy = 260, gw = 820, gh = 200; ctx.save(); ctx.globalAlpha *= q.on('baarmoederslijmvlies', 1); metaText(ctx, 'dikte baarmoederslijmvlies', gx, gy - 18, C.grain, 'left', 20); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(gx, gy + gh); ctx.lineTo(gx + gw, gy + gh); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(gx, gy + gh); for (let d = 1; d <= dag && d <= 29; d += 0.25) ctx.lineTo(gx + (d - 1) / 28 * gw, gy + gh - slijmDikte(d) * gh); ctx.lineTo(gx + (Math.min(dag, 29) - 1) / 28 * gw, gy + gh); ctx.closePath(); ctx.fillStyle = rgba(VK.slijm, 0.55); ctx.fill();
-    for (const d of [1, 14, 28]) text(ctx, 'dag ' + d, gx + (d - 1) / 28 * gw, gy + gh + 34, fTekst(22), C.text2, 'center'); ctx.restore();
+    regel(ctx, 'ongeveer 4 weken', 470, 112, q.on('weken', 1), C.text, 30, 'center', 700);
+    // v1.1: uitsnede van de baarmoederwand; het slijmvlies groeit, krijgt kronkelende klieren en laat bij de menstruatie los (lib_bio)
+    const bw = q.on('baarmoederslijmvlies', 1); if (bw > 0.01) { ctx.save(); ctx.globalAlpha *= bw;
+      const los = clamp((dag - 28.1) / 1.4, 0, 1), dk = dag > 28 ? slijmDikte(27) : slijmDikte(dg);
+      const L = baarmoederwand(ctx, 1380, 350, 760, 250, dk / 0.92, { los, kronkel: clamp((dg - 13) / 4, 0, 1) * (dag > 28 ? 1 : 1), t });
+      metaText(ctx, 'baarmoederwand · uitsnede · vergroot', 1000, 206, C.grain, 'left', 20); regel(ctx, 'dag ' + Math.max(1, Math.floor(dg)), 1760, 214, 1, C.text2, 24, 'right', 700);
+      naamBij(ctx, 'slijmvlies', null, 985, (L.oppervlak + L.basaal) / 2 + 8, 1, 'right'); naamBij(ctx, 'spierlaag', null, 985, (L.spier + 475) / 2 + 8, 1, 'right');
+      ctx.restore(); }
     chip(ctx, 'eicel rijpt, slijmvlies wordt dikker', 1370, 540, C.goud, q.on('helft', 1) * (1 - q.on('midden', 1)), 24);
     const es = q.on('eisprong', 1) * (1 - q.on('bevrucht', 1)); if (es > 0.01) { chip(ctx, 'eisprong: eicel naar de eileider', 1370, 540, C.goud, es, 24); eicel(ctx, 1370, 640, 22, es); }
     chip(ctx, 'niet bevrucht: slijmvlies laat los ± 2 weken na de eisprong', 1370, 540, C.teal, q.on('bevrucht', 1) * (1 - q.on('menstruatie', 2)), 22);

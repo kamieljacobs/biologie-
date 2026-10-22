@@ -20,12 +20,14 @@ function twoStudents(ctx, t, o = {}) {
 }
 // Micro-mengsel van moleculen in een cirkel; hl = index van de groep die oplicht (0..6; 6 = vezels); null = alles
 const SOUP = (() => { const a = []; const types = [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 3, 3, 4, 4, 5, 5, 6, 6]; types.forEach((ty, i) => a.push({ ty, x: (hash(i * 7 + 1) * 2 - 1) * 0.7, y: (hash(i * 7 + 2) * 2 - 1) * 0.7, rot: hash(i * 7 + 3) * 6.28 })); return a; })();
+const SOUP_EIWIT = Array.from({ length: 30 }, (_, i) => Math.floor(hash(i * 13 + 5) * 20));
+const SOUP_EIWIT_PAD = [[-30, -12], [-19, -21], [-6, -17], [0, -5], [-11, 5], [-24, 9], [-29, 22], [-15, 30], [0, 27], [13, 19], [17, 6], [12, -7]];
 function soup(ctx, cx, cy, r, t, hl = null, s = 1) {
-  ctx.save(); ctx.fillStyle = C.bgMicro; ctx.fillRect(cx - r, cy - r, 2 * r, 2 * r); ctx.drawImage(getGrain(), cx - r, cy - r, 2 * r, 2 * r, cx - r, cy - r, 2 * r, 2 * r);
+  ctx.save(); ctx.fillStyle = C.bgMicro; ctx.fillRect(cx - r, cy - r, 2 * r, 2 * r);
   SOUP.forEach((m, i) => { const w = wander(i + 200, t, 14, 0.35); const x = cx + m.x * r + w.x, y = cy + m.y * r + w.y; const on = hl === null || hl === m.ty || (Array.isArray(hl) && hl.includes(m.ty));
     ctx.save(); ctx.globalAlpha *= on ? 1 : 0.3; ctx.translate(x, y); ctx.rotate(m.rot * 0.2); ctx.translate(-x, -y);
-    if (m.ty === 0) sugarChain(ctx, x - 50 * s, y, 4, 12 * s);
-    else if (m.ty === 1) proteinChain(ctx, coilPath(x - 55 * s, y, 6, 22 * s, 8 * s), [0, 5, 9, 14, 3, 18], 9 * s);
+    if (m.ty === 0) zetmeelSpiraal(ctx, x - 36 * s, y, 8, 10 * s, { t });
+    else if (m.ty === 1) proteinChain(ctx, SOUP_EIWIT_PAD.map(p => [x + p[0] * 1.5 * s, y + p[1] * 1.5 * s]), SOUP_EIWIT, 6.5 * s); // klein gevouwen eiwit: haarspeld + bocht
     else if (m.ty === 2) triglyceride(ctx, x - 40 * s, y, 0.55 * s);
     else if (m.ty === 3) waterMol(ctx, x, y, 8 * s);
     else if (m.ty === 4) mineral(ctx, x, y, 8 * s);
@@ -38,6 +40,11 @@ function getGrain() { if (!grainCanvas) { const c = document.createElement('canv
 function refCard(ctx, txt, x, y, alpha = 1) { if (alpha <= 0.01) return; ctx.save(); ctx.globalAlpha *= alpha; ctx.font = fTekst(36, 600); const w = ctx.measureText(txt).width + 60; roundRect(ctx, x, y, w, 60, 30); shape(ctx, rgba(C.bgSchema, 0.92), C.goud, 1.2); text(ctx, txt, x + 30, y + 40, fTekst(36, 600), C.goud); ctx.restore(); }
 function verdiepingTag(ctx, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; metaText(ctx, 'verdieping', W - 60, 46, C.goud, 'right', 28); ctx.restore(); }
 function strike(ctx, x0, y, x1, color, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = color; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(lerp(x0, x1, a), y); ctx.stroke(); ctx.restore(); }
+// darm als wand met lagen (lib_bio darmwand) + holte; vervangt darmBuis
+function darmWandBuis(ctx, x0, x1, yc, r, squeeze = () => 0, alpha = 1, lab = null, dikte = 40, t = 0) { if (alpha <= 0.01) return;
+  ctx.save(); ctx.globalAlpha *= alpha; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const x = lerp(x0, x1, i / 60); ctx.lineTo(x, yc - r * (1 - 0.62 * clamp(squeeze(x), 0, 1))); } for (let i = 60; i >= 0; i--) { const x = lerp(x0, x1, i / 60); ctx.lineTo(x, yc + r * (1 - 0.62 * clamp(squeeze(x), 0, 1))); } ctx.closePath(); ctx.fillStyle = rgba('#3A2A2A', 0.45); ctx.fill(); ctx.restore();
+  darmwand(ctx, x0, x1, yc, r, squeeze, { a: alpha, dikte, t });
+  if (lab) { ctx.save(); ctx.globalAlpha *= alpha; metaText(ctx, lab, x0, yc - r - dikte - 18, C.grain, 'left', 28); ctx.restore(); } }
 function bigLine(ctx, s, x, y, a = 1, color = C.text, px = 44, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, x, y, fTekst(px, 600), color, align); ctx.restore(); }
 
 const SCENES = {
@@ -105,13 +112,18 @@ const SCENES = {
   // ---------- H2 ----------
   s10(ctx, t, q) { bg(ctx, 'micro');
     const cut = q.on('knipt', 1, 1.2), go = q.on('cellen', 1, 2.5), burn = q.on('verbrand', 1, 1);
-    // celmembraan rechts
-    ctx.save(); ctx.strokeStyle = C.er; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(2300, 500, 620, Math.PI * 0.72, Math.PI * 1.28); ctx.stroke(); ctx.lineWidth = 1.2; ctx.beginPath(); ctx.arc(2300, 500, 612, Math.PI * 0.72, Math.PI * 1.28); ctx.stroke(); ctx.restore();
-    label(ctx, 'cel', null, 1700, 260, 1780, 170, q.on('cellen'));
-    const n = 10; const cuts = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    if (go < 0.01) { sugarChain(ctx, 200, 470, n, 34, { cut: cuts, sep: cut, wobble: 6, t }); label(ctx, 'zetmeel', 'keten van glucose', 420, 430, 560, 250, Math.max(q.on('Zetmeel'), ramp(t, 0.5, 0.6)) * (1 - cut)); }
-    else { for (let i = 0; i < n; i++) { const x0 = 200 + i * (34 * 2.25 + 102), y0 = 470; const w = wander(i + 400, t, 30, 0.6); const x = lerp(x0, 1760 + (i % 4) * 30, ease(go * 1.1 - i * 0.04)) + w.x * 0.5, y = lerp(y0, 300 + i * 50, ease(go * 1.1 - i * 0.04)) + w.y * 0.5; hexagon(ctx, x, y, 34, V.kh, lighten(V.kh, 0.35)); } }
-    if (cut > 0.3 && go < 0.3) label(ctx, 'glucose', 'losse suikers', 200 + 3 * 178, 436, 800, 250, cut * (1 - go * 3));
+    // een ronde cel rechts, deels in beeld, met dubbele membraan
+    celRond(ctx, 2260, 500, 600, { t, s: 1.4, a0: Math.PI * 0.62, a1: Math.PI * 1.38, a: 0.95 });
+    naamBij(ctx, 'cel', null, 1790, 190, q.on('cellen'), 'center');
+    const n = 18, r = 34, x0 = 150, y0 = 470;
+    // zetmeel = spiraal van glucose; knippen = afwikkelen (open) en dan los
+    const open = clamp(cut * 2, 0, 1), los = clamp(cut * 2 - 1, 0, 1);
+    ctx.save(); if (go > 0.01) ctx.globalAlpha = 0;
+    const P = zetmeelSpiraal(ctx, x0, y0, n, r, { open, los, t, spreid: 0.55 });
+    ctx.restore();
+    naamBij(ctx, 'zetmeel', 'spiraal van glucose', x0 + 190, y0 - 120, Math.max(q.on('Zetmeel'), ramp(t, 0.5, 0.6)) * (1 - cut), 'center');
+    if (go > 0.01) { for (let i = 0; i < n; i++) { const w = wander(i + 400, t, 30, 0.6); const u = ease(go * 1.1 - i * 0.04); const x = lerp(P[i][0], 1780 + (i % 4) * 34, u) + w.x * 0.5 * u, y = lerp(P[i][1], 300 + i * 46, u) + w.y * 0.5 * u; hexagon(ctx, x, y, r, V.kh, lighten(V.kh, 0.35)); } }
+    if (cut > 0.3 && go < 0.3) naamBij(ctx, 'glucose', 'losse suikers', 760, 300, clamp((cut - 0.3) * 2, 0, 1) * (1 - go * 3), 'center');
     if (burn > 0.01) { for (let k = 0; k < 14; k++) { const a = hash(k * 3) * 6.283, d = (t - q.at('verbrand')) * 60 * (0.6 + hash(k) * 0.8) % 140; ctx.save(); ctx.globalAlpha = burn * (1 - d / 140); ctx.fillStyle = C.koraal; ctx.beginPath(); ctx.arc(1820 + Math.cos(a) * d, 500 + Math.sin(a) * d, 5, 0, 6.283); ctx.fill(); ctx.restore(); } bigLine(ctx, 'energie', 1640, 780, burn, C.koraal, 40); }
     refCard(ctx, '→ film Dissimilatie', 60, 790, q.on('dissimilatie'));
     metaText(ctx, 'schematisch · niet op schaal', W - 40, CAPTION_Y - 16, C.text2, 'right', 28);
@@ -143,9 +155,9 @@ const SCENES = {
     // glycogeen in lever en spieren
     ctx.save(); ctx.globalAlpha *= Math.max(g, bird); glycogen(ctx, 140, 470, 2.4); naamBij(ctx, 'glycogeen', 'lever en spieren · klein beetje', 330, 200, 1 - bird, 'center'); ctx.restore();
     // vet in vetcel
-    ctx.save(); ctx.globalAlpha *= f; blob(ctx, 1380, 460, 330, 260, 0.05, 2); shape(ctx, rgba(V.vt, 0.35), V.vt, 2); for (let i = 0; i < 6; i++) triglyceride(ctx, 1170 + (i % 2) * 230, 330 + Math.floor(i / 2) * 120, 1.0); label(ctx, 'vet', 'het meeste', 1380, 200, 1640, 150, 1 - bird); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= f; vetcel(ctx, 1400, 470, 280, { inhoud: (cx, cy) => { for (let i = 0; i < 6; i++) triglyceride(ctx, cx - 200 + (i % 2) * 220, cy - 110 + Math.floor(i / 2) * 110, 0.95); } }); naamBij(ctx, 'vetcel', 'het meeste: vet', 1400, 150, 1 - bird, 'center'); ctx.restore();
     ctx.restore();
-    if (bird > 0.01) { ctx.save(); ctx.globalAlpha *= bird; const x = lerp(-120, 980, ramp(t, q.at('trekvogel'), 6)); birdIcon(ctx, x, 700, 1.6, t * 5); metaText(ctx, 'dagen vliegen zonder eten', 980, 820, C.grain, 'center', 28); ctx.restore(); }
+    if (bird > 0.01) { ctx.save(); ctx.globalAlpha *= bird; const x = lerp(-200, 900, ramp(t, q.at('trekvogel'), 6)); grutto(ctx, x, 730 + Math.sin(t * 1.6 * 6.283) * 4, 2.0, t * 1.6); metaText(ctx, 'rosse grutto · tot ± 11 dagen non-stop, zonder eten', 900, 820, C.grain, 'center', 28); ctx.restore(); }
     bigLine(ctx, 'vet of glycogeen?', W / 2, 160, q.on('Bewaart'), C.goud, 48);
   },
   s14(ctx, t, q) { bg(ctx, 'schema');
@@ -174,7 +186,7 @@ const SCENES = {
       cards.forEach((c, i) => { const a = q.on(cu[i]); const x = 140 + i * 560; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, 300, 520, 300, 14); shape(ctx, rgba(C.fill, 0.7), C.line, 1);
         text(ctx, c[0], x + 260, 370, fTekst(40, 600), C.text, 'center'); metaText(ctx, c[1], x + 260, 410, C.grain, 'center', 28);
         if (i === 0) triglyceride(ctx, x + 180, 500, 0.8);
-        if (i === 1) { ctx.strokeStyle = C.er; ctx.lineWidth = 2; for (const yy of [480, 520]) { ctx.beginPath(); ctx.moveTo(x + 60, yy); ctx.lineTo(x + 460, yy); ctx.stroke(); } ctx.fillStyle = C.er; for (let j = 0; j < 20; j++) { ctx.beginPath(); ctx.arc(x + 70 + j * 20, 474, 4, 0, 6.283); ctx.arc(x + 70 + j * 20, 526, 4, 0, 6.283); ctx.fill(); } }
+        if (i === 1) { ctx.save(); roundRect(ctx, x + 6, 430, 508, 164, 10); ctx.clip(); membraanBoog(ctx, x + 260, 1500, 1000, -Math.PI / 2 - 0.22, -Math.PI / 2 + 0.22, { s: 1.1, eiwitten: [-Math.PI / 2 + 0.05] }); ctx.restore(); }
         if (i === 2) { blob(ctx, x + 260, 500, 140, 70, 0.05, 5); shape(ctx, rgba(V.vt, 0.35), V.vt, 1.5); ['A', 'D', 'E', 'K'].forEach((l, j) => { vitamin(ctx, x + 170 + j * 60, 500, 18); text(ctx, l, x + 170 + j * 60, 508, fMeta(28), C.text, 'center'); }); }
         ctx.restore(); });
       haak(ctx, 140, 1780, 640, 'pas een probleem bij jarenlang meer opslaan dan gebruiken', C.koraal, q.on('probleem'));
@@ -193,25 +205,28 @@ const SCENES = {
 
   // ---------- H3 ----------
   s17(ctx, t, q) { bg(ctx, 'micro');
-    const kinds = Array.from({ length: 34 }, (_, i) => Math.floor(hash(i * 13 + 5) * 20));
+    const N = 44, kinds = Array.from({ length: N }, (_, i) => Math.floor(hash(i * 13 + 5) * 20)), kinds2 = kinds.map((k, i) => kinds[(i * 5) % N]);
     const sp = q.on('Spieren', 2), knip = q.on('knipt', 1, 1.4), eigen = q.on('eigen', 1, 1.6), twintig = q.on('twintig');
-    const path = coilPath(220, 470, 34, 44, 70, 0.42);
+    const cx = 900, cy = 520, S = 1.6, R = 15;
+    const start = Array.from({ length: N }, (_, i) => [(i - N / 2) * R * 2.15, Math.sin(i * 0.5) * R * 2.6]);
+    const bouw = Math.ceil(N * ramp(t, 0, 2.5)), fold = ramp(t, 2.8, 2.4) * (1 - ramp(t, q.at('knipt'), 0.6)); const kn = clamp((knip - 0.4) / 0.6, 0, 1);
     if (sp < 0.5 || knip > 0.01) {
       ctx.save(); ctx.globalAlpha *= (1 - sp) + knip;
-      if (knip < 0.01) proteinChain(ctx, path, kinds, 15, { upto: Math.ceil(34 * ramp(t, 0, 2.5)) });
-      else { const pts = path.map((p, i) => { const tgt = eigen > 0 ? coilPath(260, 520, 34, 42, 110, 0.7)[(i * 7) % 34] : [p[0] + (hash(i) * 2 - 1) * 90 * knip, p[1] + (hash(i + 3) * 2 - 1) * 140 * knip]; return [lerp(p[0] + (hash(i) * 2 - 1) * 90 * knip, tgt[0], eigen), lerp(p[1] + (hash(i + 3) * 2 - 1) * 140 * knip, tgt[1], eigen)]; });
-        if (eigen < 0.95) pts.forEach((p, i) => bead(ctx, p[0], p[1], 15, kinds[i])); else proteinChain(ctx, coilPath(260, 520, 34, 42, 110, 0.7), kinds.map((k, i) => kinds[(i * 5) % 34]), 15); }
-      label(ctx, 'eiwit', 'keten van aminozuren', 420, 430, 360, 200, q.on('keten') * (1 - knip));
-      label(ctx, 'losse aminozuren', null, 900, 380, 1100, 200, knip * (1 - eigen));
-      label(ctx, 'jouw eigen eiwit', null, 900, 440, 1100, 200, eigen);
+      if (knip < 0.01) { if (bouw < N) proteinChain(ctx, start.map(p => [cx + p[0], cy + p[1]]), kinds, R, { upto: bouw }); else eiwitVouw(ctx, cx, cy, S, fold, kinds, { r: R, start, t }); }
+      else { const scat = start.map((p, i) => [p[0] + (hash(i) * 2 - 1) * 90 * kn, p[1] + (hash(i + 3) * 2 - 1) * 160 * kn]);
+        if (eigen < 0.01) { if (fold > 0.01) eiwitVouw(ctx, cx, cy, S, fold, kinds, { r: R, start, t }); else scat.forEach((p, i) => bead(ctx, cx + p[0], cy + p[1], R, kinds[i])); }
+        else eiwitVouw(ctx, cx, cy, S, eigen, kinds2, { r: R, start: scat, t }); }
+      naamBij(ctx, 'eiwit', 'keten van aminozuren, gevouwen', cx, 290, q.on('keten') * (1 - knip), 'center');
+      naamBij(ctx, 'losse aminozuren', null, cx, 290, knip * (1 - eigen), 'center');
+      naamBij(ctx, 'jouw eigen eiwit', null, cx, 290, eigen, 'center');
       ctx.restore(); }
     // palet van 20
     if (twintig > 0.01) { ctx.save(); ctx.globalAlpha *= twintig * (1 - sp * 0.6); for (let i = 0; i < 20; i++) bead(ctx, 210 + i * 78, 160, 20, i); metaText(ctx, '20 soorten aminozuren', 210, 230, C.grain, 'left', 28); ctx.restore(); }
     // functies
     if (sp > 0.01 && knip < 0.01) { ctx.save(); ctx.globalAlpha *= sp; const items = [['spieren', 'Spieren', 2], ['enzymen', 'enzymen'], ['hormonen', 'hormonen'], ['antistoffen', 'antistoffen'], ['hemoglobine', 'hemoglobine']];
       items.forEach((it, i) => { const a = q.on(it[1], it[2] || 1); const x = 260 + i * 350, y = 560; ctx.save(); ctx.globalAlpha *= a;
-        if (i === 0) { for (let k = 0; k < 6; k++) { roundRect(ctx, x - 90, y - 60 + k * 20, 180, 14, 7); shape(ctx, rgba(C.koraal, 0.35), lighten(C.koraal, 0.2), 1); } }
-        if (i === 1) { blob(ctx, x, y, 80, 64, 0.12, 4); shape(ctx, C.enzym, lighten(C.enzym, 0.3), 1.5); ctx.beginPath(); ctx.arc(x + 54, y - 20, 18, 0, 6.283); shape(ctx, rgba(C.goud, 0.5), C.goud, 1.5); }
+        if (i === 0) spierBundel(ctx, x - 120, y, 240, { n: 4, h: 24 });
+        if (i === 1) enzymKluwen(ctx, x, y, 72, { an: -0.4 });
         if (i === 2) proteinChain(ctx, coilPath(x - 70, y, 7, 24, 12), [3, 8, 12, 1, 15, 6, 10], 10);
         if (i === 3) { ctx.strokeStyle = lighten(C.enzym, 0.3); ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y + 70); ctx.lineTo(x, y); ctx.lineTo(x - 50, y - 60); ctx.moveTo(x, y); ctx.lineTo(x + 50, y - 60); ctx.stroke(); }
         if (i === 4) { blob(ctx, x, y, 76, 70, 0.08, 7); shape(ctx, rgba(C.koraal, 0.55), C.koraal, 1.5); }
@@ -245,7 +260,7 @@ const SCENES = {
     AA_ESS.forEach((k, i) => { const x = 220 + i * 110, y = 640; const lvl = i === 4 ? 0 : 0.35 + 0.6 * hash(i * 5); roundRect(ctx, x - 40, y - 100, 80, 100, 8); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke(); ctx.fillStyle = rgba(V.ew, 0.4); ctx.fillRect(x - 38, y - 2 - 96 * lvl, 76, 96 * lvl); bead(ctx, x, y + 34, 16, k, { ess: true }); if (i === 4) metaText(ctx, 'op', x, y - 112, C.koraal, 'center', 28); });
     metaText(ctx, 'vrije aminozuren in je cellen (schematisch)', 180, 770, C.grain, 'left', 28);
     // rest gaat naar de lever
-    if (lever > 0.01) { ctx.save(); ctx.globalAlpha *= lever; const lx = 1420, ly = 560; blob(ctx, lx, ly, 160, 100, 0.08, 11); shape(ctx, rgba(C.koraal, 0.25), lighten(C.koraal, 0.1), 1.5); text(ctx, 'lever', lx, ly + 12, fTekst(36, 600), C.text, 'center');
+    if (lever > 0.01) { ctx.save(); ctx.globalAlpha *= lever; const lx = 1420, ly = 560; leverVoor(ctx, lx, ly - 10, 0.8, { gloed: 0.4 * lever }); naamBij(ctx, 'lever', null, lx - 40, ly - 30, 1, 'center');
       for (let i = 0; i < 6; i++) { const u = clamp((t - q.at('lever') - i * 0.3) / 2, 0, 1); bead(ctx, lerp(1180, lx - 60, ease(u)), lerp(640 - i * 20, ly, ease(u)), 12, AA_ESS[(i * 3) % 9], { alpha: 1 - u * 0.8 }); }
       arrow(ctx, lx + 60, ly - 100, lx + 60, ly - 230, V.neutraal, q.on('ureum')); text(ctx, 'stikstof → ureum', lx + 60, ly - 250, fTekst(36, 600), C.text, 'center');
       arrow(ctx, lx + 60, ly + 100, lx + 60, ly + 200, C.koraal, q.on('brandstof')); text(ctx, 'rest → brandstof of vet', lx + 60, ly + 250, fTekst(36, 600), C.text, 'center');
@@ -283,12 +298,12 @@ const SCENES = {
   // ---------- H4 ----------
   s23(ctx, t, q) { bg(ctx, 'schema');
     const tube = ramp(t, 0, 0.8); const dik = q.on('dikke');
-    darmBuis(ctx, 120, 1800, 500, 110, () => 0, tube, 'darm (schematisch)');
-    if (dik > 0.01) { ctx.save(); ctx.globalAlpha *= dik; ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.strokeRect(1200, 360, 600, 280); metaText(ctx, 'dikke darm', 1500, 345, C.goud, 'center', 28); ctx.restore(); }
+    darmWandBuis(ctx, 120, 1800, 500, 110, () => 0, tube, 'darmwand (schematisch)', 58, t);
+    if (dik > 0.01) { ctx.save(); ctx.globalAlpha *= dik; ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.strokeRect(1200, 330, 600, 340); metaText(ctx, 'dikke darm', 1500, 315, C.goud, 'center', 28); ctx.restore(); }
     // vezels schuiven door; enzymen botsen ertegen en laten los
-    for (let i = 0; i < 5; i++) { const x = 160 + ((t * 70 + i * 330) % 1500); fiber(ctx, x, 470 + (i % 3) * 30, 5, 11, q.on('vezels') * tube, 0.05 * Math.sin(t + i)); }
-    const en = q.on('enzymen'); if (en > 0.01) { for (let i = 0; i < 3; i++) { const x = 500 + i * 300, bounce = Math.abs(Math.sin(t * 2 + i)) * 40; ctx.save(); ctx.globalAlpha *= en; blob(ctx, x, 560 + bounce, 22, 18, 0.12, i); shape(ctx, C.enzym, lighten(C.enzym, 0.3), 1.2); ctx.restore(); } label(ctx, 'enzymen', 'kunnen vezels niet knippen', 800, 590, 900, 770, en); }
-    naamBij(ctx, 'cellulose', 'uit celwanden van planten', 860, 328, q.on('cellulose'), 'center');
+    for (let i = 0; i < 5; i++) { const x = 160 + ((t * 70 + i * 330) % 1500); celluloseBundel(ctx, x, 462 + (i % 3) * 26, 6, 9, { a: q.on('vezels') * tube, ketens: 2, angle: 0.05 * Math.sin(t + i) }); }
+    const en = q.on('enzymen'); if (en > 0.01) { for (let i = 0; i < 3; i++) { const x = 500 + i * 300, bounce = Math.abs(Math.sin(t * 2 + i)) * 40; ctx.save(); ctx.globalAlpha *= en; enzymKluwen(ctx, x + Math.sin(t * 2 + i) * 14, 560 + bounce * 0.6, 26, { an: -Math.PI / 2 + 0.5 * Math.sin(t * 2 + i), seed: i + 2 }); ctx.restore(); } naamBij(ctx, 'enzymen', 'actieve plek past niet op cellulose', 800, 730, en, 'center'); }
+    naamBij(ctx, 'cellulose', 'uit celwanden van planten', 860, 290, q.on('cellulose'), 'center');
     bigLine(ctx, 'een maand bijna geen vezels: wat gebeurt er?', W / 2, 180, q.on('maand'), C.goud, 44);
   },
   s25(ctx, t, q) { bg(ctx, 'schema');
@@ -296,16 +311,16 @@ const SCENES = {
     const wave = (speed, strength, off) => (x) => { const c = ((t * speed + off) % 1900) - 100; return strength * Math.exp(-((x - c) ** 2) / (2 * 70 ** 2)); };
     const yA = two > 0.01 ? lerp(500, 340, two) : 500;
     const sqA = wave(260, 0.9 * q.on('knijpen', 1, 1) + 0.25, 0);
-    darmBuis(ctx, 120, 1800, yA, 120, sqA, 1, two > 0.5 ? 'veel vezels' : null);
+    darmWandBuis(ctx, 120, 1800, yA, 120, sqA, 1, two > 0.5 ? 'veel vezels' : null, 52, t);
     // inhoud: vezels + water, volume
     const vol = q.on('volume', 1, 1);
-    for (let i = 0; i < 18; i++) { const x = 140 + ((t * 120 * (0.6 + 0.4 * q.on('knijpen')) + i * 95) % 1640); const yy = yA + (hash(i) * 2 - 1) * 70 * (0.5 + 0.5 * vol); if (i % 3 === 0) fiber(ctx, x, yy, 3, 9, 1); else waterMol(ctx, x, yy, 7, q.on('water')); }
-    label(ctx, 'kringspieren', 'knijpen samen', 900, yA - 120, 980, yA - 240 + two * 60, q.on('spieren') * (1 - two));
-    bigLine(ctx, 'peristaltiek', 1500, yA - 180, q.on('peristaltiek') * (1 - two), C.text, 48);
-    if (two > 0.01) { ctx.save(); ctx.globalAlpha *= two; const yB = 690; const sqB = wave(110, 0.35, 400); darmBuis(ctx, 120, 1800, yB, 70, sqB, 1, 'weinig vezels');
-      for (let i = 0; i < 10; i++) { const x = 140 + ((t * 45 + i * 160) % 1640); fiber(ctx, x, yB + (hash(i + 9) * 2 - 1) * 20, 2, 8, 1); }
+    for (let i = 0; i < 18; i++) { const x = 140 + ((t * 120 * (0.6 + 0.4 * q.on('knijpen')) + i * 95) % 1640); const yy = yA + (hash(i) * 2 - 1) * 70 * (0.5 + 0.5 * vol); if (i % 3 === 0) celluloseBundel(ctx, x, yy, 3, 8, { ketens: 2 }); else waterMol(ctx, x, yy, 7, q.on('water')); }
+    naamBij(ctx, 'kringspier', 'knijpt samen achter de inhoud', 980, yA - 220, q.on('spieren') * (1 - two), 'center');
+    bigLine(ctx, 'peristaltiek', 1500, yA - 210, q.on('peristaltiek') * (1 - two), C.text, 48);
+    if (two > 0.01) { ctx.save(); ctx.globalAlpha *= two; const yB = 700; const sqB = wave(110, 0.35, 400); darmWandBuis(ctx, 120, 1800, yB, 70, sqB, 1, 'weinig vezels', 34, t);
+      for (let i = 0; i < 10; i++) { const x = 140 + ((t * 45 + i * 160) % 1640); celluloseBundel(ctx, x, yB + (hash(i + 9) * 2 - 1) * 18, 2, 7, { ketens: 2 }); }
       metaText(ctx, 'trager · verstopping', 1800, yB + 120, C.koraal, 'right', 28); ctx.restore(); }
-    refCard(ctx, '→ film 6: bacteriën in je dikke darm', 120, 800, q.on('bacteriën') * (1 - 0));
+    refCard(ctx, '→ film 6: bacteriën in je dikke darm', 120, 830, q.on('bacteriën') * (1 - 0));
   },
   s26(ctx, t, q) { bg(ctx, 'schema');
     const a = ramp(t, 0, 0.6);

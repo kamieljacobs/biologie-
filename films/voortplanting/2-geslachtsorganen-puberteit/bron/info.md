@@ -5,9 +5,10 @@
 | Bestand | films/voortplanting/2-geslachtsorganen-puberteit.html (audio in films/voortplanting/2-geslachtsorganen-puberteit/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: havo Biologie voor jou thema Voortplanting, vwo Nectar 4.1 H4), film 2 |
 | Niveau | havo + vwo; vwo-blok s08 (kisspeptine, leptine en vetreserve, steeds vroegere eerste menstruatie) |
-| Versie / datum | 1.0 · 16 oktober 2026 |
+| Versie / datum | 1.1 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · eerder: 1.0 · 16 oktober 2026 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow xBPaTfyxwVr4gXlo8CtV; respellings GnRH → G-N-R-H, kisspeptine → kisspeptinuh, leptine → leptinuh (`uitspraak_film.json`), plus de globale lijst (hypothalamus → hiepo-taalamus, oestrogeen → eustrogeen, receptor → reseptor); zie `uitspraak.md` |
 | Duur | spraak 6:58 (vwo) / 6:10 (havo); speeltijd met kaarten en vragen 8:03 (vwo) / 7:15 (havo); Vragen uit 7:06 / 6:18 |
+| Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |
 | Beeldstijl | Part C: Schema; cold open in de klas (`klasAchtergrond`) |
 | Personages | Sam, Daan en Noor (castboek) |
 | Audio-opslag | 15 losse mp3's in audio/ (s01, s04–s11, s13–s15, s17–s19) |
@@ -86,3 +87,24 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s08 | TupaMZNQNreOD2nA0fui | niQnzEF0vn68CeuoNktF | 722 | 47.33 s |
+
+## Opwaardering naar prompt v8 (1.1 · 22 okt 2026)
+
+Werkwijze B14 (opwaarderen naar een nieuwe promptversie): Kamiel keurde per scène een verbeterblad goed (claude.ai-artifact 'Verbeterblad prompt v8', alle 7 voorstellen 'Doen'); alleen die scènes zijn veranderd. Stem, script, vragen en cuewoorden zijn gelijk gebleven; er is niets opnieuw ingesproken.
+
+Gedeelde tekenbibliotheek: `bron/src/lib_bio.js` is een kopie van `bibliotheek/lib_bio.js` (recepten volgens prompt v8, C9). `bouw/build.py` plakt hem na lib_cast.js in de pagina; in de live HTML staat hij tussen de lib_bio-kop en `/* einde lib_bio */`.
+
+| Scène | Was | Nu |
+|---|---|---|
+| s04, s05 (klein) | grijs hoofdsilhouet met ovaal als hersenen | `hoofdHersenen`: hoofd in doorsnede met grote en kleine hersenen, hersenbalk, thalamus, hersenstam; hypothalamus en hypofyse aan het steeltje in het Turkse zadel (via `hoofdProfiel`, zelfde aanroep) |
+| s05 | stippellijnen tussen tekstvakken | GnRH en FSH/LH als deeltjes die door bloedvaten stromen (`bloedvat` met rode bloedcellen); schema met namen blijft |
+| s06 | lijst van twaalf pillen | namen direct bij het lichaamsdeel van Sam en Noor (merkje + `naamBij`), 'iedereen' in het midden, groeispurt laat beiden 4 % groeien |
+| s08 (vwo) | sterretjes en raster van rondjes | `zenuwcel` (vertakte dendrieten, één axon met synapsknopjes) en `vetweefsel` (Voronoi-vetcellen met vetdruppel, kern tegen de rand, haarvat) |
+| s05, s09–s11, s19 | stipje met kort staartje | `zaadcelEcht` via `zaadcel`: kop met acrosoom, staart ± 10× de kop, golf van kop naar staart; in s09 een zwerm |
+| s09–s13, s19 (doorsnede man) | – | schaambeen vóór de blaas en endeldarm erachter, voor oriëntatie (nagelopen tegen Gray's mediaan sagittaal; route zaadleider blijft vereenvoudigd) |
+| s17, s19 | ovaal vol gele puntjes | `eierstokDoorsnede` via `eierstokGroot`: schors met follikels, merg met vaten, rijpend groepje, Graafse follikel, eisprong waarbij de wand scheurt |
+| s18 | vlakgrafiek van de dikte | `baarmoederwand`: uitsnede met spierlaag, basale en functionele laag, klieren die gaan kronkelen, spiraalslagaders; bij de menstruatie laat de functionele laag in stukjes los |
+| overal | eicel als geel rondje | `eicelEcht` via `eicel`: doorzichtige laag (zona) en stralenkrans bij grotere eicellen |
+
+Ook: 'ongeveer 4 weken' staat niet meer over 'dag 1' van de cyclusklok (s18).
+Bewust niet: geen nieuwe audio; de route van de zaadleider over de blaas blijft vereenvoudigd (staat al in het docentdeel).

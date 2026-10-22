@@ -5,10 +5,11 @@
 | Bestand | films/voeding/1-wat-zit-er-in-je-eten.html (audio in films/voeding/1-wat-zit-er-in-je-eten/audio/) |
 | Reeks / nummer | Voeding, film 1 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; één vwo-blok (ADI) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.0 · 12 oktober 2026 |
+| Versie / datum | 1.1 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · eerder: 1.0 · 12 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea |
 | Duur | spraak 9:18 (vwo) / 8:12 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11:15, havo ≈ 9:55 |
-| Beeldstijl | Part C: Schema (navy #1A2740) met zoomcirkel naar Micro (#121A26 met korrel); UI-laag vast; canvas 1920×1080, ondertitels boven y = 900 of in een band onder het beeld op smalle schermen |
+| Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |
+| Beeldstijl | Part C: Schema (navy #1A2740) met zoomcirkel naar Micro (#121A26, sinds 1.1 zonder korrel); UI-laag vast; canvas 1920×1080, ondertitels boven y = 900 of in een band onder het beeld op smalle schermen |
 | Audio-opslag | 24 losse mp3's in audio/ (s01 … s31), −16 LUFS, piek < −1 dBTP; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 (geen Google Fonts nodig) |
 | Herkomst | gebouwd op 12 oktober 2026 met de bouwstraat in `bouw/` (afgeleid van Celorganellen) |
@@ -109,3 +110,22 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 - Het kind van 20 kg (s27, s29) is nu **Teun**, het kind uit het castboek (`persoon(ctx, 'kind', …)`), i.p.v. de eigen kinderversie van Daan (`kindFiguur` is weg).
 - 'Ruim 50 % water' (s07): Noor gewoon zoals in de cast, met ernaast een meterstreep die tot ± 60 % volloopt (i.p.v. Noor overgekleurd; `persoonTint` is weg).
 - `src/lib_cast.js` is de nieuwe versie van het castboek (met Teun en de baby).
+
+## Opwaardering naar prompt v8 (1.1 · 22 okt 2026)
+
+Werkwijze B14 (opwaarderen naar een nieuwe promptversie): Kamiel keurde per scène een verbeterblad goed (claude.ai-artifact 'Verbeterblad prompt v8', alle 8 voorstellen 'Doen'); alleen die scènes zijn veranderd. Stem, script, vragen en cuewoorden zijn gelijk gebleven; er is niets opnieuw ingesproken.
+
+Gedeelde tekenbibliotheek: `bron/src/lib_bio.js` is een kopie van `bibliotheek/lib_bio.js` (recepten volgens prompt v8, C9). `bouw/build.py` plakt hem na lib_cast.js in de pagina; in de live HTML staat hij tussen de lib_bio-kop en `/* einde lib_bio */`.
+
+| Scène | Was | Nu |
+|---|---|---|
+| alle Micro-scènes | stippenlaag (korrel) | egale Micro-achtergrond (`bg()` in lib.js); rustige textuur alleen binnen een cel |
+| s04, s05 (soep) | kralen en zeshoekjes door elkaar | zetmeel als korte spiraal (`zetmeelSpiraal`), eiwit als klein gevouwen ketentje (`SOUP_EIWIT_PAD`) |
+| s10 | rechte rij zeshoeken, cel als boog | zetmeel als spiraal die bij 'knipt' afwikkelt en in losse glucose uiteenvalt; de glucose gaat een ronde cel in (`celRond` met membraan) |
+| s12 | grijs vogelsilhouet, vetcel als blob | `grutto` (rosse grutto, vliegt met echte vleugelslag) en `vetcel` met de triglyceriden in de druppel |
+| s15 | rijtjes letters | gebogen stukje membraan (`membraanBoog`) met één eiwit |
+| s17 | golvende kralenrij, gestreept blokje | eiwit van 44 kralen dat vouwt (`eiwitVouw`: helices en haarspeld), bij knippen ontvouwt en opnieuw vouwt; spieren als `spierBundel`, enzym als `enzymKluwen` |
+| s20 | bruine vlek | `leverVoor` met galblaas |
+| s23, s25 | buis van twee lijnen, groene bolletjes | darmwand met lagen (`darmwand` via `darmWandBuis`), kringspier knijpt zichtbaar; vezels als `celluloseBundel`; enzymen met een actieve plek die niet past |
+
+Labels in de gewijzigde scènes staan met `naamBij` direct bij het onderdeel (geen wijslijnen).
