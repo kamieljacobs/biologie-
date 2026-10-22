@@ -78,6 +78,7 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .plaat figure:nth-child(-n+2){border-bottom:1px solid var(--line)}
 .plaat figcaption{color:var(--text3);font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 .plaat svg{width:100%;max-width:130px;height:auto}
+.plaat img.med{width:130px;height:130px;border-radius:999px;display:block}
 
 .blok{padding-block:8px 48px}
 .blok-kop{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line2)}
@@ -119,9 +120,13 @@ a.rij:hover .pijl{transform:translateX(4px);color:var(--goud-text)}
 .ondkunst{display:flex;gap:8px;margin-top:16px}
 .ondkunst span{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
 .ondkunst svg{width:32px;height:32px}
+.ondkunst span.foto{border:0;background:none;overflow:hidden}
+.ondkunst img.med{width:46px;height:46px;border-radius:999px;display:block}
 .ondblok ul{list-style:none;margin:0;padding:6px 0 10px}
-.ondblok li a,.ondblok li.leeg{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;padding:10px 22px}
-.ondblok li .lbl{grid-column:1/-1;color:var(--text3);font-size:11px}
+.ondblok li a,.ondblok li.leeg{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:10px;row-gap:2px;padding:10px 22px}
+.ondblok li a b,.ondblok li.leeg b{flex:1 0 auto;max-width:100%}
+.ondblok li .mat{margin-left:auto}
+.ondblok li .lbl{flex-basis:100%;color:var(--text3);font-size:11px}
 .ondblok li b{font:700 19px/1.25 var(--titel)}
 .ondblok li .mat{color:var(--text3);font-size:13px;align-self:end;white-space:nowrap}
 .ondblok li a:hover{background:var(--goud-soft)}
@@ -299,6 +304,8 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .kop p{margin:12px 0 0;color:var(--text2);max-width:58ch}
 .kop .groot{justify-self:end;width:220px;height:220px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);display:flex;align-items:center;justify-content:center}
 .kop .groot svg{width:150px;height:150px}
+.kop .groot.foto{border:0;background:none;overflow:hidden}
+.kop .groot img.med{width:100%;height:100%;border-radius:999px;display:block}
 .voortgang{display:flex;align-items:center;gap:12px;margin-top:22px;color:var(--text3);font-size:14px}
 .voortgang .balk{width:160px;height:4px;border-radius:99px;background:var(--line2);overflow:hidden}
 .voortgang .balk i{display:block;height:100%;background:var(--goud)}
@@ -2683,6 +2690,8 @@ const filmKunst=(href,id)=>{const slug=String(href).replace(/#.*$/,'').replace(/
 /* medaillons voor de rijen 'Eerste ontdekkingen' (ob-<kerndoel>) en 'Een kijkje vooruit' (v-<richting>) op de hoofdpagina, 21 okt 2026: img/kunst/iconen/home/ */
 const HICOON=['ob-32A','ob-32B','ob-32C','ob-33C','v-gedrag','v-zorg','v-lab','v-voeding','v-groen','v-onderwijs'];
 const ICOON=['cellen','dna','stofwisseling','voeding','transport','gaswisseling','afweer','regeling','voortplanting','erfelijkheid','evolutie','gedrag','planten','ecologie','milieu','examens'];
+/* medaillon of (zonder medaillon) de oude lijntekening; Kamiel 22 okt 2026: 'misschien kun je de hele site eens nakijken op oude art' */
+const medaille=(id,px)=>ICOON.includes(id)?`<img class="med" src="img/kunst/iconen/${id}.webp?v=4" alt="" width="${px}" height="${px}" decoding="async">`:kunst(id);
 const kunst=(id,label)=>`<svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="${label||''}" style="--c:var(--${KLEUR[id]||'goud'})">${KUNST[id]||KUNST.cellen}</svg>`;
 
 (function(){
@@ -2744,10 +2753,10 @@ function pta(nv){
       <div class="knoppen"><a class="knop" href="#${ob?'onderbouw':'pta'}-hoofdstukken">${ob?'Kies je kerndoel':'Kies je onderdeel'}</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
     </div>
     <div class="plaat" aria-hidden="true">
-      <figure>${kunst('cellen')}<figcaption>Fig. 1 · cel</figcaption></figure>
-      <figure>${kunst('dna')}<figcaption>Fig. 2 · DNA</figcaption></figure>
-      <figure>${kunst('regeling')}<figcaption>Fig. 3 · neuron</figcaption></figure>
-      <figure>${kunst('evolutie')}<figcaption>Fig. 4 · stamboom</figcaption></figure>
+      <figure>${medaille('cellen',130)}<figcaption>Fig. 1 · cel</figcaption></figure>
+      <figure>${medaille('dna',130)}<figcaption>Fig. 2 · DNA</figcaption></figure>
+      <figure>${medaille('regeling',130)}<figcaption>Fig. 3 · regeling</figcaption></figure>
+      <figure>${medaille('evolutie',130)}<figcaption>Fig. 4 · evolutie</figcaption></figure>
     </div>
   </section>
   <section class="wrap blok" id="${ob?'onderbouw':'pta'}-hoofdstukken" aria-label="${niveau==='onderbouw'?'Kerndoelen':'PTA-onderdelen'}">
@@ -2760,7 +2769,7 @@ function pta(nv){
       <header>
         ${o.naam?`<h2 class="ondnaam">${esc(o.naam)}</h2>`:''}<div class="ondtitel"><span class="ondcode">${esc(o.code.replace(/^OND/,'OND '))}</span>${o.w?`<span class="weging">${o.w}%</span>`:''}</div>
         <div class="ondsub mono">${[jaar,nf?`${nf} ${nf===1?"film":"films"}`:''].filter(Boolean).join(' · ')||'&nbsp;'}</div>
-        <div class="ondkunst">${ids.slice(0,4).map(id=>`<span>${kunst(id)}</span>`).join('')}</div>
+        <div class="ondkunst">${ids.slice(0,4).map(id=>`<span${ICOON.includes(id)?' class="foto"':''}>${medaille(id,46)}</span>`).join('')}</div>
       </header>
       <ul>`;
     for(const [lbl,naam,hfd,mat,href] of o.subs){
@@ -3022,7 +3031,7 @@ function toolRij(t){
 /* Kamiel 22 okt 2026: ook in de filmlijst (en lessen) de bioart-medaillons i.p.v. de lijntekening */
 function embleem(id){return ICOON.includes(id)?`<span class="embleem foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="56" height="56" decoding="async" loading="lazy"></span>`:`<span class="embleem">${kunst(id)}</span>`}
 function kopPagina(lbl,titel,tekst,id){
-  return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle thema's</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
+  return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle thema's</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot${ICOON.includes(id)?' foto':''}">${medaille(id,220)}</div></div></section>`;
 }
 function films(){
   let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
