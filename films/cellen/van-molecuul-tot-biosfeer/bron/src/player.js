@@ -9,7 +9,7 @@ const state = { reduce:false,
   qPhase:null, // {phase:'countdown'|'wait'|'reveal', start, chosen}
   board:[0,0,0,0,0,0]
 };
-const CARD_DUR=1.3, TITLE_DUR=5, END_DUR=9, COUNTDOWN=8, REVEAL=6;
+const CARD_DUR=1.3, TITLE_DUR=5, END_DUR=12, COUNTDOWN=8, REVEAL=6;
 
 // ---- build timeline ----
 // 'Voor vwo ...' niet uitspreken (de havo/vwo-keuze zit in de speler): losse aankondigingen helemaal, 'Voor vwo:' als voorzetsel weg
@@ -80,7 +80,7 @@ function drawChapterCard(ctx,it,t){ bg(ctx,'schema'); const a=ramp(t,0.05,0.3)*(
   if(num) metaText(ctx,num,W/2,430,C.grain,'center',30); text(ctx,title,W/2,540,fTitel(72),C.text,'center');
   const mini=(DATA.film.minis||{})[num||it.chapter];
   if(mini) text(ctx,mini,W/2,620,fTekst(36),C.text2,'center'); ctx.restore(); }
-function drawEnd(ctx,it,t){ bg(ctx,'schema'); const lines=it.seg.lines; const y0=lines.length>3?300:380, st=lines.length>3?105:120; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,y0+i*st,fTekst(44,600),C.text,'center'); ctx.restore(); });
+function drawEnd(ctx,it,t){ if(typeof SCENES!=='undefined'&&SCENES.eind){ SCENES.eind(ctx,t); return; } bg(ctx,'schema'); const lines=it.seg.lines; const y0=lines.length>3?300:380, st=lines.length>3?105:120; lines.forEach((l,i)=>{ const a=ramp(t,0.3+i*1.2,0.6); ctx.save(); ctx.globalAlpha=a; text(ctx,l,W/2,y0+i*st,fTekst(44,600),C.text,'center'); ctx.restore(); });
   haak(ctx,360,1560,lines.length>3?y0+(lines.length-1)*st+52:740,DATA.film.endHaak,C.groen,ramp(t,4.2,0.6)); metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie '+DATA.film.version,W/2,CAPTION_Y-20,C.text2,'center',28); }
 function drawQuestion(ctx,it,t){
   bg(ctx,'schema'); const seg=it.seg; const ph=state.qPhase||{phase:'countdown',start:0};

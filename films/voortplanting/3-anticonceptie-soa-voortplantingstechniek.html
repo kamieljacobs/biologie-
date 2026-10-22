@@ -1993,5 +1993,18 @@ window.__items=()=>state.items.map(it=>({type:it.type,id:it.seg?it.seg.id:null,c
 </script>
 <script src="../../js/flipkaarten.js" defer></script>
 <script src="../../js/oefenen.js?v=bc151008" data-oefenen="3-anticonceptie-soa-voortplantingstechniek/oefenen.json" defer></script>
+<script>/*ANTWOORDTEKST_MARK v1 22okt2026: bij Vragen uit geen 'antwoord a' in beeld*/
+(function(){
+  function uit(){ try{ if(typeof state!=='undefined'&&state&&state.vragen) return state.vragen==='uit'; }catch(e){}
+    try{ var p=new URLSearchParams(location.search).get('vragen'); if(p) return p==='uit'; return localStorage.getItem('bk-vragen')==='uit'; }catch(e){ return false; } }
+  var RE=/^\s*(het\s+)?(juiste\s+)?antwoord(?=[\s:.]|$)(\s+(is|was))?\s*:?\s*(\(?([a-d]|aa|bee|cee|dee)\)?(?=[\s:.,;]|$))?\s*[:.,;–—-]?\s*/i;
+  function schoon(s){ if(typeof s!=='string') return s; var m=s.match(RE); if(!m) return s; var rest=s.slice(m[0].length);
+    if(!m[5]&&!/:/.test(m[0])&&rest) return s; if(!rest) return ''; return rest.charAt(0).toUpperCase()+rest.slice(1); }
+  window.bkAntwoordSchoon=schoon;
+  function wikkel(o){ return function(ctx,s){ if(uit()){ var n=schoon(s); if(n==='') return; if(n!==s){ var a=Array.prototype.slice.call(arguments); a[1]=n; return o.apply(this,a); } } return o.apply(this,arguments); }; }
+  try{ if(typeof tag==='function') tag=wikkel(tag); }catch(e){}
+  try{ if(typeof regel==='function') regel=wikkel(regel); }catch(e){}
+})();
+</script>
 </body>
 </html>

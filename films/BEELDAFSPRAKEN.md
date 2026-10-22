@@ -9,6 +9,7 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 ## Labels
 - **Geen wijslijnen naar begrippen** (15 okt 2026, Kamiel: "die lijntjes naar begrippen moeten sowieso weg, is te vaak fout"). De naam van een onderdeel staat **direct naast of op het onderdeel**, goed geplaatst, eventueel met een donkere rand rond de letters voor leesbaarheid. Geldt voor alle films; bestaande films worden reeks voor reeks omgezet (Celorganellen als eerste, met `naamBij()`).
 - Labels mogen niet over andere labels of over belangrijke delen van de tekening vallen; controleer dit op de contactbladen.
+- **Vragen uit = geen verwijzing naar de vraag in beeld** (22 okt 2026): geen "antwoord a" en dergelijke; `scripts/antwoordtekst.py` regelt dat voor tekst via `tag`/`regel`. Schrijf een antwoordtag in nieuwe films als "antwoord a: <inhoud>", zodat bij Vragen uit de inhoud blijft staan.
 
 ## Moleculen en celonderdelen
 - **mRNA** is een dunne, kronkelende, sliertige enkele streng — geen staafje of blokje.
@@ -31,6 +32,9 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
 - **Vaste rollen** (22 okt 2026): kies personages uit `personages/ROLLEN.md` (familie van Noor met namen, 'jij' in de onderbouw = Lotte, patiënt = Opa Henk, verdachte = Erik, tweeling = Daan en Thijs …). Zet niemand in een rol die botst met zijn vaste achtergrond.
 - **Lopen, rennen en zijaanzicht** (21 okt 2026, Kamiel: 'betere animatie voor dit soort poppetjes'): wie loopt, rent of van opzij in beeld is, teken je met het zijaanzicht uit het castboek: `persoon(ctx, id, x, y, h, { zij: true, kijk: 1|-1, gang: 'loop'|'ren', t })`. Een personage dat rent, rent ook echt (knieën, armen, voorover leunen) en beweegt over het beeld; geen stilstaand figuur dat wordt verschoven. Een rennend personage in vooraanzicht leest als dansen: gebruik daarvoor altijd het zijaanzicht.
 - **Lichaam met organen** = een castpersonage met `personages/lib_anatomie.js` (realistisch, organen op hun echte plek), nooit meer een grijs dummy-lichaam.
+
+## Aarde
+- **Gebruik de echte wereldbol** (22 okt 2026): `aarde()` uit Van molecuul tot biosfeer (continenten uit Natural Earth, wolken, belichting), geen blauwe cirkel met groene vlekken.
 
 ## Processen in beeld
 - **Mooier animeren, niet alleen kloppen** (Kamiel, 20 okt 2026, n.a.v. *De eerste verdediging*): de inhoud mag goed zijn, maar schema-achtige plaatjes (een rondje met een streepje als 'thermostaat', een groene ovaal met bolletjes als 'lymfeknoop') zijn niet genoeg. Teken een herkenbaar ding en laat het proces echt gebeuren. Voorbeelden uit die film: thermostaat = ronde knop met schaal 35–42 °C, gouden wijzer (instelling) en koraal boog (lichaamstemperatuur) die meeloopt met de grafiek, plus hersenen in zijaanzicht met een gloeiende hypothalamus; lymfeknoop = boonvorm met kapsel, follikels en uitgaand lymfevat, de dendritische cel reist zichtbaar door een lymfevat naar binnen en één T-cel met de passende receptorvorm komt erop af en licht op.

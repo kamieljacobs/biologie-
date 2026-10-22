@@ -2435,7 +2435,6 @@ const oefEsc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const oefRij=href=>{const o=OEFENEN[href];if(!o||!o.oef.length)return '';const u=BASE+'oefenen.html?film='+encodeURIComponent(href);return `<div class="oefrij"><span class="mono">Oefenen</span>${o.oef.map(([id,t,soort,vwo])=>`<a class="oefchip" href="${u}#${encodeURIComponent(id)}">${OEF_ICOON[soort]||''}${oefEsc(t)}${vwo?'<span class="vw">vwo</span>':''}</a>`).join('')}</div>`;};
 const REVIEW = {
   // DNA 3 Van DNA naar eiwit 16 okt: v1.1 (TATA-box, ER/Golgi, beeld) -> nog bekijken
-  "films/cellen/van-molecuul-tot-biosfeer.html": "ok", // 15 okt: abiotisch/emergente heropgenomen en goedgekeurd
   "films/gedrag/10-helpen.html": "ok", // 15 okt: door Kamiel bekeken, goed
   "films/gedrag/8-honingbij.html": "ok", // 16 okt: door Kamiel bekeken, goed
   "films/gedrag/9-mierenkolonie.html": "ok", // 16 okt: door Kamiel bekeken, goed

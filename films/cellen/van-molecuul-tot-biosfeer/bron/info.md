@@ -41,7 +41,7 @@
 | H2 De ladder (s06–s13) | B · Schema/Micro | Ladder met de koolmees: eiwit, celkern, spiercel; differentiatie (bevruchte eicel deelt, spier-, zenuw- en huidcel, dezelfde DNA-streng met andere genen aan); spierweefsel, hart, hart + bloedvaten, koolmees; bacterie: cel = organisme; populatie koolmezen, merel, rups, eik, paddenstoel; onderzoeker met temperatuur en bodem, vraag q10; ecosysteem met zon, water, bodem en de rupsenpiek die te vroeg komt; aarde = biosfeer; spiercel tegenover hart: emergente eigenschap. Vwo s13: populatie met dichtheid, geboortecijfer en evolutie; losse moleculen tegenover een cel |
 | H3 Leeft een virus? (s14–s15) | C · Micro | Virus naast de ladder ("geen cel"); RNA, eiwitmantel, vetlaagje; virus krimpt op schaal naast de bacterie; bord met kruisjes; virus dringt de cel van Noor binnen en de cel maakt nieuwe virussen; antwoord a; grensgeval; erfelijk materiaal = een molecuul |
 | Recap (s16) | Schema | Ladder van cel tot biosfeer met het virus ernaast; koolmees en Noor verbonden met 'organisme' |
-| Eindkaart (s17) | Schema | Drie kernzinnen |
+| Eindbeeld (s17) | Schema | Overzicht van alle elf organisatieniveaus met een plaatje per niveau, twee rijen met pijlen (`eindNiveaus()`, 12 s) |
 
 ## Vragen
 
@@ -77,7 +77,7 @@ Begrippen: levenskenmerken, homeostase, organisatieniveaus, weefsel, orgaanstels
 - **Tekst van een alinea:** wijzig `script_v2.md`, draai `make_segments.py` (met `uitspraak_film.json` in de werkmap), neem alleen die take opnieuw op (stem-invoer staat in `segments.json` → `voice`), haal woordtijden op met Scribe en `align.py`, zet de mp3 genormaliseerd in `audio/` en bouw opnieuw.
 - **Een antwoordoptie of vraagtekst:** opties in `script_v2.md` bij `[VRAAG]`, vraagtekst en uitleg in `film.py`; geen nieuwe opname nodig (behalve als het juiste antwoord verschuift: dat noemt de audio).
 - **Een beeld:** `scenes.js` (zie regelnummers hierboven); cues hangen aan woorden via `q.on('woord', n)` (n = de hoeveelste keer dat het woord in die alinea voorkomt; het zoekt op deel van het woord, dus 'Neem' vindt ook 'neemt' en 'orgaan' ook 'orgaanstelsel').
-- **Figuren:** `ladder(ctx, lit[11], {x, y0, dy, a, cur, virus, t})` (lit = helderheid per niveau, `cur` = gemarkeerd niveau, `virus` = het virus naast de ladder; `NIV` en `EXAMEN` bovenin), `bord(ctx, x, y, w, rijen, kolommen)` (levenskenmerken met vinkjes en kruisjes), `griepvirus`, `koolmees`, `merel`, `rups`, `eik`, `paddenstoel`, `eiwit`, `celkern`, `spiercel`, `zenuwcel`, `huidcel`, `bolcel`, `hart`, `aarde`, `bacterieC`, `deur`, `noorBed`.
+- **Figuren:** `ladder(ctx, lit[11], {x, y0, dy, a, cur, virus, t})` (lit = helderheid per niveau, `cur` = gemarkeerd niveau, `virus` = het virus naast de ladder; `NIV` en `EXAMEN` bovenin), `bord(ctx, x, y, w, rijen, kolommen)` (levenskenmerken met vinkjes en kruisjes), `griepvirus`, `koolmees`, `merel`, `rups`, `eik`, `paddenstoel`, `eiwit`, `celkern`, `spiercel`, `zenuwcel`, `huidcel`, `bolcel`, `hart`, `aarde` (echte wereldbol, zie Wijziging 22 okt 2026), `bacterieC`, `deur`, `noorBed`.
 - **Checkvragen of docentdeel:** `sections.html` → `python3 film.py` → `build.py`.
 
 ## Aandachtspunten
@@ -93,3 +93,11 @@ Begrippen: levenskenmerken, homeostase, organisatieniveaus, weefsel, orgaanstels
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'erfelijk materiaal (RNA)', 'eiwitmantel', 'vetlaagje'. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+## Wijziging 22 okt 2026: echte wereldbol, eindbeeld met alle niveaus, antwoordtekst bij Vragen uit
+
+Feedback Kamiel: "dit mag een realistischere aarde worden met de continenten" en "een overzicht van alle organisatieniveaus, misschien helemaal op het einde als eindslide".
+- **Aarde:** `aarde(ctx, x, y, r, a, t)` is nu een echte wereldbol. Landvormen uit Natural Earth 1:50m (publiek domein, via npm-pakket world-atlas), vereenvoudigd tot ±0,2° en delta-gecodeerd in `AARDE_LAND`; `aardeTextuur()` tekent één keer een textuur van 2048×1024 (oceaan, land met woestijn-, steppe-, oerwoud- en taigavlekken, Groenland en Antarctica wit, zee-ijs) en een wolkenlaag; `aardeBeeld()` projecteert die op een bol met belichting en dampkringrand (per straal gecachet). De bol draait langzaam; in s11 telt `t` vanaf het woord 'biosfeer', zodat Europa en Afrika in beeld zijn als hij verschijnt.
+- **Eindbeeld:** `SCENES.eind` → `eindNiveaus(ctx, t)`: titel plus elf tegels (`EIND_ICOON`, namen uit `NIV`, examenniveaus vet met gouden rand) die één voor één verschijnen, met pijlen van molecuul tot biosfeer. In player.js roept `drawEnd` dit aan en is `END_DUR` 12 s. De drie kernzinnen van de oude eindkaart vervallen.
+- **Vragen uit:** `scripts/antwoordtekst.py` (voor alle films) wikkelt `tag`/`regel`: bij Vragen uit verdwijnt 'antwoord a' en wordt 'antwoord a: geen eigen stofwisseling' alleen 'Geen eigen stofwisseling'.
+- Geen nieuwe audio; scenes.js en player.js staan letterlijk in de HTML (vervangen, niet herbouwd).
