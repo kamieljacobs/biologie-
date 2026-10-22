@@ -84,8 +84,8 @@ a) je lichaam maakt het ontbrekende aminozuur zelf
 c) je lichaam haalt het uit een speciale eiwitvoorraad  
 Onthulling: Je lichaam kan een essentieel aminozuur niet zelf maken, en een speciale eiwitvoorraad is er niet.
 
-**s20** · basis · 23.6 s · `../audio/s20.mp3`  
-Het eiwit kan niet af. Een essentieel aminozuur kan je lichaam niet zelf maken. En een speciale eiwitvoorraad heb je niet. Aminozuren die je over hebt, worden in je lever afgebroken. Het stikstofdeel wordt ureum. De rest wordt brandstof, of wordt als vet opgeslagen. Het essentiële aminozuur dat het eerst op is, bepaalt dus hoeveel eiwit je kunt bouwen.
+**s20** · basis · 44.3 s · `../audio/s20.mp3`  
+Het eiwit kan niet af. Een essentieel aminozuur kan je lichaam niet zelf maken. Een aparte eiwitvoorraad, zoals vet of glycogeen, heb je niet. Wel zit er een kleine vrije voorraad aminozuren in je cellen en je bloed: ongeveer honderd gram. En elke dag breekt je lichaam zo'n 250 tot 300 gram eigen eiwit af, en bouwt het weer op. Raakt een essentieel aminozuur krap, dan haalt je lichaam het uit eigen eiwit, vooral uit je spieren. Aminozuren die je over hebt, worden in je lever afgebroken. Het stikstofdeel wordt ureum. De rest wordt brandstof, of wordt als vet opgeslagen. Het essentiële aminozuur dat het eerst op is, bepaalt dus hoeveel eiwit je kunt bouwen.
 
 **s21** · basis · 23.0 s · `../audio/s21.mp3`  
 Hoe meet je hoeveel eiwit uit een voedingsmiddel echt wordt verteerd en opgenomen? Onderzoekers geven proefpersonen een maaltijd en meten daarna de essentiële aminozuren in het bloed. Een stijging meteen na de maaltijd komt uit de maaltijd. Je lichaam kan ze immers niet zelf maken. Bij niet-essentiële aminozuren werkt dat niet. Die kan je lichaam ook zelf aanmaken.
@@ -112,9 +112,9 @@ Trager. Vezels houden water vast en geven je darminhoud volume. Dat volume rekt 
 Op het etiket staan soms ook stoffen die er bewust zijn toegevoegd: additieven. Ze geven kleur, smaak of geur, of zorgen dat iets langer goed blijft. Additieven zijn getest en toegelaten in de Europese Unie. Je herkent ze aan een E-nummer of aan hun naam.
 > stem-invoer: Op het etiket staan soms ook stoffen die er bewust zijn toegevoegd: additieven. Ze geven kleur, smaak of geur, of zorgen dat iets langer goed blijft. Additieven zijn getest en toegelaten in de Europese Unie. Je herkent ze aan een ee-nummer of aan hun naam.
 
-**s27** · vwo · 43.2 s · `../audio/s27.mp3`  
-Voor vwo gaan we hier nog een stap verder. Hoeveel van zo'n additief mag je binnenkrijgen? Daarvoor is de ADI: de aanvaardbare dagelijkse inname. Die staat per kilogram lichaamsgewicht, in Binas. Neem de zoetstof aspartaam. De ADI is veertig milligram per kilogram per dag. Je weegt zestig kilogram. Zestig keer veertig is tweeduizend vierhonderd. Zoveel milligram mag je per dag. Stel dat er tweehonderd milligram in één blikje frisdrank zit. Dan zit je na twaalf blikjes aan de ADI. Een kind van twintig kilogram drinkt dezelfde blikjes. Na hoeveel blikjes zit dat kind aan de ADI? Wat denk je?
-> stem-invoer: Voor vwo gaan we hier nog een stap verder. Hoeveel van zo'n additief mag je binnenkrijgen? Daarvoor is de aa-dee-ie: de aanvaardbare dagelijkse inname. Die staat per kilogram lichaamsgewicht, in Binas. Neem de zoetstof aspartaam. De aa-dee-ie is veertig milligram per kilogram per dag. Je weegt zestig kilogram. Zestig keer veertig is tweeduizend vierhonderd. Zoveel milligram mag je per dag. Stel dat er tweehonderd milligram in één blikje frisdrank zit. Dan zit je na twaalf blikjes aan de aa-dee-ie. Een kind van twintig kilogram drinkt dezelfde blikjes. Na hoeveel blikjes zit dat kind aan de aa-dee-ie? Wat denk je?
+**s27** · vwo · 38.0 s · `../audio/s27.mp3`  
+Hoeveel van zo'n additief mag je binnenkrijgen? Daarvoor is de ADI: de aanvaardbare dagelijkse inname. Die staat per kilogram lichaamsgewicht, in Binas. Neem de zoetstof aspartaam. De ADI is veertig milligram per kilogram per dag. Je weegt zestig kilogram. Zestig keer veertig is tweeduizend vierhonderd. Zoveel milligram mag je per dag. Stel dat er tweehonderd milligram in één blikje frisdrank zit. Dan zit je na twaalf blikjes aan de ADI. Een kind van twintig kilogram drinkt dezelfde blikjes. Na hoeveel blikjes zit dat kind aan de ADI? Wat denk je?
+> stem-invoer: Hoeveel van zo'n additief mag je binnenkrijgen? Daarvoor is de A-D-I: de aanvaardbare dagelijkse inname. Die staat per kilogram lichaamsgewicht, in Binas. Neem de zoetstof aspartaam. De A-D-I is veertig milligram per kilogram per dag. Je weegt zestig kilogram. Zestig keer veertig is tweeduizend vierhonderd. Zoveel milligram mag je per dag. Stel dat er tweehonderd milligram in één blikje frisdrank zit. Dan zit je na twaalf blikjes aan de A-D-I. Een kind van twintig kilogram drinkt dezelfde blikjes. Na hoeveel blikjes zit dat kind aan de A-D-I? Wat denk je?
 
 **q28** · vraag (vwo) · 8 s denktijd + 6 s onthulling — Een kind van 20 kg drinkt dezelfde blikjes (200 mg aspartaam per blikje, ADI 40 mg per kg). Na hoeveel blikjes zit het aan de ADI?  
 a) na twaalf, net als jij  
@@ -122,9 +122,9 @@ a) na twaalf, net als jij
 c) na twintig  
 Onthulling: 20 × 40 = 800 mg per dag; dat zit in vier blikjes.
 
-**s29** · vwo · 22.5 s · `../audio/s29.mp3`  
+**s29** · vwo · 22.0 s · `../audio/s29.mp3`  
 Na vier. Twintig keer veertig is achthonderd milligram. Dat zit in vier blikjes. De ADI ligt meestal honderd keer lager dan de hoeveelheid waarbij proefdieren geen schadelijk effect hadden. En hij geldt voor elke dag, je hele leven lang. Terug naar de hoofdlijn: additieven zijn getest, en de ADI zegt hoeveel per dag veilig is.
-> stem-invoer: Na vier. Twintig keer veertig is achthonderd milligram. Dat zit in vier blikjes. De aa-dee-ie ligt meestal honderd keer lager dan de hoeveelheid waarbij proefdieren geen schadelijk effect hadden. En hij geldt voor elke dag, je hele leven lang. Terug naar de hoofdlijn: additieven zijn getest, en de aa-dee-ie zegt hoeveel per dag veilig is.
+> stem-invoer: Na vier. Twintig keer veertig is achthonderd milligram. Dat zit in vier blikjes. De A-D-I ligt meestal honderd keer lager dan de hoeveelheid waarbij proefdieren geen schadelijk effect hadden. En hij geldt voor elke dag, je hele leven lang. Terug naar de hoofdlijn: additieven zijn getest, en de A-D-I zegt hoeveel per dag veilig is.
 
 ## Recap
 

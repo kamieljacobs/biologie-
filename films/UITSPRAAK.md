@@ -69,7 +69,7 @@ Ronde 2 (19 okt 2026), gekozen stem-invoer:
 | Woord | Stem-invoer |
 |---|---|
 | A4'tjes | aa-víertjes |
-| ADI | ADI (gewoon) |
+| ADI | A-D-I (losse letters; "ADI" en "aa-dee-ie" gaven een dubbele AA, 22 okt 2026) |
 | AGS | AGS (gewoon) |
 | bloedgroep AB | A B (met spatie) |
 | EPO | Epo |

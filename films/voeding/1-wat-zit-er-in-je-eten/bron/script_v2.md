@@ -90,7 +90,7 @@ Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren.
 Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?
 [VRAAG] (a) je lichaam maakt het ontbrekende aminozuur zelf · (b) eiwitten met die bouwsteen kunnen niet af · (c) je lichaam haalt het uit een speciale eiwitvoorraad
 Het eiwit kan niet af. Een essentieel aminozuur kan je lichaam niet zelf maken.
-En een speciale eiwitvoorraad heb je niet.
+Een aparte eiwitvoorraad, zoals vet of glycogeen, heb je niet. Wel zit er een kleine vrije voorraad aminozuren in je cellen en je bloed: ongeveer honderd gram. En elke dag breekt je lichaam zo'n 250 tot 300 gram eigen eiwit af, en bouwt het weer op. Raakt een essentieel aminozuur krap, dan haalt je lichaam het uit eigen eiwit, vooral uit je spieren.
 Aminozuren die je over hebt, worden in je lever afgebroken. Het stikstofdeel wordt ureum. De rest wordt brandstof, of wordt als vet opgeslagen.
 Het essentiële aminozuur dat het eerst op is, bepaalt dus hoeveel eiwit je kunt bouwen.
 
@@ -121,7 +121,7 @@ Op het etiket staan soms ook stoffen die er bewust zijn toegevoegd: additieven.
 Ze geven kleur, smaak of geur, of zorgen dat iets langer goed blijft.
 Additieven zijn getest en toegelaten in de Europese Unie. Je herkent ze aan een E-nummer of aan hun naam.
 
-[VWO-START] Voor vwo gaan we hier nog een stap verder. Hoeveel van zo'n additief mag je binnenkrijgen?
+[VWO-START] Hoeveel van zo'n additief mag je binnenkrijgen?
 Daarvoor is de ADI: de aanvaardbare dagelijkse inname. Die staat per kilogram lichaamsgewicht, in Binas.
 Neem de zoetstof aspartaam. De ADI is veertig milligram per kilogram per dag.
 Je weegt zestig kilogram. Zestig keer veertig is tweeduizend vierhonderd. Zoveel milligram mag je per dag.

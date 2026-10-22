@@ -210,7 +210,7 @@ const SCENES = {
     const on = (w) => q.on(w, 1), gs = on('groeispurt'); const hS = 560 * (1 + 0.04 * gs), hN = 545 * (1 + 0.04 * gs);
     const S = persoon(ctx, 'sam', 640, 880, hS, { uit: 'blij', pose: 'staan', kijk: 1, t }) || {}; const N = persoon(ctx, 'noor', 1280, 880, hN, { uit: 'blij', pose: 'staan', kijk: -1, t }) || {};
     const plek = (P, x, h, f) => [x, 880 - h * f];
-    const merk = (x, y, col, a, rr = 16) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, rr, 0, 6.283); ctx.stroke(); ctx.restore(); };
+    const merk = (x, y, col, a, rr = 16) => { return; /* v1.1b: rondjes weg (Kamiel 22 okt) */ ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, rr, 0, 6.283); ctx.stroke(); ctx.restore(); };
     tag(ctx, 'primaire geslachtskenmerken: de geslachtsorganen, al bij de geboorte', 960, 140, C.text2, on('primaire'), 'center', 26);
     tag(ctx, 'secundaire geslachtskenmerken: komen in de puberteit', 960, 214, C.goud, on('secundaire'), 'center', 26);
     // jongens: links van Sam, meisjes: rechts van Noor (naam direct naast het lichaamsdeel)

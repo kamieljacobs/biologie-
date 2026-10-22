@@ -108,3 +108,5 @@ Gedeelde tekenbibliotheek: `bron/src/lib_bio.js` is een kopie van `bibliotheek/l
 
 Ook: 'ongeveer 4 weken' staat niet meer over 'dag 1' van de cyclusklok (s18).
 Bewust niet: geen nieuwe audio; de route van de zaadleider over de blaas blijft vereenvoudigd (staat al in het docentdeel).
+
+- 22 okt 2026 (avond): in s06 de rondjes bij de lichaamsdelen weggehaald (Kamiel: "die rondjes hoeven niet"); de namen staan nog naast het lichaam (`merk()` in s06 doet niets meer).

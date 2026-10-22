@@ -7,7 +7,7 @@
 | Doelgroep / niveau | havo + vwo bovenbouw; één vwo-blok (ADI) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.1 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · eerder: 1.0 · 12 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea |
-| Duur | spraak 9:18 (vwo) / 8:12 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11:15, havo ≈ 9:55 |
+| Duur | spraak 9:38 (vwo) / 8:33 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11:35, havo ≈ 10:15 |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |
 | Beeldstijl | Part C: Schema (navy #1A2740) met zoomcirkel naar Micro (#121A26, sinds 1.1 zonder korrel); UI-laag vast; canvas 1920×1080, ondertitels boven y = 900 of in een band onder het beeld op smalle schermen |
 | Audio-opslag | 24 losse mp3's in audio/ (s01 … s31), −16 LUFS, piek < −1 dBTP; niet in de HTML ingebed |
@@ -139,3 +139,8 @@ Labels in de gewijzigde scènes staan met `naamBij` direct bij het onderdeel (ge
 - s25 (Kamiel: de inhoud moet een brij zijn): `darmBrij` in scenes.js. Veel vezels: één natte, lichte brij die de holte vult en uitzet ('meer volume · meer vocht · sneller door'); weinig vezels: kleine, donkere, droge brokjes in een smalle darm ('trager · droger · verstopping').
 - s26: symbolen bij kleur (drie kleurvlekken), smaak (tong), geur (neus met geurlijnen) en houdbaar (zandloper), functie `additiefIcoon`.
 
+
+## Wijziging 22 okt 2026 (avond): s20 uitgebreid, s27/s29 opnieuw ingesproken (ADI)
+
+- s20 (Kamiel: details mogen, voor de nieuwsgierige leerling): nieuwe tekst over de kleine vrije voorraad aminozuren (± 100 g in cellen en bloed), de dagelijkse eiwitomzet (± 250–300 g) en dat je lichaam bij een tekort eigen (spier)eiwit afbreekt. Beeld: bakjes met label 'vrije voorraad · ± 100 g', spierbundel 'eigen eiwit' met omzetpijlen, koraalpijl 'tekort: uit eigen eiwit'. Roos, eleven_v4, één take (node `DlWhVgb8rM88Z9iTc9aQ`, 663 credits); audio `s20.mp3?v=2`, 44,3 s.
+- s27 en s29: Kamiel hoorde 'ADI' als 'aa-dee-ie-e' (dubbele AA, E achter de I). Opnieuw ingesproken met stem-invoer "A-D-I" (zelfde patroon als E-R, E-E-G); Scribe hoort 'A-D-I'. In s27 is de openingszin "Voor vwo gaan we hier nog een stap verder." weggelaten (het vwo-label staat al in beeld). Nodes `VdI7BrITEO3SZjWZ71UX` (561 credits) en `AWYXPuAxRVHwAtMXuKQf` (332 credits), flow `urmsa8zcNa5TFq8SVeBI`; woordtijden via Scribe (0 credits); audio `?v=2`, 38,0 s en 22,0 s. Ondertitel blijft 'ADI'.
