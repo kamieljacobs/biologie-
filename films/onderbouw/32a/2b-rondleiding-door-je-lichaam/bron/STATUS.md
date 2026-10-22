@@ -20,3 +20,7 @@ Kamiel: "kun je ook 1 en 2 doen?" → zonder checkpoint direct ingesproken (16 t
 ## 21 oktober 2026: versie 1.1 — realistisch lichaam en personages
 
 Kamiel: de animaties van lichamen en organen konden beter; de poppetjes (dummy/Michelin-vorm) moesten realistischere personages worden. Nieuw `src/anatomie.js` (ook als `personages/lib_anatomie.js`): echt lichaam met gezicht en haar, organen anatomisch op hun plek (hart en maag links in het lichaam, lever rechts), skelet, spieren, slagaders/aders met stromend bloed, zenuwen met impulsen, nieren met urinestroom, voedselbrok die echt door de darm reist, organen lichten op bij hun naam. Dagscènes met Lotte (en Daan in de klas) uit het castboek. Audio en timing ongewijzigd; alleen het scèneblok in `index.html` is vervangen (build-volgorde: lib_cast, helpers1, helpers2, anatomie, scenes2b).
+
+## 22 oktober 2026: versie 1.2 — boterham en buikorganen
+
+Kamiel: de boterham bij het ontbijt was veel te groot; de maag zat te laag. Ontbijt-inzet: tafel op heuphoogte, bord, één sneetje (`boterham()`) op ware grootte, ook in Lottes hand. `anatomie.js` (en `personages/lib_anatomie.js`): buikorganen op hun echte hoogte rond het transpylorisch vlak (y ≈ 2,7 = halverwege borstbeen en schaambeen): maag 0,25 omhoog (fundus onder het linker middenrif, portier op y ≈ 2,74), lever 0,3, alvleesklier, milt, nieren en twaalfvingerige darm 0,2, dikke-darmbochten onder lever en milt, dunne darm iets hoger; longbases mee omhoog naar het middenrif. `ORG`-labels aangepast. Klemtoon "wc" (we-CEE) in s05/s09: uitspraaktest loopt.

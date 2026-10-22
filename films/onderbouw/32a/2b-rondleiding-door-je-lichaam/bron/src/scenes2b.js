@@ -8,11 +8,11 @@ const CX=BODY.cx;
 // orgaan → [midden x, y (hoofdhoogtes), kant van de naam, hoogte van de naam, ring rx, ry]
 const ORG={
   hersenen:[0,0.3,'R',0.28,0.4,0.27], ogen:[-0.15,0.5,'L',0.5], ruggenmerg:[0,1.6,'R',1.5], zenuwen:[1.0,2.4,'R',2.6],
-  mond:[0,0.82,'R',0.86], slokdarm:[0.01,1.5,'L',1.5], maag:[0.3,2.85,'R',2.7], 'dunne darm':[0,3.5,'R',4.0], 'dikke darm':[-0.5,3.3,'L',3.45], alvleesklier:[0.25,2.98,'R',3.35], lever:[-0.2,2.76,'L',2.7,0.6,0.32],
+  mond:[0,0.82,'R',0.86], slokdarm:[0.01,1.5,'L',1.5], maag:[0.3,2.6,'R',2.5], 'dunne darm':[0,3.35,'R',3.85], 'dikke darm':[-0.5,3.2,'L',3.35], alvleesklier:[0.22,2.75,'R',3.15], lever:[-0.2,2.46,'L',2.4,0.6,0.32],
   spieren:[-1.0,2.4,'L',2.3], botten:[0.32,6.0,'R',5.9], schedel:[0,0.4,'R',0.3],
   neus:[0,0.62,'L',0.62], luchtpijp:[0,1.4,'L',1.3], longen:[-0.42,2.1,'L',2.05],
   hart:[0.1,2.22,'R',2.2], bloedvaten:[0.32,6.0,'R',5.6],
-  nieren:[0.37,3.05,'R',2.95], urineleiders:[0.22,3.45,'R',3.5], blaas:[0,3.86,'R',4.12],
+  nieren:[0.37,2.86,'R',2.8], urineleiders:[0.22,3.35,'R',3.45], blaas:[0,3.86,'R',4.12],
   huid:[-0.7,2.4,'L',2.4], lymfeklieren:[0.7,1.9,'R',1.9], 'witte bloedcellen':[0.6,3.0,'R',3.0],
   hypofyse:[0,0.55,'R',0.55], schildklier:[0,1.22,'R',1.22], eierstokken:[-0.27,3.62,'L',3.4], baarmoeder:[0,3.7,'L',4.05], zaadballen:[0.06,4.1,'R',4.15],
 };
@@ -40,6 +40,9 @@ Object.assign(SYSPOS,(()=>{ const HH=AHH(), top=AB().top, L=CX-1.45*HH, R=CX+1.4
 function pulse(t){ return 0.5+0.5*Math.sin(t*2.2); }
 // slapende Lotte in bed (ook groot in de cold open): voeten bij (fx,fy), lengte h
 function slaper(fx,fy,h,t=0){ ctx.save(); ctx.translate(fx,fy); ctx.rotate(-Math.PI/2); persoon(ctx,'lotte',0,0,h,{uit:'slaapt',t}); ctx.restore(); }
+// een sneetje brood (breedte w px), midden op (0,0): korst, kruim, beetje boter
+function boterham(c,w){ const h=w*0.9; c.beginPath(); c.moveTo(-w/2,h/2); c.lineTo(-w/2,-h*0.15); c.arc(-w*0.22,-h*0.15,w*0.28,Math.PI,1.6*Math.PI); c.arc(w*0.22,-h*0.15,w*0.28,1.4*Math.PI,0); c.lineTo(w/2,h/2); c.closePath();
+  c.fillStyle='#B07A3E'; c.fill(); c.save(); c.translate(0,h*0.06); c.scale(0.8,0.8); c.beginPath(); c.moveTo(-w/2,h/2); c.lineTo(-w/2,-h*0.15); c.arc(-w*0.22,-h*0.15,w*0.28,Math.PI,1.6*Math.PI); c.arc(w*0.22,-h*0.15,w*0.28,1.4*Math.PI,0); c.lineTo(w/2,h/2); c.closePath(); c.fillStyle='#EED9A8'; c.fill(); c.restore(); }
 // inzet: moment van de dag (personage = Lotte uit het castboek)
 function vignette(kind,cx,cy,r,a,t=0){ inset(cx,cy,r,a,()=>{ ctx.save(); ctx.translate(cx,cy); const k=r/170;
   ctx.scale(k,k); ctx.lineCap='round';
@@ -48,8 +51,10 @@ function vignette(kind,cx,cy,r,a,t=0){ inset(cx,cy,r,a,()=>{ ctx.save(); ctx.tra
     slaper(110,32,215,t); roundRect(ctx,-58,-32,190,92,18); shape(ctx,'#6E7FA8',null); roundRect(ctx,-58,-32,26,92,14); shape(ctx,'#8293BA',null);
     if(kind==='nacht'){ for(let i=0;i<3;i++) text(ctx,'z',-30+i*18,-34-i*18,fTekst(22+i*6,600),C.text2,'center'); } }
   if(kind==='wekker'){ dot(ctx,0,10,80,C.fill,C.line,3); ctx.strokeStyle=C.text; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(0,10); ctx.lineTo(0,-45); ctx.moveTo(0,10); ctx.lineTo(40,10); ctx.stroke(); dot(ctx,0,10,5,C.goud); ctx.lineWidth=6; ctx.strokeStyle=C.line; ctx.beginPath(); ctx.moveTo(-60,-50); ctx.lineTo(-80,-70); ctx.moveTo(60,-50); ctx.lineTo(80,-70); ctx.stroke(); const sh=Math.sin(t*25)*6; ctx.strokeStyle=C.goud; ctx.lineWidth=3; [-1,1].forEach(d=>{ ctx.beginPath(); ctx.arc(d*95+sh,-20,14,0,6.283); ctx.stroke(); }); text(ctx,'7:00',0,-100,fMeta(26),C.grain,'center'); }
-  if(kind==='ontbijt'){ persoon(ctx,'lotte',-70,170,250,{uit:'blij',pose:'vasthouden',kijk:1,t,hold:(c,x,y)=>{ c.save(); c.translate(x,y); c.rotate(-0.2); roundRect(c,-22,-18,44,30,9); c.fillStyle=C.oker; c.fill(); c.restore(); }});
-    ctx.beginPath(); ctx.ellipse(60,95,95,30,0,0,6.283); shape(ctx,C.fill,C.line,2); ctx.save(); ctx.translate(55,62); ctx.rotate(-0.1); roundRect(ctx,-45,-30,90,56,16); shape(ctx,C.oker,lighten(C.oker,0.3),2); ctx.beginPath(); ctx.arc(-22,-30,22,Math.PI,0); ctx.arc(22,-30,22,Math.PI,0); shape(ctx,C.oker,lighten(C.oker,0.3),2); ctx.restore(); }
+  if(kind==='ontbijt'){ // boterham op ware grootte (Kamiel 22 okt 2026: brood was veel te groot): tafel op heuphoogte, bord, één sneetje in de hand
+    roundRect(ctx,-10,52,190,10,3); shape(ctx,'#8A6A4E',null); ctx.fillStyle='#6E5440'; ctx.fillRect(10,62,8,108); ctx.fillRect(152,62,8,108);
+    ctx.beginPath(); ctx.ellipse(95,49,34,7,0,0,6.283); shape(ctx,'#E8E2D4','#BDB49E',1.5); ctx.save(); ctx.translate(98,44); ctx.rotate(0.05); boterham(ctx,24); ctx.restore();
+    persoon(ctx,'lotte',-70,170,250,{uit:'blij',pose:'vasthouden',kijk:1,t,hold:(c,x,y)=>{ c.save(); c.translate(x,y); c.rotate(-0.2); boterham(c,20); c.restore(); }}); }
   if(kind==='fiets'){ ctx.fillStyle=rgba('#22324D',0.9); ctx.fillRect(-200,88,400,120); persoon(ctx,'lotte',20,92,250,{uit:'lacht',pose:'zwaai',t});
     dot(ctx,-75,40,46,'rgba(0,0,0,0)','#2A2F3E',7); dot(ctx,85,40,46,'rgba(0,0,0,0)','#2A2F3E',7); ctx.strokeStyle='#C9503C'; ctx.lineWidth=6; ctx.beginPath(); ctx.moveTo(-75,40); ctx.lineTo(-20,-25); ctx.lineTo(60,-25); ctx.lineTo(85,40); ctx.moveTo(-20,-25); ctx.lineTo(10,40); ctx.lineTo(60,-25); ctx.moveTo(10,40); ctx.lineTo(-75,40); ctx.moveTo(60,-25); ctx.lineTo(52,-55); ctx.moveTo(-20,-25); ctx.lineTo(-28,-48); ctx.stroke(); ctx.lineWidth=8; ctx.strokeStyle='#2A2F3E'; ctx.beginPath(); ctx.moveTo(-44,-50); ctx.lineTo(-12,-50); ctx.moveTo(40,-58); ctx.lineTo(68,-58); ctx.stroke(); }
   if(kind==='wc'){ roundRect(ctx,-60,-110,120,220,8); shape(ctx,C.fill,C.line,2); dot(ctx,35,0,7,C.goud); text(ctx,'WC',0,-60,fTekst(34,700),C.text,'center'); }
