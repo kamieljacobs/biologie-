@@ -1527,6 +1527,28 @@ function darmWandBuis(ctx, x0, x1, yc, r, squeeze = () => 0, alpha = 1, lab = nu
   ctx.save(); ctx.globalAlpha *= alpha; ctx.beginPath(); for (let i = 0; i <= 60; i++) { const x = lerp(x0, x1, i / 60); ctx.lineTo(x, yc - r * (1 - 0.62 * clamp(squeeze(x), 0, 1))); } for (let i = 60; i >= 0; i--) { const x = lerp(x0, x1, i / 60); ctx.lineTo(x, yc + r * (1 - 0.62 * clamp(squeeze(x), 0, 1))); } ctx.closePath(); ctx.fillStyle = rgba('#3A2A2A', 0.45); ctx.fill(); ctx.restore();
   darmwand(ctx, x0, x1, yc, r, squeeze, { a: alpha, dikte, t });
   if (lab) { ctx.save(); ctx.globalAlpha *= alpha; metaText(ctx, lab, x0, yc - r - dikte - 18, C.grain, 'left', 28); ctx.restore(); } }
+// v1.1b: symbool per functie van een additief (kleur, smaak, geur, houdbaar)
+function additiefIcoon(ctx, i, x, y, t = 0) { ctx.save(); ctx.translate(x, y); ctx.scale(1.3, 1.3); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (i === 0) { [['#E07A5F', -9, 5], ['#E0B64A', 9, 5], ['#5BA4C9', 0, -9]].forEach(([c, dx, dy]) => { ctx.beginPath(); ctx.arc(dx, dy, 13, 0, 6.283); ctx.fillStyle = rgba(c, 0.8); ctx.fill(); }); }
+  else if (i === 1) { ctx.beginPath(); ctx.moveTo(-14, -12); ctx.lineTo(14, -12); ctx.lineTo(14, 4); ctx.quadraticCurveTo(14, 20, 0, 20); ctx.quadraticCurveTo(-14, 20, -14, 4); ctx.closePath(); shape(ctx, '#E08A8A', '#F2B0A8', 2); ctx.strokeStyle = '#B5574A'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, -8); ctx.lineTo(0, 10); ctx.stroke(); }
+  else if (i === 2) { ctx.strokeStyle = C.text; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-10, -20); ctx.quadraticCurveTo(-4, 0, -16, 12); ctx.quadraticCurveTo(-6, 18, 2, 12); ctx.stroke(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; for (let k = 0; k < 3; k++) { ctx.beginPath(); for (let j = 0; j <= 10; j++) { const u = j / 10; const px = 6 + u * 18, py = -12 + k * 10 + Math.sin(u * 6.283 + t * 3 + k) * 3; j ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); } }
+  else { ctx.strokeStyle = C.text; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(-12, -20); ctx.lineTo(12, -20); ctx.moveTo(-12, 20); ctx.lineTo(12, 20); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-10, -20); ctx.quadraticCurveTo(-10, -4, 0, 0); ctx.quadraticCurveTo(10, -4, 10, -20); ctx.moveTo(-10, 20); ctx.quadraticCurveTo(-10, 4, 0, 0); ctx.quadraticCurveTo(10, 4, 10, 20); ctx.stroke(); ctx.fillStyle = C.goud; ctx.beginPath(); ctx.moveTo(-7, 18); ctx.quadraticCurveTo(0, 8, 7, 18); ctx.closePath(); ctx.fill(); ctx.beginPath(); ctx.moveTo(-5, -14); ctx.lineTo(5, -14); ctx.lineTo(0, -6); ctx.closePath(); ctx.fill(); }
+  ctx.restore(); }
+// v1.1b: darminhoud als brij. Veel vezels: groot, nat, vult de holte; weinig vezels: kleine, droge brokjes
+function darmBrij(ctx, x0, x1, yc, r, sq, o = {}) { const { a = 1, nat = 1, vol = 1, t = 0, schuif = 0, vezels = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const ri = (x) => r * (1 - 0.62 * clamp(sq(x), 0, 1));
+  ctx.save(); ctx.beginPath(); for (let i = 0; i <= 120; i++) { const x = lerp(x0, x1, i / 120); ctx.lineTo(x, yc - ri(x) + 2); } for (let i = 120; i >= 0; i--) { const x = lerp(x0, x1, i / 120); ctx.lineTo(x, yc + ri(x) - 2); } ctx.closePath(); ctx.clip();
+  const kleur = nat > 0.5 ? '#9A8A52' : '#5E4A30', rand = nat > 0.5 ? '#C2B27A' : '#3E2E1E';
+  if (nat > 0.5) { // één samenhangende, natte brij die de holte vult
+    ctx.beginPath(); for (let i = 0; i <= 120; i++) { const x = lerp(x0, x1, i / 120); ctx.lineTo(x, yc - ri(x) * (0.55 + 0.33 * vol) + Math.sin(x * 0.02 + t) * 4); } for (let i = 120; i >= 0; i--) { const x = lerp(x0, x1, i / 120); ctx.lineTo(x, yc + ri(x) * (0.55 + 0.33 * vol) + Math.sin(x * 0.025 - t) * 4); } ctx.closePath(); shape(ctx, rgba(kleur, 0.85), rgba(rand, 0.6), 2);
+    for (let k = 0; k < 26; k++) { const x = x0 + ((schuif + k * 67) % (x1 - x0)), yy = yc + (hash(k + 3) * 2 - 1) * ri(x) * 0.6; ctx.beginPath(); ctx.arc(x, yy, 3 + 3 * hash(k), 0, 6.283); ctx.fillStyle = rgba(C.teal, 0.55 * vol); ctx.fill(); }
+    ctx.fillStyle = rgba('#F2E6C0', 0.18); for (let k = 0; k < 8; k++) { const x = x0 + ((schuif + k * 211) % (x1 - x0)); ctx.beginPath(); ctx.ellipse(x, yc - ri(x) * 0.45, 30, 5, 0, 0, 6.283); ctx.fill(); }
+  } else { // losse, droge brokjes met barstjes
+    for (let k = 0; k < 8; k++) { const x = x0 + ((schuif + k * 210) % (x1 - x0)), rr = ri(x) * (0.55 + 0.15 * hash(k + 1)); ctx.beginPath(); for (let j = 0; j <= 16; j++) { const an = j / 16 * 6.283, w = 1 + 0.12 * Math.sin(an * 3 + k); ctx.lineTo(x + Math.cos(an) * rr * 1.3 * w, yc + Math.sin(an) * rr * w); } ctx.closePath(); shape(ctx, rgba(kleur, 0.95), rgba(rand, 0.9), 1.5);
+      ctx.strokeStyle = rgba('#2A1E14', 0.7); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x - rr * 0.6, yc - rr * 0.2); ctx.lineTo(x - rr * 0.1, yc + rr * 0.1); ctx.lineTo(x + rr * 0.3, yc - rr * 0.3); ctx.stroke(); }
+  }
+  for (let k = 0; k < Math.round(6 * vezels); k++) { const x = x0 + ((schuif * 1.0 + k * 271 + 40) % (x1 - x0)); celluloseBundel(ctx, x, yc + (hash(k + 30) * 2 - 1) * ri(x) * 0.35, 3, 7, { ketens: 2, a: 0.9 }); }
+  ctx.restore(); ctx.restore(); }
 function bigLine(ctx, s, x, y, a = 1, color = C.text, px = 44, align = 'center') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; text(ctx, s, x, y, fTekst(px, 600), color, align); ctx.restore(); }
 
 const SCENES = {
@@ -1748,7 +1770,9 @@ const SCENES = {
     const p = path[9]; ctx.save(); ctx.setLineDash([6, 6]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(p[0], p[1], 24, 0, 6.283); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
     label(ctx, 'het eiwit kan niet af', null, p[0], p[1] - 26, p[0] + 140, 170, stop, C.koraal);
     // bakjes
-    AA_ESS.forEach((k, i) => { const x = 220 + i * 110, y = 640; const lvl = i === 4 ? 0 : 0.35 + 0.6 * hash(i * 5); roundRect(ctx, x - 40, y - 100, 80, 100, 8); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke(); ctx.fillStyle = rgba(V.ew, 0.4); ctx.fillRect(x - 38, y - 2 - 96 * lvl, 76, 96 * lvl); bead(ctx, x, y + 34, 16, k, { ess: true }); if (i === 4) metaText(ctx, 'op', x, y - 112, C.koraal, 'center', 28); });
+    AA_ESS.forEach((k, i) => { const x = 220 + i * 110, y = 640; const lvl = i === 4 ? 0.07 : 0.35 + 0.6 * hash(i * 5); roundRect(ctx, x - 40, y - 100, 80, 100, 8); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke(); ctx.fillStyle = rgba(V.ew, 0.4); ctx.fillRect(x - 38, y - 2 - 96 * lvl, 76, 96 * lvl); bead(ctx, x, y + 34, 16, k, { ess: true }); if (i === 4) metaText(ctx, 'tekort', x, y + 76, C.koraal, 'center', 24); });
+    // v1.1b: een kleine vrije voorraad is er wel; bij een tekort breekt het lichaam eigen (spier)eiwit af
+    const vr = q.on('eiwitvoorraad', 1, 0.8) * (1 - q.on('lever', 1, 0.6)); if (vr > 0.01) { ctx.save(); ctx.globalAlpha *= vr; spierBundel(ctx, 1260, 600, 240, { n: 3, h: 18 }); naamBij(ctx, 'eigen spiereiwit', 'wordt afgebroken bij een tekort', 1380, 700, 1, 'center'); ctx.strokeStyle = C.koraal; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(1235, 590); ctx.quadraticCurveTo(940, 380, 672, 528); ctx.stroke(); ctx.fillStyle = C.koraal; ctx.beginPath(); ctx.moveTo(664, 536); ctx.lineTo(676, 510); ctx.lineTo(690, 528); ctx.closePath(); ctx.fill(); naamBij(ctx, 'geen apart voorraadeiwit', null, 1380, 545, 1, 'center', C.koraal); ctx.restore(); }
     metaText(ctx, 'vrije aminozuren in je cellen (schematisch)', 180, 770, C.grain, 'left', 28);
     // rest gaat naar de lever
     if (lever > 0.01) { ctx.save(); ctx.globalAlpha *= lever; const lx = 1420, ly = 560; leverVoor(ctx, lx, ly - 10, 0.8, { gloed: 0.4 * lever }); naamBij(ctx, 'lever', null, lx - 40, ly - 30, 1, 'center');
@@ -1805,12 +1829,12 @@ const SCENES = {
     darmWandBuis(ctx, 120, 1800, yA, 120, sqA, 1, two > 0.5 ? 'veel vezels' : null, 52, t);
     // inhoud: vezels + water, volume
     const vol = q.on('volume', 1, 1);
-    for (let i = 0; i < 18; i++) { const x = 140 + ((t * 120 * (0.6 + 0.4 * q.on('knijpen')) + i * 95) % 1640); const yy = yA + (hash(i) * 2 - 1) * 70 * (0.5 + 0.5 * vol); if (i % 3 === 0) celluloseBundel(ctx, x, yy, 3, 8, { ketens: 2 }); else waterMol(ctx, x, yy, 7, q.on('water')); }
+    darmBrij(ctx, 120, 1800, yA, 120, sqA, { nat: 1, vol: 0.45 + 0.55 * Math.max(vol, q.on('water')), t, schuif: t * 120 * (0.6 + 0.4 * q.on('knijpen')) });
     naamBij(ctx, 'kringspier', 'knijpt samen achter de inhoud', 980, yA - 220, q.on('spieren') * (1 - two), 'center');
     bigLine(ctx, 'peristaltiek', 1500, yA - 210, q.on('peristaltiek') * (1 - two), C.text, 48);
     if (two > 0.01) { ctx.save(); ctx.globalAlpha *= two; const yB = 700; const sqB = wave(110, 0.35, 400); darmWandBuis(ctx, 120, 1800, yB, 70, sqB, 1, 'weinig vezels', 34, t);
-      for (let i = 0; i < 10; i++) { const x = 140 + ((t * 45 + i * 160) % 1640); celluloseBundel(ctx, x, yB + (hash(i + 9) * 2 - 1) * 18, 2, 7, { ketens: 2 }); }
-      metaText(ctx, 'trager · verstopping', 1800, yB + 120, C.koraal, 'right', 28); ctx.restore(); }
+      darmBrij(ctx, 120, 1800, yB, 70, sqB, { nat: 0, t, schuif: t * 45, vezels: 0.4 });
+      metaText(ctx, 'trager · droger · verstopping', 1800, yB + 120, C.koraal, 'right', 28); metaText(ctx, 'meer volume · meer vocht · sneller door', 1800, yA + 190, C.groen, 'right', 28); ctx.restore(); }
     refCard(ctx, '→ film 6: bacteriën in je dikke darm', 120, 830, q.on('bacteriën') * (1 - 0));
   },
   s26(ctx, t, q) { bg(ctx, 'schema');
@@ -1819,7 +1843,7 @@ const SCENES = {
     const ing = [['water', null], ['suiker', null], ['citroenzuur', 'E330', 'smaak'], ['kleurstof karamel', 'E150d', 'kleur'], ['conserveermiddel', 'E211', 'houdbaar'], ['aroma', null, 'geur']];
     ing.forEach((r, i) => { const y = 280 + i * 66; const isAdd = r.length > 2; const on = isAdd && q.on('additieven') > 0.5; text(ctx, r[0], 160, y, fTekst(36, on ? 600 : 400), on ? C.text : C.text2); if (r[1]) text(ctx, r[1], 980, y, fMeta(30), on ? C.goud : C.text2, 'right'); });
     ctx.restore();
-    const fx = ['kleur', 'smaak', 'geur', 'houdbaar']; fx.forEach((f, i) => { const al = q.on(['kleur', 'smaak', 'geur', 'langer'][i]); bigLine(ctx, f, 1360, 260 + i * 90, al, C.text, 40, 'left'); });
+    const fx = ['kleur', 'smaak', 'geur', 'houdbaar']; fx.forEach((f, i) => { const al = q.on(['kleur', 'smaak', 'geur', 'langer'][i]); if (al <= 0.01) return; const y = 260 + i * 90; ctx.save(); ctx.globalAlpha *= al; additiefIcoon(ctx, i, 1345, y - 13, t); ctx.restore(); bigLine(ctx, f, 1400, y, al, C.text, 40, 'left'); });
     const eu = q.on('getest'); if (eu > 0.01) { ctx.save(); ctx.globalAlpha *= eu; roundRect(ctx, 1300, 640, 520, 110, 14); shape(ctx, rgba(C.groen, 0.12), C.groen, 1.5); text(ctx, 'getest en toegelaten in de EU', 1560, 708, fTekst(36, 600), C.groen, 'center'); ctx.restore(); }
     naamBij(ctx, 'E-nummer', 'of de naam', 1045, 598, q.on('nummer'), 'left');
   },
