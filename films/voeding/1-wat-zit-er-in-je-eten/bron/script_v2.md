@@ -85,7 +85,7 @@ Spieren, ja. Maar ook enzymen, veel hormonen, antistoffen en het hemoglobine in 
 Het eiwit uit de kaas kun je niet zomaar gebruiken. Je knipt het eerst in losse aminozuren.
 Met die aminozuren bouw je je eigen eiwitten.
 
-De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Negen niet.
+De meeste aminozuren kan je lichaam zelf maken. Daarvoor gebruikt het andere stoffen, maar de stikstof komt altijd uit ander eiwit. Negen aminozuren kan je lichaam niet maken.
 Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren.
 Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?
 [VRAAG] (a) je lichaam maakt het ontbrekende aminozuur zelf · (b) eiwitten met die bouwsteen kunnen niet af · (c) je lichaam haalt het uit een speciale eiwitvoorraad

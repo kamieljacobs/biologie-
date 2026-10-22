@@ -237,6 +237,15 @@ const SCENES = {
   s18(ctx, t, q) { bg(ctx, 'micro');
     const m = q.on('meeste'), neg = q.on('Negen', 1, 0.8), ess = q.on('essentiële'), bouw = q.on('bouwt', 1, 1);
     const top = 1 - bouw * 0.6;
+    // v1.1b: zelf maken = koolstofskelet uit de glucoseafbraak + stikstof (aminogroep) van een ander aminozuur
+    const sk = q.on('gebruikt', 1, 0.6) * (1 - q.on('Negen', 1, 0.6)); if (sk > 0.01) { ctx.save(); ctx.globalAlpha *= sk;
+      const hop = ease(clamp((t - q.at('stikstof')) / 1.6, 0, 1)), klaar = ease(clamp((t - q.at('eiwit', 1)) / 0.8, 0, 1)), k1 = clamp(klaar * 2, 0, 1), k2 = clamp(klaar * 2 - 1, 0, 1);
+      ctx.save(); ctx.globalAlpha *= 1 - k1; hexagon(ctx, 1240, 520, 44, V.kh, lighten(V.kh, 0.35)); ctx.restore(); naamBij(ctx, 'skelet uit glucose', 'koolstof', 1240, 620, 1 - k1, 'center');
+      bead(ctx, 1640, 520, 32, 3); naamBij(ctx, 'ander aminozuur', null, 1640, 620, 1, 'center');
+      const nx = lerp(1640, 1262, hop), ny = lerp(484, 492, hop) - Math.sin(hop * Math.PI) * 80; ctx.save(); ctx.globalAlpha *= 1 - k1; ctx.beginPath(); ctx.arc(nx, ny, 17, 0, 6.283); shape(ctx, C.teal, lighten(C.teal, 0.4), 2); text(ctx, 'N', nx, ny + 8, fTekst(24, 800), C.bgMicro, 'center'); ctx.restore();
+      naamBij(ctx, 'stikstof uit ander eiwit', null, 1450, 330, q.on('stikstof', 1, 0.5), 'center', C.teal);
+      if (k2 > 0.01) { bead(ctx, 1240, 520, 32, 8, { alpha: k2 }); naamBij(ctx, 'nieuw aminozuur', null, 1240, 620, k2, 'center'); }
+      ctx.restore(); }
     ctx.save(); ctx.globalAlpha *= top;
     for (let i = 0; i < 20; i++) { const isE = AA_ESS.includes(i); const row = isE ? 0 : 1; const col = isE ? AA_ESS.indexOf(i) : i - AA_ESS.filter(e => e < i).length;
       const x0 = 160 + i * 82, y0 = 220; const x1 = 180 + col * 92 + (row ? 0 : 0), y1 = row ? 520 : 300;

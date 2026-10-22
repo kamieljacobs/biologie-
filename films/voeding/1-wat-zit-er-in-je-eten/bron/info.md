@@ -129,3 +129,10 @@ Gedeelde tekenbibliotheek: `bron/src/lib_bio.js` is een kopie van `bibliotheek/l
 | s23, s25 | buis van twee lijnen, groene bolletjes | darmwand met lagen (`darmwand` via `darmWandBuis`), kringspier knijpt zichtbaar; vezels als `celluloseBundel`; enzymen met een actieve plek die niet past |
 
 Labels in de gewijzigde scènes staan met `naamBij` direct bij het onderdeel (geen wijslijnen).
+
+## Wijziging 22 okt 2026 (avond): s18 opnieuw ingesproken
+
+- Kamiel: 'uit andere stoffen' kan de misvatting geven dat je uit puur glucose aminozuren bouwt. Nieuwe tekst s18: "De meeste aminozuren kan je lichaam zelf maken. Daarvoor gebruikt het andere stoffen, maar de stikstof komt altijd uit ander eiwit. Negen aminozuren kan je lichaam niet maken." (rest gelijk). Roos, eleven_v4, één take (flow `urmsa8zcNa5TFq8SVeBI`, node `SLJ385CutX8kpl2snXzp`, 347 credits); woordtijden via Scribe op die node (0 credits); mastering zoals hieronder; audio `s18.mp3?v=2`, duur 23,8 s.
+- In beeld (s18, bij 'gebruikt' tot 'Negen'): een zeshoek 'skelet uit glucose · koolstof' en een ander aminozuur waarvan een stikstofgroepje (N) overspringt; samen worden ze een nieuw aminozuur ('stikstof uit ander eiwit').
+- Speler (alle films, `scripts/kortantwoord.py`): bij Vragen uit valt het losse antwoordwoord na een vraag weg, hier 'Trager.' (s25), 'Uit eiwitten.' (s09), 'Als vet.' (s14), 'Na vier.' (s29).
+

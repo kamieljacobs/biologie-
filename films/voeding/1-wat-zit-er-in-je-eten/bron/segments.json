@@ -965,12 +965,12 @@
   "look": "Micro kralensnoer; Schema",
   "level": "basis",
   "lines": [
-   "De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Negen niet.",
+   "De meeste aminozuren kan je lichaam zelf maken. Daarvoor gebruikt het andere stoffen, maar de stikstof komt altijd uit ander eiwit. Negen aminozuren kan je lichaam niet maken.",
    "Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren.",
    "Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?"
   ],
-  "display": "De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Negen niet. Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren. Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?",
-  "voice": "De meeste aminozuren kan je lichaam zelf maken uit andere stoffen. Negen niet. Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren. Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?",
+  "display": "De meeste aminozuren kan je lichaam zelf maken. Daarvoor gebruikt het andere stoffen, maar de stikstof komt altijd uit ander eiwit. Negen aminozuren kan je lichaam niet maken. Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren. Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?",
+  "voice": "De meeste aminozuren kan je lichaam zelf maken. Daarvoor gebruikt het andere stoffen, maar de stikstof komt altijd uit ander eiwit. Negen aminozuren kan je lichaam niet maken. Die negen moeten in je voeding zitten. Daarom heten ze essentiële aminozuren. Stel: je bouwt een eiwit, en één essentieel aminozuur is op. Wat gebeurt er dan? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -1014,7 +1014,22 @@
    39,
    40,
    41,
-   42
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57
   ]
  },
  {
