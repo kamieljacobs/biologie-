@@ -9,3 +9,4 @@ Versie 1.0 (22 okt 2026). Extra film buiten het PTA, thema Evolutie, in `HOOFDST
 - Uitspraakwachtlijst: axolotl, blastema, cavitatie, hyaluronzuur, transdifferentiatie, fructose, Mexico-Stad, onderzeebootsonar, veertigduizend (niet blind gecontroleerd).
 - Bronnen per getal: zie docentdeel (sections.html).
 - Nog te doen: filmmedaillon (valt nu terug op de lijntekening in FILMKUNST); deel 2 (uitgestorven dieren).
+- 22 okt 2026: bidsprinkhaankreeft kreeg een kop; ogen, voelsprieten en antenneschub zweefden los vóór het lijf (Kamiels feedback). Regel: elk aanhangsel begint binnen de lijfomtrek.

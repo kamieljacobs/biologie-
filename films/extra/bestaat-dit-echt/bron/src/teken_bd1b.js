@@ -21,11 +21,16 @@ function bidsprinkhaankreeft(ctx, x, y, s = 1, o = {}) { const { t = 0, slag = 0
     ctx.fillStyle = rgba('#000000', 0.12); ctx.fillRect(-210, -62, 420, 30); });
   // zwempootjes
   for (let i = 0; i < 5; i++) { const px = -170 + i * 40; lijn(ctx, [[px, -48], [px - 8 + Math.sin(t * 6 + i) * 4, -30]], _dk(oranje, 0.1), 4); }
-  // antenneschubben en antennes
-  vul(ctx, [[176, -110], [214, -140], [238, -134], [222, -110], [192, -100]], oranje, rood, 2);
-  lijn(ctx, [[184, -112], [240, -152], [300, -160 + Math.sin(t * 2) * 6]], '#E8C9A8', 2.5); lijn(ctx, [[186, -108], [250, -138], [320, -136 + Math.sin(t * 2 + 1) * 6]], '#E8C9A8', 2.5);
-  // steelogen met middenband
-  [[188, -116, 0], [180, -122, 1]].forEach(([ex, ey, i]) => { const ox = ex + 16 - i * 8, oy = ey - 32 + i * 4; lijn(ctx, [[ex, ey], [ox - 2, oy + 12]], groenD, 9); ctx.save(); ctx.translate(ox, oy); ctx.rotate(-0.3 + i * 0.25); ctx.beginPath(); ctx.ellipse(0, 0, 12, 16, 0, 0, 6.283); ctx.fillStyle = i ? '#3A6A8A' : '#5A8AAA'; ctx.fill(); ctx.fillStyle = '#C9B896'; ctx.fillRect(-12, -3, 24, 6); ctx.fillStyle = '#0C1014'; ctx.fillRect(-12, -1, 24, 2); ctx.restore(); });
+  // kop (vooraan de kopborst): hier groeien ogen, voelsprieten en antenneschubben uit
+  const KOP = [[150, -116], [184, -122], [208, -116], [222, -100], [218, -82], [196, -70], [168, -72]];
+  vul(ctx, KOP, groen, groenL, 2.5); binnen(ctx, KOP, () => { for (let i = 0; i < 6; i++) circ(ctx, 160 + hash(i * 4.1) * 50, -112 + hash(i * 2.7) * 34, 3, '#1E3A2C'); });
+  // antenneschub: oranje peddel, vast aan de zijkant van de kop
+  vul(ctx, [[204, -98], [236, -120], [256, -114], [244, -94], [214, -86]], oranje, rood, 2);
+  // voelsprieten: twee paar, beginnen aan de voorkant van de kop
+  const zw = Math.sin(t * 2) * 6; lijn(ctx, [[214, -108], [252, -146], [310, -160 + zw]], '#E8C9A8', 2.5); lijn(ctx, [[216, -104], [262, -132], [326, -134 + zw]], '#E8C9A8', 2.5);
+  lijn(ctx, [[218, -96], [270, -104], [340, -96 - zw * 0.6]], '#E8C9A8', 2); 
+  // steelogen met middenband: stelen staan op de kop
+  [[196, -116, 0], [186, -118, 1]].forEach(([ex, ey, i]) => { const ox = ex + 10 - i * 6, oy = ey - 30 + i * 4; lijn(ctx, [[ex, ey + 6], [ox, oy + 12]], groenD, 10); ctx.save(); ctx.translate(ox, oy); ctx.rotate(-0.2 + i * 0.25); ctx.beginPath(); ctx.ellipse(0, 0, 12, 16, 0, 0, 6.283); ctx.fillStyle = i ? '#3A6A8A' : '#5A8AAA'; ctx.fill(); ctx.fillStyle = '#C9B896'; ctx.fillRect(-12, -3, 24, 6); ctx.fillStyle = '#0C1014'; ctx.fillRect(-12, -1, 24, 2); ctx.restore(); });
   // slagarm: dij (merus) schuin naar voren-onder, knots erop teruggevouwen; bij de slag klapt de knots naar voren
   const sl = ease(slag); ctx.save(); ctx.translate(168, -60); ctx.rotate(0.55);
   roundRect(ctx, -10, -10, 58, 22, 10); ctx.fillStyle = groenD; ctx.fill(); ctx.strokeStyle = groenL; ctx.lineWidth = 2; ctx.stroke();
