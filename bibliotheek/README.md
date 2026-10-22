@@ -22,3 +22,9 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 | `spierVezel`, `spierBundel` | skeletspiervezel met dwarsstrepen en kernen aan de rand | idem |
 | `leverVoor` | lever in vooraanzicht met galblaas | idem |
 | `darmwand`, `enzymKluwen` | darmwand in lagen met peristaltiek; enzym met actieve plek | idem |
+| `echoBeeld` | echo van ± 20 weken in de waaiervorm: profiel, schedel, wervelkolom, armpje, kloppend hart (oplichten per deel) | Sekse, gender en diversiteit 1.1 |
+| `embryoEcht` | embryo van ± 6 weken (Carnegie 15–17): kieuwbogen, oog, hartbult, arm- en beenknop, somieten, staartje, aanleg geslachtsklier | idem |
+| `zaadbalDoorsnede` | zaadbal met kapsel, tussenschotten, zaadbuisjes (wand met zaadcellen in wording, staartjes) en Leydigcellen | idem |
+| `nierBijnier` | nier met schors, piramides, bekken, vaten en urineleider; bijnier als kapje met schors en merg | idem |
+| `kipEcht`, `zeeschildpad`, `schildpadNest`, `krokodilEcht` | leghen, onechte karetschildpad (bovenaanzicht) met nest, nijlkrokodil (zijaanzicht) | idem |
+

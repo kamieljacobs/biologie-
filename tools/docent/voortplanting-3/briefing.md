@@ -211,7 +211,7 @@ Bronnen: [Frontiers in Endocrinology: human sex development (2022)](https://www.
 
 **Complete androgeen-ongevoeligheid.** 1 op 20.000–64.000. XY en zaadballen, maar de receptor voor testosteron werkt niet. Uiterlijk vrouwelijk, en geen baarmoeder, want AMH werkt wel.
 
-**AGS (21-hydroxylasedeficiëntie).** De bijnier maakt te weinig cortisol en te veel mannelijke hormonen. Bij XX-meisjes vermannelijken de uitwendige geslachtsorganen. Bij de zoutverliezende vorm is er levensgevaarlijke uitdroging. AGS zit sinds 2002 in de hielprik. Volgens het RIVM worden er ± 15–20 kinderen per jaar met AGS geboren (± 1 op 17.000); de film zegt 10–15.
+**AGS (21-hydroxylasedeficiëntie).** De bijnier maakt te weinig cortisol en te veel mannelijke hormonen. Bij XX-meisjes vermannelijken de uitwendige geslachtsorganen. Bij de zoutverliezende vorm is er levensgevaarlijke uitdroging. AGS zit sinds 2002 in de hielprik. Volgens de factsheet van het RIVM-bevolkingsonderzoek (PNS, mei 2026) worden er ongeveer 10–15 kinderen per jaar met AGS geboren, hetzelfde getal als in de film.
 
 **DSD** (differences/disorders of sex development) is de medische overkoepelende term. Intersekse is de term die veel mensen zelf gebruiken. Hoe vaak het voorkomt, hangt sterk af van wat je meetelt:
 - onduidelijk geslacht bij de geboorte: ± 1 op 4500;

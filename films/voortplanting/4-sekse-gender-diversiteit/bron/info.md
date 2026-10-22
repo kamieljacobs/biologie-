@@ -5,11 +5,12 @@
 | Bestand | films/voortplanting/4-sekse-gender-diversiteit.html (audio in films/voortplanting/4-sekse-gender-diversiteit/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: Nectar 4.1 H4 vwo, Biologie voor jou havo thema Voortplanting), film 4 |
 | Niveau | havo + vwo; vwo-blok s05 (SRY → SOX9-cascade, uitwisseling X–Y, XX-man, XY zonder werkend SRY) |
-| Versie / datum | 1.0 · 16 oktober 2026 |
+| Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: uitwendige geslachtsorganen blijven een woordschema |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow WnjDPUgOaw8w8lH9l0PM; film-eigen respellings in `uitspraak_film.json` (XX → iks-iks, XY → iks-ei, SRY → es-er-ei, SOX9 → soks-negen, Z/W → zet/wee, Klinefelter → Klainfelter, Turner → Törner, AGS → aa-gee-es, DSD → dee-es-dee, clownvissen → Klaunvissen), zie `uitspraak.md` |
 | Duur | spraak 7:23 (vwo) / 6:29 (havo); speeltijd met kaarten en vragen ± 8,5 min (vwo) / ± 7,5 min (havo) |
 | Beeldstijl | Part C: Schema. Kleurafspraak: zaadbal-route teal, eierstok-route koraal, aanleg oker, SRY goud |
-| Personages | Noor en Dr. Kim (castboek) in de cold open; Sam en Noor bij de puberteit |
+| Personages | Noor, tante Petra (zwanger, 20 weken) en Dr. Kim (castboek) in de cold open; Sam en Noor bij de puberteit; de baby uit het castboek bij de hielprik |
 | Audio-opslag | 8 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s11, s12) |
 | Herkomst | Hoofdengine, werkmap `hw/vp4`; gebouwd met Claude op verzoek van Kamiel (geplande film 'Sekse, gender en diversiteit') |
 
@@ -59,6 +60,7 @@ Werkmap opzetten: kopieer `bron/` naar `hw/vp4` (scenes.js uit `src/`, `words/` 
 - Opname: de eerste ronde stopte halverwege op het ElevenLabs-tegoed; s04, s08, s11 en s12 zijn later in dezelfde flow opnieuw ingesproken (nieuwe nodes, zie `stem/takes.json`).
 
 ## Wijzigingen
+- 1.1 (22 okt 2026): tekeningen opgewaardeerd naar prompt v8, zie hieronder.
 - 1.0 (16 okt 2026): eerste versie. Script na eigen review (zie `reviews/review_v1.md`).
 
 
@@ -79,3 +81,20 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | Segment | TTS-node | Generatie | Credits | Duur |
 |---|---|---|---|---|
 | s08 | G5EpINWhFNu0WQHH0yn2 | pIozUZLdCWDTtHwDH1ce | 1639 | 105.01 s |
+
+
+## Opwaardering naar prompt v8 (22 okt 2026, versie 1.1)
+
+Alle 13 voorstellen van het verbeterblad (claude.ai-artifact 'Verbeterblad prompt v8', id's `vp4-1` t/m `vp4-13`) uitgevoerd; Kamiel: "je mag". Stem, script, vragen en woordtijden ongewijzigd.
+
+- **Bibliotheek:** `bron/src/lib_bio.js` (kopie van `bibliotheek/lib_bio.js`) en de actuele `lib_cast.js` (met tante Petra) staan in de pagina na de castbibliotheek; `bouw/build.py` plakt lib_bio.js mee. Nieuw in de bibliotheek (eerst hier gebruikt): `echoBeeld`, `embryoEcht`, `zaadbalDoorsnede`, `nierBijnier`, `kipEcht`, `zeeschildpad` + `schildpadNest`, `krokodilEcht` (testvel vel 3).
+- **s01:** tante Petra (castboek, `zwanger: 0.45`) in beeld; echt echobeeld van 20 weken (profiel, wervelkolom, armpje, kloppend hart; licht op bij 'hoofdje', 'armpjes', 'hartje'); embryo van ± 6 weken met de aanleg op zijn echte plek.
+- **s04:** `klier()` tekent nu echt weefsel (aanleg = oker lijst, zaadbal = zaadbuisjes, eierstok = follikels); `embryo()` = `embryoEcht`; het startsein met `hoofdHersenen` (hypothalamus, hypofyse) en hormonen door twee bloedvaten naar de klieren (het oude `hoofdProfiel` wordt niet meer gebruikt).
+- **s05 (vwo):** SRY-eiwit vouwt (`eiwitVouw`) en gaat op het DNA vóór het SOX9-gen zitten (`dnaStuk`), dat oplicht; X en Y leggen hun topjes naast elkaar, een overkruising, en de SRY-band schuift naar de X.
+- **s08:** androgeen-ongevoeligheid inhoudelijk rechtgezet in beeld: ronde cel (`celRond`), testosteron gaat door het membraan, de receptor zit in het cytoplasma en past niet (kruis); AGS met `nierBijnier` (schors licht op) en de baby uit het castboek met een druppeltje bij de hiel.
+- **s09, s12:** kip, zeeschildpad met nest en krokodil naar foto (bibliotheek).
+- **s11:** de geslachtsklier van de clownvis gaat over van zaadbuisjes naar follikels.
+- **Eindkaart:** `drawEnd` breekt te lange regels af (marker `ENDWRAP v1.1`), ook in `bron/src/player.js`.
+- **Niet nodig:** AGS-getal (± 10–15 per jaar) klopt met de PNS-factsheet van mei 2026; in plaats daarvan is Les 3 (`tools/docent/voortplanting-3`) gelijkgetrokken.
+- Inbouwen in de HTML zonder volledige herbouw: castbibliotheek + lib_bio.js vervangen het blok vanaf `// ===== Vaste personages`, `scenes.js` het scènesblok, `drawEnd` uit player.js (script `splice4.py`-werkwijze: vervang de blokken tussen die kopregels en de volgende `</script>`).
+- Gecontroleerd: alle segmenten zonder JS-fouten (Playwright), havo en vwo met Vragen uit (geen vraagitems), `spelerfix --check` en `kortantwoord --check` in orde.
