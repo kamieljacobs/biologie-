@@ -133,6 +133,7 @@ function card(ctx, x, y, w, h, title, body, alpha=1, accent=C.goud){
   ctx.restore();
 }
 function wrap(ctx, s, x, y, maxW, lh){ const words=s.split(' '); let line=''; for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW&&line){ ctx.fillText(line,x,y); y+=lh; line=w; } else line=test; } if(line) ctx.fillText(line,x,y); return y; }
+function circ(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke();} } // nodig voor lib_cast.js (22 okt 2026)
 function human(ctx,x,y,h,alpha=1,color=C.mens){ // simple flat figure with a plain face (Part C)
   ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=color; const u=h/8;
   ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();

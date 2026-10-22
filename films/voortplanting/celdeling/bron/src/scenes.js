@@ -60,6 +60,15 @@ function vpBladluis(ctx,cx,cy,j,t){ vpLuis(ctx,cx+40,cy-60,1.7,t);
   [[cx-110,cy+90],[cx-10,cy+130],[cx+100,cy+100]].forEach(([x,y],i)=>{ const a=clamp(j*3-i,0,1); if(a>0){ ctx.save(); ctx.globalAlpha*=a; vpLuis(ctx,x,y,0.55+0.25*a,t+i); ctx.restore(); } });
 }
 
+let BODY={cx:0,yb:0,h:1}; // voor lib_anatomie
+// kijkje in de buik van een castpersonage: voortplantingsorganen uit lib_anatomie op de juiste plek (22 okt 2026)
+function kijkjeRepro(ctx,id,x,y,h,a){ if(a<=0.01) return; const P=CAST[id]; const H=h*(P.lengte||1), hh=H/(P.kop||6.1), top=y-H;
+  const man=id==='rachid'; const wy=top+hh*(man?3.62:3.2), wx=hh*(man?0.8:0.85), wyR=hh*(man?0.6:0.7);
+  ctx.save(); ctx.globalAlpha*=a; ctx.beginPath(); ctx.ellipse(x,wy,wx,wyR,0,0,6.283); ctx.fillStyle=rgba(C.bgMicro,0.88); ctx.fill(); ctx.strokeStyle=rgba(C.goud,0.85); ctx.lineWidth=3; ctx.stroke(); ctx.clip();
+  const HA=hh*(man?3.2:2.4); BODY={cx:x, yb:0, h:HA*AN_H}; BODY.yb=(man? wy-0.08*hh-4.1*HA : wy-3.66*HA)+BODY.h;
+  if(man) testes(1,1); else anRepro(1,1);
+  ctx.restore(); return {x,y:wy,rx:wx}; }
+
 const SCENES = {
 // ---------- Cold open ----------
 s01(ctx,t,q){
@@ -68,7 +77,7 @@ s01(ctx,t,q){
   const g=clamp((t-q.at('Nu'))/2.2,0,1)*6; // one cell until 'Nu besta', then 1 -> 64
   cellSwarm(ctx,600,470,g,180,1-human1);
   if(t<q.at('bevruchte')+2) pill(ctx,600,820,'een bevruchte eicel',C.grain,fadeIO(t,q.at('bevruchte'),q.at('Nu'),0.4),26);
-  if(human1>0){ ctx.save(); ctx.globalAlpha=human1; human(ctx,600,830,600,1,C.mens); ctx.restore(); pill(ctx,600,170,'± 37 biljoen cellen',C.goud,human1*(1-ramp(t,q.at('Elke',2),0.4)),32); }
+  if(human1>0){ ctx.save(); ctx.globalAlpha=human1; persoon(ctx,'noor',600,830,600,{uit:'blij',t}); ctx.restore(); pill(ctx,600,170,'± 37 biljoen cellen',C.goud,human1*(1-ramp(t,q.at('Elke',2),0.4)),32); }
   // zoom into one cell: nucleus with a long thread of DNA
   const z=ramp(t,q.at('bijna'),0.7);
   zoomCircle(ctx,1360,440,300,640,520,'één cel, één kern',z,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1060,140,600,600); ctx.save(); ctx.globalAlpha=0.6; grain(ctx); ctx.restore();
@@ -350,8 +359,12 @@ s22(ctx,t,q){
   micro(ctx);
   const cellA=ramp(t,q.at('meiose',3),0.6); // 'In meiose I'
   const intro=1-cellA;
-  if(intro>0){ ctx.save(); ctx.globalAlpha=intro; human(ctx,560,830,560,1,C.mens);
-    const org=ramp(t,q.at('teelballen'),0.4); if(org>0){ ctx.save(); ctx.globalAlpha*=org; ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(560,600,46,0,6.2832); ctx.stroke(); ctx.restore(); naamBij(ctx,'teelballen / eierstokken','hier vindt meiose plaats',690,620,org,'left',C.goud); }
+  if(intro>0){ ctx.save(); ctx.globalAlpha=intro;
+    // Rachid en Linda (ouders van Noor, vaste rollen): een kijkje in de buik toont teelballen en eierstokken (22 okt 2026)
+    const org=ramp(t,q.at('teelballen'),0.4), ov=ramp(t,q.at('eierstokken'),0.4);
+    persoon(ctx,'rachid',420,830,560,{uit:'neutraal',kijk:1,t}); persoon(ctx,'linda',690,830,540,{uit:'neutraal',kijk:-1,t});
+    const wR=kijkjeRepro(ctx,'rachid',420,830,560,org), wL=kijkjeRepro(ctx,'linda',690,830,540,ov);
+    if(wR) pill(ctx,wR.x-wR.rx-105,wR.y+10,'teelballen',C.goud,org,24); if(wL) pill(ctx,wL.x+wL.rx+110,wL.y+10,'eierstokken',C.goud,ov,24);
     pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,org,28);
     pill(ctx,1240,420,'reductiedeling: 46 → 23',C.goud,ramp(t,q.at('reductiedeling'),0.4),28);
     pill(ctx,1240,540,'twee delingen, één keer kopiëren',C.text,ramp(t,q.at('delingen'),0.4),28); ctx.restore(); }

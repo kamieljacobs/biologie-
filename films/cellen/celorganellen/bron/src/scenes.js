@@ -4,13 +4,15 @@
 
 const L0 = cellLayout();
 
-function human(ctx,x,y,h,alpha=1,color=C.mens){ // simple flat figure with a plain face (Part C)
-  ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=color; const u=h/8;
-  ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();
-  roundRect(ctx,x-u*1.3,y-h+u*2.1,u*2.6,u*3.6,u*0.8); ctx.fill();
-  roundRect(ctx,x-u*1.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill(); roundRect(ctx,x+u*0.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill();
-  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x-u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.arc(x+u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.fill();
-  ctx.strokeStyle=C.bgSchema; ctx.lineWidth=u*0.08; ctx.beginPath(); ctx.arc(x,y-h+u*1.1,u*0.3,0.3,2.84); ctx.stroke();
+// Mensen = vaste personages uit het castboek (lib_cast.js), lichaam met organen = lib_anatomie.js (22 okt 2026; vervangt het grijze poppetje)
+let BODY={cx:960,yb:880,h:700}; // wordt per beeld op het personage gezet (s01)
+function boterham(ctx,x,y,ang,s=1){ // sneetje bruin brood met een hap eruit, in de hand
+  if(s<=0.01) return; ctx.save(); ctx.translate(x,y); ctx.rotate(ang-0.35); ctx.scale(s,s);
+  const P=()=>{ ctx.beginPath(); ctx.moveTo(-34,40); ctx.lineTo(-36,-8); ctx.bezierCurveTo(-52,-26,-40,-56,-14,-52); ctx.bezierCurveTo(-6,-60,4,-60,10,-54);
+    ctx.quadraticCurveTo(12,-38,25,-32); ctx.quadraticCurveTo(26,-16,38,-10); ctx.lineTo(34,40); ctx.closePath(); };
+  P(); ctx.fillStyle='#9A6232'; ctx.fill();
+  ctx.save(); ctx.translate(0,3); ctx.scale(0.84,0.86); P(); ctx.fillStyle='#E2B676'; ctx.fill(); ctx.restore();
+  ctx.globalAlpha*=0.5; ctx.fillStyle='#C98F4E'; for(let k=0;k<9;k++){ ctx.beginPath(); ctx.arc(-24+hash(k+40)*40,-30+hash(k+60)*58,1.8,0,6.283); ctx.fill(); }
   ctx.restore();
 }
 function particleFlow(ctx, path, n, t, speed, color, r=5, seedOff=0, alpha=1){ // particles along polyline path [[x,y],...] looping
@@ -34,24 +36,39 @@ const SCENES = {
 s01(ctx,t,q,st){
   bg(ctx,'schema');
   const a1=q.on('boterham',1,0.5), a2=q.on('klier',1), a3=q.on('kliercellen',1), a4=q.on('binnenin',1);
-  // boterham
-  ctx.save(); ctx.globalAlpha=a1*(1-ramp(t,q.at('klier')+1.5,1)); roundRect(ctx,300,420,260,200,40); shape(ctx,C.oker,lighten(C.oker,0.3),1.5); roundRect(ctx,330,450,200,140,24); ctx.fillStyle=lighten(C.oker,0.25); ctx.fill(); ctx.restore();
-  // human with pancreas marked
-  const hx=960, hy=860; human(ctx,hx,hy,640,a2);
-  if(a2>0){ ctx.save(); ctx.globalAlpha=a2; // stomach + pancreas
-    ctx.fillStyle=rgba(C.koraal,0.5); blob(ctx,hx-10,hy-350,52,38,0.05,3); ctx.fill();
-    ctx.fillStyle=C.goud; blob(ctx,hx+30,hy-300,70,22,0.08,7); ctx.fill(); ctx.strokeStyle=lighten(C.goud,0.3); ctx.lineWidth=1.5; ctx.stroke();
-    label(ctx,'alvleesklier','ruim een liter sap per dag',hx+30,hy-300,hx-200,hy-420,a2*(1-ramp(t,q.at('kliercellen'),0.5))); ctx.restore(); }
+  // Noor (jij) eet een boterham; bij 'klier' opent een doorkijkje in haar buik (organen uit lib_anatomie.js op hun echte plek)
+  const tK=q.at('klier'), win=ramp(t,tK-0.2,0.8), aMaag=ramp(t,q.at('maag'),0.5), aAlv=q.on('alvleesklier',1,0.5);
+  const hx=960, hy=880, z0=ramp(t,q.at('kliercellen'),0.8);
+  const r=persoon(ctx,'noor',hx,hy,700,{a:Math.max(0.02,ramp(t,0,0.4)),pose:'vasthouden',uit:'blij',hold:(c,x,y,an)=>boterham(c,x,y,an,1.1)});
+  // anatomie-lichaam passend op Noors romp: schouders (1,36 hoofdhoogte) en heup (3,98)
+  // organen iets groter dan Noors romp-maat (getekend lijf is breder dan echt), midden van de buik op 3,05 hoofdhoogte
+  const yS=r.hoofd.y+r.hoofd.r*1.75, yH=r.heup.y, HHn=1.3*(yH-yS)/(3.98-1.36), yM=lerp(yS,yH,0.62);
+  BODY={cx:r.heup.x, yb:yM-3.05*HHn+AN_H*HHn, h:AN_H*HHn};
+  const [wx,wy]=AP(0.04,3.05), wr=0.78*HHn;
+  if(win>0.01){ ctx.save(); ctx.globalAlpha*=win;
+    ctx.save(); ctx.beginPath(); ctx.ellipse(wx,wy,wr*win,wr*1.05*win,0,0,6.283); ctx.clip();
+    ctx.fillStyle=ANA.huidS; ctx.fillRect(wx-wr*1.2,wy-wr*1.2,wr*2.4,wr*2.4); anCavity(0.9);
+    anDigest(0.55*(1-0.4*aAlv),t);
+    ctx.save(); ctx.globalAlpha*=0.4+0.6*aMaag; anShape(AN_MAAG,ANA.maag,ANA.maagS,2,true,0.6*aMaag*(1-aAlv)); ctx.restore();
+    const g=aAlv*(0.8+0.2*Math.sin(t*3)); pancreas(Math.max(0.35,aAlv),g); if(aAlv>0) pancreas(aAlv*0.5,g);
+    ctx.restore();
+    ctx.beginPath(); ctx.ellipse(wx,wy,wr*win,wr*1.05*win,0,0,6.283); ctx.strokeStyle=rgba(C.goud,0.8); ctx.lineWidth=2.5; ctx.stroke();
+    ctx.restore(); }
+  const [px,py]=AP(0.22,2.99);
+  // namen links naast Noor (rechts houdt ze de boterham; daar komt straks de zoomcirkel)
+  const xl=Math.min(wx-wr,(r.handL?r.handL.x:wx-wr))-46;
+  naamBij(ctx,'maag','',xl,AP(0,2.72)[1]+12,aMaag*(1-aAlv)*win,'right');
+  naamBij(ctx,'alvleesklier','ruim een liter sap per dag',xl,py+4,aAlv*(1-ramp(t,q.at('kliercellen'),0.5)),'right');
   // zoom circle to a gland cell releasing enzymes
-  const z=ramp(t,q.at('kliercellen'),0.8);
-  zoomCircle(ctx,1430,440,230,hx+60,hy-300,'één kliercel',z,()=>{
+  const z=z0;
+  zoomCircle(ctx,1600,440,230,px,py,'één kliercel',z,()=>{ ctx.translate(170,0); // cirkel rechts van de boterham
     ctx.fillStyle=C.bgMicro; ctx.fillRect(1200,210,460,460); ctx.save(); ctx.globalAlpha=0.6; grain(ctx); ctx.restore();
     const Lc={cx:1430,cy:450,rx:170,ry:160}; membrane(ctx,Lc.cx,Lc.cy,Lc.rx,Lc.ry,C.er,0.04,2,t);
     nucleus(ctx,1370,450,55,1,t); roughER(ctx,1470,380,120,2); golgi(ctx,1500,490,80);
     // vesicles leaving at the right side ("naar buiten")
     const out=ramp(t,q.at('binnenin'),0.5); for(let k=0;k<8;k++){ const u=((t*0.25+hash(k+300))%1); const x=lerp(1500,1650,u), y=470+ (hash(k)*2-1)*40; vesicle(ctx,x,y,8,out*(u<0.85?1:(1-u)/0.15)); }
   });
-  if(z>0) label(ctx,'enzymen','naar buiten, netjes verpakt',1640,470,1700,330,ramp(t,q.at('netjes'),0.6));
+  if(z>0) naamBij(ctx,'enzymen','naar buiten, netjes verpakt',1880,172,ramp(t,q.at('netjes'),0.6),'right'); // boven de cirkel, niet over het golgisysteem
   scaleBar(ctx,'vereenvoudigd');
 },
 // ---------- H1: levenskenmerken, bacterie vs eukaryoot ----------

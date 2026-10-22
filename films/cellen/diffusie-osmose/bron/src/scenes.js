@@ -582,8 +582,30 @@ s33(ctx,t,q){
     ctx.restore(); }
   if(boat>0){ ctx.save(); ctx.globalAlpha=boat; bg(ctx,'macro');
     ctx.fillStyle='#24456E'; ctx.fillRect(0,560,W,340); for(let k=0;k<7;k++){ ctx.strokeStyle=rgba(C.teal,0.5); ctx.lineWidth=3; ctx.beginPath(); for(let x=0;x<=W;x+=20){ const y=600+k*40+Math.sin(x/90+t*1.5+k)*8; x?ctx.lineTo(x,y):ctx.moveTo(x,y); } ctx.stroke(); }
-    const by=560+Math.sin(t*1.3)*6; ctx.beginPath(); ctx.moveTo(760,by); ctx.lineTo(1160,by); ctx.lineTo(1100,by+70); ctx.lineTo(820,by+70); ctx.closePath(); shape(ctx,C.bruin,lighten(C.bruin,0.3),2);
-    human(ctx,960,by+4,260,1,C.mens);
+    // zon (warm, je hebt dorst)
+    { const sg=ctx.createRadialGradient(1560,190,10,1560,190,170); sg.addColorStop(0,'rgba(255,214,120,0.95)'); sg.addColorStop(0.35,'rgba(240,180,80,0.55)'); sg.addColorStop(1,'rgba(240,180,80,0)'); ctx.fillStyle=sg; ctx.fillRect(1380,10,360,360); ctx.fillStyle='#F7D27A'; ctx.beginPath(); ctx.arc(1560,190,52,0,6.283); ctx.fill(); }
+    // bootje met Noor ('jij'), deint mee op de golven
+    const by=566+Math.sin(t*1.3)*6, rot=Math.sin(t*1.3+0.8)*0.018; ctx.save(); ctx.translate(960,by); ctx.rotate(rot); ctx.translate(-960,-by);
+    const hout=C.bruin, houtD=_donker(hout,0.25), houtL=lighten(hout,0.18);
+    // binnenkant (verre rand) achter Noor
+    ctx.beginPath(); ctx.moveTo(740,by-6); ctx.quadraticCurveTo(960,by-34,1180,by-6); ctx.lineTo(1180,by+6); ctx.quadraticCurveTo(960,by-14,740,by+6); ctx.closePath(); ctx.fillStyle=houtD; ctx.fill();
+    ctx.beginPath(); ctx.moveTo(748,by); ctx.quadraticCurveTo(960,by-22,1172,by); ctx.lineTo(1150,by+30); ctx.lineTo(770,by+30); ctx.closePath(); ctx.fillStyle=_donker(hout,0.45); ctx.fill();
+    // Noor zit in het bootje: alles onder de rand valt weg
+    const ux=ramp(t,q.at('dorst'),0.6), uz=ramp(t,q.at('zeewater'),0.6), ud=ramp(t,q.at('denk'),0.5);
+    const uit= ud>0.5 ? 'denkt' : uz>0.5 ? 'bezorgd' : ux>0.5 ? 'moe' : 'neutraal';
+    ctx.save(); ctx.beginPath(); ctx.rect(600,0,720,by+12); ctx.clip();
+    persoon(ctx,'noor',960,by+174,400,{ outfit:'zomer', uit, t });
+    ctx.restore();
+    // riem schuin over de rand
+    ctx.strokeStyle=houtL; ctx.lineWidth=9; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(1120,by-40); ctx.lineTo(1290,by+70); ctx.stroke(); ctx.fillStyle=houtL; ctx.beginPath(); ctx.ellipse(1300,by+78,30,11,0.58,0,6.283); ctx.fill();
+    // romp (voorkant) met planken
+    ctx.beginPath(); ctx.moveTo(730,by); ctx.quadraticCurveTo(960,by+14,1190,by); ctx.quadraticCurveTo(1150,by+92,1080,by+100); ctx.lineTo(840,by+100); ctx.quadraticCurveTo(770,by+92,730,by); ctx.closePath(); ctx.fillStyle=hout; ctx.fill();
+    ctx.save(); ctx.clip(); ctx.strokeStyle=houtD; ctx.lineWidth=2.5; for(let k=1;k<4;k++){ const yy=by+k*25; ctx.beginPath(); ctx.moveTo(700,yy); ctx.quadraticCurveTo(960,yy+10,1220,yy); ctx.stroke(); }
+      ctx.fillStyle='rgba(0,0,0,0.18)'; ctx.fillRect(700,by+70,520,40); ctx.restore();
+    ctx.strokeStyle=houtL; ctx.lineWidth=7; ctx.beginPath(); ctx.moveTo(730,by); ctx.quadraticCurveTo(960,by+14,1190,by); ctx.stroke();
+    ctx.restore();
+    // golfjes vóór de boot
+    ctx.strokeStyle=rgba(C.teal,0.55); ctx.lineWidth=3; ctx.beginPath(); for(let x=700;x<=1220;x+=16){ const y=by+92+Math.sin(x/60+t*2)*5; x>700?ctx.lineTo(x,y):ctx.moveTo(x,y); } ctx.stroke();
     const zt=ramp(t,q.at('dorst'),0.5); if(zt>0) pill(ctx,960,170,'dorst, en overal zeewater',C.text,zt*(1-ramp(t,q.at('zeewater'),0.4)),30);
     const zw=ramp(t,q.at('zeewater'),0.5); if(zw>0) pill(ctx,960,170,'mag je zeewater drinken?',C.goud,zw,30);
     ctx.restore(); }

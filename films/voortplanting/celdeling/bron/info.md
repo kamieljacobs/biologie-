@@ -135,3 +135,11 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 ## Wijziging 16 okt 2026
 
 Versie 1.3: ongeslachtelijke en geslachtelijke voortplanting toegevoegd (Kamiel: hangt samen met mitose en meiose). Nieuwe segmenten v01 (na s20) en v02 (na s26) met eigen scènes (Schema), zie 'Voortplanting (v01, v02)'. Ingeplakt in de gepubliceerde film (speler, teller, licentie en namen-zonder-wijslijnen blijven), `src/scenes.js` en `src/page.html` (docenttabel, leerdoel 5b, versie) bijgewerkt, begrippen in `GLOSSARY` van de film. Duur op de site 12 → 13 min.
+
+## Wijziging 21 okt 2026 (versie 1.3.1): castpersonages in plaats van grijze poppetjes
+
+- s01 (cold open, '± 37 biljoen cellen'): het grijze poppetje is nu **Noor** (jij, bovenbouw; `persoon(ctx,'noor',…,{uit:'blij'})`).
+- s22 (meiose, intro tot 'In meiose I'): het grijze poppetje met goud cirkeltje is nu het ouderpaar **Rachid** (links) en **Linda** (rechts), vaste rollen uit `personages/ROLLEN.md`. Bij 'teelballen' en 'eierstokken' gaat bij elk een 'kijkje in de buik' open (donker venster met gouden rand) met de organen uit `lib_anatomie.js` (`testes`, `anRepro`, met gloed) en een label 'teelballen' / 'eierstokken' ernaast (vervangt het label 'teelballen / eierstokken · hier vindt meiose plaats'). Hulpfunctie `kijkjeRepro()` + `let BODY` bovenin `src/scenes.js`.
+- Nieuw in `src/`: kopieën van `lib_cast.js` en `lib_anatomie.js` (in `bouw/build.py` vóór `scenes_lib.js` in het scèneblok). De oude `human()` is uit `src/scenes_lib.js` gehaald (`lib_anatomie.js` heeft een `human()` die naar het castboek doorverwijst).
+- Ingeplakt in de gepubliceerde `index.html` door het scèneblok exact te vervangen (speler, teller, licentie, flipkaarten blijven). Audio, timing, tekst en ondertitels ongewijzigd.
+- Let op: `src/page.html` is leeg (0 bytes), dus `bouw/build.py` kan de film nu niet herbouwen; blijf het scèneblok in `index.html` vervangen.

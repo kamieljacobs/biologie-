@@ -76,10 +76,11 @@ Op de pagina zelf: tabel "Hoe de film het uitlegt", de natuurkundige uitleg van 
 | 165 | Footer met credits en versie |
 | 166 | `window.FILMDATA` (segmenten, woordtijden, vragen, antwoorden) |
 | 167 | Part C-tokens (`const C`) en reeksbibliotheek (lib.js); `bg()` zonder korrel; `metaText()` minimaal 26 px |
-| 375 | Filmhelpers (scenes_lib.js); `sim()` 383; gebogen membraan (`MEM_R`, `mY`, `mA`, `opMem`, `bilayerH`, `bilayerV`, `boogH`, `boogV`) 425; `fosfolipide()` 444; `atp()` (molecuul, fosfaat springt eraf) 488 |
-| 546 | `const SCENES`; s01 548, s04 577, s05 608, s06 624, s08 637, s09 648, s11 669, s12 705, s14 741, s15 771, s17 794, s18 806, s20 819, s21 842 (porie), s22 883 (U-buis + deeltjes tellen), s23 920, s25 956, s27 967, s28 981, s29 1003, s31 1020, s32 1039 (Na/K-pomp), s33 1083, s35 1105 |
-| 1126 | Begrippenlijst (`GLOSSARY`) |
-| 1155 | Speler (eindkaart in `drawEnd`) |
+| 371 | Castboek `lib_cast.js` (`persoon()`, sinds 22 okt 2026) |
+| 963 | Filmhelpers (scenes_lib.js); `sim()` 976; `fosfolipide()` 1037; `atp()` (molecuul, fosfaat springt eraf) 1081; `circ()` 1098 (nodig voor lib_cast.js) |
+| 1140 | `const SCENES`; s01 1142, s04 1171, s05 1202, s06 1218, s08 1231, s09 1242, s11 1263, s12 1299, s14 1335, s15 1365, s17 1388, s18 1400, s20 1413, s21 1436 (porie), s22 1477 (U-buis + deeltjes tellen), s23 1514, s25 1550, s27 1561, s28 1575, s29 1597, s31 1614, s32 1633 (Na/K-pomp), s33 1677 (bootje met Noor), s35 1721 |
+| 1742 | Begrippenlijst (`GLOSSARY`) |
+| ±1770 | Speler (eindkaart in `drawEnd` 1855) |
 
 Pas nooit `index.html` direct aan: wijzig de bron in `src/` en bouw opnieuw.
 
@@ -154,3 +155,12 @@ Aanleiding: redactiereview (blokkerende en belangrijke punten B1–B4, K1–K9).
 **Niet aangepast** (KLEIN uit de review): afbreekpunten van ondertitels, "even zout als je bloed" (s28; tekst vraagt nieuwe opname), H⁺-pomp-bijzin bij wortelhaar, "Voor vwo" in s15/s32 (speler knipt het weg), titel van de film, Google Fonts lokaal (bewust zo gelaten, zoals de rest van de site).
 
 - 16 okt 2026: credits voor de broer op eindkaart en in footer weer weggehaald op verzoek van Kamiel (voorlopig; ze werken samen).
+
+## Wijziging 22 okt 2026: castpersonage in het bootje (beeld)
+
+Kamiel (20 okt 2026): geen grijze plaatsvervanger-poppetjes meer. In s33 (Recap, 'Je zit in een bootje op zee en je hebt dorst') zat het grijze `human()`-figuurtje in de boot. Nu zit **Noor** ('jij' in de bovenbouw, ROLLEN.md) in de boot, outfit `zomer`, van de heupen omhoog boven de rand (alles onder de rand weggeknipt). Uitdrukking volgt de stem: neutraal → `moe` bij 'dorst' → `bezorgd` bij 'zeewater' → `denkt` bij 'denk je'. Het bootje is opnieuw getekend (roeiboot met planken, verre rand, riem, deint en kantelt licht mee), met een warme zon rechtsboven (dorst) en golfjes vóór de boot. Audio, timing, tekst en ondertitels ongewijzigd.
+
+- `bron/src/lib_cast.js` = kopie van `personages/lib_cast.js` (22 okt 2026); `bouw/build.py` zet hem vóór scenes_lib.js in het scèneblok.
+- `bron/src/scenes_lib.js`: `circ()` toegevoegd (lib_cast.js gebruikt hem). `human()` staat er nog maar wordt niet meer gebruikt.
+- `index.html`: alleen het scèneblok (lib_cast + scenes_lib + scenes) vervangen; nabewerkingen (spelerfix, flipkaarten, oefenen, teller, licentie) zijn blijven staan. Let op: `filmdata.json` staat niet in de bronmap, dus 'opnieuw bouwen' vraagt eerst de werkmap uit 'Hoe je de film aanpast'.
+
