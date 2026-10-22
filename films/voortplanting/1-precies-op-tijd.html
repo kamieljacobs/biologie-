@@ -4056,7 +4056,7 @@ SCENES['0'] = function ({ TL }) {
           g.label('baarmoeder', null, null, null, lx, oy + 30, Object.assign({ alpha: aO }, nl));
           g.label('embryo', null, null, null, lx, oy + 90, Object.assign({ alpha: aO, color: C.greenL }, nl));
           if (aSig > 0.01) {
-            const paths = [[[hyp[0] + 4, hyp[1] + 8], [LX + 26, (hyp[1] + ov[1]) / 2], [ov[0], ov[1] - 6]], [[ov[0] - 6, ov[1] + 4], [bm.x + bm.rx * 0.6, bm.y]], [[bm.x, bm.y - bm.ry * 0.7], [fe[0], fe[1]]], [[fe[0] + 6, fe[1] - 6], [ov[0] - 4, ov[1] + 8]]];
+            const paths = [[[hyp[0] + 2, P.hoofd.y + P.hoofd.r * 1.25], [LX + 26, (hyp[1] + ov[1]) / 2], [ov[0], ov[1] - 6]], [[ov[0] - 6, ov[1] + 4], [bm.x + bm.rx * 0.6, bm.y]], [[bm.x, bm.y - bm.ry * 0.7], [fe[0], fe[1]]], [[fe[0] + 6, fe[1] - 6], [ov[0] - 4, ov[1] + 8]]];
             const cols = [L.HC.FSH, L.HC.E2, L.HC.P4, L.HC.hCG];
             paths.forEach((p, i) => { for (let k = 0; k < 3; k++) { const P2 = bioPunt(p, ((t * 0.35 + i * 0.25 + k / 3) % 1)); E.hormone(g, P2[0], P2[1], cols[i], { alpha: aSig, r: 6 }); } });
             g.text('hormonen: op tijd stijgen en dalen', 1180, 760, { size: 36, w: 600, align: 'center', color: C.ink2, alpha: aSig * E.vis(t, T.stijgen, null) });
