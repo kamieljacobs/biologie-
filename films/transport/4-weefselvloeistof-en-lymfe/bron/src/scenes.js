@@ -105,33 +105,66 @@ function enkelGroot(ctx, sw, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.glo
   ctx.bezierCurveTo(1290, 770, 1300, 712, 1250, 690); ctx.bezierCurveTo(1150, 655, 1010, 630, 935 + 30 * sw, 560); ctx.bezierCurveTo(900 + 60 * sw, 520, 880 + 45 * sw, 420, 860, 110); ctx.closePath(); shape(ctx, sk, lighten(sk, 0.25), 2.5);
   ctx.restore(); return [870 + 50 * sw, 430]; }
 
-// ================= lichaam met lymfestelsel (Schema, vooraanzicht) =================
-const SIL = { hoofd: [0, -405, 62], romp: [-112, -312, 224, 360],
-  armen: [[[-118, -285], [-168, -80], [-182, 120]], [[118, -285], [168, -80], [182, 120]]], benen: [[[-55, 30], [-66, 300], [-72, 530]], [[55, 30], [66, 300], [72, 530]]] };
-const LYMF = { benenR: [[-72, 510], [-64, 300], [-52, 60], [-20, -20], [12, -50]], benenL: [[72, 510], [64, 300], [52, 60], [28, -20], [12, -50]], darm: [[-70, -40], [-30, -60], [12, -50]],
-  borstbuis: [[12, -50], [16, -150], [22, -240], [48, -282], [78, -284]], armL: [[182, 100], [168, -80], [130, -240], [78, -284]], armR: [[-182, 100], [-168, -80], [-130, -240], [-78, -284]],
-  halsL: [[34, -360], [56, -305], [78, -284]], halsR: [[-34, -360], [-56, -305], [-78, -284]] };
-const KNOPEN = [[40, -330, 'hals'], [-40, -330, 'hals'], [118, -232, 'oksel'], [-118, -232, 'oksel'], [46, 18, 'lies'], [-46, 18, 'lies'], [-28, -40, 'buik'], [16, -110, 'buik']];
-function silhouet(ctx, X, Y, s, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(X, Y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
-  const parts = (pass) => { const lw = pass ? 0 : 8; ctx.beginPath(); ctx.arc(SIL.hoofd[0], SIL.hoofd[1], SIL.hoofd[2] + lw / 2, 0, 6.283); ctx.fill(); roundRect(ctx, -26 - lw / 2, -350, 52 + lw, 60, 10); ctx.fill(); roundRect(ctx, SIL.romp[0] - lw / 2, SIL.romp[1] - lw / 2, SIL.romp[2] + lw, SIL.romp[3] + lw, 60); ctx.fill();
-    ctx.lineWidth = 62 + lw; for (const arm of SIL.armen) { ctx.beginPath(); arm.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); } ctx.lineWidth = 84 + lw; for (const b of SIL.benen) { ctx.beginPath(); b.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); } };
-  ctx.fillStyle = rgba(C.mens, 0.7); ctx.strokeStyle = rgba(C.mens, 0.7); parts(0); ctx.fillStyle = C.fill; ctx.strokeStyle = C.fill; parts(1); ctx.restore(); }
-function lymfLijn(ctx, X, Y, s, pts, u, a, col = TR.lymfe, lw = 7) { if (a <= 0.01 || u <= 0.01) return; const P = pts.map(p => [X + p[0] * s, Y + p[1] * s]); const D = padDeel(P, u); ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = lw; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); D.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); return P; }
-// o: { a, groei (0..1), knopen, borstbuis (goud), stroom, t, ader, hart, dikHals, borstHi }
-function lymfStelsel(ctx, X, Y, s, o = {}) { const { a = 1, groei = 1, knopen = 0, stroom = 0, t = 0, ader = 0, borstHi = 0, dikHals = 0, hartA = 0, rechts = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
-  const P = (p) => [X + p[0] * s, Y + p[1] * s];
-  if (ader > 0.01) { ctx.save(); ctx.globalAlpha *= ader; ctx.strokeStyle = TR.arm; ctx.lineWidth = 12 * s + 4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); [P([160, -290]), P([78, -284]), P([0, -282]), P([-40, -270]), P([-38, -190])].forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
-    ctx.beginPath(); [P([-160, -290]), P([-78, -284]), P([-40, -270])].forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
-  if (hartA > 0.01) { const [hx, hy] = P([-20, -170]); const k = 1 + 0.08 * Math.exp(-((t * 1.2) % 1) * 6); const r = 34 * s * k; ctx.save(); ctx.globalAlpha *= hartA; ctx.beginPath(); ctx.moveTo(hx, hy + r * 0.9); ctx.bezierCurveTo(hx - r * 1.6, hy - r * 0.3, hx - r * 0.7, hy - r * 1.4, hx, hy - r * 0.45); ctx.bezierCurveTo(hx + r * 0.7, hy - r * 1.4, hx + r * 1.6, hy - r * 0.3, hx, hy + r * 0.9); ctx.closePath(); shape(ctx, TR.rijk, lighten(TR.rijk, 0.3), 2); ctx.restore(); }
+// ================= lichaam met lymfestelsel (22 okt 2026): realistisch lichaam uit lib_anatomie.js met het lymfestelsel erin =================
+// Het lichaam (huid, gezicht, haar, zwembroek; lichaamsholte iets donkerder) komt uit personages/lib_anatomie.js (zoals in film 2b en 32A-7): BODY = {cx, yb, h}
+// en AP(x,y) rekent in hoofdhoogtes (x vanaf het midden, y vanaf de kruin, voeten op 7,3; x > 0 = rechts op het plaatje = links in het lichaam).
+// Lymfevaten uit beide benen en de darm komen boven de navel samen in de borstbuis, die langs de wervelkolom omhoog loopt en bij het linkersleutelbeen
+// in de ader uitkomt (linker veneuze hoek); rechterarm en rechterhals komen rechts uit. Lymfeknopen in hals, oksels, ellebogen, liezen en buik.
+// Organen (hart, darmen, lever, sleutelbeenderen) alleen in de scène die ze nodig heeft.
+function dot(ctx, x, y, r, fill, stroke, lw = 1.2) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); if (fill) { ctx.fillStyle = fill; ctx.fill(); } if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw; ctx.stroke(); } }
+const LB_BODY = { cx: 760, yb: 885, h: 780 };
+let BODY = LB_BODY;
+function lbZet() { BODY = LB_BODY; return AHH(); }
+function CP(x, y) { lbZet(); return AP(x, y); }
+const CPs = (pts) => pts.map(p => CP(p[0], p[1]));
+const LYMF = {
+  beenR: [[-0.3, 6.8], [-0.33, 5.9], [-0.35, 5.2], [-0.4, 4.5], [-0.46, 4.02], [-0.38, 3.78], [-0.2, 3.45], [0.0, 3.0]],
+  beenL: [[0.3, 6.8], [0.33, 5.9], [0.35, 5.2], [0.4, 4.5], [0.46, 4.02], [0.38, 3.78], [0.2, 3.45], [0.0, 3.0]],
+  darm: [[-0.3, 3.36], [-0.18, 3.2], [-0.07, 3.08], [0.0, 3.0]],
+  borstbuis: [[0.0, 3.0], [-0.04, 2.6], [-0.04, 2.1], [0.02, 1.72], [0.1, 1.52], [0.19, 1.43], [0.27, 1.4]],
+  armL: [[1.16, 3.95], [1.11, 3.4], [1.05, 2.9], [0.99, 2.4], [0.9, 2.02], [0.62, 1.62], [0.27, 1.4]],
+  armR: [[-1.16, 3.95], [-1.11, 3.4], [-1.05, 2.9], [-0.99, 2.4], [-0.9, 2.02], [-0.62, 1.62], [-0.27, 1.4]],
+  halsL: [[0.11, 0.98], [0.13, 1.12], [0.15, 1.27], [0.27, 1.4]],
+  halsR: [[-0.11, 0.98], [-0.13, 1.12], [-0.15, 1.27], [-0.27, 1.4]] };
+const KNOPEN = [[0.11, 1.0, 'hals'], [-0.11, 1.0, 'hals'], [0.13, 1.13, 'hals'], [-0.13, 1.13, 'hals'], [0.15, 1.26, 'hals'], [-0.15, 1.26, 'hals'],
+  [0.86, 1.98, 'oksel'], [0.8, 2.1, 'oksel'], [0.93, 2.12, 'oksel'], [-0.86, 1.98, 'oksel'], [-0.8, 2.1, 'oksel'], [-0.93, 2.12, 'oksel'],
+  [1.04, 2.88, 'elleboog'], [-1.04, 2.88, 'elleboog'],
+  [0.46, 4.0, 'lies'], [0.54, 3.9, 'lies'], [0.38, 3.86, 'lies'], [-0.46, 4.0, 'lies'], [-0.54, 3.9, 'lies'], [-0.38, 3.86, 'lies'],
+  [-0.18, 3.2, 'buik'], [-0.08, 3.1, 'buik'], [0.1, 3.14, 'buik'], [-0.25, 3.32, 'buik']];
+// realistisch lichaam (huid, gezicht); de romp iets donkerder zodat vaten en organen erin oplichten
+function lichaam(ctx, o = {}) { const { a = 1, t = 0 } = o; if (a <= 0.01) return; lbZet(); ctx.save(); ctx.globalAlpha *= a; anFigure(1, t); anCavity(0.55); ctx.restore(); }
+// deel van een polylijn (pixels) tot fractie u van de lengte
+function lbDeel(P, u) { if (u >= 1) return P; let L = 0; const d = [0]; for (let i = 1; i < P.length; i++) { L += Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); d.push(L); }
+  const r = L * Math.max(0, u), out = [P[0]]; for (let i = 1; i < P.length; i++) { if (d[i] <= r) out.push(P[i]); else { const k = (r - d[i - 1]) / Math.max(1e-6, d[i] - d[i - 1]); out.push([lerp(P[i - 1][0], P[i][0], k), lerp(P[i - 1][1], P[i][1], k)]); break; } } return out; }
+function lbVat(ctx, pts, u, w, a = 1, col = TR.lymfe) { if (a <= 0.01 || u <= 0.01) return null; const P = lbDeel(lbGlad(pts), u); ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const pad = () => { ctx.beginPath(); P.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); };
+  pad(); ctx.strokeStyle = rgba('#1E4A2C', 0.75); ctx.lineWidth = w + 4; ctx.stroke(); ctx.shadowColor = col; ctx.shadowBlur = 10; pad(); ctx.strokeStyle = col; ctx.lineWidth = w; ctx.stroke(); ctx.shadowBlur = 0;
+  pad(); ctx.strokeStyle = rgba('#FFFFFF', 0.28); ctx.lineWidth = Math.max(1.2, w * 0.28); ctx.stroke(); ctx.restore(); return P; }
+// lymfeknoop: boontje met kapsel en twee lichte follikels
+function lbKnoop(ctx, x, y, r, a = 1, rot = 0, gloed = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot);
+  if (gloed > 0.01) { ctx.shadowColor = C.goud; ctx.shadowBlur = 22 * gloed; }
+  ctx.beginPath(); ctx.moveTo(-r, 0); ctx.bezierCurveTo(-r, -r * 0.95, r, -r * 0.95, r, 0); ctx.bezierCurveTo(r, r * 0.85, r * 0.2, r * 0.75, 0, r * 0.42); ctx.bezierCurveTo(-r * 0.2, r * 0.75, -r, r * 0.85, -r, 0); ctx.closePath();
+  ctx.fillStyle = ANA.lymf; ctx.fill(); ctx.shadowBlur = 0; ctx.strokeStyle = gloed > 0.01 ? C.goud : '#2F6E40'; ctx.lineWidth = 1.8; ctx.stroke();
+  ctx.fillStyle = rgba('#FFFFFF', 0.35); for (const [fx, fy] of [[-0.45, -0.25], [0.4, -0.25]]) { ctx.beginPath(); ctx.ellipse(fx * r, fy * r, r * 0.22, r * 0.18, 0, 0, 6.283); ctx.fill(); } ctx.restore(); }
+// vloeiende kromme door punten in Sams maten (Catmull-Rom), in pixels
+function lbGlad(pts, n = 8) { const P = CPs(pts), out = []; const m = P.length; for (let i = 0; i < m - 1; i++) { const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(m - 1, i + 2)];
+  for (let k = 0; k < n; k++) { const u = k / n, u2 = u * u, u3 = u2 * u; const f = (a, b, c, d) => 0.5 * ((2 * b) + (-a + c) * u + (2 * a - 5 * b + 4 * c - d) * u2 + (-a + 3 * b - 3 * c + d) * u3); out.push([f(p0[0], p1[0], p2[0], p3[0]), f(p0[1], p1[1], p2[1], p3[1])]); } } out.push(P[m - 1]); return out; }
+const LP = (x, y) => CP(x, y);
+// ader bij het sleutelbeen (beide kanten) en de bovenste holle ader naar het hart
+const LB_ADER = [[[0.8, 1.5], [0.5, 1.45], [0.27, 1.4], [0.06, 1.46], [-0.09, 1.58]], [[-0.8, 1.5], [-0.5, 1.45], [-0.27, 1.4], [-0.09, 1.58]], [[-0.09, 1.58], [-0.09, 1.82], [-0.09, 2.06]]];
+// o: { a, groei (0..1), knopen, stroom, t, ader, borstHi, dikHals, hartA, beat }
+function lymfStelsel(ctx, o = {}) { const { a = 1, groei = 1, knopen = 0, stroom = 0, t = 0, ader = 0, borstHi = 0, dikHals = 0, hartA = 0 } = o; if (a <= 0.01) return; const hh = lbZet(); ctx.save(); ctx.globalAlpha *= a;
+  if (hartA > 0.01) anHeart(hartA, t * 7.5, 0.3 * hartA);
+  if (ader > 0.01) { ctx.save(); ctx.globalAlpha *= ader; for (const pts of LB_ADER)
+      { ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const D = lbGlad(pts); ctx.beginPath(); D.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.strokeStyle = rgba('#0D1420', 0.6); ctx.lineWidth = 0.12 * hh + 5; ctx.stroke(); ctx.strokeStyle = TR.armL; ctx.lineWidth = 0.12 * hh; ctx.stroke(); ctx.strokeStyle = rgba('#FFFFFF', 0.2); ctx.lineWidth = 0.03 * hh; ctx.stroke(); } ctx.restore(); }
   const g = (d) => clamp(groei * 1.6 - d, 0, 1); // takken eerst, borstbuis later
-  const takken = [[LYMF.benenR, 0], [LYMF.benenL, 0], [LYMF.armR, 0.1], [LYMF.armL, 0.1], [LYMF.halsR, 0.2], [LYMF.halsL, 0.2], [LYMF.darm, 0.25]];
-  for (const [pts, d] of takken) { if (!rechts && pts[0][0] < 0 && pts !== LYMF.darm) continue; lymfLijn(ctx, X, Y, s, pts, g(d), 1, TR.lymfe, 6); }
-  lymfLijn(ctx, X, Y, s, LYMF.borstbuis, g(0.6), 1, TR.lymfe, 10); if (borstHi > 0.01) lymfLijn(ctx, X, Y, s, LYMF.borstbuis, 1, borstHi, C.goud, 4);
-  if (stroom > 0.01) { for (const [pts] of takken) { if (!rechts && pts[0][0] < 0 && pts !== LYMF.darm) continue; const D = gladC(pts.map(P)); particleFlow(ctx, D.filter((_, i) => i % 3 === 0), 4, t, 45, lighten(TR.lymfe, 0.35), 5, pts[0][0] + pts[0][1], stroom); }
-    const D = gladC(LYMF.borstbuis.map(P)); particleFlow(ctx, D.filter((_, i) => i % 3 === 0), 6, t, 45, lighten(TR.lymfe, 0.35), 6, 99, stroom); }
-  if (knopen > 0.01) for (const [kx, ky, w] of KNOPEN) { if (!rechts && kx < 0 && w !== 'buik') continue; const [px, py] = P([kx, ky]); const big = w === 'hals' ? 1 + 0.6 * dikHals : 1; ctx.save(); ctx.globalAlpha *= knopen; ctx.beginPath(); ctx.ellipse(px, py, 15 * s * big + 4, 10 * s * big + 3, 0.5, 0, 6.283); shape(ctx, lighten(TR.lymfe, 0.15), dikHals > 0.01 && w === 'hals' ? C.goud : '#E6E1D3', 2); ctx.restore(); }
+  const takken = [[LYMF.beenR, 0], [LYMF.beenL, 0], [LYMF.armR, 0.1], [LYMF.armL, 0.1], [LYMF.halsR, 0.2], [LYMF.halsL, 0.2], [LYMF.darm, 0.25]];
+  const Ps = takken.map(([pts, d]) => lbVat(ctx, pts, g(d), 0.045 * hh, 1, ANA.lymf));
+  const PB = lbVat(ctx, LYMF.borstbuis, g(0.6), 0.075 * hh, 1, ANA.lymf); if (borstHi > 0.01) lbVat(ctx, LYMF.borstbuis, 1, 0.03 * hh, borstHi, C.goud);
+  if (stroom > 0.01) { takken.forEach(([pts], i) => { if (Ps[i]) particleFlow(ctx, lbGlad(pts, 5), 4, t, 45, '#E4F7E8', 5, i * 7.3, stroom * clamp(groei * 1.6 - takken[i][1], 0, 1)); });
+    if (PB) particleFlow(ctx, lbGlad(LYMF.borstbuis, 5), 6, t, 45, '#E4F7E8', 6, 99, stroom * g(0.6)); }
+  if (knopen > 0.01) KNOPEN.forEach(([kx, ky, w], i) => { const [px, py] = LP(kx, ky); const big = w === 'hals' ? 1 + 0.6 * dikHals : 1; lbKnoop(ctx, px, py, (w === 'buik' || w === 'elleboog' ? 0.055 : w === 'hals' ? 0.05 : 0.065) * hh * big, knopen, hash(i) * 3, w === 'hals' ? dikHals : 0); });
   ctx.restore(); }
-
 // ================= balansmodel: bak weefselvloeistof met één toevoer en twee afvoeren =================
 function balansBak(ctx, x, y, w, h, o = {}) { const { a = 1, peil = 0.45, toe = 1, terug = 1, lymfe = 1, t = 0, labels = 1, hiToe = 0, hiTerug = 0, hiLymfe = 0, blok = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   // toevoer (filtratie) linksboven
@@ -278,47 +311,47 @@ const SCENES = {
       tag(ctx, 'weefselvloeistof die over is, loopt erin', 960, 870, TR.plasma, q.on('over', 1) * (1 - q.on('heet', 1)));
       tag(ctx, 'vanaf dan heet het lymfe', 960, 870, TR.lymfe, q.on('heet', 1));
       eindLabels(ctx, X, Y, S, 1); return; }
-    bg(ctx, 'schema'); const X = 760, Y = 470, S = 0.78;
-    silhouet(ctx, X, Y, S, 1); const gr = ramp(t, tB, 3.0);
-    lymfStelsel(ctx, X, Y, S, { groei: gr, knopen: q.on('lymfeknopen', 1), stroom: gr, t, dikHals: q.on('klieren', 1) });
-    metaText(ctx, 'vooraanzicht · schematisch', 60, 880 - 10, C.text2, 'left', 24);
-    const kn = q.on('lymfeknopen', 1) * (1 - q.on('witte', 1)); if (kn > 0.01) { const p = [X + 118 * S, Y - 232 * S]; label(ctx, 'lymfeknopen', 'IN HALS, OKSELS, LIEZEN, BUIK', p[0], p[1], 1180, 250, kn, TR.lymfe); }
-    const zw = q.on('witte', 1) * (1 - q.on('Daarom', 1)); const kp = [X + 118 * S, Y - 232 * S];
+    bg(ctx, 'schema');
+    const gr = ramp(t, tB, 3.0); lichaam(ctx, { t });
+    lymfStelsel(ctx, { groei: gr, knopen: q.on('lymfeknopen', 1), stroom: gr, t, dikHals: q.on('klieren', 1) });
+    metaText(ctx, 'vooraanzicht · doorkijk', 60, 880 - 10, C.text2, 'left', 24);
+    const kn = q.on('lymfeknopen', 1) * (1 - q.on('witte', 1)); if (kn > 0.01) { const p = LP(0.95, 2.05); label(ctx, 'lymfeknopen', 'IN HALS, OKSELS, LIEZEN, BUIK', p[0], p[1], 1180, 250, kn, TR.lymfe); }
+    const zw = q.on('witte', 1) * (1 - q.on('Daarom', 1)); const kp = LP(0.86, 2.05);
     if (zw > 0.01) zoomCircle(ctx, 1460, 420, 250, kp[0], kp[1], 'lymfeknoop · schematisch', zw, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(1200, 160, 520, 520); ctx.beginPath(); ctx.ellipse(1460, 420, 230, 160, 0.3, 0, 6.283); shape(ctx, rgba(TR.lymfe, 0.16), TR.lymfe, 3);
       for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283 + 0.4; const w2 = wander(i, t, 10, 0.5); const cx = 1460 + Math.cos(a) * (60 + 70 * hash(i)) + w2.x, cy = 420 + Math.sin(a) * (40 + 60 * hash(i + 4)) + w2.y; ctx.beginPath(); ctx.arc(cx, cy, 26, 0, 6.283); shape(ctx, rgba('#E6E1D3', 0.85), '#FFFFFF', 1.5); ctx.beginPath(); ctx.ellipse(cx - 4, cy, 12, 9, 0.5, 0, 6.283); ctx.fillStyle = rgba(C.kern, 0.8); ctx.fill(); }
       for (let i = 0; i < 6; i++) { const ph = clamp((t - q.at('vangen') + i * 0.5) / 3, 0, 1); const sx = 1280 + i * 70, sy = 250 + hash(i) * 340; const w2 = wander(i + 20, t, 6, 1.2); bacterie(ctx, lerp(sx, 1460 + (hash(i + 9) - 0.5) * 200, ph * 0.5) + w2.x, sy + w2.y, 1.6, i, 1, C.line, ph > 0.8 ? 1 : 0); } });
     if (zw > 0.01) { tag(ctx, 'witte bloedcellen', 1460, 760, C.text2, zw * (1 - q.on('vangen', 1))); tag(ctx, 'vangen ziekteverwekkers', 1460, 760, C.goud, zw * q.on('vangen', 1)); }
     tag(ctx, 'steeds grotere vaten', 1400, 870, TR.lymfe, q.on('grotere', 1) * (1 - q.on('lymfeknopen', 1)));
-    const hk = q.on('Daarom', 1); if (hk > 0.01) { const p = [X + 40 * S, Y - 330 * S]; label(ctx, 'klieren in je hals', 'DAT ZIJN LYMFEKNOPEN', p[0], p[1], 1180, 250, hk, C.goud); }
+    const hk = q.on('Daarom', 1); if (hk > 0.01) { const p = LP(0.18, 1.12); label(ctx, 'klieren in je hals', 'DAT ZIJN LYMFEKNOPEN', p[0], p[1], 1180, 250, hk, C.goud); }
     tag(ctx, 'keelpijn: klieren worden dik', 1400, 870, C.goud, q.on('keelpijn', 1) * (1 - q.on('lymfeknopen', 2)));
     tag(ctx, '"klieren" = lymfeknopen', 1400, 870, C.goud, q.on('lymfeknopen', 2));
   },
 
-  s11(ctx, t, q) { bg(ctx, 'schema'); const X = 760, Y = 470, S = 0.78; const P = (p) => [X + p[0] * S, Y + p[1] * S];
-    silhouet(ctx, X, Y, S, 1); const vA = q.on('ader', 1);
-    lymfStelsel(ctx, X, Y, S, { groei: 1, knopen: 1, stroom: 1, t, borstHi: q.on('borstbuis', 1) * (1 - q.on('vet', 1) * 0.7), ader: vA, hartA: q.on('bovenste', 1) });
+  s11(ctx, t, q) { bg(ctx, 'schema'); const P = (p) => LP(p[0], p[1]); const hh = lbZet();
+    lichaam(ctx, { t }); const vA = q.on('ader', 1);
+    lymfStelsel(ctx, { groei: 1, knopen: 1, stroom: 1, t, borstHi: q.on('borstbuis', 1) * (1 - q.on('vet', 1) * 0.7), ader: vA, hartA: q.on('bovenste', 1) });
     // sleutelbeenderen
-    const sb = q.on('linkersleutelbeen', 1); if (sb > 0.01) { ctx.save(); ctx.globalAlpha *= sb; ctx.strokeStyle = '#E6E1D3'; ctx.lineWidth = 7; ctx.lineCap = 'round'; for (const sd of [-1, 1]) { const a1 = P([sd * 18, -300]), a2 = P([sd * 120, -318]); ctx.beginPath(); ctx.moveTo(a1[0], a1[1]); ctx.quadraticCurveTo((a1[0] + a2[0]) / 2, a1[1] - 14, a2[0], a2[1]); ctx.stroke(); } ctx.restore(); }
-    const pB = P([18, -180]); label(ctx, 'borstbuis', 'HET GROOTSTE LYMFEVAT', pB[0], pB[1], 1180, 330, q.on('borstbuis', 1) * (1 - q.on('linkersleutelbeen', 1)), C.goud);
-    const pS = P([78, -284]); label(ctx, 'linkersleutelbeen', 'RECHTS OP HET PLAATJE', pS[0], pS[1], 1180, 200, q.on('linkersleutelbeen', 1) * (1 - q.on('bovenste', 1)), C.goud);
-    const pV = P([-40, -230]); label(ctx, 'bovenste holle ader', 'NAAR HET HART', pV[0], pV[1], 540, 200, q.on('bovenste', 1) * (1 - q.on('vet', 1)), TR.armL);
+    const sb = q.on('linkersleutelbeen', 1); if (sb > 0.01) { ctx.save(); ctx.globalAlpha *= sb; for (const sd of [-1, 1]) { const pts = [[sd * 0.07, 1.42], [sd * 0.35, 1.47], [sd * 0.8, 1.42]]; anLine(pts, ANA.botS, 0.075 * hh); anLine(pts, sd > 0 ? '#F4E9C8' : ANA.bot, 0.05 * hh); } ctx.restore(); }
+    const pB = P([0.0, 2.3]); naamBij(ctx, 'borstbuis', 'het grootste lymfevat', 960, pB[1], q.on('borstbuis', 1) * (1 - q.on('linkersleutelbeen', 1)), 'left', C.goud);
+    const pS = P([0.62, 1.42]); naamBij(ctx, 'linkersleutelbeen', 'rechts op het plaatje', 960, pS[1] + 10, q.on('linkersleutelbeen', 1) * (1 - q.on('bovenste', 1)), 'left', C.goud);
+    const pV = P([-0.09, 1.85]); naamBij(ctx, 'bovenste holle ader', 'naar het hart', 560, pV[1] + 10, q.on('bovenste', 1) * (1 - q.on('vet', 1)), 'right', TR.armL);
     // inmonding: lymfedruppels gaan de ader in en naar het hart
-    if (vA > 0.01) { const pts = [P([78, -284]), P([0, -282]), P([-40, -270]), P([-38, -190])]; for (let i = 0; i < 5; i++) { const ph = (t * 0.35 + i / 5) % 1; const p = padPunt(pts, ph, false); druppel(ctx, p[0], p[1], 7, vA * (1 - q.on('vet', 1) * 0.6), TR.lymfe); } }
+    if (vA > 0.01) { const pts = lbGlad([[0.27, 1.4], [0.06, 1.46], [-0.09, 1.58], [-0.09, 1.82], [-0.09, 2.06]]); for (let i = 0; i < 5; i++) { const ph = (t * 0.35 + i / 5) % 1; const p = anAlong(pts, ph); druppel(ctx, p[0], p[1], 7, vA * (1 - q.on('vet', 1) * 0.6), TR.lymfe); } }
     tag(ctx, 'zo komt het vocht terug in het bloed', 1300, 870, TR.lymfe, q.on('Zo', 1) * (1 - q.on('vet', 1)));
     // vet uit de darm
-    const vt = q.on('vet', 1); if (vt > 0.01) { ctx.save(); ctx.globalAlpha *= vt; const dm = DARM_PTS.map(p => P([p[0] * 0.42 - 20, p[1] * 0.42 + 10])); buisPad(ctx, dm, 20, 1, V.neutraal, C.fill, { seed: 2 }); ctx.restore();
-      const lev = P([-80, -110]); const pa = q.on('poortader', 1); ctx.save(); ctx.globalAlpha *= pa; ctx.beginPath(); ctx.ellipse(lev[0], lev[1], 70 * S, 40 * S, -0.2, 0, 6.283); shape(ctx, rgba('#8C5A3A', 0.6), '#B07A5A', 2); ctx.restore();
-      const route = [...LYMF.darm, ...LYMF.borstbuis.slice(1), [0, -282], [-40, -270], [-38, -190]].map(P);
-      for (let i = 0; i < 5; i++) { const ph = clamp(((t - q.at('vet')) * 0.12 + i * 0.12) % 1, 0, 1); const p = padPunt(route, ph, false); chylomicron(ctx, p[0], p[1], 11, vt); }
-      if (pa > 0.01) { ctx.save(); ctx.globalAlpha *= pa * (1 - q.on('maar', 1) * 0.3); const a1 = P([-60, -40]), a2 = P([-80, -110]); ctx.setLineDash([10, 8]); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(a1[0], a1[1]); ctx.lineTo(a2[0], a2[1]); ctx.stroke(); ctx.setLineDash([]);
+    const vt = q.on('vet', 1); if (vt > 0.01) { ctx.save(); ctx.globalAlpha *= vt * 0.85; anDigest(1, t); ctx.restore(); lymfStelsel(ctx, { groei: 1, knopen: 1, t, a: vt * 0.9 }); // darmen in de buik; lymfevaten er weer bovenop
+      const lev = P([-0.4, 2.75]); const pa = q.on('poortader', 1); liver(pa * 0.95);
+      const route = lbGlad([...LYMF.darm, ...LYMF.borstbuis.slice(1), [0.06, 1.46], [-0.09, 1.58], [-0.09, 1.82], [-0.09, 2.06]]);
+      for (let i = 0; i < 5; i++) { const ph = clamp(((t - q.at('vet')) * 0.12 + i * 0.12) % 1, 0, 1); const p = anAlong(route, ph); chylomicron(ctx, p[0], p[1], 11, vt); }
+      if (pa > 0.01) { ctx.save(); ctx.globalAlpha *= pa * (1 - q.on('maar', 1) * 0.3); const a1 = P([-0.12, 3.05]), a2 = P([-0.36, 2.78]); ctx.setLineDash([10, 8]); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(a1[0], a1[1]); ctx.lineTo(a2[0], a2[1]); ctx.stroke(); ctx.setLineDash([]);
         const m = [(a1[0] + a2[0]) / 2, (a1[1] + a2[1]) / 2]; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(m[0] - 18, m[1] - 18); ctx.lineTo(m[0] + 18, m[1] + 18); ctx.moveTo(m[0] + 18, m[1] - 18); ctx.lineTo(m[0] - 18, m[1] + 18); ctx.stroke(); ctx.restore();
-        label(ctx, 'niet via de poortader', 'NIET EERST NAAR DE LEVER', lev[0], lev[1], 560, 600, pa * (1 - q.on('maar', 1)), C.text); }
+        naamBij(ctx, 'niet via de poortader', 'niet eerst naar de lever', 560, lev[1], pa * (1 - q.on('maar', 1)), 'right', C.text); }
       tag(ctx, 'vet uit de darm: ook via de lymfe', 1300, 870, C.oker, vt * (1 - q.on('poortader', 1)));
       tag(ctx, 'via de bovenste holle ader in het bloed', 1300, 870, C.goud, q.on('bovenste', 2)); }
-    metaText(ctx, 'vooraanzicht · schematisch', 60, 870, C.text2, 'left', 24);
+    metaText(ctx, 'vooraanzicht · doorkijk', 60, 870, C.text2, 'left', 24);
   },
 
-  s12(ctx, t, q) { bg(ctx, 'schema'); const X = 760, Y = 470, S = 0.78; silhouet(ctx, X, Y, S, 1); lymfStelsel(ctx, X, Y, S, { groei: 1, knopen: 1, stroom: 0.6, t });
+  s12(ctx, t, q) { bg(ctx, 'schema'); lichaam(ctx, { t }); lymfStelsel(ctx, { groei: 1, knopen: 1, stroom: 0.6, t });
     tag(ctx, 'geen hart, geen pomp', 1400, 400, C.goud, q.on('hart', 1)); vraagteken(ctx, 1400, 640, q.on('stroomt', 1), 150); },
 
   s14(ctx, t, q) { bg(ctx, 'schema'); const cx = 960, y0 = 820, y1 = 130;
