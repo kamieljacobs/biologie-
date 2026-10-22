@@ -5,7 +5,7 @@
 | Bestand | films/voortplanting/1-precies-op-tijd.html |
 | Reeks / nummer | Voortplanting (vwo), film 1 "Van bevruchting tot baby"; celdeling zit in de serie Cel |
 | Doelgroep / niveau | vwo bovenbouw; Nectar 4.1 H4 en Biologie voor jou 4 vwo thema 2. Geen Havo/Vwo-schakelaar; `verdieping` staat overal op false (H2 eiwit- vs steroïdhormoon heet in het docentdeel wel "verdieping") |
-| Versie / datum | v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
+| Versie / datum | v2.4 · 22 oktober 2026 (startscherm met de nieuwe titel) · v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2); opname van v1 (september 2026) hergebruikt, zes zinnen in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; vraag H8 begint met "Wat denk je?") |
 | Duur | 19:43 (som van de 12 audioblobs: 1183,4 s), inclusief hoofdstukkaarten, bedenktijd en onthulling die in de audio als stilte zitten |
 | Beeldstijl | Part C-stijlkaart (v4): Schema (navy #1A2740) als hoofdlook, Micro (#121A26) in zoomcirkels; Macro niet gebruikt. Vaste UI-laag, canvas 1920×1080, CAPTION_Y 950. Kleurafspraak: eiwithormonen teal, steroïden/inhibine/AMH paars, bloed koraal, leven groen |
@@ -129,7 +129,7 @@ Regelnummers verwijzen naar film.src.html (blobs als `@@BLOB:nnn@@`; in het echt
 5. **Uitspraak**: de pagina noemt de respelling "ha cee gee" voor hCG; de overige stem-invoer staat niet in de HTML. Gebruik bij nieuwe opnames de uitspraaklijst.
 
 ## Aandachtspunten
-- Bestandsnaam en index-link heten nog `1-precies-op-tijd`, titel is "Van bevruchting tot baby"; de poster in de speler zegt nog "Precies op tijd" en "Een uitlegfilm in elf hoofdstukken". De index-tegel noemt 19:45, de pagina 19:43.
+- Bestandsnaam en index-link heten nog `1-precies-op-tijd`, titel is "Van bevruchting tot baby"; ~~de poster in de speler zegt nog "Precies op tijd"~~ (verbeterd in v2.4). De index-tegel noemt 19:45, de pagina 19:43.
 - ~~Bij alle zeven voorspelvragen is A het juiste antwoord.~~ Verbeterd 12-10-2026: opties gedraaid in `FILM` en in het transcript; volgorde juiste antwoorden B, C, A, C, B, A, C.
 - Geen Havo/Vwo-schakelaar en geen verdiepingsblokken (`hasV` overal false), terwijl het docentdeel leerdoel 3 (eiwit- vs steroïdhormoon) "verdieping" noemt en de film ook aan BvJ 4 vwo thema 2 / de havo-route op de index wordt gekoppeld.
 - Stemmodel is eleven_multilingual_v2 (opname uit v1), andere films gebruiken eleven_v4; zes zinnen zijn later opnieuw ingesproken, dus binnen een hoofdstuk kunnen klankverschillen hoorbaar zijn.
@@ -187,3 +187,8 @@ Alleen beeld (audio, timing, tekst en ondertitels ongewijzigd). De familie van N
 - **je oma = Oma Ria** (was Femke) met `outfit:'vroeger'` (jong, ± 45 jaar geleden) en `zwanger` (0,6 / 0,8): H0 rij, H1 'je oma, 5 maanden zwanger' met kijkje in de buik (`castBuik('ria', …)`), H11 'je oma' onderaan.
 - `bron/src/lib_cast.js` = kopie van het actuele castboek (22 okt 2026, met Linda/Ria en de nieuwe gangen); in de HTML is alleen het castblok vervangen plus de vijf aanroepen. De vervangingen staan als lijst `R23` onderaan `bron/src/vervangingen_v2_2.py` (toepassen ná `R`).
 - Let op: Linda's zwangerschapsoutfit is mosterdgeel, net als Noors trui; in de rij oma → moeder → jij lijken moeder en jij daardoor qua kleur op elkaar (kan alleen in het castboek worden aangepast).
+
+## Wijziging 22 okt 2026 (v2.4): Vragen uit nagelopen, startscherm, verbeterblad prompt v8
+- Vragen uit gecontroleerd (prompt v8, B9/B11): alle zeven vragen afgespeeld met `?vragen=uit`, van 4 s vóór de knip tot erna, en per vraag de beelden vlak vóór de vraag en in het staartje van het hoofdstuk gerenderd. Geen gesproken vraag, geen vraagkaart, geen kort antwoordwoord, geen tekst die naar de vraag verwijst; de vertelling na een vraag leunt er nergens op. Niets aangepast nodig.
+- Startscherm (poster) zegt nu "Van bevruchting tot baby" in plaats van "Precies op tijd"; versie op de pagina 2.4.
+- Opwaarderen naar prompt v8 (B14): nog geen promptstempel; de film telt als v4 (ombouw 11 okt) met castpersonages (v2.2/v2.3). Verbeterblad met 16 voorstellen staat in de claude.ai-artifact 'Verbeterblad prompt v8' (db-collectie `keuring`, ids `vp1-1` … `vp1-16`). Pas na Kamiels keuze worden de aangevinkte scènes aangepast; stem, script, vragen en timing blijven.
