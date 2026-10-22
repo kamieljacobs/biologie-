@@ -5,9 +5,10 @@
 | Bestand | films/voortplanting/1-precies-op-tijd.html |
 | Reeks / nummer | Voortplanting (vwo), film 1 "Van bevruchting tot baby"; celdeling zit in de serie Cel |
 | Doelgroep / niveau | vwo bovenbouw; Nectar 4.1 H4 en Biologie voor jou 4 vwo thema 2. Geen Havo/Vwo-schakelaar; `verdieping` staat overal op false (H2 eiwit- vs steroïdhormoon heet in het docentdeel wel "verdieping") |
-| Versie / datum | v2.4 · 22 oktober 2026 (startscherm met de nieuwe titel) · v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
+| Versie / datum | v2.5 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · v2.4 · 22 oktober 2026 (startscherm met de nieuwe titel) · v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2); opname van v1 (september 2026) hergebruikt, zes zinnen in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; vraag H8 begint met "Wat denk je?") |
 | Duur | 19:43 (som van de 12 audioblobs: 1183,4 s), inclusief hoofdstukkaarten, bedenktijd en onthulling die in de audio als stilte zitten |
+| Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |
 | Beeldstijl | Part C-stijlkaart (v4): Schema (navy #1A2740) als hoofdlook, Micro (#121A26) in zoomcirkels; Macro niet gebruikt. Vaste UI-laag, canvas 1920×1080, CAPTION_Y 950. Kleurafspraak: eiwithormonen teal, steroïden/inhibine/AMH paars, bloed koraal, leven groen |
 | Audio-opslag | 12 fragmenten, één per hoofdstuk (Opening + H1–H11), als base64 in de HTML (blobs 006–017.mp3, via `window.__AUDIO`) |
 | Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
@@ -192,3 +193,31 @@ Alleen beeld (audio, timing, tekst en ondertitels ongewijzigd). De familie van N
 - Vragen uit gecontroleerd (prompt v8, B9/B11): alle zeven vragen afgespeeld met `?vragen=uit`, van 4 s vóór de knip tot erna, en per vraag de beelden vlak vóór de vraag en in het staartje van het hoofdstuk gerenderd. Geen gesproken vraag, geen vraagkaart, geen kort antwoordwoord, geen tekst die naar de vraag verwijst; de vertelling na een vraag leunt er nergens op. Niets aangepast nodig.
 - Startscherm (poster) zegt nu "Van bevruchting tot baby" in plaats van "Precies op tijd"; versie op de pagina 2.4.
 - Opwaarderen naar prompt v8 (B14): nog geen promptstempel; de film telt als v4 (ombouw 11 okt) met castpersonages (v2.2/v2.3). Verbeterblad met 16 voorstellen staat in de claude.ai-artifact 'Verbeterblad prompt v8' (db-collectie `keuring`, ids `vp1-1` … `vp1-16`). Pas na Kamiels keuze worden de aangevinkte scènes aangepast; stem, script, vragen en timing blijven.
+
+## Opwaardering naar prompt v8 (2.5 · 22 okt 2026)
+
+Werkwijze B14: verbeterblad met 16 voorstellen (claude.ai-artifact 'Verbeterblad prompt v8', ids `vp1-1` … `vp1-16`); Kamiel zei in de chat 'doe ze allemaal'. Stem, script, vragen, timing en speler zijn ongewijzigd; er is niets opnieuw ingesproken.
+
+Gedeelde tekenbibliotheek: in de HTML staat een nieuw scriptblok na het castboek met `bron/src/bio_shim.js` (globale `C`, `clamp`, `lerp`, `ease`, `hash`, `lighten`, `shape`, `nucleus`, `mitochondrion`, want deze film heeft die alleen binnen `ENG`) en daarna `bron/src/lib_bio.js` (kopie van `bibliotheek/lib_bio.js`, tussen `/* lib_bio.js (kopie` en `/* einde lib_bio */`). Bij een nieuwe bibliotheekversie: dat stuk vervangen en de film opnieuw inpakken.
+
+| Voorstel | Scène | Nu |
+|---|---|---|
+| 1 korrel weg | engine `G.bg`, `zoomCircle` | Micro-achtergrond egaal; `ENG.cell` tekent zelf een rustige textuur binnen de cel (`texture:false` zet die uit) |
+| 2 organen in het lichaam | H0 deel 2 | Linda (h 680) met `hoofdKijkje` (hersenen vooraanzicht, hypothalamus/hypofyse) en `buikKijkje` (baarmoeder groeit met de zwangerschap, eierstokken, foetus); hormonen reizen tussen de echte organen (`bioPunt`); namen naast het lichaam; tijdlijn 9 maanden rechtsonder |
+| 3 eierstok van het meisje | H1 zoom | `eierstokDoorsnede` zonder follikels + oögonia die zich delen → oerfollikels (`follikel` f=0) |
+| 4 volle eicel | H1 deel B | zona pellucida, poollichaampje binnen de zona, mitochondriën, ribosomen, mRNA als dunne slierten met ribosomen; namen in een vaste kolom rechts |
+| 5 op schaal | H1 stroom/vergelijking, H5 | `zaadcelEcht` op de schaal van de schaalbalk (H1 3,2 px/µm, H5 4 px/µm); H5 zona ± 12 µm, stralenkrans in twee lagen met opening; labels in vaste vakken |
+| 6 hersenen en bloed | `LIB.hpg` (H2, H9, H10) en H2 deel A | `hoofdHersenen` (s 0,62) i.p.v. tekstvakken; GnRH langs het steeltje; FSH/LH in een `bloedvat` naar de geslachtsklier; H2 en H9 (oxytocine) eigen `bloedvat`; `hpg` geeft nu ook `hthP` en `hypP` terug |
+| 7 gebogen membraan | H2 deel B | `membraanBoog` (cel met straal 900 rechts), receptor als transmembraaneiwit, hormoon dokt erop; labels buiten de cirkel |
+| 8 zaadbuisjes | H2 deel C | `zaadbalWeefsel` (testosteron- en inhibinedeeltjes volgen de woorden) |
+| 9 follikels | H3, H4 | `eierstokDoorsnede` met rustende follikels; groeiende follikels en de dominante met `follikel`; zoom = echte follikel met theca |
+| 10 slijmvlies | H3, H4, H6 | `baarmoederwand` (H4: dikte uit het model, klieren kronkelen na de eisprong, afstoten bij de menstruatie, geknipt onder de grafiek) |
+| 11 hCG naar het geel lichaam | H4, H6 deel B | `geelLichaam` (verschrompelt zonder hCG; in H6 180° gedraaid zodat de cel met LH-receptoren links zit); hCG door een `bloedvat` van het embryo naar het geel lichaam; embryo als blastocyste in de wand |
+| 12 zwangerschapstest | H6 deel C | `zwangerschapstest` (urine trekt door, teststreep kleurt), antistoffen boven de teststreep |
+| 13 placenta | H7 | `placentaDoorsnede` met navelstreng naar het kind (`castFoetus`); zoom = `vlokVergroot`, stoffen steken over tussen `moederX` en `kindX(y)`; virussen als `hivVirus` |
+| 14 aanleg | H8 | `aanlegGeslacht` (man/vrouw als vloeiende overgang); de oude functie `anlage` staat er nog maar wordt niet meer gebruikt |
+| 15 hiv en bacterie | H10 deel C | `tHelperCel`, `hivVirus` (bindt, versmelt), `bacterieCel` (antibiotica laten de wand openbreken) |
+| 16 eileider | H11 deel B | `eileiderLangs` (ontsteking, litteken op 0,55); zaadcellen en embryo via `lumen(u)` |
+
+Gecontroleerd: alle hoofdstukken elke 0,5 s gerenderd zonder fouten; geen tekst over tekst behalve de bestaande overgangen naar de onthullingskaart; Vragen uit nagelopen (afgespeeld en staartjes gerenderd); frametijd ≤ 28 ms bij 4× vertraagde CPU (H2 zaadbal het zwaarst).
+Bewust anders: het vergrote zaadcelbeeld in H1 ('ZAADCEL · VERGROOT') houdt de oude schematische zaadcel met gekleurd middenstuk, omdat de namen kern/mitochondriën/staart daarop staan; de virussen in H10 en H7 zijn niet op schaal (staat in beeld); de telpoppetjes bij '1 op de 6 stellen' (H11) blijven.

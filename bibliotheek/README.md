@@ -28,3 +28,10 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 | `nierBijnier` | nier met schors, piramides, bekken, vaten en urineleider; bijnier als kapje met schors en merg | idem |
 | `kipEcht`, `zeeschildpad`, `schildpadNest`, `krokodilEcht` | leghen, onechte karetschildpad (bovenaanzicht) met nest, nijlkrokodil (zijaanzicht) | idem |
 
+| `zaadbalWeefsel` | zaadbal in doorsnede: ronde zaadbuisjes met Sertolicellen en alle stadia van zaadcelvorming, Leydigcellen bij een haarvat; testosteron en inhibine als deeltjes | Van bevruchting tot baby 2.5 |
+| `tHelperCel`, `hivVirus` | T-helpercel met grote kern en CD4-receptoren; hiv met envelop, gp120-spikes, kegelvormige capside met RNA, versmelten met het membraan | idem |
+| `bacterieCel` | staafbacterie met celwand, membraan, DNA-lus en ribosomen; antibiotica laten de wand openbreken | idem |
+| `aanlegGeslacht` | aanleg van de geslachtsorganen (week 6–7): gonaden, buizen van Wolff en Müller; vloeiende overgang naar man of vrouw | idem |
+| `eileiderLangs` | eileider in lengtedoorsnede: trechter met franjes, geplooid slijmvlies, trilharen die naar de baarmoeder slaan; ontsteking en litteken | idem |
+| `zwangerschapstest` | teststaafje met lontje, venster, test- en controlestreep; natte front loopt mee | idem |
+| `placentaDoorsnede`, `vlokVergroot` | placenta met navelstreng, vlokbomen, meren van moederbloed en spiraalslagaders; één vlok vergroot met de dunne laag tussen moeder- en kindbloed | idem |

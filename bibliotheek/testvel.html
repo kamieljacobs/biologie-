@@ -1,6 +1,6 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -17,6 +17,14 @@ function draw(page){ const t=page*0.37+1.3; ctx.fillStyle=C.bgSchema; ctx.fillRe
   vetcel(ctx,1500,800,120,{}); lab('vetcel',1500,960);
   for(let i=0;i<3;i++) zaadcelEcht(ctx,1700+ (i?0:0),620+i*60,0,t+i*0.2,1.2+i*0.4);
   lab('zaadcelEcht',1700,820);
+ } else if(page>=9){
+  zaadbalWeefsel(ctx,380,250,720,420,{t,leydig:1,testo:1}); lab('zaadbalWeefsel',380,500);
+  placentaDoorsnede(ctx,1360,250,960,400,{t,focus:3}); lab('placentaDoorsnede',1360,500);
+  aanlegGeslacht(ctx,150,780,0.75,{t}); aanlegGeslacht(ctx,450,780,0.75,{t,man:1}); aanlegGeslacht(ctx,750,780,0.75,{t,vrouw:1}); lab('aanlegGeslacht · man · vrouw',450,1060);
+  tHelperCel(ctx,1020,700,90,{t}); hivVirus(ctx,1020,920,30,{t}); lab('tHelperCel · hivVirus',1020,1060);
+  bacterieCel(ctx,1350,990,200,{t}); lab('bacterieCel',1350,1060);
+  zwangerschapstest(ctx,1600,620,0.6,{t,urine:1,T:1,Cl:1}); lab('zwangerschapstest',1600,690);
+  eileiderLangs(ctx,1150,1880,820,110,{t,litteken:0.8}); lab('eileiderLangs',1500,900);
  } else if(page>=7){
   echoBeeld(ctx,330,60,520,{t,hl:{hart:1}}); lab('echoBeeld (20 weken)',330,620);
   embryoEcht(ctx,900,330,0.9,{glow:1,t}); lab('embryoEcht (± 6 weken)',900,620);
