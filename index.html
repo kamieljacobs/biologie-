@@ -420,6 +420,11 @@ details.reeks[open] .pijl{transform:rotate(225deg)}
 .ond-blok>details.reeks>summary{padding:10px 12px;gap:10px}
 .ond-blok>details.reeks .embleem{width:34px;height:34px}
 .ond-blok>details.reeks .embleem svg{width:24px;height:24px}
+.reeks-kop .embleem.foto,.ond-blok>details.reeks .embleem.foto{width:56px;height:56px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726;flex:none}
+.embleem.foto img{width:100%;height:100%;display:block;border-radius:999px;transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s}
+.reeks-kop:hover .embleem.foto,details.reeks[open] .embleem.foto{border-color:var(--goud)}
+.reeks-kop:hover .embleem.foto img{transform:scale(1.08);filter:brightness(1.08) saturate(1.1)}
+@media (max-width:600px){.reeks-kop .embleem.foto,.ond-blok>details.reeks .embleem.foto{width:46px;height:46px}}
 .ond-blok>details.reeks h2{font-size:18px;line-height:1.15}
 .ond-blok>details.reeks .reeks-meta{font-size:11px}
 .ond-blok>details.reeks .pijl{width:8px;height:8px}
@@ -2915,7 +2920,7 @@ function lessen(){
     const wel=ids.filter(met), niet=ids.filter(id=>HOOFDSTUKKEN[id]&&!met(id));
     out+=`<div class="les-blok"><div class="ond-scheiding"><span class="mono">${esc(sub)}</span><h2>${esc(naam)}</h2></div>`;
     for(const id of wel){const h=HOOFDSTUKKEN[id];
-      out+=`<section class="lijst les-thema" id="lessen-${id}"><div class="reeks-kop les-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h3><a href="#${id}">${esc(h.titel)}</a></h3><span class="mono reeks-meta">${h.lessen.length} ${h.lessen.length===1?'les':'lessen'} · ${h.films.length} films</span></span></div><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;}
+      out+=`<section class="lijst les-thema" id="lessen-${id}"><div class="reeks-kop les-kop">${embleem(id)}<span class="reeks-titel"><h3><a href="#${id}">${esc(h.titel)}</a></h3><span class="mono reeks-meta">${h.lessen.length} ${h.lessen.length===1?'les':'lessen'} · ${h.films.length} films</span></span></div><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;}
     if(niet.length) out+=`<p class="les-volgt"><span class="mono">Nog geen lessen</span> ${niet.map(id=>`<a href="#${id}">${esc(HOOFDSTUKKEN[id].titel)}</a>`).join(' · ')}</p>`;
     out+=`</div>`;
   }
@@ -2958,6 +2963,8 @@ function toolRij(t){
   return `<a class="tool" href="${BASE+esc(t.href)}"><span class="ik">${toolKunst(t.naam)}${cap}</span><div><h3>${esc(t.naam)}</h3><p>${esc(t.tekst)}</p><span class="open">Open tool →</span></div></a>`;
 }
 
+/* Kamiel 22 okt 2026: ook in de filmlijst (en lessen) de bioart-medaillons i.p.v. de lijntekening */
+function embleem(id){return ICOON.includes(id)?`<span class="embleem foto"><img src="img/kunst/iconen/${id}.webp?v=4" alt="" width="56" height="56" decoding="async" loading="lazy"></span>`:`<span class="embleem">${kunst(id)}</span>`}
 function kopPagina(lbl,titel,tekst,id){
   return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle thema's</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot">${kunst(id)}</div></div></section>`;
 }
@@ -2967,7 +2974,7 @@ function films(){
   const zoekTekst=(...x)=>esc(x.filter(Boolean).join(' ').toLowerCase());
   const reeks=(id)=>{const h=HOOFDSTUKKEN[id]; const min=h.films.reduce((a,f)=>a+(+f.duur||0),0);
     const meta=[h.films.length?`${h.films.length} ${h.films.length===1?'film':'films'}`:'',min?`± ${min} min`:'',(h.komt||[]).length?`${h.komt.length} komt nog`:''].filter(Boolean).join(' · ');
-    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop"><span class="embleem">${kunst(id)}</span><span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${extraVan(id).films.map(f=>`<a class="kort is-extra" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel,'extra')}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">+</span><span><b>${esc(f.titel)} <span class="extra-tag mono">extra</span></b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
+    return `<details class="reeks" id="reeks-${id}" data-id="${id}"><summary class="reeks-kop">${embleem(id)}<span class="reeks-titel"><h2>${esc(h.titel)}</h2><span class="mono reeks-meta">${meta}</span></span><span class="pijl" aria-hidden="true"></span></summary><div class="reeks-inhoud"><a class="naar" href="#${id}">Naar het hoofdstuk →</a>${h.films.map((f,i)=>`<a class="kort" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel)}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">${i+1}${rv(f.href)}</span><span><b>${esc(f.titel)}</b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${extraVan(id).films.map(f=>`<a class="kort is-extra" data-zoek="${zoekTekst(f.titel,f.vraag,f.tekst,f.bij,h.titel,'extra')}" href="${BASE+esc(f.href)}"><span class="beeld">${filmKunst(f.href,id)}</span><span class="n">+</span><span><b>${esc(f.titel)} <span class="extra-tag mono">extra</span></b><span>${esc(f.vraag||f.tekst)}</span></span><span class="t">${f.duur?f.duur+' min':''}</span></a>`).join('')}${(h.komt||[]).map(f=>`<div class="kort komt" data-zoek="${zoekTekst(f.titel,f.vraag,h.titel)}"><span class="beeld"></span><span class="n">○</span><span><b>${esc(f.titel)} <em>komt nog</em></b><span>${esc(f.vraag||'')}</span></span><span class="t">${esc(f.niveau||'')}</span></div>`).join('')}</div></details>`;
   }
   const gehad=new Set(), volgorde=[]; let lijst='';
   for(const o of NIVEAUS[niveau].ond){
