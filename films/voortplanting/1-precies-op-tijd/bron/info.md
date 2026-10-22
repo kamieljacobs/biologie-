@@ -221,3 +221,6 @@ Gedeelde tekenbibliotheek: in de HTML staat een nieuw scriptblok na het castboek
 
 Gecontroleerd: alle hoofdstukken elke 0,5 s gerenderd zonder fouten; geen tekst over tekst behalve de bestaande overgangen naar de onthullingskaart; Vragen uit nagelopen (afgespeeld en staartjes gerenderd); frametijd ≤ 28 ms bij 4× vertraagde CPU (H2 zaadbal het zwaarst).
 Bewust anders: het vergrote zaadcelbeeld in H1 ('ZAADCEL · VERGROOT') houdt de oude schematische zaadcel met gekleurd middenstuk, omdat de namen kern/mitochondriën/staart daarop staan; de virussen in H10 en H7 zijn niet op schaal (staat in beeld); de telpoppetjes bij '1 op de 6 stellen' (H11) blijven.
+
+## Wijziging 22 okt 2026 (v2.6): hersenen naast het gezicht
+Kamiel vond de hersenen over het gezicht van Linda (H0 deel 2) een beetje creepy. Het gezicht blijft nu zichtbaar: `hoofdKijkje` wordt alleen nog aangeroepen met `a: 0` (geeft de plek van hypothalamus/hypofyse terug voor de hormoonbanen) en de hersenen (`breinVoor`, s 1,42) staan in een `zoomCircle` rechtsboven naast het hoofd (735, 205, r 118), met de gouden lijnen vanaf de hypofyse-plek achter de neuswortel. Label 'hersenen / HYPOTHALAMUS EN HYPOFYSE' staat rechts van die cirkel. Alleen beeld; audio, timing en tekst ongewijzigd.

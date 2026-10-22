@@ -723,7 +723,7 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
 <section class="doc" id="bronnen"><h2>Bronnen en versie</h2>
 <p>Gebaseerd op de leerdoelen van Nectar 4 vwo (editie 4.1, hoofdstuk 4) en Biologie voor jou 4 vwo (thema 2). De tabel "Getallen achter de film" noemt per getal de bron. De hormoongrafieken komen uit een eenvoudig terugkoppelmodel (relatieve eenheden), niet uit metingen.</p>
 <p>Voice-over: stem Roos (ElevenLabs, model eleven_multilingual_v2), opname van versie 1 van deze film (september 2026) hergebruikt; zes zinnen zijn in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; de vraag in H8 begint nu met "Wat denk je?"). De voorspelvragen worden ingesproken, de keuzes en de onthulling staan op het scherm. Animaties getekend in code (canvas) volgens de beeldstijl van de uitlegfilms (Part C, v4), gemaakt met Claude. Illustraties: geen externe assets; alles door Claude getekend.</p>
-<p>Versie 2.5 · 22 oktober 2026 · beeld opgewaardeerd naar prompt v8 (echte tekeningen uit de gedeelde tekenbibliotheek, op schaal, zonder korrel) · versie 2.4: startscherm met de nieuwe titel · versie 2.1 · 11 oktober 2026 · cyclusmodel gecorrigeerd en hCG-zinnen opnieuw ingesproken · vervangt "Precies op tijd" v1 (eigen speler, oude stijl). Pagina en speler delen hun opzet met de films van de serie Stofwisseling.</p>
+<p>Versie 2.6 · 22 oktober 2026 · opening: hersenen als uitvergroting naast het gezicht · versie 2.5: beeld opgewaardeerd naar prompt v8 (echte tekeningen uit de gedeelde tekenbibliotheek, op schaal, zonder korrel) · versie 2.4: startscherm met de nieuwe titel · versie 2.1 · 11 oktober 2026 · cyclusmodel gecorrigeerd en hCG-zinnen opnieuw ingesproken · vervangt "Precies op tijd" v1 (eigen speler, oude stijl). Pagina en speler delen hun opzet met de films van de serie Stofwisseling.</p>
 </section>
 
 <footer>Biologie bij Kamiel · <a href="../../index.html#home">home</a> · <a href="../../index.html#voortplanting">Voortplanting</a> · Van bevruchting tot baby (voorheen Precies op tijd) v2.5 · 11 oktober 2026<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
@@ -4039,7 +4039,10 @@ SCENES['0'] = function ({ TL }) {
         g.text('de moeder', LX, 228, { size: 36, w: 600, align: 'center', alpha: aL });
         const aO = a2 * E.vis(t, T.organen, null), aSig = a2 * E.vis(t, T.signalen, null);
         let HK = null, BK = null;
-        if (aO > 0.01 && P.hoofd) { const cc = g.ctx; cc.save(); cc.globalAlpha = aO; HK = hoofdKijkje(cc, P.hoofd, { hth: aSig, hyp: aSig }); BK = buikKijkje(cc, 'linda', LX, LY, LH, zw, { foetus: zw, t, hlEierstok: aSig * 0.6 }); cc.restore(); }
+        if (aO > 0.01 && P.hoofd) { const cc = g.ctx; cc.save(); cc.globalAlpha = aO; HK = hoofdKijkje(cc, P.hoofd, { a: 0 }); BK = buikKijkje(cc, 'linda', LX, LY, LH, zw, { foetus: zw, t, hlEierstok: aSig * 0.6 }); cc.restore(); }
+        // v2.6 (Kamiel 22 okt): geen hersenen over het gezicht; het gezicht blijft zichtbaar, de hersenen staan als uitvergroting ernaast
+        const ZB = { x: 735, y: 205, r: 118 };
+        if (HK) g.zoomCircle(ZB.x, ZB.y, ZB.r, HK.hyp[0], HK.hyp[1] - 10, P.hoofd.r * 0.42, 'schema', (gg) => { breinVoor(gg.ctx, ZB.x, ZB.y + 12, 1.42, { hth: aSig, hyp: aSig }); }, null, aO);
         // tijdlijn negen maanden
         const aM = a2 * E.vis(t, T.negen, null); const x0 = 980, x1 = 1300, ty = 860;
         g.ctx.save(); g.ctx.globalAlpha = aM; g.ctx.strokeStyle = C.line; g.ctx.lineWidth = 1.5; g.ctx.beginPath(); g.ctx.moveTo(x0, ty); g.ctx.lineTo(x1, ty); for (let i = 0; i <= 9; i++) { const x = x0 + i * (x1 - x0) / 9; g.ctx.moveTo(x, ty - 6); g.ctx.lineTo(x, ty + 6); } g.ctx.stroke(); g.ctx.fillStyle = C.gold; g.ctx.beginPath(); g.ctx.arc(x0 + grow * (x1 - x0), ty, 6, 0, 7); g.ctx.fill(); g.ctx.restore();
@@ -4048,7 +4051,7 @@ SCENES['0'] = function ({ TL }) {
           const hyp = HK.hyp, ov = BK.eierstokR, bm = BK.baarmoeder, fe = BK.foetus;
           const nl = { noline: true };
           const lx = LX + 150, oy = Math.min(ov[1], bm.y - 20);
-          g.label('hersenen', 'HYPOTHALAMUS EN HYPOFYSE', null, null, lx, hyp[1] - 6, Object.assign({ alpha: aO }, nl));
+          g.label('hersenen', 'HYPOTHALAMUS EN HYPOFYSE', null, null, ZB.x + ZB.r + 40, ZB.y, Object.assign({ alpha: aO }, nl));
           g.label('eierstok', null, null, null, lx, oy - 30, Object.assign({ alpha: aO }, nl));
           g.label('baarmoeder', null, null, null, lx, oy + 30, Object.assign({ alpha: aO }, nl));
           g.label('embryo', null, null, null, lx, oy + 90, Object.assign({ alpha: aO, color: C.greenL }, nl));
