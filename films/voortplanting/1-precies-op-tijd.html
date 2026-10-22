@@ -1563,7 +1563,7 @@ function _zij(ctx, P, x, y, h, a, o) {
     const S = [B1, B2].filter(B => B.p < sEnd).sort((p, q) => p.p - q.p)[0]; const dl = S ? (c0 - S.ballX) - v * S.p / fEff : 0; cx = x + v * t + dl; }
   const dy = heupY - heupY0, lean = G ? G.leun * Math.PI / 180 : 0;
   // bovenlijf kantelt om de heup
-  const rot = (px, py) => { const dx = px - cx, dyy = py - heupY; return [cx + dx * Math.cos(lean) + dyy * Math.sin(lean), heupY - dx * Math.sin(lean) + dyy * Math.cos(lean)]; };
+  const rot = (px, py) => { const dx = px - cx, dyy = py - heupY; return [cx + dx * Math.cos(lean) - dyy * Math.sin(lean), heupY + dx * Math.sin(lean) + dyy * Math.cos(lean)]; }; // lean > 0 = voorover (bovenkant naar de kijkrichting)
   const ink = _donker(P.huid, 0.68), huidS = _donker(P.huid, 0.12);
   // --- been tekenen
   const tekenBeen = (B, ver) => {
@@ -1604,7 +1604,8 @@ function _zij(ctx, P, x, y, h, a, o) {
   // tekenvolgorde: ver been, ver arm, romp, dichtbij been (onder de romp door), dichtbij arm, hoofd
   tekenBeen(B2, true);
   const hand2 = tekenArm(B2, -1);
-  if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, rot, cx, hoofdY0 + dy, schouderY0 + dy, hh, t, G, fi);
+  { const [nx0, ny0] = rot(cx + d * 0.05, schouderY0 + dy - hh * 0.05), hy0 = ny0 - (schouderY0 - hoofdY0); // haar achter het hoofd beweegt mee met de kanteling
+    if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, rot, nx0 - d * 0.05, hy0 + (G && G !== GANG.loop ? hh * 0.05 : 0), schouderY0 + dy, hh, t, G, fi); }
   const voet1 = tekenBeen(B1, false);
   // --- romp (zijkant): rug links, borst rechts
   const sY = schouderY0 + dy, tY = top + hh * 3.0 + dy, onder = heupY + hh * (P.top === 'labjas' ? 0.95 : P.top === 'jas' ? 0.45 : 0.24);
@@ -1616,12 +1617,12 @@ function _zij(ctx, P, x, y, h, a, o) {
   ctx.fillStyle = P.topKleur; romp(); ctx.fill();
   ctx.save(); romp(); ctx.clip();
   { const [bx, by] = rot(cx - d * 0.62, tY); ctx.fillStyle = P.topAccent || _donker(P.topKleur, 0.1); ctx.beginPath(); ctx.ellipse(bx, by, d * 0.3, hh * 2.6, lean, 0, 6.283); ctx.fill(); } // schaduw op de rug
-  if (P.strepen) { ctx.fillStyle = P.strepen; for (let yy = sY + hh * 0.45; yy < heupY + hh * 0.3; yy += hh * 0.36) { const [qx, qy] = rot(cx, yy); ctx.save(); ctx.translate(qx, qy); ctx.rotate(-lean); ctx.fillRect(-d, 0, d * 2, hh * 0.15); ctx.restore(); } }
+  if (P.strepen) { ctx.fillStyle = P.strepen; for (let yy = sY + hh * 0.45; yy < heupY + hh * 0.3; yy += hh * 0.36) { const [qx, qy] = rot(cx, yy); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillRect(-d, 0, d * 2, hh * 0.15); ctx.restore(); } }
   if (P.top === 'labjas' || P.top === 'vest' || P.top === 'jasje') { const [p1x, p1y] = rot(cx + d * 0.36, sY + hh * 0.05), [p2x, p2y] = rot(cx + hw * 0.4, onder); ctx.strokeStyle = P.binnen || P.topAccent; ctx.lineWidth = hh * 0.22; ctx.beginPath(); ctx.moveTo(p1x + hh * 0.08, p1y); ctx.lineTo(p2x + hh * 0.08, p2y); ctx.stroke();
     ctx.strokeStyle = P.topAccent; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(p1x - hh * 0.06, p1y); ctx.lineTo(p2x - hh * 0.06, p2y); ctx.stroke(); }
-  if (P.top === 'hoodie') { const [px, py] = rot(cx + d * 0.18, tY + hh * 0.05); ctx.fillStyle = P.topAccent; ctx.save(); ctx.translate(px, py); ctx.rotate(-lean); roundRect(ctx, -d * 0.1, -hh * 0.05, d * 0.5, hh * 0.48, hh * 0.15); ctx.fill(); ctx.restore(); }
-  if (P.top === 'trui' && !P.strepen) { ctx.fillStyle = P.topAccent; for (let i = 0; i < 2; i++) { const [qx, qy] = rot(cx, tY - hh * (0.55 - i * 0.22)); ctx.save(); ctx.translate(qx, qy); ctx.rotate(-lean); ctx.fillRect(-d, 0, d * 2, hh * 0.07); ctx.restore(); } }
-  if (P.top === 'jas') { ctx.fillStyle = P.topAccent; const [qx, qy] = rot(cx + d * 0.05, tY + hh * 0.05); ctx.save(); ctx.translate(qx, qy); ctx.rotate(-lean); ctx.fillRect(-hh * 0.2, 0, hh * 0.42, hh * 0.32); ctx.restore(); }
+  if (P.top === 'hoodie') { const [px, py] = rot(cx + d * 0.18, tY + hh * 0.05); ctx.fillStyle = P.topAccent; ctx.save(); ctx.translate(px, py); ctx.rotate(lean); roundRect(ctx, -d * 0.1, -hh * 0.05, d * 0.5, hh * 0.48, hh * 0.15); ctx.fill(); ctx.restore(); }
+  if (P.top === 'trui' && !P.strepen) { ctx.fillStyle = P.topAccent; for (let i = 0; i < 2; i++) { const [qx, qy] = rot(cx, tY - hh * (0.55 - i * 0.22)); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillRect(-d, 0, d * 2, hh * 0.07); ctx.restore(); } }
+  if (P.top === 'jas') { ctx.fillStyle = P.topAccent; const [qx, qy] = rot(cx + d * 0.05, tY + hh * 0.05); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillRect(-hh * 0.2, 0, hh * 0.42, hh * 0.32); ctx.restore(); }
   ctx.restore();
   // zwangerschapsbuik
   { const zw = o.zwanger != null ? o.zwanger : (P.zwanger || 0); if (zw > 0.02) { const [bx, by] = rot(cx + d * 0.12, heupY - hh * 0.45); ctx.fillStyle = (P.top === 'vest' || P.top === 'labjas') ? (P.binnen || P.topKleur) : P.topKleur; ctx.beginPath(); ctx.ellipse(bx + hh * 0.12 * zw, by, hh * (0.32 + 0.36 * zw), hh * (0.48 + 0.3 * zw), 0, 0, 6.283); ctx.fill();
