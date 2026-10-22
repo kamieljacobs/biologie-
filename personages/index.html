@@ -574,7 +574,13 @@ const CAST = {
   erik:   { naam: 'Erik', leeftijd: 38, rol: 'figurant · verdachte, voorbijganger, iemand uit een onderzoek', huid: '#E3B998', haar: '#7A6A58', kapsel: 'kort', wenkbrauw: '#5A4A3A', stoppels: true,
             top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', broek: '#4A4E5E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: [], lengte: 1.02 },
   joost:  { naam: 'Joost', leeftijd: 55, rol: 'figurant · verre familie, buurman, iemand uit een onderzoek', huid: '#E6BE9A', haar: '#B8B0A0', kapsel: 'kort', wenkbrauw: '#9A9284',
-            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0 }
+            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0 },
+  fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
+            top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
+            kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
+  ruben:  { naam: 'Ruben', leeftijd: 10, rol: 'jongen van ± 10 jaar (groep 7) · klasgenoot van Fleur', huid: '#F0CFB4', haar: '#B4542E', kapsel: 'kort', wenkbrauw: '#8A3E22',
+            top: 'tshirt', strepen: null, topKleur: '#4FB3A5', topAccent: '#3E978B', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#2B3F66', accessoire: [], lengte: 1,
+            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22 }
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -588,7 +594,8 @@ const CAST_FAMILIE = {
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost'];
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse'];
-const CAST_JONG = ['kind', 'baby']; // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
+const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
+// // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
 const _donker = (h, k) => _mix(h, k, '#000000'), _licht = (h, k) => _mix(h, k, '#FFFFFF');
@@ -1083,6 +1090,9 @@ window.jong=function(){ ctx.clearRect(0,0,1920,1080); bg(ctx,'schema'); text(ctx
  [['wijs','blij'],['denk','denkt'],['schouders','verbaasd']].forEach(([p,u],i)=>{ const x=720+i*170; persoon(ctx,'kind',x,900,330,{pose:p,uit:u,t:0.3}); text(ctx,p,x,945,fTekst(22,600),C.text2,'center'); });
  const B=[['slaapt',0],['blij',0],['neutraal',0],['huilt',0],['slaapt',1]]; B.forEach(([u,g],i)=>{ const x=1330+(i%2)*300, y=300+Math.floor(i/2)*230; persoon(ctx,'baby',x,y,260,{uit:u,geel:g,t:0.5}); text(ctx,u+(g?' · geel':''),x,y+62,fTekst(22,600),C.text2,'center'); });
  text(ctx,'Baby (ligt, hoofd links)',1480,170,fTekst(26,600),C.text2,'center'); };
+window.tien=function(){ ctx.clearRect(0,0,1920,1080); bg(ctx,'schema'); text(ctx,'Fleur en Ruben (± 10 jaar, groep 7) · nieuw 22 okt 2026, ter keuring',80,90,fTitel(46),C.text,'left');
+ persoon(ctx,'noor',260,900,640,{uit:'blij'}); persoon(ctx,'fleur',500,900,520,{uit:'blij',pose:'zwaai',t:0.3}); persoon(ctx,'ruben',700,900,530,{uit:'lacht',kijk:-1}); persoon(ctx,'kind',880,900,440,{uit:'blij'}); text(ctx,'Noor (16) · Fleur · Ruben · Teun (6)',560,960,fTekst(26,600),C.text2,'center');
+ [['fleur','denk','denkt'],['fleur','wijs','praat'],['ruben','schouders','verbaasd'],['ruben','staan','neutraal']].forEach(([id,p,u],i)=>{ const x=1130+i*190; persoon(ctx,id,x,900,400,{pose:p,uit:u,t:0.3}); text(ctx,p,x,945,fTekst(22,600),C.text2,'center'); }); };
 window.zijBlad=function(){ window.__zijAan=true; const ids=CAST_VOLGORDE.concat(['kind']); const t0=performance.now();
  const stap=()=>{ if(!window.__zijAan) return; const t=(performance.now()-t0)/1000; ctx.clearRect(0,0,1920,1080); bg(ctx,'schema');
   text(ctx,'Zijaanzicht · lopen, rennen, sprinten',80,80,fTitel(48),C.text,'left'); text(ctx,"persoon(ctx, id, x, y, h, { zij: true, kijk: 1, gang: 'loop' | 'ren' | 'sprint', t, vooruit: true })",80,118,fTekst(22,500),C.text2,'left');
@@ -1127,6 +1137,6 @@ window.teken=function(mode){
  if(mode==='pose'){ const Pz=['staan','zwaai','wijs','wijsOmhoog','denk','schouders','handenHeup']; ['daan','kim','henk'].forEach((id,r)=>Pz.forEach((p,i)=>{ const x=150+i*270, y=330+r*340; persoon(ctx,id,x,y,320,{pose:p,uit:p==='denk'?'denkt':'blij',t:0.3}); if(r===0) text(ctx,p,x,40,fTekst(22,600),C.text2,'center'); })); }
 };
 </script><script>(function(){const bar=document.getElementById('bar');const knop=(t,f)=>{const k=document.createElement('button');k.textContent=t;k.onclick=()=>{window.__zijAan=false;bar.querySelectorAll('button').forEach(x=>x.classList.remove('on'));k.classList.add('on');f();};bar.appendChild(k);return k;};
-const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));if(window.families)knop('Families',()=>families());if(window.jong)knop('Teun en baby',()=>jong());if(window.zijBlad)knop('Zijaanzicht en lopen',()=>zijBlad());if(window.sprintBlad)knop('Gangcyclus per fase',()=>sprintBlad());CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});if(typeof CAST_EXTRA!=='undefined')CAST_EXTRA.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
+const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));if(window.families)knop('Families',()=>families());if(window.jong)knop('Teun en baby',()=>jong());if(window.tien)knop('Fleur en Ruben',()=>tien());if(window.zijBlad)knop('Zijaanzicht en lopen',()=>zijBlad());if(window.sprintBlad)knop('Gangcyclus per fase',()=>sprintBlad());CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});if(typeof CAST_EXTRA!=='undefined')CAST_EXTRA.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
 document.fonts.ready.then(()=>eerste.click());})();</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>

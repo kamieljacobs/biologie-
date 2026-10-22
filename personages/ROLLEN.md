@@ -29,6 +29,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | verre familie, buurman | **Joost** (figurant) |
 | boer, veehouder | **Veehouder Gerrit** |
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
+| kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |
 
 Telpoppetjes in een telling (100 mensen, 1 op 3) blijven eenvoudige pictogrammen.

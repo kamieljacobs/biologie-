@@ -35,3 +35,6 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 | `eileiderLangs` | eileider in lengtedoorsnede: trechter met franjes, geplooid slijmvlies, trilharen die naar de baarmoeder slaan; ontsteking en litteken | idem |
 | `zwangerschapstest` | teststaafje met lontje, venster, test- en controlestreep; natte front loopt mee | idem |
 | `placentaDoorsnede`, `vlokVergroot` | placenta met navelstreng, vlokbomen, meren van moederbloed en spiraalslagaders; één vlok vergroot met de dunne laag tussen moeder- en kindbloed | idem |
+| `eileiderDoorsnede` | tweede eileider-variant (lengtedoorsnede op een as, geeft `lumen(u)` terug): smal bij de baarmoeder, wijd naar de trechter met franjes; geplooid slijmvlies met trilharen; ontsteking en littekens die het lumen dichtknijpen | Anticonceptie, soa's en voortplantingstechniek 1.1 |
+| `gonokok`, `chlamydiaCel`, `spirocheet`, `bacterieGroot` | gonorroe als diplokok, chlamydia in een lichaamscel, syfilis als spirocheet; `bacterieGroot` = staafbacterie met celwand, ribosomen, DNA-lus en plasmide (lijkt op `bacterieCel`) | idem |
+| `blastocyste` | blastocyste dag 5: platte buitenlaag (trofoblast), binnenste celmassa aan één kant, holte; `gat` = cellen weggenomen (PGT) | idem |

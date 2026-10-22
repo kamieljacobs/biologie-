@@ -5,11 +5,12 @@
 | Bestand | films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html (audio in films/voortplanting/3-anticonceptie-soa-voortplantingstechniek/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
 | Niveau | havo + vwo, voor beide niveaus dezelfde film (sinds 16 okt 2026 geen vwo-blokken meer; s10 en s14 zijn basis) |
-| Versie / datum | 1.0 · 16 oktober 2026 |
+| Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Voldoet aan | prompt v8 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
 | Duur | spraak 7:08; speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |
 | Beeldstijl | Part C: Schema; schematische doorsnede (vooraanzicht) van baarmoeder, eileiders en eierstokken |
-| Personages | Lotte en dokter Kim (cold open), Sam (H2) uit het castboek; overige figuren generiek (`figuur()`) |
+| Personages | Lotte en dokter Kim (cold open), Sam (H2), Fleur en Ruben (HPV-prik, s09), Erik als donor (s13) uit het castboek; alleen de telpoppetjes (zes stelletjes, s11) zijn nog `figuur()` |
 | Audio-opslag | 11 losse mp3's in audio/ (s01, s04, s05, s06, s07, s09, s10, s11, s13, s14, s15) |
 | Herkomst | Hoofdengine, werkmap `hw/vp3`; gebouwd met Claude in reeksmodus (geplande film 'Anticonceptie, soa's en voortplantingstechniek') |
 
@@ -93,7 +94,33 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | s14 | wcttaDotVSATWnNLu0sw | 0P61UlxW8OZ78oQuQ9zo | 501 | 32.61 s |
 | s15 | LSPkquw3ogSjAQ8lKhtN | HPRsK5U51OVv32X1EXXV | 392 | 27.73 s |
 
-## Opwaarderen naar prompt v8 (B14) · 22 okt 2026
-- Nog geen promptstempel; verbeterblad met 18 voorstellen staat in de claude.ai-artifact 'Verbeterblad prompt v8' (db-collectie `keuring`, ids `vp3-1` … `vp3-18`; stills uit de huidige film). Pas na Kamiels keuze worden de aangevinkte scènes aangepast; stem, script, vragen en timing blijven.
-- Altijd mee (zonder keuring): Vragen uit nalopen voor q02, q08, q12 (5 s ervoor tot 5 s erna). Geen Micro-scènes, dus geen korrel.
-- Nieuwe bibliotheekobjecten bij 'Doen': eileider (gedeeld met film 1), bacteriën in drie vormen, virus dat een cel binnengaat, blastocyste; HPV-scène vraagt een nieuw castpersonage (meisje ± 10).
+## Opwaardering naar prompt v8 (1.1 · 22 okt 2026)
+
+Werkwijze B14: verbeterblad met 18 voorstellen in de claude.ai-artifact 'Verbeterblad prompt v8' (db-collectie `keuring`, ids `vp3-1` … `vp3-18`); Kamiel koos 'alle 18 doen'. Alleen het beeld is veranderd: stem, script, vragen, cuewoorden en timing zijn gelijk, er is niets opnieuw ingesproken.
+
+Hoe het in de pagina zit: `bron/src/scenes.js` is vervangen in de HTML; `bron/src/lib_cast.js` is de actuele castboekversie (met Fleur en Ruben) en `bron/src/lib_bio.js` (kopie van `bibliotheek/lib_bio.js`) staat erna, tot `/* einde lib_bio */`. `bouw/build.py` plakt lib_bio nu ook na lib_cast.
+
+| Voorstel | Scène | Nu |
+|---|---|---|
+| 1 | s04, s11 (keten) | eierstok-doorsnede met Graafse follikel die openbarst; zaadcellen (lib_bio) rond een eicel met zona; blastocyste die in de baarmoederwand (klieren, spiraalslagaders) zakt |
+| 2 | `baarmoeder()` (s05, s09, s11, s13) | eierstokken als doorsnede met follikels (`o.eierstok = {groei, eis}`); eileiders smal bij de baarmoeder, wijder naar de trechter, franjes naar de eierstok; slijmvlies als lichte laag |
+| 3 | s05 pil | zoomcirkel op de eierstok: follikels groeien een stukje en stoppen, 'follikels rijpen niet door · geen eisprong'; kruisjes klein in de hoek |
+| 4 | s05 hormoonspiraaltje | slijmprop als netwerk van taaie draden; pessarium verdwijnt als het hormoonspiraaltje komt |
+| 5 | s05 koperspiraaltje | koperionen rond de draad, zaadcellen vallen stil; zoomcirkel met baarmoederwand waar een blastocyste niet kan innestelen (rechter methodes verborgen in deze fase) |
+| 6 | s05 morning-afterpil | grotere zaadcellen die naar dag 5 vervagen; eisprong als follikel die openbarst en de eicel loslaat |
+| 7 | s06 | eerst rasters en oude titel weg, dan 'beschermt ook tegen soa's?'; methodes in één rij met naam |
+| 8 | s09, s10, s15 | gonorroe als diplokokken (`gonokok`), chlamydia in een lichaamscel, syfilis als spirocheet; vergrote bacterie met celwand, ribosomen, DNA-lus en plasmide, celwand breekt bij 'doden'; `bacterie()` tekent nu gonokokken |
+| 9 | s09 virus | `celRond` met gebogen membraan; drie virussen binden, gaan naar binnen, de cel maakt kopieën die naar buiten knoppen |
+| 10 | s09 'onbehandeld' (en littekens in `baarmoeder()` voor s11) | `eileiderDoorsnede`: geplooid slijmvlies met trilharen, ontsteking (rood, gezwollen), littekens die het lumen dichtknijpen, eicel blijft steken; stukje baarmoeder links, eierstok rechts |
+| 11 | s09 HPV | Fleur en Ruben (nieuw in het castboek, ± 10 jaar), spuit gaat naar Fleurs bovenarm |
+| 12 | s10 | gevoelige gonokokken zwellen op en vallen uiteen; resistente delen zich (`deel`) en vullen het veld weer vanuit hun plek |
+| 13 | s11 inseminatie | dun slangetje via vagina en baarmoederhals, label 'dun slangetje', grotere zaadcellen |
+| 14 | s13 FSH | twee eierstok-doorsneden: links één doorgroeiende follikel, rechts zes rijpende follikels |
+| 15 | s13 punctie | naald via de vagina (echokop) door de vaginawand naar de eierstok; zoomcirkel waarin follikels één voor één leeggezogen worden en de eicel door de naald gaat |
+| 16 | s13 ICSI | houdpipet links, injectienaald rechts met één zaadcel, poollichaampje boven; labels naast de onderdelen |
+| 17 | s13 donor | Erik (figurant) in plaats van het grijze poppetje; label los van de zaadcellen |
+| 18 | s14 | `blastocyste`: platte buitenlaag ('wordt placenta') en binnenste celmassa ('wordt het kind'); cellen gaan uit de buitenlaag tegenover de celmassa, met een gat |
+
+Nieuw in de bibliotheek (`bibliotheek/lib_bio.js`, ook op het testvel, vel 3): `eileiderDoorsnede`, `gonokok`, `chlamydiaCel`, `spirocheet`, `bacterieGroot`, `blastocyste`. Nieuw in het castboek: Fleur en Ruben (± 10 jaar; castboekknop 'Fleur en Ruben'), nog te keuren door Kamiel.
+
+Vragen uit (B9/B11) nagelopen met `?vragen=uit`: q02, q08 en q12 vallen weg, de spreekzin 'Wat denk je?' en het antwoord ('Antwoord bee/cee/aa') worden geknipt (s01 14,4 s, s04 23,3 s, s07 8,5 s, s09 91,7 s, s11 33,9 s, s13 57,6 s); laatste beelden vóór de knip en eerste erna bekeken: geen vraagkaart of antwoordtekst, de vertelling na de vraag leunt er niet op. Scripts `spelerfix`, `antwoordtekst`, `kortantwoord` geven OK.
