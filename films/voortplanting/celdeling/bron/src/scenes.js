@@ -364,7 +364,7 @@ s22(ctx,t,q){
     const org=ramp(t,q.at('teelballen'),0.4), ov=ramp(t,q.at('eierstokken'),0.4);
     persoon(ctx,'rachid',420,830,560,{uit:'neutraal',kijk:1,t}); persoon(ctx,'linda',690,830,540,{uit:'neutraal',kijk:-1,t});
     const wR=kijkjeRepro(ctx,'rachid',420,830,560,org), wL=kijkjeRepro(ctx,'linda',690,830,540,ov);
-    if(wR) pill(ctx,wR.x-wR.rx-105,wR.y+10,'teelballen',C.goud,org,24); if(wL) pill(ctx,wL.x+wL.rx+110,wL.y+10,'eierstokken',C.goud,ov,24);
+    if(wR) pill(ctx,wR.x-wR.rx-140,wR.y+10,'teelballen',C.goud,org,24); if(wL) pill(ctx,wL.x+wL.rx+150,wL.y+10,'eierstokken',C.goud,ov,24);
     pill(ctx,1240,300,'meiose: in teelballen en eierstokken',C.paars,org,28);
     pill(ctx,1240,420,'reductiedeling: 46 → 23',C.goud,ramp(t,q.at('reductiedeling'),0.4),28);
     pill(ctx,1240,540,'twee delingen, één keer kopiëren',C.text,ramp(t,q.at('delingen'),0.4),28); ctx.restore(); }
