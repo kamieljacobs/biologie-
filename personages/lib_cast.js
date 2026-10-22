@@ -50,7 +50,7 @@ const CAST = {
   visser: { naam: 'Mevrouw Visser', leeftijd: 38, rol: 'docent biologie · vraagt eerst wat jij denkt', huid: '#C8956E', haar: '#5A3A24', kapsel: 'bob', wenkbrauw: '#4A2E1C',
             top: 'trui', topKleur: '#3E8E7E', topAccent: '#327466', broek: '#2E3A55', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril', 'oorbel'], lengte: 1.0,
             garderobe: { school: {}, practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#3E8E7E', veiligheidsbril: true } } }, // docent (20 okt 2026, Wat word jij? · Leraar biologie)
-  henk:   { naam: 'Opa Henk', leeftijd: 71, rol: 'opa van Noor · tuiniert, af en toe patiënt', huid: '#E3B998', haar: '#D9D9D4', kapsel: 'kalend', baard: true, wenkbrauw: '#BDBDB6',
+  henk:   { naam: 'Opa Henk', leeftijd: 71, rol: 'opa van Noor · man van Oma Ria, tuiniert, af en toe patiënt', huid: '#E3B998', haar: '#D9D9D4', kapsel: 'kalend', baard: true, wenkbrauw: '#BDBDB6',
             top: 'vest', topKleur: '#8A6A4E', topAccent: '#735740', binnen: '#E6E1D3', broek: '#4A5240', schoen: '#4A3A2E', schoenAccent: '#6B5440', accessoire: ['bril'], lengte: 0.96, krom: 0.03 },
   jesse:  { naam: 'Verpleegkundige Jesse', leeftijd: 29, rol: 'verpleegkundige · meet, kijkt en belt op tijd', huid: '#EFCDB0', haar: '#8A5A34', kapsel: 'kort', wenkbrauw: '#6E4628',
             top: 'overhemd', topKleur: '#EEF2F5', topAccent: '#D2DCE4', broek: '#DCE5EC', schoen: '#F2F2EE', schoenAccent: '#5B8CC9', accessoire: [], lengte: 1.0,
@@ -80,7 +80,40 @@ const CAST = {
   ilse:   { naam: 'Mondhygiënist Ilse', leeftijd: 31, rol: 'mondhygiënist · meet het tandvlees, poetst mee en voorkomt gaatjes', huid: '#F0CFB4', haar: '#B4542E', kapsel: 'staart', wenkbrauw: '#8E3E22', wimpers: true, lippen: '#B4605A',
             top: 'overhemd', topKleur: '#CFE6E2', topAccent: '#B2D2CC', broek: '#CFE6E2', schoen: '#F2F2EE', schoenAccent: '#3E9A8A', accessoire: ['oorbel'], lengte: 0.98,
             garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#6A5A9A', topAccent: '#584A82', broek: '#33415C', schoen: '#3A3F4E', schoenAccent: '#6A5A9A' } } } // mondhygiënist (21 okt 2026, Wat word jij? · Tandheelkunde): werk = mintgroen pak
+,
+  // ===== Familie van Noor, tweeling en figuranten (22 okt 2026; Kamiel: 'meer personages, met namen, een soort stamboom') =====
+  linda:  { naam: 'Linda', leeftijd: 44, rol: 'moeder van Noor en Teun · dochter van Opa Henk en Oma Ria', huid: '#E9C1A0', haar: '#6A4A30', kapsel: 'golf', golfLang: 0.55, wenkbrauw: '#4A3220', wimpers: true, lippen: '#B4605A',
+            top: 'trui', topKleur: '#5E8FA8', topAccent: '#4D7A90', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.98,
+            garderobe: { gewoon: {}, zwanger: { top: 'tshirt', topKleur: '#E0A43A', topAccent: '#C98A2A', zwanger: 0.85, haar: '#6A4A30', golfLang: 0.9 } } }, // zwanger = 16 jaar geleden, zwanger van Noor
+  rachid: { naam: 'Rachid', leeftijd: 47, rol: 'vader van Noor en Teun · zoon van Opa Ahmed en Oma Malika', huid: '#B98060', haar: '#1E1612', kapsel: 'kort', wenkbrauw: '#1A120E', stoppels: true,
+            top: 'overhemd', topKleur: '#3E6E5A', topAccent: '#33594A', broek: '#2E3442', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04 },
+  ria:    { naam: 'Oma Ria', leeftijd: 69, rol: 'oma van Noor · vrouw van Opa Henk, moeder van Linda en Petra', huid: '#EBC6A6', haar: '#E2DFD6', kapsel: 'bob', wenkbrauw: '#B8B2A6', wimpers: true, lippen: '#B4605A',
+            top: 'vest', topKleur: '#7A8FB0', topAccent: '#647896', binnen: '#F2ECE2', broek: '#4A4E5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril', 'oorbel'], lengte: 0.95,
+            garderobe: { gewoon: {}, vroeger: { haar: '#B07A44', wenkbrauw: '#8A5A30', kapsel: 'golf', golfLang: 0.85, accessoire: ['oorbel'], top: 'trui', topKleur: '#C9654B', topAccent: '#A8523C', broek: '#4D6E9C' } } }, // vroeger = ± 45 jaar geleden (zwanger van Linda)
+  ahmed:  { naam: 'Opa Ahmed', leeftijd: 74, rol: 'opa van Noor · vader van Rachid', huid: '#A87656', haar: '#D2D0C8', kapsel: 'kort', wenkbrauw: '#BDB8AE', stoppels: true,
+            top: 'jasje', topKleur: '#5A5A66', topAccent: '#4A4A55', binnen: '#E8E2D4', broek: '#3A3F4E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: ['bril'], lengte: 1.0, krom: 0.03 },
+  malika: { naam: 'Oma Malika', leeftijd: 71, rol: 'oma van Noor · moeder van Rachid', huid: '#B07A58', haar: '#3A2A22', kapsel: 'hoofddoek', doekKleur: '#7A5A8C', doekAccent: '#624876', wenkbrauw: '#2A1C16', wimpers: true,
+            top: 'vest', topKleur: '#4A6A5A', topAccent: '#3C584A', binnen: '#E6E1D3', broek: '#3E3A4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 0.94 },
+  petra:  { naam: 'Tante Petra', leeftijd: 41, rol: 'tante van Noor · zus van Linda', huid: '#ECC4A2', haar: '#9A6A3A', kapsel: 'staart', wenkbrauw: '#7A5028', wimpers: true, lippen: '#B4605A',
+            top: 'jas', topKleur: '#4F8F6A', topAccent: '#3E7556', broek: '#2E3442', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 1.0 },
+  thijs:  { naam: 'Thijs', leeftijd: 15, rol: 'eeneiige tweelingbroer van Daan · zelfde DNA, ander shirt', huid: '#EBC6A6', haar: '#D8B26A', kapsel: 'pony', wenkbrauw: '#B8904E',
+            top: 'tshirt', topKleur: '#C9654B', topAccent: '#A8523C', broek: '#5A4A3A', schoen: '#3A3F4E', schoenAccent: '#6B7287', accessoire: ['sproeten'], lengte: 0.95 },
+  erik:   { naam: 'Erik', leeftijd: 38, rol: 'figurant · verdachte, voorbijganger, iemand uit een onderzoek', huid: '#E3B998', haar: '#7A6A58', kapsel: 'kort', wenkbrauw: '#5A4A3A', stoppels: true,
+            top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', broek: '#4A4E5E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: [], lengte: 1.02 },
+  joost:  { naam: 'Joost', leeftijd: 55, rol: 'figurant · verre familie, buurman, iemand uit een onderzoek', huid: '#E6BE9A', haar: '#B8B0A0', kapsel: 'kort', wenkbrauw: '#9A9284',
+            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0 }
 };
+// families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
+const CAST_FAMILIE = {
+  noor:   { ouders: ['rachid', 'linda'], broerzus: ['kind'] },
+  kind:   { ouders: ['rachid', 'linda'] },
+  linda:  { ouders: ['henk', 'ria'], partner: 'rachid', broerzus: ['petra'] },
+  petra:  { ouders: ['henk', 'ria'] },
+  rachid: { ouders: ['ahmed', 'malika'] },
+  henk:   { partner: 'ria' }, ahmed: { partner: 'malika' },
+  yasmin: { broerzus: ['bilal'] }, daan: { tweeling: 'thijs' }
+};
+const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost'];
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse'];
 const CAST_JONG = ['kind', 'baby']; // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
