@@ -92,3 +92,8 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 | s11 | Uq2gSBPK70lBHNJzZKpn | HPeUC9lYxMh5tlpMyIFw | 543 | 36.13 s |
 | s14 | wcttaDotVSATWnNLu0sw | 0P61UlxW8OZ78oQuQ9zo | 501 | 32.61 s |
 | s15 | LSPkquw3ogSjAQ8lKhtN | HPRsK5U51OVv32X1EXXV | 392 | 27.73 s |
+
+## Opwaarderen naar prompt v8 (B14) · 22 okt 2026
+- Nog geen promptstempel; verbeterblad met 18 voorstellen staat in de claude.ai-artifact 'Verbeterblad prompt v8' (db-collectie `keuring`, ids `vp3-1` … `vp3-18`; stills uit de huidige film). Pas na Kamiels keuze worden de aangevinkte scènes aangepast; stem, script, vragen en timing blijven.
+- Altijd mee (zonder keuring): Vragen uit nalopen voor q02, q08, q12 (5 s ervoor tot 5 s erna). Geen Micro-scènes, dus geen korrel.
+- Nieuwe bibliotheekobjecten bij 'Doen': eileider (gedeeld met film 1), bacteriën in drie vormen, virus dat een cel binnengaat, blastocyste; HPV-scène vraagt een nieuw castpersonage (meisje ± 10).
