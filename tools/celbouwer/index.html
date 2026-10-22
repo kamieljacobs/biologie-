@@ -73,7 +73,7 @@
   <div class="paneel" id="side"></div>
 </div>
 <p class="legend">Tip: tik op een onderdeel om het in de cel te zetten. Tik in de cel op een onderdeel om te lezen wat het doet. De tekening is vereenvoudigd en niet op schaal.</p>
-<footer class="tool-voet">Biologie bij Kamiel · Celbouwer · versie 1.0 · oktober 2026 · past bij de film <a href="../../films/onderbouw/32a/1-alles-is-cel/index.html">Alles is cel</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+<footer class="tool-voet">Biologie bij Kamiel · Celbouwer · versie 1.1 · oktober 2026 · past bij de film <a href="../../films/onderbouw/32a/1-alles-is-cel/index.html">Alles is cel</a><span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
 </div>
 
 <script>
@@ -160,25 +160,29 @@ function choose(p,btn){
 }
 
 // ---------- quiz: wat is het? ----------
-function makeQuiz(){ const items=[];
-  const kinds=['dier','plant']; const all=[...ORDER];
-  for(let i=0;i<8;i++){ const kind=kinds[i%2]; const opts=all.filter(p=>PARTS[p][kind]); const target=opts[(i*3+1)%opts.length];
-    if(i===6) items.push({type:'which',kind:'plant'}); else if(i===7) items.push({type:'which',kind:'dier'}); else items.push({type:'name',kind,target}); }
-  return {items:items.sort(()=>0.5-Math.random()).map(x=>x), i:0, score:0, answered:null}; }
+function makeQuiz(){ // elk onderdeel één keer, in een cel waarin het goed te zien is
+  const names=[['dier','celmembraan'],['dier','celkern'],['dier','mitochondrium'],['plant','cytoplasma'],['plant','celwand'],['plant','bladgroenkorrel'],['plant','vacuole']]
+    .map(([kind,target])=>({type:'name',kind,target}));
+  const items=[...names,{type:'which',kind:'plant'},{type:'which',kind:'dier'}].sort(()=>0.5-Math.random());
+  return {items, i:0, score:0, answered:null}; }
 function renderQuiz(){ if(!quiz) quiz=makeQuiz(); const it=quiz.items[quiz.i]; document.getElementById('stagehint').textContent='wat zie je?';
   if(!it){ side.innerHTML=`<h2>Klaar!</h2><p class="sub">Je had er ${quiz.score} van ${quiz.items.length} goed.</p><div class="row"><button class="knop" id="again">Nog een keer</button><button class="knop stil" id="back">Terug naar bouwen</button></div>`; drawCell(svg,'plant',new Set(ORDER)); document.getElementById('again').onclick=()=>{ quiz=makeQuiz(); render(); }; document.getElementById('back').onclick=()=>setMode('dier'); return; }
   const set=new Set(ORDER.filter(p=>PARTS[p][it.kind])); drawCell(svg,it.kind,set);
   let q, opts, correct;
   if(it.type==='name'){ // highlight
     svg.querySelectorAll('[data-part]').forEach(g=>{ if(g.dataset.part!==it.target) g.setAttribute('opacity','0.35'); });
-    const P=it.kind==='plant'?{celmembraan:[696,290],cytoplasma:[590,435]}:{celmembraan:[706,290],cytoplasma:[520,300]};
-    let pt=P[it.target]; if(!pt){ const g=svg.querySelector(`[data-part="${it.target}"]`); const bb=g.getBBox(); pt=[bb.x+bb.width/2,bb.y+bb.height/2]; }
-    el('line',{x1:770,y1:30,x2:pt[0]+(770-pt[0])*0.06,y2:pt[1]+(30-pt[1])*0.06,stroke:C.goud,'stroke-width':3}); el('circle',{cx:pt[0],cy:pt[1],r:16,fill:'none',stroke:C.goud,'stroke-width':3}); el('circle',{cx:pt[0],cy:pt[1],r:4,fill:C.goud});
+    // vaste wijspunten voor ringen en lagen (hun middelpunt is het midden van de cel)
+    const P=it.kind==='plant'?{celmembraan:[696,290],celwand:[560,75],cytoplasma:[250,380]}:{celmembraan:[716,290],cytoplasma:[520,300]};
+    let pt=P[it.target];
+    if(!pt){ const g=svg.querySelector(`[data-part="${it.target}"]`); const tr=g.transform.baseVal.consolidate();
+      if(tr) pt=[tr.matrix.e,tr.matrix.f]; else { const bb=g.getBBox(); pt=[bb.x+bb.width/2,bb.y+bb.height/2]; } }
+    const dx=770-pt[0], dy=30-pt[1], L=Math.hypot(dx,dy)||1;
+    el('line',{x1:770,y1:30,x2:pt[0]+dx/L*18,y2:pt[1]+dy/L*18,stroke:C.goud,'stroke-width':3,'stroke-linecap':'round'}); el('circle',{cx:pt[0],cy:pt[1],r:16,fill:'none',stroke:C.goud,'stroke-width':3}); el('circle',{cx:pt[0],cy:pt[1],r:4,fill:C.goud});
     q='Hoe heet het onderdeel waar de gouden pijl naar wijst?'; const pool=ORDER.filter(p=>p!==it.target).sort(()=>0.5-Math.random()).slice(0,2); opts=[it.target,...pool].sort(()=>0.5-Math.random()); correct=it.target;
   } else { q='Is dit een plantencel of een dierlijke cel?'; opts=['plantencel','dierlijke cel']; correct=it.kind==='plant'?'plantencel':'dierlijke cel'; }
   const ans=quiz.answered;
   side.innerHTML=`<div class="quiz"><div class="score">vraag ${quiz.i+1} van ${quiz.items.length} · ${quiz.score} goed</div><div class="q">${q}</div>${opts.map(o=>`<button class="opt ${ans? (o===correct?'ok':(o===ans?'no':'')):''}" data-o="${o}">${o}</button>`).join('')}
-   ${ans?`<div class="feedback ${ans===correct?'ok':'no'}"><b>${ans===correct?'Goed!':'Niet goed.'}</b>${it.type==='name'?PARTS[correct].task:(it.kind==='plant'?'Je ziet een celwand, bladgroenkorrels en een grote vacuole: een plantencel.':'Geen celwand, geen bladgroenkorrels, geen grote vacuole: een dierlijke cel.')}</div><div class="row"><button class="knop" id="nextq">Volgende →</button></div>`:''}</div>`;
+   ${ans?`<div class="feedback ${ans===correct?'ok':'no'}"><b>${ans===correct?'Goed!':'Niet goed.'}</b>${it.type==='name'?(ans===correct?'':'Het is de '+PARTS[correct].name+'. ')+PARTS[correct].task:(it.kind==='plant'?'Je ziet een celwand, bladgroenkorrels en een grote vacuole: een plantencel.':'Geen celwand, geen bladgroenkorrels, geen grote vacuole: een dierlijke cel.')}</div><div class="row"><button class="knop" id="nextq">Volgende →</button></div>`:''}</div>`;
   side.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{ if(quiz.answered) return; quiz.answered=b.dataset.o; if(b.dataset.o===correct) quiz.score++; renderQuiz(); });
   const nq=document.getElementById('nextq'); if(nq) nq.onclick=()=>{ quiz.i++; quiz.answered=null; render(); };
 }
