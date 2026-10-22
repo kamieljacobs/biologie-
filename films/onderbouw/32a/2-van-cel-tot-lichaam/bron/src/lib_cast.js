@@ -363,18 +363,18 @@ function _mixHex(h1, h2, k) { const a = parseInt(h1.slice(1), 16), b = parseInt(
 // Gangcycli uit de biomechanica (22 okt 2026). Per been is fase 0 het eerste contact (voet raakt de grond).
 // th = dijbeen t.o.v. verticaal (+ = naar voren), kn = kniebuiging, an = enkel (+ = tenen omhoog), in graden, door de cyclus heen.
 // duty = deel van de cyclus dat een voet op de grond staat: lopen 0,62 (dubbele steun), rennen 0,32 en sprinten 0,22 (zweeffase: beide voeten los).
-// f = pascycli per seconde (één cyclus = twee stappen). kantel = hele lichaam voorover vanaf de enkels (graden; de voeten komen meer onder/achter het lichaam), leun = romp extra voorover vanuit de heup. Armen zwaaien tegengesteld aan het been aan dezelfde kant.
+// f = pascycli per seconde (één cyclus = twee stappen). kantel = hele lichaam voorover vanaf de enkels (graden; de voeten komen meer onder/achter het lichaam), leun = romp voorover t.o.v. verticaal; kantel = leun geeft één rechte lijn van kruin tot hiel (Kamiel 22 okt 2026). Armen zwaaien tegengesteld aan het been aan dezelfde kant.
 // Bronnen: Fukuchi e.a. 2017 (open dataset, 2,5–4,5 m/s: heup −8..53°, knie tot 109°, enkel −20..27°), Novacheck 1998 (fasen, sprint), Perry & Burnfield (lopen), duty factor ±0,30 bij 12 km/u.
 const GANG = {
-  loop:   { f: 0.9, duty: 0.62, kantel: 2, leun: 3, armK: -0.6, arm0: 3, elle0: 16, elleK: 0.35,
+  loop:   { f: 0.9, duty: 0.62, kantel: 3, leun: 3, armK: -0.6, arm0: 3, elle0: 16, elleK: 0.35,
             th: [[0, 22], [0.15, 16], [0.3, 5], [0.5, -11], [0.6, -8], [0.73, 10], [0.87, 24]],
             kn: [[0, 3], [0.13, 17], [0.3, 8], [0.42, 4], [0.55, 22], [0.62, 38], [0.72, 62], [0.83, 35], [0.93, 6]],
             an: [[0, 0], [0.07, -6], [0.3, 6], [0.48, 10], [0.6, -8], [0.65, -16], [0.75, -4], [0.88, 1]] },
-  ren:    { f: 1.43, duty: 0.32, kantel: 16, leun: 18, zweef: 5, armK: -1.4, arm0: 4, elle0: 85, elleK: 0.3,
+  ren:    { f: 1.43, duty: 0.32, kantel: 20, leun: 20, zweef: 5, armK: -1.4, arm0: 4, elle0: 85, elleK: 0.3,
             th: [[0, 24], [0.12, 10], [0.32, -16], [0.4, -20], [0.52, -6], [0.66, 18], [0.83, 38], [0.93, 31]],
             kn: [[0, 18], [0.12, 42], [0.24, 30], [0.32, 18], [0.42, 48], [0.55, 92], [0.66, 108], [0.76, 92], [0.86, 52], [0.95, 20]],
             an: [[0, 4], [0.12, 24], [0.24, 14], [0.32, -14], [0.4, -21], [0.5, -8], [0.62, 4], [0.8, 8], [0.93, 5]] },
-  sprint: { f: 2.2, duty: 0.22, kantel: 23, leun: 25, zweef: 3, armK: -1.3, arm0: 6, elle0: 80, elleK: 0.25,
+  sprint: { f: 2.2, duty: 0.22, kantel: 27, leun: 27, zweef: 3, armK: -1.3, arm0: 6, elle0: 80, elleK: 0.25,
             th: [[0, 28], [0.1, 8], [0.22, -22], [0.3, -26], [0.45, 4], [0.62, 42], [0.78, 52], [0.9, 40]],
             kn: [[0, 22], [0.08, 38], [0.22, 20], [0.32, 62], [0.45, 116], [0.57, 128], [0.7, 100], [0.82, 55], [0.93, 25]],
             an: [[0, -6], [0.08, 18], [0.22, -24], [0.3, -28], [0.45, -6], [0.65, 10], [0.85, 4]] }
@@ -466,8 +466,9 @@ function _zij(ctx, P, x, y, h, a, o) {
   // tekenvolgorde: ver been, ver arm, romp, dichtbij been (onder de romp door), dichtbij arm, hoofd
   tekenBeen(B2, true);
   const hand2 = tekenArm(B2, -1);
-  { const [nx0, ny0] = rot(cx + d * 0.05, schouderY0 + dy - hh * 0.05), hy0 = ny0 - (schouderY0 - hoofdY0); // haar achter het hoofd beweegt mee met de kanteling
-    if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, rot, nx0 - d * 0.05, hy0 + (G && G !== GANG.loop ? hh * 0.05 : 0), schouderY0 + dy, hh, t, G, fi); }
+  { const [nx0, ny0] = rot(cx + d * 0.05, schouderY0 + dy - hh * 0.05), V0 = (schouderY0 - hoofdY0) - hh * 0.04 - (G && G !== GANG.loop ? hh * 0.05 : 0); // haar achter het hoofd beweegt mee met de kanteling
+    const hx0 = nx0 + hh * 0.04 + Math.sin(lean) * V0, hy0 = ny0 - Math.cos(lean) * V0;
+    if (P.kapsel === 'staart' || P.kapsel === 'vlecht' || P.kapsel === 'golf') _zijHaarAchter(ctx, P, rot, hx0 - d * 0.05 - hh * 0.04, hy0 - hh * 0.04, schouderY0 + dy, hh, t, G, fi); }
   const voet1 = tekenBeen(B1, false);
   // --- romp (zijkant): rug links, borst rechts
   const sY = schouderY0 + dy, tY = top + hh * 3.0 + dy, onder = heupY + hh * (P.top === 'labjas' ? 0.95 : P.top === 'jas' ? 0.45 : 0.24);
@@ -495,8 +496,9 @@ function _zij(ctx, P, x, y, h, a, o) {
   if (o.hold) o.hold(ctx, hand1.x, hand1.y, hand1.ang);
   // --- nek en hoofd
   const [nx, ny] = rot(cx + d * 0.05, sY - hh * 0.05);
-  const hcx = nx + hh * 0.04, hy = ny - (sY - hoofdY0 - dy) + hh * 0.04 + (G && G !== GANG.loop ? hh * 0.05 : 0);
-  ctx.fillStyle = huidS; roundRect(ctx, nx - hh * 0.16, hy + hh * 0.25, hh * 0.32, ny - hy - hh * 0.15, hh * 0.1); ctx.fill();
+  const Vk = (schouderY0 - hoofdY0) - hh * 0.04 - (G && G !== GANG.loop ? hh * 0.05 : 0); // nek → hoofd, langs de lichaamsas (kruin in lijn met het lijf)
+  const hcx = nx + hh * 0.04 + Math.sin(lean) * Vk, hy = ny - Math.cos(lean) * Vk;
+  ctx.strokeStyle = huidS; ctx.lineWidth = hh * 0.32; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(nx, ny + hh * 0.05); ctx.lineTo(hcx - hh * 0.04, hy + hh * 0.35); ctx.stroke();
   if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.moveTo(nx - hh * 0.12, ny - hh * 0.12); ctx.quadraticCurveTo(nx - d * 0.62, ny - hh * 0.1, nx - d * 0.55, ny + hh * 0.55); ctx.quadraticCurveTo(nx - d * 0.3, ny + hh * 0.3, nx + hh * 0.05, ny + hh * 0.05); ctx.closePath(); ctx.fill(); }
   if (P.top === 'overhemd') { ctx.fillStyle = _licht(P.topKleur, 0.15); ctx.beginPath(); ctx.moveTo(nx - hh * 0.2, ny - hh * 0.05); ctx.lineTo(nx + hh * 0.22, ny - hh * 0.02); ctx.lineTo(nx + hh * 0.1, ny + hh * 0.25); ctx.closePath(); ctx.fill(); }
   if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(nx - hh * 0.15, ny); ctx.quadraticCurveTo(nx + hh * 0.35, ny + hh * 0.7, nx + hh * 0.3, ny + hh * 1.05); ctx.stroke(); circ(ctx, nx + hh * 0.3, ny + hh * 1.1, hh * 0.09, '#9AA3B2'); }
