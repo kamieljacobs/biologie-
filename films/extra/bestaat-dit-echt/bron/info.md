@@ -1,9 +1,11 @@
-# Bestaat dit echt? — film 1 van Bijzondere dieren (in de maak)
+# Bestaat dit echt? — film 1 van Bijzondere dieren
 
-Status (22 okt 2026): script v1 en storyboard klaar, wacht op Kamiels storyboardkeuring.
-- Storyboardblad (keuring per scène, opgeslagen in de db van de artifact, collectie `keuring`): https://claude.ai/artifact/Ua59AB6bSaWhYEdeL93W6r
-- Script: `script_v1.md` (lagen [B] beginner, [M] basis, [G] gevorderd; bij elk dier een internetbewering: klopt, overdreven of verzonnen).
-- Dierenbibliotheek volgens prompt v8 C9: `src/teken_bd1.js` + `src/teken_bd1b.js` (beerdiertje, axolotl, bidsprinkhaankreeft, pistoolgarnaal, octopus, vogelbekdier, molrat, kwal + poliep, bombardeerkever, liervogel). Gebruikt `zacht()` uit `films/vervolg/diergeneeskunde-1-hond-koe-paard/bron/src/teken_dg0.js`.
-- Keyframes: `src/sb.js` (object `SB`), tekenen met `bouw/render.py` (verwacht de film-engine in `../engine` zoals in films/vervolg/BOUWEN.md).
-- Bronnen per dier: Jönsson 2008, Neves 2020, Boothby 2017, Tanaka 2022 (beerdiertje); Godwin 2013, Kragl 2009, Otsuki 2025 (axolotl); Patek 2004, Zack 2009, Weaver 2012, Thoen 2014 (bidsprinkhaankreeft); Versluis 2000, Lohse 2001 (pistoolgarnaal); Gutnick 2020, Ramirez & Oakley 2015, Stubbs & Stubbs 2016 (octopus); Manger & Pettigrew 1996, Zhou 2021 (vogelbekdier); Ruby 2018, Park 2017, Tian 2013 (molrat); Pascual-Torner 2022 (kwal); Arndt 2015, Sugiura & Sato 2018 (bombardeerkever); Dalziell 2021 (liervogel).
-- Volgende stap na de keuring: script v2 → inspreken (Roos, eleven_v4) → bouwen in de FILMDATA-straat; speler met drie niveaus (beginner/basis/gevorderd).
+Versie 1.0 (22 okt 2026). Extra film buiten het PTA, thema Evolutie, in `HOOFDSTUKKEN.extra.films` van index.html.
+- Speler met drie niveaus: beginner (altijd), basis, gevorderd (`?niveau=beginner|basis|gevorderd`, onthouden in localStorage `bk-niveau3`). Aangepaste `src/player.js` en `src/page.html` (RANG-filter i.p.v. havo/vwo). Beginner ±5 min, alles ±11 min.
+- Script: `script_v2.md` (levels via `[M]`/`[G]` in `bouw/make_segments.py`); storyboardkeuring 22 okt 2026 (https://claude.ai/artifact/Ua59AB6bSaWhYEdeL93W6r): 47 van 52 scènes goedgekeurd, s01, q03, s05, s06, s20 (storyboardnummers) zonder opmerking open.
+- Stem: Roos, eleven_v4, één take per alinea (zie `stem/`); woordtijden met silalign.
+- Dieren: `src/teken_bd1.js`, `src/teken_bd1b.js` (Part C9-recepten); scènes `src/scenes_bd1.js`; keyframes `src/sb.js`.
+- Bouwen: zie films/vervolg/BOUWEN.md; scenes.js = scenes.js r.1–32 + brein, teken, extra, teken_dg0, teken_bd1, teken_bd1b, helpers uit sb.js (vóór `const SB`), scenes_bd1.
+- Uitspraakwachtlijst: axolotl, blastema, cavitatie, hyaluronzuur, transdifferentiatie, fructose, Mexico-Stad, onderzeebootsonar, veertigduizend (niet blind gecontroleerd).
+- Bronnen per getal: zie docentdeel (sections.html).
+- Nog te doen: filmmedaillon (valt nu terug op de lijntekening in FILMKUNST); deel 2 (uitgestorven dieren).
