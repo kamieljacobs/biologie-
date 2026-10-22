@@ -4,7 +4,7 @@ const SCENES={};
 const PERSON_LOOK={skin:SKINS[2],hair:'#2A2320',shirt:'#5A7FA0',trousers:'#34425A',hairStyle:'short'}; // (oud, niet meer gebruikt)
 // Personages uit het castboek (lib_cast.js, 22 okt 2026): jij = Yasmin; haar ouders Femke en Ravi, broer Bilal; verdachte/dader = Jesse; achterneef = Sam;
 // eeneiige tweeling = 2× Daan; zwangere vrouw (NIPT) = Esra; patiënt bij gentherapie = Opa Henk. Dezelfde rollen als in aflevering 8.
-const ROL={jij:['yasmin',{}],moeder:['femke',{outfit:'gewoon'}],vader:['ravi',{outfit:'gewoon'}],broer:['bilal',{}],dader:['jesse',{outfit:'gewoon'}],achterneef:['sam',{}],patient:['henk',{}]};
+const ROL={jij:['noor',{}],moeder:['linda',{}],vader:['rachid',{}],broer:['kind',{}],dader:['erik',{}],achterneef:['joost',{}],patient:['henk',{}]}; // rollen volgens personages/ROLLEN.md (22 okt 2026)
 const pp=(p,k,n)=>clamp(p*n-k,0,1);
 function rol(ctx,r,x,y,h,o={}){ const [id,b]=ROL[r]; return persoon(ctx,id,x,y,h,Object.assign({},b,o)); }
 const P=(li,L,lf)=> li>L?1: li<L?0: ease(lf*2);
@@ -94,7 +94,7 @@ SCENES.h2c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie 
 // ---- H2v: STR bands, probability, twin ----
 SCENES.h2v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); T(ctx,'Voor vwo: een stap verder',120,170,48,{w:700,alpha:li===0?ease(lf*2):0.5});
   if(li<=1){ const p=P(li,1,lf); M(ctx,'STR · short tandem repeat',480,250,{color:C.text2}); repeats(ctx,300,330,8,1); M(ctx,'8 ×',780,338,{color:C.goud}); repeats(ctx,300,400,11,1,lighten(C.paars,0.25)); M(ctx,'11 ×',960,408,{color:C.goud}); gel(ctx,1200,220,420,480,2,[[0.62,0.4],[0.4]],p,['8 / 11','11 / 11']); M(ctx,'twee banden · één band',1410,760,{align:'center',color:C.text2,alpha:p}); return; }
-  if(li===2){ const p=ease(lf*1.5); gel(ctx,300,220,1320,380,20,Array.from({length:20},(_,l)=>{ const R=seeded(l+11); return [0.2+R()*0.6,0.2+R()*0.6]; }),1,null); T(ctx,'alle twintig gelijk: kans < 1 op een miljard',960,670,40,{w:700,align:'center',color:C.goud,alpha:p}); persoon(ctx,'daan',570,880,210,{a:clamp(p*2-1,0,1),uit:'blij',t}); persoon(ctx,'daan',700,880,210,{a:clamp(p*2-1,0,1),uit:'blij',kijk:-1,t}); M(ctx,'eeneiige tweeling: zelfde profiel',1100,800,{color:C.text2,alpha:clamp(p*2-1,0,1)}); return; }
+  if(li===2){ const p=ease(lf*1.5); gel(ctx,300,220,1320,380,20,Array.from({length:20},(_,l)=>{ const R=seeded(l+11); return [0.2+R()*0.6,0.2+R()*0.6]; }),1,null); T(ctx,'alle twintig gelijk: kans < 1 op een miljard',960,670,40,{w:700,align:'center',color:C.goud,alpha:p}); persoon(ctx,'daan',570,880,210,{a:clamp(p*2-1,0,1),uit:'blij',t}); persoon(ctx,'thijs',700,880,210,{a:clamp(p*2-1,0,1),uit:'blij',kijk:-1,t}); M(ctx,'eeneiige tweeling: zelfde profiel',1100,800,{color:C.text2,alpha:clamp(p*2-1,0,1)}); return; }
   drop(ctx,960,440,1.8,ease(lf*1.5));
 };
 
@@ -134,7 +134,7 @@ function pedigree(ctx,x,y,alpha=1,hl=null,cast=null,t=0){ if(alpha<=0.01) return
 SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'schema');
   if(li===0){ const p=ease(lf*1.3); const ys=[260,400,540,680]; const labs=['jij','ouders','grootouders','overgrootouders']; const fr=['','½','¼','⅛'];
     // jij, ouders en grootouders als castpersonages; de acht overgrootouders als telpictogrammen (een telling: acht mensen, elk een achtste)
-    const gen=[[['yasmin',{}]],[['femke',{outfit:'gewoon'}],['ravi',{outfit:'gewoon'}]],[['mirjam',{}],['henk',{}],['visser',{}],['gerrit',{outfit:'gewoon'}]]];
+    const gen=[[['noor',{}]],[['linda',{}],['rachid',{}]],[['ria',{}],['henk',{}],['malika',{}],['ahmed',{}]]]; // Noor, ouders Linda en Rachid, grootouders Ria en Henk (kant moeder), Malika en Ahmed (kant vader)
     ys.forEach((y,i)=>{ const n=1<<i, a=clamp(p*4-i,0,1); if(a<=0.01) return; if(i<3){ const sp=i===2?150:170; gen[i].forEach(([id,o],k)=>persoon(ctx,id,1000+(k-(n-1)/2)*sp,y+52,i===0?130:118,Object.assign({a,t,uit:i===0?'blij':'neutraal'},o))); }
       else for(let k=0;k<n;k++) personIcon(ctx,1000+(k-(n-1)/2)*110,y,0.9,a,C.line);
       M(ctx,labs[i],140,y+8,{color:C.text2,alpha:a}); T(ctx,fr[i],1620,y+12,40,{w:700,color:C.goud,alpha:a}); }); return; }
@@ -218,4 +218,4 @@ SCENES.recap=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const items=[['kopiëren · PCR'
   items.forEach(([n,d],i)=>{ const p=P(li,i,lf); const x=330+i*420; ctx.save(); ctx.globalAlpha*=0.25+0.75*p; box(ctx,x-180,220,360,440,20,rgba(C.fill,0.9),p>0.5?C.goud:rgba(C.line,0.5),p>0.5?2:1); ctx.save(); ctx.translate(x,440); const sc=[0.9,1.1,1.1,0.42][i]; ctx.scale(sc,sc); d(); ctx.restore(); T(ctx,n,x,620,30,{w:700,align:'center',color:C.goud}); ctx.restore(); });
   if(li>=3) drop(ctx,960,760,1.4,P(li,3,lf));
 };
-SCENES.recap2=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const p=ease(lf*1.5); rol(ctx,'jij',560,870,560,{t,uit:li>=1?'denkt':'blij'}); [['femke',{outfit:'gewoon'}],['ravi',{outfit:'gewoon'}],['bilal',{}],['henk',{}]].forEach(([id,o],k)=>persoon(ctx,id,850+k*100,585,id==='bilal'?172:165,Object.assign({a:pp(p,k,4),t},o))); ln(ctx,640,560,790,560,C.goud,3); M(ctx,'je deelt je DNA met je familie',1000,620,{align:'center',color:C.text2,alpha:p}); if(li>=1){ const q=ease(lf*1.5); T(ctx,'Wat zou jij willen weten?',1400,360,44,{titel:true,align:'center',color:C.goud,alpha:q}); M(ctx,'aflevering acht',1400,420,{align:'center',color:C.text2,alpha:q}); } };
+SCENES.recap2=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const p=ease(lf*1.5); rol(ctx,'jij',560,870,560,{t,uit:li>=1?'denkt':'blij'}); [['linda',{}],['rachid',{}],['kind',{}],['ria',{}],['henk',{}],['malika',{}],['ahmed',{}]].forEach(([id,o],k)=>persoon(ctx,id,806+k*64,585,id==='kind'?118:165,Object.assign({a:pp(p,k,7),t},o))); ln(ctx,640,560,790,560,C.goud,3); M(ctx,'je deelt je DNA met je familie',1000,620,{align:'center',color:C.text2,alpha:p}); if(li>=1){ const q=ease(lf*1.5); T(ctx,'Wat zou jij willen weten?',1400,360,44,{titel:true,align:'center',color:C.goud,alpha:q}); M(ctx,'aflevering acht',1400,420,{align:'center',color:C.text2,alpha:q}); } };

@@ -84,7 +84,7 @@ const CAST = {
   // ===== Familie van Noor, tweeling en figuranten (22 okt 2026; Kamiel: 'meer personages, met namen, een soort stamboom') =====
   linda:  { naam: 'Linda', leeftijd: 44, rol: 'moeder van Noor en Teun · dochter van Opa Henk en Oma Ria', huid: '#E9C1A0', haar: '#6A4A30', kapsel: 'golf', golfLang: 0.55, wenkbrauw: '#4A3220', wimpers: true, lippen: '#B4605A',
             top: 'trui', topKleur: '#5E8FA8', topAccent: '#4D7A90', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.98,
-            garderobe: { gewoon: {}, zwanger: { top: 'tshirt', topKleur: '#E0A43A', topAccent: '#C98A2A', zwanger: 0.85, haar: '#6A4A30', golfLang: 0.9 } } }, // zwanger = 16 jaar geleden, zwanger van Noor
+            garderobe: { gewoon: {}, zwanger: { top: 'tshirt', topKleur: '#4FB3A5', topAccent: '#3E978B', zwanger: 0.85, haar: '#6A4A30', golfLang: 0.9 } } }, // zwanger = 16 jaar geleden, zwanger van Noor
   rachid: { naam: 'Rachid', leeftijd: 47, rol: 'vader van Noor en Teun · zoon van Opa Ahmed en Oma Malika', huid: '#B98060', haar: '#1E1612', kapsel: 'kort', wenkbrauw: '#1A120E', stoppels: true,
             top: 'overhemd', topKleur: '#3E6E5A', topAccent: '#33594A', broek: '#2E3442', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04 },
   ria:    { naam: 'Oma Ria', leeftijd: 69, rol: 'oma van Noor · vrouw van Opa Henk, moeder van Linda en Petra', huid: '#EBC6A6', haar: '#E2DFD6', kapsel: 'bob', wenkbrauw: '#B8B2A6', wimpers: true, lippen: '#B4605A',
@@ -363,18 +363,18 @@ function _mixHex(h1, h2, k) { const a = parseInt(h1.slice(1), 16), b = parseInt(
 // Gangcycli uit de biomechanica (22 okt 2026). Per been is fase 0 het eerste contact (voet raakt de grond).
 // th = dijbeen t.o.v. verticaal (+ = naar voren), kn = kniebuiging, an = enkel (+ = tenen omhoog), in graden, door de cyclus heen.
 // duty = deel van de cyclus dat een voet op de grond staat: lopen 0,62 (dubbele steun), rennen 0,32 en sprinten 0,22 (zweeffase: beide voeten los).
-// f = pascycli per seconde (één cyclus = twee stappen). leun = romp voorover (graden). Armen zwaaien tegengesteld aan het been aan dezelfde kant.
+// f = pascycli per seconde (één cyclus = twee stappen). kantel = hele lichaam voorover vanaf de enkels (graden; de voeten komen meer onder/achter het lichaam), leun = romp extra voorover vanuit de heup. Armen zwaaien tegengesteld aan het been aan dezelfde kant.
 // Bronnen: Fukuchi e.a. 2017 (open dataset, 2,5–4,5 m/s: heup −8..53°, knie tot 109°, enkel −20..27°), Novacheck 1998 (fasen, sprint), Perry & Burnfield (lopen), duty factor ±0,30 bij 12 km/u.
 const GANG = {
-  loop:   { f: 0.9, duty: 0.62, leun: 3, armK: -0.6, arm0: 3, elle0: 16, elleK: 0.35,
+  loop:   { f: 0.9, duty: 0.62, kantel: 2, leun: 3, armK: -0.6, arm0: 3, elle0: 16, elleK: 0.35,
             th: [[0, 22], [0.15, 16], [0.3, 5], [0.5, -11], [0.6, -8], [0.73, 10], [0.87, 24]],
             kn: [[0, 3], [0.13, 17], [0.3, 8], [0.42, 4], [0.55, 22], [0.62, 38], [0.72, 62], [0.83, 35], [0.93, 6]],
             an: [[0, 0], [0.07, -6], [0.3, 6], [0.48, 10], [0.6, -8], [0.65, -16], [0.75, -4], [0.88, 1]] },
-  ren:    { f: 1.43, duty: 0.32, leun: 8, zweef: 5, armK: -1.4, arm0: 4, elle0: 85, elleK: 0.3,
+  ren:    { f: 1.43, duty: 0.32, kantel: 12, leun: 13, zweef: 5, armK: -1.4, arm0: 4, elle0: 85, elleK: 0.3,
             th: [[0, 24], [0.12, 10], [0.32, -16], [0.4, -20], [0.52, -6], [0.66, 18], [0.83, 38], [0.93, 31]],
             kn: [[0, 18], [0.12, 42], [0.24, 30], [0.32, 18], [0.42, 48], [0.55, 92], [0.66, 108], [0.76, 92], [0.86, 52], [0.95, 20]],
             an: [[0, 4], [0.12, 24], [0.24, 14], [0.32, -14], [0.4, -21], [0.5, -8], [0.62, 4], [0.8, 8], [0.93, 5]] },
-  sprint: { f: 2.2, duty: 0.22, leun: 14, zweef: 3, armK: -1.3, arm0: 6, elle0: 80, elleK: 0.25,
+  sprint: { f: 2.2, duty: 0.22, kantel: 18, leun: 20, zweef: 3, armK: -1.3, arm0: 6, elle0: 80, elleK: 0.25,
             th: [[0, 28], [0.1, 8], [0.22, -22], [0.3, -26], [0.45, 4], [0.62, 42], [0.78, 52], [0.9, 40]],
             kn: [[0, 22], [0.08, 38], [0.22, 20], [0.32, 62], [0.45, 116], [0.57, 128], [0.7, 100], [0.82, 55], [0.93, 25]],
             an: [[0, -6], [0.08, 18], [0.22, -24], [0.3, -28], [0.45, -6], [0.65, 10], [0.85, 4]] }
@@ -388,7 +388,7 @@ function _kf(tab, p) { // periodieke kubische interpolatie (Catmull-Rom met onge
 const _ZOOL = [[-0.24, 0.22], [0.42, 0.22], [0.64, 0.16]]; // hiel, bal, teen (voetassen, × kopmaat) t.o.v. de enkel
 function _beenPose(G, p, L1, L2, hh, extra = 0) { // p = fase van dit been (0..1)
   const D = Math.PI / 180; let th, kn, an;
-  if (G) { th = _kf(G.th, p) * D; kn = _kf(G.kn, p) * D; an = (_kf(G.an, p) + extra) * D; } else { th = 0.02; kn = 0.03; an = 0; }
+  if (G) { th = (_kf(G.th, p) - (G.kantel || 0)) * D; kn = _kf(G.kn, p) * D; an = (_kf(G.an, p) + extra) * D; } else { th = 0.02; kn = 0.03; an = 0; }
   const kx = Math.sin(th) * L1, ky = Math.cos(th) * L1, sa = th - kn, ax = kx + Math.sin(sa) * L2, ay = ky + Math.cos(sa) * L2, fA = sa + an;
   const ux = Math.cos(fA), uy = -Math.sin(fA), nx = Math.sin(fA), ny = Math.cos(fA);
   let low = -1e9, lowX = 0; for (const [lx, ly] of _ZOOL) { const X = ax + (lx * ux + ly * nx) * hh, Y = ay + (lx * uy + ly * ny) * hh; if (Y > low) { low = Y; lowX = X; } }
@@ -446,7 +446,7 @@ function _zij(ctx, P, x, y, h, a, o) {
   const A1 = hh * 1.32 * (P.armK || 1), A2 = hh * 1.2 * (P.armK || 1);
   const thGem = G ? G.th.reduce((s, q) => s + q[1], 0) / G.th.length : 0;
   const armHoek = (B, kant) => { // kant 1 = dichtbij; B = been aan dezelfde kant
-    if (G) { const D = Math.PI / 180, sh = G.arm0 + G.armK * (B.th / D - thGem); return [sh * D, (G.elle0 + G.elleK * sh) * D]; }
+    if (G) { const D = Math.PI / 180, sh = G.arm0 + G.armK * (B.th / D + (G.kantel || 0) - thGem); return [sh * D, (G.elle0 + G.elleK * sh) * D]; }
     if (o.pose === 'wijs' && kant > 0) return [1.35, 0.1];
     if (o.pose === 'wijsOmhoog' && kant > 0) return [2.4, 0.2];
     if (o.pose === 'zwaai' && kant > 0) return [2.6, 0.5 + 0.35 * Math.sin(t * 7)];

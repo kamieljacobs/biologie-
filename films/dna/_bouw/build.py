@@ -40,7 +40,7 @@ def build(n):
         page=page.replace('<span class="tog" id="niveau"><button data-v="havo">Havo</button><button data-v="vwo">Vwo</button></span>\n','')
         page=page.replace('Havo slaat de vwo-blokken over; <code>?niveau=havo</code> en <code>?modus=klas</code> in de link werken ook.','Deze film heeft één niveau (geen vwo-blokken); <code>?modus=klas</code> in de link werkt ook.')
     page=page.replace('/*FONTS*/',fonts).replace('/*FILMDATA*/',json.dumps(data,ensure_ascii=False)).replace('/*GLOSSARY*/',json.dumps(gl,ensure_ascii=False))
-    page=page.replace('/*LIB*/',rd('src/lib.js')+'\n'+rd('src/dnalib.js')+('\n'+rd('src/lib_cast.js') if n in (7,8) else '')) # castboek in film 7 en 8 (22 okt 2026).replace('/*SCENES*/',rd(f'src/scenes{n}.js')).replace('/*PLAYER*/',rd('src/player.js'))
+    page=page.replace('/*LIB*/',rd('src/lib.js')+'\n'+rd('src/dnalib.js')+('\n'+rd('src/lib_cast.js') if n in (7,8) else '')).replace('/*SCENES*/',rd(f'src/scenes{n}.js')).replace('/*PLAYER*/',rd('src/player.js'))  # castboek in film 7 en 8 (22 okt 2026)
     nav=('<nav class="sitenav nav"><a href="../../index.html#home">Biologie bij Kamiel</a><a href="../../index.html#dna" id="back" class="terug">← Terug naar DNA</a></nav>'
          '<script>document.getElementById("back").addEventListener("click",function(e){try{if(document.referrer&&new URL(document.referrer).origin===location.origin&&history.length>1){e.preventDefault();history.back();}}catch(_){}});</script>'
          +F['seriesline'])

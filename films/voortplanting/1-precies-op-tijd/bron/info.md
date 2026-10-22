@@ -5,7 +5,7 @@
 | Bestand | films/voortplanting/1-precies-op-tijd.html |
 | Reeks / nummer | Voortplanting (vwo), film 1 "Van bevruchting tot baby"; celdeling zit in de serie Cel |
 | Doelgroep / niveau | vwo bovenbouw; Nectar 4.1 H4 en Biologie voor jou 4 vwo thema 2. Geen Havo/Vwo-schakelaar; `verdieping` staat overal op false (H2 eiwit- vs steroïdhormoon heet in het docentdeel wel "verdieping") |
-| Versie / datum | v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
+| Versie / datum | v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2); opname van v1 (september 2026) hergebruikt, zes zinnen in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; vraag H8 begint met "Wat denk je?") |
 | Duur | 19:43 (som van de 12 audioblobs: 1183,4 s), inclusief hoofdstukkaarten, bedenktijd en onthulling die in de audio als stilte zitten |
 | Beeldstijl | Part C-stijlkaart (v4): Schema (navy #1A2740) als hoofdlook, Micro (#121A26) in zoomcirkels; Macro niet gebruikt. Vaste UI-laag, canvas 1920×1080, CAPTION_Y 950. Kleurafspraak: eiwithormonen teal, steroïden/inhibine/AMH paars, bloed koraal, leven groen |
@@ -178,3 +178,12 @@ Alleen beeld; audio, timing, tekst, ondertitels en speler ongewijzigd (`spelerfi
 - H9 (Een lus die zichzelf versterkt): het anatomische schema (doorsnede baarmoeder) bleef; het grijze omgekeerde poppetje is vervangen door een opgekruld kind met het hoofd naar beneden, vruchtwater, placenta (linksboven) en golvende navelstreng (2 slagaders koraal, 1 ader blauw). Bij 'eruit' zakt het kind door de hals en verschijnt de baby uit het castboek naast de baarmoeder (eerst blij, daarna slapend). Keuze: een castpersonage (staand) past niet in een doorsnede; een foetus in castboekstijl wel.
 - H11: 'je oma' en 'jij' onderaan = Femke en Noor. De twaalf poppetjes bij '1 op de 6 stellen' zijn telpoppetjes en bleven bewust staan.
 - Vervangingen staan als oud → nieuw in `bron/src/vervangingen_v2_2.py` (lijst `R`), om ze opnieuw toe te passen op een versie zonder deze wijziging.
+
+## Wijziging 22 okt 2026 (v2.3): vaste rollen uit `personages/ROLLEN.md`
+
+Alleen beeld (audio, timing, tekst en ondertitels ongewijzigd). De familie van Noor uit het castboek:
+- **jij = Noor** (ongewijzigd).
+- **(je) moeder = Linda** (was Esra) met `outfit:'zwanger'` (= 16 jaar geleden, zwanger van Noor) en `zwanger` 0..1: H0 'de moeder' (buik groeit 0,15 → 1) en 'je moeder' in de rij oma → moeder → jij.
+- **je oma = Oma Ria** (was Femke) met `outfit:'vroeger'` (jong, ± 45 jaar geleden) en `zwanger` (0,6 / 0,8): H0 rij, H1 'je oma, 5 maanden zwanger' met kijkje in de buik (`castBuik('ria', …)`), H11 'je oma' onderaan.
+- `bron/src/lib_cast.js` = kopie van het actuele castboek (22 okt 2026, met Linda/Ria en de nieuwe gangen); in de HTML is alleen het castblok vervangen plus de vijf aanroepen. De vervangingen staan als lijst `R23` onderaan `bron/src/vervangingen_v2_2.py` (toepassen ná `R`).
+- Let op: Linda's zwangerschapsoutfit is mosterdgeel, net als Noors trui; in de rij oma → moeder → jij lijken moeder en jij daardoor qua kleur op elkaar (kan alleen in het castboek worden aangepast).

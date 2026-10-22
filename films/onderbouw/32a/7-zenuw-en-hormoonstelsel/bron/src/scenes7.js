@@ -4,7 +4,7 @@
 
 // ---------- algemene hulpjes film 7 ----------
 // Lichaam (versie 1.1, 22 okt 2026): het realistische lichaam uit lib_anatomie.js (zelfde als film 2b), organen op hun echte plek.
-// 'Jij' is Sam uit het castboek (cold open, plein, inzetjes). Kleuren film 7: zenuwen neutraal, zenuwsignaal teal, hormoonklieren en adrenaline paars, spieren rood.
+// 'Jij' is Lotte uit het castboek (vaste 'jij' in de onderbouwreeks, 22 okt 2026; Sam en Noor zijn klasgenoten) (cold open, plein, inzetjes). Kleuren film 7: zenuwen neutraal, zenuwsignaal teal, hormoonklieren en adrenaline paars, spieren rood.
 BODY.cx=960; BODY.yb=880; BODY.h=740;
 const LB=BODY; const LU=LB.h/8, LT=LB.yb-LB.h;
 // tijdelijk een ander lichaam (positie/maat), bv. klein in s11 of groot voor de hersenen in s06/s13
@@ -74,11 +74,11 @@ function lever(a=1,hl=false){ if(a<=0.01) return; liver(a,hl?0.7:0); if(hl){ ctx
 const ADR_DOEL=[]; for(let i=0;i<46;i++){ const r=hash(i*3.7), h1=hash(i*1.3), h2=hash(i*2.9), sd=hash(i*5.1)<0.5?-1:1; let x,y;
   if(r<0.12){ x=(h1-0.5)*0.5; y=0.25+h2*0.5; } else if(r<0.55){ x=(h1-0.5)*1.05; y=1.55+h2*2.2; } else if(r<0.7){ x=sd*(0.92+h1*0.2); y=1.9+h2*2.2; } else { x=sd*(0.22+h1*0.26); y=4.2+h2*2.8; } ADR_DOEL.push([x,y]); }
 function adrenaline(u,a=1,n=46,verval=0){ if(a<=0.01) return; const HH=AHH(); alpha(ctx,a*(1-0.75*verval),()=>{ for(let i=0;i<n;i++){ const src=AP(i%2?-0.37:0.37,i%2?2.9:2.84), d=AP(ADR_DOEL[i][0],ADR_DOEL[i][1]); const ui=ease(clamp(u*1.4-hash(i*7.7)*0.4,0,1)); if(ui<=0) continue; const w=wander(i,u*20,0.05*HH,1); dot(ctx,lerp(src[0],d[0],ui)+w.x,lerp(src[1],d[1],ui)+w.y,Math.max(3,0.055*HH),C.paars,lighten(C.paars,0.45),1.2); } }); }
-// Sam (= jij) in een rond inzetje: plein, springt op, hart bonkt
+// Lotte (= jij) in een rond inzetje: plein, springt op, hart bonkt
 function samInzet(cx,cy,r,a,t,o={}){ inset(cx,cy,r,a,()=>{ const k=r/150; ctx.save(); ctx.translate(cx,cy); ctx.scale(k,k);
   ctx.fillStyle='#6E8CA8'; ctx.fillRect(-160,-160,320,320); ctx.fillStyle='#3E4A62'; ctx.fillRect(-160,-150,320,170); ctx.fillStyle='#55627C'; for(let c=0;c<4;c++) for(let r2=0;r2<2;r2++){ roundRect(ctx,-140+c*75,-130+r2*80,45,55,3); ctx.fill(); }
   ctx.fillStyle='#8A8F96'; ctx.fillRect(-160,95,320,70);
-  const sp=o.spring||0; persoon(ctx,'sam',0,128-70*Math.sin(Math.PI*clamp(sp,0,1)),245,{outfit:'school',uit:o.uit||'bezorgd',pose:sp>0&&sp<1?'schouders':'staan',kijk:1,t});
+  const sp=o.spring||0; persoon(ctx,'lotte',0,128-70*Math.sin(Math.PI*clamp(sp,0,1)),245,{outfit:'school',uit:o.uit||'bezorgd',pose:sp>0&&sp<1?'schouders':'staan',kijk:1,t});
   if(o.bonk){ heart(52,-10,0.45,o.bonk,t*13); }
   ctx.restore(); }); }
 // bel met geluidsringen
@@ -101,10 +101,10 @@ function luidspreker(x,y,s,t,a=1){ alpha(ctx,a,()=>{ ctx.beginPath(); ctx.moveTo
   for(let k=0;k<3;k++){ const f=((t*0.9+k/3)%1); ctx.save(); ctx.globalAlpha*=(1-f); ctx.strokeStyle=C.paars; ctx.lineWidth=4; ctx.beginPath(); ctx.arc(x+30*s,y,(40+f*110)*s,-0.9,0.9); ctx.stroke(); ctx.restore(); } }); }
 function voetbalveld(x,y,w,t,a=1){ if(a<=0.01) return; const h=w*0.6; alpha(ctx,a,()=>{ ctx.strokeStyle=C.line; ctx.lineWidth=2; ctx.strokeRect(x,y,w,h); ctx.beginPath(); ctx.moveTo(x+w/2,y); ctx.lineTo(x+w/2,y+h); ctx.stroke(); ctx.beginPath(); ctx.arc(x+w/2,y+h/2,h*0.18,0,6.283); ctx.stroke(); ctx.strokeRect(x,y+h*0.25,w*0.14,h*0.5); ctx.strokeRect(x+w*0.86,y+h*0.25,w*0.14,h*0.5);
   const u=(t%1.6)/1.0; if(u<=1){ dot(ctx,x+w*u,y+h/2,10,C.teal,lighten(C.teal,0.4),2); } metaText(ctx,'± 100 m in 1 seconde',x+w/2,y+h+40,C.teal,'center',24); }); }
-// Sam aan het fornuis (reflex, s06): rechterarm reikt naar de pan en schiet terug; geeft ankers voor zenuwen en labels
+// Lotte aan het fornuis (reflex, s06): rechterarm reikt naar de pan en schiet terug; geeft ankers voor zenuwen en labels
 // weg 0..1 = hand trekt terug. De arm wordt met een eigen houding (POSES.reflex7) getekend, zelfde rekenwerk als lib_cast.
 const SAM7={x:430,y:880,h:620};
-function samArm(weg){ const P=CAST.sam, h=SAM7.h*(P.lengte||1), hh=h/6.1, top=SAM7.y-h, sw=hh*1.8, sy=top+hh*1.42+hh*0.25, sx=SAM7.x+sw*0.4;
+function samArm(weg){ const P=CAST.lotte, h=SAM7.h*(P.lengte||1), hh=h/6.1, top=SAM7.y-h, sw=hh*1.8, sy=top+hh*1.42+hh*0.25, sx=SAM7.x+sw*0.4;
   const e=ease(weg), a1=lerp(1.12,0.22,e), a2=lerp(1.32,-2.55,e); const L1=hh*1.32, L2=hh*1.2;
   const ex=sx+Math.sin(a1)*L1, ey=sy+Math.cos(a1)*L1, hx=ex+Math.sin(a2)*L2, hy=ey+Math.cos(a2)*L2;
   return { a1, a2, sx, sy, ex, ey, hx, hy, hh, top, rug:[SAM7.x,sy+hh*0.35], nek:[SAM7.x,top+hh*1.25], hoofd:[SAM7.x,top+hh*0.55], heup:[SAM7.x,top+hh*3.45] }; }
@@ -124,18 +124,18 @@ function spierSpoel(x,y,k,t){ const L=150*(1-0.15*k), Wd=34*(1+0.25*k); ctx.save
   ctx.strokeStyle='#E8DCC8'; ctx.lineWidth=7; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(-L/2-34,0); ctx.lineTo(-L/2+6,0); ctx.moveTo(L/2-6,0); ctx.lineTo(L/2+34,0); ctx.stroke();
   if(k>0.05){ ctx.shadowColor=C.koraal; ctx.shadowBlur=24*k; } ctx.beginPath(); ctx.moveTo(-L/2,0); ctx.bezierCurveTo(-L/4,-Wd,L/4,-Wd,L/2,0); ctx.bezierCurveTo(L/4,Wd,-L/4,Wd,-L/2,0); shape(ctx,ANA.spier,ANA.spierL,2); ctx.shadowBlur=0;
   ctx.globalAlpha*=0.5; ctx.strokeStyle=ANA.spierL; ctx.lineWidth=1.5; for(const f of [-0.5,0,0.5]){ ctx.beginPath(); ctx.moveTo(-L/2+10,0); ctx.quadraticCurveTo(0,f*Wd*1.4,L/2-10,0); ctx.stroke(); } ctx.restore(); }
-function samFornuis(weg,t,uit){ const A=samArm(weg); POSES.reflex7.R=[A.a1,A.a2]; persoon(ctx,'sam',SAM7.x,SAM7.y,SAM7.h,{outfit:'school',pose:'reflex7',uit,kijk:1,t}); return A; }
+function samFornuis(weg,t,uit){ const A=samArm(weg); POSES.reflex7.R=[A.a1,A.a2]; persoon(ctx,'lotte',SAM7.x,SAM7.y,SAM7.h,{outfit:'school',pose:'reflex7',uit,kijk:1,t}); return A; }
 
 // ================= SCÈNES =================
 const SCENES={
 // ---- cold open: brandalarm in de klas, daarna het plein ----
 s01(ctx,t,q){ const tB=q.at('buiten'), tAl=q.at('brandalarm'), tSp=q.at('springt');
   if(t<tB-0.3){ klas(t); const op=ramp(t,tSp,0.35);
-    persoon(ctx,'sam',780,880-150*(1-op),440,{outfit:'school',uit:op>0.5?'verbaasd':'neutraal',kijk:1,t}); persoon(ctx,'noor',1100,880-150*(1-op),425,{outfit:'school',uit:op>0.5?'verbaasd':'denkt',kijk:-1,t});
+    persoon(ctx,'lotte',780,880-150*(1-op),440,{outfit:'school',uit:op>0.5?'verbaasd':'neutraal',kijk:1,t}); persoon(ctx,'noor',1100,880-150*(1-op),425,{outfit:'school',uit:op>0.5?'verbaasd':'denkt',kijk:-1,t});
     tafel(940,600,760); alarmBel(1000,110,1,t,t>tAl);
     pill(ctx,1000,250,'brandalarm!',C.teal,fadeIO(t,tAl,tB-0.6,0.3),32);
   } else { plein(); const s=t-tB;
-    persoon(ctx,'sam',760,880,470,{outfit:'school',uit:'bezorgd',kijk:1,t}); persoon(ctx,'noor',980,880,450,{outfit:'school',uit:'praat',kijk:-1,t}); persoon(ctx,'lotte',540,880,455,{outfit:'school',uit:'verbaasd',kijk:1,t});
+    persoon(ctx,'lotte',760,880,470,{outfit:'school',uit:'bezorgd',kijk:1,t}); persoon(ctx,'noor',980,880,450,{outfit:'school',uit:'praat',kijk:-1,t}); persoon(ctx,'sam',540,880,455,{outfit:'school',uit:'verbaasd',kijk:1,t});
     hartPil(1500,140,t,ramp(t,q.at('bonkt'),0.4));
     alpha(ctx,ramp(t,q.at('Hoe'),0.5),()=>{ pill(ctx,760,150,'hoe wisten je benen en je hart het?',C.goud,1,40); }); }
 },
@@ -177,7 +177,7 @@ s06(ctx,t,q){ bg(ctx,'schema'); const tP=q.at('pan'), tR=q.at('ruggenmerg'), tT=
   ctx.fillStyle='#22324D'; ctx.fillRect(0,880,W,H-880); ctx.strokeStyle=rgba(C.line,0.4); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(0,880); ctx.lineTo(W,880); ctx.stroke();
   const weg=ramp(t,tW-0.25,0.35); fornuis(t);
   const A=samFornuis(weg,t,t>tAu?'verbaasd':weg>0.5?'bezorgd':'neutraal');
-  // kijkje in Sam: ruggenmerg, hersenen en de zenuw in de arm (doorschijnend over de kleding)
+  // kijkje in Lotte: ruggenmerg, hersenen en de zenuw in de arm (doorschijnend over de kleding)
   const NEU='#E6ECF4', zArm=[[A.hx,A.hy],[A.ex,A.ey],[A.sx,A.sy],A.rug];
   alpha(ctx,ramp(t,0.2,0.6),()=>{ ctx.save(); ctx.globalAlpha*=0.85; ctx.lineCap='round'; ctx.lineJoin='round';
     ctx.strokeStyle=rgba(NEU,0.9); ctx.lineWidth=9; ctx.beginPath(); ctx.moveTo(A.nek[0],A.nek[1]); ctx.lineTo(A.heup[0],A.heup[1]); ctx.stroke();
@@ -202,7 +202,7 @@ s06(ctx,t,q){ bg(ctx,'schema'); const tP=q.at('pan'), tR=q.at('ruggenmerg'), tT=
 },
 // ---- H2: het plein, seintje naar de bijnieren, adrenaline ----
 s07(ctx,t,q){ const tTw=q.at('tweede'), tSe=q.at('seintje'), tKa=q.at('kapjes'), tHk=q.at('hormoonklieren'), tAd=q.at('adrenaline'), tHo=q.at('hormoon.',3), tWa=q.at('Waar');
-  if(t<tTw-0.2){ plein(); persoon(ctx,'sam',760,880,470,{outfit:'school',uit:'bezorgd',kijk:1,t}); persoon(ctx,'lotte',540,880,455,{outfit:'school',uit:'neutraal',kijk:1,t}); hartPil(1500,140,t,1); pill(ctx,760,150,'het alarm is uit',C.text,ramp(t,q.at('uit.'),0.4),30); return; }
+  if(t<tTw-0.2){ plein(); persoon(ctx,'lotte',760,880,470,{outfit:'school',uit:'bezorgd',kijk:1,t}); persoon(ctx,'sam',540,880,455,{outfit:'school',uit:'neutraal',kijk:1,t}); hartPil(1500,140,t,1); pill(ctx,760,150,'het alarm is uit',C.text,ramp(t,q.at('uit.'),0.4),30); return; }
   bg(ctx,'schema'); lijf(1); zenuwnet(0.45,{bij:true}); nieren(ramp(t,tKa-0.4,0.4)); anHeart(1,t*9,0.15);
   pill(ctx,420,200,'1  zenuwen',C.teal,0.4,34); pill(ctx,420,290,'2  hormonen',C.paars,ramp(t,tTw,0.4),34);
   puls(PAD.bij(),ramp(t,tSe,1.6),1); naamBij(ctx,'via een zenuw','',XR,YB(2.45),fadeIO(t,q.at('Via'),tKa,0.3),'left',C.teal);
@@ -219,7 +219,7 @@ s09(ctx,t,q){ const tOm=q.at('omroep'), tZo=q.at('Zo'), tHa=q.at('hart',1), tAd=
   if(inOmroep){ bg(ctx,'schema'); ctx.fillStyle='#22324D'; ctx.fillRect(0,760,W,H-760); luidspreker(960,170,1,t,1);
     pill(ctx,960,330,'"Klas 1B naar de aula."',C.paars,ramp(t,q.at('aula'),0.3),36);
     const lp=ramp(t,q.at('lopen'),1.2);
-    [['1A',360,['daan','yasmin']],['1B',960,['sam','noor']],['1C',1560,['bilal','lotte']]].forEach(([k,x,ids])=>{ const ik=k==='1B'; const a=ik||t<q.at('Alleen')?1:0.35;
+    [['1A',360,['daan','yasmin']],['1B',960,['lotte','noor']],['1C',1560,['bilal','sam']]].forEach(([k,x,ids])=>{ const ik=k==='1B'; const a=ik||t<q.at('Alleen')?1:0.35;
       alpha(ctx,a,()=>{ ids.forEach((id,j)=>persoon(ctx,id,x-80+j*160+(ik?lp*260:0),780,340,{outfit:'school',kijk:ik?1:(j?-1:1),uit:ik&&lp>0?'blij':'neutraal',t})); metaText(ctx,'klas '+k,x+(ik?lp*260:0),820,ik?C.paars:C.text2,'center',26); }); });
     return; }
   bg(ctx,'schema'); lijf(1); zenuwnet(0.3); nieren(1); klier('bij',1);

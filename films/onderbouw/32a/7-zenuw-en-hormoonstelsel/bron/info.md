@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/7-zenuw-en-hormoonstelsel/index.html` (audio in `audio/`: 12 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 7 (32A Organismen, bullet 3: samenwerking van organen in het zenuwstelsel en het hormoonstelsel; bullet 4: samenwerkende stelsels houden het lichaam gaande) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s06: de reflex). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
-| Versie / datum | 1.0 · 20 oktober 2026 |
+| Versie / datum | 1.2 · 22 oktober 2026 (beeld: Lotte = jij) · 1.1 · 21 oktober 2026 · 1.0 · 20 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `6oSfAQ8goWBUkX1rB5Yq` (node- en sessie-id's per take in `stem/tts.json`, generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes (`stem/scribe.json`); alle 12 takes woord voor woord gelijk aan de stem-invoer (blinde controle in `bouw/woordtijden.py`) |
 | Duur | audio 272 s; speeltijd Uitdaging ± 5:35, Basis ± 5:10 (met vragen; hoofdstukkaarten 1,3 s) |
@@ -34,7 +34,7 @@
 
 | Segment | Hoofdstuk | Look | Beeld |
 |---|---|---|---|
-| s01 | Cold open | Macro: klas → plein | Sam en Noor achter de tafel; brandalarm (bel met teal ringen); ze springen op; buiten op het plein met Lotte, hartslag-pil "bonk bonk"; "hoe wisten je benen en je hart het?" |
+| s01 | Cold open | Macro: klas → plein | Lotte (= jij) en Noor achter de tafel; brandalarm (bel met teal ringen); ze springen op; buiten op het plein met Sam, hartslag-pil "bonk bonk"; "hoe wisten je benen en je hart het?" |
 | s02 | Titel | Schema | titel met lichaam, teal puls over het zenuwnet, paarse klieren |
 | s03 | H1 Het snelle bericht | Schema | twee manieren (pillen); oor = zintuig; geluid/licht/warmte/aanraking; teal signaal; zoomcirkel doorsnede zenuw; vraagteken bij de benen |
 | q04 | H1 | vraag | welke weg naar je benen? |
@@ -93,3 +93,7 @@ Geen uitspraaktest vooraf (afspraak 13-10-2026). Stem-invoer: gewone spelling (e
 ## Versie 1.1 · 21 oktober 2026: realistisch lichaam en castpersonages
 
 Alleen beeld (audio, timing, tekst en ondertitels ongewijzigd). Het grijze schemalichaam (`human`) is vervangen door het realistische lichaam uit `personages/lib_anatomie.js` (kopie in `src/lib_anatomie.js`, zelfde als film 2b), met organen op hun echte plek: echte hersenen, ruggenmerg en zenuwen in arm en been, nieren met bijnieren als kapje, hart (`anHeart`), longen (`anLungs`), lever, alvleesklier, schildklier, hypofyse, eierstokken en zaadballen (wisselen af). De kleuren van film 7 blijven: zenuwsignaal teal, hormoonklieren en adrenaline paars, spieren rood (de beenspieren trekken echt samen). 'Jij' is **Sam** (al in de cold open): klein in een inzetje in s05 (springt op), en in s06 (reflex) staat hij zelf aan een fornuis met hete pan. Zijn arm reikt naar de pan en schiet terug (eigen houding `POSES.reflex7`, `samArm`), met een kijkje in hem: ruggenmerg, armzenuw en hersenen. In s11 is 'het hele lichaam' een klein anatomisch lichaam waar de adrenaline zich verspreidt, en 'één spier' een echte spier met pezen die samentrekt. In s13 staan echte hersenen. Ankers: `P7f()`, labelkolommen `XR`/`XL`, `YB(v)`; `metLijf(cx,yb,h,fn)` tekent het lichaam tijdelijk op een andere plek of maat; paden in `PAD`. Bouw: `bouw.py` neemt nu `src/lib_cast.js` (actueel castboek met zijaanzicht) en `src/lib_anatomie.js` vóór `scenes7.js`; in `index.html` zijn alleen het castblok en het scèneblok vervangen. Regelnummers hierboven gelden voor versie 1.0.
+
+## Versie 1.2 · 22 oktober 2026 (beeld): Lotte is 'jij'
+
+In de hele onderbouwreeks is 'jij' Lotte (`personages/ROLLEN.md`). Daarom zijn in `src/scenes7.js` Sam en Lotte van plek gewisseld: Lotte zit nu met Noor achter de tafel bij het brandalarm (s01), staat op het plein vooraan met hartslag-pil (s01, s07), springt op in het inzetje van s05 (`samInzet`) en pakt de hete pan in s06 (`samFornuis`, `samArm` rekent nu met `CAST.lotte`). Sam staat als klasgenoot op het plein; in de omroep staat Lotte in 1B met Noor, Sam in 1C met Bilal. De functienamen `samInzet`/`samFornuis`/`SAM7` zijn bewust gebleven. `src/lib_cast.js` = kopie van het actuele castboek (22 okt 2026). In `index.html` zijn alleen het castblok en het scèneblok vervangen. Gecontroleerd: geen paginafouten, contactblad van s01, s05, s06, s07, poppetjesdetector 0 treffers.

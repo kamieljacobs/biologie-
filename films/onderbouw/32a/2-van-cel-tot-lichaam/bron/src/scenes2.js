@@ -23,16 +23,17 @@ function boneCells(x,y,len,a){ if(a<=0.01) return; ctx.save(); ctx.globalAlpha*=
 // tijdelijk het anatomie-assenstelsel verleggen: punt (ox,oy) in hoofdhoogtes komt op (x,y), HH px per hoofdhoogte
 function opPlek(x,y,HH,ox,oy,fn){ const o={cx:BODY.cx,yb:BODY.yb,h:BODY.h}; BODY.h=HH*AN_H; BODY.cx=x-ox*HH; BODY.yb=y-oy*HH+BODY.h; try{ fn(); } finally{ Object.assign(BODY,o); } }
 function lijfOp(cx,yb,h,fn){ const o={cx:BODY.cx,yb:BODY.yb,h:BODY.h}; Object.assign(BODY,{cx,yb,h}); try{ fn(); } finally{ Object.assign(BODY,o); } }
-// grondsnelheid van de voeten bij gang 'ren' (tempo 1): ± 1,8 × de getekende lengte per seconde (gemeten in het castboek)
-function grondV(h){ return 1.8*h*(CAST.lotte.lengte||1); }
+// grondsnelheid (px/s) bij een gang: exact uit het castboek (gangSnelheid), zodat de steunvoet niet over de vloer glijdt (v1.2, 22 okt 2026)
+function grondV(h,gang='ren'){ return gangSnelheid('lotte',h,gang); }
 // Lotte rent (of staat) van opzij; o.hart / o.adem (0..1) tekenen hart en longen in de borst, o.puf = ademwolkjes bij de mond
-function renner(x,fy,h,t,o={}){ const kijk=o.kijk||1, ren=o.ren!==false;
-  const A=persoon(ctx,'lotte',x,fy,h,{zij:true,kijk,gang:ren?'ren':null,t,outfit:'sport',uit:o.uit||'blij',a:o.a==null?1:o.a});
+// o.gang = 'ren' (standaard) of 'sprint'; o.vooruit: x = startpunt, Lotte beweegt zelf met grondV (steunvoet staat stil op de vloer)
+function renner(x,fy,h,t,o={}){ const kijk=o.kijk||1, ren=o.ren!==false, gang=o.gang||'ren';
+  const A=persoon(ctx,'lotte',x,fy,h,{zij:true,kijk,gang:ren?gang:null,vooruit:ren&&!!o.vooruit,t,outfit:'sport',uit:o.uit||'blij',a:o.a==null?1:o.a});
   if(!A.hoofd) return A; const r=A.hoofd.r, hh=h*(CAST.lotte.lengte||1)/6.1;
   const bx=lerp(A.heup.x,A.hoofd.x,0.5)+kijk*0.12*hh, by=lerp(A.heup.y,A.hoofd.y,0.5)+0.05*hh; A.borst={x:bx,y:by};
   A.mond={x:A.hoofd.x+kijk*0.72*r, y:A.hoofd.y+0.45*r};
   const hart=o.hart||0, adem=o.adem||0;
-  if(hart>0.01||adem>0.01){ ctx.save(); ctx.translate(bx,by); ctx.rotate(kijk*(ren?0.14:0.03)); ctx.translate(-bx,-by);
+  if(hart>0.01||adem>0.01){ ctx.save(); ctx.translate(bx,by); ctx.rotate(kijk*(ren?GANG[gang].leun*Math.PI/180:0.03)); ctx.translate(-bx,-by);
     opPlek(bx,by,0.155*hh*6.1/7.3*4.6,0.02,2.12,()=>{ anLungs(adem*0.95,o.breath||0,adem*0.5); anHeart(hart,o.beat||0,hart*0.6); }); ctx.restore(); }
   const pf=o.puf||0; if(pf>0.01) for(let i=0;i<3;i++){ const u=((t*1.7+i/3)%1); alpha(ctx,pf*(1-u)*0.75,()=>{ ctx.beginPath(); ctx.ellipse(A.mond.x+kijk*(10+u*18)-kijk*u*110,A.mond.y+6+u*14,7+u*16,5+u*11,0,0,6.283); ctx.fillStyle='#D8EEF2'; ctx.fill(); }); }
   return A; }
@@ -161,14 +162,15 @@ function trapArt(al,t){ // tekeningen op de treden: mens
 const SCENES={
 // ---- cold open: gymles ----
 s01(ctx,t,q){ const tS=q.at('sprint')-0.2, tH=q.at('hart'), tA=q.at('ademt'), tW=q.at('Waarom'), h=430;
-  const u=clamp((t-tS)/Math.max(1,tW-tS),0,1)*0.95, x=lerp(380,1220,u), vR=(1220-380)*0.95/Math.max(1,tW-tS);
-  const scroll=Math.max(0,t-tS)*(grondV(h)-(u<0.95?vR:0)); const fy=gymHall(scroll);
+  // v1.2: sprint uit het castboek; de camera volgt half (Lotte schuift van 380 naar 1220), de gymzaal schuift de rest, samen exact grondV → de steunvoet staat stil op de vloer
+  const u=clamp((t-tS)/Math.max(1,tW-tS),0,1)*0.95, xs=lerp(380,1220,u), v=grondV(h,'sprint');
+  const scroll=Math.max(0,v*(t-tS)-(xs-380)); const fy=gymHall(scroll);
   const hb=ramp(t,tH-0.6,0.5), br=ramp(t,tA-0.2,0.5);
-  const A=renner(x,fy,h,t,{ren:t>=tS,hart:hb,adem:br,puf:br,beat:t*12,breath:t*7});
+  const A=renner(t>=tS?xs-v*(t-tS):xs,fy,h,t>=tS?t-tS:t,{ren:t>=tS,gang:'sprint',vooruit:true,hart:hb,adem:br,puf:br,beat:t*12,breath:t*7});
   // beenspieren oplichten
   const lg=fadeIO(t,q.at('beenspieren'),tH,0.4); if(lg>0.01){ ctx.save(); ctx.globalAlpha*=lg; ctx.setLineDash([8,8]); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; const ry=(fy-A.heup.y)/2+28; ctx.beginPath(); ctx.ellipse(A.heup.x+6,A.heup.y+ry-28,150,ry,0,0,6.283); ctx.stroke(); ctx.restore(); }
   naamBij(ctx,'beenspieren','werken hard',A.heup.x-175,A.heup.y+10,lg,'right',C.goud);
-  naamBij(ctx,'hart','bonkt',A.borst.x+120,A.borst.y+10,fadeIO(t,tH,tW+1,0.4),'left',C.koraal);
+  naamBij(ctx,'hart','bonkt',A.borst.x+175,A.borst.y+10,fadeIO(t,tH,tW+1,0.4),'left',C.koraal);
   naamBij(ctx,'ademt sneller','',A.mond.x+40,A.hoofd.y-A.hoofd.r-24,fadeIO(t,tA,tW+1,0.4),'left',C.teal);
   pill(ctx,960,150,'waarom doet de rest van je lichaam mee?',C.goud,ramp(t,tW,0.5),36);
 },
@@ -313,7 +315,7 @@ s17(ctx,t,q){ bg(ctx,'schema'); const al=[ramp(t,q.at('cel'),0.5),ramp(t,q.at('w
   trap(al); trapArt(al,t);
   metaText(ctx,'van klein naar groot',120,120,C.grain,'left',26); text(ctx,'Van cel tot lichaam',120,190,fTitel(56),C.text);
   const sla=ramp(t,q.at('sla'),0.5); alpha(ctx,sla,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.92); ctx.fillRect(0,0,W,H); trap([1,1,1,1,1],false); metaText(ctx,'en de sla',120,120,C.groen,'left',26); text(ctx,'Van cel tot plant',120,190,fTitel(56),C.text); const R=[['bladmoescel',()=>plantCellV(285,560,70,52,{wall:1,chloro:1,vac:1,kern:1})],['bladmoes',()=>tissue(615,470,90,t)],['blad',()=>{ lettuceLeaf(945,420,120,70,0,3,945,500,G1,V1,{amp:0.06}); }],['wortelstelsel',()=>roots(1275,300,0.5)],['slaplant',()=>slaPlant(1600,400,0.45,{})]]; R.forEach(([n,fn],i)=>{ fn(); metaText(ctx,n,120+i*330+160,H-150,C.groen,'center',24); }); });
-  const gym=ramp(t,q.at('gymles'),0.5); alpha(ctx,gym,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.82); ctx.fillRect(0,0,W,H); const sc=Math.max(0,t-q.at('gymles'))*grondV(400); ctx.fillStyle=rgba('#3A3550',0.9); ctx.fillRect(0,800,W,100); ctx.strokeStyle=rgba(C.goud,0.45); ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(0,840); ctx.lineTo(W,840); ctx.stroke(); ctx.strokeStyle=rgba('#E8833A',0.4); for(let x=-(sc%480);x<W+480;x+=480){ ctx.beginPath(); ctx.moveTo(x,806); ctx.lineTo(x-30,900); ctx.stroke(); } renner(900,800,400,t,{hart:1,adem:0.8,puf:0.8,beat:t*12,breath:t*7}); pill(ctx,960,150,'je spieren werken nooit alleen: je hele lichaam doet mee',C.goud,ramp(t,q.at('hele'),0.5),32); });
+  const gym=ramp(t,q.at('gymles'),0.5); alpha(ctx,gym,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.95); ctx.fillRect(0,0,W,H); const vG=grondV(400,'ren'), sc=vG*t; /* v1.2: vloer schuift exact mee met de pas */ ctx.fillStyle=rgba('#3A3550',0.9); ctx.fillRect(0,800,W,100); ctx.strokeStyle=rgba(C.goud,0.45); ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(0,840); ctx.lineTo(W,840); ctx.stroke(); ctx.strokeStyle=rgba('#E8833A',0.4); for(let x=-(sc%480);x<W+480;x+=480){ ctx.beginPath(); ctx.moveTo(x,806); ctx.lineTo(x-30,900); ctx.stroke(); } renner(900-vG*t,800,400,t,{vooruit:true,hart:1,adem:0.8,puf:0.8,beat:t*12,breath:t*7}); pill(ctx,960,150,'je spieren werken nooit alleen: je hele lichaam doet mee',C.goud,ramp(t,q.at('hele'),0.5),32); });
 },
 // ---- eindkaart: probeer het zelf (speelt 12 s) ----
 s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'zet op de trap: cel · weefsel · orgaan · orgaanstelsel · organisme',120,260,C.grain,'left',26);

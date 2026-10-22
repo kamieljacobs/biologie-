@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/2-van-cel-tot-lichaam/index.html` (audio in `audio/` ernaast: 14 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 2 (32A Organismen, tweede bullet: bouw van orgaanstelsels, organen en weefsels, dier én plant) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t-niveau; één extra blok voor havo/vwo (s16, paarse balk "havo/vwo", gespecialiseerde cellen). Schakelaar **Basis / Havo/vwo** (standaard Havo/vwo; `?niveau=basis`) |
-| Versie / datum | 1.1 · 21 oktober 2026 (beeld: castpersonages; zie onderaan) · eerder 1.0 · 13 oktober 2026 |
+| Versie / datum | 1.2 · 22 oktober 2026 (beeld: sprint/ren uit het castboek) · 1.1 · 21 oktober 2026 (beeld: castpersonages; zie onderaan) · eerder 1.0 · 13 oktober 2026 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment (generations_count 1), flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 14 takes woord voor woord gelijk aan het script |
 | Duur | audio 345 s (speler-`dur` incl. 0,45 s staart; eindkaart 12 s); speeltijd Havo/vwo ± 6:50, Basis ± 6:05 (met 4 hoofdstukkaarten van 3,5 s en 4 vragen van 8 + 6 s) |
@@ -132,3 +132,11 @@ Grijze poppetjes en het 'Michelin'-lichaam vervangen (BEELDAFSPRAKEN, Personages
 - **Lichaam met organen** (s03, s08, s10, s11, trede orgaanstelsel in s17) = `anatomie.js` (kopie van `personages/lib_anatomie.js`, `bodyOrgans`), `BODY={cx:960,yb:895,h:730}`. Namen van de stelsels in twee kolommen naast het lichaam (`sysPos`, zoals 2b), geen wijslijnen. s11: zuurstof en voedingsstoffen stromen langs de echte slagaders naar het been; inzet met mitochondriën vanaf de kuit.
 - **Losse organen realistischer**: kuitspier (`calf`) met twee koppen, vezelbundels, pezen, zenuw, slag- en ader, bindweefselvlies; namen in een kolom rechts ernaast. Rij hart · long · maag (via anatomie.js) en huid in doorsnede (`huidBlok`).
 - Bouw: `bouw/build.py` plakt nu `lib_cast.js + helpers1.js + anatomie.js + scenes2.js` tot `src/scenes.js`; in `index.html` is alleen het scèneblok vervangen (spelerfix, flipkaarten, oefenen, teller, licentie en sitebalk ongewijzigd). Eindkaart zegt versie 1.1. Let op: de regelnummers in 'Waar wat in de HTML zit' kloppen niet meer exact (het scèneblok is langer).
+
+## Versie 1.2 · 22 oktober 2026 (beeld): sprinten en rennen volgens het nieuwe castboek
+
+- `src/lib_cast.js` = kopie van het actuele castboek (22 okt 2026): gangen `loop`/`ren`/`sprint` uit gemeten gewrichtshoeken, met zweeffase, en `vooruit: true`.
+- `renner()` in `src/scenes2.js` kent nu `o.gang` ('ren' of 'sprint') en `o.vooruit`; `grondV(h, gang)` = `gangSnelheid('lotte', h, gang)` (exact, was een schatting 1,8 × h). Het hart/longen-kijkje kantelt mee met de voorover-leun van de gang.
+- s01 ('Je sprint naar de overkant'): `gang:'sprint'`; de camera volgt half (Lotte schuift van x 380 naar 1220) en de gymzaal schuift de rest, samen precies `grondV(h,'sprint')`, dus de steunvoet staat stil op de vloer. De pas begint bij 'sprint' met het eerste voetcontact (t − tS). Label 'hart bonkt' iets verder naar rechts (viel over de hand).
+- s17 ('En de gymles?'): Lotte rent (`gang:'ren'`, `vooruit:true` met x = 900 − v·t) en de vloerstrepen schuiven met exact dezelfde v; het donkere vlak over de sla is dekkender (0,95) zodat de slaplant niet meer achter haar hoofd doorschemert.
+- Gecontroleerd met stills per 1/30 s en gemeten enkelpositie t.o.v. de vloer: tijdens de steunfase staat de voet stil (alleen het afrollen over de bal), met zweeffase. Geen paginafouten; poppetjesdetector 0 treffers.

@@ -5,7 +5,7 @@
 | Bestand | films/dna/7-dna-lezen.html (één zelfstandig bestand; audio en lettertypen ingebed) |
 | Reeks / nummer | DNA, film 7 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; vwo-blokken na hoofdstuk 1 (reverse transcriptase, primerkeuze), hoofdstuk 2 (STR, toevalskans), hoofdstuk 3 (referentiegenoom en variant) en hoofdstuk 4 (CRISPR-Cas9 en gentherapie; SNP's, gedeelde stukken en crossing-over) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 1.2 · 16 oktober 2026 — n22 opnieuw (genetische modificatie in stappen met cDNA, basis), nieuw vwo-segment n22v (CRISPR-Cas9 met gids-RNA, gentherapie, somatisch/kiembaan), slotzin als n22c; 1.1 · 13 oktober 2026 — n3, n5, n6, n11 en n25 opnieuw ingesproken met "primer" zoals geschreven (Kamiels keuze); 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (cold case: bloedspoor en stamboomsite); stem eleven_v3 zonder uitspraaktest vooraf |
+| Versie / datum | 1.4 · 22 oktober 2026 — rollen volgens `personages/ROLLEN.md` (Noor en haar familie, Erik, Joost, Daan en Thijs; zie onderaan); 1.3 · 22 oktober 2026 — castpersonages in plaats van poppetjes; 1.2 · 16 oktober 2026 — n22 opnieuw (genetische modificatie in stappen met cDNA, basis), nieuw vwo-segment n22v (CRISPR-Cas9 met gids-RNA, gentherapie, somatisch/kiembaan), slotzin als n22c; 1.1 · 13 oktober 2026 — n3, n5, n6, n11 en n25 opnieuw ingesproken met "primer" zoals geschreven (Kamiels keuze); 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (cold case: bloedspoor en stamboomsite); stem eleven_v3 zonder uitspraaktest vooraf |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken 13:25; speeltijd (zonder wachten bij vragen) vwo 14:50, havo 11:22 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
@@ -226,3 +226,12 @@ Alleen beeld; audio, timing, tekst en ondertitels ongewijzigd. Het castboek (`pe
 - h4cr (vwo, n22v): de patiënt bij 'cellen buiten het lichaam' en bij 'somatisch' is Opa Henk.
 - recap2 (n26): Yasmin met haar familie (Femke, Ravi, Bilal, Henk) in plaats van vier pictogrammen.
 - Blijft pictogram (telling): h4a 60 mensjes op de stamboomsite.
+
+## Wijziging 22 okt 2026 (later): rollen volgens het castboek (versie 1.4)
+Alleen beeld; audio, timing, tekst en ondertitels ongewijzigd. De rolverdeling van versie 1.3 botste met de vaste achtergrond van de personages (vakmensen als familie of dader). Nu volgens `personages/ROLLEN.md` en de castboekpagina 'Families'; actuele `personages/lib_cast.js` gekopieerd naar `_bouw/src/lib_cast.js` (bevat de nieuwe personages). `ROL` bovenin `scenes7.js`: jij = Noor, moeder = Linda, vader = Rachid, broer = Teun (`kind`), dader/verdachte = Erik, achterneef = Joost, patiënt = Opa Henk. Labels in beeld ongewijzigd, geen namen erbij.
+- h2v (vwo, n12): eeneiige tweeling = Daan en Thijs.
+- h4b (n21): jij = Noor; ouders = Linda en Rachid; grootouders = Oma Ria en Opa Henk (kant moeder), Oma Malika en Opa Ahmed (kant vader). Stamboom: dader = Erik, achterneef = Joost; wattenstaafje bij Erik.
+- recap2 (n26): 'je deelt je DNA met je familie' = Noor met Linda, Rachid, Teun, Ria, Henk, Malika en Ahmed (rij iets compacter: x 806 + k·64, zodat Ahmed vrij blijft van 'aflevering acht').
+- h3b (Esra) en h4cr (Opa Henk) klopten al.
+- `build.py`: de commentaarregel van 1.3 stond midden in de bouwregel en schakelde het invullen van `/*SCENES*/` en `/*PLAYER*/` uit; hersteld. De gepubliceerde HTML is niet opnieuw gebouwd: alleen het lib_cast- en scèneblok zijn exact vervangen.
+
