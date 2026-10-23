@@ -355,6 +355,8 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .exk>h2,.exk>.exuitleg{align-self:start}
 .exuitleg{color:var(--text2);margin:4px 0 14px;font-size:16px;max-width:52ch}
 .exleeg{color:var(--text3);font-style:italic}
+.extip{margin:28px 0 0;padding:12px 16px;border-left:3px solid var(--goud);border-radius:0 10px 10px 0;background:var(--surface);color:var(--text2);font-size:16px;max-width:72ch}
+.extip b{color:var(--goud)}
 .exkaart{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-areas:"b t" "b k";gap:6px 16px;align-items:start;padding:16px 18px;margin-bottom:12px;border:1px solid var(--line2);border-radius:16px;background:var(--surface);color:var(--text);text-decoration:none;transition:border-color .18s,transform .18s}
 .exkaart:hover{border-color:var(--goud);transform:translateY(-1px)}
 .exbeeld{grid-area:b;width:64px;height:64px}
@@ -3081,9 +3083,9 @@ function examKolommen(h,id){
     const voort=gemaakt?`<span class="exvoort"><span class="balk"><i style="width:${Math.round(100*gemaakt/(t.vragen||1))}%"></i></span><span class="mono">${gemaakt} van ${t.vragen} vragen · ${pt} van ${t.punten} punten</span></span>`:`<span class="mono exmeta">${t.vragen} vragen · ${t.punten} punten</span>`;
     return `<a class="exkaart" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
   const films=h.films||[], tools=(h.tools||[]).filter(t=>t.href);
-  return `<div class="exkol">
-    <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
+  return `<p class="extip"><b>Tip:</b> maak eerst zelf een oefenexamen en bekijk daarna pas een bespreking. Dan weet je al waar je vastliep, en haal je veel meer uit de uitleg.</p><div class="exkol">
     <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p><div class="exlijst">${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
+    <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
   </div>`;
 }
 
