@@ -84,3 +84,24 @@ TV_pop_hoef.koe_kop = (ctx) => { const P = HOEF.koe, J = P.J; HFTV.bg(ctx, 'Koe 
   [['staan', J.kop[0] + 12, J.kop[1] + 20], ['grazen', J.kop[0] + 5, -30], ['liggen', J.kop[0] - 5, J.kop[1] + 60]].forEach(([h, cx, cy], i) => HFTV.zoom(ctx, P, { houding: h }, cx, cy, 6, [30 + i * 625, 80, 610, 960])); };
 TV_pop_hoef.koe_oog = (ctx) => { const P = HOEF.koe, O = HOEF_VORM.koe.oog; HFTV.bg(ctx, 'Koe oog (zoom) en kop'); const I = P.info({ houding: 'staan' });
   HFTV.zoom(ctx, P, { houding: 'staan' }, O[0] - 4, O[1] + 6, 22, [30, 80, 900, 960]); HFTV.zoom(ctx, P, { houding: 'staan' }, O[0] + 2, O[1] + 12, 10, [960, 80, 930, 960]); };
+// pop naast de vlakke rij (zelfde schaal en plaats als op de plaat; render.py schaalt 1920 -> 1280, dus x1,5): samenvoegen met de plaat in vlak_samen.py
+const HFTV_VLAK = { paard: { K: 172 / 160, G: 642 - 360, items: [[115, 'staan'], [400, 'lopen', 0.0], [668, 'draven', 0.25], [945, 'grazen']] },
+  ezel: { K: 147 / 110, G: 644 - 360, items: [[100, 'staan'], [338, 'lopen', 0.0], [575, 'grazen']] }, muilezel: { K: 179 / 130, G: 645 - 360, items: [[835, 'staan'], [1115, 'lopen', 0.0]] } };
+for (const n in HFTV_VLAK) TV_pop_hoef['vlak_' + n] = (ctx, f) => { const V = HFTV_VLAK[n], P = HOEF[n]; ctx.fillStyle = '#1B2A4A'; ctx.fillRect(0, 0, 1920, 1080);
+  for (const [x, h, t] of V.items) P.teken(ctx, x * 1.5, V.G * 1.5, V.K * 1.5, { houding: h, t: t || 0 }); };
+TV_pop_hoef.paard_graas_zoom = (ctx) => { const P = HOEF.paard; HFTV.bg(ctx, 'Paard grazen (zoom) met skelet rechts'); HFTV.zoom(ctx, P, { houding: 'grazen' }, 60, -80, 4.2, [30, 80, 900, 960]); HFTV.zoom(ctx, P, { houding: 'grazen', skelet: 1, a: 0.5 }, 60, -80, 4.2, [960, 80, 930, 960]); };
+// buiklijn bij lopen: 8 fasen over elkaar (lijn) t.o.v. staan (gestippeld) — mag niet uitbollen
+for (const n of ['paard', 'ezel', 'muilezel']) TV_pop_hoef['buik_' + n] = (ctx) => { const P = HOEF[n], s = 900 / P.D.H; HFTV.bg(ctx, n + ': lopen t=0..7/8 (8 stappen) naast staan; buiklijn mag niet uitbollen');
+  for (let i = 0; i < 8; i++) { const x = 240 + (i % 4) * 480, y = i < 4 ? 520 : 1040; HFTV.zoom(ctx, P, { houding: 'lopen', t: i / 8 }, P.D.anker, -P.D.H * 0.62, s * 0.38, [x - 235, y - 440, 470, 430]); } };
+for (const n of ['paard', 'ezel', 'muilezel']) TV_pop_hoef['over_' + n] = (ctx) => { const P = HOEF[n], s = 880 / P.D.H; HFTV.bg(ctx, n + ': pop (skelet) over de omtrek van de vlakke staan-figuur');
+  HFTV.grond(ctx, 20, 1900, 1000); P.teken(ctx, 700, 1000, s, { houding: 'staan', a: 0.55, skelet: 1 }); HFTV.omtrek(ctx, n, 700, 1000, s, { lw: 2.5 }); };
+for (const n of ['paard', 'ezel', 'muilezel']) TV_pop_hoef['kopv_' + n] = (ctx) => { const P = HOEF[n], J = P.J; ctx.fillStyle = '#1B2A4A'; ctx.fillRect(0, 0, 1920, 1080);
+  const KB = { ezel: [71.1, -125.4, 87.6], muilezel: [92.6, -135.1, 88.6] }[n]; /* zelfde uitsnede als de plaat in kop_samen.py (cm) */
+  if (KB) { HFTV.zoom(ctx, P, { houding: 'staan' }, KB[0], KB[1], 1080 / KB[2], [0, 0, 960, 1080]); return; }
+  const L = Math.hypot(J.neus[0] - J.kop[0], J.neus[1] - J.kop[1]), s = 620 / L; HFTV.zoom(ctx, P, { houding: 'staan' }, (J.kop[0] + J.neus[0]) / 2 - 8 * P.D.H / 160, (J.kop[1] + J.neus[1]) / 2 + 4, s, [0, 0, 960, 1080]); };
+TV_pop_hoef.dbg_delen = (ctx) => { HFTV.bg(ctx, 'debug delen paard: romp | nek+kop | staart+dij | poten');
+  const P = HOEF.paard, alle = ['romp', 'nek', 'kop', 'hum', 'dij', 'staart', 'rad', 'mc', 'vp', 'schn', 'mt', 'ap', 'keelkap', 'oor', 'kaak', 'mond'];
+  [['romp'], ['nek', 'kop', 'keelkap', 'oor'], ['romp', 'nek'], ['romp', 'nek', 'hum', 'dij', 'staart']].forEach((w, i) => P.teken(ctx, 450 + (i % 2) * 950, 520 + Math.floor(i / 2) * 530, 2.3, { houding: 'staan', zonder: alle.filter(k => !w.includes(k)) })); };
+TV_pop_hoef.dbg_schoft = (ctx) => { HFTV.bg(ctx, 'debug schoft (romp+nek | alles)'); const P = HOEF.paard, alle = ['romp', 'nek', 'kop', 'hum', 'dij', 'staart', 'rad', 'mc', 'vp', 'schn', 'mt', 'ap', 'keelkap', 'oor', 'kaak', 'mond'];
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, 960, 1080); ctx.clip(); P.teken(ctx, 300, 1700, 6, { houding: 'staan', zonder: alle.filter(k => !['romp', 'nek'].includes(k)) }); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.rect(960, 0, 960, 1080); ctx.clip(); P.teken(ctx, 1260, 1700, 6, { houding: 'staan', zonder: alle.filter(k => !['nek'].includes(k)) }); P.teken(ctx, 1260, 1700, 6, { houding: 'staan', zonder: alle.filter(k => !['romp'].includes(k)), a: 0.5 }); ctx.restore(); };

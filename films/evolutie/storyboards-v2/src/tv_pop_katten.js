@@ -146,3 +146,37 @@ TV_pop_katten.vlak_kat_groot = (ctx) => { const P = KAT.huiskat; KTV.bg(ctx, 'Hu
   KTV.grond(ctx, 20, 1900, 510); ktvPlaat(ctx, 'huiskat', [25, 359, 299, 309], 900, 510, s, P, 664); KTV.grond(ctx, 20, 1900, 1050); P.teken(ctx, 900, 1050, s, { houding: 'staan' }); };
 TV_pop_katten.vlak_tijger_rust = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger rust + skelet'); const s = 3.4;
   KTV.grond(ctx, 20, 1900, 500); ktvPlaat(ctx, 'tijger', [17, 367, 490, 289], 900, 500, s, P, 651); P.teken(ctx, 900, 500, s, { houding: 'rust', skelet: 1, a: 0.5 }); KTV.grond(ctx, 20, 1900, 1040); P.teken(ctx, 900, 1040, s, { houding: 'rust' }); };
+TV_pop_katten.tijger_buik = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger stap: 8 fasen ingezoomd op de buiklijn (gestippeld = buiklijn in staan)');
+  const st0 = P.info({ houding: 'staan' });
+  for (let i = 0; i < 8; i++) { const t = i / 8, x = 240 + (i % 4) * 480, y = i < 4 ? 500 : 1020; ctx.save(); ctx.beginPath(); ctx.rect(x - 235, y - 440, 470, 470); ctx.clip();
+    KTV.grond(ctx, x - 235, x + 235, y); P.teken(ctx, x, y, 2.3, { houding: 'lopen', t }); ctx.strokeStyle = '#7FD3FF'; ctx.setLineDash([6, 5]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x - 230, y - 41 * 2.3); ctx.lineTo(x + 230, y - 41 * 2.3); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); KTV.label(ctx, 't=' + t, x, y + 30, '#8C97AE', 18); } };
+TV_pop_katten.tijger_overgang = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger staan (links) en lopen t=0 / 0,5 (midden, rechts)');
+  [['staan', 0], ['lopen', 0], ['lopen', 0.5]].forEach(([h, t], i) => { const x = 330 + i * 640; KTV.grond(ctx, x - 310, x + 310, 700); P.teken(ctx, x, 700, 2.6, { houding: h, t }); }); };
+for (const n of ['leeuw', 'jachtluipaard']) { const im = new Image(); im.src = 'referentie/pop/katten/' + n + '.png'; KTV_IMG[n] = im; }
+TV_pop_katten.vlak_leeuw_groot = (ctx) => { const P = KAT.leeuw; KTV.bg(ctx, 'Leeuw staan: plaat (boven) en pop (onder), zelfde schaal'); const s = 3.2;
+  KTV.grond(ctx, 20, 1900, 520); ktvPlaat(ctx, 'leeuw', [15, 395, 342, 244], 900, 520, s, P, 637); KTV.grond(ctx, 20, 1900, 1050); P.teken(ctx, 900, 1050, s, { houding: 'staan' }); };
+TV_pop_katten.vlak_luip_groot = (ctx) => { const P = KAT.luipaard; KTV.bg(ctx, 'Jachtluipaard staan: plaat (boven) en pop (onder), zelfde schaal'); const s = 5.2;
+  KTV.grond(ctx, 20, 1900, 500); ktvPlaat(ctx, 'jachtluipaard', [14, 430, 239, 174], 900, 500, s, P, 602); KTV.grond(ctx, 20, 1900, 1040); P.teken(ctx, 900, 1040, s, { houding: 'staan' }); };
+TV_pop_katten.vlak_leeuw = (ctx) => { const P = KAT.leeuw; KTV.bg(ctx, 'Leeuw: plaat (links) en pop (rechts): staan, stap, liggen'); const s = 1.9, k = s / P.D.K;
+  [[[15, 395, 342, 244], 'staan', {}, 330], [[327, 445, 377, 194], 'lopen', { t: 0.3 }, 680], [[724, 468, 318, 174], 'liggen', {}, 1030]].forEach(([b, h, o, y], i) => {
+    KTV.grond(ctx, 20, 1900, y); const im = KTV_IMG.leeuw; if (im.complete) ctx.drawImage(im, b[0], b[1], b[2], b[3], 120, y - (637 + (i == 2 ? 3 : 0) - b[1]) * k, b[2] * k, b[3] * k); P.teken(ctx, 1350, y, s, Object.assign({ houding: h }, o)); }); };
+TV_pop_katten.vlak_luip = (ctx) => { const P = KAT.luipaard; KTV.bg(ctx, 'Jachtluipaard: plaat (links) en pop (rechts): stap, galop gestrekt (t=0,9), galop gebogen (t=0,42)'); const s = 3.0, k = s / P.D.K;
+  [[[238, 451, 271, 152], 'lopen', { t: 0.3 }, 330], [[516, 457, 339, 103], 'galop', { t: 0.9 }, 680], [[864, 464, 210, 139], 'galop', { t: 0.42 }, 1030]].forEach(([b, h, o, y]) => {
+    KTV.grond(ctx, 20, 1900, y); const im = KTV_IMG.jachtluipaard; if (im.complete) ctx.drawImage(im, b[0], b[1], b[2], b[3], 120, y - (b[1] + b[3] - b[1]) * k, b[2] * k, b[3] * k); P.teken(ctx, 1350, y, s, Object.assign({ houding: h }, o)); }); };
+TV_pop_katten.leeuw_naad = (ctx) => { const P = KAT.leeuw; KTV.bg(ctx, 'naad-test: zonder kop | zonder hum | zonder nek'); const s = 2.4; [['kop'], ['hum'], ['nek']].forEach((z, i) => P.teken(ctx, 330 + i * 620, 700, s, { houding: 'staan', zonder: z })); };
+TV_pop_katten.leeuw_manen = (ctx) => { const P = KAT.leeuw; KTV.bg(ctx, 'alleen manen | alles behalve manen'); const s = 4; const alle = ['romp', 'nek', 'hum', 'dij', 'staart', 'kop', 'rad', 'mc', 'vp', 'schn', 'mt', 'ap'];
+  P.teken(ctx, 500, 800, s, { houding: 'staan', zonder: alle }); P.teken(ctx, 1400, 800, s, { houding: 'staan', zonder: ['manen'] }); };
+// kop-plaat en kop-pop groot naast elkaar; staan-plaat over staan-pop
+function ktvKop(ctx, n, P, box, x, y, s) { const im = KTV_IMG[n]; if (im.complete) ctx.drawImage(im, box[0], box[1], box[2], box[3], x - 430, y - 220, 430 * box[2] / box[3] * 1.0 * (500 / 430), 500);
+  const I = P.info({ houding: 'staan' }); const k = I.piv.kop; ctx.save(); ctx.beginPath(); ctx.rect(x + 40, y - 300, 860, 700); ctx.clip(); P.teken(ctx, x + 380 - (k[0] - P.D.anker) * s, y + 20 - k[1] * s, s, { houding: 'staan' }); ctx.restore(); }
+TV_pop_katten.kop_leeuw = (ctx) => { KTV.bg(ctx, 'Leeuw: kop-plaat (links) en kop-pop (rechts)'); ktvKop(ctx, 'leeuw', KAT.leeuw, [1027, 388, 237, 284], 500, 480, 7); };
+TV_pop_katten.kop_luip = (ctx) => { KTV.bg(ctx, 'Jachtluipaard: kop-plaat (links) en kop-pop (rechts)'); ktvKop(ctx, 'jachtluipaard', KAT.luipaard, [1098, 428, 162, 176], 500, 480, 13); };
+TV_pop_katten.over_leeuw = (ctx) => { const P = KAT.leeuw; KTV.bg(ctx, 'Leeuw: staan-plaat met de pop eroverheen (pop 60% dekking)'); const s = 4.2; KTV.grond(ctx, 20, 1900, 980); ktvPlaat(ctx, 'leeuw', [15, 395, 342, 244], 900, 980, s, P, 637); P.teken(ctx, 900, 980, s, { houding: 'rust', a: 0.6 }); };
+TV_pop_katten.over_luip = (ctx) => { const P = KAT.luipaard; KTV.bg(ctx, 'Jachtluipaard: staan-plaat met de pop eroverheen (pop 60% dekking)'); const s = 7; KTV.grond(ctx, 20, 1900, 980); ktvPlaat(ctx, 'jachtluipaard', [14, 430, 239, 174], 900, 980, s, P, 602); P.teken(ctx, 900, 980, s, { houding: 'rust', a: 0.6 }); };
+TV_pop_katten.kop_luip2 = (ctx) => { const P = KAT.luipaard; KTV.bg(ctx, 'Jachtluipaard kop: plaat-figuur (boven) en pop (onder), zelfde schaal'); const s = 14;
+  const I = P.info({ houding: 'staan' }); const k = I.piv.kop, cx = 960 - (k[0] - P.D.anker) * s;
+  ctx.save(); ctx.beginPath(); ctx.rect(300, 40, 1320, 500); ctx.clip(); ktvPlaat(ctx, 'jachtluipaard', [14, 430, 239, 174], cx, 300 - k[1] * s, s, P, 602); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.rect(300, 560, 1320, 500); ctx.clip(); P.teken(ctx, cx, 820 - k[1] * s, s, { houding: 'staan' }); ctx.restore(); };
+TV_pop_katten.galop_gestrekt = (ctx) => { const P = KAT.luipaard; KTV.bg(ctx, 'Gestrekte galop: plaat (boven) en pop t=0,88 / 0,92 / 0,96 (onder)'); const s = 3.2, k = s / P.D.K; const im = KTV_IMG.jachtluipaard;
+  if (im.complete) ctx.drawImage(im, 516, 457, 339, 103, 600, 400 - 103 * k, 339 * k, 103 * k); KTV.grond(ctx, 20, 1900, 400);
+  [0.88, 0.92, 0.96].forEach((t, i) => { const x = 330 + i * 640; KTV.grond(ctx, x - 310, x + 310, 980); P.teken(ctx, x, 980, s * 0.75, { houding: 'galop', t }); KTV.label(ctx, 't=' + t, x, 1020, '#8C97AE', 20); }); };
