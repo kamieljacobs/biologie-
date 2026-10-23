@@ -1345,7 +1345,14 @@ const HOOFDSTUKKEN = {
    }
   ],
   "komt": [],
-  "tools": [],
+  "tools": [
+   {
+    "href": "tools/examen-havo-2026-1.html",
+    "naam": "Examen havo 2026-I doorklikken",
+    "tekst": "Maak het hele examen (43 vragen, 71 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift en uitleg met animaties · hulpstand en examenstand",
+    "bij": "havo · centraal examen 2026 tijdvak 1"
+   }
+  ],
   "oefenen": []
  },
  "extra": {
@@ -3023,7 +3030,7 @@ function hoofdstuk(id,kd){
 }
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
-const TICOON={'Kruisingslab':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie'};
+const TICOON={'Kruisingslab':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens'};
 const LICOON={'tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
