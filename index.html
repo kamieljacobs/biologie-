@@ -198,6 +198,12 @@ li a:hover .tk.foto::after,li a:focus-visible .tk.foto::after{opacity:1;transiti
 .vlak li + li{border-top:1px solid var(--line)}
 .vlak-later li a{display:flex;align-items:center;gap:14px;padding:9px 24px}
 .vlak-later li a svg{margin-left:auto;color:var(--text3)}
+/* Een kijkje vooruit (Kamiel 23 okt 2026): rondjes = uitsnede van de richtingplaat op vervolg.html, zelfde maat en opbouw als Eerste ontdekkingen */
+.vlak-later li a .tk.foto{width:76px;height:76px}
+.vlak-later li a{padding-top:12px;padding-bottom:12px}
+.vlak-later li .vtekst{display:flex;flex-direction:column;gap:2px;min-width:0}
+.vlak-later li .vtekst .sub{color:var(--text3);font-size:14px}
+@media (max-width:600px){.vlak-later li a .tk.foto{width:64px;height:64px}}
 .vlak-onder li .tk.foto,.vlak-later li .tk.foto{width:56px;height:56px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
 .vlak-onder li:has(.tk.foto) a{grid-template-columns:56px minmax(0,1fr) auto!important}
 /* Eerste ontdekkingen (Kamiel 23 okt 2026): rondjes = uitsnede van de kerndoelplaat, iets groter, met de kerndoelcode zoals op de kaarten */
@@ -2848,7 +2854,7 @@ const VERDERKUNST={gedrag:`<path d="M60 22c-10-8-28-4-30 10-12 2-18 16-10 26-6 1
  <circle cx="96" cy="96" r="5" class="acc" fill="currentColor" stroke="none"/>`,onderwijs:`<path d="M60 34C48 26 30 24 16 26v64c14-2 32 0 44 8 12-8 30-10 44-8V26c-14-2-32 0-44 8z" stroke-width="1.7" stroke-linejoin="round"/>
  <path d="M60 34v64" stroke-width="1.4"/><path d="M26 40c8-1 18 0 26 4M26 52c8-1 18 0 26 4M68 44c8-4 18-5 26-4M68 56c8-4 18-5 26-4" stroke-width="1" opacity=".6"/>
  <path d="M74 66c4 6 4 12 0 18 6 0 10 4 10 8" class="acc" stroke="currentColor" stroke-width="1.5"/>`};
-const VERDER=[['gedrag','Gedrag en hersenen','paars'],['zorg','Zorg en geneeskunde','koraal'],['lab','Lab en onderzoek','teal'],['voeding','Voeding en gezondheid','oker'],['groen','Groen en ecologie','groen'],['onderwijs','Onderwijs','goud']];
+const VERDER=[['gedrag','Gedrag en hersenen','paars','Denken, voelen, opgroeien'],['zorg','Zorg en geneeskunde','koraal','Mens en dier behandelen'],['lab','Lab en onderzoek','teal','Uitzoeken hoe leven werkt'],['voeding','Voeding en gezondheid','oker','Eten, bewegen, preventie'],['groen','Groen en ecologie','groen','Natuur, land en milieu'],['onderwijs','Onderwijs','goud','Biologie uitleggen']];
 /* Kunstzinnige achtergrond op de hoofdpagina: grote, ijle lijntekeningen (geen korrel) */
 /* Kunstzinnige achtergrond: vier eigen bio-art-platen, procedureel getekend (geen korrel).
    Standen (knop naast licht/donker, localStorage 'kunst'): rustig · intens · uit */
@@ -2979,7 +2985,7 @@ function home(){
     </article>
     <article class="vlak vlak-later" id="vlak-later">
       <header><span class="mono vlak-lbl">Wat word jij? · studie en beroep</span><h2>Een kijkje vooruit</h2><p>Welke opleidingen en beroepen draaien om biologie, en wat doe je daar echt?</p></header>
-      <ul>${VERDER.map(([id,naam,k])=>`<li><a href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="tk foto"><img src="img/kunst/iconen/home/v-${id}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<b>${esc(naam)}</b>${pijl}</a></li>`).join('')}</ul>
+      <ul>${VERDER.map(([id,naam,k,sub])=>`<li><a href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="tk foto"><img src="img/kunst/iconen/home/v-${id}.webp?v=2" alt="" width="76" height="76" decoding="async"></span>`:`<span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<span class="vtekst"><b>${esc(naam)}</b>${sub?`<span class="sub">${esc(sub)}</span>`:''}</span>${pijl}</a></li>`).join('')}</ul>
       <a class="vlak-naar" href="vervolg.html">Alle richtingen ${pijl}</a>
     </article>
   </section>`;
