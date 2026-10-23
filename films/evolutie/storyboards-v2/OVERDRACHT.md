@@ -20,7 +20,12 @@ De pop-bestanden staan in `src/` (ook een kopie per familie in `pop/<familie>/` 
 ## Stand ronde 2 storyboards (23 okt, avond)
 Punten 2 en 3 hieronder zijn gedaan (zie `WIJZIGINGEN_r4.md`): alle dieren als pop met houding per scène, kleine fixes, inhoud film 1–4 (e2s27, e3s19, e3s29 met Nilsson 1988 bij *Platanthera*, e2s01/02, e2s04; e4s31 zin over Resistentielab geschrapt). Keuringsblad opnieuw gepubliceerd (versie 5) → **Kamiel keurt film 5–8** (en mag 1–4 opnieuw bekijken). 'Nilsson' staat op de uitspraakwachtlijst van f3. Volgende: zijn keuring lezen (db `keuring`, alleen documenten met t na 23 okt 20:40) en verwerken.
 
-## Volgende stappen
+## Keuring 23 okt 21:30
+**Alle 141 scènes van film 5–8 goedgekeurd** zonder opmerkingen (export in `keuring/`). **Alle dieren in de beeldbank goedgekeurd** (ook tijger, huiskat, jachtluipaard, koe; paard/ezel/muilezel/leeuw eerder). De storyboards van de hele reeks zijn daarmee klaar voor productie.
+
+Volgende fase: (a) dierpoppen + recept naar de gedeelde bibliotheek (`bibliotheek/`, met testvel en status 'goedgekeurd'); (b) promptvoorstel tekenkwaliteit ter goedkeuring; (c) productie volgens de prompt: stem-invoer met uitspraaklijst (wachtlijst-woorden o.a. Nilsson, muil-eezel), inspreken (ElevenLabs, 1 take), bouwen in de FILMDATA-straat, bronmappen, Vragen-uit-controle, site-integratie.
+
+## Volgende stappen (oud)
 1. Keuring van katachtigen, paardachtigen en koe lezen en verwerken (Kamiel vond tijger en huiskat al 'bijna goed').
 2. **Integreren in de storyboards**: per scène de juiste houding (`o.houding`, `o.t`) volgens de tabellen in `lessen_*.md`; e4s03 `flagel:0.5`; e3s25 `orchideePlant`; e4s32 groene lijn en 'zelf proberen' weg (Kamiel: geen 'zelf proberen' tot de tools perfect zijn); cirkel 'oor met walvisbouw' in e7s13 op het oor (≈(140,−146)·s).
 3. **Inhoudelijke opmerkingen film 1–4 verwerken** (in `films/f*.json` + keyframe): e2s27 mini-uitleg mutaties; e3s19 zeggen dat splitsende selectie eerder tot soorten leidt; e3s29 wapenwedloop (Darwin, Nilsson 1988; Wasserthal 1997 als alternatief); e2s01/02 blaadjes vast aan de plant; e2s04 opuntia mooier.
