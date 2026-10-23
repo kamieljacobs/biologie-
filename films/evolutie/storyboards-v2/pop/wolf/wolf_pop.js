@@ -10,8 +10,8 @@
 // <<TABELLEN (gegenereerd door referentie/wolfpop/meet_houdingen.py; niet met de hand aanpassen)
 const WP_K = 2.9750, WP_X0 = 168, WP_G0 = 300; // px op modelblad -> cm
 const WP_BOTEN = [["rompV",null,"midrug","nekBasis"],["rompA",null,"midrug","kruis"],["nek","rompV","nekBasis","kop"],["kop","nek","kop","neus"],["kaak","kop","kaak","kin"],["scap","rompV","schoft","schouder"],["hum","scap","schouder","elleboog"],["rad","hum","elleboog","pols"],["mc","rad","pols","vkogel"],["vp","mc","vkogel","vteen"],["scapF","rompV","schoft","schouder"],["humF","scapF","schouder","elleboog"],["radF","humF","elleboog","pols"],["mcF","radF","pols","vkogel"],["vpF","mcF","vkogel","vteen"],["dij","rompA","heup","knie"],["schn","dij","knie","hak"],["mt","schn","hak","akogel"],["ap","mt","akogel","ateen"],["dijF","rompA","heup","knie"],["schnF","dijF","knie","hak"],["mtF","schnF","hak","akogel"],["apF","mtF","akogel","ateen"],["st0","rompA","staart0","staart1"],["st1","st0","staart1","staart2"],["st2","st1","staart2","staart3"]];
-const WP_J = {"midrug":[2.353,-68.908],"nekBasis":[31.597,-68.908],"kop":[51.765,-81.345],"neus":[77.311,-71.261],"kaak":[63.193,-68.571],"kin":[73.277,-68.235],"schoft":[23.529,-75.63],"kruis":[-29.58,-68.908],"schouder":[40.336,-57.143],"elleboog":[26.891,-42.353],"pols":[28.908,-10.756],"vkogel":[31.597,-3.697],"vteen":[39.328,-0.672],"heup":[-28.908,-60.504],"knie":[-19.496,-41.681],"hak":[-37.983,-22.185],"akogel":[-35.63,-3.697],"ateen":[-27.563,-0.672],"staart0":[-34.958,-69.916],"staart1":[-42.353,-51.092],"staart2":[-46.387,-33.613],"staart3":[-45.042,-14.118],"elleboogF":[31.597,-41.681],"polsF":[34.958,-10.084],"vkogelF":[38.319,-3.697],"vteenF":[45.714,-1.008],"knieF":[-14.118,-40.336],"hakF":[-26.891,-20.84],"akogelF":[-24.202,-3.697],"ateenF":[-16.134,-1.008]};
-const WP_HOUDING = {"staan":{"R":[2.35,-68.91],"A":{"rompV":0.0,"rompA":180.0,"nek":-31.7,"kop":21.5,"kaak":1.9,"scap":47.7,"hum":132.3,"rad":86.3,"mc":69.1,"vp":21.4,"dij":63.4,"schn":133.5,"mt":82.7,"ap":20.6,"scapF":47.7,"humF":127.7,"radF":77.8,"mcF":62.2,"vpF":20.0,"dijF":45.1,"schnF":119.0,"mtF":81.1,"apF":18.4,"st0":111.4,"st1":103.0,"st2":86.1}},"contact":{"R":[2.35,-63.87],"A":{"rompV":1.3,"rompA":-177.6,"nek":-41.4,"kop":12.8,"kaak":-6.9,"scap":49.0,"hum":118.8,"rad":52.7,"mc":43.3,"vp":15.4,"dij":45.5,"schn":103.5,"mt":41.3,"ap":18.4,"scapF":49.0,"humF":147.6,"radF":108.4,"mcF":70.0,"vpF":20.0,"dijF":91.2,"schnF":149.0,"mtF":84.0,"apF":20.0,"st0":113.8,"st1":113.5,"st2":116.3}},"passeer":{"R":[2.35,-64.2],"A":{"rompV":0.7,"rompA":-177.6,"nek":-39.8,"kop":12.1,"kaak":-7.5,"scap":48.4,"hum":157.4,"rad":82.9,"mc":149.6,"vp":153.4,"dij":39.7,"schn":107.1,"mt":51.7,"ap":17.7,"scapF":48.4,"humF":135.4,"radF":62.1,"mcF":67.2,"vpF":13.1,"dijF":94.8,"schnF":147.2,"mtF":78.1,"apF":20.9,"st0":113.5,"st1":115.4,"st2":111.7}},"draf":{"R":[2.35,-61.18],"A":{"rompV":2.6,"rompA":180.0,"nek":-16.7,"kop":10.0,"kaak":-9.6,"scap":50.4,"hum":177.0,"rad":79.6,"mc":159.0,"vp":156.5,"dij":32.6,"schn":103.3,"mt":39.8,"ap":17.1,"scapF":50.4,"humF":104.2,"radF":36.6,"mcF":49.1,"vpF":25.3,"dijF":69.0,"schnF":158.5,"mtF":112.4,"apF":126.9,"st0":123.9,"st1":120.4,"st2":111.3}},"zitten":{"R":[2.35,-37.65],"A":{"rompV":-59.3,"rompA":118.8,"nek":-51.7,"kop":9.0,"kaak":-10.7,"scap":-11.5,"hum":96.5,"rad":95.8,"mc":71.6,"vp":17.1,"dij":-18.9,"schn":160.9,"mt":4.0,"ap":13.1,"scapF":-11.5,"humF":90.8,"radF":90.1,"mcF":66.0,"vpF":16.3,"dijF":-28.5,"schnF":151.4,"mtF":5.1,"apF":14.0,"st0":176.4,"st1":19.2,"st2":1.9}},"liggen":{"R":[2.35,-22.52],"A":{"rompV":-8.0,"rompA":177.5,"nek":-60.6,"kop":7.6,"kaak":-12.0,"scap":39.7,"hum":105.0,"rad":-14.6,"mc":3.6,"vp":8.1,"dij":-0.1,"schn":161.7,"mt":6.2,"ap":8.4,"scapF":39.7,"humF":111.4,"radF":-18.1,"mcF":5.4,"vpF":7.1,"dijF":-40.4,"schnF":129.6,"mtF":6.2,"apF":8.4,"st0":107.0,"st1":9.9,"st2":-4.1}}};
+const WP_J = {"midrug":[2.353,-68.908],"nekBasis":[31.597,-68.908],"kop":[51.765,-81.345],"neus":[77.311,-71.261],"kaak":[63.193,-68.571],"kin":[73.277,-68.235],"schoft":[26.218,-73.95],"kruis":[-29.58,-68.908],"schouder":[39.328,-59.16],"elleboog":[27.563,-37.311],"pols":[27.899,-13.445],"vkogel":[31.597,-3.697],"vteen":[38.319,-1.008],"heup":[-28.908,-60.504],"knie":[-20.504,-37.983],"hak":[-37.311,-18.151],"akogel":[-35.63,-3.697],"ateen":[-28.908,-1.008],"staart0":[-34.958,-69.916],"staart1":[-42.353,-51.092],"staart2":[-46.387,-33.613],"staart3":[-45.042,-14.118],"elleboogF":[32.269,-36.975],"polsF":[33.277,-13.109],"vkogelF":[38.319,-3.697],"vteenF":[45.042,-1.008],"knieF":[-14.79,-41.345],"hakF":[-26.555,-18.151],"akogelF":[-24.202,-3.697],"ateenF":[-17.479,-1.008]};
+const WP_HOUDING = {"staan":{"R":[2.35,-68.91],"A":{"rompV":0.0,"rompA":180.0,"nek":-31.7,"kop":21.5,"kaak":1.9,"scap":48.4,"hum":118.3,"rad":89.2,"mc":69.2,"vp":21.8,"dij":69.5,"schn":130.3,"mt":83.4,"ap":21.8,"scapF":48.4,"humF":113.6,"radF":80.4,"mcF":61.8,"vpF":21.8,"dijF":53.6,"schnF":117.3,"mtF":80.8,"apF":21.8,"st0":111.4,"st1":103.0,"st2":86.1}},"contact":{"R":[2.35,-63.87],"A":{"rompV":1.3,"rompA":-177.6,"nek":-41.4,"kop":12.8,"kaak":-6.9,"scap":49.8,"hum":104.7,"rad":51.8,"mc":43.3,"vp":15.4,"dij":49.1,"schn":99.2,"mt":41.3,"ap":18.4,"scapF":49.8,"humF":131.1,"radF":116.2,"mcF":70.0,"vpF":20.0,"dijF":94.3,"schnF":144.8,"mtF":84.0,"apF":20.0,"st0":113.8,"st1":113.5,"st2":116.3}},"passeer":{"R":[2.35,-64.2],"A":{"rompV":0.7,"rompA":-177.6,"nek":-39.8,"kop":12.1,"kaak":-7.5,"scap":49.1,"hum":137.1,"rad":72.7,"mc":149.6,"vp":153.4,"dij":45.3,"schn":103.6,"mt":51.7,"ap":17.7,"scapF":49.1,"humF":120.5,"radF":56.9,"mcF":67.2,"vpF":13.1,"dijF":96.6,"schnF":143.0,"mtF":78.1,"apF":20.9,"st0":113.5,"st1":115.4,"st2":111.7}},"draf":{"R":[2.35,-61.18],"A":{"rompV":2.6,"rompA":180.0,"nek":-16.7,"kop":10.0,"kaak":-9.6,"scap":51.1,"hum":150.9,"rad":62.4,"mc":159.0,"vp":156.5,"dij":37.1,"schn":99.9,"mt":39.8,"ap":17.1,"scapF":51.1,"humF":90.6,"radF":34.0,"mcF":49.1,"vpF":25.3,"dijF":77.8,"schnF":157.9,"mtF":112.4,"apF":126.9,"st0":123.9,"st1":120.4,"st2":111.3}},"zitten":{"R":[2.35,-34.29],"A":{"rompV":-58.1,"rompA":130.0,"nek":-58.8,"kop":4.4,"kaak":-15.2,"scap":-9.7,"hum":108.5,"rad":84.4,"mc":71.6,"vp":17.1,"dij":-100.3,"schn":68.6,"mt":4.0,"ap":13.1,"scapF":-9.7,"humF":102.1,"radF":78.5,"mcF":66.0,"vpF":16.3,"dijF":-95.8,"schnF":66.6,"mtF":5.1,"apF":14.0,"st0":165.1,"st1":6.4,"st2":4.0}},"liggen":{"R":[2.35,-22.52],"A":{"rompV":-8.0,"rompA":177.5,"nek":-60.6,"kop":7.6,"kaak":-12.0,"scap":40.4,"hum":83.0,"rad":-29.1,"mc":3.6,"vp":8.1,"dij":-0.0,"schn":160.1,"mt":6.2,"ap":8.4,"scapF":40.4,"humF":85.0,"radF":-37.0,"mcF":5.4,"vpF":7.1,"dijF":-26.4,"schnF":135.6,"mtF":6.2,"apF":8.4,"st0":107.0,"st1":9.9,"st2":-4.1}},"huilen":{"R":[2.35,-38.43],"A":{"rompV":-53.7,"rompA":131.2,"nek":-51.9,"kop":-58.3,"kaak":-59.6,"scap":-5.3,"hum":83.9,"rad":83.1,"mc":68.2,"vp":17.4,"dij":-60.6,"schn":83.7,"mt":2.2,"ap":16.7,"scapF":-5.3,"humF":92.6,"radF":79.3,"mcF":81.9,"vpF":17.4,"dijF":-61.8,"schnF":77.5,"mtF":3.4,"apF":17.5,"st0":62.2,"st1":-152.6,"st2":-171.7}},"drafvol":{"R":[2.35,-64.43],"A":{"rompV":4.6,"rompA":179.3,"nek":-10.1,"kop":19.3,"kaak":-0.4,"scap":53.1,"hum":89.7,"rad":29.0,"mc":26.6,"vp":11.3,"dij":121.3,"schn":158.8,"mt":125.2,"ap":122.5,"scapF":53.1,"humF":158.6,"radF":95.7,"mcF":160.3,"vpF":143.1,"dijF":37.4,"schnF":98.5,"mtF":46.6,"apF":8.5,"st0":158.3,"st1":149.3,"st2":144.8}},"snuffelen":{"R":[2.35,-64.56],"A":{"rompV":26.6,"rompA":-178.5,"nek":54.3,"kop":58.0,"kaak":38.4,"scap":75.0,"hum":175.2,"rad":81.4,"mc":69.4,"vp":22.4,"dij":43.4,"schn":111.8,"mt":58.8,"ap":16.9,"scapF":75.0,"humF":140.5,"radF":32.1,"mcF":42.0,"vpF":21.8,"dijF":65.9,"schnF":138.7,"mtF":74.1,"apF":25.0,"st0":94.4,"st1":114.3,"st2":105.6}}};
 // TABELLEN>>
 
 const WolfPop = (() => {
@@ -140,12 +140,12 @@ const WolfPop = (() => {
       { c: 'licht', lijn: 1.2, p: [[246, 156], [240, 170], [242, 182]] },
     ] },
     rad: { bot: 'rad', lagen: [
-      { c: 'creme', p: [[240, 176], [260, 170], [266, 188], [264, 214], [262, 244], [262, 262], [256, 273], [247, 273], [244, 256], [243, 226], [242, 202], [238, 190]] },
-      { c: 'tan', p: [[258, 186], [268, 190], [266, 216], [264, 244], [261, 252], [260, 216], [257, 196]] },
+      { c: 'creme', p: [[240, 176], [260, 170], [266, 188], [264, 214], [262, 240], [261, 256], [256, 266], [246, 266], [243, 250], [243, 226], [242, 202], [238, 190]] },
+      { c: 'tan', p: [[258, 192], [266, 196], [264, 220], [262, 240], [259, 248], [259, 220], [257, 200]] },
     ] },
     mc: { bot: 'mc', lagen: [
-      { c: 'creme', p: [[245, 262], [263, 260], [267, 278], [267, 290], [257, 293], [249, 286], [246, 274]] },
-      { c: 'pad', p: [[240, 266], [245, 265], [246, 272], [241, 273]] },
+      { c: 'creme', p: [[243, 254], [261, 251], [267, 274], [267, 290], [257, 293], [249, 286], [244, 268]] },
+      { c: 'pad', p: [[238, 258], [243, 257], [244, 264], [239, 265]] },
     ] },
     vp: { bot: 'vp', voet: true, lagen: [
       { c: 'creme', p: [[250, 283], [264, 280], [277, 284], [286, 291], [288, 298], [282, 301], [260, 301], [251, 298], [248, 291]] },
@@ -157,11 +157,11 @@ const WolfPop = (() => {
       { c: 'licht', lijn: 1.2, p: [[121, 132], [126, 150], [123, 168], [114, 184]] },
     ] },
     schn: { bot: 'schn', lagen: [
-      { c: 'flank', p: [[100, 166], [121, 173], [118, 192], [100, 211], [80, 228], [67, 244], [53, 244], [47, 232], [48, 214], [52, 196], [62, 182], [80, 172]], t: [[7, 10, 4, 12, -1]] },
-      { c: 'licht', lijn: 1.4, p: [[119, 180], [112, 198], [96, 214], [80, 229], [70, 240]] },
-      { c: 'creme', p: [[42, 236], [45, 214], [49, 196], [58, 180], [70, 180], [62, 198], [58, 218], [57, 240], [50, 247]], t: [[0, 3, 4, 12, -1]] },
+      { c: 'flank', p: [[98, 176], [120, 182], [117, 200], [100, 219], [82, 238], [69, 256], [55, 256], [49, 244], [48, 224], [52, 206], [62, 192], [80, 182]], t: [[7, 10, 4, 12, -1]] },
+      { c: 'licht', lijn: 1.4, p: [[118, 190], [111, 208], [96, 224], [80, 240], [71, 252]] },
+      { c: 'creme', p: [[42, 248], [45, 224], [49, 206], [58, 190], [70, 190], [62, 208], [58, 228], [57, 252], [50, 259]], t: [[0, 3, 4, 12, -1]] },
     ] },
-    mt: { bot: 'mt', lagen: [{ c: 'creme', p: [[48, 228], [62, 229], [66, 252], [67, 280], [65, 292], [55, 292], [52, 270], [50, 250]] }] },
+    mt: { bot: 'mt', lagen: [{ c: 'creme', p: [[48, 240], [62, 241], [66, 260], [67, 282], [65, 292], [55, 292], [52, 272], [50, 256]] }] },
     ap: { bot: 'ap', voet: true, lagen: [{ c: 'creme', p: [[51, 283], [65, 280], [78, 284], [87, 291], [89, 298], [83, 301], [61, 301], [52, 298], [48, 291]] }] },
   };
 
@@ -184,7 +184,7 @@ const WolfPop = (() => {
   const GEW = {
     romp: (v) => { const w = sstep((v[0] - cm([130, 0])[0]) / (cm([215, 0])[0] - cm([130, 0])[0])); return [['rompV', w], ['rompA', 1 - w]]; },
     nek: (v) => { const u = projectie(v, [WP_J.nekBasis, WP_J.kop]); const wa = 1 - sstep((u + 0.35) / 1.05), wk = sstep((u - 0.68) / 0.42); return [['rompV', wa], ['nek', Math.max(0, 1 - wa - wk)], ['kop', wk]]; },
-    dij: (v) => { const u = projectie(v, [WP_J.heup, WP_J.knie]); const w = sstep((u - 0.05) / 0.85); return [['rompA', 1 - w], ['dij', w]]; },
+    dij: (v) => { const u = projectie(v, [WP_J.heup, WP_J.knie]); const w = sstep((u - 0.25) / 0.85); return [['rompA', 1 - w], ['dij', w]]; },
     hum: (v) => { const u = projectie(v, [WP_J.schouder, WP_J.elleboog]); const w = sstep((u + 0.1) / 0.8); return [['scap', 1 - w], ['hum', w]]; },
     staart: (v) => { const u = projectie(v, [WP_J.staart0, WP_J.staart1, WP_J.staart2, WP_J.staart3]); const c = [['rompA', -0.35], ['st0', 0.5], ['st1', 1.5], ['st2', 2.5]];
       let w = c.map(([b, m]) => [b, Math.max(0, 1 - Math.abs(u - m) / 1.0)]); if (u > 2.5) w = [['st2', 1]]; const s = w.reduce((a, [, x]) => a + x, 0) || 1; return w.map(([b, x]) => [b, x / s]); },
@@ -207,68 +207,156 @@ const WolfPop = (() => {
   const graden = (H) => { const A = {}; for (const n of ORDE) A[n] = (H.A[n] ?? BOT[n].A0 / RAD) * RAD; return A; };
 
   // ---------- gangmodel ----------
-  // sleutelhoeken (graden, y omlaag; 90 = recht naar beneden), afgeleid van modelblad 2-4 (zie lessen_pop.md)
+  // sleutelhoeken (graden, y omlaag; 90 = recht naar beneden). Stap: modelblad 2-3 + loopcyclus-plaat fasen 1-8; draf: modelblad 4 + plaat 10.
   const kurve = (K, u) => { u = Math.max(0, Math.min(1, u)); let i = 0; while (i < K.length - 2 && K[i + 1][0] < u) i++; const [u0, a0] = K[i], [u1, a1] = K[i + 1]; return a0 + (a1 - a0) * sstep((u - u0) / Math.max(1e-6, u1 - u0)); };
   const GANG = {
-    lopen: { S: 78, beta: 0.64, fase: { A: 0, V: 0.25, AF: 0.5, VF: 0.75 }, lift: { V: 8.5, A: 6.5 }, bob: 0.7, nx: { V: 3, A: 5 }, basis: ['contact', 'passeer'],
-      V: { metaS: [[0, 64], [0.5, 72], [0.82, 86], [1, 104]], metaZ: [[0, 104], [0.3, 150], [0.55, 142], [0.82, 84], [1, 64]],
-           pootS: [[0, 21], [0.68, 21], [1, 72]], pootZ: [[0, 72], [0.3, 118], [0.6, 84], [0.85, 30], [1, 21]] },
-      A: { metaS: [[0, 70], [0.5, 84], [0.82, 98], [1, 110]], metaZ: [[0, 110], [0.35, 72], [0.62, 56], [0.86, 62], [1, 70]],
-           pootS: [[0, 21], [0.62, 21], [1, 68]], pootZ: [[0, 68], [0.3, 98], [0.6, 58], [0.86, 26], [1, 21]] } },
-    draven: { S: 118, beta: 0.44, fase: { A: 0, VF: 0.02, AF: 0.5, V: 0.52 }, lift: { V: 13, A: 9 }, bob: 1.2, nx: { V: 6, A: 6 }, basis: ['draf', 'draf'],
-      V: { metaS: [[0, 60], [0.5, 74], [0.8, 92], [1, 112]], metaZ: [[0, 112], [0.3, 158], [0.55, 150], [0.82, 80], [1, 60]],
-           pootS: [[0, 21], [0.6, 21], [1, 80]], pootZ: [[0, 80], [0.3, 125], [0.6, 88], [0.85, 30], [1, 21]] },
-      A: { metaS: [[0, 66], [0.5, 84], [0.8, 102], [1, 116]], metaZ: [[0, 116], [0.35, 70], [0.62, 52], [0.86, 58], [1, 66]],
-           pootS: [[0, 21], [0.55, 21], [1, 75]], pootZ: [[0, 75], [0.3, 102], [0.6, 60], [0.86, 26], [1, 21]] } },
+    lopen: { S: 82, f: 1.0, beta: 0.68, fase: { A: 0, V: 0.25, AF: 0.5, VF: 0.75 }, lift: { V: 8, A: 6.5 }, bob: 0.7, nx: { V: 3, A: 5 }, basis: ['contact', 'passeer'], kop: [-4, -3],
+      V: { metaS: [[0, 62], [0.5, 72], [0.82, 86], [1, 104]], metaZ: [[0, 104], [0.32, 128], [0.58, 116], [0.85, 70], [1, 62]],
+           pootS: [[0, 21], [0.68, 21], [1, 72]], pootZ: [[0, 72], [0.3, 100], [0.6, 88], [0.86, 28], [1, 21]] },
+      A: { metaS: [[0, 70], [0.5, 84], [0.82, 98], [1, 110]], metaZ: [[0, 110], [0.35, 70], [0.62, 52], [0.86, 60], [1, 70]],
+           pootS: [[0, 21], [0.62, 21], [1, 68]], pootZ: [[0, 68], [0.3, 92], [0.6, 52], [0.86, 26], [1, 21]] } },
+    draven: { S: 118, f: 2.0, beta: 0.44, fase: { A: 0, VF: 0.02, AF: 0.5, V: 0.52 }, lift: { V: 13, A: 9 }, bob: 1.2, nx: { V: 6, A: 6 }, basis: ['draf', 'drafvol'], kop: [-4, -2],
+      V: { metaS: [[0, 58], [0.5, 74], [0.8, 92], [1, 112]], metaZ: [[0, 112], [0.3, 160], [0.55, 150], [0.82, 40], [1, 58]],
+           pootS: [[0, 21], [0.6, 21], [1, 80]], pootZ: [[0, 80], [0.3, 140], [0.6, 95], [0.85, 12], [1, 21]] },
+      A: { metaS: [[0, 60], [0.5, 84], [0.8, 104], [1, 122]], metaZ: [[0, 122], [0.35, 70], [0.62, 48], [0.86, 47], [1, 60]],
+           pootS: [[0, 21], [0.55, 21], [1, 110]], pootZ: [[0, 110], [0.3, 100], [0.6, 55], [0.86, 12], [1, 21]] } },
   };
-  // rust: positie van de teen t.o.v. het midrug-punt, per poot
+  // rust: positie van de teen per poot (staan-tabel), t.o.v. het dier
   const REST_A = graden({ A: {} }), REST_P = fk(ROOT0, REST_A);
-  const TEEN0 = { V: eind(REST_P, REST_A, 'vp'), A: eind(REST_P, REST_A, 'ap') };
+  const ST_A = graden(WP_HOUDING.staan), ST_P = fk([ROOT0[0], WP_HOUDING.staan.R[1]], ST_A);
+  const TEENST = { V: eind(ST_P, ST_A, 'vp'), VF: eind(ST_P, ST_A, 'vpF'), A: eind(ST_P, ST_A, 'ap'), AF: eind(ST_P, ST_A, 'apF') };
+  const TEEN0 = { V: TEENST.V, A: TEENST.A };
   const hermite = (a, b, m0, m1, u) => { const u2 = u * u, u3 = u2 * u; return (2 * u3 - 3 * u2 + 1) * a + (u3 - 2 * u2 + u) * m0 + (-2 * u3 + 3 * u2) * b + (u3 - u2) * m1; };
+  const mixA = (A0, A1, w, namen) => { for (const n of namen) { const d = Math.atan2(Math.sin(A1[n] - A0[n]), Math.cos(A1[n] - A0[n])); A0[n] = A0[n] + d * w; } }; // kortste weg (rompA ligt rond ±180°)
+  const ROMPNAMEN = ['rompV', 'rompA', 'nek', 'kop', 'kaak', 'st0', 'st1', 'st2'];
 
-  function gang(soort, t) {
-    const G = GANG[soort], H0 = WP_HOUDING[G.basis[0]], H1 = WP_HOUDING[G.basis[1]];
-    const A = graden(H0), A1 = graden(H1); const wmix = 0.5 + 0.5 * Math.cos(4 * Math.PI * t);
-    for (const n of ['rompV', 'rompA', 'nek', 'kop', 'kaak', 'st0', 'st1', 'st2']) A[n] = A[n] * wmix + A1[n] * (1 - wmix);
-    const bob = G.bob * Math.cos(4 * Math.PI * (t - 0.06));
-    const R = [ROOT0[0], (H0.R[1] * wmix + H1.R[1] * (1 - wmix)) + bob];
+  // poten zetten: voeten = { L: { teen:[x,y], meta: graden, poot: graden } } -> hoeken via IK (elleboog naar achter, knie naar voren)
+  function zetBenen(R, A, voeten, scapZwaai = {}) {
+    let piv = fk(R, A); const rek = {};
+    for (const L in voeten) { const v = voeten[L], voor = L[0] === 'V', zij = L.length > 1 ? 'F' : '';
+      const nP = voor ? 'vp' : 'ap', nM = voor ? 'mc' : 'mt';
+      const kogel = sub(v.teen, mul(dir(v.poot * RAD), BOT[nP].L)), gew = sub(kogel, mul(dir(v.meta * RAD), BOT[nM].L));
+      if (voor) { A['scap' + zij] = BOT.scap.A0 + (A.rompV - BOT.rompV.A0) - (scapZwaai[L] || 0) * RAD; piv = fk(R, A);
+        const [a1, a2, r] = ik(eind(piv, A, 'scap' + zij), gew, BOT.hum.L, BOT.rad.L, +1); A['hum' + zij] = a1; A['rad' + zij] = a2; rek[L] = r; }
+      else { const [a1, a2, r] = ik(piv['dij' + zij], gew, BOT.dij.L, BOT.schn.L, -1); A['dij' + zij] = a1; A['schn' + zij] = a2; rek[L] = r; }
+      A[nM + zij] = v.meta * RAD; A[nP + zij] = v.poot * RAD; v.kogel = kogel; }
+    return rek;
+  }
+  // romp/kop/staart van een gang (mix g: 0 = stap, 1 = draf) op cyclus-tijd t
+  function gangRomp(g, t) {
+    const res = []; for (const s of ['lopen', 'draven']) { const G = GANG[s], H0 = WP_HOUDING[G.basis[0]], H1 = WP_HOUDING[G.basis[1]];
+      const A = graden(H0), A1 = graden(H1), w = 0.5 - 0.5 * Math.cos(4 * Math.PI * t); mixA(A, A1, w, ROMPNAMEN);
+      A.nek += G.kop[0] * RAD; A.kop += G.kop[1] * RAD; res.push({ A, y: H0.R[1] * (1 - w) + H1.R[1] * w }); }
+    const A = res[0].A; mixA(A, res[1].A, g, ROMPNAMEN); const G = { bob: lerp(GANG.lopen.bob, GANG.draven.bob, g) };
+    const y = lerp(res[0].y, res[1].y, g) + 1.8 + G.bob * Math.cos(4 * Math.PI * (t - 0.06)); // +1,8 cm: iets door de poten bij lopen (voorpoot bereikt de grond, rek < 1)
     A.rompV += 0.8 * RAD * Math.sin(4 * Math.PI * t); A.rompA -= 0.8 * RAD * Math.sin(4 * Math.PI * t);
     A.nek += 2.0 * RAD * Math.sin(4 * Math.PI * (t + 0.1)); A.kop -= 1.5 * RAD * Math.sin(4 * Math.PI * (t + 0.1));
-    const zwaai = Math.sin(2 * Math.PI * (t - 0.2)); A.st0 += 3 * RAD * zwaai; A.st1 += 6 * RAD * Math.sin(2 * Math.PI * (t - 0.32)); A.st2 += 8 * RAD * Math.sin(2 * Math.PI * (t - 0.45));
+    A.st0 += 3 * RAD * Math.sin(2 * Math.PI * (t - 0.2)); A.st1 += 6 * RAD * Math.sin(2 * Math.PI * (t - 0.32)); A.st2 += 8 * RAD * Math.sin(2 * Math.PI * (t - 0.45));
     A.kaak = A.kop + (BOT.kaak.A0 - BOT.kop.A0);
-    const voeten = {}; let piv = fk(R, A);
-    const halve = G.S * G.beta / 2;
-    for (const L of ['A', 'AF', 'V', 'VF']) {
-      const voor = L[0] === 'V', zij = L.length > 1 ? 'F' : '', K = G[voor ? 'V' : 'A'];
-      const p = fr(t - G.fase[L]); const steun = p < G.beta;
-      const nx = TEEN0[voor ? 'V' : 'A'][0] + G.nx[voor ? 'V' : 'A'] - R[0] + ROOT0[0] - ROOT0[0];
-      const ty0 = TEEN0[voor ? 'V' : 'A'][1];
-      let tx, ty, ameta, apoot;
-      if (steun) { const u = p / G.beta; tx = nx + halve * (1 - 2 * u); ty = ty0; ameta = kurve(K.metaS, u); apoot = kurve(K.pootS, u); }
-      else { const u = (p - G.beta) / (1 - G.beta); const m = -G.S * (1 - G.beta) * 0.55;
-        tx = hermite(nx - halve, nx + halve, m, m, u); const lift = G.lift[voor ? 'V' : 'A'];
-        ty = ty0 - lift * Math.pow(Math.sin(Math.PI * Math.pow(u, voor ? 0.75 : 0.9)), 1.2); ameta = kurve(K.metaZ, u); apoot = kurve(K.pootZ, u); }
-      // teen (wereld t.o.v. midrug-x) -> kogel -> pols/hak -> IK
-      const teen = [ROOT0[0] + tx, ty];
-      const nP = voor ? 'vp' : 'ap', nM = voor ? 'mc' : 'mt';
-      const kogel = sub(teen, mul(dir(apoot * RAD), BOT[nP].L)); const gew = sub(kogel, mul(dir(ameta * RAD), BOT[nM].L));
-      if (voor) { const d = (tx - nx) / halve; A['scap' + zij] = BOT.scap.A0 + (A.rompV - BOT.rompV.A0) - 9 * RAD * d; piv = fk(R, A);
-        const S = eind(piv, A, 'scap' + zij); const [a1, a2, rek] = ik(S, gew, BOT.hum.L, BOT.rad.L, +1); A['hum' + zij] = a1; A['rad' + zij] = a2; voeten[L] = { rek }; }
-      else { const Hp = piv['dij' + zij]; const [a1, a2, rek] = ik(Hp, gew, BOT.dij.L, BOT.schn.L, -1); A['dij' + zij] = a1; A['schn' + zij] = a2; voeten[L] = { rek }; }
-      A[nM + zij] = ameta * RAD; A[nP + zij] = apoot * RAD;
-      Object.assign(voeten[L], { steun, teen, kogel, u: steun ? p / G.beta : (p - G.beta) / (1 - G.beta) });
-    }
+    return { A, R: [ROOT0[0], y] };
+  }
+  const gpar = (g, k) => lerp(GANG.lopen[k], GANG.draven[k], g);
+  const fasep = (g, L) => lerp(GANG.lopen.fase[L], GANG.draven.fase[L] + (L === 'VF' ? 1 : 0), g);
+  const hoek = (g, L, kant, u) => { const k = L[0] === 'V' ? 'V' : 'A'; return lerp(kurve(GANG.lopen[k][kant], u), kurve(GANG.draven[k][kant], u), g); };
+
+  // stateloos (voor storyboards): gang op t, met steunvoet stil t.o.v. de wereld
+  function gang(soort, t) {
+    const g = soort === 'draven' ? 1 : 0, G = GANG[soort]; const { A, R } = gangRomp(g, t);
+    const halve = G.S * G.beta / 2, voeten = {}, scap = {};
+    for (const L of ['A', 'AF', 'V', 'VF']) { const voor = L[0] === 'V', p = fr(t - G.fase[L]), steun = p < G.beta;
+      const nx = TEENST[L][0] + G.nx[voor ? 'V' : 'A'], ty0 = TEENST[L][1]; let tx, ty, u;
+      if (steun) { u = p / G.beta; tx = nx + halve * (1 - 2 * u); ty = ty0; }
+      else { u = (p - G.beta) / (1 - G.beta); const m = -G.S * (1 - G.beta) * 0.55; tx = hermite(nx - halve, nx + halve, m, m, u);
+        ty = ty0 - G.lift[voor ? 'V' : 'A'] * Math.pow(Math.sin(Math.PI * Math.pow(u, voor ? 0.75 : 0.9)), 1.2); }
+      voeten[L] = { teen: [tx, ty], meta: hoek(g, L, steun ? 'metaS' : 'metaZ', u), poot: hoek(g, L, steun ? 'pootS' : 'pootZ', u), steun, u };
+      if (voor) scap[L] = 9 * (tx - nx) / halve; }
+    const rek = zetBenen(R, A, voeten, scap); for (const L in voeten) voeten[L].rek = rek[L];
     return { R, A, voeten };
   }
 
+  // statische houding uit de tabel (met optionele borstverdieping en extra's)
+  const BORST = { zitten: 1.08, huilen: 1.06 };
+  function tabel(h, o = {}) {
+    const H = WP_HOUDING[h] || WP_HOUDING.staan; const A = graden(H), R = [ROOT0[0], H.R[1]];
+    if (o.kopHoek) A.kop += o.kopHoek; if (o.nekHoek) A.nek += o.nekHoek;
+    if (h === 'huilen') A.kaak += 0.06 * Math.sin(2 * Math.PI * (o.t || 0));
+    if (h === 'snuffelen') { A.rompV -= 7 * RAD; A.nek += 14 * RAD; A.kop += 16 * RAD; } // handmatig: de pop-nek is korter dan de nek op de AI-plaat; zo raakt de neus de grond
+    if (h === 'snuffelen' && o.t) { A.kop += 4 * RAD * Math.sin(2 * Math.PI * o.t * 3); A.nek += 2 * RAD * Math.sin(2 * Math.PI * o.t * 3 + 1); }
+    if (h === 'staan' && o.t) { A.st1 += 3 * RAD * Math.sin(2 * Math.PI * o.t); A.st2 += 5 * RAD * Math.sin(2 * Math.PI * o.t - 0.6); }
+    if (o.bek != null) A.kaak = A.kop + (BOT.kaak.A0 - BOT.kop.A0) + o.bek;
+    return { R, A, voeten: {}, borst: BORST[h] || 1, zit: ['zitten', 'liggen', 'huilen'].includes(h) };
+  }
   function stand(o) {
+    if (o.stand) return o.stand;
     const h = o.houding || 'staan';
-    if (h === 'lopen' || h === 'draven') return gang(h, fr(o.t || 0));
-    let H = WP_HOUDING[h === 'huilen' ? 'zitten' : h] || WP_HOUDING.staan; const A = graden(H), R = [ROOT0[0], H.R[1]];
-    if (h === 'huilen') { A.nek -= 26 * RAD; A.kop -= 58 * RAD; A.rompV -= 3 * RAD; }
-    A.kaak = A.kop + (BOT.kaak.A0 - BOT.kop.A0) + (o.bek ?? (h === 'huilen' ? 0.32 : 0));
-    if (h === 'staan' && o.t) { const s = Math.sin(2 * Math.PI * o.t); A.st1 += 3 * RAD * s; A.st2 += 5 * RAD * Math.sin(2 * Math.PI * o.t - 0.6); }
-    return { R, A, voeten: {} };
+    if (h === 'lopen' || h === 'draven') { const st = gang(h, fr(o.t || 0)); if (o.kopHoek) st.A.kop += o.kopHoek; if (o.nekHoek) st.A.nek += o.nekHoek; return st; }
+    return tabel(h, o);
+  }
+
+  // ---------- film: gesimuleerde reeks met gangwissel, stoppen en houdingswissels ----------
+  // spec: { fps, duur, v(t) cm/s, g(t) 0-1, acties: [{t0, t1, h}] } -> frames [{stand, X}]
+  function film(spec) {
+    const fps = spec.fps || 24, N = Math.round(spec.duur * fps), dt = 1 / fps, frames = [];
+    let X = 0, Phi = 0, rust = false, rustT = 0; const poot = {};
+    const LEGS = ['A', 'AF', 'V', 'VF'];
+    for (const L of LEGS) poot[L] = { steun: true, teenW: TEENST[L][0], vanX: 0, klaar: false };
+    let laatste = null;
+    for (let i = 0; i < N; i++) {
+      const t = i * dt, v = spec.v(t), g = spec.g(t);
+      // gang loopt door zolang er snelheid is of nog niet alle voeten neutraal staan
+      if (!rust) {
+        const f = v > 1 ? lerp(GANG.lopen.f, GANG.draven.f, g) : GANG.lopen.f, beta = gpar(g, 'beta'), S = v / f, halve = S * beta / 2;
+        Phi += f * dt; X += v * dt;
+        const tc = fr(Phi); const { A, R } = gangRomp(g, tc); const voeten = {}, scap = {};
+        let allesKlaar = v <= 1;
+        for (const L of LEGS) { const P = poot[L], voor = L[0] === 'V', p0 = fr(Phi - fasep(g, L)), steun = p0 < beta || (P.klaar && P.steun), p = steun && P.klaar ? Math.min(p0, beta * 0.5) : p0; // eenmaal neergezet na het stoppen: blijft staan
+          const nx = TEENST[L][0] + (voor ? lerp(3, 6, g) : lerp(5, 6, g)) * Math.min(1, v / 40), ty0 = TEENST[L][1]; let tx, ty, u;
+          if (steun) { if (!P.steun) { P.steun = true; P.klaar = v <= 1; } u = p / beta; tx = P.teenW - X; ty = ty0; }
+          else { if (P.steun) { P.steun = false; P.vanX = P.teenW; } u = (p - beta) / (1 - beta);
+            const resterend = (1 - u) * (1 - beta) / f, doel = X + v * resterend + nx + halve; const tw = lerp(P.vanX, doel, sstep(u));
+            const stap = Math.abs(doel - P.vanX);
+            const lift = (voor ? lerp(GANG.lopen.lift.V, GANG.draven.lift.V, g) : lerp(GANG.lopen.lift.A, GANG.draven.lift.A, g)) * Math.min(1, 0.15 + stap / 30);
+            P.teenW = tw; tx = tw - X; ty = ty0 - lift * Math.pow(Math.sin(Math.PI * Math.pow(u, voor ? 0.75 : 0.9)), 1.2); }
+          voeten[L] = { teen: [tx, ty], meta: lerp(voor ? 69 : 83, hoek(g, L, steun ? 'metaS' : 'metaZ', u), steun ? Math.min(1, v / 30) : 1),
+            poot: lerp(21, hoek(g, L, steun ? 'pootS' : 'pootZ', u), steun ? Math.min(1, v / 30) : 1), steun, u };
+          if (voor) scap[L] = 9 * (tx - nx) / Math.max(10, halve) * Math.min(1, v / 40);
+          if (!(steun && P.klaar)) allesKlaar = false; }
+        // bij stilstand: romp naar de staan-tabel mengen
+        const ws = 1 - Math.min(1, v / 40); const As = graden(WP_HOUDING.staan); mixA(A, As, ws, ROMPNAMEN); R[1] = lerp(R[1], WP_HOUDING.staan.R[1], ws);
+        const rek = zetBenen(R, A, voeten, scap); for (const L in voeten) voeten[L].rek = rek[L];
+        laatste = { R, A, voeten, borst: 1, zit: false };
+        if (allesKlaar) { rust = true; rustT = t; for (const L of LEGS) poot[L].vast = [poot[L].teenW - X, TEENST[L][1]]; }
+      } else {
+        // houdingen na stilstand: tabellen mengen, voeten blijven staan (IK); bij zitten stappen de achtervoeten naar voren
+        const tr = t - rustT; const act = (spec.acties || []).filter(a => tr >= a.t0); let H0 = 'staan', H1 = 'staan', w = 1, cur = null;
+        if (act.length) { cur = act[act.length - 1]; const vorige = act.length > 1 ? act[act.length - 2].h : 'staan'; H0 = vorige; H1 = cur.h; w = sstep((tr - cur.t0) / (cur.t1 - cur.t0)); }
+        const T0 = tabel(H0, { t: t * 0.4 }), T1 = tabel(H1, { t: t * 0.4 }); const A = T0.A; mixA(A, T1.A, w, ROMPNAMEN);
+        const R = [ROOT0[0], lerp(T0.R[1], T1.R[1], w)]; const borst = lerp(T0.borst, T1.borst, w);
+        // voeten: staande houdingen houden hun plek; zittende: voorvoeten blijven, achtervoeten naar de zit-plek (stap met boog)
+        const zitW = (h) => ['zitten', 'huilen'].includes(h) ? 1 : 0; const z0 = zitW(H0), z1 = zitW(H1);
+        const voeten = {};
+        const ZT = tabel('zitten'); const ZP = fk(ZT.R, ZT.A);
+        const zitTeen = (L) => { const n = L[0] === 'V' ? (L.length > 1 ? 'vpF' : 'vp') : (L.length > 1 ? 'apF' : 'ap'); return eind(ZP, ZT.A, n); };
+        // zit-lichaam zo verschuiven dat zijn nabije voorvoet op de vaste voorvoet staat
+        const dxZ = poot.V.vast[0] - zitTeen('V')[0];
+        const zf = lerp(z0, z1, w); R[0] += dxZ * zf; R[1] += 1.2 * zf; // iets lager zodat de voorpoten de grond houden
+        for (const L of LEGS) { const voor = L[0] === 'V'; const vast = poot[L].vast;
+          const n = voor ? (L.length > 1 ? 'vpF' : 'vp') : (L.length > 1 ? 'apF' : 'ap'), nm = voor ? (L.length > 1 ? 'mcF' : 'mc') : (L.length > 1 ? 'mtF' : 'mt');
+          const a0 = (z0 ? ZT : T0).A, a1 = (z1 ? ZT : T1).A;
+          let teen = vast.slice(), meta = lerp(a0[nm], a1[nm], w) / RAD, pa = lerp(a0[n], a1[n], w) / RAD;
+          if (!voor && z0 !== z1) { const doel = [zitTeen(L)[0] + dxZ, zitTeen(L)[1]]; const van = vast;
+            const k = L === 'A' ? 0 : 0.18; const u = Math.max(0, Math.min(1, (w - k) / 0.45)); const uu = sstep(u);
+            const a = z1 ? van : doel, b = z1 ? doel : van; teen = [lerp(a[0], b[0], uu), lerp(a[1], b[1], uu) - 5 * Math.sin(Math.PI * u)]; }
+          else if (!voor && z0 && z1) teen = [zitTeen(L)[0] + dxZ, zitTeen(L)[1]];
+          if (!voor && z1 && w >= 1) poot[L].vastZ = teen;
+          voeten[L] = { teen, meta, poot: pa, steun: true }; }
+        // voorpoten bij zitten: voet blijft, hoeken uit de tabel
+        const rek = zetBenen(R, A, voeten); for (const L in voeten) voeten[L].rek = rek[L];
+        laatste = { R, A, voeten, borst, zit: zf > 0.5 };
+      }
+      frames.push({ stand: laatste, X });
+    }
+    return frames;
   }
 
   // ---------- tekenen ----------
@@ -297,13 +385,20 @@ const WolfPop = (() => {
     ['schn'], ['mt'], ['ap'], ['dij'], ['hum'], ['nek'], ['oorF'], ['kaak'], ['kop'], ['oor']];
 
   function teken(ctx, x, y, s, o = {}) {
-    const st = stand(o); const { R, A } = st; const piv = fk(R, A);
+    if ((o.a ?? 1) < 0.999 && typeof document !== 'undefined' && ctx.canvas) { // doorzichtig: eerst los tekenen, anders schemeren de overlappende delen door elkaar
+      if ((o.a ?? 1) <= 0.01) return null; const c = document.createElement('canvas'); c.width = ctx.canvas.width; c.height = ctx.canvas.height; const k = c.getContext('2d');
+      k.setTransform(ctx.getTransform()); const st = teken(k, x, y, s, Object.assign({}, o, { a: 1 }));
+      ctx.save(); ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha *= o.a; ctx.drawImage(c, 0, 0); ctx.restore(); return st; }
+    const st = stand(o); const { R, A } = st; const piv = fk(R, A); const borst = st.borst || 1;
     const dx = o.wereld && GANG[o.houding] ? GANG[o.houding].S * fr(o.t || 0) : 0;
     const M = {}; for (const n of ORDE) { const b = BOT[n], da = A[n] - b.A0, c = Math.cos(da), si = Math.sin(da), p = piv[n], j = b.J0;
       M[n] = (v) => { const vx = v[0] - j[0], vy = v[1] - j[1]; return [p[0] + vx * c - vy * si, p[1] + vx * si + vy * c]; }; }
+    if (borst !== 1) for (const n of ['rompV', 'rompA']) { const b = BOT[n], da = A[n] - b.A0, c = Math.cos(da), si = Math.sin(da), p = piv[n], j = b.J0; // romp dikker (zitten)
+      const f2 = 1 + (borst - 1) * 0.6; M[n] = (v) => { const vx = v[0] - j[0], vy0 = v[1] - j[1], vy = vy0 > 0 ? vy0 * borst : vy0 * f2; return [p[0] + vx * c - vy * si, p[1] + vx * si + vy * c]; }; }
     ctx.save(); ctx.globalAlpha *= (o.a ?? 1); ctx.translate(x, y); ctx.scale(s * (o.kijk || 1), s); ctx.translate(dx, 0);
     const open = A.kaak - A.kop - (BOT.kaak.A0 - BOT.kop.A0) > 0.02;
-    const zit = ['zitten', 'liggen', 'huilen'].includes(o.houding); // dan ligt de achtervoet vóór de dij
+    if (st.zit) { ctx.beginPath(); ctx.rect(-300, -300, 600, 300.8); ctx.clip(); } // zitten/liggen: bil en staart worden op de grond platgedrukt, niets onder de grond
+    const zit = st.zit; // dan ligt de achtervoet vóór de dij
     let VO = zit ? VOLGORDE.filter(([k, v]) => v || (k !== 'mt' && k !== 'ap')).flatMap(e => (e[0] === 'dij' && !e[1]) ? [e, ['mt'], ['ap']] : [e]) : VOLGORDE;
     const MF = Object.assign({}, M), pivF = Object.assign({}, piv), AF = Object.assign({}, A); // verre poot: elk bot met F-versie vervangen
     for (const n of ORDE) if (n.endsWith('F')) { const m = n.slice(0, -1); MF[m] = M[n]; pivF[m] = piv[n]; AF[m] = A[n]; }
@@ -331,7 +426,12 @@ const WolfPop = (() => {
     const D = PREP[k.replace(/F$/, '')]; const bones = D.skin ? { romp: ['rompV', 'rompA'], nek: ['nek', 'kop'], staart: ['st0', 'st1', 'st2'], dij: ['dij'], hum: ['hum'] }[D.skin] : [D.bot];
     return bones.map(b => [BOT[b].J0[0] + dx, BOT[b].J0[1] + dy]);
   }
-  return { teken, info, stand, fk, deel, BOT, ORDE, PREP, GANG, PAL, REST_P, REST_A };
+  return { teken, info, stand, fk, deel, film, gang, tabel, BOT, ORDE, PREP, GANG, PAL, REST_P, REST_A };
 })();
 
 function wolfPop(ctx, x, y, schaal = 5, o = {}) { return WolfPop.teken(ctx, x, y, schaal, o); }
+
+// ---- integratie: de bestaande aanroep wolf(ctx, x, y, s, o) tekent voortaan de pop (zelfde maat: s = px per cm, schofthoogte 80 cm) ----
+// o-velden van dieren_zoog.js: houding ('staan'|'lopen'|'draven'|'zitten'|'liggen'|'huilen'|'snuffelen'|'grazen'), t, kijk, a, kopHoek, nekHoek, bek.
+function wolf(ctx, x, y, s, o = {}) { const h = { grazen: 'snuffelen', vechten: 'staan' }[o.houding] || o.houding || 'staan';
+  return WolfPop.teken(ctx, x, y, s, Object.assign({}, o, { houding: h })); }

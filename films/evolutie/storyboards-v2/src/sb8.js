@@ -14,7 +14,7 @@ const DIER = { walvis: (c, x, y, s, a) => bultrug(c, x, y - 20, 0.2 * s, { a }),
 // chimpansee: knokkelloper in zijaanzicht (±1,2 m lang op vier ledematen); armen langer dan benen, donkere vacht, licht gezicht met uitstekende mond, oor groot en rond
 // chimpansee: knokkelloper in zijaanzicht. Recept: schouder hoger dan heup (armen langer dan benen), handen op de knokkels, voeten plat met opponeerbare grote teen,
 // donkere vacht, licht kaal gezicht met uitstekende mond, wenkbrauwboog, grote ronde oren opzij van de kop. Schouderhoogte ±80 eenheden bij s=1 (mens: persoon h=150 = ±1,6 m).
-function chimp(ctx, x, y, s = 1, a = 1) { _bd(ctx, x, y, s, 1, a); const v = '#2E2622', vd = '#221C18', g = '#C8A890';
+function chimpOud(ctx, x, y, s = 1, a = 1) { _bd(ctx, x, y, s, 1, a); const v = '#2E2622', vd = '#221C18', g = '#C8A890';
   ledemaat(ctx, [[-34, -52], [-50, -28], [-40, -4]], [18, 11, 9], vd); vul(ctx, [[-50, -6], [-28, -6], [-26, 0], [-52, 0]], vd);
   ledemaat(ctx, [[30, -76], [40, -40], [34, -6]], [16, 10, 9], vd); circ(ctx, 36, -4, 6, vd);
   vul(ctx, [[-48, -50], [-44, -66], [-10, -80], [30, -88], [46, -82], [44, -64], [20, -54], [-20, -44], [-44, -42]], v);
