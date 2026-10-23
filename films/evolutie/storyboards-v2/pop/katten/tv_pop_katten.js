@@ -119,3 +119,8 @@ TV_pop_katten.delen_alle = (ctx) => { KTV.bg(ctx, 'Uit elkaar (rood = draaipunte
   for (const [n, x, y, s, k] of [['leeuw', 480, 560, 2.3, 120], ['tijger', 1440, 560, 2.5, 100], ['huiskat', 960, 1000, 10, 25]]) { const P = KAT[n]; ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.translate(-P.D.anker, 0);
     for (const [d, dx, dy] of lijst(k)) { if (!P.PREP[d]) continue; const pv = P.deel(ctx, d, dx, dy); ctx.fillStyle = '#FF5A5A'; for (const p of pv) { ctx.beginPath(); ctx.arc(p[0], p[1], 0.012 * k, 0, 6.283); ctx.fill(); } } ctx.restore(); } };
 TV_pop_katten.stap_alle = (ctx) => { KTV.bg(ctx, 'Stap (8 fasen) van tijger en huiskat met steunlijnen'); KTV.strip(ctx, KAT.tijger, 'lopen', 420, 0.72); KTV.strip(ctx, KAT.huiskat, 'lopen', 900, 3.0); };
+TV_pop_katten.koppen = (ctx) => { KTV.bg(ctx, 'Koppen naar de kopplaat (rij 2): leeuw, tijger, huiskat');
+  const L = [['leeuw', 'kop', 6.2, 330], ['tijger', 'kop', 7.2, 960], ['huiskat', 'kop', 26, 1590]];
+  for (const [n, j, s, x] of L) { const P = KAT[n]; const I = P.info({ houding: 'staan' }); const k = I.piv.kop; ctx.save(); ctx.beginPath(); ctx.rect(x - 310, 80, 620, 900); ctx.clip();
+    P.teken(ctx, x - (k[0] - P.D.anker) * s - 20, 560 - k[1] * s, s, { houding: 'staan' }); ctx.restore(); } };
+TV_pop_katten.manen_rust = (ctx) => { KTV.bg(ctx, 'leeuw rust (plaatfase) met manen'); KAT.leeuw.teken(ctx, 700, 1000, 6, { houding: 'rust', skelet: 1 }); };

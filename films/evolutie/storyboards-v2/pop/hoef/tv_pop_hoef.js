@@ -68,3 +68,15 @@ TV_pop_hoef.film = (ctx, f) => { const fps = 24, t = f / fps, W = 1920, H = 1080
   ctx.strokeStyle = '#4C6650'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
   P.teken(ctx, 940, gy, pxcm, { stand: st, bek: st.bek });
   ctx.fillStyle = '#E8E2D6'; ctx.font = '600 40px "Source Sans 3", sans-serif'; ctx.textAlign = 'left'; ctx.fillText(label, 70, 90); };
+// overgang staan -> grazen/gapen in 6 stappen (zoom op de kop)
+function _hftvOvergang(n, h, cx, cy, s) { return (ctx) => { const P = HOEF[n]; HFTV.bg(ctx, n + ': staan -> ' + h + ' in 6 stappen (zoom)'); const a = P.stand({ houding: 'staan' }), b = P.stand({ houding: h });
+  for (let i = 0; i < 6; i++) { const st = P.meng(a, b, i / 5); HFTV.zoom(ctx, P, { stand: st }, cx, cy, s, [30 + (i % 3) * 625, 80 + Math.floor(i / 3) * 495, 610, 480]); } }; }
+TV_pop_hoef.koe_graas_reeks = _hftvOvergang('koe', 'grazen', 70, -60, 2.6);
+TV_pop_hoef.nijl_gaap_reeks = _hftvOvergang('nijlpaard', 'gapen', 120, -110, 2.0);
+TV_pop_hoef.dbg_kaak = (ctx) => { const P = HOEF.nijlpaard; HFTV.bg(ctx, 'debug kaak'); P.teken(ctx, 300, 900, 4, { houding: 'gapen', skelet: 1, a: 0.6 }); P.teken(ctx, 900, 900, 4, { houding: 'gapen', zonder: ['romp', 'nek', 'kop', 'hum', 'dij', 'staart', 'mond'] }); };
+TV_pop_hoef.koppen = (ctx) => { HFTV.bg(ctx, 'Koppen paard, ezel, muilezel (staan en grazen)');
+  ['paard', 'ezel', 'muilezel'].forEach((n, i) => { const P = HOEF[n], J = P.J; HFTV.zoom(ctx, P, { houding: 'staan' }, J.kop[0] + 5, J.kop[1] + 25, 560 / P.D.H * 0.95, [30 + i * 625, 80, 610, 480]); HFTV.zoom(ctx, P, { houding: 'grazen' }, J.kop[0] - 5, -45 * P.D.H / 160, 420 / P.D.H, [30 + i * 625, 575, 610, 480]); }); };
+TV_pop_hoef.dbg_kop = (ctx) => { HFTV.bg(ctx, 'debug kop: alleen kop + skelet'); ['paard', 'ezel', 'muilezel'].forEach((n, i) => { const P = HOEF[n], J = P.J; HFTV.zoom(ctx, P, { houding: 'staan', zonder: ['romp', 'nek', 'hum', 'dij', 'staart', 'rad', 'mc', 'vp', 'schn', 'mt', 'ap'], skelet: 1 }, J.kop[0] + 5, J.kop[1] + 25, 560 / P.D.H * 0.95, [30 + i * 625, 80, 610, 480]); }); };
+TV_pop_hoef.kop_groot = (ctx) => { HFTV.bg(ctx, 'Koppen groot: paard, ezel, muilezel'); ['paard', 'ezel', 'muilezel'].forEach((n, i) => { const P = HOEF[n], J = P.J; HFTV.zoom(ctx, P, { houding: 'staan' }, J.kop[0] + 12 * P.D.H / 160, J.kop[1] + 25 * P.D.H / 160, 900 / P.D.H, [30 + i * 625, 80, 610, 960]); }); };
+TV_pop_hoef.nijl_kop_groot = (ctx) => { const P = HOEF.nijlpaard, J = P.J; HFTV.bg(ctx, 'Nijlpaard kop: dicht, half open, gapen (groot)'); const a = P.stand({ houding: 'staan' }), b = P.stand({ houding: 'gapen' });
+  [0, 0.5, 1].forEach((w, i) => HFTV.zoom(ctx, P, { stand: P.meng(a, b, w) }, J.kop[0] + 25, J.kop[1] + 35, 3.6, [30 + i * 625, 80, 610, 960])); };

@@ -251,25 +251,24 @@ const PopRC = (() => {
 const REPT_KROK_DEF = {
   L: 400, anker: 200, NS: 200, NO: 300, sS: 112, sH: 222, jS: 0.12, jH: 0.28, verMix: 0.36, verKleur: '#20261E', neusRond: 0.9,
   // [s vanaf de snuit, bovenkant, onderkant, halve breedte] (cm boven de grond in de loophouding)
-  prof: [[0, 79, 70, 6], [4, 83.5, 69.5, 8], [10, 82.5, 69, 8.5], [28, 85, 67, 10.5], [42, 89, 65, 13], [52, 92, 63.5, 15], [62, 90, 61.5, 16.5], [72, 92.5, 58.5, 17],
-    [86, 95, 53, 17], [100, 97, 46, 21], [118, 98.5, 40.5, 26], [150, 99.5, 39, 29], [185, 100, 39.5, 29.5], [212, 98, 42, 27], [238, 93, 46.5, 21], [262, 86, 49.5, 16],
-    [290, 76, 46, 13], [320, 62, 36, 10], [350, 45, 23, 7], [376, 28, 12.5, 4], [400, 12, 7.5, 0.8]],
+  // hoogtes 23 cm lager dan de plaat (Kamiel 23 okt: poten te lang); dij = 1/16 van 400 cm (Farlow e.a. 2005, alligators tot 427 cm: dij 236-263 mm); buik ±16 cm boven de grond
+  prof: [[0, 56, 47, 6], [4, 60.5, 46.5, 8], [10, 59.5, 46, 8.5], [28, 62, 44, 10.5], [42, 66, 42, 13], [52, 69, 40.5, 15], [62, 67, 38.5, 16.5], [72, 69.5, 35.5, 17], [86, 72, 30, 17], [100, 74, 23, 21], [118, 75.5, 17.5, 26], [150, 76.5, 16, 29], [185, 77, 16.5, 29.5], [212, 75, 19, 27], [238, 70, 23.5, 21], [262, 63, 26.5, 16], [290, 53, 23, 13], [320, 39, 13, 10], [350, 25.9, 3.9, 7], [376, 18.8, 3.3, 4], [400, 12, 7.5, 0.8]],
   // rugkam: ronde osteodermen op de romp, driehoekige kam (naar achter hellend) op de staart
   kam(s) { if (s > 84 && s < 238) { const f = ((s - 84) / 9.2) % 1; return 2.6 * Math.pow(Math.sin(Math.PI * f), 0.7); }
     if (s >= 238 && s < 396) { const h = 7.5 - (s - 238) * 0.034, f = ((s - 238) / 10.5) % 1; return h * (f < 0.78 ? Math.pow(f / 0.78, 1.3) : (1 - f) / 0.22); } return 0; },
   staartLeg: null,
   PAL: { flank: '#7C7456', rug: '#5C5846', buik: '#B4A983', band: '#343A3D', schub: '#4A493C', schubL: '#958B66', poot: '#6E6A52', pootL: '#7A7459', pootD: '#5E5A46', klauw: '#2A2A22', kaak: '#B0A580', tand: '#ECE6CE', mond: '#2A2E1E' },
   poot: {
-    V: { l: [34, 22, 10], dik: 4, hoger: 0, pool: [-0.55, -0.35, 1], w: [9.5, 6.4, 4.8, 4.6, 2.8], tenen: [[-55, 7], [-25, 9.5], [0, 10.5], [25, 9.5], [50, 7]], klauw: 2.4,
+    V: { l: [20.5, 14, 7], dik: 4, hoger: 0, pool: [-0.55, -0.35, 1], w: [7.5, 5.4, 4.8, 4.6, 2.8], tenen: [[-55, 7], [-25, 9.5], [0, 10.5], [25, 9.5], [50, 7]], klauw: 2.4,
  },
-    A: { l: [38, 30, 17], dik: 4.5, hoger: 2, pool: [0.55, -0.35, 1], w: [12, 7.6, 5.2, 4.9, 3.0], tenen: [[-32, 11], [-10, 13.5], [12, 14.5], [34, 12]], klauw: 2.8, vlies: 4,
+    A: { l: [25, 19.5, 10], dik: 4.5, hoger: 2, pool: [0.55, -0.35, 1], w: [9.5, 6.4, 5.2, 4.9, 3.0], tenen: [[-32, 11], [-10, 13.5], [12, 14.5], [34, 12]], klauw: 2.8, vlies: 4,
  },
   },
   // walking trot met diagonale koppels (achter loopt 0,06 voor op zijn diagonale voorpoot); S = slaglengte per cyclus
-  GANG: { S: 100, scap: 7, beta: { V: 0.68, A: 0.74 }, fase: { AN: 0, VF: 0.06, AF: 0.5, VN: 0.56 }, nx: { V: 6, A: 2 }, spread: { V: 43, A: 47 }, inw: { V: 6, A: 7 }, psi: { V: 32, A: 14 },
-    lift: { V: 11, A: 13 }, hiel: { V: 38, A: 46 }, yaw: [11, 12, 16], kopVast: 0.35, staartGolf: 0.55, bob: 1.2, verDx: -6 },
+  GANG: { S: 72, scap: 6, beta: { V: 0.68, A: 0.74 }, fase: { AN: 0, VF: 0.06, AF: 0.5, VN: 0.56 }, nx: { V: 6, A: 2 }, spread: { V: 33, A: 36 }, inw: { V: 6, A: 7 }, psi: { V: 32, A: 14 },
+    lift: { V: 7, A: 8 }, hiel: { V: 38, A: 46 }, yaw: [11, 12, 16], kopVast: 0.35, staartGolf: 0.55, bob: 1.2, verDx: -6 },
   LIGGEN: { bodem: [[0, 3], [40, 1.5], [70, 0.5], [100, 0], [300, 0], [400, 0]], phi: (s) => (s > 220 ? -0.35 * Math.sin((s - 220) / 180 * Math.PI) : 0) - 0.04,
-    voet: { V: [10, 50, 55, 0], A: [-26, 58, -30, 0] } },
+    voet: { V: [6, 38, 55, 0], A: [-18, 42, -30, 0] } },
 };
 REPT_KROK_DEF.lagen = (Z, P) => { const { M } = Z, L = []; const Ls = (a, b, n, fn) => { const o = []; for (let i = 0; i <= n; i++) o.push(fn(a + (b - a) * i / n)); return o; };
   // rug donker (bovenste 35 %), buik licht (onderste 30 %), onderkaak licht

@@ -74,7 +74,7 @@ const KatPop = (() => {
       let sc = 0; return P.map((p, i) => { const a = P[(i - 1 + n) % n], b = P[(i + 1) % n]; if (i) sc += len(sub(p, a)); const t = sub(b, a), tl = len(t) || 1, nn = [sg * t[1] / tl, -sg * t[0] / tl];
         if (f && !f(p)) return p; const ww = w * (0.8 + 0.4 * hsh(Math.floor(sc / w) * 3.3)), ph = fr(sc / ww), h = amp * (0.6 + 0.6 * hsh(Math.floor(sc / ww) * 7.7)) * (ph < 0.75 ? Math.pow(ph / 0.75, 1.4) : (1 - ph) / 0.25); return add(p, mul(nn, h)); }); }
     const laag = (l) => { if (l.veeg) return { c: l.c, pts: streep(l.p.map(cm), l.veeg[0], l.veeg[1]) }; if (l.lijn) return { c: l.c, lijn: l.lijn, pts: openLijn(l.p.map(cm)) }; let P = spline(l.p.map(p => { const c = cm(p); return p[2] ? [c[0], c[1], 1] : c; })); if (l.tand) P = tanden(P, l.tand); return { c: l.c, pts: P }; };
-    for (const k in D.DELEN) { const d = D.DELEN[k]; PREP[k] = { bot: d.bot, skin: d.skin, voet: d.voet, lagen: d.lagen.map(laag) }; }
+    for (const k in D.DELEN) { const d = D.DELEN[k]; PREP[k] = { bot: d.bot, skin: d.skin, voet: d.voet, vrij: d.vrij, lagen: d.lagen.map(laag) }; }
     // poten uit profielen: [[u, voor, achter], ...] in cm langs het bot (voor = kant naar +x bij een bot dat omlaag wijst)
     function profiel(bn, prof) { const b = BOT[bn], d = dir(b.A0), s = [d[1], -d[0]]; const V = [], A = [];
       const dk = (bn.startsWith('rad') || bn.startsWith('mc') || bn.startsWith('vp') ? D.dikV : D.dikA) || D.dik || 1; for (const [u, wv, wa] of prof) { const p = add(b.J0, mul(d, b.L * u)); V.push(add(p, mul(s, wv * dk))); A.push(sub(p, mul(s, wa * dk))); }
@@ -107,6 +107,15 @@ const KatPop = (() => {
       PREP.staart = { skin: 'staart', lagen }; }
     // tekening: vlekken / strepen per deel (in ruststand, daarna meegebogen door dezelfde huid)
     if (D.TEKENING) D.TEKENING({ PREP, J, cm, vlekVorm, streep, binnen, hsh, BOT });
+    // ---- kop uit de vlakke kopplaat (koppen.png, rij 2): gelijkvormig afgebeeld via twee ankers (achterhoofd -> J.kop, neuspunt -> J.neus) ----
+    let KOPG = null;
+    if (D.KOP) { const Kp = D.KOP, [a0, a1] = Kp.van, b0 = D.J.kop, b1 = D.J.neus; const va = sub(a1, a0), vb = sub(b1, b0); const sc = len(vb) / len(va) * (Kp.schaal || 1), rt = ang(vb) - ang(va) + (Kp.draai || 0) * RAD;
+      const naar = (p) => { const q = add(b0, rot(mul(sub(p, a0), sc), rt)); return p[2] ? [q[0], q[1], 1] : q; }; const pk = sc / K; // koppen-px -> cm
+      const bouw = (L) => L.map(l => { if (l.veeg) return { c: l.c, pts: streep(l.p.map(p => cm(naar(p))), l.veeg[0] * pk, l.veeg[1] * pk) };
+        let P = spline(l.p.map(p => { const c = cm(naar(p)); return p[2] ? [c[0], c[1], 1] : c; })); if (l.tand) P = tanden(P, [l.tand[0] * pk, l.tand[1] * pk, l.tand[2]]); return { c: l.c, pts: P }; });
+      PREP.kop = { bot: 'kop', lagen: bouw(Kp.lagen) }; delete PREP.oor; delete PREP.oorF; if (Kp.oor) PREP.oor = { bot: 'kop', lagen: bouw(Kp.oor) }; if (Kp.oorF) PREP.oorF = { bot: 'kop', lagen: bouw(Kp.oorF) }; delete PREP.kaak;
+      KOPG = { oog: Kp.oog && { c: cm(naar(Kp.oog.c)), r: Kp.oog.r * pk, iris: Kp.oog.iris, pupil: Kp.oog.pupil || 'rond', rek: Kp.oog.rek || 1, rand: Kp.oog.rand, hoek: rt },
+        lijnen: (Kp.lijnen || []).map(l => ({ c: l.c, w: l.w * pk, pts: openLijn(l.p.map(p => cm(naar(p)))) })) }; }
 
     // ---- gewichten (zachte huid) ----
     function projectie(v, keten) { let best = 1e9, bu = 0; for (let i = 0; i < keten.length - 1; i++) { const a = keten[i], b = keten[i + 1], ab = sub(b, a); const u = Math.max(-0.5, Math.min(1.5, ((v[0] - a[0]) * ab[0] + (v[1] - a[1]) * ab[1]) / (ab[0] ** 2 + ab[1] ** 2)));
@@ -235,12 +244,22 @@ const KatPop = (() => {
       const basis = tr ? tr(Dl.lagen[0]) : Dl.lagen[0].pts;
       if (modus === 'rand') { pad(ctx, basis); ctx.strokeStyle = RANDK(pal[Dl.lagen[0].c]); ctx.lineWidth = D.rand || 0.5; ctx.lineJoin = 'round'; ctx.stroke(); ctx.restore(); return; }
       pad(ctx, basis); ctx.fillStyle = pal[Dl.lagen[0].c]; ctx.fill();
-      if (Dl.lagen.length > 1) { ctx.save(); pad(ctx, basis); ctx.clip(); for (let i = 1; i < Dl.lagen.length; i++) { const L = Dl.lagen[i], P = tr ? tr(L) : L.pts;
+      if (Dl.lagen.length > 1) { ctx.save(); if (!Dl.vrij) { pad(ctx, basis); ctx.clip(); } for (let i = 1; i < Dl.lagen.length; i++) { const L = Dl.lagen[i], P = tr ? tr(L) : L.pts;
         if (L.lijn) { ctx.beginPath(); P.forEach((q, j) => j ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.strokeStyle = pal[L.c]; ctx.lineWidth = L.lijn; ctx.lineCap = 'round'; ctx.stroke(); }
         else { pad(ctx, P); ctx.fillStyle = pal[L.c]; ctx.fill(); } } ctx.restore(); }
       if (Dl.voet && D.TENEN) D.TENEN(ctx, k, pal, BOT, cm);
-      if (k === 'kop' && D.GEZICHT) D.GEZICHT(ctx, pal, cm, A, BOT);
+      if (k === 'kop' && KOPG) tekenGezicht(ctx, pal);
+      else if (k === 'kop' && D.GEZICHT) D.GEZICHT(ctx, pal, cm, A, BOT);
       ctx.restore(); }
+    // oog: rond, met iris, pupil en één lichtpuntje (geen staarblik); lijnen: mond, snorharen
+    function tekenGezicht(ctx, pal) { const G = KOPG;
+      for (const l of G.lijnen) { ctx.strokeStyle = pal[l.c] || l.c; ctx.lineWidth = l.w; ctx.lineCap = 'round'; ctx.beginPath(); l.pts.forEach((q, j) => j ? ctx.lineTo(q[0], q[1]) : ctx.moveTo(q[0], q[1])); ctx.stroke(); }
+      const O = G.oog; if (!O) return; ctx.save(); ctx.translate(O.c[0], O.c[1]); ctx.rotate(O.hoek * 0.3);
+      ctx.fillStyle = O.rand || '#2A201A'; ctx.beginPath(); ctx.ellipse(0, 0, O.r * 1.18 * O.rek, O.r * 1.12, 0, 0, 6.283); ctx.fill();
+      ctx.fillStyle = O.iris; ctx.beginPath(); ctx.ellipse(0.05 * O.r, 0, O.r * O.rek, O.r, 0, 0, 6.283); ctx.fill();
+      ctx.fillStyle = mixKat(O.iris, 0.25, '#FFF6D8'); ctx.beginPath(); ctx.ellipse(0.1 * O.r, 0.35 * O.r, O.r * 0.62 * O.rek, O.r * 0.45, 0, 0, 6.283); ctx.fill(); // lichtere onderkant iris
+      ctx.fillStyle = '#120C0A'; ctx.beginPath(); if (O.pupil === 'spleet') ctx.ellipse(0.12 * O.r, 0, O.r * 0.3, O.r * 0.78, 0, 0, 6.283); else ctx.arc(0.12 * O.r, 0, O.r * 0.5, 0, 6.283); ctx.fill();
+      ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.beginPath(); ctx.arc(0.42 * O.r, -0.4 * O.r, O.r * 0.2, 0, 6.283); ctx.fill(); ctx.restore(); }
     // tekenvolgorde: verre poten, staart, nabije voorpoot (onder de borst vandaan), romp, nabije achterpoot, schouder, nek, manen, kop
     const VOLGORDE = D.VOLGORDE || [['schn', 1], ['mt', 1], ['ap', 1], ['dij', 1], ['rad', 1], ['mc', 1], ['vp', 1], ['hum', 1], ['staart'], ['kwast'], ['rad'], ['mc'], ['vp'], ['romp'],
       ['schn'], ['mt'], ['ap'], ['dij'], ['hum'], ['nek'], ['manen'], ['oorF'], ['kaak'], ['kop'], ['oor']];
@@ -380,7 +399,10 @@ function _katStrepen(H, o) { // o: { delen: {deel: {stap, len:[a,b], w, krom, se
     let i = 0;
     if ((c.richting || 'v') === 'v') { for (let x = x0 + c.stap * 0.5; x < x1 - c.stap * 0.3; x += c.stap * (0.8 + 0.4 * hsh(c.seed + i))) { i++; const top = rand(x, true), bot = rand(x, false); if (!isFinite(top) || bot - top < 2) continue;
         const L = (bot - top) * (c.len[0] + (c.len[1] - c.len[0]) * hsh(c.seed + i * 3.1)); const kr = (c.krom || 0) * (hsh(c.seed + i * 5.7) - 0.3) * L; const y0s = c.onder ? bot + 1 : top - 1, sg = c.onder ? -1 : 1;
-        const lijn = [[x, y0s], [x + kr * 0.4, y0s + sg * L * 0.5], [x + kr, y0s + sg * L]]; const S = streep(lijn, c.w * (0.8 + 0.4 * hsh(c.seed + i * 2.3)), c.w * 0.15); if (S) D.lagen.push({ c: c.kleur || 'streep', pts: S });
+        const golf = (c.golf || 0) * (hsh(c.seed + i * 8.3) - 0.5) * L;
+        const lijn = [[x, y0s], [x + kr * 0.3 + golf, y0s + sg * L * 0.35], [x + kr * 0.6 - golf * 0.5, y0s + sg * L * 0.7], [x + kr, y0s + sg * L]]; const S = streep(lijn, c.w * (0.8 + 0.4 * hsh(c.seed + i * 2.3)), c.w * 0.08); if (S) D.lagen.push({ c: c.kleur || 'streep', pts: S });
+        if (c.paar && hsh(c.seed + i * 4.9) < 0.7) { const dx = c.paar * (hsh(c.seed + i * 6.1) > 0.5 ? 1 : -1), L2 = L * (0.35 + 0.3 * hsh(c.seed + i * 7.7)); // dubbele streep: korter, smaller, parallel
+          const S2 = streep([[x + dx, y0s + sg * L * 0.05], [x + dx + kr * 0.25, y0s + sg * L2 * 0.5], [x + dx + kr * 0.4, y0s + sg * L2]], c.w * 0.6, c.w * 0.06); if (S2) D.lagen.push({ c: c.kleur || 'streep', pts: S2 }); }
         if (c.vork && hsh(c.seed + i * 9.1) < c.vork) { const l2 = [[x + kr * 0.4, y0s + sg * L * 0.45], [x + kr * 0.4 - c.stap * 0.35, y0s + sg * L * 0.75]]; const S2 = streep(l2, c.w * 0.6, c.w * 0.1); if (S2) D.lagen.push({ c: c.kleur || 'streep', pts: S2 }); } } }
     else { for (let y = y0 + c.stap * 0.5; y < y1 - c.stap * 0.3; y += c.stap * (0.85 + 0.3 * hsh(c.seed + i))) { i++; const l = randY(y, true), r = randY(y, false); if (!isFinite(l) || r - l < 1) continue;
         const L = (r - l) * (c.len[0] + (c.len[1] - c.len[0]) * hsh(c.seed + i * 3.1)); const st = c.vanVoor ? r + 1 : l - 1, sg = c.vanVoor ? -1 : 1; const kr = (c.krom || 0) * L;
@@ -401,7 +423,7 @@ const KAT_LEEUW_DEF = {
   PAL: { basis: '#C68D4E', donker: '#A8743E', licht: '#DDB683', creme: '#E9CFA6', manenD: '#6A4326', manenM: '#9A642F', manenL: '#C98C47', kwast: '#2E2320', neus: '#4A3028', snuit: '#E8CBA6', oorbin: '#8A5A34' },
   DELEN: {
     romp: { skin: 'romp', lagen: [
-      { c: 'basis', p: [[82, 104], [85, 90], [92, 79], [102, 73], [116, 70.5], [135, 70.5], [160, 71.5], [185, 72], [205, 70], [228, 82], [246, 106], [250, 132], [242, 150], [226, 160], [208, 158], [190, 150], [170, 146], [150, 141], [135, 139], [124, 142], [112, 152], [96, 154], [84, 142], [78, 120]] },
+      { c: 'basis', p: [[82, 104], [85, 90], [92, 79], [102, 73], [116, 70.5], [135, 70.5], [160, 71.5], [182, 70], [204, 65], [228, 76], [246, 104], [251, 132], [244, 152], [228, 164], [208, 164], [190, 156], [170, 150], [150, 146], [135, 139], [124, 142], [112, 152], [96, 154], [84, 142], [78, 120]] },
       { c: 'licht', p: [[250, 128], [246, 150], [228, 163], [206, 162], [186, 155], [164, 150], [146, 146], [132, 144], [138, 136], [158, 139], [180, 142], [200, 146], [222, 146], [240, 138]] },
     ] },
     nek: { skin: 'nek', lagen: [{ c: 'basis', p: [[190, 84], [205, 70], [228, 62], [252, 60], [270, 66], [276, 84], [274, 104], [266, 118], [256, 132], [248, 144], [232, 140], [212, 118]] }] },
@@ -426,7 +448,7 @@ const KAT_LEEUW_DEF = {
     oor: { bot: 'kop', lagen: [{ c: 'basis', p: [[264, 70], [266, 60], [272, 55], [279, 57], [281, 66], [277, 72]] }, { c: 'oorbin', p: [[268, 68], [270, 61], [274, 59], [277, 63], [275, 69]] }] },
     hum: { skin: 'hum', lagen: [{ c: 'basis', p: [[198, 80], [222, 86], [240, 104], [248, 126], [244, 146], [236, 160], [228, 168], [216, 166], [208, 146], [204, 120], [200, 100]] }] },
     dij: { skin: 'dij', lagen: [{ c: 'basis', p: [[86, 92], [102, 86], [116, 98], [124, 118], [126, 138], [118, 150], [104, 156], [90, 152], [82, 138], [80, 114]] },
-      { c: 'licht', p: [[116, 112], [124, 124], [127, 140], [120, 152], [108, 156], [112, 140], [114, 126]] }, { c: 'donker', p: [[84, 100], [96, 88], [108, 90], [100, 100], [90, 112], [84, 124]] }] },
+      { c: 'licht', p: [[119, 124], [125, 134], [126, 146], [118, 154], [112, 150], [116, 138]] }] },
   },
   POOT: {
     rad: { prof: [[-0.12, 4.8, 2.0], [0.0, 5.4, 5.0], [0.12, 5.6, 5.4], [0.35, 5.0, 4.0], [0.65, 4.0, 3.2], [0.9, 3.5, 3.2], [1.0, 3.6, 3.8], [1.1, 3.4, 2.4]], lagen: [{ c: 'licht', prof: [[0.0, -2.0, 5.2], [0.5, -1.6, 3.6], [1.0, -1.2, 3.8], [1.12, -1.2, 2.6]] }] },
@@ -468,12 +490,11 @@ const KAT_TIJGER_DEF = {
   PAL: { basis: '#C9792F', donker: '#B0662A', licht: '#E9DCC6', creme: '#F2EADC', streep: '#211A17', neus: '#3A2622', oorbin: '#E6D8C0', wit: '#F4EEE2' },
   DELEN: {
     romp: { skin: 'romp', lagen: [
-      { c: 'basis', p: [[134, 500], [144, 484], [160, 476], [190, 473], [220, 474], [250, 477], [280, 478], [310, 474], [334, 474], [354, 484], [372, 506], [380, 534], [378, 556], [366, 574], [348, 585], [324, 588], [300, 586], [276, 580], [252, 574], [228, 572], [208, 572], [190, 574], [174, 584], [150, 590], [132, 582], [124, 558], [126, 526]] },
+      { c: 'basis', p: [[134, 500], [144, 484], [160, 476], [190, 473], [220, 474], [250, 477], [280, 476], [308, 469], [332, 467], [354, 480], [372, 506], [380, 534], [378, 556], [366, 574], [348, 585], [324, 588], [300, 586], [276, 580], [252, 574], [228, 572], [208, 572], [190, 574], [174, 584], [150, 590], [132, 582], [124, 558], [126, 526]] },
       { c: 'licht', p: [[379, 544], [372, 566], [354, 584], [328, 592], [300, 590], [272, 584], [248, 578], [224, 576], [204, 576], [190, 578], [196, 562], [222, 560], [250, 562], [280, 566], [310, 570], [340, 566], [362, 556]] },
     ] },
     nek: { skin: 'nek', lagen: [
-      { c: 'basis', p: [[326, 490], [340, 478], [360, 474], [380, 476], [398, 484], [408, 502], [412, 522], [408, 540], [398, 554], [384, 566], [372, 576], [358, 566], [344, 540], [334, 514]] },
-      { c: 'licht', p: [[404, 548], [396, 560], [384, 570], [372, 579], [366, 572], [378, 562], [390, 552]] },
+      { c: 'basis', p: [[324, 490], [338, 472], [360, 468], [382, 472], [400, 482], [410, 502], [414, 524], [410, 544], [400, 560], [386, 574], [372, 586], [356, 576], [342, 548], [332, 516]] },
     ] },
     kop: { bot: 'kop', lagen: [
       { c: 'basis', p: [[388, 488], [400, 480], [414, 482], [424, 490], [432, 504], [438, 518], [443, 530], [445, 538], [442, 544], [434, 548], [424, 552], [412, 554], [400, 548], [390, 534], [386, 514]] },
@@ -484,8 +505,7 @@ const KAT_TIJGER_DEF = {
     kaak: { bot: 'kaak', lagen: [{ c: 'wit', p: [[408, 550], [420, 552], [432, 552], [428, 558], [416, 560], [406, 556]] }] },
     oor: { bot: 'kop', lagen: [{ c: 'basis', p: [[392, 488], [393, 478], [398, 472], [405, 472], [408, 480], [404, 488]] }, { c: 'streep', p: [[393, 486], [394, 477], [398, 473], [400, 476], [397, 485]] }, { c: 'wit', p: [[396, 482.5], [398, 479.5], [400, 482.5], [398, 484.5]] }] },
     hum: { skin: 'hum', lagen: [{ c: 'basis', p: [[322, 482], [346, 488], [364, 506], [376, 530], [376, 556], [366, 578], [354, 596], [338, 600], [330, 576], [326, 546], [322, 512]] }] },
-    dij: { skin: 'dij', lagen: [{ c: 'basis', p: [[134, 498], [152, 492], [168, 506], [178, 530], [180, 556], [172, 580], [154, 592], [134, 592], [120, 578], [116, 552], [120, 520]] },
-      { c: 'licht', p: [[170, 548], [178, 560], [174, 578], [160, 590], [164, 572], [166, 558]] }] },
+    dij: { skin: 'dij', lagen: [{ c: 'basis', p: [[134, 498], [152, 492], [168, 506], [178, 530], [180, 556], [172, 580], [154, 592], [134, 592], [120, 578], [116, 552], [120, 520]] },] },
   },
   POOT: {
     rad: { prof: [[-0.12, 5.0, 2.0], [0.0, 5.6, 5.0], [0.12, 5.8, 5.4], [0.35, 5.0, 3.8], [0.65, 4.0, 3.0], [0.9, 3.6, 3.0], [1.0, 3.6, 3.6], [1.1, 3.4, 2.2]], lagen: [{ c: 'licht', prof: [[0.0, -2.4, 5.2], [0.5, -2.0, 3.4], [1.0, -1.6, 3.6], [1.12, -1.6, 2.4]] }] },
@@ -497,9 +517,9 @@ const KAT_TIJGER_DEF = {
   },
   STAART: { w: [3.8, 3.5, 3.2, 3.0, 3.0, 3.1], onder: [0.05, 0.5], onderC: 'licht', banden: [[0.3, 2.4, 'streep'], [0.42, 2.6, 'streep'], [0.54, 2.8, 'streep'], [0.66, 3.0, 'streep'], [0.77, 3.2, 'streep'], [0.87, 3.4, 'streep'], [0.975, 4.8, 'streep']] },
   TEKENING(H) { _katStrepen(H, {
-    romp: { stap: 5.0, len: [0.22, 0.62], w: 0.95, krom: 0.45, seed: 5, vork: 0.55 },
-    nek: { stap: 4.4, len: [0.22, 0.5], w: 0.85, krom: 0.4, seed: 15, vork: 0.3 },
-    hum: { stap: 5.0, len: [0.18, 0.4], w: 0.85, seed: 25, richting: 'h', vanVoor: false, krom: 0.15 },
+    romp: { stap: 6.4, len: [0.3, 0.72], w: 1.05, krom: 0.55, seed: 5, vork: 0.45, paar: 1.9, golf: 0.18 },
+    nek: { stap: 5.2, len: [0.25, 0.55], w: 0.9, krom: 0.5, seed: 15, vork: 0.3, paar: 1.6, golf: 0.15 },
+    hum: { stap: 6.0, len: [0.2, 0.45], w: 0.95, seed: 25, krom: 0.4, paar: 1.6, golf: 0.15 },
     dij: { stap: 4.8, len: [0.3, 0.65], w: 0.95, seed: 35, richting: 'h', vanVoor: false, krom: 0.3 },
     rad: { stap: 5.0, len: [0.3, 0.6], w: 0.9, seed: 45, richting: 'h', vanVoor: false },
     schn: { stap: 5.0, len: [0.3, 0.6], w: 0.9, seed: 55, richting: 'h', vanVoor: false },
@@ -510,12 +530,12 @@ const KAT_TIJGER_DEF = {
     const M = [cm([414, 552]), cm([424, 553]), cm([434, 549])]; ctx.strokeStyle = pal.mond; ctx.lineWidth = 0.4; ctx.beginPath(); ctx.moveTo(M[0][0], M[0][1]); ctx.quadraticCurveTo(M[1][0], M[1][1] + 0.4, M[2][0], M[2][1]); ctx.stroke(); },
   TENEN: (ctx, k, pal, BOT) => _katTenen(ctx, k, pal, BOT, 1.5),
   HOUDING: {
-    staan: { adem: 1, auto: { rek: 0.95, V: 2, A: -6, ver: { V: 9, A: 14 }, ty: -1.2, meta: [76, 84], poot: [20, 22] }, A: { rompV: 0, rompM: 180, rompA: 176, nek: 6, kop: 44, st0: 120, st1: 108, st2: 116, st3: 150 } },
+    staan: { adem: 1, auto: { rek: 0.95, V: 2, A: -6, ver: { V: 9, A: 14 }, ty: -1.2, meta: [76, 84], poot: [20, 22] }, A: { rompV: 0, rompM: 180, rompA: 176, nek: 0, kop: 32, st0: 120, st1: 108, st2: 116, st3: 150 } },
     zitten: { zit: 1, autoZit: { heup: 13, rv: [-64, -30], V: 6, A: 26, ver: { V: 8, A: 6 }, ty: -1.2, meta: [84, 2], poot: [22, 4] }, A: { rompV: -58, rompM: 108, rompA: 90, nek: -16, kop: 40, st0: 110, st1: 178, st2: 184, st3: 188 } },
     liggen: { zit: 1, schaal: [null, 3.9], A: { nek: -20, kop: 38 } },
   },
   LOPEN: { basis: 'staan', S: 114, beta: 0.65, fase: { A: 0, V: 0.24, AF: 0.5, VF: 0.74 }, lift: { V: 11, A: 9 }, bob: 0.9, nx: { V: -3, A: 4 }, dy: 3.5, scap: 8, rol: 1.1, knik: 2.2,
-    A: { nek: 10, kop: 46 }, staartZwaai: [3, 5, 8, 12],
+    A: { nek: 6, kop: 36 }, staartZwaai: [3, 5, 8, 12],
     V: { metaS: [[0, 62], [0.5, 76], [0.82, 90], [1, 110]], metaZ: [[0, 110], [0.3, 145], [0.58, 120], [0.85, 64], [1, 62]], pootS: [[0, 20], [0.68, 20], [1, 70]], pootZ: [[0, 70], [0.3, 115], [0.6, 80], [0.86, 26], [1, 20]] },
     A: { metaS: [[0, 70], [0.5, 84], [0.82, 98], [1, 112]], metaZ: [[0, 112], [0.35, 74], [0.62, 54], [0.86, 62], [1, 70]], pootS: [[0, 22], [0.62, 22], [1, 70]], pootZ: [[0, 70], [0.3, 92], [0.6, 50], [0.86, 26], [1, 22]] } },
 };
@@ -564,7 +584,7 @@ const KAT_HUISKAT_DEF = {
   TEKENING(H) { _katStrepen(H, {
     romp: { stap: 1.55, len: [0.3, 0.7], w: 0.36, krom: 0.35, seed: 7, vork: 0.25 },
     nek: { stap: 1.3, len: [0.3, 0.55], w: 0.3, krom: 0.3, seed: 17 },
-    hum: { stap: 1.5, len: [0.2, 0.45], w: 0.3, seed: 27, richting: 'h' },
+    hum: { stap: 1.6, len: [0.2, 0.45], w: 0.32, seed: 27, krom: 0.35 },
     dij: { stap: 1.4, len: [0.35, 0.7], w: 0.32, seed: 37, richting: 'h', krom: 0.25 },
     rad: { stap: 1.3, len: [0.4, 0.8], w: 0.26, seed: 47, richting: 'h' },
     schn: { stap: 1.3, len: [0.4, 0.8], w: 0.26, seed: 57, richting: 'h' },
@@ -591,9 +611,6 @@ const KAT_HUISKAT_DEF = {
 function _katTenen(ctx, k, pal, BOT, f) { const b = BOT[k]; const d = [Math.cos(b.A0), Math.sin(b.A0)], s = [d[1], -d[0]]; const p = (u, w) => [b.J0[0] + d[0] * b.L * u + s[0] * w * f, b.J0[1] + d[1] * b.L * u + s[1] * w * f];
   ctx.strokeStyle = mixKat(pal.licht, 0.45, '#1A1410'); ctx.lineWidth = 0.18 * f; ctx.lineCap = 'round'; for (const u of [0.42, 0.75]) { const a = p(u, 1.6), c = p(u + 0.05, -0.8); ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(c[0], c[1]); ctx.stroke(); } }
 
-KAT.leeuw = KatPop.maak(KAT_LEEUW_DEF);
-KAT.tijger = KatPop.maak(KAT_TIJGER_DEF);
-KAT.huiskat = KatPop.maak(KAT_HUISKAT_DEF);
 
 // =====================================================================================================
 // WRAPPERS: dezelfde namen, aanroep en schermmaat als in dieren_zoog.js (schofthoogte op het scherm gelijk, anker = midden onder het dier)
@@ -612,3 +629,82 @@ function huiskat(ctx, x, y, s = 1, o = {}) { return _katWrap(ctx, KAT.huiskat, x
 
 // liggen van leeuw en tijger = de (goedgekeurde) lig-houding van de huiskat, geschaald
 KAT_LEEUW_DEF.HOUDING.liggen.schaal[0] = KAT_HUISKAT_DEF.HOUDING.liggen; KAT_TIJGER_DEF.HOUDING.liggen.schaal[0] = KAT_HUISKAT_DEF.HOUDING.liggen;
+
+// =====================================================================================================
+// KOPPEN naar de vlakke kopplaat referentie/pop/katten/koppen.png, rij 2 (Kamiel 23 okt 2026: huiskat 'mag schattiger, niet zombieachtig',
+// leeuw 'net niet realistisch', tijger 'realistischer, sterker, eleganter'). Punten in px van koppen.png; ankers: achterhoofd en neuspunt.
+// =====================================================================================================
+KAT_HUISKAT_DEF.KOP = { van: [[1062, 500], [1198, 566]], schaal: 1.32,
+  lagen: [
+    { c: 'kopM', p: [[1050, 520], [1046, 482], [1060, 456], [1082, 444], [1104, 448], [1124, 456], [1142, 464], [1157, 480], [1168, 497], [1177, 516], [1185, 537], [1193, 553], [1199, 565], [1198, 574], [1191, 582], [1187, 594], [1177, 604], [1160, 611], [1140, 613], [1118, 607], [1095, 597], [1072, 582], [1056, 556]] },
+    { c: 'licht', p: [[1118, 562], [1150, 556], [1176, 560], [1193, 568], [1197, 576], [1189, 584], [1185, 596], [1173, 606], [1156, 613], [1135, 613], [1112, 605], [1100, 591], [1106, 575]] },
+    { c: 'licht', p: [[1122, 512], [1134, 502], [1152, 503], [1162, 518], [1157, 536], [1140, 542], [1126, 533]] },
+    { c: 'streep', veeg: [7, 1], p: [[1072, 562], [1100, 546], [1132, 540]] },
+    { c: 'streep', veeg: [5.5, 1], p: [[1092, 586], [1122, 576], [1152, 580]] },
+    { c: 'streep', veeg: [5, 1], p: [[1102, 496], [1122, 492], [1146, 497]] },
+    { c: 'streep', veeg: [4, 0.8], p: [[1112, 474], [1130, 468], [1146, 472]] },
+    { c: 'neus', p: [[1187, 563], [1197, 561], [1200, 569], [1195, 577], [1189, 572]] },
+  ],
+  oor: [{ c: 'kopM', p: [[1048, 474], [1068, 428], [1086, 400, 1], [1098, 434], [1108, 476]] }, { c: 'oorbin', p: [[1062, 466], [1076, 430], [1086, 412, 1], [1093, 440], [1100, 470]] }],
+  oorF: [{ c: 'donker', p: [[1122, 466], [1126, 432], [1130, 408, 1], [1140, 440], [1152, 472]] }],
+  oog: { c: [1141, 522], r: 12.5, iris: '#9DBE5E', pupil: 'spleet', rek: 0.92, rand: '#3A2E26' },
+  lijnen: [{ c: 'mond', w: 2.2, p: [[1170, 590], [1182, 594], [1191, 584]] }, { c: '#F4EEE4', w: 1.1, p: [[1176, 578], [1205, 573], [1232, 572]] }, { c: '#F4EEE4', w: 1.1, p: [[1176, 583], [1206, 586], [1230, 594]] }, { c: '#F4EEE4', w: 1.0, p: [[1174, 588], [1200, 598], [1220, 612]] }] };
+Object.assign(KAT_HUISKAT_DEF.PAL, { basis: '#A2907A', kopM: '#B7A389', donker: '#6E5D4B', licht: '#ECDABF', creme: '#F2E6D2', streep: '#5A4A3A', oorbin: '#E2BFA4', neus: '#D88270', mond: '#4A3A30' });
+
+KAT_LEEUW_DEF.KOP = { van: [[306, 478], [452, 538]], schaal: 1.12,
+  lagen: [
+    { c: 'gezicht', p: [[300, 470], [322, 452], [345, 452], [368, 465], [392, 484], [414, 502], [434, 518], [448, 530], [453, 540], [449, 552], [441, 560], [441, 574], [434, 586], [424, 598], [408, 610], [390, 616], [372, 612], [356, 598], [338, 580], [318, 562], [302, 540], [295, 505]] },
+    { c: 'donker', p: [[298, 520], [318, 500], [344, 506], [362, 532], [368, 562], [360, 592], [340, 580], [318, 562], [302, 540]] },
+    { c: 'licht', p: [[394, 540], [420, 533], [441, 545], [441, 574], [434, 586], [420, 595], [400, 592], [385, 576], [384, 556]] },
+    { c: 'creme', tand: [5, 9], p: [[394, 598], [420, 592], [438, 588], [440, 606], [432, 626], [420, 642], [404, 642], [392, 626], [386, 610]] },
+    { c: 'donker', veeg: [5, 1], p: [[348, 484], [372, 478], [396, 494]] },
+    { c: 'neus', p: [[425, 527], [446, 523], [454, 532], [451, 545], [442, 551], [432, 541]] },
+  ],
+  oor: [{ c: 'gezicht', p: [[276, 472], [270, 446], [279, 424], [298, 417], [313, 430], [315, 456], [306, 474]] }, { c: 'oorbin', p: [[284, 463], [281, 442], [291, 430], [303, 435], [305, 456]] }],
+  oog: { c: [378, 500], r: 7.5, iris: '#C88A2A', rek: 1.1, rand: '#3A2416' },
+  lijnen: [{ c: 'mond', w: 3, p: [[386, 600], [410, 604], [434, 590]] }, { c: '#F6EEDF', w: 1.2, p: [[420, 580], [392, 590], [362, 606]] }, { c: '#F6EEDF', w: 1.2, p: [[422, 586], [396, 600], [372, 620]] }] };
+Object.assign(KAT_LEEUW_DEF.PAL, { gezicht: '#E2B074', basis: '#C99050', donker: '#B47A40', licht: '#EBC58C', creme: '#F2DDB7', neus: '#3A241C', oorbin: '#5A3A24', mond: '#3A2418',
+  manenD: '#4A2F1C', manenM: '#7E4F27', manenL: '#B67A3C', manenG: '#D29A55' });
+
+KAT_TIJGER_DEF.KOP = { van: [[688, 470], [842, 540]], schaal: 1.1,
+  lagen: [
+    { c: 'basis', p: [[665, 470], [680, 440], [700, 425], [722, 428], [745, 440], [768, 452], [790, 470], [810, 492], [826, 512], [840, 528], [846, 540], [842, 552], [832, 560], [830, 575], [822, 590], [812, 604], [798, 612], [778, 612], [758, 605], [738, 592], [715, 580], [695, 560], [675, 530], [665, 500]] },
+    { c: 'wit', tand: [5, 10, null], p: [[705, 475], [728, 492], [742, 515], [752, 540], [775, 552], [805, 553], [832, 556], [843, 548], [846, 556], [836, 566], [833, 582], [824, 596], [812, 608], [795, 616], [772, 620], [748, 624], [728, 634], [712, 628], [698, 612], [688, 585], [686, 550], [690, 512], [696, 488]] },
+    { c: 'wit', p: [[735, 462], [752, 451], [770, 457], [776, 470], [758, 473], [742, 475]] },
+    { c: 'streep', veeg: [5, 0.5], p: [[756, 446], [772, 442], [790, 452]] },
+    { c: 'streep', veeg: [4.5, 0.8], p: [[742, 478], [760, 480], [779, 486]] },
+    { c: 'streep', veeg: [4.5, 0.6], p: [[722, 452], [736, 440], [754, 436]] },
+    { c: 'streep', veeg: [6, 0.8], p: [[752, 504], [734, 512], [712, 516]] },
+    { c: 'streep', veeg: [7, 0.8], p: [[762, 524], [740, 536], [712, 542]] },
+    { c: 'streep', veeg: [5, 0.6], p: [[740, 540], [722, 552], [704, 552]] },
+    { c: 'streep', veeg: [6, 0.8], p: [[766, 548], [744, 563], [716, 568]] },
+    { c: 'streep', veeg: [5, 0.8], p: [[752, 588], [730, 598], [706, 600]] },
+    { c: 'streep', veeg: [5.5, 0.8], p: [[736, 466], [716, 472], [696, 484]] },
+    { c: 'streep', veeg: [2.4, 1], p: [[800, 575], [815, 572], [830, 574]] }, { c: 'streep', veeg: [2.4, 1], p: [[798, 586], [815, 584], [828, 587]] },
+    { c: 'neus', p: [[826, 540], [843, 537], [849, 545], [843, 553], [832, 551]] },
+  ],
+  oor: [{ c: 'wit', p: [[670, 446], [667, 420], [676, 401], [692, 395], [706, 404], [709, 428], [700, 449]] }, { c: 'streep', p: [[679, 441], [679, 419], [689, 408], [698, 416], [694, 436]] }],
+  oorF: [{ c: 'streep', p: [[700, 432], [707, 410], [718, 401], [727, 412], [723, 434]] }],
+  oog: { c: [762, 494], r: 7.5, iris: '#D9A030', rek: 1.08, rand: '#1E1612' },
+  lijnen: [{ c: 'mond', w: 2.6, p: [[792, 602], [812, 604], [832, 594]] }, { c: '#F6EEDF', w: 1.2, p: [[812, 578], [784, 584], [756, 598]] }, { c: '#F6EEDF', w: 1.2, p: [[814, 586], [788, 596], [764, 612]] }] };
+Object.assign(KAT_TIJGER_DEF.PAL, { basis: '#CF7E34', donker: '#A85F24', licht: '#F2E2C6', wit: '#F4E6CC', streep: '#1E1714', neus: '#D88A7A', mond: '#2A1A14' });
+
+// leeuwenmanen als grote gelaagde lokken (kopplaat rij 2): donker en lang aan de buitenkant/achter, goud en korter rond het gezicht; geen zaagtand
+(function () { const K = KAT_LEEUW_DEF.K, F = [262, 82], h = KatPop.hsh; const L = [];
+  L.push({ c: 'manenD', p: [[198, 104], [202, 80], [212, 64], [230, 52], [250, 46], [270, 46], [284, 56], [288, 72], [286, 92], [280, 112], [270, 132], [258, 148], [242, 156], [224, 154], [210, 142], [202, 124]] });
+  const lok = (c, a0, a1, n, r, len0, len1, w, trek, seed) => { for (let i = 0; i < n; i++) { const u = n > 1 ? i / (n - 1) : 0.5; const a = (a0 + (a1 - a0) * u + (h(seed + i) - 0.5) * 8) * Math.PI / 180;
+      const p0 = [F[0] + Math.cos(a) * r, F[1] + Math.sin(a) * r]; const rad = [Math.cos(a), Math.sin(a)]; const d0 = [rad[0] * (1 - trek) - trek * 0.8, rad[1] * (1 - trek) + trek * 0.6]; const dl = Math.hypot(d0[0], d0[1]); const d = [d0[0] / dl, d0[1] / dl];
+      const Ln = len0 + (len1 - len0) * h(seed + i * 3.7); const nn = [-d[1], d[0]], k = (h(seed + i * 5.3) - 0.5) * 0.35 * Ln;
+      L.push({ c, veeg: [w / K * 0.5 * (0.85 + 0.3 * h(seed + i * 2.1)), 0.15], p: [p0, [p0[0] + d[0] * Ln * 0.5 + nn[0] * k, p0[1] + d[1] * Ln * 0.5 + nn[1] * k], [p0[0] + d[0] * Ln, p0[1] + d[1] * Ln]] }); } };
+  lok('manenD', -125, 135, 17, 30, 60, 84, 18, 0.72, 3);   // buitenste, donkere lokken naar achter en omlaag
+  lok('manenD', 75, 125, 5, 26, 46, 62, 15, 0.45, 21);     // borstlokken
+  lok('manenM', -120, -50, 6, 22, 40, 56, 14, 0.75, 7); lok('manenM', 50, 120, 5, 22, 40, 56, 14, 0.6, 8); lok('manenM', 130, 175, 3, 22, 44, 56, 14, 0.6, 9);
+  lok('manenL', -135, -60, 7, 20, 40, 56, 14, 0.75, 13); lok('manenL', -110, -55, 5, 15, 30, 44, 12, 0.78, 11); lok('manenL', 55, 115, 5, 15, 30, 44, 12, 0.6, 12);
+  lok('manenG', -100, -60, 4, 10, 24, 32, 10, 0.8, 17); lok('manenG', 60, 105, 4, 10, 22, 30, 10, 0.6, 18);  // goud direct rond het gezicht
+  KAT_LEEUW_DEF.DELEN.manen = { skin: 'manen', vrij: 1, lagen: L }; })();
+Object.assign(KAT_LEEUW_DEF, { dikV: 1.7, dikA: 1.6 });
+KAT_TIJGER_DEF.KOP.schaal = 1.25; Object.assign(KAT_TIJGER_DEF, { dikV: 1.45, dikA: 1.35 });
+KAT_LEEUW_DEF.KOP.schaal = 1.2;
+KAT.leeuw = KatPop.maak(KAT_LEEUW_DEF);
+KAT.tijger = KatPop.maak(KAT_TIJGER_DEF);
+KAT.huiskat = KatPop.maak(KAT_HUISKAT_DEF);
