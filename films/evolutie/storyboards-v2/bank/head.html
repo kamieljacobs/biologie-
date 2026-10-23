@@ -1,0 +1,52 @@
+<title>Beeldbank biologiefilms</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Lay-out: keuringsblad — filmtabs bovenaan, per film een kop met puzzel en keuzes, dan per scène keyframe links en vertelling + keuring rechts */
+:root{--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--teal:#5BA4C9;--paars:#8C7BBF;--oker:#C9A35C;
+--titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--teal:#2A6E96;--paars:#5E4E9A;--oker:#86642A;color-scheme:light}}
+:root[data-theme="light"]{--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--teal:#2A6E96;--paars:#5E4E9A;--oker:#86642A;color-scheme:light}
+body{background:var(--bg);color:var(--fg);font-family:var(--tekst);font-size:17px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--titel);font-size:clamp(30px,5vw,46px);margin:0;text-wrap:balance}
+h2{font-family:var(--titel);font-size:clamp(26px,4vw,36px);margin:0;text-wrap:balance}
+.intro{color:var(--fg2);max-width:72ch;margin:0}
+.meta{font-family:var(--meta);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.balk{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--lijn)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px}
+.tabs button{flex:none;font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:6px 12px;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:0;min-width:92px}
+.tabs button small{font:500 11px var(--meta);letter-spacing:.06em;color:var(--fg2)}
+.tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}.tabs button[aria-selected="true"] small{color:var(--bg)}
+.rij{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.tel{font-variant-numeric:tabular-nums;font-weight:700}.tel b{font-family:var(--meta);font-size:13px;letter-spacing:.08em}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.filters button,.knop{font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+.filmkop{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:18px}
+.filmkop dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}.filmkop dt{font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);padding-top:3px}.filmkop dd{margin:0}
+.filmkop ul{margin:6px 0 0;padding-left:20px;color:var(--fg2)}.filmkop li{margin-bottom:4px}
+details summary{cursor:pointer;font-weight:600}
+.hst{font-family:var(--titel);font-size:24px;margin:14px 0 0}
+.sc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px}
+.sc.ok{border-color:color-mix(in srgb,var(--groen) 70%,transparent)}.sc.opm{border-color:color-mix(in srgb,var(--goud) 80%,transparent)}
+.sc.vwo{box-shadow:inset 6px 0 0 var(--paars)}
+.sc img{width:100%;max-width:100%;aspect-ratio:16/9;border-radius:8px;display:block;background:#121A26}
+.rechts{display:flex;flex-direction:column;gap:10px;min-width:0}
+.kop{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{font-family:var(--meta);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px}
+.c-basis{color:var(--groen)}.c-vwo{color:var(--paars)}.c-vraag{color:var(--goud)}.c-look{color:var(--fg2)}
+.verteller{margin:0;font-size:18px}
+.opties{margin:0;color:var(--fg2)}.opties strong{color:var(--groen)}
+.bew{margin:0;color:var(--fg2);font-size:15px}.bew::before{content:"Beweging · ";font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--goud)}
+.keur{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.knop.ja[aria-pressed="true"]{background:var(--groen);color:#0E1A12;border-color:var(--groen)}
+textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:8px 10px;min-height:60px;resize:vertical;width:100%;box-sizing:border-box}
+.status{font-size:13px;color:var(--fg2);min-height:1.2em}
+.bewaard{font:500 12px var(--meta);color:var(--fg2);letter-spacing:.05em}
+.alg{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--fg2);cursor:pointer}.alg input{width:18px;height:18px;accent-color:var(--goud)}
+@media (max-width:760px){.sc,.filmkop{grid-template-columns:1fr}.filters{margin-left:0}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
