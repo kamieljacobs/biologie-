@@ -63,7 +63,7 @@ Geleidelijk, per hoofdstuk, op Kamiels initiatief: meestal in de week vóór hij
 
 ## Lessen uit opmerkingen (Kamiel 23 okt 2026)
 
-Opmerkingen bij keuringen en reviews moeten de werkwijze voeden, niet alleen één film. Keuringsbladen hebben per opmerking een vinkje 'geldt voor alle films' (`algemeen: true`). Werkwijze en kandidaatlessen voor de volgende promptversie: `films/WERKWIJZE-LESSEN.md` (oorzaakvraag per algemene opmerking: welke stap had dit moeten tegenhouden?). Na elke keuringsronde Kamiel een lijstje geven van wat als algemeen is aangemerkt.
+Opmerkingen bij keuringen en reviews moeten de werkwijze voeden, niet alleen één film. Keuringsbladen hebben per opmerking een vinkje 'geldt voor alle films' (`algemeen: true`). Werkwijze en kandidaatlessen voor de volgende promptversie: `films/WERKWIJZE-LESSEN.md` (oorzaakvraag per algemene opmerking: welke stap had dit moeten tegenhouden?). Na elke keuringsronde Kamiel een lijstje geven van wat als algemeen is aangemerkt. Elke opmerking, reviewpunt en zelf gevonden fout gaat ook in het foutenlogboek `films/logboek/fouten.jsonl` (velden en vaste soorten in `films/logboek/README.md`); `python3 scripts/foutenpatronen.py` zoekt patronen (≥3× in ≥2 films), draaien na elke keuringsronde en vóór elke nieuwe promptversie. Een patroon gaat eerder de prompt in dan een losse opmerking.
 
 ## Beeldafspraken
 
