@@ -5,9 +5,9 @@
  "puzzel": "Waarom worden baby's niet steeds zwaarder?",
  "haak": "Een pauw sleept een staart van anderhalve meter mee die energie kost en opvalt, en toch heeft elke pauwhaan er een.",
  "duur": {
-  "basis_min": 7.2,
-  "met_vwo_min": 7.2,
-  "woorden": 824
+  "basis_min": 7.8,
+  "met_vwo_min": 7.8,
+  "woorden": 896
  },
  "hoofdstukken": [
   {
@@ -202,8 +202,8 @@
    "hoofdstuk": "H3 Splitsende selectie",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Vogels met een snavel in het midden overleven het slechtst. Het histogram krijgt twee toppen. Dit heet splitsende selectie. Bij deze vogel bepaalt vooral één gen of de snavel klein of groot wordt.",
-   "beweging": "Het histogram zakt in het midden in en splitst in twee toppen; groene haak 'splitsende selectie'."
+   "tekst": "Vogels met een snavel in het midden overleven het slechtst. Het histogram krijgt twee toppen. Dit heet splitsende selectie. Bij deze vogel bepaalt vooral één gen of de snavel klein of groot wordt. Van de drie vormen kan splitsende selectie het makkelijkst tot nieuwe soorten leiden: als de twee groepen vooral onderling paren, groeien ze steeds verder uit elkaar. Bij de zaadkraker is het nog één soort.",
+   "beweging": "Het histogram zakt in het midden in en splitst in twee toppen; groene haak 'splitsende selectie'; twee gouden pijlen duwen de toppen uit elkaar: 'kan leiden tot nieuwe soorten'."
   },
   {
    "id": "e3s20",
@@ -253,7 +253,7 @@
    "laag": "basis",
    "look": "Macro",
    "tekst": "Op Madagaskar groeit Darwins orchidee. De nectar zit onderin een buis van twintig tot vijfendertig centimeter lang.",
-   "beweging": "Een witte stervormige bloem in de nacht; de camera volgt de lange spoor naar beneden tot de nectar (goud)."
+   "beweging": "Een hele orchideeplant op een bemoste tak in de nacht: waaier van riembladeren, een witte stervormige bloem uit de bladoksel; de camera volgt de lange spoor naar beneden tot de nectar (goud)."
   },
   {
    "id": "e3s26",
@@ -286,8 +286,8 @@
    "hoofdstuk": "H5 Co-evolutie",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Zo kunnen twee soorten elkaars selectiedruk zijn, generatie na generatie. Dat heet co-evolutie. Bij deze bloem en vlinder zien de meeste biologen het zo.",
-   "beweging": "Twee pijlen in een kring: 'langere buis' (groen) en 'langere tong' (oker) duwen elkaar rond; haak 'co-evolutie'."
+   "tekst": "Zo kunnen twee soorten elkaars selectiedruk zijn, generatie na generatie, als een wapenwedloop. Dat heet co-evolutie. Een proef past daarbij: in het jaar 1988 maakte Nilsson bij een andere orchidee de buis korter, en die bloemen werden minder goed bestoven. Er is ook een andere verklaring: misschien werd de tong eerst lang om afstand te houden van spinnen die bij bloemen loeren.",
+   "beweging": "Twee pijlen in een kring: 'langere buis' (groen) en 'langere tong' (oker) duwen elkaar rond; de vlinder in rust; haak 'co-evolutie: een wapenwedloop'; daaronder twee kleine kaartjes: proef Nilsson 1988 en de andere verklaring (Wasserthal 1997)."
   },
   {
    "id": "e3s30",
@@ -431,7 +431,7 @@
    "bron": "Arnold Arboretum (Harvard); Beccaloni noemt 1997 — niet in het script"
   },
   {
-   "waarde": "kortere spoor → minder bestuivingssucces (experiment)",
+   "waarde": "kortere spoor → minder bestuivingssucces (experiment bij Platanthera-orchideeën met pijlstaarten in Zweden, niet bij Angraecum; e3s29 zegt 'bij een andere orchidee')",
    "bron": "Nilsson 1988, Nature (via PMC2500161)"
   }
  ],
@@ -525,6 +525,12 @@
    "invoer": "pijlstaartvlinder",
    "ipa": "ˈpɛilstaːrtˌflɪndər",
    "bron": "Van Dale"
+  },
+  {
+   "woord": "Nilsson",
+   "invoer": "Nilsson",
+   "ipa": "ˈnɪlsɔn",
+   "bron": "Zweedse achternaam; wachtlijst r4 (nog testen)"
   }
  ],
  "nieuw_in_bibliotheek": [
@@ -550,7 +556,7 @@
   "Orchidee: naam Angraecum sesquipedale en vlindernaam Xanthopan praedicta alleen in beeld (Meta), niet gesproken. Darwin noemen mag hier (co-evolutie), zonder zijn reis.",
   "Niet zeggen: 'de pauwenstaart maakt hem trager/hij kan er niet mee vliegen'; 'Kettlewell plakte dode vlinders op stammen, dus het is nep' (de selectie is later bevestigd); 'de vlinders werden zwart van het roet'; 'Darwin vond de vlinder' (hij voorspelde hem; Wallace deed dat in 1867 ook); 'baby's worden nu door evolutie steeds zwaarder'; 'de bloem maakte de buis langer om de vlinder te dwingen'; 'het sterkste hert krijgt alle hinden'.",
   "Antwoordposities: B, A, C, B, C.",
-  "Co-evolutie orchidee–vlinder is niet bewezen: Wasserthal (1997) stelt dat de lange tong eerder ontstond als bescherming tegen predatie, waarna de orchidee door deze vlinder bestoven raakte. Het blijft het standaardvoorbeeld; e3s29 zegt daarom 'zien de meeste biologen het zo'.",
+  "Co-evolutie orchidee–vlinder is niet bewezen: Wasserthal (1997) stelt dat de lange tong eerder ontstond om op afstand te blijven van roofspinnen bij de bloem, waarna de orchidee door deze vlinder bestoven raakte. Sinds r4 (Kamiel 23 okt 2026) noemt e3s29 dat expliciet als andere verklaring, naast de proef van Nilsson (1988; Platanthera in Zweden, kortere spoor → minder bestuiving), en heet de co-evolutie een wapenwedloop; geformuleerd met 'kan' en 'misschien'.",
   "Review 22 okt: 5 punten verwerkt (e3s22 geen 'korter leven' meer; e3s15 zware baby's 'ook een nadeel' i.p.v. 'net zo goed'; e3s29 co-evolutie voorzichtiger; e3s01 sleep en 'volwassen pauwhaan'; e3s09 en checkvraag 1 'vorige film' i.p.v. Daphne Major). Punt 9 (Mirjam) niet overgenomen: verloskundige Mirjam staat in het castboek (lib_cast.js, id 'mirjam')."
  ]
 }

@@ -52,9 +52,10 @@ const SB5 = {
     vul(ctx, [[1150, 800], [1300, 760], [1500, 750], [1680, 790], [1700, 820], [1140, 830]], C.okerD); pot(ctx, 1420, 760, 0.8, { p: 0.67, n: 3, seed: 19 });
     for (const [x, y, k] of [[860, 420, EVO.a1], [920, 390, EVO.a1], [980, 430, EVO.a2]]) knikker(ctx, x, y, 18, k); pijl(ctx, 720, 470, 1200, 470, C.line, 1, 3);
     naamBij(ctx, 'founder-effect', 'een paar stichters, toevallige allelen', 960, 290, 1, 'center', K.drift); metaText(ctx, 'leeg eiland', 1420, 880, C.text2, 'center', 26); },
-  e5s17(ctx) { macroNacht(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); jachtluipaard(ctx, 960, 860, 1.15, { fase: 0.15 });
+  e5s17(ctx) { macroNacht(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); jachtluipaard(ctx, 960, 860, 1.15, { houding: 'lopen', t: 0.15 }); // stapt door de nachtsavanne
     naamBij(ctx, 'jachtluipaard', 'Acinonyx jubatus', 80, 200, 1, 'left'); evoSchaal(ctx, 'flessenhals ±12.000 jaar geleden'); },
-  e5s18(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); jachtluipaard(ctx, 520, 640, 0.75); jachtluipaard(ctx, 1400, 640, 0.75, { kijk: -1 });
+  e5s18(ctx) { f5Bg(ctx); evoTag(ctx, _F5, 'FLESSENHALS EN FOUNDER-EFFECT'); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(300, 640); ctx.lineTo(760, 640); ctx.moveTo(1160, 640); ctx.lineTo(1640, 640); ctx.stroke();
+    jachtluipaard(ctx, 520, 640, 0.75, { houding: 'liggen' }); jachtluipaard(ctx, 1400, 640, 0.75, { kijk: -1 }); // donor ligt (onder narcose), ontvanger staat
     roundRect(ctx, 920, 380, 80, 80, 10); shape(ctx, '#D3A35E', C.goud, 3); circ(ctx, 948, 410, 7, '#1E1A16'); circ(ctx, 975, 438, 6, '#1E1A16'); pijl(ctx, 760, 420, 900, 420, C.line, 1, 3); pijl(ctx, 1020, 420, 1160, 420, C.line, 1, 3);
     for (let i = 0; i < 14; i++) { const x = 560 + i * 60, y = 800; ctx.strokeStyle = C.groen; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 12, y); ctx.lineTo(x - 2, y + 12); ctx.lineTo(x + 16, y - 14); ctx.stroke(); }
     naamBij(ctx, '14 van de 14 geaccepteerd', "O'Brien e.a. 1985", 960, 200, 1, 'center', C.groen); },

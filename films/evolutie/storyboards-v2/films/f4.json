@@ -5,9 +5,9 @@
  "puzzel": "Waarom helpt een antibioticum niet tegen griep, maar maakt het wel resistentie?",
  "haak": "\"Maak je antibioticakuur af\": Opa Henk haalt een kuur op bij apotheker Ravi. Het advies is intussen bijgesteld: neem het zoals je arts het voorschrijft.",
  "duur": {
-  "basis_min": 8.7,
-  "met_vwo_min": 8.7,
-  "woorden": 1015
+  "basis_min": 8.6,
+  "met_vwo_min": 8.6,
+  "woorden": 1007
  },
  "hoofdstukken": [
   {
@@ -221,7 +221,7 @@
    "laag": "basis",
    "look": "Macro",
    "tekst": "Bij een antibioticum kiest de mens per ongeluk. Maar vaak kiest de mens met opzet. Minstens vijftienduizend jaar geleden leefden mensen al samen met wolven. Alle honden stammen af van wolven uit die tijd.",
-   "beweging": "Een wolf staat op een heuvel bij nacht; de camera schuift naar de rij honden."
+   "beweging": "Een wolf zit op een heuvel bij nacht en huilt naar de maan; de camera schuift naar de rij honden."
   },
   {
    "id": "e4s22",
@@ -263,7 +263,7 @@
    "laag": "basis",
    "look": "Schema",
    "tekst": "Dierenarts Mila ziet veel rashonden met erfelijke ziekten. Hoe komt dat? Een ras is een kleine groep die alleen onderling paart. Vaak hebben veel pups dezelfde populaire vader. Dan zijn ouders al snel familie van elkaar. Dat heet inteelt.",
-   "beweging": "Mila knielt bij een mops die moeilijk ademt; achter haar een stamboom-icoon met één vader die vaak terugkomt."
+   "beweging": "Mila knielt bij een mops die zit en moeilijk ademt; achter haar een stamboom-icoon met één vader die vaak terugkomt."
   },
   {
    "id": "e4q27",
@@ -304,7 +304,7 @@
    "hoofdstuk": "Samenvatting",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Een antibioticum doodt bacteriën, geen virussen. Daarom helpt het niet tegen griep. Maar overal waar het komt, selecteert het. De resistente bacteriën blijven over. Plasmiden kunnen resistentie doorgeven aan andere soorten. Bij honden en kool kiest de mens met opzet. Steeds verandert een genenpool, en de mens is de selectiedruk. In het Resistentielab zie je het zelf gebeuren.",
+   "tekst": "Een antibioticum doodt bacteriën, geen virussen. Daarom helpt het niet tegen griep. Maar overal waar het komt, selecteert het. De resistente bacteriën blijven over. Plasmiden kunnen resistentie doorgeven aan andere soorten. Bij honden en kool kiest de mens met opzet. Steeds verandert een genenpool, en de mens is de selectiedruk.",
    "beweging": "Drie tegels bouwen op: bacteriën, honden, kool; onder elke tegel dezelfde pot met een schuivende allelbalk."
   },
   {
@@ -313,7 +313,7 @@
    "laag": "basis",
    "look": "Schema",
    "tekst": "",
-   "beweging": "Eindkaart: drie kernzinnen met een groene annotatiehaak en de tip Resistentielab."
+   "beweging": "Eindkaart: drie kernzinnen."
   }
  ],
  "checkvragen": [
@@ -529,7 +529,7 @@
   "Inteelt-getal: Bannasch 2021 vond gemiddeld F ≈ 0,25 = het niveau van een nakomeling van broer × zus. UC Davis-persbericht formuleert het als 'net zo verwant als broers en zussen'; ik koos de precieze vorm (pup van broer en zus).",
   "Plasmide-overdracht heet conjugatie; dat woord laat ik weg (staat niet in de CE-syllabus). Ook transformatie en transductie blijven weg.",
   "MRSA bewust níét genoemd: het mecA-gen ligt bij MRSA op een chromosomaal element (SCCmec), niet op een plasmide; als voorbeeld van 'de pot lekt' zou het misleiden. ESBL wél (genen op plasmiden, ook tussen soorten; RIVM).",
-  "Resistentielab: in index.html staat de tool nog zonder href ('bij film 6' van de oude reeks). De vertelling noemt hem; de link moet nog worden gezet.",
+  "Resistentielab: niet meer genoemd in de vertelling of op de eindkaart (Kamiel 23 okt 2026: geen 'zelf proberen' tot de tools perfect zijn).",
   "Generatietijd 20 min geldt voor het lab; in de darm delen bacteriën veel trager (uren). e4s03 zegt 'onder ideale omstandigheden', e4s06 zegt nu expliciet 'in het lab' en 'in je darm gaat het trager'.",
   "Niet zeggen (bronnenonderzoek): 'bacteriën worden immuun / wennen aan het antibioticum'; 'het antibioticum veroorzaakt de mutatie'; 'stop altijd zodra je je beter voelt' (geldt niet voor elke infectie); 'een kuur afmaken voorkomt resistentie' (geen bewijs); 'MRSA springt via plasmiden over'; 'Svalbard bewaart alle zaden van de wereld' (het is een reservekopie); 'de chihuahua is door één mutatie ontstaan'; 'inteelt geeft meer mutaties'; 'de hond stamt af van de huidige grijze wolf'.",
   "Wilde kool groeit niet in Nederland (wel langs de Kanaalkust en Helgoland); daarom 'kalkkliffen langs het Kanaal'.",

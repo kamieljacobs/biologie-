@@ -10,9 +10,9 @@ function _water(ctx, top = 0) { ctx.fillStyle = '#1B3550'; ctx.fillRect(0, top, 
 
 const SB6 = {
   e6s01(ctx) { _erf(ctx); evoTag(ctx, _F6, 'OPENING');
-    paard(ctx, 300, 640, 1.6, { a: 0.55 }); ezel(ctx, 1650, 640, 1.6, { a: 0.55, kijk: -1 });
-    muilezel(ctx, 900, 900, 2.9); persoon(ctx, 'gerrit', 1420, 900, 520, { kijk: -1, pose: 'wijs' });
-    naamBij(ctx, 'muilezel', 'krijgt nooit jongen', 860, 300, 1, 'center'); naamBij(ctx, 'Veehouder Gerrit', null, 1420, 330, 1, 'center'); evoSchaal(ctx, 'Gerrit 1,80 m · muilezel 1,30 m schofthoogte'); },
+    paard(ctx, 300, 640, 1.6, { a: 0.55, houding: 'grazen' }); ezel(ctx, 1650, 640, 1.6, { a: 0.55, kijk: -1, houding: 'grazen' }); // grazen in de wei
+    muilezel(ctx, 900, 900, 2.9); ctx.save(); ctx.translate(2 * 1440, 0); ctx.scale(-1, 1); persoon(ctx, 'gerrit', 1440, 900, 520, { pose: 'wijs' }); ctx.restore(); // gespiegeld: zijn hand ligt op de hals van de muilezel
+    naamBij(ctx, 'muilezel', 'krijgt nooit jongen', 860, 300, 1, 'center'); naamBij(ctx, 'Veehouder Gerrit', null, 1440, 330, 1, 'center'); evoSchaal(ctx, 'Gerrit 1,80 m · muilezel 1,30 m schofthoogte'); },
   e6s02(ctx) { titelKaart(ctx, _F6, 'Hoe één soort er twee wordt', 'Is een muilezel een soort?', (c) => { const g = 900, s = 2.3; paard(c, 980, g, s); muilezel(c, 1400, g, s); ezel(c, 1760, g, s);
     naamBij(c, 'paard', null, 980, 470, 1, 'center'); naamBij(c, 'muilezel', null, 1400, 540, 1, 'center'); naamBij(c, 'ezel', null, 1760, 580, 1, 'center'); }); },
   e6s03(ctx) { macroNacht(ctx, { horizon: 560 }); evoTag(ctx, _F6, 'WAT IS EEN SOORT?');
@@ -49,7 +49,7 @@ const SB6 = {
     naamBij(ctx, 'geografische isolatie', null, 960, 850, 1, 'center'); },
   e6s11(ctx) { macroNacht(ctx, { horizon: 440 }); evoTag(ctx, _F6, 'ÉÉN POT WORDT TWEE');
     ctx.fillStyle = C.water; ctx.beginPath(); ctx.moveTo(880, 440); ctx.quadraticCurveTo(960, 650, 840, H); ctx.lineTo(1080, H); ctx.quadraticCurveTo(1180, 650, 1000, 440); ctx.closePath(); ctx.fill();
-    muis(ctx, 660, 760, 14); naamBij(ctx, 'muis', 'kan niet over', 640, 640, 1, 'center');
+    muis(ctx, 660, 760, 14, { houding: 'rechtop' }); // kijkt naar de overkant naamBij(ctx, 'muis', 'kan niet over', 640, 640, 1, 'center');
     zwaluw(ctx, 960, 300, 12); naamBij(ctx, 'vogel', 'vliegt eroverheen', 960, 180, 1, 'center');
     ctx.fillStyle = '#4A4A4A'; ctx.fillRect(1240, 820, 680, 70); ctx.fillStyle = '#E6E0D4'; for (let i = 0; i < 6; i++) ctx.fillRect(1270 + i * 110, 850, 60, 8);
     slak(ctx, 1500, 818, 20); naamBij(ctx, 'slak', 'weg is al een barrière', 1520, 660, 1, 'center'); },
@@ -68,7 +68,7 @@ const SB6 = {
     haak(ctx, 560, 1740, 720, 'divergente evolutie', C.groen); },
   e6s15(ctx) { macroNacht(ctx, { horizon: 600 }); evoTag(ctx, _F6, 'ÉÉN POT WORDT TWEE');
     for (let i = 0; i < 9; i++) { const x = 40 + i * 70; vul(ctx, [[x, 640], [x + 40, 420 + (i % 3) * 30], [x + 80, 640]], '#2E4A38'); }
-    wolf(ctx, 520, 870, 3.0); persoon(ctx, 'gerrit', 1680, 880, 530, { kijk: -1 }); hond(ctx, 'herder', 1330, 870, 3.0, { kijk: -1 });
+    wolf(ctx, 520, 870, 3.0); persoon(ctx, 'gerrit', 1680, 880, 530, { kijk: -1 }); hond(ctx, 'herder', 1330, 870, 3.0, { kijk: -1, houding: 'zitten' }); // zit op het erf
     ctx.strokeStyle = C.groen; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.moveTo(760, 660); ctx.lineTo(1160, 660); ctx.stroke(); ctx.setLineDash([]);
     naamBij(ctx, 'nog genenstroom', 'nog één soort', 960, 420, 1, 'center', C.groen); metaText(ctx, 'al minstens 15 000 jaar elk een eigen weg', 960, 250, C.text2, 'center', 26); },
   e6s16(ctx) { _s6(ctx); evoTag(ctx, _F6, 'WANNEER IS HET TWEE?');
@@ -105,17 +105,17 @@ const SB6 = {
   e6s23(ctx) { macroNacht(ctx, { horizon: 480, heuvel: false }); evoTag(ctx, _F6, 'ZONDER BARRIÈRE'); vwoMarker(ctx);
     ctx.fillStyle = '#1F4466'; ctx.fillRect(0, 480, W, CAPTION_Y - 480); vul(ctx, [[-40, 480], [300, 440], [700, 470], [1100, 430], [1500, 460], [1960, 440], [1960, 490], [-40, 490]], '#2F4A3A');
     const v = ['blauw', 'rood', 'vrouw', 'blauw', 'rood', 'blauw', 'vrouw', 'rood', 'blauw', 'rood'];
-    v.forEach((k, i) => cichlide(ctx, 200 + i * 170 + (i % 2) * 40, 600 + (i % 3) * 90, 1.1, { vorm: k, kijk: i % 2 ? -1 : 1 }));
+    v.forEach((k, i) => cichlide(ctx, 200 + i * 170 + (i % 2) * 40, 600 + (i % 3) * 90, 1.1, { vorm: k, kijk: i % 2 ? -1 : 1, t: i * 0.13 }));
     naamBij(ctx, 'Victoriameer', '±500 soorten cichliden · in ±15 000 jaar', 960, 360, 1, 'center'); },
   e6s24(ctx) { _s6(ctx); evoTag(ctx, _F6, 'ZONDER BARRIÈRE'); vwoMarker(ctx);
     ctx.fillStyle = '#2C5A86'; ctx.fillRect(0, 160, W, 300); ctx.fillStyle = '#5A3A4A'; ctx.fillRect(0, 460, W, 380);
-    cichlide(ctx, 720, 320, 3.2, { vorm: 'blauw' }); cichlide(ctx, 1200, 640, 3.2, { vorm: 'rood' });
+    cichlide(ctx, 720, 320, 3.2, { vorm: 'blauw', t: 0.1 }); cichlide(ctx, 1200, 640, 3.2, { vorm: 'rood', t: 0.35 });
     naamBij(ctx, 'Pundamilia pundamilia', 'ondiep · blauw licht', 1060, 260, 1, 'left'); naamBij(ctx, 'Pundamilia nyererei', 'dieper · vooral rood licht', 840, 580, 1, 'right');
     metaText(ctx, 'ondiep', 1820, 200, C.text2, 'right', 26); metaText(ctx, 'dieper', 1820, 820, C.text2, 'right', 26); },
   e6q25(ctx) { vwoMarker(ctx); vraagKaart(ctx, ['Er is geen muur in het water. Hoe kunnen de blauwe', 'en de rode vissen toch apart blijven?'], ['Er moet een barrière zijn die we niet zien', 'Vrouwtjes kiezen een mannetje met de kleur die zij het best zien', 'Het zijn geen echte soorten, maar kleurvarianten'], _F6); vwoMarker(ctx); },
   e6s26(ctx) { _s6(ctx); evoTag(ctx, _F6, 'ZONDER BARRIÈRE'); vwoMarker(ctx);
     ctx.fillStyle = '#2C5A86'; ctx.fillRect(0, 160, W, 300); ctx.fillStyle = '#5A3A4A'; ctx.fillRect(0, 460, W, 380);
-    cichlide(ctx, 520, 360, 2.4, { vorm: 'blauw', a: 0.45 }); cichlide(ctx, 1400, 640, 2.6, { vorm: 'rood' }); cichlide(ctx, 1000, 580, 2.6, { vorm: 'vrouw' });
+    cichlide(ctx, 520, 360, 2.4, { vorm: 'blauw', a: 0.45, t: 0.2 }); cichlide(ctx, 1400, 640, 2.6, { vorm: 'rood', t: 0.05 }); cichlide(ctx, 1000, 580, 2.6, { vorm: 'vrouw', t: 0.3 }); // vrouwtje zwemt langs en kiest het rode
     pijl(ctx, 1180, 600, 1260, 620, C.goud, 1, 4); naamBij(ctx, 'vrouwtje kiest rood', 'haar ogen zien rood het best', 1000, 760, 1, 'center', C.goud); naamBij(ctx, 'partnerkeuze stopt de genenstroom', null, 960, 230, 1, 'center'); },
   e6s27(ctx) { _s6(ctx); evoTag(ctx, _F6, 'ZONDER BARRIÈRE'); vwoMarker(ctx);
     pot(ctx, 600, 700, 1.3, { p: 0.85, n: 80, seed: 2 }); pot(ctx, 1320, 700, 1.3, { p: 0.15, n: 80, seed: 7 });

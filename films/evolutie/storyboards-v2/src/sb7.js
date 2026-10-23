@@ -14,7 +14,7 @@ function pqrLagen(ctx, x, y, w, h, rot, o = {}) { const n = 3, cx = x + w / 2, c
     for (let i = 0; i < n; i++) { const ly = h / 2 - (i + 0.5) * h / n, lx = -w / 2 - 50, px = cx + lx * Math.cos(rot) - ly * Math.sin(rot), py = cy + lx * Math.sin(rot) + ly * Math.cos(rot);
       text(ctx, L[i], px, py + 16, fTekst(46, 800), i === 0 && o.goud ? C.goud : C.text, 'center'); } }
 const SB7 = {
-  e7s01(ctx) { zee(ctx); evoTag(ctx, 7, 'OPENING'); bultrug(ctx, 960, 520, 1.55); naamBij(ctx, 'bultrug', 'ongeveer 15 m · een zoogdier', 300, 330); evoSchaal(ctx, 'bultrug · niet op schaal met de achtergrond'); },
+  e7s01(ctx) { zee(ctx); evoTag(ctx, 7, 'OPENING'); bultrug(ctx, 960, 520, 1.55, { t: 0.6 }); naamBij(ctx, 'bultrug', 'ongeveer 15 m · een zoogdier', 300, 330); evoSchaal(ctx, 'bultrug · niet op schaal met de achtergrond'); },
   e7s02(ctx) { zee(ctx); evoTag(ctx, 7, 'OPENING'); bultrug(ctx, 960, 520, 1.55, { rontgen: 1, heup: 1 }); naamBij(ctx, 'heupbotjes', 'los van de wervelkolom', 560, 680, 1, 'center', C.goud); },
   e7s03(ctx) { oever(ctx); evoTag(ctx, 7, 'OPENING'); gesteente(ctx, 820, 330, 1100, 600, [{ dik: 1 }, { dik: 1.2 }, { dik: 0.8 }, { dik: 1.1 }, { dik: 0.9 }]);
     text(ctx, 'Welke laag is het oudst?', 120, 230, fTitel(72), C.text, 'left'); },
@@ -44,16 +44,16 @@ const SB7 = {
     const kl = ['#6E5A44', '#8C7258', '#A8916A', '#7A6A5A', '#B8A07A', '#93805E'];
     for (let i = 0; i < 6; i++) { const x0 = 160 + i * 266; roundRect(ctx, x0 + 4, 300, 258, 260, 10); shape(ctx, kl[i], _lt(kl[i], 0.2), 1.5); }
     tijdAs(ctx, 160, 680, 1600, { van: 60 }); naamBij(ctx, 'elke laag een leeftijd', null, 960, 250, 1, 'center'); },
-  e7s13(ctx) { oever(ctx); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); pakicetus(ctx, 900, 820, 1.7);
-    ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(900 + 166 * 1.7, 820 - 228 * 1.7, 40, 0, 6.283); ctx.stroke();
-    naamBij(ctx, 'Pakicetus', 'ongeveer 50 miljoen jaar · 1–2 m', 160, 200, 1, 'left'); naamBij(ctx, 'oor met walvisbouw', null, 1240, 360, 1, 'left', C.goud); evoSchaal(ctx, 'reconstructie · Pakistan en India'); },
-  e7s14(ctx) { oever(ctx); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); ambulocetus(ctx, 880, 740, 1.5); ctx.fillStyle = rgba('#2E6FBF', 0.5); ctx.fillRect(0, 640, W, 260);
+  e7s13(ctx) { oever(ctx); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); pakicetus(ctx, 900, 820, 1.7, { houding: 'lopen', t: 0.3 }); // stapt uit zijn laag naar voren
+    ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(900 + 140 * 1.7, 820 - 146 * 1.7, 40, 0, 6.283); ctx.stroke(); // cirkel op het oor
+    naamBij(ctx, 'Pakicetus', 'ongeveer 50 miljoen jaar · 1–2 m', 160, 200, 1, 'left'); naamBij(ctx, 'oor met walvisbouw', null, 1190, 470, 1, 'left', C.goud); evoSchaal(ctx, 'reconstructie · Pakistan en India'); },
+  e7s14(ctx) { oever(ctx); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); ambulocetus(ctx, 880, 740, 1.5, { houding: 'liggen' }); // laag in het water, alleen de ogen erboven ctx.fillStyle = rgba('#2E6FBF', 0.5); ctx.fillRect(0, 640, W, 260);
     lijn(ctx, [[0, 640], [W, 640]], '#9CCBE3', 2); naamBij(ctx, 'Ambulocetus', 'ongeveer 48 miljoen jaar · ±3 m', 160, 200, 1, 'left'); naamBij(ctx, 'ogen bovenop de kop', null, 1220, 500, 1, 'left'); evoSchaal(ctx, 'reconstructie'); },
-  e7s15(ctx) { zee(ctx, { opp: 110 }); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); rodhocetus(ctx, 760, 520, 2.0);
-    zoomCircle(ctx, 1560, 420, 190, 760 - 120 * 2, 520 + 40 * 2, 'enkelbot · dubbele katrol', 1, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(1360, 220, 400, 400);
+  e7s15(ctx) { zee(ctx, { opp: 110 }); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); rodhocetus(ctx, 660, 520, 2.0, { t: 0.35 }); // peddelt met de achtervoeten
+    zoomCircle(ctx, 1560, 420, 190, 372, 662, 'enkelbot · dubbele katrol', 1, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(1360, 220, 400, 400);
       vul(ctx, [[1490, 330], [1630, 330], [1650, 400], [1620, 470], [1500, 470], [1470, 400]], C.goud, _lt(C.goud, 0.3), 2); ctx.strokeStyle = _dk(C.goud, 0.4); ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(1560, 330, 40, 0.2, 2.94); ctx.stroke(); ctx.beginPath(); ctx.arc(1560, 470, 40, 3.34, 6.08); ctx.stroke(); });
     naamBij(ctx, 'Rodhocetus', 'ongeveer 47 miljoen jaar · 2–3 m', 160, 210, 1, 'left'); naamBij(ctx, 'zoals bij evenhoevigen', null, 1560, 700, 1, 'center', C.goud); evoSchaal(ctx, 'reconstructie'); },
-  e7s16(ctx) { zee(ctx, { opp: 110 }); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); basilosaurus(ctx, 900, 480, 1.75, { poot: 1 });
+  e7s16(ctx) { zee(ctx, { opp: 110 }); evoTag(ctx, 7, 'WALVISSEN IN DE LAGEN'); basilosaurus(ctx, 900, 480, 1.75, { poot: 1, t: 0.4 }); // golft door het water
     zoomCircle(ctx, 1500, 720, 150, 900 - 206 * 1.75, 480 + 42 * 1.75, 'achterpootje ±35 cm · vergroot', 1, () => { ctx.fillStyle = '#4E5862'; ctx.fillRect(1340, 560, 320, 320); ctx.fillStyle = '#9AA6B0'; ctx.fillRect(1340, 640, 320, 240);
       bot(ctx, 1440, 640, 1500, 720, 26, C.goud); bot(ctx, 1500, 720, 1540, 790, 18, C.goud); bot(ctx, 1500, 730, 1530, 792, 10, C.goud); for (let i = 0; i < 3; i++) { bot(ctx, 1540, 796, 1560 + i * 14, 830, 8, C.goud); bot(ctx, 1560 + i * 14, 834, 1572 + i * 16, 856, 7, C.goud); } });
     naamBij(ctx, 'Basilosaurus', 'ongeveer 40 miljoen jaar · 15 m', 160, 220, 1, 'left'); evoSchaal(ctx, 'reconstructie'); },

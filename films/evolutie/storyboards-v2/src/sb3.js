@@ -11,7 +11,7 @@ const _stam = (ctx, roet) => { macroNacht(ctx, { horizon: 980, heuvel: false });
 const SB3 = {
   // ---------------- Opening
   e3s01(ctx) { macroNacht(ctx, { horizon: 640 }); evoTag(ctx, 3, 'OPENING');
-    pauw(ctx, 1240, 820, 1.75);
+    pauw(ctx, 1240, 820, 1.75, { houding: 'lopen', t: 0.3 }); // stapt van links naar rechts, sleep schuift mee
     naamBij(ctx, 'sleep ± 1,5 m', 'kost energie · valt op', 620, 420, 1, 'center');
     evoSchaal(ctx, 'pauw van kop tot sleep ± 2 m'); },
   e3s02(ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); evoTag(ctx, 3, 'OPENING');
@@ -105,7 +105,10 @@ const SB3 = {
   e3s19(ctx) { evoTag(ctx, 3, 'SPLITSENDE SELECTIE');
     _hist(ctx, 460, 760, 1000, 420, 'splits', { as: ['kleine snavel', 'grote snavel'] });
     haak(ctx, 460, 1460, 800, 'splitsende selectie', C.groen);
-    metaText(ctx, 'vooral één gen bepaalt klein of groot', 960, 250, C.grain, 'center', 26); },
+    metaText(ctx, 'vooral één gen bepaalt klein of groot', 960, 250, C.grain, 'center', 26);
+    // twee groepen die uit elkaar kunnen groeien: pijlen van elkaar af boven de twee toppen
+    pijl(ctx, 700, 300, 560, 300, C.goud, 1, 4, 16); pijl(ctx, 1220, 300, 1360, 300, C.goud, 1, 4, 16);
+    naamBij(ctx, 'kan leiden tot nieuwe soorten', 'als de twee groepen vooral onderling paren', 960, 940, 1, 'center', C.goud); },
   // ---------------- H4 Seksuele selectie
   e3s20(ctx) { macroNacht(ctx, { horizon: 700 }); evoTag(ctx, 3, 'SEKSUELE SELECTIE');
     pauw(ctx, 760, 880, 1.25, { waaier: 1 }); pauwin(ctx, 1560, 880, 1.1, { kijk: -1 });
@@ -113,7 +116,7 @@ const SB3 = {
   e3q21(ctx) { _vr3(ctx, 'e3q21'); },
   e3s22(ctx) { macroNacht(ctx, { horizon: 700 }); evoTag(ctx, 3, 'SEKSUELE SELECTIE');
     gedimd(ctx, 0.35, (g) => pauw(g, 520, 880, 0.95, { waaier: 1, vlekken: 0.25 })); pauw(ctx, 1200, 880, 0.95, { waaier: 1 });
-    pauwin(ctx, 1640, 880, 0.95, { kijk: -1 });
+    pauwin(ctx, 1640, 880, 0.95, { kijk: -1, houding: 'lopen', t: 0.55 }); // loopt langs de pauwen
     naamBij(ctx, 'veel minder oogvlekken', 'minder vaak gekozen', 520, 380, 0.8, 'center');
     naamBij(ctx, 'gekozen', 'meer jongen', 1200, 380, 1, 'center', C.goud);
     naamBij(ctx, 'seksuele selectie', 'door het andere geslacht', 1780, 200, 1, 'right'); },
@@ -129,7 +132,7 @@ const SB3 = {
     text(ctx, 'Fitness telt nakomelingen, geen levensjaren.', 960, 900 - 20, fTekst(44, 600), C.text, 'center'); },
   // ---------------- H5 Co-evolutie
   e3s25(ctx) { macroNacht(ctx, { horizon: 980, heuvel: false }); evoTag(ctx, 3, 'CO-EVOLUTIE');
-    orchideeBladeren(ctx, 520, 1000, 1.2); lijn(ctx, [[520, 760], [640, 560], [820, 380], [940, 262]], '#6E8A4E', 6); orchidee(ctx, 960, 240, 2.0, { spoor: 300 });
+    const OP = orchideePlant(ctx, 620, 470, 1.6, { spoor: 300, bloemen: [[2, 1, 1]] }); // hele plant: bloem op een korte steel uit de bladoksel, spoor hangt eronder
     naamBij(ctx, 'Darwins orchidee', 'angraecum sesquipedale · madagaskar', 1260, 200, 1, 'left');
     naamBij(ctx, 'buis met nectar', '20 tot 35 cm', 1020, 780, 1, 'left');
     evoSchaal(ctx, 'spoor ± 30 cm'); },
@@ -153,9 +156,11 @@ const SB3 = {
   e3s29(ctx) { evoTag(ctx, 3, 'CO-EVOLUTIE');
     const cx = 960, cy = 470, R = 230;
     ctx.lineWidth = 6; for (const [a0, a1, kl] of [[-2.6, -0.5, C.groen], [0.55, 2.65, C.oker]]) { ctx.strokeStyle = kl; ctx.beginPath(); ctx.arc(cx, cy, R, a0, a1); ctx.stroke(); const ex = cx + Math.cos(a1) * R, ey = cy + Math.sin(a1) * R, ta = a1 + Math.PI / 2; pijl(ctx, ex - Math.cos(ta) * 30, ey - Math.sin(ta) * 30, ex, ey, kl, 1, 6, 22); }
-    orchidee(ctx, cx - 420, cy - 120, 0.75, { spoor: 300 }); pijlstaart(ctx, cx + 430, cy - 20, 1.5, { tong: 0 });
+    orchidee(ctx, cx - 420, cy - 120, 0.75, { spoor: 300 }); pijlstaart(ctx, cx + 430, cy - 20, 1.5, { tong: 0, houding: 'rust' });
     naamBij(ctx, 'langere buis', null, cx - 420, cy + 240, 1, 'center', C.groen); naamBij(ctx, 'langere tong', null, cx + 430, cy + 120, 1, 'center', C.oker);
-    haak(ctx, 520, 1400, 760, 'co-evolutie: elkaars selectiedruk', C.groen); },
+    haak(ctx, 520, 1400, 760, 'co-evolutie: een wapenwedloop', C.groen);
+    naamBij(ctx, 'proef · Nilsson 1988', 'kortere buis → bloem minder bestoven', 540, 900, 1, 'center', C.text2);
+    naamBij(ctx, 'andere verklaring · Wasserthal 1997', 'lange tong houdt afstand tot spinnen', 1390, 900, 1, 'center', C.text2); },
   // ---------------- Samenvatting
   e3s30(ctx) { evoTag(ctx, 3, 'SAMENVATTING');
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(140, 760); ctx.lineTo(1780, 760); ctx.stroke();

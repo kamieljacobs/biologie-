@@ -5,9 +5,9 @@
  "puzzel": "Waarom wint niet altijd het sterkste dier?",
  "haak": "Een groene rups op een groen blad, een merel die zoekt: de rups die blijft, is niet de sterkste maar de onzichtbare.",
  "duur": {
-  "basis_min": 7.6,
-  "met_vwo_min": 7.6,
-  "woorden": 897
+  "basis_min": 7.7,
+  "met_vwo_min": 7.7,
+  "woorden": 908
  },
  "hoofdstukken": [
   {
@@ -70,7 +70,7 @@
    "laag": "basis",
    "look": "Macro",
    "tekst": "Op een klein eiland in de Galápagos leeft de middelste grondvink. Een vrouwtje legt twee tot vijf eieren per keer. In een nat jaar broedt ze meerdere keren achter elkaar.",
-   "beweging": "Een vrouwtje landt bij een nest in een cactus; vier eieren worden zichtbaar, daarna een tweede legsel."
+   "beweging": "Een vrouwtje vliegt aan en landt bij een nest in een boomvormige opuntia (schijven met areolen en gele stekels, bloemen en vruchten; wiegt heel licht); vier eieren worden zichtbaar, daarna een tweede legsel."
   },
   {
    "id": "e2q05",
@@ -263,8 +263,8 @@
    "hoofdstuk": "H4 Aangepast, zonder doel",
    "laag": "basis",
    "look": "Schema",
-   "tekst": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door toevallige mutaties. Hoe dat gebeurt, zie je in de DNA-reeks.",
-   "beweging": "Drie misvattingen staan doorgestreept op kaarten; de goede zin staat eronder met een groene haak."
+   "tekst": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.",
+   "beweging": "Drie misvattingen staan doorgestreept op kaarten; de goede zin staat eronder met een groene haak. Daaronder wordt een rijtje DNA-letters gekopieerd; in de kopie verandert één letter (goud): 'mutatie'."
   },
   {
    "id": "e2s28",

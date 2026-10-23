@@ -26,8 +26,8 @@ const SB4 = {
     c.save(); c.beginPath(); c.arc(1460, 760, 280, 0, 6.283); c.fillStyle = C.bgMicro; c.fill(); c.clip(); _kolonie(c, 1460, 760, 230, 230, 22, 120, (i) => ({ type: i === 3 ? 'resistent' : 'gevoelig', focus: i === 3, plasmide: i === 3 ? 1 : 0 }), 3); c.restore(); circ(c, 1460, 760, 280, null, C.goud, 2); }); },
   e4s03(ctx) { _mic(ctx); evoTag(ctx, _F4, 'BACTERIËN EVOLUEREN SNEL');
     bacterie(ctx, 420, 470, 360, 0, { seed: 2 }); pijl(ctx, 650, 470, 760, 470, C.line, 1, 4);
-    bacterie(ctx, 1000, 470, 400, 0, { deling: 0.75, seed: 3 }); pijl(ctx, 1240, 470, 1350, 470, C.line, 1, 4);
-    for (const [dx, dy] of [[0, -110], [0, 110]]) bacterie(ctx, 1600 + dx, 470 + dy, 300, 0.05, { seed: 4 + dy });
+    bacterie(ctx, 1000, 470, 400, 0, { deling: 0.75, seed: 3, flagel: 0.5 }); pijl(ctx, 1240, 470, 1350, 470, C.line, 1, 4);
+    for (const [dx, dy] of [[0, -110], [0, 110]]) bacterie(ctx, 1600 + dx, 470 + dy, 300, 0.05, { seed: 4 + dy, flagel: 0.5 });
     text(ctx, '1', 420, 330, fTekst(56, 700), C.text, 'center'); text(ctx, '2', 1000, 330, fTekst(56, 700), C.text, 'center'); text(ctx, '4 …', 1600, 280, fTekst(56, 700), C.text, 'center');
     naamBij(ctx, 'E. coli', 'darmbacterie · 2 micrometer', 420, 640, 1, 'center'); evoSchaal(ctx, 'deling elke ±20 min (lab, 37 °C)'); },
   e4s04(ctx) { _mic(ctx); evoTag(ctx, _F4, 'BACTERIËN EVOLUEREN SNEL');
@@ -91,7 +91,7 @@ const SB4 = {
     k.forEach(([t, x, y]) => { circ(ctx, x - 40, y - 12, 14, C.koraal); text(ctx, t, x, y, fTekst(44, 600), C.text, 'left'); });
     haak(ctx, 1140, 1760, 680, 'grootste selectiedruk', C.koraal); },
   e4s21(ctx) { macroNacht(ctx, { horizon: 600 }); evoTag(ctx, _F4, 'DE MENS KIEST');
-    circ(ctx, 1600, 200, 60, '#E6E0C8'); wolf(ctx, 700, 860, 7.5, { kopHoek: -0.05 });
+    circ(ctx, 1600, 200, 60, '#E6E0C8'); wolf(ctx, 760, 880, 6.6, { houding: 'huilen' }); // huilt naar de maan
     naamBij(ctx, 'wolf', 'Canis lupus · schofthoogte 80 cm', 300, 200, 1, 'left'); },
   e4s22(ctx) { macroNacht(ctx, { horizon: 520 }); evoTag(ctx, _F4, 'DE MENS KIEST');
     const g = 820, s = 5.0; wolf(ctx, 290, g, s, { a: 0.55 }); hond(ctx, 'herder', 930, g, s); hond(ctx, 'teckel', 1360, g, s); hond(ctx, 'mops', 1590, g, s); hond(ctx, 'chihuahua', 1790, g, s);
@@ -110,7 +110,7 @@ const SB4 = {
     for (const [k, deel, x, y, n] of r) { kool(ctx, k, x, y, k === 'spruitjes' ? 2.6 : 3, { nadruk: n }); naamBij(ctx, k, deel, x, y + 50, 1, 'center'); }
     pijl(ctx, 820, 420, 380, 300, C.line, 0.6, 3); pijl(ctx, 830, 560, 640, 640, C.line, 0.6, 3); pijl(ctx, 1100, 560, 1300, 680, C.line, 0.6, 3); pijl(ctx, 1110, 420, 1540, 340, C.line, 0.6, 3); },
   e4s26(ctx) { _sch(ctx); evoTag(ctx, _F4, 'INTEELT EN DE GENENBANK');
-    persoon(ctx, 'mila', 520, 860, 560, { pose: 'wijs' }); hond(ctx, 'mops', 960, 860, 8, { kijk: -1 });
+    persoon(ctx, 'mila', 520, 860, 560, { pose: 'wijs' }); hond(ctx, 'mops', 960, 860, 8, { kijk: -1, houding: 'zitten' }); // zit bij Mila
     naamBij(ctx, 'Dierenarts Mila', null, 520, 250, 1, 'center');
     // mini-stamboom: één vader bij veel pups
     const vx = 1500, vy = 300; roundRect(ctx, vx - 26, vy - 26, 52, 52, 6); shape(ctx, rgba(C.goud, 0.3), C.goud, 3);
@@ -142,6 +142,5 @@ const SB4 = {
     haak(ctx, 140, 1780, 820, 'de mens bepaalt welke allelen vaker worden', C.groen); },
   e4s32(ctx) { _sch(ctx); metaText(ctx, 'EVOLUTIE 4/8 · DE MENS ALS SELECTIEFACTOR', 140, 160, C.text2, 'left', 26);
     const Z = ['Een antibioticum doodt bacteriën, geen virussen, en selecteert overal resistente bacteriën.', 'Plasmiden geven resistentie door, ook aan andere bacteriesoorten.', 'Fokken en veredelen is selectie door de mens; inteelt maakt jongen vaker homozygoot.'];
-    Z.forEach((z, i) => { text(ctx, (i + 1) + '', 160, 320 + i * 130, fTekst(56, 800), C.goud, 'left'); ctx.font = fTekst(42, 500); ctx.fillStyle = C.text; wrap(ctx, z, 230, 320 + i * 130, 1500, 50); });
-    haak(ctx, 140, 1700, 690, 'Zelf proberen: Resistentielab', C.groen); },
+    Z.forEach((z, i) => { text(ctx, (i + 1) + '', 160, 320 + i * 130, fTekst(56, 800), C.goud, 'left'); ctx.font = fTekst(42, 500); ctx.fillStyle = C.text; wrap(ctx, z, 230, 320 + i * 130, 1500, 50); }); },
 };

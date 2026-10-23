@@ -69,8 +69,8 @@ const SB8 = {
     roundRect(ctx, 250, 140, 340, 280, 22); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.setLineDash([10, 8]); ctx.stroke(); ctx.setLineDash([]); naamBij(ctx, 'buitengroep', 'laat zien wat oud is', 230, 470, 1, 'right', C.goud);
     kenmerkStreep(ctx, r[0], r[1] + 60, r[0], r[1], 0.4, 'wervelkolom', { kleur: C.text, kant: 'left', meta: 'oud: ook bij de haai' }); },
   e8s14(ctx) { macroNacht(ctx, { horizon: 600 }); evoTag(ctx, 8, 'KENMERKEN OP DE TAKKEN'); ctx.fillStyle = C.water; ctx.fillRect(0, 760, W, 140);
-    krokodil(ctx, 440, 780, 0.9); hagedis(ctx, 1040, 780, 0.75); vogel(ctx, 1560, 790, 1.15);
-    naamBij(ctx, 'krokodil', 'schubben · eieren', 440, 640, 1, 'center'); naamBij(ctx, 'hagedis', 'schubben · eieren', 1040, 680, 1, 'center'); naamBij(ctx, 'vogel', 'veren · vleugels', 1360, 340, 1, 'right'); evoSchaal(ctx, 'niet op schaal'); },
+    krokodil(ctx, 440, 780, 0.9, { houding: 'liggen' }); hagedis(ctx, 1040, 752, 0.75, { houding: 'lopen', t: 0.3 }); vogel(ctx, 1560, 820, 1.15, { houding: 'staan' }); ctx.fillStyle = rgba(C.water, 0.6); ctx.fillRect(1380, 784, 400, 116); /* reiger staat met de poten in het water */ // krokodil ligt aan de oever, hagedis loopt, reiger staat in het water
+    naamBij(ctx, 'krokodil', 'schubben · eieren', 440, 640, 1, 'center'); naamBij(ctx, 'hagedis', 'schubben · eieren', 1040, 650, 1, 'center'); naamBij(ctx, 'vogel', 'veren · vleugels', 1360, 340, 1, 'right'); evoSchaal(ctx, 'niet op schaal'); },
   e8q15(ctx) { vraagKaart(ctx, 'Wie is nauwer verwant aan de krokodil?', ['De hagedis: die lijkt er het meest op', 'Ze zijn alle drie even nauw verwant', 'De vogel'], 8);
     krokodil(ctx, 1640, 420, 0.42); hagedis(ctx, 1640, 600, 0.5); vogel(ctx, 1640, 890, 0.55); },
   e8s16(ctx) { schema(ctx, 'KENMERKEN OP DE TAKKEN'); const r = [760, 840], k = [1060, 620];
@@ -85,7 +85,7 @@ const SB8 = {
   e8s18(ctx) { schema(ctx, 'DEZELFDE VORM, ANDERE TAK'); haai(ctx, 560, 420, 1.35, { rontgen: 1 }); dolfijn(ctx, 1380, 420, 1.35, { rontgen: 1 });
     naamBij(ctx, 'haai', 'kraakbeen · kieuwen', 560, 230, 1, 'center'); naamBij(ctx, 'dolfijn', 'botten · longen', 1380, 230, 1, 'center');
     naamBij(ctx, 'kraakbeenstralen', null, 560, 640, 1, 'center'); naamBij(ctx, 'opperarm · onderarm · hand', null, 1300, 640, 1, 'center', C.goud); },
-  e8s19(ctx) { blauw(ctx); evoTag(ctx, 8, 'DEZELFDE VORM, ANDERE TAK'); haai(ctx, 420, 300, 0.85, { a: 0.6 }); ichthyosaurus(ctx, 960, 500, 1.3); dolfijn(ctx, 1500, 720, 0.85, { a: 0.6 });
+  e8s19(ctx) { blauw(ctx); evoTag(ctx, 8, 'DEZELFDE VORM, ANDERE TAK'); haai(ctx, 420, 300, 0.85, { a: 0.6, t: 0.2 }); ichthyosaurus(ctx, 960, 500, 1.3, { t: 0.4 }); dolfijn(ctx, 1500, 720, 0.85, { a: 0.6, t: 0.7 }); // ichthyosaurus zwemt in
     naamBij(ctx, 'ichthyosaurus', 'reptiel · uit de tijd van de dinosauriërs', 960, 360, 1, 'center', C.goud); evoSchaal(ctx, 'alle drie ±2–3 m · reconstructie ichthyosaurus'); },
   e8q20(ctx) { vraagKaart(ctx, 'Waarom hebben haai, dolfijn en ichthyosaurus bijna dezelfde vorm?', ['Ze erfden die vorm van één voorouder die al zo zwom', 'Ze kregen die vorm los van elkaar, door dezelfde selectiedruk in water', 'Ze pasten zich aan omdat ze snel moesten zwemmen'], 8);
     haai(ctx, 1680, 480, 0.42, { a: 0.8 }); dolfijn(ctx, 1680, 620, 0.42, { a: 0.8 }); ichthyosaurus(ctx, 1680, 760, 0.38, { a: 0.8 }); },
@@ -111,7 +111,7 @@ const SB8 = {
   e8s26(ctx) { schema(ctx, 'NAMEN EN GROEPEN'); const lv = [['rijk', 'dieren'], ['stam', 'gewervelde dieren'], ['klasse', 'zoogdieren'], ['orde', 'roofdieren'], ['familie', 'katachtigen']];
     lv.forEach(([n, m], i) => { const x = 100 + i * 60, y = 110 + i * 100; roundRect(ctx, x, y, 1720 - i * 120, 790 - i * 100, 22); ctx.fillStyle = rgba(C.fill, 0.22); ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
       metaText(ctx, n, x + 24, y + 42, C.grain, 'left', 26); text(ctx, m, x + 24 + 170, y + 44, fTekst(38, 600), C.text, 'left'); });
-    naamVak(ctx, 420, 620, 760, 260, 'geslacht', 'Panthera', { nadruk: true }); leeuw(ctx, 680, 860, 0.36); tijger(ctx, 1000, 860, 0.39); huiskat(ctx, 1480, 860, 0.2); naamBij(ctx, 'huiskat', 'geslacht Felis', 1480, 760, 1, 'center'); },
+    naamVak(ctx, 420, 620, 760, 260, 'geslacht', 'Panthera', { nadruk: true }); leeuw(ctx, 680, 860, 0.36); tijger(ctx, 1000, 860, 0.39); huiskat(ctx, 1480, 860, 0.2, { houding: 'zitten' }); naamBij(ctx, 'huiskat', 'geslacht Felis', 1480, 760, 1, 'center'); },
   e8s27(ctx) { schema(ctx, 'NAMEN EN GROEPEN'); naamVak(ctx, 160, 200, 1600, 640, 'geslacht', 'Panthera');
     naamVak(ctx, 220, 320, 720, 480, 'soort', 'leeuw', { nadruk: true }); naamVak(ctx, 980, 320, 720, 480, 'soort', 'tijger', { nadruk: true });
     leeuw(ctx, 580, 760, 0.62); tijger(ctx, 1340, 760, 0.66); naamBij(ctx, 'soort: in de natuur samen vruchtbare nakomelingen', null, 960, 900 - 20, 1, 'center'); },
@@ -126,7 +126,7 @@ const SB8 = {
     ctx.font = 'italic 700 56px "Source Sans 3", sans-serif'; ctx.fillText('Homo sapiens', 1180, 470); ctx.font = '500 32px "Source Sans 3", sans-serif'; ctx.fillText('de wijze mens', 1180, 530); ctx.restore();
     naamBij(ctx, 'Carl Linnaeus', 'voor dieren vanaf het jaar 1758', 960, 180, 1, 'center'); naamBij(ctx, 'Homo = geslacht', null, 1180, 880, 1, 'center', C.goud); },
   e8s31(ctx) { schema(ctx, 'NAMEN EN GROEPEN'); naamVak(ctx, 120, 200, 980, 640, 'familie', 'katachtigen'); naamVak(ctx, 170, 330, 560, 480, 'geslacht', 'Panthera', { nadruk: true }); naamVak(ctx, 770, 330, 290, 480, 'geslacht', 'Felis');
-    leeuw(ctx, 330, 720, 0.34); tijger(ctx, 560, 720, 0.37); huiskat(ctx, 910, 720, 0.16);
+    leeuw(ctx, 330, 720, 0.34); tijger(ctx, 560, 720, 0.37); huiskat(ctx, 910, 720, 0.16, { houding: 'zitten' });
     const r = [1480, 800], k = [1360, 560]; tak(ctx, r[0], r[1], 1720, 300); tak(ctx, r[0], r[1], k[0], k[1]); tak(ctx, k[0], k[1], 1240, 300); tak(ctx, k[0], k[1], 1480, 300); knoop(ctx, r[0], r[1], C.teal); knoop(ctx, k[0], k[1], C.goud, 12);
     naamBij(ctx, 'leeuw', null, 1240, 270, 1, 'center'); naamBij(ctx, 'tijger', null, 1480, 270, 1, 'center'); naamBij(ctx, 'huiskat', null, 1720, 270, 1, 'center');
     naamBij(ctx, 'kleinste gedeelde groep = jongste voorouder', null, 1460, 900 - 20, 1, 'center', C.goud); },
