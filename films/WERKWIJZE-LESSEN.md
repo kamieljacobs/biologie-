@@ -14,5 +14,13 @@ Kamiel (23 okt 2026): de opmerkingen bij keuringen en reviews moeten uiteindelij
 - **Haken uit de seriebrief net zo streng controleren als getallen** (Evolutie v2, film 3: "een staart die hem trager maakt" bleek niet te kloppen; metingen in dezelfde vogels met en zonder sleep, Askew 2014). Oorzaak: de brief werd als gegeven behandeld. Voorstel B2: ook DAILY-LIFE HOOKS en puzzels uit de brief worden nagelopen; afwijken wordt gemeld in keuzes en twijfels.
 - **Eén definitie per begrip over de hele reeks** (Evolutie v2: genenstroom anders in film 5 en 6; soortdefinitie zonder 'in de natuur' botste met leeuw/tijger in film 8). Oorzaak: films parallel geschreven door verschillende helpers. Voorstel B7: in reeksmodus eerst een gedeelde begrippenlijst van de reeks vastleggen, en vóór de keuring een consistentiecheck over alle films door een frisse reviewer (die vond hier 60 punten).
 
+### Uit de eerste patroonanalyse (23 okt 2026, 77 regels, alleen Evolutie v2)
+- **Frisse review als vaste stap vóór elke keuring** — 55 van 77 fouten ontstonden in het script; de eigen zelfreview miste er 23, de bronnencheck 19, de consistentiecheck 11. De frisse reviewer vond 61 van de 77. Voorstel B4/B7: niet 'als er agents zijn' maar altijd, en in reeksmodus over alle films tegelijk.
+- **Stelligheidscheck** — 34× vakinhoud of te stellig, vaak een algemene regel die in een andere film wordt tegengesproken ('selectie gaat één kant op', 'alle soorten erven het kenmerk'). Voorstel B4: zoek in het script naar alle, altijd, nooit, niets, alleen, geen en laat elke zo'n zin toetsen tegen bron en de andere films.
+- **Regels voor vraagopties** — 8× te raden in 6 films. Voorstel B4: opties ongeveer even lang, vakterm niet alleen in het goede antwoord, geen optie die per definitie waar is, de zin vóór de vraag geeft het antwoord niet weg.
+- **Vragen uit automatisch controleren op scriptniveau** — 6× in 4 films, terwijl de regel al bestond. Voorstel B11: een script dat per vraag checkt of de volgende alinea woorden of getallen gebruikt die alleen op de vraagkaart staan.
+- Goed nieuws: tekenfouten (7×) werden allemaal op het testvel gevangen; die stap werkt.
+Kanttekening: één reeks, één reviewer; dit zijn eerste aanwijzingen, geen vaste patronen.
+
 ## Verwerkt in prompt
 (nog niets)
