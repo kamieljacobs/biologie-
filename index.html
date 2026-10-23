@@ -334,6 +334,26 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .film.is-gezien .vink{color:var(--goud-text)}
 .film.is-gezien .vink .box{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
 
+.exkol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
+@media (max-width:860px){.exkol{grid-template-columns:1fr;gap:8px}}
+.exk{min-width:0}
+.exuitleg{color:var(--text2);margin:4px 0 14px;font-size:16px;max-width:52ch}
+.exleeg{color:var(--text3);font-style:italic}
+.exkaart{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-areas:"b t" "b k";gap:6px 16px;align-items:start;padding:16px 18px;margin-bottom:12px;border:1px solid var(--line2);border-radius:16px;background:var(--surface);color:var(--text);text-decoration:none;transition:border-color .18s,transform .18s}
+.exkaart:hover{border-color:var(--goud);transform:translateY(-1px)}
+.exbeeld{grid-area:b;width:64px;height:64px}
+.exbeeld img,.exbeeld svg{width:64px;height:64px;border-radius:999px;display:block}
+.extekst{grid-area:t;display:flex;flex-direction:column;gap:3px;min-width:0}
+.extekst b{font:700 20px/1.2 var(--titel)}
+.exbij{color:var(--goud-text);font-size:11px}
+.exvraag{color:var(--text2);font-size:15px}
+.exmeta{color:var(--text3);font-size:12px;margin-top:2px}
+.exok{color:var(--goud-text);display:inline-flex;align-items:center;gap:4px}
+.exknop{grid-area:k;justify-self:start;min-height:38px;padding:0 16px;font-size:14px;margin-top:4px}
+.exvoort{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.exvoort .balk{height:6px;border-radius:999px;background:var(--line2);overflow:hidden;max-width:240px}
+.exvoort .balk i{display:block;height:100%;background:var(--goud)}
+.exvoort .mono{color:var(--text3);font-size:12px}
 .tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;padding-top:14px}
 .tool{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:16px;background:var(--surface);overflow:hidden;transition:border-color .18s,transform .18s}
 a.tool:hover{border-color:var(--text3);transform:translateY(-2px)}
@@ -1349,6 +1369,11 @@ const HOOFDSTUKKEN = {
    {
     "href": "tools/examen-havo-2026-1.html",
     "naam": "Examen havo 2026-I doorklikken",
+    "titel": "Oefenexamen havo 2026-I",
+    "opslag": "examen-havo26-1",
+    "punten": 71,
+    "vragen": 43,
+    "vraag": "Haal jij dit examen? Denk eerst na, dan antwoorden.",
     "tekst": "Maak het hele examen (43 vragen, 71 punten) stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken met het correctievoorschrift en uitleg met animaties · hulpstand en examenstand",
     "bij": "havo · centraal examen 2026 tijdvak 1"
    }
@@ -3019,6 +3044,7 @@ function hoofdstuk(id,kd){
     ${kd&&KDPLAAT.includes(kd)?`<div class="groot kdheld"><img src="img/kunst/onderbouw/${kd}.webp?v=1" alt="" decoding="async"></div>`:`<div class="groot${kunstStand!=='uit'&&window.THEMAHELD&&THEMAHELD[id]?' held':''}">${kunstStand!=='uit'&&window.THEMAHELD&&THEMAHELD[id]?THEMAHELD[id]():kunst(id,h.titel)}</div>`}
   </div></section>
   <div class="wrap smal">`;
+  if(id==='examens'&&!kd){out+=examKolommen(h,id);return out+`</div>`;}
   if(n) out+=`<section class="lijst" id="${id}-films"><h2>Films</h2>${h.films.map((f,i)=>filmRij(f,i,id)).join('')}</section>`;
   if((h.lessen||[]).length) out+=`<section class="lijst" id="${id}-lessen"><h2>Lessen <span class="extra-tag mono les-tag">voor de docent</span></h2><div class="tools">${h.lessen.map(l=>lesKaart(l,id)).join('')}</div></section>`;
   if((h.komt||[]).length) out+=`<section class="lijst" id="${id}-komt"><h2>Komt nog</h2><div class="komt-lijst">${h.komt.map(f=>`<div class="komt-item"><span class="komt-o" aria-hidden="true"></span><div><b>${esc(f.titel)}</b> <em>komt nog</em>${f.niveau?` <span class="mono komt-niv">${esc(f.niveau)}</span>`:''}${f.vraag?`<p>${esc(f.vraag)}</p>`:''}</div></div>`).join('')}</div></section>`;
@@ -3027,6 +3053,21 @@ function hoofdstuk(id,kd){
   if(h.tools.length) out+=`<section class="lijst" id="${id}-tools"><h2>Tools en practica</h2><div class="tools">${h.tools.map(toolRij).join('')}</div></section>`;
   if(h.oefenen.length) out+=`<section class="lijst" id="${id}-oefenen"><h2>Oefenen</h2><div class="binnenkort" style="border-top:1px solid var(--line)">${h.oefenen.map(o=>ATLAS.has(id)&&/begrippen|examen/i.test(o)?`<a class="link-atlas" href="examenatlas.html#sub/${id}">${esc(o)} →</a>`:`<span>${esc(o)} · volgt</span>`).join('')}</div></section>`;
   return out+`</div>`;
+}
+
+/* thema Examen (Kamiel 23 okt 2026): twee kolommen naast elkaar, links de besprekingen (films), rechts de oefenexamens (doorklik-tools) */
+function examKolommen(h,id){
+  const vink='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>';
+  const film=f=>{const g=gezien[f.href];return `<a class="exkaart${g?' is-gezien':''}" href="${BASE+esc(f.href)}"><span class="exbeeld">${filmKunst(f.href,id)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(f.bij)||f.bij||'')}</span><b>${esc(f.titel)}</b><span class="exvraag">${esc(f.vraag||'')}</span><span class="mono exmeta">${f.duur?f.duur+' min':''}${g?` · <span class="exok">${vink} gezien</span>`:''}</span></span><span class="knop exknop">${play} Bekijk</span></a>`};
+  const oef=t=>{let st=null;try{st=JSON.parse(localStorage.getItem(t.opslag)||'null')}catch(e){}
+    const sc=st&&st.scores?Object.values(st.scores):[];const gemaakt=sc.length,pt=sc.reduce((a,b)=>a+(+b||0),0);
+    const voort=gemaakt?`<span class="exvoort"><span class="balk"><i style="width:${Math.round(100*gemaakt/(t.vragen||1))}%"></i></span><span class="mono">${gemaakt} van ${t.vragen} vragen · ${pt} van ${t.punten} punten</span></span>`:`<span class="mono exmeta">${t.vragen} vragen · ${t.punten} punten</span>`;
+    return `<a class="exkaart" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
+  const films=h.films||[], tools=(h.tools||[]).filter(t=>t.href);
+  return `<div class="exkol">
+    <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p>${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</section>
+    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p>${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</section>
+  </div>`;
 }
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
