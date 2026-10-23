@@ -1,0 +1,562 @@
+{
+ "film": 3,
+ "titel": "Vormen van selectie",
+ "slug": "3-vormen-van-selectie",
+ "puzzel": "Waarom worden baby's niet steeds zwaarder?",
+ "haak": "Een pauw sleept een staart van anderhalve meter mee die energie kost en opvalt, en toch heeft elke pauwhaan er een.",
+ "duur": {
+  "basis_min": 7.8,
+  "met_vwo_min": 7.8,
+  "woorden": 896
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Gerichte selectie",
+   "minivraag": "Waarom werden de berkenspanners rond Manchester zwart?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 2,
+   "titel": "Stabiliserende selectie",
+   "minivraag": "Welke baby's overleefden het vaakst?",
+   "type": "F",
+   "look": "Schema"
+  },
+  {
+   "nr": 3,
+   "titel": "Splitsende selectie",
+   "minivraag": "Kan een populatie twee kanten op tegelijk?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 4,
+   "titel": "Seksuele selectie",
+   "minivraag": "Waarom houdt een pauw een staart die hem niet helpt overleven?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 5,
+   "titel": "Co-evolutie",
+   "minivraag": "Wie bepaalt de lengte, de bloem of de vlinder?",
+   "type": "F",
+   "look": "Macro"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e3s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een pauw sleept een sleep van veren mee van ongeveer anderhalve meter. Die veren kosten energie om te maken, en ze vallen op voor roofdieren. Toch heeft elke volwassen pauwhaan zo'n sleep.",
+   "beweging": "Een pauw stapt van links naar rechts door het gras; de sleep schuift over de grond achter hem aan."
+  },
+  {
+   "id": "e3s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Selectie werkt niet altijd op dezelfde manier. Neem baby's. Heel kleine baby's hebben het moeilijker dan grotere. Waarom worden baby's dan niet elke generatie zwaarder?",
+   "beweging": "Verloskundige Mirjam legt een baby op de weegschaal; het display telt op."
+  },
+  {
+   "id": "e3s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel; rechts drie kleine histogrammen (verschoven, smal, twee toppen)."
+  },
+  {
+   "id": "e3s04",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Dit is een berkenspanner, een nachtvlinder. Overdag zit hij stil op een boomstam. Er bestaat een lichte vorm met zwarte spikkels en een bijna zwarte vorm. Het verschil komt door één gen met twee allelen.",
+   "beweging": "Inzoomen op een lichte stam met korstmos; de lichte vlinder valt weg, de zwarte valt op."
+  },
+  {
+   "id": "e3s05",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond Manchester wordt in het jaar 1848 voor het eerst een zwarte berkenspanner gevangen. Fabrieken stoken dag en nacht steenkool. Roet maakt de stammen zwart, en de lichte korstmossen sterven af.",
+   "beweging": "De schors wordt donkerder van roet; korstmosvlekken verdwijnen; nu valt de lichte vlinder op."
+  },
+  {
+   "id": "e3q06",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat gebeurt er de jaren daarna met de berkenspanners rond Manchester?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A De lichte vlinders worden donker van het roet · B Vogels eten vaker lichte vlinders: zwart wordt vaker · C Er verandert niets: de vlinders blijven zoals ze waren",
+   "juist": "B"
+  },
+  {
+   "id": "e3s07",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Op een zwarte stam vindt een vogel de lichte vlinders het eerst. Zwarte vlinders worden minder vaak opgegeten en krijgen meer nakomelingen. In het jaar 1895 is rond Manchester ongeveer achtennegentig procent van de berkenspanners zwart.",
+   "beweging": "Een koolmees landt op de zwarte stam en pikt de lichte vlinder; de zwarte blijft zitten. Teller: 98 % zwart."
+  },
+  {
+   "id": "e3s08",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dan komen er wetten voor schone lucht, zoals in het jaar 1956. De stammen worden weer licht. Nu hebben de lichte vlinders het voordeel, en het zwarte allel wordt weer zeldzaam. Tegenwoordig is nog maar een paar procent zwart.",
+   "beweging": "Grafiek 'aandeel zwart' (oker): stijgt van bijna 0 in 1848 naar 98 % in 1895, daalt na 1956 tot een paar procent (gestileerd)."
+  },
+  {
+   "id": "e3s09",
+   "hoofdstuk": "H1 Gerichte selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dit heet gerichte selectie. Eén kant van de variatie heeft een voordeel. Het gemiddelde schuift die kant op, generatie na generatie. Je zag het ook bij de vinken in de vorige film.",
+   "beweging": "Het histogram schuift naar rechts; de oude verdeling blijft als stippellijn; groene haak 'gerichte selectie'."
+  },
+  {
+   "id": "e3s10",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Verloskundige Mirjam weegt een pasgeboren baby. Baby's verschillen in geboortegewicht. Dat komt door de voeding en gezondheid van de moeder, maar deels ook door erfelijke aanleg.",
+   "beweging": "Mirjam naast de babyweegschaal; het display toont het gewicht."
+  },
+  {
+   "id": "e3s11",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In Londen hielden artsen het bij voor duizenden baby's, geboren tussen het jaar 1935 en het jaar 1946. Ze noteerden het geboortegewicht, en of de baby de eerste weken overleefde.",
+   "beweging": "Een histogram van geboortegewicht bouwt op, met de as in kilo's."
+  },
+  {
+   "id": "e3q12",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Welke baby's hadden toen de grootste kans om te overleven?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A De baby's met een gemiddeld gewicht · B De zwaarste baby's · C De lichtste baby's: die worden makkelijker geboren",
+   "juist": "A"
+  },
+  {
+   "id": "e3s13",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Baby's van ongeveer drieënhalve kilo overleefden het vaakst. Veel lichtere baby's hadden het moeilijk. Maar heel zware baby's ook: dan was de geboorte gevaarlijker.",
+   "beweging": "Over het histogram tekent zich een groene overlevingscurve met een top rond 3,5 kg; de randen dimmen."
+  },
+  {
+   "id": "e3s14",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dit heet stabiliserende selectie. Beide uitersten hebben een nadeel. Het gemiddelde blijft staan, en de spreiding wordt kleiner.",
+   "beweging": "Het histogram wordt smaller en hoger rond hetzelfde midden; groene haak 'stabiliserende selectie'."
+  },
+  {
+   "id": "e3s15",
+   "hoofdstuk": "H2 Stabiliserende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daarom werden baby's niet steeds zwaarder: ook zware baby's hadden een nadeel. Met goede zorg is dat nu veranderd. Dankzij couveuses en keizersneden overleven bijna alle baby's even goed. Dat geldt van twee en een half tot vier en een half kilo. Die selectiedruk is in landen met goede zorg grotendeels verdwenen.",
+   "beweging": "De overlevingscurve wordt vlakker tussen 2,5 en 4,5 kg; label 'nu, met goede zorg'."
+  },
+  {
+   "id": "e3s16",
+   "hoofdstuk": "H3 Splitsende selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In Kameroen leeft de zwartbuikzaadkraker. In één en dezelfde populatie heeft de ene vogel een kleine snavel en de andere een grote.",
+   "beweging": "Twee zaadkrakers op een stengel zegge; hun snavels verschillen duidelijk."
+  },
+  {
+   "id": "e3s17",
+   "hoofdstuk": "H3 Splitsende selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Met een kleine snavel eet je sneller de zachte zaden van de ene zegge. Een grote snavel kraakt de harde zaden van een andere zegge. Een snavel ertussenin is in geen van beide goed.",
+   "beweging": "Links kleine zachte zaadjes bij de kleine snavel, rechts harde zaden bij de grote; een middelgrote snavel ertussen dimt."
+  },
+  {
+   "id": "e3q18",
+   "hoofdstuk": "H3 Splitsende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat gebeurt er met de snavels in deze populatie?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Ze worden middelgroot: het beste van twee werelden · B Alle snavels worden groot: harde zaden leveren meer op · C Twee groepen, klein en groot, met weinig ertussen",
+   "juist": "C"
+  },
+  {
+   "id": "e3s19",
+   "hoofdstuk": "H3 Splitsende selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Vogels met een snavel in het midden overleven het slechtst. Het histogram krijgt twee toppen. Dit heet splitsende selectie. Bij deze vogel bepaalt vooral één gen of de snavel klein of groot wordt. Van de drie vormen kan splitsende selectie het makkelijkst tot nieuwe soorten leiden: als de twee groepen vooral onderling paren, groeien ze steeds verder uit elkaar. Bij de zaadkraker is het nog één soort.",
+   "beweging": "Het histogram zakt in het midden in en splitst in twee toppen; groene haak 'splitsende selectie'; twee gouden pijlen duwen de toppen uit elkaar: 'kan leiden tot nieuwe soorten'."
+  },
+  {
+   "id": "e3s20",
+   "hoofdstuk": "H4 Seksuele selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar de pauw. Bij pauwen kiest het vrouwtje, de pauwin. De pauw zet zijn staart op als een waaier en laat de veren trillen.",
+   "beweging": "De pauw zet zijn sleep op tot een waaier en draait naar de pauwin; de oogvlekken trillen."
+  },
+  {
+   "id": "e3q21",
+   "hoofdstuk": "H4 Seksuele selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom blijft zo'n opvallende staart generatie na generatie bestaan?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Hij schrikt roofdieren af · B Pauwinnen kiezen vaker een pauw met een volle staart · C De pauw laat hem groeien omdat hij hem nodig heeft",
+   "juist": "B"
+  },
+  {
+   "id": "e3s22",
+   "hoofdstuk": "H4 Seksuele selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Een pauw met veel minder oogvlekken wordt minder vaak gekozen. Wie gekozen wordt, krijgt meer jongen, ook al kost de staart energie. Dit heet seksuele selectie: selectie door het andere geslacht. Welke delen van de staart het zwaarst wegen, onderzoeken biologen nog.",
+   "beweging": "De pauwin loopt langs twee pauwen en stopt bij de pauw met de volle waaier; de andere dimt."
+  },
+  {
+   "id": "e3s23",
+   "hoofdstuk": "H4 Seksuele selectie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Seksuele selectie kan ook via strijd gaan. Edelherten vechten in de bronst met hun gewei om de hinden. Ongeveer een op de vier volwassen herten raakt elk jaar gewond. Maar een hert dat wint, krijgt veel nakomelingen.",
+   "beweging": "Twee edelherten staan tegenover elkaar; ze laten de koppen zakken en de geweien haken in elkaar."
+  },
+  {
+   "id": "e3s24",
+   "hoofdstuk": "H4 Seksuele selectie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een kenmerk kan dus een nadeel zijn om te overleven, en toch winnen bij het voortplanten. Fitness telt nakomelingen, geen levensjaren.",
+   "beweging": "Weegschaal-schema: links 'overleven' (koraal, iets omlaag), rechts 'voortplanten' (groen, zwaarder)."
+  },
+  {
+   "id": "e3s25",
+   "hoofdstuk": "H5 Co-evolutie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Op Madagaskar groeit Darwins orchidee. De nectar zit onderin een buis van twintig tot vijfendertig centimeter lang.",
+   "beweging": "Een hele orchideeplant op een bemoste tak in de nacht: waaier van riembladeren, een witte stervormige bloem uit de bladoksel; de camera volgt de lange spoor naar beneden tot de nectar (goud)."
+  },
+  {
+   "id": "e3s26",
+   "hoofdstuk": "H5 Co-evolutie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Darwin bekeek deze bloem in het jaar 1862. Hij voorspelde: er moet een insect bestaan met een tong die bijna net zo lang is.",
+   "beweging": "Naast de bloem verschijnt een liniaal van 30 cm; een stippellijn tekent een tong die er nog niet is."
+  },
+  {
+   "id": "e3q27",
+   "hoofdstuk": "H5 Co-evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom zijn de buis en de tong allebei zo lang geworden?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A De bloem maakte haar buis langer voor deze vlinder · B Toeval: ze passen toevallig bij elkaar · C Ze waren generaties lang elkaars selectiedruk",
+   "juist": "C"
+  },
+  {
+   "id": "e3s28",
+   "hoofdstuk": "H5 Co-evolutie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "In het jaar 1903 werd de pijlstaartvlinder beschreven die erbij past. Zijn tong kan bijna dertig centimeter lang zijn. Een bloem met een langere buis dwingt de vlinder diep te steken. Zijn kop raakt dan het stuifmeel, en de bloem wordt vaker bestoven. Een vlinder met een langere tong haalt meer nectar.",
+   "beweging": "De pijlstaartvlinder hangt stil voor de bloem, rolt zijn tong uit en steekt hem tot onderin de spoor; stuifmeel blijft aan zijn kop."
+  },
+  {
+   "id": "e3s29",
+   "hoofdstuk": "H5 Co-evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Zo kunnen twee soorten elkaars selectiedruk zijn, generatie na generatie, als een wapenwedloop. Dat heet co-evolutie. Een proef past daarbij: in het jaar 1988 maakte Nilsson bij een andere orchidee de buis korter, en die bloemen werden minder goed bestoven. Er is ook een andere verklaring: misschien werd de tong eerst lang om afstand te houden van spinnen die bij bloemen loeren.",
+   "beweging": "Twee pijlen in een kring: 'langere buis' (groen) en 'langere tong' (oker) duwen elkaar rond; de vlinder in rust; haak 'co-evolutie: een wapenwedloop'; daaronder twee kleine kaartjes: proef Nilsson 1988 en de andere verklaring (Wasserthal 1997)."
+  },
+  {
+   "id": "e3s30",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Selectie werkt dus op verschillende manieren. Gerichte selectie schuift het histogram op. Stabiliserende selectie maakt het smaller. Splitsende selectie geeft twee toppen. Daarom werden baby's niet steeds zwaarder: het midden had de hoogste fitness. En de pauw verliest misschien iets bij het overleven, maar wint bij het voortplanten.",
+   "beweging": "De drie histogrammen naast elkaar op één basislijn, met daarboven de berkenspanner, de baby en de zaadkraker."
+  },
+  {
+   "id": "e3s31",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie kernzinnen met een groene haak; volgende film: De mens als selectiefactor."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Teken voor gerichte, stabiliserende en splitsende selectie hoe het histogram van een kenmerk verandert, en geef bij elk een voorbeeld uit de film.",
+   "antwoord": "Gericht: het histogram schuift naar één kant (berkenspanner, vinken uit film 2). Stabiliserend: zelfde gemiddelde, smaller (geboortegewicht). Splitsend: twee toppen, het midden zakt in (zwartbuikzaadkraker)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom het aandeel zwarte berkenspanners na 1956 weer afnam.",
+   "antwoord": "Door schonere lucht werden de stammen weer licht. Vogels vonden nu de zwarte vlinders vaker; lichte vlinders kregen meer nakomelingen, dus het allel voor licht werd weer vaker (gerichte selectie, de andere kant op)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom is een lange pauwenstaart een voorbeeld van seksuele selectie en niet van gewone natuurlijke selectie op overleven?",
+   "antwoord": "De staart helpt niet bij overleven (hij kost energie en valt op), maar pauwinnen kiezen vaker pauwen met een volle staart. Die krijgen meer nakomelingen: selectie door het andere geslacht."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg met het voorbeeld van Darwins orchidee en de pijlstaartvlinder uit wat co-evolutie is.",
+   "antwoord": "Twee soorten zijn elkaars selectiedruk: bloemen met een langere buis worden beter bestoven door vlinders die diep moeten steken; vlinders met een langere tong halen meer nectar. Zo werden buis en tong over vele generaties samen langer (zo verklaren de meeste biologen het; Wasserthal 1997 stelt dat de lange tong eerst ontstond als bescherming tegen roofdieren)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "In Italië verdween tussen 1954 en 1994 de stabiliserende selectie op geboortegewicht grotendeels. Geef een verklaring.",
+   "antwoord": "Door betere zorg rond de geboorte (couveuses, keizersneden) overleven bijna alle baby's tussen 2,5 en 4,5 kg; de uitersten hebben geen (groot) nadeel meer, dus de selectiedruk is weg."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "gerichte selectie",
+   "uitleg": "Eén uiterste van de variatie heeft een selectievoordeel; het gemiddelde van het kenmerk verschuift die kant op.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "stabiliserende selectie",
+   "uitleg": "Beide uitersten hebben een nadeel; het gemiddelde blijft gelijk en de spreiding wordt kleiner.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "splitsende selectie",
+   "uitleg": "Beide uitersten hebben een voordeel en het midden een nadeel; de verdeling krijgt twee toppen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "seksuele selectie",
+   "uitleg": "Selectie door het andere geslacht: door partnerkeuze of door strijd om partners krijgen individuen met bepaalde kenmerken meer nakomelingen, ook als die kenmerken een nadeel zijn bij het overleven.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "co-evolutie",
+   "uitleg": "Twee soorten zijn elkaars selectiedruk en evolueren daardoor samen, zoals een bloem en haar bestuiver.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "selectienadeel",
+   "uitleg": "Een eigenschap waardoor een individu minder kans heeft om te overleven of nakomelingen te krijgen.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "pauw: sleep tot ± 1,5 m, ± 300 g; groei kost ± 3 % van het dagelijkse energiebudget",
+   "bron": "Askew 2014 (University of Leeds, persbericht); Wikipedia Indian peafowl (lengte tot 2,0–2,3 m met sleep)"
+  },
+  {
+   "waarde": "sleep remt opstijgen en lopen niet meetbaar (dus niet 'trager' zeggen)",
+   "bron": "Askew 2014; Thavarajah e.a. 2016, Scientific Reports 6:36512"
+  },
+  {
+   "waarde": "pauwen met sterk verminderde oogvlekken minder vaak gekozen; natuurlijke verschillen in aantal oogvlekken maken weinig uit",
+   "bron": "Dakin & Montgomerie 2011, Animal Behaviour (ScienceDaily); Takahashi e.a. 2008 (geen voorkeur); Petrie 1991 (wel voorkeur, archief A6)"
+  },
+  {
+   "waarde": "berkenspanner: eerste zwarte bij Manchester in 1848; mutatie (transposon in het gen cortex) ontstond rond 1819",
+   "bron": "Wikipedia Peppered moth evolution; Universiteit van Liverpool 2016 (van 't Hof e.a., Nature)"
+  },
+  {
+   "waarde": "1895: ± 98 % zwart rond Manchester",
+   "bron": "Darwin200, Christ's College Cambridge; Wikipedia Industrial melanism (Clarke e.a. 1985)"
+  },
+  {
+   "waarde": "Clean Air Act 1956; nu nog 'een paar procent' zwart in Engeland en Wales",
+   "bron": "Science News 2011 ('only a few percent'); eje.cz 2024 (Clean Air Act 1956)"
+  },
+  {
+   "waarde": "vogelpredatie als hoofdoorzaak bevestigd (Majerus 2001–2007; Cook e.a. 2012, 4864 vlinders)",
+   "bron": "Wikipedia Peppered moth evolution"
+  },
+  {
+   "waarde": "geboortegewicht: baby's geboren in Londen 1935–1946; hoogste overleving rond 8 lb (3,6 kg); film zegt 'ongeveer drieënhalve kilo'",
+   "bron": "Ridley, Evolution (Blackwell) tutorial Natural selection and variation, fig. Karn & Penrose 1951; mun.ca noemt 7 lb (zie twijfels)"
+  },
+  {
+   "waarde": "Italië 1954–1994: stabiliserende selectie bijna verdwenen, sterfte 2,5–4,5 kg vrijwel gelijk",
+   "bron": "Ulizzi e.a., Human Biology 74(4) 2002 (abstract)"
+  },
+  {
+   "waarde": "zwartbuikzaadkraker Pyrenestes ostrinus ± 15 cm, man rood met zwarte buik; kleine snavel → zachte Scleria goossensii, grote → harde Scleria verrucosa; Kameroen",
+   "bron": "Wikipedia Black-bellied seedcracker; Springer Nature 'Cracking the problem of bill size' (2018)"
+  },
+  {
+   "waarde": "snavelmaat vooral bepaald door één gen (één autosomale factor, groot dominant; kandidaat IGF1)",
+   "bron": "Smith 1993, Nature 363:618 (abstract); von Holdt e.a. 2018"
+  },
+  {
+   "waarde": "edelhert: ± 23 % van de herten > 5 jaar raakt elk jaar gewond in de bronst ('ongeveer een op de vier')",
+   "bron": "Clutton-Brock e.a. (Rum), via wildlifeonline.me.uk Red deer mortality"
+  },
+  {
+   "waarde": "Darwins orchidee: spoor 20–35 cm (Darwin mat 11½ inch ≈ 29 cm)",
+   "bron": "Wikipedia Xanthopan; Beccaloni 2017 (Wallace Fund)"
+  },
+  {
+   "waarde": "Darwin voorspelde de vlinder in 1862 (boek over orchideeën); beschreven als praedicta in 1903 (Rothschild & Jordan); sinds 2021 eigen soort Xanthopan praedicta",
+   "bron": "Beccaloni 2017; Wikipedia Xanthopan; Arnold Arboretum (Harvard)"
+  },
+  {
+   "waarde": "tong tot 28,5 cm ('bijna dertig centimeter')",
+   "bron": "Guinness World Records, Longest insect tongue (2021)"
+  },
+  {
+   "waarde": "bestuiving in het wild pas waargenomen in 1992 (Wasserthal), eerste foto in het wild 2003",
+   "bron": "Arnold Arboretum (Harvard); Beccaloni noemt 1997 — niet in het script"
+  },
+  {
+   "waarde": "kortere spoor → minder bestuivingssucces (experiment bij Platanthera-orchideeën met pijlstaarten in Zweden, niet bij Angraecum; e3s29 zegt 'bij een andere orchidee')",
+   "bron": "Nilsson 1988, Nature (via PMC2500161)"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "berkenspanner",
+   "invoer": "berkenspanner",
+   "ipa": "ˈbɛrkə(n)ˌspɑnər",
+   "bron": "Van Dale; samenstelling, gewone spelling"
+  },
+  {
+   "woord": "Manchester",
+   "invoer": "Manchester",
+   "ipa": "ˈmæntʃɪstər",
+   "bron": "Engelse plaatsnaam"
+  },
+  {
+   "woord": "achtennegentig",
+   "invoer": "acht en neguntig",
+   "ipa": "ˌɑxtənˈneːɣəntəx",
+   "bron": "uitspraaklijst: negentig → neguntig; patroon 'vijf en neguntig'"
+  },
+  {
+   "woord": "jaartallen",
+   "invoer": "in het jaar 1848 / 1895 / 1956 / 1935 / 1946 / 1862 / 1903",
+   "ipa": "",
+   "bron": "uitspraaklijst (vaste regel)"
+  },
+  {
+   "woord": "couveuses",
+   "invoer": "couveuses",
+   "ipa": "kuˈvøːzəs",
+   "bron": "Van Dale (klemtoon op 'veu'); gewone spelling bij v4, op de wachtlijst"
+  },
+  {
+   "woord": "keizersneden",
+   "invoer": "keizersneden",
+   "ipa": "ˈkɛizərˌsneːdə(n)",
+   "bron": "Van Dale"
+  },
+  {
+   "woord": "zwartbuikzaadkraker",
+   "invoer": "zwartbuik-zaadkraker",
+   "ipa": "ˈzʋɑrdbœykˌzaːtkraːkər",
+   "bron": "eigen transcriptie; koppelteken in de invoer zodat de stem de samenstelling niet inslikt"
+  },
+  {
+   "woord": "Kameroen",
+   "invoer": "Kameroen",
+   "ipa": "kaːməˈrun",
+   "bron": "Nederlandse landnaam, klemtoon op 'roen'"
+  },
+  {
+   "woord": "zegge",
+   "invoer": "zegge",
+   "ipa": "ˈzɛɣə",
+   "bron": "Van Dale (plant)"
+  },
+  {
+   "woord": "pauwin / pauwinnen",
+   "invoer": "pauwin / pauwinnen",
+   "ipa": "pɑuˈʋɪn",
+   "bron": "Van Dale (klemtoon op 'win')"
+  },
+  {
+   "woord": "bronst",
+   "invoer": "bronst",
+   "ipa": "brɔnst",
+   "bron": "Van Dale"
+  },
+  {
+   "woord": "Madagaskar",
+   "invoer": "Madagaskar",
+   "ipa": "maːdaːˈɣɑskɑr",
+   "bron": "Nederlandse landnaam"
+  },
+  {
+   "woord": "orchidee",
+   "invoer": "orchidee",
+   "ipa": "ɔrxiˈdeː",
+   "bron": "Van Dale (klemtoon op 'dee'); op de wachtlijst"
+  },
+  {
+   "woord": "co-evolutie",
+   "invoer": "koo-evolutie",
+   "ipa": "ˌkoːeːvoːˈly(t)si",
+   "bron": "archief A6 (wachtlijst 'koo-evolutie'); seriebrief risicowoord"
+  },
+  {
+   "woord": "pijlstaartvlinder",
+   "invoer": "pijlstaartvlinder",
+   "ipa": "ˈpɛilstaːrtˌflɪndər",
+   "bron": "Van Dale"
+  },
+  {
+   "woord": "Nilsson",
+   "invoer": "Nilsson",
+   "ipa": "ˈnɪlsɔn",
+   "bron": "Zweedse achternaam; wachtlijst r4 (nog testen)"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "berkenspanner(ctx, x, y, s, {vorm: 'licht'|'zwart'}) — Biston betularia in rusthouding, typica met spikkels en getande dwarslijnen, carbonaria egaal zwart, geveerde antennes op de kop (teken_evo3.js)",
+  "schors(ctx, x, y, w, h, {roet}) — boomstam close-up, licht met korstmos of zwart van roet",
+  "pauw(ctx, x, y, s, {waaier: 0|1}) — pauwhaan met sleep in rust (schuin omlaag over de grond) of opgezet als waaier met vier ringen oogvlekken; pauwin() — vrouw zonder sleep",
+  "edelhert(ctx, x, y, s, {kop: 0..1}) — edelhert in de bronst met manen, gewei met oog-, ijs-, middenspruit en kroon, hak en pols op de juiste hoogte; kop omlaag = vechthouding",
+  "zaadkraker(ctx, x, y, s, {snavel: 'klein'|'groot'}) — zwartbuikzaadkraker (man), zelfde schaal als grondvink",
+  "orchidee(ctx, x, y, s, {spoor: mm}) + orchideeBladeren() — Darwins orchidee met spoor op ware lengte en nectar onderin (goud)",
+  "pijlstaart(ctx, x, y, s, {tong, tongEind}) — Xanthopan praedicta van opzij, roltong opgerold of uitgestoken naar een doelpunt",
+  "babyWeegschaal(ctx, x, y, w, {kg}) — babyweegschaal met display (voor castpersonage 'baby' en Verloskundige Mirjam)"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel A gekozen (baby's). De haak uit de seriebrief ('een staart die hem trager maakt') is aangepast: metingen tonen dat de sleep opstijgen en lopen niet meetbaar remt (Askew 2014; Thavarajah 2016). De film zegt daarom: kost energie en valt op.",
+  "Volgorde H1–H5 zoals in het reeksontwerp. H5 co-evolutie is een vijfde hoofdstuk; de film komt daardoor op ± 8 minuten.",
+  "Berkenspanner: twee vormen (één gen) passen niet goed in een continu histogram. Daarom eerst een lijngrafiek 'aandeel zwart' (e3s08) en daarna pas het algemene vervormende histogram (e3s09). Grafiek gestileerd: geen echte meetreeks, label 'vereenvoudigd'.",
+  "'Een gen met twee allelen' is vereenvoudigd: er zijn ook tussenvormen (insularia) en het zwarte allel (carbonaria) is dominant. Niet genoemd om één nieuw begrip tegelijk te houden.",
+  "Geboortegewicht-optimum: bronnen verschillen (Ridley: 8 lb = 3,6 kg; mun.ca: 7 lb = 3,2 kg; archief: 3,6 kg en gemiddelde 7,1 lb). Film zegt 'ongeveer drieënhalve kilo'. Het aantal (13.730) uit het archief kon ik niet nalopen en staat daarom niet in het script.",
+  "Stabiliserende selectie en de puzzel: het antwoord legt uit waarom het gemiddelde niet schuift. Dat geboortegewicht ook sterk door omgeving (voeding, zwangerschapsduur) bepaald wordt, staat in e3s10 (één zin).",
+  "Pauw: de keuze van pauwinnen voor oogvlekken is omstreden (Petrie 1991 wel; Takahashi 2008 niet; Dakin & Montgomerie 2011: alleen sterk verminderde oogvlekken worden afgewezen). Script zegt precies dat en noemt dat biologen het nog onderzoeken.",
+  "Edelherten: 'ongeveer een op de vier herten raakt elk jaar gewond' geldt voor herten ouder dan vijf jaar op Rum (Clutton-Brock); in het script 'volwassen herten'.",
+  "Co-evolutie: de vraag 'Wie past zich aan wie aan?' uit de seriebrief (puzzel C) is herschreven zodat 'past zich aan' niet als handeling klinkt.",
+  "Orchidee: naam Angraecum sesquipedale en vlindernaam Xanthopan praedicta alleen in beeld (Meta), niet gesproken. Darwin noemen mag hier (co-evolutie), zonder zijn reis.",
+  "Niet zeggen: 'de pauwenstaart maakt hem trager/hij kan er niet mee vliegen'; 'Kettlewell plakte dode vlinders op stammen, dus het is nep' (de selectie is later bevestigd); 'de vlinders werden zwart van het roet'; 'Darwin vond de vlinder' (hij voorspelde hem; Wallace deed dat in 1867 ook); 'baby's worden nu door evolutie steeds zwaarder'; 'de bloem maakte de buis langer om de vlinder te dwingen'; 'het sterkste hert krijgt alle hinden'.",
+  "Antwoordposities: B, A, C, B, C.",
+  "Co-evolutie orchidee–vlinder is niet bewezen: Wasserthal (1997) stelt dat de lange tong eerder ontstond om op afstand te blijven van roofspinnen bij de bloem, waarna de orchidee door deze vlinder bestoven raakte. Sinds r4 (Kamiel 23 okt 2026) noemt e3s29 dat expliciet als andere verklaring, naast de proef van Nilsson (1988; Platanthera in Zweden, kortere spoor → minder bestuiving), en heet de co-evolutie een wapenwedloop; geformuleerd met 'kan' en 'misschien'.",
+  "Review 22 okt: 5 punten verwerkt (e3s22 geen 'korter leven' meer; e3s15 zware baby's 'ook een nadeel' i.p.v. 'net zo goed'; e3s29 co-evolutie voorzichtiger; e3s01 sleep en 'volwassen pauwhaan'; e3s09 en checkvraag 1 'vorige film' i.p.v. Daphne Major). Punt 9 (Mirjam) niet overgenomen: verloskundige Mirjam staat in het castboek (lib_cast.js, id 'mirjam')."
+ ]
+}

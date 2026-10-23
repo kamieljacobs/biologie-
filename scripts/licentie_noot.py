@@ -4,7 +4,7 @@ Pagina's met een <footer> krijgen de vermelding in de footer, de rest een regel 
 import os, re, subprocess
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 files = subprocess.check_output(['git', 'ls-files', '*.html'], cwd=R, text=True).split()
-skip = lambda f: '/bron/' in f or f in ('oud.html', 'gebruik.html') or f.startswith('nieuw/')
+skip = lambda f: '/bron/' in f or '/storyboards-' in f or f in ('oud.html', 'gebruik.html') or f.startswith('nieuw/')
 MARK = 'data-licentie'
 n = 0
 for f in files:

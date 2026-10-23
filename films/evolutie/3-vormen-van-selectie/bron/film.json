@@ -1,0 +1,77 @@
+{
+ "slug": "3-vormen-van-selectie",
+ "hoofdstuk": "evolutie",
+ "hoofdstukNaam": "Evolutie",
+ "title": "Vormen van selectie",
+ "sub": "gericht, stabiliserend, splitsend, seksueel en samen",
+ "puzzle": "Waarom worden baby's niet steeds zwaarder?",
+ "meta": "evolutie 3/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 3 van 8",
+ "lead": "Selectie werkt dus op verschillende manieren. Gerichte selectie schuift het histogram op. Stabiliserende selectie maakt het smaller. Splitsende selectie geeft twee toppen. Daarom werden baby's niet steeds zwaarder: het midden had de hoogste fitness. En de pauw verliest misschien iets bij het overleven, maar wint bij het voortplanten.",
+ "endHaak": "volgende film: De mens als selectiefactor",
+ "minis": {
+  "Hoofdstuk 1": "Waarom werden de berkenspanners rond Manchester zwart?",
+  "Hoofdstuk 2": "Welke baby's overleefden het vaakst?",
+  "Hoofdstuk 3": "Kan een populatie twee kanten op tegelijk?",
+  "Hoofdstuk 4": "Waarom houdt een pauw een staart die hem niet helpt overleven?",
+  "Hoofdstuk 5": "Wie bepaalt de lengte, de bloem of de vlinder?",
+  "Recap": "Waarom worden baby's niet steeds zwaarder?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q07": {
+   "q": "Wat gebeurt er de jaren daarna met de berkenspanners rond Manchester?",
+   "correct": 1,
+   "explain": "Op een zwarte stam vindt een vogel de lichte vlinders het eerst. Zwarte vlinders worden minder vaak opgegeten en krijgen meer nakomelingen. In het jaar 1895 is rond Manchester ongeveer achtennegentig procent van de berkenspanners zwart."
+  },
+  "q14": {
+   "q": "Welke baby's hadden toen de grootste kans om te overleven?",
+   "correct": 0,
+   "explain": "Baby's van ongeveer drieënhalve kilo overleefden het vaakst. Veel lichtere baby's hadden het moeilijk. Maar heel zware baby's ook: dan was de geboorte gevaarlijker."
+  },
+  "q21": {
+   "q": "Wat gebeurt er met de snavels in deze populatie?",
+   "correct": 2,
+   "explain": "Vogels met een snavel in het midden overleven het slechtst. Het histogram krijgt twee toppen. Dit heet splitsende selectie."
+  },
+  "q25": {
+   "q": "Waarom blijft zo'n opvallende staart generatie na generatie bestaan?",
+   "correct": 1,
+   "explain": "Een pauw met veel minder oogvlekken wordt minder vaak gekozen. Wie gekozen wordt, krijgt meer jongen, ook al kost de staart energie. Dit heet seksuele selectie: selectie door het andere geslacht."
+  },
+  "q32": {
+   "q": "Waarom zijn de buis en de tong allebei zo lang geworden?",
+   "correct": 2,
+   "explain": "In het jaar 1903 werd de pijlstaartvlinder beschreven die erbij past. Zijn tong kan bijna dertig centimeter lang zijn. Een bloem met een langere buis dwingt de vlinder diep te steken."
+  }
+ },
+ "glossary": [
+  {
+   "t": "gerichte selectie",
+   "d": "Eén uiterste van de variatie heeft een selectievoordeel; het gemiddelde van het kenmerk verschuift die kant op."
+  },
+  {
+   "t": "stabiliserende selectie",
+   "d": "Beide uitersten hebben een nadeel; het gemiddelde blijft gelijk en de spreiding wordt kleiner."
+  },
+  {
+   "t": "splitsende selectie",
+   "d": "Beide uitersten hebben een voordeel en het midden een nadeel; de verdeling krijgt twee toppen."
+  },
+  {
+   "t": "seksuele selectie",
+   "d": "Selectie door het andere geslacht: door partnerkeuze of door strijd om partners krijgen individuen met bepaalde kenmerken meer nakomelingen, ook als die kenmerken een nadeel zijn bij het overleven."
+  },
+  {
+   "t": "co-evolutie",
+   "d": "Twee soorten zijn elkaars selectiedruk en evolueren daardoor samen, zoals een bloem en haar bestuiver."
+  },
+  {
+   "t": "selectienadeel",
+   "d": "Een eigenschap waardoor een individu minder kans heeft om te overleven of nakomelingen te krijgen."
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Teken voor gerichte, stabiliserende en splitsende selectie hoe het histogram van een kenmerk verandert, en geef bij elk een voorbeeld uit de film.</p><details><summary>Antwoord</summary><p>Gericht: het histogram schuift naar één kant (berkenspanner, vinken uit film 2). Stabiliserend: zelfde gemiddelde, smaller (geboortegewicht). Splitsend: twee toppen, het midden zakt in (zwartbuikzaadkraker).</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Leg uit waarom het aandeel zwarte berkenspanners na 1956 weer afnam.</p><details><summary>Antwoord</summary><p>Door schonere lucht werden de stammen weer licht. Vogels vonden nu de zwarte vlinders vaker; lichte vlinders kregen meer nakomelingen, dus het allel voor licht werd weer vaker (gerichte selectie, de andere kant op).</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Waarom is een lange pauwenstaart een voorbeeld van seksuele selectie en niet van gewone natuurlijke selectie op overleven?</p><details><summary>Antwoord</summary><p>De staart helpt niet bij overleven (hij kost energie en valt op), maar pauwinnen kiezen vaker pauwen met een volle staart. Die krijgen meer nakomelingen: selectie door het andere geslacht.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Leg met het voorbeeld van Darwins orchidee en de pijlstaartvlinder uit wat co-evolutie is.</p><details><summary>Antwoord</summary><p>Twee soorten zijn elkaars selectiedruk: bloemen met een langere buis worden beter bestoven door vlinders die diep moeten steken; vlinders met een langere tong halen meer nectar. Zo werden buis en tong over vele generaties samen langer (zo verklaren de meeste biologen het; Wasserthal 1997 stelt dat de lange tong eerst ontstond als bescherming tegen roofdieren).</p></details></div>\n  <div class=\"q\"><p><b>5.</b> In Italië verdween tussen 1954 en 1994 de stabiliserende selectie op geboortegewicht grotendeels. Geef een verklaring.</p><details><summary>Antwoord</summary><p>Door betere zorg rond de geboorte (couveuses, keizersneden) overleven bijna alle baby&#x27;s tussen 2,5 en 4,5 kg; de uitersten hebben geen (groot) nadeel meer, dus de selectiedruk is weg.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Gerichte selectie</td><td>F · Macro</td><td>Waarom werden de berkenspanners rond Manchester zwart?</td></tr>\n  <tr><td>2. Stabiliserende selectie</td><td>F · Schema</td><td>Welke baby&#x27;s overleefden het vaakst?</td></tr>\n  <tr><td>3. Splitsende selectie</td><td>F · Macro</td><td>Kan een populatie twee kanten op tegelijk?</td></tr>\n  <tr><td>4. Seksuele selectie</td><td>F · Macro</td><td>Waarom houdt een pauw een staart die hem niet helpt overleven?</td></tr>\n  <tr><td>5. Co-evolutie</td><td>F · Macro</td><td>Wie bepaalt de lengte, de bloem of de vlinder?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>pauw: sleep tot ± 1,5 m, ± 300 g; groei kost ± 3 % van het dagelijkse energiebudget</td><td>Askew 2014 (University of Leeds, persbericht); Wikipedia Indian peafowl (lengte tot 2,0–2,3 m met sleep)</td></tr>\n  <tr><td>sleep remt opstijgen en lopen niet meetbaar (dus niet &#x27;trager&#x27; zeggen)</td><td>Askew 2014; Thavarajah e.a. 2016, Scientific Reports 6:36512</td></tr>\n  <tr><td>pauwen met sterk verminderde oogvlekken minder vaak gekozen; natuurlijke verschillen in aantal oogvlekken maken weinig uit</td><td>Dakin &amp; Montgomerie 2011, Animal Behaviour (ScienceDaily); Takahashi e.a. 2008 (geen voorkeur); Petrie 1991 (wel voorkeur, archief A6)</td></tr>\n  <tr><td>berkenspanner: eerste zwarte bij Manchester in 1848; mutatie (transposon in het gen cortex) ontstond rond 1819</td><td>Wikipedia Peppered moth evolution; Universiteit van Liverpool 2016 (van &#x27;t Hof e.a., Nature)</td></tr>\n  <tr><td>1895: ± 98 % zwart rond Manchester</td><td>Darwin200, Christ&#x27;s College Cambridge; Wikipedia Industrial melanism (Clarke e.a. 1985)</td></tr>\n  <tr><td>Clean Air Act 1956; nu nog &#x27;een paar procent&#x27; zwart in Engeland en Wales</td><td>Science News 2011 (&#x27;only a few percent&#x27;); eje.cz 2024 (Clean Air Act 1956)</td></tr>\n  <tr><td>vogelpredatie als hoofdoorzaak bevestigd (Majerus 2001–2007; Cook e.a. 2012, 4864 vlinders)</td><td>Wikipedia Peppered moth evolution</td></tr>\n  <tr><td>geboortegewicht: baby&#x27;s geboren in Londen 1935–1946; hoogste overleving rond 8 lb (3,6 kg); film zegt &#x27;ongeveer drieënhalve kilo&#x27;</td><td>Ridley, Evolution (Blackwell) tutorial Natural selection and variation, fig. Karn &amp; Penrose 1951; mun.ca noemt 7 lb (zie twijfels)</td></tr>\n  <tr><td>Italië 1954–1994: stabiliserende selectie bijna verdwenen, sterfte 2,5–4,5 kg vrijwel gelijk</td><td>Ulizzi e.a., Human Biology 74(4) 2002 (abstract)</td></tr>\n  <tr><td>zwartbuikzaadkraker Pyrenestes ostrinus ± 15 cm, man rood met zwarte buik; kleine snavel → zachte Scleria goossensii, grote → harde Scleria verrucosa; Kameroen</td><td>Wikipedia Black-bellied seedcracker; Springer Nature &#x27;Cracking the problem of bill size&#x27; (2018)</td></tr>\n  <tr><td>snavelmaat vooral bepaald door één gen (één autosomale factor, groot dominant; kandidaat IGF1)</td><td>Smith 1993, Nature 363:618 (abstract); von Holdt e.a. 2018</td></tr>\n  <tr><td>edelhert: ± 23 % van de herten &gt; 5 jaar raakt elk jaar gewond in de bronst (&#x27;ongeveer een op de vier&#x27;)</td><td>Clutton-Brock e.a. (Rum), via wildlifeonline.me.uk Red deer mortality</td></tr>\n  <tr><td>Darwins orchidee: spoor 20–35 cm (Darwin mat 11½ inch ≈ 29 cm)</td><td>Wikipedia Xanthopan; Beccaloni 2017 (Wallace Fund)</td></tr>\n  <tr><td>Darwin voorspelde de vlinder in 1862 (boek over orchideeën); beschreven als praedicta in 1903 (Rothschild &amp; Jordan); sinds 2021 eigen soort Xanthopan praedicta</td><td>Beccaloni 2017; Wikipedia Xanthopan; Arnold Arboretum (Harvard)</td></tr>\n  <tr><td>tong tot 28,5 cm (&#x27;bijna dertig centimeter&#x27;)</td><td>Guinness World Records, Longest insect tongue (2021)</td></tr>\n  <tr><td>bestuiving in het wild pas waargenomen in 1992 (Wasserthal), eerste foto in het wild 2003</td><td>Arnold Arboretum (Harvard); Beccaloni noemt 1997 — niet in het script</td></tr>\n  <tr><td>kortere spoor → minder bestuivingssucces (experiment bij Platanthera-orchideeën met pijlstaarten in Zweden, niet bij Angraecum; e3s29 zegt &#x27;bij een andere orchidee&#x27;)</td><td>Nilsson 1988, Nature (via PMC2500161)</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>Puzzel A gekozen (baby&#x27;s). De haak uit de seriebrief (&#x27;een staart die hem trager maakt&#x27;) is aangepast: metingen tonen dat de sleep opstijgen en lopen niet meetbaar remt (Askew 2014; Thavarajah 2016). De film zegt daarom: kost energie en valt op.</li>\n  <li>Volgorde H1–H5 zoals in het reeksontwerp. H5 co-evolutie is een vijfde hoofdstuk; de film komt daardoor op ± 8 minuten.</li>\n  <li>Berkenspanner: twee vormen (één gen) passen niet goed in een continu histogram. Daarom eerst een lijngrafiek &#x27;aandeel zwart&#x27; (e3s08) en daarna pas het algemene vervormende histogram (e3s09). Grafiek gestileerd: geen echte meetreeks, label &#x27;vereenvoudigd&#x27;.</li>\n  <li>&#x27;Een gen met twee allelen&#x27; is vereenvoudigd: er zijn ook tussenvormen (insularia) en het zwarte allel (carbonaria) is dominant. Niet genoemd om één nieuw begrip tegelijk te houden.</li>\n  <li>Geboortegewicht-optimum: bronnen verschillen (Ridley: 8 lb = 3,6 kg; mun.ca: 7 lb = 3,2 kg; archief: 3,6 kg en gemiddelde 7,1 lb). Film zegt &#x27;ongeveer drieënhalve kilo&#x27;. Het aantal (13.730) uit het archief kon ik niet nalopen en staat daarom niet in het script.</li>\n  <li>Stabiliserende selectie en de puzzel: het antwoord legt uit waarom het gemiddelde niet schuift. Dat geboortegewicht ook sterk door omgeving (voeding, zwangerschapsduur) bepaald wordt, staat in e3s10 (één zin).</li>\n  <li>Pauw: de keuze van pauwinnen voor oogvlekken is omstreden (Petrie 1991 wel; Takahashi 2008 niet; Dakin &amp; Montgomerie 2011: alleen sterk verminderde oogvlekken worden afgewezen). Script zegt precies dat en noemt dat biologen het nog onderzoeken.</li>\n  <li>Edelherten: &#x27;ongeveer een op de vier herten raakt elk jaar gewond&#x27; geldt voor herten ouder dan vijf jaar op Rum (Clutton-Brock); in het script &#x27;volwassen herten&#x27;.</li>\n  <li>Co-evolutie: de vraag &#x27;Wie past zich aan wie aan?&#x27; uit de seriebrief (puzzel C) is herschreven zodat &#x27;past zich aan&#x27; niet als handeling klinkt.</li>\n  <li>Orchidee: naam Angraecum sesquipedale en vlindernaam Xanthopan praedicta alleen in beeld (Meta), niet gesproken. Darwin noemen mag hier (co-evolutie), zonder zijn reis.</li>\n  <li>Niet zeggen: &#x27;de pauwenstaart maakt hem trager/hij kan er niet mee vliegen&#x27;; &#x27;Kettlewell plakte dode vlinders op stammen, dus het is nep&#x27; (de selectie is later bevestigd); &#x27;de vlinders werden zwart van het roet&#x27;; &#x27;Darwin vond de vlinder&#x27; (hij voorspelde hem; Wallace deed dat in 1867 ook); &#x27;baby&#x27;s worden nu door evolutie steeds zwaarder&#x27;; &#x27;de bloem maakte de buis langer om de vlinder te dwingen&#x27;; &#x27;het sterkste hert krijgt alle hinden&#x27;.</li>\n  <li>Antwoordposities: B, A, C, B, C.</li>\n  <li>Co-evolutie orchidee–vlinder is niet bewezen: Wasserthal (1997) stelt dat de lange tong eerder ontstond om op afstand te blijven van roofspinnen bij de bloem, waarna de orchidee door deze vlinder bestoven raakte. Sinds r4 (Kamiel 23 okt 2026) noemt e3s29 dat expliciet als andere verklaring, naast de proef van Nilsson (1988; Platanthera in Zweden, kortere spoor → minder bestuiving), en heet de co-evolutie een wapenwedloop; geformuleerd met &#x27;kan&#x27; en &#x27;misschien&#x27;.</li>\n  <li>Review 22 okt: 5 punten verwerkt (e3s22 geen &#x27;korter leven&#x27; meer; e3s15 zware baby&#x27;s &#x27;ook een nadeel&#x27; i.p.v. &#x27;net zo goed&#x27;; e3s29 co-evolutie voorzichtiger; e3s01 sleep en &#x27;volwassen pauwhaan&#x27;; e3s09 en checkvraag 1 &#x27;vorige film&#x27; i.p.v. Daphne Major). Punt 9 (Mirjam) niet overgenomen: verloskundige Mirjam staat in het castboek (lib_cast.js, id &#x27;mirjam&#x27;).</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 3 van 8 in de reeks Evolutie (havo en vwo; mechanisme eerst: binnen één populatie → één populatie wordt twee → tussen soorten). Vorige: Natuurlijke selectie. Volgende: De mens als selectiefactor.</p>\n</section>\n"
+}

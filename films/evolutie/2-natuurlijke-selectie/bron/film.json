@@ -1,0 +1,92 @@
+{
+ "slug": "2-natuurlijke-selectie",
+ "hoofdstuk": "evolutie",
+ "hoofdstukNaam": "Evolutie",
+ "title": "Natuurlijke selectie",
+ "sub": "waarom niet de sterkste wint",
+ "puzzle": "Waarom wint niet altijd het sterkste dier?",
+ "meta": "evolutie 2/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 2 van 8",
+ "lead": "Natuurlijke selectie heeft drie dingen nodig: erfelijke variatie, meer nakomelingen dan er kunnen overleven, en selectiedruk. Tel de jongen die zelf ook weer jongen krijgen. Wie daarvan de meeste heeft, geeft de meeste allelen door. Voor een rups is dat de groene. Voor een vink in een droog jaar is het die met de hoogste snavel. Niet de sterkste.",
+ "endHaak": "volgende film: Vormen van selectie",
+ "minis": {
+  "Hoofdstuk 1": "Waarom blijft het aantal vinken gelijk als ze zoveel jongen krijgen?",
+  "Hoofdstuk 2": "Welke vinken overleven een jaar zonder regen?",
+  "Hoofdstuk 3": "Wat bedoelt een bioloog met fitness?",
+  "Hoofdstuk 4": "Wordt een rups groen omdat hij dat nodig heeft?",
+  "Recap": "Waarom wint niet altijd het sterkste dier?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q06": {
+   "q": "Het aantal vinken op het eiland blijft over de jaren ongeveer gelijk. Hoe kan dat?",
+   "correct": 2,
+   "explain": "Als elk jong zou overleven, zou de populatie steeds verdubbelen. Maar het eiland heeft maar zoveel zaden. De meeste jongen sterven voordat ze zelf gaan broeden."
+  },
+  "q14": {
+   "q": "Welke vinken hebben de meeste kans om de droogte te overleven?",
+   "correct": 0,
+   "explain": "Een hoge snavel kraakt een Tribulus-vruchtje sneller open. Een vink met een lage snavel krijgt het nauwelijks open, hoe hard hij ook werkt."
+  },
+  "q19": {
+   "q": "De overlevers krijgen in het jaar 1978 jongen. Hoe hoog zijn de snavels van die jongen?",
+   "correct": 1,
+   "explain": "De jongen van het jaar 1978 hebben gemiddeld een hogere snavel. Ongeveer vier procent hoger dan de vinken van vóór de droogte. Er zijn nog steeds lage, gemiddelde en hoge snavels."
+  },
+  "q26": {
+   "q": "Twee vinken. Welke vink heeft de hoogste fitness?",
+   "correct": 0,
+   "explain": "Neem een vink die vier jaar leeft. Hij brengt zes jongen groot die zelf ook broeden. Een sterke vink leeft tien jaar, maar heeft maar twee broedende jongen."
+  },
+  "q31": {
+   "q": "Een groene rups leeft op een rood blad. Wat erven zijn jongen van hem?",
+   "correct": 1,
+   "explain": "Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel."
+  }
+ },
+ "glossary": [
+  {
+   "t": "overproductie",
+   "d": "Er komen meer nakomelingen ter wereld dan er kunnen overleven, omdat voedsel en ruimte beperkt zijn."
+  },
+  {
+   "t": "variatie",
+   "d": "Individuen van een populatie verschillen van elkaar, zoals in snavelhoogte; een deel van die verschillen is erfelijk."
+  },
+  {
+   "t": "histogram",
+   "d": "Staafdiagram dat laat zien hoeveel individuen elke waarde van een kenmerk hebben, zoals elke snavelhoogte."
+  },
+  {
+   "t": "selectiedruk",
+   "d": "Een factor uit de omgeving (biotisch of abiotisch) die bepaalt welke individuen meer kans hebben om te overleven en zich voort te planten, zoals de droogte van 1977 of een merel die rupsen zoekt."
+  },
+  {
+   "t": "selectievoordeel",
+   "d": "Een grotere kans om te overleven en nakomelingen te krijgen dan andere individuen, door een erfelijke eigenschap (zoals een hoge snavel in een droog jaar)."
+  },
+  {
+   "t": "natuurlijke selectie",
+   "d": "Bij erfelijke variatie, overproductie en selectiedruk krijgen individuen met een selectievoordeel meer nakomelingen, zodat hun allelen in de volgende generaties vaker voorkomen. Selectie maakt zelf geen nieuwe allelen."
+  },
+  {
+   "t": "fitness",
+   "d": "Het aantal nakomelingen van een individu dat zelf overleeft en zich voortplant. Niet: kracht, grootte of conditie."
+  },
+  {
+   "t": "adaptatie",
+   "d": "Een erfelijke eigenschap die door natuurlijke selectie algemeen is geworden omdat ze in een bepaalde omgeving een selectievoordeel geeft."
+  },
+  {
+   "t": "camouflage",
+   "d": "Een kleur of vorm waardoor een organisme wegvalt tegen zijn omgeving en minder snel wordt gezien."
+  },
+  {
+   "t": "evolutie",
+   "d": "Verandering van de allelfrequenties in een populatie over generaties. Populaties evolueren, individuen niet (uit film 1)."
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Noem de drie voorwaarden voor natuurlijke selectie en geef bij elke voorwaarde het voorbeeld van Daphne Major.</p><details><summary>Antwoord</summary><p>Erfelijke variatie (snavelhoogte verschilt en gaat over op de jongen); meer nakomelingen dan er kunnen overleven (2–5 eieren per legsel, meerdere legsels, maar de populatie groeit niet); selectiedruk (de droogte van 1977: alleen harde Tribulus-vruchtjes over).</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Na de droogte van 1977 hadden de jongen van 1978 gemiddeld hogere snavels. Leg uit waarom dit evolutie is en waarom de individuele vinken niet geëvolueerd zijn.</p><details><summary>Antwoord</summary><p>De allelfrequentie in de populatie veranderde: vinken met allelen voor een hoge snavel overleefden vaker en kregen meer jongen. Een vink houdt zijn hele leven dezelfde snavel; alleen de samenstelling van de populatie veranderde van generatie op generatie.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Muis P is groot en sterk, wordt drie jaar en brengt twee jongen groot. Muis Q is klein, wordt één jaar en brengt acht jongen groot die zelf jongen krijgen. Welke muis heeft de hoogste fitness? Leg uit.</p><details><summary>Antwoord</summary><p>Muis Q: fitness is het aantal nakomelingen dat zelf overleeft en zich voortplant, niet kracht of levensduur.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Een leerling zegt: &#x27;Rupsen zijn groen geworden zodat vogels ze niet zien.&#x27; Verbeter deze zin.</p><details><summary>Antwoord</summary><p>Er waren erfelijk groenere en minder groene rupsen; vogels aten de opvallende rupsen vaker op, dus groene rupsen kregen meer nakomelingen en het allel voor groen werd vaker. Geen doel: selectie kiest uit bestaande variatie.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Leg uit waarom na de natte jaren rond 1983 juist vinken met een kleinere snavel in het voordeel waren.</p><details><summary>Antwoord</summary><p>De omgeving (de selectiedruk) was veranderd: er waren vooral kleine, zachte zaadjes, en die eet een vink met een kleine snavel sneller en efficiënter. Wat een selectievoordeel is, hangt af van de omgeving.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Te veel jongen</td><td>F · Macro</td><td>Waarom blijft het aantal vinken gelijk als ze zoveel jongen krijgen?</td></tr>\n  <tr><td>2. Droogte op Daphne Major</td><td>F · Schema</td><td>Welke vinken overleven een jaar zonder regen?</td></tr>\n  <tr><td>3. Wie wint?</td><td>F · Schema</td><td>Wat bedoelt een bioloog met fitness?</td></tr>\n  <tr><td>4. Aangepast, zonder doel</td><td>F · Macro</td><td>Wordt een rups groen omdat hij dat nodig heeft?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>middelste grondvink ± 12,5 cm; man zwart, vrouw bruin gestreept</td><td>Wikipedia, Medium ground finch</td></tr>\n  <tr><td>2–5 eieren per legsel; normaal 1–5 legsels per seizoen, in het natte jaar 1982–83 tot 10</td><td>Gibbs &amp; Grant, Ecological consequences of an exceptionally strong El Niño event on Darwin&#x27;s finches (Ecology 1987; abstract via AGRIS); legselgrootte archief A2 (Grant &amp; Grant)</td></tr>\n  <tr><td>Grants meten op Daphne Major sinds 1973</td><td>Grant &amp; Grant 2014, 40 Years of Evolution (archief A2, info.md)</td></tr>\n  <tr><td>januari 1977 ± 1200 middelste grondvinken, een jaar later 180 (± 85 % weg)</td><td>Science Friday, &#x27;Evolution happens more quickly than you think&#x27; (Grants); Boag &amp; Grant 1981 Science (archief A2/A9)</td></tr>\n  <tr><td>snavelhoogte populatie vóór selectie 9,31 mm, overlevers die broedden 9,84 mm (verschil 0,53 mm = &#x27;ruim een halve millimeter&#x27;)</td><td>Grant (1986) in Univ. of Vermont-leestekst 05_GalapagosFinches.pdf (tabel 5.6); OpenLearn noemt 9,2 → 9,9</td></tr>\n  <tr><td>jongen 1978: gemiddeld 9,70 mm, dus ± 0,4 mm (± 4 %) hoger dan 1976 (&#x27;ongeveer vier procent&#x27;)</td><td>05_GalapagosFinches.pdf (voorspeld 9,72, gemeten 9,70); PBS Evolution: &#x27;3 tot 4 % groter&#x27;</td></tr>\n  <tr><td>snavelhoogtes van ongeveer 8 tot 11 mm in de populatie (in beeld: 8, 9,3 en 11 mm)</td><td>05_GalapagosFinches.pdf (grootteklassen &lt; 7 tot &gt; 11 mm, het meeste tussen 8 en 11)</td></tr>\n  <tr><td>Tribulus cistoides: deelvrucht ± 8 mm lang, hard, met stekels</td><td>Grant &amp; Grant 2006, Science 313:224 (bijschrift fig. 1)</td></tr>\n  <tr><td>in 1977 bijna geen regen (± 20 maanden vrijwel droog)</td><td>05_GalapagosFinches.pdf; PBS: 551 dagen zonder regen</td></tr>\n  <tr><td>na El Niño 1982–83 selectie richting kleinere snavels en lichaam</td><td>Gibbs &amp; Grant 1987, Nature 327 (titel &#x27;Oscillating selection on Darwin&#x27;s finches&#x27;; abstract niet zelf geopend, samenvatting uit archief A2/A9)</td></tr>\n  <tr><td>merel ± 25 cm, ± 2× een grondvink</td><td>algemene veldgidskennis (niet apart gecontroleerd, alleen voor de tekening)</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>Puzzel A gekozen. Haak (rups/merel) als cold open en terug in H4 en de samenvatting; de vink is de hoofdcasus.</li>\n  <li>H1 (overproductie) gebruikt al de grondvinken (nest in een cactus) zodat de casus doorloopt; Daphne Major wordt pas in H2 bij naam genoemd. Malthus bewust weggelaten (geen geschiedenis van Darwin in deze reeks).</li>\n  <li>Snavelhoogte is polygeen. De pot/allelbalk in e2s18 is daarom vereenvoudigd en zegt dat ook (&#x27;Snavelhoogte hangt af van veel genen. Vereenvoudigd …&#x27;). Getallen in de allelbalk (45 → 60 %) zijn illustratief, geen meting: label &#x27;vereenvoudigd&#x27; in beeld.</li>\n  <li>Populatiegetallen: &#x27;ongeveer twaalfhonderd → ongeveer honderdtachtig&#x27; volgens Science Friday (Grants). Andere lesbronnen noemen afwijkende aantallen (OpenLearn ± 1400 → enkele honderden in ruim twee jaar; tabel Grant 1986: 751 gemeten → 90 overlevers). Ik houd de veelgebruikte afgeronde getallen aan; het origineel (Boag &amp; Grant 1981) kon ik niet openen.</li>\n  <li>Snavelhoogte: &#x27;ruim een halve millimeter&#x27; (9,31 → 9,84) en jongen &#x27;ongeveer vier procent hoger&#x27; (9,31 → 9,70). De fokkersvergelijking (R = h²S) blijft weg (seriebrief).</li>\n  <li>El Niño-omkering (e2s28): bron is Gibbs &amp; Grant 1987 via het archief; de titel bevestigd, het abstract kon ik niet openen. Grafiek gestileerd en gelabeld &#x27;vereenvoudigd&#x27;.</li>\n  <li>&#x27;Adaptatie&#x27; wordt gedefinieerd als eigenschap (resultaat), niet als handeling; nergens &#x27;past zich aan&#x27;. Controleer of je in de les &#x27;aanpassing&#x27; of &#x27;adaptatie&#x27; wilt (BvJ en Nectar gebruiken beide).</li>\n  <li>Fitnessvraag (e2q22) gebruikt vinken in plaats van muizen (archief A6) zodat de casus doorloopt.</li>\n  <li>Niet zeggen: &#x27;survival of the fittest&#x27; als &#x27;de sterkste overleeft&#x27;; &#x27;de vinken pasten hun snavel aan&#x27;; &#x27;de droogte veroorzaakte grotere snavels&#x27;; &#x27;evolutie is altijd langzaam&#x27; (hier: meetbaar in één generatie); &#x27;Darwin zag de vinkensnavels op de Galápagos en begreep het meteen&#x27; (mythe); &#x27;alle vinken met lage snavels gingen dood&#x27; (er overleefden ook lage snavels, alleen minder vaak).</li>\n  <li>Testvel: twee rondes (out/teken_evo2,teken_evo3,tv2/: vel1–3 en zoom). Ronde 2 hertekend: Tribulus (was een broodje, nu wig met doornen), pijlstaartvlinder (vleugels lazen als cicade), edelhert (benen als stokjes zonder hak), staarten van grondvink en merel (te lang), achtervleugels berkenspanner. Geen referentiemap beschikbaar; alles op tekstbeschrijvingen en maten gebaseerd.</li>\n  <li>Rups: geen specifieke soort genoemd (groene spannerrups); rups-casus alleen als haak, geen getallen. De berkenspanner zit in film 3 en wordt hier niet genoemd.</li>\n  <li>Alle vraagantwoorden wisselen: C, A, B, A, B.</li>\n  <li>Plasticiteit rupskleur: spannerrupsen (ook de berkenspanner) kunnen hun kleur bij de vervelling aanpassen aan de ondergrond (Eacock e.a. 2017). Daarom zegt de film niet meer dat de rups &#x27;groen blijft&#x27;; vraag e2q26 en e2s27 gaan nu over wat de jongen erven.</li>\n  <li>Review 22 okt: 10 punten verwerkt (e2s27 &#x27;geen nieuwe allelen&#x27; i.p.v. &#x27;niets nieuws&#x27;; e2q26 over wat de jongen erven, juist B; Vragen uit e2s23 en e2s27; e2s20 selectievoordeel als kans; e2s21 en e2s07 minder stellig; histogram ingeleid in e2s09; e2s06 grammatica en &#x27;uit het ei&#x27;; e2s29 bijzinnen gesplitst).</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 2 van 8 in de reeks Evolutie (havo en vwo; mechanisme eerst: binnen één populatie → één populatie wordt twee → tussen soorten). Vorige: Wat is evolutie eigenlijk?. Volgende: Vormen van selectie.</p>\n</section>\n"
+}

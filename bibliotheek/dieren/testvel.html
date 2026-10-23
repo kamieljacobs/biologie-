@@ -1,4 +1,5 @@
-<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><script src="../../js/teller.js" data-root="../../"></script>
+<meta name="robots" content="noindex">
 <title>Dierenbibliotheek · testvel</title><link rel="stylesheet" href="fonts.css">
 <style>body{background:#0E1626;color:#E8E2D6;font:16px "Source Sans 3",sans-serif;margin:16px}h1{font:600 28px Fraunces,serif}
 .g{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px}figure{margin:0;background:#16213A;border-radius:10px;padding:6px}
@@ -24,4 +25,5 @@ window.FOUTEN = [];
 for (const [naam, f] of LIJST) { const fig = document.createElement('figure'); const cv = document.createElement('canvas'); cv.width = 960; cv.height = 540; const cap = document.createElement('figcaption'); cap.textContent = naam; fig.append(cv, cap); g.append(fig);
   const ctx = cv.getContext('2d'); ctx.scale(0.5, 0.5); ctx.fillStyle = C.bgMacro || '#16213A'; ctx.fillRect(0, 0, 1920, 1080);
   try { f(ctx); } catch (e) { FOUTEN.push(naam + ': ' + e.message); cap.textContent += ' · FOUT: ' + e.message; } }
-</script></body></html>
+</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
+</body></html>
