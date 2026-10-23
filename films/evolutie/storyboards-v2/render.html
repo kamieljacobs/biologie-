@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><link rel="stylesheet" href="src/fonts.css">
+<body style="margin:0;background:#000"><canvas id="c" width="1920" height="1080"></canvas>
+<script src="src/lib.js"></script><script src="src/base.js"></script><script src="src/dier_basis.js"></script>
+<script src="src/lib_cast.js"></script><script src="src/lib_bio.js"></script><script src="src/lib_evo.js"></script>
+<script>
+const qs = new URLSearchParams(location.search); const FILES = (qs.get('f') || '').split(',').filter(Boolean);
+window.__ready = Promise.all(FILES.map(f => new Promise((ok, nee) => { const s = document.createElement('script'); s.src = 'src/' + f + '.js'; s.onload = ok; s.onerror = () => nee(f); document.head.appendChild(s); })));
+window.__draw = (obj, key, t) => { const c = document.getElementById('c'), ctx = c.getContext('2d'); ctx.setTransform(1,0,0,1,0,0); ctx.globalAlpha = 1; ctx.clearRect(0,0,1920,1080); ctx.fillStyle = C.bgSchema; ctx.fillRect(0,0,1920,1080); eval(obj)[key](ctx, t || 0); return true; };
+window.__keys = (obj) => Object.keys(eval(obj));
+</script>

@@ -1,0 +1,516 @@
+{
+ "film": 1,
+ "titel": "Wat is evolutie eigenlijk?",
+ "slug": "1-wat-is-evolutie",
+ "puzzel": "Waarom lijken broers en zussen op elkaar, maar nooit precies?",
+ "haak": "Yasmin en Bilal, zus en broer: dezelfde ogen en neus, toch niet hetzelfde.",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Variatie",
+   "minivraag": "Zijn alle verschillen erfelijk?",
+   "type": "F",
+   "look": "Macro → Schema"
+  },
+  {
+   "nr": 2,
+   "titel": "Waar komt variatie vandaan?",
+   "minivraag": "Hoe krijgt elk kind een andere mix?",
+   "type": "E",
+   "look": "Schema"
+  },
+  {
+   "nr": 3,
+   "titel": "Populatie en genenpool",
+   "minivraag": "Hoe groot is een populatie?",
+   "type": "F",
+   "look": "Macro → Schema"
+  },
+  {
+   "nr": 4,
+   "titel": "Evolutie",
+   "minivraag": "Wat verandert er als een soort evolueert?",
+   "type": "F",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e1s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dit zijn Yasmin en Bilal, zus en broer. Ze hebben dezelfde ouders, en dat zie je. Dezelfde ogen, dezelfde neus, dezelfde lach.",
+   "beweging": "Yasmin en Bilal staan naast elkaar; gouden ringetjes lichten op bij ogen, neus en mond van allebei."
+  },
+  {
+   "id": "e1s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Toch zijn ze niet hetzelfde. Dat geldt voor alle broers en zussen, behalve voor een eeneiige tweeling. Waarom lijken broers en zussen op elkaar, maar nooit precies? Het antwoord begint bij verschillen. En met verschillen begint ook evolutie.",
+   "beweging": "De ringetjes doven; een vraagteken in goud verschijnt tussen hen in."
+  },
+  {
+   "id": "e1s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel, puzzelvraag, rechts de pot met knikkers en drie lieveheersbeestjes."
+  },
+  {
+   "id": "e1s04",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Het is oktober. Op een zonnig kozijn landen lieveheersbeestjes. Ze zoeken een plek om te overwinteren, het liefst in een huis.",
+   "beweging": "Camera glijdt langs het kozijn; beestjes landen een voor een, dekschilden klappen dicht."
+  },
+  {
+   "id": "e1s05",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Het zijn Aziatische lieveheersbeestjes, de meest algemene soort in Nederland. Kijk goed: ze zijn niet allemaal hetzelfde.",
+   "beweging": "Inzoomen op de groep; drie verschillende beestjes krijgen een gouden rand."
+  },
+  {
+   "id": "e1s06",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Sommige zijn oranje met zwarte stippen. Andere zijn zwart, met vier rode vlekken of met twee. In een telling in Brabant was ongeveer acht op de tien beestjes oranje.",
+   "beweging": "Harde snede naar een vergelijking: drie beestjes op één basislijn, staafjes groeien tot 81, 15 en 4 procent."
+  },
+  {
+   "id": "e1s07",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Verschillen tussen individuen van één soort noemen we variatie. Een deel van die variatie is erfelijk. De kleurvorm hangt af van één gen. Van dat gen bestaan verschillende varianten: allelen.",
+   "beweging": "Het beestje schuift opzij; een chromosomenpaar verschijnt, de genband licht op."
+  },
+  {
+   "id": "e1s08",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "We houden het eenvoudig: één allel voor zwart, en één voor oranje. Elk beestje heeft er twee, één van elke ouder. Het allel voor zwart is dominant. Alleen met twee allelen voor oranje word je oranje.",
+   "beweging": "Drie chromosomenparen naast elkaar (blauw-blauw, blauw-geel, geel-geel) met eronder het bijpassende beestje."
+  },
+  {
+   "id": "e1q09",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Twee oranje beestjes komen uit hetzelfde legsel. Het ene groeit op in de kou, het andere in de warmte. Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Ze krijgen evenveel stippen: zelfde ouders, zelfde uiterlijk · B Het beestje uit de warmte krijgt meer stippen · C Het beestje uit de kou krijgt meer stippen",
+   "juist": "C"
+  },
+  {
+   "id": "e1s10",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Kou geeft een oranje beestje meer en grotere stippen. In een proef hadden beestjes bij veertien graden er allemaal negentien. Bij achtentwintig graden waren het er gemiddeld acht.",
+   "beweging": "Twee thermometers; bij koud groeien de stippen aan tot 19, bij warm blijven er ±8 over."
+  },
+  {
+   "id": "e1s11",
+   "hoofdstuk": "H1 Variatie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dat verschil komt uit de omgeving, niet uit de allelen. Zo ook de grootte: een larve met weinig voedsel wordt een kleiner beestje. Zulke verschillen erf je niet. Een beestje uit de kou krijgt dus geen jongen met extra stippen.",
+   "beweging": "Groene annotatiehaak onder de twee beestjes: \"omgeving, niet erfelijk\"."
+  },
+  {
+   "id": "e1s12",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoe ontstaat een nieuw allel? Door een mutatie: een verandering in het DNA. Hoe zo'n verandering ontstaat, zie je in de DNA-reeks.",
+   "beweging": "Op één chromosoom verkleurt de genband naar paars: een nieuw allel."
+  },
+  {
+   "id": "e1s13",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een mutatie gebeurt toevallig. Niet omdat een beestje een andere kleur nodig heeft. En mutaties zijn zeldzaam. Toch is elk kind anders dan zijn broers en zussen.",
+   "beweging": "De paarse band blijft; terug naar Yasmin en Bilal, klein links in beeld."
+  },
+  {
+   "id": "e1q14",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Yasmin en Bilal hebben dezelfde ouders. Waarom hebben ze toch niet dezelfde allelen? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Bij elk kind ontstaan nieuwe mutaties die het uiterlijk bepalen · B Elk kind krijgt van elke ouder een toevallige helft · C Elk kind erft ook wat de ouders leerden of trainden",
+   "juist": "B"
+  },
+  {
+   "id": "e1s15",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke ouder heeft van elk gen twee allelen. Bij de meiose komt in een eicel of zaadcel maar één van de twee terecht. Welke, dat is toeval. En dat gebeurt voor duizenden genen tegelijk.",
+   "beweging": "Chromosomenpaar van moeder en vader; vier geslachtscellen splitsen af, elk met één chromosoom, steeds een andere."
+  },
+  {
+   "id": "e1s16",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Bij de bevruchting komen een eicel en een zaadcel samen. Zo krijgt elk kind een nieuwe combinatie van allelen die al bestonden. Dat heet recombinatie.",
+   "beweging": "Een eicel en een zaadcel schuiven samen; twee kinderparen met een verschillende combinatie verschijnen."
+  },
+  {
+   "id": "e1s17",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daarom lijken broers en zussen op elkaar: hun allelen komen van dezelfde twee ouders. Maar elk kind kreeg een andere greep. Alleen een eeneiige tweeling deelt al zijn allelen.",
+   "beweging": "Yasmin en Bilal met onder elk een rij allelknikkers: veel gelijk, een deel anders (gouden randjes)."
+  },
+  {
+   "id": "e1s18",
+   "hoofdstuk": "H2 Waar komt variatie vandaan?",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Mutatie maakt nieuwe allelen. Meiose en bevruchting maken er steeds nieuwe combinaties mee. Samen zorgen ze voor de erfelijke variatie waar evolutie mee werkt.",
+   "beweging": "Groene annotatiehaak onder twee kaartjes: mutatie en recombinatie."
+  },
+  {
+   "id": "e1s19",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar het kozijn. Bij welke groep hoort dit beestje eigenlijk? Een populatie is een groep individuen van één soort, in één gebied, die zich onderling voortplanten.",
+   "beweging": "Camera zoomt uit van het kozijn; het huis en de tuin komen in beeld."
+  },
+  {
+   "id": "e1q20",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hoe groot is de populatie waar dit beestje bij hoort? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Precies alle beestjes in deze tuin · B Alle Aziatische lieveheersbeestjes op aarde · C Dat kiest de onderzoeker: een tuin, een stad of heel Nederland",
+   "juist": "C"
+  },
+  {
+   "id": "e1s21",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De grens van een populatie ligt niet vast. De onderzoeker kiest hem, passend bij zijn vraag. Wie één tuin volgt, telt de beestjes in die tuin. Wie wil weten hoe de soort zich verspreidt, neemt heel Nederland.",
+   "beweging": "Kaart van Nederland: een stip (tuin), een cirkel (stad) en dan het hele land lichten na elkaar op; ernaast groeit de pot mee."
+  },
+  {
+   "id": "e1s22",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Lieveheersbeestjes vliegen van tuin naar tuin. Een scherpe grens is er dus niet. Het blijft een keuze.",
+   "beweging": "Kleine boogjes tussen stippen op de kaart: beestjes die verhuizen."
+  },
+  {
+   "id": "e1s23",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Stop nu in gedachten alle allelen van de hele populatie in één pot. Elk allel is een knikker: blauw voor zwart, geel voor oranje. Die pot is de genenpool.",
+   "beweging": "De pot vult zich; knikkers vallen erin, blauw en geel door elkaar."
+  },
+  {
+   "id": "e1s24",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elk beestje brengt twee knikkers mee. Stel: tien beestjes, acht oranje en twee zwart. De zwarte hebben allebei één allel voor zwart en één voor oranje.",
+   "beweging": "Tien beestjes op een rij, onder elk twee knikkers; de knikkers rollen een voor een in een kleine pot."
+  },
+  {
+   "id": "e1q25",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Twee van de tien beestjes zijn zwart. Welk deel van de knikkers in de pot is blauw? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Tien procent · B Twintig procent, net als de beestjes · C Vijftig procent",
+   "juist": "A"
+  },
+  {
+   "id": "e1s26",
+   "hoofdstuk": "H3 Populatie en genenpool",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Twintig knikkers in de pot, en maar twee ervan zijn blauw. Dat is tien procent. Dat aandeel heet de allelfrequentie. Twintig procent van de beestjes is zwart, maar de allelfrequentie van zwart is tien procent.",
+   "beweging": "Allelbalk onder de pot: 10% blauw, 90% geel; naast de beestjes 20% zwart."
+  },
+  {
+   "id": "e1s27",
+   "hoofdstuk": "H4 Evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Nu kunnen we zeggen wat evolutie is. Evolutie is een verandering van de allelfrequenties in een populatie, over generaties.",
+   "beweging": "Drie potten op een rij (generatie 1, 2, 3); de allelbalk eronder verschuift."
+  },
+  {
+   "id": "e1q28",
+   "hoofdstuk": "H4 Evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In een populatie is tien procent van de allelen blauw. Twintig generaties later is dat dertig procent. Wat is er veranderd? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Elk beestje is in zijn leven donkerder geworden · B De genenpool: er zitten meer allelen voor zwart in de pot · C De beestjes pasten zich aan omdat ze zwart moesten worden",
+   "juist": "B"
+  },
+  {
+   "id": "e1s29",
+   "hoofdstuk": "H4 Evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een beestje dat oranje uit de pop komt, blijft zijn hele leven oranje. Zijn allelen veranderen niet. Wat verschilt, is welke beestjes jongen krijgen, en hoeveel. Zo verandert de inhoud van de pot. Een individu evolueert dus niet. Een populatie wel.",
+   "beweging": "Eén oranje beestje blijft stil (gouden rand); de potten ernaast veranderen van generatie op generatie."
+  },
+  {
+   "id": "e1s30",
+   "hoofdstuk": "H4 Evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dat zie je ook echt gebeuren. Het Aziatisch lieveheersbeestje verspreidde zich over Groot-Brittannië. In de eerste twee jaar werd het deel zwarte beestjes daar kleiner. Het allel voor zwart werd dus zeldzamer.",
+   "beweging": "Allelbalk met label Groot-Brittannië: het blauwe deel krimpt."
+  },
+  {
+   "id": "e1s31",
+   "hoofdstuk": "H4 Evolutie",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Waardoor verandert de pot? Door selectie: individuen met sommige allelen krijgen meer jongen. Door toeval, en door uitwisseling met andere populaties. En door mutatie, die nieuwe knikkers toevoegt. Dat zie je in de volgende films.",
+   "beweging": "Vier pijlen naar de pot, één voor één, met de naam van de kracht en het filmnummer."
+  },
+  {
+   "id": "e1s32",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Variatie is het verschil tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving. Nieuwe allelen ontstaan door mutatie. Meiose en bevruchting maken er steeds nieuwe combinaties mee.",
+   "beweging": "Samenvattingskaartjes bouwen op: variatie, mutatie, recombinatie."
+  },
+  {
+   "id": "e1s33",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daarom lijken broers en zussen op elkaar, maar nooit precies. Dezelfde ouders, maar elk een andere greep uit hun allelen.",
+   "beweging": "Yasmin en Bilal terug, met hun allelrijen."
+  },
+  {
+   "id": "e1s34",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Alle allelen van een populatie samen vormen de genenpool. Evolutie is een verandering van de allelfrequenties in die pot, over generaties.",
+   "beweging": "De pot met allelbalk; drie generaties schuiven voorbij."
+  },
+  {
+   "id": "e1s35",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie kernzinnen met een groene annotatiehaak, geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Geef een voorbeeld van variatie bij het Aziatisch lieveheersbeestje die erfelijk is, en een voorbeeld die niet erfelijk is.",
+   "antwoord": "Erfelijk: de kleurvorm (oranje of zwart). Niet erfelijk: het aantal stippen door de temperatuur tijdens de ontwikkeling, of de grootte door het voedsel van de larve."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom twee kinderen van dezelfde ouders verschillende allelen hebben.",
+   "antwoord": "Bij de meiose krijgt elke geslachtscel toevallig één van de twee allelen van elk gen; bij de bevruchting ontstaat zo steeds een nieuwe combinatie (recombinatie)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is het verschil tussen een mutatie en recombinatie?",
+   "antwoord": "Een mutatie is een verandering in het DNA die een nieuw allel kan opleveren; recombinatie maakt nieuwe combinaties van allelen die al bestonden."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een populatie van 50 dieren: 30 AA, 10 Aa en 10 aa. Bereken de allelfrequentie van A.",
+   "antwoord": "(2 × 30 + 10) / 100 = 70 procent."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een atleet traint jarenlang en krijgt grote spieren. Erft zijn kind die spieren? Leg uit met het begrip allel.",
+   "antwoord": "Nee: training verandert zijn allelen niet. Alleen allelen worden doorgegeven; de spieren zijn door de omgeving (training) ontstaan."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom zeggen biologen dat een individu niet evolueert?",
+   "antwoord": "De allelen van een individu veranderen tijdens zijn leven niet; evolutie is een verandering van allelfrequenties in een populatie over generaties."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "variatie",
+   "uitleg": "Verschillen tussen individuen van één soort. Een deel is erfelijk, een deel komt uit de omgeving.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "allel",
+   "uitleg": "Een variant van een gen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "mutatie",
+   "uitleg": "Een verandering in het DNA; zo kan een nieuw allel ontstaan.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "recombinatie",
+   "uitleg": "Nieuwe combinaties van bestaande allelen door meiose en bevruchting.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "populatie",
+   "uitleg": "Een groep individuen van één soort in één gebied die zich onderling voortplanten. De onderzoeker kiest de grens.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genenpool",
+   "uitleg": "Alle allelen van alle individuen in een populatie samen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "allelfrequentie",
+   "uitleg": "Het aandeel van een allel in de genenpool.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "evolutie",
+   "uitleg": "Verandering van de allelfrequenties in een populatie, over generaties.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "Aziatisch lieveheersbeestje is de meest algemene lieveheersbeestjessoort in Nederland; overwintert graag in huizen",
+   "bron": "NOS 2018 (nos.nl/artikel/2254888)"
+  },
+  {
+   "waarde": "Kleurvormen in een telling in Brabant (lichtval De Kaaistoep bij Tilburg, 2003–2015, n = 7160): 81,3% succinea (oranje), 15,0% spectabilis (4 vlekken), 3,7% conspicua (2 vlekken) → \"ongeveer acht op de tien oranje\"",
+   "bron": "Entomologische Berichten 77(3) 2017, natuurtijdschriften.nl/pub/1011412"
+  },
+  {
+   "waarde": "Kleurvorm bepaald door het gen pannier (locus h) met vier hoofdallelen; meer dan 200 kleurpatronen; zwart dominant over rood (mosaic dominance)",
+   "bron": "Ando et al. 2018, Nature Communications 9: 3843"
+  },
+  {
+   "waarde": "succinea (oranje) recessief ten opzichte van de zwarte vormen (volledige dominantiehiërarchie)",
+   "bron": "Michie et al. 2010, Evolutionary Ecology (p. 1702)"
+  },
+  {
+   "waarde": "Stippen bij oranje vorm: bij 14 °C alle individuen 19 stippen, bij 28 °C gemiddeld 8; stippen ≥ 4× kleiner bij 28 °C",
+   "bron": "Michie et al. 2010, Evolutionary Ecology (pp. 1701–1702)"
+  },
+  {
+   "waarde": "Larven met weinig voedsel worden lichtere volwassen beestjes (vrouwtjes 28,0 mg tegen 36,1 mg)",
+   "bron": "Agarwala et al. 2008 (zin.ru Agarwala08.pdf)"
+  },
+  {
+   "waarde": "In Groot-Brittannië nam de frequentie van het allel voor zwart af in de eerste twee jaar van de verspreiding",
+   "bron": "Michie et al. 2010, Evolutionary Ecology (p. 1705)"
+  },
+  {
+   "waarde": "In Slowakije 6–19% zwarte vormen (mediaan 10,5%) — achtergrond, niet in de film",
+   "bron": "Panigaj et al. 2014, ZooKeys 412"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "allel / allelen",
+   "invoer": "allel / allelen (gewone spelling; v4)",
+   "ipa": "/ɑˈlɛl/, /ɑˈlɛ.lə(n)/",
+   "bron": "geen online IPA gevonden (nl.wiktionary niet bereikbaar, woorden.org zonder uitspraak); klemtoon op -lel afgeleid uit de spelling en het Frans/Grieks leenwoordpatroon; wachtlijst"
+  },
+  {
+   "woord": "allelfrequentie",
+   "invoer": "allel-frequentie",
+   "ipa": "/ɑˈlɛl.freːˌkʋɛn.si/",
+   "bron": "samenstelling; -tie als \"sie\" (vgl. transcriptiefactor in UITSPRAAK.md); wachtlijst"
+  },
+  {
+   "woord": "genenpool",
+   "invoer": "genenpool",
+   "ipa": "/ˈɣeː.nə(n).pul/",
+   "bron": "pool = Engels leenwoord (\"poel\"); wachtlijst"
+  },
+  {
+   "woord": "recombinatie",
+   "invoer": "recombinatie",
+   "ipa": "/reː.kɔm.biˈnaː.(t)si/",
+   "bron": "afgeleid van combinatie (Van Dale-patroon); wachtlijst"
+  },
+  {
+   "woord": "meiose",
+   "invoer": "meiose",
+   "ipa": "/mɛiˈjoː.zə/",
+   "bron": "UITSPRAAK.md: zoals geschreven (goedgekeurd)"
+  },
+  {
+   "woord": "DNA / DNA-reeks",
+   "invoer": "deeënaa / deeënaa-reeks",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (automatisch via uitspraak.json; let op: regel matcht alleen los \"DNA\", niet \"DNA-reeks\" → handmatig)"
+  },
+  {
+   "woord": "eeneiige",
+   "invoer": "eeneiige",
+   "ipa": "/eːnˈɛi.ɣə/",
+   "bron": "gewoon woord; laag risico"
+  },
+  {
+   "woord": "Groot-Brittannië",
+   "invoer": "Groot-Brittannië",
+   "ipa": "/ɣroːt brɪˈtɑ.ni.jə/",
+   "bron": "laag risico"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "kozijnHoek(ctx) — Macro-close-up: houten kozijn en dorpel, achter het glas de Macro-nacht (teken_evo1.js)",
+  "chromosoomPaar(ctx, x, y, h, {allelen, band, nieuw}) — homoloog paar in paars met één gen als band in allelkleur (teken_evo1.js)",
+  "thermometer(ctx, x, y, h, f) — lijntekening uit de labbibliotheek (teken_evo1.js)",
+  "kaartNL(ctx, x, y, s) — vereenvoudigde kaart van Nederland met IJsselmeer en Waddeneilanden (teken_evo1.js)",
+  "knikker(ctx, x, y, r, kleur) — losse allelknikker, zelfde tekenregel als pot() (teken_evo1.js)",
+  "lhbGroep(ctx, plekken, s) — groep lieveheersbeestjes met variatie in schaal en draaiing (teken_evo1.js)"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel A gekozen. De seriebrief noemt voor het uitzoomen \"eiland → archipel\"; dat past niet bij de lieveheersbeestjes, dus: één tuin → stad → heel Nederland (de pot groeit mee). Het eiland-beeld komt in film 5 (Pingelap) al terug.",
+  "Twee allelen als vereenvoudiging: in werkelijkheid heeft het gen pannier vier hoofdallelen en tientallen kleinere (Ando 2018). In de film: één allel voor zwart (de twee zwarte vormen samengenomen) en één voor oranje. Zeg dit eventueel in de klas.",
+  "Allelkleuren: blauw (teal) = allel voor zwart, geel (oker) = allel voor oranje. In de vertelling \"blauw\" en \"geel\", omdat \"teal\" en \"oker\" voor de stem riskant en voor leerlingen vaag zijn.",
+  "De telling \"acht op de tien oranje\" komt uit één lichtval in Brabant (2003–2015); geen landelijk getal. Daarom \"in een telling in Brabant\".",
+  "Het voorbeeld met tien beestjes is bewust gekozen zodat het klopt met de echte telling: 20% zwart bij 10% allelfrequentie (bij Hardy-Weinberg gaat q² = 0,81 ook bij ±19% zwart). Hardy-Weinberg zelf zit pas in film 5 (vwo).",
+  "Britse daling van het allel voor zwart (Michie 2010, p. 1705): nagelopen in de PDF (22 okt). Michie schrijft 'a decline in the frequency of melanic alleles during the first two years of the spread', maar geeft geen getallen en baseert zich op Brown e.a. 2008a en ongepubliceerde data van Majerus. Daarom in de film alleen de richting ('in de eerste twee jaar'), geen getal. Oorzaak bewust niet genoemd (geen voorschot op selectie).",
+  "Proef met stippen en temperatuur: \"allemaal negentien bij veertien graden\" is binnen families gemeten (Michie 2010); daarom \"uit hetzelfde legsel\" in de vraag.",
+  "De recombinatie-uitleg noemt geen crossing-over (Erfelijkheid/celdeling); alleen de toevallige verdeling bij meiose en de bevruchting.",
+  "Yasmin en Bilal: alleen gezicht (ogen, neus, lach) als overeenkomst; geen haarstijl of lengte als verschil, omdat dat bij broer en zus vooral sekse of keuze is.",
+  "Het allel voor zwart wordt dominant genoemd (Michie 2010). Dominant/recessief is uit de Erfelijkheidsreeks bekend en wordt hier alleen gebruikt, niet uitgelegd.",
+  "Niet zeggen: \"het lieveheersbeestje past zijn kleur aan aan de kou\" (stippen zijn plasticiteit, geen aanpassing in evolutionaire zin); \"zwarte beestjes zijn giftiger\"; \"het Aziatisch lieveheersbeestje is in Nederland uitgezet\" (verkocht als bestrijder sinds ±1995/1996; of de wilde populatie daaruit komt of uit Frankrijk/België is niet zeker); \"zwart is beter tegen de kou\" (hypothese, niet aangetoond voor deze soort).",
+  "Review 22 okt: 3 punten verwerkt (e1q14 optie C nu de misvatting 'kind erft wat de ouders leerden of trainden'; optie B ingekort zodat hij in het vak past; e1s30 bron nagelopen, tekst 'in de eerste twee jaar'; e1s31 individu als actor i.p.v. allel)."
+ ],
+ "duur": {
+  "basis_min": 7.6,
+  "met_vwo_min": 7.6,
+  "woorden": 889,
+  "woorden_basis": 889,
+  "woorden_vwo": 0
+ }
+}
