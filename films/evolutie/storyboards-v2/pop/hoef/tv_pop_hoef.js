@@ -80,3 +80,7 @@ TV_pop_hoef.dbg_kop = (ctx) => { HFTV.bg(ctx, 'debug kop: alleen kop + skelet');
 TV_pop_hoef.kop_groot = (ctx) => { HFTV.bg(ctx, 'Koppen groot: paard, ezel, muilezel'); ['paard', 'ezel', 'muilezel'].forEach((n, i) => { const P = HOEF[n], J = P.J; HFTV.zoom(ctx, P, { houding: 'staan' }, J.kop[0] + 12 * P.D.H / 160, J.kop[1] + 25 * P.D.H / 160, 900 / P.D.H, [30 + i * 625, 80, 610, 960]); }); };
 TV_pop_hoef.nijl_kop_groot = (ctx) => { const P = HOEF.nijlpaard, J = P.J; HFTV.bg(ctx, 'Nijlpaard kop: dicht, half open, gapen (groot)'); const a = P.stand({ houding: 'staan' }), b = P.stand({ houding: 'gapen' });
   [0, 0.5, 1].forEach((w, i) => HFTV.zoom(ctx, P, { stand: P.meng(a, b, w) }, J.kop[0] + 25, J.kop[1] + 35, 3.6, [30 + i * 625, 80, 610, 960])); };
+TV_pop_hoef.koe_kop = (ctx) => { const P = HOEF.koe, J = P.J; HFTV.bg(ctx, 'Koe kop: staan, grazen, liggen (groot)');
+  [['staan', J.kop[0] + 12, J.kop[1] + 20], ['grazen', J.kop[0] + 5, -30], ['liggen', J.kop[0] - 5, J.kop[1] + 60]].forEach(([h, cx, cy], i) => HFTV.zoom(ctx, P, { houding: h }, cx, cy, 6, [30 + i * 625, 80, 610, 960])); };
+TV_pop_hoef.koe_oog = (ctx) => { const P = HOEF.koe, O = HOEF_VORM.koe.oog; HFTV.bg(ctx, 'Koe oog (zoom) en kop'); const I = P.info({ houding: 'staan' });
+  HFTV.zoom(ctx, P, { houding: 'staan' }, O[0] - 4, O[1] + 6, 22, [30, 80, 900, 960]); HFTV.zoom(ctx, P, { houding: 'staan' }, O[0] + 2, O[1] + 12, 10, [960, 80, 930, 960]); };

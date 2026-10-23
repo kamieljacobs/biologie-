@@ -106,7 +106,10 @@ TV_pop_katten.film = (ctx, f) => { const fps = 24, t = f / fps; const H = 1080, 
   ctx.fillStyle = '#3B5240'; ctx.fillRect(0, gy, W, H - gy);
   ctx.fillStyle = '#2F4434'; for (let i = -1; i < 5; i++) { const x = i * 600 - scroll; for (let k = 0; k < 6; k++) { const xx = x + k * 97 + (k % 2) * 30, yy = gy + 30 + (k * 37) % 120; ctx.beginPath(); ctx.ellipse(xx, yy, 46, 7, 0, 0, 6.283); ctx.fill(); } }
   ctx.strokeStyle = '#4C6650'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
-  P.teken(ctx, 960, gy, pxcm, { stand: st, kijk });
+  if (n === 'huiskat' && ts > 1.1) { // staan -> (overvloei) zitten-figuur -> (overvloei) liggen
+    const u1 = Math.min(1, Math.max(0, (ts - 1.25) / 0.45)), u2 = Math.min(1, Math.max(0, (ts - 2.0) / 0.4));
+    if (u1 < 1) P.teken(ctx, 960, gy, pxcm, { houding: 'staan', a: 1 - u1 }); if (u1 > 0 && u2 < 1) P.teken(ctx, 960, gy, pxcm, { houding: 'zitten', a: u1 * (1 - u2) }); if (u2 > 0) P.teken(ctx, 960, gy, pxcm, { houding: 'liggen', a: u2 });
+  } else P.teken(ctx, 960, gy, pxcm, { stand: st, kijk });
   ctx.fillStyle = '#E8E2D6'; ctx.font = '600 40px "Source Sans 3", sans-serif'; ctx.textAlign = 'left'; ctx.fillText(label, 70, 90); };
 TV_pop_katten.kat_zit = (ctx) => { const P = KAT.huiskat; KTV.bg(ctx, 'Huiskat zitten en liggen (groot) op de plaat');
   for (const [h, r, x] of [['zitten', 'kat_zitten', 480], ['liggen', 'kat_liggen', 1380]]) { const o = { houding: h }; KTV.grond(ctx, x - 420, x + 420, 950); P.teken(ctx, x, 950, 17, Object.assign({ a: 0.85, skelet: 1 }, o)); KTV.omtrek(ctx, r, P, x, 950, 17, { neus: KTV.neusX(P, o) }); } };
@@ -124,3 +127,22 @@ TV_pop_katten.koppen = (ctx) => { KTV.bg(ctx, 'Koppen naar de kopplaat (rij 2): 
   for (const [n, j, s, x] of L) { const P = KAT[n]; const I = P.info({ houding: 'staan' }); const k = I.piv.kop; ctx.save(); ctx.beginPath(); ctx.rect(x - 310, 80, 620, 900); ctx.clip();
     P.teken(ctx, x - (k[0] - P.D.anker) * s - 20, 560 - k[1] * s, s, { houding: 'staan' }); ctx.restore(); } };
 TV_pop_katten.manen_rust = (ctx) => { KTV.bg(ctx, 'leeuw rust (plaatfase) met manen'); KAT.leeuw.teken(ctx, 700, 1000, 6, { houding: 'rust', skelet: 1 }); };
+// ---- ronde 3: pop naast de vlakke rij (zelfde schaal: plaat-px -> cm via K van het dier) ----
+const KTV_IMG = {}; for (const n of ['tijger', 'huiskat']) { const im = new Image(); im.src = 'referentie/pop/katten/' + n + '.png'; KTV_IMG[n] = im; }
+function ktvPlaat(ctx, n, box, gx, gy, s, P, G0) { const im = KTV_IMG[n]; if (!im.complete) return; const k = s / P.D.K; // plaat-px -> scherm
+  ctx.drawImage(im, box[0], box[1], box[2], box[3], gx + (box[0] - P.D.X0) * k - P.D.anker * s, gy + (box[1] - G0) * k, box[2] * k, box[3] * k); }
+TV_pop_katten.vlak_tijger = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger: vlakke plaat (links) en pop (rechts), staan / lopen; zelfde schaal');
+  const s = 2.4; KTV.grond(ctx, 20, 1900, 470); ktvPlaat(ctx, 'tijger', [17, 367, 490, 289], 470, 470, s, P, 651); P.teken(ctx, 1420, 470, s, { houding: 'staan' });
+  KTV.grond(ctx, 20, 1900, 1010); ktvPlaat(ctx, 'tijger', [476, 418, 499, 236], 470 - (476 - 17) * s / P.D.K + 120, 1010, s, P, 651); P.teken(ctx, 1420, 1010, s, { houding: 'lopen', t: 0.62 }); };
+TV_pop_katten.vlak_kat = (ctx) => { const P = KAT.huiskat; KTV.bg(ctx, 'Huiskat: vlakke plaat (links) en pop (rechts): staan, lopen, zitten');
+  const s = 9.5; KTV.grond(ctx, 20, 1900, 330); ktvPlaat(ctx, 'huiskat', [25, 359, 299, 309], 330, 330, s * 0.75, P, 664); P.teken(ctx, 1300, 330, s * 0.75, { houding: 'staan' });
+  KTV.grond(ctx, 20, 1900, 680); ktvPlaat(ctx, 'huiskat', [354, 368, 376, 295], 330 - 300 * s * 0.75 / P.D.K, 680, s * 0.75, P, 664); P.teken(ctx, 1300, 680, s * 0.75, { houding: 'lopen', t: 0.3 });
+  KTV.grond(ctx, 20, 1900, 1050); ktvPlaat(ctx, 'huiskat', [762, 388, 172, 284], 330 - 700 * s * 0.75 / P.D.K, 1050, s * 0.75, P, 664); P.teken(ctx, 1300, 1050, s * 0.75, { houding: 'zitten' }); };
+TV_pop_katten.vlak_koppen = (ctx) => { KTV.bg(ctx, 'Koppen: tijger en huiskat (pop, groot)'); for (const [n, s, x] of [['tijger', 8, 480], ['huiskat', 30, 1400]]) { const P = KAT[n]; const I = P.info({ houding: 'staan' }); const k = I.piv.kop;
+  ctx.save(); ctx.beginPath(); ctx.rect(x - 450, 80, 900, 950); ctx.clip(); P.teken(ctx, x - (k[0] - P.D.anker) * s - 60, 560 - k[1] * s, s, { houding: 'staan' }); ctx.restore(); } };
+TV_pop_katten.vlak_tijger_groot = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger staan: plaat (boven) en pop (onder), zelfde schaal'); const s = 3.4;
+  KTV.grond(ctx, 20, 1900, 500); ktvPlaat(ctx, 'tijger', [17, 367, 490, 289], 900, 500, s, P, 651); KTV.grond(ctx, 20, 1900, 1040); P.teken(ctx, 900, 1040, s, { houding: 'staan' }); };
+TV_pop_katten.vlak_kat_groot = (ctx) => { const P = KAT.huiskat; KTV.bg(ctx, 'Huiskat staan: plaat (boven) en pop (onder), zelfde schaal'); const s = 15;
+  KTV.grond(ctx, 20, 1900, 510); ktvPlaat(ctx, 'huiskat', [25, 359, 299, 309], 900, 510, s, P, 664); KTV.grond(ctx, 20, 1900, 1050); P.teken(ctx, 900, 1050, s, { houding: 'staan' }); };
+TV_pop_katten.vlak_tijger_rust = (ctx) => { const P = KAT.tijger; KTV.bg(ctx, 'Tijger rust + skelet'); const s = 3.4;
+  KTV.grond(ctx, 20, 1900, 500); ktvPlaat(ctx, 'tijger', [17, 367, 490, 289], 900, 500, s, P, 651); P.teken(ctx, 900, 500, s, { houding: 'rust', skelet: 1, a: 0.5 }); KTV.grond(ctx, 20, 1900, 1040); P.teken(ctx, 900, 1040, s, { houding: 'rust' }); };

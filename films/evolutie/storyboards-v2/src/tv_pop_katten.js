@@ -106,7 +106,10 @@ TV_pop_katten.film = (ctx, f) => { const fps = 24, t = f / fps; const H = 1080, 
   ctx.fillStyle = '#3B5240'; ctx.fillRect(0, gy, W, H - gy);
   ctx.fillStyle = '#2F4434'; for (let i = -1; i < 5; i++) { const x = i * 600 - scroll; for (let k = 0; k < 6; k++) { const xx = x + k * 97 + (k % 2) * 30, yy = gy + 30 + (k * 37) % 120; ctx.beginPath(); ctx.ellipse(xx, yy, 46, 7, 0, 0, 6.283); ctx.fill(); } }
   ctx.strokeStyle = '#4C6650'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
-  P.teken(ctx, 960, gy, pxcm, { stand: st, kijk });
+  if (n === 'huiskat' && ts > 1.1) { // staan -> (overvloei) zitten-figuur -> (overvloei) liggen
+    const u1 = Math.min(1, Math.max(0, (ts - 1.25) / 0.45)), u2 = Math.min(1, Math.max(0, (ts - 2.0) / 0.4));
+    if (u1 < 1) P.teken(ctx, 960, gy, pxcm, { houding: 'staan', a: 1 - u1 }); if (u1 > 0 && u2 < 1) P.teken(ctx, 960, gy, pxcm, { houding: 'zitten', a: u1 * (1 - u2) }); if (u2 > 0) P.teken(ctx, 960, gy, pxcm, { houding: 'liggen', a: u2 });
+  } else P.teken(ctx, 960, gy, pxcm, { stand: st, kijk });
   ctx.fillStyle = '#E8E2D6'; ctx.font = '600 40px "Source Sans 3", sans-serif'; ctx.textAlign = 'left'; ctx.fillText(label, 70, 90); };
 TV_pop_katten.kat_zit = (ctx) => { const P = KAT.huiskat; KTV.bg(ctx, 'Huiskat zitten en liggen (groot) op de plaat');
   for (const [h, r, x] of [['zitten', 'kat_zitten', 480], ['liggen', 'kat_liggen', 1380]]) { const o = { houding: h }; KTV.grond(ctx, x - 420, x + 420, 950); P.teken(ctx, x, 950, 17, Object.assign({ a: 0.85, skelet: 1 }, o)); KTV.omtrek(ctx, r, P, x, 950, 17, { neus: KTV.neusX(P, o) }); } };
