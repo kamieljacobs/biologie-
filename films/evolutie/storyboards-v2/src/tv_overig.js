@@ -48,3 +48,26 @@ TV_overig.reptielen_groot = function (ctx) { macroNacht(ctx, { horizon: 620 }); 
 TV_overig.orchidee = function (ctx) { macroNacht(ctx, { horizon: 1040, heuvel: false }); metaText(ctx, 'TESTVEL · DARWINS ORCHIDEE, HELE PLANT (ware schaal 0,9 px/mm) + PLANT ZOALS IN E3S25', 60, 50, C.text2);
   orchideePlant(ctx, 700, 520, 0.9, { spoor: 300 }); orchideeBladeren(ctx, 1550, 900, 1.0); };
 TV_overig.zoom = function (ctx) { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); pijlstaart(ctx, 500, 300, 3, { tong: 1, tongLengte: 120 }); pijlstaart(ctx, 1400, 300, 3, { houding: 'rust' }); orchideePlant(ctx, 960, 760, 0.6); };
+// ---- Ronde 3: overlay met de referentiecontour (goud) over de eigen tekening, zelfde schaal (lengte kop–staart gelijk, voeten op dezelfde hoogte)
+function _tvMeet(fn) { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); fn(g); const d = g.getImageData(0, 0, W, H).data; let x0 = W, x1 = 0, y0 = H, y1 = 0;
+  for (let y = 0; y < H; y += 2) for (let x = 0; x < W; x += 2) if (d[(y * W + x) * 4 + 3] > 60) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return { c, x0, x1, y0, y1 }; }
+function _tvOverlay(ctx, key, fn, o = {}) { const m = _tvMeet(fn); ctx.drawImage(m.c, 0, 0); const R = REF_OVERIG[key]; const sc = (m.x1 - m.x0) / (R.xr[1] - R.xr[0]); const ox = m.x0 - R.xr[0] * sc;
+  const oy = o.midden ? (m.y0 + m.y1) / 2 - (R.box[1] + R.box[3]) / 2 * sc : o.grondY - R.yf * sc;
+  ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.setLineDash([10, 6]); ctx.beginPath(); R.pts.forEach(([px, py], i) => { const X = ox + px * sc, Y = oy + py * sc; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }); ctx.closePath(); ctx.stroke(); ctx.restore();
+  const hr = (R.box[3] - R.box[1]) / (R.xr[1] - R.xr[0]), hm = (m.y1 - m.y0) / (m.x1 - m.x0);
+  metaText(ctx, `${key} · goud = referentie · hoogte/lengte ref ${hr.toFixed(2)} · tekening ${hm.toFixed(2)}`, 60, 1040, C.text2, 'left', 26); }
+const _tvOv = (key, fn, o) => function (ctx) { macroNacht(ctx, { horizon: 980, heuvel: false }); metaText(ctx, 'OVERLAY · ' + key.toUpperCase(), 60, 50, C.text2); _tvOverlay(ctx, key, fn, o); };
+Object.assign(TV_overig, {
+  ov_grondvink: _tvOv('grondvink', (g) => grondvink(g, 960, 760, 4.2, { houding: 'tak', takY: 760, takDik: 12 }), { grondY: 760 }),
+  ov_merel: _tvOv('merel', (g) => merel(g, 960, 860, 3.6, { houding: 'staan' }), { grondY: 860 }),
+  ov_koolmees: _tvOv('koolmees', (g) => koolmees(g, 960, 760, 3.6, { houding: 'tak', takY: 760, takDik: 12 }), { grondY: 760 }),
+  ov_vink_vlucht: _tvOv('vink_vlucht', (g) => grondvink(g, 960, 600, 4, { houding: 'vliegen', t: 0.07 }), { midden: true }),
+  ov_pauw: _tvOv('pauw', (g) => pauw(g, 1200, 940, 1.9), { grondY: 940 }),
+  ov_pauw_pronk: _tvOv('pauw_pronk', (g) => pauw(g, 960, 960, 1.6, { houding: 'pronk' }), { grondY: 960 }),
+  ov_pauwin: _tvOv('pauwin', (g) => pauwin(g, 960, 960, 2.6), { grondY: 960 }),
+  ov_reiger: _tvOv('reiger', (g) => vogel(g, 900, 980, 2.0), { grondY: 980 }),
+  ov_haai: _tvOv('haai', (g) => haai(g, 960, 540, 2.4, { houding: 'recht' }), { midden: true }),
+  ov_dolfijn: _tvOv('dolfijn', (g) => dolfijn(g, 960, 540, 2.4, { houding: 'recht' }), { midden: true }),
+  ov_krokodil: _tvOv('krokodil', (g) => krokodil(g, 960, 760, 2.2), { grondY: 760 }),
+  ov_hagedis: _tvOv('hagedis', (g) => hagedis(g, 960, 700, 3.0), { grondY: 700 }),
+});

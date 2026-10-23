@@ -144,3 +144,37 @@ Wat het verschil maakte (Kamiel: "nu lijkt het of de buis losgeknipt is"): de sp
 - **Pijlstaart**: bredere, stevige voorvleugels die bij het zweven schuin naar achter staan (niet als een V omhoog), een dikker behaard borststuk en een dikkere tong. In `rust` liggen de vleugels nu langs het lijf. De draairichting stond fout: positief draait op canvas met de klok mee, dus naar boven.
 - **Reptielen groot** (testvel `reptielen_groot`): de hagedis heeft langere, dikkere poten en de elleboog/knie steekt als knobbel opzij uit (lopen: lijf hoger).
 - Valkuil: een `//`-commentaar dat je in een functie van één regel plakt, slikt de rest van de regel in. Gebruik daar `/* */`.
+
+## Ronde 3: tekenen naar referentie
+
+**Werkwijze.** Elke referentieplaat (`referentie/zangvogels.webp`, `pauw-pauwin-reiger.webp`, `haai-dolfijn-bultrug-krokodil-hagedis.webp`) is uitgeknipt met een drempel op het kleurverschil met de grijze achtergrond, gevolgd door morfologisch sluiten en een vereenvoudigde contour (OpenCV `approxPolyDP`, 50–290 punten). De contouren staan in `src/ref_overig.js` (`REF_OVERIG`, alleen voor testvellen), met per dier het x-bereik kop–staart (`xr`) en de grondlijn (`yf`).
+
+**Overlay.** Elk dier heeft een overlayvel (`TV_overig.ov_<dier>`):
+- de eigen tekening wordt op een lege laag gemeten (bbox);
+- de referentiecontour wordt erop geschaald met dezelfde lengte kop–staart en de voeten op dezelfde hoogte (zwemmers en vlucht: zelfde middenlijn);
+- de contour staat als gouden stippellijn over de tekening;
+- onderaan staan de hoogte/lengte van referentie en tekening.
+
+Zelf uitknippen kost weinig. Pas op voor takken, stammen en grondschaduw die meegeknipt worden. Die heb ik als context in de contour laten staan en niet gebruikt voor de schaal (vandaar `xr`/`yf` met de hand).
+
+**Gemeten verhouding hoogte : lengte** (referentie → mijn tekening vóór → ná):
+
+| Dier | Referentie | Vóór | Ná | Verschil |
+|---|---|---|---|---|
+| Reiger | 2,02 | 1,31 | 2,12 | Ik tekende een gedrongen rusthouding (lijf horizontaal, hals ingetrokken). De referentie staat rechtop: lijf ± 60°, vleugelpunten en staart achter-onder, hals gestrekt, hiel op ± 0,22 en onderkant van het lijf op ± 0,47 van de hoogte. Dat is nu de standaard; de oude houding blijft als `o.houding: 'rust'`. |
+| Pauw met waaier | 1,00 | 0,73 | 0,95 | De waaier is bijna een volle schijf (geen halve ellips), met de onderrand ter hoogte van de buik, de poten eronder, 160 graden meer veren en vijf rijen oogvlekken. |
+| Pauw in rust | 0,76 | 0,68 | 0,72 | Hals langer (kop ± 22 eenheden hoger), sleep dikker (bijna zo hoog als het lijf bij de stuit). |
+| Vliegende vink, neerslag | 0,59 | 0,45 | 0,60 | De vleugel was te kort en wees naar achter-onder. In de neerslag wijst hij naar vóór-onder en is hij ± 0,8 × de lichaamslengte lang (schouder tot punt), met een brede armvleugel. |
+| Dolfijn | 0,34 | 0,34 | 0,38 | De verhouding klopte, maar het lijf was te slank vóór de rugvin en de meloen te laag. Nu is het lijf dieper, met een grotere sikkelvormige rugvin halverwege (u 0,5). |
+| Krokodil | 0,23 | 0,21 | 0,24 | In de hoge loop staat het lijf hoger op langere poten, met een diepere kop. |
+| Hagedis | 0,17 | 0,13 | 0,15 | Het lijf was te dun. Nu een dikker lijf en hoger op de poten. |
+| Haai | 0,37 | 0,39 | 0,39 | Iets dieper gemaakt. De plaat toont een witte haai, mijn tekening is een grijze rifhaai, dus vinplaatsing volgens de tekstbron (bron wint). |
+| Grondvink, merel | 0,76 / 0,63 | 0,74 / 0,62 | — | Klopten op lengte en hoogte. De vink heeft nu een iets hogere buik. |
+| Koolmees op tak | 0,94 | 0,67 | — | Niet te vergelijken: de schuine tak zit in de contour. |
+
+**Werkt het overnemen van de contour?** Voor de *maat* zeker: hoogte/lengte en de plaats van kop, poten en staart springen op het overlayvel meteen in het oog, waar mijn oog op een los testvel ze miste (reiger en waaier). De contour zelf heb ik niet als lichaamsvorm overgenomen. Vogels, vissen en reptielen hebben bij mij lagen (vleugel over lijf, vinnen op het lijf) en houdingen. Een vaste omtrek past maar bij één pose en maakt aanhangsels die los of door elkaar lopen. Ijken op de contour en de skeletvorm behouden werkte beter.
+
+**Kruiscontrole.**
+- De plaat toont een witte haai in plaats van een rifhaai. Bij de haai wint de tekstbron.
+- De pauwin op de plaat is ± 0,85 van de pauw (zonder sleep). Dat klopt met de tekstbron (± 95 cm).
+- Nog met de hand na te lopen: het aantal tenen op de AI-platen.

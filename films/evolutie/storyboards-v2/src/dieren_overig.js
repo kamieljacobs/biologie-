@@ -128,9 +128,9 @@ function _zangH(ctx, x, y, s, o, rot = 0) { const h = o.houding, pik = o.pik || 
 // halverwege de slag wijst de vleugel naar de kijker en zie je hem verkort. Lagen: dekveren (lichter, bij de voorrand), armpennen, handpennen.
 function _vOpen(ctx, S0, H, len, w, o) { const { kl, rand = _L(kl, 0.3), ver = false } = o; const S = [S0[0] - len * 0.1, S0[1] + len * 0.06]; const f = (H.t || 0) * 11 - (ver ? 0.25 : 0);
   const phi = Math.sin(f), neer = Math.cos(f) > 0; const spread = neer ? 1 : 0.5; const P = len * (0.3 + 0.7 * Math.abs(phi));
-  const a = phi < 0 ? -2.05 : 2.0, bd = phi < 0 ? -1 : 1; const dir = (an, l) => [Math.cos(an) * l, Math.sin(an) * l];
-  const back = [-0.97, 0.25], chord = len * 0.44 * (0.75 + 0.25 * spread), R = [S[0] - len * 0.4, S[1] + len * 0.12];
-  const W2 = [S[0] + dir(a, P * 0.45)[0], S[1] + dir(a, P * 0.45)[1]]; const at = a + bd * (0.2 + (1 - spread) * 0.9); const T = [W2[0] + dir(at, P * 0.62)[0], W2[1] + dir(at, P * 0.62)[1]];
+  const a = phi < 0 ? -2.0 : 0.5, bd = phi < 0 ? -1 : 1; const dir = (an, l) => [Math.cos(an) * l, Math.sin(an) * l];
+  const back = [-0.97, 0.25], chord = len * 0.56 * (0.7 + 0.3 * spread), R = [S[0] - len * 0.4, S[1] + len * 0.12];
+  const W2 = [S[0] + dir(a, P * 0.45)[0], S[1] + dir(a, P * 0.45)[1]]; const at = neer && phi > 0 ? a - 0.12 : a + bd * (0.2 + (1 - spread) * 0.9); const T = [W2[0] + dir(at, P * 0.62)[0], W2[1] + dir(at, P * 0.62)[1]];
   const P2 = [W2[0] + back[0] * chord, W2[1] + back[1] * chord];
   const k = ver ? _D(kl, 0.22) : kl, l = _L(k, 0.1);
   // omtrek: voorrand S → pols → punt, achterrand: getrapte handpennen → armpennen (geschulpt) → voet R
@@ -141,7 +141,7 @@ function _vOpen(ctx, S0, H, len, w, o) { const { kl, rand = _L(kl, 0.3), ver = f
   ctx.save(); ctx.lineJoin = 'round'; ctx.beginPath(); O.forEach((q, i) => i ? ctx.lineTo(...q) : ctx.moveTo(...q)); ctx.closePath(); ctx.fillStyle = k; ctx.fill(); ctx.strokeStyle = rand; ctx.lineWidth = 1.4; ctx.stroke();
   ctx.save(); ctx.clip();
   // dekveren: lichtere band langs de voorrand van arm en hand
-  const dk = [S, W2, [W2[0] + back[0] * chord * 0.42, W2[1] + back[1] * chord * 0.42], [R[0] + (S[0] - R[0]) * 0.45, R[1] + (S[1] - R[1]) * 0.45]]; vul(ctx, dk, l, null);
+  const dk = [S, W2, [W2[0] + back[0] * chord * 0.25, W2[1] + back[1] * chord * 0.25], [R[0] + (S[0] - R[0]) * 0.7, R[1] + (S[1] - R[1]) * 0.7]]; vul(ctx, dk, l, null);
   ctx.strokeStyle = _A(rand, 0.75); ctx.lineWidth = Math.max(1, w * 0.03);
   for (let i = 0; i <= nH; i++) { const u = i / nH; const q = [lerp(T[0], P2[0], u), lerp(T[1], P2[1], u)]; const b = [lerp(W2[0], P2[0], 0.25 + u * 0.5) + (T[0] - W2[0]) * (1 - u) * 0.2, lerp(W2[1], P2[1], 0.25 + u * 0.5) + (T[1] - W2[1]) * (1 - u) * 0.2]; ctx.beginPath(); ctx.moveTo(...b); ctx.lineTo(...q); ctx.stroke(); } // handpennen
   for (let i = 1; i <= 4; i++) { const u = i / 5; const q = [lerp(P2[0], R[0], u), lerp(P2[1], R[1], u)], b = [lerp(W2[0], S[0], u), lerp(W2[1], S[1], u)]; ctx.beginPath(); ctx.moveTo(lerp(b[0], q[0], 0.4), lerp(b[1], q[1], 0.4)); ctx.lineTo(...q); ctx.stroke(); } // armpennen
@@ -162,10 +162,10 @@ function grondvink(ctx, x, y, s = 1, o = {}) {
   const F1 = zp.soort === 'grond' ? [6, -3] : [2, 0], F2 = zp.soort === 'grond' ? [-8, -3] : [10, 0];
   if (!H.vlieg) _vPoot(ctx, [-6, -40], F2, zp, Object.assign({}, poot, { ver: true }));
   // staart: kort, recht afgesneden, in het verlengde van het lijf schuin omlaag
-  if (H.vlieg) _vOpen(ctx, [18, -100], H, 130, 50, { kl: _D(veer, 0.1), ver: true });
+  if (H.vlieg) _vOpen(ctx, [18, -100], H, 175, 60, { kl: _D(veer, 0.1), ver: true });
   _vStaart(ctx, [-58, -62], [-120, -36], 22, 24, { kl: _D(veer, 0.12), rand: veerL });
   // lijf (borst naar voren, rug doorlopend in de stuit), buik lichter
-  const L = [[34, -94], [44, -78], [40, -60], [26, -46], [4, -38], [-22, -38], [-46, -46], [-64, -56], [-68, -70], [-52, -92], [-24, -108], [4, -118], [22, -114]];
+  const L = [[34, -94], [42, -78], [38, -62], [24, -50], [4, -43], [-22, -43], [-46, -50], [-64, -58], [-68, -70], [-52, -90], [-24, -106], [4, -116], [22, -112]];
   vul(ctx, L, veer, veerL, 2);
   binnen(ctx, L, () => { vul(ctx, [[60, -98], [20, -86], [-20, -70], [-60, -54], [-70, -20], [60, -20]], buik); vul(ctx, [[30, -130], [0, -112], [-40, -96], [-70, -74], [-80, -120]], rug);
     if (!man) { ctx.strokeStyle = streep; ctx.lineWidth = 2; for (let i = 0; i < 14; i++) { const px = 36 - (i % 7) * 10 - Math.floor(i / 7) * 5, py = -84 + Math.floor(i / 7) * 14 + (i % 2) * 4; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px - 3, py + 8); ctx.stroke(); } }
@@ -173,7 +173,7 @@ function grondvink(ctx, x, y, s = 1, o = {}) {
   // dijveren over de bovenkant van de poot
   vul(ctx, [[10, -54], [-12, -54], [-14, -40], [0, -36], [10, -44]], buik);
   if (!H.vlieg) _vPoot(ctx, [2, -42], F1, zp, poot);
-  if (H.vlieg) _vOpen(ctx, [18, -100], H, 130, 50, { kl: _D(veer, 0.1) }); else _vVleugel(ctx, [18, -100], [-90, -58], 46, { kl: _D(veer, 0.1), rand: veerL, zoom: man ? '#55535A' : '#B89E80', dek: man ? _L(veer, 0.04) : '#86705A' });
+  if (H.vlieg) _vOpen(ctx, [18, -100], H, 175, 60, { kl: _D(veer, 0.1) }); else _vVleugel(ctx, [18, -100], [-90, -58], 46, { kl: _D(veer, 0.1), rand: veerL, zoom: man ? '#55535A' : '#B89E80', dek: man ? _L(veer, 0.04) : '#86705A' });
   // kop (kantelt bij pikken): rond met steil voorhoofd, korte hals overlapt het lijf
   ctx.save(); ctx.translate(26, -104); ctx.rotate(pik * 0.6);
   const K = [[-24, 14], [-20, -10], [-8, -24], [8, -28], [22, -22], [28, -12], [30, 2], [24, 14], [8, 20], [-10, 22]];
@@ -195,14 +195,14 @@ function merel(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, prooi = null
   const zp = z.soort === 'tak' ? { soort: 'tak', dik: z.dik } : z.soort === 'schors' ? z : { soort: 'grond' };
   const poot = { kl: '#3E3428', dik: 5.5, teen: 22 }, F1 = zp.soort === 'grond' ? [6, -3] : [2, 0], F2 = zp.soort === 'grond' ? [-10, -3] : [10, 0];
   if (!H.vlieg) _vPoot(ctx, [-8, -40], F2, zp, Object.assign({}, poot, { ver: true }));
-  if (H.vlieg) _vOpen(ctx, [14, -110], H, 130, 50, { kl: _D(zw, 0.12), ver: true });
+  if (H.vlieg) _vOpen(ctx, [14, -110], H, 200, 60, { kl: _D(zw, 0.12), ver: true });
   _vStaart(ctx, [-38, -62], zp.soort === 'tak' ? [-108, 6] : [-140, -34], 24, 30, { kl: _D(zw, 0.15), rand: zwL, punt: 'rond' });
   const L = [[42, -102], [46, -84], [40, -64], [26, -50], [6, -42], [-14, -40], [-32, -46], [-46, -60], [-50, -80], [-38, -102], [-12, -122], [14, -132], [32, -126]];
   vul(ctx, L, zw, zwL, 2);
   binnen(ctx, L, () => { vul(ctx, [[60, -96], [10, -76], [-60, -58], [-60, -20], [60, -20]], buik); vul(ctx, [[30, -140], [-10, -116], [-60, -86], [-70, -140]], rug);
     ctx.strokeStyle = _A(zwL, 0.55); ctx.lineWidth = 1.3; for (let i = 0; i < 16; i++) { const px = 38 - (i % 6) * 12, py = -88 + Math.floor(i / 6) * 13 + (i % 2) * 4; ctx.beginPath(); ctx.arc(px, py, 4, 0.2, 2.6); ctx.stroke(); } });
     if (!H.vlieg) _vPoot(ctx, [0, -42], F1, zp, poot);
-  if (H.vlieg) _vOpen(ctx, [14, -110], H, 130, 50, { kl: _D(zw, 0.12) }); else _vVleugel(ctx, [14, -110], [-66, -36], 44, { kl: _D(zw, 0.12), rand: zwL, zoom: '#5A5962', hand: '#1E1D22' });
+  if (H.vlieg) _vOpen(ctx, [14, -110], H, 200, 60, { kl: _D(zw, 0.12) }); else _vVleugel(ctx, [14, -110], [-66, -36], 44, { kl: _D(zw, 0.12), rand: zwL, zoom: '#5A5962', hand: '#1E1D22' });
   ctx.save(); ctx.translate(36, -118); ctx.rotate(pik * 0.8);
   const K = [[-22, 16], [-20, -8], [-8, -20], [8, -22], [20, -16], [26, -6], [26, 8], [16, 16], [-4, 20]];
   vul(ctx, K, zw, zwL, 2); binnen(ctx, K, () => vul(ctx, [[-30, -40], [30, -40], [30, -12], [-30, -4]], rug));
@@ -226,7 +226,7 @@ function koolmees(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, prooi = n
   const poot = { kl: '#5E6A80', dik: 4.6, teen: 19, klauw: '#2A2E38' };
   const F1 = zp.soort === 'grond' ? [6, -3] : zp.soort === 'schors' ? [12, 0] : [2, 0], F2 = zp.soort === 'grond' ? [-8, -3] : zp.soort === 'schors' ? [-4, -2] : [10, 0];
   if (!H.vlieg) _vPoot(ctx, [-6, -38], F2, zp, Object.assign({}, poot, { ver: true }));
-  if (H.vlieg) _vOpen(ctx, [16, -98], H, 150, 50, { kl: blauw, ver: true });
+  if (H.vlieg) _vOpen(ctx, [16, -98], H, 205, 60, { kl: blauw, ver: true });
   _vStaart(ctx, [-54, -62], [-134, -24], 20, 24, { kl: blauw, rand: blauwL, wit: '#EEEEEA' });
   const L = [[32, -92], [40, -76], [36, -58], [22, -44], [0, -36], [-24, -38], [-46, -48], [-60, -60], [-60, -76], [-44, -96], [-16, -110], [8, -116], [24, -110]];
   vul(ctx, L, groen, groenL, 2);
@@ -236,7 +236,7 @@ function koolmees(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, prooi = n
     vul(ctx, [[-20, -114], [-50, -96], [-66, -70], [-80, -120]], '#6A7E4C'); });
   
   if (!H.vlieg) _vPoot(ctx, [2, -40], F1, zp, poot);
-  if (H.vlieg) _vOpen(ctx, [16, -98], H, 150, 50, { kl: blauw }); else _vVleugel(ctx, [16, -98], [-94, -60], 44, { kl: blauw, rand: blauwL, zoom: '#C8D2E2', dek: '#6E829E', band: '#F2F2EE', hand: '#4A5A76' });
+  if (H.vlieg) _vOpen(ctx, [16, -98], H, 205, 60, { kl: blauw }); else _vVleugel(ctx, [16, -98], [-94, -60], 44, { kl: blauw, rand: blauwL, zoom: '#C8D2E2', dek: '#6E829E', band: '#F2F2EE', hand: '#4A5A76' });
   ctx.save(); ctx.translate(30, -104); ctx.rotate(pik * 0.7);
   const K = [[-22, 16], [-20, -8], [-8, -22], [8, -24], [20, -18], [26, -6], [26, 8], [16, 16], [-4, 20]];
   vul(ctx, K, zwart, '#3E404A', 1.6);
@@ -257,14 +257,14 @@ function zaadkraker(ctx, x, y, s = 1, o = {}) { const { snavel = 'klein', a = 1,
   const zp = z.soort === 'tak' ? { soort: 'tak', dik: z.dik } : z.soort === 'schors' ? z : { soort: 'grond' };
   const poot = { kl: '#6A5E58', dik: 5, teen: 19 }, F1 = zp.soort === 'grond' ? [6, -3] : [2, 0], F2 = zp.soort === 'grond' ? [-8, -3] : [10, 0];
   if (!H.vlieg) _vPoot(ctx, [-6, -44], F2, zp, Object.assign({}, poot, { ver: true }));
-  if (H.vlieg) _vOpen(ctx, [16, -110], H, 140, 52, { kl: '#2C2A32', ver: true });
+  if (H.vlieg) _vOpen(ctx, [16, -110], H, 215, 62, { kl: '#2C2A32', ver: true });
   _vStaart(ctx, [-60, -70], [-150, -34], 22, 26, { kl: roodD, rand: roodL });
   const L = [[36, -100], [44, -82], [38, -62], [22, -48], [0, -40], [-26, -42], [-50, -52], [-66, -66], [-66, -82], [-48, -104], [-18, -120], [10, -126], [28, -118]];
   vul(ctx, L, zw, zwL, 2);
   binnen(ctx, L, () => { vul(ctx, [[60, -120], [20, -100], [0, -76], [16, -56], [60, -56]], rood); vul(ctx, [[-50, -60], [-70, -72], [-80, -50], [-60, -40]], rood); });
   vul(ctx, [[8, -56], [-12, -54], [-14, -40], [0, -36], [10, -44]], '#1E1C22');
   if (!H.vlieg) _vPoot(ctx, [2, -46], F1, zp, poot);
-  if (H.vlieg) _vOpen(ctx, [16, -110], H, 140, 52, { kl: '#2C2A32' }); else _vVleugel(ctx, [16, -110], [-98, -66], 48, { kl: '#2C2A32', rand: zwL, zoom: '#4E4C58', hand: '#1E1C22' });
+  if (H.vlieg) _vOpen(ctx, [16, -110], H, 215, 62, { kl: '#2C2A32' }); else _vVleugel(ctx, [16, -110], [-98, -66], 48, { kl: '#2C2A32', rand: zwL, zoom: '#4E4C58', hand: '#1E1C22' });
   ctx.save(); ctx.translate(30, -112);
   vul(ctx, [[-24, 16], [-20, -8], [-6, -26], [12, -30], [26, -22], [34, -8], [34, 8], [24, 18], [4, 22], [-12, 20]], rood, roodL, 2);
   const hS = snavel === 'groot' ? 31 : snavel === 'midden' ? 26 : 21, lS = hS * 1.15; const sk = snavelKleur || '#3E4A60', skL = snavelKleur ? _L(snavelKleur, 0.35) : '#8494B0';
@@ -291,7 +291,7 @@ function pauw(ctx, x, y, s = 1, o = {}) { const { waaier = 0, a = 1, kijk = 1, s
   if (!open) {
     // sleep in rust: bundel van stuit naar achteren-omlaag, laatste kwart op de grond; schachten en oogvlekken langs de lengte
     const L = 310 * staartLengte, x0 = -70;
-    const top = [[x0 + 6, -166], [x0 - L * 0.3, -128], [x0 - L * 0.62, -60], [x0 - L * 0.86, -12], [x0 - L - 14, 0]];
+    const top = [[x0 + 6, -172], [x0 - L * 0.3, -146], [x0 - L * 0.62, -86], [x0 - L * 0.86, -30], [x0 - L - 14, 0]];
     const ond = [[x0 - L * 0.95, 4], [x0 - L * 0.72, 2], [x0 - L * 0.5, -30], [x0 - L * 0.22, -88], [x0 - 14, -128]];
     const S = top.concat(ond); vul(ctx, S, _D(groen, 0.25), brons, 2);
     binnen(ctx, S, () => { ctx.strokeStyle = _A('#C0A848', 0.4); ctx.lineWidth = 1.4; for (let i = 0; i < 16; i++) { const f = i / 15; ctx.beginPath(); ctx.moveTo(x0 - 4, -160 + f * 36); ctx.bezierCurveTo(x0 - L * 0.3, -122 + f * 30, x0 - L * 0.6, -54 + f * 40, x0 - L - 10, -2 + f * 6); ctx.stroke(); }
@@ -300,11 +300,11 @@ function pauw(ctx, x, y, s = 1, o = {}) { const { waaier = 0, a = 1, kijk = 1, s
   }
   else {
     // waaier: ± 200 veren in een licht gedraaide halve ellips achter het lijf, oogvlekken in ringen; onderrand met 'visstaart'-veren
-    const cx = -20, cy = -170, R = 300 * staartLengte, ry = 0.86;
-    const F = []; for (let i = 0; i <= 60; i++) { const an = Math.PI * (0.98 + 1.04 * i / 60); F.push([cx + Math.cos(an) * R, cy + Math.sin(an) * R * ry]); } F.push([cx + R * 0.2, cy + 30]); F.push([cx - R * 0.2, cy + 30]);
+    const cx = -20, cy = -290, R = 320 * staartLengte, ry = 1.0; // referentie: waaier bijna een volle schijf (hoogte = breedte), onderrand tot net boven de knieën
+    const F = []; for (let i = 0; i <= 60; i++) { const an = Math.PI * (0.74 + 1.52 * i / 60); F.push([cx + Math.cos(an) * R, cy + Math.sin(an) * R * ry]); } F.push([cx, cy + R * 0.42]);
     vul(ctx, F, _D(groen, 0.3), brons, 2);
-    binnen(ctx, F, () => { ctx.strokeStyle = _A('#B8A04A', 0.45); ctx.lineWidth = 1.3; for (let i = 0; i <= 70; i++) { const an = Math.PI * (0.99 + 1.02 * i / 70); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(an) * R, cy + Math.sin(an) * R * ry); ctx.stroke(); }
-      for (const [rr, n] of [[0.94, 30], [0.8, 26], [0.66, 21], [0.52, 16], [0.38, 11]]) for (let i = 0; i < n; i++) { if (hash(i * 13 + rr * 100) > vlekken) continue; const an = Math.PI * (1.04 + 0.92 * (i + 0.5 * (rr * 10 % 2)) / n); const px = cx + Math.cos(an) * R * rr, py = cy + Math.sin(an) * R * rr * ry; _oogvlek(ctx, px, py, 7 + 9 * rr, an + Math.PI / 2 + Math.PI / 2); } });
+    binnen(ctx, F, () => { ctx.strokeStyle = _A('#B8A04A', 0.45); ctx.lineWidth = 1.3; for (let i = 0; i <= 100; i++) { const an = Math.PI * (0.75 + 1.5 * i / 100); ctx.beginPath(); ctx.moveTo(cx + Math.cos(an) * R * 0.3, cy + Math.sin(an) * R * 0.3 * ry); ctx.lineTo(cx + Math.cos(an) * R, cy + Math.sin(an) * R * ry); ctx.stroke(); }
+      for (const [rr, n] of [[0.94, 48], [0.8, 41], [0.66, 34], [0.52, 26], [0.38, 18]]) for (let i = 0; i < n; i++) { if (hash(i * 13 + rr * 100) > vlekken) continue; const an = Math.PI * (0.79 + 1.42 * (i + 0.5 * (rr * 10 % 2)) / n); const px = cx + Math.cos(an) * R * rr, py = cy + Math.sin(an) * R * rr * ry; _oogvlek(ctx, px, py, 7 + 9 * rr, an + Math.PI / 2 + Math.PI / 2); } });
     // vleugels hangen omlaag: kastanjebruine handpennen naast de poten zichtbaar
     vul(ctx, [[30, -150], [-40, -150], [-62, -80], [-30, -62], [10, -90]], '#9A5A2E', '#C07A48', 1.5);
   }
@@ -326,9 +326,10 @@ function pauw(ctx, x, y, s = 1, o = {}) { const { waaier = 0, a = 1, kijk = 1, s
     binnen(ctx, V, () => { ctx.strokeStyle = '#2E261C'; ctx.lineWidth = 2.6; for (let i = 0; i < 14; i++) { ctx.beginPath(); ctx.moveTo(34 - i * 8, -190); ctx.quadraticCurveTo(26 - i * 8, -160, 14 - i * 8, -128); ctx.stroke(); }
       vul(ctx, [[-30, -150], [-96, -146], [-90, -110], [-36, -116]], '#1E1A18'); vul(ctx, [[-56, -136], [-100, -134], [-96, -110], [-60, -114]], '#9A5A2E'); }); }
   // hals: lang, licht S-vormig, metaalblauw met fijne veertjes
-  const HS = [[44, -176], [56, -208], [66, -238], [76, -258], [84, -268]]; const Hn = _buis(HS, [16, 13, 10, 9, 9], [12, 10, 8, 7, 7]); vul(ctx, Hn, blauw, blauwL, 2);
+  const HS = [[44, -176], [54, -214], [62, -250], [72, -278], [84, -290]]; const Hn = _buis(HS, [16, 13, 10, 9, 9], [12, 10, 8, 7, 7]); vul(ctx, Hn, blauw, blauwL, 2);
   binnen(ctx, Hn, () => { ctx.fillStyle = _A(blauwD, 0.55); for (let i = 0; i < 26; i++) { const u = i / 26, p = [lerp(44, 84, u) + (i % 2 ? 4 : -3), lerp(-176, -268, u)]; ctx.beginPath(); ctx.arc(p[0], p[1], 2.2, 0, Math.PI); ctx.fill(); } });
-  // kop
+  // kop (hoger op de langere hals)
+  ctx.save(); ctx.translate(0, -22);
   const K = [[74, -270], [80, -282], [92, -284], [100, -276], [98, -266], [88, -260], [76, -260]]; vul(ctx, K, blauw, blauwL, 1.5);
   // kuif: ± 20 kale schachten met blauwgroene waaiertjes
   for (let i = 0; i < 9; i++) { const bx = 80 + i * 1.6, by = -282 - i * 0.3, an = -1.95 + i * 0.09, l = 30 + (i % 3) * 3; const tx = bx + Math.cos(an) * l, ty = by + Math.sin(an) * l; lijn(ctx, [[bx, by], [tx, ty]], '#3A4A6A', 1.3);
@@ -337,6 +338,7 @@ function pauw(ctx, x, y, s = 1, o = {}) { const { waaier = 0, a = 1, kijk = 1, s
   vul(ctx, [[82, -279], [92, -280], [97, -277], [90, -276]], '#EEEEE6'); vul(ctx, [[82, -268], [90, -265], [97, -268], [92, -270], [86, -270]], '#EEEEE6');
   dierOog(ctx, 90, -274, 2.8, '#2A1A10');
   vul(ctx, [[97, -276], [106, -273], [110, -270], [104, -268], [97, -268]], '#B0A288', '#D0C4A8', 1); circ(ctx, 101, -273, 0.9, '#5A4E40');
+  ctx.restore();
   ctx.restore(); }
 
 // PAUWIN: snavel–staart ± 95 cm, geen sleep; kruin roodbruin met kuif, wit gezicht met donkere oogstreep, onderhals metaalgroen,
@@ -368,7 +370,7 @@ function pauwin(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1 } = o; if (a
 // BLAUWE REIGER (Ardea cinerea), naam vogel() blijft. 90–98 cm, staand met ingetrokken S-hals. Poten lang: onderste deel van het scheenbeen kaal,
 // hiel op ± 1/6 van de hoogte, tarsus ± 15 cm, middelteen ± 11 cm; dolkvormige gele snavel ± 12 cm; zwarte oogstreep die uitloopt in een pluim,
 // witte hals met zwarte streepjes op de voorkant, grijze rug, zwarte vlek op de vleugelboeg, zwarte handpennen, witte sierveren op de borst. Hoogte ± 420.
-function vogel(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, kijk, a); ctx.lineJoin = 'round';
+function _reigerRust(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, kijk, a); ctx.lineJoin = 'round';
   const grijs = '#9CA4AE', grijsD = '#7A828C', grijsL = '#C4CAD2', geel = '#C8A44A', zw = '#1E2026', wit = '#ECEDEE';
   const st = o.houding === 'lopen' ? (o.t || 0) * 2.4 : null;
   const poot = (dx, ver) => { const fase = ver ? Math.PI : 0, sw = st == null ? 0 : Math.sin(st + fase) * 30, lift = st == null ? 0 : Math.max(0, Math.cos(st + fase)) * 26; ctx.save(); ctx.translate(sw * 0.4, 0); const k = ver ? _D(geel, 0.25) : geel; _streek(ctx, [[dx + 6, -232], [dx + 2, -170], [dx - 2, -112]], [16, 9, 7], ver ? _D('#8A8070', 0.2) : '#8A8070'); // scheenbeen: boven bevederd, onder kaal
@@ -394,6 +396,30 @@ function vogel(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1 } = o; if (a 
   vul(ctx, [[126, -404], [160, -398], [188, -392], [160, -390], [126, -392]], geel, _L(geel, 0.3), 1.2); lijn(ctx, [[128, -397], [184, -392]], _D(geel, 0.4), 1.2);
   dierOog(ctx, 118, -400, 3.4, '#D8B43A');
   ctx.restore(); }
+function vogel(ctx, x, y, s = 1, o = {}) { if (o.houding === 'rust') return _reigerRust(ctx, x, y, s, o); const { a = 1, kijk = 1 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, kijk, a); ctx.lineJoin = 'round';
+  // Staand (naar referentie): lijf steil (± 60°), vleugelpunten en staart hangen achter-onder, hals gestrekt omhoog met een lichte S, kop met horizontale snavel.
+  // Hoogte/lengte ± 2 (referentieplaat); hiel op ± 0,22 van de hoogte, onderkant lijf op ± 0,47.
+  const grijs = '#9CA4AE', grijsD = '#7A828C', grijsL = '#C4CAD2', geel = '#C8A44A', zw = '#1E2026', wit = '#ECEDEE';
+  const st = o.houding === 'lopen' ? (o.t || 0) * 2.4 : null;
+  const poot = (dx, ver) => { const fase = ver ? Math.PI : 0, sw = st == null ? 0 : Math.sin(st + fase) * 30, lift = st == null ? 0 : Math.max(0, Math.cos(st + fase)) * 26; ctx.save(); ctx.translate(sw * 0.4, 0); const k = ver ? _D(geel, 0.25) : geel;
+    _streek(ctx, [[dx + 4, -214], [dx + 2, -160], [dx - 2, -100]], [18, 9, 7], ver ? _D('#8A8070', 0.2) : '#8A8070'); _streek(ctx, [[dx + 2, -156], [dx - 2, -100]], [8, 7], k);
+    ctx.translate(sw * 0.6, -lift); _vPoot(ctx, [dx - 2 - sw * 0.6, -102 + lift], [dx + 6, -4], { soort: 'grond' }, { kl: k, dik: 7, teen: 46, ver, klauw: '#2A2620' }); ctx.restore(); };
+  poot(-8, true);
+  const R = [[30, -300], [40, -270], [36, -236], [20, -212], [0, -204], [-24, -196], [-44, -172], [-52, -184], [-50, -220], [-38, -264], [-14, -298], [10, -314]];
+  vul(ctx, R, grijs, grijsL, 2); binnen(ctx, R, () => { vul(ctx, [[60, -290], [20, -280], [0, -240], [-10, -190], [60, -190]], _L(grijs, 0.3)); });
+  poot(10, false);
+  const V = [[14, -304], [-12, -296], [-38, -258], [-52, -210], [-50, -164], [-36, -178], [-18, -214], [2, -256], [16, -284]]; vul(ctx, V, grijsD, grijsL, 1.5);
+  binnen(ctx, V, () => { vul(ctx, [[-60, -214], [-20, -214], [-26, -150], [-70, -150]], zw); ctx.strokeStyle = _A(grijsL, 0.7); ctx.lineWidth = 1.4; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(8 - i * 7, -292 + i * 12); ctx.lineTo(-30 - i * 3, -240 + i * 12); ctx.stroke(); } vul(ctx, [[16, -306], [-4, -300], [-2, -280], [14, -276]], zw); });
+  for (let i = 0; i < 6; i++) lijn(ctx, [[36 - i * 2, -292], [42 - i * 3, -256], [40 - i * 4, -232]], wit, 3); // sierveren op de borst
+  const HS = [[20, -300], [36, -330], [34, -362], [42, -392], [58, -412], [76, -420]]; const Hn = _buis(HS, [15, 11, 9, 8, 9, 10], [15, 11, 8, 7, 8, 9]); vul(ctx, Hn, wit, '#FFFFFF', 1.5);
+  binnen(ctx, Hn, () => { ctx.fillStyle = zw; for (let i = 0; i < 9; i++) { const u = 0.12 + i * 0.08, px = _prof([[0, 20], [0.2, 36], [0.4, 34], [0.6, 42], [0.8, 58], [1, 76]], u), py = _prof([[0, -300], [0.2, -330], [0.4, -362], [0.6, -392], [0.8, -412], [1, -420]], u); ctx.beginPath(); ctx.ellipse(px + 6, py, 2.2, 4.5, 0.2, 0, 6.283); ctx.fill(); } });
+  const dx = -26, dy = -22, T = (P) => P.map(([a, b]) => [a + dx, b + dy]);
+  vul(ctx, T([[96, -404], [108, -412], [122, -410], [130, -400], [124, -390], [108, -388], [96, -392]]), wit, '#FFFFFF', 1.5);
+  vul(ctx, T([[110, -406], [124, -404], [116, -398], [94, -396], [70, -392], [62, -398], [90, -402]]), zw);
+  vul(ctx, T([[126, -404], [160, -398], [188, -392], [160, -390], [126, -392]]), geel, _L(geel, 0.3), 1.2); lijn(ctx, T([[128, -397], [184, -392]]), _D(geel, 0.4), 1.2);
+  dierOog(ctx, 118 + dx, -400 + dy, 3.4, '#D8B43A');
+  ctx.restore(); }
+
 
 // ===================================================================================
 // BOERENZWALUW (Hirundo rustica) in de vlucht, bovenaanzicht schuin (zoals je hem overvliegend ziet). 17–19 cm met staartspiesen, spanwijdte 32–34 cm;
@@ -437,7 +463,7 @@ function haai(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, rontge
   const houding = o.houding || 'zwemmen', fase = houding === 'recht' ? 0 : t * 3.2; const zw = houding === 'recht' ? 0 : 1;
   const rug = '#6E7A86', rugD = '#56616C', buik = '#DCE0E4', rand = '#96A2AE', zwart = '#1E242A';
   const golf = (u) => zw * Math.sin(fase - u * 4) * 3 * u * u; // zijwaartse slag: van opzij hooguit een klein deinen
-  const top = [[0, 3], [0.04, 13], [0.12, 30], [0.3, 46], [0.5, 39], [0.7, 25], [0.88, 13], [1, 10]], ond = [[0, 5], [0.05, 15], [0.15, 31], [0.32, 37], [0.5, 32], [0.7, 20], [0.88, 10], [1, 9]];
+  const top = [[0, 3], [0.04, 14], [0.12, 33], [0.3, 50], [0.5, 42], [0.7, 26], [0.88, 13], [1, 10]], ond = [[0, 5], [0.05, 16], [0.15, 34], [0.32, 41], [0.5, 34], [0.7, 20], [0.88, 10], [1, 9]];
   const Z = _zwemLijf(252, -206, top, ond, golf); const r = 1 - rontgen * 0.75;
   const swing = Math.cos(fase - 4); // staartvin draait zijwaarts: lijkt smaller
   ctx.save(); ctx.globalAlpha *= r;
@@ -475,13 +501,13 @@ function dolfijn(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0, ron
   const houding = o.houding || 'zwemmen', zw = houding === 'recht' || rontgen > 0.01 ? 0 : 1, fase = t * 2.6;
   const mantel = '#4E5C6A', flank = '#76848F', buik = '#D0D6DC', rand = '#9AA6B2';
   const golf = (u) => zw * Math.sin(fase - u * 3.2) * 46 * Math.max(0, u - 0.3) ** 1.5; // op-en-neer slag, vooral achter de rugvin
-  const top = [[0, 5], [0.055, 7], [0.08, 26], [0.12, 40], [0.2, 46], [0.38, 50], [0.6, 40], [0.78, 22], [0.92, 13], [1, 9]], ond = [[0, 6], [0.05, 8], [0.1, 18], [0.2, 34], [0.38, 44], [0.6, 34], [0.78, 16], [0.92, 9], [1, 7]];
+  const top = [[0, 5], [0.055, 8], [0.08, 30], [0.13, 48], [0.22, 56], [0.4, 60], [0.6, 46], [0.78, 24], [0.92, 13], [1, 9]], ond = [[0, 6], [0.05, 9], [0.1, 22], [0.22, 42], [0.4, 52], [0.6, 38], [0.78, 17], [0.92, 9], [1, 7]];
   const Z = _zwemLijf(250, -222, top, ond, golf); const r = 1 - rontgen * 0.75;
   ctx.save(); ctx.globalAlpha *= r;
   // staartvin: horizontaal, van opzij een smalle wig die met de slag op en neer kantelt
   const [tx, ty] = Z.pt(1, 0), ta = Z.hoek(1); ctx.save(); ctx.translate(tx, ty); ctx.rotate(ta + zw * Math.cos(fase - 3.2) * 0.35);
   vul(ctx, [[6, -7], [-30, -10], [-62, -18], [-78, -12], [-64, 0], [-78, 12], [-62, 18], [-30, 10], [6, 7]], mantel, rand, 2); ctx.restore();
-  _vin(ctx, Z, 0.45, 48, [[22, 4], [4, -24], [-14, -50], [-26, -58], [-24, -44], [-30, -16], [-40, 2]], mantel, rand);
+  _vin(ctx, Z, 0.5, 56, [[26, 4], [6, -30], [-16, -62], [-32, -72], [-28, -54], [-34, -20], [-46, 2]], mantel, rand);
   vul(ctx, Z.O, flank, rand, 2);
   binnen(ctx, Z.O, () => { const T = [], B = []; for (let i = 0; i <= 24; i++) { const u = i / 24; T.push(Z.pt(u, _prof(top, u) * 0.35 - 4)); B.push(Z.pt(u, -_prof(ond, u) * 0.3)); }
     vul(ctx, T.concat([[-300, -120], [320, -120]]), mantel); vul(ctx, B.concat([[-300, 120], [320, 120]]), buik); });
@@ -536,13 +562,13 @@ function _reptielPoot(ctx, S, K, V, tenen, wd, kl, klD) { // S = schouder/heup, 
 function krokodil(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, kijk, a); ctx.lineJoin = 'round';
   const houding = o.houding || 'lopen', lig = houding === 'liggen';
   const huid = '#5E6A3E', huidD = '#46502E', buik = '#C8C08E', rand = '#7E8A5A', band = '#3A4226';
-  const h = lig ? 40 : 80; const golf = (u) => -h + (lig ? 0 : -4) * Math.sin(u * 3) + Math.sin(t * 2 - u * 5) * 4 * u;
-  const top = [[0, 6], [0.03, 12], [0.05, 10], [0.12, 13], [0.155, 23], [0.17, 21], [0.2, 28], [0.28, 42], [0.4, 46], [0.5, 40], [0.62, 26], [0.8, 14], [1, 2]];
+  const h = lig ? 40 : 96; const golf = (u) => -h + (lig ? 0 : -4) * Math.sin(u * 3) + Math.sin(t * 2 - u * 5) * 4 * u;
+  const top = [[0, 7], [0.03, 13], [0.05, 11], [0.12, 16], [0.155, 27], [0.17, 25], [0.2, 32], [0.28, 46], [0.4, 50], [0.5, 44], [0.62, 30], [0.8, 17], [1, 3]];
   const ond = [[0, 5], [0.06, 8], [0.14, 13], [0.2, 22], [0.3, 38], [0.42, 40], [0.52, 28], [0.7, 13], [1, 1]];
   const Z = _zwemLijf(340, -330, top, ond, golf);
   const poot = (u, voor, ver) => { const kl = ver ? huidD : huid, klD = ver ? _D(huidD, 0.15) : huidD; const [px, py] = Z.pt(u, -_prof(ond, u) * 0.4); const wd = voor ? 26 : 38;
     if (lig) _reptielPoot(ctx, [px, py], [px - (voor ? -6 : 24), py - 10], [px + (voor ? 18 : -2), -4], [[px + 26, 0], [px + 34, 0], [px + 40, -1], [px + 30, 1]].map(([a, b]) => [a + (voor ? 4 : -14), b]), wd, kl, klD);
-    else _reptielPoot(ctx, [px, py], [px + (voor ? -10 : 18), py + 26], [px + (voor ? 2 : -4), -6], (voor ? [[22, 0], [30, 0], [34, -1], [26, 1], [16, 1]] : [[26, 0], [36, 0], [40, -1], [30, 1]]).map(([a, b]) => [px + a + (voor ? 0 : -4), b]), wd, kl, klD); };
+    else _reptielPoot(ctx, [px, py], [px + (voor ? -12 : 20), py + 36], [px + (voor ? 2 : -4), -6], (voor ? [[22, 0], [30, 0], [34, -1], [26, 1], [16, 1]] : [[26, 0], [36, 0], [40, -1], [30, 1]]).map(([a, b]) => [px + a + (voor ? 0 : -4), b]), wd, kl, klD); };
   poot(0.25, true, true); poot(0.46, false, true);
   vul(ctx, Z.O, huid, rand, 2);
   binnen(ctx, Z.O, () => { const B = []; for (let i = 0; i <= 24; i++) { const u = i / 24; B.push(Z.pt(u, -_prof(ond, u) * 0.45)); } vul(ctx, B.concat([[-400, 200], [400, 200]]), buik);
@@ -566,8 +592,8 @@ function krokodil(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0 } =
 function hagedis(ctx, x, y, s = 1, o = {}) { const { a = 1, kijk = 1, t = 0 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, kijk, a); ctx.lineJoin = 'round';
   const houding = o.houding || 'lopen', lig = houding === 'liggen';
   const flank = '#7E9C4A', flankL = '#A2BE6A', rug = '#8C6E46', vlek = '#3E2E1E', buik = '#D4D09A', d = '#5A6E34';
-  const h = lig ? 15 : 40; const golf = (u) => -h - (u > 0.4 ? -(u - 0.4) * 14 : 0);
-  const top = [[0, 5], [0.03, 13], [0.08, 20], [0.11, 17], [0.16, 22], [0.3, 25], [0.4, 19], [0.55, 10], [1, 1]], ond = [[0, 5], [0.06, 12], [0.11, 15], [0.2, 19], [0.32, 19], [0.4, 13], [0.6, 6], [1, 0.8]];
+  const h = lig ? 18 : 50; const golf = (u) => -h - (u > 0.4 ? -(u - 0.4) * 14 : 0);
+  const top = [[0, 6], [0.03, 16], [0.08, 25], [0.11, 21], [0.16, 28], [0.3, 32], [0.4, 24], [0.55, 12], [1, 1]], ond = [[0, 6], [0.06, 15], [0.11, 19], [0.2, 24], [0.32, 24], [0.4, 16], [0.6, 7], [1, 0.8]];
   const Z = _zwemLijf(180, -320, top, ond, golf); const st = Math.sin(t * 6);
   const poot = (u, voor, ver, fase) => { const kl = ver ? _D(flank, 0.25) : flank, klD = ver ? _D(d, 0.2) : d; const [px, py] = Z.pt(u, -_prof(ond, u) * 0.3); const sw = lig ? 0 : fase * 10;
     const T = (voor ? [[10, 0], [14, -1], [16, -2], [12, 1], [5, 1]] : [[14, 0], [20, -1], [28, -2], [22, 1], [6, 2]]).map(([a, b]) => [px + sw + a + (voor ? 6 : 0), b]);

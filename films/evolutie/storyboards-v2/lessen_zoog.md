@@ -96,3 +96,49 @@ Alle viervoeters via de motor: `'staan'` (standaard), `'lopen'` (+ `t` = fase 0.
 - **chimp staat ook in sb8.js: de chimp-functie moet uit sb8.js** (coördinator doet dat bij de integratie). sb8 wordt ná dieren_zoog geladen en overschrijft daardoor mijn `chimp`. Haal de functie uit sb8.js (of laad dieren_zoog na sb8) zodat de nieuwe chimpansee in e8s09/10 verschijnt.
 - `viervoeter`, `maakHond`, `WOLF`, `HONDEN`, `PAARD`, `EZEL`, `MUILEZEL`, `_kat` uit de oude bestanden blijven bestaan maar worden niet meer gebruikt; mijn interne namen beginnen met `_z` (geen botsing met de `const`'s in teken_evo6).
 - Schaal en anker zijn gelijk gebleven (s = px per cm voor wolf/honden/paardachtigen; voor de andere dieren dezelfde eenheden als de oude functie). Het edelhert is iets kleiner dan het oude (schoft 120 cm i.p.v. ±150), de jachtluipaard iets korter (lijf 1,12 H i.p.v. 1,45 H): beide nu volgens de bron.
+
+## Ronde 3 — tekenen naar referentie (23 okt 2026)
+
+Werkwijze (scripts in `scripts_zoog/`, landmarks in `referentie_landmarks_zoog.json`; de scripts verwijzen nog naar de werkmap `/tmp/claude-0/ref/`, pas `LM`/paden aan bij hergebruik):
+1. **Uitknippen**: GrabCut per dier met een rechthoek, daarna een tweede GrabCut met een maskerstart uit 'verschil met de ingeschatte achtergrond' (inpaint van de plaat zonder dieren). Lichte vloer tussen de poten (ezel, chimpansee, katten) apart weggehaald (helder én onverzadigd onder de buiklijn). Eén drempel op de achtergrondkleur werkte niet: de plaat heeft een lichtverloop en grijze dieren (wolf, ezel) lijken op de achtergrond.
+2. **Meten**: per dier een rasterbeeld (10 px), daarop met de hand de landmarks: grond, schoft, gewrichten (schouder, elleboog, pols/knie, kogel, heup, knie, hiel, voet), de snijlijnen nek (schoft → borst) en achterhoofd (achter de oren → keel), neuspunt, oog, staartwortel en -punt, en een polygoon 'onder' onder de buiklijn.
+3. **Onderdelen**: masker ∩ polygonen → romp, nek, kop, staart (nek en kop iets uitgezet over de naad, zodat er bij draaien geen kier valt). Omtrek vereenvoudigd (approxPolyDP, 25–65 punten) en genormaliseerd: schofthoogte = 100, anker midden onder; nek in een eigen assenstelsel vanaf het **bovenste** naadpunt (schoft), kop vanaf het achterhoofd richting neus, staart vanaf de wortel.
+4. **Kleur**: k-means (2–4) op een sterk vervaagde referentie binnen het masker → vlakke vlakken, met de **mediaan** van de echte pixels als kleur (het clustergemiddelde gaf grijze, modderige tinten) en per dier vaste 'tinten' (donker → licht) zodat het in de Part C-stijl past. Fijne tekening (stippen jachtluipaard, strepen tijger/kat) is te fijn voor k-means: die blijft procedureel getekend in het onderdeel. Bij de wolf werkte de ontworpen vachttekening uit ronde 2 beter dan de k-meansvlakken (die leken op camouflage).
+5. **Skelet**: botlengtes = afstanden tussen de gemeten gewrichten, middenvoet/koot als ketting vanaf de grond, breedtes per gewricht met de hand gemeten (automatisch meten liep in de verre poot door). Houdingen: romp, nek, kop en staart draaien als stijve stukken; poten uit inverse kinematica.
+
+Wat de referentie veranderde (gemeten, als fractie van de schofthoogte; romplengte = omtrek van de romp zonder nek/staart, onderrand = snijlijn onder de romp):
+
+| dier | romplengte | onderrand romp | nek | kop | elleboog | knie | hiel/sprong | staart |
+|---|---|---|---|---|---|---|---|---|
+| wolf | 1.11 | 0.45 | 0.32 | 0.29 | 0.49 | 0.53 | 0.26 | 0.78 |
+| herder | 1.43 | 0.37 | 0.33 | 0.37 | 0.45 | 0.40 | 0.22 | 0.75 |
+| teckel | 1.92 | 0.23 | 0.27 | 0.49 | 0.31 | 0.38 | 0.18 | – |
+| mops | 1.37 | 0.27 | 0.17 | 0.37 | 0.35 | 0.37 | 0.22 | 0.24 |
+| chihuahua | 1.25 | 0.42 | 0.22 | 0.42 | 0.45 | 0.47 | 0.23 | 0.51 |
+| paard | 1.05 | 0.56 | 0.51 | 0.38 | 0.56 | 0.59 | 0.32 | 0.76 |
+| muilezel | 0.90 | 0.50 | 0.32 | 0.32 | 0.51 | 0.55 | 0.32 | 0.58 |
+| ezel | 0.83 | 0.41 | 0.34 | 0.36 | 0.41 | 0.47 | 0.24 | 0.62 |
+| jachtluipaard | 1.30 | 0.57 | 0.20 | 0.24 | 0.51 | 0.49 | 0.24 | (getekend) |
+| tijger | 1.35 | 0.45 | 0.25 | 0.24 | 0.40 | 0.42 | 0.23 | 0.57 |
+| leeuw | 1.56 | 0.30 | 0.60 (met manen) | 0.29 | 0.36 | 0.54 | 0.23 | 0.55 |
+| huiskat | 1.17 | 0.44 | 0.14 | 0.27 | 0.44 | 0.46 | 0.20 | 0.45 |
+| edelhert | 1.04 | 0.45 | 0.26 | 0.33 | 0.46 | 0.50 | 0.30 | 0.18 |
+| koe | 1.27 | 0.35 | 0.25 | 0.21 | 0.40 | 0.47 | 0.21 | 0.67 |
+| nijlpaard | 1.53 | 0.25 | 0.31 | 0.45 | 0.32 | 0.35 | 0.16 | – |
+| chimpansee | 0.98 | 0.40 | 0.20 | 0.23 | 0.41 | 0.29 | 0.09 | – |
+
+- **Jachtluipaard** (Kamiel: borst klopt niet): de borst is ondiep — de onderrand van de romp ligt op ±0,57 H, niet op 0,5 H zoals in ronde 2 (dat gaf een diepe 'hondenborst'). Lange dunne poten, kleine kop (0,24 H). Kruist met de tekstbron (lange poten, 'wespentaille').
+- **Wolf**: staart langer en veel bossiger (±0,78 H, tot bijna de grond), hals dikker, kop korter (0,29 H) dan in ronde 2.
+- **Paard**: hals lang (0,51 H, ≈ 1,35 × de kop; tekstbron 1,5 ×), sprong op 0,32 H (klopt met de bron), borst op ±0,56 H.
+- **Ezel**: korter lijf dan hoog (0,83 H), lage borst (0,41 H), grote kop (0,36 H) met lange oren; muilezel ertussenin.
+- **Teckel**: lijf ±1,9 H, onderrand romp 0,23 H; **mops**: kop 0,37 H, korte nek; **herder**: lange romp (1,43 H incl. kruis), lage hiel (0,22 H).
+- **Koe** (referentie is een Holsteiner): diepe romp (onderrand 0,35 H), korte nek. In de films was de koe bruin; nu zwartbont.
+- **Nijlpaard**: kop 0,45 H en romp 1,53 H; **chimpansee**: knie laag (0,29 H), de enkel bijna op de grond (voet plat).
+- Kruiscontrole: de AI-referentie laat de bultrug-staartvin half van boven zien (onmogelijk in een zuiver zijaanzicht) — tekstbron wint: staartvin blijft een horizontale wig, alleen de lijfomtrek komt uit de referentie. De borstvin van de bultrug is in deze referentie grotendeels donker met witte rand.
+
+Werkt het overnemen van de contour? **Ja, voor de staande houding duidelijk**: de overlay laat zien dat romp, nek en kop nu binnen 1–2 % van de referentie liggen, en de verhoudingsfouten van ronde 2 (luipaardborst, wolfstaart, ezelkop) zijn in één keer weg. Beperkingen:
+- Bij houdingen draaien de stukken stijf: bij grazen ontstaat een kleine bult op de schoft (de halsvoet draait mee), bij zitten blijft de romp recht. Draaipunt van de nek op het bovenste naadpunt (schoft) gaf het minste zichtbare naad.
+- De poten komen niet uit de omtrek maar uit het skelet (anders geen houdingen); bij de lopende referenties (katten) zijn botlengtes gemeten in een stap en de voeten voor 'staan' met de hand onder schouder en heup gezet.
+- K-meanskleuren geven bij gladde vachten 'camouflagevlekken' (lichtval in de foto); sterk vervagen (σ 6–10) + vaste tinten per dier was nodig, en bij effen dieren (paard, muilezel, hert) zijn de twee lichtste clusters samengevoegd tot één lijfkleur.
+- De mops blijft in zitten/liggen de zwakste (stijve romp), de chimpansee kreeg het getekende gezicht van ronde 2 op de gemeten romp.
+- Testvel: `r_wolf`, `r_honden`, `r_paarden`, `r_katten`, `r_hoef`, `r_bultrug` (rode lijn = referentieomtrek op dezelfde schaal) plus de houdingenvellen.
