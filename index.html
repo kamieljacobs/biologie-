@@ -200,6 +200,15 @@ li a:hover .tk.foto::after,li a:focus-visible .tk.foto::after{opacity:1;transiti
 .vlak-later li a svg{margin-left:auto;color:var(--text3)}
 .vlak-onder li .tk.foto,.vlak-later li .tk.foto{width:56px;height:56px;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--goud) 55%,transparent);background:#0F1726}
 .vlak-onder li:has(.tk.foto) a{grid-template-columns:56px minmax(0,1fr) auto!important}
+/* Eerste ontdekkingen (Kamiel 23 okt 2026): rondjes = uitsnede van de kerndoelplaat, iets groter, met de kerndoelcode zoals op de kaarten */
+.vlak-onder li .tk.foto{width:76px;height:76px}
+.vlak-onder li:has(.tk.foto) a{grid-template-columns:76px minmax(0,1fr) auto!important;padding-top:12px;padding-bottom:12px}
+.vlak-onder li .kdc{grid-column:2;grid-row:1;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--goud);align-self:end}
+.vlak-onder li:has(.kdc) .tk{grid-row:1/4}
+.vlak-onder li:has(.kdc) b{grid-row:2}
+.vlak-onder li:has(.kdc) .sub{grid-row:3;align-self:start}
+.vlak-onder li:has(.kdc) .mat{grid-row:1/4}
+@media (max-width:600px){.vlak-onder li .tk.foto{width:64px;height:64px}.vlak-onder li:has(.tk.foto) a{grid-template-columns:64px minmax(0,1fr) auto!important}}
 .vlak-onder li a:hover .tk.foto img,.vlak-later li a:hover .tk.foto img{transform:scale(1.06)}
 .stip{width:10px;height:10px;border-radius:99px;flex:none}
 .vlak-naar{display:flex;align-items:center;gap:8px;padding:14px 24px;border-top:1px solid var(--line);color:var(--goud-text);font-weight:700;margin-top:auto}
@@ -2965,7 +2974,7 @@ function home(){
     </article>
     <article class="vlak vlak-onder" id="vlak-onderbouw">
       <header><span class="mono vlak-lbl">Onderbouw · mens en natuur</span><h2>Eerste ontdekkingen</h2><p>Korte video's, onderzoekjes en opdrachten om biologie te leren kennen.</p></header>
-      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen-${kd}">${HICOON.includes('ob-'+kd)?`<span class="tk foto"><img src="img/kunst/iconen/home/ob-${kd}.webp?v=1" alt="" width="56" height="56" decoding="async"></span>`:`<span class="tk">${kunst(ic)}</span>`}<b>${esc(naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
+      <ul>${OB.map(([kd,naam,sub,ic])=>`<li><a href="#kerndoelen-${kd}">${HICOON.includes('ob-'+kd)?`<span class="tk foto"><img src="img/kunst/iconen/home/ob-${kd}.webp?v=2" alt="" width="76" height="76" decoding="async"></span>`:`<span class="tk">${kunst(ic)}</span>`}<span class="kdc mono">Kerndoel ${esc(kd)}</span><b>${esc(kdNaam(kd)||naam)}</b><span class="sub">${esc(sub)}</span><span class="mat">${esc(telling('kerndoelen',kd))}</span></a></li>`).join('')}</ul>
       <a class="vlak-naar" href="#onderbouw">Naar Agora onderbouw ${pijl}</a>
     </article>
     <article class="vlak vlak-later" id="vlak-later">
@@ -3023,6 +3032,7 @@ function lessen(){
   }
   return out+`</div>`;
 }
+const kdNaam=kd=>{const r=NIVEAUS.onderbouw.ond[0].subs.find(x=>x[0]===kd);return r?r[1]:''};
 const OB=[['32A','Van cel tot lichaam','cellen, organen en hoe je lijf werkt','cellen'],['32B','Hoe leven doorgaat','voortplanting, erfelijkheid en evolutie','evolutie'],['32C','Gezond blijven','voeding, slaap, microben en ziek worden','afweer'],['33C','Natuur om je heen','wie woont waar en wie eet wie','ecologie']];
 function hoofdstuk(id,kd){
   const H=HOOFDSTUKKEN[id];
