@@ -349,9 +349,10 @@ body.op-thema .kop .wrap{grid-template-columns:minmax(0,1fr) 380px}
 .film.is-gezien .vink{color:var(--goud-text)}
 .film.is-gezien .vink .box{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
 
-.exkol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start}
-@media (max-width:860px){.exkol{grid-template-columns:1fr;gap:8px}}
-.exk{min-width:0}
+.exkol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;align-items:start}
+@media (max-width:860px){.exkol{grid-template-columns:1fr;gap:0}}
+.exk{min-width:0;display:grid;grid-row:span 3;grid-template-rows:subgrid;align-content:start}
+.exk>h2,.exk>.exuitleg{align-self:start}
 .exuitleg{color:var(--text2);margin:4px 0 14px;font-size:16px;max-width:52ch}
 .exleeg{color:var(--text3);font-style:italic}
 .exkaart{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-areas:"b t" "b k";gap:6px 16px;align-items:start;padding:16px 18px;margin-bottom:12px;border:1px solid var(--line2);border-radius:16px;background:var(--surface);color:var(--text);text-decoration:none;transition:border-color .18s,transform .18s}
@@ -3081,8 +3082,8 @@ function examKolommen(h,id){
     return `<a class="exkaart" href="${BASE+esc(t.href)}"><span class="exbeeld">${TICOON[t.naam]?`<img class="med" src="img/kunst/${TICOON[t.naam].replace('../','')}.webp?v=4" alt="" width="64" height="64" decoding="async">`:medaille('examens',64)}</span><span class="extekst"><span class="mono exbij">${esc(bijLabel(t.bij)||t.bij||'')}</span><b>${esc(t.titel||t.naam)}</b><span class="exvraag">${esc(t.vraag||t.tekst.split(' · ')[0])}</span>${voort}</span><span class="knop exknop">${gemaakt?'Verder':'Maak het examen'}</span></a>`};
   const films=h.films||[], tools=(h.tools||[]).filter(t=>t.href);
   return `<div class="exkol">
-    <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p>${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</section>
-    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p>${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</section>
+    <section class="lijst exk" id="${id}-films"><h2>Besprekingen</h2><p class="exuitleg">Kijk mee hoe een heel examen wordt besproken: per vraag de stof, de aanpak en het antwoord volgens het correctievoorschrift.</p><div class="exlijst">${films.map(film).join('')||'<p class="exleeg">Er komt steeds een bespreking bij.</p>'}</div></section>
+    <section class="lijst exk" id="${id}-tools"><h2>Oefenexamens</h2><p class="exuitleg">Maak een heel examen zelf, stap voor stap: eerst hulpvragen, dan de echte examenvraag, nakijken en uitleg waarom.</p><div class="exlijst">${tools.map(oef).join('')||'<p class="exleeg">Er komt steeds een oefenexamen bij.</p>'}</div></section>
   </div>`;
 }
 
