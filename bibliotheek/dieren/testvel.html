@@ -1,0 +1,27 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<title>Dierenbibliotheek · testvel</title><link rel="stylesheet" href="fonts.css">
+<style>body{background:#0E1626;color:#E8E2D6;font:16px "Source Sans 3",sans-serif;margin:16px}h1{font:600 28px Fraunces,serif}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:12px}figure{margin:0;background:#16213A;border-radius:10px;padding:6px}
+canvas{width:100%;display:block}figcaption{font:500 14px "IBM Plex Mono",monospace;color:#C9B48A;padding:4px 6px}</style></head><body>
+<h1>Dierenbibliotheek · uitknippoppen (goedgekeurd 23 okt 2026)</h1><p>Elk dier in zijn standaardhouding, getekend met <code>lib_dieren.js</code>. Houdingen en bewegingen: zie <code>lessen/</code> en <code>README.md</code>.</p>
+<div class="g" id="g"></div>
+<script src="lib.js"></script><script src="lib_cast.js"></script><script src="lib_bio.js"></script><script src="lib_evo.js"></script><script src="lib_dieren.js"></script><script src="lib_micro_evo.js"></script>
+<script>
+const LIJST = [
+ ['wolf', c => wolf(c, 960, 860, 6.6)], ['wolf · huilen', c => wolf(c, 960, 860, 6.6, { houding: 'huilen' })],
+ ['herder', c => hond(c, 'herder', 960, 860, 6)], ['teckel', c => hond(c, 'teckel', 960, 860, 6)], ['mops', c => hond(c, 'mops', 960, 860, 7)], ['chihuahua', c => hond(c, 'chihuahua', 960, 860, 9)],
+ ['zeehond', c => zeehond(c, 960, 760, 1.2)], ['muis', c => muis(c, 960, 760, 14)],
+ ['jachtluipaard', c => jachtluipaard(c, 960, 860, 1.15)], ['leeuw', c => leeuw(c, 960, 860, 0.95)], ['tijger', c => tijger(c, 960, 860, 1.0)], ['huiskat', c => huiskat(c, 960, 860, 0.5, { houding: 'zitten' })],
+ ['paard', c => paard(c, 960, 900, 1.6)], ['ezel', c => ezel(c, 960, 900, 2.2)], ['muilezel', c => muilezel(c, 960, 900, 2.0)], ['edelhert', c => edelhert(c, 960, 920, 1.25)], ['koe', c => koe7(c, 960, 900, 1.0)], ['nijlpaard', c => nijlpaard(c, 960, 860, 1.4)],
+ ['krokodil', c => krokodil(c, 960, 780, 0.9)], ['hagedis', c => hagedis(c, 960, 600, 1.3)],
+ ['grondvink', c => grondvink(c, 960, 700, 1.8)], ['merel', c => merel(c, 960, 724, 2.6)], ['koolmees', c => koolmees(c, 960, 700, 2.4)], ['zaadkraker', c => zaadkraker(c, 960, 700, 1.7, { snavel: 'groot' })],
+ ['pauw', c => pauw(c, 960, 880, 1.25, { waaier: 1 })], ['pauwin', c => pauwin(c, 960, 880, 1.1)],
+ ['haai', c => haai(c, 960, 540, 1.3)], ['dolfijn', c => dolfijn(c, 960, 540, 1.3)], ['ichthyosaurus', c => ichthyosaurus(c, 960, 540, 1.3)], ['bultrug', c => bultrug(c, 960, 520, 1.55)],
+ ['pakicetus', c => pakicetus(c, 960, 820, 1.7)], ['ambulocetus', c => ambulocetus(c, 960, 740, 1.5)], ['rodhocetus', c => rodhocetus(c, 960, 520, 2.0)], ['basilosaurus', c => basilosaurus(c, 960, 480, 1.75)],
+ ['bacterie + plasmide', c => { bacterie(c, 960, 540, 700); }], ['griepvirus', c => griepVirus(c, 960, 540, 220)], ['chromosoompaar', c => chromosoomPaar(c, 960, 540, 600, {})], ['sikkelcel', c => { rodeBloedcel(c, 700, 540, 160); sikkelcel(c, 1220, 540, 160); }],
+];
+window.FOUTEN = [];
+for (const [naam, f] of LIJST) { const fig = document.createElement('figure'); const cv = document.createElement('canvas'); cv.width = 960; cv.height = 540; const cap = document.createElement('figcaption'); cap.textContent = naam; fig.append(cv, cap); g.append(fig);
+  const ctx = cv.getContext('2d'); ctx.scale(0.5, 0.5); ctx.fillStyle = C.bgMacro || '#16213A'; ctx.fillRect(0, 0, 1920, 1080);
+  try { f(ctx); } catch (e) { FOUTEN.push(naam + ': ' + e.message); cap.textContent += ' · FOUT: ' + e.message; } }
+</script></body></html>
