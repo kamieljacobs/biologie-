@@ -32,6 +32,19 @@
     (document.head || document.documentElement).appendChild(fb);
   } catch (e) {}
 
+  // Reviewstand in films (js/review.js): aan met ?review=1, blijft aan tot ?review=0.
+  try {
+    var rq = new URLSearchParams(location.search).get('review');
+    var rAan = rq === '1' || (rq !== '0' && localStorage.getItem('bk-review') === '1');
+    if (rq === '0') localStorage.removeItem('bk-review');
+    if (rAan && /^films\//.test(PAD) && !/presentatie\.html$/.test(PAD) && window.top === window.self) {
+      var rv = document.createElement('script');
+      rv.src = new URL('js/review.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+      rv.setAttribute('data-root', me.getAttribute('data-root') || './');
+      (document.head || document.documentElement).appendChild(rv);
+    }
+  } catch (e) {}
+
   var DUUR = parseFloat(me.getAttribute('data-duur') || '0') * 60; // seconden
 
   function uitgezet() {

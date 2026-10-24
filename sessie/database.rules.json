@@ -96,6 +96,45 @@
           ".validate": false
         }
       }
+    },
+    "review": {
+      ".read": true,
+      ".indexOn": [
+        "film",
+        "status",
+        "tijd"
+      ],
+      "$id": {
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        ".validate": "newData.hasChildren(['film', 't', 'tekst', 'status', 'tijd'])",
+        "film": {
+          ".validate": "newData.isString() && newData.val().length <= 300"
+        },
+        "t": {
+          ".validate": "newData.isNumber() && newData.val() >= 0"
+        },
+        "tekst": {
+          ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 2000"
+        },
+        "x": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1"
+        },
+        "y": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1"
+        },
+        "zin": {
+          ".validate": "newData.isString() && newData.val().length <= 400"
+        },
+        "status": {
+          ".validate": "newData.val() === 'nieuw' || newData.val() === 'verwerkt'"
+        },
+        "tijd": {
+          ".validate": "newData.isNumber()"
+        },
+        "$anders": {
+          ".validate": false
+        }
+      }
     }
   }
 }
