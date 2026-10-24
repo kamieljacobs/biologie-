@@ -22,5 +22,10 @@ Kamiel (23 okt 2026): de opmerkingen bij keuringen en reviews moeten uiteindelij
 - Goed nieuws: tekenfouten (7×) werden allemaal op het testvel gevangen; die stap werkt.
 Kanttekening: één reeks, één reviewer; dit zijn eerste aanwijzingen, geen vaste patronen.
 
+### Uit de productie van Evolutie v2 film 1–8 (24 okt 2026, frisse beeldreview na het bouwen)
+- **Frisse beeldreview ook ná het bouwen, niet alleen bij het storyboard** — de makers keken elk hun eigen contactbladen na, toch vond een frisse reviewer per film 5–9 MOET-punten (32 in het logboek; `gemist_bij = contactblad` is nu 44×). Soorten die de maker steeds mist: beeld dat niet klopt met de zin op dat moment (nacht bij 'zonnig kozijn', drie gelijke snavels bij 8/9,3/11 mm, histogram dat pas na de zin vervormt), onderlinge maten (tweeling, mops, baby, tijger), labels over tekeningen of tegen de rand, lege schermen in de eerste seconden van een alinea. Voorstel B4/B11: na elke bouw een frisse reviewer met een vaste checklist (lees bij elke still de ondertitel en vraag: laat het beeld precies dit zien?).
+- **Eenheden in metalabels voluit** — `metaText` zet alles in hoofdletters: µm werd 'MM', miljoen jaar 'MJ', meter 'M'. Voorstel Part C: eenheden in metalabels voluit schrijven (micrometer, miljoen jaar, meter).
+- **Eerste seconde van een alinea nooit leeg** — 9× een (bijna) leeg beeld bij het begin van een alinea, vooral na een vraag of hoofdstukwissel. Voorstel Part C: het beeld van een alinea staat er op t = 0; alleen wat genoemd wordt komt later.
+
 ## Verwerkt in prompt
 (nog niets)
