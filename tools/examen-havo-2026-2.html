@@ -172,6 +172,7 @@ sup{font-size:.7em}
 .sleutel .sw{display:inline-block;width:16px;height:12px;border-radius:2px;vertical-align:-1px;margin-right:7px}
 .sleutel .papier-sw{background:#FCFCFA}
 .sleutel .donker-sw{background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line2)}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
 footer{color:var(--text3);font-size:14px;padding-top:24px;border-top:1px solid var(--line)}
 body.hulp .ans.locked{display:none}
 body.examen .think{display:none}
@@ -213,7 +214,7 @@ body.examen .tonext{display:none!important}
 
   <main id="main"></main>
 
-  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's zijn weggelaten; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
+  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's en kaart komen uit het examen; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
 </div>
 
 <script>
@@ -276,6 +277,7 @@ function setScore(id,p){store.scores[id]=p;save();renderTabs();if(nextBtns[id])n
 
 /* ---------- vragen ---------- */
 const Q=[],OPG=[];
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/havo-2026-2/${n}.webp" alt="${alt}" loading="lazy">`;
 
 /* Vraag 5 en 6: eerst zonder opties */
 function noOptions(q,{id,pts,text,prompt,hint,opts,right,uitleg}){
@@ -393,49 +395,6 @@ function numAnswer(ans,{id,fields,after}){
 /* ===== opg1.js ===== */
 /* ================= opgave 1: Schrik voor een prik (vraag 1–8) ================= */
 /* nagetekende foto’s (examen: foto’s) */
-const O1_FOTO_PNEUMO=(()=>{
-  const k=[[34,40,27],[22,96,28],[60,128,30],[154,112,37],[188,160,37],[30,172,31],[98,192,37],[128,152,30],[228,222,35],[290,218,33]];
-  let g="";k.forEach(([x,y,r])=>{g+=`<circle cx="${x}" cy="${y}" r="${r}" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.4"/>
-  <path d="M${x+r*.94},${y+r*.3} A${r},${r} 0 0 1 ${x-r*.3},${y+r*.94}" fill="none" stroke="var(--text3)" stroke-width="${(r/6).toFixed(1)}" opacity=".35"/>
-  <ellipse cx="${x-r*.35}" cy="${y-r*.4}" rx="${(r*.28).toFixed(1)}" ry="${(r*.16).toFixed(1)}" fill="var(--surface2)"/>`;});
-  return svgWrap("0 0 320 290",`<defs><clipPath id="o1pc"><rect x="0" y="0" width="320" height="258"/></clipPath></defs>
-  <rect x="0" y="0" width="320" height="258" fill="var(--surface2)"/>
-  <g clip-path="url(#o1pc)"><g fill="none" stroke="var(--text3)" stroke-width="1" opacity=".55">
-  <path d="M70,24 C110,16 150,30 200,22 C240,16 280,30 320,24"/><path d="M60,60 C120,52 170,70 230,58 C260,52 300,62 320,58"/><path d="M180,86 C220,80 260,96 320,88"/><path d="M0,236 C60,228 120,244 180,240 C220,236 260,250 320,252"/></g>${g}</g>
-  <rect x="0" y="0" width="320" height="258" fill="none" stroke="var(--line2)"/>
-  <line x1="246" y1="282" x2="316" y2="282" stroke="var(--text)" stroke-width="1.6"/><line x1="246" y1="276" x2="246" y2="288" stroke="var(--text)" stroke-width="1.6"/><line x1="316" y1="276" x2="316" y2="288" stroke="var(--text)" stroke-width="1.6"/>
-  <text class="lbl" x="281" y="272" text-anchor="middle">1 µm</text>`,"Nagetekende elektronenmicroscoopfoto van pneumokokbacteriën: ronde bacteriën, vaak twee aan twee, met een schaalstreep van 1 micrometer");})();
-
-const O1_FOTO_APP=svgWrap("0 0 320 300",`
-  <rect x="0" y="0" width="320" height="300" fill="var(--surface2)"/>
-  <rect x="14" y="0" width="70" height="150" fill="var(--surface)" stroke="var(--line2)"/><line x1="49" y1="0" x2="49" y2="150" stroke="var(--line2)"/>
-  <rect x="0" y="246" width="190" height="54" fill="var(--surface)" stroke="var(--text3)"/>
-  <!-- mevrouw Hertogs: zit, kijkt naar rechts -->
-  <path d="M14,300 C10,240 18,196 44,178 C58,170 76,166 90,166 C108,168 122,176 130,196 L146,250 C150,266 140,280 124,282 L114,300 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>
-  <path d="M62,168 C74,190 96,196 116,186 C112,210 106,238 104,268 L92,270 C94,240 92,214 84,196 C78,186 70,178 62,168 Z" fill="var(--text3)" opacity=".55" stroke="var(--text2)" stroke-width="1.2"/>
-  <path d="M78,140 L80,166 C88,172 100,172 104,164 L102,142 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.5"/>
-  <path d="M70,96 C66,72 82,58 102,60 C116,62 124,72 126,84 C127,92 126,100 128,106 L134,116 C135,119 132,120 130,120 L130,128 C129,134 126,136 120,136 L120,142 C112,148 98,148 90,142 C80,136 72,120 70,96 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>
-  <path d="M66,112 C56,90 60,62 84,52 C104,44 124,52 130,72 C122,70 110,70 102,74 C98,82 96,92 92,102 C88,96 84,96 82,104 C80,110 76,114 70,118 Z" fill="var(--text3)" fill-opacity=".45" stroke="var(--text2)" stroke-width="1.4"/>
-  <rect x="104" y="88" width="16" height="10" rx="3" fill="none" stroke="var(--text)" stroke-width="1.6"/><line x1="94" y1="92" x2="104" y2="92" stroke="var(--text)" stroke-width="1.4"/>
-  <circle cx="114" cy="93" r="1.6" fill="var(--text)"/><path d="M120,128 C123,129 126,128 128,126" fill="none" stroke="var(--text2)" stroke-width="1.3"/>
-  <path d="M112,250 C120,236 136,226 152,224 L160,232 C150,238 140,246 132,256 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.4"/>
-  <!-- Vicky: staat, buigt naar links -->
-  <path d="M320,300 L320,150 C312,124 290,112 266,114 C250,116 236,124 228,138 C214,160 210,190 214,220 L222,300 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>
-  <path d="M240,140 L262,204 M280,118 L270,200" fill="none" stroke="var(--text3)" stroke-width="1.2"/>
-  <path d="M252,130 C246,154 244,176 250,198 M276,122 C282,150 278,178 262,200" fill="none" stroke="var(--text2)" stroke-width="2"/>
-  <circle cx="256" cy="204" r="5" fill="none" stroke="var(--text2)" stroke-width="2"/>
-  <path d="M246,92 L250,116 C258,122 270,122 274,114 L270,92 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.5"/>
-  <path d="M230,62 C232,40 252,30 270,36 C286,42 292,58 288,74 C286,88 278,100 266,104 C256,108 246,106 240,100 C236,98 234,94 232,92 C226,92 222,90 222,86 C222,82 225,79 226,76 C226,70 228,66 230,62 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>
-  <path d="M232,58 C236,34 262,24 282,36 C300,48 302,76 296,100 C292,120 300,140 310,156 C296,152 286,136 284,118 C282,100 288,84 284,70 C276,58 256,52 238,62 Z" fill="var(--text2)" stroke="var(--text2)" stroke-width="1"/>
-  <path d="M234,72 C237,70 241,70 244,72" fill="none" stroke="var(--text)" stroke-width="1.6"/><path d="M228,92 C231,94 235,94 238,92" fill="none" stroke="var(--text2)" stroke-width="1.3"/>
-  <path d="M232,170 C210,190 184,202 160,210 L162,224 C190,222 220,210 244,194 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.5"/>
-  <path d="M244,206 C226,218 202,226 184,226 L180,238 C204,240 232,232 252,220 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.5"/>
-  <path d="M184,226 C176,224 168,222 164,218 M180,238 C172,238 166,236 162,232" fill="none" stroke="var(--text2)" stroke-width="1.4"/>
-  <!-- smartphone -->
-  <rect x="140" y="204" width="32" height="20" rx="3" transform="rotate(-12 156 214)" fill="var(--text)" stroke="var(--text)"/>
-  <rect x="143" y="207" width="26" height="14" rx="1.5" transform="rotate(-12 156 214)" fill="var(--teal)" opacity=".6"/>
-  <path d="M162,210 C158,208 154,212 156,218 C160,222 166,220 168,216 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.3"/>`,
-  "Nagetekende foto: doktersassistente Vicky in witte jas met stethoscoop laat mevrouw Hertogs, die zit, het spelletje op haar smartphone zien");
 const O1_KOP=(a,b)=>`<p class="muted" style="margin:0;font:600 12px var(--meta);letter-spacing:.08em;text-transform:uppercase">${a} · ${b}</p>`;
 
 /* --- animatie vraag 3: virus maakt dekweefselcellen kapot --- */
@@ -487,7 +446,7 @@ const CTX1=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave
   <details class="ctxd" open><summary>Over de pneumokokbacterie</summary>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
     <p>Pneumokokkenziekte wordt veroorzaakt door de pneumokokbacterie (<i>Streptococcus pneumoniae</i>, zie afbeelding). Veel kinderen en volwassenen hebben pneumokokbacteriën in het slijmvlies van hun neusholte. Zolang mensen gezond zijn, hebben ze geen voordeel of nadeel van deze bacteriën. Ze kunnen de bacteriën wel verspreiden door hoesten of niezen.<br>Bij ouderen met een verminderde afweer kan de pneumokokbacterie de dekweefselcellen van de luchtwegen passeren. De bacterie komt dan in het inwendig milieu terecht, waar die een ernstige longontsteking kan veroorzaken.</p>
-    <div class="podium" style="max-width:300px">${O1_FOTO_PNEUMO}</div>
+    <div style="max-width:300px">${FOTO("pneumokokken","Elektronenmicroscoopfoto van pneumokokbacteriën, schaalstreep 1 µm")}</div>
   </div></details>`;
 
 /* Vraag 1 */
@@ -599,7 +558,7 @@ Q.push({id:5,pts:1,t:"ademcentrum",build(q){
 /* Vraag 6 */
 Q.push({id:6,pts:2,t:"stressreacties",build(q){
   pre(q,`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px"><p>Voor mensen met prikangst heeft Vicky een speciale app op haar smartphone. Ze laat mevrouw Hertogs via deze app een spelletje spelen. In het spelletje krijgt mevrouw Hertogs opdrachten die ervoor zorgen dat ze meer ontspant. Hierdoor stopt het hyperventileren.<br>Tijdens het spelen monitort de app stressreacties in het gezicht, zoals transpiratie, pupilgrootte, het bleek of rood worden van de huid en de hartslagfrequentie.</p>
-  <div class="podium" style="max-width:300px">${O1_FOTO_APP}</div></div>
+  <div style="max-width:300px">${FOTO("smartphone","Vicky laat mevrouw Hertogs een spelletje op de smartphone zien")}</div></div>
   <p>Hieronder staan uitspraken over stressreacties.<br>1 De pupil wordt groter onder invloed van het orthosympathisch deel van het autonoom zenuwstelsel.<br>2 Door transpiratie neemt de lichaamstemperatuur toe.<br>3 Adrenaline stimuleert de hartslagfrequentie.</p>`);
   q.append(el("p",{class:"qtext"},"<b>Schrijf de nummers 1, 2 en 3 onder elkaar. Noteer erachter of de bijbehorende uitspraak juist of onjuist is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans);
@@ -661,44 +620,7 @@ OPG.push({nr:1,kort:"Prik",titel:"Schrik voor een prik",ids:[1,2,3,4,5,6,7,8],ct
 /* ===== opg2.js ===== */
 /* ================= opgave 2: Bon biní na Boneiru (vraag 9–16) ================= */
 /* nagetekende foto’s (examen: foto’s) */
-const O2_FOTO_MANGROVE=(()=>{
-  let w="";
-  /* steltwortels links en rechts: bogen vanuit de stam naar het water */
-  [[40,60,[[0,150],[18,160],[58,156],[84,150]]],[96,40,[[70,146],[110,152],[136,142]]],[262,50,[[230,148],[252,156],[292,152],[318,150]]],[214,70,[[196,140],[226,146],[246,138]]]].forEach(([x,y,vv])=>{
-    w+=`<path d="M${x},${y-40} L${x+2},${y+40}" stroke="var(--text2)" stroke-width="3"/>`;
-    vv.forEach(([ex,ey])=>{w+=`<path d="M${x+1},${y+20+(ex%3)*8} Q${(x+ex)/2},${y+8} ${ex},${ey}" fill="none" stroke="var(--text2)" stroke-width="1.5"/>`;});});
-  let blad="";[[20,30],[60,14],[110,24],[150,40],[40,90],[20,60],[96,70],[230,20],[270,40],[300,14],[250,80],[300,90],[210,46],[180,30]].forEach(([x,y],i)=>{
-    blad+=`<ellipse cx="${x}" cy="${y}" rx="${26+(i%3)*6}" ry="${16+(i%2)*5}" fill="var(--groen)" fill-opacity=".14" stroke="var(--groen)" stroke-width="1.1"/>`;});
-  return svgWrap("0 0 320 240",`<rect x="0" y="0" width="320" height="240" fill="var(--surface2)"/>
-  <path d="M136,58 C146,48 174,48 184,58 L178,138 L142,138 Z" fill="var(--surface)"/>
-  ${blad}
-  <path d="M0,148 C40,140 100,142 150,138 L170,138 C220,142 280,140 320,148 L320,240 L0,240 Z" fill="var(--teal)" fill-opacity=".16"/>
-  <g stroke="var(--teal)" stroke-width="1" opacity=".6" fill="none"><path d="M150,150 h20 M130,162 h56 M110,176 h40 M176,176 h30 M90,192 h44 M196,194 h40 M60,212 h50 M220,212 h50"/></g>
-  ${w}
-  <path d="M8,72 C40,80 70,100 110,104" fill="none" stroke="var(--text2)" stroke-width="5" stroke-linecap="round"/>
-  <path d="M104,240 C122,206 144,186 160,182 C176,186 198,206 216,240 Z" fill="var(--surface)" stroke="var(--text2)" stroke-width="1.6"/>
-  <path d="M130,224 L190,224 M138,212 L160,232 L182,212 M146,200 L174,200" fill="none" stroke="var(--text3)" stroke-width="1.1"/>`,
-  "Nagetekende foto vanuit een kajak: een smal kanaal door mangrovebos; de wortels groeien in bogen vanuit de stammen het water in");})();
-
-const O2_FOTO_ZEEGRAS=(()=>{
-  const blad=(x,y,h,b,w,o)=>`<path d="M${x},${y} q${Math.round(b*.2)},${-Math.round(h*.6)} ${b},${-h}" fill="none" stroke="var(--groen)" stroke-width="${w}" stroke-linecap="round" opacity="${o}"/>`;
-  let a="",g="";
-  for(let i=0;i<15;i++)a+=blad(10+i*20+(i*7)%9,150,30+(i*31)%30,22+(i*13)%20,1.6,.35);
-  for(let i=0;i<26;i++)g+=blad(4+i*12.3+(i*37)%7|0,234,70+(i*53)%70,30+(i*29)%50-((i%5===0)?60:0),2.4+(i%3)*.7,(.55+(i%4)*.13).toFixed(2));
-  return svgWrap("0 0 320 240",`<rect x="0" y="0" width="320" height="240" fill="var(--teal)" fill-opacity=".12"/>
-  <path d="M0,150 C80,140 200,146 320,138 L320,240 L0,240 Z" fill="var(--surface2)"/>${a}
-  <path d="M0,232 C60,226 140,236 200,228 C250,224 290,232 320,228 L320,240 L0,240 Z" fill="var(--surface)" stroke="var(--text3)" stroke-width="1"/>${g}`,
-  "Nagetekende onderwaterfoto van een zeegrasveld: dichte, lange, smalle grasbladeren op een zandbodem, schuin door de stroming");})();
 const O2_KADER=`<p>Lac Cai (afbeelding 1) is een beschermd natuurgebied met zeegrasvelden en mangrovebos. Er groeit veel rode mangrove (<i>Rhizophora mangle</i>, afbeelding 2). Deze boomsoort heeft roodbruine wortels die uit de stam groeien.<br>De bomen staan in ondiep, zout water. Op de bodem bevindt zich een grote hoeveelheid afgevallen dode bladeren tussen de wortels. Dit bladafval leidt ertoe dat de bodem er zuurstofarm is.</p>`;
-const O2_KAART=svgWrap("0 0 300 300",`
-  <path d="M48,52 C60,38 90,10 115,8 C140,6 170,30 200,55 C225,75 262,85 265,115 C268,140 245,150 240,175 C236,200 238,230 225,255 C212,275 190,292 182,285 C175,270 172,240 175,215 C178,195 172,175 160,160 C140,140 110,120 85,100 C70,88 45,70 48,52 Z" fill="var(--surface2)" stroke="var(--text)" stroke-width="1.6"/>
-  <ellipse cx="128" cy="172" rx="13" ry="8" fill="var(--surface2)" stroke="var(--text)" stroke-width="1.4"/>
-  <circle cx="168" cy="160" r="3.5" fill="var(--text)"/><text x="174" y="164" class="lblm">Kralendijk</text>
-  <text x="175" y="112" class="lbl" text-anchor="middle">BONAIRE</text>
-  <text x="235" y="26" class="lblm" text-anchor="middle" font-style="italic">Caribische Zee</text>
-  <line x1="120" y1="215" x2="232" y2="205" stroke="var(--text)" stroke-width="1"/><circle cx="232" cy="205" r="3" fill="var(--text)"/>
-  <text x="114" y="219" class="lblm" text-anchor="end">Lac Cai</text>`,"Kaartje van Bonaire met Kralendijk en Lac Cai");
-
 /* --- animatie vraag 9: bladafval en zuurstof --- */
 function O2_bodem(st){
   let s=`<rect x="0" y="40" width="420" height="132" fill="var(--teal)" opacity=".10"/>
@@ -763,7 +685,7 @@ Q.push({id:11,pts:2,t:"zout uitscheiden",build(q){
 }});
 
 Q.push({id:12,pts:1,t:"exoot",build(q){
-  pre(q,`<div class="eyebrow">afbeelding 3</div><div class="podium" style="max-width:340px">${O2_FOTO_ZEEGRAS}</div>`+"<p>De zeegrasvelden (afbeelding 3) in Lac Cai bestaan grotendeels uit twee soorten zeegras: <i>Thalassia testudinum</i> en <i>Syringodium filiforme</i>. Sinds 2010 groeit ook de zeegrassoort <i>Halophila stipulacea</i> in Lac Cai. Deze soort is waarschijnlijk meegekomen met schepen vanuit de Rode zee.</p>");
+  pre(q,`<div class="eyebrow">afbeelding 3</div><div style="max-width:340px">${FOTO("zeegras","Zeegrasveld onder water")}</div>`+"<p>De zeegrasvelden (afbeelding 3) in Lac Cai bestaan grotendeels uit twee soorten zeegras: <i>Thalassia testudinum</i> en <i>Syringodium filiforme</i>. Sinds 2010 groeit ook de zeegrassoort <i>Halophila stipulacea</i> in Lac Cai. Deze soort is waarschijnlijk meegekomen met schepen vanuit de Rode zee.</p>");
   q.append(el("p",{class:"qtext"},"<b>Geef de biologische term voor een soort die zich door menselijk toedoen vestigt buiten zijn oorspronkelijke verspreidingsgebied.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
   choiceStep(think,{q:"Waar komt <i>H. stipulacea</i> oorspronkelijk vandaan?",opts:["uit Lac Cai","uit de Rode Zee","uit de Noordzee"],right:1,
@@ -888,8 +810,8 @@ const CTX2=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave
   <details class="ctxd" open><summary>Lac Cai</summary>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
     ${O2_KADER}
-    <div class="figrow"><div><div class="eyebrow">afbeelding 1</div><div class="podium" style="max-width:300px">${O2_KAART}</div></div>
-    <div><div class="eyebrow">afbeelding 2</div><div class="podium" style="max-width:300px">${O2_FOTO_MANGROVE}</div></div></div>
+    <div class="figrow"><div><div class="eyebrow">afbeelding 1</div><div style="max-width:300px">${FOTO("bonaire-kaart","Kaartje van Bonaire met Kralendijk en Lac Cai")}</div></div>
+    <div><div class="eyebrow">afbeelding 2</div><div style="max-width:300px">${FOTO("mangroven","Kajak in een kanaal door het mangrovebos")}</div></div></div>
   </div></details>`;
 OPG.push({nr:2,kort:"Bonaire",titel:"Bon biní na Boneiru (Welkom op Bonaire)",ids:[9,10,11,12,13,14,15,16],ctx:CTX2});
 
@@ -897,26 +819,6 @@ OPG.push({nr:2,kort:"Bonaire",titel:"Bon biní na Boneiru (Welkom op Bonaire)",i
 /* ================= opgave 3: Oma's aan de top (vraag 17–20) ================= */
 /* nagetekende foto’s (examen: foto’s) */
 /* opgave 3: orka in een eigen assenstelsel (kop rechts, staart links), lengte ±200 */
-const O3_FOTO_orka=(tf)=>`<g transform="${tf}">
-  <path d="M0,0 C10,-8 30,-22 60,-30 C100,-40 150,-40 184,-28 C198,-22 206,-14 206,-4 C206,6 196,12 180,14 C150,20 110,24 70,22 C40,20 18,12 0,0 Z" fill="var(--zw)" stroke="var(--text2)" stroke-width="1.2"/>
-  <path d="M100,-38 C96,-62 92,-82 86,-98 C104,-80 118,-56 126,-40 Z" fill="var(--zw)"/>
-  <path d="M0,0 C-10,-14 -22,-20 -34,-22 C-24,-10 -16,-2 -14,4 C-18,10 -26,20 -36,26 C-22,24 -10,16 0,0 Z" fill="var(--zw)"/>
-  <path d="M150,14 C152,28 146,42 134,52 C130,40 132,26 140,16 Z" fill="var(--zw)"/>
-  <path d="M206,-2 C200,8 186,14 166,18 C138,24 108,26 84,22 C110,14 140,8 168,6 C184,5 198,3 206,-2 Z" fill="var(--wt)" stroke="var(--zw)" stroke-width="1"/>
-  <path d="M62,20 C50,22 36,20 26,14 C38,12 52,12 64,16 Z" fill="var(--wt)"/>
-  <path d="M160,-26 C170,-30 182,-30 190,-26 C184,-20 170,-18 160,-26 Z" fill="var(--wt)"/>
-  <path d="M86,-36 C98,-40 116,-40 130,-36 C114,-30 98,-30 86,-36 Z" fill="var(--text3)" opacity=".6"/>
-</g>`;
-const O3_FOTO_ORKAS=svgWrap("0 0 320 240",`<g style="--zw:#121C2E;--wt:#F2F2EE">
-  <path d="M0,112 L24,88 L44,98 L78,66 L104,82 L136,58 L170,80 L204,62 L236,84 L272,70 L320,92 L320,124 L0,124 Z" fill="var(--surface2)" stroke="var(--text3)" stroke-width="1.2"/>
-  <path d="M68,76 L78,66 L90,74 L84,80 Z M126,66 L136,58 L148,68 L140,72 Z M196,68 L204,62 L216,72 L206,74 Z M264,74 L272,70 L284,76 Z" fill="var(--surface)" stroke="var(--text3)" stroke-width=".8"/>
-  <rect x="0" y="124" width="320" height="116" fill="var(--teal)" fill-opacity=".12"/><line x1="0" y1="124" x2="320" y2="124" stroke="var(--text3)"/>
-  <g stroke="var(--teal)" stroke-width="1" opacity=".5"><path d="M10,150 h30 M60,166 h24 M240,150 h40 M200,200 h30 M20,214 h40 M270,226 h36 M110,226 h30"/></g>
-  ${O3_FOTO_orka("translate(66,170) rotate(-55) scale(.62)")}
-  ${O3_FOTO_orka("translate(150,202) rotate(-44) scale(.6)")}
-  <g fill="none" stroke="var(--text3)" stroke-width="1.2"><path d="M52,198 C60,180 70,176 76,170 M84,172 C92,184 100,196 96,206 M134,216 C142,204 150,200 158,196 M166,198 C176,208 182,216 178,226"/></g>
-  <ellipse cx="74" cy="200" rx="30" ry="6" fill="var(--surface)" stroke="var(--text3)"/><ellipse cx="158" cy="226" rx="30" ry="6" fill="var(--surface)" stroke="var(--text3)"/></g>`,
-  "Nagetekende foto: twee orka’s springen uit het water, met besneeuwde bergen op de achtergrond. Orka’s zijn zwart met een witte vlek achter het oog, een witte keel en buik en een witte vlek op de flank");
 const O3_KADER=`<p>Orka’s (<i>Orcinus orca</i>) zijn zeezoogdieren die behoren tot de tandwalvissen. Ze leven in familiegroepen.<br>Orka’s eten voornamelijk vissen. Ook eten ze inktvissen, zeehonden, kleine walvissoorten en zeevogels. Vissen, inktvissen en kleine walvissoorten voeden zich met zoöplankton.<br>Zeevogels leven van vis.<br>Inktvissen, vissen en zeevogels worden gegeten door zeehonden. Algen zijn het voedsel voor zoöplankton.</p>`;
 
 /* --- voedselweb (voor de uitleg bij vraag 18) --- */
@@ -950,7 +852,7 @@ function O3_anim18(box){
 }
 
 Q.push({id:17,pts:2,t:"producent en relatie",build(q){
-  pre(q,O3_KADER+`<div class="podium" style="max-width:340px">${O3_FOTO_ORKAS}</div>`);
+  pre(q,O3_KADER+`<div style="max-width:340px">${FOTO("orkas","Twee orka’s springen uit het water")}</div>`);
   q.append(el("p",{class:"qtext"},"In de tekst in het bovenstaande informatiekader is een voedselweb beschreven.<br><b>– Noteer de producenten uit dit web.<br>– Noteer de naam van de ecologische relatie tussen de kleine walvissoorten en de inktvis.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
   chipsStep(think,{q:"Een producent maakt zelf organische stof met fotosynthese. Welke organismen uit de tekst zijn producenten? Kies alles wat klopt.",items:[["zoöplankton",false],["algen",true],["vissen",false],["zeevogels",false]],
@@ -1080,21 +982,15 @@ Q.push({id:20,pts:2,t:"zwempositie van oma's",build(q){
 const CTX3=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 3</span></div>
   <p>Sophie studeert Kust- en Zee-management. Voor haar stage mariene biologie neemt ze deel aan onderzoek naar orka’s.</p>
   <details class="ctxd" open><summary>Over orka’s</summary><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">${O3_KADER}
-  <div class="podium" style="max-width:340px">${O3_FOTO_ORKAS}</div></div></details>`;
+  <div style="max-width:340px">${FOTO("orkas","Twee orka’s springen uit het water")}</div></div></details>`;
 OPG.push({nr:3,kort:"Orka’s",titel:"Oma’s aan de top",ids:[17,18,19,20],ctx:CTX3});
 
 /* ===== opg4.js ===== */
 /* ================= opgave 4: Kiezen voor vegan (vraag 21–29) ================= */
 /* nagetekende foto’s (examen: foto’s) */
-const O4_LOGO=svgWrap("0 0 120 120",`<defs><path id="o4lb" d="M16,60 A44,44 0 0 1 104,60"/><path id="o4lo" d="M17,60 A43,43 0 0 0 103,60"/></defs>
-  <circle cx="60" cy="60" r="56" fill="var(--text3)"/><circle cx="60" cy="60" r="34" fill="none" stroke="var(--surface)" stroke-width="2"/>
-  <text style="font:700 13px var(--tekst);fill:var(--surface);letter-spacing:.08em" text-anchor="middle"><textPath href="#o4lb" startOffset="50%">VEGAN</textPath></text>
-  <text style="font:700 11px var(--tekst);fill:var(--surface);letter-spacing:.06em" text-anchor="middle" dy="9"><textPath href="#o4lo" startOffset="50%">PRODUCT</textPath></text>
-  <path d="M58,82 C44,78 40,62 48,48 C56,58 62,70 58,82 Z" fill="var(--surface)" opacity=".85"/><path d="M60,82 C58,64 64,50 78,42 C82,60 76,76 60,82 Z" fill="var(--surface)"/>
-  <path d="M58,82 C54,70 52,62 48,54 M60,82 C64,70 70,58 76,48" fill="none" stroke="var(--text3)" stroke-width="1.4"/>`,"Logo met de tekst Vegan product en twee bladeren");
 const CTX4=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 4</span></div>
   <p>Michael wil veganistisch (vegan) gaan eten, omdat dat beter is voor het milieu. Hij wil wel voldoende eiwitten binnenkrijgen.</p>
-  <details class="ctxd" open><summary>Veganistisch eten</summary><div style="width:96px;float:right;margin:10px 0 6px 14px">${O4_LOGO}</div><p style="margin-top:10px">Als je veganistisch eet, eet je geen dierlijke producten. Vlees, vis en zuivel zijn echter een belangrijke bron van eiwitten. Veganisten moeten daarom plantaardige voedingsmiddelen eten met voldoende eiwitten. Ook moeten zij er extra op letten dat ze genoeg mineralen en vitamines binnenkrijgen.</p><div style="clear:both"></div></details>`;
+  <details class="ctxd" open><summary>Veganistisch eten</summary><div style="width:96px;float:right;margin:10px 0 6px 14px">${FOTO("vegan-logo","Logo vegan product")}</div><p style="margin-top:10px">Als je veganistisch eet, eet je geen dierlijke producten. Vlees, vis en zuivel zijn echter een belangrijke bron van eiwitten. Veganisten moeten daarom plantaardige voedingsmiddelen eten met voldoende eiwitten. Ook moeten zij er extra op letten dat ze genoeg mineralen en vitamines binnenkrijgen.</p><div style="clear:both"></div></details>`;
 
 /* rekenstap met marge (numStep uit het geraamte vraagt een exact getal) */
 function O4_numStep(container,{q,lo,hi,ok,no,onDone,uid}){
@@ -1493,14 +1389,12 @@ const O6_katkop=(o)=>{const vacht=o.wild?"#5A6273":"#F2F2EE";
   <path d="M110,132 L110,140 M110,140 C104,146 96,146 92,142 M110,140 C116,146 124,146 128,142" fill="none" stroke="#3B4759" stroke-width="1.4"/>
   <g stroke="${o.wild?"#C9CED6":"#9AA3B2"}" stroke-width="1" fill="none"><path d="M88,134 C66,130 40,130 14,136 M88,138 C66,140 42,146 20,156 M132,134 C154,130 180,130 206,136 M132,138 C154,140 178,146 200,156"/></g>`;
   return s;};
-const O6_FOTO_ALBINO=svgWrap("0 0 220 190",O6_katkop({wild:false}),"Nagetekende foto van een albino-kat: helemaal witte vacht en lichte ogen");
-const O6_FOTO_WILD=svgWrap("0 0 220 190",O6_katkop({wild:true}),"Nagetekende foto van een wildtype-kat: donkere vacht met zwarte strepen op voorhoofd en wangen");
 const O6_REACTIE=svgWrap("0 0 420 46",`<text class="lbl" x="10" y="34">tyrosine</text>
   <line x1="78" y1="30" x2="196" y2="30" class="ax" style="stroke:var(--text)"/><path d="M196,26 L206,30 L196,34 Z" style="fill:var(--text)"/>
   <text class="lblm" x="142" y="20" text-anchor="middle">tyrosinase</text>
   <text class="lbl" x="214" y="34">dopaquinine</text><text class="lblm" x="330" y="34">(reactie 1)</text>`,"Reactie 1: tyrosine wordt door tyrosinase omgezet in dopaquinine");
 const O6_KADER1=`<p>Benno fokt albino-katten, die een witte vacht hebben (afbeelding 1). Deze katten hebben een mutatie in het gen voor tyrosinase. Dit gen ligt <b>niet</b> op een geslachtschromosoom. Donkergekleurde katten behoren tot het wildtype (afbeelding 2). Tyrosinase is nodig voor de vorming van het pigment melanine. Tyrosinase zet de stof tyrosine om in de stof dopaquinine (reactie 1).</p>
-<div class="figrow" style="max-width:440px"><div><div class="eyebrow">afbeelding 1</div><div class="podium">${O6_FOTO_ALBINO}</div></div><div><div class="eyebrow">afbeelding 2</div><div class="podium">${O6_FOTO_WILD}</div></div></div>
+<div class="figrow" style="max-width:440px"><div><div class="eyebrow">afbeelding 1</div><div>${FOTO("albino-kat","Albino-kat met witte vacht")}</div></div><div><div class="eyebrow">afbeelding 2</div><div>${FOTO("wildtype-kat","Donkergekleurde kat van het wildtype")}</div></div></div>
 <div style="max-width:420px">${O6_REACTIE}</div>
 <p>Uit dopaquinine wordt daarna via een aantal vervolgreacties melanine gevormd.</p>`;
 const O6_WT=["AGG","CUC","CCC","UCC","UCU","GCU","GAU","GUG","GAA","UUU","UGC","CUA","AGU"];
@@ -1726,22 +1620,8 @@ const O7_paard=(tf)=>`<g transform="${tf}">
   <path d="M32,86 C35,84 38,86 37,90" fill="none" stroke="var(--text)" stroke-width="1.6"/>
   <path d="M-6,-2 C0,26 6,50 12,70 M8,66 C18,70 30,68 38,62 M-14,26 C-6,30 4,30 12,30" fill="none" stroke="var(--goud)" stroke-width="2.6" stroke-linecap="round"/>
   <circle cx="12" cy="68" r="3" fill="none" stroke="var(--goud)" stroke-width="1.6"/></g>`;
-const O7_FOTO_STAL=(()=>{let hooi="";
-  for(let i=0;i<40;i++){const x=110+i*4.6,y=200-(i%7)*4-((i%11)>5?10:0);hooi+=`<path d="M${x.toFixed(0)},${y} l${(i%5)*7-14},${-14-(i%4)*5}" />`;}
-  return svgWrap("0 0 320 240",`<rect x="0" y="0" width="320" height="240" fill="var(--surface2)"/>
-  <g stroke="var(--line2)" stroke-width="1"><path d="M0,20 H230 M0,44 H230 M0,68 H230 M0,92 H230 M0,116 H230"/></g>
-  <rect x="236" y="14" width="78" height="186" fill="var(--surface)" stroke="var(--text3)"/>
-  <path d="M258,196 L262,140 C262,128 272,126 274,138 L276,196 M268,124 a7,7 0 1 1 0.1,0 M286,200 L292,150 L300,150 L304,200" fill="none" stroke="var(--text3)" stroke-width="1.6"/>
-  <path d="M0,200 L320,200 L320,240 L0,240 Z" fill="var(--surface)"/><g stroke="var(--line2)"><path d="M0,214 H320 M0,228 H320"/></g>
-  <g fill="var(--surface)" stroke="var(--text2)" stroke-width="1.4"><rect x="0" y="120" width="132" height="18" rx="8"/><rect x="0" y="140" width="132" height="18" rx="8"/><rect x="0" y="160" width="132" height="18" rx="8"/><rect x="0" y="180" width="132" height="18" rx="8"/></g>
-  <rect x="132" y="20" width="8" height="180" fill="var(--surface)" stroke="var(--text2)"/>
-  ${O7_paard("translate(206,140) scale(.6)")}
-  ${O7_paard("translate(150,96) scale(.96)")}
-  <path d="M100,206 C120,180 170,172 230,186 C250,192 256,204 250,210 L100,210 Z" fill="var(--goud)" fill-opacity=".22" stroke="var(--goud)" stroke-width="1.2"/>
-  <g stroke="var(--goud)" stroke-width="1.1" fill="none" opacity=".9">${hooi}</g>`,
-  "Nagetekende foto: twee paarden in een houten stal steken hun hoofd over het hek en eten hooi van de vloer; achterin een open staldeur");})();
 const O7_INTRO=`<p>Koen heeft een paardenboerderij. In de wintermaanden voert hij de paarden bij met brokken krachtvoer. Hij onderzoekt of het mogelijk is om de paarden het hele jaar te voeren met gras en hooi (gedroogd gras) van zijn eigen graslanden, omdat dit duurzamer en goedkoper is.</p>
-<div class="podium" style="max-width:340px">${O7_FOTO_STAL}</div>`;
+<div style="max-width:340px">${FOTO("stal","Paarden in een stal eten hooi")}</div>`;
 const O7_PRE40=`<p>Hooi bevat cellulose en zetmeel. De vertering en opname van deze koolhydraten verlopen bij paarden net als bij mensen. Net als mensen hebben paarden geen eigen enzymen voor de vertering van cellulose. Maar veel van de cellulose wordt verteerd door bacteriën in de blinde darm en dikke darm. De verteringsproducten worden opgenomen door de darmwand.</p>`;
 const O7_KADER41=`<p>Gras en hooi voor paarden mogen niet te veel fructaan bevatten. Fructaan is een koolhydraat dat is opgebouwd uit de monosachariden fructose en glucose. Wanneer paarden gras met veel fructaan eten, kunnen ze darmproblemen krijgen.<br>Een gedeelte van de monosachariden die overdag worden geproduceerd bij fotosynthese, wordt opgeslagen als fructaan. Als fructaan wordt omgezet, kunnen de producten worden gebruikt voor de groei van het gras. Een hoog fructaangehalte in gras kan ontstaan als de temperatuur ’s nachts lager is dan 5 °C. In het gras wordt fructaan dan nauwelijks omgezet.</p>`;
 const O7_PRE43=`<p>Een paard maakt geen enzymen aan voor de vertering van fructaan. De fructaanmoleculen kunnen wel worden omgezet tot monosachariden door bacteriën in de dikke darm. Hierbij komen gassen vrij die zich ophopen en daardoor darmproblemen veroorzaken.</p>`;
