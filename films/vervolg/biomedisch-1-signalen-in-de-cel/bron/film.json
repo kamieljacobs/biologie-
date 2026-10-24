@@ -1,0 +1,79 @@
+{
+ "slug": "biomedisch-1-signalen-in-de-cel",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Signalen in de cel",
+ "sub": "van receptor tot respons",
+ "puzzle": "Hoe kan één hormoonmolecuul aan de buitenkant duizenden reacties in de cel starten?",
+ "meta": "biomedische wetenschappen · celbiologie",
+ "alleen": "vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Biomedische wetenschappen",
+ "lead": "Adrenaline komt de cel niet in, en toch maakt één molecuul in een levercel miljoenen glucosemoleculen vrij. De receptor verandert van vorm, een tweede boodschapper (cAMP) verspreidt het signaal en kinasen zetten met fosfaatgroepen uit ATP stap voor stap steeds meer eiwitten aan. Een groeifactor zet zo via Ras en een rij kinasen genen voor celdeling aan. Zit zo'n route vast op 'aan', dan kan kanker ontstaan. Opa Henk slikt elke ochtend een tabletje dat zijn kapotte kinase remt.",
+ "endHaak": "welke stap in een signaalroute zou jij willen leren remmen?",
+ "minis": {
+  "Hoofdstuk 1 — Receptoren": "Hoe komt een signaal door het membraan zonder dat het hormoon naar binnen gaat?",
+  "Hoofdstuk 2 — Het signaal versterken": "Waarom geeft één adrenalinemolecuul zo'n groot effect?",
+  "Hoofdstuk 3 — Een signaal naar de kern": "Hoe zet een groeifactor genen voor celdeling aan?",
+  "Hoofdstuk 4 — Kanker en remmers": "Waarom helpt het tabletje van Opa Henk?",
+  "Recap": "Wat heeft het tabletje met de levercel te maken?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk, Noor en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Adrenaline blijft buiten de levercel. Hoe start hij binnen toch een reactie?",
+   "correct": 1,
+   "explain": "De receptor is een eiwit dat dwars door het membraan steekt. Bindt adrenaline aan de buitenkant, dan verandert de hele kluwen van vorm, ook aan de binnenkant: dat is het signaal."
+  },
+  "q07": {
+   "q": "De adrenaline is weg, maar cAMP en aangezette eiwitten zitten nog in de cel. Hoe stopt het signaal?",
+   "correct": 2,
+   "explain": "Een enzym breekt cAMP voortdurend af en andere enzymen halen de fosfaatgroepen van de eiwitten af. Het signaal blijft alleen aan zolang er steeds een nieuw signaal binnenkomt."
+  },
+  "q11": {
+   "q": "Ras blijft door een mutatie steeds aan. Een medicijn blokkeert de receptor. Wat verwacht je?",
+   "correct": 0,
+   "explain": "Ras zit ná de receptor in de route. Staat Ras vast op aan, dan helpt blokkeren aan het begin niet: de cellen blijven delen."
+  }
+ },
+ "glossary": [
+  {
+   "t": "receptor",
+   "d": "Eiwit dat een signaalstof bindt en daardoor van vorm verandert; zit in het membraan (wateroplosbare hormonen) of in de cel (steroïdhormonen)."
+  },
+  {
+   "t": "signaaltransductie",
+   "d": "Het doorgeven van een signaal van de receptor naar een reactie in de cel, via een reeks eiwitten en kleine moleculen."
+  },
+  {
+   "t": "tweede boodschapper",
+   "d": "Klein molecuul dat in de cel het signaal verspreidt nadat de eerste boodschapper (het hormoon) buiten aan de receptor heeft gebonden; bijvoorbeeld cAMP, gemaakt uit ATP."
+  },
+  {
+   "t": "kinase",
+   "d": "Enzym dat een fosfaatgroep van ATP op een ander eiwit zet; dat eiwit verandert van vorm en gaat aan (of uit)."
+  },
+  {
+   "t": "fosfaatgroep",
+   "d": "Groepje van fosfor en zuurstof; de laatste van de drie fosfaatgroepen van ATP wordt door een kinase op een eiwit gezet (ATP wordt ADP)."
+  },
+  {
+   "t": "cascade",
+   "d": "Rij enzymen waarin elk enzym veel exemplaren van het volgende aanzet, zodat het signaal bij elke stap wordt versterkt."
+  },
+  {
+   "t": "groeifactor",
+   "d": "Signaalstof die cellen laat delen, bv. uit bloedplaatjes bij een wond; de receptor is zelf een kinase."
+  },
+  {
+   "t": "Ras",
+   "d": "Schakeleiwit in de route van groeifactoren: wordt aangezet door de receptor en zet zichzelf weer uit; een mutatie kan het vast op 'aan' zetten."
+  },
+  {
+   "t": "kinaseremmer",
+   "d": "Medicijn dat een kinase blokkeert, vaak door in de plek te passen waar het kinase ATP bindt; bv. imatinib bij chronische myeloïde leukemie."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Insuline en adrenaline binden aan een receptor in het membraan, cortisol aan een receptor in de cel. Leg uit waarom, en wat dit betekent voor hoe snel het effect er is. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Insuline en adrenaline lossen op in water en niet in het vet van het membraan, dus ze blijven buiten (1p). Cortisol is een steroïd, lost op in vet en gaat door het membraan (1p). Een membraanreceptor geeft binnen seconden een signaal door; een receptor in de cel zet genen aan, dat duurt uren (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit hoe één adrenalinemolecuul miljoenen glucosemoleculen kan vrijmaken. Gebruik de begrippen tweede boodschapper en kinase. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Eén receptor laat een enzym duizenden moleculen cAMP maken, de tweede boodschapper (1p). cAMP zet een kinase aan, dat met fosfaatgroepen uit ATP veel volgende eiwitten aanzet (1p). Bij elke stap wordt het aantal actieve moleculen groter, dus het signaal wordt versterkt tot het laatste enzym glycogeen afbreekt (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een stof remt het enzym dat cAMP afbreekt. Voorspel wat er in een levercel gebeurt na een korte piek adrenaline. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>cAMP blijft langer in de cel (1p), dus de kinasen blijven langer aan en de cel blijft langer glucose vrijmaken, ook als de adrenaline al weg is (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Bij darmkanker geeft een arts een remmer van de groeifactorreceptor alleen als er géén mutatie in een Ras-gen zit. Verklaar dit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Ras ligt in de route na de receptor (1p). Staat Ras door een mutatie vast op aan, dan gaat het signaal naar de kern door, ook als de receptor geblokkeerd is; de remmer helpt dan niet (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Biomedische wetenschappen (eerste film van dat gebied). Bouwt voort op <i>Post voor iedereen</i> (receptor, doelcel, adrenaline in de lever). Het vwo-blok daar noemt al eerste boodschapper, G-eiwit en tweede boodschapper (cAMP); deze film werkt dat uit (cAMP, kinasen, versterking, uitzetten), maar laat het G-eiwit weg (zie Vereenvoudigingen). Verder <i>Genen aan en uit</i> (transcriptiefactor), <i>Mutaties</i> (proto-oncogen) en <i>Celorganellen</i>. Opa Henk (patiënt), Noor en Dr. Kim (onderzoeker) zijn de rode draad. Fasen van klinisch onderzoek, CRISPR en statistiek komen in de andere Biomedisch-films.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> het tabletje van Opa Henk en de vraag hoe adrenaline van buiten werkt. <b>H1</b> receptor als eiwit dat van vorm verandert; contrast met steroïd + receptor in de cel. <b>H2</b> cAMP als tweede boodschapper, kinase + fosfaatgroep uit ATP, versterking, en hoe het signaal weer stopt. <b>H3</b> groeifactor → receptorkinase → Ras → drie kinasen → kern → celdeling. <b>H4</b> kanker als route die vastzit; Ras-mutatie; CML (Philadelphia-chromosoom, BCR-ABL) en imatinib in de ATP-plek.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Versterking adrenaline → glucose</td><td>'miljoenen glucosemoleculen' per adrenalinemolecuul (± 10⁴ tot cAMP, ± 10⁸ in totaal), geldt voor de lever; in spier hooguit ± 240× per stap PKA → glycogeenfosforylase</td><td>Lodish e.a., <i>Molecular Cell Biology</i> 8e druk, §15.5 (Signal amplification in the cAMP-PKA pathway)</td></tr>\n<tr><td>cAMP per receptor</td><td>'duizenden moleculen cAMP'</td><td>Lodish e.a., §15 ('perhaps thousands of cAMP molecules')</td></tr>\n<tr><td>Ras-mutaties</td><td>bij ongeveer 1 op de 5 mensen met kanker</td><td>Prior, Hood &amp; Hartley 2020, <i>Cancer Research</i> 80:2969 (± 19 %)</td></tr>\n<tr><td>Philadelphia-chromosoom</td><td>uitwisseling tussen chromosoom 9 en 22; fusiegen maakt een kinase dat aan blijft</td><td>National Cancer Institute, 'How Imatinib Transformed Leukemia Treatment' (± 95 % van de CML-patiënten); Gezondheid en Wetenschap, richtlijn CML</td></tr>\n<tr><td>Imatinib</td><td>past in de plek waar het kinase ATP bindt</td><td>Schindler e.a. 2000, <i>Science</i> 289:1938; NCI (goedgekeurd 2001)</td></tr>\n<tr><td>Overleving vroeger</td><td>na vijf jaar ± de helft in leven</td><td>Deutsches Ärzteblatt 2017 over IRIS: mediane overleving onder interferon 3–7 jaar</td></tr>\n<tr><td>Overleving met imatinib</td><td>ruim 8 op de 10 na tien jaar; in beeld ook ± 9 op 10 na vijf jaar</td><td>Hochhaus e.a. 2017, <i>NEJM</i> 376:917 (IRIS, 83,3 % na 10 jaar); Druker e.a. 2006, <i>NEJM</i> 355:2408 (± 89 % na 5 jaar)</td></tr>\n<tr><td>Kinaseremmers</td><td>(docent) 80 door de FDA toegelaten, 69 bij kanker</td><td>Roskoski 2024, <i>Pharmacological Research</i></td></tr>\n<tr><td>Opleiding</td><td>bachelor 3 jaar (wo, o.a. Radboud en Leiden), master Biomedical Sciences 2 jaar; Radboud heeft een numerus fixus (100 plaatsen)</td><td>ru.nl, universiteitleiden.nl, studiekeuze123.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Tussen de adrenalinereceptor en het cAMP-makende enzym (adenylaatcyclase) zit een G-eiwit; de film zegt 'de receptor zet een enzym aan'. <i>Post voor iedereen</i> (vwo) noemt het G-eiwit wel: laat leerlingen het hier zelf invullen. De kinasen van H2 zijn proteïnekinase A, fosforylasekinase en (het laatste enzym) glycogeenfosforylase.</li><li>In de lever werkt adrenaline ook via α-receptoren en calcium; de film toont alleen de cAMP-route.</li><li><i>Post voor iedereen</i> zegt dat het effect 'snel weer voorbij' is als het hormoon loslaat; deze film laat zien waaróm: cAMP wordt steeds afgebroken (tot AMP) en fosfatasen halen de fosfaatgroepen eraf.</li><li>Imatinib remt naast BCR-ABL ook KIT en PDGFR; de film spreekt van het kinase van Opa Henk.</li><li>Het Philadelphia-chromosoom is het verkorte chromosoom 22 (t(9;22)); de getekende lengtes zijn schematisch (22 ± 51 Mb, 9 ± 138 Mb).</li><li>De drie kinasen in H3 zijn Raf, MEK en ERK (MAP-kinaseroute). Ras zet zichzelf uit door GTP af te breken (met hulp van GAP-eiwitten); bij de wond is PDGF de groeifactor voor o.a. fibroblasten.</li><li>Bij darmkanker geldt in de praktijk: anti-EGFR-antistoffen alleen bij RAS-wildtype (lesvraag 4).</li><li>'Vroeger' = behandeling met interferon of chemotherapie vóór 2001; een stamceltransplantatie kon genezen, maar alleen bij een deel van de patiënten.</li><li>Opa Henk gebruikt het tabletje 'al vier jaar' (verzonnen detail); de film noemt de naam imatinib niet.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen na H2 de cascade als stripverhaal tekenen met het aantal moleculen per stap (1 → 1000 → …).</li><li>Koppel aan <i>Sleutel, slot en dosis</i> (Farmacie): agonist/antagonist tegenover remmer van een kinase binnen de cel.</li></ul>\n</section>\n"
+}

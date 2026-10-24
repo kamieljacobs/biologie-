@@ -1,0 +1,88 @@
+{
+ "slug": "biomedisch-2-crispr-wat-doet-dit-gen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "CRISPR: wat doet dit gen?",
+ "sub": "van verband naar oorzaak, en de grens bij mensen",
+ "puzzle": "Een gen wijkt vaker af bij mensen met een ziekte. Hoe bewijs je dat het de oorzaak is, en mag je het repareren?",
+ "meta": "biomedische wetenschappen · genetisch onderzoek",
+ "alleen": "havo · vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Biomedische wetenschappen",
+ "lead": "Bij Opa Henk en zijn dochter Linda is het cholesterol heel hoog, en in hun DNA zit dezelfde afwijking in één gen. Dat is een verband, nog geen oorzaak. Bij hen werkt het gen PCSK9 juist te hard. Om de functie van een gen te vinden, schakelen onderzoekers het uit — met CRISPR — en vergelijken ze met een controlegroep. Daarvoor kiezen ze een modelorganisme dat bij de vraag past: gist, de worm C. elegans, een doorzichtig zebravisembryo of een muis. Werkt het, dan komt de stap naar patiënten, en de vraag waar de grens ligt: een verandering in lichaamscellen blijft bij de patiënt zelf, een verandering in de kiembaan gaat naar alle generaties daarna — en die is in Nederland verboden.",
+ "endHaak": "zou jij het DNA van een embryo laten veranderen om een ernstige ziekte te voorkomen?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom is een verband nog geen oorzaak?",
+  "Hoofdstuk 2": "Waarom kiest een onderzoeker juist dit dier?",
+  "Hoofdstuk 3": "Wat meet je in een knock-outmuis?",
+  "Hoofdstuk 4": "Wat mag wel en niet bij mensen?",
+  "Recap": "Welke weg loopt elk genonderzoek?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Opa Henk, Linda, Teun en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bij Henk en bij Linda zit dezelfde afwijking in één gen. Is dat gen daarmee de oorzaak van hun hoge cholesterol?",
+   "correct": 1,
+   "explain": "Er is nu een verband. De afwijking kan meeliften met het echte ziektegen, of in deze familie toevallig met de ziekte meegaan. Je hebt meer families nodig, en daarna een proef waarin je het gen zelf uitschakelt."
+  },
+  "q08": {
+   "q": "Onderzoekers willen weten wat een gen doet in een kloppend hart in een embryo. Waarom kiezen ze daarvoor vaak de zebravis?",
+   "correct": 0,
+   "explain": "Een zebravisembryo groeit buiten de moeder en is glashelder, dus je kunt het hart zien kloppen terwijl het zich vormt. Ongeveer 70% van de menselijke genen heeft bij de zebravis een tegenhanger."
+  },
+  "q12": {
+   "q": "Het eiwit PCSK9 laat LDL-receptoren op levercellen afbreken. Onderzoekers schakelen het gen voor PCSK9 uit in de lever van muizen. Wat meten ze?",
+   "correct": 2,
+   "explain": "Minder cholesterol in het bloed: zonder PCSK9 blijven er meer LDL-receptoren op de levercellen zitten, en die halen meer cholesterol uit het bloed."
+  },
+  "q16": {
+   "q": "Bij een CRISPR-infuus is het DNA in de levercellen van een patiënt veranderd. Wat betekent dat voor zijn kinderen?",
+   "correct": 1,
+   "explain": "Zij erven de verandering niet. Alleen de levercellen zijn aangepast; de geslachtscellen zijn ongemoeid. Zo'n verandering in lichaamscellen heet somatisch."
+  }
+ },
+ "glossary": [
+  {
+   "t": "verband en oorzaak",
+   "d": "Een genvariant die vaker voorkomt bij patiënten hééft een verband met de ziekte; voor een oorzaak moet je zelf aan het gen draaien en zien wat er verandert."
+  },
+  {
+   "t": "meeliften",
+   "d": "Een variant die zelf niets doet maar dicht bij het echte ziektegen ligt en daardoor meegaat met de ziekte in een familie."
+  },
+  {
+   "t": "PCSK9",
+   "d": "Gen en eiwit; het eiwit laat LDL-receptoren op levercellen afbreken. Meer PCSK9 betekent minder receptoren en dus meer cholesterol in het bloed. Bij Henk en Linda werkt het gen te hard (meer PCSK9); bij mensen met een kapotte kopie juist minder."
+  },
+  {
+   "t": "LDL-receptor",
+   "d": "Eiwit in het membraan van een levercel dat LDL-cholesteroldeeltjes uit het bloed naar binnen haalt."
+  },
+  {
+   "t": "modelorganisme",
+   "d": "Soort die onderzoekers overal gebruiken omdat je hem goed kunt houden, kweken en veranderen: gist, C. elegans, zebravis, muis. Elk past bij een andere vraag."
+  },
+  {
+   "t": "knock-out",
+   "d": "Organisme of cel waarin één gen opzettelijk is uitgeschakeld, om te zien wat er dan niet meer werkt."
+  },
+  {
+   "t": "gids-RNA",
+   "d": "Kort stukje RNA met een volgorde die de onderzoeker kiest; het past via baseparing precies op één plek in het DNA en brengt het enzym Cas9 daarheen."
+  },
+  {
+   "t": "controlegroep",
+   "d": "Groep die alles krijgt behalve de ingreep zelf, zodat je weet dat het verschil door de ingreep komt en niet door de behandeling eromheen."
+  },
+  {
+   "t": "somatische gentherapie",
+   "d": "Het DNA van lichaamscellen van een patiënt veranderen; de verandering blijft bij die patiënt en gaat niet over op kinderen."
+  },
+  {
+   "t": "kiembaanverandering",
+   "d": "Het DNA van een eicel, zaadcel of embryo veranderen; de verandering zit dan in elke cel van het kind en in alle generaties daarna. In Nederland verboden door de Embryowet."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> In een familie met een erfelijke ziekte vinden onderzoekers bij alle zieke familieleden dezelfde variant in gen X. Leg uit waarom dit nog niet bewijst dat gen X de ziekte veroorzaakt, en noem twee stappen die ze daarna zetten. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De variant kan meeliften: hij kan dicht bij het echte ziektegen liggen of in deze familie toevallig met de ziekte meegaan (1p). Stap: in meer families kijken of de variant steeds met de ziekte meeloopt (1p). Stap: in een modelorganisme of in cellen het gen zelf uitschakelen en meten wat er verandert, met een controlegroep (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Kies bij elke vraag een passend modelorganisme en leg je keuze uit. (a) Welke genen heeft een cel minimaal nodig om te kunnen groeien? (b) Wat doet een gen in een hart dat zich aan het vormen is? <span class=\"pts\">(4p)</span></p>\n<details><summary>Antwoord</summary><p>(a) Gist: één cel met ongeveer 6000 genen, die je allemaal één voor één kunt uitschakelen en op een voedingsbodem laten groeien (2p). (b) Zebravis: de embryo's groeien buiten de moeder en zijn doorzichtig, dus je kunt het hart zien kloppen terwijl het zich vormt (2p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Het eiwit PCSK9 laat LDL-receptoren op levercellen afbreken. Leg uit waarom iemand bij wie het gen voor PCSK9 niet werkt juist een láger cholesterol in het bloed heeft. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Zonder werkend PCSK9 worden de LDL-receptoren niet afgebroken, dus blijven er meer receptoren op de levercellen zitten (1p). Die receptoren halen meer LDL-cholesterol uit het bloed naar binnen, dus daalt het cholesterol in het bloed (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Onderzoekers schakelen met CRISPR een gen uit in muizen en zien een verschil. Noem drie controles die ze uitvoeren voordat ze concluderen dat dat verschil door het uitgeschakelde gen komt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een controlegroep die alles kreeg behalve de knip zelf (1p). Een tweede gids-RNA dat elders in hetzelfde gen knipt, met hetzelfde resultaat (1p). Nagaan of Cas9 ergens anders in het DNA ook heeft geknipt (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een patiënt met een erfelijk hoog cholesterol krijgt een CRISPR-behandeling waarbij het DNA in zijn levercellen wordt veranderd. Zijn dochter vraagt of zij die verandering erft. Geef je antwoord met uitleg, en leg uit wat er anders zou zijn bij een verandering in de kiembaan. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Nee: alleen de levercellen zijn veranderd, zijn geslachtscellen niet, dus de dochter erft de verandering niet (1p). Zo'n verandering in lichaamscellen heet somatisch (1p). Bij een verandering in een eicel, zaadcel of embryo zit de verandering in elke cel van het kind en in alle generaties daarna; dat is kiembaanverandering, en die is in Nederland verboden (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Noem twee argumenten tegen het veranderen van DNA in de kiembaan en één argument dat iemand ervóór kan gebruiken. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Tegen: het kind dat het aangaat kan geen toestemming geven (1p); een verandering die nu veilig lijkt kan een generatie later anders uitpakken en is niet terug te draaien, en de grens tussen ziekte voorkomen en een eigenschap kiezen is niet scherp (1p). Voor: je voorkomt bij een ernstige erfelijke ziekte dat alle volgende generaties die ziekte krijgen, in plaats van elke patiënt opnieuw te behandelen (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Gedeelde film: staat bij <i>Wat word jij?</i> → Biomedische wetenschappen (wo) én als extra film buiten het PTA bij het thema <i>DNA</i>, voor havo en vwo. Bouwt voort op <i>DNA lezen</i> en <i>Mutaties</i> (puntmutatie, erfelijk of niet). Let op: in <i>DNA lezen</i> staat de uitleg van CRISPR-Cas9, gids-RNA, gentherapie en somatisch tegenover kiembaan alleen in het vwo-blok; de havoversie noemt CRISPR alleen 'een moleculaire schaar'. Voor havo is deze film dus de eerste uitleg; daarom legt hoofdstuk 3 gids-RNA en Cas9 kort zelf uit. <i>DNA lezen</i> zegt dat de sikkelcelbehandeling 'sinds 2023' is goedgekeurd (VK en VS), deze film 'februari 2024 in Europa': beide kloppen. Sluit aan op <i>Genen aan en uit</i> (genexpressie) en <i>Van DNA naar eiwit</i>. De film gebruikt één voorbeeldgen (PCSK9) als rode draad, zodat methode en ethiek aan hetzelfde geval hangen.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> verband tegenover oorzaak: dezelfde variant bij vader en dochter is een verband; meeliften, meer families, en de spiegelkant (mensen bij wie het gen juist kapot is). <b>H2</b> vier modelorganismen met elk hun eigen sterke punt, plus de toetsing van dierproeven in Nederland. <b>H3</b> eerst wat het eiwit doet (LDL-receptoren), dan de knock-out en wat je meet, met drie controles. <b>H4</b> de stap naar patiënten, somatisch tegenover kiembaan, en drie afwegingen plus de kostenvraag.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>PCSK9 als ziektegen gevonden; bij Henks familie werkt het gen te hard</td><td>Franse onderzoekers, 2003, families met heel hoog cholesterol</td><td>Abifadel e.a. 2003, Nature Genetics 34:154–156 (koppelingsonderzoek; S127R en F216L zijn gain-of-function-mutaties: het gen werkt te hard). Dat méér PCSK9 het cholesterol verhoogt: Maxwell &amp; Breslow 2004, PNAS 101:7100 (extra PCSK9 in muizenlever → hoog cholesterol).</td></tr>\n<tr><td>Mensen met een kapot PCSK9</td><td>LDL gemiddeld 28 % lager; in 15 jaar bijna 90 % minder hartziekte</td><td>Cohen e.a. 2006, N Engl J Med 354:1264–1272: zwarte deelnemers (ARIC) met één kapotte kopie (heterozygoot, nonsensmutatie): LDL −28 %, coronaire hartziekte −88 % (hazard ratio 0,11). Bij witte deelnemers met de mildere variant R46L: −15 % en −47 %.</td></tr>\n<tr><td>Gist</td><td>± 6000 genen; bijna 1 op de 5 nodig om te groeien</td><td>Giaever e.a. 2002, Nature 418:387–391 (5916 genen gedeleteerd, 18,7 % essentieel op glucoserijk medium)</td></tr>\n<tr><td>C. elegans</td><td>959 lichaamscellen (volwassen hermafrodiet; een mannetje heeft er 1031), van elke cel is de afstamming bekend</td><td>Wood, <i>The Nematode Caenorhabditis elegans</i> (CSH 1988); celstamboom Sulston e.a. 1983</td></tr>\n<tr><td>Zebravis</td><td>± 70 % van de menselijke genen heeft een tegenhanger</td><td>Howe e.a. 2013, Nature 496:498–503 (zebravisreferentiegenoom)</td></tr>\n<tr><td>Muis</td><td>bijna elk menselijk gen heeft bij de muis een tegenhanger</td><td>NHGRI, <i>Importance of Mouse Genome</i>: van ± 4000 onderzochte genen zaten er minder dan 10 in slechts één van de twee soorten; eiwitcoderende delen gemiddeld 85 % identiek</td></tr>\n<tr><td>CRISPR in de muizenlever</td><td>tot de helft van de genkopieën geraakt binnen een paar dagen; cholesterol 35–40 % lager</td><td>Ding e.a. 2014, Circulation Research 115:488–492 (adenovirus met Cas9 en gids-RNA tegen Pcsk9; mutagenese tot ≥ 50 %, geen off-target op 10 onderzochte plekken)</td></tr>\n<tr><td>Eerste CRISPR-behandeling in Europa</td><td>toegelaten sinds februari 2024, bij sikkelcelziekte en bètathalassemie</td><td>EMA, EPAR Casgevy (exagamglogene autotemcel): voorwaardelijke handelsvergunning 9 februari 2024, vanaf 12 jaar</td></tr>\n<tr><td>CRISPR-infuus tegen hoog cholesterol</td><td>35 patiënten; bij de hoogste dosis LDL 62 % lager</td><td>Heart-2, interimanalyse VERVE-102 (Lilly), gepresenteerd op het EAS-congres 25 mei 2026, data-cut-off 27 februari 2026, mediane follow-up ± 9 maanden: in-vivo base-editing van PCSK9 in een lipidenanodeeltje; hoogste dosis (1,0 mg/kg): PCSK9 −88 %, LDL −62 %.</td></tr>\n<tr><td>Kosten van een CRISPR-behandeling</td><td>meer dan een miljoen euro per patiënt</td><td>Lijstprijs van Casgevy in VK en VS: &gt; £ 1,5 mln en $ 2,2 mln (CEBM Oxford). In EU-landen zijn de onderhandelde prijzen vertrouwelijk.</td></tr>\n<tr><td>Kiembaan in Nederland verboden</td><td>Embryowet</td><td>Embryowet art. 24: verbod op het opzettelijk wijzigen van het genetisch materiaal van de kern van menselijke kiembaancellen waarmee een zwangerschap tot stand wordt gebracht (nu onder g; wetsvoorstel 36416 nummert de onderdelen om, het verbod blijft).</td></tr>\n<tr><td>Toetsing dierproeven</td><td>een commissie weegt belang tegen ongerief en vraagt naar minder of zonder dieren</td><td>Centrale Commissie Dierproeven (CCD) beslist over de projectvergunning, geadviseerd door een dierexperimentencommissie (DEC); de 3V's (vervanging, vermindering, verfijning) horen bij de afweging</td></tr>\n<tr><td>Opleiding</td><td>Biomedische wetenschappen: wo-bachelor 3 jaar, master 2 jaar</td><td>universiteitssites, o.a. uu.nl (bachelor 3 jaar, BSc) en studiekeuze123 (wo-master Biomedical Sciences, 2 jaar)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Bij Henks familie werkt PCSK9 te hard (gain-of-function); bij de mensen in hoofdstuk 1 en in de knock-outmuis valt het juist uit. De knock-out laat zien wát het gen doet; dat méér PCSK9 het cholesterol omhoog duwt, toonden onderzoekers aan met muizen die extra PCSK9 maakten (Maxwell &amp; Breslow 2004).</li><li>Een gewone muis vervoert zijn cholesterol vooral in HDL en heeft weinig LDL; voor onderzoek naar hart- en vaatziekten gebruikt men vaak muizen zonder LDL-receptor of zonder ApoE (Getz &amp; Reardon 2012, ATVB 32:1104). Dat is een mooi voorbeeld van 'een model is geen kleine mens'.</li><li>Het hoge cholesterol in de familie van Henk is een verhaallijn, geen beschreven casus; familiaire hypercholesterolemie komt veel vaker door het LDL-receptorgen dan door PCSK9. De film noemt daarom geen naam van de aandoening.</li><li>'Verband of oorzaak' is hier beperkt tot familie- en groepsonderzoek; mendeliaanse randomisatie en genoomwijde associatiestudies blijven buiten beeld.</li><li>De knock-out in de muizenlever van Ding e.a. 2014 is somatisch (alleen levercellen), niet een knock-outmuis uit de lijn; het beeld zet de knock-outmuis naast een controlemuis omdat dat de klassieke opzet is.</li><li>Het infuus bij patiënten gebruikt base-editing (één base herschrijven) in plaats van knippen; de film noemt dat verschil niet en spreekt van 'CRISPR'.</li><li>Dat ongeveer 70 % van de menselijke genen een tegenhanger bij de zebravis heeft, zegt niets over hoe sterk die genen op elkaar lijken.</li><li>Hoe je eerlijk vergelijkt bij een nieuw medicijn (fasen, placebo, blinderen) hoort bij de film <i>Van lab tot patiënt</i>; hier staat alleen dat 35 patiënten en korte tijd nog geen bewijs van langer leven zijn.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen bij drie onderzoeksvragen zelf een modelorganisme kiezen en de keuze verdedigen; vergelijk de keuzes klassikaal.</li><li>Korte stellingdiscussie bij hoofdstuk 4: 'Als een ernstige erfelijke ziekte te voorkomen is, mag het DNA van een embryo veranderd worden.' Laat leerlingen eerst individueel een positie innemen, dan in tweetallen het sterkste tegenargument bedenken.</li><li>Laat leerlingen de drie controles uit hoofdstuk 3 toepassen op een eigen practicum: wat is hier de controlegroep, en wat zou je nog willen uitsluiten?</li></ul>\n</section>\n"
+}
