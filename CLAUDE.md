@@ -99,7 +99,7 @@ Reviewpagina `sessie/review.html` (Kamiel 24 okt 2026: 'inloggen op de site en d
 ## Zuinig met tokens (20 okt 2026)
 
 - Feedback bundelen: Kamiel zet opmerkingen per film in de Filmreview; Claude leest ze in één keer en verwerkt ze per film in één ronde.
-- Hooguit 3–4 helpers tegelijk; geef elke helper een korte brief met verwijzingen (niet de inhoud overtypen).
+- Meer helpers tegelijk mag (Kamiel 24 okt 2026: het totaal aan tokens verschilt nauwelijks, sneller klaar is fijner), bv. één per film. Let wel op de ElevenLabs-limiet voor gelijktijdige opnames: wacht een geweigerde of wachtende take af, nooit opnieuw genereren. Geef elke helper een korte brief met verwijzingen (niet de inhoud overtypen).
 - Routinewerk (ondertitels, REVIEW, scripts draaien, kleine tekstfixes, herinspreken volgens een lijst) met een helper op `model: sonnet`; script schrijven, vakinhoud en nieuw beeld ontwerpen op het sterkste model.
 - Lees geen hele film-HTML (1000+ regels): zoek met grep of gebruik de regelnummers uit `bron/info.md`.
 - Stills alleen van de gewijzigde scènes bekijken, op lage resolutie; Playwright alleen op de gewijzigde film.
