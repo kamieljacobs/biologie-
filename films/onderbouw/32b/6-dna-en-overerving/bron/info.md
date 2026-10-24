@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, 32B film 6. Kerndoel 32B, aanvulling: *beschrijven dat DNA-moleculen informatie bevatten van erfelijke eigenschappen* en *beschrijven hoe erfelijke eigenschappen worden doorgegeven aan een volgende generatie* (toegankelijk gemaakt met basis + uitdaging). Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025 (bijlage Eerste Kamer). |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s12: genen als letters, schema Aa × Aa). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), `eleven_v4`, één take per alinea; flow `jLkRVAYH7ipUpbsDpHo0` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | Scribe per take; alle 11 woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 165 s; speeltijd Uitdaging ± 3:50, Basis ± 3:25, Vragen uit ± 2:50 |

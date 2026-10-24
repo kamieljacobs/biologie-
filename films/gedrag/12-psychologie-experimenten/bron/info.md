@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 12 van 12 |
 | Niveau | havo + vwo; vwo-blok s09 (replicatiecrisis, preregistratie, Stanford-gevangenisexperiment) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow Am6McEzRhNurMuADVv5K; respellings Asch → Esj, Solomon → Solomen, Mischel → Misjél, Stanford → Stenford, pre-registratie, replicatie-crisis (zie `uitspraak.md`) |
 | Duur | spraak 5:37 (vwo) / 4:51 (havo); speeltijd met kaarten en vragen ± 6,5 min |
 | Beeldstijl | Part C: Schema |

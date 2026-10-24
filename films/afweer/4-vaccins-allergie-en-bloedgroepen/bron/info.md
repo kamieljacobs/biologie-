@@ -6,6 +6,7 @@
 | Reeks / nummer | Bescherming en afweer, film 4 van 4, slotfilm (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*); koppeling met de tool `tools/bloedgroepenlab.html` |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s16 (IgE) en s22–s23 (resusantagonisme, anti-D-injectie). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow zOFT3hqvc7LAgfwdQgn6; nodes in `stem/takes.json`) |
 | Duur | spraak 9:11 (vwo) / 7:42 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11 min, havo ≈ 10 min |
 | Beeldstijl | Part C: Macro (GGD-prikpost met Noor en een verpleegkundige, grasveld met stuifmeel), Schema (vaccinsoorten, kloon en geheugencellen, schema actief/passief × natuurlijk/kunstmatig, grafiek eerste en tweede prik, groepsimmuniteit met poppetjes, serumgrafiek, terugblik op de reeks), Micro (allergie met plasmacel en mestcel, histamine en haarvat, eilandje van Langerhans, rode bloedcellen met A, B en D, klonteren, bloedgroepbepaling, moeder en kind bij resusantagonisme). Kleuren in `scenes.js` gelijk aan het Bloedgroepenlab: A `KA #5B9BEA` (blauw), B `KB #D9A21E` (geel/oker), D `KD #2DB585` (groen); anti-A/anti-B/anti-D in dezelfde kleur als hun antigeen; stuifmeel `POL`, rode bloedcel `RBC` |

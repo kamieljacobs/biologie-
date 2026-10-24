@@ -6,6 +6,7 @@
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: Nectar 4.1 H4 vwo, Biologie voor jou havo thema Voortplanting), film 4 |
 | Niveau | havo + vwo; vwo-blok s05 (SRY → SOX9-cascade, uitwisseling X–Y, XX-man, XY zonder werkend SRY) |
 | Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Prompt | v8 |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: uitwendige geslachtsorganen blijven een woordschema |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow WnjDPUgOaw8w8lH9l0PM; film-eigen respellings in `uitspraak_film.json` (XX → iks-iks, XY → iks-ei, SRY → es-er-ei, SOX9 → soks-negen, Z/W → zet/wee, Klinefelter → Klainfelter, Turner → Törner, AGS → aa-gee-es, DSD → dee-es-dee, clownvissen → Klaunvissen), zie `uitspraak.md` |
 | Duur | spraak 7:23 (vwo) / 6:29 (havo); speeltijd met kaarten en vragen ± 8,5 min (vwo) / ± 7,5 min (havo) |

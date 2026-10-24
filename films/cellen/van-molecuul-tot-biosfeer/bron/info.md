@@ -6,6 +6,7 @@
 | Reeks / nummer | Cellen, korte losse film (aanvulling Cellen: "doe een korte van 5 min", met differentiatie, Kamiel 14 okt 2026). Sluit aan op Celorganellen (levenskenmerken) en Van cel tot lichaam (onderbouw) |
 | Doelgroep / niveau | havo + vwo, begin bovenbouw; vwo-blok gelabeld: s13 (emergente eigenschappen van een populatie; leven als emergente eigenschap). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow 4gDMk8mMxONkvHlgf7ga "Cellen · Van molecuul tot biosfeer"; nodes in `stem/takes.json`) |
 | Duur | spraak 6:11 (vwo) / 5:42 (havo). Speeltijd met kaarten en vragen: vwo ≈ 7 min, havo ≈ 6,5 min |
 | Beeldstijl | Part C: Macro (Noor in bed met griep, zoomcirkel neus en keel, deur met deurklink), Schema (bord met levenskenmerken, koolmees, ladder van elf niveaus met de zeven examenniveaus vetter, eiwit, celkern, spiercel, spierweefsel, hart, bloedvatenstelsel, populatie koolmezen, merel, rups, eik, paddenstoel, onderzoeker met thermometer en bodem, rupsenpiek tegenover jonge koolmezen, aarde), Micro (bevruchte eicel die deelt en differentieert met 'genen aan', griepvirus met RNA, eiwitmantel en vetlaagje naast een bacterie, gastheercel die virussen maakt). Kleuren in `scenes.js`: `VIR`, `RNA`, `VET`, `MEES_G`, `MEES_B`, `SPIER`, `ZENUW`, `HUIDC`, `BAC` |

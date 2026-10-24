@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA, film 3 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; vwo-blokken aan het eind van hoofdstuk 2 (transcriptiefactoren en TATA-box, leesrichting, splicing, kapje en poly-A-staart) en hoofdstuk 3 (anticodon, wiebelbase, met een eigen vraag) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
 | Versie / datum | **1.1 · 16 oktober 2026** — redactieronde naar uitgeversniveau (zie Wijzigingen); 1.0 · 12 oktober 2026 — eerste versie, direct in Part C (prompt v5); opening = puzzel A (mRNA-vaccin) |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_multilingual_v2); één take per alinea of vraag; n7, n10, n12, n21, n23 opnieuw op 16 okt 2026 (ElevenLabs-flow ‘DNA afl. 3 v1.1 hertakes 16 okt 2026’) |
 | Duur | speler (met vragen aan): vwo 8:30, havo 6:22; met ‘Vragen uit’ vwo 7:06 |
 | Beeldstijl | Part C: Micro (#121A26, zonder korrel sinds 1.1) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, namen direct bij de onderdelen (`naamBij`, geen wijslijnen), paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |

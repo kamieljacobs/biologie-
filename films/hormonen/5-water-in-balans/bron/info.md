@@ -6,6 +6,7 @@
 | Reeks / nummer | Hormonen, film 5 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*). Vervangt de geplande Gaswisseling 3 (nieren) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s15–s17 met vraag q16 (aquaporinen, lis van Henle, kangoeroerat, aldosteron). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow NcitC07HDtwYSQHTnaDB; nodes in `stem/takes.json`) |
 | Duur | spraak 7:22 (vwo) / 6:02 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (sportveld en kamer, cold open), Schema (navy: lichaam, nierdoorsnede, uitgerold nefron, verzamelbuis, regelkring, grafiek), Micro (cel van de verzamelbuis, lis van Henle). Kleuren in `scenes.js`: water teal, urine licht `#F2EBB0` tot donker `#D4A017`, ureum `#C9A35C`, nierslagader `#B5574A`, nierader `#6F7FB0`; ADH goud (driehoek, `HK`) |

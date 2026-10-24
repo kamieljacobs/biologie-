@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 5 (32A Organismen; bullet 3: uitscheidingsstelsel; bullet 4: afval uit de stofwisseling, waterbalans, samenwerking) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde klassen; geen schoolniveaus in beeld, stem of docentdeel. Basislijn + één blok **uitdaging** (s10: nefronen, suiker in de urine). Schakelaar **Basis / Uitdaging** (`?niveau=basis`) |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `XT4Y2pzH05Tmfe5jJJ6l` (generatie-id's in `stem/generaties.json`, node- en sessie-id's in `stem/tts_sessies.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 12 takes woord voor woord gelijk aan het script |
 | Duur | audio 253 s; speeltijd Uitdaging ± 5:15, Basis ± 4:50; Vragen uit ± 4:25 |

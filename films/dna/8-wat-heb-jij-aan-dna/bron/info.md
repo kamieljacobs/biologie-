@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA, film 8 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; geen vwo-blokken: slotaflevering op één niveau (havo en vwo), type I toepassing en keuze; de Havo/Vwo-schakelaar is verborgen (`oneLevel`), `?niveau=havo`, `?modus=klas` |
 | Versie / datum | 1.4 · 22 oktober 2026 — rollen volgens `personages/ROLLEN.md` (Noor en haar familie, Tante Petra; zie onderaan); 1.3 · 22 oktober 2026 — castpersonages in plaats van poppetjes; 1.2 · 16 oktober 2026 — nieuw segment n9b (biologisch tegenover ethisch argument, basis); 1.1 · 13 oktober 2026 — Havo/Vwo-schakelaar verborgen (één niveau, Kamiel 13 okt); 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (de film zelf: doosje, dokter, telefoontje); stem eleven_v3 zonder uitspraaktest vooraf |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken 10:27; speeltijd (zonder wachten bij vragen) vwo 11:47, havo 11:47 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |

@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 2 (32A Organismen, tweede bullet: bouw van orgaanstelsels, organen en weefsels, dier én plant) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t-niveau; één extra blok voor havo/vwo (s16, paarse balk "havo/vwo", gespecialiseerde cellen). Schakelaar **Basis / Havo/vwo** (standaard Havo/vwo; `?niveau=basis`) |
 | Versie / datum | 1.2 · 22 oktober 2026 (beeld: sprint/ren uit het castboek) · 1.1 · 21 oktober 2026 (beeld: castpersonages; zie onderaan) · eerder 1.0 · 13 oktober 2026 |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment (generations_count 1), flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 14 takes woord voor woord gelijk aan het script |
 | Duur | audio 345 s (speler-`dur` incl. 0,45 s staart; eindkaart 12 s); speeltijd Havo/vwo ± 6:50, Basis ± 6:05 (met 4 hoofdstukkaarten van 3,5 s en 4 vragen van 8 + 6 s) |

@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA, film 5 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
 | Versie / datum | 1.1 · 16 oktober 2026 — aanvulling toetsonderwerpen: goedaardig/kwaadaardig (n24b) en apoptose + telomeren (n24c), basis. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken vwo 11:42, havo 9:47 (1.0: 10:25 / 8:31; +1:16 door n24b en n24c); speeltijd in de speler met vragen vwo 12:48, havo 11:01; met Vragen uit vwo 11:23, havo 9:36 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |

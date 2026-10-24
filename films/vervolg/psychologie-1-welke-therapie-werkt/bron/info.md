@@ -6,6 +6,7 @@
 | Plek op de site | Wat word jij? (`vervolg.html`) → Psychologie → theoretische basis, onderwerp 6 "Therapievormen en wat werkt"; terugknop naar `vervolg.html#psychologie` |
 | Niveau | één niveau: vwo (oriëntatie op de wo-studie psychologie); `alleen: "vwo"` verbergt de havo/vwo-schakelaar |
 | Versie / datum | 2.0 · 16 oktober 2026 (verdiept; 1.0 dezelfde dag; 16 okt: s04 en s17 opnieuw ingesproken voor ACT) |
+| Prompt | onbekend · gemaakt 16 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow rMBhkqo4RzKdUANupuEg; respellings in `uitspraak.md` en `uitspraak_film.json` |
 | Duur | spraak 13:54; speeltijd met kaarten en vragen ± 17 min (`duur: 17` in `films/vervolg/films.json`) |
 | Beeldstijl | Part C: Schema; ik-perspectief in de spreekkamer (bureau + notitieboek 'jij · psycholoog') |

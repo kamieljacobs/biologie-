@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 7 (32A Organismen, bullet 3: samenwerking van organen in het zenuwstelsel en het hormoonstelsel; bullet 4: samenwerkende stelsels houden het lichaam gaande) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s06: de reflex). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
 | Versie / datum | 1.2 · 22 oktober 2026 (beeld: Lotte = jij) · 1.1 · 21 oktober 2026 · 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `6oSfAQ8goWBUkX1rB5Yq` (node- en sessie-id's per take in `stem/tts.json`, generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes (`stem/scribe.json`); alle 12 takes woord voor woord gelijk aan de stem-invoer (blinde controle in `bouw/woordtijden.py`) |
 | Duur | audio 272 s; speeltijd Uitdaging ± 5:35, Basis ± 5:10 (met vragen; hoofdstukkaarten 1,3 s) |

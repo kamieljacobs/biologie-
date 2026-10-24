@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Neurowetenschappen (neurologie, hersenonderzoek) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 5.478 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 5:56 (356 s); met vragen en kaarten ± 7 min |
 | Beeldstijl | Part C · Schema, met cast (Opa Henk als patiënt met Parkinson, Noor, Dr. Kim als neuroloog) |

@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Psychologie (gezondheids- en arbeidspsychologie) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2.1) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea (flow in `stem/sessions.json`), 6.650 + 2.214 (heropname s10, s13, s15) credits |
 | Duur | spraak 7:20 (440 s); met vragen en kaarten ± 9 min |
 | Beeldstijl | Part C · Schema, met cast (Noor en Daan, Dr. Kim als stressonderzoeker, Henk als werknemer met burn-out; Dr. Kim en Henk ook als jury in de Trier-test) |

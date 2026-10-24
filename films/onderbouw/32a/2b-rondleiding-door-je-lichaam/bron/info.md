@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 2b (32A Organismen, tweede bullet): de "kaart" van ± 28 organen en de tien orgaanstelsels, plus de vier organen van de plant |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t-niveau; één extra blok voor havo/vwo (s16, paarse balk: organen bij twee stelsels). Schakelaar **Basis / Havo/vwo** (`?niveau=basis`) |
 | Versie / datum | 1.0 · 13 oktober 2026 |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 16 takes woord voor woord gelijk aan het script ("'s ochtends" telt als één woord) |
 | Duur | audio 343 s; speeltijd Havo/vwo ± 6:50, Basis ± 6:15 |

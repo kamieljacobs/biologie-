@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 6 van 12 |
 | Niveau | havo + vwo; vwo-blok s09 (actor-observer-effect, meta-analyse) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow jo9SUZEeggaQUQWumcqN; respelling Weiner → Wainer; Jones sinds 20 okt in gewone spelling (zie `uitspraak.md`) |
 | Duur | spraak 4:16 (vwo) / 3:49 (havo); speeltijd met kaarten en vragen ± 5,5 min |
 | Beeldstijl | Part C: Schema |

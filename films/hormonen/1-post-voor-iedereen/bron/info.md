@@ -6,6 +6,7 @@
 | Reeks / nummer | Hormonen, film 1 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (endocrien/exocrien, hypothalamus als schakel), s15–s18 met vraag q17 (membraanreceptor en signaaltransductie tegenover steroïdhormoon). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow MMVz2cMbifnhMLPuXMzr; nodes en sessies in `stem/takes.json`) |
 | Duur | spraak 7:51 (vwo) / 6:00 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 7½ min |
 | Beeldstijl | Part C: Macro (klaslokaal, cold open), Schema (navy #1A2740: lichaamskaart met klieren, bloedbaan, tabellen, bak met kraan, grafiek), Micro (#121A26: doelcellen, membraan, kern); UI-laag vast; canvas 1920×1080. Seriekleuren in `lib_hormonen.js` (`HK`): hormonen goud met eigen vorm (adrenaline druppel, insuline zeshoek, glucagon ruit, cortisol ring, thyroxine ster, ADH driehoek), klieren oker, zenuw paars, bloed #B5574A, receptor #AFC0D0 |

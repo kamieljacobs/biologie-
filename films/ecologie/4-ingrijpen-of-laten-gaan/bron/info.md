@@ -6,6 +6,7 @@
 | Reeks | Ecologie (hoofdstuk `ecologie`; mens en milieu: havo Biologie voor jou thema 7 Ecologie en milieu, vwo Nectar 4.1 H8/H9), film 4 |
 | Niveau | havo + vwo; vwo-blok s22 (twee omslagpunten, hysterese, Wolderwijd 1991) |
 | Versie / datum | 1.0 · 18 oktober 2026 |
+| Prompt | onbekend · gemaakt 18 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow cQgwtIoKfrnDD13R4F85; respellings Hoeksche → Hoekse, hysterese → histereeze (zie `uitspraak.md`, `uitspraak_film.json`) |
 | Duur | spraak 8:20 (vwo) / 7:45 (havo); speeltijd met kaarten en vragen ± 9 min |
 | Beeldstijl | Part C: Schema |

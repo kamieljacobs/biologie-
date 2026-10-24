@@ -6,6 +6,7 @@
 | Reeks / nummer | Losse film (onderzoeksvaardigheden); op de site-index in de rij Cellen als nummer 1 ("Film · onderzoeksvaardigheden") |
 | Doelgroep / niveau | vwo bovenbouw (vwo 5–6; volgens het docentdeel werken H1, 2, 3, 5 en 6 ook los voor havo 4–5). Geen Havo/Vwo-schakelaar |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 20:36 (som van de 10 mp3's: 1236,7 s). Pagina zegt "21 min"; daarbovenop 2,6 s titelkaart vóór H1–H8 en wachten bij zes pauzekaarten |
 | Beeldstijl | Ouder eigen ontwerp "Labjournaal": donkere werkbank met ruitjespapier en rode kantlijn, krijtwitte lijnen, blauwe inkt (#8EC1F0) en amber markeerstift (#F2C46B); Instrument Serif / IBM Plex Sans / IBM Plex Mono. SVG-podium 1600×900, niet Part C |

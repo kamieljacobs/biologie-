@@ -6,6 +6,7 @@
 | Reeks / nummer | Erfelijkheid · film 3 van 6 (op de site: § 3.3) |
 | Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 4:43 (006.mp3 = 283,74 s; `TL.total` = 283,713 s). De kop zegt "± 4,5 minuten". |
 | Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look (navy) met macro-elementen: leeuwenbekbloemen, rode bloedcellen met antigenen, gele en grijze muizen, histogrammen voor lengte. UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |

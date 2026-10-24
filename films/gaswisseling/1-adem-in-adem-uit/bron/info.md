@@ -6,6 +6,7 @@
 | Reeks / nummer | Gaswisseling en uitscheiding, film 1 van 3 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s12 (onderdruk tussen de vliezen) en s14 (dode ruimte). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow nhqJkqxyYfxMTT3UE9uw; nodes in `stem/takes.json`) |
 | Duur | spraak 8:08 (vwo) / 7:08 (havo). Speeltijd met kaarten en vragen: vwo ≈ 10 min, havo ≈ 9 min |
 | Beeldstijl | Part C: Macro (woonkamer, röntgenfoto), Schema (navy: luchtwegen, borstkas met middenrif en tussenribspieren, vliezen, spirogram), Micro (trilhaarepitheel, longblaasje). Kleuren in `scenes.js`: lucht `#9FC3E0`, zuurstof `#E0705A`, koolstofdioxide `#9A8FB8`, long `#D98C8C`, spier `#B36A5E`, vocht teal |

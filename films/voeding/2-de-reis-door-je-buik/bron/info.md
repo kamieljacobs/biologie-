@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 2 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; één vwo-blok (bicarbonaat) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 12 oktober 2026 |
+| Prompt | onbekend · gemaakt 12 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow "Voeding film 2") |
 | Duur | spraak 7:40 (vwo) / 7:13 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9:50, havo ≈ 9:10 |
 | Beeldstijl | Part C: Schema (navy #1A2740) door de hele film, met zoomcirkels naar Micro (#121A26); UI-laag vast; canvas 1920×1080, ondertitels boven y = 900 of in een band onder het beeld op smalle schermen |

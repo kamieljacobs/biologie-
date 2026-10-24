@@ -6,6 +6,7 @@
 | Reeks / nummer | Bescherming en afweer, film 3 van 4 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s13–s14 (MHC-I en MHC-II, thymus-selectie, transplantatie) en s18 (hiv als retrovirus, reverse transcriptase). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow WcsexV97auoKZ8EXmbLl; nodes in `stem/takes.json`) |
 | Duur | spraak 7:22 (vwo) / 5:56 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (slaapkamer met Noor in bed en haar moeder), Micro (bacterie in doorsnede, virus, gekaapte luchtwegcel, darmbacteriën en resistentie, T-killercel, lymfeknoop, zenuwcel en gordelroos, MHC, donornier, retrovirus in een T-helpercel), Schema (hiv-grafiek, regelaar-schema, overdracht, hiv-remmers). Kleuren in `scenes.js`: ziekteverwekkers `VIR #E07A5F`, T-killercellen `TK #3E9E6A`, T-helpercellen `TH #7FC48F`, B-cellen `BCOL`, antistoffen `AS`, eigen cellen `EIGEN #8C7BBF`, celwand `WAND`, MHC-houders `MHCK` |

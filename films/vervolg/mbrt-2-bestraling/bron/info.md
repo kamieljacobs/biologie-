@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Medische beeldvorming (MBRT) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v3) |
+| Prompt | onbekend · gemaakt 24 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.958 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:57 (297 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Part C · Schema en Micro, met cast (Opa Henk, Oma Ria, Dr. Kim) |

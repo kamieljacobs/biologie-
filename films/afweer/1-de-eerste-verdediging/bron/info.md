@@ -6,6 +6,7 @@
 | Reeks / nummer | Bescherming en afweer, film 1 van 4 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s12 (dendritische cellen, antigeenpresentatie, lymfeknoop). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow pK7aJG7i94E8UIDBLy2L; nodes in `stem/takes.json`); s13 opnieuw opgenomen na de eindreview |
 | Duur | spraak 5:54 (vwo) / 5:19 (havo). Speeltijd met kaarten en vragen: vwo ≈ 8 min, havo ≈ 7 min |
 | Beeldstijl | Part C: Macro (tuin met Noor, zoom op de vinger), Schema (huid in doorsnede, lichaam met barrières, thermometer, koortsgrafiek met hypothalamus-thermostaat), Micro (fagocytose, vormpjes, dendritische cel en lymfeknoop, haarvat met mestcel en neutrofielen). Kleuren in `scenes.js`: ziekteverwekkers `#E07A5F`, eigen flora `#7FC48F`, witte bloedcellen `#D8DCE2`, histamine `#C9A35C`, vocht `#5BA4C9`, bloed `#B5574A` (constante `BLD`) |

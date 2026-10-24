@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 4 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; twee vwo-blokken (s14–s16: specificiteit van transporteiwitten, natrium-koppeling, glucose-galactosemalabsorptie met vraag q15; s21: chylomicronen en korte vetzuren) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 13 oktober 2026 (zelfstandig gebouwd; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 13 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow inuD4OTqACt4hLT7vrtd) |
 | Duur | spraak 7:20 (vwo) / 5:39 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 7½ min |
 | Beeldstijl | Part C: Macro (#1E2E4A) voor het lichaam met de opgevouwen darm, Micro (#121A26) voor vlok en epitheelcel, Schema (navy #1A2740) voor de rekensom, de vergelijking vlokken/platte vlokken, de routekaart en de recap; UI-laag vast; canvas 1920×1080. Seriekleuren: bloed koraal, lymfe lichte teal (`LYMFE` #8FD0E8), glucose = oker zeshoek, aminozuur = kraal, vet = zigzag, transporteiwit grijsblauw, kern paars |

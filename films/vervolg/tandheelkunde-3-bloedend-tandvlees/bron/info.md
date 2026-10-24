@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Tandheelkunde en mondzorg (3 van 4) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.453 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:40 (280 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Schema, met cast (Mondhygiënist Ilse, Opa Henk, Dr. Kim, Tandarts Wouter in de recap) |

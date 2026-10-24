@@ -7,6 +7,7 @@
 | Tagline | De wolf is terug in Nederland. Wat bepaalt of een soort ergens past? |
 | Doelgroep / niveau | 4 vwo, Nectar 4 vwo H6 *Soorten en populaties*; op de site ook bij havo thema 7 Ecologie; geen havo/vwo-splitsing in de film |
 | Versie / datum | onbekend (niet in de HTML); op de site gezet 2026-10-12 |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs) volgens de reeks; model onbekend (niet in de HTML) |
 | Duur | 19:35 (`TIMELINE.duration` 1174.565 s; narration.mp3 1174.6 s) |
 | Beeldstijl | Ouder eigen ontwerp ("Uitgelegd"-engine, zelfde als *Alles gaat rond*): canvas 1600×900, platte geometrische natuurtekeningen en kaarten (Natural Earth). Niet volgens de stijlkaart (Part C) |

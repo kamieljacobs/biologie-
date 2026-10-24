@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19 Gedrag en beweging), film 1 van 9 |
 | Niveau | havo + vwo; vwo-blok s13 (nabije en uiteindelijke oorzaken, Nobelprijs 1973) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea; respellings in `uitspraak_film.json` (zie `uitspraak.md`) |
 | Duur | spraak 5:06 (vwo) / 4:31 (havo); speeltijd met kaarten en vragen ± 7 min |
 | Beeldstijl | Part C: Macro (cold open: raam, vensterbank, aquarium, postauto), Schema (rest) |

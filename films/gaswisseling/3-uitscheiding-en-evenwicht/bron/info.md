@@ -6,6 +6,7 @@
 | Reeks / nummer | Gaswisseling en uitscheiding, film 3 van 3 (slotfilm; seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*). Nefron en ADH zitten in Hormonen 5 (Water in balans) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s11 (evenwicht CO₂/H₂CO₃/HCO₃⁻, nierbuisje) en s15–s17 (vraag q16 tegenstroom, meestroom, peritoneale dialyse). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow kGlmzmyfNKdrKMpO2D4s; nodes in `stem/takes.json`) |
 | Duur | spraak 8:11 (vwo) / 6:34 (havo). Speeltijd met kaarten en vragen: vwo ≈ 10 min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (dialyseafdeling met Ruud), Schema (lichaam met uitscheidingsorganen, levercel, meters, pH-schaal, regelkring, filter, vlies met concentratiebalken, concentratieprofielen, buikholte), Micro (cellen met eiwitten en afweercel). Kleuren in `scenes.js`: bloed `#B5574A` (constante `BLD`), dialysevloeistof `#5BA4C9`, ureum `#C9A35C`, glucose `#7FC48F`, natrium `#AFC0D0`, kalium `#D98CC0`, waterstofcarbonaat `#9A8FB8`, H⁺ `#E0B64A` |

@@ -6,6 +6,7 @@
 | Reeks / nummer | Transport, film 3 van 6 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s17, s18, q19, s20. Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow xmNVzsFwU3NYf8NrQXQe; nodes en generatie-id's in `stem/gen.json`) |
 | Duur | spraak 7:47 (vwo) / 6:50 (havo); plus titel, hoofdstukkaarten, vragen en eindkaart |
 | Beeldstijl | Part C: Macro, Micro en Schema volgens het script; kleuren uit de seriebibliotheek `lib_transport.js` (TR) |

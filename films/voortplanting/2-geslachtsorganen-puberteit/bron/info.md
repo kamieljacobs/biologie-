@@ -6,6 +6,7 @@
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: havo Biologie voor jou thema Voortplanting, vwo Nectar 4.1 H4), film 2 |
 | Niveau | havo + vwo; vwo-blok s08 (kisspeptine, leptine en vetreserve, steeds vroegere eerste menstruatie) |
 | Versie / datum | 1.1 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · eerder: 1.0 · 16 oktober 2026 |
+| Prompt | v8 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow xBPaTfyxwVr4gXlo8CtV; respellings GnRH → G-N-R-H, kisspeptine → kisspeptinuh, leptine → leptinuh (`uitspraak_film.json`), plus de globale lijst (hypothalamus → hiepo-taalamus, oestrogeen → eustrogeen, receptor → reseptor); zie `uitspraak.md` |
 | Duur | spraak 6:58 (vwo) / 6:10 (havo); speeltijd met kaarten en vragen 8:03 (vwo) / 7:15 (havo); Vragen uit 7:06 / 6:18 |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |

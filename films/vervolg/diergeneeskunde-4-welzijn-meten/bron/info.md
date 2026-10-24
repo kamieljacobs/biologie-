@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Diergeneeskunde en Landbouw (gedeeld, id welzijn) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.424 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:21 (261 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Schema (FILMDATA-straat), vaste cast (Dierenarts Mila, Lotte, Veehouder Gerrit e.a.), gedeelde dierentekeningen in teken_dg0.js |

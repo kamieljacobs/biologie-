@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Pedagogiek (pedagogiek, pedagogische wetenschappen, jeugdzorg) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v3 = v2 met gevarieerde antwoordletters) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, ± 4.900 credits incl. heropname s07, s14, s18 (flow in `stem/sessions.json`) |
 | Duur | spraak 4:24 (264 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Part C · Schema, met cast (Bilal met Sam en Daan bij het verkeerslicht, de baby, Opa Henk als rijcoach) |

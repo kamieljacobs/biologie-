@@ -6,6 +6,7 @@
 | Reeks / nummer | Erfelijkheid · film 2 van 6 (op de site: § 3.3) |
 | Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 4:31 (006.mp3 = 271,36 s; `TL.total` = 271,320 s). De kop zegt "± 4,5 minuten". |
 | Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look met macro-scènes: erwtenplanten met paarse/witte bloemen op een donkergroene achtergrond (#1B2D2B) voor Mendel en de terugkruising; navy (#1E2B3C) voor meiose, kruisingsschema, kansen en stappenplan. UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |

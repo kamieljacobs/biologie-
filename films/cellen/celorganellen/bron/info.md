@@ -6,6 +6,7 @@
 | Reeks / nummer | Cel, film 2 van 3 ("Biologie bij Kamiel · reeks Cel · film 2 van 3") |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo) |
 | Versie / datum | Versie 1.5 · 22 oktober 2026 (footer; 1.4 = 15 okt beeld, 1.5 = Noor i.p.v. grijs poppetje in de cold open). 1.0 eerste versie; 1.1 "vesikel" → "blaasje" (s09, s11, s22 opnieuw ingesproken), Terug- en Hoofdpagina-knop; 1.2 H2 DNA als dubbele helix met RNA-werkkopie, H4 CO₂ komt vrij; 1.3 (12 okt 2026) na de onafhankelijke review, zie `reviews/review_v2.md` |
+| Prompt | onbekend · gemaakt 22 okt |
 | Stem / model | Roos (ElevenLabs, model eleven_v4) |
 | Duur | 10:52 (som van de 18 mp3's: 652,3 s). Speeltijd met titel-, hoofdstuk- en eindkaarten en vragen: Vwo 13:30, Havo 10:58 (versie 1.3: Vwo 13:41, Havo 11:07; zie `script.md` voor actuele begintijden) |
 | Beeldstijl | Part C-stijlkaart: Micro (donkere celwereld #121A26), Schema (navy #1A2740), één keer Macro (lichaam in de cold open); vaste UI-laag (paarse vwo-balk links, meta linksboven, ondertitels onder CAPTION_Y = 900). Canvas 1920×1080 |

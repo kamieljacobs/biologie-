@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 7 (los slotstuk, op verzoek van Kamiel, 14 okt 2026); sluit aan op film 1 (broodje kaas) en film 6 (bewijsbord) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s18–s20 (relatief tegenover absoluut risico met ATBC, meta-analyse). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.1 · 14 oktober 2026: hoofdstuk 4 'Hypes op het bewijsbord' toegevoegd op verzoek van Kamiel (1.0 dezelfde dag; wacht op review) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow wgRb2mkEIugHlouCw6hz; nodes in `stem/takes.json`) |
 | Duur | spraak 10:42 (vwo) / 9:49 (havo). Speeltijd met kaarten en vragen: vwo ≈ 12,5 min, havo ≈ 11,5 min |
 | Beeldstijl | Part C: Macro (keuken met opa, Noor, een pot vitamine C, goji-bessen en detoxthee), Schema (broodje kaas, Schijf van Vijf, zon → huid → vitamine D → calcium → bot, foliumzuur-tijdlijn, dierlijke producten en B12, vet tegenover water, bètacaroteen met verbandonderzoek en proef, lever en nieren, superfood-etiket en EU-claims, loting met proef- en controlegroep, staafdiagrammen vitamine C, bewijsbord met vier vakken, 100 poppetjes voor absoluut risico, meta-analyse). Kleuren in `scenes.js`: vitamine D `VD`, C `VC`, A `VA`, B12 `VB`, vet `VET`, water `WATER`; bewijsbord `VAK4` (vastgesteld groen, waarschijnlijk goud, hypothese paars, weerlegd koraal) |

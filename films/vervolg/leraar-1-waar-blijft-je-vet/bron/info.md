@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Leraar biologie (lerarenopleiding biologie) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 3.323 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 3:36 (216 s); met vragen en kaarten ± 5 min |
 | Beeldstijl | Part C · Schema, met cast (Mevrouw Visser als docent, nieuw in het castboek op 20 okt 2026; Sam in sportkleding, Noor, Daan); telpoppetjes alleen in de groep van 150 |

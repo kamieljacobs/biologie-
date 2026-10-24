@@ -6,6 +6,7 @@
 | Reeks / nummer | Gaswisseling en uitscheiding, film 2 van 3 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s08 (zuurstofbindingscurve) en s12–s14 (koolzuuranhydrase, vraag q13, Bohr-effect). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow ExxVWu6QXhP1Zodfkof6; nodes in `stem/takes.json`); s14 opnieuw opgenomen na de eindreview |
 | Duur | spraak 8:59 (vwo) / 7:22 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11 min, havo ≈ 9 min |
 | Beeldstijl | Part C: Macro (klas), Micro (longblaasje, rode bloedcel, hemoglobine, spiercel), Schema (curves, regelkring, hoofd met ademcentrum, huis met toestellen, berg, nieren → beenmerg). Kleuren in `scenes.js`: zuurstof `#E0705A`, koolstofdioxide `#9A8FB8`, koolmonoxide `#4A4E58`, lucht `#9FC3E0`, bloed zuurstofarm `#8E3E46` → zuurstofrijk `#D9483E`, ijzer `#C98A3E` |

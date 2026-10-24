@@ -6,6 +6,7 @@
 | Reeks / nummer | Zenuwstelsel, film 5 (pagina: “wat je hersenen doen als je een nummer hoort · 5 vwo · film 5 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 5 van 7”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
 | Versie / datum | 1.1 · 5 oktober 2026 (credits op de pagina) |
+| Prompt | onbekend · gemaakt 5 okt |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:21 gesproken (som van 13 mp3’s, 321,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:31 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (zaterdagochtend, keuken, radio, meisje, inzet arm met kippenvel, lens op het hoofd) en lichte schema-scènes met een ‘plattegrond’: zijaanzicht van de linkerhersenhelft waarop per hoofdstuk een afdeling oplicht, diepe structuren gestippeld; Inter-systeemfont |

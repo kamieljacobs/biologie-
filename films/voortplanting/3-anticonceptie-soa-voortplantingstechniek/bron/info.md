@@ -6,6 +6,7 @@
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: vwo Nectar 4.1 H4, havo Biologie voor jou thema voortplanting), film 3 |
 | Niveau | havo + vwo, voor beide niveaus dezelfde film (sinds 16 okt 2026 geen vwo-blokken meer; s10 en s14 zijn basis) |
 | Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Prompt | v8 |
 | Voldoet aan | prompt v8 |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow XwPZNg4Ugc0gwL4LrtKa; respellings in `uitspraak_film.json` (soa → es-oo-aa, chlamydia → klamiedia, syfilis → siefilis, HPV → haa-pee-vee, PrEP → prep, ICSI → iksie, ivf → ie-vee-ef, PGT → pee-gee-tee, GGD → gee-gee-dee, FSH → ef-es-haa, Pearl-index → Perl-index, in-vietro-fertilisatie, hepatitis bee); zie `uitspraak.md` |
 | Duur | spraak 7:08; speeltijd met kaarten en vragen ± 8:13; met Vragen uit ± 7:10 (havo en vwo gelijk) |

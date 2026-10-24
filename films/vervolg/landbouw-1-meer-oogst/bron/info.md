@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Landbouw en dierhouderij (1) |
 | Niveau | havo en vwo (één versie) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 24 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 6.923 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 7:19 (439 s); met vragen en kaarten ± 9 min |
 | Beeldstijl | Schema met cast (Yasmin, Opa Henk) en ElevenLabs-decors (kas, regelruimte, kassengebied s nachts) op ±60 % |

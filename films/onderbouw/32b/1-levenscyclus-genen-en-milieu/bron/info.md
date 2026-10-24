@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, 32B film 1 (Voortbestaan). Kerndoel 32B bullet 1: *beschrijven van de levenscyclus van organismen en de invloed van het milieu en genetica hierop*. Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025, bijlage Eerste Kamer. |
 | Doelgroep / niveau | Onderbouw leerjaar 1–3, gemengde groepen. De basislijn is eenvoudig, met één blok **uitdaging** (s12: Siamese kat). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens staat havo of vwo genoemd. |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea. Flow `EoqdfaXayfV478V7NNrz`. De generatie-id's staan in `stem/generaties.json`. |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`), per take. Alle 11 takes kloppen woord voor woord met de stem-invoer. |
 | Duur | 189 s audio. Speeltijd met vragen en hoofdstukkaarten: Uitdaging ± 4:15, Basis ± 3:55. Met Vragen uit ± 3:25. |

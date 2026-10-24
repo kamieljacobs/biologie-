@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 6 van 6 (slot van de reeks) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s14 (korteketenvetzuren, boterzuur, kiemvrije muizen, obligaat anaeroob), s22–s24 met vraag q23 (darm-hersen-as, verband ≠ oorzaak). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea, één variant per take. Opgenomen via de ElevenLabs-flow van film 5 (`tf9JO2aShKlk9GTxgiVk`): nieuwe nodes aanmaken gaf een protocolfout, daarom zijn de TTS/STT-nodes van film 5 hergebruikt en hun prompts overschreven (zie `stem/takes.json` → `nodes`, en de aantekening in de bronmap van film 5) |
 | Duur | spraak 11:41 (vwo) / 9:57 (havo). Speeltijd met kaarten en zes vragen: vwo ≈ 13 min, havo ≈ 11 min |
 | Beeldstijl | Part C: Micro (#121A26) voor de bacteriën aan de darmwand, de gisting en de korte vetzuren; Schema (navy #1A2740) voor de dikke darm als buis, de populatiegrafiek, het Amsterdamse onderzoek, de probioticum-stippen, het bewijsbord en de recap; Macro (#1E2E4A) voor de man in bed; UI-laag vast; canvas 1920×1080. Filmkleuren: `BAC1` = C.teal, `BAC2` #8FA0B5, `BAC3` #7FC48F (bacteriesoorten), `ZIEK` = C.koraal (Clostridioides difficile), `GAS` #C9D3DF, `KVZ` = C.goud (korte vetzuren), `AB` = C.paars (antibioticum), `WAND` #B9A2C9, `SLIJM` #8FD0E8 |

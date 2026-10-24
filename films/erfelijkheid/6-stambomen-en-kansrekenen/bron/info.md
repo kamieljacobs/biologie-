@@ -6,6 +6,7 @@
 | Reeks / nummer | Erfelijkheid · film 6 van 6 (op de site: § 3.5) |
 | Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 4:05 (006.mp3 = 245,66 s; `TL.total` = 245,604 s). De kop zegt "± 4 minuten". |
 | Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look (navy) met stambomen (vierkant/rondje, ingekleurd = aangedaan), mini-stambomen per stap, kansbalken en een 4×4-oppervlaktemodel; NIVEAU-kruimelpad hier familie › persoon › allel (in plaats van organisme › cel › chromosoom). UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |

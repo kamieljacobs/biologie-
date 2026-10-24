@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Fysiotherapie en bewegingswetenschappen, film 1 |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 0 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:06 (246 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Schema (Part C), met cast (Femke, Lotte, Dr. Kim als huisarts) |

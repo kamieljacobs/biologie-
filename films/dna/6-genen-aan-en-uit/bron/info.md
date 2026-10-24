@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA, film 6 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; het lac-operon in hoofdstuk 2 (n10b) is basis (havo-toets). Vwo-blokken na hoofdstuk 2 (activator, repressor, enhancer; RNA-interferentie), hoofdstuk 3 (totipotent, pluripotent, multipotent) en hoofdstuk 4 (methylering, histonen, X-inactivatie en de lapjeskat) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
 | Versie / datum | 1.1 · 16 oktober 2026 — lac-operon (basis, n10b) en RNA-interferentie (vwo, n11b) toegevoegd; alleen die stukken ingesproken. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken vwo 12:33, havo 9:06; speeltijd in de speler (met denktijd bij vragen) vwo 13:47, havo 10:26 |
 | Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |

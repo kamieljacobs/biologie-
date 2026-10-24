@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, 32B film 4. Kerndoel 32B bullet 4: *beschrijven van aanpassingen van erfelijke eigenschappen door de mens: veredeling, fokken en genetische modificatie*. Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025 (bijlage Eerste Kamer). |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s11: CRISPR als moleculaire schaar). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), `eleven_v4`, één take per alinea; flow `4pi3akYxSzRYJQijV7Zj` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | Scribe per take; alle 10 woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 168 s; speeltijd Uitdaging ± 3:50, Basis ± 3:35, Vragen uit ± 2:55 |

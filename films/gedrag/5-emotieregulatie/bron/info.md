@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 5 van 12 |
 | Niveau | havo + vwo; vwo-blokken s08 (orthosympathisch/parasympathisch, adrenaline, cortisol) en s27 (nervus vagus, hartritmevariabiliteit, baroreflex) |
 | Versie / datum | 1.1 · 20 oktober 2026 (1.0 · 15 oktober 2026) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 7hVkaiVHzsXLtRvQMaIA; respelling co-regulatie → ko-regulatie; amygdala sinds 20 okt in gewone spelling (zie `uitspraak.md`) |
 | Duur | spraak 7:03 (vwo) / 6:00 (havo); speeltijd met kaarten en vragen ± 8 min (vwo 8:05, havo 7:02; Vragen uit 7:02 / 6:00) |
 | Beeldstijl | Part C: Schema |

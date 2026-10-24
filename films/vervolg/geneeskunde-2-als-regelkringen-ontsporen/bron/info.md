@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Geneeskunde |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 2.937 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 3:09 (189 s); met vragen en kaarten ± 5 min |
 | Beeldstijl | Part C · Schema, met cast (Bilal als patiënt, Dr. Kim als intensivist) |

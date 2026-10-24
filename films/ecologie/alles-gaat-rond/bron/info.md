@@ -6,6 +6,7 @@
 | Reeks / nummer | Ecologie deel 2 van het tweeluik (deel 1: *Plek genoeg?*); reeks "Uitgelegd" (naast *Alles beweegt*, *Alles op zijn plek*, *Eén wordt twee*, *Precies op tijd*) |
 | Doelgroep / niveau | 4 vwo, Nectar 4 vwo (editie 4.2) H8 *Kenmerken van ecosystemen*; geen havo/vwo-splitsing |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 24:44 (narration.mp3: 1484,1 s; `TIMELINE.duration` 1484,055 s). Pagina zegt "± 25 minuten" |
 | Beeldstijl | Ouder eigen ontwerp ("Uitgelegd"-engine): canvas 1600×900, donkere radiale achtergrond met ruis, platte geometrische natuurtekeningen (dieren, bomen, kaarten), vaste kleurcodes (producent groen, herbivoor geel, carnivoor rood, detrituseter bruin, reducent paars, koolstof oker, stikstof blauw, zuurstof cyaan, warmte rood). Bricolage Grotesque / Atkinson Hyperlegible / JetBrains Mono. Dit is de Macro-look waar Part C op voortbouwt, maar de film is niet volgens Part C gemaakt |

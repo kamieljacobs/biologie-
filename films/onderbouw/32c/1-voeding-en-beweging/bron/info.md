@@ -7,6 +7,7 @@
 | Kerndoel | 32C (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025): *De leerling toont inzicht in leefstijl, lichamelijke- en mentale gezondheid en reflecteert hierop.* Bullet 1 (voeding, beweging), 4 (technologie: astronautentraining), 5 (reflecteren: alleen in de opdrachten) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s10: getraind hart). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `mF15qFmJ0Ef3j0svE88t` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes (`stem/scribe.json`); alle 12 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 215 s; speeltijd Uitdaging ± 4:40, Basis ± 4:25 (met vragen) |

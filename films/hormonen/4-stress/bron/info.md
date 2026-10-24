@@ -6,6 +6,7 @@
 | Reeks / nummer | Hormonen, film 4 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s14–s16 met vraag q15 (CRH en HPA-as, receptor op het membraan tegenover in de cel, prednison en afbouwen). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow oh3JHEiaYnWofBSvXTy5; nodes in `stem/takes.json`). s12 en s16 zijn na de eindreview opnieuw ingesproken |
 | Duur | spraak 6:53 (vwo) / 5:23 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7 min |
 | Beeldstijl | Part C: Macro (klaslokaal en slaapkamer, cold open), Schema (navy: bijnier, lichaamskaart, keten, regelkring, grafieken), Micro (afweercellen). Seriekleuren in `lib_hormonen.js` (`HK`); in deze film: adrenaline goud (druppel), cortisol teal (ring), merg `#B0703F`, schors oker |

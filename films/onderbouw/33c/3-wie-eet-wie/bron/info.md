@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, kerndoel 33C (ecosystemen), film 3. Bullet 2: *verbanden leggen tussen kringlopen, voedselketens, voedselwebben en hun onderlinge samenhang in een ecosysteem* (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s13: wolf → vos → grondbroeders). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `nPnwM77hjwKV70hsIPTQ` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`), één transcriptie per take; alle 12 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 186 s; speeltijd Uitdaging ± 4:10, Basis ± 3:55 (met vragen); zonder vragen ± 3:10 |

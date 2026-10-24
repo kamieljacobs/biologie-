@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Neurowetenschappen (computationele neurowetenschap, neurotechnologie) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 5.881 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 6:34 (394 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema, met cast (Daan en zijn telefoon, Dr. Kim als neurowetenschapper, Teun als 'een kind') |

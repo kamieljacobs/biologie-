@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, 32B film 2. Kerndoel 32B bullet 2: *beschrijven hoe geslachtelijke en ongeslachtelijke voortplanting verloopt*. Bron: SLO, conceptkerndoelen mens en natuur, nov. 2025. |
 | Doelgroep / niveau | Onderbouw leerjaar 1–3, gemengde groepen. De basislijn is eenvoudig, met één blok **uitdaging** (s11: bladluizen). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens staat havo of vwo genoemd. |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), `eleven_v4`, één take per alinea. Flow `sxpMLShQQgcAOnxdvx2o` (`stem/tts.json`, `stem/generaties.json`). |
 | Woordtijden | Scribe per take; alle 11 kloppen woord voor woord. |
 | Duur | 186 s audio. Speeltijd Uitdaging ± 3:55, Basis ± 3:40, Vragen uit ± 3:20. |

@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Biomedische wetenschappen en Bio-informatica (gedeelde film) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 24 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.510 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:45 (285 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Part C · Schema, met cast (Opa Henk, Noor, Daan, Dr. Kim) |

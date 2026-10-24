@@ -7,6 +7,7 @@
 | Kerndoel | 32C (SLO, nov. 2025): *De leerling toont inzicht in leefstijl, lichamelijke- en mentale gezondheid en reflecteert hierop.* Bullet 3 (ziektes ontstaan, voorkómen, behandelen) en 4 (technologie: vaccins, medicijnen) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s09: groepsbescherming). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `O8wNfZQ7r4HMts55GNv0` |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 11 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 177 s; speeltijd Uitdaging ± 4:00, Basis ± 3:45 (met vragen) |

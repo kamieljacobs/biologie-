@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 1 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; één vwo-blok (ADI) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.1 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · eerder: 1.0 · 12 oktober 2026 |
+| Prompt | v8 |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea |
 | Duur | spraak 9:38 (vwo) / 8:33 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11:35, havo ≈ 10:15 |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |

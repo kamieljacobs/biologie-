@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, kerndoel 33C (ecosystemen), film 2 (film 1 = *Hoe vindt een haai zijn prooi?*). Bullet 1: *analyseren van interacties tussen biotische en abiotische factoren in een ecosysteem*. Bron kerndoeltekst: SLO, definitieve conceptkerndoelen mens en natuur (nov. 2025), nagelezen via de Eerste Kamer-bijlage |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s13: concurrentie, rode vos en poolvos). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `0rC9Wf6tYEdin87d8Uqn` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes, één transcriptie per take; alle 12 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 197 s; speeltijd Uitdaging ± 4:20, Basis ± 3:55 (met vragen); zonder vragen ± 3:25 |

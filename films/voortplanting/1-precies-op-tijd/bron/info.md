@@ -6,6 +6,7 @@
 | Reeks / nummer | Voortplanting (vwo), film 1 "Van bevruchting tot baby"; celdeling zit in de serie Cel |
 | Doelgroep / niveau | vwo bovenbouw; Nectar 4.1 H4 en Biologie voor jou 4 vwo thema 2. Geen Havo/Vwo-schakelaar; `verdieping` staat overal op false (H2 eiwit- vs steroïdhormoon heet in het docentdeel wel "verdieping") |
 | Versie / datum | v2.5 · 22 oktober 2026 (opgewaardeerd naar prompt v8, zie onderaan) · v2.4 · 22 oktober 2026 (startscherm met de nieuwe titel) · v2.3 · 22 oktober 2026 (beeld: vaste rollen, zie onderaan) · v2.1 · 11 oktober 2026 (vervangt "Precies op tijd" v1, eigen speler, oude stijl) |
+| Prompt | v8 |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2); opname van v1 (september 2026) hergebruikt, zes zinnen in v2.1 opnieuw ingesproken (hCG als "ha cee gee"; vraag H8 begint met "Wat denk je?") |
 | Duur | 19:43 (som van de 12 audioblobs: 1183,4 s), inclusief hoofdstukkaarten, bedenktijd en onthulling die in de audio als stilte zitten |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: zie 'Opwaardering naar prompt v8' |

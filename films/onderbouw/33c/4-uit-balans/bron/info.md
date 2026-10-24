@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, kerndoel 33C (ecosystemen), film 4. Bullet 3: *beschrijven van kringlopen en verstoringen daarvan*; bullet 4: *beschrijven van het dynamisch evenwicht in een ecosysteem en successie* (SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s11: den met kegels die pas na een brand opengaan). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo/vmbo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `eu3WpmK12UwZJn3H76QN` (`stem/tts.json`, `stem/generaties.json`; audio opgehaald via de bron-URL in het Scribe-resultaat met `bouw/haal_audio_scribe.py`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`), één transcriptie per take; alle 10 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 171 s; speeltijd Uitdaging ± 3:55, Basis ± 3:40 (met vragen); zonder vragen ± 2:55. Iets onder de 4 minuten van Part D |

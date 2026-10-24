@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 3 (32A Organismen, derde bullet: verklaren hoe samenwerking van organen leidt tot een functionerend orgaanstelsel — het spijsverteringsstelsel) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengd vmbo-t / havo / vwo. Basislijn op vmbo-t; één extra blok voor havo/vwo (s16: enzymen, chemische verandering). Schakelaar **Basis / Havo/vwo** (`?niveau=basis`) |
 | Versie / datum | 1.0 · 13 oktober 2026 |
+| Prompt | v5 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `UokirpHtX0Vd05HmYwHA` (generatie-id's in `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 14 takes woord voor woord gelijk aan het script |
 | Duur | audio 307 s; speeltijd Havo/vwo ± 6:10, Basis ± 5:35 |

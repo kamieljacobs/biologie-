@@ -6,6 +6,7 @@
 | Reeks | Planten (hoofdstuk `planten` op de site, vwo H20); bestand staat om historische redenen in films/transport/ |
 | Niveau | vwo (één niveau; `film.alleen = "vwo"` verbergt de havo/vwo-schakelaar) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow p1OIm7h3RGpVBKSmumfR |
 | Duur | spraak 5:46; speeltijd met kaarten en vragen ± 7:20 |
 | Beeldstijl | Part C: Macro (cold open, kamer met raam, Daan), Schema (meeste scènes), Micro (H1 zones, H2 cel) |

@@ -6,6 +6,7 @@
 | Reeks | Ecologie (hoofdstuk `ecologie`), film 3 — mens en milieu: havo Biologie voor jou thema 7 Ecologie en milieu (slot), vwo Nectar 4.1 H9 Systeem aarde en de mens. Sluit aan op *Plek genoeg?* en *Alles gaat rond* |
 | Niveau | havo + vwo; één vwo-blok: s07 (methaanvorming in de pens). Verder zien havo en vwo dezelfde film |
 | Versie / datum | 1.0 · 18 oktober 2026 |
+| Prompt | onbekend · gemaakt 18 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow 3ZltUu2iBX1XFf38j3pC; respellings in `uitspraak_film.json` (CO₂ → cee-oo-twee, pcb's → pee-cee-bees, PFAS → pee-fas, decimalen uitgeschreven, Thorizon → Toraizon, ITER → Iter, Qatar → Katar, gesmolten-zoutreactor); ADI en 'neguntig' via de globale lijst. Zie `uitspraak.md` (wachtlijst) |
 | Duur | spraak 10:54 (vwo) / 10:26 (havo); speeltijd met kaarten en vragen ± 12 min (vwo) / ± 11,5 min (havo) / ± 10,5 min (havo, vragen uit) |
 | Beeldstijl | Part C: Schema; eigen tekeningen (aarde, moleculen CO₂/CH₄/H₂O, koe, kerncentrale, zeewaterkas, orka, enz.) bovenin `src/scenes.js` |

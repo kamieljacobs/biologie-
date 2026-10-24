@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Farmacie en Verpleegkunde (gedeelde film) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 3.367 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 3:33 (213 s); met vragen en kaarten ± 5 min |
 | Beeldstijl | Part C · Schema, met cast (Noor en Opa Henk met de pillendoos; Apotheker Ravi in de recap) |

@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Psychologie (rechtspsychologie) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2.1) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea (flow in `stem/sessions.json`), 4.863 + 841 (heropname s09) credits |
 | Duur | spraak 5:24 (324 s); met vragen en kaarten ± 7 min |
 | Beeldstijl | Part C · Schema, met cast (Noor als ooggetuige, Dr. Kim als rechtspsycholoog, Daan en Yasmin als proefpersonen, Teun in de verhoorstudio en het winkelcentrum) |

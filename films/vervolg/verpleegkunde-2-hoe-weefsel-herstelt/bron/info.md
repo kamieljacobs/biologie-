@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Verpleegkunde en Fysiotherapie (gedeelde film) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 3.804 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:01 (241 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Part C · Schema en Micro, met cast (Lotte, Sam, Opa Henk, Verpleegkundige Jesse, Fysiotherapeut Femke nieuw in het castboek) |

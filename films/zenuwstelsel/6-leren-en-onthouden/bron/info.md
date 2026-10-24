@@ -6,6 +6,7 @@
 | Reeks / nummer | Zenuwstelsel, film 6 (pagina: “hoe je hersenen veranderen als je iets leert · 5 vwo · film 6 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 6 van 7”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
 | Versie / datum | 1.0 · 6 oktober 2026 (credits op de pagina) |
+| Prompt | onbekend · gemaakt 6 okt |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 6:04 gesproken (som van 15 mp3’s, 364,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 7:14 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ (fietspad, open raam, kind met zijwieltjes en tien jaar later dezelfde persoon), lichte schema-scènes (synaps met toevalsdetector, netwerk van dertig cellen, Pavlov, archiefkaart Henry Molaison, plattegrond met hippocampus, grafieken); Inter-systeemfont |

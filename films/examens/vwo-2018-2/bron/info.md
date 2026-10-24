@@ -6,6 +6,7 @@
 | Reeks | Examen · examenbesprekingen (vwo 2018-II) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 21 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 21 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 27.502 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 32:20 (1940 s); met vragen en kaarten ± 34 min |
 | Beeldstijl | Schema; examenfiguren nagetekend (tabel 1, diepte/temperatuur, kieuw met wondernet, cladogram, insulinegrafieken, FMR1-gen, stamboom, X-chromosomen, gel, synaps, reactoren, J-curves, staafdiagram); gedeelde examen-UI in teken_ex18_0.js |

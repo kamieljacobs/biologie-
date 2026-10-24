@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Biomedische wetenschappen |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 24 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. ± 5.570 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 5:03 (303 s); met vragen en kaarten ± 7 min |
 | Beeldstijl | Schema en Micro, met cast (Opa Henk, Noor, Dr. Kim); eiwitten als kralenketting, ATP met drie fosfaatgroepen, gebogen membraan |

@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 3 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; drie vwo-blokken (activeringsenergie, endo-/exopeptidasen + vraag q22, onwerkzame vorm + nucleasen) gelabeld; Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.1 · 13 oktober 2026 |
+| Prompt | onbekend · gemaakt 13 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow "Voeding film 3", v1cbZ4kdUXFCki6QmRy0) |
 | Duur | spraak 9:22 (vwo) / 7:52 (havo). Speeltijd met kaarten en vragen: vwo ≈ 11½ min, havo ≈ 10 min |
 | Beeldstijl | Part C: Micro (#121A26) voor enzymen en simulaties, Schema (navy #1A2740) voor tabel, grafieken en recap; UI-laag vast; canvas 1920×1080. Seriekleuren: enzym #7A8BA8 met goud actief centrum, koolhydraat = zeshoek, eiwit = kraal, vet = zigzag |

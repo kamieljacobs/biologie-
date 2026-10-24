@@ -6,6 +6,7 @@
 | Reeks | Mens en milieu (hoofdstuk `milieu`, vwo Nectar 4.1 H9 Systeem Aarde en de mens; havo Biologie voor jou thema 7, slot), film 3 · sluitstuk na *Eén aarde* en *Ingrijpen of laten gaan?* (die staan ook bij Ecologie) |
 | Niveau | havo + vwo; vwo-blok s25–s28 (biosfeerintegriteit, uitsterftempo, plantengroei, Amazonegebied, positieve terugkoppeling) met vraag q27 |
 | Versie / datum | 1.0 · 21 oktober 2026 |
+| Prompt | onbekend · gemaakt 21 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow nQm0dXnejpCCuUKbO6un; 23 generaties, samen 7.622 credits; geen herhalingen. Loudnorm −16 LUFS. Woordtijden lokaal met `silalign.py` (geen Scribe: uploaden naar ElevenLabs vanuit de werkplek werd geblokkeerd, dus ook geen blinde uitspraakcheck; risicowoorden staan op de wachtlijst) |
 | Duur | spraak 8:45 (vwo) / 7:44 (havo); speeltijd met kaarten en vragen ± 10 min (vwo) / ± 9 min (havo) |
 | Beeldstijl | Part C: Schema (Macro-elementen voor bos en rivier binnen Schema-panelen); eigen tekeningen in `src/teken_mm.js`, hergebruik uit Ecologie 3 en 4 in `src/teken_basis.js` |

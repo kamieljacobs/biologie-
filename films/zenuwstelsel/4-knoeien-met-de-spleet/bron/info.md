@@ -6,6 +6,7 @@
 | Reeks / nummer | Zenuwstelsel, film 4 (pagina: “wat koffie, wijn en medicijnen doen in de synaps · 5 vwo · film 4 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 4 van 6”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
 | Versie / datum | 1.0 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | onbekend · gemaakt 4 okt |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:15 gesproken (som van 13 mp3’s, 315,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:26 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: vlakke ‘wereld’ in tweeën (links ochtend met koffie, rechts avond met wijn, klokken) en lichte schema-scènes met de synaps van film 3 plus genummerde ingreepkaart, slaapdrukbalk, remketen, signaalmeter; Inter-systeemfont |

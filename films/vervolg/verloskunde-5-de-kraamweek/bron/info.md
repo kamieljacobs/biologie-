@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Verloskunde |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.235 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 4:29 (269 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Schema, met cast (Verloskundige Mirjam, Esra; nieuw in het castboek) |

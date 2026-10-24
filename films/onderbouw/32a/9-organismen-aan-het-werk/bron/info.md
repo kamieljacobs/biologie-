@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 9 (32A Organismen, bullet 5: *onderzoeken hoe organismen worden gebruikt in de biotechnologie, landbouw en veeteelt*; het onderzoek zelf is de ballonproef op de eindkaart) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s12: insuline uit bacteriën). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea, flow `xMvniVkYN0R2sga6yGcD` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes (`stem/scribe.json`); alle 11 takes woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 234 s; speeltijd Uitdaging ± 4:55, Basis ± 4:30 (met vragen) |

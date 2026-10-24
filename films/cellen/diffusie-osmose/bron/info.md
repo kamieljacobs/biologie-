@@ -6,6 +6,7 @@
 | Reeks / nummer | Cel, film 1 van 3 ("Biologie bij Kamiel · reeks Cel · film 1 van 3"); film 2 = Celorganellen |
 | Doelgroep / niveau | havo + vwo met gelabelde vwo-blokken (Havo/Vwo-schakelaar; standaard Vwo). Vwo-blokken: gefaciliteerde diffusie (H4) en natrium-kaliumpomp (H6). Iso-/hypo-/hypertonisch staat op verzoek van Kamiel in het havo-deel |
 | Versie / datum | Versie 1.2 · 16 oktober 2026 (uitgeversniveau, na de redactiereview; zie "Versie 1.2" onderaan). Eerder: 1.1 · 12 oktober 2026 |
+| Prompt | onbekend · gemaakt 16 okt |
 | Stem / model | Roos (ElevenLabs, model eleven_v4, voice_id 7qdUFMklKPaaAVMsBTBt), één take per segment; woordtijden met Scribe (eleven_scribe_v1) |
 | Duur | 10:02 gesproken (som van 24 mp3's: 602 s; vwo-blokken 50 s). Speeltijd met kaarten en vragen (versie 1.2): Vwo 12:47, Havo 11:47, Vwo zonder vragen 9:55. `script.md` heeft de begintijden per segment. `data-duur="9"` op de tellerscript-tag is de oude gesproken duur in minuten (alleen voor de kijkcijferteller; bijwerken met `scripts/teller.py` als dat gewenst is) |
 | Beeldstijl | Part C-stijlkaart: Micro (#121A26, sinds 1.2 zonder korrel), Schema (#1A2740), Macro (bootje op zee). Kleurbetekenis in deze film: goud = opgeloste stof/kleurstof, teal = water en zuurstof, koraal = ATP/energie, groen = conclusie/celwand, grijs = CO₂, oker = glucose/mineralen, paars = vwo (ook K⁺ in het vwo-blok). Canvas 1920×1080, ondertitels onder CAPTION_Y = 900 |

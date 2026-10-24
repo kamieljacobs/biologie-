@@ -36,6 +36,7 @@
 .rv-st.bekeken{background:var(--goud-soft);color:var(--goud-text)}
 .rv-st.ok{background:var(--groen-soft);color:var(--groen)}
 .rv-op{font:600 12px var(--meta);color:var(--koraal)}
+.rv-prompt{font:500 12px var(--meta);color:var(--text3)}
 .rv-cl{font:600 12px var(--meta);color:var(--oker)}
 .rv-leeg{color:var(--text2);padding:20px 0}
 @media (max-width:560px){.rv-film{grid-template-columns:minmax(0,1fr)}.rv-acties{grid-row:auto;grid-column:1;justify-content:flex-start}.rv-volgende{margin-left:0}}
@@ -196,6 +197,7 @@
         chip.textContent = s === 'nog' ? 'Nog bekijken' : s === 'ok' ? 'Goed' : 'Bekeken';
         sub.appendChild(chip);
         if (f.duur) { var d = document.createElement('span'); d.textContent = f.duur + ' min'; sub.appendChild(d); }
+        if (f.prompt) { var pv = document.createElement('span'); pv.className = 'rv-prompt'; pv.title = 'Gemaakt met promptversie'; pv.textContent = 'prompt ' + f.prompt; sub.appendChild(pv); }
         if (f.extra) { var x = document.createElement('span'); x.textContent = 'extra'; sub.appendChild(x); }
         var n = open(f); if (n) { var op = document.createElement('span'); op.className = 'rv-op'; op.textContent = n + ' open'; sub.appendChild(op); }
         var c = vanClaude(f); if (c) { var cl = document.createElement('span'); cl.className = 'rv-cl'; cl.textContent = c + ' van Claude'; sub.appendChild(cl); }

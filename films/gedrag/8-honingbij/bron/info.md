@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 8 van 12 |
 | Niveau | havo + vwo; vwo-blok s11 (bewijs voor de danstaal: robotbij, harmonische radar) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow msw1MBdp22XXrtDujTpB; respelling von Frisch → fon Frisj (zie `uitspraak.md`) |
 | Duur | spraak 5:27 (vwo) / 4:33 (havo); speeltijd met kaarten en vragen ± 6,5 min |
 | Beeldstijl | Part C: Schema |

@@ -6,6 +6,7 @@
 | Reeks / nummer | Hormonen, film 3 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s16–s18 met vraag q17 (TRH, terugkoppeling op twee niveaus, ziekte van Graves). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow daxBASBxKqL575X9NCK6; nodes in `stem/takes.json`). s14, s18 en s19 zijn na de eindreview opnieuw ingesproken |
 | Duur | spraak 7:50 (vwo) / 6:50 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9½ min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (keukenplank, cold open), Schema (navy: hoofd in profiel, organogram, hals met schildklier, regelkring, balken, grafiek). Seriekleuren in `lib_hormonen.js` (`HK`); schildklier in eigen kleur `SCHILD` (#C98A5C, in `scenes.js`). Nieuwe hormoonvormen: TSH en andere sturende hormonen = capsule (`tropine`), groeihormoon = vijfhoek (`groei`), thyroxine = ster |

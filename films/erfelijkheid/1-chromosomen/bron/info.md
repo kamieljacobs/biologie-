@@ -6,6 +6,7 @@
 | Reeks / nummer | Erfelijkheid · film 1 van 6 (op de site: § 3.1 – 3.2) |
 | Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
 | Duur | 7:08 (006.mp3 = 428,41 s; `TL.total` = 428,375 s). De kop zegt "± 6,5 minuten". |
 | Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy achtergrond (#1A2740), gedempte vullingen, lichte randen, goud = focus, fonts Fraunces / Source Sans 3 / IBM Plex Mono. Gemengd: familie in een vlakke huiskamer (macro, gezichten met ogen en mond), doorlopende canvaszoom huid → opperhuid → basale cel → kern → chromosoom (micro, bruine weefseltinten), karyogram en simulaties als schema. UI-laag: kruimelpaden NIVEAU (organisme › cel › kern › chromosoom › gen) en WEERGAVE (echt › symbool › schema), meelopende schaalbalk, legenda vader blauw / moeder oranje. |

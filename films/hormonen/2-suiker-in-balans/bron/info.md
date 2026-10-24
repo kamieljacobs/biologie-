@@ -6,6 +6,7 @@
 | Reeks / nummer | Hormonen, film 2 van 5 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s15 (GLUT4, signaaltransductie, exocytose, gefaciliteerde diffusie) en s23 (insulineresistentie op celniveau, spierwerk). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow CgRoGtnJYhFRTTdQRHak; nodes en sessies in `stem/takes.json`) |
 | Duur | spraak 8:55 (vwo) / 7:31 (havo). Speeltijd met kaarten en vier vragen: vwo ≈ 11 min, havo ≈ 9½ min |
 | Beeldstijl | Part C: Macro (klaslokaal met Sanne en "jij"), Schema (regelkring, grafieken, bak met kraan, kaarten), Micro (eilandje van Langerhans, spiercel met GLUT4). Seriekleuren `HK`: hormonen goud (insuline afgerond vierkant, glucagon ruit, adrenaline druppel), glucose en glycogeen teal, bètacellen licht oker, alfacellen groen, bloed rood |

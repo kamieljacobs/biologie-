@@ -6,6 +6,7 @@
 | Reeks / nummer | Voeding, film 5 van 6 |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09–s11 (leverlobje, sinusoïden, portale driehoek, galstroom, vraag q10), s17 (deaminering, ammoniak → ureum), s22 (lipoproteïnen, LDL/HDL). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 13 oktober 2026 (zelfstandig gebouwd; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 13 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow tf9JO2aShKlk9GTxgiVk); s05, s20, s26, s27 zijn hernemingen na de eindreview (zie `stem/takes.json` → `hernemingen_v3`) |
 | Duur | spraak 10:02 (vwo) / 7:52 (havo). Speeltijd met kaarten en zes vragen: vwo ≈ 11½ min, havo ≈ 9 min |
 | Beeldstijl | Part C: Schema (navy #1A2740) voor het leverschema, de fabriek en de bilirubine-route; Micro (#121A26) voor het leverlobje; Macro (#1E2E4A) voor de baby; UI-laag vast; canvas 1920×1080. Filmkleuren: `ZARM` #5B6FA8 (zuurstofarm bloed), `ZRIJK` = BLOED (koraal), `GAL` #B9C94A, `BILI` #E6C84A, `LEVER` = C.bruin; huid roze → geel bij de baby |

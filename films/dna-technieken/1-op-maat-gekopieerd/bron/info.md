@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA-technieken, film 1 (kop: “Uitlegfilm · PCR · havo en vwo”; titelkaart: “Uitlegfilm bij het practicum DNA-profielen vergelijken”). Hoort bij de PCR-stap van het practicum `tools/dna-profielen/`; vervolg is film 2 “Op lengte gesorteerd” (gel) |
 | Doelgroep / niveau | havo + vwo; hoofdstuk 3 is verdieping (`verd: true`), met een knop “Sla de verdieping over” voor havo. Geen havo/vwo-schakelaar |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs, footer); model onbekend (niet in de HTML) |
 | Duur | 9:34 (`narration.mp3`, 574,1 s; `OMG_TL.duration` = 574,046 s), zonder de bedenktijd van 8 s bij elk van de 6 vragen |
 | Beeldstijl | Eigen ontwerp “Labjournaal” van vóór de Part C-stijlkaart: donkere werkbank (#0D1418) met ruitjes, krijtkleurige tekst, alles op één canvas van 1920 × 1080; vaste beeldsystemen: gel op een lichtbak, PCR-buisje, chromosoom 12, moleculenveld, laddermodel met basen + temperatuurbalk, strengenbord, turflijst, grafieken. Kleurcode: primer amber, lang product blauw (`ink`), op maat groen (`ok`), STR roze, Taq paars. Lettertypen Instrument Serif, IBM Plex Sans en Plex Mono ingebed |

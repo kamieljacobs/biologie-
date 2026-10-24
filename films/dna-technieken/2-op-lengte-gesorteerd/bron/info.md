@@ -6,6 +6,7 @@
 | Reeks / nummer | DNA-technieken, film 2 (kop: “Uitlegfilm · gel-elektroforese · havo en vwo”; titelkaart: “Uitlegfilm bij het practicum DNA-profielen vergelijken”). Hoort bij de stap Gelfoto van het practicum `tools/dna-profielen/`; vervolg op film 1 “Op maat gekopieerd” (PCR), waarnaar de meta-regel linkt |
 | Doelgroep / niveau | havo + vwo, één niveau; geen verdieping, geen voorspelvragen (`questions: []`) |
 | Versie / datum | onbekend (niet in de HTML) |
+| Prompt | onbekend |
 | Stem / model | Roos (ElevenLabs, footer); model onbekend (niet in de HTML) |
 | Duur | 3:59 (`gelfilm.mp3`, 239,6 s; `OLG_TL.duration` = 239,589 s) |
 | Beeldstijl | Zelfde eigen ontwerp “Labjournaal” als film 1 (van vóór de Part C-stijlkaart): donkere werkbank met ruitjes, alles op één canvas van 1920 × 1080; centrale beeld is de gelfoto van het practicum (9 banen: M50, Eig, Sp, A, B, C, PC, NC, AL) plus een gelbak van bovenaf, putje in doorsnede, agarose-netwerk in een loep, uitsneden van de gel, mini-gels en samenvattingskaartjes. Kleur per locus (TPOX geel, AMEL paars, D8 lichtblauw, vWA roze, D3 groen). Lettertypen Instrument Serif, IBM Plex Sans en Plex Mono ingebed |

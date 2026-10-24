@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Psychologie (klinisch) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2.1) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea (flow in `stem/sessions.json`), 5.654 + 830 (heropname s14) + 901 (heropname s06, 21 okt: open vraag uitgesproken) credits |
 | Duur | spraak 6:19 (379 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema, met cast (Sam als cliënt; jij als psycholoog in ik-perspectief: bureau en notitieboek, spreekkamer uit Welke therapie werkt?) |

@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, film 4 (32A Organismen; bullet 3: ademhalingsstelsel en bloedvatenstelsel; bullet 4: verbranden met zuurstof, samenwerkende stelsels) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde klassen; geen schoolniveaus in beeld, stem of docentdeel. Basislijn + één blok **uitdaging** (s12: kleine en grote bloedsomloop). Schakelaar **Basis / Uitdaging** (`?niveau=basis`) |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `RqpkQL8Lshm53TvXJJdw` (generatie-id's in `stem/generaties.json`, node- en sessie-id's in `stem/tts_sessies.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes (verbonden met de tts-node); alle 15 takes woord voor woord gelijk aan het script |
 | Duur | audio 289 s (+ 0,45 s per take); speeltijd Uitdaging ± 5:55, Basis ± 5:35; met Vragen uit ± 5:05 |

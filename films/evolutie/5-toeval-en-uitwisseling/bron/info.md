@@ -6,6 +6,7 @@
 | Reeks | Evolutie (v2), film 5 van 8 |
 | Niveau | havo + vwo (vwo-blokken gemarkeerd) |
 | Versie | 1.0 · oktober 2026 (script v2 = storyboard f5.json, goedgekeurd 23 okt 2026) |
+| Prompt | v9 |
 | Voldoet aan | prompt v9 (storyboard v8 + uitknippoppen) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 6.763 credits (flow BEwKaXEgaPvQeqXyRXcV) |
 | Duur | spraak 7:31 (451 s, basis 345 s); met vragen en kaarten ± 9 min |

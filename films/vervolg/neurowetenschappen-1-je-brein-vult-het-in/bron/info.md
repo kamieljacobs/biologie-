@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Neurowetenschappen (ook bij Psychologie) |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 7.254 credits (6.016 + heropname s08 en s20: 1.238) (flow in `stem/sessions.json`) |
 | Duur | spraak 6:29 (389 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema, met cast (Sam en het stopcontact, Daan en Yasmin bij het gorillafilmpje, Lotte op de fiets) |

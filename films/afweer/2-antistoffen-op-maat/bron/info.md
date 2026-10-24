@@ -6,6 +6,7 @@
 | Reeks / nummer | Bescherming en afweer, film 2 van 4 (seriebrief in de Claude-doc *Seriebriefs uitlegfilms biologie*) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s08 (genstukjes, diversiteit, eigen B-cellen uitgeschakeld) en s14 (bouw van een antistof, T-helpercel geeft startsein). Havo/Vwo-schakelaar, standaard Vwo |
 | Versie / datum | 1.0 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; wacht op review door Kamiel) |
+| Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow WDDkZooQMTSMDrONtSkX; nodes in `stem/takes.json`) |
 | Duur | spraak 6:40 (vwo) / 5:37 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 8 min |
 | Beeldstijl | Part C: Macro (woonkamer met Noor en Bram), Micro (virus met antigenen, B-cellen met receptor-'sleutels', beenmerg, lymfeknoop met kloon, plasmacel met antistoffen, neutraliseren, klonteren, fagocyt), Schema (genstukjes, bouw van een antistof, grafiek primaire/secundaire reactie, vergelijkingstabel). Kleuren in `scenes.js`: ziekteverwekkers `VIR #E07A5F`, B-cellen `BCOL #5BA4C9`, T-cellen `TCOL #7FC48F`, antistoffen `AS #E0B64A`, eigen cellen `EIGEN #8C7BBF`, griep `#C9708F`; antigeenvormpjes in `VORMKL` |

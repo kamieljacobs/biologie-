@@ -6,6 +6,7 @@
 | Reeks / nummer | Zenuwstelsel, film 3 (pagina: “hoe het bericht van cel naar cel springt · 5 vwo · film 3 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 3 van 6”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
 | Versie / datum | 1.0 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | onbekend · gemaakt 4 okt |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:05 gesproken (som van 13 mp3’s, 305,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:15 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (straat met bakker, dezelfde fietser als film 1, geurspoor met lens naar neus en hersenen) en lichte schema-scènes met de synaps als dwarsdoorsnede (eindknopje met blaasjes, spleet, receptoren), deeltjes, voltmeter en optelbalk; Inter-systeemfont |

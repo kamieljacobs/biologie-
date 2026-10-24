@@ -7,6 +7,7 @@
 | Reeks / nummer | Stofwisseling (vwo), film 1 van 4; serie: 1 Alles versneld · 2 Alles op adem · 3 Alles in het groen · 4 De lever (volgt) |
 | Doelgroep / niveau | havo + vwo sinds 18 okt 2026 (Havo/Vwo-knop, zie onder): vwo = 6 vwo, Nectar 4.1, 18.2–18.3 (+ 18.1 denatureren); havo = Biologie voor jou thema 8 (enzymen). De vroegere *verdieping*-zinnen (H5 V-max, H7 vitamines) zijn nu vwo-blokken |
 | Versie / datum | versie 1.0 · 3 oktober 2026 (voettekst en "Bronnen en versie") |
+| Prompt | onbekend · gemaakt 3 okt |
 | Stem / model | Roos (ElevenLabs, model eleven_multilingual_v2), volgens de pagina |
 | Duur | vwo 11:34, havo 9:01 (kop van de pagina; som van `dur` min de overgeslagen stukken, zonder het ingekorte midden van de hoofdstukkaarten). Speler: vwo 11:28, havo 8:56 (hoofdstukkaarten 2,2 s). Som van `dur` 698,8 s inclusief de havo-alinea van 4,09 s |
 | Beeldstijl | Eigen canvasontwerp (1920×1080) dat zich in de code "stijlkaart biologiefilms, look Micro" noemt: donkere achtergrond (#121A26 met fijne beige korrel), gedempte vullingen met lichte randen, Fraunces/Source Sans 3/IBM Plex Mono. Eén look voor alle scènes, geen Macro/Schema-onderscheid zoals in Part C (v4, 11 okt) |

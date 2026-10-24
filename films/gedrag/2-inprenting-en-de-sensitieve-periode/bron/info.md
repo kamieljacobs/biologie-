@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 2 van 9 |
 | Niveau | havo + vwo; vwo-blok s08 (seksuele inprenting) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow NWp5ePZDOxhRnEe7gm4G; respellings in `uitspraak_film.json` + 'er'/'el' met de hand in s09 (zie `uitspraak.md`) |
 | Duur | spraak 4:45 (vwo) / 4:23 (havo); speeltijd met kaarten en vragen ± 6 min |
 | Beeldstijl | Part C: Macro (cold open: weide met vijver), Schema (rest) |

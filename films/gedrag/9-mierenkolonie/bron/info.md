@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 9 van 12 |
 | Niveau | havo + vwo; vwo-blok s11 (oogstmieren, regeling zonder baas, Deborah Gordon) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow KoaigBHPoLMvztc2Fdo4; respelling Deborah → Debbora (zie `uitspraak.md`) |
 | Duur | spraak 4:29 (vwo) / 3:42 (havo); speeltijd met kaarten en vragen ± 5,5 min |
 | Beeldstijl | Part C: Schema |

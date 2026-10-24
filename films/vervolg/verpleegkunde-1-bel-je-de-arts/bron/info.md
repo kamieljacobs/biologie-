@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Verpleegkunde |
 | Niveau | vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 3.223 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 3:30 (210 s); met vragen en kaarten ± 5 min |
 | Beeldstijl | Part C · Schema, met cast (Opa Henk in een ziekenhuisbed, Verpleegkundige Jesse nieuw in het castboek, Dr. Kim aan de telefoon) |

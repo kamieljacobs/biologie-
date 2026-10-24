@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Biomedische wetenschappen (wo) — tegelijk extra film bij DNA (havo en vwo) |
 | Niveau | havo · vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Prompt | onbekend · gemaakt 24 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.934 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 6:20 (380 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema en Micro, met cast (Opa Henk, Linda, Teun, Dr. Kim); gist, C. elegans, zebravisembryo en muis zelf getekend in filmstijl |

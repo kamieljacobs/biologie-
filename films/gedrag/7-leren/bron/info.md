@@ -6,6 +6,7 @@
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 7 van 12 |
 | Niveau | havo + vwo; vwo-blok s11 (dopamine en voorspellingsfout) |
 | Versie / datum | 1.0 · 15 oktober 2026 |
+| Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow VaUKBcIQncHYXzgP7ehy; geen respellings meer (dopamine sinds 20 okt in gewone spelling; zie `uitspraak.md`) |
 | Duur | spraak 4:48 (vwo) / 4:04 (havo); speeltijd met kaarten en vragen ± 6 min |
 | Beeldstijl | Part C: Schema |

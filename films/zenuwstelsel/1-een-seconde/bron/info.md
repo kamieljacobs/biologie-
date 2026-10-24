@@ -6,6 +6,7 @@
 | Reeks / nummer | Zenuwstelsel, film 1 (pagina: “het zenuwstelsel in vogelvlucht · 5 vwo · film 1 van de reeks Zenuwstelsel”; `plan.series`: ontbreekt) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar); hoofdstuk 6 “Weten” als verdieping gemarkeerd (`verdieping: true`, label op hoofdstukkaart en in hoofdstuklijst) |
 | Versie / datum | 1.1 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | onbekend · gemaakt 4 okt |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:54 gesproken (som van 18 mp3’s, 354,8 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 6 aftellingen van 8 s: 7:14 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (lucht-gradiënt, huizen, fietser, bal, kind), een lens met gegenereerde doorkijk-anatomie (PNG) met zenuwbanen als vectorlaag, en lichte schema-scènes (#EEF1F7) voor de micro-uitleg; Inter-lettertype (systeemfont, niet ingebed) |

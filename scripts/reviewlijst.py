@@ -5,6 +5,8 @@ Draai na het toevoegen, hernoemen of opnieuw bouwen van films (idempotent):
     python3 scripts/reviewlijst.py
 """
 import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import promptversie
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import sitedata  # noqa: E402
@@ -33,6 +35,9 @@ def main():
             return None
         gezien.add(href)
         d = {'href': href, 'titel': f.get('titel', href), 'duur': f.get('duur'), 'vraag': f.get('vraag', '')}
+        pv = promptversie.versie(href)
+        if pv:
+            d['prompt'] = pv
         if rev.get(href):
             d['repo'] = rev[href]
         if extra:

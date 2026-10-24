@@ -6,6 +6,7 @@
 | Reeks / nummer | Kerndoelen onderbouw, 32B film 7. Kerndoel 32B, aanvulling: *vergelijken van stambomen die zijn gemodelleerd op basis van fenotypische en genetische kenmerken* en *beschrijven van grote stappen in de evolutie: RNA naar DNA, ontstaan van eukaryoten, van ongeslachtelijke naar geslachtelijke voortplanting en van protist naar meercellige* (toegankelijk gemaakt met basis + uitdaging). Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025 (bijlage Eerste Kamer). |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde groepen. Basislijn eenvoudig; één blok **uitdaging** (s09: walvis, uiterlijk tegenover kenmerken en DNA). Schakelaar **Basis / Uitdaging** (`?niveau=basis`). Nergens havo/vwo genoemd |
 | Versie / datum | 1.0 · 20 oktober 2026 |
+| Prompt | v6 |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), `eleven_v4`, één take per alinea; flow `MYdbN9v4oTv00iY0fBz8` (`stem/tts.json`, `stem/generaties.json`) |
 | Woordtijden | Scribe per take; alle 13 woord voor woord gelijk aan de stem-invoer |
 | Duur | audio 188 s; speeltijd Uitdaging ± 4:10, Basis ± 3:55, Vragen uit ± 3:15 |

@@ -6,6 +6,7 @@
 | Reeks | Evolutie (v2), extra film 2 van 4 (buiten het PTA) |
 | Niveau | havo + vwo (geen vwo-blokken) |
 | Versie | 1.0 · oktober 2026 (script v2 = storyboard f10.json, goedgekeurd 24 okt 2026) |
+| Prompt | v10 |
 | Voldoet aan | prompt v10 (C10 tekenkwaliteit; frisse beeldreview na het bouwen) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.901 credits (flow zmRbwjbcINPkr9YCy0c3) |
 | Duur | spraak 6:50 (410 s, basis 410 s); met vragen en kaarten ± 8 min |

@@ -6,6 +6,7 @@
 | Reeks | Zenuwstelsel (hoofdstuk `regeling`, op de site 'Regeling'), film 7 |
 | Niveau | havo + vwo; één vwo-blok s13 (klokgenen met negatieve terugkoppeling) |
 | Versie / datum | 1.0 · 16 oktober 2026 |
+| Prompt | onbekend · gemaakt 16 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow GG2iFDV7c2CAFOv0JQWU (nodes in `stem/nodes.json`); respellings EEG → E-E-G (Kamiel 16 okt: Nederlandse letternamen, niet Engels), microslaap → mikroslaap; adenosine, melatonine, circadiaans en REM(-slaap) sinds 20 okt in gewone spelling (`uitspraak_film.json`, zie `uitspraak.md`) |
 | Duur | spraak 6:59 (vwo) / 6:27 (havo); speeltijd met kaarten en vragen ± 8:04 (vwo) / 7:31 (havo) |
 | Beeldstijl | Part C: Schema |

@@ -6,6 +6,7 @@
 | Reeks | Nieuwsgierig? (hoofdstuk `extra`, buiten het PTA) · geschiedenis van de biologie |
 | Niveau | havo · vwo, één niveau (`alleen: "havo · vwo"`, geen vwo-blokken; de Havo/Vwo-knop is verborgen) |
 | Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 20 oktober 2026) |
+| Prompt | onbekend · gemaakt 22 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow rgmUuvSL6zMsLmaQnt6F; stem-invoer met respellings in `segments.json` (veld `voice`) en `stem/voice.json`; film-eigen regels in `uitspraak_film.json` |
 | Duur | spraak 12:19 (23 takes); speeltijd 13:51 met vragen (zonder wachten), 12:16 met Vragen uit; `duur` 14 in HOOFDSTUKKEN |
 | Beeldstijl | Part C: Schema (tijdlijn, mensen en samenleving) |
