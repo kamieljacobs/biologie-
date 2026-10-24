@@ -96,3 +96,48 @@ E7.kadaver = function (ctx, x, y, s, a = 1) { if (a <= 0.01) return; ctx.save();
   ctx.beginPath(); ctx.ellipse(56, -3, 30, 12, -0.08, 0, 6.283); shape(ctx, k, _dk(k, 0.25), 1.5); ctx.beginPath(); ctx.moveTo(78, -6); ctx.lineTo(96, -2); ctx.lineTo(80, 4); ctx.closePath(); ctx.fillStyle = k; ctx.fill();
   ctx.strokeStyle = '#2E2620'; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(62, -8); ctx.lineTo(70, -8); ctx.stroke(); // gesloten oog
   ctx.restore(); };
+
+// ---- herstelronde na review ----
+// punt op de rug van Noor (h 620, voet 880, kijkt naar links) op bilhoogte: begin van de zoomlijnen naar het staartbeen
+const E7_STUIT = [566, 590];
+
+// halveringsgrafiek zoals in teken_evo7, maar met '± 5700 jaar' (zelfde getal als de stem)
+function halveringsGrafiek(ctx, x, y, w, h, o = {}) { const { a = 1, n = 4, u = 1, maxLabel = 4 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = 'rgba(255,255,255,0.03)'; for (let i = 1; i <= n; i++) ctx.fillRect(x + i * w / n, y - h, 1.5, h);
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(x, y - h - 20); ctx.lineTo(x, y); ctx.lineTo(x + w + 20, y); ctx.stroke();
+  ctx.strokeStyle = C.teal; ctx.lineWidth = 5; ctx.beginPath(); for (let i = 0; i <= 120 * u; i++) { const f = i / 120, px = x + f * w, py = y - h * Math.pow(0.5, f * n); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke();
+  for (let i = 0; i <= Math.min(n, Math.floor(n * u + 0.001)); i++) { const px = x + i * w / n, py = y - h * Math.pow(0.5, i); circ(ctx, px, py, 8, C.teal, _lt(C.teal, 0.4), 2); if (i <= maxLabel) text(ctx, String(Math.round(100 * Math.pow(0.5, i) * 10) / 10).replace('.', ',') + '%', px + 16, py - 14, fTekst(32, 700), C.text, 'left');
+    metaText(ctx, i === 0 ? '0' : i + '×', px, y + 40, C.text2, 'center', 26); }
+  metaText(ctx, '× ± 5700 jaar', x + w, y + 80, C.text2, 'right', 26); metaText(ctx, 'koolstof-14 over', x, y - h - 70, C.grain, 'left', 26);
+  ctx.restore(); }
+
+// sprongbeen (astragalus) van een evenhoevige, vooraanzicht: boven én onder een katrol (twee ruggen met een groef ertussen)
+// a = zichtbaarheid, v = 0..1 nadruk op de katrolvorm (gouden rand, groeven en rolpijltjes)
+E7.katrolbot = function (ctx, x, y, s = 1, a = 1, v = 0, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s * 1.3, s * 1.3);
+  const kat = (sy) => { // één katrol: buitenrand van de ruggen met groef in het midden; sy = -1 boven, 1 onder
+    ctx.lineTo(-70, sy * 62); ctx.quadraticCurveTo(-72, sy * 96, -44, sy * 98); ctx.quadraticCurveTo(-14, sy * 98, 0, sy * 76); ctx.quadraticCurveTo(14, sy * 98, 44, sy * 98); ctx.quadraticCurveTo(72, sy * 96, 70, sy * 62); };
+  ctx.beginPath(); ctx.moveTo(-58, 0); kat(-1); ctx.quadraticCurveTo(54, -30, 56, 0); ctx.quadraticCurveTo(54, 30, 70, 62);
+  ctx.lineTo(70, 62); ctx.quadraticCurveTo(72, 96, 44, 98); ctx.quadraticCurveTo(14, 98, 0, 76); ctx.quadraticCurveTo(-14, 98, -44, 98); ctx.quadraticCurveTo(-72, 96, -70, 62); ctx.quadraticCurveTo(-54, 30, -58, 0); ctx.closePath();
+  shape(ctx, BOT.kaal, v > 0.5 ? C.goud : BOT.kaalR, 2 + 2 * v);
+  // groeven: ondiepe goot midden over beide katrollen, en schaduw op de ruggen
+  ctx.strokeStyle = rgba(BOT.kaalR, 0.9); ctx.lineWidth = 3; ctx.lineCap = 'round';
+  for (const sy of [-1, 1]) { ctx.beginPath(); ctx.moveTo(0, sy * 76); ctx.quadraticCurveTo(-3, sy * 52, 0, sy * 32); ctx.stroke();
+    for (const sx of [-1, 1]) { ctx.beginPath(); ctx.ellipse(sx * 38, sy * 70, 22, 12, 0, sy < 0 ? Math.PI : 0, sy < 0 ? 2 * Math.PI : Math.PI); ctx.stroke(); } }
+  if (v > 0.01) { ctx.globalAlpha *= v; ctx.strokeStyle = C.goud; ctx.lineWidth = 3.5; // rolpijltjes: de katrollen rollen als een wiel
+    for (const sy of [-1, 1]) { const ph = Math.sin(t * 1.6) * 0.25; ctx.beginPath(); const c0 = sy < 0 ? -Math.PI / 2 : Math.PI / 2; ctx.beginPath(); ctx.arc(0, sy * 56, 66, c0 - 0.6 + ph, c0 + 0.6 + ph); ctx.stroke(); } }
+  ctx.restore(); };
+
+// legenda: rij van [naam, kleur, alfa] met kleurvakje, gecentreerd op cx
+E7.legenda = function (ctx, cx, y, items) { const f = fTekst(32, 600); ctx.save(); ctx.font = f; const ws = items.map(([n]) => ctx.measureText(n).width), gap = 70, sw = 26;
+  const tot = ws.reduce((p, w) => p + sw + 14 + w, 0) + gap * (items.length - 1); let x = cx - tot / 2;
+  items.forEach(([n, k, a], i) => { if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y - sw + 4, sw, sw, 6); shape(ctx, k, _lt(k, 0.35), 1.5); text(ctx, n, x + sw + 14, y, f, C.text, 'left'); ctx.restore(); } x += sw + 14 + ws[i] + gap; });
+  ctx.restore(); };
+
+// bekken van een viervoetig landdier, zijaanzicht (kop links): darmbeen schuin naar de wervelkolom, heupkom, zitbeen en schaambeen met het gat ertussen
+E7.bekken = function (ctx, x, y, s = 1, a = 1, goud = false) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const rand = goud ? C.goud : BOT.kaalR, lw = goud ? 4 : 2;
+  ctx.beginPath(); ctx.moveTo(-92, -10); ctx.quadraticCurveTo(-40, -22, 14, -10); ctx.quadraticCurveTo(28, 22, 24, 54); ctx.lineTo(8, 68); ctx.quadraticCurveTo(-16, 46, -44, 34); ctx.quadraticCurveTo(-80, 24, -92, -10); ctx.closePath(); shape(ctx, BOT.kaal, rand, lw); // darmbeen
+  ctx.beginPath(); ctx.moveTo(14, 60); ctx.quadraticCurveTo(64, 56, 104, 80); ctx.quadraticCurveTo(122, 104, 96, 126); ctx.quadraticCurveTo(54, 134, 14, 112); ctx.quadraticCurveTo(-8, 96, 14, 60); ctx.closePath();
+  ctx.moveTo(84, 96); ctx.ellipse(56, 96, 28, 17, 0.1, 0, 6.283); ctx.fillStyle = BOT.kaal; ctx.fill('evenodd'); ctx.strokeStyle = rand; ctx.lineWidth = lw; ctx.stroke(); // zitbeen + schaambeen met gat
+  circ(ctx, 6, 78, 19, _dk(BOT.kaal, 0.18), rand, lw); circ(ctx, 6, 78, 10, _dk(BOT.kaal, 0.35)); // heupkom
+  ctx.restore(); };

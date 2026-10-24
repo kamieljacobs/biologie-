@@ -41,7 +41,7 @@ fossiel, relatieve datering, absolute datering, halveringstijd, homologe organen
 | 111 | Voor de docent |
 | 155 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1841 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb7.js (keyframes) |
-| 9317 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e7.js`) |
+| 9362 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e7.js`) |
 
 ## Hoe je de film aanpast
 
@@ -54,4 +54,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f7.json`.
-- Zie storyboard_f7.json voor getallen (leeftijden fossielen, halveringstijd koolstof-14)
+- Zie storyboard_f7.json voor getallen (leeftijden fossielen, halveringstijd koolstof-14 ±5700 jaar)
