@@ -163,8 +163,49 @@
     balk.innerHTML = '<span>Reviewstand · ' + n + ' open</span>' +
       '<button type="button" data-a="klik" title="Toets R">' + (klikAan ? 'Klik = opmerking' : 'Klik = gewoon') + '</button>' +
       (AUTH ? '' : '<button type="button" data-a="in">Inloggen</button>') +
+      '<button type="button" data-a="ok" title="Film is goed; door naar de volgende">Goed ✓</button>' +
+      '<button type="button" data-a="bekeken" title="Opmerkingen gemaakt; door naar de volgende">Klaar →</button>' +
+      '<a href="' + new URL('sessie/review.html', ROOT).href + '" style="color:inherit;text-decoration:none;padding:2px 4px" title="Alle films">Overzicht</a>' +
       '<button type="button" data-a="uit" class="uit" title="Reviewstand uitzetten">Uit</button>';
   }
+
+  /* ---------- status van deze film en door naar de volgende ---------- */
+  function sleutel(href) { return href.replace(/[^A-Za-z0-9]/g, '_'); }
+  function volgende() {
+    return Promise.all([
+      fetch(new URL('sessie/reviewlijst.json', ROOT).href, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : {}; }),
+      fetch(DB + '/reviewstatus.json').then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; })
+    ]).then(function (r) {
+      var lijst = [], st = r[1] || {};
+      ((r[0] && r[0].groepen) || []).forEach(function (g) { g.films.forEach(function (f) { lijst.push(f); }); });
+      function nog(f) {
+        var s = st[sleutel(f.href)];
+        if (f.href === PAD) return false;
+        if (s && s.status) return s.status === 'open';
+        return !f.repo;
+      }
+      var i = lijst.findIndex(function (f) { return f.href === PAD; });
+      var na = lijst.slice(i + 1).concat(lijst.slice(0, Math.max(0, i)));
+      return na.find(nog) || null;
+    });
+  }
+  function rond(st) {
+    var knopTekst = balk.querySelector('[data-a="' + st + '"]'); if (knopTekst) knopTekst.textContent = 'Bezig…';
+    token().then(function (tk) {
+      return fetch(DB + '/reviewstatus/' + sleutel(PAD) + '.json?auth=' + encodeURIComponent(tk), {
+        method: 'PUT', body: JSON.stringify({ href: PAD, status: st, tijd: { '.sv': 'timestamp' } })
+      });
+    }).then(function (r) {
+      if (!r.ok) throw new Error('opslaan');
+      return volgende();
+    }).then(function (f) {
+      location.href = f ? new URL(f.href, ROOT).href + '?review=1' : new URL('sessie/review.html', ROOT).href;
+    }).catch(function (err) {
+      if (err && err.message === 'login') loginVak(function () { rond(st); });
+      else { balkTekst(); alertBalk('Status niet opgeslagen. Controleer je verbinding.'); }
+    });
+  }
+  function alertBalk(t) { if (tip) tip.textContent = t; }
 
   function strook() {
     balkTekst();
@@ -287,6 +328,7 @@
       var a = e.target.getAttribute && e.target.getAttribute('data-a');
       if (a === 'klik') { klikAan = !klikAan; balkTekst(); }
       if (a === 'in') loginVak();
+      if (a === 'ok' || a === 'bekeken') { if (speelt()) pauzeer(); rond(a); }
       if (a === 'uit') { try { localStorage.removeItem('bk-review'); } catch (x) {} location.href = location.pathname + location.hash; }
     });
     var c = canvas();

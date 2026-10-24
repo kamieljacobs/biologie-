@@ -135,6 +135,25 @@
           ".validate": false
         }
       }
+    },
+    "reviewstatus": {
+      ".read": true,
+      "$film": {
+        ".write": "auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2'",
+        ".validate": "newData.hasChildren(['href', 'status', 'tijd'])",
+        "href": {
+          ".validate": "newData.isString() && newData.val().length <= 300"
+        },
+        "status": {
+          ".validate": "newData.val() === 'bekeken' || newData.val() === 'ok' || newData.val() === 'open'"
+        },
+        "tijd": {
+          ".validate": "newData.isNumber()"
+        },
+        "$anders": {
+          ".validate": false
+        }
+      }
     }
   }
 }

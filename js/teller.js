@@ -39,7 +39,7 @@
     if (rq === '0') localStorage.removeItem('bk-review');
     if (rAan && /^films\//.test(PAD) && !/presentatie\.html$/.test(PAD) && window.top === window.self) {
       var rv = document.createElement('script');
-      rv.src = new URL('js/review.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+      rv.src = new URL('js/review.js?v=2', new URL(me.getAttribute('data-root') || './', location.href)).href;
       rv.setAttribute('data-root', me.getAttribute('data-root') || './');
       (document.head || document.documentElement).appendChild(rv);
     }

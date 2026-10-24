@@ -1,0 +1,1098 @@
+{
+ "groepen": [
+  {
+   "id": "erfelijkheid",
+   "naam": "Erfelijkheid",
+   "films": [
+    {
+     "href": "films/erfelijkheid/1-chromosomen.html",
+     "titel": "Chromosomen",
+     "duur": 7,
+     "vraag": "Hoeveel chromosomen zitten er in één cel, en waarom in paren?"
+    },
+    {
+     "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
+     "titel": "Monohybride kruisingen",
+     "duur": 5,
+     "vraag": "Hoe weet je welke allelen een plant heeft, zonder DNA-test?"
+    },
+    {
+     "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
+     "titel": "Voorbij dominant en recessief",
+     "duur": 5,
+     "vraag": "Mengen allelen zich, zoals verf?"
+    },
+    {
+     "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
+     "titel": "Dihybride kruising en gekoppelde overerving",
+     "duur": 4,
+     "vraag": "Wat gebeurt er als je op twee eigenschappen tegelijk kruist?"
+    },
+    {
+     "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
+     "titel": "Overerving via X-chromosomen en mitochondriën",
+     "duur": 4,
+     "vraag": "Hoe kan een eigenschap zo verschillen tussen mannen en vrouwen?"
+    },
+    {
+     "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
+     "titel": "Stambomen en kansrekenen",
+     "duur": 4,
+     "vraag": "Is zij drager? Wat een stamboom je vertelt."
+    }
+   ]
+  },
+  {
+   "id": "stofwisseling",
+   "naam": "Stofwisseling",
+   "films": [
+    {
+     "href": "films/stofwisseling/1-alles-versneld.html",
+     "titel": "Alles versneld",
+     "duur": 12,
+     "vraag": "Wat is er kapot in een gekookte aardappel?"
+    },
+    {
+     "href": "films/stofwisseling/2-alles-op-adem.html",
+     "titel": "Alles op adem",
+     "duur": 13,
+     "vraag": "Waarom houd je een sprint zo kort vol, en een duurloop zo lang?"
+    },
+    {
+     "href": "films/stofwisseling/3-alles-in-het-groen.html",
+     "titel": "Alles in het groen",
+     "duur": 15,
+     "vraag": "Waar komt de massa van een eik vandaan?"
+    }
+   ]
+  },
+  {
+   "id": "voortplanting",
+   "naam": "Voortplanting",
+   "films": [
+    {
+     "href": "films/voortplanting/celdeling/index.html",
+     "titel": "Celdeling",
+     "duur": 13,
+     "vraag": "Hoe krijgen twee nieuwe cellen precies hetzelfde DNA?"
+    },
+    {
+     "href": "films/voortplanting/2-geslachtsorganen-puberteit.html",
+     "titel": "Geslachtsorganen en puberteit",
+     "duur": 8,
+     "vraag": "Wat verandert er in je lichaam, en wie geeft het startsein?"
+    },
+    {
+     "href": "films/voortplanting/1-precies-op-tijd.html",
+     "titel": "Van bevruchting tot baby",
+     "duur": 20,
+     "vraag": "Hoe regelt je lichaam dat alles precies op tijd gebeurt?"
+    },
+    {
+     "href": "films/voortplanting/4-sekse-gender-diversiteit.html",
+     "titel": "Sekse, gender en diversiteit",
+     "duur": 8,
+     "vraag": "Hoe bepaalt je lichaam of je een jongen of een meisje wordt?"
+    },
+    {
+     "href": "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html",
+     "titel": "Anticonceptie, soa's en voortplantingstechniek",
+     "duur": 8,
+     "vraag": "Hoe voorkom je een zwangerschap, en hoe help je er een op weg?"
+    }
+   ]
+  },
+  {
+   "id": "cellen",
+   "naam": "Cellen",
+   "films": [
+    {
+     "href": "films/cellen/van-molecuul-tot-biosfeer.html",
+     "titel": "Van molecuul tot biosfeer",
+     "duur": 7,
+     "vraag": "Leeft een griepvirus eigenlijk?"
+    },
+    {
+     "href": "films/cellen/celorganellen/index.html",
+     "titel": "Celorganellen",
+     "duur": 11,
+     "vraag": "Hoe krijgt één cel dat allemaal voor elkaar?"
+    },
+    {
+     "href": "films/cellen/diffusie-osmose/index.html",
+     "titel": "Diffusie en osmose",
+     "duur": 10,
+     "vraag": "Niemand heeft geroerd. Hoe komt de kleurstof dan overal?"
+    },
+    {
+     "href": "films/cellen/stamcellen.html",
+     "titel": "Stamcellen",
+     "duur": 9,
+     "vraag": "Waarom herstelt je huid wel, en je hartspier bijna niet?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/cellen/onderzoek-doen/index.html",
+     "titel": "Onderzoek doen in de biologie",
+     "duur": 21,
+     "vraag": "Hoe weet je eigenlijk of iets waar is?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/extra/geschiedenis-van-de-biologie.html",
+     "titel": "Geschiedenis van de biologie",
+     "duur": 14,
+     "vraag": "Hoe kom je achter iets nieuws, als bijna iedereen iets anders gelooft?",
+     "extra": true
+    }
+   ]
+  },
+  {
+   "id": "evolutie",
+   "naam": "Evolutie",
+   "films": [
+    {
+     "href": "films/evolutie/1-wat-is-evolutie.html",
+     "titel": "Wat is evolutie eigenlijk?",
+     "duur": 7,
+     "vraag": "Waarom lijken broers en zussen op elkaar, maar nooit precies?"
+    },
+    {
+     "href": "films/evolutie/2-natuurlijke-selectie.html",
+     "titel": "Natuurlijke selectie",
+     "duur": 7,
+     "vraag": "Waarom wint niet altijd het sterkste dier?"
+    },
+    {
+     "href": "films/evolutie/3-vormen-van-selectie.html",
+     "titel": "Vormen van selectie",
+     "duur": 7,
+     "vraag": "Waarom worden baby's niet steeds zwaarder?"
+    },
+    {
+     "href": "films/evolutie/4-de-mens-als-selectiefactor.html",
+     "titel": "De mens als selectiefactor",
+     "duur": 8,
+     "vraag": "Waarom helpt een antibioticum niet tegen griep, maar maakt het wel resistentie?"
+    },
+    {
+     "href": "films/evolutie/5-toeval-en-uitwisseling.html",
+     "titel": "Toeval en uitwisseling",
+     "duur": 9,
+     "vraag": "Kan een allel vaak worden zonder dat het iets oplevert?"
+    },
+    {
+     "href": "films/evolutie/6-hoe-een-soort-er-twee-wordt.html",
+     "titel": "Hoe één soort er twee wordt",
+     "duur": 8,
+     "vraag": "Is een muilezel een soort?"
+    },
+    {
+     "href": "films/evolutie/7-hoe-weten-we-dat.html",
+     "titel": "Hoe weten we dat?",
+     "duur": 8,
+     "vraag": "Hoe weet je welke laag in de grond het oudst is?"
+    },
+    {
+     "href": "films/evolutie/8-stambomen-lezen.html",
+     "titel": "Stambomen lezen",
+     "duur": 7,
+     "vraag": "Is een dolfijn familie van een haai?"
+    },
+    {
+     "href": "films/evolutie/x1-de-reis-van-darwin.html",
+     "titel": "De reis van Darwin",
+     "duur": 8,
+     "vraag": "Wat zag Darwin onderweg, en waarom duurde het twintig jaar voor hij het opschreef?",
+     "extra": true
+    },
+    {
+     "href": "films/evolutie/x2-het-ontstaan-van-het-leven.html",
+     "titel": "Het ontstaan van het leven",
+     "duur": 8,
+     "vraag": "Hoe word je van losse moleculen een cel die zichzelf kopieert?",
+     "extra": true
+    },
+    {
+     "href": "films/evolutie/x3-van-eerste-cel-tot-nu.html",
+     "titel": "Van eerste cel tot nu",
+     "duur": 8,
+     "vraag": "Vier miljard jaar leven: wanneer verschijnt wat?",
+     "extra": true
+    },
+    {
+     "href": "films/evolutie/x4-hoe-werden-we-mens.html",
+     "titel": "Hoe werden we mens?",
+     "duur": 8,
+     "vraag": "Waarom zijn wij nu de enige mensensoort? Over Lucy, Homo erectus en vooral de neanderthaler, met wie we nog samenleefden.",
+     "extra": true
+    },
+    {
+     "href": "films/extra/bestaat-dit-echt.html",
+     "titel": "Bestaat dit echt?",
+     "duur": 11,
+     "vraag": "Een beerdiertje in de ruimte, een kreeft met een slag als een kruisboog: wat klopt er echt?",
+     "extra": true
+    }
+   ]
+  },
+  {
+   "id": "dna",
+   "naam": "DNA",
+   "films": [
+    {
+     "href": "films/dna/1-wat-is-dna.html",
+     "titel": "Wat is DNA?",
+     "duur": 6,
+     "vraag": "Twee meter DNA in één celkern. Hoe past dat?"
+    },
+    {
+     "href": "films/dna/2-dna-kopieren.html",
+     "titel": "DNA kopiëren",
+     "duur": 6,
+     "vraag": "Twee meter DNA, foutloos gekopieerd in een paar uur. Hoe?"
+    },
+    {
+     "href": "films/dna/3-van-dna-naar-eiwit.html",
+     "titel": "Van DNA naar eiwit",
+     "duur": 8,
+     "vraag": "Hoe wordt een gen een eiwit?"
+    },
+    {
+     "href": "films/dna/4-de-genetische-code-lezen.html",
+     "titel": "De genetische code lezen",
+     "duur": 8,
+     "vraag": "Hoe leest een bacterie het recept van een mens?"
+    },
+    {
+     "href": "films/dna/5-mutaties.html",
+     "titel": "Mutaties",
+     "duur": 12,
+     "vraag": "Hoe kan zonlicht je DNA veranderen, en waarom erven je kinderen dat niet?"
+    },
+    {
+     "href": "films/dna/6-genen-aan-en-uit.html",
+     "titel": "Genen aan en uit",
+     "duur": 12,
+     "vraag": "Hetzelfde DNA, en toch een huidcel, een levercel en twee verschillende tweelingzussen?"
+    },
+    {
+     "href": "films/dna/7-dna-lezen.html",
+     "titel": "DNA lezen",
+     "duur": 13,
+     "vraag": "Hoe lees je DNA uit een paar druppels bloed, en hoe vind je een dader die nergens geregistreerd staat?"
+    },
+    {
+     "href": "films/dna/8-wat-heb-jij-aan-dna.html",
+     "titel": "Wat heb jij aan DNA?",
+     "duur": 12,
+     "vraag": "Een doosje van internet, de hielprik, een variant in de familie, een test vóór je medicijn: wil je het weten?"
+    },
+    {
+     "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
+     "titel": "Op maat gekopieerd · PCR",
+     "duur": 10,
+     "vraag": "Hoe maak je van een spoortje DNA genoeg om te onderzoeken?"
+    },
+    {
+     "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
+     "titel": "Op lengte gesorteerd · gelelektroforese",
+     "duur": 4,
+     "vraag": "Hoe lees je een DNA-profiel, en kun je het vertrouwen?"
+    }
+   ]
+  },
+  {
+   "id": "planten",
+   "naam": "Planten",
+   "films": [
+    {
+     "href": "films/transport/7-hoe-een-plant-groeit.html",
+     "titel": "Hoe een plant groeit",
+     "duur": 7,
+     "vraag": "Hoe kan een plant naar het licht buigen zonder ogen en zonder spieren?"
+    },
+    {
+     "href": "films/transport/6-transport-in-planten.html",
+     "titel": "Transport in planten",
+     "duur": 7,
+     "vraag": "Waarom hangt een plant slap op een warme middag, en staat hij 's avonds weer recht?"
+    }
+   ]
+  },
+  {
+   "id": "gedrag",
+   "naam": "Gedrag",
+   "films": [
+    {
+     "href": "films/gedrag/1-waarom-doet-een-dier-wat-het-doet.html",
+     "titel": "Waarom doet een dier wat het doet?",
+     "duur": 7,
+     "vraag": "Een stekelbaars valt een rode postauto aan. Waarom?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/2-inprenting-en-de-sensitieve-periode.html",
+     "titel": "Inprenting en de sensitieve periode",
+     "duur": 6,
+     "vraag": "Waarom lopen jonge ganzen achter een man aan?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/3-baltsen-en-kiezen.html",
+     "titel": "Baltsen en kiezen",
+     "duur": 6,
+     "vraag": "Waarom heeft een pauw zo'n opvallende staart?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/4-hechting.html",
+     "titel": "Hechting: van baby tot verliefd",
+     "duur": 7,
+     "vraag": "Waarom huilt een veilig gehechte baby wél als zijn moeder weggaat?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/5-emotieregulatie.html",
+     "titel": "Emotieregulatie",
+     "duur": 8,
+     "vraag": "Wat doe je als een emotie je overspoelt?"
+    },
+    {
+     "href": "films/gedrag/6-attributie.html",
+     "titel": "Wiens schuld is het? Interne en externe attributie",
+     "duur": 5,
+     "vraag": "Je haalt een 4. Lag het aan jou of aan de toets?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/7-leren.html",
+     "titel": "Leren: van Pavlov tot je telefoon",
+     "duur": 6,
+     "vraag": "Waarom pak je je telefoon bij elk trilletje?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/8-honingbij.html",
+     "titel": "De dans van de honingbij",
+     "duur": 7,
+     "vraag": "Hoe vertelt een bij de andere bijen waar de bloemen staan?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/9-mierenkolonie.html",
+     "titel": "Een mierenkolonie zonder baas",
+     "duur": 6,
+     "vraag": "Niemand geeft leiding, toch vinden mieren een korte weg. Hoe?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/10-helpen.html",
+     "titel": "Waarom helpen dieren elkaar?",
+     "duur": 6,
+     "vraag": "Een grondeekhoorn slaat alarm en een vampiervleermuis deelt bloed. Waarom?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/11-slimme-dieren.html",
+     "titel": "Slimme dieren",
+     "duur": 7,
+     "vraag": "Kon het paard Hans rekenen, en herkent een ekster zichzelf in de spiegel?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/gedrag/12-psychologie-experimenten.html",
+     "titel": "Beroemde psychologie-experimenten",
+     "duur": 7,
+     "vraag": "Asch, Milgram en de marshmallowtest: wat lieten ze zien, en wat bleek later niet te kloppen?",
+     "repo": "ok"
+    }
+   ]
+  },
+  {
+   "id": "regeling",
+   "naam": "Regeling",
+   "films": [
+    {
+     "href": "films/hormonen/1-post-voor-iedereen.html",
+     "titel": "Post voor iedereen",
+     "duur": 10,
+     "vraag": "Je schrikt van een knal. Waarom bonkt je hart nog minuten door?"
+    },
+    {
+     "href": "films/hormonen/2-suiker-in-balans.html",
+     "titel": "Suiker in balans",
+     "duur": 11,
+     "vraag": "Bij jou meet niemand je bloedsuiker. Hoe blijft die toch binnen nauwe grenzen?",
+     "repo": "ok"
+    },
+    {
+     "href": "films/hormonen/3-de-baas-van-de-klieren.html",
+     "titel": "De baas van de klieren",
+     "duur": 10,
+     "vraag": "Op bijna elk pak zout staat: met jodium. Waarom zit het erin?"
+    },
+    {
+     "href": "films/hormonen/4-stress.html",
+     "titel": "Stress",
+     "duur": 9,
+     "vraag": "Na een zware toetsweek word je ziek. Hoe kan stress je afweer remmen?"
+    },
+    {
+     "href": "films/hormonen/5-water-in-balans.html",
+     "titel": "Water in balans",
+     "duur": 10,
+     "vraag": "Na sporten plas je weinig en donker, na een fles water veel en licht. Hoe weet je lichaam dat?"
+    },
+    {
+     "href": "films/zenuwstelsel/1-een-seconde.html",
+     "titel": "Eén seconde",
+     "duur": 6,
+     "vraag": "Hoe kan je lichaam al reageren voordat jij het weet?"
+    },
+    {
+     "href": "films/zenuwstelsel/2-het-kabelnetwerk.html",
+     "titel": "Het kabelnetwerk",
+     "duur": 5,
+     "vraag": "Twee berichten van één klap. Waarom komen ze niet tegelijk aan?"
+    },
+    {
+     "href": "films/zenuwstelsel/3-de-spleet.html",
+     "titel": "De spleet",
+     "duur": 5,
+     "vraag": "Tussen twee zenuwcellen zit een spleet. Hoe komt het bericht erover?"
+    },
+    {
+     "href": "films/zenuwstelsel/4-knoeien-met-de-spleet.html",
+     "titel": "Knoeien met de synaps",
+     "duur": 5,
+     "vraag": "Hoe kan dezelfde spleet zo verschillend reageren?"
+    },
+    {
+     "href": "films/zenuwstelsel/5-het-hoofdkantoor.html",
+     "titel": "Het hoofdkantoor",
+     "duur": 5,
+     "vraag": "Waar in je hoofd zit de baas?"
+    },
+    {
+     "href": "films/zenuwstelsel/6-leren-en-onthouden.html",
+     "titel": "Leren en onthouden",
+     "duur": 6,
+     "vraag": "Wat verandert er in je hoofd als je iets leert?"
+    },
+    {
+     "href": "films/zenuwstelsel/7-slaap.html",
+     "titel": "Slaap",
+     "duur": 8,
+     "vraag": "Waarom moet je eigenlijk slapen?"
+    },
+    {
+     "href": "films/zenuwstelsel/8-zintuigen.html",
+     "titel": "Zintuigen",
+     "duur": 10,
+     "vraag": "Van een fel verlicht veld een donker pad op: waarom zie je eerst niets, en daarna alles grijs?"
+    }
+   ]
+  },
+  {
+   "id": "examens",
+   "naam": "Examen",
+   "films": [
+    {
+     "href": "films/examens/vwo-2018-2.html",
+     "titel": "Examenbespreking vwo 2018-II",
+     "duur": 35,
+     "vraag": "Hoe haal je alle punten uit een examenvraag?"
+    }
+   ]
+  },
+  {
+   "id": "ecologie",
+   "naam": "Ecologie",
+   "films": [
+    {
+     "href": "films/ecologie/plek-genoeg/index.html",
+     "titel": "Plek genoeg?",
+     "duur": 20,
+     "vraag": "De wolf is terug. Is er plek genoeg?"
+    },
+    {
+     "href": "films/ecologie/alles-gaat-rond/index.html",
+     "titel": "Alles gaat rond",
+     "duur": 25,
+     "vraag": "Waar blijft een dood ree?"
+    },
+    {
+     "href": "films/ecologie/3-een-aarde.html",
+     "titel": "Eén aarde",
+     "duur": 11,
+     "vraag": "Hoeveel aardes heb jij nodig?"
+    },
+    {
+     "href": "films/ecologie/4-ingrijpen-of-laten-gaan.html",
+     "titel": "Ingrijpen of laten gaan?",
+     "duur": 9,
+     "vraag": "Waarom maakt een biologische bestrijder het soms erger?"
+    },
+    {
+     "href": "films/ecologie/5-binnen-de-grenzen.html",
+     "titel": "Binnen de grenzen",
+     "duur": 10,
+     "vraag": "Wat als de bijen verdwijnen?"
+    }
+   ]
+  },
+  {
+   "id": "kerndoelen",
+   "naam": "Kerndoelen onderbouw",
+   "films": [
+    {
+     "href": "films/onderbouw/32a/1-alles-is-cel/index.html",
+     "titel": "Alles is cel",
+     "duur": 6,
+     "vraag": "Waarom wordt slappe sla in koud water weer stevig?"
+    },
+    {
+     "href": "films/onderbouw/32a/2-van-cel-tot-lichaam/index.html",
+     "titel": "Van cel tot lichaam",
+     "duur": 7,
+     "vraag": "Je sprint in de gymles. Waarom doet de rest van je lichaam mee?"
+    },
+    {
+     "href": "films/onderbouw/32a/2b-rondleiding-door-je-lichaam/index.html",
+     "titel": "Een rondleiding door je lichaam",
+     "duur": 7,
+     "vraag": "Je slaapt. Hoeveel van je organen zijn nu aan het werk?"
+    },
+    {
+     "href": "films/onderbouw/32a/3-vertering/index.html",
+     "titel": "Vertering",
+     "duur": 6,
+     "vraag": "Je slikt een appelpit door. Waarom komt de pit heel terug en de appel niet?"
+    },
+    {
+     "href": "films/onderbouw/32a/4-ademhaling-en-bloedsomloop/index.html",
+     "titel": "Ademhaling en bloedsomloop",
+     "duur": 6,
+     "vraag": "Hoe komt zuurstof bij elke cel?"
+    },
+    {
+     "href": "films/onderbouw/32a/5-uitscheiding/index.html",
+     "titel": "Uitscheiding",
+     "duur": 6,
+     "vraag": "Waar blijft het afval van je cellen?"
+    },
+    {
+     "href": "films/onderbouw/32a/6-skelet-en-spieren/index.html",
+     "titel": "Skelet en spieren",
+     "duur": 5,
+     "vraag": "Hoe beweeg je eigenlijk?"
+    },
+    {
+     "href": "films/onderbouw/32a/7-zenuw-en-hormoonstelsel/index.html",
+     "titel": "Zenuw- en hormoonstelsel",
+     "duur": 6,
+     "vraag": "Het brandalarm gaat. Hoe weten je benen en je hart dat?"
+    },
+    {
+     "href": "films/onderbouw/32a/8-hoe-een-plant-in-leven-blijft/index.html",
+     "titel": "Hoe een plant in leven blijft",
+     "duur": 5,
+     "vraag": "Een zonnebloempit wordt in één zomer een plant van twee meter. Waar haalt een plant zijn eten vandaan?"
+    },
+    {
+     "href": "films/onderbouw/32a/9-organismen-aan-het-werk/index.html",
+     "titel": "Organismen aan het werk",
+     "duur": 5,
+     "vraag": "Pizzadeeg is na een uur twee keer zo groot. Wat doen gist en bacteriën voor ons?"
+    },
+    {
+     "href": "films/onderbouw/32b/1-levenscyclus-genen-en-milieu/index.html",
+     "titel": "Levenscyclus: genen en milieu",
+     "duur": 4,
+     "vraag": "Lijk je op je ouders, of op je omgeving?"
+    },
+    {
+     "href": "films/onderbouw/32b/2-geslachtelijk-en-ongeslachtelijk/index.html",
+     "titel": "Geslachtelijk en ongeslachtelijk",
+     "duur": 4,
+     "vraag": "Waarom hebben de meeste dieren twee ouders?"
+    },
+    {
+     "href": "films/onderbouw/32b/3-waarom-zoveel-soorten/index.html",
+     "titel": "Waarom zoveel soorten?",
+     "duur": 4,
+     "vraag": "Hoe ontstaat een nieuwe soort?"
+    },
+    {
+     "href": "films/onderbouw/32b/4-door-de-mens-gekozen/index.html",
+     "titel": "Door de mens gekozen",
+     "duur": 4,
+     "vraag": "Hoe maak je een betere tomaat?"
+    },
+    {
+     "href": "films/onderbouw/32b/5-celdeling/index.html",
+     "titel": "Celdeling",
+     "duur": 4,
+     "vraag": "Hoe wordt één cel er twee?"
+    },
+    {
+     "href": "films/onderbouw/32b/6-dna-en-overerving/index.html",
+     "titel": "DNA en overerving",
+     "duur": 4,
+     "vraag": "Hoe geef je een eigenschap door?"
+    },
+    {
+     "href": "films/onderbouw/32b/7-stambomen-en-de-grote-stappen/index.html",
+     "titel": "Stambomen en de grote stappen in de evolutie",
+     "duur": 4,
+     "vraag": "Hoe lees je een stamboom?"
+    },
+    {
+     "href": "films/onderbouw/32c/1-voeding-en-beweging/index.html",
+     "titel": "Voeding en beweging",
+     "duur": 5,
+     "vraag": "Wat heeft je lichaam echt nodig?"
+    },
+    {
+     "href": "films/onderbouw/32c/2-slaap-natuur-en-hygiene/index.html",
+     "titel": "Slaap, natuur en hygiëne",
+     "duur": 5,
+     "vraag": "Waarom word je fris van slapen?"
+    },
+    {
+     "href": "films/onderbouw/32c/3-microben-vriend-en-vijand/index.html",
+     "titel": "Microben: vriend en vijand",
+     "duur": 5,
+     "vraag": "Zijn alle bacteriën slecht?"
+    },
+    {
+     "href": "films/onderbouw/32c/4-ziek-worden-en-beter-worden/index.html",
+     "titel": "Ziek worden en beter worden",
+     "duur": 4,
+     "vraag": "Wat doet een vaccin?"
+    },
+    {
+     "href": "films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/index.html",
+     "titel": "Hoe vindt een haai zijn prooi?",
+     "duur": 6,
+     "vraag": "Ruikt een haai echt één druppel bloed van kilometers ver?"
+    },
+    {
+     "href": "films/onderbouw/33c/2-wie-woont-waar/index.html",
+     "titel": "Wie woont waar",
+     "duur": 4,
+     "vraag": "Waarom leeft een ijsbeer niet in de woestijn?"
+    },
+    {
+     "href": "films/onderbouw/33c/3-wie-eet-wie/index.html",
+     "titel": "Wie eet wie",
+     "duur": 4,
+     "vraag": "Wat gebeurt er als de wolf verdwijnt?"
+    },
+    {
+     "href": "films/onderbouw/33c/4-uit-balans/index.html",
+     "titel": "Uit balans",
+     "duur": 4,
+     "vraag": "Hoe herstelt een bos na een brand?"
+    },
+    {
+     "href": "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/index.html",
+     "titel": "Wij hebben de natuur nodig",
+     "duur": 4,
+     "vraag": "Wat levert de natuur ons gratis?"
+    }
+   ]
+  },
+  {
+   "id": "voeding",
+   "naam": "Voeding",
+   "films": [
+    {
+     "href": "films/voeding/1-wat-zit-er-in-je-eten.html",
+     "titel": "Wat zit er in je eten?",
+     "duur": 9,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/2-de-reis-door-je-buik.html",
+     "titel": "De reis door je buik",
+     "duur": 10,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/test-reis-hybride.html",
+     "titel": "De reis door je buik (versie 3, met stills)",
+     "duur": 10,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/3-knippen-op-maat.html",
+     "titel": "Knippen op maat",
+     "duur": 12,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/4-van-darm-naar-bloed.html",
+     "titel": "Van darm naar bloed",
+     "duur": 10,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/5-de-lever-als-fabriek.html",
+     "titel": "De lever als fabriek",
+     "duur": 12,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/6-je-darmbewoners.html",
+     "titel": "Je darmbewoners",
+     "duur": 13,
+     "vraag": ""
+    },
+    {
+     "href": "films/voeding/7-supplementen-en-superfoods.html",
+     "titel": "Supplementen en superfoods",
+     "duur": 12,
+     "vraag": "Opa slikt elke dag vitamine C en is nooit verkouden. Bewijst dat iets?"
+    }
+   ]
+  },
+  {
+   "id": "transport",
+   "naam": "Transport",
+   "films": [
+    {
+     "href": "films/transport/1-een-pomp-twee-rondjes.html",
+     "titel": "Eén pomp, twee rondjes",
+     "duur": 9,
+     "vraag": "Waarom is de wand van je linkerkamer zo'n drie keer zo dik als die van je rechterkamer?"
+    },
+    {
+     "href": "films/transport/2-buizen-onder-druk.html",
+     "titel": "Buizen onder druk",
+     "duur": 8,
+     "vraag": "Je staat een half uur stil op een warme dag, en een klasgenoot valt flauw. Wat ging er mis?"
+    },
+    {
+     "href": "films/transport/3-wat-er-in-je-bloed-zit.html",
+     "titel": "Wat er in je bloed zit",
+     "duur": 10,
+     "vraag": "Donorbloed gaat in een centrifuge. Wat zie je daarna in het zakje?"
+    },
+    {
+     "href": "films/transport/4-weefselvloeistof-en-lymfe.html",
+     "titel": "Weefselvloeistof en lymfe",
+     "duur": 7,
+     "vraag": "Na een vlucht van tien uur passen je schoenen niet meer. Waar komt dat vocht vandaan?"
+    },
+    {
+     "href": "films/transport/5-het-hart-onder-controle.html",
+     "titel": "Het hart onder controle",
+     "duur": 9,
+     "vraag": "Een hart dat trilt, pompt niet. Hoe kan een stroomstoot van een AED het weer laten kloppen?"
+    }
+   ]
+  },
+  {
+   "id": "gaswisseling",
+   "naam": "Gaswisseling en uitscheiding",
+   "films": [
+    {
+     "href": "films/gaswisseling/1-adem-in-adem-uit.html",
+     "titel": "Adem in, adem uit",
+     "duur": 10,
+     "vraag": "Bij een klaplong zakt één long in. Waarom, als er alleen wat lucht tussen long en borstwand komt?"
+    },
+    {
+     "href": "films/gaswisseling/2-gas-op-reis.html",
+     "titel": "Gas op reis",
+     "duur": 11,
+     "vraag": "Houd je adem in. Wat dwingt je uiteindelijk om weer te ademen: te weinig zuurstof of iets anders?"
+    },
+    {
+     "href": "films/gaswisseling/3-uitscheiding-en-evenwicht.html",
+     "titel": "Uitscheiding en evenwicht",
+     "duur": 10,
+     "vraag": "In de dialysevloeistof zit wel glucose, maar geen ureum. Waarom?"
+    }
+   ]
+  },
+  {
+   "id": "afweer",
+   "naam": "Bescherming en afweer",
+   "films": [
+    {
+     "href": "films/afweer/1-de-eerste-verdediging.html",
+     "titel": "De eerste verdediging",
+     "duur": 8,
+     "vraag": "Een splinter in je vinger: waarom wordt het plekje rood, warm en dik?"
+    },
+    {
+     "href": "films/afweer/2-antistoffen-op-maat.html",
+     "titel": "Antistoffen op maat",
+     "duur": 9,
+     "vraag": "Waterpokken krijg je maar één keer. Hoe onthoudt je lichaam een virus?"
+    },
+    {
+     "href": "films/afweer/3-t-cellen-en-virussen.html",
+     "titel": "T-cellen en virussen",
+     "duur": 9,
+     "vraag": "Waarom helpt antibiotica niet tegen griep?"
+    },
+    {
+     "href": "films/afweer/4-vaccins-allergie-en-bloedgroepen.html",
+     "titel": "Vaccins, allergie en bloedgroepen",
+     "duur": 11,
+     "vraag": "Waarom is één prik soms niet genoeg?"
+    }
+   ]
+  },
+  {
+   "id": "vervolg",
+   "naam": "Wat word jij?",
+   "films": [
+    {
+     "href": "films/vervolg/psychologie-1-welke-therapie-werkt.html",
+     "titel": "Welke therapie werkt?",
+     "duur": 17,
+     "vraag": "Welke therapie werkt het best, en hoe weet je dat?"
+    },
+    {
+     "href": "films/vervolg/psychologie-2-kijken-in-een-denkend-brein.html",
+     "titel": "Kijken in een denkend brein",
+     "duur": 12,
+     "vraag": "Hoe weten we eigenlijk welk hersengebied wat doet?"
+    },
+    {
+     "href": "films/vervolg/psychologie-3-aanleg-of-opvoeding.html",
+     "titel": "Aanleg of opvoeding?",
+     "duur": 9,
+     "vraag": "Eeneiige tweelingen die apart opgroeien lijken toch op elkaar. Hoeveel van wie je bent is erfelijk?"
+    },
+    {
+     "href": "films/vervolg/psychologie-4-meten-wat-je-niet-kunt-zien.html",
+     "titel": "Meten wat je niet kunt zien",
+     "duur": 8,
+     "vraag": "Hoe meet je hoe angstig iemand is?"
+    },
+    {
+     "href": "films/vervolg/psychologie-6-kun-je-je-geheugen-vertrouwen.html",
+     "titel": "Kun je je geheugen vertrouwen?",
+     "duur": 7,
+     "vraag": "Een getuige weet het zeker. Kan ze zich dan toch vergissen?"
+    },
+    {
+     "href": "films/vervolg/psychologie-5-in-de-spreekkamer.html",
+     "titel": "In de spreekkamer",
+     "duur": 8,
+     "vraag": "Een cliënt vraagt je alles geheim te houden. Wat zeg je?"
+    },
+    {
+     "href": "films/vervolg/neurowetenschappen-1-je-brein-vult-het-in.html",
+     "titel": "Je brein vult het in",
+     "duur": 8,
+     "vraag": "Waarom zie je een gezicht in een stopcontact?"
+    },
+    {
+     "href": "films/vervolg/neurowetenschappen-2-brein-en-computer.html",
+     "titel": "Brein en computer",
+     "duur": 8,
+     "vraag": "Een AI leert plaatjes herkennen. Leert hij zoals jouw hersenen?"
+    },
+    {
+     "href": "films/vervolg/neurowetenschappen-3-als-hersencellen-uitvallen.html",
+     "titel": "Als hersencellen uitvallen",
+     "duur": 7,
+     "vraag": "Waarom helpt een medicijn tegen Parkinson eerst goed, en na jaren steeds korter?"
+    },
+    {
+     "href": "films/vervolg/psychologie-7-waarom-raakt-de-een-opgebrand.html",
+     "titel": "Waarom raakt de één opgebrand?",
+     "duur": 9,
+     "vraag": "Dezelfde toetsweek: de een bloeit op, de ander raakt uitgeput. Hoe kan dat?"
+    },
+    {
+     "href": "films/vervolg/pedagogiek-1-een-brein-in-aanbouw.html",
+     "titel": "Een brein in aanbouw",
+     "duur": 6,
+     "vraag": "Waarom nemen pubers meer risico, ook als ze weten dat het gevaarlijk is?"
+    },
+    {
+     "href": "films/vervolg/pedagogiek-2-opgroeien-onder-druk.html",
+     "titel": "Opgroeien onder druk",
+     "duur": 6,
+     "vraag": "Waarom groeien sommige kinderen uit een moeilijke thuissituatie toch goed op?"
+    },
+    {
+     "href": "films/vervolg/leraar-1-waar-blijft-je-vet.html",
+     "titel": "Waar blijft je vet?",
+     "duur": 5,
+     "vraag": "Waarom denken zoveel mensen dat vet bij afvallen energie wordt?"
+    },
+    {
+     "href": "films/vervolg/leraar-2-een-practicum-dat-werkt.html",
+     "titel": "Een practicum dat werkt",
+     "duur": 5,
+     "vraag": "Waarom leren leerlingen vaak weinig van een practicum met een stappenplan?"
+    },
+    {
+     "href": "films/vervolg/geneeskunde-1-van-klacht-naar-diagnose.html",
+     "titel": "Van klacht naar diagnose",
+     "duur": 5,
+     "vraag": "Iemand is kortademig. Ligt het aan het hart, de longen of het bloed?"
+    },
+    {
+     "href": "films/vervolg/geneeskunde-2-als-regelkringen-ontsporen.html",
+     "titel": "Als regelkringen ontsporen",
+     "duur": 5,
+     "vraag": "Waarom kan het na bloedverlies ineens heel snel misgaan, terwijl het eerst goed leek te gaan?"
+    },
+    {
+     "href": "films/vervolg/geneeskunde-3-welk-antibioticum.html",
+     "titel": "Welk antibioticum?",
+     "duur": 5,
+     "vraag": "Je hebt een blaasontsteking. Hoe kiest de arts een antibioticum, nog voordat de uitslag er is?"
+    },
+    {
+     "href": "films/vervolg/geneeskunde-4-wat-de-patholoog-ziet.html",
+     "titel": "Wat de patholoog ziet",
+     "duur": 5,
+     "vraag": "Uit een moedervlek wordt een stukje weggehaald. Wat gebeurt er daarna in het lab?"
+    },
+    {
+     "href": "films/vervolg/farmacie-1-van-pil-tot-plek.html",
+     "titel": "Van pil tot plek en weer terug",
+     "duur": 5,
+     "vraag": "Waarom slik je de ene pil één keer per dag, en de andere vier keer?"
+    },
+    {
+     "href": "films/vervolg/farmacie-2-sleutel-slot-en-dosis.html",
+     "titel": "Sleutel, slot en dosis",
+     "duur": 5,
+     "vraag": "Helpen drie pijnstillers drie keer zo goed als één?"
+    },
+    {
+     "href": "films/vervolg/farmacie-3-achter-de-balie.html",
+     "titel": "Achter de balie",
+     "duur": 5,
+     "vraag": "Waarom aarzelt de apotheker als Opa Henk om ibuprofen vraagt?"
+    },
+    {
+     "href": "films/vervolg/verpleegkunde-1-bel-je-de-arts.html",
+     "titel": "Bel je de arts?",
+     "duur": 5,
+     "vraag": "Een patiënt ademt wat sneller en is moe. Geen enkele meting is alarmerend. Bel je de arts?"
+    },
+    {
+     "href": "films/vervolg/verpleegkunde-2-hoe-weefsel-herstelt.html",
+     "titel": "Hoe weefsel herstelt",
+     "duur": 6,
+     "vraag": "Waarom is een schaafwond na een week dicht, en duurt een gescheurde pees maanden?"
+    },
+    {
+     "href": "films/vervolg/fysiotherapie-1-wat-is-er-met-die-knie.html",
+     "titel": "Wat is er met die knie?",
+     "duur": 5,
+     "vraag": "Hoe weet een fysiotherapeut wat er kapot is, zonder in de knie te kijken?"
+    },
+    {
+     "href": "films/vervolg/fysiotherapie-2-opnieuw-leren-bewegen.html",
+     "titel": "Opnieuw leren bewegen",
+     "duur": 5,
+     "vraag": "Henks arm is niet kapot. Waarom doet hij het dan niet?"
+    },
+    {
+     "href": "films/vervolg/fysiotherapie-3-trainen.html",
+     "titel": "Trainen: hoe je lichaam zich aanpast",
+     "duur": 4,
+     "vraag": "Waarom word je fitter van trainen, en niet tijdens het trainen?"
+    },
+    {
+     "href": "films/vervolg/fysiotherapie-4-welke-oefening-helpt.html",
+     "titel": "Welke oefening helpt?",
+     "duur": 5,
+     "vraag": "Waarom geeft een fysiotherapeut vooral oefeningen mee, en geen massage of apparaat?"
+    },
+    {
+     "href": "films/vervolg/diergeneeskunde-1-hond-koe-paard.html",
+     "titel": "Hond, koe, paard",
+     "duur": 6,
+     "vraag": "Waarom heeft een koe vier magen nodig, en een hond niet?"
+    },
+    {
+     "href": "films/vervolg/diergeneeskunde-2-bronst-dekken-kalven.html",
+     "titel": "Bronst, dekken en kalven",
+     "duur": 6,
+     "vraag": "Hoe weet een veehouder wanneer een koe tochtig is?"
+    },
+    {
+     "href": "films/vervolg/diergeneeskunde-3-van-dier-naar-mens.html",
+     "titel": "Van dier naar mens",
+     "duur": 5,
+     "vraag": "Hoe kon een ziekte van geiten in Brabant duizenden mensen ziek maken?"
+    },
+    {
+     "href": "films/vervolg/diergeneeskunde-4-welzijn-meten.html",
+     "titel": "Welzijn meten",
+     "duur": 5,
+     "vraag": "Een varken bijt in de staart van een ander. Wat zegt dat over hoe het met hem gaat?"
+    },
+    {
+     "href": "films/vervolg/verloskunde-1-negen-maanden-bouwen.html",
+     "titel": "Negen maanden bouwen",
+     "duur": 7,
+     "vraag": "Waarom moet je al foliumzuur slikken voordat je weet dat je zwanger bent?"
+    },
+    {
+     "href": "films/vervolg/verloskunde-2-wat-meet-de-verloskundige.html",
+     "titel": "Wat meet de verloskundige?",
+     "duur": 7,
+     "vraag": "Waarom meet de verloskundige bij elke controle je bloeddruk?"
+    },
+    {
+     "href": "films/vervolg/verloskunde-3-screenen-een-keuze.html",
+     "titel": "Screenen: een keuze",
+     "duur": 5,
+     "vraag": "De NIPT wijst op Patau. Is het kind dan ziek?"
+    },
+    {
+     "href": "films/vervolg/verloskunde-4-de-bevalling.html",
+     "titel": "De bevalling",
+     "duur": 6,
+     "vraag": "Een baby ademt negen maanden niet. Wat verandert er in zijn hart bij de eerste ademteug?"
+    },
+    {
+     "href": "films/vervolg/verloskunde-5-de-kraamweek.html",
+     "titel": "De kraamweek",
+     "duur": 5,
+     "vraag": "Waarom gaat er melk lopen als de baby huilt?"
+    },
+    {
+     "href": "films/vervolg/tandheelkunde-1-zuur-in-je-mond.html",
+     "titel": "Zuur in je mond",
+     "duur": 6,
+     "vraag": "Waarom is de hele dag door snoepen erger voor je tanden dan in één keer een zak leeg?"
+    },
+    {
+     "href": "films/vervolg/tandheelkunde-2-van-glazuur-tot-zenuw.html",
+     "titel": "Van glazuur tot zenuw",
+     "duur": 5,
+     "vraag": "Waarom doet een gaatje pas pijn als het al diep is?"
+    },
+    {
+     "href": "films/vervolg/tandheelkunde-3-bloedend-tandvlees.html",
+     "titel": "Bloedend tandvlees",
+     "duur": 6,
+     "vraag": "Wat heeft ontstoken tandvlees met je hart en met diabetes te maken?"
+    },
+    {
+     "href": "films/vervolg/tandheelkunde-4-een-tand-door-bot.html",
+     "titel": "Een tand door bot",
+     "duur": 5,
+     "vraag": "Hoe kan een beugel een tand door bot verplaatsen?"
+    }
+   ]
+  }
+ ]
+}

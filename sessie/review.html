@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<script src="../js/teller.js" data-root="../"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Films reviewen (docent) · Biologie bij Kamiel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<link rel="stylesheet" href="sessie.css">
+<script src="../tools/huisstijl.js"></script>
+<script>window.BK_GEEN_FEEDBACK = true;</script>
+<style>
+.rv-stand{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin:0 0 14px;color:var(--text2);font-size:16px}
+.rv-stand b{color:var(--text);font:600 22px/1 var(--titel)}
+.rv-volgende{margin-left:auto}
+.rv-balk{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 20px}
+.rv-balk input{flex:1 1 200px;min-width:0;background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:40px;color:var(--text);font:inherit}
+.rv-chip{border:1px solid var(--line2);background:none;color:var(--text2);border-radius:999px;padding:7px 13px;font:600 14px/1 var(--tekst);cursor:pointer}
+.rv-chip[aria-pressed="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+.rv-chip .n{font:600 12px var(--meta);margin-left:4px;opacity:.8}
+.rv-groep{margin:0 0 26px}
+.rv-groep h2{font:600 20px/1.2 var(--titel);margin:0 0 8px;display:flex;gap:10px;align-items:baseline}
+.rv-groep h2 small{font:500 12px var(--meta);color:var(--text3)}
+.rv-lijst{list-style:none;margin:0;padding:0;border:1px solid var(--line2);border-radius:var(--radius);background:var(--surface);overflow:hidden}
+.rv-film{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:10px 16px;border-top:1px solid var(--line)}
+.rv-film:first-child{border-top:0}
+.rv-titel{font-weight:600;font-size:17px;color:var(--text);text-decoration:none}
+.rv-titel:hover{color:var(--goud-text)}
+.rv-sub{grid-column:1;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:13px;color:var(--text3)}
+.rv-acties{grid-row:1 / span 2;grid-column:2;display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.rv-st{border-radius:999px;padding:3px 9px;font-weight:700;font-size:12px}
+.rv-st.nog{background:var(--teal-soft);color:var(--teal)}
+.rv-st.bekeken{background:var(--goud-soft);color:var(--goud-text)}
+.rv-st.ok{background:var(--groen-soft);color:var(--groen)}
+.rv-op{font:600 12px var(--meta);color:var(--koraal)}
+.rv-cl{font:600 12px var(--meta);color:var(--oker)}
+.rv-leeg{color:var(--text2);padding:20px 0}
+@media (max-width:560px){.rv-film{grid-template-columns:minmax(0,1fr)}.rv-acties{grid-row:auto;grid-column:1;justify-content:flex-start}.rv-volgende{margin-left:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav">
+    <a class="merk" href="../index.html">Biologie bij Kamiel</a>
+    <span class="s-chip">Docent</span>
+    <span class="rechts"><a class="knop stil klein" href="feedback.html">Feedback</a><a class="knop stil klein" href="docent.html">Klas live</a><button class="knop stil klein" id="b-uit" type="button" hidden>Uitloggen</button><button class="icoon" type="button" data-thema-knop></button></span>
+  </nav>
+
+  <section id="v-login" hidden>
+    <header class="tool-kop"><div class="mono">Films reviewen</div><h1>Inloggen</h1><p>Alleen voor de docent. Daarna staan alle films klaar in de reviewstand.</p></header>
+    <form class="paneel" id="f-login" style="max-width:460px">
+      <label class="veld"><span>E-mail</span><input type="text" id="i-mail" autocomplete="username" required></label>
+      <label class="veld"><span>Wachtwoord</span><input type="password" id="i-ww" autocomplete="current-password" required style="background:var(--bg);border:1px solid var(--line2);border-radius:10px;padding:8px 12px;min-height:44px;width:100%"></label>
+      <button class="knop" type="submit">Inloggen</button>
+      <p class="s-melding fout" id="m-login" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="v-lijst" hidden>
+    <header class="tool-kop"><div class="mono">Films reviewen</div><h1>Welke film is aan de beurt?</h1><p>Open een film, klik op het beeld waar iets anders moet en typ je opmerking. Claude haalt de opmerkingen zelf op.</p></header>
+    <div class="rv-stand" id="stand"></div>
+    <div class="rv-balk">
+      <button class="rv-chip" type="button" data-f="nog" aria-pressed="true">Nog bekijken</button>
+      <button class="rv-chip" type="button" data-f="open" aria-pressed="false">Opmerkingen open</button>
+      <button class="rv-chip" type="button" data-f="bekeken" aria-pressed="false">Bekeken</button>
+      <button class="rv-chip" type="button" data-f="ok" aria-pressed="false">Goed</button>
+      <button class="rv-chip" type="button" data-f="alles" aria-pressed="false">Alles</button>
+      <input type="search" id="zoek" placeholder="Zoek een film" aria-label="Zoek een film">
+    </div>
+    <div id="groepen"><p class="rv-leeg">Films laden…</p></div>
+  </section>
+
+  <footer class="tool-voet">Biologie bij Kamiel · Films reviewen<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var DB = 'https://edutool-4b00b-default-rtdb.europe-west1.firebasedatabase.app';
+  var KEY = 'AIzaSyDpV3bCs7TKrUY9GY36Zt2UYBvKpuRJ3sU';
+  var $ = function (id) { return document.getElementById(id); };
+  var AUTH = null, LIJST = [], GROEPEN = [], NOTES = [], STATUS = {}, CLAUDE = {}, VERWERKT = {}, filter = 'nog';
+  try { AUTH = JSON.parse(localStorage.getItem('bk-review-auth') || 'null'); } catch (e) {}
+
+  function bewaar(a) { AUTH = a; try { a ? localStorage.setItem('bk-review-auth', JSON.stringify(a)) : localStorage.removeItem('bk-review-auth'); } catch (e) {} }
+  function token() {
+    if (!AUTH) return Promise.reject(new Error('login'));
+    if (AUTH.exp > Date.now() + 60000) return Promise.resolve(AUTH.id);
+    return fetch('https://securetoken.googleapis.com/v1/token?key=' + KEY, {
+      method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'grant_type=refresh_token&refresh_token=' + encodeURIComponent(AUTH.refresh)
+    }).then(function (r) { if (!r.ok) throw new Error('login'); return r.json(); })
+      .then(function (j) { bewaar({ id: j.id_token, refresh: j.refresh_token, exp: Date.now() + (+j.expires_in) * 1000 }); return AUTH.id; })
+      .catch(function () { bewaar(null); throw new Error('login'); });
+  }
+  function sleutel(href) { return href.replace(/[^A-Za-z0-9]/g, '_'); }
+  function json(url) { return fetch(url, { cache: 'no-cache' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }); }
+
+  function toon(ingelogd) {
+    $('v-login').hidden = ingelogd; $('v-lijst').hidden = !ingelogd; $('b-uit').hidden = !ingelogd;
+    if (ingelogd) { try { localStorage.setItem('bk-review', '1'); } catch (e) {} laad(); }
+  }
+
+  $('f-login').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var m = $('m-login'); m.textContent = 'Bezig…';
+    fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=' + KEY, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: $('i-mail').value.trim(), password: $('i-ww').value, returnSecureToken: true })
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (!j.idToken) throw new Error();
+      bewaar({ id: j.idToken, refresh: j.refreshToken, exp: Date.now() + (+j.expiresIn) * 1000 });
+      m.textContent = ''; toon(true);
+    }).catch(function () { m.textContent = 'Inloggen mislukt. Controleer e-mail en wachtwoord.'; });
+  });
+  $('b-uit').addEventListener('click', function () { bewaar(null); try { localStorage.removeItem('bk-review'); } catch (e) {} toon(false); });
+
+  function laad() {
+    Promise.all([json('reviewlijst.json'), json(DB + '/review.json'), json(DB + '/reviewstatus.json'), json('../films/review-claude.json')]).then(function (r) {
+      GROEPEN = (r[0] && r[0].groepen) || [];
+      LIJST = []; GROEPEN.forEach(function (g) { g.films.forEach(function (f) { f.groep = g.naam; LIJST.push(f); }); });
+      VERWERKT = {}; ((r[3] && r[3].verwerkt) || []).forEach(function (id) { VERWERKT[id] = 1; });
+      CLAUDE = (r[3] && r[3].claude) || {};
+      NOTES = Object.keys(r[1] || {}).map(function (k) { var n = r[1][k]; n.id = k; return n; });
+      STATUS = r[2] || {};
+      teken();
+    });
+  }
+
+  function status(f) {
+    var s = STATUS[sleutel(f.href)];
+    if (s && s.status && s.status !== 'open') return s.status;
+    if (s && s.status === 'open') return 'nog';
+    if (f.repo === 'ok') return 'ok';
+    if (f.repo === 'feedback') return 'bekeken';
+    return 'nog';
+  }
+  function open(f) { return NOTES.filter(function (n) { return n.film === f.href && n.status !== 'verwerkt' && !VERWERKT[n.id]; }).length; }
+  function vanClaude(f) { return (CLAUDE[f.href] || []).length; }
+  function past(f) {
+    var s = status(f);
+    if (filter === 'nog') return s === 'nog';
+    if (filter === 'open') return open(f) > 0;
+    if (filter === 'bekeken') return s === 'bekeken';
+    if (filter === 'ok') return s === 'ok';
+    return true;
+  }
+  function filmLink(f) { return '../' + f.href + '?review=1'; }
+
+  function zet(f, st) {
+    token().then(function (tk) {
+      return fetch(DB + '/reviewstatus/' + sleutel(f.href) + '.json?auth=' + encodeURIComponent(tk), {
+        method: 'PUT', body: JSON.stringify({ href: f.href, status: st, tijd: { '.sv': 'timestamp' } })
+      });
+    }).then(function (r) {
+      if (!r.ok) throw new Error();
+      STATUS[sleutel(f.href)] = { href: f.href, status: st, tijd: Date.now() }; teken();
+    }).catch(function (e) { if (e && e.message === 'login') toon(false); });
+  }
+
+  function teken() {
+    var nog = LIJST.filter(function (f) { return status(f) === 'nog'; });
+    var opmerkingen = LIJST.reduce(function (a, f) { return a + open(f); }, 0);
+    var tel = { nog: nog.length, open: LIJST.filter(function (f) { return open(f) > 0; }).length,
+      bekeken: LIJST.filter(function (f) { return status(f) === 'bekeken'; }).length,
+      ok: LIJST.filter(function (f) { return status(f) === 'ok'; }).length, alles: LIJST.length };
+    document.querySelectorAll('.rv-chip').forEach(function (b) {
+      var n = b.querySelector('.n') || b.appendChild(document.createElement('span'));
+      n.className = 'n'; n.textContent = tel[b.dataset.f];
+    });
+    var st = $('stand'); st.innerHTML = '';
+    var a = document.createElement('span'); a.innerHTML = '<b></b> van ' + LIJST.length + ' films nog bekijken'; a.querySelector('b').textContent = nog.length;
+    var o = document.createElement('span'); o.innerHTML = '<b></b> opmerkingen open'; o.querySelector('b').textContent = opmerkingen;
+    st.append(a, o);
+    if (nog.length) {
+      var v = document.createElement('a'); v.className = 'knop rv-volgende'; v.href = filmLink(nog[0]);
+      v.textContent = 'Volgende film: ' + nog[0].titel + ' →'; st.appendChild(v);
+    }
+
+    var q = $('zoek').value.trim().toLowerCase(), wrap = $('groepen'); wrap.innerHTML = '';
+    GROEPEN.forEach(function (g) {
+      var films = g.films.filter(function (f) { return past(f) && (!q || (f.titel + ' ' + (f.vraag || '') + ' ' + g.naam).toLowerCase().indexOf(q) >= 0); });
+      if (!films.length) return;
+      var sec = document.createElement('section'); sec.className = 'rv-groep';
+      var h = document.createElement('h2'); h.textContent = g.naam;
+      var sm = document.createElement('small'); sm.textContent = films.length + ' / ' + g.films.length; h.appendChild(sm);
+      var ul = document.createElement('ul'); ul.className = 'rv-lijst';
+      films.forEach(function (f) {
+        var li = document.createElement('li'); li.className = 'rv-film';
+        var t = document.createElement('a'); t.className = 'rv-titel'; t.href = filmLink(f); t.textContent = f.titel;
+        var sub = document.createElement('div'); sub.className = 'rv-sub';
+        var s = status(f), chip = document.createElement('span'); chip.className = 'rv-st ' + s;
+        chip.textContent = s === 'nog' ? 'Nog bekijken' : s === 'ok' ? 'Goed' : 'Bekeken';
+        sub.appendChild(chip);
+        if (f.duur) { var d = document.createElement('span'); d.textContent = f.duur + ' min'; sub.appendChild(d); }
+        if (f.extra) { var x = document.createElement('span'); x.textContent = 'extra'; sub.appendChild(x); }
+        var n = open(f); if (n) { var op = document.createElement('span'); op.className = 'rv-op'; op.textContent = n + ' open'; sub.appendChild(op); }
+        var c = vanClaude(f); if (c) { var cl = document.createElement('span'); cl.className = 'rv-cl'; cl.textContent = c + ' van Claude'; sub.appendChild(cl); }
+        var acties = document.createElement('div'); acties.className = 'rv-acties';
+        var rk = document.createElement('a'); rk.className = 'knop klein'; rk.href = filmLink(f); rk.textContent = 'Reviewen';
+        acties.appendChild(rk);
+        if (s !== 'ok') { var g1 = document.createElement('button'); g1.type = 'button'; g1.className = 'knop stil klein'; g1.textContent = 'Goed'; g1.onclick = function () { zet(f, 'ok'); }; acties.appendChild(g1); }
+        if (s !== 'nog') { var g2 = document.createElement('button'); g2.type = 'button'; g2.className = 'knop stil klein'; g2.textContent = 'Opnieuw bekijken'; g2.onclick = function () { zet(f, 'open'); }; acties.appendChild(g2); }
+        li.append(t, acties, sub); ul.appendChild(li);
+      });
+      sec.append(h, ul); wrap.appendChild(sec);
+    });
+    if (!wrap.children.length) wrap.innerHTML = '<p class="rv-leeg">Geen films in deze selectie.</p>';
+  }
+
+  document.querySelectorAll('.rv-chip').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filter = b.dataset.f;
+      document.querySelectorAll('.rv-chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      teken();
+    });
+  });
+  $('zoek').addEventListener('input', teken);
+  window.addEventListener('pageshow', function (e) { if (e.persisted && !$('v-lijst').hidden) laad(); });
+
+  if (AUTH) token().then(function () { toon(true); }).catch(function () { toon(false); }); else toon(false);
+})();
+</script>
+</body>
+</html>
