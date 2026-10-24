@@ -154,6 +154,7 @@ Rondjes 'Een kijkje vooruit' op de hoofdpagina (Kamiel 23 okt 2026: 'ook een bee
 Kamiel werkt afwisselend vanuit twee Claude-accounts (Max 20x). Die delen geen geheugen, chats of artifacts; deze repo is de gedeelde bron. Daarom:
 
 - **Begin** elke sessie met een verse clone of `git fetch origin main && git rebase origin/main`, en lees de OVERDRACHT.md van de reeks waaraan je werkt.
+- **De filmprompt staat in de repo en is daar leidend** (Kamiel 24 okt 2026): elke wijziging aan de prompt (nieuwe versie, nieuwe regel, uitspraaklijst) gaat in hetzelfde werk ook in `films/PROMPT_vN.md` (bij een nieuwe versie een nieuw bestand, en de versie in `films/WERKWIJZE-LESSEN.md` onder 'Verwerkt in prompt'), met commit + push, zodat het andere account dezelfde prompt heeft. Een Claude-doc of artifact met de prompt is hooguit een kopie.
 - **Leg alles vast in de repo**, niet alleen in het geheugen of in de chat: uitspraken in `films/UITSPRAAK.md` + `films/uitspraak.json`, beeldafspraken in `films/BEELDAFSPRAKEN.md`, lessen in `films/WERKWIJZE-LESSEN.md`, stand van een reeks in de OVERDRACHT.md van die reeks.
 - **Sluit af** met commit + push (`git fetch` en rebase vlak voor de push), zodat het andere account verder kan.
 - Werk niet in beide accounts tegelijk aan dezelfde film of hetzelfde bestand; verschillende reeksen tegelijk kan wel.
