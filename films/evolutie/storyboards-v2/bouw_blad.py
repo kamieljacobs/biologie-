@@ -2,7 +2,7 @@
 import json, glob, os, shutil
 B = os.path.dirname(os.path.abspath(__file__)); R = os.path.dirname(B)
 films = []
-for p in sorted(glob.glob(os.path.join(R, 'films', 'f[1-8].json'))):
+for p in sorted(glob.glob(os.path.join(R, 'films', 'f*.json'))):
     f = json.load(open(p))
     films.append({k: f.get(k) for k in ('film', 'titel', 'slug', 'puzzel', 'haak', 'duur', 'hoofdstukken')} | {
         'keuzes': f.get('keuzes_en_twijfels', []),

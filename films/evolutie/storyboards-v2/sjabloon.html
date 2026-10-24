@@ -77,16 +77,16 @@ textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1
 </div>
 <script>
 const FILMS = /*FILMS*/[];
-let keur = {}, db = null, filter = 'alle', film = 1; const wacht = {};
+let keur = {}, db = null, filter = 'alle', film = 9; const wacht = {};
 const $ = (s, el = document) => el.querySelector(s);
 const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
-try { const h = (location.hash || '').match(/^#film([1-8])$/); if (h) film = +h[1]; } catch (e) {}
+try { const h = (location.hash || '').match(/^#film(\d+)$/); if (h) film = +h[1]; } catch (e) {}
 function telling(f) { const ids = f.scenes.map(s => s.id); const v = ids.map(i => (keur[i] || {}).status || ''); return { ok: v.filter(x => x === 'ok').length, opm: v.filter(x => x === 'opm').length, open: v.filter(x => !x).length, n: ids.length }; }
 function tabs() { const T = $('#tabs'); T.textContent = ''; for (const f of FILMS) { const b = el('button'); b.id = 'tab-' + f.film; b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', f.film === film); const t = telling(f);
   b.append(el('span', null, f.film + ' · ' + f.titel.replace(/\?$/, '?')), el('small', null, t.ok + '/' + t.n + ' ✓' + (t.opm ? ' · ' + t.opm + ' opm.' : '')));
   b.onclick = () => { film = f.film; try { history.replaceState(null, '', '#film' + film); } catch (e) {} render(); window.scrollTo({ top: 0 }); }; T.append(b); } }
 function kop(f) { const K = $('#filmkop'); K.textContent = ''; const box = el('div', 'filmkop'); const l = el('div'); l.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0';
-  l.append(el('span', 'meta', 'Film ' + f.film + ' van 8 · ' + f.slug), el('h2', null, f.titel));
+  l.append(el('span', 'meta', (f.film > 8 ? 'Extra film ' + (f.film - 8) + ' van 4 · ' : 'Film ' + f.film + ' van 8 · ') + f.slug), el('h2', null, f.titel));
   const dl = el('dl'); const rij = (k, v) => { if (!v) return; dl.append(el('dt', null, k), el('dd', null, v)); };
   rij('Puzzel', f.puzzel); rij('Haak', f.haak); const d = f.duur || {}; rij('Duur', d.basis_min ? ('±' + String(d.basis_min).replace('.', ',') + ' min' + (d.met_vwo_min && d.met_vwo_min !== d.basis_min ? ' (havo) · ±' + String(d.met_vwo_min).replace('.', ',') + ' min met vwo' : '') + (d.woorden ? ' · ' + d.woorden + ' woorden' : '')) : '');
   rij('Hoofdstukken', (f.hoofdstukken || []).map(h => h.nr + ' ' + h.titel).join(' · ')); l.append(dl);
