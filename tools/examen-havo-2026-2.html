@@ -1789,6 +1789,9 @@ OPG.push({nr:7,kort:"Paarden",titel:"Paarden voeren zonder brokken",ids:[40,41,4
 
 /* ================= opgaven en navigatie ================= */
 OPG.sort((a,b)=>a.nr-b.nr);
+/* omzettingstabel normering havo 2026 tijdvak 2: N-term 1,2, 74 punten (examenblad.nl); index = score */
+const NORM="N-term 1,2";
+const CIJFER=[1.0,1.2,1.4,1.6,1.7,1.8,1.9,2.1,2.2,2.3,2.4,2.5,2.7,2.8,2.9,3.0,3.1,3.3,3.4,3.5,3.6,3.8,3.9,4.0,4.1,4.2,4.4,4.5,4.6,4.7,4.8,5.0,5.1,5.2,5.3,5.5,5.6,5.7,5.8,5.9,6.1,6.2,6.3,6.4,6.6,6.7,6.8,6.9,7.0,7.2,7.3,7.4,7.5,7.6,7.8,7.9,8.0,8.1,8.3,8.4,8.5,8.6,8.7,8.9,9.0,9.1,9.2,9.3,9.5,9.6,9.7,9.8,9.9,9.9,10.0];
 const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
 let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
 const opg=()=>OPG.find(o=>o.nr===curOpg);
@@ -1824,7 +1827,10 @@ function overview(){
   o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
   const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
   let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
-  s.append(el("p",{class:"muted",style:"margin:0"},`Hele examen: ${all} van ${allMax} punten.`));
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele examen: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer volgens de officiële omzettingstabel van dit examen (${NORM}, examenblad.nl).`));
   const nextO=OPG.find(x=>x.nr===o.nr+1);
   const row=el("div",{class:"row"});
   if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
