@@ -41,7 +41,7 @@ overproductie, variatie, histogram, selectiedruk, selectievoordeel, natuurlijke 
 | 109 | Voor de docent |
 | 155 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1841 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb2.js (keyframes) |
-| 9610 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e2.js`) |
+| 9622 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e2.js`) |
 
 ## Hoe je de film aanpast
 
@@ -54,3 +54,5 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f2.json`.
+- s28 en s29: groene rupsen vallen door de camouflage bijna weg tegen het blad (bedoeld); s29 licht ze per generatie op
+- Vink en merel in vlucht zijn klein en snel; op tempo nakijken

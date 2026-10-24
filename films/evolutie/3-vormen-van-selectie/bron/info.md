@@ -42,7 +42,7 @@ gerichte selectie, stabiliserende selectie, splitsende selectie, seksuele select
 | 109 | Voor de docent |
 | 162 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1848 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb3.js (keyframes) |
-| 9600 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e3.js`) |
+| 9608 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e3.js`) |
 
 ## Hoe je de film aanpast
 
@@ -55,3 +55,6 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f3.json`.
+- s27 herten: overgang van kop zakken naar vechthouding springt licht
+- Pauw: van rust naar pronk is een wissel tussen twee tekeningen; de waaier groeit daarna open
+- Pijlstaarttong als eigen lijn over de bibliotheektong getekend (die was te dun)

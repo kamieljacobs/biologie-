@@ -15,8 +15,7 @@ function e1plek(ctx, i, t, o = {}) { const [x, y, vorm, st, rot] = ORANJE_PLEK[i
 function e1kruip(ctx, x1, y1, x2, y2, t0, t, s = 1, a = 1, v = 150) { const tt = t - t0; if (tt < 0 || a <= 0.01) return; const L = Math.hypot(x2 - x1, y2 - y1) || 1, u = clamp(tt * v / L, 0, 1);
   ctx.save(); ctx.translate(lerp(x1, x2, u), lerp(y1, y2, u)); ctx.rotate(Math.atan2(y2 - y1, x2 - x1) + Math.PI / 2); larve(ctx, 0, 0, s, a * ease(tt / 0.3), u < 1 ? tt : 0); ctx.restore(); }
 const E1_TUIN = [[690, 480, 0.4], [920, 610, -0.8], [1060, 520, 1.2], [1400, 640, 0.2], [1660, 720, -0.5], [330, 700, 0.9], [560, 560, 2.2]];
-function e1tuin(ctx) { macroNacht(ctx); huisGevel(ctx, 640, 760, 520, 330);
-  for (const [x, y, s] of [[300, 760, 1], [1420, 760, 1.2], [1650, 780, 0.9]]) { ctx.beginPath(); ctx.moveTo(x - 70 * s, y); ctx.lineTo(x, y - 230 * s); ctx.lineTo(x + 70 * s, y); ctx.closePath(); ctx.fillStyle = '#2A4436'; ctx.fill(); } }
+function e1tuin(ctx) { e1tuinDag(ctx); }
 
 Object.assign(SCENES, {
   // ---- titelkaart: alleen het beeld rechts; knikkers vallen in de pot, beestjes kruipen ----
@@ -42,12 +41,12 @@ Object.assign(SCENES, {
   s02(ctx, t, q) {
     f1Bg(ctx);
     const toch = q.on('Toch', 1, 0.5), twin = q.on('eeneiige', 1, 0.3) * (1 - q.on('Waarom', 1, 0.5));
-    const sx = -140 * ease(twin);
+    const sx = -300 * ease(twin);
     const A = persoon(ctx, 'yasmin', 760 + sx, 880, 640, { uit: toch > 0.5 ? 'denkt' : 'lacht', t });
     const B = persoon(ctx, 'bilal', 1160 + sx, 880, 640, { uit: toch > 0.5 ? 'verbaasd' : 'lacht', kijk: -1, t });
     for (const P of [A, B]) { const r = 1 - toch; gezichtRing(ctx, P.hoofd, 'ogen', r); gezichtRing(ctx, P.hoofd, 'neus', r); gezichtRing(ctx, P.hoofd, 'mond', r); }
     // even de eeneiige tweeling (Daan en Thijs, vaste rol) als uitzondering
-    if (twin > 0.01) { persoon(ctx, 'daan', 1560, 880, 420, { uit: 'blij', a: twin, t }); persoon(ctx, 'thijs', 1740, 880, 420, { uit: 'blij', kijk: -1, a: twin, t }); naamBij(ctx, 'eeneiige tweeling', null, 1650, 400, twin, 'center'); }
+    if (twin > 0.01) { persoon(ctx, 'daan', 1300, 880, 615, { uit: 'blij', a: twin, t }); persoon(ctx, 'thijs', 1580, 880, 615, { uit: 'blij', kijk: -1, a: twin, t }); naamBij(ctx, 'eeneiige tweeling', null, 1440, 200, twin, 'center'); }
     const v = q.on('Waarom', 1, 0.6); if (v > 0.01) vraagteken(ctx, 960, 420 + Math.sin(t * 1.6) * 6, v, 160);
   },
 
@@ -55,7 +54,7 @@ Object.assign(SCENES, {
   s04(ctx, t, q) {
     const k = ease(t / 8), Z = lerp(1.06, 1, k); // camera glijdt langs het kozijn
     ctx.save(); ctx.translate(960, 540); ctx.scale(Z, Z); ctx.translate(-960 + lerp(-60, 0, k), -540);
-    kozijnHoek(ctx);
+    kozijnDag(ctx);
     const tL = q.at('landen');
     [0, 3, 1, 4, 2].forEach((i, j) => e1land(ctx, i, [ORANJE_PLEK[i][0] + 260 - j * 40, -120], tL - 0.4 + j * 0.6, 1.3, t));
     e1land(ctx, 6, [1100, -120], q.at('overwinteren') - 0.4, 1.3, t, { dx: -40, dy: 40, boog: 80 });
@@ -65,7 +64,7 @@ Object.assign(SCENES, {
   s05(ctx, t, q) {
     const Z = lerp(1, 1.15, ease((t - q.at('Aziatische')) / 3.6));
     ctx.save(); ctx.translate(1500, 560); ctx.scale(Z, Z); ctx.translate(-1500, -560);
-    kozijnHoek(ctx);
+    kozijnDag(ctx);
     for (const i of [0, 1, 3, 4, 6]) e1plek(ctx, i, t);
     e1loop(ctx, 1700, 740, 1745, 712, 1.6, t, E1_SC(2), { vorm: 'succinea', stippen: 6, rotStart: 1.2, rotEind: 1.2 });
     e1vlieg(ctx, 2000, -100, 1620, 300, 0.3, 1.5, t, E1_SC(5), { vorm: 'conspicua', rotEind: 0.15 });
@@ -127,9 +126,10 @@ Object.assign(SCENES, {
     if (v < 1) { e1kruip(ctx, 680, 520, 680, 520, -1, t, 1.1, 1 - v); e1kruip(ctx, 1480, 520, 1480, 520, -1, t, 1.1, 1 - v); }
     lhb(ctx, 680, 520, 2.1, { vorm: 'succinea', stippen: Math.round(19 * gr), a: v });
     lhb(ctx, 1480, 520, 2.1, { vorm: 'succinea', stippen: Math.round(8 * gr), a: v });
-    naamMeta(ctx, '14 °C', '19 stippen', 360, 800, q.on('veertien', 1, 0.5), q.on('negentien', 1, 0.5), 'center');
-    naamMeta(ctx, '28 °C', 'gemiddeld 8 stippen', 1160, 800, q.on('achtentwintig', 1, 0.5), q.on('gemiddeld', 1, 0.5), 'center');
-    naamBij(ctx, 'kou', null, 360, 800, 1 - q.on('veertien', 1, 0.3), 'center'); naamBij(ctx, 'warmte', null, 1160, 800, 1 - q.on('achtentwintig', 1, 0.3), 'center');
+    const uit = (w) => 1 - ease((t - q.at(w) + 0.35) / 0.3), inn = (w) => ease((t - q.at(w) - 0.05) / 0.4); // eerst het oude label weg, dan het nieuwe
+    naamMeta(ctx, '14 °C', '19 stippen', 360, 800, inn('veertien'), q.on('negentien', 1, 0.5), 'center');
+    naamMeta(ctx, '28 °C', 'gemiddeld 8 stippen', 1160, 800, inn('achtentwintig'), q.on('gemiddeld', 1, 0.5), 'center');
+    naamBij(ctx, 'kou', null, 360, 800, uit('veertien'), 'center'); naamBij(ctx, 'warmte', null, 1160, 800, uit('achtentwintig'), 'center');
     const ap = q.on('proef', 1, 0.6); if (ap > 0.01) { ctx.save(); ctx.globalAlpha = ap; evoSchaal(ctx, 'proef · Michie e.a. 2010'); ctx.restore(); }
   },
   s12(ctx, t, q) {
@@ -162,8 +162,8 @@ Object.assign(SCENES, {
     const m = ease(t / 0.9);
     chromosoomPaar(ctx, lerp(960, 1240, m), lerp(470, 450, m), lerp(440, 380, m), { nieuw: [1, _lt(C.paars, 0.6)] });
     if (m < 1) zoomCircle(ctx, 1480, 680, 150, 1012, 391, null, 1 - m, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(1300, 500, 360, 360); dnaStukje(ctx, 1480, 680, 260, 1, t); });
-    naamMeta(ctx, 'toevallig', 'niet omdat het nodig is', 1340, 760, q.on('toevallig', 1, 0.5), q.on('nodig', 1, 0.5), 'left', C.paars);
-    naamBij(ctx, 'zeldzaam', null, 1340, 690, q.on('zeldzaam', 1, 0.5), 'left', C.paars);
+    naamMeta(ctx, 'toevallig', 'niet omdat het nodig is', 1310, 400, q.on('toevallig', 1, 0.5), q.on('nodig', 1, 0.5), 'left', C.paars);
+    naamBij(ctx, 'zeldzaam', null, 1310, 490, q.on('zeldzaam', 1, 0.5), 'left', C.paars);
     const ap = q.on('Toch', 1, 0.3);
     persoon(ctx, 'yasmin', 360, 860, 440, { uit: 'denkt', a: ap, t }); persoon(ctx, 'bilal', 640, 860, 440, { uit: 'neutraal', kijk: -1, a: ap, t });
   },
@@ -173,7 +173,7 @@ Object.assign(SCENES, {
     persoon(ctx, 'yasmin', lerp(360, 640, m), lerp(860, 700, m), lerp(440, 500, m), { uit: 'denkt', t });
     persoon(ctx, 'bilal', lerp(640, 1280, m), lerp(860, 700, m), lerp(440, 500, m), { uit: 'neutraal', kijk: -1, t });
     naamBij(ctx, 'dezelfde ouders', null, 960, 160, q.on('ouders', 1, 0.5), 'center', C.goud);
-    const r = clamp((t - q.at('allelen')) / 1.0, 0, 1); e1allelRij(ctx, 640 - 157, 790, E1_Y, r); e1allelRij(ctx, 1280 - 157, 790, E1_B, r);
+    const r = clamp((t - q.at('allelen')) / 1.0, 0, 1); e1paren(ctx, 640, 790, E1_YP, r, 0, 14); e1paren(ctx, 1280, 790, E1_BP, r, 0, 14);
     const v = q.on('denk', 1, 0.5); if (v > 0.01) vraagteken(ctx, 960, 470 + Math.sin(t * 1.6) * 5, v, 140);
   },
   s17(ctx, t, q) {
@@ -211,13 +211,14 @@ Object.assign(SCENES, {
   },
   s19(ctx, t, q) {
     f1Bg(ctx);
-    persoon(ctx, 'yasmin', 560, 650, 470, { uit: 'blij', t }); persoon(ctx, 'bilal', 1360, 650, 470, { uit: 'lacht', kijk: -1, t });
+    const tw = q.on('eeneiige', 1, 0.3), sch = ease((t - q.at('Alleen') + 0.2) / 0.8); // Yasmin en Bilal schuiven naar buiten voor de tweeling
+    const xY = lerp(560, 330, sch), xB = lerp(1360, 1590, sch);
+    persoon(ctx, 'yasmin', xY, 650, 470, { uit: 'blij', t }); persoon(ctx, 'bilal', xB, 650, 470, { uit: 'lacht', kijk: -1, t });
     const r = clamp((t - q.at('allelen')) / 1.4, 0, 1), g = q.on('andere', 1, 0.6);
-    e1allelRij(ctx, 380, 760, E1_Y, r, g); e1allelRij(ctx, 1180, 760, E1_B, r, g);
+    e1paren(ctx, xY, 760, E1_YP, r, g, 13); e1paren(ctx, xB, 760, E1_BP, r, g, 13);
     if (r > 0.01) metaText(ctx, 'acht genen · twee allelen per gen, versimpeld', 960, 860, rgba(C.text2, ease(r)), 'center', 26);
-    const tw = q.on('eeneiige', 1, 0.3);
-    if (tw > 0.01) { persoon(ctx, 'daan', 885, 650, 300, { uit: 'blij', a: tw, t }); persoon(ctx, 'thijs', 1035, 650, 300, { uit: 'blij', kijk: -1, a: tw, t }); naamBij(ctx, 'eeneiige tweeling', null, 960, 300, tw, 'center');
-      const rr = clamp((t - q.at('deelt')) / 0.8, 0, 1); e1allelRij(ctx, 885 - 12, 690, E1_Y.slice(0, 4), rr, 0, 8); e1allelRij(ctx, 1035 - 12, 690, E1_Y.slice(0, 4), rr, 0, 8); }
+    if (tw > 0.01) { persoon(ctx, 'daan', 800, 650, 455, { uit: 'blij', a: tw, t }); persoon(ctx, 'thijs', 1120, 650, 455, { uit: 'blij', kijk: -1, a: tw, t }); naamBij(ctx, 'eeneiige tweeling', 'alle allelen gelijk', 960, 120, tw, 'center');
+      const rr = clamp((t - q.at('deelt')) / 0.8, 0, 1); e1paren(ctx, 800, 760, E1_YP, rr, 0, 13); e1paren(ctx, 1120, 760, E1_YP, rr, 0, 13); }
   },
   s20(ctx, t, q) {
     f1Bg(ctx);
@@ -241,18 +242,19 @@ Object.assign(SCENES, {
     if (ai > 0.01) E1_TUIN.forEach(([x, y, r], i) => lhb(ctx, x + Math.sin(t * 0.6 + i) * 3, y, 0.16, { vorm: i === 2 ? 'spectabilis' : 'succinea', stippen: 10, rot: r + Math.sin(t * 0.5 + i) * 0.2, a: clamp(ai * 1.6 - i * 0.09, 0, 1) }));
     lhb(ctx, 785, 532, 0.16, { vorm: 'succinea', stippen: 10, rot: 0.3 });
     ctx.restore();
-    const ak = 1 - ease((t - tz - 0.1) / 1.0);
-    if (ak > 0.01) { const k = Z / 5.6; ctx.save(); ctx.globalAlpha = ak; ctx.translate(A[0], A[1]); ctx.scale(k, k); ctx.translate(-1380, -760); kozijnHoek(ctx); for (const i of [1, 2, 3, 4]) e1plek(ctx, i, t); lhb(ctx, 1380, 760, 0.9, { vorm: 'succinea', stippen: 10, rot: 0.3 }); ctx.restore(); }
+    const ak = 1 - ease((t - tz) / 0.9); // iris: een cirkel rond het beestje opent naar huis en tuin; buiten de cirkel nog het kozijn
+    if (ak > 0.001) { const k = Z / 5.6, ri = (1 - ak) * 1500; ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.arc(A[0], A[1], ri, 0, 6.283, true); ctx.clip('evenodd');
+      ctx.translate(A[0], A[1]); ctx.scale(k, k); ctx.translate(-1380, -760); kozijnDag(ctx); for (const i of [1, 2, 3, 4]) e1plek(ctx, i, t); lhb(ctx, 1380, 760, 0.9, { vorm: 'succinea', stippen: 10, rot: 0.3 }); ctx.restore();
+      if (ri > 1) { ctx.save(); ctx.globalAlpha = Math.min(1, ak * 3); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(A[0], A[1], ri, 0, 6.283); ctx.stroke(); ctx.restore(); } }
     const ar = q.on('dit', 1, 0.5); if (ar > 0.01) { ctx.save(); ctx.globalAlpha = ar; goudRing(ctx, A[0], A[1], lerp(26, 86, ak)); ctx.restore(); }
-    naamMeta(ctx, 'populatie', 'één soort · één gebied · plant zich onderling voort', 80, 200, q.on('populatie', 1, 0.5), q.on('soort', 1, 0.6), 'left');
-    const as = q.on('eigenlijk', 1, 0.5) * (1 - q.on('populatie', 1, 0.6)); if (as > 0.01) { ctx.save(); ctx.globalAlpha = as; evoSchaal(ctx, 'uitzoomen: kozijn → huis → tuin'); ctx.restore(); }
+    e1paneel(ctx, q.on('populatie', 1, 0.5)); naamMeta(ctx, 'populatie', 'één soort · één gebied · plant zich onderling voort', 80, 200, q.on('populatie', 1, 0.5), q.on('soort', 1, 0.6), 'left');
   },
   s22(ctx, t, q) { // vraag-alinea: zelfde decor, het beestje met ring; een beestje vliegt naar de buren
     e1tuin(ctx);
     E1_TUIN.forEach(([x, y, r], i) => { if (i !== 3) lhb(ctx, x + Math.sin(t * 0.6 + i) * 3, y, 0.16, { vorm: i === 2 ? 'spectabilis' : 'succinea', stippen: 10, rot: r + Math.sin(t * 0.5 + i) * 0.2 }); });
     if (!e1vlieg(ctx, 1400, 640, 1840, 520, 0.4, 2.6, t, 0.16, { vorm: 'succinea', stippen: 10, boog: 160 })) lhb(ctx, 1400, 640, 0.16, { vorm: 'succinea', stippen: 10, rot: 0.2 });
     lhb(ctx, 785, 532, 0.16, { vorm: 'succinea', stippen: 10, rot: 0.3 }); goudRing(ctx, 785, 532, 26 + Math.sin(t * 2.4) * 3);
-    naamBij(ctx, 'populatie', 'één soort · één gebied · plant zich onderling voort', 80, 200, 1, 'left');
+    e1paneel(ctx, 1); naamBij(ctx, 'populatie', 'één soort · één gebied · plant zich onderling voort', 80, 200, 1, 'left');
     const v = q.on('groot', 1, 0.5); if (v > 0.01) vraagteken(ctx, 1240, 330 + Math.sin(t * 1.6) * 5, v, 120);
   },
   s24(ctx, t, q) {
@@ -265,7 +267,7 @@ Object.assign(SCENES, {
     if (al > 0.01) { ctx.save(); ctx.globalAlpha = 1 - land; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.setLineDash([9, 7]); ctx.beginPath(); ctx.arc(tx, ty, r, -Math.PI / 2, -Math.PI / 2 + 6.283 * al); ctx.stroke(); ctx.setLineDash([]); ctx.restore(); }
     const at = q.on('tuin', 1, 0.5); if (at > 0.01) { circ(ctx, tx, ty, 9 * at, C.goud); naamBij(ctx, 'tuin', null, tx - 30, ty + 10, at * (1 - land), 'right'); }
     naamBij(ctx, 'stad', null, tx + 60, ty - 30, q.on('Wie', 2, 0.5) * (1 - land), 'left');
-    naamMeta(ctx, 'heel Nederland', 'keuze van de onderzoeker', 380, 160, land, q.on('Nederland', 1, 0.5), 'left', C.goud);
+    naamBij(ctx, 'heel Nederland', 'keuze van de onderzoeker', 330, 500, land, 'right', C.goud);
     const pt = q.on('tuin', 1, 0.6), ps = q.on('Wie', 2, 0.6), pn = land;
     if (pt > 0.01) { pot(ctx, 1290, 760, 0.4, { p: 0.15, n: 12, seed: 2, a: pt * lerp(1, 0.5, ps) }); metaText(ctx, 'tuin', 1290, 810, rgba(C.text2, pt), 'center', 26); }
     if (ps > 0.01) { pot(ctx, 1460, 760, 0.62, { p: 0.15, n: 30, seed: 3, a: ps * lerp(1, 0.7, pn) }); metaText(ctx, 'stad', 1460, 810, rgba(C.text2, ps), 'center', 26); }
@@ -380,13 +382,13 @@ Object.assign(SCENES, {
   },
   s35(ctx, t, q) {
     f1Bg(ctx);
-    const tv = q.at('Aziatisch'); // beestjes vliegen over: de soort verspreidt zich
-    for (let k = 0; k < 6; k++) { const t0 = tv + k * 0.3, u = (t - t0) / 3.2; if (u <= 0 || u >= 1) continue; const x = lerp(-120, 2040, u), y = 330 + Math.sin(u * 6 + k) * 30 + (k % 3) * 40;
-      lhb(ctx, x, y, 0.4, { vorm: k === 1 || k === 4 ? 'spectabilis' : 'succinea', stippen: 12, open: 1, rot: Math.PI / 2 + Math.cos(u * 6 + k) * 0.2, a: Math.min(1, (1 - Math.abs(u - 0.5) * 2) * 4) * (1 - q.on('eerste', 1, 0.5)) }); }
+    gbSil(ctx, 1640, 470, 55, ease(t / 0.8)); // Groot-Brittannië; beestjes vliegen vanaf het vasteland (rechts) binnen en verspreiden zich
+    const tv = q.at('verspreidde') - 0.6, doel = [[-1.2, 52.0], [-0.2, 51.5], [-2.2, 53.3], [-1.5, 54.6], [-3.4, 56.3], [-2.4, 51.4], [-1.0, 53.4], [-4.2, 57.4]];
+    doel.forEach(([lo, la], k) => { const [x, y] = gbXY(lo, la, 1640, 470, 55), zw = k === 1 || k === 4; if (!e1vlieg(ctx, 2000, 380 + k * 25, x, y, tv + k * 0.35, 1.4, t, 0.16, { vorm: zw ? 'spectabilis' : 'succinea', stippen: 10, boog: 60 })) return; });
     naamMeta(ctx, 'Groot-Brittannië', 'eerste twee jaar van de verspreiding', 300, 260, q.on('Brittannië', 1, 0.5), q.on('eerste', 1, 0.5), 'left');
-    const a1 = q.on('eerste', 1, 0.6), a2 = q.on('jaar', 1, 0.6), kr = ease((t - q.at('kleiner')) / 1.2);
-    e1balk(ctx, 300, 400, 1100, 0.3, a1, { procent: false, h: 50 }); if (a1 > 0.01) metaText(ctx, 'jaar 1', 280, 436, rgba(C.text2, a1), 'right', 28);
-    e1balk(ctx, 300, 560, 1100, lerp(0.3, 0.2, kr), a2, { procent: false, h: 50 }); if (a2 > 0.01) metaText(ctx, 'jaar 2', 280, 596, rgba(C.text2, a2), 'right', 28);
+    const a1 = q.on('eerste', 1, 0.6), a2 = q.on('jaar', 1, 0.6), kr = ease((t - q.at('werd', 1)) / (q.at('kleiner') + 0.5 - q.at('werd', 1))); // krimpt terwijl de zin loopt
+    e1balk(ctx, 300, 400, 1000, 0.3, a1, { procent: false, h: 50 }); if (a1 > 0.01) metaText(ctx, 'jaar 1', 280, 436, rgba(C.text2, a1), 'right', 28);
+    e1balk(ctx, 300, 560, 1000, lerp(0.3, 0.2, kr), a2, { procent: false, h: 50 }); if (a2 > 0.01) metaText(ctx, 'jaar 2', 280, 596, rgba(C.text2, a2), 'right', 28);
     naamMeta(ctx, 'allel voor zwart', 'wordt zeldzamer', 300, 700, q.on('allel', 1, 0.5), q.on('zeldzamer', 1, 0.5), 'left', EVO.a1R);
     const as = q.on('jaar', 1, 0.6); if (as > 0.01) { ctx.save(); ctx.globalAlpha = as; evoSchaal(ctx, 'schematisch · richting volgens Michie e.a. 2010'); ctx.restore(); }
   },
@@ -401,7 +403,7 @@ Object.assign(SCENES, {
     const k = [[C.groen, 'selectie', 'film 2–4', 420, 300, 'selectie', EVO.a1], [C.goud, 'toeval', 'film 5', 420, 640, 'toeval', null], [C.line, 'uitwisseling', 'film 5', 1500, 300, 'uitwisseling', EVO.a2], [C.paars, 'mutatie', 'nieuwe knikkers', 1500, 640, 'mutatie', '#8C7BBF']];
     for (const [c, n, m, x, y, w, kl] of k) { const a = q.on(w, 1, 0.5), u = ease((t - q.at(w)) / 0.8);
       const x1 = x + (x < 960 ? 150 : -150), y1 = y - 10, x2 = x < 960 ? 790 : 1130, y2 = y < 500 ? 520 : 640;
-      naamMeta(ctx, n, m, x, y, a, w === 'mutatie' ? q.on('knikkers', 1, 0.5) : q.on('volgende', 1, 0.6), 'center', c); e1pijl(ctx, x1, y1, x2, y2, c, u, 4);
+      naamMeta(ctx, n, m, x, y, a, w === 'mutatie' ? q.on('knikkers', 1, 0.5) : q.on('zie', 1, 0.5), 'center', c); e1pijl(ctx, x1, y1, x2, y2, c, u, 4);
       if (kl) { const t0 = w === 'mutatie' ? tm : q.at(w) + 0.9, v = clamp((t - t0) / 1.0, 0, 1); if (v > 0 && v < 1) knikker(ctx, lerp(x1, x2, ease(v)), lerp(y1, y2, ease(v)), 15, kl); } }
   },
 
@@ -422,7 +424,7 @@ Object.assign(SCENES, {
     const ap = ease(t / 0.3);
     persoon(ctx, 'yasmin', 560, 650, 470, { uit: 'lacht', a: ap, t }); persoon(ctx, 'bilal', 1360, 650, 470, { uit: 'blij', kijk: -1, a: ap, t });
     const r = clamp((t - q.at('lijken')) / 1.6, 0, 1), g = q.on('andere', 1, 0.6);
-    e1allelRij(ctx, 380, 760, E1_Y, r, g); e1allelRij(ctx, 1180, 760, E1_B, r, g);
+    e1paren(ctx, 560, 760, E1_YP, r, g, 14); e1paren(ctx, 1360, 760, E1_BP, r, g, 14);
     naamBij(ctx, 'zelfde ouders, andere greep', null, 960, 210, q.on('Dezelfde', 1, 0.6), 'center', C.goud);
   },
   s39(ctx, t, q) {

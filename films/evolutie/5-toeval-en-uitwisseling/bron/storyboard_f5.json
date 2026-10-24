@@ -1,0 +1,681 @@
+{
+ "film": 5,
+ "titel": "Toeval en uitwisseling",
+ "slug": "5-toeval-en-uitwisseling",
+ "puzzel": "Kan een allel vaak worden zonder dat het iets oplevert?",
+ "haak": "Op het atol Pingelap ziet ongeveer één op de twintig mensen geen kleur; elders één op de dertigduizend.",
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Genetische drift",
+   "minivraag": "Verandert de pot als er geen selectie is?",
+   "type": "E",
+   "look": "Schema",
+   "laag": "basis"
+  },
+  {
+   "nr": 2,
+   "titel": "Flessenhals en founder-effect",
+   "minivraag": "Wat gebeurt er als een populatie ineens klein wordt?",
+   "type": "F",
+   "look": "Macro → Schema",
+   "laag": "basis"
+  },
+  {
+   "nr": 3,
+   "titel": "Genenstroom",
+   "minivraag": "Wat gebeurt er als populaties dieren uitwisselen?",
+   "type": "F",
+   "look": "Schema",
+   "laag": "basis"
+  },
+  {
+   "nr": 4,
+   "titel": "Vier krachten in één pot",
+   "minivraag": "Welke kracht kan een nutteloos allel gewoon maken?",
+   "type": "F",
+   "look": "Schema",
+   "laag": "basis"
+  },
+  {
+   "nr": 5,
+   "titel": "Hardy-Weinberg en heterozygotenvoordeel",
+   "minivraag": "Hoe meet je of de pot verandert?",
+   "type": "E",
+   "look": "Schema + Micro",
+   "laag": "vwo"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e5s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Midden in de Grote Oceaan ligt Pingelap, een atol van een paar vierkante kilometer. Er wonen ongeveer tweehonderdvijftig mensen.",
+   "beweging": "Langzame camerabeweging over zee naar het eiland met palmen, nacht."
+  },
+  {
+   "id": "e5s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Op Pingelap ziet ongeveer één op de twintig mensen helemaal geen kleur. Ze hebben achromatopsie: alles in grijstinten, en fel licht doet pijn. Elders op de wereld heeft één op de dertigduizend mensen dat.",
+   "beweging": "Raster van 20 telpoppetjes, één wordt grijs; ernaast een raster dat uitzoomt naar 30.000 met één grijs poppetje."
+  },
+  {
+   "id": "e5s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het allel geeft geen voordeel, eerder een nadeel. Toch is het daar heel gewoon. Kan een allel vaak worden zonder dat het iets oplevert?",
+   "beweging": "Pot van Pingelap met veel gele knikkers (allel voor achromatopsie); gouden vraagteken."
+  },
+  {
+   "id": "e5s04",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel, puzzelvraag, rechts de pot met een gouden en een groene pijl."
+  },
+  {
+   "id": "e5s05",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In film één zag je de genenpool als een pot met knikkers. De volgende generatie krijgt niet de hele pot. Ze krijgt een greep eruit.",
+   "beweging": "Pot links; een hand van knikkers schuift naar een nieuwe pot rechts."
+  },
+  {
+   "id": "e5s06",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Welke allelen in die greep zitten, is toeval. Wie een ongeluk krijgt of geen partner vindt, heeft niet per se andere allelen.",
+   "beweging": "Knikkers worden blind getrokken; enkele blijven achter (gedimd)."
+  },
+  {
+   "id": "e5q07",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een populatie van tien dieren. De helft van de allelen is blauw, de helft geel. Geen selectie. Elke generatie trek je blind. Wat denk je, na zestig generaties?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Het blijft precies de helft: zonder selectie verandert er niets · B Het dominante allel wordt vanzelf vaker · C Het schommelt, en vaak is één allel helemaal verdwenen",
+   "juist": "C"
+  },
+  {
+   "id": "e5s08",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een computer trekt zestig generaties lang blind uit een pot van tien dieren, half blauw en half geel. Dat doet hij acht keer. De lijnen zwalken alle kanten op. Al snel komen ze op nul of honderd procent. Dan is één allel weg, en komt het niet vanzelf terug.",
+   "beweging": "Acht gouden lijnen tekenen zich generatie voor generatie; elke lijn stopt op 0% of 100%."
+  },
+  {
+   "id": "e5s09",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Nu dezelfde simulatie met vijfduizend dieren. De lijnen wiebelen een beetje, maar blijven dicht bij de helft.",
+   "beweging": "Rechts verschijnt de tweede grafiek; acht lijnen blijven rond 50%."
+  },
+  {
+   "id": "e5s10",
+   "hoofdstuk": "H1 Genetische drift",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Verandering van allelfrequenties door toeval heet genetische drift. In een kleine populatie werkt drift sterk. In een grote populatie nauwelijks. Een grote greep lijkt nu eenmaal meer op de hele pot.",
+   "beweging": "Gouden annotatiehaak onder de linkergrafiek: \"drift: sterk in kleine populaties\"."
+  },
+  {
+   "id": "e5s11",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Terug naar Pingelap. Rond het jaar 1775 raast er een tyfoon over het atol. Daarna volgt hongersnood. Er blijven ongeveer twintig mensen over.",
+   "beweging": "Storm: palmen buigen, golven hoger; daarna rust en een klein groepje silhouetten."
+  },
+  {
+   "id": "e5s12",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een populatie die ineens heel klein wordt, gaat door een flessenhals. Dat heet het flessenhalseffect. Welke allelen erdoor komen, is toeval. Bij die twintig mensen was er waarschijnlijk één drager van het allel voor achromatopsie.",
+   "beweging": "Grote pot, smalle gouden hals, kleine pot; één gele knikker glijdt erdoor."
+  },
+  {
+   "id": "e5q13",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een populatie gaat door een flessenhals: van duizend naar twintig dieren. Wat gebeurt er met de genetische variatie? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Die neemt af: zeldzame allelen komen er vaak niet door · B Die neemt toe: in een kleine groep ontstaan meer mutaties · C Die blijft gelijk: alle allelen zijn er nog, alleen minder vaak",
+   "juist": "A"
+  },
+  {
+   "id": "e5s14",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Twintig mensen dragen samen maar veertig allelen van elk gen. Zeldzame allelen vallen dan vaak weg. En wat er overblijft, kan door toeval ineens vaak zijn. Daarna blijft de populatie generaties lang klein, en werkt de drift door.",
+   "beweging": "Kleine pot met 40 knikkers; een paar kleuren ontbreken; volgende potten: het gele aandeel groeit."
+  },
+  {
+   "id": "e5s15",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Vier generaties na de tyfoon had al bijna drie procent van de mensen achromatopsie. Nu is ongeveer drie op de tien mensen drager. Niet door selectie, maar door toeval in een kleine populatie.",
+   "beweging": "Allelbalk van Pingelap groeit van 1 gele knikker naar een duidelijk geel deel; telpoppetjes eronder."
+  },
+  {
+   "id": "e5s16",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Iets vergelijkbaars gebeurt als een paar individuen samen een nieuwe populatie beginnen, bijvoorbeeld op een leeg eiland. Hun allelen zijn een toevallige greep uit de oude pot. Dat heet het founder-effect.",
+   "beweging": "Drie knikkers uit een grote pot reizen naar een lege pot op een eiland-icoon."
+  },
+  {
+   "id": "e5s17",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Ook het jachtluipaard ging door een flessenhals, waarschijnlijk zo'n twaalfduizend jaar geleden. Er bleven er maar weinig over.",
+   "beweging": "Een jachtluipaard stapt door de nachtsavanne; de achtergrond blijft rustig."
+  },
+  {
+   "id": "e5s18",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onderzoekers plaatsten een stukje huid van het ene jachtluipaard op een ander, niet-verwant dier. Bij mensen stoot het lichaam vreemde huid af. Bij de jachtluipaarden werden alle veertien transplantaten geaccepteerd.",
+   "beweging": "Twee jachtluipaarden; een klein huidvierkantje verhuist; groene vinkjes, veertien keer."
+  },
+  {
+   "id": "e5s19",
+   "hoofdstuk": "H2 Flessenhals en founder-effect",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hun afweergenen zijn bijna allemaal hetzelfde. Zo weinig variatie is een risico: een nieuwe ziekte kan dan bijna alle dieren tegelijk treffen.",
+   "beweging": "Twee potten naast elkaar: een volle bonte pot (andere katachtigen) en een pot met bijna één kleur (jachtluipaard)."
+  },
+  {
+   "id": "e5s20",
+   "hoofdstuk": "H3 Genenstroom",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In Zuid-Afrika leven veel jachtluipaarden in losse, omheinde reservaten. Elke groep is klein. Kleine groepen verliezen door drift variatie, en het risico op inteelt groeit.",
+   "beweging": "Kaart met vier omheinde reservaten, in elk een jachtluipaard-icoon en een kleine pot."
+  },
+  {
+   "id": "e5s21",
+   "hoofdstuk": "H3 Genenstroom",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Daarom verhuizen natuurbeschermers sinds het jaar 2011 jachtluipaarden van reservaat naar reservaat. Allelen gaan dan mee naar een andere pot. Uitwisseling van allelen tussen populaties heet genenstroom.",
+   "beweging": "Teal pijlen tussen de reservaten; een icoon verhuist, met twee knikkers."
+  },
+  {
+   "id": "e5q22",
+   "hoofdstuk": "H3 Genenstroom",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Twee populaties. In de ene is negentig procent van de allelen blauw, in de andere tien procent. Elke generatie verhuist één op de twintig dieren naar de andere kant. Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Ze blijven zo verschillend: zo weinig dieren maakt niet uit · B Na een tijd gaan de twee potten op elkaar lijken · C Allebei gaan ze naar honderd procent blauw",
+   "juist": "B"
+  },
+  {
+   "id": "e5s23",
+   "hoofdstuk": "H3 Genenstroom",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Neem twee populaties: in de ene is negentig procent van de allelen blauw, in de andere tien procent. Elke generatie verhuist één op de twintig dieren naar de andere kant. De lijnen schuiven naar elkaar toe. Na zo'n veertig generaties zijn ze bijna gelijk.",
+   "beweging": "Grafiek: een teal lijn van 90% en een van 10% naderen elkaar rond 50%."
+  },
+  {
+   "id": "e5s24",
+   "hoofdstuk": "H3 Genenstroom",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Genenstroom maakt populaties meer gelijk, en brengt nieuwe allelen in een kleine populatie. Stopt de genenstroom, dan groeien ze uit elkaar. Dat zie je in de volgende film.",
+   "beweging": "Teal annotatiehaak onder de twee lijnen: \"genenstroom: potten gaan op elkaar lijken\"."
+  },
+  {
+   "id": "e5s25",
+   "hoofdstuk": "H4 Vier krachten in één pot",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Nu alle krachten samen, in één pot. Selectie: allelen die meer overlevende jongen opleveren, worden vaker. Welke dat zijn, hangt af van de omgeving.",
+   "beweging": "De pot in het midden; een groene pijl van rechts, de allelbalk schuift."
+  },
+  {
+   "id": "e5s26",
+   "hoofdstuk": "H4 Vier krachten in één pot",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Drift: toeval verschuift de allelfrequenties, zonder richting. Vooral in een kleine pot.",
+   "beweging": "Een gouden zigzagpijl erbij; de balk wiebelt."
+  },
+  {
+   "id": "e5s27",
+   "hoofdstuk": "H4 Vier krachten in één pot",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Genenstroom: allelen komen erbij of gaan weg met dieren die verhuizen. En mutatie: af en toe een nieuwe knikker. Mutatie is zeldzaam, dus de pot verandert er maar langzaam door.",
+   "beweging": "Een teal pijl in en uit de pot; één paarse knikker valt erin."
+  },
+  {
+   "id": "e5q28",
+   "hoofdstuk": "H4 Vier krachten in één pot",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Welke kracht kan een allel vaak maken, ook als het niets oplevert of zelfs schaadt? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Selectie · B Mutatie · C Genetische drift",
+   "juist": "C"
+  },
+  {
+   "id": "e5s29",
+   "hoofdstuk": "H4 Vier krachten in één pot",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Selectie laat allelen met een voordeel vaker worden. Drift kijkt niet naar voordeel of nadeel. In een kleine populatie kan toeval een nutteloos of schadelijk allel heel gewoon maken. Zo ging het op Pingelap.",
+   "beweging": "Groene pijl gedimd; de gouden zigzagpijl licht op boven de pot van Pingelap."
+  },
+  {
+   "id": "e5s30",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Of er iets aan de pot verandert, meet je met de regel van Hardy-Weinberg.",
+   "beweging": "Vwo-marker aan; de pot met allelbalk p en q eronder."
+  },
+  {
+   "id": "e5s31",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Noem het aandeel van het ene allel p, en van het andere q. Dan is p plus q één.",
+   "beweging": "Allelbalk met p (blauw) en q (geel); \"p + q = 1\" verschijnt."
+  },
+  {
+   "id": "e5s32",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Bij willekeurig paren trek je voor elk kind twee allelen uit de pot. Twee keer het eerste allel: p kwadraat. Twee keer het tweede: q kwadraat. Eén van elk: twee p q. Dat zijn de genotypefrequenties.",
+   "beweging": "Twee knikkers worden getrokken; genotypebalk p², 2pq, q² bouwt op."
+  },
+  {
+   "id": "e5s33",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Dat klopt alleen als er niets aan de pot verandert. Dus een grote populatie, willekeurig paren, en geen selectie, genenstroom of mutatie. Wijkt een echte populatie af, dan werkt er een kracht.",
+   "beweging": "Vijf voorwaarden als kaartjes; er komt een meetlat onder de genotypebalk."
+  },
+  {
+   "id": "e5s34",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Je kunt er ook mee rekenen. Stel: één op de tweeduizendvijfhonderd baby's heeft een recessieve erfelijke ziekte. Dat is q kwadraat.",
+   "beweging": "Raster van 2500 telpoppetjes, één in oker."
+  },
+  {
+   "id": "e5q35",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Welk deel van de mensen is drager van het allel? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Ongeveer één op de vijftig · B Ongeveer één op de vijfentwintig · C Eén op de tweeduizendvijfhonderd",
+   "juist": "B"
+  },
+  {
+   "id": "e5s36",
+   "hoofdstuk": "V1 Hardy-Weinberg",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Neem de wortel: q is één vijftigste. Dan is p bijna één. Dragers hebben één van elk: twee p q. Dat is ongeveer twee vijftigste, één op de vijfentwintig. Zo'n vier procent is drager, zonder ziek te zijn.",
+   "beweging": "Rekenstappen schuiven onder elkaar: q² → q → 2pq ≈ 4%; de dragers in het raster lichten op."
+  },
+  {
+   "id": "e5s37",
+   "hoofdstuk": "V2 Heterozygotenvoordeel",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Soms houdt selectie juist twee allelen in stand. Met twee sikkelcelallelen worden rode bloedcellen bij weinig zuurstof stijf en sikkelvormig.",
+   "beweging": "Zoomcirkel van een bloedvat naar rode bloedcellen; enkele vervormen tot sikkels."
+  },
+  {
+   "id": "e5s38",
+   "hoofdstuk": "V2 Heterozygotenvoordeel",
+   "laag": "vwo",
+   "look": "Micro",
+   "tekst": "Zonder behandeling sterft in Afrika meer dan de helft van die kinderen jong. Toch draagt daar soms tien tot veertig procent van de mensen het allel.",
+   "beweging": "Sikkelcellen blijven haken in een smal bloedvat."
+  },
+  {
+   "id": "e5q39",
+   "hoofdstuk": "V2 Heterozygotenvoordeel",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Waarom blijft het sikkelcelallel daar zo gewoon? Wat denk je?",
+   "beweging": "Vraagkaart; gouden aftellijn.",
+   "opties": "A Dragers worden minder vaak ernstig ziek van malaria · B Het allel ontstaat daar steeds opnieuw door mutatie · C Door drift, want die populaties zijn klein",
+   "juist": "A"
+  },
+  {
+   "id": "e5s40",
+   "hoofdstuk": "V2 Heterozygotenvoordeel",
+   "laag": "vwo",
+   "look": "Schema",
+   "tekst": "Dragers hebben één sikkelcelallel en één normaal allel. Zij krijgen zo'n negen keer minder vaak ernstige malaria. Waar malaria veel voorkomt, overleven dragers het best. Dat heet heterozygotenvoordeel. Selectie houdt zo beide allelen in de pot.",
+   "beweging": "Drie genotypen op één basislijn: normaal (malaria), drager (groene haak), twee sikkelallelen (sikkelziekte)."
+  },
+  {
+   "id": "e5s41",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De volgende generatie krijgt een greep uit de pot, en die greep is toeval. Dat is genetische drift: sterk in kleine populaties, zwak in grote.",
+   "beweging": "Samenvattingskaart drift (goud)."
+  },
+  {
+   "id": "e5s42",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Bij een flessenhals of founder-effect wordt een populatie ineens klein, en gaat variatie verloren. Genenstroom maakt populaties meer gelijk.",
+   "beweging": "Kaartjes flessenhals en genenstroom (teal) erbij."
+  },
+  {
+   "id": "e5s43",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Op Pingelap kwam het allel voor achromatopsie door een flessenhals in een kleine populatie terecht. Daarna maakte drift het gewoon. Een allel kan dus vaak worden zonder dat het iets oplevert.",
+   "beweging": "Pingelap-kaart met de allelbalk; gouden annotatiehaak."
+  },
+  {
+   "id": "e5s44",
+   "hoofdstuk": "Samengevat",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie kernzinnen met een annotatiehaak, geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom genetische drift sterker werkt in een kleine populatie dan in een grote.",
+   "antwoord": "In een kleine populatie is de greep allelen die wordt doorgegeven klein, dus wijkt die door toeval meer af van de hele genenpool; een allel kan zo snel verdwijnen of vaak worden."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is het verschil tussen een flessenhalseffect en een founder-effect?",
+   "antwoord": "Flessenhals: een bestaande populatie wordt ineens heel klein (bv. door een ramp). Founder-effect: een paar individuen beginnen een nieuwe populatie. In beide gevallen bepaalt toeval welke allelen overblijven."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom lijken alle jachtluipaarden genetisch op elkaar?",
+   "antwoord": "Ze gingen door een flessenhals; daarbij en door drift daarna ging veel genetische variatie verloren."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Natuurbeschermers verhuizen jachtluipaarden tussen omheinde reservaten. Leg uit wat dit doet met de genetische variatie in één reservaat.",
+   "antwoord": "Er ontstaat genenstroom: nieuwe allelen komen in de kleine populatie, zodat er minder variatie door drift verloren gaat en minder inteelt is."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Op Pingelap is het allel voor achromatopsie veel vaker dan elders. Is dit natuurlijke selectie? Leg uit.",
+   "antwoord": "Nee: het allel geeft geen voordeel. Het is door de flessenhals na de tyfoon en door drift in de kleine populatie vaak geworden."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Eén op de 10.000 mensen heeft een recessieve ziekte. Bereken met Hardy-Weinberg het deel dragers.",
+   "antwoord": "q² = 1/10.000 → q = 0,01 → p = 0,99 → 2pq = 2 × 0,99 × 0,01 ≈ 0,02 = 2%."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Noem de voorwaarden van Hardy-Weinberg en leg uit waarom je de regel een meetlat noemt.",
+   "antwoord": "Grote populatie (geen drift), willekeurig paren, geen selectie, geen genenstroom, geen mutatie. Wijken de gemeten genotypefrequenties af van p², 2pq en q², dan werkt er een kracht."
+  },
+  {
+   "niveau": "vwo",
+   "vraag": "Leg uit waarom het sikkelcelallel in malariagebieden vaak voorkomt, hoewel mensen met twee sikkelcelallelen vaak jong sterven.",
+   "antwoord": "Heterozygotenvoordeel: dragers zijn beter beschermd tegen ernstige malaria dan mensen met twee normale allelen; selectie houdt daardoor beide allelen in de populatie."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "genetische drift",
+   "uitleg": "Verandering van allelfrequenties door toeval. Sterk in kleine populaties, zwak in grote.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "flessenhalseffect",
+   "uitleg": "Een populatie wordt ineens heel klein; welke allelen overblijven is toeval en er gaat variatie verloren.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "founder-effect",
+   "uitleg": "Een paar individuen beginnen een nieuwe populatie; hun allelen zijn een toevallige greep uit de oude genenpool.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genenstroom",
+   "uitleg": "Uitwisseling van allelen tussen populaties doordat individuen verhuizen. Populaties gaan daardoor op elkaar lijken.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genetische variatie",
+   "uitleg": "De verschillende allelen in een populatie.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "Hardy-Weinberg",
+   "uitleg": "Zonder drift, selectie, genenstroom en mutatie en bij willekeurig paren blijven de genotypen p² : 2pq : q², met p + q = 1. Een meetlat: wijkt een populatie af, dan werkt er een kracht.",
+   "niveau": "vwo"
+  },
+  {
+   "begrip": "genotypefrequentie",
+   "uitleg": "Het aandeel van een genotype (bv. AA, Aa of aa) in een populatie.",
+   "niveau": "vwo"
+  },
+  {
+   "begrip": "heterozygotenvoordeel",
+   "uitleg": "Heterozygoten hebben een hogere fitness dan beide homozygoten, zodat selectie beide allelen in stand houdt (sikkelcel en malaria).",
+   "niveau": "vwo"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "Pingelap: atol in de Federale Staten van Micronesië, landoppervlak ±1,8 km², minder dan 4 km breed, ±250 inwoners",
+   "bron": "Wikipedia (en) Pingelap, geraadpleegd 22 okt 2026"
+  },
+  {
+   "waarde": "Tyfoon rond 1775 (Lengkieki) met daarna hongersnood; ±20 overlevers; één overlever (de heerser) waarschijnlijk drager",
+   "bron": "Wikipedia Pingelap; Science News 2000 (sciencenews.org/?p=32322) over Sundin et al. 2000, Nature Genetics 25: 289"
+  },
+  {
+   "waarde": "Achromatopsie op Pingelap: ±5% (Science News 2000) tot bijna 10% (Wikipedia, EyeWiki); 2,7% in de vierde generatie na de tyfoon; ±30% drager → film: \"ongeveer één op de twintig\", \"bijna drie procent\", \"drie op de tien\"",
+   "bron": "Wikipedia Pingelap; EyeWiki Achromatopsia; Sundin et al. 2000"
+  },
+  {
+   "waarde": "Achromatopsie wereldwijd ±1 op 30.000",
+   "bron": "EyeWiki (AAO) Achromatopsia"
+  },
+  {
+   "waarde": "Drift-simulatie: Wright-Fisher, 8 runs met 10 dieren (20 allelen): alle 8 gefixeerd binnen 49 generaties; 8 runs met 5000 dieren: blijven binnen ±0,1 van 0,5 (eigen model, seeds 101–220 en 501–620)",
+   "bron": "eigen simulatie in teken_evo5.js (DRIFT)"
+  },
+  {
+   "waarde": "Genenstroom-simulatie: twee populaties van 1000 dieren, 5% migratie per generatie, start 90% en 10% → na 40 generaties ±50% (eilandmodel)",
+   "bron": "eigen simulatie in teken_evo5.js (STROOM)"
+  },
+  {
+   "waarde": "Jachtluipaard: 14 wederzijdse huidtransplantaten tussen niet-verwante dieren, alle 14 geaccepteerd",
+   "bron": "O'Brien et al. 1985, Science 227: 1428 (samenvatting via cheetah.org)"
+  },
+  {
+   "waarde": "Jachtluipaard: flessenhalzen ±100.000 en ±12.000 jaar geleden; 90–99% minder variatie dan andere zoogdieren",
+   "bron": "Dobrynin et al. 2015, Genome Biology (via GenomeWeb-bericht)"
+  },
+  {
+   "waarde": "Zuid-Afrika, Cheetah Metapopulation Project (Endangered Wildlife Trust) sinds 2011: van 217 dieren in 41 reservaten naar 419 in 60 reservaten (2020); verhuizen om inteelt te beperken",
+   "bron": "Mongabay 2020 (news.mongabay.com/2020/09/spots-of-hope…); Dinokeng Game Reserve (EWT-project)"
+  },
+  {
+   "waarde": "Hardy en Weinberg, onafhankelijk, 1908; voorwaarden",
+   "bron": "Wikipedia Hardy–Weinberg principle"
+  },
+  {
+   "waarde": "Rekenvoorbeeld 1 op 2500 (q = 1/50, 2pq ≈ 3,9%) is een rekenvoorbeeld, geen Nederlands cijfer; taaislijmziekte in Nederland: 25–30 kinderen per jaar, ±1750 patiënten",
+   "bron": "NCFS (ncfs.nl/over-taaislijmziekte/cf-de-basis)"
+  },
+  {
+   "waarde": "HbAS (drager) geeft ±91% bescherming tegen ernstige malaria (OR 0,09) → \"zo'n negen keer minder vaak\"",
+   "bron": "Taylor, Parobek & Fairhurst 2012, Lancet Infect Dis 12: 457 (PMC3404513)"
+  },
+  {
+   "waarde": "Sikkelcelziekte in Afrika: 50–80% van de kinderen sterft zonder behandeling vóór het vijfde jaar; 10–40% van de bevolking draagt het allel (WHO 2010)",
+   "bron": "Africa Check 2019 (citeert WHO AFR/RC60/8)"
+  },
+  {
+   "waarde": "Geografisch verband HbS-frequentie en malaria bevestigd, sterk in Afrika",
+   "bron": "Piel et al. 2010, Nature Communications 1: 104"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "Pingelap",
+   "invoer": "Pingelap (wachtlijst; alternatief \"Ping-gelap\")",
+   "ipa": "/ˈpɪŋ.ə.læp/ (Engels); lokaal 'Pingelap'",
+   "bron": "archief A8 gebruikte \"Pingelap\" zonder klacht; geen woordenboek-IPA gevonden"
+  },
+  {
+   "woord": "achromatopsie",
+   "invoer": "achromatopsie",
+   "ipa": "/ɑ.xroː.maː.tɔpˈsi/",
+   "bron": "geen woordenboek-IPA gevonden; klemtoon op -sie zoals bij -opsie-woorden (biopsie, autopsie); wachtlijst"
+  },
+  {
+   "woord": "tyfoon",
+   "invoer": "tyfoon",
+   "ipa": "/tiˈfoːn/",
+   "bron": "Van Dale-patroon (ty = tie); wachtlijst"
+  },
+  {
+   "woord": "founder-effect",
+   "invoer": "faunder-effect",
+   "ipa": "/ˈfʌu̯n.dər ɛˈfɛkt/",
+   "bron": "Engels \"founder\"; risico op Nederlandse \"foon-der\"; wachtlijst"
+  },
+  {
+   "woord": "flessenhals",
+   "invoer": "flessenhals",
+   "ipa": "/ˈflɛ.sə(n).ɦɑls/",
+   "bron": "gewoon woord"
+  },
+  {
+   "woord": "genenstroom",
+   "invoer": "genenstroom",
+   "ipa": "/ˈɣeː.nə(n).stroːm/",
+   "bron": "gewoon woord"
+  },
+  {
+   "woord": "Hardy-Weinberg",
+   "invoer": "Hardy-Wainberg",
+   "ipa": "/ˈhɑr.di ˈʋɑin.bɛrx/",
+   "bron": "archief A8 (zelfde invoer); wachtlijst"
+  },
+  {
+   "woord": "p kwadraat, q kwadraat, twee p q",
+   "invoer": "p-kwadraat, q-kwadraat, twee p q",
+   "ipa": "",
+   "bron": "archief A8; in de tekst al uitgeschreven"
+  },
+  {
+   "woord": "tweeduizendvijfhonderd",
+   "invoer": "tweeduizend vijfhonderd",
+   "ipa": "",
+   "bron": "lang telwoord; spatie helpt de stem; wachtlijst"
+  },
+  {
+   "woord": "heterozygotenvoordeel",
+   "invoer": "heterozie-goten-voordeel",
+   "ipa": "/ˌɦeː.tə.roː.ziˈɣoː.tə(n).voːr.deːl/",
+   "bron": "archief A8 (heterozie-goten); geen online IPA; wachtlijst"
+  },
+  {
+   "woord": "hemoglobine",
+   "invoer": "hemoglobine",
+   "ipa": "/ˌɦeː.moː.ɣloːˈbi.nə/",
+   "bron": "UITSPRAAK.md: -ine gewoon schrijven bij v4"
+  },
+  {
+   "woord": "sikkelcelallel",
+   "invoer": "sikkelcel-allel",
+   "ipa": "/ˈsɪ.kəl.sɛl.ɑˈlɛl/",
+   "bron": "samenstelling; wachtlijst"
+  },
+  {
+   "woord": "malaria",
+   "invoer": "malaria",
+   "ipa": "/maːˈlaː.ri.jaː/",
+   "bron": "gewoon woord"
+  },
+  {
+   "woord": "1775 / 2011",
+   "invoer": "het jaar 1775 / het jaar 2011",
+   "ipa": "",
+   "bron": "Kamiels voorkeur jaartallen"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "jachtluipaard(ctx, x, y, s, {kijk, fase}) — zijaanzicht volgens C9: kleine ronde kop, traanstreep, massieve stippen, lange poten met hak, staart met ringen en witte punt (teken_evo5.js)",
+  "atolMacro(ctx, {storm}) en palm(ctx, x, y, h, buig) — Macro-nacht: zee, smal eiland met palmen; storm buigt de palmen (teken_evo5.js)",
+  "pingelapKaart(ctx, x, y, s) — kaartschets van het atol: rif, lagune, eilanden (teken_evo5.js)",
+  "sikkelcel(ctx, x, y, r, an) — halvemaanvormige rode bloedcel, naast rodeBloedcel uit lib_bio (teken_evo5.js)",
+  "frequentieGrafiek(ctx, x, y, w, h, lijnen, o) — allelfrequentie tegen generaties (teken_evo5.js)",
+  "wrightFisher / genenstroom / DRIFT / STROOM — deterministische simulaties met vaste seed (teken_evo5.js)",
+  "flessenhals(ctx, x, y, s) — gouden hals tussen twee potten (teken_evo5.js)",
+  "reservaat(ctx, x, y, w, h) — omheind reservaat als kaartvak met hekpaaltjes (teken_evo5.js)",
+  "telpop(ctx, x, y, h, kleur) — pictogram voor tellingen (teken_evo5.js)",
+  "genotypeBalk(ctx, x, y, w, p) — p², 2pq, q² als drie vakken (teken_evo5.js, vwo)"
+ ],
+ "keuzes_en_twijfels": [
+  "Puzzel A gekozen. De haak uit de seriebrief (\"bijna iedereen is kleurenblind\") is overdreven: het is ±5–10% met achromatopsie (±30% drager). De film zegt \"ongeveer één op de twintig\"; \"bijna iedereen\" staat op de niet-zeggen-lijst.",
+  "Getal achromatopsie: bronnen lopen uiteen van ±5% (Sundin 2000 / Science News) tot \"bijna 10%\" (Wikipedia, EyeWiki). Gekozen: het voorzichtige \"één op de twintig\".",
+  "Founder-effect zonder eigen casus (seriebrief: casussen Pingelap en jachtluipaard); kort als schema met een leeg eiland. Pingelap zelf is strikt een flessenhals; sommige bronnen noemen het founder-effect. In de film: flessenhals.",
+  "Jachtluipaard: de huidtransplantaten gaan over afweergenen (MHC); \"hun afweergenen zijn bijna allemaal hetzelfde\" is de vereenvoudiging. Niet zeggen: \"alle jachtluipaarden zijn klonen\" of \"genetisch identiek\".",
+  "Genenstroom-casus: de omheinde reservaten in Zuid-Afrika (EWT, sinds 2011). Het is genenstroom door de mens, maar het mechanisme is hetzelfde; dit houdt de jachtluipaard als één casus door H2 en H3.",
+  "Inteelt wordt in H3 alleen genoemd (film 4 legt het uit).",
+  "Duur (na review 22 okt): basis ±7,1 min, met vwo ±9,4 min (schatting 140 wpm + 10 s per vraag + 4 s per kaart): boven de 9 minuten. Te schrappen als het moet: e5s38 (sikkelcellen blijven haken) of de kansuitleg in e5s32.",
+  "knikker() staat zowel in teken_evo1.js als teken_evo5.js zodat beide films los renderen; samenvoegen in lib_evo bij de hoofdredactie. goudRing() idem in sb1.js en sb5.js.",
+  "De vier krachten in H4 met eigen accentkleur (selectie groen, drift goud, genenstroom lichte teal #9CCBE3, mutatie paars). Opgelost (review 22 okt, punt 53): EVO.kracht.stroom is nu lichte teal, zodat de genenstroompijlen niet meer dezelfde kleur hebben als de teal knikkers (allel 1); e5s21–e5s27 en e5s42 opnieuw gerenderd en nagekeken.",
+  "De film legt niet uit waardoor het sikkelcelallel ontstond (mutatie, DNA-reeks), alleen waarom het blijft.",
+  "Het rekenvoorbeeld \"1 op 2500\" is bewust een fictief voorbeeld (seriebrief puzzel C), niet taaislijmziekte in Nederland (dat is ±1 op 3600–6000). Taaislijmziekte niet noemen in de vertelling om verwarring te voorkomen.",
+  "Vwo-blokken beginnen direct met inhoud (BEELDAFSPRAKEN) en sluiten met een terugkeer naar de pot; ze staan na H4 vóór de samenvatting; de basislijn mist zonder ze niets.",
+  "\"zo'n negen keer minder vaak\" komt uit OR 0,09 (Taylor 2012, case-control); een odds ratio is strikt geen relatief risico; voor ernstige malaria bij lage incidentie is het een redelijke benadering. Alternatief: \"veel minder vaak\".",
+  "Niet zeggen: \"bijna iedereen op Pingelap is kleurenblind\"; \"jachtluipaarden zijn genetisch identiek/klonen\"; \"lage genetische variatie is de grootste bedreiging voor het jachtluipaard\" (Caro & Laurenson 1994: leefgebied en mensen wegen zwaarder); \"drift is hetzelfde als mutatie\"; \"dragers van sikkelcel kunnen geen malaria krijgen\" (ze zijn beschermd tegen ernstige malaria, niet immuun); \"het sikkelcelallel ontstond om malaria te bestrijden\".",
+  "Vraag e5q28: 'Alleen' uit de opties gehaald (A en B waren te raden). Genenstroom bewust níet als vierde optie toegevoegd: die kan een allel ook vaak maken zonder voordeel, dus dan zou D ook goed zijn.",
+  "Hoofdstukken hebben nu een veld 'laag'; hoofdstuk 5 staat op 'vwo', zodat de speler die hoofdstukkaart in de havo-stand weglaat. '(vwo)' staat niet meer in de titel; de paarse vwoMarker doet dat.",
+  "Review 22 okt: 8 punten verwerkt (10 selectie niet 'één kant op', 19/20 Vragen uit bij drift- en genenstroomsimulatie, 20 'één op de twintig dieren', 26 opties e5q28, 51 flessenhalseffect, 52 genotypefrequenties en p ≈ 1, 53 genenstroom lichte teal, 56 '(vwo)' uit titel)."
+ ],
+ "duur": {
+  "basis_min": 7.1,
+  "met_vwo_min": 9.4,
+  "woorden": 1114,
+  "woorden_basis": 849,
+  "woorden_vwo": 265
+ }
+}

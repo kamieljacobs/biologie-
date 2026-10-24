@@ -1,0 +1,542 @@
+{
+ "film": 4,
+ "titel": "De mens als selectiefactor",
+ "slug": "4-de-mens-als-selectiefactor",
+ "puzzel": "Waarom helpt een antibioticum niet tegen griep, maar maakt het wel resistentie?",
+ "haak": "\"Maak je antibioticakuur af\": Opa Henk haalt een kuur op bij apotheker Ravi. Het advies is intussen bijgesteld: neem het zoals je arts het voorschrijft.",
+ "duur": {
+  "basis_min": 8.6,
+  "met_vwo_min": 8.6,
+  "woorden": 1007
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Bacteriën evolueren snel",
+   "minivraag": "Waarom gaat evolutie bij bacteriën zo snel?",
+   "type": "F",
+   "look": "Micro"
+  },
+  {
+   "nr": 2,
+   "titel": "Het antibioticum kiest",
+   "minivraag": "Wie blijft er over als het antibioticum komt?",
+   "type": "F",
+   "look": "Micro"
+  },
+  {
+   "nr": 3,
+   "titel": "De pot lekt",
+   "minivraag": "Kan resistentie overspringen naar een andere soort?",
+   "type": "A",
+   "look": "Micro"
+  },
+  {
+   "nr": 4,
+   "titel": "De mens kiest",
+   "minivraag": "Hoe wordt een wolf een chihuahua?",
+   "type": "F",
+   "look": "Macro"
+  },
+  {
+   "nr": 5,
+   "titel": "Inteelt en de genenbank",
+   "minivraag": "Waarom hebben rashonden vaker erfelijke ziekten?",
+   "type": "I",
+   "look": "Schema"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e4s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Opa Henk haalt een doosje antibiotica op bij apotheker Ravi. Iedereen kent het advies: maak je kuur af. Maar klopt dat wel? En waarom krijg je bij griep geen antibioticum?",
+   "beweging": "Ravi schuift het doosje over de balie; Opa Henk pakt het aan."
+  },
+  {
+   "id": "e4s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel verschijnen, rechts een gouden (resistente) bacterie tussen teal bacteriën."
+  },
+  {
+   "id": "e4s03",
+   "hoofdstuk": "H1 Bacteriën evolueren snel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Bacteriën planten zich voort door te delen. Eén bacterie wordt twee, twee worden vier. Onder ideale omstandigheden kan een darmbacterie als E. coli dat elke twintig minuten.",
+   "beweging": "Een staafje snoert in het midden in en wordt twee; die twee splitsen weer."
+  },
+  {
+   "id": "e4s04",
+   "hoofdstuk": "H1 Bacteriën evolueren snel",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "In je darmen leven tienduizenden miljarden bacteriën. Bij elke deling wordt het DNA gekopieerd, en heel af en toe gaat daarbij iets mis: een mutatie. Hoe dat precies gebeurt, zie je in de DNA-reeks.",
+   "beweging": "Uitzoomen over een dichte kolonie; hier en daar licht één bacterie op met een nieuw allel (paars)."
+  },
+  {
+   "id": "e4q05",
+   "hoofdstuk": "H1 Bacteriën evolueren snel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom kan een populatie bacteriën veel sneller evolueren dan een populatie mensen?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Bacteriën passen zich aan als het nodig is · B Korte generatietijd en enorme aantallen · C Bacteriën hebben meer genen dan mensen",
+   "juist": "B"
+  },
+  {
+   "id": "e4s06",
+   "hoofdstuk": "H1 Bacteriën evolueren snel",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een mens krijgt ongeveer elke dertig jaar een nieuwe generatie. In het lab haalt een bacterie in één dag tientallen generaties. In je darm gaat het trager, maar nog steeds veel sneller dan bij mensen. Meer generaties en meer individuen betekent meer mutaties en vaker selectie. Daarom verandert de genenpool van bacteriën zo snel.",
+   "beweging": "Twee tijdlijnen: de mensenlijn zet één streepje, de bacterielijn vult zich met tientallen streepjes; daarnaast de pot van de kolonie."
+  },
+  {
+   "id": "e4s07",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Opa Henk heeft een blaasontsteking. Dr. Kim laat zijn urine onderzoeken. Er zitten bacteriën in, en ze schrijft een antibioticum voor.",
+   "beweging": "Dr. Kim houdt het potje omhoog; een zoomcirkel opent naar de bacteriën."
+  },
+  {
+   "id": "e4s08",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Kijk naar die bacteriën. De meeste zijn gevoelig voor het antibioticum. Soms hebben een paar door een toevallige mutatie een allel waardoor het middel niet werkt. Dat allel ontstond niet door de pil.",
+   "beweging": "De kolonie ligt stil; drie oker (resistente) bacteriën krijgen een gouden rand."
+  },
+  {
+   "id": "e4q09",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Opa Henk slikt het antibioticum. Wat gebeurt er met de bacteriën in zijn blaas?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Ze worden langzaam immuun voor het middel · B Het middel veroorzaakt resistentie-mutaties · C Gevoelige gaan dood, resistente delen verder",
+   "juist": "C"
+  },
+  {
+   "id": "e4s10",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "De gevoelige bacteriën gaan dood. De resistente bacteriën merken weinig van het middel. Ze delen gewoon verder, en hun nakomelingen erven het resistentie-allel. Geen enkele bacterie is zelf veranderd: de populatie is veranderd.",
+   "beweging": "Antibioticummoleculen (koraal) dringen in; teal staafjes worden gestippeld en vervagen; de oker staafjes delen."
+  },
+  {
+   "id": "e4s11",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In de pot zie je wat er kan gebeuren. Eerst is het resistentie-allel zeldzaam. Overleven er resistente bacteriën, dan is het na de kuur ineens heel gewoon. Het antibioticum was de selectiedruk. Elke keer dat je het gebruikt, krijgen resistente bacteriën een voordeel.",
+   "beweging": "Twee potten naast elkaar (voor en na), de allelbalk schuift van bijna helemaal teal naar bijna helemaal oker."
+  },
+  {
+   "id": "e4s12",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "En griep? Griep komt door een virus. Een virus is geen bacterie: een antibioticum doet er niets tegen. Je wordt dus niet sneller beter.",
+   "beweging": "Griepvirussen blijven ongeschonden tussen de antibioticummoleculen; de camera schuift naar de darmbacteriën."
+  },
+  {
+   "id": "e4q13",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Iemand neemt een antibioticum tegen griep. Wat doet dat?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Het selecteert resistente bacteriën in je darmen · B Niets: er zijn geen ziekmakende bacteriën · C Het griepvirus wordt er resistent door",
+   "juist": "A"
+  },
+  {
+   "id": "e4s14",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Het middel komt overal in je lichaam, ook bij de bacteriën in je darmen. Daar zitten vaak ook een paar resistente bacteriën. Het antibioticum ruimt hun concurrenten op. Je hebt dus de nadelen van het middel, zonder het voordeel. Dat is de oplossing van de puzzel: tegen griep helpt een antibioticum niet, maar selecteren doet het wel.",
+   "beweging": "In de darmkolonie vervagen de teal bacteriën; de oker bacteriën vullen de vrijgekomen ruimte."
+  },
+  {
+   "id": "e4s15",
+   "hoofdstuk": "H2 Het antibioticum kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "En die kuur? Het oude advies 'maak hem altijd af' was bedoeld tegen resistentie. Maar elke extra dag is ook extra selectiedruk. Daarom zeggen artsen nu: neem het precies zoals je arts het voorschrijft. Wil je eerder stoppen, overleg dan eerst. En breng een restje terug naar de apotheek.",
+   "beweging": "Apotheker Ravi wijst op het etiket met het aantal dagen; Opa Henk knikt."
+  },
+  {
+   "id": "e4s16",
+   "hoofdstuk": "H3 De pot lekt",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Bij bacteriën kan een allel ook nog op een andere manier rondgaan. Naast hun grote DNA-molecuul hebben ze vaak kleine ringetjes DNA: plasmiden. Op een plasmide ligt soms een resistentiegen.",
+   "beweging": "Inzoomen op één oker bacterie; het plasmide-ringetje licht op, het oker stukje is het resistentiegen."
+  },
+  {
+   "id": "e4s17",
+   "hoofdstuk": "H3 De pot lekt",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Een bacterie kan een kopie van zo'n plasmide doorgeven aan een buurbacterie, via een dun buisje. Die buurbacterie hoeft niet eens dezelfde soort te zijn.",
+   "beweging": "Een geslachtsdraad (pilus) groeit naar een buurbacterie; een kopie van het ringetje schuift erdoorheen."
+  },
+  {
+   "id": "e4q18",
+   "hoofdstuk": "H3 De pot lekt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een E. coli met een plasmide voor resistentie ligt naast een bacterie van een andere soort. Wat kan er gebeuren?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Niets: genen gaan alleen naar dochtercellen · B De E. coli verliest zijn resistentie · C De andere soort krijgt een kopie en wordt resistent",
+   "juist": "C"
+  },
+  {
+   "id": "e4s19",
+   "hoofdstuk": "H3 De pot lekt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Resistentie springt zo over naar een andere soort. Een bekend voorbeeld is ESBL: een enzym dat penicillines en veel andere antibiotica afbreekt. De genen ervoor liggen meestal op plasmiden, en gaan van E. coli naar bijvoorbeeld Klebsiella. Het is alsof er een gaatje zit tussen twee potten.",
+   "beweging": "Twee potten (E. coli en Klebsiella); een oker knikker rolt door een buisje van de ene naar de andere pot."
+  },
+  {
+   "id": "e4s20",
+   "hoofdstuk": "H3 De pot lekt",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In een ziekenhuis liggen veel zieke mensen bij elkaar, en worden veel antibiotica gebruikt. Daar is de selectiedruk het grootst. Daarom testen ziekenhuizen op resistente bacteriën, en wassen artsen voortdurend hun handen.",
+   "beweging": "Ziekenhuisicoon; rondom lichten patiënt, handen en bed op als plekken waar plasmiden overspringen."
+  },
+  {
+   "id": "e4s21",
+   "hoofdstuk": "H4 De mens kiest",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Bij een antibioticum kiest de mens per ongeluk. Maar vaak kiest de mens met opzet. Minstens vijftienduizend jaar geleden leefden mensen al samen met wolven. Alle honden stammen af van wolven uit die tijd.",
+   "beweging": "Een wolf zit op een heuvel bij nacht en huilt naar de maan; de camera schuift naar de rij honden."
+  },
+  {
+   "id": "e4s22",
+   "hoofdstuk": "H4 De mens kiest",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Fokkers lieten steeds de dieren met de gewenste kenmerken jongen krijgen. Dat heet kunstmatige selectie. Zo ontstonden rassen: groepen honden met eigen erfelijke kenmerken. De meeste rassen zijn pas ongeveer tweehonderd jaar oud.",
+   "beweging": "Wolf, herder, teckel, mops en chihuahua op dezelfde schaal komen één voor één in beeld."
+  },
+  {
+   "id": "e4q23",
+   "hoofdstuk": "H4 De mens kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Hoe kan uit een wolf ooit een chihuahua ontstaan?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Fokkers lieten steeds de kleinste honden jongen krijgen · B Binnen wonen en weinig rennen maakte honden kleiner · C Eén grote mutatie maakte in één keer een chihuahua",
+   "juist": "A"
+  },
+  {
+   "id": "e4s24",
+   "hoofdstuk": "H4 De mens kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Elke keer mochten de kleinste honden jongen krijgen. Allelen voor een kleine bouw werden zo, generatie na generatie, vaker in de genenpool. Het mechanisme is precies als bij natuurlijke selectie. Alleen bepaalt nu de fokker wie zich voortplant.",
+   "beweging": "Een hand (goud) pakt de kleine knikkers uit de pot; de nieuwe pot heeft een hogere oker fractie."
+  },
+  {
+   "id": "e4s25",
+   "hoofdstuk": "H4 De mens kiest",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Bij planten heet dit veredeling. Kijk naar de wilde kool, een plant van de kalkkliffen langs het Kanaal. Uit die ene soort kweekten mensen boerenkool, spruitjes, koolrabi, broccoli en bloemkool. Bij elke groente werd een ander deel steeds groter.",
+   "beweging": "De wilde kool in het midden; vijf groenten groeien er in een boog omheen, het vergrote deel krijgt een gouden ring."
+  },
+  {
+   "id": "e4s26",
+   "hoofdstuk": "H5 Inteelt en de genenbank",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dierenarts Mila ziet veel rashonden met erfelijke ziekten. Hoe komt dat? Een ras is een kleine groep die alleen onderling paart. Vaak hebben veel pups dezelfde populaire vader. Dan zijn ouders al snel familie van elkaar. Dat heet inteelt.",
+   "beweging": "Mila knielt bij een mops die zit en moeilijk ademt; achter haar een stamboom-icoon met één vader die vaak terugkomt."
+  },
+  {
+   "id": "e4q27",
+   "hoofdstuk": "H5 Inteelt en de genenbank",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom hebben rashonden vaker erfelijke ziekten?",
+   "beweging": "Vraagkaart met aftellijn.",
+   "opties": "A Bij inteelt ontstaan meer mutaties · B Rashonden zijn zwakker door het leven in huis · C Jongen krijgen vaker twee dezelfde recessieve allelen",
+   "juist": "C"
+  },
+  {
+   "id": "e4s28",
+   "hoofdstuk": "H5 Inteelt en de genenbank",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Inteelt maakt geen nieuwe mutaties. De knikkers in de pot blijven dezelfde. Wat verandert, is hoe ze in paren komen. Verwante ouders dragen vaak hetzelfde zeldzame allel. Hun jongen zijn dan vaker homozygoot, en dan komt een recessieve ziekte tot uiting. Bij veel rassen is de inteelt gemiddeld even hoog als bij een pup van broer en zus.",
+   "beweging": "Knikkerparen vallen uit de pot: in de linkerrij (vrij paren) zelden twee oker, in de rechterrij (inteelt) vaak twee oker; de allelbalk blijft gelijk."
+  },
+  {
+   "id": "e4s29",
+   "hoofdstuk": "H5 Inteelt en de genenbank",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Hetzelfde gebeurt bij gewassen. Boeren telen vaak maar een paar rassen, en oude rassen raken uit beeld. Daarom bewaart de genenbank in Wageningen zaden van oude rassen en wilde verwanten, diepgevroren. Een reservekopie ligt in een zadenkluis in een berg op Spitsbergen. Daar liggen inmiddels meer dan één komma drie miljoen zaadmonsters uit de hele wereld.",
+   "beweging": "Een rek met zaadpotjes; één potje schuift naar voren en een kopie reist naar een kluis in een berg."
+  },
+  {
+   "id": "e4s30",
+   "hoofdstuk": "H5 Inteelt en de genenbank",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Waarom die moeite? Komt er een nieuwe plantenziekte, dan zit het allel voor resistentie misschien in een oud ras. Variatie in de genenpool is een verzekering. Wat weg is, krijg je niet terug.",
+   "beweging": "Een akker met één ras wordt grijs door een ziekte; één plant uit een oud zaadpotje blijft groen."
+  },
+  {
+   "id": "e4s31",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Een antibioticum doodt bacteriën, geen virussen. Daarom helpt het niet tegen griep. Maar overal waar het komt, selecteert het. De resistente bacteriën blijven over. Plasmiden kunnen resistentie doorgeven aan andere soorten. Bij honden en kool kiest de mens met opzet. Steeds verandert een genenpool, en de mens is de selectiedruk.",
+   "beweging": "Drie tegels bouwen op: bacteriën, honden, kool; onder elke tegel dezelfde pot met een schuivende allelbalk."
+  },
+  {
+   "id": "e4s32",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie kernzinnen."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom bacteriën sneller evolueren dan mensen.",
+   "antwoord": "Ze hebben een korte generatietijd en zijn met enorm veel; daardoor ontstaan per tijdseenheid meer mutaties en vindt vaker selectie plaats."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: 'De bacteriën zijn aan het antibioticum gewend geraakt.' Verbeter deze zin.",
+   "antwoord": "Bacteriën worden niet zelf immuun. Een paar bacteriën hadden door een toevallige mutatie (of via een plasmide) een resistentie-allel; het antibioticum doodt de gevoelige, de resistente overleven en vermenigvuldigen zich, zodat het resistentie-allel vaker voorkomt. Het middel veroorzaakt de mutatie niet."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom kan een antibioticum tegen griep toch resistentie bevorderen?",
+   "antwoord": "Het werkt niet tegen het griepvirus, maar wel op de bacteriën in je lichaam (darmen); daar doodt het gevoelige bacteriën, zodat resistente bacteriën een selectievoordeel krijgen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Hoe kan een resistentiegen terechtkomen in een andere bacteriesoort?",
+   "antwoord": "Via een plasmide: een bacterie geeft een kopie van een plasmide met het resistentiegen door aan een andere bacterie, ook van een andere soort."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is het verschil tussen natuurlijke en kunstmatige selectie?",
+   "antwoord": "Het mechanisme is hetzelfde; bij kunstmatige selectie bepaalt de mens (fokker, veredelaar) welke individuen zich voortplanten, bij natuurlijke selectie de omgeving."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom inteelt leidt tot meer erfelijke ziekten. Noem ook wat inteelt níét doet.",
+   "antwoord": "Verwante ouders dragen vaker hetzelfde (schadelijke, recessieve) allel, zodat nakomelingen vaker homozygoot zijn en de ziekte tot uiting komt. Inteelt veroorzaakt geen extra mutaties en verandert de allelfrequentie niet."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Waarom bewaart een genenbank zaden van oude rassen?",
+   "antwoord": "Om genetische variatie te bewaren: daarin kunnen allelen zitten (bv. resistentie tegen een nieuwe ziekte) die moderne rassen niet meer hebben."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "generatietijd",
+   "uitleg": "De tijd tussen het ontstaan van een individu en het moment dat het zelf nakomelingen krijgt; bij bacteriën de tijd tussen twee delingen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "antibioticaresistentie",
+   "uitleg": "Een bacterie is resistent als een antibioticum haar niet meer doodt of remt. Resistentie wordt in een populatie vaker door selectie van bacteriën met een resistentie-allel; dat allel ontstaat door een toevallige mutatie of komt binnen via een plasmide, niet door het middel.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "selectiedruk",
+   "uitleg": "Een factor in de omgeving die bepaalt welke individuen meer nakomelingen krijgen, hier het antibioticum.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "plasmide",
+   "uitleg": "Klein, ringvormig DNA-molecuul in een bacterie, naast het grote DNA-molecuul. Kan als kopie worden doorgegeven aan een andere bacterie, ook van een andere soort.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "kunstmatige selectie",
+   "uitleg": "Selectie waarbij de mens bepaalt welke individuen zich voortplanten, waardoor gewenste allelen vaker worden. Bij planten heet het veredeling.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "veredeling",
+   "uitleg": "Het verbeteren van planten (of dieren) voor de mens door kunstmatige selectie en gericht kruisen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "ras",
+   "uitleg": "Groep binnen één soort met eigen erfelijke kenmerken, ontstaan door kunstmatige selectie.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "inteelt",
+   "uitleg": "Voortplanting tussen verwante individuen; geeft meer homozygote nakomelingen, waardoor schadelijke recessieve allelen vaker tot uiting komen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "genenbank",
+   "uitleg": "Instelling die zaden of ander erfelijk materiaal van rassen en wilde verwanten bewaart om genetische variatie te behouden.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "E. coli kan onder ideale omstandigheden elke ±20 minuten delen (LB-medium, 37 °C); in de darm veel trager",
+   "bron": "BioNumbers 103514 (Harvard); generatietijd darm niet genoemd in film"
+  },
+  {
+   "waarde": "tienduizenden miljarden bacteriën in je lichaam (3,8 × 10¹³, vrijwel allemaal in de dikke darm)",
+   "bron": "Sender, Fuchs & Milo 2016, PLoS Biology; BioNumbers 113000"
+  },
+  {
+   "waarde": "mensengeneratie ±30 jaar; bacterie 'tientallen generaties per dag' (72 bij 20 min, alleen in het lab)",
+   "bron": "afgeleid van BioNumbers 103514"
+  },
+  {
+   "waarde": "resistentie bestond al vóór antibiotica (resistentiegenen in 30.000 jaar oude permafrost)",
+   "bron": "D'Costa e.a. 2011, Nature 477 (niet in de film gezegd, achtergrond docent)"
+  },
+  {
+   "waarde": "'maak je kuur af' heeft geen bewijs als middel tegen resistentie; langer gebruik bevordert resistentie; bij twijfel overleggen met arts",
+   "bron": "RIVM Infectieziekten Bulletin 2017 (A. Ott, 'Een hardnekkige misvatting'); Llewelyn e.a. 2017, BMJ 358:j3418; NOS 2017"
+  },
+  {
+   "waarde": "antibiotica helpen niet tegen virussen",
+   "bron": "Thuisarts.nl, Antibiotica"
+  },
+  {
+   "waarde": "ESBL: enzymen die penicillines en (veel) cefalosporines afbreken; vooral in E. coli en Klebsiella; genen op plasmiden die tussen (ook verschillende) soorten overgaan",
+   "bron": "RIVM, Veelgestelde vragen over ESBL's"
+  },
+  {
+   "waarde": "honden minstens 15.000 jaar gedomesticeerd (mogelijk 20.000–40.000)",
+   "bron": "UC Davis Veterinary Genetics Laboratory, 'Rise of the modern dog'; Botigué e.a. 2017, Nature Communications"
+  },
+  {
+   "waarde": "veel rassen pas ±200 jaar oud (doelgericht fokken vanaf de 19e eeuw)",
+   "bron": "UC Davis VGL, idem"
+  },
+  {
+   "waarde": "gemiddelde inteeltcoëfficiënt in 227 rassen ±25%, gelijk aan volle broer en zus; meer inteelt = meer ziekte",
+   "bron": "Bannasch e.a. 2021, Canine Medicine and Genetics; persbericht UC Davis"
+  },
+  {
+   "waarde": "wilde kool: kalkkliffen langs het Kanaal (Fr., GB, Spanje); boerenkool = blad, sluitkool = eindknop, spruitjes = zijknoppen, koolrabi = stengel, broccoli/bloemkool = bloeiwijze",
+   "bron": "Wikipedia 'Brassica oleracea' (met bronnen: Maggioni e.a.)"
+  },
+  {
+   "waarde": "CGN Wageningen bewaart zaden bij −20 °C; ±24.000 monsters; in 2008 18.000 monsters naar Svalbard",
+   "bron": "WUR / Vroege Vogels 'Koud zaad'; getal 24.000 niet in de film"
+  },
+  {
+   "waarde": "Svalbard Global Seed Vault: meer dan 1,3 miljoen zaadmonsters",
+   "bron": "Crop Trust jaarverslag 2024; seedvault.no okt 2025"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "E. coli",
+   "invoer": "E. kóólie",
+   "ipa": "/e ˈkoː.li/",
+   "bron": "UITSPRAAK.md (goedgekeurd eleven_v3); bij v4 testen"
+  },
+  {
+   "woord": "plasmide / plasmiden",
+   "invoer": "plasmide",
+   "ipa": "/plɑsˈmi.də/",
+   "bron": "woorden.org (betekenis); klemtoon naar analogie van 'chromatide'; wachtlijst"
+  },
+  {
+   "woord": "ESBL",
+   "invoer": "E-S-B-L",
+   "ipa": "/e ɛs be ɛl/",
+   "bron": "Nederlandse letternamen, zoals E-E-G; wachtlijst"
+  },
+  {
+   "woord": "Klebsiella",
+   "invoer": "Klebsiella",
+   "ipa": "/klɛp.siˈjɛ.lɑ/",
+   "bron": "geen Nederlandse woordenboekbron gevonden; twijfel, wachtlijst"
+  },
+  {
+   "woord": "koolrabi",
+   "invoer": "koolrabi",
+   "ipa": "/koːlˈraː.bi/",
+   "bron": "Van Dale (klemtoon op ra); wachtlijst"
+  },
+  {
+   "woord": "chihuahua",
+   "invoer": "chihuahua",
+   "ipa": "/tʃiˈwɑ.wɑ/",
+   "bron": "Spaans leenwoord; wachtlijst"
+  },
+  {
+   "woord": "Spitsbergen",
+   "invoer": "Spitsbergen",
+   "ipa": "/ˈspɪts.bɛr.ɣə(n)/",
+   "bron": "gewone spelling"
+  },
+  {
+   "woord": "homozygoot",
+   "invoer": "homozygoot",
+   "ipa": "/ˌɦoː.moː.ziˈɣoːt/",
+   "bron": "archief A8 noemde 'homozie-goot' als risico; v4 eerst gewone spelling"
+  },
+  {
+   "woord": "penicillines",
+   "invoer": "penicillines",
+   "ipa": "/ˌpe.ni.siˈli.nəs/",
+   "bron": "UITSPRAAK.md: -ine-uitgangen bij v4 gewoon"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "viervoeter(ctx, x, y, s, P, o) — skeletgebaseerde viervoeter (gewrichtsketens, knie hoog/hiel laag), maten in schofthoogte, s = px per cm; gedeeld met film 6",
+  "wolf(), hond(ras) — wolf (80 cm) en vier rassen op schaal: herder 62, teckel 23, mops 29, chihuahua 20 cm",
+  "bacterie(ctx, x, y, len, rot, {type, plasmide, dood, deling, focus}) — E. coli-staafje met dubbele wand, ribosomen, nucleoïde, zweepdraden; gevoelig teal, resistent oker",
+  "plasmideRing(), pilus() — plasmide met resistentiegen (oker boog) en overdracht via geslachtsdraad",
+  "antibioticum() — bètalactam-molecuul (vierring + vijfring) in koraal; griepVirus() — envelop met uitsteeksels",
+  "petrischaal() — schaal met kolonies en antibioticumschijfje (remzone)",
+  "kool(soort) — wilde kool met kruisbloemen en zeven groenten (boerenkool, sluitkool, rode kool, spruitjes, koolrabi, broccoli, bloemkool)",
+  "genenbankRek(), zaadPotje() — vriesrek met zaadmonsters; ziekenhuisIcoon(), medicijnDoosje()"
+ ],
+ "keuzes_en_twijfels": [
+  "Haak 'maak je kuur af': verwoord als het huidige advies (neem het zoals je arts het voorschrijft, eerder stoppen alleen in overleg, restje terug naar de apotheek). Bronnen: RIVM-IB 2017 (Ott) en BMJ 2017. Thuisarts zelf heb ik niet over de kuurduur kunnen lezen (pagina gaf het niet); NHG-formulering niet gecontroleerd.",
+  "Puzzel A gekozen (seriebrief). B (rashonden) en C (oude rassen) komen terug als vraag e4q27 en in H5.",
+  "Vijf hoofdstukken: de brief vraagt resistentie, plasmiden, kunstmatige selectie én inteelt/genenbank. Daardoor 8,4 min; dit is aan de bovenkant. Inkorten kan door e4s20 (ziekenhuis) of e4s30 te schrappen.",
+  "Griep: de zin over de darmbacteriën staat nu pas ná vraag e4q13 (begin e4s14), zodat de vraag niet vooraf wordt weggegeven. De kijker kan denken dat elke kuur je darmen 'resistent maakt'; ik zeg 'een paar resistente bacteriën' en 'krijgen een voordeel', geen garantie. Ook e4s11 is voorwaardelijk ('Overleven er resistente bacteriën, dan …').",
+  "Hond: honden stammen af van een (mogelijk uitgestorven) wolvenpopulatie van toen, niet van de wolf van nu (Freedman e.a. 2014). Daarom 'wolven uit die tijd'; de huidige wolf in beeld is een neef. Zeg nooit 'de hond stamt af van de wolf van nu'.",
+  "Inteelt-getal: Bannasch 2021 vond gemiddeld F ≈ 0,25 = het niveau van een nakomeling van broer × zus. UC Davis-persbericht formuleert het als 'net zo verwant als broers en zussen'; ik koos de precieze vorm (pup van broer en zus).",
+  "Plasmide-overdracht heet conjugatie; dat woord laat ik weg (staat niet in de CE-syllabus). Ook transformatie en transductie blijven weg.",
+  "MRSA bewust níét genoemd: het mecA-gen ligt bij MRSA op een chromosomaal element (SCCmec), niet op een plasmide; als voorbeeld van 'de pot lekt' zou het misleiden. ESBL wél (genen op plasmiden, ook tussen soorten; RIVM).",
+  "Resistentielab: niet meer genoemd in de vertelling of op de eindkaart (Kamiel 23 okt 2026: geen 'zelf proberen' tot de tools perfect zijn).",
+  "Generatietijd 20 min geldt voor het lab; in de darm delen bacteriën veel trager (uren). e4s03 zegt 'onder ideale omstandigheden', e4s06 zegt nu expliciet 'in het lab' en 'in je darm gaat het trager'.",
+  "Niet zeggen (bronnenonderzoek): 'bacteriën worden immuun / wennen aan het antibioticum'; 'het antibioticum veroorzaakt de mutatie'; 'stop altijd zodra je je beter voelt' (geldt niet voor elke infectie); 'een kuur afmaken voorkomt resistentie' (geen bewijs); 'MRSA springt via plasmiden over'; 'Svalbard bewaart alle zaden van de wereld' (het is een reservekopie); 'de chihuahua is door één mutatie ontstaan'; 'inteelt geeft meer mutaties'; 'de hond stamt af van de huidige grijze wolf'.",
+  "Wilde kool groeit niet in Nederland (wel langs de Kanaalkust en Helgoland); daarom 'kalkkliffen langs het Kanaal'.",
+  "Hond en wolf komen ook in film 6 terug (soortbegrip). Dat wijkt af van 'elke casus in één film', maar de seriebrief vraagt het zelf (film 4: hondenrassen; film 6 puzzel B). Film 4 gebruikt ze voor kunstmatige selectie, film 6 alleen voor de definitie; dezelfde tekeningen.",
+  "Vragen uit nagelopen: geen zin na een vraag verwijst naar de vraag; elke eerste zin zegt de inhoud opnieuw.",
+  "Look: apotheek en spreekkamer (e4s01, e4s07, e4s15, e4s26) in Schema (biologie en samenleving, personen + iconen), niet Macro; bacteriën Micro; wolf/honden en de akker Macro-nacht.",
+  "Telpoppetjes: geen. Personages: Opa Henk (patiënt), Apotheker Ravi, Dr. Kim, Dierenarts Mila. Veehouder Gerrit niet nodig in deze film.",
+  "Review 22 okt: 8 punten verwerkt (e4s11 voorwaardelijk; e4s08 resistentie hoeft niet al vóór de pil te bestaan; e4s12/e4s14 darmzin na de vraag; e4s06 lab vs darm; e4s19 ESBL breekt ook andere antibiotica af; e4s29 Spitsbergen-getal ondubbelzinnig; e4s31 samenvatting korter, geen 'dezelfde pot'; e4s16 geen 'truc')."
+ ]
+}

@@ -16,10 +16,10 @@ Object.assign(SCENES, {
   // ---------------- titel: alleen het beeld rechts (drie histogrammen, rustig levend)
   title(ctx, t) {
     const zw = Math.sin(t * 0.6), N = E3.N;
-    E3.histo(ctx, 1040, 420, 240, 170, (u) => N(u, 0.56 + 0.06 * zw, 0.13), { oud: (u) => N(u, 0.45, 0.13), n: 16 });
-    E3.histo(ctx, 1360, 420, 240, 170, (u) => 0.55 * 0.14 / (0.09 + 0.015 * zw) * N(u, 0.5, 0.09 + 0.015 * zw), { norm: false, oud: (u) => 0.55 * N(u, 0.5, 0.14), oudNorm: 1, n: 16 });
-    const g = 0.25 + 0.025 * zw; E3.histo(ctx, 1200, 760, 280, 170, (u) => Math.max(N(u, g, 0.08), N(u, 1 - g, 0.08)), { n: 16 });
-    metaText(ctx, 'gericht', 1040, 466, C.text2, 'left', 26); metaText(ctx, 'stabiliserend', 1360, 466, C.text2, 'left', 26); metaText(ctx, 'splitsend', 1200, 806, C.text2, 'left', 26); },
+    E3.histo(ctx, 1460, 300, 320, 150, (u) => N(u, 0.56 + 0.06 * zw, 0.13), { oud: (u) => N(u, 0.45, 0.13), n: 16 });
+    E3.histo(ctx, 1460, 570, 320, 150, (u) => 0.55 * 0.14 / (0.09 + 0.015 * zw) * N(u, 0.5, 0.09 + 0.015 * zw), { norm: false, oud: (u) => 0.55 * N(u, 0.5, 0.14), oudNorm: 1, n: 16 });
+    const g = 0.25 + 0.025 * zw; E3.histo(ctx, 1460, 840, 320, 150, (u) => Math.max(N(u, g, 0.08), N(u, 1 - g, 0.08)), { n: 16 });
+    metaText(ctx, 'gericht', 1620, 340, C.text2, 'center', 24); metaText(ctx, 'stabiliserend', 1620, 610, C.text2, 'center', 24); metaText(ctx, 'splitsend', 1620, 878, C.text2, 'center', 24); },
 
   // ---------------- Opening
   s01(ctx, t, q) { macroNacht(ctx, { horizon: 640 });
@@ -30,19 +30,17 @@ Object.assign(SCENES, {
   s02(ctx, t, q) { e3Schema(ctx);
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(200, 860); ctx.lineTo(1720, 860); ctx.stroke();
     persoon(ctx, 'mirjam', 640, 860, 560, { pose: q.on('Neem') > 0.5 ? 'wijs' : 'staan', uit: 'blij', t });
-    const kg = 3.5 * ease((t - q.at('baby')) / 1.4);
-    babyWeegschaal(ctx, 1180, 860, 420, { kg: E3.kg(kg) }); persoon(ctx, 'baby', 1180, 712, 260, { uit: 'blij', t });
+    E3.weegTafel(ctx, 1080, 860, 3.5, t);
     naamBij(ctx, 'Verloskundige Mirjam', null, 640, 250, 1 - q.on('Neem', 1, 0.8), 'center');
-    vraagteken(ctx, 1180, 420, q.on('zwaarder', 1, 0.4), 110); },
+    vraagteken(ctx, 1080, 330, q.on('zwaarder', 1, 0.4), 110); },
 
   // ---------------- H1 Gerichte selectie
   s04(ctx, t, q) { ctx.fillStyle = C.bgMacroSky; ctx.fillRect(0, 0, W, H);
     ctx.save(); e3Cam(ctx, 1110, 460, lerp(0.72, 1, ease(t / 3.2))); E3.stam(ctx, 0);
     berkenspanner(ctx, 950, 380, 0.55, { vorm: 'licht', rot: -0.1 });
-    const vu = clamp((t - q.at('bijna')) / 1.3, 0, 1);
-    if (vu > 0) { const p = E3.vlucht([1720, 160], [1270, 660], vu, 60); berkenspanner(ctx, p[0], p[1], 0.55, vu < 1 ? { vorm: 'zwart', houding: 'vliegen', t, rot: 0.15 } : { vorm: 'zwart', rot: 0.15 }); }
+    berkenspanner(ctx, 1270, 660, 0.55, { vorm: 'zwart', rot: 0.15 });
     ctx.restore();
-    focusRing(ctx, 950, 380, 170, 120, q.on('lichte') * (1 - q.on('bijna')));
+    focusRing(ctx, 950, 380, 170, 120, q.on('lichte') * (1 - q.on('bijna'))); focusRing(ctx, 1270, 660, 170, 120, q.on('bijna') * (1 - q.on('verschil')));
     naamBij(ctx, 'berkenspanner', 'biston betularia', 140, 200, q.on('berkenspanner'), 'left');
     naamBij(ctx, 'lichte vorm', null, 670, 390, q.on('lichte'), 'right'); naamBij(ctx, 'zwarte vorm', null, 1550, 670, q.on('zwarte', 2), 'left');
     const ga = q.on('allelen'); if (ga > 0.01) metaText(ctx, '1 gen · 2 allelen', 140, 290, rgba(C.grain, ga), 'left', 26);
@@ -64,7 +62,7 @@ Object.assign(SCENES, {
     const gepakt = t > pik + 0.35;
     if (!gepakt) berkenspanner(ctx, 1160, 300, 0.55, { vorm: 'licht', rot: -0.2 });
     const prooi = gepakt ? (c, x, y) => berkenspanner(c, x + 22, y + 4, 0.2, { vorm: 'licht', rot: 1.3 }) : null;
-    if (t < land) { const p = E3.vlucht([240, 140], [920, 520], t / land, 90); koolmees(ctx, p[0], p[1], 2.4, { houding: 'vliegen', t }); }
+    if (t < land) { const p = E3.vlucht([-160, 700], [920, 520], t / land, 20); koolmees(ctx, p[0], p[1], 2.4, { houding: 'vliegen', t }); }
     else if (t < weg) koolmees(ctx, 920, 520, 2.4, { pik: 0.55 * q.on('eerst', 1, 0.35) * (1 - 0.6 * ramp(t, pik + 0.5, 0.5)), rot: -0.35, prooi });
     else { const p = E3.vlucht([920, 520], [2150, 80], (t - weg) / 1.6, -60); koolmees(ctx, p[0], p[1], 2.4, { houding: 'vliegen', t, prooi }); }
     focusRing(ctx, 1270, 660, 170, 120, q.on('Zwarte') * (1 - q.on('nakomelingen')));
@@ -80,7 +78,7 @@ Object.assign(SCENES, {
     const kop = d2 > 0 ? E3.deel(P2, L2 * d2).pop() : E3.deel(P1, L1 * d1).pop(); circ(ctx, kop[0], kop[1], 9, C.oker);
     const lijnJ = (j, l, a) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.setLineDash([6, 8]); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + X(j) * w, y); ctx.lineTo(x + X(j) * w, y - h - 10); ctx.stroke(); ctx.restore(); metaText(ctx, l, x + X(j) * w + 12, y - h + 4, rgba(C.goud, a), 'left', 26); };
     lijnJ(1848, 'eerste zwarte', ease(t / 0.8)); lijnJ(1956, 'schone-luchtwet', q.on('1956'));
-    const e = q.on('Tegenwoordig'); if (e > 0.01) { focusRing(ctx, P[10][0], P[10][1], 34, 34, e); metaText(ctx, 'een paar %', P[10][0] - 70, P[10][1] - 52, rgba(C.oker, e), 'center', 26); }
+    const e = q.on('Tegenwoordig'); if (e > 0.01) { focusRing(ctx, P[10][0], P[10][1], 34, 34, e); metaText(ctx, 'een paar %', P[10][0] + 10, P[10][1] - 70, rgba(C.oker, e), 'center', 26); }
     evoSchaal(ctx, 'vereenvoudigd · geen echte meetreeks'); },
   s10(ctx, t, q) { e3Schema(ctx);
     const t0 = q.at('schuift'), stap = (k) => ease((t - t0 - k * 0.75) / 0.6); const mu = 0.45 + 0.17 * (stap(0) + stap(1) + stap(2)) / 3;
@@ -93,7 +91,7 @@ Object.assign(SCENES, {
   s11(ctx, t, q) { e3Schema(ctx);
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(200, 860); ctx.lineTo(1720, 860); ctx.stroke();
     persoon(ctx, 'mirjam', 600, 860, 560, { uit: 'praat', pose: q.on('weegt') > 0.5 ? 'wijs' : 'staan', t });
-    babyWeegschaal(ctx, 1140, 860, 420, { kg: E3.kg(3.2 * ease((t - q.at('weegt')) / 1.4)) }); persoon(ctx, 'baby', 1140, 712, 240, { uit: 'neutraal', t });
+    E3.weegTafel(ctx, 1040, 860, 3.2, t);
     naamBij(ctx, 'Verloskundige Mirjam', null, 600, 250, q.on('Verloskundige', 1, 0.3) * (1 - q.on('geboortegewicht')), 'center');
     naamBij(ctx, 'geboortegewicht', q.on('erfelijke') > 0.01 ? 'erfelijk én omgeving' : (q.on('voeding') > 0.01 ? 'voeding · gezondheid' : null), 1500, 380, q.on('geboortegewicht'), 'left'); },
   s12(ctx, t, q) { e3Schema(ctx);
@@ -142,10 +140,11 @@ Object.assign(SCENES, {
     zegge(ctx, 520, 900, 620, { buig: 0.04 + 0.006 * Math.sin(t * 0.9) }); zegge(ctx, 1340, 900, 640, { zaad: '#8A6A40', buig: -0.03 + 0.006 * Math.sin(t * 0.8 + 1) });
     lijn(ctx, [[760, 900], [700, 760], [560, 608], [420, 560]], '#6E9A5E', 7); lijn(ctx, [[1180, 900], [1240, 760], [1380, 598], [1520, 556]], '#6E9A5E', 7);
     const in1 = clamp(t / 1.8, 0, 1), in2 = clamp((t - 0.9) / 1.8, 0, 1);
-    if (in1 < 1) { const p = E3.vlucht([-120, 260], [560, 608], in1, 60); zaadkraker(ctx, p[0], p[1], 1.7, { snavel: 'klein', houding: 'vliegen', t }); } else zaadkraker(ctx, 560, 608, 1.7, { snavel: 'klein' });
-    if (in2 < 1) { if (in2 > 0) { const p = E3.vlucht([2040, 240], [1380, 598], in2, 60); zaadkraker(ctx, p[0], p[1], 1.7, { snavel: 'groot', kijk: -1, houding: 'vliegen', t }); } } else zaadkraker(ctx, 1380, 598, 1.7, { snavel: 'groot', kijk: -1 });
-    naamBij(ctx, 'kleine snavel', null, 560, 680, q.on('kleine'), 'center'); naamBij(ctx, 'grote snavel', null, 1380, 670, q.on('grote'), 'center');
-    naamBij(ctx, 'zwartbuikzaadkraker', 'pyrenestes ostrinus · kameroen', 960, 180, q.on('zwartbuikzaadkraker'), 'center');
+    const sk1 = q.on('kleine') > 0.5 ? C.goud : null, sk2 = q.on('grote') > 0.5 ? C.goud : null;
+    if (in1 < 1) { const p = E3.vlucht([-120, 260], [560, 608], in1, 60); zaadkraker(ctx, p[0], p[1], 2.6, { snavel: 'klein', houding: 'vliegen', t }); } else zaadkraker(ctx, 560, 608, 2.6, { snavel: 'klein', snavelKleur: sk1 });
+    if (in2 < 1) { if (in2 > 0) { const p = E3.vlucht([2040, 240], [1380, 598], in2, 60); zaadkraker(ctx, p[0], p[1], 2.6, { snavel: 'groot', kijk: -1, houding: 'vliegen', t }); } } else zaadkraker(ctx, 1380, 598, 2.6, { snavel: 'groot', kijk: -1, snavelKleur: sk2 });
+    naamBij(ctx, 'kleine snavel', null, 640, 220, q.on('kleine'), 'center', C.goud); naamBij(ctx, 'grote snavel', null, 1300, 220, q.on('grote'), 'center', C.goud);
+    naamBij(ctx, 'zwartbuikzaadkraker', 'pyrenestes ostrinus · kameroen', 960, 120, q.on('zwartbuikzaadkraker'), 'center');
     evoSchaal(ctx, 'vogel ± 15 cm'); },
   s19(ctx, t, q) { macroNacht(ctx, { horizon: 860 });
     for (const bx of [380, 960, 1540]) lijn(ctx, [[bx + 120, 900], [bx + 40, 760], [bx, 636], [bx - 140, 600]], '#6E9A5E', 7);
@@ -189,17 +188,17 @@ Object.assign(SCENES, {
     const dm = 1 - 0.65 * q.on('gekozen');
     gedimd(ctx, dm, (g) => pauw(g, 520, 880, 0.95, { waaier: 1, vlekken: 0.25, t: t * 0.6 }));
     pauw(ctx, 1200, 880, 0.95, { waaier: 1, t });
-    const s = 0.95, per = 0.6, n = 13, tl = n * per, fase = Math.min(t, tl) / per, xs = 1500 - E3_PAUW_S * s * n;
-    pauwin(ctx, e3Loop(xs, s, fase), 905, s, t < tl ? { houding: 'lopen', t: fase, kijk: 1 } : { kijk: -1 });
-    naamBij(ctx, 'veel minder oogvlekken', q.on('gekozen') > 0.01 ? 'minder vaak gekozen' : null, 520, 380, lerp(1, 0.8, q.on('gekozen')) * q.on('minder'), 'center');
-    naamBij(ctx, 'gekozen', q.on('jongen') > 0.01 ? 'meer jongen' : null, 1200, 380, q.on('gekozen', 2), 'center', C.goud);
+    const s = 0.95, per = 0.6, n = 6, tl = n * per, fase = Math.min(t, tl) / per, xs = 1580 + E3_PAUW_S * s * n;
+    pauwin(ctx, e3Loop(xs, s, fase, -1), 880, s, t < tl ? { houding: 'lopen', t: fase, kijk: -1 } : { kijk: -1 });
+    naamBij(ctx, 'veel minder oogvlekken', q.on('gekozen') > 0.01 ? 'minder vaak gekozen' : null, 520, 290, lerp(1, 0.8, q.on('gekozen')) * q.on('minder'), 'center');
+    naamBij(ctx, 'gekozen', q.on('jongen') > 0.01 ? 'meer jongen' : null, 1200, 290, q.on('gekozen', 2), 'center', C.goud);
     naamBij(ctx, 'seksuele selectie', 'door het andere geslacht', 1780, 200, q.on('seksuele'), 'right');
-    vraagteken(ctx, 860, 300, 0.85 * q.on('onderzoeken', 1, 0.6), 90); },
+    vraagteken(ctx, 860, 420, 0.85 * q.on('onderzoeken', 1, 0.6), 90); },
   s27(ctx, t, q) { macroNacht(ctx, { horizon: 700 });
     const k = ramp(t, q.at('vechten') - 0.6, 0.6) * 0.5, vecht = t > q.at('vechten');
-    const duw = vecht ? 14 * Math.sin((t - q.at('vechten')) * 1.6) : 0, win = ramp(t, q.at('wint'), 1.2) * 90;
+    const duw = vecht ? 14 * Math.sin((t - q.at('vechten')) * 1.6) : 0, win = ramp(t, q.at('wint'), 1.2) * 60;
     const o1 = vecht ? { kop: 0.85 } : { kop: k }, o2 = vecht ? { kop: 0.85, kijk: -1 } : { kop: k, kijk: -1 };
-    edelhert(ctx, 600 + duw + win, 920, 1.25, o1); edelhert(ctx, 1320 + duw + win, 920, 1.25, o2);
+    edelhert(ctx, 760 + duw + win, 920, 1.25, o1); edelhert(ctx, 1460 + duw + win, 920, 1.25, o2);
     naamBij(ctx, 'edelherten in de bronst', q.on('vier') > 0.01 ? '± 1 op de 4 volwassen herten per jaar gewond' : null, 960, 200, q.on('Edelherten'), 'center');
     evoSchaal(ctx, 'schofthoogte ± 1,2 m'); },
   s28(ctx, t, q) { e3Schema(ctx);
@@ -222,11 +221,11 @@ Object.assign(SCENES, {
     const ra = q.on('voorspelde', 1, 0.8); e3Liniaal(ctx, lerp(1180, 1080, ra), 240, ra);
     const tg = ramp(t, q.at('tong'), q.at('lang') - q.at('tong') + 0.3); if (tg > 0.01) { ctx.save(); ctx.setLineDash([10, 10]); const P = [[1420, 300], [1400, 600], [1380, 840]]; lijn(ctx, E3.deel(P, E3.lengte(P) * tg), C.goud, 3); ctx.restore(); }
     text(ctx, 'het jaar 1862', 1300, 180, fTitel(56), rgba(C.text, q.on('1862')), 'left'); metaText(ctx, 'darwin voorspelt een lange tong', 1300, 224, rgba(C.grain, q.on('voorspelde')), 'left', 26);
-    evoSchaal(ctx, 'ware grootte · 2 px per mm'); },
+    evoSchaal(ctx, 'op schaal · liniaal in cm'); },
   s31(ctx, t, q) { macroNacht(ctx, { horizon: 980, heuvel: false });
     orchidee(ctx, 760, 220, 2.0, { spoor: 300 }); e3Liniaal(ctx, 1080, 240, 1);
     ctx.save(); ctx.setLineDash([10, 10]); lijn(ctx, [[1420, 300], [1400, 600], [1380, 840]], C.goud, 3); ctx.restore();
-    vraagteken(ctx, 1600, 560, q.on('buis', 1, 0.5), 120); evoSchaal(ctx, 'ware grootte · 2 px per mm'); },
+    vraagteken(ctx, 1600, 560, q.on('buis', 1, 0.5), 120); evoSchaal(ctx, 'op schaal · liniaal in cm'); },
   s33(ctx, t, q) { macroNacht(ctx, { horizon: 980, heuvel: false });
     const fx = 760, fy = 260, fs = 2.0;
     orchidee(ctx, fx, fy, fs, { spoor: 300, nectar: false });
@@ -242,15 +241,15 @@ Object.assign(SCENES, {
     if (uit > 0.02) { const m0 = [vx - 44, vy + 2], P = []; for (let i = 0; i <= 20; i++) { const u = i / 20, c1 = [vx - 60, vy + 20]; P.push([(1 - u) ** 2 * m0[0] + 2 * u * (1 - u) * c1[0] + u * u * doel[0], (1 - u) ** 2 * m0[1] + 2 * u * (1 - u) * c1[1] + u * u * doel[1]]); } lijn(ctx, P, '#B8A488', 3); }
     if (diep > 0) lijn(ctx, E3.deel(S.slice(1), E3.lengte(S.slice(1)) * diep).map((p) => [p[0] - 1, p[1]]), '#5A4636', 4);
     const pol = q.on('stuifmeel', 1, 0.4); if (pol > 0.01) circ(ctx, vx - 40, vy - 6, 6, rgba('#E6C84A', pol), rgba('#B8962E', pol), 1.5);
-    naamBij(ctx, 'pijlstaartvlinder', 'xanthopan praedicta · beschreven in 1903', 1180, 140, q.on('pijlstaartvlinder'), 'left');
+    naamBij(ctx, 'pijlstaartvlinder', 'xanthopan praedicta · beschreven in 1903', 1060, 400, q.on('pijlstaartvlinder'), 'left');
     naamBij(ctx, 'tong tot ± 28 cm', 'reikt tot de nectar', 820, 860, q.on('dertig'), 'left');
-    evoSchaal(ctx, 'ware verhouding'); },
+    evoSchaal(ctx, 'op schaal'); },
   s34(ctx, t, q) { e3Schema(ctx);
     const cx = 960, cy = 470, R = 230, ar = q.on('selectiedruk', 1, 1), rot = t * 0.25;
     if (ar > 0.01) { ctx.save(); ctx.globalAlpha = ar; ctx.lineWidth = 6; for (const [a0, a1, kl] of [[-2.6, -0.5, C.groen], [0.55, 2.65, C.oker]]) { const b0 = a0 + rot, b1 = a1 + rot; ctx.strokeStyle = kl; ctx.beginPath(); ctx.arc(cx, cy, R, b0, b1); ctx.stroke(); const ex = cx + Math.cos(b1) * R, ey = cy + Math.sin(b1) * R, ta = b1 + Math.PI / 2; pijl(ctx, ex - Math.cos(ta) * 30, ey - Math.sin(ta) * 30, ex, ey, kl, 1, 6, 22); } ctx.restore(); }
     const gen = ramp(t, q.at('generatie'), q.at('generatie', 2) - q.at('generatie') + 1), kort = q.on('korter', 1, 0.8) * (1 - q.on('verklaring', 1, 0.8));
     orchidee(ctx, cx - 420, cy - 120, 0.75, { spoor: lerp(230, 300, gen) - 70 * kort, a: q.on('soorten') });
-    pijlstaart(ctx, cx + 430, cy - 20, 1.5, { tong: 0, houding: 'rust', a: q.on('soorten') });
+    pijlstaart(ctx, cx + 400, cy - 10, 2.2, { kijk: -1, tong: 0, houding: 'zweven', t, a: q.on('soorten') });
     naamBij(ctx, 'langere buis', null, cx - 420, cy + 240, q.on('generatie'), 'center', C.groen); naamBij(ctx, 'langere tong', null, cx + 430, cy + 120, q.on('generatie'), 'center', C.oker);
     haak(ctx, 520, 1400, 760, 'co-evolutie: een wapenwedloop', C.groen, q.on('wapenwedloop'));
     naamBij(ctx, 'proef · Nilsson 1988', q.on('korter') > 0.01 ? 'kortere buis → minder bestoven' : null, 360, 170, q.on('proef'), 'center', C.text2);
@@ -259,13 +258,14 @@ Object.assign(SCENES, {
   // ---------------- Samenvatting
   s35(ctx, t, q) { e3Schema(ctx); const N = E3.N;
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(140, 760); ctx.lineTo(1780, 760); ctx.stroke();
-    const g = q.on('Gerichte'), s = q.on('Stabiliserende'), p = q.on('Splitsende');
-    const mu = lerp(0.45, 0.62, ramp(t, q.at('schuift'), 1.4)), sd = lerp(0.14, 0.08, ramp(t, q.at('smaller') - 0.4, 1.2)), m = ramp(t, q.at('toppen') - 0.4, 1.2);
-    E3.histo(ctx, 200, 740, 420, 240, (u) => N(u, mu, 0.13), { a: g, oud: (u) => N(u, 0.45, 0.13) });
-    E3.histo(ctx, 750, 740, 420, 240, (u) => 0.55 * 0.14 / sd * N(u, 0.5, sd), { a: s, norm: false, oud: (u) => 0.55 * N(u, 0.5, 0.14), oudNorm: 1 });
-    E3.histo(ctx, 1300, 740, 420, 240, (u) => lerp(N(u, 0.5, 0.14), Math.max(N(u, 0.27, 0.08), N(u, 0.73, 0.08)), m), { a: p });
-    berkenspanner(ctx, 410, 330, 0.32, { vorm: 'licht', a: g }); if (s > 0.01) persoon(ctx, 'baby', 960, 340, 170, { uit: 'blij', a: s, t }); zaadkraker(ctx, 1500, 360, 0.8, { snavel: 'groot', a: p, houding: 'staan' });
-    const bb = q.on('baby'); metaText(ctx, 'gericht', 410, 820, rgba(C.text2, g), 'center', 28); metaText(ctx, 'stabiliserend', 960, 820, rgba(bb > 0.5 ? C.groen : C.text2, s), 'center', 28); metaText(ctx, 'splitsend', 1510, 820, rgba(C.text2, p), 'center', 28);
-    focusRing(ctx, 960, 620, 70, 120, q.on('midden') * (1 - q.on('pauw', 1, 0.6)));
-    const pw = q.on('pauw', 1, 0.8); if (pw > 0.01) { ctx.save(); ctx.globalAlpha = pw; E3.balansMini(ctx, 960, 170, 0.12 * q.on('wint', 1, 1)); ctx.restore(); } },
+    const g = q.on('Gerichte'), s = q.on('Stabiliserende'), p = q.on('Splitsende'), dimA = (v) => 0.3 + 0.7 * v;
+    const mu = lerp(0.45, 0.62, ramp(t, q.at('Gerichte') + 0.6, 1.6)), sd = lerp(0.14, 0.08, ramp(t, q.at('Stabiliserende') + 0.6, 1.4)), m = ramp(t, q.at('Splitsende') + 0.5, 1.3);
+    E3.histo(ctx, 200, 740, 420, 240, (u) => N(u, mu, 0.13), { a: dimA(g), oud: g > 0.01 ? (u) => N(u, 0.45, 0.13) : null });
+    E3.histo(ctx, 750, 740, 420, 240, (u) => 0.55 * 0.14 / sd * N(u, 0.5, sd), { a: dimA(s), norm: false, oud: s > 0.01 ? (u) => 0.55 * N(u, 0.5, 0.14) : null, oudNorm: 1 });
+    E3.histo(ctx, 1300, 740, 420, 240, (u) => lerp(N(u, 0.5, 0.14), Math.max(N(u, 0.27, 0.08), N(u, 0.73, 0.08)), m), { a: dimA(p) });
+    const pw = q.on('pauw', 1, 0.8), dier = 1 - 0.75 * pw;
+    berkenspanner(ctx, 410, 330, 0.32, { vorm: 'licht', a: dimA(g) * dier }); persoon(ctx, 'baby', 960, 340, 170, { uit: 'blij', a: dimA(s) * dier, t }); zaadkraker(ctx, 1500, 360, 0.8, { snavel: 'groot', a: dimA(p) * dier, houding: 'staan' });
+    const bb = q.on('baby'); metaText(ctx, 'gericht', 410, 820, rgba(C.text2, dimA(g)), 'center', 28); metaText(ctx, 'stabiliserend', 960, 820, rgba(bb > 0.5 ? C.groen : C.text2, dimA(s)), 'center', 28); metaText(ctx, 'splitsend', 1510, 820, rgba(C.text2, dimA(p)), 'center', 28);
+    focusRing(ctx, 960, 620, 70, 120, q.on('midden') * (1 - pw));
+    if (pw > 0.01) { ctx.save(); ctx.fillStyle = rgba(C.bgSchema, 0.8 * pw); ctx.fillRect(0, 90, W, 380); ctx.restore(); pauw(ctx, 700, 430, 0.62, { houding: 'rust', a: pw }); ctx.save(); ctx.globalAlpha = pw; E3.balansMini(ctx, 1280, 260, 0.12 * q.on('wint', 1, 1)); ctx.restore(); } },
 });

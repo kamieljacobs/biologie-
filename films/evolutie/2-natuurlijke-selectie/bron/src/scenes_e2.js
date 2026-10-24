@@ -14,6 +14,18 @@ function _merelHip(ctx, x0, u, o = {}) { const L = 156, mx = o.max ?? 99, k = Ma
 // vink in vlucht van A naar B (u 0..1), t = vleugelfase
 function _vliegLangs(ctx, A, B, u, s, t, o = {}) { const e = ease(u); const x = lerp(A[0], B[0], e), y = lerp(A[1], B[1], e) - Math.sin(Math.PI * u) * (o.boog || 0);
   grondvink(ctx, x, y, s, Object.assign({}, o, { houding: 'vliegen', t, kijk: B[0] >= A[0] ? 1 : -1 })); }
+// gouden maatstreep aan de snavelbasis van een grondvink (houding staan, pik 0) op anker (x, y), schaal s
+// echte snavelvlak van de pop (staan) gemeten op een los canvas: [xmin, xmax, ymin, ymax] in eenheden t.o.v. het anker
+function _snavelBox(v) { const k = 'sb' + v; if (_E2[k]) return _E2[k]; const c = document.createElement('canvas'); c.width = 400; c.height = 300; const g = c.getContext('2d');
+  grondvink(g, 200, 250, 1, { snavel: v, houding: 'staan', snavelKleur: '#ff0000' }); const d = g.getImageData(0, 0, 400, 300).data; let a = 999, b = -999, e = 999, f = -999;
+  for (let i = 0; i < d.length; i += 4) if (d[i] > 200 && d[i + 1] < 80 && d[i + 2] < 80) { const q = i / 4, px = q % 400 - 200, py = Math.floor(q / 400) - 250; a = Math.min(a, px); b = Math.max(b, px); e = Math.min(e, py); f = Math.max(f, py); }
+  return (_E2[k] = [a, b, e, f]); }
+function _snavelMaat(ctx, x, y, s, v, a = 1) { const B = _snavelBox(v), bx = x + s * (B[0] + 2), top = y + s * B[2], bot = y + s * B[3]; if (a > 0.01) { ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx, top); ctx.lineTo(bx, bot); ctx.moveTo(bx - 8, top); ctx.lineTo(bx + 8, top); ctx.moveTo(bx - 8, bot); ctx.lineTo(bx + 8, bot); ctx.stroke(); ctx.restore(); } return { bx, top, bot }; }
+// kop van een grondvink vergroot in een cirkel (snavelhoogte goed zichtbaar), met gouden maatstreep; (cx, cy) = midden van de cirkel
+function _kopCirkel(ctx, cx, cy, r, v, k = 5, a = 1, pik = 0) { if (a <= 0.01) return null; const B = _snavelBox(v), mx = (B[0] + 6), my = (B[2] + B[3]) / 2, ax = cx - k * mx + r * 0.15, ay = cy - k * my;
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.283); ctx.fillStyle = rgba(C.fill, 0.9); ctx.fill(); ctx.save(); ctx.clip(); grondvink(ctx, ax, ay, k, { snavel: v, houding: 'staan', pik }); ctx.restore();
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.283); ctx.stroke(); ctx.restore();
+  const M = _snavelMaat(ctx, ax, ay, k, v, a); return M; }
 const _fade = (ctx, a, fn) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; fn(); ctx.restore(); };
 
 Object.assign(SCENES, {
@@ -46,8 +58,8 @@ Object.assign(SCENES, {
     const aan = q.at('grondvink', 1), u = clamp(t / aan, 0, 1);
     if (u < 1) _vliegLangs(ctx, [-120, 420], [1240, 352], u, 1.6, t * 1.4, { snavel: 9.3, boog: 120 });
     else grondvink(ctx, 1240, 352, 1.6, { snavel: 9.3, houding: 'staan', pik: 0.35 * Math.max(0, Math.sin((t - aan) * 1.3)) });
-    naamBij(ctx, 'middelste grondvink', 'geospiza fortis · ± 12,5 cm', 420, 560, q.on('grondvink', 1), 'center');
-    naamBij(ctx, 'legsel', '2 tot 5 eieren · vaak meer legsels per jaar', 1500, 130, q.on('eieren', 1), 'center');
+    naamBij(ctx, 'middelste grondvink', 'geospiza fortis · ± 12,5 cm', 1180, 100, q.on('grondvink', 1), 'center');
+    naamBij(ctx, 'legsel', '2 tot 5 eieren', 1660, 100, q.on('eieren', 1), 'center');
     const cues = ['nat', 'meerdere', 'keren', 'achter'], leg = cues.filter(c => t >= q.at(c, 1)).length;
     _fade(ctx, q.on('nat', 1), () => { metaText(ctx, 'nat jaar · legsels', 110, 220, C.text2, 'left', 26);
       for (let i = 0; i < leg; i++) { ctx.save(); ctx.globalAlpha *= _sg(t, q.at(cues[i], 1), q.at(cues[i], 1) + 0.4); nestje(ctx, 170 + i * 150, 300, 0.9, 4); ctx.restore(); } });
@@ -55,7 +67,7 @@ Object.assign(SCENES, {
   s05(ctx, t, q) { // vraag-alinea: jaar na jaar ongeveer evenveel vinken op het eiland
     macroNacht(ctx, { horizon: 900 });
     const jaar = 1 + Math.min(3, Math.floor(Math.max(0, t - q.at('jaren', 1) + 0.6) / 0.9));
-    [8.6, 9.8, 9.1, 10.4, 8.9, 9.5].forEach((v, i) => grondvink(ctx, 230 + i * 290, 846, 1.3, { snavel: v, houding: 'staan', pik: Math.max(0, Math.sin(t * 1.1 + i * 1.7)) ** 4 * 0.8, kijk: i === 2 || i === 5 ? -1 : 1 }));
+    [8.6, 9.8, 9.1, 10.4, 8.9, 9.5].forEach((v, i) => grondvink(ctx, 210 + i * 300, 846, 1.05, { snavel: v, houding: 'staan', pik: Math.max(0, Math.sin(t * 1.1 + i * 1.7)) ** 4 * 0.8, kijk: i === 2 || i === 5 ? -1 : 1 }));
     _fade(ctx, q.on('jaren', 1), () => { text(ctx, 'jaar ' + jaar, 960, 260, fTitel(72), C.text, 'center'); metaText(ctx, 'aantal vinken', 960, 320, C.text2, 'center', 28); text(ctx, '± gelijk', 960, 390, fTekst(48, 700), C.text, 'center'); });
     vraagteken(ctx, 1640, 420, q.on('Hoe', 1), 150);
     evoSchaal(ctx, 'galápagos'); },
@@ -87,17 +99,13 @@ Object.assign(SCENES, {
   s09(ctx, t, q) { const k = 1 + 0.12 * _sg(t, 0, 9.5);
     _zoom(ctx, 960, 620, k, () => { macroNacht(ctx, { horizon: 700, heuvel: false }); ctx.fillStyle = '#26507E'; ctx.fillRect(-200, 700, W + 400, H); daphneMajor(ctx, 960, 720, 1300);
       for (let i = 0; i < 5; i++) { const sp = 0.06 + 0.02 * hash(i), u = (t * sp + hash(i * 3)) % 1, dir = i % 2 ? -1 : 1; const x = dir > 0 ? lerp(300, 1650, u) : lerp(1650, 300, u), y = 300 + 90 * hash(i * 5) + 30 * Math.sin(u * 8);
-        grondvink(ctx, x, y, 0.3, { snavel: 9.3, houding: 'vliegen', t: t * 1.4 + i * 0.27, kijk: dir }); } });
+        grondvink(ctx, x, y, 0.13, { snavel: 9.3, houding: 'vliegen', t: t * 1.4 + i * 0.27, kijk: dir }); } });
     naamBij(ctx, 'Daphne Major', 'galápagos', 960, 200, q.on('Daphne', 1), 'center');
     _fade(ctx, q.on('1973', 1), () => evoSchaal(ctx, 'metingen sinds het jaar 1973 · peter en rosemary grant')); },
   s10(ctx, t, q) { _schemaBg(ctx);
     const x = 420, y = 820, w = 1100, h = 300, mm = (v) => (v - 7) / 5;
-    [[8, 'acht'], [9.3, 'negen'], [11, 'elf']].forEach(([v, cue], i) => { const a = q.on('snavelhoogte', 1, 0.4 + i * 0.25); if (a < 0.01) return; const fx = x + mm(v) * w - 60;
-      _fade(ctx, a, () => lijn(ctx, [[fx - 120, 402], [fx + 40, 398]], '#5A4636', 7));
-      grondvink(ctx, fx, 400, 1.1, { snavel: v, houding: 'tak', takY: 398, takDik: 7, a, pik: 0.15 * Math.max(0, Math.sin(t * 1.3 + i)) ** 4 });
-      const s = 1.1, hS = v * 2.2, bxW = fx + s * (26 + 22 - 10), top = 400 + s * (-104 - hS * 0.55), bot = 400 + s * (-104 + hS * 0.45);
-      _fade(ctx, q.on('basis', 1, 0.6), () => { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bxW, top); ctx.lineTo(bxW, bot); ctx.moveTo(bxW - 8, top); ctx.lineTo(bxW + 8, top); ctx.moveTo(bxW - 8, bot); ctx.lineTo(bxW + 8, bot); ctx.stroke(); });
-      naamBij(ctx, String(v).replace('.', ',') + ' mm', null, fx, 450, Math.max(q.on(cue, 1), q.on('variatie', 1)), 'center'); });
+    [[8, 'acht'], [9.3, 'negen'], [11, 'elf']].forEach(([v, cue], i) => { const a = q.on('snavelhoogte', 1, 0.4 + i * 0.25); if (a < 0.01) return; const fx = 640 + i * 400; _kopCirkel(ctx, fx, 330, 140, v, 5.5, a); const bxW = fx, top = 190;
+      naamBij(ctx, String(v).replace('.', ',') + ' mm', null, bxW, top - 18, Math.max(q.on(cue, 1), q.on('variatie', 1)), 'center'); });
     const ha = q.on('histogram', 1); _hAs(ctx, x, y, w, h, ha);
     const g0 = q.at('histogram', 1), g1 = q.at('hebben', 1) + 0.4;
     const licht = (u) => { const v = 7 + u * 5; return q.on('negen', 1) * (1 - q.on('Sommige', 1)) * (Math.abs(v - 9.3) < 0.45 ? 1 : 0) + q.on('acht', 1) * (1 - q.on('variatie', 1)) * (Math.abs(v - 8) < 0.3 ? 1 : 0) + q.on('elf', 1) * (1 - q.on('variatie', 1)) * (Math.abs(v - 11) < 0.3 ? 1 : 0); };
@@ -124,13 +132,14 @@ Object.assign(SCENES, {
       grondvink(ctx, x, y, s, { snavel: 9.3, pik });
       tribulus(ctx, x + s * 64 + 6 * stoot, y - s * 64, 1.0, { rot: 0.5 + 0.18 * stoot }); });
     naamBij(ctx, 'Tribulus', '± 8 mm · hard, met stekels', 1000, 420, q.on('Tribulus', 1), 'left');
-    evoSchaal(ctx, 'op ware verhouding: snavel ± 9 mm'); },
+    metaText(ctx, 'op ware verhouding: snavel ± 9 mm', 1880, 880, C.text2, 'right', 26); },
   s13(ctx, t, q) { // vraag-alinea: drie vinken met verschillende snavels bij harde vruchtjes
     macroNacht(ctx, { horizon: 860, heuvel: false }); ctx.fillStyle = '#4A4036'; ctx.fillRect(0, 860, W, H);
-    [[8, 380], [9.3, 900], [11, 1420]].forEach(([v, x], i) => { const pik = 0.75 + 0.25 * Math.sin(t * 3 + i * 2); grondvink(ctx, x, 860, 2.4, { snavel: v, pik });
-      tribulus(ctx, x + 2.4 * 90, 845, 0.55, { rot: 0.3 * Math.sin(t * 3 + i * 2) }); });
-    vraagteken(ctx, 960, 330, q.on('overleven', 1), 150);
-    evoSchaal(ctx, 'snavel 8 · 9,3 · 11 mm'); },
+    [[8, 330], [9.3, 930], [11, 1530]].forEach(([v, x], i) => { const pik = 0.45 * Math.max(0, Math.sin(t * 1.6 + i * 2.1)) ** 6, s = 2.0; grondvink(ctx, x, 860, s, { snavel: v, houding: 'staan', pik });
+      tribulus(ctx, x + s * 120, 852, 0.5, { rot: 0.3 });
+      _kopCirkel(ctx, x + 60, 380, 120, v, 4.6, 1); naamBij(ctx, String(v).replace('.', ',') + ' mm', null, x + 60, 238, 1, 'center'); });
+    vraagteken(ctx, 1240, 400, q.on('overleven', 1), 120);
+    },
   s15(ctx, t, q) { macroNacht(ctx, { horizon: 860, heuvel: false }); ctx.fillStyle = '#4A4036'; ctx.fillRect(0, 860, W, H);
     const s = 3.3, tip = (x, y, sn) => { const hS = sn * 2.2, lS = hS * 1.2; const lx = 22 + lS, ly = hS * 0.12, th = 0.6; return [x + s * (26 + lx * Math.cos(th) - ly * Math.sin(th)), y + s * (-104 + lx * Math.sin(th) + ly * Math.cos(th))]; };
     const ph = (t * 1.4) % 1, pikL = 1 - 0.35 * Math.sin(Math.PI * clamp(ph / 0.5, 0, 1)), glij = Math.max(0, 1 - Math.abs(ph - 0.55) / 0.15);
@@ -142,7 +151,7 @@ Object.assign(SCENES, {
     else { tribulus(ctx, tx + 28 - 14 * open, ty + 2 - 24 * open, 0.66, { rot: lerp(0.4, -0.7, open) }); tribulus(ctx, tx + 28 + 16 * open, ty + 2 + 24 * open, 0.66, { rot: lerp(0.4, 1.4, open) }); zaadje(ctx, tx + 30, ty + 2, 0.9, { kleur: '#E8DCC0', a: open }); }
     naamBij(ctx, 'hoge snavel', 'kraakt het vruchtje', 1290, 300, q.on('hoge', 1), 'center', C.goud);
     naamBij(ctx, 'lage snavel', 'krijgt het vruchtje niet open', 470, 300, q.on('lage', 1), 'center');
-    evoSchaal(ctx, 'snavel 8 mm tegenover 11 mm'); },
+    metaText(ctx, 'snavel 8 mm tegenover 11 mm', 1880, 880, C.text2, 'right', 26); },
   s16(ctx, t, q) { _schemaBg(ctx);
     const a2 = q.on('later', 1);
     _fade(ctx, q.on('1977', 1), () => metaText(ctx, 'begin 1977', 200, 330, C.text2, 'left', 28));
@@ -189,7 +198,7 @@ Object.assign(SCENES, {
     const licht = (u) => { const v = 7 + u * 5; return q.on('lage', 1) * (1 - q.on('gemiddelde', 1)) * (v < 9.1 ? 1 : 0) + q.on('gemiddelde', 1) * (1 - q.on('hoge', 1)) * (Math.abs(v - 9.7) < 0.35 ? 1 : 0) + q.on('hoge', 1) * (1 - q.on('hele', 1)) * (v > 10.3 ? 1 : 0); };
     _histo(ctx, x, y, w, h, (u) => _gauss(u, mm(9.70), 0.17) * g, C.teal, 1, 22, licht);
     _mmAs(ctx, x, y, w);
-    naamBij(ctx, '1976', 'ouders vóór de droogte', x + mm(8.1) * w, y - h * 0.62, 1, 'right', C.text2);
+    naamBij(ctx, '1976', 'ouders vóór de droogte', x + mm(9.31) * w - 40, y - h - 60, 1, 'right', C.text2);
     naamBij(ctx, 'jongen van 1978', 'gemiddeld 9,7 mm', x + mm(10.6) * w, y - h * 0.75, q.on('gemiddeld', 1), 'left', C.teal);
     // pijl van het oude naar het nieuwe gemiddelde: groeit bij 'vier procent', licht op bij 'opgeschoven'
     const pa = q.on('procent', 1), pl = _sg(t, q.at('procent', 1), q.at('hoger', 1) + 0.4);
@@ -208,7 +217,7 @@ Object.assign(SCENES, {
   // ---------------- H3 Wie wint?
   s22(ctx, t, q) { _schemaBg(ctx);
     // eerst nog even het eiland (terugblik), dat wijkt voor de drie kaarten
-    _fade(ctx, 0.55 * (1 - q.on('erfelijke', 1, 0.5)), () => { daphneMajor(ctx, 960, 640, 900); grondvink(ctx, 720 + 60 * Math.sin(t * 0.7), 340, 0.5, { houding: 'vliegen', t: t * 1.4, snavel: 9.3 }); naamBij(ctx, 'Daphne Major', null, 960, 300, q.on('Daphne', 1), 'center'); });
+    _fade(ctx, 0.55 * (1 - q.on('erfelijke', 1, 0.5)), () => { daphneMajor(ctx, 960, 640, 900); grondvink(ctx, 720 + 60 * Math.sin(t * 0.7), 380, 0.12, { houding: 'vliegen', t: t * 1.4, snavel: 9.3 }); naamBij(ctx, 'Daphne Major', null, 960, 300, q.on('Daphne', 1), 'center'); });
     const kaart = (x, titel, sub, cue, ic) => { const a = q.on(cue, 1, 0.5); if (a < 0.01) return; tekstKaart(ctx, x, 260 + 30 * (1 - a), 470, 440, titel, { sub, icoon: ic, a }); };
     kaart(170, 'erfelijke variatie', 'snavels verschillen', 'erfelijke', (c, cx, cy) => { [8, 9.3, 11].forEach((v, i) => grondvink(c, cx - 140 + i * 130, cy + 60, 0.7, { snavel: v, pik: 0.2 * Math.max(0, Math.sin(t * 1.4 + i * 2)) ** 4 })); });
     kaart(725, 'overproductie', 'te veel jongen', 'nakomelingen', (c, cx, cy) => nestje(c, cx, cy + 20, 2.2, 2 + Math.min(3, Math.floor(Math.max(0, t - q.at('nakomelingen', 1)) / 0.5))));
@@ -252,7 +261,9 @@ Object.assign(SCENES, {
     _fade(ctx, q.on('broedende', 1), () => metaText(ctx, '2 broedende jongen', 520, 870, C.text2, 'center', 26));
     _fade(ctx, q.on('broeden', 1), () => metaText(ctx, '6 broedende jongen', 1360, 870, C.groen, 'center', 26));
     // allelen doorgeven: boven elk jong een knikker
-    const al = q.at('allelen', 1); if (t > al) { for (let i = 0; i < 2; i++) _knikker(ctx, 420 + i * 200, 690, 12, 1, _sg(t, al + i * 0.15, al + i * 0.15 + 0.3)); for (let i = 0; i < 6; i++) _knikker(ctx, 1060 + i * 116, 690, 12, 1, _sg(t, al + i * 0.15, al + i * 0.15 + 0.3)); }
+    const al = q.at('allelen', 1), reis = (ox, oy, jx, i) => { const u = _sg(t, al + i * 0.15, al + i * 0.15 + 0.7); if (t < al + i * 0.15) return; _knikker(ctx, lerp(ox, jx, u), lerp(oy, 740, u) - Math.sin(Math.PI * u) * 40, 13, 1, Math.min(1, u * 5)); };
+    for (let i = 0; i < 2; i++) reis(560, 400, 420 + i * 200, i); for (let i = 0; i < 6; i++) reis(1360, 430, 1060 + i * 116, i);
+    naamBij(ctx, 'allelen', 'doorgegeven aan de jongen', 960, 630, q.on('allelen', 1) * (1 - q.on('lang', 1)), 'center', EVO.a1R);
     naamBij(ctx, 'hoogste fitness', null, 1340, 270, q.on('meeste', 1), 'center', C.groen); },
 
   // ---------------- H4 Aangepast, zonder doel
@@ -276,18 +287,21 @@ Object.assign(SCENES, {
     const na = q.on('nakomelingen', 1, 0.5); if (na > 0.01) for (let k = 0; k < 3; k++) rupsOpBlad(ctx, B[0], 0.16, { kleur: '#6BA872', f: 0.3 + k * 0.22, a: na });
     evoSchaal(ctx, 'merel ± 25 cm · rups ± 4 cm'); },
   s29(ctx, t, q) { _struik(ctx); const B = _struik.bl;
-    const g = Math.round(lerp(1, 20, _sg(t, q.at('generatie', 1), q.at('adaptatie', 1))));
-    const mix = (a, b, u) => { const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16), f = (s) => Math.round(((pa >> s) & 255) * (1 - u) + ((pb >> s) & 255) * u); return '#' + [16, 8, 0].map(s => f(s).toString(16).padStart(2, '0')).join(''); };
-    for (const i of [1, 2, 3, 4, 5]) { const bruin = i === 2 || i === 4, u = bruin ? clamp((g - (i === 2 ? 4 : 10)) / 5, 0, 1) : 1;
-      rupsOpBlad(ctx, B[i], 0.4, { kleur: bruin ? mix('#8C6A48', i === 4 ? '#7AA86A' : '#6BA872', u) : (i === 1 ? '#78A86A' : '#6BA872'), houding: 'kruipen', t: t * 0.6 + i, f: 0.5 }); }
+    const G = [1, 5, 10, 15, 20], g0 = q.at('generatie', 1), stap = (q.at('adaptatie', 1) - 0.6 - g0) / (G.length - 1), k = clamp(Math.floor((t - g0) / stap) + 1, 0, G.length - 1), g = t < g0 ? 1 : G[k];
+    const puls = t < g0 || t > q.at('adaptatie', 1) ? 0 : 1 - _sg(((t - g0) / stap - Math.floor((t - g0) / stap)) * stap, 0.7, 1.1); // ring licht op bij elke nieuwe generatie en dooft dan uit
+    const omslag = { 2: 5, 4: 10, 5: 15 }; let nBruin = 0; // vanaf deze generatie is die rups groen
+    for (const i of [1, 2, 3, 4, 5]) { const bruin = omslag[i] && g < omslag[i]; if (bruin) nBruin++;
+      const [rx, ry] = rupsOpBlad(ctx, B[i], 0.4, { kleur: bruin ? '#8C6A48' : (i === 1 ? '#78A86A' : '#6BA872'), houding: 'kruipen', t: t * 0.6 + i, f: 0.5 });
+      if (puls > 0.01) { ctx.save(); ctx.globalAlpha *= puls; ctx.strokeStyle = bruin ? C.koraal : C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.ellipse(rx, ry, 95, 44, 0, 0, 6.283); ctx.stroke(); ctx.restore(); } }
+    _fade(ctx, q.on('generatie', 1, 0.3) * (1 - q.on('adaptatie', 1, 0.4)), () => { text(ctx, 'bruin: ' + nBruin + ' van 5', 140, 240, fTekst(48, 700), '#C49A6C', 'left'); metaText(ctx, 'groen: ' + (5 - nBruin) + ' van 5', 140, 290, C.groen, 'left', 28); });
     _fade(ctx, q.on('adaptatie', 1), () => { text(ctx, 'adaptatie', 140, 240, fTekst(56, 700), C.text); metaText(ctx, 'erfelijk · door selectie algemeen geworden', 140, 286, C.grain, 'left', 26); });
     { const b = B[3], cx = b.x + Math.cos(b.hoek) * b.w, cy = b.y + Math.sin(b.hoek) * b.w; focusRing(ctx, cx, cy, 100, 46, q.on('deze', 1) * (1 - q.on('valt', 1, 1.2))); }
     naamBij(ctx, 'camouflage', 'valt weg tegen het blad', B[3].x + 120, B[3].y + 140, q.on('camouflage', 1), 'center');
     _fade(ctx, q.on('generatie', 1, 0.3), () => generatie(ctx, g, 80, 880)); },
   s30(ctx, t, q) { // vraag-alinea: een groene rups op een rood blad; wat erven zijn jongen?
     _schemaBg(ctx);
-    blad(ctx, 520, 600, 420, { kleur: '#A85A44', rot: -0.12, a: q.on('rood', 1, 0.5) });
-    rups(ctx, 860, 572, 0.9, { kleur: '#6BA872', rot: -0.12, houding: 'kruipen', t: t * 0.6, a: q.on('groene', 1, 0.3) });
+    blad(ctx, 520, 600, 420, { kleur: '#A85A44', rot: -0.12, a: clamp(t / 0.4, 0, 1) });
+    rups(ctx, 860, 572, 0.9, { kleur: '#6BA872', rot: -0.12, houding: 'kruipen', t: t * 0.6, a: clamp(t / 0.4, 0, 1) });
     _fade(ctx, q.on('jongen', 1), () => { for (let k = 0; k < 4; k++) { const ex = 1260 + k * 34, ey = 520 - k * 4; ctx.beginPath(); ctx.ellipse(ex, ey, 11, 14, 0.2, 0, 6.283); ctx.fillStyle = '#D8E6C4'; ctx.fill(); ctx.strokeStyle = '#9AB08A'; ctx.lineWidth = 1.5; ctx.stroke(); } });
     vraagteken(ctx, 1320, 420, q.on('hem', 1), 130);
     evoSchaal(ctx, 'rups ± 4 cm'); },
@@ -295,9 +309,9 @@ Object.assign(SCENES, {
     blad(ctx, 160, 520, 230, { kleur: '#A85A44', rot: -0.15 }); rups(ctx, 330, 505, 0.6, { kleur: '#6BA872', rot: -0.15, houding: 'kruipen', t: t * 0.6 });
     // de jongen: groen zoals de ouder (zijn eigen allelen), niet rood
     const ja = q.on('jongen', 1, 0.5); if (ja > 0.01) for (let k = 0; k < 3; k++) rups(ctx, 230 + k * 150, 680 + k * 6, 0.34, { kleur: '#6BA872', a: ja, houding: 'kruipen', t: t * 0.6 + k });
-    const kaart = (i, m, cue, cueN, weg, wegN) => { const a = q.on(cue, cueN, 0.4); if (a < 0.01) return; _fade(ctx, a, () => { roundRect(ctx, 820, 170 + i * 130, 960, 100, 16); shape(ctx, rgba(C.fill, 0.7), C.line, 2); text(ctx, m, 860, 234 + i * 130, fTekst(38, 500), C.text2, 'left'); });
+    const kaart = (i, m, cue, cueN, weg, wegN) => { const a = q.on(cue, cueN, 0.4); if (a < 0.01) return; _fade(ctx, a, () => { roundRect(ctx, 820, 170 + i * 130, 960, 100, 16); shape(ctx, rgba(C.fill, 0.7), C.line, 2); text(ctx, m, 860, 234 + i * 130, fTekst(40, 600), rgba(C.text, 0.85), 'left'); });
       const d = q.on(weg, wegN, 0.5); if (d > 0.01) doorstreep(ctx, 850, 222 + i * 130, 850 + 900 * d, 222 + i * 130); };
-    kaart(0, 'Jongen erven wat de ouder nodig had', 'meemaakt', 1, 'erven', 1);
+    kaart(0, 'Wat een ouder meemaakt, krijgen de jongen mee', 'meemaakt', 1, 'erven', 1);
     kaart(1, 'Selectie heeft een doel', 'Selectie', 1, 'doel', 1);
     kaart(2, 'Selectie maakt nieuwe allelen', 'maakt', 2, 'geen', 2);
     haak(ctx, 820, 1780, 580, 'Selectie kiest uit variatie die er al is', C.groen, q.on('variatie', 1));
@@ -310,10 +324,10 @@ Object.assign(SCENES, {
   s33(ctx, t, q) { _schemaBg(ctx);
     const x = 300, y = 780, w = 1300, h = 440, X = (j) => (j - 1975) / 12, Y = (v) => (v - 9) / 1;
     grafiekAs(ctx, x, y, w, h, { xLabel: 'jaar', yLabel: 'gemiddelde snavelhoogte (mm)', xt: [[X(1976), '1976'], [X(1978), '1978'], [X(1980), '1980'], [X(1982), '1982'], [X(1984), '1984'], [X(1986), '1986']], yt: [[Y(9.2), '9,2'], [Y(9.6), '9,6'], [Y(10), '10']] });
-    const D = [[1975, 9.3], [1976, 9.31], [1977, 9.6], [1978, 9.7], [1980, 9.68], [1982, 9.64], [1983, 9.6], [1984, 9.45], [1985, 9.33], [1987, 9.3]];
+    const D = [[1975, 9.3], [1976, 9.31], [1977, 9.32], [1977.6, 9.62], [1978, 9.7], [1980, 9.68], [1982, 9.64], [1983, 9.6], [1984, 9.45], [1985, 9.33], [1987, 9.3]];
     // de lijn loopt mee met het verhaal: omhoog na de droogte, vlak tot 1983, omlaag na El Niño
     const f1 = _sg(t, q.at('droogte', 1), q.at('voordeel', 1) + 0.4), f2 = _sg(t, q.at('voordeel', 1) + 0.4, q.at('Niño', 1)), f3 = _sg(t, q.at('kleinere', 1) - 1, q.at('beter', 1) + 0.4);
-    const jr = 1975 + 3 * f1 + 5 * f2 + 4 * f3, P = []; for (const [j, v] of D) { if (j <= jr) P.push([j, v]); else { const pv = P[P.length - 1]; if (pv && pv[0] < jr) P.push([jr, lerp(pv[1], v, (jr - pv[0]) / (j - pv[0]))]); break; } }
+    const jr = 1975 + 2 * _sg(t, 0, q.at('droogte', 1)) + 1 * f1 + 5 * f2 + 4 * f3, P = []; for (const [j, v] of D) { if (j <= jr) P.push([j, v]); else { const pv = P[P.length - 1]; if (pv && pv[0] < jr) P.push([jr, lerp(pv[1], v, (jr - pv[0]) / (j - pv[0]))]); break; } }
     if (P.length > 1) lijnPad(ctx, P.map(([j, v]) => [x + X(j) * w, y - Y(v) * h]), C.teal, 6);
     for (const [j, l, cue] of [[1977, 'droogte 1977', 'droogte'], [1983, 'El Niño 1983', 'Niño']]) _fade(ctx, q.on(cue, 1), () => { ctx.setLineDash([6, 8]); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x + X(j) * w, y); ctx.lineTo(x + X(j) * w, y - h); ctx.stroke(); ctx.setLineDash([]); metaText(ctx, l, x + X(j) * w + 12, y - h + 10, C.goud, 'left', 26); });
     // wat er te eten was: harde vruchtjes na de droogte, kleine zachte zaadjes na El Niño
@@ -323,9 +337,19 @@ Object.assign(SCENES, {
 
   // ---------------- Samenvatting
   s34(ctx, t, q) { _schemaBg(ctx);
-    const uit = 1 - q.on('Tel', 1, 0.5);
-    if (uit > 0.01) [['erfelijke variatie', 'erfelijke'], ['overproductie', 'meer'], ['selectiedruk', 'selectiedruk']].forEach(([s, cue], i) => tekstKaart(ctx, 170 + i * 555, 180, 470, 120, s, { a: q.on(cue, 1, 0.4) * uit }));
-    _fade(ctx, q.on('Tel', 1, 0.6), () => text(ctx, 'Niet de sterkste: de meeste nakomelingen die zelf jongen krijgen.', 140, 250, fTekst(44, 600), C.text, 'left'));
+    // drie voorwaarden: direct in beeld, ze blijven staan; de genoemde licht goud op
+    const kc = [['erfelijke variatie', 'erfelijke', 'overleven'], ['overproductie', 'meer', 'selectiedruk'], ['selectiedruk', 'selectiedruk', 'Tel']];
+    kc.forEach(([s, aan, uit], i) => { tekstKaart(ctx, 170 + i * 555, 130, 470, 100, s, { a: clamp(t / 0.5, 0, 1), rand: q.on(aan, 1, 0.3) * (1 - q.on(uit, 1, 0.3)) > 0.5 ? C.goud : C.line }); });
+    // fitness-boompje bij 'tel de jongen': ouder, vier jongen, alleen de jongen met eigen jongen tellen
+    const fb = q.on('Tel', 1, 0.5) * (1 - q.on('Voor', 1, 0.5));
+    if (fb > 0.01) { const px = 960, py = 380, J = [[780, 1], [900, 0], [1020, 1], [1140, 1]];
+      grondvink(ctx, px, py, 0.8, { snavel: 9.3, a: fb });
+      J.forEach(([jx, ok], i) => { const a = fb * _sg(t, q.at('jongen', 1) + i * 0.12, q.at('jongen', 1) + i * 0.12 + 0.3); if (a < 0.01) return; const d = ok ? 1 : lerp(1, 0.3, q.on('krijgen', 1));
+        _fade(ctx, a, () => { ctx.strokeStyle = rgba(C.line, d); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, py + 6); ctx.lineTo(jx, py + 60); ctx.stroke(); });
+        gedimd(ctx, a * d, (g) => grondvink(g, jx, py + 130, 0.45, { snavel: 9 }));
+        if (ok) _fade(ctx, a * q.on('krijgen', 1), () => nestje(ctx, jx, py + 170, 0.45, 3)); });
+      _fade(ctx, fb * q.on('meeste', 1), () => text(ctx, 'telt: 3', 1240, py + 110, fTekst(40, 700), C.groen, 'left')); }
+    _fade(ctx, q.on('Voor', 1, 0.6), () => text(ctx, 'Niet de sterkste: de meeste nakomelingen die zelf jongen krijgen.', 140, 330, fTekst(44, 600), C.text, 'left'));
     ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(140, 700); ctx.lineTo(1780, 700); ctx.stroke();
     const pa = q.on('allelen', 1, 0.5); if (pa > 0.01) { const p = lerp(0.45, 0.6, _sg(t, q.at('allelen', 1), q.at('allelen', 1) + 1.6)); pot(ctx, 1520, 640, 0.95, { p, n: 60, seed: 3, a: pa }); allelBalk(ctx, 1380, 670, 280, p, { procent: false, a: pa }); naamBij(ctx, 'de genenpool verandert', null, 1520, 790, pa, 'center'); }
     const ra = q.on('rups', 1, 0.4); if (ra > 0.01) { blad(ctx, 200, 560, 170, { rot: -0.1, a: ra }); rups(ctx, 340, 548, 0.5, { kleur: '#6BA872', rot: -0.1, a: ra, houding: 'kruipen', t: t * 0.6 }); naamBij(ctx, 'rups: groen', 'camouflage', 370, 760, ra, 'center'); }

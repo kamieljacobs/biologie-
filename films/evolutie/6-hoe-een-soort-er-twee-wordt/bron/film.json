@@ -1,0 +1,89 @@
+{
+ "slug": "6-hoe-een-soort-er-twee-wordt",
+ "hoofdstuk": "evolutie",
+ "hoofdstukNaam": "Evolutie",
+ "title": "Hoe één soort er twee wordt",
+ "sub": "isolatie en soortvorming",
+ "puzzle": "Is een muilezel een soort?",
+ "meta": "evolutie 6/8",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · reeks Evolutie · film 6 van 8",
+ "lead": "Een soort is een groep die in de natuur samen vruchtbare nakomelingen kan krijgen. Paard en ezel krijgen wel een jong, maar de muilezel is onvruchtbaar. Daarom is de muilezel geen soort, maar een hybride. Een nieuwe soort ontstaat als de genenstroom stopt. Twee genenpools lopen dan uit elkaar, tot de groepen ook samen geen vruchtbare jongen meer krijgen.",
+ "endHaak": "volgende film: Hoe weten we dat?",
+ "minis": {
+  "Hoofdstuk 1": "Zijn paard en ezel één soort?",
+  "Hoofdstuk 2": "Wat gebeurt er als de genenstroom stopt?",
+  "Hoofdstuk 3": "Wat houdt twee soorten uit elkaar?",
+  "Hoofdstuk 4": "Kunnen er nieuwe soorten ontstaan in één meer?",
+  "Recap": "Is een muilezel een soort?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q06": {
+   "q": "Een paard en een ezel krijgen samen een muilezel. Die is gezond, maar onvruchtbaar. Zijn paard en ezel één soort?",
+   "correct": 1,
+   "explain": "Paard en ezel krijgen samen wel een jong, maar dat jong is onvruchtbaar. Daarmee houdt het op: er stromen geen genen van paarden naar ezels. Paard en ezel zijn twee soorten."
+  },
+  "q14": {
+   "q": "De rivier blijft duizenden generaties liggen. Wat gebeurt er met de twee genenpools?",
+   "correct": 2,
+   "explain": "Nu de genenstroom stopt, is één pot twee potten geworden. In elke pot ontstaan andere mutaties. Elke kant heeft eigen selectiedruk: misschien is het links kouder of zijn er andere roofdieren."
+  },
+  "q22": {
+   "q": "Twee kikkersoorten leven in dezelfde vijver. De ene paart in april, de andere in juni. Wat voor isolatie is dit?",
+   "correct": 0,
+   "explain": "Neem twee kikkersoorten in dezelfde vijver. De ene paart in april, de andere in juni. De scheiding zit dus niet in de plek, maar in de tijd."
+  },
+  "q29": {
+   "q": "Er is geen muur in het water. Hoe kunnen de blauwe en de rode vissen toch apart blijven?",
+   "correct": 1,
+   "explain": "De ogen van de vrouwtjes zijn afgestemd op het licht waar ze leven. Diep zien ze rood het best, ondiep blauw. Ze kiezen dus vooral een mannetje van hun eigen kleur."
+  }
+ },
+ "glossary": [
+  {
+   "t": "soort",
+   "d": "Groep individuen die in de natuur samen vruchtbare nakomelingen kunnen krijgen."
+  },
+  {
+   "t": "hybride",
+   "d": "Nakomeling van ouders van twee verschillende soorten, zoals de muilezel; vaak onvruchtbaar."
+  },
+  {
+   "t": "ras",
+   "d": "Groep binnen een soort met eigen erfelijke kenmerken, door de mens gefokt."
+  },
+  {
+   "t": "ondersoort",
+   "d": "Groep binnen een soort, in de natuur, met eigen erfelijke kenmerken en vaak een eigen gebied; kan nog vruchtbare nakomelingen krijgen met de rest van de soort."
+  },
+  {
+   "t": "genenstroom",
+   "d": "Uitwisseling van allelen tussen populaties of delen van een populatie, doordat individuen verhuizen en paren (zie film 5)."
+  },
+  {
+   "t": "geografische isolatie",
+   "d": "Populaties zijn van elkaar gescheiden door een barrière in het landschap (rivier, zee, gebergte), waardoor de genenstroom stopt."
+  },
+  {
+   "t": "divergente evolutie",
+   "d": "Twee populaties uit één voorouderpopulatie gaan steeds meer van elkaar verschillen."
+  },
+  {
+   "t": "reproductieve isolatie",
+   "d": "Twee groepen kunnen samen geen vruchtbare nakomelingen (meer) krijgen. Vóór de bevruchting: andere tijd, plek, gedrag of bouw. Ná de bevruchting: de nakomeling sterft of is onvruchtbaar."
+  },
+  {
+   "t": "allopatrische soortvorming",
+   "d": "Soortvorming in gescheiden gebieden, na geografische isolatie.",
+   "vwo": true
+  },
+  {
+   "t": "sympatrische soortvorming",
+   "d": "Soortvorming in hetzelfde gebied, zonder barrière in het landschap, bijvoorbeeld door partnerkeuze.",
+   "vwo": true
+  }
+ ],
+ "sections": "<section><h2>Checkvragen</h2>\n  <p class=\"meta\">antwoorden ingeklapt</p>\n  <div class=\"q\"><p><b>1.</b> Een tijger en een leeuw kunnen in een dierentuin samen een liger krijgen. Ligermannetjes zijn onvruchtbaar. Zijn leeuw en tijger één soort? Leg uit.</p><details><summary>Antwoord</summary><p>Nee: een soort krijgt in de natuur samen vruchtbare nakomelingen. Leeuw en tijger paren in de natuur niet, en ligermannetjes zijn onvruchtbaar: geen genenstroom, dus twee soorten. (Ligerwijfjes zijn soms vruchtbaar; daarom staat &#x27;in de natuur&#x27; in de definitie.)</p></details></div>\n  <div class=\"q\"><p><b>2.</b> Waarom zijn een chihuahua en een wolf wel één soort?</p><details><summary>Antwoord</summary><p>Honden en wolven kunnen samen nakomelingen krijgen die zelf ook weer vruchtbaar zijn; uiterlijk telt niet.</p></details></div>\n  <div class=\"q\"><p><b>3.</b> Waarom is een muilezel meestal onvruchtbaar?</p><details><summary>Antwoord</summary><p>Hij heeft 63 chromosomen, 32 van het paard en 31 van de ezel; bij de meiose kunnen die niet goed paren, waardoor er (bijna) geen werkende geslachtscellen ontstaan.</p></details></div>\n  <div class=\"q\"><p><b>4.</b> Zet in de goede volgorde: reproductieve isolatie · barrière · verschillen stapelen zich op (mutatie, selectie, toeval) · genenstroom stopt.</p><details><summary>Antwoord</summary><p>barrière → genenstroom stopt → verschillen stapelen zich op → reproductieve isolatie.</p></details></div>\n  <div class=\"q\"><p><b>5.</b> Twee vogelpopulaties zingen een ander lied en paren daardoor niet meer met elkaar. Is dit isolatie vóór of na de bevruchting?</p><details><summary>Antwoord</summary><p>Vóór de bevruchting (gedrag).</p></details></div>\n  <div class=\"q vwo-only\"><p><b>6.</b> Wat is het verschil tussen allopatrische en sympatrische soortvorming? Wat hebben ze gemeen? <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>Allopatrisch: gescheiden door een geografische barrière; sympatrisch: in hetzelfde gebied, de genenstroom stopt door iets anders (bv. partnerkeuze). Gemeen: de genenstroom stopt en de genenpools lopen uiteen.</p></details></div>\n  <div class=\"q vwo-only\"><p><b>7.</b> In troebel water ontstaan bij Pundamilia geen aparte rode en blauwe soorten. Verklaar dit. <span class=\"vwo-badge\">vwo</span></p><details><summary>Antwoord</summary><p>De vrouwtjes kunnen de kleur van de mannetjes niet goed zien en kiezen dus niet op kleur; dan blijft er genenstroom tussen rood en blauw, zodat de genenpools niet uiteenlopen.</p></details></div>\n</section>\n<section><h2>Voor de docent</h2>\n  <h3>Hoe de film het uitlegt</h3>\n  <table><tr><th>Hoofdstuk</th><th>Type · look</th><th>Minivraag</th></tr>\n  <tr><td>1. Wat is een soort?</td><td>F · Macro</td><td>Zijn paard en ezel één soort?</td></tr>\n  <tr><td>2. Eén pot wordt twee</td><td>F · Schema</td><td>Wat gebeurt er als de genenstroom stopt?</td></tr>\n  <tr><td>3. Wanneer is het echt een tweede soort?</td><td>F · Schema</td><td>Wat houdt twee soorten uit elkaar?</td></tr>\n  <tr><td>4. Zonder barrière (vwo)</td><td>F · Macro</td><td>Kunnen er nieuwe soorten ontstaan in één meer?</td></tr>\n  </table>\n  <h3>Getallen en bronnen</h3>\n  <table><tr><th>Wat</th><th>Bron</th></tr>\n  <tr><td>paard 64, ezel 62, muilezel 63 chromosomen; muilezels vrijwel altijd onvruchtbaar, enkele vruchtbare merries beschreven</td><td>horses.extension.org (Extension Foundation, &#x27;Mules&#x27;); Pierce, Genetics Essentials, §6.3</td></tr>\n  <tr><td>muilezel = paardenhengst × ezelin; muildier = ezelhengst × paardenmerrie</td><td>webwoordenboek.nl &#x27;Is een ezel een paard?&#x27; (Nederlandse naamgeving)</td></tr>\n  <tr><td>schofthoogte paard ±160 cm, muilezel ±130 cm, ezel ±110 cm (tekenmaten, niet gezegd)</td><td>rasstandaarden KWPN / Nederlandse standaardezel; benadering</td></tr>\n  <tr><td>Victoriameer viel droog/bijna droog en liep ±15.000 jaar geleden weer vol; sindsdien ±500 nieuwe cichlidensoorten</td><td>Eawag-persbericht bij Meier e.a. 2017, Nature Communications 8:14363; Johnson e.a. 1996, Science</td></tr>\n  <tr><td>Pundamilia pundamilia blauw (ondiep), P. nyererei rood (dieper); vrouwtjes met roodgevoelige ogen kiezen rode mannetjes; in troebel water één tussenvorm</td><td>Seehausen e.a. 2008, Nature 455:620–626 (via Practical Fishkeeping-samenvatting)</td></tr>\n  </table>\n  <h3>Keuzes en vereenvoudigingen</h3>\n  <ul>\n  <li>Puzzel A gekozen (seriebrief). B (hond/wolf één soort, paard/ezel niet) zit in H1 (e6s03–e6s06), C (nieuwe soorten in één meer) in het vwo-blok.</li>\n  <li>Ouders: in het Nederlands is een muilezel strikt paardenhengst × ezelin, een muildier ezelhengst × paardenmerrie (webwoordenboek.nl; Engels: hinny resp. mule). De opening zegt daarom &#x27;zijn vader is een paard, zijn moeder een ezel&#x27;. In de spreektaal heet ook het muildier vaak &#x27;muilezel&#x27;; de puzzel geldt voor beide (63 chromosomen). Tekening: muilezel met lange oren tussen paard en ezel in.</li>\n  <li>Spelling in de ondertitels &#x27;muilezel&#x27;, stem-invoer &#x27;muil-eezel&#x27; (goedgekeurd).</li>\n  <li>Chromosomen: paard 64, ezel 62, muilezel 63 (horses.extension.org). &#x27;Vrijwel altijd onvruchtbaar&#x27;: enkele vruchtbare merrie-muilezels zijn beschreven (Marokko, China, Colorado 2007). De film zegt &#x27;bijna geen werkende geslachtscellen&#x27; en &#x27;krijgt nooit jongen&#x27; over Gerrits dier; de haak zegt niet dat het onmogelijk is.</li>\n  <li>Hond en wolf als één soort volgt het biologische soortbegrip (vruchtbare nakomelingen), zoals het CE (HAVO 2018-1 v29). Sommige systematici houden Canis familiaris apart; dat laat ik weg.</li>\n  <li>De geografische isolatie is bewust een schematische kaart zonder echte casus: de seriebrief noemt voor film 6 alleen paard/ezel en cichliden. Een echte allopatrische casus (bv. de bruinvis uit VWO 2022-2 of de Kaibab- en Abert-eekhoorn aan weerszijden van de Grand Canyon) kan als voorbeeld in de vertelling; ik heb gekozen voor geen extra casus om de film kort te houden.</li>\n  <li>Kikkervoorbeeld (april/juni) komt uit de archieffilm; het is een leerboekvoorbeeld zonder specifieke soort. Bij navragen: Amerikaanse Lithobates-soorten (bv. L. sylvaticus vroeg, L. pipiens later) zijn het klassieke geval; niet met getallen gecontroleerd.</li>\n  <li>Victoriameer: &#x27;droog of bijna droog&#x27; rond 17.000–15.000 jaar geleden, ±500 soorten in de laatste 15.000 jaar (Eawag/Meier e.a. 2017, Nat. Commun.). Meier toont ook dat oudere hybridisatie (±150.000 jaar geleden) de genetische variatie leverde; dat laat ik weg uit de vertelling.</li>\n  <li>Pundamilia: Seehausen e.a. 2008 (Nature 455) noemt het &#x27;speciation through sensory drive&#x27; langs een dieptegradiënt; strikt genomen is dat geen zuiver sympatrische soortvorming (eerder parapatrisch). Schoolboeken (Nectar) gebruiken het als voorbeeld van sympatrische soortvorming; de film zegt &#x27;zonder barrière in het landschap&#x27;. Twijfel genoteerd.</li>\n  <li>Troebel water (eutrofiëring) liet in Seehausen 2008 één tussenvorm zien: ik noem het in één zin omdat het de rol van kleur bewijst; het is een uitbreiding die eventueel weg kan.</li>\n  <li>Polyploïdie (soortvorming door chromosoomverdubbeling bij planten) en de ringsoort Ensatina uit de archieffilm zijn weggelaten: niet in de seriebrief, niet in het CE.</li>\n  <li>Niet zeggen: &#x27;een muilezel kan nooit jongen krijgen&#x27; (zeldzame uitzonderingen); &#x27;soorten herken je aan het uiterlijk&#x27;; &#x27;een barrière maakt direct een nieuwe soort&#x27;; &#x27;de dieren passen zich aan de nieuwe kant aan&#x27;; &#x27;cichliden ontstonden in een paar honderd jaar&#x27; (overdreven op internet, gaat over enkele soorten); &#x27;het Victoriameer was helemaal leeg en alle vissen waren weg&#x27; (onzeker); &#x27;hond en wolf zijn twee soorten omdat ze anders lijken&#x27;.</li>\n  <li>Vwo-blok (e6s22–e6s27, vraag e6q25) heeft een eigen vraag en begint met inhoud, niet met &#x27;Voor vwo&#x27;. e6q25 staat op laag &#x27;vwo&#x27;. Basislijn (zonder e6s22–e6s27) is compleet.</li>\n  <li>Vragen uit nagelopen: de eerste zin na elke vraag herhaalt de inhoud zonder naar de vraag te verwijzen.</li>\n  <li>Extra scènes buiten de opzet: e6s11 (wat een barrière is hangt af van het dier: muis, vogel, slak) en e6s15 (waarom hond en wolf na 15.000 jaar nog één soort zijn: er is nog genenstroom; terugverwijzing naar film 4, geen tweede casus). Beide examenwaardig (HAVO 2018-1 v29, HAVO 2025-2 v35) en nodig om boven 6 min basis te komen.</li>\n  <li>Zwaluw, muis en slak zijn klein en schematisch (ze staan in één beeld ver van elkaar); de slak is groter getekend dan op schaal t.o.v. de muis; label &#x27;niet op schaal&#x27; nog toevoegen of de schaal gelijk trekken.</li>\n  <li>Chromosoomschema e6s07 toont 7 van de 63 chromosomen en zegt &#x27;paart niet&#x27; voor paren met ongelijke lengte: vereenvoudigd (in werkelijkheid verschillen paard- en ezelchromosomen door herschikkingen, niet alleen door lengte).</li>\n  <li>Personages: Veehouder Gerrit (muilezel op het erf). Dierenarts Mila niet nodig.</li>\n  <li>Soortdefinitie met &#x27;in de natuur&#x27; (zoals BvJ/CE &#x27;onder natuurlijke omstandigheden&#x27;): anders zouden leeuw en tijger (ligerwijfjes soms vruchtbaar) één soort zijn. Ook in e6s28, de eindkaart en de begrippen; f8 is gelijkgetrokken.</li>\n  <li>Cichliden: Pundamilia langs een dieptegradiënt is strikt eerder parapatrisch; de vertelling zegt daarom &#x27;een deel zonder barrière&#x27; en &#x27;in hetzelfde deel van het meer&#x27;, en noemt het sympatrisch zoals de methode doet.</li>\n  <li>Hoofdstukken hebben nu een veld &#x27;laag&#x27;; hoofdstuk 4 staat op &#x27;vwo&#x27; zodat de speler die kaart in de havo-stand weglaat; &#x27;(vwo)&#x27; uit de titel. De chihuahua in e6s03 is dezelfde tekening als in film 4 (HONDEN.chihuahua, gekopieerd in teken_evo6.js).</li>\n  <li>Review 22 okt: 12 punten verwerkt (1 e6q25 naar vwo + id&#x27;s, 2 soort &#x27;in de natuur&#x27;, 3 genenstroom = tussen (delen van) populaties, 4 hond/wolf zonder generatietegenspraak + &#x27;tienduizenden generaties&#x27;, 16 kikkers ingeleid na de vraag, 28 opties e6q19, 42 chihuahua, 43 cichliden voorzichtiger, 55 chihuahua dezelfde tekening, 56 &#x27;(vwo)&#x27; uit titel, 59 e6s17).</li>\n  </ul>\n  <h3>Plaats in de reeks</h3>\n  <p>Film 6 van 8 in de reeks Evolutie (havo en vwo; mechanisme eerst: binnen één populatie → één populatie wordt twee → tussen soorten). Vorige: Toeval en uitwisseling. Volgende: Hoe weten we dat?.</p>\n</section>\n"
+}

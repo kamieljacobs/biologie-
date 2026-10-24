@@ -98,3 +98,61 @@ const E1_Y = [EVO.a1, EVO.a2, EVO.a2, EVO.a1, EVO.a2, EVO.a1, EVO.a1, EVO.a2], E
 // rij allelknikkers die één voor één verschijnen (u = 0..1 over de hele rij) met gouden ringen om de verschillen (g = 0..1)
 function e1allelRij(ctx, x, y, kleuren, u, g = 0, r = 18) { kleuren.forEach((k, i) => { const v = clamp(u * kleuren.length - i, 0, 1); if (v <= 0) return; const e = ease(v);
   knikker(ctx, x + i * r * 2.5, y + (1 - e) * 20, r * (0.6 + 0.4 * e), k, e); if (g > 0 && [1, 3, 6].includes(i)) { ctx.save(); ctx.globalAlpha *= g; goudRing(ctx, x + i * r * 2.5, y, r + 7); ctx.restore(); } }); }
+
+// ---- review 23 okt: dag i.p.v. nacht ("zonnig kozijn") ----
+const E1_DAG = { lucht: '#9CC3E0', band: '#B7D3E6', heuvel: '#6E9A62', voor: '#5C8A55', boom: '#3F6B47', glas: '#CFE2EE' };
+function kozijnDag(ctx, o = {}) {
+  const { glasX = 0, glasB = 1250, dorpelY = 640 } = o;
+  ctx.save(); ctx.beginPath(); ctx.rect(glasX, 0, glasB, dorpelY); ctx.clip();
+  ctx.fillStyle = E1_DAG.lucht; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = E1_DAG.band; ctx.fillRect(0, 420, W, 220);
+  vul(ctx, [[-50, 520], [260, 470], [600, 505], [900, 450], [1300, 500], [1300, 700], [-50, 700]], E1_DAG.heuvel);
+  for (const [bx, bs] of [[180, 1], [430, 0.8], [980, 1.15], [1120, 0.9]]) vul(ctx, [[bx - 60 * bs, 520], [bx, 330 * (2 - bs) * 0.5 + 200], [bx + 60 * bs, 520]], E1_DAG.boom);
+  circ(ctx, 1000, 140, 78, 'rgba(255,236,170,0.35)'); circ(ctx, 1000, 140, 46, '#F6D77A');
+  ctx.fillStyle = 'rgba(255,255,255,0.14)'; ctx.beginPath(); ctx.moveTo(200, 0); ctx.lineTo(320, 0); ctx.lineTo(80, dorpelY); ctx.lineTo(-40, dorpelY); ctx.fill();
+  ctx.restore();
+  const hout = '#D9D2C2', houtS = '#BDB5A3', houtL = '#ECE7DA';
+  ctx.fillStyle = hout; ctx.fillRect(glasX + glasB, 0, W - glasX - glasB, dorpelY + 40);
+  ctx.fillStyle = houtS; ctx.beginPath(); ctx.moveTo(glasB, 0); ctx.lineTo(glasB + 26, 0); ctx.lineTo(glasB + 26, dorpelY + 26); ctx.lineTo(glasB, dorpelY); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(0, dorpelY); ctx.lineTo(glasB, dorpelY); ctx.lineTo(glasB + 26, dorpelY + 26); ctx.lineTo(0, dorpelY + 26); ctx.fill();
+  ctx.fillStyle = hout; ctx.fillRect(0, dorpelY + 26, W, 200);
+  ctx.fillStyle = houtL; ctx.fillRect(0, dorpelY + 26, W, 10);
+  ctx.fillStyle = houtS; ctx.fillRect(0, dorpelY + 226, W, 14);
+  ctx.fillStyle = '#5A4A3E'; ctx.fillRect(0, dorpelY + 240, W, H - dorpelY - 240);
+  for (let r = 0; r < 4; r++) for (let k = 0; k < 14; k++) { const bx = k * 150 + (r % 2) * 75 - 40, by = dorpelY + 246 + r * 52; roundRect(ctx, bx, by, 142, 46, 4); shape(ctx, '#6B4A3A', '#7A5848', 1); }
+  ctx.strokeStyle = rgba(houtS, 0.6); ctx.lineWidth = 1.5;
+  for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(glasB + 60 + i * 95, 0); ctx.bezierCurveTo(glasB + 80 + i * 95, 200, glasB + 40 + i * 95, 400, glasB + 70 + i * 95, dorpelY); ctx.stroke(); }
+  for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.moveTo(0, dorpelY + 60 + i * 40); ctx.bezierCurveTo(500, dorpelY + 50 + i * 40, 1100, dorpelY + 75 + i * 40, W, dorpelY + 58 + i * 40); ctx.stroke(); }
+  // zonlicht door het raam: warme schuine vlek op de vensterbank en de stijl
+  ctx.fillStyle = 'rgba(255,224,140,0.16)'; ctx.beginPath(); ctx.moveTo(300, dorpelY + 26); ctx.lineTo(1500, dorpelY + 26); ctx.lineTo(1800, dorpelY + 226); ctx.lineTo(600, dorpelY + 226); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(glasB + 26, 120); ctx.lineTo(W, 40); ctx.lineTo(W, dorpelY + 26); ctx.lineTo(glasB + 26, dorpelY + 26); ctx.fill();
+}
+function e1huis(ctx, x, y, w, h) { // huisGevel overdag (ramen = glas, niet verlicht)
+  ctx.beginPath(); ctx.moveTo(x - 30, y - h); ctx.lineTo(x + w / 2, y - h - h * 0.55); ctx.lineTo(x + w + 30, y - h); ctx.closePath(); ctx.fillStyle = '#5A4650'; ctx.fill();
+  ctx.fillStyle = '#7A5444'; ctx.fillRect(x, y - h, w, h);
+  ctx.strokeStyle = '#8A6454'; ctx.lineWidth = 1.5; for (let r = 0; r < h / 26; r++) { ctx.beginPath(); ctx.moveTo(x, y - h + r * 26); ctx.lineTo(x + w, y - h + r * 26); ctx.stroke(); }
+  const ram = (rx, ry, rw, rh) => { ctx.fillStyle = '#D9D2C2'; ctx.fillRect(rx - 10, ry - 10, rw + 20, rh + 20); ctx.fillStyle = E1_DAG.glas; ctx.fillRect(rx, ry, rw, rh); ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillRect(rx + 8, ry + 6, rw * 0.18, rh - 12); ctx.fillStyle = '#D9D2C2'; ctx.fillRect(rx + rw / 2 - 4, ry, 8, rh); ctx.fillRect(rx, ry + rh / 2 - 4, rw, 8); };
+  ram(x + w * 0.14, y - h * 0.78, w * 0.26, h * 0.32); ram(x + w * 0.6, y - h * 0.78, w * 0.26, h * 0.32);
+  ctx.fillStyle = '#3A4A66'; ctx.fillRect(x + w * 0.42, y - h * 0.4, w * 0.16, h * 0.4); }
+const E1_RAAM = [640 + 520 * 0.14, 760 - 330 * 0.78, 520 * 0.26, 330 * 0.32]; // linkerraam van het huis (x, y, w, h)
+function e1tuinDag(ctx) { const hz = 640; ctx.fillStyle = E1_DAG.lucht; ctx.fillRect(0, 0, W, H); ctx.fillStyle = E1_DAG.band; ctx.fillRect(0, hz - 120, W, 120);
+  circ(ctx, 1640, 150, 70, 'rgba(255,236,170,0.35)'); circ(ctx, 1640, 150, 42, '#F6D77A');
+  vul(ctx, [[-50, hz], [300, hz - 70], [700, hz - 30], [1100, hz - 90], [1500, hz - 40], [1980, hz - 80], [1980, H], [-50, H]], E1_DAG.heuvel);
+  vul(ctx, [[-50, hz + 120], [500, hz + 80], [1000, hz + 130], [1500, hz + 90], [1980, hz + 120], [1980, H], [-50, H]], E1_DAG.voor);
+  e1huis(ctx, 640, 760, 520, 330);
+  for (const [x, y, s] of [[300, 760, 1], [1420, 760, 1.2], [1650, 780, 0.9]]) { ctx.beginPath(); ctx.moveTo(x - 70 * s, y); ctx.lineTo(x, y - 230 * s); ctx.lineTo(x + 70 * s, y); ctx.closePath(); ctx.fillStyle = E1_DAG.boom; ctx.fill(); } }
+
+// ---- Groot-Brittannië (silhouet, vereenvoudigd; lon/lat) ----
+const GB_CONTOUR = [[-3.0, 58.6], [-1.8, 57.6], [-2.1, 57.1], [-2.5, 56.6], [-2.6, 56.05], [-1.6, 55.6], [-1.4, 54.9], [-0.6, 54.5], [0.1, 54.1], [0.1, 53.6], [0.3, 53.1], [0.4, 52.9], [1.7, 52.7], [1.7, 52.1], [1.4, 51.4], [1.4, 51.1], [0.3, 50.8], [-1.0, 50.7], [-2.0, 50.6], [-3.4, 50.6], [-4.2, 50.3], [-5.7, 50.05], [-5.0, 50.6], [-4.2, 51.1], [-3.0, 51.25], [-4.0, 51.6], [-5.3, 51.8], [-4.4, 52.2], [-4.1, 52.9], [-4.7, 52.8], [-4.4, 53.4], [-3.1, 53.3], [-3.0, 53.8], [-3.4, 54.4], [-3.1, 54.95], [-4.4, 54.7], [-5.1, 54.8], [-4.9, 55.6], [-5.6, 55.3], [-5.6, 56.0], [-5.8, 56.5], [-5.7, 57.3], [-5.8, 57.9], [-5.0, 58.6]];
+function gbXY(lon, lat, cx, cy, k) { return [cx + (lon + 2.5) * 0.58 * k, cy - (lat - 54.4) * k]; }
+function gbSil(ctx, cx, cy, k, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; vul(ctx, GB_CONTOUR.map(([lo, la]) => gbXY(lo, la, cx, cy, k)), C.fill, C.line, 3); ctx.restore(); }
+
+// ---- allelen als paren (één paar per gen): bovenste en onderste knikker; gouden kader om de paren die verschillen ----
+const E1_YP = [[EVO.a1, EVO.a2], [EVO.a2, EVO.a2], [EVO.a1, EVO.a2], [EVO.a1, EVO.a1], [EVO.a2, EVO.a2], [EVO.a1, EVO.a2], [EVO.a1, EVO.a1], [EVO.a2, EVO.a1]];
+const E1_BP = [[EVO.a1, EVO.a2], [EVO.a1, EVO.a2], [EVO.a1, EVO.a2], [EVO.a1, EVO.a2], [EVO.a2, EVO.a2], [EVO.a1, EVO.a2], [EVO.a2, EVO.a2], [EVO.a2, EVO.a1]];
+function e1paren(ctx, cx, y, paren, u, g = 0, r = 15, verschil = [1, 3, 6]) { const sp = r * 2.6;
+  paren.forEach(([k1, k2], i) => { const v = clamp(u * paren.length - i, 0, 1); if (v <= 0) return; const e = ease(v), x = cx + (i - (paren.length - 1) / 2) * sp;
+    knikker(ctx, x, y - r * 1.05 + (1 - e) * 16, r * (0.6 + 0.4 * e), k1, e); knikker(ctx, x, y + r * 1.05 + (1 - e) * 16, r * (0.6 + 0.4 * e), k2, e);
+    if (g > 0 && verschil.includes(i)) { ctx.save(); ctx.globalAlpha *= g; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; roundRect(ctx, x - r - 5, y - r * 2.05 - 5, 2 * r + 10, r * 4.1 + 10, r); ctx.stroke(); ctx.restore(); } }); }
+
+function e1paneel(ctx, a) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, 56, 150, 1000, 96, 12); ctx.fillStyle = 'rgba(18,26,38,0.82)'; ctx.fill(); ctx.restore(); }

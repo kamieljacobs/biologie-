@@ -41,7 +41,7 @@ variatie, allel, mutatie, recombinatie, populatie, genenpool, allelfrequentie, e
 | 110 | Voor de docent |
 | 151 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1837 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb1.js (keyframes) |
-| 9103 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e1.js`) |
+| 9160 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e1.js`) |
 
 ## Hoe je de film aanpast
 
@@ -54,3 +54,5 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f1.json`.
+- Larve, legsel en pop (teken_e1.js) zijn nieuwe tekeningen die nog niet door de beeldbank zijn gekeurd
+- Lieveheersbeestjes lopen met een driepootgang op vaste snelheid; in beweging nakijken

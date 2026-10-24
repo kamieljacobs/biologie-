@@ -29,7 +29,15 @@ E3.roet = function (ctx, t, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.glob
   for (let i = 0; i < 46; i++) { const x = 720 + hash(i * 3.1) * 780 + Math.sin(t * 0.7 + i) * 12, y = ((hash(i * 7.7) * 900 + t * (35 + 25 * hash(i))) % 900) - 20; ctx.beginPath(); ctx.arc(x, y, 2.5 + 3 * hash(i * 1.3), 0, 6.283); ctx.fill(); }
   ctx.restore(); };
 // stam: lucht + schors met roet 0..1 (vloeiend)
-E3.stam = function (ctx, roet) { macroNacht(ctx, { horizon: 980, heuvel: false }); if (roet < 0.99) schors(ctx, 700, -40, 820, 1000, { roet: 0 }); if (roet > 0.01) schors(ctx, 700, -40, 820, 1000, { roet: 1, a: roet }); };
+E3.stam = function (ctx, roet) { macroNacht(ctx, { horizon: 860, heuvel: false });
+  const voet = (kl) => vul(ctx, [[700, 820], [690, 880], [600, 912], [760, 905], [960, 916], [1170, 908], [1300, 918], [1440, 904], [1610, 914], [1530, 880], [1520, 820]], kl);
+  voet(roet > 0.5 ? '#2A2826' : '#8E8C80'); if (roet > 0.01 && roet < 0.99) { ctx.save(); ctx.globalAlpha *= roet; voet('#2A2826'); ctx.restore(); }
+  if (roet < 0.99) schors(ctx, 700, -40, 820, 920, { roet: 0 }); if (roet > 0.01) schors(ctx, 700, -40, 820, 920, { roet: 1, a: roet }); };
+// babyweegschaal (± 50 cm) op een verschoontafel (± 90 cm hoog) naast een persoon van ± 1,70 m (h = 560 px → 3,3 px per cm); gewicht staat er meteen op
+E3.weegTafel = function (ctx, x, y, kg, t) { const tafelH = 290, top = y - tafelH;
+  ctx.fillStyle = '#5A6A80'; for (const dx of [-120, 110]) ctx.fillRect(x + dx, top + 20, 12, tafelH - 20); roundRect(ctx, x - 150, top, 300, 26, 6); shape(ctx, '#C8D2DC', '#E4EAF0', 2);
+  babyWeegschaal(ctx, x, top, 170, { kg: '' }); persoon(ctx, 'baby', x - 5, top - 62, 165, { uit: 'blij', t });
+  roundRect(ctx, x - 70, top + 44, 140, 52, 10); shape(ctx, '#1E2A36', '#3A4A5A', 2); text(ctx, E3.kg(kg), x, top + 82, fMeta(30), '#9CE0B0', 'center'); };
 // weegschaal waarvan de schaalarmen meedraaien maar de schalen recht blijven hangen
 E3.balans = function (ctx, hoek, aL, aR) { const cx = 960, cy = 420; ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.lineCap = 'round';
   ctx.beginPath(); ctx.moveTo(cx, 760); ctx.lineTo(cx, cy); ctx.stroke(); ctx.beginPath(); ctx.moveTo(cx - 140, 760); ctx.lineTo(cx + 140, 760); ctx.stroke();
