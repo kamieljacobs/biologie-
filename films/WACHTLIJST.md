@@ -44,3 +44,7 @@ Deze takes zijn al opgenomen; Kamiel luistert de risicowoorden in één batch na
 | Film | Take(s) | Risicowoorden (stem-invoer) |
 |---|---|---|
 | [Diffusie en osmose](cellen/diffusie-osmose/bron/info.md) (v1.2, 16-10-2026) | s12, s14, s20, s21, s22 | fosfolipiden (`fosfo-lipiden`, s12 ± 0:08), hydrofiel (`hiedro-fiel`, s12 ± 0:12), hydrofoob (`hiedro-foob`, s12 ± 0:15), chloride (zoals geschreven, s22 ± 0:28; alternatief `chlo-riede`), keukenzout (s22 ± 0:24), molecuul (s20 ± 0:17) |
+
+## DNA met de oude stem-invoer 'deeënaa' (24 okt 2026)
+
+In de uitspraaktest van 24 okt koos Kamiel voor DNA de gewone spelling: 'deeënaa' legde in Chromosomen de klemtoon verkeerd. Deze films hebben nog een film-eigen regel met 'deeënaa' in `bron/uitspraak_film.json` en zijn daarmee ingesproken: Biomedisch 2 en 3, Psychologie 6, Evolutie 1–8 en x1–x4, examen vwo-2018-2. Beluisteren bij de volgende review; klinkt DNA er verkeerd, dan die regel weghalen en alleen die alinea's opnieuw inspreken. Niet zelf aanpassen in een reeks waar het andere account aan werkt.

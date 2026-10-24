@@ -12,7 +12,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 
 | Woord | Stem-invoer | Sinds |
 |---|---|---|
-| DNA | deeënaa | 12 okt |
+| DNA | DNA (gewone spelling, eleven_v4); 'deeënaa' gaf in Chromosomen de klemtoon verkeerd (uitspraaktest 24 okt). Oude film-eigen regels met 'deeënaa': bij herinspreken weghalen | 24 okt |
 | RNA / mRNA / tRNA | erenaa / em-erenaa; tRNA in een film steeds hetzelfde | 13 okt |
 | PCR | pee cee er | 13 okt |
 | template | klemtoon op laatste lettergreep | 13 okt |
@@ -47,7 +47,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | koolstofdioxide | koolstofdie-oxide | |
 | semipermeabel | semi-permeabel | |
 | isotonisch, turgor, gefaciliteerde, osmotische waarde, concentratiegradiënt, natrium-kaliumpomp | zoals geschreven | |
-| haploïd | haaploïd | |
+| haploïd | haaploïd (bevestigd in de uitspraaktest van 24 okt; de gewone spelling gaf een korte a) | 24 okt |
 | meiose, mitose, cytokinese, chromatiden, diploïd, crossing-over, non-disjunctie, trisomie, profase–telofase, centromeer, equatorvlak, spoelfiguur, chromatine, reductiedeling | zoals geschreven | |
 | X-vorm | iks-vorm | |
 | kinetochoor, cohesine | zoals geschreven | |
@@ -58,6 +58,22 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | abiotisch | zoals geschreven | |
 | B (antwoordletter) | bé (Nederlandse B; "bee" klonk Engels) — staat in uitspraak.json; oudere films met "bee" in de stem-invoer: zie WACHTLIJST.md | 21 okt |
 | emergente | emergénte | |
+
+## Uitspraaktest 24 okt 2026 (eleven_v4, Roos; Chromosomen + Signalen in de cel)
+
+Elk woord in drie schrijfwijzen, telkens in dezelfde zinnen uit verschillende films (luisterpagina https://claude.ai/artifact/8DaVBEuT7h7RqTC6KP6G1Y, collectie `keuzes`; ElevenLabs-flow https://elevenlabs.io/app/flows/Cqevc9qwDE1pCj7ltE6c). Kamiel koos:
+
+| Woord | Stem-invoer | Afgewezen |
+|---|---|---|
+| zesenveertig | zesenveertig (gewoon) | zes-en-veertig, zes en veertig |
+| haploïd | haaploïd | haploïd, haa-ploo-ied |
+| DNA | DNA (gewoon) | deeënaa, dee-en-aa |
+| ATP | ATP (gewoon) | aa-tee-pee, A-T-P |
+| Post voor iedereen (filmtitel) | Post voor iedereen (gewoon) | post voor iedereen, Post-voor-iedereen |
+| allel / allelen | allel (gewoon) | allél, al-lel |
+| genotype / genotypen | genotype (gewoon) | genotíepe, geno-tiepe |
+
+Les (opnieuw): bij eleven_v4 wint de gewone spelling bijna altijd; de fouten in de review zaten in oudere opnames (ander model) of in respellings. Een respelling alleen nog als de gewone spelling in een test aantoonbaar fout gaat.
 
 ## Uitspraaktest 18 okt 2026 (eleven_v4, 521 woorden)
 

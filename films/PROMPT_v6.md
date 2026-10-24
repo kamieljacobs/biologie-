@@ -141,9 +141,11 @@ Uitspraaklijst (updated with everything approved up to October 2026)
 | Y-chromosoom | ei-chromosoom | "ei-chromosoom" |
 | oxytocine | ok-sie-too-SIE-nə, ends in a schwa, not "-nee" |  |
 | koolstofdioxide | kool-stof-die-ok-sie-də: "die", not English "dai" |  |
-| ATP | aa-tee-PEE, Dutch letters, said fluently |  |
+| ATP | aa-tee-PEE, Dutch letters, said fluently | ATP (plain spelling; 'aa-tee-pee' was heard as 'AATP', test 24 Oct) |
 | cider | SIE-dər, Dutch, not English |  |
-| DNA | the letters dee-en-aa, with little pause between them |  |
+| DNA | the letters dee-en-AA, stress on the last letter | DNA (plain spelling; 'deeënaa' put the stress wrong, test 24 Oct) |
+| zesenveertig, allel, genotype, Post voor iedereen | as written | plain spelling (test 24 Oct) |
+| haploïd | HAA-plo-ïd with a long aa | haaploïd (test 24 Oct) |
 | PCR | pee-cee-er | "pee cee er" |
 | gel | as the English word gel, not Dutch "geld" |  |
 | template | stress on the last syllable |  |
