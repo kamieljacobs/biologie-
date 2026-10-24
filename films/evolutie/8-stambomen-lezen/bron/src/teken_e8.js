@@ -4,10 +4,10 @@ E8.fr = (u) => u - Math.floor(u);
 E8.schema = (ctx) => { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); };
 E8.blauw = (ctx) => { ctx.fillStyle = '#1C3A58'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#22466A'; ctx.fillRect(0, 0, W, 180); ctx.fillStyle = '#163048'; ctx.fillRect(0, 760, W, 320); };
 // rustige luchtbelletjes in het blauw
-E8.bellen = (ctx, t, a = 1) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.5; ctx.strokeStyle = '#9CC4E0'; ctx.lineWidth = 1.5;
-  for (let i = 0; i < 14; i++) { const x = 80 + hash(i + 3) * 1760 + 12 * Math.sin(t * 0.8 + i), per = 9 + hash(i + 7) * 6, u = E8.fr(t / per + hash(i + 11)); const y = 860 - u * 820; ctx.beginPath(); ctx.arc(x, y, 3 + hash(i) * 4, 0, 6.283); ctx.stroke(); } ctx.restore(); };
+E8.bellen = (ctx, t, a = 1) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.3; ctx.strokeStyle = '#9CC4E0'; ctx.lineWidth = 1.5;
+  for (let i = 0; i < 5; i++) { const x = 80 + hash(i + 3) * 1760 + 12 * Math.sin(t * 0.8 + i), per = 9 + hash(i + 7) * 6, u = E8.fr(t / per + hash(i + 11)); const y = 860 - u * 820; ctx.beginPath(); ctx.arc(x, y, 3 + hash(i) * 4, 0, 6.283); ctx.stroke(); } ctx.restore(); };
 // stroming: korte streepjes die naar links schuiven (water langs het lijf)
-E8.stroom = (ctx, x0, x1, y0, y1, t, a = 1, n = 22) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.55; ctx.strokeStyle = '#B8D4E8'; ctx.lineWidth = 2.5; ctx.lineCap = 'round';
+E8.stroom = (ctx, x0, x1, y0, y1, t, a = 1, n = 7) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.3; ctx.strokeStyle = '#B8D4E8'; ctx.lineWidth = 2.5; ctx.lineCap = 'round';
   for (let i = 0; i < n; i++) { const y = y0 + hash(i + 21) * (y1 - y0), L = 40 + hash(i + 5) * 70, v = 160 + hash(i + 9) * 120; const x = x1 - E8.fr((t * v) / (x1 - x0) + hash(i + 2)) * (x1 - x0 + L);
     ctx.beginPath(); ctx.moveTo(Math.max(x0, x), y); ctx.lineTo(Math.min(x1, x + L), y); ctx.stroke(); } ctx.restore(); };
 // zachte gouden ring om iets aan te lichten (geen wijslijn)
@@ -19,14 +19,26 @@ E8.gang = (t, segs, per, stap, x0, kijk = 1) => { let c = 0, loopt = false; for 
 
 // ---------- dieren in een tegel (losse tegels zonder maatvergelijking) ----------
 // bbox van elk dier bij s = 1 (gemeten): [x0, x1, y0, y1] t.o.v. het anker
-E8.BB = { haai: [-240, 252, -102, 96], dolfijn: [-280, 250, -96, 92], ichthyosaurus: [-260, 300, -122, 128], walvis: [-442, 400, -96, 218], krokodil: [-330, 340, -136, 8],
+E8.BB = { haai: [-240, 252, -102, 96], dolfijn: [-330, 250, -104, 92], ichthyosaurus: [-260, 300, -122, 128], walvis: [-442, 400, -96, 218], krokodil: [-330, 340, -136, 8],
   hagedis: [-306, 182, -68, 4], vogel: [-122, 146, -442, 2], leeuw: [-204, 236, -316, 2], tijger: [-192, 202, -226, -4], huiskat: [-164, 196, -346, -4], koe: [-192, 216, -258, 0],
   nijlpaard: [-162, 290, -208, 10], chimpansee: [-48, 54, -92, 2], mens: [-38, 36, -194, -2] };
 E8.teken = (ctx, naam, x, y, s, o = {}) => { const { t = 0, a = 1, rontgen = 0 } = o;
-  switch (naam) { case 'haai': return haai(ctx, x, y, s, { t, a, rontgen }); case 'dolfijn': return dolfijn(ctx, x, y, s, { t, a, rontgen }); case 'ichthyosaurus': return ichthyosaurus(ctx, x, y, s, { t, a });
+  switch (naam) { case 'haai': haai(ctx, x, y, s, { t, a, rontgen }); if (!rontgen) E8.kieuwen(ctx, x, y, s, a); return; case 'dolfijn': return rontgen ? dolfijn(ctx, x, y, s, { t, a, rontgen }) : E8.dolfijnTegel(ctx, x, y, s, { t, a }); case 'ichthyosaurus': return ichthyosaurus(ctx, x, y, s, { t, a });
     case 'walvis': return bultrug(ctx, x, y, s, { t, a, rontgen, heup: o.heup || 0 }); case 'krokodil': return krokodil(ctx, x, y, s, { a, houding: 'liggen' }); case 'hagedis': return hagedis(ctx, x, y, s, { a, houding: 'staan' });
     case 'vogel': return vogel(ctx, x, y, s, { a }); case 'leeuw': return leeuw(ctx, x, y, s, { a }); case 'tijger': return tijger(ctx, x, y, s, { a }); case 'huiskat': return huiskat(ctx, x, y, s, { a });
     case 'koe': return koe7(ctx, x, y, s, { a }); case 'nijlpaard': return nijlpaard(ctx, x, y, s, { a }); case 'chimpansee': return chimp(ctx, x, y, s, { a }); case 'mens': return persoon(ctx, 'noor', x, y, 200 * s, { a }); } };
+// tegel-pictogrammen met herkenbare kenmerken (review): dolfijn met HORIZONTALE staartvin (van opzij een smalle platte vin), haai met duidelijke kieuwspleten
+E8.dolfijnTegel = (ctx, x, y, s, o = {}) => { const { a = 1, t = 0 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, 1, a, 0);
+  const rug = '#5E6C7A', buik = '#C9D0D8'; const sl = Math.sin(t * 2.6) * 0.06;
+  ctx.save(); ctx.translate(-222, 4); ctx.rotate(sl); vul(ctx, [[8, -7], [-30, -9], [-70, -12], [-96, -10], [-104, -3], [-90, 0], [-104, 4], [-96, 10], [-70, 11], [-30, 9], [8, 8]], rug, _lt(rug, 0.2), 2); ctx.restore();
+  vul(ctx, [[30, -44], [0, -88], [-24, -104], [-28, -94], [-30, -42]], rug, _lt(rug, 0.2), 2);
+  const R = [[250, 10], [236, 2], [196, 0], [172, -20], [140, -40], [60, -50], [-40, -44], [-140, -24], [-226, -2], [-226, 10], [-140, 24], [-40, 40], [60, 44], [150, 32], [196, 18], [236, 16]];
+  vul(ctx, R, rug, _lt(rug, 0.18), 2); binnen(ctx, R, () => vul(ctx, [[260, 12], [200, 12], [120, 6], [0, 10], [-200, 6], [-200, 60], [260, 60]], buik));
+  lijn(ctx, [[248, 12], [214, 12], [190, 10]], '#2A3038', 2); circ(ctx, 150, -40, 5, '#2A3038'); dierOog(ctx, 176, -2, 6, '#1A1C20');
+  ctx.save(); ctx.translate(120, 30); vul(ctx, [[14, -6], [-8, 20], [-46, 52], [-58, 54], [-40, 22], [-14, -4]], _dk(rug, 0.1)); ctx.restore();
+  ctx.restore(); };
+E8.kieuwen = (ctx, x, y, s, a = 1) => { ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = '#2E363E'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+  for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(152 - i * 14, -20); ctx.quadraticCurveTo(146 - i * 14, 0, 152 - i * 14, 18); ctx.stroke(); } ctx.restore(); };
 E8.TW = 210; E8.TH = 130;
 // tegel met het dier erin; (x, yb) = midden onderkant van de tegel; o.rand = 0..1 goud, o.naam = naam erboven
 E8.tegel = (ctx, naam, x, yb, a = 1, o = {}) => { if (a <= 0.01) return; const { w = E8.TW, h = E8.TH, rand = 0, t = 0, rontgen = 0, label = true, randKleur = C.goud } = o; // losse tegel: het dier past in de tegel, geen maatvergelijking

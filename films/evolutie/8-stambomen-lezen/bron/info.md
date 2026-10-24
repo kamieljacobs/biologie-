@@ -41,7 +41,7 @@ cladogram, gemeenschappelijke voorouder, afstammingslijn, verwantschap, buitengr
 | 112 | Voor de docent |
 | 153 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1839 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb8.js (keyframes) |
-| 9447 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e8.js`) |
+| 9462 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e8.js`) |
 
 ## Hoe je de film aanpast
 
@@ -55,4 +55,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f8.json`.
 - Dieren in de cladogrammen staan in losse tegels (geen onderlinge maat); waar ze samen in één beeld staan, op echte maat
-- Zandhagedis aan de oever: 7× vergroot in een zoomcirkel
+- Zandhagedis aan de oever en huiskat staan op schaal met een vergrootcirkel

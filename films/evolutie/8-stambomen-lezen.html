@@ -9200,10 +9200,10 @@ E8.fr = (u) => u - Math.floor(u);
 E8.schema = (ctx) => { ctx.fillStyle = C.bgSchema; ctx.fillRect(0, 0, W, H); };
 E8.blauw = (ctx) => { ctx.fillStyle = '#1C3A58'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#22466A'; ctx.fillRect(0, 0, W, 180); ctx.fillStyle = '#163048'; ctx.fillRect(0, 760, W, 320); };
 // rustige luchtbelletjes in het blauw
-E8.bellen = (ctx, t, a = 1) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.5; ctx.strokeStyle = '#9CC4E0'; ctx.lineWidth = 1.5;
-  for (let i = 0; i < 14; i++) { const x = 80 + hash(i + 3) * 1760 + 12 * Math.sin(t * 0.8 + i), per = 9 + hash(i + 7) * 6, u = E8.fr(t / per + hash(i + 11)); const y = 860 - u * 820; ctx.beginPath(); ctx.arc(x, y, 3 + hash(i) * 4, 0, 6.283); ctx.stroke(); } ctx.restore(); };
+E8.bellen = (ctx, t, a = 1) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.3; ctx.strokeStyle = '#9CC4E0'; ctx.lineWidth = 1.5;
+  for (let i = 0; i < 5; i++) { const x = 80 + hash(i + 3) * 1760 + 12 * Math.sin(t * 0.8 + i), per = 9 + hash(i + 7) * 6, u = E8.fr(t / per + hash(i + 11)); const y = 860 - u * 820; ctx.beginPath(); ctx.arc(x, y, 3 + hash(i) * 4, 0, 6.283); ctx.stroke(); } ctx.restore(); };
 // stroming: korte streepjes die naar links schuiven (water langs het lijf)
-E8.stroom = (ctx, x0, x1, y0, y1, t, a = 1, n = 22) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.55; ctx.strokeStyle = '#B8D4E8'; ctx.lineWidth = 2.5; ctx.lineCap = 'round';
+E8.stroom = (ctx, x0, x1, y0, y1, t, a = 1, n = 7) => { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a * 0.3; ctx.strokeStyle = '#B8D4E8'; ctx.lineWidth = 2.5; ctx.lineCap = 'round';
   for (let i = 0; i < n; i++) { const y = y0 + hash(i + 21) * (y1 - y0), L = 40 + hash(i + 5) * 70, v = 160 + hash(i + 9) * 120; const x = x1 - E8.fr((t * v) / (x1 - x0) + hash(i + 2)) * (x1 - x0 + L);
     ctx.beginPath(); ctx.moveTo(Math.max(x0, x), y); ctx.lineTo(Math.min(x1, x + L), y); ctx.stroke(); } ctx.restore(); };
 // zachte gouden ring om iets aan te lichten (geen wijslijn)
@@ -9215,14 +9215,26 @@ E8.gang = (t, segs, per, stap, x0, kijk = 1) => { let c = 0, loopt = false; for 
 
 // ---------- dieren in een tegel (losse tegels zonder maatvergelijking) ----------
 // bbox van elk dier bij s = 1 (gemeten): [x0, x1, y0, y1] t.o.v. het anker
-E8.BB = { haai: [-240, 252, -102, 96], dolfijn: [-280, 250, -96, 92], ichthyosaurus: [-260, 300, -122, 128], walvis: [-442, 400, -96, 218], krokodil: [-330, 340, -136, 8],
+E8.BB = { haai: [-240, 252, -102, 96], dolfijn: [-330, 250, -104, 92], ichthyosaurus: [-260, 300, -122, 128], walvis: [-442, 400, -96, 218], krokodil: [-330, 340, -136, 8],
   hagedis: [-306, 182, -68, 4], vogel: [-122, 146, -442, 2], leeuw: [-204, 236, -316, 2], tijger: [-192, 202, -226, -4], huiskat: [-164, 196, -346, -4], koe: [-192, 216, -258, 0],
   nijlpaard: [-162, 290, -208, 10], chimpansee: [-48, 54, -92, 2], mens: [-38, 36, -194, -2] };
 E8.teken = (ctx, naam, x, y, s, o = {}) => { const { t = 0, a = 1, rontgen = 0 } = o;
-  switch (naam) { case 'haai': return haai(ctx, x, y, s, { t, a, rontgen }); case 'dolfijn': return dolfijn(ctx, x, y, s, { t, a, rontgen }); case 'ichthyosaurus': return ichthyosaurus(ctx, x, y, s, { t, a });
+  switch (naam) { case 'haai': haai(ctx, x, y, s, { t, a, rontgen }); if (!rontgen) E8.kieuwen(ctx, x, y, s, a); return; case 'dolfijn': return rontgen ? dolfijn(ctx, x, y, s, { t, a, rontgen }) : E8.dolfijnTegel(ctx, x, y, s, { t, a }); case 'ichthyosaurus': return ichthyosaurus(ctx, x, y, s, { t, a });
     case 'walvis': return bultrug(ctx, x, y, s, { t, a, rontgen, heup: o.heup || 0 }); case 'krokodil': return krokodil(ctx, x, y, s, { a, houding: 'liggen' }); case 'hagedis': return hagedis(ctx, x, y, s, { a, houding: 'staan' });
     case 'vogel': return vogel(ctx, x, y, s, { a }); case 'leeuw': return leeuw(ctx, x, y, s, { a }); case 'tijger': return tijger(ctx, x, y, s, { a }); case 'huiskat': return huiskat(ctx, x, y, s, { a });
     case 'koe': return koe7(ctx, x, y, s, { a }); case 'nijlpaard': return nijlpaard(ctx, x, y, s, { a }); case 'chimpansee': return chimp(ctx, x, y, s, { a }); case 'mens': return persoon(ctx, 'noor', x, y, 200 * s, { a }); } };
+// tegel-pictogrammen met herkenbare kenmerken (review): dolfijn met HORIZONTALE staartvin (van opzij een smalle platte vin), haai met duidelijke kieuwspleten
+E8.dolfijnTegel = (ctx, x, y, s, o = {}) => { const { a = 1, t = 0 } = o; if (a <= 0.01) return; _bd(ctx, x, y, s, 1, a, 0);
+  const rug = '#5E6C7A', buik = '#C9D0D8'; const sl = Math.sin(t * 2.6) * 0.06;
+  ctx.save(); ctx.translate(-222, 4); ctx.rotate(sl); vul(ctx, [[8, -7], [-30, -9], [-70, -12], [-96, -10], [-104, -3], [-90, 0], [-104, 4], [-96, 10], [-70, 11], [-30, 9], [8, 8]], rug, _lt(rug, 0.2), 2); ctx.restore();
+  vul(ctx, [[30, -44], [0, -88], [-24, -104], [-28, -94], [-30, -42]], rug, _lt(rug, 0.2), 2);
+  const R = [[250, 10], [236, 2], [196, 0], [172, -20], [140, -40], [60, -50], [-40, -44], [-140, -24], [-226, -2], [-226, 10], [-140, 24], [-40, 40], [60, 44], [150, 32], [196, 18], [236, 16]];
+  vul(ctx, R, rug, _lt(rug, 0.18), 2); binnen(ctx, R, () => vul(ctx, [[260, 12], [200, 12], [120, 6], [0, 10], [-200, 6], [-200, 60], [260, 60]], buik));
+  lijn(ctx, [[248, 12], [214, 12], [190, 10]], '#2A3038', 2); circ(ctx, 150, -40, 5, '#2A3038'); dierOog(ctx, 176, -2, 6, '#1A1C20');
+  ctx.save(); ctx.translate(120, 30); vul(ctx, [[14, -6], [-8, 20], [-46, 52], [-58, 54], [-40, 22], [-14, -4]], _dk(rug, 0.1)); ctx.restore();
+  ctx.restore(); };
+E8.kieuwen = (ctx, x, y, s, a = 1) => { ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.strokeStyle = '#2E363E'; ctx.lineWidth = 6; ctx.lineCap = 'round';
+  for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(152 - i * 14, -20); ctx.quadraticCurveTo(146 - i * 14, 0, 152 - i * 14, 18); ctx.stroke(); } ctx.restore(); };
 E8.TW = 210; E8.TH = 130;
 // tegel met het dier erin; (x, yb) = midden onderkant van de tegel; o.rand = 0..1 goud, o.naam = naam erboven
 E8.tegel = (ctx, naam, x, yb, a = 1, o = {}) => { if (a <= 0.01) return; const { w = E8.TW, h = E8.TH, rand = 0, t = 0, rontgen = 0, label = true, randKleur = C.goud } = o; // losse tegel: het dier past in de tegel, geen maatvergelijking
@@ -9444,7 +9456,10 @@ const _oever = (ctx, t, o = {}) => { const { lab = {}, vogelX = 1560, vogelH = '
 // H3: ichthyosaurus iets langer (±3 m) dan haai (±2,2 m) en dolfijn (±2,6 m)
 const ZW = { ichthyosaurus: 1.12 };
 // H4: leeuw, tijger en huiskat op dezelfde px per cm (leeuw-schaal sl)
-const _katS = (sl) => ({ l: sl, t: sl * 1.833 / 2.0, k: sl * 1.833 / 8.8, px: sl * 1.833 });
+const _katS = (sl) => ({ l: sl, t: sl * 0.97, k: sl * 0.23, px: sl * 1.833 });
+// huiskat op schaal plus een kleine vergrootcirkel (dier zit op (x, y) met schaal k)
+const _katZoom = (ctx, x, y, k, cx, cy, r, a, cap) => { if (a <= 0.01) return; huiskat(ctx, x, y, k, { houding: 'zitten', a }); const f = 4, kz = k * f;
+  zoomCircle(ctx, cx, cy, r, x + 4, y - 160 * k, cap, a, () => { ctx.fillStyle = rgba(C.fill, 0.9); ctx.fillRect(cx - r, cy - r, 2 * r, 2 * r); huiskat(ctx, cx - 16 * kz, cy + 175 * kz, kz, { houding: 'zitten' }); }); };
 
 Object.assign(SCENES, {
   // ---------------- titel: alleen het beeld rechts (dolfijn en haai zwemmen rustig)
@@ -9453,7 +9468,7 @@ Object.assign(SCENES, {
   // ---------------- Opening
   s01(ctx, t, q) { E8.blauw(ctx); E8.bellen(ctx, t); const far = q.on('afstand', 1, 1.4);
     const s = lerp(1.3, 0.8, far), dx = 640 + 30 * Math.sin(t * 0.35), hx = 1280 + 30 * Math.sin(t * 0.35 + 1.4), dy = lerp(380, 440, far), hy = lerp(640, 560, far);
-    E8.stroom(ctx, 0, W, 200, 760, t, 1 - far * 0.6);
+    E8.stroom(ctx, 0, W, 200, 760, t, 0.7 * (1 - far * 0.6));
     dolfijn(ctx, dx, dy, s, { t, a: q.on('dolfijn', 1, 0.3) }); haai(ctx, hx, hy, s, { t: t + 0.3, a: q.on('haai', 1, 0.3) });
     if (far > 0.01) { ctx.save(); ctx.globalAlpha = 0.45 * far; ctx.fillStyle = '#1C3A58'; ctx.fillRect(0, 180, W, 580); ctx.restore(); }
     const g1 = q.on('gestroomlijnd', 1, 0.4) * (1 - q.on('vin', 1, 0.4));
@@ -9471,7 +9486,7 @@ Object.assign(SCENES, {
 
   // ---------------- H1 Een stamboom lezen
   s04(ctx, t, q) { E8.schema(ctx); const k = [960, 640], A = [700, 340], B = [1220, 340];
-    E8.tegel(ctx, 'walvis', A[0], A[1] - 12, q.on('walvis', 1, 0.4)); E8.tegel(ctx, 'nijlpaard', B[0], B[1] - 12, q.on('nijlpaard', 1, 0.4));
+    const in0 = ramp(t, 0, 0.5); E8.tegel(ctx, 'walvis', A[0], A[1] - 12, in0, { rand: q.on('walvis', 1, 0.4) * (1 - q.on('gemeenschappelijke', 1, 0.5)) }); E8.tegel(ctx, 'nijlpaard', B[0], B[1] - 12, in0, { rand: q.on('nijlpaard', 1, 0.4) * (1 - q.on('gemeenschappelijke', 1, 0.5)) });
     const g = ramp(t, q.at('gemeenschappelijke'), 1.2); E8.tak(ctx, A, k, g); E8.tak(ctx, B, k, g);
     E8.tak(ctx, k, [960, 760], ramp(t, q.at('voorouder') - 0.1, 0.6)); E8.knoop(ctx, k, ramp(t, q.at('voorouder') - 0.3, 0.3), C.goud);
     const v = q.on('vertakking', 1, 0.5) * (1 - ramp(t, q.at('vertakking') + 1.2, 0.8)); E8.gloed(ctx, k[0], k[1], 30, v);
@@ -9484,7 +9499,7 @@ Object.assign(SCENES, {
     // de populatie in het knooppunt splitst in twee lijnen
     const pa = q.on('populatie', 1, 0.5) * (1 - ramp(t, q.at('lijnen') + 0.6, 0.6)), sp = ramp(t, q.at('splitste'), 1.4);
     if (pa > 0.01) for (let i = 0; i < 12; i++) { const L = i % 2 ? B : A, u = sp * (0.35 + 0.25 * hash(i + 3)), jx = (hash(i) - 0.5) * 50 * (1 - sp * 0.6), jy = (hash(i + 9) - 0.5) * 40 * (1 - sp * 0.6);
-      populatieStip(ctx, lerp(k[0], L[0], u) + jx, lerp(k[1], L[1], u) + jy - 10, 9, C.grain, pa); }
+      populatieStip(ctx, lerp(k[0], L[0], u) + jx, lerp(k[1], L[1], u) + jy - 10, 11, i % 2 ? C.oker : C.teal, pa); }
     naamBij(ctx, 'gemeenschappelijke voorouder', q.on('populatie') > 0.5 ? 'een populatie die splitste' : null, k[0] + 30, k[1] + 50, q.on('gemeenschappelijke', 1, 0.5), 'left', C.goud);
     E8.pad(ctx, [A, k, [960, 800]], ramp(t, q.at('lijn', 2), q.at('wortel') + 0.4 - q.at('lijn', 2)), C.goud, 7);
     naamBij(ctx, 'afstammingslijn', null, 660, 560, q.on('afstammingslijn', 1, 0.5), 'right', C.goud); },
@@ -9525,26 +9540,27 @@ Object.assign(SCENES, {
     naamBij(ctx, 'zelfde boom', 'takken gedraaid', 960, 200, q.on('dezelfde', 1, 0.5), 'center', C.goud);
     naamBij(ctx, 'lees de vertakkingen, niet de volgorde', null, 960, 868, q.on('nooit', 1, 0.5), 'center'); },
 
-  s10(ctx, t, q) { E8.schema(ctx); const kx = 960, ky = 680, g = ramp(t, q.at('boom') - 0.4, 1.0);
-    E8.tak(ctx, [680, 360], [kx, ky], g); E8.tak(ctx, [1240, 360], [kx, ky], g); E8.tak(ctx, [kx, ky], [kx, ky + 120], ramp(g, 0.7, 0.3)); E8.knoop(ctx, [kx, ky], ramp(g, 0.7, 0.3));
-    const c0 = q.at('chimpansee') - 0.3, c = E8.gang(t, [[c0, 2]], 1.0, 76 * 1.0, 680 - 2 * 76); chimp(ctx, c.x, 330, 0.935, { houding: c.h, t: c.t, a: ramp(t, c0, 0.3) });
-    persoon(ctx, 'noor', 1240, 330, 165, { a: q.on('mens', 1, 0.3) });
-    naamBij(ctx, 'chimpansee', null, 680, 150, q.on('chimpansee'), 'center'); naamBij(ctx, 'mens', null, 1240, 140, q.on('mens'), 'center');
-    const pa = ramp(t, q.at('Maar'), 1.0); if (pa > 0.01) pijl(ctx, 800, 260, lerp(800, 1100, pa), 260, C.koraal, 1, 5, 20);
-    const nk = q.on('nooit', 1, 0.4); kruis(ctx, 950, 260, 52 * nk, nk); naamBij(ctx, 'geen voorouder van elkaar', null, 950, 400, q.on('voorouder', 1, 0.5), 'center', C.koraal);
+  // mens en chimpansee groot genoeg om te herkennen, onderling op schaal (mens ±1,65 m, chimpansee op vier poten ±0,9 m schouder)
+  s10(ctx, t, q) { E8.schema(ctx); const kx = 960, ky = 720, tl = [680, 470], tr = [1240, 470], g = ramp(t, 0.1, 1.4);
+    E8.tak(ctx, tl, [kx, ky], g); E8.tak(ctx, tr, [kx, ky], g); E8.tak(ctx, [kx, ky], [kx, ky + 70], ramp(g, 0.7, 0.3)); E8.knoop(ctx, [kx, ky], ramp(g, 0.7, 0.3));
+    const sc = 1.87, st = 76 * sc, c0 = q.at('chimpansee') - 0.3, c = E8.gang(t, [[c0, 2]], 1.0, st, 680 - 2 * st); chimp(ctx, c.x, 440, sc, { houding: c.h, t: c.t, a: ramp(t, c0, 0.3) });
+    persoon(ctx, 'noor', 1240, 440, 330, { a: q.on('mens', 1, 0.3) });
+    naamBij(ctx, 'chimpansee', null, 680, 230, q.on('chimpansee'), 'center'); naamBij(ctx, 'mens', null, 1240, 90, q.on('mens'), 'center');
+    const pa = ramp(t, q.at('Maar'), 1.0); if (pa > 0.01) pijl(ctx, 820, 380, lerp(820, 1100, pa), 380, C.koraal, 1, 5, 20);
+    const nk = q.on('nooit', 1, 0.4); kruis(ctx, 960, 380, 52 * nk, nk); naamBij(ctx, 'geen voorouder van elkaar', null, 960, 490, q.on('voorouder', 1, 0.5), 'center', C.koraal);
     evoSchaal(ctx, 'mens en chimpansee op schaal'); },
 
-  s11(ctx, t, q) { E8.schema(ctx); const kx = 960, ky = 680;
-    tak(ctx, kx, ky, 680, 360); tak(ctx, kx, ky, 1240, 360); tak(ctx, kx, ky, kx, ky + 120); const kv = q.on('gemeenschappelijke', 1, 0.5); E8.knoop(ctx, [kx, ky], 1, E8.mix(C.line, C.goud, kv), lerp(9, 12, kv));
-    chimp(ctx, 680, 330, 0.935); persoon(ctx, 'noor', 1240, 330, 165);
-    naamBij(ctx, 'chimpansee', null, 680, 150, 1, 'center'); naamBij(ctx, 'mens', null, 1240, 140, 1, 'center');
-    const w = 1 - ramp(t, 0, 0.6); pijl(ctx, 800, 260, 1100, 260, C.koraal, w, 5, 20); kruis(ctx, 950, 260, 52, w);
+  s11(ctx, t, q) { E8.schema(ctx); const kx = 960, ky = 720, tl = [680, 470], tr = [1240, 470];
+    tak(ctx, kx, ky, tl[0], tl[1]); tak(ctx, kx, ky, tr[0], tr[1]); tak(ctx, kx, ky, kx, ky + 70); const kv = q.on('gemeenschappelijke', 1, 0.5); E8.knoop(ctx, [kx, ky], 1, E8.mix(C.line, C.goud, kv), lerp(9, 12, kv));
+    chimp(ctx, 680, 440, 1.87); persoon(ctx, 'noor', 1240, 440, 330);
+    naamBij(ctx, 'chimpansee', null, 680, 230, 1, 'center'); naamBij(ctx, 'mens', null, 1240, 90, 1, 'center');
+    const w = 1 - ramp(t, 0, 0.6); pijl(ctx, 820, 380, 1100, 380, C.koraal, w, 5, 20); kruis(ctx, 960, 380, 52, w);
     // even lange takken: twee lichtlijnen lopen tegelijk omhoog
     const u = ramp(t, q.at('evenveel'), 1.6), ua = 1 - ramp(t, q.at('Ze') + 0.4, 0.6) * 0.6;
-    E8.pad(ctx, [[kx, ky], [680, 360]], u, C.goud, 7, ua); E8.pad(ctx, [[kx, ky], [1240, 360]], u, C.goud, 7, ua);
-    naamBij(ctx, 'even lange takken', 'evenveel tijd om te veranderen', 1180, 560, q.on('veranderen', 1, 0.5), 'left');
-    naamBij(ctx, 'gemeenschappelijke voorouder', q.on('miljoen') > 0.5 ? 'ongeveer 6 tot 8 miljoen jaar geleden' : null, kx, ky + 70, kv, 'center', C.goud);
-    vraagteken(ctx, kx, ky - 40, q.on('geen', 1, 0.5), 100); },
+    E8.pad(ctx, [[kx, ky], tl], u, C.goud, 7, ua); E8.pad(ctx, [[kx, ky], tr], u, C.goud, 7, ua);
+    naamBij(ctx, 'even lange takken', 'evenveel tijd om te veranderen', 1190, 620, q.on('veranderen', 1, 0.5), 'left');
+    naamBij(ctx, 'gemeenschappelijke voorouder', q.on('miljoen') > 0.5 ? 'ongeveer 6 tot 8 miljoen jaar geleden' : null, kx, ky + 90, kv, 'center', C.goud);
+    vraagteken(ctx, kx, ky - 60, q.on('geen', 1, 0.5), 90); },
 
   // ---------------- H2 Kenmerken op de takken
   s12(ctx, t, q) { E8.schema(ctx); const g = ramp(t, 0.2, 1.6), erf = ramp(t, q.at('erven'), 1.0), soms = q.on('Soms', 1, 0.6);
@@ -9567,11 +9583,14 @@ Object.assign(SCENES, {
   s14(ctx, t, q) { E8.schema(ctx); const bg = q.on('buitengroep', 1, 0.6);
     _boom2(ctx, ['haai', 'hagedis', 'mens'], { kleur0: E8.mix(C.line, C.text2, bg) });
     const nw = q.on('nieuw', 1, 0.5), oud = q.on('wervelkolom', 1, 0.5) * (1 - nw);
-    kenmerkStreep(ctx, E8.STOMP[0], E8.STOMP[1], E8.R[0], E8.R[1], 0.4, 'wervelkolom', { kleur: C.text, kant: 'left', meta: q.on('wervelkolom') > 0.5 ? 'oud: ook bij de haai' : null });
-    E8.gloed(ctx, E8.STOMP[0], lerp(E8.STOMP[1], E8.R[1], 0.4), 30, oud);
+    // het label schuift links omhoog (weg van de ondertitels), de ring blijft op het streepje en valt niet over de tekst
+    const om = q.on('wervelkolom', 1, 0.6), wy = lerp(E8.STOMP[1], E8.R[1], 0.4);
+    kenmerkStreep(ctx, E8.STOMP[0], E8.STOMP[1], E8.R[0], E8.R[1], 0.4, '', { kleur: C.text });
+    naamBij(ctx, 'wervelkolom', om > 0.5 ? 'oud: ook bij de haai' : null, lerp(E8.STOMP[0] - 28, 690, om), lerp(wy + 12, 740, om), 1, 'right', C.text);
+    E8.gloed(ctx, E8.STOMP[0], wy, 24, oud);
     const sa = lerp(0.4, 1, nw); kenmerkStreep(ctx, E8.R[0], E8.R[1], E8.K[0], E8.K[1], 0.5, 'vier poten', { kleur: nw > 0.5 ? C.goud : C.text, a: sa }); kenmerkStreep(ctx, E8.K[0], E8.K[1], 1300, E8.BY, 0.35, 'haar en melk', { kleur: nw > 0.5 ? C.goud : C.text, a: sa });
     E8.kader(ctx, 296, 128, 248, 196, ramp(t, q.at('buitengroep') - 0.2, 0.6));
-    naamBij(ctx, 'buitengroep', q.on('laat') > 0.5 ? 'laat zien wat oud is' : null, 280, 400, bg, 'right', C.goud);
+    naamBij(ctx, 'buitengroep', q.on('laat') > 0.5 ? 'laat zien wat oud is' : null, 450, 400, bg, 'right', C.goud);
     E8.kader(ctx, 736, 120, 696, 212, q.on('groep', 2, 0.5) * (1 - q.on('laat', 1, 0.5)) * 0.8, C.text2); },
 
   s15(ctx, t, q) { const hg = E8.gang(t, [[q.at('hagedis'), 5], [q.at('vier') + 0.2, 5]], 0.5, 5.2 * 25 * 0.06, 990); const vg = E8.gang(t, [[0.3, 3]], 1.2, 120 * 0.34, 1560 + 3 * 120 * 0.34, -1);
@@ -9611,11 +9630,11 @@ Object.assign(SCENES, {
       armSkelet(ctx, 'mens', 1810, 540, 260, { a: ar, u: ar, huid: 0.3 }); naamBij(ctx, 'jouw arm', null, 1810, 500, ar, 'center'); } },
 
   s21(ctx, t, q) { E8.blauw(ctx); E8.bellen(ctx, t); const fa = lerp(0.7, 1, q.on('Hetzelfde', 1, 0.6)), s = 0.85;
-    E8.stroom(ctx, 0, W, 200, 760, t, q.on('stroomlijnlijf', 1, 0.6));
+    E8.stroom(ctx, 0, W, 200, 760, t, 0.6 * q.on('stroomlijnlijf', 1, 0.6));
     const hx = 420 + 15 * Math.sin(t * 0.4), dx = 1500 + 15 * Math.sin(t * 0.4 + 1);
     haai(ctx, hx, 300, s, { a: fa, t }); dolfijn(ctx, dx, 720, s, { a: fa, t: t + 0.5 });
     const ix = lerp(-400, 960, ease((t - q.at('ichthyosaurus') + 0.6) / 2.4)) + 10 * Math.sin(t * 0.4 + 2), si = s * ZW.ichthyosaurus; ichthyosaurus(ctx, ix, 520, si, { t: t * 1.4 });
-    naamBij(ctx, 'ichthyosaurus', q.on('reptiel') > 0.5 ? 'reptiel · uit de tijd van de dinosauriërs' : null, ix, 360, q.on('ichthyosaurus', 1, 0.5) * clamp((ix - 150) / 200, 0, 1), 'center', C.goud);
+    naamBij(ctx, 'ichthyosaurus', q.on('reptiel') > 0.5 ? 'reptiel · uit de tijd van de dinosauriërs' : null, ix, 360, q.on('ichthyosaurus', 1, 0.5) * clamp((ix - 820) / 120, 0, 1), 'center', C.goud);
     const rv = q.on('rugvin', 1, 0.5); E8.gloed(ctx, hx + 25 * s, 300 - 70 * s, 36 * s, rv); E8.gloed(ctx, dx - 15 * s, 720 - 72 * s, 36 * s, rv); E8.gloed(ctx, ix - 10 * si, 520 - 85 * si, 40 * s, rv);
     evoSchaal(ctx, 'op schaal · reconstructie ichthyosaurus'); },
 
@@ -9626,14 +9645,14 @@ Object.assign(SCENES, {
     vraagteken(ctx, 1620, 560, q.on('Waarom', 1, 0.5), 120); evoSchaal(ctx, 'op schaal'); },
 
   s24(ctx, t, q) { E8.schema(ctx); const r = [520, 840], v = [900, 710], am = [1240, 575], n2 = [1490, 450], Y = 330;
-    const g = ramp(t, q.at('boom') - 0.5, 1.4);
+    const g = ramp(t, 0, 1.2);
     E8.tak(ctx, r, [520, 875], g); E8.tak(ctx, [260, Y], r, g); E8.tak(ctx, r, v, g); E8.tak(ctx, [640, Y], v, g, { a: 0.5 }); E8.tak(ctx, v, am, g); E8.tak(ctx, [1000, Y], am, g, { a: 0.5 });
     E8.tak(ctx, am, n2, g); E8.tak(ctx, [1340, Y], n2, g); E8.tak(ctx, [1660, Y], n2, g);
     const vg = q.on('voorouders', 1, 0.6); [r, v, n2].forEach(p => E8.knoop(ctx, p, g)); E8.knoop(ctx, am, g, E8.mix(C.line, C.goud, vg), lerp(9, 12, vg));
     metaText(ctx, 'beenvissen', 640, Y - 14, rgba(C.text2, g), 'center', 24); metaText(ctx, 'amfibieën', 1000, Y - 14, rgba(C.text2, g), 'center', 24);
-    E8.tegel(ctx, 'haai', 260, Y - 12, q.on('haai', 1, 0.4), { meta: q.on('apart') > 0.5 ? 'kraakbeenvis' : null });
-    E8.tegel(ctx, 'ichthyosaurus', 1340, Y - 12, q.on('ichthyosaurus', 1, 0.4), { meta: q.on('reptielen') > 0.5 ? 'reptiel' : null });
-    E8.tegel(ctx, 'dolfijn', 1660, Y - 12, q.on('dolfijn', 1, 0.4), { meta: q.on('zoogdieren') > 0.5 ? 'zoogdier' : null });
+    const TZ = { w: 290, h: 160 }; E8.tegel(ctx, 'haai', 260, Y - 12, q.on('haai', 1, 0.4), { ...TZ, meta: q.on('apart') > 0.5 ? 'kraakbeenvis' : null });
+    E8.tegel(ctx, 'ichthyosaurus', 1340, Y - 12, q.on('ichthyosaurus', 1, 0.4), { ...TZ, meta: q.on('reptielen') > 0.5 ? 'reptiel' : null });
+    E8.tegel(ctx, 'dolfijn', 1660, Y - 12, q.on('dolfijn', 1, 0.4), { ...TZ, meta: q.on('zoogdieren') > 0.5 ? 'zoogdier' : null });
     naamBij(ctx, 'voorouder op vier poten', q.on('land') > 0.5 ? 'liep op het land' : null, am[0] + 40, am[1] + 60, q.on('vier', 1, 0.5), 'left', C.goud);
     // zwemmerslijf in elke lijn opnieuw: groene streepjes op de takken
     const z1 = q.on('zwemmerslijf', 1, 0.5), z2 = q.on('opnieuw', 1, 0.5);
@@ -9645,7 +9664,10 @@ Object.assign(SCENES, {
     const t0 = q.at('elke'); E8.stroom(ctx, 420, 1800, 220, 820, t, q.on('water', 1, 0.6) * (1 - ramp(t, t0, 0.8)));
     rows.forEach(([y, fn, naam], ri) => { naamBij(ctx, naam, null, 120, y + 14, 1, 'left');
       for (let i = 0; i < 4; i++) { const u = i === 0 ? 1 : ramp(t, t0 + i * 0.9, 0.8); if (u <= 0.01) continue; const f = i / 3, x = lerp(560 + (i - 1) * 340, 560 + i * 340, u);
-        ctx.save(); ctx.translate(x, y); ctx.scale(1, 1 - 0.45 * (1 - f)); fn(0, 0, t + ri + i * 0.3, (0.35 + 0.65 * f) * (i === 0 ? 1 : u)); ctx.restore(); } });
+        const al = (0.35 + 0.65 * f) * (i === 0 ? 1 : u), pl = 1 - f; ctx.save(); ctx.translate(x, y); ctx.scale(1 - 0.22 * pl, 1 + 0.6 * pl);
+        if (ri > 0 && i < 2) { const kl = ri === 1 ? '#5C6450' : '#5E6C7A', L = (i === 0 ? 1 : 0.55); ctx.save(); ctx.globalAlpha *= al; ctx.strokeStyle = kl; ctx.lineCap = 'round'; ctx.lineWidth = 9 * L + 3;
+          [[-55, 1], [-30, -1], [45, 1], [70, -1]].forEach(([px, k]) => { ctx.beginPath(); ctx.moveTo(px, 8); ctx.lineTo(px + k * 4, 8 + 26 * L); ctx.stroke(); }); ctx.restore(); }
+        fn(0, 0, t + ri + i * 0.3, al); ctx.restore(); } });
     const ga = ramp(t, t0, 0.6); if (ga > 0.01) pijl(ctx, 300, 860, lerp(300, 1600, ramp(t, t0, 3.4)), 860, C.line, ga, 3, 16); metaText(ctx, 'generaties', 1600, 840, rgba(C.text2, ga), 'right', 24);
     naamBij(ctx, 'meer nakomelingen met een gladdere vorm', null, 1760, 180, q.on('nakomelingen', 1, 0.5), 'right', C.groen);
     E8.kader(ctx, 1510, 210, 320, 600, q.on('drie', 1, 0.5), C.groen); },
@@ -9671,30 +9693,31 @@ Object.assign(SCENES, {
   // ---------------- H4 Namen en groepen (leeuw, tijger, huiskat steeds op dezelfde px per cm)
   s28(ctx, t, q) { E8.schema(ctx); const S = _katS(0.95);
     naamVak(ctx, 160, 220, 1600, 600, 'geslacht', q.on('Panthera') > 0.5 ? 'Panthera' : null, { nadruk: q.on('geslacht', 1, 0.5) > 0.5, a: q.on('soorten', 1, 0.6) });
-    const l0 = q.at('delen') - 0.4, l = E8.gang(t, [[l0, 2]], 1.2, 124 * S.px, 620 - 2 * 124 * S.px); leeuw(ctx, l.x, 720, S.l, { houding: l.h, t: l.t, a: ramp(t, l0, 0.3) });
-    const g0 = q.at('delen') + 0.2, g = E8.gang(t, [[g0, 2]], 1.15, 120 * S.px, 1320 + 2 * 120 * S.px, -1); tijger(ctx, g.x, 720, S.t, { houding: g.h, t: g.t, kijk: -1, a: ramp(t, g0, 0.3) });
-    naamBij(ctx, 'leeuw', null, 620, 790, q.on('Leeuw', 1, 0.5), 'center'); naamBij(ctx, 'tijger', null, 1320, 790, q.on('tijger', 1, 0.5), 'center');
-    evoSchaal(ctx, 'op schaal · schofthoogte leeuw ±1,2 m, tijger ±1 m'); },
+    const sl = 124 * S.px, stg = sl * S.t / S.l;
+    const l0 = q.at('delen') - 0.4, l = E8.gang(t, [[l0, 1]], 1.2, sl, 660 - sl); leeuw(ctx, l.x, 720, S.l, { houding: l.h, t: l.t, a: ramp(t, l0, 0.3) });
+    const g0 = q.at('delen') + 0.2, g = E8.gang(t, [[g0, 1]], 1.15, stg, 1270 + stg, -1); tijger(ctx, g.x, 720, S.t, { houding: g.h, t: g.t, kijk: -1, a: ramp(t, g0, 0.3) });
+    naamBij(ctx, 'leeuw', null, 660, 790, q.on('Leeuw', 1, 0.5), 'center'); naamBij(ctx, 'tijger', null, 1270, 790, q.on('tijger', 1, 0.5), 'center');
+    evoSchaal(ctx, 'op schaal · leeuw en tijger allebei ±1–1,2 m schofthoogte'); },
 
   s29(ctx, t, q) { E8.schema(ctx); const u = ramp(t, 0, 1.2);
     const lv = [['rijk', 'dieren', 'rijk'], ['stam', 'gewervelde dieren', 'stam'], ['klasse', 'zoogdieren', 'klasse'], ['orde', 'roofdieren', 'orde'], ['familie', 'katachtigen', 'familie']];
-    const pv = [lerp(160, 420, u), lerp(220, 600, u), lerp(1600, 760, u), lerp(600, 260, u)];
-    const rect = (i) => [100 + i * 60, 110 + i * 100, 1720 - i * 120, 750 - i * 100];
+    const pv = [lerp(160, 420, u), lerp(220, 595, u), lerp(1600, 760, u), lerp(600, 215, u)];
+    const rect = (i) => [100 + i * 60, 110 + i * 100, 1720 - i * 120, 720 - i * 100];
     lv.forEach(([n, m, cue], i) => { const a = q.on(cue, 1, 0.8); if (a <= 0.01) return; const van = i === 4 ? [pv[0] - 20, pv[1] - 120, pv[2] + 40, pv[3] + 140] : rect(i + 1);
       const R = rect(i).map((d, k) => lerp(van[k], d, a)); ctx.save(); ctx.globalAlpha = clamp(a * 1.5, 0, 1); roundRect(ctx, R[0], R[1], R[2], R[3], 22); ctx.fillStyle = rgba(C.fill, 0.22); ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
-      metaText(ctx, n, R[0] + 24, R[1] + 42, C.grain, 'left', 26); text(ctx, m, R[0] + 24 + 170, R[1] + 44, fTekst(38, 600), C.text, 'left'); ctx.restore(); });
+      ctx.globalAlpha = ramp(a, 0.75, 0.25); metaText(ctx, n, R[0] + 24, R[1] + 42, C.grain, 'left', 26); text(ctx, m, R[0] + 24 + 170, R[1] + 44, fTekst(38, 600), C.text, 'left'); ctx.restore(); });
     naamVak(ctx, pv[0], pv[1], pv[2], pv[3], 'geslacht', 'Panthera', { nadruk: true });
-    const S = _katS(lerp(0.95, 0.36, u)); leeuw(ctx, lerp(620, 680, u), lerp(720, 840, u), S.l); tijger(ctx, lerp(1320, 1000, u), lerp(720, 840, u), S.t, { kijk: -1 });
-    const ka = q.on('huiskat', 1, 0.4); huiskat(ctx, 1480, 840, _katS(0.36).k, { houding: 'zitten', a: ka }); naamBij(ctx, 'huiskat', 'geslacht Felis', 1480, 740, ka, 'center');
+    const S = _katS(lerp(0.95, 0.36, u)); leeuw(ctx, lerp(660, 680, u), lerp(720, 800, u), S.l); tijger(ctx, lerp(1270, 1000, u), lerp(720, 800, u), S.t, { kijk: -1 });
+    const ka = q.on('huiskat', 1, 0.4); _katZoom(ctx, 1500, 800, _katS(0.36).k, 1390, 700, 82, ka, null); naamBij(ctx, 'huiskat', 'geslacht Felis', 1390, 576, ka, 'center'); if (ka > 0.01) metaText(ctx, '4×', 1484, 712, rgba(C.grain, ka), 'left', 24);
     evoSchaal(ctx, 'op schaal'); },
 
   s30(ctx, t, q) { E8.schema(ctx); const sp = q.on('soort', 1, 1.2), S = _katS(0.62);
     naamVak(ctx, 160, 200, 1600, 640, 'geslacht', 'Panthera');
     const L = [lerp(760, 220, sp), 320, lerp(400, 720, sp), 480], T = [lerp(760, 980, sp), 320, lerp(400, 720, sp), 480];
     const twee = q.on('twee', 1, 0.5); naamVak(ctx, ...L, 'soort', 'leeuw', { nadruk: twee > 0.5, a: sp }); naamVak(ctx, ...T, 'soort', 'tijger', { nadruk: twee > 0.5, a: sp });
-    const s0 = q.at('soort') - 0.2, l = E8.gang(t, [[s0, 1.5]], 1.2, 124 * S.px, 580 - 1.5 * 124 * S.px); leeuw(ctx, l.x + 1.5 * 124 * S.px * 0 , 760, S.l, { houding: l.h, t: l.t });
-    const g = E8.gang(t, [[s0, 1.5]], 1.15, 120 * S.px, 1340 + 1.5 * 120 * S.px, -1); tijger(ctx, g.x, 760, S.t, { houding: g.h, t: g.t, kijk: -1 });
-    naamBij(ctx, 'soort: in de natuur samen vruchtbare nakomelingen', null, 960, 868, q.on('vruchtbare', 1, 0.5), 'center');
+    const s0 = q.at('soort') - 0.2, l = E8.gang(t, [[s0, 1.5]], 1.2, 124 * S.px, 580 - 1.5 * 124 * S.px); leeuw(ctx, l.x, 760, S.l, { houding: l.h, t: l.t });
+    const g = E8.gang(t, [[s0, 1.5]], 1.15, 124 * S.px * S.t / S.l, 1340 + 1.5 * 124 * S.px * S.t / S.l, -1); tijger(ctx, g.x, 760, S.t, { houding: g.h, t: g.t, kijk: -1 });
+    naamBij(ctx, 'soort: in de natuur samen vruchtbare nakomelingen', null, 980, 292, q.on('vruchtbare', 1, 0.5), 'center');
     evoSchaal(ctx, 'op schaal'); },
 
   // vraag-alinea: leeuw en tijger met hun wetenschappelijke naam
@@ -9725,11 +9748,11 @@ Object.assign(SCENES, {
     ctx.globalAlpha = q.on('wijze', 1, 0.5); ctx.font = '500 32px "Source Sans 3", sans-serif'; ctx.fillText('de wijze mens', 1180, 530); ctx.restore();
     const hg = q.on('Homo', 2, 0.5); if (hg > 0.01) { ctx.save(); ctx.font = 'italic 700 56px "Source Sans 3", sans-serif'; const w = ctx.measureText('Homo').width, x0 = 1180 - ctx.measureText('Homo sapiens').width / 2; ctx.strokeStyle = rgba(C.goud, hg); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0, 486); ctx.lineTo(x0 + w * hg, 486); ctx.stroke(); ctx.restore(); }
     persoon(ctx, 'noor', 1640, 860, 400, { a: q.on('mens', 1, 0.3) });
-    naamBij(ctx, 'Carl Linnaeus', q.on('1758') > 0.5 ? 'voor dieren vanaf het jaar 1758' : null, 960, 180, q.on('Carl', 1, 0.5), 'center'); naamBij(ctx, 'Homo = geslacht', null, 1180, 868, q.on('geslacht', 1, 0.5), 'center', C.goud); },
+    naamBij(ctx, 'Carl Linnaeus', q.on('1758') > 0.5 ? 'voor dieren vanaf het jaar 1758' : null, 960, 180, q.on('Carl', 1, 0.5), 'center'); const hz = q.on('Homo', 2, 0.5); if (hz > 0.01) { ctx.save(); ctx.globalAlpha = hz; ctx.fillStyle = '#8A6418'; ctx.textAlign = 'center'; ctx.font = '700 40px "Source Sans 3", sans-serif'; ctx.fillText('Homo = geslacht', 1180, 640); ctx.restore(); } },
 
   s35(ctx, t, q) { E8.schema(ctx); const S = _katS(0.34); const tg = q.on('Leeuw', 1, 0.5), fm = q.on('huiskat', 1, 0.5);
     naamVak(ctx, 120, 200, 980, 640, 'familie', 'katachtigen', { kleur: E8.mix(C.line, C.teal, fm) }); naamVak(ctx, 170, 330, 560, 480, 'geslacht', 'Panthera', { nadruk: tg > 0.5 }); naamVak(ctx, 770, 330, 290, 480, 'geslacht', 'Felis');
-    leeuw(ctx, 330, 760, S.l); tijger(ctx, 570, 760, S.t, { kijk: -1 }); huiskat(ctx, 910, 760, S.k, { houding: 'zitten' });
+    leeuw(ctx, 330, 760, S.l); tijger(ctx, 570, 760, S.t, { kijk: -1 }); _katZoom(ctx, 915, 760, S.k, 915, 560, 95, 1, '4× vergroot');
     const g = ramp(t, q.at('stamboom') - 0.3, 1.4); const r = [1480, 800], k = [1360, 560];
     E8.tak(ctx, [1720, 300], r, g); E8.tak(ctx, k, r, ramp(g, 0.5, 0.5)); E8.tak(ctx, [1240, 300], k, g); E8.tak(ctx, [1480, 300], k, g); E8.tak(ctx, r, [1480, 850], ramp(g, 0.9, 0.1));
     E8.knoop(ctx, r, g, E8.mix(C.line, C.teal, fm), lerp(9, 12, fm)); E8.knoop(ctx, k, g, E8.mix(C.line, C.goud, tg), lerp(9, 12, tg));
@@ -9942,7 +9965,6 @@ window.__still=function(id,local,phase){ const i=state.items.findIndex(it=> (it.
 window.__items=()=>state.items.map(it=>({type:it.type,id:it.seg?it.seg.id:null,chapter:it.chapter,start:it.start,dur:it.dur,level:it.level}));
 
 </script>
-<script src="../../js/flipkaarten.js" defer></script>
 <script>/*ANTWOORDTEKST_MARK v1 22okt2026: bij Vragen uit geen 'antwoord a' in beeld*/
 (function(){
   function uit(){ try{ if(typeof state!=='undefined'&&state&&state.vragen) return state.vragen==='uit'; }catch(e){}
@@ -9956,5 +9978,6 @@ window.__items=()=>state.items.map(it=>({type:it.type,id:it.seg?it.seg.id:null,c
   try{ if(typeof regel==='function') regel=wikkel(regel); }catch(e){}
 })();
 </script>
+<script src="../../js/flipkaarten.js" defer></script>
 </body>
 </html>
