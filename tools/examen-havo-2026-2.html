@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="stylesheet" href="huisstijl.css">
 <script src="huisstijl.js"></script>
+<script src="examen-stof.js?v=b0c841db"></script>
 <style>
 /* Examen havo 2026-II · doorklik-examen. Kleuren en letters uit huisstijl.css; hier alleen de extra's. */
 :root{--rest:#2A3B57;--area:#5B6B84}
@@ -221,6 +222,7 @@ body.examen .tonext{display:none!important}
 (function(){
 const $=(s,r=document)=>r.querySelector(s);
 const el=(tag,attrs={},html="")=>{const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;};
+const TOOL="havo26-2";
 const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- opslag (alleen gemak) ---------- */
@@ -258,7 +260,7 @@ function mc(container,{opts,right,pts,qid,graphs:isGraph,onChecked}){
 }
 function waaromBtn(container,build){
   const b=el("button",{class:"ghost"},"Laat zien waarom ›");const box=el("div",{hidden:""});
-  b.onclick=()=>{b.remove();box.hidden=false;build(box);};
+  b.onclick=()=>{b.remove();box.hidden=false;build(box);if(window.EXSTOF)EXSTOF.extraWaarom(TOOL,cur,box);};
   container.append(b,box);
 }
 function lockAns(think,ans,label="Naar de vraag ›"){
@@ -1817,6 +1819,7 @@ function open(id){
     for(const c of [...sec.children]){if(c.classList.contains("phase")||c.tagName==="BUTTON")break;pap.append(c);}
     pap.append(el("div",{class:"pvoet"},"Officiële examentekst · © CvTE"));
     sec.prepend(pap);
+    const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
     const ids=opg().ids,last=id===ids[ids.length-1];
     const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
     nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
