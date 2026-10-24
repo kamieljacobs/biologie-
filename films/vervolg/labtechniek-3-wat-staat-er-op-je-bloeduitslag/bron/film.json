@@ -1,0 +1,79 @@
+{
+ "slug": "labtechniek-3-wat-staat-er-op-je-bloeduitslag",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Wat staat er op je bloeduitslag?",
+ "sub": "buisjes, bloedbeeld, chemie en bloedbank",
+ "puzzle": "Op een labformulier staan Hb, leukocyten en CRP. Wat vertelt elk getal?",
+ "meta": "laboratoriumtechniek · bloedonderzoek",
+ "alleen": "havo · vwo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Laboratoriumtechniek",
+ "lead": "Opa Henk is moe en heeft koorts, en volgende maand krijgt hij een nieuwe heup. Yasmin, stagiair analist, volgt zijn vier buisjes door het ziekenhuislab. In het paarse buisje bindt EDTA het calcium, zodat de cellen los blijven voor de celteller. Uit het gele buisje komt serum voor de chemie: CRP, glucose en ALAT. Naast elk getal staat een referentiewaarde, het bereik waarbinnen 95 % van gezonde mensen valt. En in de bloedbank bepaalt Yasmin zijn bloedgroep, uit twee buisjes. Het lab meet; de arts legt de getallen naast de klachten.",
+ "endHaak": "welke waarde zou jij op je eigen uitslag willen begrijpen?",
+ "minis": {
+  "Hoofdstuk 1 — Buisjes, stolling en centrifuge": "Waarom heeft elk buisje een andere dop?",
+  "Hoofdstuk 2 — Het bloedbeeld": "Hoe telt een apparaat miljarden cellen?",
+  "Hoofdstuk 3 — Klinische chemie": "Wat betekent een waarde net boven de grens?",
+  "Hoofdstuk 4 — In de bloedbank": "Waarom moet een bloedgroep uit twee buisjes komen?",
+  "Recap": "Wat vertelt het formulier van Opa Henk?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Yasmin, Dr. Kim en Opa Henk (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Opa Henks bloed zit in vier buisjes met verschillende doppen. Waarom niet alles uit één buisje?",
+   "correct": 1,
+   "explain": "Elk soort buisje bevat een andere stof die bij een meting past: EDTA (paars) voor het bloedbeeld, een stollingsversneller met gel (geel) voor serum, fluoride (grijs) voor glucose. Het tweede paarse buisje gaat apart naar de bloedbank."
+  },
+  "q09": {
+   "q": "De bovengrens voor ALAT is 45 eenheden per liter. Opa Henk heeft 48. Wat betekent dat?",
+   "correct": 2,
+   "explain": "Nog weinig. Een referentiewaarde is het bereik van 95 % van gezonde mensen; 1 op de 20 gezonde mensen valt erbuiten. De arts kijkt hoe ver erbuiten en of het past bij de andere uitslagen en de klachten."
+  },
+  "q12": {
+   "q": "Een bloedgroep is pas definitief als hij uit twee apart afgenomen buisjes komt. Waarom?",
+   "correct": 0,
+   "explain": "Zo valt een buisje met het verkeerde etiket op. Een verwisseling kan leiden tot een transfusie met de verkeerde bloedgroep. Een bloedgroep verandert normaal niet (alleen bijvoorbeeld na een stamceltransplantatie)."
+  }
+ },
+ "glossary": [
+  {
+   "t": "EDTA-buis",
+   "d": "Buisje met paarse dop; EDTA bindt calciumionen, zodat het bloed niet stolt en de cellen los blijven voor het bloedbeeld."
+  },
+  {
+   "t": "serum",
+   "d": "De vloeistof boven het stolsel na stollen en centrifugeren: plasma zonder fibrinogeen. Hierin meet de chemie stoffen als CRP en ALAT."
+  },
+  {
+   "t": "bloedbeeld",
+   "d": "Telling van rode en witte bloedcellen en bloedplaatjes plus het Hb, gemeten door een automatische celteller."
+  },
+  {
+   "t": "Hb (hemoglobine)",
+   "d": "De hoeveelheid hemoglobine in het bloed; in Nederland in millimol per liter (bij mannen ongeveer 8,5 tot 11)."
+  },
+  {
+   "t": "leukocyten en trombocyten",
+   "d": "Witte bloedcellen (ongeveer 4 tot 10 à 11 miljard per liter) en bloedplaatjes (ongeveer 150 tot 400 miljard per liter)."
+  },
+  {
+   "t": "CRP",
+   "d": "C-reactief proteïne: eiwit dat de lever extra maakt bij een ontsteking; stijgt binnen uren, het hoogst na ongeveer twee dagen. Zegt niet waar of waardoor."
+  },
+  {
+   "t": "ALAT",
+   "d": "Enzym dat vooral in levercellen zit; gaan levercellen kapot, dan stijgt het in het bloed."
+  },
+  {
+   "t": "referentiewaarde",
+   "d": "Het bereik waarbinnen 95 % van gezonde mensen valt (normaalwaarde); een waarde erbuiten is niet vanzelf ziek. Verschilt iets per lab."
+  },
+  {
+   "t": "kruisproef",
+   "d": "Plasma van de ontvanger mengen met rode bloedcellen uit het donorzakje; klontert er niets, dan past het zakje. Nodig als de ontvanger klinisch belangrijke irreguliere antistoffen heeft."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Voor een bloedbeeld neemt de verpleegkundige bloed af in een buisje met EDTA. Leg uit waarom het bloed in dit buisje niet stolt, en waarom dat nodig is voor het bloedbeeld. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>EDTA bindt de calciumionen; zonder vrije calciumionen loopt de stollingscascade niet (1p). De cellen moeten los blijven om ze één voor één te kunnen tellen; in een stolsel zitten ze vast in een net van fibrine (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een buisje voor glucose blijft drie uur op kamertemperatuur staan zonder fluoride. Het lab meet 4,2 mmol/L. Is de echte waarde hoger, lager of gelijk? Leg uit. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Hoger (1p): de bloedcellen in het buisje blijven glucose verbruiken (glycolyse), zodat de gemeten waarde lager uitvalt dan bij de afname (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Een gezonde leerling laat twintig verschillende bepalingen doen. Bij één ervan staat een sterretje: net boven de referentiewaarde. Leg uit waarom dat niet verrassend is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een referentiewaarde is het bereik van 95 % van gezonde mensen; 5 % van gezonde mensen valt er per bepaling buiten (1p). Bij twintig bepalingen verwacht je gemiddeld één waarde buiten het bereik, ook bij iemand die gezond is (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Bij iemand klonteren de rode bloedcellen met anti-B en niet met anti-A en anti-D. Welke bloedgroep heeft deze persoon, en welke testcellen klonteren met zijn plasma? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bloedgroep B, resusnegatief (1p). In zijn plasma zitten antistoffen tegen A, dus de testcellen met A klonteren (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een patiënte heeft na een eerdere zwangerschap een irreguliere antistof tegen rode bloedcellen. Beschrijf wat de bloedbank doet voordat ze een zakje rode bloedcellen krijgt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De bloedbank kiest bloed waarop het antigeen ontbreekt waartegen de antistof gericht is (1p) en doet een kruisproef: plasma van de patiënte met rode bloedcellen uit het zakje; klontert er niets, dan past het zakje (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 3 van de reeks Laboratoriumtechniek op <i>Wat word jij?</i> (mbo · hbo), één niveau (havo en vwo). Bouwt voort op <i>Wat er in je bloed zit</i> (plasma, bloedcellen, centrifuge, stolling, serum, citraat), <i>Vaccins, allergie en bloedgroepen</i> (ABO, resus, antiserum, klonteren), <i>Suiker in balans</i> (glucose in millimol per liter) en <i>De lever als fabriek</i>. De ijklijn staat in <i>Van buisje tot uitslag</i> (film 2 van deze reeks) en wordt hier alleen genoemd. Yasmin (stagiair analist) is de rode draad van de reeks; Opa Henk is de patiënt, Dr. Kim de arts.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b>: Opa Henk is moe, heeft koorts en krijgt een nieuwe heup; Dr. Kim vraagt Hb, leukocyten, CRP en bloedgroep aan; vier buisjes met verschillende doppen.</li>\n<li><b>H1</b> buisjes: EDTA (paars) vangt calciumionen, cellen blijven los; stolbuis (geel) + centrifuge geeft stolsel, gel en serum; fluoride (grijs) remt het glucoseverbruik van de cellen in het buisje (grafiek).</li>\n<li><b>H2</b> bloedbeeld: celteller met de nauwe opening (impedantie, Coulter-principe), piekjes naar grootte; laserlicht voor de soorten witte bloedcellen; Hb na lyseren fotometrisch. Formulier met referentiebalken; leukocyten 15 boven de grens; het lab meet, de arts interpreteert.</li>\n<li><b>H3</b> klinische chemie: chemie-analyser (kleur of troebelheid, ijklijn); CRP uit de lever, curve na het begin van een ontsteking (model); glucose nuchter normaal; ALAT lekt uit kapotte levercellen; 48 tegen de grens 45. Vraag: referentiewaarde = 95 % van gezonde mensen.</li>\n<li><b>H4</b> bloedbank: voortypering (anti-A, anti-B, anti-D) en tegentypering (plasma met A- en B-testcellen); twee aparte afnames tegen verwisseling; antistofscreening op irreguliere antistoffen; kruisproef.</li>\n<li><b>Recap</b> het ingevulde formulier; opleidingen en werkplekken.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Uitslagen Opa Henk</td><td>Hb 9,1 mmol/L; leukocyten 15 × 10⁹/L; trombocyten 260 × 10⁹/L; CRP 60 mg/L; glucose nuchter 4,9 mmol/L; ALAT 48 U/L; A, RhD-positief</td><td>verzonnen, realistisch; geen diagnose</td></tr>\n<tr><td>Hb man</td><td>ongeveer 8,5–11 mmol/L (vrouw 7,5–10)</td><td>Groene Hart Ziekenhuis, referentiewaardentabel v57 (KCHL, 2026); Thuisarts.nl: bloedarmoede bij Hb &lt; 8,5 (man), &lt; 7,5 (vrouw)</td></tr>\n<tr><td>Leukocyten</td><td>bovengrens rond 10 × 10⁹/L</td><td>GHZ v57: 4,0–11,0; veel labs 4,0–10,0</td></tr>\n<tr><td>Trombocyten</td><td>150–400 × 10⁹/L</td><td>GHZ v57</td></tr>\n<tr><td>CRP</td><td>gezond meestal &lt; 10 mg/L; stijgt binnen uren, piek na ± 48 uur; uit de lever; aspecifiek</td><td>GHZ v57 (&lt; 10), Catharina Ziekenhuis (&lt; 6), AZ Sint-Jan labogids (&lt; 5); Pepys &amp; Hirschfield 2003, via Wikipedia 'C-reactive protein'</td></tr>\n<tr><td>Glucose nuchter</td><td>4,9 mmol/L normaal</td><td>GHZ v57 nuchter 3,4–5,0 (serum); NHG-Standaard Diabetes mellitus type 2: nuchter veneus &lt; 6,1 normaal, ≥ 7,0 diabetes</td></tr>\n<tr><td>ALAT</td><td>bovengrens man 45 U/L (vrouw 34)</td><td>Catharina Ziekenhuis, referentiewaardenlijst 2025; GHZ v57</td></tr>\n<tr><td>Glucoseverlies zonder fluoride</td><td>grafiek: daling in uren</td><td>Greiner Bio-One, 'Uitdagingen bij het meten van glucose' (2025): 7–8 % per uur in volbloed</td></tr>\n<tr><td>Buiskleuren en afnamevolgorde</td><td>citraat blauw, serum rood/geel, heparine groen, EDTA paars, fluoride grijs</td><td>Richtlijn Laboratoriumonderzoek bij bloedingsneiging (CLSI GP41 / NVKC), richtlijnendatabase.nl</td></tr>\n<tr><td>Referentiewaarde</td><td>bereik van 95 % van gezonde mensen (2,5e–97,5e percentiel)</td><td>reeksdefinitie; IFCC/CLSI EP28</td></tr>\n<tr><td>Bloedgroep definitief</td><td>twee onafhankelijke afnames; ABO-antigenen op erytrocyten en anti-A/anti-B in plasma</td><td>Richtlijn Bloedtransfusiebeleid, 'Vaststellen definitieve ABO RhD-bloedgroep'</td></tr>\n<tr><td>Antistofscreening en kruisproef</td><td>screening vóór elke transfusie; type &amp; screen (met ABO-controle bij uitgifte; monster ≤ 72 uur) bij negatieve screening; kruisproef (donor-erytrocyten met plasma patiënt) bij klinisch belangrijke irreguliere antistoffen</td><td>Richtlijn Bloedtransfusiebeleid, 'Antistofscreening' en 'Compatibiliteitsonderzoek volgens de type &amp; screenstrategie'</td></tr>\n<tr><td>Opleidingen</td><td>mbo analist (bv. Biologisch-medisch analist, niveau 4, meestal 4 jaar); hbo Biologie en Medisch Laboratoriumonderzoek (240 EC, 4 jaar)</td><td>Noorderpoort en Curio (crebo 25953); studiekeuze123.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Dopkleuren verschillen per fabrikant: een serumbuis is geel of rood, heparine (groen) en citraat (blauw) blijven buiten beeld. Glucose wordt in veel labs ook in een heparine- of serumbuis bepaald, mits snel gecentrifugeerd.</li>\n<li>Fluoride remt de glycolyse niet direct volledig; daarom gebruiken sommige labs een buis met citraat én fluoride.</li>\n<li>De celteller: rode bloedcellen en bloedplaatjes via impedantie, witte bloedcellen via impedantie en flowcytometrie (lichtverstrooiing, soms fluorescentie). Hb wordt in een apart kanaal gemeten na lyseren.</li>\n<li>Referentiewaarden verschillen per lab, leeftijd en geslacht; de film noemt afgeronde waarden met 'ongeveer' of 'meestal'.</li>\n<li>De CRP-curve is een model, niet de meting van Opa Henk.</li>\n<li>'Bij twintig bepalingen gemiddeld één erbuiten' veronderstelt onafhankelijke bepalingen; de kans op minstens één is ongeveer 64 %.</li>\n<li>Bloedbank: de elektronische uitgifte (type &amp; screen) en de RhD-variant-regels blijven buiten beeld.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen een (geanonimiseerde) uitslag lezen en per regel opschrijven: wat wordt er gemeten, uit welk buisje, en wat zou een verhoogde waarde kunnen betekenen. Bespreek daarna waarom het lab geen diagnose stelt.</li>\n<li>Combineer met het Bloedgroepenlab op de site: laat leerlingen voor- en tegentypering zelf invullen.</li></ul>\n</section>\n"
+}
