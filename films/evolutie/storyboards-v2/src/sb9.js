@@ -41,9 +41,9 @@ const SB9 = {
     x9bot(ctx, 'plaat', 560, 800, 1.6, { goud: true }); naamBij(ctx, 'Glyptodon', 'uitgestorven gordeldier · ±3 m', 1200, 470, 1, 'center', C.goud); naamBij(ctx, 'botplaatjes', 'pantser', 620, 740, 1, 'center'); evoSchaal(ctx, 'Darwin en Glyptodon op dezelfde schaal'); },
   e9s10(ctx) { macroNacht(ctx, { horizon: 520 }); x9tag(ctx, 'REUZEN EN NANDOES'); const s = 0.62, g = 860;
     x9megatherium(ctx, 420, g, s, { a: 0.5 }); x9glyptodon(ctx, 1180, g, s, { a: 0.5 });
-    lijn(ctx, [[700, g - 120], [760, g - 128]], '#5A4A3A', 2); x9luiaard(ctx, 730, g - 120 + 75 * s * 0.92, s); x9gordeldier(ctx, 1420, g, s);
+    lijn(ctx, [[700, g - 120], [760, g - 128]], '#5A4A3A', 2); x9luiaard(ctx, 730, g - 120 + 75 * s * 0.92, s); x9gordeldier(ctx, 1420, g, s, { houding: 'lopen', t: 0.3 });
     zoomCircle(ctx, 760, 300, 170, 730, g - 110, 'luiaard · nu · 4–8 kg', 1, () => { lijn(ctx, [[600, 200], [920, 186]], '#5A4A3A', 12); x9luiaard(ctx, 760, 194 + 75 * 3.4 * 0.92, 3.4); });
-    zoomCircle(ctx, 1600, 360, 170, 1420, g - 6, 'gordeldier · nu · ±30 cm', 1, () => { x9gordeldier(ctx, 1600, 420, 6); });
+    zoomCircle(ctx, 1600, 360, 170, 1420, g - 6, 'gordeldier · nu · ±30 cm', 1, () => { x9gordeldier(ctx, 1600, 420, 6, { houding: 'lopen', t: 0.3 }); });
     naamBij(ctx, 'Megatherium', 'uitgestorven', 330, 560, 0.9, 'center'); naamBij(ctx, 'Glyptodon', 'uitgestorven', 1100, 640, 0.9, 'center'); evoSchaal(ctx, 'alle vier op dezelfde schaal · cirkels vergroot'); },
   e9q11(ctx) { x9vraag(ctx, ['Darwin vindt de reuzen precies waar nu hun kleine familie leeft.', 'Wat past daar het best bij?'], ['Toeval: fossielen kunnen overal liggen', 'De reuzen zijn gekrompen tot de kleine soorten', 'De reuzen en de kleine soorten zijn verwant'],
     (c) => { x9megatherium(c, 1640, 900, 0.36, { a: 0.7 }); x9glyptodon(c, 1640, 560, 0.4, { a: 0.7 }); }); },
@@ -51,7 +51,7 @@ const SB9 = {
     [[20, 0], [80, 30], [-100, 40], [130, -25], [10, 48], [100, 60]].forEach(([lo, la]) => { const [px, py] = P(lo, la); circ(ctx, px, py, 10, rgba(C.line, 0.3), C.line, 1.5); });
     const [ax, ay] = P(-62, -39); circ(ctx, ax, ay, 14, C.goud, _lt(C.goud, 0.4), 2); naamBij(ctx, 'hier gevonden', 'Punta Alta', ax + 24, ay + 50, 1, 'left', C.goud); naamBij(ctx, 'zou kunnen', 'als de plek niets zegt', 640, 200, 0.7, 'center');
     x9megatherium(ctx, 1590, 470, 0.42); x9gordeldier(ctx, 1590, 720, 2.6); haak(ctx, 1400, 1780, 740, 'familie, op dezelfde plek', C.groen); },
-  e9s13(ctx) { x9vlakte(ctx, { hor: 560 }); x9tag(ctx, 'REUZEN EN NANDOES'); x9nandoe(ctx, 1000, 860, 3.6);
+  e9s13(ctx) { x9vlakte(ctx, { hor: 560 }); x9tag(ctx, 'REUZEN EN NANDOES'); x9nandoe(ctx, 1000, 860, 3.6, { houding: 'lopen', t: 0.15 });
     dim(ctx, () => { [[220, 600], [360, 606]].forEach(([gx, gy], i) => { paard(ctx, gx, gy, 0.5, { kijk: 1 }); x9mens(ctx, 'x9martens', gx - 4, gy - 72, 90, { zij: true, kijk: 1, a: 1 }); }); }, 0.8);
     naamBij(ctx, 'grote nandoe', 'ongeveer 1,5 m', 1300, 360, 1, 'left', C.goud); naamBij(ctx, "gaucho's", 'ruiters van de pampa', 290, 400, 1, 'center'); evoSchaal(ctx, 'Patagonië'); },
   e9s14(ctx) { x9vlakte(ctx, { hor: 520 }); x9tag(ctx, 'REUZEN EN NANDOES'); x9nandoeKlein(ctx, 640, 860, 4.2, { goud: true });

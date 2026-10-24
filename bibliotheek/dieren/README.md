@@ -3,11 +3,11 @@
 Alle dieren uit Evolutie v2, gebouwd als **uitknippop** (botten + delen, houdingen uit ElevenLabs-referentieplaten, bewegingen uit de literatuur) en door Kamiel goedgekeurd in de beeldbank (ronde 1–4, laatste keuring 23 okt 2026). Gebruik deze dieren in nieuwe films in plaats van zelf een dier te tekenen. Een dier dat de houding mist die een scène nodig heeft, eerst hier uitbreiden (testvel, keuren), nooit 'blind' gebruiken.
 
 ## Bestanden
-- `lib_dieren.js` — alle dieren in één bestand (base.js, dier_basis.js, dieren_zoog.js, dieren_overig.js, wolf_pop.js, pop_*.js; latere functies met dezelfde naam overschrijven de oude). Laad na `lib.js` en `lib_cast.js`; voor de micro-objecten ook `lib_bio.js` en `lib_evo.js`.
+- `lib_dieren.js` — alle dieren in één bestand (base.js, dier_basis.js, dieren_zoog.js, dieren_overig.js, wolf_pop.js, pop_*.js, achteraan pop_darwin.js; latere functies met dezelfde naam overschrijven de oude). Laad na `lib.js` en `lib_cast.js`; voor de micro-objecten ook `lib_bio.js` en `lib_evo.js`.
 - `lib_micro_evo.js` — bacterie, plasmide, pilus, antibioticum, griepvirus, DNA-draad, chromosoom(paar), geslachtscel, rode bloedcel, sikkelcel.
 - `testvel.html` — alle dieren naast elkaar (niet gelinkt, noindex). Nieuwe dieren of houdingen eerst hier.
 - `testvellen/` — de testvellen per familie (overlay op de referentie-omtrek, gangstroken, zooms).
-- `lessen/` — het recept: `lessen_pop.md` (wolf, het basisrecept), `lessen_pop_<familie>.md` (honden, katten, hoef, rept_chimp, vogels, zwemmers), `lessen_zoog.md`, `lessen_overig.md`, `lessen_micro.md`, opdrachtbrieven `WOLFPOP.md` en `POPFAMILIE.md`.
+- `lessen/` — het recept: `lessen_pop.md` (wolf, het basisrecept), `lessen_pop_<familie>.md` (honden, katten, hoef, rept_chimp, vogels, zwemmers, darwin), `lessen_zoog.md`, `lessen_overig.md`, `lessen_micro.md`, opdrachtbrieven `WOLFPOP.md` en `POPFAMILIE.md`.
 - Referentieplaten: `/referentie/dieren/` (zie `/referentie/README.md`); alleen om van te leren, nooit in een film.
 
 ## Aanroep en status
@@ -26,6 +26,10 @@ Alle dieren: `dier(ctx, x, y, s, { houding, t, kijk, a, … })`, x/y = grondpunt
 | haai, dolfijn, ichthyosaurus, bultrug | idem | zwemmen (`t`), röntgen | goedgekeurd |
 | pakicetus, ambulocetus, rodhocetus, basilosaurus | idem | lopen, liggen, zwemmen | goedgekeurd |
 | micro (bacterie, plasmide, pilus, antibioticum, griepvirus, DNA, chromosoom, geslachtscel, sikkelcel) | `lib_micro_evo.js` | | goedgekeurd |
+| grote nandoe | `x9nandoe(ctx, x, y, s, o)` (`pop_darwin.js`, `NandoePop`) | staan, lopen (`t`, `vooruit`) | ter keuring (pop) |
+| negenbandgordeldier | `x9gordeldier(ctx, x, y, s, o)` (`pop_darwin.js`, `GordelPop`) | staan, lopen (`t`, `vooruit`) | ter keuring (pop) |
+| reuzenschildpad zadel/koepel | `x9schildpad(ctx, vorm, x, y, s, o)` (`pop_darwin.js`, `SchildPop`) | staan, nek `o.nek` −1 (omlaag) … 0 (half) … 1 (omhoog) | ter keuring (pop) |
+| kleine nandoe, Megatherium, Glyptodon, luiaard, spotlijster, zangervink | `x9*` in `films/evolutie/storyboards-v2/src/teken_evo9.js` | alleen staan (stilstaande omtrek, overgetrokken van `referentie/dieren/darwin/`) | **nog geen pop**: goedgekeurd als storyboardtekening (film 9), niet voor beweging; eerst als pop bouwen voordat een scène ze laat lopen |
 | insecten (lieveheersbeestje, berkenspanner, rups …), tak | in `films/evolutie/…/bron/src` (lib_evo.js en teken_evo*.js) | | goedgekeurd |
 
 ## Werkwijze voor een nieuw dier (kort)
