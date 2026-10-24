@@ -42,7 +42,7 @@ gemeenschappelijke voorouder, mensachtigen, rechtop lopen, handbijl, zustergroep
 | 110 | Voor de docent |
 | 189 | `window.FILMDATA` (segmenten, woordtijden, vragen) |
 | 1875 | `const SCENES = {}`, daarna lib_bio, lib_evo, tekenbestanden, lib_dieren, lib_micro_evo, sb12.js (keyframes) |
-| 11158 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e12.js`) |
+| 11248 | `Object.assign(SCENES, { title, s01 … })` (de animatie per alinea, bron: `src/scenes_e12.js`) |
 
 ## Hoe je de film aanpast
 
@@ -56,3 +56,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f12.json`.
 - Frisse beeldreview 24 okt 2026 verwerkt (MOET-punten hersteld)
+- Kleding neanderthaler en Homo sapiens op verzoek van Kamiel (24 okt 2026), in teken_e12.js

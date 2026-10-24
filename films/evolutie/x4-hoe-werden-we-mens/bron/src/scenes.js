@@ -9101,6 +9101,96 @@ function e12Warmte(ctx, x, y, n, t, a = 1) { if (a <= 0.01) return; ctx.save(); 
   for (let i = 0; i < n; i++) { const p = E12.fr(t * 0.45 + i / n), xx = x + (i - (n - 1) / 2) * 34, yy = y - p * 120; ctx.globalAlpha = a * Math.sin(p * Math.PI); ctx.beginPath(); for (let k = 0; k <= 12; k++) { const py = yy - k * 4; const px = xx + Math.sin(k * 0.8 + t * 3 + i) * 7; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); }
   ctx.restore(); }
 
+// ===== Kleding (Kamiel 24 okt 2026: 'doe die kleren maar'): neanderthaler = omslag van huid + beenwindsels, Homo sapiens = genaaide tuniek met mouwen, broek, laarzen, tandketting.
+// Lucy, Homo erectus en floresiensis blijven zonder (geen bewijs voor kleding). o.naakt = true zet de kleding uit.
+const E12_KLEDING = {
+  neanderthaler:  { soort: 'omslag', stof: '#6E4C2E', licht: '#9A7448', pluis: '#C9B48E', leer: '#4E3624', naad: '#2E2014' },
+  neanderthalerV: { soort: 'omslag', stof: '#7C5834', licht: '#A47E50', pluis: '#CDB894', leer: '#523A26', naad: '#2E2014' },
+  sapiens:        { soort: 'tuniek', stof: '#B8975E', licht: '#D2B67E', broek: '#7A6A52', leer: '#4A3A2C', naad: '#5A4630', ketting: true }
+};
+const E12K = {
+  steek(ctx, P, Q, n, kleur, lw) { for (let i = 1; i <= n; i++) { const u = i / (n + 1), x = P[0] + (Q[0] - P[0]) * u, y = P[1] + (Q[1] - P[1]) * u, dx = Q[0] - P[0], dy = Q[1] - P[1], L = Math.hypot(dx, dy) || 1, nx = -dy / L * lw * 2.2, ny = dx / L * lw * 2.2;
+    lijn(ctx, [[x - nx, y - ny], [x + nx, y + ny]], kleur, lw); } },
+  been(ctx, KL, S, H, hx, hy, b, ver) { const d = (c) => ver ? _dk(c, 0.18) : c, K = [hx + b.kx, hy + b.ky], A = [hx + b.ax, hy + b.ay]; ctx.lineCap = 'round';
+    const voet = [[hx + b.hx, hy + b.hy + 0.004 * H], [hx + b.ax - 0.025 * H, hy + b.ay - 0.03 * H], [hx + b.ax + 0.035 * H, hy + b.ay - 0.005 * H], [hx + b.tx, hy + b.ty - 0.014 * H], [hx + b.tx + 0.008 * H, hy + b.ty + 0.005 * H], [hx + b.hx - 0.004 * H, hy + b.hy + 0.006 * H]];
+    if (KL.soort === 'tuniek') { ctx.strokeStyle = d(KL.broek); ctx.lineWidth = 0.088 * H; ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(K[0], K[1]); ctx.stroke(); ctx.lineWidth = 0.064 * H; ctx.beginPath(); ctx.moveTo(K[0], K[1]); ctx.lineTo(A[0], A[1]); ctx.stroke();
+      E12K.steek(ctx, [hx, hy], K, 3, d(_dk(KL.broek, 0.3)), Math.max(1, H * 0.004)); vul(ctx, voet, d(KL.leer)); lijn(ctx, [[A[0] - 0.03 * H, A[1] - 0.01 * H], [A[0] + 0.03 * H, A[1] - 0.012 * H]], d(_dk(KL.leer, 0.3)), Math.max(1.2, H * 0.006)); }
+    else { const W = [lerp(K[0], A[0], 0.12), lerp(K[1], A[1], 0.12)]; ctx.strokeStyle = d(KL.leer); ctx.lineWidth = 0.066 * H * 1.1; ctx.beginPath(); ctx.moveTo(W[0], W[1]); ctx.lineTo(A[0], A[1]); ctx.stroke(); // beenwindsels
+      for (let i = 0; i < 5; i++) { const u = 0.12 + i * 0.17, P = [lerp(K[0], A[0], u), lerp(K[1], A[1], u)], Q = [lerp(K[0], A[0], u + 0.1), lerp(K[1], A[1], u + 0.1)], w = 0.034 * H;
+        lijn(ctx, [[P[0] - w, P[1]], [Q[0] + w, Q[1]]], d(_dk(KL.leer, 0.35)), Math.max(1, H * 0.005)); }
+      vul(ctx, voet, d(_dk(KL.leer, 0.1))); }
+  },
+  arm(ctx, KL, H, sh, ex, ey, hx, hy, ver, dk) { const d = (c) => ver ? _dk(c, 0.18) : c; ctx.lineCap = 'round';
+    if (KL.soort === 'tuniek') { ctx.strokeStyle = d(KL.stof); ctx.lineWidth = 0.062 * H; ctx.beginPath(); ctx.moveTo(sh[0], sh[1]); ctx.lineTo(ex, ey); ctx.stroke(); const wx = lerp(ex, hx, 0.88), wy = lerp(ey, hy, 0.88); ctx.lineWidth = 0.052 * H; ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(wx, wy); ctx.stroke();
+      ctx.strokeStyle = d(KL.licht); ctx.lineWidth = 0.056 * H; ctx.lineCap = 'butt'; ctx.beginPath(); ctx.moveTo(lerp(ex, hx, 0.8), lerp(ey, hy, 0.8)); ctx.lineTo(wx, wy); ctx.stroke(); ctx.lineCap = 'round'; }
+    else { const mx = lerp(sh[0], ex, 0.55), my = lerp(sh[1], ey, 0.55); ctx.strokeStyle = d(KL.stof); ctx.lineWidth = 0.072 * H * dk; ctx.beginPath(); ctx.moveTo(sh[0], sh[1]); ctx.lineTo(mx, my); ctx.stroke();
+      if (!ver) for (let i = 0; i < 4; i++) circ(ctx, mx + (hash(i * 3.1) - 0.5) * 0.06 * H, my + (hash(i * 5.3) - 0.3) * 0.02 * H, 0.012 * H, KL.pluis); }
+  },
+  romp(ctx, KL, S, H, Lr, rot, uK, bK) { const P = (pts) => pts.map(([px, py]) => rot(px * H, py * H)), top = -Lr / H;
+    if (KL.soort === 'tuniek') { const T = P([[-0.042, top - 0.028], [-0.07 * Math.sqrt(bK), top + 0.03], [-0.072 * bK, top + 0.1], [-0.06, -0.06], [-0.07, 0.06], [-0.02, 0.085], [0.04, 0.08], [0.066 * uK, 0.05], [0.06 * uK, -0.08], [0.072 * bK, top + 0.13], [0.06 * bK, top + 0.03], [0.03, top - 0.03]]);
+      vul(ctx, T, KL.stof); lijn(ctx, P([[-0.066, -0.02], [0.064 * uK, -0.024]]), KL.leer, 0.014 * H); // riem
+      E12K.steek(ctx, ...P([[0.03, top + 0.02], [0.05, -0.04]]), 4, KL.naad, Math.max(1, H * 0.004)); lijn(ctx, P([[-0.07, 0.06], [-0.02, 0.085], [0.04, 0.08], [0.066 * uK, 0.05]]), KL.licht, Math.max(1.5, H * 0.006)); }
+    else { const T = P([[-0.04, top - 0.022], [-0.074 * Math.sqrt(bK), top + 0.035], [-0.076 * bK, top + 0.1], [-0.058 * Math.sqrt(bK), -0.04], [-0.075, 0.0], [0.062 * uK, 0.0], [0.07 * uK, -0.09], [0.074 * bK, top + 0.13], [0.062 * bK, top + 0.03], [0.026, top - 0.032]]);
+      vul(ctx, T, KL.stof); const Q = P([[-0.03, top - 0.02], [0.07 * bK, top + 0.2]]); lijn(ctx, Q, KL.licht, 0.014 * H); // schouderband van de omslag
+      E12K.steek(ctx, ...P([[-0.06, top + 0.12], [-0.055, -0.03]]), 4, KL.naad, Math.max(1, H * 0.004)); lijn(ctx, P([[-0.07, -0.012], [0.064 * uK, -0.014]]), KL.leer, 0.012 * H); }
+  },
+  rok(ctx, KL, S, H, hx, hy, B, rot, uK) { const m = B.map(b => [hx + b.kx * 0.55, hy + b.ky * 0.55]).sort((a, b) => a[0] - b[0]), w = 0.058 * H, lang = KL.soort === 'tuniek' ? 0.2 : 0.55;
+    if (KL.soort === 'tuniek') return; // de tuniek van sapiens houdt op bij de heup
+    const a0 = rot(-0.078 * H, -0.02 * H), a1 = rot(0.068 * uK * H, -0.02 * H), bB = [m[0][0] - w, m[0][1] + 0.01 * H], bF = [m[1][0] + w, m[1][1] + 0.01 * H], mid = [(m[0][0] + m[1][0]) / 2, Math.max(m[0][1], m[1][1]) + 0.005 * H];
+    vul(ctx, [a0, a1, bF, mid, bB], KL.stof); lijn(ctx, [a0, bB], KL.licht, Math.max(1.5, H * 0.005));
+    for (let i = 0; i <= 8; i++) { const u = i / 8, p = u < 0.5 ? [lerp(bB[0], mid[0], u * 2), lerp(bB[1], mid[1], u * 2)] : [lerp(mid[0], bF[0], u * 2 - 1), lerp(mid[1], bF[1], u * 2 - 1)]; circ(ctx, p[0], p[1] + 0.004 * H, 0.014 * H, KL.pluis); }
+    E12K.steek(ctx, [lerp(a1[0], bF[0], 0.15), lerp(a1[1], bF[1], 0.15)], [lerp(a1[0], bF[0], 0.8), lerp(a1[1], bF[1], 0.8)], 3, KL.naad, Math.max(1, H * 0.004)); },
+  ketting(ctx, H, nek, rot, Lr) { const c = rot(0.03 * H, -Lr + 0.035 * H); for (let i = 0; i < 7; i++) { const an = 0.4 + i * 0.36, px = c[0] + Math.cos(an) * 0.032 * H - 0.012 * H, py = c[1] + Math.sin(an) * 0.022 * H;
+    ctx.save(); ctx.translate(px, py); ctx.rotate(an - Math.PI / 2); vul(ctx, [[-0.004 * H, 0], [0.004 * H, 0], [0, 0.014 * H]], '#EFE6D2'); ctx.restore(); } }
+};
+e12Mens = function (ctx, soort, x, y, hpx, o = {}) { const KL = o.naakt ? null : E12_KLEDING[soort]; const S = KL ? Object.assign({}, E12_SOORT[soort], { kleed: null }) : E12_SOORT[soort]; if (!S) return {}; const a = o.a == null ? 1 : o.a; if (a <= 0.01) return {};
+  const H = hpx, kijk = o.kijk || 1, sk = S.schedel, Pz = Object.assign(e12Pose(o.pose || 'staan', o.t, S), o.hoek || {});
+  const L1 = (S.heup - S.knie) * H, L2 = (S.knie - 0.04) * H, A1 = S.arm1 * H, A2 = S.arm2 * H, Lr = (S.sch - S.heup) * H;
+  // benen t.o.v. de heup: punt van knie, enkel, hiel, teen
+  const been = (th, kn, vh = 0) => { const kx = Math.sin(th) * L1, ky = Math.cos(th) * L1, sa = th - kn, ax = kx + Math.sin(sa) * L2, ay = ky + Math.cos(sa) * L2; const fa = vh;
+    const vx = Math.cos(fa) * S.voet * H, vy = -Math.sin(fa) * S.voet * H; return { kx, ky, ax, ay, hx: ax - vx * 0.22, hy: ay + 0.035 * H - vy * 0.22, tx: ax + vx * 0.78, ty: ay + 0.035 * H + vy * 0.78 }; };
+  const B = [been(Pz.th[0], Pz.kn[0]), been(Pz.th[1], Pz.kn[1], Pz.voet2 || 0)];
+  // laagste punt bepaalt de heuphoogte (voeten of knie op de grond)
+  let low = -1e9; for (const b of B) low = Math.max(low, b.ay + 0.035 * H, b.hy, b.ty, Pz.voet2 ? b.ky + 0.03 * H : -1e9); const hipY = y - low, hipX = x;
+  ctx.save(); ctx.globalAlpha *= a; if (kijk < 0) { ctx.translate(x, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); } ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (Pz.zit) { const sy = hipY + 0.06 * H; vul(ctx, [[x - 0.17 * H, y], [x - 0.15 * H, sy + 0.02 * H], [x - 0.06 * H, sy - 0.005 * H], [x + 0.08 * H, sy + 0.01 * H], [x + 0.12 * H, y]], '#6E6A62', '#8A867C', 2); } // steen om op te zitten
+  const huidV = S.vacht ? _dk(S.haar, 0.18) : _dk(S.huid, 0.16), huid = S.vacht ? S.haar : S.huid;
+  const tekenBeen = (b, ver) => { const c = ver ? huidV : huid; ctx.strokeStyle = c; ctx.lineWidth = 0.085 * H * (S.borst > 1.2 ? 1.12 : 1); ctx.beginPath(); ctx.moveTo(hipX, hipY); ctx.lineTo(hipX + b.kx, hipY + b.ky); ctx.stroke();
+    ctx.lineWidth = 0.06 * H * (S.borst > 1.2 ? 1.1 : 1); ctx.beginPath(); ctx.moveTo(hipX + b.kx, hipY + b.ky); ctx.lineTo(hipX + b.ax, hipY + b.ay); ctx.stroke();
+    const vk = S.vacht ? (ver ? _dk(S.huid, 0.16) : S.huid) : c; ctx.fillStyle = vk; vul(ctx, [[hipX + b.hx, hipY + b.hy], [hipX + b.ax - 0.02 * H, hipY + b.ay - 0.02 * H], [hipX + b.ax + 0.03 * H, hipY + b.ay], [hipX + b.tx, hipY + b.ty - 0.012 * H], [hipX + b.tx + 0.005 * H, hipY + b.ty + 0.004 * H], [hipX + b.hx, hipY + b.hy + 0.004 * H]], vk); if (KL) E12K.been(ctx, KL, S, H, hipX, hipY, b, ver); };
+  // romp-frame: draait om de heup met lean
+  const R = (px, py) => [hipX + px * Math.cos(Pz.lean) - py * Math.sin(Pz.lean) * -1 * 0 + Math.sin(Pz.lean) * -py, hipY + py * Math.cos(Pz.lean) + px * Math.sin(Pz.lean) * 0];
+  const rot = (px, py) => { const c = Math.cos(Pz.lean), s = Math.sin(Pz.lean); return [hipX + px * c - py * s, hipY + px * s + py * c]; };
+  const shJ = rot(0.0, -Lr + 0.03 * H);
+  const arm = (shA, el, ver, hold) => { const c = ver ? huidV : huid; const u1 = shA + Pz.lean, ex = shJ[0] + Math.sin(u1) * A1, ey = shJ[1] + Math.cos(u1) * A1, u2 = u1 + el, hx = ex + Math.sin(u2) * A2, hy = ey + Math.cos(u2) * A2;
+    const dk = S.borst > 1.2 ? 1.15 : 1; if (!ver) { ctx.strokeStyle = rgba('#0B1020', 0.35); ctx.lineWidth = 0.055 * H * dk + 0.008 * H; ctx.beginPath(); ctx.moveTo(shJ[0], shJ[1]); ctx.lineTo(ex, ey); ctx.lineTo(hx, hy); ctx.stroke(); }
+    ctx.strokeStyle = c; ctx.lineWidth = 0.055 * H * dk; ctx.beginPath(); ctx.moveTo(shJ[0], shJ[1]); ctx.lineTo(ex, ey); ctx.stroke(); ctx.lineWidth = 0.046 * H * dk; ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(hx, hy); ctx.stroke();
+    if (KL) E12K.arm(ctx, KL, H, shJ, ex, ey, hx, hy, ver, dk); const hc = S.vacht ? (ver ? _dk(S.huid, 0.16) : S.huid) : c; const hl = S.hand * H; ctx.fillStyle = hc; ctx.beginPath(); ctx.ellipse(hx + Math.sin(u2) * hl * 0.4, hy + Math.cos(u2) * hl * 0.4, hl * 0.28, hl * 0.52, -u2, 0, 6.283); ctx.fill();
+    const hp = { x: hx + Math.sin(u2) * hl * 0.6, y: hy + Math.cos(u2) * hl * 0.6, ang: u2 }; if (hold) hold(ctx, hp.x, hp.y, u2); return hp; };
+  tekenBeen(B[1], true); const handVer = arm(Pz.sh[1], Pz.el[1], true);
+  // romp
+  const bK = S.borst, uK = S.buik, Hh = H;
+  const romp = [[-0.045, -Lr / Hh - 0.03], [-0.07 * Math.sqrt(bK), -Lr / Hh + 0.025], [-0.072 * bK, -Lr / Hh + 0.09], [-0.05 * Math.sqrt(bK), -0.12], [-0.075, -0.02], [-0.07, 0.04], [-0.02, 0.06], [0.03, 0.05], [0.055 * uK, -0.02], [0.06 * uK, -0.11], [0.072 * bK, -Lr / Hh + 0.13], [0.062 * bK, -Lr / Hh + 0.03], [0.035, -Lr / Hh - 0.035]].map(([px, py]) => rot(px * Hh, py * Hh));
+  vul(ctx, romp, huid);
+  if (S.vacht) { ctx.save(); zacht(ctx, romp); ctx.clip(); ctx.strokeStyle = _lt(S.haar, 0.08); ctx.lineWidth = 1.5; for (let i = 0; i < 9; i++) { const [p, q] = [rot(-0.05 * Hh + i * 0.012 * Hh, -Lr * (0.2 + i * 0.07)), rot(-0.035 * Hh + i * 0.012 * Hh, -Lr * (0.15 + i * 0.07))]; ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); ctx.stroke(); } ctx.restore(); }
+  if (KL) E12K.romp(ctx, KL, S, H, Lr, rot, uK, bK);
+  // kleding: heupvel, cape of bovenstuk (reconstructie)
+  if (S.kleed) { const wrap = [[-0.056, -0.085], [0.058 * uK, -0.09], [0.064 * uK, 0.0], [0.056, 0.1], [0.0, 0.085], [-0.048, 0.11], [-0.07, 0.04]].map(([px, py]) => rot(px * Hh, py * Hh)); vul(ctx, wrap, S.kleed);
+    lijn(ctx, [rot(-0.054 * Hh, -0.078 * Hh), rot(0.056 * uK * Hh, -0.083 * Hh)], S.kleedD, 0.012 * Hh);
+    if (S.cape) { const cp = [[-0.04, -Lr / Hh - 0.03], [-0.085 * Math.min(bK, 1.2), -Lr / Hh + 0.04], [-0.09, -Lr / Hh + 0.2], [-0.07, -0.16], [0.02, -0.2], [0.075 * bK, -Lr / Hh + 0.14], [0.065 * bK, -Lr / Hh + 0.02], [0.02, -Lr / Hh - 0.035]].map(([px, py]) => rot(px * Hh, py * Hh)); vul(ctx, cp, S.kleed); ctx.save(); zacht(ctx, cp); ctx.clip(); ctx.fillStyle = S.kleedD; ctx.beginPath(); const [cx2, cy2] = rot(-0.07 * Hh, -Lr * 0.55); ctx.ellipse(cx2, cy2, 0.03 * Hh, 0.2 * Hh, Pz.lean, 0, 6.283); ctx.fill(); ctx.restore(); }
+    if (S.boven) { const bt = [[-0.04, -Lr / Hh - 0.025], [-0.07 * Math.sqrt(bK), -Lr / Hh + 0.03], [-0.072 * bK, -Lr / Hh + 0.1], [-0.052 * Math.sqrt(bK), -0.06], [0.056 * S.buik, -0.07], [0.068 * bK, -Lr / Hh + 0.13], [0.058 * bK, -Lr / Hh + 0.03], [0.03, -Lr / Hh - 0.03]].map(([px, py]) => rot(px * Hh, py * Hh)); vul(ctx, bt, S.kleed); lijn(ctx, [rot(0.02 * Hh, -Lr + 0.02 * Hh), rot(0.04 * Hh, -0.1 * Hh)], S.kleedD, 0.006 * Hh); } }
+  tekenBeen(B[0], false); if (KL) E12K.rok(ctx, KL, S, H, hipX, hipY, B, rot, uK);
+  // nek + hoofd
+  const u = S.hoofd * H / 1.13, nek = rot(0.012 * H, -Lr - 0.02 * H), kopO = rot(0.022 * H + (Pz.kop < 0 ? -Pz.kop * 0.05 * H : 0), -(H * (1 - S.hoofd) + 0.33 * u - S.heup * H) - (o.pose === 'boule' ? -0.01 * H : 0));
+  ctx.strokeStyle = S.vacht ? S.haar : _dk(S.huid, 0.08); ctx.lineWidth = 0.068 * H; ctx.beginPath(); ctx.moveTo(nek[0], nek[1]); ctx.lineTo(kopO[0], kopO[1] + 0.02 * H); ctx.stroke();
+  ctx.save(); ctx.translate(kopO[0], kopO[1]); ctx.rotate(Pz.kop * 0.6); e12Kop(ctx, sk, S, u, o); ctx.restore(); if (KL && KL.ketting) E12K.ketting(ctx, H, nek, rot, Lr);
+  const hand = arm(Pz.sh[0], Pz.el[0], false, o.hold);
+  ctx.restore();
+  const m = (p) => kijk < 0 ? { ...p, x: 2 * x - p.x } : p;
+  return { hoofd: m({ x: kopO[0], y: kopO[1] - 0.3 * u }), hand: m(hand), handVer: m(handVer), top: y - H };
+};
+
+
 // Evolutie v2 — extra film 4 (sleutel e12) 'Hoe werden we mens?' — storyboard: één keyframe per scène (23 okt 2026).
 // Laad: e12_land, pop_rept_chimp, teken_evo12, sb12  →  python3 render.py e12_land,pop_rept_chimp,teken_evo12,sb12 SB12
 const e12Tag = (ctx, hfst) => metaText(ctx, 'EVOLUTIE · EXTRA 4/4 · ' + hfst, 80, 78, C.text2, 'left', 26);

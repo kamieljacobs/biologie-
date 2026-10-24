@@ -1,0 +1,694 @@
+{
+ "film": 11,
+ "titel": "Van eerste cel tot nu",
+ "slug": "x3-van-eerste-cel-tot-nu",
+ "puzzel": "Vier miljard jaar leven: wanneer verschijnt wat?",
+ "haak": "De hele geschiedenis van de aarde op één dag van 24 uur: om half zes 's ochtends de oudste sporen van leven, en de mens?",
+ "duur": {
+  "basis_min": 7.8,
+  "met_vwo_min": 7.8,
+  "woorden": 949
+ },
+ "hoofdstukken": [
+  {
+   "nr": 1,
+   "titel": "Zuurstof uit de zee",
+   "minivraag": "Waarom kwam er pas zo laat zuurstof in de lucht?",
+   "type": "C",
+   "look": "Macro"
+  },
+  {
+   "nr": 2,
+   "titel": "De cel met een kern",
+   "minivraag": "Waar komen jouw mitochondriën vandaan?",
+   "type": "B",
+   "look": "Micro"
+  },
+  {
+   "nr": 3,
+   "titel": "Groot worden en het land op",
+   "minivraag": "Wanneer verschijnen de eerste dieren, en wanneer komt het leven aan land?",
+   "type": "C",
+   "look": "Macro"
+  },
+  {
+   "nr": 4,
+   "titel": "Rampen en nieuwe kansen",
+   "minivraag": "Wat gebeurt er na een massa-extinctie?",
+   "type": "F",
+   "look": "Macro"
+  }
+ ],
+ "scenes": [
+  {
+   "id": "e11s01",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Stel: de hele geschiedenis van de aarde past in één dag. Om middernacht ontstaat de aarde. Vierentwintig uur later is het nu.",
+   "beweging": "De aarde draait klein in de nachtlucht; naast haar loopt de gouden wijzer van een 24-uursklok één keer rond."
+  },
+  {
+   "id": "e11s02",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond half zes 's ochtends liggen de oudste sporen van leven die we kennen: laagjes steen, opgebouwd door microben: stromatolieten. Daar eindigde de film Het ontstaan van het leven.",
+   "beweging": "De wijzer stopt bij 05:36; op de klok kleurt een groen boogje; rechts verschijnt in een cirkel een doorgezaagde stromatoliet met zijn laagjes."
+  },
+  {
+   "id": "e11s03",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "En de rest? De eerste dieren, de eerste planten op het land, de mens. Vier miljard jaar leven: wanneer verschijnt wat?",
+   "beweging": "De wijzer staat op 05:36; rechts verschijnen de drie vragen (dieren, land, mens) nog zonder plek op de klok."
+  },
+  {
+   "id": "e11s04",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Titelkaart: titel en puzzel links, rechts de 24-uursklok met het groene stuk 'leven'."
+  },
+  {
+   "id": "e11s05",
+   "hoofdstuk": "Opening",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "De aarde is ongeveer 4,5 miljard jaar oud; dat is gemeten. Eén uur op de klok is dan ongeveer 190 miljoen jaar.",
+   "beweging": "Eén uursegment licht goud op met '±190 miljoen jaar', daarna één minuutstreepje met '±3 miljoen jaar'."
+  },
+  {
+   "id": "e11s06",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Half zes 's ochtends. De lucht bevat nog bijna geen zuurstof. Het leven bestaat uit cellen zonder kern: bacteriën en archaea. Alles wat nu leeft, stamt af van één gemeenschappelijke voorouder: LUCA. Die leefde waarschijnlijk nog eerder.",
+   "beweging": "Een ondiepe oerzee onder een donkere lucht; in een zoomcirkel drijven staafjes en bolletjes zonder kern."
+  },
+  {
+   "id": "e11s07",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Eén groep bacteriën maakt bij fotosynthese zuurstof: de cyanobacteriën. Met energie uit licht maken ze suiker uit water en koolstofdioxide. Daarbij komt zuurstof vrij. Maar die zuurstof bleef lang uit de lucht.",
+   "beweging": "Stromatolieten in het ondiepe water; bij de cyanobacteriën stijgen teal zuurstofbelletjes op, maar boven het water blijft de zuurstofmeter op nul."
+  },
+  {
+   "id": "e11q08",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waarom bleef die zuurstof zo lang uit de lucht?",
+   "beweging": "Vraagkaart met de zee en een lege zuurstofmeter; de gouden aftellijn krimpt.",
+   "opties": "A Ze maakten eerst te weinig zuurstof om iets te merken · B De zuurstof reageerde eerst met ijzer in de zee · C Zuurstof ontsnapte uit de lucht naar de ruimte",
+   "juist": "B"
+  },
+  {
+   "id": "e11s09",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "In de oerzee zat veel opgelost ijzer. Zuurstof reageert met ijzer: het roest. Die roest zakte naar de bodem. Ook gassen uit vulkanen namen zuurstof op. De roestlagen liggen er nog: rode banden in heel oud gesteente.",
+   "beweging": "Teal zuurstofdeeltjes raken oker ijzerdeeltjes; samen zakken ze als roestkorrels en vormen laag op laag rode banden."
+  },
+  {
+   "id": "e11s10",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Pas rond 2,4 miljard jaar geleden blijft er zuurstof over voor de lucht. Op de klok is het dan ongeveer elf uur 's ochtends. Nog veel minder dan nu.",
+   "beweging": "De gouden wijzer springt naar 11:09; naast de klok stijgt een teal zuurstoflijn die daarna lang laag blijft."
+  },
+  {
+   "id": "e11s11",
+   "hoofdstuk": "1 Zuurstof uit de zee",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Voor veel bacteriën van toen was zuurstof giftig. Maar cellen die zuurstof konden gebruiken, haalden veel meer energie uit hun voedsel.",
+   "beweging": "In de zoomcirkel worden de meeste cellen grijs en dof; een paar cellen met teal rand blijven helder."
+  },
+  {
+   "id": "e11s12",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Een bacterie is klein en heeft geen kern. Een cel van jou is veel groter en heeft een kern met het DNA, en mitochondriën: daar gebeurt de verbranding.",
+   "beweging": "Een staafvormige bacterie naast een grote eukaryote cel; de kern en de mitochondriën lichten na elkaar op."
+  },
+  {
+   "id": "e11s13",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Een mitochondrium heeft eigen DNA in een ring, net als een bacterie. Het deelt zich door in tweeën te splitsen, net als een bacterie. En het heeft twee membranen.",
+   "beweging": "Zoom in op één mitochondrium: de DNA-ring licht paars op, het snoert in tot twee, de dubbele wand wordt goud omlijnd."
+  },
+  {
+   "id": "e11q14",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Waar komen de mitochondriën vandaan?",
+   "beweging": "Vraagkaart met een mitochondrium en een bacterie naast elkaar.",
+   "opties": "A Het zijn bacteriën die je met je eten binnenkrijgt · B De cel maakte ze zelf; ze lijken toevallig op bacteriën · C Het waren ooit vrijlevende bacteriën, opgenomen door een cel",
+   "juist": "C"
+  },
+  {
+   "id": "e11s15",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Ooit nam een grotere cel, waarschijnlijk een archaeon, een bacterie op die zuurstof kon gebruiken. Die bacterie werd niet verteerd. Ze leefde binnenin verder en werd bij elke celdeling doorgegeven. Dat heet endosymbiose.",
+   "beweging": "Het membraan van de grote cel stulpt om de bacterie heen en sluit; binnenin deelt de bacterie mee als de cel deelt."
+  },
+  {
+   "id": "e11s16",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Micro",
+   "tekst": "Bij de voorouders van planten en algen gebeurde het nog een keer. Een cel nam een cyanobacterie op. Die werd de bladgroenkorrel.",
+   "beweging": "Een cel met mitochondriën neemt een groene cyanobacterie op; die vormt zich om tot een bladgroenkorrel."
+  },
+  {
+   "id": "e11s17",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Cellen met een kern heten eukaryoten. De oudste fossielen die waarschijnlijk van eukaryoten zijn, zijn ongeveer 1,6 miljard jaar oud: half vier 's middags. Misschien zijn ze ouder; dat weten we nog niet.",
+   "beweging": "De wijzer loopt naar 15:32; een stippellijn ervoor met 'misschien eerder?'."
+  },
+  {
+   "id": "e11s18",
+   "hoofdstuk": "2 De cel met een kern",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Het leven heeft dus drie grote groepen: bacteriën, archaea en eukaryoten. Volgens het DNA zijn eukaryoten het nauwst verwant aan archaea. Hoe je zo'n stamboom leest, zie je in de film Stambomen lezen.",
+   "beweging": "De levensboom groeit uit LUCA: eerst de tak bacteriën, dan archaea met de eukaryoten als zijtak; elke tak krijgt een cel als icoon."
+  },
+  {
+   "id": "e11s19",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Dan blijft het lang stil. Er zijn wel meercellige algen, maar klein. Tot ongeveer negen uur 's avonds vind je geen fossiel dat zeker van een dier is.",
+   "beweging": "De wijzer loopt langzaam van 15:32 naar 21:00; het groene stuk 'alleen cellen en kleine algen' wordt steeds langer."
+  },
+  {
+   "id": "e11s20",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond 575 miljoen jaar geleden liggen er vreemde, zachte wezens op de zeebodem: bladvormige wezens op een steel, en platte schijven met ribbels. In de schijf Dickinsonia zit cholesterol: een vet van dieren.",
+   "beweging": "Een rustige zeebodem met varenachtige wezens op een voetje die zacht meewiegen en een ribbelschijf die over de bodem schuift."
+  },
+  {
+   "id": "e11s21",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond 539 miljoen jaar geleden begint het Cambrium: tien over negen 's avonds. In zo'n twintig miljoen jaar verschijnen de meeste hoofdgroepen van dieren die nu bestaan. Met ogen, poten en harde schalen. Dat heet de Cambrische explosie.",
+   "beweging": "Een Cambrische zeebodem: trilobieten kruipen, een Anomalocaris zwemt met golvende flappen boven ze langs."
+  },
+  {
+   "id": "e11s22",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Het land is dan nog kaal. Rond 470 miljoen jaar geleden komen de eerste planten aan land: klein, zonder wortels, dicht bij het water. In de oudste goed bewaarde landplantjes zitten al schimmeldraden.",
+   "beweging": "Een kale oever; lage plantjes van een paar centimeter verschijnen langs het water; een zoomcirkel toont schimmeldraden in een stengel."
+  },
+  {
+   "id": "e11s23",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Rond 425 miljoen jaar geleden komen ook de eerste dieren aan land: kleine duizendpootachtigen.",
+   "beweging": "Een duizendpootachtige van een paar centimeter loopt met golvende pootjes tussen de Cooksonia-stengeltjes; de klok staat op ±21:45."
+  },
+  {
+   "id": "e11q24",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Een paddenstoel staat stil en groeit uit de grond. Met wie zijn schimmels het nauwst verwant?",
+   "beweging": "Vraagkaart met een paddenstoel tussen een plant en een dier.",
+   "opties": "A Met dieren: dat blijkt uit hun DNA · B Met planten: die staan ook stil en groeien uit de grond · C Met geen van beide: schimmels zijn een groep apart",
+   "juist": "A"
+  },
+  {
+   "id": "e11s25",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Schimmels staan dichter bij dieren dan bij planten. Dat blijkt vooral uit hun DNA. Maar ook hun celwand bevat chitine, net als het pantser van een insect. Ze slaan suiker op als glycogeen, net als jij.",
+   "beweging": "Op de levensboom splitst de eukaryotentak: planten apart, schimmels en dieren samen op één tak; drie kenmerken verschijnen op die tak."
+  },
+  {
+   "id": "e11s26",
+   "hoofdstuk": "3 Groot worden en het land op",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Om tien uur 's avonds, 375 miljoen jaar geleden, leeft Tiktaalik in ondiep water. Een vis met een nek en stevige vinnen met botjes als een pols. Hij is waarschijnlijk geen directe voorouder, maar een verwant van de vissen waaruit de viervoeters ontstonden.",
+   "beweging": "Tiktaalik ligt in ondiep water en zet zich af op zijn borstvinnen; de kop komt boven water uit."
+  },
+  {
+   "id": "e11s27",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Vijf keer was het extreem: in korte tijd stierf het grootste deel van alle soorten uit. Dat heet een massa-extinctie.",
+   "beweging": "Een gestileerde lijn 'aantal soorten' tekent zich van links naar rechts; vijf keer zakt hij diep in, telkens met een koraal stip."
+  },
+  {
+   "id": "e11s28",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De ergste was 252 miljoen jaar geleden. Enorme vulkaanuitbarstingen in Siberië veranderden het klimaat en de zee. Naar schatting verdween ongeveer negen op de tien soorten in de zee.",
+   "beweging": "Lava stroomt over een vlak land onder een donkere lucht; rookpluimen; de klokwijzer staat op 22:40."
+  },
+  {
+   "id": "e11s29",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "De bekendste was 66 miljoen jaar geleden: ongeveer twintig minuten voor middernacht. Een planetoïde sloeg in bij het huidige Mexico. Alle dinosauriërs stierven uit, behalve één groep: de vogels.",
+   "beweging": "Een gloeiende streep valt naar de horizon; een Tyrannosaurus staat in het tegenlicht; een vogeltje vliegt weg."
+  },
+  {
+   "id": "e11s30",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Macro",
+   "tekst": "Zoogdieren bestonden toen al ruim honderd miljoen jaar. De meeste waren klein en waarschijnlijk vooral 's nachts actief.",
+   "beweging": "Nacht: een klein zoogdier uit het Krijt snuffelt tussen de varens; rechts loopt een Tyrannosaurus (deels buiten beeld) langzaam voorbij."
+  },
+  {
+   "id": "e11q31",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Wat denk je? Wat gebeurde er na de inslag met de zoogdieren?",
+   "beweging": "Vraagkaart met het kleine zoogdier en een lege vlakte.",
+   "opties": "A Ze ontstonden opnieuw uit overlevende dinosauriërs · B Ze bleven klein en zeldzaam, net als ervoor · C Ze waaierden uit tot veel nieuwe soorten",
+   "juist": "C"
+  },
+  {
+   "id": "e11s32",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Ook veel zoogdieren stierven uit, maar de overlevers kwamen in een wereld zonder grote dinosauriërs. Uit hen ontstonden veel nieuwe soorten. Tien miljoen jaar later leefden er al vroege primaten en vroege paardachtigen.",
+   "beweging": "Uit één dunne zoogdiertak groeien na de koraal streep '66' snel veel takken; aan twee ervan verschijnen een primaat en een paard als icoon."
+  },
+  {
+   "id": "e11s33",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "En de mens? De gemeenschappelijke voorouder die we delen met de chimpansee, leefde zes tot acht miljoen jaar geleden. Dat is zo'n twee minuten voor middernacht.",
+   "beweging": "De klok zoomt in op het laatste uur; de wijzer staat op twee minuten voor twaalf; een kleine vertakking: mens en chimpansee, elk een eigen tak."
+  },
+  {
+   "id": "e11s34",
+   "hoofdstuk": "4 Rampen en nieuwe kansen",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Onze soort, Homo sapiens, is ongeveer 300.000 jaar oud. Op de klok is dat zes seconden voor middernacht. Alles uit je geschiedenisboek, vanaf het eerste schrift, past in de laatste tiende seconde. Hoe we mens werden, zie je in de film Hoe werden we mens?",
+   "beweging": "Een balk 'de laatste minuut' tekent zich; de laatste zes seconden kleuren goud; Noor staat klein naast het eind van de balk."
+  },
+  {
+   "id": "e11s35",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "Van half zes 's ochtends tot negen uur 's avonds: vooral losse cellen. Ze maakten de zuurstof en vormden samen de cel met een kern. Daarna, in drie uur: dieren, planten op het land en vijf grote rampen. En wij: de laatste zes seconden.",
+   "beweging": "De klok vult zich nog één keer: groen 'vooral losse cellen' tot ±21:00 met markeringen zuurstof en cel met een kern, daarna goud 'dieren, land, rampen' en de inslag; de wijzer eindigt op 24:00."
+  },
+  {
+   "id": "e11s36",
+   "hoofdstuk": "Samenvatting",
+   "laag": "basis",
+   "look": "Schema",
+   "tekst": "",
+   "beweging": "Eindkaart: drie kernzinnen met een groene haak, geen beeld."
+  }
+ ],
+ "checkvragen": [
+  {
+   "niveau": "basis",
+   "vraag": "Cyanobacteriën maakten al zuurstof lang voordat er zuurstof in de lucht bleef. Geef één reden waarom de zuurstof eerst niet in de lucht bleef.",
+   "antwoord": "De zuurstof reageerde met opgelost ijzer in de zee (roest, die naar de bodem zakte); ook gassen uit vulkanen namen zuurstof op."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Noem twee kenmerken van mitochondriën die erop wijzen dat ze ooit vrijlevende bacteriën waren.",
+   "antwoord": "Twee van: eigen ringvormig DNA; ze delen zich door in tweeën te splitsen; twee membranen (ook: eigen ribosomen van het bacterietype)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Wat is endosymbiose? Noem de twee organellen die zo zijn ontstaan.",
+   "antwoord": "Een cel neemt een andere cel (bacterie) op zonder die te verteren; die leeft binnenin verder en wordt doorgegeven. Mitochondriën (uit bacteriën die zuurstof gebruikten) en bladgroenkorrels (uit cyanobacteriën)."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Een leerling zegt: 'Schimmels zijn planten, want ze staan stil en groeien uit de grond.' Leg uit waarom dat niet klopt.",
+   "antwoord": "Stilstaan zegt niets over verwantschap. Volgens het DNA staan schimmels dichter bij dieren; ook hun celwand van chitine en opslag als glycogeen lijken op dieren. Ze hebben geen bladgroen."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Leg uit waarom na de inslag van 66 miljoen jaar geleden snel veel nieuwe soorten zoogdieren ontstonden.",
+   "antwoord": "De grote dinosauriërs waren weg; de overlevende (kleine) zoogdieren kregen ruimte en voedselbronnen zonder die concurrenten en rovers. Door selectie in die nieuwe omstandigheden ontstonden veel nieuwe soorten."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Op een klok van 24 uur stelt de hele geschiedenis van de aarde (ongeveer 4,5 miljard jaar) één dag voor. Hoeveel jaar is ongeveer één minuut? En waarom staat de mens pas in de laatste seconden?",
+   "antwoord": "4,5 miljard / 1440 ≈ ruim 3 miljoen jaar per minuut. Homo sapiens is ongeveer 300.000 jaar oud: minder dan een tiende minuut, dus ongeveer zes seconden voor middernacht."
+  },
+  {
+   "niveau": "basis",
+   "vraag": "Stamt de mens af van de chimpansee? Leg uit.",
+   "antwoord": "Nee. Mens en chimpansee hebben een gemeenschappelijke voorouder (zes tot acht miljoen jaar geleden); daarna ontwikkelden beide lijnen zich apart. Een soort die nu leeft is niet de voorouder van een andere soort die nu leeft."
+  }
+ ],
+ "begrippen": [
+  {
+   "begrip": "LUCA",
+   "uitleg": "De laatste gemeenschappelijke voorouder van alles wat nu leeft (last universal common ancestor); een populatie cellen zonder kern.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "cyanobacteriën",
+   "uitleg": "Bacteriën die aan fotosynthese doen; daarbij komt zuurstof vrij. Ze bouwen stromatolieten.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "prokaryoten",
+   "uitleg": "Cellen zonder kern: bacteriën en archaea. (In de film: 'cellen zonder kern'.)",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "eukaryoten",
+   "uitleg": "Organismen met cellen met een kern en organellen zoals mitochondriën: dieren, planten, schimmels en veel eencelligen.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "endosymbiose",
+   "uitleg": "Een cel neemt een andere cel op zonder die te verteren; die leeft binnenin verder en wordt bij de deling doorgegeven. Zo ontstonden mitochondriën en bladgroenkorrels.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "Cambrische explosie",
+   "uitleg": "In de eerste ongeveer twintig miljoen jaar van het Cambrium (vanaf ongeveer 539 miljoen jaar geleden) verschenen de meeste hoofdgroepen van dieren die nu bestaan.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "massa-extinctie",
+   "uitleg": "In geologisch korte tijd sterft het grootste deel van alle soorten uit. Er waren er vijf grote; de bekendste 66 miljoen jaar geleden.",
+   "niveau": "basis"
+  },
+  {
+   "begrip": "schimmels",
+   "uitleg": "Eukaryoten zonder bladgroen, met chitine in de celwand en glycogeen als opslag; nauwer verwant aan dieren dan aan planten.",
+   "niveau": "basis"
+  }
+ ],
+ "getallen": [
+  {
+   "waarde": "Aarde ongeveer 4,54 miljard jaar oud (±1 %), gemeten met radioactief verval in gesteente en meteorieten; in de film 'ongeveer 4,5 miljard'. Klokrekening: 4540 Mj = 24 uur → 1 uur ≈ 189 Mj, 1 min ≈ 3,15 Mj, 1 s ≈ 52.500 jaar",
+   "bron": "StarDate (McDonald Observatory, 12 okt 2022); Dalrymple 2001; eigen berekening"
+  },
+  {
+   "waarde": "oudste sporen van leven: stromatolieten van ±3,48 miljard jaar, Dresser-formatie, West-Australië → klok 05:36 ('half zes'); microfossielen (cellen) van die ouderdom (Apex chert, ±3,46 Ga) omstreden, daarom niet genoemd — gelijk aan film 10",
+   "bron": "Natural History Museum Londen, nieuws nov 2022 (Baumgartner e.a. 2019); Brasier e.a. 2002, Nature 416 (kritiek op Apex-microfossielen, via review)"
+  },
+  {
+   "waarde": "LUCA: schatting ongeveer 4,2 miljard jaar geleden (moleculaire klok, grote onzekerheid; klok ±03:45); in de film alleen 'leefde waarschijnlijk nog eerder' (dan de oudste sporen)",
+   "bron": "Moody e.a. 2024, Nature Ecology & Evolution, doi 10.1038/s41559-024-02461-1 (via sci.news)"
+  },
+  {
+   "waarde": "begin zuurstoffotosynthese onzeker (schattingen ±3,0–2,7 miljard jaar, sommige eerder) → film: 'wanneer dat begon, weten we niet precies'",
+   "bron": "Lyons, Reinhard & Planavsky 2014, Nature 506 (archief A5 info.md)"
+  },
+  {
+   "waarde": "Grote Oxidatie: begin ongeveer 2,43 miljard jaar geleden, permanent rond 2,22 miljard; daarna O₂ nog ver onder het huidige niveau → film 'rond 2,4 miljard', klok ±11:09",
+   "bron": "Poulton e.a. 2021, Nature (via sci.news); Lyons e.a. 2014"
+  },
+  {
+   "waarde": "vertraging door ijzer (gebande ijzerformaties) en reducerende vulkaangassen; vereenvoudigd",
+   "bron": "Lyons e.a. 2014; Klein 2005 (archief A5); sciencenews 'The iron record of Earth's oxygen'"
+  },
+  {
+   "waarde": "bewijs endosymbiose: dubbel membraan, eigen circulair DNA zonder histonen, deling als binaire splitsing, 70S-ribosomen; mitochondriën uit (alfaproteo)bacteriën, bladgroenkorrels uit cyanobacteriën",
+   "bron": "BioNinja IB 'Endosymbiosis'; Margulis 1967 (archief A5)"
+  },
+  {
+   "waarde": "gastheercel was een archaeon (Asgard-archaea, verwant aan Hodarchaeales); eukaryoten genest binnen Asgard → film 'waarschijnlijk een archaeon' en 'het nauwst verwant aan archaea'",
+   "bron": "Eme e.a. 2023, Nature, doi 10.1038/s41586-023-06186-2 (Baker-lab, UT Austin)"
+  },
+  {
+   "waarde": "oudste eukaryoten: ondubbelzinnig ±1,6 miljard of jonger; Changcheng-acritarchen 1,8–1,6 Ga 'mogelijk'; meercellige alg Qingshania 1,63 Ga (Noord-China) → film 'waarschijnlijk ... ongeveer 1,6 miljard', klok 15:32",
+   "bron": "Knoll e.a. 2006, Phil Trans R Soc B (PMC1578724); NIGPAS 25 jan 2024 (Miao e.a. 2024, Science Advances)"
+  },
+  {
+   "waarde": "meercelligheid minstens 25 keer onafhankelijk bij eukaryoten; complex meercellig in dieren, schimmels, bruine, rode en groene algen/landplanten (niet meer in de vertelling; scène geschrapt)",
+   "bron": "Grosberg & Strathmann 2007, Annu Rev Ecol Evol Syst 38 (via Wikipedia 'Multicellular organism')"
+  },
+  {
+   "waarde": "Ediacara-fauna ongeveer 575–560 miljoen jaar (Mistaken Point, Newfoundland: 565 ± 3 Mj); bladvormige 'fronds' op een steel met hechtschijf (Charnia, Charniodiscus)",
+   "bron": "Wikipedia 'Mistaken Point Formation', 'Charniodiscus'"
+  },
+  {
+   "waarde": "Dickinsonia: ovaal met ribbels, tot 1,4 m, ±558 Mj (Witte Zee, Rusland); cholesterol in het fossiel → dier",
+   "bron": "Bobrovskiy e.a. 2018, Science (ANU nieuws 'Fat from 558 million years ago')"
+  },
+  {
+   "waarde": "Cambrium begint 539 Mj (klok 21:09, 'tien over negen'); 'explosieve' fase de eerste ±20 Mj; de meeste van de ±40 huidige diergroepen (stammen) verschijnen; Anomalocaris tot 56 cm (NHM) / 38 cm romp zonder aanhangsels (Wikipedia)",
+   "bron": "Natural History Museum Londen, 'The Cambrian Period'; Erwin e.a. 2011, Science"
+  },
+  {
+   "waarde": "trilobiet: kop (cephalon), borststuk (thorax) en staartschild (pygidium); drie lengtelobben; 1 tot >70 cm",
+   "bron": "Kentucky Geological Survey, trilobite fact sheet"
+  },
+  {
+   "waarde": "eerste landplanten: sporen (cryptosporen) ±470 Mj, Ordovicium; Cooksonia (433–393 Mj) enkele cm hoog, zonder bladeren en wortels",
+   "bron": "Wellman e.a. 2003, Nature 425 (via Wikipedia 'Cryptospore'); Wikipedia 'Cooksonia'"
+  },
+  {
+   "waarde": "schimmeldraden (arbusculaire mycorrhiza) in landplantjes van de Rhynie/Windyfield Chert, 407 Mj",
+   "bron": "Remy e.a. 1994, PNAS; Windyfield Chert 2025 (PMC12676081)"
+  },
+  {
+   "waarde": "schimmels nauwer verwant aan dieren dan aan planten (opisthokonten, moleculair); chitine in celwand; opslag als glycogeen 'zoals dieren'",
+   "bron": "OpenStax Biology 2e, 24.1; Baldauf & Palmer 1993, PNAS"
+  },
+  {
+   "waarde": "Tiktaalik roseae: ±375 Mj, Ellesmere-eiland (Canada), gevonden 2004, gepubliceerd 2006; 1,25–2,75 m; platte kop, beweeglijke nek, vinnen met pols; 'nooit geclaimd als directe voorouder'",
+   "bron": "Daeschler, Shubin & Jenkins 2006, Nature 440 (via Wikipedia 'Tiktaalik')"
+  },
+  {
+   "waarde": "Big Five: eind-Ordovicium ±444 Mj (86 %), Laat-Devoon ±372 (75 %), eind-Perm ±252 (96 %), eind-Trias ±200 (80 %), eind-Krijt 66 (76 % van de soorten)",
+   "bron": "US National Park Service, 'Mass Extinctions Through Geologic Time'; Raup & Sepkoski 1982"
+  },
+  {
+   "waarde": "eind-Perm: Siberische vloedbasalten → klimaatverandering en verzuring; 'ongeveer negen op de tien soorten in de zee' (schattingen 81–96 %) → klok 22:40",
+   "bron": "NPS (zie boven); Stanley 2016, PNAS (archief A5)"
+  },
+  {
+   "waarde": "eind-Krijt 66 Mj: inslag, Chicxulub-krater (Yucatán, Mexico) → klok 23:39 ('ongeveer twintig minuten voor middernacht'); alle niet-vliegende dinosauriërs uitgestorven, vogels (dinosauriërs) overleefden",
+   "bron": "NPS (zie boven); sci.news 2021 (Chiarenza e.a.)"
+  },
+  {
+   "waarde": "Tyrannosaurus 'SUE': 12,3 m lang (40,5 ft), heup 4 m (13 ft), ±67 Mj",
+   "bron": "Field Museum, 'How well do you know SUE?'"
+  },
+  {
+   "waarde": "vroege zoogdieren (Morganucodon) vanaf ±205 Mj, schedel 2–3 cm, romp ±10 cm, waarschijnlijk 's nachts actief → 'toen al ruim honderd miljoen jaar'",
+   "bron": "Kemp 2005 (via Wikipedia 'Morganucodon')"
+  },
+  {
+   "waarde": "na 66 Mj: vroegste zekere primaten (Teilhardina) en paardachtigen (Hyracotherium/Eohippus, schofthoogte 30–60 cm) ±56 Mj → 'tien miljoen jaar later'",
+   "bron": "Florida Museum, 'Oldest primates in North America' (Morse e.a.); Britannica 'dawn horse'"
+  },
+  {
+   "waarde": "splitsing mens–chimpansee: 'minstens 7–8 miljoen jaar' (generatietijden); schattingen 6–8 Mj → film 'zes tot acht miljoen jaar' (zoals film 8 en 12), op de klok 1,9–2,5 min ('zo'n twee minuten voor middernacht')",
+   "bron": "Langergraber e.a. 2012, PNAS 109 (PMC3465451)"
+  },
+  {
+   "waarde": "Homo sapiens ±300.000 jaar (Jebel Irhoud, Marokko, ±315.000) → 300.000/52.546 ≈ 5,7 s ('zes seconden voor middernacht'); schrift ±5200 jaar → ±0,1 s",
+   "bron": "Hublin e.a. 2017, Nature 546 (NPR 7 juni 2017); eigen berekening"
+  },
+  {
+   "waarde": "stromatolieten Hamelin Pool (Shark Bay) groeien ±0,5 mm per jaar, gebouwd door cyanobacteriën (alleen als beeldreferentie)",
+   "bron": "Wikipedia 'Hamelin Pool Marine Nature Reserve'"
+  },
+  {
+   "waarde": "fotosynthese bij bacteriën: alleen cyanobacteriën maken er zuurstof bij; paarse en groene bacteriën doen fotosynthese zonder zuurstof",
+   "bron": "OpenStax Microbiology (fotosynthese bij prokaryoten, via review); Lyons e.a. 2014"
+  },
+  {
+   "waarde": "bladgroenkorrel uit één opname van een cyanobacterie (primaire endosymbiose) → Archaeplastida: groene algen en planten, rode algen, glaucophyten → film 'planten en algen'",
+   "bron": "Deschamps 2014, Acta Soc Bot Pol (doi 10.5586/asbp.2014.048); Archibald 2015, Curr Biol 25:R911"
+  },
+  {
+   "waarde": "eerste landdieren: Kampecaris obanensis (duizendpootachtige, Kerrera, Schotland) ±425 Mj; Pneumodesmus newmani herdateerd naar ±414 Mj → film 'rond 425 miljoen jaar ... kleine duizendpootachtigen' (klok ±21:45)",
+   "bron": "Brookfield, Catlos & Suarez 2020, Historical Biology (UT Austin JSG-nieuws mei 2020); Suarez e.a. 2017, PLoS ONE (UT Austin, juli 2017)"
+  },
+  {
+   "waarde": "Mesozoïsche zoogdieren bleven klein en grotendeels 's nachts actief tot het eind van het Krijt ('nocturnal bottleneck')",
+   "bron": "Wikipedia 'Nocturnal bottleneck'; Kemp 2005"
+  }
+ ],
+ "uitspraak": [
+  {
+   "woord": "LUCA",
+   "invoer": "Loeka",
+   "ipa": "/ˈlu.kaː/",
+   "bron": "archief A5 (Loeka, al eens ingesproken); wachtlijst"
+  },
+  {
+   "woord": "archaea / archaeon",
+   "invoer": "archeeja / archeejon",
+   "ipa": "/ɑrˈxeː.jaː/, /ɑrˈxeː.jɔn/ (afgeleid)",
+   "bron": "nl.wiktionary niet bereikbaar; NL-uitspraak met ch als in 'chaos'? Nederlandse methodes zeggen meestal /ɑrˈxeː.ja/; twijfel → wachtlijst"
+  },
+  {
+   "woord": "cyanobacteriën",
+   "invoer": "cyanobacteriën",
+   "ipa": "/ˌsi.jaː.noː.bɑkˈteː.ri.jə(n)/",
+   "bron": "gewone spelling (v4 doet die meestal goed); archief A5 ongewijzigd ingesproken"
+  },
+  {
+   "woord": "mitochondriën / mitochondrium",
+   "invoer": "zoals geschreven",
+   "ipa": "/ˌmi.toːˈxɔn.dri.jə(n)/",
+   "bron": "cel-reeks (goedgekeurd zonder respelling)"
+  },
+  {
+   "woord": "endosymbiose",
+   "invoer": "endosymbiose",
+   "ipa": "/ˌɛn.doː.sɪm.biˈjoː.zə/ (afgeleid)",
+   "bron": "naar 'symbiose' (Van Dale: sym-bi-o-se, klemtoon o); wachtlijst"
+  },
+  {
+   "woord": "eukaryoten",
+   "invoer": "eukaryoten",
+   "ipa": "/ˌøː.kaː.riˈjoː.tə(n)/ (afgeleid)",
+   "bron": "naar 'prokaryoot'; klemtoon op 'yo'; wachtlijst"
+  },
+  {
+   "woord": "Dickinsonia",
+   "invoer": "Dickinsonia",
+   "ipa": "/ˌdɪ.kɪnˈsoː.ni.jaː/ (afgeleid)",
+   "bron": "naar Ben Dickinson; Latijnse klemtoon; wachtlijst"
+  },
+  {
+   "woord": "Cambrium / Cambrische",
+   "invoer": "Cambrium / Cambrische",
+   "ipa": "/ˈkɑm.bri.jʏm/, /ˈkɑm.bri.sə/",
+   "bron": "archief A5 ongewijzigd; f3 gebruikt al 'Cambri-'; wachtlijst"
+  },
+  {
+   "woord": "Tiktaalik",
+   "invoer": "Tiktaalik",
+   "ipa": "/tɪkˈtaː.lɪk/",
+   "bron": "Inuktitut; klemtoon taa; archief A5 ongewijzigd"
+  },
+  {
+   "woord": "massa-extinctie",
+   "invoer": "massa-extinctie",
+   "ipa": "/ˈmɑ.saː.ɛksˌtɪnk.si/",
+   "bron": "Kamiel: 'tie' als 'sie' (transcriptiefactor-les); als het 'tie' wordt: 'massa-extinksie'; wachtlijst"
+  },
+  {
+   "woord": "chitine",
+   "invoer": "chitine",
+   "ipa": "/xiˈti.nə/",
+   "bron": "v4: -ine gewone spelling; wachtlijst"
+  },
+  {
+   "woord": "glycogeen",
+   "invoer": "glycogeen",
+   "ipa": "/ˌɣli.koːˈɣeːn/",
+   "bron": "voedingsreeks (zoals geschreven)"
+  },
+  {
+   "woord": "planetoïde",
+   "invoer": "planetoïde",
+   "ipa": "/ˌplaː.nə.toːˈʋi.də/",
+   "bron": "gewoon woord"
+  },
+  {
+   "woord": "Homo sapiens",
+   "invoer": "Homo sapiens",
+   "ipa": "/ˈɦoː.moː ˈsaː.pi.jɛns/",
+   "bron": "f8 (wachtlijst)"
+  },
+  {
+   "woord": "koolstofdioxide",
+   "invoer": "koolstofdie-oxide",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (goedgekeurd)"
+  },
+  {
+   "woord": "DNA / DNA-vergelijking",
+   "invoer": "deeënaa",
+   "ipa": "",
+   "bron": "UITSPRAAK.md (goedgekeurd)"
+  },
+  {
+   "woord": "4,5 miljard / 2,4 / 1,6 miljard",
+   "invoer": "vier komma vijf miljard / twee komma vier / een komma zes",
+   "ipa": "",
+   "bron": "getallen voluit in de stem-invoer laten controleren; wachtlijst"
+  },
+  {
+   "woord": "300.000",
+   "invoer": "driehonderdduizend",
+   "ipa": "",
+   "bron": "voluit, anders 'drie punt nul nul nul'-risico"
+  }
+ ],
+ "nieuw_in_bibliotheek": [
+  "e11Klok(ctx, x, y, r, o) — 24-uursklok van de aardgeschiedenis: wijzer, groene boog 'leven', markeringen (o.merk = [{uur, kleur, tekst}]), zoom op het laatste uur (o.laatsteUur)",
+  "e11Aarde — kopie van aarde() uit Van molecuul tot biosfeer (zelfde code, voorvoegsel e11)",
+  "e11Stromatoliet(ctx, x, y, s) — kussens van laagjes (Hamelin Pool als referentie), cyanobacterie-mat bovenop",
+  "e11Cyano(ctx, x, y, n) — draadvormige cyanobacterie (keten van cellen, teal-groen)",
+  "e11Archaeon / e11Eukaryoot / e11Endo(ctx, ..., fase) — grote cel die een bacterie omsluit (0 = buiten, 1 = binnen, 2 = mitochondrium)",
+  "e11Mito(ctx, ...) — mitochondrium met dubbele wand en DNA-ring (op mitochondrion() uit lib.js)",
+  "e11Levensboom(ctx, o) — boom bacteriën / archaea + eukaryoten, met eukaryotentak planten | schimmels+dieren",
+  "e11Frond (Charnia-achtig, steel + hechtschijf), e11Dickinsonia (ovaal met ribbels)",
+  "e11Trilobiet (kop, borststuk, staartschild, drie lobben), e11Anomalocaris (13 flappen, twee grijparmen, staartwaaier)",
+  "e11Cooksonia (gaffelvertakte stengeltjes met sporendoosjes), e11Paddenstoel",
+  "e11Tiktaalik (platte kop, ogen bovenop, nek, borstvin met pols)",
+  "e11TRex (12 m, horizontale romp, staart vrij van de grond, tweevingerige armpjes), e11Morganucodon (spitsmuisachtig, ±10 cm)",
+  "e11Soortenlijn — gestileerde curve aantal soorten met vijf dalen",
+  "e11Duizendpoot(ctx, x, y, l) — vroege duizendpootachtige (Kampecaris), zijaanzicht, ±1–2 cm"
+ ],
+ "keuzes_en_twijfels": [
+  "Rode draad: één dag van 24 uur (niet één jaar zoals in archief A5), zodat 'twintig minuten voor middernacht' en 'zes seconden' het einde voelbaar maken. Getallen: aarde 4,54 Mj gedeeld door 86.400 s (zie getallen). Klokstanden afgerond op wat je zegt: half zes, elf uur, half vier, negen uur, tien over negen, tien uur, twintig voor twaalf, twee minuten, zes seconden.",
+  "Puzzel = de startvraag van de site ('Vier miljard jaar leven: wanneer verschijnt wat?'); de samenvatting beantwoordt hem met de klok.",
+  "Aanvulling Kamiel (via coördinator, 23 okt): er komt waarschijnlijk een vierde extra film over mensachtigen ('Hoe werden we mens?'). De mens staat hier daarom alleen als moment op de klok (gemeenschappelijke voorouder met de chimpansee 6–8 Mj = zo'n twee minuten voor middernacht; Homo sapiens ±300.000 jaar = zes seconden), zonder hominiden-details, met een verwijzing naar die film in e11s34. Werktitel nog niet zeker: tekst aanpassen als de titel verandert.",
+  "Begint waar film 10 eindigt: oudste sporen = stromatolieten ±3,5 miljard jaar (zoals film 10; celfossielen omstreden, niet genoemd). LUCA zonder jaartal maar 'leefde waarschijnlijk nog eerder' (film 10: ±4,2 miljard).",
+  "Walvis niet gebruikt (film 7). Mitochondriën: vereenvoudigd 'een bacterie die zuurstof kon gebruiken'; dat de opname vóór of ná de zuurstofstijging gebeurde is onzeker; de film legt geen oorzakelijk verband tussen e11s11 en e11s15.",
+  "Vijf massa-extincties: alleen Perm en Krijt uitgewerkt; de huidige soortenafname ('zesde massa-extinctie') bewust niet genoemd (omstreden, valt buiten deze film) — Kamiel: wel of niet?",
+  "Getal eind-Perm: NPS noemt 96 %, Stanley 2016 lager (±81 %); film zegt 'naar schatting ongeveer negen op de tien soorten in de zee'.",
+  "Mens–chimpansee: nu 'zes tot acht miljoen jaar', zoals film 8 en 12 (review 24 okt); op de klok 'zo'n twee minuten'.",
+  "Eerste zekere dieren: Dickinsonia met cholesterol (558 Mj) staat in de bron; dat de varenachtige 'fronds' dieren waren is onzeker, daarom 'vreemde, zachte wezens'.",
+  "Stelligheidscheck gedaan op alle/altijd/nooit/alleen: 'Alles wat nu leeft, stamt af van LUCA' (definitie; bron Moody 2024), 'Alle dinosauriërs stierven uit, behalve de vogels' (vogels zijn dinosauriërs; NPS), 'Tot ongeveer negen uur geen fossiel dat zeker van een dier is' (afgezwakt).",
+  "Schimmels-dieren: in beeld de levensboom met de verdeling planten | (schimmels + dieren); geen extra 'opisthokonten'-term (niet in de methodes). Vraag e11q24 gebruikt 'staat stil' als misvatting.",
+  "Archaea: uitspraak twijfelachtig (wachtlijst); Nederlandse methodes schrijven 'archaea' of 'archaebacteriën'. Ik koos 'archaea' (BvJ/Nectar noemen het domein Archaea).",
+  "Geen ElevenLabs-platen gemaakt (0 credits): de nieuwe dieren zijn fossiele/uitgestorven vormen die alleen klein of als silhouet in beeld komen, getekend naar maten uit bronnen (zie getallen). Tyrannosaurus en Tiktaalik zijn de grootste; als Kamiel ze groter wil, eerst een referentieplaat per dier.",
+  "Hergebruikt: aarde (kopie), mitochondrion/nucleus/roughER/membrane (lib.js), bacterie (micro_evo), persoon (Noor als 'jij'), chimp (pop_rept_chimp); e11Morganucodon (spitsmuisachtig) staat in e11s30 als 'klein zoogdier uit het Krijt', niet als Morganucodon (die leefde ±205–190 Mj).",
+  "Geen menselijk moment: het concept is de tijdschaal; Noor staat alleen als schaalfiguur bij de laatste seconden (e11s35).",
+  "Keyframes: eigen titel-/vraagkaart-tag 'EVOLUTIE · EXTRA 3' (evoTag toont '/8'); hergebruikte vraagKaart en zoomCircle uit lib_evo/lib. e11_aarde.js is een letterlijke kopie van aarde() met voorvoegsel (geen tweede wereldbol-ontwerp).",
+  "Review 24 okt verwerkt: e11s02 stromatolieten i.p.v. cellen; e11s07 'maakt bij fotosynthese zuurstof' (niet de enige fotosynthese); e11q14 en e11q24 nieuwe opties (alle drie noemen bacteriën; schimmels: reden = DNA); e11q34 en e11s21 (meercellig 25×, sterretjes) geschrapt; zuurstofzin in e11s07 ingekort; LUCA 'waarschijnlijk nog eerder'; e11s16 'planten en algen' (ook rode algen); e11s18 'het leven heeft dus drie grote groepen'; label 'EXTRA 3/4'; labels e11s10 en e11s33 verplaatst; eindkaart 'Homo sapiens in 6 seconden'.",
+  "Gat in H3: gekozen voor een extra scène (e11s23) met de eerste landdieren (duizendpootachtigen ±425 Mj, Brookfield e.a. 2020) i.p.v. de minivraag te versmallen; de reviewer noemde 'rond 420' met Pneumodesmus (±414 Mj na herdatering) — ik nam Kampecaris (425) en zei 'rond 425'. Minivraag: 'Wanneer verschijnen de eerste dieren, en wanneer komt het leven aan land?'.",
+  "e11s30: het zoogdier heet nu 'klein zoogdier uit het Krijt'; tekening blijft spitsmuisachtig (de meeste Krijtzoogdieren waren klein, nachtactief). Geen nieuwe multituberculaat getekend: in dit formaat is het verschil niet te zien; beeldbank-keuze voor Kamiel.",
+  "Niet overgenomen: een gestippeld LUCA-stipje rond 03:45 op de klok — de klok begint bij leven dat we kunnen meten; 'waarschijnlijk nog eerder' in de tekst is genoeg en voorkomt een schijnprecieze tijd. Extra inkortingen voor ±7,8 min: e11s05 (minuutzin), e11s10, e11s12, e11s13, e11s20, e11s27 en e11s32 korter.",
+  "Scène-id's na de review hernummerd (36 scènes, e11s01–e11s36); oude keuring van film 11 was er nog niet, dus geen botsing."
+ ]
+}
