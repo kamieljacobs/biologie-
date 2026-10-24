@@ -16,3 +16,6 @@ Ingesproken 24 okt 2026, stem Roos (eleven_v4), één take per alinea, flow http
 | larven | s22 (opnieuw ingesproken 24 okt) | |
 
 Luisterpagina (24 okt 2026, account met deze film): https://claude.ai/artifact/7Vz1T4Sd3GkkfiLG6qZ1SZ — fragmenten uit de film zelf, oordeel goed/fout per woord in db-collectie `uitspraak` (doc-id = woord in kleine letters). Alleen woorden met oordeel fout krijgen daarna varianten.
+
+## Uitslag ronde 1 (24 okt 2026)
+Goed (zoals geschreven): ethyleen, generatief, vegetatief, ledlampen, kilowattuur, larven, huidmondjes, zeefvaten, Westland. Fout: **rubisco** (Kamiel: "isco met een zachte i, ru-BIS-co"). Ronde 2 op de luisterpagina: varianten rubbisko / ru-bis-ko / ruBISco (±250 credits); na de keuze s06, s09, s12, s24 en s25 opnieuw inspreken.
