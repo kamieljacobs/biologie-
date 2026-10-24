@@ -14,3 +14,5 @@ Ingesproken 24 okt 2026, stem Roos (eleven_v4), één take per alinea, flow http
 | huidmondjes | s10 | |
 | zeefvaten | s14 | |
 | larven | s22 (opnieuw ingesproken 24 okt) | |
+
+Luisterpagina (24 okt 2026, account met deze film): https://claude.ai/artifact/7Vz1T4Sd3GkkfiLG6qZ1SZ — fragmenten uit de film zelf, oordeel goed/fout per woord in db-collectie `uitspraak` (doc-id = woord in kleine letters). Alleen woorden met oordeel fout krijgen daarna varianten.
