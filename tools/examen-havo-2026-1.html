@@ -134,6 +134,7 @@ svg{display:block;max-width:100%;height:auto}
 .pre p{margin:0;color:var(--text2)}
 .figrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 @media (max-width:540px){.figrow{grid-template-columns:1fr}}
+.exfoto{display:block;width:100%;height:auto;border-radius:2px}
 .legenda{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--text2)}
 .legenda i{display:inline-block;vertical-align:middle;margin-right:6px}
 .legenda .lijn{width:22px;height:0;border-top:2.5px solid var(--text)}
@@ -213,7 +214,7 @@ body.examen .tonext{display:none!important}
 
   <main id="main"></main>
 
-  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's zijn weggelaten; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
+  <footer>Examenvragen en correctievoorschrift: © College voor Toetsen en Examens (examenblad.nl). Foto's komen uit het examen; grafieken en tekeningen zijn nagetekend.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a> · examenvragen © CvTE</span></footer>
 </div>
 
 <script>
@@ -553,6 +554,7 @@ Q.push({id:6,pts:1,build(q){noOptions(q,{id:6,pts:1,
 
 /* ================= extra bouwstenen ================= */
 function pre(q,html){q.append(el("div",{class:"pre"},html));}
+const FOTO=(n,alt)=>`<img class="exfoto" src="examen-img/havo-2026-1/${n}.webp" alt="${alt}" loading="lazy">`;
 function chipsStep(container,{q,items,ok,no,onDone}){
   const s=el("div",{class:"step"});s.append(el("p",{},q));
   const row=el("div",{class:"row"});
@@ -619,12 +621,6 @@ function stepAnim(box,steps,render){
 }
 
 /* ================= figuren opgave 2 ================= */
-const VIS=(()=>{let g="";for(let k=0;k<7;k++)g+=`<circle cx="${258-k*6}" cy="37" r="1.7" fill="var(--text2)"/>`;
-  return `<svg viewBox="0 0 320 70" role="img" aria-label="Tekening van een beekprik" style="max-width:420px">
-  <path d="M8,41 C20,36 34,35 48,36 C110,33 190,31 250,29 C276,28 296,29 306,33 C313,36 313,41 306,44 C292,48 272,47 250,46 C190,46 110,47 48,45 C34,46 20,46 8,41 Z" fill="var(--surface2)" stroke="var(--text2)" stroke-width="1.5"/>
-  <path d="M10,41 C26,30 60,30 96,34" fill="none" stroke="var(--text3)" stroke-width="1"/>
-  ${g}<circle cx="293" cy="35" r="2.6" fill="var(--text)"/>
-  <text class="tick" x="8" y="64">± 15 cm</text></svg>`;})();
 const ZO=[[0,20],[2,20],[2,15],[4,15],[4,10],[6,10],[6,5],[10,5]];
 const ST={10:[[0,0],[3,0],[3,20],[7,20],[7,40],[9,40],[9,100],[10,100]],20:[[0,0],[4,0],[4,20],[4.5,20],[4.5,40],[6,40],[6,60],[6.5,60],[6.5,80],[9,80],[9,100],[10,100]]};
 function zuurGraph(temp,{hl=null,marks=null,w=300,h=210}={}){
@@ -776,8 +772,8 @@ Q.push({id:8,pts:2,t:"schaduw en algenbloei",build(q){
 
 Q.push({id:9,pts:1,t:"lichaamsvorm",build(q){
   pre(q,KADER_LARVEN);
-  q.append(el("p",{class:"qtext"},"De beekprik heeft een langgerekt, cilindervormig lichaam.<br><b>Verklaar dat deze lichaamsvorm functioneel is.</b>"));
-  const fig=el("div",{},VIS);q.append(fig);
+  q.append(el("div",{style:"max-width:420px"},`<div class="eyebrow">afbeelding 1</div>${FOTO("beekprik","Foto van een beekprik: een langgerekte, palingachtige vis")}`));
+  q.append(el("p",{class:"qtext"},"De beekprik heeft een langgerekt, cilindervormig lichaam (afbeelding 1).<br><b>Verklaar dat deze lichaamsvorm functioneel is.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
   choiceStep(think,{q:"‘Functioneel’ betekent: de vorm past bij waar en hoe het dier leeft. Wat moet een beekprik volgens de tekst kunnen?",opts:["tegen de stroom in zwemmen","zich ingraven in grind","lang onder water blijven"],right:0,
     ok:"Ja. Volwassen beekprikken zwemmen stroomopwaarts om eitjes af te zetten.",no:"Lees de eerste zin van de tekst nog eens. Wat doen volwassen beekprikken?",
@@ -880,7 +876,7 @@ Q.push({id:14,pts:2,t:"grafiek tekenen",build(q){
 }});
 
 Q.push({id:15,pts:1,t:"vispassage",build(q){
-  pre(q,`<p>Een andere bedreiging voor de beekprik zijn barrières, zoals watermolens. Deze maken de beek stroomopwaarts onbereikbaar voor volwassen beekprikken. Waterschappen proberen barrières op te heffen door vispassages aan te leggen (afbeelding 4).</p><div class="eyebrow">Afbeelding 4 (nagetekend)</div>`+PASSAGE);
+  pre(q,`<p>Een andere bedreiging voor de beekprik zijn barrières, zoals watermolens. Deze maken de beek stroomopwaarts onbereikbaar voor volwassen beekprikken. Waterschappen proberen barrières op te heffen door vispassages aan te leggen (afbeelding 4).</p><div class="eyebrow">afbeelding 4</div><div class="figrow" style="align-items:center"><div>`+PASSAGE+`</div><div>${FOTO("watermolen","Foto van de watermolen met de vispassage; 1 stuw, 2 molenrad, 3 uitstroom vispassage")}</div></div>`);
   q.append(el("p",{class:"qtext"},"<b>Verklaar hoe vispassages de overlevingskansen van een populatie beekprikken vergroten.</b>"));
   const think=phase("think","Eerst nadenken"),ans=phase("ans","Antwoord");helpButton(q,think);const unlock=lockAns(think,ans,"Schrijf je antwoord ›");
   choiceStep(think,{q:"Waarom zwemmen volwassen beekprikken stroomopwaarts?",opts:["om voedsel te zoeken","om eitjes af te zetten op de grindrijke bodem","om te ontsnappen aan zuurstofarm water"],right:1,
@@ -920,7 +916,7 @@ const svgWrap=(vb,inner,label)=>`<svg viewBox="${vb}" role="img" aria-label="${l
 
 /* ================= opgave 3: olifanten ================= */
 const XA="X<sup>A</sup>",Xa="X<sup>a</sup>";
-const PRE_OLI=`<p>In 1977 bestond de populatie olifanten in het Nationaal Park Gorongosa (Mozambique) uit <b>1271</b> vrouwtjes. Hiervan had <b>18,5%</b> geen slagtanden (slagtandloos). In 2000 waren er nog maar <b>121</b> vrouwtjes, waarvan er <b>61</b> slagtandloos waren. Alle mannetjes in de populatie hadden wél slagtanden.</p>`;
+const PRE_OLI=`<div><div style="width:150px;float:right;margin:2px 0 8px 14px">${FOTO("olifant","Foto van een slagtandloos olifantenvrouwtje")}</div><p>In 1977 bestond de populatie olifanten in het Nationaal Park Gorongosa (Mozambique) uit <b>1271</b> vrouwtjes. Hiervan had <b>18,5%</b> geen slagtanden (slagtandloos). Op de foto hiernaast zie je zo’n slagtandloos vrouwtje. In 2000 waren er nog maar <b>121</b> vrouwtjes, waarvan er <b>61</b> slagtandloos waren. Alle mannetjes in de populatie hadden wél slagtanden.</p><div style="clear:both"></div></div>`;
 function numAnswer(ans,{id,fields,after}){
   const inps=fields.map(([lab,unit],k)=>{const r=el("div",{class:"row"});const fid="q"+id+"f"+k;
     r.append(el("label",{for:fid,class:"sellab"},lab));const i=el("input",{class:"num",id:fid,inputmode:"decimal"});r.append(i,el("span",{class:"muted"},unit));ans.append(r);return i;});
@@ -939,7 +935,7 @@ Q.push({id:16,pts:2,t:"absoluut en relatief rekenen",build(q){
     ["percentage slagtandloos in 1977",["staat in de tekst","moet ik uitrekenen"],0],["percentage slagtandloos in 2000",["staat in de tekst","moet ik uitrekenen"],1]],
     ok:"Goed. Je moet dus twee dingen berekenen: het <b>aantal</b> in 1977 en het <b>percentage</b> in 2000.",onDone:unlock});
   numAnswer(ans,{id:16,fields:[
-    ["aantal slagtandloze vrouwtjes in 1977","vrouwtjes",v=>Math.abs(v-235)<=1,"1977: 18,5 × 1271 / 100 = 235 vrouwtjes (in 2000 nog 61, dus minder)"],
+    ["aantal slagtandloze vrouwtjes in 1977","vrouwtjes",v=>Math.abs(v-235)<=1,"1977: 18,5 × 1271 / 100 = 235 vrouwtjes (in 2000 nog 61, dus minder). Volgens de aanvulling op het correctievoorschrift wordt afronden op 236 of niet afronden (235,1) niet aangerekend."],
     ["percentage slagtandloze vrouwtjes in 2000","%",v=>v>=49.5&&v<=51,"2000: 61 / 121 × 100% = 50,4% (in 1977 18,5%, dus meer)"]],
     after:()=>waaromBtn(ans,textBox("<b>Absoluut</b> betekent: het echte aantal. Dat daalde van 235 naar 61, omdat er door de stroperij veel minder olifanten over waren. <b>Relatief</b> betekent: als deel van het geheel. Dat steeg van 18,5% naar ruim de helft. Stropers schoten vooral olifanten mét slagtanden, dus het aandeel zonder slagtanden werd groter."))});
   q.append(think,ans);
@@ -1168,7 +1164,7 @@ function bypassSVG({route=false,sap=false,labels=true}={}){
   <text class="lbl" x="152" y="92" style="fill:var(--goud-text)">P</text><text class="lbl" x="134" y="210" style="fill:var(--goud-text)">Q</text><text class="lbl" x="126" y="284" style="fill:var(--goud-text)">R</text>
   ${sap?`<text class="tick" x="236" y="200">gal en alvleessap</text>`:""}`:""}`,"Schema van een gastric bypass");
 }
-const PRE_BYP=`<p>Bij een gastric bypass snijdt de chirurg het bovenste deel van de maag los, zodat daar een kleine maag (de pouch) ontstaat. Hij maakt de rest van de maag aan de bovenkant weer dicht. Daarna snijdt hij de dunne darm door, vlak boven P. Het uiteinde P verbindt hij met de pouch. Het andere uiteinde (Q) verbindt hij anderhalve meter na de uitgang van de pouch aan de dunne darm.</p><p>Na de operatie produceren het onderste deel van de maag, de lever en de alvleesklier nog steeds spijsverteringssappen. Deze komen op een andere plek met de voedselbrij in contact dan vóór de operatie. De pouch produceert geen spijsverteringssap.</p>`;
+const PRE_BYP=`<p>Bij een gastric bypass (afbeelding 1) snijdt de chirurg het bovenste deel van de maag los, zodat daar een kleine maag (de pouch) ontstaat. Hij maakt de rest van de maag aan de bovenkant weer dicht. Daarna snijdt hij de dunne darm door, vlak boven P. Het uiteinde P verbindt hij met de pouch. Het andere uiteinde (Q) verbindt hij anderhalve meter na de uitgang van de pouch aan de dunne darm.</p><p>Na de operatie produceren het onderste deel van de maag, de lever en de alvleesklier nog steeds spijsverteringssappen. Deze komen op een andere plek met de voedselbrij in contact dan vóór de operatie. De pouch produceert geen spijsverteringssap.</p>`;
 function wgTable(ans,{id,rows,cols,key,after}){
   const t=el("table",{class:"data"});t.innerHTML=`<tr><th>plaats</th>${cols.map(c=>`<th>${c}</th>`).join("")}</tr>`;const pick={};
   rows.forEach((r,i)=>{const tr=el("tr");tr.append(el("td",{},r));cols.forEach((c,j)=>{const td=el("td");const box=el("div",{class:"row",style:"justify-content:center"});
@@ -1288,7 +1284,8 @@ Q.push({id:35,pts:1,t:"stamboom aanpassen",build(q){
 }});
 
 /* ================= opgave 7: mastitis ================= */
-const PRE_MELK=`<p>Een koe gaat pas melk geven als ze een kalf heeft gekregen. Als een kalf of een melkmachine aan een tepel van de uier zuigt, komt oxytocine vrij uit de hypofyse van de koe. Deze stof stimuleert de melkafgifte vanuit de melkklieren: rond elke melkklier liggen spiercellen, en na stimulering door oxytocine wordt de melk de melkkanaaltjes in geperst.</p>`;
+const PRE_MELK=`<div style="border:1px solid var(--line2);padding:10px 14px;display:flex;flex-direction:column;gap:8px"><p>Een koe gaat pas melk geven als ze een kalf heeft gekregen. Als de koe daarna twee keer per dag wordt gemolken, blijft ze melk produceren. Als een kalf of een melkmachine aan een tepel van de uier zuigt, komt oxytocine vrij uit de hypofyse van de koe. Deze stof stimuleert de melkafgifte vanuit de melkklieren. Dit zie je in de volgende afbeelding.</p>
+  <div style="max-width:520px">${FOTO("uier-melkklier","Uier van een koe met ingezoomde tekening van een melkklier: melkklier, tepelholte, tepelkanaal; ingezoomd melk, melkkanaaltje, bloedvat en spiercel rond melkklier; na stimulering door oxytocine wordt de melk eruit geperst")}</div></div>`;
 Q.push({id:36,pts:2,t:"melkafgifte",build(q){
   pre(q,PRE_MELK);
   q.append(el("p",{class:"qtext"},"1 Bij de processen die leiden tot de melkafgifte na het zuigen aan de tepel, zijn het zenuwstelsel en het hormoonstelsel van de koe betrokken.<br>2 Oxytocine laat de spiercellen rondom de melkklieren ontspannen.<br>3 Melkklieren zijn exocriene klieren.<br><b>Geef bij elke uitspraak aan of hij juist of onjuist is.</b>"));
@@ -1323,7 +1320,7 @@ Q.push({id:38,pts:2,t:"ontstekingsreactie",build(q){
 }});
 const PRE_DONKER=`<p>In melk van koeien met mastitis zijn antistoffen in een lage concentratie aanwezig. Mastivax isoleert deze antistoffen uit ingezamelde melk. Normaal krijgen koeien met mastitis antibiotica toegediend in de uier. Bij de koeien in het onderzoek dient research-analist Donker in plaats daarvan de antistoffen toe in de uier.</p>`;
 Q.push({id:39,pts:1,t:"antistofproductie",build(q){
-  pre(q,PRE_DONKER+"<p>De antistoffen zijn geproduceerd door het afweersysteem van koeien.</p>");
+  pre(q,`<div><div style="width:170px;float:right;margin:2px 0 8px 14px">${FOTO("melken","Melk wordt met de hand uit een uier gemolken")}</div>`+PRE_DONKER+"<div style=\"clear:both\"></div></div><p>De antistoffen zijn geproduceerd door het afweersysteem van koeien.</p>");
   q.append(el("p",{class:"qtext"},"<b>Noteer welke cellen van het afweersysteem antistoffen produceren.</b>"));
   const ans=phase("ans","Antwoord");
   ans.append(el("p",{class:"muted",style:"margin:0"},"Dit is een kennisvraag: geen denkstappen, gewoon proberen."));
@@ -1380,30 +1377,32 @@ Q.push({id:43,pts:1,t:"antibioticaresistentie",build(q){noOptions(q,{id:43,pts:1
 ["respirogram lezen","ademhaling: begrippen","autonoom zenuwstelsel","slagvolume en bloeddruk","melkzuur ontstaan","melkzuur afbreken"].forEach((t,k)=>Q[k].t=t);
 const CTX1=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 1</span></div>
   <p>Vanya studeert aan de Academie voor Lichamelijke Opvoeding. Voor het vak inspanningsfysiologie doet ze samen met haar studiegenoot Rachel metingen aan haar ademhaling en bloeddruk.</p>
-  <details class="ctxd" open><summary>Tabel 1 en afbeelding 2</summary>
+  <details class="ctxd" open><summary>Afbeelding 1, tabel 1 en afbeelding 2</summary>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
-    <p>Vanya fietst vijf minuten op een spinningfiets. Vóór en direct na deze inspanning meet Rachel haar ademvolume, ademhalingsfrequentie en bloeddruk.</p>
+    <p>Vanya gaat vijf minuten fietsen op een spinningfiets (afbeelding 1). Vóór en direct na deze inspanning meet Rachel haar ademvolume, ademhalingsfrequentie en bloeddruk. De resultaten staan in tabel 1.</p>
+    <div><div class="eyebrow">afbeelding 1</div><div style="max-width:340px">${FOTO("spinningfiets","Vanya fietst op een spinningfiets terwijl Rachel metingen doet")}</div></div>
+    <div class="eyebrow">tabel 1</div>
     <div class="tablewrap"><table class="data">
       <tr><th></th><th>ademvolume (L)</th><th>ademhalingsfrequentie (per minuut)</th><th>bloeddruk bovendruk (mm Hg)</th></tr>
       <tr><td>vóór het fietsen</td><td>0,5</td><td>12</td><td>115</td></tr>
       <tr><td>direct na het fietsen</td><td>3,0</td><td>24</td><td>140</td></tr>
     </table></div>
     <p>De meetresultaten worden verwerkt tot een respirogram. Afbeelding 2 toont het respirogram van haar ademhaling <b>vóór</b> het fietsen.</p>
-    <div style="max-width:420px">${graph({mid:2.75,amp:.25,n:4,title:"Respirogram vóór het fietsen"})}</div>
+    <div><div class="eyebrow">afbeelding 2</div><div style="max-width:420px">${graph({mid:2.75,amp:.25,n:4,title:"Respirogram vóór het fietsen"})}</div></div>
   </div></details>`;
 const CTX2=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 2</span></div>
   <p>De beekprik is in Nederland een bedreigde diersoort. Een van de oorzaken is dat de waterkwaliteit in veel beken niet goed genoeg is.</p>
   <details class="ctxd" open><summary>Over de beekprik en zijn beek</summary>
   <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">
-    <p>De beekprik (<i>Lampetra planeri</i>) is een vis die ongeveer 15 centimeter lang wordt.</p>
-    ${VIS}
+    <p>De beekprik (<i>Lampetra planeri</i>, afbeelding 1) is een vis die ongeveer 15 centimeter lang wordt.</p>
+    <div><div class="eyebrow">afbeelding 1</div><div style="max-width:420px">${FOTO("beekprik","Foto van een beekprik: een langgerekte, palingachtige vis")}</div></div>
     <p>Beekprikken komen in Nederland nog maar in enkele beken voor. Deze beken ontspringen in hoger gelegen moerasbossen. Het water is daar voedselarm en de beekbodem bestaat uit zand en grind. Stroomafwaarts slingert de beek door loofbos en landbouwgrond en neemt de concentratie van anorganische stoffen toe. Hier groeien op de beekbodem enkele waterplanten. Nog verder stroomafwaarts liggen organische resten op de bodem.</p>
   </div></details>`;
 const CTX3=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 3</span></div><p>Aan het eind van de vorige eeuw doodden stropers veel Afrikaanse olifanten om hun ivoren slagtanden. Als gevolg van deze stroperij blijkt de soort razendsnel veranderd te zijn. Bioloog Shane Campbell-Staton deed hier onderzoek naar.</p>`;
 const CTX4=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 4</span></div><p>Onderzoeker Guusje Bonnema van Wageningen University &amp; Research veredelt planten voor de biologische landbouw. Zij kweekt plantenrassen die beter samenwerken met de organismen in de bodem, en beter bestand zijn tegen ziekteverwekkers.</p>
-  <details class="ctxd"><summary>Over biologische landbouw</summary><p style="margin-top:10px">Boeren met een biologisch landbouwbedrijf gebruiken geen kunstmest en ook geen chemische bestrijdingsmiddelen. Ze zaaien elk jaar een ander gewas op hun akker, zodat de bodem vruchtbaar blijft en het aantal ziekteverwekkers laag blijft. Dit heet vruchtwisseling. Ook telen ze vaak meerdere gewassen op dezelfde akker in stroken: strokenteelt.</p></details>`;
+  <details class="ctxd" open><summary>Over biologische landbouw</summary><p style="margin-top:10px">Boeren met een biologisch landbouwbedrijf gebruiken geen kunstmest en ook geen chemische bestrijdingsmiddelen. Ze zaaien elk jaar een ander gewas op hun akker, zodat de bodem vruchtbaar blijft en het aantal ziekteverwekkers laag blijft. Dit heet vruchtwisseling. Ook telen ze vaak meerdere gewassen op dezelfde akker in strokenteelt. Zie de foto hieronder.</p><div style="max-width:420px;margin-top:10px">${FOTO("strokenteelt","Akker met strokenteelt: smalle stroken met verschillende gewassen")}</div></details>`;
 const CTX5=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 5</span></div><p>Sjoerd heeft zeer ernstig overgewicht. Ondanks intensieve begeleiding is het hem niet gelukt om af te vallen. Hij krijgt een operatieve maagverkleining: een gastric bypass.</p>
-  <details class="ctxd" open><summary>Zo werkt de operatie</summary><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">${PRE_BYP}<div class="podium" style="max-width:340px">${bypassSVG()}</div><p class="muted" style="font-size:14px">Schematisch nagetekend: de toestand ná de operatie.</p></div></details>`;
+  <details class="ctxd" open><summary>Zo werkt de operatie</summary><div style="display:flex;flex-direction:column;gap:10px;margin-top:10px">${PRE_BYP}<div class="eyebrow">afbeelding 1</div><div class="podium" style="max-width:340px">${bypassSVG()}</div><p class="muted" style="font-size:14px">Schematisch nagetekend: de toestand ná de operatie.</p></div></details>`;
 const CTX6=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 6</span></div><p>Volgens Duitse wetenschappers behoren niet alle giraffen tot dezelfde soort, maar zijn er vier verschillende soorten giraffen. Deze conclusie trekken ze op basis van DNA-onderzoek. De vier soorten leven in verschillende delen van Afrika: de noordelijke giraf (Nog), de netgiraf (Neg), de masaigiraf (Mag) en de zuidelijke giraf (Zug).</p>`;
 const CTX7=`<div class="pkop"><span class="mono">Examentekst · inleiding opgave 7</span></div><p>Van alle antibiotica die worden gebruikt bij melkkoeien, dient meer dan de helft om uierontsteking (mastitis) te bestrijden. Het bedrijf Mastivax doet onderzoek naar de bestrijding van mastitis met behulp van antistoffen. Op deze manier zou het antibioticagebruik verminderd kunnen worden.</p>`;
 const OPG=[{nr:1,kort:"Vanya",titel:"Vanya in actie",ids:[1,2,3,4,5,6],ctx:CTX1},
@@ -1413,6 +1412,9 @@ const OPG=[{nr:1,kort:"Vanya",titel:"Vanya in actie",ids:[1,2,3,4,5,6],ctx:CTX1}
            {nr:5,kort:"Gastric bypass",titel:"Gastric bypass",ids:[29,30,31,32],ctx:CTX5},
            {nr:6,kort:"Giraffen",titel:"Giraffen: aparte soorten",ids:[33,34,35],ctx:CTX6},
            {nr:7,kort:"Mastitis",titel:"Mastitis bestrijden zonder antibiotica",ids:[36,37,38,39,40,41,42,43],ctx:CTX7}];
+/* omzettingstabel normering havo 2026 tijdvak 1: N-term 0,9, 71 punten (examenblad.nl); index = score */
+const NORM="N-term 0,9";
+const CIJFER=[1.0,1.1,1.2,1.3,1.4,1.5,1.7,1.8,1.9,2.0,2.2,2.3,2.4,2.5,2.7,2.8,2.9,3.1,3.2,3.3,3.4,3.6,3.7,3.8,3.9,4.1,4.2,4.3,4.4,4.6,4.7,4.8,5.0,5.1,5.2,5.3,5.5,5.6,5.7,5.8,6.0,6.1,6.2,6.4,6.5,6.6,6.7,6.9,7.0,7.1,7.2,7.4,7.5,7.6,7.7,7.9,8.0,8.1,8.3,8.4,8.5,8.6,8.8,8.9,9.0,9.1,9.3,9.4,9.5,9.6,9.8,10.0];
 const main=$("#main"),tabs=$("#tabs");let cur=1;const built={},nextBtns={};
 let curOpg=OPG.some(o=>o.nr===store.opg)?store.opg:1;
 const opg=()=>OPG.find(o=>o.nr===curOpg);
@@ -1448,7 +1450,10 @@ function overview(){
   o.ids.forEach(id=>{const q=Q.find(x=>x.id===id);const p=store.scores[id];if(p!==undefined)tot+=p;t.innerHTML+=`<tr><td>${id}</td><td>${q.t}</td><td>${p===undefined?"–":p} / ${q.pts}</td></tr>`;});
   const w=el("div",{class:"tablewrap"});w.append(t);s.append(w,el("div",{class:"score"},`Totaal opgave ${o.nr}: ${tot} / ${pts(o)}`));
   let all=0,allMax=0;OPG.forEach(x=>{allMax+=pts(x);x.ids.forEach(id=>{if(store.scores[id]!==undefined)all+=store.scores[id];});});
-  s.append(el("p",{class:"muted",style:"margin:0"},`Hele examen: ${all} van ${allMax} punten.`));
+  const gemaakt=OPG.every(x=>x.ids.every(id=>store.scores[id]!==undefined));
+  const cf=CIJFER[Math.min(all,CIJFER.length-1)].toFixed(1).replace(".",",");
+  s.append(el("p",{style:"margin:0"},`Hele examen: <b>${all}</b> van ${allMax} punten · cijfer <b>${cf}</b>`+(gemaakt?"":` <span class="muted">(nog niet alles gemaakt: open vragen tellen als 0 punten)</span>`)));
+  s.append(el("p",{class:"muted",style:"margin:0;font-size:14px"},`Cijfer volgens de officiële omzettingstabel van dit examen (${NORM}, examenblad.nl).`));
   const nextO=OPG.find(x=>x.nr===o.nr+1);
   const row=el("div",{class:"row"});
   if(nextO){const nb=el("button",{class:"go"},`Naar opgave ${nextO.nr}: ${nextO.kort} ›`);nb.onclick=()=>{setOpg(nextO.nr);scrollTo({top:0,behavior:reduce?"auto":"smooth"});};row.append(nb);}
