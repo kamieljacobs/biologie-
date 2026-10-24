@@ -121,9 +121,9 @@ Tuinders zoeken dus slimmere manieren. Sommige kassen hebben een gasmotor die te
 
 _Stem-invoer:_ Tuinders zoeken dus slimmere manieren. Sommige kassen hebben een gasmotor die tegelijk stroom, warmte en koolstofdie-oxide levert: het rookgas wordt gezuiverd en in de kas geblazen. Andere krijgen koolstofdie-oxide via een leiding uit de industrie in de haven van Rotterdam, die het anders zou uitstoten. Weer andere halen warm water uit diepe aardlagen. Zuinige ledlampen geven meer licht per kilowattuur, en minder warmte. Dat lijkt een voordeel, maar dan moet de kas in de winter juist weer extra verwarmd worden. Ook hier hangt alles samen.
 
-**s22** · audio `s22.mp3` · 30.2 s · generation `RgUQbe974IIPLZ5hS0Ky`
+**s22** · audio `s22.mp3` · 31.0 s · generation `fx0ecsVbnZzc9929Le6q`
 
-Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.
+Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in de larven van witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.
 
 **s23** · audio `s23.mp3` · 12.9 s · generation `nSW8K3vn2MLYNX5CV3GE`
 

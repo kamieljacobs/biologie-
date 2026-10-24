@@ -13,3 +13,4 @@ Ingesproken 24 okt 2026, stem Roos (eleven_v4), één take per alinea, flow http
 | kilowattuur | s21 | kilo-wat-uur |
 | huidmondjes | s10 | |
 | zeefvaten | s14 | |
+| larven | s22 (opnieuw ingesproken 24 okt) | |

@@ -22,7 +22,7 @@ function tomatenplant(ctx, x, y, h, t = 0, o = {}) { const a = o.a == null ? 1 :
   trossen.forEach((r, j) => { const yy = y - h * (0.32 + j * 0.2), z = j % 2 ? 1 : -1, n = o.vrucht == null ? 5 : o.vrucht;
     ctx.strokeStyle = '#5E8F5A'; ctx.lineWidth = h * 0.006; ctx.beginPath(); ctx.moveTo(x, yy); ctx.quadraticCurveTo(x + z * h * 0.08, yy + h * 0.02, x + z * h * 0.11, yy + h * 0.08); ctx.stroke();
     if (r < 0) { for (let k = 0; k < 4; k++) bloem(ctx, x + z * h * (0.08 + (k % 2) * 0.05), yy + h * (0.07 + k * 0.035), h * 0.0012); return; }
-    for (let k = 0; k < n; k++) { const tx = x + z * h * (0.08 + (k % 2) * 0.05), ty = yy + h * (0.07 + k * 0.035), rr = h * 0.03, rp = clamp(r - k * 0.08, 0, 1);
+    for (let k = 0; k < n; k++) { const tx = x + z * h * (0.08 + (k % 2) * 0.05), ty = yy + h * (0.07 + k * 0.035), rr = h * 0.03 * (o.klein || 1), rp = clamp(r - k * 0.08, 0, 1);
       const col = rp > 0.66 ? '#D8573F' : rp > 0.33 ? '#E0904A' : '#7FAE6A'; circ(ctx, tx, ty, rr, col, hl.vrucht ? C.goud : null, hl.vrucht ? 3 : 1); } });
   ctx.restore(); }
 
@@ -37,7 +37,7 @@ function co2Buis(ctx, x1, x2, y, aan = 0, t = 0, a = 1) { if (a <= 0.01) return;
 
 // meter met getal (ppm)
 function ppmMeter(ctx, x, y, waarde, label, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 70, 260, 140, 18); shape(ctx, '#121A26', col, 3);
-  text(ctx, String(Math.round(waarde)), x, y + 18, fTekst(64, 800), C.text, 'center'); metaText(ctx, 'ppm CO₂', x, y + 52, C.text2, 'center', 18); regel(ctx, label, x, y - 88, 1, col, 30, 'center', 700); ctx.restore(); }
+  text(ctx, String(Math.round(waarde)), x, y + 18, fTekst(64, 800), C.text, 'center'); metaText(ctx, 'deeltjes per miljoen', x, y + 52, C.text2, 'center', 16); regel(ctx, label, x, y - 88, 1, col, 30, 'center', 700); ctx.restore(); }
 
 // ton met duigen; hoogtes 0..1, labels boven elke duig; water tot de laagste duig en daar over de rand naar voren
 function ton(ctx, x, y, w, h, hoog, labels, a = 1, water = 1, t = 0, hlIdx = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = hoog.length, dw = w / n, laag = Math.min(...hoog), li = hoog.indexOf(laag);
@@ -70,6 +70,7 @@ function rubisco(ctx, x, y, s, a = 1, pakt = null, u = 0, t = 0) { if (a <= 0.01
 function grafiekCO2(ctx, x, y, w, h, a = 1, d1 = 1, d2 = 1, mark = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; assen(ctx, x, y, w, h, 'CO₂ in de lucht', 'fotosynthese');
   const curve = (max, k, d, col, lab) => { if (d <= 0.01) return; ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 60 * d; i++) { const f = i / 60, px = x + f * w, py = y + h - h * max * (1 - Math.exp(-f * k)); i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); if (d > 0.95) regel(ctx, lab, x + w + 16, y + h - h * max * (1 - Math.exp(-k)) + 10, 1, col, 26, 'left', 700); };
   curve(0.9, 3.2, d1, C.goud, 'veel licht'); curve(0.3, 5, d2, C.teal, 'weinig licht');
+  [[0.29, '400'], [0.58, '800'], [0.72, '1000']].forEach(([f, s2]) => text(ctx, s2, x + f * w, y + h + 30, fTekst(20, 600), C.text2, 'center'));
   if (mark >= 0) { const px = x + mark * w; ctx.setLineDash([8, 8]); ctx.strokeStyle = C.text2; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, y + h); ctx.lineTo(px, y); ctx.stroke(); ctx.setLineDash([]); }
   ctx.restore(); }
 
@@ -77,7 +78,7 @@ function grafiekCO2(ctx, x, y, w, h, a = 1, d1 = 1, d2 = 1, mark = -1) { if (a <
 function schuifjes(ctx, x, y, waarden, labels, a = 1, hl = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, 560, 360, 20); shape(ctx, '#121A26', C.line, 2);
   const cols = [C.goud, C.koraal, C.grain, C.teal]; waarden.forEach((v, i) => { const sx = x + 80 + i * 130, sy = y + 60, sh = 220; roundRect(ctx, sx - 8, sy, 16, sh, 8); shape(ctx, '#2A3446', null);
     roundRect(ctx, sx - 8, sy + sh * (1 - v), 16, sh * v, 8); shape(ctx, rgba(cols[i], 0.6), null); roundRect(ctx, sx - 30, sy + sh * (1 - v) - 14, 60, 28, 10); shape(ctx, i === hl ? cols[i] : '#D4D8DE', cols[i], i === hl ? 4 : 2);
-    text(ctx, labels[i], sx, y + 330, fTekst(22, 700), i === hl ? cols[i] : C.text2, 'center'); }); ctx.restore(); }
+    if (i === hl) { ctx.save(); ctx.strokeStyle = cols[i]; ctx.lineWidth = 4; roundRect(ctx, sx - 52, sy - 20, 104, sh + 80, 16); ctx.stroke(); ctx.restore(); } text(ctx, labels[i], sx, y + 334, fTekst(i === hl ? 32 : 28, 800), i === hl ? cols[i] : C.text2, 'center'); }); ctx.restore(); }
 
 // huidmondje (bovenaanzicht): twee sluitcellen; open 0..1; stroom CO₂ in, waterdamp uit
 function huidmondje(ctx, x, y, s, open = 1, a = 1, t = 0, stroom = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
@@ -89,6 +90,7 @@ function huidmondje(ctx, x, y, s, open = 1, a = 1, t = 0, stroom = 1) { if (a <=
 
 // grauwe schimmel: grijze pluisjes op een stengelstuk
 function schimmel(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#5E8F5A'; ctx.lineWidth = 22; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y + 140); ctx.lineTo(x, y - 140); ctx.stroke();
+  ctx.fillStyle = '#7A5A3A'; ctx.beginPath(); ctx.ellipse(x, y + 5, 16, 60, 0, 0, 6.283); ctx.fill();
   for (let i = 0; i < 26; i++) { const px = x - 30 + hash(i) * 60, py = y - 40 + hash(i + 50) * 90; ctx.strokeStyle = rgba('#B8BCC4', 0.8); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + (hash(i + 9) - 0.5) * 30, py - 14 - hash(i + 3) * 18); ctx.stroke(); circ(ctx, px + (hash(i + 9) - 0.5) * 30, py - 14 - hash(i + 3) * 18, 4, '#C9CDD4'); }
   ctx.restore(); }
 
@@ -127,7 +129,7 @@ function weegschaal(ctx, x, y, kant, a = 1, l = 'blad', r = 'vruchten') { if (a 
 function opbrengst(ctx, x, y, a = 1, u1 = 1, u2 = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const sc = 8.5;
   [[u1 * 51, 'Nederlandse kas', C.groen, '51'], [u2 * 8.5, 'Spanje, gemiddeld', C.oker, '± 9']].forEach(([v, lab, col, s2], i) => { const bx = x + i * 260, bh = v * sc; roundRect(ctx, bx, y - bh, 170, bh, 10); shape(ctx, rgba(col, 0.55), col, 2);
     if (v > 1) text(ctx, s2, bx + 85, y - bh - 18, fTekst(40, 800), C.text, 'center'); if (v > 0.3) text(ctx, lab, bx + 85, y + 44, fTekst(26, 700), col, 'center'); });
-  metaText(ctx, 'kilo tomaten per m² per jaar', x, y - 51 * sc - 90, C.text2, 'left', 20); ctx.restore(); }
+  metaText(ctx, 'kilo tomaten per vierkante meter per jaar', x, y - 51 * sc - 90, C.text2, 'left', 20); ctx.restore(); }
 
 // ethyleen (C₂H₄): twee C met dubbele binding en vier H; drijft van (x1,y1) naar (x2,y2)
 function c2h4(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 3 * s;
@@ -155,7 +157,8 @@ function boorput(ctx, x, y, a = 1, u = 1, t = 0) { if (a <= 0.01) return; ctx.sa
 // lamp: oude SON-T (gloeit warm) of led (strakke balk); warmte-golfjes
 function lamp(ctx, x, y, soort, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   if (soort === 'son') { ctx.beginPath(); ctx.ellipse(x, y, 90, 40, 0, 0, Math.PI); shape(ctx, '#5A6478', C.line, 2); circ(ctx, x, y + 14, 22, '#F0A040'); for (let i = 0; i < 3; i++) { ctx.strokeStyle = rgba(C.koraal, 0.7); ctx.lineWidth = 4; ctx.beginPath(); const yy = y + 70 + i * 30 + Math.sin(t * 3 + i) * 3; ctx.moveTo(x - 60, yy); ctx.bezierCurveTo(x - 30, yy - 12, x + 30, yy + 12, x + 60, yy); ctx.stroke(); } }
-  else { roundRect(ctx, x - 120, y - 12, 240, 24, 8); shape(ctx, '#5A6478', C.line, 2); for (let i = 0; i < 8; i++) circ(ctx, x - 100 + i * 28.5, y + 14, 7, i % 3 ? '#E86A9A' : '#7FA8F0'); }
+  if (soort === 'son') { ctx.fillStyle = rgba('#F2C94C', 0.12); ctx.beginPath(); ctx.moveTo(x - 30, y + 30); ctx.lineTo(x - 70, y + 200); ctx.lineTo(x + 70, y + 200); ctx.lineTo(x + 30, y + 30); ctx.fill(); }
+  else { ctx.fillStyle = rgba('#E8A0F0', 0.2); ctx.beginPath(); ctx.moveTo(x - 110, y + 14); ctx.lineTo(x - 200, y + 300); ctx.lineTo(x + 200, y + 300); ctx.lineTo(x + 110, y + 14); ctx.fill(); roundRect(ctx, x - 120, y - 12, 240, 24, 8); shape(ctx, '#5A6478', C.line, 2); for (let i = 0; i < 8; i++) circ(ctx, x - 100 + i * 28.5, y + 14, 7, i % 3 ? '#E86A9A' : '#7FA8F0'); }
   ctx.restore(); }
 
 // regenwaterbassin met druppels en een terugloopleiding
@@ -176,3 +179,14 @@ function bloem(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx
 
 // recapkaartje
 function kaartje(ctx, x, y, w, s2, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 84, 14); shape(ctx, rgba(col, 0.18), col, 2); text(ctx, s2, x + w / 2, y + 54, fTekst(32, 700), C.text, 'center'); ctx.restore(); }
+
+// plastic tunnel (Spanje): bogen met doorschijnend plastic
+function tunnel(ctx, x, y, w, h, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x, y); ctx.bezierCurveTo(x, y - h * 1.3, x + w, y - h * 1.3, x + w, y); ctx.closePath(); shape(ctx, rgba('#E8EEF2', 0.22), '#C9D2DA', 3);
+  ctx.strokeStyle = rgba('#C9D2DA', 0.6); ctx.lineWidth = 2; for (let i = 1; i < 5; i++) { const fx = x + w * i / 5; ctx.beginPath(); ctx.moveTo(fx, y); ctx.lineTo(fx, y - h * (1 - Math.pow(2 * i / 5 - 1, 2)) * 0.98); ctx.stroke(); }
+  for (let i = 0; i < 4; i++) tomatenplant(ctx, x + w * (0.2 + i * 0.2), y, h * 0.6, 0, { blad: 3, trossen: [0.8] }); ctx.restore(); }
+// vlammetje (aardgas)
+function vlam(ctx, x, y, s = 1, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s * (1 + 0.06 * Math.sin(t * 9)));
+  ctx.beginPath(); ctx.moveTo(0, -60); ctx.bezierCurveTo(30, -20, 34, 10, 0, 24); ctx.bezierCurveTo(-34, 10, -30, -20, 0, -60); ctx.fillStyle = '#5BA4C9'; ctx.fill(); ctx.beginPath(); ctx.moveTo(0, -24); ctx.bezierCurveTo(14, -4, 14, 10, 0, 18); ctx.bezierCurveTo(-14, 10, -14, -4, 0, -24); ctx.fillStyle = '#CFE4F0'; ctx.fill(); ctx.restore(); }
+// blad van onderen met larven (schildjes) van de witte vlieg; geparasiteerd = donker
+function larvenBlad(ctx, x, y, s, a = 1, para = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; blad(ctx, x, y, s, 1);
+  for (let i = 0; i < 7; i++) { const px = x + (hash(i + 3) - 0.5) * 220 * s, py = y + (hash(i + 11) - 0.5) * 120 * s; const p = i < 3 ? para : 0; ctx.beginPath(); ctx.ellipse(px, py, 13 * s, 9 * s, 0.3, 0, 6.283); shape(ctx, p > 0.5 ? '#3A3428' : '#EDEAD0', '#B8B490', 1.5); } ctx.restore(); }

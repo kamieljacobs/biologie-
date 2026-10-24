@@ -50,3 +50,7 @@ Werkmap `hw/lb1` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` n
 - decors alleen onder scènes op die plek
 - Yasmin wil arts worden: hier een snuffelstage in de kas
 - nog geen filmmedaillon
+
+
+## Wijzigingen
+- 24 okt 2026 (avond): s22 opnieuw ingesproken (sluipwesp legt eitjes in de **larven** van witte vliegen; 500 credits); mag-punten uit reviews/review_eind.md verwerkt (eenheden voluit, geen lege eerste seconden in s04/s21, Spanje-tunnel in s18 en s20, schermdoeken, larven op een blad, x-as en lijn weinig licht in s12, grotere schuifjes, kleinere vruchten bij warmte). Nog open: filmmedaillon (later in een vel met meer films), uitspraak van de wachtlijst beluisteren.

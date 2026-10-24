@@ -1240,10 +1240,10 @@
   "look": "Schema: kassengebied 's nachts (ElevenLabs-decor), oranje gloed van belichte kassen, daarna schermdoeken dicht; gasmotor met drie pijlen: stroom, warmte, CO₂; leiding uit de haven van Rotterdam; boorput naar warm water diep in de aarde; bassin met regenwater; staaf 15 liter per kilo in de kas tegen 60 op een Zuid-Europese akker; sluipwesp bij witte vlieg; hommel bij een bloem; weegschaal: kilo tomaat tegen energie",
   "level": "basis",
   "lines": [
-   "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden."
+   "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in de larven van witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden."
   ],
-  "display": "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.",
-  "voice": "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.",
+  "display": "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in de larven van witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.",
+  "voice": "Ook water gaat zuinig. Regenwater wordt opgevangen in een bassin, en het water dat de planten niet opnemen, wordt gezuiverd en opnieuw gebruikt. Een moderne kas gebruikt daardoor zo'n vijftien liter water per kilo tomaten. Op een akker in Zuid-Europa is dat ongeveer zestig. En tegen plagen zetten tuinders vaak andere insecten in. Sluipwespen leggen hun eitjes in de larven van witte vliegen, en hommels bestuiven de bloemen. Gif zou ook de hommels doden. Zo hoeft er veel minder gespoten te worden.",
   "vmap": [
    0,
    1,
@@ -1323,7 +1323,10 @@
    75,
    76,
    77,
-   78
+   78,
+   79,
+   80,
+   81
   ]
  },
  {
