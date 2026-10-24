@@ -1,0 +1,88 @@
+{
+ "slug": "landbouw-1-meer-oogst",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Meer oogst",
+ "sub": "licht, CO₂ en temperatuur in de kas",
+ "puzzle": "Waarom blazen tuinders extra CO₂ in hun kas?",
+ "meta": "landbouw en tuinbouw · kasteelt",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Landbouw en dierhouderij",
+ "lead": "In een Nederlandse tomatenkas zit twee keer zoveel koolstofdioxide als buiten. Waarom? Een plant groeit zo snel als de factor die het meest tekortschiet toelaat, en bij gewone lucht is dat vaak koolstofdioxide: het enzym rubisco werkt traag en pakt soms zuurstof in plaats van CO₂. Maar extra CO₂ helpt alleen als er ook genoeg licht is. Een tuinder regelt licht, temperatuur, CO₂ en vocht als één systeem, stuurt de suiker van bron naar put richting de vruchten, en weegt af wat dat kost aan energie, water en licht.",
+ "endHaak": "welke factor houdt de planten in jouw vensterbank tegen?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom is CO₂ zo vaak de lage duig?",
+  "Hoofdstuk 2": "Waarom doseert de computer minder als de ramen openstaan?",
+  "Hoofdstuk 3": "Hoe stuurt een tuinder de suiker naar de vruchten?",
+  "Hoofdstuk 4": "Is een Nederlandse tomaat duurzaam?",
+  "Recap": "Waarom komt er CO₂ uit het buisje van Yasmin?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Yasmin en Opa Henk (castboek). Decors: ElevenLabs (recraft-v4.1, brand kit filmdecor). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Waarom blaast een tuinder extra koolstofdioxide in zijn kas?",
+   "correct": 0,
+   "explain": "Een plant bouwt zichzelf op uit koolstofdioxide en water. In een dichte kas raakt de koolstofdioxide op een zonnige dag op; extra koolstofdioxide laat de planten sneller suiker maken."
+  },
+  "q08": {
+   "q": "Op een donkere decemberdag blaast de tuinder extra koolstofdioxide in de kas. Groeien de planten veel sneller?",
+   "correct": 1,
+   "explain": "Nee: bij weinig licht is licht de beperkende factor. Er is te weinig energie uit licht om van de extra koolstofdioxide suiker te maken."
+  },
+  "q11": {
+   "q": "Wat doet de klimaatcomputer als de ramen ver openstaan?",
+   "correct": 2,
+   "explain": "Hij doseert minder koolstofdioxide: wat je doseert terwijl de ramen openstaan, waait grotendeels weg."
+  },
+  "q16": {
+   "q": "De plant groeit te veel in blad en zet te weinig vruchten. Wat doet de tuinder?",
+   "correct": 1,
+   "explain": "Hij haalt bladeren weg en laat meer vruchten aan de tros: minder blad betekent minder concurrentie om de suiker. Maar haal je te veel blad weg, dan vangt de plant te weinig licht."
+  },
+  "q19": {
+   "q": "Waarom haalt een Nederlandse kas zoveel meer tomaten per vierkante meter dan het Spaanse gemiddelde?",
+   "correct": 2,
+   "explain": "In een Nederlandse kas worden licht, koolstofdioxide, temperatuur en water veel nauwkeuriger geregeld; in Spanje groeien veel tomaten buiten of onder eenvoudig plastic."
+  }
+ },
+ "glossary": [
+  {
+   "t": "beperkende factor",
+   "d": "De factor die het meest tekortschiet en daardoor bepaalt hoe snel een plant groeit (licht, CO₂, temperatuur of water); vergelijk de laagste duig van een ton."
+  },
+  {
+   "t": "rubisco",
+   "d": "Het enzym dat bij fotosynthese koolstofdioxide vastlegt; het meest voorkomende eiwit op aarde, traag, en het pakt soms zuurstof in plaats van CO₂."
+  },
+  {
+   "t": "CO₂-dosering",
+   "d": "Extra koolstofdioxide in de kas blazen, bij tomaat tot ± 700–900 deeltjes per miljoen (buiten ruim 400); boven ± 1000 helpt het nauwelijks meer."
+  },
+  {
+   "t": "klimaatcomputer",
+   "d": "Computer die in de kas licht, temperatuur, luchtvochtigheid en CO₂ meet en lampen, verwarming, ramen en dosering regelt."
+  },
+  {
+   "t": "huidmondjes",
+   "d": "Openingen in het blad waardoor CO₂ binnenkomt en waterdamp ontsnapt; bij droge lucht sluit de plant ze."
+  },
+  {
+   "t": "bron en put",
+   "d": "Een bron maakt suiker (een volgroeid blad), een put verbruikt suiker (vrucht, jong blad, wortel); de suiker gaat via de zeefvaten van bron naar put."
+  },
+  {
+   "t": "generatief en vegetatief",
+   "d": "Een plant die vooral vruchten zet, groeit generatief; een plant die vooral blad en stengel maakt, vegetatief. De tuinder stuurt daartussen."
+  },
+  {
+   "t": "ethyleen",
+   "d": "Plantenhormoon (een gas) dat rijpende vruchten maken; het zet het rijpen van de rest van de tros aan."
+  },
+  {
+   "t": "biologische bestrijding",
+   "d": "Plagen bestrijden met andere organismen, zoals sluipwespen tegen witte vlieg, in plaats van met gif."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een tuinder verdubbelt op een donkere dag in december de CO₂ in zijn kas, maar de planten groeien nauwelijks harder. Verklaar dit met het begrip beperkende factor. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De groeisnelheid wordt bepaald door de factor die het meest tekortschiet (1p). Op een donkere dag is dat licht: er is te weinig energie om van de extra CO₂ suiker te maken, dus extra CO₂ helpt nauwelijks (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom extra CO₂ de fotosynthese versnelt. Gebruik in je antwoord het enzym rubisco. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Rubisco legt CO₂ vast, maar werkt traag en raakt bij gewone lucht niet verzadigd: met meer CO₂ kan het meer CO₂ per seconde vastleggen (1p). Bovendien pakt rubisco dan minder vaak zuurstof in plaats van CO₂, waardoor er minder energie verloren gaat (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Op een warme zomerdag gaan de ramen van de kas ver open. Beschrijf twee gevolgen voor de plant of voor de tuinder. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: de CO₂ ontsnapt naar buiten, dus de computer doseert minder (1p); de lucht wordt droger, waardoor de plant haar huidmondjes kan sluiten en minder CO₂ opneemt (1p); de temperatuur daalt, zodat de plant niet te warm wordt.</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een tuinder haalt onderaan de plant oude bladeren weg. Leg uit waarom dat de oogst kan verhogen, en waarom hij er niet te veel mag weghalen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Minder blad is minder concurrentie: meer suiker gaat van de bronnen naar de vruchten als put (1p). Haal je te veel blad weg, dan vangt de plant te weinig licht en wordt er minder suiker gemaakt (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Iemand zegt: 'Een tomaat uit een Nederlandse kas is slechter voor het milieu dan een Spaanse.' Geef één argument voor en één argument tegen. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Voor: de kas gebruikt veel energie (aardgas, stroom voor lampen) (1p). Tegen: per kilo tomaat gebruikt de kas veel minder water en grond, en er wordt weinig gif gespoten door biologische bestrijding (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Extra film buiten het PTA op <i>Wat word jij?</i> → Landbouw en dierhouderij. Bouwt voort op <i>Alles in het groen</i> (fotosynthese), <i>Hoe een plant groeit</i> en <i>Transport in planten</i> (zeefvaten). Yasmin loopt een snuffelstage bij een tomatenkwekerij; Opa Henk, die vroeger tuinder was, laat zien hoe het vroeger ging.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> CO₂ in de kas, de beperkende factor (ton met duigen) en waarom CO₂ bij gewone lucht zo vaak de lage duig is: rubisco is traag en pakt soms zuurstof (fotorespiratie, zonder die naam). <b>H2</b> de kas als regelsysteem: huidmondjes, luchtvochtigheid, ramen en dosering; sturen op de plant. <b>H3</b> bron en put, generatief en vegetatief sturen, ethyleen; opbrengst NL tegen Spanje. <b>H4</b> duurzaam telen als afweging: energie (WKK, OCAP, aardwarmte, led), lichtuitstoot, water en biologische bestrijding.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>CO₂ in een tomatenkas</td><td>700–900 ppm; buiten ruim 400; verzadiging rond 1000–1200</td><td>HCTS, CO₂-dosering en gewasgroei</td></tr>\n<tr><td>CO₂ zonder dosering</td><td>zakt in een dichte kas op een zonnige dag onder het buitenniveau</td><td>HortiDaily (16–26× ventileren per uur nodig om 380 ppm te houden)</td></tr>\n<tr><td>Lichtregel</td><td>1 % meer licht ≈ bijna 1 % meer oogst</td><td>Marcelis e.a., WUR (vruchtgroenten 0,7–1 %)</td></tr>\n<tr><td>Opbrengst tomaat</td><td>NL ruim 50 kg/m² per jaar; Spanje gemiddeld ± 9</td><td>FAO 2018 via FreshPlaza (NL 50,9; Spanje 8,5, landgemiddelde)</td></tr>\n<tr><td>Waterverbruik</td><td>moderne kas ± 15 l per kg; akker in Zuid-Europa ± 60</td><td>Tomatoworld 2019</td></tr>\n<tr><td>Lichtuitstoot</td><td>schermdoeken 's nachts verplicht</td><td>ODMH: scherminstallatie ≥ 98 %, gevel ≥ 95 % (Activiteitenbesluit)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Rubisco 'vergist zich': in werkelijkheid is fotorespiratie een vaste nevenreactie van het enzym; de film noemt het woord niet.</li><li>De ton met duigen (wet van het minimum) is een vereenvoudiging: in de praktijk werken factoren samen, en meer CO₂ helpt bij veel licht meer dan bij weinig licht.</li><li>Het Spaanse getal is een landgemiddelde van kas en open veld; kassen in Almería halen meer.</li><li>'Warme dagen en koele nachten, of juist andersom' verwijst naar sturen met het temperatuurverschil tussen dag en nacht; de film legt niet uit welke kant welk effect heeft.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen vóór de film een plant in de vensterbank bedenken: welke factor houdt die tegen, en hoe zou je dat testen?</li><li>Grafiekopdracht: teken fotosynthese tegen CO₂ bij weinig en bij veel licht en laat zien waar licht en waar CO₂ beperkend is.</li><li>Discussie: is een Nederlandse tomaat duurzaam? Laat groepjes per maat (per vierkante meter, per kilo, water, energie) een antwoord geven.</li></ul>\n<h3>Opleidingen</h3>\n<p>Mbo: teelt en technologie (bv. in de glastuinbouw). Hbo: tuinbouw en akkerbouw (bv. Inholland Delft, HAS green academy). Wo: Plantwetenschappen in Wageningen.</p>\n</section>\n"
+}
