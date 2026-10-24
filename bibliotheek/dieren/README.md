@@ -26,9 +26,9 @@ Alle dieren: `dier(ctx, x, y, s, { houding, t, kijk, a, … })`, x/y = grondpunt
 | haai, dolfijn, ichthyosaurus, bultrug | idem | zwemmen (`t`), röntgen | goedgekeurd |
 | pakicetus, ambulocetus, rodhocetus, basilosaurus | idem | lopen, liggen, zwemmen | goedgekeurd |
 | micro (bacterie, plasmide, pilus, antibioticum, griepvirus, DNA, chromosoom, geslachtscel, sikkelcel) | `lib_micro_evo.js` | | goedgekeurd |
-| grote nandoe | `x9nandoe(ctx, x, y, s, o)` (`pop_darwin.js`, `NandoePop`) | staan, lopen (`t`, `vooruit`) | ter keuring (pop) |
-| negenbandgordeldier | `x9gordeldier(ctx, x, y, s, o)` (`pop_darwin.js`, `GordelPop`) | staan, lopen (`t`, `vooruit`) | ter keuring (pop) |
-| reuzenschildpad zadel/koepel | `x9schildpad(ctx, vorm, x, y, s, o)` (`pop_darwin.js`, `SchildPop`) | staan, nek `o.nek` −1 (omlaag) … 0 (half) … 1 (omhoog) | ter keuring (pop) |
+| grote nandoe | `x9nandoe(ctx, x, y, s, o)` (`pop_darwin.js`, `NandoePop`) | staan, lopen (`t`, `vooruit`) | goedgekeurd (pop, 24 okt 2026) |
+| negenbandgordeldier | `x9gordeldier(ctx, x, y, s, o)` (`pop_darwin.js`, `GordelPop`) | staan, lopen (`t`, `vooruit`) | goedgekeurd (pop, 24 okt 2026) |
+| reuzenschildpad zadel/koepel | `x9schildpad(ctx, vorm, x, y, s, o)` (`pop_darwin.js`, `SchildPop`) | staan, nek `o.nek` −1 (omlaag) … 0 (half) … 1 (omhoog) | goedgekeurd (pop, 24 okt 2026) |
 | kleine nandoe, Megatherium, Glyptodon, luiaard, spotlijster, zangervink | `x9*` in `films/evolutie/storyboards-v2/src/teken_evo9.js` | alleen staan (stilstaande omtrek, overgetrokken van `referentie/dieren/darwin/`) | **nog geen pop**: goedgekeurd als storyboardtekening (film 9), niet voor beweging; eerst als pop bouwen voordat een scène ze laat lopen |
 | insecten (lieveheersbeestje, berkenspanner, rups …), tak | in `films/evolutie/…/bron/src` (lib_evo.js en teken_evo*.js) | | goedgekeurd |
 

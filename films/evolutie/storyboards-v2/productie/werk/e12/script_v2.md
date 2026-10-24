@@ -16,11 +16,13 @@ Hoe werden we mens?
 We zoomen in op de laatste zeven miljoen jaar. Onze naaste levende verwanten zijn de chimpansee en de bonobo.
 
 Wat denk je? Hoe zag de gemeenschappelijke voorouder van mens en chimpansee eruit?
+[VRAAG] (a) Als een chimpansee van nu · (b) Als een mengvorm, half mens en half chimpansee · (c) Als een eigen soort, anders dan allebei
 
 De gemeenschappelijke voorouder die we delen met de chimpansee leefde zes tot acht miljoen jaar geleden in Afrika. Hij was geen chimpansee en geen mens. Beide lijnen veranderden daarna even lang: de mens stamt dus niet af van de chimpansee.
 
 ## Hoofdstuk 2 — Eerst lopen [Schema]
 Wat denk je? Wat kwam eerst in onze lijn?
+[VRAAG] (a) Grote hersenen, daarna rechtop lopen · (b) Rechtop lopen, daarna grote hersenen · (c) Allebei tegelijk, stapje voor stapje
 
 Ethiopië, 3,2 miljoen jaar geleden: Lucy, een Australopithecus afarensis van ongeveer een meter. Lange armen en kromme vingers, goed voor klimmen, maar een bekken en dijbeen zoals de jouwe.
 
@@ -34,6 +36,7 @@ De soort van Lucy had hersenen van ongeveer 450 kubieke centimeter, iets meer da
 Bijna twee miljoen jaar geleden verschijnt Homo erectus: de rechtopgaande mens, met lange benen en de lichaamsverhoudingen van jou.
 
 Wat denk je? Lucy en Homo erectus liepen allebei rechtop. Wat was er nieuw bij Homo erectus?
+[VRAAG] (a) Hij liep als eerste echt rechtop · (b) Zijn hersenen waren twee keer zo groot · (c) Hij kon als eerste goed klimmen
 
 Ondanks zijn naam: de soort van Lucy liep al bijna twee miljoen jaar eerder rechtop. Nieuw waren de hersenen, ongeveer twee keer zo groot als bij Lucy.
 
@@ -47,6 +50,7 @@ Een neanderthaler was gedrongen: een brede, diepe borstkas en korte onderarmen e
 Zijn schedel was lang en laag, met een zware wenkbrauwboog, een grote neus en geen kin. Zijn hersenen waren gemiddeld zelfs iets groter dan de onze.
 
 Wat denk je? Hoe liep een neanderthaler?
+[VRAAG] (a) Op handen en voeten, zoals een chimpansee · (b) Voorovergebogen, met gebogen knieën · (c) Rechtop, net zoals jij
 
 Neanderthalers liepen gewoon op twee gestrekte benen. Het voorovergebogen beeld komt van een reconstructie uit het jaar 1911. De onderzoeker zag de neanderthaler als primitief, en het skelet was van een oude man met zware artrose. Later werd dat rechtgezet.
 
@@ -61,6 +65,7 @@ Uit Kroatië komen arendsklauwen met snijsporen, ongeveer 130 000 jaar oud: miss
 Vanaf zo'n vijftigduizend jaar geleden kwam Homo sapiens uit Afrika ook Europa in. Daar leefden de twee een paar duizend jaar in dezelfde streken.
 
 Wat denk je? Kregen Homo sapiens en neanderthalers samen kinderen?
+[VRAAG] (a) Ja, dat zie je nog in ons DNA · (b) Nee, daarvoor verschilden ze te veel · (c) Alleen heel even, zonder sporen
 
 De Zweedse onderzoeker Svante Pääbo haalde DNA uit botten van neanderthalers. In het jaar 2010 las zijn team hun hele genoom. Daarvoor kreeg hij in het jaar 2022 de Nobelprijs.
 
@@ -80,6 +85,7 @@ Er zijn verschillende verklaringen: concurrentie met Homo sapiens, een wisselend
 Homo sapiens zelf ontstond in Afrika: de oudste fossielen, uit Marokko, zijn ongeveer 300 000 jaar oud.
 
 Wat denk je? Leefden Homo erectus en Homo sapiens ooit tegelijk?
+[VRAAG] (a) Nee, Homo erectus veranderde in Homo sapiens · (b) Ja, een tijd lang, op verschillende plekken · (c) Nee, er zat een miljoen jaar tussen
 
 Homo erectus leefde op Java nog tot ongeveer 110 000 jaar geleden, toen Homo sapiens al bestond. Het plaatje van een aap die stap voor stap mens wordt, klopt dus niet.
 

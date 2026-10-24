@@ -4,9 +4,10 @@ import json, re, sys, os, html
 EVO = os.path.expanduser('~/evo2'); HW = os.path.expanduser('~/hw')
 SUB = {1: 'variatie, allelen en de genenpool', 2: 'waarom niet de sterkste wint', 3: 'gericht, stabiliserend, splitsend, seksueel en samen',
        4: 'antibiotica, fokken en inteelt', 5: 'drift, flessenhals en genenstroom', 6: 'isolatie en soortvorming',
-       7: 'fossielen, botten en DNA als bewijs', 8: 'verwantschap, kenmerken en namen'}
+       7: 'fossielen, botten en DNA als bewijs', 8: 'verwantschap, kenmerken en namen',
+       9: 'botten, nandoes en eilanden', 10: 'van moleculen naar de eerste cel', 11: 'de aarde als één dag van 24 uur', 12: 'van gemeenschappelijke voorouder tot neanderthaler'}
 TITELS = {}
-for n in range(1, 9): TITELS[n] = json.load(open(f'{EVO}/films/f{n}.json', encoding='utf-8'))['titel']
+for n in range(1, 13): TITELS[n] = json.load(open(f'{EVO}/films/f{n}.json', encoding='utf-8'))['titel']
 QEXTRA = {'e1q09': 'Hoe zit het met hun stippen?', 'e5q22': 'Wat gebeurt er met de twee populaties?'}
 HAAK = {8: 'welke dieren bij jou in de buurt delen een recente voorouder?'}
 e = html.escape
@@ -22,7 +23,7 @@ def maak(n):
     minis['Recap'] = f['puzzel']
     qs = {}
     for i, s in enumerate(sc):
-        if s['id'][2] != 'q': continue
+        if not re.match(r'e\d+q', s['id']): continue
         qid = mp[s['id'] + '_kaart']
         q = re.sub(r'\s*Wat denk je\?\s*$', '', s['tekst'].strip())
         z = re.split(r'(?<=[.!?])\s+', q); q = ' '.join(z[-2:]) if len(z) > 1 and len(z[-1]) < 60 else z[-1]
@@ -39,10 +40,12 @@ def maak(n):
         qs[qid] = {'q': q, 'correct': juist, 'explain': zinnen(nxt, 3)}
     gl = [{'t': b['begrip'], 'd': b['uitleg'], **({'vwo': True} if b.get('niveau') == 'vwo' else {})} for b in f['begrippen']]
     recap = ' '.join(s['tekst'] for s in sc if s['hoofdstuk'].startswith('Samen') and s['tekst'].strip())
-    nxt = f"volgende film: {TITELS[n + 1]}" if n < 8 else HAAK[8]
+    X = n > 8; k = n - 8
+    if X: nxt = f"volgende extra film: {TITELS[n + 1]}" if n < 12 else 'terug naar de kernreeks: Wat is evolutie?'
+    else: nxt = f"volgende film: {TITELS[n + 1]}" if n < 8 else HAAK[8]
     film = {'slug': f['slug'], 'hoofdstuk': 'evolutie', 'hoofdstukNaam': 'Evolutie', 'title': f['titel'], 'sub': SUB[n],
-            'puzzle': f['puzzel'], 'meta': f'evolutie {n}/8', 'version': '1.0 · oktober 2026', 'titleLook': 'schema',
-            'seriesline': f'Biologie bij Kamiel · reeks Evolutie · film {n} van 8', 'lead': recap, 'endHaak': nxt, 'minis': minis,
+            'puzzle': f['puzzel'], 'meta': (f'evolutie extra {k}/4' if X else f'evolutie {n}/8'), 'version': '1.0 · oktober 2026', 'titleLook': 'schema',
+            'seriesline': (f'Biologie bij Kamiel · reeks Evolutie · extra film {k} van 4 (buiten het PTA)' if X else f'Biologie bij Kamiel · reeks Evolutie · film {n} van 8'), 'lead': recap, 'endHaak': nxt, 'minis': minis,
             'footer': 'Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Dieren: uitknippoppen uit de dierenbibliotheek; personages uit het castboek. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.',
             'questions': qs, 'glossary': gl}
     # sections
@@ -59,7 +62,10 @@ def maak(n):
     for g in f['getallen']: H.append(f"  <tr><td>{e(g['waarde'])}</td><td>{e(g['bron'])}</td></tr>")
     H += ['  </table>', '  <h3>Keuzes en vereenvoudigingen</h3>', '  <ul>']
     for k in f['keuzes_en_twijfels']: H.append(f'  <li>{e(k)}</li>')
-    H += ['  </ul>', '  <h3>Plaats in de reeks</h3>',
+    if X:
+        H += ['  </ul>', '  <h3>Plaats in de reeks</h3>',
+              f'  <p>Extra film {k} van 4 bij de reeks Evolutie, buiten het PTA (havo en vwo). ' + ('Vorige extra film: ' + e(TITELS[n - 1]) + '. ' if n > 9 else '') + ('Volgende: ' + e(TITELS[n + 1]) + '.' if n < 12 else 'Laatste extra film.') + '</p>', '</section>']
+    else: H += ['  </ul>', '  <h3>Plaats in de reeks</h3>',
           f'  <p>Film {n} van 8 in de reeks Evolutie (havo en vwo; mechanisme eerst: binnen één populatie → één populatie wordt twee → tussen soorten). ' +
           ('Vorige: ' + e(TITELS[n - 1]) + '. ' if n > 1 else '') + ('Volgende: ' + e(TITELS[n + 1]) + '.' if n < 8 else 'Laatste film van de reeks.') + '</p>', '</section>']
     open(f'{d}/sections.html', 'w', encoding='utf-8').write('\n'.join(H) + '\n')

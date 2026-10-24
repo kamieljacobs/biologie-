@@ -265,7 +265,18 @@
   ]
  },
  {
-  "id": "s09",
+  "id": "q09",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Bouwstenen",
+  "level": "basis",
+  "options": [
+   "Niets nieuws: alleen water en gassen",
+   "Aminozuren, maar geen eiwitten of cellen",
+   "Eiwitten en zelfs eenvoudige cellen"
+  ]
+ },
+ {
+  "id": "s10",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Bouwstenen",
   "look": "Macro",
@@ -324,7 +335,7 @@
   ]
  },
  {
-  "id": "s10",
+  "id": "s11",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Bouwstenen",
   "look": "Macro",
@@ -360,7 +371,7 @@
   ]
  },
  {
-  "id": "s11",
+  "id": "s12",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Bouwstenen",
   "look": "Macro",
@@ -406,7 +417,7 @@
   ]
  },
  {
-  "id": "s12",
+  "id": "s13",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Bouwstenen",
   "look": "Macro",
@@ -434,7 +445,7 @@
   ]
  },
  {
-  "id": "s13",
+  "id": "s14",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -475,7 +486,7 @@
   ]
  },
  {
-  "id": "s14",
+  "id": "s15",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -507,7 +518,18 @@
   ]
  },
  {
-  "id": "s15",
+  "id": "q16",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
+  "level": "basis",
+  "options": [
+   "Een molecuul dat informatie draagt én werk doet",
+   "Meer DNA, want dat is de bouwtekening",
+   "Grotere eiwitten, want die doen het werk"
+  ]
+ },
+ {
+  "id": "s17",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -545,7 +567,7 @@
   ]
  },
  {
-  "id": "s16",
+  "id": "s18",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -586,7 +608,7 @@
   ]
  },
  {
-  "id": "s17",
+  "id": "s19",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -628,7 +650,7 @@
   ]
  },
  {
-  "id": "s18",
+  "id": "s20",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -681,7 +703,7 @@
   ]
  },
  {
-  "id": "s19",
+  "id": "s21",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -717,7 +739,7 @@
   ]
  },
  {
-  "id": "s20",
+  "id": "s22",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -747,7 +769,18 @@
   ]
  },
  {
-  "id": "s21",
+  "id": "q23",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
+  "level": "basis",
+  "options": [
+   "Niets: de fouten zijn toeval, dus alles blijft gelijk",
+   "Ze worden slechter: fouten maken de strengen stuk",
+   "Strengen die sneller kopiëren, worden steeds talrijker"
+  ]
+ },
+ {
+  "id": "s24",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -790,7 +823,7 @@
   ]
  },
  {
-  "id": "s22",
+  "id": "s25",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — Informatie en gereedschap",
   "look": "Micro",
@@ -827,7 +860,7 @@
   ]
  },
  {
-  "id": "s23",
+  "id": "s26",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -857,7 +890,7 @@
   ]
  },
  {
-  "id": "s24",
+  "id": "s27",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -902,7 +935,7 @@
   ]
  },
  {
-  "id": "s25",
+  "id": "s28",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -929,7 +962,18 @@
   ]
  },
  {
-  "id": "s26",
+  "id": "q29",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Een omhulsel",
+  "level": "basis",
+  "options": [
+   "Ze lossen op en verdwijnen, net als suiker in thee",
+   "Ze klonteren samen tot holle bolletjes",
+   "Ze drijven als een laagje olie op het water"
+  ]
+ },
+ {
+  "id": "s30",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -980,7 +1024,7 @@
   ]
  },
  {
-  "id": "s27",
+  "id": "s31",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -1026,7 +1070,7 @@
   ]
  },
  {
-  "id": "s28",
+  "id": "s32",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Een omhulsel",
   "look": "Micro",
@@ -1070,7 +1114,7 @@
   ]
  },
  {
-  "id": "s29",
+  "id": "s33",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1109,7 +1153,7 @@
   ]
  },
  {
-  "id": "s30",
+  "id": "s34",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1140,7 +1184,7 @@
   ]
  },
  {
-  "id": "s31",
+  "id": "s35",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1167,7 +1211,18 @@
   ]
  },
  {
-  "id": "s32",
+  "id": "q36",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Eén voorouder",
+  "level": "basis",
+  "options": [
+   "Ze stammen af van één gemeenschappelijke voorouder",
+   "Het is de enige code die scheikundig kan werken",
+   "De code ontstond bij elke groep apart, toevallig gelijk"
+  ]
+ },
+ {
+  "id": "s37",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1216,7 +1271,7 @@
   ]
  },
  {
-  "id": "s33",
+  "id": "s38",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1255,7 +1310,7 @@
   ]
  },
  {
-  "id": "s34",
+  "id": "s39",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1302,7 +1357,7 @@
   ]
  },
  {
-  "id": "s35",
+  "id": "s40",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1341,7 +1396,7 @@
   ]
  },
  {
-  "id": "s36",
+  "id": "s41",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1399,7 +1454,7 @@
   ]
  },
  {
-  "id": "s37",
+  "id": "s42",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Eén voorouder",
   "look": "Schema",
@@ -1437,7 +1492,7 @@
   ]
  },
  {
-  "id": "s38",
+  "id": "s43",
   "kind": "speech",
   "chapter": "Recap",
   "look": "Schema",
@@ -1490,7 +1545,7 @@
   ]
  },
  {
-  "id": "s39",
+  "id": "s44",
   "kind": "speech",
   "chapter": "Recap",
   "look": "Schema",
@@ -1528,7 +1583,7 @@
   ]
  },
  {
-  "id": "s40",
+  "id": "s45",
   "kind": "card",
   "chapter": "Eindkaart",
   "level": "basis",

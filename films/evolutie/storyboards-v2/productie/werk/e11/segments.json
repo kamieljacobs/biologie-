@@ -280,7 +280,18 @@
   ]
  },
  {
-  "id": "s09",
+  "id": "q09",
+  "kind": "question",
+  "chapter": "Hoofdstuk 1 — Zuurstof uit de zee",
+  "level": "basis",
+  "options": [
+   "Ze maakten eerst te weinig zuurstof om iets te merken",
+   "De zuurstof reageerde eerst met ijzer in de zee",
+   "Zuurstof ontsnapte uit de lucht naar de ruimte"
+  ]
+ },
+ {
+  "id": "s10",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Zuurstof uit de zee",
   "look": "Macro",
@@ -331,7 +342,7 @@
   ]
  },
  {
-  "id": "s10",
+  "id": "s11",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Zuurstof uit de zee",
   "look": "Macro",
@@ -374,7 +385,7 @@
   ]
  },
  {
-  "id": "s11",
+  "id": "s12",
   "kind": "speech",
   "chapter": "Hoofdstuk 1 — Zuurstof uit de zee",
   "look": "Macro",
@@ -409,7 +420,7 @@
   ]
  },
  {
-  "id": "s12",
+  "id": "s13",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -451,7 +462,7 @@
   ]
  },
  {
-  "id": "s13",
+  "id": "s14",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -494,7 +505,7 @@
   ]
  },
  {
-  "id": "s14",
+  "id": "s15",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -516,7 +527,18 @@
   ]
  },
  {
-  "id": "s15",
+  "id": "q16",
+  "kind": "question",
+  "chapter": "Hoofdstuk 2 — De cel met een kern",
+  "level": "basis",
+  "options": [
+   "Het zijn bacteriën die je met je eten binnenkrijgt",
+   "De cel maakte ze zelf; ze lijken toevallig op bacteriën",
+   "Het waren ooit vrijlevende bacteriën, opgenomen door een cel"
+  ]
+ },
+ {
+  "id": "s17",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -563,7 +585,7 @@
   ]
  },
  {
-  "id": "s16",
+  "id": "s18",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -599,7 +621,7 @@
   ]
  },
  {
-  "id": "s17",
+  "id": "s19",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -646,7 +668,7 @@
   ]
  },
  {
-  "id": "s18",
+  "id": "s20",
   "kind": "speech",
   "chapter": "Hoofdstuk 2 — De cel met een kern",
   "look": "Micro",
@@ -693,7 +715,7 @@
   ]
  },
  {
-  "id": "s19",
+  "id": "s21",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -735,7 +757,7 @@
   ]
  },
  {
-  "id": "s20",
+  "id": "s22",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -782,7 +804,7 @@
   ]
  },
  {
-  "id": "s21",
+  "id": "s23",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -834,7 +856,7 @@
   ]
  },
  {
-  "id": "s22",
+  "id": "s24",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -881,7 +903,7 @@
   ]
  },
  {
-  "id": "s23",
+  "id": "s25",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -909,7 +931,7 @@
   ]
  },
  {
-  "id": "s24",
+  "id": "s26",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -942,7 +964,18 @@
   ]
  },
  {
-  "id": "s25",
+  "id": "q27",
+  "kind": "question",
+  "chapter": "Hoofdstuk 3 — Groot worden en het land op",
+  "level": "basis",
+  "options": [
+   "Met dieren: dat blijkt uit hun DNA",
+   "Met planten: die staan ook stil en groeien uit de grond",
+   "Met geen van beide: schimmels zijn een groep apart"
+  ]
+ },
+ {
+  "id": "s28",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -992,7 +1025,7 @@
   ]
  },
  {
-  "id": "s26",
+  "id": "s29",
   "kind": "speech",
   "chapter": "Hoofdstuk 3 — Groot worden en het land op",
   "look": "Schema",
@@ -1049,7 +1082,7 @@
   ]
  },
  {
-  "id": "s27",
+  "id": "s30",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1083,7 +1116,7 @@
   ]
  },
  {
-  "id": "s28",
+  "id": "s31",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1126,7 +1159,7 @@
   ]
  },
  {
-  "id": "s29",
+  "id": "s32",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1169,7 +1202,7 @@
   ]
  },
  {
-  "id": "s30",
+  "id": "s33",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1201,7 +1234,7 @@
   ]
  },
  {
-  "id": "s31",
+  "id": "s34",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1227,7 +1260,18 @@
   ]
  },
  {
-  "id": "s32",
+  "id": "q35",
+  "kind": "question",
+  "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
+  "level": "basis",
+  "options": [
+   "Ze ontstonden opnieuw uit overlevende dinosauriërs",
+   "Ze bleven klein en zeldzaam, net als ervoor",
+   "Ze waaierden uit tot veel nieuwe soorten"
+  ]
+ },
+ {
+  "id": "s36",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1274,7 +1318,7 @@
   ]
  },
  {
-  "id": "s33",
+  "id": "s37",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1314,7 +1358,7 @@
   ]
  },
  {
-  "id": "s34",
+  "id": "s38",
   "kind": "speech",
   "chapter": "Hoofdstuk 4 — Rampen en nieuwe kansen",
   "look": "Schema",
@@ -1373,7 +1417,7 @@
   ]
  },
  {
-  "id": "s35",
+  "id": "s39",
   "kind": "speech",
   "chapter": "Recap",
   "look": "Schema",
@@ -1431,7 +1475,7 @@
   ]
  },
  {
-  "id": "s36",
+  "id": "s40",
   "kind": "card",
   "chapter": "Eindkaart",
   "level": "basis",

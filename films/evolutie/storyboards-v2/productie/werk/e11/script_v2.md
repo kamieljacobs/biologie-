@@ -23,6 +23,7 @@ Half zes 's ochtends. De lucht bevat nog bijna geen zuurstof. Het leven bestaat 
 Eén groep bacteriën maakt bij fotosynthese zuurstof: de cyanobacteriën. Met energie uit licht maken ze suiker uit water en koolstofdioxide. Daarbij komt zuurstof vrij. Maar die zuurstof bleef lang uit de lucht.
 
 Wat denk je? Waarom bleef die zuurstof zo lang uit de lucht?
+[VRAAG] (a) Ze maakten eerst te weinig zuurstof om iets te merken · (b) De zuurstof reageerde eerst met ijzer in de zee · (c) Zuurstof ontsnapte uit de lucht naar de ruimte
 
 In de oerzee zat veel opgelost ijzer. Zuurstof reageert met ijzer: het roest. Die roest zakte naar de bodem. Ook gassen uit vulkanen namen zuurstof op. De roestlagen liggen er nog: rode banden in heel oud gesteente.
 
@@ -36,6 +37,7 @@ Een bacterie is klein en heeft geen kern. Een cel van jou is veel groter en heef
 Een mitochondrium heeft eigen DNA in een ring, net als een bacterie. Het deelt zich door in tweeën te splitsen, net als een bacterie. En het heeft twee membranen.
 
 Wat denk je? Waar komen de mitochondriën vandaan?
+[VRAAG] (a) Het zijn bacteriën die je met je eten binnenkrijgt · (b) De cel maakte ze zelf; ze lijken toevallig op bacteriën · (c) Het waren ooit vrijlevende bacteriën, opgenomen door een cel
 
 Ooit nam een grotere cel, waarschijnlijk een archaeon, een bacterie op die zuurstof kon gebruiken. Die bacterie werd niet verteerd. Ze leefde binnenin verder en werd bij elke celdeling doorgegeven. Dat heet endosymbiose.
 
@@ -57,6 +59,7 @@ Het land is dan nog kaal. Rond 470 miljoen jaar geleden komen de eerste planten 
 Rond 425 miljoen jaar geleden komen ook de eerste dieren aan land: kleine duizendpootachtigen.
 
 Wat denk je? Een paddenstoel staat stil en groeit uit de grond. Met wie zijn schimmels het nauwst verwant?
+[VRAAG] (a) Met dieren: dat blijkt uit hun DNA · (b) Met planten: die staan ook stil en groeien uit de grond · (c) Met geen van beide: schimmels zijn een groep apart
 
 Schimmels staan dichter bij dieren dan bij planten. Dat blijkt vooral uit hun DNA. Maar ook hun celwand bevat chitine, net als het pantser van een insect. Ze slaan suiker op als glycogeen, net als jij.
 
@@ -72,6 +75,7 @@ De bekendste was 66 miljoen jaar geleden: ongeveer twintig minuten voor midderna
 Zoogdieren bestonden toen al ruim honderd miljoen jaar. De meeste waren klein en waarschijnlijk vooral 's nachts actief.
 
 Wat denk je? Wat gebeurde er na de inslag met de zoogdieren?
+[VRAAG] (a) Ze ontstonden opnieuw uit overlevende dinosauriërs · (b) Ze bleven klein en zeldzaam, net als ervoor · (c) Ze waaierden uit tot veel nieuwe soorten
 
 Ook veel zoogdieren stierven uit, maar de overlevers kwamen in een wereld zonder grote dinosauriërs. Uit hen ontstonden veel nieuwe soorten. Tien miljoen jaar later leefden er al vroege primaten en vroege paardachtigen.
 

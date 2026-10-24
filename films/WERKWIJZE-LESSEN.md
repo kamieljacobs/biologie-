@@ -28,4 +28,4 @@ Kanttekening: één reeks, één reviewer; dit zijn eerste aanwijzingen, geen va
 - **Eerste seconde van een alinea nooit leeg** — 9× een (bijna) leeg beeld bij het begin van een alinea, vooral na een vraag of hoofdstukwissel. Voorstel Part C: het beeld van een alinea staat er op t = 0; alleen wat genoemd wordt komt later.
 
 ## Verwerkt in prompt
-(nog niets)
+- **v10 (24 okt 2026, Kamiel akkoord): C10 Tekenkwaliteit** — bibliotheek eerst, bron wint van plaat, ElevenLabs-platen alleen om van te leren, testvel en keuring, receptkaarten (dieren als pop, micro, organen/lichaam, planten/ongewervelden), stilstaande omtrek alleen voor een dier dat in zijn scène niet beweegt, en **frisse beeldreview ná elke bouw** met vaste checklist (beeld = ondertitel, onderlinge maten, labels, beeld op t = 0, gang zonder glijden, inhoud binnen membraan). Daarmee verwerkt: 'Frisse beeldreview ook ná het bouwen', 'Eenheden in metalabels voluit', 'Eerste seconde van een alinea nooit leeg'. Volledige tekst: Claude doc https://claude.ai/artifact/S3P5sQcLVpbGufeScVyhoo; in de prompt als C10 (doc https://claude.ai/artifact/RJxQpjyccupQC9KXUxmETA).

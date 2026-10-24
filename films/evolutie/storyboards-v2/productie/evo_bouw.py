@@ -7,7 +7,9 @@ import json, os, sys, subprocess
 HW = os.path.expanduser('~/hw'); EVO = os.path.expanduser('~/evo2/src')
 n = int(sys.argv[1]); d = f'{HW}/e{n}'
 TEKEN = {1: ['teken_evo1'], 2: ['teken_evo2', 'teken_evo3', 'vragen23'], 3: ['teken_evo2', 'teken_evo3', 'vragen23'], 4: ['teken_evo4'],
-         5: ['teken_evo5'], 6: ['teken_evo6'], 7: ['teken_evo7'], 8: ['teken_evo7', 'teken_evo8']}
+         5: ['teken_evo5'], 6: ['teken_evo6'], 7: ['teken_evo7'], 8: ['teken_evo7', 'teken_evo8'],
+         9: [f'teken_evo{i}' for i in range(1, 9)] + ['teken_evo9_data', 'teken_evo9'], 10: ['teken_evo10'],
+         11: ['e11_aarde', 'teken_evo11'], 12: ['e12_land', 'teken_evo12']}
 def rd(p): return open(p, encoding='utf-8').read()
 mp = json.load(open(f'{d}/map.json'))
 if '--statisch' in sys.argv:

@@ -60,12 +60,12 @@ def maak(n):
         t = s['tekst'].strip()
         if s['laag'] == 'vwo' and not vwo: t = '[VWO-START] ' + t; vwo = True
         L.append(t)
-        if s['id'][2] == 'q':
+        if re.match(r'e\d+q', s['id']):
             opts = [re.sub(r'^[A-D]\s+', '', o.strip()) for o in s['opties'].split('·')]
             L.append('[VRAAG] ' + ' · '.join(f'({"abcd"[j]}) {o}' for j, o in enumerate(opts)))
         nxt = scenes[i + 1] if i + 1 < len(scenes) else None
         if vwo and (nxt is None or nxt['laag'] != 'vwo' or nxt['id'] == eind_id):
-            if s['id'][2] == 'q': L[-1] += ' [VWO-END]'
+            if re.match(r'e\d+q', s['id']): L[-1] += ' [VWO-END]'
             else: L[-1] += ' [VWO-END]'
             vwo = False
         L.append('')
@@ -89,7 +89,7 @@ if __name__ == '__main__':
             while cur['kind'] != 'speech': cur = next(it)
             assert cur['display'] == s['tekst'].strip(), (s['id'], cur['display'][:60], s['tekst'][:60])
             mp[s['id']] = cur['id']; cur = next(it, None)
-            if s['id'][2] == 'q':
+            if re.match(r'e\d+q', s['id']):
                 assert cur['kind'] == 'question'; mp[s['id'] + '_kaart'] = cur['id']; cur = next(it, None)
         json.dump(mp, open(f'{d}/map.json', 'w'), indent=0)
         print(a, len(seg), 'segmenten', open(f'{d}/segments.log').read().split('\n')[0])

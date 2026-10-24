@@ -23,6 +23,7 @@ De aarde is ongeveer 4,5 miljard jaar oud. Al snel was er vloeibaar water. Zuurs
 In het jaar 1953 bouwde Stanley Miller die jonge aarde na in glas. Verwarmd water: de oceaan. Daarboven methaan, ammoniak en waterstof. En een week lang vonken: de bliksem.
 
 Wat denk je? Na een week vonken: wat zat er in Millers kolf?
+[VRAAG] (a) Niets nieuws: alleen water en gassen · (b) Aminozuren, maar geen eiwitten of cellen · (c) Eiwitten en zelfs eenvoudige cellen
 
 Het water werd dieprood. Miller vond er aminozuren in, zoals glycine en alanine: bouwstenen van eiwitten. Gemaakt zonder één levende cel. In het jaar 2008 vonden anderen in zijn bewaarde flesjes veertien soorten. En in een proef met stoom, zoals bij een vulkaan, zelfs tweeëntwintig.
 
@@ -36,6 +37,7 @@ Bouwstenen kunnen dus vanzelf ontstaan. Maar een zak losse letters is nog geen b
 In je cellen staat de bouwtekening van eiwitten in het DNA. Maar om DNA te kopiëren, heb je eiwitten nodig. En die staan weer in het DNA.
 
 Wat denk je? DNA heeft eiwitten nodig, en eiwitten hebben DNA nodig. Wat zou dat kringetje kunnen doorbreken?
+[VRAAG] (a) Een molecuul dat informatie draagt én werk doet · (b) Meer DNA, want dat is de bouwtekening · (c) Grotere eiwitten, want die doen het werk
 
 Veel onderzoekers kijken naar RNA. RNA draagt informatie, net als DNA. Maar het is meestal één losse streng, en die kan op zichzelf terugvouwen.
 
@@ -48,6 +50,7 @@ In het jaar 2026 beschreven onderzoekers een RNA van 45 letters dat, uit stukjes
 Stel dat zulke kopieerders bestaan, in een plasje met losse letters. Soms gaat er een letter fout. En de letters raken op.
 
 Wat denk je? Wat gebeurt er na veel rondes kopiëren met de strengen in het plasje?
+[VRAAG] (a) Niets: de fouten zijn toeval, dus alles blijft gelijk · (b) Ze worden slechter: fouten maken de strengen stuk · (c) Strengen die sneller kopiëren, worden steeds talrijker
 
 De meeste fouten maken een streng trager, een enkele sneller. Die maakt meer kopieën, en die erven de fout. Zo raken snelle strengen in de meerderheid. Niemand stuurt dit.
 
@@ -59,6 +62,7 @@ Maar in open water drijven kopieën weg, naar de buren. Er is geen binnen en bui
 Hier komen vetzuren in beeld. Ook die ontstaan zonder leven, en ze zitten in meteorieten. Een vetzuur heeft een kop die oplost in water, en een staart die dat niet doet.
 
 Wat denk je? Je doet heel veel vetzuren in water. Wat gebeurt er?
+[VRAAG] (a) Ze lossen op en verdwijnen, net als suiker in thee · (b) Ze klonteren samen tot holle bolletjes · (c) Ze drijven als een laagje olie op het water
 
 In water met de juiste zuurgraad vormen vetzuren vanzelf blaasjes. De staarten gaan bij elkaar zitten, weg van het water. De koppen zitten buiten en binnen. Een dubbele laag, die lijkt op het membraan om je cellen.
 
@@ -72,6 +76,7 @@ Hoe het verder ging, tot een echte cel, weten we nog niet. Maar kijk naar wat nu
 Allemaal gebruiken ze DNA met dezelfde vier letters, en bijna dezelfde code: drie letters voor één aminozuur.
 
 Wat denk je? Waarom gebruiken een bacterie, een eik en jij dezelfde code?
+[VRAAG] (a) Ze stammen af van één gemeenschappelijke voorouder · (b) Het is de enige code die scheikundig kan werken · (c) De code ontstond bij elke groep apart, toevallig gelijk
 
 Een andere code kan ook: in je mitochondriën betekenen een paar codes iets anders. Dat alles toch vrijwel dezelfde code heeft, wijst op een erfenis: LUCA, de laatste gemeenschappelijke voorouder van alles wat nu leeft.
 
