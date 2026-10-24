@@ -21,6 +21,7 @@ function tomatenplant(ctx, x, y, h, t = 0, o = {}) { const a = o.a == null ? 1 :
     for (let k = 0; k < 3; k++) { const u = 0.45 + k * 0.25, lx = x + z * ln * u, ly = yy - ln * 0.32 * Math.sin(u * 3) - ln * 0.05; ctx.beginPath(); ctx.ellipse(lx, ly, ln * 0.17, ln * 0.09, z * (0.5 - k * 0.3), 0, 6.283); shape(ctx, hl.blad ? rgba(C.groen, 0.9) : '#4E7E52', hl.blad ? C.goud : null, hl.blad ? 3 : 1.5); } ctx.restore(); }
   trossen.forEach((r, j) => { const yy = y - h * (0.32 + j * 0.2), z = j % 2 ? 1 : -1, n = o.vrucht == null ? 5 : o.vrucht;
     ctx.strokeStyle = '#5E8F5A'; ctx.lineWidth = h * 0.006; ctx.beginPath(); ctx.moveTo(x, yy); ctx.quadraticCurveTo(x + z * h * 0.08, yy + h * 0.02, x + z * h * 0.11, yy + h * 0.08); ctx.stroke();
+    if (r < 0) { for (let k = 0; k < 4; k++) bloem(ctx, x + z * h * (0.08 + (k % 2) * 0.05), yy + h * (0.07 + k * 0.035), h * 0.0012); return; }
     for (let k = 0; k < n; k++) { const tx = x + z * h * (0.08 + (k % 2) * 0.05), ty = yy + h * (0.07 + k * 0.035), rr = h * 0.03, rp = clamp(r - k * 0.08, 0, 1);
       const col = rp > 0.66 ? '#D8573F' : rp > 0.33 ? '#E0904A' : '#7FAE6A'; circ(ctx, tx, ty, rr, col, hl.vrucht ? C.goud : null, hl.vrucht ? 3 : 1); } });
   ctx.restore(); }
@@ -38,13 +39,15 @@ function co2Buis(ctx, x1, x2, y, aan = 0, t = 0, a = 1) { if (a <= 0.01) return;
 function ppmMeter(ctx, x, y, waarde, label, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 70, 260, 140, 18); shape(ctx, '#121A26', col, 3);
   text(ctx, String(Math.round(waarde)), x, y + 18, fTekst(64, 800), C.text, 'center'); metaText(ctx, 'ppm CO₂', x, y + 52, C.text2, 'center', 18); regel(ctx, label, x, y - 88, 1, col, 30, 'center', 700); ctx.restore(); }
 
-// ton met duigen; hoogtes 0..1, labels; water tot de laagste duig (lek = stroompje)
+// ton met duigen; hoogtes 0..1, labels boven elke duig; water tot de laagste duig en daar over de rand naar voren
 function ton(ctx, x, y, w, h, hoog, labels, a = 1, water = 1, t = 0, hlIdx = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = hoog.length, dw = w / n, laag = Math.min(...hoog), li = hoog.indexOf(laag);
-  for (let i = 0; i < n; i++) { const dh = h * hoog[i], col = i === hlIdx ? C.koraal : '#8C5A3A'; roundRect(ctx, x + i * dw + 3, y - dh, dw - 6, dh, 6); shape(ctx, col, '#5A3A26', 2);
-    if (labels[i]) { ctx.save(); ctx.translate(x + (i + 0.5) * dw, y - dh + 16); ctx.rotate(-Math.PI / 2); text(ctx, labels[i], 0, 9, fTekst(24, 700), C.text, 'right'); ctx.restore(); } }
-  if (water > 0.01) { const wy = y - h * laag * water; ctx.fillStyle = rgba('#5BA4E8', 0.55); ctx.fillRect(x + 6, wy, w - 12, y - wy); ctx.strokeStyle = '#9FD0F5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 6, wy); ctx.lineTo(x + w - 6, wy); ctx.stroke();
-    if (water > 0.95) { ctx.strokeStyle = rgba('#9FD0F5', 0.9); ctx.lineWidth = 8; ctx.lineCap = 'round'; const sx = x + (li + 0.5) * dw; ctx.beginPath(); ctx.moveTo(sx, wy); ctx.quadraticCurveTo(sx + 50 + Math.sin(t * 6) * 4, wy + 30, sx + 70, y + 40); ctx.stroke(); } }
+  for (let i = 0; i < n; i++) { const dh = h * hoog[i], col = i === hlIdx ? C.koraal : '#8C5A3A'; roundRect(ctx, x + i * dw + 3, y - dh, dw - 6, dh, 6); shape(ctx, col, '#5A3A26', 2); }
+  if (water > 0.01) { const wy = y - h * laag * water; ctx.fillStyle = rgba('#5BA4E8', 0.5); ctx.fillRect(x + 6, wy, w - 12, y - wy); ctx.strokeStyle = '#9FD0F5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 6, wy); ctx.lineTo(x + w - 6, wy); ctx.stroke();
+    if (water > 0.95) { const sx = x + li * dw + 10, sw = dw - 20; ctx.fillStyle = rgba('#9FD0F5', 0.85); ctx.beginPath(); ctx.moveTo(sx, wy); ctx.lineTo(sx + sw, wy); ctx.quadraticCurveTo(sx + sw + 10, wy + 30, sx + sw - 4, y + 50); ctx.lineTo(sx + 4, y + 50); ctx.quadraticCurveTo(sx - 10, wy + 30, sx, wy); ctx.fill();
+      for (let k = 0; k < 6; k++) { const ph = (t * 1.5 + k / 6) % 1; circ(ctx, sx + sw * (k + 0.5) / 6, wy + ph * (y + 50 - wy), 5, rgba('#FFFFFF', 0.7)); }
+      ctx.fillStyle = rgba('#5BA4E8', 0.55); ctx.beginPath(); ctx.ellipse(sx + sw / 2, y + 58, sw * 0.9, 14, 0, 0, 6.283); ctx.fill(); } }
   ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = 10; [0.25, 0.7].forEach(f => { ctx.beginPath(); ctx.moveTo(x - 4, y - h * f * laag); ctx.lineTo(x + w + 4, y - h * f * laag); ctx.stroke(); });
+  for (let i = 0; i < n; i++) if (labels[i]) text(ctx, labels[i], x + (i + 0.5) * dw, y - h * hoog[i] - 16, fTekst(i === hlIdx ? 28 : 24, 800), i === hlIdx ? C.koraal : C.text, 'center');
   ctx.restore(); }
 
 // blad met in- en uitgaande pijlen (licht, CO₂, water in; suiker en zuurstof uit)
@@ -99,12 +102,17 @@ function kasDak(ctx, x, y, w, open = 0, lampen = 0, a = 1) { if (a <= 0.01) retu
 // thermometer
 function thermometer(ctx, x, y, h, v, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 14, y - h, 28, h, 14); shape(ctx, '#F2F2EE', '#9AA3B2', 2); circ(ctx, x, y + 6, 26, col, '#9AA3B2', 2); roundRect(ctx, x - 6, y - h * v, 12, h * v, 6); shape(ctx, col, null); ctx.restore(); }
 
-// bron-en-put-plant (schema): bladeren boven als bron, vruchten en kop als put, suikertjes door de zeefvaten
-function bronPut(ctx, x, y, h, t, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const st = o.stroom == null ? 1 : o.stroom;
-  tomatenplant(ctx, x, y, h, t, { blad: o.blad == null ? 6 : o.blad, trossen: o.trossen || [0.2, 0.15], vrucht: o.vrucht, hl: o.hl });
-  // zeefvat als dunne gouden lijn langs de stengel
-  ctx.strokeStyle = rgba(C.goud, 0.8 * st); ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(x + 10, y - h * 0.15); ctx.lineTo(x + 10, y - h * 0.98); ctx.stroke();
-  if (st > 0.01) for (let i = 0; i < 8; i++) { const ph = (t * 0.25 + i / 8) % 1, py = y - h * (0.85 - ph * 0.6); suiker(ctx, x + 10, py, 1, st * Math.min(1, 2 * Math.sin(ph * 3.14))); }
+// bron-en-put-plant (schema): bladeren boven als bron, vruchten en kop als put; suikertjes van blad naar stengel en dan naar tros of kop
+function bronPut(ctx, x, y, h, t, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const st = o.stroom == null ? 1 : o.stroom, blad = o.blad == null ? 6 : o.blad, tr = o.trossen || [0.2, 0.15];
+  tomatenplant(ctx, x, y, h, t, { blad, trossen: tr, vrucht: o.vrucht, hl: o.hl });
+  if (st > 0.01) { const L = [], T = [];
+    for (let i = 0; i < blad; i++) { const f = 0.12 + i * 0.8 / Math.max(1, blad), yy = y - h * f, z = i % 2 ? -1 : 1, ln = h * (0.2 - f * 0.06); L.push([x + z * ln * 0.7, yy - ln * 0.2, yy]); }
+    tr.forEach((r, j) => { const yy = y - h * (0.32 + j * 0.2), z = j % 2 ? 1 : -1; T.push([x + z * h * 0.1, yy + h * 0.12, yy]); });
+    const doel = k => (k % 5 === 0 || T.length === 0) ? [x, y - h, y - h] : (k % 5 === 4 && T.length > 1 ? T[1] : T[0]);
+    for (let k = 0; k < 14; k++) { const lf = L[k % L.length], d = doel(k), ph = (t * 0.22 + k / 14) % 1;
+      const d1 = Math.abs(lf[0] - x), d2 = Math.abs(lf[2] - d[2]), d3 = Math.hypot(d[0] - x, d[1] - d[2]), tot = d1 + d2 + d3, s0 = ph * tot; let px, py;
+      if (s0 < d1) { const u = s0 / d1; px = lerp(lf[0], x, u); py = lerp(lf[1], lf[2], u); } else if (s0 < d1 + d2) { const u = (s0 - d1) / d2; px = x; py = lerp(lf[2], d[2], u); } else { const u = (s0 - d1 - d2) / d3; px = lerp(x, d[0], u); py = lerp(d[2], d[1], u); }
+      suiker(ctx, px, py, 0.8, st * Math.min(1, 3 * Math.sin(ph * 3.14))); } }
   ctx.restore(); }
 
 // weegschaal: links (blad) en rechts (vrucht); kant -1..1 = welke kant zwaarder
@@ -121,8 +129,11 @@ function opbrengst(ctx, x, y, a = 1, u1 = 1, u2 = 1) { if (a <= 0.01) return; ct
     if (v > 1) text(ctx, s2, bx + 85, y - bh - 18, fTekst(40, 800), C.text, 'center'); if (v > 0.3) text(ctx, lab, bx + 85, y + 44, fTekst(26, 700), col, 'center'); });
   metaText(ctx, 'kilo tomaten per m² per jaar', x, y - 51 * sc - 90, C.text2, 'left', 20); ctx.restore(); }
 
-// ethyleen-wolkjes rond een tros
-function ethyleen(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 7; i++) { const ph = (t * 0.4 + i / 7) % 1, an = i * 0.9, r = 40 + ph * 140; ctx.globalAlpha = a * 0.6 * Math.sin(ph * 3.14); circ(ctx, x + Math.cos(an) * r, y + Math.sin(an) * r * 0.7, 10 + ph * 8, rgba('#C9B896', 0.6)); } ctx.restore(); }
+// ethyleen (C₂H₄): twee C met dubbele binding en vier H; drijft van (x1,y1) naar (x2,y2)
+function c2h4(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 3 * s;
+  ctx.beginPath(); ctx.moveTo(x - 14 * s, y - 4 * s); ctx.lineTo(x + 14 * s, y - 4 * s); ctx.moveTo(x - 14 * s, y + 4 * s); ctx.lineTo(x + 14 * s, y + 4 * s); [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([dx, dy]) => { ctx.moveTo(x + dx * 16 * s, y); ctx.lineTo(x + dx * 32 * s, y + dy * 20 * s); }); ctx.stroke();
+  [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([dx, dy]) => circ(ctx, x + dx * 32 * s, y + dy * 20 * s, 9 * s, '#E8E8E2', '#FFFFFF', 1.5)); circ(ctx, x - 16 * s, y, 13 * s, '#5A6170', '#9AA3B2', 2); circ(ctx, x + 16 * s, y, 13 * s, '#5A6170', '#9AA3B2', 2); ctx.restore(); }
+function ethyleen(ctx, x1, y1, x2, y2, a = 1, t = 0) { if (a <= 0.01) return; for (let i = 0; i < 4; i++) { const ph = (t * 0.25 + i / 4) % 1; c2h4(ctx, lerp(x1, x2, ph) + Math.sin(t + i * 2) * 14, lerp(y1, y2, ph) + Math.cos(t * 1.3 + i) * 10, 0.8, a * Math.sin(ph * 3.14)); } }
 
 // gasmotor (WKK): kast met drie pijlen eruit
 function gasmotor(ctx, x, y, a = 1, u = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 100, 260, 200, 18); shape(ctx, '#3A4458', C.line, 2); circ(ctx, x - 50, y, 40, '#2A3446', C.line, 2); ctx.save(); ctx.translate(x - 50, y); ctx.rotate(t * 3); ctx.strokeStyle = C.text2; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(30, 0); ctx.moveTo(0, -30); ctx.lineTo(0, 30); ctx.stroke(); ctx.restore();

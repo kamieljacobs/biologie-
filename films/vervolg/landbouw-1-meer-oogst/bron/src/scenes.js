@@ -190,6 +190,7 @@ function tomatenplant(ctx, x, y, h, t = 0, o = {}) { const a = o.a == null ? 1 :
     for (let k = 0; k < 3; k++) { const u = 0.45 + k * 0.25, lx = x + z * ln * u, ly = yy - ln * 0.32 * Math.sin(u * 3) - ln * 0.05; ctx.beginPath(); ctx.ellipse(lx, ly, ln * 0.17, ln * 0.09, z * (0.5 - k * 0.3), 0, 6.283); shape(ctx, hl.blad ? rgba(C.groen, 0.9) : '#4E7E52', hl.blad ? C.goud : null, hl.blad ? 3 : 1.5); } ctx.restore(); }
   trossen.forEach((r, j) => { const yy = y - h * (0.32 + j * 0.2), z = j % 2 ? 1 : -1, n = o.vrucht == null ? 5 : o.vrucht;
     ctx.strokeStyle = '#5E8F5A'; ctx.lineWidth = h * 0.006; ctx.beginPath(); ctx.moveTo(x, yy); ctx.quadraticCurveTo(x + z * h * 0.08, yy + h * 0.02, x + z * h * 0.11, yy + h * 0.08); ctx.stroke();
+    if (r < 0) { for (let k = 0; k < 4; k++) bloem(ctx, x + z * h * (0.08 + (k % 2) * 0.05), yy + h * (0.07 + k * 0.035), h * 0.0012); return; }
     for (let k = 0; k < n; k++) { const tx = x + z * h * (0.08 + (k % 2) * 0.05), ty = yy + h * (0.07 + k * 0.035), rr = h * 0.03, rp = clamp(r - k * 0.08, 0, 1);
       const col = rp > 0.66 ? '#D8573F' : rp > 0.33 ? '#E0904A' : '#7FAE6A'; circ(ctx, tx, ty, rr, col, hl.vrucht ? C.goud : null, hl.vrucht ? 3 : 1); } });
   ctx.restore(); }
@@ -207,13 +208,15 @@ function co2Buis(ctx, x1, x2, y, aan = 0, t = 0, a = 1) { if (a <= 0.01) return;
 function ppmMeter(ctx, x, y, waarde, label, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 70, 260, 140, 18); shape(ctx, '#121A26', col, 3);
   text(ctx, String(Math.round(waarde)), x, y + 18, fTekst(64, 800), C.text, 'center'); metaText(ctx, 'ppm CO₂', x, y + 52, C.text2, 'center', 18); regel(ctx, label, x, y - 88, 1, col, 30, 'center', 700); ctx.restore(); }
 
-// ton met duigen; hoogtes 0..1, labels; water tot de laagste duig (lek = stroompje)
+// ton met duigen; hoogtes 0..1, labels boven elke duig; water tot de laagste duig en daar over de rand naar voren
 function ton(ctx, x, y, w, h, hoog, labels, a = 1, water = 1, t = 0, hlIdx = -1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = hoog.length, dw = w / n, laag = Math.min(...hoog), li = hoog.indexOf(laag);
-  for (let i = 0; i < n; i++) { const dh = h * hoog[i], col = i === hlIdx ? C.koraal : '#8C5A3A'; roundRect(ctx, x + i * dw + 3, y - dh, dw - 6, dh, 6); shape(ctx, col, '#5A3A26', 2);
-    if (labels[i]) { ctx.save(); ctx.translate(x + (i + 0.5) * dw, y - dh + 16); ctx.rotate(-Math.PI / 2); text(ctx, labels[i], 0, 9, fTekst(24, 700), C.text, 'right'); ctx.restore(); } }
-  if (water > 0.01) { const wy = y - h * laag * water; ctx.fillStyle = rgba('#5BA4E8', 0.55); ctx.fillRect(x + 6, wy, w - 12, y - wy); ctx.strokeStyle = '#9FD0F5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 6, wy); ctx.lineTo(x + w - 6, wy); ctx.stroke();
-    if (water > 0.95) { ctx.strokeStyle = rgba('#9FD0F5', 0.9); ctx.lineWidth = 8; ctx.lineCap = 'round'; const sx = x + (li + 0.5) * dw; ctx.beginPath(); ctx.moveTo(sx, wy); ctx.quadraticCurveTo(sx + 50 + Math.sin(t * 6) * 4, wy + 30, sx + 70, y + 40); ctx.stroke(); } }
+  for (let i = 0; i < n; i++) { const dh = h * hoog[i], col = i === hlIdx ? C.koraal : '#8C5A3A'; roundRect(ctx, x + i * dw + 3, y - dh, dw - 6, dh, 6); shape(ctx, col, '#5A3A26', 2); }
+  if (water > 0.01) { const wy = y - h * laag * water; ctx.fillStyle = rgba('#5BA4E8', 0.5); ctx.fillRect(x + 6, wy, w - 12, y - wy); ctx.strokeStyle = '#9FD0F5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x + 6, wy); ctx.lineTo(x + w - 6, wy); ctx.stroke();
+    if (water > 0.95) { const sx = x + li * dw + 10, sw = dw - 20; ctx.fillStyle = rgba('#9FD0F5', 0.85); ctx.beginPath(); ctx.moveTo(sx, wy); ctx.lineTo(sx + sw, wy); ctx.quadraticCurveTo(sx + sw + 10, wy + 30, sx + sw - 4, y + 50); ctx.lineTo(sx + 4, y + 50); ctx.quadraticCurveTo(sx - 10, wy + 30, sx, wy); ctx.fill();
+      for (let k = 0; k < 6; k++) { const ph = (t * 1.5 + k / 6) % 1; circ(ctx, sx + sw * (k + 0.5) / 6, wy + ph * (y + 50 - wy), 5, rgba('#FFFFFF', 0.7)); }
+      ctx.fillStyle = rgba('#5BA4E8', 0.55); ctx.beginPath(); ctx.ellipse(sx + sw / 2, y + 58, sw * 0.9, 14, 0, 0, 6.283); ctx.fill(); } }
   ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = 10; [0.25, 0.7].forEach(f => { ctx.beginPath(); ctx.moveTo(x - 4, y - h * f * laag); ctx.lineTo(x + w + 4, y - h * f * laag); ctx.stroke(); });
+  for (let i = 0; i < n; i++) if (labels[i]) text(ctx, labels[i], x + (i + 0.5) * dw, y - h * hoog[i] - 16, fTekst(i === hlIdx ? 28 : 24, 800), i === hlIdx ? C.koraal : C.text, 'center');
   ctx.restore(); }
 
 // blad met in- en uitgaande pijlen (licht, CO₂, water in; suiker en zuurstof uit)
@@ -268,12 +271,17 @@ function kasDak(ctx, x, y, w, open = 0, lampen = 0, a = 1) { if (a <= 0.01) retu
 // thermometer
 function thermometer(ctx, x, y, h, v, a = 1, col = C.koraal) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 14, y - h, 28, h, 14); shape(ctx, '#F2F2EE', '#9AA3B2', 2); circ(ctx, x, y + 6, 26, col, '#9AA3B2', 2); roundRect(ctx, x - 6, y - h * v, 12, h * v, 6); shape(ctx, col, null); ctx.restore(); }
 
-// bron-en-put-plant (schema): bladeren boven als bron, vruchten en kop als put, suikertjes door de zeefvaten
-function bronPut(ctx, x, y, h, t, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const st = o.stroom == null ? 1 : o.stroom;
-  tomatenplant(ctx, x, y, h, t, { blad: o.blad == null ? 6 : o.blad, trossen: o.trossen || [0.2, 0.15], vrucht: o.vrucht, hl: o.hl });
-  // zeefvat als dunne gouden lijn langs de stengel
-  ctx.strokeStyle = rgba(C.goud, 0.8 * st); ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(x + 10, y - h * 0.15); ctx.lineTo(x + 10, y - h * 0.98); ctx.stroke();
-  if (st > 0.01) for (let i = 0; i < 8; i++) { const ph = (t * 0.25 + i / 8) % 1, py = y - h * (0.85 - ph * 0.6); suiker(ctx, x + 10, py, 1, st * Math.min(1, 2 * Math.sin(ph * 3.14))); }
+// bron-en-put-plant (schema): bladeren boven als bron, vruchten en kop als put; suikertjes van blad naar stengel en dan naar tros of kop
+function bronPut(ctx, x, y, h, t, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const st = o.stroom == null ? 1 : o.stroom, blad = o.blad == null ? 6 : o.blad, tr = o.trossen || [0.2, 0.15];
+  tomatenplant(ctx, x, y, h, t, { blad, trossen: tr, vrucht: o.vrucht, hl: o.hl });
+  if (st > 0.01) { const L = [], T = [];
+    for (let i = 0; i < blad; i++) { const f = 0.12 + i * 0.8 / Math.max(1, blad), yy = y - h * f, z = i % 2 ? -1 : 1, ln = h * (0.2 - f * 0.06); L.push([x + z * ln * 0.7, yy - ln * 0.2, yy]); }
+    tr.forEach((r, j) => { const yy = y - h * (0.32 + j * 0.2), z = j % 2 ? 1 : -1; T.push([x + z * h * 0.1, yy + h * 0.12, yy]); });
+    const doel = k => (k % 5 === 0 || T.length === 0) ? [x, y - h, y - h] : (k % 5 === 4 && T.length > 1 ? T[1] : T[0]);
+    for (let k = 0; k < 14; k++) { const lf = L[k % L.length], d = doel(k), ph = (t * 0.22 + k / 14) % 1;
+      const d1 = Math.abs(lf[0] - x), d2 = Math.abs(lf[2] - d[2]), d3 = Math.hypot(d[0] - x, d[1] - d[2]), tot = d1 + d2 + d3, s0 = ph * tot; let px, py;
+      if (s0 < d1) { const u = s0 / d1; px = lerp(lf[0], x, u); py = lerp(lf[1], lf[2], u); } else if (s0 < d1 + d2) { const u = (s0 - d1) / d2; px = x; py = lerp(lf[2], d[2], u); } else { const u = (s0 - d1 - d2) / d3; px = lerp(x, d[0], u); py = lerp(d[2], d[1], u); }
+      suiker(ctx, px, py, 0.8, st * Math.min(1, 3 * Math.sin(ph * 3.14))); } }
   ctx.restore(); }
 
 // weegschaal: links (blad) en rechts (vrucht); kant -1..1 = welke kant zwaarder
@@ -290,8 +298,11 @@ function opbrengst(ctx, x, y, a = 1, u1 = 1, u2 = 1) { if (a <= 0.01) return; ct
     if (v > 1) text(ctx, s2, bx + 85, y - bh - 18, fTekst(40, 800), C.text, 'center'); if (v > 0.3) text(ctx, lab, bx + 85, y + 44, fTekst(26, 700), col, 'center'); });
   metaText(ctx, 'kilo tomaten per m² per jaar', x, y - 51 * sc - 90, C.text2, 'left', 20); ctx.restore(); }
 
-// ethyleen-wolkjes rond een tros
-function ethyleen(ctx, x, y, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let i = 0; i < 7; i++) { const ph = (t * 0.4 + i / 7) % 1, an = i * 0.9, r = 40 + ph * 140; ctx.globalAlpha = a * 0.6 * Math.sin(ph * 3.14); circ(ctx, x + Math.cos(an) * r, y + Math.sin(an) * r * 0.7, 10 + ph * 8, rgba('#C9B896', 0.6)); } ctx.restore(); }
+// ethyleen (C₂H₄): twee C met dubbele binding en vier H; drijft van (x1,y1) naar (x2,y2)
+function c2h4(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 3 * s;
+  ctx.beginPath(); ctx.moveTo(x - 14 * s, y - 4 * s); ctx.lineTo(x + 14 * s, y - 4 * s); ctx.moveTo(x - 14 * s, y + 4 * s); ctx.lineTo(x + 14 * s, y + 4 * s); [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([dx, dy]) => { ctx.moveTo(x + dx * 16 * s, y); ctx.lineTo(x + dx * 32 * s, y + dy * 20 * s); }); ctx.stroke();
+  [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([dx, dy]) => circ(ctx, x + dx * 32 * s, y + dy * 20 * s, 9 * s, '#E8E8E2', '#FFFFFF', 1.5)); circ(ctx, x - 16 * s, y, 13 * s, '#5A6170', '#9AA3B2', 2); circ(ctx, x + 16 * s, y, 13 * s, '#5A6170', '#9AA3B2', 2); ctx.restore(); }
+function ethyleen(ctx, x1, y1, x2, y2, a = 1, t = 0) { if (a <= 0.01) return; for (let i = 0; i < 4; i++) { const ph = (t * 0.25 + i / 4) % 1; c2h4(ctx, lerp(x1, x2, ph) + Math.sin(t + i * 2) * 14, lerp(y1, y2, ph) + Math.cos(t * 1.3 + i) * 10, 0.8, a * Math.sin(ph * 3.14)); } }
 
 // gasmotor (WKK): kast met drie pijlen eruit
 function gasmotor(ctx, x, y, a = 1, u = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 130, y - 100, 260, 200, 18); shape(ctx, '#3A4458', C.line, 2); circ(ctx, x - 50, y, 40, '#2A3446', C.line, 2); ctx.save(); ctx.translate(x - 50, y); ctx.rotate(t * 3); ctx.strokeStyle = C.text2; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(30, 0); ctx.moveTo(0, -30); ctx.lineTo(0, 30); ctx.stroke(); ctx.restore();
@@ -362,7 +373,7 @@ Object.assign(SCENES, {
       tag(ctx, 'een plant bouwt zichzelf op uit lucht', 960, 250, C.teal, q.on('lucht', 1), 'center', 30); ctx.restore(); }
     if (P2 > 0.01) { ctx.save(); ctx.globalAlpha *= P2; const v = lerp(420, 230, q.on('minder', 1, 3));
       ppmMeter(ctx, 600, 420, 420, 'buiten', C.teal, 1); ppmMeter(ctx, 1000, 420, v, 'dichte kas, zonnige ochtend', C.grain, 1);
-      zon(ctx, 1420, 300, 60, 1, t); tag(ctx, 'CO₂ remt de groei', 1000, 640, C.koraal, q.on('remt', 1), 'center', 32);
+      zon(ctx, 1420, 300, 60, 1, t); tag(ctx, 'te weinig CO₂ remt de groei', 1000, 640, C.koraal, q.on('remt', 1), 'center', 32);
       regel(ctx, 'beperkende factor', 960, 780, q.on('beperkende', 1), C.goud, 52, 'center', 800); ctx.restore(); } },
 
   s05(ctx, t, q) { bg(ctx, 'schema'); const hoog = [0.85, 0.5, 0.92, 0.75], lab = ['licht', 'CO₂', 'temperatuur', 'water'];
@@ -372,7 +383,8 @@ Object.assign(SCENES, {
   s06(ctx, t, q) { bg(ctx, 'schema'); const tS = q.at('Soms', 1), tH = q.at('Hoe', 1);
     const u = t < tS ? ((t * 0.35) % 1) : t < tH ? clamp((t - q.at('zuurstofmolecuul', 1)) / 1.2, 0, 1) : ((t * 0.7) % 1);
     const pakt = t < tS - 0.3 || t >= tH ? 'co2' : 'o2';
-    rubisco(ctx, 760, 560, 1.4, q.on('vastlegt', 1), q.on('vastlegt', 1) > 0.5 ? pakt : null, u, t);
+    const TN = 1 - q.on('enzym', 1, 0.6); if (TN > 0.01) ton(ctx, 700, 760, 480, 460, [0.85, 0.5, 0.92, 0.75], ['licht', 'CO₂', 'temperatuur', 'water'], TN, 1, t, 1);
+    rubisco(ctx, 760, 560, 1.4, q.on('enzym', 1), q.on('vastlegt', 1) > 0.5 ? pakt : null, u, t);
     naamBij(ctx, 'rubisco', 'enzym dat CO₂ vastlegt', 1020, 360, q.on('rubisco', 1));
     chip(ctx, 'meest voorkomende eiwit op aarde', 1380, 470, C.teal, q.on('eiwit', 1) * (1 - q.on('Soms', 1)), 28); klokje(ctx, 1260, 600, 44, (t * 0.05) % 1, q.on('traag', 1) * (1 - q.on('Soms', 1))); regel(ctx, 'traag', 1330, 614, q.on('traag', 1) * (1 - q.on('Soms', 1)), C.text, 34, 'left', 700);
     const V = fase(t, q.at('vergist', 1), tH);
@@ -397,7 +409,7 @@ Object.assign(SCENES, {
   s10(ctx, t, q) { bg(ctx, 'schema'); const t2 = q.at('vochtig', 1), t3 = q.at('warm', 1);
     const P1 = 1 - ramp(t, t2 - 0.4, 0.5), P2 = fase(t, t2 - 0.1, t3), P3 = ramp(t, t3, 0.5);
     if (P1 > 0.01) { ctx.save(); ctx.globalAlpha *= P1; const open = 1 - q.on('sluit', 1, 1.2);
-      huidmondje(ctx, 960, 480, 1.6, open, q.on('huidmondjes', 1), t, 1); naamBij(ctx, 'huidmondje', 'opening in het blad', 1400, 220, q.on('huidmondjes', 1));
+      huidmondje(ctx, 960, 480, 1.6, open, q.on('Koolstofdioxide', 1), t, 1); naamBij(ctx, 'huidmondje', 'opening in het blad', 1400, 220, q.on('huidmondjes', 1));
       tag(ctx, 'CO₂ erin', 400, 300, C.grain, q.on('binnen', 1), 'center', 28); tag(ctx, 'waterdamp eruit', 1560, 720, C.teal, q.on('verdampt', 1), 'center', 28);
       tag(ctx, 'droge lucht: huidmondje dicht', 960, 850, C.koraal, q.on('droog', 1), 'center', 30); ctx.restore(); }
     if (P2 > 0.01) { ctx.save(); ctx.globalAlpha *= P2; ctx.save(); ctx.translate(960, 470); ctx.scale(2.2, 2.2); schimmel(ctx, 0, 0, 1, t); ctx.restore(); naamBij(ctx, 'grauwe schimmel', 'bij te vochtige lucht', 1080, 330, 1); ctx.restore(); }
@@ -408,13 +420,13 @@ Object.assign(SCENES, {
   s12(ctx, t, q) { bg(ctx, 'schema'); const G = q.on('veel', 1, 0.8);
     if (G < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - G; antwoord(ctx, 'antwoord c: minder CO₂ doseren'); kasDak(ctx, 460, 300, 1000, 1, 0, 1);
       for (let i = 0; i < 6; i++) { const ph = (t * 0.4 + i / 6) % 1; co2(ctx, 990 + i * 18 + ph * 120, 520 - ph * 380, 0.7, 0.5 * Math.sin(ph * 3.14)); } chip(ctx, 'dosering lager', 960, 760, C.grain, q.on('lager', 1), 30); ctx.restore(); }
-    if (G > 0.01) { ctx.save(); ctx.globalAlpha *= G; ppmMeter(ctx, 330, 380, 800, 'tomatenkas: 700–900', C.grain, q.on('zevenhonderd', 1)); ppmMeter(ctx, 330, 650, 420, 'buiten: ruim 400', C.teal, q.on('Buiten', 1));
-      grafiekCO2(ctx, 720, 260, 860, 460, q.on('duizend', 1), 1, 0, q.on('duizend', 1) > 0.5 ? 0.72 : -1); chip(ctx, 'boven ± 1000: bijna verzadigd', 1150, 230, C.goud, q.on('verzadigd', 1), 26);
+    if (G > 0.01) { ctx.save(); ctx.globalAlpha *= G; ppmMeter(ctx, 330, 380, 800, 'tomatenkas: 700–900', C.grain, 1); ppmMeter(ctx, 330, 650, 420, 'buiten: ruim 400', C.teal, q.on('Buiten', 1));
+      grafiekCO2(ctx, 720, 260, 860, 460, 1, 1, 0, q.on('duizend', 1) > 0.5 ? 0.72 : -1); chip(ctx, 'boven ± 1000: bijna verzadigd', 1150, 230, C.goud, q.on('verzadigd', 1), 26);
       tag(ctx, 'vuistregel: 1 % meer licht ≈ bijna 1 % meer oogst', 960, 840, C.goud, q.on('vuistregel', 1), 'center', 30); ctx.restore(); } },
 
   s13(ctx, t, q) { decor(ctx, 'kas', 0.6);
-    tomatenplant(ctx, 1160, 860, 560, t, { trossen: [0.9, 0.5, 0.15] }); persoon(ctx, 'yasmin', 720, 860, 420, { t, kijk: 1, uit: 'neutraal', pose: 'wijs' });
-    chip(ctx, 'kopgroei', 1420, 320, C.groen, q.on('kop', 1), 28); chip(ctx, 'stengeldikte', 1420, 520, C.oker, q.on('stengel', 1), 28); chip(ctx, 'bloeiende trossen', 1420, 640, C.goud, q.on('trossen', 1), 28);
+    tomatenplant(ctx, 1160, 860, 560, t, { trossen: [0.9, 0.5, -1] }); persoon(ctx, 'yasmin', 600, 860, 420, { t, kijk: 1, uit: 'neutraal', pose: 'wijs' });
+    tag(ctx, 'kopgroei', 1200, 320, C.groen, q.on('kop', 1), 'left', 28); tag(ctx, 'stengeldikte', 1140, 625, C.oker, q.on('stengel', 1), 'right', 28); tag(ctx, 'bloeiende trossen', 1060, 470, C.goud, q.on('trossen', 1), 'right', 28);
     tag(ctx, 'sturen op de plant', 960, 200, C.teal, q.on('plant', 1), 'center', 32); },
 
   // ---------- H3 ----------
@@ -427,7 +439,7 @@ Object.assign(SCENES, {
     const K = q.on('knoppen', 1, 0.8); weegschaal(ctx, 960, 380, kant * (1 - K), 1 - K);
     tag(ctx, 'generatief: richting vruchten', 960, 760, '#D8573F', q.on('generatief', 1) * (1 - q.on('vegetatief', 1)) * (1 - K), 'center', 30); tag(ctx, 'vegetatief: blad en stengel', 960, 760, C.groen, q.on('vegetatief', 1) * (1 - K), 'center', 30);
     if (K > 0.01) { ctx.save(); ctx.globalAlpha *= K; const bl = Math.round(lerp(6, 4, q.on('onderaan', 1, 1)));
-      tomatenplant(ctx, 520, 820, 520, t, { blad: bl, trossen: [0.4, 0.2], vrucht: Math.round(lerp(5, 4, q.on('tros', 1))) }); chip(ctx, 'oude bladeren weg', 520, 230, C.groen, q.on('onderaan', 1), 26); chip(ctx, 'vruchten per tros kiezen', 520, 300, '#D8573F', q.on('tros', 1), 26);
+      tomatenplant(ctx, 520, 820, 520, t, { blad: bl, trossen: [0.4, 0.2], vrucht: Math.round(lerp(5, 4, q.on('tros', 1))) }); tag(ctx, 'oude bladeren weg', 760, 420, C.groen, q.on('onderaan', 1), 'left', 26); tag(ctx, 'vruchten per tros kiezen', 760, 500, '#D8573F', q.on('tros', 1), 'left', 26);
       const T = q.on('temperatuur', 1); thermometer(ctx, 1160, 640, 260, 0.75, T); zon(ctx, 1160, 260, 30, T * (1 - q.on('nachten', 1)), t); regel(ctx, 'dag', 1240, 470, T, C.goud, 30, 'left', 700); thermometer(ctx, 1420, 640, 260, 0.45, q.on('nachten', 1), C.teal); regel(ctx, 'nacht', 1460, 470, q.on('nachten', 1), C.teal, 30, 'left', 700);
       vraagteken(ctx, 1700, 460, q.on('doet', 1), 110); ctx.restore(); } },
 
@@ -437,7 +449,7 @@ Object.assign(SCENES, {
       bronPut(ctx, 760, 840, 560, t, 1, { blad: bl, stroom: 1 - 0.6 * q.on('minder', 2), trossen: [0.4, 0.2] }); chip(ctx, 'minder concurrentie', 1300, 320, C.groen, q.on('concurrentie', 1) * (1 - g), 28);
       tag(ctx, 'te veel weg: te weinig licht gevangen', 1300, 460, C.koraal, q.on('licht', 1), 'center', 28); ctx.restore(); }
     const Wm = fase(t, q.at('warmer', 1), q.at('ethyleen', 1) - 0.3); if (Wm > 0.01) { ctx.save(); ctx.globalAlpha *= Wm; thermometer(ctx, 560, 700, 300, 0.85, 1); tomatenplant(ctx, 1100, 840, 520, t, { trossen: [0.95, 0.85], vrucht: 6 }); chip(ctx, 'sneller rijp · kleiner · minder zoet', 1100, 230, C.koraal, q.on('kleiner', 1), 28); ctx.restore(); }
-    if (E > 0.01) { ctx.save(); ctx.globalAlpha *= E; const r = clamp((t - q.at('ethyleen', 1)) / 3, 0, 1); tomatenplant(ctx, 960, 860, 620, t, { trossen: [0.75 + 0.25 * r, 0.1 + 0.6 * r * q.on('rest', 1, 2)], vrucht: 5 }); ethyleen(ctx, 860, 600, 1, t); naamBij(ctx, 'ethyleen', 'gas dat het rijpen aanzet', 1180, 460, 1); ctx.restore(); } },
+    if (E > 0.01) { ctx.save(); ctx.globalAlpha *= E; const r = clamp((t - q.at('ethyleen', 1)) / 3, 0, 1); tomatenplant(ctx, 960, 860, 620, t, { trossen: [0.75 + 0.25 * r, 0.1 + 0.6 * r * q.on('rest', 1, 2)], vrucht: 5 }); ethyleen(ctx, 890, 720, 1030, 600, 1, t); naamBij(ctx, 'ethyleen', 'gas dat het rijpen aanzet', 1180, 460, 1); ctx.restore(); } },
 
   s18(ctx, t, q) { bg(ctx, 'schema'); opbrengst(ctx, 640, 760, q.on('vijftig', 1), q.on('vijftig', 1, 1.5), q.on('negen', 1, 1.2)); zon(ctx, 1380, 380, 60, q.on('zonnige', 1), t); vraagteken(ctx, 1560, 640, q.on('denk', 1), 110); },
 
@@ -450,8 +462,8 @@ Object.assign(SCENES, {
 
   s21(ctx, t, q) { bg(ctx, 'schema'); const tG = q.at('gasmotor', 1), tL = q.at('leiding', 1), tA = q.at('aardlagen', 1), tE = q.at('ledlampen', 1);
     gasmotor(ctx, 640, 480, fase(t, tG - 0.3, tL - 0.2), clamp((t - tG) / 3, 0, 1), t); naamBij(ctx, 'gasmotor', 'stroom, warmte én CO₂', 520, 300, fase(t, tG - 0.3, tL - 0.2));
-    const HL = fase(t, tL - 0.2, tA - 0.4); haven(ctx, 560, 600, HL, clamp((t - tL) / 2, 0, 1), t); regel(ctx, 'haven van Rotterdam', 560, 680, HL, C.text2, 28, 'center', 700); kasDak(ctx, 1260, 440, 360, 0, 0, HL); chip(ctx, 'CO₂ die anders de lucht in gaat', 1100, 300, C.grain, q.on('uitstoten', 1) * HL, 26);
-    const AL = fase(t, tA - 0.4, tE - 0.3); boorput(ctx, 960, 420, AL, clamp((t - tA) / 2, 0, 1), t); naamBij(ctx, 'aardwarmte', 'warm water uit diepe lagen', 1200, 360, AL);
+    const HL = fase(t, tL - 0.2, q.at('Weer', 1) - 0.2); haven(ctx, 560, 600, HL, clamp((t - tL) / 2, 0, 1), t); regel(ctx, 'haven van Rotterdam', 560, 680, HL, C.text2, 28, 'center', 700); kasDak(ctx, 1260, 440, 360, 0, 0, HL); chip(ctx, 'CO₂ die anders de lucht in gaat', 1100, 300, C.grain, q.on('uitstoten', 1) * HL, 26);
+    const tW = q.at('Weer', 1); const AL = fase(t, tW - 0.2, tE - 0.3); boorput(ctx, 960, 420, AL, clamp((t - tW) / 2.5, 0, 1), t); naamBij(ctx, 'aardwarmte', 'warm water uit diepe lagen', 1200, 360, AL);
     const LD = ramp(t, tE - 0.3, 0.5); lamp(ctx, 620, 380, 'son', LD, t); regel(ctx, 'oude lamp: veel warmte', 620, 300, LD, C.koraal, 28, 'center', 700); lamp(ctx, 1300, 380, 'led', LD, t); regel(ctx, 'led: meer licht per kilowattuur', 1300, 300, LD, C.goud, 28, 'center', 700);
     thermometer(ctx, 1300, 740, 200, 0.35, q.on('winter', 1), C.teal); chip(ctx, 'in de winter extra verwarmen', 960, 820, C.koraal, q.on('verwarmd', 1), 28); regel(ctx, 'alles hangt samen', 620, 640, q.on('samen', 1), C.text, 34, 'center', 700); },
 
