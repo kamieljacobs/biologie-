@@ -1,3 +1,5 @@
+> **Verouderd:** de nieuwste prompt staat in `films/PROMPT_v10.md` (24 okt 2026). Dit bestand blijft alleen staan omdat oudere films ernaar verwijzen.
+
 > Lees ook `films/BEELDAFSPRAKEN.md`: algemene beeldfeedback van Kamiel gaat vóór wat hieronder staat.
 
 # Prompt uitlegfilms biologie — v6

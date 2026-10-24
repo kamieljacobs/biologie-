@@ -67,6 +67,8 @@ Opmerkingen bij keuringen en reviews moeten de werkwijze voeden, niet alleen é�
 
 ## Beeldafspraken
 
+De nieuwste filmprompt staat in de repo als `films/PROMPT_v10.md` (met de volledige C10-tekst in `films/PROMPT_v10_C10_tekenkwaliteit.md`), zodat elk Claude-account van Kamiel hem kan lezen; bij een nieuwe promptversie ook hier een `PROMPT_vN.md` neerzetten en deze verwijzing bijwerken.
+
 Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die vóór elke nieuwe of aangepaste film en vul hem aan als feedback voor meerdere films geldt.
 
 ## Huisstijl van tools

@@ -6,7 +6,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 - Film-eigen uitzonderingen staan in `bron/uitspraak_film.json` en `bron/uitspraak.md` van de film.
 - Nog niet getest = wachtlijst in `bron/uitspraak.md` van de film; getest wordt in batches via de luisterpagina *Uitspraaktest* (claude.ai-artifact, keuzes in de database, collectie `keuzes`). Na een testronde: goedgekeurde keuzes hier en in `uitspraak.json` zetten, status in de film op 'goedgekeurd'.
 
-- **Fout op één plek = overal testen** (Kamiel 24 okt 2026): klinkt een woord ergens verkeerd, zoek dan dezelfde woorden (ook verbogen en in samenstellingen) in de andere alinea's en films op, test ze daar ook, en zet de goedgekeurde stem-invoer daarna in deze lijst, in `uitspraak.json` én in de uitspraaklijst van de prompt (`films/PROMPT_v6.md`, deel B5).
+- **Fout op één plek = overal testen** (Kamiel 24 okt 2026): klinkt een woord ergens verkeerd, zoek dan dezelfde woorden (ook verbogen en in samenstellingen) in de andere alinea's en films op, test ze daar ook, en zet de goedgekeurde stem-invoer daarna in deze lijst, in `uitspraak.json` én in de uitspraaklijst van de prompt (`films/PROMPT_v10.md`, deel B5).
 
 ## Goedgekeurd (stem-invoer)
 
