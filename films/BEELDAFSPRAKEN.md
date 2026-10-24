@@ -43,6 +43,11 @@ Algemene feedback van Kamiel die voor (bijna) elke film geldt. Lees dit vóór h
   - Bij elk storyboard (en bij een verbeterblad) de vraag stellen: is hier een herkenbaar menselijk moment dat het concept draagt?
 - **Lichaam met organen** = een castpersonage met `personages/lib_anatomie.js` (realistisch, organen op hun echte plek), nooit meer een grijs dummy-lichaam.
 
+## Decors (achtergrond van de werkplek)
+- **Een decor alleen onder scènes die zich echt op die plek afspelen** (Kamiel 24 okt 2026, n.a.v. een testdecor 'kas' onder beelden uit andere films: "het lijkt nu alsof die plekken in de kas zijn"). De kweker bij de tomatenplant staat in de kas, de bodemscène op de akker, de veehouder in de stal. Schema's, grafieken, cellen en moleculen blijven op het gewone navy (`bg(ctx,'schema')`), anders lijkt elke uitleg zich op die plek af te spelen. Een decor is een ankerpunt in de echte werkplek van het vak (vooral bij de opener en bij momenten mét mensen), geen versiering.
+- **Stijl = de film zelf, niet de schilderstijl**: vlak vector in schema-look, navy `#1A2740`, gedempte vlakke kleuren uit het filmpalet, geen penseel, foto, 3D, korrel, schaduw of gloed, geen mensen of dieren (die tekent de film), geen tekst, rustig vlak in het midden, niets belangrijks in de onderste 18%. De geschilderde stills (gpt-image-2.5-sunburst) vallen uit de toon bij de animaties en zijn niet voor decors.
+- **Maken**: ElevenLabs brand kit 'Biologie bij Kamiel · filmdecor' (palet + stijlregels; gedeeld door beide Claude-accounts), model recraft-v4.1, één variant (±240 credits), flow 'Landbouw · filmdecor (achtergronden)' https://elevenlabs.io/app/flows/cMT4epIEjMJi0sraRQzk. In de film het decor op ±60% sterkte over het navy, zodat labels en kaartjes leesbaar blijven; vraag in de prompt om de vloerlijn op ±80% van de hoogte (de eerste test lag op 60%, personages leken te zweven).
+
 ## Aarde
 - **Gebruik de echte wereldbol** (22 okt 2026): `aarde()` uit Van molecuul tot biosfeer (continenten uit Natural Earth, wolken, belichting), geen blauwe cirkel met groene vlekken.
 
