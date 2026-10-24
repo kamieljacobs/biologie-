@@ -142,3 +142,14 @@ PTA Agora (`pta()`: de vier figuren rechtsboven en de rondjes per onderdeel) en 
 Rondjes 'Eerste ontdekkingen' op de hoofdpagina (Kamiel 23 okt 2026: moeten lijken op de kerndoelkaarten en passen bij de themarondjes): `img/kunst/iconen/home/ob-<kd>.webp` zijn nu ronde uitsneden (264 px, RGBA, zachte navy-vignet) van de kerndoelplaten `img/kunst/onderbouw/<kd>.webp`: 32A loep met plantencel, 32B eend met kuikens, 32C fietsend meisje met mand, 33C reiger met kikker (geen vos meer: leek te veel op de wolf van Ecologie). De oude rondjes staan in `img/kunst/varianten/onderbouw/ob-<kd>-oud.webp`. Rij toont 'Kerndoel <code>' (mono, goud) boven de titel; de titel komt uit `NIVEAUS.onderbouw` (zelfde naam als de kaart, via `kdNaam()`), de ondertitel uit `OB`. Rondje 76 px (telefoon 64), tussen de 56 px van 'Een kijkje vooruit' en de 88 px van de themarondjes. Nieuwe kerndoelplaat (bv. 32D) → ook het rondje opnieuw uitsnijden.
 
 Rondjes 'Een kijkje vooruit' op de hoofdpagina (Kamiel 23 okt 2026: 'ook een beetje uit stijl'): zelfde aanpak als Eerste ontdekkingen. `img/kunst/iconen/home/v-<richting>.webp` = ronde uitsnede van de richtingplaat `img/kunst/vervolg/<richting>.webp` (gedrag brein met neuronenwortels, zorg handen die de pols voelen, lab microscoop met petrischaal, voeding schaal met groente en fruit (de hardloper viel in een rond niet goed), groen eik met reiger, onderwijs schrift met kiemplant); oude rondjes in `img/kunst/varianten/home/v-<richting>-oud.webp`. Rondje 76 px (telefoon 64), ondertitel = vierde veld in `VERDER` (zelfde tekst als `sub` in `CLUSTERS` van vervolg.html; houd ze gelijk). Uitsnijden kan voor beide rijen met een cirkel + zachte navy-vignet (r > 0,72, sterkte 0,55) op 264 px.
+
+## Werken vanuit twee Claude-accounts (sinds 24 okt 2026)
+
+Kamiel werkt afwisselend vanuit twee Claude-accounts (Max 20x). Die delen geen geheugen, chats of artifacts; deze repo is de gedeelde bron. Daarom:
+
+- **Begin** elke sessie met een verse clone of `git fetch origin main && git rebase origin/main`, en lees de OVERDRACHT.md van de reeks waaraan je werkt.
+- **Leg alles vast in de repo**, niet alleen in het geheugen of in de chat: uitspraken in `films/UITSPRAAK.md` + `films/uitspraak.json`, beeldafspraken in `films/BEELDAFSPRAKEN.md`, lessen in `films/WERKWIJZE-LESSEN.md`, stand van een reeks in de OVERDRACHT.md van die reeks.
+- **Sluit af** met commit + push (`git fetch` en rebase vlak voor de push), zodat het andere account verder kan.
+- Werk niet in beide accounts tegelijk aan dezelfde film of hetzelfde bestand; verschillende reeksen tegelijk kan wel.
+- Beide accounts gebruiken hetzelfde ElevenLabs-account (stem Roos, dezelfde credits) en dezelfde GitHub-account (`kamieljacobs`).
+- Artifacts (keuringsbladen, luisterpagina's) zijn per account; een keuringsblad dat het andere account nodig heeft, deelt Kamiel via de link of het wordt opnieuw gepubliceerd vanuit de repo.

@@ -23,6 +23,8 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | oxytocine | niet eindigend op -nee | |
 | Beagle | Engels | |
 | gel | Engels (niet 'geld') | |
+| pH | P-H ("pee-haa" werd verkeerd uitgesproken) | 21 okt |
+| wc | klemtoon op de tweede lettergreep (we-CÉÉ); "wee-cee" legde de klemtoon verkeerd, nog geen goedgekeurde invoer: op de wachtlijst | 22 okt |
 | acetyl-coA | acetyl ko aa | |
 | hypothalamus | hiepo-taalamus (klemtoon op 'tha') | |
 | ACTH, CRH | zoals geschreven | |
