@@ -19,3 +19,6 @@ Luisterpagina (24 okt 2026, account met deze film): https://claude.ai/artifact/7
 
 ## Uitslag ronde 1 (24 okt 2026)
 Goed (zoals geschreven): ethyleen, generatief, vegetatief, ledlampen, kilowattuur, larven, huidmondjes, zeefvaten, Westland. Fout: **rubisco** (Kamiel: "isco met een zachte i, ru-BIS-co"). Ronde 2 op de luisterpagina: varianten rubbisko / ru-bis-ko / ruBISco (±250 credits); na de keuze s06, s09, s12, s24 en s25 opnieuw inspreken.
+
+## Rubisco afgerond (24 okt 2026)
+Rondes 2–5 op de luisterpagina (±1100 credits). Kamiel koos **ru-biss-koo** als beste benadering (nog niet perfect: de i blijft soms iets lang). Regel staat in films/uitspraak.json; s06, s09, s12, s24 en s25 opnieuw ingesproken (±2050 credits).

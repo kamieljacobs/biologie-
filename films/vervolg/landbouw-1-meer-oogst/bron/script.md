@@ -31,11 +31,11 @@ _Stem-invoer:_ Antwoord aa. Een plant bouwt zichzelf vooral op uit lucht. In de 
 
 Denk aan een ton met duigen van verschillende lengte. Het water stroomt weg bij de laagste duig. Zo is het ook bij een plant: de factor die het meest tekortschiet, bepaalt hoe snel de plant groeit.
 
-**s06** · audio `s06.mp3` · 34.8 s · generation `J1mPLvKZ8zIzVP8c9ark`
+**s06** · audio `s06.mp3` · 35.8 s · generation `tpmQU1ImL1bF8DgYIUuW`
 
 Maar waarom is koolstofdioxide zo vaak die lage duig? Dat komt door het enzym dat de koolstofdioxide in het blad vastlegt: rubisco. Het is het meest voorkomende eiwit op aarde, maar het werkt opvallend traag. En het vergist zich. Soms pakt rubisco een zuurstofmolecuul in plaats van koolstofdioxide. Dan gaat er energie verloren, en komt er zelfs koolstofdioxide vrij. Hoe meer koolstofdioxide er in de lucht zit, hoe vaker rubisco de goede pakt. Extra koolstofdioxide geeft rubisco dus meer werk, en minder vergissingen.
 
-_Stem-invoer:_ Maar waarom is koolstofdie-oxide zo vaak die lage duig? Dat komt door het enzym dat de koolstofdie-oxide in het blad vastlegt: rubisco. Het is het meest voorkomende eiwit op aarde, maar het werkt opvallend traag. En het vergist zich. Soms pakt rubisco een zuurstofmolecuul in plaats van koolstofdie-oxide. Dan gaat er energie verloren, en komt er zelfs koolstofdie-oxide vrij. Hoe meer koolstofdie-oxide er in de lucht zit, hoe vaker rubisco de goede pakt. Extra koolstofdie-oxide geeft rubisco dus meer werk, en minder vergissingen.
+_Stem-invoer:_ Maar waarom is koolstofdie-oxide zo vaak die lage duig? Dat komt door het enzym dat de koolstofdie-oxide in het blad vastlegt: ru-biss-koo. Het is het meest voorkomende eiwit op aarde, maar het werkt opvallend traag. En het vergist zich. Soms pakt ru-biss-koo een zuurstofmolecuul in plaats van koolstofdie-oxide. Dan gaat er energie verloren, en komt er zelfs koolstofdie-oxide vrij. Hoe meer koolstofdie-oxide er in de lucht zit, hoe vaker ru-biss-koo de goede pakt. Extra koolstofdie-oxide geeft ru-biss-koo dus meer werk, en minder vergissingen.
 
 **s07** · audio `s07.mp3` · 9.5 s · generation `G2dWqCFX8xttGuI5Qpjr`
 
@@ -50,11 +50,11 @@ _Stem-invoer:_ Stel: het is een donkere dag in december. De tuinder blaast extra
 
 ## Hoofdstuk 2 — De kas als regelsysteem
 
-**s09** · audio `s09.mp3` · 26.4 s · generation `i1xxKQorxrHBJnIgPdHG`
+**s09** · audio `s09.mp3` · 26.6 s · generation `Y2kjbUopQfOnCPQ2hO6h`
 
 Antwoord b. Op een donkere dag is licht de laagste duig. Rubisco kan dan wel koolstofdioxide pakken, maar er is te weinig energie uit licht om er suiker van te maken. Een tuinder moet dus alles tegelijk in de gaten houden. Opa Henk deed dat vroeger met een thermometer en zijn eigen gevoel. Nu meet een klimaatcomputer elke paar minuten het licht, de temperatuur, de luchtvochtigheid en de koolstofdioxide.
 
-_Stem-invoer:_ Antwoord bé. Op een donkere dag is licht de laagste duig. Rubisco kan dan wel koolstofdie-oxide pakken, maar er is te weinig energie uit licht om er suiker van te maken. Een tuinder moet dus alles tegelijk in de gaten houden. Opa Henk deed dat vroeger met een thermometer en zijn eigen gevoel. Nu meet een klimaatcomputer elke paar minuten het licht, de temperatuur, de luchtvochtigheid en de koolstofdie-oxide.
+_Stem-invoer:_ Antwoord bé. Op een donkere dag is licht de laagste duig. Ru-biss-koo kan dan wel koolstofdie-oxide pakken, maar er is te weinig energie uit licht om er suiker van te maken. Een tuinder moet dus alles tegelijk in de gaten houden. Opa Henk deed dat vroeger met een thermometer en zijn eigen gevoel. Nu meet een klimaatcomputer elke paar minuten het licht, de temperatuur, de luchtvochtigheid en de koolstofdie-oxide.
 
 **s10** · audio `s10.mp3` · 27.5 s · generation `qk9wGBMKjHmrI2KhjbV6`
 
@@ -67,11 +67,11 @@ _Stem-invoer:_ En alles hangt met elkaar samen. Koolstofdie-oxide komt het blad 
 - b) hij zet de lampen uit
 - c) hij doseert minder koolstofdioxide  ✓
 
-**s12** · audio `s12.mp3` · 34.0 s · generation `pRXluQPIuONVsrlEB6pl`
+**s12** · audio `s12.mp3` · 34.8 s · generation `vFJEBQxJb5FXiN4b9mAv`
 
 Antwoord c. Wat je doseert terwijl de ramen openstaan, waait grotendeels weg. Daarom zet de computer de dosering dan lager. Bij veel licht en dichte ramen gaat de koolstofdioxide in een tomatenkas naar zevenhonderd tot negenhonderd deeltjes per miljoen. Buiten is dat ruim vierhonderd. Boven ongeveer duizend heeft extra koolstofdioxide weinig zin meer, want dan is rubisco bijna verzadigd en wordt licht weer de beperkende factor. Tuinders hebben een vuistregel: één procent meer licht geeft bijna één procent meer oogst.
 
-_Stem-invoer:_ Antwoord cee. Wat je doseert terwijl de ramen openstaan, waait grotendeels weg. Daarom zet de computer de dosering dan lager. Bij veel licht en dichte ramen gaat de koolstofdie-oxide in een tomatenkas naar zevenhonderd tot negenhonderd deeltjes per miljoen. Buiten is dat ruim vierhonderd. Boven ongeveer duizend heeft extra koolstofdie-oxide weinig zin meer, want dan is rubisco bijna verzadigd en wordt licht weer de beperkende factor. Tuinders hebben een vuistregel: één procent meer licht geeft bijna één procent meer oogst.
+_Stem-invoer:_ Antwoord cee. Wat je doseert terwijl de ramen openstaan, waait grotendeels weg. Daarom zet de computer de dosering dan lager. Bij veel licht en dichte ramen gaat de koolstofdie-oxide in een tomatenkas naar zevenhonderd tot negenhonderd deeltjes per miljoen. Buiten is dat ruim vierhonderd. Boven ongeveer duizend heeft extra koolstofdie-oxide weinig zin meer, want dan is ru-biss-koo bijna verzadigd en wordt licht weer de beperkende factor. Tuinders hebben een vuistregel: één procent meer licht geeft bijna één procent meer oogst.
 
 **s13** · audio `s13.mp3` · 15.6 s · generation `TKz1YpTsuqcbA7RHKWTS`
 
@@ -131,15 +131,17 @@ Is een Nederlandse tomaat nu duurzaam of niet? Dat hangt af van waar je naar kij
 
 ## Recap
 
-**s24** · audio `s24.mp3` · 18.2 s · generation `lEBKyXdoOW19L8vQrRcD`
+**s24** · audio `s24.mp3` · 19.0 s · generation `jDngPx334t1OJVTqabDT`
 
 Terug naar het buisje van Yasmin. De koolstofdioxide helpt rubisco om sneller en met minder vergissingen suiker te maken, maar alleen als er ook genoeg licht, warmte en water is. Een tuinder denkt dus niet in losse knoppen, maar in één systeem: de kas en de plant samen.
 
-_Stem-invoer:_ Terug naar het buisje van Yasmin. De koolstofdie-oxide helpt rubisco om sneller en met minder vergissingen suiker te maken, maar alleen als er ook genoeg licht, warmte en water is. Een tuinder denkt dus niet in losse knoppen, maar in één systeem: de kas en de plant samen.
+_Stem-invoer:_ Terug naar het buisje van Yasmin. De koolstofdie-oxide helpt ru-biss-koo om sneller en met minder vergissingen suiker te maken, maar alleen als er ook genoeg licht, warmte en water is. Een tuinder denkt dus niet in losse knoppen, maar in één systeem: de kas en de plant samen.
 
-**s25** · audio `s25.mp3` · 17.8 s · generation `mbUUFlUXupeQkobZK0cF`
+**s25** · audio `s25.mp3` · 18.0 s · generation `3nfY7uJsRPBHvNoPtI5R`
 
 Op het mbo leer je zelf telen in de kas. Op het hbo, bijvoorbeeld in de richting tuinbouw en akkerbouw, leer je zo'n kas en zo'n bedrijf te leiden. En aan de universiteit in Wageningen onderzoek je bijvoorbeeld hoe je rubisco slimmer maakt, of hoe een kas zonder aardgas kan.
+
+_Stem-invoer:_ Op het mbo leer je zelf telen in de kas. Op het hbo, bijvoorbeeld in de richting tuinbouw en akkerbouw, leer je zo'n kas en zo'n bedrijf te leiden. En aan de universiteit in Wageningen onderzoek je bijvoorbeeld hoe je ru-biss-koo slimmer maakt, of hoe een kas zonder aardgas kan.
 
 ## Eindkaart
 

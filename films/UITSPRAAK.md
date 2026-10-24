@@ -59,6 +59,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | B (antwoordletter) | bé (Nederlandse B; "bee" klonk Engels) — staat in uitspraak.json; oudere films met "bee" in de stem-invoer: zie WACHTLIJST.md | 21 okt |
 | emergente | emergénte | |
 | ethyleen, generatief, vegetatief, ledlampen, kilowattuur, larven, huidmondjes, zeefvaten, Westland | zoals geschreven (getest in Meer oogst) | 24 okt |
+| rubisco | ru-biss-koo (korte i van vis; beste van 5 rondes, nog niet perfect: het model rekt de i soms) | 24 okt |
 
 ## Uitspraaktest 24 okt 2026 (eleven_v4, Roos; Chromosomen + Signalen in de cel)
 
