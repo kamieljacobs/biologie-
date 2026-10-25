@@ -168,3 +168,7 @@ Kamiel werkt afwisselend vanuit twee Claude-accounts (Max 20x). Die delen geen g
 - Werk niet in beide accounts tegelijk aan dezelfde film of hetzelfde bestand; verschillende reeksen tegelijk kan wel.
 - Beide accounts gebruiken hetzelfde ElevenLabs-account (stem Roos, dezelfde credits) en dezelfde GitHub-account (`kamieljacobs`).
 - Artifacts (keuringsbladen, luisterpagina's) zijn per account; een keuringsblad dat het andere account nodig heeft, deelt Kamiel via de link of het wordt opnieuw gepubliceerd vanuit de repo.
+
+## Terug naar waar je was (Kamiel 25 okt 2026)
+
+Klik je terug (browserknop of een '←'-link, bv. '← Terug naar Voeding' in een film), dan kom je op dezelfde hoogte terug als waar je was. `js/terug.js`, meegeladen door `js/teller.js`, dus op elke pagina: bewaart de scrollpositie per stap in de geschiedenis (`history.state.bkId`, sessionStorage `bk-scroll`) en zet hem terug na terug/vooruit, ook bij de hash-pagina's (index.html, vervolg.html) die zichzelf bij het opbouwen bovenaan zetten. Een '←'-link doet `history.back()` als je net van die pagina kwam, anders opent hij de pagina op de laatst bekende hoogte. Pagina's die zelf `history.replaceState` gebruiken: geef het bestaande state-object door, dan blijft `bkId` staan.

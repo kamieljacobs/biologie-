@@ -32,6 +32,13 @@
     (document.head || document.documentElement).appendChild(fb);
   } catch (e) {}
 
+  // Terug naar waar je was (js/terug.js): scrollpositie bij terugklikken.
+  try {
+    var tg = document.createElement('script');
+    tg.src = new URL('js/terug.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+    (document.head || document.documentElement).appendChild(tg);
+  } catch (e) {}
+
   // Reviewstand in films (js/review.js): aan met ?review=1, blijft aan tot ?review=0.
   try {
     var rq = new URLSearchParams(location.search).get('review');
