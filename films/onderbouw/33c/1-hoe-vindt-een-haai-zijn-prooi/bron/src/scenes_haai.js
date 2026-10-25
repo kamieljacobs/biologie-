@@ -167,7 +167,7 @@ s03(ctx,t,q){ sea({t}); const sp=1-ramp(t,q.at('Dan'),2)*0.4;
 s05(ctx,t,q){ bg(ctx,'schema'); const z=ramp(t,q.at('zee'),1.0);
   const pw=lerp(760,150,z), ph=lerp(340,80,z), px=lerp(960,330,z), py=lerp(470,650,z);
   roundRect(ctx,px-pw/2,py-ph/2,pw,ph,8); shape(ctx,rgba(C.teal,0.18),C.teal,1.5); dot(ctx,px,py,lerp(9,5,z),HK.bloed);
-  naamBij(ctx,'groot zwembad','één druppel: in het beste geval ruikt de haai het',px,py-ph/2-34,1-ramp(t,q.at('zee'),0.3),'center',C.teal); metaText(ctx,'zwembad',px,py+ph/2+30,C.teal,'center',20*clamp(ramp(t,q.at('zee')+0.8,0.4),0.01,1));
+  naamBij(ctx,'zwembad','één druppel: in het beste geval ruikt de haai het',px,py-ph/2-34,1-ramp(t,q.at('zee'),0.3),'center',C.teal); metaText(ctx,'zwembad',px,py+ph/2+30,C.teal,'center',20*clamp(ramp(t,q.at('zee')+0.8,0.4),0.01,1));
   alpha(ctx,z,()=>{ roundRect(ctx,160,190,1600,640,12); ctx.strokeStyle=rgba(C.teal,0.7); ctx.lineWidth=1.5; ctx.stroke(); metaText(ctx,'de zee: veel groter',960,240,C.teal,'center',24); });
   const vd=ramp(t,q.at('verdunt'),2.5); cloud(330+600*vd,520,30+200*vd,ramp(t,q.at('verdunt'),0.5)*(1-0.75*vd)*(1-ramp(t,q.at('Hooguit'),0.5)),t,500*vd);
   arrow(ctx,600,780,1000,780,rgba(C.line,0.9),2,12,ramp(t,q.at('stroming'),0.4)); metaText(ctx,'stroming',800,815,C.text2,'center',20*clamp(ramp(t,q.at('stroming'),0.4),0.01,1));

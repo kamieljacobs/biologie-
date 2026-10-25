@@ -4,11 +4,11 @@ Werkwijze en criteria: `films/BRONNEN.md`. Dit is het eerste logboek (pilot, 25 
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.0 (16 okt 2026), tekst uit `script.md` en het docentdeel in `index.html` |
+| Gecontroleerde versie | 1.0 (16 okt 2026); aanpassingen verwerkt in 1.1 (25 okt 2026) |
 | Eerste ronde | Claude, 25 okt 2026: 25 beweringen, 23 bronnen geopend |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
-| Stand | 10 ✓ · 10 ≈ · 1 ! · 4 ? |
+| Stand | 10 ✓ · 11 ≈ · 0 ! · 4 ? |
 
 ## Bronnen
 
@@ -45,7 +45,7 @@ Niveau volgens `films/BRONNEN.md` (A gezaghebbend, B betrouwbaar secundair). All
 | Nr | Waar | Bewering in de film | Bronnen | Status | Toelichting |
 |---|---|---|---|---|---|
 | 1 | s01, s05, s19 | Een haai ruikt één druppel bloed van kilometers ver is een mythe. | B12, B14, B15 | ≈ | Meredith & Kajiura 2010 (via B12): haaien ruiken niet beter dan andere vissen; B14 en B15 noemen honderden meters, geen kilometers. Inhoudelijk eenduidig, maar alle drie niveau B: het artikel van Meredith & Kajiura zelf nog openen. |
-| 2 | s05, q04 | In het beste geval ruikt een haai één druppel bloed in een **groot** zwembad. | B12, B15 | ! | Bronnen lopen uiteen. Meredith & Kajiura 2010 (nieuwste, peer-reviewed): hooguit ± 1 op een miljard, dus één druppel in een **tuinzwembad**, en uitdrukkelijk niet in een olympisch bad. B15 noemt voor de zwartpunthaai 1 op 10 miljard (± 500 m³). 'Groot zwembad' is daarmee te stellig. Voorstel: 'groot' weglaten (s05, q04-optie b, uitleg na q04). |
+| 2 | s05, q04 | In het beste geval ruikt een haai één druppel bloed in een zwembad. | B12, B15 | ≈ | Was 'een **groot** zwembad' (status !), aangepast in versie 1.1. Bronnen lopen uiteen. Meredith & Kajiura 2010 (nieuwste, peer-reviewed): hooguit ± 1 op een miljard, dus één druppel in een **tuinzwembad**, en uitdrukkelijk niet in een olympisch bad. B15 noemt voor de zwartpunthaai 1 op 10 miljard (± 500 m³). 'Groot zwembad' was daarmee te stellig; 'zwembad' past bij beide. Alleen niveau B: het artikel zelf nog openen. |
 | 3 | s05 | Hooguit een paar honderd meter, als de stroming meezit. | B14, B15 | ≈ | Beide noemen honderden meters/yards. Alleen niveau B; een A-bron met een gemeten afstand nog zoeken. |
 | 4 | s03 | Eerst hoort hij het gespartel; geluid draagt ver onder water. | B13, B14, B21 | ✓ | Myrberg 1972: zijdehaaien kwamen op laag pulserend geluid af van 125 tot ruim 400 m. Gehoor is het zintuig met het grootste bereik (B21). |
 | 5 | s06 | De haai zwemt tegen de stroming in, de geur achterna. | B10, B11 | ✓ | Geur is meestal het eerste signaal en leidt tot stroomopwaarts zwemmen (B10); zijlijn en geur samen leiden naar de bron (B11). |
@@ -64,7 +64,7 @@ Niveau volgens `films/BRONNEN.md` (A gezaghebbend, B betrouwbaar secundair). All
 | 18 | s11 | Bij sommige haaien weegt de lever wel een kwart van het hele dier. | B17 | ≈ | Reuzenhaai tot 25 % (B17). Tweede bron nog toevoegen. |
 | 19 | s11, q10 | Als hij zwemt, geven zijn vinnen extra lift. | — | ? | Nog geen bron geopend. |
 | 20 | s12 | De witte haai moet zwemmen om te ademen; de verpleegsterhaai pompt water met zijn wangspieren. | B16, B22 | ≈ | B22 noemt beide soorten precies zo; B16 alleen in het algemeen. A-bron per soort nog zoeken. |
-| 21 | s13 | Tanden staan in rijen en schuiven door; een haai verbruikt tienduizenden tanden in zijn leven. | B16, B23 | ≈ | B16: tot 30.000; B23: 'duizenden'. Het docentdeel noemt Mental Floss (niveau C) als bron: vervangen door B16. |
+| 21 | s13 | Tanden staan in rijen en schuiven door; een haai verbruikt tienduizenden tanden in zijn leven. | B16, B23 | ≈ | B16: tot 30.000; B23: 'duizenden'. Het docentdeel noemde Mental Floss (niveau C); sinds 1.1 B16 en B23. |
 | 22 | s14 | Natuurlijke selectie: variatie, betere overleving en voortplanting, erfelijk kenmerk wordt over generaties vaker. | — | ≈ | Standaardleerstof; nog naast de SLO-kerndoeltekst 32B leggen. De film vermijdt terecht 'omdat hij dat wilde'. |
 | 23 | s15–s17, q16 | In een baai in Australië jagen tijgerhaaien in het ondiepe; de grazers (doejongs, zeeschildpadden) komen daar minder, en zonder haaien kan het zeegras kaal gegeten worden; vooral de angst doet het werk. | B5, B6, B7 | ✓ | Shark Bay. Grazers mijden risicovolle plekken; buiten bereik van grazers verdriedubbelde de dichtheid van een zeegrassoort (B5). Het effect loopt via gedrag, niet via opeten (B7). |
 | 24 | s18 | In 2025 beten haaien 65 keer een mens die hen niets deed; negen van hen overleden. | B1, B2 | ✓ | B1 is de oorsprong (register). Totaal 12 doden, waarvan 9 bij onuitgelokte beten. |
@@ -74,8 +74,8 @@ Niveau volgens `films/BRONNEN.md` (A gezaghebbend, B betrouwbaar secundair). All
 
 | Wat | Waar | Stand |
 |---|---|---|
-| 'groot zwembad' → 'zwembad' (of 'een zwembad in de tuin') | s05 (stem opnieuw), q04 optie b en uitleg, docentdeel 'Reuk' | voorstel, wacht op Kamiel |
-| Bronnen in het docentdeel vervangen: Mental Floss, Surfertoday, Field & Stream (niveau C) door de bronnen hierboven | `index.html`, tabel 'Getallen in de film' | voorstel |
+| 'groot zwembad' → 'zwembad' | s05 (stem opnieuw), q04 optie b en uitleg, label in de scène, docentdeel 'Reuk' | gedaan in versie 1.1 (Kamiel akkoord 25 okt 2026) |
+| Bronnen in het docentdeel vervangen: Mental Floss, Surfertoday, Field & Stream (niveau C) door de bronnen hierboven | `index.html`, tabel 'Getallen in de film' | gedaan in versie 1.1 |
 | Beweringen 9, 15, 16, 19: bron zoeken, anders formulering verzachten | s06, s09, s11 | open |
 
 ## Menselijke controle

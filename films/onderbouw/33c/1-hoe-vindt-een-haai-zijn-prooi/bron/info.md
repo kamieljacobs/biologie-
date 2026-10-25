@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi/index.html`. De audio staat los in `audio/` (16 mp3's) en zit niet in de HTML. |
 | Reeks | Kerndoelen onderbouw, losse film. Kerndoel **32A** bullets 2–3: bouw van dierlijke organen en weefsels (zintuigen, skelet, kieuwen). **32B** bullet 3: natuurlijke selectie. **33C** bullets 2 en 4: voedselweb en dynamisch evenwicht. **29B** bullets 2–3: structuur en functie, schaal en hoeveelheid. Bron: SLO, definitieve conceptkerndoelen mens en natuur, nov. 2025. |
 | Doelgroep / niveau | Onderbouw leerjaar 1–3, één niveau (basis) zonder uitdagingsblok, dus geen niveauschakelaar. Volgens BEELDAFSPRAKEN (Onderbouw) noemt de film nergens schoolniveaus: niet in beeld, stem of docentdeel. |
-| Versie / datum | 1.0 · 16 oktober 2026 |
+| Versie / datum | 1.1 · 25 oktober 2026 (1.0 · 16 oktober 2026) |
 | Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `1XH3BOpKpHaUR1wxI2vR`. De generatie-id's staan in `stem/generaties.json`; `versie: 2` = opnieuw ingesproken na de review. |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes. Alle 16 takes kloppen woord voor woord met de schermtekst. |
@@ -65,7 +65,7 @@
 
 | Id | Vraag | Opties | Goed |
 |---|---|---|---|
-| q04 | Hoeveel water mag er hoogstens om één druppel bloed zitten, zodat een haai hem nog ruikt? | een emmer water · een groot zwembad · de hele oceaan | b |
+| q04 | Hoeveel water mag er hoogstens om één druppel bloed zitten, zodat een haai hem nog ruikt? | een emmer water · een zwembad · de hele oceaan | b |
 | q07 | De vis ligt in het zand. Hoe vindt de haai hem nu? | met zijn ogen · met zijn zijlijn · met zijn elektrisch zintuig | c |
 | q10 | Een haai is iets zwaarder dan water. Wat helpt hem het meest om niet te zakken? | een zwemblaas vol lucht · een grote lever vol olie, en zwemmen · zijn botten zijn hol | b |
 | q16 | De tijgerhaaien verdwijnen uit de baai. Wat gebeurt er met het zeegras? | er komt meer zeegras · er komt minder zeegras · er verandert niets | b |
@@ -82,7 +82,7 @@ zintuig, zijlijn, elektrisch zintuig, kraakbeen, natuurlijke selectie (met erfel
 - Tabel per hoofdstuk.
 - Vier misconcepties: de bloeddruppel van kilometers ver, altijd moeten zwemmen, aanpassen omdat het moet, minder roofdieren is beter.
 - Pauzemomenten.
-- Getallen met bronnen: reuk, ogen, zijlijn, elektrisch zintuig, 450 miljoen jaar, lever, tanden, ISAF 2025, Worm et al. 2024.
+- Getallen met bronnen: reuk, gehoor, ogen, zijlijn, elektrisch zintuig, 450 miljoen jaar, lever, tanden, ISAF 2025, Worm et al. 2024. Sinds 1.1 alleen bronnen van niveau A/B uit `bronnen.md`, plus een verwijzing naar het bronnenlogboek.
 - Vereenvoudigingen: afstanden niet op schaal; "zeekoeien" zijn doejongs; Shark Bay met het effect via gedrag.
 - Leerdoelen met dekking.
 
@@ -118,3 +118,7 @@ Er zijn geen blobs: `film.src.html` = `index.html`, dus de regelnummers zijn gel
 ## Wijziging 25 okt 2026
 
 - Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.
+
+## Versies
+
+- **1.1 · 25 okt 2026**: na de bronnencontrole (`bronnen.md`, bewering 2) "groot" weggehaald bij "één druppel in een zwembad": s05 opnieuw ingesproken (Roos, eleven_v4, één take, generatie `UhEub4wqVdABRiYeJZVA`, Scribe-woordtijden, −16 LUFS), vraag q04 optie b en uitleg aangepast, label in de s05-scène. Docenttabel "Getallen in de film" herschreven met de bronnen uit het logboek (Mental Floss, Surfertoday, Field & Stream eruit).

@@ -1,7 +1,7 @@
 import json, re
 segs = json.load(open('segments.json'))
 answers = {
- 'q04': (1, 'In het beste geval ruikt een haai één druppel bloed in een groot zwembad. Maar de zee is veel groter, en de stroming neemt de geur mee. Kilometers ver lukt niet.'),
+ 'q04': (1, 'In het beste geval ruikt een haai één druppel bloed in een zwembad. Maar de zee is veel groter, en de stroming neemt de geur mee. Kilometers ver lukt niet.'),
  'q07': (2, 'De vis ligt stil in het zand. Ogen en zijlijn helpen dan niet meer. Maar zijn hart en kieuwen blijven bewegen, en die spieren maken kleine elektrische signalen.'),
  'q10': (1, 'Haaien hebben geen zwemblaas. Hun grote lever zit vol olie, en olie is lichter dan water. Als ze zwemmen, geven hun vinnen extra lift.'),
  'q16': (1, 'Zonder haaien durven de grazers overal te komen. Dan kan het zeegras kaal gegeten worden, ook waar jonge vissen schuilen.'),

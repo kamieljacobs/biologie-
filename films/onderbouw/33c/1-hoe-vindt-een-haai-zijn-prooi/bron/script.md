@@ -25,14 +25,14 @@ Een vis raakt gewond en spartelt. Een haai zwemt honderden meters verderop. Eers
 **q04** · voorspelvraag: Hoeveel water mag er hoogstens om één druppel bloed zitten, zodat een haai hem nog ruikt?
 
 - a) een emmer water
-- b) een groot zwembad **(goed)**
+- b) een zwembad **(goed)**
 - c) de hele oceaan
 
-Uitleg na het antwoord: In het beste geval ruikt een haai één druppel bloed in een groot zwembad. Maar de zee is veel groter, en de stroming neemt de geur mee. Kilometers ver lukt niet.
+Uitleg na het antwoord: In het beste geval ruikt een haai één druppel bloed in een zwembad. Maar de zee is veel groter, en de stroming neemt de geur mee. Kilometers ver lukt niet.
 
-**s05** · `audio/s05.mp3` · 0.0–15.8 s
+**s05** · `audio/s05.mp3` · 0.0–15.2 s (opnieuw ingesproken 25 okt 2026, zie bronnen.md)
 
-In het beste geval ruikt een haai één druppel bloed in een groot zwembad. Maar de zee is veel groter. Het bloed verdunt snel, en de stroming neemt de geur mee. Kilometers ver? Nee. Hooguit een paar honderd meter, als de stroming meezit.
+In het beste geval ruikt een haai één druppel bloed in een zwembad. Maar de zee is veel groter. Het bloed verdunt snel, en de stroming neemt de geur mee. Kilometers ver? Nee. Hooguit een paar honderd meter, als de stroming meezit.
 
 **s06** · `audio/s06.mp3` · 0.0–27.6 s
 

@@ -12,9 +12,9 @@ Haaien. Hoe vindt een haai zijn prooi?
 
 ## Hoofdstuk 1 — Van ver naar dichtbij [Macro-nacht, Schema voor de zijlijn en de snuit]
 Een vis raakt gewond en spartelt. Een haai zwemt honderden meters verderop. Eerst hoort hij het gespartel. Geluid draagt ver onder water. Dan ruikt hij het bloed. Hoe goed is die neus? Wat denk je?
-[VRAAG] (a) een emmer water · (b) een groot zwembad · (c) de hele oceaan
+[VRAAG] (a) een emmer water · (b) een zwembad · (c) de hele oceaan
 
-In het beste geval ruikt een haai één druppel bloed in een groot zwembad. Maar de zee is veel groter. Het bloed verdunt snel, en de stroming neemt de geur mee. Kilometers ver? Nee. Hooguit een paar honderd meter, als de stroming meezit.
+In het beste geval ruikt een haai één druppel bloed in een zwembad. Maar de zee is veel groter. Het bloed verdunt snel, en de stroming neemt de geur mee. Kilometers ver? Nee. Hooguit een paar honderd meter, als de stroming meezit.
 
 De haai zwemt tegen de stroming in, de geur achterna. In helder water ziet hij de vis op zo'n vijftien meter. Haaienogen werken ook goed in het donker. Nog dichterbij voelt hij de vis, zonder hem aan te raken. Dat doet zijn zijlijn: een rij zintuigcellen langs zijn lijf en kop. Die voelen trillingen in het water, op een paar meter afstand. Dan duikt de vis het zand in. Hoe vindt de haai hem nu? Wat denk je?
 [VRAAG] (a) met zijn ogen · (b) met zijn zijlijn · (c) met zijn elektrisch zintuig
