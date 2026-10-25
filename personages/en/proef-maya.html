@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Proef Maya</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#121A26; --stage:#1A2740; --tekst:#F2F2EE; --tekst2:#9AA3B2; --goud:#E0B64A; --rand:#2A3A58; }
+  body { margin:0; background:var(--bg); color:var(--tekst); font-family:'Source Sans 3',sans-serif; }
+  main { max-width:1280px; margin:0 auto; padding:20px 16px 40px; }
+  h1 { font-family:Fraunces,serif; font-size:30px; margin:6px 0 4px; }
+  p { color:var(--tekst2); margin:4px 0 14px; line-height:1.45; }
+  .meta { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; color:var(--goud); }
+  canvas { width:100%; height:auto; display:block; background:var(--stage); border-radius:10px; margin:10px 0 6px; }
+  .knoppen { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 18px; }
+  button { font:600 14px 'Source Sans 3',sans-serif; color:var(--tekst); background:var(--rand); border:1px solid #3A4C70; border-radius:8px; padding:7px 12px; cursor:pointer; }
+  button.aan { background:var(--goud); color:#1A2740; border-color:var(--goud); }
+</style>
+</head>
+<body>
+<main>
+  <div class="meta">PROEF · ENGELSE CAST · 25 OKT 2026</div>
+  <h1>Maya: van still naar animatie</h1>
+  <p>Links de ElevenLabs-still, in het midden en rechts Maya in code: met en zonder contourlijnen. Ze praat, knippert, wijst en zwaait. Daaronder loopt ze van opzij, met de gangmotor van het castboek.</p>
+  <canvas id="voor" width="1920" height="1080"></canvas>
+  <div class="knoppen">
+    <button id="pauze">Pauze</button>
+    <button data-pose="cyclus" class="aan">Alles om de beurt</button>
+    <button data-pose="praat">Praten</button>
+    <button data-pose="wijs">Wijzen</button>
+    <button data-pose="zwaai">Zwaaien</button>
+    <button data-pose="uitleg">Uitleggen</button>
+  </div>
+  <canvas id="zij" width="1920" height="620"></canvas>
+  <div class="knoppen">
+    <button id="lijnen" class="aan">Contourlijnen aan</button>
+    <button data-gang="loop" class="aan">Lopen</button>
+    <button data-gang="ren">Rennen</button>
+  </div>
+</main>
+<script src="../lib_cast.js"></script>
+<script>
+// ===== Maya, rijkere castversie (proef 25 okt 2026) =====
+// Vooraanzicht in de coördinaten van de still (uitsnede 400 × 1150, voeten op y 1150, midden x 200), zijaanzicht in kopmaten.
+const M = {
+  huid:'#8A4A26', huidS:'#6F3A1D', haar:'#1C1613', haarL:'#3A2C24',
+  trui:'#D9922A', truiS:'#BE7A1D', truiL:'#E6A645',
+  jeans:'#4C76A0', jeansS:'#3C6189', jeansL:'#6B93BB', naad:'#C9A35C',
+  schoen:'#F1EBE3', schoenS:'#D6CCC0', zool:'#E2D9CE',
+  oog:'#1A1210', mond:'#5A2418', lip:'#7A3A26'
+};
+const LIJNKLEUR = (kl) => _mix(kl.startsWith('#') ? kl : '#000000', 0.68, '#140E14');
+let LIJN = true, LW = 2.4;
+
+function vorm(ctx, pad, vul, schaduw) { // vul, eventueel schaduw binnen de vorm, dan contour
+  pad(); ctx.fillStyle = vul; ctx.fill();
+  if (schaduw) { ctx.save(); pad(); ctx.clip(); schaduw(); ctx.restore(); }
+  if (LIJN) { pad(); ctx.strokeStyle = LIJNKLEUR(vul); ctx.lineWidth = LW; ctx.stroke(); }
+}
+function capsule(ctx, x1, y1, r1, x2, y2, r2, nieuw = true) { const a = Math.atan2(y2 - y1, x2 - x1), nx = Math.cos(a + Math.PI / 2), ny = Math.sin(a + Math.PI / 2);
+  if (nieuw) ctx.beginPath(); ctx.moveTo(x1 + nx * r1, y1 + ny * r1); ctx.lineTo(x2 + nx * r2, y2 + ny * r2);
+  ctx.arc(x2, y2, r2, a + Math.PI / 2, a - Math.PI / 2, true); ctx.lineTo(x1 - nx * r1, y1 - ny * r1); ctx.arc(x1, y1, r1, a - Math.PI / 2, a + Math.PI / 2, true); ctx.closePath(); }
+function unie(ctx, cirkels, vul, lijn = LIJN) { // bolle haarvorm uit cirkels: eerst dubbele contour, dan vulling (alleen buitenrand zichtbaar)
+  if (lijn) { ctx.fillStyle = LIJNKLEUR(vul); for (const [x, y, r] of cirkels) { ctx.beginPath(); ctx.arc(x, y, r + LW, 0, 6.283); ctx.fill(); } }
+  ctx.fillStyle = vul; for (const [x, y, r] of cirkels) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fill(); } }
+function vormen(ctx, paden, vul, schaduw) { // meerdere paden als één silhouet: dubbele contour onder, vulling erboven, schaduw binnen de vulling
+  if (LIJN) { ctx.strokeStyle = LIJNKLEUR(vul); ctx.lineWidth = LW * 2; for (const p of paden) { p(); ctx.stroke(); } }
+  ctx.fillStyle = vul; for (const p of paden) { p(); ctx.fill(); }
+  if (schaduw) for (const p of paden) { ctx.save(); p(); ctx.clip(); schaduw(); ctx.restore(); }
+}
+const ease = (u) => u <= 0 ? 0 : u >= 1 ? 1 : u * u * (3 - 2 * u);
+const lerp = (a, b, u) => a + (b - a) * u;
+
+// ---------- hand (lokaal: oorsprong = pols, +y = richting van de onderarm) ----------
+function hand(ctx, soort, schaal = 1, golf = 0) {
+  const delen = []; // elk deel is een eigen pad, zodat alles samen één silhouet wordt (dubbele contour eronder, vulling erboven)
+  const vinger = (x, y, ang, len, r) => delen.push(() => { const ex = x + Math.sin(ang) * len, ey = y + Math.cos(ang) * len; capsule(ctx, x, y, r, ex, ey, r * 0.85); });
+  delen.push(() => { ctx.beginPath(); ctx.ellipse(0, 20 * schaal, 14 * schaal, 19 * schaal, 0, 0, 6.283); });
+  if (soort === 'wijs') { vinger(-3 * schaal, 30 * schaal, -0.05, 30 * schaal, 5 * schaal); for (let i = 0; i < 3; i++) delen.push(() => { ctx.beginPath(); ctx.ellipse((1 + i * 5) * schaal, 34 * schaal, 5 * schaal, 6 * schaal, 0, 0, 6.283); }); }
+  else if (soort === 'open' || soort === 'zwaai') { const sp = soort === 'zwaai' ? 0.14 + golf * 0.05 : 0.08; for (let i = 0; i < 4; i++) vinger((-8 + i * 5.5) * schaal, 32 * schaal, (i - 1.5) * sp, (i === 0 ? 18 : i === 3 ? 16 : 21) * schaal, 4.4 * schaal); }
+  else { for (let i = 0; i < 4; i++) vinger((-7.5 + i * 5) * schaal, 32 * schaal, 0.06 * (i - 1.5), (i === 3 ? 12 : 16) * schaal, 4.4 * schaal); }
+  vinger(12 * schaal, 12 * schaal, soort === 'wijs' ? 0.9 : -0.6, 16 * schaal, 5 * schaal); // duim
+  if (LIJN) { ctx.fillStyle = LIJNKLEUR(M.huid); ctx.strokeStyle = LIJNKLEUR(M.huid); ctx.lineWidth = LW * 2; for (const d of delen) { d(); ctx.stroke(); } }
+  ctx.fillStyle = M.huid; for (const d of delen) { d(); ctx.fill(); }
+  ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(-5 * schaal, 24 * schaal, 5 * schaal, 11 * schaal, 0, 0, 6.283); ctx.fill(); // schaduwtint in de handpalm
+}
+
+// ---------- arm (vooraanzicht) ----------
+// s = -1 links in beeld (Maya's rechterarm), +1 rechts in beeld; a1/a2 = hoek t.o.v. recht omlaag, + = naar buiten
+function arm(ctx, s, a1, a2, o = {}) {
+  const S = [s < 0 ? 104 : 304, 330], L1 = 146, L2 = 166 * (o.kort || 1);
+  const E = [S[0] + s * Math.sin(a1) * L1, S[1] + Math.cos(a1) * L1];
+  const W = [E[0] + s * Math.sin(a2) * L2, E[1] + Math.cos(a2) * L2];
+  const dir = Math.atan2(W[0] - E[0], W[1] - E[1]);
+  const C = [E[0] + (W[0] - E[0]) * 0.86, E[1] + (W[1] - E[1]) * 0.86]; // begin manchet
+  // hand eerst, de manchet valt eroverheen
+  ctx.save();
+  if (o.zak) { ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(400, 0); ctx.lineTo(400, 1150); ctx.lineTo(0, 1150); ctx.lineTo(0, 600); ctx.lineTo(108, 600); ctx.quadraticCurveTo(150, 588, 200, 572); ctx.lineTo(200, 0); ctx.closePath(); ctx.clip(); }
+  ctx.translate(W[0], W[1]); ctx.rotate(-dir); if (s < 0) ctx.scale(-1, 1);
+  hand(ctx, o.hand || 'rust', 1.45, o.golf || 0); ctx.restore();
+  if (o.zak && LIJN) { ctx.strokeStyle = LIJNKLEUR(M.jeans); ctx.lineWidth = LW; ctx.beginPath(); ctx.moveTo(108, 600); ctx.quadraticCurveTo(150, 588, 186, 576); ctx.stroke(); }
+  if (o.zak) { ctx.fillStyle = M.jeansS; ctx.beginPath(); ctx.moveTo(108, 600); ctx.quadraticCurveTo(150, 588, 186, 576); ctx.lineTo(186, 583); ctx.quadraticCurveTo(150, 596, 110, 607); ctx.closePath(); ctx.fill(); }
+  // mouw: bovenarm en ruime onderarm (ballonmouw), dan de manchet
+  const vul = M.trui, Mx = [(E[0] + C[0]) / 2, (E[1] + C[1]) / 2];
+  vormen(ctx, [() => capsule(ctx, S[0], S[1], 30, E[0], E[1], 27), () => capsule(ctx, E[0], E[1], 27, Mx[0], Mx[1], 31), () => capsule(ctx, Mx[0], Mx[1], 31, C[0], C[1], 23)], vul,
+    () => { ctx.fillStyle = M.truiS; ctx.beginPath(); ctx.ellipse(Mx[0] + Math.cos(dir) * s * 18, Mx[1] - Math.sin(dir) * s * 18, 13, 70, -dir, 0, 6.283); ctx.fill(); });
+  const M2 = [W[0] + (C[0] - W[0]) * 0.1, W[1] + (C[1] - W[1]) * 0.1];
+  vorm(ctx, () => { capsule(ctx, C[0], C[1], 21, M2[0], M2[1], 19); }, M.truiS, () => { ctx.strokeStyle = M.trui; ctx.lineWidth = 1.6; for (let i = -2; i <= 2; i++) { const px = Math.cos(dir), py = -Math.sin(dir); ctx.beginPath(); ctx.moveTo(C[0] + px * i * 7 - Math.sin(dir) * 4, C[1] + py * i * 7 - Math.cos(dir) * 4); ctx.lineTo(M2[0] + px * i * 7, M2[1] + py * i * 7); ctx.stroke(); } });
+  // plooi bij de elleboog
+  if (LIJN) { ctx.strokeStyle = LIJNKLEUR(vul); ctx.lineWidth = LW * 0.8; ctx.beginPath(); ctx.moveTo(E[0] - s * 12, E[1] - 6); ctx.quadraticCurveTo(E[0], E[1] + 4, E[0] + s * 10, E[1] - 2); ctx.stroke(); }
+  return { E, W, dir };
+}
+
+// ---------- Maya vooraanzicht ----------
+function mayaVoor(ctx, x, y, h, o = {}) {
+  const t = o.t || 0, k = h / 1040;
+  ctx.save(); ctx.translate(x, y); ctx.scale(k, k); ctx.translate(-200, -1150); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const adem = Math.sin(t * 1.6) * 1.2, knik = o.knik || 0;
+  // --- puff achter het hoofd (veert iets na bij een knik)
+  const pv = Math.sin(t * 1.6 - 0.6) * 1.5 + knik * 6;
+  const puff = []; for (let i = 0; i < 14; i++) { const a = i / 14 * 6.283; puff.push([166 + Math.cos(a) * 46 + pv * 0.3, 88 + Math.sin(a) * 40 + pv, 24 + (i % 3) * 3]); } puff.push([166, 88 + pv, 44]);
+  unie(ctx, puff, M.haar);
+  ctx.strokeStyle = M.haarL; ctx.lineWidth = 2.2; for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283 + 0.3, r = 30 + (i % 2) * 10; ctx.beginPath(); ctx.arc(166 + Math.cos(a) * r, 88 + pv + Math.sin(a) * r * 0.8, 7, a + 1, a + 3); ctx.stroke(); }
+  // --- benen (jeans), enkels, schoenen
+  const been = (bin, buit, voetX) => {
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(buit[0][0], buit[0][1]); ctx.bezierCurveTo(buit[1][0], buit[1][1], buit[2][0], buit[2][1], buit[3][0], buit[3][1]); ctx.lineTo(bin[3][0], bin[3][1]); ctx.bezierCurveTo(bin[2][0], bin[2][1], bin[1][0], bin[1][1], bin[0][0], bin[0][1]); ctx.closePath(); }, M.jeans,
+      () => { ctx.fillStyle = M.jeansS; ctx.beginPath(); ctx.moveTo(bin[0][0], bin[0][1]); ctx.bezierCurveTo(bin[1][0], bin[1][1], bin[2][0], bin[2][1], bin[3][0], bin[3][1]); ctx.lineTo(bin[3][0] + (buit[3][0] > bin[3][0] ? 26 : -26), bin[3][1]); ctx.lineTo(bin[0][0] + (buit[3][0] > bin[3][0] ? 20 : -20), bin[0][1] + 40); ctx.closePath(); ctx.fill();
+        ctx.strokeStyle = M.naad; ctx.globalAlpha = 0.5; ctx.lineWidth = 1.4; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(buit[0][0] + (buit[3][0] > bin[3][0] ? -8 : 8), buit[0][1] + 30); ctx.bezierCurveTo(buit[1][0] + (buit[3][0] > bin[3][0] ? -8 : 8), buit[1][1], buit[2][0] + (buit[3][0] > bin[3][0] ? -8 : 8), buit[2][1], buit[3][0] + (buit[3][0] > bin[3][0] ? -8 : 8), buit[3][1]); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1; });
+    // omgeslagen pijp
+    const lx = Math.min(bin[3][0], buit[3][0]) - 4, rx = Math.max(bin[3][0], buit[3][0]) + 4;
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(lx, 1030); ctx.lineTo(rx, 1030); ctx.lineTo(rx + 2, 1056); ctx.lineTo(lx - 2, 1056); ctx.closePath(); }, M.jeansL);
+    // enkel
+    vorm(ctx, () => { ctx.beginPath(); ctx.rect(voetX - 18, 1054, 36, 32); }, M.huid);
+    // sneaker (vooraanzicht, neus iets naar buiten)
+    const z = voetX < 200 ? -1 : 1;
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(voetX - 30, 1082); ctx.quadraticCurveTo(voetX, 1070, voetX + 28, 1082); ctx.quadraticCurveTo(voetX + 34 + z * 14, 1100, voetX + 40 + z * 22, 1128); ctx.lineTo(voetX - 40 + z * 22, 1132); ctx.quadraticCurveTo(voetX - 38, 1100, voetX - 30, 1082); ctx.closePath(); }, M.schoen,
+      () => { ctx.fillStyle = M.schoenS; ctx.fillRect(voetX - 50, 1118, 110, 16); ctx.strokeStyle = M.schoenS; ctx.lineWidth = 2.2; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(voetX - 12 + z * i * 3, 1088 + i * 8); ctx.lineTo(voetX + 12 + z * i * 3, 1088 + i * 8); ctx.stroke(); } });
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(voetX - 46 + z * 22, 1128); ctx.lineTo(voetX + 46 + z * 22, 1124); ctx.quadraticCurveTo(voetX + 50 + z * 22, 1146, voetX + 36 + z * 22, 1148); ctx.lineTo(voetX - 38 + z * 22, 1150); ctx.quadraticCurveTo(voetX - 50 + z * 22, 1146, voetX - 46 + z * 22, 1128); ctx.closePath(); }, M.zool);
+  };
+  been([[205, 640], [186, 800], [160, 930], [146, 1032]], [[120, 562], [100, 740], [84, 900], [76, 1032]], 112);
+  been([[212, 640], [226, 800], [228, 930], [222, 1032]], [[296, 562], [304, 740], [298, 900], [290, 1032]], 256);
+  // broekband, gulp, zakken
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(114, 548); ctx.lineTo(302, 548); ctx.lineTo(304, 600); ctx.quadraticCurveTo(208, 660, 112, 600); ctx.closePath(); }, M.jeans,
+    () => { ctx.fillStyle = M.jeansS; ctx.fillRect(110, 575, 200, 6); });
+  if (LIJN) { ctx.strokeStyle = LIJNKLEUR(M.jeans); ctx.lineWidth = LW * 0.8; ctx.beginPath(); ctx.moveTo(208, 578); ctx.quadraticCurveTo(212, 615, 205, 640); ctx.moveTo(250, 572); ctx.quadraticCurveTo(262, 600, 300, 604); ctx.stroke(); }
+  for (const bx of [140, 190, 228, 276]) { ctx.fillStyle = M.jeansS; ctx.fillRect(bx - 3, 548, 6, 26); }
+  ctx.fillStyle = M.naad; ctx.beginPath(); ctx.arc(208, 562, 5, 0, 6.283); ctx.fill();
+  // --- trui (romp), met ademhaling
+  ctx.save(); ctx.translate(0, -adem);
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(176, 296); ctx.bezierCurveTo(140, 300, 112, 304, 106, 334); ctx.bezierCurveTo(112, 420, 116, 500, 120, 548);
+      ctx.quadraticCurveTo(208, 560 + adem, 296, 546); ctx.bezierCurveTo(298, 500, 300, 420, 304, 334); ctx.bezierCurveTo(296, 304, 270, 300, 238, 296); ctx.quadraticCurveTo(207, 314, 176, 296); ctx.closePath(); }, M.trui,
+    () => { ctx.fillStyle = M.truiS; ctx.beginPath(); ctx.moveTo(262, 330); ctx.quadraticCurveTo(300, 420, 290, 552); ctx.lineTo(320, 552); ctx.lineTo(320, 330); ctx.closePath(); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(118, 360); ctx.quadraticCurveTo(140, 450, 128, 548); ctx.lineTo(100, 548); ctx.lineTo(100, 360); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = M.truiS; ctx.fillRect(100, 528, 220, 30); // boord onderaan
+      ctx.strokeStyle = M.trui; ctx.lineWidth = 1.5; for (let xx = 122; xx < 300; xx += 9) { ctx.beginPath(); ctx.moveTo(xx, 532); ctx.lineTo(xx, 556); ctx.stroke(); } });
+  // plooien
+  if (LIJN) { ctx.strokeStyle = LIJNKLEUR(M.trui); ctx.lineWidth = LW * 0.75; ctx.beginPath(); ctx.moveTo(150, 470); ctx.quadraticCurveTo(170, 490, 168, 520); ctx.moveTo(250, 450); ctx.quadraticCurveTo(240, 480, 252, 512); ctx.moveTo(118, 528); ctx.quadraticCurveTo(208, 536, 300, 526); ctx.stroke(); }
+  ctx.restore();
+  // --- armen
+  const p = o.armen || { L: [0.24, -0.34, 'rust', true], R: [0.18, 0.05, 'rust'] };
+  const kortV = (a2) => a2 > 1.6 ? 0.72 : 1;
+  arm(ctx, -1, p.L[0], p.L[1], { hand: p.L[2], zak: p.L[3], kort: p.L[3] ? 0.78 : kortV(p.L[1]), golf: p.golf });
+  arm(ctx, 1, p.R[0], p.R[1], { hand: p.R[2], golf: p.golf, kort: kortV(p.R[1]) });
+  // --- hals en kraag
+  ctx.save(); ctx.translate(0, -adem * 0.6);
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(184, 250); ctx.lineTo(230, 250); ctx.lineTo(234, 300); ctx.quadraticCurveTo(207, 312, 180, 300); ctx.closePath(); }, M.huid, () => { ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(207, 262, 30, 18, 0, 0, 6.283); ctx.fill(); });
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(172, 294); ctx.quadraticCurveTo(207, 322, 242, 294); ctx.quadraticCurveTo(246, 306, 240, 308); ctx.quadraticCurveTo(207, 334, 174, 308); ctx.quadraticCurveTo(168, 304, 172, 294); ctx.closePath(); }, M.truiS);
+  // --- hoofd (iets kantelen bij praten)
+  const kant = Math.sin(t * 0.7) * 0.025 + (o.kantel || 0);
+  ctx.translate(207, 260); ctx.rotate(kant); ctx.translate(-207, -260 + knik * 3);
+  // oren
+  for (const s of [-1, 1]) vorm(ctx, () => { ctx.beginPath(); ctx.ellipse(207 + s * 60, 214, 11, 18, s * 0.15, 0, 6.283); }, M.huid, () => { ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(207 + s * 62, 216, 5, 10, 0, 0, 6.283); ctx.fill(); });
+  // gezicht
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(207, 112); ctx.bezierCurveTo(250, 112, 268, 150, 266, 196); ctx.bezierCurveTo(264, 236, 240, 268, 207, 272); ctx.bezierCurveTo(174, 268, 150, 236, 148, 196); ctx.bezierCurveTo(146, 150, 164, 112, 207, 112); ctx.closePath(); }, M.huid,
+    () => { ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(262, 210, 18, 60, 0.1, 0, 6.283); ctx.fill(); });
+  // haarkap met haarlijn
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(146, 200); ctx.bezierCurveTo(136, 150, 156, 104, 207, 100); ctx.bezierCurveTo(258, 100, 278, 150, 268, 200);
+      ctx.bezierCurveTo(262, 168, 250, 150, 230, 146); ctx.quadraticCurveTo(207, 138, 184, 146); ctx.bezierCurveTo(164, 150, 152, 168, 146, 200); ctx.closePath(); }, M.haar,
+    () => { ctx.strokeStyle = M.haarL; ctx.lineWidth = 2; for (const [a, b, c2, d] of [[175, 150, 168, 112], [205, 140, 186, 104], [236, 148, 214, 104], [258, 172, 240, 114]]) { ctx.beginPath(); ctx.moveTo(a, b); ctx.quadraticCurveTo((a + c2) / 2 - 8, (b + d) / 2, c2, d); ctx.stroke(); } });
+  // gezicht: wenkbrauwen, ogen (knipperen), neus, mond (praten)
+  const knip = (o.knipper != null ? o.knipper : ((t % 4.2) < 0.13 ? 1 : 0));
+  const verbaasd = o.uit === 'verbaasd' ? 1 : 0;
+  ctx.strokeStyle = M.haar; ctx.lineWidth = 5; ctx.lineCap = 'round';
+  for (const s of [-1, 1]) { ctx.beginPath(); ctx.moveTo(207 + s * 16, 180 - verbaasd * 6); ctx.quadraticCurveTo(207 + s * 30, 172 - verbaasd * 8, 207 + s * 44, 179 - verbaasd * 5); ctx.stroke(); }
+  for (const s of [-1, 1]) { const ex = 207 + s * 26, ey = 202;
+    if (knip) { ctx.strokeStyle = M.oog; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(ex - 10, ey); ctx.quadraticCurveTo(ex, ey + 5, ex + 10, ey); ctx.stroke(); }
+    else { ctx.fillStyle = M.oog; ctx.beginPath(); ctx.ellipse(ex, ey, 8.5, 9.5 + verbaasd * 2, 0, 0, 6.283); ctx.fill();
+      ctx.fillStyle = '#F2F2EE'; ctx.beginPath(); ctx.arc(ex + 2.6, ey - 3, 2.4, 0, 6.283); ctx.fill();
+      ctx.strokeStyle = M.huidS; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.arc(ex, ey + 1, 13, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); } }
+  ctx.strokeStyle = M.huidS; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(203, 214); ctx.quadraticCurveTo(200, 228, 196, 233); ctx.quadraticCurveTo(207, 239, 218, 233); ctx.stroke();
+  const praat = o.praat ? Math.max(0, Math.sin(t * 13) * 0.55 + Math.sin(t * 7.3) * 0.45) : 0;
+  if (praat > 0.12) { vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(191, 249); ctx.quadraticCurveTo(207, 252, 223, 249); ctx.quadraticCurveTo(207, 252 + praat * 18, 191, 249); ctx.closePath(); }, M.mond);
+    ctx.fillStyle = '#B5524A'; ctx.beginPath(); ctx.ellipse(207, 250 + praat * 12, 8 * praat, 3 * praat, 0, 0, 6.283); ctx.fill(); }
+  else { ctx.strokeStyle = M.mond; ctx.lineWidth = 3.2; ctx.beginPath(); ctx.moveTo(190, 247); ctx.quadraticCurveTo(207, 258, 224, 246); ctx.stroke();
+    ctx.strokeStyle = M.lip; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(198, 256); ctx.quadraticCurveTo(207, 260, 216, 256); ctx.stroke(); }
+  ctx.restore();
+  ctx.restore();
+}
+
+// ---------- Maya zijaanzicht, lopend of rennend (gangmotor van lib_cast.js) ----------
+function mayaZij(ctx, x, y, h, o = {}) {
+  const t = o.t || 0, G = GANG[o.gang || 'loop'], hh = h / 6.5, top = y - h, voetY = y;
+  const fEff = G.f, fase = t * fEff, fi = fase * 6.2832, fr = (q) => ((q % 1) + 1) % 1;
+  const heupY0 = top + hh * 3.05, Lb = voetY - heupY0 - hh * 0.2, L1 = Lb * 0.5, L2 = Lb * 0.5;
+  let B1 = _beenPose(G, fr(fase), L1, L2, hh), B2 = _beenPose(G, fr(fase + 0.5), L1, L2, hh);
+  const duty = G.duty, steun = (B) => B.p < duty; let heupY;
+  if (steun(B1) || steun(B2)) heupY = Math.min(steun(B1) ? voetY - B1.low : 1e9, steun(B2) ? voetY - B2.low : 1e9);
+  else { const L = B1.p >= duty && B1.p < 0.5 ? B1 : B2, Tf = (0.5 - duty) / fEff, tau = (L.p - duty) / fEff;
+    const yTO = voetY - _beenPose(G, duty, L1, L2, hh).low, yIC = voetY - _beenPose(G, 0, L1, L2, hh).low, g = 9.81 * (h / 1.7) * (G.zweef || 1);
+    heupY = yTO + (yIC - yTO) * tau / Tf - 0.5 * g * tau * (Tf - tau); }
+  for (const k of [1, 2]) { let B = k === 1 ? B1 : B2; if (!steun(B)) for (let e = 0; e < 10 && heupY + B.low > voetY - hh * 0.03; e++) B = _beenPose(G, B.p, L1, L2, hh, (e + 1) * 5); if (k === 1) B1 = B; else B2 = B; }
+  const cx = x, dy = heupY - heupY0, lean = G.leun * Math.PI / 180;
+  const rot = (px, py) => { const dx = px - cx, d2 = py - heupY; return [cx + dx * Math.cos(lean) - d2 * Math.sin(lean), heupY + dx * Math.sin(lean) + d2 * Math.cos(lean)]; };
+  ctx.save(); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const LW0 = LW; LW = LW0 * hh / 160;
+  const ver = (kl, k = 0.2) => _mix(kl, k, '#1A2740');
+  const toHex = (rgb) => { const m = rgb.match(/\d+/g); return '#' + m.map(v => (+v).toString(16).padStart(2, '0')).join(''); };
+  // --- been
+  const tekenBeen = (B, isVer) => {
+    const hx = cx - hh * 0.04, K = [hx + B.kx, heupY + B.ky], A = [hx + B.ax, heupY + B.ay];
+    const jn = isVer ? toHex(ver(M.jeans)) : M.jeans, jl = isVer ? toHex(ver(M.jeansL)) : M.jeansL, hu = isVer ? toHex(ver(M.huid)) : M.huid;
+    vorm(ctx, () => capsule(ctx, hx, heupY, hh * 0.3, K[0], K[1], hh * 0.24), jn, () => { ctx.fillStyle = isVer ? toHex(ver(M.jeansS)) : M.jeansS; ctx.beginPath(); ctx.ellipse((hx + K[0]) / 2 - hh * 0.18, (heupY + K[1]) / 2, hh * 0.1, hh * 0.55, B.th, 0, 6.283); ctx.fill(); });
+    const Ap = [K[0] + (A[0] - K[0]) * 0.86, K[1] + (A[1] - K[1]) * 0.86];
+    vorm(ctx, () => capsule(ctx, K[0], K[1], hh * 0.24, Ap[0], Ap[1], hh * 0.22), jn);
+    vorm(ctx, () => capsule(ctx, Ap[0], Ap[1], hh * 0.23, K[0] + (A[0] - K[0]) * 0.97, K[1] + (A[1] - K[1]) * 0.97, hh * 0.23), jl);
+    vorm(ctx, () => capsule(ctx, K[0] + (A[0] - K[0]) * 0.96, K[1] + (A[1] - K[1]) * 0.96, hh * 0.12, A[0], A[1], hh * 0.12), hu);
+    // sneaker in de voetstand van de cyclus
+    ctx.save(); ctx.translate(A[0], A[1]); ctx.rotate(-B.fA);
+    const sc = isVer ? toHex(ver(M.schoen)) : M.schoen, zl = isVer ? toHex(ver(M.zool)) : M.zool;
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(-hh * 0.2, -hh * 0.14); ctx.quadraticCurveTo(-hh * 0.32, hh * 0.05, -hh * 0.24, hh * 0.18); ctx.lineTo(hh * 0.58, hh * 0.18); ctx.quadraticCurveTo(hh * 0.68, hh * 0.12, hh * 0.6, hh * 0.04); ctx.quadraticCurveTo(hh * 0.38, -hh * 0.06, hh * 0.18, -hh * 0.1); ctx.quadraticCurveTo(0, -hh * 0.18, -hh * 0.2, -hh * 0.14); ctx.closePath(); }, sc,
+      () => { ctx.strokeStyle = isVer ? toHex(ver(M.schoenS)) : M.schoenS; ctx.lineWidth = hh * 0.025; for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.moveTo(hh * (0.05 + i * 0.08), -hh * (0.1 - i * 0.03)); ctx.lineTo(hh * (0.12 + i * 0.08), hh * 0.02); ctx.stroke(); } });
+    vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(-hh * 0.27, hh * 0.15); ctx.lineTo(hh * 0.62, hh * 0.15); ctx.quadraticCurveTo(hh * 0.68, hh * 0.24, hh * 0.56, hh * 0.25); ctx.lineTo(-hh * 0.22, hh * 0.25); ctx.quadraticCurveTo(-hh * 0.32, hh * 0.22, -hh * 0.27, hh * 0.15); ctx.closePath(); }, zl);
+    ctx.restore(); };
+  // --- arm (zwaai tegengesteld aan het been aan dezelfde kant)
+  const thMin = Math.min(...G.th.map(q => q[1])), thMax = Math.max(...G.th.map(q => q[1]));
+  const tekenArm = (B, isVer) => { const D = Math.PI / 180, th = B.th / D + (G.kantel || 0), v = 1 - (th - thMin) / (thMax - thMin), w = v * v * (3 - 2 * v);
+    const u = (G.arm[0] + (G.arm[1] - G.arm[0]) * w) * D, e = (G.elle[0] + (G.elle[1] - G.elle[0]) * w) * D;
+    const [sx, sy] = rot(cx + hh * 0.02, top + hh * 1.32 + dy), A1 = hh * 0.92, A2 = hh * 1.0;
+    const ex = sx + Math.sin(u + lean) * A1, ey = sy + Math.cos(u + lean) * A1, f = u + lean + e, wx = ex + Math.sin(f) * A2, wy = ey + Math.cos(f) * A2;
+    const tr = isVer ? toHex(ver(M.trui)) : M.trui, trS = isVer ? toHex(ver(M.truiS)) : M.truiS, hu = isVer ? toHex(ver(M.huid)) : M.huid;
+    // hand (zijkant: duim naar voren)
+    const Hc = [wx + Math.sin(f) * hh * 0.14, wy + Math.cos(f) * hh * 0.14];
+    vorm(ctx, () => { ctx.beginPath(); ctx.ellipse(Hc[0], Hc[1], hh * 0.12, hh * 0.18, -f, 0, 6.283); }, hu);
+    const cX = ex + (wx - ex) * 0.84, cY = ey + (wy - ey) * 0.84;
+    vorm(ctx, () => capsule(ctx, sx, sy, hh * 0.19, ex, ey, hh * 0.18), tr);
+    vorm(ctx, () => capsule(ctx, ex, ey, hh * 0.18, cX, cY, hh * 0.19), tr, () => { ctx.fillStyle = trS; ctx.beginPath(); ctx.ellipse((ex + cX) / 2 - Math.cos(f) * hh * 0.1, (ey + cY) / 2 + Math.sin(f) * hh * 0.1, hh * 0.08, hh * 0.5, -f, 0, 6.283); ctx.fill(); });
+    vorm(ctx, () => capsule(ctx, cX, cY, hh * 0.13, wx, wy, hh * 0.12), trS);
+  };
+  // tekenvolgorde: ver been, ver arm, romp, dichtbij been, dichtbij arm, hoofd
+  tekenBeen(B2, true); tekenArm(B2, true);
+  // zitvlak van de jeans
+  vorm(ctx, () => { const [px, py] = rot(cx - hh * 0.06, heupY - hh * 0.05); ctx.beginPath(); ctx.ellipse(px, py, hh * 0.42, hh * 0.36, lean, 0, 6.283); }, M.jeans);
+  tekenBeen(B1, false);
+  // romp (trui)
+  const sY = top + hh * 1.25 + dy, onder = heupY - hh * 0.2;
+  const rompPts = [[cx - hh * 0.32, sY + hh * 0.05], [cx - hh * 0.46, sY + hh * 0.7], [cx - hh * 0.4, onder - hh * 0.4], [cx - hh * 0.44, onder], [cx + hh * 0.38, onder], [cx + hh * 0.36, onder - hh * 0.5], [cx + hh * 0.48, sY + hh * 0.75], [cx + hh * 0.3, sY + hh * 0.02], [cx, sY - hh * 0.08]].map(q => rot(q[0], q[1]));
+  vorm(ctx, () => { const P = rompPts; ctx.beginPath(); ctx.moveTo(P[0][0], P[0][1]); ctx.quadraticCurveTo(P[1][0], P[1][1], P[2][0], P[2][1]); ctx.quadraticCurveTo(P[3][0], P[3][1] - hh * 0.1, P[3][0], P[3][1]);
+      ctx.lineTo(P[4][0], P[4][1]); ctx.quadraticCurveTo(P[5][0], P[5][1], P[6][0], P[6][1]); ctx.quadraticCurveTo(P[7][0], P[7][1], P[8][0], P[8][1]); ctx.quadraticCurveTo(P[8][0] - hh * 0.2, P[8][1], P[0][0], P[0][1]); ctx.closePath(); }, M.trui,
+    () => { const [bx, by] = rot(cx - hh * 0.5, sY + hh * 0.9); ctx.fillStyle = M.truiS; ctx.beginPath(); ctx.ellipse(bx, by, hh * 0.18, hh * 1.2, lean, 0, 6.283); ctx.fill();
+      const [qx, qy] = rot(cx, onder - hh * 0.12); ctx.save(); ctx.translate(qx, qy); ctx.rotate(lean); ctx.fillRect(-hh, -hh * 0.02, hh * 2, hh * 0.14); ctx.restore(); });
+  tekenArm(B1, false);
+  // hals en hoofd (profiel, kijkt naar rechts)
+  const [nx, ny] = rot(cx + hh * 0.06, sY - hh * 0.02), Vk = hh * 0.62, hx = nx + Math.sin(lean) * Vk + hh * 0.04, hy = ny - Math.cos(lean) * Vk;
+  vorm(ctx, () => capsule(ctx, nx, ny + hh * 0.05, hh * 0.15, hx - hh * 0.02, hy + hh * 0.32, hh * 0.15), M.huid);
+  // puff veert na: volgt de op-en-neerbeweging met vertraging
+  const pdy = Math.sin(fi * 2 - 1.2) * hh * (o.gang === 'ren' ? 0.07 : 0.03), pdx = -hh * (o.gang === 'ren' ? 0.08 : 0.02);
+  const puff = []; for (let i = 0; i < 12; i++) { const a = i / 12 * 6.283; puff.push([hx - hh * 0.2 + pdx + Math.cos(a) * hh * 0.27, hy - hh * 0.72 + pdy + Math.sin(a) * hh * 0.23, hh * (0.15 + (i % 3) * 0.02)]); } puff.push([hx - hh * 0.2 + pdx, hy - hh * 0.72 + pdy, hh * 0.27]);
+  unie(ctx, puff, M.haar);
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(hx - hh * 0.05, hy - hh * 0.5); ctx.bezierCurveTo(hx + hh * 0.3, hy - hh * 0.52, hx + hh * 0.46, hy - hh * 0.3, hx + hh * 0.44, hy - hh * 0.12);
+      ctx.quadraticCurveTo(hx + hh * 0.5, hy - hh * 0.04, hx + hh * 0.48, hy + hh * 0.02); ctx.lineTo(hx + hh * 0.56, hy + hh * 0.13); ctx.quadraticCurveTo(hx + hh * 0.52, hy + hh * 0.18, hx + hh * 0.47, hy + hh * 0.18);
+      ctx.quadraticCurveTo(hx + hh * 0.5, hy + hh * 0.26, hx + hh * 0.45, hy + hh * 0.3); ctx.quadraticCurveTo(hx + hh * 0.46, hy + hh * 0.42, hx + hh * 0.3, hy + hh * 0.46);
+      ctx.quadraticCurveTo(hx, hy + hh * 0.5, hx - hh * 0.14, hy + hh * 0.36); ctx.bezierCurveTo(hx - hh * 0.5, hy + hh * 0.3, hx - hh * 0.5, hy - hh * 0.46, hx - hh * 0.05, hy - hh * 0.5); ctx.closePath(); }, M.huid,
+    () => { ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(hx + hh * 0.05, hy + hh * 0.42, hh * 0.3, hh * 0.08, -0.2, 0, 6.283); ctx.fill(); });
+  // haarkap
+  vorm(ctx, () => { ctx.beginPath(); ctx.moveTo(hx + hh * 0.36, hy - hh * 0.26); ctx.bezierCurveTo(hx + hh * 0.3, hy - hh * 0.56, hx - hh * 0.3, hy - hh * 0.6, hx - hh * 0.48, hy - hh * 0.1);
+      ctx.quadraticCurveTo(hx - hh * 0.52, hy + hh * 0.2, hx - hh * 0.3, hy + hh * 0.34); ctx.quadraticCurveTo(hx - hh * 0.2, hy + hh * 0.1, hx - hh * 0.05, hy + hh * 0.02);
+      ctx.quadraticCurveTo(hx + hh * 0.1, hy - hh * 0.2, hx + hh * 0.36, hy - hh * 0.26); ctx.closePath(); }, M.haar,
+    () => { ctx.strokeStyle = M.haarL; ctx.lineWidth = hh * 0.014; for (let i = 0; i < 6; i++) { ctx.beginPath(); ctx.moveTo(hx + hh * (0.25 - i * 0.12), hy - hh * (0.3 - i * 0.02)); ctx.quadraticCurveTo(hx - hh * (0.05 + i * 0.05), hy - hh * 0.5, hx - hh * 0.2, hy - hh * 0.55); ctx.stroke(); } });
+  // oor, oog, wenkbrauw, mond
+  vorm(ctx, () => { ctx.beginPath(); ctx.ellipse(hx - hh * 0.02, hy + hh * 0.06, hh * 0.07, hh * 0.11, 0.1, 0, 6.283); }, M.huid, () => { ctx.fillStyle = M.huidS; ctx.beginPath(); ctx.ellipse(hx - hh * 0.01, hy + hh * 0.07, hh * 0.03, hh * 0.06, 0, 0, 6.283); ctx.fill(); });
+  const knip = (t % 3.7) < 0.12;
+  if (knip) { ctx.strokeStyle = M.oog; ctx.lineWidth = hh * 0.018; ctx.beginPath(); ctx.moveTo(hx + hh * 0.29, hy + hh * 0.0); ctx.lineTo(hx + hh * 0.38, hy + hh * 0.01); ctx.stroke(); }
+  else { ctx.fillStyle = M.oog; ctx.beginPath(); ctx.ellipse(hx + hh * 0.34, hy - hh * 0.0, hh * 0.035, hh * 0.055, 0, 0, 6.283); ctx.fill(); ctx.fillStyle = '#F2F2EE'; ctx.beginPath(); ctx.arc(hx + hh * 0.35, hy - hh * 0.02, hh * 0.011, 0, 6.283); ctx.fill(); }
+  ctx.strokeStyle = M.haar; ctx.lineWidth = hh * 0.03; ctx.beginPath(); ctx.moveTo(hx + hh * 0.26, hy - hh * 0.1); ctx.quadraticCurveTo(hx + hh * 0.34, hy - hh * 0.14, hx + hh * 0.42, hy - hh * 0.1); ctx.stroke();
+  ctx.strokeStyle = M.mond; ctx.lineWidth = hh * 0.02; ctx.beginPath(); ctx.moveTo(hx + hh * 0.38, hy + hh * 0.25); ctx.quadraticCurveTo(hx + hh * 0.43, hy + hh * 0.27, hx + hh * 0.46, hy + hh * 0.24); ctx.stroke();
+  LW = LW0; ctx.restore();
+}
+
+// ---------- poses voor het vooraanzicht ----------
+const POSE = {
+  rust:   { L: [0.24, -0.34, 'rust', true], R: [0.18, 0.05, 'rust'] },
+  wijs:   { L: [0.24, -0.34, 'rust', true], R: [1.42, 1.52, 'wijs'] },
+  zwaai:  { L: [2.55, 2.95, 'zwaai'], R: [0.18, 0.05, 'rust'] },
+  uitleg: { L: [0.3, 2.45, 'open', false], R: [0.28, 2.35, 'open'] }
+};
+function mengPose(A, B, u) { const m = (a, b) => [lerp(a[0], b[0], u), lerp(a[1], b[1], u), u < 0.5 ? a[2] : b[2], u < 0.5 ? a[3] : b[3]]; return { L: m(A.L, B.L), R: m(A.R, B.R) }; }
+// cyclus van 12 s: praten (hand in zak) → wijzen → zwaaien → uitleggen
+const REEKS = [['rust', 0, 2.2], ['wijs', 2.8, 4.6], ['rust', 5.2, 5.6], ['zwaai', 6.2, 8.0], ['uitleg', 8.6, 11.2], ['rust', 11.8, 12]];
+function poseOp(t, modus) {
+  if (modus !== 'cyclus') { const doel = modus === 'praat' ? 'rust' : modus; return { pose: POSE[doel], praat: true, golf: Math.sin(t * 9) }; }
+  const tt = t % 12; let pose = POSE.rust;
+  for (let i = 0; i < REEKS.length; i++) { const [naam, van, tot] = REEKS[i]; const vorig = REEKS[(i + REEKS.length - 1) % REEKS.length][0];
+    if (tt >= van - 0.6 && tt < van) { pose = mengPose(POSE[vorig], POSE[naam], ease((tt - (van - 0.6)) / 0.6)); break; }
+    if (tt >= van && tt < tot) { pose = POSE[naam]; break; } }
+  return { pose, praat: !(tt > 6.2 && tt < 8), golf: Math.sin(t * 9) };
+}
+
+// ---------- afspelen ----------
+const still = new Image(); still.src = 'vellen/vel-1.webp';
+const cv = document.getElementById('voor'), ctx = cv.getContext('2d');
+const cz = document.getElementById('zij'), cz2 = cz.getContext('2d');
+let modus = 'cyclus', gang = 'loop', pauze = false, t0 = performance.now(), tPauze = 0;
+function label(c, tekst, x, y) { c.font = '500 26px "IBM Plex Mono", monospace'; c.fillStyle = '#C9B896'; c.textAlign = 'center'; c.fillText(tekst, x, y); }
+function teken(now) {
+  const t = pauze ? tPauze : (now - t0) / 1000;
+  // vooraanzicht
+  ctx.fillStyle = '#1A2740'; ctx.fillRect(0, 0, cv.width, cv.height);
+  ctx.strokeStyle = '#2A3A58'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(60, 980); ctx.lineTo(1860, 980); ctx.stroke();
+  if (still.complete && still.naturalWidth) { const sx = 60, sy = 80, sw = 200, sh = 590, H = 820, W = sw / sh * H; ctx.drawImage(still, sx, sy, sw, sh, 320 - W / 2, 980 - H, W, H); }
+  const P = poseOp(t, modus);
+  const oud = LIJN;
+  LIJN = true; mayaVoor(ctx, 960, 980, 790, { t, armen: { ...P.pose, golf: P.golf }, praat: P.praat });
+  LIJN = false; mayaVoor(ctx, 1560, 980, 790, { t, armen: { ...P.pose, golf: P.golf }, praat: P.praat });
+  LIJN = oud;
+  label(ctx, 'STILL (ELEVENLABS)', 320, 1040); label(ctx, 'CODE · MET LIJNEN', 960, 1040); label(ctx, 'CODE · ZONDER LIJNEN', 1560, 1040);
+  // zijaanzicht: Maya loopt over het beeld, steunvoet glijdt niet
+  cz2.fillStyle = '#1A2740'; cz2.fillRect(0, 0, cz.width, cz.height);
+  cz2.strokeStyle = '#2A3A58'; cz2.lineWidth = 2; cz2.beginPath(); cz2.moveTo(0, 560); cz2.lineTo(1920, 560); cz2.stroke();
+  const h = 440, G = GANG[gang], hh = h / 6.5, L = (h - hh * 3.05) - hh * 0.2, sEnd = Math.min(G.duty, 0.5);
+  const c0 = _beenPose(G, 0, L / 2, L / 2, hh).ballX, v = (c0 - _beenPose(G, sEnd, L / 2, L / 2, hh).ballX) * G.f / sEnd;
+  const traject = 1920 + 500, T = traject / v, tt = t % T, fase = tt * G.f, fr = (q) => ((q % 1) + 1) % 1;
+  const ps = [fr(fase), fr(fase + 0.5)].map(p => _beenPose(G, p, L / 2, L / 2, hh)).filter(B => B.p < sEnd).sort((a, b) => a.p - b.p)[0];
+  const dl = ps ? (c0 - ps.ballX) - v * ps.p / G.f : 0;
+  mayaZij(cz2, -250 + v * tt + dl, 560, h, { t: tt, gang });
+  // maatstreepjes op de grond, zodat je ziet dat de voet stilstaat
+  cz2.fillStyle = '#2A3A58'; for (let xx = 0; xx < 1920; xx += 80) cz2.fillRect(xx, 566, 2, 10);
+  requestAnimationFrame(teken);
+}
+requestAnimationFrame(teken);
+document.querySelectorAll('[data-pose]').forEach(b => b.onclick = () => { modus = b.dataset.pose; document.querySelectorAll('[data-pose]').forEach(x => x.classList.toggle('aan', x === b)); });
+document.querySelectorAll('[data-gang]').forEach(b => b.onclick = () => { gang = b.dataset.gang; document.querySelectorAll('[data-gang]').forEach(x => x.classList.toggle('aan', x === b)); });
+document.getElementById('lijnen').onclick = (e) => { LIJN = !LIJN; e.target.classList.toggle('aan', LIJN); e.target.textContent = LIJN ? 'Contourlijnen aan' : 'Contourlijnen uit'; };
+document.getElementById('pauze').onclick = (e) => { pauze = !pauze; if (pauze) tPauze = (performance.now() - t0) / 1000; else t0 = performance.now() - tPauze * 1000; e.target.textContent = pauze ? 'Verder' : 'Pauze'; };
+</script>
+</body>
+</html>
