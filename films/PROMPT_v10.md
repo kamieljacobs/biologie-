@@ -251,13 +251,14 @@ Captions and phones
 - Player with a chapter list (verdieping tagged, vwo blocks tagged), a glossary (terms and definitions exactly as in the brief, vwo-only terms tagged) and the full transcript.
 - Teacher section: how the film explains it (per chapter: type, look and key visual), misconceptions addressed, pause and discussion moments, the numbers behind the film (value, unit, source, rounding), simplifications and why, suggested practicals, leerdoelen coverage per level, and the source list of any CE questions used.
 - 3–5 check questions in exam style, with the answers folded away; with two levels, grouped per level.
-- Credits and version: voice, sources, version number and date.
+- Credits and version: sources, version number and date. **No tools in the film** (Kamiel 25 okt 2026): nothing in picture, sound, captions, title card, end card or on the page names the tools the film was made with (no ElevenLabs, Claude, image or voice model, no "stem: Roos (ElevenLabs)", no "Kamiel met Claude"). Voice, model and tools are recorded only in bron/info.md and bron/script.md. The voice may be credited by name only ("Stem: Roos").
 - If the brief names a series, add the film to the series page: all films on one page, with a shared glossary.
 
 ### 11. QA before delivery
 
 Computed from the cue table and the rendered page:
 
+- no tool names in the film or on its page: `grep -i -E "elevenlabs|claude|eleven_v|gpt-image|seedance|veo|kling"` on the film HTML (outside bron/) finds nothing that is shown;
 - no text overlaps other text, the caption zone or the frame edge; the level label overlaps nothing;
 - every term is on screen for at least 5 s, no answer appears before its question, and every cue falls inside its segment;
 
@@ -690,6 +691,8 @@ v9 onderhoudsbeurt (22 okt 2026, Kamiel akkoord rij 1–6 en 8–19): prompt fol
 ✦ v8 aanvulling (22 okt 2026): Vragen uit — nothing of a question or its answer stays in sound, captions or picture, and narration after a question doesn't lean on it (B9); checked by playing every question with the switch off (B11).
 
 ✦ v8 aanvulling (22 okt 2026): new B14 Opwaarderen naar een nieuwe promptversie (promptstempel per film, only the delta, verbeterblad first, narration stays, new objects into the library). First used for Geslachtsorganen en puberteit and Wat zit er in je eten?.
+
+✦ v10 aanvulling (25 okt 2026): no tools in the film — no tool or model names in picture, sound, captions or on the page; they live only in the bron folder (B10); grep check in QA (B11).
 
 ✦ v10 (24 okt 2026): new C10 Tekenkwaliteit (library first, sources win, ElevenLabs plates only to learn from, test sheet and approval, recipe cards for animals, micro, organs and plants); fresh visual review after every build as a fixed step; static outline only for animals that do not move in their scene.
 
