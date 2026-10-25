@@ -134,7 +134,7 @@ De stof: in de thymus rijpen T-cellen. Daar krijgen ze lichaamseigen eiwitten te
 
 _Stem-invoer:_ De stof: in de tiemus rijpen tee-cellen. Daar krijgen ze lichaamseigen eiwitten te zien. tee-cellen die op zo'n lichaamseigen eiwit reageren, worden opgeruimd. Zo leren tee-cellen wat lichaamseigen is. Het antwoord heeft twee schakels. Eén: door insuline in de tiemus worden tee-cellen die op insuline zouden reageren, niet rijp. Twee: daardoor vallen tee-cellen de bètacellen in de alvleesklier, die insuline maken, niet aan.
 
-**s30** · audio `s30.mp3` · 14.8 s · generation `1M8z208IhmpBX8sUwTeT`
+**s30** · audio `s30.mp3` · 14.6 s · generation `53DDF6gBK5cWSIzpBBvz`
 
 Vraag 10, meerkeuze. Bij een tijdelijk hoge bloedsuikerspiegel maakt een gezond mens minder urine, via ADH. Neemt de ADH-afgifte toe of af? En de terugresorptie van water?
 
