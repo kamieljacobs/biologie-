@@ -28,7 +28,7 @@ bacterie met plasmide (lib_bio `bacterie` + plasmide-ring), gistcel (nieuw), erl
 ## Rode draad en cast (Kamiel 25 okt 2026: 'Sam bij een nieuwe')
 - **Sam** (16, 'doet proefjes') loopt in alle films stage biotechnologie, outfit `practicum`.
 - Zijn begeleider is een **nieuw vakpersonage: procestechnoloog**, alleen in dit vak. Naam en uiterlijk komen ter keuring op het twijfelblad van film 1, met een tekening uit het castboek. Werknaam: Procestechnoloog Merel (36).
-- Wie gebruikt de insuline? Geen castpersonage met diabetes (geen keuze van Kamiel, dus de veilige standaard): een insulinepen in beeld zonder persoon, plus het getal gebruikers in Nederland.
+- Wie gebruikt de insuline? Geen castpersonage met diabetes (Kamiel 25 okt 2026: 'maakt niet uit'; Claude kiest de eenvoudigste weg zonder nieuwe gegevens over een personage): een insulinepen in beeld zonder persoon, plus het getal gebruikers in Nederland.
 
 ## Gedeelde begrippen (één definitie in de hele reeks)
 - **biotechnologie**: organismen of hun onderdelen (cellen, enzymen) laten werken om een product te maken.
