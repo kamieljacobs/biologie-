@@ -29,9 +29,13 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | verre familie, buurman | **Joost** (figurant) |
 | boer, veehouder | **Veehouder Gerrit** |
 | stagiair forensisch onderzoek (Wat word jij? · Forensisch onderzoek) | **Bilal** (outfit `plaatsdelict`: witte overall met capuchon, mondkapje, nitrilhandschoenen; in het lab `practicum`); Dr. Kim als forensisch arts / DNA-deskundige (ook `plaatsdelict`), Erik als verdachte |
+| buurvrouw (oudere vrouw, los van Noors familie) | **Mevrouw Jansen** (`buurvrouw`, 72; garderobe `thuis`, `buiten`) — eerst in Forensisch onderzoek 3 |
+| forensisch entomoloog | **Lieke** (`lieke`; garderobe `lab`, `plaatsdelict`), alleen in haar eigen vak |
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |
+
+Handdruk: pose `handdruk` met `o.hand` (grijppunt) en `o.schud` (0..1), of de functie `handdruk(ctx, idL, idR, xm, voet, h, {t, schud, …})` die twee personages zo neerzet dat de handen sluiten (25 okt 2026).
 
 Telpoppetjes in een telling (100 mensen, 1 op 3) blijven eenvoudige pictogrammen.
 
