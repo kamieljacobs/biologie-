@@ -1,0 +1,110 @@
+{
+ "film": "films/vervolg/biomedisch-1-signalen-in-de-cel.html",
+ "titel": "Signalen in de cel (Wat word jij? · Biomedische wetenschappen 1)",
+ "promptversie_nu": "niet vastgelegd in info.md ('Prompt | onbekend · gemaakt 24 okt'). Gebouwd op 24 okt 2026 in de FILMDATA-straat na een frisse eindreview; voldoet in de praktijk grotendeels aan v10: de MOET-punten uit reviews/review_eind.md zijn hersteld (glycogeen, Ras gaat uit, receptor in het cytoplasma, chromosomen staan er op t = 0, kleuren van BCR/ABL).",
+ "advies": {
+  "aanpak": "klein herstel",
+  "waarom": "De film is gisteren in de huidige bouwstraat gemaakt, met de nieuwste speler en de afspraken van v10. Herbouwen of laag voor laag opwaarderen voegt dus weinig toe. Wat overblijft: drie alinea's opnieuw inspreken zodra de uitspraak gekozen is, één nieuw beeld in s09 (uitzoomen naar de hele cel, Kamiel 3:02) en een paar kleine beeldpunten. Het punt bij 3:27 is geen vraagrest, maar een label en een woord dat op 'antwoord a' lijkt; dat los je op met een klein beeldherstel.",
+  "werk": "Ongeveer een halve dag: s09 uitzoomen (middel, ±2 uur incl. testvel), 5 kleine beeldpunten (±1 uur), daarna opnieuw inspreken en uitlijnen van s04/s05/s13 (±1 uur), bouwen, pak.py, spelerfix/antwoordtekst/kortantwoord, elke vraag afspelen met ?vragen=uit en een frisse beeldreview (C10.7).",
+  "credits": "± 2.000–2.400 ElevenLabs-credits voor s04, s05 en s13 (samen ±2.000 tekens, één take per alinea). Kies je ook voor een nieuwe zin in s12 (voorstel sig-2), dan komt daar ±500 bij. Geen beeldgeneraties nodig."
+ },
+ "herinspreken": [
+  {"alinea": "s04", "woorden": ["Post voor iedereen"], "tijd": "1:00"},
+  {"alinea": "s05", "woorden": ["ATP (2×)"], "tijd": "1:24"},
+  {"alinea": "s13", "woorden": ["ATP (2×)"], "tijd": "4:15"}
+ ],
+ "herinspreken_noot": "Eén take per alinea (Roos, eleven_v4, flow g38hWXu7Gay69Oaxu7j3). Je kunt dus per alinea opnieuw inspreken: de beeldcues hangen aan woorden (q.on), dus na silalign schuift het beeld vanzelf mee. Tijden gelden met Vragen uit, zoals Kamiel keek. cAMP (s05, s06, s08) staat ook nog op de wachtlijst van de film. Als de uitspraaktest daar iets vindt, komen s06 en s08 erbij (±470 tekens).",
+ "voorstellen": [
+  {
+   "id": "sig-1",
+   "tijd": "3:27",
+   "bron": "review -P4j2AVkXhBiyKlfzgon · prompt B9/B11 Vragen uit",
+   "soort": "vragen uit",
+   "probleem": "Nagezocht met Playwright en ?vragen=uit. De speler knipt 'Antwoord aa.' goed weg: s12 begint pas op audio 1,14 s (het eerste woord 'Het' begint op 1,10 s, daartussen is het stil), en de ondertitel begint met 'Het defect zit verderop'. De groene kop is netjes ingekort tot 'De cellen blijven delen'. Op 3:27 (audio 3,92 s) hoor je het gewone woord 'aan' uit 'blokkeren AAN het begin'. Precies dan staat in beeld het groene label 'aan' onder de Ras-schakelaar, met een slotje erbij (Ras vast op aan, sinds s10). In het Nederlands klinkt 'aan' bijna als de letter 'a'. Een groen 'aan' direct na een vraag met als goed antwoord a leest dus als een antwoordrest, maar het is er geen: de scripts (kortantwoord, antwoordtekst) werken goed.",
+   "voorstel": "Haal het woordje 'aan'/'uit' onder de Ras-schakelaar weg en laat de schakelaar alleen met stand, kleur en slotje spreken. Of zet er 'Ras: vast aan' in neutrale tekstkleur bij, pas vanaf 'vast' (±7 s in s12). Geef dat label in s12 een andere kleur dan de groene antwoordkop. Zie sig-2 voor de gesproken 'aan'.",
+   "omvang": "klein",
+   "still": "uit_3m27.webp"
+  },
+  {
+   "id": "sig-2",
+   "tijd": "3:27",
+   "bron": "review -P4j2AVkXhBiyKlfzgon · eigen",
+   "soort": "tekst",
+   "probleem": "De eerste zin die je bij Vragen uit hoort, 'Het defect zit verderop, dus blokkeren aan het begin helpt niet', bevat 'aan'. Dat lijkt op 'aa' en volgt meteen op een hoofdstukkaart. Bovendien leunt de zin op de vraag die je bij Vragen uit niet hebt gezien (B11: 'de vertelling na een vraag leunt er niet op'): welk defect, welke blokkade?",
+   "voorstel": "Alleen als s12 toch opnieuw ingesproken wordt: 'Antwoord a. Zit het defect in Ras, dan helpt een medicijn tegen de receptor niet: het signaal start ná de blokkade gewoon opnieuw.' Dan klopt de zin ook zonder de vraag en valt 'aan' weg. Anders laten staan; sig-1 is genoeg om de verwarring in beeld weg te nemen.",
+   "omvang": "klein",
+   "still": "aan_s12_begin.webp"
+  },
+  {
+   "id": "sig-3",
+   "tijd": "3:02",
+   "bron": "review -P4j20oRCcIwY3Q6zqRi · BEELDAFSPRAKEN: processen in de kern zichtbaar, celmembraan rond",
+   "soort": "beeld",
+   "probleem": "Bij 'Het laatste kinase gaat de kern in' zie je alleen een stuk membraan bovenin en een losse paarse cirkel rechts. Je ziet niet dat de kern midden in de cel ligt, of hoe ver het kinase moet reizen. Kort daarna staat 'de cel deelt' als los kader over het membraan heen (zelfde scène, 3:09).",
+   "voorstel": "Zoom bij 'de kern in' uit van de membraanuitsnede naar een hele ronde cel (celRond/membraanBoog uit lib_bio.js). De receptoren staan op de rand en de kern ligt in het midden. Het derde kinase reist door het cytoplasma en gaat door een kernporie naar binnen. Bij 'de cel deelt' snoert diezelfde hele cel in tot twee cellen, zonder los kader.",
+   "omvang": "middel",
+   "still": "uit_3m02.webp"
+  },
+  {
+   "id": "sig-4",
+   "tijd": "1:00",
+   "bron": "review -P4j1Qd2j6VhNOfdVSxy (uitspraak)",
+   "soort": "tekst",
+   "probleem": "'Post' in 'Post voor iedereen' wordt Engels uitgesproken.",
+   "voorstel": "Gaat via de aparte uitspraaktest. Daarna s04 opnieuw inspreken (zie herinspreken).",
+   "omvang": "klein",
+   "still": "uit_1m00.webp"
+  },
+  {
+   "id": "sig-5",
+   "tijd": "1:24",
+   "bron": "review -P4j1ZJ4VQqM6kPQhAsH en -P4j1kIKehFHBhFG6Rur (uitspraak)",
+   "soort": "tekst",
+   "probleem": "ATP klinkt als 'AATP' (stem-invoer 'aa-tee-pee'), op 1:24 en 1:46 in s05, en ook twee keer in s13 (4:15).",
+   "voorstel": "Gaat via de aparte uitspraaktest. Daarna s05 en s13 opnieuw inspreken met dezelfde schrijfwijze, en de regel voor ATP in uitspraak_film.json aanpassen.",
+   "omvang": "klein",
+   "still": "uit_1m24.webp"
+  },
+  {
+   "id": "sig-6",
+   "tijd": "1:46",
+   "bron": "prompt v10 C10.7 labels · review_eind punt 4 (niet helemaal opgelost)",
+   "soort": "beeld",
+   "probleem": "Het label 'ATP' staat direct achter 'cAMP · TWEEDE BOODSCHAPPER' op één regel, waardoor het leest als één label. Het ATP-molecuul zweeft rechtsboven, ver van de kinase die er op dat moment een fosfaatgroep af haalt.",
+   "voorstel": "Zet het ATP-molecuul met zijn label vlak naast de kinase, ruim onder de cAMP-wolk, en laat de laatste fosfaatgroep zichtbaar van ATP naar het eiwit springen.",
+   "omvang": "klein",
+   "still": "uit_1m46.webp"
+  },
+  {
+   "id": "sig-7",
+   "tijd": "4:15",
+   "bron": "prompt v10 C10.7 (kandidaatles: labels ≥ 60 px van de beeldrand)",
+   "soort": "beeld",
+   "probleem": "Het metalabel 'VEEL GROTER DAN HET MOLECUUL' onder het tabletje loopt tot tegen de rechterrand van het beeld.",
+   "voorstel": "Zet het tabletje met label ±150 px naar links, of maak de tekst korter: 'veel groter'.",
+   "omvang": "klein",
+   "still": "uit_4m15.webp"
+  },
+  {
+   "id": "sig-8",
+   "tijd": "0:15",
+   "bron": "BEELDAFSPRAKEN: labels niet over de tekening",
+   "soort": "beeld",
+   "probleem": "Drie kaartjes ('elke ochtend · al vier jaar', 'leukemie', 'remt een eiwit in zijn cellen') staan op elkaar gestapeld boven de tafel en vallen over de stoom van de koffie en het glas. Het tabletje zelf valt weg tussen de kaartjes.",
+   "voorstel": "Zet de kaartjes in een rij boven Opa Henk, links van de tafel, één tegelijk (vorige weg). Geef het tabletje op tafel een korte gloed bij 'tabletje'.",
+   "omvang": "klein",
+   "still": "uit_0m15.webp"
+  },
+  {
+   "id": "sig-9",
+   "tijd": null,
+   "bron": "CLAUDE.md: bronmap, promptversie (Kamiel 24 okt 2026) · B14",
+   "soort": "techniek",
+   "probleem": "In bron/info.md staat 'Prompt | onbekend' en er is geen regel 'Voldoet aan: prompt vN'. Ook noemt 'Waar wat in de HTML zit' nog geen regel voor de Ras-schakelaar (rasSchakel in teken_b1.js).",
+   "voorstel": "Na dit herstel: 'Prompt | v10' en 'Voldoet aan: prompt v10' invullen, en de herkomst aanvullen met deze verbeterronde. Noteer in uitspraak.md welke woorden na de uitspraaktest zijn vastgelegd.",
+   "omvang": "klein",
+   "still": null
+  }
+ ],
+ "gecontroleerd_in_orde": "Vragen uit: q02, q07 en q11 afgespeeld met ?vragen=uit. 'Antwoord b/c/a' wordt weggeknipt (s04 0–1,40 s, s08 0–1,35 s, s12 0–1,08 s), de vraagzinnen aan het eind van s01, s06 en s10 ook. Antwoordkoppen zijn ingekort tot hun inhoud. kortantwoord/antwoordtekst/spelerfix --check: OK. De MOET-punten uit de eindreview zijn hersteld. Cast en rollen kloppen (Opa Henk patiënt, Noor, Dr. Kim). Donker standaard. Er is een herkenbaar menselijk moment (ontbijt), en dat draagt het concept."
+}
