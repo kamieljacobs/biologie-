@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Castboek Engels</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#121A26; --stage:#1A2740; --tekst:#F2F2EE; --tekst2:#9AA3B2; --goud:#E0B64A; --rand:#2A3A58; }
+  body { margin:0; background:var(--bg); color:var(--tekst); font-family:'Source Sans 3',sans-serif; }
+  main { max-width:1280px; margin:0 auto; padding:20px 16px 40px; }
+  h1 { font-family:Fraunces,serif; font-size:30px; margin:6px 0 4px; }
+  h2 { font-family:Fraunces,serif; font-size:22px; margin:26px 0 4px; }
+  p { color:var(--tekst2); margin:4px 0 12px; line-height:1.45; }
+  .meta { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em; color:var(--goud); }
+  canvas, img.vel { width:100%; height:auto; display:block; background:var(--stage); border-radius:10px; margin:10px 0 6px; }
+  .knoppen { display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 14px; }
+  button { font:600 14px 'Source Sans 3',sans-serif; color:var(--tekst); background:var(--rand); border:1px solid #3A4C70; border-radius:8px; padding:7px 12px; cursor:pointer; }
+  button.aan { background:var(--goud); color:#1A2740; border-color:var(--goud); }
+  .naast { display:grid; grid-template-columns:1fr; gap:6px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="meta">UNBOXING BIOLOGY · CASTBOEK · VOORSTEL 25 OKT 2026</div>
+  <h1>De Engelse cast in code</h1>
+  <p>Getekend naar castvel 1 (de ElevenLabs-still eronder). Kies een houding, zet de contourlijnen aan of uit, en kijk hoe ze lopen en rennen. Rollen en namen: <code>personages/en/CAST.md</code>.</p>
+  <canvas id="voor" width="1920" height="1000"></canvas>
+  <div class="knoppen" id="poses">
+    <button data-pose="mix" class="aan">Ieder een eigen houding</button>
+    <button data-pose="staan">Staan</button><button data-pose="zak">Hand in de zak</button><button data-pose="wijs">Wijzen</button>
+    <button data-pose="zwaai">Zwaaien</button><button data-pose="uitleg">Uitleggen</button><button data-pose="denk">Nadenken</button>
+  </div>
+  <div class="knoppen">
+    <button id="praat" class="aan">Praten aan</button>
+    <button id="lijnen" class="aan">Contourlijnen aan</button>
+    <button id="blij">Blij</button>
+    <button id="pauze">Pauze</button>
+  </div>
+  <img class="vel" src="vellen/vel-1.webp" alt="Castvel 1: de ElevenLabs-still met dezelfde zes personages">
+  <h2>Lopen en rennen</h2>
+  <p>Van opzij, met de gangmotor van het castboek: de steunvoet staat stil op de grond.</p>
+  <canvas id="zij" width="1920" height="640"></canvas>
+  <div class="knoppen">
+    <button data-gang="loop" class="aan">Lopen</button><button data-gang="ren">Rennen</button><button data-gang="sprint">Sprinten</button><button data-gang="staan">Stilstaan</button>
+  </div>
+</main>
+<script src="../lib_cast.js"></script>
+<script src="lib_cast_en.js"></script>
+<script>
+const cv = document.getElementById('voor'), ctx = cv.getContext('2d');
+const cz = document.getElementById('zij'), cz2 = cz.getContext('2d');
+let modus = 'mix', gang = 'loop', praat = true, lijn = true, blij = false, pauze = false, t0 = performance.now(), tP = 0;
+const EIGEN = { maya: 'zak', theo: 'denk', priya: 'staan', kenji: 'staan', ribeiro: 'zak', mensah: 'zak' };
+function label(c, tekst, x, y, sub) { c.textAlign = 'center'; c.font = '600 30px "Source Sans 3", sans-serif'; c.fillStyle = '#F2F2EE'; c.fillText(tekst, x, y); if (sub) { c.font = '500 20px "IBM Plex Mono", monospace'; c.fillStyle = '#C9B896'; c.fillText(sub, x, y + 28); } }
+function teken(now) {
+  const t = pauze ? tP : (now - t0) / 1000;
+  ctx.fillStyle = '#1A2740'; ctx.fillRect(0, 0, cv.width, cv.height);
+  ctx.strokeStyle = '#2A3A58'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(40, 900); ctx.lineTo(1880, 900); ctx.stroke();
+  CAST_EN_VOLGORDE.forEach((id, i) => {
+    const x = 170 + i * 316, pose = modus === 'mix' ? EIGEN[id] : modus;
+    persoonEN(ctx, id, x, 900, 640, { t, pose, praat: praat && (Math.floor(t / 2.5) % 6 === i || modus !== 'mix'), lijn, uit: blij ? 'blij' : 'neutraal', golf: Math.sin(t * 9), boek: id === 'kenji' && pose === 'staan' });
+    const P = CAST_EN[id]; label(ctx, P.naam, x, 950, (P.leeftijd + ' JAAR').toUpperCase());
+  });
+  // zijaanzicht: iedereen loopt in een rij, elk met de eigen snelheid
+  cz2.fillStyle = '#1A2740'; cz2.fillRect(0, 0, cz.width, cz.height);
+  cz2.strokeStyle = '#2A3A58'; cz2.lineWidth = 2; cz2.beginPath(); cz2.moveTo(0, 590); cz2.lineTo(1920, 590); cz2.stroke();
+  cz2.fillStyle = '#2A3A58'; for (let xx = 0; xx < 1920; xx += 80) cz2.fillRect(xx, 596, 2, 10);
+  const h = 380;
+  CAST_EN_VOLGORDE.forEach((id, i) => {
+    if (gang === 'staan') { persoonEN(cz2, id, 200 + i * 300, 590, h, { t, zij: true, lijn, kijk: 1 }); return; }
+    const v = gangSnelheidEN(id, h, gang), traject = 1920 + 1900, T = traject / v, tt = (t + i * T / 6) % T;
+    persoonEN(cz2, id, -300, 590, h, { t: tt, zij: true, gang, vooruit: true, lijn });
+  });
+  requestAnimationFrame(teken);
+}
+requestAnimationFrame(teken);
+document.querySelectorAll('[data-pose]').forEach(b => b.onclick = () => { modus = b.dataset.pose; document.querySelectorAll('[data-pose]').forEach(x => x.classList.toggle('aan', x === b)); });
+document.querySelectorAll('[data-gang]').forEach(b => b.onclick = () => { gang = b.dataset.gang; document.querySelectorAll('[data-gang]').forEach(x => x.classList.toggle('aan', x === b)); });
+document.getElementById('lijnen').onclick = (e) => { lijn = !lijn; e.target.classList.toggle('aan', lijn); e.target.textContent = lijn ? 'Contourlijnen aan' : 'Contourlijnen uit'; };
+document.getElementById('praat').onclick = (e) => { praat = !praat; e.target.classList.toggle('aan', praat); e.target.textContent = praat ? 'Praten aan' : 'Praten uit'; };
+document.getElementById('blij').onclick = (e) => { blij = !blij; e.target.classList.toggle('aan', blij); };
+document.getElementById('pauze').onclick = (e) => { pauze = !pauze; if (pauze) tP = (performance.now() - t0) / 1000; else t0 = performance.now() - tP * 1000; e.target.textContent = pauze ? 'Verder' : 'Pauze'; };
+</script>
+</body>
+</html>

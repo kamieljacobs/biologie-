@@ -6,7 +6,7 @@ Werkwijze (Kamiel 25 okt 2026: 'deze keer eerst met een ElevenLabs-still'):
 
 1. **Castvel als still** in ElevenLabs: alle personages van een groep naast elkaar in vooraanzicht, in de filmstijl (vlak, navy, gedempte kleuren, eenvoudig gezicht). Dit is een ontwerpplaat om van te leren (prompt C10.3), nooit beeld in een film.
 2. Kamiel keurt het vel: per personage goed, of wat anders moet. Een afgekeurd personage krijgt een eigen kleine still, niet het hele vel opnieuw.
-3. Pas daarna wordt het personage in code getekend, in `personages/en/lib_cast_en.js` met dezelfde functie en opties als `lib_cast.js` (`persoon(ctx, id, x, y, h, {uit, pose, kijk, zij, gang, t})`, gangen, garderobe), en naast de still op een testvel gelegd (C10.4).
+3. Pas daarna wordt het personage in code getekend, in `personages/en/lib_cast_en.js` (functie `persoonEN`; castboek `personages/en/index.html`, eerste versie van alle zes 25 okt 2026) met dezelfde functie en opties als `lib_cast.js` (`persoon(ctx, id, x, y, h, {uit, pose, kijk, zij, gang, t})`, gangen, garderobe), en naast de still op een testvel gelegd (C10.4).
 4. Goedgekeurd → in het castboek (`personages/en/index.html`) en de rol hieronder op 'vast'.
 
 Vellen en ElevenLabs-flow: zie onderaan.
