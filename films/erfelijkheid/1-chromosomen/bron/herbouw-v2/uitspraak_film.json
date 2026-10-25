@@ -1,0 +1,4 @@
+[["^X-chromosomen([:.,?!]?)$", "iks-chromosomen\\1"], ["^X-chromosoom([:.,?!]?)$", "iks-chromosoom\\1"], ["^Y-chromosoom([:.,?!]?)$", "ei-chromosoom\\1"], ["^X([:.,?!]?)$", "iks\\1"],
+ ["^2n([:.,?!]?)$", "twee-en\\1"], ["^n([:.,?!]?)$", "en\\1"],
+ ["^AA([:.,?!]?)$", "grote A grote A\\1"], ["^Aa([:.,?!]?)$", "grote A kleine a\\1"], ["^aa([:.,?!]?)$", "kleine a kleine a\\1"],
+ ["^A([:.,?!]?)$", "grote A\\1"], ["^a([:.,?!]?)$", "kleine a\\1"]]

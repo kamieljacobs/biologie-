@@ -105,3 +105,14 @@ Weg: de pijlen naar 'zusterchromatide' (×2), 'centromeer' en 'gen'. De namen st
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
 Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+
+## Herbouw in de FILMDATA-straat (Kamiel akkoord 25 okt 2026, alle 12 voorstellen chr-1 t/m chr-12)
+
+**Stand: fase 1 klaar (25 okt 2026), wacht op Kamiels keuring van `keuring-fase1/`. De gepubliceerde film is nog de oude versie.**
+
+- `script_v2.md`: script met de goedgekeurde tekstwijzigingen (chr-5, -6, -7, -8, -11) en prompt v10 B4/B9/B11 (geen vraagzin zonder vraagkaart, geen kort antwoord na een vraag, de vertelling na een vraag staat op zichzelf); drie vraagkaarten met opties (q14 b, q28 a, q37 c). 37 alinea's, 475,6 s spraak.
+- Stem: Roos, eleven_v4, één take per alinea, ElevenLabs-flow `oAnn8B6fDC6LBw9fFw28`; bestanden in `herbouw-v2/` (audio, woordtijden, segments, stem-invoer). Blinde transcriptie zonder fouten (`herbouw-v2/stem/blind.md`); wachtlijst in `uitspraak.md`.
+- `bronnen.md`: bronnenlogboek (16 ✓ · 13 ≈ · 1 !). Het '!' (fenotype = 'wat je aan de buitenkant ziet') is een voorstel aan Kamiel, niet aangepast.
+- Nieuwe tekeningen (ronde 1, ter keuring) in `bibliotheek/lib_bio.js` en op `bibliotheek/testvel.html`: `huidDoorsnede`, `kernChromatine` + `chromatideX`, `nucleosoomDraad`, `onderarm`. Nieuw gezin De Wit (figuranten, kind met albinisme) in `personages/lib_cast.js` en het castboek.
+- Credits fase 1: 6.776 (stem) + 3.022,8 (blinde transcriptie) = ± 9.800.
+- Fase 2 (na keuring): scènes in `scenes_chr1.js`, karyogram en tyrosinase-simulatie overzetten uit deze film, huidige speler, frisse beeldreview (C10.7), Vragen uit afspelen, film vervangen op hetzelfde pad, `| Prompt | v10 |` en 'Voldoet aan: prompt v10', REVIEW op nog bekijken, Firebase-opmerkingen van het verbeterblad in `films/review-claude.json` → `verwerkt` en in het foutenlogboek.

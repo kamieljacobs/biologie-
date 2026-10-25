@@ -119,7 +119,39 @@ const CAST = {
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
   ruben:  { naam: 'Ruben', leeftijd: 10, rol: 'jongen van ± 10 jaar (groep 7) · klasgenoot van Fleur', huid: '#F0CFB4', haar: '#B4542E', kapsel: 'kort', wenkbrauw: '#8A3E22',
             top: 'tshirt', strepen: null, topKleur: '#4FB3A5', topAccent: '#3E978B', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#2B3F66', accessoire: [], lengte: 1,
-            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22 }
+            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22 },
+  // ===== Gezin De Wit (25 okt 2026, Erfelijkheid 1 Chromosomen; ter keuring): figurantengezin met een kind met albinisme (OCA1) =====
+  // Ouders Aa (geen albinisme), drie kinderen: Sara en Jens met huid en haar zoals hun ouders, Levi (10) met albinisme: heel lichte huid,
+  // wit-blond haar, wenkbrauwen en wimpers, lichtblauwgrijze ogen (MedlinePlus OCA1: 'white hair, very pale skin, light-colored irises').
+  // Garderobe 'licht' = variant B voor de keuring: een gezin met een lichte huid (dan valt Levi minder op; Kamiel kiest).
+  dennis: { naam: 'Dennis', leeftijd: 43, rol: 'figurant · vader in het gezin De Wit (Aa)', huid: '#8E6248', haar: '#1E1612', kapsel: 'krul', wenkbrauw: '#16100C', stoppels: true,
+            top: 'trui', topKleur: '#4D6E9C', topAccent: '#3F5C84', broek: '#3A3F4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04,
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' } } },
+  marieke: { naam: 'Marieke', leeftijd: 41, rol: 'figurant · moeder in het gezin De Wit (Aa)', huid: '#B98563', haar: '#3A2418', kapsel: 'golf', golfLang: 0.6, wenkbrauw: '#2A1A12', wimpers: true, lippen: '#A8564E',
+            top: 'vest', topKleur: '#C9654B', topAccent: '#A8523C', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.97,
+            garderobe: { gewoon: {}, licht: { huid: '#EFC9A8', haar: '#8A5A30', wenkbrauw: '#6A4422' } } },
+  sara:   { naam: 'Sara', leeftijd: 13, rol: 'figurant · dochter in het gezin De Wit, oudste, krullen van haar vader', huid: '#A5734F', haar: '#24180F', kapsel: 'staart', wenkbrauw: '#1E140C', wimpers: true,
+            top: 'hoodie', topKleur: '#8C7BBF', topAccent: '#7464A6', broek: '#2E3442', schoen: '#F2F2EE', schoenAccent: '#8C7BBF', accessoire: [], lengte: 0.97,
+            kop: 6.0, armK: 0.95, schouderK: 1.3, heupK: 1.16, garderobe: { gewoon: {}, licht: { huid: '#EBC4A2', haar: '#7A5230', wenkbrauw: '#5A3A20' } } },
+  levi:   { naam: 'Levi', leeftijd: 10, rol: 'figurant · zoon in het gezin De Wit, heeft albinisme (aa): heel lichte huid, wit-blond haar, lichte ogen', huid: '#F6E4D8', haar: '#EDE2BC', kapsel: 'kort', wenkbrauw: '#E2D6B4', oog: '#8FAAC0',
+            top: 'tshirt', strepen: null, topKleur: '#4F8F6A', topAccent: '#3E7556', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#4F8F6A', accessoire: [], lengte: 1,
+            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22, garderobe: { gewoon: {}, licht: {} } },
+  jens: { naam: 'Jens', leeftijd: 7, rol: 'figurant · jongste zoon in het gezin De Wit, huid en haar als zijn moeder', huid: '#B07C58', haar: '#2E1E14', kapsel: 'kort', wenkbrauw: '#22160E',
+            top: 'tshirt', topKleur: '#E0A43A', topAccent: '#C98A2A', broek: '#4D6E9C', kort: true, schoen: '#F2F2EE', schoenAccent: '#D86A5A', accessoire: [], lengte: 1,
+            kop: 5.4, armK: 0.87, schouderK: 1.52, heupK: 1.3, garderobe: { gewoon: {}, licht: { huid: '#F0CCAE', haar: '#9A6A3A', wenkbrauw: '#7A5028' } } },
+  // grootouders De Wit (voor de fotolijstjes): geen van vieren heeft albinisme
+  opawit: { naam: 'Opa Frank', leeftijd: 72, rol: 'figurant · opa (vaderskant) in het gezin De Wit', huid: '#80583F', haar: '#CFCCC4', kapsel: 'kort', wenkbrauw: '#B8B4AA', baard: true,
+            top: 'overhemd', topKleur: '#5A6E5E', topAccent: '#4A5C4E', broek: '#3A3F4E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: ['bril'], lengte: 1.0,
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A' } } },
+  omawit: { naam: 'Oma Lucia', leeftijd: 70, rol: 'figurant · oma (vaderskant) in het gezin De Wit', huid: '#946A4E', haar: '#D8D4CC', kapsel: 'bob', wenkbrauw: '#A8A296', wimpers: true, lippen: '#A8564E',
+            top: 'vest', topKleur: '#7A5A8C', topAccent: '#624876', binnen: '#EEE6DA', broek: '#3E3A4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: ['oorbel'], lengte: 0.95,
+            garderobe: { gewoon: {}, licht: { huid: '#EBC6A6' } } },
+  opabos: { naam: 'Opa Wim', leeftijd: 70, rol: 'figurant · opa (moederskant) in het gezin De Wit', huid: '#C08E6A', haar: '#BDBAB2', kapsel: 'kalend', wenkbrauw: '#9A968C',
+            top: 'trui', topKleur: '#5E8FA8', topAccent: '#4D7A90', broek: '#4A4E5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [], lengte: 1.0, krom: 0.03,
+            garderobe: { gewoon: {}, licht: { huid: '#EDC7A6' } } },
+  omabos: { naam: 'Oma Anja', leeftijd: 68, rol: 'figurant · oma (moederskant) in het gezin De Wit', huid: '#B07C58', haar: '#E2DFD6', kapsel: 'golf', golfLang: 0.4, wenkbrauw: '#B8B2A6', wimpers: true, lippen: '#A8564E',
+            top: 'trui', topKleur: '#C9A35C', topAccent: '#AE8A48', broek: '#3E3A4E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 0.95,
+            garderobe: { gewoon: {}, licht: { huid: '#F0CCAE' } } }
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -129,11 +161,14 @@ const CAST_FAMILIE = {
   petra:  { ouders: ['henk', 'ria'] },
   rachid: { ouders: ['ahmed', 'malika'] },
   henk:   { partner: 'ria' }, ahmed: { partner: 'malika' },
-  yasmin: { broerzus: ['bilal'] }, daan: { tweeling: 'thijs' }
+  yasmin: { broerzus: ['bilal'] }, daan: { tweeling: 'thijs' },
+  dennis: { ouders: ['opawit', 'omawit'], partner: 'marieke' }, marieke: { ouders: ['opabos', 'omabos'] },
+  sara: { ouders: ['dennis', 'marieke'], broerzus: ['levi', 'jens'] }, levi: { ouders: ['dennis', 'marieke'] }, jens: { ouders: ['dennis', 'marieke'] }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
+const CAST_GEZIN_WIT = ['opawit', 'omawit', 'opabos', 'omabos', 'dennis', 'marieke', 'sara', 'levi', 'jens']; // 25 okt 2026, ter keuring
 // // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }

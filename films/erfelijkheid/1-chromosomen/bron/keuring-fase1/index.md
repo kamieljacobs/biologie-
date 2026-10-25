@@ -1,0 +1,28 @@
+# Keuring fase 1 · Chromosomen (Erfelijkheid 1) — herbouw, 25 okt 2026
+
+Kamiel keurde op 25 okt alle 12 voorstellen (chr-1 t/m chr-12) goed. Fase 1 = script v2 + stem + nieuwe tekeningen op het testvel en een nieuw gezin in het castboek. Dit is **ronde 1** van de tekeningen (C10.4: je ziet ook de tussenrondes). De film zelf is nog niet aangeraakt; fase 2 (scènes bouwen) begint na jouw keuring.
+
+Live bekijken (lokaal of op de site, niet gelinkt): `bibliotheek/testvel.html` → knoppen 'Chromosomen: huid / kern en chromosomen / DNA rond eiwitten / onderarmen'; `personages/index.html` → knop 'Gezin De Wit (albinisme)'.
+
+| # | Still | Wat het is | Voorstel | Wat ik je vraag te beoordelen |
+|---|---|---|---|---|
+| 1 | `1-huid-doorsnede.webp` | `huidDoorsnede()`: opperhuid in echte lagen (hoornlaag van platte dode cellen zonder kern, korrellaag, stekelcellaag, één rij basale cellen met een cel in deling), pigmentcellen (± 1 op 7 basale cellen) met uitlopers, melaninekapjes boven de kernen, golvende basaalmembraan, lederhuid met collageen en haarvatlussen. Rechts hetzelfde weefsel met melanine 0 / 1 / 1,6 (aa · gewoon · na zon); onder het overzicht van 1 mm. Schaalbalk 10 micrometer | chr-3 (en chr-9 voor de pigmentstanden) | **Anatomie** (C10.5: labels alleen op een plaat die jij goedkeurt): kloppen lagen, verhoudingen en de plek van de pigmentcellen? Zijn de melaninekorrels duidelijk genoeg? Is de delende cel herkenbaar genoeg, of mag hij weg? Is het 1 mm-overzicht nodig als tussenstap van de zoom? |
+| 2 | `2-kern-chromatine-condenseert.webp` | `kernChromatine()`: kern met dubbel kernmembraan en poriën; DNA als lange, zacht kronkelende draden, elk chromosoom in zijn eigen gebied (46 stuks, lengtes naar het echte aantal baseparen). Bij c = 0 → 1 trekken dezelfde draden samen tot X-chromosomen (morph, geen overvloeier); kernlichaampje verdwijnt. Rechts `chromatideX()`: twee zusterchromatiden met centromeer en lichte windingen van de oprolling, ook uit elkaar | chr-4 | Is de draad nu 'los en zacht kronkelend' genoeg (geen krabbel)? Is de tussenstand c = 0,4–0,6 acceptabel of te rommelig? Bevalt de windingentextuur op de chromatiden, of liever egaal? |
+| 3 | `3-dna-rond-eiwitten.webp` | `nucleosoomDraad()`: echte dubbelhelix (dezelfde `dnaDraad` als in Evolutie) die ± 1,65 keer om een schijf van acht histonen windt, achterkant donkerder, linker-DNA ertussen; verhoudingen op schaal (DNA 2 nm, schijf 11 nm). Linksonder de zoomcirkel van chromosoom naar DNA rond eiwitten | chr-4 | Klopt het beeld van 'opgerold rond eiwitten' voor jou? Mag de zoom direct van chromosoom naar nucleosomen (de 30 nm-vezel en lussen slaan we over, gelabeld 'vereenvoudigd')? |
+| 4 | `4-onderarmen-schaduw-zon.webp` | `onderarm()`: onderarm met hand (van boven), huidkleur uit het castboek; schaduw / zon met bruiningsgrens bij de mouw; Levi (aa) in de zon: geen bruin, wel rood. Maatcontrole naast Marieke (1:4) | chr-9 | Van wie zijn de armen in 'Hier twee keer hetzelfde genotype'? (Voorstel: Marieke.) Bij variant A (bruine huid) is het bruiner worden minder goed te zien dan bij variant B. Wil je bij aa + zon de rode verbranding tonen, of liever alleen 'geen pigment'? |
+| 5 | `5-gezin-de-wit-castboek.webp` | Nieuw figurantengezin in `personages/lib_cast.js` (`CAST_GEZIN_WIT`): Dennis en Marieke (Aa), Sara (13) en Jens (7) met huid en haar als hun ouders, Levi (10) met albinisme (heel lichte huid, wit-blond haar, lichte wenkbrauwen, lichtblauwgrijze ogen); vier grootouders in lijstjes, geen van allen met albinisme. Variant A = bruine huid, variant B = lichte huid (garderobe 'licht') | chr-1, chr-2 | **Kies A of B.** A laat het verschil het duidelijkst zien en past bij de bron (albinisme komt in Afrikaanse populaties vaker voor, MedlinePlus), B is dichter bij Noors familie. Namen goed? Staand in de kamer (zoals nu) of wil je toch een nieuwe zithouding op de bank (extra ronde in het castboek)? Levi zonder bril: goed? (Veel mensen met albinisme zien minder scherp; een bril kan, maar moet geen kenmerk worden.) |
+| 6 | `script_v2.md` | Script v2, ingesproken (37 alinea's, ± 7:56 spraak) | chr-5, -6, -7, -8, -11 en B4/B9/B11 | Zie de tabel 'Wijzigingen' bovenin het script. Drie punten om te kiezen, hieronder |
+
+## Wat je moet kiezen
+
+1. **Gezin variant A of B** (still 5), en staand of zittend.
+2. **Fenotype-zin (bronnencheck '!')**: nu 'Wat je aan de buitenkant ziet, heet het fenotype.' De syllabus en het leerboek zeggen 'waarneembare eigenschap' (ook bloedgroep is fenotype). Voorstel: 'Wat je kunt waarnemen, heet het fenotype.' (s30 opnieuw, ± 320 credits). Doen / niet?
+3. **'Normale huidskleur'** (s35): voorstel '… hebben allebei gewoon pigment in huid, haar en ogen' (respectvoller; ± 200 credits). Doen / niet?
+4. **Genotypen uitspreken als 'grote A, kleine a'**: de stem zegt nu 'grote A grote A', 'grote A kleine a', 'kleine a kleine a'; de ondertitel toont AA, Aa, aa. Goed zo, of liever alleen de letters (dan is A en a niet te horen)?
+5. **Eén voorspelvraag per hoofdstuk (prompt B4)**: hoofdstuk 1 (huid → DNA), 3 (gen, locus, allel) en 5 (milieu) hebben er geen; de oude film had er ook geen. Laten zo (aanbevolen: het verbeterblad vroeg geen nieuwe vragen) of drie vragen toevoegen (± 3 korte alinea's extra inspreken)?
+
+## Wat al klaar is
+
+- `../script_v2.md` + stem (`../herbouw-v2/`), blinde transcriptie zonder fouten (`../herbouw-v2/stem/blind.md`), wachtlijst `../uitspraak.md`.
+- `../bronnen.md`: 30 beweringen, 19 bronnen, 16 ✓ · 13 ≈ · 1 ! (de fenotype-zin).
+- Credits: stem 6.776; blinde transcriptie 3.023 (veel meer dan de schatting van ± 204); tekeningen 0 (geen ElevenLabs-referentieplaten gemaakt).

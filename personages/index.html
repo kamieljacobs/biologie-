@@ -592,7 +592,39 @@ const CAST = {
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
   ruben:  { naam: 'Ruben', leeftijd: 10, rol: 'jongen van ± 10 jaar (groep 7) · klasgenoot van Fleur', huid: '#F0CFB4', haar: '#B4542E', kapsel: 'kort', wenkbrauw: '#8A3E22',
             top: 'tshirt', strepen: null, topKleur: '#4FB3A5', topAccent: '#3E978B', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#2B3F66', accessoire: [], lengte: 1,
-            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22 }
+            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22 },
+  // ===== Gezin De Wit (25 okt 2026, Erfelijkheid 1 Chromosomen; ter keuring): figurantengezin met een kind met albinisme (OCA1) =====
+  // Ouders Aa (geen albinisme), drie kinderen: Sara en Jens met huid en haar zoals hun ouders, Levi (10) met albinisme: heel lichte huid,
+  // wit-blond haar, wenkbrauwen en wimpers, lichtblauwgrijze ogen (MedlinePlus OCA1: 'white hair, very pale skin, light-colored irises').
+  // Garderobe 'licht' = variant B voor de keuring: een gezin met een lichte huid (dan valt Levi minder op; Kamiel kiest).
+  dennis: { naam: 'Dennis', leeftijd: 43, rol: 'figurant · vader in het gezin De Wit (Aa)', huid: '#8E6248', haar: '#1E1612', kapsel: 'krul', wenkbrauw: '#16100C', stoppels: true,
+            top: 'trui', topKleur: '#4D6E9C', topAccent: '#3F5C84', broek: '#3A3F4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04,
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' } } },
+  marieke: { naam: 'Marieke', leeftijd: 41, rol: 'figurant · moeder in het gezin De Wit (Aa)', huid: '#B98563', haar: '#3A2418', kapsel: 'golf', golfLang: 0.6, wenkbrauw: '#2A1A12', wimpers: true, lippen: '#A8564E',
+            top: 'vest', topKleur: '#C9654B', topAccent: '#A8523C', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.97,
+            garderobe: { gewoon: {}, licht: { huid: '#EFC9A8', haar: '#8A5A30', wenkbrauw: '#6A4422' } } },
+  sara:   { naam: 'Sara', leeftijd: 13, rol: 'figurant · dochter in het gezin De Wit, oudste, krullen van haar vader', huid: '#A5734F', haar: '#24180F', kapsel: 'staart', wenkbrauw: '#1E140C', wimpers: true,
+            top: 'hoodie', topKleur: '#8C7BBF', topAccent: '#7464A6', broek: '#2E3442', schoen: '#F2F2EE', schoenAccent: '#8C7BBF', accessoire: [], lengte: 0.97,
+            kop: 6.0, armK: 0.95, schouderK: 1.3, heupK: 1.16, garderobe: { gewoon: {}, licht: { huid: '#EBC4A2', haar: '#7A5230', wenkbrauw: '#5A3A20' } } },
+  levi:   { naam: 'Levi', leeftijd: 10, rol: 'figurant · zoon in het gezin De Wit, heeft albinisme (aa): heel lichte huid, wit-blond haar, lichte ogen', huid: '#F6E4D8', haar: '#EDE2BC', kapsel: 'kort', wenkbrauw: '#E2D6B4', oog: '#8FAAC0',
+            top: 'tshirt', strepen: null, topKleur: '#4F8F6A', topAccent: '#3E7556', broek: '#33415C', schoen: '#F2F2EE', schoenAccent: '#4F8F6A', accessoire: [], lengte: 1,
+            kop: 5.8, armK: 0.9, schouderK: 1.45, heupK: 1.22, garderobe: { gewoon: {}, licht: {} } },
+  jens: { naam: 'Jens', leeftijd: 7, rol: 'figurant · jongste zoon in het gezin De Wit, huid en haar als zijn moeder', huid: '#B07C58', haar: '#2E1E14', kapsel: 'kort', wenkbrauw: '#22160E',
+            top: 'tshirt', topKleur: '#E0A43A', topAccent: '#C98A2A', broek: '#4D6E9C', kort: true, schoen: '#F2F2EE', schoenAccent: '#D86A5A', accessoire: [], lengte: 1,
+            kop: 5.4, armK: 0.87, schouderK: 1.52, heupK: 1.3, garderobe: { gewoon: {}, licht: { huid: '#F0CCAE', haar: '#9A6A3A', wenkbrauw: '#7A5028' } } },
+  // grootouders De Wit (voor de fotolijstjes): geen van vieren heeft albinisme
+  opawit: { naam: 'Opa Frank', leeftijd: 72, rol: 'figurant · opa (vaderskant) in het gezin De Wit', huid: '#80583F', haar: '#CFCCC4', kapsel: 'kort', wenkbrauw: '#B8B4AA', baard: true,
+            top: 'overhemd', topKleur: '#5A6E5E', topAccent: '#4A5C4E', broek: '#3A3F4E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: ['bril'], lengte: 1.0,
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A' } } },
+  omawit: { naam: 'Oma Lucia', leeftijd: 70, rol: 'figurant · oma (vaderskant) in het gezin De Wit', huid: '#946A4E', haar: '#D8D4CC', kapsel: 'bob', wenkbrauw: '#A8A296', wimpers: true, lippen: '#A8564E',
+            top: 'vest', topKleur: '#7A5A8C', topAccent: '#624876', binnen: '#EEE6DA', broek: '#3E3A4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: ['oorbel'], lengte: 0.95,
+            garderobe: { gewoon: {}, licht: { huid: '#EBC6A6' } } },
+  opabos: { naam: 'Opa Wim', leeftijd: 70, rol: 'figurant · opa (moederskant) in het gezin De Wit', huid: '#C08E6A', haar: '#BDBAB2', kapsel: 'kalend', wenkbrauw: '#9A968C',
+            top: 'trui', topKleur: '#5E8FA8', topAccent: '#4D7A90', broek: '#4A4E5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [], lengte: 1.0, krom: 0.03,
+            garderobe: { gewoon: {}, licht: { huid: '#EDC7A6' } } },
+  omabos: { naam: 'Oma Anja', leeftijd: 68, rol: 'figurant · oma (moederskant) in het gezin De Wit', huid: '#B07C58', haar: '#E2DFD6', kapsel: 'golf', golfLang: 0.4, wenkbrauw: '#B8B2A6', wimpers: true, lippen: '#A8564E',
+            top: 'trui', topKleur: '#C9A35C', topAccent: '#AE8A48', broek: '#3E3A4E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 0.95,
+            garderobe: { gewoon: {}, licht: { huid: '#F0CCAE' } } }
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -602,11 +634,14 @@ const CAST_FAMILIE = {
   petra:  { ouders: ['henk', 'ria'] },
   rachid: { ouders: ['ahmed', 'malika'] },
   henk:   { partner: 'ria' }, ahmed: { partner: 'malika' },
-  yasmin: { broerzus: ['bilal'] }, daan: { tweeling: 'thijs' }
+  yasmin: { broerzus: ['bilal'] }, daan: { tweeling: 'thijs' },
+  dennis: { ouders: ['opawit', 'omawit'], partner: 'marieke' }, marieke: { ouders: ['opabos', 'omabos'] },
+  sara: { ouders: ['dennis', 'marieke'], broerzus: ['levi', 'jens'] }, levi: { ouders: ['dennis', 'marieke'] }, jens: { ouders: ['dennis', 'marieke'] }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
+const CAST_GEZIN_WIT = ['opawit', 'omawit', 'opabos', 'omabos', 'dennis', 'marieke', 'sara', 'levi', 'jens']; // 25 okt 2026, ter keuring
 // // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
 function _mix(hex, k, naar = '#000000') { const a = parseInt(hex.slice(1), 16), b = parseInt(naar.slice(1), 16); const c = (s) => Math.round(((a >> s) & 255) * (1 - k) + ((b >> s) & 255) * k); return `rgb(${c(16)},${c(8)},${c(0)})`; }
@@ -1211,6 +1246,25 @@ window.families=function(){ ctx.clearRect(0,0,1920,1080); bg(ctx,'schema');
  text(ctx,'Eeneiige tweeling',1250,480,fTekst(26,700),C.goud,'left'); zet('daan',1370,720,185); zet('thijs',1550,720,185);
  text(ctx,'Losse rollen',1250,800,fTekst(26,700),C.goud,'left'); zet('erik',1340,1018,165,'figurant'); zet('joost',1530,1018,160,'figurant'); zet('esra',1720,1018,160,'cliënte van Mirjam');
 };
+window.gezinWit=function(){ ctx.clearRect(0,0,1920,1080); bg(ctx,'schema');
+ text(ctx,'Gezin De Wit · figuranten voor Erfelijkheid 1 (ter keuring, 25 okt 2026)',80,70,fTitel(42),C.text,'left');
+ text(ctx,'ouders Aa, Levi (10) heeft albinisme (aa); Sara en Jens zoals hun ouders · grootouders zonder albinisme',80,104,fTekst(22,500),C.text2,'left');
+ const lijst=(id,x,y,w,h,out)=>{ ctx.save(); roundRect(ctx,x-w/2,y,w,h,10); ctx.fillStyle='#2A3A58'; ctx.fill(); ctx.lineWidth=6; ctx.strokeStyle='#C9A35C'; ctx.stroke(); roundRect(ctx,x-w/2+6,y+6,w-12,h-12,6); ctx.clip(); persoon(ctx,id,x,y+h*3.2,h*3.0,{uit:'blij',outfit:out}); ctx.restore(); };
+ const rij=(out,x0,yb,sc,label)=>{ const P=[['dennis',0,600],['sara',150,505],['levi',285,450],['jens',405,390],['marieke',540,575]];
+  P.forEach(([id,dx,hg],i)=>{ persoon(ctx,id,x0+dx*sc,yb,hg*sc,{uit:i===2?'lacht':'blij',outfit:out,kijk:i<2?1:-1,t:0.3}); text(ctx,CAST[id].naam,x0+dx*sc,yb+26,fTekst(Math.round(22*Math.max(0.8,sc)),700),C.text,'center'); });
+  text(ctx,label,x0+270*sc,yb+58,fTekst(20,500),C.goud,'center'); };
+ // variant A: lijstjes aan de muur + gezin
+ ['opawit','omawit','opabos','omabos'].forEach((id,i)=>lijst(id,150+i*150,150,110,140,'gewoon'));
+ text(ctx,'opa en oma (vaderskant)  ·  opa en oma (moederskant)',375,316,fTekst(18,500),C.text2,'center');
+ rij('gewoon',150,960,0.85,'variant A (gewoon)');
+ // variant B: lichte huid
+ ctx.strokeStyle=rgba('#FFFFFF',0.12); ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(880,140); ctx.lineTo(880,1040); ctx.stroke();
+ rij('licht',1000,600,0.62,'variant B (outfit licht)');
+ // close-up: koppen van Levi, Jens en Marieke
+ const kop=(id,x,y,s,out)=>{ ctx.save(); ctx.beginPath(); ctx.arc(x,y,s*0.5,0,6.283); ctx.fillStyle='#22324F'; ctx.fill(); ctx.clip(); persoon(ctx,id,x,y+s*3.1,s*3.6,{uit:'blij',outfit:out}); ctx.restore(); ctx.beginPath(); ctx.arc(x,y,s*0.5,0,6.283); ctx.lineWidth=3; ctx.strokeStyle=C.goud; ctx.stroke(); };
+ kop('marieke',1150,820,200,'gewoon'); kop('levi',1400,820,200,'gewoon'); kop('jens',1650,820,200,'gewoon'); kop('levi',1830,700,120,'licht');
+ text(ctx,'Marieke · Levi · Jens (ingezoomd)',1400,960,fTekst(22,600),C.text2,'center');
+ text(ctx,'Levi: huid #F6E4D8, haar #EDE2BC, ogen #8FAAC0',1400,995,fTekst(18,500),C.text2,'center'); };
 window.teken=function(mode){
  if(mode==='blad'){ ctx.clearRect(0,0,1920,1080); bg(ctx,'schema'); text(ctx,'De vaste personages',80,90,fTitel(52),C.text,'left'); CAST_VOLGORDE.forEach((id,i)=>{ const col=i%3,row=Math.floor(i/3), x=60+col*620, y=150+row*450; const P=CAST[id]; persoon(ctx,id,x+120,y+420,400,{uit:['blij','denkt','lacht','verbaasd','praat','blij'][i],pose:['zwaai','denk','staan','wijsOmhoog','schouders','handenHeup'][i],t:0.3}); text(ctx,P.naam,x+300,y+150,fTitel(38),C.text,'left'); text(ctx,P.leeftijd+' jaar',x+300,y+190,fTekst(24,600),C.goud,'left'); const w=P.rol.split(' · '); w.forEach((r,k)=>text(ctx,r,x+290,y+235+k*30,fTekst(21,500),C.text2,'left')); }); return; }
  ctx.clearRect(0,0,1920,1080); bg(ctx,'schema');
@@ -1219,6 +1273,6 @@ window.teken=function(mode){
  if(mode==='pose'){ const Pz=['staan','zwaai','wijs','wijsOmhoog','denk','schouders','handenHeup']; ['daan','kim','henk'].forEach((id,r)=>Pz.forEach((p,i)=>{ const x=150+i*270, y=330+r*340; persoon(ctx,id,x,y,320,{pose:p,uit:p==='denk'?'denkt':'blij',t:0.3}); if(r===0) text(ctx,p,x,40,fTekst(22,600),C.text2,'center'); })); }
 };
 </script><script>(function(){const bar=document.getElementById('bar');const knop=(t,f)=>{const k=document.createElement('button');k.textContent=t;k.onclick=()=>{window.__zijAan=false;bar.querySelectorAll('button').forEach(x=>x.classList.remove('on'));k.classList.add('on');f();};bar.appendChild(k);return k;};
-const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));if(window.families)knop('Families',()=>families());if(window.jong)knop('Teun en baby',()=>jong());if(window.tien)knop('Fleur en Ruben',()=>tien());if(window.zijBlad)knop('Zijaanzicht en lopen',()=>zijBlad());if(window.sprintBlad)knop('Gangcyclus per fase',()=>sprintBlad());CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});if(typeof CAST_EXTRA!=='undefined')CAST_EXTRA.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
+const eerste=knop('Overzicht',()=>teken('blad'));knop('Op een rij',()=>teken('rij'));if(window.families)knop('Families',()=>families());if(window.jong)knop('Teun en baby',()=>jong());if(window.tien)knop('Fleur en Ruben',()=>tien());if(window.gezinWit)knop('Gezin De Wit (albinisme)',()=>gezinWit());if(window.zijBlad)knop('Zijaanzicht en lopen',()=>zijBlad());if(window.sprintBlad)knop('Gangcyclus per fase',()=>sprintBlad());CAST_VOLGORDE.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});if(typeof CAST_EXTRA!=='undefined')CAST_EXTRA.forEach(id=>{knop(CAST[id].naam,()=>los(id));if(CAST[id].garderobe)knop(CAST[id].naam+' · kleding',()=>garderobe(id));});
 document.fonts.ready.then(()=>eerste.click());})();</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>

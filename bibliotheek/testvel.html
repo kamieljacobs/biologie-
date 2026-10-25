@@ -1,13 +1,64 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"><script src="../js/teller.js" data-root="../"></script>
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (ter keuring 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
 <script src="lib_bio.js"></script>
 <script>const ctx=document.getElementById('c').getContext('2d');
 function lab(s,x,y){ text(ctx,s,x,y,fMeta(22),C.text2,'center'); }
+
+// ===== vel 5 · Chromosomen (Erfelijkheid 1, ter keuring 25 okt 2026). Laadt lib_cast.js en lib_micro_evo.js (dnaDraad) pas als je dit vel opent.
+function laad(src){ return new Promise(r=>{ const e=document.createElement('script'); e.src=src; e.onload=r; document.head.appendChild(e); }); }
+let chrKlaar=null; function chrLibs(){ return chrKlaar || (chrKlaar = laad('../personages/lib_cast.js').then(()=>laad('../films/evolutie/8-stambomen-lezen/bron/src/lib_micro_evo.js'))); }
+function kop(s,sub){ text(ctx,s,60,64,fTitel(40),C.text,'left'); if(sub) text(ctx,sub,60,98,fTekst(22,500),C.text2,'left'); }
+function balk(x,y,px,lab){ ctx.fillStyle=C.text; ctx.fillRect(x,y,px,5); text(ctx,lab,x+px/2,y+32,fMeta(22),C.text2,'center'); }
+if(typeof circ==='undefined') window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };
+window.chr=async function(p,arg){ await chrLibs(); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H); const t=1.3;
+ if(p===1){ kop('Huid in doorsnede · huidDoorsnede()','opperhuid met hoornlaag, korrellaag, stekelcellaag, basale laag met pigmentcellen; lederhuid met haarvatlussen');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(40,120,1240,620);
+  const R=huidDoorsnede(ctx,60,130,1200,600,{um:250,mel:1,deling:1,t});
+  const s=R.s; naamBij(ctx,'dode, platte cellen','hoornlaag',1240,R.yTop+12,1,'right'); naamBij(ctx,'levende cellen',null,1240,R.yKorrel+90,1,'right');
+  naamBij(ctx,'basale laag','deze cellen delen zich',300,R.yBasaal(300)+70,1,'left');
+  if(R.pig[2]) naamBij(ctx,'pigmentcel','maakt melanine',R.pig[2][0]+40,R.pig[2][1]+20,1,'left');
+  if(R.deel) naamBij(ctx,'cel in deling',null,R.deel[0]+30,R.deel[1]-40,1,'left');
+  naamBij(ctx,'lederhuid',null,1240,715,1,'right');
+  balk(80,760,10*s,'10 micrometer');
+  // drie pigmentstanden
+  [[0,'aa · geen melanine'],[1,'AA · gewoon'],[1.6,'AA · na zon']].forEach(([m,l],i)=>{ const x0=1310, y0=130+i*205; ctx.fillStyle=C.bgMicro; ctx.fillRect(x0,y0,580,190); ctx.save(); ctx.beginPath(); ctx.rect(x0+5,y0+5,570,180); ctx.clip();
+   huidDoorsnede(ctx,x0+5,y0-345,570,540,{um:120,mel:m,seed:9,t}); ctx.restore(); text(ctx,l,x0+20,y0+30,fTekst(24,700),C.text,'left'); });
+  text(ctx,'zelfde weefsel met mel = 0 / 1 / 1,6 (de pigmentcellen blijven bestaan, alleen de korrels verschillen)',1310,800,fTekst(20,500),C.text2,'left');
+  // overzicht 1 mm: zelfde functie, grover
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(40,830,1240,220); huidDoorsnede(ctx,50,840,1220,200,{um:1000,mel:1,seed:3}); text(ctx,'1 millimeter huid (um = 1000): de cellen worden klein; in de film is dit het eerste zoombeeld',60,1072,fTekst(20,500),C.text2,'left');
+  return; }
+ if(p===2){ kop('Celkern: chromatine die condenseert · kernChromatine()','dezelfde draden trekken samen tot X-vormige chromosomen (c = 0 → 1); elk chromosoom in zijn eigen gebied');
+  const cs=[0,0.2,0.4,0.6,0.8,1]; cs.forEach((c,i)=>{ const x0=190+i*305, y0=330; ctx.fillStyle=C.bgMicro; ctx.beginPath(); ctx.arc(x0,y0,150,0,6.283); ctx.fill(); kernChromatine(ctx,x0,y0,140,{c,seed:4}); text(ctx,'c = '+c.toFixed(1).replace('.',','),x0,y0+185,fMeta(22),C.text2,'center'); });
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(40,560,700,500); const pos=kernChromatine(ctx,390,810,230,{c:arg==null?0:arg,seed:4}); text(ctx,'groot, c = '+(arg==null?0:arg),60,1040,fMeta(22),C.text2,'left');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(760,560,560,500); kernChromatine(ctx,1040,810,230,{c:1,seed:4,membraan:0.3}); text(ctx,'c = 1, kernmembraan valt uiteen',780,1040,fMeta(22),C.text2,'left');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(1340,560,540,500); chromatideX(ctx,1500,800,330,0,{w:56}); chromatideX(ctx,1720,800,330,0,{w:56,uiteen:0.5,a:1});
+  naamBij(ctx,'zusterchromatiden',null,1610,630,1,'center'); naamBij(ctx,'centromeer',null,1470,860,1,'right'); text(ctx,'chromatideX · gewoon · zusters uiteen',1610,1040,fMeta(22),C.text2,'center');
+  return; }
+ if(p===3){ kop('DNA rond eiwitten · nucleosoomDraad()','DNA-dubbelhelix (dnaDraad) windt ± 1,65 keer om een kern van acht histonen; linker-DNA ertussen');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(40,120,1840,560); nucleosoomDraad(ctx,90,400,1830,400,{n:4,R:120,t});
+  naamBij(ctx,'DNA',null,1700,250,1,'left'); naamBij(ctx,'eiwitten','histonen',560,560,1,'center'); balk(80,640,10*(240/11),'10 nanometer');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(40,700,900,360); chromatideX(ctx,250,880,230,0.15,{w:42}); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(268,820,24,0,6.283); ctx.stroke();
+  ctx.beginPath(); ctx.arc(700,880,160,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(288,806); ctx.lineTo(580,745); ctx.moveTo(288,836); ctx.lineTo(580,1015); ctx.stroke();
+  ctx.save(); ctx.beginPath(); ctx.arc(700,880,158,0,6.283); ctx.clip(); ctx.fillStyle=C.bgMicro; ctx.fill(); nucleosoomDraad(ctx,520,900,900,860,{n:3,R:44,t}); ctx.restore();
+  text(ctx,'zoomcirkel: chromosoom → DNA rond eiwitten (vereenvoudigd)',700,1065,fMeta(20),C.text2,'center');
+  ctx.fillStyle=C.bgMicro; ctx.fillRect(960,700,920,360); nucleosoomDraad(ctx,1000,880,1840,880,{n:5,R:60,t,tilt:0.75}); text(ctx,'zelfde draad, andere hoek (tilt 0,75)',1420,1050,fMeta(20),C.text2,'center');
+  return; }
+ if(p===4){ kop('Onderarmen van een castpersonage · onderarm()','schaduw / zon / aa in de zon; huidkleur uit het castboek (gezin De Wit)');
+  const rij=(y,id,out,lab)=>{ text(ctx,lab,60,y-110,fTekst(24,700),C.goud,'left');
+   onderarm(ctx,90,y,11,{id,outfit:out,bruin:0}); text(ctx,'schaduw',90+250,y+80,fTekst(22,600),C.text2,'center');
+   onderarm(ctx,700,y,11,{id,outfit:out,bruin:1,mouwOp:2}); text(ctx,'zon (bruiningsgrens bij de mouw)',700+250,y+80,fTekst(22,600),C.text2,'center'); };
+  rij(300,'marieke',null,'Marieke (variant A)'); rij(620,'marieke','licht','Marieke (variant B, licht)');
+  text(ctx,'Levi (aa)',1300,190,fTekst(24,700),C.goud,'left'); onderarm(ctx,1300,300,11,{id:'levi',bruin:0}); text(ctx,'schaduw',1550,380,fTekst(22,600),C.text2,'center');
+  onderarm(ctx,1300,620,11,{id:'levi',rood:1,mouwOp:2}); text(ctx,'zon: geen bruin, wel rood (verbrand)',1550,700,fTekst(22,600),C.text2,'center');
+  // maatcontrole: arm naast Marieke op dezelfde schaal (11 px/cm → 167 cm = 1837 px is te groot; toon 1/4)
+  persoon(ctx,'marieke',1820,1050,0.25*11*167,{}); onderarm(ctx,1620,1000,0.25*11,{id:'marieke'}); text(ctx,'maatcontrole 1:4',1700,1075,fMeta(20),C.text2,'center');
+  return; } };
+
 function draw(page){ const t=page*0.37+1.3; ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H);
  if(page<=1){
   hoofdHersenen(ctx,300,420,1.1,{hth:1,hyp:0.6}); lab('hoofdHersenen',300,1040);

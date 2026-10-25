@@ -7,7 +7,7 @@ Werkwijze (Kamiel 24 okt 2026): een film die feedback krijgt, wordt in dezelfde 
 
 ## Ronde 24 okt 2026: Chromosomen + Signalen in de cel
 
-Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen voor de verbeteringen zijn goed'). Signalen: herstel loopt. Chromosomen: fase 1 (script v2, stem, nieuwe tekeningen + gezin op het testvel/castboek ter keuring, C10.4–5); na Kamiels keuring fase 2 (scènes bouwen).
+Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen voor de verbeteringen zijn goed'). Signalen: herstel loopt. Chromosomen: **fase 1 klaar (25 okt 2026), wacht op Kamiels keuring** van `films/erfelijkheid/1-chromosomen/bron/keuring-fase1/` (index.md met 5 stills + script v2 en 5 keuzes: gezin variant A/B, fenotype-zin, 'normale huidskleur', 'grote A/kleine a', extra vragen). Script v2 ingesproken (37 takes, `bron/herbouw-v2/`), blinde transcriptie foutloos, `bron/bronnen.md` (1 '!'). Nieuwe recepten in `bibliotheek/lib_bio.js` (huidDoorsnede, kernChromatine, chromatideX, nucleosoomDraad, onderarm) en gezin De Wit in `personages/lib_cast.js`. Credits: 6.776 stem + 3.023 Scribe. Daarna fase 2 (scènes bouwen, zie `bron/info.md` en `bron/herbouw-v2/README.md`). Let op: Scribe-schatting (`estimate_only`) gaf 204 credits, de echte transcriptie van 9 min kostte 3.023: transcribeer alleen alinea's met risicowoorden.
 
 - Verbeterblad (artifact van het account dat deze ronde deed): https://claude.ai/artifact/QtpXDphCAUXtRa76nXWT98 — vanuit het andere account niet te openen; publiceer dan opnieuw uit de bestanden hieronder.
 - Voorstellen, stills en Kamiels reviewopmerkingen per film:

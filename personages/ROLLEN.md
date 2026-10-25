@@ -34,6 +34,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |
+| gezin met een kind met albinisme (erfelijkheid, recessief; figuranten, in de film zonder naam) | **gezin De Wit** (`CAST_GEZIN_WIT`, 25 okt 2026, ter keuring): Dennis en Marieke (Aa), Sara (13), **Levi** (10, albinisme), Jens (7), grootouders Opa Frank, Oma Lucia, Opa Wim, Oma Anja; garderobe `licht` = variant met lichte huid |
 
 Handdruk: pose `handdruk` met `o.hand` (grijppunt) en `o.schud` (0..1), of de functie `handdruk(ctx, idL, idR, xm, voet, h, {t, schud, …})` die twee personages zo neerzet dat de handen sluiten (25 okt 2026).
 
