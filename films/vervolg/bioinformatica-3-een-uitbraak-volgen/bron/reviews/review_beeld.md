@@ -1,0 +1,60 @@
+# Frisse beeldreview film 3 — Stambomen uit DNA: een uitbraak volgen (prompt v10, C10.7)
+
+Reviewer heeft de film niet gemaakt. Contactblad 25/60/92 % van elke alinea (99 stills, `engine/stills.py bi3 … contact`), extra stills op twijfelplekken (s07, s09, s12, s13, s15 op elk 'C-E', s17, s19, s23, s24, s27–s30, s33, s34 en t = 0 van s10/s24/s27/s30/s33), Vragen uit met Playwright (`?vragen=uit`, per vraag 5 s ervoor tot 5 s erna, plus de hoorbare woorden per item na de knip). Rekenvoorbeelden nagerekend met `werk/bootstrap_sim.py`. Bronnen bij 'Aanpassingen' zelf geopend (B1, B2, B5, B18, B19, B20).
+
+## MOET
+
+1. **s12 · ±16,0–20,1 s (en s13 tot ±1 s)**: bij 'zoek weer het kleinste getal' licht in de gekrompen tabel de **2 (C-E) goud** op. Dat is het antwoord op q14, in beeld vóór de vraag (B §11: geen antwoord vóór zijn vraag). Fix (scenes_bi3.js s12): in de gekrompen tabel niets goud maken, hooguit een zachte scan-gloed over alle cellen. De 2 wordt pas goud in s15 op 'twee' (3,1 s), en dat gebeurt al.
+2. **s15 · 13,6–21,0 s, 'C-E' als paar**: zoals Scribe al opmerkte, kan 'cee-ee' als één 'C' klinken ('A, B en C'). Het beeld vangt dat nu niet op. De pillen 'A-B' en 'C-E' in de tabelkop zijn klein (koppelteken nauwelijks zichtbaar), op de gesproken 'C-E' (13,9 · 16,2 · 20,7 s) licht niets op, en in het boompje staat geen 'C-E' bij de beugel. Ook de **5** wordt pas goud bij 'samen' (±21 s), niet bij 'A-B en C-E verschillen vijf' (16,5 s). Fix: (a) pillen 'A-B'/'C-E' groter (±40 px) en als twee rondjes met een verbindingsstreep ('C–E') in plaats van tekst met een koppelteken; (b) op elk woord 'C-E' de rij- en kolompil plus de C-E-beugel in de boom kort goud laten oplichten (`q.on('C-E', n)`); (c) boven de beugels in de boom kleine labels 'A-B' en 'C-E'; (d) de 5 goud op 'vijf,' (17,5 s). Daarnaast moet een mens s15 beluisteren; klinkt het als 'C', dan herinspreken met 'cee en ee' als twee woorden ('cee-en-ee'), bv. 'Er blijven drie over: aa-bé, cee-en-ee, en dee.'
+3. **s36 eindkaart**: de vierde kernzin ('Een stamboom toont verwantschap. Bij bijna gelijke virussen niet wie het aan wie gaf, en nooit schuld.') loopt over de volle breedte en raakt links en rechts de beeldrand. Fix: over twee regels breken (na 'verwantschap.') of `maxW` ±1500 px met automatische regelbreuk.
+4. **s30 · ±9–19 s, label 'elke groep: in meer dan één ziekenhuis, en ook daarbuiten'** (en dezelfde zin gesproken): B1 zegt per groep alleen in welke ziekenhuizen hij voorkwam (groep 1: Amphia 45 %, ETZ 45 %; groep 2: Amphia 85 %, Bravis 10 %; groep 3: 4 Amphia, 1 Bravis), dus 'in meer dan één ziekenhuis' ✓. 'Ook daarbuiten' staat in B1 alleen in het algemeen ('identical viruses in all three hospitals, and with non-hospitalised cases in other locations'), niet **per groep**. Fix in beeld: label 'elke groep: in meer dan één ziekenhuis' met daaronder, los, 'zelfde virussen ook buiten de ziekenhuizen'. Voor de stem: voorstel aan Kamiel (één bron, dus geen eigen aanpassing): laten staan als ≈, of herinspreken als 'Elke groep kwam in meer dan één ziekenhuis voor. En dezelfde virussen zaten ook bij mensen daarbuiten.' Logboek #29 terug naar ≈ (zie Bronnen).
+5. **Vragen uit · s15, s23, s27, s33**: de groene regels 'antwoord: …' blijven in beeld, omdat `standalone.html` nog geen ANTWOORDTEKST-script heeft (grep = 0). Fix: `scripts/antwoordtekst.py` draaien bij het inbouwen in de repo. Getest met de regex van het script: alle vier worden alleen de inhoud ('Het paar C-E, met twee verschillen', 'Die tak staat wankel', 'Hun virussen zijn familie', 'Vooral buiten het werk'). Dankzij de opmerking in `antwRegel3` wordt 'C-E' niet als letter c gelezen.
+
+## KAN
+
+6. **s29 · 3,5–8 s**: het vakje bij 'werkplek' is grijs gevuld met een vaag vinkje, de andere twee zijn donker met een fel vinkje. Daardoor lijkt 'werkplek' uitgegrijsd of afgewezen. Fix: alle drie dezelfde vakstijl (`lijst3`, of de alpha van het eerste vakje nalopen).
+7. **s28 · 8–18 s**: de 'drie gelijkwaardige pijlen' zijn niet gelijkwaardig. C→E en E→C zijn dikke gouden bogen, de twee pijlen van 'iemand anders' dunne stippellijnen, en Erik is klein. Daardoor lijkt de derde mogelijkheid minder waarschijnlijk. Fix: de pijlen vanaf de niet-geteste persoon even dik en goud (alleen het kader blijft gestippeld), Erik op dezelfde schaal als C.
+8. **s19 · ±10–20 s**: 'TREKKEN · OVERSCHRIJVEN · TERUGLEGGEN' (eindigt bij ±x 1200 op 1920) en 'SOMMIGE DUBBEL, ANDERE WEG' raken elkaar bijna (verschil ±12 px in hoogte). Fix: het linkerlabel onder de bak centreren (x ±950) of het rechterlabel 30 px lager.
+9. **s24 · 3–7 s en s25**: de pil 'positief: dag 1' ligt op de onderrand van het afdelingskader van ziekenhuis 1. Fix: 20 px lager, of binnen het kader onder Jesse.
+10. **s06**: 'VIRUS VAN PERSOON NAAR PERSOON', 'mutatie' en 'EEN KOPIEERFOUT' staan dicht op elkaar en lezen als één blok. 'mutatie' staat bovendien niet bij een gouden streepje. Fix: 'mutatie · een kopieerfout' direct boven het eerste gouden streepje (balk 3), de koptitel los erboven.
+11. **s09 · ±7,5–9,7 s**: het teal oplichtende eerste kwart ('een week') van de maandbalk is op het contactblad niet te zien. Fix: dekking omhoog, of een label 'een week' onder het eerste kwart.
+12. **s21**: het kaartje 'eigen berekening, vereenvoudigd' springt van rechts-midden (s20) naar rechtsonder (s21–s23). Fix: één vaste plek over s20–s23.
+13. **s04**: DNA staat als een plat laddertje. C10.4 vraagt één `dnaDraad` (vanaf 6 px een helix). Fix: `dnaDraad` uit lib_bio gebruiken, of het lint als zachte helix tekenen.
+14. **s35**: het kaartje noemt de master 'Bioinformatics', het storyboard en B16 'Bioinformatics and Systems Biology'. Fix: volledige naam op het kaartje; de stem mag de korte naam houden.
+15. **s27 · 0–4 s (vooral bij Vragen uit)**: bij 'Gelijke virussen zeggen: nauw verwant' staan alleen twee kale tijdlijnen met testvinkjes in beeld. Fix: de twee monsterrondjes A en B met hun gelijke teal kleur en een klein 'nauw verwant'-haakje in de eerste 4 s, daarna de tijdlijnen.
+16. **s27 / s28, gevoeligheid**: de niet-geteste 'bron' wordt gespeeld door Erik (vaste rol: verdachte in Forensisch onderzoek) en Mevrouw Jansen. ROLLEN.md staat Erik toe als 'anoniem iemand uit een onderzoek', maar wie de forensische reeks kent, kan bij 'de bron' aan 'de verdachte' denken. Overweeg twee naamloze figuranten. Kamiel beslist (het storyboard zette ze zo).
+
+## Gevoeligheid (verder in orde)
+Geen zieke mensen, geen bedden met zieken, geen gezichten bij de 96. Nergens stads- of ziekenhuisnamen; de bron alleen op het bronkaartje in s34. Het kaartje 'bedacht voorbeeld' staat er zolang A–E in beeld zijn (s02, s10–s29, s34), 'maart 2020 · echte studie' bij s30–s34. De patiënt zit in gewone kleding, de gezichten zijn neutraal en 'en geen schuld' staat in beeld.
+
+## Rekenvoorbeelden (nagerekend)
+`bootstrap_sim.py` (script A, 29 408 kolommen, 4000 herhalingen): afstanden A-B 0, C-E 2, A/B–C/E 5, A/B–D 6, C/E–D 7. UPGMA geeft ((A,B),(C,E)),D met steun **0,99 / 0,85 / 0,58**. Dat klopt met de tabel in s11, de gekrompen tabellen in s12 en s15 (5 · 6 · 7, gemiddelden zijn hier gelijk) en de getallen in s20, s21, s23 en s34. In s17 verschillen C en E zichtbaar op 2 plekken. In s05 zitten de stukjes op hun juiste plek langs de referentie (één consequente variant T). Het raster in s01 telt 16 × 6 = 96. In s19 is de rechter uitlijning een herbemonstering van de linker (steekproef van kolommen gecontroleerd).
+
+## Vragen uit
+Audio: s07 wordt geknipt na '…hun virus lezen.', s13 na 'A en B hangen samen.', s21, s25 en s31 vallen helemaal weg. Wat erna komt, leunt niet op de vraag (s09 'Ook na een week…', s15 'Na A en B is het kleinste getal twee…', s23 'Een tak die maar zes van de tien keer…', s27 'Gelijke virussen zeggen…', s33 'De meesten raakten dus…': 'dus' volgt uit s30, niet uit de vraag). Ondertitels (op het canvas) tonen geen vraagzin. In beeld staat geen vraagteken of vraagkaart; alleen de antwoordregels van MOET 5 blijven over, tot antwoordtekst.py draait. Let op: MOET 1 (de vooraf goud gemaakte 2) is ook bij Vragen aan het probleem.
+
+## Bronnen (aanpassingen nagelopen, zelf geopend 25 okt 2026)
+- #7 ✓: B2 'many index case and contact pairs will share identical genotypes'.
+- #15 ✓: B5 'randomly choose l columns … with replacement' (l = lengte van de uitlijning), 'usually around 100 times'.
+- #21 ✓: B18 mediaan 5,1 dagen, 97,5 % binnen 11,5 dagen; B19 (NOS 22-02-2020) 'na maximaal 14 dagen symptomen'.
+- #2 ✓ → **≈**: B1 'On Feb 27, 2020, the first patient in the Netherlands tested positive' (A). B19 zegt níet dat er nog geen geval was; het artikel noemt alleen geen Nederlands geval. Dat is geen tweede bevestiging. De bewering zelf klopt.
+- #9 ✓: B20 kleinste paar samenvoegen, afstanden middelen, 'suffers from the molecular clock assumption'.
+- #23 ✓: B2 'making it difficult to ascertain who infected whom'.
+- #26/#27 ✓ (oorsprong): B1 '50 of 96 health-care workers', 'Ten … sequences from patients … grouped into the same three clusters'.
+- #29 ✓ → **≈** (beeld: zie MOET 4): 'elke groep in meer dan één ziekenhuis' klopt met de percentages per cluster; 'en ook daarbuiten' staat in B1 alleen voor alle groepen samen. Een volledige vergelijking met GISAID-sequenties (de minimum spanning tree) noemt geen niet-ziekenhuisgevallen per cluster.
+- #5 ✓: B1 'reference-based alignment … using minimap2'.
+Open blijft (al genoteerd): een tweede onafhankelijke bron voor de casus (#1, #26, #28–#31).
+
+## Voor het foutenlogboek (door de coördinator)
+MOET 1 (antwoord vóór de vraag, soort timing/vraag), MOET 2 (uitspraak van letterparen niet in beeld opgevangen), MOET 3 (tekst tot de rand), MOET 4 (bewering in beeld preciezer dan de bron). Kandidaat voor een algemene les: bij twee letternamen met een koppelteken in de stem het paar ook in beeld als paar laten oplichten op het woord.
+
+## Verwerkt (25 okt 2026, maker)
+- **MOET 1 (s12):** de gekrompen tabel licht niet meer op; de 2 (C-E) wordt pas goud in s15 op 'twee'. s13 had al geen markering.
+- **MOET 2 (s15):** paren in de tabel zijn nu twee rondjes met een verbindingsstreep (`paar3`, r 24, cellen 140 px). Op elk gesproken 'C-E' (13,9 · 16,2 · 20,7 s) lichten de C-E-pillen en de C-E-beugel in de boom ±1,2 s goud op. Boven de beugels staan labels A–B en C–E. De 5 wordt goud op 'vijf,' (17,5 s). Niet opnieuw ingesproken (opdracht coördinator); beluisteren van s15 blijft open.
+- **MOET 3 (s36):** vierde kernzin over twee regels (na 'verwantschap.') in script_v2.md, script_opname.md en segments.json; past nu binnen het beeld.
+- **MOET 4 (s30/s31):** beeld: 'elke groep: in meer dan één ziekenhuis', los daarvan bij het huisje 'zelfde virussen ook buiten de ziekenhuizen' (op 'daarbuiten'). Stem: de zin stond per groep in de gesproken tekst, dus aangepast naar 'Elke groep kwam in meer dan één ziekenhuis voor. En dezelfde virussen zaten ook bij mensen daarbuiten.' (script_v2, script_opname, segments; ook q32 in film.py en het docentdeel). Alleen s30 opnieuw ingesproken: één aanroep, flow wNfVs0Q1Kr9f6CqgxUdg, generation sqoSsKbTuoZZ6II8bbj8, 21,1 s, 311 credits; silalign 5/5 leestekens; stem/gen.json, sessions.json en nodes.json bijgewerkt; oude take in raw/s30_oud.mp3. Logboek #29 terug naar ≈ (aanpassing in bronnen.md door de coördinator).
+- **MOET 5:** geen wijziging in de werkmap; `scripts/antwoordtekst.py` draaien bij het inbouwen in de repo.
+- **KAN 7 (s28):** de niet-geteste persoon staat op dezelfde schaal als C (300 px), de twee pijlen van 'iemand anders' zijn even dik en goud als C→E en E→C (getekend op 'anders'); alleen het kader blijft gestippeld. Label boven de persoon.
+- **KAN 16 (s27/s28):** Erik vervangen door een nieuwe naamloze figurant `passant` (voorbijganger, geen vaste rol; in teken_bi3.js, na akkoord naar lib_cast.js). Mevrouw Jansen in s27 blijft.
+- Niet gedaan (KAN 6, 8–15): buiten de opdracht van deze ronde.
+- s30: het vakje 'één afdeling' iets hoger gezet, zodat het niet over het nieuwe label valt. Bouwen, cuecheck (geen fouten), stills van s12, s15, s27, s28, s30, s31, s36 bekeken; keyframes ververst.

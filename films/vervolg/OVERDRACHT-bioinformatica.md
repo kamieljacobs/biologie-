@@ -38,6 +38,7 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 ## Op de site
 - **Film 1** `films/vervolg/bioinformatica-1-zoeken-in-dna.html` (25 okt 2026, avond): ingesproken (flow FAbmxqZ1O6SaivkGKmYL, ±5.530 + 925 credits transcriptie), blinde uitspraakcontrole zonder fouten, frisse beeldreview (8 MOET, 10 KAN, alle verwerkt), bronmap compleet, status 'nog bekijken'. Nog geen filmmedaillon.
 - **Film 2** `films/vervolg/bioinformatica-2-miljoenen-varianten.html` (25 okt 2026, avond): titel 'Miljoenen varianten', nieuwe ouders Anouk en Milan + pose 'zit' + uitdrukking 'ernstig' (lib_cast.js), ingesproken (flow V7zse60agWtCDtrhP2NO, ±4.730 + 980 credits), beeldreview verwerkt; speler herkent nu 'bé' (alle films). Luisteren: s17 'volgde', s18 'genoombrede'.
+- **Film 3** `films/vervolg/bioinformatica-3-een-uitbraak-volgen.html` (25 okt 2026, avond): ingesproken (flow wNfVs0Q1Kr9f6CqgxUdg, ±5.550 + 1.200 + 311 voor s30 opnieuw), beeldreview verwerkt. Luisteren: s10 'bé', s15 'C-E', s19 'bootstrappen'. Open: de vier nieuwe figuranten (drie zorgmedewerkers/patiënt + 'passant') staan nog alleen in `bron/src/teken_bi3.js`, nog naar `personages/lib_cast.js` en ROLLEN.md.
 
 ## Na de keuring (te doen)
 - Reeksobject 'scherm met code / sequenties': de eigen versies in film 2, 3 en 4 vervangen door het blok bovenaan `bi1/teken_bi1.js`.
