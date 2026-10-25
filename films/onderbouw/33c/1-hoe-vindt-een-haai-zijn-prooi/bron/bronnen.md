@@ -84,6 +84,6 @@ Steekproef door Kamiel: open de bron, zoek de bewering op de pagina, zet een vin
 
 | Bewering | Bron | Gecontroleerd door | Datum |
 |---|---|---|---|
-| 2 | B12 | | |
+| 2 | B12 | Kamiel (de mythe van de druppel in een olympisch bad of op een mijl afstand klopt niet; haaien ruiken niet beter dan een gewone vis) | 25 okt 2026 |
 | 21 | B16 | | |
 | 24 | B1 | | |
