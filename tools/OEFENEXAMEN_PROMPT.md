@@ -18,7 +18,7 @@ Verder: hulpstand / examenstand, schakelaar 'Vrij doorklikken' (anders pas door 
 
 ## Wat Kamiel aanlevert
 
-De pdf's van het examen (`…-o.pdf`), het correctievoorschrift (`…-c.pdf`) en een eventuele aanvulling (`…-c-a1….pdf`). De omzettingstabel staat op examenblad.nl als webpagina ('omzettingstabel normering', bij het examen); de N-term staat op de pagina 'N-termen <jaar>'. Daarnaast heeft de Examenatlas uitsneden per vraag in `examenatlas/img/<niveau>/<jaar>-<I|II>/` (`<nr>a.webp`/`<nr>b.webp` = vraag, `a<nr>a.webp` = correctievoorschrift), handig voor helpers.
+De pdf's van het examen (`…-o.pdf`), het correctievoorschrift (`…-c.pdf`) en een eventuele aanvulling (`…-c-a1….pdf`). Die worden eerst opgeslagen in `examens/bronnen/<niveau>-<jaar>-<tijdvak>/` met de oorspronkelijke bestandsnaam (zie de README daar), zodat beide accounts ze hebben; staan ze daar al, dan hoeft Kamiel ze niet opnieuw te sturen. De omzettingstabel staat op examenblad.nl als webpagina ('omzettingstabel normering', bij het examen); de N-term staat op de pagina 'N-termen <jaar>'. Daarnaast heeft de Examenatlas uitsneden per vraag in `examenatlas/img/<niveau>/<jaar>-<I|II>/` (`<nr>a.webp`/`<nr>b.webp` = vraag, `a<nr>a.webp` = correctievoorschrift), handig voor helpers.
 
 ## Regels
 
