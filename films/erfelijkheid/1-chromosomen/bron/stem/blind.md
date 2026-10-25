@@ -22,3 +22,6 @@ Alle 37 takes achter elkaar (2 s stilte ertussen) als losse audio-asset geüploa
 
 Geen enkel risicowoord kwam fout terug; niets opnieuw ingesproken. Alle woorden blijven op de wachtlijst voor Kamiels oor (klemtoon is met een transcriptie niet te controleren).
 Volledige tekst van de transcriptie: identiek aan script_v2 op leestekens na.
+
+## Nieuwe takes s30 en s35 (na de keuring, 25 okt 2026)
+Alleen deze twee takes blind getranscribeerd (generatie pE3uQr76iIxQG3DQSxLE, 213 credits): 'Wat je kunt waarnemen heet het fenotype …' en 'Vader en moeder hebben allebei gewoon pigment in huid, haar en ogen …' kwamen woord voor woord goed terug (fenotype, genotype, allel, grote A / kleine a). Oude takes bewaard als raw_oud (niet in de repo).

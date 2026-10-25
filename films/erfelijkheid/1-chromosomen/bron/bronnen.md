@@ -4,11 +4,11 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | script v2 van de herbouw (`bron/script_v2.md`, 25 okt 2026; ingesproken, film nog niet gebouwd) |
+| Gecontroleerde versie | 2.0 (herbouw, 25 okt 2026; script `bron/script_v2.md`) |
 | Eerste ronde | Claude, 25 okt 2026: 30 beweringen, 19 bronnen geopend |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
-| Stand | 16 ✓ · 13 ≈ · 1 ! · 0 ? |
+| Stand | 17 ✓ · 13 ≈ · 0 ! · 0 ? |
 
 ## Bronnen
 
@@ -65,7 +65,7 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | 23 | s24 | Voor melanine is tyrosinase nodig; het gen ligt op chromosoom 11 | B3, B4 | ✓ | B3: 'responsible for the first step in melanin production', 'found on chromosome 11'; B4: 11q14.3 |
 | 24 | s25 | Er is een allel met een fout waardoor het enzym niet werkt | B4, B2 | ≈ | B4: OCA1A volledig verlies van activiteit, OCA1B deels. De film kiest het OCA1A-voorbeeld; in het docentdeel OCA1B noemen |
 | 25 | s29 | Aa maakt half zoveel enzym, en dat is ruim genoeg: ongeveer evenveel melanine, geen verschil aan de buitenkant | B2, B6 | ≈ | B2: dragers 'typically show no signs'; B6: bij dragers van type IA/IB is een verlaagde tyrosinase-activiteit te meten. 'Half' is het model (één werkend allel); dat de aanvoer van bouwstenen de snelheid beperkt, is de vereenvoudiging van de simulatie |
-| 26 | s30 | 'Wat je aan de buitenkant ziet, heet het fenotype' | B1, B8 | ! | B8: 'The observable traits'; B1: fenotype als uitkomst van genotype en milieu, zonder 'buitenkant'. Ook bloedgroep of enzymactiviteit is fenotype; 'buitenkant' is een bekende misvatting. Voorstel aan Kamiel, zie Aanpassingen |
+| 26 | s30 | 'Wat je kunt waarnemen, heet het fenotype' (was: 'wat je aan de buitenkant ziet') | B1, B8 | ✓ | B8: 'The observable traits'; B1: fenotype als uitkomst van genotype en milieu, zonder 'buitenkant'. Ook bloedgroep of enzymactiviteit is fenotype; 'buitenkant' is een bekende misvatting. Aangepast na Kamiels akkoord (25 okt 2026), opnieuw ingesproken |
 | 27 | s30 | A dominant: één exemplaar bepaalt het fenotype; a recessief: alleen zichtbaar bij aa | B8, B1 | ✓ | B8: 'The traits of the recessive allele will only be observed in homozygous recessive individuals' |
 | 28 | s31 | Dominant betekent niet sterker en niet vaker voorkomend | B16, B8 | ✓ | B16: een dominant allel 'determines the phenotype of the heterozygote', niet het meest voorkomende; B8: een variant 'may be recessive or dominant to the wild-type allele' |
 | 29 | s32 | Homozygoot = twee dezelfde, heterozygoot = twee verschillende allelen; hoofdletter dominant, kleine letter recessief | B8, B1 | ✓ | B8: 'two identical alleles'; 'uppercase and lowercase letters to represent dominant and recessive alleles' |
@@ -75,10 +75,10 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 
 | Wat | Waar | Stand |
 |---|---|---|
-| **Voorstel (status !):** 'Wat je aan de buitenkant ziet, heet het fenotype.' → 'Wat je kunt waarnemen, heet het fenotype.' (of: 'De eigenschap die je kunt waarnemen, …'). Zo staat het in de begrippenlijst en in B1/B8 | s30 (stem opnieuw, ± 320 credits), begrippenlijst | wacht op Kamiel |
-| Voorstel (woordkeus, geen feitenfout): 'Vader en moeder hebben allebei een normale huidskleur' → '… hebben allebei gewoon pigment in huid, haar en ogen' (respectvoller: albinisme is geen 'abnormale' huidskleur) | s35 (stem opnieuw, ± 200 credits), en het label 'normale huidskleur' bij de huidstalen in de oude film niet overnemen | wacht op Kamiel |
-| Docentdeel: OCA1A (geen pigment) en OCA1B (wat pigment, vaak geelblond haar) noemen; 'half zoveel enzym' = model; geslachtschromosomen '(meestal)'; niet elk ander allel geeft een ander eiwit; kern ± 5–10 µm | docentdeel (fase 2) | open |
-| Schaalbalk en '50 miljoen keer' laten kloppen met het echte begin- en eindbeeld van de zoom | s03, zoom in fase 2 | open |
+| **Voorstel (status !):** 'Wat je aan de buitenkant ziet, heet het fenotype.' → 'Wat je kunt waarnemen, heet het fenotype.' (of: 'De eigenschap die je kunt waarnemen, …'). Zo staat het in de begrippenlijst en in B1/B8 | s30 (stem opnieuw, 315 credits), begrippenlijst | gedaan in versie 2.0 (Kamiel akkoord 25 okt) |
+| Voorstel (woordkeus, geen feitenfout): 'Vader en moeder hebben allebei een normale huidskleur' → '… hebben allebei gewoon pigment in huid, haar en ogen' (respectvoller: albinisme is geen 'abnormale' huidskleur) | s35 (stem opnieuw, 213 credits); geen label 'normale huidskleur' in beeld | gedaan in versie 2.0 (Kamiel akkoord 25 okt) |
+| Docentdeel: OCA1A (geen pigment) en OCA1B (wat pigment, vaak geelblond haar) noemen; 'half zoveel enzym' = model; geslachtschromosomen '(meestal)'; niet elk ander allel geeft een ander eiwit; kern ± 5–10 µm | docentdeel | gedaan in versie 2.0 |
+| Schaalbalk en '50 miljoen keer' laten kloppen met het echte begin- en eindbeeld van de zoom | s03, s05 | open: de zoom gaat van de kamer via een zoomcirkel (1 mm) naar de cel; '50 miljoen keer' blijft een orde van grootte |
 
 ## Menselijke controle
 

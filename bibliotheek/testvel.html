@@ -1,7 +1,7 @@
 <!doctype html><html lang="nl"><head><meta charset="utf-8"><script src="../js/teller.js" data-root="../"></script>
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (ter keuring 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -48,13 +48,13 @@ window.chr=async function(p,arg){ await chrLibs(); ctx.fillStyle=C.bgSchema; ctx
   text(ctx,'zoomcirkel: chromosoom → DNA rond eiwitten (vereenvoudigd)',700,1065,fMeta(20),C.text2,'center');
   ctx.fillStyle=C.bgMicro; ctx.fillRect(960,700,920,360); nucleosoomDraad(ctx,1000,880,1840,880,{n:5,R:60,t,tilt:0.75}); text(ctx,'zelfde draad, andere hoek (tilt 0,75)',1420,1050,fMeta(20),C.text2,'center');
   return; }
- if(p===4){ kop('Onderarmen van een castpersonage · onderarm()','schaduw / zon / aa in de zon; huidkleur uit het castboek (gezin De Wit)');
+ if(p===4){ kop('Onderarmen van een castpersonage · onderarm() · gekeurd 25 okt 2026','schaduw / zon / aa in de zon (zonder verbranding, Kamiel); huidkleur uit het castboek (gezin De Wit)');
   const rij=(y,id,out,lab)=>{ text(ctx,lab,60,y-110,fTekst(24,700),C.goud,'left');
    onderarm(ctx,90,y,11,{id,outfit:out,bruin:0}); text(ctx,'schaduw',90+250,y+80,fTekst(22,600),C.text2,'center');
    onderarm(ctx,700,y,11,{id,outfit:out,bruin:1,mouwOp:2}); text(ctx,'zon (bruiningsgrens bij de mouw)',700+250,y+80,fTekst(22,600),C.text2,'center'); };
   rij(300,'marieke',null,'Marieke (variant A)'); rij(620,'marieke','licht','Marieke (variant B, licht)');
   text(ctx,'Levi (aa)',1300,190,fTekst(24,700),C.goud,'left'); onderarm(ctx,1300,300,11,{id:'levi',bruin:0}); text(ctx,'schaduw',1550,380,fTekst(22,600),C.text2,'center');
-  onderarm(ctx,1300,620,11,{id:'levi',rood:1,mouwOp:2}); text(ctx,'zon: geen bruin, wel rood (verbrand)',1550,700,fTekst(22,600),C.text2,'center');
+  onderarm(ctx,1300,620,11,{id:'levi',mouwOp:2}); text(ctx,'zon: geen pigment (aa), geen verschil',1550,700,fTekst(22,600),C.text2,'center');
   // maatcontrole: arm naast Marieke op dezelfde schaal (11 px/cm → 167 cm = 1837 px is te groot; toon 1/4)
   persoon(ctx,'marieke',1820,1050,0.25*11*167,{}); onderarm(ctx,1620,1000,0.25*11,{id:'marieke'}); text(ctx,'maatcontrole 1:4',1700,1075,fMeta(20),C.text2,'center');
   return; } };

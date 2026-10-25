@@ -1,249 +1,225 @@
-# Chromosomen en de taal van erfelijkheid — script
+# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.0 · oktober 2026)
 
-Bron: gereconstrueerd uit de ondertitels/scriptdata (`window.__TIMELINE__`, woordtijden) in de gepubliceerde HTML (2026-10-12). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
+Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow oAnn8B6fDC6LBw9fFw28. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (A/a als 'grote A'/'kleine a', X/Y, n/2n). Oude versie: `oud/script-v1.md`.
 
-Audio: één doorlopende take, blob `006.mp3` (in de HTML als `window.__AUDIO_B64__`). Elke alinea hieronder is één `paras`-item met eigen sleutel (p01, p02b, …); de tijden zijn posities in die ene take. Tussen alinea's zitten vaste stiltes (1,0–2,8 s; 6,0 s na een voorspelvraag; 1,5 s aan het begin, 5,0 s aan het eind). Elke regel = één ondertitelzin zoals de speler hem toont, met de begintijd van het eerste woord.
-Niveau: de hele film is vwo bovenbouw; er zijn geen havo-/vwo-blokken.
+## Cold open
 
-## 1. p01 · Twee puzzels
-Audio: blob 006.mp3 (doorlopende take) · 0:01–0:24 (22,5 s)
+**s01** · audio `s01.mp3` · 8.6 s · generation `n5SY2uivcGbztifGIcg7`
 
-[0:01.5] Kijk eens naar deze familie.
-[0:02.9] De kinderen lijken op hun vader.
-[0:04.5] En op hun moeder.
-[0:05.2] Maar geen van hen is precies het midden tussen die twee.
-[0:08.2] En dan dit kind.
-[0:09.1] Het heeft albinisme: bijna geen pigment in huid, haar en ogen.
-[0:13.1] Geen van de ouders heeft albinisme.
-[0:15.0] De opa's en oma's ook niet.
-[0:16.5] Twee puzzels.
-[0:17.3] Aan het eind van deze film kun je ze allebei oplossen.
-[0:20.3] Daarvoor moeten we heel diep inzoomen.
-[0:22.3] Zo'n vijftig miljoen keer.
+Kijk eens naar deze familie. De kinderen lijken op hun vader. En op hun moeder. Maar geen van hen is precies het midden tussen die twee.
 
-> Beeld: Familie op de bank: vader, drie kinderen, moeder; het middelste kind heeft albinisme (label 'albinisme · bijna geen pigment'), ouders krijgen 'geen albinisme'; ingelijste opa's en oma's; kaarten PUZZEL 1 en PUZZEL 2. Op 'inzoomen' begint de camerazoom.
-> Cue-woorden (initCues): inzoomen, vader, moeder, maar, dan, kind, geen (#2), opa's, puzzels, albinisme (ook begin/eind van de alinea via PS/PE)
+**s02** · audio `s02.mp3` · 10.2 s · generation `A5o7KCrDwzghu55GCIr9`
 
-## 2. p02 · Inzoomen: van huid naar DNA
-Audio: blob 006.mp3 (doorlopende take) · 0:25–0:49 (24,4 s)
+En dan dit kind. Het heeft albinisme: bijna geen pigment in huid, haar en ogen. Geen van de ouders heeft albinisme. De opa's en oma's ook niet.
 
-[0:25.2] We zoomen in op de huid van de arm.
-[0:27.1] Een millimeter huid.
-[0:28.3] Bovenop dode, platte cellen, daaronder levende.
-[0:31.3] Helemaal onderin ligt een laag cellen die zich steeds opnieuw delen: de basale laag.
-[0:36.0] Elke cel is ongeveer een honderdste millimeter groot.
-[0:39.1] In het midden van de cel: de celkern.
-[0:41.3] Daarin ligt het DNA.
-[0:42.8] Uitgerekt zou het DNA uit één cel ongeveer twee meter lang zijn.
-[0:47.1] Toch past het in een kern van een paar micrometer.
+**s03** · audio `s03.mp3` · 9.2 s · generation `oIQAe4lVknQeMuR7CBj3`
 
-> Beeld: Doorlopende zoom huid → opperhuid (labels opperhuid/lederhuid, 'dode, platte cellen', 'levende cellen', 'basale laag: deze cellen delen zich') → basale cel ('± 10 µm = een honderdste millimeter') → celkern. Kaart 'DNA UIT ÉÉN CEL: uitgerekt ± 2 meter, in een kern van ± 6 µm'. Schaalbalk rechtsonder loopt mee.
-> Cue-woorden (initCues): zoomen, millimeter, huid, platte, elke, groot, midden, daarin, dode, levende, helemaal, honderdste, celkern, uitgerekt, dna (ook begin/eind van de alinea via PS/PE)
+Twee puzzels. Aan het eind van deze film kun je ze allebei oplossen. Daarvoor moeten we heel diep inzoomen. Zo'n vijftig miljoen keer.
 
-## 3. p03 · Inzoomen: van huid naar DNA
-Audio: blob 006.mp3 (doorlopende take) · 0:50–1:14 (23,5 s)
+## Titel
 
-[0:50.6] Meestal ligt het DNA als een losse kluwen in de kern.
-[0:54.5] Maar vlak voordat een cel zich deelt, wikkelt het zich strak op.
-[0:57.5] Dan zie je het ineens: losse staafjes.
-[1:00.1] Chromosomen.
-[1:01.0] Elk chromosoom is één heel lang DNA-molecuul, opgerold rond eiwitten.
-[1:06.0] Voor de deling is het al gekopieerd.
-[1:08.0] Daarom zie je twee identieke helften: de zusterchromatiden.
-[1:11.4] Ze zitten aan elkaar vast bij het centromeer.
+**s04** · titelkaart: Chromosomen en de taal van erfelijkheid
 
-> Beeld: Losse DNA-kluwen condenseert tot staafjes ('chromosomen'); zoom op één chromosoom 11 ('één chromosoom = één lang DNA-molecuul'), inzet 'DNA opgerold rond eiwitten (vereenvoudigd)'; de twee zusterchromatiden schuiven uiteen, centromeer omcirkeld.
-> Cue-woorden (initCues): elk, dna-molecuul, wikkelt, staafjes, gekopieerd, daarom, chromosomen, voor, opgerold, zusterchromatiden, ze, centromeer (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 1 — Van huid naar DNA
 
-## 4. p04 · Het karyogram
-Audio: blob 006.mp3 (doorlopende take) · 1:16–1:19 (3,3 s)
+**s05** · audio `s05.mp3` · 13.2 s · generation `9GMiQE5k1XXwS0q6rMQC`
 
-[1:16.1] Hoeveel chromosomen zitten er in deze cel?
-[1:18.5] Laten we tellen.
+We zoomen in op de huid van de arm. Een millimeter huid. Bovenop dode, platte cellen, daaronder levende. Helemaal onderin ligt een laag cellen die zich steeds opnieuw delen: de basale laag.
 
-> Beeld: Terug naar de kern met 46 chromosomen; in de stilte na deze alinea (± 4,5 s) worden ze één voor één geteld met een teller rechtsboven.
-> Vraag: Telmoment (geen aftelklok): 'Hoeveel chromosomen zitten er in deze cel?' → 46.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**s06** · audio `s06.mp3` · 15.6 s · generation `cQkwaWXyaALNhUiM9SCU`
 
-## 5. p05 · Het karyogram
-Audio: blob 006.mp3 (doorlopende take) · 1:23–1:59 (35,6 s)
+Elke cel is ongeveer een honderdste millimeter groot. In het midden van de cel: de celkern. Daarin ligt het DNA. Uitgerekt zou het DNA uit één cel ongeveer twee meter lang zijn. Toch past het in een kern van een paar micrometer.
 
-[1:23.9] Zesenveertig chromosomen.
-[1:25.4] Elk chromosoom is al gekopieerd, en bestaat dus uit twee zusterchromatiden.
-[1:29.8] Samen zijn dat tweeënnegentig chromatiden.
-[1:32.0] Maar het zijn geen zesenveertig verschillende chromosomen.
-[1:34.6] Als je ze sorteert op lengte en op de plek van het centromeer, gebeurt er iets opvallends.
-[1:39.2] Ze vormen paren: drieëntwintig paren.
-[1:41.7] Twee keer chromosoom één.
-[1:43.3] Twee keer chromosoom twee.
-[1:44.9] Enzovoort.
-[1:45.6] Zo'n geordende afbeelding heet een karyogram.
-[1:48.2] Waarom paren?
-[1:49.2] Eén chromosoom van elk paar komt van je vader, het andere van je moeder.
-[1:53.0] Zo'n paar noemen we homologe chromosomen: even lang, dezelfde bouw, en op dezelfde plekken dezelfde soort informatie.
+**s07** · audio `s07.mp3` · 11.8 s · generation `bzL5zqBUy06ggt5p6FNT`
 
-> Beeld: Teller 46 → '× 2 chromatiden' → 92 → 23 paren; chromosomen sorteren zich tot een karyogram ('vereenvoudigd: chromosomen niet op schaal'); vanaf 'vader'/'moeder' kleuren ze blauw/oranje; paar 1 omcirkeld met kaart HOMOLOGE CHROMOSOMEN.
-> Cue-woorden (initCues): sorteert, tweeënnegentig, zusterchromatiden, drieëntwintig, paren, twee, twee (#2), enzovoort, karyogram, vader, moeder, homologe (ook begin/eind van de alinea via PS/PE)
+Meestal ligt het DNA als een losse kluwen in de kern. Maar vlak voordat een cel zich deelt, wikkelt het zich strak op. Dan zie je het ineens: losse staafjes. Chromosomen.
 
-## 6. p06 · Het karyogram
-Audio: blob 006.mp3 (doorlopende take) · 2:00–2:09 (8,4 s)
+**s08** · audio `s08.mp3` · 14.2 s · generation `OkyUkpmV8kYSdTNthdNM`
 
-[2:01.0] Een eicel en een zaadcel smelten samen tot één cel met zesenveertig chromosomen.
-[2:06.0] Hoeveel chromosomen zitten er dan in één eicel?
-[2:08.5] Denk even na.
+Elk chromosoom is één heel lang DNA-molecuul, opgerold rond eiwitten. Voor de deling is het al gekopieerd. Daarom zie je twee identieke helften: de zusterchromatiden. Ze zitten aan elkaar vast bij het centromeer.
 
-> Beeld: Karyogram krimpt naar links; eicel en zaadcel versmelten tot 'bevruchte eicel 46'.
-> Vraag: VOORSPEL-kaart 'Hoeveel chromosomen zitten er in één eicel?' met aftelklok (5 s) in de stilte van 6 s.
-> Cue-woorden (initCues): hoeveel, smelten (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 2 — Het karyogram
 
-## 7. p07 · Het karyogram
-Audio: blob 006.mp3 (doorlopende take) · 2:15–2:53 (37,8 s)
+**s09** · audio `s09.mp3` · 7.6 s · generation `AEoEH3GT2mq5ml3aaRti`
 
-[2:15.3] Drieëntwintig.
-[2:16.5] Van elk paar precies één.
-[2:18.5] En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.
-[2:24.1] Een cel met één set chromosomen heet haploïd.
-[2:27.1] Dat noteren we als n.
-[2:28.6] Een cel met twee sets heet diploïd: 2n.
-[2:31.7] Bij de mens is n drieëntwintig, dus 2n is zesenveertig.
-[2:35.8] Paren één tot en met tweeëntwintig heten autosomen.
-[2:38.7] Die zijn bij mannen en vrouwen hetzelfde.
-[2:40.7] Het laatste paar is anders: de geslachtschromosomen.
-[2:43.7] Een vrouw heeft twee X-chromosomen.
-[2:45.9] Een man heeft één X en één veel kleiner Y-chromosoom.
-[2:49.4] Let op: mannen hebben dus óók een X-chromosoom.
-[2:52.3] Alleen maar één.
+Terug naar één kern, vlak voor de deling. Laten we de chromosomen tellen, één voor één. Het zijn er zesenveertig.
 
-> Beeld: Moederlijke helft van het karyogram dimt, chromosomen worden enkelvoudig; kaart '23 · van elk paar één · elk: 1 chromatide'; termkaarten haploïd (n), diploïd (2n), autosomen, geslachtschromosomen; kader vrouw XX / man XY; misvattingkaart 'Mannen hebben geen X-chromosoom'.
-> Cue-woorden (initCues): eicel, haploïd, diploïd, autosomen, geslachtschromosomen, vrouw, man, let (ook begin/eind van de alinea via PS/PE)
+**s10** · audio `s10.mp3` · 7.8 s · generation `efxQHeJKqnIGLi2IQY3l`
 
-## 8. p08 · Gen, locus en allel
-Audio: blob 006.mp3 (doorlopende take) · 2:55–3:49 (54,5 s)
+Elk chromosoom is al gekopieerd, en bestaat dus uit twee zusterchromatiden. Samen zijn dat tweeënnegentig chromatiden.
 
-[2:55.1] We kiezen één paar: chromosoom elf.
-[2:57.7] Ergens op dit chromosoom ligt een stukje DNA met de instructie voor één eiwit.
-[3:03.1] Zo'n stukje heet een gen.
-[3:04.7] Dit gen ligt bij iedereen op precies dezelfde plek: op beide chromosomen elf, op dezelfde hoogte.
-[3:10.5] Die plek heet de locus.
-[3:12.2] Maar het gen hoeft niet bij allebei precies hetzelfde te zijn.
-[3:15.5] Hier verschilt de DNA-volgorde op één plek.
-[3:19.0] Twee versies van hetzelfde gen noemen we allelen.
-[3:21.9] Een ander allel is een net iets andere instructie, en levert daardoor ook een net iets ander eiwit op.
-[3:27.8] Straks zie je wat dat uitmaakt.
-[3:29.7] Dus: het gen is het onderwerp: welk eiwit.
-[3:33.2] Het allel is de versie: welke variant van dat eiwit.
-[3:36.6] Iedereen heeft dit gen.
-[3:38.1] Maar niet iedereen heeft dezelfde allelen.
-[3:40.2] En omdat je van elk chromosoom twee exemplaren hebt, heb je van elk gen op de autosomen ook precies twee allelen.
-[3:47.6] Eén van je vader.
-[3:48.6] Eén van je moeder.
+_Stem-invoer:_ Elk chromosoom is al gekopieerd, en bestaat dus uit twee zusterchromatiden. Samen zijn dat tweeënneguntig chromatiden.
 
-> Beeld: Paar 11 groeit uit het karyogram ('van vader'/'van moeder'); band = gen, stippellijn = locus; inzoom naar een platte DNA-volgorde met één verschil (rood kader 'verschil'); kaarten 'twee allelen' en 'ANDER ALLEL → net een ander eiwit'; termkaarten gen/locus/allel; misvatting 'Gen en allel betekenen hetzelfde'; kaart 'PER GEN OP DE AUTOSOMEN: 2 allelen'.
-> Cue-woorden (initCues): elf, gen, locus, hoeft, verschilt, allelen, instructie (#2), dus, iedereen, omdat, vader, moeder, allel (#2) (ook begin/eind van de alinea via PS/PE)
+**s11** · audio `s11.mp3` · 19.4 s · generation `jmdAcIY8DwxvKrajsKwN`
 
-## 9. p09 · Van allel naar eigenschap
-Audio: blob 006.mp3 (doorlopende take) · 3:51–4:25 (33,5 s)
+Maar het zijn geen zesenveertig verschillende chromosomen. Als je ze sorteert op lengte en op de plek van het centromeer, gebeurt er iets opvallends. Ze vormen paren: drieëntwintig paren. Twee keer chromosoom één. Twee keer chromosoom twee. Enzovoort. Zo'n geordende afbeelding heet een karyogram.
 
-[3:51.7] Tussen de delende cellen in de basale laag zitten pigmentcellen.
-[3:55.3] Die maken melanine, het bruine pigment dat je huid, haar en ogen kleur geeft.
-[4:00.1] Voor melanine heb je een enzym nodig: tyrosinase.
-[4:03.1] Het gen op chromosoom elf is de instructie voor dat enzym.
-[4:06.4] Er is een allel dat een werkend enzym oplevert.
-[4:09.2] Dat noemen we A.
-[4:10.7] En er is een allel met een fout, waardoor het enzym niet werkt.
-[4:14.0] Dat noemen we a.
-[4:15.4] De combinatie van allelen die iemand heeft, heet het genotype.
-[4:18.7] Er zijn drie mogelijkheden: AA, Aa, en aa.
+**s12** · audio `s12.mp3` · 16.2 s · generation `JZWDd7m0MghYlNNNG0uf`
 
-> Beeld: Pigmentcel (melanocyt) in de basale laag met melaninekorrels; simulatiepaneel 'in de pigmentcel': enzymen zetten bouwstenen om in melanine; chromosoom 11 → 'instructie'; kaarten 'allel A: werkend enzym' en 'allel a: kapot enzym'; daarna drie panelen AA, Aa (bevroren met '?'), aa.
-> Cue-woorden (initCues): pigmentcellen, melanine, tyrosinase, gen, werkend, noemen, fout, noemen (#2), genotype, mogelijkheden (ook begin/eind van de alinea via PS/PE)
+Dat ze paren vormen, heeft een reden: één chromosoom van elk paar komt van je vader, het andere van je moeder. Zo'n paar noemen we homologe chromosomen. Ze zijn even lang, hebben dezelfde bouw en dragen op dezelfde plekken dezelfde soort informatie.
 
-## 10. p10 · Van allel naar eigenschap
-Audio: blob 006.mp3 (doorlopende take) · 4:26–4:31 (4,8 s)
+**s13** · audio `s13.mp3` · 9.4 s · generation `B4yuF5NJu5HmhAFjowvo`
 
-[4:26.3] Iemand met Aa heeft maar één werkend allel.
-[4:29.6] Hoeveel pigment verwacht je?
+Een eicel en een zaadcel smelten samen tot één cel met zesenveertig chromosomen. Wat denk je? Hoeveel chromosomen zitten er dan in één eicel?
 
-> Beeld: Drie simulatiepanelen; Aa-paneel nog bevroren.
-> Vraag: VOORSPEL-kaart 'Aa heeft maar één werkend allel. Hoeveel pigment?' met opties A evenveel als AA · B ongeveer de helft · C geen pigment; aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**q14** · vraag: Een eicel en een zaadcel smelten samen tot een cel met 46 chromosomen. Hoeveel chromosomen zitten er in één eicel?
+- a) Zesenveertig: evenveel als in een huidcel
+- b) Drieëntwintig: van elk paar één  ✓
+- c) Tweeënnegentig: elk chromosoom dubbel
 
-## 11. p11 · Van allel naar eigenschap
-Audio: blob 006.mp3 (doorlopende take) · 4:37–5:32 (55,0 s)
+**s15** · audio `s15.mp3` · 11.4 s · generation `6arjqP58orBXdmdcSo6x`
 
-[4:37.2] De cel met Aa maakt maar half zoveel enzym.
-[4:41.2] Maar kijk: dat is ruim genoeg.
-[4:43.0] Er komt bijna evenveel melanine.
-[4:44.9] Aan de buitenkant zie je geen verschil.
-[4:46.9] Wat je aan de buitenkant ziet, heet het fenotype.
-[4:49.5] AA en Aa hebben een ander genotype, maar hetzelfde fenotype.
-[4:55.4] Daarom noemen we A dominant: één exemplaar is al genoeg om het fenotype te bepalen.
-[5:00.4] En a is recessief: je ziet het alleen als er géén A is, dus bij aa.
-[5:05.7] Dominant betekent dus niet: sterker.
-[5:08.0] Het allel A vecht niet tegen het allel a.
-[5:11.2] En dominant betekent ook niet dat het vaker voorkomt.
-[5:13.8] Er bestaan zeldzame dominante allelen, en heel algemene recessieve.
-[5:17.8] Nog twee woorden.
-[5:18.7] Twee dezelfde allelen, AA of aa: homozygoot.
-[5:23.8] Twee verschillende, Aa: heterozygoot.
-[5:26.9] Het dominante allel schrijven we met een hoofdletter.
-[5:29.5] Het recessieve met dezelfde letter, als kleine letter.
+Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.
 
-> Beeld: Aa-simulatie start; melaninemeters en huidkleurstalen ('normale huidskleur'/'albinisme'); termkaarten fenotype, 'A is dominant', 'a is recessief'; kaart 'AA en Aa: ander genotype, hetzelfde fenotype'; misvattingkaarten 'Dominant = sterker' en 'Dominant = komt vaker voor'; labels homozygoot/heterozygoot; kaart NOTATIE.
-> Cue-woorden (initCues): genoeg, buitenkant, fenotype, ander, dominant, recessief, dominant (#2), vaker, nog, homozygoot, heterozygoot, hoofdletter (ook begin/eind van de alinea via PS/PE)
+**s16** · audio `s16.mp3` · 14.6 s · generation `z8RXtM35hcPEPGCyTRPq`
 
-## 12. p12 · Genotype + milieu
-Audio: blob 006.mp3 (doorlopende take) · 5:34–6:00 (26,2 s)
+Een cel met één set chromosomen heet haploïd. Dat noteren we als n. Een cel met twee sets heet diploïd: 2n. Bij de mens is n drieëntwintig, dus 2n is zesenveertig.
 
-[5:34.2] Is het fenotype helemaal vastgelegd in je genen?
-[5:36.9] Nee.
-[5:37.6] Hier twee keer hetzelfde genotype.
-[5:39.6] Deze arm is in de zon geweest.
-[5:41.6] UV-licht zet de pigmentcellen aan om méér melanine te maken.
-[5:45.3] De huid wordt bruiner.
-[5:46.6] Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu.
-[5:51.6] Maar het milieu kan alleen werken met wat de genen mogelijk maken.
-[5:55.0] Bij aa is er geen werkend enzym.
-[5:58.0] Hoeveel zon er ook komt: er komt geen pigment.
+_Stem-invoer:_ Een cel met één set chromosomen heet haaploïd. Dat noteren we als en. Een cel met twee sets heet diploïd: twee-en. Bij de mens is en drieëntwintig, dus twee-en is zesenveertig.
 
-> Beeld: Drie panelen 'AA · schaduw', 'AA · zon' (UV-stralen, meer enzym), 'aa · zon'; kaarten 'UV-licht: pigmentcel maakt meer enzym en meer melanine', 'fenotype = genotype + milieu', 'geen werkend enzym: zon helpt niet'.
-> Cue-woorden (initCues): hier, zon, uv-licht, bruiner, milieu, maar, bij (ook begin/eind van de alinea via PS/PE)
+**s17** · audio `s17.mp3` · 21.7 s · generation `qzS9SDihN0lfj8jwbmlT`
 
-## 13. p13 · Terug naar de familie
-Audio: blob 006.mp3 (doorlopende take) · 6:02–6:20 (18,3 s)
+Paren één tot en met tweeëntwintig heten autosomen. Die zijn bij mannen en vrouwen hetzelfde. Het laatste paar is anders: de geslachtschromosomen. Een vrouw heeft twee X-chromosomen. Een man heeft één X en één veel kleiner Y-chromosoom. Let op: mannen hebben dus óók een X-chromosoom. Alleen maar één.
 
-[6:02.4] Terug naar de familie.
-[6:03.8] Vader en moeder hebben allebei een normale huidskleur.
-[6:07.1] Maar allebei zijn ze Aa.
-[6:10.1] Het allel a is er wel.
-[6:12.2] Je ziet het alleen niet, want één A is genoeg.
-[6:15.6] Kunnen twee ouders die allebei Aa zijn, een kind krijgen met albinisme?
+_Stem-invoer:_ Paren één tot en met tweeëntwintig heten autosomen. Die zijn bij mannen en vrouwen hetzelfde. Het laatste paar is anders: de geslachtschromosomen. Een vrouw heeft twee iks-chromosomen. Een man heeft één iks en één veel kleiner ei-chromosoom. Let op: mannen hebben dus óók een iks-chromosoom. Alleen maar één.
 
-> Beeld: Zoom terug naar de familie; allelchips Aa boven vader en moeder, a-allelen omcirkeld.
-> Vraag: VOORSPEL-kaart 'Kunnen twee ouders die allebei Aa zijn een kind krijgen met albinisme?' met aftelklok 5 s.
-> Cue-woorden (initCues): terug, zijn, wel, kunnen (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 3 — Gen, locus en allel
 
-## 14. p14 · Terug naar de familie
-Audio: blob 006.mp3 (doorlopende take) · 6:26–7:03 (36,6 s)
+**s18** · audio `s18.mp3` · 10.4 s · generation `Dad9uGEEM0SREO4N1pyK`
 
-[6:26.7] Ja.
-[6:27.2] Elk kind krijgt van elk chromosoompaar één chromosoom van de vader en één van de moeder.
-[6:32.2] Krijgt het van allebei het allel a, dan is het aa.
-[6:36.5] Geen werkend enzym.
-[6:37.7] Albinisme.
-[6:38.6] Het allel a is nooit weg geweest.
-[6:40.6] Het zat al generaties lang verborgen, steeds naast een A.
-[6:44.3] En de eerste puzzel?
-[6:45.5] Je bent geen gemiddelde van je ouders.
-[6:47.5] Van elk gen krijg je één allel van je vader en één van je moeder.
-[6:51.2] Welke allelen dat zijn, is bij elk kind anders.
-[6:53.8] Daarom lijken broers en zussen op elkaar, maar zijn ze niet hetzelfde.
-[6:57.1] Maar hoe groot is die kans op aa eigenlijk?
-[7:00.1] Dat rekenen we uit in de volgende film, met het kruisingsschema.
+We kiezen één paar: chromosoom elf. Ergens op dit chromosoom ligt een stukje DNA met de instructie voor één eiwit. Zo'n stukje heet een gen.
 
-> Beeld: De a-allelen van vader en moeder vliegen naar het kind met albinisme → aa ('geen werkend enzym'); kaart 'het a-allel was er al die tijd, verborgen naast een A'; broer en zus krijgen AA en Aa; kaart 'per gen: één allel van vader + één van moeder'. Slot: kaart VOLGENDE FILM 'Het kruisingsschema · hoe groot is de kans op aa?'.
-> Cue-woorden (initCues): vader, moeder, dan, albinisme, nooit, eerste, welke, daarom, maar, film
+**s19** · audio `s19.mp3` · 8.8 s · generation `oKVUj8YEZ1MVMcOx844M`
 
-## Controle
-- 14 alinea's (segmenten) in 1 audiofragment (blob 006.mp3): de film is als één take opgeslagen, dus het aantal segmenten wijkt bewust af van het aantal audiobestanden.
-- Spreektijd alinea's samen 384,5 s + stiltes 43,9 s = 428,38 s (`TL.total`); ffprobe op 006.mp3 geeft 428,41 s (7:08).
+Dit gen ligt bij iedereen op precies dezelfde plek: op beide chromosomen elf, op dezelfde hoogte. Die plek heet de locus.
+
+**s20** · audio `s20.mp3` · 18.5 s · generation `7zKURlDjznePbOyhzdXk`
+
+Maar het gen hoeft niet bij allebei precies hetzelfde te zijn. Hier verschilt de DNA-volgorde op één plek. Twee versies van hetzelfde gen noemen we allelen. Een ander allel is een net iets andere instructie, en levert daardoor ook een net iets ander eiwit op. Straks zie je wat dat uitmaakt.
+
+**s21** · audio `s21.mp3` · 12.3 s · generation `1M283lnSmk6W9fbqIZr5`
+
+Dus: het gen is het onderwerp: welk eiwit. Het allel is de versie: welke variant van dat eiwit. Iedereen heeft dit gen. Maar niet iedereen heeft dezelfde allelen.
+
+**s22** · audio `s22.mp3` · 9.8 s · generation `mMSxd9FkJHMfzunNqj3V`
+
+En omdat je van elk chromosoom twee exemplaren hebt, heb je van elk gen op de autosomen ook precies twee allelen. Eén van je vader. Eén van je moeder.
+
+## Hoofdstuk 4 — Van allel naar eigenschap
+
+**s23** · audio `s23.mp3` · 9.4 s · generation `OSVDgNoNtqUf8ipPIGZG`
+
+Tussen de delende cellen in de basale laag zitten pigmentcellen. Die maken melanine, het bruine pigment dat je huid, haar en ogen kleur geeft.
+
+**s24** · audio `s24.mp3` · 7.6 s · generation `3Dw7uCD7zPau8REgFxr9`
+
+Voor melanine heb je een enzym nodig: tyrosinase. Het gen op chromosoom elf is de instructie voor dat enzym.
+
+**s25** · audio `s25.mp3` · 10.7 s · generation `yO85NKc1vmtuWC0hBzOe`
+
+Er is een allel dat een werkend enzym oplevert. Dat noemen we A. En er is een allel met een fout, waardoor het enzym niet werkt. Dat noemen we a.
+
+_Stem-invoer:_ Er is een allel dat een werkend enzym oplevert. Dat noemen we grote A. En er is een allel met een fout, waardoor het enzym niet werkt. Dat noemen we kleine a.
+
+**s26** · audio `s26.mp3` · 16.6 s · generation `i0EUXtuAcHnGXuUveMGN`
+
+De combinatie van allelen die iemand heeft, heet het genotype. Er zijn drie mogelijkheden: AA, Aa, en aa. Iemand met Aa heeft maar één werkend allel.
+
+_Stem-invoer:_ De combinatie van allelen die iemand heeft, heet het genotype. Er zijn drie mogelijkheden: grote A grote A, grote A kleine a, en kleine a kleine a. Iemand met grote A kleine a heeft maar één werkend allel.
+
+**s27** · audio `s27.mp3` · 5.1 s · generation `XPDY07eaWoDEfOflbEsl`
+
+Wat denk je? Hoeveel melanine maakt een pigmentcel met Aa?
+
+_Stem-invoer:_ Wat denk je? Hoeveel melanine maakt een pigmentcel met grote A kleine a?
+
+**q28** · vraag: Een pigmentcel met Aa heeft maar één werkend allel. Hoeveel melanine maakt hij?
+- a) Ongeveer evenveel als bij AA  ✓
+- b) Ongeveer de helft van AA
+- c) Helemaal geen melanine
+
+**s29** · audio `s29.mp3` · 13.4 s · generation `sQf16D29TZI68ZsfXFTd`
+
+Een pigmentcel met Aa maakt maar half zoveel enzym. Maar kijk: dat is ruim genoeg. Er komt ongeveer evenveel melanine als bij AA. Aan de buitenkant zie je geen verschil.
+
+_Stem-invoer:_ Een pigmentcel met grote A kleine a maakt maar half zoveel enzym. Maar kijk: dat is ruim genoeg. Er komt ongeveer evenveel melanine als bij grote A grote A. Aan de buitenkant zie je geen verschil.
+
+**s30** · audio `s30.mp3` · 24.0 s · generation `lCtpNXVdVhxSGznCncaM`
+
+Wat je kunt waarnemen, heet het fenotype. AA en Aa hebben een ander genotype, maar hetzelfde fenotype. Daarom noemen we A dominant: één exemplaar is al genoeg om het fenotype te bepalen. En a is recessief: je ziet het alleen als er géén A is, dus bij aa.
+
+_Stem-invoer:_ Wat je kunt waarnemen, heet het fenotype. grote A grote A en grote A kleine a hebben een ander genotype, maar hetzelfde fenotype. Daarom noemen we grote A dominant: één exemplaar is al genoeg om het fenotype te bepalen. En kleine a is recessief: je ziet het alleen als er géén grote A is, dus bij kleine a kleine a.
+
+**s31** · audio `s31.mp3` · 15.6 s · generation `aYsXkj1GuLRcfSoGrAFm`
+
+Dominant betekent dus niet: sterker. Het allel A vecht niet tegen het allel a. En dominant betekent ook niet dat het vaker voorkomt. Er bestaan zeldzame dominante allelen, en heel algemene recessieve.
+
+_Stem-invoer:_ Dominant betekent dus niet: sterker. Het allel grote A vecht niet tegen het allel kleine a. En dominant betekent ook niet dat het vaker voorkomt. Er bestaan zeldzame dominante allelen, en heel algemene recessieve.
+
+**s32** · audio `s32.mp3` · 20.7 s · generation `GmdsAXU3dyG5MFDMU9io`
+
+Nog twee woorden. Twee dezelfde allelen, AA of aa: homozygoot. Twee verschillende, Aa: heterozygoot. Het dominante allel schrijven we met een hoofdletter. Het recessieve met dezelfde letter, als kleine letter.
+
+_Stem-invoer:_ Nog twee woorden. Twee dezelfde allelen, grote A grote A of kleine a kleine a: homozygoot. Twee verschillende, grote A kleine a: heterozygoot. Het dominante allel schrijven we met een hoofdletter. Het recessieve met dezelfde letter, als kleine letter.
+
+## Hoofdstuk 5 — Genotype en milieu
+
+**s33** · audio `s33.mp3` · 14.3 s · generation `9Tdc4BsVkZfToZkljL7f`
+
+Toch ligt je fenotype niet helemaal vast in je genen. Hier twee keer hetzelfde genotype. Deze arm is in de zon geweest. UV-licht zet de pigmentcellen aan om méér melanine te maken. De huid wordt bruiner.
+
+**s34** · audio `s34.mp3` · 17.2 s · generation `25vtjYQ5uIy837JudKHv`
+
+Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.
+
+_Stem-invoer:_ Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij kleine a kleine a is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.
+
+## Hoofdstuk 6 — Terug naar de familie
+
+**s35** · audio `s35.mp3` · 14.7 s · generation `x7DlpCU9GZAanCr7xjSs`
+
+Terug naar de familie. Vader en moeder hebben allebei gewoon pigment in huid, haar en ogen. Maar allebei zijn ze Aa. Het allel a is er wel. Je ziet het alleen niet, want één A is genoeg.
+
+_Stem-invoer:_ Terug naar de familie. Vader en moeder hebben allebei gewoon pigment in huid, haar en ogen. Maar allebei zijn ze grote A kleine a. Het allel kleine a is er wel. Je ziet het alleen niet, want één grote A is genoeg.
+
+**s36** · audio `s36.mp3` · 6.6 s · generation `FNZZYvR4GZNSJsvs8w1E`
+
+Wat denk je? Kunnen twee ouders die allebei Aa zijn, een kind krijgen met albinisme?
+
+_Stem-invoer:_ Wat denk je? Kunnen twee ouders die allebei grote A kleine a zijn, een kind krijgen met albinisme?
+
+**q37** · vraag: Kunnen twee ouders die allebei Aa zijn, een kind krijgen met albinisme?
+- a) Nee: wie zelf geen albinisme heeft, geeft het niet door
+- b) Alleen als een opa of oma ook albinisme had
+- c) Ja: als het kind van allebei een a krijgt  ✓
+
+**s38** · audio `s38.mp3` · 18.3 s · generation `1gpvnXB6KcKliAxjJUwK`
+
+Twee ouders met Aa kunnen een kind met albinisme krijgen. Elk kind krijgt van elk chromosoompaar één chromosoom van de vader en één van de moeder. Krijgt het van allebei het allel a, dan is het aa. Geen werkend enzym. Albinisme.
+
+_Stem-invoer:_ Twee ouders met grote A kleine a kunnen een kind met albinisme krijgen. Elk kind krijgt van elk chromosoompaar één chromosoom van de vader en één van de moeder. Krijgt het van allebei het allel kleine a, dan is het kleine a kleine a. Geen werkend enzym. Albinisme.
+
+**s39** · audio `s39.mp3` · 7.7 s · generation `4ip2kT3id7s2KcFysKDz`
+
+Het allel a is nooit weg geweest. Het zat al generaties lang verborgen, steeds naast een A.
+
+_Stem-invoer:_ Het allel kleine a is nooit weg geweest. Het zat al generaties lang verborgen, steeds naast een grote A.
+
+## Recap
+
+**s40** · audio `s40.mp3` · 16.6 s · generation `ExJRt4AsX1EUT3i1UvIx`
+
+En dan de eerste puzzel. Je bent geen gemiddelde van je ouders. Van elk gen krijg je één allel van je vader en één van je moeder. Welke allelen dat zijn, is bij elk kind anders. Daarom lijken broers en zussen op elkaar, maar zijn ze niet hetzelfde.
+
+**s41** · audio `s41.mp3` · 6.8 s · generation `LyYQB8UWITG8xL61nJea`
+
+Hoe groot de kans op aa is, reken je uit in de volgende film, met het kruisingsschema.
+
+_Stem-invoer:_ Hoe groot de kans op kleine a kleine a is, reken je uit in de volgende film, met het kruisingsschema.
+
+## Eindkaart
+
+**s42** · eindkaart:
+- Mens: 46 chromosomen in 23 paren, van elk paar één van je vader en één van je moeder.
+- Gen = onderwerp, allel = versie. Van elk gen op de autosomen heb je twee allelen.
+- A is dominant, a recessief: twee ouders met Aa kunnen een kind met aa krijgen.

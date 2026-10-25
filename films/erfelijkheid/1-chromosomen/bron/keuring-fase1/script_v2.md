@@ -23,7 +23,7 @@ Herbouw in de FILMDATA-straat (fase 1, 25 okt 2026). Bron: bron/script.md (oude 
 | p14 | 'En de eerste puzzel?' → 'En dan de eerste puzzel.' | B11: vraagzin zonder kaart |
 | p14 | 'Maar hoe groot is die kans op aa eigenlijk? Dat rekenen we uit in de volgende film …' → 'Hoe groot de kans op aa is, reken je uit in de volgende film, met het kruisingsschema.' | idem; de vooruitkijkende vraag staat op de eindkaart (endHaak) |
 
-Niet gewijzigd, wel als voorstel aan Kamiel (zie bron/bronnen.md, status !): 'Wat je aan de buitenkant ziet, heet het fenotype' en 'een normale huidskleur'.
+Na de keuring van fase 1 (Kamiel 25 okt 2026) ook gewijzigd en opnieuw ingesproken: s30 'Wat je aan de buitenkant ziet, heet het fenotype' → 'Wat je kunt waarnemen, heet het fenotype' (bronnencheck '!'); s35 'een normale huidskleur' → 'gewoon pigment in huid, haar en ogen'.
 
 ---
 
@@ -89,7 +89,7 @@ Wat denk je? Hoeveel melanine maakt een pigmentcel met Aa?
 
 Een pigmentcel met Aa maakt maar half zoveel enzym. Maar kijk: dat is ruim genoeg. Er komt ongeveer evenveel melanine als bij AA. Aan de buitenkant zie je geen verschil.
 
-Wat je aan de buitenkant ziet, heet het fenotype. AA en Aa hebben een ander genotype, maar hetzelfde fenotype. Daarom noemen we A dominant: één exemplaar is al genoeg om het fenotype te bepalen. En a is recessief: je ziet het alleen als er géén A is, dus bij aa.
+Wat je kunt waarnemen, heet het fenotype. AA en Aa hebben een ander genotype, maar hetzelfde fenotype. Daarom noemen we A dominant: één exemplaar is al genoeg om het fenotype te bepalen. En a is recessief: je ziet het alleen als er géén A is, dus bij aa.
 
 Dominant betekent dus niet: sterker. Het allel A vecht niet tegen het allel a. En dominant betekent ook niet dat het vaker voorkomt. Er bestaan zeldzame dominante allelen, en heel algemene recessieve.
 
@@ -101,7 +101,7 @@ Toch ligt je fenotype niet helemaal vast in je genen. Hier twee keer hetzelfde g
 Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.
 
 ## Hoofdstuk 6 — Terug naar de familie [Macro]
-Terug naar de familie. Vader en moeder hebben allebei een normale huidskleur. Maar allebei zijn ze Aa. Het allel a is er wel. Je ziet het alleen niet, want één A is genoeg.
+Terug naar de familie. Vader en moeder hebben allebei gewoon pigment in huid, haar en ogen. Maar allebei zijn ze Aa. Het allel a is er wel. Je ziet het alleen niet, want één A is genoeg.
 
 Wat denk je? Kunnen twee ouders die allebei Aa zijn, een kind krijgen met albinisme?
 [VRAAG] (a) Nee: wie zelf geen albinisme heeft, geeft het niet door · (b) Alleen als een opa of oma ook albinisme had · (c) Ja: als het kind van allebei een a krijgt

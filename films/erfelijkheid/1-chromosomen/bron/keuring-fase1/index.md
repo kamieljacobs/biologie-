@@ -1,5 +1,7 @@
 # Keuring fase 1 · Chromosomen (Erfelijkheid 1) — herbouw, 25 okt 2026
 
+**Uitslag (Kamiel, 25 okt 2026, keuringsblad https://claude.ai/artifact/1m98a1QDY2BsHxY24c6Q5D):** alle vijf tekeningen goed; gezin variant A, staand; armen van Marieke; aa in de zon zonder rode verbranding; fenotype-zin en 'normale huidskleur' aangepast en opnieuw ingesproken; 'grote A / kleine a' blijft; geen extra voorspelvragen. Daarna fase 2 gebouwd (versie 2.0).
+
 Kamiel keurde op 25 okt alle 12 voorstellen (chr-1 t/m chr-12) goed. Fase 1 = script v2 + stem + nieuwe tekeningen op het testvel en een nieuw gezin in het castboek. Dit is **ronde 1** van de tekeningen (C10.4: je ziet ook de tussenrondes). De film zelf is nog niet aangeraakt; fase 2 (scènes bouwen) begint na jouw keuring.
 
 Live bekijken (lokaal of op de site, niet gelinkt): `bibliotheek/testvel.html` → knoppen 'Chromosomen: huid / kern en chromosomen / DNA rond eiwitten / onderarmen'; `personages/index.html` → knop 'Gezin De Wit (albinisme)'.
@@ -23,6 +25,6 @@ Live bekijken (lokaal of op de site, niet gelinkt): `bibliotheek/testvel.html` �
 
 ## Wat al klaar is
 
-- `../script_v2.md` + stem (`../herbouw-v2/`), blinde transcriptie zonder fouten (`../herbouw-v2/stem/blind.md`), wachtlijst `../uitspraak.md`.
+- `../script_v2.md` + stem (`../../audio/`), blinde transcriptie zonder fouten (`../stem/blind.md`), wachtlijst `../uitspraak.md`.
 - `../bronnen.md`: 30 beweringen, 19 bronnen, 16 ✓ · 13 ≈ · 1 ! (de fenotype-zin).
 - Credits: stem 6.776; blinde transcriptie 3.023 (veel meer dan de schatting van ± 204); tekeningen 0 (geen ElevenLabs-referentieplaten gemaakt).
