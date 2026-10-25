@@ -38,6 +38,8 @@
 
 **Anouk** (34) en **Milan** (36) · vast: figuranten, moeder en vader van een meisje van 4 met een zeldzame aandoening (het meisje komt nooit in beeld); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: uitslaggesprek bij Dr. Kim in Wat word jij? · Bio-informatica 2 (variant met onbekende betekenis; Milan vraagt 'Is dit het nu?', Anouk legt haar hand op de zijne). Grenzen: blijven figuranten in dit verhaal (geen beroepsrol, geen andere films zonder reden); de uitslag van hun dochter blijft 'nog niet bekend', niet later alsnog 'niets'.
 
+**Sanne** (34), **Bram** (46), **Wilma** (63) en de **Voorbijganger** · vast: figuranten in het bedachte uitbraakvoorbeeld van Wat word jij? · Bio-informatica 3; Sanne is verpleegkundige op dezelfde afdeling als Jesse, Bram zorgmedewerker in een ander ziekenhuis, Wilma zit als patiënt in gewone kleding op een stoel, de Voorbijganger heeft geen naam en geen rol (zoals Erik en Joost); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: Bio-informatica 3 (nog onder de tijdelijke sleutels `zorgc`, `zorgb`, `patiente`). Grenzen: blijven figuranten; geen ziekte of schuld als vast kenmerk (wie in dat voorbeeld besmet raakt of de bron is, ligt aan dat verhaal, niet aan de persoon; geen gezichtsuitdrukking die schuld of ziekte suggereert); de Voorbijganger krijgt geen naam of verhaal.
+
 ## Automatisch: waar komt wie voor
 
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
@@ -274,4 +276,17 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Milan (`milan`) — 1 films
 - `vervolg`: bioinformatica-2-miljoenen-varianten
+
+### Sanne (`sanne`) — 2 films
+- `erfelijkheid`: 6-stambomen-en-kansrekenen
+- `hormonen`: 2-suiker-in-balans
+
+### Bram (`bram`) — 1 films
+- `afweer`: 2-antistoffen-op-maat
+
+### Wilma (`wilma`) — 0 films
+- (geen films gevonden)
+
+### Voorbijganger (`passant`) — 0 films
+- (geen films gevonden)
 <!-- AUTO:end -->

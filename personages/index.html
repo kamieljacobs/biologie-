@@ -638,7 +638,18 @@ const CAST = {
             garderobe: { gewoon: {}, jas: { top: 'jas', topKleur: '#4A5A6E', topAccent: '#3C4A5C', sjaal: '#C8775A' } } }, // roodbruin haar tot net op de schouders, terracotta blouse
   milan:  { naam: 'Milan', leeftijd: 36, rol: 'figurant · vader van een meisje van 4 (Bio-informatica 2, uitslaggesprek) · los van alle families', huid: '#93654A', haar: '#1C1410', kapsel: 'kort', wenkbrauw: '#16100C', stoppels: true,
             top: 'trui', topKleur: '#3E5A86', topAccent: '#32496E', broek: '#4A4E5E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: ['bril-dun'], lengte: 1.03,
-            garderobe: { gewoon: {}, jas: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#3E5A86' } } } // kort zwart haar, stoppels, dun brilletje, blauwe trui
+            garderobe: { gewoon: {}, jas: { top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', sjaal: '#3E5A86' } } }, // kort zwart haar, stoppels, dun brilletje, blauwe trui
+  // ===== Figuranten in Bio-informatica 3 (25 okt 2026; bedacht uitbraakvoorbeeld; ter keuring; los van alle families) =====
+  sanne:  { naam: 'Sanne', leeftijd: 34, rol: 'figurant · verpleegkundige op dezelfde afdeling als Jesse (Bio-informatica 3, bedacht uitbraakvoorbeeld) · los van alle families', huid: '#B98060', haar: '#2A1C16', kapsel: 'staart', elastiek: '#5B8CC9', wenkbrauw: '#22160F', wimpers: true, lippen: '#A9584E',
+            top: 'overhemd', topKleur: '#8DB3D3', topAccent: '#769EC0', broek: '#8DB3D3', schoen: '#F2F2EE', schoenAccent: '#5B8CC9', accessoire: ['oorbel'], lengte: 0.98,
+            garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#9A5A6E', topAccent: '#824A5C', broek: '#33415C', schoen: '#3A3F4E', schoenAccent: '#2A2F3E' } } },
+  bram:   { naam: 'Bram', leeftijd: 46, rol: 'figurant · zorgmedewerker in een ander ziekenhuis (Bio-informatica 3, bedacht uitbraakvoorbeeld) · los van alle families', huid: '#D9AE8A', haar: '#3A2A20', kapsel: 'kort', wenkbrauw: '#2E2018', stoppels: true,
+            top: 'overhemd', topKleur: '#7FB09A', topAccent: '#6A9A85', broek: '#7FB09A', schoen: '#F2F2EE', schoenAccent: '#3E7C6A', accessoire: ['bril'], lengte: 1.02,
+            garderobe: { werk: {}, gewoon: { top: 'trui', topKleur: '#5A6E8A', topAccent: '#4A5C74', broek: '#3E3A4E' } } },
+  wilma:  { naam: 'Wilma', leeftijd: 63, rol: 'figurant · patiënt op de afdeling, zittend in gewone kleding (Bio-informatica 3, bedacht uitbraakvoorbeeld) · los van alle families', huid: '#E9C1A0', haar: '#A8A49C', kapsel: 'bob', wenkbrauw: '#8A847A', wimpers: true, lippen: '#B4605A',
+            top: 'vest', topKleur: '#8A6A8E', topAccent: '#745878', binnen: '#EEE6DA', broek: '#3E4A5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 0.95 },
+  passant: { naam: 'Voorbijganger', leeftijd: 40, rol: 'figurant (naamloos, net als Erik en Joost zonder verhaal) · iemand uit de buurt, geen vaste rol (Bio-informatica 3)', huid: '#C99A78', haar: '#5A4232', kapsel: 'kort', wenkbrauw: '#4A3628',
+            top: 'trui', topKleur: '#6E8A6A', topAccent: '#5A7458', broek: '#3E4658', schoen: '#4A4A52', schoenAccent: '#34343A', accessoire: [], lengte: 1.0 }
 };
 // families en vaste verbanden (getekend op de castboekpagina 'Families'); ouders: [vader, moeder]
 const CAST_FAMILIE = {
@@ -657,6 +668,7 @@ const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs
 const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
+const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
 const CAST_GEZIN_WIT = ['opawit', 'omawit', 'opabos', 'omabos', 'dennis', 'marieke', 'sara', 'levi', 'jens']; // 25 okt 2026, ter keuring
 // // jonge personages (20 okt 2026): Teun (± 6 jaar) en een baby
 
