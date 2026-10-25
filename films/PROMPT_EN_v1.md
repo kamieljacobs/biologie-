@@ -48,6 +48,7 @@ Part D (onderbouw) never applies to English films.
 ## E5. Cast
 
 - The English films have **their own cast**: `personages/en/CAST.md` (roles, names, ages, looks) and, once drawn, `personages/en/lib_cast_en.js` with the same function and options as the Dutch castboek (`persoon(ctx, id, x, y, h, {uit, pose, kijk, zij, gang, t})`, garderobe, the gait engine). English films never use the Dutch cast, and Dutch films never use the English one.
+- **Contour lines** (Kamiel 25 okt 2026): characters in the new cast style have a thin dark contour line (a dark tone of their own fill); everything else in the frame keeps Part C (no outlines). See BEELDAFSPRAKEN.md.
 - **Stills first** (Kamiel 25 okt 2026): every new character is designed first as an ElevenLabs still (a cast sheet, one variant), approved by Kamiel, and only then drawn in code and checked against the still on a test sheet (C10 steps 3–5). The still is a design plate, never an image in a film.
 - Fixed roles as in ROLLEN.md: the same role is always the same person ("you" = Maya, the doctor/researcher = Dr Ana Ribeiro, the teacher = Mr Mensah, family = Maya's family). Origin never decides the role, and no character is a stereotype.
 - Every rule in Part C and BEELDAFSPRAKEN.md about people holds: castpersonages with face, skin colour and clothes; no grey placeholder figures; side view for walking and running; human moments that carry the concept.

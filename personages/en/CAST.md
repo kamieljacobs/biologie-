@@ -63,4 +63,4 @@ Telpoppetjes in een telling (100 mensen, 1 op 3) blijven eenvoudige pictogrammen
 |---|---|---|---|
 | 1 | kerngroep, `personages/en/vellen/vel-1.webp` | gpt-image-2, één variant (±185 credits), flow https://elevenlabs.io/app/flows/ImNDqEpSOwU8N1ciplpA | gemaakt 25 okt 2026, nog te keuren |
 
-Opgevallen bij vel 1 (voor de code-versie): de still heeft dunne donkere contourlijnen en een klein oogwit, de filmstijl niet (Part C: geen omlijning, geen oogwit) — die neemt de code-versie niet over; verhoudingen, kapsels, kleding en kleuren wel.
+Kamiel 25 okt 2026: vel 1 'heel mooi'. Proef in code: `personages/en/proef-maya.html` (vooraanzicht met en zonder lijnen, praten, wijzen, zwaaien, uitleggen, lopen en rennen); Kamiel koos **met contourlijnen** (ook vastgelegd in `films/BEELDAFSPRAKEN.md`). Het kleine oogwit uit de still neemt de code niet over (alleen een lichtpuntje). Nog te verfijnen: handen, mouwplooien, zijaanzicht, hand in de broekzak.

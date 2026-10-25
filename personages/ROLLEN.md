@@ -35,3 +35,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 Telpoppetjes in een telling (100 mensen, 1 op 3) blijven eenvoudige pictogrammen.
 
 Nieuwe rol nodig? Eerst kijken of een bestaand personage hem logisch kan spelen; anders een nieuw personage in `lib_cast.js` (met naam en rol) en hier bijschrijven.
+
+## Nieuwe caststijl (25 okt 2026)
+
+Castvel in de nieuwe, rijkere stijl met contourlijnen: `personages/vellen/vel-nl-1.webp` (Noor, Sam, Lotte, Daan, Yasmin, Bilal, Dr. Kim, Mevrouw Visser; gpt-image-2, één variant, ElevenLabs-flow https://elevenlabs.io/app/flows/ImNDqEpSOwU8N1ciplpA). Nog te keuren door Kamiel; daarna in code zoals de proef met Maya (`personages/en/proef-maya.html`). Let bij de keuring op Bilal: hij oogt op het vel ouder dan 17.
