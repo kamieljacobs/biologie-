@@ -91,3 +91,18 @@ function afvalBalken(ctx, x, y, o = {}) { const { a = 1, k = 1 } = o; if (a <= 0
   [[1, '#6E7A90', 'OUD PROCES'], [0.81, C.groen, 'MET ENZYM']].forEach(([v, col, lab], i) => { const w = 360 * (i ? lerp(1, v, k) : v); roundRect(ctx, x, y + i * 70, w, 44, 8); shape(ctx, col, null); metaA(ctx, lab, x + w + 16, y + i * 70 + 32, 1, C.grain, 'left', 28); });
   metaA(ctx, 'AFVAL', x, y - 16, 1, C.grain, 'left', 28); ctx.restore(); }
 function metaalWeg(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 40, '#2A3A58', '#9AA8BA', 2); text(ctx, 'Rh', x, y + 12, fTekst(34, 700), '#C9D2DE', 'center'); kruis(ctx, x, y, 44, 1); ctx.restore(); }
+
+// ---------- eivlek als kluwen van gestold eiwit op een vezel (Kamiel 25 okt 2026: kluwen is realistischer) ----------
+function eiwitKluwenVezel(ctx, x, y, w, o = {}) { // knip 0..1: stukjes laten los van de buitenkant en drijven weg, kluwen krimpt
+  const { a = 1, knip = 0, t = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = '#C9D2DE'; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - w / 2, y); ctx.bezierCurveTo(x - w / 4, y - 20, x + w / 4, y + 20, x + w / 2, y); ctx.stroke();
+  const cx = x, cy = y - 95, N = 10;
+  for (let k = 0; k < N; k++) { // N ketens door elkaar, elk een stukje van het kluwen
+    const ord = hash(k + 3); const weg = clamp(knip * 1.7 - ord * 0.8, 0, 1); const an0 = hash(k + 11) * 6.283;
+    const dx = Math.cos(an0) * weg * 260, dy = -Math.abs(Math.sin(an0)) * weg * 200 - weg * 60;
+    const pts = []; for (let i = 0; i < 9; i++) { const an = an0 + i * 0.9 + Math.sin(k + i) * 0.6, rr = 35 + 90 * hash(k * 9 + i); const w2 = wander(i + k * 20, t, 2.5, 0.5);
+      const g = Math.floor(i / 3), ga = an0 + g * 2.1; pts.push([cx + Math.cos(an) * rr + Math.cos(ga) * weg * 220 + w2.x, cy + Math.sin(an) * rr * 0.8 - weg * (120 + g * 70) + Math.sin(ga) * weg * 80 + w2.y]); }
+    ctx.save(); ctx.globalAlpha *= 1 - weg * 0.95;
+    const brok = weg > 0.02; pts.forEach(([px, py], i) => { if (i && !(brok && i % 3 === 0)) { const q = pts[i - 1]; ctx.strokeStyle = rgba(C.oker, 0.7); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(q[0], q[1]); ctx.lineTo(px, py); ctx.stroke(); } });
+    pts.forEach(([px, py]) => circ(ctx, px, py, 8, C.oker, lighten(C.oker, 0.3), 1.2)); ctx.restore(); }
+  ctx.restore(); }

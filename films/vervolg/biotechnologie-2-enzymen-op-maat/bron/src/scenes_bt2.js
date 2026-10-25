@@ -21,9 +21,9 @@ Object.assign(SCENES, {
 
   // ---------- H1 ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); bt1Antwoord(ctx, 'antwoord b: het knipt de ketens in stukjes'); RONDE(ctx, 0, 0);
-    const K = q.on('knipt', 1, 2.4) * 0.9;
-    zoomCircle(ctx, 760, 500, 320, 240, 560, 'VERGROOT · EIWITKETENS OP EEN VEZEL', 1, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(440, 180, 640, 640);
-      eiwitKetenVezel(ctx, 760, 690, 560, { knip: K, t }); const k = (t * 0.4) % 1; enzymKluwen(ctx, lerp(560, 960, k), 470 + Math.sin(k * 6) * 40, 42, { a: q.on('protease', 1), sluit: (Math.sin(t * 5) + 1) / 2 }); });
+    const K = q.on('knipt', 1, 6);
+    zoomCircle(ctx, 760, 500, 320, 240, 560, 'VERGROOT · GESTOLD EIWIT OP EEN VEZEL', 1, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(440, 180, 640, 640);
+      eiwitKluwenVezel(ctx, 760, 700, 560, { knip: K, t }); const k = (t * 0.25) % 1, ea = k * 6.283; enzymKluwen(ctx, 760 + Math.cos(ea) * 150, 580 + Math.sin(ea) * 120, 42, { a: q.on('protease', 1), sluit: (Math.sin(t * 5) + 1) / 2 }); });
     broek(ctx, 200, 380, 0.6, { vlek: 1 - K * 0.8 });
     naamBij(ctx, 'protease', 'KNIPT EIWIT', 1240, 360, q.on('protease', 1), 'left');
     chip(ctx, 'het enzym raakt niet op', 1360, 470, C.groen, q.on('vrij', 1), 28);
