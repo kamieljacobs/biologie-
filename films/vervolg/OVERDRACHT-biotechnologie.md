@@ -10,9 +10,18 @@ Stand: film 1 in de maak (Kamiel 25 okt 2026: 'ja' op starten met film 1). Wordt
 ## Werkwijze
 Zoals Forensisch onderzoek: bronnen en getallen → 3 scriptvarianten + blinde beoordelaar → frisse feitenreview → storyboard, twijfelscènes op een blad voor Kamiel → inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Reeksbrief: `REEKS-biotechnologie.md` (nog niet gekeurd).
 
-## Stand film 1 (25 okt 2026, middag)
-- Bronmap in wording: `biotechnologie-1-bacterien-als-fabriek/bron/` (brief, getallen.md met 70 geopende bronnen, 3 scriptvarianten + blind oordeel in `werk/`, frisse feitenreview `reviews/review_v1.md`, **definitief script `script_v2.md`** (913 woorden, niet meer wijzigen), segments, film.py, storyboardscènes in `src/`).
-- Winnaar blind: variant B (35) tegen C (33) en A (30); filterscène uit C, 'rechte lijn' en bioreactordefinitie uit A.
-- Storyboard gebouwd op voorlopige tijden; twijfelblad voor Kamiel: https://claude.ai/artifact/FXJpJ1PTeq4PzvFwMjnjxi (6 punten: Merel, slachthuiskratten, bioreactor, reden opschalen in stappen, insulinetekening, chymosine 'vaak'). **Wacht op keuring**; daarna inspreken.
-- Werkmap opbouwen in een nieuwe sessie: engine uit `forensisch-3-hoe-lang-al-dood/bron` (zie BOUWEN.md), dan bronmapbestanden naar `hw/bt1/`; scenes.js = kop engine/scenes.js + brein + teken + extra + lib_bio + src/teken_bt1.js + src/scenes_bt1.js.
-- Cast besloten (Kamiel 25 okt 2026): Sam stagiair, begeleider = nieuw personage (procestechnoloog, werknaam Merel; naam en tekening ter keuring op het twijfelblad). Geen castpersonage dat insuline gebruikt (pen zonder persoon).
+## Stand (25 okt 2026, middag): film 1 op de site
+| Film | Bestand | Spraak | Credits | Flow |
+|---|---|---|---|---|
+| 1 Bacteriën als fabriek | `biotechnologie-1-bacterien-als-fabriek.html` | 6:07 | 5.526 | vorih4tmXXgB21lRA7OZ |
+
+Bronmap compleet (script v2, varianten en blind oordeel in `bron/werk/`, getallen.md, bronnen.md (46 ✓, 15 ≈), storyboard, reviews (feiten, beeld), bouwscript `bron/bouw/bouw.sh`), prompt v10, status 'nog bekijken'. Twijfelblad https://claude.ai/artifact/FXJpJ1PTeq4PzvFwMjnjxi: alle zes goedgekeurd. Cast: Sam stagiair, Procestechnoloog Merel (nieuw, goedgekeurd).
+
+## Open
+- **Uitspraak:** wachtlijst in `bron/uitspraak.md` (chymosine, dsm-firmenich, Molecular Life Sciences …), nog niet beluisterd.
+- **Filmmedaillon:** nog niet gemaakt (valt terug op de lijntekening in `FILMKUNST`).
+- **Opleidingen in de recap** zijn vooral labopleidingen; voor een volgende versie een opleiding procestechniek/biotechnologie dichtbij Nijmegen opzoeken (bronnen.md, bewering 58).
+- **Steekproef** van het bronnenlogboek nog niet gedaan.
+- KAN-punten uit `bron/reviews/review_beeld.md` die bewust open bleven (o.a. ribosomen bij de keten, stoom in een leeg vat, belletjes bij bier).
+- `scripts/teller.py` en `scripts/licentie_noot.py` breken nog op `films/verbeterbladen/sjabloon.html`; gedraaid met die uitzondering.
+- Film 2 en 3: nog niet begonnen.

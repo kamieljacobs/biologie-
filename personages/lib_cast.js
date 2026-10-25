@@ -116,7 +116,7 @@ const CAST = {
             garderobe: { lab: {}, plaatsdelict: _PLAATSDELICT } }, // 25 okt 2026 (Forensisch onderzoek 3): labjas met paarse binnenkant, bril; plaatsdelict = larven verzamelen op de plaats
   merel:  { naam: 'Procestechnoloog Merel', leeftijd: 38, rol: 'procestechnoloog · laat cellen in grote vaten een product maken en zuivert het · alleen in haar eigen vak', huid: '#9C6A4C', haar: '#24170F', kapsel: 'kort', wenkbrauw: '#1E130C', wimpers: true, lippen: '#A9584E',
             top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#C7843A', broek: '#33415C', schoen: '#2A2F3E', schoenAccent: '#C7843A', accessoire: ['oorbel'], lengte: 0.97,
-            garderobe: { lab: {}, gewoon: { top: 'trui', topKleur: '#2E8A9A', topAccent: '#26737F', broek: '#33415C' } } }, // 25 okt 2026 (Biotechnologie, begeleider van Sam; ter keuring): kort donker haar, labjas met oker binnenkant, geen bril (anders dan Lieke)
+            garderobe: { lab: {}, gewoon: { top: 'trui', topKleur: '#2E8A9A', topAccent: '#26737F', broek: '#33415C' } } }, // 25 okt 2026 (Biotechnologie, begeleider van Sam; goedgekeurd door Kamiel 25 okt 2026): kort donker haar, labjas met oker binnenkant, geen bril (anders dan Lieke)
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun

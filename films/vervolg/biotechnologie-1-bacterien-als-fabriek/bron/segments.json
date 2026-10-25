@@ -146,7 +146,7 @@
    "Sommige bedrijven gebruiken de darmbacterie E. coli, andere bakkersgist."
   ],
   "display": "Sommige bedrijven gebruiken de darmbacterie E. coli, andere bakkersgist.",
-  "voice": "Sommige bedrijven gebruiken de darmbacterie E. coli, andere bakkersgist.",
+  "voice": "Sommige bedrijven gebruiken de darmbacterie E. kóólie, andere bakkersgist.",
   "vmap": [
    0,
    1,
@@ -542,7 +542,7 @@
    "Onder ideale omstandigheden verdubbelt E. coli zich ongeveer elke twintig minuten. Stel: je hebt één liter dichte kweek en wilt duizend liter even dicht. Hoe vaak moeten de cellen zich verdubbelen? Wat denk je?"
   ],
   "display": "Onder ideale omstandigheden verdubbelt E. coli zich ongeveer elke twintig minuten. Stel: je hebt één liter dichte kweek en wilt duizend liter even dicht. Hoe vaak moeten de cellen zich verdubbelen? Wat denk je?",
-  "voice": "Onder ideale omstandigheden verdubbelt E. coli zich ongeveer elke twintig minuten. Stel: je hebt één liter dichte kweek en wilt duizend liter even dicht. Hoe vaak moeten de cellen zich verdubbelen? Wat denk je?",
+  "voice": "Onder ideale omstandigheden verdubbelt E. kóólie zich ongeveer elke twintig minuten. Stel: je hebt één liter dichte kweek en wilt duizend liter even dicht. Hoe vaak moeten de cellen zich verdubbelen? Wat denk je?",
   "vmap": [
    0,
    1,
@@ -757,7 +757,7 @@
    "Antwoord c. Bij E. coli klontert de voorloper van insuline meestal samen in de cel. Sam had de insuline bijna weggegooid. Je scheidt de cellen af met een centrifuge, en houdt juist de cellen. Je breekt ze open, lost de klonten op en laat het eiwit alsnog goed vouwen."
   ],
   "display": "Antwoord c. Bij E. coli klontert de voorloper van insuline meestal samen in de cel. Sam had de insuline bijna weggegooid. Je scheidt de cellen af met een centrifuge, en houdt juist de cellen. Je breekt ze open, lost de klonten op en laat het eiwit alsnog goed vouwen.",
-  "voice": "Antwoord cee. Bij E. coli klontert de voorloper van insuline meestal samen in de cel. Sam had de insuline bijna weggegooid. Je scheidt de cellen af met een centrifuge, en houdt juist de cellen. Je breekt ze open, lost de klonten op en laat het eiwit alsnog goed vouwen.",
+  "voice": "Antwoord cee. Bij E. kóólie klontert de voorloper van insuline meestal samen in de cel. Sam had de insuline bijna weggegooid. Je scheidt de cellen af met een centrifuge, en houdt juist de cellen. Je breekt ze open, lost de klonten op en laat het eiwit alsnog goed vouwen.",
   "vmap": [
    0,
    1,
@@ -1208,7 +1208,7 @@
    "Dit werk leer je bij de mbo-opleiding biologisch-medisch analist, niveau vier, of bij Biologie en Medisch Laboratoriumonderzoek aan de HAN in Nijmegen. Op de universiteit kan het met Molecular Life Sciences aan de Radboud of Biotechnologie in Wageningen. Je werkt dan bijvoorbeeld bij dsm-firmenich in Delft. Of je zulke cellen zomaar mag gebruiken, zie je in film drie."
   ],
   "display": "Dit werk leer je bij de mbo-opleiding biologisch-medisch analist, niveau vier, of bij Biologie en Medisch Laboratoriumonderzoek aan de HAN in Nijmegen. Op de universiteit kan het met Molecular Life Sciences aan de Radboud of Biotechnologie in Wageningen. Je werkt dan bijvoorbeeld bij dsm-firmenich in Delft. Of je zulke cellen zomaar mag gebruiken, zie je in film drie.",
-  "voice": "Dit werk leer je bij de mbo-opleiding biologisch-medisch analist, niveau vier, of bij Biologie en Medisch Laboratoriumonderzoek aan de HAN in Nijmegen. Op de universiteit kan het met Molecular Life Sciences aan de Radboud of Biotechnologie in Wageningen. Je werkt dan bijvoorbeeld bij dsm-firmenich in Delft. Of je zulke cellen zomaar mag gebruiken, zie je in film drie.",
+  "voice": "Dit werk leer je bij de mbo-opleiding biologisch-medisch analist, niveau vier, of bij Biologie en Medisch Laboratoriumonderzoek aan de Han in Nijmegen. Op de universiteit kan het met Molecular Life Sciences aan de Radboud of Biotechnologie in Wageningen. Je werkt dan bijvoorbeeld bij dsm-firmenich in Delft. Of je zulke cellen zomaar mag gebruiken, zie je in film drie.",
   "vmap": [
    0,
    1,
@@ -1277,8 +1277,7 @@
   "level": "basis",
   "lines": [
    "Insuline: menselijk gen in een bacterie of gist; insuline zelf is geen ggo.",
-   "Opschalen: zuurstof lost slecht op, dus beluchten en roeren.",
-   "Verdubbelen: tien keer verdubbelen = ruim duizend keer zoveel.",
+   "Opschalen: in stappen; zuurstof lost slecht op, dus beluchten en roeren.",
    "Zuiveren: cellen scheiden, klonten vouwen, knippen, kolommen.",
    "Fermentatie: met of zonder zuurstof; gisting: zonder zuurstof."
   ]

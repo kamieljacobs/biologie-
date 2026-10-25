@@ -18,6 +18,10 @@
 
 **Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
 
+**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), outfit `practicum`. Grenzen: blijft in dit vak de stagiair.
+
+**Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1. Grenzen: alleen in haar eigen vak.
+
 **Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
@@ -55,14 +59,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
 - `zenuwstelsel`: 7-slaap, 8-zintuigen
 
-### Sam (`sam`) — 29 films
+### Sam (`sam`) — 30 films
 - `afweer`: 3-t-cellen-en-virussen
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `gedrag`: 1-waarom-doet-een-dier-wat-het-doet, 6-attributie, 9-mierenkolonie
 - `onderbouw/32a`: 2-van-cel-tot-lichaam, 6-skelet-en-spieren, 7-zenuw-en-hormoonstelsel, 9-organismen-aan-het-werk
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 5-celdeling
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biotechnologie-1-bacterien-als-fabriek, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 1-wat-zit-er-in-je-eten, 2-de-reis-door-je-buik, 6-je-darmbewoners
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 - `zenuwstelsel`: 7-slaap
@@ -226,6 +230,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Lieke (`lieke`) — 1 films
 - `vervolg`: forensisch-3-hoe-lang-al-dood
+
+### Procestechnoloog Merel (`merel`) — 1 films
+- `vervolg`: biotechnologie-1-bacterien-als-fabriek
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek

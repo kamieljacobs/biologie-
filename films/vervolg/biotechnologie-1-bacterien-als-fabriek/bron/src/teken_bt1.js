@@ -145,29 +145,29 @@ function gistcel(ctx, x, y, r, o = {}) { const { a = 1, t = 0, knop = 0.35, uit 
 // B-keten 30 aminozuren, A-keten 21; zwavelbruggen A7–B7, A20–B19 en binnen A: A6–A11.
 function _ketenPunten(n, x0, y0, dx, golf = 6) { return Array.from({ length: n }, (_, i) => [x0 + i * dx, y0 + Math.sin(i * 0.9) * golf]); }
 function kralen(ctx, pts, r, col, o = {}) { const { a = 1, hl = [] , hlCol = C.goud } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = rgba(col, 0.7); ctx.lineWidth = r * 0.35; ctx.beginPath(); pts.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.stroke();
-  pts.forEach(([px, py], i) => circ(ctx, px, py, r, hl.includes(i) ? hlCol : col, lighten(hl.includes(i) ? hlCol : col, 0.25), 1.2)); ctx.restore(); }
+  pts.forEach(([px, py], i) => { if (hl.includes(i)) { circ(ctx, px, py, r * 1.45, hlCol, '#F2F2EE', 2); } else circ(ctx, px, py, r, col, lighten(col, 0.25), 1.2); }); ctx.restore(); }
 function insulineMol(ctx, x, y, s = 1, o = {}) { // twee ketens met drie zwavelbruggen; hlB/hlA = indexen (0-gebaseerd) die oplichten
   const { a = 1, bruggen = 1, hlA = [], hlB = [], col = KL_INS, t = 0, label = false } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   const r = 9 * s, dx = 20 * s; const B = _ketenPunten(30, x - 14.5 * dx, y + 26 * s, dx, 5 * s), A = _ketenPunten(21, x - 14.5 * dx + 2 * dx, y - 26 * s, dx, 5 * s);
-  if (bruggen > 0.01) { ctx.save(); ctx.globalAlpha *= bruggen; ctx.strokeStyle = C.goud; ctx.lineWidth = 3 * s; [[6, 6], [19, 18]].forEach(([ia, ib]) => { ctx.beginPath(); ctx.moveTo(A[ia][0], A[ia][1]); ctx.lineTo(B[ib][0], B[ib][1]); ctx.stroke(); });
+  if (bruggen > 0.01) { ctx.save(); ctx.globalAlpha *= bruggen; ctx.strokeStyle = '#D9D2F2'; ctx.lineWidth = 3 * s; [[6, 6], [19, 18]].forEach(([ia, ib]) => { ctx.beginPath(); ctx.moveTo(A[ia][0], A[ia][1]); ctx.lineTo(B[ib][0], B[ib][1]); ctx.stroke(); });
     ctx.beginPath(); ctx.moveTo(A[5][0], A[5][1]); ctx.quadraticCurveTo((A[5][0] + A[10][0]) / 2, A[5][1] - 34 * s, A[10][0], A[10][1]); ctx.stroke(); ctx.restore(); }
   kralen(ctx, A, r, col, { hl: hlA }); kralen(ctx, B, r, col, { hl: hlB });
   if (label) { metaA(ctx, 'A-KETEN · 21', A[20][0] + 24 * s, A[20][1] + 8, 1, C.grain, 'left', 24); metaA(ctx, 'B-KETEN · 30', B[29][0] + 24 * s, B[29][1] + 8, 1, C.grain, 'left', 24); }
   ctx.restore(); return { A, B }; }
-function voorloper(ctx, x, y, s = 1, o = {}) { // B — middenstuk (C) — A als één keten; knip 0..1 haalt het middenstuk weg, fold brengt A en B samen
-  const { a = 1, knip = 0, fold = 0, t = 0, hlKnip = 0 } = o; if (a <= 0.01) return {}; ctx.save(); ctx.globalAlpha *= a;
+function voorloper(ctx, x, y, s = 1, o = {}) { // B-keten → middenstuk (C) → A-keten als één keten; C loopt van B30 in een boog over de bovenkant naar A1 (links). knip 0..1 haalt C weg.
+  const { a = 1, knip = 0, fold = 0, t = 0 } = o; if (a <= 0.01) return {}; ctx.save(); ctx.globalAlpha *= a;
   const r = 9 * s, dx = 20 * s; const nB = 30, nC = 31, nA = 21;
-  // B onder (links→rechts), C als lus rechts, A boven (rechts→links) — gevouwen vorm; fold 0 = gestrekt in één rij
-  const pts = []; const Bx0 = x - 14.5 * dx, Bp = _ketenPunten(nB, Bx0, y + 26 * s, dx, 5 * s); const Ap = _ketenPunten(nA, Bx0 + 2 * dx, y - 26 * s, dx, 5 * s);
-  const pb = Bp[nB - 1], pa = Ap[nA - 1]; const Cp = Array.from({ length: nC }, (_, i) => { const u = (i + 1) / (nC + 1); const cx1 = pb[0] + 230 * s, cy1 = (pb[1] + pa[1]) / 2; const bx = (1 - u) * (1 - u) * pb[0] + 2 * u * (1 - u) * cx1 + u * u * pa[0], by = (1 - u) * (1 - u) * pb[1] + 2 * u * (1 - u) * cy1 + u * u * pa[1]; return [bx + Math.sin(u * 14) * 5 * s, by]; });
-  const recht = (i) => [x - (nB + nC + nA) / 2 * dx * 0.62 + i * dx * 0.62, y + Math.sin(i * 0.7) * 6 * s];
+  const Bx0 = x - 14.5 * dx; const Bp = _ketenPunten(nB, Bx0, y + 26 * s, dx, 5 * s); const Ap = _ketenPunten(nA, Bx0 + 2 * dx, y - 26 * s, dx, 5 * s);
+  const pb = Bp[nB - 1], pa = Ap[0]; const P1 = [pb[0] + 170 * s, pb[1] - 120 * s], P2 = [pa[0] - 170 * s, pa[1] - 190 * s];
+  const Cp = Array.from({ length: nC }, (_, i) => { const u = (i + 1) / (nC + 1), v = 1 - u; const bx = v * v * v * pb[0] + 3 * v * v * u * P1[0] + 3 * v * u * u * (P2[0] + 0) + u * u * u * pa[0], by = v * v * v * pb[1] + 3 * v * v * u * (P1[1] - 90 * s) + 3 * v * u * u * (P2[1] - 40 * s) + u * u * u * pa[1]; return [bx, by]; });
+  const n = nB + nC + nA; const recht = (i) => [x - n / 2 * dx * 0.62 + i * dx * 0.62, y + Math.sin(i * 0.7) * 6 * s];
   const f = ease(fold); const P = (p, i) => [lerp(recht(i)[0], p[0], f), lerp(recht(i)[1], p[1], f)];
-  const B = Bp.map((p, i) => P(p, i)), Cc = Cp.map((p, i) => P(p, nB + i)), A = Ap.slice().reverse().map((p, i) => P(p, nB + nC + i));
-  const weg = ease(knip); const Cs = Cc.map(([px, py]) => [px + weg * 260 * s, py - weg * 40 * s]);
-  // keten
-  ctx.strokeStyle = rgba(KL_INS, 0.7); ctx.lineWidth = r * 0.35; ctx.beginPath(); B.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); if (weg < 0.05) { Cc.forEach(([px, py]) => ctx.lineTo(px, py)); A.forEach(([px, py]) => ctx.lineTo(px, py)); } ctx.stroke();
-  if (weg >= 0.05) { ctx.beginPath(); A.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.stroke(); ctx.save(); ctx.globalAlpha *= 1 - weg * 0.7; ctx.beginPath(); Cs.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.stroke(); ctx.restore(); }
-  if (fold > 0.95) { ctx.save(); ctx.globalAlpha *= clamp((fold - 0.95) * 20, 0, 1); ctx.strokeStyle = C.goud; ctx.lineWidth = 3 * s; const Ar = A.slice().reverse(); [[6, 6], [19, 18]].forEach(([ia, ib]) => { ctx.beginPath(); ctx.moveTo(Ar[ia][0], Ar[ia][1]); ctx.lineTo(B[ib][0], B[ib][1]); ctx.stroke(); }); ctx.beginPath(); ctx.moveTo(Ar[5][0], Ar[5][1]); ctx.quadraticCurveTo((Ar[5][0] + Ar[10][0]) / 2, Ar[5][1] - 34 * s, Ar[10][0], Ar[10][1]); ctx.stroke(); ctx.restore(); }
+  const B = Bp.map((p, i) => P(p, i)), Cc = Cp.map((p, i) => P(p, nB + i)), A = Ap.map((p, i) => P(p, nB + nC + i));
+  const weg = ease(knip); const Cs = Cc.map(([px, py]) => [px, py - weg * 170 * s]);
+  const lijn = (pts) => { ctx.beginPath(); pts.forEach(([px, py], i) => i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)); ctx.stroke(); };
+  ctx.strokeStyle = rgba(KL_INS, 0.7); ctx.lineWidth = r * 0.35;
+  if (weg < 0.05) lijn(B.concat(Cc, A)); else { lijn(B); lijn(A); ctx.save(); ctx.globalAlpha *= 1 - weg * 0.7; ctx.strokeStyle = 'rgba(154,163,178,0.7)'; lijn(Cs); ctx.restore(); }
+  if (fold > 0.95) { ctx.save(); ctx.globalAlpha *= clamp((fold - 0.95) * 20, 0, 1); ctx.strokeStyle = '#D9D2F2'; ctx.lineWidth = 3 * s; [[6, 6], [19, 18]].forEach(([ia, ib]) => { ctx.beginPath(); ctx.moveTo(A[ia][0], A[ia][1]); ctx.lineTo(B[ib][0], B[ib][1]); ctx.stroke(); }); ctx.beginPath(); ctx.moveTo(A[5][0], A[5][1]); ctx.quadraticCurveTo((A[5][0] + A[10][0]) / 2, A[5][1] - 34 * s, A[10][0], A[10][1]); ctx.stroke(); ctx.restore(); }
   B.forEach(([px, py]) => circ(ctx, px, py, r, KL_INS, lighten(KL_INS, 0.25), 1.2)); A.forEach(([px, py]) => circ(ctx, px, py, r, KL_INS, lighten(KL_INS, 0.25), 1.2));
   ctx.save(); ctx.globalAlpha *= 1 - weg * 0.7; Cs.forEach(([px, py]) => circ(ctx, px, py, r * 0.9, '#9AA3B2', '#C9D2DE', 1.2)); ctx.restore();
   ctx.restore(); return { knip1: B[nB - 1], knip2: A[0], C: Cs[Math.floor(nC / 2)] }; }
@@ -187,15 +187,15 @@ function centrifuge(ctx, x, y, s = 1, o = {}) { const { a = 1, t = 0, draai = 0,
 function buisBezonken(ctx, x, y, s = 1, o = {}) { const { a = 1, sep = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; buisje(ctx, x, y, s, { vul: 0.75, col: lerp(0, 1, sep) > 0.5 ? rgba('#7FA6B8', 0.35) : KL_KWEEK });
   ctx.save(); ctx.globalAlpha *= sep; ctx.fillStyle = KL_KWEEK; ctx.beginPath(); ctx.arc(x, y - 17 * s, 17 * s, 0, Math.PI); ctx.fill(); ctx.fillRect(x - 17 * s, y - 36 * s, 34 * s, 20 * s); ctx.restore(); ctx.restore(); }
 function kolom(ctx, x, y, w, h, o = {}) { // chromatografiekolom van binnen: korrels, eiwitten van boven naar beneden; k = verloop 0..1; insuline (paars) komt bij k≈0.75 onderaan uit
-  const { a = 1, t = 0, k = 0, label = '', sub = '', korrelCol = '#3E5476', toonUit = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const { a = 1, t = 0, k = 0, label = '', sub = '', korrelCol = '#3A4A66', toonUit = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   roundRect(ctx, x - w / 2, y - h, w, h, 12); shape(ctx, '#1C2436', '#8FA0B5', 3); ctx.save(); roundRect(ctx, x - w / 2 + 4, y - h + 4, w - 8, h - 8, 10); ctx.clip();
   for (let i = 0; i < 70; i++) { const r = 8 + hash(i + 3) * 4; circ(ctx, x - w / 2 + 12 + hash(i * 3 + 1) * (w - 24), y - h + 20 + hash(i * 7 + 2) * (h - 40), r, rgba(korrelCol, 0.55), rgba('#8FA0B5', 0.35), 1); }
-  const soorten = [['grijs', '#9AA3B2', 1.25, 0], ['ins', KL_INS, 0.78, 1], ['oker', C.oker, 0.45, 2]]; // snelheid: grijs snel, insuline midden, oker plakt lang
-  soorten.forEach(([nm, col, v, j]) => { for (let i = 0; i < 9; i++) { const yy = y - h + 10 + (k * v * 1.35 - hash(i + j * 20) * 0.12) * h; if (yy < y - h + 6 || yy > y - 6) continue; const xx = x - w / 2 + 16 + hash(i * 11 + j) * (w - 32); circ(ctx, xx, yy, 10, col, '#121A26', 2); } });
+  const soorten = [['grijs', '#B8C0CC', 1.25, 0], ['ins', KL_INS, 0.78, 1], ['oker', '#6E7A90', 0.45, 2]]; // snelheid: grijs snel, insuline midden, oker plakt lang
+  soorten.forEach(([nm, col, v, j]) => { for (let i = 0; i < 9; i++) { const yy = y - h + 10 + (k * v * 1.35 - hash(i + j * 20) * 0.12) * h; if (yy < y - h + 6 || yy > y - 6) continue; const xx = x - w / 2 + 16 + hash(i * 11 + j) * (w - 32); circ(ctx, xx, yy, 10, col, nm === 'ins' ? C.goud : '#121A26', 1.5); } });
   ctx.restore(); // uitstroom onderaan
   ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + 40); ctx.stroke();
-  if (toonUit > 0.01) { const inz = clamp((k - 0.68) * 8, 0, 1) * clamp((0.95 - k) * 8, 0, 1), gr = clamp((k - 0.48) * 10, 0, 1) * clamp((0.62 - k) * 10, 0, 1); if (inz > 0.01) circ(ctx, x, y + 58, 10, KL_INS, null); if (gr > 0.01) circ(ctx, x, y + 58, 10, '#9AA3B2', null); }
-  if (label) naamBij(ctx, label, sub, x, y - h - 26, 1, 'center'); ctx.restore(); }
+  if (toonUit > 0.01) { const inz = clamp((k - 0.68) * 8, 0, 1) * clamp((0.95 - k) * 8, 0, 1), gr = clamp((k - 0.48) * 10, 0, 1) * clamp((0.62 - k) * 10, 0, 1); if (inz > 0.01) circ(ctx, x, y + 58, 10, KL_INS, C.goud, 3); if (gr > 0.01) circ(ctx, x, y + 58, 10, '#B8C0CC', null); }
+  if (label) naamBij(ctx, label, sub, x, y - h - 44, 1, 'center'); ctx.restore(); }
 function zuiverMeter(ctx, x, y, w, frac, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 36, 10); shape(ctx, '#2A3A58', '#8FA0B5', 2); roundRect(ctx, x + 4, y + 4, (w - 8) * frac, 28, 8); shape(ctx, C.groen, null);
   text(ctx, Math.round(frac * 1000) / 10 >= 99 ? 'ruim 99 % zuiver' : Math.round(frac * 100) + ' %', x + w / 2, y + 27, fTekst(28, 700), '#121A26', 'center'); ctx.restore(); }
 

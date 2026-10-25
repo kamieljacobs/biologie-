@@ -26,7 +26,13 @@
 6. bacteriën groeien in een rechte lijn (elke tien minuten een paar meer) → H2 (verdubbelen)
 
 ## Rode draad
-Ter keuring (reeksbrief). Werkhypothese voor de scriptvarianten: Sam loopt stage bij een biotechbedrijf; Dr. Kim is zijn begeleider. Eén product door de hele film: een buisje met één kolonie gemodificeerde cellen → erlenmeyer → bioreactor → zuivere insuline in een pen. H4 laat zien dat dezelfde fabriek kaasstremsel en vleesvervanger maakt.
+Sam loopt stage bij een biotechbedrijf; Merel, procestechnoloog, is zijn begeleider. Eén product door de hele film: een buisje met één kolonie gemodificeerde cellen → erlenmeyer → bioreactor → zuivere insuline in een pen. H4 laat zien dat dezelfde fabriek kaasstremsel en vleesvervanger maakt.
 
-## Twijfels
-(volgt na de feitencheck)
+## Keuzes en keuring
+- **Definitieve tekst: `script_v2.md`** (25 okt 2026, 913 woorden, na `reviews/review_v1.md`). Winnaar blind: variant B (35) tegen C (33) en A (30); filterscène uit C, 'rechte lijn' en bioreactordefinitie uit A.
+- Twijfelscènes (Merel, slachthuiskratten, bioreactor, opschalen in stappen, insuline als kralenketting, chymosine 'vaak') op het blad https://claude.ai/artifact/FXJpJ1PTeq4PzvFwMjnjxi: alle zes goedgekeurd door Kamiel (25 okt 2026, zonder opmerkingen).
+- Insulinepen zonder persoon (Kamiel: 'maakt niet uit').
+
+## Open
+- Opleidingen in de recap zijn vooral labopleidingen; een opleiding procestechniek/biotechnologie dichtbij Nijmegen opzoeken voor een volgende versie (bronnen.md, bewering 58).
+- Steekproef bronnenlogboek nog niet gedaan.

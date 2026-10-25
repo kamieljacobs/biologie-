@@ -31,7 +31,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | stagiair forensisch onderzoek (Wat word jij? · Forensisch onderzoek) | **Bilal** (outfit `plaatsdelict`: witte overall met capuchon, mondkapje, nitrilhandschoenen; in het lab `practicum`); Dr. Kim als forensisch arts / DNA-deskundige (ook `plaatsdelict`), Erik als verdachte |
 | buurvrouw (oudere vrouw, los van Noors familie) | **Mevrouw Jansen** (`buurvrouw`, 72; garderobe `thuis`, `buiten`) — eerst in Forensisch onderzoek 3 |
 | forensisch entomoloog | **Lieke** (`lieke`; garderobe `lab`, `plaatsdelict`), alleen in haar eigen vak |
-| stagiair biotechnologie (Wat word jij? · Biotechnologie en life sciences) | **Sam** (outfit `practicum`), begeleid door een nieuwe procestechnoloog (werknaam Merel, ter keuring, 25 okt 2026) |
+| stagiair biotechnologie (Wat word jij? · Biotechnologie en life sciences) | **Sam** (outfit `practicum`), begeleid door **Procestechnoloog Merel** (`merel`, goedgekeurd 25 okt 2026; alleen in haar eigen vak) |
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |

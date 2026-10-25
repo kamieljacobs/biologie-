@@ -64,8 +64,7 @@ Dit werk leer je bij de mbo-opleiding biologisch-medisch analist, niveau vier, o
 
 ## Eindkaart
 Insuline: menselijk gen in een bacterie of gist; insuline zelf is geen ggo.
-Opschalen: zuurstof lost slecht op, dus beluchten en roeren.
-Verdubbelen: tien keer verdubbelen = ruim duizend keer zoveel.
+Opschalen: in stappen; zuurstof lost slecht op, dus beluchten en roeren.
 Zuiveren: cellen scheiden, klonten vouwen, knippen, kolommen.
 Fermentatie: met of zonder zuurstof; gisting: zonder zuurstof.
 
