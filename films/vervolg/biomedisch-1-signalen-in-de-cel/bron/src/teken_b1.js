@@ -76,7 +76,6 @@ function receptorRTK(ctx, x, y, ang, s = 1, o = {}) { const { a = 1, P = 0, aan 
 function rasSchakel(ctx, x, y, aan, a = 1, o = {}) { if (a <= 0.01) return; const { vast = 0, t = 0 } = o; ctx.save(); ctx.globalAlpha *= a;
   kluwen(ctx, x, y, 40, { seed: 7, kleur: SB.ras, aan, t, n: 20 });
   const bx = x + 64, by = y - 22; roundRect(ctx, bx, by, 72, 40, 20); shape(ctx, aan > 0.5 ? rgba(C.groen, 0.85) : '#3A4458', C.line, 2); circ(ctx, bx + (aan > 0.5 ? 52 : 20), by + 20, 15, '#F2F2EE');
-  text(ctx, aan > 0.5 ? 'aan' : 'uit', bx + 36, by + 70, fTekst(26, 700), aan > 0.5 ? C.groen : C.text2, 'center');
   if (vast > 0.01) { ctx.save(); ctx.globalAlpha *= vast; const lx = bx + 92, ly = by + 2; roundRect(ctx, lx, ly + 14, 32, 26, 5); shape(ctx, C.koraal, null); ctx.strokeStyle = C.koraal; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(lx + 16, ly + 14, 11, Math.PI, 0); ctx.stroke(); ctx.restore(); }
   ctx.restore(); }
 
@@ -142,3 +141,17 @@ function labTafel(ctx, x, y, w, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.
 function amp(ctx, x, y, s = 1, a = 1) { atp(ctx, x, y, s, { a, nP: 1 }); }
 // het laatste enzym van de cascade (glycogeenfosforylase): andere kleur dan de kinasen
 const SB_AFBRAAK = '#6FA8C9';
+
+// ---------- hele ronde cel (sig-3, 25 okt 2026): dubbele laag fosfolipiden rondom; 'binnen' = andere cirkel waarbinnen het membraan wegvalt (delen)
+function ringMembraan(ctx, cx, cy, R, o = {}) { const { a = 1, gaten = [], niet = null } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const kr = 5, d = 15, n = Math.floor(2 * Math.PI * R / 12);
+  for (let k = 0; k < n; k++) { const an = k / n * 2 * Math.PI; if (gaten.some(g => Math.abs(Math.atan2(Math.sin(an - g), Math.cos(an - g))) * R < 26)) continue; const ux = Math.cos(an), uy = Math.sin(an);
+    for (const [rr, inw] of [[R + d, 1], [R - d, -1]]) { const hx = cx + ux * rr, hy = cy + uy * rr; if (niet && Math.hypot(hx - niet[0], hy - niet[1]) < niet[2]) continue; ctx.strokeStyle = V.vt; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(hx, hy); ctx.lineTo(hx - ux * inw * (d - 4), hy - uy * inw * (d - 4)); ctx.stroke();
+      ctx.beginPath(); ctx.arc(hx, hy, kr, 0, 6.283); shape(ctx, C.er, lighten(C.er, 0.3), 1); } }
+  ctx.restore(); }
+function celHeel(ctx, cx, cy, R, o = {}) { const { a = 1, t = 0, gaten = [], niet = null } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.fillStyle = rgba('#2A3448', 0.6); ctx.fill(); ctx.save(); ctx.clip();
+  for (let i = 0; i < 50; i++) { const an = hash(i * 5 + 1) * 6.283, rr = Math.sqrt(hash(i * 5 + 2)) * R * 0.95; const w = wander(i + 400, t, 4, 0.3); ctx.beginPath(); ctx.arc(cx + Math.cos(an) * rr + w.x, cy + Math.sin(an) * rr + w.y, 2, 0, 6.283); ctx.fillStyle = rgba(C.grain, 0.13); ctx.fill(); }
+  ctx.restore(); ringMembraan(ctx, cx, cy, R, { gaten, niet }); ctx.restore(); }
+// kernporiën: openingen in de kernenvelop (op de rand van kernDNA, ellips r × 0.9r)
+function kernPorien(ctx, x, y, r, hoeken, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; hoeken.forEach(h => { const px = x + Math.cos(h) * r, py = y + Math.sin(h) * r * 0.9; circ(ctx, px, py, 8, '#2A3448'); ctx.strokeStyle = C.kernR; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(px, py, 8, h + 1.9, h + 4.4); ctx.stroke(); }); ctx.restore(); }

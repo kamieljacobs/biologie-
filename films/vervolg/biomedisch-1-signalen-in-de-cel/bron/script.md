@@ -1,4 +1,4 @@
-# Signalen in de cel — gesproken tekst (1.0 · oktober 2026)
+# Signalen in de cel — gesproken tekst (1.1 · oktober 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow g38hWXu7Gay69Oaxu7j3. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign). Stem-invoer staat erbij waar die afwijkt van de ondertitel.
 
@@ -19,7 +19,7 @@ Opa Henk ontbijt met Noor. Naast zijn koffie ligt een klein tabletje. Dat neemt 
 
 ## Hoofdstuk 1 — Receptoren
 
-**s04** · audio `s04.mp3` · 37.8 s · generation `C3usDKEKcQpuveWELuYL`
+**s04** · audio `s04.mp3` · 37.8 s · generation `qMyYUgNvl5vc0HXpNwPy`
 
 Antwoord b. Het membraan is van vet, dus adrenaline blijft buiten. Zijn receptor is een eiwit: een kralenketting van aminozuren, opgevouwen tot een kluwen die dwars door het membraan steekt. Bindt adrenaline aan de buitenkant, dan verandert de hele kluwen van vorm, ook aan de binnenkant. Dat is het signaal. In de film Post voor iedereen zag je dat steroïdhormonen het anders doen. Die gaan wél door het membraan, en hun receptor zit in de cel. Samen werken ze in de kern als transcriptiefactor. Dat duurt uren. Een receptor in het membraan geeft zijn signaal binnen seconden door.
 
@@ -27,7 +27,7 @@ _Stem-invoer:_ Antwoord bé. Het membraan is van vet, dus adrenaline blijft buit
 
 ## Hoofdstuk 2 — Het signaal versterken
 
-**s05** · audio `s05.mp3` · 50.1 s · generation `41uqU1oSZLNPxPpflyPm`
+**s05** · audio `s05.mp3` · 49.0 s · generation `gFfoelutOX64YVyAOLE0`
 
 Wat gebeurt er binnen? De receptor zet een enzym aan, aan de binnenkant van het membraan. Dat enzym maakt van ATP een klein molecuul: cAMP. Eén receptor zorgt zo voor duizenden moleculen cAMP. Dit is de tweede boodschapper. Adrenaline is de eerste, en die blijft buiten. Het cAMP verspreidt zich door de cel, en zet een kinase aan. Een kinase is een enzym dat een fosfaatgroep van ATP afhaalt, en die op een ander eiwit zet. Dat eiwit verandert daardoor van vorm, en gaat aan. Zo zet het ene kinase het volgende aan, tot het laatste enzym glycogeen afbreekt tot glucose. Elke stap zet veel moleculen aan, dus het signaal wordt bij elke stap versterkt. Eén adrenalinemolecuul kan zo miljoenen glucosemoleculen vrijmaken.
 
@@ -71,13 +71,13 @@ _Stem-invoer:_ Stel: in een tumor zit een mutatie in het gen voor Ras. Daardoor 
 
 ## Hoofdstuk 4 — Kanker en remmers
 
-**s12** · audio `s12.mp3` · 27.2 s · generation `avb9WCmJImsiCAd2gcUj`
+**s12** · audio `s12.mp3` · 31.1 s · generation `UCRT7p07xHp7GbnKnqUn`
 
-Antwoord a. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.
+Antwoord a. Zit het defect in Ras, dan helpt een medicijn tegen de receptor niet: het signaal start ná de blokkade gewoon opnieuw. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.
 
-_Stem-invoer:_ Antwoord aa. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.
+_Stem-invoer:_ Antwoord aa. Zit het defect in Ras, dan helpt een medicijn tegen de reseptor niet: het signaal start ná de blokkade gewoon opnieuw. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.
 
-**s13** · audio `s13.mp3` · 40.9 s · generation `YStK8yOwX87tO1FBfRh6`
+**s13** · audio `s13.mp3` · 41.0 s · generation `nVWPg21UAtuorp2uYHaV`
 
 Bij Opa Henk is het een ander eiwit. In zijn bloedcellen hebben chromosoom negen en tweeëntwintig een stuk uitgewisseld. Daardoor zitten twee genen aan elkaar vast. Dat nieuwe gen maakt een kinase dat nooit meer uitgaat. Zijn witte bloedcellen blijven maar delen. Dat is chronische myeloïde leukemie. Het tabletje past precies in de plek waar dit kinase ATP vastpakt. Zonder ATP kan het kinase geen fosfaatgroepen meer doorgeven, en stopt het signaal. Dr. Kim onderzoekt zulke remmers in het lab. Vroeger leefde na vijf jaar ongeveer de helft van de patiënten nog. Met dit middel leven ruim acht op de tien patiënten na tien jaar nog.
 

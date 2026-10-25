@@ -17,10 +17,11 @@ Object.assign(SCENES, {
 
   // ---------- Cold open ----------
   s01(ctx, t, q) { bg(ctx, 'schema'); const Z = q.on('snappen', 1, 0.8);
-    if (Z < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(1 - 2 * Z, 0, 1); ontbijt(ctx, t, { gloed: q.on('tabletje', 1) * (1 - q.on('ochtend', 1)) + q.on('remt', 1) });
+    if (Z < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(1 - 2 * Z, 0, 1); ontbijt(ctx, t, { gloed: q.on('tabletje', 1, 0.4) * (1 - q.on('hij', 1)) + q.on('tabletje', 2, 0.4) * (1 - q.on('toom', 1)) + q.on('remt', 1) });
       naamBij(ctx, 'Opa Henk', '', 400, 300, 1, 'center'); naamBij(ctx, 'Noor', 'kleindochter', 1500, 320, 1, 'center');
-      tag(ctx, 'elke ochtend · al vier jaar', 960, 420, C.goud, q.on('ochtend', 1), 'center', 28); tag(ctx, 'leukemie', 960, 500, C.koraal, q.on('leukemie', 1), 'center', 28);
-      tag(ctx, 'remt een eiwit in zijn cellen', 960, 580, C.goud, q.on('remt', 1), 'center', 28); ctx.restore(); }
+      // sig-8 (25 okt): één kaartje tegelijk boven Opa Henk, niet over de tafel
+      tag(ctx, 'elke ochtend · al vier jaar', 400, 200, C.goud, q.on('ochtend', 1) * (1 - q.on('leukemie', 1, 0.4)), 'center', 28); tag(ctx, 'leukemie', 400, 200, C.koraal, q.on('leukemie', 1) * (1 - q.on('remt', 1, 0.4)), 'center', 28);
+      tag(ctx, 'remt een eiwit in zijn cellen', 400, 200, C.goud, q.on('remt', 1), 'center', 28); ctx.restore(); }
     if (Z > 0.01) { ctx.save(); ctx.globalAlpha *= clamp(2 * Z - 1, 0, 1); celRand(ctx, t, { gaten: [960] }); const [x, y, an] = opRand(960); receptor7(ctx, x, y, an, 1, { t });
       naamBij(ctx, 'levercel', 'binnenkant', 300, 700, q.on('levercel', 1), 'center');
       for (let i = 0; i < 4; i++) { const w = wander(i, t, 20, 0.5); hormoonVorm(ctx, 300 + i * 130 + w.x, 250 + (i % 2) * 40 + w.y, 18, 'adrenaline', q.on('adrenaline', 1)); }
@@ -57,8 +58,8 @@ Object.assign(SCENES, {
     naamBij(ctx, 'cAMP', 'tweede boodschapper', 1000, 470, q.on('tweede', 1) * (1 - q.on('volgende', 1)), 'left');
     // kinase met fosfaat
     const K = q.on('kinase', 1); const kx = 1240, ky = 700; const Zd = 1 - q.on('volgende', 1); kluwen(ctx, kx, ky, 58, { a: K * Zd, seed: 5, aan: q.on('kinase', 1), t }); naamBij(ctx, 'kinase', '', kx, ky + 110, K * (1 - q.on('volgende', 1)), 'center');
-    const F = q.on('ATP', 2); const lu = clamp((t - q.at('zet', 3)) / 1.2, 0, 1); atp(ctx, 1440, 560, 0.75, { a: F * (1 - q.on('volgende', 1)), los: lu, lx: 1640, ly: 650 });
-    kluwen(ctx, 1640, 710, 46, { a: F * (1 - q.on('volgende', 1)), seed: 9, kleur: '#9AA3B2', aan: q.on('gaat', 1) }); naamBij(ctx, 'ATP', '', 1410, 500, F * (1 - lu) * (1 - q.on('volgende', 1)), 'center'); naamBij(ctx, 'ADP + P op het eiwit', '', 1520, 830, F * clamp(lu * 2 - 1, 0, 1) * (1 - q.on('volgende', 1)), 'center');
+    const F = q.on('ATP', 2); const lu = clamp((t - q.at('zet', 3)) / 1.2, 0, 1); atp(ctx, 1385, 770, 0.75, { a: F * (1 - q.on('volgende', 1)), los: lu, lx: 1652, ly: 668 });
+    kluwen(ctx, 1660, 720, 46, { a: F * (1 - q.on('volgende', 1)), seed: 9, kleur: '#9AA3B2', aan: q.on('gaat', 1) }); naamBij(ctx, 'ATP', '', 1390, 830, F * clamp(1 - lu * 2, 0, 1) * (1 - q.on('volgende', 1)), 'center'); naamBij(ctx, 'eiwit', '', 1660, 640, F * clamp(1 - lu * 2, 0, 1) * (1 - q.on('volgende', 1)), 'center'); naamBij(ctx, 'ADP', '', 1360, 830, F * clamp(lu * 2 - 1, 0, 1) * (1 - q.on('volgende', 1)), 'center'); naamBij(ctx, 'P op het eiwit: aan', '', 1660, 830, F * clamp(lu * 2 - 1, 0, 1) * (1 - q.on('volgende', 1)), 'center');
     // cascade (vanaf 'Zo')
     const Z = q.on('volgende', 1); if (Z > 0.01) { ctx.save(); ctx.globalAlpha *= Z; const st = [[1080, 360, 1], [1080, 470, 3], [1080, 590, 9]]; const nu = clamp((t - q.at('volgende', 1)) / 4, 0, 1);
       // niets: kolom met steeds meer actieve eiwitten
@@ -89,16 +90,27 @@ Object.assign(SCENES, {
     if (C2 < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(1 - 2 * C2, 0, 1); paneel(ctx, 560, 230, 800, 560, 'schaafwond, vergroot'); ctx.fillStyle = '#B5574A'; ctx.beginPath(); ctx.ellipse(960, 600, 300, 70, 0, 0, 6.283); ctx.fill();
       for (let i = 0; i < 6; i++) bloedplaatje(ctx, 760 + i * 80, 600 + (i % 2) * 20, 22, q.on('bloedplaatjes', 1)); naamBij(ctx, 'bloedplaatjes', '', 960, 720, q.on('bloedplaatjes', 1), 'center');
       for (let i = 0; i < 8; i++) { const f = clamp((t - q.at('groeifactor', 1)) * 0.8 - i * 0.1, 0, 1); hormoonVorm(ctx, 800 + i * 45, 560 - f * 200, 12, 'groei', f, C.groen); } naamBij(ctx, 'groeifactor', '', 960, 330, q.on('groeifactor', 1), 'center'); ctx.restore(); }
-    if (C2 > 0.01) { ctx.save(); ctx.globalAlpha *= clamp(2 * C2 - 1, 0, 1); const sam = clamp((t - q.at('tegen', 1)) / 1.5, 0, 1); const P = t > q.at('fosfaatgroepen', 1) + 0.6 ? 2 : 0; const xa = 300 - 40 * (1 - sam), xb = 400 + 40 * (1 - sam); celRand(ctx, t, { gaten: [[xa, 12], [xb, 12]] });
+    // sig-3 (25 okt): bij 'Het laatste kinase gaat de kern in' zoomt het beeld uit naar de hele ronde cel; de kern ligt binnenin, het derde kinase gaat door een kernporie
+    const Zm = q.on('laatste', 1, 1.4), ez = ease(Zm), P0 = [350, 210], P1 = [793, 230];
+    if (C2 > 0.01 && Zm < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(2 * C2 - 1, 0, 1) * (1 - Zm); ctx.translate(lerp(P0[0], P1[0], ez), lerp(P0[1], P1[1], ez)); ctx.scale(lerp(1, 0.3, ez), lerp(1, 0.3, ez)); ctx.translate(-P0[0], -P0[1]);
+      const sam = clamp((t - q.at('tegen', 1)) / 1.5, 0, 1); const P = t > q.at('fosfaatgroepen', 1) + 0.6 ? 2 : 0; const xa = 300 - 40 * (1 - sam), xb = 400 + 40 * (1 - sam); celRand(ctx, t, { gaten: [[xa, 12], [xb, 12]] });
       const [x1, y1, a1] = opRand(xa), [x2, y2, a2] = opRand(xb); receptorRTK(ctx, x1, y1, a1, 0.62, { seed: 3, P, aan: P ? 1 : 0, ligand: q.on('groeifactor', 2), t }); receptorRTK(ctx, x2, y2, a2, 0.62, { seed: 4, P, aan: P ? 1 : 0, ligand: q.on('groeifactor', 2), t });
-      naamBij(ctx, 'receptor = kinase', '', 360, 160, q.on('kinase', 1), 'center');
-      const R = q.on('Ras', 1), uitR = q.on('uit', 1); rasSchakel(ctx, 620, 560, q.on('Ras', 2) > 0.5 && uitR < 0.5 ? 1 : 0, R, { t }); naamBij(ctx, 'Ras', 'schakelaar', 560, 680, R, 'center');
-      const ks = [[900, 540], [1080, 600], [1260, 540]]; ks.forEach(([x, y], k) => { const f = clamp((t - q.at('rij', 1)) * 1.2 - k * 0.7, 0, 1); const naar = k === 2 ? ease(clamp((t - q.at('kern', 1)) / 1.5, 0, 1)) : 0; kluwen(ctx, lerp(x, 1560, naar), lerp(y, 600, naar), 44 - 14 * naar, { a: f, seed: 20 + k, aan: f * (1 - 0.85 * uitR), P: f > 0.8 && uitR < 0.5 ? 1 : 0, t }); if (k) pijl(ctx, ks[k - 1][0] + 50, ks[k - 1][1] + (k === 1 ? 20 : -20), x - 50, y + (k === 1 ? -20 : 20), C.goud, f, 3, 12); });
-      pijl(ctx, 680, 540, 850, 540, C.goud, q.on('rij', 1), 3, 12); naamBij(ctx, 'drie kinasen', '', 1080, 700, q.on('drie', 1), 'center');
-      const N = q.on('kern', 1); kernDNA(ctx, 1590, 610, 125, { a: N, tf: q.on('transcriptiefactoren', 1), aan: q.on('Genen', 1), t }); naamBij(ctx, 'kern', '', 1460, 780, N * (1 - q.on('Genen', 1)), 'center'); pijl(ctx, 1310, 540, 1440, 540, C.goud, N, 3, 12);
-      naamBij(ctx, 'genen voor celdeling aan', '', 1590, 800, q.on('Genen', 1), 'center');
-      if (q.on('deelt', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('deelt', 1) * (1 - q.on('korte', 1)); roundRect(ctx, 1100, 150, 520, 230, 16); shape(ctx, rgba(C.bgSchema, 0.95), C.line, 1.5); text(ctx, 'de cel deelt', 1360, 200, fTekst(28, 700), C.text, 'center'); delendeCel(ctx, 1360, 290, 56, clamp((t - q.at('deelt', 1)) / 2, 0, 1)); ctx.restore(); }
-      tag(ctx, 'Ras zet zichzelf weer uit', 620, 820, C.text2, q.on('korte', 1), 'center', 26); ctx.restore(); } },
+      naamBij(ctx, 'receptor = kinase', '', 360, 160, q.on('kinase', 1) * (1 - Zm), 'center');
+      const R = q.on('Ras', 1); rasSchakel(ctx, 620, 560, q.on('Ras', 2) > 0.5 ? 1 : 0, R, { t }); naamBij(ctx, 'Ras', 'schakelaar', 560, 680, R * (1 - Zm), 'center');
+      const ks = [[900, 540], [1080, 600], [1260, 540]]; ks.forEach(([x, y], k) => { const f = clamp((t - q.at('rij', 1)) * 1.2 - k * 0.7, 0, 1); kluwen(ctx, x, y, 44, { a: f, seed: 20 + k, aan: f, P: f > 0.8 ? 1 : 0, t }); if (k) pijl(ctx, ks[k - 1][0] + 50, ks[k - 1][1] + (k === 1 ? 20 : -20), x - 50, y + (k === 1 ? -20 : 20), C.goud, f, 3, 12); });
+      pijl(ctx, 680, 540, 850, 540, C.goud, q.on('rij', 1), 3, 12); naamBij(ctx, 'drie kinasen', '', 1080, 700, q.on('drie', 1) * (1 - Zm), 'center'); ctx.restore(); }
+    if (Zm > 0.01) { ctx.save(); ctx.globalAlpha *= Zm; ctx.translate(lerp(P0[0], P1[0], ez), lerp(P0[1], P1[1], ez)); const sc = lerp(1 / 0.3, 1, ez); ctx.scale(sc, sc); ctx.translate(-P1[0], -P1[1]);
+      const CX = 960, CY = 500, CR = 320, KX = 1060, KY = 560, KR = 105, uitR = q.on('uit', 1), LZ = clamp((Zm - 0.75) / 0.25, 0, 1); const dv = ease(clamp((t - q.at('deelt', 1) - 0.5) / 2.2, 0, 1)), D0 = 1 - q.on('deelt', 1, 0.5);
+      if (dv < 0.01) { celHeel(ctx, CX, CY, CR, { t, gaten: [-2.25, -2.0] });
+        [-2.25, -2.0].forEach((h, k) => receptorRTK(ctx, CX + Math.cos(h) * CR, CY + Math.sin(h) * CR, h + Math.PI / 2, 0.3, { a: D0, seed: 3 + k, P: 2, aan: 1, ligand: 1, t }));
+        ctx.save(); ctx.translate(870, 300); ctx.scale(0.45, 0.45); rasSchakel(ctx, 0, 0, 1, D0, { t }); ctx.restore(); naamBij(ctx, 'Ras', '', 900, 262, D0 * LZ, 'left');
+        kernDNA(ctx, KX, KY, KR, { tf: q.on('transcriptiefactoren', 1), aan: q.on('Genen', 1), t }); kernPorien(ctx, KX, KY, KR, [-2.4, -1.4, -0.4, 0.6, 1.7, 2.7]);
+        const ks = [[900, 360], [940, 405], [968, 448]]; ks.forEach(([x, y], k) => { let xx = x, yy = y; if (k === 2) { const m = clamp((t - q.at('kern', 1) + 0.3) / 1.6, 0, 1), pr = [KX + Math.cos(-2.4) * KR, KY + Math.sin(-2.4) * KR * 0.9]; if (m < 0.5) { xx = lerp(x, pr[0], ease(m * 2)); yy = lerp(y, pr[1], ease(m * 2)); } else { xx = lerp(pr[0], KX - 45, ease(m * 2 - 1)); yy = lerp(pr[1], KY - 20, ease(m * 2 - 1)); } }
+          kluwen(ctx, xx, yy, 16, { a: D0, seed: 20 + k, n: 12, aan: 1 - 0.85 * uitR, P: 1, t }); });
+        naamBij(ctx, 'receptoren', '', 720, 190, D0 * LZ, 'right'); naamBij(ctx, 'kern', 'met kernporiën', KX - 60, KY + KR + 30, LZ * D0 * (1 - q.on('Genen', 1)), 'center');
+        naamBij(ctx, 'genen voor celdeling aan', '', 1320, 560, q.on('Genen', 1) * D0, 'left'); }
+      else { const d = 250 * dv, r = lerp(CR, 240, dv); for (const sd of [-1, 1]) celHeel(ctx, CX + sd * d, CY, r, { t, niet: [CX - sd * d, CY, r - 22] }); for (const sd of [-1, 1]) kernDNA(ctx, lerp(KX, CX + sd * 270, dv), lerp(KY, CY + 20, dv), lerp(KR, 72, dv), { t }); }
+      tag(ctx, 'de cel deelt', 960, 120, C.goud, q.on('deelt', 1) * (1 - q.on('korte', 1)), 'center', 28); tag(ctx, 'Ras zet zichzelf weer uit', 960, 120, C.text2, q.on('korte', 1), 'center', 26); ctx.restore(); } },
 
   s10(ctx, t, q) { bg(ctx, 'schema'); celRand(ctx, t, { gaten: [[300, 12], [400, 12]] }); const [x1, y1, a1] = opRand(300), [x2, y2, a2] = opRand(400);
     const B = q.on('blokkeert', 1); receptorRTK(ctx, x1, y1, a1, 0.62, { seed: 3, t }); receptorRTK(ctx, x2, y2, a2, 0.62, { seed: 4, t });
@@ -111,8 +123,10 @@ Object.assign(SCENES, {
   s12(ctx, t, q) { bg(ctx, 'schema'); antwoord(ctx, 'antwoord a: de cellen blijven delen', 1); const P = q.on('ongeveer', 1, 0.8);
     if (P < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(1 - 2 * P, 0, 1); celRand(ctx, t, { gaten: [[300, 12], [400, 12]] }); const [x1, y1, a1] = opRand(300), [x2, y2, a2] = opRand(400); receptorRTK(ctx, x1, y1, a1, 0.62, { seed: 3, t }); receptorRTK(ctx, x2, y2, a2, 0.62, { seed: 4, t });
       roundRect(ctx, 270, 250, 160, 46, 12); shape(ctx, rgba(C.koraal, 0.6), C.koraal, 2.5); rasSchakel(ctx, 620, 560, 1, 1, { vast: 1, t });
-      const sig = (t * 0.6) % 1; [[900, 540], [1080, 600], [1260, 540]].forEach(([x, y], k) => kluwen(ctx, x, y, 44, { seed: 20 + k, aan: 1, P: 1, t })); kernDNA(ctx, 1590, 610, 125, { tf: 1, aan: 1, t });
-      naamBij(ctx, 'defect zit verderop', '', 620, 700, 1, 'center'); tag(ctx, 'route vast op aan', 1080, 820, C.koraal, q.on('vast', 1), 'center', 30);
+      const ks = [[900, 540], [1080, 600], [1260, 540]]; ks.forEach(([x, y], k) => kluwen(ctx, x, y, 44, { seed: 20 + k, aan: 1, P: 1, t })); kernDNA(ctx, 1590, 610, 125, { tf: 1, aan: 1, t });
+      // sig-2 (25 okt): het defect zit in Ras; het signaal start ná de blokkade gewoon opnieuw (pulsen van Ras naar de kern)
+      naamBij(ctx, 'defect in Ras', '', 620, 700, q.on('defect', 1, 0.4), 'center'); naamBij(ctx, 'medicijn', 'blokkeert de receptor', 450, 212, q.on('medicijn', 1, 0.4), 'left');
+      const ST = q.on('start', 1, 0.4); if (ST > 0.01) { const pad = [[700, 560], ...ks, [1500, 600]]; for (let p = 0; p < 3; p++) { const u = ((t - q.at('start', 1)) * 0.45 + p / 3) % 1; const f = u * (pad.length - 1), i = Math.min(pad.length - 2, Math.floor(f)), r = f - i; circ(ctx, lerp(pad[i][0], pad[i + 1][0], r), lerp(pad[i][1], pad[i + 1][1], r) - 70, 11, rgba(C.goud, 0.9 * ST)); } } tag(ctx, 'route vast op aan', 1080, 820, C.koraal, q.on('vast', 1), 'center', 30);
       tag(ctx, 'film: Mutaties · proto-oncogen + mutatie = vastzittend gaspedaal', 1200, 200, C.teal, q.on('Mutaties', 1), 'center', 26); ctx.restore(); }
     if (P > 0.01) { ctx.save(); ctx.globalAlpha *= clamp(2 * P - 1, 0, 1); metaA(ctx, 'MENSEN MET KANKER · RAS-MUTATIE', 200, 280, 1, C.grain, 'left', 26);
       for (let i = 0; i < 20; i++) popjeB(ctx, 260 + (i % 10) * 70, 420 + Math.floor(i / 10) * 110, 22, i % 5 === 0 ? C.koraal : '#5A6478', clamp((t - q.at('ongeveer', 1)) * 4 - i * 0.1, 0, 1));
@@ -134,7 +148,7 @@ Object.assign(SCENES, {
     if (K > 0.01 && D < 0.99) { ctx.save(); ctx.globalAlpha *= clamp(2 * K - 1, 0, 1) * clamp(1 - 2 * D, 0, 1); const R = q.on('Zonder', 1);
       kluwen(ctx, 760, 520, 150, { seed: 31, kleur: '#B88A6A', aan: 1 - R * 0.85, zak: true, n: 34, t }); const ix = lerp(1250, 760 + 150 * 0.55, ease(clamp((t - q.at('past', 1)) / 2, 0, 1)));
       remmer(ctx, ix - 20, 520 - 150 * 0.1, 1.1, 1); naamBij(ctx, 'remmer uit het tabletje', '', 860, 300, 1, 'center'); naamBij(ctx, 'plek voor ATP', '', 860, 700, q.on('ATP', 1), 'center');
-      atp(ctx, 1300, 700, 0.9, { a: q.on('ATP', 1) }); kruis(ctx, 1300, 700, 30, R); tabletje(ctx, 1640, 260, 1.2, 1, 0.6); naamBij(ctx, 'tabletje', 'veel groter dan het molecuul', 1640, 330, 1, 'center');
+      atp(ctx, 1300, 700, 0.9, { a: q.on('ATP', 1) }); kruis(ctx, 1300, 700, 30, R); tabletje(ctx, 1480, 260, 1.2, 1, 0.6); naamBij(ctx, 'tabletje', 'veel groter dan het molecuul', 1480, 330, 1, 'center');
       tag(ctx, 'geen fosfaatgroepen meer: het signaal stopt', 960, 850, C.goud, R, 'center', 28); ctx.restore(); }
     if (D > 0.01) { ctx.save(); ctx.globalAlpha *= clamp(2 * D - 1, 0, 1); labTafel(ctx, 160, 640, 640, 1); labMicroscoop(ctx, 330, 640, 0.9, 1, -1, 1); persoon(ctx, 'kim', 620, 880, 470, { t, uit: 'blij', pose: 'wijs', kijk: 1, outfit: 'lab' });
       naamBij(ctx, 'Dr. Kim', 'onderzoeker', 620, 330, 1, 'center');

@@ -673,10 +673,10 @@
   "look": "Schema: route met Ras vast op 'aan'; blokkade aan het begin helpt niet; verwijzing naar Mutaties; chromosoom 9 en 22 die stukjes wisselen; fusie-eiwit als kinase dat nooit uitgaat; witte bloedcellen die blijven delen; tabletje als molecuul dat in de ATP-plek past; Dr. Kim in het lab; balk overleving",
   "level": "basis",
   "lines": [
-   "Antwoord a. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn."
+   "Antwoord a. Zit het defect in Ras, dan helpt een medicijn tegen de receptor niet: het signaal start ná de blokkade gewoon opnieuw. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn."
   ],
-  "display": "Antwoord a. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.",
-  "voice": "Antwoord aa. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.",
+  "display": "Antwoord a. Zit het defect in Ras, dan helpt een medicijn tegen de receptor niet: het signaal start ná de blokkade gewoon opnieuw. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.",
+  "voice": "Antwoord aa. Zit het defect in Ras, dan helpt een medicijn tegen de reseptor niet: het signaal start ná de blokkade gewoon opnieuw. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.",
   "vmap": [
    0,
    1,
@@ -753,7 +753,17 @@
    72,
    73,
    74,
-   75
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85
   ]
  },
  {
