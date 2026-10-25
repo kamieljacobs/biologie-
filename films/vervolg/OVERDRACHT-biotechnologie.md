@@ -24,4 +24,5 @@ Bronmap compleet (script v2, varianten en blind oordeel in `bron/werk/`, getalle
 - **Steekproef** van het bronnenlogboek nog niet gedaan.
 - KAN-punten uit `bron/reviews/review_beeld.md` die bewust open bleven (o.a. ribosomen bij de keten, stoom in een leeg vat, belletjes bij bier).
 - `scripts/teller.py` en `scripts/licentie_noot.py` breken nog op `films/verbeterbladen/sjabloon.html`; gedraaid met die uitzondering.
-- Film 2 en 3: nog niet begonnen.
+- Film 2 *Enzymen op maat: van wasmiddel tot medicijn* (25 okt 2026): script_v2 bevroren (899 woorden, 6 vragen, na blinde beoordeling en feitenreview), storyboard gebouwd op voorlopige tijden, twijfelblad (10 scènes) bij Kamiel: https://claude.ai/artifact/Bo1ba3pFxCEG2izGBsWY48 (db-collectie `keuring`, ids `b2s..`, `film-bt2`). Werkbestanden in `biotechnologie-2-enzymen-op-maat/bron/` (src/teken_bt2.js + scenes_bt2.js; de engine en teken_bt1.js komen uit film 1). Volgende stap na keuring: inspreken (Roos, eleven_v4, uitspraak_film.json), bouwen op echte tijden, beeldreview, docentdeel + bronnen.md, op de site zetten (vervolg.html basis[1], films.json, FILMKUNST).
+- Film 3: nog niet begonnen.
