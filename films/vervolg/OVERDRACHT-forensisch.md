@@ -13,9 +13,14 @@ Volgorde = volgorde van het echte werk: spoor vinden → DNA → tijdstip.
 ## Werkwijze
 Volgens `films/vervolg/BOUWEN.md`, prompt v10 (`films/PROMPT_v10.md`), `films/BEELDAFSPRAKEN.md` en `films/WERKWIJZE-LESSEN.md`. Eerst scripts + feitencheck, dan inspreken (Roos, eleven_v4), bouwen, frisse beeldreview, in de repo.
 
-## Stand per film
-| Film | Script | Feitencheck | Audio | Gebouwd | Op de site |
-|---|---|---|---|---|---|
-| 1 Sporen | – | – | – | – | – |
-| 2 DNA-match | – | – | – | – | – |
-| 3 Hoe lang al dood? | – | – | – | – | – |
+## Stand per film (25 okt 2026, middag)
+| Film | Script | Feitencheck | Storyboard | Audio | Gebouwd | Op de site |
+|---|---|---|---|---|---|---|
+| 1 Sporen | v2 (variant A won, blind) | frisse review verwerkt | 27 scènes | bezig | – | – |
+| 2 DNA-match | v2 (variant A won, blind) | frisse review verwerkt | 24 scènes | bezig | – | – |
+| 3 Hoe lang al dood? | v2 (variant B won, blind) | frisse review verwerkt | 24 scènes | bezig | – | – |
+
+- Keuringsblad storyboards (account van ghallie880): https://claude.ai/artifact/NeETTynseM4HSocZMHoqW3 (db-collectie `keuring`, doc-id = scène-id zoals `f1s03`, film als geheel `film-foN`). Kamiel zei 'werk maar zelfstandig door': productie loopt door; opmerkingen op het blad worden daarna per scène verwerkt.
+- Werkbestanden (scripts, varianten, blinde oordelen, reviews, getallen met bronnen, scènes) staan tijdens de productie in `/home/claude/hw/foN/` en komen bij oplevering in de bronmap van elke film.
+- Cast: outfit `plaatsdelict` voor Bilal en Kim staat in `personages/lib_cast.js` (commit c6dfba5).
+- Open voor Kamiel: film 3 heeft twee nieuwe figuranten (buurvrouw ± 72, forensisch entomoloog) alleen in `teken_fo3.js`, nog niet in de cast; film 2 tekent een handdruk met twee keer pose 'wijs' (cast heeft geen handdrukpose).
