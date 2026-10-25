@@ -74,20 +74,25 @@ const POSES_EN = {
   zak:    { L: [0.24, -0.34, 'rust', true], R: [0.14, 0.05, 'rust'] },
   wijs:   { L: [0.12, 0.04, 'rust'], R: [1.42, 1.52, 'wijs'] },
   zwaai:  { L: [0.12, 0.04, 'rust'], R: [2.55, 2.95, 'zwaai'] },
-  uitleg: { L: [0.3, 2.45, 'open'], R: [0.28, 2.35, 'open'] },
+  uitleg: { L: [0.22, 2.75, 'open', false, 1, 0.42], R: [0.2, 2.65, 'open', false, 1, 0.42] },
   denk:   { L: [0.05, 3.61, 'vuist', false, 0.75, 1.11], R: [0.12, 0.04, 'rust'] }
 };
 function _enArm(ctx, P, s, cfg, o) {
   const C = _EN_C, a1 = cfg[0], a2 = cfg[1], soort = cfg[2] || 'rust', zak = !!cfg[3];
   const sw = 101 * P.sb, S = [C + s * (sw + 2), 330], L1 = 146 * P.armK * (cfg[4] || 1), rek = cfg[5] || (a2 > 1.6 && a2 < 3 && a1 < 1 ? 0.72 : 1), L2 = 166 * P.armK * (zak ? (P.top === 'labjas' ? 1 : 0.78) : rek);
-  const E = [S[0] + s * Math.sin(a1) * L1, S[1] + Math.cos(a1) * L1], W = [E[0] + s * Math.sin(a2) * L2, E[1] + Math.cos(a2) * L2];
+  let A1 = a1, A2 = a2;
+  if (zak) { // hand in de zak: de pols mikt op de zakopening (twee-schakelige IK, elleboog naar buiten), zodat het bij elk lichaam klopt
+    const T = P.top === 'labjas' ? [C + s * 70, 640] : [C + s * 58 * P.hb, 590], tx = s * (T[0] - S[0]), ty = T[1] - S[1];
+    const d = Math.min(Math.hypot(tx, ty), L1 + L2 - 1), phi = Math.atan2(tx, ty), al = Math.acos(Math.max(-1, Math.min(1, (L1 * L1 + d * d - L2 * L2) / (2 * L1 * d))));
+    A1 = phi + al; const ex = Math.sin(A1) * L1, ey = Math.cos(A1) * L1; A2 = Math.atan2(tx - ex, ty - ey); }
+  const E = [S[0] + s * Math.sin(A1) * L1, S[1] + Math.cos(A1) * L1], W = [E[0] + s * Math.sin(A2) * L2, E[1] + Math.cos(A2) * L2];
   const dir = Math.atan2(W[0] - E[0], W[1] - E[1]), C2 = [E[0] + (W[0] - E[0]) * 0.86, E[1] + (W[1] - E[1]) * 0.86], Mx = [(E[0] + C2[0]) / 2, (E[1] + C2[1]) / 2];
   const kort = P.top === 'streep', lab = P.top === 'labjas';
   // zaklijn: jeans/broek op de heup, labjas op de jaszak
-  const zl = lab ? [[C - 112, 652], [C - 30, 646]] : [[C - 99, 600], [C - 21, 572]];
+  const zl = lab ? [[C - 112, 652], [C - 30, 646]] : [[C - 99 * P.hb, 600], [C - 21 * P.hb, 572]];
   // hand (met zak: alleen het deel boven de zaklijn)
   ctx.save();
-  if (zak) { const zs = s < 0 ? zl : zl.map(([x, y]) => [2 * C - x, y]); ctx.beginPath(); ctx.moveTo(-500, -500); ctx.lineTo(900, -500); ctx.lineTo(900, 1300); ctx.lineTo(-500, 1300); ctx.closePath(); ctx.moveTo(zs[0][0] - s * 20, zs[0][1] + 6); ctx.lineTo(zs[1][0] + s * 30, zs[1][1] - 2); ctx.lineTo(zs[1][0] + s * 30, 1300); ctx.lineTo(zs[0][0] - s * 20, 1300); ctx.closePath(); ctx.clip('evenodd'); }
+  if (zak) { const zs = s < 0 ? zl : zl.map(([x, y]) => [2 * C - x, y]); ctx.beginPath(); ctx.moveTo(-500, -500); ctx.lineTo(900, -500); ctx.lineTo(900, 1300); ctx.lineTo(-500, 1300); ctx.closePath(); ctx.moveTo(zs[0][0] + s * 20, zs[0][1] + 6); ctx.lineTo(zs[0][0], zs[0][1]); ctx.lineTo(zs[1][0], zs[1][1]); ctx.lineTo(zs[1][0] - s * 30, zs[1][1] - 2); ctx.lineTo(zs[1][0] - s * 30, 1300); ctx.lineTo(zs[0][0] + s * 20, 1300); ctx.closePath(); ctx.clip('evenodd'); }
   ctx.translate(W[0], W[1]); ctx.rotate(-dir); if (s < 0) ctx.scale(-1, 1);
   _enHand(ctx, P, soort, 1.45 * (P.armK || 1), o.golf || 0); ctx.restore();
   if (zak) { const zs = s < 0 ? zl : zl.map(([x, y]) => [2 * C - x, y]); const bk = lab ? P.topK : P.broekK;
@@ -213,7 +218,9 @@ function _enHoofdVoor(ctx, P, o, t) {
       () => { ctx.strokeStyle = P.haarL; ctx.lineWidth = 2; for (const [a, b, c2, d] of [[-32, 150, -39, 112], [-2, 140, -21, 104], [29, 148, 7, 104], [51, 172, 33, 114]]) { ctx.beginPath(); ctx.moveTo(C + a, b); ctx.quadraticCurveTo(C + (a + c2) / 2 - 8, (b + d) / 2, C + c2, d); ctx.stroke(); } if (P.kapsel === 'vlecht') { ctx.strokeStyle = P.haarL; ctx.beginPath(); ctx.moveTo(C, 102); ctx.lineTo(C, 140); ctx.stroke(); } });
   }
   if (P.kapsel === 'golf') { // middenscheiding, lokken langs het gezicht
-    _enVorm(ctx, () => { ctx.beginPath(); ctx.moveTo(C - 64, 230); ctx.bezierCurveTo(C - 76, 150, C - 50, 100, C, 102); ctx.bezierCurveTo(C + 50, 100, C + 76, 150, C + 64, 230); ctx.bezierCurveTo(C + 56, 190, C + 46, 158, C + 6, 132); ctx.lineTo(C, 120); ctx.lineTo(C - 6, 132); ctx.bezierCurveTo(C - 46, 158, C - 56, 190, C - 64, 230); ctx.closePath(); }, P.haar,
+    _enVorm(ctx, () => { ctx.beginPath(); ctx.moveTo(C - 58, 250); ctx.quadraticCurveTo(C - 66, 280, C - 60, 312); for (let i = 0; i < 5; i++) ctx.quadraticCurveTo(C - 80 - (i % 2) * 10, 300 - i * 34, C - 84 + (i % 2) * 4, 282 - i * 36);
+      ctx.bezierCurveTo(C - 84, 130, C - 50, 98, C, 100); ctx.bezierCurveTo(C + 50, 98, C + 84, 130, C + 84, 138); for (let i = 4; i >= 0; i--) ctx.quadraticCurveTo(C + 80 + (i % 2) * 10, 300 - i * 34 - 30, C + 84 - (i % 2) * 4, 282 - i * 36 + 36);
+      ctx.quadraticCurveTo(C + 66, 280, C + 58, 250); ctx.bezierCurveTo(C + 60, 190, C + 46, 158, C + 6, 132); ctx.lineTo(C, 120); ctx.lineTo(C - 6, 132); ctx.bezierCurveTo(C - 46, 158, C - 60, 190, C - 58, 250); ctx.closePath(); }, P.haar,
       () => { ctx.strokeStyle = P.haarL; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(C - 8, 132); ctx.quadraticCurveTo(C - 40, 150, C - 54, 200); ctx.moveTo(C + 8, 132); ctx.quadraticCurveTo(C + 40, 150, C + 54, 200); ctx.stroke(); }); }
   if (P.kapsel === 'pony') { // steil zwart met pony tot de wenkbrauwen, puntjes
     _enVorm(ctx, () => { ctx.beginPath(); ctx.moveTo(C - 64, 214); ctx.bezierCurveTo(C - 76, 140, C - 50, 92, C, 92); ctx.bezierCurveTo(C + 50, 92, C + 78, 140, C + 64, 214); ctx.lineTo(C + 56, 200); ctx.lineTo(C + 54, 178);
@@ -395,7 +402,7 @@ function _enZij(ctx, P, x, y, h0, o) {
     kortRommel: [[0.4, -0.22], [0.34, -0.66], [-0.3, -0.64], [-0.5, -0.12], [-0.5, 0.14], [-0.34, 0.22], [-0.18, 0.04], [-0.02, -0.04], [0.16, -0.24]],
     kortKrul: [[0.38, -0.3], [0.3, -0.58], [-0.3, -0.58], [-0.48, -0.14], [-0.48, 0.12], [-0.34, 0.2], [-0.2, 0.02], [-0.04, -0.04], [0.14, -0.28]] }[P.kapsel];
   _enVorm(ctx, () => { const q = kap; ctx.beginPath(); ctx.moveTo(...H(...q[0])); ctx.bezierCurveTo(...H(...q[1]), ...H(...q[2]), ...H(...q[3])); ctx.quadraticCurveTo(...H(...q[4]), ...H(...q[5])); ctx.quadraticCurveTo(...H(...q[6]), ...H(...q[7])); ctx.quadraticCurveTo(...H(...q[8]), ...H(...q[0])); ctx.closePath();
-      if (P.kapsel === 'kortRommel') { ctx.moveTo(...H(0.1, -0.6)); ctx.lineTo(...H(0.3, -0.72)); ctx.lineTo(...H(0.26, -0.56)); ctx.closePath(); } }, P.haar,
+      if (P.kapsel === 'kortRommel') { for (const [a, b, c, d, e, f] of [[0.22, -0.56, 0.36, -0.62, 0.34, -0.48], [0.0, -0.62, 0.12, -0.7, 0.16, -0.6], [-0.22, -0.6, -0.14, -0.68, 0.0, -0.62], [0.34, -0.32, 0.46, -0.26, 0.4, -0.18]]) { ctx.moveTo(...H(a, b)); ctx.lineTo(...H(c, d)); ctx.lineTo(...H(e, f)); ctx.closePath(); } } }, P.haar,
     () => { ctx.strokeStyle = P.haarL; ctx.lineWidth = hh * 0.014; for (let i = 0; i < 5; i++) { ctx.beginPath(); ctx.moveTo(...H(0.25 - i * 0.12, -0.3 + i * 0.02)); ctx.quadraticCurveTo(...H(-0.05 - i * 0.05, -0.5), ...H(-0.2, -0.55)); ctx.stroke(); } });
   // oor, oorbel, oog, wenkbrauw, bril, mond
   _enVorm(ctx, () => { ctx.beginPath(); ctx.ellipse(...H(-0.02, 0.06), hh * 0.07, hh * 0.11, 0.1, 0, 6.283); }, P.huid, () => { ctx.fillStyle = P.huidS; ctx.beginPath(); ctx.ellipse(...H(-0.01, 0.07), hh * 0.03, hh * 0.06, 0, 0, 6.283); ctx.fill(); });
