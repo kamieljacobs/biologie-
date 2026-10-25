@@ -17,8 +17,8 @@ Werk in het andere account niet tegelijk aan deze reeks.
 ## Stand (25 okt 2026, avond): wacht op keuring
 | Film | Winnaar (blind) | Alinea's · vragen · woorden | Twijfelscènes |
 |---|---|---|---|
-| 1 Tellen in het veld | A klassiek (45–44–41, nipt; herbeoordeling na combineren loopt) | 18 · 5 · 929 | 5 + castvoorstel |
-| 2 Stikstof | A klassiek (51–50–48, nipt; herbeoordeling loopt) | 22 · 6 · 950 | 7 |
+| 1 Tellen in het veld | A klassiek (45–44–41, nipt; na combineren herbeoordeeld: 51–44) | 18 · 5 · 929 | 5 + castvoorstel |
+| 2 Stikstof | A klassiek (51–50–48, nipt; na combineren herbeoordeeld: 54–47) | 22 · 6 · 950 | 7 |
 | 3 Een plan voor de natuur | A klassiek (45–41–40) | 22 · 5 · 941 | 4 |
 
 **Keuringsblad:** https://claude.ai/artifact/PaPdt1ZDCPYqdsA9P2AKMJ (dit account; db-collectie `keuring`, doc-id `c0bas` voor de cast, `e<film><scène>` voor scènes). Lees terug, verwerk, dan inspreken.
