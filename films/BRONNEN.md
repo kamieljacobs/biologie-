@@ -44,8 +44,9 @@ Elke film krijgt naast `info.md` en `script.md` een bestand `bron/bronnen.md`. O
    - *Status* = één van:
      - `✓` bevestigd door minstens twee onafhankelijke bronnen (≥ 1 niveau A);
      - `≈` klopt, met een nuance of vereenvoudiging (die staat in de toelichting en in het docentdeel);
-     - `!` klopt niet of is te stellig → de film of het docentdeel moet worden aangepast;
+     - `!` klopt niet of is te stellig → de film of het docentdeel moet worden aangepast. Rust de verbetering op ≥ 2 onafhankelijke bronnen (≥ 1 niveau A), dan past Claude hem zelf aan en documenteert hem onder Aanpassingen (was → nu → bronnen), zonder keuring door Kamiel (25 okt 2026); anders is het een voorstel aan Kamiel;
      - `?` nog niet (voldoende) nagegaan.
+   - *Toegeschreven bewering*: zegt de film zelf van wie een bevinding komt ('in 2017 liet Radar tonijn testen in 21 restaurants'), dan is die ene oorspronkelijke publicatie genoeg: status `≈`, toeschrijving en jaar in de toelichting. De film maakt er dan geen algemene bewering van ('tonijn is vaak nep') zonder ✓-bronnen (Kamiel 25 okt 2026).
 4. **Aanpassingen**: wat er na de controle in de film of het docentdeel moet veranderen, en of dat gebeurd is.
 5. **Menselijke controle**: welke beweringen een mens zelf heeft nagelezen (zie 4).
 

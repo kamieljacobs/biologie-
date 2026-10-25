@@ -26,6 +26,15 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 
 **Tussenstand van de werkmappen** (tekstbestanden, geen beeld/audio): `films/vervolg/werk-bioinformatica/` (zie LEESMIJ daar). Verdwijnt zodra de films met bronmap in de repo staan.
 
+## Keuring Kamiel (25 okt 2026, 18:05)
+- Meeloper blijft **Sam** ('ah dat maakt niet uit'); Dr. Kim begeleider. Na de bouw ROLLEN.md en LEVENSLOOP.md bijwerken.
+- Film 2: **nieuwe ouders** maken (twee passende figuranten ± 35 jaar, in `lib_cast.js`), plus een **zittende pose** voor het gesprek; geen Erik/Joost, geen versie zonder ouders.
+- Film 2 titel: **Miljoenen varianten: welke maakt ziek?**
+- Feitcorrecties met ≥ 2 bronnen (≥ 1 niveau A) hoeven niet meer ter keuring, wel documenteren in `bronnen.md` (regel in CLAUDE.md en BRONNEN.md).
+- Radar 2017 blijft, als toegeschreven bewering (status ≈).
+- Film 3 verpleegkundige en patiënt: akkoord. Film 1 alle kaarten akkoord; film 2 tekeningen akkoord ('doe maar wat het beste is').
+- Nog open op het blad: film 2 s17, film 3 en film 4 (behalve de !-kaarten, die vervallen).
+
 ## Na de keuring (te doen)
 - Reeksobject 'scherm met code / sequenties': de eigen versies in film 2, 3 en 4 vervangen door het blok bovenaan `bi1/teken_bi1.js`.
 - Film 2 `endHaak` gaat nu over een bacterie; film 3 gaat over een virus → aanpassen.
