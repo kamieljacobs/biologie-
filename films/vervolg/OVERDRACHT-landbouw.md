@@ -1,11 +1,11 @@
 # Overdracht — Wat word jij? · Landbouw en dierhouderij
 
-Stand: film 2 op de site (25 okt 2026, avond). Film 3 (Fokken) nog niet begonnen.
+Stand: film 2 op de site (25 okt 2026, avond). Film 3 (Fokken) in de maak.
 
 ## Planning
 1. **Meer oogst** — af (24 okt 2026), `landbouw-1-meer-oogst.html`.
 2. **Wat zit er in de bodem?** — af (25 okt 2026), `landbouw-2-wat-zit-er-in-de-bodem.html`, ook bij Tuin- en landschapsinrichting. Gedeelde film met *Tuin- en landschapsinrichting* (id `bodem` in vervolg.html).
-3. **Fokken: selecteren, inteelt en de fokwaarde** — nog niet begonnen.
+3. **Fokken: selecteren, inteelt en de fokwaarde** — in de maak (werkmap `lb3`, bron in `landbouw-3-fokken/bron/`).
 
 ## Werkwijze
 Zoals Biotechnologie: bronnen en getallen → 3 scriptvarianten + blinde beoordelaar → frisse feitenreview → storyboard, twijfelscènes op een blad voor Kamiel → inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Reeksbrief: `REEKS-landbouw.md` (nog niet gekeurd).
@@ -18,3 +18,6 @@ Zoals Biotechnologie: bronnen en getallen → 3 scriptvarianten + blinde beoorde
 - Stem: Roos, eleven_v4, 25 takes, 7:05 spraak, 6.345 credits, flow 1nLUHAQbhNlDGwtxEDNV.
 - Gebouwd, frisse beeldreview (`bron/reviews/review_beeld.md`: 21 MOET, 20 verwerkt; nr 21 eindkaart bewust niet, zie info.md) → op de site (vervolg.html, films.json, FILMKUNST), REVIEW = nog bekijken. Bronnenlogboek `bron/bronnen.md`: 32 ✓ · 17 ≈ · 0 ! · 4 ?.
 - Open: uitspraakwachtlijst (`bron/uitspraak.md`) nog niet beluisterd; filmmedaillon nog niet gemaakt (lijntekening in FILMKUNST); nieuwe tekeningen (zandkorrel, kleideeltje, ion, regenworm, mycorrhiza, kruimel, druppelbak) nog naar `bibliotheek/` en het testvel; MAG-punten uit review_beeld.md (o.a. eiwit-icoon, schimmeldraden door labels in s16); 4 '?' in bronnen.md (o.a. fotosynthese in het blad zonder geopende bron); steekproef bronnen door Kamiel; mbo-school dichtbij Nijmegen niet gevonden.
+
+## Stand film 3
+- 25 okt 2026: filmbrief (`bron/brief.md`), bronnenonderzoek in twee delen samengevoegd (`bron/getallen.md`, 81 beweringen, ±90 bronnen; 'twee keer zoveel melk sinds 1970' klopt: 4242 kg (1970) → ±9350 kg (2023)). Trekking: A klassiek, B tempo + rol personage, C kijker-speelt-mee. Blinde beoordelaar (fable): C 46, B 44, A 43, nipt → combinatie met C als geraamte (`bron/werk/script_combi.md`), tweede blinde ronde volgt. Daarna feitenreview, twijfelblad, bouwen. Laatste film van de reeks: daarna patroonronde (B15).
