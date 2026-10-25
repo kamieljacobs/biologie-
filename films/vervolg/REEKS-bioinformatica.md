@@ -48,3 +48,5 @@ Alle getallen (grootte databanken, aantal varianten per genoom, slagingskans van
 
 ## Recap en opleidingen
 Elke recap noemt kort waar je dit werk kunt leren en wat je dan doet (hbo-bachelor, wo-bachelor + master; ziekenhuis, onderzoeksinstituut, bedrijf). Feiten opzoeken, jaartal erbij; dezelfde vaste reekszin in alle vier, met per film een eigen aanvulling.
+
+**Vaste reekszin** (stand okt 2026, instroom 2027; bronnen in `getallen.md` van film 1, 2 en 4): 'Dit werk leer je bijvoorbeeld bij de hbo-opleiding Bio-informatica in Nijmegen: vier jaar. Of je doet eerst een bachelor als biologie of moleculaire levenswetenschappen in Nijmegen, en daarna de master Bioinformatics in Wageningen. Je werkt dan in een ziekenhuis, een onderzoeksinstituut of een bedrijf.' Eigen aanvulling per film daarna (film 1: programmeren leer je al in het eerste jaar; film 2: klinisch geneticus word je na geneeskunde, met een vervolgopleiding; film 4: met eiwitvormen werk je vaak samen met het lab dat ze meet).
