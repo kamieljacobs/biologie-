@@ -37,6 +37,7 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 
 ## Op de site
 - **Film 1** `films/vervolg/bioinformatica-1-zoeken-in-dna.html` (25 okt 2026, avond): ingesproken (flow FAbmxqZ1O6SaivkGKmYL, ±5.530 + 925 credits transcriptie), blinde uitspraakcontrole zonder fouten, frisse beeldreview (8 MOET, 10 KAN, alle verwerkt), bronmap compleet, status 'nog bekijken'. Nog geen filmmedaillon.
+- **Film 2** `films/vervolg/bioinformatica-2-miljoenen-varianten.html` (25 okt 2026, avond): titel 'Miljoenen varianten', nieuwe ouders Anouk en Milan + pose 'zit' + uitdrukking 'ernstig' (lib_cast.js), ingesproken (flow V7zse60agWtCDtrhP2NO, ±4.730 + 980 credits), beeldreview verwerkt; speler herkent nu 'bé' (alle films). Luisteren: s17 'volgde', s18 'genoombrede'.
 
 ## Na de keuring (te doen)
 - Reeksobject 'scherm met code / sequenties': de eigen versies in film 2, 3 en 4 vervangen door het blok bovenaan `bi1/teken_bi1.js`.

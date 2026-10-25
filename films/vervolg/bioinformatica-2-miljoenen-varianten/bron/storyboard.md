@@ -1,0 +1,33 @@
+# Storyboard bi2 — Miljoenen varianten: welke maakt ziek? (fase A, 25 okt 2026)
+
+Echte scènes op voorlopige woordtijden (`fakewords.py`, 2,4 woorden/s). Code: `teken_bi2.js`, `scenes_bi2.js`. Keyframes: `blad/img/<id>.webp`. Look: Schema met cast, geen Micro (de zaadcel en eicel zijn bibliotheekobjecten op navy). Het kind komt nooit in beeld.
+
+| id | hoofdstuk | look | wat in beeld / wat beweegt |
+|---|---|---|---|
+| s01 | Cold open | Schema | Spreekkamer als lijntekening: tafel met dichte dossiermap en een staande kindertekening (huis, zon, poppetje). Stamboomschema: ingekleurd rondje '4 jaar' licht op bij 'meisje', vader en moeder komen op 'ouders'. Rechts het scherm 'varianten · meisje': de lijst rolt langzaam, op 'miljoenen' snel; teller loopt tot 4 100 000+. Vraagteken op 'variant'. Geen kind, geen ouders. |
+| s02 | Titel | Schema | Titelkaart; rechts de trechter met 'ruim 4 000 000' en één goud streepje eronder, 'blijft er één over?'. |
+| s03 | Hoofdstuk 1 | Schema | Sam en Dr. Kim (outfit gewoon, namen erbij); drie buisjes kind / vader / moeder lopen half leeg in de machine; korte gekleurde leesstukjes stromen eruit en schuiven op 'computer' op hun plek langs de grijze streep 'referentiegenoom · afgesproken voorbeeldgenoom'. |
+| s04 | Hoofdstuk 1 | Schema | Scherm: referentie en meisje als lettertegels, verbindingsstreepjes bij gelijke letters, de afwijkende tegel krijgt een koraal rand ('variant'); op 'lijst' wisselt het naar de rollende lijst met teller 4 100 000+. Sam wijst en kijkt verbaasd bij 'ziek'. |
+| q05 | Hoofdstuk 1 | Schema | Vraagkaart. Juist: b |
+| s06 | Hoofdstuk 1 | Schema | Twee schermen 'jij' en 'je buurman', elk '4 à 5 miljoen', 'ieder mens · gemeten'; op 'meeste' een variant tussen twee genen en een stille variant (GAG → GAA, zelfde E), beide 'doet niets'; stempel 'een verschil, geen fout'. |
+| s07 | Hoofdstuk 2 | Schema | Sam (denkt) en Kim naast de trechter met drie filterlagen; 'algoritme · een vast stappenplan'; filter 1 licht goud op; codon → ander aminozuur (E → V) en codon → stop; 'ongeveer 10 000' verschijnt. |
+| s08 | Hoofdstuk 2 | Schema | Filter 2 goud; databankkast met 10 telpoppetjes; één licht op bij 'tien', streepje '1 op de 10' krijgt een kruis 'te gewoon'; 'een paar honderd'. |
+| s09 | Hoofdstuk 2 | Schema | Filter 3 goud; stamboom met 'gezond' bij de ouders; gekleurde streepjes per persoon (vader teal, moeder oker, meisje teal/oker/grijs met vraagteken). |
+| q10 | Hoofdstuk 2 | Schema | Vraagkaart. Juist: c |
+| s11 | Hoofdstuk 2 | Schema | Trechter gedimd; zaadcel (zwemt, drie nieuwe streepjes, 'meestal hier') en eicel; kaartje 'in de eiwitcode: meestal 1 of 2'; pijl naar de bevruchte eicel met één goud streepje ('de novo · nieuw'), daarna zeven cellen met hetzelfde streepje ('elke cel'). |
+| s12 | Hoofdstuk 2 | Schema | Vier fasen, één tegelijk: vader en meisje met hetzelfde streepje (kruis, 'valt meestal af'); recessief: één streepje van elke ouder; drie poppetjes, één goud: 'ongeveer 1 op 3: oorzaak gevonden · bij de rest nog niet'; dan pas scherm 'na de filters' met één regel, 'de novo · gen actief in hersencellen'; '1 over' en het streepje onder de trechter. |
+| s13 | Hoofdstuk 3 | Schema | Gen op een DNA-strook met vraagteken, 'weinig onderzocht'; vijfvaksschaal verschijnt op 'klassen'; het goud streepje valt in het middelste grijze vak; '= onduidelijke uitslag'. |
+| s14 | Hoofdstuk 3 | Schema | Sam (denkt) en Kim bij een kleine schaal; harde wissel op 'weken': tijdkaartje 'een paar weken later', spreekkamer: de ouders Anouk en Milan zitten achter de tafel, Dr. Kim zit van opzij aan het hoofdeinde met de dossiermap, 'zonder Sam · privé'; op 'vader' praat Milan, op 'wacht' legt Anouk haar hand op die van Milan, gezichten bezorgd. |
+| q15 | Hoofdstuk 3 | Schema | Vraagkaart. Juist: b |
+| s16 | Hoofdstuk 3 | Schema | Stempel 'overblijven ≠ bewijs', 'geen diagnose'; pil met kruis 'geen behandeling', buisje met kruis 'familie niet testen · voor de eigen gezondheid'; harde wissel op 'zegt': spreekkamer (zelfde opstelling, hand op hand), Kim praat, vinkje 'nog niet bekend', kruis 'niets gevonden'. |
+| s17 | Hoofdstuk 3 | Schema | Wereldbol (bibliotheek) met drie artsenpictogrammen die met stippellijnen gekoppeld worden ('koppelsite · artsen met hetzelfde gen'), 'zelfde gen, zelfde klachten · moeilijk toeval'; Radboudumc: tijdkaartje 'vijf jaar later', 10 telpoppetjes, 3 worden goud ('bijna een derde'); vijfvaksschaal waarop het streepje naar 'onschuldig' schuift ('veel … later onschuldig', niet het meisje); kalender 'over een paar jaar · nieuwe analyse? · de ouders kiezen zelf'. |
+| s18 | Hoofdstuk 4 | Schema | Gang: Sam vraagt (hartje, '1 variant?'), kruis op 'schudt'; DNA-strook met veel koraal streepjes 'heel veel varianten · elk een klein effect'; harde wissel op 'GWAS': tag 'GWAS · genoombrede associatiestudie', twee groepen van 12 telpoppetjes (met / zonder hartziekte) met een lettertegel; G licht goud op, vaker bij de zieken. |
+| s19 | Hoofdstuk 4 | Schema | Stipjesgrafiek langs de chromosomen bouwt op; '≈ 1 000 000 tests'; 'stel: geen enkele plek doet iets'; géén grenslijn, géén som. |
+| q20 | Hoofdstuk 4 | Schema | Vraagkaart. Juist: c |
+| s21 | Hoofdstuk 4 | Schema | Lage grens 0,05 (koraal, veel stipjes erboven); som 0,05 × 1 000 000 = 50 000; hoge groene lijn 0,05 / 1 000 000; dan een torentje boven de lijn en een DNA-strook: 'treffer · gemeten plek' en boogpijl naar 'oorzaak · de buurman' in het gen. |
+| s22 | Hoofdstuk 4 | Schema | Balk vult zich met kleine paarse blokjes ('polygene risicoscore · veel kleine effecten opgeteld'); verdeling 'scores van anderen' met 'jij'; chip 'een kans, geen diagnose'. |
+| q23 | Hoofdstuk 4 | Schema | Vraagkaart. Juist: a |
+| s24 | Hoofdstuk 4 | Schema | Wereldbol met deelnemerstippen, dikste in Europa ('de meeste deelnemers'); dan twee DNA-strookjes: bij Europese voorouders hangt de gemeten plek vast aan de oorzaak (groene haak), bij Afrikaanse niet (gestippeld, kruis); chip 'leefstijl telt mee'. |
+| s25 | Recap | Schema | Trechter: de drie filters lichten op hun woord op, 'soms 1' met streepje; schaal met grijs vak 'overblijven ≠ bewijs', kalender, 'eerlijk: nog niet bekend'; scorebalk 'veelvoorkomende ziekten · kleine kansen opgeteld'. |
+| s26 | Recap | Schema | Sam; opleidingskaartjes (hbo Bio-informatica HAN; wo-bachelor Radboud → master Bioinformatics Wageningen); drie werkplekken; wissel op 'Klinisch': Dr. Kim, 'Geneeskunde' en 'vervolgopleiding · vier jaar: klinisch geneticus'. |
+| s27 | Eindkaart | Schema | Eindkaart (eerste regel gesplitst in twee zinnen, zoals fo3); haak 'hoe volg je een virus van mens tot mens?'. |
