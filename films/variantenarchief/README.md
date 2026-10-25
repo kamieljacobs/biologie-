@@ -11,6 +11,7 @@ Gebruik: geef de maker van de varianten bij een nieuwe film de regels van de get
 | kijker-speelt-mee | bt2 Enzymen op maat (C) | 34/45 | ja | de kijker kiest per ronde wat doorgaat: dat ís gerichte evolutie | `films/vervolg/biotechnologie-2-enzymen-op-maat/bron/werk/script_C.md` |
 | kijker-speelt-mee (rechter) | fo2 Hoe zeker is een match? (C) | 37/50 | ja (nipt) | jij bent de rechter: bron- en activiteitvraag uit elkaar | `films/vervolg/forensisch-2-hoe-zeker-is-een-match/bron/werk/script_C.md` |
 | experiment-als-kapstok | bi4 Eiwitvorm (C) | 43/55 | ja (nipt) | gesloten envelop = een voorspelling toetsen | `films/vervolg/werk-bioinformatica/bi4/werk/script_C.md` |
+| experiment-als-kapstok (proeven) | lb2 Wat zit er in de bodem? (C) | 36/45 | ja (gelijkspel) | vier proeven in de tuin; een proef laat de misconceptie zichtbaar mislukken | `films/vervolg/landbouw-2-wat-zit-er-in-de-bodem/bron/werk/script_C.md` |
 | detective-interval | fo3 Hoe lang al dood? (C) | 36/50 | nee | twee grenzen, venster wordt smaller; bovengrens overgenomen in de winnaar | `films/vervolg/forensisch-3-hoe-lang-al-dood/bron/werk/script_C.md` |
 | achteruit-verteld | bt1 Bacteriën als fabriek (C) | 33/45 | nee | beste vragen en cast-inzet; leerdoel 1 kwam te laat | `films/vervolg/biotechnologie-1-bacterien-als-fabriek/bron/werk/script_C.md` |
 | twee-situaties-naast-elkaar | bt3 Mag dat? (B) | 35/50 | nee | twee akkers als vast beeld; begeleider bleef naamloos | `films/vervolg/biotechnologie-3-mag-dat/bron/werk/script_B.md` |

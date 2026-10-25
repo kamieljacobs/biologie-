@@ -336,7 +336,7 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 
 **Proefregels** (rule · since · films tried · won/lost):
 
-- **P1 · de grote mutatie speelt het concept na.** A grote vertelvorm must be a form in which the viewer does or sees the concept itself (selecting = gerichte evolutie, a sealed envelope = testing a prediction, a judge = source versus activity), not a frame around it (backwards, a contest, a riddle, a checklist). Can the drawn form not do that for this topic, redraw once and note why. · 25 okt 2026 · from 10 films: concept forms won 3 of 4, frame forms 0 of 7 · tried in 0 new films.
+- **P1 · de grote mutatie speelt het concept na.** A grote vertelvorm must be a form in which the viewer does or sees the concept itself (selecting = gerichte evolutie, a sealed envelope = testing a prediction, a judge = source versus activity), not a frame around it (backwards, a contest, a riddle, a checklist). Can the drawn form not do that for this topic, redraw once and note why. · 25 okt 2026 · from 10 films: concept forms won 4 of 5, frame forms 0 of 7 · tried in 0 new films.
 - **P2 · elke misconceptie een vraag, de begeleider een eigen beurt.** Every misconception in the brief is tested by a prediction or check question, not only told; the begeleider has at least one scene with his or her own lines and the profession is spoken. · 25 okt 2026 · from 10 films: one of the two named among the weak spots in all 10 · tried in 0 new films.
 
 **Welke mutaties.** If Claude picks the mutations, it picks what it already finds logical: inbreeding. So:
