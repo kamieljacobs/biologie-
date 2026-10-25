@@ -55,7 +55,7 @@ Maar wie geeft de spier dat signaal? Je hersenen. Via je ruggenmerg en je zenuwe
 
 **q11** (vraag) · start 3:24.3 · Na zes weken gips is Sams armspier dunner en zwakker. Hoe kan dat? (a) het gips heeft de spier platgedrukt · (b) de breuk heeft de spier beschadigd · (c) een spier die je niet gebruikt, wordt kleiner — goed: c
 
-**s12** · start 3:38.3 · 28.69 s · `audio/s12.mp3`
+**s12** · start 3:38.3 · 28.21 s · `audio/s12.mp3` · generation `OJbWSXS2WtVK7DHhBYxL`
 
 Een spier die je niet gebruikt, wordt kleiner. Gebruik je hem weer, dan groeit hij terug. Train je hem, dan wordt hij sterker. Ook je botten worden sterker als je rent en springt. Terug naar de sprong. De hersenen van Sam geven een signaal. Zijn beenspieren trekken, zijn knieën strekken: hij springt. Zijn triceps strekt zijn arm. Zijn bloed brengt zuurstof. Skelet, spieren, zenuwen en bloed maken samen één beweging.
 

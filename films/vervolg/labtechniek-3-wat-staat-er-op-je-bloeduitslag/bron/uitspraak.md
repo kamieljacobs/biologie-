@@ -15,3 +15,5 @@ Model eleven_v4, stem Roos, één take per alinea (flow d8udhVf1jFrQtJlJwep4). F
 | vijfennegentig | vijf en neguntig (reeksregel) | s10 | goedgekeurd |
 
 Heropname 25 okt 2026: s06 (trombocyten) en s14 (ALAT), wisselvallig, zelfde stem-invoer; 744 + 341 = 1.085 credits, 1 take per alinea.
+
+Heropname 25 okt 2026 (2): s14 (ALAT in gewone spelling; de regel ALAT → aa-lat is uit `uitspraak_film.json` gehaald; CRP → cee-er-pee en Dr. → dokter blijven), 339 credits, 1 take (eleven_v4, flow d8udhVf1jFrQtJlJwep4, generation fum7e1YGCzPW3QfUvtFW). Vorige take bewaard in `stem/vorige/s14.prev.mp3`.

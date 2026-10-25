@@ -53,9 +53,11 @@ Verandering van allelfrequenties door toeval heet genetische drift. In een klein
 
 ## Hoofdstuk 2 — Flessenhals en founder-effect
 
-**s12** (e5s11) · audio `s12.mp3` · 10.7 s · generation `7agTz4wOrOLz2n5djZ1e`
+**s12** (e5s11) · audio `s12.mp3` · 10.8 s · generation `lrbOipzxo4AdquJEPw4n`
 
 Terug naar Pingelap. Rond het jaar 1775 raast er een tyfoon over het atol. Daarna volgt hongersnood. Er blijven ongeveer twintig mensen over.
+
+_Stem-invoer:_ Terug naar Pingelap. Rond het jaar 1775 raast er een tiefoon over het atol. Daarna volgt hongersnood. Er blijven ongeveer twintig mensen over.
 
 **s13** (e5s12) · audio `s13.mp3` · 14.4 s · generation `1vRQXxOG7F51Eg0wGXnJ`
 

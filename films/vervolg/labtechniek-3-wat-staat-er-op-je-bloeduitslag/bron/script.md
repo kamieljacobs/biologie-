@@ -87,11 +87,11 @@ _Stem-invoer:_ Antwoord aa. Een buisje met het verkeerde etiket kan leiden tot e
 
 ## Recap
 
-**s14** · audio `s14.mp3` · 22.2 s · generation `RyEZPJw2iSGgeEmsXARb`
+**s14** · audio `s14.mp3` · 22.8 s · generation `fum7e1YGCzPW3QfUvtFW`
 
 Terug naar het formulier van Opa Henk. Elk getal komt uit een eigen buisje, met een eigen meting. Leukocyten en CRP zijn hoog: dat past bij een ontsteking, en Dr. Kim zoekt uit welke. ALAT net boven de grens: misschien niets. En voor zijn nieuwe heup ligt er passend bloed klaar. Het lab meet, de arts legt het naast de klachten.
 
-_Stem-invoer:_ Terug naar het formulier van Opa Henk. Elk getal komt uit een eigen buisje, met een eigen meting. Leukocyten en cee-er-pee zijn hoog: dat past bij een ontsteking, en dokter Kim zoekt uit welke. aa-lat net boven de grens: misschien niets. En voor zijn nieuwe heup ligt er passend bloed klaar. Het lab meet, de arts legt het naast de klachten.
+_Stem-invoer:_ Terug naar het formulier van Opa Henk. Elk getal komt uit een eigen buisje, met een eigen meting. Leukocyten en cee-er-pee zijn hoog: dat past bij een ontsteking, en dokter Kim zoekt uit welke. ALAT net boven de grens: misschien niets. En voor zijn nieuwe heup ligt er passend bloed klaar. Het lab meet, de arts legt het naast de klachten.
 
 **s15** · audio `s15.mp3` · 24.8 s · generation `cCaIyWPv3BpzHZepjMvh`
 

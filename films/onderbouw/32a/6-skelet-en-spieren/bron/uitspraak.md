@@ -18,3 +18,5 @@ Stem Roos (`7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea (20
 | Sams | (vervallen: zin herschreven tot "De hersenen van Sam", 25 okt) | - | s12 |
 
 Heropname 25 okt 2026: s12 (tekstwijziging "Sams hersenen" -> "De hersenen van Sam geven een signaal."), 419 credits TTS (Roos, eleven_v4, flow gjR8CE8EzadZLCHBfdpE, generation 1B6SxtysXSTK0dlTbQoW) + Scribe (gratis). Cues van s12 gecontroleerd: hersenen, Zijn, beenspieren, triceps, bloed, Skelet, blijven bestaan.
+
+Heropname 25 okt 2026 (2): s12, zelfde tekst "De hersenen van Sam geven een signaal." in gewone spelling, gewoon een nieuwe take (419 credits, eleven_v4, flow gjR8CE8EzadZLCHBfdpE, generation OJbWSXS2WtVK7DHhBYxL); woordtijden via silalign (stiltes aan leestekens gekoppeld) in plaats van Scribe. Let op: de aanpassing van de eerste heropname (take 1B6SxtysXSTK0dlTbQoW) was in `index.html`, `audio/s12.mp3` en `bron/filmdata.json` nooit in de repo gekomen (die stonden nog op "Sams hersenen", 28,69 s); nu wel allemaal bijgewerkt. Takes bewaard in `stem/vorige/` (origineel met "Sams" en take 1B6Sx…).

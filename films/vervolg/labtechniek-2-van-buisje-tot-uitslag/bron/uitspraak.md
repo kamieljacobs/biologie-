@@ -21,3 +21,5 @@ Stem Roos, eleven_v4, één take per alinea (flow RgF3tlYw8b8stHF8tMpV). Film-ei
 | Antwoord c / a / bé | cee / aa / bé (reeksregels) | s04, s07, s10, s13 | — |
 
 Heropname 25 okt 2026: s08 (PCR, wisselvallig; zelfde stem-invoer pee-cee-er), 706 credits, 1 take.
+
+Heropname 25 okt 2026 (2): s08 (PCR in gewone spelling; de regel PCR → pee-cee-er is uit `uitspraak_film.json` gehaald; C-T, er-en-aa (RNA) en zesenneguntig blijven; DNA volgt de centrale regel = gewone spelling, dus niet meer deeënaa), 695 credits, 1 take (eleven_v4, flow RgF3tlYw8b8stHF8tMpV, generation IMz6gT1PPmvj1kELQckT). Vorige take bewaard in `stem/vorige/s08.prev.mp3`.

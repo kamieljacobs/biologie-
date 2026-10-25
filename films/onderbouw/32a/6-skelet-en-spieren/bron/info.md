@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/6-skelet-en-spieren/index.html` (audio in `audio/`: 11 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 6 (32A Organismen; bullet 3: skelet en spierstelsel; bullet 4: signaal, energie met zuurstof, gebruik en training) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde klassen; geen schoolniveaus in beeld, stem of docentdeel. Basislijn + één blok **uitdaging** (s09: de arm als hefboom). Schakelaar **Basis / Uitdaging** (`?niveau=basis`) |
-| Versie / datum | 1.1 · 25 oktober 2026 (1.0 · 20 oktober 2026) |
+| Versie / datum | 1.1 · 25 oktober 2026, s12 nogmaals ingesproken (2) (1.0 · 20 oktober 2026) |
 | Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `gjR8CE8EzadZLCHBfdpE` (generatie-id's in `stem/generaties.json`, node- en sessie-id's in `stem/tts_sessies.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 11 takes woord voor woord gelijk aan het script |

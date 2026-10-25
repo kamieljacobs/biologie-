@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/labtechniek-3-wat-staat-er-op-je-bloeduitslag.html` (audio in `labtechniek-3-wat-staat-er-op-je-bloeduitslag/audio/`) |
 | Reeks | Wat word jij? · Laboratoriumtechniek |
 | Niveau | havo · vwo (één niveau) |
-| Versie | 1.1 · oktober 2026 · 24 oktober 2026 (script v2) · heropname 25 okt 2026 |
+| Versie | 1.1 · oktober 2026 · 24 oktober 2026 (script v2) · heropname 25 okt 2026 (2: ALAT gewone spelling) |
 | Prompt | v6 + WERKWIJZE-LESSEN van 24 okt (frisse eindreview, eenheden voluit); nog niet nagelopen tegen v10 |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.773 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 6:11 (371 s); met vragen en kaarten ± 8 min |

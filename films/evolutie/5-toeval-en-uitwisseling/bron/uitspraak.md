@@ -20,3 +20,5 @@ Wachtlijst (nog niet getest; batchtest later met de luisterpagina Uitspraaktest)
 | 1775 / 2011 | het jaar 1775 / het jaar 2011 |  | Kamiels voorkeur jaartallen |
 
 Heropname 25 okt 2026: s12, tyfoon (nieuwe take), 141 credits.
+
+Heropname 25 okt 2026 (2): s12, tyfoon → stem-invoer `tiefoon` (centrale regel in `films/uitspraak.json`; ondertitel blijft tyfoon), 142 credits, 1 take (eleven_v4, flow BEwKaXEgaPvQeqXyRXcV, generation lrbOipzxo4AdquJEPw4n). Vorige take bewaard in `stem/vorige/s12.prev.mp3`.
