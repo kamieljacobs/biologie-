@@ -48,3 +48,11 @@ Deze takes zijn al opgenomen; Kamiel luistert de risicowoorden in één batch na
 ## DNA met de oude stem-invoer 'deeënaa' (24 okt 2026)
 
 In de uitspraaktest van 24 okt koos Kamiel voor DNA de gewone spelling: 'deeënaa' legde in Chromosomen de klemtoon verkeerd. Deze films hebben nog een film-eigen regel met 'deeënaa' in `bron/uitspraak_film.json` en zijn daarmee ingesproken: Biomedisch 2 en 3, Psychologie 6, Evolutie 1–8 en x1–x4, examen vwo-2018-2. Beluisteren bij de volgende review; klinkt DNA er verkeerd, dan die regel weghalen en alleen die alinea's opnieuw inspreken. Niet zelf aanpassen in een reeks waar het andere account aan werkt.
+
+## Alle open uitspraakwoorden in één ronde (25 okt 2026)
+
+Kamiel: 'verzamelen we alle uitspraak dingen die open staan van meerdere films?' Alle open woorden uit de twee secties hierboven en uit alle `bron/uitspraak.md` staan samengevoegd in `films/UITSPRAAK-OPEN.md` (leesbaar) en `films/uitspraak-open.json` (1138 woorden, 1551 fragmenten uit de films zelf). Al goedgekeurde regels uit `films/uitspraak.json` zijn eruit gehaald, tenzij een film met een andere stem-invoer is ingesproken.
+
+Luisterpagina (account van Kamiel waarin dit is gemaakt): https://claude.ai/artifact/JtqGqUPHcuA7Nf5yt1uPzC — per woord goed / fout / twijfel en optioneel hoe het moet klinken; oordelen in db-collecties `oordeel1` (id begint met 0–9 of a–k) en `oordeel2` (l–z), doc-id = `id` uit de json. Volgorde: grote kans op fout eerst (afkortingen, namen, gewenste uitspraak opgegeven, niet-Nederlandse spelling), daarna op aantal plekken. Bron van de pagina en het script dat de audio-delen maakt: `films/uitspraak-luisterpagina/`.
+
+Daarna: alleen woorden met 'fout' krijgen varianten (ronde 2, zoals bij rubisco); goedgekeurde keuzes in `films/UITSPRAAK.md` + `films/uitspraak.json`, en per film alleen de alinea's met een fout opnieuw inspreken. Woorden met 'goed' gaan van de wachtlijst van de film af.

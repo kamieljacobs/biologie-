@@ -1,0 +1,48 @@
+<div class="wrap">
+  <header class="kop">
+    <div>
+      <h1>Uitspraak beluisteren</h1>
+      <p>Alle woorden die in de films nog niet beluisterd zijn, met een fragment uit de film zelf. Kies per woord goed, fout of twijfel. Alleen woorden met fout krijgen daarna varianten.</p>
+    </div>
+    <div class="tel" aria-live="polite"><span>beoordeeld <b id="t-klaar">0</b> / <b id="t-tot">0</b></span><span>fout <b id="t-fout">0</b></span><span>twijfel <b id="t-twijfel">0</b></span></div>
+  </header>
+  <div class="balk" aria-hidden="true"><i id="balk"></i></div>
+  <p class="melding" id="opslag">Oordelen worden bewaard zodra de pagina verbonden is.</p>
+
+  <section class="kaart" id="kaart" aria-label="Woord dat nu aan de beurt is">
+    <div class="lab" id="k-lab">Woord</div>
+    <h2 class="woord" id="k-woord">…</h2>
+    <div class="meta" id="k-meta"></div>
+    <div class="clips" id="k-clips"></div>
+    <div class="keuze" role="group" aria-label="Oordeel">
+      <button type="button" data-o="goed">Goed <kbd>G</kbd></button>
+      <button type="button" data-o="fout">Fout <kbd>F</kbd></button>
+      <button type="button" data-o="twijfel">Twijfel <kbd>T</kbd></button>
+    </div>
+    <label class="notitie"><span class="lab">Hoe moet het dan klinken? (optioneel)</span><input id="k-notitie" type="text" autocomplete="off" placeholder="bijv. klemtoon op -bis-, ru-BIS-ko"></label>
+    <div class="nav">
+      <div class="keuze"><button type="button" id="vorige">← Vorige</button><button type="button" id="volgende">Volgende →</button></div>
+      <span class="hint">Spatie = afspelen · 1/2 = fragment · G/F/T = oordeel en door</span>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:10px" aria-label="Alle woorden">
+    <div class="filters">
+      <select id="f-toon" aria-label="Welke woorden tonen">
+        <option value="open">Nog te doen</option>
+        <option value="fout">Fout</option>
+        <option value="twijfel">Twijfel</option>
+        <option value="goed">Goed</option>
+        <option value="alles">Alles</option>
+      </select>
+      <select id="f-kans" aria-label="Risico">
+        <option value="">Alle woorden</option>
+        <option value="hoog">Grote kans op fout</option>
+        <option value="verruimd">Fragment onzeker</option>
+      </select>
+      <input id="f-zoek" type="search" placeholder="Zoek woord of film" aria-label="Zoek woord of film">
+    </div>
+    <div class="lijst" id="lijst"></div>
+  </section>
+</div>
+<audio id="speler" preload="none"></audio>
