@@ -17,3 +17,10 @@ Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen vo
 - De Firebase-opmerkingen van Kamiel bij beide films: na het bouwen de ids in `verwerkt` van `films/review-claude.json` zetten en in het foutenlogboek.
 - Prompt v10 staat sinds 25 okt in de repo (`films/PROMPT_v10.md` + `films/PROMPT_v10_C10_tekenkwaliteit.md`); de voorstellen zijn gemaakt vóór die tekst er was. Loop ze er vóór het bouwen nog één keer tegen na.
 - Nieuwe afspraak (25 okt): een film die je aanpakt krijgt in dezelfde ronde ook `bron/bronnen.md` (zie `films/BRONNEN.md`). Dat zit nog niet in deze voorstellen: neem het mee bij het bouwen.
+
+## Ronde 25 okt 2026: lichte remakes DNA 1, DNA 2, Celdeling, Geslachtsorganen en puberteit (prompt v10 B16)
+
+- Fase 1 (script, storyboard, keyframes, twijfelscènes, bronnenlogboek) per film in `<film>/bron/remake-2026-10/`.
+- Keuringsblad: https://claude.ai/artifact/JwKTLH9kpf8c19geEiqNgV (db-collectie `besluit`, doc-id `<sleutel>__<id>`, sleutels dna1/dna2/celdeling/geslacht; besluit doen = voorstel, niet = alternatief, anders = opmerking). Opnieuw bouwen: `python3 films/verbeterbladen/remake-2026-10/bouw_blad.py` (sjabloon `sjabloon_remake.html`).
+- Reeksbesluiten die DNA 3–8 raken: basevorm (dna1__t2) en Noor als leerling in DNA 1 en 2.
+- Daarna fase 2: stem (± 26.400 credits samen), bouwen in de FILMDATA-straat, frisse beeldreview, oude film naar `bron/oud/`, REVIEW op nog bekijken.
