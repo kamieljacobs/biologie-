@@ -1,6 +1,6 @@
 # DNA kopiëren — script v2 (DNA 2 van 8, lichte remake, fase 1)
 
-Lichte remake volgens prompt v10 B16 (25 okt 2026). Geraamte: `bron/script.md` (versie 2.0, prompt v5, 12 okt 2026): leerdoelen, hoofdstukvolgorde, vier voorspelvragen en de puzzel blijven. Bouw in de FILMDATA-straat zoals Chromosomen 2.0 (segmenten via `make_segments.py`, één take per alinea, Roos, eleven_v4, stem-invoer met `films/uitspraak.json`). Niveau havo + vwo; hoofdstuk 4 is een vwo-blok (`[VWO-START]` … `[VWO-END]`). Puzzel: hoe krijgt elke nieuwe huidcel bij een wond een complete, bijna foutloze kopie van twee meter DNA, in een paar uur?
+Lichte remake volgens prompt v10 B16 (25 okt 2026). **Gekeurd 25 okt 2026** (besluiten: films/verbeterbladen/remake-2026-10/besluiten.md): alle voorstellen, behalve T4 = alternatief; basen in de ringvorm van DNA 1. Geraamte: `bron/script.md` (versie 2.0, prompt v5, 12 okt 2026): leerdoelen, hoofdstukvolgorde, vier voorspelvragen en de puzzel blijven. Bouw in de FILMDATA-straat zoals Chromosomen 2.0 (segmenten via `make_segments.py`, één take per alinea, Roos, eleven_v4, stem-invoer met `films/uitspraak.json`). Niveau havo + vwo; hoofdstuk 4 is een vwo-blok (`[VWO-START]` … `[VWO-END]`). Puzzel: hoe krijgt elke nieuwe huidcel bij een wond een complete, bijna foutloze kopie van twee meter DNA, in een paar uur?
 
 Tekens per alinea: `=` ongewijzigd · `~` aangepast (kort waarom) · `+` nieuw · `−` geschrapt. Het oude segment staat erachter (n0 … n20). Alle alinea's worden opnieuw ingesproken (nieuwe stem en nieuw model; de oude takes zijn eleven_multilingual_v2).
 
@@ -16,7 +16,7 @@ Tekens per alinea: `=` ongewijzigd · `~` aangepast (kort waarom) · `+` nieuw �
 | n11 | 'duizenden plekken' → 'tienduizenden plekken' | 30 000–50 000 startpunten per celcyclus (BioNumbers 108756; Prioleau & MacAlpine 2016) |
 | n15 | 'Voor vwo gaan we hier drie stappen verder.' − | BEELDAFSPRAKEN: niet 'Voor vwo' zeggen |
 | n17 | opgeknipt in drie alinea's (Meselson-uitkomst · richting en primer · de vork) | één take per alinea; bij elke alinea één beeld; de vork krijgt eigen tijd |
-| n18 | drie polymerasen → twee (DNA- en RNA-polymerase); reverse transcriptase − ; 'Dat waren de drie stappen voor vwo' − | reverse transcriptase staat niet in de syllabus; BEELDAFSPRAKEN 'replicatie en transcriptie elk een eigen beeld'. Twijfelscène T4 |
+| n18 | DNA- en RNA-polymerase naast elkaar; reverse transcriptase als één zin (keuring T4: alternatief); 'Dat waren de drie stappen voor vwo' − | BEELDAFSPRAKEN 'replicatie en transcriptie elk een eigen beeld' |
 | n20 | recap noemt ook de bijna-foutloosheid en de startpunten | recap moet de hele puzzel beantwoorden (kandidaat WERKWIJZE 'recap apart nalezen') |
 
 Geen verwijzingen naar tools of de site (B4): gecontroleerd met `grep -i -E "probeer|tool|op de site|zelf (proberen|uit)|onderzoekje"` — niets.
@@ -101,8 +101,8 @@ Wat denk je? Na één keer kopiëren op lichte stikstof sorteer je het DNA op ge
 ~ (n17c) Kijk nu naar de vork, waar de strengen uit elkaar gaan. Langs de ene streng bouwt de polymerase met de vork mee, in één lange keten. Dat is de leidende streng. Langs de andere streng is dat de verkeerde kant op. Daar legt primase steeds een nieuwe primer, en bouwt de polymerase van de vork af, een stukje terug. Die korte stukken heten Okazaki-fragmenten. Later wordt elke primer vervangen door DNA, en plakt het enzym ligase de stukken aan elkaar. Dat is de volgende streng.
 <!-- ~ 'loopt de richting van de vork af' (onduidelijk) → 'is dat de verkeerde kant op'; primer per fragment en vervangen van de primer toegevoegd (anders blijft er RNA in het DNA zitten — vraag die leerlingen stellen); 'Een derde enzym' → 'het enzym' (telling klopte niet meer). Bronnen B3, B4, B5. Term 'volgende streng' (Nectar) vs 'achterlopende streng': twijfelscène T5 -->
 
-~ (n18) DNA-polymerase moet je niet verwarren met RNA-polymerase. DNA-polymerase kopieert al het DNA, één keer per celcyclus: dat is replicatie. RNA-polymerase schrijft één gen over naar RNA, zo vaak als de cel het nodig heeft: dat is transcriptie, in aflevering drie. En de fouten? DNA-repair-enzymen gaan langs het nieuwe DNA en vervangen verkeerd ingebouwde nucleotiden. Daardoor blijft er zo weinig mis gaan. [VWO-END]
-<!-- ~ drie → twee polymerasen; − reverse transcriptase ('dat doen sommige virussen') en − 'en ook PCR, in aflevering zeven'; − 'Dat waren de drie stappen voor vwo' (BEELDAFSPRAKEN). Twijfelscène T4. Stem-invoer: 'DNA-ripair-enzymen' -->
+~ (n18) DNA-polymerase moet je niet verwarren met RNA-polymerase. DNA-polymerase kopieert al het DNA, één keer per celcyclus: dat is replicatie. RNA-polymerase schrijft één gen over naar RNA, zo vaak als de cel het nodig heeft: dat is transcriptie, in aflevering drie. Sommige virussen kunnen het omgekeerde: van RNA naar DNA. Dat enzym heet reverse transcriptase. En de fouten? DNA-repair-enzymen gaan langs het nieuwe DNA en vervangen verkeerd ingebouwde nucleotiden. Daardoor gaat er zo weinig mis. [VWO-END]
+<!-- ~ keuring 25 okt (T4 alternatief): DNA- en RNA-polymerase uitgelegd, reverse transcriptase blijft als één zin met de oude checkvraag 5; − 'en ook PCR, in aflevering zeven'; − 'Dat waren de drie stappen voor vwo' (BEELDAFSPRAKEN). Stem-invoer: 'DNA-ripair-enzymen' -->
 
 ## Samenvatting — Terug naar de schaafwond [Macro]
 ~ (n20) Terug naar de schaafwond van Noor. Elke nieuwe huidcel kreeg een complete kopie, omdat de cel haar DNA kopieerde vóór de deling. Helicase trekt de strengen uit elkaar. Elke oude streng is een voorbeeld. DNA-polymerase koppelt alleen de nucleotiden die passen. Zo ontstaan twee moleculen die gelijk zijn aan het origineel, elk half oud en half nieuw. Op tienduizenden plekken tegelijk, dus in een paar uur. En die zeldzame fouten die blijven staan? Daar begint aflevering vijf. Maar eerst: hoe leest een cel haar DNA? Dat zie je in aflevering drie.
@@ -138,4 +138,4 @@ Uit `films/uitspraak.json` / UITSPRAAK.md: DNA (gewoon), RNA (gewoon bij eleven_
 | uitleggen hoe replicatie in een paar uur klaar is (vele startpunten) | basis | 3 | q12 |
 | uitleggen wat semiconservatief betekent en hoe Meselson en Stahl het aantoonden | vwo | 4 | q16 |
 | met 5'→3' en primer uitleggen waarom er een leidende en een volgende streng is | vwo | 4 | checkvraag 4 |
-| DNA-polymerase onderscheiden van RNA-polymerase | vwo | 4 | checkvraag 5 (nieuw, zie twijfel.md) |
+| DNA-polymerase onderscheiden van RNA-polymerase en reverse transcriptase | vwo | 4 | checkvraag 5 (oude virusvraag) |

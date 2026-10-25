@@ -45,4 +45,6 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 | `nucleosoomDraad` | DNA-dubbelhelix (dnaDraad) die ± 1,65 keer om histon-schijven windt, linker-DNA ertussen, op schaal (2 nm / 11 nm) | idem |
 | `onderarm` | onderarm + hand van boven van een castpersonage (huid uit `CAST`), `bruin` (zon, bruiningsgrens bij de mouw) of `rood` (verbranding) | idem |
 
-Registratie en lessen van de chromosoomrecepten (status, aanroep, houdingen): `lessen_chromosomen.md`.
+| `baseRing`, `baseBruggen`, `nucleotideRing`, `dnaLadderHelix` (+ kleuren `DNA_BASE`) | basevorm van de DNA-reeks (ringvorm: purine 2 ringen, pyrimidine 1; bindingsplekken, waterstofbruggen); nucleotide met genummerde suiker; ladder die als morph een rechtsdraaiende helix wordt | Wat is DNA? 3.0 (gekeurd 25 okt 2026) |
+
+Registratie en lessen van de chromosoomrecepten (status, aanroep, houdingen): `lessen_chromosomen.md`; van de DNA-basevorm: `lessen_dna.md`.

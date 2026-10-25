@@ -4,13 +4,13 @@
 
 ## Per personage (met de hand)
 
-**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: (nog niets bijzonders vastgelegd). Grenzen: familie blijft heel; niet in een beroepsrol.
+**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol.
 
 **Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
-**Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen.
+**Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen. Gebeurd: Linda was 28 bij de geboorte van Noor; de eisprong van de eicel waaruit Noor groeide, was op haar 27e: die eicel stond ruim 27 jaar stil in meiose I, sinds oma Ria zwanger was van Linda (Celdeling 2.0, extra uitdaging x01/x02, Kamiel akkoord 25 okt 2026).
 
 **Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Grenzen: Bilal blijft hbo-stagiair in dat vak.
 

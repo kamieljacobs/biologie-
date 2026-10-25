@@ -125,7 +125,7 @@ Voor geslachtscellen werkt het anders. Bij de bevruchting versmelten een zaadcel
 Geslachtscellen ontstaan door meiose: bij een man in de teelballen, bij een vrouw in de eierstokken. Meiose halveert het aantal chromosomen. Daarom heet het ook reductiedeling. Meiose bestaat uit twee delingen achter elkaar, maar het DNA wordt maar één keer gekopieerd.
 
 `+` **s23** (s22 tweede helft + s26 crossing-over) — crossing-over op het moment dat het gebeurt; 'zoeken elkaar op' weg (teleologie); aantal per paar gecorrigeerd (bronnencheck `!`)
-We volgen weer het lange paar. In meiose één komen de homologe chromosomen als paar tegen elkaar aan te liggen. Daarbij wisselen ze stukken uit. Dat heet crossing-over. Kijk: het chromosoom van vaderskant heeft nu een stuk van moederskant, en andersom. Bij elk paar gebeurt dat minstens één keer, vaak een paar keer. Dan gaan de paren in het equatorvlak liggen: hier wél als paren, naast elkaar. Dan gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?
+We volgen weer het lange paar. In meiose één komen de homologe chromosomen als paar tegen elkaar aan te liggen. Daarbij wisselen ze stukken uit. Dat heet crossing-over. Kijk: het chromosoom van vaderskant heeft nu een stuk van moederskant, en andersom. Bij elk paar gebeurt dat minstens één keer, vaak een paar keer. Dan gaan de paren in het equatorvlak liggen: hier wél als paren, naast elkaar. Daarna gaan de paren uit elkaar. Hoeveel chromosomen heeft elke cel na meiose één? Wat denk je?
 [VRAAG] q23 (a) 46 · (b) 23 · (c) 92
 
 `~` **s24** (s24) — B9: 'Drieëntwintig.' → hele zin; eicel zoals in Chromosomen 2.1 (laatste stap bij de bevruchting); 'sterven af' → 'gaan te gronde'
