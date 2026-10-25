@@ -81,7 +81,9 @@ Ronde 1: alle 1138 open woorden van de wachtlijsten beluisterd met fragmenten ui
 | Sams (Nederlandse Sam) | nog geen goede variant (Sams, Sàms, Samms afgewezen) | |
 | toa | nog geen goede variant (toa, too-waa, T-O-A afgewezen) | |
 
-Wisselvallig (zelfde invoer, één take goed en één fout; alleen die alinea opnieuw): ALAT, biosfeerintegriteit, fMRI, Jones, PCR, tyfoon, trombocyten.
+Wisselvallig (zelfde invoer, één take goed en één fout; alleen die alinea opnieuw): biosfeerintegriteit, fMRI, Jones, trombocyten.
+
+Ronde 4 (na het naluisteren van de heropnames; https://claude.ai/artifact/YGbgi2CLUZ3gGjYo2yQFAt): **ALAT** → ALAT (gewoon; aa-lat bleef fout gaan), **PCR** → PCR (gewoon; pee-cee-er bleef fout gaan), **tyfoon** → tiefoon (regel in uitspraak.json), **Sam** → Sam (gewoon; de take was pech). Toa is uit de zin gehaald (leraar 2 s14).
 
 Les (derde keer bevestigd): bij eleven_v4 is de gewone spelling bijna altijd het best; respellings als dee-es-dee, uu-vee of aa-ie maakten het juist fout. Uitzondering: een samenstelling met een leenwoord (collageen) kan beter los geschreven worden.
 
