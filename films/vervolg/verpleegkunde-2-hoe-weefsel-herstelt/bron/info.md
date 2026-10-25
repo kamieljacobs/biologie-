@@ -52,3 +52,4 @@ Werkmap `hw/v2` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` na
 - Henk zit in bed (geen liggende pose in de cast); draaien aangeduid met een pijl.
 - Gedeelde film: staat ook bij Fysiotherapie (id herstel).
 - Animatie gebouwd door een helper volgens films/vervolg/BOUWEN.md, nagekeken in de hoofdsessie.
+- 25 okt 2026: henkBed in verhouding (bed- en beenlengte volgen H), overgenomen uit de feedback op Fysiotherapie 2

@@ -49,3 +49,4 @@ Werkmap `hw/fy3` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` n
 ## Aandachtspunten
 - Supercompensatie is een model (in beeld als curve)
 - Feitencheck 21 okt: rusthartslag 70→65, landen 3–5× lichaamsgewicht, hypertrofie na een paar weken
+- Feedback Kamiel 25 okt 2026 verwerkt: s07 woordtijden hersteld, de letter na Antwoord bleef bij Vragen uit hoorbaar (scripts/antwoordletter.py)

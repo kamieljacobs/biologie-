@@ -47,6 +47,10 @@ def align(words, rms, dur):
     for k, w in enumerate(words[:-1]):
         if re.search(r'[.?!]["”]?$', w): B.append((k, 3.0))
         elif re.search(r'[,:;]$', w): B.append((k, 1.0))
+    # Kamiel 25 okt 2026 (Fysiotherapie 3/4): Roos pauzeert tussen 'Antwoord' en de letter. Zonder deze grens koppelt de punt
+    # na de letter aan die pauze, schuift de letter onder het volgende woord en blijft hij hoorbaar als de speler 'Antwoord a.' wegknipt.
+    if len(words) > 2 and re.match(r'(?i)^antwoord$', words[0]) and re.match(r'(?i)^(aa|bee|bé|bè|cee|dee|a|b|c|d)[.:]$', words[1]) and not any(k == 0 for k, _ in B):
+        B.insert(0, (0, 3.0))
     # expected pause share: estimate speech rate from total minus silences
     speech = (t1 - t0) - sum(e - s for s, e in inner)
     pz = np.zeros(len(words))

@@ -50,3 +50,4 @@ Werkmap `hw/fy4` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` n
 - Geen zelfdiagnose: recap zegt laten onderzoeken
 - Yasmin is de schouderpatiënt (Lotte zit al in film 1)
 - Noor op één been: in beeld als enkel op het kussen (er is geen pose op één been)
+- Feedback Kamiel 25 okt 2026 verwerkt: s06 woordtijden hersteld, de letter na Antwoord bleef bij Vragen uit hoorbaar (scripts/antwoordletter.py)

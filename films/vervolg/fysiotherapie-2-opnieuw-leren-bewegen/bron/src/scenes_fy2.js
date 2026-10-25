@@ -10,9 +10,9 @@ Object.assign(SCENES, {
       roundRect(ctx, 600, 640, 760, 30, 8); shape(ctx, '#6B5440', '#4A3A2E', 2); persoon(ctx, 'henk', 980, 860, 470, { t, outfit: 'gewoon', uit: q.on('lepel', 1) > 0.5 ? 'verbaasd' : 'neutraal' });
       const lv = clamp((t - q.at('lepel', 1)) / 0.8, 0, 1); ctx.save(); ctx.translate(820, 560 + lv * 80); ctx.rotate(lv * 2); ctx.strokeStyle = '#D8DEE4'; ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-30, 0); ctx.lineTo(20, 0); ctx.stroke(); ctx.beginPath(); ctx.ellipse(30, 0, 14, 9, 0, 0, 6.283); ctx.fillStyle = '#D8DEE4'; ctx.fill(); ctx.restore();
       naamBij(ctx, 'Opa Henk', 'beroerte', 1080, 340, q.on('Henk', 1)); tag(ctx, 'rechterhand: niets', 820, 470, C.koraal, q.on('rechterhand', 1), 'center', 28); ctx.restore(); }
-    if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; metaA(ctx, 'DRIE DAGEN LATER', 160, 200, 1, C.grain, 'left', 28); henkBed(ctx, 820, 640, t, { H: 400, uit: 'neutraal' });
+    if (B > 0.01) { ctx.save(); ctx.globalAlpha *= B; metaA(ctx, 'DRIE DAGEN LATER', 160, 200, 1, C.grain, 'left', 28); henkBed(ctx, 800, 640, t, { H: 470, uit: 'neutraal' });
       persoon(ctx, 'femke', 1460, 860, 480, { t, outfit: 'werk', kijk: -1, pose: 'wijs', uit: 'blij' }); naamBij(ctx, 'Femke', 'fysiotherapeut', 1520, 330, q.on('Femke', 1));
-      tag(ctx, '1 · strek je vingers', 820, 330, C.goud, q.on('vingers', 1), 'center', 32); tag(ctx, '2 · til je arm opzij', 820, 410, C.goud, q.on('opzij', 1), 'center', 32); vraagteken(ctx, 1200, 280, q.on('Waarom', 1), 100); ctx.restore(); } },
+      tag(ctx, '1 · strek je vingers', 1080, 330, C.goud, q.on('vingers', 1), 'center', 32); tag(ctx, '2 · til je arm opzij', 1080, 400, C.goud, q.on('opzij', 1), 'center', 32); vraagteken(ctx, 1200, 280, q.on('Waarom', 1), 100); ctx.restore(); } },
 
   // ---------- H1 ----------
   s04(ctx, t, q) { bg(ctx, 'schema'); antwoord(ctx, 'Antwoord c'); const N = q.on('Nederlands', 1, 0.8);

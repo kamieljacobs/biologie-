@@ -362,7 +362,7 @@ function drukZoom(ctx, x, y, w, h, t, a = 1, o = {}) { if (a <= 0.01) return; co
 // ===== ziekenhuisbed met Opa Henk (rechtop tegen de opgezette rugleuning, deken over de benen, voeten vrij) =====
 // x = midden van het bed, y = bovenkant matras. o: kussen (onder de kuiten), matras (drukverdelend), drukH, drukS (gloed hiel / stuitje), donker, draai (pijl)
 function henkBed(ctx, x, y, t, o = {}) { const a = o.a == null ? 1 : o.a; if (a <= 0.01) return {}; const { kussen = 0, matras = 0, drukH = 0, drukS = 0, donker = 0, draai = 0, uit = 'neutraal', H = 420 } = o; ctx.save(); ctx.globalAlpha *= a;
-  const L = 420, hipX = x - L + 150; const M = lijfMaat('henk', 0, 0, H);
+  const been = H * 0.56, L = o.L || Math.round((been + 200) / 2), hipX = x - L + 150; const M = lijfMaat('henk', 0, 0, H); // Kamiel 25 okt 2026: bed en benen passen bij Henk (was vast 420, benen veel te lang)
   // frame
   ctx.fillStyle = '#7A8294'; ctx.fillRect(x - L - 20, y + 60, 2 * L + 40, 18); ctx.fillRect(x - L, y + 78, 14, 100); ctx.fillRect(x + L - 14, y + 78, 14, 100);
   circ(ctx, x - L + 7, y + 186, 14, '#4A5266'); circ(ctx, x + L - 7, y + 186, 14, '#4A5266');
@@ -382,12 +382,12 @@ function henkBed(ctx, x, y, t, o = {}) { const a = o.a == null ? 1 : o.a; if (a 
   const lift = kussen * 36, vx = x + L - 60, borst = y + 14 + M.heupY + (M.schouderY - M.heupY) * 0.32 - M.heupY * 0;
   const by = y + 14 + (M.schouderY + (M.heupY - M.schouderY) * 0.55) - M.heupY; // deken-rand op de borst
   ctx.beginPath(); ctx.moveTo(hipX - M.sw * 0.62, by + 10); ctx.quadraticCurveTo(hipX, by - 16, hipX + M.sw * 0.62, by + 6);
-  ctx.bezierCurveTo(hipX + M.sw * 0.9, y - 40, hipX + 200, y - 72, hipX + 300, y - 70 - lift * 0.5); ctx.bezierCurveTo(hipX + 420, y - 70 - lift, vx - 80, y - 64 - lift, vx - 24, y - 50 - lift); ctx.lineTo(vx - 24, y + 30); ctx.lineTo(hipX - M.sw * 0.62, y + 30); ctx.closePath();
-  shape(ctx, '#7FA6C9', '#5A86AE', 2); ctx.strokeStyle = rgba('#5A86AE', 0.8); ctx.lineWidth = 3; for (let i = 0; i < 4; i++) { const xx = hipX + 140 + i * 100; ctx.beginPath(); ctx.moveTo(xx, y - 60 - (i > 1 ? lift * 0.7 : 0)); ctx.quadraticCurveTo(xx + 26, y - 20, xx + 8, y + 20); ctx.stroke(); }
+  ctx.bezierCurveTo(hipX + M.sw * 0.9, y - 40, hipX + been * 0.32, y - 72, hipX + been * 0.48, y - 70 - lift * 0.5); ctx.bezierCurveTo(hipX + been * 0.67, y - 70 - lift, vx - 80, y - 64 - lift, vx - 24, y - 50 - lift); ctx.lineTo(vx - 24, y + 30); ctx.lineTo(hipX - M.sw * 0.62, y + 30); ctx.closePath();
+  shape(ctx, '#7FA6C9', '#5A86AE', 2); ctx.strokeStyle = rgba('#5A86AE', 0.8); ctx.lineWidth = 3; for (let i = 0; i < 4; i++) { const xx = hipX + been * (0.2 + i * 0.17); ctx.beginPath(); ctx.moveTo(xx, y - 60 - (i > 1 ? lift * 0.7 : 0)); ctx.quadraticCurveTo(xx + 26, y - 20, xx + 8, y + 20); ctx.stroke(); }
   ctx.fillStyle = '#F2F2EE'; ctx.beginPath(); ctx.moveTo(hipX - M.sw * 0.62, by + 10); ctx.quadraticCurveTo(hipX, by - 16, hipX + M.sw * 0.62, by + 6); ctx.lineTo(hipX + M.sw * 0.62, by + 26); ctx.quadraticCurveTo(hipX, by + 4, hipX - M.sw * 0.62, by + 30); ctx.closePath(); ctx.fill();
   if (kussen > 0.01) { ctx.save(); ctx.globalAlpha *= kussen; roundRect(ctx, vx - 150, y - 34, 170, 44, 20); shape(ctx, '#E8E2D4', '#C8BEA8', 2); ctx.restore(); }
   // blote voet (zijaanzicht): hiel op de matras of vrij boven het kussen, tenen omhoog
-  const fy = y - lift; ctx.save(); ctx.translate(vx, fy); ctx.beginPath(); ctx.moveTo(-26, -54); ctx.lineTo(-4, -54); ctx.bezierCurveTo(20, -62, 40, -92, 52, -106); ctx.quadraticCurveTo(64, -108, 60, -92); ctx.bezierCurveTo(50, -56, 30, -8, 6, 0); ctx.bezierCurveTo(-16, 4, -30, -10, -30, -28); ctx.closePath(); shape(ctx, CAST.henk.huid, _donker(CAST.henk.huid, 0.2), 2); ctx.restore();
+  const fy = y - lift; ctx.save(); ctx.translate(vx, fy); const vk = H / 560; ctx.scale(vk, vk); ctx.beginPath(); ctx.moveTo(-26, -54); ctx.lineTo(-4, -54); ctx.bezierCurveTo(20, -62, 40, -92, 52, -106); ctx.quadraticCurveTo(64, -108, 60, -92); ctx.bezierCurveTo(50, -56, 30, -8, 6, 0); ctx.bezierCurveTo(-16, 4, -30, -10, -30, -28); ctx.closePath(); shape(ctx, CAST.henk.huid, _donker(CAST.henk.huid, 0.2), 2); ctx.restore();
   const hiel = { x: vx - 12, y: fy - 4 }, stuit = { x: hipX + 10, y: y + 12 };
   const gloed = (p, f) => { if (f <= 0.01) return; const r = 64; const g = ctx.createRadialGradient(p.x, p.y, 4, p.x, p.y, r); const col = donker > 0.5 ? '#5A1E3A' : '#E04A3A'; g.addColorStop(0, rgba(col, 0.95 * f)); g.addColorStop(1, rgba(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p.x, p.y, r, 0, 6.283); ctx.fill(); };
   gloed(hiel, drukH); gloed(stuit, drukS);
