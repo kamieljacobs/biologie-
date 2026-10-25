@@ -74,3 +74,7 @@ Checkvragen: 1 Regelkring aanvullen · 2 Glucosetolerantietest (tabel P, Q, R) �
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
 
 `label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Alle namen stonden na de omzetting al goed; geen aanroepen verplaatst. Gecontroleerd op stills van alle scènes met namen. Ook doorgevoerd in `bron/src/lib.js` en `bron/src/scenes.js`.
+
+## Wijziging 25 okt 2026
+
+- In de recap (s24) de zin 'In de Regelkring-tool op de site kun je de kring zelf verstoren, en kijken hoe hij zich herstelt.' uit de audio geknipt (fragment eindigt na 'gym.') en het label 'Regelkring-tool op de site' weggehaald. Reden: prompt v10 aanvulling, geen verwijzingen naar tools in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

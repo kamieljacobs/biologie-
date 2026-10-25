@@ -72,3 +72,7 @@ Zoals in film 2: tekst in `script_v2.md` → `maak_segmenten.py` → alleen die 
 - **Uitspraak:** wachtlijst in `uitspraak.md`.
 - **Eindreview:** door de bouwer op contactbladen en speeltest (geen JS-fouten); geen aparte frisse helper beschikbaar. Verwerkt: label 'kruiden en jonge boompjes' viel over het ree; kaartje 'edelhert is groter' overlapte 'consumenten'; webknopen werden te klein (28 px) en zijn nu op volle grootte.
 - **Overlap:** geen trofische niveaus, piramides of Yellowstone (staan in *Alles gaat rond* en *Plek genoeg?*).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

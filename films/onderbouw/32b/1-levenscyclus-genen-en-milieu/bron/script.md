@@ -71,4 +71,8 @@ Elk organisme heeft een levenscyclus. Van zaad tot zaad, van eitje tot kikker, v
 
 **s14** · `audio/s14.mp3` · 12.0 s · filmtijd 3:54.7
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Elk organisme heeft een levenscyclus.
+2. Je genen krijg je van je ouders.
+3. Het milieu bepaalt mee hoe je eruitziet.

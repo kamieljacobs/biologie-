@@ -119,9 +119,8 @@ s12(ctx,t,q){ bg(ctx,'schema'); const tMe=q.at('meeste'), tHu=q.at('huid,'), tDa
   pill(ctx,960,780-20,'antibioticum: wel tegen bacteriën, niet tegen virussen',C.text,ramp(t,tAn,0.4),28);
   haak(ctx,520,1400,820-30,'',C.groen,0); alpha(ctx,ramp(t,tNe,0.4),()=>text(ctx,'Nee, lang niet.',960,410,fTitel(56),C.groen,'center')); },
 // ---- eindkaart ----
-s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'microben: vriend en vijand',120,260,C.grain,'left',26);
-  const P=[['Broodproef','Leg drie sneetjes brood in zakjes: één droog, één vochtig, één vochtig in de koelkast. Kijk een week elke dag (zakje dicht laten!). Waar groeit het snelst schimmel?'],['Vriend of vijand?','Maak een tabel met tien microben die je in de film zag of zelf opzoekt. Zet bij elke: bacterie, schimmel of virus, en vriend of vijand.'],['Bijsluiter','Zoek een bijsluiter van een antibioticum (of online). Tegen welke ziektes is het? Waarom staat er dat je de kuur moet afmaken?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,340,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(36,600),C.goud); ctx.font=fTekst(29); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,39); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Iemand wil alle bacteriën in huis doodmaken met sterke middelen. Is dat een goed idee? Leg uit.',120,750,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Bacteriën, schimmels en virussen zijn microben.','De meeste microben zijn onschuldig of helpen je.','Een antibioticum helpt tegen bacteriën, niet tegen virussen.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

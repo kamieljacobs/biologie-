@@ -458,9 +458,8 @@ s17(ctx,t,q){ bg(ctx,'schema'); tractMap({}); const u=clamp((t-0.3)/Math.max(1,q
   alpha(ctx,ramp(t,q.at('pit'),0.5),()=>{ pitje(1720,900,2); pill(ctx,960,870,'de pit: te hard voor elk sap, te groot voor de darmwand',C.text,1,28); });
 },
 // ---- eindkaart ----
-s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'de reis van een hap',120,260,C.grain,'left',26);
-  const P=[['Kauw op brood','Kauw een minuut op een stukje brood zonder te slikken. Wat proef je na een tijdje? Welk sap doet dat?'],['Teken de reis','Teken de buis van mond tot anus. Zet bij elk orgaan zijn taak en het sap dat erbij komt.'],['Rondleiding','Kijk nog eens de film Een rondleiding door je lichaam: welke organen van de rondleiding zag je nu van binnen?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Iemand heeft geen gal meer. Welke voedingsstof wordt dan slechter verteerd, en waarom?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Vertering gaat in drie stappen: klein maken, afbreken, opnemen.','In de dunne darm gaan voedingsstoffen je bloed in.','De dikke darm haalt water terug.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

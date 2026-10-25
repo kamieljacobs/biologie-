@@ -116,3 +116,7 @@ Geen havo/vwo meer in beeld of tekst (Kamiel): niveauknop **Basis / Uitdaging**,
 ## Versie 1.1 · 21 oktober 2026 (beeld)
 
 Grijs plaatsvervanger-poppetje vervangen (BEELDAFSPRAKEN, Personages). In s04 ('een kat, een eik en jij') is 'jij' nu **Lotte** uit het castboek (zelfde 'jij' als in film 2 en 2b); de zoomcirkel met wangcellen wijst naar haar wang. `bron/src/lib_cast.js` = kopie van `personages/lib_cast.js`; `bouw/build.py` plakt hem vóór `scenes.js` in het scèneblok. `circ()` (nodig voor het castboek) staat bovenin `scenes.js`. De oude functie `human()` staat er nog, maar wordt niet meer gebruikt. Geen wijziging aan audio, timing, tekst of ondertitels; eindkaart zegt versie 1.1.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

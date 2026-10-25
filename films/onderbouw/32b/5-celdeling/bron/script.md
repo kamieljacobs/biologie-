@@ -77,4 +77,8 @@ Bij mitose: eerst kopiëren, dan in tweeën. Twee gelijke cellen, met allebei ze
 
 **s15** · `audio/s15.mp3` · 12.0 s · filmtijd 3:36.7
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Bij mitose ontstaan twee gelijke cellen, voor groei en herstel.
+2. Bij meiose ontstaan geslachtscellen met de helft van de chromosomen.
+3. Een wond gaat dicht door mitose.

@@ -71,4 +71,8 @@ Mutaties maken nieuwe verschillen. Natuurlijke selectie: wie goed past, krijgt m
 
 **s13** · `audio/s13.mp3` · 12.0 s · filmtijd 3:35.4
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Mutaties maken nieuwe verschillen.
+2. Bij natuurlijke selectie krijgt wie goed past meer jongen.
+3. Gescheiden groepen worden na lange tijd nieuwe soorten.

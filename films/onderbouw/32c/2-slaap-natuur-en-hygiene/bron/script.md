@@ -60,7 +60,9 @@ Slapen is werken: opslaan, groeien en herstellen. Daglicht zet je biologische kl
 ## Eindkaart
 
 **s14** (4:00.1, 12.0 s, `audio/s14.mp3`)  
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
 
-
+1. Tijdens je slaap slaat je lichaam op, groeit en herstelt het.
+2. Daglicht zet je biologische klok gelijk.
+3. Zeep spoelt ziekteverwekkers weg.
 Totaal ± 4:12 (zonder wachttijd bij de vragen).

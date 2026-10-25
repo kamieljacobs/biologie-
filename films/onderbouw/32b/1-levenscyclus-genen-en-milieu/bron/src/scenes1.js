@@ -136,9 +136,8 @@ s13(ctx,t,q){ bg(ctx,'schema'); const tV=q.at('Van'), tE=q.at('eitje'), tB=q.at(
   alpha(ctx,ramp(t,tM-0.2,0.4),()=>{ text(ctx,'van je omgeving',1400,240,fTekst(40,700),C.goud,'center'); zonIcoon(1220,360,30,1); druppel(1400,360,1.2); thermo(1580,410,90,0.5,1); boonPlant(1400,760,0.6,1,0); });
   alpha(ctx,ramp(t,tA-0.2,0.4),()=>{ ctx.fillStyle=rgba(C.bgSchema,0.95); roundRect(ctx,W/2-180,440,360,100,20); ctx.fill(); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.stroke(); text(ctx,'allebei',W/2,508,fTitel(56),C.goud,'center'); }); },
 // ---- eindkaart ----
-s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'levenscyclus · genen en milieu',120,260,C.grain,'left',26);
-  const P=[['Licht of donker?','Zaai vier bonen in twee potjes. Eén potje in de vensterbank, één in een donkere kast. Meet en kijk elke twee dagen.'],['Levenscyclus-strip','Kies een dier of plant. Teken de levenscyclus als een kringloop in vier tot zes plaatjes.'],['Genen of milieu?','Maak een lijstje van tien eigenschappen van jezelf. Welke komen uit je genen, welke uit je milieu, welke uit allebei?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een plant in een donkere kast wordt lang en bleek. Komt dat door zijn genen of door zijn milieu? Leg uit.',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Elk organisme heeft een levenscyclus.','Je genen krijg je van je ouders.','Het milieu bepaalt mee hoe je eruitziet.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

@@ -85,4 +85,8 @@ Je cellen maken afval. Koolstofdioxide adem je uit. Van afval uit eiwitten maakt
 
 **s15** · start 5:04.6 · 12.0 s · `audio/s15.mp3`
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Je cellen maken afval, zoals koolstofdioxide en ureum.
+2. Je nieren filteren je bloed en maken urine.
+3. Zo houden je nieren je bloed schoon en in evenwicht.

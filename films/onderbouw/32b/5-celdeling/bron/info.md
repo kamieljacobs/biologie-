@@ -60,3 +60,7 @@ Wachtlijst: chromosomen / chromosoom (s04–s06, s08, s13, s14), zesenveertig / 
 ## Aandachtspunten
 - Meiose: 'vier geslachtscellen' is vereenvoudigd voor de eicel (poollichaampjes, docentdeel).
 - Eindcontrole niet door een aparte helper (zie `reviews/review_eind.md`).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

@@ -79,4 +79,8 @@ Stem-invoer: In je deeënaa zitten genen: recepten voor eigenschappen. Van elk g
 
 **s14** · `audio/s14.mp3` · 12.0 s · filmtijd 3:31.2
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Genen in je DNA zijn recepten voor eigenschappen.
+2. Van elk gen heb je er twee, één van elke ouder.
+3. Een recessief gen zie je alleen als het dubbel is.

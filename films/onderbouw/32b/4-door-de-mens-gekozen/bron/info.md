@@ -59,3 +59,7 @@ Wachtlijst: CRISPR (s11), chihuahua (s05), mopshond (s05), veredeling (s04), gen
 - De nadelen van fokken: de korte snuit is een gekozen eigenschap, inteelt verklaart vooral andere erfelijke problemen (docentdeel).
 - EU-regels voor nieuwe genomische technieken (CRISPR) veranderen; de film zegt alleen 'strenge regels'.
 - Eindcontrole niet door een aparte helper (zie `reviews/review_eind.md`).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

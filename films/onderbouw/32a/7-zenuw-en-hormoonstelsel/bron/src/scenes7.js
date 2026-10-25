@@ -288,9 +288,8 @@ s14(ctx,t,q){ bg(ctx,'schema'); const tZ=q.at('zenuwstelsel'), tH=q.at('hormoons
   naamBij(ctx,'hart','via adrenaline in je bloed',XL,YB(2.25),ramp(t,q.at('hart'),0.4),'right',C.paars);
 },
 // ---- eindkaart ----
-s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'zenuwen en hormonen',120,260,C.grain,'left',26);
-  const P=[['Liniaalproef','Laat een klasgenoot een liniaal vallen tussen je duim en vinger. Hoeveel cm valt hij voor je hem vangt? Welke weg neemt het bericht?'],['Zenuw of hormoon?','Sorteer: knipperen, groeien, puberteit, je hand van de kachel, trillen na een schrik, een bal vangen.'],['Rondleiding','Kijk nog eens Een rondleiding door je lichaam. Wijs de hormoonklieren en het zenuwstelsel aan.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Je hart bonkt nog minuten na de schrik, je benen trillen al niet meer. Hoe kan dat?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Je zenuwstelsel is snel, kort en gaat naar één plek.','Je hormoonstelsel werkt via je bloed: langzamer, overal en lang.','Samen sturen ze je organen aan.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

@@ -91,3 +91,7 @@ Toegepast: koolstofdioxide → "koolstofdie-oxide", 's avonds → "Savonds". **W
 
 ## Wijziging 20 okt 2026 (later die dag)
 Cues hoofdlettergevoelig gemaakt (`exactAt`: "Je" ≠ "je"), zodat elke `T(woord,n)` op het bedoelde woord valt; enkele cue-indexen aangepast. Gecontroleerd met `bouw/cuectx.py` (nieuw). Geen nieuwe audio.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

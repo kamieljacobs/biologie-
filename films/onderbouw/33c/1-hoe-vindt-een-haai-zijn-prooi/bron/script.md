@@ -116,4 +116,8 @@ Dus: hoe vindt een haai zijn prooi in het donker? Zijn zintuigen lossen elkaar a
 
 **s20** · `audio/s20.mp3` · 0.0–1.3 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. De zintuigen van een haai lossen elkaar af.
+2. Ver weg: horen en ruiken. Dichtbij: zien en de zijlijn.
+3. Het laatste stukje vindt hij met zijn elektrisch zintuig.

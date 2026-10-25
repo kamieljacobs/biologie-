@@ -122,9 +122,8 @@ s14(ctx,t,q){ bg(ctx,'schema'); const tWa=q.at('water'), tBo=q.at('botten'), tZe
   if(t<tZe-0.3){ botDoorsnede(700,460,160,0.95,1); spierBundel(1220,460,340,110,1); haak(ctx,520,1420,680,'gebruiken maakt sterker',C.groen,ramp(t,tBo+0.6,0.5)); return; }
   nachtZee(t); zeilschip(1200,640,0.7,t); citroen(500,480,2.2); sinaasappel(680,520,2); naamBij(ctx,'vitamine C','',590,640,ramp(t,tZe+0.6,0.4),'center',C.groen); },
 // ---- eindkaart ----
-s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'voeding en beweging',120,260,C.grain,'left',26);
-  const P=[['Etiketspeurtocht','Kies drie producten uit de kast. Zoek op het etiket: hoeveel eiwit, vet en vezels? Welke stof springt eruit?'],['Beweegdagboek','Houd een week bij hoeveel minuten je beweegt, fietsen naar school telt mee. Wat valt je op? Wat maakt bewegen makkelijk of lastig?'],['Ruimtetraining','Ontwerp een trainingsdag voor een astronaut: welke oefeningen houden zijn botten, spieren en hart sterk? Leg bij elke oefening uit waarom.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,320,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een astronaut komt na een half jaar terug op aarde. Waarom moet hij weer leren lopen, en wat helpt hem daarbij?',120,730,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig.','Ook water en vezels zijn belangrijk.','Botten en spieren worden sterker als je ze gebruikt.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

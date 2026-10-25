@@ -69,3 +69,7 @@ Zoals in film 2. Het stadium van het bos in s10 volgt de woorden 'Grassen', 'str
 - **Uitspraak:** wachtlijst in `uitspraak.md`.
 - **Eindreview:** door de bouwer op contactbladen en speeltest (geen JS-fouten); geen aparte frisse helper beschikbaar. Verwerkt: vlammen verdwenen te vroeg, label 'evenwicht' botste met 'muizen', label bij de kegel lag over de kegel, een boom erbij in de uitdaging.
 - **Overlap:** geen primaire/secundaire successie, veerkracht of omslagpunt (bovenbouw).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

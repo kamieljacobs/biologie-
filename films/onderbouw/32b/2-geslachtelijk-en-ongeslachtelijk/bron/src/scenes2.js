@@ -138,9 +138,8 @@ s12(ctx,t,q){ bg(ctx,'schema'); const tO=q.at('Ongeslachtelijk:'), tG=q.at('Gesl
   alpha(ctx,ramp(t,tG-0.2,0.4),()=>{ kaart(1000,170,760,480,C.paars,1); text(ctx,'geslachtelijk',1380,240,fTekst(40,700),C.paars,'center'); eicel(1260,400,46,1); zaadcel(1440,400,1.5,1,Math.PI,t); text(ctx,'+',1350,415,fTekst(48,700),C.text,'center'); for(let i=0;i<4;i++) diertje(1170+i*120,520,0.8,MIX[i*2]); text(ctx,'twee ouders → elk jong een nieuwe mix',1380,600,fTekst(30,600),C.text,'center'); });
   haak(ctx,1000,1760,680,'jongen verschillen: dat helpt',C.groen,ramp(t,tV,0.5)); },
 // ---- eindkaart ----
-s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'geslachtelijk en ongeslachtelijk',120,260,C.grain,'left',26);
-  const P=[['Stekken','Knip een stukje van een vetplant of een pothos af en zet het in water. Na twee weken: wortels? Wat voor voortplanting is dit?'],['Bloem uit elkaar','Haal een bloem voorzichtig uit elkaar. Zoek de meeldraden met stuifmeel en het vruchtbeginsel. Teken wat je ziet.'],['Zoek ze allebei','Zoek drie planten die zich op twee manieren voortplanten (aardbei, aardappel, tulp). Hoe doen ze het?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een boer heeft een veld met alleen maar kopieën van één aardappel. Waarom is een nieuwe plantenziekte voor hem een groot risico?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Ongeslachtelijk: één ouder, de jongen zijn kopieën.','Geslachtelijk: twee ouders, elk jong is een nieuwe mix.','Verschillen helpen als er iets verandert.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

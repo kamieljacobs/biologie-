@@ -135,9 +135,8 @@ s12(ctx,t,q){ const tV=q.at('Vanzelf,'), tSu=q.at('successie.'), tN=q.at('nooit'
   alpha(ctx,ramp(t,tVe,0.4),()=>{ ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.setLineDash([8,8]); ctx.beginPath(); ctx.moveTo(gx+0.37*gw,gy-gh); ctx.lineTo(gx+0.37*gw,gy); ctx.stroke(); ctx.setLineDash([]); naamBij(ctx,'brand','verstoring',gx+0.37*gw,gy-gh-10,1,'center',C.koraal); });
   alpha(ctx,ramp(t,tNi,0.4),()=>naamBij(ctx,'successie','nieuw evenwicht',gx+0.72*gw,gy-0.92*gh,1,'center',C.groen)); },
 // ---- eindkaart ----
-s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'uit balans',120,260,C.grain,'left',26);
-  const P=[['Kale plek','Krab een vierkante meter in de schooltuin kaal (met toestemming). Kijk elke maand: welke planten komen er als eerste?'],['Tijdmachine','Zoek een open plek, een struweel en een oud bos bij school of op een kaart. Welk stadium van successie zie je?'],['Muizengrafiek','Teken zelf een grafiek van muizen en uilen over tien jaar. Laat zien wat er gebeurt in een jaar met veel eikels.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een storm blaast in een bos tien grote bomen om. Wat groeit er op die plek de eerste jaren, en waarom juist daar?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Na een verstoring herstelt de natuur stap voor stap: successie.','Eerst pioniers, dan struiken, dan bomen.','Aantallen dieren gaan op en neer rond een evenwicht.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

@@ -110,4 +110,8 @@ Een dierlijke cel heeft een celmembraan, cytoplasma, een celkern en mitochondri�
 
 **s19** · `audio/s19.mp3` · 0:00–1.3 s · segment speelt 12 s (eindkaart blijft staan)
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Alles wat leeft, is gemaakt van cellen.
+2. Een plantencel heeft ook een celwand, een grote vacuole en bladgroenkorrels.
+3. Slappe sla is weer stevig als elke vacuole volloopt met water.

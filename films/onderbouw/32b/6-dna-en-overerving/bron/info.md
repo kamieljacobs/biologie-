@@ -60,3 +60,7 @@ Wachtlijst: cavia's (s01, s08, s09, s11, s12), dominant / recessief (s07, s12, s
 - Cavia-vachtkleur is in werkelijkheid meer-genig; de film gebruikt één gen als model (docentdeel).
 - Tongrollen op de eindkaart is bewust een 'pas op'-voorbeeld (geen enkelvoudig kenmerk).
 - Eindcontrole niet door een aparte helper (zie `reviews/review_eind.md`).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

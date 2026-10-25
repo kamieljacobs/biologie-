@@ -71,4 +71,8 @@ Veredelen en fokken: de mens kiest steeds de beste planten en dieren. Generatie 
 
 **s13** · `audio/s13.mp3` · 12.0 s · filmtijd 3:33.9
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Bij veredelen en fokken kiest de mens de beste planten en dieren.
+2. Dat gaat generatie na generatie.
+3. Bij genetische modificatie veranderen onderzoekers zelf de genen.

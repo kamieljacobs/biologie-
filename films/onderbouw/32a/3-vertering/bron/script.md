@@ -110,4 +110,8 @@ Mond: klein maken en nat maken. Slokdarm: duwen. Maag: kneden en zuur maagsap. D
 
 **s18** · `audio/s18.mp3` · 0.0–1.1 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Vertering gaat in drie stappen: klein maken, afbreken, opnemen.
+2. In de dunne darm gaan voedingsstoffen je bloed in.
+3. De dikke darm haalt water terug.

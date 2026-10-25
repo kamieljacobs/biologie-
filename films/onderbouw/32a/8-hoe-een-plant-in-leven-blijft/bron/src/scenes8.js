@@ -156,9 +156,8 @@ s14(ctx,t,q){ bg(ctx,'schema'); const tZ=q.at('zonnebloem');
   macroDag(); ctx.fillStyle='#3A2E24'; ctx.fillRect(0,780,W,H-780); zonnebloem(960,780,1,1); persoon(ctx,'daan',680,780,420,{outfit:'zomer',uit:'blij',kijk:1,t});
   pill(ctx,1350,220,'water + lucht + licht',C.goud,ramp(t,q.at('water'),0.4),40); },
 // ---- eindkaart ----
-s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'hoe een plant in leven blijft',120,260,C.grain,'left',26);
-  const P=[['Waterpest-belletjes','Zet een takje waterpest in water onder een lamp. Tel een minuut de belletjes. Lamp verder weg of een doos erover: wat gebeurt er?'],['Zetmeelproef','Plak folie over een deel van een blad. Na een dag licht: blad ontkleuren, jodium erop (met je docent). Waar wordt het blauwzwart?'],['Kiemproef','Weeg tien droge bonen. Laat vijf kiemen in het licht en vijf in het donker. Weeg na twee weken. Wat valt op?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een kamerplant staat in de vensterbank. Welk gas neemt hij op en welk gas geeft hij af, overdag en \'s nachts?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Een plant maakt zijn eigen voedsel: fotosynthese.','Uit water, koolstofdioxide en licht ontstaan suiker en zuurstof.','Een plant is vooral gemaakt van water en lucht.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

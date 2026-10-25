@@ -98,3 +98,7 @@ Alleen beeld (audio, timing, tekst en ondertitels ongewijzigd). Het grijze schem
 ## Versie 1.2 · 22 oktober 2026 (beeld): Lotte is 'jij'
 
 In de hele onderbouwreeks is 'jij' Lotte (`personages/ROLLEN.md`). Daarom zijn in `src/scenes7.js` Sam en Lotte van plek gewisseld: Lotte zit nu met Noor achter de tafel bij het brandalarm (s01), staat op het plein vooraan met hartslag-pil (s01, s07), springt op in het inzetje van s05 (`samInzet`) en pakt de hete pan in s06 (`samFornuis`, `samArm` rekent nu met `CAST.lotte`). Sam staat als klasgenoot op het plein; in de omroep staat Lotte in 1B met Noor, Sam in 1C met Bilal. De functienamen `samInzet`/`samFornuis`/`SAM7` zijn bewust gebleven. `src/lib_cast.js` = kopie van het actuele castboek (22 okt 2026). In `index.html` zijn alleen het castblok en het scèneblok vervangen. Gecontroleerd: geen paginafouten, contactblad van s01, s05, s06, s07, poppetjesdetector 0 treffers.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

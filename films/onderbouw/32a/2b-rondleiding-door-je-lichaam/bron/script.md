@@ -126,4 +126,8 @@ Tien orgaanstelsels, één dag. Zenuwstelsel: aansturen. Spijsverteringsstelsel:
 
 **s20** · `audio/s20.mp3` · 0.0–1.3 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Je lichaam heeft tien orgaanstelsels, elk met een eigen taak.
+2. Elk orgaan heeft zijn eigen plek in je lichaam.
+3. Samen houden ze jou de hele dag in leven.

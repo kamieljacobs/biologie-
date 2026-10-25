@@ -96,3 +96,7 @@ Gewone spelling (eleven_v4); jaartal als "in het jaar 1928". Blinde Scribe-contr
 - De volgorde van de antwoordopties is na de bouw gewisseld (eerst was b steeds goed); de opties worden niet voorgelezen, dus de audio bleef gelijk (`bouw/herorden.py`).
 - Dr. Kim speelt de onderzoeker in 1928 (Fleming zelf wordt niet als persoon getekend).
 - Groeiboom tekent maximaal 7 rijen (64 bacteriën); de teller zegt "meer dan 1 000 000".
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

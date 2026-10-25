@@ -196,9 +196,8 @@ s14(ctx,t,q){ bg(ctx,'schema'); const T=(k,n)=>exactAt(k,n);
   if(t>T('Je',2)&&t<T('En')){ const u=ramp(t,T('Je',2),T('buiten.')-T('Je',2)); const p=along(LEVER_NIER.concat(LEIDER_L,PLASBUIS),u); ureum(p[0],p[1],1.3,1); }
   alpha(ctx,ramp(t,T('Daan?'),0.5),()=>{ roundRect(ctx,1100,320,640,300,18); shape(ctx,rgba(C.bgSchema,0.92),C.line,1); glas(1260,520,1,0.3,1,100,150); glas(1580,520,0.05,0.95,ramp(t,T("'s Avonds:"),0.4),100,150); metaText(ctx,'na het voetballen',1260,580,C.grain,'center',20); alpha(ctx,ramp(t,T("'s Avonds:"),0.4),()=>metaText(ctx,"'s avonds",1580,580,C.grain,'center',20)); });
   alpha(ctx,ramp(t,T('schoon'),0.5),()=>pill(ctx,1420,700,'schoon en in evenwicht',C.goud,1,34)); },
-s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'waar blijft het afval van je cellen',120,260,C.grain,'left',26);
-  const P=[['Filterproef','Giet water met zand, zout en een druppel kleurstof door een koffiefilter. Wat blijft er achter, wat gaat erdoor? Waarin lijkt dit op een nier, en waarin niet?'],['Teken de route','Teken de reis van een ureumdeeltje: van een spiercel, via je bloed en je lever, naar je nieren en de wc.'],['Ademhaling','Kijk de film Ademhaling en bloedsomloop: hoe komt koolstofdioxide uit je cellen bij je longen?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Op een hete dag zweet je veel. Wat merk je dan aan je urine, en waarom?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Je cellen maken afval, zoals koolstofdioxide en ureum.','Je nieren filteren je bloed en maken urine.','Zo houden je nieren je bloed schoon en in evenwicht.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

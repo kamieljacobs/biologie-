@@ -124,9 +124,8 @@ s12(ctx,t,q){ bg(ctx,'schema'); const tM=q.at('Mutaties'), tN=q.at('Natuurlijke'
   S.forEach(([a,b,tt,c,fn],i)=>{ const x=300+i*440; alpha(ctx,ramp(t,tt-0.2,0.4),()=>{ kaart(x-190,220,380,420,c,1); fn(x,380); text(ctx,a,x,520,fTekst(36,700),c,'center'); ctx.font=fTekst(26); ctx.fillStyle=C.text; ctx.textAlign='center'; wrap(ctx,b,x,570,330,34); if(i<3) arrow(ctx,x+200,430,x+240,430,C.line,3,12); }); });
   haak(ctx,110,1810,670,'geen enkel dier doet het expres',C.groen,ramp(t,tE-0.6,0.5)); },
 // ---- eindkaart ----
-s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'waarom zoveel soorten',120,260,C.grain,'left',26);
-  const P=[['Verstoppertje','Knip 20 donkere en 20 lichte papiertjes. Strooi ze op een wit vel. Een klasgenoot pakt er in 10 seconden zoveel mogelijk. Welke blijven over?'],['Ronde 2','Laat elk overgebleven papiertje "een jong krijgen" (er één bij in dezelfde kleur). Speel drie rondes. Wat gebeurt er met de kleuren?'],['Zoek de soort','Zoek twee dieren die op elkaar lijken maar twee soorten zijn (zoals paard en ezel). Hoe weet je dat het twee soorten zijn?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Iemand zegt: "De muizen op het strand werden licht, omdat ze zich wilden verstoppen." Wat klopt hier niet?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Mutaties maken nieuwe verschillen.','Bij natuurlijke selectie krijgt wie goed past meer jongen.','Gescheiden groepen worden na lange tijd nieuwe soorten.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

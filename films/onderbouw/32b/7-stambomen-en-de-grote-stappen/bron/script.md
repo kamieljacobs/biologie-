@@ -91,4 +91,8 @@ Stem-invoer: Een stamboom laat zien wie met wie verwant is. Elke splitsing is ee
 
 **s16** · `audio/s16.mp3` · 12.0 s · filmtijd 3:54.7
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Een stamboom laat zien wie met wie verwant is.
+2. Elke splitsing is een gezamenlijke voorouder.
+3. Het leven ging in grote stappen van één cel tot de mens.

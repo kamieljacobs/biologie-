@@ -78,4 +78,8 @@ Waarom leeft een ijsbeer niet in de woestijn? Twee redenen. Het is er te warm vo
 
 **s15** · 4:09.2 · `audio/s15.mp3` · 12.0 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Abiotische factoren zijn niet-levend, zoals temperatuur.
+2. Biotische factoren zijn levend, zoals prooidieren.
+3. Een soort leeft waar die factoren bij hem passen.

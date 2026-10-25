@@ -97,3 +97,7 @@ Gewone spelling (eleven_v4); jaartal als "in het jaar 1796". Blinde Scribe-contr
 - De film is kort (basis ± 3:45, uitdaging ± 4:00), aan de onderkant van de 4–6 minuten.
 - De 48 poppetjes in de uitdaging zijn telpictogrammen (toegestaan volgens BEELDAFSPRAKEN).
 - De eindvraag (griep elk jaar) gaat verder dan de film: leerlingen zoeken op dat het griepvirus steeds verandert.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

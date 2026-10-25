@@ -98,7 +98,7 @@ Voor vwo: wat gaat er mis op celniveau? Bij insulineresistentie bindt insuline n
 
 **s24** · 44.1 s · `audio/s24.mp3`
 
-Hoe blijft jouw bloedsuiker in de band, terwijl niemand hem meet? Je eigen alvleesklier meet hem wel. De bètacellen geven insuline af als de glucose stijgt. De alfacellen geven glucagon af als hij daalt. Insuline laat spieren en vetweefsel glucose opnemen en vult de voorraad glycogeen aan. Glucagon laat de lever glycogeen afbreken. En door negatieve terugkoppeling stuurt de kring steeds tegen de verandering in. Het antwoord was dus: je lichaam meet het zelf en stuurt het bij. Bij Sanne werkt één deel van die kring niet. Haar sensor en haar pomp nemen dat over, en ze doet gewoon mee met gym. In de Regelkring-tool op de site kun je de kring zelf verstoren, en kijken hoe hij zich herstelt.
+Hoe blijft jouw bloedsuiker in de band, terwijl niemand hem meet? Je eigen alvleesklier meet hem wel. De bètacellen geven insuline af als de glucose stijgt. De alfacellen geven glucagon af als hij daalt. Insuline laat spieren en vetweefsel glucose opnemen en vult de voorraad glycogeen aan. Glucagon laat de lever glycogeen afbreken. En door negatieve terugkoppeling stuurt de kring steeds tegen de verandering in. Het antwoord was dus: je lichaam meet het zelf en stuurt het bij. Bij Sanne werkt één deel van die kring niet. Haar sensor en haar pomp nemen dat over, en ze doet gewoon mee met gym.
 
 ## Eindkaart
 

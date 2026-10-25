@@ -101,11 +101,10 @@ s15(ctx,t,q){ bg(ctx,'schema'); const tS=q.at('stamboom'), tB=q.at('bouwen'), tG
   alpha(ctx,ramp(t,tG-0.2,0.4),()=>{ kaart(1000,170,800,520,C.line,1); ['RNA → DNA','cellen met een kern','twee ouders','meer cellen samen'].forEach((s,i)=>{ const c=[C.paars,C.goud,C.koraal,C.teal][i]; dot(ctx,1080,260+i*100,12,c); text(ctx,s,1110,270+i*100,fTekst(32,700),c,'left'); }); });
   alpha(ctx,ramp(t,tD-0.6,0.4),()=>persoon(ctx,'daan',1660,690,300,{uit:'lacht',t})); },
 // ---- eindkaart ----
-s16(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'stambomen en de grote stappen',120,260,C.grain,'left',26);
-  const P=[['Stamboom bouwen','Kies vijf dieren (bijvoorbeeld haai, kikker, krokodil, duif, hond). Maak een tabel met kenmerken. Teken daarmee een stamboom.'],['Tijdlijn op schaal','Maak een tijdlijn van 4 meter (1 meter = 1 miljard jaar). Waar komen de eerste cellen, de celkern, de dieren en de mens?'],['Museum','Zoek in een museum of op de site van Naturalis een stamboom. Wie is het nauwst verwant aan de walvis?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een dolfijn lijkt op een haai. Leg uit hoe je kunt onderzoeken of ze nauw verwant zijn.',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s16(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Een stamboom laat zien wie met wie verwant is.','Elke splitsing is een gezamenlijke voorouder.','Het leven ging in grote stappen van één cel tot de mens.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };
 function eicel(x,y,r,a=1){ alpha(ctx,a,()=>{ ctx.beginPath(); ctx.arc(x,y,r,0,6.283); shape(ctx,rgba(C.oker,0.35),lighten(C.oker,0.35),2); dot(ctx,x-r*0.15,y-r*0.1,r*0.28,rgba(C.paars,0.7),C.kernR,1.2); }); }
 function zaadcel(x,y,s=1,a=1,ang=0,t=0){ alpha(ctx,a,()=>{ ctx.save(); ctx.translate(x,y); ctx.rotate(ang); ctx.beginPath(); ctx.ellipse(0,0,14*s,9*s,0,0,6.283); shape(ctx,rgba(C.teal,0.6),lighten(C.teal,0.35),1.5); ctx.strokeStyle=lighten(C.teal,0.2); ctx.lineWidth=2*s; ctx.beginPath(); ctx.moveTo(-14*s,0); for(let k=1;k<=10;k++) ctx.lineTo(-14*s-k*6*s,Math.sin(t*14+k*0.9)*5*s*(k/10)); ctx.stroke(); ctx.restore(); }); }

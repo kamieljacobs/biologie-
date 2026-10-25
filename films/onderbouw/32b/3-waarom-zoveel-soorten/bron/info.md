@@ -59,3 +59,7 @@ Wachtlijst: cichliden (s11), Victoriameer (s11), biodiversiteit (s10), soortvorm
 - Het strandmuis-voorbeeld is gebaseerd op *Peromyscus polionotus*; de stap naar 'twee soorten' is een gedachte-uitbreiding (docentdeel).
 - De 'Verstoppertje'-simulatie op de eindkaart is nog geen werkblad of tool op de site.
 - Eindcontrole niet door een aparte helper (zie `reviews/review_eind.md`).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

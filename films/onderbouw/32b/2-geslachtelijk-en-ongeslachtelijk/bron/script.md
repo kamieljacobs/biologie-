@@ -69,4 +69,8 @@ Ongeslachtelijk: één ouder, de nakomelingen zijn kopieën. Snel en makkelijk. 
 
 **s13** · `audio/s13.mp3` · 12.0 s · filmtijd 3:38.3
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Ongeslachtelijk: één ouder, de jongen zijn kopieën.
+2. Geslachtelijk: twee ouders, elk jong is een nieuwe mix.
+3. Verschillen helpen als er iets verandert.

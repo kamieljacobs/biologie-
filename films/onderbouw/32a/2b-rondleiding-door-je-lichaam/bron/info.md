@@ -108,3 +108,7 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 ## Wijziging 16 okt 2026
 Geen havo/vwo meer in beeld of tekst (Kamiel): niveauknop **Basis / Uitdaging**, het extra blok heet "uitdaging" (canvaslabel, hoofdstukmenu, begrippen, transcript, checkvraag 5, docentdeel). De gesproken zin "Voor havo en vwo gaan we nog een stap verder." wordt door de speler weggeknipt (`vwoCuts`) en staat niet in het transcript. Interne sleutels (`level: vwo`, `data-v="havovwo"`) zijn ongewijzigd.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

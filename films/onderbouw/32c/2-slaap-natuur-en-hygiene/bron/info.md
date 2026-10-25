@@ -97,3 +97,7 @@ Gewone spelling (eleven_v4); jaartallen als "in het jaar …". Blinde Scribe-con
 - Alle mensen zijn vaste personages; Dr. Kim speelt de arts uit 1847 (Semmelweis zelf wordt niet als persoon getekend).
 - Geen voorschriften over schermtijd; "fel licht in de avond" is het natuurkundige feit.
 - Het uitzicht-onderzoek (1984) is één klein onderzoek; daarom staat het naast het sterkere bijziendheidsonderzoek (docentdeel).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

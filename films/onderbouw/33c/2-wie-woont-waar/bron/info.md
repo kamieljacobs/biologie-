@@ -91,3 +91,7 @@ Geen blobs: `film.src.html` = `index.html`, regelnummers zijn gelijk.
 - **Uitspraak:** wachtlijst in `uitspraak.md` (biotische, ecosysteem, fennek, pissebedden, concurrentie, "min veertig").
 - **Eindreview:** gedaan door de bouwer op contactbladen (lage resolutie) en een speeltest (Basis/Uitdaging × Vragen aan/uit × 1,5×, geen JS-fouten); er was in deze sessie geen aparte frisse helper beschikbaar. Gevonden en verwerkt: Lotte stond met haar rug naar de steen; labels 'hetzelfde voedsel' en de vossen overlapten; thermometerlabel in de doorsnede liep over de vetlaag.
 - **Overlap:** *Plek genoeg?* (bovenbouw) heeft tolerantiegrenzen en niche; deze film noemt die woorden niet. Natuurlijke selectie alleen als verwijzing naar film 1.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

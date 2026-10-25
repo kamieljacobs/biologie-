@@ -76,4 +76,8 @@ Wat levert de natuur ons gratis? Bestuiving van fruit en groente. Schoon water u
 
 **s13** · 3:56.0 · `audio/s13.mp3` · 12.0 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. De natuur levert ons gratis diensten: ecosysteemdiensten.
+2. Bestuiving, schoon water en bescherming tegen de zee.
+3. Wie de natuur beschadigt, raakt die diensten kwijt.

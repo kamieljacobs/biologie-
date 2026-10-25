@@ -141,3 +141,7 @@ Grijze poppetjes en het 'Michelin'-lichaam vervangen (BEELDAFSPRAKEN, Personages
 - s01 ('Je sprint naar de overkant'): `gang:'sprint'`; de camera volgt half (Lotte schuift van x 380 naar 1220) en de gymzaal schuift de rest, samen precies `grondV(h,'sprint')`, dus de steunvoet staat stil op de vloer. De pas begint bij 'sprint' met het eerste voetcontact (t − tS). Label 'hart bonkt' iets verder naar rechts (viel over de hand).
 - s17 ('En de gymles?'): Lotte rent (`gang:'ren'`, `vooruit:true` met x = 900 − v·t) en de vloerstrepen schuiven met exact dezelfde v; het donkere vlak over de sla is dekkender (0,95) zodat de slaplant niet meer achter haar hoofd doorschemert.
 - Gecontroleerd met stills per 1/30 s en gemeten enkelpositie t.o.v. de vloer: tijdens de steunfase staat de voet stil (alleen het afrollen over de bal), met zweeffase. Geen paginafouten; poppetjesdetector 0 treffers.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

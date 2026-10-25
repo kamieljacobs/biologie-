@@ -75,9 +75,8 @@ s13(ctx,t,q){ bg(ctx,'schema'); const tD=q.at('DNA'), tT=q.at('twee,'), tDo=q.at
   K.forEach(([tt,lab,fn],i)=>{ const x=300+i*440; alpha(ctx,ramp(t,tt-0.3,0.4),()=>{ kaart(x-200,220,400,400,C.paars,1); fn(x,400); ctx.font=fTekst(28,700); ctx.fillStyle=C.text; ctx.textAlign='center'; wrap(ctx,lab,x,540,340,36); }); });
   haak(ctx,100,1820,650,'zo kan een wit jong twee zwarte ouders hebben',C.groen,ramp(t,tZ-0.3,0.5)); },
 // ---- eindkaart ----
-s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'dna en overerving',120,260,C.grain,'left',26);
-  const P=[['Muntjes-kruising','Gooi met twee munten: kop = zwart-gen, munt = wit-gen. Elke worp is één jong. Doe 20 worpen. Hoeveel jongen zijn wit?'],['Tongrollen','Kun je je tong rollen? Vraag het aan tien mensen. (Let op: hier spelen meer genen mee dan je denkt.)'],['DNA uit fruit','Haal met afwasmiddel, zout en koude alcohol DNA uit een banaan of aardbei (met je docent).']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een zwarte en een witte cavia krijgen alleen zwarte jongen. Wat weet je dan over de genen van de zwarte ouder?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Genen in je DNA zijn recepten voor eigenschappen.','Van elk gen heb je er twee, één van elke ouder.','Een recessief gen zie je alleen als het dubbel is.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

@@ -101,4 +101,8 @@ Lucht gaat door je neus en luchtpijp naar je longen. In de longblaasjes gaat zuu
 
 **s18** · start 5:42.3 · 12.0 s · `audio/s18.mp3`
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. In de longblaasjes gaat zuurstof het bloed in.
+2. Je hart pompt het bloed naar haarvaten bij elke cel.
+3. Ademhaling en bloedsomloop werken samen als één ketting.

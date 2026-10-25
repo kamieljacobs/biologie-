@@ -116,4 +116,8 @@ Van klein naar groot. Een cel. Een weefsel: dezelfde cellen met dezelfde taak. E
 
 **s18** · `audio/s18.mp3` · 0.0–1.3 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Cel, weefsel, orgaan, orgaanstelsel, organisme.
+2. Een orgaan is gemaakt van verschillende weefsels met één taak.
+3. Organen werken samen: je hele lichaam doet mee.

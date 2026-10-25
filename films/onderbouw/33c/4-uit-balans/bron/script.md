@@ -76,4 +76,8 @@ Hoe herstelt een bos na een brand? Vanzelf, stap voor stap: eerst pioniers, dan 
 
 **s13** · 3:41.7 · `audio/s13.mp3` · 12.0 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Na een verstoring herstelt de natuur stap voor stap: successie.
+2. Eerst pioniers, dan struiken, dan bomen.
+3. Aantallen dieren gaan op en neer rond een evenwicht.

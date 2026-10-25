@@ -89,3 +89,7 @@ Stem-invoer: gewone spelling (eleven_v4), plus de goedgekeurde regel koolstofdio
 - "Het stevige hout is vooral gemaakt uit lucht" — vereenvoudiging, zie docentdeel.
 - De wilg is een schematische treurwilg; de pot staat niet op schaal.
 - De nacht wordt in Schema getoond (dag/nacht-pil), niet als Macro-landschap (Part C3: één film wisselt niet tussen dag en nacht in Macro).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

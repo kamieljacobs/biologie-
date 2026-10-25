@@ -85,3 +85,7 @@ Geen respellings. **Wachtlijst:** biceps, triceps, beenmerg, kraakbeen, gewricht
 - De schedel is bewust niet het voorbeeld van samengroeien (de schedelbeenderen blijven aparte botten met naden); de film gebruikt het heupbot.
 - Hefboom-getallen zijn afgerond en vereenvoudigd (gewicht van de onderarm niet meegeteld); in beeld staat "vereenvoudigd".
 - Sam is het enige personage; de eindkaart vraagt niets over het eigen lichaam (armmodel en kippenvleugel).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

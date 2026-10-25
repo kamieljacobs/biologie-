@@ -57,7 +57,9 @@ Bacteriën, schimmels en virussen zijn microben. De meeste zijn onschuldig, en v
 ## Eindkaart
 
 **s13** (3:50.4, 12.0 s, `audio/s13.mp3`)  
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
 
-
+1. Bacteriën, schimmels en virussen zijn microben.
+2. De meeste microben zijn onschuldig of helpen je.
+3. Een antibioticum helpt tegen bacteriën, niet tegen virussen.
 Totaal ± 4:02 (zonder wachttijd bij de vragen).

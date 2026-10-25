@@ -108,3 +108,7 @@ Zie `uitspraak.md`.
 - De film bouwt alleen op *Alles is cel* (celkern). Hoe de genen van twee ouders samenkomen, komt in film 2 en film 6.
 - Het onderzoekje "licht of donker" op de eindkaart is nog geen werkblad op de site.
 - De eindcontrole is niet door een aparte helper gedaan (zie `reviews/review_eind.md`).
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

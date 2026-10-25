@@ -91,4 +91,8 @@ Een plant eet geen aarde. Hij maakt zijn eigen voedsel: fotosynthese. Wortels ha
 
 **s15** · `audio/s15.mp3` · take 1.2 s · filmtijd (Uitdaging, vragen aan, zonder hoofdstukkaarten) 4:42.2
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Een plant maakt zijn eigen voedsel: fotosynthese.
+2. Uit water, koolstofdioxide en licht ontstaan suiker en zuurstof.
+3. Een plant is vooral gemaakt van water en lucht.

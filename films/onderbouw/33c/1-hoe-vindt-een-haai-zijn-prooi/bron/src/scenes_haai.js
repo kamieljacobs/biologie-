@@ -335,12 +335,10 @@ s19(ctx,t,q){ sea({t}); const lit=[ramp(t,q.at('Ver'),0.3),ramp(t,q.at('zien'),0
   pill(ctx,960,400,'een zee zonder haaien: echt een probleem',C.groen,ramp(t,q.at('Maar'),0.5),30);
 },
 // Eindkaart
-s20(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,190,fTitel(80),C.text); metaText(ctx,'voel de trilling, net als een zijlijn',120,250,C.grain,'left',24);
-  alpha(ctx,ramp(t,0.6,0.6),()=>{ roundRect(ctx,120,320,1000,420,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,'Voel de trilling',160,384,fTekst(40,600),C.goud);
-    ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; let yy=440; ['Werk met z\'n tweeën en een bak water.','Eén houdt een hand stil in het water, ogen dicht.','De ander beweegt een hand door het water, steeds verder weg.','Tot welke afstand voel je het nog?'].forEach(s=>{ yy=wrap(ctx,'· '+s,160,yy,920,42)+50; }); });
-  alpha(ctx,ramp(t,1.6,0.6),()=>{ roundRect(ctx,1180,320,620,420,14); shape(ctx,rgba(C.bgSchema,0.95),C.goud,1.5); text(ctx,'Denkvraag',1220,384,fTekst(36,600),C.goud);
-    ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,'In troebel water ziet een haai bijna niets. Welke zintuigen helpen hem dan nog, en vanaf welke afstand?',1220,440,540,44); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s20(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['De zintuigen van een haai lossen elkaar af.','Ver weg: horen en ruiken. Dichtbij: zien en de zijlijn.','Het laatste stukje vindt hij met zijn elektrisch zintuig.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };
 // de baai (Macro-nacht, doorsnede: links ondiep, rechts diep)
 function bayScene(t,o){ const A=o.in===undefined?1:o.in; sea({t,bodem:800,gras:false});

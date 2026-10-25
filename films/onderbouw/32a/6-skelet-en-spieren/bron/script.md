@@ -71,4 +71,8 @@ Je skelet geeft stevigheid en bescherming. Waar botten elkaar raken, zit een gew
 
 **s14** · start 4:31.6 · 12.0 s · `audio/s14.mp3`
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Je skelet geeft stevigheid en bescherming.
+2. Een spier kan alleen trekken.
+3. Daarom werken spieren in paren: de een buigt, de ander strekt.

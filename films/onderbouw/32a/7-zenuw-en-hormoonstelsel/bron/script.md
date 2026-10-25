@@ -77,4 +77,8 @@ Je organen praten op twee manieren. Je zenuwstelsel: zintuigen vangen iets op, z
 
 **s15** · `audio/s15.mp3` · take 1.2 s · filmtijd (Uitdaging, vragen aan, zonder hoofdstukkaarten) 5:18.1
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Je zenuwstelsel is snel, kort en gaat naar één plek.
+2. Je hormoonstelsel werkt via je bloed: langzamer, overal en lang.
+3. Samen sturen ze je organen aan.

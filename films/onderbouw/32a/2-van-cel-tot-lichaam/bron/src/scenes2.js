@@ -318,9 +318,8 @@ s17(ctx,t,q){ bg(ctx,'schema'); const al=[ramp(t,q.at('cel'),0.5),ramp(t,q.at('w
   const gym=ramp(t,q.at('gymles'),0.5); alpha(ctx,gym,()=>{ ctx.fillStyle=rgba(C.bgSchema,0.95); ctx.fillRect(0,0,W,H); const vG=grondV(400,'ren'), sc=vG*t; /* v1.2: vloer schuift exact mee met de pas */ ctx.fillStyle=rgba('#3A3550',0.9); ctx.fillRect(0,800,W,100); ctx.strokeStyle=rgba(C.goud,0.45); ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(0,840); ctx.lineTo(W,840); ctx.stroke(); ctx.strokeStyle=rgba('#E8833A',0.4); for(let x=-(sc%480);x<W+480;x+=480){ ctx.beginPath(); ctx.moveTo(x,806); ctx.lineTo(x-30,900); ctx.stroke(); } renner(900-vG*t,800,400,t,{vooruit:true,hart:1,adem:0.8,puf:0.8,beat:t*12,breath:t*7}); pill(ctx,960,150,'je spieren werken nooit alleen: je hele lichaam doet mee',C.goud,ramp(t,q.at('hele'),0.5),32); });
 },
 // ---- eindkaart: probeer het zelf (speelt 12 s) ----
-s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'zet op de trap: cel · weefsel · orgaan · orgaanstelsel · organisme',120,260,C.grain,'left',26);
-  const P=[['Mens','rode bloedcel · bloed · hart · bloedvatenstelsel · jij'],['Plant','bladmoescel · bladmoes · blad · wortelstelsel · slaplant'],['Celbouwer en microscoop','Bekijk in de virtuele microscoop het uienvlies: één weefsel, allemaal dezelfde cellen.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,450,480,42); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Welke van de vijf is een weefsel? En waarom is een bot een orgaan en geen weefsel?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s18(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Cel, weefsel, orgaan, orgaanstelsel, organisme.','Een orgaan is gemaakt van verschillende weefsels met één taak.','Organen werken samen: je hele lichaam doet mee.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

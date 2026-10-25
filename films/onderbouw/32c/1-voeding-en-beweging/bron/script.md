@@ -63,7 +63,9 @@ Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig. En wat
 ## Eindkaart
 
 **s15** (4:08.7, 12.0 s, `audio/s15.mp3`)  
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
 
-
+1. Je lichaam heeft brandstoffen, bouwstoffen en beschermende stoffen nodig.
+2. Ook water en vezels zijn belangrijk.
+3. Botten en spieren worden sterker als je ze gebruikt.
 Totaal ± 4:21 (zonder wachttijd bij de vragen).

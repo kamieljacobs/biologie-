@@ -186,8 +186,7 @@ const SCENES = {
     const half = q.on('Sanne', 1);
     glucoseKring(ctx, { cx: 960 - 300 * half, rx: 560 - 120 * half, cy: 470, a: 1, arr: [1, 1, 1, 1], minus: q.on('terugkoppeling', 1), pulse: (t / 6) % 1, nA: [q.on('alvleesklier', 1), q.on('bètacellen', 1), q.on('Insuline', 1), q.on('spieren', 1)], hormoon: q.on('glucagon', 1) > 0.5 ? 'beide' : 'insuline' });
     if (half > 0.01) { ctx.save(); ctx.globalAlpha *= half; ctx.translate(1450, 0); ctx.scale(0.9, 0.9); person(ctx, 120, 800, 560, 1, SANNE); sensor(ctx, 120 - 78, 800 - 560 + 560 / 6.6 * 1.9, 16, 1); insulinePomp(ctx, 210, 800 - 560 + 560 / 6.6 * 3.0, 1.1, 1); ctx.restore(); regel(ctx, 'sensor + pomp nemen het over', 1560, 160, half, C.goud, 32, 'center'); }
-    tag(ctx, 'je lichaam meet het zelf en stuurt bij', 700, 860, C.goud, q.on('antwoord', 1) * (1 - q.on('Regelkring', 1)));
-    tag(ctx, 'Regelkring-tool op de site', 960, 860, C.teal, q.on('Regelkring', 1));
+    tag(ctx, 'je lichaam meet het zelf en stuurt bij', 700, 860, C.goud, q.on('antwoord', 1));
   },
 };
 function pijlBig(ctx, x0, y0, x1, y1, col, a, lab, sub) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke(); const an = Math.atan2(y1 - y0, x1 - x0); ctx.fillStyle = col; ctx.beginPath(); ctx.moveTo(x1 + Math.cos(an) * 30, y1 + Math.sin(an) * 30); ctx.lineTo(x1 + Math.cos(an + 2.4) * 40, y1 + Math.sin(an + 2.4) * 40); ctx.lineTo(x1 + Math.cos(an - 2.4) * 40, y1 + Math.sin(an - 2.4) * 40); ctx.closePath(); ctx.fill(); text(ctx, lab, x0 + (x0 < 960 ? -40 : 40), (y0 + y1) / 2, fTitel(44), col, x0 < 960 ? 'right' : 'left'); metaText(ctx, sub, x0 + (x0 < 960 ? -40 : 40), (y0 + y1) / 2 + 40, C.grain, x0 < 960 ? 'right' : 'left', 24); ctx.restore(); }

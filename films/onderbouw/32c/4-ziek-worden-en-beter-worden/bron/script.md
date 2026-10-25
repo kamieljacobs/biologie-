@@ -60,7 +60,9 @@ Je wordt ziek als een ziekteverwekker binnenkomt en zich vermenigvuldigt. Je afw
 ## Eindkaart
 
 **s14** (3:30.7, 12.0 s, `audio/s14.mp3`)  
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
 
-
+1. Je wordt ziek als een ziekteverwekker zich in je vermenigvuldigt.
+2. Je afweer ruimt hem op en onthoudt hem.
+3. Met een vaccin oefent je afweer zonder dat je ziek wordt.
 Totaal ± 3:43 (zonder wachttijd bij de vragen).

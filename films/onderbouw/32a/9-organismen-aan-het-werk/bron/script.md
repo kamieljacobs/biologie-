@@ -66,11 +66,15 @@ Biotechnologie kan nog verder gaan. Mensen met suikerziekte hebben insuline nodi
 
 **s13** · `audio/s13.mp3` · take 23.28 s · filmtijd (Uitdaging, vragen aan, zonder hoofdstukkaarten) 4:16.1
 
-Gist maakt gas: het deeg rijst. Melkzuurbacteriën maken melk zuur en dik. Sluipwespen ruimen bladluizen op. Bacteriën in de pens verteren gras voor de koe. Organismen voor ons laten werken: biotechnologie. En je pizzadeeg? Opgeblazen door miljarden levende gistcellen. Hoe warm wil gist het hebben? Dat kun je zelf onderzoeken.
+Gist maakt gas: het deeg rijst. Melkzuurbacteriën maken melk zuur en dik. Sluipwespen ruimen bladluizen op. Bacteriën in de pens verteren gras voor de koe. Organismen voor ons laten werken: biotechnologie. En je pizzadeeg? Opgeblazen door miljarden levende gistcellen.
 
 
 ## Eindkaart
 
 **s14** · `audio/s14.mp3` · take 1.2 s · filmtijd (Uitdaging, vragen aan, zonder hoofdstukkaarten) 4:39.9
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Gist, bacteriën en sluipwespen werken voor de mens.
+2. Organismen voor ons laten werken heet biotechnologie.
+3. Deeg rijst doordat gistcellen gas maken.

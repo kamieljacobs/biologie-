@@ -179,9 +179,8 @@ s14(ctx,t,q){ const tM=q.at('meer'), tE=q.at('Elke'), tA=q.at('Alle'), tR=q.at('
     if(i===2){ schimmel(x-60,480,0.8); for(let k=0;k<5;k++) dot(ctx,x+hash(k)*40,490+hash(k*3)*20,4,C.oker); kruid(x+110,520,0.9); } }); });
   haak(ctx,80,1840,600,'haal je één soort weg, dan verandert er meer',C.groen,ramp(t,tH,0.5)); },
 // ---- eindkaart ----
-s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'wie eet wie',120,260,C.grain,'left',26);
-  const P=[['Bladproef','Leg een paar dode bladeren in een bakje met vochtige aarde en een in een droog bakje. Kijk elke week. Waar verdwijnen ze het snelst?'],['Webkaartjes','Schrijf tien bosdieren en -planten op kaartjes. Leg ze neer en verbind ze met touwtjes: van voedsel naar eter.'],['Haal er één weg','Knip in je web één touwtje door, of haal één kaartje weg. Welke andere kaartjes merken dat?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'In een sloot eten kikkers muggenlarven, en reigers eten kikkers. Wat gebeurt er met de muggen als de reigers verdwijnen? Leg uit.',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s15(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Elke voedselketen begint bij een plant.','Alle ketens samen vormen een voedselweb.','Reducenten maken van dode resten weer voedsel voor planten.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

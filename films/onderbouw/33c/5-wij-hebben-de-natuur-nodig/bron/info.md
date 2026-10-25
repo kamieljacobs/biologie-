@@ -68,3 +68,7 @@ Zoals in film 2. Let op cue-woorden die vaker voorkomen: in s07 is 'water,' het 
 - **Uitspraak:** wachtlijst in `uitspraak.md`.
 - **Eindreview:** door de bouwer op contactbladen en speeltest (geen JS-fouten); geen aparte frisse helper beschikbaar. Verwerkt: kop 'ecosysteemdiensten' verscheen pas na de eerste kaartjes; slotzin in de samenvatting was onleesbaar (donker op licht) en is nu een pil; de schaal-meta botste met de tekst over driekwart.
 - **Overlap:** biologische bestrijding (32A film 9) en voetafdruk/klimaat (*Eén aarde*) bewust weggelaten.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

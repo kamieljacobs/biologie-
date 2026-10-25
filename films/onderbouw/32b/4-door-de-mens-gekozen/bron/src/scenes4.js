@@ -108,10 +108,9 @@ s12(ctx,t,q){ bg(ctx,'schema'); const tV=q.at('Veredelen'), tG=q.at('Genetische'
   kasDag(); persoon(ctx,'lotte',760,900,560,{outfit:'zomer',pose:'vasthouden',uit:'lacht',kijk:1,t,hold:(c,x,y)=>tomaat(x+20,y-10,40,1)});
   alpha(ctx,ramp(t,tL+0.4,0.5),()=>{ ctx.fillStyle=rgba(C.bgSchema,0.94); roundRect(ctx,1100,280,620,120,18); ctx.fill(); ctx.strokeStyle=C.goud; ctx.lineWidth=2; ctx.stroke(); text(ctx,'gekozen door mensen',1410,335,fTekst(38,700),C.goud,'center'); metaText(ctx,'duizenden jaren lang',1410,380,C.grain,'center',24); }); },
 // ---- eindkaart ----
-s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'door de mens gekozen',120,260,C.grain,'left',26);
-  const P=[['Supermarkt-speurtocht','Hoeveel soorten tomaten (of appels) vind je in de winkel? Noteer grootte, kleur en smaak. Waarvoor zijn ze gekozen?'],['Rassen vergelijken','Zoek drie hondenrassen op. Waarvoor werden ze gefokt (jagen, waken, gezelschap)? Welke lichaamsbouw hoort daarbij?'],['Debat','Stelling: "Genetisch gemodificeerd voedsel moet in de winkel mogen." Zoek één argument voor en één tegen.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Een boer wil koeien die minder snel ziek worden. Hoe kan hij dat doen met fokken? Wat is daarbij een risico?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s13(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Bij veredelen en fokken kiest de mens de beste planten en dieren.','Dat gaat generatie na generatie.','Bij genetische modificatie veranderen onderzoekers zelf de genen.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };
 function bacterieDeling2(x,y,s){ roundRect(ctx,x-50*s,y-18*s,100*s,36*s,18*s); shape(ctx,rgba(C.teal,0.45),lighten(C.teal,0.35),1.6); }

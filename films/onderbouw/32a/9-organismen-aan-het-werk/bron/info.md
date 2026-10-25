@@ -89,3 +89,7 @@ Stem-invoer: gewone spelling (eleven_v4), plus de goedgekeurde regel koolstofdio
 ## Versie 1.1 · 21 oktober 2026: realistisch lichaam bij 'je eigen dikke darm'
 
 Alleen beeld. In s08 is het grijze poppetje met een buisje vervangen door het realistische lichaam uit `lib_anatomie.js` (kopie in `src/lib_anatomie.js`): de dikke darm licht op en er wemelen bacteriën doorheen (`darmBewoners`). Als het lichaam verschijnt, vervaagt de yoghurtpot. `src/lib_cast.js` is bijgewerkt naar het actuele castboek; `bouw.py` neemt de eigen kopieën (castboek en anatomie) vóór `scenes9.js`. In `index.html` zijn alleen het castblok en het scèneblok vervangen.
+
+## Wijziging 25 okt 2026
+
+- Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). Ook in de samenvatting (s13) de zinnen 'Hoe warm wil gist het hebben? Dat kun je zelf onderzoeken.' uit de audio geknipt en de thermometer met vraagteken weggehaald. De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.

@@ -84,4 +84,8 @@ Wat gebeurt er als de wolf verdwijnt? Er komen meer reeën en herten, en minder 
 
 **s15** · 3:57.7 · `audio/s15.mp3` · 12.0 s
 
-Probeer het zelf.
+Geen gesproken tekst meer (25 okt 2026, prompt v10 aanvulling: geen verwijzingen naar tools). Het fragment is stilte; de eindkaart 'Onthoud' toont drie kernzinnen:
+
+1. Elke voedselketen begint bij een plant.
+2. Alle ketens samen vormen een voedselweb.
+3. Reducenten maken van dode resten weer voedsel voor planten.

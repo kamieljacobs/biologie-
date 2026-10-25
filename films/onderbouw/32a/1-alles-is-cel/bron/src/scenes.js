@@ -331,9 +331,8 @@ s18(ctx,t,q){ bg(ctx,'schema'); const tS=q.at('slappe'); const cA=1-ramp(t,tS-0.
     pill(ctx,760,170,'het water was uit elke vacuole verdampt',C.teal,fadeIO(t,q.at('Het'),q.at('koud'),0.5),30); pill(ctx,960,170,'in koud water liep elke vacuole weer vol',C.groen,ramp(t,q.at('vol'),0.5),30); });
 },
 // ---- eindkaart: probeer het zelf (speelt 12 s, stem alleen aan het begin) ----
-s19(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'met de microscoop van school',120,260,C.grain,'left',26);
-  const P=[['Uienvlies','Een dun vliesje van een ui. Kijk naar de celwand en de kern.'],['Wangcellen','Schraap zacht met een wattenstaafje. Kleur met methyleenblauw.'],['Blaadje waterpest','Een waterplant. Zoek de groene korrels.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(32); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,450,480,42); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'In welk preparaat zie je bladgroenkorrels? En waarom zie je ze niet in het uienvlies?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s19(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Alles wat leeft, is gemaakt van cellen.','Een plantencel heeft ook een celwand, een grote vacuole en bladgroenkorrels.','Slappe sla is weer stevig als elke vacuole volloopt met water.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.2 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

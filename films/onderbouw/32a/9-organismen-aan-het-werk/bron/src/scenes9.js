@@ -147,19 +147,17 @@ s12(ctx,t,q){ bg(ctx,'schema'); const tI=q.at('insuline'), tV=q.at('Vroeger'), t
   tank(1560,780,380,420,t,ramp(t,tT,0.5)); alpha(ctx,ramp(t,tT,0.5),()=>{ metaText(ctx,'miljarden tegelijk',1560,830,C.grain,'center',22); [1440,1520,1600,1680].forEach((x,i)=>insuline(x,280,0.8,ramp(t,tT+0.5+i*0.3,0.3))); });
 },
 // ---- samenvatting ----
-s13(ctx,t,q){ bg(ctx,'schema'); const tP=q.at('pizzadeeg?'), tO=q.at('onderzoeken.');
+s13(ctx,t,q){ bg(ctx,'schema'); const tP=q.at('pizzadeeg?');
   if(t<tP-0.4){ ctx.strokeStyle=C.line; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(160,640); ctx.lineTo(1760,640); ctx.stroke();
     const K=[['gist','brood',q.at('Gist')],['melkzuurbacteriën','yoghurt',q.at('Melkzuurbacteriën')],['sluipwespen','paprika zonder gif',q.at('Sluipwespen')],['bacteriën in de pens','gras verteerd',q.at('pens')]];
     K.forEach(([a,b,tt],i)=>{ const x=340+i*410; alpha(ctx,ramp(t,tt-0.2,0.4),()=>{ roundRect(ctx,x-180,200,360,400,16); shape(ctx,rgba(C.bgSchema,0.95),C.teal,1.5);
       if(i===0) gistcel(x,330,1.3,1,0.5); if(i===1) { bacterie(x-40,320,1.3,'staaf',1,0.3); bacterie(x+40,350,1.3,'bol',1,-0.2); } if(i===2) sluipwesp(x,330,2.2,1,t); if(i===3){ ctx.save(); ctx.translate(x,380); ctx.scale(0.5,0.5); koe(0,0,1,1,t); ctx.restore(); }
       text(ctx,a,x,470,fTekst(i===3?28:32,700),C.teal,'center'); text(ctx,'→ '+b,x,530,fTekst(28),C.text,'center'); }); });
     haak(ctx,200,1720,660,'biotechnologie: organismen voor ons laten werken',C.groen,ramp(t,q.at('biotechnologie.'),0.5)); return; }
-  kitchenBase(0.35,0); deegkom(820,COUNTER-80,1,t,1,0); pill(ctx,820,300,'miljarden levende gistcellen',C.goud,ramp(t,q.at('Opgeblazen'),0.4),34);
-  alpha(ctx,ramp(t,tO-1.5,0.4),()=>{ thermometer(1500,700,300,0.5,1); text(ctx,'?',1600,500,fTitel(100),C.goud,'center'); }); },
+  kitchenBase(0.35,0); deegkom(820,COUNTER-80,1,t,1,0); pill(ctx,820,300,'miljarden levende gistcellen',C.goud,ramp(t,q.at('Opgeblazen'),0.4),34); },
 // ---- eindkaart ----
-s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'organismen aan het werk',120,260,C.grain,'left',26);
-  const P=[['Ballonproef','Fles met 100 ml water, een theelepel suiker en een theelepel gist, ballon over de hals. Koud, lauw en heet water: welke ballon wordt het grootst?'],['Yoghurt maken','Lauwe melk met een schepje yoghurt in een thermosfles. Na een nacht: wat is er veranderd? Proef alleen met toestemming.'],['Speurtocht','Zoek vijf producten die met gist, bacteriën of schimmels gemaakt zijn. Welk organisme deed het werk?']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,300,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(38,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Je zet pizzadeeg in de koelkast in plaats van op een warme plek. Wat gebeurt er, en waarom?',120,720,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Gist, bacteriën en sluipwespen werken voor de mens.','Organismen voor ons laten werken heet biotechnologie.','Deeg rijst doordat gistcellen gas maken.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };

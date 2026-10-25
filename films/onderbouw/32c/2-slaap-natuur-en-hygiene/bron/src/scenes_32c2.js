@@ -132,9 +132,8 @@ s13(ctx,t,q){ bg(ctx,'schema'); const tDa=q.at('Daglicht'), tBu=q.at('Buiten'), 
       if(i===0) klok24(x+195,520,100,2,1); if(i===1) dot(ctx,x+195,520,60,C.goud); if(i===2) bladerBoom(x+195,640,0.8); if(i===3){ hand(x+195,560,0.7,1); for(let j=0;j<4;j++) zeepMolecuul(x+150+j*30,450,0.5*j,1,1); } }); }); return; }
   slaapkamer(1,t); noorInBed(260,760,t,1-ramp(t,tDa2+1,0.6)); klok24(1000,300,110,7,1); haak(ctx,240,820,800,'de hele nacht doorgewerkt',C.groen,ramp(t,tDa2+0.5,0.5)); },
 // ---- eindkaart ----
-s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Probeer het zelf',120,200,fTitel(80),C.text); metaText(ctx,'slaap, natuur en hygiëne',120,260,C.grain,'left',26);
-  const P=[['Slaap- en buitendagboek','Houd een week bij hoe laat je slaapt, hoe fris je je voelt en hoe lang je buiten was. Zie je een verband? Wat zou je zelf willen veranderen?'],['Glitterproef','Wrijf wat glitter of kaneel op je handen. Spoel eerst alleen met water, daarna met zeep. Wat blijft er zitten? Wat zegt dat over ziekteverwekkers?'],['Uitzicht','Zoek op school het raam met het groenste uitzicht. Vraag tien mensen waar ze het liefst zitten om te leren, en waarom.']];
-  P.forEach((p,i)=>{ const x=120+i*575; alpha(ctx,ramp(t,0.6+i*0.6,0.6),()=>{ roundRect(ctx,x,330,535,330,14); shape(ctx,rgba(C.bgSchema,0.95),C.line,1); text(ctx,p[0],x+28,392,fTekst(36,600),C.goud); ctx.font=fTekst(30); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,p[1],x+28,445,480,40); }); });
-  alpha(ctx,ramp(t,2.6,0.6),()=>{ ctx.font=fTekst(36,600); ctx.fillStyle=C.goud; ctx.textAlign='left'; wrap(ctx,'Semmelweis wist niets van bacteriën. Toch werkte zijn idee. Hoe kon hij zien dat handen wassen hielp?',120,740,1680,46); });
-  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.0 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
+s14(ctx,t,q){ bg(ctx,'schema'); text(ctx,'Onthoud',120,200,fTitel(80),C.text);
+  const K=['Tijdens je slaap slaat je lichaam op, groeit en herstelt het.','Daglicht zet je biologische klok gelijk.','Zeep spoelt ziekteverwekkers weg.'];
+  K.forEach((s,i)=>alpha(ctx,ramp(t,0.4+i*0.8,0.6),()=>{ const y=300+i*170; roundRect(ctx,120,y,1680,140,14); shape(ctx,rgba(C.bgSchema,0.95),i===0?C.goud:C.line,i===0?1.5:1); text(ctx,String(i+1),185,y+90,fTitel(60),C.goud,'center'); ctx.font=fTekst(38); ctx.fillStyle=C.text; ctx.textAlign='left'; wrap(ctx,s,260,y+84,1500,46); }));
+  metaText(ctx,'biologie bij kamiel · stem: roos (elevenlabs) · versie 1.1 · oktober 2026',W/2,CAPTION_Y-10,C.text2,'center',22); },
 };
