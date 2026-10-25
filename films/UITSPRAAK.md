@@ -57,9 +57,33 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | codons | met koppeltekens (C-A-U) | |
 | abiotisch | zoals geschreven | |
 | B (antwoordletter) | bé (Nederlandse B; "bee" klonk Engels) — staat in uitspraak.json; oudere films met "bee" in de stem-invoer: zie WACHTLIJST.md | 21 okt |
-| emergente | emergénte | |
+| emergente | zoals geschreven (25 okt; emergénte en ee-mer-gente afgewezen) | 25 okt |
 | ethyleen, generatief, vegetatief, ledlampen, kilowattuur, larven, huidmondjes, zeefvaten, Westland | zoals geschreven (getest in Meer oogst) | 24 okt |
 | rubisco | ru-biss-koo (korte i van vis; beste van 5 rondes, nog niet perfect: het model rekt de i soms) | 24 okt |
+
+## Uitspraaktest 25 okt 2026 (alle open woorden, eleven_v4, Roos)
+
+Ronde 1: alle 1138 open woorden van de wachtlijsten beluisterd met fragmenten uit de films zelf (luisterpagina https://claude.ai/artifact/JtqGqUPHcuA7Nf5yt1uPzC): 1116 goed zoals ingesproken, 16 fout, 6 twijfel. Ronde 2: per woord drie varianten (https://claude.ai/artifact/JrqYMWNtNuTZBNGi2eW44T, flow https://elevenlabs.io/app/flows/2wNTSsOrqsvWJuv4N9lv). Kamiel koos:
+
+| Woord | Stem-invoer | Afgewezen |
+|---|---|---|
+| ADH | ADH (gewoon) | aa-dee-haa, A-D-H |
+| AI-model | AI-model (gewoon) | aa-ie-model, aa-ie-mo-DEL, A-I-model |
+| Charles Darwin | Charles Darwin (gewoon) | Tsjarls Darwin, Tsjaarlz Daarwin |
+| collageen in een samenstelling | los: 'collageen draden' (echte Nederlandse g; aan elkaar werd het zj) | collageendraden, kollaazjeen-draden, kol-la-ZJEEN-draden, kolla-geen-draden, kollaageen-draden |
+| DSD | DSD (gewoon) | dee-es-dee, D-S-D |
+| emergente | emergente (gewoon) | ee-mer-gente, emergénte, emmer-gente |
+| HAN (hogeschool) | Han (als één woord, niet H-A-N) | Haa-Aa-En |
+| knock-outmuis | knock-outmuis (gewoon) | knok-outmuis, nok-aut-muis |
+| RNA-polymerase | RNA-polymerase (gewoon) | erenaa-polymerase |
+| uv-straling | UV-straling | uu-vee-straling (klemtoon fout) |
+| vitamine B6 | vitamine B6 (gewoon) | vitamine bee-zes, vitamine bee-ZES |
+| Sams (Nederlandse Sam) | nog geen goede variant (Sams, Sàms, Samms afgewezen) | |
+| toa | nog geen goede variant (toa, too-waa, T-O-A afgewezen) | |
+
+Wisselvallig (zelfde invoer, één take goed en één fout; alleen die alinea opnieuw): ALAT, biosfeerintegriteit, fMRI, Jones, PCR, tyfoon, trombocyten.
+
+Les (derde keer bevestigd): bij eleven_v4 is de gewone spelling bijna altijd het best; respellings als dee-es-dee, uu-vee of aa-ie maakten het juist fout. Uitzondering: een samenstelling met een leenwoord (collageen) kan beter los geschreven worden.
 
 ## Uitspraaktest 24 okt 2026 (eleven_v4, Roos; Chromosomen + Signalen in de cel)
 
