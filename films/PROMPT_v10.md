@@ -17,7 +17,7 @@ Onderbouw: when AUDIENCE is onderbouw (leerjaar 1–3), also paste Part D. Part 
 
 Autonomous mode: with a filled-in series brief and the bouwlijst ("Bouwlijst uitlegfilms biologie"), Claude builds the films of a series one after another without waiting for approval (B7). Kamiel reviews later, in batches, from the checkpoint pages and the films on the site.
 
-Storage: every film lives in the site repository (kamieljacobs/biologie-) with a bron/ folder next to it (B12). To change an existing film, give its path under PREVIOUS VERSION and follow B13; no film brief is needed for a small fix.
+Storage: every film lives in the site repository (kamieljacobs/biologie-) with a bron/ folder next to it (B12). To change an existing film, give its path under PREVIOUS VERSION and follow B13; no film brief is needed for a small fix. To choose between a gerichte ronde and a remake, see B16.
 
 ## Part A1 — Film brief
 
@@ -374,6 +374,15 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 
 Nothing really disappears: removed rules go to the appendix Uitgestorven regels with date and reason, so they can always come back.
 
+### 16. Omvang kiezen: gericht of remake
+
+Kamiel kiest per film hoe groot de ingreep is (25 okt 2026: 'soms kleine snelle veranderingen, soms grotere remakes'; het moet echt impact hebben op de les). Without his choice, B13/B14 apply as before.
+
+- **Gericht.** Kamiel names one to three points where students get stuck in this film (a concept they still don't get afterwards, an animation that doesn't show the mechanism, a misconception left untouched, a film too long for the lesson). Only those scenes change: a new or clearer animation, an extra question on that spot, at most a few re-recorded paragraphs (B13). No verbeterblad, no variants; the rest of the film stays as it is. A gerichte ronde is an explicit exception to 'verbeteren = meteen opwaarderen': the promptstempel stays, info.md gets 'gerichte ronde (datum): …', and the film stays on the list for a later upgrade or remake. Cosmetic fixes without effect in class (only pronunciation, only sources) are not a gerichte ronde.
+- **Lichte remake.** The film is rebuilt on the newest prompt, with the old script as skeleton: leerdoelen, chapter order and what worked stay; every paragraph, example, question and misconception is reviewed critically against the old film, the bronnenlogboek and the newest rules. One reviewed script instead of three variants (B15 is skipped, unless Kamiel asks for it); the blinde beoordelaar is optional, as a check old vs new. Picture fully rebuilt in the current straat (C8–C10, library first), new narration (Roos, current model, uitspraaklijst), bronnenlogboek, fresh visual review (C10.7). Kamiel judges only the twijfelscènes (B7) and the finished film. The old film moves to `bron/oud/` and stays online until Kamiel approves the new one. Example: Chromosomen 2.0/2.1.
+- **Volledige remake.** As lichte remake, but with B15 (three script/storyboard variants, blinde beoordelaar, combining). Only when the old script itself doesn't work, or when Kamiel asks.
+- **Kosten in mind.** A remake is roughly 70–80% of the work of a new film and the narration costs ±700 ElevenLabs credits per spoken minute. Do remakes in the order Kamiel uses the films in class, a few per week, not a whole series at once.
+
 ## Part C — Beeldstijl
 
 Every film has one look, built from three scene looks and one fixed UI layer. The look of a scene follows from its scale level, never from the topic or the chapter type. These rules are binding; Part B1 ranks them above visual ambition and length. Kamiel's general visual feedback is collected in films/BEELDAFSPRAKEN.md in the site repo: read it before every film; it is binding too and wins over Part C where they differ.
@@ -691,6 +700,8 @@ Part C stays, with these adjustments:
 Kerndoel 32D (relationele en seksuele gezondheid) gets no films for now. If it is added later, it needs its own rules first.
 
 ## Wijzigingen
+
+✦ v10 aanvulling (25 okt 2026): new B16 Omvang kiezen — gericht (1–3 points where students get stuck, exception to verbeteren = meteen opwaarderen), lichte remake (old script as skeleton, one reviewed script, new picture and voice on the newest prompt, old film in bron/oud/ until approved) and volledige remake (with B15). First used for Wat is DNA?, DNA kopiëren, Celdeling and Geslachtsorganen en puberteit.
 
 ❖ v9 (22 okt 2026): new B15 Variatie en selectie: 3 script/storyboard variants per film with one grote mutatie, a blinde beoordelaar (other model, blind labels, scores per criterion on a fitnesscheck), recombination, scene variants only for hard animations, whole-film variants only with Kamiel's approval; big animation mutations (diepte en licht, animatieprincipes, rijkere illustratie, andere techniek) tested first on a fixed benchmarkscène; erfelijk maken via a Proefregels list (promote after 2–3 wins or Kamiel's OK, drop rules that keep losing); onderhoudsbeurt every \~3 versions (litteken / verhuisd / dubbel / twijfel with knock-out-test, appendix Uitgestorven regels); mutatiepool with a dobbelsteen, logboek with win rate, genen van buiten, student data as selection; when many mutations lose, three questions (top, pool, criteria) against a vaste meetlat; borrowed from AlphaEvolve, FunSearch and Promptbreeder: cheap checks first, a varied archive, winners and losers in the generator's context, fast model for breadth and strongest model for depth, small targeted edits.
 
