@@ -345,5 +345,6 @@ document.querySelectorAll('[data-gang]').forEach(b => b.onclick = () => { gang =
 document.getElementById('lijnen').onclick = (e) => { LIJN = !LIJN; e.target.classList.toggle('aan', LIJN); e.target.textContent = LIJN ? 'Contourlijnen aan' : 'Contourlijnen uit'; };
 document.getElementById('pauze').onclick = (e) => { pauze = !pauze; if (pauze) tPauze = (performance.now() - t0) / 1000; else t0 = performance.now() - tPauze * 1000; e.target.textContent = pauze ? 'Verder' : 'Pauze'; };
 </script>
+<p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body>
 </html>
