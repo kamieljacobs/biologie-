@@ -19,3 +19,5 @@ Stem Roos, eleven_v4, één take per alinea (flow RgF3tlYw8b8stHF8tMpV). Film-ei
 | zesennegentig | zesenneguntig (reeksregel 'negentig') | s08 | nog beluisteren |
 | Biologie en Medisch Laboratoriumonderzoek, biologisch-medisch, mbo-opleiding, hbo | gewone spelling | s15 | nog beluisteren |
 | Antwoord c / a / bé | cee / aa / bé (reeksregels) | s04, s07, s10, s13 | — |
+
+Heropname 25 okt 2026: s08 (PCR, wisselvallig; zelfde stem-invoer pee-cee-er), 706 credits, 1 take.

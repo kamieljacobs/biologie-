@@ -15,4 +15,6 @@ Stem Roos (`7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per alinea (20
 | ruggenmerg | RUG-gən-merg | ruggenmerg | s10 |
 | heupbot | HEUP-bot | heupbot | s05 |
 | basket | BAS-kət (Engels leenwoord) | basket | s01 |
-| Sams | Sams | Sams | s12 |
+| Sams | (vervallen: zin herschreven tot "De hersenen van Sam", 25 okt) | - | s12 |
+
+Heropname 25 okt 2026: s12 (tekstwijziging "Sams hersenen" -> "De hersenen van Sam geven een signaal."), 419 credits TTS (Roos, eleven_v4, flow gjR8CE8EzadZLCHBfdpE, generation 1B6SxtysXSTK0dlTbQoW) + Scribe (gratis). Cues van s12 gecontroleerd: hersenen, Zijn, beenspieren, triceps, bloed, Skelet, blijven bestaan.

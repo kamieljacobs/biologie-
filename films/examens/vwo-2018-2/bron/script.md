@@ -134,13 +134,13 @@ De stof: in de thymus rijpen T-cellen. Daar krijgen ze lichaamseigen eiwitten te
 
 _Stem-invoer:_ De stof: in de tiemus rijpen tee-cellen. Daar krijgen ze lichaamseigen eiwitten te zien. tee-cellen die op zo'n lichaamseigen eiwit reageren, worden opgeruimd. Zo leren tee-cellen wat lichaamseigen is. Het antwoord heeft twee schakels. Eén: door insuline in de tiemus worden tee-cellen die op insuline zouden reageren, niet rijp. Twee: daardoor vallen tee-cellen de bètacellen in de alvleesklier, die insuline maken, niet aan.
 
-**s30** · audio `s30.mp3` · 15.2 s · generation `3IHL75wvLsKz4iys5a6D`
+**s30** · audio `s30.mp3` · 14.8 s · generation `1M8z208IhmpBX8sUwTeT`
 
 Vraag 10, meerkeuze. Bij een tijdelijk hoge bloedsuikerspiegel maakt een gezond mens minder urine, via ADH. Neemt de ADH-afgifte toe of af? En de terugresorptie van water?
 
 _Stem-invoer:_ Vraag 10, meerkeuze. Bij een tijdelijk hoge bloedsuikerspiegel maakt een gezond mens minder urine, via A-D-H. Neemt de A-D-H-afgifte toe of af? En de terugresorptie van water?
 
-**s31** · audio `s31.mp3` · 28.4 s · generation `0UrsFVZkvCIsFGpXH27u`
+**s31** · audio `s31.mp3` · 28.4 s · generation `zw28USMRgEksI4OkpyqY`
 
 Begin bij wat gegeven is: er komt minder urine. Dan wordt er dus meer water teruggeresorbeerd in de nieren. En dat komt doordat er meer ADH is. Waarom? Veel glucose verhoogt de osmotische waarde van het bloed. Dat merkt de hypothalamus, en die laat meer ADH afgeven. Het antwoord is D: ADH neemt toe, resorptie neemt toe. Tip: als de uitkomst al in de tekst staat, redeneer dan terug.
 

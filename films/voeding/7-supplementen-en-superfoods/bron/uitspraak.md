@@ -6,7 +6,7 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 |---|---|---|---|
 | vitamine A, C, D, E, K | vitamine AA, SEE, DEE, EE, KAA | `vitamine aa/cee/dee/ee/kaa` | s01, s04, s07, s08, s10, s11, s13, s14, s17, s20, s21 |
 | vitamine B12 | vitamine bee-TWAALF | `bee-twaalf` | s05, s07, s17 |
-| vitamine B6 | vitamine bee-ZES | `bee-zes` | s10 |
+| vitamine B6 | vitamine bee-ZES | `vitamine B6` (gewone spelling sinds 25 okt) | s10 |
 | meta-analyse | MEE-taa-aa-naa-LIE-zə | `meta-analieze` | s20 |
 | chiazaad | TSJIE-jaa-zaat | `tsjia-zaad` | s12 |
 | goji-bessen, superfood, detoxkuur, detoxthee, placebo, bètacaroteen | | zoals geschreven | s12, s11, s13, s17 |
@@ -17,7 +17,7 @@ Opgenomen zonder uitspraaktest vooraf (afspraak 13 okt 2026). Respellings in `bo
 | niacine | nie-jaa-SIE-nə | `nie-jaa-sinuh` | s23, s24, s26 |
 | NAD+ | en-aa-dee plus | `en-aa-dee plus` | s23, s24, s26 |
 | NMN | en-em-en | `en-em-en` | s24, s26 |
-| ATP | aa-tee-pee | `aa-tee-pee` | s21 |
+| ATP | aa-tee-pee | `ATP` (gewone spelling sinds 25 okt) | s21 |
 | vitamine B3 | bee-DRIE | `bee-drie` | s23 |
 | magnesium-threonaat | magnesium-tree-joo-NAAT | `magnesium-tree-oo-naat` | s27 |
 | pellagra, placebogroep, vijftigplussers | | zoals geschreven | s22, s23 |
@@ -44,3 +44,5 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 |---|---|---|---|
 | vitamine A | vitamine A (letter, geen "aa" meer; regel `^A` uit `bouw/uitspraak_film.json` gehaald) | s10, s11 | Kamiel: klonk als dubbele a, moet enkel. **Wachtlijst: nog beluisteren** |
 | tablet | tablét (Nederlands, klemtoon op -blet, /taˈblɛt/; "tabletten" zoals geschreven) | s01, s28, s29 | Kamiel: moet het Nederlandse woord voor pil zijn, niet het apparaat. **Wachtlijst: nog beluisteren** |
+
+Heropname 25 okt 2026: s10 (vitamine B6, 461 credits) en s21 (ATP, 441 credits), gewone spelling; Roos, eleven_v4, flow urmsa8zcNa5TFq8SVeBI, generations rCOIWeO0GvAQuwGuI1Rm en ECEAx22n1id31hDehDaB; 902 credits TTS + Scribe (gratis). Regels ^ATP en ^B6 uit `bouw/uitspraak_film.json` gehaald.

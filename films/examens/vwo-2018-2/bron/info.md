@@ -5,7 +5,7 @@
 | Bestand | `films/examens/vwo-2018-2.html` (audio in `vwo-2018-2/audio/`) |
 | Reeks | Examen · examenbesprekingen (vwo 2018-II) |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 21 oktober 2026 (script v2) |
+| Versie | 1.1 · 25 oktober 2026 (heropname s30 en s31; 1.0: 21 oktober 2026, script v2) |
 | Prompt | onbekend · gemaakt 21 okt |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 27.502 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 32:20 (1940 s); met vragen en kaarten ± 34 min |

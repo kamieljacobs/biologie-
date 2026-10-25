@@ -5,9 +5,9 @@
 | Bestand | `films/vervolg/neurowetenschappen-2-brein-en-computer.html` (audio in `neurowetenschappen-2-brein-en-computer/audio/`) |
 | Reeks | Wat word jij? · Neurowetenschappen (computationele neurowetenschap, neurotechnologie) |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Versie | 1.1 · 20 oktober 2026 (script v2) · heropname 25 okt 2026 (uitspraaktest) |
 | Prompt | onbekend · gemaakt 20 okt |
-| Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 5.881 credits (flow in `stem/sessions.json`) |
+| Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 5.881 credits + 594 credits heropname 25 okt (flow in `stem/sessions.json`) |
 | Duur | spraak 6:34 (394 s); met vragen en kaarten ± 8 min |
 | Beeldstijl | Part C · Schema, met cast (Daan en zijn telefoon, Dr. Kim als neurowetenschapper, Teun als 'een kind') |
 | Bouwvorm | FILMDATA-straat van de psychologiefilms (`bron/src` + `bron/bouw`), speler uit films/gedrag/5-emotieregulatie; `brein()` en `teken.js` uit Kijken in een denkend brein |

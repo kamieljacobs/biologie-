@@ -78,9 +78,9 @@ _Stem-invoer:_ Antwoord bee. Bij onderzoek telt niet alleen het resultaat. Een l
 
 ## Recap
 
-**s14** · audio `s14.mp3` · 16.0 s · generation `y159LiR3TUKgZObmN1XZ`
+**s14** · audio `s14.mp3` · 14.1 s · generation `rKVItqXq52VlV0GQn2J1`
 
-Terug naar Lotte en Daan. Met een eigen vraag en een leraar die terugvraagt, weten ze het na een week eerder nog. Een practicum regel je als leraar trouwens niet alleen. Op veel scholen zet een technisch onderwijsassistent, de toa, alles klaar.
+Terug naar Lotte en Daan. Met een eigen vraag en een leraar die terugvraagt, weten ze het na een week eerder nog. Een practicum regel je als leraar trouwens niet alleen. Op veel scholen zet een technisch onderwijsassistent alles klaar.
 
 **s15** · audio `s15.mp3` · 7.5 s · generation `Aeb9Gqc5je1NpUyBkCr7`
 

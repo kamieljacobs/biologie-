@@ -5,7 +5,7 @@
 | Bestand | `films/onderbouw/32a/6-skelet-en-spieren/index.html` (audio in `audio/`: 11 mp3's, niet ingebed) |
 | Reeks / nummer | Kerndoelen onderbouw, film 6 (32A Organismen; bullet 3: skelet en spierstelsel; bullet 4: signaal, energie met zuurstof, gebruik en training) |
 | Doelgroep / niveau | onderbouw leerjaar 1–3, gemengde klassen; geen schoolniveaus in beeld, stem of docentdeel. Basislijn + één blok **uitdaging** (s09: de arm als hefboom). Schakelaar **Basis / Uitdaging** (`?niveau=basis`) |
-| Versie / datum | 1.0 · 20 oktober 2026 |
+| Versie / datum | 1.1 · 25 oktober 2026 (1.0 · 20 oktober 2026) |
 | Prompt | v6 |
 | Stem / model | Roos (ElevenLabs, voice_id `7qdUFMklKPaaAVMsBTBt`), model `eleven_v4`, één take per segment, flow `gjR8CE8EzadZLCHBfdpE` (generatie-id's in `stem/generaties.json`, node- en sessie-id's in `stem/tts_sessies.json`) |
 | Woordtijden | ElevenLabs Scribe (`eleven_scribe_v1`) op dezelfde takes; alle 11 takes woord voor woord gelijk aan het script |
@@ -89,3 +89,7 @@ Geen respellings. **Wachtlijst:** biceps, triceps, beenmerg, kraakbeen, gewricht
 ## Wijziging 25 okt 2026
 
 - Eindkaart 'Probeer het zelf' (gesproken zin + kaart met opdracht) vervangen door de kaart 'Onthoud' met drie kernzinnen; het eindfragment is nu stilte (woorden leeg). Reden: prompt v10 aanvulling, geen verwijzingen naar tools of opdrachten in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.
+
+## Wijziging 25 okt 2026
+
+Tekstwijziging (Kamiel akkoord, uitspraaktest 25 okt): s12 "Sams hersenen geven een signaal." -> "De hersenen van Sam geven een signaal." Alinea s12 opnieuw ingesproken (1 take, 419 credits), woordtijden via Scribe; `index.html` (FILMDATA: woorden, dur 28,69 -> 28,93 s, audio `s12.mp3?v=2`), `script.md`, `script_v2.md`, `stem/segmenten_stem-invoer.json`, `stem/woordtijden/s12.json`, `stem/generaties.json`, `stem/tts_sessies.json` bijgewerkt. Scene s12 gebruikt de cuewoorden hersenen, Zijn, beenspieren, triceps, bloed, Skelet: allemaal aanwezig. Versie 1.1.

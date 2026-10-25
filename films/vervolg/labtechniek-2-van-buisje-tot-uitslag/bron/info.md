@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/labtechniek-2-van-buisje-tot-uitslag.html` (audio in `labtechniek-2-van-buisje-tot-uitslag/audio/`) |
 | Reeks | Wat word jij? · Laboratoriumtechniek |
 | Niveau | havo · vwo (één niveau) |
-| Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Versie | 1.1 · oktober 2026 · 24 oktober 2026 (script v2) · heropname 25 okt 2026 |
 | Prompt | v6 + WERKWIJZE-LESSEN van 24 okt (frisse eindreview, eenheden voluit); nog niet nagelopen tegen v10 |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.731 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 5:09 (309 s); met vragen en kaarten ± 7 min |

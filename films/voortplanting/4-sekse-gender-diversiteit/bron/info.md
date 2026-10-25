@@ -5,10 +5,10 @@
 | Bestand | films/voortplanting/4-sekse-gender-diversiteit.html (audio in films/voortplanting/4-sekse-gender-diversiteit/audio/) |
 | Reeks | Voortplanting (hoofdstuk `voortplanting`: Nectar 4.1 H4 vwo, Biologie voor jou havo thema Voortplanting), film 4 |
 | Niveau | havo + vwo; vwo-blok s05 (SRY → SOX9-cascade, uitwisseling X–Y, XX-man, XY zonder werkend SRY) |
-| Versie / datum | 1.1 · 22 oktober 2026 (1.0 · 16 oktober 2026) |
+| Versie / datum | 1.2 · 25 oktober 2026 (1.1 · 22 oktober; 1.0 · 16 oktober 2026) |
 | Prompt | v8 |
 | Voldoet aan | prompt uitlegfilms v8 (22 okt 2026); bewust anders: uitwendige geslachtsorganen blijven een woordschema |
-| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow WnjDPUgOaw8w8lH9l0PM; film-eigen respellings in `uitspraak_film.json` (XX → iks-iks, XY → iks-ei, SRY → es-er-ei, SOX9 → soks-negen, Z/W → zet/wee, Klinefelter → Klainfelter, Turner → Törner, AGS → aa-gee-es, DSD → dee-es-dee, clownvissen → Klaunvissen), zie `uitspraak.md` |
+| Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow WnjDPUgOaw8w8lH9l0PM; film-eigen respellings in `uitspraak_film.json` (XX → iks-iks, XY → iks-ei, SRY → es-er-ei, SOX9 → soks-negen, Z/W → zet/wee, Klinefelter → Klainfelter, Turner → Törner, AGS → aa-gee-es, clownvissen → Klaunvissen), zie `uitspraak.md` |
 | Duur | spraak 7:23 (vwo) / 6:29 (havo); speeltijd met kaarten en vragen ± 8,5 min (vwo) / ± 7,5 min (havo) |
 | Beeldstijl | Part C: Schema. Kleurafspraak: zaadbal-route teal, eierstok-route koraal, aanleg oker, SRY goud |
 | Personages | Noor, tante Petra (zwanger, 20 weken) en Dr. Kim (castboek) in de cold open; Sam en Noor bij de puberteit; de baby uit het castboek bij de hielprik |
@@ -99,3 +99,7 @@ Alle 13 voorstellen van het verbeterblad (claude.ai-artifact 'Verbeterblad promp
 - **Niet nodig:** AGS-getal (± 10–15 per jaar) klopt met de PNS-factsheet van mei 2026; in plaats daarvan is Les 3 (`tools/docent/voortplanting-3`) gelijkgetrokken.
 - Inbouwen in de HTML zonder volledige herbouw: castbibliotheek + lib_bio.js vervangen het blok vanaf `// ===== Vaste personages`, `scenes.js` het scènesblok, `drawEnd` uit player.js (script `splice4.py`-werkwijze: vervang de blokken tussen die kopregels en de volgende `</script>`).
 - Gecontroleerd: alle segmenten zonder JS-fouten (Playwright), havo en vwo met Vragen uit (geen vraagitems), `spelerfix --check` en `kortantwoord --check` in orde.
+
+## Wijziging 25 okt 2026
+
+Uitspraaktest 25 okt: alinea s08 (DSD) opnieuw ingesproken in gewone spelling, 1 take, 1.632 credits; alleen `audio/s08.mp3` (URL ?v=3) en woordtijden/dur van s08 in `window.FILMDATA` vervangen (dur 105,01 -> 104,77 s). Regel DSD -> dee-es-dee uit `bron/uitspraak_film.json` gehaald. Versie 1.2.

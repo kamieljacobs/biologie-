@@ -59,7 +59,7 @@ Sam brak vorig jaar zijn arm. Zes weken zat hij in het gips. Daarna was zijn arm
 [VRAAG] (a) het gips heeft de spier platgedrukt · (b) de breuk heeft de spier beschadigd · (c) een spier die je niet gebruikt, wordt kleiner
 
 Een spier die je niet gebruikt, wordt kleiner. Gebruik je hem weer, dan groeit hij terug. Train je hem, dan wordt hij sterker. Ook je botten worden sterker als je rent en springt.
-Terug naar de sprong. Sams hersenen geven een signaal. Zijn beenspieren trekken, zijn knieën strekken: hij springt. Zijn triceps strekt zijn arm. Zijn bloed brengt zuurstof. Skelet, spieren, zenuwen en bloed maken samen één beweging.
+Terug naar de sprong. De hersenen van Sam geven een signaal. Zijn beenspieren trekken, zijn knieën strekken: hij springt. Zijn triceps strekt zijn arm. Zijn bloed brengt zuurstof. Skelet, spieren, zenuwen en bloed maken samen één beweging.
 
 ## Samenvatting [Schema: arm met biceps en triceps]
 Je skelet geeft stevigheid en bescherming. Waar botten elkaar raken, zit een gewricht.

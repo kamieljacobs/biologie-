@@ -48,7 +48,7 @@ _Stem-invoer:_ Antwoord aa. De laatste buisjes zijn ook twee procent te laag. El
 
 ## Hoofdstuk 3 — Real-time PCR en de ijklijn
 
-**s08** · audio `s08.mp3` · 46.3 s · generation `HNkzTait2dXFJRdw9bSP`
+**s08** · audio `s08.mp3` · 46.8 s · generation `RFTfyqSyt7xgW1xbPoyL`
 
 Dan neemt de robot het over. Hij haalt het RNA uit tientallen monsters tegelijk, en pipetteert alles in een plaat met zesennegentig putjes. De grootste robots leveren zo ruim honderd uitslagen per uur. Hoe PCR werkt, zag je in Op maat gekopieerd. Nieuw is wat real-time toevoegt. In veel testen zit in elk putje een probe: een kort stukje DNA met een kleurstof. Die licht op als het polymerase de probe tijdens het kopiëren openknipt. Na elke cyclus meet het apparaat het licht. Het aantal cycli tot het licht boven een drempel komt, heet de Ct-waarde. Bij Opa Henk is dat vijfentwintig. Een ander monster komt pas bij dertig boven de drempel. Welk monster bevatte meer virus? Wat denk je?
 

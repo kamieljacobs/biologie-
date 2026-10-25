@@ -3,4 +3,6 @@ Model eleven_v4, stem Roos, één take per alinea. Film-eigen regels in `uitspra
 
 | Woord | Stem-invoer | Status |
 |---|---|---|
-| collageendraden, tussenwervelschijven, knieschijfpees, kijkoperatie, ultrageluid, sportfysiotherapeut | zoals geschreven | wachtlijst |
+| tussenwervelschijven, knieschijfpees, kijkoperatie, ultrageluid, sportfysiotherapeut | zoals geschreven | wachtlijst |
+
+Heropname 25 okt 2026: s07, collageendraden als 'collageen draden' in de stem-invoer (ondertitel blijft collageendraden), 559 credits (één take per alinea, eleven_v4).

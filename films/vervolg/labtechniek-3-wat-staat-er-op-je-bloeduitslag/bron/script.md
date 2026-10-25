@@ -35,7 +35,7 @@ Het paarse buisje gaat in de celteller. Die zuigt een druppel bloed op, en verdu
 
 _Stem-invoer:_ Het paarse buisje gaat in de celteller. Die zuigt een druppel bloed op, en verdunt die sterk. Dan stromen de cellen een voor een door een heel nauwe opening. Elke cel verstoort daar even een elektrische stroom. Hoe groter de cel, hoe groter het piekje. Zo telt het apparaat de rode bloedcellen, en de veel kleinere bloedplaatjes. De witte bloedcellen bekijkt het ook met laserlicht. Zo ziet het welke soort het is. Voor het haa-bé laat het in een ander deel van de druppel de rode bloedcellen openbarsten, en meet het hoeveel licht de hemoglobine opneemt.
 
-**s06** · audio `s06.mp3` · 47.9 s · generation `n2RqHNaVFGJr2qIvYpu0`
+**s06** · audio `s06.mp3` · 46.0 s · generation `f8K4MIJC3H0j4mswxpak`
 
 Een paar minuten later staat het bloedbeeld op het scherm. Hb: negen komma één millimol per liter. In Nederland meten we Hb in millimol, in veel andere landen in gram. Leukocyten: vijftien miljard per liter. Trombocyten: tweehonderdzestig miljard per liter. Naast elk getal staat een referentiewaarde: wat bij gezonde mensen gewoon is. Voor Hb bij mannen is dat ongeveer acht komma vijf tot elf. Voor bloedplaatjes honderdvijftig tot vierhonderd miljard. Daar zit Opa Henk binnen. Maar zijn leukocyten zitten boven de bovengrens, die rond de tien miljard ligt. Bij een infectie maakt het beenmerg vaak extra witte bloedcellen. Het lab zegt dus niet wat Opa Henk heeft. Het geeft getallen, en Dr. Kim legt die naast zijn klachten.
 
@@ -87,7 +87,7 @@ _Stem-invoer:_ Antwoord aa. Een buisje met het verkeerde etiket kan leiden tot e
 
 ## Recap
 
-**s14** · audio `s14.mp3` · 22.4 s · generation `ua62nxthyfhpMoRw9dDg`
+**s14** · audio `s14.mp3` · 22.2 s · generation `RyEZPJw2iSGgeEmsXARb`
 
 Terug naar het formulier van Opa Henk. Elk getal komt uit een eigen buisje, met een eigen meting. Leukocyten en CRP zijn hoog: dat past bij een ontsteking, en Dr. Kim zoekt uit welke. ALAT net boven de grens: misschien niets. En voor zijn nieuwe heup ligt er passend bloed klaar. Het lab meet, de arts legt het naast de klachten.
 

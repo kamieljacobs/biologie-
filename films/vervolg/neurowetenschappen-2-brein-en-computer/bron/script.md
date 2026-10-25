@@ -78,11 +78,9 @@ Antwoord b. Een kind ziet een paar keer een giraf, en herkent hem daarna ook als
 
 _Stem-invoer:_ Antwoord bee. Een kind ziet een paar keer een giraf, en herkent hem daarna ook als tekening. Een bekend netwerk voor plaatjes leerde van ongeveer duizend foto's per soort, ruim een miljoen in totaal. Eerlijk is eerlijk: een kind begint niet bij nul. Het heeft al jaren rondgekeken. En een netwerk dat al veel geleerd heeft, leert een nieuw dier ook sneller.
 
-**s15** · audio `s15.mp3` · 38.3 s · generation `TAK3eNijihsjwCrxhfH6`
+**s15** · audio `s15.mp3` · 38.3 s · generation `odXmAMInyrwQ2nwhXztW`
 
 Het tweede verschil is energie. Je hersenen werken op ongeveer twintig watt, minder dan een laptop. Een groot AI-model wordt getraind op duizenden computerchips tegelijk. Samen gebruiken die honderdduizenden keren zoveel stroom. Het derde verschil: wat er met een fout gebeurt. In een kunstmatig netwerk rekent de computer precies uit hoeveel elk gewicht aan de fout bijdroeg. Dat gaat terug door alle lagen. Of je hersenen iets vergelijkbaars doen, weet nog niemand. En echte neuronen sturen pulsjes op precieze momenten. De meeste netwerken geven gewoon getallen door, zonder precieze timing.
-
-_Stem-invoer:_ Het tweede verschil is energie. Je hersenen werken op ongeveer twintig watt, minder dan een laptop. Een groot aa-ie-model wordt getraind op duizenden computerchips tegelijk. Samen gebruiken die honderdduizenden keren zoveel stroom. Het derde verschil: wat er met een fout gebeurt. In een kunstmatig netwerk rekent de computer precies uit hoeveel elk gewicht aan de fout bijdroeg. Dat gaat terug door alle lagen. Of je hersenen iets vergelijkbaars doen, weet nog niemand. En echte neuronen sturen pulsjes op precieze momenten. De meeste netwerken geven gewoon getallen door, zonder precieze timing.
 
 ## Hoofdstuk 4 — Programmeren in de neurowetenschap
 

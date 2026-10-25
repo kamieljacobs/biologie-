@@ -42,7 +42,7 @@ Twee groepjes leveren een verslag in. Groep A heeft een mooie grafiek, maar legt
 Antwoord b. Bij onderzoek telt niet alleen het resultaat. Een leraar beoordeelt ook de vraag, de opzet, de uitvoering, de conclusie en de discussie. Wie snapt waarom een proef misging, heeft vaak meer geleerd dan wie alleen mooie getallen heeft.
 
 ## Recap [Schema: Mevrouw Visser met de klas in practicumkleding; trap met vier treden; toa die het practicum klaarzet; opleidingen]
-Terug naar Lotte en Daan. Met een eigen vraag en een leraar die terugvraagt, weten ze het na een week eerder nog. Een practicum regel je als leraar trouwens niet alleen. Op veel scholen zet een technisch onderwijsassistent, de toa, alles klaar.
+Terug naar Lotte en Daan. Met een eigen vraag en een leraar die terugvraagt, weten ze het na een week eerder nog. Een practicum regel je als leraar trouwens niet alleen. Op veel scholen zet een technisch onderwijsassistent alles klaar.
 
 Op de lerarenopleiding leer je niet alleen biologie, maar vooral hoe je anderen laat leren. Ook hoe je zo'n practicum opzet.
 

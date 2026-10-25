@@ -78,7 +78,7 @@ _Stem-invoer:_ Wil je één cel horen, dan moet je dichterbij. Prik je een heel 
 
 ## Hoofdstuk 3 — Waar gaat het bloed heen?
 
-**s14** · audio `s14.mp3` · 40.8 s · generation `o4jmypCNqR33EXyYAPFP`
+**s14** · audio `s14.mp3` · 39.9 s · generation `1CEFPbmQPhbnuckXxdyh`
 
 Wil je juist weten waar, dan gebruik je fMRI. Yasmin ligt in een scanner. Die meet niet de pulsjes zelf. Hij meet bloed. Actieve neuronen geven een seintje aan de bloedvaatjes ernaast. Die zetten wat verder open. Er komt dan meer zuurstofrijk bloed dan nodig is. Zuurstofrijk en zuurstofarm bloed reageren verschillend op een magneet. Dat verschil ziet de scanner. Daar zit een nadeel aan. Het bloed komt traag. Het signaal piekt pas ongeveer vijf seconden nadat de neuronen actief waren. Waar komt fMRI dan op het bord? Hoog bij waar, tot op een paar millimeter. Laag bij wanneer.
 

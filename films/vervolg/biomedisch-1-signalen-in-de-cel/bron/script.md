@@ -27,11 +27,11 @@ _Stem-invoer:_ Antwoord bé. Het membraan is van vet, dus adrenaline blijft buit
 
 ## Hoofdstuk 2 — Het signaal versterken
 
-**s05** · audio `s05.mp3` · 50.3 s · generation `7Iekb0zruxjRAKHernUl`
+**s05** · audio `s05.mp3` · 50.1 s · generation `41uqU1oSZLNPxPpflyPm`
 
 Wat gebeurt er binnen? De receptor zet een enzym aan, aan de binnenkant van het membraan. Dat enzym maakt van ATP een klein molecuul: cAMP. Eén receptor zorgt zo voor duizenden moleculen cAMP. Dit is de tweede boodschapper. Adrenaline is de eerste, en die blijft buiten. Het cAMP verspreidt zich door de cel, en zet een kinase aan. Een kinase is een enzym dat een fosfaatgroep van ATP afhaalt, en die op een ander eiwit zet. Dat eiwit verandert daardoor van vorm, en gaat aan. Zo zet het ene kinase het volgende aan, tot het laatste enzym glycogeen afbreekt tot glucose. Elke stap zet veel moleculen aan, dus het signaal wordt bij elke stap versterkt. Eén adrenalinemolecuul kan zo miljoenen glucosemoleculen vrijmaken.
 
-_Stem-invoer:_ Wat gebeurt er binnen? De reseptor zet een enzym aan, aan de binnenkant van het membraan. Dat enzym maakt van aa-tee-pee een klein molecuul: cee-aa-em-pee. Eén reseptor zorgt zo voor duizenden moleculen cee-aa-em-pee. Dit is de tweede boodschapper. Adrenaline is de eerste, en die blijft buiten. Het cee-aa-em-pee verspreidt zich door de cel, en zet een kinase aan. Een kinase is een enzym dat een fosfaatgroep van aa-tee-pee afhaalt, en die op een ander eiwit zet. Dat eiwit verandert daardoor van vorm, en gaat aan. Zo zet het ene kinase het volgende aan, tot het laatste enzym glycogeen afbreekt tot glucose. Elke stap zet veel moleculen aan, dus het signaal wordt bij elke stap versterkt. Eén adrenalinemolecuul kan zo miljoenen glucosemoleculen vrijmaken.
+_Stem-invoer:_ Wat gebeurt er binnen? De reseptor zet een enzym aan, aan de binnenkant van het membraan. Dat enzym maakt van ATP een klein molecuul: cee-aa-em-pee. Eén reseptor zorgt zo voor duizenden moleculen cee-aa-em-pee. Dit is de tweede boodschapper. Adrenaline is de eerste, en die blijft buiten. Het cee-aa-em-pee verspreidt zich door de cel, en zet een kinase aan. Een kinase is een enzym dat een fosfaatgroep van ATP afhaalt, en die op een ander eiwit zet. Dat eiwit verandert daardoor van vorm, en gaat aan. Zo zet het ene kinase het volgende aan, tot het laatste enzym glycogeen afbreekt tot glucose. Elke stap zet veel moleculen aan, dus het signaal wordt bij elke stap versterkt. Eén adrenalinemolecuul kan zo miljoenen glucosemoleculen vrijmaken.
 
 **s06** · audio `s06.mp3` · 11.3 s · generation `dIBTu3OBLHPnz6VK221s`
 
@@ -77,11 +77,11 @@ Antwoord a. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo 
 
 _Stem-invoer:_ Antwoord aa. Het defect zit verderop, dus blokkeren aan het begin helpt niet. Zo werkt het vaak bij kanker: een signaalroute zit vast in de stand aan. In de film Mutaties zag je dat een proto-oncogen door een mutatie zo'n vastzittend gaspedaal wordt. Bij ongeveer één op de vijf mensen met kanker zit er een mutatie in een Ras-gen. Een arts laat daarom vaak eerst onderzoeken wáár de route kapot is, en kiest dan het medicijn.
 
-**s13** · audio `s13.mp3` · 41.9 s · generation `VXcY0AcIgqjJX6ORB7o8`
+**s13** · audio `s13.mp3` · 40.9 s · generation `YStK8yOwX87tO1FBfRh6`
 
 Bij Opa Henk is het een ander eiwit. In zijn bloedcellen hebben chromosoom negen en tweeëntwintig een stuk uitgewisseld. Daardoor zitten twee genen aan elkaar vast. Dat nieuwe gen maakt een kinase dat nooit meer uitgaat. Zijn witte bloedcellen blijven maar delen. Dat is chronische myeloïde leukemie. Het tabletje past precies in de plek waar dit kinase ATP vastpakt. Zonder ATP kan het kinase geen fosfaatgroepen meer doorgeven, en stopt het signaal. Dr. Kim onderzoekt zulke remmers in het lab. Vroeger leefde na vijf jaar ongeveer de helft van de patiënten nog. Met dit middel leven ruim acht op de tien patiënten na tien jaar nog.
 
-_Stem-invoer:_ Bij Opa Henk is het een ander eiwit. In zijn bloedcellen hebben chromosoom negen en tweeëntwintig een stuk uitgewisseld. Daardoor zitten twee genen aan elkaar vast. Dat nieuwe gen maakt een kinase dat nooit meer uitgaat. Zijn witte bloedcellen blijven maar delen. Dat is chronische myeloïde leukemie. Het tabletje past precies in de plek waar dit kinase aa-tee-pee vastpakt. Zonder aa-tee-pee kan het kinase geen fosfaatgroepen meer doorgeven, en stopt het signaal. Dokter Kim onderzoekt zulke remmers in het lab. Vroeger leefde na vijf jaar ongeveer de helft van de patiënten nog. Met dit middel leven ruim acht op de tien patiënten na tien jaar nog.
+_Stem-invoer:_ Bij Opa Henk is het een ander eiwit. In zijn bloedcellen hebben chromosoom negen en tweeëntwintig een stuk uitgewisseld. Daardoor zitten twee genen aan elkaar vast. Dat nieuwe gen maakt een kinase dat nooit meer uitgaat. Zijn witte bloedcellen blijven maar delen. Dat is chronische myeloïde leukemie. Het tabletje past precies in de plek waar dit kinase ATP vastpakt. Zonder ATP kan het kinase geen fosfaatgroepen meer doorgeven, en stopt het signaal. Dokter Kim onderzoekt zulke remmers in het lab. Vroeger leefde na vijf jaar ongeveer de helft van de patiënten nog. Met dit middel leven ruim acht op de tien patiënten na tien jaar nog.
 
 ## Recap
 

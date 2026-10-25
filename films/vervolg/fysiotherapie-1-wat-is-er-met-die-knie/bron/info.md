@@ -5,9 +5,9 @@
 | Bestand | `films/vervolg/fysiotherapie-1-wat-is-er-met-die-knie.html` (audio in `fysiotherapie-1-wat-is-er-met-die-knie/audio/`) |
 | Reeks | Wat word jij? · Fysiotherapie en bewegingswetenschappen, film 1 |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · oktober 2026 · 20 oktober 2026 (script v2) |
+| Versie | 1.1 · oktober 2026 · 20 oktober 2026 (script v2) · heropname 25 okt 2026 (uitspraaktest) |
 | Prompt | onbekend · gemaakt 20 okt |
-| Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 0 credits (flow in `stem/sessions.json`) |
+| Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 0 credits + 269 credits heropname 25 okt (flow in `stem/sessions.json`) |
 | Duur | spraak 4:06 (246 s); met vragen en kaarten ± 6 min |
 | Beeldstijl | Schema (Part C), met cast (Femke, Lotte, Dr. Kim als huisarts) |
 | Bouwvorm | FILMDATA-straat van de Wat word jij?-films (`bron/src` + `bron/bouw`), werkwijze in `films/vervolg/BOUWEN.md` |

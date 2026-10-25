@@ -10,7 +10,9 @@ Model eleven_v4, stem Roos, één take per alinea (s10 en s11 opnieuw ingesproke
 | LDL-cholesterol, LDL-receptor | el-dee-el-cholesterol, el-dee-el-receptor | nog beluisteren (nieuw woord) |
 | receptor, receptoren | reseptor, reseptoren (reeksregel) | nog beluisteren |
 | C. elegans | cee elegans | nog beluisteren (nieuw woord) |
-| knock-out, knock-outmuis | knok-out, knok-outmuis | nog beluisteren |
+| knock-out, knock-outmuis | zoals geschreven (gekozen 25 okt 2026) | goedgekeurd |
 | Dr. Kim | dokter Kim | nog beluisteren |
 | antwoord b | antwoord bé | nog beluisteren |
 | zebravis, zebravisembryo, modelorganisme, somatisch, kiembaan, Embryowet, bètathalassemie, sikkelcelziekte, genkopieën, hartinfarct, negenhonderdnegenenvijftig | zoals geschreven | nog beluisteren |
+
+Heropname 25 okt 2026: s10, DNA en knock-outmuis (gewone spelling, waren deeënaa en knok-outmuis), 366 credits (één take per alinea, eleven_v4).

@@ -5,7 +5,7 @@
 | Bestand | films/voeding/7-supplementen-en-superfoods.html (audio in films/voeding/7-supplementen-en-superfoods/audio/) |
 | Reeks / nummer | Voeding, film 7 (los slotstuk, op verzoek van Kamiel, 14 okt 2026); sluit aan op film 1 (broodje kaas) en film 6 (bewijsbord) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blok gelabeld: s18–s20 (relatief tegenover absoluut risico met ATBC, meta-analyse). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.1 · 14 oktober 2026: hoofdstuk 4 'Hypes op het bewijsbord' toegevoegd op verzoek van Kamiel (1.0 dezelfde dag; wacht op review) |
+| Versie / datum | 1.2 · 25 oktober 2026 (heropname s10, s21); 1.1 · 14 oktober 2026: hoofdstuk 4 'Hypes op het bewijsbord' toegevoegd op verzoek van Kamiel (1.0 dezelfde dag; wacht op review) |
 | Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow wgRb2mkEIugHlouCw6hz; nodes in `stem/takes.json`) |
 | Duur | spraak 10:42 (vwo) / 9:49 (havo). Speeltijd met kaarten en vragen: vwo ≈ 12,5 min, havo ≈ 11,5 min |
@@ -138,3 +138,7 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 - **Schijf van Vijf eruit** (Kamiel: controversieel en verandert regelmatig; "eet je gevarieerd" blijft). s04 zegt nu "Eet je gevarieerd, dan krijg je bijna alles binnen." In beeld (titel en s04) vervangt `gevarieerdBord()` de oude `schijf()`: een bord met broccoli, tomaatjes, volkorenbrood, ei, bonen, vis en sinaasappel, geen voedingsmodel. Begrip 'Schijf van Vijf' uit de begrippenlijst (film.py en HTML) en uit het docentdeel.
 - **Opnieuw ingesproken**: s01, s04, s10, s11, s28, s29 (Roos, eleven_v4, één take, flow `urmsa8zcNa5TFq8SVeBI`; credits TTS 2470, Scribe 0). "vitamine A" als letter (niet meer "aa"), "tablet" als "tablét". Zie `uitspraak.md`. Audio met `?v=2`.
 - Bijgewerkt met `vervang.py --filmdata ... --nieuw s01,s04,s10,s11,s28,s29`.
+
+## Wijziging 25 okt 2026
+
+Uitspraaktest 25 okt: s10 (vitamine B6) en s21 (ATP) opnieuw ingesproken in gewone spelling, 1 take per alinea, 902 credits. Alleen mp3 (`audio/s10.mp3?v=3`, `s21.mp3?v=3`) en woordtijden/dur in `window.FILMDATA` vervangen (s10 34,29 -> 34,05 s; s21 28,61 -> 28,93 s). Versie 1.2.

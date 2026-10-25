@@ -5,10 +5,10 @@
 | Bestand | `films/vervolg/leraar-2-een-practicum-dat-werkt.html` (audio in `leraar-2-een-practicum-dat-werkt/audio/`) |
 | Reeks | Wat word jij? · Leraar biologie (lerarenopleiding biologie) |
 | Niveau | vwo (één niveau) |
-| Versie | 1.0 · 20 oktober 2026 (script v2) |
+| Versie | 1.1 · 20 oktober 2026 (script v2) · heropname 25 okt 2026 |
 | Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, 3.142 credits (flow in `stem/sessions.json`) |
-| Duur | spraak 3:30 (210 s); met vragen en kaarten ± 5 min |
+| Duur | spraak 3:23 (203 s); met vragen en kaarten ± 5 min |
 | Beeldstijl | Part C · Schema, met cast (Mevrouw Visser als docent, in practicumkleding; Lotte en Daan, Noor en Yasmin); de toa alleen als klaargezet dienblad, geen persoon |
 | Bouwvorm | FILMDATA-straat van de psychologiefilms (`bron/src` + `bron/bouw`), speler uit films/gedrag/5-emotieregulatie |
 | Herkomst | gemaakt door Claude in reeksmodus, 20 okt 2026; script v1 → review (reviews/review_v1.md) → v2 → eindreview (reviews/review_eind.md) |

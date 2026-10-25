@@ -34,7 +34,7 @@ Een zenuwcel uit je hersenen en een spiercel uit je been, van jou. Wat is het ve
 
 Antwoord bee. Beide cellen hebben hetzelfde DNA. Het verschil zit in welke genen aan staan. Misschien dacht je: een zenuwcel heeft eigen zenuwgenen. Maar die genen zitten ook in je spiercel. Ze staan daar alleen uit. Veel gedifferentieerde cellen delen zich niet meer, of bijna niet. Een zenuwcel deelt zich niet. Een hartspiercel bijna niet. Dat is goed voor een stabiel lichaam, maar slecht nieuws na een infarct.
 
-**s09** · vwo · 45.0 s · `audio/s09.mp3`
+**s09** · vwo · 43.5 s · `audio/s09.mp3`
 
 Voor vwo gaan we hier nog een stap verder. Wat zet een gen aan? Vlak voor elk gen ligt een stukje DNA: de promotor. Daar binden eiwitten, transcriptiefactoren. Pas dan kan RNA-polymerase het gen overschrijven. Elke celsoort heeft zijn eigen combinatie van transcriptiefactoren. Daarnaast krijgen het DNA en de eiwitten eromheen, de histonen, chemische markeringen. Zit er een methylgroep op de promotor, of zit het DNA strak om de histonen gewonden, dan wordt het gen niet overgeschreven. Die markeringen blijven langdurig, ook na een deling. Zo blijft een huidcel bij zijn deling een huidcel. Dit heet epigenetica. Terug naar de basis.
 
@@ -74,7 +74,7 @@ Zou je met diezelfde bloedstamcellen ook een beschadigd hart kunnen herstellen? 
 
 Antwoord cee. Bloedstamcellen kunnen alleen bloedcellen maken. Ze hebben wel alle genen, maar hun keuzes liggen al grotendeels vast. Artsen hebben het geprobeerd: er kwam geen nieuwe hartspier. Misschien dacht je: alle genen zitten erin, dus het kan. In het lab kan het bijna. Onderzoekers kunnen een gewone huidcel terugzetten tot een stamcel. Die kan dan weer bijna elke celsoort worden. Zo'n geïnduceerde stamcel kan ook hartspiercellen maken.
 
-**s18** · 25.9 s · `audio/s18.mp3`
+**s18** · 25.5 s · `audio/s18.mp3`
 
 In het lab kloppen zulke hartspiercellen echt. Eén losse cel klopt al, maar in zijn eigen tempo. Leg je veel cellen tegen elkaar, dan geven ze een signaal aan elkaar door. Dan kloppen ze allemaal tegelijk, in één ritme. Dat kan één cel niet. Een groep gelijke cellen met dezelfde taak is een weefsel. Zo'n nieuwe eigenschap van het geheel, die de losse delen niet hebben, heet een emergente eigenschap.
 

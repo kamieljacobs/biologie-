@@ -84,11 +84,11 @@ _Stem-invoer:_ Antwoord bé. Een gescheurde kruisband groeit meestal niet vanzel
 
 Femke dacht als een detective. Eerst het verhaal, dan de alarmsignalen, dan testen en vergelijken, en pas dan een plan. Pas na maanden staat Lotte weer op het veld.
 
-**s15** · audio `s15.mp3` · 16.9 s · generation `MR0W3YnC25bEtRYq9E0i`
+**s15** · audio `s15.mp3` · 16.5 s · generation `VXfZkiySKqM6BPU7wqQP`
 
 Fysiotherapeut word je in vier jaar op het hbo, bijvoorbeeld aan de HAN in Nijmegen. Je loopt stage in een praktijk, een ziekenhuis of een revalidatiecentrum. Wil je onderzoeken hoe beweging precies werkt, dan kun je bewegingswetenschappen studeren aan de universiteit.
 
-_Stem-invoer:_ Fysiotherapeut word je in vier jaar op het hbo, bijvoorbeeld aan de Haa-Aa-En in Nijmegen. Je loopt stage in een praktijk, een ziekenhuis of een revalidatiecentrum. Wil je onderzoeken hoe beweging precies werkt, dan kun je bewegingswetenschappen studeren aan de universiteit.
+_Stem-invoer:_ Fysiotherapeut word je in vier jaar op het hbo, bijvoorbeeld aan de Han in Nijmegen. Je loopt stage in een praktijk, een ziekenhuis of een revalidatiecentrum. Wil je onderzoeken hoe beweging precies werkt, dan kun je bewegingswetenschappen studeren aan de universiteit.
 
 ## Eindkaart
 

@@ -123,7 +123,7 @@ Antwoord aa. In de jaren tachtig ontdekten onderzoekers een gat in de ozonlaag b
 
 _Stem-invoer:_ Antwoord aa. In de jaren tachtig ontdekten onderzoekers een gat in de ozonlaag boven Antarctica. Cee-ef-kaas uit spuitbussen en koelkasten braken het ozon af. In het jaar 1987 spraken landen af die stoffen te verminderen. Later werden ze helemaal verboden. Sindsdien herstelt de ozonlaag langzaam. Rond het jaar 2066 is het gat naar verwachting dicht. Een wereldwijd probleem is dus op te lossen, als landen samenwerken.
 
-**s25** · audio `s25.mp3` · 22.4 s · generation `HUE3jorpdmprrsVsAwHr`
+**s25** · audio `s25.mp3` · 22.7 s · generation `eFrY9KU9nVfaD95vLtjk`
 
 Twee grenzen vormen de kern: klimaat en biosfeerintegriteit. Biosfeerintegriteit gaat over twee dingen. Hoe snel soorten uitsterven: nu minstens tientallen tot honderden keren sneller dan gemiddeld in de afgelopen tien miljoen jaar. En hoeveel van alle plantengroei de mens zelf gebruikt. Wat overblijft, is voor de rest van het leven.
 

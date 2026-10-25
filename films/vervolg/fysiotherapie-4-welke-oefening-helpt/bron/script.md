@@ -38,9 +38,11 @@ _Stem-invoer:_ Antwoord aa. Bij een verzwikking raken ook de zintuigjes in band 
 
 ## Hoofdstuk 2 — De pees
 
-**s07** · audio `s07.mp3` · 37.1 s · generation `9DG9407tPjCupW05X9Sj`
+**s07** · audio `s07.mp3` · 36.9 s · generation `czRzrKmLv1VDBTIzXFNZ`
 
 Bilal heeft pijn onder zijn knieschijf, vooral bij het springen. Het is een overbelaste pees. In Hoe weefsel herstelt zag je hoe een gescheurde pees geneest. Bij overbelasting is er niets gescheurd, maar raken de collageendraden rommelig. Een echte ontsteking is het meestal niet. Rust maakt de pijn minder, maar de pees ook zwakker. Gaat Bilal daarna weer springen, dan komt de pijn terug. Femke geeft hem zware, langzame kniebuigingen, een paar keer per week, twaalf weken lang. Daarbij doet zijn knie een beetje pijn. Wat zegt Femke daarover? Wat denk je?
+
+_Stem-invoer:_ Bilal heeft pijn onder zijn knieschijf, vooral bij het springen. Het is een overbelaste pees. In Hoe weefsel herstelt zag je hoe een gescheurde pees geneest. Bij overbelasting is er niets gescheurd, maar raken de collageen draden rommelig. Een echte ontsteking is het meestal niet. Rust maakt de pijn minder, maar de pees ook zwakker. Gaat Bilal daarna weer springen, dan komt de pijn terug. Femke geeft hem zware, langzame kniebuigingen, een paar keer per week, twaalf weken lang. Daarbij doet zijn knie een beetje pijn. Wat zegt Femke daarover? Wat denk je?
 
 **q08** · vraag: Bij de oefeningen doet Bilals knie een beetje pijn. Wat zegt Femke?
 - a) stop meteen, want pijn betekent dat de pees verder scheurt

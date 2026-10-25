@@ -5,10 +5,10 @@
 | Bestand | films/cellen/stamcellen.html (audio in films/cellen/stamcellen/audio/) |
 | Reeks / nummer | Cellen, losse film (Kamiel 14 okt 2026: "ik wil algemene celdifferentiatie en stamcellen als losse video", met een emergente eigenschap). Sluit aan op Van molecuul tot biosfeer (differentiatie kort) en Celdeling (mitose) |
 | Doelgroep / niveau | havo + vwo bovenbouw; vwo-blokken gelabeld: s09 (promotor, transcriptiefactoren, RNA-polymerase, methylering, histonen: epigenetica) en s20 (toti-, pluri-, multi-, unipotent; Yamanaka, iPS-cel, Gurdon). Havo/Vwo-schakelaar, standaard Vwo |
-| Versie / datum | 1.1 · 14 oktober 2026 (zelfstandig gebouwd in reeksmodus; eindreview verwerkt; wacht op review door Kamiel) |
+| Versie / datum | 1.2 · 25 oktober 2026 (heropname s09 en s18 na de uitspraaktest; 1.1: 14 oktober 2026, zelfstandig gebouwd in reeksmodus, eindreview verwerkt; wacht op review door Kamiel) |
 | Prompt | onbekend · gemaakt 14 okt |
 | Stem / model | Roos (ElevenLabs, voice_id 7qdUFMklKPaaAVMsBTBt), model eleven_v4, één take per alinea (flow CiG3slI2g101iKV2bsAG "Stamcellen — voice-over"; nodes in `stem/takes.json`) |
-| Duur | spraak 8:04 (vwo) / 6:17 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7,5 min |
+| Duur | spraak 8:02 (vwo) / 6:16 (havo). Speeltijd met kaarten en vragen: vwo ≈ 9 min, havo ≈ 7,5 min |
 | Beeldstijl | Part C: Macro (knie met schaafwond die geneest, hart met litteken), Micro (bevruchte eicel die deelt; zenuwcel, spiercel, alvleeskliercel, huidcel met dezelfde chromosomen en genen als lampjes; rode bloedcel zonder kern; opperhuid met kiemlaag waarin stamcellen delen en cellen omhoog schuiven, verhoornen en afschilferen; beenmerg; darmvlok; blastocyst met binnenste celmassa; kweekschaal; hartspiercellen die los en samen kloppen), Schema (vwo: DNA met promotor, transcriptiefactoren, RNA-polymerase, methylgroepen, histonen; leukemie, infuus, donor- en patiëntcel met herkenningseiwitten, patiënt met donor-DNA in het bloed; ethiek; potentie-ladder; Yamanaka-panel). Kleuren in `scenes.js`: `SPIER`, `ZENUW`, `HUIDC`, `STAM`, `ALV`, `ROOD`, `WIT`, `HOORN`, `LEUK` |
 | Audio-opslag | 17 losse mp3's in audio/ (s01 … s21), loudnorm −15 LUFS, piek −1,5 dBTP, mono 44,1 kHz 96 kb/s; niet in de HTML ingebed |
 | Lettertypen | Fraunces 700, Source Sans 3 400/600/700, IBM Plex Mono 500 — ingebed als base64 |

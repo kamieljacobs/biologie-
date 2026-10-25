@@ -54,7 +54,7 @@ Object.assign(SCENES, {
 
   // ---------- Recap ----------
   s14(ctx, t, q) { bg(ctx, 'schema'); const R = q.on('regel', 1, 0.8); tafel(ctx, 820);     persoon(ctx, 'lotte', 260, 880, 400, { t, uit: 'blij' }); persoon(ctx, 'daan', 440, 880, 370, { t, uit: 'blij' }); chip(ctx, 'een echte vraag + een leraar die terugvraagt', 520, 230, C.goud, q.on('terugvraagt', 1) * (1 - R), 28);
-    dienblad(ctx, 1200, 780, R, t); naamBij(ctx, 'toa', 'technisch onderwijsassistent', 1200, 520, q.on('toa', 1), 'center'); persoon(ctx, 'visser', 1720, 880, 440, { t, a: clamp(R * 3 - 2, 0, 1), outfit: 'practicum', kijk: -1, uit: 'blij' }); },
+    dienblad(ctx, 1200, 780, R, t); naamBij(ctx, 'toa', 'technisch onderwijsassistent', 1200, 520, q.on('technisch', 1), 'center'); persoon(ctx, 'visser', 1720, 880, 440, { t, a: clamp(R * 3 - 2, 0, 1), outfit: 'practicum', kijk: -1, uit: 'blij' }); },
   s15(ctx, t, q) { bg(ctx, 'schema'); tag(ctx, 'lerarenopleiding', 960, 260, C.teal, q.on('lerarenopleiding', 1), 'center', 36); chip(ctx, 'biologie', 700, 380, C.text2, q.on('biologie', 1), 30); chip(ctx, 'hoe je anderen laat leren', 1220, 380, C.goud, q.on('anderen', 1), 30); chip(ctx, 'een practicum opzetten', 960, 480, C.groen, q.on('practicum', 1), 30);
     persoon(ctx, 'visser', 960, 880, 340, { t, outfit: 'practicum', uit: 'blij', pose: 'wijs' }); }
 });

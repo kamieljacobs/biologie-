@@ -21,3 +21,5 @@ Er is geen blinde Scribe-controle gedaan (uploaden vanuit de werkplek werd geblo
 | drieënzeventig · drieënzestig · vijfendertigduizend · driehonderdvijftig | voluit | s05, s12, s15 | |
 | invasieve exoten | zoals geschreven | s18 | |
 | zweefvliegen | zoals geschreven | s05 | |
+
+- Heropname 25 okt 2026: s25 (biosfeerintegriteit, wisselvallige take, zelfde stem-invoer, nieuwe take), 335 credits, eleven_v4, Roos, flow nQm0dXnejpCCuUKbO6un. Woordtijden met `silalign.py`; audio genormaliseerd -16 LUFS. Duur van de film ongewijzigd (8:45 / 7:44).

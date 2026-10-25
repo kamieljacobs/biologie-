@@ -10,7 +10,7 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 | Z / W / ZZ | zet / wee / zet-zet | s09 | wachtlijst |
 | Klinefelter | Klainfelter | s08 | wachtlijst |
 | Turner | Törner | s08 | wachtlijst |
-| AGS / DSD | aa-gee-es / dee-es-dee | s08 | wachtlijst |
+| AGS / DSD | aa-gee-es / DSD (gewone spelling sinds 25 okt) | s08 | AGS wachtlijst; DSD goedgekeurd |
 | clownvissen | Klaunvissen | s09 | wachtlijst |
 | intersekse, non-binair, transgender, genderidentiteit, genderexpressie, adrenogenitaal, androgeen-ongevoeligheid | zoals geschreven | s08, s11, s12 | wachtlijst |
 | hypothalamus, oestrogeen, receptor | globale subs (hiepo-taalamus, eustrogeen, reseptor) | s04, s08 | eerder goedgekeurd |
@@ -23,3 +23,5 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 | Woord | Stem-invoer | Alinea's | Status |
 |---|---|---|---|
 | AGS | AGS (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+Heropname 25 okt 2026: s08 (DSD in gewone spelling), 1.632 credits TTS (Roos, eleven_v4, flow urmsa8zcNa5TFq8SVeBI, generation DEbMsznZyFMNUx5c1gEn) + Scribe voor woordtijden; regel DSD -> dee-es-dee uit `uitspraak_film.json` gehaald.

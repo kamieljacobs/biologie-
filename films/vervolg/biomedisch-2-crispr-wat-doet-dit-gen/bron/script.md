@@ -58,11 +58,11 @@ _Stem-invoer:_ Antwoord aa. Een zebravisembryo groeit buiten de moeder en is gla
 
 ## Hoofdstuk 3 — Uitschakelen en meten
 
-**s10** · audio `s10.mp3` · 23.9 s · generation `yGF45bo84N39Cpq7bLNA`
+**s10** · audio `s10.mp3` · 24.5 s · generation `mwpx6ieB20mNHCSSQ4aG`
 
 Kort hoe CRISPR-Cas9 knipt. Een gids-RNA is een kort stukje RNA dat precies past op één plek in het DNA. Het brengt het enzym Cas9 daarheen, en Cas9 knipt daar beide strengen door. De cel repareert de knip vaak net niet goed. Dan werkt dat gen niet meer. Doe je dat in een muis, dan heb je een knock-outmuis. De vraag is wat je daarna meet.
 
-_Stem-invoer:_ Kort hoe krisper-kas-negen knipt. Een gids-er-en-aa is een kort stukje er-en-aa dat precies past op één plek in het deeënaa. Het brengt het enzym kas-negen daarheen, en kas-negen knipt daar beide strengen door. De cel repareert de knip vaak net niet goed. Dan werkt dat gen niet meer. Doe je dat in een muis, dan heb je een knok-outmuis. De vraag is wat je daarna meet.
+_Stem-invoer:_ Kort hoe krisper-kas-negen knipt. Een gids-er-en-aa is een kort stukje er-en-aa dat precies past op één plek in het DNA. Het brengt het enzym kas-negen daarheen, en kas-negen knipt daar beide strengen door. De cel repareert de knip vaak net niet goed. Dan werkt dat gen niet meer. Doe je dat in een muis, dan heb je een knock-outmuis. De vraag is wat je daarna meet.
 
 **s11** · audio `s11.mp3` · 33.2 s · generation `HTy9eEEl690cqh007fGD`
 

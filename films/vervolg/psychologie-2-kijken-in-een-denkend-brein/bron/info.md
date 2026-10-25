@@ -5,10 +5,10 @@
 | Bestand | `films/vervolg/psychologie-2-kijken-in-een-denkend-brein.html` (audio in `psychologie-2-kijken-in-een-denkend-brein/audio/`) |
 | Reeks | Wat word jij? · gedeelde film van Psychologie en Neurowetenschappen (`id: hersenmeten` in GEBIEDEN van vervolg.html) |
 | Niveau | vwo (één niveau) |
-| Versie | 1.1 · 20 oktober 2026 |
+| Versie | 1.2 · 20 oktober 2026 · heropname 25 okt 2026 |
 | Prompt | onbekend · gemaakt 20 okt |
 | Stem | Roos (ElevenLabs eleven_v4), één take per alinea, flow q7TiGffg8rNkGI8jwEov |
-| Duur | spraak 10:54 (654 s); met vragen en kaarten ± 12 min |
+| Duur | spraak 10:49 (649 s); met vragen en kaarten ± 12 min |
 | Beeldstijl | Part C · Schema, met cast (Yasmin, Dr. Kim, Opa Henk) |
 | Bouwvorm | FILMDATA-straat van de therapiefilm (`bron/src` + `bron/bouw`), speler uit films/gedrag/5-emotieregulatie (met spelerfix) |
 | Herkomst | gemaakt door Claude in reeksmodus, 20 okt 2026; script v1 → review (reviews/review_v1.md) → v2 |

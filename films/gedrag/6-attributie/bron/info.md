@@ -5,10 +5,10 @@
 | Bestand | films/gedrag/6-attributie.html (audio in films/gedrag/6-attributie/audio/) |
 | Reeks | Gedrag (hoofdstuk `gedrag`: havo eigen pakket Gedrag, vwo H1 + H19), film 6 van 12 |
 | Niveau | havo + vwo; vwo-blok s09 (actor-observer-effect, meta-analyse) |
-| Versie / datum | 1.0 · 15 oktober 2026 |
+| Versie / datum | 1.1 · 25 oktober 2026 |
 | Prompt | onbekend · gemaakt 15 okt |
 | Stem / model | Roos (ElevenLabs eleven_v4, voice 7qdUFMklKPaaAVMsBTBt), één take per alinea, flow jo9SUZEeggaQUQWumcqN; respelling Weiner → Wainer; Jones sinds 20 okt in gewone spelling (zie `uitspraak.md`) |
-| Duur | spraak 4:16 (vwo) / 3:49 (havo); speeltijd met kaarten en vragen ± 5,5 min |
+| Duur | spraak 4:17 (vwo) / 3:49 (havo); speeltijd met kaarten en vragen ± 5,5 min |
 | Beeldstijl | Part C: Schema |
 | Personages | Noor en Sam (castboek) |
 | Audio-opslag | 7 losse mp3's in audio/ (s01, s04, s05, s06, s08, s09, s10) |
@@ -69,3 +69,7 @@ Uitspraak na de uitspraaktest van 18 okt: stem-invoer Djoons → Jones (gewone s
 - **Ondertitel B in plaats van 'bee'** (Kamiel: "wie kiest voor 'bee'" moet "B" zijn). In `script_v2.md`: "Antwoord bee, dus." → "Antwoord B, dus." (s05), "niet voor bee." → "niet voor B." (s05), "Antwoord bee." → "Antwoord B." (s08). De stem-invoer blijft "bee" via de film-eigen regel `^B([.,:]?)$` → `bee` in `uitspraak_film.json`; de audio is ongewijzigd, alleen de woordtekst in `stem/woordtijden/s05.json` en `s08.json` is aangepast (tijden gelijk). Andere opties: in deze film komen geen gesproken 'aa'/'cee' voor; de vraagkaarten tonen a/b/c al als letters.
 - Nog open (niet in deze ronde): "Jones" staat in `hw/herinspreken.json` als goedgekeurd in gewone spelling (was Djoons, s06 en s09); niet opnieuw ingesproken, want de opdracht was alleen tekst.
 - Kamiel keurde de film goed: REVIEW 'ok'.
+
+## Wijziging 25 okt 2026
+
+Uitspraaktest 25 okt: alinea s06 (Jones) opnieuw ingesproken, zelfde invoer (gewone spelling), 1 take, 657 credits; alleen mp3 `audio/s06.mp3` en de woordtijden/dur van s06 in `window.FILMDATA` vervangen (dur 42,93 -> 43,89 s; film ~1 s langer). Regel Jones -> Djoons uit `bron/uitspraak_film.json` gehaald. Versie 1.1.

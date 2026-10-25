@@ -15,3 +15,5 @@ Model ElevenLabs eleven_v4, stem Roos (7qdUFMklKPaaAVMsBTBt), één take per ali
 | Ig Nobelprijs | zoals geschreven | s18 | wachtlijst |
 | tan | zoals geschreven | s05 | wachtlijst |
 | optogenetica, autopsie, epilepsie, hersenschors | zoals geschreven | s07, s13, s23, s24 | wachtlijst (klemtoon) |
+
+Heropname 25 okt 2026: s14 (fMRI, wisselvallig; zelfde stem-invoer F-M-R-I), 587 credits, 1 take.
