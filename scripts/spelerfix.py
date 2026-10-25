@@ -379,6 +379,19 @@ def fix_text(s, path=None):
     return s, ['geen bekende speler']
 
 
+# Antwoordletters (25 okt 2026): de stem-invoer zegt 'Antwoord bé' (uitspraak.json, b. -> bé.), dus de
+# knipherkenning bij Vragen uit moet naast 'bee' ook 'bé' (en 'bè') kennen. Idempotent: na de vervanging
+# komt het oude patroon niet meer voor.
+ANTW_OUD = 'aa|bee|cee|a|b|c'
+ANTW_NIEUW = 'aa|bee|bé|bè|cee|a|b|c'
+
+
+def fix_antwletter(s):
+    if ANTW_OUD not in s:
+        return s, []
+    return s.replace(ANTW_OUD, ANTW_NIEUW), ['antwoordletter bé']
+
+
 def alle_bestanden():
     fs = [f for f in glob.glob(os.path.join(ROOT, 'films/**/*.html'), recursive=True)
           if '/bron/' not in f and not f.endswith('presentatie.html')]
@@ -400,11 +413,13 @@ def main(argv):
             if s3 != s2 and '/*BK_DIPS*/' in s2 and s3.replace(' ', '') == s2.replace(' ', ''):
                 pass
             s2 = s3; log += log2
+        s2, log3 = fix_antwletter(s2); log += log3
         if check:
             ok = MARK in s
             if not ok:
                 bad += 1
-            print(('OK   ' if ok else 'MIST ') + os.path.relpath(f, ROOT), '' if ok else ' '.join(log))
+            noot = '  (antwoordletter bé nog niet: draai spelerfix.py)' if ok and ANTW_OUD in s else ''
+            print(('OK   ' if ok else 'MIST ') + os.path.relpath(f, ROOT) + noot, '' if ok else ' '.join(log))
             continue
         if s2 != s:
             open(f, 'w', encoding='utf-8').write(s2)
