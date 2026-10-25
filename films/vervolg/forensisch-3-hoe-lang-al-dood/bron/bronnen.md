@@ -56,7 +56,7 @@ Niveau volgens `films/BRONNEN.md`. Alle bronnen zijn op 25 okt 2026 zelf geopend
 | 6 | s07 | De vuistregel 'één graad per uur' is maar een ruwe schatting. | B1, B7 | ≈ | B7 noemt 1,5 °C/uur als gangbare waarde in een gematigd klimaat en mat zelf ± 0,5 °C/uur in India; B1: afkoeling niet als enige methode gebruiken. De '1 °C per uur' staat in geen geopende A/B-bron letterlijk; 'ruwe schatting' is in elk geval terecht. |
 | 7 | s07 | Kleding, tocht of koorts veranderen de curve. | B1, B4, B6 | ≈ | Kleding en lucht (B1, B4, B6; Henssge corrigeert voor kleding en luchtbeweging). Koorts staat in geen geopende A/B-bron; volgt uit een hogere begintemperatuur. |
 | 8 | s07 | Een forensisch arts gebruikt het nomogram van Henssge; dat neemt ook gewicht en kleding mee en geeft een marge van uren. | B5, B6 | ✓ | B6: 'the current gold standard'; marge ± 3 tot ± 7 uur. B5: in een onderzoek uit 2024 viel het echte tijdstip maar in 37 % van de gevallen binnen het interval (staat in het docentdeel). |
-| 9 | s07 | Na een dag of twee is het lichaam even warm als de kamer; hier is die klok dus al stil. | B1 | ≈ | B1: evenwicht na ± 18–24 uur. 'Een dag of twee' is ruim; voor deze casus (twee weken) maakt het niet uit. Let op: `getallen.md` zegt dat het script 'na ongeveer een dag' heeft, maar script v2 en het docentdeel zeggen 'een dag of twee'. |
+| 9 | s07 | Na een dag of twee is het lichaam even warm als de kamer; hier is die klok dus al stil. | B1 | ≈ | B1: evenwicht na ± 18–24 uur. 'Een dag of twee' is ruim; voor deze casus (twee weken) maakt het niet uit. `getallen.md` is gelijkgezet met script v2 en docentdeel ('een dag of twee'; 25 okt 2026). |
 | 10 | s08 | Het bloed zakt naar de laagste plekken; na ongeveer een halfuur ontstaan lijkvlekken. | B1, B2 | ≈ | B2: na 20–30 min. B1 noemt de zwaartekracht, maar het halfuur alleen in B2 (niveau B). |
 | 11 | s08 | Eerst kun je ze wegdrukken; na ongeveer een halve dag niet meer. | B1, B2 | ≈ | B2: wegdrukbaar tot 8–12 uur, na ± 12 uur vast; B1: vast na 6–8 uur (tropisch). 'Ongeveer een halve dag' ligt aan de bovenkant van het bereik. |
 | 12 | s08 | Dan vallen de bloedcellen uiteen en kleuren de vaatwand. | B1 | ≈ | B1: vastzetten gebeurt doordat rode bloedcellen hemolyseren en de kleurstof naar het omringende weefsel trekt. 'Kleuren de vaatwand' is smaller dan 'het weefsel'. Eén A-bron; simplyforensic (niveau C) telt niet. |
@@ -87,13 +87,13 @@ Niveau volgens `films/BRONNEN.md`. Alle bronnen zijn op 25 okt 2026 zelf geopend
 
 ## Aanpassingen
 
-Geen bewering met `!`. Voorstellen aan Kamiel; de film is níet aangepast.
+Geen bewering met `!`. Voorstellen aan Kamiel; goedgekeurd op 25 okt 2026. De film zelf (beeld en stem) is niet aangepast.
 
 | Wat | Waar | Stand |
 |---|---|---|
-| Docentdeel: bij graaddagen noemen dat de drempel per soort verschilt (8 °C voor de groene bromvlieg in het model; bij de blauwe bromvlieg veel lager) (bewering 31). | `forensisch-3-hoe-lang-al-dood.html`, docentdeel | voorstel |
-| Docentdeel: Wikipedia, simplyforensic en de NDSU-handout (niveau C) in de tabel 'Getallen in de film' vervangen door de bronnen hierboven (o.a. StatPearls B1, Bartgis B4, NHM B17). | docentdeel | voorstel |
-| `getallen.md` corrigeren: script v2 zegt 'na een dag of twee', niet 'na ongeveer een dag' (bewering 9). | `bron/getallen.md` | voorstel |
+| Docentdeel: bij graaddagen noemen dat de drempel per soort verschilt (8 °C voor de groene bromvlieg in het model; bij de blauwe bromvlieg veel lager) (bewering 31). | `forensisch-3-hoe-lang-al-dood.html`, docentdeel | verwerkt 25 okt 2026 (Vereenvoudigingen, met B20, B21, B22) |
+| Docentdeel: Wikipedia, simplyforensic en de NDSU-handout (niveau C) in de tabel 'Getallen in de film' vervangen door de bronnen hierboven (o.a. StatPearls B1, Bartgis B4, NHM B17). | docentdeel | verwerkt 25 okt 2026 |
+| `getallen.md` corrigeren: script v2 zegt 'na een dag of twee', niet 'na ongeveer een dag' (bewering 9). | `bron/getallen.md` | verwerkt 25 okt 2026 |
 | Beweringen 6, 7, 10, 12: een tweede A-bron zoeken (1 °C per uur, koorts, halfuur, kleuring van weefsel). | — | open |
 
 ## Menselijke controle

@@ -285,7 +285,7 @@ Object.assign(SCENES, {
       spat(ctx, 1280, 360, 50, 100, Math.PI / 2, L); naamBij(ctx, 'langgerekt', '5 bij 10 millimeter', 1280, 210, L, 'center');
       if (L > 0.01) { ctx.save(); ctx.globalAlpha *= L; wiebel(1280, 640, 27, 33, '27° TOT 33°'); ctx.restore(); }
       metaA(ctx, 'MEETFOUT ± 0,5 MILLIMETER', 960, 860 - 20, q.on('meetfout', 1), C.grain, 'center', 24);
-      chip(ctx, 'betrouwbaarder', 1280, 480, C.groen, q.on('betrouwbaarder', 1), 26);
+      chip(ctx, 'minder gevoelig', 1280, 480, C.groen, q.on('minder', 1), 26);
       ctx.restore(); } },
 
   // ---------- H4 Veiligstellen zonder te besmetten ----------

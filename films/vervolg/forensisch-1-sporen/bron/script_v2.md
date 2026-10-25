@@ -40,7 +40,7 @@ Antwoord b. Een druppel die recht op de muur komt, spat naar alle kanten gelijk 
 
 Bilal meet het ovaal, zonder staartje: vijf millimeter breed, tien lang. Breedte gedeeld door lengte is nul komma vijf: de sinus van de inslaghoek. De sinus van dertig graden is een half. Bij het ronde vlekje is de verhouding één: negentig graden, recht erop.
 
-Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Langgerekte vlekken meten is dus betrouwbaarder.
+Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Een meetfout weegt bij langgerekte vlekken dus minder zwaar.
 
 ## Hoofdstuk 4 — Veiligstellen zonder te besmetten [Schema: Bilal en Kim in overall, mondkapje en handschoenen; Bilal met het staafje, daarna het glas; een haar dat van een mouw valt; kaartje 'eliminatiedatabank'; papieren zakje en ademend staafjesdoosje naast plastic zakje met schimmel; mes in een doos; label met nummer, zegel en een formulier met handtekeningen]
 Alles moet naar het lab, zonder dat er iets bij komt. Bilal pakte net met handschoenen het staafje van de vlek, en wil nu het glas bemonsteren. Wat doet hij eerst? Wat denk je?

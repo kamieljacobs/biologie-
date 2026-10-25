@@ -4,11 +4,11 @@ Werkwijze en criteria: `films/BRONNEN.md`. Vertrekpunt: `bron/getallen.md` (bron
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 1.0 · script v2 (25 okt 2026) |
+| Gecontroleerde versie | 1.1 · script v2 (25 okt 2026; zin in s18 aangepast) |
 | Eerste ronde | Claude, 25 okt 2026: 33 beweringen, 33 bronnen zelf geopend |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
-| Stand | 19 ✓ · 13 ≈ · 1 ! · 0 ? |
+| Stand | 20 ✓ · 13 ≈ · 0 ! · 0 ? |
 
 ## Bronnen
 
@@ -77,7 +77,7 @@ Niveau volgens `films/BRONNEN.md`. Alle bronnen zijn op 25 okt 2026 zelf geopend
 | 21 | s17 | Meet het ovaal zonder staartje: breedte gedeeld door lengte is de sinus van de inslaghoek (5/10 = 0,5 → 30°; verhouding 1 → 90°). | B19, B20 | ✓ | sin α = W/L (B19, B20; Rizer 1955). Rekenvoorbeeld is een eigen som. |
 | 22 | s18 | Met hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. | B19, B22 | ✓ | Beide noemen dat de gangbare methode rechte banen aanneemt; B19: dat overschat de hoogte (27 cm in een voorbeeld). Het woord 'vereenvoudigd' staat in beeld. |
 | 23 | s18 | Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. | B20 | ≈ | B20: 1 mm meetfout geeft bij 15° 0,8° fout, bij 88° bijna 17°. Volgt ook uit de wiskunde van de boogsinus. Eén A-bron. |
-| 24 | s18 | Langgerekte vlekken meten is dus betrouwbaarder. | B20, B21 | ! | Te stellig. Langgerekte vlekken zijn minder gevoelig voor een **meetfout** (B20), maar de formule zelf zit er bij schuine inslag (onder ± 40°) juist flink naast (B21: 'in significant error' bij kleine hoeken). Voorstel: zie Aanpassingen. |
+| 24 | s18 | Een meetfout weegt bij langgerekte vlekken dus minder zwaar. (was: 'Langgerekte vlekken meten is dus betrouwbaarder.') | B20, B21 | ✓ | Versie 1.1: de zin zegt nu alleen iets over de meetfout, en dat staat in B20 (1 mm meetfout: bij 15° 0,8°, bij 88° bijna 17°). De oude zin was te stellig: bij schuine inslag (onder ± 40°) zit de sinusformule zelf flink naast (B21: 'in significant error' bij kleine hoeken); dat staat nu in het docentdeel bij Vereenvoudigingen. |
 | 25 | s19–q20–s21 | Na elk spoor nieuwe handschoenen, anders kan iets van het ene spoor naar het andere reizen. | B24, B25 | ✓ | B24: 'Change gloves between collecting each item'; B25: wisselen bij contact met biologisch materiaal. |
 | 26 | s21 | Het DNA van onderzoekers staat in de eliminatiedatabank; vindt het lab hun DNA op een spoor, dan is dat waarschijnlijk besmetting door een eigen medewerker. | B26, B27 | ✓ | B26: profielen van politie, NFI en bepaalde bezoekers, doel = contaminatie opsporen, vrijwillig. B27: ook schoonmakers; 55 matches met eigen medewerkers. Deelname is vrijwillig (CRvB 2020: geen wettelijke grondslag voor dwang); de film zegt niet 'verplicht'. |
 | 27 | s24 | Een vochtig spoor in een dichte zak gaat schimmelen en schimmel breekt het spoor af; dus eerst drogen, dan in papier of een doosje dat ademt, elk spoor apart. | B23, B24, B25 | ✓ | B23: 'promotes the growth of mold and degrades the biological evidence'; B24 en B25: drogen, papier/karton, apart verpakken. |
@@ -90,12 +90,12 @@ Niveau volgens `films/BRONNEN.md`. Alle bronnen zijn op 25 okt 2026 zelf geopend
 
 ## Aanpassingen
 
-Voorstellen aan Kamiel; de film is níet aangepast.
+Voorstellen aan Kamiel. Kamiel keurde ze goed op 25 okt 2026; verwerkt in versie 1.1.
 
 | Wat | Waar | Stand |
 |---|---|---|
-| Bewering 24: 'Langgerekte vlekken meten is dus betrouwbaarder.' → bijvoorbeeld 'Een meetfout weegt bij langgerekte vlekken dus minder zwaar.' Of de zin schrappen. In het docentdeel noemen dat de sinusformule bij heel schuine inslag (onder ± 40°) zelf ook afwijkt (B21). | s18 (stem opnieuw), docentdeel | voorstel |
-| Docentdeel: bronnen van niveau C (Wikipedia, sciencenotes, phadebas.com) vervangen door de bronnen hierboven. | `forensisch-1-sporen.html`, tabel met bronnen | voorstel |
+| Bewering 24: 'Langgerekte vlekken meten is dus betrouwbaarder.' → bijvoorbeeld 'Een meetfout weegt bij langgerekte vlekken dus minder zwaar.' Of de zin schrappen. In het docentdeel noemen dat de sinusformule bij heel schuine inslag (onder ± 40°) zelf ook afwijkt (B21). | s18 (stem opnieuw), docentdeel | verwerkt 25 okt 2026 (versie 1.1: zin vervangen door de voorgestelde, s18 opnieuw ingesproken; docentdeel bij Vereenvoudigingen) |
+| Docentdeel: bronnen van niveau C (Wikipedia, sciencenotes, phadebas.com) vervangen door de bronnen hierboven. | `forensisch-1-sporen.html`, tabel met bronnen | verwerkt 25 okt 2026 (alle niveau-C-bronnen vervangen door B1–B22) |
 | Beweringen 6, 9, 18, 19: een A-bron zoeken (kleur luminollicht, felheid ↔ hoeveelheid, principe Phadebas, amylase in ontlasting). | — | open |
 
 ## Menselijke controle

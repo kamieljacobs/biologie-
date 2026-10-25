@@ -5,8 +5,8 @@
 | Bestand | `films/vervolg/forensisch-1-sporen.html` (audio in `forensisch-1-sporen/audio/`) |
 | Reeks | Wat word jij? · Forensisch onderzoek (film 1 van 3) |
 | Niveau | havo + vwo (één niveau) |
-| Versie | 1.0 · oktober 2026 · 25 oktober 2026 (script v2) |
-| Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.187 credits (flow in `stem/sessions.json`) |
+| Versie | 1.1 · 25 oktober 2026 (script v2) · 1.1: zin in s18 'Langgerekte vlekken meten is dus betrouwbaarder' vervangen door 'Een meetfout weegt bij langgerekte vlekken dus minder zwaar' (bronnenlogboek, bewering 24), s18 opnieuw ingesproken, chip in beeld nu 'minder gevoelig'; docentdeel: bronnen bijgewerkt |
+| Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.451 credits (5.187 + 264 voor de nieuwe take van s18 in versie 1.1) (flow in `stem/sessions.json`) |
 | Duur | spraak 5:36 (336 s); met vragen en kaarten ± 7 min |
 | Prompt | v10 (met de aanvullingen van 25 okt 2026: twijfelscènes) |
 | Beeldstijl | Schema met cast (Bilal stagiair forensisch onderzoek, Dr. Kim; plaatsdelict-outfit), Micro bij moleculen |

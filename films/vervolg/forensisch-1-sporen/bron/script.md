@@ -1,4 +1,4 @@
-# Sporen op de plaats delict — gesproken tekst (1.0 · oktober 2026)
+# Sporen op de plaats delict — gesproken tekst (1.1 · oktober 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow dlm45f0RjwUpiKh0Pu9j. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign). Stem-invoer staat erbij waar die afwijkt van de ondertitel.
 
@@ -96,9 +96,9 @@ Bilal meet het ovaal, zonder staartje: vijf millimeter breed, tien lang. Breedte
 
 _Stem-invoer:_ Bilal meet het ovaal, zonder staartje: vijf millimeter breed, tien lang. Breedte gedeeld door lengte is nul komma vijf: de sinus van de inslaghoek. De sinus van dertig graden is een half. Bij het ronde vlekje is de verhouding één: neguntig graden, recht erop.
 
-**s18** · audio `s18.mp3` · 15.3 s · generation `HOwVB4l6XUVPnsGCH6CT`
+**s18** · audio `s18.mp3` · 15.7 s · generation `AeZYlz3chtYp1B3J2Z66`
 
-Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Langgerekte vlekken meten is dus betrouwbaarder.
+Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Een meetfout weegt bij langgerekte vlekken dus minder zwaar.
 
 ## Hoofdstuk 4 — Veiligstellen zonder te besmetten
 

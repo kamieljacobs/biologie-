@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/forensisch-2-hoe-zeker-is-een-match.html` (audio in `forensisch-2-hoe-zeker-is-een-match/audio/`) |
 | Reeks | Wat word jij? · Forensisch onderzoek (film 2 van 3) |
 | Niveau | havo + vwo (één niveau) |
-| Versie | 1.0 · oktober 2026 · 25 oktober 2026 (script v2) |
+| Versie | 1.0 · oktober 2026 · 25 oktober 2026 (script v2) · docentdeel: bronnen bijgewerkt (25 okt 2026) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.344 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 5:56 (356 s); met vragen en kaarten ± 7 min |
 | Prompt | v10 (met de aanvullingen van 25 okt 2026: twijfelscènes) |

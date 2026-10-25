@@ -5,7 +5,7 @@
 | Bestand | `films/vervolg/forensisch-3-hoe-lang-al-dood.html` (audio in `forensisch-3-hoe-lang-al-dood/audio/`) |
 | Reeks | Wat word jij? · Forensisch onderzoek (film 3 van 3) |
 | Niveau | havo + vwo (één niveau) |
-| Versie | 1.0 · oktober 2026 · 25 oktober 2026 (script v2) |
+| Versie | 1.0 · oktober 2026 · 25 oktober 2026 (script v2) · docentdeel: bronnen bijgewerkt (25 okt 2026) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.671 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 6:15 (375 s); met vragen en kaarten ± 8 min |
 | Prompt | v10 (met de aanvullingen van 25 okt 2026: twijfelscènes) |

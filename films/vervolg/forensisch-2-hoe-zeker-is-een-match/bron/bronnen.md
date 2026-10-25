@@ -71,11 +71,11 @@ Niveau volgens `films/BRONNEN.md`. Alle bronnen zijn op 25 okt 2026 zelf geopend
 
 ## Aanpassingen
 
-Geen bewering met `!`. Voorstellen aan Kamiel; de film is níet aangepast.
+Geen bewering met `!`. Voorstellen aan Kamiel; goedgekeurd op 25 okt 2026. De film zelf (beeld en stem) is niet aangepast.
 
 | Wat | Waar | Stand |
 |---|---|---|
-| Docentdeel: bij de handdrukproef noemen dat andere onderzoekers vinden dat Cale e.a. de overdracht overschatten (B14) en dat een handdruk van 10 s veel minder overdracht gaf (B15, B16). | `forensisch-2-hoe-zeker-is-een-match.html`, docentdeel | voorstel |
+| Docentdeel: bij de handdrukproef noemen dat andere onderzoekers vinden dat Cale e.a. de overdracht overschatten (B14) en dat een handdruk van 10 s veel minder overdracht gaf (B15, B16). | `forensisch-2-hoe-zeker-is-een-match.html`, docentdeel | verwerkt 25 okt 2026 (tabel 'Getallen en bronnen' en Vereenvoudigingen, met B12–B16) |
 | Bewering 10 en 14: het artikel van Cale e.a. zelf openen en een NFI-bron zoeken voor 23 STR's bij sporenonderzoek. | — | open |
 
 ## Menselijke controle

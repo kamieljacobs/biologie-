@@ -793,10 +793,10 @@
   "look": "Schema: muur bij de keukendeur met een rond spatje en een ovaal met staartje; zijaanzicht van een druppel die recht en schuin neerkomt; liniaal over het ovaal (5 en 10 millimeter); de som sin α = breedte / lengte = 0,5 → α = 30° op het scherm; een bijna rond vlekje met een wiebelende hoekwijzer; daarna lijnen terug naar één gebied, label 'vereenvoudigd: druppels vliegen in een boog'",
   "level": "basis",
   "lines": [
-   "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Langgerekte vlekken meten is dus betrouwbaarder."
+   "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Een meetfout weegt bij langgerekte vlekken dus minder zwaar."
   ],
-  "display": "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Langgerekte vlekken meten is dus betrouwbaarder.",
-  "voice": "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Langgerekte vlekken meten is dus betrouwbaarder.",
+  "display": "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Een meetfout weegt bij langgerekte vlekken dus minder zwaar.",
+  "voice": "Met de hoeken en richtingen van een paar spatjes reken je terug waar het bloed vandaan kwam, en ongeveer op welke hoogte. Bij een bijna rond vlekje geeft een kleine meetfout al een grote fout in de hoek. Een meetfout weegt bij langgerekte vlekken dus minder zwaar.",
   "vmap": [
    0,
    1,
@@ -841,7 +841,10 @@
    40,
    41,
    42,
-   43
+   43,
+   44,
+   45,
+   46
   ]
  },
  {

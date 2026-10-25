@@ -3,7 +3,7 @@ film = {
  "slug": "forensisch-1-sporen", "hoofdstuk": "vervolg", "hoofdstukNaam": "Wat word jij?",
  "title": "Sporen op de plaats delict", "sub": "is dit bloed?",
  "puzzle": "Op de vloer van een huis waar is ingebroken ligt een bruine vlek. Is het bloed? En van een mens?",
- "meta": "forensisch onderzoek · hbo en wo", "version": "1.0 · oktober 2026", "titleLook": "schema",
+ "meta": "forensisch onderzoek · hbo en wo", "version": "1.1 · oktober 2026", "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · Wat word jij? · Forensisch onderzoek",
  "lead": "Bilal loopt stage bij de forensische opsporing. In een huis waar is ingebroken ziet hij een bruine vlek. Een kleurtest en luminol zoeken naar heem, het deel van hemoglobine met een ijzeratoom: dat versnelt een reactie met waterstofperoxide, zoals een enzym. Maar ook planten en dierenbloed doen dat, dus zo'n test is een voorproef: het kán bloed zijn. Een sneltest met antistoffen zegt of het menselijk hemoglobine is, met een testlijn en een controlelijn. Uit de vorm van een spatje reken je de inslaghoek uit: sin α = breedte / lengte. En alles gaat zo naar het lab dat er niets bij komt: nieuwe handschoenen, drogen, papier en een keten van bewaring.",
  "endHaak": "van wie is het bloed op het mes?",
