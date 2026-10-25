@@ -300,7 +300,12 @@ function _enZij(ctx, P, x, y, h0, o) {
   if (kijk < 0) { ctx.translate(x, 0); ctx.scale(-1, 1); ctx.translate(-x, 0); }
   const fEff = G ? G.f * (o.tempo || 1) : 1, fase = G ? t * fEff : 0, fi = fase * 6.2832, fr = (q) => ((q % 1) + 1) % 1;
   const heupY0 = top + hh * 3.05, Lb = voetY - heupY0 - hh * 0.2, L1 = Lb * 0.5, L2 = Lb * 0.5;
-  let B1 = _beenPose(G, fr(fase), L1, L2, hh), B2 = _beenPose(G, fr(fase + 0.5), L1, L2, hh);
+  // voetstand iets rustiger dan de ruwe cyclus (Kamiel 25 okt 2026: 'de voeten wijzen erg omhoog'): bij hielcontact en in de zwaaifase hooguit 8° tenen omhoog,
+  // en in de zwaaifase hooguit 40° tenen omlaag; de grote sneakers maakten de echte hoeken te opvallend
+  const rustig = (B) => { if (!G) return B; const D = 180 / Math.PI, fa = B.fA * D; let ex = 0;
+    if (B.p >= G.duty && fa < -40) ex = -40 - fa; else if (B.p >= G.duty && fa > 8) ex = 8 - fa; else if (B.p < 0.1 && fa > 8) ex = 8 - fa; else if (B.p < G.duty && B.p > G.duty - 0.12 && fa < -30) ex = -30 - fa;
+    return ex ? _beenPose(G, B.p, L1, L2, hh, ex) : B; };
+  let B1 = rustig(_beenPose(G, fr(fase), L1, L2, hh)), B2 = rustig(_beenPose(G, fr(fase + 0.5), L1, L2, hh));
   let heupY;
   if (!G) heupY = voetY - Math.max(B1.low, B2.low);
   else { const duty = G.duty, steun = (B) => B.p < duty;
@@ -308,7 +313,7 @@ function _enZij(ctx, P, x, y, h0, o) {
     else { const L = B1.p >= duty && B1.p < 0.5 ? B1 : B2, Tf = (0.5 - duty) / fEff, tau = (L.p - duty) / fEff;
       const yTO = voetY - _beenPose(G, duty, L1, L2, hh).low, yIC = voetY - _beenPose(G, 0, L1, L2, hh).low, g = 9.81 * (h / 1.7) * (G.zweef || 1);
       heupY = yTO + (yIC - yTO) * tau / Tf - 0.5 * g * tau * (Tf - tau); }
-    for (const k of [1, 2]) { let B = k === 1 ? B1 : B2; if (!steun(B)) for (let e = 0; e < 10 && heupY + B.low > voetY - hh * 0.03; e++) B = _beenPose(G, B.p, L1, L2, hh, (e + 1) * 5); if (k === 1) B1 = B; else B2 = B; } }
+    for (const k of [1, 2]) { let B = k === 1 ? B1 : B2; if (!steun(B)) for (let e = 0, ex0 = (B.fA - _beenPose(G, B.p, L1, L2, hh).fA) * 180 / Math.PI; e < 10 && heupY + B.low > voetY - hh * 0.03; e++) B = _beenPose(G, B.p, L1, L2, hh, ex0 + (e + 1) * 5); if (k === 1) B1 = B; else B2 = B; } }
   // vooruit: x is het startpunt, de steunvoet blijft staan
   let cx = x;
   if (G && o.vooruit) { const sEnd = Math.min(G.duty, 0.5), c0 = _beenPose(G, 0, L1, L2, hh).ballX, v = (c0 - _beenPose(G, sEnd, L1, L2, hh).ballX) * fEff / sEnd;
