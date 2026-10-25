@@ -1,0 +1,32 @@
+{
+  "_uitleg": "Mutatiepool voor B15 (prompt v10). scripts/dobbelsteen.py trekt hieruit, gewogen naar de winkans in films/logboek/mutaties.jsonl. Een soort toevoegen of schrappen mag alleen bij een patroonronde, met Kamiels akkoord. 'concept_vorm' = de vertelvorm kan het concept zelf naspelen (proefregel P1); een grote mutatie hoort bij voorkeur zo'n vorm te zijn.",
+  "klein": [
+    "opening",
+    "metafoor",
+    "volgorde",
+    "voorbeeld",
+    "tempo",
+    "perspectief",
+    "rol van het personage",
+    "camerabeweging"
+  ],
+  "groot": {
+    "kijker-speelt-mee": "de kijker doet het werk van de vakpersoon (selecteren, oordelen) en die handeling is het concept",
+    "experiment-als-kapstok": "één proef of toets met afloop draagt de film",
+    "casus": "één echt geval van begin tot eind",
+    "raadsel": "de film begint met een vraag die pas aan het eind sluit",
+    "twee-situaties-naast-elkaar": "twee situaties die vergeleken worden, hoofdstuk na hoofdstuk",
+    "dossier": "één dossier of object dat stap voor stap wordt opgebouwd",
+    "achteruit-verteld": "de keten van het eindproduct terug naar het begin",
+    "detective-interval": "het antwoord wordt een venster dat steeds smaller wordt",
+    "wedstrijd": "twee aanpakken tegen elkaar met een score",
+    "kijker-beslist": "de kijker neemt bij elke stap de beslissing in het werk",
+    "geschiedenis-tijdlijn": "het vak verteld langs de momenten waarop het veranderde"
+  },
+  "beeld": [
+    "diepte en licht",
+    "animatieprincipes",
+    "rijkere illustratie",
+    "andere techniek"
+  ]
+}

@@ -69,6 +69,8 @@ Geleidelijk, per hoofdstuk, op Kamiels initiatief: meestal in de week vóór hij
 
 Opmerkingen bij keuringen en reviews moeten de werkwijze voeden, niet alleen één film. Keuringsbladen hebben per opmerking een vinkje 'geldt voor alle films' (`algemeen: true`). Werkwijze en kandidaatlessen voor de volgende promptversie: `films/WERKWIJZE-LESSEN.md` (oorzaakvraag per algemene opmerking: welke stap had dit moeten tegenhouden?). Na elke keuringsronde Kamiel een lijstje geven van wat als algemeen is aangemerkt. Elke opmerking, reviewpunt en zelf gevonden fout gaat ook in het foutenlogboek `films/logboek/fouten.jsonl` (velden en vaste soorten in `films/logboek/README.md`); `python3 scripts/foutenpatronen.py` zoekt patronen (≥3× in ≥2 films), draaien na elke keuringsronde en vóór elke nieuwe promptversie. Een patroon gaat eerder de prompt in dan een losse opmerking.
 
+Scriptvarianten en blinde beoordelaar (prompt v10 B15, Kamiel 25 okt 2026): trek de mutaties met `python3 scripts/dobbelsteen.py`, draai `python3 scripts/scriptcheck.py` op elke variant, geef de beoordelaar de vaste brief `films/BLIND-BEOORDELAAR.md`, en zet direct na het oordeel elke variant in `films/logboek/mutaties.jsonl` en de zwaktes van de winnaar in `fouten.jsonl`. Wint de winnaar met 1 punt of minder, of noemt de beoordelaar het nipt: Kamiel kiest (keuzeblad). Aan het eind van elke reeks een patroonronde (B15), voorstellen naar `films/WERKWIJZE-LESSEN.md`.
+
 ## Beeldafspraken
 
 De nieuwste filmprompt staat in de repo als `films/PROMPT_v10.md` (met de volledige C10-tekst in `films/PROMPT_v10_C10_tekenkwaliteit.md`), zodat elk Claude-account van Kamiel hem kan lezen; bij een nieuwe promptversie ook hier een `PROMPT_vN.md` neerzetten en deze verwijzing bijwerken.

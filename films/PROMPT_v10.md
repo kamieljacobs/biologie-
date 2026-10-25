@@ -68,6 +68,7 @@ Filled in once per series; every film brief inherits it. Filled-in series briefs
 | VOICE |  |
 | LEAVE OUT |  |
 | SERIES PAGE | all films on one page with the shared glossary |
+| PATROONRONDE | the last item of every series (B15): the OVERDRACHT of the series lists it as open until it is done |
 
 ## Part B — Production standard
 
@@ -157,6 +158,8 @@ Real exam questions (EXAM QUESTIONS filled in)
 - Paraphrase the question or quote it briefly with the source on screen (CvTE, examen biologie havo/vwo, jaar, tijdvak, vraagnummer). Redraw tables, gels, karyograms and diagrams in the Schema look of Part C; never paste the original.
 - Keep the biology of the question intact: same data, same reasoning steps, same answer. The correctievoorschrift decides what counts as correct; say when the film's wording is simpler than the correctievoorschrift.
 - Let the viewer work the question as a prediction moment before the film solves it.
+
+**Varianten first (B15).** Before the review passes: draw the mutations with `scripts/dobbelsteen.py`, write three variants, run `scripts/scriptcheck.py` on each, then the blinde beoordelaar with the fixed brief `films/BLIND-BEOORDELAAR.md`. Straight after the verdict, in the same session: log every variant in `films/logboek/mutaties.jsonl` and the winner's weak spots in `films/logboek/fouten.jsonl`; a nipte winst goes to Kamiel (B15). The review passes below run on the winner.
 
 Review passes. Each pass returns a numbered list of concrete problems and fixes, not a verdict. Revise after each pass.
 
@@ -309,7 +312,7 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 
 | Level | Variants | Who selects | Cost |
 | --- | --- | --- | --- |
-| Script + storyboard | 3 per film, one of them a grote mutatie (below) | Blinde beoordelaar, then Kamiel sees the winner with one line why | Text only, no credits |
+| Script + storyboard | 3 per film, one of them a grote mutatie (below) | Blinde beoordelaar; Kamiel sees the winner with one line why, and chooses himself when the win is nipt | Text only, no credits |
 | A hard animation scene | 2–3 renders of that scene only | Kamiel, side by side | Renders, no voice |
 | Voice-over | Never variants: one take per alinea (B8) | — | — |
 | Whole films in multiple | Only when Kamiel approves the number beforehand | Kamiel | Many credits |
@@ -317,10 +320,11 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 - **Kleine en grote mutaties.** Small mutations (a different opening, metaphor, order or example) polish a set-up. They never find a fundamentally better one, so a set of three always holds one grote mutatie: a different rode draad or vertelvorm (a casus, a raadsel, an experiment as kapstok). Usually it loses; sometimes it wins. When a film is upgraded to a new prompt version (B14), only small mutations, unless Kamiel asks for more.
 - **Grote mutaties in het beeld.** The look is still far from its top, so there the jumps should be bigger than in the didactics. A big animation mutation is a different approach, not a different colour: diepte en licht (lighting, shadows, layers with depth instead of flat planes) · animatieprincipes pushed much further than C8 (anticipation, follow-through, secondary motion, squash and stretch) · rijkere illustratie (detail and texture closer to the scientific illustrations of Kamiel's brother) · een andere techniek (another way of drawing or rendering in code, when the current one has a ceiling).
 - **Benchmarkscène.** Every big animation mutation is made first on one fixed scene of about 20 s, not on a whole film: a castpersonage takes a bite of the broodje kaas, one continuous zoom into the dunne darm, an enzyme cuts zetmeel into glucose (person, organ at its real place and scale, zoom, molecules). Shown side by side with the current version as nulmeting and, where possible, an extern ijkpunt Kamiel finds professional. A winning approach goes into Part C; after that, smaller mutations on it.
-- **Blinde beoordelaar.** A separate agent that has not seen the making, preferably on another Claude model than the maker. It gets only the brief, the variants (neutral labels A/B/C in random order) and the fitnesscheck. It first scores every variant per criterion, then names the weakest spot of each, and only then gives a winner plus what to take from the losers.
+- **Blinde beoordelaar.** A separate agent that has not seen the making, preferably on another Claude model than the maker. It gets only the brief, the variants (neutral labels X/Y/Z in random order, key in werk/blind/sleutel.json) and the fitnesscheck, through the fixed brief `films/BLIND-BEOORDELAAR.md`. It first scores every variant per criterion, then names the weakest spot of each, and only then gives a winner plus what to take from the losers; it notes its model and says whether the win is duidelijk or nipt.
+- **Nipte winst → Kamiel** (Kamiel 25 okt 2026). When the winner leads by 1 point or less, or the judge calls it nipt, the judge does not decide. Claude puts a keuzeblad on the film's twijfelblad (or `werk/blind/keuze.md`): the two candidates side by side, per candidate its strongest and weakest spot, the judge's advice and what would be taken over from the other. Kamiel chooses; the log gets `beslist_door: kamiel`. Until then Claude works on other films, not past the script of this one.
 - **Fitnesscheck** (the criteria, from Kamiel's recurring feedback): one leerdoel per scene, clear · misconcepties tackled · biology correct, sizes realistic and organs at their real place · castpersonages, no grey poppetjes · uitspraakrisico's (B5) · Vragen uit works (B9) · human moments carry the concept · animation follows C8 and C9 · length fits the leerdoelen.
 - **Recombineren.** The best parts of different variants may be combined (opening from A, metaphor from C). The combination goes past the blinde beoordelaar once more.
-- **Bijhouden.** info.md gets one line on which variant won and why, so the next film learns from it.
+- **Bijhouden.** info.md gets one line on which variant won and why; every variant gets a row in `films/logboek/mutaties.jsonl` (fields in films/logboek/README.md), straight after the verdict.
 
 **Erfelijk maken.** The prompt is the films' DNA: a mutation that wins must be inherited, or every film starts from zero again.
 
@@ -332,13 +336,14 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 
 **Proefregels** (rule · since · films tried · won/lost):
 
-- none yet
+- **P1 · de grote mutatie speelt het concept na.** A grote vertelvorm must be a form in which the viewer does or sees the concept itself (selecting = gerichte evolutie, a sealed envelope = testing a prediction, a judge = source versus activity), not a frame around it (backwards, a contest, a riddle, a checklist). Can the drawn form not do that for this topic, redraw once and note why. · 25 okt 2026 · from 10 films: concept forms won 3 of 4, frame forms 0 of 7 · tried in 0 new films.
+- **P2 · elke misconceptie een vraag, de begeleider een eigen beurt.** Every misconception in the brief is tested by a prediction or check question, not only told; the begeleider has at least one scene with his or her own lines and the profession is spoken. · 25 okt 2026 · from 10 films: one of the two named among the weak spots in all 10 · tried in 0 new films.
 
 **Welke mutaties.** If Claude picks the mutations, it picks what it already finds logical: inbreeding. So:
 
 - **Mutatiepool + dobbelsteen.** A fixed pool of what can vary (opening, vertelvorm, metafoor, tempo, perspectief, camerabeweging, rol van het personage, and for the look the four families above). A script draws which mutations a film gets; Claude may only strike one that truly does not fit the topic.
 - **Meestal klein, soms groot.** Per film one grote mutatie, the rest small.
-- **Logboek.** Every mutation tried is logged with won or lost. Kinds that win get a somewhat higher chance, kinds that lose a lower one, never 100% and never 0%.
+- **Logboek.** Every mutation tried is logged with won or lost in `films/logboek/mutaties.jsonl`; the pool is `films/mutatiepool.json` and `scripts/dobbelsteen.py` draws from it. Kinds that win get a somewhat higher chance, kinds that lose a lower one, never 100% and never 0%.
 - **Genen van buiten.** Now and then a mutation borrowed from elsewhere: a film by Kamiel's brother, a documentary, a question a student asked in class.
 - **Leerlingdata als selectie.** The site already measures uitgekeken (GoatCounter) and scores on the oefeningen. After a few months, check which kinds of choices go with better watching and scores: noisy, but an independent selection next to the judge and Kamiel.
 
@@ -352,11 +357,13 @@ Make several versions where it is cheap, judge them hard, and keep the best. Jud
 
 **Geleend van AlphaEvolve, FunSearch en Promptbreeder.**
 
-- **Goedkope keuring eerst.** Every variant passes the cheap automatic checks first (Part C colours, Vragen uit scripts, uitspraak risk words, contact sheet), then the blinde beoordelaar; only the last 2–3 candidates reach Kamiel. His time is the expensive test.
-- **Een gevarieerd archief, niet één winnaar.** Keep the best variant per kind (best opening with a casus, with a raadsel, with an experiment …) in an archive next to the logboek, so variation stays available and the search doesn't collapse onto one answer.
+- **Goedkope keuring eerst.** Every variant passes the cheap automatic checks first (`scripts/scriptcheck.py`: lengths, guessable options, answer positions; for the look Part C colours, Vragen uit scripts, uitspraak risk words, contact sheet), then the blinde beoordelaar; only nipte cases reach Kamiel. His time is the expensive test.
+- **Een gevarieerd archief, niet één winnaar.** Keep the best variant per kind (best opening with a casus, with a raadsel, with an experiment …) in `films/variantenarchief/README.md`, so variation stays available and the search doesn't collapse onto one answer.
 - **Winnaars en verliezers kijken mee.** When making new variants, the generator gets earlier winners from the archive and the reasons the losers lost, so every round builds on the last.
 - **Snel model voor de breedte, sterkste model voor de diepte.** Many variants (openings, storyboards) with a faster model; the strongest model works out the winners.
 - **Kleine gerichte ingrepen.** A mutation is preferably an edit to one scene, not a new film (as in B14).
+
+**Patroonronde** (end of every series, and before every new prompt version). Run `scripts/dobbelsteen.py --toon` and `scripts/foutenpatronen.py`, update the archive, count the Proefregels (tried / won), and put the proposals (promote, drop, new proefregel, change in the pool) in films/WERKWIJZE-LESSEN.md for Kamiel. Tick it off in the OVERDRACHT of the series.
 
 **Onderhoudsbeurt** (every \~3 prompt versions). A big prompt costs tokens at every step and lets rules compete or half-contradict. Blind removal is just as risky: many rules are scars of real errors. So every rule gets a label, and only Kamiel's OK changes anything:
 
@@ -696,6 +703,8 @@ v9 onderhoudsbeurt (22 okt 2026, Kamiel akkoord rij 1–6 en 8–19): prompt fol
 ✦ v10 aanvulling (25 okt 2026): storyboardkeuring only for twijfelscènes (B7) — Kamiel approved nearly every full storyboard without remarks (Evolutie film 5–8: 141 scènes, 0 opmerkingen), while the errors were found by the fresh reviews; he now judges only the scenes Claude doubts about, and the finished film in the reviewstand.
 
 ✦ v10 aanvulling (25 okt 2026): no references to tools in the film, above all not spoken — no "Probeer het zelf" line or card, no "in de tool" / "op de site" (B4, D2, D4); grep check in QA (B11).
+
+✦ v10 aanvulling (25 okt 2026): B15 wired into the steps — varianten first in B4 with `scripts/dobbelsteen.py`, `scripts/scriptcheck.py` and the fixed brief `films/BLIND-BEOORDELAAR.md`; mutatielogboek `films/logboek/mutaties.jsonl` (filled with the first 10 films), pool `films/mutatiepool.json`, archive `films/variantenarchief/`; the judge notes its model and says duidelijk or nipt; a nipte winst (≤ 1 point or called nipt) goes to Kamiel as a keuzeblad; patroonronde at the end of every series (A2); Proefregels P1 (grote mutatie speelt het concept na) and P2 (every misconception a question, begeleider his own scene).
 
 ✦ v10 (24 okt 2026): new C10 Tekenkwaliteit (library first, sources win, ElevenLabs plates only to learn from, test sheet and approval, recipe cards for animals, micro, organs and plants); fresh visual review after every build as a fixed step; static outline only for animals that do not move in their scene.
 
