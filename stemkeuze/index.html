@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('thema');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Kies de stem</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../tools/huisstijl.css">
+<script src="../tools/huisstijl.js"></script>
+<style>
+  main { max-width: 760px; margin: 0 auto; padding: 28px max(16px, env(safe-area-inset-right, 0px)) 56px max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: 22px; }
+  .eyebrow { color: var(--goud-text); }
+  h1 { font-size: clamp(30px, 6vw, 44px); line-height: 1.1; }
+  .lead { color: var(--text2); margin: 0; max-width: 60ch; }
+  .stemmen { display: grid; gap: 12px; }
+  .stem { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer; transition: border-color .15s, background .15s; }
+  .stem:hover { border-color: var(--line2); }
+  .stem.gekozen { border-color: var(--goud); background: var(--goud-soft); }
+  .letter { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font: 700 30px var(--titel); background: var(--surface2); color: var(--goud-text); border: 1px solid var(--line2); }
+  .stem.gekozen .letter { background: var(--goud); color: var(--goud-ink); border-color: var(--goud); }
+  .stem audio { width: 100%; min-width: 0; }
+  .stem .rij { display: grid; gap: 6px; min-width: 0; }
+  .stem .naam { font-weight: 700; }
+  .kaart { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: grid; gap: 12px; }
+  label { font-weight: 600; display: grid; gap: 6px; }
+  label small { font-weight: 400; color: var(--text3); }
+  input[type=text], textarea { background: var(--bg2); border: 1px solid var(--line2); border-radius: 10px; padding: 10px 12px; width: 100%; }
+  textarea { min-height: 80px; resize: vertical; }
+  .knop { justify-self: start; background: var(--goud); color: var(--goud-ink); border: 0; border-radius: 999px; padding: 11px 22px; font-weight: 700; }
+  .knop:disabled { opacity: .45; cursor: not-allowed; }
+  .melding { margin: 0; color: var(--text2); }
+  .melding.fout { color: var(--koraal); }
+  .tekst { color: var(--text2); font-size: 15px; }
+  .tekst summary { cursor: pointer; color: var(--goud-text); font-weight: 600; }
+  .tekst p { margin: 8px 0 0; font-style: italic; }
+  /* uitslag */
+  .balken { display: grid; gap: 12px; }
+  .balk { display: grid; grid-template-columns: 40px 1fr 72px; gap: 12px; align-items: center; font-variant-numeric: tabular-nums; }
+  .balk b { font: 700 24px var(--titel); color: var(--goud-text); }
+  .spoor { height: 28px; background: var(--surface2); border-radius: 8px; overflow: hidden; }
+  .vul { height: 100%; background: var(--goud); border-radius: 8px; transition: width .6s ease; }
+  .balk span { text-align: right; color: var(--text2); }
+  .redenen { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .redenen li { background: var(--bg2); border-radius: 10px; padding: 8px 12px; font-size: 15px; }
+  .redenen li em { font-style: normal; font-family: var(--meta); font-size: 12px; color: var(--goud-text); margin-right: 8px; }
+  .filter { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filter select { background: var(--bg2); border: 1px solid var(--line2); border-radius: 8px; padding: 6px 10px; }
+  @media (max-width: 480px) { .stem { grid-template-columns: 48px 1fr; } .letter { width: 48px; height: 48px; font-size: 24px; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="mono eyebrow">Unboxing Biology · jij beslist</div>
+  <h1>Welke stem wordt onze verteller?</h1>
+  <p class="lead">Er komen Engelstalige biologiefilms op YouTube. Elke film krijgt dezelfde vertelstem. Luister naar de drie stemmen hieronder: ze lezen precies dezelfde tekst. Kies de stem waarnaar je een hele film van tien minuten zou willen luisteren.</p>
+
+  <div class="stemmen" id="stemmen" role="radiogroup" aria-label="Kies een stem">
+    <div class="stem" data-stem="A" role="radio" aria-checked="false" tabindex="0"><div class="letter">A</div><div class="rij"><span class="naam">Stem A</span><audio controls preload="none" src="stem-a.mp3"></audio></div></div>
+    <div class="stem" data-stem="B" role="radio" aria-checked="false" tabindex="0"><div class="letter">B</div><div class="rij"><span class="naam">Stem B</span><audio controls preload="none" src="stem-b.mp3"></audio></div></div>
+    <div class="stem" data-stem="C" role="radio" aria-checked="false" tabindex="0"><div class="letter">C</div><div class="rij"><span class="naam">Stem C</span><audio controls preload="none" src="stem-c.mp3"></audio></div></div>
+  </div>
+
+  <details class="tekst"><summary>Lees de tekst mee</summary>
+    <p>Hold your breath. Go on, just for a few seconds. Feel that urge to breathe again? That isn't your lungs running out of oxygen. It's your brain noticing something else entirely: carbon dioxide. Every cell in your body is breaking down glucose right now, and one of the waste products is carbon dioxide. It dissolves in your blood and makes it slightly more acidic. Sensors in your brainstem pick up that change within seconds. So here's a question for you. When you hold your breath, what makes you want to breathe again: too little oxygen, or too much carbon dioxide? Pause the video if you'd like to think about it. It's the carbon dioxide. Your body keeps an eye on the waste, not on the supply. Going a little deeper: some free divers breathe very fast before a dive. That lowers their carbon dioxide, so the warning signal comes late. And that can be dangerous.</p>
+  </details>
+
+  <form class="kaart" id="formulier">
+    <p class="melding" id="keuze">Tik op een stem om hem te kiezen.</p>
+    <label for="waarom">Waarom deze stem? <small>Mag je leeg laten</small><textarea id="waarom" maxlength="300" placeholder="Bijvoorbeeld: rustig, duidelijk, klinkt niet saai…"></textarea></label>
+    <label for="klas">Je klas <small>Mag je leeg laten</small><input type="text" id="klas" maxlength="20" placeholder="Bijvoorbeeld 4H2"></label>
+    <button class="knop" id="stuur" type="submit" disabled>Stem insturen</button>
+    <p class="melding" id="status" role="status"></p>
+  </form>
+
+  <section class="kaart" id="uitslag" hidden>
+    <div class="mono eyebrow">Uitslag</div>
+    <h2 id="totaal">Nog geen stemmen</h2>
+    <div class="filter"><label for="klasfilter" style="display:flex;gap:8px;align-items:center">Klas <select id="klasfilter"><option value="">Alle klassen</option></select></label><button class="knop" type="button" id="ververs" style="padding:6px 14px">Ververs</button></div>
+    <div class="balken" id="balken"></div>
+    <ul class="redenen" id="redenen"></ul>
+  </section>
+</main>
+<script>
+(function () {
+  var DB = 'https://edutool-4b00b-default-rtdb.europe-west1.firebasedatabase.app';
+  var SLEUTEL = 'bk-stemkeuze-1';
+  var gekozen = null;
+  var kaarten = document.querySelectorAll('.stem');
+  var knop = document.getElementById('stuur');
+  var status = document.getElementById('status');
+  var uitslagModus = /[?&]uitslag=1/.test(location.search);
+
+  function kies(el) {
+    gekozen = el.dataset.stem;
+    kaarten.forEach(function (k) { var aan = k === el; k.classList.toggle('gekozen', aan); k.setAttribute('aria-checked', aan ? 'true' : 'false'); });
+    document.getElementById('keuze').textContent = 'Je kiest stem ' + gekozen + '.';
+    knop.disabled = false;
+  }
+  kaarten.forEach(function (k) {
+    k.addEventListener('click', function (e) { if (e.target.tagName !== 'AUDIO') kies(k); });
+    k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); kies(k); } });
+  });
+  // één stem tegelijk laten spelen
+  document.querySelectorAll('audio').forEach(function (a) {
+    a.addEventListener('play', function () { document.querySelectorAll('audio').forEach(function (b) { if (b !== a) b.pause(); }); });
+  });
+
+  var al = null;
+  try { al = localStorage.getItem(SLEUTEL); } catch (e) {}
+  if (al) { status.textContent = 'Je hebt al gestemd (stem ' + al + '). Bedankt!'; knop.disabled = true; knop.textContent = 'Gestemd'; }
+
+  document.getElementById('formulier').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!gekozen || knop.disabled) return;
+    knop.disabled = true; status.className = 'melding'; status.textContent = 'Versturen…';
+    var data = { stem: gekozen, tijd: { '.sv': 'timestamp' } };
+    var w = document.getElementById('waarom').value.trim(); if (w) data.waarom = w.slice(0, 300);
+    var k = document.getElementById('klas').value.trim().toUpperCase(); if (k) data.klas = k.slice(0, 20);
+    fetch(DB + '/stemkeuze.json', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function () {
+        try { localStorage.setItem(SLEUTEL, gekozen); } catch (e) {}
+        status.textContent = 'Je stem op ' + gekozen + ' is binnen. Bedankt!'; knop.textContent = 'Gestemd';
+        if (uitslagModus) laad();
+      })
+      .catch(function () {
+        knop.disabled = false; status.className = 'melding fout';
+        status.textContent = 'Versturen lukte niet. Controleer je internet en probeer het nog een keer.';
+      });
+  });
+
+  // uitslag (voor het bord): ?uitslag=1
+  var alle = [];
+  function teken() {
+    var f = document.getElementById('klasfilter').value;
+    var rij = alle.filter(function (s) { return !f || s.klas === f; });
+    var tel = { A: 0, B: 0, C: 0 };
+    rij.forEach(function (s) { if (tel[s.stem] !== undefined) tel[s.stem]++; });
+    var n = rij.length, max = Math.max(1, tel.A, tel.B, tel.C);
+    document.getElementById('totaal').textContent = n === 0 ? 'Nog geen stemmen' : n + (n === 1 ? ' stem' : ' stemmen');
+    var balken = document.getElementById('balken'); balken.innerHTML = '';
+    ['A', 'B', 'C'].forEach(function (x) {
+      var d = document.createElement('div'); d.className = 'balk';
+      var pct = n ? Math.round(100 * tel[x] / n) : 0;
+      d.innerHTML = '<b>' + x + '</b><div class="spoor"><div class="vul" style="width:' + (100 * tel[x] / max) + '%"></div></div><span>' + tel[x] + ' · ' + pct + '%</span>';
+      balken.appendChild(d);
+    });
+    var ul = document.getElementById('redenen'); ul.innerHTML = '';
+    rij.filter(function (s) { return s.waarom; }).forEach(function (s) {
+      var li = document.createElement('li'); var em = document.createElement('em'); em.textContent = 'Stem ' + s.stem;
+      li.appendChild(em); li.appendChild(document.createTextNode(s.waarom)); ul.appendChild(li);
+    });
+  }
+  function laad() {
+    fetch(DB + '/stemkeuze.json').then(function (r) { return r.ok ? r.json() : {}; }).then(function (d) {
+      alle = Object.keys(d || {}).map(function (id) { return d[id]; });
+      var sel = document.getElementById('klasfilter'), huidig = sel.value;
+      var klassen = Array.from(new Set(alle.map(function (s) { return s.klas; }).filter(Boolean))).sort();
+      sel.innerHTML = '<option value="">Alle klassen</option>' + klassen.map(function (k) { return '<option>' + k.replace(/[<>&"]/g, '') + '</option>'; }).join('');
+      sel.value = klassen.indexOf(huidig) >= 0 ? huidig : '';
+      teken();
+    }).catch(function () { document.getElementById('totaal').textContent = 'Uitslag laden lukte niet'; });
+  }
+  if (uitslagModus) {
+    document.getElementById('uitslag').hidden = false;
+    document.getElementById('klasfilter').addEventListener('change', teken);
+    document.getElementById('ververs').addEventListener('click', laad);
+    laad(); setInterval(laad, 10000);
+  }
+})();
+</script>
+<script>window.BK_GEEN_FEEDBACK = true;</script>
+</body>
+</html>

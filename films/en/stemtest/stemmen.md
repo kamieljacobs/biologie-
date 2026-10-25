@@ -16,3 +16,11 @@ Zelfde alinea (`test.txt`), eleven_v4, één take per stem. Flow: https://eleven
 | julian.mp3 | Julian – Warm, articulate, engaging (m) | 9IzcwKmvwJcw58h3KnlH | 39,6 s |
 
 Kamiel na ronde 1: Philippa en Benedict 'erg goed'.
+
+## Ronde 3: beslissende test, leerlingen stemmen (25 okt 2026)
+
+Kamiel twijfelt tussen Nadia, Philippa en Elliot en laat leerlingen beslissen. Fragment van een minuut in filmvorm (`ronde3/test.txt`: opening, uitleg, vraag met denkpauze, antwoord, verdieping), eleven_v4, één take per stem (±870 credits per take).
+
+Blinde stempagina: `stemkeuze/index.html` (niet gelinkt, noindex; leerlingen stemmen op A/B/C met optioneel 'waarom' en klas; uitslag voor het bord met `stemkeuze/?uitslag=1`). Opslag Firebase `stemkeuze/<push-id>` = `{stem, waarom?, klas?, tijd}`, regels in `sessie/database.rules.json` (blok `stemkeuze`, iedereen mag één stem toevoegen, lezen openbaar). Claude leest de uitslag met WebFetch op `.../stemkeuze.json`.
+
+Ontsleuteling (niet aan leerlingen laten zien): A = Elliot (55,1 s), B = Philippa (55,0 s), C = Nadia (51,7 s).

@@ -154,6 +154,28 @@
           ".validate": false
         }
       }
+    },
+    "stemkeuze": {
+      ".read": true,
+      "$id": {
+        ".write": "(auth != null && auth.uid === 'wZevu7kFPFd7iSloWPXIzyqKQ7m2') || (!data.exists() && newData.exists())",
+        ".validate": "newData.hasChildren(['stem', 'tijd'])",
+        "stem": {
+          ".validate": "newData.isString() && newData.val().matches(/^[ABC]$/)"
+        },
+        "waarom": {
+          ".validate": "newData.isString() && newData.val().length <= 300"
+        },
+        "klas": {
+          ".validate": "newData.isString() && newData.val().length <= 20"
+        },
+        "tijd": {
+          ".validate": "newData.isNumber() && newData.val() === now"
+        },
+        "$anders": {
+          ".validate": false
+        }
+      }
     }
   }
 }
