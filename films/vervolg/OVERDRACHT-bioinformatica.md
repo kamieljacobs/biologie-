@@ -35,6 +35,9 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 - Film 3 verpleegkundige en patiënt: akkoord. Film 1 alle kaarten akkoord; film 2 tekeningen akkoord ('doe maar wat het beste is').
 - Nog open op het blad: film 2 s17, film 3 en film 4 (behalve de !-kaarten, die vervallen).
 
+## Op de site
+- **Film 1** `films/vervolg/bioinformatica-1-zoeken-in-dna.html` (25 okt 2026, avond): ingesproken (flow FAbmxqZ1O6SaivkGKmYL, ±5.530 + 925 credits transcriptie), blinde uitspraakcontrole zonder fouten, frisse beeldreview (8 MOET, 10 KAN, alle verwerkt), bronmap compleet, status 'nog bekijken'. Nog geen filmmedaillon.
+
 ## Na de keuring (te doen)
 - Reeksobject 'scherm met code / sequenties': de eigen versies in film 2, 3 en 4 vervangen door het blok bovenaan `bi1/teken_bi1.js`.
 - Film 2 `endHaak` gaat nu over een bacterie; film 3 gaat over een virus → aanpassen.

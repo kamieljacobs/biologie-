@@ -23,6 +23,8 @@ for f in files:
         k = s.rfind('<footer', 0, i)
         at = j if j > k else i
         s = s[:at] + f'<span {MARK} style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">{tekst}</span>' + s[at:]
+    elif '</body>' not in s:
+        continue  # sjablonen zonder <body> (bv. films/verbeterbladen/sjabloon.html)
     else:
         i = s.rindex('</body>')
         s = s[:i] + f'<p {MARK} style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,\'Segoe UI\',sans-serif;opacity:.6;text-align:center">{tekst}</p>\n' + s[i:]

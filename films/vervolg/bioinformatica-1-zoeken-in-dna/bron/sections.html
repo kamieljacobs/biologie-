@@ -1,0 +1,51 @@
+<section id="checkvragen"><h2>Checkvragen</h2>
+<div class="q"><p><b>1.</b> Een onderzoeker heeft een stukje DNA van een onbekende vis. Leg uit hoe ze met een openbare databank kan achterhalen welke vis het is, en waarom ze bij dieren vaak een vast stukje DNA (een DNA-barcode) gebruikt. <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>Ze vergelijkt haar sequentie met de sequenties van bekende soorten in de databank en zoekt de sequentie die het meest op de hare lijkt; bij elke sequentie staat van welke soort ze is (1p). Een vast stukje verschilt bij de meeste dieren net iets van soort tot soort, en omdat iedereen hetzelfde stukje leest, staan er van heel veel soorten vergelijkbare sequenties in de databank (1p).</p></details></div>
+<div class="q"><p><b>2.</b> Lijn uit en bereken de score (gelijk +1, anders −1, gat −1):<br><code>GATTACA</code><br><code>GATACA</code> <span class="pts">(3p)</span></p>
+<details><summary>Antwoord</summary><p>Zonder gat passen na de derde letter bijna alle letters niet meer; zet daarom een gat in de onderste rij, bijvoorbeeld <code>GAT-ACA</code> (of <code>GA-TACA</code>) (1p). Dan zijn 6 letters gelijk, 0 anders en is er 1 gat (1p). Score: 6 − 1 = 5 (1p).</p></details></div>
+<div class="q"><p><b>3.</b> Iemand zegt: 'BLAST is snel omdat computers zo snel zijn; het lijnt gewoon alles met alles uit.' Leg uit wat er niet klopt. <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>BLAST lijnt niet alles uit: het zoekt eerst waar korte stukjes (woordjes) van de sequentie precies voorkomen (1p). Alleen op die paar plekken lijnt het verder uit, naar links en rechts zolang de score goed blijft; aan bijna alle sequenties in de databank begint het dus niet eens (1p).</p></details></div>
+<div class="q"><p><b>4.</b> De bovenste BLAST-treffer is 100% gelijk aan geelvintonijn. Geef twee redenen waarom een lab daar niet meteen op vertrouwt. <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>Een sequentie in de databank kan onder de verkeerde soortnaam staan (fout van de indiener), dus kijk je naar meerdere treffers uit betrouwbare bronnen (1p). Verwante soorten (zoals tonijnsoorten) verschillen in de barcode maar in weinig letters, dus een lab kijkt soms ook nog naar een tweede stukje DNA (1p).</p></details></div>
+<div class="q"><p><b>5.</b> Sams programma vertaalt <code>AUGGCCCUGUGGAUGCGC</code> in MALWMR. Hij laat het daarna los op een mRNA dat één letter te laat begint. Wat komt eruit, en wat leer je daarvan over computers? <span class="pts">(2p)</span></p>
+<details><summary>Antwoord</summary><p>De computer leest dan andere drietallen en geeft verkeerde aminozuren (WPCGCA), net als wanneer je met de hand één letter te laat begint (1p). De computer doet precies wat er staat: waar de vertaling moet beginnen, moet de mens goed zetten en controleren (1p).</p></details></div>
+</section>
+<section id="docent"><h2>Voor de docent</h2>
+<h3>Plaats</h3>
+<p>Film 1 van <i>Wat word jij?</i> → Bio-informatica. Bouwt voort op <i>Wat is DNA?</i> (basen, sequentie), <i>De genetische code lezen</i> (codontabel, startcodon, per drie lezen; die film opent met insuline uit bacteriën), <i>Mutaties</i> (deletie) en <i>DNA lezen</i> (sequencen). De codontabel en het sequencen worden niet opnieuw uitgelegd. Sam (16) loopt in de hele reeks een meeloopweek bij de afdeling bio-informatica, Dr. Kim is zijn begeleider; deze film is zijn eerste dag. Film 1 legt het beeld 'scherm met code en sequenties' vast dat de films 2–4 hergebruiken.</p>
+<h3>Hoe de film het uitlegt</h3>
+<ul><li><b>Cold open en H1</b> de sushi van gisteren ('blauwvintonijn'); de barcode als rij gekleurde lettertegels (ongeveer 650 letters, één gen in de mitochondriën). Vraag waar de sequenties van bekende soorten staan; daarna de drie databanken die elke dag uitwisselen, en een databankregel met soort, gen en indiener.</li>
+<li><b>H2</b> uitlijnen met een oefenvoorbeeld (niet de tonijn: tussen tonijnsoorten verschilt de barcode bijna alleen door vervangingen). Vraag wat er na de vierde letter misgaat; een zoomcirkel toont twee DNA-strengen waarin één basenpaar ontbreekt. Gat, uitlijnscore 15 − 1 − 1 = 13, zonder gat −4.</li>
+<li><b>H3</b> BLAST als algoritme: woordjes van 28 letters, de paar plekken waar zo'n woordje precies voorkomt, daar uitbreiden zolang de score goed blijft. De resultatenlijst (voorbeeld) met 'gelijk' en 'toeval': het toevalsgetal zegt dat het tonijn is, het procent gelijk welke tonijn. Vraag of Sam nu klaar is: fouten in databanken, meerdere bronnen, een tweede stukje DNA.</li>
+<li><b>H4</b> Sam laat de computer het begin van het mRNA voor insuline vertalen met zeven regels echte Python (in beeld, niet voorgelezen); eerst één letter te laat (WPCGCA), dan goed (MALWMR). Vraag wat er moet veranderen voor een recept van ruim driehonderd letters: niets.</li>
+<li><b>Recap</b> geelvintonijn, niet de duurdere blauwvin van het bakje; Radar 2017. Wat de computer deed en wat de mensen deden; opleidingen.</li></ul>
+<h3>Getallen en bronnen</h3>
+<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>
+<tr><td>Openbare databanken</td><td>drie grote (Amerika, Europa, Japan), elke dag uitwisseling, vrij toegankelijk</td><td>INSDC-pagina's van DDBJ en NCBI; Sayers e.a., <i>GenBank 2025 update</i>, Nucleic Acids Research 53 (2025)</td></tr>
+<tr><td>Omvang</td><td>miljarden sequenties, meer dan een half miljoen soorten</td><td>Sayers e.a. 2025 (meer dan 4,7 miljard sequenties, ± 34 biljoen basen, 581 000 soorten); <i>GenBank 2024 update</i> (557 000 soorten)</td></tr>
+<tr><td>DNA-barcode</td><td>ongeveer 650 letters uit één gen in de mitochondriën (COI)</td><td>iBOL, <i>What is DNA barcoding?</i> (648 basen); Ward e.a., Phil Trans R Soc B 360 (2005; 655 basen, 207 vissoorten)</td></tr>
+<tr><td>Tonijnsoorten</td><td>verschillen in de barcode maar in weinig letters; soms een tweede stukje DNA</td><td>Lowenstein, Amato &amp; Kolokotronis, PLoS ONE 4(11): e7866 (2009; ook een mogelijk verkeerd gelabelde databanksequentie); Viñas &amp; Tudela, PLoS ONE 4(10): e7606 (2009; twee merkers)</td></tr>
+<tr><td>Uitlijnscore</td><td>+1 / −1 / −1; 15 − 1 − 1 = 13</td><td>lesvoorbeeld Needleman–Wunsch; University of Edinburgh, Bio2 lecture 3; eigen som (nagerekend). BLAST gebruikt voor DNA +5 / −4 (Altschul e.a. 1990)</td></tr>
+<tr><td>BLAST</td><td>woordjes van 28 letters, alleen daar uitbreiden</td><td>Altschul e.a., J Mol Biol 215 (1990); NLM-workshop <i>How BLAST works</i> (2022); UNMC-parameterlijst (megablast 28, blastn 11)</td></tr>
+<tr><td>Toevalsgetal</td><td>hoeveel treffers je puur door toeval zou vinden (de E-waarde; term niet genoemd)</td><td>NLM <i>How BLAST works</i>; ILRI, <i>A note on E-values</i></td></tr>
+<tr><td>Insuline</td><td>AUG GCC CUG UGG AUG CGC → MALWMR; coderend deel 333 letters</td><td>LOVD, INS NM_000207.2 coding DNA; UniProt P01308 (eiwit begint MALWMR); code zelf gedraaid in Python</td></tr>
+<tr><td>Radar 2017</td><td>21 restaurants, 20 keer geelvintonijn</td><td>Radar (AVROTROS), 17 april 2017 (journalistiek, één bron); vergelijkbaar: Oceana/KU Leuven, Brussel 2015</td></tr>
+<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bio-informatica HAN Nijmegen, vier jaar, programmeren in jaar 1; bachelor Biology of Molecular Life Sciences (Radboud) → master Bioinformatics and Systems Biology (WUR)</td><td>studiekeuze123; HAN-opleidingsinfo 22-23 (Python 1 en 2 in jaar 1); WUR-masterpagina (twee jaar, Engelstalig, toelating per persoon)</td></tr>
+</table>
+<h3>Vereenvoudigingen</h3>
+<ul>
+<li><b>Uitslag 'geelvintonijn 100%'</b> is een verzonnen voorbeeld (in beeld 'voorbeeld'); de sushi-studie van Lowenstein e.a. vond met BLAST wel elke tonijn op de eerste treffer.</li>
+<li><b>Woordjes van 28 letters</b> is de standaard van megablast op de NCBI-website; het oudere blastn gebruikt 11. Bij 11 letters zijn er wel miljoenen toevalsplekken; daarom zegt de film 28.</li>
+<li><b>'Zolang de score goed blijft'</b> vereenvoudigt de stopregel van BLAST (X-dropoff).</li>
+<li><b>Toevalsgetal</b>: de E-waarde is een verwacht aantal toevalstreffers, geen kans. De film noemt de term niet.</li>
+<li><b>De code</b> bevat in beeld negen codons; in het echt staan alle 64 erin, ook de stopcodons. Kim geeft het mRNA zelf (geen omzetting van T naar U). De barcode zelf vertaal je niet met de standaardcode: mitochondriën gebruiken een iets andere code.</li>
+<li><b>Snelheid van BLAST</b>: 'vaak al na korte tijd' is bewust vaag; het hangt af van de drukte op de server.</li>
+</ul>
+<h3>Lessuggesties</h3>
+<ul>
+<li>Laat leerlingen in tweetallen twee korte sequenties uitlijnen met en zonder gat, en de scores vergelijken. Wat gebeurt er met de beste uitlijning als een gat −3 kost?</li>
+<li>Doe samen een echte zoektocht: plak een stukje van de COI-barcode van een bekende vis in BLAST (NCBI) en bespreek de kolommen procent gelijk en E-waarde.</li>
+<li>Laat leerlingen de zeven regels Python op papier 'uitvoeren' voor een ander kort mRNA, en daarna met een start één letter te laat.</li>
+<li>Vooruitblik op film 2: iemands genoom wijkt op miljoenen plekken af van het referentiegenoom. Hoe vind je de ene die ziek maakt?</li>
+</ul>
+</section>
