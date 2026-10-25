@@ -51,3 +51,4 @@ Werkmap `hw/fy4` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` n
 - Yasmin is de schouderpatiënt (Lotte zit al in film 1)
 - Noor op één been: in beeld als enkel op het kussen (er is geen pose op één been)
 - Feedback Kamiel 25 okt 2026 verwerkt: s06 woordtijden hersteld, de letter na Antwoord bleef bij Vragen uit hoorbaar (scripts/antwoordletter.py)
+- Gerichte ronde (25 okt 2026): alleen de feedbackpunten, geen opwaardering naar v10 en geen bronnenlogboek (Kamiel: 'niet nodig deze keer')

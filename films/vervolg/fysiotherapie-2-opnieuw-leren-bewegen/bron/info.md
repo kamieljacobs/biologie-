@@ -51,3 +51,4 @@ Werkmap `hw/fy2` opzetten volgens `films/vervolg/BOUWEN.md` (`src/` en `bouw/` n
 - Henk is in s07 en s11 gespiegeld getekend, zodat hij met zijn rechterarm (links in beeld) grijpt
 - 25%-groep = wie niet beide bewegingen kon (feitencheck)
 - Feedback Kamiel 25 okt 2026 verwerkt: Henk in bed in verhouding (henkBed leidt bed- en beenlengte af van H, H 470), labels 1/2 naar rechts; s07 woordtijden hersteld (letter na Antwoord, scripts/antwoordletter.py)
+- Gerichte ronde (25 okt 2026): alleen de feedbackpunten, geen opwaardering naar v10 en geen bronnenlogboek (Kamiel: 'niet nodig deze keer')
