@@ -14,4 +14,5 @@ Wachtlijst (nog niet getest; batchtest later met de luisterpagina Uitspraaktest)
 | adaptatie | adaptatie | aːdɑpˈtaː(t)si | Van Dale (klemtoon op 'ta'); gewone spelling bij v4 |
 | allelfrequentie | allelfrequentie | ɑˈleːlfrəˌkʋɛnsi | eigen transcriptie; allel staat in de Erfelijkheid-reeks |
 | jaartallen | in het jaar 1973 / 1977 / 1978 / 1983 |  | uitspraaklijst (vaste regel) |
-| DNA-reeks | deeënaa-reeks |  | uitspraaklijst |
+
+Heropname 25 okt 2026: s32, DNA (gewone spelling), 385 credits.

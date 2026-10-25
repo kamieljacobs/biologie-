@@ -5,7 +5,7 @@
 | Bestand | `films/evolutie/x2-het-ontstaan-van-het-leven.html` (audio in `x2-het-ontstaan-van-het-leven/audio/`) |
 | Reeks | Evolutie (v2), extra film 2 van 4 (buiten het PTA) |
 | Niveau | havo + vwo (geen vwo-blokken) |
-| Versie | 1.0 · oktober 2026 (script v2 = storyboard f10.json, goedgekeurd 24 okt 2026) |
+| Versie | 1.1 · oktober 2026 (heropname 25 okt: s06) (script v2 = storyboard f10.json, goedgekeurd 24 okt 2026) |
 | Prompt | v10 |
 | Voldoet aan | prompt v10 (C10 tekenkwaliteit; frisse beeldreview na het bouwen) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.901 credits (flow zmRbwjbcINPkr9YCy0c3) |
@@ -56,3 +56,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Uitspraakwachtlijst: `uitspraak.md` (nog niet getest).
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f10.json`.
 - Frisse beeldreview 24 okt 2026 verwerkt (MOET-punten hersteld)
+- Heropname 25 okt 2026: s06 opnieuw ingesproken (UV-straling (gewone spelling), 158 credits); duur bijgewerkt. Het versielabel in de film zelf (footer) staat nog op 1.0.

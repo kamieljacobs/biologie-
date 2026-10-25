@@ -28,11 +28,11 @@ Eerlijk vooraf: niemand was erbij. Wel zijn er proeven. Elke cel heeft minstens 
 
 ## Hoofdstuk 1 — Bouwstenen
 
-**s06** (e10s06) · audio `s06.mp3` · 12.4 s · generation `e769uneFjaTDnhhmeZuF`
+**s06** (e10s06) · audio `s06.mp3` · 12.0 s · generation `vVcqPW7izvp2vvFD1eEV`
 
 De aarde is ongeveer 4,5 miljard jaar oud. Al snel was er vloeibaar water. Zuurstof zat er nog vrijwel niet in, energie wel: bliksem, vulkanen en uv-straling.
 
-_Stem-invoer:_ De aarde is ongeveer 4,5 miljard jaar oud. Al snel was er vloeibaar water. Zuurstof zat er nog vrijwel niet in, energie wel: bliksem, vulkanen en uu-vee-straling.
+_Stem-invoer:_ De aarde is ongeveer 4,5 miljard jaar oud. Al snel was er vloeibaar water. Zuurstof zat er nog vrijwel niet in, energie wel: bliksem, vulkanen en UV-straling.
 
 **s07** (e10s07) · audio `s07.mp3` · 14.3 s · generation `7bn5SVFUpVgGPv3y7Yjd`
 

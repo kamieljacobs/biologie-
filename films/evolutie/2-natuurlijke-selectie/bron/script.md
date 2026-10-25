@@ -141,11 +141,11 @@ Wat denk je? Een groene rups leeft op een rood blad. Wat erven zijn jongen van h
 - b) De allelen die hij zelf al had  ✓
 - c) Niets: alleen de sterkste rupsen geven allelen door
 
-**s32** (e2s27) · audio `s32.mp3` · 25.5 s · generation `unvh8hZX2VZ8hZHo8MIK`
+**s32** (e2s27) · audio `s32.mp3` · 25.3 s · generation `rutl0nd62Udy9sVzELPz`
 
 Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.
 
-_Stem-invoer:_ Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het deeënaa, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de deeënaa-reeks.
+_Stem-invoer:_ Wat een individu in zijn leven meemaakt, verandert zijn allelen niet. Zijn jongen erven alleen de allelen die hij al had. Selectie heeft geen doel. Ze maakt zelf geen nieuwe allelen, maar werkt met de variatie die er al is. Nieuwe allelen ontstaan door mutaties: een mutatie is een toevallige verandering in het DNA, bijvoorbeeld bij het kopiëren. Meer daarover zie je in de DNA-reeks.
 
 **s33** (e2s28) · audio `s33.mp3` · 20.0 s · generation `NBgEGVRoQIwJGG5apqAc`
 

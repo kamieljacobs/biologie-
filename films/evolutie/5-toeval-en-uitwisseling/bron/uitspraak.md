@@ -18,3 +18,5 @@ Wachtlijst (nog niet getest; batchtest later met de luisterpagina Uitspraaktest)
 | sikkelcelallel | sikkelcel-allel | /ˈsɪ.kəl.sɛl.ɑˈlɛl/ | samenstelling; wachtlijst |
 | malaria | malaria | /maːˈlaː.ri.jaː/ | gewoon woord |
 | 1775 / 2011 | het jaar 1775 / het jaar 2011 |  | Kamiels voorkeur jaartallen |
+
+Heropname 25 okt 2026: s12, tyfoon (nieuwe take), 141 credits.

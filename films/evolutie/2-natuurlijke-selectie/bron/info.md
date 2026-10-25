@@ -5,7 +5,7 @@
 | Bestand | `films/evolutie/2-natuurlijke-selectie.html` (audio in `2-natuurlijke-selectie/audio/`) |
 | Reeks | Evolutie (v2), film 2 van 8 |
 | Niveau | havo + vwo (geen vwo-blokken) |
-| Versie | 1.0 · oktober 2026 (script v2 = storyboard f2.json, goedgekeurd 23 okt 2026) |
+| Versie | 1.1 · oktober 2026 (heropname 25 okt: s32) (script v2 = storyboard f2.json, goedgekeurd 23 okt 2026) |
 | Prompt | v9 |
 | Voldoet aan | prompt v9 (storyboard v8 + uitknippoppen) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 5.310 credits (flow u88FTUHgrWbEkySZyFJz) |
@@ -57,3 +57,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f2.json`.
 - s28 en s29: groene rupsen vallen door de camouflage bijna weg tegen het blad (bedoeld); s29 licht ze per generatie op
 - Vink en merel in vlucht zijn klein en snel; op tempo nakijken
+- Heropname 25 okt 2026: s32 opnieuw ingesproken (DNA (gewone spelling), 385 credits); duur bijgewerkt. Het versielabel in de film zelf (footer) staat nog op 1.0.

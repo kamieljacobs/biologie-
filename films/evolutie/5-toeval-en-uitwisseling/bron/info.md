@@ -5,7 +5,7 @@
 | Bestand | `films/evolutie/5-toeval-en-uitwisseling.html` (audio in `5-toeval-en-uitwisseling/audio/`) |
 | Reeks | Evolutie (v2), film 5 van 8 |
 | Niveau | havo + vwo (vwo-blokken gemarkeerd) |
-| Versie | 1.0 · oktober 2026 (script v2 = storyboard f5.json, goedgekeurd 23 okt 2026) |
+| Versie | 1.1 · oktober 2026 (heropname 25 okt: s12) (script v2 = storyboard f5.json, goedgekeurd 23 okt 2026) |
 | Prompt | v9 |
 | Voldoet aan | prompt v9 (storyboard v8 + uitknippoppen) |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 6.763 credits (flow BEwKaXEgaPvQeqXyRXcV) |
@@ -58,3 +58,4 @@ Werkmap `/root/hw` opzetten zoals in `films/evolutie/storyboards-v2/productie/RE
 - Keuzes en vereenvoudigingen uit het storyboard staan in het docentdeel en in `storyboard_f5.json`.
 - s07: tien muizen als voorbeeldpopulatie (script noemt geen soort)
 - s16: vier potten zijn schematisch, percentages illustratief (label 'schematisch')
+- Heropname 25 okt 2026: s12 opnieuw ingesproken (tyfoon (nieuwe take), 141 credits); duur bijgewerkt. Het versielabel in de film zelf (footer) staat nog op 1.0.

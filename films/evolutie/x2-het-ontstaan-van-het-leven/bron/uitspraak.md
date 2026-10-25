@@ -20,6 +20,7 @@ Wachtlijst (nog niet getest; batchtest later met de luisterpagina Uitspraaktest)
 | mitochondriën | mitochondriën | /ˌmi.toːˈxɔn.dri.jə(n)/ | Van Dale; al in eerdere films zonder opmerking |
 | LUCA | Loeka | /ˈlu.kaː/ | archief A4 RISK-tabel (Loeka); Engelse uitspraak /ˈluːkə/; wachtlijst |
 | stromatolieten | stromatolieten | /ˌstroː.maː.toːˈli.tə(n)/ | naar -liet (zoals oöliet); wachtlijst |
-| uv-straling | uu-vee-straling | /yˈveː ˈstraː.lɪŋ/ | Nederlandse letternamen u en v, klemtoon op v (Van Dale: uv /yˈve/); wachtlijst |
 | koolstofdioxide | koolstofdie-oxide | — | UITSPRAAK.md (goedgekeurd) |
 | West-Australië | West-Australië | /ʋɛst ʌu̯sˈtraː.li.jə/ | gewoon Nederlands |
+
+Heropname 25 okt 2026: s06, UV-straling (gewone spelling), 158 credits.
