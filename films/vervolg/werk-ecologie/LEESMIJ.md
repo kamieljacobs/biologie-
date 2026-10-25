@@ -1,0 +1,3 @@
+# Tussenstand Ecologie (werkmappen, 25 okt 2026)
+
+Kopie van de tekstbestanden uit `/home/claude/hw/ec1..ec3` (sessie-werkmap buiten de repo), zodat het andere account verder kan. Per film: `brief.md`, `getallen.md`, `bronnen.md`, `script_v2.md` (definitief), `reviews/`, `werk/` (varianten A/B/C en blind oordeel). `lib_cast_voorstel.js` = lib_cast met het castvoorstel Ecoloog Bas (`bas`), de outfit `veld` voor Daan en het accessoire `verrekijker` (nog niet goedgekeurd, dus nog niet in `personages/`). Helperbriefs: `HELPER-*.md`, `SCHRIJVERSBRIEF.md`; vaste opleidingszin: `REEKSZIN.md`. Verdwijnt zodra de films met bronmap in de repo staan.

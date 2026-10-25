@@ -1,6 +1,6 @@
 # Overdracht — Wat word jij? · Ecologie en natuurbeheer (gestart 25 okt 2026)
 
-Stand: planning goedgekeurd door Kamiel (25 okt 2026, 18:20), scripts in de maak. Wordt bijgewerkt na elke stap. Reeksbrief: `REEKS-ecologie.md`.
+Stand: scripts definitief (script_v2, na blind oordeel en frisse feitenreview); bouw fase A (scènes en storyboard) loopt. Tussenstand in `werk-ecologie/`.
 
 ## Planning (akkoord Kamiel 25 okt 2026)
 1. **Tellen in het veld: hoe ecologen populaties meten** — houden. Vangst-terugvangst, transecten met vrijwilligers, cameravallen en eDNA/DNA uit poep, van telling naar trend.
