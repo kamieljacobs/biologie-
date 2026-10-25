@@ -5,17 +5,19 @@ const $ = id => document.getElementById(id);
 const col = id => 'oordeel' + (id[0] < 'l' ? '1' : '2');
 
 // ---- audio: één Audio per deelbestand
-const SPELERS = {}; let stopT = null, actief = null;
+const SPELERS = {}; let stopT = null, actief = null, frag = 0, vooraf = false;
+function laadAlles() { if (vooraf) return; vooraf = true; const n = Math.max(...W.flatMap(w => w.c.map(c => c.x[0]))); for (let d = 1; d <= n; d++) if (!SPELERS[d]) { const a = new Audio('audio/deel' + d + '.mp3'); a.preload = 'auto'; SPELERS[d] = a; } }
 function speel(ci) {
   const w = W[nu], c = w.c[ci]; if (!c) return;
   const [deel, start, duur] = c.x;
   const a = SPELERS[deel] || (SPELERS[deel] = new Audio('audio/deel' + deel + '.mp3'));
   Object.values(SPELERS).forEach(x => x !== a && x.pause());
-  clearTimeout(stopT); markeer(ci);
+  clearTimeout(stopT); frag = ci; markeer(ci); laadAlles();
   const go = () => { a.currentTime = start; a.play().catch(() => {}); stopT = setTimeout(() => { a.pause(); markeer(-1); }, (duur + 0.05) * 1000); };
   if (a.readyState >= 1) go(); else { a.addEventListener('loadedmetadata', go, { once: true }); a.load(); }
 }
-function markeer(ci) { actief = ci; document.querySelectorAll('.speel').forEach((b, i) => b.classList.toggle('aan', i === ci)); }
+function markeer(ci) { actief = ci; document.querySelectorAll('.speel').forEach((b, i) => b.classList.toggle('aan', i === ci)); document.querySelectorAll('.clip').forEach((c, i) => c.classList.toggle('nu', i === frag)); }
+function naarWoord(i) { nu = i; frag = 0; toonKaart(); speel(0); }
 
 // ---- tekenen
 function esc(s) { return String(s).replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m])); }
@@ -42,6 +44,7 @@ function toonKaart() {
   document.querySelectorAll('[data-best]').forEach(b => b.onclick = () => { const i = +b.dataset.best; bewaar(W[nu].id, { beste: (ORD[W[nu].id] || {}).beste === i ? -1 : i }); toonKaart(); });
   document.querySelectorAll('.kaart .keuze button[data-o]').forEach(b => b.classList.toggle('gekozen', b.dataset.o === o.oordeel));
   $('k-notitie').value = o.notitie || '';
+  document.querySelectorAll('.clip').forEach((c, i) => c.classList.toggle('nu', i === frag && w.c.length > 1));
   document.querySelectorAll('.rij').forEach(r => r.classList.toggle('nu', +r.dataset.i === nu));
 }
 function telling() {
@@ -72,7 +75,7 @@ function toonLijst() {
   });
   if (idx.length > lijstMax) rijen.push(`<div class="meer"><button type="button" id="meer">Nog ${idx.length - lijstMax} tonen</button></div>`);
   $('lijst').innerHTML = rijen.join('') || '<div class="meer melding">Geen woorden in deze selectie.</div>';
-  document.querySelectorAll('.rij').forEach(r => { const ga = () => { nu = +r.dataset.i; toonKaart(); $('kaart').scrollIntoView({ behavior: 'smooth', block: 'start' }); }; r.onclick = ga; r.onkeydown = e => { if (e.key === 'Enter') ga(); }; });
+  document.querySelectorAll('.rij').forEach(r => { const ga = () => { naarWoord(+r.dataset.i); $('kaart').scrollIntoView({ behavior: 'smooth', block: 'start' }); }; r.onclick = ga; r.onkeydown = e => { if (e.key === 'Enter') ga(); }; });
   const m = $('meer'); if (m) m.onclick = () => { lijstMax += 300; toonLijst(); };
 }
 function volgendeOpen(van) {
@@ -95,38 +98,59 @@ async function bewaar(id, velden) {
   } catch (e) { $('opslag').textContent = 'Opslaan lukte niet (' + (e.code || e.message) + '). Probeer het opnieuw.'; }
 }
 // oordeel per fragment; het woord krijgt 'fout' zodra één fragment fout is, 'goed' als alle fragmenten goed zijn
-function perClip(i, po) {
+function perClip(i, po, zet) {
   const w = W[nu], o = ORD[w.id] || {}, pc = Object.assign({}, o.clips || {});
-  pc[i] = pc[i] === po ? undefined : po; if (!pc[i]) delete pc[i];
+  pc[i] = zet ? po : (pc[i] === po ? undefined : po); if (!pc[i]) delete pc[i];
   const v = Object.values(pc);
   let oordeel = o.oordeel;
   if (v.includes('fout')) oordeel = 'fout';
   else if (v.length === w.c.length && v.every(x => x === 'goed')) oordeel = 'goed';
   else if (o.oordeel !== 'twijfel') oordeel = undefined;
   bewaar(w.id, { clips: pc, oordeel, notitie: $('k-notitie').value.trim() });
-  if (oordeel && Object.keys(pc).length === w.c.length) { nu = volgendeOpen(nu); toonKaart(); setTimeout(() => speel(0), 150); } else toonKaart();
+  if (oordeel && Object.keys(pc).length === w.c.length) { naarWoord(volgendeOpen(nu)); return true; }
+  toonKaart(); return false;
+}
+// G/F met het toetsenbord: oordeel over het fragment dat nu aan de beurt is, dan meteen het volgende fragment of woord
+function toets(o) {
+  const w = W[nu];
+  if (w.c.length < 2) return kies(o);
+  if (perClip(frag, o, true)) return;
+  const rest = w.c.map((c, i) => i).filter(i => !(ORD[w.id].clips || {})[i]);
+  const volg = rest.find(i => i > frag) ?? rest[0] ?? Math.min(frag + 1, w.c.length - 1);
+  frag = volg; toonKaart(); speel(volg);
 }
 function kies(o) {
   const w = W[nu], pc = {}; if (o !== 'twijfel') w.c.forEach((c, i) => pc[i] = o);
   bewaar(w.id, { oordeel: o, clips: o === 'twijfel' ? (ORD[w.id] || {}).clips || {} : pc, notitie: $('k-notitie').value.trim() });
-  nu = volgendeOpen(nu); toonKaart(); setTimeout(() => speel(0), 150);
+  naarWoord(volgendeOpen(nu));
 }
 
 // ---- bediening
 document.querySelectorAll('.kaart .keuze button[data-o]').forEach(b => b.onclick = () => kies(b.dataset.o));
-$('vorige').onclick = () => { nu = Math.max(0, nu - 1); toonKaart(); };
-$('volgende').onclick = () => { nu = Math.min(W.length - 1, nu + 1); toonKaart(); };
+$('vorige').onclick = () => naarWoord(Math.max(0, nu - 1));
+$('volgende').onclick = () => naarWoord(Math.min(W.length - 1, nu + 1));
 $('k-notitie').addEventListener('change', () => { const w = W[nu]; if (ORD[w.id]?.oordeel || $('k-notitie').value.trim()) bewaar(w.id, { notitie: $('k-notitie').value.trim() }); });
 ['f-toon', 'f-kans'].forEach(id => $(id).onchange = () => { lijstMax = 150; toonLijst(); });
 $('f-zoek').oninput = () => { lijstMax = 150; toonLijst(); };
+$('k-notitie').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === 'Escape') { e.preventDefault(); $('k-notitie').dispatchEvent(new Event('change')); $('k-notitie').blur(); } });
 document.addEventListener('keydown', e => {
   if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName) || e.metaKey || e.ctrlKey || e.altKey) return;
-  const k = e.key.toLowerCase();
-  if (k === ' ') { e.preventDefault(); speel(actief >= 0 && actief !== null ? actief : 0); }
-  else if (k === '1' || k === '2') speel(+k - 1);
-  else if (k === 'g') kies('goed'); else if (k === 'f') kies('fout'); else if (k === 't') kies('twijfel');
-  else if (k === 'arrowright') $('volgende').click(); else if (k === 'arrowleft') $('vorige').click();
+  const k = e.key.toLowerCase(), w = W[nu];
+  const doe = f => { e.preventDefault(); if (document.activeElement && document.activeElement !== document.body) document.activeElement.blur(); f(); };
+  if (k === ' ' || k === 'enter') doe(() => speel(frag));
+  else if (/^[1-9]$/.test(k) && +k <= w.c.length) doe(() => speel(+k - 1));
+  else if (k === 'g') doe(() => toets('goed'));
+  else if (k === 'f') doe(() => toets('fout'));
+  else if (k === 'a') doe(() => kies('goed'));
+  else if (k === 't') doe(() => kies('twijfel'));
+  else if (k === 'b') doe(() => { bewaar(w.id, { beste: (ORD[w.id] || {}).beste === frag ? -1 : frag }); toonKaart(); });
+  else if (k === 'n') doe(() => $('k-notitie').focus());
+  else if (k === 'arrowright') doe(() => naarWoord(Math.min(W.length - 1, nu + 1)));
+  else if (k === 'arrowleft') doe(() => naarWoord(Math.max(0, nu - 1)));
+  else if (k === 'arrowdown' && w.c.length > 1) doe(() => speel(Math.min(w.c.length - 1, frag + 1)));
+  else if (k === 'arrowup' && w.c.length > 1) doe(() => speel(Math.max(0, frag - 1)));
 });
+document.addEventListener('pointerdown', laadAlles, { once: true });
 
 telling(); toonKaart(); toonLijst();
 
