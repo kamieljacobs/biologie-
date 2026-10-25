@@ -69,6 +69,8 @@ Opmerkingen bij keuringen en reviews moeten de werkwijze voeden, niet alleen é�
 
 De nieuwste filmprompt staat in de repo als `films/PROMPT_v10.md` (met de volledige C10-tekst in `films/PROMPT_v10_C10_tekenkwaliteit.md`), zodat elk Claude-account van Kamiel hem kan lezen; bij een nieuwe promptversie ook hier een `PROMPT_vN.md` neerzetten en deze verwijzing bijwerken.
 
+Engelse films (kanaal Unboxing Biology, sinds 25 okt 2026): `films/PROMPT_EN_v1.md` = Part E bovenop de nieuwste Nederlandse prompt (internationaal 15–18, niveaus Core/Deeper, Brits Engels, eigen stem en uitspraaklijst `films/en/PRONUNCIATION.md`, YouTube-levering, films in `films/en/`). Eigen cast in `personages/en/CAST.md`, eerst als ElevenLabs-castvel (`personages/en/vellen/`), pas na Kamiels keuring in code.
+
 Algemene beeldfeedback van Kamiel staat in `films/BEELDAFSPRAKEN.md`: lees die vóór elke nieuwe of aangepaste film en vul hem aan als feedback voor meerdere films geldt.
 
 ## Huisstijl van tools
