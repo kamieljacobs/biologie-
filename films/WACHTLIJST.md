@@ -63,3 +63,6 @@ Alle 1138 woorden beluisterd: **1116 goed**, 16 fout, 6 twijfel. De goede woorde
 - **Fout in één take, goed in een andere met dezelfde invoer** (dus de stem was wisselvallig, geen nieuwe regel nodig: alleen die alinea opnieuw): ALAT (labtechniek 3), biosfeerintegriteit (ecologie 5), fMRI (psychologie 2), Jones (gedrag 6), PCR (labtechniek 2), tyfoon (evolutie 5), trombocyten (labtechniek 3; goed in transport 3).
 - **Opnieuw met de al goedgekeurde gewone spelling**: ATP (stem-invoer was nog aa-tee-pee), DNA (Kamiel: 'in het eerste zinnetje niet zo goed, in de tweede wel'; de films met 'deeënaa' alsnog met gewone spelling, alleen waar het fout klinkt).
 - **Ronde 2 met varianten** (geen goed voorbeeld): collageendraden, DSD, emergente, HAN (Kamiel: als één woord 'Han', niet H-A-N), knock-outmuis, toa, uv-straling (klemtoon), vitamine B6, AI-model (klemtoon), Sams (Nederlandse Sam), ADH, Charles Darwin, RNA-polymerase.
+
+### Ronde 2 (25 okt 2026)
+13 woorden × 3 varianten in een korte zin, 1636 credits, ElevenLabs-flow https://elevenlabs.io/app/flows/2wNTSsOrqsvWJuv4N9lv. Luisterpagina (zelfde account): https://claude.ai/artifact/JrqYMWNtNuTZBNGi2eW44T, keuzes in db-collectie `ronde2` (doc-id = woord-id; `keuze` = variantnummer, 0 = geen enkele goed, `invoer` = gekozen stem-invoer). Varianten en takes: `films/uitspraak-luisterpagina/ronde2/`.

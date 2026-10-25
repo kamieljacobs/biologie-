@@ -12,6 +12,7 @@ Stand: alle vier de films van het gebied staan op de site (`films/vervolg/labtec
 Reeksbrief (rode draad Yasmin als stagiaire-analist, grenzen tussen de films, gedeelde begrippen) stond in de werkmap; de inhoud zit in de `brief.md` van elke film.
 
 ## Open
+- **Bronnenlogboek:** nog geen `bron/bronnen.md` (afspraak van 25 okt, na het maken van deze films); meenemen in de feedbackronde, de bronnen staan al in `reviews/review_v1.md` en `review_eind.md`.
 - **Promptversie:** gemaakt met prompt v6 + WERKWIJZE-LESSEN van 24 okt; nog niet nagelopen tegen v10. Bij de eerste verbeterronde meteen opwaarderen.
 - **Uitspraak:** wachtlijsten in `bron/uitspraak.md` per film (o.a. hematoxyline, oculair, Ct, ALAT, MIC, entoog, Klebsiella) nog testen met de luisterpagina.
 - **Filmmedaillons:** nog niet gemaakt (vallen terug op de lijntekening in `FILMKUNST`).
