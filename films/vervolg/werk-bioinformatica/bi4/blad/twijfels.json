@@ -1,0 +1,92 @@
+[
+ {
+  "id": "s01",
+  "titel": "Cold open — wie geeft de envelop?",
+  "zin": "In deze envelop zit de vorm van een eiwit, net gemeten. Nog niemand buiten het lab heeft hem gezien.",
+  "img": "blad/img/s01.webp",
+  "twijfel": "Collega uit het lab niet getekend: Dr. Kim houdt de envelop zelf vast.",
+  "waarom": "Er is geen figurant in labjas in de cast; een nieuwe figurant is een nieuwe tekening (B7).",
+  "voorstel": "Zo laten (Dr. Kim in 'gewoon' met envelop), of een nieuwe figurant in labjas laten ontwerpen; script zegt 'de collega' (s07), dat blijft kloppen."
+ },
+ {
+  "id": "s01",
+  "titel": "Nieuwe rol: Sam in meeloopweek, Dr. Kim als bio-informaticus",
+  "zin": "Sam krijgt alleen de volgorde van de aminozuren.",
+  "img": "blad/img/s01.webp",
+  "twijfel": "Sam (16) in meeloopweek bio-informatica; Dr. Kim als onderzoeker met eiwitdata.",
+  "waarom": "Nieuwe rol voor Sam (in ROLLEN.md is hij stagiair biotechnologie); reeksvoorstel.",
+  "voorstel": "Sam in eigen hoodie (geen outfit 'gewoon' voor Sam in de cast), Kim in 'gewoon'."
+ },
+ {
+  "id": "s03",
+  "titel": "Nieuw bibliotheekobject: eiwitmodel dat vouwt (eiwit3D)",
+  "zin": "Die keten vouwt zich tot een eiwitstructuur: de ruimtelijke vorm.",
+  "img": "blad/img/s03.webp",
+  "twijfel": "Nieuw 3D-kralenmodel (helix, β-blad, holte, betrouwbaarheidskleuren) vervangt eiwitVouw hier.",
+  "waarom": "Nieuwe tekening die de bibliotheek in gaat; maten uit leerboekgeometrie, geen referentieplaat.",
+  "voorstel": "Keuren als lib_bio-object 'eiwit3D'; verzonnen model met label 'model', geen echt PDB-eiwit."
+ },
+ {
+  "id": "s06",
+  "titel": "Mutatie in de holte: zijketen steekt de holte in",
+  "zin": "Eén ander aminozuur kan de vorm van de holte veranderen, en daarmee de werking.",
+  "img": "blad/img/s06.webp",
+  "twijfel": "Holte vernauwt met ± 1 Å en het medicijn schuift eruit; illustratie, geen echt geval.",
+  "waarom": "Vereenvoudiging van een effect zonder bron voor dit voorbeeld.",
+  "voorstel": "Zo laten met label 'model'."
+ },
+ {
+  "id": "s07",
+  "titel": "Nieuwe labtekeningen: kristalplaatje, röntgen, cryo-EM-rooster",
+  "zin": "Ze stuurde er röntgenstraling doorheen. Uit het stippenpatroon rekende ze de vorm terug.",
+  "img": "blad/img/s07.webp",
+  "twijfel": "Drie nieuwe tekeningen; stippenpatroon is een willekeurig puntenveld.",
+  "waarom": "Nieuwe tekeningen voor de bibliotheek, zonder referentieplaat.",
+  "voorstel": "Keuren; eventueel later een echt diffractiepatroon als referentie (roosterpunten)."
+ },
+ {
+  "id": "s11",
+  "titel": "Reeksobject scherm met sequenties zelf gemaakt",
+  "zin": "Die legt het onder elkaar, met gelijke letters onder elkaar: uitlijnen, zoals in de eerste film van deze reeks.",
+  "img": "blad/img/s11.webp",
+  "twijfel": "codeScherm en aminozuurtegels gemaakt naar de beschrijving in bi1/brief.md (teken_bi1.js bestond nog niet).",
+  "waarom": "Moet gelijk zijn aan film 1; tegels in okertinten (aminozuren), niet de paarse basentinten.",
+  "voorstel": "Na film 1 vervangen door de functie uit teken_bi1.js."
+ },
+ {
+  "id": "s15",
+  "titel": "Echte personen en bedrijfsnaam",
+  "zin": "Daarvoor kregen Demis Hassabis en John Jumper in 2024 de Nobelprijs voor Scheikunde.",
+  "img": "blad/img/s15.webp",
+  "twijfel": "Naamkaartjes zonder portret; 'Google DeepMind' als tab-tekst zonder logo.",
+  "waarom": "Gevoelig: echte personen en een bedrijf in een lesfilm.",
+  "voorstel": "Zo laten."
+ },
+ {
+  "id": "s18",
+  "titel": "Afloop van de envelop is een constructie",
+  "zin": "Het blauwe deel en de holte vallen bijna precies over de meting. Eén oranje lus boven de holte ligt anders.",
+  "img": "blad/img/s18.webp",
+  "twijfel": "Voorspelling, meting en betrouwbaarheid per stuk zijn verzonnen; staafjes 'per eiwit' ook.",
+  "waarom": "Feit zonder echt geval; label 'voorbeeld · zo gaat het vaak'.",
+  "voorstel": "Zo laten, of later een echt CASP14-doelwit kiezen en natekenen."
+ },
+ {
+  "id": "s19",
+  "titel": "Vormverandering bij binding en AlphaFold 3-kaart",
+  "zin": "Een enzym kan wel even van vorm veranderen als er iets bindt.",
+  "img": "blad/img/s19.webp",
+  "twijfel": "Helix en lus kantelen bij binding; kaart noemt AlphaFold 3 (2024) (`!`-voorstel uit brief).",
+  "waarom": "`!`-zin in het script (medicijnbinding 'lastig, nieuwere versies proberen het') ter goedkeuring.",
+  "voorstel": "Akkoord met de v2-formulering; kaart blijft 'nog steeds een voorspelling'."
+ },
+ {
+  "id": "s07",
+  "titel": "`!`-voorstel cryo-EM",
+  "zin": "Sinds ruim tien jaar kan dat ook heel scherp met bevroren eiwitten, zonder kristal: cryo-elektronenmicroscopie.",
+  "img": "blad/img/s07.webp",
+  "twijfel": "Script v2 zegt 'sinds ruim tien jaar heel scherp'; in beeld 'scherp sinds ± 2013'.",
+  "waarom": "`!`-voorstel uit brief.md dat Kamiel moet goedkeuren.",
+  "voorstel": "Akkoord (KVA 2017: atomaire resolutie 2013)."
+ }
+]
