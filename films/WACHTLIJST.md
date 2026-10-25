@@ -66,3 +66,6 @@ Alle 1138 woorden beluisterd: **1116 goed**, 16 fout, 6 twijfel. De goede woorde
 
 ### Ronde 2 (25 okt 2026)
 13 woorden × 3 varianten in een korte zin, 1636 credits, ElevenLabs-flow https://elevenlabs.io/app/flows/2wNTSsOrqsvWJuv4N9lv. Luisterpagina (zelfde account): https://claude.ai/artifact/JrqYMWNtNuTZBNGi2eW44T, keuzes in db-collectie `ronde2` (doc-id = woord-id; `keuze` = variantnummer, 0 = geen enkele goed, `invoer` = gekozen stem-invoer). Varianten en takes: `scripts/uitspraak_luisterpagina/ (kop.html.part, romp.html.part, script.js, maak.py) ronde2/`.
+
+### Afgerond (25 okt 2026)
+Naluisteren van alle heropnames: na ronde 4 (ALAT, PCR, tiefoon, Sam) en een nieuwe take van ADH (examen s30) is alles goed. Alle 1138 open woorden van 25 okt zijn hiermee afgehandeld. Nog open: alleen de bewust niet heropgenomen DNA-alinea's met de oude invoer 'deeënaa' (zie hierboven), en de tabel 'nog niet ingesproken [nieuw]-zinnen' bovenaan dit bestand.
