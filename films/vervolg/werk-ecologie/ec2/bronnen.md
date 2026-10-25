@@ -118,3 +118,8 @@ Zelf aangepast in script_v2: elke `!` rust op ≥ 2 onafhankelijke bronnen met �
 
 ## Menselijke controle
 Nog niet gedaan. Voorstel voor de steekproef: rij 17 (B9, het woord 'schijnzekerheid' en de drempel), rij 18 (B16, de regels over 'validation'), rij 32 (B47 en B48, bevoegd gezag), en rij 22 (B18, de tabel met 714 mol).
+
+## Aanvulling hoofdsessie (25 okt 2026, na keuring Kamiel: 'is er om heide heen een bufferzone?')
+- **Bewering s09:** een vaste bufferzone rond natuurgebieden is er nog niet; het kabinet wil zones van 500 m (bij 15 gebieden 1000 m) waarin de ammoniakuitstoot extra omlaag moet; nog een plan (uitvoeringsregels gepland voor januari 2027). Status ✓.
+  - [A] Verdiepingsbijlage Hoofdlijn 3 'Inzet in en rond kwetsbare natuur en in watergebieden', bijlage bij Kamerbrief (juni 2026): https://omgevingsweb.nl/wp-content/uploads/2026/06/Verdiepingsbijlage-Hoofdlijn-3-Inzet-in-en-rond-kwetsbare-natuur-en-in-watergebieden2.pdf
+  - [B] Binnenlands Bestuur, 'Ingrijpend stikstofpakket en toch blijft onduidelijkheid' (26 juni 2026): https://www.binnenlandsbestuur.nl/ruimte-en-milieu/ingrijpend-stikstofpakket-en-toch-blijft-onduidelijkheid

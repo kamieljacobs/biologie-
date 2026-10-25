@@ -25,3 +25,10 @@ Werk in het andere account niet tegelijk aan deze reeks.
 
 Zelf besloten (niet op het blad): wolf uit de goedgekeurde dierenbibliotheek (`bibliotheek/dieren/lib_dieren.js`) in plaats van de eigen tekening in film 1; koolmees uit dezelfde bibliotheek bij het ei in film 2; geen geschatte foutstreepjes in film 3; cold open film 3 'kijkt in een diepe kuil'; fout in `nederland()` (stippen) hersteld in `ec_reeks.js`.
 Reekszin opleidingen: `werk-ecologie/REEKSZIN.md`. Gedeelde reeksbibliotheek: `werk-ecologie/ec_reeks.js` (gaat bij de bouw in elke bronmap).
+
+## Keuring Kamiel (25 okt 2026, 20:45)
+- Castvoorstel **Ecoloog Bas** en Daans outfit `veld` goedgekeurd (gaan bij de bouw in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md).
+- Film 1: alle twijfelscènes ✓.
+- Film 2: boerderij blijft herkenbaar in beeld ('ze zijn nu eenmaal een bron van stikstof; of je het erg vindt dat soorten verdwijnen is een mening') → geen oordeel over soortverlies in beeld. Vraag 'is er een bufferzone rond heide?' → zin toegevoegd in s09 (geen vaste bufferzone; kabinetsplan zones van 500 m; nog een plan), bronnen in bronnen.md. Tormentil/braam: mag mooier. Rest ✓; s06 zonder reactie, voorstel geldt.
+- Film 3: kleuren van de gebiedskaart passen niet bij de stijl → `gebiedKaart` hertekend in Schema-stijl (referentie `waalKaart`, Binnen de grenzen). Struikhei: Kamiel vond hem mooi, zo gelaten. Loopkevers ✓.
+- Fase B (inspreken, bouwen) loopt; brief `werk-ecologie/HELPER-faseB.md`.
