@@ -298,15 +298,37 @@ footer a{text-decoration:underline;text-underline-offset:3px}
   .fc,.fc-in{min-height:240px}.fc-face{padding:20px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Kopbalk op de telefoon (25 okt 2026, Kamiel: 'op de telefoon zie je delen maar half'):
+   twee dunne regels in plaats van drie, menu schuift opzij, en de balk schuift weg
+   bij naar beneden scrollen (js/kopbalk.js, klasse .weg) en komt terug bij omhoog. */
+@media (max-width:700px){
+  .bar{transition:transform .22s ease}
+  .bar.weg{transform:translateY(calc(-100% - 2px))}
+  .bar .wrap{gap:0 8px!important;min-height:0;padding-block:6px 0;flex-wrap:wrap}
+  .bar .merk{order:0;font-size:17px;gap:8px;min-width:0}
+  .bar .merk svg{width:24px;height:24px;flex:none}
+  .bar .rechts{order:1;margin-left:auto;gap:6px}
+  .bar .rechts .icoon{width:34px;height:34px}
+  .bar .rechts .seg button{padding:4px 10px;min-height:28px;font-size:13px}
+  .bar .nav{order:2;flex:0 0 calc(100% + 32px);margin:4px -16px 0;padding:0 8px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bar .nav::-webkit-scrollbar{display:none}
+  .bar .nav{padding-right:28px}
+  .bar .wrap{position:relative}
+  .bar .wrap::after{content:"";position:absolute;right:0;bottom:0;width:30px;height:40px;background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none}
+  .bar .nav a,.bar .menu summary{padding:8px 9px 10px;font-size:14.5px;flex:none}
+  .bar .menu-lijst{position:fixed;left:12px;right:12px;top:calc(100% + 4px);margin-top:0;transform:none;min-width:0;max-height:70vh;overflow:auto}
+}
+@media (max-width:430px){.bar .merk.kort-merk .merk-tekst{display:none}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <a class="merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
+    <a class="merk kort-merk" href="index.html#home" aria-label="Biologie bij Kamiel, naar de homepage">
       <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="var(--goud)" stroke-width="1.5"/><path d="M8 19.5c5.5 0 11-5 12.5-12-6.5 1.4-12 6.6-12.5 12z" fill="none" stroke="var(--goud)" stroke-width="1.5" stroke-linejoin="round"/><path d="M8 19.5l7.5-7.5" stroke="var(--goud)" stroke-width="1.5" stroke-linecap="round"/></svg>
-      Biologie bij Kamiel
+      <span class="merk-tekst">Biologie bij Kamiel</span>
     </a>
     <nav class="nav" aria-label="Examenatlas">
       <a href="#" data-nav="home">Atlas</a>

@@ -172,3 +172,11 @@ Kamiel werkt afwisselend vanuit twee Claude-accounts (Max 20x). Die delen geen g
 ## Terug naar waar je was (Kamiel 25 okt 2026)
 
 Klik je terug (browserknop of een '←'-link, bv. '← Terug naar Voeding' in een film), dan kom je op dezelfde hoogte terug als waar je was. `js/terug.js`, meegeladen door `js/teller.js`, dus op elke pagina: bewaart de scrollpositie per stap in de geschiedenis (`history.state.bkId`, sessionStorage `bk-scroll`) en zet hem terug na terug/vooruit, ook bij de hash-pagina's (index.html, vervolg.html) die zichzelf bij het opbouwen bovenaan zetten. Een '←'-link doet `history.back()` als je net van die pagina kwam, anders opent hij de pagina op de laatst bekende hoogte. Pagina's die zelf `history.replaceState` gebruiken: geef het bestaande state-object door, dan blijft `bkId` staan.
+
+## Telefoon (Kamiel 25 okt 2026: 'op de telefoon is de site niet zo handig, dan zie je delen maar half')
+
+- Kopbalk (`header.bar` op index, vervolg, challenges, examenatlas; blok 'Kopbalk op de telefoon' in de CSS van elke pagina, houd ze gelijk): onder 700 px twee dunne regels (merk + knoppen, daaronder het menu dat opzij schuift, met een vervaagde rand rechts) in plaats van drie, en `js/kopbalk.js` (meegeladen door `js/teller.js`) schuift de balk weg bij naar beneden scrollen en terug bij omhoog (klasse `.weg` op de balk, `kop-weg` op `<html>`, event `kopbalk`). De vaste stappenbalk in vervolg.html schuift mee naar boven. Een nieuwe pagina met deze kopbalk: het CSS-blok overnemen. Geen `mask-image` op `.nav`: dan verdwijnt het Agora-uitklapmenu.
+- Korte omschrijving van een film in de filmlijsten: op de telefoon 3 regels in plaats van 1 afgekapte regel.
+- Lege hoofdfiguur op een themapagina (thema met gravureplaat) wordt op de telefoon verborgen, anders een lege band boven de titel.
+- Jaarplanner: onder 700 px wordt de weektabel een lijst weekkaarten met kopjes per veld (lege velden weg).
+- Controle: Playwright op 375 en 360 px, `scrollWidth` mag niet groter zijn dan het scherm.

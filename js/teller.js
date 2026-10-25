@@ -39,6 +39,15 @@
     (document.head || document.documentElement).appendChild(tg);
   } catch (e) {}
 
+  // Kopbalk op de telefoon (js/kopbalk.js): schuift weg bij naar beneden scrollen.
+  try {
+    if (document.querySelector('header.bar') || document.readyState === 'loading') {
+      var kb = document.createElement('script');
+      kb.src = new URL('js/kopbalk.js?v=1', new URL(me.getAttribute('data-root') || './', location.href)).href;
+      (document.head || document.documentElement).appendChild(kb);
+    }
+  } catch (e) {}
+
   // Reviewstand in films (js/review.js): aan met ?review=1, blijft aan tot ?review=0.
   try {
     var rq = new URLSearchParams(location.search).get('review');

@@ -95,7 +95,7 @@ h1,h2,h3{font-family:var(--titel);font-weight:700;letter-spacing:-.01em;text-wra
 .opbouw button[aria-pressed="true"]{background:var(--goud-soft);box-shadow:inset 0 -3px 0 var(--goud)}
 .opbouw button:focus-visible{outline:2px solid var(--goud);outline-offset:-2px}
 .opbouw .later:not([aria-pressed="true"]) b{color:var(--text2)}
-.stapbalk{position:sticky;top:var(--navh,64px);z-index:15;background:var(--bg);padding-top:0;margin-top:0}
+.stapbalk{position:sticky;top:var(--navh,64px);transition:top .22s ease;z-index:15;background:var(--bg);padding-top:0;margin-top:0}
 .stapbalk .opbouw{transition:none}
 .stapbalk.vast{padding:8px 0;box-shadow:0 1px 0 var(--line),0 8px 18px -12px rgba(0,0,0,.35)}
 .stapbalk.vast .opbouw{margin-top:0}
@@ -338,6 +338,31 @@ body.overzicht .ovz{background:color-mix(in srgb,var(--surface) 86%,transparent)
 .vgrond::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,color-mix(in srgb,var(--bg) 92%,transparent) 0,color-mix(in srgb,var(--bg) 75%,transparent) 38%,transparent 62%),linear-gradient(0deg,var(--bg),transparent 45%)}
 :root[data-theme="light"] .vgrond{display:none}
 :root[data-theme="light"] body.overzicht{background:var(--bg)}
+
+/* Kopbalk op de telefoon (25 okt 2026, Kamiel: 'op de telefoon zie je delen maar half'):
+   twee dunne regels in plaats van drie, menu schuift opzij, en de balk schuift weg
+   bij naar beneden scrollen (js/kopbalk.js, klasse .weg) en komt terug bij omhoog. */
+@media (max-width:700px){
+  .bar{transition:transform .22s ease}
+  .bar.weg{transform:translateY(calc(-100% - 2px))}
+  .bar .wrap{gap:0 8px!important;min-height:0;padding-block:6px 0;flex-wrap:wrap}
+  .bar .merk{order:0;font-size:17px;gap:8px;min-width:0}
+  .bar .merk svg{width:24px;height:24px;flex:none}
+  .bar .rechts{order:1;margin-left:auto;gap:6px}
+  .bar .rechts .icoon{width:34px;height:34px}
+  .bar .rechts .seg button{padding:4px 10px;min-height:28px;font-size:13px}
+  .bar .nav{order:2;flex:0 0 calc(100% + 32px);margin:4px -16px 0;padding:0 8px;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .bar .nav::-webkit-scrollbar{display:none}
+  .bar .nav{padding-right:28px}
+  .bar .wrap{position:relative}
+  .bar .wrap::after{content:"";position:absolute;right:0;bottom:0;width:30px;height:40px;background:linear-gradient(90deg,transparent,var(--bg));pointer-events:none}
+  .bar .nav a,.bar .menu summary{padding:8px 9px 10px;font-size:14.5px;flex:none}
+  .bar .menu-lijst{position:fixed;left:12px;right:12px;top:calc(100% + 4px);margin-top:0;transform:none;min-width:0;max-height:70vh;overflow:auto}
+}
+html.kop-weg .stapbalk{top:0}
+/* telefoon: korte omschrijving van een film niet halverwege afkappen */
+@media (max-width:700px){.fr .fv{white-space:normal;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical}}
+@media (max-width:430px){.bar .merk.kort-merk .merk-tekst{display:none}}
 </style>
 </head>
 <body>
@@ -809,9 +834,9 @@ app.addEventListener('click',e=>{
   else{const n=document.querySelector(`.opbouw [data-stap="${stap}"]`);if(n)scrollBy(0,n.getBoundingClientRect().top-y);}
   plak();return}const b=e.target.closest('[data-f]');if(!b)return;filter=b.dataset.f;history.replaceState(null,'',filter?'#'+filter:location.pathname);render();plak()});
 /* Stappenbalk blijft bovenin staan onder de menubalk; compact zodra hij vastzit. */
-function plak(){const nav=document.querySelector('.bar'),h=nav?nav.offsetHeight:0;document.documentElement.style.setProperty('--navh',h+'px');
+function plak(){const nav=document.querySelector('.bar'),h=nav&&!nav.classList.contains('weg')?nav.offsetHeight:0;document.documentElement.style.setProperty('--navh',h+'px');
   const m=document.querySelector('.stapmerk'),b=document.querySelector('.stapbalk');if(m&&b)b.classList.toggle('vast',m.getBoundingClientRect().top<h);}
-addEventListener('scroll',plak,{passive:true});addEventListener('resize',plak);
+addEventListener('scroll',plak,{passive:true});addEventListener('resize',plak);addEventListener('kopbalk',plak);
 themaKnop(); render(); plak();
 addEventListener('hashchange',()=>{const h=(location.hash||'').slice(1);if(GB[h]||!h){render();plak();scrollTo(0,0)}else if(!document.getElementById(h)){render();plak()}const d=document.getElementById(h);if(d&&CL[h])d.scrollIntoView({behavior:'smooth',block:'start'})});
 {const h=(location.hash||'').slice(1);if(CL[h]){const d=document.getElementById(h);if(d)d.scrollIntoView()}}

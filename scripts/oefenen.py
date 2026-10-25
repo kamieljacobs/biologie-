@@ -93,6 +93,9 @@ info = {}
 for hid, h in HFD.items():
     for film in h.get('films', []):
         info.setdefault(film['href'], (film.get('titel', ''), hid, h.get('titel', hid)))
+    # gearchiveerde reeksen (veld 'archief') ook, anders krijgen ze een lege titel op oefenen.html
+    for film in h.get('archief', []):
+        info.setdefault(film['href'], (film.get('titel', ''), hid, h.get('titel', hid) + ' · oude reeks'))
 lijst = {}
 for f, pad in sorted(met):
     d = json.load(open(os.path.join(R, pad), encoding='utf-8'))

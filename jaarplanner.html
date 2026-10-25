@@ -431,6 +431,30 @@ a.chip:hover{background:var(--accent);color:var(--row)}
   body.print-mentor #mentor pre{max-height:none;overflow:visible;border:0}
   body.print-mentor .mentor-btns,body.print-mentor .mentor-naam,body.print-mentor [data-act="close"],body.print-mentor .mentor-tip{display:none}
 }
+
+/* Telefoon (Kamiel 25 okt 2026: 'op de telefoon zie je delen maar half'): de weektabel wordt een
+   lijst van weekkaarten, zodat er niets rechts buiten beeld valt. */
+@media (max-width:700px){
+  .tw{overflow:visible}
+  .tw table{min-width:0}
+  .tw thead{display:none}
+  .tw table,.tw tbody,.tw tr,.tw td{display:block;width:auto!important}
+  .tw tr{border-bottom:1px solid var(--line);padding:8px 0 6px}
+  .tw tr:last-child{border-bottom:0}
+  .tw td{border-bottom:0;padding:3px 12px}
+  .tw td.wk{white-space:normal;padding-bottom:2px}
+  .tw td.wk br{display:none}
+  .tw td.wk b{margin-right:6px}
+  .tw td.par{font-weight:600}
+  .tw td.mid::before,.tw td.hw::before,.tw td.opm::before{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:4px 0 3px}
+  .tw td.mid::before{content:"Eigen films en tools"}
+  .tw td.mid.gu::before{content:"Extra · Gewoon Uitgelegd"}
+  .tw td.hw::before{content:"Huiswerk"}
+  .tw td.opm::before{content:"Opmerkingen"}
+  .tw td.mid:has(>.leeg:only-child),.tw td.opm:empty{display:none}
+  .chip{white-space:normal}
+  .tabs{scrollbar-width:none}
+}
 </style>
 <style>body{margin:0}</style>
 </head>
