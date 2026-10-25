@@ -3534,3 +3534,830 @@ E.waarom(T2,46,anim([
   "De soort is de héle naam. <i>Poa annua</i> en <i>Poa pratensis</i> zijn twee verschillende soorten. Samen <b>5</b> soorten: antwoord <b>B</b>."],grasSvg));
 
 })();
+/* ===== vwo1.js ===== */
+(function(){
+"use strict";
+/* vwo26-1 · opgave 1 Bloedplaatjes belaagd (vraag 1–11) */
+const E=window.EXSTOF, T="vwo26-1";
+const SV=(vb,inner,lab)=>E.svg(vb,inner,lab);
+const pijl=(id,kl)=>`<marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${kl}"/></marker>`;
+const DEFS=`<defs>${pijl("v1pg","var(--goud)")}${pijl("v1pt","var(--teal)")}${pijl("v1pk","var(--koraal)")}${pijl("v1px","var(--text2)")}</defs>`;
+const anim=(steps,draw)=>box=>E.stappen(box,steps,(st,s,i)=>{st.innerHTML=draw(i,s);});
+const caps=a=>a.map(c=>({cap:c}));
+
+/* --- vraag 1: wand van een haarvat --- */
+function haarvatSvg(i){
+  /* i 0 haarvat in doorsnede, 1 endotheelcellen met cell junctions, 2 bloedplaatjes */
+  let g="";
+  g+=`<rect x="0" y="0" width="600" height="250" fill="var(--surface)"/>
+  <text class="lblm" x="14" y="22">weefsel</text>
+  <rect x="40" y="70" width="520" height="110" rx="55" fill="var(--koraal-soft)" stroke="var(--text3)" stroke-width="${i===0?6:2}"/>`;
+  if(i>=1)for(let k=0;k<6;k++){const x=70+k*80;
+    g+=`<rect x="${x}" y="62" width="76" height="14" rx="6" fill="var(--surface2)" stroke="var(--text3)"/><rect x="${x}" y="174" width="76" height="14" rx="6" fill="var(--surface2)" stroke="var(--text3)"/>`;
+    if(k>0)g+=`<rect x="${x-4}" y="60" width="5" height="18" fill="var(--teal)"/><rect x="${x-4}" y="172" width="5" height="18" fill="var(--teal)"/>`;}
+  [[120,110],[230,140],[350,105],[460,135]].forEach(([x,y])=>g+=`<ellipse cx="${x}" cy="${y}" rx="22" ry="11" fill="var(--koraal)" opacity=".8"/>`);
+  if(i===2)[[175,125],[300,135],[410,118],[510,128]].forEach(([x,y])=>g+=`<ellipse cx="${x}" cy="${y}" rx="7" ry="4.5" fill="var(--goud)"/>`);
+  g+=`<text class="lbl" x="300" y="222" text-anchor="middle">${["haarvat: de wand is één laag cellen dik","endotheelcellen, aan elkaar vast met cell junctions","in het bloed: rode bloedcellen en bloedplaatjes"][i]}</text>`;
+  if(i===1)g+=`<text class="lbl" x="560" y="50" text-anchor="end" style="fill:var(--teal)">▮ cell junction</text>`;
+  if(i===2)g+=`<text class="lbl" x="560" y="50" text-anchor="end" style="fill:var(--goud-text)">● bloedplaatje</text>`;
+  return SV("0 0 600 250",g,"Haarvat met endotheelcellen, cell junctions en bloedplaatjes");
+}
+E.zet(T,[1],{titel:"De wand van bloedvaten en de rol van bloedplaatjes",
+  html:`<p>De binnenkant van elk bloedvat is bekleed met <b>endotheel</b>: een laag platte dekweefselcellen. Een <b>haarvat</b> bestaat zelfs alleen uit die ene laag. Daardoor kunnen stoffen als zuurstof en glucose makkelijk door de wand.</p>
+  <p>De endotheelcellen zitten aan elkaar vast met <b>cell junctions</b>: eiwitverbindingen tussen de celmembranen van twee buurcellen. Zo vormen de cellen samen een gesloten wand. Bloedcellen blijven in het vat, alleen vocht en kleine stoffen gaan erdoor.</p>
+  <p><b>Bloedplaatjes</b> (trombocyten) zijn kleine stukjes cel zonder kern. Je kent ze van de <b>bloedstolling</b>: bij een wond plakken ze aan elkaar en aan de vaatwand en starten ze de vorming van een stolsel.</p>`,
+  anim:anim(caps([
+    "Een <b>haarvat</b> in de lengte doorgesneden. De wand is maar één cel dik.",
+    "De wand bestaat uit <b>endotheelcellen</b>. Tussen de cellen zitten <b>cell junctions</b> die de cellen aan elkaar vastmaken.",
+    "In het bloed stromen rode bloedcellen, witte bloedcellen en <b>bloedplaatjes</b>."]),haarvatSvg),
+  films:[["Wat er in je bloed zit","films/transport/3-wat-er-in-je-bloed-zit.html"],["Buizen onder druk","films/transport/2-buizen-onder-druk.html"]]});
+
+/* --- vraag 2: terugkoppeling --- */
+function terugSvg(i){
+  /* i 0 regelkring, 1 negatief (glucose), 2 positief (oxytocine) */
+  let g="";
+  const doos=(x,y,w,t,kl)=>`<rect x="${x}" y="${y}" width="${w}" height="40" rx="10" fill="var(--surface)" stroke="${kl||"var(--line2)"}" stroke-width="1.6"/><text class="lbl" x="${x+w/2}" y="${y+25}" text-anchor="middle">${t}</text>`;
+  if(i===0){
+    g+=doos(200,20,200,"waarde (bv. concentratie)","var(--goud)")+doos(420,120,160,"waarneming")+doos(200,220,200,"signaal (hormoon)")+doos(20,120,160,"effect op de waarde");
+    g+=`<path d="M400,40 C470,40 500,80 500,118" stroke="var(--text2)" stroke-width="1.8" fill="none" marker-end="url(#v1px)"/>
+    <path d="M500,160 C500,210 460,240 402,240" stroke="var(--text2)" stroke-width="1.8" fill="none" marker-end="url(#v1px)"/>
+    <path d="M200,240 C140,240 100,210 100,162" stroke="var(--text2)" stroke-width="1.8" fill="none" marker-end="url(#v1px)"/>
+    <path d="M100,120 C100,80 130,40 198,40" stroke="var(--text2)" stroke-width="1.8" fill="none" marker-end="url(#v1px)"/>
+    <text class="lblm" x="300" y="150" text-anchor="middle">een regelkring</text>`;
+  }else if(i===1){
+    g+=doos(30,40,170,"glucose ↑","var(--koraal)")+doos(240,40,140,"insuline ↑")+doos(420,40,160,"glucose ↓","var(--groen)");
+    g+=`<path d="M200,60 H238" stroke="var(--text2)" stroke-width="1.8" marker-end="url(#v1px)"/><path d="M380,60 H418" stroke="var(--text2)" stroke-width="1.8" marker-end="url(#v1px)"/>
+    <path d="M500,82 C500,160 115,160 115,84" stroke="var(--groen)" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#v1px)"/>
+    <text class="lbl" x="300" y="190" text-anchor="middle" style="fill:var(--groen)">negatieve terugkoppeling: de verandering wordt tegengewerkt</text>
+    <text class="lblm" x="300" y="214" text-anchor="middle">de waarde blijft rond de normaalwaarde</text>`;
+  }else{
+    g+=doos(30,40,170,"druk op baarmoederhals ↑","var(--koraal)")+doos(240,40,140,"oxytocine ↑")+doos(420,40,160,"weeën sterker","var(--koraal)");
+    g+=`<path d="M200,60 H238" stroke="var(--text2)" stroke-width="1.8" marker-end="url(#v1px)"/><path d="M380,60 H418" stroke="var(--text2)" stroke-width="1.8" marker-end="url(#v1px)"/>
+    <path d="M500,82 C500,160 115,160 115,84" stroke="var(--koraal)" stroke-width="2" fill="none" stroke-dasharray="5 4" marker-end="url(#v1pk)"/>
+    <text class="lbl" x="300" y="190" text-anchor="middle" style="fill:var(--koraal)">positieve terugkoppeling: de verandering wordt versterkt</text>
+    <text class="lblm" x="300" y="214" text-anchor="middle">steeds verder, tot de geboorte de kring doorbreekt</text>`;}
+  return SV("0 0 600 270",DEFS+g,"Regelkring met terugkoppeling");
+}
+E.zet(T,[2],{titel:"Negatieve en positieve terugkoppeling",
+  html:`<p>Veel waarden in je lichaam worden geregeld met een <b>regelkring</b>: een waarde wordt waargenomen, en dat bepaalt hoeveel van een signaalstof (vaak een hormoon) er gemaakt wordt. Die signaalstof heeft weer effect op de waarde zelf. Dat heet <b>terugkoppeling</b>.</p>
+  <ul><li><b>Negatieve terugkoppeling</b>: het effect werkt de verandering tegen. Stijgt de waarde, dan zorgt de kring dat hij weer daalt (en omgekeerd). Zo blijft een waarde stabiel rond een normaalwaarde.</li>
+  <li><b>Positieve terugkoppeling</b>: het effect versterkt de verandering. De waarde gaat steeds verder dezelfde kant op, tot iets de kring doorbreekt.</li></ul>
+  <p>Let op: of de signaalstof bij een stijging van de waarde toe- of afneemt, hangt af van wat die stof doet. Kijk dus altijd eerst of het signaal de waarde verhoogt of verlaagt.</p>`,
+  anim:anim(caps([
+    "Een <b>regelkring</b>: de waarde wordt waargenomen, dat stuurt een signaal, en dat signaal heeft weer effect op de waarde.",
+    "<b>Negatieve terugkoppeling</b> (voorbeeld bloedglucose): de glucose stijgt, er komt meer insuline, de glucose daalt weer. Insuline verlaagt de waarde, dus bij een stijging komt er méér van.",
+    "<b>Positieve terugkoppeling</b> (voorbeeld de bevalling): druk op de baarmoederhals geeft oxytocine, oxytocine geeft sterkere weeën, en die geven nog meer druk."]),terugSvg),
+  films:[["De baas van de klieren","films/hormonen/3-de-baas-van-de-klieren.html"],["Suiker in balans","films/hormonen/2-suiker-in-balans.html"]]});
+
+/* --- vraag 3: bloedcellen in een preparaat --- */
+E.zet(T,[3],{titel:"Bloedcellen herkennen en tellen",
+  html:`<p>In een gekleurd <b>bloeduitstrijkje</b> onder de microscoop zie je drie soorten:</p>
+  <ul><li><b>rode bloedcellen</b>: veruit de meeste, rond, zonder kern, in het midden vaak lichter;</li>
+  <li><b>witte bloedcellen</b>: veel groter, met een donker gekleurde kern; er zijn er maar weinig;</li>
+  <li><b>bloedplaatjes</b>: heel kleine donkere puntjes tussen de rode bloedcellen.</li></ul>
+  <p>Hoeveel van elk er normaal in een mm<sup>3</sup> bloed zit, staat in je informatieboek bij de samenstelling van het bloed (zoek op ‘trombocyten’ voor de bloedplaatjes). Let goed op dat je de goede rij leest: de aantallen verschillen per soort enorm.</p>
+  <p>Een aantal in een preparaat schat je door te <b>vergelijken</b> met een normaal preparaat van dezelfde grootte. Tel bijvoorbeeld in een preparaat van een patiënt half zoveel rode bloedcellen als in het normale, dan heeft die patiënt ongeveer de helft van de normaalwaarde. Tel alleen de soort waar het om gaat, en reken daarna om met de normaalwaarde uit je informatieboek.</p>`,
+  films:[["Wat er in je bloed zit","films/transport/3-wat-er-in-je-bloed-zit.html"]]});
+
+/* --- vraag 4: bloedstolling --- */
+E.zet(T,[4],{titel:"Bloedstolling: een kettingreactie",
+  html:`<p>Bloedstolling verloopt in stappen. Elke stap zet de volgende in gang:</p>
+  <ul><li>Bij een beschadigd bloedvat hechten <b>bloedplaatjes</b> aan de wond en aan elkaar. Ze geven <b>trombokinase</b> af (samen met stoffen uit het beschadigde weefsel).</li>
+  <li>Trombokinase zet, met hulp van calciumionen, <b>protrombine</b> om in het enzym <b>trombine</b>.</li>
+  <li>Trombine zet het opgeloste <b>fibrinogeen</b> om in onoplosbare <b>fibrine</b>.</li>
+  <li>Fibrinedraden vormen een netwerk waarin bloedcellen blijven hangen: het <b>stolsel</b>.</li></ul>
+  <p>Protrombine en fibrinogeen zijn plasma-eiwitten die de <b>lever</b> maakt (voor protrombine is vitamine K nodig). Het overzicht staat ook in je informatieboek.</p>`,
+  films:[["Wat er in je bloed zit","films/transport/3-wat-er-in-je-bloed-zit.html"]]});
+
+/* --- vraag 5: vormen van overerving --- */
+E.zet(T,[5],{titel:"Vormen van overerving",
+  html:`<p>Hoe allelen samen een fenotype geven, kan op verschillende manieren:</p>
+  <ul><li><b>dominant-recessief</b>: bij een heterozygoot zie je alleen het dominante allel.</li>
+  <li><b>intermediair</b>: bij een heterozygoot ontstaat een <i>tussenvorm</i> van de twee homozygoten (bv. roze bloemen uit rood × wit).</li>
+  <li><b>co-dominant</b>: bij een heterozygoot komen <i>beide</i> allelen volledig en naast elkaar tot expressie. Je ziet beide kenmerken tegelijk.</li></ul>
+  <p>Daarnaast twee begrippen die over iets anders gaan:</p>
+  <ul><li><b>multipele allelen</b>: van één gen bestaan in de populatie <i>meer dan twee</i> allelen (bv. het gen voor de ABO-bloedgroep met de allelen I<sup>A</sup>, I<sup>B</sup> en i). Ieder mens heeft er natuurlijk maar twee.</li>
+  <li><b>gekoppelde overerving</b>: twee genen liggen op <i>hetzelfde chromosoom</i> en erven daardoor (meestal) samen over.</li></ul>`,
+  films:[["Voorbij dominant en recessief","films/erfelijkheid/3-voorbij-dominant-en-recessief.html"],["Dihybride kruising en gekoppelde overerving","films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html"]]});
+
+/* --- vraag 6: mutaties en de codontabel --- */
+E.zet(T,[6],{titel:"Puntmutaties en de codontabel",
+  html:`<p>Een <b>puntmutatie</b> verandert één basenpaar in het DNA. Er zijn drie soorten:</p>
+  <ul><li><b>substitutie</b>: één base wordt vervangen door een andere. Er verandert hooguit één codon, dus hooguit één aminozuur (of het codon wordt een stopcodon).</li>
+  <li><b>insertie</b>: er komt een base bij;</li>
+  <li><b>deletie</b>: er valt een base weg.</li></ul>
+  <p>Bij een insertie of deletie <b>verschuift het leesraam</b>: alle tripletten na de mutatie worden anders gelezen, dus vanaf die plek veranderen (bijna) alle aminozuren, en vaak ontstaat er ergens een vroeg stopcodon.</p>
+  <p>Een gen bestaat uit <b>exons</b> en <b>introns</b>. Na de transcriptie worden de introns uit het pre-mRNA geknipt (<b>splicing</b>). Alleen de exons bepalen de aminozuurvolgorde.</p>
+  <p>In de <b>codontabel</b> zoek je per aminozuur de codons op het mRNA. Veel aminozuren hebben meerdere codons. Die verschillen vaak alleen in de derde base, maar niet altijd: vergelijk alle codons van een aminozuur en kijk welke plaatsen steeds gelijk zijn.</p>`,
+  films:[["Mutaties","films/dna/5-mutaties.html"],["De genetische code lezen","films/dna/4-de-genetische-code-lezen.html"]]});
+
+/* --- vraag 7: de placenta --- */
+function placentaSvg(i){
+  let g=`<rect x="0" y="0" width="600" height="260" fill="var(--surface)"/>`;
+  /* ruimte met bloed van de moeder */
+  g+=`<rect x="30" y="110" width="540" height="130" rx="10" fill="var(--koraal-soft)"/>
+  <text class="lblm" x="44" y="232">ruimte met bloed van de moeder</text>`;
+  /* navelstreng en vlokken */
+  g+=`<path d="M300,10 V70" stroke="var(--paars)" stroke-width="16" stroke-linecap="round"/>
+  <text class="lblm" x="316" y="34">navelstreng (naar de foetus)</text>
+  <path d="M120,70 H480" stroke="var(--paars)" stroke-width="10" stroke-linecap="round"/>`;
+  [140,230,320,410].forEach(x=>{g+=`<path d="M${x},70 C${x-10},120 ${x+50},150 ${x+30},200 C${x+20},220 ${x},200 ${x+10},160 C${x+16},120 ${x+30},100 ${x+30},70" fill="var(--surface2)" stroke="var(--text3)" stroke-width="1.6"/>`;
+    if(i>=1)g+=`<path d="M${x+12},74 C${x+8},120 ${x+36},150 ${x+26},190" stroke="var(--paars)" stroke-width="3" fill="none"/>`;});
+  if(i>=1)g+=`<text class="lbl" x="40" y="56" style="fill:var(--paars)">haarvaten van de foetus in de vlok</text>`;
+  if(i===2){[[200,190],[300,130],[380,200],[480,150]].forEach(([x,y])=>g+=`<path d="M${x},${y} l-24,0" stroke="var(--teal)" stroke-width="2" marker-end="url(#v1pt)"/>`);
+    g+=`<text class="lbl" x="560" y="252" text-anchor="end" style="fill:var(--teal)">uitwisseling door de wand van de vlok</text>`;}
+  return SV("0 0 600 260",DEFS+g,"Placentavlokken in een ruimte met bloed van de moeder");
+}
+E.zet(T,[7],{titel:"Bouw en werking van de placenta",
+  html:`<p>De <b>placenta</b> is het orgaan waar moeder en foetus stoffen uitwisselen. Het foetale deel bestaat uit <b>placentavlokken</b>: vingervormige uitsteeksels met daarin haarvaten van de foetus, verbonden met de navelstreng. De vlokken steken uit in ruimtes die gevuld zijn met bloed van de moeder.</p>
+  <p>Stoffen gaan door de dunne wand van de vlokken: zuurstof, glucose, aminozuren en vitamines van moeder naar foetus; koolstofdioxide en ureum van foetus naar moeder. Dat gaat door diffusie en actief transport. Ook sommige antistoffen worden doorgegeven, en helaas ook alcohol, nicotine en sommige virussen.</p>
+  <p>Een grote oppervlakte (veel vlokken) en een kleine afstand maken de uitwisseling efficiënt. Denk bij een vraag over de placenta altijd na: wat moet er dóór de wand van de vlok, en wat is daar te groot voor?</p>`,
+  anim:anim(caps([
+    "De foetus is via de navelstreng verbonden met de <b>placentavlokken</b>. Die steken uit in een ruimte met bloed van de moeder.",
+    "In elke vlok lopen <b>haarvaten van de foetus</b>.",
+    "Stoffen worden uitgewisseld <b>door de wand van de vlok</b> heen."]),placentaSvg),
+  films:[["Van bevruchting tot baby","films/voortplanting/1-precies-op-tijd.html"]]});
+
+/* --- vraag 8: activering van de specifieke afweer --- */
+E.zet(T,[8],{titel:"Hoe de specifieke afweer op gang komt",
+  html:`<p>Je afweersysteem onderscheidt <b>eigen</b> van <b>lichaamsvreemd</b>. Elke cel draagt eigen merkers (MHC-eiwitten). Stoffen of cellen die niet bij jou horen, werken als <b>antigeen</b>.</p>
+  <ul><li>Een <b>antigeen-presenterende cel</b> (APC, bv. een macrofaag of dendritische cel) neemt het lichaamsvreemde materiaal op, knipt het in stukjes en zet die stukjes in een eigen MHC-eiwit op het celmembraan.</li>
+  <li>Een <b>T-helpercel</b> met een passende receptor herkent die combinatie en wordt geactiveerd.</li>
+  <li>De T-helpercel activeert vervolgens <b>B-cellen</b> die hetzelfde antigeen herkennen. Die delen en worden plasmacellen (maken antistoffen) en geheugencellen.</li></ul>
+  <p>Een T-helpercel reageert alleen op een stukje antigeen dat een APC presenteert in een MHC-eiwit dat de T-helpercel als eigen herkent.</p>`,
+  films:[["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"],["T-cellen en virussen","films/afweer/3-t-cellen-en-virussen.html"]]});
+
+/* --- vraag 9: Hardy-Weinberg --- */
+function hwSvg(i){
+  /* voorbeeld p=0,7 en q=0,3 */
+  const p=.7,q=.3,S=220,x0=180,y0=30;let g="";
+  g+=`<text class="lbl" x="${x0+S*p/2}" y="${y0-8}" text-anchor="middle">B (p = 0,7)</text><text class="lbl" x="${x0+S*p+S*q/2}" y="${y0-8}" text-anchor="middle">b (q = 0,3)</text>
+  <text class="lbl" x="${x0-8}" y="${y0+S*p/2+4}" text-anchor="end">B (0,7)</text><text class="lbl" x="${x0-8}" y="${y0+S*p+S*q/2+4}" text-anchor="end">b (0,3)</text>`;
+  const vak=(x,y,w,h,t,kl,on)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${on?kl:"var(--surface2)"}" stroke="var(--text3)"/>${on?`<text class="lbl" x="${x+w/2}" y="${y+h/2+4}" text-anchor="middle">${t}</text>`:""}`;
+  g+=vak(x0,y0,S*p,S*p,"BB: p² = 0,49","var(--teal-soft)",i>=1);
+  g+=vak(x0+S*p,y0,S*q,S*p,"Bb: 0,21","var(--goud-soft)",i>=2)+vak(x0,y0+S*p,S*p,S*q,"Bb: 0,21","var(--goud-soft)",i>=2);
+  g+=vak(x0+S*p,y0+S*p,S*q,S*q,"bb: 0,09","var(--koraal-soft)",i>=3);
+  if(i>=2)g+=`<text class="lblm" x="${x0+S+16}" y="${y0+60}">2pq = 0,42</text>`;
+  if(i>=3)g+=`<text class="lblm" x="${x0+S+16}" y="${y0+S*p+S*q/2+4}">q² = 0,09</text>`;
+  return SV("0 0 600 270",g,"Hardy-Weinberg als vierkant met p en q");
+}
+E.zet(T,[9],{titel:"De regel van Hardy-Weinberg",
+  html:`<p>Bij een gen met twee allelen noem je de allelfrequenties <i>p</i> en <i>q</i>, met <i>p</i> + <i>q</i> = 1.</p>
+  <p>Als een populatie in <b>Hardy-Weinberg-evenwicht</b> is (grote populatie, willekeurige partnerkeuze, geen selectie, geen mutatie en geen migratie), dan volgen de <b>genotypefrequenties</b> uit de allelfrequenties:</p>
+  <p style="text-align:center;font-size:18px"><i>p</i><sup>2</sup> + 2<i>pq</i> + <i>q</i><sup>2</sup> = 1</p>
+  <ul><li><i>p</i><sup>2</sup>: homozygoot voor het allel met frequentie <i>p</i></li><li>2<i>pq</i>: heterozygoot</li><li><i>q</i><sup>2</sup>: homozygoot voor het allel met frequentie <i>q</i></li></ul>
+  <p>Lees de vraag goed: wordt er een <b>allelfrequentie</b> gevraagd of een <b>genotypefrequentie</b>, en welk genotype precies? Een frequentie van 0,05 is 5%.</p>`,
+  anim:anim(caps([
+    "Voorbeeld: een gen met allel B (<i>p</i> = 0,7) en allel b (<i>q</i> = 0,3). De zijden van het vierkant zijn de kansen op elk allel in een eicel en een zaadcel.",
+    "Twee keer B: <i>p</i> × <i>p</i> = <b>0,49</b>. 49% van de populatie is BB.",
+    "Eén B en één b kan op twee manieren: 2 × 0,7 × 0,3 = <b>0,42</b>. 42% is heterozygoot.",
+    "Twee keer b: <i>q</i> × <i>q</i> = <b>0,09</b>. 9% is bb. Samen: 0,49 + 0,42 + 0,09 = 1."]),hwSvg),
+  films:[["Toeval en uitwisseling","films/evolutie/5-toeval-en-uitwisseling.html"]]});
+
+/* --- vraag 10: actieve en passieve immuniteit, klassen antistoffen --- */
+E.zet(T,[10],{titel:"Actieve en passieve immuniteit, soorten antistoffen",
+  html:`<p><b>Actieve immuniteit</b>: je eigen afweersysteem maakt de antistoffen (en geheugencellen), na een infectie of een vaccinatie. Dat duurt even, maar werkt lang.<br><b>Passieve immuniteit</b>: je krijgt kant-en-klare antistoffen van buiten, bijvoorbeeld via een injectie met serum of van moeder op kind. Dat werkt meteen, maar maar tijdelijk: de antistoffen worden afgebroken en je maakt er zelf geen nieuwe bij.</p>
+  <p>Er zijn vijf klassen antistoffen (immunoglobulinen), met elk een eigen taak:</p>
+  <div class="tablewrap"><table class="data"><tr><th>klasse</th><th>kenmerk</th></tr>
+  <tr><td>IgM</td><td>groot (vijf Y’s aan elkaar), als eerste gemaakt bij een eerste infectie</td></tr>
+  <tr><td>IgG</td><td>meest voorkomend in het bloed, vooral bij een tweede contact</td></tr>
+  <tr><td>IgA</td><td>in slijm, speeksel, traanvocht en moedermelk</td></tr>
+  <tr><td>IgE</td><td>bindt aan mestcellen; betrokken bij allergie en afweer tegen parasieten</td></tr>
+  <tr><td>IgD</td><td>vooral als receptor op B-cellen</td></tr></table></div>
+  <p>Welke klasse van moeder naar kind kan, en langs welke weg, zoek je op in je informatieboek.</p>`,
+  films:[["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"],["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"]]});
+
+/* --- vraag 11: genotypen afleiden uit antistoffen --- */
+E.zet(T,[11],{titel:"Genotypen afleiden uit antigenen en antistoffen",
+  html:`<p>Drie dingen heb je nodig om zo’n puzzel op te lossen:</p>
+  <ul><li><b>Eigen en vreemd</b>: je afweersysteem maakt geen antistoffen tegen antigenen die je zelf hebt. Antistoffen tegen een antigeen betekenen dus: dat antigeen heb je zelf <b>niet</b>.</li>
+  <li><b>Co-dominant</b>: als alle aanwezige allelen tot expressie komen, betekent een antigeen op je cellen dat je minstens één allel ervoor hebt. Heb je een antigeen niet, dan heb je dat allel helemaal niet.</li>
+  <li><b>Overerving</b>: een kind krijgt van elk gen één allel van de moeder en één van de vader.</li></ul>
+  <p>Werk per gen apart. Begin bij de persoon over wie je het meest zeker weet, en controleer aan het eind of je uitkomst past bij álle gegevens.</p>`,
+  films:[["Monohybride kruisingen","films/erfelijkheid/2-monohybride-kruisingen.html"],["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"]]});
+
+})();
+/* ===== vwo2.js ===== */
+(function(){
+"use strict";
+/* vwo26-1 · opgave 2 Synthetische biologie: ombouwen van E. coli (vraag 12–19) */
+const E=window.EXSTOF, T="vwo26-1";
+const SV=(vb,inner,lab)=>E.svg(vb,inner,lab);
+const pijl=(id,kl)=>`<marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${kl}"/></marker>`;
+let nr=0;
+const defs=()=>{nr++;return {d:`<defs>${pijl("v2g"+nr,"var(--goud)")}${pijl("v2x"+nr,"var(--text2)")}${pijl("v2t"+nr,"var(--teal)")}</defs>`,g:`url(#v2g${nr})`,x:`url(#v2x${nr})`,t:`url(#v2t${nr})`};};
+const anim=(steps,draw)=>box=>E.stappen(box,steps,(st,s,i)=>{st.innerHTML=`<div style="padding:10px">${draw(i,s)}</div>`;});
+const caps=a=>a.map(c=>({cap:c}));
+const tx=(x,y,t,o={})=>`<text x="${x}" y="${y}" text-anchor="${o.a||"middle"}" style="font:${o.w||600} ${o.s||14}px var(--tekst);fill:${o.f||"var(--text)"}"${o.op?` opacity="${o.op}"`:""}>${t}</text>`;
+const doos=(x,y,w,h,t,on,t2)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="var(--surface)" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.4:1.2}"/>`+tx(x+w/2,y+(t2?h/2-3:h/2+5),t)+(t2?tx(x+w/2,y+h/2+15,t2,{w:500,s:12,f:"var(--text2)"}):"");
+
+/* ================= vraag 12: symbiose ================= */
+function symSvg(i){
+  const P=[["+","+","mutualisme","korstmos: alg en schimmel"],["+","0","commensalisme","seepok op een walvis"],["+","−","parasitisme","teek op een ree"]];
+  let g="";
+  P.forEach(([a,b,naam,vb],k)=>{const x=10+k*190,on=i===k+1||i===0,dim=i>0&&i!==k+1;
+    g+=`<g opacity="${dim?.3:1}"><rect x="${x}" y="10" width="176" height="150" rx="14" fill="var(--surface)" stroke="${i===k+1?"var(--goud)":"var(--line2)"}" stroke-width="${i===k+1?2.4:1.2}"/>
+      <circle cx="${x+50}" cy="62" r="26" fill="var(--teal)" opacity=".25" stroke="var(--teal)"/><circle cx="${x+126}" cy="62" r="26" fill="var(--paars)" opacity=".25" stroke="var(--paars)"/>
+      ${tx(x+50,70,a,{s:24,w:700})}${tx(x+126,70,b,{s:24,w:700})}
+      ${tx(x+50,104,"soort A",{s:12,w:500,f:"var(--text2)"})}${tx(x+126,104,"soort B",{s:12,w:500,f:"var(--text2)"})}
+      ${i>0?tx(x+88,132,naam,{s:15,w:700,f:"var(--goud-text)"})+tx(x+88,151,vb,{s:12,w:500,f:"var(--text2)"}):""}</g>`;});
+  return SV("0 0 590 170",g,"Drie vormen van symbiose met plus, nul en min");
+}
+E.zet(T,[12],{titel:"Symbiose: drie vormen",
+  html:`<p><b>Symbiose</b> is een langdurig, nauw samenleven van twee organismen van verschillende soorten. Je bepaalt de vorm door bij <b>beide</b> partners te kijken: heeft hij er voordeel (+), nadeel (−) of merkt hij er niets van (0)?</p>
+  <ul><li><b>Mutualisme</b> (+/+): beide partners hebben voordeel.</li>
+  <li><b>Commensalisme</b> (+/0): de een heeft voordeel, de ander merkt er niets van.</li>
+  <li><b>Parasitisme</b> (+/−): de parasiet heeft voordeel, de gastheer nadeel (hij wordt bijvoorbeeld ziek of verzwakt).</li></ul>
+  <p>Let op: dezelfde soort kan in verschillende varianten een andere relatie met zijn partner hebben. Beoordeel dus elke relatie apart.</p>`,
+  anim:anim(caps(["Twee soorten leven nauw samen. Per partner noteer je: + (voordeel), − (nadeel) of 0 (geen effect).",
+    "<b>Mutualisme</b>: + en +. In een korstmos levert de alg suikers, de schimmel water, mineralen en bescherming.",
+    "<b>Commensalisme</b>: + en 0. De seepok krijgt een plek en voedselrijk water, de walvis merkt er weinig van.",
+    "<b>Parasitisme</b>: + en −. De teek zuigt bloed en kan ziekten overbrengen: de gastheer heeft er nadeel van."]),symSvg),
+  films:[["Plek genoeg?","films/ecologie/plek-genoeg/index.html"]]});
+
+/* ================= vraag 13: aerobe dissimilatie ================= */
+function dissSvg(i){
+  const D=defs();let g=D.d;
+  const fase=[[10,"glycolyse","grondplasma"],[200,"citroenzuurcyclus","matrix mitochondrion"],[390,"oxidatieve fosforylering","membraan"]];
+  fase.forEach(([x,n,w],k)=>{const on=i===k+1;g+=`<g opacity="${i>0&&!on&&!(i===4)?.35:1}">${doos(x,40,180,60,n,on,w)}</g>`;});
+  g+=`<path d="M190,70 H198" stroke="var(--text2)" stroke-width="2" marker-end="${D.x}"/><path d="M380,70 H388" stroke="var(--text2)" stroke-width="2" marker-end="${D.x}"/>`;
+  g+=tx(100,26,"glucose",{s:13,f:"var(--text2)"})+tx(290,26,"pyrodruivenzuur",{s:13,f:"var(--text2)"});
+  if(i>=1){g+=`<path d="M100,102 C100,150 440,140 470,104" fill="none" stroke="var(--goud)" stroke-width="2" stroke-dasharray="6 5" marker-end="${D.g}"/>`+tx(100,124,"NADH",{s:13,f:"var(--goud-text)"});}
+  if(i>=2){g+=`<path d="M290,102 C290,130 430,128 450,104" fill="none" stroke="var(--goud)" stroke-width="2" stroke-dasharray="6 5" marker-end="${D.g}"/>`+tx(290,124,"NADH",{s:13,f:"var(--goud-text)"})+tx(290,150,"CO₂ komt vrij",{s:12,w:500,f:"var(--text2)"});}
+  if(i>=3){g+=tx(480,154,"O₂ + H⁺ + e⁻ → H₂O",{s:12,w:600,f:"var(--text2)"})+tx(480,176,"NAD⁺ terug",{s:12,w:500,f:"var(--text2)"});}
+  if(i>=4){g+=`<rect x="200" y="190" width="370" height="40" rx="10" fill="var(--goud-soft)" stroke="var(--goud)"/>`+tx(385,215,"hier ontstaat de meeste ATP",{s:13});}
+  return SV("0 0 580 236",g,"De drie fasen van de aerobe dissimilatie");
+}
+E.zet(T,[13],{titel:"Aerobe dissimilatie: NADH, ATP en de ademhalingsketen",
+  html:`<p>Bij aerobe dissimilatie wordt glucose in drie fasen afgebroken. De energie wordt opgeslagen in <b>ATP</b>, dat ontstaat uit <b>ADP + fosfaat</b>.</p>
+  <ul><li><b>Glycolyse</b> (in het cytoplasma): glucose → pyrodruivenzuur. Levert een beetje ATP en NADH.</li>
+  <li><b>Citroenzuurcyclus</b>: koolstof wordt afgesplitst als CO₂. Er ontstaat veel NADH (en FADH₂).</li>
+  <li><b>Oxidatieve fosforylering</b> (de ademhalingsketen): NADH geeft energierijke elektronen af aan eiwitten in een membraan. Aan het eind neemt <b>O₂</b> de elektronen op en vormt met H⁺ water. Hier ontstaat de meeste ATP. NAD⁺ kan weer opnieuw elektronen opnemen.</li></ul>
+  <p>Bij eukaryoten zit de ademhalingsketen in het binnenmembraan van de mitochondriën.</p>
+  <p><b>NADH</b> (en bij fotosynthese NADPH) is een drager van elektronen, <b>ATP</b> een drager van energie.</p>`,
+  anim:anim(caps(["De drie fasen van de aerobe dissimilatie, van glucose tot water.",
+    "<b>Glycolyse</b>: glucose wordt pyrodruivenzuur. Er ontstaat NADH: een drager van energierijke elektronen.",
+    "<b>Citroenzuurcyclus</b>: de koolstofatomen worden CO₂. Er ontstaat nog veel meer NADH.",
+    "<b>Oxidatieve fosforylering</b>: NADH geeft zijn elektronen af aan de ademhalingsketen in een membraan. O₂ is de laatste elektronenacceptor en wordt H₂O.",
+    "In deze fase ontstaat de meeste ATP. Zonder O₂ loopt de keten vast."]),dissSvg),
+  films:[["Alles op adem","films/stofwisseling/2-alles-op-adem.html"]]});
+
+/* ================= vraag 14: cisgeen en transgeen ================= */
+function gmSvg(i){
+  const D=defs();let g=D.d;
+  const org=(x,y,kl,lab)=>`<ellipse cx="${x}" cy="${y}" rx="52" ry="30" fill="${kl}" opacity=".18" stroke="${kl}" stroke-width="1.6"/>`+tx(x,y+5,lab,{s:13});
+  const gen=(x,y,kl)=>`<rect x="${x-16}" y="${y-5}" width="32" height="10" rx="3" fill="${kl}"/>`;
+  g+=org(90,60,"var(--teal)","soort A")+org(90,170,"var(--paars)","soort B")+org(470,115,"var(--teal)","soort A (ontvanger)");
+  if(i===0)g+=tx(290,120,"Een gen inbrengen: waar komt het vandaan?",{s:14,f:"var(--text2)"});
+  if(i===1){g+=gen(90,88,"var(--goud)")+`<path d="M150,70 C260,70 330,95 405,108" fill="none" stroke="var(--goud)" stroke-width="2.4" marker-end="${D.g}"/>`+gen(470,138,"var(--goud)")+tx(285,62,"zelfde soort → cisgeen",{f:"var(--goud-text)"});}
+  if(i===2){g+=gen(90,198,"var(--koraal)")+`<path d="M150,165 C260,165 330,140 405,124" fill="none" stroke="var(--koraal)" stroke-width="2.4" marker-end="${D.x}"/>`+gen(470,138,"var(--koraal)")+tx(285,186,"andere soort → transgeen",{f:"var(--koraal)"});}
+  return SV("0 0 580 230",g,"Cisgenese en transgenese");
+}
+E.zet(T,[14],{titel:"Genetische modificatie: cisgeen of transgeen",
+  html:`<p>Bij <b>genetische modificatie</b> verander je het DNA van een organisme met biotechnologie, bijvoorbeeld door een gen in te brengen of uit te schakelen.</p>
+  <ul><li><b>Cisgeen</b>: het ingebrachte gen komt uit <b>dezelfde soort</b> (of uit een soort waarmee het organisme zich ook natuurlijk kan kruisen). Voorbeeld: een aardappel krijgt een resistentiegen van een wilde aardappel.</li>
+  <li><b>Transgeen</b>: het ingebrachte gen komt uit een <b>andere soort</b>. Voorbeeld: gist die een menselijk gen voor een hormoon heeft gekregen.</li></ul>
+  <p>Het gaat dus om de herkomst van het gen, niet om hoeveel genen er zijn ingebracht of om hoe nauw verwant de groepen zijn. Bij de toelichting noem je altijd waar het gen vandaan komt.</p>`,
+  anim:anim(caps(["Bij genetische modificatie brengt men een gen in een ontvanger. De naam hangt af van de herkomst van dat gen.",
+    "Komt het gen uit <b>dezelfde soort</b> (of een kruisbare soort)? Dan is het resultaat <b>cisgeen</b>.",
+    "Komt het gen uit een <b>andere soort</b>? Dan is het resultaat <b>transgeen</b>."]),gmSvg)});
+
+/* ================= vraag 15: auto- en heterotroof ================= */
+function trofSvg(i){
+  let g="";
+  const kol=[["energiebron","waar haalt het organisme energie vandaan?"],["koolstofbron","waarmee bouwt het organische stoffen?"],["elektronendonor","welke stof levert elektronen voor de opbouw?"]];
+  kol.forEach(([n,v],k)=>{const x=10+k*190,on=i===k+1;g+=`<rect x="${x}" y="10" width="176" height="80" rx="12" fill="var(--surface)" stroke="${on?"var(--goud)":"var(--line2)"}" stroke-width="${on?2.4:1.2}"/>`+tx(x+88,40,n,{s:15,f:on?"var(--goud-text)":"var(--text)"})+tx(x+88,62,v.slice(0,v.indexOf(" ",22)),{s:11,w:500,f:"var(--text2)"})+tx(x+88,77,v.slice(v.indexOf(" ",22)+1),{s:11,w:500,f:"var(--text2)"});});
+  const rij=(y,lab,a,b,c,on)=>tx(10,y,lab,{a:"start",s:12,f:"var(--text3)"})+[a,b,c].map((t,k)=>tx(98+k*190,y+22,t,{s:13,w:500,op:on?1:.3})).join("");
+  if(i>=1)g+=rij(118,"FOTO-AUTOTROOF","licht","CO₂","?",i>=1);
+  if(i>=2)g+=rij(166,"CHEMO-AUTOTROOF","chemische reactie","CO₂","anorganische stof",true);
+  if(i>=3)g+=rij(214,"HETEROTROOF","organische stoffen","organische stoffen","organische stoffen",true);
+  return SV("0 0 580 250",g,"Energiebron, koolstofbron en elektronendonor");
+}
+E.zet(T,[15],{titel:"Autotroof: energie, koolstof en elektronen",
+  html:`<p>Een <b>autotroof</b> organisme maakt zijn organische stoffen zelf uit CO₂ (koolstofassimilatie, bijvoorbeeld in de calvincyclus). Een <b>heterotroof</b> organisme haalt ze uit ander organisch materiaal.</p>
+  <p>Om CO₂ vast te leggen zijn twee dingen nodig: <b>energie</b> (ATP) en <b>energierijke elektronen</b> (via NADPH of NADH). Die elektronen komen van een <b>elektronendonor</b>: een stof die elektronen afgeeft en daarbij zelf verandert (geoxideerd wordt).</p>
+  <ul><li><b>Foto-autotroof</b>: de energie komt uit licht. Licht is een energiebron, geen stof.</li>
+  <li><b>Chemo-autotroof</b>: de energie komt uit een chemische reactie. Nitrificerende bacteriën gebruiken bijvoorbeeld ammonium als elektronendonor.</li></ul>
+  <p>Stel jezelf dus drie vragen: wat is de energiebron, wat is de koolstofbron, en welke stof levert de elektronen?</p>`,
+  anim:anim(caps(["Drie vragen over elk organisme: energiebron, koolstofbron en elektronendonor.",
+    "<b>Foto-autotroof</b>: energie uit licht, koolstof uit CO₂. Welke stof de elektronen levert, ken je uit de lichtreactie van de fotosynthese.",
+    "<b>Chemo-autotroof</b>: energie uit een chemische reactie, koolstof uit CO₂, elektronen van een anorganische stof (bij nitrificerende bacteriën: ammonium).",
+    "<b>Heterotroof</b>: alles komt uit organische stoffen, zoals glucose."]),trofSvg),
+  films:[["Alles in het groen","films/stofwisseling/3-alles-in-het-groen.html"]]});
+
+/* ================= vraag 16: natuurlijke selectie ================= */
+const LV=[[0,0,1,0,0,0,0,0,1,0,0,0],[0,0,1,0,0,0,0,0,1,0,0,0],[1,0,1,1,0,1,1,0,1,1,0,1],[1,1,1,1,1,1,1,1,1,1,1,1]];
+function selSvg(i,s){
+  let g=`<rect x="10" y="10" width="360" height="150" rx="16" fill="var(--teal)" opacity=".07" stroke="var(--line2)"/>`;
+  LV[i].forEach((r,k)=>{const x=40+(k%6)*54,y=40+Math.floor(k/6)*60,d=i===2&&r===0;
+    g+=`<rect x="${x}" y="${y}" width="36" height="16" rx="8" fill="${r?"var(--goud)":"var(--surface2)"}" stroke="${d?"var(--koraal)":"var(--text2)"}" stroke-width="1.4"${d?' stroke-dasharray="4 3" opacity=".45"':""}/>`;});
+  g+=`<rect x="390" y="30" width="180" height="110" rx="12" fill="var(--surface)" stroke="${i>=2?"var(--koraal)":"var(--line2)"}"/>`+tx(480,70,i>=2?"antibioticum":"geen antibioticum",{s:13,f:i>=2?"var(--koraal)":"var(--text2)"})+tx(480,96,"in het medium",{s:12,w:500,f:"var(--text2)"});
+  g+=`<rect x="16" y="178" width="22" height="12" rx="6" fill="var(--goud)" stroke="var(--text2)"/>`+tx(46,189,"resistent allel",{a:"start",s:12,w:500,f:"var(--text2)"})+`<rect x="170" y="178" width="22" height="12" rx="6" fill="var(--surface2)" stroke="var(--text2)"/>`+tx(200,189,"gevoelig",{a:"start",s:12,w:500,f:"var(--text2)"});
+  return SV("0 0 580 200",g,"Natuurlijke selectie in een bacteriepopulatie");
+}
+E.zet(T,[16],{titel:"Evolutie door natuurlijke selectie",
+  html:`<p>Evolutie is een verandering in de genetische samenstelling van een populatie over generaties. Bij <b>natuurlijke selectie</b> horen steeds dezelfde stappen:</p>
+  <ul><li><b>Genetische variatie</b>: individuen verschillen erfelijk. Bij bacteriën ontstaat nieuwe variatie vooral door <b>mutaties</b> bij elke deling.</li>
+  <li><b>Selectiedruk</b>: een factor in de omgeving die bepaalt wie meer of minder overleeft en zich voortplant (bijvoorbeeld een gif, voedseltekort, een predator).</li>
+  <li><b>Selectievoordeel</b>: individuen met een gunstige variant overleven vaker en krijgen meer nakomelingen. Hun allelen worden vaker.</li></ul>
+  <p>Een individu past zich dus niet aan ‘omdat het moet’: de populatie verandert doordat de best passende varianten vaker overblijven. Bacteriën delen snel, dus in een paar honderd dagen gaan er duizenden generaties voorbij.</p>`,
+  anim:anim(caps(["Een populatie bacteriën. Ze lijken op elkaar, maar ze zijn niet allemaal gelijk.",
+    "Door <b>mutaties</b> hebben een paar bacteriën een allel voor resistentie (goud): genetische variatie.",
+    "Er komt een antibioticum in het medium: de <b>selectiedruk</b>. Gevoelige bacteriën sterven (rood gestippeld).",
+    "De resistente bacteriën hebben een <b>selectievoordeel</b>: ze delen en geven het allel door. Na een tijd is de hele populatie resistent."]),selSvg),
+  films:[["Natuurlijke selectie","films/evolutie/2-natuurlijke-selectie.html"],["De mens als selectiefactor","films/evolutie/4-de-mens-als-selectiefactor.html"]]});
+
+/* ================= vraag 17: assimilatie ================= */
+function assSvg(i){
+  const D=defs();let g=D.d;
+  g+=doos(10,70,120,54,"CO₂ + H₂O",i===1)+`<path d="M132,97 H186" stroke="var(--text2)" stroke-width="2" marker-end="${D.x}"/>`+doos(190,70,110,54,"glucose",i===1);
+  g+=tx(160,60,"stap 1",{s:11,w:600,f:"var(--text3)"});
+  if(i>=1)g+=tx(90,148,"koolstofassimilatie",{s:12,w:500,f:"var(--text2)"})+tx(100,163,"(fotosynthese, calvincyclus)",{s:11,w:500,f:"var(--text3)"});
+  if(i>=2){[["zetmeel, cellulose",30,"C H O"],["vetten",100,"C H O"],["aminozuren",170,"C H O N (S)"]].forEach(([n,y,el],k)=>{const on=i===3&&k===2;
+    g+=`<path d="M302,97 C340,97 350,${y+22} 390,${y+22}" fill="none" stroke="var(--text2)" stroke-width="2" marker-end="${D.x}"/>`+doos(394,y,176,46,n,on,el);});
+    g+=tx(345,30,"stap 2",{s:11,w:600,f:"var(--text3)"});}
+  if(i>=3)g+=`<path d="M300,210 C340,210 360,196 390,196" fill="none" stroke="var(--goud)" stroke-width="2.2" stroke-dasharray="5 4" marker-end="${D.g}"/>`+tx(250,214,"+ mineraal met N",{s:12,f:"var(--goud-text)"});
+  return SV("0 0 580 230",g,"Van CO2 naar glucose en van glucose naar andere organische stoffen");
+}
+E.zet(T,[17],{titel:"Assimilatie: van glucose naar andere organische stoffen",
+  html:`<p><b>Assimilatie</b> is het opbouwen van organische stoffen. Het gaat in twee stappen:</p>
+  <ul><li><b>Koolstofassimilatie</b>: van CO₂ (en water) maakt een autotroof glucose. Bij planten is dat de fotosynthese.</li>
+  <li>Daarna maakt een cel van glucose alle andere organische stoffen die hij nodig heeft: zetmeel en cellulose, vetten, aminozuren, nucleotiden. Ook heterotrofe organismen, zoals <i>E. coli</i> met glucose, doen deze tweede stap.</li></ul>
+  <p>Glucose bevat alleen C, H en O. Voor stoffen met andere elementen moet de cel <b>mineralen</b> (anorganische ionen) uit zijn omgeving opnemen. Aminozuren bevatten bijvoorbeeld ook N (en soms S), nucleotiden ook N en P.</p>
+  <p>De tweede stap van de assimilatie heeft een eigen naam. Weet je hem?</p>`,
+  anim:anim(caps(["Assimilatie: de cel bouwt organische stoffen op.",
+    "<b>Stap 1</b>: koolstofassimilatie. Van CO₂ en water wordt glucose gemaakt.",
+    "<b>Stap 2</b>: van glucose maakt de cel andere organische stoffen. Zetmeel, cellulose en vetten bevatten net als glucose alleen C, H en O.",
+    "Aminozuren bevatten ook <b>stikstof</b>. Die komt niet uit glucose: de cel moet een mineraal met N opnemen."]),assSvg),
+  films:[["Alles in het groen","films/stofwisseling/3-alles-in-het-groen.html"]]});
+
+/* ================= vraag 18 en 19: isotopen ================= */
+function isoSvg(i){
+  const D=defs();let g=D.d;
+  const bol=(x,y,lab,on)=>`<circle cx="${x}" cy="${y}" r="22" fill="${on?"var(--goud)":"var(--surface2)"}" stroke="${on?"var(--goud)":"var(--text2)"}" stroke-width="1.6"/>`+tx(x,y+5,lab,{s:12,w:700,f:on?"var(--goud-ink,#1A1405)":"var(--text)"});
+  if(i===0){g+=bol(140,80,"¹²C",false)+bol(290,80,"¹³C",true)+tx(140,130,"gewone koolstof",{s:12,w:500,f:"var(--text2)"})+tx(290,130,"isotoop: 1 neutron extra",{s:12,w:500,f:"var(--text2)"})+tx(440,85,"± 1,1% van alle C",{s:13,w:600,f:"var(--text2)"})+tx(440,104,"is van nature ¹³C",{s:13,w:600,f:"var(--text2)"});}
+  else{
+    const rij=(y,lab,h2o,co2)=>tx(10,y-26,lab,{a:"start",s:12,f:"var(--text3)"})+bol(60,y,"H₂O",h2o)+tx(100,y+5,"+",{s:16})+bol(140,y,"CO₂",co2)+`<path d="M170,${y} H250" stroke="var(--text2)" stroke-width="2" marker-end="${D.x}"/>`+tx(210,y-10,"plant",{s:11,w:500,f:"var(--text2)"})+(i>=2?bol(290,y,"O₂",h2o):"");
+    g+=rij(60,"GROEP 1: ZUURSTOF IN WATER GELABELD (¹⁸O)",true,false)+rij(160,"GROEP 2: ZUURSTOF IN CO₂ GELABELD (¹⁸O)",false,true);
+    if(i>=3)g+=tx(440,66,"label in O₂",{s:13,f:"var(--goud-text)"})+tx(440,166,"geen label in O₂",{s:13,f:"var(--text2)"})+tx(440,206,"→ O₂ komt uit water",{s:13,f:"var(--text)"});
+  }
+  return SV("0 0 580 220",g,"Een isotoop als label volgen");
+}
+E.zet(T,[18,19],{titel:"Atomen volgen met een isotoop",
+  html:`<p>Een <b>isotoop</b> is een variant van een atoom met een ander aantal neutronen. <sup>13</sup>C is iets zwaarder dan gewone <sup>12</sup>C, maar reageert chemisch precies hetzelfde. Met een massaspectrometer kun je meten hoeveel <sup>13</sup>C er in een stof zit. Van nature is ongeveer 1,1% van alle koolstof <sup>13</sup>C.</p>
+  <ul><li>Geef je een organisme een <b>gelabelde stof</b> (met veel <sup>13</sup>C), dan kun je volgen waar de atomen van die stof terechtkomen.</li>
+  <li>Het label zit vast aan het <b>atoom</b>, niet aan de stof. Wordt de stof omgezet, dan gaat het label mee naar het product waarin dat atoom terechtkomt.</li>
+  <li>Je vergelijkt groepen die verschillen in welke stof gelabeld is. Een <b>positieve controle</b> laat zien dat de methode werkt: daar móét het label terechtkomen.</li></ul>
+  <p>Een klassiek voorbeeld: met zuurstofisotopen werd aangetoond waar het O₂ uit de fotosynthese vandaan komt.</p>`,
+  anim:anim(caps(["Gewone koolstof is <sup>12</sup>C. De isotoop <sup>13</sup>C heeft één neutron extra, en reageert hetzelfde. Een klein deel van alle koolstof is van nature <sup>13</sup>C.",
+    "Een klassiek experiment met zuurstofisotopen (<sup>18</sup>O). Twee groepen planten: in groep 1 is de zuurstof in het water gelabeld, in groep 2 de zuurstof in de CO₂.",
+    "Daarna meet je of het O₂ dat de planten afgeven het label bevat.",
+    "Alleen in groep 1 zit het label in het O₂. Conclusie: het O₂ komt uit water."]),isoSvg),
+  films:[["Onderzoek doen in de biologie","films/cellen/onderzoek-doen/index.html"]]});
+
+})();
+/* ===== vwo3.js ===== */
+(function(){
+"use strict";
+/* vwo26-1 · opgave 3 Imker door bijensteken naar de eerste hulp (vraag 20–27). De 'Laat zien waarom'-animaties staan in het fragment. */
+const E=window.EXSTOF, T="vwo26-1";
+const SV=(vb,inner,lab)=>E.svg(vb,inner,lab);
+const pijl=(id,kl)=>`<marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${kl}"/></marker>`;
+const DEFS=`<defs>${pijl("v3pt","var(--teal)")}${pijl("v3pg","var(--goud)")}${pijl("v3px","var(--text2)")}</defs>`;
+const anim=(caps,draw)=>box=>E.stappen(box,caps.map(c=>({cap:c})),(st,s,i)=>{st.innerHTML=draw(i);});
+
+/* --- 20: weefselvloeistof bij een haarvat --- */
+function haarvat(i){
+  let g=DEFS;const cy=110;
+  g+=`<rect x="20" y="${cy-24}" width="520" height="48" fill="var(--koraal-soft)" stroke="var(--koraal)" stroke-width="3"/>
+    <text x="30" y="200" class="lblm">slagaderlijk eind</text><text x="530" y="200" class="lblm" text-anchor="end">aderlijk eind</text>
+    <path d="M60,${cy} H500" stroke="var(--text2)" stroke-width="1.4" marker-end="url(#v3px)"/><text x="280" y="${cy+5}" class="lbl" text-anchor="middle">bloed</text>`;
+  if(i>=1)[80,130,180].forEach(x=>g+=`<path d="M${x},${cy-26} V${cy-62}" stroke="var(--teal)" stroke-width="2.2" marker-end="url(#v3pt)"/><path d="M${x},${cy+26} V${cy+62}" stroke="var(--teal)" stroke-width="2.2" marker-end="url(#v3pt)"/>`);
+  if(i>=1)g+=`<text x="130" y="${cy-70}" class="lblm" text-anchor="middle">bloeddruk duwt plasma naar buiten</text>`;
+  if(i>=2)[380,430,480].forEach(x=>g+=`<path d="M${x},${cy-62} V${cy-26}" stroke="var(--teal)" stroke-width="2.2" marker-end="url(#v3pt)"/><path d="M${x},${cy+62} V${cy+26}" stroke="var(--teal)" stroke-width="2.2" marker-end="url(#v3pt)"/>`);
+  if(i>=2)g+=`<text x="430" y="${cy-70}" class="lblm" text-anchor="middle">osmose trekt water terug</text>`;
+  if(i>=3)g+=`<path d="M280,${cy+40} C280,${cy+60} 300,${cy+70} 330,${cy+74}" stroke="var(--goud)" stroke-width="2.2" fill="none" marker-end="url(#v3pg)"/><text x="336" y="${cy+78}" class="lbl" style="fill:var(--goud-text,var(--goud))">rest: via de lymfe</text>`;
+  return SV("0 0 560 210",g,"Haarvat met uitwisseling van weefselvloeistof");
+}
+E.zet(T,[20],{titel:"Weefselvloeistof en ontsteking",
+  html:`<p><b>Weefselvloeistof</b> ontstaat uit bloedplasma dat door de wand van de <b>haarvaten</b> naar buiten wordt geperst. Aan het slagaderlijke eind wint de <b>bloeddruk</b>: vocht gaat naar buiten. Aan het aderlijke eind trekt <b>osmose</b> (door de eiwitten in het bloed) een groot deel weer terug. De rest wordt via de <b>lymfevaten</b> afgevoerd.</p>
+  <p>Als er meer vocht uit de haarvaten komt dan er wordt afgevoerd, hoopt het zich op tussen de cellen. Die zwelling heet <b>oedeem</b>.</p>
+  <p>Bij een ontsteking of allergische reactie geven afweercellen <b>mediatoren</b> af: signaalstoffen die de bloedvaten in de buurt beïnvloeden. Daardoor wordt een plek rood, warm en dik. In je informatieboek vind je welke effecten een mediator als histamine heeft.</p>`,
+  anim:anim(["Een haarvat: het bloed stroomt van het slagaderlijke naar het aderlijke eind.",
+    "Aan het begin is de bloeddruk hoog. Plasma (zonder de grote eiwitten) wordt door de wand naar buiten geperst: weefselvloeistof.",
+    "Aan het eind is de bloeddruk lager. Het bloed bevat nog veel eiwitten en trekt door osmose water terug.",
+    "Wat overblijft, gaat via de lymfevaten terug naar het bloed. Zo blijft de hoeveelheid weefselvloeistof in evenwicht."],haarvat),
+  films:[["Weefselvloeistof en lymfe","films/transport/4-weefselvloeistof-en-lymfe.html"],["De eerste verdediging","films/afweer/1-de-eerste-verdediging.html"]]});
+
+/* --- 21: specifieke afweer en allergie --- */
+function afweer(i){
+  let g=DEFS;
+  const box=(x,t,s,on)=>`<rect x="${x}" y="40" width="120" height="70" rx="10" fill="${on?"var(--teal-soft)":"none"}" stroke="${on?"var(--teal)":"var(--line2)"}"/><text x="${x+60}" y="70" class="lbl" text-anchor="middle">${t}</text><text x="${x+60}" y="90" class="lblm" text-anchor="middle">${s}</text>`;
+  g+=box(10,"antigeen","komt binnen",i>=0)+box(160,"B-cel","herkent het",i>=1)+box(310,"plasmacellen","maken antistoffen",i>=2)+box(460,"antistoffen","binden antigeen",i>=3);
+  [130,280,430].forEach((x,k)=>g+=`<path d="M${x+2},75 H${x+26}" stroke="${i>k?"var(--text2)":"var(--line2)"}" stroke-width="1.6" marker-end="url(#v3px)"/>`);
+  if(i>=1)g+=`<text x="300" y="140" class="lblm" text-anchor="middle">dit kost bij een nieuw antigeen enkele dagen</text>`;
+  return SV("0 0 600 160",g,"Stappen van de specifieke afweer");
+}
+E.zet(T,[21],{titel:"Specifieke afweer en allergie",
+  html:`<p>Je <b>specifieke afweer</b> reageert op <b>antigenen</b>: moleculen die het lichaam als lichaamsvreemd herkent. Een B-cel met een passende receptor wordt geactiveerd, deelt en vormt <b>plasmacellen</b> die <b>antistoffen</b> maken, en geheugencellen. Antistoffen passen precies op één soort antigeen.</p>
+  <p>Bij een <b>allergie</b> reageert de afweer op een stof die eigenlijk onschuldig is (het <b>allergeen</b>). De antistoffen die daarbij horen, gaan vastzitten op <b>mestcellen</b>. Bindt het allergeen aan die antistoffen, dan geven de mestcellen <b>histamine</b> en andere mediatoren af.</p>`,
+  anim:anim(["Een antigeen komt het lichaam binnen.","Een B-cel met een passende receptor herkent het antigeen en wordt geactiveerd.","De B-cel deelt en vormt plasmacellen (en geheugencellen). Plasmacellen maken antistoffen.","De antistoffen binden het antigeen. Bij een allergie zitten zulke antistoffen ook op mestcellen."],afweer),
+  films:[["Antistoffen op maat","films/afweer/2-antistoffen-op-maat.html"],["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"]]});
+
+/* --- 22: hartcyclus en bloeddruk --- */
+function cyclus(i){
+  let g="";const X=t=>60+t*240,Y=p=>200-(p-60)*2.2;
+  const P=t=>{const f=t%1;if(f<.12)return 80+40*Math.sin(f/.12*Math.PI/2);if(f<.35)return 120-20*(f-.12)/.23;return 100-20*(f-.35)/.65;};
+  for(let p=60;p<=120;p+=20)g+=`<line class="grid" x1="60" x2="540" y1="${Y(p)}" y2="${Y(p)}"/><text class="tick" x="54" y="${Y(p)+4}" text-anchor="end">${p}</text>`;
+  g+=`<path class="ax" d="M60,40 V200 H540"/><text class="tick" x="300" y="222" text-anchor="middle">tijd (2 hartslagen)</text><text class="tick" x="18" y="130" transform="rotate(-90 18 130)" text-anchor="middle">druk in de aorta (mmHg)</text>`;
+  if(i>=1)[0,1].forEach(k=>g+=`<rect x="${X(k)}" y="40" width="${.35*240}" height="160" fill="var(--koraal-soft)"/>`);
+  if(i>=1)g+=`<text x="${X(.17)}" y="34" class="lblm" text-anchor="middle" style="fill:var(--koraal)">systole</text><text x="${X(.67)}" y="34" class="lblm" text-anchor="middle">diastole</text>`;
+  let d="";for(let t=0;t<=2;t+=.01)d+=(d?"L":"M")+X(t).toFixed(1)+","+Y(P(t)).toFixed(1);g+=`<path class="cv" d="${d}"/>`;
+  if(i>=2)g+=`<line x1="60" x2="540" y1="${Y(120)}" y2="${Y(120)}" stroke="var(--goud)" stroke-dasharray="5 4"/><text x="536" y="${Y(120)-5}" class="lbl" text-anchor="end">hoogste druk: systolische druk</text>
+    <line x1="60" x2="540" y1="${Y(80)}" y2="${Y(80)}" stroke="var(--teal)" stroke-dasharray="5 4"/><text x="536" y="${Y(80)+15}" class="lbl" text-anchor="end" style="fill:var(--teal)">laagste druk: diastolische druk</text>`;
+  return SV("0 0 560 230",g,"Druk in de aorta tijdens de hartcyclus");
+}
+E.zet(T,[22],{titel:"Hartcyclus en bloeddruk",
+  html:`<p>Bij elke hartslag trekken de kamers samen (<b>systole</b>) en ontspannen ze weer (<b>diastole</b>). Tijdens de systole wordt bloed met kracht de slagaders in geperst.</p>
+  <p>De druk in een slagader schommelt daardoor bij elke hartslag. De <b>systolische druk</b> is de hoogste waarde, de <b>diastolische druk</b> de laagste. Een bloeddruk van 120/80 mmHg betekent: 120 systolisch, 80 diastolisch.</p>
+  <p>De wand van grote slagaders bevat veel <b>elastische vezels</b>. Daardoor kan de wand meegeven met de drukschommelingen, en het bloed tussen twee hartslagen in toch verder duwen. Kleinere slagaders hebben ook glad spierweefsel, waarmee ze nauwer of wijder kunnen worden.</p>`,
+  anim:anim(["De druk in de aorta gaat bij elke hartslag op en neer.","Tijdens de systole trekken de kamers samen en stijgt de druk. Tijdens de diastole daalt hij weer.","De hoogste druk is de systolische druk, de laagste de diastolische druk."],cyclus),
+  films:[["Buizen onder druk","films/transport/2-buizen-onder-druk.html"]]});
+
+/* --- 23: eiwitstructuur --- */
+function niveaus(i){
+  let g="";const bol=(x,y,c)=>`<circle cx="${x}" cy="${y}" r="9" fill="${c}" stroke="var(--text2)"/>`;
+  const kl=["var(--teal-soft)","var(--goud-soft)","var(--paars-soft)","var(--koraal-soft)"];
+  if(i===0)g+=`<path d="M60,90 H456" stroke="var(--text2)" stroke-width="1.2"/>`+[...Array(12)].map((_,k)=>bol(60+k*36,90,kl[k%4])).join("");
+  if(i===1){let d="";for(let t=0;t<=460;t+=2)d+=(d?"L":"M")+(40+t)+","+(90+22*Math.sin(t/14)).toFixed(1);g+=`<path d="${d}" stroke="var(--teal)" stroke-width="5" fill="none"/>`;}
+  if(i>=2){g+=`<path d="M60,150 C30,60 140,20 170,80 C200,140 240,30 300,60 C360,90 300,170 380,150 C450,130 460,50 500,40" stroke="var(--teal)" stroke-width="6" fill="none"/>`;
+    g+=`<text x="250" y="186" class="lblm" text-anchor="middle">bindingen tussen restgroepen houden de vouwing vast</text>`;}
+  if(i===3)g+=`<path d="M300,140 C360,100 420,180 480,150" stroke="var(--paars)" stroke-width="6" fill="none"/><text x="470" y="176" class="lblm" text-anchor="end" style="fill:var(--paars)">tweede keten</text>`;
+  return SV("0 0 540 200",g,"Niveaus van eiwitstructuur");
+}
+E.zet(T,[23],{titel:"Eiwitstructuur en bindingen",
+  html:`<p>Een eiwit heeft vier niveaus van bouw:</p>
+  <ul><li><b>primaire structuur</b>: de volgorde van de aminozuren (vaak in eenlettercode genoteerd)</li>
+  <li><b>secundaire structuur</b>: helix of vouwblad, door waterstofbruggen in de ruggengraat</li>
+  <li><b>tertiaire structuur</b>: de ruimtelijke vouwing van de hele keten, door bindingen tussen de <b>restgroepen</b></li>
+  <li><b>quaternaire structuur</b>: meerdere ketens samen</li></ul>
+  <p>Welke bindingen in de tertiaire structuur mogelijk zijn, hangt af van de restgroepen. <b>Apolaire</b> restgroepen kruipen bij elkaar weg van het water (hydrofobe interacties). <b>Polaire</b> restgroepen met OH-, NH- of C=O-groepen kunnen waterstofbruggen vormen. Een <b>zwavelbrug</b> (–S–S–) is een covalente binding tussen twee restgroepen met een SH-groep. In je informatieboek staan de aminozuren met hun restgroep en eenlettercode.</p>`,
+  anim:anim(["Primaire structuur: een keten van aminozuren in een vaste volgorde.","Secundaire structuur: de keten vormt bijvoorbeeld een helix.","Tertiaire structuur: de keten vouwt zich verder, doordat restgroepen bindingen met elkaar aangaan.","Quaternaire structuur: meerdere ketens vormen samen één eiwit."],niveaus),
+  films:[["Van DNA naar eiwit","films/dna/3-van-dna-naar-eiwit.html"]]});
+
+/* --- 24: membraanbouw --- */
+function fosfo(i){
+  let g="";
+  g+=`<g transform="translate(70,30)"><circle cx="0" cy="0" r="16" fill="var(--teal-soft)" stroke="var(--teal)" stroke-width="2"/><path d="M-6,16 V90 M6,16 V90" stroke="var(--goud)" stroke-width="3"/></g>`;
+  g+=`<text x="96" y="34" class="lbl" style="fill:var(--teal)">kop: polair, hydrofiel</text><text x="96" y="90" class="lbl" style="fill:var(--goud-text,var(--goud))">staarten: apolair, hydrofoob</text>`;
+  if(i>=1){for(let x=300;x<540;x+=22){g+=`<path d="M${x-3},60 V96 M${x+3},60 V96 M${x-3},140 V104 M${x+3},140 V104" stroke="var(--goud)" stroke-width="1.6"/><circle cx="${x}" cy="52" r="8" fill="var(--teal-soft)" stroke="var(--teal)"/><circle cx="${x}" cy="148" r="8" fill="var(--teal-soft)" stroke="var(--teal)"/>`;}
+    g+=`<text x="420" y="30" class="lblm" text-anchor="middle">water</text><text x="420" y="178" class="lblm" text-anchor="middle">water</text>`;}
+  if(i>=2)g+=`<rect x="370" y="40" width="40" height="120" rx="10" fill="var(--paars-soft)" stroke="var(--paars)" stroke-width="2"/><text x="300" y="196" class="lblm">membraaneiwit dwars door de membraan</text>`;
+  return SV("0 0 560 205",g,"Fosfolipide en dubbele laag");
+}
+E.zet(T,[24],{titel:"Bouw van de celmembraan",
+  html:`<p>Een celmembraan bestaat uit een <b>dubbele laag fosfolipiden</b>. Een fosfolipide heeft een <b>polaire kop</b> (hydrofiel, mengt goed met water) en twee <b>apolaire vetzuurstaarten</b> (hydrofoob).</p>
+  <p>In water gaan fosfolipiden vanzelf zo liggen dat de koppen het water raken en de staarten naar elkaar toe wijzen. Er geldt: <b>polair mengt met polair, apolair met apolair</b>.</p>
+  <p>In de membraan zitten ook <b>membraaneiwitten</b>. Sommige liggen tegen de membraan aan, andere steken er dwars doorheen. Waar een eiwit precies zit, hangt af van de eigenschappen van zijn aminozuren.</p>`,
+  anim:anim(["Eén fosfolipide: een polaire kop en twee apolaire staarten.","In water vormen fosfolipiden een dubbele laag: koppen aan het water, staarten naar binnen.","Membraaneiwitten kunnen dwars door die dubbele laag heen steken."],fosfo),
+  films:[["Diffusie en osmose","films/cellen/diffusie-osmose/index.html"]]});
+
+/* --- 25: signaaloverdracht --- */
+function signaal(i){
+  let g=DEFS;
+  g+=`<rect x="0" y="60" width="560" height="16" fill="var(--text3)" opacity=".45"/><text x="10" y="50" class="lblm">buiten de cel</text><text x="10" y="100" class="lblm">binnen de cel</text>`;
+  g+=`<rect x="120" y="50" width="26" height="40" rx="6" fill="${i>=1?"var(--teal)":"var(--surface2)"}" stroke="var(--teal)"/><text x="133" y="118" class="lblm" text-anchor="middle">receptor</text>`;
+  g+=`<path d="M128,10 l10,0 l-5,9 z" fill="var(--goud)" transform="translate(0,${i>=1?24:0})"/><text x="150" y="20" class="lblm">signaalstof van buiten (eerste boodschapper)</text>`;
+  if(i>=2){g+=`<path d="M150,90 L220,140" stroke="var(--text2)" stroke-width="1.4" marker-end="url(#v3px)"/>`;[[240,140],[256,152],[244,164]].forEach(([x,y])=>g+=`<circle cx="${x}" cy="${y}" r="5" fill="var(--paars)"/>`);
+    g+=`<text x="262" y="190" class="lblm" text-anchor="end">signaalstof in de cel</text>`;}
+  if(i>=3){g+=`<path d="M266,152 L330,152" stroke="var(--text2)" stroke-width="1.4" marker-end="url(#v3px)"/>`;for(let k=0;k<9;k++)g+=`<circle cx="${350+(k%3)*16}" cy="${136+Math.floor(k/3)*16}" r="5" fill="var(--paars)" opacity=".7"/>`;
+    g+=`<text x="336" y="190" class="lblm">steeds meer moleculen</text>`;}
+  if(i>=4)g+=`<path d="M400,150 C460,150 470,110 470,82" stroke="var(--goud)" stroke-width="2" fill="none" marker-end="url(#v3pg)"/><text x="480" y="120" class="lbl" style="fill:var(--goud-text,var(--goud))">effect</text>`;
+  return SV("0 0 560 210",g,"Signaaloverdracht van buiten de cel naar binnen");
+}
+E.zet(T,[25],{titel:"Signaaloverdracht in een cel",
+  html:`<p>Een signaal van buiten, zoals een hormoon, kan vaak de cel niet in. Het bindt aan een <b>receptor</b>: een eiwit in de membraan dat precies op die stof past. Die buitenstof heet ook wel de <b>eerste boodschapper</b>.</p>
+  <p>Binding aan de receptor zet in de cel een reeks reacties in gang: een <b>signaaltransductieroute</b>. Enzymen worden actief en maken signaalstoffen die het bericht in het cytoplasma verder brengen. Omdat elke stap veel nieuwe moleculen kan activeren, wordt het signaal sterk <b>versterkt</b>; zo'n kettingreactie noem je een <b>cascade</b>.</p>`,
+  anim:anim(["Een signaalstof komt van buiten bij de cel aan.","De stof bindt aan een receptor in de membraan.","De receptor zet in de cel de vorming van een signaalstof in gang.","Elke stap activeert weer veel nieuwe moleculen: het signaal wordt versterkt.","Aan het eind van de route volgt het effect, bijvoorbeeld het openen van kanaaltjes in de membraan."],signaal),
+  films:[["Post voor iedereen","films/hormonen/1-post-voor-iedereen.html"]]});
+
+/* --- 26: membraanpotentiaal --- */
+function potentiaal(i){
+  let g="";const X=t=>70+t*4.4,Y=v=>30+(40-v)*1.5;
+  [-80,-60,-40,-20,0,20,40].forEach(v=>g+=`<line class="grid" x1="70" x2="540" y1="${Y(v)}" y2="${Y(v)}"/><text class="tick" x="64" y="${Y(v)+4}" text-anchor="end">${v}</text>`);
+  g+=`<path class="ax" d="M70,24 V${Y(-90)} H540"/><text class="tick" x="20" y="${Y(-25)}" transform="rotate(-90 20 ${Y(-25)})" text-anchor="middle">membraanpotentiaal (mV)</text>
+    <line x1="70" x2="540" y1="${Y(-55)}" y2="${Y(-55)}" stroke="var(--koraal)" stroke-dasharray="5 4"/><text x="536" y="${Y(-55)-5}" class="lblm" text-anchor="end" style="fill:var(--koraal)">drempelwaarde</text>
+    <text x="${X(66)}" y="${Y(-70)-6}" class="lblm">rustpotentiaal −70 mV</text>`;
+  let d=`M${X(0)},${Y(-70)} L${X(20)},${Y(-70)}`;
+  if(i===1)d+=` L${X(30)},${Y(-62)} L${X(45)},${Y(-70)} L${X(105)},${Y(-70)}`;
+  if(i===2)d+=` L${X(30)},${Y(-80)} L${X(45)},${Y(-70)} L${X(105)},${Y(-70)}`;
+  if(i===0)d+=` L${X(105)},${Y(-70)}`;
+  if(i===3)d+=` L${X(30)},${Y(-55)} L${X(36)},${Y(35)} L${X(46)},${Y(-80)} L${X(60)},${Y(-70)} L${X(105)},${Y(-70)}`;
+  g+=`<path class="cv" d="${d}"/>`;
+  const lab={1:["minder negatief: depolarisatie","var(--goud-text,var(--goud))",-48],2:["negatiever: hyperpolarisatie","var(--teal)",-92],3:["boven de drempel: actiepotentiaal","var(--text)",30]}[i];
+  if(lab)g+=`<text x="${X(40)}" y="${Y(lab[2])}" class="lbl" style="fill:${lab[1]}">${lab[0]}</text>`;
+  return SV("0 0 560 236",g,"Veranderingen van de membraanpotentiaal");
+}
+E.zet(T,[26],{titel:"Membraanpotentiaal en impuls",
+  html:`<p>Over de membraan van een zenuwcel staat een spanning: de <b>membraanpotentiaal</b>. In rust is de binnenkant negatief ten opzichte van de buitenkant, ongeveer −70 mV (<b>rustpotentiaal</b>). Dat komt doordat ionen ongelijk verdeeld zijn over de membraan.</p>
+  <ul><li><b>Depolarisatie</b>: de binnenkant wordt minder negatief.</li><li><b>Hyperpolarisatie</b>: de binnenkant wordt negatiever.</li></ul>
+  <p>Ionen gaan door open kanaaltjes van <b>hoge naar lage concentratie</b> (diffusie). Bewegen er positieve ionen naar binnen of naar buiten, dan verandert de lading aan de binnenkant mee. Na een actiepotentiaal stromen bijvoorbeeld K<sup>+</sup>-ionen naar buiten; de binnenkant wordt daardoor weer negatief.</p>
+  <p>Een <b>impuls</b> (actiepotentiaal) ontstaat alleen als de membraanpotentiaal de <b>drempelwaarde</b> bereikt.</p>`,
+  anim:anim(["In rust is de membraanpotentiaal ongeveer −70 mV.","Wordt de binnenkant minder negatief, dan heet dat depolarisatie.","Wordt de binnenkant juist negatiever, dan heet dat hyperpolarisatie.","Alleen als de drempelwaarde wordt bereikt, ontstaat een actiepotentiaal: de impuls."],potentiaal),
+  films:[["Het kabelnetwerk","films/zenuwstelsel/2-het-kabelnetwerk.html"]]});
+
+/* --- 27: wat bepaalt de bloeddruk --- */
+function pomp(i){
+  let g=DEFS;
+  g+=`<rect x="30" y="70" width="90" height="70" rx="12" fill="var(--koraal-soft)" stroke="${i===1?"var(--goud)":"var(--koraal)"}" stroke-width="${i===1?3:1.6}"/><text x="75" y="110" class="lbl" text-anchor="middle">pomp</text>
+    <path d="M120,105 H300" stroke="var(--koraal)" stroke-width="22"/><path d="M300,105 H520" stroke="var(--koraal)" stroke-width="${i===2?8:22}"/>
+    <text x="410" y="${i===2?84:76}" class="lblm" text-anchor="middle">${i===2?"nauwere buis: meer weerstand":"buis"}</text>`;
+  g+=`<g transform="translate(210,40)"><circle r="20" fill="none" stroke="var(--text2)" stroke-width="2"/><line x1="0" y1="0" x2="${i>0?12:0}" y2="${i>0?-16:-20}" stroke="var(--goud)" stroke-width="3"/><text y="-26" class="lblm" text-anchor="middle">druk</text></g>`;
+  if(i===1)g+=`<text x="75" y="164" class="lbl" text-anchor="middle" style="fill:var(--goud-text,var(--goud))">meer pompen per minuut</text>`;
+  return SV("0 0 560 180",g,"Pomp en buis als model voor de bloeddruk");
+}
+E.zet(T,[27],{titel:"Wat bepaalt de bloeddruk?",
+  html:`<p>De bloeddruk in de slagaders hangt van twee dingen af:</p>
+  <ul><li>hoeveel bloed het hart per minuut wegpompt (het <b>hartminuutvolume</b> = slagvolume × hartslagfrequentie);</li><li>hoeveel <b>weerstand</b> de bloedvaten bieden. Hoe nauwer de vaten, hoe groter de weerstand.</li></ul>
+  <p>De wand van de kleine slagaders (arteriolen) bevat <b>glad spierweefsel</b>. Daarmee kunnen ze nauwer of wijder worden en zo de bloedstroom naar een orgaan regelen.</p>
+  <p><b>Adrenaline</b> bereidt je lichaam voor op actie (vechten of vluchten). Het werkt op veel organen tegelijk: hart, bloedvaten, luchtwegen en stofwisseling. Niet al die effecten hebben met de bloeddruk te maken.</p>`,
+  anim:anim(["Model: een pomp duwt vloeistof door een buis. Hoe hoog is de druk in de buis?","Pompt de pomp meer vloeistof per minuut, dan stijgt de druk.","Wordt de buis verderop nauwer, dan neemt de weerstand toe en stijgt de druk ervoor ook."],pomp),
+  films:[["Buizen onder druk","films/transport/2-buizen-onder-druk.html"],["Het hart onder controle","films/transport/5-het-hart-onder-controle.html"]]});
+
+})();
+/* ===== vwo4.js ===== */
+(function(){
+"use strict";
+/* vwo26-1 · opgave 4 CRISPR in de strijd tegen overgewicht (vraag 28–36) */
+const E=window.EXSTOF, T="vwo26-1";
+const SV=(vb,inner,lab)=>E.svg(vb,inner,lab);
+const pijl=(id,kl)=>`<marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="${kl}"/></marker>`;
+const DEFS=`<defs>${pijl("v4pk","var(--koraal)")}${pijl("v4pt","var(--teal)")}${pijl("v4pg","var(--goud)")}${pijl("v4px","var(--text2)")}</defs>`;
+const anim=(steps,draw)=>box=>E.stappen(box,steps,(st,s,i)=>{st.innerHTML=draw(i,s);});
+const caps=a=>a.map(c=>({cap:c}));
+
+/* --- vraag 28–29: warmte en energiebalans --- */
+function balans(i){
+  let g=DEFS;
+  /* weegschaal: inname links, verbruik rechts */
+  const kant=i===0?0:i===1?14:-14;
+  g+=`<path d="M300,210 L280,240 H320 Z" fill="var(--text3)"/><line x1="300" y1="210" x2="300" y2="110" stroke="var(--text3)" stroke-width="3"/>`;
+  g+=`<g transform="rotate(${kant} 300 110)"><line x1="140" y1="110" x2="460" y2="110" stroke="var(--text2)" stroke-width="4"/>
+    <path d="M140,110 L110,160 H170 Z" fill="var(--goud)" opacity=".35" stroke="var(--goud)"/><path d="M460,110 L430,160 H490 Z" fill="var(--teal)" opacity=".35" stroke="var(--teal)"/></g>`;
+  g+=`<text x="140" y="40" class="lbl" text-anchor="middle" style="fill:var(--goud-text)">energie erin</text><text x="140" y="58" class="lblm" text-anchor="middle">voedsel</text>`;
+  g+=`<text x="460" y="40" class="lbl" text-anchor="middle" style="fill:var(--teal)">energie eruit</text><text x="460" y="58" class="lblm" text-anchor="middle">bewegen, groei, warmte</text>`;
+  if(i===1)g+=`<text x="300" y="275" class="lbl" text-anchor="middle">meer erin dan eruit: het overschot wordt opgeslagen als vet</text>`;
+  if(i===2)g+=`<text x="300" y="275" class="lbl" text-anchor="middle">meer eruit dan erin: het lichaam gebruikt zijn reserves</text>`;
+  if(i===0)g+=`<text x="300" y="275" class="lbl" text-anchor="middle">evenwicht: het lichaamsgewicht blijft gelijk</text>`;
+  return SV("0 0 600 290",g,"Energiebalans als weegschaal");
+}
+E.zet(T,[28,29],{titel:"Warmte, vetweefsel en de energiebalans",
+  html:`<p>Bij elke <b>dissimilatie</b> komt naast ATP ook <b>warmte</b> vrij. Zoogdieren houden zo hun lichaamstemperatuur constant. Het meeste warmteverlies gaat via de <b>huid</b>.</p>
+  <p>Bij kou vernauwen de bloedvaten in de huid, zodat je minder warmte verliest; bij warmte verwijden ze juist en ga je zweten. Bij langdurige kou maakt het lichaam extra warmte, bijvoorbeeld door rillen.</p>
+  <p>Je <b>energiebalans</b>: krijg je meer energie binnen dan je verbruikt, dan wordt het overschot opgeslagen als vet in wit vetweefsel. Alles wat energie verbruikt (bewegen, warmte maken) helpt die balans de andere kant op.</p>`,
+  anim:anim(caps(["Energiebalans in evenwicht: wat je eet, verbruik je ook.","Meer energie erin dan eruit: het overschot wordt vet.","Meer energie eruit dan erin: het lichaam verbruikt zijn vetreserves."]),i=>balans(i)),
+  films:[["Alles op adem","films/stofwisseling/2-alles-op-adem.html"],["Wat zit er in je eten?","films/voeding/1-wat-zit-er-in-je-eten.html"]]});
+
+/* --- vraag 30: oxidatieve fosforylering (zonder UCP1) --- */
+function oxfos(i){
+  let g=DEFS;
+  g+=`<rect x="0" y="0" width="600" height="96" fill="var(--teal)" opacity=".07"/><rect x="0" y="134" width="600" height="106" fill="var(--goud)" opacity=".06"/>
+  <rect x="0" y="96" width="600" height="38" fill="var(--text3)" opacity=".22"/>
+  <text x="8" y="18" class="lblm">ruimte tussen de membranen</text><text x="8" y="232" class="lblm">matrix</text><text x="592" y="120" class="lblm" text-anchor="end">binnenmembraan</text>`;
+  [60,150,240].forEach((x,k)=>g+=`<rect x="${x}" y="86" width="56" height="58" rx="12" fill="var(--paars)" opacity=".5"/>`);
+  g+=`<text x="178" y="80" class="lblm" text-anchor="middle">elektronentransportketen</text>`;
+  if(i>=0)g+=`<path d="M70,170 C120,150 150,150 300,170" fill="none" stroke="var(--paars)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#v4px)"/><text x="80" y="200" class="lblm">e⁻ (van NADH en FADH₂)</text><text x="330" y="176" class="lblm">→ O₂ + H⁺ → H₂O</text>`;
+  const n=i===0?2:10;const pos=[[90,40],[130,60],[180,30],[220,58],[270,40],[110,20],[200,72],[250,20],[160,52],[300,64]];
+  if(i>=1){[88,178,268].forEach(x=>g+=`<path d="M${x},150 V60" stroke="var(--koraal)" stroke-width="2" marker-end="url(#v4pk)"/>`);}
+  pos.slice(0,n).forEach(([x,y])=>g+=`<text x="${x}" y="${y}" class="lbl" text-anchor="middle" style="fill:var(--koraal)">H⁺</text>`);
+  g+=`<rect x="470" y="80" width="30" height="70" rx="6" fill="var(--teal)" opacity=".6"/><circle cx="485" cy="172" r="22" fill="var(--teal)" opacity=".5"/><text x="485" y="70" class="lbl" text-anchor="middle">ATP-synthase</text>`;
+  if(i>=2)g+=`<path d="M485,26 V150" stroke="var(--koraal)" stroke-width="2.4" marker-end="url(#v4pk)"/><text x="485" y="214" class="lbl" text-anchor="middle" style="fill:var(--goud-text)">ADP + P → ATP</text>`;
+  if(i>=1)g+=`<text x="300" y="14" class="lbl" text-anchor="middle" style="fill:var(--koraal)">hoge H⁺-concentratie</text>`;
+  return SV("0 0 600 240",g,"Oxidatieve fosforylering in de binnenmembraan van een mitochondrion");
+}
+E.zet(T,[30],{titel:"Oxidatieve fosforylering",
+  html:`<p>De laatste stap van de aerobe dissimilatie vindt plaats in de <b>binnenmembraan</b> van het mitochondrion.</p>
+  <ul><li>NADH en FADH₂ geven elektronen af aan de <b>elektronentransportketen</b>. Aan het eind nemen O₂ en H⁺ ze op: er ontstaat water.</li>
+  <li>Met de energie van de elektronen pompen de eiwitten van de keten <b>H⁺-ionen</b> van de matrix naar de ruimte tussen de membranen. Zo ontstaat een <b>H⁺-gradiënt</b>.</li>
+  <li>De H⁺-ionen kunnen alleen terug via een kanaal. Stromen ze door <b>ATP-synthase</b>, dan levert die stroom de energie om van ADP en P ATP te maken (chemiosmose).</li></ul>
+  <p>De gradiënt is dus een tussenvoorraad van energie, net als water achter een stuwdam dat een turbine aandrijft.</p>`,
+  anim:anim(caps(["De elektronentransportketen in de binnenmembraan krijgt elektronen van NADH en FADH₂.","Met die energie pompen de eiwitten H⁺-ionen naar de ruimte tussen de membranen: een H⁺-gradiënt.","H⁺ stroomt terug door ATP-synthase. Die stroom drijft de vorming van ATP aan."]),i=>oxfos(i)),
+  films:[["Alles op adem","films/stofwisseling/2-alles-op-adem.html"]]});
+
+/* --- vraag 31: eiwitten op hun plek --- */
+E.zet(T,[31],{titel:"Ribosomen, ER en golgi-systeem",
+  html:`<p>Een cel heeft twee soorten ribosomen:</p>
+  <ul><li><b>Ribosomen op het ER</b> (ruw ER): de groeiende polypeptideketen gaat direct het ER in. Daar wordt hij gevouwen en soms bewerkt. Blaasjes brengen het eiwit naar het <b>golgi-systeem</b>, dat het verder bewerkt en verpakt voor de celmembraan, lysosomen of uitscheiding (exocytose).</li>
+  <li><b>Vrije ribosomen</b> liggen los in het grondplasma. De keten die zij maken, komt in het <b>grondplasma</b> terecht en gaat niet het ER in.</li></ul>
+  <p>Welk ribosoom een eiwit maakt, hangt af van een signaalvolgorde aan het begin van de keten.</p>`,
+  films:[["Celorganellen","films/cellen/celorganellen/index.html"],["Van DNA naar eiwit","films/dna/3-van-dna-naar-eiwit.html"]]});
+
+/* --- vraag 32: CRISPR-Cas en genregulatie --- */
+function crispr(i){
+  let g=DEFS;
+  const y1=150,y2=162;
+  const bubbel=i>=1;
+  g+=`<path d="M20,${y1} H200 ${bubbel?"L212,138 H330 L342,"+y1:"H342"} H580" fill="none" stroke="var(--text3)" stroke-width="4"/><path d="M20,${y2} H580" fill="none" stroke="var(--text3)" stroke-width="4"/>`;
+  g+=`<text x="580" y="190" class="lblm" text-anchor="end">DNA</text>`;
+  const bx=i===0?120:270;
+  g+=`<path d="M${bx-80},${i===0?60:100} C${bx-90},${i===0?20:40} ${bx+90},${i===0?20:40} ${bx+80},${i===0?60:100} C${bx+90},${i===0?120:200} ${bx-90},${i===0?120:200} ${bx-80},${i===0?60:100} Z" fill="var(--text3)" opacity=".25"/>`;
+  g+=`<text x="${bx}" y="${i===0?44:58}" class="lbl" text-anchor="middle">Cas-eiwit</text>`;
+  const ry=i===0?90:157;
+  g+=`<path d="M${bx-50},${ry} H${bx+50}" stroke="var(--goud)" stroke-width="4"/><text x="${bx}" y="${i===0?80:206}" class="lbl" text-anchor="middle" style="fill:var(--goud-text)">gids-RNA</text>`;
+  if(i===0)g+=`<text x="420" y="80" class="lblm">gids-RNA past maar op één</text><text x="420" y="96" class="lblm">plek in het DNA (baseparing)</text>`;
+  if(i===1)g+=`<text x="430" y="80" class="lblm">gevonden: het gids-RNA</text><text x="430" y="96" class="lblm">paart met de passende volgorde</text>`;
+  if(i===2)g+=`<path d="M270,128 V186" stroke="var(--koraal)" stroke-width="3" stroke-dasharray="5 4"/><text x="430" y="80" class="lbl" style="fill:var(--koraal)">gewone Cas9: knipt hier</text><text x="430" y="96" class="lblm">het DNA door</text>`;
+  if(i===3)g+=`<text x="430" y="80" class="lbl">‘dode’ Cas: knipt niet</text><text x="430" y="96" class="lblm">blijft alleen op die plek zitten,</text><text x="430" y="112" class="lblm">met eventueel iets eraan vast</text>`;
+  return SV("0 0 600 220",g,"CRISPR-Cas zoekt met gids-RNA een plek in het DNA");
+}
+E.zet(T,[32],{titel:"CRISPR-Cas en genen aan- en uitzetten",
+  html:`<p><b>Transcriptie</b> begint bij de <b>promotor</b>: een DNA-volgorde vóór het gen waar <b>RNA-polymerase</b> bindt. RNA-polymerase maakt een mRNA-kopie van de matrijsstreng. Alle lichaamscellen hebben hetzelfde DNA, maar elk celtype leest maar een deel van zijn genen af: zo heeft elk celtype zijn eigen set actieve genen. Dat wordt geregeld door eiwitten die aan DNA-volgordes rond een gen binden (<b>genregulatie</b>).</p>
+  <p><b>CRISPR-Cas</b> bestaat uit een Cas-eiwit en een <b>gids-RNA</b>. Het gids-RNA vindt door <b>baseparing</b> precies één plek in het DNA. Het gewone Cas9 knipt daar het DNA door. Er bestaan ook varianten die niet knippen: die blijven alleen op de plek zitten, en wat je eraan vastmaakt, doet daar zijn werk.</p>`,
+  anim:anim(caps(["Het Cas-eiwit draagt een gids-RNA met een vaste basenvolgorde.","Het gids-RNA paart met de passende volgorde in het DNA. Zo komt het Cas-eiwit op precies die plek.","Het gewone Cas9 knipt daar het DNA door (gen uitschakelen of repareren).","Een variant die niet knipt, blijft alleen op die plek zitten. Wat eraan vastzit, werkt dan precies daar."]),i=>crispr(i)),
+  films:[["Genen aan en uit","films/dna/6-genen-aan-en-uit.html"],["CRISPR: wat doet dit gen?","films/vervolg/biomedisch-2-crispr-wat-doet-dit-gen.html"]]});
+
+/* --- vraag 33: eigen en lichaamsvreemd --- */
+E.zet(T,[33],{titel:"Eigen of lichaamsvreemd",
+  html:`<p>Op het membraan van bijna elke lichaamscel zitten <b>MHC-eiwitten</b> (bij de mens ook HLA genoemd). Die verschillen per persoon, en nog meer tussen soorten. Je afweer leert tijdens de ontwikkeling de eigen MHC-eiwitten te herkennen en niet aan te vallen.</p>
+  <p>Cellen met andere MHC-eiwitten zijn <b>lichaamsvreemd</b>. <b>Cytotoxische T-cellen</b> herkennen en doden ze, en ook antistoffen kunnen ertegen worden gemaakt.</p>
+  <p>Een organisme dat <b>immunodeficiënt</b> is, heeft een (deels) uitgeschakeld afweersysteem: het kan lichaamsvreemde cellen en ziekteverwekkers niet of nauwelijks opruimen.</p>`,
+  films:[["T-cellen en virussen","films/afweer/3-t-cellen-en-virussen.html"],["Vaccins, allergie en bloedgroepen","films/afweer/4-vaccins-allergie-en-bloedgroepen.html"]]});
+
+/* --- vraag 34–35: onderzoek beoordelen --- */
+E.zet(T,[34,35],{titel:"Controlegroep, betrouwbaarheid en validiteit",
+  html:`<p>In een experiment vergelijk je een <b>experimentele groep</b> (die krijgt de behandeling) met een <b>controlegroep</b>. De controlegroep is in alles gelijk, behalve de factor die je onderzoekt. Pas door die vergelijking zie je of de behandeling iets doet.</p>
+  <ul><li><b>Betrouwbaarheid</b>: zou je bij herhaling dezelfde uitkomst krijgen? Toeval speelt minder mee bij grote groepen, meerdere herhalingen en nauwkeurige metingen.</li>
+  <li><b>Validiteit</b>: meet je echt wat je wilt weten, en kloppen je conclusies daarom? Een goede opzet met de juiste vergelijkingen en zonder storende factoren maakt een onderzoek valide.</li></ul>
+`,
+  films:[["Onderzoek doen in de biologie","films/cellen/onderzoek-doen/index.html"]]});
+
+/* --- vraag 36: glucoseregulatie --- */
+function glucose(i){
+  let g=DEFS;
+  g+=`<rect x="220" y="100" width="160" height="50" rx="12" fill="var(--surface)" stroke="var(--text2)" stroke-width="2"/><text x="300" y="122" class="lbl" text-anchor="middle">glucose in het bloed</text><text x="300" y="139" class="lblm" text-anchor="middle">${i===0?"normaal":i===1?"te hoog":"daalt weer"}</text>`;
+  if(i>=1)g+=`<rect x="20" y="20" width="150" height="44" rx="10" fill="var(--surface)" stroke="var(--teal)" stroke-width="2"/><text x="95" y="47" class="lbl" text-anchor="middle">alvleesklier</text>
+    <path d="M220,112 C190,96 180,80 170,64" fill="none" stroke="var(--text2)" stroke-width="2" marker-end="url(#v4px)"/>`;
+  if(i>=2)g+=`<path d="M95,64 V190 H200" fill="none" stroke="var(--teal)" stroke-width="2.4" marker-end="url(#v4pt)"/><text x="104" y="130" class="lbl" style="fill:var(--teal)">insuline</text>
+    <rect x="204" y="174" width="190" height="44" rx="10" fill="var(--surface)" stroke="var(--goud)" stroke-width="2"/><text x="299" y="194" class="lbl" text-anchor="middle">lever-, spier- en vetcellen</text><text x="299" y="210" class="lblm" text-anchor="middle">nemen glucose op</text>
+    <path d="M394,196 C460,196 470,140 382,128" fill="none" stroke="var(--goud)" stroke-width="2.4" marker-end="url(#v4pg)"/>`;
+  if(i===3)g+=`<text x="440" y="40" class="lbl" style="fill:var(--koraal)">diabetes type 2:</text><text x="440" y="58" class="lblm">insuline is er wel,</text><text x="440" y="74" class="lblm">maar de cellen reageren</text><text x="440" y="90" class="lblm">er slecht op</text>
+    <path d="M300,174 V156" stroke="var(--koraal)" stroke-width="3"/><path d="M290,160 L310,170 M310,160 L290,170" stroke="var(--koraal)" stroke-width="2.5"/>`;
+  return SV("0 0 600 230",g,"Regeling van de glucoseconcentratie met insuline");
+}
+E.zet(T,[36],{titel:"Bloedsuiker, insuline en diabetes",
+  html:`<p>Na een maaltijd stijgt de <b>glucoseconcentratie</b> van het bloed. De alvleesklier geeft dan <b>insuline</b> af. Insuline zorgt dat lever-, spier- en vetcellen glucose opnemen (en dat de lever glucose als glycogeen opslaat). Daardoor daalt de concentratie weer. Bij een te lage concentratie geeft de alvleesklier <b>glucagon</b> af.</p>
+  <ul><li><b>Diabetes type 1</b>: de alvleesklier maakt (bijna) geen insuline meer.</li>
+  <li><b>Diabetes type 2</b>: er is wel insuline, maar de cellen zijn er <b>ongevoelig</b> voor geworden. Overgewicht vergroot de kans hierop.</li></ul>
+  <p>Bij een <b>glucosetolerantietest</b> krijgt een nuchter proefdier of persoon een vaste hoeveelheid glucose. Daarna meet je een tijd lang de glucoseconcentratie in het bloed. Zo zie je hoe goed het lichaam de glucose verwerkt.</p>`,
+  anim:anim(caps(["De glucoseconcentratie van het bloed is normaal.","Na een maaltijd (of injectie) stijgt de concentratie. De alvleesklier merkt dat.","De alvleesklier geeft insuline af. Lever-, spier- en vetcellen nemen glucose op: de concentratie daalt weer.","Bij diabetes type 2 werkt die laatste stap slecht: de cellen reageren nauwelijks op insuline."]),i=>glucose(i)),
+  films:[["Suiker in balans","films/hormonen/2-suiker-in-balans.html"]]});
+
+})();
+/* ===== vwo5.js ===== */
+(function(){
+"use strict";
+/* Opgave 5 vwo26-1: Zetmeelmatten voor de kust (vraag 37–41) */
+const X=EXSTOF, T="vwo26-1";
+const wrap=(s,max)=>`<div style="max-width:${max||600}px;margin:0 auto;padding:8px">${s}</div>`;
+const anim=(steps,draw)=>box=>X.stappen(box,steps,(st,s,i)=>{st.innerHTML=draw(i,s);});
+const caps=a=>a.map(c=>({cap:c}));
+const pijl=(id,kl)=>`<defs><marker id="${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="${kl}"/></marker></defs>`;
+
+/* ---------- vraag 37: abiotische factoren en tolerantie ---------- */
+function tolerantie(i){
+  const X0=60,X1=600,B=220,Y=v=>B-v*170,xs=x=>X0+x*(X1-X0);
+  let d="";for(let k=0;k<=100;k++){const x=k/100;const v=x<.2||x>.85?0:Math.sin(Math.PI*Math.pow((x-.2)/.65,.8));d+=(d?"L":"M")+xs(x).toFixed(1)+","+Y(Math.max(0,v)).toFixed(1);}
+  let s=`<path d="M${X0},20 V${B} H${X1}" class="ax"/><text class="tick" x="${(X0+X1)/2}" y="${B+30}" text-anchor="middle">abiotische factor, bijvoorbeeld temperatuur →</text>
+  <text class="tick" x="20" y="${B/2+20}" transform="rotate(-90 20 ${B/2+20})" text-anchor="middle">groei / activiteit →</text>`;
+  const xo=.2+.65*Math.pow(.5,1/.8);
+  if(i>=3)s+=`<rect x="${xs(.2)}" y="20" width="${xs(.85)-xs(.2)}" height="${B-20}" fill="var(--groen-soft)"/><text x="${xs(.52)}" y="${B-12}" text-anchor="middle" class="lbl" style="fill:var(--groen)">tolerantiegebied</text>
+    <text x="${xs(.1)}" y="${B-40}" text-anchor="middle" class="lbl" style="fill:var(--koraal)">sterft</text><text x="${xs(.93)}" y="${B-40}" text-anchor="middle" class="lbl" style="fill:var(--koraal)">sterft</text>`;
+  s+=`<path d="${d}" class="cv"/>`;
+  if(i>=1)s+=`<path d="M${xs(xo)},${Y(1)} V${B}" stroke="var(--goud)" stroke-dasharray="4 4"/><text x="${xs(xo)}" y="${Y(1)-8}" text-anchor="middle" class="lbl" style="fill:var(--goud-text)">optimum</text>`;
+  if(i>=2)s+=`<circle cx="${xs(.2)}" cy="${B}" r="5" fill="var(--koraal)"/><text x="${xs(.2)}" y="${B+16}" text-anchor="middle" class="lbl" style="fill:var(--koraal)">minimum</text>
+    <circle cx="${xs(.85)}" cy="${B}" r="5" fill="var(--koraal)"/><text x="${xs(.85)}" y="${B+16}" text-anchor="middle" class="lbl" style="fill:var(--koraal)">maximum</text>`;
+  return X.svg("0 0 640 260",s,"Tolerantiekromme met optimum, minimum, maximum en tolerantiegebied");
+}
+X.zet(T,[37],{titel:"Abiotische factoren en tolerantie",
+  html:`<p>Elk organisme is afhankelijk van <b>abiotische factoren</b>: licht, temperatuur, water, zuurgraad (pH), zoutgehalte, stroming, de bodem. Voor elke factor heeft een soort een <b>tolerantiegebied</b>, tussen een minimum en een maximum. Daarbinnen ligt het <b>optimum</b>, waar de soort het best groeit.</p>
+  <p>Planten zijn <b>producenten</b>: met fotosynthese maken ze glucose uit CO₂ en water, met licht als energiebron. Zonder genoeg licht maken ze te weinig organische stof om te groeien.</p>
+  <p><b>Klimaatverandering</b> komt door het versterkte broeikaseffect: er komen meer broeikasgassen (vooral CO₂) in de atmosfeer, waardoor de aarde opwarmt. Dat heeft allerlei gevolgen, op het land en in zee, en die veranderen de abiotische factoren voor organismen.</p>
+  <p class="muted">Bij een ‘licht toe’-vraag noem je niet alleen het gevolg, maar ook hoe het het organisme raakt: welke factor verandert er, en wat doet dat met de plant?</p>`,
+  anim:anim(caps(["Een tolerantiekromme: hoe goed een soort groeit bij verschillende waarden van één abiotische factor.",
+    "Bij het <b>optimum</b> groeit de soort het best.",
+    "Onder het <b>minimum</b> of boven het <b>maximum</b> kan de soort niet overleven.",
+    "Daartussen ligt het <b>tolerantiegebied</b>. Verandert een factor zo dat hij erbuiten komt, dan gaat de soort achteruit of dood."]),i=>wrap(tolerantie(i))),
+  films:[["Eén aarde","films/ecologie/3-een-aarde.html"],["Binnen de grenzen","films/ecologie/5-binnen-de-grenzen.html"]]});
+
+/* extra waarom-animatie vraag 37: hoe een gevolg van klimaatverandering zeegras raakt */
+function zeegrasDiepte(i){
+  const bodem=230,opp=i===1?40:90,troebel=i===2;
+  let s=`<rect x="0" y="${opp}" width="460" height="${bodem-opp}" fill="var(--teal-soft)"/>`;
+  if(i===1)s+=`<path d="M0,90 H460" stroke="var(--teal)" stroke-dasharray="5 5"/><text x="8" y="84" class="lblm">oude zeespiegel</text><text x="8" y="34" class="lbl" style="fill:var(--teal)">zeespiegel stijgt</text>`;
+  if(troebel){for(let k=0;k<70;k++){const x=(k*53)%450+5,y=opp+10+((k*37)%(bodem-opp-15));s+=`<circle cx="${x}" cy="${y}" r="2.2" fill="var(--text3)" opacity=".7"/>`;}
+    s+=`<rect x="0" y="${opp}" width="460" height="${bodem-opp}" fill="var(--text3)" opacity=".18"/>`;}
+  const diep=bodem-opp,licht=i===0||i===3?1:i===1?.45:.3;
+  for(let k=0;k<6;k++){const x=40+k*70;s+=`<path d="M${x},0 L${x+30},${bodem-8}" stroke="var(--goud)" stroke-width="3" opacity="${k%2?.6:.8}" stroke-dasharray="${i===0||i===3?"0":"0"}"/>`;}
+  s+=`<defs><linearGradient id="o5zd${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--surface2)" stop-opacity="0"/><stop offset="${(opp/bodem).toFixed(2)}" stop-color="var(--surface2)" stop-opacity="0"/><stop offset="1" stop-color="var(--surface2)" stop-opacity="${(1-licht).toFixed(2)}"/></linearGradient></defs>
+  <rect x="0" y="0" width="460" height="${bodem}" fill="url(#o5zd${i})"/>`;
+  s+=`<path d="M0,${bodem} H460 V260 H0 Z" fill="var(--area)"/>`;
+  for(let k=0;k<16;k++){const x=110+k*16,h=40+(k*13)%26,b=(k%2?1:-1)*8;const ok=i!==3;
+    s+=`<path d="M${x},${bodem} C${x+b*.3},${bodem-h*.5} ${x+b},${bodem-h*.8} ${x+b*1.3},${bodem-h*(ok?1:.6)}" stroke="${ok?"var(--groen)":"var(--text3)"}" stroke-width="3" fill="none" stroke-linecap="round"/>`;}
+  /* meter: licht bij de bladeren */
+  s+=`<text x="480" y="24" class="lbl">licht bij de</text><text x="480" y="40" class="lbl">bladeren</text><rect x="490" y="52" width="36" height="170" rx="4" fill="none" stroke="var(--line2)"/>
+  <rect x="490" y="${52+170*(1-licht)}" width="36" height="${170*licht}" rx="4" fill="var(--goud)"/>`;
+  if(i===3)s+=`<rect x="560" y="60" width="16" height="140" rx="8" fill="none" stroke="var(--koraal)" stroke-width="2"/><circle cx="568" cy="210" r="14" fill="var(--koraal)"/><rect x="564" y="70" width="8" height="134" fill="var(--koraal)"/>
+    <text x="568" y="240" text-anchor="middle" class="lbl" style="fill:var(--koraal)">te warm</text>`;
+  return X.svg("0 0 620 262",s,["Zeegras op een ondiepe plek met genoeg licht","Hogere zeespiegel: dieper water, minder licht bij het zeegras","Troebel water door opwerveling: minder licht","Te warm water: zeegras sterft af"][i]);
+}
+X.waarom(T,37,anim(caps([
+  "Zeegras groeit op <b>ondiepe</b> plekken. Er komt genoeg licht bij de bladeren voor fotosynthese.",
+  "<b>Zeespiegelstijging:</b> de plant staat op dezelfde plek, maar het water erboven wordt dieper. Er komt minder licht bij de bladeren, dus minder fotosynthese en minder groei.",
+  "<b>Meer en zwaardere stormen:</b> sediment wervelt op, het water wordt troebel. Ook dan komt er minder licht bij. Heftige stormen kunnen een veld zelfs wegslaan.",
+  "<b>Opwarming:</b> komt de watertemperatuur boven het maximum van het tolerantiegebied, dan raakt de stofwisseling verstoord en sterft de plant af. Eén zo’n gevolg mét de toelichting is het punt."]),i=>wrap(zeegrasDiepte(i),560)));
+
+/* ---------- vraag 38: productie en niches ---------- */
+function productie(i){
+  let s=pijl("o5sp","var(--text2)");
+  const box=(x,y,w,h,t,kl,t2)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="var(--surface)" stroke="${kl}" stroke-width="1.6"/><text x="${x+w/2}" y="${y+h/2+(t2?-3:4)}" text-anchor="middle" class="lbl">${t}</text>${t2?`<text x="${x+w/2}" y="${y+h/2+13}" text-anchor="middle" class="lblm">${t2}</text>`:""}`;
+  s+=`<circle cx="60" cy="60" r="26" fill="var(--goud)"/><text x="60" y="104" text-anchor="middle" class="lblm">zonlicht</text>`;
+  s+=box(150,36,170,48,"producenten","var(--groen)","fotosynthese");
+  s+=`<path d="M90,60 H146" stroke="var(--text2)" stroke-width="1.6" marker-end="url(#o5sp)"/>`;
+  s+=`<text x="235" y="24" text-anchor="middle" class="lbl" style="fill:var(--groen)">BPP: alles wat ze maken</text>`;
+  if(i>=1){s+=`<path d="M235,86 V140" stroke="var(--koraal)" stroke-width="1.6" marker-end="url(#o5sp)"/>`+box(150,144,170,48,"eigen dissimilatie","var(--koraal)","CO₂ en water terug");}
+  if(i>=2){s+=`<path d="M322,60 H396" stroke="var(--groen)" stroke-width="2.4" marker-end="url(#o5sp)"/><text x="358" y="52" text-anchor="middle" class="lbl" style="fill:var(--groen)">NPP</text>`+box(400,36,200,48,"nieuwe organische stof","var(--groen)","groei van de producenten");
+    s+=`<path d="M500,86 V140" stroke="var(--text2)" stroke-width="1.6" marker-end="url(#o5sp)"/>`+box(400,144,200,48,"consumenten en reducenten","var(--line2)","eten ervan");}
+  return X.svg("0 0 620 210",s,"Van zonlicht via producenten naar BPP, dissimilatie en NPP");
+}
+X.zet(T,[38],{titel:"BPP, NPP en niches",
+  html:`<p>De <b>bruto primaire productie (BPP)</b> is alle organische stof die de producenten in een ecosysteem per oppervlakte en per tijd maken met fotosynthese. Bij fotosynthese wordt koolstof uit CO₂ vastgelegd in glucose.</p>
+  <p>Een deel daarvan gebruiken de producenten zelf voor hun <b>dissimilatie</b>; daarbij komt de koolstof weer vrij als CO₂. Wat overblijft is de <b>netto primaire productie (NPP)</b>: NPP = BPP − dissimilatie van de producenten. De NPP is de nieuwe organische stof die beschikbaar is voor groei, voor consumenten en voor reducenten.</p>
+  <p>Een <b>niche</b> is de rol van een soort in een ecosysteem: waar en hoe hij leeft, wat hij eet, door wie hij gegeten wordt en welke omstandigheden hij nodig heeft. Het <b>habitat</b> is alleen de plek waar een soort leeft. Hoe meer verschillende manieren van leven een ecosysteem mogelijk maakt, hoe meer niches er zijn.</p>`,
+  anim:anim(caps(["Producenten leggen met fotosynthese de energie van licht vast in organische stof. Alles samen is de <b>BPP</b>.",
+    "Een deel van die organische stof verbranden de producenten zelf bij hun <b>dissimilatie</b>.",
+    "Wat overblijft is de <b>NPP</b>: daarmee groeien de producenten, en daar leven consumenten en reducenten van."]),i=>wrap(productie(i))),
+  films:[["Alles gaat rond","films/ecologie/alles-gaat-rond/index.html"],["Plek genoeg?","films/ecologie/plek-genoeg/index.html"]]});
+
+/* ---------- vraag 39: successie, climax en evenwicht ---------- */
+function successie(i){
+  const B=200;let s=`<path d="M10,${B} H630" class="ax"/>`;
+  const stad=[["kale bodem",0],["pioniers","mos, grassen"],["struiken",""],["bos","climax"]];
+  stad.forEach(([n,sub],k)=>{const x=40+k*155,on=k<=i||i===4;const op=i===4?(k===0?1:.25):on?1:.15;
+    let g="";
+    if(k===0)g+=`<path d="M${x},${B} q20,-6 40,0 q20,-4 40,0" stroke="var(--text3)" stroke-width="2" fill="none"/>`;
+    if(k===1)for(let j=0;j<8;j++)g+=`<path d="M${x+5+j*13},${B} q2,-14 ${j%2?5:-4},-${18+j%3*6}" stroke="var(--groen)" stroke-width="2.5" fill="none"/>`;
+    if(k===2)[[x+20,40],[x+60,52],[x+100,38]].forEach(([cx,h])=>g+=`<path d="M${cx},${B} V${B-h+14}" stroke="var(--text2)" stroke-width="3"/><circle cx="${cx}" cy="${B-h}" r="20" fill="var(--groen)" opacity=".75"/>`);
+    if(k===3)[[x+25,92],[x+80,106]].forEach(([cx,h])=>g+=`<path d="M${cx},${B} V${B-h+26}" stroke="var(--text2)" stroke-width="6"/><ellipse cx="${cx}" cy="${B-h}" rx="34" ry="34" fill="var(--groen)"/>`);
+    g+=`<text x="${x+55}" y="${B+20}" text-anchor="middle" class="lbl">${n}</text>`+(sub?`<text x="${x+55}" y="${B+36}" text-anchor="middle" class="lblm">${sub}</text>`:"");
+    if(k<3)g+=`<path d="M${x+122},${B-60} h22" stroke="var(--text3)" stroke-width="2"/><path d="M${x+144},${B-65} l7,5 l-7,5 z" fill="var(--text3)"/>`;
+    s+=`<g opacity="${op}">${g}</g>`;});
+  if(i===4)s+=`<path d="M470,64 C380,30 200,30 70,150" stroke="var(--koraal)" stroke-width="2.4" fill="none" stroke-dasharray="6 5"/><path d="M66,140 l2,14 l10,-9 z" fill="var(--koraal)"/><text x="330" y="20" text-anchor="middle" class="lbl" style="fill:var(--koraal)">verstoring (bv. brand, storm, kap): de successie begint opnieuw</text>`;
+  return X.svg("0 0 640 250",s,"Successie van kale bodem via pioniers en struiken naar bos als climax");
+}
+X.zet(T,[39],{titel:"Successie, climax en evenwicht",
+  html:`<p><b>Successie</b> is de geleidelijke opeenvolging van levensgemeenschappen op één plek. Pioniersoorten veranderen het milieu (bijvoorbeeld de bodem), waardoor andere soorten zich kunnen vestigen en de pioniers verdringen. Het stabiele <b>eindstadium</b> van zo’n natuurlijke successie heet het <b>climaxstadium</b> (climax-ecosysteem). Daarin is de samenstelling van de levensgemeenschap stabiel.</p>
+  <p>In een <b>dynamisch evenwicht</b> schommelen aantallen en hoeveelheden rond een vaste waarde. Dat komt door <b>negatieve terugkoppeling</b>: een afwijking roept een reactie op die de afwijking verkleint.</p>
+  <p>Bij <b>positieve terugkoppeling</b> versterkt een verandering zichzelf. Dan kan een ecosysteem bij een <b>omslagpunt</b> snel van de ene toestand naar een andere gaan, die zichzelf daarna ook in stand houdt.</p>
+  <p class="muted">Lees bij een kringloop-tekening met pijlen precies welke pijl van waar naar waar loopt: wat leidt tot wat?</p>`,
+  anim:anim(caps(["Successie begint vaak op een <b>kale bodem</b>.",
+    "<b>Pioniers</b> zoals mossen en grassen vestigen zich en vormen een eerste bodemlaagje.",
+    "Daardoor kunnen <b>struiken</b> groeien. Die verdringen de pioniers.",
+    "Uiteindelijk ontstaat een stabiel eindstadium: het <b>climaxstadium</b>, hier een bos.",
+    "Een <b>verstoring</b> zet de successie terug naar een vroeg stadium. Daarna begint de opeenvolging opnieuw."]),i=>wrap(successie(i))),
+  films:[["Alles gaat rond","films/ecologie/alles-gaat-rond/index.html"]]});
+
+/* ---------- vraag 40: duurzaamheid ---------- */
+X.zet(T,[40],{titel:"Ecologisch duurzaam",
+  html:`<p><b>Duurzame ontwikkeling</b> betekent: voorzien in de behoeften van nu, zonder dat latere generaties daardoor tekortkomen. <b>Ecologisch</b> duurzaam gaat over de natuur en het milieu:</p>
+  <ul><li>je gebruikt <b>hernieuwbare grondstoffen</b>, niet sneller dan ze weer aangroeien;</li>
+  <li>stoffen blijven in een <b>kringloop</b>: wat je achterlaat, kan de natuur zelf weer opnemen en verwerken;</li>
+  <li>je doet de <b>ecosystemen</b> en de soorten die erin leven geen blijvende schade;</li>
+  <li>je draagt zo min mogelijk bij aan grote milieuproblemen, zoals het <b>versterkte broeikaseffect</b>.</li></ul>
+  <p class="muted">Een argument geef je als: kenmerk van het product → waarom dat goed is voor het milieu. Geld (‘goedkoop’) of hoe goed iets werkt, zijn geen ecologische argumenten.</p>`,
+  films:[["Eén aarde","films/ecologie/3-een-aarde.html"]]});
+
+/* ---------- vraag 41: een experiment beoordelen ---------- */
+function experiment(i){
+  let s=pijl("o5se","var(--text2)");
+  const box=(x,y,w,h,t,t2,kl,on)=>`<g opacity="${on?1:.25}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" fill="var(--surface)" stroke="${kl}" stroke-width="1.6"/><text x="${x+w/2}" y="${y+20}" text-anchor="middle" class="lbl">${t}</text>${t2.map((t,j)=>`<text x="${x+w/2}" y="${y+38+j*15}" text-anchor="middle" class="lblm">${t}</text>`).join("")}</g>`;
+  s+=box(10,20,180,80,"hypothese",["verwachte invloed van","factor A op B"],"var(--goud)",true);
+  s+=box(230,10,180,60,"proefgroep",["met factor A"],"var(--teal)",i>=1);
+  s+=box(230,80,180,60,"controlegroep",["zonder factor A, verder gelijk"],"var(--teal)",i>=1);
+  s+=box(450,20,170,80,"meten",["de afhankelijke","variabele B"],"var(--paars)",i>=2);
+  s+=box(150,160,340,70,"conclusie",["passen de metingen","bij de voorspelling?"],"var(--groen)",i>=3);
+  if(i>=1)s+=`<path d="M192,60 H226" stroke="var(--text2)" stroke-width="1.5" marker-end="url(#o5se)"/>`;
+  if(i>=2)s+=`<path d="M412,40 H446 M412,110 H430 V70 H446" stroke="var(--text2)" stroke-width="1.5" fill="none" marker-end="url(#o5se)"/>`;
+  if(i>=3)s+=`<path d="M535,102 V195 H494" stroke="var(--text2)" stroke-width="1.5" fill="none" marker-end="url(#o5se)"/>`;
+  return X.svg("0 0 630 240",s,"Onderzoeksopzet: hypothese, proefgroep en controlegroep, meten, conclusie");
+}
+X.zet(T,[41],{titel:"Een experiment beoordelen",
+  html:`<p>Een <b>hypothese</b> is een verwachting over het verband tussen een factor die je verandert (de <b>onafhankelijke variabele</b>) en iets wat je meet (de <b>afhankelijke variabele</b>). Met een <b>controlegroep</b>, die op één factor na gelijk wordt behandeld, zie je of een verschil echt door die factor komt.</p>
+  <p>Bij het beoordelen vergelijk je per hypothese de proefgroep met de controlegroep, voor elke variabele die in de hypothese staat. Komt het resultaat uit zoals voorspeld, dan <b>ondersteunt</b> het de hypothese. Wat je verder mag concluderen, hangt af van de opzet van het onderzoek: wat is er gemeten, en onder welke omstandigheden?</p>
+  <p class="muted">Lees bij staafdiagrammen eerst de titels en de assen: welke groep, welke plek, welke meting?</p>`,
+  anim:anim(caps(["Je begint met een <b>hypothese</b>: wat verwacht je dat factor A doet met B?",
+    "Je vergelijkt een <b>proefgroep</b> met een <b>controlegroep</b> die alleen in factor A verschilt.",
+    "Je <b>meet</b> in beide groepen de afhankelijke variabele.",
+    "Je trekt een <b>conclusie</b>: passen de metingen bij wat de hypothese voorspelde?"]),i=>wrap(experiment(i))),
+  films:[["Onderzoek doen in de biologie","films/cellen/onderzoek-doen/index.html"]]});
+
+})();
