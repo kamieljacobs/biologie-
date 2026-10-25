@@ -17,6 +17,6 @@ Bijhouden: na elke review, keuring, feedbackronde en bij elke fout die Claude ze
 
 ## Mutatielogboek (prompt v10, B15; sinds 25 okt 2026)
 
-`mutaties.jsonl`: één regel per scriptvariant die de blinde beoordelaar zag. Velden: `datum`, `reeks`, `film`, `variant` (A klassiek / B klein / C groot), `blindlabel` (X/Y/Z), `soort` (`klassiek` | `klein` | `groot`), `vertelvorm` (sleutel uit `films/mutatiepool.json`), `mutaties` (kleine mutaties uit de pool), `score`, `max`, `won`, `marge` (winnaar: voorsprong op nummer twee; verliezer: achterstand), `beslist_door` (`beoordelaar` | `kamiel`), `beoordelaar_model`, `bron` (pad naar het oordeel), bij de winnaar `reden`.
+`mutaties.jsonl`: één regel per scriptvariant die de blinde beoordelaar zag. Velden: `datum`, `reeks`, `film`, `variant` (A klassiek / B klein / C groot), `blindlabel` (X/Y/Z), `soort` (`klassiek` | `klein` | `groot`), `vertelvorm` (sleutel uit `films/mutatiepool.json`), `mutaties` (kleine mutaties uit de pool), `score`, `max`, `won`, `marge` (winnaar: voorsprong op nummer twee; verliezer: achterstand), `beslist_door` (`beoordelaar` | `combinatie` | `kamiel`), `beoordelaar_model`, `bron` (pad naar het oordeel), bij de winnaar `reden`.
 
 Bijhouden direct na elk blind oordeel (prompt B4). `scripts/dobbelsteen.py` trekt de mutaties voor de volgende film met deze winkansen (`--toon` geeft de tabel). De zwaktes die de beoordelaar bij de winnaar noemt, gaan als regels met `gevonden_door: beoordelaar` in `fouten.jsonl`, zodat `foutenpatronen.py` ze meetelt.
