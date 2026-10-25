@@ -131,6 +131,7 @@ For every type:
 
 ### 4. Script
 
+- **No references to tools** (Kamiel 23 and 25 okt 2026): the film never points to a tool, opdracht, onderzoekje or other page of the site, and above all never says it out loud: no "Probeer het zelf", no "in de tool", no "op de site", no "zelf proberen". Not in the narration, and not on a title, end or vraagkaart either. Links to tools may only be added on the film page outside the player, and only when Kamiel asks.
 - Chapters of short spoken lines: one idea per sentence, mostly under 15 words, active voice, je-vorm, numbers written the way they are said.
 - Word budget: about 140 words per minute of narration (Roos speaks about 2,4 words per second).
 - Structure: cold open with the puzzle (at most 20 s) → title → chapters → recap that answers the puzzle → end card. Every chapter has its own mini-question and payoff, so it also works when shown on its own.
@@ -251,14 +252,14 @@ Captions and phones
 - Player with a chapter list (verdieping tagged, vwo blocks tagged), a glossary (terms and definitions exactly as in the brief, vwo-only terms tagged) and the full transcript.
 - Teacher section: how the film explains it (per chapter: type, look and key visual), misconceptions addressed, pause and discussion moments, the numbers behind the film (value, unit, source, rounding), simplifications and why, suggested practicals, leerdoelen coverage per level, and the source list of any CE questions used.
 - 3–5 check questions in exam style, with the answers folded away; with two levels, grouped per level.
-- Credits and version: sources, version number and date. **No tools in the film** (Kamiel 25 okt 2026): nothing in picture, sound, captions, title card, end card or on the page names the tools the film was made with (no ElevenLabs, Claude, image or voice model, no "stem: Roos (ElevenLabs)", no "Kamiel met Claude"). Voice, model and tools are recorded only in bron/info.md and bron/script.md. The voice may be credited by name only ("Stem: Roos").
+- Credits and version: voice, sources, version number and date.
 - If the brief names a series, add the film to the series page: all films on one page, with a shared glossary.
 
 ### 11. QA before delivery
 
 Computed from the cue table and the rendered page:
 
-- no tool names in the film or on its page: `grep -i -E "elevenlabs|claude|eleven_v|gpt-image|seedance|veo|kling"` on the film HTML (outside bron/) finds nothing that is shown;
+- no reference to tools in the narration or on any card: `grep -i -E "probeer|tool|op de site|zelf (proberen|uit)|onderzoekje"` on bron/script.md and the voice input finds nothing spoken (B4);
 - no text overlaps other text, the caption zone or the frame edge; the level label overlaps nothing;
 - every term is on screen for at least 5 s, no answer appears before its question, and every cue falls inside its segment;
 
@@ -643,7 +644,7 @@ Paste Part D when AUDIENCE is onderbouw: leerjaar 1–3, in mixed groups of vmbo
 | beschrijven, benoemen | show it and name it; mechanism only as far as needed to recognise it |
 | verklaren | the cause–effect chain is visible on screen; the Why test applies |
 | redeneren, analyseren, verbanden leggen | the viewer does the reasoning; prediction moments carry the chapter |
-| onderzoeken, experimenteren, verkennen, reflecteren | the film sets up the question and hands over to the Probeer-het-zelf card; the doing happens outside the film |
+| onderzoeken, experimenteren, verkennen, reflecteren | the film sets up the question; the doing happens outside the film, and the film does not point to it (B4) |
 
 The Why test stops at the depth the verb asks: no molecules where "beschrijven" is enough, and no chemical formulas in the basis line.
 
@@ -660,7 +661,7 @@ The Why test stops at the depth the verb asks: no molecules where "beschrijven" 
 - A DAILY-LIFE HOOK is required, from the world of a 12–14-year-old: school, sport, food, phone, pets, garden, weather. Never assume anything about a student's body, family or home.
 - A prediction moment every 60–90 s, with 2 or 3 options, one of them a known misconception.
 - Typical misconceptions to choose from: plants take their food from the soil; all bacteria are harmful; you breathe in oxygen and breathe out only carbon dioxide; blood in veins is blue; an animal adapts because it needs to; the biggest animal is at the top of the food chain; a cell is flat.
-- End card "Probeer het zelf" in the vraagkaart style: the matching onderzoekje, opdracht or tool from the startpakket, with its link.
+- No "Probeer het zelf" end card or line: the film does not refer to an onderzoekje, opdracht or tool (B4). The end card holds the key sentences only.
 - 3 check questions in onderbouw style (2 multiple choice, 1 short "leg uit"), answers folded away.
 - The coverage table runs kerndoel bullet → level → chapter → question.
 
@@ -692,7 +693,7 @@ v9 onderhoudsbeurt (22 okt 2026, Kamiel akkoord rij 1–6 en 8–19): prompt fol
 
 ✦ v8 aanvulling (22 okt 2026): new B14 Opwaarderen naar een nieuwe promptversie (promptstempel per film, only the delta, verbeterblad first, narration stays, new objects into the library). First used for Geslachtsorganen en puberteit and Wat zit er in je eten?.
 
-✦ v10 aanvulling (25 okt 2026): no tools in the film — no tool or model names in picture, sound, captions or on the page; they live only in the bron folder (B10); grep check in QA (B11).
+✦ v10 aanvulling (25 okt 2026): no references to tools in the film, above all not spoken — no "Probeer het zelf" line or card, no "in de tool" / "op de site" (B4, D2, D4); grep check in QA (B11).
 
 ✦ v10 (24 okt 2026): new C10 Tekenkwaliteit (library first, sources win, ElevenLabs plates only to learn from, test sheet and approval, recipe cards for animals, micro, organs and plants); fresh visual review after every build as a fixed step; static outline only for animals that do not move in their scene.
 
