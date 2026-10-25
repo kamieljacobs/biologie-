@@ -34,3 +34,5 @@ Vwo H9 Mens en milieu heeft sinds 20 okt 2026 een eigen hoofdstukpagina (`#milie
 ## Uitspraak opnieuw inspreken (na uitspraaktest 18 okt 2026)
 - Ronde 1 (521 woorden) is klaar; uitkomst staat in `films/UITSPRAAK.md`. Ronde 2 (20 twijfelwoorden, varianten in flow "Uitspraaktest ronde 2 (18 okt)") staat op de luisterpagina Uitspraaktest (claude.ai-artifact, keuzes in collectie `keuzes`, id's `r2-<woord>`); werkbestanden in `/home/claude/uitspraaktest/` (data_ronde1.json = ronde 1).
 - Daarna: ±102 alinea's in 34 films opnieuw inspreken met de gekozen uitspraak (schatting 40.000–60.000 credits incl. transcriptie); nog niet aan beginnen zonder akkoord van Kamiel.
+
+- Van bevruchting tot baby: hoofdkijkje van Noor staat over het gezicht; bij de remake vervangen door een zoomcirkel naast het hoofd (BEELDAFSPRAKEN, Kamiel 25 okt 2026: "dat kan later bij de remake").
