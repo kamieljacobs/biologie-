@@ -2902,6 +2902,11 @@ const rv=href=>KMODUS?`<i class="rv rv-${REVIEW[href]||'open'}" title="${{ok:'kl
 let niveau=lees('niveau'); if(!NIVEAUS[niveau]||niveau==='onderbouw') niveau='havo';
 let gezien={}; try{gezien=JSON.parse(lees('gezien')||'{}')||{}}catch(e){gezien={}}
 const alleFilms=[...new Map(Object.values(HOOFDSTUKKEN).flatMap(h=>h.films).map(f=>[f.href,f])).values()];
+/* Totaal films telt ook 'Wat word jij?' mee (Kamiel 25 okt 2026): films/vervolg/films.json, dubbele films één keer */
+let vervolgFilms=[];
+const aantalFilms=()=>new Set([...alleFilms,...vervolgFilms].map(f=>f.href)).size;
+const nFilms=(tpl='#')=>`<span class="n-films" data-tpl="${tpl}">${tpl.replace('#',aantalFilms())}</span>`;
+fetch('films/vervolg/films.json').then(r=>r.json()).then(vj=>{vervolgFilms=Array.isArray(vj)?vj:[];document.querySelectorAll('.n-films').forEach(e=>e.textContent=(e.dataset.tpl||'#').replace('#',aantalFilms()));document.querySelectorAll('.n-vervolg').forEach(e=>e.textContent=aantalFilms()-alleFilms.length)}).catch(()=>{});
 const alleTools=[];{const z=new Set();for(const h of Object.values(HOOFDSTUKKEN))for(const t of h.tools){if(!z.has(t.naam)){z.add(t.naam);alleTools.push(t)}}}
 const hoofdstukVan=href=>(href||'').replace(/^#/,'').split('-')[0];
 const bijLabel=s=>String(s||'').replace(/^Film\s*·\s*/,'').replace(/\s*·\s*\d+([,½]\d*)?\s*min(uut|uten)?\b/g,'').replace(/\s*·\s*\d+:\d+\b/g,'');
@@ -2948,7 +2953,7 @@ function pta(nv){
       <h1>${ob?'Werk aan de kerndoelen':'Werk aan je PTA'}</h1>
       <p>${ob?'De onderbouwstof geordend per kerndoel. Bij elk kerndoel vind je korte video\'s, onderzoekjes en opdrachten.':'De thema\'s geordend per PTA-onderdeel, met de weging.'}</p>
       ${ob?'':`<div class="seg seg-pagina" role="group" aria-label="Kies je niveau"><button type="button" data-niveau="havo" aria-pressed="${niveau==='havo'}">havo</button><button type="button" data-niveau="vwo" aria-pressed="${niveau==='vwo'}">vwo</button></div>`}
-      <div class="knoppen"><a class="knop" href="#${ob?'onderbouw':'pta'}-hoofdstukken">${ob?'Kies je kerndoel':'Kies je onderdeel'}</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+      <div class="knoppen"><a class="knop" href="#${ob?'onderbouw':'pta'}-hoofdstukken">${ob?'Kies je kerndoel':'Kies je onderdeel'}</a><a class="knop stil" href="#films">${nFilms('Alle # films')}</a></div>
     </div>
     <div class="plaat" aria-hidden="true">
       <figure>${medaille('cellen',130)}<figcaption>Fig. 1 · cel</figcaption></figure>
@@ -3120,7 +3125,7 @@ function home(){
       <span class="mono">Biologie bij Kamiel</span>
       <h1>Wat ga je vandaag leren?</h1>
       <p>Alle thema's op één plek, van molecuul tot planeet. Werk je aan je PTA? Kijk dan bij <a href="#pta">PTA Agora</a>.</p>
-      <div class="knoppen"><a class="knop" href="#vlak-basis">Kies een thema</a><a class="knop stil" href="#films">Alle ${alleFilms.length} films</a></div>
+      <div class="knoppen"><a class="knop" href="#vlak-basis">Kies een thema</a><a class="knop stil" href="#films">${nFilms('Alle # films')}</a></div>
     </div>
   </section>
   <section class="wrap blok vlakken" aria-label="Kies waar je begint">
@@ -3254,7 +3259,7 @@ function kopPagina(lbl,titel,tekst,id){
   return `<section class="kop"><div class="wrap"><div><a class="terug" href="#home">← Alle thema's</a><div class="lbl mono">${lbl}</div><h1>${titel}</h1><p>${tekst}</p></div><div class="groot${ICOON.includes(id)?' foto':''}">${medaille(id,220)}</div></div></section>`;
 }
 function films(){
-  let out=kopPagina('Alle films','Uitlegfilms',`${alleFilms.length} films die bij een vraag beginnen${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}.`,'dna')+`<div class="wrap smal">`;
+  let out=kopPagina('Alle films','Uitlegfilms',`${nFilms()} films die bij een vraag beginnen: ${alleFilms.length} uitlegfilms${KMODUS?` <span class="mono" style="opacity:.5">(${alleFilms.filter(f=>REVIEW[f.href]==='ok').length}/${alleFilms.length})</span>`:''}, in de volgorde van het PTA ${esc(niveau)}, en <span class="n-vervolg">${aantalFilms()-alleFilms.length}</span> bij <a href="vervolg.html">Wat word jij?</a>`,'dna')+`<div class="wrap smal">`;
   const heeft=id=>HOOFDSTUKKEN[id]&&(HOOFDSTUKKEN[id].films.length||(HOOFDSTUKKEN[id].komt||[]).length);
   const zoekTekst=(...x)=>esc(x.filter(Boolean).join(' ').toLowerCase());
   const reeks=(id)=>{const h=HOOFDSTUKKEN[id]; const min=h.films.reduce((a,f)=>a+(+f.duur||0),0);
