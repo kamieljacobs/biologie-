@@ -1,5 +1,5 @@
 """segments.json + words/*.json + film.json -> filmdata.json"""
-import json, sys, os
+import re, json, sys, os
 fdir = sys.argv[1]
 segs = json.load(open(os.path.join(fdir, 'segments.json'))); film = json.load(open(os.path.join(fdir, 'film.json')))
 out = []; chapters = []; fake = False
@@ -10,7 +10,7 @@ for s in segs:
     if s['kind'] == 'speech':
         wj = json.load(open(os.path.join(fdir, 'words', s['id'] + '.json'))); fake |= bool(wj.get('fake'))
         w = [x for x in wj['words'] if x.get('type', 'word') == 'word']
-        disp = s['display'].split()
+        disp = [d + '\u200b' if re.fullmatch(r'(Dr|E|Mr|Mevr|St|bv|vs)\.', d) else d for d in s['display'].split()]  # afkorting: geen nieuwe ondertitel na 'Dr.' of 'E.'
         assert len(w) == len(disp), (s['id'], len(w), len(disp), [x['text'] for x in w][:8])
         o['words'] = [{'t': d, 's': round(x['start'], 3), 'e': round(x['end'], 3)} for d, x in zip(disp, w)]
         o['audio'] = f"{film['slug']}/audio/{s['id']}.mp3"

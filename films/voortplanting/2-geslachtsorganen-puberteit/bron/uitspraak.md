@@ -22,3 +22,16 @@ Deze keuzes vervangen de eerdere stem-invoer van deze woorden hierboven. Opnieuw
 |---|---|---|---|
 | kisspeptine | kisspeptine (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
 | leptine | leptine (gewone spelling) | s08 | goedgekeurd (uitspraaktest 18–19 okt 2026) |
+
+## Versie 2.0 (lichte remake, 26 okt 2026)
+
+Opnieuw ingesproken: alle 28 alinea's (Roos, eleven_v4, flow `2gVdRpBnFclUy5DZxMY2`). Stem-invoer: centrale lijst (hiepo-taalamus, eustrogeen, reseptor/reseptoren, ert) + `uitspraak_film.json` (G-N-R-H); kisspeptine en leptine in gewone spelling; meiose zoals geschreven (gelijk aan Celdeling, `films/UITSPRAAK.md`).
+
+Blind getranscribeerd (Scribe, losse audio, niet aan de tekst gekoppeld): s05, s07, s08, s15. Terug als: hypothalamus, GnRH, erwt, receptoren, oestrogeen, meiose, chromosomen: allemaal goed.
+
+| Woord | Stem-invoer | Alinea's | Status |
+|---|---|---|---|
+| gehemelte | zoals geschreven | s05 | blind goed; wachtlijst voor Kamiels oor |
+| steeltje | zoals geschreven | s07 | blind goed; wachtlijst |
+| meiose, chromosomen | zoals geschreven | s15 | blind goed; wachtlijst |
+| receptoren | reseptoren (centrale regel) | s08 | blind goed |
