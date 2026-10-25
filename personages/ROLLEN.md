@@ -28,6 +28,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | verdachte, voorbijganger, anoniem iemand uit een onderzoek | **Erik** (figurant) |
 | verre familie, buurman | **Joost** (figurant) |
 | boer, veehouder | **Veehouder Gerrit** |
+| stagiair forensisch onderzoek (Wat word jij? · Forensisch onderzoek) | **Bilal** (outfit `plaatsdelict`: witte overall met capuchon, mondkapje, nitrilhandschoenen; in het lab `practicum`); Dr. Kim als forensisch arts / DNA-deskundige (ook `plaatsdelict`), Erik als verdachte |
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |
