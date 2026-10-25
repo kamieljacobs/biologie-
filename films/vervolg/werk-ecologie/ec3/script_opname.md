@@ -5,7 +5,7 @@ Wat word jij? · Ecologie en natuurbeheer (film 3, id natuurplan), havo + vwo, �
 ---
 
 ## Cold open [Schema: de rand van de maisakker naast de paarse heide; Daan met een schep in een kuil, de kuilwand als doorsnede: een donkere band bovenin, licht geel zand eronder; Ecoloog Bas met een duimstok aan de rand; aan de rand van de akker een graafmachine]
-Daan, de stagiair, staat tot zijn knieën in een kuil. Bovenin zit donkere grond, daaronder licht zand. Deze maisakker, naast de heide, wordt natuur. Bas, de ecoloog, laat die donkere laag toch afgraven. Waarom? Wat denk je?
+Daan, de stagiair, kijkt in een diepe kuil. Bovenin zit donkere grond, daaronder licht zand. Deze maisakker, naast de heide, wordt natuur. Bas, de ecoloog, laat die donkere laag toch afgraven. Waarom? Wat denk je?
 [VRAAG] (a) die laag zit vol gif, en daardoor sterven de planten · (b) die laag is te hard, en daarin kan heide niet wortelen · (c) die laag zit vol mest, en daarop groeit vooral gras
 
 ## Titel
@@ -65,6 +65,7 @@ Dit werk leer je bijvoorbeeld bij de hbo-opleiding Bos- en natuurbeheer in Velp:
 ## Eindkaart
 Natuurdoel en doelsoort eerst; de overheid kiest, de ecoloog adviseert.
 Oude akkergrond zit vol fosfaat: daarop wint gras, geen heide.
-Maaien: ± 10 kg fosfor per hectare per jaar; uitmijnen: ± 40 kg fosfor, meestal 10–20 jaar; afgraven: snel, maar duur.
+Maaien: ± 10 kg fosfor per hectare per jaar; uitmijnen: ± 40 kg fosfor,
+meestal 10–20 jaar; afgraven: snel, maar duur.
 Kleine, losse gebieden worden traag opnieuw bevolkt: verbinden helpt.
 Monitoren met vegetatieopnamen en bijsturen: adaptief beheer.

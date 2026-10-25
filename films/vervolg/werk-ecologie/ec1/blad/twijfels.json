@@ -1,0 +1,56 @@
+[
+ {
+  "id": "s18",
+  "titel": "Roemeense wolven als voorbeeld (voorstel uit brief.md)",
+  "zin": "Zo schatten onderzoekers in de Roemeense bergen hoeveel wolven er in een gebied leven.",
+  "img": "blad/img/s18.webp",
+  "twijfel": "Het voorbeeld rust op één studie; getallen alleen in beeld.",
+  "waarom": "Gesproken zonder getal; in beeld ≈ 70 (49–89), één gebied van ± 1400 km² (Iosif e.a. 2025, geen tweede onafhankelijke bron).",
+  "voorstel": "Zo laten (zin zonder getal, kaartje met studiegebied en bron); alternatief: het kaartje weglaten en alleen 'in de Roemeense bergen' laten staan, of het hele voorbeeld schrappen."
+ },
+ {
+  "id": "s09",
+  "titel": "Vrijwilliger = Mevrouw Jansen als figurant",
+  "zin": "Daan gaat mee met een vrijwilliger.",
+  "img": "blad/img/s09.webp",
+  "twijfel": "Bestaand castpersonage in een nieuwe rol (vlinderteller), zonder naam.",
+  "waarom": "Er is geen figurant-vrijwilliger in de cast; Mevrouw Jansen (72, garderobe 'buiten') past qua leeftijd bij een vaste teller.",
+  "voorstel": "Akkoord als figurant zonder naam; of een nieuwe figurant (vrijwilliger) in het castboek."
+ },
+ {
+  "id": "s05",
+  "titel": "Heideblauwtje: nieuwe bibliotheektekening",
+  "zin": "Elk krijgt met een stift een nummertje op de vleugel, en mag weer vliegen.",
+  "img": "blad/img/s05.webp",
+  "twijfel": "Nieuwe tekening (zijaanzicht in rust met nummer, bovenaanzicht vliegend) gaat de reeksbibliotheek in.",
+  "waarom": "Getekend naar soortbeschrijving (Vlinderstichting), zonder referentieplaat of testvel (C10).",
+  "voorstel": "Eerst een testvel met referentie; tot die tijd alleen in deze film."
+ },
+ {
+  "id": "s14",
+  "titel": "Wolvenkeutel en Daan met handschoenen",
+  "zin": "Daarvoor raapt Daan, met handschoenen, een keutel op.",
+  "img": "blad/img/s14.webp",
+  "twijfel": "Keutel als nieuwe tekening (gedraaid puntje, haren, botsplintertjes); handschoenen via een tijdelijke outfit 'veldHand'.",
+  "waarom": "Reeksbrief: keutel 'als nette tekening'; de outfit staat niet in lib_cast (alleen in teken_ec1.js).",
+  "voorstel": "Keutel goedkeuren of eenvoudiger (zonder botjes); 'veldHand' (veld + nitrilhandschoenen) opnemen in lib_cast."
+ },
+ {
+  "id": "s17",
+  "titel": "Wolf in de stijl van Plek genoeg?, ook lopend",
+  "zin": "Ook een jonge wolf die één keutel achterlaat en verder trekt, telt mee.",
+  "img": "blad/img/s17.webp",
+  "twijfel": "De wolf is overgenomen uit Plek genoeg? (niet de goedgekeurde wolfPop uit bibliotheek/dieren); de jonge wolf loopt met de oude beenzwaai.",
+  "waarom": "Opdracht: zelfde look als Plek genoeg?; C10 vraagt voor een bewegend dier een bibliotheekgang zonder glijden.",
+  "voorstel": "Stilstaande wolven zo laten; de zwervende wolf als wolfPop (lopen, steunvoet vast) of hem niet laten lopen."
+ },
+ {
+  "id": "s21",
+  "titel": "Zeven van de veertien roedels op de Veluwe",
+  "zin": "Zeven daarvan op de Veluwe.",
+  "img": "blad/img/s21.webp",
+  "twijfel": "Verdeling per gebied (7 Veluwe) en de ligging van de stippen.",
+  "waarom": "Verdeling alleen in NOS (citeert het rapport, status ≈); ligging van de stippen is schematisch.",
+  "voorstel": "Laten staan met 'naar schatting · ligging schematisch' in beeld."
+ }
+]
