@@ -90,7 +90,7 @@ function pilDoosje(ctx, x, y, s = 1, a = 1, label = '') { if (a <= 0.01) return;
 function afvalBalken(ctx, x, y, o = {}) { const { a = 1, k = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   [[1, '#6E7A90', 'OUD PROCES'], [0.81, C.groen, 'MET ENZYM']].forEach(([v, col, lab], i) => { const w = 360 * (i ? lerp(1, v, k) : v); roundRect(ctx, x, y + i * 70, w, 44, 8); shape(ctx, col, null); metaA(ctx, lab, x + w + 16, y + i * 70 + 32, 1, C.grain, 'left', 28); });
   metaA(ctx, 'AFVAL', x, y - 16, 1, C.grain, 'left', 28); ctx.restore(); }
-function metaalWeg(ctx, x, y, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 40, '#2A3A58', '#9AA8BA', 2); text(ctx, 'Rh', x, y + 12, fTekst(34, 700), '#C9D2DE', 'center'); kruis(ctx, x, y, 44, 1); ctx.restore(); }
+function metaalWeg(ctx, x, y, a = 1, kr = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, 40, '#2A3A58', '#9AA8BA', 2); text(ctx, 'Rh', x, y + 12, fTekst(34, 700), '#C9D2DE', 'center'); kruis(ctx, x, y, 44, kr); ctx.restore(); }
 
 // ---------- eivlek als kluwen van gestold eiwit op een vezel (Kamiel 25 okt 2026: kluwen is realistischer) ----------
 function eiwitKluwenVezel(ctx, x, y, w, o = {}) { // knip 0..1: stukjes laten los van de buitenkant en drijven weg, kluwen krimpt

@@ -23,20 +23,19 @@ Object.assign(SCENES, {
   s04(ctx, t, q) { bg(ctx, 'schema'); bt1Antwoord(ctx, 'antwoord b: het knipt de ketens in stukjes'); RONDE(ctx, 0, 0);
     const K = q.on('knipt', 1, 6);
     zoomCircle(ctx, 760, 500, 320, 240, 560, 'VERGROOT · GESTOLD EIWIT OP EEN VEZEL', 1, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(440, 180, 640, 640);
-      eiwitKluwenVezel(ctx, 760, 700, 560, { knip: K, t }); const k = (t * 0.25) % 1, ea = k * 6.283; enzymKluwen(ctx, 760 + Math.cos(ea) * 150, 580 + Math.sin(ea) * 120, 42, { a: q.on('protease', 1), sluit: (Math.sin(t * 5) + 1) / 2 }); });
+      eiwitKluwenVezel(ctx, 760, 700, 560, { knip: K, t }); const k = (t * 0.25) % 1, ea = k * 6.283; const ex = 760 + Math.cos(ea) * 150, ey = 580 + Math.sin(ea) * 120; enzymKluwen(ctx, ex, ey, 42, { a: q.on('protease', 1), sluit: (Math.sin(t * 5) + 1) / 2 }); naamBij(ctx, 'protease', 'KNIPT EIWIT', ex + 54, ey - 30, q.on('protease', 1), 'left'); });
     broek(ctx, 200, 380, 0.6, { vlek: 1 - K * 0.8 });
-    naamBij(ctx, 'protease', 'KNIPT EIWIT', 1240, 360, q.on('protease', 1), 'left');
-    chip(ctx, 'het enzym raakt niet op', 1360, 470, C.groen, q.on('vrij', 1), 28);
-    const V = q.on('zetmeel', 1); [['amylase', 'ZETMEEL', 'amylase'], ['lipase', 'VET', 'lipase']].forEach(([n, m, w], i) => { const a = q.on(w, 1); enzymKluwen(ctx, 1300 + i * 260, 640, 40, { a: Math.max(a, 0.4) * V, seed: 6 + i * 3 }); naamBij(ctx, n, m, 1300 + i * 260, 730, a * V, 'center'); }); },
+        chip(ctx, 'het enzym raakt niet op', 1360, 470, C.groen, q.on('vrij', 1), 28);
+    const V = q.on('zetmeel', 1); [['amylase', 'ZETMEEL', 'amylase'], ['lipase', 'VET', 'lipase']].forEach(([n, m, w], i) => { const a = q.on('amylase', 1); enzymKluwen(ctx, 1300 + i * 260, 640, 40, { a: Math.max(a, 0.4) * V, seed: 6 + i * 3 }); naamBij(ctx, n, m, 1300 + i * 260, 730, a * V, 'center'); }); },
 
   s05(ctx, t, q) { bg(ctx, 'schema');
     wasmachine(ctx, 360, 760, 1, { t, draai: 1 });
     const E = q.on('energie', 1, 0.6); if (E > 0.01) { ctx.save(); ctx.globalAlpha *= E; metaA(ctx, 'ENERGIE PER WASBEURT', 700, 230, 1, C.goud, 'left', 28); metaA(ctx, 'BIJ 40 °C', 700, 310, 1, C.grain, 'left', 28);
-      const w1 = 900, k = q.on('derde', 1, 1); roundRect(ctx, 700, 330, w1, 60, 10); shape(ctx, '#2A3A58', '#8FA0B5', 2);
+      const w1 = 900, k = q.on('scheelt', 1, 1); roundRect(ctx, 700, 330, w1, 60, 10); shape(ctx, '#2A3A58', '#8FA0B5', 2);
       roundRect(ctx, 700, 330, w1 * 0.8, 60, 10); shape(ctx, C.koraal, null); roundRect(ctx, 700 + w1 * 0.8, 330, w1 * 0.2, 60, 10); shape(ctx, '#6E7A90', null);
       naamBij(ctx, 'water opwarmen', 'HET GROOTSTE DEEL', 700 + w1 * 0.4, 440, q.on('water', 1), 'center'); 
       ctx.globalAlpha *= q.on('veertig', 1); const w2 = w1 * lerp(1, 0.67, k); roundRect(ctx, 700, 560, w2, 60, 10); shape(ctx, '#2A3A58', '#8FA0B5', 2); roundRect(ctx, 700, 560, w2 * 0.8, 60, 10); shape(ctx, C.koraal, null);
-      metaA(ctx, 'BIJ 30 °C', 700, 540, q.on('veertig', 1), C.grain, 'left', 28); tag(ctx, 'ongeveer een derde minder', 700 + w2 + 40, 600, C.groen, k, 'left', 30); ctx.restore(); } },
+      metaA(ctx, 'BIJ 30 °C', 700, 540, q.on('veertig', 1), C.grain, 'left', 28); tag(ctx, '≈ een derde minder', 700 + w2 + 40, 600, C.groen, k, 'left', 30); ctx.restore(); } },
 
   s06(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx);
     const M = q.on('Merel', 1, 0.3); merel(ctx, 1560, t, { a: M, pose: q.on('startenzym', 1) > 0.5 ? 'wijs' : 'staan' }); naamBij(ctx, 'Merel', 'PROCESTECHNOLOOG', 1560, 400, M, 'center');
@@ -56,19 +55,19 @@ Object.assign(SCENES, {
 
   s09(ctx, t, q) { bg(ctx, 'schema'); bt1Antwoord(ctx, 'antwoord a: zoals in de wasmachine'); RONDE(ctx, 1);
     [['30 °C', C.teal], ['basisch', C.teal], ['met bleek', C.koraal]].forEach(([n, col], i) => chip(ctx, n, 400 + i * 260, 280, col, q.on('wasmachine', 1), 32));
-    const G = q.on('warm', 1, 0.6); if (G > 0.01) { ctx.save(); ctx.globalAlpha *= G; assen(ctx, 900, 400, 640, 340, 'temperatuur', 'knipsnelheid');
+    const G = q.on('warm', 1, 0.6); if (G > 0.01) { ctx.save(); ctx.globalAlpha *= G; assen(ctx, 900, 400, 640, 340, '', ''); metaA(ctx, 'TEMPERATUUR', 1540, 790, 1, C.grain, 'right', 28); metaA(ctx, 'KNIPSNELHEID', 900, 380, 1, C.grain, 'left', 28);
       const f1 = (u) => Math.exp(-Math.pow((u - 0.75) / 0.14, 2)), f2 = (u) => 0.75 * Math.exp(-Math.pow((u - 0.45) / 0.18, 2));
       [[f1, '#6E7A90', 'WARM GOED'], [f2, C.groen, '30 °C GOED']].forEach(([f, col, lab]) => { ctx.strokeStyle = col; ctx.lineWidth = 4; ctx.beginPath(); for (let j = 0; j <= 60; j++) { const u = j / 60, px = 900 + u * 640, py = 740 - f(u) * 300; j ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); const um = f === f1 ? 0.75 : 0.45; metaA(ctx, lab, 900 + um * 640 + (f === f1 ? 60 : -60), 740 - f(um) * 300 - 20, 1, col, f === f1 ? 'left' : 'right', 28); });
-      ctx.strokeStyle = C.goud; ctx.setLineDash([8, 6]); ctx.beginPath(); ctx.moveTo(900 + 0.45 * 640, 400); ctx.lineTo(900 + 0.45 * 640, 740); ctx.stroke(); ctx.setLineDash([]); metaA(ctx, '30 °C', 900 + 0.45 * 640, 390, 1, C.goud, 'center', 28); ctx.restore(); }
-    chip(ctx, 'boven het optimum: vorm weg', 1220, 840, C.koraal, q.on('optimum', 1), 28);
+      ctx.strokeStyle = C.goud; ctx.setLineDash([8, 6]); ctx.beginPath(); ctx.moveTo(900 + 0.45 * 640, 400); ctx.lineTo(900 + 0.45 * 640, 740); ctx.stroke(); ctx.setLineDash([]); metaA(ctx, '30 °C', 900 + 0.45 * 640, 790, 1, C.goud, 'center', 28); ctx.restore(); }
+    chip(ctx, 'boven het optimum: vorm weg', 1640, 560, C.koraal, q.on('optimum', 1), 28);
     tag(ctx, 'je vindt alleen waar je op test', 520, 560, C.goud, q.on('vindt', 1), 'center', 32); },
 
   // ---------- H2 ----------
   s10(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx); RONDE(ctx, 1);
     sam(ctx, 280, t, { pose: q.on('strijkt', 1) < 0.9 ? 'wijs' : 'staan' });
-    const P = q.on('melk', 1, 0.6); melkPlaat(ctx, 860, 480, 300, { a: P, n: 46, ringen: q.on('heldere', 1, 1), groei: q.on('strijkt', 1, 2), win: 3, winSchaal: 1 });
-    naamBij(ctx, 'melkplaat', 'TROEBEL DOOR MELKEIWIT · 30 °C · BASISCH', 860, 830, q.on('troebel', 1), 'center');
-    naamBij(ctx, 'heldere ring', 'HIER IS HET EIWIT GEKNIPT', 1260, 330, q.on('heldere', 1), 'left');
+    const P = q.on('melk', 1, 0.6); melkPlaat(ctx, 860, 450, 300, { a: P, n: 46, ringen: q.on('heldere', 1, 1), groei: q.on('strijkt', 1, 2), win: 3, winSchaal: 1 });
+    naamBij(ctx, 'melkplaat', 'TROEBEL DOOR MELKEIWIT · 30 °C · BASISCH', 860, 800, q.on('troebel', 1), 'center');
+    naamBij(ctx, 'heldere ring', 'HIER IS HET EIWIT GEKNIPT', 1180, 300, q.on('heldere', 1), 'left');
     tag(ctx, 'duizend kolonies', 1400, 500, C.teal, q.on('duizend', 1), 'left', 30);
     vraagteken(ctx, 1600, 680, q.on('denk', 1), 100); },
 
@@ -89,8 +88,9 @@ Object.assign(SCENES, {
 
   // ---------- H3 ----------
   s14(ctx, t, q) { bg(ctx, 'schema'); RONDE(ctx, 2, q.on('Ronde', 1));
+    { const Pa = 1 - q.on('Variant', 1, 0.6); putjesPlaat(ctx, 960, 470, 760, { a: Pa, meet: 1, kleur: 1, hl: [[2, 4], [5, 8], [6, 2]] }); }
     [[0.95, 0.15, 'variant 1', 'snelst'], [0.55, 0.55, 'variant 2', 'iets'], [0.25, 0.9, 'variant 3', 'overleeft']].forEach(([k, b, n, w], i) => tweeBalk(ctx, 520 + i * 440, 700, k, b, { a: q.on(w, 1), label: n, h: 360 }));
-    metaA(ctx, 'BLAUW: KNIPPEN BIJ 30 °C · ROOD: OVER NA BLEEK · STREEP: STARTENZYM', 960, 220, q.on('drie', 1), C.grain, 'center', 28);
+    metaA(ctx, 'LINKS: KNIPPEN BIJ 30 °C · RECHTS: OVER NA BLEEK · STREEP: STARTENZYM', 960, 220, q.on('Variant', 1), C.grain, 'center', 28);
     vraagteken(ctx, 1760, 420, q.on('denk', 1), 100); },
 
   s16(ctx, t, q) { bg(ctx, 'schema'); bt1Antwoord(ctx, 'antwoord c: variant twee'); RONDE(ctx, 2);
@@ -100,10 +100,10 @@ Object.assign(SCENES, {
 
   s17(ctx, t, q) { bg(ctx, 'schema');
     zoomCircle(ctx, 760, 480, 330, 760, 480, 'VERGROOT · ÉÉN PROTEASE', 1, () => { ctx.fillStyle = C.bgMicro; ctx.fillRect(420, 140, 680, 680);
-      const A = q.on('alanine', 1, 0.6); const P = protease(ctx, 760, 480, 200, { hl: q.on('methionine', 1), plek: A > 0.5 ? 'ala' : 'met', an: 0.15 });
+      const A = q.on('alanine', 1, 0.6); const P = protease(ctx, 760, 480, 200, { hl: q.on('methionine', 1), plek: A > 0.5 ? 'ala' : 'met', an: 0.15 }); if (A < 0.5) { ctx.save(); ctx.globalAlpha *= q.on('aminozuur', 1); ctx.beginPath(); ctx.arc(P.plek[0], P.plek[1], 34, 0, 6.283); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); }
       bleekMolecuul(ctx, lerp(1010, 880, q.on('beschadigt', 1, 1.2)), lerp(220, 340, q.on('beschadigt', 1, 1.2)), 1.2, q.on('Bleekmiddel', 1) * (1 - A));
       naamBij(ctx, 'actief centrum', '', 600, 640, q.on('Bleekmiddel', 1), 'center'); });
-    { const A = q.on('alanine', 1, 0.6); naamBij(ctx, A > 0.5 ? 'alanine' : 'methionine', 'PLEK 222', 1110, 290, q.on('methionine', 1), 'left', A > 0.5 ? C.groen : C.goud); }
+    { const A = q.on('alanine', 1, 0.6); naamBij(ctx, A > 0.5 ? 'alanine' : 'methionine', 'PLEK 222', 1110, 290, q.on('aminozuur', 1), 'left', A > 0.5 ? C.groen : C.goud); }
     genStreep(ctx, 1460, 520, 520, { a: q.on('gen', 1), hlPos: 0.62 }); naamBij(ctx, 'gen', 'OP PRECIES DIE PLEK VERANDERD', 1460, 590, q.on('gen', 1), 'center');
     tag(ctx, 'gericht ontwerp', 1460, 400, C.goud, q.on('ontwerp', 1), 'center', 36);
     vraagteken(ctx, 1700, 760, q.on('denk', 1), 90); },
@@ -117,10 +117,11 @@ Object.assign(SCENES, {
 
   s20(ctx, t, q) { bg(ctx, 'schema'); RONDE(ctx, 3, q.on('kiest', 1));
     tag(ctx, 'het enzym past zich niet aan: Sam kiest', 960, 180, C.goud, q.on('kiest', 1), 'center', 32);
-    const A = q.on('Arnold', 1, 0.6); if (A > 0.01) { kaartje(ctx, 600, 380, 620, 140, 'Frances Arnold · 1993', 'ALS EERSTE · IN EEN OPLOSMIDDEL', { a: A, col: C.goud });
-      const k = q.on('tweehonderdzesenvijftig', 1, 1.8); for (let i = 0; i < 3; i++) { const h = [60, 160, 380][i] * clamp(k * 3 - i, 0, 1); roundRect(ctx, 400 + i * 160, 820 - h, 100, h, 8); shape(ctx, C.groen, null); metaA(ctx, 'RONDE ' + (i + 1), 450 + i * 160, 860, A, C.grain, 'center', 22); }
-      text(ctx, '× 256', 920, 480, fTitel(72), C.groen, 'left'); ctx.save(); ctx.globalAlpha *= 1 - k; ctx.fillStyle = C.bgSchema; ctx.fillRect(900, 400, 300, 100); ctx.restore(); }
-    const N = q.on('Nobelprijs', 1, 0.6); if (N > 0.01) { ctx.save(); ctx.globalAlpha *= N; circ(ctx, 1450, 560, 110, C.goud, '#F0D58A', 4); circ(ctx, 1450, 560, 86, null, '#B8902E', 2); text(ctx, '2018', 1450, 575, fTitel(48), '#2A3A58', 'center'); ctx.restore(); naamBij(ctx, 'Nobelprijs Scheikunde', '2018', 1450, 720, N, 'center'); } },
+    { const P0 = q.on('kiest', 1) * (1 - q.on('Frances', 1, 0.5)); for (let i = 0; i < 3; i++) { melkPlaat(ctx, 560 + i * 400, 480, 130, { a: P0, n: 14, seed: 7 + i, win: 1, winSchaal: 1 + i * 0.6, ringen: 1 }); if (i < 2) pijl(ctx, 710 + i * 400, 480, 790 + i * 400, 480, C.line, P0, 3, 14); } }
+    const A = q.on('Frances', 1, 0.6); if (A > 0.01) { kaartje(ctx, 600, 380, 620, 140, 'Frances Arnold · 1993', 'ALS EERSTE · IN EEN OPLOSMIDDEL', { a: A, col: C.goud });
+      const k = q.on('tweehonderdzesenvijftig', 1, 1.8), Nd = 1 - 0.6 * q.on('tweeduizend', 1); ctx.save(); ctx.globalAlpha *= Nd; [[3, 'START', '#6E7A90', 1], [300 * k, 'NA 3 RONDES', C.groen, k]].forEach(([h, lab, col, la], i) => { roundRect(ctx, 420 + i * 220, 820 - Math.max(h, 3), 120, Math.max(h, 3), 6); shape(ctx, col, null); metaA(ctx, lab, 480 + i * 220, 860, la, C.grain, 'center', 28); }); ctx.restore();
+      text(ctx, '× 256', 790, 580, fTitel(72), C.groen, 'left'); ctx.save(); ctx.globalAlpha *= 1 - k; ctx.fillStyle = C.bgSchema; ctx.fillRect(770, 500, 300, 100); ctx.restore(); }
+    const N = q.on('tweeduizend', 1, 0.5); if (N > 0.01) { ctx.save(); ctx.globalAlpha *= N; circ(ctx, 1450, 560, 110, C.goud, '#F0D58A', 4); circ(ctx, 1450, 560, 86, null, '#B8902E', 2); text(ctx, '2018', 1450, 575, fTitel(48), '#2A3A58', 'center'); ctx.restore(); naamBij(ctx, 'Nobelprijs Scheikunde', '2018', 1450, 720, N, 'center'); } },
 
   s21(ctx, t, q) { bg(ctx, 'schema'); RONDE(ctx, 3);
     for (let i = 0; i < 3; i++) { const x = 460 + i * 500; melkPlaat(ctx, x, 470, 190, { n: 26, seed: 7 + i, win: 1, winSchaal: 1 + i * 0.6, ringen: 1, a: i < 2 ? 1 : q.on('winnaar', 1) }); metaA(ctx, 'RONDE ' + (i + 1), x, 720, 1, C.grain, 'center', 28); if (i < 2) pijl(ctx, x + 210, 470, x + 290, 470, C.line, 1, 3, 14); }
@@ -147,19 +148,19 @@ Object.assign(SCENES, {
 
   s26(ctx, t, q) { bg(ctx, 'schema');
     pilDoosje(ctx, 360, 360, 1.1, q.on('sitagliptine', 1), 'sitagliptine'); naamBij(ctx, 'diabetesmedicijn', 'MERCK EN CODEXIS', 360, 480, q.on('sitagliptine', 1), 'center');
-    metaalWeg(ctx, 760, 340, q.on('metaal', 1)); naamBij(ctx, 'zwaar metaal', 'RHODIUM', 760, 430, q.on('metaal', 1), 'center');
-    const E = q.on('evolueren', 1, 0.8); protease(ctx, 1200, 360, 90, { a: E, an: 0.5 }); if (E > 0.01) for (let i = 0; i < 22; i++) { const an = hash(i) * 6.283, rr = 30 + hash(i + 3) * 50; circ(ctx, 1200 + Math.cos(an) * rr, 360 + Math.sin(an) * rr, 6, C.goud, null); }
+    metaalWeg(ctx, 760, 340, q.on('metaal', 1), q.on('zonder', 1)); naamBij(ctx, 'zwaar metaal', 'RHODIUM', 760, 430, q.on('metaal', 1), 'center');
+    const E = q.on('Onderzoekers', 1, 0.6), Ev = q.on('evolueren', 1, 3); protease(ctx, 1200, 360, 90, { a: E, an: 0.5 }); if (E > 0.01) for (let i = 0; i < Math.round(22 * Ev); i++) { const an = hash(i) * 6.283, rr = 30 + hash(i + 3) * 50; circ(ctx, 1200 + Math.cos(an) * rr, 360 + Math.sin(an) * rr, 6, C.goud, null); }
     tag(ctx, 'ruim 20 veranderingen · tienduizenden keren beter', 1200, 520, C.goud, q.on('tienduizenden', 1), 'center', 28);
     chip(ctx, 'in de natuur niet gevonden', 1200, 220, C.koraal, q.on('natuur', 1), 28);
-    afvalBalken(ctx, 700, 660, { a: q.on('afval', 1), k: q.on('afval', 1, 1.2) }); metaalWeg(ctx, 1560, 720, q.on('metaal', 2)); },
+    afvalBalken(ctx, 700, 660, { a: q.on('fabriek', 1), k: q.on('minder', 1, 1.2) }); },
 
   // ---------- Recap ----------
   s27(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx);
     wasmachine(ctx, 260, FLOOR, 0.9, { t }); broek(ctx, 520, 430, 0.8, { vlek: 1 - q.on('dertig', 1, 1.5) });
     genStreep(ctx, 980, 260, 520, { mut: Math.round(5 * q.on('willekeurig', 1, 1)), seed: 2 });
-    [['koud', C.teal], ['basisch', C.teal], ['met bleek', C.koraal]].forEach(([n, col], i) => chip(ctx, n, 820 + i * 170, 360, col, q.on('wasmachine', 1), 28));
-    for (let i = 0; i < 3; i++) { const x = 820 + i * 330; melkPlaat(ctx, x, 620, 130, { n: 16, seed: 3 + i, win: 1, winSchaal: 1 + i * 0.6, a: i === 0 ? q.on('duizenden', 1) : q.on('ronde', i) }); metaA(ctx, 'RONDE ' + (i + 1), x, 790, i === 0 ? q.on('duizenden', 1) : q.on('ronde', i), C.grain, 'center', 28); }
-    metaA(ctx, 'DE MEESTE: NIET BETER', 820, 860, q.on('meeste', 1), C.koraal, 'center', 28); },
+    [['30 °C', C.teal], ['basisch', C.teal], ['met bleek', C.koraal]].forEach(([n, col], i) => chip(ctx, n, 820 + i * 170, 360, col, q.on('wasmachine', 1), 28));
+    for (let i = 0; i < 3; i++) { const x = 820 + i * 330; melkPlaat(ctx, x, 620, 130, { n: 16, seed: 3 + i, win: 1, winSchaal: 1 + i * 0.6, a: [q.on('duizenden', 1), q.on('paar', 1), q.on('ronde', 1)][i] }); metaA(ctx, 'RONDE ' + (i + 1), x, 780, [q.on('duizenden', 1), q.on('paar', 1), q.on('ronde', 1)][i], C.grain, 'center', 28); }
+    metaA(ctx, 'DE MEESTE: NIET BETER', 820, 830, q.on('meeste', 1), C.koraal, 'center', 28); },
 
   s28(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx);
     sam(ctx, 180, t, { a: 1, h: 360 }); merel(ctx, 1760, t, { a: 1, h: 360, kijk: -1 });

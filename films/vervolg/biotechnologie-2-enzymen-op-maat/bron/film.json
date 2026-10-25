@@ -1,0 +1,89 @@
+{
+ "slug": "biotechnologie-2-enzymen-op-maat",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Enzymen op maat",
+ "sub": "van wasmiddel tot medicijn",
+ "puzzle": "Hoe maak je een enzym dat al bij 30 graden vlekken uit je kleren haalt?",
+ "meta": "biotechnologie · mbo, hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Biotechnologie en life sciences",
+ "lead": "Sam krijgt een stageopdracht: een enzym dat een eivlek al bij 30 graden weghaalt. Een protease knipt de eiwitketens van de vlek in stukjes, en wassen op 30 in plaats van 40 graden bespaart ongeveer een derde energie. Maar het startenzym is traag in de kou en kan slecht tegen bleekmiddel. Met gerichte evolutie maakt Sam willekeurige veranderingen in het gen, test duizenden varianten op een melkplaat en in een putjesplaat, en laat de beste doorgaan, ronde na ronde. Gericht ontwerp kan ook: één aminozuur vervangen, maar het effect is moeilijk te voorspellen. Een productiecel maakt daarna het winnende enzym in een bioreactor; zo maakt de industrie ook medicijnen zoals sitagliptine.",
+ "endHaak": "welke regels gelden er voor zulke cellen?",
+ "minis": {
+  "Hoofdstuk 1": "Waarop test je een nieuw enzym?",
+  "Hoofdstuk 2": "Hoeveel van duizend varianten zijn beter?",
+  "Hoofdstuk 3": "Welke variant mag door, en kan het ook gericht?",
+  "Hoofdstuk 4": "Hoe wordt een winnende variant een product?",
+  "Recap": "Hoe maak je een enzym voor 30 graden?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Sam en Procestechnoloog Merel (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Op Sams witte broek zit een eivlek. Wat doet een enzym met zo'n vlek?",
+   "correct": 1,
+   "explain": "Een protease knipt de lange eiwitketens in kleine stukjes, die oplossen en wegspoelen. Het enzym raakt niet op: na elke knip is het vrij voor de volgende keten."
+  },
+  "q08": {
+   "q": "Sam maakt duizenden varianten van het enzym. Onder welke omstandigheden test hij ze?",
+   "correct": 0,
+   "explain": "Zoals in de wasmachine: dertig graden, basisch, met bleek. Je vindt alleen waar je op test; een variant die warm goed knipt, kan bij dertig graden traag zijn."
+  },
+  "q11": {
+   "q": "Sam telt duizend kolonies op de melkplaat. Hoeveel zijn er beter dan het startenzym?",
+   "correct": 1,
+   "explain": "Maar een paar. Een willekeurige verandering verstoort vaak de vorm van het eiwit; soms werkt die net iets beter. Die paar zoek je."
+  },
+  "q15": {
+   "q": "Variant één knipt het snelst maar overleeft bleek slecht, variant twee is op allebei iets beter, variant drie overleeft bleek het best maar knipt trager. Welke mag door?",
+   "correct": 2,
+   "explain": "In de wasmachine moet het enzym snel knippen én bleek overleven, tegelijk. Variant twee gaat door en wordt opnieuw veranderd."
+  },
+  "q18": {
+   "q": "Sam vervangt methionine op plek 222 door alanine. Wat gebeurt er?",
+   "correct": 0,
+   "explain": "Bleek kan daar niets meer beschadigen, maar zulke varianten knippen vaak trager: één ander aminozuur verandert de vorm een beetje. Wat een verandering doet, is moeilijk te voorspellen."
+  },
+  "q23": {
+   "q": "Het gen van de winnaar zit in een Bacillus-bacterie in een grote tank. Waar zit het enzym na de fermentatie?",
+   "correct": 2,
+   "explain": "Meestal geven de cellen het enzym af aan de vloeistof. Je filtert de cellen eruit en zuivert het enzym."
+  }
+ },
+ "glossary": [
+  {
+   "t": "enzym",
+   "d": "Eiwit dat een reactie versnelt en zelf niet verbruikt wordt (zie Alles versneld)."
+  },
+  {
+   "t": "protease",
+   "d": "Enzym dat eiwitten knipt. In wasmiddel knipt het eiwitvlekken, zoals ei en bloed, in stukjes die wegspoelen."
+  },
+  {
+   "t": "amylase en lipase",
+   "d": "Amylase knipt zetmeel, lipase vet. Wasmiddel bevat een mengsel van zulke enzymen."
+  },
+  {
+   "t": "variant",
+   "d": "Een versie van een enzym met één of meer andere aminozuren, doordat het gen veranderd is."
+  },
+  {
+   "t": "gerichte evolutie",
+   "d": "Willekeurige veranderingen in een gen maken, de varianten testen, de beste kiezen en dat herhalen, ronde na ronde."
+  },
+  {
+   "t": "gericht ontwerp",
+   "d": "Op basis van de bouw van het eiwit één bepaald aminozuur vervangen door het gen op die plek te veranderen."
+  },
+  {
+   "t": "screenen",
+   "d": "Heel veel varianten tegelijk testen, bijvoorbeeld op een melkplaat (heldere ring) of in een plaat met 96 putjes."
+  },
+  {
+   "t": "octrooi",
+   "d": "Recht dat een ander een uitvinding niet zomaar mag namaken; in Europa tot twintig jaar na de aanvraag."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Wasmiddel bevat een protease, een amylase en een lipase. Leg uit waarom er niet één enzym in zit dat alle vlekken weghaalt. Leg ook uit waarom een kleine hoeveelheid enzym genoeg is voor een hele was. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een enzym werkt specifiek: het actieve centrum past alleen bij één soort stof (substraat) (1p). Eiwit, zetmeel en vet zijn verschillende stoffen, dus je hebt voor elk een ander enzym nodig: protease, amylase, lipase (1p). Een enzym wordt bij de reactie niet verbruikt: na elke knip is het weer vrij voor de volgende keten (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Een startenzym knipt eiwit goed bij 50 °C, maar traag bij 30 °C. Een leerling stelt voor de varianten te testen bij 50 °C, 'want dan zie je de verschillen beter'. Leg uit waarom dat een slecht plan is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij gerichte evolutie vind je alleen varianten die beter zijn onder de omstandigheden waarop je test (1p). Een variant die bij 50 °C goed knipt, kan bij 30 °C nog steeds traag zijn; je moet dus testen zoals in de wasmachine: 30 °C, basisch, met bleek (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Op een melkplaat groeien 1000 kolonies van bacteriën met een willekeurig veranderd proteasegen. <br>a. Leg uit hoe je op de plaat ziet welke kolonie een goed werkend protease maakt. <br>b. Leg uit waarom de meeste varianten even goed of slechter zijn dan het startenzym. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Melk is troebel door melkeiwit (caseïne); een kolonie die protease uitscheidt, knipt het eiwit rondom, en er ontstaat een heldere ring: hoe groter de ring, hoe beter het enzym werkt (1p). <br>b. Een willekeurige verandering in het gen geeft een ander aminozuur (1p); dat verstoort meestal de vorm van het eiwit of verandert niets; een verbetering is zeldzaam (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Na ronde één heeft Sam drie varianten (zie tabel). In het waswater zit bleekmiddel.\n<table><tr><th>Variant</th><th>Knipsnelheid bij 30 °C (startenzym = 100)</th><th>Activiteit over na bleek (%)</th></tr><tr><td>1</td><td>180</td><td>10</td></tr><tr><td>2</td><td>130</td><td>50</td></tr><tr><td>3</td><td>70</td><td>90</td></tr></table>\na. Bereken voor elke variant hoeveel knipactiviteit er na bleek overblijft (startenzym zonder bleek = 100). <br>b. Welke variant laat Sam doorgaan naar ronde twee? Leg uit. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Variant 1: 180 × 0,10 = 18; variant 2: 130 × 0,50 = 65; variant 3: 70 × 0,90 = 63 (1p). <br>b. Variant 2 (1p): in de wasmachine moet het enzym snel knippen én bleek overleven, tegelijk; variant 2 houdt na bleek de meeste knipactiviteit over en is op beide punten beter dan het startenzym, dus verder verbeteren kan op allebei (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Bleekmiddel beschadigt in subtilisine vooral methionine op plek 222. Met gericht ontwerp vervang je die door alanine. <br>a. Leg uit wat je daarvoor in het DNA verandert. <br>b. De nieuwe variant is goed bestand tegen bleek, maar knipt veel trager. Leg uit hoe één ander aminozuur de werking kan veranderen. <br>c. Leg uit waarom bedrijven gericht ontwerp en gerichte evolutie combineren. <span class=\"pts\">(4p)</span></p>\n<details><summary>Antwoord</summary><p>a. Je verandert het triplet (codon) voor methionine op die plek in een triplet voor alanine (1p). <br>b. De volgorde van aminozuren bepaalt de vouwing; een ander aminozuur vlak bij het actieve centrum verandert de vorm daar een beetje, waardoor het substraat minder goed past (1p). <br>c. Wat één verandering doet, is moeilijk te voorspellen (1p); met gericht ontwerp los je een bekend probleem op, met gerichte evolutie zoek je daarna veranderingen die de snelheid herstellen, ook op plekken die je niet had bedacht (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Het winnende gen wordt in een <i>Bacillus</i>-bacterie gezet die in een bioreactor groeit. <br>a. Leg uit waarom het handig is dat de bacterie het enzym uitscheidt. <br>b. Bij het diabetesmedicijn sitagliptine verving een enzym uit gerichte evolutie een stap met een zwaar metaal. Noem twee voordelen van zo'n enzym boven een chemische stap. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Het enzym komt in de vloeistof; je hoeft de cellen niet open te breken, alleen weg te filteren, en daarna te zuiveren (1p). <br>b. Twee van: geen zwaar metaal nodig (dus ook niet weg te zuiveren uit het medicijn); minder afval; werkt specifiek, dus minder bijproducten en meer opbrengst; werkt bij mildere omstandigheden (2p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 2 van <i>Wat word jij?</i> → Biotechnologie en life sciences. Bouwt voort op <i>Alles versneld</i> (enzymen: specifiek, actief centrum, optimum, niet verbruikt), <i>Van DNA naar eiwit</i> (gen → aminozuurvolgorde → vouwing; mutatie), <i>Evolutie</i> (variatie + selectie) en film 1 van deze reeks (<i>Bacteriën als fabriek</i>: gen in een productiecel, bioreactor, zuiveren). Sam is stagiair, Merel (procestechnoloog) zijn begeleider. Eén product loopt door de film: een protease dat Sams eivlek bij 30 °C weghaalt, in drie rondes gerichte evolutie. Film 3 (<i>Mag dat?</i>) gaat over regels rond ggo's.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> een eivlek die na een was op 30 °C blijft zitten; Sams stageopdracht. Vraag 1: wat doet een enzym met zo'n vlek?</li>\n<li><b>H1 Ronde één: waar test je op?</b> Een protease knipt de eiwitketens van een kluwen gestold eiwit in stukjes, die oplossen; het enzym raakt niet op. Amylase en lipase voor zetmeel en vet. Waarom 30 °C: de meeste energie gaat naar het opwarmen van water; 30 in plaats van 40 °C scheelt ongeveer een derde. Merel geeft een startenzym uit <i>Bacillus</i>: goed in basisch waswater, traag bij 30 °C, slecht tegen bleek (dat beschadigt het enzym bij het actieve centrum). Gerichte evolutie, ronde één: willekeurige veranderingen in het gen, verdeeld over veel bacteriën. Vraag 2: onder welke omstandigheden test je? Zoals in de wasmachine; je vindt alleen waar je op test.</li>\n<li><b>H2 Ronde één: de uitslag</b> melkplaat met heldere ringen; duizend kolonies. Vraag 3: hoeveel zijn beter? Maar een paar ('Je zoekt juist die paar'). Daarna de plaat met 96 putjes: een stof die kleurt als het enzym knipt, gemeten zonder en met bleek; tot zo'n 10.000 varianten per dag (screenen).</li>\n<li><b>H3 Ronde twee en drie: kiezen en stapelen</b> vraag 4: welke van drie varianten mag door? De variant die op beide eisen beter is; kleine verbeteringen stapelen zich op. Gericht ontwerp als alternatief: methionine op plek 222 → alanine. Vraag 5: wat gebeurt er? Bestand tegen bleek, maar vaak trager; het effect is moeilijk te voorspellen, dus bedrijven combineren beide. Het enzym past zich niet aan: Sam kiest. Frances Arnold (1993, protease in een oplosmiddel, 3 rondes, 256×; Nobelprijs 2018). Na ronde drie een winnaar.</li>\n<li><b>H4 Van plaat naar product</b> het gen in een <i>Bacillus</i>-productiecel in een bioreactor (koppeling met film 1). Vraag 6: waar zit het enzym? In de vloeistof; filteren, zuiveren, stofvrije korrels. Octrooi (Europa: tot 20 jaar na de aanvraag). Sitagliptine: een enzym na gerichte evolutie vervangt een stap met een zwaar metaal; ruim twintig veranderingen, tienduizenden keren beter, minder afval.</li>\n<li><b>Recap</b> drie rondes op een rij; opleidingen (HAN, Radboud, Wageningen) en een werkplek (IFF in Leiden); vooruitblik op film 3.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Enzymen in wasmiddel</td><td>protease voor eiwit, amylase voor zetmeel, lipase voor vet</td><td>A.I.S.E., <i>The role of enzymes in detergent products</i> (factsheet 2021); Novozymes, <i>Enzymes at work</i>; Chaplin, <i>Enzyme Technology</i> (LSBU)</td></tr>\n<tr><td>Energie van een wasbeurt</td><td>de meeste naar het opwarmen van water</td><td>A.I.S.E. factsheets 2017 en 2021; Novozymes, <i>Enzymes at work</i></td></tr>\n<tr><td>30 in plaats van 40 °C</td><td>ongeveer een derde minder energie</td><td>Which? (2020): 38 % minder; Topten/ECEEE 2015 (20 tegen 40 °C: gemiddeld 64 %). Geen A-bron voor precies 30 tegen 40, daarom 'ongeveer'</td></tr>\n<tr><td>Startenzym</td><td>subtilisine uit <i>Bacillus</i>, goed bij basisch waswater</td><td>Kemifokus (Dansk Kemi); Danilova &amp; Sharipova, <i>Front Microbiol</i> 2020; PDBsum 1SVN (Savinase, <i>B. lentus</i>, alkalofiel)</td></tr>\n<tr><td>Bleek en methionine 222</td><td>bleek beschadigt vooral methionine op plek 222; alanine maakt het enzym bestand</td><td>US-octrooien 4.760.025 (1988, voorbeeld 17), 5.346.823 en 6.465.235 (Genencor); oorspronkelijk Estell e.a., <i>J Biol Chem</i> 1985 (niet zelf geopend)</td></tr>\n<tr><td>Vaak trager</td><td>soms nog maar een fractie zo snel</td><td>Grøn e.a., <i>Eur J Biochem</i> 1990 (activiteit 1–10 % bij Met222-varianten); de octrooien noemen alleen de stabiliteit</td></tr>\n<tr><td>Melkplaat</td><td>heldere ring waar protease het melkeiwit knipt</td><td>protocols.io, <i>Protease activity assay by skim milk agar</i> (Virginia Tech, 2025); Markel e.a., <i>Chem Soc Rev</i> 2019</td></tr>\n<tr><td>Screenen</td><td>putjesplaat, tot zo'n 10.000 varianten per dag; uit ±1000 varianten vaak een paar betere</td><td>Markel e.a., <i>Chem Soc Rev</i> 2019; Leemhuis e.a. (RUG), 2009</td></tr>\n<tr><td>Frances Arnold</td><td>1993 als eerste, protease in een oplosmiddel (DMF), 3 rondes, 256× beter; Nobelprijs 2018</td><td>Chen &amp; Arnold, <i>PNAS</i> 90:5618, 1993; Nobelprijscomité, <i>Popular information</i> en persbericht 2018</td></tr>\n<tr><td>Productie</td><td><i>Bacillus</i> in een tank, enzym in de vloeistof; stofvrije korrels</td><td>Novozymes, <i>Enzymes at work</i>; A.I.S.E. 2021 (korrels sinds begin jaren 70); Danilova &amp; Sharipova 2020</td></tr>\n<tr><td>Octrooi</td><td>in Europa tot 20 jaar na de aanvraag</td><td>Europees Octrooibureau, FAQ; voorbeelden: de Genencor-octrooien hierboven</td></tr>\n<tr><td>Sitagliptine</td><td>geen natuurlijk enzym; ruim twintig veranderingen, tienduizenden keren beter; minder afval, geen zwaar metaal</td><td>Savile e.a., <i>Science</i> 329:305, 2010 (via de bronnen); Janey (Merck), presentatie 2011 (25 mutaties, 25.000×); Giver (Codexis); <i>Chemistry World</i> 2010 (19 % minder afval, geen zware metalen); Khobragade e.a., <i>Front Bioeng Biotechnol</i> 2021</td></tr>\n<tr><td>Werkplek</td><td>IFF in Leiden ontwerpt enzymen</td><td>Leiden Bio Science Park, organisatiepagina IFF</td></tr></table>\n<p>Het volledige logboek met de status per bewering staat in de bronmap (<code>bron/bronnen.md</code>).</p>\n<h3>Vereenvoudigingen</h3>\n<ul><li>Sams project is gecomprimeerd: echte projecten hebben vaak veel meer rondes (de film zegt dat). Het sitagliptine-enzym kostte 11 rondes en bijna 37.000 geteste varianten.</li>\n<li>De eivlek is getekend als kluwen van kralenkettingen; echt gestold eiwit is dichter en bevat ook vet (eigeel). De film zegt daarom 'in een eivlek zit veel eiwit'.</li>\n<li>'Willekeurige veranderingen' zonder methode; in het lab vaak met een PCR die expres fouten maakt (error-prone PCR). Of Arnold in 1993 precies die methode gebruikte, is niet bevestigd.</li>\n<li>In de putjesplaat 'kleurt een stof als het enzym hem knipt': meestal een kunstmatig substraat dat geel wordt.</li>\n<li>Welke handelsenzymen de Met222-verandering bevatten, noemt de film bewust niet: dat is in de geopende bronnen niet te controleren.</li>\n<li>Koude-actieve enzymen uit poolbacteriën (flexibeler rond het actieve centrum, maar minder stabiel) zijn een mooie uitbreiding; de film laat ze weg. Ook Biotex (1963, het eerste succesvolle enzymwasmiddel, uit Nederland) en enzymen die zelf het medicijn zijn (pegvaliase bij PKU) staan er niet in.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Practicum: melkplaat (magere melk in agar) met een korrel wasmiddel of een druppel enzymoplossing; vergelijk de heldere ring bij kamertemperatuur en in de koelkast, met en zonder een beetje bleek.</li>\n<li>Laat leerlingen checkvraag 4 uitbreiden: bedenk zelf een vierde variant die niet doorgaat, en leg uit waarom 'het snelst' niet hetzelfde is als 'het best'.</li>\n<li>Koppel aan evolutie: wat is in gerichte evolutie de variatie, wat de selectie, en wie of wat selecteert? Waarom 'past het enzym zich niet aan'?</li>\n<li>Discussie als opstap naar film 3: mag je een enzym octrooieren dat je met toevalsmutaties hebt gevonden?</li></ul>\n</section>\n"
+}
