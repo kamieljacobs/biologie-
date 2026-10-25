@@ -35,7 +35,10 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |
+| ouders van het meisje in Bio-informatica 2 (figuranten) | **Anouk** (`anouk`, 34, moeder) en **Milan** (`milan`, 36, vader), 25 okt 2026, ter keuring; los van alle families (`CAST_OUDERS_BI`); garderobe `gewoon`, `jas`; in het uitslaggesprek zittend aan tafel met Dr. Kim |
 | gezin met een kind met albinisme (erfelijkheid, recessief; figuranten, in de film zonder naam) | **gezin De Wit** (`CAST_GEZIN_WIT`, 25 okt 2026, ter keuring): Dennis en Marieke (Aa), Sara (13), **Levi** (10, albinisme), Jens (7), grootouders Opa Frank, Oma Lucia, Opa Wim, Oma Anja; garderobe `licht` = variant met lichte huid |
+
+Zitten: pose `zit` (25 okt 2026), vooraanzicht én zijaanzicht (`zij: true`), voor alle volwassenen en tieners: `o.stoel` (true of kleur), `o.tafel` = y van het tafelblad (handen op tafel; zonder tafel in de schoot), `o.handOpHand` = punt (bv. `handL` van de partner, die je eerst tekent) waar de hand aan die kant op komt te liggen, `o.zitHoogte`; zijaanzicht ook `o.reik`, `o.leun`. Teken het tafelblad ná de personages (vóór de benen).
 
 Handdruk: pose `handdruk` met `o.hand` (grijppunt) en `o.schud` (0..1), of de functie `handdruk(ctx, idL, idR, xm, voet, h, {t, schud, …})` die twee personages zo neerzet dat de handen sluiten (25 okt 2026).
 

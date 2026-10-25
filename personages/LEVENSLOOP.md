@@ -36,6 +36,8 @@
 
 **Gezin De Wit** (Dennis, Marieke, Sara, Levi, Jens en grootouders): vast: ouders Dennis en Marieke (allebei Aa), kinderen Sara (AA), Levi (10, albinisme, aa) en Jens (Aa); bruine huid (variant A, gekeurd 25 okt 2026). Gebeurd: Erfelijkheid 1 Chromosomen (2.1). Grenzen: genotypen voor albinisme liggen vast (ook in de volgende erfelijkheidsfilms); Levi heeft geen rode zonnebrand in beeld, alleen geen pigment.
 
+**Anouk** (34) en **Milan** (36) · vast: figuranten, moeder en vader van een meisje van 4 met een zeldzame aandoening (het meisje komt nooit in beeld); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: uitslaggesprek bij Dr. Kim in Wat word jij? · Bio-informatica 2 (variant met onbekende betekenis; Milan vraagt 'Is dit het nu?', Anouk legt haar hand op de zijne). Grenzen: blijven figuranten in dit verhaal (geen beroepsrol, geen andere films zonder reden); de uitslag van hun dochter blijft 'nog niet bekend', niet later alsnog 'niets'.
+
 ## Automatisch: waar komt wie voor
 
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
@@ -265,5 +267,11 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - (geen films gevonden)
 
 ### Oma Anja (`omabos`) — 0 films
+- (geen films gevonden)
+
+### Anouk (`anouk`) — 0 films
+- (geen films gevonden)
+
+### Milan (`milan`) — 0 films
 - (geen films gevonden)
 <!-- AUTO:end -->
