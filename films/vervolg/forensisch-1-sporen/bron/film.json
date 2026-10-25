@@ -1,0 +1,93 @@
+{
+ "slug": "forensisch-1-sporen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Sporen op de plaats delict",
+ "sub": "is dit bloed?",
+ "puzzle": "Op de vloer van een huis waar is ingebroken ligt een bruine vlek. Is het bloed? En van een mens?",
+ "meta": "forensisch onderzoek · hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Forensisch onderzoek",
+ "lead": "Bilal loopt stage bij de forensische opsporing. In een huis waar is ingebroken ziet hij een bruine vlek. Een kleurtest en luminol zoeken naar heem, het deel van hemoglobine met een ijzeratoom: dat versnelt een reactie met waterstofperoxide, zoals een enzym. Maar ook planten en dierenbloed doen dat, dus zo'n test is een voorproef: het kán bloed zijn. Een sneltest met antistoffen zegt of het menselijk hemoglobine is, met een testlijn en een controlelijn. Uit de vorm van een spatje reken je de inslaghoek uit: sin α = breedte / lengte. En alles gaat zo naar het lab dat er niets bij komt: nieuwe handschoenen, drogen, papier en een keten van bewaring.",
+ "endHaak": "van wie is het bloed op het mes?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom zegt een kleurtest alleen dat iets bloed kán zijn?",
+  "Hoofdstuk 2": "Hoe weet je of bloed van een mens is, en niet van de hond?",
+  "Hoofdstuk 3": "Wat vertelt de vorm van een spatje?",
+  "Hoofdstuk 4": "Hoe krijg je een spoor in het lab zonder dat er iets bij komt?",
+  "Recap": "Is die bruine vlek bloed?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Bilal en Dr. Kim (castboek). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Bilal ziet een bruine vlek op de vloer. Waar zoekt een test naar om te zien of het bloed is?",
+   "correct": 1,
+   "explain": "Een test zoekt hemoglobine. Het heem daarin, met een ijzeratoom, versnelt een reactie met waterstofperoxide. De kleur zegt weinig: ook koffie of roest kan bruin zijn."
+  },
+  "q06": {
+   "q": "Bilal druppelt eerst een kleurloze vloeistof op het staafje, wacht even en voegt dan pas waterstofperoxide toe. Waarom wacht hij eerst?",
+   "correct": 2,
+   "explain": "Zonder waterstofperoxide hoort er niets te gebeuren. Kleurt het staafje al roze vóór de peroxide, dan kleurt er iets anders (bijvoorbeeld koperzout) en telt de test niet."
+  },
+  "q11": {
+   "q": "Het strookje is in het lab getest met hondenbloed: alleen bij C kleurt een streep. Wat betekent dat?",
+   "correct": 0,
+   "explain": "De streep bij C laat zien dat de test werkte. Bij T bleef niets hangen: geen menselijk hemoglobine, of te weinig om te zien."
+  },
+  "q15": {
+   "q": "Op de muur zit een rond spatje en een ovaal met een staartje. Welke druppel kwam het schuinst aan?",
+   "correct": 1,
+   "explain": "Een druppel die recht op de muur komt, spat naar alle kanten gelijk uit: rond. Komt hij schuin aan, dan glijdt hij door tot een ovaal. Het staartje wijst waar hij heen vloog."
+  },
+  "q20": {
+   "q": "Bilal pakte met handschoenen het staafje van de vlek en wil nu het glas bemonsteren. Wat doet hij eerst?",
+   "correct": 2,
+   "explain": "Wat van de vlek aan een handschoen zit, kan meereizen naar het glas. Daarom na elk spoor nieuwe handschoenen."
+  },
+  "q23": {
+   "q": "Het wattenstaafje met bloed is nog vochtig. Waarin gaat het mee naar het lab?",
+   "correct": 0,
+   "explain": "In een dichte zak gaat een vochtig spoor schimmelen, en schimmel breekt het spoor af. Dus eerst drogen, dan in papier of een doosje dat ademt, elk spoor apart."
+  }
+ },
+ "glossary": [
+  {
+   "t": "spoor",
+   "d": "Alles wat iemand op een plaats achterlaat en wat iets kan zeggen over wat er gebeurde: bloed, speeksel, een vingerafdruk, een vezel, een insect."
+  },
+  {
+   "t": "hemoglobine en heem",
+   "d": "Hemoglobine is het eiwit in rode bloedcellen dat zuurstof bindt. Het heeft vier heemgroepen, elk met een ijzeratoom. Heem versnelt een reactie met waterstofperoxide, zoals een enzym: daarop werken de kleurtest en luminol."
+  },
+  {
+   "t": "voorproef (indicatieve test)",
+   "d": "Snelle test die zegt dat iets bloed (of speeksel) kán zijn; een positieve uitslag is nog geen bewijs, want ook andere stoffen kunnen reageren."
+  },
+  {
+   "t": "luminol",
+   "d": "Vloeistof die je in het donker spuit: waar heem zit, komt er blauw licht vrij. Zo vind je bloed dat je niet ziet, ook sterk verdund. Het licht zegt niet dat het bloed is, en weinig over de hoeveelheid."
+  },
+  {
+   "t": "sneltest op menselijk bloed",
+   "d": "Strookje met antistoffen tegen menselijk hemoglobine met een gekleurd deeltje eraan. Bij de testlijn (T) houdt een tweede antistof het hemoglobine vast; de controlelijn (C) vangt de gekleurde antistoffen die niets vasthielden en moet altijd kleuren."
+  },
+  {
+   "t": "amylasetest",
+   "d": "Voorproef op speeksel: amylase knipt zetmeel waaraan een blauwe kleurstof zit, en de kleurstof komt los. Ook andere lichaamsvochten bevatten amylase."
+  },
+  {
+   "t": "inslaghoek",
+   "d": "De hoek waaronder een druppel op een oppervlak kwam. Uit een ovale vlek (zonder staartje): sin α = breedte / lengte. Bij een bijna ronde vlek geeft een kleine meetfout een grote fout in de hoek."
+  },
+  {
+   "t": "eliminatiedatabank",
+   "d": "Databank met het DNA van mensen die met sporen werken. Vindt het lab hun DNA op een spoor, dan is dat waarschijnlijk besmetting door een eigen medewerker."
+  },
+  {
+   "t": "keten van bewaring",
+   "d": "Vastleggen wie een bewijsstuk wanneer had (nummer, zegel, formulier), zodat niemand kan zeggen dat het verwisseld of besmet is."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Luminol geeft op een vloer blauw licht. Een agent zegt: 'Dus hier ligt bloed.' Leg uit waarom dat niet zeker is, en wat het licht wél zegt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het licht ontstaat doordat iets de reactie van luminol met waterstofperoxide versnelt; het heem in hemoglobine doet dat, maar ook andere stoffen (bijvoorbeeld koper- of ijzerverbindingen, plantenenzymen) kunnen het (1p). Luminol is dus een voorproef: het kán bloed zijn, en het zegt niet van welk dier het komt (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Bij de kleurtest druppelt Bilal eerst de kleurloze vloeistof op het staafje, wacht even en voegt dan pas waterstofperoxide toe. Leg uit wat hij doet als het staafje al roze wordt vóór de peroxide. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Zonder waterstofperoxide hoort er niets te gebeuren, dus dan kleurt iets anders de vloeistof, zoals een koperzout (1p). De test telt dan niet; hij mag het spoor niet als 'mogelijk bloed' noteren op grond van deze test (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Op een sneltest voor menselijk bloed kleurt alleen de controlelijn C. Iemand zegt: 'Er is een streep, dus het is positief.' Leg uit wat C en T betekenen en wat de uitslag is. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>C vangt de gekleurde antistoffen die niets vasthielden en laat zien dat de vloeistof door het strookje is gelopen: de test werkte (1p). T kleurt alleen als een tweede antistof menselijk hemoglobine (met de gekleurde antistof eraan) vasthoudt (1p). Alleen C: geen menselijk hemoglobine, of te weinig om te zien (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een bloedvlek op een muur is (zonder staartje) 4 mm breed en 8 mm lang. Bereken de inslaghoek. Leg ook uit waarom je liever een langgerekte dan een bijna ronde vlek meet. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>sin α = 4 / 8 = 0,5 (1p), dus α = 30° (1p). Bij een bijna ronde vlek ligt de verhouding dicht bij 1; daar verandert de hoek sterk bij een kleine verandering van de verhouding, dus een meetfout van een halve millimeter geeft een grote fout in de hoek (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een agent stopt een vochtig wattenstaafje met bloed meteen in een dichtgeplakt plastic zakje, 'zodat er niets bij kan'. Noem twee dingen die hier misgaan of mis kunnen gaan, en wat hij beter had gedaan. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>In een dichte zak blijft het vocht hangen en gaat het spoor schimmelen; schimmel breekt het spoor af (1p). Beter: eerst laten drogen en dan in papier of een doosje dat ademt, elk spoor apart (1p). Ook moet het zakje een nummer en een zegel krijgen en op het formulier van de keten van bewaring komen, anders kan een advocaat zeggen dat het verwisseld of besmet is (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Het lab vindt op een spoor het DNA van een agent die de plaats delict heeft onderzocht. Hoe weet het lab dat, en wat concludeert het? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Het DNA van medewerkers die met sporen werken staat in de eliminatiedatabank; het profiel van het spoor wordt daarmee vergeleken (1p). Een overeenkomst betekent waarschijnlijk besmetting door een eigen medewerker, niet dat de agent iets met het misdrijf te maken heeft (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 1 van <i>Wat word jij?</i> → Forensisch onderzoek. Bouwt voort op <i>Wat er in je bloed zit</i> (hemoglobine), <i>Antistoffen op maat</i> (een antistof past op één vorm), <i>Vaccins, allergie en bloedgroepen</i> (sneltest) en <i>Knippen op maat</i> (enzymen, amylase knipt zetmeel). Bilal is in de hele reeks stagiair forensisch onderzoek (hbo), Dr. Kim zijn begeleider. Eén zaak loopt door film 1 en 2: een inbraak waarbij de bewoner gewond raakte; het mes gaat aan het eind van deze film naar het DNA-lab (film 2: <i>Hoe zeker is een match?</i>). De film toont geen lichaam, wond of geweld; bloed alleen als nette vlekken en spatjes.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open en H1</b> de bruine vlek; een test zoekt hemoglobine. Zoom op één hemoglobine met vier heemgroepen, elk met een ijzeratoom, dat een reactie met waterstofperoxide versnelt ('zoals een enzym', vereenvoudigd). De kleurtest als vier stappen, met de vraag waarom je eerst zonder peroxide kijkt. Daarna luminol: pas na foto en monster, voor bloed dat je niet ziet (voetstappen naar de deur); licht betekent 'reactie versneld', niet 'bloed', en fel zegt weinig over hoeveel.</li>\n<li><b>H2</b> voorproef als begrip (mierikswortel, aardappel; heem bij alle zoogdieren gelijk; de hond van de bewoner). De sneltest als schema met een zoom op de 'sandwich' bij T en de controlelijn C; het strookje met hondenbloed als vraag. Daarna de amylasetest op het glas.</li>\n<li><b>H3</b> rond of ovaal, de som sin α = breedte / lengte met 5 en 10 millimeter, terugrekenen naar herkomst en hoogte (vereenvoudigd: rechte lijnen), en waarom een bijna ronde vlek onbetrouwbaar is.</li>\n<li><b>H4</b> veiligstellen: handschoenen wisselen, eliminatiedatabank, drogen en papier, keten van bewaring.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Luminol</td><td>heem versnelt de reactie met waterstofperoxide; blauw licht</td><td>Wikipedia 'Luminol' (chemiluminescentie, ± 425 nm; 'the intensity of the glow does not indicate the amount of blood'; kan andere tests op hetzelfde spoor hinderen)</td></tr>\n<tr><td>Gevoeligheid luminol</td><td>ook bij bloed dat ongeveer tienduizend keer verdund is</td><td>Tobe, Watson &amp; Nic Daéid, <i>J Forensic Sci</i> 52(1), 2007, tabel 2 (1:100 000 nog zwak, 1:1 000 000 niet meer)</td></tr>\n<tr><td>Kleurtest (Kastle-Meyer)</td><td>kleurloze vloeistof, wachten, dan waterstofperoxide; meteen roze = positief</td><td>sciencenotes.org 'Kastle-Meyer test for blood'; Wikipedia 'Kastle–Meyer test'. Het NFI noemt in zijn vakbijlage een tetrabasetest (zelfde principe, andere kleurstof)</td></tr>\n<tr><td>Hemoglobine</td><td>vier heemgroepen, elk met een ijzeratoom; werkt als een peroxidase</td><td>PMC9271945 (pseudoperoxidase-activiteit van hemoglobine)</td></tr>\n<tr><td>Plantenperoxidase</td><td>mierikswortel en aardappel kunnen ook reageren</td><td>sciencenotes; Tobe e.a. 2007 (vertraagd roze bij aardappel en mierikswortel)</td></tr>\n<tr><td>Sneltest (bv. ABAcard HemaTrace)</td><td>antistoffen tegen menselijk hemoglobine, T en C</td><td>HemaTrace-handleiding (Maine State Police) §1.2, §9.5</td></tr>\n<tr><td>Kruisreacties</td><td>mensapen en fret kleuren T ook; hondenbloed niet</td><td>HemaTrace §1.1, §9.3; validatie San Diego Police Crime Lab 2024 (hond, kat, varken, koe, geit, kip, papegaai negatief; gorilla positief)</td></tr>\n<tr><td>Amylase</td><td>zetmeel met blauwe kleurstof; ook in andere lichaamsvochten</td><td>Phadebas (speeksel ± 263 000–376 000 IU/L, urine 263–940); forensicresources.org 2011</td></tr>\n<tr><td>Inslaghoek</td><td>sin α = breedte / lengte; 5 / 10 → 30°; staart niet meemeten</td><td>crime-scene-investigator.net, 'Accuracy of digital ellipse marking for bloodstain pattern analysis' (1 mm meetfout: bij 15° ± 0,8° fout, bij 88° bijna 17°)</td></tr>\n<tr><td>Herkomst en hoogte</td><td>terugrekenen uit hoeken en richtingen; rechte lijnen zijn vereenvoudigd</td><td>NIJ, 'Researchers develop insight into blood droplet behavior'</td></tr>\n<tr><td>Verpakken</td><td>eerst drogen, papier of een doosje dat ademt, elk spoor apart</td><td>NIJ, 'Proper evidence collection and packaging'</td></tr>\n<tr><td>Eliminatiedatabank</td><td>DNA van medewerkers; match = waarschijnlijk besmetting</td><td>NDD jaarverslag 2025; securitymanagement.nl (2015: vrijwillig, 950 van 1250 FO-medewerkers)</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Forensisch Onderzoek, Saxion Enschede en HvA Amsterdam, vier jaar, selectie; master Forensic Science UvA</td><td>studiekeuze123 (240 EC, numerus fixus: HvA 105, Saxion 120); UvA-toelating (bèta-bachelor met statistiek, ± 40 % toegelaten, Engelstalig, twee jaar)</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>'Zoals een enzym'.</b> Hemoglobine is geen echt enzym; vaktaal is pseudoperoxidase-activiteit. In beeld staat 'vereenvoudigd'.</li>\n<li><b>Kleurtest.</b> De film laat het principe van Kastle-Meyer zien (fenolftaleïne). Welke kleurtest de Nederlandse politie gebruikt, noemt de film niet; het NFI noemt een tetrabasetest.</li>\n<li><b>Sneltest.</b> Bij heel veel bloed kan de test vals-negatief zijn (hook-effect); dan verdunt men. Niet in de film.</li>\n<li><b>Herkomst.</b> Druppels vliegen in een boog; rechte lijnen terug geven een te hoge herkomst. In beeld staat 'vereenvoudigd'.</li>\n<li><b>Eliminatiedatabank.</b> Deelname was in 2015 vrijwillig; wetgeving is in de maak. De film zegt daarom niet 'verplicht'.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Laat leerlingen een tabel maken met vier tests (kleurtest, luminol, sneltest, amylasetest): waar reageert hij op, wat zegt een positieve uitslag, wat níet?</li>\n<li>Geef drie vlekken met breedte en lengte (bijvoorbeeld 3 × 12, 6 × 8, 9,5 × 10 mm), laat de hoeken uitrekenen en daarna met ± 0,5 mm opnieuw: welke hoek is het minst betrouwbaar?</li>\n<li>Rollenspel 'advocaat': laat een groep een formulier van de keten van bewaring met een ontbrekende regel aanvallen, en een andere groep verdedigen.</li>\n<li>Vooruitblik op film 2: welke vraag kan het DNA-lab beantwoorden die deze tests niet beantwoorden?</li>\n</ul>\n</section>\n"
+}

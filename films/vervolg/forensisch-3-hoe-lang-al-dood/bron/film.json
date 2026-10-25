@@ -1,0 +1,93 @@
+{
+ "slug": "forensisch-3-hoe-lang-al-dood",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Hoe lang al dood?",
+ "sub": "afkoeling, lijkstijfheid en vliegenlarven",
+ "puzzle": "Iemand wordt overleden gevonden in zijn huis. Hoe kan een vlieg vertellen wanneer het gebeurd is?",
+ "meta": "forensisch onderzoek · hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Forensisch onderzoek",
+ "lead": "Een buurvrouw zag haar buurman twee weken geleden voor het laatst; nu is hij overleden gevonden. Dr. Kim, forensisch arts, zoekt geen tijdstip maar een venster met twee grenzen: het postmortaal interval. Haar aanwijzingen werken als zandlopers. Een lichaam koelt af met eerst een plateau en daarna steeds trager, lijkvlekken worden na een halve dag vast, en spieren worden stijf omdat myosinekoppen zonder ATP het actine niet meer loslaten. Na een paar dagen zijn die klokken leeg. Dan blijft de vlieg over: bromvliegen leggen eitjes, en de larven groeien in een tempo dat van de temperatuur afhangt. Met graaddagen rekent een forensisch entomoloog een ondergrens uit.",
+ "endHaak": "welke klok zou Kim gebruiken als het huis drie maanden leeg had gestaan?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom zakt de temperatuur niet elk uur evenveel?",
+  "Hoofdstuk 2": "Waarom wordt een stijve spier na een paar dagen weer slap?",
+  "Hoofdstuk 3": "Waar komen de maden vandaan, en wat zegt hun leeftijd?",
+  "Hoofdstuk 4": "Waarom tel je graaddagen in plaats van dagen?",
+  "Recap": "Wat schrijft Kim in haar rapport?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Dr. Kim (forensisch arts), Bilal (stagiair forensisch onderzoek), Lieke (forensisch entomoloog) en Mevrouw Jansen (de buurvrouw). De overledene komt niet in beeld. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Hoe kan een vlieg vertellen wanneer iemand is overleden?",
+   "correct": 2,
+   "explain": "Bromvliegen leggen vaak al binnen een paar uur eitjes. De larven die eruit komen groeien in een tempo dat je kunt meten, dus hun leeftijd zegt iets over de tijd sinds het overlijden. Het aantal vliegen zegt weinig."
+  },
+  "q06": {
+   "q": "Na het overlijden stopt de warmteproductie. Zakt de temperatuur dan elk uur evenveel?",
+   "correct": 0,
+   "explain": "Eerst blijft de kern een tijdje bijna even warm (het plateau), omdat de warmte eerst naar de huid moet. Daarna daalt hij, steeds trager naarmate het verschil met de kamer kleiner wordt. Een rechte lijn is alleen een vuistregel."
+  },
+  "q10": {
+   "q": "Waarom wordt een spier na het overlijden stijf?",
+   "correct": 1,
+   "explain": "Een myosinekop heeft ATP nodig om het actine los te laten. Als de cel geen ATP meer maakt, blijven de koppen vastzitten: lijkstijfheid. ATP zet de koppen dus niet vast, en de spier spant niet aan."
+  },
+  "q13": {
+   "q": "Na de eigen enzymen nemen bacteriën de afbraak over. Waar komen die vandaan?",
+   "correct": 2,
+   "explain": "In de darm leven bij leven al ontelbaar veel bacteriën. Na het overlijden verspreiden ze zich via de bloedvaten door het lichaam. Bacteriën ontstaan nooit vanzelf."
+  },
+  "q17": {
+   "q": "De entomoloog rekent uit hoe oud de larven zijn. Wat zegt die leeftijd over het overlijden?",
+   "correct": 0,
+   "explain": "De vlieg kwam na het overlijden, soms pas later (binnen, 's nachts, achter een dicht raam). De leeftijd van de larven is dus een ondergrens: het overlijden was minstens zo lang geleden."
+  },
+  "q21": {
+   "q": "Bij 22 graden krijgt een larve elke dag 22 − 8 = 14 graaddagen. Hoe lang hadden dezelfde larven nodig gehad voor 80 graaddagen?",
+   "correct": 1,
+   "explain": "80 gedeeld door 14 is ongeveer 5,7: bijna zes dagen. Het tempo hangt af van de temperatuur boven de drempel, niet van het aantal graden verschil met 15."
+  }
+ },
+ "glossary": [
+  {
+   "t": "postmortaal interval (PMI)",
+   "d": "De tijd sinds het overlijden. Een forensisch arts geeft het als een venster met een onder- en een bovengrens, niet als één tijdstip."
+  },
+  {
+   "t": "spoor",
+   "d": "Alles wat iemand op een plaats achterlaat en wat iets kan zeggen over wat er gebeurde, zoals bloed, speeksel, een vingerafdruk, een vezel of een insect."
+  },
+  {
+   "t": "plateau (bij afkoeling)",
+   "d": "De eerste periode na het overlijden waarin de kerntemperatuur bijna niet daalt, omdat de warmte eerst van binnen naar de huid moet. De lengte verschilt sterk."
+  },
+  {
+   "t": "nomogram van Henssge",
+   "d": "Rekenkaart waarmee een forensisch arts uit de lichaamstemperatuur, de kamertemperatuur, het gewicht en de kleding een tijdvenster van uren schat."
+  },
+  {
+   "t": "lijkvlekken",
+   "d": "Paarsrode vlekken op de laagste delen van het lichaam doordat het bloed zakt; na ongeveer een halfuur zichtbaar, na ongeveer een halve dag niet meer weg te drukken."
+  },
+  {
+   "t": "lijkstijfheid",
+   "d": "Stijve spieren na het overlijden: zonder ATP laten de myosinekoppen het actine niet meer los. Begint na ongeveer twee tot vier uur, is het sterkst na zes tot twaalf uur en verdwijnt na een dag of twee door afbraak."
+  },
+  {
+   "t": "autolyse en verrotting",
+   "d": "Autolyse is afbraak door de eigen enzymen van de cellen. Verrotting is afbraak door bacteriën, vooral de eigen darmbacteriën. Beide gaan sneller als het warmer is."
+  },
+  {
+   "t": "larvestadium",
+   "d": "Fase tussen twee vervellingen van een vliegenlarve (made). Een bromvlieg heeft drie larvestadia; daarna stopt de larve met eten, kruipt weg en verpopt."
+  },
+  {
+   "t": "graaddagen",
+   "d": "Per dag de temperatuur min een drempel (hier 8 graden), opgeteld. Een larve heeft een vast aantal graaddagen nodig om een stadium te bereiken, dus bij warmte gaat het sneller."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een forensisch arts meet een uur na het vinden een kerntemperatuur van 36,5 graden. Een collega zegt: 'Eén graad per uur, dus hij is een half uur dood.' Noem twee redenen waarom dat te kort door de bocht is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: in het begin is er een plateau waarin de kern bijna niet afkoelt, omdat de warmte eerst naar de huid moet, dus een kleine daling kan ook al uren duren (1p); de curve is geen rechte lijn maar vlakt af naarmate het verschil met de kamer kleiner wordt (1p); kleding, tocht, gewicht of koorts veranderen de snelheid, daarom gebruikt een arts het nomogram van Henssge met een marge (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom een spier na het overlijden stijf wordt, en waarom die stijfheid na een dag of twee weer verdwijnt. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Een myosinekop heeft ATP nodig om het actine los te laten (1p). Na het overlijden maakt de cel nog even ATP zonder zuurstof; als dat op is, blijven de koppen aan het actine vastzitten en wordt de spier stijf (1p). Daarna knippen de eigen enzymen de eiwitten die de spiervezel bij elkaar houden (zoals de Z-schijf); actine en myosine blijven liggen, maar hun houvast is weg, dus de spier wordt weer slap (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Noem het verschil tussen autolyse en verrotting, en leg uit waarom beide in een warme kamer sneller gaan. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Autolyse is afbraak door de eigen enzymen van de cellen, verrotting is afbraak door bacteriën, vooral uit de eigen darm (1p). Enzymen (ook die van bacteriën) werken sneller bij een hogere temperatuur, tot een grens waarboven ze kapotgaan (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Een entomoloog vindt larven die volgens haar berekening tien dagen oud zijn. Een rechercheur concludeert: 'Dus het overlijden was precies tien dagen geleden.' Leg uit wat er niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>De vlieg legt pas eitjes na het overlijden, en binnen, 's nachts of achter een dicht raam soms pas later (1p). De leeftijd van de larven is dus een ondergrens: het overlijden was minstens tien dagen geleden, mogelijk langer (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Een larve heeft in dit model 80 graaddagen boven een drempel van 8 graden nodig. In een kamer is het de hele tijd 18 graden. Bereken na hoeveel dagen de larve klaar is met eten. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>18 − 8 = 10 graaddagen per dag (1p). 80 : 10 = 8 dagen (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> In een andere zaak was het eerst 20 graden, maar de laatste vier dagen voor de vondst stond de verwarming uit en was het 12 graden. De larven hebben 80 graaddagen gehad. Hoeveel dagen geleden zijn de eitjes gelegd? <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>De laatste vier dagen: 4 × (12 − 8) = 16 graaddagen (1p). Er blijven 80 − 16 = 64 graaddagen over bij 20 graden, dat is 64 : 12 ≈ 5,3 dagen (1p). Samen ongeveer 9 dagen geleden (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 3 van <i>Wat word jij?</i> → Forensisch onderzoek. Een eigen, losse zaak: een man wordt overleden gevonden in zijn huis; de buurvrouw zag hem twee weken eerder voor het laatst. De overledene komt nooit in beeld: het verhaal loopt via de kamer, schema's en twee castpersonages (Dr. Kim als forensisch arts, Bilal als stagiair). Bouwt voort op <i>Alles versneld</i> (enzymen en temperatuur), <i>Alles op adem</i> (ATP en dissimilatie), de spierfilm (actine en myosine, hier één scène) en <i>Alles gaat rond</i> (afbraak in de kringloop).</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Rode draad:</b> Kim zoekt geen tijdstip maar een venster met twee grenzen (het postmortaal interval). De bovengrens komt van de buurvrouw (twee weken), de ondergrens van de vlieg. Vier zandlopers bovenin: warmte, bloed en spieren lopen in de eerste dagen leeg; de vlieg loopt door.</li>\n<li><b>H1</b> afkoeling als curve met plateau en afvlakking (vuistregel 'één graad per uur' als stippellijn die afwijkt), het nomogram van Henssge met een marge, lijkvlekken (bloed zakt, na een halve dag vast) en lijkstijfheid. <b>H2</b> Micro: zonder ATP laten myosinekoppen het actine niet los; daarna knippen enzymen de Z-schijven, niet de filamenten; autolyse en verrotting met de enzymcurve. <b>H3</b> levenscyclus van de bromvlieg (eitjes, drie larvestadia, pop, vlieg) en de forensisch entomoloog. <b>H4</b> graaddagen als staafjes boven een drempellijn van 8 graden.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Afkoeling</td><td>plateau, daarna steeds trager; 'één graad per uur' is een vuistregel; na een dag of twee kamertemperatuur</td><td>Wikipedia, <i>Algor mortis</i> (exponentiële curve, plateau van zeer wisselende lengte); NDSU-handout <i>Time since death</i> (vuistregel 1 °C per uur na het plateau)</td></tr>\n<tr><td>Nomogram van Henssge</td><td>rekenkaart met temperatuur, kamer, gewicht en kleding; geeft een marge van uren</td><td>Heinrich e.a. 2024, <i>An assessment of Henssge's method</i> (LSHTM): bruikbaar in de vroege fase; in hun onderzoek lag het echte tijdstip in 36,8 % van 76 gevallen binnen het 95 %-interval</td></tr>\n<tr><td>Lijkvlekken</td><td>na ongeveer een halfuur; na ongeveer een halve dag niet meer weg te drukken</td><td>Osmosis, <i>Livor mortis</i> (20–30 min; wegdrukbaar tot 8–12 uur); Simply Forensic (hemolyse, kleurstof in de vaatwand)</td></tr>\n<tr><td>Lijkstijfheid</td><td>begint na 2–4 uur, sterkst na 6–12 uur, weg na een dag of twee</td><td>Osmosis; Wikipedia, <i>Rigor mortis</i>; encyclopedia.com (24–48 uur; warmte versnelt; 'weak indicator')</td></tr>\n<tr><td>Slap worden</td><td>enzymen knippen de eiwitten die de vezel bij elkaar houden; actine en myosine blijven heel</td><td>Texas A&amp;M AgriLife, <i>Resolution of rigor</i>: afbraak van titine, desmine, troponine T en de Z-schijf (vooral calpaïnen); 'no visible degradation of thick and thin filaments'</td></tr>\n<tr><td>Autolyse en verrotting</td><td>eerst eigen enzymen, dan vooral darmbacteriën via de bloedvaten</td><td>Texas State, <i>Decomposition handout</i> 2024; Javan e.a. 2016, Frontiers in Microbiology 7:225 (thanatomicrobioom)</td></tr>\n<tr><td>Bromvliegen</td><td>vaak binnen een paar uur; pakketje van tientallen eitjes; drie larvestadia, dan verpoppen</td><td>STEM Learning, <i>Catalyst</i> 19(1) (50–100 eieren per pakketje; ontwikkeling hangt vooral af van de temperatuur); Wikipedia, <i>Calliphora vicina</i> (donker vertraagt het eileggen)</td></tr>\n<tr><td>Graaddagen</td><td>drempel 8 graden; in dit vereenvoudigde model 80 graaddagen van eitje tot klaar met eten; 15 °C → ruim 11 dagen, 22 °C → bijna 6</td><td>Grassberger &amp; Reiter 2001, Forensic Sci Int 120:32–36 (<i>Lucilia sericata</i>), parameters via arXiv 0904.0376 tabel 1. Het volledige model geeft bij 15 °C 80,5 graaddagen (11,5 dag) en bij 22 °C 64 graaddagen (4,6 dag); met één vast getal van 80 wordt dat 5,7 dag.</td></tr>\n<tr><td>Opleidingen</td><td>hbo Forensisch Onderzoek (HvA, Saxion Enschede; 4 jaar, numerus fixus); wo-master Forensic Science (UvA, 2 jaar); forensisch arts: geneeskunde + 3 jaar</td><td>Studiekeuze123 (gecontroleerd 25 okt 2026); UvA, <i>Forensic Science</i>; KNMG, opleidingsplan forensische geneeskunde 2022 en ontwerpbesluit 2026</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Eén vast aantal graaddagen.</b> In het echte model hangt het aantal graaddagen af van de temperatuur (bij 22 °C minder dan bij 15 °C). De film noemt het daarom 'dit vereenvoudigde model'. Een entomoloog gebruikt soortgegevens per stadium en uurtemperaturen van het weerstation, gecorrigeerd voor de kamer.</li>\n<li><b>Drempel.</b> 8 graden is de rekendrempel van Grassberger &amp; Reiter; andere studies vinden voor <i>L. sericata</i> 8–11 graden (gemiddeld 9,5). Grassberger &amp; Reiter maten niet onder 15 °C.</li>\n<li><b>Soort.</b> Binnenshuis in oktober is in Nederland eerder de blauwe bromvlieg (<i>Calliphora vicina</i>) te verwachten; die groeit bij 15 °C trager. De film noemt geen soort.</li>\n<li><b>Larve = kamertemperatuur.</b> Een grote groep larven kan zelf 10–20 graden warmer worden dan de omgeving; dat versnelt de groei en maakt een schatting lastiger.</li>\n<li><b>Lijkstijfheid</b> zonder calcium: in werkelijkheid lekt calcium de spiercel in, waardoor de koppen kunnen binden (staat in de spierfilm).</li>\n<li><b>Opvolging van insecten.</b> Na de bromvliegen komen vleesvliegen, huisvliegen en later kevers; die opvolging gebruikt men vooral bij langere intervallen. De film laat dat weg.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Laat leerlingen checkvraag 6 maken met een eigen temperatuurreeks (bijvoorbeeld een weekend met de verwarming uit) en bespreek waarom de entomoloog de temperaturen van het weerstation opvraagt.</li>\n<li>Teken samen de afkoelcurve met en zonder plateau, en de vuistregel als rechte lijn. Waar wijkt de schatting het meest af?</li>\n<li>Bespreek het rapport 'ongeveer elf tot veertien dagen geleden': waar komt elke grens vandaan, en waarom is een venster eerlijker dan een tijdstip? Koppel aan film 2 van deze reeks (bewijskracht in de rechtszaal).</li>\n<li>Gevoelig onderwerp: kondig de film aan en houd rekening met leerlingen die kort geleden iemand verloren hebben. De film toont geen lichaam.</li>\n</ul>\n</section>\n"
+}

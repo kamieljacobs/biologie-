@@ -13,14 +13,18 @@ Volgorde = volgorde van het echte werk: spoor vinden → DNA → tijdstip.
 ## Werkwijze
 Volgens `films/vervolg/BOUWEN.md`, prompt v10 (`films/PROMPT_v10.md`), `films/BEELDAFSPRAKEN.md` en `films/WERKWIJZE-LESSEN.md`. Eerst scripts + feitencheck, dan inspreken (Roos, eleven_v4), bouwen, frisse beeldreview, in de repo.
 
-## Stand per film (25 okt 2026, middag)
-| Film | Script | Feitencheck | Storyboard | Audio | Gebouwd | Op de site |
-|---|---|---|---|---|---|---|
-| 1 Sporen | v2 (variant A won, blind) | frisse review verwerkt | 27 scènes | bezig | – | – |
-| 2 DNA-match | v2 (variant A won, blind) | frisse review verwerkt | 24 scènes | bezig | – | – |
-| 3 Hoe lang al dood? | v2 (variant B won, blind) | frisse review verwerkt | 24 scènes | bezig | – | – |
+## Stand (25 okt 2026, middag): alle drie op de site
+| Film | Bestand | Spraak | Credits | Flow |
+|---|---|---|---|---|
+| 1 Sporen op de plaats delict | `forensisch-1-sporen.html` | 5:36 | 5.187 | dlm45f0RjwUpiKh0Pu9j |
+| 2 Hoe zeker is een match? | `forensisch-2-hoe-zeker-is-een-match.html` | 5:56 | 5.344 | A5eaQwov0dxaWXpL9z99 |
+| 3 Hoe lang al dood? | `forensisch-3-hoe-lang-al-dood.html` | 6:15 | 5.671 | fKpYiCwNbdylKKckScMk |
 
-- Keuringsblad storyboards (account van ghallie880): https://claude.ai/artifact/NeETTynseM4HSocZMHoqW3 (db-collectie `keuring`, doc-id = scène-id zoals `f1s03`, film als geheel `film-foN`). Kamiel zei 'werk maar zelfstandig door': productie loopt door; opmerkingen op het blad worden daarna per scène verwerkt.
-- Werkbestanden (scripts, varianten, blinde oordelen, reviews, getallen met bronnen, scènes) staan tijdens de productie in `/home/claude/hw/foN/` en komen bij oplevering in de bronmap van elke film.
-- Cast: outfit `plaatsdelict` voor Bilal en Kim staat in `personages/lib_cast.js` (commit c6dfba5).
-- Open voor Kamiel: film 3 heeft twee nieuwe figuranten (buurvrouw ± 72, forensisch entomoloog) alleen in `teken_fo3.js`, nog niet in de cast; film 2 tekent een handdruk met twee keer pose 'wijs' (cast heeft geen handdrukpose).
+Elk met bronmap (script, varianten en blinde oordelen in `bron/werk/`, getallen met bronnen, storyboard, reviews, bouwscript `bron/bouw/bouw.sh`), prompt v10, status 'nog bekijken'. Werkwijze: 3 scriptvarianten + blinde beoordelaar → frisse feitenreview → twijfelscènes gekeurd door Kamiel (blad https://claude.ai/artifact/NeETTynseM4HSocZMHoqW3, 11 scènes; handdruk en twee nieuwe personages verwerkt) → inspreken → frisse beeldreview na de bouw → repo.
+
+## Open
+- **Uitspraak:** niet blind getranscribeerd (upload naar www.googleapis.com geblokkeerd; transcriberen van de TTS-node zelf geeft de invoertekst terug, dus geen echte check). Wachtlijsten in `bron/uitspraak.md`; extra risico: film 3 s12 'Actine' met hoofdletter, zonder respelling.
+- **Filmmedaillons:** nog niet gemaakt (vallen terug op de lijntekening in `FILMKUNST`).
+- **Film 4 Stille getuigen:** komt later (Kamiel).
+- **Kleine KAN-punten** die bewust open bleven staan in `bron/reviews/review_beeld.md` per film.
+- `scripts/teller.py` en `scripts/licentie_noot.py` breken op `films/verbeterbladen/sjabloon.html` (geen `<head>`/`</body>`; van het andere account). Voor deze films zijn ze met die uitzondering gedraaid.
