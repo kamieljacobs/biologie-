@@ -1,0 +1,122 @@
+<!doctype html><html lang="nl"><head><meta charset="utf-8"><title>DNA 1 keyframes</title>
+<style>
+@font-face{font-family:"Fraunces";font-weight:700;src:url(fonts/001.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:400;src:url(fonts/002.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:600;src:url(fonts/003.woff2) format("woff2")}
+@font-face{font-family:"Source Sans 3";font-weight:700;src:url(fonts/004.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;src:url(fonts/005.woff2) format("woff2")}
+body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="lib.js"></script><script src="lib_voeding.js"></script><script src="lib_cast.js"></script><script src="lib_bio.js"></script><script src="lib_micro_evo.js"></script><script>if(typeof circ==="undefined") window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };</script><script src="nieuw_dna1.js"></script>
+<script>
+const ctx = document.getElementById('c').getContext('2d');
+function chMicro(ctx) { ctx.fillStyle = C.bgMicro; ctx.fillRect(0, 0, W, H); }
+function chSchaal(ctx, px, lab, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = C.text; ctx.fillRect(70, 840, px, 5); metaText(ctx, lab, 70 + px + 20, 851, C.text2, 'left', 28); ctx.restore(); }
+function chMeta(ctx, s, x = W - 70, al = 'right') { metaText(ctx, s, x, 851, C.text2, al, 28); }
+function kast(ctx, s) { ctx.save(); ctx.font = fTekst(44, 700); const w = Math.min(1600, ctx.measureText(s).width + 64); roundRect(ctx, W / 2 - w / 2, 930, w, 92, 12); shape(ctx, rgba('#0D1420', 0.9), null); text(ctx, s, W / 2, 990, fTekst(44, 700), C.text, 'center'); ctx.restore(); }
+function vwoBalk(ctx) { ctx.fillStyle = C.paars; ctx.fillRect(0, 0, 6, H); metaText(ctx, 'vwo', 40, 60, C.paars, 'left', 28); }
+function twijfelTag(ctx, s) { ctx.save(); ctx.font = fMeta(24); const w = ctx.measureText(s.toUpperCase()).width + 90; roundRect(ctx, W - w - 30, 24, w, 48, 8); shape(ctx, rgba(C.koraal, 0.18), C.koraal, 1.5); metaText(ctx, s, W - 50, 57, C.koraal, 'right', 24); ctx.restore(); }
+function kamer(ctx) { ctx.fillStyle = '#20304C'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#26385A'; ctx.fillRect(0, 0, W, 90); ctx.fillStyle = '#2F4268'; ctx.fillRect(0, 836, W, 10); ctx.fillStyle = '#34405A'; ctx.fillRect(0, 846, W, H - 846);
+  roundRect(ctx, 120, 170, 260, 330, 8); shape(ctx, '#2C4A6E', '#3E5E86', 3); ctx.fillStyle = '#3E5E86'; ctx.fillRect(247, 170, 6, 330); ctx.fillRect(120, 330, 260, 6); }
+
+const S = {};
+// ---------- T1 · Opening: Noor met een wattenstaafje (Macro) → zoomcirkel naar wangcellen
+function lokaal(ctx) { ctx.fillStyle = '#20304C'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#26385A'; ctx.fillRect(0, 0, W, 90); ctx.fillStyle = '#34405A'; ctx.fillRect(0, 846, W, H - 846);
+  // labtafel achter Noor met reageerbuisrek en kraan (vlak, Schema-kleuren)
+  roundRect(ctx, 60, 640, 760, 26, 6); shape(ctx, '#3E4E6E', '#56688C', 2); ctx.fillStyle = '#2C3A56'; ctx.fillRect(90, 666, 24, 180); ctx.fillRect(766, 666, 24, 180);
+  roundRect(ctx, 120, 586, 170, 54, 6); shape(ctx, '#2A3A58', '#8FA0B5', 1.5); for (let i = 0; i < 4; i++) { roundRect(ctx, 136 + i * 38, 520, 20, 100, 9); shape(ctx, rgba('#AFC0D0', 0.25), '#AFC0D0', 1.5); }
+  ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(700, 640); ctx.lineTo(700, 540); ctx.quadraticCurveTo(700, 510, 670, 510); ctx.lineTo(650, 520); ctx.stroke(); }
+S.t1 = () => { lokaal(ctx);
+  let tip = [700, 470]; persoon(ctx, 'noor', 520, 846, 640, { outfit: 'practicum', pose: 'vasthouden', uit: 'blij', t: 1, kijk: 1, hold: (c, x, y) => { reageerbuisDNA(c, x + 6, y + 60, 230, { t: 1 }); tip = [x + 6, y + 60 - 230 * 0.5]; } });
+  const sx = tip[0], sy = tip[1]; // grens zeep / alcohol met de witte draadjes
+  zoomCircle(ctx, 1290, 440, 320, sx, sy, 'wangcellen uit het spoelwater · vergroot', 1, () => { chMicro(ctx); const cc = wangcellen(ctx, 970, 120, 640, 640, { umPx: 4.2, seed: 5, focus: 4 }); });
+
+  ctx.save(); ctx.fillStyle = C.text; ctx.fillRect(1130, 830, 4.2 * 50, 5); metaText(ctx, '50 micrometer', 1130 + 4.2 * 50 + 16, 841, C.text2, 'left', 26); ctx.restore();
+  kast(ctx, 'Die witte draadjes zijn DNA. Uit cellen die je niet eens kunt zien.');
+  twijfelTag(ctx, 'twijfel · nieuwe opening'); };
+
+// ---------- T2 · Wangcellen in een uitstrijkje (nieuw bibliotheekobject), één cel geringd, kern < 1/100 mm
+S.t2 = () => { chMicro(ctx); const um = 9.5; const cc = wangcellen(ctx, 0, 0, W, 880, { umPx: um, seed: 8, focus: 6 });
+  const f = cc[6]; naamBij(ctx, 'wangcel', 'plat · ± 70 micrometer', f.c[0] + 120, f.c[1] - 250, 1, 'left');
+  naamBij(ctx, 'celkern', 'hier zit het DNA', f.kern[0] + f.kr + 18, f.kern[1] + 10, 1, 'left');
+  chSchaal(ctx, um * 20, '20 micrometer'); chMeta(ctx, 'micro · uitstrijkje, vergroot');
+  kast(ctx, 'Twee meter, in een kern die kleiner is dan een honderdste millimeter.');
+  twijfelTag(ctx, 'twijfel · nieuwe tekening'); };
+
+// ---------- K1 · Doorlopende zoom: kern met chromatine → zoomcirkel 'DNA rond eiwitten' (gedeelde tekeningen Chromosomen 2.0)
+S.k1 = () => { chMicro(ctx); kernChromatine(ctx, 600, 450, 380, { c: 0, seed: 4 });
+  const sx = 690, sy = 360; ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(sx, sy, 22, 0, 6.283); ctx.stroke(); ctx.restore();
+  zoomCircle(ctx, 1450, 430, 330, sx, sy, 'dna rond eiwitten · vergroot', 1, () => { chMicro(ctx); nucleosoomDraad(ctx, 1140, 470, 1770, 390, { n: 3, R: 62, t: 1.2 }); });
+  naamBij(ctx, 'celkern', null, 600, 110, 1, 'center'); naamBij(ctx, 'eiwitten', null, 1450, 640, 1, 'center'); naamBij(ctx, 'DNA', null, 1700, 300, 1, 'left');
+  chSchaal(ctx, 76 * 2, '2 micrometer'); chMeta(ctx, 'inzoomen · 1 : 10 000 000');
+  kast(ctx, 'Overal is het DNA om eiwitten gewikkeld, als garen om klosjes.'); };
+
+// ---------- K2 · Verder inzoomen: helix → ontwinden tot ladder (zelfde molecuul, morph)
+S.k2 = () => { chMicro(ctx); const seq = 'ATGCATTGCAGT';
+  dnaLadderHelix(ctx, 300, 330, 120, seq, { draai: 1, R: 70, s: 0.5, toonBasen: 1 });
+  dnaLadderHelix(ctx, 300, 650, 120, seq, { draai: 0.12, R: 110, s: 0.55 });
+  metaText(ctx, 'dubbele helix · rechtsdraaiend', 300, 210, C.grain, 'left', 28); metaText(ctx, 'zelfde stuk, ontwonden', 300, 470, C.grain, 'left', 28);
+  naamBij(ctx, 'twee strengen', 'met de basen naar binnen', 1660, 500, 1, 'right');
+  chSchaal(ctx, 120 * 10 / 3.4 * 0.34 * 2.94, '1 nanometer · vereenvoudigd'); chMeta(ctx, '10 baseparen per winding');
+  kast(ctx, 'Steeds verder, tot je ziet dat het een draad is van twee strengen.'); };
+
+// ---------- K3 · Eén nucleotide uit elkaar (ringvormen, genummerde suiker) — basis
+S.k3 = () => { chMicro(ctx); const seq = 'ATGCATGC';
+  ctx.save(); ctx.globalAlpha = 0.35; dnaLadderHelix(ctx, 280, 220, 130, seq, { draai: 0, R: 120, s: 0.5, bruggenA: 0 }); ctx.restore();
+  const p = nucleotideRing(ctx, 900, 560, 'G', { s: 1.8, explode: 1 });
+  naamBij(ctx, 'fosfaatgroep', null, p.p[0] - 50, p.p[1] - 60, 1, 'center'); naamBij(ctx, 'desoxyribose', 'suiker', p.su[0] + 80, p.su[1] - 40, 1, 'left'); naamBij(ctx, 'stikstofbase', 'guanine', p.b[0] + 80, p.b[1] + 120, 1, 'left');
+  ctx.save(); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; roundRect(ctx, 280 + 3 * 130 - 50, 225, 100, 130, 14); ctx.stroke(); ctx.restore();
+  T_(1300, 440, 'één nucleotide', 48);
+  chSchaal(ctx, 140, '1 nanometer · vergroot'); kast(ctx, 'Een fosfaatgroep. Een suiker, desoxyribose. En een stikstofbase.'); };
+function T_(x, y, s, px = 48, col = C.text) { text(ctx, s, x, y, fTekst(px, 700), col, 'left'); }
+
+// ---------- T3/K4 · Pas-test: wie past tegenover A? (model met ringgrootte + bindingsplekken)
+S.t3 = () => { chMicro(ctx); const y0 = 200, X = [330, 690, 1050, 1410], s = 1.15;
+  const kand = ['G', 'C', 'A', 'T'], uitkomst = ['te breed', 'plekken passen niet', 'te breed', 'past · twee bruggen'];
+  X.forEach((x, i) => { // bovenste streng-stukje met A
+    ctx.save(); ctx.strokeStyle = DNA1.rugR; ctx.lineWidth = 14; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 110, y0); ctx.lineTo(x + 110, y0); ctx.stroke(); ctx.restore();
+    baseRing(ctx, x, y0 + 8, 'A', 1, { s, plekA: 1, bindA: i === 3 ? 1 : 0 });
+    const gap = 112 * s + 72 * s + 16 + 8 * 2, yb = y0 + gap; // sportlengte = purine + pyrimidine
+    const b = kand[i], len = (DNA1.purine[b] ? 112 : 72) * s; const ok = i === 3;
+    const yy = ok ? yb : (DNA1.purine[b] ? yb + 40 : (b === 'C' ? yb + 22 : yb));
+    ctx.save(); ctx.strokeStyle = _mixHex(DNA1.rugR, '#121A26', ok ? 0 : 0.3); ctx.lineWidth = 14; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x - 110, yy); ctx.lineTo(x + 110, yy); ctx.stroke(); ctx.restore();
+    baseRing(ctx, x + (b === 'C' ? 10 : 0), yy - 8, b, -1, { s, plekA: 1, bindA: ok ? 1 : 0, rand: ok ? C.goud : null, a: ok ? 1 : 0.9 });
+    if (ok) bruggen(ctx, x, y0 + 8 + 112 * s, yy - 8 - 72 * s, 'A', s, 1);
+    if (DNA1.purine[b]) { ctx.save(); ctx.fillStyle = rgba(C.koraal, 0.35); ctx.beginPath(); ctx.ellipse(x, y0 + 8 + 112 * s + 12, 46, 20, 0, 0, 6.283); ctx.fill(); ctx.restore(); }
+    text(ctx, uitkomst[i], x, 800, fTekst(34, 700), ok ? C.groen : C.koraal, 'center');
+    text(ctx, 'A – ' + b, x, 750, fTekst(40, 700), C.text, 'center'); });
+  metaText(ctx, 'model · purine (2 ringen) + pyrimidine (1 ring) = even lange sport', 330 - 110, 140, C.grain, 'left', 26);
+  chSchaal(ctx, 120, '1 nanometer · vereenvoudigd');
+  kast(ctx, 'Een G past niet: twee grote basen zijn samen te breed.');
+  twijfelTag(ctx, 'twijfel · model bindingsplekken'); };
+
+// ---------- K5 · Ladder draait tot helix (morph halverwege), grote en kleine groef
+S.k5 = () => { chMicro(ctx); const seq = 'ATTGCAGTCCATGACG';
+  const G = dnaLadderHelix(ctx, 200, 470, 100, seq, { draai: 1, R: 120, s: 0.55 });
+  naamBij(ctx, 'helixstructuur', 'rechtsdraaiend', 960, 180, 1, 'center');
+  naamBij(ctx, 'kleine groef', null, G.klein(1), G.top - 30, 1, 'center'); naamBij(ctx, 'grote groef', null, G.groot(1), G.top - 30, 1, 'center');
+  chSchaal(ctx, 104 * 10 / 3.4 * 0.34 * 2.94, '1 nanometer · vereenvoudigd'); chMeta(ctx, 'na de morph uit de ladder');
+  kast(ctx, 'En die dubbele ketting draait om zijn eigen as. Dat is de helixstructuur.'); };
+
+// ---------- K6 · Schaal voelbaar: als de kern een tennisbal was …
+S.k6 = () => { bg(ctx, 'schema'); tennisbal(ctx, 420, 470, 140, 1);
+  ctx.save(); ctx.strokeStyle = C.paars; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(560, 470); for (let x = 560; x < 1840; x += 8) ctx.lineTo(x, 470 + Math.sin(x / 40) * 10 * Math.min(1, (x - 560) / 200)); ctx.stroke(); ctx.restore();
+  metaText(ctx, 'kern = tennisbal (6,7 cm)', 420, 680, C.grain, 'center', 28);
+  text(ctx, 'meer dan tien kilometer DNA', 1180, 400, fTekst(56, 700), C.text, 'center'); metaText(ctx, 'zelfde verhouding · niet op schaal getekend', 1180, 540, C.grain, 'center', 28);
+  ctx.save(); ctx.strokeStyle = C.line; ctx.lineWidth = 1.5; ctx.setLineDash([6, 6]); ctx.beginPath(); ctx.moveTo(1840, 450); ctx.lineTo(1880, 470); ctx.lineTo(1840, 490); ctx.stroke(); ctx.restore();
+  chMeta(ctx, 'schema'); kast(ctx, 'Was de kern een tennisbal, dan zat er meer dan tien kilometer draad in.'); };
+
+// ---------- T4 · vwo: welk stuk laat eerst los bij verwarmen? (AT-rijk vs GC-rijk)
+S.t4 = () => { chMicro(ctx); vwoBalk(ctx);
+  dnaLadderHelix(ctx, 300, 270, 150, 'ATATAT', { draai: 0, R: 110, s: 0.5, sep: 0.55 });
+  dnaLadderHelix(ctx, 300, 650, 150, 'GCGCGC', { draai: 0, R: 110, s: 0.5 });
+  metaText(ctx, 'veel a en t · laat los', 1140, 280, C.goud, 'left', 28); metaText(ctx, 'veel c en g · blijft dicht', 1140, 660, C.text2, 'left', 28);
+  // thermometer
+  ctx.save(); roundRect(ctx, 1740, 180, 44, 520, 22); shape(ctx, '#2A3A58', C.line, 1.5); roundRect(ctx, 1750, 380, 24, 310, 12); shape(ctx, C.koraal, null); text(ctx, 'warmer', 1700, 390, fTekst(32, 600), C.koraal, 'right'); ctx.restore();
+  chSchaal(ctx, 120, '1 nanometer · vereenvoudigd'); chMeta(ctx, 'simulatie · model', 1680);
+  kast(ctx, 'Een stuk met veel A en T laat eerder los.');
+  twijfelTag(ctx, 'twijfel · vakinhoud (stapeling)'); };
+
+const id = location.hash.slice(1) || 'k1';
+document.fonts.ready.then(() => { (S[id] || S.k1)(); window.KLAAR = true; });
+</script></body></html>
