@@ -22,13 +22,15 @@
 
 **Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
 
-**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA.
+**Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA. Gebeurd: Daan loopt snuffelstage bij een natuurbeheerder in Ecologie 1–3 (outfit `veld`): merkt vlinders, vindt een wolvenkeutel maar ziet geen wolf (1), meet stikstof met buisjes op de heide (2), kijkt in de kuil op de maisakker die natuur wordt (3). Grenzen: blijft in dit vak de stagiair.
+
+**Ecoloog Bas** (± 46) · vast: ecoloog, begeleider van Daan (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Ecologie 1–3. Grenzen: alleen in zijn eigen vak.
 
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
 
 **Erik** (38) · vast: figurant, verdachte of voorbijganger. Gebeurd: verdachte in Forensisch onderzoek 2. Grenzen: blijft figurant (geen naam of rol met een verhaal).
 
-**Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: Forensisch onderzoek 3. Grenzen: staat los van Noors familie.
+**Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: Forensisch onderzoek 3; vrijwillige vlinderteller in Ecologie 1. Grenzen: staat los van Noors familie.
 
 **Lieke** (36), **Jesse**, **Femke**, **Ravi**, **Mirjam**, **Mila**, **Wouter**, **Ilse**, **Veehouder Gerrit** · vast: vakpersonen. Grenzen: alleen in hun eigen vak.
 
@@ -75,7 +77,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 - `zenuwstelsel`: 7-slaap
 
-### Daan (`daan`) — 24 films
+### Daan (`daan`) — 27 films
 - `ecologie`: 3-een-aarde
 - `evolutie`: 1-wat-is-evolutie, 4-de-mens-als-selectiefactor
 - `gaswisseling`: 1-adem-in-adem-uit
@@ -85,7 +87,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene
 - `onderbouw/33c`: 1-hoe-vindt-een-haai-zijn-prooi, 3-wie-eet-wie
 - `transport`: 7-hoe-een-plant-groeit
-- `vervolg`: biomedisch-4-toeval-of-echt, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
+- `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
 - `voortplanting`: 2-geslachtsorganen-puberteit
 
 ### Yasmin (`yasmin`) — 20 films
@@ -229,14 +231,17 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Joost (`joost`) — 2 films
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match
 
-### Mevrouw Jansen (`buurvrouw`) — 1 films
-- `vervolg`: forensisch-3-hoe-lang-al-dood
+### Mevrouw Jansen (`buurvrouw`) — 2 films
+- `vervolg`: ecologie-1-tellen-in-het-veld, forensisch-3-hoe-lang-al-dood
 
 ### Lieke (`lieke`) — 1 films
 - `vervolg`: forensisch-3-hoe-lang-al-dood
 
 ### Procestechnoloog Merel (`merel`) — 3 films
 - `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat
+
+### Ecoloog Bas (`bas`) — 3 films
+- `vervolg`: ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek

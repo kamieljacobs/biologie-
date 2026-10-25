@@ -1,6 +1,6 @@
 # Overdracht — Wat word jij? · Ecologie en natuurbeheer (gestart 25 okt 2026)
 
-Stand: bouw fase A klaar voor alle drie (scènes op voorlopige tijden, storyboard, keyframes); wacht op Kamiels keuring van de twijfelscènes en het castvoorstel. Tussenstand in `werk-ecologie/`.
+Stand: alle drie de films op de site (25 okt 2026, avond), met bronmap, prompt v10, status 'nog bekijken'.
 
 ## Planning (akkoord Kamiel 25 okt 2026)
 1. **Tellen in het veld: hoe ecologen populaties meten** — houden. Vangst-terugvangst, transecten met vrijwilligers, cameravallen en eDNA/DNA uit poep, van telling naar trend.
@@ -32,3 +32,20 @@ Reekszin opleidingen: `werk-ecologie/REEKSZIN.md`. Gedeelde reeksbibliotheek: `w
 - Film 2: boerderij blijft herkenbaar in beeld ('ze zijn nu eenmaal een bron van stikstof; of je het erg vindt dat soorten verdwijnen is een mening') → geen oordeel over soortverlies in beeld. Vraag 'is er een bufferzone rond heide?' → zin toegevoegd in s09 (geen vaste bufferzone; kabinetsplan zones van 500 m; nog een plan), bronnen in bronnen.md. Tormentil/braam: mag mooier. Rest ✓; s06 zonder reactie, voorstel geldt.
 - Film 3: kleuren van de gebiedskaart passen niet bij de stijl → `gebiedKaart` hertekend in Schema-stijl (referentie `waalKaart`, Binnen de grenzen). Struikhei: Kamiel vond hem mooi, zo gelaten. Loopkevers ✓.
 - Fase B (inspreken, bouwen) loopt; brief `werk-ecologie/HELPER-faseB.md`.
+
+## Op de site (25 okt 2026, avond)
+| Film | Bestand | Duur | Credits | Flow |
+|---|---|---|---|---|
+| 1 Tellen in het veld | `ecologie-1-tellen-in-het-veld.html` | 7:34 | 5.382 | e8Mni38AC96bGuExt92C |
+| 2 Stikstof (ook Milieukunde) | `ecologie-2-stikstof.html` | ± 7,5 min | 6.086 | Z8eC6JKsLXK1fKRIjFG1 |
+| 3 Een plan voor de natuur | `ecologie-3-een-plan-voor-de-natuur.html` | 7:49 | 5.513 | PkKdqCfaQlEfrioXJnPS |
+
+Elke bronmap: script v2, varianten en blind oordeel in `bron/werk/`, getallen.md, bronnen.md, storyboard, reviews (feiten, beeld), bouwscript `bron/bouw.sh`, gedeelde reeksbibliotheek `bron/src/ec_reeks.js`. Ecoloog Bas en Daans outfit `veld` staan in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md en het castboek. De tussenstand `werk-ecologie/` is opgeruimd.
+
+## Open
+- **Filmmedaillons:** nog niet gemaakt (vallen terug op de lijntekening in `FILMKUNST`).
+- **Uitspraak:** wachtlijsten in `bron/uitspraak.md` (o.a. Reijerscamp → 'Reijerskamp', RIVM als er-ie-vee-em); nog niet beluisterd.
+- **Steekproef** van de bronnenlogboeken nog niet gedaan. Film 2 s09 (± 3000 veehouderijen binnen 500 m) rust op één RIVM-publicatie, toegeschreven (≈).
+- **Dierenbibliotheek in de FILMDATA-engine:** niet heel plakken (botst met `circ`, `_mix`, `pijl`, `muis`); film 1 knipt de wolf eruit (`bron/src/lib_wolf.sh`), film 2 koe en koolmees (`bron/src/dieren_ec2.sh`). Naden bij schouder en heup van de bibliotheekwolf zichtbaar in het grijze camerabeeld (punt voor de bibliotheek).
+- **Player:** `drawEnd` past de opmaak aan bij een eindkaart van meer dan 5 regels (film 3); andere films ongewijzigd.
+- KAN-punten die bewust open bleven staan in `bron/reviews/review_beeld.md` per film.

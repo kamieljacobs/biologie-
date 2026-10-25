@@ -32,6 +32,7 @@ Kamiel (22 okt 2026): zelfde rol = zelfde personage, met een naam, zodat de kijk
 | buurvrouw (oudere vrouw, los van Noors familie) | **Mevrouw Jansen** (`buurvrouw`, 72; garderobe `thuis`, `buiten`) — eerst in Forensisch onderzoek 3 |
 | forensisch entomoloog | **Lieke** (`lieke`; garderobe `lab`, `plaatsdelict`), alleen in haar eigen vak |
 | stagiair biotechnologie (Wat word jij? · Biotechnologie en life sciences) | **Sam** (outfit `practicum`), begeleid door **Procestechnoloog Merel** (`merel`, goedgekeurd 25 okt 2026; alleen in haar eigen vak) |
+| stagiair ecologie en natuurbeheer (Wat word jij? · Ecologie) | **Daan** (outfit `veld`: blauwe regenjas en laarzen), begeleid door **Ecoloog Bas** (`bas`, goedgekeurd 25 okt 2026; olijfgroene veldjas, verrekijker; alleen in zijn eigen vak); Mevrouw Jansen als vrijwillige vlinderteller (Ecologie 1) |
 | vakmensen | Jesse (verpleegkundige), Femke (fysiotherapeut), Ravi (apotheker), Mirjam (verloskundige), Mila (dierenarts), Wouter (tandarts), Ilse (mondhygiënist): alleen in hun eigen vak |
 | kinderen van ± 10 jaar (basisschool, bv. de HPV-prik) | **Fleur** en **Ruben** (22 okt 2026, nog te keuren) |
 | baby, ongeboren kind | `baby` (geen naam) |

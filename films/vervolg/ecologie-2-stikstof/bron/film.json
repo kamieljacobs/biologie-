@@ -1,0 +1,93 @@
+{
+ "slug": "ecologie-2-stikstof",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Stikstof",
+ "sub": "hoe een voedingsstof een probleem werd",
+ "puzzle": "Planten hebben stikstof nodig. Waarom verdwijnen er dan soorten door?",
+ "meta": "ecologie en natuurbeheer · milieukunde · mbo, hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Ecologie en natuurbeheer",
+ "lead": "Daan loopt snuffelstage bij een natuurbeheerder. Met ecoloog Bas staat hij op een heide met aan de rand een stal en een snelweg. Uit mest ontsnapt ammoniak, uit uitlaten en schoorstenen komen stikstofoxiden; een deel komt weer neer: depositie, droog of met regen mee. Ammoniak lost makkelijk op in water en komt gemiddeld dichterbij neer; stikstofoxiden worden eerst omgezet en reizen verder. Het meetnet van het RIVM meet ammoniak in de lucht; de depositie wordt berekend, per zeshoekje van ongeveer een hectare, en voor één plek is dat veel onzekerder dan voor heel Nederland. Boven de kritische depositiewaarde winnen op den duur snelle groeiers, verdwijnen soorten van arme grond en verzuurt de bodem, tot in het ei van de koolmees. De ecoloog schrijft het op in een passende beoordeling; het bestuur beslist.",
+ "endHaak": "hoe maak je van een maisakker weer natuur, en hoe weet je of het werkt?",
+ "minis": {
+  "Hoofdstuk 1": "Hoe komt stikstof van een stal of een snelweg op de heide?",
+  "Hoofdstuk 2": "Wat meet zo'n buisje eigenlijk, en hoe zeker is het getal?",
+  "Hoofdstuk 3": "Wanneer is het te veel, en wie wint er dan?",
+  "Hoofdstuk 4": "Wat schrijft een ecoloog op, en wie beslist?",
+  "Recap": "Waarom verdwijnen er soorten door een voedingsstof?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Daan en Ecoloog Bas (castboek; Bas is een voorstel). Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Planten hebben stikstof nodig. Toch verdwijnen er op de heide soorten door stikstof. Hoe kan dat?",
+   "correct": 1,
+   "explain": "Stikstof is geen gif: het is een voedingsstof. Op arme grond winnen snelle groeiers als pijpenstrootje, bochtige smele en braam van extra stikstof. Ze worden hoog en dicht en verdringen soorten die met weinig voedsel toe kunnen."
+  },
+  "q08": {
+   "q": "Hoeveel van de ammoniak uit een stal komt binnen vijfhonderd meter neer?",
+   "correct": 2,
+   "explain": "Volgens het RIVM ongeveer vijf procent: een twintigste. Dat valt op een klein stuk grond, dus per hectare is het toch veel. De rest waait verder, en andersom valt op elke plek ook stikstof van verre bronnen."
+  },
+  "q11": {
+   "q": "Daan schrijft het getal van een buisje van het meetnet op. Waar staat dat getal voor?",
+   "correct": 0,
+   "explain": "Het buisje meet hoeveel ammoniak er in de lucht zit (de concentratie). De depositie zelf is lastig en duur om te meten; die rekent het RIVM uit, en de metingen controleren dat rekenmodel."
+  },
+  "q17": {
+   "q": "Het model rekent voor ons zeshoekje ongeveer 1400 mol stikstof per hectare per jaar. De grens voor droge heide is ongeveer 714 mol. Hoeveel krijgt het zeshoekje, vergeleken met die grens?",
+   "correct": 1,
+   "explain": "1400 ÷ 714 ≈ 2: ongeveer twee keer de grens. Maar de marge voor één plek is groot (± 70 %): van ongeveer 400 tot 2400 mol. De grens ligt daarbinnen, dus kijkt de ecoloog ook naar de planten zelf."
+  },
+  "q21": {
+   "q": "Daan ziet in een nestkast een ei van een koolmees met een heel dun schaaltje. Wat schrijft hij erbij als oorzaak?",
+   "correct": 2,
+   "explain": "Een koolmees haalt kalk voor eieren vooral uit slakkenhuisjes. Stikstof maakt de bodem zuurder; dan spoelt kalk weg en zijn er weinig slakken. Zo komt er te weinig kalk binnen."
+  },
+  "q25": {
+   "q": "Iemand wil een nieuwe stal of fabriek bouwen bij een Natura 2000-gebied. Wie beslist of het doorgaat?",
+   "correct": 0,
+   "explain": "Meestal beslist de provincie, met het rapport van de ecoloog (de passende beoordeling). De ecoloog levert metingen en een natuuroordeel, het RIVM het rekenmodel; het bestuur beslist."
+  }
+ },
+ "glossary": [
+  {
+   "t": "depositie",
+   "d": "Stikstof die uit de lucht op de bodem en planten neerkomt. Met regen mee heet dat natte depositie, direct op een blad of de grond droge depositie."
+  },
+  {
+   "t": "ammoniak en ammonium",
+   "d": "Ammoniak (NH₃) is een gas dat vooral uit mest ontsnapt. Het lost makkelijk op in water en wordt dan ammonium (NH₄⁺); daardoor komt het gemiddeld dichter bij de bron neer."
+  },
+  {
+   "t": "stikstofoxiden",
+   "d": "Gassen uit uitlaten en schoorstenen (verkeer, industrie). Ze worden in de lucht eerst omgezet en reizen daardoor gemiddeld verder dan ammoniak."
+  },
+  {
+   "t": "Meetnet Ammoniak in Natuurgebieden",
+   "d": "Meetnet van het RIVM (sinds 2005) met buisjes onder een kapje op honderden plekken. Het meet de ammoniak in de lucht, niet de depositie; de buisjes worden elke maand gewisseld en geijkt aan meetstations."
+  },
+  {
+   "t": "rekenmodel en Aerius",
+   "d": "Het RIVM rekent de depositie uit met de uitstoot, het weer en de wind; metingen controleren het model. Het programma Aerius rekent per zeshoekje van ongeveer een hectare uit wat een nieuw project extra geeft."
+  },
+  {
+   "t": "onzekerheid",
+   "d": "Volgens het RIVM zit de landelijke berekening er zeer waarschijnlijk hooguit 30 % naast, voor één plek 70 %. Hoe kleiner de plek, hoe groter de onzekerheid."
+  },
+  {
+   "t": "kritische depositiewaarde (KDW)",
+   "d": "De hoeveelheid stikstofdepositie waarboven een natuurtype op den duur achteruitgaat. Droge heide: 10 kg ≈ 714 mol stikstof per hectare per jaar; hoogveen: 500 mol."
+  },
+  {
+   "t": "vergrassing",
+   "d": "Op arme grond die extra stikstof krijgt, winnen snelle groeiers (pijpenstrootje, bochtige smele, braam). Ze worden hoog en dicht en nemen licht weg: meer groei, minder soorten."
+  },
+  {
+   "t": "passende beoordeling",
+   "d": "Rapport bij een project dat een Natura 2000-gebied kan schaden: welke natuurtypen er liggen met hun grens, hoeveel stikstof er al valt, wat het project erbij doet en hoe het met de natuur gaat. De ecoloog schrijft het, meestal beslist de provincie."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een klasgenoot zegt: 'Stikstof is slecht voor planten, daarom gaat de heide achteruit.' Leg uit wat hier niet klopt en wat er wél gebeurt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Stikstof is geen gif maar een voedingsstof: planten groeien er juist harder door (1p). Op arme grond winnen snelle groeiers (pijpenstrootje, bochtige smele, braam) van de extra stikstof; ze worden hoog en dicht, nemen licht weg en verdringen soorten van arme grond (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Leg uit waarom ammoniak uit een stal gemiddeld dichter bij de bron neerkomt dan stikstofoxiden van een snelweg. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Ammoniak lost makkelijk op in water (en wordt dan ammonium), dus het komt snel neer met regen of op natte bladeren en grond (1p). Stikstofoxiden moeten in de lucht eerst worden omgezet voordat ze neerkomen, en reizen in die tijd verder (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Vlak naast een stal komt volgens het RIVM maar ongeveer 5 % van de ammoniak binnen 500 meter neer. Iemand concludeert: 'Dan maakt die stal voor de heide ernaast niets uit.' Geef twee redenen waarom dat te kort door de bocht is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Die 5 % valt op een klein oppervlak, dus per hectare kan het toch veel zijn (1p). Bovendien valt op de heide ook stikstof van veel andere bronnen, dichtbij en ver weg; de bijdrage van de stal komt daar bovenop (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> De kritische depositiewaarde van droge heide is 10 kg stikstof per hectare per jaar. Reken om naar mol (1 mol N = 14 g). Een berekening geeft voor een plek 1400 mol N per hectare per jaar, met een marge van 70 %. Kun je zeker zeggen dat de grens hier wordt overschreden? Leg uit. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>10 kg = 10 000 g; 10 000 ÷ 14 ≈ 714 mol (1p). 70 % van 1400 = 980, dus de marge loopt van ongeveer 420 tot 2380 mol (1p). De grens van 714 ligt binnen die marge, dus op grond van de berekening alleen weet je het niet zeker; daarom kijkt de ecoloog ook naar de planten zelf (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> In bossen op verzuurde zandgrond leggen koolmezen eieren met te dunne schalen. Beschrijf de keten van stikstofdepositie tot het dunne ei in drie stappen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Stikstofdepositie maakt de bodem zuurder, waardoor kalk (calcium) uitspoelt (1p). Op verzuurde, kalkarme grond leven weinig slakken (1p). Een koolmees haalt kalk voor de eischaal vooral uit slakkenhuisjes, dus ze krijgt te weinig kalk binnen en de schaal wordt dun (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> Een ecoloog schrijft een passende beoordeling voor een nieuwe stal bij een Natura 2000-gebied. Noem drie dingen die erin staan, en zeg wie er beslist. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Drie van: welke natuurtypen er liggen met hun kritische depositiewaarde; hoeveel stikstof er al valt; wat het project erbij doet; hoe het met de natuur zelf gaat (1p). Meestal beslist de provincie (het bestuur), niet de ecoloog of het RIVM (1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 2 van <i>Wat word jij?</i> → Ecologie en natuurbeheer, gedeeld met Milieukunde. Bouwt voort op <i>Alles gaat rond</i> (stikstofkringloop, ammoniak als gas, ammonium) en <i>Eén aarde</i> (stikstofdepositie verdringt zonnedauw); die stof wordt niet herhaald. Daan loopt in de hele reeks snuffelstage bij een fictieve natuurbeheerder, met Ecoloog Bas als begeleider. Eén fictief, Veluwe-achtig gebied door de reeks: heide met een ven, bos, een snelweg met ecoduct, een stal en een akker aan de rand. Film 1 telt er dieren, deze film meet de stikstof op de heide, film 3 maakt een plan voor de akker. Het onderwerp is politiek gevoelig: de film beschrijft wat een ecoloog meet, rekent en opschrijft, en laat de keuze uitdrukkelijk aan het bestuur. Er komen geen echte personen, partijen of bedrijven in beeld.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> de puzzel: planten hebben stikstof nodig, toch verdwijnen er soorten. De vraag zet 'stikstof is gif' als afleider.</li>\n<li><b>H1</b> van stal en snelweg tot heide: ammoniak en stikstofoxiden, natte en droge depositie. Zoom in een waterdruppel: ammoniak wordt ammonium en komt daardoor gemiddeld dichterbij neer; stikstofoxiden worden eerst omgezet en reizen verder. Vraag: hoeveel ammoniak komt binnen 500 m neer? Ongeveer 5 % (RIVM), maar op een klein stuk grond, en andersom valt er ook stikstof van ver.</li>\n<li><b>H2</b> meten en rekenen: het buisje meet ammoniak in de lucht, niet de depositie (vraag). Depositie wordt berekend en met metingen gecontroleerd; Aerius per zeshoekje van een hectare. Onzekerheid: landelijk ± 30 %, één plek ± 70 %. Meningen: Adviescollege 2020 en UvA-onderzoek 2023, en waar men het over eens is.</li>\n<li><b>H3</b> de grens: kritische depositiewaarde, de som 10 kg → 714 mol op het scherm, 1400 ÷ 714 ≈ 2 (vraag), en de marge 400–2400 met de grens daarbinnen. Vergrassing: meer groei, minder soorten. Verzuring tot in het ei van de koolmees (vraag).</li>\n<li><b>H4</b> van data naar besluit: wat een passende beoordeling bevat, wie beslist (vraag), Europese regels vereenvoudigd, en de landelijke herkomst van depositie.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Depositie, droog en nat</td><td>stikstof uit de lucht die neerkomt; met regen mee nat, direct op blad of grond droog</td><td>RIVM, 'Stikstofdepositie'; TNO R10757 (2024), <i>Het gedrag van stikstofverbindingen in de atmosfeer</i> (begrippenlijst)</td></tr>\n<tr><td>Ammoniak dichtbij, stikstofoxiden verder</td><td>ammoniak lost op en komt gemiddeld dichterbij neer; stikstofoxiden eerst omgezet</td><td>TNO R10757 (2024); RIVM, 'Stikstofdepositie'</td></tr>\n<tr><td>5 % binnen 500 m</td><td>zo'n vijf procent van de ammoniak komt binnen 500 m neer</td><td>RIVM, 'Stikstofdepositie' (5 % NH₃ en 2,5 % NOₓ binnen 500 m); UvA-eindverslag Tietema e.a. 2023 (± 9 % bij twee melkveebedrijven)</td></tr>\n<tr><td>Meetnet Ammoniak in Natuurgebieden</td><td>sinds 2005, honderden plekken, buisjes elke maand gewisseld en geijkt aan meetstations</td><td>RIVM, 'Hoe en waar worden ammoniakconcentraties gemeten'; RIVM-rapport 2018-0105 (Gradko-samplers, zes LML-referentiestations); Kamerstuk 32 670 nr. 89 (2014: 236 locaties)</td></tr>\n<tr><td>Rekenen en controleren</td><td>depositie berekend met uitstoot, weer en wind; metingen controleren het model; Aerius per zeshoekje van ± 1 ha</td><td>RIVM, 'Berekenen met modellen' (Aerius is zelf geen model, gebruikt OPS); RIVM, 'Vragen en antwoorden stikstof' (2019); Adviescollege Meten en Berekenen Stikstof 2020</td></tr>\n<tr><td>Onzekerheid</td><td>landelijk zeer waarschijnlijk hooguit 30 %, één plek 70 %</td><td>RIVM, 'Berekenen met modellen' en 'Berekenen en modelleren'; Duyzer &amp; Erbrink 2021 (onzekerheid op hexagoonschaal groter)</td></tr>\n<tr><td>Adviescollege 2020</td><td>landelijk goed genoeg; heel kleine bijdragen per hectare: schijnzekerheid; meer meten</td><td>Eindrapport <i>Meer meten, robuuster rekenen</i> (15 juni 2020); Kamerbrief eindadvies (Omgevingsweb)</td></tr>\n<tr><td>UvA 2023</td><td>bij twee melkveebedrijven: ammoniak in de lucht klopte goed met het model; neerslag niet goed te meten</td><td>Tietema e.a., eindverslag 12-09-2023; UvA-nieuws september 2023; reactie ministerie LNV (memo 19 sep 2023) en vakpers (Agraaf, Melkvee.nl)</td></tr>\n<tr><td>Rekenvoorbeeld</td><td>'stel' 1400 mol N/ha/jaar (landelijk gemiddelde 2024: ± 1410); marge 70 % → ± 400 tot ± 2400</td><td>CLO-indicator 0189, versie 20 (14 okt 2026); eigen som</td></tr>\n<tr><td>Kritische depositiewaarde</td><td>droge heide 10 kg ≈ 714 mol; hoogveen 500 mol</td><td>Wamelink e.a. 2023, WEnR-rapport 3272 (herziening 2023; droge heide was 1071 mol); Bobbink &amp; Tomassen 2024 (oude en nieuwe KDW); Natura 2000 Herstelstrategieën Deel I Bijlagen. Vochtige heide: 15 kg ≈ 1071 mol (niet in de film)</td></tr>\n<tr><td>Vergrassing</td><td>pijpenstrootje, bochtige smele en braam winnen; tormentil verliest</td><td>OBN Natuurkennis Nieuws voorjaar 2025 (pijpenstrootje); WallisDeVries e.a. 2020, <i>Vlinders</i> (tormentil, biggenkruid); Bobbink e.a. 2010, <i>Ecological Applications</i> (stikstofophoping belangrijkste drijver); VU/Radboud-nieuws over Vogels e.a. 2023</td></tr>\n<tr><td>Koolmees en kalk</td><td>verzuring → minder slakken → eieren met te dunne schalen, jongen breken hun pootjes</td><td>Graveland e.a. 1994, <i>Nature</i> 368: 446–448; Van den Burg 2017 (Noord-Ginkel); Vroege Vogels 2017 (Van den Burg, Bobbink)</td></tr>\n<tr><td>Passende beoordeling en bevoegd gezag</td><td>inhoud van het rapport; meestal beslist de provincie; Europese regels</td><td>Habitatrichtlijn art. 6 lid 3 (via PONT Omgeving); provincie Drenthe, Beleidsregels bescherming natuur 2026; Raad van State 28 feb 2024 (ECLI:NL:RVS:2024:831); Rijkswaterstaat en IPLO (minister bij rijksprojecten)</td></tr>\n<tr><td>Herkomst depositie</td><td>2024: ± de helft Nederlandse landbouw, ± een derde buitenland; 2021: verkeer 12,9 %, industrie 1,7 %</td><td>CLO-indicator 0189 (2024); CBS, dossier stikstof (aandelen 2021; ± 33 % buitenland)</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bos- en natuurbeheer Velp (vier jaar); wo Biologie Nijmegen; wo Bos- en natuurbeheer Wageningen; mbo bij een groene school</td><td>studiekeuze123 (Van Hall Larenstein 240 EC; WUR 180 EC; Radboud Biology 180 EC); wur.nl; groenonderwijs.nl 2013</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Kritische depositiewaarde.</b> De vakdefinitie spreekt van een <i>risico</i> op significante aantasting boven de grens; de film gebruikt de reeksdefinitie ('op den duur achteruitgaat'). De KDW van droge heide is in 2023 verlaagd van 15 naar 10 kg (1071 → 714 mol); daarover is in vak en politiek discussie.</li>\n<li><b>Stikstofoxiden 'eerst omgezet'.</b> In de lucht ontstaat salpeterzuur en daarna fijnstof (nitraatdeeltjes) dat langzaam neerkomt. Ammoniak kan ook met zuren deeltjes vormen die ver reizen; de film zegt alleen 'gemiddeld'.</li>\n<li><b>Verzuring.</b> Hoe stikstof de bodem verzuurt (o.a. nitrificatie) legt de film niet uit. Graveland 1994 spreekt van zure depositie (toen ook zwavel); dat het nu vooral om stikstof gaat, rust op Van den Burg 2017 en Bobbink.</li>\n<li><b>Bevoegd gezag.</b> Meestal gedeputeerde staten van de provincie; bij de meeste rijksprojecten (zoals snelwegen) de minister. Sinds de Omgevingswet heet de vergunning 'omgevingsvergunning voor een Natura 2000-activiteit'. De film zegt 'vergunning' en 'meestal beslist de provincie'.</li>\n<li><b>Europese regels.</b> Art. 6 lid 3 Habitatrichtlijn: toestemming pas als vaststaat dat de natuurlijke kenmerken van het gebied niet worden aangetast; anders alleen via een aparte toets (alternatieven, dwingende redenen van groot openbaar belang, compensatie). In beeld staat 'vereenvoudigd'.</li>\n<li><b>Herkomst.</b> Landelijke gemiddelden; per gebied verschilt het sterk (dicht bij veehouderij weegt landbouw zwaarder, bij grote wegen verkeer).</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Laat leerlingen de kilo-naar-mol-som zelf doen voor hoogveen (7 kg) en vochtige heide (15 kg), en de depositie van ons zeshoekje met de marge naast alle drie de grenzen zetten.</li>\n<li>Rollenspel 'passende beoordeling': de ene groep is ecoloog (vult de vijf vakjes in), de andere groep is de provincie. Bespreek daarna welk deel feiten zijn en welk deel een afweging.</li>\n<li>Laat leerlingen op de kaart van het RIVM (stikstofdepositie per gebied) een Natura 2000-gebied in de buurt opzoeken en vergelijken met het landelijk gemiddelde.</li>\n<li>Vooruitblik op film 3: als een akker naast de heide natuur wordt, wat verandert er dan aan de stikstof, en hoe zou je meten of het werkt?</li>\n</ul>\n</section>\n"
+}

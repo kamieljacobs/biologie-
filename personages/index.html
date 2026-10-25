@@ -504,7 +504,7 @@ const CAST = {
               practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#4F8F6A', veiligheidsbril: true } } },
   daan:   { naam: 'Daan', leeftijd: 15, rol: 'leerling · rustig, denkt na, houdt van getallen', huid: '#EBC6A6', haar: '#D8B26A', kapsel: 'pony', wenkbrauw: '#B8904E',
             top: 'overhemd', topKleur: '#5B8CC9', topAccent: '#4A76AD', broek: '#5A4A3A', schoen: '#3A3F4E', schoenAccent: '#6B7287', accessoire: ['bril', 'sproeten'], lengte: 0.95,
-            garderobe: { school: {}, practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#5B8CC9', veiligheidsbril: true } } }, // practicum (20 okt 2026)
+            garderobe: { school: {}, practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#5B8CC9', veiligheidsbril: true }, veld: { top: 'jas', topKleur: '#4F7A9C', topAccent: '#41678A', broek: '#4A4A3A', schoen: '#2E3A2A', schoenAccent: '#1E261C' } } }, // practicum (20 okt 2026); veld (25 okt 2026, Ecologie: regenjas en laarzen)
   yasmin: { naam: 'Yasmin', leeftijd: 16, rol: 'leerling · scherp, wil later arts worden', huid: '#B98563', haar: '#2A1C16', kapsel: 'knot', wenkbrauw: '#2A1C16',
             top: 'jasje', topKleur: '#E8E2D4', topAccent: '#CFC7B4', binnen: '#2E3A55', broek: '#2E3A55', schoen: '#2A2F3E', schoenAccent: '#C8463C', accessoire: ['oorbel'], lengte: 0.98,
             garderobe: { school: {}, practicum: { top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#2E3A55', veiligheidsbril: true } } }, // practicum (20 okt 2026)
@@ -594,6 +594,9 @@ const CAST = {
   merel:  { naam: 'Procestechnoloog Merel', leeftijd: 38, rol: 'procestechnoloog · laat cellen in grote vaten een product maken en zuivert het · alleen in haar eigen vak', huid: '#9C6A4C', haar: '#24170F', kapsel: 'kort', wenkbrauw: '#1E130C', wimpers: true, lippen: '#A9584E',
             top: 'labjas', topKleur: '#F2F2EE', topAccent: '#D4D8DE', binnen: '#C7843A', broek: '#33415C', schoen: '#2A2F3E', schoenAccent: '#C7843A', accessoire: ['oorbel'], lengte: 0.97,
             garderobe: { lab: {}, gewoon: { top: 'trui', topKleur: '#2E8A9A', topAccent: '#26737F', broek: '#33415C' } } }, // 25 okt 2026 (Biotechnologie, begeleider van Sam; goedgekeurd door Kamiel 25 okt 2026): kort donker haar, labjas met oker binnenkant, geen bril (anders dan Lieke)
+  bas:    { naam: 'Ecoloog Bas', leeftijd: 46, rol: 'ecoloog · telt, meet en maakt plannen voor natuurgebieden · alleen in zijn eigen vak', huid: '#E0B08C', haar: '#7A5A3A', kapsel: 'kort', wenkbrauw: '#5E4430', baard: true,
+            top: 'jas', topKleur: '#6B6A3A', topAccent: '#58572E', broek: '#4A4636', schoen: '#3A2E22', schoenAccent: '#2A2018', accessoire: ['verrekijker'], lengte: 1.04,
+            garderobe: { veld: {}, gewoon: { top: 'overhemd', topKleur: '#7A8A5A', topAccent: '#66744A', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [] } } }, // 25 okt 2026 (Ecologie, begeleider van Daan; goedgekeurd door Kamiel 25 okt 2026): olijfgroene veldjas, laarzen, verrekijker, baard
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
@@ -665,7 +668,7 @@ const CAST_FAMILIE = {
   anouk: { partner: 'milan' }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)
@@ -863,6 +866,7 @@ function persoon(ctx, id, x, y, h, o = {}) {
   // --- nek
   ctx.fillStyle = huidS; roundRect(ctx, cx - hh * 0.16, hoofdY + hh * 0.3, hh * 0.32, schouderY - hoofdY - hh * 0.22, hh * 0.1); ctx.fill();
   if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.ellipse(cx, schouderY - hh * 0.02, hh * 0.55, hh * 0.2, 0, 0, Math.PI); ctx.fill(); }
+  if (P.accessoire.includes('verrekijker')) { const vy = schouderY + hh * 0.72; ctx.strokeStyle = '#2A2620'; ctx.lineWidth = hh * 0.045; ctx.beginPath(); ctx.moveTo(cx - hh * 0.28, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx - hh * 0.26, vy - hh * 0.3, cx - hh * 0.14, vy - hh * 0.08); ctx.moveTo(cx + hh * 0.28, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx + hh * 0.26, vy - hh * 0.3, cx + hh * 0.14, vy - hh * 0.08); ctx.stroke(); for (const s of [-1, 1]) { roundRect(ctx, cx + s * hh * 0.13 - hh * 0.09, vy - hh * 0.1, hh * 0.18, hh * 0.3, hh * 0.05); shape(ctx, '#2E3230', '#1A1C1A', Math.max(1, hh * 0.015)); circ(ctx, cx + s * hh * 0.13, vy + hh * 0.2, hh * 0.075, '#4A5A66'); } ctx.fillStyle = '#1A1C1A'; ctx.fillRect(cx - hh * 0.05, vy - hh * 0.02, hh * 0.1, hh * 0.1); } // verrekijker op de borst (Ecologie, 25 okt 2026)
   if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(cx - hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx - hh * 0.32, schouderY + hh * 0.9, cx - hh * 0.08, schouderY + hh * 1.15); ctx.moveTo(cx + hh * 0.3, schouderY - hh * 0.02); ctx.quadraticCurveTo(cx + hh * 0.34, schouderY + hh * 0.7, cx + hh * 0.22, schouderY + hh * 0.95); ctx.stroke(); circ(ctx, cx + hh * 0.22, schouderY + hh * 1.0, hh * 0.09, '#9AA3B2'); }
   // --- hoofd
   const hy = hoofdY, fw = hh * 0.86, ax = kijk * hh * 0.03; // kleine draai in kijkrichting
@@ -1174,6 +1178,7 @@ function _zij(ctx, P, x, y, h, a, o) {
   ctx.strokeStyle = P.kapsel === 'capuchon' ? (P.topAccent || P.topKleur) : huidS; ctx.lineWidth = hh * 0.32; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(nx, ny + hh * 0.05); ctx.lineTo(hcx - hh * 0.04, hy + hh * 0.35); ctx.stroke(); // capuchon: hals bedekt
   if (P.top === 'hoodie') { ctx.fillStyle = P.topAccent; ctx.beginPath(); ctx.moveTo(nx - hh * 0.12, ny - hh * 0.12); ctx.quadraticCurveTo(nx - d * 0.62, ny - hh * 0.1, nx - d * 0.55, ny + hh * 0.55); ctx.quadraticCurveTo(nx - d * 0.3, ny + hh * 0.3, nx + hh * 0.05, ny + hh * 0.05); ctx.closePath(); ctx.fill(); }
   if (P.top === 'overhemd') { ctx.fillStyle = _licht(P.topKleur, 0.15); ctx.beginPath(); ctx.moveTo(nx - hh * 0.2, ny - hh * 0.05); ctx.lineTo(nx + hh * 0.22, ny - hh * 0.02); ctx.lineTo(nx + hh * 0.1, ny + hh * 0.25); ctx.closePath(); ctx.fill(); }
+  if (P.accessoire.includes('verrekijker')) { ctx.strokeStyle = '#2A2620'; ctx.lineWidth = hh * 0.045; ctx.beginPath(); ctx.moveTo(nx - hh * 0.1, ny); ctx.quadraticCurveTo(nx + hh * 0.3, ny + hh * 0.4, nx + hh * 0.32, ny + hh * 0.62); ctx.stroke(); roundRect(ctx, nx + hh * 0.24, ny + hh * 0.6, hh * 0.24, hh * 0.18, hh * 0.05); shape(ctx, '#2E3230', '#1A1C1A', Math.max(1, hh * 0.015)); }
   if (P.accessoire.includes('stethoscoop')) { ctx.strokeStyle = '#3A3F4E'; ctx.lineWidth = hh * 0.05; ctx.beginPath(); ctx.moveTo(nx - hh * 0.15, ny); ctx.quadraticCurveTo(nx + hh * 0.35, ny + hh * 0.7, nx + hh * 0.3, ny + hh * 1.05); ctx.stroke(); circ(ctx, nx + hh * 0.3, ny + hh * 1.1, hh * 0.09, '#9AA3B2'); }
   const H = _zijHoofd(ctx, P, hcx, hy, hh, uit, t, G, fi);
   ctx.restore();
