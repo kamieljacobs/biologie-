@@ -4,7 +4,7 @@
 <link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -125,5 +125,45 @@ window.dnaVel=function(){ ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,H);
  dnaLadderHelix(ctx,120,890,95,'ATGCATTGCAGTCCATG',{draai:1,R:95,s:0.45}); text(ctx,'draai 1 (rechtsdraaiend, kleine en grote groef)',120,1050,fMeta(20),C.text2,'left');
  dnaLadderHelix(ctx,1260,700,100,'ATATAT',{draai:0,R:95,s:0.45,sep:0.6}); text(ctx,'sep 0,6 (strengen los)',1260,870,fMeta(20),C.text2,'left'); };
 if(location.hash==='#dna') setTimeout(()=>dnaVel(),300);
+// ===== DNA 2 DNA kopiëren 2.0: replicatievork en enzymen (ronde 2, 26 okt 2026; lessen_dna.md)
+window.replVel=function(){ if(typeof CAST==='undefined'){ chrLibs().then(()=>replVel()); return; } ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,H);
+ text(ctx,'DNA kopiëren · vork() · polymerase · helicaseRing · primase · ligase · vrijNucleotide · baseRingRNA · schaafwond',60,64,fTitel(34),C.text,'left');
+ const st={i0:0,i1:110,X0:60,cy:330,g:46,dx:13,Dmax:160,Lsplit:9,Ltw:10,Lf:26,pl:4,p1:30,lead:4,startLead:0,vlag:1.4,t:0.7};
+ ctx.save(); ctx.beginPath(); ctx.rect(0,100,950,500); ctx.clip(); ctx.translate(0,0); ctx.scale(0.6,1); vork(ctx,Object.assign({},st,{f:76})); ctx.restore(); text(ctx,'vork(): f = 76 (leidende streng, volgende streng met primers)',60,560,fMeta(20),C.text2,'left');
+ ctx.save(); ctx.beginPath(); ctx.rect(970,100,950,500); ctx.clip(); ctx.translate(970,0); ctx.scale(0.6,1); vork(ctx,Object.assign({},st,{f:107})); ctx.restore(); text(ctx,'f = 107 (primer vervangen, ligase)',1000,560,fMeta(20),C.text2,'left');
+ polymeraseAchter(ctx,300,800,140,{}); ['A','G','T','C','A','G'].forEach((b,i)=>d2Base(ctx,120+i*36,840,-Math.PI/2,b,60,9,{})); polymeraseVoor(ctx,300,800,140,{sluit:1,a:0.94}); text(ctx,'polymerase (sluit 1)',200,1000,fMeta(20),C.text2,'left');
+ helicaseRing(ctx,640,800,60,{}); text(ctx,'helicaseRing',600,1000,fMeta(20),C.text2,'left');
+ primase(ctx,820,800,44,{}); ligase(ctx,940,800,44,{sluit:1}); text(ctx,'primase · ligase',800,1000,fMeta(20),C.text2,'left');
+ vrijNucleotide(ctx,1100,800,'G',0,1.1,{rand:C.goud}); text(ctx,'vrijNucleotide',1060,1000,fMeta(20),C.text2,'left');
+ ['A','U','C','G'].forEach((b,i)=>baseRingRNA(ctx,1260+i*70,740,b,1,{s:0.7})); text(ctx,'baseRingRNA',1260,1000,fMeta(20),C.text2,'left');
+ [0,0.38,0.78].forEach((h,i)=>{ onderarm(ctx,1560,720+i*90,6,{id:'noor'}); schaafwond(ctx,1560,720+i*90,6,{heel:h,cx:14,cyy:-0.4,rx:3,ry:1.5}); }); text(ctx,'schaafwond 0 · 0,38 · 0,78',1560,1030,fMeta(20),C.text2,'left'); };
+if(location.hash==='#repl') setTimeout(()=>replVel(),300);
+
+
+// ===== vel · Geslachtsorganen en puberteit 2.0 (26 okt 2026): hypofysePoort, manDoorsnede, penisDoorsnede, vulvaSchema, hormDeeltje
+let gpKlaar=null; function gpLibs(){ return gpKlaar || (gpKlaar = laad('../films/voortplanting/2-geslachtsorganen-puberteit/bron/src/lib_hormonen.js')); }
+window.gpVel=async function(){ await gpLibs(); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H); const t=1.3;
+ kop('Geslachtsorganen en puberteit 2.0','hypofyse met poortaders · mannelijke organen op schaal · zwellichamen · buitenkant vrouw · hormonen');
+ hypofysePoort(ctx,430,560,0.7,{puls:0.6,aan:1,uit:1,t,volgLH:0.5});
+ manDoorsnede(ctx,1000,360,1.75,{hl:{leider:0.5},kring:1,t});
+ penisDoorsnede(ctx,1450,840,70,{vul:0}); penisDoorsnede(ctx,1640,840,70,{vul:1});
+ vulvaSchema(ctx,1700,420,0.8,{});
+ ['gnrh','fsh','lh','testo','oestro'].forEach((k,i)=>{ hormDeeltje(ctx,1350+i*60,180,k,12,1,i===2); text(ctx,k,1350+i*60,215,fMeta(16),C.text2,'center'); });
+};
+if(location.hash==='#geslacht') setTimeout(()=>gpVel(),300);
+
+// ===== vel · Celdeling 2.0 (26 okt 2026): cdChromosoom, cdEen, cdKluwen, cdCel, cdPool, cdDraad, cdKernmembraan, cdTeller (vaderskant teal, moederskant oker)
+window.cdVel=async function(){ await chrLibs(); ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,H); const t=1.3;
+ kop('Celdeling 2.0 · chromosomen met armen','cdKluwen c = 0 → 1 (morph) · cdChromosoom met kinetochoren, cohesine en crossing-over · cdEen in de anafase · cdCel insnoeren');
+ [0,0.35,0.7,1].forEach((c,i)=>{ cdKluwen(ctx,160+i*220,330,170,{c,dubbel:true,w:18,kl:CD.vader,seed:11,R:80}); text(ctx,'c = '+c,160+i*220,480,fMeta(20),C.text2,'center'); });
+ cdChromosoom(ctx,1060,330,200,{w:20,kl:CD.moeder,kin:true,ringen:1}); text(ctx,'kin + ringen',1060,480,fMeta(20),C.text2,'center');
+ const CO={v:[[0,0.68,CD.vader],[0.68,1,CD.moeder]],m:[[0,0.68,CD.moeder],[0.68,1,CD.vader]]};
+ cdChromosoom(ctx,1300,330,200,{w:20,kl:CD.vader,segsR:CO.v,hl:1}); cdChromosoom(ctx,1352,330,200,{w:20,kl:CD.moeder,segsL:CO.m,hl:0}); text(ctx,'na crossing-over',1326,480,fMeta(20),C.text2,'center');
+ [0,0.5,1].forEach((u,i)=>{ const z=0.85*Math.sin(Math.PI*u)+0.25*u; cdEen(ctx,1560+i*110-u*30,330,180,{w:16,kant:1,zwaai:z,kl:CD.oker||CD.moeder,kin:true}); }); text(ctx,'cdEen zwaai (centromeer vóórop)',1670,480,fMeta(20),C.text2,'center');
+ [0,0.5,0.9].forEach((ins,i)=>{ cdCel(ctx,330+i*620,800,250,170,{insnoer:ins,t}); cdPool(ctx,330+i*620-210,800,1); cdPool(ctx,330+i*620+210,800,1); if(i===0) cdKernmembraan(ctx,330,800,120,0.5,1); });
+ cdDraad(ctx,1450,800,1560,760); cdTeller(ctx,[['model','4 · 8'],['mens','46 · 92',C.goud]],1,1560,140);
+};
+if(location.hash==='#celdeling') setTimeout(()=>cdVel(),300);
+
 draw(1);</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>

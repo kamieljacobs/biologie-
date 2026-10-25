@@ -1,107 +1,69 @@
 # Wat is DNA? — bronmap
 
+Versie 3.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, net als Chromosomen 2.0. De oude versie (DNA-bouwstraat `films/dna/_bouw/`, prompt v5, 12 okt 2026) staat in `oud/` (`1-wat-is-dna-v2.html`, `info-v2.md`, `script-v2.md`). Fase 1 (script, storyboard, twijfelscènes, keyframes): `remake-2026-10/`.
+
 | Veld | Waarde |
 |---|---|
-| Bestand | films/dna/1-wat-is-dna.html (één zelfstandig bestand; audio en lettertypen ingebed) |
-| Reeks / nummer | DNA, film 1 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
-| Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd |
-| Prompt | v5 |
-| Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_multilingual_v2); één take per alinea of vraag |
-| Duur | gesproken 5:30; speeltijd (zonder wachten bij vragen) vwo 6:51, havo 4:58 |
-| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
-| Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
-| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–4, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
+| Bestand | films/dna/1-wat-is-dna.html (audio in `1-wat-is-dna/audio/`) |
+| Reeks / nummer | DNA · film 1 van 8 |
+| Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (`level: 'vwo'`, zonder gesproken aankondiging) |
+| Versie / datum | 3.0 · 26 okt 2026 |
+| Prompt | v10 |
+| Voldoet aan | prompt v10 (26 okt 2026) |
+| Herkomst | lichte remake (B16), keuring twijfelscènes 25 okt 2026 (`films/verbeterbladen/remake-2026-10/besluiten.md`: alles voorstel; t3 pastest met de ringvorm; ringvorm = basevorm van de hele DNA-reeks) |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (23 takes, 6.232 credits), flow `VGNJ3RXscK3DCTEmFN6B`; stem-invoer letterlijk in `stem/invoer.md` |
+| Duur | spraak ± 7:25 (445 s; basis 334 s); met hoofdstukkaarten en vragen ± 9 min (`duur: 9` in HOOFDSTUKKEN) |
+| Beeldstijl | Part C: Macro (practicumlokaal met Noor), Micro zonder korrel (wangcel, kern, DNA, basen), Schema (schaal, letters, coderend DNA); zoomcirkels bij de stappen in schaal |
+| Audio-opslag | 23 losse mp3's (`../audio/sNN.mp3`, −16 LUFS), woordtijden `stem/woordtijden/` (silalign, lokaal) |
 
 ## Opbouw
-Begintijden in de speler (hoofdstukkaart), vwo en havo.
-
-| Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |
-|---|---|---|---|---|---|
-| 0:00 | 0:00 | Opening | n0 | I toepassing · Macro → zoomcirkel → Micro | wattenstaafje, wangcellen, celkern met 46 draden |
-| 0:23 | 0:23 | Hoofdstuk 1 — Van wang tot molecuul | n3, q4, n5 | B structuur, schaal · Micro (+ Macro-figuur bij de lengte) | continue zoom cel → kern; 46 uitgerolde draden; één draad recht getrokken |
-| 1:17 | 1:17 | Hoofdstuk 2 — De bouwsteen en de ladder | n7, n8, q9, n10 | B + A · Micro | uitvergrote nucleotide; simulatie waarin losse nucleotiden alleen op hun partner blijven hangen; de paarrand (punt/inkeping, nok/sleuf) laat zien wat past |
-| 2:54 | 2:54 | Hoofdstuk 3 — Van volgorde tot gen tot genoom | n12, q13, n14 | B organisatieniveaus · Micro + Schema-kaart | één groeiend schema base → genoom; 2 % coderend |
-| 4:19 | — | Hoofdstuk 4 — Richting, bruggen en verpakking | n16, n17, q18, n19 | B + A · Micro | genummerde suiker; waterstofbruggen; smelt-vergelijking AT-rijk vs GC-rijk; wikkelen om histonen |
-| 6:11 | 4:19 | Samenvatting — Terug naar het wattenstaafje | n21 | — · Micro | terug naar wang en kern |
-
-## Voorspelvragen
-De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling; het antwoord wordt in het volgende segment uitgesproken.
-
-| Segment | Niveau | Vraag | Opties (juist vet) |
+| Hoofdstuk | Segmenten | Type · look | Kernbeeld |
 |---|---|---|---|
-| q4 | basis | Als je alle 46 chromosomen van één cel achter elkaar legt, hoe lang is dat dan? | ongeveer twee millimeter · ongeveer twee centimeter · **ongeveer twee meter** |
-| q9 | basis | Je kent van één streng de volgorde: A T T G C. Wat is dan de andere streng? | A T T G C · **T A A C G** · C G T T A |
-| q13 | basis | Welk deel van jouw DNA bestaat uit genen die voor eiwitten coderen? | bijna alles · ongeveer de helft · **ongeveer twee procent** |
-| q18 | vwo | Twee stukjes DNA, even lang. Het ene heeft veel C en G, het andere veel A en T. Welk stukje laat bij verwarmen het eerst los? | het stuk met veel C en G · **het stuk met veel A en T** · ze laten tegelijk los |
+| Opening | s01–s02 | haak · Macro → Micro | Noor doet het DNA-practicum (zout water, afwasmiddel, alcohol: witte draadjes); zoomcirkel naar de wangcellen; twee puzzelkaarten |
+| 1. Van wang tot molecuul | s04–s07 (q06) | B · Micro + Schema | doorlopende zoom uitstrijkje → wangcel → kern (`kernChromatine`, 46 gebieden lichten op); chromosoom 1 uitgerold; 2 m naast Noor; tennisbal (meer dan 10 km); zoomcirkel DNA rond eiwitten (`nucleosoomDraad`) die opvouwt |
+| 2. De bouwsteen en de ladder | s08–s15 (q13) | B + A · Micro | helix ontwindt tot ladder (`dnaLadderHelix`); nucleotide uit elkaar (`nucleotideRing`); groot/klein (ringvorm); **pastest** tegenover A: G te breed, C plekken passen niet, T past met twee bruggen; ladder draait tot helix met kleine/grote groef; partners op de gegeven streng; P en N in de nucleotide, plantje met fosfaat en nitraat |
+| 3. Van volgorde tot gen tot genoom | s16–s21 (q19) | B · Schema (+ Micro) | lettertegels jij/Noor met verschillen; teller 3,1 miljard en twee sets; gen → genoom in één schema; 100 blokjes (< 2 % coderend, regelend, verschillend); cel met kern, mitochondriën, bladgroenkorrel, bacterie met plasmiden |
+| 4. Richting, bruggen en verpakking · vwo | s22–s27 (q25) | B + A · Micro | genummerde suiker, 5'/3', antiparallel; waterstofbruggen, smelten bij ± 95 °C en weer paren; AT-rijk opent eerder (simulatie); histonen, nucleosoom, chromatine en condensatie tot staafjes |
+| Samenvatting | s28 | Macro → Micro | terug naar het buisje en in stappen terug door de zoom; vooruitblik DNA 2 |
 
-## Begrippen
-- DNA — Desoxyribonucleïnezuur; bevat de informatie voor alle erfelijke eigenschappen van een organisme.
-- nucleotide — Bouwsteen van DNA: een fosfaatgroep, de suiker desoxyribose en een stikstofbase (A, T, C of G).
-- basenparing — Stikstofbasen verbinden twee nucleotideketens met een vaste partner: A met T, C met G.
-- dubbelstrengs DNA — Twee nucleotideketens die door basenparing bij elkaar worden gehouden.
-- helixstructuur — De twee ketens zijn in een spiraal om elkaar heen gedraaid.
-- chromosoom — Een zeer lang dubbelstrengs DNA-molecuul.
-- nucleotidenvolgorde / DNA-sequentie — De volgorde waarin de nucleotiden in een DNA-molecuul staan.
-- gen — Een stuk DNA dat de informatie bevat voor één eiwit.
-- genoom — Alle DNA-moleculen in een cel van een organisme.
-- coderend / niet-coderend DNA — DNA dat wel, respectievelijk niet, codeert voor eiwitten.
-- plasmiden — Korte stukjes circulair DNA in het cytoplasma van sommige prokaryoten.
-- complementair *vwo* — Elke base in de ene streng heeft een vaste partner in de andere; ken je één streng, dan ken je de andere.
-- antiparallel *vwo* — De twee strengen lopen in tegengestelde richting: 5'→3' naast 3'→5'.
-- 5'- en 3'-uiteinde *vwo* — Uiteinden van een streng: aan het 5'-uiteinde een vrije fosfaatgroep, aan het 3'-uiteinde een vrije OH-groep.
-- waterstofbrug *vwo* — Zwakke binding tussen de basen: twee bij A–T, drie bij C–G.
-- hybridisatie *vwo* — Het weer paren van losse strengen met een passende volgorde na verhitten en afkoelen.
-- histonen / nucleosoom / chromatine *vwo* — Eiwitten waar DNA omheen windt; één wikkeling om acht histonen is een nucleosoom; de verder opgevouwen kralenketting is chromatine.
-
-## Checkvragen
-- (basis) Een plant neemt uit de bodem fosfaat en nitraat op. Welke van beide heeft hij nodig voor de fosfaatgroep van een nucleotide, en welke voor de stikstofbase? — *Fosfaat voor de fosfaatgroep; nitraat (stikstof) voor de stikstofbase.*
-- (basis) Een stukje DNA bevat 30% adenine. Hoeveel procent guanine bevat het? Leg uit. — *20%. A paart met T, dus ook 30% T; samen 60%. De overige 40% is C en G, die paren, dus 20% G.*
-- (basis) Zet in volgorde van klein naar groot: chromosoom, gen, genoom, nucleotide. — *nucleotide → gen → chromosoom → genoom*
-- (vwo) Van een DNA-streng is de volgorde 5'-ATGCCA-3'. Noteer de complementaire streng met de juiste uiteinden. — *3'-TACGGT-5', wat je van 5' naar 3' schrijft als 5'-TGGCAT-3'.*
-- (vwo) Vóór een celdeling worden chromosomen zichtbaar als staafjes. Leg uit met de begrippen nucleosoom en chromatine waardoor dat komt. — *Het DNA is om histonen gewikkeld tot nucleosomen; die kralenketting (chromatine) wordt vóór de deling verder opgevouwen en gecondenseerd tot een compact staafje.*
-
-## Getallen
-| Getal | In de film | Bron |
+## Vragen
+| Segment | Vraag | Juist |
 |---|---|---|
-| DNA-lengte per cel | ≈ 2 m | 6,4·10⁹ basenparen (diploïd) × 0,34 nm ≈ 2,2 m (Alberts, Molecular Biology of the Cell) |
-| Kerndiameter | ≈ 6 µm | typische zoogdiercel 5–10 µm (Alberts) |
-| Chromosoom 1 uitgerold | ≈ 8 cm | 248,9·10⁶ bp × 0,34 nm ≈ 8,5 cm (Ensembl GRCh38) |
-| Basenparen per set | 3,2 miljard | GRCh38 ≈ 3,1·10⁹; methodes noemen 3,2 miljard |
-| Coderend DNA | ≈ 2 % | 1–2 % exonisch (Alberts; Nectar H17) |
-| Waterstofbruggen | 2 (A–T), 3 (C–G) | Alberts |
-| Strengen laten los | ≈ 95 °C | denaturatiestap PCR (Nectar H17) |
-| Histonen per nucleosoom | 8 | histon-octameer (Alberts) |
-| Cellen aan een wattenstaaf | enkele duizenden | niet gecontroleerd in een primaire bron |
+| q06 | Hoe lang zijn alle 46 chromosomen van één cel achter elkaar? | c, ongeveer twee meter |
+| q13 | Welke basen staan tegenover A T T G C? | b, T A A C G |
+| q19 | Welk deel van je DNA codeert echt voor eiwitten? | c, minder dan twee procent |
+| q25 · vwo | Welk stukje laat bij verwarmen het eerst los? | b, het stuk met veel A en T |
 
-## Techniek: waar zit wat in de HTML
-Regelnummers in 1-wat-is-dna.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
-- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 129. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
-- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 130; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 312.
-- **Scènes**: regel 512; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 693. **Speler**: regel 694 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
-- **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl1_docent.htmlfrag`.
+Vragen uit: de speler laat s05 en s18 helemaal weg en knipt in s12 en s24 vanaf de vraagzin. De alinea na elke vraag begint met een hele zin, dus geen kort antwoord dat blijft hangen. Gecontroleerd met `?vragen=uit` (lijst met knippunten), `antwoordtekst.py --check` en `kortantwoord.py --check`.
+
+## Begrippen en docentdeel
+Begrippen in `film.py` (`glossary`, vwo-begrippen gemarkeerd). Docentdeel in `sections.html`: 6 checkvragen (2 vwo), hoe de film het uitlegt, misvattingen, getallen en bronnen, keuzes en vereenvoudigingen (ringvorm als model, AT laat eerder los zonder 'omdat', gen = één eiwit), plaats in de reeks, lessuggestie. Alle beweringen met bronnen: `bronnen.md`.
+
+## Waar wat in de HTML zit
+Regelnummers in `../1-wat-is-dna.html` (versie 3.0):
+- r. 104 begrippen, r. 115 docentdeel; r. 156 `window.FILMDATA`.
+- r. 4500 `baseRing` en de rest van de DNA-basevorm (gedeelde bibliotheek, `lib_bio.js`).
+- r. 4950 eigen tekenhulpen (`lokaal`, `buisje`, `wangcellen` r. 4973, `tennisbal`, `tegel`, `plantje`, `thermo`, `stukLadder`).
+- r. 5035 `Object.assign(SCENES, …)`: één functie per alinea (s04 r. 5060, s10 pastest r. 5118, s22 r. 5199).
 
 ## Zo pas je deze film aan
-1. Werk in `films/dna/_bouw/` (kopieer de map naar een werkmap buiten de repo). Haal eerst de audio terug: `python3 haal_audio.py 1 ../1-wat-is-dna.html`.
-2. **Beeld**: pas `src/scenes1.js` aan (zoek de scènenaam uit de tabel Opbouw, bijv. `SCENES.h2a`), daarna `python3 build.py 1` → `out/1-wat-is-dna.html`. Controleer met `node grab.js <pad>/out/1-wat-is-dna.standalone.html qa/x 6` en `python3 sheet.py qa/x qa/x.png 7`.
-3. **Tekst op de pagina, titel, hoofdstukvragen, eindkaart**: `films.py`. **Docentdeel**: `data/afl1_docent.htmlfrag`. **Begrippen, checkvragen, getallen**: `data/afl1_script.json`.
-4. **Een alinea opnieuw inspreken**: stem-invoer uit `data/afl1_stem.json` (respellings volgens de uitspraaklijst), Roos, eleven_multilingual_v2, één take. Vervang `data/afl1_audio/<id>.mp3` (−16 LUFS, −1 dBTP), zet nieuwe woordtijden (Scribe) en `bounds` in `data/afl1_words.json`, en pas de tekst aan in `data/afl1_script.json`. Andere segmenten blijven ongemoeid.
-5. Kopieer `out/1-wat-is-dna.html` naar `films/dna/`, werk dit bestand en script.md bij (versie, datum, wat er veranderd is) en push.
+Werkmap buiten de repo met de bestanden uit deze bronmap: `segments.json`, `film.py`, `sections.html`, `uitspraak_film.json`, `src/teken_dna1.js`, `src/scenes_dna1.js`, audio als `audio/` en woordtijden als `words/`; engine = `src/` (lib, lib_cast, lib_bio, lib_micro_evo, player, page, kop.js) + `bouw/`. Bouwen: `bouw.sh` (zet `scenes.js` = kop + `lib_bio.js` + `lib_micro_evo.js` + teken + scenes, dan `film.py`, `build_data.py`, `build.py`); stills met `bouw/stills.py <map> qa contact`; de nieuwe HTML naar `films/dna/` met het donker-standaard-regeltje. Daarna in de repo `spelerfix`, `antwoordtekst`, `kortantwoord`, `tabel_mobiel`, `flipkaarten`, `teller`, `licentie_noot`, `reviewlijst` draaien.
+- Tekst wijzigen = die alinea opnieuw inspreken (één take; stem-invoer uit `segments.json` na `make_segments.py script_film.md`, met de handmatige 'tee' voor de letter T uit `voice_override.json`); woordtijden met `silalign.py`.
+- Gedeelde tekeningen (basevorm, kern, nucleosomen) wijzig je in `bibliotheek/lib_bio.js` (testvel `#dna`), niet hier.
 
 ## Aandachtspunten
-- Alle tekst moet boven y = 892 blijven: de speler knipt scènes daar af (ondertitelzone).
-- Meta-tekst staat in kapitalen, behalve eenheden (`metaCase` in de bibliotheek): µm, nm, °C blijven correct.
-- De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
-- Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
-- Stem-invoer van film 1 is gereconstrueerd volgens de uitspraaklijst; de letterlijke invoer van 8 oktober is niet bewaard.
+- Blinde transcriptie (B5) van de risicotakes s09, s10, s21, s22, s26 en s27 (via raw.githubusercontent.com, zie `stem/blind.md`): alles goed. Alleen in s21 is de slotlettergreep van 'plasmiden' zacht (Scribe: 'Plasmid'); hij is verstaanbaar en niet opnieuw ingesproken, maar staat voor Kamiels oor op de wachtlijst `remake-2026-10/uitspraak.md`.
+- De letter T: de centrale regel `^T$` → 'tee' vangt geen 'T,' of 'T.'; in deze film met de hand als 'tee' ingesproken (`voice_override.json`). Voorstel: de regel in `films/uitspraak.json` uitbreiden naar `^T([,.:]?)$`.
+- Frisse beeldreview (C10.7): eerst een zelfreview (`review_zelf_2026-10-26.md`), daarna de frisse review (`review_fris_2026-10-26.md`, 12 MOET, 18 KAN). Alle MOET-punten zijn hersteld:
+  - s04: het label 'celkern' staat rechts van de kern. De schaalbalk geeft 2 µm (de kern is ± 6 µm). Bij 'chromosoom' en 'chromosoom 1' licht een draad goud op.
+  - s05, s07 en s27: schaalbalken aangepast. Bij 'opgevouwen' (s07 en s27) vouwt de kralenketting op tot een spiraal (nieuwe `kralenVouw` in `teken_dna1.js`).
+  - s09, s15 en s22: de base zit aan C1′ (`nucleotideRing` v2 in `bibliotheek/lib_bio.js`). In s22 is de OH aan C3′ te zien.
+  - s16 en s28: meta 'vergroot · echt ± 1 verschil op de 1000 basen'.
+  - s17: het label staat boven het kader.
+  - s21 is opnieuw getekend: één kern, mitochondriën en een bladgroenkorrel met ringetjes, en een bacterie met een paarse ring en drie plasmiden.
+  - s26: het C–G-stuk blijft dicht. Het label 'twee/drie bruggen per paar' staat erbij en de thermometer is los van de labels.
+  - Goedkope KAN-punten ook gedaan: label 'draadjes', s20 grijs in plaats van paars plus 'niet op schaal', labels s14/s23, titel zonder korrel.
+  - Overige KAN-punten zijn bewust blijven staan (zie de review).
 
 ## Wijzigingen
-- 12 okt 2026 (later) — nieuwe mensfiguur in opening en samenvatting: met huidskleur, zachte ronde vormen, vriendelijk gezicht (personReal in dnalib); speler: denktijd per vraag instelbaar.
-- 2.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma/dubbele punt, nooit midden in “van 3′ naar 5′”; opnieuw gebouwd, beeld en audio ongewijzigd.
-- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: schaalbalken bij de kern kloppen nu met 6 µm; 2 %-balk op schaal; bacterie verkleind.
-- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.
-
-## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
-
-`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'in elke cel', 'chromosoom', 'mitochondrium', 'plasmiden', 'waterstofbruggen', 'histonen'. Gecontroleerd op stills van alle scènes met namen.
+- 26 okt 2026 — Versie 3.0: lichte remake. Nieuw script (fase 1, gekeurd 25 okt), nieuwe stem (eleven_v4), alle beelden nieuw in de FILMDATA-straat; basevorm van de DNA-reeks (ringvorm) in de gedeelde bibliotheek; opening met Noor en het DNA-practicum; pastest; opwikkelen in de basis; vier `!`-verbeteringen met bronnen (zie `bronnen.md`). De oude film staat in `oud/`.

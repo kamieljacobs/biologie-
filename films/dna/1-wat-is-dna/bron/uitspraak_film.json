@@ -1,0 +1,3 @@
+[["^A–T-paar", "A-T-paar"], ["^C–G-paar", "C-G-paar"], ["^OH-groep", "O-H-groep"],
+ ["^5'-uiteinde", "vijf-accent-uiteinde"], ["^3'-uiteinde", "drie-accent-uiteinde"],
+ ["^5'([.,:]?)$", "vijf-accent\\1"], ["^3'([.,:]?)$", "drie-accent\\1"]]

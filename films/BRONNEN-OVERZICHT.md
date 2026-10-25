@@ -4,12 +4,14 @@ Gemaakt met `python3 scripts/bronnencheck.py --md`. Werkwijze: `films/BRONNEN.md
 
 | Stand | Aantal films |
 |---|---|
-| geen logboek | 170 |
-| in controle | 6 |
-| wacht op steekproef | 11 |
+| geen logboek | 166 |
+| in controle | 8 |
+| wacht op steekproef | 13 |
 
 | Film | Stand | ✓ | ≈ | ! | ? | Steekproef |
 |---|---|---|---|---|---|---|
+| `films/dna/1-wat-is-dna` | wacht op steekproef | 22 | 8 | 0 | 0 | 0 |
+| `films/dna/2-dna-kopieren` | in controle | 16 | 8 | 0 | 2 | 0 |
 | `films/erfelijkheid/1-chromosomen` | wacht op steekproef | 17 | 13 | 0 | 0 | 0 |
 | `films/onderbouw/33c/1-hoe-vindt-een-haai-zijn-prooi` | in controle | 10 | 11 | 0 | 4 | 1 |
 | `films/vervolg/bioinformatica-1-zoeken-in-dna` | wacht op steekproef | 21 | 8 | 0 | 0 | 0 |
@@ -27,5 +29,7 @@ Gemaakt met `python3 scripts/bronnencheck.py --md`. Werkwijze: `films/BRONNEN.md
 | `films/vervolg/forensisch-2-hoe-zeker-is-een-match` | wacht op steekproef | 13 | 11 | 0 | 0 | 0 |
 | `films/vervolg/forensisch-3-hoe-lang-al-dood` | wacht op steekproef | 21 | 15 | 0 | 0 | 0 |
 | `films/vervolg/landbouw-2-wat-zit-er-in-de-bodem` | in controle | 32 | 17 | 0 | 4 | 0 |
+| `films/voortplanting/2-geslachtsorganen-puberteit` | wacht op steekproef | 34 | 9 | 0 | 0 | 0 |
+| `films/voortplanting/celdeling` | in controle | 28 | 6 | 0 | 1 | 0 |
 
-Beweringen totaal: 371 ✓ · 203 ≈ · 7 ! · 12 ?
+Beweringen totaal: 471 ✓ · 234 ≈ · 7 ! · 15 ?

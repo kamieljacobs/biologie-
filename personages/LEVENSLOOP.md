@@ -4,7 +4,7 @@
 
 ## Per personage (met de hand)
 
-**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol.
+**Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol.
 
 **Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
@@ -18,7 +18,7 @@
 
 **Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
 
-**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), 3 (Mag dat?: vindt eerst dat Europa 'gewoon bang' is, ontdekt dat het ook om waarden gaat, eindigt zonder mening) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Grenzen: blijft in dit vak de stagiair.
+**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), 3 (Mag dat?: vindt eerst dat Europa 'gewoon bang' is, ontdekt dat het ook om waarden gaat, eindigt zonder mening) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Is in Geslachtsorganen en puberteit 2.0 de jongen bij wie de puberteit al begonnen is (een kop groter dan Daan, lage stem); van opzij met de hersenen in een zoomcirkel náást zijn hoofd en het bekken in een zoomcirkel náást zijn lichaam (gezicht en kleding blijven heel). Grenzen: blijft in dit vak de stagiair.
 
 **Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
 
@@ -47,9 +47,10 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 59 films
+### Noor (`noor`) — 61 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, van-molecuul-tot-biosfeer
+- `dna`: 1-wat-is-dna, 2-dna-kopieren
 - `ecologie`: 3-een-aarde, 4-ingrijpen-of-laten-gaan
 - `erfelijkheid`: 1-chromosomen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat, 8-stambomen-lezen, x2-het-ontstaan-van-het-leven, x3-van-eerste-cel-tot-nu, x4-hoe-werden-we-mens
@@ -147,7 +148,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Mevrouw Visser (`visser`) — 6 films
+### Mevrouw Visser (`visser`) — 7 films
+- `dna`: 2-dna-kopieren
 - `erfelijkheid`: 1-chromosomen
 - `evolutie`: 8-stambomen-lezen
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
@@ -207,9 +209,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `voortplanting`: celdeling
 
-### Oma Ria (`ria`) — 2 films
+### Oma Ria (`ria`) — 3 films
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `vervolg`: mbrt-2-bestraling
+- `voortplanting`: celdeling
 
 ### Opa Ahmed (`ahmed`) — 0 films
 - (geen films gevonden)

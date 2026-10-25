@@ -17,7 +17,7 @@ Stem Roos, eleven_v4, één take per alinea. De centrale lijst (`films/UITSPRAAK
 | histonen, nucleosoom, chromatine | gewoon (his-TOO-nen, nu-klee-o-SOOM) | s22 | nucleosoom |
 | hybridisatie | gewoon | s21 | — |
 | mitochondriën | gewoon (mie-to-KON-drie-en) | s17 | — |
-| plasmiden | gewoon | s17 | — |
+| plasmiden | gewoon | s21 | blind (B5): slotlettergreep zacht, Scribe hoorde "Plasmid"; Kamiel luistert |
 | drieëntwintig, zesenveertig | gewoon (zesenveertig goedgekeurd 24 okt) | s03, q04, s13 | — |
 | micrometer | gewoon | s05 | — |
 
