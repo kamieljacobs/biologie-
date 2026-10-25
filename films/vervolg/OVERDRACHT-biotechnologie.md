@@ -11,6 +11,8 @@ Stand: film 1 in de maak (Kamiel 25 okt 2026: 'ja' op starten met film 1). Wordt
 Zoals Forensisch onderzoek: bronnen en getallen → 3 scriptvarianten + blinde beoordelaar → frisse feitenreview → storyboard, twijfelscènes op een blad voor Kamiel → inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Reeksbrief: `REEKS-biotechnologie.md` (nog niet gekeurd).
 
 ## Stand film 1 (25 okt 2026, middag)
-- Reeksbrief en filmbrief opgesteld (filmbrief in werkmap `hw/bt1/brief.md`, komt in de bronmap).
-- Bronnenonderzoek loopt.
+- Bronmap in wording: `biotechnologie-1-bacterien-als-fabriek/bron/` (brief, getallen.md met 70 geopende bronnen, 3 scriptvarianten + blind oordeel in `werk/`, frisse feitenreview `reviews/review_v1.md`, **definitief script `script_v2.md`** (913 woorden, niet meer wijzigen), segments, film.py, storyboardscènes in `src/`).
+- Winnaar blind: variant B (35) tegen C (33) en A (30); filterscène uit C, 'rechte lijn' en bioreactordefinitie uit A.
+- Storyboard gebouwd op voorlopige tijden; twijfelblad voor Kamiel: https://claude.ai/artifact/FXJpJ1PTeq4PzvFwMjnjxi (6 punten: Merel, slachthuiskratten, bioreactor, reden opschalen in stappen, insulinetekening, chymosine 'vaak'). **Wacht op keuring**; daarna inspreken.
+- Werkmap opbouwen in een nieuwe sessie: engine uit `forensisch-3-hoe-lang-al-dood/bron` (zie BOUWEN.md), dan bronmapbestanden naar `hw/bt1/`; scenes.js = kop engine/scenes.js + brein + teken + extra + lib_bio + src/teken_bt1.js + src/scenes_bt1.js.
 - Cast besloten (Kamiel 25 okt 2026): Sam stagiair, begeleider = nieuw personage (procestechnoloog, werknaam Merel; naam en tekening ter keuring op het twijfelblad). Geen castpersonage dat insuline gebruikt (pen zonder persoon).
