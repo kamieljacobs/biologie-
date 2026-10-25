@@ -23,7 +23,7 @@
 ## Leerdoelen (de leerling kan …) — voorstel Claude, niet gekeurd
 1. uitleggen wat kunstmatige selectie is: de mens kiest welke dieren ouders worden, en via kunstmatige inseminatie krijgt één stier heel veel nakomelingen;
 2. uitleggen dat melkproductie (en de meeste fokeigenschappen) afhangt van heel veel genen met elk een klein effect én van de omgeving (voer, verzorging), zodat je aan de koe zelf niet precies ziet wat ze erft;
-3. uitleggen wat de erfelijkheidsgraad zegt (welk deel van de verschillen tussen dieren door genen komt) en wat een fokwaarde is (een schatting van wat een dier genetisch aan zijn nakomelingen doorgeeft, gemeten aan familie en nakomelingen);
+3. uitleggen wat de erfelijkheidsgraad zegt (welk deel van de verschillen tussen dieren in een groep door verschillen in genen komt) en wat een fokwaarde is (een schatting van de erfelijke aanleg, waarvan een ouder gemiddeld de helft doorgeeft; op basis van familie, nakomelingen of DNA; aangepast 25 okt 2026 n.a.v. review v1, F2);
 4. uitleggen hoe genomische selectie werkt (DNA-merkers van een kalf vergelijken met een referentiegroep met bekende prestaties) en waarom dat fokken sneller maakt;
 5. uitleggen waarom steeds dezelfde topdieren inzetten tot inteelt leidt (meer kans dat schadelijke recessieve allelen dubbel voorkomen) en waarom eenzijdig fokken op melk andere eigenschappen (vruchtbaarheid, gezondheid) kan schaden; en hoe fokkers dat nu meewegen.
 
