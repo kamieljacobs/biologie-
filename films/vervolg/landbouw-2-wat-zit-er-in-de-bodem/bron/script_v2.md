@@ -72,7 +72,8 @@ Terug naar de twee bakken. Bij elke gieter spoelde er nitraat uit het zand. Daar
 Op het mbo leer je telen, bijvoorbeeld in de opleiding Vakexpert teelt en groene technologie. Op het hbo kun je Tuinbouw en Akkerbouw studeren, bijvoorbeeld in Den Bosch. En in Wageningen studeer je Plantenwetenschappen. Daarna word je bijvoorbeeld akkerbouwer, teeltadviseur of bodemspecialist, of doe je onderzoek.
 
 ## Eindkaart
-Zand laat water en mineralen snel door. Klei en humus houden water vast, en met hun negatieve lading ook positieve ionen, zoals kalium.
+Zand laat water snel door; klei en humus houden water beter vast.
+Klei en humus zijn negatief geladen: positieve ionen zoals kalium blijven plakken.
 Bodemleven geeft de grond structuur en maakt mineralen vrij.
 De voedingsstof die het meest tekortschiet, bepaalt de groei.
 Nitraat spoelt makkelijk uit; fosfaat zit veel steviger vast.

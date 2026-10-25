@@ -6,13 +6,13 @@
 
 **Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: (nog niets bijzonders vastgelegd). Grenzen: familie blijft heel; niet in een beroepsrol.
 
-**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
+**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
 **Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen.
 
-**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Grenzen: Bilal blijft hbo-stagiair in dat vak.
+**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
 **Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2). Grenzen: geen dader of patiënt.
 

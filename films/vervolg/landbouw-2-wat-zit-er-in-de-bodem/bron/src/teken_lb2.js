@@ -35,7 +35,7 @@ function ion(ctx, x, y, soort, s = 1, a = 1, o = {}) { if (a <= 0.01) return; co
   const rand = vast > 0.5 ? C.oker : C.teal; circ(ctx, x, y, r, '#E8EEF2', rand, 4 * s);
   if (o.volg) { ctx.strokeStyle = C.goud; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.arc(x, y, r + 8 * s, 0, 6.283); ctx.stroke(); }
   text(ctx, I.s, x - (I.s.length > 1 ? 3 : 1) * s, y + 9 * s, fTekst(Math.round(24 * s * (I.s.length > 2 ? 0.85 : 1)), 700), '#121A26', 'center');
-  text(ctx, I.lad, x + r * 0.78, y - r * 0.45, fTekst(Math.round(26 * s), 800), I.lad === '+' ? '#121A26' : '#121A26', 'center');
+  { const lx = x + r * 0.95 + 10 * s, ly = y - r * 0.8; circ(ctx, lx, ly - 9 * s, 13 * s, I.lad === '+' ? '#F2C94C' : '#F2F2EE', '#121A26', 1.5); text(ctx, I.lad, lx, ly + 1 * s, fTekst(Math.round(28 * s), 900), '#121A26', 'center'); }
   ctx.restore(); }
 
 // --- glazen pot (line drawing, C4 lab library). vul 0..1 = waterhoogte; inhoud(ctx, x0, y0, w, h) tekent wat erin zit
@@ -114,12 +114,12 @@ function mycorrhiza(ctx, x, y, L, a = 1, o = {}) { if (a <= 0.01) return; ctx.sa
 function kruimel(ctx, x, y, r, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const lijm = o.lijm == null ? 1 : o.lijm;
   if (lijm > 0.01) { ctx.save(); ctx.globalAlpha *= lijm * 0.45; ctx.beginPath(); ctx.ellipse(x, y, r * 1.05, r * 0.9, 0, 0, 6.283); ctx.fillStyle = rgba('#B8C8B0', 0.5); ctx.fill(); ctx.restore(); }
   for (let i = 0; i < 9; i++) { const an = hash(i * 7 + 1) * 6.283, d = r * 0.6 * Math.sqrt(hash(i * 3 + 2)); const px = x + Math.cos(an) * d * (1 + (1 - lijm) * 0.8), py = y + Math.sin(an) * d * (1 + (1 - lijm) * 0.8); if (i % 3 === 0) humusVlok(ctx, px, py, r * 0.24, i + 2, 1, { lading: 0 }); else if (i % 3 === 1) zandkorrel(ctx, px, py, r * 0.26, i, 1); else kleideeltje(ctx, px, py, r * 0.45, hash(i) * 3, 1, { lading: 0 }); }
-  if (lijm > 0.01) { ctx.strokeStyle = rgba(BODEM.schimmel, lijm); ctx.lineWidth = 2; for (let i = 0; i < 5; i++) { const an = i * 1.3 + 0.4; ctx.beginPath(); ctx.moveTo(x + Math.cos(an) * r * 0.9, y + Math.sin(an) * r * 0.8); ctx.quadraticCurveTo(x + Math.cos(an + 1.6) * r * 0.2, y + Math.sin(an + 1.6) * r * 0.2, x + Math.cos(an + 2.6) * r * 0.9, y + Math.sin(an + 2.6) * r * 0.8); ctx.stroke(); } }
+  if (lijm > 0.01) { ctx.strokeStyle = rgba(BODEM.schimmel, lijm); ctx.lineWidth = 2; for (let i = 0; i < 5; i++) { const an = i * 1.3 + 0.4; ctx.beginPath(); ctx.arc(x, y, r * (0.55 + 0.35 * hash(i * 9)), an, an + 1.1 + 0.6 * hash(i * 4)); ctx.stroke(); } }
   ctx.restore(); }
 
 // --- teststrookje (nitraat): wit strookje met een testvakje dat kleurt (kleur 0..1)
 function teststrookje(ctx, x, y, s, kleur = 0, a = 1, ang = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); ctx.scale(s, s);
-  roundRect(ctx, -16, -150, 32, 300, 6); shape(ctx, '#F2F2EE', '#9AA3B2', 2); roundRect(ctx, -12, 96, 24, 36, 4); ctx.fillStyle = kleur > 0.01 ? `rgb(${Math.round(lerp(242, 196, kleur))},${Math.round(lerp(242, 92, kleur))},${Math.round(lerp(238, 140, kleur))})` : '#F2F2EE'; ctx.fill(); ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = 1.5; ctx.stroke();
+  roundRect(ctx, -16, -150, 32, 300, 6); shape(ctx, '#F2F2EE', '#9AA3B2', 2); roundRect(ctx, -12, 96, 24, 36, 4); ctx.fillStyle = kleur > 0.01 ? `rgb(${Math.round(lerp(242, 150, kleur))},${Math.round(lerp(242, 40, kleur))},${Math.round(lerp(238, 110, kleur))})` : '#F2F2EE'; ctx.fill(); ctx.strokeStyle = '#9AA3B2'; ctx.lineWidth = 1.5; ctx.stroke();
   ctx.restore(); }
 
 // --- druppelbak: bak met zandgrond, gaatjes onderin, opvangbakje; druppels 0..1
@@ -137,3 +137,51 @@ function veenprofiel(ctx, x, y, w, h, a = 1, zak = 0) { if (a <= 0.01) return; c
   ctx.fillStyle = BODEM.veen; ctx.fillRect(x, y + dz, w, h - dz); ctx.strokeStyle = rgba('#7A6248', 0.7); ctx.lineWidth = 2; for (let i = 0; i < 26; i++) { const py = y + dz + 14 + hash(i * 3) * (h - dz - 28), px = x + hash(i * 5) * (w - 80); ctx.beginPath(); ctx.moveTo(px, py); ctx.quadraticCurveTo(px + 30, py - 6, px + 70, py + 2); ctx.stroke(); }
   ctx.fillStyle = '#3A5540'; ctx.fillRect(x, y + dz - 14, w, 14); ctx.strokeStyle = '#8FA0B5'; ctx.setLineDash([10, 8]); ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke(); ctx.setLineDash([]);
   ctx.fillStyle = rgba(C.teal, 0.45); const wl = y + 30 + 110 * zak; ctx.fillRect(x + w - 120, wl, 120, h - (wl - y)); ctx.restore(); }
+
+// ===== extra objecten voor de scènes (25 okt 2026) =====
+// watermolecuul (teal O, lichte H); ang = richting van de H-kant
+function watertje(ctx, x, y, s = 1, ang = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang);
+  circ(ctx, 9 * s, -7 * s, 6 * s, '#E8EEF2', '#AFC0D0', 1.2); circ(ctx, 9 * s, 7 * s, 6 * s, '#E8EEF2', '#AFC0D0', 1.2); circ(ctx, 0, 0, 10 * s, C.teal, '#8FC6E2', 1.5); ctx.restore(); }
+// hydratatiemantel: watermoleculen rond een ion; bij een negatief ion wijzen de H's naar het ion, bij een positief ion de O
+function mantel(ctx, x, y, r, neg = true, a = 1, t = 0, n = 7) { if (a <= 0.01) return; for (let i = 0; i < n; i++) { const an = i / n * 6.283 + t * 0.25 + Math.sin(t * 1.3 + i) * 0.06; const px = x + Math.cos(an) * r, py = y + Math.sin(an) * r; watertje(ctx, px, py, 1, neg ? an + Math.PI : an, a); } }
+// fosfaat dat met calcium/ijzer/aluminium een vast korreltje vormt (u 0..1)
+function fosfaatKorrel(ctx, x, y, s = 1, u = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const n = 7; ctx.beginPath(); for (let i = 0; i <= n; i++) { const an = i / n * 6.283; const rr = 30 * s * (0.8 + 0.25 * hash(i * 3 + 7)); const px = x + Math.cos(an) * rr, py = y + Math.sin(an) * rr * 0.85; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); ctx.globalAlpha *= u; shape(ctx, '#B8A27A', '#8C7A58', 2.5); ctx.restore(); }
+// bladrozet (sla/spinazie-achtig) voor het proefveldje; groei 0..1, bleek 0..1 = gele onderste bladeren
+function bladrozet(ctx, x, y, s = 1, groei = 1, bleek = 0, a = 1, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const g = 0.35 + 0.65 * groei;
+  for (let i = 0; i < 7; i++) { const an = -Math.PI / 2 + (i - 3) * 0.42 + Math.sin(t * 0.7 + i) * 0.02, ln = (i === 0 || i === 6 ? 70 : 90 + 10 * (3 - Math.abs(i - 3))) * s * g; const onder = (i === 0 || i === 6 || i === 1 || i === 5);
+    const col = onder && bleek > 0 ? `rgb(${Math.round(lerp(78, 214, bleek))},${Math.round(lerp(126, 196, bleek))},${Math.round(lerp(82, 96, bleek))})` : '#4E7E52';
+    ctx.save(); ctx.translate(x, y); ctx.rotate(an + Math.PI / 2); ctx.beginPath(); ctx.ellipse(0, -ln / 2, ln * 0.24, ln / 2, 0, 0, 6.283); shape(ctx, col, '#3E6642', 1.5); ctx.strokeStyle = rgba('#2E4A32', 0.6); ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(0, -4); ctx.lineTo(0, -ln * 0.9); ctx.stroke(); ctx.restore(); }
+  ctx.restore(); }
+// tomatenplant met bleke onderste bladeren (bovenop tomatenplant uit teken_lb1)
+function tomaatBleek(ctx, x, y, h, t, o = {}, bleek = 0) { tomatenplant(ctx, x, y, h, t, o); if (bleek <= 0.01) return; const blad = o.blad == null ? 6 : o.blad, wieg = Math.sin(t * 0.8 + x * 0.01) * 4; ctx.save(); ctx.globalAlpha *= (o.a == null ? 1 : o.a) * bleek;
+  for (let i = 0; i < Math.min(2, blad); i++) { const f = 0.12 + i * 0.8 / Math.max(1, blad), yy = y - h * f, z = i % 2 ? -1 : 1, ln = h * (0.2 - f * 0.06);
+    for (let k = 0; k < 3; k++) { const u = 0.45 + k * 0.25, lx = x + z * ln * u, ly = yy - ln * 0.32 * Math.sin(u * 3) - ln * 0.05; ctx.beginPath(); ctx.ellipse(lx, ly, ln * 0.17, ln * 0.09, z * (0.5 - k * 0.3), 0, 6.283); shape(ctx, '#D6C460', '#A89A40', 1.5); } }
+  ctx.restore(); }
+// gieter
+function gieter(ctx, x, y, s = 1, a = 1, giet = 0, t = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(-0.5 * giet); ctx.scale(s, s);
+  roundRect(ctx, -50, -40, 100, 80, 12); shape(ctx, '#5E8F8A', '#3E6A66', 2); ctx.strokeStyle = '#3E6A66'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(-30, -40); ctx.quadraticCurveTo(0, -80, 30, -40); ctx.stroke();
+  ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(48, 20); ctx.lineTo(120, -30); ctx.stroke(); roundRect(ctx, 112, -44, 24, 18, 4); shape(ctx, '#5E8F8A', '#3E6A66', 2);
+  if (giet > 0.3) for (let i = 0; i < 6; i++) { const ph = (t * 1.6 + i / 6) % 1; ctx.beginPath(); ctx.ellipse(130 + i * 4 + ph * 30, -26 + ph * 120, 3, 6, 0, 0, 6.283); ctx.fillStyle = rgba(C.teal, 0.8 * Math.sin(ph * 3.14)); ctx.fill(); }
+  ctx.restore(); }
+// staafje met grens (nitraatnorm)
+function grensStaaf(ctx, x, y, w, h, waarde, grens, max, a = 1, label = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y - h); ctx.lineTo(x, y); ctx.lineTo(x + w + 80, y); ctx.stroke();
+  const vh = h * waarde / max; roundRect(ctx, x + 40, y - vh, w, vh, 6); shape(ctx, rgba(C.teal, 0.55), C.teal, 2); const gy = y - h * grens / max; ctx.setLineDash([12, 8]); ctx.strokeStyle = C.koraal; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, gy); ctx.lineTo(x + w + 80, gy); ctx.stroke(); ctx.setLineDash([]);
+  if (label) metaText(ctx, label, x + w + 90, gy + 8, C.koraal, 'left', 28); ctx.restore(); }
+// akker in doorsnede met grondwater; regen 0..1, gewas 0..1 (vanggewas), nitraat zakt naar het grondwater (u)
+function akkerDoorsnede(ctx, x, y, w, h, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const t = o.t || 0;
+  ctx.fillStyle = o.zand ? BODEM.zand : BODEM.grond; ctx.fillRect(x, y, w, h * 0.68); ctx.fillStyle = rgba(C.teal, 0.45); ctx.fillRect(x, y + h * 0.68, w, h * 0.32); ctx.strokeStyle = C.teal; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x, y + h * 0.68); ctx.lineTo(x + w, y + h * 0.68); ctx.stroke();
+  for (let i = 0; i < 50; i++) circ(ctx, x + hash(i * 3 + 1) * w, y + 10 + hash(i * 5 + 2) * h * 0.62, 2 + 3 * hash(i), o.zand ? BODEM.zandR : BODEM.grondR);
+  if ((o.gewas || 0) > 0.01) for (let i = 0; i < 14; i++) { const px = x + 40 + i * (w - 80) / 13; ctx.strokeStyle = '#5FA86E'; ctx.lineWidth = 4; ctx.globalAlpha *= 1; const gh = 50 * o.gewas; ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px - 6, y - gh); ctx.moveTo(px, y); ctx.lineTo(px + 7, y - gh * 0.9); ctx.stroke(); ctx.strokeStyle = BODEM.wortel; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(px, y); ctx.lineTo(px + 3, y + 110 * o.gewas); ctx.stroke(); }
+  if ((o.regen || 0) > 0.01) for (let i = 0; i < 26; i++) { const ph = (t * 1.1 + hash(i * 7)) % 1; const px = x + hash(i * 11) * w; ctx.strokeStyle = rgba(C.teal, 0.75 * o.regen); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(px, y - 260 + ph * 240); ctx.lineTo(px - 6, y - 236 + ph * 240); ctx.stroke(); }
+  if ((o.nitraat || 0) > 0.01) for (let i = 0; i < 5; i++) { const ph = ((o.u || 0) + i * 0.17) % 1; const px = x + 120 + i * (w - 240) / 4; const py = y + 30 + ph * h * 0.7; ion(ctx, px, py, 'NO3', 0.9, o.nitraat * (o.gewas > 0.5 && py < y + 120 ? 0.25 : 1), { vast: 0 }); }
+  ctx.restore(); }
+// kalender nov–mrt (regen > verdamping)
+function kalender(ctx, x, y, a = 1, hl = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const M = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+  M.forEach((m, i) => { const winter = i < 3 || i > 9; roundRect(ctx, x + i * 70, y, 62, 70, 8); shape(ctx, winter && hl > 0.5 ? rgba(C.teal, 0.35) : '#2A3A58', winter && hl > 0.5 ? C.teal : C.line, 1.5); text(ctx, m, x + i * 70 + 31, y + 44, fTekst(24, 700), C.text, 'center'); }); ctx.restore(); }
+// bodemmonster: grondboor met monsterzakje
+function bodemmonster(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  roundRect(ctx, -70, -90, 140, 170, 14); shape(ctx, '#E8E2D4', '#B8AE98', 2); ctx.fillStyle = BODEM.grond; ctx.beginPath(); ctx.ellipse(0, 40, 50, 24, 0, 0, 6.283); ctx.fill(); text(ctx, 'monster', 0, -40, fTekst(26, 700), '#3A2E24', 'center');
+  ctx.strokeStyle = '#8FA0B5'; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(120, -140); ctx.lineTo(120, 90); ctx.moveTo(80, -140); ctx.lineTo(160, -140); ctx.stroke(); ctx.restore(); }
+// eiwitje: kralenketting die opgevouwen ligt (kluwen), voor 'stikstof in eiwitten'
+function eiwitje(ctx, x, y, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const pts = []; for (let i = 0; i < 22; i++) { const an = i * 0.75, r = (18 + 22 * Math.sin(i * 0.45)) * s; pts.push([x + Math.cos(an) * r, y + Math.sin(an) * r * 0.8]); }
+  ctx.strokeStyle = '#9AA8C0'; ctx.lineWidth = 2.5 * s; ctx.beginPath(); bioPad(ctx, pts); ctx.stroke(); pts.forEach((p, i) => circ(ctx, p[0], p[1], 6 * s, i % 5 === 0 ? C.groen : '#7A8BA8', '#B8C4D8', 1)); ctx.restore(); }
