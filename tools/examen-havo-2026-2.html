@@ -165,6 +165,9 @@ sup{font-size:.7em}
 .papier .pre{border-left:0;padding:0}
 .papier .pre p{color:var(--text)}
 .papier .qtext{color:var(--text)}
+.herhaal.papier{padding:10px 14px;gap:6px;box-shadow:none;border-radius:6px}
+.herhaal .hkop{color:var(--text3);font-size:11px}
+.herhaal .qtext{font-size:16px}
 .papier .pvoet{font:500 11px var(--meta);letter-spacing:.06em;color:var(--text3);text-align:right}
 .papier details.ctxd summary{color:var(--goud-text)}
 .papier .podium{background:var(--surface2)}
@@ -1820,6 +1823,11 @@ function open(id){
     pap.append(el("div",{class:"pvoet"},"Officiële examentekst · © CvTE"));
     sec.prepend(pap);
     const sb=window.EXSTOF&&EXSTOF.blok(TOOL,id);if(sb)pap.after(sb);
+    /* examenvraag nog eens boven de antwoorden (Kamiel 25 okt 2026: niet terug hoeven scrollen) */
+    const qt=[...pap.querySelectorAll(".qtext")].pop(),ansP=sec.querySelector(".phase.ans");
+    if(qt&&ansP){const h=el("div",{class:"herhaal papier"});h.append(el("div",{class:"hkop mono"},`Examenvraag ${id}`));
+      const c=qt.cloneNode(true);c.querySelectorAll("[id]").forEach(x=>x.removeAttribute("id"));h.append(c);
+      const lab=ansP.querySelector(":scope>.label");lab?lab.after(h):ansP.prepend(h);}
     const ids=opg().ids,last=id===ids[ids.length-1];
     const nx=el("div",{class:"row",style:"justify-content:flex-end"});const b=el("button",{class:"go"},last?"Naar je score ›":`Volgende vraag (${id+1}) ›`);
     nextBtns[id]=b;b.hidden=!store.vrij&&store.scores[id]===undefined;
