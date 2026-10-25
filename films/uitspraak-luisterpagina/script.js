@@ -35,8 +35,11 @@ function toonKaart() {
   meta.push(`<span>${w.p.length} ${w.p.length === 1 ? 'plek' : 'plekken'} in ${new Set(w.p.map(p => p[0])).size} film(s)</span>`);
   if (w.r) meta.push(`<span>${esc(w.r)}</span>`);
   $('k-meta').innerHTML = meta.join('');
-  $('k-clips').innerHTML = w.c.map((c, i) => `<div class="clip"><button type="button" class="speel" data-c="${i}" aria-label="Fragment ${i + 1} afspelen">▶</button><div class="zin"><q>${zinMet(c.z, w.w)}</q><small>${esc(c.f)}${c.v ? ' · fragment wat ruimer, woord zit ergens in het midden' : ''}</small></div></div>`).join('') || '<p class="melding">Geen fragment gevonden.</p>';
+  const pc = o.clips || {};
+  $('k-clips').innerHTML = w.c.map((c, i) => `<div class="clip"><button type="button" class="speel" data-c="${i}" aria-label="Fragment ${i + 1} afspelen">▶</button><div class="zin"><q>${zinMet(c.z, w.w)}</q><small>${w.c.length > 1 ? 'Fragment ' + (i + 1) + ' · ' : ''}${esc(c.f)}${c.v ? ' · fragment wat ruimer, woord zit ergens in het midden' : ''}</small>${w.c.length > 1 ? `<div class="per" role="group" aria-label="Oordeel fragment ${i + 1}"><button type="button" data-pc="${i}" data-po="goed" class="${pc[i] === 'goed' ? 'gekozen' : ''}">✓ goed</button><button type="button" data-pc="${i}" data-po="fout" class="${pc[i] === 'fout' ? 'gekozen' : ''}">✗ fout</button><button type="button" data-best="${i}" class="${o.beste === i ? 'gekozen' : ''}" aria-label="Dit fragment klinkt het best">★ klinkt het best</button></div>` : ''}</div></div>`).join('') || '<p class="melding">Geen fragment gevonden.</p>';
   document.querySelectorAll('.speel').forEach(b => b.onclick = () => speel(+b.dataset.c));
+  document.querySelectorAll('[data-pc]').forEach(b => b.onclick = () => perClip(+b.dataset.pc, b.dataset.po));
+  document.querySelectorAll('[data-best]').forEach(b => b.onclick = () => { const i = +b.dataset.best; bewaar(W[nu].id, { beste: (ORD[W[nu].id] || {}).beste === i ? -1 : i }); toonKaart(); });
   document.querySelectorAll('.kaart .keuze button[data-o]').forEach(b => b.classList.toggle('gekozen', b.dataset.o === o.oordeel));
   $('k-notitie').value = o.notitie || '';
   document.querySelectorAll('.rij').forEach(r => r.classList.toggle('nu', +r.dataset.i === nu));
@@ -85,12 +88,27 @@ async function bewaar(id, velden) {
   telling(); toonLijst();
   if (!db) { $('opslag').textContent = 'Niet verbonden: dit oordeel staat alleen in deze weergave.'; return; }
   try {
-    await db.collection(col(id)).doc(id).set({ woord: w.w, oordeel: ORD[id].oordeel || '', notitie: ORD[id].notitie || '', films: w.p.map(p => p[0] + ' ' + p[1]).join(', '), tijd: new Date().toISOString() });
+    const o = ORD[id], fr = {};
+    w.c.forEach((c, i) => { if (o.clips && o.clips[i]) fr[i] = { oordeel: o.clips[i], film: c.f, zin: c.z }; });
+    await db.collection(col(id)).doc(id).set({ woord: w.w, oordeel: o.oordeel || '', fragmenten: fr, beste: o.beste >= 0 ? o.beste : -1, notitie: o.notitie || '', films: w.p.map(p => p[0] + ' ' + p[1]).join(', '), tijd: new Date().toISOString() });
     $('opslag').textContent = 'Opgeslagen.';
   } catch (e) { $('opslag').textContent = 'Opslaan lukte niet (' + (e.code || e.message) + '). Probeer het opnieuw.'; }
 }
+// oordeel per fragment; het woord krijgt 'fout' zodra één fragment fout is, 'goed' als alle fragmenten goed zijn
+function perClip(i, po) {
+  const w = W[nu], o = ORD[w.id] || {}, pc = Object.assign({}, o.clips || {});
+  pc[i] = pc[i] === po ? undefined : po; if (!pc[i]) delete pc[i];
+  const v = Object.values(pc);
+  let oordeel = o.oordeel;
+  if (v.includes('fout')) oordeel = 'fout';
+  else if (v.length === w.c.length && v.every(x => x === 'goed')) oordeel = 'goed';
+  else if (o.oordeel !== 'twijfel') oordeel = undefined;
+  bewaar(w.id, { clips: pc, oordeel, notitie: $('k-notitie').value.trim() });
+  if (oordeel && Object.keys(pc).length === w.c.length) { nu = volgendeOpen(nu); toonKaart(); setTimeout(() => speel(0), 150); } else toonKaart();
+}
 function kies(o) {
-  const w = W[nu]; bewaar(w.id, { oordeel: o, notitie: $('k-notitie').value.trim() });
+  const w = W[nu], pc = {}; if (o !== 'twijfel') w.c.forEach((c, i) => pc[i] = o);
+  bewaar(w.id, { oordeel: o, clips: o === 'twijfel' ? (ORD[w.id] || {}).clips || {} : pc, notitie: $('k-notitie').value.trim() });
   nu = volgendeOpen(nu); toonKaart(); setTimeout(() => speel(0), 150);
 }
 
@@ -120,7 +138,7 @@ telling(); toonKaart(); toonLijst();
   let eerste = 2;
   for (const c of ['oordeel1', 'oordeel2']) {
     db.collection(c).onSnapshot(snap => {
-      for (const d of snap.docs) { const x = d.data(); if (x) ORD[d.id] = { oordeel: x.oordeel || undefined, notitie: x.notitie || '' }; }
+      for (const d of snap.docs) { const x = d.data(); if (!x) continue; const pc = {}; for (const [k, v] of Object.entries(x.fragmenten || {})) pc[k] = v.oordeel; ORD[d.id] = { oordeel: x.oordeel || undefined, notitie: x.notitie || '', clips: pc, beste: typeof x.beste === 'number' ? x.beste : -1 }; }
       telling(); toonLijst();
       if (eerste > 0 && --eerste === 0) { if (ORD[W[nu].id]?.oordeel) nu = volgendeOpen(nu); toonKaart(); }
     }, err => { $('opslag').textContent = 'Verbinding met de opslag viel weg (' + err.code + '). Herlaad de pagina.'; });

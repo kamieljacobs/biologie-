@@ -41,6 +41,11 @@ button:hover{border-color:var(--goud)}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
 .speel{width:44px;height:44px;padding:0;border-radius:50%;display:grid;place-items:center;font-size:16px}
 .speel.aan{background:var(--goud);color:var(--bg);border-color:var(--goud)}
+.per{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.per button{font-size:13px;padding:6px 10px}
+.per button[data-po="goed"].gekozen{background:var(--goed);border-color:var(--goed);color:var(--bg)}
+.per button[data-po="fout"].gekozen{background:var(--fout);border-color:var(--fout);color:var(--bg)}
+.per button[data-best].gekozen{background:var(--goud);border-color:var(--goud);color:var(--bg)}
 .keuze{display:flex;flex-wrap:wrap;gap:10px}
 .keuze button{min-width:120px;display:flex;gap:8px;align-items:center;justify-content:center}
 .keuze kbd{font:500 11px/1 var(--mono);color:var(--text2);border:1px solid var(--line);border-radius:4px;padding:3px 5px}
