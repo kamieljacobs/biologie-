@@ -6,7 +6,7 @@ Werkwijze en criteria: `films/BRONNEN.md`. Wat word jij? · Biotechnologie en li
 |---|---|
 | Gecontroleerde versie | script v2 (25 okt 2026, definitief voor de opname); film 1.0 |
 | Eerste ronde | Claude, 25 okt 2026: feitenonderzoek (`getallen.md`, 65 bronnen), frisse feitencheck van script v1 (`reviews/review_v1.md`, 21 bronnen waarvan 3 nieuw: R4, R5, R6, R9), daarna dit logboek op v2 |
-| Keuring | twijfelblad 25 okt 2026: Kamiel akkoord met 'ongeveer een derde' ('het principe klopt'), de protease met plek 222 en de cold open; eivlek als kluwen (zijn voorstel) |
+| Keuring | twijfelblad 25 okt 2026: Kamiel akkoord met 'ongeveer een derde' ('het principe klopt'), de protease met plek 222 en de cold open; eivlek als kluwen (zijn voorstel); melkplaat, putjesplaat, Met222/Ala222, Arnold en sitagliptine ✓ |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
 | Stand | 26 ✓ · 11 ≈ · 0 ! · 0 ? |
