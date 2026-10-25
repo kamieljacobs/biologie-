@@ -74,7 +74,8 @@ const POSES_EN = {
   zak:    { L: [0.24, -0.34, 'rust', true], R: [0.14, 0.05, 'rust'] },
   wijs:   { L: [0.12, 0.04, 'rust'], R: [1.42, 1.52, 'wijs'] },
   zwaai:  { L: [0.12, 0.04, 'rust'], R: [2.55, 2.95, 'zwaai'] },
-  uitleg: { L: [0.22, 2.75, 'open', false, 1, 0.42], R: [0.2, 2.65, 'open', false, 1, 0.42] },
+  uitleg: { L: [0.12, 0.04, 'rust'], R: [0.3, 1.25, 'open', false, 1, 0.62], gebaar: 'R' }, // open hand naar iets ernaast (een schema, een object); beweegt licht mee met praten
+  weetniet: { L: [0.22, 2.75, 'open', false, 1, 0.42], R: [0.2, 2.65, 'open', false, 1, 0.42] }, // schouderophaal: 'ik weet het niet'
   denk:   { L: [0.05, 3.61, 'vuist', false, 0.75, 1.11], R: [0.12, 0.04, 'rust'] }
 };
 function _enArm(ctx, P, s, cfg, o) {
@@ -281,6 +282,7 @@ function _enVoor(ctx, P, x, y, h, o) {
   if (P.stethoscoop) { ctx.strokeStyle = '#2E3442'; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(C - 34, 300); ctx.bezierCurveTo(C - 60, 360, C - 66, 420, C - 52, 470); ctx.moveTo(C + 34, 300); ctx.bezierCurveTo(C + 62, 350, C + 64, 400, C + 54, 440); ctx.quadraticCurveTo(C + 46, 470, C + 30, 470); ctx.stroke();
     ctx.fillStyle = '#A9B2BF'; ctx.beginPath(); ctx.arc(C - 52, 478, 10, 0, 6.283); ctx.fill(); ctx.strokeStyle = '#6E7786'; ctx.lineWidth = 2; ctx.stroke(); ctx.fillStyle = '#2E3442'; ctx.beginPath(); ctx.arc(C + 28, 470, 5, 0, 6.283); ctx.fill(); }
   // armen
+  if (pose.gebaar) { const k = pose.gebaar, c = pose[k].slice(), b = o.praat ? Math.sin(t * 3.1) * 0.1 + Math.sin(t * 5.3) * 0.05 : 0; c[1] += b; c[0] += b * 0.3; pose = Object.assign({}, pose, { [k]: c }); }
   const L = _enArm(ctx, P, -1, pose.L, o), R = _enArm(ctx, P, 1, pose.R, o);
   // notitieboekje (Kenji) in de vrije hand als hij staat
   if (o.boek) { ctx.save(); ctx.translate(R.x - 30, R.y - 60); ctx.rotate(-0.08); _enVorm(ctx, () => { ctx.beginPath(); ctx.rect(-36, -50, 72, 100); }, '#23324F', () => { ctx.fillStyle = '#E9E1D0'; ctx.fillRect(30, -46, 5, 92); }); ctx.restore(); }
