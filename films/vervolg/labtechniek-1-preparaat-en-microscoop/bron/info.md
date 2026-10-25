@@ -6,6 +6,7 @@
 | Reeks | Wat word jij? · Laboratoriumtechniek |
 | Niveau | havo · vwo (één niveau) |
 | Versie | 1.0 · oktober 2026 · 24 oktober 2026 (script v2) |
+| Prompt | v6 + WERKWIJZE-LESSEN van 24 okt (frisse eindreview, eenheden voluit); nog niet nagelopen tegen v10 |
 | Stem | Roos (ElevenLabs eleven_v4). één take per alinea. 4.794 credits (flow in `stem/sessions.json`) |
 | Duur | spraak 5:16 (316 s); met vragen en kaarten ± 7 min |
 | Beeldstijl | Schema-look van de Wat word jij?-films (navy, castpersonages, lijntekening) |
