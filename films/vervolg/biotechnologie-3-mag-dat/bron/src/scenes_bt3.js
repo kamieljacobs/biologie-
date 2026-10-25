@@ -4,7 +4,7 @@
 const HFD = (ctx, s2, a = 1) => metaA(ctx, s2, 1800, 120, a, C.goud, 'right', 28);
 Object.assign(SCENES, {
   title(ctx, t) {
-    bioreactor(ctx, 1380, 820, 0.8, { t }); maisPlant(ctx, 1700, 820, 420, { t, seed: 2 }); bordje(ctx, 1540, 300, 'mag dat?', 1);
+    bioreactor(ctx, 1340, 820, 0.8, { t }); maisPlant(ctx, 1760, 820, 420, { t, seed: 2 }); bordje(ctx, 1540, 300, 'mag dat?', 1);
   },
 
   // ---------- Cold open ----------
@@ -12,7 +12,7 @@ Object.assign(SCENES, {
     const K = q.on('Maar', 1, 0.7), V = 1 - q.on('vraagt', 1, 0.6);
     ctx.save(); ctx.globalAlpha *= 1 - K * V; bioreactor(ctx, 760, FLOOR, 1, { t, sensor: 0.5 }); sam(ctx, 1240, t, { pose: 'wijs', kijk: -1 }); merel(ctx, 1560, t, { a: q.on('vraagt', 1, 0.6) }); ctx.restore();
     if (K * V > 0.01) { ctx.save(); ctx.globalAlpha *= K * V; bg(ctx, 'schema');
-      akker(ctx, 560, 600, 620, { t, label: 'Verenigde Staten', sub: '', ggo: q.on('Amerika', 1) });
+      akker(ctx, 560, 600, 620, { t, label: 'Verenigde Staten', sub: q.on('negentig', 1) > 0.3 ? 'PAARSE STIP = GGO' : '', ggo: q.on('negentig', 1) });
       akker(ctx, 1360, 600, 620, { t, label: 'Nederland', sub: '', leeg: 0 });
       tag(ctx, 'ruim 90 % van de maïs ggo', 560, 260, C.paars, q.on('negentig', 1), 'center', 30);
       tag(ctx, 'ggo-maïs zaaien?', 1360, 260, C.paars, q.on('zaaien', 1), 'center', 30); vraagteken(ctx, 1640, 300, q.on('zaaien', 1), 90); ctx.restore(); }
@@ -37,8 +37,8 @@ Object.assign(SCENES, {
   // ---------- H2 ----------
   s06(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'WAT IS EEN GGO?');
     wetKaart(ctx, 960, 170, 820, ['DNA veranderd op een manier die niet', 'vanzelf gebeurt bij voortplanting of kruisen', '→ de techniek telt'], q.on('wet', 1));
-    const B = q.on('bestralen', 1, 0.6); bestralingsKast(ctx, 600, 820, { a: B, t }); genStreep(ctx, 1160, 650, 560, { a: B, mut: Math.round(6 * q.on('mutaties', 1, 1.5)), seed: 8 });
-    naamBij(ctx, 'willekeurige mutaties', 'GOUD', 1160, 730, q.on('mutaties', 1), 'center');
+    const B = q.on('Veredelaars', 1, 0.6); bestralingsKast(ctx, 600, 820, { a: B, t }); genStreep(ctx, 1160, 650, 560, { a: B, mut: Math.round(6 * q.on('mutaties', 1, 1.5)), seed: 8 });
+    naamBij(ctx, 'willekeurige mutaties', 'WILLEKEURIG OP HET DNA', 1160, 730, q.on('mutaties', 1), 'center');
     vraagteken(ctx, 1640, 480, q.on('denk', 1), 100); },
 
   s08(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'WAT IS EEN GGO?'); bt1Antwoord(ctx, 'antwoord a: deze oude techniek is uitgezonderd');
@@ -60,10 +60,10 @@ Object.assign(SCENES, {
 
   // ---------- H3 ----------
   s10(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'WIE BESLIST?');
-    dossier(ctx, lerp(300, 560, q.on('beoordeeld', 1, 1)), 300, 1, q.on('apart', 1), 'één ggo'); kaartje(ctx, 900, 300, 260, 100, 'EFSA', 'EUROPESE AUTORITEIT', { a: q.on('EFSA', 1) });
-    maisPlant(ctx, 1300, 820, 380, { t, a: q.on('kijkt', 1) });
+    dossier(ctx, lerp(300, 560, q.on('autoriteit', 1, 1)), 300, 1, q.on('apart', 1), 'één ggo'); kaartje(ctx, 960, 300, 260, 100, 'EFSA', 'EUROPESE AUTORITEIT', { a: q.on('autoriteit', 1) });
+    maisPlant(ctx, 1300, 820, 300, { t, a: q.on('kijkt', 1) });
     const T = [['uitkruisen en verspreiding', 'kruist'], ['andere organismen', 'organismen'], ['resistentie', 'ongevoelig'], ['voedsel: giftig? allergie?', 'giftig']];
-    T.forEach(([n, w], i) => { const x = 980 + (i % 2) * 640, y = 520 + Math.floor(i / 2) * 200; tegel(ctx, x, y, 340, 140, n, { a: q.on(w, 1), hl: q.on(w, 1) * (1 - (i < 3 ? q.on(T[i + 1][1], 1) : q.on('besluit', 1))), col: C.goud,
+    T.forEach(([n, w], i) => { const x = 920 + (i % 2) * 760, y = 520 + Math.floor(i / 2) * 200; tegel(ctx, x, y, 340, 140, n, { a: q.on(w, 1), hl: q.on(w, 1) * (1 - (i < 3 ? q.on(T[i + 1][1], 1) : q.on('besluit', 1))), col: C.goud,
       icoon: i === 0 ? (xx, yy) => stuifmeel(ctx, xx - 60, yy, 120, t, 1, 8) : i === 1 ? (xx, yy) => vlinder(ctx, xx, yy, 0.8, 1, t) : i === 2 ? (xx, yy) => insect(ctx, xx - 10, yy, 0.7, 1, C.koraal) : (xx, yy) => { ctx.beginPath(); ctx.ellipse(xx, yy, 18, 34, 0.3, 0, 6.283); ctx.fillStyle = C.oker; ctx.fill(); } }); });
     vraagteken(ctx, 300, 640, q.on('besluit', 1), 100); },
 
@@ -82,14 +82,14 @@ Object.assign(SCENES, {
     tag(ctx, 'lange termijn: moeilijk te meten', 1260, 620, C.teal, q.on('lange', 1), 'center', 30); },
 
   s14(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx); HFD(ctx, 'WIE BESLIST?');
-    bioreactor(ctx, 460, FLOOR, 0.8, { t }); sam(ctx, 900, t, { pose: 'wijs', kijk: 1 }); merel(ctx, 1400, t, { kijk: -1 });
+    bioreactor(ctx, 460, FLOOR, 0.8, { t }); sam(ctx, 900, t, { kijk: 1 }); merel(ctx, 1400, t, { kijk: -1 });
     bubbel(ctx, 900, 300, '"Dan is het toch veilig."', '#F2F2EE', q.on('veilig', 1), 30);
     bubbel(ctx, 900, 380, '"Gewoon bang zijn."', '#F2F2EE', q.on('bang', 1), 30); },
 
   // ---------- H4 ----------
   s15(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'AMERIKA EN EUROPA');
     const M = 1 - q.on('Amerika', 1, 0.6);
-    if (M > 0.01) { ctx.save(); ctx.globalAlpha *= M; labVloer(ctx); sam(ctx, 700, t, { kijk: 1 }); merel(ctx, 1200, t, { pose: 'wijs', kijk: -1 }); bubbel(ctx, 1200, 300, '"Dat kun je niet meten."', '#F2F2EE', q.on('meten', 1), 30); ctx.restore(); }
+    if (M > 0.01) { ctx.save(); ctx.globalAlpha *= M; labVloer(ctx); sam(ctx, 700, t, { kijk: 1 }); merel(ctx, 1200, t, { kijk: -1 }); bubbel(ctx, 1200, 300, '"Dat kun je niet meten."', '#F2F2EE', q.on('meten', 1), 30); ctx.restore(); }
     const S = q.on('Amerika', 1, 0.6); if (S > 0.01) { ctx.save(); ctx.globalAlpha *= S;
       ctx.strokeStyle = '#4A5A78'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(960, 200); ctx.lineTo(960, 840); ctx.stroke();
       text(ctx, 'Verenigde Staten', 480, 250, fTekst(36, 700), C.text, 'center'); metaText(ctx, 'KIJKT VOORAL NAAR HET PRODUCT', 480, 296, C.grain, 'center', 28);
@@ -109,12 +109,12 @@ Object.assign(SCENES, {
 
   s18(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'AMERIKA EN EUROPA'); bt1Antwoord(ctx, 'antwoord b: Nederland liet de teelt uitsluiten');
     const I = q.on('soja', 1, 0.6);
-    ctx.save(); ctx.globalAlpha *= 1 - I; landTegel(ctx, 520, 450, 'Spanje', 'TEELT: MON810', { mais: 1 }); landTegel(ctx, 1400, 450, 'Nederland', 'TEELT UITGESLOTEN', { rand: q.on('deed', 1) });
+    ctx.save(); ctx.globalAlpha *= 1 - I; landTegel(ctx, 520, 450, 'Spanje', 'TEELT: MON810', { mais: 1 }); landTegel(ctx, 1400, 450, 'Nederland', 'TEELT UITGESLOTEN', { rand: q.on('deed', 1), randCol: '#C9D2DE' });
     kaartje(ctx, 960, 260, 560, 100, 'sinds 2015', 'ELK EU-LAND MAG TEELT VERBIEDEN', { a: q.on('vijftien', 1) }); ctx.restore();
     if (I > 0.01) { ctx.save(); ctx.globalAlpha *= I; schip(ctx, lerp(300, 520, q.on('binnen', 1, 3)), 360, 0.9, { t }); voerZak(ctx, 960, 520, 1); koe(ctx, 1300, 520, 0.42, { t });
       metaText(ctx, 'IMPORT NA TOELATING · VOORAL VEEVOER', 760, 200, C.grain, 'center', 28); tag(ctx, 'tientallen miljoenen tonnen', 520, 470, C.oker, q.on('tientallen', 1), 'center', 28);
-      pak(ctx, 1480, 820, 0.9, { kop: 'voedsel', etiket: q.on('etiket', 1), label: 'ggo' }); metaA(ctx, 'ETIKET, BEHALVE ≤ 0,9 %', 1480, 860, q.on('spoortje', 1), C.grain, 'center', 26);
-      pak(ctx, 1700, 820, 0.9, { kop: 'melk', leeg: q.on('Vlees', 1), kleur: '#F2F2EE' }); metaA(ctx, 'GEEN ETIKET', 1700, 600, q.on('Vlees', 1), C.grain, 'center', 26); ctx.restore(); } },
+      pak(ctx, 1260, 820, 0.9, { kop: 'voedsel', etiket: q.on('Voedsel', 1), label: 'ggo' }); metaA(ctx, 'ETIKET, BEHALVE ≤ 0,9 %', 1260, 860, q.on('spoortje', 1), C.grain, 'center', 28);
+      pak(ctx, 1520, 820, 0.9, { kop: 'melk', leeg: q.on('Vlees', 1), kleur: '#F2F2EE' }); pak(ctx, 1740, 820, 0.9, { kop: 'vlees', leeg: q.on('Vlees', 1), kleur: '#E8B7A8' }); metaA(ctx, 'GEEN ETIKET', 1630, 600, q.on('Vlees', 1), C.grain, 'center', 28); ctx.restore(); } },
 
   // ---------- H5 ----------
   s19(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'EN CRISPR?');
@@ -122,7 +122,7 @@ Object.assign(SCENES, {
     const c1 = q.on('één', 1), c2 = q.on('twee', 1);
     bak(ctx, 560, 640, 460, 220, 'categorie 1', 'ALS GEWONE PLANT', { a: c1 }); genStreep(ctx, 560, 520, 300, { a: c1, hlPos: 0.5 }); maisPlant(ctx, 560, 600, 0, { a: 0 });
     bak(ctx, 1360, 640, 460, 220, 'categorie 2', 'BLIJFT GGO', { a: c2 }); genInplak(ctx, 1360, 520, 300, 1, c2);
-    keurmerk(ctx, 960, 470, q.on('biologische', 1), q.on('geen', 1));
+    keurmerk(ctx, 960, 470, q.on('biologische', 1), q.on('biologische', 1, 1.5));
     metaA(ctx, 'BIOLOGISCHE LANDBOUW: VOORLOPIG GEEN VAN BEIDE', 960, 380, q.on('geen', 1), C.grain, 'center', 28); },
 
   s20(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'EN CRISPR?');
@@ -161,9 +161,10 @@ Object.assign(SCENES, {
 
   // ---------- Recap ----------
   s30(ctx, t, q) { bg(ctx, 'schema'); HFD(ctx, 'SAMENGEVAT');
-    akker(ctx, 480, 560, 560, { t, label: 'Verenigde Staten', ggo: 1 }); argKaart(ctx, 480, 760, 400, 'kijkt naar het product', '', q.on('kan', 1));
-    landTegel(ctx, 1240, 420, 'Spanje', 'TEELT: MON810', { a: q.on('Spanje', 1), mais: 1 }); landTegel(ctx, 1600, 420, 'Nederland', 'TEELT UITGESLOTEN', { a: q.on('landen', 1), rand: 1 });
-    argKaart(ctx, 1420, 640, 640, 'techniek · voorzorg · land beslist over teelt', '', q.on('techniek', 1)); },
+    akker(ctx, 480, 520, 600, { t, label: 'Verenigde Staten', sub: 'PAARSE STIP = GGO', ggo: 1 }); argKaart(ctx, 480, 760, 520, 'kijkt vooral naar het product', '', q.on('kan', 1));
+    text(ctx, 'Europese Unie', 1440, 250, fTekst(36, 700), C.text, 'center');
+    landTegel(ctx, 1240, 440, 'Spanje', 'TEELT: MON810', { mais: 1 }); landTegel(ctx, 1640, 440, 'Nederland', 'TEELT UITGESLOTEN', { a: Math.max(0.5, q.on('landen', 1)), rand: q.on('landen', 1), randCol: '#C9D2DE' });
+    argKaart(ctx, 1440, 640, 700, 'kijkt ook naar de techniek, met voorzorg', '', q.on('techniek', 1)); argKaart(ctx, 1440, 760, 700, 'land beslist zelf over teelt', '', q.on('landen', 1)); },
 
   s31(ctx, t, q) { bg(ctx, 'schema'); labVloer(ctx); HFD(ctx, 'SAMENGEVAT');
     sam(ctx, 170, t, { h: 360 }); merel(ctx, 1770, t, { h: 360, kijk: -1 });
@@ -185,11 +186,11 @@ function argScene(ctx, t, q, deel) { bg(ctx, 'schema'); HFD(ctx, 'WAT WEEGT ZWAA
   balans(ctx, 960, 860, 1, 0, 200);
   const V = deel === 'voor' ? (w) => q.on(w, 1) : () => 1, T = deel === 'tegen' ? (w) => q.on(w, 1) : deel === 'vraag' ? () => 1 : () => 0;
   metaA(ctx, 'VOORSTANDERS', 500, 220, deel === 'voor' ? q.on('Voorstanders', 1) : 1, C.grain, 'center', 28);
-  argKaart(ctx, 500, 300, 620, 'gemiddeld + 22 % opbrengst', 'VS: NIET SNELLER GESTEGEN', V('opbrengst'));
-  argKaart(ctx, 500, 420, 620, 'minder insecticide (Bt-maïs)', '', V('insecticide'));
-  argKaart(ctx, 500, 540, 620, 'tegen droogte en ziekte', 'DOEL VAN DE EU', V('droogte'));
+  argKaart(ctx, 500, 300, 620, 'gemiddeld + 22 % opbrengst', 'VS: NIET SNELLER GESTEGEN', V('overzicht'));
+  argKaart(ctx, 500, 420, 620, 'minder insecticide (Bt-maïs)', '', V('Bt-maïs'));
+  argKaart(ctx, 500, 540, 620, 'tegen droogte en ziekte', 'DOEL VAN DE EU', V('hoopt'));
   metaA(ctx, 'TEGENSTANDERS', 1420, 220, deel === 'tegen' ? q.on('Tegenstanders', 1) : (deel === 'vraag' ? 1 : 0), C.grain, 'center', 28);
-  argKaart(ctx, 1420, 300, 620, 'resistentie: 3 (2005) → 26 (2020)', 'GEVALLEN · STROKEN REMMEN AF', T('gevallen'));
-  argKaart(ctx, 1420, 420, 620, 'onkruid ongevoelig voor glyfosaat', 'TIENTALLEN SOORTEN', T('glyfosaat'));
-  argKaart(ctx, 1420, 540, 620, 'afhankelijk van zaadbedrijven', 'OCTROOIEN', T('octrooien'));
+  argKaart(ctx, 1420, 300, 620, 'resistentie: 3 (2005) → 26 (2020)', 'GEVALLEN · STROKEN REMMEN AF', T('aantal'));
+  argKaart(ctx, 1420, 420, 620, 'onkruid ongevoelig voor glyfosaat', 'TIENTALLEN SOORTEN', T('Door'));
+  argKaart(ctx, 1420, 540, 620, 'afhankelijk van zaadbedrijven', 'OCTROOIEN', T('zaadbedrijven'));
   if (deel === 'vraag') vraagteken(ctx, 960, 470, q.on('waarde', 1), 110); }

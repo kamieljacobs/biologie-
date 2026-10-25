@@ -1,0 +1,95 @@
+{
+ "slug": "biotechnologie-3-mag-dat",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Mag dat?",
+ "sub": "regels en ethiek rond ggo's",
+ "puzzle": "Waarom mag genetisch aangepaste maïs in Amerika wel en in Europa bijna niet op het veld?",
+ "meta": "biotechnologie · mbo, hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Biotechnologie en life sciences",
+ "lead": "Sams ggo-bacteriën mogen in een afgesloten vat groeien, maar een Nederlandse boer mag geen ggo-maïs zaaien. Werken met ggo's binnen heet ingeperkt gebruik; een akker is introductie in het milieu en wordt anders beoordeeld. De wet kijkt naar de techniek: klassieke mutagenese is uitgezonderd, CRISPR-planten vallen er volgens het Europees Hof wel onder. EFSA beoordeelt de risico's per ggo, de Commissie en de lidstaten beslissen. Amerika kijkt vooral naar het product; in Europa is één ggo-gewas toegelaten voor teelt, en Nederland heeft die teelt uitgesloten. De nieuwe Europese wet voor CRISPR-planten geldt vanaf juli 2028. Of je ggo's wilt, hangt ook af van wat je belangrijk vindt.",
+ "endHaak": "en wat vind jij belangrijk?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom mag een ggo-bacterie in een vat wel?",
+  "Hoofdstuk 2": "Wat is een ggo volgens de wet?",
+  "Hoofdstuk 3": "Wie beslist of een ggo veilig is?",
+  "Hoofdstuk 4": "Waarom doet Amerika het anders?",
+  "Hoofdstuk 5": "Wat verandert er voor CRISPR-planten?",
+  "Hoofdstuk 6": "Hoe weeg je feiten en waarden?",
+  "Recap": "Waarom mag ggo-maïs in Europa bijna niet het veld op?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Sam en Procestechnoloog Merel (castboek). Stijl: Stijlkaart biologiefilms (Part C). Stand van de regels: oktober 2026. Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q02": {
+   "q": "Sams ggo-bacteriën mogen in de fabriek groeien. Waarom mag dat wel, terwijl een Nederlandse boer geen ggo-maïs mag zaaien?",
+   "correct": 1,
+   "explain": "In het vat blijven de bacteriën binnen: dat heet ingeperkt gebruik. Een akker is open; stuifmeel en zaad komen in het milieu. Dat wordt anders beoordeeld."
+  },
+  "q07": {
+   "q": "Veredelaars bestralen zaad, zodat er willekeurige mutaties ontstaan. Valt zo'n plant onder de ggo-regels?",
+   "correct": 0,
+   "explain": "Klassieke mutagenese met straling of chemicaliën wordt al lang gebruikt en is uitgezonderd. Planten uit nieuwe technieken zoals CRISPR vallen er volgens het Europees Hof (2018) wel onder."
+  },
+  "q11": {
+   "q": "EFSA beoordeelt de risico's van een ggo. Wie neemt daarna het besluit?",
+   "correct": 2,
+   "explain": "EFSA adviseert. De Europese Commissie doet een voorstel en de lidstaten stemmen; komt er geen meerderheid, dan beslist de Commissie."
+  },
+  "q17": {
+   "q": "In Spanje groeit ggo-maïs (MON810). Waarom niet in Nederland?",
+   "correct": 1,
+   "explain": "Sinds 2015 mag elk EU-land de teelt van ggo-gewassen verbieden. Nederland deed dat. Import van ggo-soja voor veevoer mag wel, na een toelating per ggo."
+  },
+  "q21": {
+   "q": "Is een CRISPR-plant van categorie 1 nu, in oktober 2026, een ggo?",
+   "correct": 2,
+   "explain": "De nieuwe wet is van kracht sinds 16 juli 2026, maar de regels gelden pas vanaf 17 juli 2028. Tot dan zijn CRISPR-planten ggo's."
+  },
+  "q27": {
+   "q": "Welke van deze uitspraken is een waarde, en geen feit?",
+   "correct": 0,
+   "explain": "Of een etiket belangrijker is dan een lage prijs, kun je niet meten: dat weeg je af. De andere twee kun je met onderzoek nagaan."
+  }
+ },
+ "glossary": [
+  {
+   "t": "ggo",
+   "d": "Genetisch gemodificeerd organisme: volgens de wet een organisme waarvan het DNA is veranderd op een manier die niet vanzelf gebeurt bij voortplanting of kruisen."
+  },
+  {
+   "t": "ingeperkt gebruik",
+   "d": "Werken met ggo's in een afgesloten ruimte (lab, kas, fabriek) waar ze niet uit kunnen; vier inperkingsniveaus, van melding tot vergunning vooraf."
+  },
+  {
+   "t": "introductie in het milieu",
+   "d": "Werken met ggo's buiten een afgesloten ruimte, zoals op een proefveld of bij teelt."
+  },
+  {
+   "t": "klassieke mutagenese",
+   "d": "Mutaties opwekken met straling of chemicaliën; al lang in gebruik en uitgezonderd van de ggo-regels."
+  },
+  {
+   "t": "EFSA",
+   "d": "Europese Autoriteit voor voedselveiligheid; beoordeelt de risico's van een ggo en adviseert. De Europese Commissie en de lidstaten beslissen."
+  },
+  {
+   "t": "voorzorgsbeginsel",
+   "d": "Bij twijfel over risico's ben je voorzichtig, ook voordat schade bewezen is (vereenvoudigd)."
+  },
+  {
+   "t": "opt-out",
+   "d": "Sinds 2015 mag elk EU-land de teelt van een toegelaten ggo-gewas op zijn grondgebied verbieden; Nederland deed dat voor MON810."
+  },
+  {
+   "t": "nieuwe genomische technieken (NGT)",
+   "d": "Technieken zoals CRISPR. Volgens de nieuwe EU-wet (geldt vanaf 17 juli 2028) is een categorie 1-plant een gewone plant (zaad met etiket), een categorie 2-plant blijft ggo."
+  },
+  {
+   "t": "feit en waarde",
+   "d": "Een feit kun je met onderzoek nagaan; een waarde is wat je belangrijk vindt en weeg je af."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Een bedrijf kweekt genetisch gemodificeerde bacteriën in een gesloten bioreactor. Een boer wil genetisch gemodificeerde maïs zaaien. <br>a. Leg uit waarom de wet deze twee situaties anders behandelt. <br>b. Noem twee maatregelen die bij ingeperkt gebruik voorkomen dat ggo's in het milieu komen. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Bij ingeperkt gebruik blijven de ggo's in een afgesloten ruimte; op een akker gaan stuifmeel en zaad het milieu in en kun je ze niet terughalen (introductie in het milieu) (1p). <br>b. Twee van: het inperkingsniveau bepaalt de regels (melding of vergunning vooraf); afval wordt onschadelijk gemaakt (bv. autoclaveren); een biologisch veiligheidsfunctionaris houdt toezicht; een afgesloten vat of ruimte (2p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Twee tarwerassen hebben dezelfde nieuwe eigenschap. Ras A ontstond door zaad te bestralen, ras B door met CRISPR één base te veranderen. <br>a. Leg uit welk ras in de EU nu (oktober 2026) onder de ggo-regels valt. <br>b. Leg uit waarom dit verschil laat zien dat de EU naar de techniek kijkt en de VS vooral naar het product. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Ras B: volgens het Europees Hof (2018) vallen planten uit nieuwe technieken onder de ggo-regels; klassieke mutagenese (ras A) is uitgezonderd omdat die al lang zonder gebleken problemen wordt gebruikt (1p). De nieuwe NGT-regels gelden pas vanaf 17 juli 2028 (1p). <br>b. De planten zijn hetzelfde, maar de regels verschillen omdat ze op een andere manier gemaakt zijn; in de VS zou vooral tellen wat de plant kan (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Bij de toelating van een insectenresistente maïs worden vier soorten risico's beoordeeld. Noem er drie en leg bij één ervan uit waarom het een risico kan zijn. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Drie van: uitkruisen en verspreiding; effect op andere organismen dan de plaag; resistentie bij plaaginsecten; voedselveiligheid (giftigheid, allergie) (2p). Uitleg, bv.: als plaaginsecten steeds met hetzelfde Bt-eiwit in aanraking komen, overleven de insecten die ongevoelig zijn en planten die zich voort, waardoor de plant minder goed beschermt (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> In Spanje groeit ongeveer 70.000 hectare ggo-maïs, in Nederland niets. Toch eten Nederlandse koeien veel ggo-soja. <br>a. Leg uit hoe dat volgens de Europese regels kan. <br>b. Een leerling zegt: 'Dan staat het op het etiket van de melk.' Klopt dat? Leg uit. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>a. Sinds 2015 mag elk EU-land de teelt verbieden; Nederland deed dat voor MON810 (1p). Import voor voedsel en veevoer is iets anders: die mag na een toelating per ggo (1p). <br>b. Nee: vlees, melk en eieren van dieren die ggo-voer kregen, hoeven geen ggo-etiket (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Lees de uitspraken. Geef bij elke uitspraak aan of het een feit (te onderzoeken) of een waarde (af te wegen) is. <br>a. Het aantal gevallen van Bt-resistentie bij insecten steeg van 3 in 2005 naar 26 in 2020. <br>b. Boeren moeten zelf kunnen kiezen welk zaad ze gebruiken, ook als dat duurder is. <br>c. Toegelaten ggo-gewassen gaven in grote onderzoeken geen extra gezondheidsrisico. <br>d. Een klein risico voor het milieu is acceptabel als het meer voedsel oplevert. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>a feit, b waarde, c feit, d waarde (2p bij 4 goed, 1p bij 3 goed). Een feit kun je met onderzoek nagaan (ook als het onderzoek grenzen heeft); bij een waarde weeg je af wat je belangrijk vindt.</p></details></div>\n<div class=\"q\"><p><b>6.</b> Kies een standpunt over de teelt van CRISPR-planten van categorie 1 in Nederland na 2028. Geef één argument dat je standpunt steunt en één argument van de andere kant, en zeg of elk argument vooral op een feit of op een waarde rust. <span class=\"pts\">(3p)</span></p>\n<details><summary>Antwoord</summary><p>Elk standpunt is goed als het onderbouwd is. Bijvoorbeeld voor: gewassen die beter tegen droogte of ziekte kunnen (doel van de EU; feit over wat de techniek kan, waarde over voedselzekerheid). Tegen: zaad met octrooien kan boeren afhankelijk maken (waarde/zorg), of het voedsel krijgt geen etiket, dus minder keuzevrijheid (feit: alleen het zaad krijgt een etiket; waarde: keuzevrijheid). 1p per argument, 1p voor een juiste indeling feit/waarde.</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 3 van <i>Wat word jij?</i> → Biotechnologie en life sciences, en het slot van de reeks. Bouwt voort op <i>DNA lezen</i> (recombinant plasmide, CRISPR, kiembaan verboden in Nederland), <i>Wat heb jij aan DNA?</i> (Bt-maïs: feiten tegenover waarden, wie wint en wie draagt het risico; deze film verdiept dat met wetgeving), <i>Evolutie</i> (resistentie als selectie) en film 1 en 2 van deze reeks (ggo-bacteriën in een bioreactor; enzymen uit productiecellen). Sam (stagiair) vraagt, Merel (procestechnoloog) laat zien hoe het beoordeeld wordt zonder zelf een oordeel te geven. <b>Stand van de regels: oktober 2026.</b></p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> Sams ggo-bacteriën mogen in de fabriek groeien, een Nederlandse boer mag geen ggo-maïs zaaien, in de VS is ruim 90 % van de maïs ggo. Vraag 1: waarom mag het vat wel?</li>\n<li><b>H1 Vat tegenover veld</b> ingeperkt gebruik (vier inperkingsniveaus, melding of vergunning vooraf, biologisch veiligheidsfunctionaris, afval gedood) tegenover introductie in het milieu (stuifmeel, zaad).</li>\n<li><b>H2 Wat is een ggo?</b> de wet kijkt naar de techniek; klassieke mutagenese is uitgezonderd (vraag 2); het Europees Hof besliste in 2018 dat planten uit nieuwe technieken zoals CRISPR wel onder de ggo-regels vallen.</li>\n<li><b>H3 Wie beslist?</b> per ggo; EFSA beoordeelt uitkruisen, andere organismen, resistentie en voedselveiligheid en adviseert; de Commissie en de lidstaten beslissen (vraag 3); in Nederland Bureau GGO (RIVM) en de COGEM. Het NAS-rapport (2016): geen bewijs dat toegelaten ggo-gewassen minder veilig zijn om te eten, wel grenzen (lange termijn). Sam: 'Dat Europa het tegenhoudt, is gewoon bang zijn.'</li>\n<li><b>H4 Amerika en Europa</b> Merel: 'Dat kun je niet meten.' VS kijkt vooral naar het product, EU ook naar de techniek en het voorzorgsbeginsel. Eén ggo-gewas toegelaten voor teelt (MON810), vooral in Spanje, nog geen procent van de Europese maïs. Vraag 4: waarom niet in Nederland? Opt-out sinds 2015. Import van ggo-soja voor veevoer mag; etiket bij voedsel, niet bij vlees en melk van dieren met ggo-voer.</li>\n<li><b>H5 En CRISPR?</b> nieuwe EU-wet (Verordening 2026/1388): categorie 1 als gewone plant, categorie 2 blijft ggo, biologische landbouw voorlopig geen van beide. Vraag 5: is een categorie 1-plant nu een ggo? Ja: de regels gelden pas vanaf 17 juli 2028. Daarna krijgt alleen het zaad een etiket.</li>\n<li><b>H6 Wat weegt zwaarder?</b> drie argumenten van voorstanders en drie van tegenstanders, elk met een kanttekening. Vraag 6: welke uitspraak is een waarde? Sam: 'Ik dacht dat het alleen om veiligheid ging.' Merel: 'Een groot deel gaat over wat mensen belangrijk vinden.'</li>\n<li><b>Recap</b> antwoord op de puzzel, opleidingen en werk, en het slot van de reeks: wat mag, beslissen mensen, met feiten en met wat ze belangrijk vinden.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Definitie ggo</td><td>DNA veranderd op een manier die niet vanzelf gebeurt bij voortplanting of kruisen</td><td>Richtlijn 2001/18/EG art. 2 (via het arrest C-528/16); Schebesta, <i>Eur J Consumer Law</i> 2020</td></tr>\n<tr><td>Mutagenese en het Hof</td><td>klassieke mutagenese uitgezonderd; 2018: nieuwe technieken vallen onder de ggo-regels</td><td>Hof van Justitie, arrest C-528/16 (25 juli 2018), dictum en par. 48, 53; Kamerbrief 27 428 nr. 353 (2018)</td></tr>\n<tr><td>Ingeperkt gebruik</td><td>vier niveaus; melding bij I en II, vergunning bij III en IV; biologisch veiligheidsfunctionaris</td><td>Bureau GGO (RIVM): 'Wat is ingeperkt gebruik?', Handreiking Besluit ggo 2013, Toelating als BVF</td></tr>\n<tr><td>Afval</td><td>'hier' gedood voordat het weggaat</td><td>Richtlijn 2009/41/EG bijlage IV (pas vanaf niveau 2 verplicht); werkinstructie ML-I Maastricht University (in de praktijk ook bij ML-I)</td></tr>\n<tr><td>Risicobeoordeling</td><td>uitkruisen, andere organismen, resistentie, voedselveiligheid; EFSA adviseert, Commissie en lidstaten beslissen</td><td>EFSA, GMO Panel; Europese Commissie (DG SANTE), ggo-toelating; WHO Q&amp;A</td></tr>\n<tr><td>NAS-rapport</td><td>2016, ongeveer 900 publicaties, geen extra gezondheidsrisico; lange termijn moeilijk te meten</td><td>National Academies, <i>Genetically Engineered Crops</i> (samenvatting 2016); Penn State (lid van de commissie)</td></tr>\n<tr><td>VS</td><td>ruim 90 % van maïs en soja ggo; vooral kijken naar het product</td><td>USDA ERS, Recent trends in GE adoption (dec 2025); Federal Register 80 FR 60414 (Coordinated Framework, update 1992)</td></tr>\n<tr><td>Teelt EU</td><td>één gewas toegelaten (MON810), Spanje ongeveer 70.000 ha, nog geen 1 % van de EU-maïs</td><td>Spaans ministerie MAPA (2024: 69.411 ha); USDA FAS Madrid 2025; Commissie SWD(2016) 61 (ruim 9 mln ha maïs; eigen berekening)</td></tr>\n<tr><td>Opt-out</td><td>sinds 2015; Nederland sloot teelt van MON810 uit</td><td>Uitvoeringsbesluit (EU) 2016/321; Kamerbrief 27 428 nr. 307 (2015)</td></tr>\n<tr><td>Import en etiket</td><td>ggo-soja voor veevoer na toelating; tientallen miljoenen tonnen (cijfer 2016); etiket behalve ≤ 0,9 % onbedoeld; geen etiket bij dierlijke producten</td><td>Commissie SWD(2016) 61; JRC 2015; DG SANTE Traceability and labelling; BVL; FSAI</td></tr>\n<tr><td>NGT-wet</td><td>Verordening (EU) 2026/1388, van kracht 16 juli 2026, geldt vanaf 17 juli 2028; categorie 1/2; zaad met etiket; verboden in biologisch</td><td>Europese Commissie (DG SANTE), NGT-wetgeving; Raad van de EU, beleidspagina NGT; Britse regering, Explanatory Memorandum</td></tr>\n<tr><td>Opbrengst</td><td>gemiddeld + 22 %; in de VS niet duidelijk sneller gestegen</td><td>Klümper &amp; Qaim, <i>PLOS ONE</i> 2014 (meta-analyse); NAS 2016</td></tr>\n<tr><td>Bt-resistentie</td><td>3 gevallen (2005) → 26 (2020), 11 soorten; stroken gewone planten remmen af</td><td>Tabashnik e.a., <i>J Econ Entomol</i> 2023; NAS 2016</td></tr>\n<tr><td>Glyfosaat</td><td>tientallen resistente onkruidsoorten</td><td>Travlos e.a., <i>Front Ecol Evol</i> 2020 (48 soorten); Heap &amp; Duke, <i>Pest Manag Sci</i> 2018</td></tr>\n<tr><td>Zaadbedrijven</td><td>zorg over afhankelijkheid en octrooien (geen percentage)</td><td>OECD, <i>Concentration in seed markets</i> (2018); Europees Parlement, persbericht 2024</td></tr></table>\n<p>Het volledige logboek staat in de bronmap (<code>bron/bronnen.md</code>).</p>\n<h3>Vereenvoudigingen en wat ontbreekt</h3>\n<ul><li>Het voorzorgsbeginsel is vereenvoudigd tot 'bij twijfel over risico's ben je voorzichtig, ook voordat schade bewezen is'.</li>\n<li>De grens voor categorie 1 (aantal veranderingen) noemt de film niet: in de definitieve wettekst niet zelf gecontroleerd.</li>\n<li>Veldproeven met ggo's mogen in Nederland wel, met een vergunning (bv. ggo-aardappelen in 2020); de film spreekt alleen over teelt.</li>\n<li>Andere gevoelige kanten (gentherapie, ggo-dieren, kiembaan) blijven buiten beeld.</li>\n<li><b>Houdbaarheid:</b> na 17 juli 2028 klopt 'nu nog ggo' (H5, vraag 5) niet meer. Dan moeten één alinea en één vraag worden bijgewerkt.</li></ul>\n<h3>Lessuggesties</h3>\n<ul><li>Laat leerlingen in tweetallen de zes argumenten uit H6 sorteren op 'feit' en 'waarde', en daarna per argument benoemen wat je zou moeten onderzoeken om het feit te controleren.</li>\n<li>Rollenspel 'COGEM-advies': groepjes krijgen een fictieve ggo-plant (bv. een droogtetolerante maïs) en schrijven een kort advies met risico's en maatschappelijke vragen, zonder eigen oordeel; daarna een klassikale stemming als 'lidstaten'.</li>\n<li>Vergelijk met de Bt-maïs uit <i>Wat heb jij aan DNA?</i>: wat verandert er als je niet de eter maar de boer, de imker of de biologische buurman centraal zet?</li></ul>\n</section>\n"
+}

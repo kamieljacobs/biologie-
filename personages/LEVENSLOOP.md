@@ -18,9 +18,9 @@
 
 **Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
 
-**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Grenzen: blijft in dit vak de stagiair.
+**Sam** (16) · vast: leerling, sportief, doet proefjes. Gebeurd: stagiair biotechnologie in Biotechnologie 1 (Bacteriën als fabriek), 3 (Mag dat?: vindt eerst dat Europa 'gewoon bang' is, ontdekt dat het ook om waarden gaat, eindigt zonder mening) en 2 (Enzymen op maat: eivlek op zijn witte broek, drie rondes gerichte evolutie, even teleurgesteld na ronde één), outfit `practicum`. Grenzen: blijft in dit vak de stagiair.
 
-**Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1 en 2 (geeft Sam het startenzym, 'Je zoekt juist die paar'). Grenzen: alleen in haar eigen vak.
+**Procestechnoloog Merel** (38) · vast: procestechnoloog, begeleider van Sam (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Biotechnologie 1, 2 (geeft Sam het startenzym, 'Je zoekt juist die paar') en 3 (legt regels uit zonder eigen oordeel over ggo's). Grenzen: alleen in haar eigen vak.
 
 **Daan** (15) en **Thijs** (15) · vast: eeneiige tweeling, zelfde DNA.
 
@@ -61,14 +61,14 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voortplanting`: 2-geslachtsorganen-puberteit, 4-sekse-gender-diversiteit, celdeling
 - `zenuwstelsel`: 7-slaap, 8-zintuigen
 
-### Sam (`sam`) — 31 films
+### Sam (`sam`) — 32 films
 - `afweer`: 3-t-cellen-en-virussen
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `gedrag`: 1-waarom-doet-een-dier-wat-het-doet, 6-attributie, 9-mierenkolonie
 - `onderbouw/32a`: 2-van-cel-tot-lichaam, 6-skelet-en-spieren, 7-zenuw-en-hormoonstelsel, 9-organismen-aan-het-werk
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 5-celdeling
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand
-- `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat, farmacie-2-sleutel-slot-en-dosis, leraar-1-waar-blijft-je-vet, neurowetenschappen-1-je-brein-vult-het-in, pedagogiek-1-een-brein-in-aanbouw, psychologie-1-welke-therapie-werkt, psychologie-5-in-de-spreekkamer, tandheelkunde-1-zuur-in-je-mond, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 1-wat-zit-er-in-je-eten, 2-de-reis-door-je-buik, 6-je-darmbewoners
 - `voortplanting`: 2-geslachtsorganen-puberteit, 3-anticonceptie-soa-voortplantingstechniek, 4-sekse-gender-diversiteit
 - `zenuwstelsel`: 7-slaap
@@ -86,12 +86,12 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: biomedisch-4-toeval-of-echt, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
 - `voortplanting`: 2-geslachtsorganen-puberteit
 
-### Yasmin (`yasmin`) — 19 films
+### Yasmin (`yasmin`) — 20 films
 - `evolutie`: 1-wat-is-evolutie
 - `gedrag`: 10-helpen, 12-psychologie-experimenten
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk, 6-dna-en-overerving
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 
 ### Bilal (`bilal`) — 19 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
@@ -149,7 +149,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
 
-### Opa Henk (`henk`) — 39 films
+### Opa Henk (`henk`) — 40 films
 - `afweer`: 3-t-cellen-en-virussen
 - `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
 - `evolutie`: 4-de-mens-als-selectiefactor, x2-het-ontstaan-van-het-leven
@@ -159,7 +159,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 1-voeding-en-beweging
 - `onderbouw/33c`: 3-wie-eet-wie, 4-uit-balans
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
 
 ### Verpleegkundige Jesse (`jesse`) — 4 films
@@ -233,8 +233,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Lieke (`lieke`) — 1 films
 - `vervolg`: forensisch-3-hoe-lang-al-dood
 
-### Procestechnoloog Merel (`merel`) — 2 films
-- `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat
+### Procestechnoloog Merel (`merel`) — 3 films
+- `vervolg`: biotechnologie-1-bacterien-als-fabriek, biotechnologie-2-enzymen-op-maat, biotechnologie-3-mag-dat
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
