@@ -56,3 +56,10 @@ Kamiel: 'verzamelen we alle uitspraak dingen die open staan van meerdere films?'
 Luisterpagina (account van Kamiel waarin dit is gemaakt): https://claude.ai/artifact/JtqGqUPHcuA7Nf5yt1uPzC — per fragment goed / fout plus welk fragment het best klinkt (veld `fragmenten` per index, `beste`), per woord goed / fout / twijfel en optioneel hoe het moet klinken; oordelen in db-collecties `oordeel1` (id begint met 0–9 of a–k) en `oordeel2` (l–z), doc-id = `id` uit de json. Volgorde: grote kans op fout eerst (afkortingen, namen, gewenste uitspraak opgegeven, niet-Nederlandse spelling), daarna op aantal plekken. Bron van de pagina en het script dat de audio-delen maakt: `films/uitspraak-luisterpagina/`.
 
 Daarna: alleen woorden met 'fout' krijgen varianten (ronde 2, zoals bij rubisco); goedgekeurde keuzes in `films/UITSPRAAK.md` + `films/uitspraak.json`, en per film alleen de alinea's met een fout opnieuw inspreken. Woorden met 'goed' gaan van de wachtlijst van de film af.
+
+### Uitslag ronde 1 (25 okt 2026, Kamiel)
+Alle 1138 woorden beluisterd: **1116 goed**, 16 fout, 6 twijfel. De goede woorden zijn hiermee afgehandeld (ook op de wachtlijsten per film); de ruwe oordelen staan in `films/uitspraak-uitslag-2026-10-25.json`.
+
+- **Fout in één take, goed in een andere met dezelfde invoer** (dus de stem was wisselvallig, geen nieuwe regel nodig: alleen die alinea opnieuw): ALAT (labtechniek 3), biosfeerintegriteit (ecologie 5), fMRI (psychologie 2), Jones (gedrag 6), PCR (labtechniek 2), tyfoon (evolutie 5), trombocyten (labtechniek 3; goed in transport 3).
+- **Opnieuw met de al goedgekeurde gewone spelling**: ATP (stem-invoer was nog aa-tee-pee), DNA (Kamiel: 'in het eerste zinnetje niet zo goed, in de tweede wel'; de films met 'deeënaa' alsnog met gewone spelling, alleen waar het fout klinkt).
+- **Ronde 2 met varianten** (geen goed voorbeeld): collageendraden, DSD, emergente, HAN (Kamiel: als één woord 'Han', niet H-A-N), knock-outmuis, toa, uv-straling (klemtoon), vitamine B6, AI-model (klemtoon), Sams (Nederlandse Sam), ADH, Charles Darwin, RNA-polymerase.
