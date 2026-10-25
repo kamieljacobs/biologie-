@@ -3024,9 +3024,10 @@ function cdChromatide(ctx, P, w, segs, o = {}) {
 // een heel chromosoom (X): twee zusterchromatiden; uiteen 0 = vast, 1 = los; kin = kinetochoren tonen;
 // ringen = cohesine (goud-grijze ringen (Kamiel 25 okt 2026: niet oker, dat is moederskant)) 0..1; segsL / segsR = kleuren per zuster; zwaaiL/R en dxL/R voor de anafase
 function cdChromosoom(ctx, x, y, len, o = {}) {
-  const { w = 18, cen = 0.38, kl = CD.vader, segsL = null, segsR = null, uiteen = 0, a = 1, kin = false, ringen = 0, dxL = 0, dxR = 0, zwaai = 0, rot = 0, hl = 0 } = o; if (a <= 0.01) return;
+  const { w = 18, cen = 0.38, kl = CD.vader, segsL = null, segsR = null, uiteen = 0, a = 1, kin = false, ringen = 0, dxL = 0, dxR = 0, zwaai = 0, rot = 0, hl = 0, xv = 0 } = o; if (a <= 0.01) return;
+  // xv > 0: X-vorm, de armen van elke zuster wijken licht naar buiten (vast bij het centromeer)
   const gap = w * 0.52 + uiteen * w * 0.6;
-  const PL = cdPad(x - gap + dxL, y, len, rot, { cen, zwaai, kant: 1 }), PR = cdPad(x + gap + dxR, y, len, rot, { cen, zwaai, kant: -1 });
+  const PL = cdPad(x - gap + dxL, y, len, rot, xv > 0 ? { cen, zwaai: xv, kant: -1, bol: 0 } : { cen, zwaai, kant: 1 }), PR = cdPad(x + gap + dxR, y, len, rot, xv > 0 ? { cen, zwaai: xv, kant: 1, bol: 0 } : { cen, zwaai, kant: -1 });
   if (hl > 0.01) { ctx.save(); ctx.globalAlpha *= a * hl; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.ellipse(x + (dxL + dxR) / 2, y + len * (0.5 - cen), w * 3.1 + Math.abs(dxR - dxL) / 2, len * 0.62, 0, 0, 6.283); ctx.stroke(); ctx.restore(); }
   cdChromatide(ctx, PL, w, segsL || [[0, 1, kl]], { a }); cdChromatide(ctx, PR, w, segsR || [[0, 1, kl]], { a });
   ctx.save(); ctx.globalAlpha *= a;
@@ -3070,9 +3071,9 @@ function _cdKronkel(n, seed, R) { const key = 'kr' + n + '_' + seed + '_' + Math
     let nx = x + Math.cos(an) * st, ny = y + Math.sin(an) * st; const d = Math.hypot(nx, ny); if (d > R) { an += Math.PI * 0.7; nx = x + Math.cos(an) * st; ny = y + Math.sin(an) * st; } x = nx; y = ny; P.push([x, y]); }
   _bioPolyCache[key] = P; return P; }
 function cdKluwen(ctx, x, y, len, o = {}) {
-  const { c = 0, dubbel = true, w = 16, cen = 0.38, rot = 0, kl = CD.vader, segsL = null, segsR = null, a = 1, seed = 1, R = len * 0.55, hl = 0 } = o; if (a <= 0.01) return;
+  const { c = 0, dubbel = true, w = 16, cen = 0.38, rot = 0, kl = CD.vader, segsL = null, segsR = null, a = 1, seed = 1, R = len * 0.55, hl = 0, xv = 0 } = o; if (a <= 0.01) return;
   const e = ease(c), gap = w * 0.52;
-  const doel = [cdPad(x - (dubbel ? gap : 0), y, len, rot, { cen }), cdPad(x + gap, y, len, rot, { cen })];
+  const doel = [cdPad(x - (dubbel ? gap : 0), y, len, rot, xv > 0 && dubbel ? { cen, zwaai: xv, kant: -1, bol: 0 } : { cen }), cdPad(x + gap, y, len, rot, xv > 0 ? { cen, zwaai: xv, kant: 1, bol: 0 } : { cen })];
   const n = doel[0].length, K = _cdKronkel(n, seed, R);
   const strengen = dubbel ? [0, 1] : [0];
   strengen.forEach(s => { const P = doel[s].map((q, k) => { const kx = x + K[k][0] + s * 5, ky = y + K[k][1] + s * 6; return [lerp(kx, q[0], e), lerp(ky, q[1], e)]; });
@@ -3089,6 +3090,8 @@ function cdKernmembraan(ctx, x, y, r, v = 0, a = 1) { if (a <= 0.01 || v >= 0.99
     ctx.beginPath(); ctx.arc(x, y, r * f + dr, a0, a0 + len); ctx.strokeStyle = C.kernR; ctx.lineWidth = 2.4; ctx.stroke(); }
   ctx.restore(); }
 // teller rechtsboven: model en mens naast elkaar
-function cdTeller(ctx, regels, a = 1, x = 1560, y = 150) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const h = 46 + regels.length * 44;
+function cdTeller(ctx, regels, a = 1, x = 1480, y = 150) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const h = 46 + regels.length * 44;
   roundRect(ctx, x - 20, y - 50, 360, h, 14); shape(ctx, rgba(C.bgSchema, 0.92), rgba(C.line, 0.6), 1.2);
   regels.forEach(([lab, val, kl], i) => { metaText(ctx, lab, x, y + i * 44, C.text2, 'left', 22); text(ctx, val, x + 320, y + 4 + i * 44, fTekst(34, 700), kl || C.text, 'right'); }); ctx.restore(); }
+// maximale zwaai zodat de armen van een losse chromatide de middellijn niet kruisen (afstand = centromeer tot middellijn)
+function cdZwaaiMax(afstand, armLen, w) { return Math.asin(clamp((afstand - w * 0.75) / Math.max(1, armLen), 0, 1)) / 1.15; }

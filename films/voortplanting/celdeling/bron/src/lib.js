@@ -79,23 +79,23 @@ function label(ctx, name, meta, ax, ay, lx, ly, alpha=1, color=C.text, forceAlig
   naamBij(ctx,name,meta,x,ny,alpha,align,color);
 }
 function haak(ctx, x1, x2, y, msg, color=C.groen, alpha=1){ // bracket under elements + sentence
-  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; ctx.strokeStyle=color; ctx.lineWidth=1.5;
   ctx.beginPath(); ctx.moveTo(x1,y); ctx.lineTo(x1,y+14); ctx.lineTo(x2,y+14); ctx.lineTo(x2,y); ctx.stroke();
   ctx.beginPath(); ctx.moveTo((x1+x2)/2,y+14); ctx.lineTo((x1+x2)/2,y+26); ctx.stroke();
   text(ctx,msg,(x1+x2)/2,y+66,fTekst(36,600),color,'center'); ctx.restore();
 }
 function zoomCircle(ctx, x, y, r, sx, sy, caption, alpha=1, drawInside){
-  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha=alpha;
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha;
   ctx.strokeStyle=C.goud; ctx.lineWidth=1.5;
   // two straight leader lines from source to circle tangents
   const ang=Math.atan2(y-sy,x-sx); for(const d of [-1,1]){ const a=ang+d*Math.PI/2; ctx.beginPath(); ctx.moveTo(sx,sy); ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r); ctx.stroke(); }
   ctx.save(); ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.clip(); drawInside&&drawInside(); ctx.restore();
   ctx.beginPath(); ctx.arc(x,y,r,0,6.283); ctx.stroke();
-  if(caption) metaText(ctx,caption,x,y+r+40,C.grain,'center',26);
+  if(caption) metaText(ctx,caption,x,y+r+40,C.grain,'center',28);
   ctx.restore();
 }
 function dim(ctx, fn, a=0.35){ ctx.save(); ctx.globalAlpha*=a; fn(); ctx.restore(); }
-function scaleBar(ctx, txt='schematisch · niet op schaal'){ metaText(ctx,txt,W-40,H-22,C.text2,'right',22); }
+function scaleBar(ctx, txt='schematisch · niet op schaal'){ metaText(ctx,txt,W-40,H-22,C.text2,'right',28); }
 
 // ===== organelle library (Part C2) =====
 function membrane(ctx, x, y, rx, ry, color=C.er, wob=0.04, seed=1, t=0){
@@ -200,3 +200,29 @@ function board(ctx, lit, alpha=1, x=60, y=76, w=1800){
   });
   ctx.restore();
 }
+
+// ===== shared helpers (from Celorganellen) =====
+function human(ctx,x,y,h,alpha=1,color=C.mens){ // simple flat figure with a plain face (Part C)
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=color; const u=h/8;
+  ctx.beginPath(); ctx.arc(x,y-h+u,u*0.9,0,6.283); ctx.fill();
+  roundRect(ctx,x-u*1.3,y-h+u*2.1,u*2.6,u*3.6,u*0.8); ctx.fill();
+  roundRect(ctx,x-u*1.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill(); roundRect(ctx,x+u*0.2,y-h+u*5.5,u*1.0,u*2.5,u*0.4); ctx.fill();
+  ctx.fillStyle=C.bgSchema; ctx.beginPath(); ctx.arc(x-u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.arc(x+u*0.3,y-h+u*0.9,u*0.09,0,6.283); ctx.fill();
+  ctx.strokeStyle=C.bgSchema; ctx.lineWidth=u*0.08; ctx.beginPath(); ctx.arc(x,y-h+u*1.1,u*0.3,0.3,2.84); ctx.stroke();
+  ctx.restore();
+}
+function particleFlow(ctx, path, n, t, speed, color, r=5, seedOff=0, alpha=1){ // particles along polyline path [[x,y],...] looping
+  const segs=[]; let total=0; for(let i=1;i<path.length;i++){ const d=Math.hypot(path[i][0]-path[i-1][0],path[i][1]-path[i-1][1]); segs.push(d); total+=d; }
+  ctx.save(); ctx.globalAlpha*=alpha; ctx.fillStyle=color;
+  for(let k=0;k<n;k++){ let d=((t*speed + hash(k+seedOff)*total) % total); let i=0; while(d>segs[i]){ d-=segs[i]; i++; } const u=d/segs[i];
+    const x=lerp(path[i][0],path[i+1][0],u), y=lerp(path[i][1],path[i+1][1],u); const w=wander(k+seedOff,t,4,2);
+    ctx.beginPath(); ctx.arc(x+w.x,y+w.y,r,0,6.283); ctx.fill(); }
+  ctx.restore();
+}
+function card(ctx, x, y, w, h, title, body, alpha=1, accent=C.goud){
+  if(alpha<=0.01) return; ctx.save(); ctx.globalAlpha*=alpha; roundRect(ctx,x,y,w,h,12); shape(ctx,rgba(C.bgSchema,0.94),C.line,1);
+  if(title) text(ctx,title,x+28,y+52,fTekst(36,600),accent);
+  if(body){ ctx.font=fTekst(36); ctx.fillStyle=C.text; wrap(ctx,body,x+28,y+(title?100:52),w-56,42); }
+  ctx.restore();
+}
+function wrap(ctx, s, x, y, maxW, lh){ const words=s.split(' '); let line=''; for(const w of words){ const test=line?line+' '+w:w; if(ctx.measureText(test).width>maxW&&line){ ctx.fillText(line,x,y); y+=lh; line=w; } else line=test; } if(line) ctx.fillText(line,x,y); return y; }

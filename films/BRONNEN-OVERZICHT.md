@@ -29,7 +29,7 @@ Gemaakt met `python3 scripts/bronnencheck.py --md`. Werkwijze: `films/BRONNEN.md
 | `films/vervolg/forensisch-2-hoe-zeker-is-een-match` | wacht op steekproef | 13 | 11 | 0 | 0 | 0 |
 | `films/vervolg/forensisch-3-hoe-lang-al-dood` | wacht op steekproef | 21 | 15 | 0 | 0 | 0 |
 | `films/vervolg/landbouw-2-wat-zit-er-in-de-bodem` | in controle | 32 | 17 | 0 | 4 | 0 |
-| `films/voortplanting/2-geslachtsorganen-puberteit` | wacht op steekproef | 34 | 9 | 0 | 0 | 0 |
+| `films/voortplanting/2-geslachtsorganen-puberteit` | wacht op steekproef | 34 | 10 | 0 | 0 | 0 |
 | `films/voortplanting/celdeling` | in controle | 28 | 6 | 0 | 1 | 0 |
 
-Beweringen totaal: 471 ✓ · 234 ≈ · 7 ! · 15 ?
+Beweringen totaal: 471 ✓ · 235 ≈ · 7 ! · 15 ?
