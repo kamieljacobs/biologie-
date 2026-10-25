@@ -767,7 +767,7 @@ function overzicht(){
     return [k?`${k} ${k===1?'film':'films'}`:'',n?`${n} komt nog`:''].filter(Boolean).join(' · ')||'komt nog'};
   const tegel=g=>{const c=CL[g.cluster];return `<li><a href="${stap>1?'?stap='+stap:''}#${g.id}"><span class="tk">${VICOON.includes(g.id)?`<img src="img/kunst/iconen/vervolg/${g.id}.webp?v=1" alt="" width="88" height="88" loading="lazy" decoding="async">`:kunst(c.id,c.kleur)}</span><b>${esc(g.naam).replace(/(\S)wetenschappen/g,'$1\u00ADwetenschappen')}</b><span class="mat">${esc(tel(g))}</span></a></li>`};
   return `<section class="ovz" aria-label="Alle vakgebieden"><header><span class="mono">Alle richtingen · studie en beroep</span><h2>Van spreekkamer tot veldwerk</h2><p>Kies een vakgebied. Elk gebied heeft extra films buiten het PTA, en straks ook een werkdag, een praktijkopdracht en de opleidingen.</p></header>
-    ${CLUSTERS.map(c=>`<div class="ovg" id="${c.id}"><div class="ovg-kop${KPLAAT.includes(c.id)?' met-plaat':''}">${KPLAAT.includes(c.id)?`<span class="kplaat" aria-hidden="true" style="--kp:url(img/kunst/vervolg/${c.id}.webp?v=4)"></span>`:''}<h3>${esc(c.naam)}</h3><span class="mono">${esc(c.sub||'')}</span></div><ul>${GEBIEDEN.filter(g=>g.cluster===c.id).map(tegel).join('')}</ul></div>`).join('')}</section>`;
+    ${CLUSTERS.map(c=>`<div class="ovg" id="${c.id}"><div class="ovg-kop${KPLAAT.includes(c.id)?' met-plaat':''}">${KPLAAT.includes(c.id)?`<span class="kplaat" aria-hidden="true" style="--kp:url(img/kunst/vervolg/${c.id}.webp?v=5)"></span>`:''}<h3>${esc(c.naam)}</h3><span class="mono">${esc(c.sub||'')}</span></div><ul>${GEBIEDEN.filter(g=>g.cluster===c.id).map(tegel).join('')}</ul></div>`).join('')}</section>`;
 }
 function render(){
   const g=GB[(location.hash||'').slice(1)];
