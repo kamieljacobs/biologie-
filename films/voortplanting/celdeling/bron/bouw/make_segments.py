@@ -1,65 +1,80 @@
-import re, json
-src = open('script_v2.md', encoding='utf-8').read()
-body = src.split('---',1)[1]
-# split into sections by ## headings
-secs = re.split(r'\n## ', body)
-segments = []  # {id, chapter, level, kind, text_display, lines:[...]}
-seg_i = 0
+"""script_vN.md -> segments.json (display + voice input per speech segment).
+Usage: python3 make_segments.py <filmdir> <script.md>
+Segment boundaries: a [VRAAG] line, a VWO marker, a chapter heading, or an empty line inside a chapter.
+## Titel and ## Eindkaart become kind 'title' / 'card'.
+"""
+import re, json, sys, os
+fdir, sname = sys.argv[1], sys.argv[2]
+src = open(os.path.join(fdir, sname), encoding='utf-8').read()
+body = src.split('\n---', 1)[1]
+secs = re.split(r'\n## ', '\n' + body)
+segments = []
+n = 0
+def nid(prefix):
+    global n
+    n += 1
+    return f'{prefix}{n:02d}'
 for s in secs:
-    s = s.strip()
-    if not s: continue
+    s = s.strip('\n')
+    if not s.strip():
+        continue
     head, _, rest = s.partition('\n')
     chapter = re.sub(r'\s*\[.*?\]\s*$', '', head).strip()
-    lines = [l.strip() for l in rest.split('\n')]
-    while lines and not lines[-1]: lines.pop()
+    look = (re.search(r'\[(.*?)\]\s*$', head) or [None, ''])[1]
+    if chapter == 'Titel':
+        t = rest.strip().split('\n')[0]
+        segments.append({'id': nid('s'), 'kind': 'title', 'chapter': 'Titel', 'level': 'basis', 'text': t})
+        continue
+    if chapter == 'Eindkaart':
+        segments.append({'id': nid('s'), 'kind': 'card', 'chapter': 'Eindkaart', 'level': 'basis',
+                         'lines': [l.strip() for l in rest.split('\n') if l.strip()]})
+        continue
     level = 'basis'
     buf = []
-    def flush(kind='speech'):
-        global seg_i
-        nonlocal_buf = buf
-        if not nonlocal_buf: return
-        seg_i += 1
-        segments.append({'id': f's{seg_i:02d}', 'chapter': chapter, 'level': level, 'kind': kind, 'lines': list(nonlocal_buf)})
-        nonlocal_buf.clear()
-    for l in lines:
+    def flush():
+        if buf:
+            segments.append({'id': nid('s'), 'kind': 'speech', 'chapter': chapter, 'look': look,
+                             'level': level, 'lines': list(buf)})
+            buf.clear()
+    for raw in rest.split('\n'):
+        l = raw.strip()
         if not l:
             flush(); continue
         if l.startswith('[VWO-START]'):
-            flush(); level = 'vwo'; l = l.replace('[VWO-START]','').strip()
-        if l.startswith('[EXTRA-START]'):
-            flush(); level = 'extra'; l = l.replace('[EXTRA-START]','').strip()
-        end = False
-        if l.endswith('[VWO-END]') or l.endswith('[EXTRA-END]'):
-            end = True; l = l.replace('[VWO-END]','').replace('[EXTRA-END]','').strip()
+            flush(); level = 'vwo'; l = l.replace('[VWO-START]', '').strip()
+        end = l.endswith('[VWO-END]')
+        if end:
+            l = l.replace('[VWO-END]', '').strip()
         if l.startswith('[VRAAG]'):
             flush()
-            opts = [o.strip() for o in l.replace('[VRAAG]','').split('·')]
-            seg_i += 1
-            segments.append({'id': f'q{seg_i:02d}', 'chapter': chapter, 'level': level, 'kind': 'question', 'options': opts})
-        else:
+            opts = [re.sub(r'^\(?[a-d]\)\s*', '', o.strip()) for o in l.replace('[VRAAG]', '').split('·')]
+            segments.append({'id': nid('q'), 'kind': 'question', 'chapter': chapter, 'level': level, 'options': opts})
+        elif l:
             buf.append(l)
         if end:
             flush(); level = 'basis'
     flush()
-json.dump(segments, open('segments.json','w',encoding='utf-8'), ensure_ascii=False, indent=1)
-# voice input substitutions
-subs = [
- (r'\bhaploïde\b', 'haaploïde'), (r'\bhaploïd\b', 'haaploïd'),
- (r'\btweeënnegentig\b', 'tweeën-neguntig'),
- (r"\bX'en\b", 'iksen'), (r'\bXX\b', 'iks-iks'), (r'\bXY\b', 'iks-ei'), (r'\bX\b', 'iks'), (r'\bY\b', 'ei'),
- (r'\bWat denk je\?', 'Wat denk je?'),
-]
-def voice(t):
-    for a,b in subs: t = re.sub(a,b,t)
-    return t
-n=0
+
+# voice input: series uitspraaklijst (Part B5 + series additions); captions keep the display text
+SUBS = json.load(open(os.path.join(os.path.dirname(__file__), 'uitspraak_subs.json'), encoding='utf-8'))
+# optioneel: film-eigen respellings (bijv. losse bloedgroepletters) in <werkmap>/uitspraak_film.json; die gaan vóór de reekslijst
+_ff = os.path.join(fdir, 'uitspraak_film.json')
+if os.path.exists(_ff): SUBS = json.load(open(_ff, encoding='utf-8')) + SUBS
+def voice_word(w):
+    for a, b in SUBS:
+        w = re.sub(a, b, w)
+    return w
 for seg in segments:
-    if seg['kind']=='speech':
+    if seg['kind'] == 'speech':
         seg['display'] = ' '.join(seg['lines'])
-        seg['voice'] = voice(seg['display'])
-        n+=1
-json.dump(segments, open('segments.json','w',encoding='utf-8'), ensure_ascii=False, indent=1)
-words = sum(len(s['display'].split()) for s in segments if s['kind']=='speech')
-wb = sum(len(s['display'].split()) for s in segments if s['kind']=='speech' and s['level']=='basis')
-print(n, 'speech segments;', words, 'words total;', wb, 'basis;', words-wb, 'vwo')
-for s in segments: print(s['id'], s['level'], s['kind'], s['chapter'][:40], len(s.get('display','').split()))
+        vt, vmap = [], []
+        for i, w in enumerate(seg['display'].split()):
+            for tok in voice_word(w).split():
+                vt.append(tok); vmap.append(i)
+        seg['voice'] = ' '.join(vt); seg['vmap'] = vmap
+json.dump(segments, open(os.path.join(fdir, 'segments.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+sp = [s for s in segments if s['kind'] == 'speech']
+w = sum(len(s['display'].split()) for s in sp); wv = sum(len(s['display'].split()) for s in sp if s['level'] == 'vwo')
+print(len(sp), 'speech segments;', w, 'words;', w - wv, 'basis;', wv, 'vwo')
+for s in segments:
+    print(s['id'], s['kind'], s['level'], s['chapter'][:44], len(s.get('display', '').split()))
