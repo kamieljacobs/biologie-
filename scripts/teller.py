@@ -1,6 +1,7 @@
 """Zet de teller (js/teller.js, GoatCounter) in de <head> van elke pagina van de site.
 Gebruik: python3 scripts/teller.py   (idempotent; werkt ook de filmduur bij als die in index.html veranderd is)
 Slaat over: bronmappen, bouwstraten (_bouw), oud.html, nieuw/, personages/ en statistieken/.
+Zet ook het site-icoon (favicon, img/icoon/) erbij als de pagina er nog geen heeft.
 Films krijgen data-duur (minuten, uit HOOFDSTUKKEN in index.html) zodat 'halverwege' en 'uitgekeken' gemeten kunnen worden."""
 import os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -36,7 +37,15 @@ for f in files:
     else:
         # direct na de eerste <meta charset>, anders direct na <head>, buiten scripts
         m = re.search(r'<meta charset[^>]*>\s*', s, re.I) or re.search(r'<head(\s[^>]*)?>\s*', s, re.I)
+        if not m:  # '<head' kwam alleen voor als '<header' of in een script: geen echte pagina-kop
+            continue
         s2 = s[:m.end()] + tag + s[m.end():]
+    if 'rel="icon"' not in s2:
+        icoon = (f'<link rel="icon" href="{root}img/icoon/favicon.svg" type="image/svg+xml">\n'
+                 f'<link rel="icon" href="{root}img/icoon/favicon-32.png" sizes="32x32" type="image/png">\n'
+                 f'<link rel="apple-touch-icon" href="{root}img/icoon/apple-touch-icon.png">\n')
+        m = TAG.search(s2)
+        s2 = s2[:m.end()] + icoon + s2[m.end():]
     if s2 != s:
         open(p, 'w', encoding='utf-8').write(s2)
         n += 1

@@ -180,3 +180,7 @@ Klik je terug (browserknop of een '←'-link, bv. '← Terug naar Voeding' in ee
 - Lege hoofdfiguur op een themapagina (thema met gravureplaat) wordt op de telefoon verborgen, anders een lege band boven de titel.
 - Jaarplanner: onder 700 px wordt de weektabel een lijst weekkaarten met kopjes per veld (lege velden weg).
 - Controle: Playwright op 375 en 360 px, `scrollWidth` mag niet groter zijn dan het scherm.
+
+## Site-icoon (favicon, Kamiel 25 okt 2026)
+
+Logo in tabblad en bookmarkbalk: het blaadje-in-een-cirkel uit de kopbalk (`.merk`), goud op navy, in `img/icoon/` (`favicon.svg` = bron, `favicon-32.png`, `apple-touch-icon.png` 180 px, `icoon-192/512.png`, `favicon.ico` 16/32/48, die ook in de root staat). `scripts/teller.py` zet de `<link rel="icon">`-regels direct onder de tellertag van elke pagina die er nog geen heeft, dus een nieuwe pagina krijgt hem vanzelf. Na een wijziging aan het icoon de png's en de ico opnieuw maken uit favicon.svg (cairosvg + Pillow).
