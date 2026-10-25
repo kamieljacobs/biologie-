@@ -1,105 +1,67 @@
 # DNA kopiëren — bronmap
 
+Versie 2.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, zoals Chromosomen 2.0 (26 okt 2026). De oude versie (DNA-bouwstraat `films/dna/_bouw/`, prompt v5, 12 okt 2026) staat in `oud/` (`2-dna-kopieren-v2.0.html`, `info-v2.0.md`, `script-v2.0.md`) en blijft daar tot Kamiel de nieuwe goedkeurt.
+
 | Veld | Waarde |
 |---|---|
-| Bestand | films/dna/2-dna-kopieren.html (één zelfstandig bestand; audio en lettertypen ingebed) |
-| Reeks / nummer | DNA, film 2 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
-| Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 2.0 · 12 oktober 2026 — omgezet naar Part C (prompt v5). 1.x (8–9 okt) had stijl C “Papier en inkt”; tekst en opnamen zijn ongewijzigd |
-| Prompt | v5 |
-| Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_multilingual_v2); één take per alinea of vraag |
-| Duur | gesproken 5:35; speeltijd (zonder wachten bij vragen) vwo 6:55, havo 4:28 |
-| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
-| Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
-| Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–4, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
+| Bestand | films/dna/2-dna-kopieren.html (audio in `2-dna-kopieren/audio/`) |
+| Reeks / nummer | DNA · film 2 van 8 |
+| Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (Havo/Vwo-schakelaar, `?niveau=havo`) |
+| Versie / datum | 2.0 · 26 okt 2026 |
+| Prompt | v10 |
+| Voldoet aan | prompt v10 (26 okt 2026) |
+| Herkomst | lichte remake (B16), keuring twijfelscènes 25 okt 2026 (`../../../verbeterbladen/remake-2026-10/besluiten.md`: alle voorstellen, T4 = alternatief, basen in de ringvorm van DNA 1); fase 1 in `remake-2026-10/` |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (24 takes, 6.583 credits); flow `iDUu8zKxPqYHfp5p5N4J`; blinde transcriptie van de risicotakes (741 credits): `stem/blind.md` |
+| Duur | spraak 431 s (basis 282 s); speeltijd met vragen en kaarten ± 8:30 vwo, ± 6:00 havo; `duur: 9` in HOOFDSTUKKEN |
+| Beeldstijl | Part C: Macro (kamer met Noor), Micro zonder korrel (huid, kern, DNA, vork), Schema (klok, Meselson-Stahl, vraagkaarten, polymerasen); zoomcirkel van arm naar huid, harde cut naar Schema-kaarten |
+| Audio-opslag | 24 losse mp3's (`../audio/sNN.mp3`), woordtijden `stem/woordtijden/` |
 
 ## Opbouw
-Begintijden in de speler (hoofdstukkaart), vwo en havo.
-
-| Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |
-|---|---|---|---|---|---|
-| 0:00 | 0:00 | Opening | n0 | I toepassing · Macro → zoomcirkel → Micro | knie met schaafwond die heelt; huidcellen die delen |
-| 0:20 | 0:20 | Hoofdstuk 1 — Wanneer en waarom | n3, q4, n5 | C proces in de tijd · Micro → Schema-kaart | cel die deelt; celcyclusklok met S- en M-fase |
-| 1:07 | 1:07 | Hoofdstuk 2 — Eén streng is genoeg | n7, q8, n9 | A mechanisme · Micro | simulatie: helicase ritst open, vrije nucleotiden blijven alleen op hun partner hangen, polymerase koppelt |
-| 2:31 | 2:31 | Hoofdstuk 3 — Twee uit één | n11, q12, n13 | C proces in de tijd · Micro + Schema-kaart | twee identieke moleculen met de oude streng omlijnd; 50 per seconde tegenover 3 miljard; duizenden startpunten; telomeer; de eerste kopieerfout |
-| 3:46 | — | Hoofdstuk 4 — Richting en halfnieuw | n15, q16, n17, n18 | A + G · Micro + Schema (proef, tabel) | Meselson-Stahl als voorspelvraag; antiparallel en 5′→3′; primer en primase; replicatievork met leidende en volgende streng; drie polymerasen; repair |
-| 6:13 | 3:46 | Samenvatting — Terug naar de schaafwond | n20 | — · Macro → Micro | terug naar de knie; de stappen op een rij |
-
-## Voorspelvragen
-De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling; het antwoord wordt in het volgende segment uitgesproken.
-
-| Segment | Niveau | Vraag | Opties (juist vet) |
+| Hoofdstuk | Segmenten | Type · look | Kernbeeld |
 |---|---|---|---|
-| q4 | basis | In welke fase kopieert de cel haar DNA? | tijdens de deling, in de M-fase · **vóór de deling, in de S-fase** · na de deling, in de nieuwe cel |
-| q8 | basis | De oude streng is A C G T. Welke nieuwe streng bouwt DNA-polymerase ernaast? | A C G T · **T G C A** · U G C A |
-| q12 | basis | Vijftig nucleotiden per seconde, en toch klaar in een paar uur. Hoe kan dat? | de polymerase gaat sneller als het moet · **het kopiëren begint op heel veel plekken tegelijk** · de cel kopieert alleen de genen die ze nodig heeft |
-| q16 | vwo | Na één keer kopiëren op lichte stikstof: wat zie je als je het DNA op gewicht sorteert? | alleen zwaar DNA · alleen licht DNA · **alles even zwaar, precies tussen zwaar en licht in** · half zwaar, half licht |
+| Opening | s01 | haak · Macro → zoomcirkel → Micro | Noors onderarm met schaafwond die heelt (dag 0 → 7), zoomcirkel naar de basale laag, 2 m DNA naast Noor |
+| 1 Wanneer en waarom | s03–s06 | proces in de tijd · Micro → cut naar Schema | cel die zonder kopiëren maar de helft zou geven; celcyclusklok (G1/S/G2/M, zoals Celdeling); één chromatide wordt een X |
+| 2 Eén streng is genoeg | s07–s14 | mechanisme · Micro | doorlopende zoom kern → chromatine → DNA rond eiwitten → helix → ladder met ringbasen; helicase opent een bubbel met twee vorken; één gevolgde nucleotide die niet past (G) en een die past (A); polymerase sluit en koppelt; de echte vork in havo zonder namen; pastest A T G C met waterstofbruggen |
+| 3 Twee uit één | s15–s21 | proces in de tijd · Micro + Schema | twee moleculen (oud donker + nieuw licht) → twee chromatiden; genoom als lint met kalender (1,9 jaar); startpuntsimulatie met samenvloeiende bubbels; telomeer met veter; één fout op een miljard als stippenveld |
+| 4 Richting en halfnieuw (vwo) | s22–s28 | mechanisme + onderzoek · Micro + Schema | half oud/half nieuw; Meselson en Stahl (kolf, buizen met banden); 5'→3' en primer in de polymerase-close-up; de vork als één simulatie in vijf momenten (primers, leidende streng, volgende streng, Okazaki, ligase); DNA- en RNA-polymerase naast elkaar, reverse transcriptase als één zin; repair-enzym |
+| Samenvatting | s29 | Macro → zoomcirkel | Noors genezen arm; per stap een fragment van de simulaties in de zoomcirkel |
+
+## Vragen
+| Segment | Vraag | Opties | Juist |
+|---|---|---|---|
+| q05 | In welke fase kopieert de cel haar DNA? | M-fase · S-fase · na de deling | b |
+| q13 | Oude streng A T G C: wat komt er tegenover? | ATGC · TACG · UACG | b |
+| q18 | 50 per seconde en toch een paar uur: hoe? | sneller · veel startpunten · alleen genen | b |
+| q24 (vwo) | Na één ronde lichte stikstof: wat zie je? | alleen zwaar · alleen licht · alles tussenin · half zwaar, half licht | c |
+
+Vragen uit: de vraagalinea's s04, s12, s17 en s23 vallen helemaal weg (vlag `heleVraag` in film.py → filmdata; speler slaat ze over). De alinea's na een vraag (s06, s14, s19, s25) zeggen het antwoord opnieuw in eigen woorden, zonder antwoordletter. Gecontroleerd met `?vragen=uit` (havo en vwo): 0 vraagkaarten, geen vraagzin over; `spelerfix`, `antwoordtekst`, `kortantwoord` --check in orde.
 
 ## Begrippen
-- celcyclus — De opeenvolging van fasen die een cel doorloopt tussen twee delingen.
-- S-fase — Fase van de celcyclus waarin het DNA wordt gekopieerd.
-- M-fase — Fase waarin de celdeling plaatsvindt en de kopieën van de chromosomen worden verdeeld over de dochtercellen.
-- DNA-replicatie — Kopiëren van het DNA voor de celdeling (ook: DNA-verdubbeling).
-- vrije DNA-nucleotiden — DNA-nucleotiden die los in het kernplasma voorkomen.
-- DNA-polymerase — Enzym dat langs een enkelvoudige DNA-keten schuift en vrije nucleotiden uit het kernplasma verbindt met de vrijgekomen basen.
-- helicase — Enzym dat de twee strengen van het DNA uit elkaar trekt (aanvulling op de methode).
-- telomeer — Niet-coderend repetitief DNA aan de uiteinden van een DNA-molecuul, ingekapseld in beschermende eiwitten.
-- mutatie — Verandering in de nucleotidevolgorde van het DNA, bijvoorbeeld een kopieerfout die blijft staan.
-- semiconservatief *vwo* — Elk nieuw DNA-molecuul bestaat uit één oude en één nieuwe streng.
-- primer *vwo* — Kort startstukje waaraan DNA-polymerase kan beginnen; gemaakt door primase.
-- leidende streng *vwo* — De nieuwe streng die continu, met de vork mee, wordt gebouwd.
-- volgende streng *vwo* — De nieuwe streng die in korte stukken (Okazaki-fragmenten) van de vork af wordt gebouwd; ligase plakt de stukken aan elkaar.
-- Okazaki-fragmenten *vwo* — Korte stukken nieuw DNA op de volgende streng.
-- RNA-polymerase *vwo* — Enzym dat een gen overschrijft naar RNA (transcriptie).
-- reverse transcriptase *vwo* — Enzym dat uit RNA een DNA-kopie maakt.
-- DNA-repair-enzymen *vwo* — Enzymen die verkeerd ingebouwde nucleotiden opsporen en vervangen.
+celcyclus, S-fase, M-fase, DNA-replicatie, vrije nucleotiden, helicase, DNA-polymerase, telomeer, mutatie; vwo: semiconservatief, 5'- en 3'-uiteinde, primer, replicatievork, leidende streng, volgende streng, Okazaki-fragmenten, RNA-polymerase, reverse transcriptase, DNA-repair-enzymen (`film.py`, `glossary`).
 
-## Checkvragen
-- (basis) Een cel bevat 6 miljard basenparen. Hoeveel vrije nucleotiden moet zij uit het kernplasma halen om haar DNA te kopiëren? Leg uit. — *6 miljard: tegenover elke oude streng komt één nieuwe nucleotide per basenpaar, dus 2 × 3 miljard per set, 6 miljard in totaal.*
-- (basis) Leg uit waardoor de twee DNA-moleculen na replicatie precies gelijk zijn aan het origineel. — *Elke oude streng dient als voorbeeld; door de vaste basenparing (A–T, C–G) krijgt elke streng exact dezelfde partner als eerst.*
-- (basis) Een stof remt DNA-polymerase. In welke fase van de celcyclus blijft een cel dan steken, en waarom? — *In de S-fase: het DNA kan niet gekopieerd worden, dus de cel kan niet door naar de M-fase.*
-- (vwo) Teken een replicatievork en geef aan welke streng continu wordt gebouwd en welke in fragmenten. Leg uit waarom. — *DNA-polymerase bouwt alleen 5'→3'. Langs de streng die 3'→5' de vork in loopt kan het met de vork mee bouwen (leidende streng); langs de andere moet het telkens van de vork af bouwen, in Okazaki-fragmenten (volgende streng).*
-- (vwo) Een virus heeft RNA als erfelijk materiaal en bouwt zijn informatie in het DNA van de gastheer in. Welk enzym heeft het daarvoor nodig, en waarom niet DNA-polymerase? — *Reverse transcriptase: dat maakt DNA met RNA als matrijs. DNA-polymerase gebruikt alleen DNA als matrijs.*
+## Docentdeel
+In `sections.html`: 5 checkvragen (2 vwo), hoe de film het uitlegt (met misvattingen), bespreekmomenten, getallen met bronnen, keuzes en vereenvoudigingen, plaats in de reeks. Alle beweringen met bronnen: `bronnen.md`.
 
-## Getallen
-| Getal | In de film | Bron |
-|---|---|---|
-| Snelheid DNA-polymerase (eukaryoot) | ≈ 50 nucleotiden/s | Alberts, Molecular Biology of the Cell |
-| Tijd voor één enzym, 3,2 miljard nt | ≈ 2 jaar | 3,2·10⁹ ÷ 50 = 6,4·10⁷ s ≈ 740 dagen |
-| Startpunten per replicatie (mens) | duizenden | 30 000–50 000 (Alberts) |
-| Duur S-fase | een paar uur | ≈ 8 uur in een typische zoogdiercel (Alberts) |
-| Foutkans na herstel | ≈ 1 op 10⁹ | Alberts |
-| Nieuwe cellen bij een schaafwond | honderdduizenden | orde-schatting, niet gecontroleerd in een primaire bron |
-| Meselson & Stahl | 1958, ¹⁵N/¹⁴N, E. coli | Meselson & Stahl, PNAS 44 (1958) |
-
-## Techniek: waar zit wat in de HTML
-Regelnummers in 2-dna-kopieren.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
-- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 129. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
-- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 130; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 312.
-- **Scènes**: regel 513; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 728. **Speler**: regel 729 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
-- **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl2_docent.htmlfrag`.
+## Waar wat in de HTML zit
+Regelnummers in `../../2-dna-kopieren.html` (versie 2.0):
+- r. 104 begrippen (`#glossary`), r. 114 docentdeel.
+- r. 155 `window.FILMDATA` (segmenten, woordtijden, vragen).
+- r. 2037 `const SCENES = {}`, daarna lib_bio.js (incl. `baseRing` en de DNA 2-objecten) en lib_micro_evo.js; r. 4707 `vorkModel` (DNA 2-deel van lib_bio.js); r. 5574 `Object.assign(SCENES, …)`: één functie per alinea (scenes_dna2.js).
+- r. 5842 `GLOSSARY`, daarna de speler.
 
 ## Zo pas je deze film aan
-1. Werk in `films/dna/_bouw/` (kopieer de map naar een werkmap buiten de repo). Haal eerst de audio terug: `python3 haal_audio.py 2 ../2-dna-kopieren.html`.
-2. **Beeld**: pas `src/scenes2.js` aan (zoek de scènenaam uit de tabel Opbouw, bijv. `SCENES.h2a`), daarna `python3 build.py 2` → `out/2-dna-kopieren.html`. Controleer met `node grab.js <pad>/out/2-dna-kopieren.standalone.html qa/x 6` en `python3 sheet.py qa/x qa/x.png 7`.
-3. **Tekst op de pagina, titel, hoofdstukvragen, eindkaart**: `films.py`. **Docentdeel**: `data/afl2_docent.htmlfrag`. **Begrippen, checkvragen, getallen**: `data/afl2_script.json`.
-4. **Een alinea opnieuw inspreken**: stem-invoer uit `data/afl2_stem.json` (respellings volgens de uitspraaklijst), Roos, eleven_multilingual_v2, één take. Vervang `data/afl2_audio/<id>.mp3` (−16 LUFS, −1 dBTP), zet nieuwe woordtijden (Scribe) en `bounds` in `data/afl2_words.json`, en pas de tekst aan in `data/afl2_script.json`. Andere segmenten blijven ongemoeid.
-5. Kopieer `out/2-dna-kopieren.html` naar `films/dna/`, werk dit bestand en script.md bij (versie, datum, wat er veranderd is) en push.
+Werkmap buiten de repo: kopieer `bron/` erheen, zet `src/*` en `bouw/*` samen in `eng/` en de mp3's in `film/audio/` (de bouw verwacht `film/` met `film.py`, `sections.html`, `segments.json`, `uitspraak_film.json`, `script_bouw.md`, `teken_dna2.js`, `scenes_dna2.js`, `words/`). Bouwen: `bouw.sh` (zet `scenes.js` = kop + lib_bio + lib_micro_evo + teken + scenes, dan `film.py`, `build_data.py`, `build.py`); stills met `bouw/stills.py <map> qa contact`. Daarna in de repo `spelerfix`, `antwoordtekst`, `kortantwoord`, `tabel_mobiel`, `flipkaarten`, `teller`, `licentie_noot`, `oefenen`, `reviewlijst`.
+- Beeld wijzigen: alleen in `scenes_dna2.js` (cue-woorden: q.at zoekt een stukje van een woord). Gedeelde tekeningen (vork, polymerase, basen) staan in `bibliotheek/lib_bio.js` (testvel `#repl`, `#dna`).
+- Tekst wijzigen = die alinea opnieuw inspreken (één take; stem-invoer met `make_segments.py` uit `script_bouw.md` + `uitspraak_film.json`), woordtijden met `silalign.py`, blind transcriberen alleen die alinea.
+- De speler (`src/player.js`) is die van Chromosomen 2.0 met twee kleine aanvullingen (zoek 'DNA2'): `heleVraag` (hele vraagalinea weg bij Vragen uit) en een compactere vraagkaart bij vier opties.
 
 ## Aandachtspunten
-- Alle tekst moet boven y = 892 blijven: de speler knipt scènes daar af (ondertitelzone).
-- Meta-tekst staat in kapitalen, behalve eenheden (`metaCase` in de bibliotheek): µm, nm, °C blijven correct.
-- De pijl → en ≈ zitten niet in de ingebedde lettertypes en vallen terug op het systeemlettertype.
-- Basen zijn vier tinten paars en verschillen ook in letter en paarrand (A punt, T inkeping, C nok, G sleuf); RNA is teal (primer in film 2; mRNA en tRNA in film 3), eiwit en aminozuren oker, ribosoom #C9B896.
-- Uitspraak van helicase, primase, ligase en Okazaki (takes n7, n17) is nog niet door Kamiel beoordeeld.
+- Uitspraak: helicase, primase, ligase, nucleotiden, telomeer, antiparallel op de wachtlijst `uitspraak.md` (blind correct teruggekomen; klemtoon voor Kamiels oor).
+- Okazaki-fragmenten en enzymen zijn niet op schaal ('schematisch · fragmenten korter dan echt').
+- Frisse beeldreview: `review_fris_2026-10-26.md` (12 MOET, 19 KAN). Alle MOET-punten hersteld op 26 okt 2026 (zie Wijzigingen); van de KAN-punten 1, 3, 7, 11, 12, 14, 15, 16, 17, 18a, 18d en 19 ook. Open gelaten: KAN 2 (lege cel s03), 4 (groeven helix s07), 5 (enzymvormen), 6 (dichte basen), 8 (primers in de havo-versie van s11), 13 (streepjes bovenaan chromatiden), 18b/c.
+- **Vraag aan Kamiel (KAN 9):** s14 zegt 'maar het spiegelbeeld: de partner'. Complementair is geen spiegelbeeld (de letters worden niet gespiegeld). Voorstel: 'maar de aanvulling: de partner' (één kleine take opnieuw). Nu ongewijzigd.
+- **Vraag aan Kamiel (KAN 10):** RNA (U, primer, mRNA) is teal, terwijl prompt C1 'DNA en RNA paars' vastlegt. Binnen deze film helpt het onderscheid (primer ≠ DNA). Kiezen en dan vastleggen in de bibliotheek (`RNA_BASE`, `D2.rna`). Nu ongewijzigd.
 
 ## Wijzigingen
-- 12 okt 2026 (later) — nieuwe mensfiguur in opening en samenvatting: met huidskleur, zachte ronde vormen, vriendelijk gezicht (personReal in dnalib); speler: denktijd per vraag instelbaar.
-- 2.0.1 · 12 okt 2026 — speler: ondertitels breken alleen nog tussen zinnen of bij een komma/dubbele punt, nooit midden in “van 3′ naar 5′”; opnieuw gebouwd, beeld en audio ongewijzigd.
-- 2.0 · 12 okt 2026 — nieuwe Part C-look op de speler van Celorganellen (vraag wordt ingesproken; toetsen ↑ ↓ A B C Enter; lettertypen ingebed). Inhoudelijke correcties bij het hertekenen: de replicatiesimulatie opent de ladder nu echt (de oude versie liet hem dichtritsen); de nieuwe streng in het vwo-blok groeit van 5′ naar 3′ van rechts naar links, met de primer aan het 5′-uiteinde; primer als RNA (teal).
-- 1.1 / 1.0 · 8–9 okt 2026 — eerste versie, stijl “Papier en inkt”.
-
-## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
-
-`label()` tekent geen lijntje + stip meer naar de naam; de naam staat direct naast het onderdeel (nieuwe functie `naamBij()` uit Celorganellen, met donkere rand rond de letters). De oude aanroepen `label(ctx, naam, meta, ax, ay, lx, ly, …)` werken nog: de richting ax,ay → lx,ly bepaalt aan welke kant de naam komt. Opnieuw geplaatst (eigen `naamBij(...)` of andere richting): 'DNA-polymerase', 'elke nieuwe cel', 'DNA kopiëren', 'A tegenover G', 'leidende streng', 'Okazaki-fragmenten', 'volgende streng'. Gecontroleerd op stills van alle scènes met namen. Daarnaast een bestaande fout hersteld: scène h1a crashte als `microCell()` bij doorzichtigheid 0 niets teruggaf (`if(A)`/`if(B)` toegevoegd).
+- 26 okt 2026 — 2.0, herstel na frisse review: oud/nieuw-kleurcode vanaf het origineel (s07, s15, s22, s29 met labels oud/nieuw); s26 opnieuw (open matrijs, polymerase kan niet beginnen, primase legt de primer aan de 5'-kant); s10 vingers sluiten zichtbaar + flits bij 'koppelt vast'; s11 richtingspijlen op de oude strengen; s28 echte reparatie (koraal G eruit, A erin); s01/s29 kader 'vergroot' met ring op Noors eigen arm; schaalbalken s07/s08 herrekend; letters rechtop (d2Base); s25 legenda op bandhoogte; s19 genen groen, startpunten gedimd, niet-coderend gestippeld; labels van de rand; s27 ligaselabel boven de ligase, vertrekkende polymerase gedimd, naden zichtbaar. Bibliotheek (DNA 2-deel): d2Base letter rechtop, polymerase-vingers ruimer, ligase groter, `lagA`, zichtbare naden.
+- 26 okt 2026 — Versie 2.0: lichte remake. Nieuw script (vakfouten hersteld: 'het enzym zoekt niets uit', 'foutloos', 'duizenden' startpunten, ACGT-vraag; basisbeeld met beide strengen dezelfde kant op), nieuwe stem (eleven_v4), FILMDATA-straat, replicatievork als simulatie, basen in de ringvorm van de DNA-reeks, Noor met schaafwond, bronnenlogboek, nieuwe bibliotheekobjecten (vork, polymerase, helicase, primase, ligase, vrije nucleotide, baseRingRNA, schaafwond).

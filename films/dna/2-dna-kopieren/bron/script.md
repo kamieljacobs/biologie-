@@ -1,84 +1,160 @@
-# DNA kopiëren — script
+# DNA kopiëren — gesproken tekst (versie 2.0, 26 okt 2026)
 
-Stem: Roos, eleven_multilingual_v2 · stem-invoer: letterlijke stem-invoer van de opname (9 oktober 2026). Tijden: begin in de speler (vwo / havo). Audio: `FILMDATA.segments[<id>].audio`.
+Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow iDUu8zKxPqYHfp5p5N4J. Audio: `../audio/<id>.mp3` (−16 LUFS); woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (zie ook `stem/stem-invoer.json`). Vraagalinea's (s04, s12, s17, s23) vallen bij Vragen uit helemaal weg (`heleVraag`). Script met wijzigingen t.o.v. de oude film: `script_v2.md`. Oude versie: `oud/script-v2.0.md`.
 
-## n0 · Opening · basis
-*begin 0:00 / 0:00 · 15.0 s*
+## Cold open
 
-Een schaafwond op je knie. Na een week is hij dicht. Daarvoor heeft je huid honderdduizenden nieuwe cellen gemaakt. Elke nieuwe cel kreeg zijn eigen twee meter DNA. Twee meter, foutloos gekopieerd, in een paar uur. Hoe doe je dat?
+**s01** · audio `s01.mp3` · 15.9 s · generation `kNyBd1m6WNMR9tE9KTdc`
 
-## n3 · Hoofdstuk 1 — Wanneer en waarom · basis
-*begin 0:23 / 0:23 · 24.3 s*
+Noor heeft een schaafwond op haar arm. Na een week is hij dicht. Daarvoor heeft haar huid heel veel nieuwe cellen gemaakt. Elke nieuwe cel kreeg zijn eigen twee meter DNA. Gekopieerd in een paar uur, en bijna zonder fouten. Hoe doet een cel dat?
 
-Een cel die gaat delen, moet eerst haar DNA kopiëren. Anders zou elke dochtercel maar de helft krijgen. Kijk naar de klok van de cel: de celcyclus. Het kopiëren gebeurt in de S-fase. De S staat voor synthese: maken. Pas daarna, in de M-fase, deelt de cel. De kopieën worden verdeeld over twee dochtercellen. Het kopiëren zelf noem je DNA-replicatie. In sommige boeken heet het DNA-verdubbeling.
+## Titel
 
-## q4 · Hoofdstuk 1 — Wanneer en waarom · basis · vraag
-*begin 0:47 / 0:47 · 3.6 s*
+**s02** · titelkaart: DNA kopiëren
 
-In welke fase kopieert de cel haar DNA? Wat denk je?
+## Hoofdstuk 1 — Wanneer en waarom
 
-## n5 · Hoofdstuk 1 — Wanneer en waarom · basis
-*begin 1:01 / 1:01 · 5.6 s*
+**s03** · audio `s03.mp3` · 28.5 s · generation `r3s2Q9kD4UyfA3txt08D`
 
-B. Vóór de deling. Als de cel begint te delen, is het DNA al dubbel.
+Een cel die gaat delen, moet eerst haar DNA kopiëren. Anders zou elke dochtercel maar de helft krijgen. Kijk naar de klok van de cel: de celcyclus. Het kopiëren gebeurt in de S-fase. De S staat voor synthese: maken. Pas daarna, in de M-fase, deelt de cel. De kopieën worden verdeeld over twee dochtercellen. Het kopiëren zelf heet DNA-replicatie. In sommige boeken heet het DNA-verdubbeling.
 
-## n7 · Hoofdstuk 2 — Eén streng is genoeg · basis
-*begin 1:11 / 1:11 · 51.7 s*
+**s04** · audio `s04.mp3` · 4.0 s · generation `oqiwbZrTLAerPfI6hYnf`
 
-Terug naar het molecuul. De dubbele ketting uit aflevering één. Onthoud wat we daar zagen: tegenover A staat altijd T, tegenover C altijd G. Ken je één streng, dan ken je de andere. En precies dat gebruikt de cel. Een enzym, helicase, trekt de twee strengen uit elkaar. Het lijkt op een rits die opengaat. Nu liggen de basen vrij. Elke streng is een voorbeeld voor een nieuwe. In het kernplasma zweven vrije nucleotiden. Losse bouwstenen, A, T, C en G. Ze botsen tegen de open streng. Past een base niet, dan stuitert hij weg. Past hij wel, dan blijft hij hangen. En dan komt het enzym: DNA-polymerase. Het schuift langs de streng en koppelt elke passende nucleotide vast aan de vorige. Zo groeit langs elke oude streng een nieuwe streng. Let op: het enzym zoekt niets uit. De basenparing bepaalt wat past. Het enzym maakt alleen de verbinding.
+Wat denk je? In welke fase kopieert de cel haar DNA?
 
-## q8 · Hoofdstuk 2 — Eén streng is genoeg · basis · vraag
-*begin 2:02 / 2:02 · 6.1 s*
+**q05** · vraag: In welke fase kopieert de cel haar DNA?
+- a) Tijdens de deling, in de M-fase
+- b) Vóór de deling, in de S-fase  ✓
+- c) Na de deling, in de nieuwe cel
 
-De oude streng is A C G T. Welke nieuwe streng bouwt DNA-polymerase ernaast? Wat denk je?
+**s06** · audio `s06.mp3` · 10.2 s · generation `BoV5vP7eZaEm9ChR28kI`
 
-## n9 · Hoofdstuk 2 — Eén streng is genoeg · basis
-*begin 2:19 / 2:19 · 12.0 s*
+De cel kopieert haar DNA vóór de deling, in de S-fase. Als de cel begint te delen, is elk chromosoom al dubbel: twee identieke chromatiden.
 
-B. Tegenover A een T, tegenover C een G, tegenover G een C, tegenover T een A. Antwoord C klopt niet: U hoort bij RNA, niet bij DNA. Daar gaat aflevering drie over.
+## Hoofdstuk 2 — Eén streng is genoeg
 
-## n11 · Hoofdstuk 3 — Twee uit één · basis
-*begin 2:34 / 2:34 · 37.6 s*
+**s07** · audio `s07.mp3` · 14.7 s · generation `T7tNggBbpXM0T1nGrxq6`
 
-Als de polymerase klaar is, liggen er twee dubbele kettingen. Allebei precies gelijk aan het origineel. Want elke oude streng heeft zijn eigen partner opnieuw gekregen. Twee identieke DNA-moleculen. Klaar voor twee dochtercellen. Hoe snel gaat dat? Eén polymerase koppelt ongeveer vijftig nucleotiden per seconde. Dat lijkt snel, maar voor drie miljard basenparen zou één enzym bijna twee jaar nodig hebben. Daarom begint het kopiëren op duizenden plekken tegelijk. Dan is het in een paar uur klaar. Aan de uiteinden van elk chromosoom zit een stuk dat niet codeert: de telomeer. Het beschermt de uiteinden, een beetje zoals het plastic uiteinde van een veter.
+We zoomen in, van de kern naar het molecuul: de dubbele ketting uit aflevering één. Tegenover A staat altijd T, tegenover C altijd G. Ken je één streng, dan ken je de andere. Precies dat gebruikt de cel.
 
-## q12 · Hoofdstuk 3 — Twee uit één · basis · vraag
-*begin 3:12 / 3:12 · 5.4 s*
+_Stem-invoer:_ We zoomen in, van de kern naar het molecuul: de dubbele ketting uit aflevering één. Tegenover A staat altijd tee, tegenover C altijd G. Ken je één streng, dan ken je de andere. Precies dat gebruikt de cel.
 
-Vijftig nucleotiden per seconde, en toch klaar in een paar uur. Hoe kan dat? Wat denk je?
+**s08** · audio `s08.mp3` · 11.2 s · generation `pDW399PpfN44PCaSCmxg`
 
-## n13 · Hoofdstuk 3 — Twee uit één · basis
-*begin 3:28 / 3:28 · 17.7 s*
+Een enzym, helicase, trekt de twee strengen uit elkaar. Het lijkt op een rits die opengaat. Nu liggen de basen vrij. Elke oude streng is een voorbeeld voor een nieuwe.
 
-B. Duizenden startpunten tegelijk. En nee, de cel kopieert alles, ook wat ze niet gebruikt. Gaat het altijd goed? Bijna altijd. Maar heel af en toe wordt een verkeerde nucleotide ingebouwd. Zo'n kopieerfout die blijft staan, noem je een mutatie. Hoe dat verder gaat, zie je in aflevering vijf.
+**s09** · audio `s09.mp3` · 17.6 s · generation `brV0lyXT0VXoQBpwKvQg`
 
-## n15 · Hoofdstuk 4 — Richting en halfnieuw · vwo
-*begin 3:49 / — · 24.3 s*
+In het kernplasma zweven vrije nucleotiden. Losse bouwstenen: A, T, C en G. Ze botsen steeds tegen de open streng. We volgen er één. Deze past niet en schiet weer weg. Deze wel: hij past tegenover de base op de oude streng.
 
-Voor vwo gaan we hier drie stappen verder. Eerst: wat zit er in de twee nieuwe moleculen? Elk nieuw molecuul bestaat uit één oude streng en één nieuwe. Half oud, half nieuw. Dat noem je semiconservatief: de helft wordt bewaard. Hoe weten we dat? Twee onderzoekers, Meselson en Stahl, lieten bacteriën eerst groeien op zware stikstof. Al hun DNA werd zwaar. Daarna kregen de bacteriën lichte stikstof.
+_Stem-invoer:_ In het kernplasma zweven vrije nucleotiden. Losse bouwstenen: A, tee, C en G. Ze botsen steeds tegen de open streng. We volgen er één. Deze past niet en schiet weer weg. Deze wel: hij past tegenover de base op de oude streng.
 
-> stem-invoer: Voor vwo gaan we hier drie stappen verder. Eerst: wat zit er in de twee nieuwe moleculen? Elk nieuw molecuul bestaat uit één oude streng en één nieuwe. Half oud, half nieuw. Dat noem je semi-conservatief: de helft wordt bewaard. Hoe weten we dat? Twee onderzoekers, Messelson en Staal, lieten bacteriën eerst groeien op zware stikstof. Al hun DNA werd zwaar. Daarna kregen de bacteriën lichte stikstof.
+**s10** · audio `s10.mp3` · 18.6 s · generation `VEMOGBNSC40TIRFz5Y5R`
 
-## q16 · Hoofdstuk 4 — Richting en halfnieuw · vwo · vraag
-*begin 4:13 / — · 6.5 s*
+Dan komt het enzym DNA-polymerase. Het kiest niet zelf een letter. Een nucleotide die past bij de base tegenover, past ook precies in het enzym. Alleen dan sluit het enzym zich en koppelt het hem vast aan de vorige. Zo schuift het langs de oude streng, en groeit er een nieuwe streng naast.
 
-Na één keer kopiëren op lichte stikstof: wat zie je als je het DNA op gewicht sorteert? Wat denk je?
+**s11** · audio `s11.mp3` · 15.9 s · generation `NkrfOpEDZUyWNlUbeCXT`
 
-## n17 · Hoofdstuk 4 — Richting en halfnieuw · vwo
-*begin 4:30 / — · 60.6 s*
+Dat gebeurt langs allebei de oude strengen tegelijk. Maar ze lopen tegengesteld. Langs de ene streng groeit de nieuwe streng gewoon met de rits mee. Langs de andere bouwt het enzym steeds een stukje terug, in korte stukken die later aan elkaar worden geplakt.
 
-C. Alle moleculen zijn half zwaar, half licht: één oude zware streng en één nieuwe lichte. Na een tweede ronde zie je twee groepen: half-zwaar en helemaal licht. Precies wat semiconservatief voorspelt. Tweede stap: de richting. In aflevering één zag je dat de twee strengen antiparallel lopen. De ene van 5' naar 3', de andere andersom. DNA-polymerase kan maar één kant op bouwen. Het plakt een nieuwe nucleotide altijd aan het 3'-uiteinde. Het bouwt dus altijd van 5' naar 3'. En het kan niet zelf beginnen. Het heeft een startstukje nodig: een primer. Dat korte stukje wordt gemaakt door een ander enzym, primase. Kijk nu naar de vork waar de strengen uit elkaar gaan. Langs de ene streng bouwt het enzym gewoon met de vork mee. In één lange keten. Dat is de leidende streng. Langs de andere streng loopt de richting van de vork af. Daar bouwt het enzym steeds een stukje terug, in korte fragmenten. Die fragmenten heten Okazaki-fragmenten. Een derde enzym, ligase, plakt ze later aan elkaar. Dat is de volgende streng.
+**s12** · audio `s12.mp3` · 9.1 s · generation `32C6IHdqgcI3oAX3cOUp`
 
-> stem-invoer: C. Alle moleculen zijn half zwaar, half licht: één oude zware streng en één nieuwe lichte. Na een tweede ronde zie je twee groepen: half-zwaar en helemaal licht. Precies wat semi-conservatief voorspelt. Tweede stap: de richting. In aflevering één zag je dat de twee strengen antiparallel lopen. De ene van vijf-accent naar drie-accent, de andere andersom. DNA-polymerase kan maar één kant op bouwen. Het plakt een nieuwe nucleotide altijd aan het drie-accent-uiteinde. Het bouwt dus altijd van vijf-accent naar drie-accent. En het kan niet zelf beginnen. Het heeft een startstukje nodig: een primer. Dat korte stukje wordt gemaakt door een ander enzym, primase. Kijk nu naar de vork waar de strengen uit elkaar gaan. Langs de ene streng bouwt het enzym gewoon met de vork mee. In één lange keten. Dat is de leidende streng. Langs de andere streng loopt de richting van de vork af. Daar bouwt het enzym steeds een stukje terug, in korte fragmenten. Die fragmenten heten Okazaki-fragmenten. Een derde enzym, ligase, plakt ze later aan elkaar. Dat is de volgende streng.
+Wat denk je? Op de oude streng staan de basen A T G C. Welke basen komen er op de nieuwe streng tegenover te staan?
 
-## n18 · Hoofdstuk 4 — Richting en halfnieuw · vwo
-*begin 5:31 / — · 42.2 s*
+_Stem-invoer:_ Wat denk je? Op de oude streng staan de basen A tee G C. Welke basen komen er op de nieuwe streng tegenover te staan?
 
-Derde stap: drie polymerasen die je uit elkaar moet houden. DNA-polymerase kopieert DNA naar DNA. Dat is replicatie, en ook PCR, in aflevering zeven. RNA-polymerase schrijft een gen over naar RNA. Dat is transcriptie, in aflevering drie. Reverse transcriptase doet het omgekeerde: van RNA naar DNA. Dat doen sommige virussen. En de fouten? Er zijn DNA-repair-enzymen die langs het nieuwe DNA gaan en verkeerde nucleotiden vervangen. Daardoor blijft van elke miljard gekopieerde basenparen hooguit één fout over. Dat waren de drie stappen voor vwo: semiconservatief, de richting, en de polymerasen.
+**q13** · vraag: Op de oude streng staan de basen A T G C. Welke basen komen er op de nieuwe streng tegenover te staan?
+- a) A T G C
+- b) T A C G  ✓
+- c) U A C G
 
-> stem-invoer: Derde stap: drie polymerasen die je uit elkaar moet houden. DNA-polymerase kopieert DNA naar DNA. Dat is replicatie, en ook PCR, in aflevering zeven. RNA-polymerase schrijft een gen over naar RNA. Dat is transcriptie, in aflevering drie. Reverse transcriptase doet het omgekeerde: van RNA naar DNA. Dat doen sommige virussen. En de fouten? Er zijn DNA-ripair-enzymen die langs het nieuwe DNA gaan en verkeerde nucleotiden vervangen. Daardoor blijft van elke miljard gekopieerde basenparen hooguit één fout over. Dat waren de drie stappen voor vwo: semi-conservatief, de richting, en de polymerasen.
+**s14** · audio `s14.mp3` · 20.7 s · generation `9KrFEb4xemMOHvL8c2c3`
 
-## n20 · Samenvatting — Terug naar de schaafwond · basis
-*begin 6:17 / 3:49 · 30.6 s*
+Tegenover A komt T, tegenover T komt A, tegenover G komt C en tegenover C komt G. De nieuwe streng is dus geen kopie van dezelfde letters, maar het spiegelbeeld: de partner. U hoort er niet bij. Die base zit alleen in RNA. Daar gaat aflevering drie over.
 
-Terug naar de schaafwond. Elke nieuwe huidcel kreeg een complete kopie, omdat de cel haar DNA kopieerde vóór de deling. Helicase trekt de strengen uit elkaar, elke streng is een voorbeeld, en DNA-polymerase koppelt de passende nucleotiden aan elkaar. Zo worden het twee moleculen die precies gelijk zijn aan het origineel. Ken je één streng, dan ken je de andere. En die paar fouten die blijven staan? Daar begint aflevering vijf. Maar eerst: hoe leest een cel haar DNA eigenlijk? Aflevering drie.
+_Stem-invoer:_ Tegenover A komt tee, tegenover tee komt A, tegenover G komt C en tegenover C komt G. De nieuwe streng is dus geen kopie van dezelfde letters, maar het spiegelbeeld: de partner. U hoort er niet bij. Die base zit alleen in er-en-aa. Daar gaat aflevering drie over.
+
+## Hoofdstuk 3 — Twee uit één
+
+**s15** · audio `s15.mp3` · 15.0 s · generation `47xLCGMVaPSjWoSg816n`
+
+Als de polymerasen klaar zijn, liggen er twee dubbele kettingen. Allebei precies gelijk aan het origineel. Elke oude streng heeft opnieuw zijn eigen partner gekregen. Twee identieke DNA-moleculen, klaar voor twee dochtercellen.
+
+**s16** · audio `s16.mp3` · 12.8 s · generation `iTio4GF3D5oWtdeKk0Dj`
+
+Hoe snel gaat dat? Eén polymerase koppelt ongeveer vijftig nucleotiden per seconde. Dat lijkt snel. Maar voor drie miljard basenparen zou één enzym bijna twee jaar nodig hebben.
+
+**s17** · audio `s17.mp3` · 6.9 s · generation `gyI3Ut9j4cfzdYprd0E1`
+
+Wat denk je? Vijftig nucleotiden per seconde, en toch is de cel klaar in een paar uur. Hoe kan dat?
+
+**q18** · vraag: Vijftig nucleotiden per seconde, en toch is de cel klaar in een paar uur. Hoe kan dat?
+- a) De polymerase gaat sneller als het moet
+- b) Het kopiëren begint op heel veel plekken tegelijk  ✓
+- c) De cel kopieert alleen de genen die ze nodig heeft
+
+**s19** · audio `s19.mp3` · 16.5 s · generation `BpywnaG6S43dkRVm4GXd`
+
+Het kopiëren begint op tienduizenden plekken in het DNA tegelijk. Vanuit elk startpunt lopen twee vorken uit elkaar, tot ze de vork van het volgende startpunt tegenkomen. Zo is het in een paar uur klaar. En de cel kopieert alles, ook de stukken die ze niet gebruikt.
+
+**s20** · audio `s20.mp3` · 9.7 s · generation `foCwAQzybAitiSXa89PC`
+
+Aan de uiteinden van elk chromosoom zit een stuk dat niet codeert: de telomeer. Het beschermt de uiteinden, een beetje zoals het plastic uiteinde van een veter.
+
+**s21** · audio `s21.mp3` · 14.0 s · generation `tpqVVWWLf6KH5NGOwEJW`
+
+Gaat het altijd goed? Bijna altijd. Van elke miljard gekopieerde basenparen gaat er hooguit één mis. Zo'n kopieerfout die blijft staan, heet een mutatie. Hoe dat verder gaat, zie je in aflevering vijf.
+
+## Hoofdstuk 4 — Richting en halfnieuw (vwo)
+
+**s22** · audio `s22.mp3` · 25.5 s · generation `iPFAolQLynIBi2YdGSF4`
+
+Wat zit er in de twee nieuwe moleculen? Elk nieuw molecuul bestaat uit één oude streng en één nieuwe. Half oud, half nieuw. Dat heet semiconservatief: de helft wordt bewaard. Hoe weten we dat? In het jaar 1958 lieten Meselson en Stahl bacteriën eerst groeien op zware stikstof. Al hun DNA werd zwaar. Daarna kregen de bacteriën lichte stikstof.
+
+_Stem-invoer:_ Wat zit er in de twee nieuwe moleculen? Elk nieuw molecuul bestaat uit één oude streng en één nieuwe. Half oud, half nieuw. Dat heet semi-conservatief: de helft wordt bewaard. Hoe weten we dat? In het jaar 1958 lieten Messelson en Staal bacteriën eerst groeien op zware stikstof. Al hun DNA werd zwaar. Daarna kregen de bacteriën lichte stikstof.
+
+**s23** · audio `s23.mp3` · 7.2 s · generation `2KQ8KyoTkhZh3T1gSqic`
+
+Wat denk je? Na één keer kopiëren op lichte stikstof sorteer je het DNA op gewicht. Wat zie je?
+
+**q24** · vraag: Na één keer kopiëren op lichte stikstof sorteer je het DNA op gewicht. Wat zie je?
+- a) Alleen zwaar DNA
+- b) Alleen licht DNA
+- c) Alles even zwaar, precies tussen zwaar en licht in  ✓
+- d) De helft zwaar, de helft licht
+
+**s25** · audio `s25.mp3` · 16.2 s · generation `YWw3Aeu62buyJLHjDkaF`
+
+Na één ronde is al het DNA precies half zwaar: elk molecuul heeft één oude, zware streng en één nieuwe, lichte. Na een tweede ronde zie je twee banden: half zwaar en helemaal licht. Precies wat semiconservatief voorspelt.
+
+_Stem-invoer:_ Na één ronde is al het DNA precies half zwaar: elk molecuul heeft één oude, zware streng en één nieuwe, lichte. Na een tweede ronde zie je twee banden: half zwaar en helemaal licht. Precies wat semi-conservatief voorspelt.
+
+**s26** · audio `s26.mp3` · 28.3 s · generation `Bm9qoYuhZTeelqSJzEod`
+
+Dan de richting. De twee strengen lopen antiparallel: de ene van 5' naar 3', de andere andersom. DNA-polymerase plakt een nieuwe nucleotide altijd aan het 3'-uiteinde. De nieuwe streng groeit dus altijd van 5' naar 3'. En het enzym kan niet zelf beginnen. Het heeft een kort startstukje van RNA nodig: een primer. Die primer maakt een ander enzym, primase.
+
+_Stem-invoer:_ Dan de richting. De twee strengen lopen antiparallel: de ene van vijf-accent naar drie-accent, de andere andersom. DNA-polymerase plakt een nieuwe nucleotide altijd aan het drie-accent-uiteinde. De nieuwe streng groeit dus altijd van vijf-accent naar drie-accent. En het enzym kan niet zelf beginnen. Het heeft een kort startstukje van er-en-aa nodig: een primer. Die primer maakt een ander enzym, primase.
+
+**s27** · audio `s27.mp3` · 31.1 s · generation `WcsvNnfle4VKzdeHWMIl`
+
+Kijk nu naar de vork, waar de strengen uit elkaar gaan. Langs de ene streng bouwt de polymerase met de vork mee, in één lange keten. Dat is de leidende streng. Langs de andere streng is dat de verkeerde kant op. Daar legt primase steeds een nieuwe primer, en bouwt de polymerase van de vork af, een stukje terug. Die korte stukken heten Okazaki-fragmenten. Later wordt elke primer vervangen door DNA, en plakt het enzym ligase de stukken aan elkaar. Dat is de volgende streng.
+
+**s28** · audio `s28.mp3` · 38.8 s · generation `9LSfA18iUAWMnAX3cZSq`
+
+DNA-polymerase moet je niet verwarren met RNA-polymerase. DNA-polymerase kopieert al het DNA, één keer per celcyclus: dat is replicatie. RNA-polymerase schrijft één gen over naar RNA, zo vaak als de cel het nodig heeft: dat is transcriptie, in aflevering drie. Sommige virussen kunnen het omgekeerde: van RNA naar DNA. Dat enzym heet reverse transcriptase. En de fouten? DNA-repair-enzymen gaan langs het nieuwe DNA en vervangen verkeerd ingebouwde nucleotiden. Daardoor gaat er zo weinig mis.
+
+_Stem-invoer:_ DNA-polymerase moet je niet verwarren met RNA-polymerase. DNA-polymerase kopieert al het DNA, één keer per celcyclus: dat is replicatie. RNA-polymerase schrijft één gen over naar er-en-aa, zo vaak als de cel het nodig heeft: dat is transcriptie, in aflevering drie. Sommige virussen kunnen het omgekeerde: van er-en-aa naar DNA. Dat enzym heet reverse transcriptase. En de fouten? DNA-ripair-enzymen gaan langs het nieuwe DNA en vervangen verkeerd ingebouwde nucleotiden. Daardoor gaat er zo weinig mis.
+
+## Samenvatting — Terug naar de schaafwond
+
+**s29** · audio `s29.mp3` · 36.6 s · generation `Ar9jcWhA9ko4X3NugUzy`
+
+Terug naar de schaafwond van Noor. Elke nieuwe huidcel kreeg een complete kopie, omdat de cel haar DNA kopieerde vóór de deling. Helicase trekt de strengen uit elkaar. Elke oude streng is een voorbeeld. DNA-polymerase koppelt alleen de nucleotiden die passen. Zo ontstaan twee moleculen die gelijk zijn aan het origineel, elk half oud en half nieuw. Op tienduizenden plekken tegelijk, dus in een paar uur. En die zeldzame fouten die blijven staan? Daar begint aflevering vijf. Maar eerst: hoe leest een cel haar DNA? Dat zie je in aflevering drie.
+
+## Eindkaart
+
+**s30** · eindkaart:
+- Elke cel kopieert vóór de deling al haar DNA.
+- Elke oude streng is het voorbeeld voor een nieuwe.
+- De basenparing bepaalt wat past.
+- Tienduizenden startpunten: klaar in een paar uur.
