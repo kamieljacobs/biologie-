@@ -3105,7 +3105,7 @@ function home(){
     </article>
     <article class="vlak vlak-later" id="vlak-later">
       <header><span class="mono vlak-lbl">Wat word jij? · studie en beroep</span><h2>Een kijkje vooruit</h2><p>Welke opleidingen en beroepen draaien om biologie, en wat doe je daar echt?</p></header>
-      <ul>${VERDER.map(([id,naam,k,sub])=>`<li><a href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="tk foto"><img src="img/kunst/iconen/home/v-${id}.webp?v=2" alt="" width="76" height="76" decoding="async"></span>`:`<span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<span class="vtekst"><b>${esc(naam)}</b>${sub?`<span class="sub">${esc(sub)}</span>`:''}</span>${pijl}</a></li>`).join('')}</ul>
+      <ul>${VERDER.map(([id,naam,k,sub])=>`<li><a href="vervolg.html#${id}">${HICOON.includes('v-'+id)?`<span class="tk foto"><img src="img/kunst/iconen/home/v-${id}.webp?v=3" alt="" width="76" height="76" decoding="async"></span>`:`<span class="tk"><svg class="kunst" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="--c:var(--${k})">${VERDERKUNST[id]||''}</svg></span>`}<span class="vtekst"><b>${esc(naam)}</b>${sub?`<span class="sub">${esc(sub)}</span>`:''}</span>${pijl}</a></li>`).join('')}</ul>
       <a class="vlak-naar" href="vervolg.html">Alle richtingen ${pijl}</a>
     </article>
   </section>`;
