@@ -25,3 +25,6 @@ Volledige tekst van de transcriptie: identiek aan script_v2 op leestekens na.
 
 ## Nieuwe takes s30 en s35 (na de keuring, 25 okt 2026)
 Alleen deze twee takes blind getranscribeerd (generatie pE3uQr76iIxQG3DQSxLE, 213 credits): 'Wat je kunt waarnemen heet het fenotype …' en 'Vader en moeder hebben allebei gewoon pigment in huid, haar en ogen …' kwamen woord voor woord goed terug (fenotype, genotype, allel, grote A / kleine a). Oude takes bewaard als raw_oud (niet in de repo).
+
+## Nieuwe take s15 (eicel genuanceerd, na de frisse beeldreview, 25 okt 2026)
+Nieuwe tekst: 'Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.' Eén take (generatie brUPsmVZZVOhkmcieCOo, 231 credits). Alleen deze alinea blind getranscribeerd (generatie Yj5D1aXGi3WwMZF5kMSU, 81 credits): woord voor woord goed (drieëntwintig als '23', chromatide, binnendringt). Oude take als raw_oud/s15.mp3 (niet in de repo).

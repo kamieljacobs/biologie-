@@ -7,7 +7,7 @@ film = {
  "sub": "en de taal van erfelijkheid",
  "puzzle": "Waarom is geen kind precies het midden van zijn ouders? En hoe krijgen twee ouders zonder albinisme een kind mét albinisme?",
  "meta": "erfelijkheid 1/6",
- "version": "2.0 · oktober 2026",
+ "version": "2.1 · oktober 2026",
  "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Erfelijkheid · film 1 van 6 · volgende: <a href=\"2-monohybride-kruisingen.html\">Monohybride kruisingen</a>",
  "lead": "Een gezin: de kinderen lijken op hun vader en hun moeder, maar geen van hen is het midden. En één kind heeft albinisme, terwijl niemand in de familie het heeft. Om dat te begrijpen zoomen we in: van de huid naar de celkern, naar chromosomen, genen en allelen. Daarna zie je hoe één enzym, tyrosinase, het verschil maakt tussen pigment en geen pigment.",
@@ -24,7 +24,7 @@ film = {
  "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: gezin De Wit uit het castboek. Tekeningen: gedeelde bibliotheek (huid, celkern, DNA rond eiwitten). Stijl: Part C van de filmprompt (v10). Versie 2.0 · oktober 2026.",
  "questions": {
   "q14": {"q": "Een eicel en een zaadcel smelten samen tot een cel met 46 chromosomen. Hoeveel chromosomen zitten er in één eicel?", "correct": 1,
-          "explain": "Een eicel heeft 23 chromosomen: van elk paar precies één, en elk chromosoom bestaat uit één chromatide. Bij de bevruchting komen er 23 van de zaadcel bij: samen 46."},
+          "explain": "Een eicel heeft 23 chromosomen: van elk paar precies één. Een zaadcel ook. Bij de bevruchting komen ze samen: 46. (De eicel maakt haar laatste deling pas af als de zaadcel is binnengedrongen.)"},
   "q28": {"q": "Een pigmentcel met Aa heeft maar één werkend allel. Hoeveel melanine maakt hij?", "correct": 0,
           "explain": "Met één werkend allel maakt de cel half zoveel enzym, en dat is ruim genoeg: er komt ongeveer evenveel melanine als bij AA. Daarom is A dominant."},
   "q37": {"q": "Kunnen twee ouders die allebei Aa zijn, een kind krijgen met albinisme?", "correct": 2,

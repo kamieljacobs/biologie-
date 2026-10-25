@@ -30,17 +30,18 @@
 
 **Lotte** (16) · vast: jij in de onderbouwreeks (32A en verder), de hele reeks door.
 
-**Gezin De Wit** (Dennis, Marieke, Sara, Levi, Jens en grootouders): figuranten voor albinisme/recessief; ter keuring (25 okt 2026).
+**Gezin De Wit** (Dennis, Marieke, Sara, Levi, Jens en grootouders): vast: ouders Dennis en Marieke (allebei Aa), kinderen Sara (AA), Levi (10, albinisme, aa) en Jens (Aa); bruine huid (variant A, gekeurd 25 okt 2026). Gebeurd: Erfelijkheid 1 Chromosomen (2.1). Grenzen: genotypen voor albinisme liggen vast (ook in de volgende erfelijkheidsfilms); Levi heeft geen rode zonnebrand in beeld, alleen geen pigment.
 
 ## Automatisch: waar komt wie voor
 
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 58 films
+### Noor (`noor`) — 59 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, van-molecuul-tot-biosfeer
 - `ecologie`: 3-een-aarde, 4-ingrijpen-of-laten-gaan
+- `erfelijkheid`: 1-chromosomen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat, 8-stambomen-lezen, x2-het-ontstaan-van-het-leven, x3-van-eerste-cel-tot-nu, x4-hoe-werden-we-mens
 - `examens`: vwo-2018-2
 - `extra`: geschiedenis-van-de-biologie
@@ -136,7 +137,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Mevrouw Visser (`visser`) — 5 films
+### Mevrouw Visser (`visser`) — 6 films
+- `erfelijkheid`: 1-chromosomen
 - `evolutie`: 8-stambomen-lezen
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
@@ -234,8 +236,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Dennis (`dennis`) — 0 films
 - (geen films gevonden)
 
-### Marieke (`marieke`) — 0 films
-- (geen films gevonden)
+### Marieke (`marieke`) — 1 films
+- `erfelijkheid`: 1-chromosomen
 
 ### Sara (`sara`) — 0 films
 - (geen films gevonden)

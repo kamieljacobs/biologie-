@@ -18,3 +18,5 @@ Registratie volgens prompt v10 C10.1 stap 5 en C10.5. Alle vijf onderdelen zijn 
 - Chromatine 'los en zacht kronkelend': draaiing per stap ≤ 0,9 rad en een territorium per chromosoom; een hogere draaiing gaf krabbels (ronde 1).
 - Nucleosomen op schaal: DNA-breedte ≈ 0,34 × de straal van de histonschijf (2 nm op 11 nm); eerst te dun getekend.
 - Onderarm van boven (dorsaal), niet van opzij: van opzij leest de hand niet als hand (ronde 1).
+
+- `huidDoorsnede` (versie 2.1, 25 okt 2026): `mel` mag tot 2,5 en de korrels in de melaninekapjes worden groter met `mel` (bij mel = 1 onveranderd). Reden: in de frisse beeldreview was 'meer melanine' na zon op filmgrootte niet te zien.

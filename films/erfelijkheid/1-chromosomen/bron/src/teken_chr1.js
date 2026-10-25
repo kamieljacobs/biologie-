@@ -73,7 +73,7 @@ function chromatide1(ctx, x, y, len, rot, kl, a = 1, w = 12) { if (a <= 0.01) re
 
 // ---------- gen-band op een chromosoom (locus van tyrosinase op chr 11: ± 0,62 van boven) ----------
 function genBand(ctx, x, y, len, w, cen, a = 1, kl = C.goud) { if (a <= 0.01) return; const by = y - len * cen + len * 0.66; ctx.save(); ctx.globalAlpha *= a;
-  [-1, 1].forEach(k => { const off = k * (w * 0.55 + w * 0.55 * Math.abs(by - y) / len); roundRect(ctx, x + off - w / 2 - 2, by - w * 0.28, w + 4, w * 0.56, 4); shape(ctx, kl, _dk(kl, 0.3), 1); }); ctx.restore(); return by; }
+  [-1, 1].forEach(k => { const off = k * (w * 0.55 + w * 0.55 * Math.abs(by - y) / len); roundRect(ctx, x + off - w / 2 - 2, by - w * 0.28, w + 4, w * 0.56, 4); shape(ctx, kl, _dk(kl, 0.55), 3); }); ctx.restore(); return by; }
 
 // ---------- simulatie in de pigmentcel: tyrosinase zet bouwstenen (oker) om in melanine (bruin) ----------
 // Deterministisch (vaste seed, vaste tijdstap), vooraf uitgerekend; de verhoudingen komen uit de simulatie zelf.
@@ -126,3 +126,25 @@ function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) ret
   kruis(ctx, x - w / 2 + 50, y + 46, 16, 1, C.koraal); text(ctx, fout, x - w / 2 + 90, y + 58, fTekst(36, 600), C.text2, 'left');
   ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(36, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke();
   if (g > 0.01) { ctx.globalAlpha *= g; vink_(ctx, x - w / 2 + 50, y + 108, 16, 1, C.groen); text(ctx, goed, x - w / 2 + 90, y + 120, fTekst(36, 600), C.text, 'left'); } ctx.restore(); }
+
+// ---------- v2.1 (frisse beeldreview 25 okt 2026) ----------
+const vragenUit = () => (typeof state !== 'undefined' && state && state.vragen === 'uit');
+// onderschrift (meta) op een donker plaatje, zodat het ook boven cellen leesbaar is
+function kapje(ctx, s, x, y, a = 1, kl = C.text2, px = 26) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 36; ctx.letterSpacing = '0px';
+  roundRect(ctx, x - w / 2, y - px - 8, w, px + 22, (px + 22) / 2); shape(ctx, rgba(C.bgMicro || '#121A26', 0.9), rgba(C.goud, 0.5), 1.5); metaText(ctx, s, x, y, kl, 'center', px); ctx.restore(); }
+// chromosoom dat zich kopieert: g = 0 één chromatide (één DNA-molecuul), g = 1 twee zusterchromatiden vast aan het centromeer
+function chromKopie(ctx, x, y, len, g, o = {}) { const { w = 84, cen = 0.38, coils = 9, kleur = C.kernR, a = 1 } = o; if (a <= 0.01) return; const donker = _dk(kleur);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const e = ease(clamp(g, 0, 1));
+  (e < 0.02 ? [0] : [-1, 1]).forEach(k => { const off = k * w * 0.55 * e, end = k * w * 0.5 * e;
+    ctx.beginPath(); ctx.moveTo(off + end, -len * cen); ctx.quadraticCurveTo(off, -len * cen * 0.4, off * 0.75, 0); ctx.quadraticCurveTo(off, len * (1 - cen) * 0.4, off + end, len * (1 - cen));
+    ctx.strokeStyle = donker; ctx.lineWidth = w + 2; ctx.stroke(); ctx.strokeStyle = kleur; ctx.lineWidth = w; ctx.stroke();
+    ctx.strokeStyle = rgba('#FFFFFF', 0.16); ctx.lineWidth = Math.max(1, w * 0.1);
+    for (let q = 0; q < coils * 2; q++) { const u = q / (coils * 2), yy = -len * cen + u * len, b = Math.abs(yy) / len, cx = off * (0.75 + 0.25 * Math.min(1, b * 3)) + k * e * b * w * 0.5;
+      ctx.beginPath(); ctx.ellipse(cx, yy, w * 0.42, w * 0.13, 0.25, Math.PI * 0.1, Math.PI * 0.9); ctx.stroke(); } });
+  if (e > 0.3) _bioCirc(ctx, 0, 0, w * 0.42 * clamp((e - 0.3) / 0.4, 0, 1), donker);
+  ctx.restore(); }
+// één chromosoom 11 (als staafje) met de genband en het allel er groot boven
+function staafAllel(ctx, x, y, l, kl, a = 1, h = 110) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; chromatide1(ctx, x, y, h, 0, kl, 1, 24);
+  roundRect(ctx, x - 15, y + h * 0.18 - 7, 30, 14, 4); shape(ctx, C.goud, _dk(C.goud, 0.55), 2);
+  text(ctx, l, x, y - h / 2 - 16, fTekst(46, 700), l === 'a' ? C.goud : C.text, 'center'); ctx.restore(); }
+function paarKader(ctx, x, y, a = 1, h = 110) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 78, y - h / 2 - 62, 156, h + 98, 14); shape(ctx, rgba(C.bgSchema, 0.92), C.line, 1.5); metaText(ctx, 'paar 11', x, y + h / 2 + 28, C.text2, 'center', 22); ctx.restore(); }

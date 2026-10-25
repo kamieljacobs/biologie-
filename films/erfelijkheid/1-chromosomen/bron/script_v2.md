@@ -58,7 +58,7 @@ Dat ze paren vormen, heeft een reden: één chromosoom van elk paar komt van je 
 Een eicel en een zaadcel smelten samen tot één cel met zesenveertig chromosomen. Wat denk je? Hoeveel chromosomen zitten er dan in één eicel?
 [VRAAG] (a) Zesenveertig: evenveel als in een huidcel · (b) Drieëntwintig: van elk paar één · (c) Tweeënnegentig: elk chromosoom dubbel
 
-Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.
+Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.
 
 Een cel met één set chromosomen heet haploïd. Dat noteren we als n. Een cel met twee sets heet diploïd: 2n. Bij de mens is n drieëntwintig, dus 2n is zesenveertig.
 

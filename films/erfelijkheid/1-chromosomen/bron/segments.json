@@ -552,10 +552,10 @@
   "look": "Schema",
   "level": "basis",
   "lines": [
-   "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide."
+   "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt."
   ],
-  "display": "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.",
-  "voice": "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.",
+  "display": "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.",
+  "voice": "Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.",
   "vmap": [
    0,
    1,
@@ -583,7 +583,17 @@
    23,
    24,
    25,
-   26
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36
   ]
  },
  {

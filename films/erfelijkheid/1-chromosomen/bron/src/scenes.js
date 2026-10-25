@@ -2260,7 +2260,7 @@ function huidDoorsnede(ctx, X0, Y0, w, h, o = {}) {
   const delIdx = soort.findIndex((sr, i) => sr === 'b' && seeds[i][0] > x + w * 0.62);
   const cel = _bioVoronoi(key, seeds, (i) => soort[i] === 'b' ? 9 * s : soort[i] === 'k' ? 16 * s : 12 * s, Math.max(1.5, 0.5 * s));
   ctx.save(); ctx.beginPath(); ctx.moveTo(x, yLevend); ctx.lineTo(x + w, yLevend); for (let xx = x + w; xx >= x; xx -= 3) ctx.lineTo(xx, bm(xx)); ctx.closePath(); ctx.fillStyle = '#3E2E36'; ctx.fill(); ctx.clip();
-  const melF = clamp(mel, 0, 2);
+  const melF = clamp(mel, 0, 2.5), melK = 0.75 + 0.25 * melF; // meer melanine = meer én grotere korrels
   cel.forEach((c, i) => { const sr = soort[i], isPig = pigIdx.includes(i); if (isPig) return;
     const vul = sr === 'b' ? _mixHex(huidTint, '#B8927E', 0.25) : sr === 'k' ? _mixHex(huidTint, '#E6CDB4', 0.45) : huidTint;
     ctx.beginPath(); bioPad(ctx, c.pts, true); shape(ctx, vul, _mixHex(vul, '#FFFFFF', 0.25), 1);
@@ -2279,7 +2279,7 @@ function huidDoorsnede(ctx, X0, Y0, w, h, o = {}) {
     _bioCirc(ctx, cx + 0.6 * s, cy - 0.4 * s, 0.7 * s, '#4E3A6A');
     // melaninekapje boven de kern (alleen in de onderste lagen veel)
     const hoogte = clamp((bm(cx) - cy) / (55 * s), 0, 1), n = Math.round(melF * (sr === 'b' ? 10 : 8) * (1 - 0.7 * hoogte));
-    for (let k = 0; k < n; k++) { const an = Math.PI * (1.2 + 0.6 * hash(i * 5 + k)), rr = rx * (0.95 + 0.45 * hash(k * 3 + i)); _bioCirc(ctx, cx + Math.cos(an) * rr, cy + (sr === 'b' ? 0.8 * s : 0) + Math.sin(an) * (ry + 0.5 * s) * (0.95 + 0.4 * hash(k * 7 + i)), 0.55 * s, k % 3 ? '#5A3420' : '#3E2216'); } });
+    for (let k = 0; k < n; k++) { const an = Math.PI * (1.2 + 0.6 * hash(i * 5 + k)), rr = rx * (0.95 + 0.45 * hash(k * 3 + i)); _bioCirc(ctx, cx + Math.cos(an) * rr, cy + (sr === 'b' ? 0.8 * s : 0) + Math.sin(an) * (ry + 0.5 * s) * (0.95 + 0.4 * hash(k * 7 + i)), 0.55 * s * melK, k % 3 ? '#5A3420' : '#3E2216'); } });
   // pigmentcellen: licht lichaam, donkere kern, uitlopers tussen de cellen omhoog, korrels
   const pig = [];
   pigIdx.forEach((i, j) => { const [cx, cy] = cel[i].c; pig.push([cx, cy]);
@@ -2892,7 +2892,7 @@ function chromatide1(ctx, x, y, len, rot, kl, a = 1, w = 12) { if (a <= 0.01) re
 
 // ---------- gen-band op een chromosoom (locus van tyrosinase op chr 11: ± 0,62 van boven) ----------
 function genBand(ctx, x, y, len, w, cen, a = 1, kl = C.goud) { if (a <= 0.01) return; const by = y - len * cen + len * 0.66; ctx.save(); ctx.globalAlpha *= a;
-  [-1, 1].forEach(k => { const off = k * (w * 0.55 + w * 0.55 * Math.abs(by - y) / len); roundRect(ctx, x + off - w / 2 - 2, by - w * 0.28, w + 4, w * 0.56, 4); shape(ctx, kl, _dk(kl, 0.3), 1); }); ctx.restore(); return by; }
+  [-1, 1].forEach(k => { const off = k * (w * 0.55 + w * 0.55 * Math.abs(by - y) / len); roundRect(ctx, x + off - w / 2 - 2, by - w * 0.28, w + 4, w * 0.56, 4); shape(ctx, kl, _dk(kl, 0.55), 3); }); ctx.restore(); return by; }
 
 // ---------- simulatie in de pigmentcel: tyrosinase zet bouwstenen (oker) om in melanine (bruin) ----------
 // Deterministisch (vaste seed, vaste tijdstap), vooraf uitgerekend; de verhoudingen komen uit de simulatie zelf.
@@ -2945,6 +2945,28 @@ function misvatting(ctx, fout, goed, x, y, w, a = 1, g = 1) { if (a <= 0.01) ret
   kruis(ctx, x - w / 2 + 50, y + 46, 16, 1, C.koraal); text(ctx, fout, x - w / 2 + 90, y + 58, fTekst(36, 600), C.text2, 'left');
   ctx.strokeStyle = rgba(C.koraal, 0.8); ctx.lineWidth = 3; ctx.font = fTekst(36, 600); const fw = ctx.measureText(fout).width; ctx.beginPath(); ctx.moveTo(x - w / 2 + 88, y + 46); ctx.lineTo(x - w / 2 + 92 + fw, y + 46); ctx.stroke();
   if (g > 0.01) { ctx.globalAlpha *= g; vink_(ctx, x - w / 2 + 50, y + 108, 16, 1, C.groen); text(ctx, goed, x - w / 2 + 90, y + 120, fTekst(36, 600), C.text, 'left'); } ctx.restore(); }
+
+// ---------- v2.1 (frisse beeldreview 25 okt 2026) ----------
+const vragenUit = () => (typeof state !== 'undefined' && state && state.vragen === 'uit');
+// onderschrift (meta) op een donker plaatje, zodat het ook boven cellen leesbaar is
+function kapje(ctx, s, x, y, a = 1, kl = C.text2, px = 26) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fMeta(px); ctx.letterSpacing = '3px'; const w = ctx.measureText(s.toUpperCase()).width + 36; ctx.letterSpacing = '0px';
+  roundRect(ctx, x - w / 2, y - px - 8, w, px + 22, (px + 22) / 2); shape(ctx, rgba(C.bgMicro || '#121A26', 0.9), rgba(C.goud, 0.5), 1.5); metaText(ctx, s, x, y, kl, 'center', px); ctx.restore(); }
+// chromosoom dat zich kopieert: g = 0 één chromatide (één DNA-molecuul), g = 1 twee zusterchromatiden vast aan het centromeer
+function chromKopie(ctx, x, y, len, g, o = {}) { const { w = 84, cen = 0.38, coils = 9, kleur = C.kernR, a = 1 } = o; if (a <= 0.01) return; const donker = _dk(kleur);
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const e = ease(clamp(g, 0, 1));
+  (e < 0.02 ? [0] : [-1, 1]).forEach(k => { const off = k * w * 0.55 * e, end = k * w * 0.5 * e;
+    ctx.beginPath(); ctx.moveTo(off + end, -len * cen); ctx.quadraticCurveTo(off, -len * cen * 0.4, off * 0.75, 0); ctx.quadraticCurveTo(off, len * (1 - cen) * 0.4, off + end, len * (1 - cen));
+    ctx.strokeStyle = donker; ctx.lineWidth = w + 2; ctx.stroke(); ctx.strokeStyle = kleur; ctx.lineWidth = w; ctx.stroke();
+    ctx.strokeStyle = rgba('#FFFFFF', 0.16); ctx.lineWidth = Math.max(1, w * 0.1);
+    for (let q = 0; q < coils * 2; q++) { const u = q / (coils * 2), yy = -len * cen + u * len, b = Math.abs(yy) / len, cx = off * (0.75 + 0.25 * Math.min(1, b * 3)) + k * e * b * w * 0.5;
+      ctx.beginPath(); ctx.ellipse(cx, yy, w * 0.42, w * 0.13, 0.25, Math.PI * 0.1, Math.PI * 0.9); ctx.stroke(); } });
+  if (e > 0.3) _bioCirc(ctx, 0, 0, w * 0.42 * clamp((e - 0.3) / 0.4, 0, 1), donker);
+  ctx.restore(); }
+// één chromosoom 11 (als staafje) met de genband en het allel er groot boven
+function staafAllel(ctx, x, y, l, kl, a = 1, h = 110) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; chromatide1(ctx, x, y, h, 0, kl, 1, 24);
+  roundRect(ctx, x - 15, y + h * 0.18 - 7, 30, 14, 4); shape(ctx, C.goud, _dk(C.goud, 0.55), 2);
+  text(ctx, l, x, y - h / 2 - 16, fTekst(46, 700), l === 'a' ? C.goud : C.text, 'center'); ctx.restore(); }
+function paarKader(ctx, x, y, a = 1, h = 110) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - 78, y - h / 2 - 62, 156, h + 98, 14); shape(ctx, rgba(C.bgSchema, 0.92), C.line, 1.5); metaText(ctx, 'paar 11', x, y + h / 2 + 28, C.text2, 'center', 22); ctx.restore(); }
 // Chromosomen en de taal van erfelijkheid v2 — scènes (één functie per gesproken alinea). 25 okt 2026.
 // Let op cue-woorden: q.at zoekt een stukje van een woord (hoofdletterongevoelig); 'aa' zit ook in 'maar', dus nooit op een genotype cuen.
 
@@ -2977,7 +2999,7 @@ Object.assign(SCENES, {
 
   // ---------------- Cold open (Macro: de kamer)
   s01(ctx, t, q) { kamer(ctx); const v = q.on('vader', 1, 0.4), m = q.on('moeder', 1, 0.4), mid = q.on('midden', 1, 0.5);
-    gezin(ctx, t, { hl: { dennis: v * (1 - mid), marieke: m * (1 - mid), sara: mid, levi: 0, jens: mid } });
+    gezin(ctx, t, { hl: { dennis: v * (1 - mid), marieke: m * (1 - mid), sara: mid, levi: mid, jens: mid } });
     _vR(ctx, 'vader', null, gx('dennis'), kopY('dennis') - 30, v, 'center'); _vR(ctx, 'moeder', null, gx('marieke'), kopY('marieke') - 30, m, 'center'); },
   s02(ctx, t, q) { kamer(ctx); const k = q.on('kind', 1, 0.4), al = q.on('albinisme', 1, 0.5), ou = q.on('ouders', 1, 0.4), op = q.on("opa", 1, 0.5);
     gezin(ctx, t, { hl: { levi: k }, lijst: op, dim: 0 });
@@ -3012,29 +3034,30 @@ Object.assign(SCENES, {
     // de cel en zijn kern aanwijzen
     if (q.on('Elke', 1, 0.4) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('Elke', 1, 0.4) * (1 - uit); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(ccx, ccy, 5.6 * 1.92 * z, 0, 6.283); ctx.stroke(); ctx.restore(); }
     _vR(ctx, 'één cel', 'ongeveer 10 micrometer', ccx - 6 * 1.92 * z - 20, ccy - 6 * 1.92 * z, q.on('Elke', 1, 0.4) * (1 - kern), 'right');
-    if (kern > 0.01) { ctx.save(); ctx.globalAlpha *= kern; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(ccx, ccy + 0.8 * 1.92 * z, 3.4 * 1.92 * z, 0, 6.283); ctx.stroke(); ctx.restore(); }
-    _vR(ctx, 'celkern', 'ongeveer 6 micrometer', ccx - 4 * 1.92 * z - 20, ccy + 3 * 1.92 * z + 40, kern * (1 - uit), 'right');
+    if (kern > 0.01) { ctx.save(); ctx.globalAlpha *= kern; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(ccx, ccy + 0.8 * 1.92 * z, 3.4 * 1.92 * z, 0, 6.283); ctx.stroke(); ctx.restore(); }
+    _vR(ctx, 'celkern', '± 6 micrometer', ccx + 3.4 * 1.92 * z + 26, ccy + 0.8 * 1.92 * z + 6, kern * (1 - uit), 'left', C.goud);
     chSchaal(ctx, Math.round(10 * 1.92 * z), '10 micrometer', 1 - dna);
     // zoomcirkel naar de kern met DNA
-    zoomCircle(ctx, 1440, 400, 320, ccx, ccy + 0.8 * 1.92 * z, 'celkern · vergroot', dna, () => { chMicro(ctx); kernChromatine(ctx, 1440, 400, 300, { c: 0, seed: 4 }); });
-    _vR(ctx, 'DNA', null, 1440, 400 - 340, dna, 'center');
+    zoomCircle(ctx, 1500, 440, 300, ccx, ccy + 0.8 * 1.92 * z, null, dna, () => { chMicro(ctx); kernChromatine(ctx, 1500, 440, 280, { c: 0, seed: 4 }); });
+    kapje(ctx, 'celkern · vergroot', 1500, 790, dna); _vR(ctx, 'DNA', null, 1500, 440 - 320, dna, 'center');
     // DNA uitgerekt naast een mens
     if (uit > 0.01) { ctx.save(); ctx.globalAlpha *= uit; roundRect(ctx, 80, 300, 460, 520, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); const yb = 760, hm = 300, h2 = hm * 200 / 167;
       persoon(ctx, 'marieke', 220, yb, hm, { uit: 'verbaasd' }); dnaDraad(ctx, [[400, yb], [404, yb - h2 * 0.5], [400, yb - h2]], { w: 5, kleur: C.kernR, donker: C.kern });
-      text(ctx, '2 m', 440, yb - h2 / 2, fTekst(40, 700), C.kernR, 'left'); text(ctx, 'DNA uit één cel, uitgerekt', 310, 350, fTekst(32, 600), C.text, 'center'); metaText(ctx, 'marieke · 1,67 meter', 220, yb + 40, C.text2, 'center', 28); ctx.restore(); } },
+      text(ctx, '2 m', 440, yb - h2 / 2, fTekst(40, 700), C.kernR, 'left'); text(ctx, 'DNA uit één cel, uitgerekt', 310, 350, fTekst(32, 600), C.text, 'center'); metaText(ctx, 'marieke · 1,67 m', 310, yb + 42, C.text2, 'center', 24); ctx.restore(); } },
   s07(ctx, t, q) { chMicro(ctx); const c = ramp(t, q.at('deelt') - 0.3, Math.max(1.5, q.at('staafjes') - q.at('deelt') + 0.6));
     kernChromatine(ctx, 960, 450, 380, { c, seed: 4, membraan: 1 - 0.5 * c });
     _vR(ctx, 'losse draden DNA', null, 960, 40 + 60, q.on('kluwen', 1, 0.4) * (1 - q.on('deelt', 1, 0.4)), 'center');
     _vR(ctx, 'chromosomen', null, 960, 100, q.on('Chromosomen', 1, 0.4), 'center', C.goud);
     chMeta(ctx, 'vereenvoudigd · kern ± 6 micrometer'); },
   s08(ctx, t, q) { chMicro(ctx); const z = q.on('opgerold', 1, 0.6) * (1 - q.on('Daarom', 1, 0.6)); const L = 520, x = 520, y = 450;
-    chromX(ctx, x, y, L, 0, C.kernR, 1, { w: 84, cen: 0.38, coils: 9 });
-    _vR(ctx, 'één chromosoom', 'één lang DNA-molecuul', x, 120, q.on('chromosoom', 1, 0.4) * (1 - q.on('zusterchromatiden', 1, 0.4)), 'center');
-    zoomCircle(ctx, 1320, 430, 330, x + 60, y - 120, 'DNA rond eiwitten · vereenvoudigd', z, () => { chMicro(ctx); nucleosoomDraad(ctx, 1010, 470, 1640, 400, { n: 3, R: 62, t }); });
+    const kop = ramp(t, q.at('gekopieerd') - 0.2, 1.6); chromKopie(ctx, x, y, L, kop, { w: 84, cen: 0.38, coils: 9 });
+    _vR(ctx, 'één chromosoom', 'één lang DNA-molecuul', x, 120, 1 - q.on('gekopieerd', 1, 0.4), 'center');
+    _vR(ctx, 'gekopieerd', 'nu twee DNA-moleculen', x, 120, q.on('gekopieerd', 1, 0.4) * (1 - q.on('zusterchromatiden', 1, 0.4)), 'center', C.goud);
+    zoomCircle(ctx, 1320, 430, 330, x + 10, y - 120, 'DNA rond eiwitten · vereenvoudigd', z, () => { chMicro(ctx); nucleosoomDraad(ctx, 1010, 470, 1640, 400, { n: 3, R: 62, t }); });
     _vR(ctx, 'eiwitten', 'histonen', 1600, 150, z, 'left');
     const zus = q.on('zusterchromatiden', 1, 0.4), cen = q.on('centromeer', 1, 0.4);
     _vR(ctx, 'zusterchromatide', null, x - 120, y + 220, zus, 'right'); _vR(ctx, 'zusterchromatide', null, x + 120, y + 220, zus, 'left');
-    if (q.on('helften', 1, 0.4) > 0.01) { tag(ctx, 'identiek', x, y + L * 0.62 + 30, C.text2, q.on('helften', 1, 0.4) * (1 - cen), 'center', 30); }
+    if (q.on('helften', 1, 0.4) > 0.01) { tag(ctx, 'identiek', x + 260, y + 12, C.text2, q.on('helften', 1, 0.4) * (1 - cen), 'center', 30); }
     if (cen > 0.01) { ctx.save(); ctx.globalAlpha *= cen; ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.beginPath(); ctx.arc(x, y, 46, 0, 6.283); ctx.stroke(); ctx.restore(); _vR(ctx, 'centromeer', null, x + 70, y + 12, cen, 'left', C.goud); }
     chMeta(ctx, 'vergroot · een chromosoom is een paar micrometer lang'); },
 
@@ -3051,7 +3074,7 @@ Object.assign(SCENES, {
   s11(ctx, t, q) { chSchema(ctx); const u = ramp(t, q.at('sorteert'), Math.max(1.5, q.at('paren') - q.at('sorteert')));
     tekenKaryo(ctx, u, {}); kLabel(ctx, ramp(t, q.at('paren'), 0.6));
     karyoKader(ctx, [1], q.on('één', 1, 0.3) * (1 - q.on('twee', 3, 0.3))); karyoKader(ctx, [2], q.on('twee', 3, 0.3) * (1 - q.on('Enzovoort', 1, 0.3)));
-    const k = q.on('karyogram', 1, 0.5); _vR(ctx, 'karyogram', 'gesorteerd op lengte', 1690, 260, k, 'center', C.goud);
+    const k = q.on('karyogram', 1, 0.5); _vR(ctx, 'karyogram', 'gesorteerd op lengte', 1640, 260, k, 'center', C.goud);
     if (u > 0.5) metaText(ctx, 'karyogram van een vrouw · lengtes naar aantal baseparen', 960, 110, C.text2, 'center', 28); },
   s12(ctx, t, q) { chSchema(ctx); const fv = q.on('vader', 1, 0.6), fm = q.on('moeder', 1, 0.6), ho = q.on('homologe', 1, 0.5);
     tekenKaryo(ctx, 1, { fv, fm, dimNiet: ho > 0.5 ? (c => c.nr === 1) : null }); kLabel(ctx, 1);
@@ -3066,20 +3089,20 @@ Object.assign(SCENES, {
     _vR(ctx, 'eicel', null, ex, ey - 300, 1 - ramp(t, q.at('smelten') + 0.4, 0.5), 'center'); _vR(ctx, 'zaadcel', null, 1500, 330, 1 - ramp(t, q.at('smelten'), 0.5), 'center');
     const b = ramp(t, q.at('zesenveertig') - 0.2, 0.5); _vR(ctx, 'bevruchte eicel', '46 chromosomen', ex, ey - 300, b, 'center', C.goud); if (b > 0.01) text(ctx, '46', ex, ey + 30, fTitel(90), rgba('#121A26', b), 'center'); },
   s15(ctx, t, q) { chSchema(ctx); const ex = 640, ey = 450; eicelEcht(ctx, ex, ey, 230, 1, false); ctx.beginPath(); ctx.arc(ex, ey, 170, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 170, 6);
-    for (let nr = 0; nr < 23; nr++) { const i = P.findIndex(p => p.nr === Math.min(nr, 22)) ; const p = P[nr * 2] || P[i]; chromatide1(ctx, ex + p.x * 0.9, ey + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, ramp(t, 0.1 + nr * 0.05, 0.4), 11); }
+    for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, ex + p.x * 0.9, ey + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, 1, { w: Math.max(7, p.ln * 0.13), coils: 0 }); }
     _vR(ctx, '23 chromosomen', 'van elk paar één', ex, ey - 300, q.on('drieëntwintig', 1, 0.5), 'center', C.goud);
-    const g = q.on('gekopieerd', 1, 0.5); if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; roundRect(ctx, 1180, 230, 620, 470, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); ctx.restore();
-      chromX(ctx, 1340, 460, 220, 0, C.kernR, g, { w: 38 }); chromatide1(ctx, 1640, 460, 220, 0, C.kernR, g * q.on('chromatide', 1, 0.4), 38);
-      text(ctx, 'huidcel', 1340, 640, fTekst(32, 600), rgba(C.text, g), 'center'); text(ctx, '2 chromatiden', 1340, 676, fTekst(28, 500), rgba(C.text2, g), 'center');
-      text(ctx, 'eicel', 1640, 640, fTekst(32, 600), rgba(C.text, g * q.on('chromatide', 1, 0.4)), 'center'); text(ctx, '1 chromatide', 1640, 676, fTekst(28, 500), rgba(C.text2, g * q.on('chromatide', 1, 0.4)), 'center'); } },
+    const g = q.on('zaadcel', 1, 0.5), c1 = q.on('chromatide', 1, 0.4), ld = q.on('laatste', 1, 0.5); if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; roundRect(ctx, 1180, 230, 620, 470, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5); ctx.restore();
+      chromatide1(ctx, 1490, 450, 220, 0, C.kernR, g * c1, 38);
+      text(ctx, 'zaadcel', 1490, 300, fTekst(32, 700), rgba(C.text, g), 'center'); text(ctx, 'niet gekopieerd · 1 chromatide', 1490, 640, fTekst(28, 500), rgba(C.text2, g * c1), 'center'); }
+    _vR(ctx, 'nog 2 chromatiden', 'laatste deling volgt na het binnendringen van een zaadcel', ex, ey + 330, ld, 'center', C.goud); },
   s16(ctx, t, q) { chSchema(ctx); const h = q.on('haploïd', 1, 0.5), d = q.on('diploïd', 1, 0.5), m = q.on('mens', 1, 0.5);
-    eicelEcht(ctx, 520, 430, 200, 1, false); ctx.beginPath(); ctx.arc(520, 430, 150, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 150, 6); for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromatide1(ctx, 520 + p.x * 0.9, 430 + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, 1, 10); }
+    eicelEcht(ctx, 520, 430, 200, 1, false); ctx.beginPath(); ctx.arc(520, 430, 150, 0, 6.283); shape(ctx, '#3A3058', C.kernR, 2); const P = _chromLayout(46, 150, 6); for (let nr = 0; nr < 23; nr++) { const p = P[nr * 2]; chromX(ctx, 520 + p.x * 0.9, 430 + p.y * 0.9, p.ln * 0.9, p.rot, C.kernR, 1, { w: Math.max(6, p.ln * 0.12), coils: 0 }); }
     ctx.save(); ctx.globalAlpha *= 0.35 + 0.65 * d; ctx.beginPath(); ctx.arc(1360, 430, 230, 0, 6.283); shape(ctx, rgba(C.fill, 0.9), C.line, 2); ctx.restore();
     _chromLayout(46, 200, 4).forEach(p => chromX(ctx, 1360 + p.x, 430 + p.y, p.ln * 0.8, p.rot, C.kernR, 0.35 + 0.65 * d, { w: Math.max(6, p.ln * 0.13), coils: 0 }));
     _vR(ctx, 'haploïd', 'één set · n', 520, 140, h, 'center', C.goud); _vR(ctx, 'diploïd', 'twee sets · 2n', 1360, 140, d, 'center', C.goud);
     text(ctx, 'n = 23', 520, 760, fTitel(64), rgba(C.text, m), 'center'); text(ctx, '2n = 46', 1360, 760, fTitel(64), rgba(C.text, m), 'center');
     metaText(ctx, 'eicel', 520, 690, C.text2, 'center', 28); metaText(ctx, 'huidcel', 1360, 690, C.text2, 'center', 28); },
-  s17(ctx, t, q) { chSchema(ctx); const au = q.on('autosomen', 1, 0.5), ge = q.on('geslachtschromosomen', 1, 0.5), vr = q.on('vrouw', 1, 0.5), mn = q.on('man', 2, 0.5), lo = q.on('Let', 1, 0.5);
+  s17(ctx, t, q) { chSchema(ctx); const au = q.on('autosomen', 1, 0.5), ge = q.on('geslachtschromosomen', 1, 0.5), vr = q.on('vrouw', 2, 0.5), mn = q.on('man', 2, 0.5), lo = q.on('Let', 1, 0.5);
     tekenKaryo(ctx, 1, { fv: 1, fm: 1, a: 1 - 0.75 * lo, dimNiet: ge > 0.5 ? (c => c.nr === 23) : (au > 0.5 ? (c => c.nr <= 22) : null) }); kLabel(ctx, 1);
     if (au > 0.01 && ge < 0.99) { ctx.save(); ctx.globalAlpha *= au * (1 - ge); _vR(ctx, 'autosomen', 'paar 1 tot en met 22', 820, 150, 1, 'center', C.goud); ctx.restore(); }
     karyoKader(ctx, [23], ge); _vR(ctx, 'geslachtschromosomen', null, kSlot(23, 0).x + 30, 900 - 60 - 600 + 410, ge * (1 - vr), 'center', C.goud);
@@ -3101,11 +3124,11 @@ Object.assign(SCENES, {
     const by = genBand(ctx, 760, y, L, 66, cen, 1); genBand(ctx, 1160, y, L, 66, cen, 1); const p = q.on('plek', 1, 0.8);
     if (p > 0.01) { ctx.save(); ctx.strokeStyle = rgba(C.goud, p); ctx.lineWidth = 2; ctx.setLineDash([12, 10]); ctx.beginPath(); ctx.moveTo(600, by); ctx.lineTo(600 + 720 * p, by); ctx.stroke(); ctx.restore(); }
     _vR(ctx, 'locus', 'de plek van het gen', 1360, by + 12, q.on('locus', 1, 0.5), 'left', C.goud); _vR(ctx, 'gen', null, 580, by + 12, 1 - q.on('locus', 1, 0.5), 'right', C.goud); },
-  s20(ctx, t, q) { chSchema(ctx); const L = 380, cen = CEN[10], y = 470; chromX(ctx, 260, y, L, 0, CH.vader, 1, { w: 52, cen }); chromX(ctx, 420, y, L, 0, CH.moeder, 1, { w: 52, cen });
-    const by = genBand(ctx, 260, y, L, 52, cen, 1); genBand(ctx, 420, y, L, 52, cen, 1);
+  s20(ctx, t, q) { chSchema(ctx); const L = 380, cen = CEN[10], y = 470; chromX(ctx, 230, y, L, 0, CH.vader, 1, { w: 52, cen }); chromX(ctx, 440, y, L, 0, CH.moeder, 1, { w: 52, cen });
+    const by = genBand(ctx, 230, y, L, 52, cen, 1); genBand(ctx, 440, y, L, 52, cen, 1);
     const z = ramp(t, q.at('volgorde') - 0.6, 0.8);
     zoomCircle(ctx, 1080, 400, 0.0001 + 0, 340, by, null, 0);
-    if (z > 0.01) { ctx.save(); ctx.globalAlpha *= z; ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(470, by); ctx.lineTo(620, 180); ctx.moveTo(470, by); ctx.lineTo(620, 640); ctx.stroke(); roundRect(ctx, 620, 180, 1240, 460, 18); shape(ctx, rgba(C.bgMicro, 0.98), C.goud, 1.5); ctx.restore();
+    if (z > 0.01) { ctx.save(); ctx.globalAlpha *= z; ctx.strokeStyle = C.goud; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(490, by); ctx.lineTo(620, 180); ctx.moveTo(490, by); ctx.lineTo(620, 640); ctx.stroke(); roundRect(ctx, 620, 180, 1240, 460, 18); shape(ctx, rgba(C.bgMicro, 0.98), C.goud, 1.5); ctx.restore();
       const SV = 'GATGCTCCGCAGA', SM = 'GATGCTCTGCAGA', d = q.on('verschilt', 1, 0.5);
       [[SV, CH.vader, 300, 'van vader'], [SM, CH.moeder, 470, 'van moeder']].forEach(([s, kl, yy, lab]) => { [...s].forEach((ch, i) => { const xx = 700 + i * 78; const dif = i === 7;
           roundRect(ctx, xx, yy - 52, 66, 76, 10); shape(ctx, rgba(kl, 0.22 * z), rgba(kl, z), 1.5); text(ctx, ch, xx + 33, yy + 6, fMeta(44), rgba(C.text, z), 'center');
@@ -3114,13 +3137,16 @@ Object.assign(SCENES, {
       metaText(ctx, 'stukje dna-volgorde · voorbeeld', 1240, 610, C.text2, 'center', 28); }
     const al = q.on('allelen', 1, 0.5); _vR(ctx, 'twee allelen', 'twee versies van hetzelfde gen', 1240, 760, al * (1 - q.on('eiwit', 1, 0.4)), 'center', C.goud);
     const ei = q.on('eiwit', 1, 0.5); if (ei > 0.01) { enzymKluwen(ctx, 1020, 760, 46, { a: ei, seed: 4, col: _mixHex(C.enzym, CH.vader, 0.25) }); enzymKluwen(ctx, 1460, 760, 46, { a: ei, seed: 6, an: 0.3, col: _mixHex(C.enzym, CH.moeder, 0.25) }); text(ctx, 'net iets ander eiwit', 1240, 770, fTekst(32, 600), rgba(C.text, ei), 'center'); } },
-  s21(ctx, t, q) { chSchema(ctx); const g = q.on('gen', 1, 0.5), al = q.on('allel', 1, 0.5), ie = q.on('Iedereen', 1, 0.5);
-    termKaart(ctx, 'gen', 'het onderwerp: welk eiwit', 560, 260, g, C.goud, 640); termKaart(ctx, 'allel', 'de versie: welke variant', 1360, 260, al, C.goud, 640);
-    misvatting(ctx, 'Gen en allel betekenen hetzelfde.', 'Iedereen heeft het gen, niet dezelfde allelen.', 960, 520, 1100, ie, q.on('allelen', 1, 0.5)); },
+  s21(ctx, t, q) { chSchema(ctx); const g = q.on('gen', 1, 0.5), al = q.on('allel', 1, 0.5), ie = q.on('Iedereen', 1, 0.5); const L = 380, cen = CEN[10], y = 470;
+    chromX(ctx, 200, y, L, 0, CH.vader, 1, { w: 52, cen }); chromX(ctx, 400, y, L, 0, CH.moeder, 1, { w: 52, cen }); const by = genBand(ctx, 200, y, L, 52, cen, 1); genBand(ctx, 400, y, L, 52, cen, 1);
+    metaText(ctx, 'chromosoom 11', 300, y + L * (1 - cen) + 60, C.text2, 'center', 26);
+    pijl(ctx, 470, by - 20, 590, 330, C.goud, g, 3); pijl(ctx, 470, by + 10, 590, 470, C.goud, al, 3);
+    termKaart(ctx, 'gen', 'het onderwerp: welk eiwit', 1020, 230, g, C.goud, 820); termKaart(ctx, 'allel', 'de versie: welke variant (één van vader, één van moeder)', 1120, 400, al, C.goud, 1020);
+    misvatting(ctx, 'Gen en allel betekenen hetzelfde.', 'Iedereen heeft het gen, niet dezelfde allelen.', 1120, 600, 1020, ie, q.on('allelen', 1, 0.5)); },
   s22(ctx, t, q) { chSchema(ctx); const L = 470, y = 450, cen = CEN[10], v = q.on('vader', 1, 0.5), m = q.on('moeder', 1, 0.5);
     chromX(ctx, 760, y, L, 0, CH.vader, 1, { w: 66, cen }); chromX(ctx, 1160, y, L, 0, CH.moeder, 1, { w: 66, cen }); const by = genBand(ctx, 760, y, L, 66, cen, 1); genBand(ctx, 1160, y, L, 66, cen, 1);
     text(ctx, 'per gen op de autosomen: 2 allelen', 960, 130, fTekst(44, 700), rgba(C.text, q.on('twee', 2, 0.5)), 'center');
-    _vR(ctx, 'één van je vader', null, 640, by + 12, v, 'right', CH.vader); _vR(ctx, 'één van je moeder', null, 1280, by + 12, m, 'left', CH.moeder); },
+    _vR(ctx, 'één van je vader', null, 640, by + 12, v, 'right', CH.vader); metaText(ctx, 'de twee zusterchromatiden dragen hetzelfde allel (kopie)', 960, 860, C.text2, 'center', 26); _vR(ctx, 'één van je moeder', null, 1280, by + 12, m, 'left', CH.moeder); },
 
   // ---------------- Hoofdstuk 4 — Van allel naar eigenschap
   s23(ctx, t, q) { chMicro(ctx); ctx.save(); ctx.beginPath(); ctx.rect(0, 90, W, 760); ctx.clip(); const R = huidDoorsnede(ctx, 0, -330, W, 1150, { um: 220, seed: 11, mel: 1, hl: t > q.at('pigmentcellen') ? 'pigment' : null, t }); ctx.restore();
@@ -3143,7 +3169,7 @@ Object.assign(SCENES, {
     const vo = 1 - q.on('genotype', 1, 0.5); if (vo > 0.01) [['A', true, 'werkend enzym', 300], ['a', false, 'enzym werkt niet', 560]].forEach(([l, w, tx, yy]) => { ctx.save(); ctx.globalAlpha *= vo; roundRect(ctx, 460, yy, 1000, 200, 16); shape(ctx, rgba(C.bgSchema, 0.96), C.line, 1.5);
       text(ctx, 'allel ' + l, 600, yy + 115, fTekst(44, 700), C.goud, 'center'); pijl(ctx, 720, yy + 100, 840, yy + 100, C.line, 1, 3); enzym(ctx, 920, yy + 100, w, 2.2); text(ctx, tx, 1020, yy + 114, fTekst(40, 600), C.text, 'left'); ctx.restore(); });
     termKaart(ctx, 'genotype', 'de combinatie van allelen', 960, 360, q.on('genotype', 1, 0.5) * (1 - m), C.goud, 760);
-    drie(ctx, t, q, { tijd: Math.max(0, t - q.at('mogelijkheden')), a: [m, m * q.on('mogelijkheden', 1, 1.0), m * q.on('mogelijkheden', 1, 1.4)], aaStil: true, rand: [0, ie, 0] }); },
+    const vu = vragenUit(); drie(ctx, t, q, { tijd: Math.max(0, t - q.at('mogelijkheden')), a: [m, m * q.on('mogelijkheden', 1, 1.0), m * q.on('mogelijkheden', 1, 1.4)], aaStil: !vu, rand: [0, vu ? 0 : ie, 0] }); },
   s27(ctx, t, q) { chSchema(ctx); drie(ctx, t, q, { tijd: t + 12, aaStil: true, rand: [0, 1, 0] }); },
   s29(ctx, t, q) { chSchema(ctx); const h = q.on('half', 1, 0.5), b = q.on('buitenkant', 1, 0.5);
     drie(ctx, t, q, { tijd: t + 16, start: { Aa: -16 }, meter: ramp(t, 0.4, 0.6), staal: b });
@@ -3168,29 +3194,33 @@ Object.assign(SCENES, {
     metaText(ctx, 'schaduw', 120, 220, C.text2, 'left', 28); metaText(ctx, 'zon', 120, 500, rgba(C.goud, 1), 'left', 28); zon(ctx, 560, 470, 26, zo, t);
     if (uv > 0.01) { ctx.save(); ctx.globalAlpha *= uv; ctx.strokeStyle = rgba(C.goud, 0.7); ctx.lineWidth = 3; for (let i = 0; i < 5; i++) { const x0 = 520 - i * 70, ph = t * 3 + i; ctx.beginPath(); for (let k = 0; k <= 12; k++) { const yy = 470 + k * 6, xx = x0 - k * 4 + Math.sin(k * 1.2 + ph) * 5; k ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); } ctx.stroke(); } ctx.restore(); }
     // ingezoomd: de pigmentcellen in beide armen
-    const zi = q.on('pigmentcellen', 1, 0.6); [[300, 1, 'schaduw'], [580, 1 + 0.6 * br, 'zon']].forEach(([yy, mel, lab], i) => { zoomCircle(ctx, 1380, i ? 610 : 300, 140, 560, yy, null, zi, () => { chMicro(ctx); huidDoorsnede(ctx, 1240, (i ? 610 : 300) - 290, 280, 380, { um: 70, seed: 11, mel, t }); }); });
-    _vR(ctx, 'meer melanine', null, 1560, 620, q.on('méér', 1, 0.5), 'left', C.goud);
+    const zi = q.on('pigmentcellen', 1, 0.6); [[300, 0.8, 'schaduw'], [580, 0.8 + 1.7 * br, 'zon']].forEach(([yy, mel, lab], i) => { const cy = i ? 645 : 290; zoomCircle(ctx, 1380, cy, 165, 560, yy, null, zi, () => { chMicro(ctx); ctx.save(); ctx.translate(1380, cy); ctx.scale(165 / 140, 165 / 140); huidDoorsnede(ctx, -140, -290, 280, 380, { um: 70, seed: 11, mel, t }); ctx.restore(); }); });
+    _vR(ctx, 'meer melanine', null, 1570, 655, q.on('méér', 1, 0.5), 'left', C.goud);
     _vR(ctx, 'bruiner', null, 640, 690, q.on('bruiner', 1, 0.5), 'left'); },
   s34(ctx, t, q) { chSchema(ctx); const mi = q.on('milieu', 1, 0.5), bij = q.on('Bij', 1, 0.3), zo = q.on('zon', 1, 0.5);
     onderarm(ctx, 120, 260, 9, { id: 'marieke' }); onderarm(ctx, 120, 460, 9, { id: 'marieke', bruin: 0.9, mouwOp: 2 }); onderarm(ctx, 120, 660, 9, { id: 'levi', a: bij });
     allelChip(ctx, 'Aa', 600, 260, 1, { px: 30 }); allelChip(ctx, 'Aa', 600, 460, 1, { px: 30 }); allelChip(ctx, 'aa', 600, 660, bij, { px: 30 }); zon(ctx, 480, 380, 18, 1, t); zon(ctx, 480, 580, 18, zo, t);
     termKaart(ctx, 'fenotype = genotype + milieu', 'milieu: invloeden uit de omgeving, zoals zonlicht', 1240, 170, mi, C.goud, 1000);
-    if (bij > 0.01) { zoomCircle(ctx, 1240, 620, 150, 480, 660, null, bij, () => { chMicro(ctx); huidDoorsnede(ctx, 1080, 320, 320, 420, { um: 70, seed: 11, mel: 0, t }); }); _vR(ctx, 'geen werkend enzym', 'zon helpt niet: geen pigment', 1240, 830, q.on('Hoeveel', 1, 0.5), 'center', C.goud); } },
+    if (bij > 0.01) { zoomCircle(ctx, 1240, 620, 150, 480, 660, null, bij, () => { chMicro(ctx); huidDoorsnede(ctx, 1080, 320, 320, 420, { um: 70, seed: 11, mel: 0, t, huidTint: '#EED8CE' }); }); _vR(ctx, 'geen werkend enzym', 'zon helpt niet: geen pigment', 1240, 830, q.on('Hoeveel', 1, 0.5), 'center', C.goud); } },
 
   // ---------------- Hoofdstuk 6 — Terug naar de familie (Macro)
   s35(ctx, t, q) { kamer(ctx); const ch = q.on('allebei', 2, 0.5), w = q.on('wel', 1, 0.5);
     gezin(ctx, t, { hl: { dennis: q.on('Vader', 1, 0.4), marieke: q.on('moeder', 1, 0.4) } });
     ['dennis', 'marieke'].forEach(id => allelChip(ctx, 'Aa', gx(id), kopY(id) - 60, ch, { acc: 1, accA: w })); },
   s36(ctx, t, q) { kamer(ctx); gezin(ctx, t, { hl: { dennis: 1, marieke: 1 } }); ['dennis', 'marieke'].forEach(id => allelChip(ctx, 'Aa', gx(id), kopY(id) - 60, 1, { acc: 1 })); },
-  s38(ctx, t, q) { kamer(ctx); const v = ramp(t, q.at('allebei'), 1.6), aa = q.on('dan', 1, 0.4), al = q.on('Albinisme', 2, 0.5);
-    gezin(ctx, t, { hl: { levi: aa } }); ['dennis', 'marieke'].forEach(id => allelChip(ctx, 'Aa', gx(id), kopY(id) - 60, 1, { acc: 1, accA: 1 - aa }));
-    if (v > 0.01 && aa < 1) ['dennis', 'marieke'].forEach(id => { const x0 = gx(id) + 23, y0 = kopY(id) - 60, x1 = gx('levi'), y1 = kopY('levi') - 60; const x = lerp(x0, x1, v), y = lerp(y0, y1, v) - Math.sin(v * Math.PI) * 120;
-      text(ctx, 'a', x, y + 16, fTekst(46, 700), rgba(C.goud, 1 - aa), 'center'); });
-    allelChip(ctx, 'aa', gx('levi'), kopY('levi') - 60, aa, { px: 46 }); _vR(ctx, 'geen werkend enzym', null, gx('levi'), kopY('levi') - 130, q.on('enzym', 1, 0.4) * (1 - al), 'center');
-    _vR(ctx, 'albinisme', null, gx('levi'), kopY('levi') - 130, al, 'center', C.goud); },
+  s38(ctx, t, q) { kamer(ctx); const p = q.on('chromosoompaar', 1, 0.6), v = ramp(t, q.at('allebei'), 1.8), aa = q.on('dan', 1, 0.4), al = q.on('Albinisme', 2, 0.5);
+    gezin(ctx, t, { hl: { levi: aa } }); ['dennis', 'marieke'].forEach(id => allelChip(ctx, 'Aa', gx(id), kopY(id) - 60, 1 - p, { acc: 1, accA: 1 }));
+    const P = { dennis: [gx('dennis') - 190, kopY('dennis') + 130], marieke: [gx('marieke') + 190, kopY('marieke') + 120] }, LV = [gx('levi'), kopY('levi') - 125];
+    paarKader(ctx, LV[0], LV[1], ramp(v, 0.5, 0.4), 90);
+    ['dennis', 'marieke'].forEach((id, i) => { const [px, py] = P[id], kl = i ? CH.moeder : CH.vader; paarKader(ctx, px, py, p); staafAllel(ctx, px - 30, py, 'A', kl, p); staafAllel(ctx, px + 30, py, 'a', kl, p * (1 - ramp(v, 0, 0.05)));
+      if (v > 0.01 && v < 0.99) { const x1 = LV[0] + (i ? 30 : -30), x = lerp(px + 30, x1, ease(v)), y = lerp(py, LV[1], ease(v)) - Math.sin(v * Math.PI) * 60; staafAllel(ctx, x, y, 'a', kl, 1, lerp(110, 90, ease(v))); } });
+    if (v >= 0.99) ['dennis', 'marieke'].forEach((id, i) => staafAllel(ctx, LV[0] + (i ? 30 : -30), LV[1], 'a', i ? CH.moeder : CH.vader, 1, 90));
+    _vR(ctx, 'van vader', null, P.dennis[0], P.dennis[1] + 125, p * (1 - v), 'center', CH.vader); _vR(ctx, 'van moeder', null, P.marieke[0], P.marieke[1] + 125, p * (1 - v), 'center', CH.moeder);
+    _vR(ctx, 'geen werkend enzym', null, LV[0] + 95, LV[1] + 12, q.on('enzym', 1, 0.4) * (1 - al), 'left');
+    _vR(ctx, 'albinisme', null, LV[0] + 95, LV[1] + 12, al, 'left', C.goud); },
   s39(ctx, t, q) { kamer(ctx); const n = q.on('nooit', 1, 0.5), g = q.on('generaties', 1, 0.5);
     gezin(ctx, t, { hl: { levi: 1 }, lijst: g }); ['dennis', 'marieke'].forEach(id => allelChip(ctx, 'Aa', gx(id), kopY(id) - 60, 1, { acc: 1, accA: n })); allelChip(ctx, 'aa', gx('levi'), kopY('levi') - 60, 1, { px: 46 });
-    if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; text(ctx, 'per paar droeg één van hen a', 1660, 318, fTekst(28, 600), C.grain, 'center'); ctx.restore(); }
+    if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g; text(ctx, 'minstens één van hen droeg a', 1660, 318, fTekst(28, 600), C.grain, 'center'); ctx.restore(); }
     card(ctx, 70, 130, 400, 250, null, 'Het allel a zat al generaties verborgen, steeds naast een A.', q.on('verborgen', 1, 0.5)); },
 
   // ---------------- Recap
@@ -3199,7 +3229,7 @@ Object.assign(SCENES, {
     allelChip(ctx, 'Aa', gx('dennis'), kopY('dennis') - 60, 1); allelChip(ctx, 'Aa', gx('marieke'), kopY('marieke') - 60, 1);
     allelChip(ctx, 'AA', gx('sara'), kopY('sara') - 60, we, { px: 40 }); allelChip(ctx, 'aa', gx('levi'), kopY('levi') - 60, 1, { px: 40 }); allelChip(ctx, 'Aa', gx('jens'), kopY('jens') - 60, we, { px: 40 });
     card(ctx, 70, 130, 400, 270, 'Geen gemiddelde', 'Per gen één allel van je vader en één van je moeder.', ge * Math.max(0.6, vm)); },
-  s41(ctx, t, q) { chSchema(ctx); const a = ramp(t, 0.2, 0.8); ctx.save(); ctx.globalAlpha *= a;
+  s41(ctx, t, q) { chSchema(ctx); const a = 1; ctx.save(); ctx.globalAlpha *= a;
     const x0 = 760, y0 = 260, c = 180; ['A', 'a'].forEach((l, i) => { text(ctx, l, x0 + c * (i + 1) + c / 2, y0 - 20, fTekst(56, 700), C.text, 'center'); text(ctx, l, x0 - 10 + c / 2, y0 + c * (i + 1) - c / 2 + 20, fTekst(56, 700), C.text, 'center'); });
     for (let i = 0; i < 2; i++) for (let j = 0; j < 2; j++) { roundRect(ctx, x0 + c * (j + 1), y0 + c * i, c - 12, c - 12, 12); shape(ctx, rgba(C.fill, 0.9), C.line, 1.5); vraagteken(ctx, x0 + c * (j + 1) + c / 2 - 6, y0 + c * i + c / 2 + 30, 0.6, 80); }
     metaText(ctx, 'vader', x0 + c * 2, y0 - 90, CH.vader, 'center', 28); metaText(ctx, 'moeder', x0 - 60, y0 + c, CH.moeder, 'center', 28); ctx.restore();

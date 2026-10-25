@@ -4,8 +4,8 @@ Werkwijze en criteria: `films/BRONNEN.md`.
 
 | Veld | Waarde |
 |---|---|
-| Gecontroleerde versie | 2.0 (herbouw, 25 okt 2026; script `bron/script_v2.md`) |
-| Eerste ronde | Claude, 25 okt 2026: 30 beweringen, 19 bronnen geopend |
+| Gecontroleerde versie | 2.1 (25 okt 2026; script `bron/script_v2.md`); versie 2.0 was de herbouw |
+| Eerste ronde | Claude, 25 okt 2026: 30 beweringen, 19 bronnen geopend; versie 2.1: bewering 15 opnieuw getoetst na de frisse beeldreview (B20, B21 geopend) |
 | Steekproef | nog niet gedaan (zie onderaan) |
 | Vakexpert | geen |
 | Stand | 17 ✓ · 13 ≈ · 0 ! · 0 ? |
@@ -35,6 +35,8 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | B17 | A | MedlinePlus Genetics (NIH/NLM), *Y chromosome* | https://medlineplus.gov/genetics/chromosome/y |
 | B18 | A | NHGRI (genome.gov), woordenlijst *Cromosoma X* (Spaanstalige versie) | https://www.genome.gov/es/genetics-glossary/Cromosoma-X |
 | B19 | B | Malmquist, S. & Prescott, K., *Human Biology* 2e, § 5.2 Meiosis (open leerboek, bewerking van OpenStax) | https://open.lib.umn.edu/humanbiology2e/chapter/5-2-meiosis/ |
+| B20 | A | Sanders, J.R. & Jones, K.T. (2018). *Regulation of the meiotic divisions of mammalian oocytes and eggs*. Biochemical Society Transactions 46(4): 797–806, doi 10.1042/BST20170493 (versie van de uitgever, eprints Southampton) | https://eprints.soton.ac.uk/422026/2/BST_2017_0493C_VoR.pdf |
+| B21 | A | Sen, A. & Caiazza, F. (2013). *Oocyte maturation: a story of arrest and release*. Frontiers in Bioscience-Scholar 5(2): 451–477 (samenvatting) | https://www.imrpress.com/journal/fbs/5/2/10.2741/S383 |
 
 ## Beweringen
 
@@ -54,7 +56,7 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | 12 | s09–s10 | Mens: 46 chromosomen; gekopieerd = 92 chromatiden | B9, B17, B19 | ✓ | B9: '23 pairs for a total number of 46 chromosomes'; 92 = 46 × 2 |
 | 13 | s11 | Gesorteerd op lengte en plek van het centromeer vormen ze 23 paren (karyogram) | B9, B17 | ≈ | 23 paren klopt; in een echt karyogram sorteer je ook op het bandenpatroon. Bij een man zijn X en Y geen gelijk paar (komt in s17) |
 | 14 | s12 | Van elk paar één chromosoom van je vader, één van je moeder; homologe chromosomen: even lang, zelfde bouw, op dezelfde plekken dezelfde soort informatie | B8, B19, B1 | ✓ | B19: 'inherit one copy of each homologous chromosome from each parent'; B8: allelen liggen 'at the same relative locations on homologous chromosomes'; B1 noemt homologe chromosomen als deelconcept |
-| 15 | s15 | Eicel: 23 chromosomen, van elk paar één, elk uit één chromatide | B19, B9 | ✓ | B19: 'One set of 23 chromosomes' per eicel en zaadcel; zusterchromatiden scheiden in meiose II |
+| 15 | s15 | Eicel en zaadcel: 23 chromosomen, van elk paar één. Zaadcel: elk chromosoom één chromatide. Eicel: maakt haar laatste deling pas af als er een zaadcel binnendringt (tot dan twee chromatiden per chromosoom) | B19, B9, B20, B21 | ✓ | Versie 2.0 zei 'in een eicel of zaadcel … maar één chromatide': **!** gevonden door de frisse beeldreview (25 okt), Kamiel koos 'eicel nuanceren'. B20: 'a metaphase II (metII)-arrested egg is ovulated' en 'it is this event [fertilization] that triggers the egg to complete MII'; B21: 'arrested again at metaphase II until fertilization'. B20/B21 gaan over zoogdieren (proeven vooral bij de muis); de mens noemen ze niet apart. B19: 23 chromosomen per eicel en zaadcel; zusterchromatiden scheiden in meiose II |
 | 16 | s16 | Haploïd = één set (n), diploïd = twee sets (2n); mens n = 23, 2n = 46 | B19, B9 | ✓ | B19: 'Haploid cells contain one set of chromosomes', notatie 2n / 1n |
 | 17 | s17 | Paren 1–22 autosomen, laatste paar geslachtschromosomen; vrouw XX, man XY, Y veel kleiner | B1, B17, B18 | ≈ | B17: 'males, who have one X and one Y chromosome, while females have two X'; B18: Y 'considerablemente menor'. B1 zegt dat geslachtschromosomen '(meestal)' het geslacht bepalen: er zijn mensen met een andere combinatie (DSD, film Sekse en gender). Docentdeel noemt dat; de film zegt het niet |
 | 18 | s18 | Een gen is een stukje DNA met de instructie voor één eiwit | B3, B8 | ≈ | Methodedefinitie; er zijn ook genen voor RNA dat geen eiwit wordt. Voor deze film voldoende |
@@ -78,6 +80,7 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | **Voorstel (status !):** 'Wat je aan de buitenkant ziet, heet het fenotype.' → 'Wat je kunt waarnemen, heet het fenotype.' (of: 'De eigenschap die je kunt waarnemen, …'). Zo staat het in de begrippenlijst en in B1/B8 | s30 (stem opnieuw, 315 credits), begrippenlijst | gedaan in versie 2.0 (Kamiel akkoord 25 okt) |
 | Voorstel (woordkeus, geen feitenfout): 'Vader en moeder hebben allebei een normale huidskleur' → '… hebben allebei gewoon pigment in huid, haar en ogen' (respectvoller: albinisme is geen 'abnormale' huidskleur) | s35 (stem opnieuw, 213 credits); geen label 'normale huidskleur' in beeld | gedaan in versie 2.0 (Kamiel akkoord 25 okt) |
 | Docentdeel: OCA1A (geen pigment) en OCA1B (wat pigment, vaak geelblond haar) noemen; 'half zoveel enzym' = model; geslachtschromosomen '(meestal)'; niet elk ander allel geeft een ander eiwit; kern ± 5–10 µm | docentdeel | gedaan in versie 2.0 |
+| **Voorstel (status !, frisse beeldreview):** 'In een eicel of zaadcel … één chromatide' klopt niet voor de eicel bij de eisprong (metafase II, twee chromatiden) → 'In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.' Eicel in s15/s16 getekend met X'en; inzet = zaadcel; uitleg bij q14 en docentdeel gelijkgetrokken | s15 (stem opnieuw, 231 credits + 81 transcriptie), s16, q14, docentdeel | gedaan in versie 2.1 (Kamiel 25 okt: 'eicel nuanceren') |
 | Schaalbalk en '50 miljoen keer' laten kloppen met het echte begin- en eindbeeld van de zoom | s03, s05 | open: de zoom gaat van de kamer via een zoomcirkel (1 mm) naar de cel; '50 miljoen keer' blijft een orde van grootte |
 
 ## Menselijke controle

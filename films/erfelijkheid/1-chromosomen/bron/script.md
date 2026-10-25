@@ -1,4 +1,4 @@
-# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.0 · oktober 2026)
+# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.1 · oktober 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow oAnn8B6fDC6LBw9fFw28. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (A/a als 'grote A'/'kleine a', X/Y, n/2n). Oude versie: `oud/script-v1.md`.
 
@@ -67,9 +67,9 @@ Een eicel en een zaadcel smelten samen tot één cel met zesenveertig chromosome
 - b) Drieëntwintig: van elk paar één  ✓
 - c) Tweeënnegentig: elk chromosoom dubbel
 
-**s15** · audio `s15.mp3` · 11.4 s · generation `6arjqP58orBXdmdcSo6x`
+**s15** · audio `s15.mp3` · 14.7 s · generation `brUPsmVZZVOhkmcieCOo`
 
-Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. En in een eicel of zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide.
+Een eicel heeft drieëntwintig chromosomen: van elk paar precies één. In een zaadcel is een chromosoom niet gekopieerd: het bestaat uit maar één chromatide. Een eicel maakt haar laatste deling pas af als er een zaadcel binnendringt.
 
 **s16** · audio `s16.mp3` · 14.6 s · generation `z8RXtM35hcPEPGCyTRPq`
 
