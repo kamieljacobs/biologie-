@@ -7,7 +7,7 @@ Werkwijze (Kamiel 24 okt 2026): een film die feedback krijgt, wordt in dezelfde 
 
 ## Ronde 24 okt 2026: Chromosomen + Signalen in de cel
 
-Status: **wacht op Kamiels besluiten** (verbeterblad nog niet ingevuld op 25 okt).
+Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen voor de verbeteringen zijn goed'). Signalen: herstel loopt. Chromosomen: fase 1 (script v2, stem, nieuwe tekeningen + gezin op het testvel/castboek ter keuring, C10.4–5); na Kamiels keuring fase 2 (scènes bouwen).
 
 - Verbeterblad (artifact van het account dat deze ronde deed): https://claude.ai/artifact/QtpXDphCAUXtRa76nXWT98 — vanuit het andere account niet te openen; publiceer dan opnieuw uit de bestanden hieronder.
 - Voorstellen, stills en Kamiels reviewopmerkingen per film:
