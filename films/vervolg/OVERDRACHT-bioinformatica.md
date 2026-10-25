@@ -12,7 +12,7 @@ Stand: planning goedgekeurd door Kamiel (25 okt 2026), scripts in de maak. Wordt
 ## Werkwijze
 Zoals Forensisch: per film 3 scriptvarianten (A klassiek, B kleine mutatie, C grote mutatie) + `getallen.md` met bronnen → blinde beoordelaar (ander model) → combineren tot `script_v1.md` → frisse feitenreview → `script_v2.md` → storyboard, alleen twijfelscènes naar Kamiel (één blad voor de reeks) → inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Werkmap `/home/claude/hw/bi1..bi4` (buiten de repo; tussenstanden van scripts gaan als `werk/` mee in de bronmap).
 
-## Stand (25 okt 2026, eind middag): wacht op Kamiels keuring van de twijfelscènes
+## Stand (25 okt 2026, avond): alle vier op de site, status 'nog bekijken'
 Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw fase A klaar (scènes op voorlopige woordtijden, storyboard, keyframes). Nog niets ingesproken.
 
 | Film | Winnaar (blind) | Alinea's · vragen · woorden | Twijfelscènes op het blad |
@@ -24,7 +24,7 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 
 **Keuringsblad:** https://claude.ai/artifact/M7GDAcfnuHfbcPgV4GNoXp (dit account; db-collectie `keuring`, doc-id = `b<film><scène>`). Lees de keuring terug, verwerk, dan inspreken.
 
-**Tussenstand van de werkmappen** (tekstbestanden, geen beeld/audio): `films/vervolg/werk-bioinformatica/` (zie LEESMIJ daar). Verdwijnt zodra de films met bronmap in de repo staan.
+Alle werkbestanden staan nu in de bronmappen (`bron/werk/`, `bron/reviews/`); de tijdelijke map `werk-bioinformatica/` is weg.
 
 ## Keuring Kamiel (25 okt 2026, 18:05)
 - Meeloper blijft **Sam** ('ah dat maakt niet uit'); Dr. Kim begeleider. Na de bouw ROLLEN.md en LEVENSLOOP.md bijwerken.
@@ -38,7 +38,10 @@ Alle vier: script_v2 (definitief) na blind oordeel en frisse bronnenreview, bouw
 ## Op de site
 - **Film 1** `films/vervolg/bioinformatica-1-zoeken-in-dna.html` (25 okt 2026, avond): ingesproken (flow FAbmxqZ1O6SaivkGKmYL, ±5.530 + 925 credits transcriptie), blinde uitspraakcontrole zonder fouten, frisse beeldreview (8 MOET, 10 KAN, alle verwerkt), bronmap compleet, status 'nog bekijken'. Nog geen filmmedaillon.
 - **Film 2** `films/vervolg/bioinformatica-2-miljoenen-varianten.html` (25 okt 2026, avond): titel 'Miljoenen varianten', nieuwe ouders Anouk en Milan + pose 'zit' + uitdrukking 'ernstig' (lib_cast.js), ingesproken (flow V7zse60agWtCDtrhP2NO, ±4.730 + 980 credits), beeldreview verwerkt; speler herkent nu 'bé' (alle films). Luisteren: s17 'volgde', s18 'genoombrede'.
-- **Film 3** `films/vervolg/bioinformatica-3-een-uitbraak-volgen.html` (25 okt 2026, avond): ingesproken (flow wNfVs0Q1Kr9f6CqgxUdg, ±5.550 + 1.200 + 311 voor s30 opnieuw), beeldreview verwerkt. Luisteren: s10 'bé', s15 'C-E', s19 'bootstrappen'. Open: de vier nieuwe figuranten (drie zorgmedewerkers/patiënt + 'passant') staan nog alleen in `bron/src/teken_bi3.js`, nog naar `personages/lib_cast.js` en ROLLEN.md.
+- **Film 3** `films/vervolg/bioinformatica-3-een-uitbraak-volgen.html` (25 okt 2026, avond): ingesproken (flow wNfVs0Q1Kr9f6CqgxUdg, ±5.550 + 1.200 + 311 voor s30 opnieuw), beeldreview verwerkt. Luisteren: s10 'bé', s15 'C-E', s19 'bootstrappen'. Open: de vier nieuwe figuranten (drie zorgmedewerkers/patiënt + 'passant') staan nog alleen in `bron/src/teken_bi3.js`, inmiddels in `personages/lib_cast.js` als Sanne, Bram, Wilma en passant (de film gebruikt nog de oude sleutels).
+- **Film 4** `films/vervolg/bioinformatica-4-eiwitstructuur-voorspellen.html` (25 okt 2026, avond): eiwit uit PDB 5DFR (DHFR, E. coli), ingesproken (flow g8vlwC31IoZzamjyZ8EM, 5.516 + ±1.700), s18 dubbele 'a' geknipt, beeldreview verwerkt.
+
+**Totaal reeks:** ± 29.000 credits (inspreken ± 21.300, uitspraakcontrole ± 4.800, s30 opnieuw 311). Nog: filmmedaillons, en Kamiel kijkt in de reviewstand (luisterpunten per film hierboven).
 
 ## Na de keuring (te doen)
 - Reeksobject 'scherm met code / sequenties': de eigen versies in film 2, 3 en 4 vervangen door het blok bovenaan `bi1/teken_bi1.js`.

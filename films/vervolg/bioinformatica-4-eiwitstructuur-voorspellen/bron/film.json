@@ -1,0 +1,84 @@
+{
+ "slug": "bioinformatica-4-eiwitstructuur-voorspellen",
+ "hoofdstuk": "vervolg",
+ "hoofdstukNaam": "Wat word jij?",
+ "title": "Van letters naar vorm",
+ "sub": "eiwitstructuur voorspellen",
+ "puzzle": "In een envelop zit de vorm van een eiwit, net gemeten. Sam krijgt alleen de volgorde van de aminozuren. Kan een computer de vorm voorspellen?",
+ "meta": "bio-informatica · hbo en wo",
+ "version": "1.0 · oktober 2026",
+ "titleLook": "schema",
+ "alleen": "havo · vwo",
+ "seriesline": "Biologie bij Kamiel · Wat word jij? · Bio-informatica",
+ "lead": "Sam loopt een meeloopweek bij de afdeling bio-informatica; dit is dag 4. In een envelop zit de vorm van een eiwit, net gemeten in het lab. Sam krijgt alleen de volgorde van de aminozuren. De vorm telt: één ander aminozuur in de holte van een enzym kan de werking veranderen. Meten met een kristal en röntgenstraling of met cryo-elektronenmicroscopie kan jaren duren, en alle vormen uitproberen kan niet: drie tot de macht honderd is een vijf met zevenenveertig nullen. AlphaFold leerde van meer dan honderdduizend gemeten structuren en haalt hints uit uitgelijnde, verwante eiwitten: plekken die samen veranderen, liggen tegen elkaar. In de blinde wedstrijd CASP haalde het in 2020 ongeveer de nauwkeurigheid van meten. Maar de betrouwbaarheid verschilt per stuk, een echt eiwit beweegt, en een voorspelling blijft een hypothese die je toetst.",
+ "endHaak": "welke vraag stel jij aan een eiwit?",
+ "minis": {
+  "Hoofdstuk 1": "Waarom doet de vorm van een eiwit ertoe?",
+  "Hoofdstuk 2": "Waarom meet je niet gewoon elk eiwit, of laat je de computer alles proberen?",
+  "Hoofdstuk 3": "Hoe leerde een programma eiwitten vouwen?",
+  "Hoofdstuk 4": "Hoe goed was de voorspelling, en wat ziet hij niet?",
+  "Recap": "Kon de computer de vorm voorspellen?"
+ },
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personages: Sam en Dr. Kim (castboek). Demis Hassabis, John Jumper en David Baker worden alleen genoemd, niet getekend. De eiwitten in beeld zijn vereenvoudigde modellen, geen echte structuren. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
+ "questions": {
+  "q05": {
+   "q": "Op één plek in de holte van het enzym zit een ander aminozuur. Wat gebeurt er?",
+   "correct": 1,
+   "explain": "Eén ander aminozuur kan de vorm van de holte veranderen, en daarmee wat het enzym doet. Even lang zegt niets, en een enzym bouwt zijn holte niet terug: het vouwt zoals de nieuwe volgorde het laat vouwen."
+  },
+  "q09": {
+   "q": "Sams eerste idee: laat de computer elke mogelijke vorm van het eiwit proberen. Is dat sneller dan het lab?",
+   "correct": 0,
+   "explain": "Het aantal mogelijke vormen is veel te groot: met honderd aminozuren en drie standen per schakel al drie tot de macht honderd. Ook het eiwit in de cel probeert ze niet allemaal; het vouwt veel sneller."
+  },
+  "q12": {
+   "q": "In de uitlijning van verwante eiwitten veranderen de letters op twee plekken steeds samen. Wat leert het programma daaruit?",
+   "correct": 2,
+   "explain": "Twee aminozuren die elkaar raken, moeten bij elkaar passen. Verandert de één, dan blijft het eiwit vooral werken als de ander mee verandert. Zulke paren liggen dus waarschijnlijk tegen elkaar."
+  },
+  "q17": {
+   "q": "Bijna alles van Sams voorspelling is blauw (zeker), een paar stukken zijn oranje (onzeker). De envelop gaat open. Waar zit het grootste verschil?",
+   "correct": 0,
+   "explain": "In de oranje stukken: daar was het programma onzeker. Een score van rond de negentig is een gemiddelde over veel eiwitten; per stuk kan het veel slechter zijn."
+  }
+ },
+ "glossary": [
+  {
+   "t": "eiwitstructuur",
+   "d": "De ruimtelijke vorm waarin een keten van aminozuren vouwt. Die hangt meestal af van de volgorde, en bepaalt wat het eiwit kan."
+  },
+  {
+   "t": "sequentie",
+   "d": "De volgorde van basen in een stuk DNA, of van aminozuren in een eiwit. Op een scherm: een rij letters."
+  },
+  {
+   "t": "databank",
+   "d": "Een openbare verzameling van sequenties of structuren met wat erover bekend is, waarin iedereen kan zoeken. Gemeten eiwitstructuren staan in de PDB."
+  },
+  {
+   "t": "uitlijnen",
+   "d": "Twee of meer sequenties zo onder elkaar leggen dat zoveel mogelijk gelijke letters onder elkaar staan, met gaten waar een stukje ontbreekt of extra is."
+  },
+  {
+   "t": "röntgenkristallografie",
+   "d": "Een structuur meten door röntgenstraling door een kristal van heel veel dezelfde eiwitten te sturen; uit het stippenpatroon reken je de vorm terug."
+  },
+  {
+   "t": "cryo-elektronenmicroscopie",
+   "d": "Een structuur meten aan snel bevroren eiwitten, zonder kristal. Sinds ongeveer 2013 bijna zo scherp als met een kristal."
+  },
+  {
+   "t": "AlphaFold",
+   "d": "Een programma van Google DeepMind dat de vorm van een eiwit voorspelt uit de volgorde. Het leerde van gemeten structuren uit de PDB en gebruikt hints uit uitgelijnde, verwante eiwitten."
+  },
+  {
+   "t": "CASP",
+   "d": "Een wedstrijd (sinds 1994, om de twee jaar) waarin teams vormen voorspellen die net gemeten maar nog geheim zijn. Score tot honderd; rond de negentig is ongeveer zo goed als meten."
+  },
+  {
+   "t": "betrouwbaarheid per stuk",
+   "d": "AlphaFold geeft per aminozuur een score hoe zeker het is (blauw zeker, oranje onzeker). Een onzeker stuk heeft soms geen vaste vorm, of er waren te weinig hints."
+  }
+ ],
+ "sections": "<section id=\"checkvragen\"><h2>Checkvragen</h2>\n<div class=\"q\"><p><b>1.</b> Er zijn meer dan tweehonderd miljoen eiwitten bekend, maar maar zo'n kwart miljoen structuren gemeten. Leg uit waardoor dat verschil zo groot is. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Een structuur meten (kristal maken en röntgenstraling erdoor, of cryo-elektronenmicroscopie) kost per eiwit veel tijd, soms jaren, en dure apparaten (1p). Een volgorde aflezen gaat veel sneller (via het DNA), dus er komen veel meer volgordes bij dan gemeten vormen (1p).</p></details></div>\n<div class=\"q\"><p><b>2.</b> Iemand zegt: 'Een supercomputer kan toch gewoon alle vormen van een eiwit uitproberen?' Leg met een rekenvoorbeeld uit waarom dat niet kan. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Neem honderd aminozuren met elk drie standen: dat zijn 3¹⁰⁰ ≈ 5 × 10⁴⁷ vormen (1p). Zelfs bij een biljoen (10¹²) vormen per seconde duurt dat ± 5 × 10³⁵ seconden, veel langer dan het heelal oud is (± 4 × 10¹⁷ seconden) (1p).</p></details></div>\n<div class=\"q\"><p><b>3.</b> Waarom zijn twee plekken die in verwante eiwitten steeds samen veranderen een hint voor de vorm? <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Aminozuren die elkaar in de vorm raken, moeten bij elkaar passen (1p). Verandert de één, dan blijft het eiwit alleen goed werken als de ander mee verandert; zulke paren liggen dus waarschijnlijk tegen elkaar (1p).</p></details></div>\n<div class=\"q\"><p><b>4.</b> Beschrijf in drie stappen hoe AlphaFold leerde van voorbeelden. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Bij een gemeten voorbeeld uit de PDB gokte het een vorm en vergeleek die met de echte vorm (1p); daarna stelde het zichzelf een klein beetje bij, en dat herhaalde het heel vaak met meer dan honderdduizend voorbeelden (1p).</p></details></div>\n<div class=\"q\"><p><b>5.</b> Waarom is de CASP-wedstrijd een eerlijke toets van een voorspelprogramma? <span class=\"pts\">(1p)</span></p>\n<details><summary>Antwoord</summary><p>De vormen zijn al gemeten, maar nog geheim als de teams voorspellen; niemand kan de uitkomst dus kennen of overnemen (1p).</p></details></div>\n<div class=\"q\"><p><b>6.</b> AlphaFold scoorde in 2020 rond de negentig. Een leerling concludeert: 'Dan kun je elke voorspelde vorm vertrouwen.' Noem twee redenen waarom dat niet klopt. <span class=\"pts\">(2p)</span></p>\n<details><summary>Antwoord</summary><p>Twee van: de score is een gemiddelde over veel eiwitten, per stuk kan het veel slechter zijn (onzekere, oranje stukken); AlphaFold geeft één vorm, terwijl een echt eiwit beweegt en van vorm kan veranderen als er iets bindt; hoe een medicijn bindt of wat één veranderd aminozuur doet, is lastig te voorspellen. Een voorspelling is een hypothese die je toetst (per reden 1p).</p></details></div>\n</section>\n<section id=\"docent\"><h2>Voor de docent</h2>\n<h3>Plaats</h3>\n<p>Film 4 van <i>Wat word jij?</i> → Bio-informatica. Sam (16) loopt een meeloopweek op een afdeling bio-informatica; dit is dag 4. Dr. Kim is zijn begeleider, een onderzoeker die met DNA- en eiwitdata werkt. Bouwt voort op <i>Van DNA naar eiwit</i> (het ribosoom maakt een keten van aminozuren), <i>Alles versneld</i> (enzym en holte), <i>Antistoffen op maat</i> (een antistof grijpt één vorm), <i>Sleutel, slot en dosis</i> (een medicijn grijpt aan op een eiwit) en op de eerste film van deze reeks (uitlijnen). Rode draad: een gesloten envelop met een net gemeten vorm; Sam voorspelt blind, zoals in CASP, en in hoofdstuk 4 gaat de envelop open. Het eiwit in de film is een vereenvoudigd model; de afloop (holte goed, één onzekere lus anders) is een constructie die past bij wat de bronnen in het algemeen zeggen, geen echt geval.</p>\n<h3>Hoe de film het uitlegt</h3>\n<ul><li><b>Cold open</b> envelop met de gemeten vorm, Sam krijgt alleen de volgorde.</li>\n<li><b>H1</b> een keten van kralen vouwt tot een vorm met een holte; vorm is functie. Vraag: één ander aminozuur in de holte. Afleiders: 'even lang, dus hetzelfde' en 'het enzym bouwt zijn holte terug'.</li>\n<li><b>H2</b> zo kwam de vorm in de envelop: kristal, röntgenstraling, stippenpatroon; cryo-elektronenmicroscopie; 1958 myoglobine. Kwart miljoen gemeten tegen meer dan tweehonderd miljoen bekend. Vraag: alles uitproberen? Rekenvoorbeeld 3¹⁰⁰ met de som op het scherm.</li>\n<li><b>H3</b> uitlijning van verwante eiwitten; twee kolommen die samen veranderen liggen tegen elkaar (vraag). Leren van voorbeelden als lus: gokken, vergelijken, bijstellen. CASP als blinde toets, scores 2016–2020, Nobelprijs 2024 (namen zonder portret).</li>\n<li><b>H4</b> betrouwbaarheid per stuk in kleur; de envelop gaat open, het blauwe deel en de holte vallen samen, één oranje lus niet (vraag). Daarna: gemiddeld ± 90 is niet elk stuk; een echt eiwit beweegt; medicijnbinding en puntmutaties blijven lastig; een voorspelling is een hypothese.</li></ul>\n<h3>Getallen en bronnen</h3>\n<table><tr><th>Waarde</th><th>In de film</th><th>Bron</th></tr>\n<tr><td>Vorm volgt meestal uit de volgorde</td><td>'meestal', niet 'altijd'</td><td>Nobelcomité Scheikunde, <i>Scientific background</i> 2024; Jumper e.a., <i>Nature</i> 596 (2021); EMBL-EBI, <i>pLDDT: understanding local confidence</i> (stukken zonder vaste vorm)</td></tr>\n<tr><td>Eerste eiwitstructuur</td><td>1958, myoglobine</td><td>MRC Laboratory of Molecular Biology, <i>John Kendrew</i>; Nobelcomité 2024</td></tr>\n<tr><td>Cryo-elektronenmicroscopie</td><td>bevroren, zonder kristal; sinds ruim tien jaar heel scherp</td><td>KVA, Nobelprijs Scheikunde 2017 (atomaire resolutie 2013); Chemistry World, <i>Cryo-EM: a cold, hard look at biology</i></td></tr>\n<tr><td>Meten kost jaren en dure apparaten</td><td>'kan jaren duren'</td><td>EMBL, case study AlphaFold; Google DeepMind 2020 (maker)</td></tr>\n<tr><td>PDB</td><td>zo'n kwart miljoen structuren (250 441, maart 2026); ook DNA/RNA en complexen</td><td>RCSB PDB-101 nieuws maart 2026; PDBj, <i>PDB250k</i></td></tr>\n<tr><td>Bekende eiwitten</td><td>meer dan tweehonderd miljoen</td><td>Nobelcomité 2024; KVA-persbericht 2024</td></tr>\n<tr><td>Rekenvoorbeeld</td><td>3¹⁰⁰ ≈ 5 × 10⁴⁷; een biljoen per seconde (aanname)</td><td>eigen som; Nobelcomité 2024 noemt ± 10⁴⁷ (Levinthal); andere bronnen rekenen met meer standen (10⁹⁴, 10³⁰⁰). De film kiest het laagste getal</td></tr>\n<tr><td>Training</td><td>meer dan honderdduizend gemeten structuren uit de PDB</td><td>Jumper e.a. 2021 (PDB tot april 2018); Google DeepMind 2020 (± 170 000)</td></tr>\n<tr><td>Co-evolutie</td><td>plekken die samen veranderen liggen waarschijnlijk tegen elkaar</td><td>Nobelcomité 2024 ('correlated mutations'); Jumper e.a. 2021 (AlphaFold leert dit zelf uit de uitlijning)</td></tr>\n<tr><td>CASP</td><td>sinds 1994, blind; score tot honderd, ± 90 ≈ meten; 2016 &lt; 40, 2018 ± 60, 2020 ± 90 (mediaan 92,4) bij moeilijke eiwitten</td><td>Nobelcomité 2024; Science News 2024; Google DeepMind 2020 (maker); AIhub 2020</td></tr>\n<tr><td>Nobelprijs Scheikunde 2024</td><td>Hassabis en Jumper; gedeeld met Baker</td><td>KVA-persbericht 2024; Science News 2024</td></tr>\n<tr><td>Betrouwbaarheid per stuk</td><td>blauw zeker, oranje onzeker; onzeker = geen vaste vorm of te weinig hints</td><td>EMBL-EBI, <i>pLDDT</i>; UCSF ChimeraX, <i>AlphaFold pLDDT coloring</i></td></tr>\n<tr><td>Grenzen</td><td>één vorm; binding en puntmutaties lastig; voorspelling = hypothese</td><td>Terwilliger e.a. 2024 (<i>AlphaFold two years on</i>); Abramson e.a., <i>Nature</i> 630 (2024, AlphaFold 3)</td></tr>\n<tr><td>AlphaFold-databank</td><td>zo'n tweehonderd miljoen voorspellingen, gratis</td><td>EMBL nieuws 28 juli 2022; KVA-persbericht 2024</td></tr>\n<tr><td>Opleidingen (oktober 2026)</td><td>hbo Bio-informatica HAN Nijmegen (4 jaar); bachelor Biology of Molecular Life Sciences Radboud; master Bioinformatics and Systems Biology Wageningen</td><td>Studiekeuze123; HAN-OER 2022-23; ru.nl; wur.nl</td></tr>\n</table>\n<h3>Vereenvoudigingen</h3>\n<ul>\n<li><b>Het eiwit in beeld</b> is een echt enzym: PDB 5DFR, dihydrofolaatreductase (DHFR) van <i>E. coli</i> (Bystroff &amp; Kraut 1991, zonder ligand), 159 aminozuren als kralen op de echte Cα-posities, met 4 α-helices, 8 β-strengen, de holte (actieve plek) in de kloof en de beweeglijke Met20-lus (aminozuur 9–24). Een voorbeeld en dus niet echt zijn: de betrouwbaarheidskleuren, de 'meting' uit de envelop (holte goed, lus anders), het veranderde aminozuur in de holte (Leu28) en de verwante rijen in de uitlijning. Het paar dat samen verandert (Lys38 en Glu90) vormt in 5DFR wel echt een zoutbrug (2,7 Å).</li>\n<li><b>Drie standen per schakel</b> is een sterke onderschatting; daardoor is het argument voorzichtig.</li>\n<li><b>Leren van voorbeelden</b> zonder wiskunde: in werkelijkheid een neuraal netwerk met voorkennis over de geometrie van een keten in zijn opbouw.</li>\n<li><b>'AlphaFold gebruikt die hints'</b>: strikt genomen leert het de samenhang zelf uit de uitlijning, zonder vaste co-evolutiestatistiek.</li>\n<li><b>CASP</b> draait sinds 2025 tijdelijk op geld van Google DeepMind (STAT News, 21 juli 2025), nadat de NIH-subsidie afliep. De opzet blijft blind.</li>\n<li><b>Hulp bij vouwen</b> (chaperonnes) en wanordelijke eiwitten zitten alleen in het woord 'meestal'.</li>\n</ul>\n<h3>Lessuggesties</h3>\n<ul>\n<li>Laat leerlingen in de AlphaFold-databank (EMBL-EBI) een bekend eiwit opzoeken en de kleuren lezen: welke stukken zijn onzeker, en wat zou dat kunnen betekenen?</li>\n<li>Rekenopdracht: hoe verandert 3¹⁰⁰ als elk aminozuur vijf standen heeft, of als het eiwit 300 aminozuren lang is?</li>\n<li>Geef vijf korte, verzonnen uitgelijnde sequenties en laat leerlingen de twee kolommen zoeken die samen veranderen.</li>\n<li>Discussie: AlphaFold voorspelt, het lab meet. Waarom heeft het lab nog werk? Koppel aan het begrip hypothese uit onderzoek doen.</li>\n</ul>\n</section>\n"
+}
