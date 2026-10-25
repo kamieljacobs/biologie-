@@ -25,10 +25,10 @@ Status: **niet gecontroleerd door Kamiel** — opgesteld door Claude uit het goe
 ## Seriebibliotheek (eerst getekend in film 1, daarna hergebruikt)
 bacterie met plasmide (lib_bio `bacterie` + plasmide-ring), gistcel (nieuw), erlenmeyer en schudtafel, bioreactor in doorsnede (roerder, beluchting, sensoren T/pH/O₂, voedingspomp), chromatografiekolom, insulinemolecuul (A- en B-keten met twee bruggen), insulinepen. Nieuwe objecten eerst op `bibliotheek/testvel.html`.
 
-## Rode draad en cast — **ter keuring**
-- Voorstel: **Sam** (16, 'doet proefjes') loopt in alle films stage biotechnologie (mbo-analist of hbo Life Sciences), outfit `practicum`. Bilal en Yasmin zijn al bezet (forensisch, labtechniek); Noor heeft geen beroepsrol (LEVENSLOOP). Alternatief: Daan (15, 'houdt van getallen'), maar 15 is jong voor een stage.
-- Begeleider: **Dr. Kim** als onderzoeker in het bedrijf (outfit `lab`). Ze is al arts, klinisch geneticus, forensisch deskundige: misschien te veel petten. Alternatief: een nieuw vakpersonage (procestechnoloog), alleen in dit vak — vraagt een nieuwe tekening en Kamiels OK.
-- Wie gebruikt de insuline? Geen castpersonage met diabetes zonder Kamiels OK (gevoelig, continuïteit). Standaard: een insulinepen in beeld zonder persoon, plus het getal gebruikers in Nederland.
+## Rode draad en cast (Kamiel 25 okt 2026: 'Sam bij een nieuwe')
+- **Sam** (16, 'doet proefjes') loopt in alle films stage biotechnologie, outfit `practicum`.
+- Zijn begeleider is een **nieuw vakpersonage: procestechnoloog**, alleen in dit vak. Naam en uiterlijk komen ter keuring op het twijfelblad van film 1, met een tekening uit het castboek. Werknaam: Procestechnoloog Merel (36).
+- Wie gebruikt de insuline? Geen castpersonage met diabetes (geen keuze van Kamiel, dus de veilige standaard): een insulinepen in beeld zonder persoon, plus het getal gebruikers in Nederland.
 
 ## Gedeelde begrippen (één definitie in de hele reeks)
 - **biotechnologie**: organismen of hun onderdelen (cellen, enzymen) laten werken om een product te maken.

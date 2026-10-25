@@ -13,4 +13,4 @@ Zoals Forensisch onderzoek: bronnen en getallen → 3 scriptvarianten + blinde b
 ## Stand film 1 (25 okt 2026, middag)
 - Reeksbrief en filmbrief opgesteld (filmbrief in werkmap `hw/bt1/brief.md`, komt in de bronmap).
 - Bronnenonderzoek loopt.
-- Open voor Kamiel: wie loopt stage (voorstel Sam), begeleider (Dr. Kim of nieuw personage), wel of geen castpersonage dat insuline gebruikt.
+- Cast besloten (Kamiel 25 okt 2026): Sam stagiair, begeleider = nieuw personage (procestechnoloog, werknaam Merel; naam en tekening ter keuring op het twijfelblad). Geen castpersonage dat insuline gebruikt (pen zonder persoon).
