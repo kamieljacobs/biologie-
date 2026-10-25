@@ -14,7 +14,7 @@ Reeksbrief (rode draad Yasmin als stagiaire-analist, grenzen tussen de films, ge
 ## Open
 - **Bronnenlogboek:** nog geen `bron/bronnen.md` (afspraak van 25 okt, na het maken van deze films); meenemen in de feedbackronde, de bronnen staan al in `reviews/review_v1.md` en `review_eind.md`.
 - **Promptversie:** gemaakt met prompt v6 + WERKWIJZE-LESSEN van 24 okt; nog niet nagelopen tegen v10. Bij de eerste verbeterronde meteen opwaarderen.
-- **Uitspraak:** wachtlijsten in `bron/uitspraak.md` per film (o.a. hematoxyline, oculair, Ct, ALAT, MIC, entoog, Klebsiella) nog testen met de luisterpagina.
+- **Uitspraak:** getest in de uitspraakronde van 25 okt (zie `films/UITSPRAAK.md`); ALAT, PCR en trombocyten opnieuw ingesproken, de rest goed.
 - **Filmmedaillons:** nog niet gemaakt (vallen terug op de lijntekening in `FILMKUNST`).
 - **Engine:** in `lib_cast.js` steekt een personage met `kijk:-1` en pose 'wijs'/'vasthouden' de arm nog naar rechts. Film 4 lost dat lokaal op met `persoonK()`; de fout zit in de gedeelde cast en raakt mogelijk andere films.
 - **Inhoud om te checken door Kamiel:** naam mbo-opleiding (biologisch-medisch analist, crebo 25953, 4 jaar), film 4 noemt 'drie tot vier jaar'; Opa Henk (etiket H. de Vries) is patiënt in film 2, 3 en 4; film 4 noemt geen breekpuntgetallen per middel.
