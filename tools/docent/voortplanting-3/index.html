@@ -61,7 +61,6 @@ kbd{font:600 12px var(--meta);border:1px solid var(--line2);border-radius:4px;pa
 body.presenteer{overflow:hidden}
 body.presenteer .wrap{max-width:none;padding:10px 16px}
 body.presenteer .sitenav,body.presenteer .tool-kop,body.presenteer .bediening,body.presenteer .chips,body.presenteer .hint,body.presenteer .cap .notitie,body.presenteer details.docent,body.presenteer .tool-voet,body.presenteer .draai,body.presenteer footer{display:none!important}
-body.presenteer .breed{width:min(100%, calc((100vh - 140px) * 16 / 9))}
 body.presenteer .cap .txt{font-size:24px}
 #stopPres{display:none}
 body.presenteer #stopPres{display:inline-flex}
@@ -95,6 +94,28 @@ details.docent[open]>summary::after{content:"–"}
 .docent li{margin:3px 0}
 .docent li b{color:var(--text)}
 .tool-voet{margin:28px 0 40px;color:var(--text3);font-size:14px}
+/* Groot scherm (Kamiel 26 okt 2026): het beeld vult het scherm; één regel tekst eronder (T = tekst uit, dan alleen beeld);
+   knoppen zweven onderaan en verschijnen alleen als je de muis beweegt. Werkt ook zonder echte volledig-scherm-API (iPad). */
+body.presenteer{--capH:72px}
+body.presenteer.zondertekst{--capH:0px}
+body.presenteer .wrap{max-width:none;padding:0}
+body.presenteer #speler{position:fixed;inset:0;z-index:50;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+body.presenteer .breed{width:min(100vw, calc((100vh - var(--capH)) * 16 / 9))}
+body.presenteer #stage{border:0;border-radius:0}
+body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
+body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
+body.presenteer.zondertekst .cap{display:none}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
+body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
+body.presenteer .knoppen .teller{margin-left:6px}
+#tekstBtn{display:none}
+body.presenteer #tekstBtn{display:inline-flex}
+body.presenteer .bkfb-zweef,body.presenteer .bkfb-kop{display:none!important}
+.grootknop{position:absolute;top:10px;right:10px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text2);font:600 13px/1 var(--meta);letter-spacing:.04em;opacity:.55;cursor:pointer;transition:opacity .15s}
+.grootknop:hover,.grootknop:focus-visible{opacity:1;color:var(--text);border-color:var(--goud)}
+.grootknop svg{width:16px;height:16px}
+body.presenteer .grootknop{display:none}
 </style>
 </head>
 <body>
@@ -118,21 +139,22 @@ details.docent[open]>summary::after{content:"–"}
   <span><span class="niv-label" id="nivLabel">Niveau</span><span class="seg" role="group" aria-labelledby="nivLabel"><button type="button" id="lvHavo" aria-pressed="false">havo</button><button type="button" id="lvVwo" aria-pressed="true">vwo</button></span></span>
   <span class="sp"></span>
   <button type="button" class="knop stil klein" id="lblBtn" aria-pressed="false" title="Namen bij de organen verbergen of tonen (L)">Namen verbergen</button>
-  <button type="button" class="knop klein" id="presBtn" title="Presentatiemodus, volledig scherm (F)">Presenteren</button>
+  <button type="button" class="knop klein" id="presBtn" title="Groot scherm: het beeld vult het hele scherm (F)">Groot scherm</button>
 </div>
 
 <section id="speler" aria-label="Uitleg in stappen">
-  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas></div>
+  <div id="stage" class="breed" role="img" aria-label="Animatie bij de huidige stap"><canvas id="cv"></canvas><button type="button" class="grootknop" id="grootBtn" title="Groot scherm (F)"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>Groot scherm</button></div>
   <div class="cap breed" aria-live="polite"><div class="txt" id="capTxt"></div><div class="dots" id="dots"></div><div class="notitie" id="capNot"></div></div>
   <div class="knoppen breed">
     <button type="button" class="knop stil klein" id="terug" title="Vorige stap (←)">← Terug</button>
     <button type="button" class="knop klein" id="verder" title="Volgende stap (→, spatie of klik op het beeld)">Verder →</button>
     <button type="button" class="knop stil klein" id="opnieuw" title="Speel deze stap opnieuw af (R)">↻ Opnieuw</button>
-    <button type="button" class="knop stil klein" id="stopPres" title="Stop met presenteren (Esc)">Stop presenteren</button>
+    <button type="button" class="knop stil klein" id="tekstBtn" title="Tekst onder het beeld aan of uit (T)">Tekst uit</button>
+    <button type="button" class="knop stil klein" id="stopPres" title="Terug naar het gewone scherm (Esc)">Klein scherm</button>
     <span class="teller" id="teller"></span>
   </div>
   <div class="chips breed" id="chips"></div>
-  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> presenteren. Een presenter (pagina omhoog/omlaag) werkt ook.</p>
+  <p class="hint breed"><kbd>→</kbd> of <kbd>spatie</kbd> verder · <kbd>←</kbd> terug · <kbd>↑</kbd><kbd>↓</kbd> vorig/volgend scherm · <kbd>R</kbd> stap opnieuw · <kbd>L</kbd> namen · <kbd>F</kbd> groot scherm (daarin <kbd>T</kbd> tekst uit, <kbd>Esc</kbd> terug). Een presenter (pagina omhoog/omlaag) werkt ook.</p>
 </section>
 
 <details class="docent">
@@ -695,7 +717,7 @@ function kaart(ctx, x, y, w, h, a = 1, rand = null, gl = 0) { if (a <= 0.01) ret
 
 // ---------- 0 · titel ----------
 SCHERMEN.push({ titel: 'Start', deel: 'Opening', geenKop: true,
-  stappen: [{ t: '<b>Voortplanting</b> · les 3: ingrijpen en variatie', n: 'Kies eerst havo of vwo. Presenteren (F) geeft volledig scherm.' }],
+  stappen: [{ t: '<b>Voortplanting</b> · les 3: ingrijpen en variatie', n: 'Kies eerst havo of vwo. Groot scherm (F) vult het hele scherm; T zet de tekst eronder uit.' }],
   teken(ctx, S) {
     const T = S.T;
     metaText(ctx, 'Voortplanting · les 3', 140, 330, C.meta, 'left', 30);
@@ -1123,8 +1145,21 @@ document.getElementById('lvHavo').onclick = () => zetNiveau(false);
 const lblBtn = document.getElementById('lblBtn');
 function wisselNamen() { toonNamen = !toonNamen; lblBtn.setAttribute('aria-pressed', !toonNamen); lblBtn.textContent = toonNamen ? 'Namen verbergen' : 'Namen tonen'; }
 lblBtn.onclick = wisselNamen;
-function presenteer(aan) { document.body.classList.toggle('presenteer', aan); try { if (aan && !document.fullscreenElement) document.documentElement.requestFullscreen(); if (!aan && document.fullscreenElement) document.exitFullscreen(); } catch (e) {} }
+function presenteer(aan) {
+  document.body.classList.toggle('presenteer', aan); document.body.classList.toggle('muis', false);
+  const el = document.documentElement, aanVS = el.requestFullscreen || el.webkitRequestFullscreen, uitVS = document.exitFullscreen || document.webkitExitFullscreen, vs = document.fullscreenElement || document.webkitFullscreenElement;
+  try { if (aan && !vs && aanVS) { const r = aanVS.call(el); if (r && r.catch) r.catch(() => {}); } if (!aan && vs && uitVS) { const r = uitVS.call(document); if (r && r.catch) r.catch(() => {}); } } catch (e) {}
+}
+// groot scherm: knoppen tonen bij muisbeweging, na 2,5 s stil weer verbergen (ook de muiswijzer)
+let _muisTimer = 0;
+document.addEventListener('mousemove', () => { if (!document.body.classList.contains('presenteer')) return; document.body.classList.add('muis'); document.body.classList.remove('muisweg'); clearTimeout(_muisTimer); _muisTimer = setTimeout(() => { if (!document.querySelector('.knoppen:hover')) { document.body.classList.remove('muis'); document.body.classList.add('muisweg'); } }, 2500); });
+function wisselTekst() { const z = document.body.classList.toggle('zondertekst'); const b = document.getElementById('tekstBtn'); if (b) b.textContent = z ? 'Tekst aan' : 'Tekst uit'; try { localStorage.setItem('les-zondertekst', z ? '1' : '0'); } catch (e) {} }
+try { if (localStorage.getItem('les-zondertekst') === '1') { document.body.classList.add('zondertekst'); } } catch (e) {}
+document.addEventListener('webkitfullscreenchange', () => { if (!document.webkitFullscreenElement) document.body.classList.remove('presenteer'); });
 document.getElementById('presBtn').onclick = () => presenteer(true);
+document.getElementById('grootBtn').addEventListener('click', e => { e.stopPropagation(); presenteer(true); });
+document.getElementById('tekstBtn').onclick = wisselTekst;
+document.getElementById('tekstBtn').textContent = document.body.classList.contains('zondertekst') ? 'Tekst aan' : 'Tekst uit';
 document.getElementById('stopPres').onclick = () => presenteer(false);
 document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement) document.body.classList.remove('presenteer'); });
 document.getElementById('verder').onclick = verder;
@@ -1141,6 +1176,7 @@ document.addEventListener('keydown', e => {
   else if (k === 'Home') naarScherm(0);
   else if (k === 'r' || k === 'R') opnieuw();
   else if (k === 'l' || k === 'L') wisselNamen();
+  else if ((k === 't' || k === 'T') && document.body.classList.contains('presenteer')) wisselTekst();
   else if (k === 'f' || k === 'F') presenteer(!document.body.classList.contains('presenteer'));
   else if (k === 'Escape') presenteer(false);
 });
