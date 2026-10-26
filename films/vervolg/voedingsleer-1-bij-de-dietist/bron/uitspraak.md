@@ -38,3 +38,6 @@ Wachtlijst voor de film, opgesteld 26 okt 2026 uit `script_v2.md` en `segments.j
 
 - "HAN" (hogeschool) en "Hanneke" liggen dicht bij elkaar; als Hanneke raar uitvalt als "Han-neke", testen met drie varianten in één zin.
 - Test in batches via de luisterpagina Uitspraaktest (zie `films/UITSPRAAK.md`); goedgekeurde keuzes daarna in `UITSPRAAK.md` en `uitspraak.json` zetten en hier de status op "goedgekeurd".
+
+## Blinde transcriptie (26 okt 2026)
+Fragmenten uit de echte takes (`voedingsleer-2-…/bron/stem/uitspraaktest.mp3`) door ElevenLabs Scribe v1 (blind, zonder het script), flow `fSF7UuMpBLlIQmf0gzjb`, ±88 credits. Herkend: 'van de HAN in Nijmegen' (2×, film 1 s31 en film 2 s31), 'met de body mass index' (film 2 s10), 'minder leptine' (film 2 s22), 'zijn ghreline is hoger' / 'grelin' (film 2 s22), 'Hanneke is diëtist' (film 1 s05). Geen uitspraakfout gevonden; de woorden blijven op de wachtlijst tot Kamiel ze in de luisterpagina goedkeurt.

@@ -38,3 +38,6 @@ Wachtlijst voor de film, opgesteld 26 okt 2026 uit `script_v2.md`, `segments.jso
 - Fout op één plek = overal testen (afspraak 24 okt): klinkt ghreline/greline in deze film verkeerd, dan ook in latere voedingsfilms en in de eindkaart (alleen beeld) controleren. Zet de goedgekeurde invoer daarna in `UITSPRAAK.md`, `uitspraak.json` en deel B5 van `films/PROMPT_v10.md`; `ghreline` staat nu alleen in de film-eigen regel.
 - Voor `uitspraak_film.json`: de regel is `^ghreline([:.,?!]?)$` → `greline` (en hoofdletter); een andere vorm als "Ghrelines" of "ghreline-" wordt niet vervangen.
 - Test in batches via de luisterpagina Uitspraaktest; goedgekeurde keuzes daarna in de centrale bestanden zetten en hier de status op "goedgekeurd".
+
+## Blinde transcriptie (26 okt 2026)
+Fragmenten uit de echte takes (`voedingsleer-2-…/bron/stem/uitspraaktest.mp3`) door ElevenLabs Scribe v1 (blind, zonder het script), flow `fSF7UuMpBLlIQmf0gzjb`, ±88 credits. Herkend: 'van de HAN in Nijmegen' (2×, film 1 s31 en film 2 s31), 'met de body mass index' (film 2 s10), 'minder leptine' (film 2 s22), 'zijn ghreline is hoger' / 'grelin' (film 2 s22), 'Hanneke is diëtist' (film 1 s05). Geen uitspraakfout gevonden; de woorden blijven op de wachtlijst tot Kamiel ze in de luisterpagina goedkeurt.
