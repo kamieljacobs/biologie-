@@ -22,7 +22,11 @@ function schrijf(ctx, s2, x, y, u, font, col, align = 'left') { if (u <= 0.01) r
 // pijltje omhoog of omlaag met een woord (bv. 'trek ↑'), als tag
 function pijlTag(ctx, s2, x, y, col, a = 1, px = 32, align = 'center') { tag(ctx, s2, x, y, col, a, align, px); }
 // maan (sikkel)
-function maan(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.arc(x + r * 0.45, y - r * 0.2, r * 0.85, 0, 6.283, true); ctx.fillStyle = '#F2E2A8'; ctx.fill('evenodd'); ctx.restore(); }
+function maan(ctx, x, y, r, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; // sikkel als één pad: linkerboog van de maan, terug langs de binnenboog
+  const dx = r * 0.6, dy = -r * 0.18, R = r * 0.95, D = Math.hypot(dx, dy), k = (r * r - R * R + D * D) / (2 * D), hq = Math.sqrt(Math.max(0, r * r - k * k));
+  const px = k * dx / D, py = k * dy / D, i1 = [px - hq * dy / D, py + hq * dx / D], i2 = [px + hq * dy / D, py - hq * dx / D];
+  const a1 = Math.atan2(i1[1], i1[0]), a2 = Math.atan2(i2[1], i2[0]), b1 = Math.atan2(i1[1] - dy, i1[0] - dx), b2 = Math.atan2(i2[1] - dy, i2[0] - dx);
+  ctx.beginPath(); ctx.arc(x, y, r, a1, a2, false); ctx.arc(x + dx, y + dy, R, b2, b1, true); ctx.closePath(); ctx.fillStyle = '#F2E2A8'; ctx.fill(); ctx.restore(); }
 function sterren(ctx, x, y, w, h, n, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; for (let k = 0; k < n; k++) circ(ctx, x + hash(k * 3.1) * w, y + hash(k * 5.7) * h, 1.5 + hash(k) * 2, rgba('#F2F2EE', 0.6)); ctx.restore(); }
 
 // ---------- hand die een riem vasthoudt (zoomcirkel cold open) ----------
@@ -36,7 +40,9 @@ function hand(ctx, x, y, s = 1, huid = '#E6BE9A', a = 1) { if (a <= 0.01) return
   ctx.restore(); }
 // riem met hand in een zoomcirkel; gat = welk gaatje (float = schuift), oud = markering van het oude gaatje
 function riemBeeld(ctx, cx, cy, w, gat, o = {}) { const x0 = cx - w / 2; riem(ctx, x0, cy, w, { gat });
-  if (o.oud > 0.01) { const gx = x0 + w - 60 - (o.oudGat ?? 1) * 40; ctx.save(); ctx.globalAlpha *= o.oud; ctx.setLineDash([5, 5]); circ(ctx, gx, cy, 15, null, C.text2, 2); ctx.setLineDash([]); metaText(ctx, 'OUD', gx, cy + 60, C.text2, 'center', 28); ctx.restore(); }
+  if (o.oud > 0.01) { const gx = x0 + w - 60 - (o.oudGat ?? 1) * 40, gl = o.gloed || 0; ctx.save(); ctx.globalAlpha *= o.oud;
+    if (gl > 0.01) { circ(ctx, gx, cy, 20 + 4 * gl, rgba(C.goud, 0.3 * gl), null); }
+    ctx.setLineDash([5, 5]); circ(ctx, gx, cy, 17, null, gl > 0.5 ? C.goud : '#C9B896', 3); ctx.setLineDash([]); metaText(ctx, 'OUD', gx, cy + 72, gl > 0.5 ? C.goud : '#C9B896', 'center', 34); ctx.restore(); }
   hand(ctx, x0 + w + 20 - (o.trek || 0) * 18, cy, 1, '#E6BE9A', o.hand == null ? 1 : o.hand); }
 function riemZoom(ctx, x, y, r, sx, sy, gat, caption, a = 1, o = {}) { zoomCircle(ctx, x, y, r, sx, sy, caption, a, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); ctx.fillStyle = '#8A5A3A'; ctx.fillRect(x - r, y - r, 2 * r, r * 0.62); ctx.fillStyle = '#33415C'; ctx.fillRect(x - r, y + r * 0.2, 2 * r, r); riemBeeld(ctx, x - 40, y - 10, 520, gat, o); }); }
 
@@ -70,7 +76,8 @@ function balans2(ctx, cx, y, o = {}) { const a = o.a == null ? 1 : o.a; const ti
     ctx.beginPath(); ctx.ellipse(px, PY, 135, 16, 0, 0, Math.PI); ctx.closePath(); shape(ctx, hl > 0.01 ? rgba(C.goud, 0.25 * hl + 0.0) : '#5A6A84', hl > 0.01 ? C.goud : '#8FA0B5', 1.5 + 1.5 * hl); return PY; };
   const lx = cx - dx, ly = y - dy, rx = cx + dx, ry = y + dy; const LPY = pan(lx, ly, o.hlL || 0), RPY = pan(rx, ry, o.hlR || 0);
   const ne = o.eten || 0; _ETEN_STAPEL.forEach(([k, ox, oy], i) => { const al = clamp(ne - i, 0, 1); if (al > 0.01) eten(ctx, k, lx + ox, LPY + oy + (1 - al) * -30, 0.85, al); });
-  let yy = RPY - 4; (o.lagen || []).forEach(([hh, col, al = 1]) => { if (hh <= 0.5) { R.lagen.push({ x: rx, y: yy, h: 0 }); return; } ctx.save(); ctx.globalAlpha *= al; roundRect(ctx, rx - 100, yy - hh, 200, hh, Math.min(8, hh / 2)); shape(ctx, rgba(col, 0.55), col, 1.8); ctx.restore(); R.lagen.push({ x: rx, y: yy - hh / 2, h: hh, top: yy - hh }); yy -= hh + 5; });
+  // lagen op 0,75 (past onder de touwtjes) en dekkend, zodat de touwtjes erachter vallen (beeldreview 1, punt 15)
+  let yy = RPY - 4; (o.lagen || []).forEach(([hh0, col, al = 1]) => { const hh = hh0 * 0.75; if (hh <= 0.5) { R.lagen.push({ x: rx, y: yy, h: 0 }); return; } ctx.save(); ctx.globalAlpha *= al; roundRect(ctx, rx - 100, yy - hh, 200, hh, Math.min(8, hh / 2)); shape(ctx, _mixHex(col, '#1A2740', 0.45), col, 1.8); ctx.restore(); R.lagen.push({ x: rx, y: yy - hh / 2, h: hh, top: yy - hh }); yy -= hh + 5; });
   const lab = o.labels == null ? 1 : o.labels; metaA(ctx, 'ENERGIE IN · ETEN', lx, LPY + 60, lab, C.oker, 'center', 28); metaA(ctx, 'ENERGIE UIT', rx, RPY + 60, lab, C.koraal, 'center', 28);
   ctx.restore(); R.L = { x: lx, y: LPY }; R.R = { x: rx, y: RPY }; return R; }
 
@@ -107,10 +114,18 @@ const _STAM = [[-20, 0], [-50, 40], [-58, 80], [-48, 120], [-62, 170], [-68, 250
 function hersenen2(ctx, x, y, s, o = {}) { const r = hoofdHersenen(ctx, x, y, s, { hth: o.hth || 0, t: o.t || 0 }); const st = o.stam || 0;
   if (st > 0.01) { ctx.save(); ctx.globalAlpha *= st; ctx.translate(x, y); ctx.scale(s, s); ctx.beginPath(); bioPad(ctx, _STAM.slice(0, 13).map(p => [p[0], Math.min(p[1], 200)]), true); shape(ctx, rgba(C.goud, 0.55), C.goud, 3 / s); ctx.restore(); }
   return { hth: [x, y], stam: [x - 40 * s, y + 140 * s] }; }
-function hersenZoom(ctx, x, y, r, sx, sy, o = {}) { const a = o.a == null ? 1 : o.a; let P = null;
-  zoomCircle(ctx, x, y, r, sx, sy, o.caption == null ? 'HERSENEN' : o.caption, a, () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); P = hersenen2(ctx, x + r * 0.12, y + r * 0.02, r / 430, o); });
-  if (P && a > 0.01) { naamBij(ctx, 'hypothalamus', '', P.hth[0] + 30, P.hth[1] - 28, a * (o.hthNaam || 0), 'left'); naamBij(ctx, 'hersenstam', '', P.stam[0] + 30, P.stam[1] + 10, a * (o.stamNaam || 0), 'left'); }
+function hersenZoom(ctx, x, y, r, sx, sy, o = {}) { const a = o.a == null ? 1 : o.a; let P = null; const binnen = () => { ctx.fillStyle = C.bgSchema; ctx.fillRect(x - r, y - r, 2 * r, 2 * r); P = hersenen2(ctx, x + r * 0.12, y + r * 0.02, r / 430, o); };
+  if (o.rand) zoomC(ctx, x, y, r, o.caption == null ? 'HERSENEN' : o.caption, a, binnen, o.rand); else zoomCircle(ctx, x, y, r, sx, sy, o.caption == null ? 'HERSENEN' : o.caption, a, binnen);
+  if (P && a > 0.01) { const nx = o.rand ? x + r + 18 : null; // kleine cirkel: namen rechts naast de cirkel, op de hoogte van het onderdeel
+    naamBij(ctx, 'hypothalamus', '', nx ?? P.hth[0] + 30, o.rand ? P.hth[1] + 2 : P.hth[1] - 28, a * (o.hthNaam || 0), 'left'); naamBij(ctx, 'hersenstam', '', nx ?? P.stam[0] + 30, o.rand ? P.stam[1] + 22 : P.stam[1] + 10, a * (o.stamNaam || 0), 'left'); }
   return P; }
+// zoomcirkel zonder lijnen naar de bron (BEELDAFSPRAKEN: geen wijslijnen); koppeling via de kleur van de rand en de plek naast het lichaam
+function zoomC(ctx, x, y, r, caption, a, binnen, rand = C.goud, capY = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  ctx.save(); ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.clip(); binnen && binnen(); ctx.restore();
+  ctx.strokeStyle = rand; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.stroke();
+  if (caption) metaText(ctx, caption, x, capY ?? y + r + 40, rand, 'center', 28); ctx.restore(); }
+// klein gestippeld ringetje op het lichaam in dezelfde kleur als de zoomcirkel
+function bronRing(ctx, x, y, r, col, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.setLineDash([6, 5]); circ(ctx, x, y, r, rgba(col, 0.12), col, 3); ctx.setLineDash([]); ctx.restore(); }
 // zenuwsignaal: teal lijn met lopende pulsjes van p0 naar p1
 function zenuwSignaal(ctx, p0, p1, t, a = 1, u = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const mx = (p0[0] + p1[0]) / 2 + (p1[1] - p0[1]) * 0.2, my = (p0[1] + p1[1]) / 2 - (p1[0] - p0[0]) * 0.2;
   const Q = v => [(1 - v) * (1 - v) * p0[0] + 2 * (1 - v) * v * mx + v * v * p1[0], (1 - v) * (1 - v) * p0[1] + 2 * (1 - v) * v * my + v * v * p1[1]];
@@ -142,13 +157,30 @@ function verbruikStaaf(ctx, x, yb, w, rust, bew, o = {}) { const a = o.a == null
 function adviesKaart(ctx, x, y, w, h, kop, col, a = 1, teken = null, hl = 0) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; const dy = (1 - Math.min(1, a * 1.2)) * 30; ctx.translate(0, dy);
   roundRect(ctx, x, y, w, h, 16); shape(ctx, rgba('#0D1420', 0.88), hl > 0.5 ? C.goud : col, 2.5 + hl); roundRect(ctx, x, y, w, 64, 16); ctx.fillStyle = rgba(col, 0.25); ctx.fill();
   text(ctx, kop, x + w / 2, y + 46, fTekst(36, 800), C.text, 'center'); if (teken) { ctx.save(); ctx.beginPath(); roundRect(ctx, x + 6, y + 70, w - 12, h - 76, 12); ctx.clip(); teken(x + w / 2, y + 64 + (h - 64) / 2); ctx.restore(); } ctx.restore(); }
-// Joost slapend in bed, van boven gezien (liggende houding: de staande figuur gedraaid, deken tot de schouders)
-function bedSlaap(ctx, x, y, s = 1, t = 0, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
-  roundRect(ctx, -300, -120, 600, 240, 18); shape(ctx, '#6A5040', '#8A6A50', 2); roundRect(ctx, -285, -105, 570, 210, 14); shape(ctx, '#E8E2D2', null);
-  roundRect(ctx, -275, -70, 120, 140, 30); shape(ctx, '#F4F0E6', '#D8D0C0', 1.5); // kussen
-  ctx.save(); ctx.translate(250, 0); ctx.rotate(-Math.PI / 2); persoon(ctx, 'joost', 0, 0, 470, { uit: 'slaapt', outfit: 'spreekuur', t }); ctx.restore();
-  const adem = 1 + 0.015 * Math.sin(t * 1.6); ctx.save(); ctx.translate(-120, 0); ctx.scale(1, adem); roundRect(ctx, 0, -112, 405, 224, 22); shape(ctx, '#5B7FA8', '#7C9CC2', 2); ctx.restore();
-  ctx.strokeStyle = rgba('#F2F2EE', 0.35); ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-90, -100); ctx.lineTo(-90, 100); ctx.stroke(); // omslag deken
+// Joost slapend in bed, in zijaanzicht (beeldreview 1, punt 1): hij ligt op zijn zij met het gezicht naar ons, hoofd op het kussen,
+// lichaam onder de deken (de deken volgt schouder, taille, heup en benen), bril op het nachtkastje. (x, y) = midden van de matras; vloer op y + 150·s.
+if (CAST.joost && CAST.joost.garderobe) CAST.joost.garderobe.slaap = { accessoire: [], heupK: 1.66, schouderK: 2.02 }; // zonder bril (die ligt op het nachtkastje)
+function bedSlaap(ctx, x, y, s = 1, t = 0, a = 1, o = {}) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s);
+  const MT = -10; // bovenkant matras
+  // nachtkastje met lampje en bril
+  if (o.kastje !== false) { roundRect(ctx, -430, -40, 110, 190, 6); shape(ctx, '#5A4434', '#7A5E48', 2); ctx.fillStyle = '#4A382A'; ctx.fillRect(-420, 30, 90, 4); circ(ctx, -375, 0, 5, '#C9B896', null);
+    ctx.fillStyle = '#7A5E48'; ctx.fillRect(-405, -60, 8, 20); ctx.beginPath(); ctx.moveTo(-425, -60); ctx.lineTo(-377, -60); ctx.lineTo(-388, -100); ctx.lineTo(-414, -100); ctx.closePath(); shape(ctx, '#E8D8A8', '#C9B896', 1.5);
+    ctx.strokeStyle = '#2A2F3E'; ctx.lineWidth = 3; ctx.beginPath(); ctx.ellipse(-363, -50, 11, 8, 0, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.ellipse(-337, -50, 11, 8, 0, 0, 6.283); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-352, -52); ctx.lineTo(-348, -52); ctx.moveTo(-374, -50); ctx.lineTo(-390, -43); ctx.moveTo(-326, -50); ctx.lineTo(-312, -43); ctx.stroke(); }
+  // bed: hoofdeinde, voeteneinde, pootjes, zijkant
+  roundRect(ctx, -305, -170, 30, 320, 8); shape(ctx, '#6A5040', '#8A6A50', 2); roundRect(ctx, 280, -70, 26, 220, 8); shape(ctx, '#6A5040', '#8A6A50', 2);
+  ctx.fillStyle = '#5A4434'; ctx.fillRect(-270, 110, 16, 40); ctx.fillRect(250, 110, 16, 40);
+  roundRect(ctx, -280, 50, 565, 62, 8); shape(ctx, '#6A5040', '#8A6A50', 2);
+  roundRect(ctx, -278, MT, 560, 64, 14); shape(ctx, '#E8E2D2', '#CFC7B4', 1.5); // matras
+  ctx.beginPath(); ctx.ellipse(-205, MT - 22, 70, 28, 0, 0, 6.283); shape(ctx, '#F4F0E6', '#D8D0C0', 1.5); // kussen
+  // Joost: vooraanzichtfiguur gedraaid, hoofd links op het kussen
+  const h = 470, hh = h / 6.1, by = MT - 2 - hh * 0.95; ctx.save(); ctx.translate(250, by); ctx.rotate(-Math.PI / 2); persoon(ctx, 'joost', 0, 0, h, { uit: 'slaapt', outfit: 'slaap', t }); ctx.restore();
+  // deken: van de nek tot over de voeten, bolt op bij schouder en heup, hangt over de zijkant
+  const adem = 1.5 * Math.sin(t * 1.6), nek = 250 - h + hh * 1.25, top = by - hh * 1.55;
+  ctx.beginPath(); ctx.moveTo(nek - 6, MT + 70); ctx.lineTo(nek - 6, top + 34); ctx.bezierCurveTo(nek - 4, top - 2 - adem, nek + 70, top - 8 - adem, nek + 125, top + 2 - adem);
+  ctx.bezierCurveTo(nek + 175, top + 12, nek + 200, top + 30, nek + 230, top + 26); ctx.bezierCurveTo(nek + 275, top + 18, nek + 300, top + 14, nek + 330, top + 40);
+  ctx.bezierCurveTo(250, by - hh * 0.9, 284, by - hh * 0.8, 292, by - hh * 0.4); ctx.lineTo(292, MT + 74); ctx.quadraticCurveTo(10, MT + 92, nek - 6, MT + 70); ctx.closePath(); shape(ctx, '#5B7FA8', '#7C9CC2', 2);
+  ctx.strokeStyle = rgba('#F2F2EE', 0.3); ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo(nek + 6, top + 30); ctx.quadraticCurveTo(nek + 12, MT + 30, nek + 4, MT + 66); ctx.moveTo(nek + 160, top + 30); ctx.quadraticCurveTo(nek + 200, MT + 20, nek + 180, MT + 70); ctx.stroke();
   ctx.restore(); }
 function wekker(ctx, x, y, r, uur, a = 1, lab = '') { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; circ(ctx, x, y, r, '#F2F2EE', '#9AA3B2', 3); for (let k = 0; k < 12; k++) { const an = k / 12 * 6.283; ctx.strokeStyle = '#4A5468'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + Math.sin(an) * r * 0.78, y - Math.cos(an) * r * 0.78); ctx.lineTo(x + Math.sin(an) * r * 0.9, y - Math.cos(an) * r * 0.9); ctx.stroke(); }
   const an = uur / 12 * 6.283; ctx.strokeStyle = '#1A2740'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.sin(an) * r * 0.5, y - Math.cos(an) * r * 0.5); ctx.stroke(); ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y - r * 0.72); ctx.stroke();
@@ -169,4 +201,15 @@ function agenda(ctx, x, y, s = 1, a = 1, mark = 0) { if (a <= 0.01) return; ctx.
   for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) { const cx = -140 + c * 56, cy = -62 + r * 52; roundRect(ctx, cx - 4, cy, 48, 40, 5); ctx.fillStyle = '#D9D2C2'; ctx.fill(); }
   if (mark > 0.01) { ctx.save(); ctx.globalAlpha *= mark; const cx = -140 + 4 * 56 + 20, cy = -62 + 3 * 52 + 20; ctx.strokeStyle = C.goud; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(cx, cy, 36, 30, 0, 0, 6.283 * mark); ctx.stroke(); ctx.restore(); }
   ctx.restore(); }
-function opleidingKaart(ctx, x, y, w, niv, naam, meta, a = 1, col = C.groen) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 150, 18); shape(ctx, rgba('#0D1420', 0.88), col, 2); text(ctx, niv, x + 50, y + 88, fTitel(52), col); text(ctx, naam, x + 190, y + 78, fTekst(44, 700), C.text); metaText(ctx, meta, x + 190, y + 120, C.grain, 'left', 28); ctx.restore(); }
+// hl = { deel, a }: het begin van de meta-regel (bv. 'HAN · NIJMEGEN') licht goud op
+function opleidingKaart(ctx, x, y, w, niv, naam, meta, a = 1, col = C.groen, hl = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x, y, w, 150, 18); shape(ctx, rgba('#0D1420', 0.88), col, 2); text(ctx, niv, x + 50, y + 88, fTitel(52), col); text(ctx, naam, x + 190, y + 78, fTekst(44, 700), C.text); metaText(ctx, meta, x + 190, y + 120, C.grain, 'left', 28);
+  if (hl && hl.a > 0.01) { ctx.save(); ctx.globalAlpha *= hl.a; metaText(ctx, hl.deel, x + 190, y + 120, C.goud, 'left', 28); ctx.restore(); } ctx.restore(); }
+
+// ---------- cast: Dennis als sporter (beeldreview 1, punt 11): korte broek en een nummer op het shirt ----------
+if (CAST.dennis && CAST.dennis.garderobe) CAST.dennis.garderobe.sporter = Object.assign({}, CAST.dennis.garderobe.sport, { kort: true });
+// nummer op de borst van een staand personage in vooraanzicht; h = getekende lengte, x = midden
+function shirtNummer(ctx, x, h, nr, a = 1, voet = GROND) { if (a <= 0.01) return; const hh = h / 6.1, y = voet - h + hh * 2.45; ctx.save(); ctx.globalAlpha *= a * 0.92; text(ctx, nr, x, y, fTekst(Math.round(hh * 0.62), 800), '#F2F2EE', 'center'); ctx.restore(); }
+// Hanneke is ± 0,93 van Joosts lengte (beeldreview 1, punt 19); geeft de h voor persoon() (die vermenigvuldigt met haar castlengte 0,98)
+function hanH(hJoost) { return hJoost * 0.93 / 0.98; }
+
+// eindkaart: zes regels uit segments.json, zoals de andere films van de reeks (punt 24 van beeldreview 1 niet overgenomen)
