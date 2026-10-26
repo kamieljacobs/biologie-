@@ -1,0 +1,176 @@
+<title>Keuring Spieren en beweging</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: per film een kop met advies, daarna voorstellen als rijen met still links en besluitknoppen rechts; huisstijl Biologie bij Kamiel */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --surface2:#F0F2F6; --line:rgba(20,32,52,.12); --line2:rgba(20,32,52,.24);
+  --text:#121C2E; --text2:#4E5A6C; --text3:#6B7687;
+  --goud:#D9AC3C; --goud-ink:#1A1405; --goud-text:#8A650C; --goud-soft:rgba(217,172,60,.16);
+  --groen:#2F8A47; --groen-soft:rgba(47,138,71,.10); --koraal:#B9502F; --koraal-soft:rgba(185,80,47,.10); --teal:#25729C; --teal-soft:rgba(37,114,156,.10);
+  --titel:"Fraunces",Georgia,"Times New Roman",serif;
+  --tekst:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --meta:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1726; --surface:#141E33; --surface2:#1A2740; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.32);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --groen-soft:rgba(127,196,143,.13); --koraal:#E8876C; --koraal-soft:rgba(232,135,108,.13); --teal:#6DB3D6; --teal-soft:rgba(109,179,214,.13); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1726; --surface:#141E33; --surface2:#1A2740; --line:rgba(143,160,181,.16); --line2:rgba(143,160,181,.32);
+  --text:#F2F2EE; --text2:#A3ACBA; --text3:#7D8899;
+  --goud:#E0B64A; --goud-ink:#1A1405; --goud-text:#E8C266; --goud-soft:rgba(224,182,74,.13);
+  --groen:#7FC48F; --groen-soft:rgba(127,196,143,.13); --koraal:#E8876C; --koraal-soft:rgba(232,135,108,.13); --teal:#6DB3D6; --teal-soft:rgba(109,179,214,.13); color-scheme:dark}
+body{background:var(--bg);color:var(--text);font:400 16px/1.5 var(--tekst)}
+.wrap{max-width:1000px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:32px}
+.eyebrow{font:500 12px var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--goud-text)}
+h1{font:600 clamp(28px,5vw,40px)/1.15 var(--titel);margin:6px 0 10px;text-wrap:balance}
+.intro p{margin:0 0 8px;color:var(--text2);max-width:68ch}
+.stand{font:500 13px var(--meta);color:var(--text3)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{font:600 15px var(--tekst);padding:8px 14px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--goud);border-color:var(--goud);color:var(--goud-ink)}
+.film{display:flex;flex-direction:column;gap:16px}
+.film h2{font:600 28px/1.2 var(--titel);margin:0;text-wrap:balance}
+.advies{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--goud);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.advies .aanpak{font:500 13px var(--meta);color:var(--goud-text)}
+.advies p{margin:0;max-width:72ch}
+.advies .meta{font-size:14px;color:var(--text2)}
+h3{font:600 18px/1.3 var(--titel);margin:8px 0 0}
+.her{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+.her table{border-collapse:collapse;width:100%;font-size:14px}
+.her th,.her td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.her th{font:500 12px var(--meta);color:var(--text3);letter-spacing:.04em;text-transform:uppercase}
+.her td.t{font:500 13px var(--meta);font-variant-numeric:tabular-nums;white-space:nowrap}
+.vs{display:flex;flex-direction:column;gap:12px}
+.v{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:14px}
+.v.doen{border-color:var(--groen)} .v.niet{border-color:var(--koraal)} .v.anders{border-color:var(--teal)}
+@media (max-width:640px){.v{grid-template-columns:minmax(0,1fr)}}
+.v img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;cursor:zoom-in}
+.v .geen{aspect-ratio:16/9;border-radius:8px;border:1px dashed var(--line2);display:flex;align-items:center;justify-content:center;font:500 12px var(--meta);color:var(--text3)}
+.inh{display:flex;flex-direction:column;gap:6px;min-width:0}
+.labels{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lab{font:500 12px var(--meta);padding:2px 7px;border-radius:6px;background:var(--surface2);color:var(--text2)}
+.lab.tijd{background:var(--goud-soft);color:var(--goud-text)}
+.lab.kamiel{background:var(--teal-soft);color:var(--teal)}
+.lab.groot{background:var(--koraal-soft);color:var(--koraal)}
+.inh p{margin:0}
+.inh .prob{color:var(--text2)}
+.inh .voor b{font-weight:600}
+.besluit{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:4px}
+button{font:600 14px var(--tekst);border-radius:8px;padding:6px 12px;cursor:pointer;border:1px solid var(--line2);background:var(--surface);color:var(--text)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+button.b-doen[aria-pressed="true"]{background:var(--groen);border-color:var(--groen);color:var(--surface)}
+button.b-niet[aria-pressed="true"]{background:var(--koraal);border-color:var(--koraal);color:var(--surface)}
+button.b-anders[aria-pressed="true"]{background:var(--teal);border-color:var(--teal);color:var(--surface)}
+textarea{flex:1 1 240px;min-width:0;min-height:38px;font:400 14px var(--tekst);padding:7px 10px;border-radius:8px;border:1px solid var(--line2);background:var(--surface);color:var(--text);resize:vertical}
+.kern{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.kern figure{margin:0;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kern img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;cursor:zoom-in}
+.kern figcaption{font:500 12px var(--meta);color:var(--text3)}
+.inh .alt{color:var(--text2)}
+.melding{font-size:14px;color:var(--koraal)}
+.alles{display:flex;gap:8px;flex-wrap:wrap}
+dialog{border:0;padding:0;background:transparent;max-width:min(96vw,1280px)}
+dialog img{width:100%;border-radius:10px;display:block}
+dialog::backdrop{background:rgba(5,10,20,.8)}
+</style>
+
+<div class="wrap">
+  <header class="intro">
+    <div class="eyebrow">Zenuwstelsel 9 · nieuwe film · prompt v10 · 26 oktober 2026</div>
+    <h1>Keuring Spieren en beweging</h1>
+    <p>Bovenaan wat de film wordt en twee kernscènes. Daaronder alleen de scènes waar ik twijfel, elk met de reden en een alternatief, en de belangrijkste keuzes in het script.</p><p>Kies per punt <b>Voorstel</b>, <b>Alternatief</b> of <b>Anders</b> (met een opmerking). Je keuze wordt meteen bewaard. Alles wat hier niet staat, gaat zonder keuring door; na de bouw volgen de frisse beeldreview en jouw review van de film. De tekeningen zijn ronde 1.</p>
+    <div class="stand" id="stand"></div>
+    <div class="melding" id="melding" hidden></div>
+  </header>
+  <nav class="tabs" id="tabs" role="tablist"></nav>
+  <main id="films"></main>
+</div>
+<dialog id="groot"><img id="grootimg" alt=""></dialog>
+
+<script>
+var FILMS = __DATA__;
+var DB=null, B={}, actief=0;
+try{ var h=(location.hash||'').slice(1); FILMS.forEach(function(f,i){ if(f.sleutel===h) actief=i; }); }catch(e){}
+function el(t,c,x){ var e=document.createElement(t); if(c) e.className=c; if(x!=null) e.textContent=x; return e; }
+function did(f,v){ return (f.sleutel+'__'+v.id).replace(/[^A-Za-z0-9_\-.]/g,'_'); }
+
+function teken(){
+  var tabs=document.getElementById('tabs'); tabs.textContent='';
+  FILMS.forEach(function(f,i){
+    var n=f.voorstellen.filter(function(v){return B[did(f,v)]&&B[did(f,v)].besluit;}).length;
+    var t=el('button','tab',f.kort+' · '+n+'/'+f.voorstellen.length); t.type='button'; t.setAttribute('role','tab'); t.setAttribute('aria-selected',i===actief?'true':'false');
+    t.onclick=function(){ actief=i; try{history.replaceState(null,'','#'+f.sleutel);}catch(e){} teken(); };
+    tabs.appendChild(t);
+  });
+  var tot=0,klaar=0; FILMS.forEach(function(f){ f.voorstellen.forEach(function(v){ tot++; if(B[did(f,v)]&&B[did(f,v)].besluit) klaar++; }); });
+  document.getElementById('stand').textContent=klaar+' van '+tot+' voorstellen besloten';
+  var m=document.getElementById('films'); m.textContent='';
+  var f=FILMS[actief], s=el('section','film');
+  s.appendChild(el('h2',null,f.titel));
+  var a=el('div','advies');
+  a.appendChild(el('div','aanpak','Advies: '+f.advies.aanpak+' · nu '+f.promptversie_nu));
+  a.appendChild(el('p',null,f.advies.waarom));
+  a.appendChild(el('p','meta','Werk: '+f.advies.werk+' · Credits: '+f.advies.credits));
+  s.appendChild(a);
+  if(f.kern&&f.kern.length){ s.appendChild(el('h3',null,'Zo ziet de nieuwe animatie eruit')); var g=el('div','kern'); f.kern.forEach(function(k){ var fig=document.createElement('figure'); var im=document.createElement('img'); im.src=k.img; im.alt=k.titel; im.loading='lazy'; im.onclick=function(){ document.getElementById('grootimg').src=k.img; var d=document.getElementById('groot'); try{d.showModal();}catch(e){} }; fig.appendChild(im); fig.appendChild(el('figcaption',null,k.titel)); g.appendChild(fig); }); s.appendChild(g); s.appendChild(el('h3',null,'Twijfelscènes')); }
+  if(f.herinspreken&&f.herinspreken.length){
+    s.appendChild(el('h3',null,'Opnieuw inspreken na de uitspraaktest'));
+    var hw=el('div','her'), tb=document.createElement('table');
+    var tr=document.createElement('tr'); ['Tijd','Alinea','Woorden'].forEach(function(x){ tr.appendChild(el('th',null,x)); }); tb.appendChild(tr);
+    f.herinspreken.forEach(function(r){ var tr=document.createElement('tr'); tr.appendChild(el('td','t',r.tijd||'')); tr.appendChild(el('td',null,r.alinea)); tr.appendChild(el('td',null,(r.woorden||[]).join(', '))); tb.appendChild(tr); });
+    hw.appendChild(tb); s.appendChild(hw);
+  }
+  s.appendChild(el('h3',null,'Voorstellen'));
+  var al=el('div','alles'); var ad=el('button',null,'Alle open punten op Voorstel'); ad.type='button';
+  ad.onclick=function(){ f.voorstellen.forEach(function(v){ var k=did(f,v); if(!(B[k]&&B[k].besluit)) zet(f,v,'doen',null,true); }); teken(); };
+  al.appendChild(ad); s.appendChild(al);
+  var vs=el('div','vs');
+  f.voorstellen.forEach(function(v){
+    var k=B[did(f,v)]||{};
+    var r=el('article','v'+(k.besluit?' '+k.besluit:''));
+    if(v.img){ var im=document.createElement('img'); im.src=v.img; im.alt='Still bij '+(v.tijd||v.id); im.loading='lazy'; im.onclick=function(){ document.getElementById('grootimg').src=v.img; var d=document.getElementById('groot'); try{d.showModal();}catch(e){} }; r.appendChild(im); }
+    else r.appendChild(el('div','geen','geen still'));
+    var inh=el('div','inh'), lb=el('div','labels');
+    if(v.tijd) lb.appendChild(el('span','lab tijd',v.tijd));
+    lb.appendChild(el('span','lab',v.soort));
+    lb.appendChild(el('span','lab'+(v.omvang==='groot'?' groot':''),v.omvang));
+    if(/^review/.test(v.bron||'')) lb.appendChild(el('span','lab kamiel','jouw opmerking'));
+    else lb.appendChild(el('span','lab',v.bron));
+    inh.appendChild(lb);
+    var p1=el('p','prob'); p1.appendChild(el('b',null,'Waarom ik twijfel: ')); p1.appendChild(document.createTextNode(v.probleem)); inh.appendChild(p1);
+    var p2=el('p','voor'); var bb=el('b',null,'Voorstel: '); p2.appendChild(bb); p2.appendChild(document.createTextNode(v.voorstel)); inh.appendChild(p2);
+    if(v.alternatief){ var p3=el('p','alt'); p3.appendChild(el('b',null,'Alternatief: ')); p3.appendChild(document.createTextNode(v.alternatief)); inh.appendChild(p3); }
+    var bs=el('div','besluit');
+    [['doen','Voorstel'],['niet','Alternatief'],['anders','Anders']].forEach(function(x){
+      var b=el('button','b-'+x[0],x[1]); b.type='button'; var aan=k.besluit===x[0]; b.setAttribute('aria-pressed',aan?'true':'false');
+      b.onclick=function(){ zet(f,v,aan?null:x[0]); }; bs.appendChild(b);
+    });
+    var ta=document.createElement('textarea'); ta.id='op-'+did(f,v); ta.placeholder='Opmerking'; ta.value=k.opmerking||'';
+    ta.addEventListener('change',function(){ zet(f,v,(B[did(f,v)]||{}).besluit||null,ta.value); });
+    bs.appendChild(ta); inh.appendChild(bs);
+    r.appendChild(inh); vs.appendChild(r);
+  });
+  s.appendChild(vs); m.appendChild(s);
+}
+function zet(f,v,besluit,opmerking,stil){
+  var k=did(f,v), oud=B[k]||{};
+  var rec={film:f.film, voorstel:v.id, besluit:besluit, opmerking:opmerking!=null?opmerking:(oud.opmerking||''), tijd:Date.now()};
+  B[k]=rec; if(!stil) teken();
+  if(!DB){ melding('Je keuze staat alleen op dit scherm: opslaan lukt hier niet. Open de pagina via claude.ai terwijl je bent ingelogd.'); return; }
+  DB.collection('besluit').doc(k).set(rec).catch(function(){ melding('Opslaan lukte niet. Probeer het nog eens.'); });
+}
+function melding(t){ var m=document.getElementById('melding'); m.textContent=t; m.hidden=false; }
+document.getElementById('groot').addEventListener('click',function(){ this.close(); });
+teken();
+(async function(){
+  try{
+    if(!window.claude||!claude.use) return;
+    DB=await claude.use('db'); if(!DB) return;
+    DB.collection('besluit').onSnapshot(function(snap){ (snap.docs||[]).forEach(function(d){ var v=d.data(); if(v) B[d.id]=v; }); teken(); });
+  }catch(e){}
+})();
+</script>

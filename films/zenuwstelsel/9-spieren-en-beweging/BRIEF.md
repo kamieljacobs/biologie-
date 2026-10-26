@@ -1,6 +1,6 @@
 # Filmbrief · Zenuwstelsel 9 · Spieren en beweging (werktitel *Trekken, nooit duwen*)
 
-Status: **specificatie in bespreking** (26 okt 2026). Raadsel gekozen: C (Kamiel 26 okt 2026). Open: inhoud Nectar § 19.5, leerdoel 6 bij havo, planning. Bouwen volgens `films/PROMPT_v10.md` (Part B + C), pas na Kamiels akkoord op deze brief.
+Status: **goedgekeurd** (Kamiel 26 okt 2026, 18:35: 'Bouw de film … volgens PROMPT_v10'). Raadsel C. Leerdoel 6 blijft basis, kort, met een verwijzing naar *De spleet*. Nectar § 19.5 *Controle* aangenomen als spierspoeltjes en reflexen (leerdoel 10), **niet gecontroleerd**: Claude kon de methode niet openen. Kamiel keurt alleen de twijfelscènes van het storyboard (B7). Bouwen volgens `films/PROMPT_v10.md` (Part B + C), nieuwe film dus met B15 (drie scriptvarianten, blinde beoordelaar). Na afloop `jaarplanner-dekking.json` bijwerken (havo § 5.6, vwo § 19.1–19.2), pas aan het eind en na een `git pull`.
 
 Aanleiding: de dekkingscheck in de jaarplanner (`jaarplanner-dekking.json`) liet zien dat geen enkele film skelet, gewrichten, antagonistische spieren en spiersamentrekking echt behandelt: havo § 5.6 (Biologie voor jou) en vwo § 19.1–19.2 (Nectar) staan op 'geen'. De onderbouwfilm *Skelet en spieren* (films/onderbouw/32a/6-skelet-en-spieren) telt niet mee voor de bovenbouw.
 
@@ -29,6 +29,9 @@ De leerling kan …
 7. *(basis, Kamiel 26 okt 2026)* uitleggen hoe je de kracht doseert via het aantal motorische eindplaatjes / motorische eenheden dat prikkels geeft: meer spiervezels tegelijk = meer kracht.
 8. *(vwo)* de sarcomeer en de kruisbruggencyclus uitleggen: Ca²⁺ uit het sarcoplasmatisch reticulum, troponine/tropomyosine, ATP voor het loslaten van de myosinekop.
 9. *(vwo)* de bouw van een pees (collageenvezels) aan de functie koppelen, en de kracht ook doseren via de frequentie van de impulsen.
+10. *(vwo, Nectar § 19.5 aangenomen, **niet gecontroleerd**)* uitleggen dat spierspoeltjes meten hoe ver een spier wordt uitgerekt, en dat een plotselinge rek via het ruggenmerg een rekreflex geeft (kniepeesreflex) die de spier laat samentrekken.
+
+Leerdoel 6 in de film (Kamiel 26 okt 2026): kort, in de basis: het motorische neuron eindigt in een motorische eindplaat en geeft daar een signaalstof af; hoe dat overspringen werkt, staat in *De spleet* (de film noemt die film met naam, op Kamiels verzoek; B1 staat een verwijzing naar een andere film toe).
 
 ## Misvattingen
 
@@ -55,6 +58,6 @@ B (bouw en functie: skelet, gewricht, spier) en A (mechanisme: glijdende filamen
 ## Open vragen aan Kamiel
 
 1. ~~Welk raadsel~~ → C.
-2. Is leerdoel 6 (motorische eindplaat) voor havo al genoeg in *De spleet*?
-3. Wat behandelt Nectar § 19.5 *Controle* (spierspoeltjes en reflexen?). Leerdoelen van § 5.6 / H19 welkom.
-4. Planning: vwo 6 heeft § 19.1–19.2 in de week van 1 nov 2026; havo 4 § 5.6 eind maart 2027.
+2. ~~Leerdoel 6 bij havo~~ → basis, kort, met verwijzing naar *De spleet*.
+3. ~~Nectar § 19.5~~ → aangenomen: spierspoeltjes en reflexen (leerdoel 10), niet gecontroleerd.
+4. Planning: vwo 6 heeft § 19.1–19.2 in de week van 1 nov 2026; havo 4 § 5.6 eind maart 2027. De film moet dus vóór 2 nov 2026 af zijn.

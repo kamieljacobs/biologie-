@@ -26,3 +26,9 @@ Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen vo
 - Daarna fase 2: stem (± 26.400 credits samen), bouwen in de FILMDATA-straat, frisse beeldreview, oude film naar `bron/oud/`, REVIEW op nog bekijken.
 - **Af en online (26 okt 2026, nacht):** Wat is DNA? 3.0, DNA kopiëren 2.0, Geslachtsorganen en puberteit 2.0, Celdeling 2.0, alle vier prompt v10, met frisse beeldreview (`bron/review_fris_2026-10-26.md`) en alle MOET-punten hersteld; oude versies in `bron/oud/`. Credits stem ± 6.200 + 6.600 + 7.100 + 10.000, transcriptie ± 2.000. Open voor Kamiel: zijn review in de reviewstand; DNA 2 'spiegelbeeld' en RNA-kleur (info.md); uitspraakwachtlijst (plasmiden, cohesine, oöcyt). Zijtak `remake-2026-10-wip` kan weg (verwijderen lukte niet vanuit de sessie).
 - Lessen uit deze ronde: na een herbouw `scripts/oefenen.py` draaien (scripttag viel weg); cues met woordgrens of woordtijd (q.at matcht deelwoorden); 'gemist bij contactblad' is het grootste patroon.
+
+## Ronde 26 okt 2026: nieuwe film Zenuwstelsel 9 Spieren en beweging (prompt v10, B15)
+
+- Fase 1 in `films/zenuwstelsel/9-spieren-en-beweging/bron/fase1/` (script v3, storyboard, keyframes, twijfel.md, uitspraak.md), bronnenlogboek `bron/bronnen.md`, B15-werk en reviews in `bron/werk/`.
+- Keuringsblad (alleen twijfelscènes): https://claude.ai/artifact/Q2bq5R2XhPoAB7fPv8HmAV (db-collectie `besluit`, doc-id `spieren__<id>`, ids t1–t10 en script; doen = voorstel, niet = alternatief, anders = opmerking). Opnieuw bouwen: `python3 films/verbeterbladen/spieren-2026-10/bouw_blad.py`.
+- Daarna fase 2 (zie `bron/STAND.md`); `jaarplanner-dekking.json` pas als laatste stap, na `git pull`.
