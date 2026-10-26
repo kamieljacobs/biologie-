@@ -105,7 +105,7 @@ body.presenteer #stage{border:0;border-radius:0}
 body.presenteer .cap{border:0;border-radius:0;background:transparent;min-height:0;height:var(--capH);padding:6px 18px;overflow:hidden}
 body.presenteer .cap .txt{font-size:clamp(18px, 2.4vh, 28px)}
 body.presenteer.zondertekst .cap{display:none}
-body.presenteer .knoppen{position:fixed;right:14px;top:14px;width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
+body.presenteer .knoppen{position:fixed;right:14px;top:14px;max-width:calc(100vw - 28px);width:auto;z-index:60;background:var(--surface);border:1px solid var(--line2);border-radius:999px;padding:6px 10px;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .2s}
 body.presenteer.muis .knoppen{opacity:1;pointer-events:auto}
 body.presenteer.muisweg,body.presenteer.muisweg #stage{cursor:none}
 body.presenteer .knoppen .teller{margin-left:6px}
@@ -630,10 +630,13 @@ const VRAGEN = [
     n: 'Eeneiige tweelingen verschillen gemiddeld in ± 5 mutaties, ontstaan vlak voor of na de splitsing (Jonsson e.a., Nature Genetics 2021).', meer: [3, 'scherm 4 · Eén ouder (klonen)'],
     anim(ctx, x, y, A) { const T = A.T, lx = x - 210, rx = x + 210, a0 = A.on(0.5);
       metaText(ctx, 'eeneiig', lx, y - 250, C.meta, 'center', 24, a0); metaText(ctx, 'twee-eiig', rx, y - 250, C.meta, 'center', 24, a0);
-      delendeCel(ctx, lx, y - 40, 62, A.on(1.8, 1.4), C.goud, a0);
+      // eeneiig: eerst een bevruchting (één eicel, één zaadcel), dan splitst de bevruchte eicel in twee
+      const kb = A.on(1.2, 0.6); if (kb < 0.999) { eicel(ctx, lx, y - 40, 52, a0); zaadcel(ctx, lx, lerp(y - 220, y - 92, kb), Math.PI / 2, T, 1.4, a0); }
+      else { const ks = A.on(1.8, 2.4); if (ks <= 0.001) { celVorm(ctx, [[lx, y - 40, 62, 62]], C.goud, 1); kern(ctx, lx, y - 40, 26, 1); } else delendeCel(ctx, lx, y - 40, 62, ks, C.goud, 1); }
+      naam(ctx, 'bevruchte eicel', lx, y + 50, A.on(0.4, 1.8) * (1 - A.on(0.4, 2.4)), 'center', C.text2, 26);
       [rx - 95, rx + 95].forEach((ex, i) => { const k = A.on(1.2, 0.6 + i * 0.4); if (k < 0.999) { eicel(ctx, ex, y - 40, 52, a0); zaadcel(ctx, ex, lerp(y - 220, y - 92, k), Math.PI / 2, T + i, 1.4, a0); }
         else { celVorm(ctx, [[ex, y - 40, 62, 62]], C.goud, 1); kern(ctx, ex, y - 40, 26, 1, i ? VCODE : MCODE); } });
-      regel(ctx, 'zelfde DNA', lx, y + 110, A.on(0.6, 3.4), C.groen, 34, 'center', 700); regel(ctx, 'ander DNA', rx, y + 110, A.on(0.6, 3.4), C.koraal, 34, 'center', 700);
+      regel(ctx, 'zelfde DNA', lx, y + 110, A.on(0.6, 4.4), C.groen, 34, 'center', 700); regel(ctx, 'ander DNA', rx, y + 110, A.on(0.6, 4.4), C.koraal, 34, 'center', 700);
     } },
   { v: 'Hoeveel zaadcellen maakt een man?', tag: 'organen', kern: '± 45 à 200 miljoen per dag',
     a: 'Dat zijn er honderden tot duizenden per seconde, vanaf de puberteit tot op hoge leeftijd. Het maken van één zaadcel duurt wel ruim twee maanden.',
