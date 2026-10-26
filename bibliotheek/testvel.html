@@ -4,7 +4,7 @@
 <link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button> <button onclick="spierVel()">Spieren en beweging</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -165,6 +165,17 @@ window.cdVel=async function(){ await chrLibs(); ctx.fillStyle=C.bgMicro; ctx.fil
  cdDraad(ctx,1450,800,1560,760); cdTeller(ctx,[['model','4 · 8'],['mens','46 · 92',C.goud]],1,1560,140);
 };
 if(location.hash==='#celdeling') setTimeout(()=>cdVel(),300);
+// ===== Spieren en beweging (Zenuwstelsel 9, 26 okt 2026)
+window.spierVel=function(){ ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H); const t=1.2;
+  armAnatomie(ctx,260,120,10,{u:0.08,e:1.5,huid:1,hl:{biceps:1}}); lab('armAnatomie',260,560);
+  armModel(ctx,700,420,7,{e:1.4,statief:640,hlV:1}); lab('armModel',650,660);
+  gewrichtDoorsnede(ctx,1080,280,22,{draai:0.2}); lab('gewrichtDoorsnede',1080,560);
+  botDoorsnede(ctx,1420,320,9,{}); botWeefsel(ctx,1720,300,140,{}); lab('botDoorsnede · botWeefsel',1570,560);
+  sarcomeer(ctx,260,780,120,{L:2.2,rijen:2,dz:0.5,kop:0.3}); lab('sarcomeer',300,1000);
+  kopStand(ctx,760,800,24,{hoek:0.6,vast:1}); lab('kopStand',780,1000);
+  spierDwars(ctx,1200,800,140,{n:90,eenheden:[{n:8,kleur:C.goud}],aan:1}); lab('spierDwars',1150,1000);
+  spierspoeltje(ctx,1600,820,320,{rek:0.5,vuur:0.6,t}); lab('spierspoeltje',1600,1000); };
+if(location.hash==='#spieren') setTimeout(()=>spierVel(),300);
 
 draw(1);</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>

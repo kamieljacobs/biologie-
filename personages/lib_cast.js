@@ -12,6 +12,7 @@
 //   o.zitHoogte = zithoogte in px (standaard 1,45 × kopmaat ≈ 45 cm); zijaanzicht: o.reik = hoe ver de handen op tafel vóór de borst liggen (× kopmaat, standaard 1,0).
 //   Zonder tafel liggen de handen in de schoot. Geeft ook schoot:{x,y} (midden bovenop de dijen) en zit:{y} (zithoogte) terug.
 // Zijaanzicht (21 okt 2026): { zij: true, kijk: 1|-1, gang: 'loop'|'ren', t (of fase 0..1), tempo } — van opzij, lopend of rennend; zie _zij onderaan
+//   o.arm = [bovenarm, elleboog] (rad vanaf recht omlaag) = vrije armhoek rechterarm in zijaanzicht, o.armVer idem andere arm; handR geeft dan ook elx, ely, shx, shy, hh (26 okt 2026, Spieren en beweging)
 
 // plaatsdelict (25 okt 2026): forensisch onderzoeker in witte wegwerpoverall (Tyvek) met capuchon over het haar, mondkapje, nitrilhandschoenen en witte overschoenen
 const _NITRIL = '#5B8CC9', _MASKER = '#DCE5EC';
@@ -633,6 +634,8 @@ function _zij(ctx, P, x, y, h, a, o) {
   const armHoek = (B, kant) => { // kant 1 = dichtbij; B = been aan dezelfde kant
     if (G) { const D = Math.PI / 180, th = B.th / D + (G.kantel || 0), v = 1 - (th - thMin) / (thMax - thMin); // v: 0 = arm achter, 1 = arm voor
       const w = v * v * (3 - 2 * v); return [(G.arm[0] + (G.arm[1] - G.arm[0]) * w) * D, (G.elle[0] + (G.elle[1] - G.elle[0]) * w) * D]; }
+    if (o.arm && kant > 0) return o.arm; // (26 okt 2026, Spieren en beweging) vrije armhoek [bovenarm, elleboog] in rad vanaf 'recht omlaag'
+    if (o.armVer && kant < 0) return o.armVer;
     if (o.pose === 'wijs' && kant > 0) return [1.35, 0.1];
     if (o.pose === 'wijsOmhoog' && kant > 0) return [2.4, 0.2];
     if (o.pose === 'zwaai' && kant > 0) return [2.6, 0.5 + 0.35 * Math.sin(t * 7)];
@@ -662,7 +665,7 @@ function _zij(ctx, P, x, y, h, a, o) {
     if (lang) { ctx.strokeStyle = ver ? _donker(P.top === 'labjas' ? P.topKleur : (P.topAccent || P.topKleur), 0.3) : _donker(P.topKleur, 0.06); ctx.lineWidth = hh * 0.42; ctx.beginPath(); ctx.moveTo(ex + (hx - ex) * 0.66, ey + (hy - ey) * 0.66); ctx.lineTo(ex + (hx - ex) * 0.74, ey + (hy - ey) * 0.74); ctx.stroke(); }
     if (o.pose === 'handdruk' && kant > 0 && !G) { const H = _grip(ctx, hx, hy, Math.PI / 2 - f, hh, hu, rand); return Object.assign(H, { x: H.x, y: H.y }); }
     ctx.fillStyle = hu; handPad(); ctx.fill();
-    return { x: hx + Math.sin(f) * hh * 0.12, y: hy + Math.cos(f) * hh * 0.12, ang: Math.PI / 2 - f }; };
+    return { x: hx + Math.sin(f) * hh * 0.12, y: hy + Math.cos(f) * hh * 0.12, ang: Math.PI / 2 - f, elx: ex, ely: ey, shx: sx, shy: sy, hh }; };
   // tekenvolgorde: ver been, ver arm, romp, dichtbij been (onder de romp door), dichtbij arm, hoofd
   tekenBeen(B2, true);
   const hand2 = tekenArm(B2, -1);

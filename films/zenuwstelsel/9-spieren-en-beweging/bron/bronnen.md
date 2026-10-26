@@ -62,12 +62,14 @@ Gecontroleerd: script v3 (fase 1, vóór de stem), 26 okt 2026, door Claude (eer
 
 A* = OpenStax-tekst op andere host: gezaghebbend, maar niet onafhankelijk van B1/B9/B13/B25/B29. B46/B47 alleen voor terminologie, niet als bewijs.
 
-## 3. Beweringen (script v3)
+## 3. Beweringen (script v3, bijgewerkt voor script v4 na de keuring van 26 okt 2026)
+
+De kolom 'Waar' volgt de segmentnummers van script v3; de definitieve tekst staat in `script.md` (v4).
 
 | Nr | Waar | Bewering in de film | Bronnen | Status | Toelichting |
 |---|---|---|---|---|---|
 | 1 | q04 | Het skelet draagt je, beschermt hersenen, hart en longen; spieren trekken eraan | B1, B2, B3 | ✓ | |
-| 2 | q04–s05 | In een kippenbotje zit rood beenmerg (donkerrood) | B48, B49 | ≈ | Eén organisatie (USDA FSIS, twee pagina's): pigment uit het beenmerg bij jonge vleeskuikens. Opperarmbeen van een kip is luchthoudend (vakreview); daarom een botje uit de onderarm. Tweede onafhankelijke bron nog zoeken; twijfelscène T2 |
+| 2 | q07–s08 (v4) | Bot is levend weefsel: vraag bij een lengtedoorsnede van een mensenbot (kippenbotje geschrapt na keuring T2) | B2, B3, B4 | ✓ | Zie ook 4; de oude bewering over rood beenmerg in een kippenbotje (B48, B49, ≈) staat niet meer in de film |
 | 3 | s05 | In rood beenmerg worden bloedcellen gemaakt | B1, B2 | ✓ | |
 | 4 | s05 | Bot leeft: bloedvaten, cellen die afbreken en cellen die opbouwen | B2, B3, B4 | ✓ | |
 | 5 | s05 | Zo groeit een breuk weer dicht | B2, B3 | ✓ | |
@@ -75,7 +77,7 @@ A* = OpenStax-tekst op andere host: gezaghebbend, maar niet onafhankelijk van B1
 | 7 | s06 | Gewricht: kop, kom, kraakbeen, kapsel met gewrichtssmeer, banden | B9, B10 | ✓ | |
 | 8 | s06 | Kraakbeen: glad, zachter en buigzamer dan bot, geen bloedvaten | B7, B8 | ✓ | |
 | 9 | s08 | Elleboog = scharniergewricht (buigen en strekken); schouder = kogelgewricht | B9, B10 | ≈ | Draaien van de onderarm gebeurt tussen spaakbeen en ellepijp, niet in het scharnier (docentdeel) |
-| 10 | s09–s11 | Trek je in een kippenvleugel de voorste spier richting schouder, dan buigt de vleugel; duwen doet niets | B52, B13 | ≈ | Klassiek schoolpracticum; B52 laat 'aan spieren trekken om de beweging te zien' doen. Alleen B-bron voor de vleugel zelf; twijfelscène T1 |
+| 10 | s13–s16 (v4) | Armmodel (twee latjes, scharnier, twee touwtjes): trekken aan het voorste touwtje buigt, duwen laat het touwtje knikken | B13, B14 | ✓ | Een model, geen bewering over een echt dier (kippenvleugel geschrapt na keuring T1); de natuurkunde (touw kan niet duwen) en de biologie (spier kan alleen korter worden, 11) zijn onderbouwd |
 | 11 | s11 | Een spier kan alleen trekken (korter worden) | B13, B14 | ✓ | B14 niet onafhankelijk van B13; B25 (mechanisme) onderbouwt waarom |
 | 12 | s12 | Biceps: pees vóór de elleboog op de onderarm (spaakbeen), buigspier; triceps: pees achter de elleboog (ellepijp), strekspier | B13, B15, B16, B17 | ≈ | Aanhechtingsplaatsen alleen B-bronnen (StatPearls niet bereikbaar); vereenvoudigd zonder m. brachialis en deltaspier |
 | 13 | s14 | Bij strekken tegen de tafel is de triceps actief en de biceps bijna stil (EMG) | B13, B50 | ≈ | Agonist/antagonist (B13); 'bijna stil': co-contractie en overspraak (vakreview) |
@@ -90,7 +92,7 @@ A* = OpenStax-tekst op andere host: gezaghebbend, maar niet onafhankelijk van B1
 | 22 | s21 | Calcium uit het sarcoplasmatisch reticulum bindt troponine, tropomyosine schuift opzij, kruisbrug | B25, B21, B18 | ✓ | |
 | 23 | s22 | Cyclus: binden, fosfaat los, krachtslag, ADP los, ATP maakt los, splitsen spant | B25, B21 | ✓ | |
 | 24 | s22 | Terugpompen van calcium kost ATP; spier wordt pas langer als de strekspier trekt | B25, B28, B13 | ✓ | |
-| 25 | q23–s24 | Na het slachten raakt het ATP op, koppen blijven vast: stijf (lijkstijfheid) | B25, B21 | ✓ | Mechanisme ✓; dat kippenvlees uit de winkel weer slap is en hoe snel: geen bron geopend → de film zegt 'later' zonder mechanisme |
+| 25 | s30 (v4, vwo) | Zonder ATP blijven de myosinekoppen vastzitten: daarom wordt een lichaam na de dood stijf | B25, B21 | ✓ | Na keuring T6 één zin zonder vraag en zonder slachten |
 | 26 | s25 | Motorische zenuwcel (bewegingszenuwcel) geeft een impuls; vezel trekt samen | B29, B30, B43 | ✓ | 'bewegingszenuwcel' = havo-CE-term (B43) |
 | 27 | s26 | Eén zenuwcel vertakt zich naar veel vezels, verspreid; eindplaat; acetylcholine | B30, B29, B21, B25 | ✓ | 'verspreid door de spier': Purves (B30) |
 | 28 | s26 | Zenuwcel + al zijn vezels = motorische eenheid | B29, B21 | ✓ | |
@@ -102,7 +104,7 @@ A* = OpenStax-tekst op andere host: gezaghebbend, maar niet onafhankelijk van B1
 | 34 | s32 | Spierspoeltjes: speciale vezeltjes met zintuigcel, meten lengte en snelheid van rek | B37, B38 | ✓ | Leerdoel 10 berust op een aanname over Nectar § 19.5 (niet gecontroleerd) |
 | 35 | s32 | Rekreflex: sensorisch neuron schakelt in het ruggenmerg direct op het motorisch neuron, zonder schakelneuron; kniepeesreflex net zo | B37, B38, B40 | ✓ | |
 | 36 | s32 | Alleen het eerste stukje van het opvangen is de rekreflex | B37, B38 | ≈ | Vakreview; latere reacties via de hersenen |
-| 37 | s01, s29 | Volle schooltas zo'n vijf kilo | B41, B42 | ≈ | B41 gemiddeld 5,6 kg; B42 is C |
+| 37 | s01, s29 | Volle schooltas zo'n vijf kilo | B41, B42 | ≈ | B41 gemiddeld 5,6 kg; B42 is C  · niet meer in script v4 |
 | 38 | docent | Spierpijn komt niet door melkzuur, maar waarschijnlijk door kleine beschadigingen (checkvraag) | B33, B34, B35, B36 | ≈ | 'niet door melkzuur' ✓; oorzaak ≈ |
 | 39 | docent | Skelet, spiercontractie en motorische eenheid zijn geen CE-stof (B6 Beweging = SE) | B43, B44, B45 | ✓ | Reflexboog wel CE |
 
@@ -115,9 +117,11 @@ A* = OpenStax-tekst op andere host: gezaghebbend, maar niet onafhankelijk van B1
 | oog 'zo'n tien vezels', kuit 'wel duizend' | 'een paar, hooguit enkele tientallen' en 'honderden, soms wel tweeduizend' | B29, B30 |
 | pees 'rekt een paar procent uit' | 'rekt bijna niet uit' | B12 |
 | 'Geen enkele vezel trekt harder' | 'Het verschil zit vooral in hoeveel vezels er tegelijk trekken' | B29 |
-| 'Na de dood wordt er geen ATP meer gemaakt' | 'Na het slachten raakt het ATP op' | B25, B21 |
+| 'Na de dood wordt er geen ATP meer gemaakt' | 'Na het slachten raakt het ATP op' (v3) → 'Zonder ATP blijven de koppen vastzitten: daarom wordt een lichaam na de dood stijf' (v4, keuring T6) | B25, B21 |
+| kippenvleugel trekken/duwen; rood beenmerg in een kippenbotje | armmodel; vraag 'Is bot levend weefsel?' bij een mensenbot (v4, keuring T1/T2) | B2, B3, B4, B13 |
 | 'de piekjes van één eenheid' op het EMG | eenheden alleen in de dwarsdoorsnede | B51 |
+| 'In het midden zit rood beenmerg' (v4, gevonden door de frisse beeldreview: bij volwassenen geel merg in de mergholte, rood merg in het sponsachtige bot) | 'Rood beenmerg: daar worden bloedcellen gemaakt.' (woorden uit de take geknipt; beeld en label wijzen het sponsachtige bot aan de uiteinden aan) | B1, B2 |
 
 ## 5. Menselijke controle
 
-Nog niet gedaan. Voorstel steekproef voor Kamiel: beweringen 2, 10, 12 (≈, alleen B-bronnen of één organisatie) en 29.
+Nog niet gedaan. Voorstel steekproef voor Kamiel: bewering 12 (aanhechtingen, alleen B-bronnen) en 29.
