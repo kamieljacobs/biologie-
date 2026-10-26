@@ -2,6 +2,15 @@
 
 Stand (26 okt 2026, 21:00): keuring verwerkt; scènes worden gebouwd op geschatte woordtijden. **Inspreken staat stil: ElevenLabs-credits op** (80 over; nodig ± 10.600 voor beide films + ± 240–430 voor het decor).
 
+## PAUZE (Kamiel, 26 okt 2026, 20:56)
+Niet verder werken aan deze reeks (ook niet inspreken als er weer credits zijn) tot de Voeding-film die nu in een andere chat wordt gemaakt klaar is. Daarna eerst de indeling van het hele gebied opnieuw bekijken tegen die film.
+
+Openstaand voorstel (nog niet goedgekeurd, wacht op die film):
+1. Bij de diëtist: vraag op `vervolg.html` aanpassen ('bijna niemand eet genoeg groente' klopt alleen voor jongeren).
+2. Waarom afvallen zo moeilijk is: op `vervolg.html` naar plek 2 (nu plek 3, slug zegt 2); opbouw bijwerken (BMI en middelomtrek).
+3. Eten als behandeling versmallen tot de diëtist in het ziekenhuis: ondervoeding en nierziekte (diabetes zit in Hormonen 2, allergie en coeliakie raken Afweer 4).
+4. Van akker tot verpakking vervangen door een film over de eiwittransitie (levensmiddelentechnoloog, plantaardig tegenover dierlijk); dicht het gat in havo § 7.7 en neemt het Nieuwsgierig?-idee 'Het eten van de toekomst' mee. Open: onder Voeding en diëtetiek of bij Landbouw.
+
 ## Planning (akkoord Kamiel 26 okt 2026)
 Doel: samen het gat in havo § 10.5 *Gezonde voeding* dichten (Schijf van Vijf, energiebalans en BMI, overgewicht; `jaarplanner-dekking.json`, `bvj-havo5` → `10.5`). Beide films zijn ook extra film bij het thema Voeding (zoals CRISPR): `HOOFDSTUKKEN.extra.komt` met `vervolg: 'voedingsleer'`, in `vervolg.html` met `extra: 'voeding'`.
 
