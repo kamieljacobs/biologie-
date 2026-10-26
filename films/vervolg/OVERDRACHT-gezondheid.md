@@ -25,5 +25,14 @@ Bronmap staat al in de repo (`gezondheidswetenschappen-1-hoe-een-epidemie-groeit
 
 Belangrijke vondsten: RIVM zei op 10 maart 2020 zelf nog R 1,5–2 (later 2,3–2,5), dus 'ongeveer twee à drie'; ic: normaal ± 1150, opgeschaald naar 2400 (5 april), piek 1424 (7 april); de piek van nieuwe gevallen valt in het SIR-model níét op de drempel; Radboud heeft geen aparte master epidemiologie (richting binnen Biomedical Sciences); startmomenten VU en Maastricht nog nagaan vóór online.
 
+## Keuring Kamiel (26 okt 2026, 22:23)
+- c0 Farid: **B** (bordeauxrode trui, baard) → in `personages/lib_cast.js` (`farid`), ROLLEN.md, LEVENSLOOP.md, castboek.
+- g1 herinnering maart 2020 (Yasmin en Bilal, sepia kader): ok. g2 oefendossier met ronde getallen: ok.
+- g3 doorschieten: blijft. Kamiel: 'Wat word jij? is extra stof voor gemotiveerde leerlingen, dus het is ok' (mag verder gaan dan het boek).
+- g4 decor: 'er zijn weer credits, dus doe maar' → gemaakt: `werk-gezondheid/decor-ggd.webp` (gpt-image-2.5-sunburst met moestuin-stijlreferentie, flow cMT4epIEjMJi0sraRQzk, generatie t9uBD1KXWZIb1UsORGBd, ± 433 credits).
+
+## Inspreken en bouwen (26 okt 2026, avond)
+- Stem-invoer: `script_opname.md` (script v2 zonder Keuzes/Twijfels) → `segments.json`; film-eigen respellings in `uitspraak_film.json`: R → 'èr', R-nul → 'èr-nul', ic → 'ie-cee' (op de wachtlijst, nog niet getest). Brieven: `werk-gezondheid/HELPER-inspreken.md`, `HELPER-bouwen.md`.
+
 ## Daarna
 Keuring verwerken → Farid in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md, castboek → decor (alleen na akkoord en credits) → script_opname.md + segments.json → inspreken (Roos, eleven_v4; uitspraak-wachtlijst: R-nul, epidemioloog, groepsimmuniteit, ic, RIVM, Enschede) → bouwen (FILMDATA-straat, de dossierlagen als eigen tekenfuncties) → frisse beeldreview → repo (vervolg.html: planobject → [titel, href]; films.json; FILMKUNST; medaillon) → als laatste, na `git pull`, `jaarplanner-dekking.json`.
