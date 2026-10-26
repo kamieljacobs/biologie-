@@ -52,3 +52,10 @@ Decor praktijk (ElevenLabs, één variant, alleen na akkoord) → castvoorstel i
 - vd2: flow `fSF7UuMpBLlIQmf0gzjb` ('Voeding vd2 · stem'), 1 take: s01 (253 credits, `raw/s01.mp3` + `audio/s01.mp3` in hw/vd2, nog niet in de repo). Verder vanaf s04.
 - Stem-invoer: `segments.json` uit `script_opname.md` (script v2 zonder Keuzes/Twijfels); film 2 heeft `uitspraak_film.json` (ghreline → 'greline', op de wachtlijst).
 - Bouwen loopt intussen op geschatte woordtijden (`fakewords.py`); na het inspreken `silalign.py`, cues nalopen en opnieuw bouwen.
+
+## Bouwen (26 okt 2026, 21:30–22:00): beide films gebouwd op geschatte woordtijden
+- vd1: `hw/vd1/film/voedingsleer-1-bij-de-dietist.html`, 23 scènes; nieuw in `src/teken_vd1.js` (praktijk, balkjes, oorzaakkaartjes, pijlparen, advieskaart, tv/tomaatjes, gewoontecurve).
+- vd2: `hw/vd2/film/voedingsleer-2-waarom-afvallen-zo-moeilijk-is.html`, 25 scènes; nieuw in `src/teken_vd2.js` (riem met hand, balans met groeiende lagen, BMI-balk, zoomcirkels spieren/buikvet, maag/darm, hersenen met hypothalamus en hersenstam, ghreline-dagcurve, verbruik per dag, bed, straat).
+- Bouwbronnen staan in de bronmappen (`film.py`, `sections.html`, `segments.json`, `script_opname.md`, `bouw.sh`, `src/`); de werkmappen zelf zijn `hw/vd1`, `hw/vd2` (engine uit landbouw-3, lib_cast.js = actueel castboek).
+- Bekende punten voor de beeldreview: vd1 hand bij de handdruk achter het dagboek, Joost in 'denk'-pose aan de telefoon stijf, label 'bruine bonen' over een vaknaam, balklabels in H1 overlappen; vd2 bed = gedraaide staande figuur (bril lijkt open ogen), meetlint breed, riem op tafel over Hannekes handen, label 'OUD' klein, ± 0,4 s leeg navy bij een paar overgangen, 12 jonge mannen naast Joost (55) kan verwarren.
+- **Na het inspreken**: `silalign.py`, `antwoordletter.py`, cues nalopen (`cuecheck.py`, `cuecheck3.py`), opnieuw bouwen, frisse beeldreview (C10.7), `?vragen=uit` per vraag.
