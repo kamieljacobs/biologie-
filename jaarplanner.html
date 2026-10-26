@@ -129,6 +129,26 @@ a.chip.les:hover{background:var(--paars);color:var(--bg)}
 .ms li.les-li{padding-left:22px}
 .chip .fmed{width:18px;height:18px;border-radius:50%;vertical-align:-4px;margin:0 5px 0 -4px}
 .chip.vid.heeftmed::before{content:none}
+/* Films per paragraaf */
+.dk{margin-top:6px;font-size:13px}
+.dk summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:4px;color:var(--text3);font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:3px 0}
+.dk summary::-webkit-details-marker{display:none}
+.dk summary span{margin-left:4px}
+.dk summary:hover{color:var(--text)}
+.dk-stip{display:inline-block;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--goud);flex:none}
+.dk-stip.goed{background:var(--goud)}
+.dk-stip.deels{background:linear-gradient(90deg,var(--goud) 50%,transparent 50%)}
+.dk-stip.geen{border-color:var(--koraal)}
+.dk-lijst{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.dk-lijst>li{line-height:1.35}
+.dk-lijst>li>.dk-stip{margin-right:6px;vertical-align:0}
+.dk-naam{color:var(--text3);font-size:12px}
+.dk-lijst ul{margin:3px 0 0 15px;padding:0 0 0 10px;border-left:1px solid var(--line)}
+.dk-lijst ul li{list-style:none}
+.dk-lijst a{color:var(--goud-text);text-decoration:none}
+.dk-lijst a:hover{text-decoration:underline}
+.dk-wat{color:var(--text3);font-size:12px}
+.dk-mist{margin:3px 0 0 15px;color:var(--koraal);font-size:12px}
 /* Les en zelf (Kamiel 26 okt 2026: vwo behapbaar maken) */
 .split{margin:6px 0 0 24px;display:flex;flex-direction:column;gap:2px;font-size:13.5px;color:var(--text2);line-height:1.35}
 .split b{font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--goud-text);margin-right:6px}
@@ -1068,6 +1088,32 @@ function plCoachRep(level){
   return {titel:`Jaarplanner biologie · ${LEVELNAAM[level]}`,naam:COACH.naam(),datum:COACH.datum(),groepen};
 }
 
+
+// ---------- Films per paragraaf (Kamiel 26 okt 2026: 'welke video's welke paragrafen behandelen') ----------
+// Data: jaarplanner-dekking.json (per methode, per paragraaf: films met kern/deels/zijdelings, dekking goed/deels/geen, mist).
+// Gemaakt op paragraaftitels + bronmappen van de films, niet op de tekst van het boek. 'mist' alleen voor de docent (?k=1).
+let DEKKING=null;
+const DK_BRON={havo4:"bvj-havo4",havo4gb:"bvj-havo4",havo5:"bvj-havo5",vwo45:"nectar",vwo45gb:"nectar",vwo6:"nectar"};
+const DOCENT=(()=>{try{const q=new URLSearchParams(location.search).get("k");if(q!==null)localStorage.setItem("bk-k",q==="1"?"1":"0");return localStorage.getItem("bk-k")==="1"}catch(e){return false}})();
+function paragrafen(par){
+  const out=[];
+  for(const m of String(par||"").matchAll(/§ (\d+)\.(\d+)(?:[–-](\d+)\.(\d+))?/g)){
+    const h=+m[1],a=+m[2],b=m[4]?+m[4]:a; for(let i=a;i<=b;i++) out.push(`${h}.${i}`);
+  }
+  return out;
+}
+function dekkingHtml(level,par){
+  const bron=DEKKING&&DEKKING[DK_BRON[level]]; if(!bron) return "";
+  const ps=paragrafen(par).filter(p=>bron[p]); if(!ps.length) return "";
+  const stip=d=>`<i class="dk-stip ${d}" aria-hidden="true"></i>`;
+  const naam={goed:"goed gedekt",deels:"deels gedekt",geen:"nog geen film"};
+  const rij=p=>{const x=bron[p];
+    const films=(x.films||[]).filter(f=>f.dekking!=="zijdelings"||DOCENT);
+    return `<li>${stip(x.dekking)}<b>§ ${p}</b> <span class="dk-naam">${naam[x.dekking]||""}</span>`
+      +(films.length?`<ul>${films.map(f=>`<li><a href="${esc(SITE.replace(/\/$/,"")+"/"+f.href)}" target="_blank" rel="noopener">${esc(f.titel)}</a> <span class="dk-wat">${f.dekking==="kern"?"":f.dekking+" · "}${esc(f.wat||"")}</span></li>`).join("")}</ul>`:"")
+      +(DOCENT&&x.mist?`<div class="dk-mist">Mist: ${esc(x.mist)}</div>`:"")+`</li>`};
+  return `<details class="dk"><summary>${ps.map(p=>stip(bron[p].dekking)).join("")}<span>Films per paragraaf</span></summary><ul class="dk-lijst">${ps.map(rij).join("")}</ul></details>`;
+}
 // ---------- Deze week (Kamiel 26 okt 2026) ----------
 // Maandag van de lopende week; te testen met ?vandaag=2026-11-09
 const NU=(function(){let d=new Date();try{const q=new URLSearchParams(location.search).get("vandaag");if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q)){const [y,m,dd]=q.split("-").map(Number);d=new Date(y,m-1,dd)}}catch(e){}
@@ -1155,7 +1201,7 @@ function render(level){
         const hw=(hwParts.length?`<label class="tick"><input type="checkbox" class="pl-it" data-key="${esc(hk)}" ${PL.get(hk)?"checked":""}><span>${hwParts.map(esc).join("<br>")}</span></label>`:`<span class="leeg">nog invullen</span>`)+(r.split?`<div class="split">${r.split.split(" · ").map(x=>{const m=x.match(/^(Les|Zelf): (.*)$/);return m?`<span><b>${m[1]==="Les"?"In de les":"Zelf"}</b> ${esc(m[2])}</span>`:esc(x)}).join("")}</div>`:"");
         const par=r.par||`<span class="leeg">nog invullen</span>`;
         const w=weeks.find(x=>iso(x.d)===day), req=w?w.its.filter(i=>!i.extra):[], alles=req.length&&req.every(i=>PL.get(i.k));
-        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}</td><td class="mid">${midHtml}</td><td class="mid gu">${guHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
+        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="mid">${midHtml}</td><td class="mid gu">${guHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
       }
     }
     out+=`</tbody></table></div></section>`;
@@ -1181,6 +1227,7 @@ document.querySelectorAll("#locatie button").forEach(b=>b.addEventListener("clic
 let start="havo4";
 try{const h=location.hash.replace("#","");if(PLANNERS[h]||h==="route")start=h;else{const s=localStorage.getItem("planner-tab");if(PLANNERS[s]||s==="route")start=s}}catch(e){}
 render(start);
+fetch("jaarplanner-dekking.json?v=1").then(r=>r.ok?r.json():null).then(d=>{if(!d)return;DEKKING=d;const cur=location.hash.replace("#","");if(PLANNERS[cur]){const y=scrollY;render(cur);scrollTo(0,y)}}).catch(()=>{});
 window.addEventListener("hashchange",()=>{const h=location.hash.replace("#","");if(PLANNERS[h]||h==="route")render(h)});
 // Bij openen meteen naar deze week (niet bij terug/vooruit: dan zet js/terug.js de oude hoogte terug)
 try{const nav=performance.getEntriesByType("navigation")[0];if(!nav||nav.type==="navigate"||nav.type==="reload"&&!sessionStorage.getItem("bk-scroll"))requestAnimationFrame(()=>naarDezeWeek("auto"))}catch(e){}
