@@ -112,7 +112,8 @@ const CAST = {
   erik:   { naam: 'Erik', leeftijd: 38, rol: 'figurant · verdachte, voorbijganger, iemand uit een onderzoek', huid: '#E3B998', haar: '#7A6A58', kapsel: 'kort', wenkbrauw: '#5A4A3A', stoppels: true,
             top: 'jas', topKleur: '#3A3F4E', topAccent: '#2C303C', broek: '#4A4E5E', schoen: '#2A2F3E', schoenAccent: '#1E2230', accessoire: [], lengte: 1.02 },
   joost:  { naam: 'Joost', leeftijd: 55, rol: 'figurant · verre familie, buurman, iemand uit een onderzoek', huid: '#E6BE9A', haar: '#B8B0A0', kapsel: 'kort', wenkbrauw: '#9A9284',
-            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0 },
+            top: 'trui', topKleur: '#8A5A3A', topAccent: '#744A30', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['bril'], lengte: 1.0,
+            garderobe: { gewoon: {}, spreekuur: { heupK: 1.66, schouderK: 2.02 } } }, // spreekuur (26 okt 2026, Voeding en diëtetiek): iets vollere romp, geen karikatuur (Kamiel akkoord)
   buurvrouw: { naam: 'Mevrouw Jansen', leeftijd: 72, rol: 'buurvrouw · oudere vrouw, los van Noors familie', huid: '#E8C3A4', haar: '#DCD8D0', kapsel: 'kort', wenkbrauw: '#BEB6AA', wimpers: true, lippen: '#B4605A',
             top: 'vest', topKleur: '#6E8A5E', topAccent: '#5C744E', binnen: '#EEE6DA', broek: '#4A4E5E', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.93, krom: 0.03,
             garderobe: { thuis: {}, buiten: { top: 'jas', topKleur: '#7A5A6E', topAccent: '#644A5A' } } }, // 25 okt 2026 (Forensisch onderzoek 3): kort wit haar, groen vest; bewust anders dan Oma Ria (geen bob, geen bril)
@@ -125,6 +126,9 @@ const CAST = {
   bas:    { naam: 'Ecoloog Bas', leeftijd: 46, rol: 'ecoloog · telt, meet en maakt plannen voor natuurgebieden · alleen in zijn eigen vak', huid: '#E0B08C', haar: '#7A5A3A', kapsel: 'kort', wenkbrauw: '#5E4430', baard: true,
             top: 'jas', topKleur: '#6B6A3A', topAccent: '#58572E', broek: '#4A4636', schoen: '#3A2E22', schoenAccent: '#2A2018', accessoire: ['verrekijker'], lengte: 1.04,
             garderobe: { veld: {}, gewoon: { top: 'overhemd', topKleur: '#7A8A5A', topAccent: '#66744A', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: [] } } }, // 25 okt 2026 (Ecologie, begeleider van Daan; goedgekeurd door Kamiel 25 okt 2026): olijfgroene veldjas, laarzen, verrekijker, baard
+  hanneke: { naam: 'Diëtist Hanneke', leeftijd: 41, rol: 'diëtist · vraagt wat je eet en wat jij wilt veranderen · alleen in haar eigen vak', huid: '#A87252', haar: '#2A1A12', kapsel: 'krul', wenkbrauw: '#22150E', wimpers: true, lippen: '#A9584E',
+            top: 'vest', topKleur: '#5E8A6A', topAccent: '#4E7458', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.98,
+            garderobe: { praktijk: {}, buiten: { top: 'jas', topKleur: '#7A5A3A', topAccent: '#664A30' } } }, // 26 okt 2026 (Voeding en diëtetiek, goedgekeurd door Kamiel 26 okt 2026, voorstel A): krullen, groen vest, gewone kleding, geen labjas
   fleur:  { naam: 'Fleur', leeftijd: 10, rol: 'meisje van ± 10 jaar (groep 7) · voor scènes met een basisschoolkind, bv. de HPV-prik', huid: '#C99872', haar: '#3A2418', kapsel: 'vlecht', wenkbrauw: '#2A1A12',
             top: 'tshirt', strepen: null, topKleur: '#E07A8F', topAccent: '#C8667A', broek: '#4D6E9C', schoen: '#F2F2EE', schoenAccent: '#E07A8F', accessoire: [], lengte: 1,
             kop: 5.8, armK: 0.9, schouderK: 1.42, heupK: 1.24 }, // kinderverhoudingen (± 10 jaar, ± 140 cm): hoofd iets kleiner dan bij Teun
@@ -137,7 +141,7 @@ const CAST = {
   // Garderobe 'licht' = variant B voor de keuring: een gezin met een lichte huid (dan valt Levi minder op; Kamiel kiest).
   dennis: { naam: 'Dennis', leeftijd: 43, rol: 'figurant · vader in het gezin De Wit (Aa)', huid: '#8E6248', haar: '#1E1612', kapsel: 'krul', wenkbrauw: '#16100C', stoppels: true,
             top: 'trui', topKleur: '#4D6E9C', topAccent: '#3F5C84', broek: '#3A3F4E', schoen: '#3A2E26', schoenAccent: '#241C16', accessoire: [], lengte: 1.04,
-            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' } } },
+            garderobe: { gewoon: {}, licht: { huid: '#E6BE9A', haar: '#6A4A30', wenkbrauw: '#4A3220', kapsel: 'kort' }, sport: { top: 'tshirt', strepen: null, topKleur: '#4F8FB0', topAccent: '#3E7896', broek: '#2E3442', schoen: '#F2F2EE', schoenAccent: '#4F8FB0', schouderK: 2.1, heupK: 1.4 } } }, // sport: 26 okt 2026 (Voeding 2, sporter met index 26)
   marieke: { naam: 'Marieke', leeftijd: 41, rol: 'figurant · moeder in het gezin De Wit (Aa)', huid: '#B98563', haar: '#3A2418', kapsel: 'golf', golfLang: 0.6, wenkbrauw: '#2A1A12', wimpers: true, lippen: '#A8564E',
             top: 'vest', topKleur: '#C9654B', topAccent: '#A8523C', binnen: '#F2ECE2', broek: '#33415C', schoen: '#4A3A2E', schoenAccent: '#2E241C', accessoire: ['oorbel'], lengte: 0.97,
             garderobe: { gewoon: {}, licht: { huid: '#EFC9A8', haar: '#8A5A30', wenkbrauw: '#6A4422' } } },
@@ -196,7 +200,7 @@ const CAST_FAMILIE = {
   anouk: { partner: 'milan' }
 };
 const CAST_EXTRA = ['linda', 'rachid', 'ria', 'ahmed', 'malika', 'petra', 'thijs', 'erik', 'joost', 'buurvrouw'];
-const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas'];
+const CAST_VOLGORDE = ['noor', 'sam', 'lotte', 'daan', 'yasmin', 'bilal', 'kim', 'henk', 'visser', 'ravi', 'jesse', 'femke', 'mirjam', 'esra', 'mila', 'gerrit', 'wouter', 'ilse', 'lieke', 'merel', 'bas', 'hanneke'];
 const CAST_JONG = ['kind', 'fleur', 'ruben', 'baby']; // 22 okt 2026: Fleur en Ruben (± 10 jaar)
 const CAST_OUDERS_BI = ['anouk', 'milan']; // 25 okt 2026: ouders in het uitslaggesprek van Bio-informatica 2 (figuranten, ter keuring)
 const CAST_FIGURANTEN_BI3 = ['sanne', 'bram', 'wilma', 'passant']; // 25 okt 2026: Bio-informatica 3, bedacht uitbraakvoorbeeld (ter keuring)

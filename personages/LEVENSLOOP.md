@@ -26,6 +26,10 @@
 
 **Ecoloog Bas** (± 46) · vast: ecoloog, begeleider van Daan (goedgekeurd door Kamiel 25 okt 2026). Gebeurd: Ecologie 1–3. Grenzen: alleen in zijn eigen vak.
 
+**Diëtist Hanneke** (± 41) · vast: diëtist (krullen, groen vest, geen labjas), goedgekeurd door Kamiel 26 okt 2026 (voorstel A). Gebeurd: Voeding en diëtetiek 1–2 (Joost is haar cliënt; Noor loopt een dag mee). Grenzen: alleen in haar eigen vak; geeft wél advies, maar vraagt eerst.
+
+**Joost** (55) · vast: figurant (verre familie, buurman, iemand uit een onderzoek). Gebeurd: cliënt van Diëtist Hanneke in Voeding en diëtetiek 1–2 (outfit `spreekuur`: iets vollere romp, geen karikatuur); heeft een kleindochter, op een foto op zijn telefoon (castboek Fleur, Kamiel akkoord 26 okt 2026); Erik is zijn buurman (Voeding 2). Grenzen: geen diagnose of streefgewicht als vast kenmerk; zijn gewicht nooit als getal in beeld.
+
 **Esra** (29) · vast: zwanger van haar eerste kind, cliënte van Mirjam, los van Noors familie. Gebeurd: loopt door Verloskunde 1–5. Grenzen: geen familie van Noor.
 
 **Erik** (38) · vast: figurant, verdachte of voorbijganger. Gebeurd: verdachte in Forensisch onderzoek 2. Grenzen: blijft figurant (geen naam of rol met een verhaal).
@@ -47,9 +51,9 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 63 films
+### Noor (`noor`) — 64 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
-- `cellen`: celorganellen, diffusie-osmose, van-molecuul-tot-biosfeer
+- `cellen`: celorganellen, diffusie-osmose, microben, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren
 - `ecologie`: 3-een-aarde, 4-ingrijpen-of-laten-gaan
 - `erfelijkheid`: 1-chromosomen
@@ -132,8 +136,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, verpleegkunde-2-hoe-weefsel-herstelt
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
-### Teun (`kind`) — 13 films
+### Teun (`kind`) — 14 films
 - `afweer`: 2-antistoffen-op-maat
+- `cellen`: microben
 - `examens`: vwo-2018-2
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
@@ -149,7 +154,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Mevrouw Visser (`visser`) — 8 films
+### Mevrouw Visser (`visser`) — 9 films
+- `cellen`: microben
 - `dna`: 2-dna-kopieren
 - `erfelijkheid`: 1-chromosomen
 - `evolutie`: 8-stambomen-lezen
@@ -247,6 +253,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 
 ### Ecoloog Bas (`bas`) — 3 films
 - `vervolg`: ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur
+
+### Diëtist Hanneke (`hanneke`) — 0 films
+- (geen films gevonden)
 
 ### Fleur (`fleur`) — 1 films
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
