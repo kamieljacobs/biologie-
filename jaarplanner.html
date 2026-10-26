@@ -173,11 +173,11 @@ td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
 td.wk{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);width:92px}
 td.wk b{color:var(--fg);font-weight:600}
-td.par{width:19%}
-td.mid{width:24%}
+td.par{width:27%}
+td.mid{width:30%}
 td.mid.gu{width:19%}
-td.hw{width:17%}
-td.opm{width:11%}
+td.hw{width:22%}
+td.opm{width:12%}
 td.opm{color:var(--muted)}
 tr.off td{background:var(--off);color:var(--off-fg)}
 tr.act td{background:repeating-linear-gradient(135deg,var(--off) 0 8px,var(--row) 8px 12px);color:var(--off-fg)}
@@ -622,14 +622,14 @@ a.chip:hover{background:var(--accent);color:var(--row)}
   <button class="tab" role="tab" data-tab="vwo45" aria-selected="false">vwo 4+5</button>
   <button class="tab" role="tab" data-tab="vwo6" aria-selected="false">vwo 6</button>
 </div>
-<p class="sub" id="sub"></p>
+
 <div class="legend" id="legend">
   <span><i class="sw" style="background:var(--goud);border-color:var(--goud)"></i> deze week</span>
   <span><i class="sw" style="background:var(--off)"></i> vakantie</span>
   <span><i class="sw" style="background:repeating-linear-gradient(135deg,var(--off) 0 4px,var(--row) 4px 6px)"></i> activiteitenweek</span>
   <span><i class="sw" style="background:var(--toets)"></i> toets</span>
   <span><i class="sw" style="background:var(--eigen)"></i> eigen lespakket</span>
-  <span><i class="chip vid">video</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra, als je tijd over hebt</span><span><i class="chip vid ext">GU</i><span class="extra-tag">extra</span> film van Gewoon Uitgelegd</span><span><i class="chip les">les</i> les van de docent</span>
+  <span><i class="chip vid">video</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra, als je tijd over hebt</span><span><i class="chip les">les</i> les van de docent</span>
 </div>
 <div id="planner"></div>
 <div class="notes">
@@ -648,10 +648,12 @@ const GU="https://gewoonuitgelegd.nl/biologie/";
 // Kamiel 26 okt 2026: alleen deze tools staan (even) in de planner; de rest is verborgen.
 // Weer tonen = het pad hier toevoegen. Lessen (tools/docent) staan niet in de planner.
 const TOOL_ZICHTBAAR=u=>/schaallab|examenatlas/.test(u||"");
+// Gewoon Uitgelegd uit de planner (Kamiel 26 okt 2026: 'ik heb nu zoveel zelf'); de data blijft staan, true = weer tonen
+const TOON_GU=false;
 function verbergTools(o){
   if(Array.isArray(o)){
     for(let i=o.length-1;i>=0;i--){const x=o[i];
-      if(Array.isArray(x)&&x[0]==="tool"&&!TOOL_ZICHTBAAR(x[2])) o.splice(i,1); else verbergTools(x);}
+      if(Array.isArray(x)&&((x[0]==="tool"&&!TOOL_ZICHTBAAR(x[2]))||(!TOON_GU&&(x[3]==="ext"||/gewoonuitgelegd/.test(x[2]||""))))) o.splice(i,1); else verbergTools(x);}
   } else if(o&&typeof o==="object") for(const k in o) verbergTools(o[k]);
 }
 const START = new Date(2026, 7, 31);
@@ -752,11 +754,10 @@ const PLANNERS = {
 };
 verbergTools(PLANNERS);
 const COMMON_NOTES = [
- 'Eigen films staan op <a href="index.html#home">Biologie bij Kamiel</a>; aanvullende films komen van <a href="https://gewoonuitgelegd.nl/biologie/" target="_blank" rel="noopener">Gewoon Uitgelegd</a>. Alle links openen in een nieuw tabblad.',
+ 'Alle films staan op <a href="index.html#home">Biologie bij Kamiel</a>. Alle links openen in een nieuw tabblad.',
  "Waar twee paragrafen in één week staan, behandelt de les de kern en is de rest huiswerk.",
  "Valt het lesuur op maandag, dan vervallen ook 29 maart (2e Paasdag) en 17 mei (2e Pinksterdag).",
  "Vakanties en activiteitenweken volgens schoolkalender 2026-2027.",
- 'Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.',
 ];
 
 
@@ -990,12 +991,12 @@ verbergTools(DATA);
 
   function html(){
     const P=DATA[lvl];
-    return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan. Begrip vergeten? De <a href="https://gewoonuitgelegd.nl/begrippen/" target="_blank" rel="noopener">begrippenindex van Gewoon Uitgelegd</a> springt naar de minuut in de film waar het wordt uitgelegd.</p>`
+    return `<p class="rt-intro">Per PTA-onderdeel zie je welke hoofdstukken, films en tools erbij horen. Lees elk hoofdstuk en maak de opdrachten; de films en tools helpen je daarbij. Werk in je eigen tempo en vink af wat je hebt gedaan.</p>`
       +`<div class="rt-bar"><div class="rt-switch" role="group" aria-label="Niveau">${["havo","vwo"].map(l=>`<button type="button" data-rt="${l}" aria-pressed="${l===lvl}">${l}</button>`).join("")}</div>`
       +`<div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-act="mentor" aria-expanded="${mentorOpen}">Overzicht voor je coach</button></div></div>`
-      +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en welke hoofdstukken of films nog open staan. Tools en films van Gewoon Uitgelegd zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
+      +(mentorOpen?COACH.panel(coachRep(),"Hier staan de onderwerpen waarin je iets hebt afgevinkt: wat je hebt gedaan en welke hoofdstukken of films nog open staan. Tools zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf."):"")
       +`<div class="meta"><span><b>${escH(P.methode)}</b></span><span>${escH(P.pta)}</span></div>`
-      +`<div class="rt-legend"><span><i class="chip vid">film</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra stof, als je tijd over hebt</span><span><i class="chip ext vid">GU · film</i> extra: van Gewoon Uitgelegd</span><span>☐ vink af wat je hebt gedaan</span></div>`
+      +`<div class="rt-legend"><span><i class="chip vid">film</i> eigen film</span><span><i class="chip tool">tool</i><span class="extra-tag">extra</span> extra stof, als je tijd over hebt</span><span>☐ vink af wat je hebt gedaan</span></div>`
       +cards();
   }
 
@@ -1153,7 +1154,7 @@ function render(level){
   const isRoute=level==="route";
   document.getElementById("legend").hidden=isRoute;
   if(isRoute){
-    document.getElementById("sub").textContent="";
+    (document.getElementById("sub")||{}).textContent="";
     ROUTE.mount(document.getElementById("planner"),document.getElementById("notes"));
     nuKnop();
     document.title="PTA-route biologie";
@@ -1165,11 +1166,11 @@ function render(level){
   const P=PLANNERS[level];
   const weeks=plWeeks(level), all=weeks.flatMap(w=>w.its).filter(i=>!i.extra), nDone=all.filter(i=>PL.get(i.k)).length;
   let out=`<div class="rt-bar pl-bar"><span class="pl-prog">${nDone} van ${all.length} afgevinkt</span><div class="rt-acts"><button type="button" class="btn ghost" data-reset>Alles uitvinken</button><button type="button" class="btn" data-pl="mentor" aria-expanded="${PL.open}">Overzicht voor je coach</button></div></div>`;
-  if(PL.open) out+=COACH.panel(plCoachRep(level),"Hier staan de weken waarin je iets hebt afgevinkt: wat je hebt gedaan en welk huiswerk of welke films je die week nog niet hebt gedaan. Tools en films van Gewoon Uitgelegd zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf.");
+  if(PL.open) out+=COACH.panel(plCoachRep(level),"Hier staan de weken waarin je iets hebt afgevinkt: wat je hebt gedaan en welk huiswerk of welke films je die week nog niet hebt gedaan. Tools zijn extra en staan er alleen in als je ze hebt gedaan. Je vinkjes worden alleen in deze browser bewaard; kopieer het overzicht naar je coach in Teams, of druk het af of sla het op als pdf.");
   const ro=rooster(level);
   P.blokken.forEach((b,bi)=>{
     const rows=ro.filter(x=>x.bi===bi); if(!rows.length) return;
-    out+=`<section class="blok"><h2>${blokMed(b.titel)}${esc(b.titel)} <small>${esc(blokSub(b,rows))}</small></h2><div class="tw"><table><thead><tr><th>Week</th><th>Paragrafen / les</th><th>Eigen films en tools</th><th>Extra · Gewoon Uitgelegd</th><th>Huiswerk</th><th>Opmerkingen</th></tr></thead><tbody>`;
+    out+=`<section class="blok"><h2>${blokMed(b.titel)}${esc(b.titel)} <small>${esc(blokSub(b,rows))}</small></h2><div class="tw"><table><thead><tr><th>Week</th><th>Paragrafen / les</th><th>Eigen films en tools</th><th>Huiswerk</th><th>Opmerkingen</th></tr></thead><tbody>`;
     for(const x of rows){
       const r=x.r, d=x.d;
       const dat=`${String(d.getDate()).padStart(2,"0")}-${String(d.getMonth()+1).padStart(2,"0")}`;
@@ -1177,7 +1178,7 @@ function render(level){
       const wk=`<td class="wk"><b>wk ${isoWeek(d)}</b><br>ma ${dat}${isNu?'<br><span class="nu-tag">deze week</span>':""}</td>`;
       if(r.type==="off"){
         const act=/activiteitenweek/i.test(r.opm);
-        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="5"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
+        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="4"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
       else{
         const day=iso(d);
         const isGU=m=>/gewoonuitgelegd/.test(m[2]||""); const rk=m=>(isGU(m)?2:0)+(m[0]==="tool"?1:0);
@@ -1199,7 +1200,7 @@ function render(level){
         const hw=(hwParts.length?`<label class="tick"><input type="checkbox" class="pl-it" data-key="${esc(hk)}" ${PL.get(hk)?"checked":""}><span>${hwParts.map(esc).join("<br>")}</span></label>`:`<span class="leeg">nog invullen</span>`)+(r.split?`<div class="split">${r.split.split(" · ").map(x=>{const m=x.match(/^(Les|Zelf): (.*)$/);return m?`<span><b>${m[1]==="Les"?"In de les":"Zelf"}</b> ${esc(m[2])}</span>`:esc(x)}).join("")}</div>`:"");
         const par=r.par||`<span class="leeg">nog invullen</span>`;
         const w=weeks.find(x=>iso(x.d)===day), req=w?w.its.filter(i=>!i.extra):[], alles=req.length&&req.every(i=>PL.get(i.k));
-        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="mid">${midHtml}</td><td class="mid gu">${guHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
+        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="mid">${midHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
       }
     }
     out+=`</tbody></table></div></section>`;
@@ -1213,7 +1214,7 @@ function render(level){
   }));
   const rb=el.querySelector("[data-reset]"); if(rb) COACH.resetKnop(rb,`pl:${level}:`,()=>render(level));
   if(PL.open) COACH.wire(el,()=>plCoachRep(level),()=>{PL.open=false;render(level)});
-  document.getElementById("sub").textContent=P.sub;
+  (document.getElementById("sub")||{}).textContent=P.sub;
   nuKnop();
   document.getElementById("notes").innerHTML=[...P.notes,...COMMON_NOTES].map(n=>`<li>${n}</li>`).join("");
   document.title=`Jaarplanner biologie ${LEVELNAAM[level]} 2026-2027`;
