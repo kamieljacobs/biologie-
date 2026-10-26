@@ -1,0 +1,103 @@
+<title>Twijfelblad Voeding</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Lay-out: keuringsblad — kop met puzzel en keuzes, dan per twijfelscène keyframe links en vertelling + twijfel + keuring rechts */
+:root{--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--paars:#8C7BBF;
+--titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--paars:#5E4E9A;color-scheme:light}}
+:root[data-theme="light"]{--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--paars:#5E4E9A;color-scheme:light}
+body{background:var(--bg);color:var(--fg);font-family:var(--tekst);font-size:17px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--titel);font-size:clamp(30px,5vw,46px);margin:0;text-wrap:balance}
+h2{font-family:var(--titel);font-size:clamp(24px,4vw,32px);margin:0;text-wrap:balance}
+.intro{color:var(--fg2);max-width:72ch;margin:0}
+.meta{font-family:var(--meta);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.balk{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;border-bottom:1px solid var(--lijn)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.tel{font-variant-numeric:tabular-nums;font-weight:700}.tel b{font-family:var(--meta);font-size:13px;letter-spacing:.08em}
+.filmkop{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:18px}
+.filmkop dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}.filmkop dt{font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);padding-top:3px}.filmkop dd{margin:0}
+.filmkop ul{margin:6px 0 0;padding-left:20px;color:var(--fg2)}.filmkop li{margin-bottom:4px}
+details summary{cursor:pointer;font-weight:600}
+.hst{font-family:var(--titel);font-size:24px;margin:14px 0 0}
+.sc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px}
+.sc.ok{border-color:color-mix(in srgb,var(--groen) 70%,transparent)}.sc.opm{border-color:color-mix(in srgb,var(--goud) 80%,transparent)}
+.sc img{width:100%;max-width:100%;border-radius:8px;display:block;background:#121A26}
+.rechts{display:flex;flex-direction:column;gap:10px;min-width:0}
+.kop{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{font-family:var(--meta);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px;color:var(--fg2)}
+.verteller{margin:0;font-size:18px}
+.bew{margin:0;color:var(--fg2);font-size:15px}.bew::before{content:"Beweging · ";font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--goud)}
+.twijfel{border-left:3px solid var(--goud);padding:6px 0 6px 12px;display:grid;gap:4px}.twijfel p{margin:0}
+.keur{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.knop{font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px;cursor:pointer}
+.knop.ja[aria-pressed="true"]{background:var(--groen);color:#0E1A12;border-color:var(--groen)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:8px 10px;min-height:60px;resize:vertical;width:100%;box-sizing:border-box}
+.status{font-size:13px;color:var(--fg2);min-height:1.2em}
+.bewaard{font:500 12px var(--meta);color:var(--fg2);letter-spacing:.05em}
+.alg{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--fg2);cursor:pointer}.alg input{width:18px;height:18px;accent-color:var(--goud)}
+@media (max-width:760px){.sc,.filmkop{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="meta">Wat word jij? · Voeding en diëtetiek · twee films · alleen de scènes waar ik over twijfel</span>
+    <h1>Twijfelblad Voeding en diëtetiek</h1>
+    <p class="intro">Hieronder staan alleen de scènes waar ik over twijfel: een nieuw personage, rollen voor castpersonages, een decor dat credits kost en beelden rond gewicht. De rest gaat zonder keuring de productie in; die zie je straks in de gebouwde films. Zet een vinkje als een scène goed is, of typ wat er anders moet. Alles wordt meteen bewaard. Geldt een opmerking voor al je films, vink dan <b>geldt voor alle films</b> aan.</p>
+  </header>
+  <div class="balk" role="region" aria-label="Voortgang">
+    <span class="tel"><b style="color:var(--groen)">✓</b> <span id="nOk">0</span></span>
+    <span class="tel"><b style="color:var(--goud)">opmerking</b> <span id="nOpm">0</span></span>
+    <span class="tel"><b style="color:var(--fg2)">open</b> <span id="nOpen">0</span></span>
+    <span class="meta" id="totaal"></span>
+  </div>
+  <section id="filmkop" style="display:flex;flex-direction:column;gap:16px"></section>
+  <div id="lijst" style="display:flex;flex-direction:column;gap:16px"></div>
+  <p class="status" id="opslag"></p>
+</div>
+<script>
+const FILM = {"titel": "Voeding en diëtetiek", "films": [{"id": "vd1", "titel": "Bij de diëtist: van eetdagboek tot nieuwe gewoonte", "puzzel": "Iedereen weet dat groente gezond is. Waarom eet bijna niemand genoeg?", "haak": "Joost (55) komt op verwijzing van de huisarts bij Diëtist Hanneke; Noor loopt een dag mee.", "duur": "927 gesproken woorden, ± 6,6 minuten; 7 vragen (antwoorden c, a, b, c, b, a, b)", "hoofdstukken": "Cold open · 1 Meten wat iemand eet · 2 De Schijf van Vijf · 3 Een advies op maat · 4 Gewoontes veranderen · Recap", "keuzes": ["Drie scriptvarianten bij een blinde beoordelaar (ander model): 57, 55, 53, dus nipt. Daarom gecombineerd: tempo en camera van de winnaar, de vraagsets van de klassieke variant, de foto en het telefoontje uit de kijker-speelt-mee-variant. Tweede ronde: de combinatie wint duidelijk (62).", "Frisse feitenreview: 15 MOET-punten, alle verwerkt. Belangrijkste: een diëtist geeft wél advies (eerst vragen, dan advies); 'bijna niemand' geldt alleen voor jongeren, dus de film zegt 'drie op de tien volwassenen'; het beeld verraadt geen antwoord meer vóór de vraag.", "De Schijf van Vijf is op 9 april 2026 vernieuwd (meer peulvruchten, minder vlees). De film volgt de nieuwe versie; het boek toont mogelijk nog die van 2016.", "Nieuwe vraag: in welk vak horen bruine bonen? Zo toetst de film de vijf vakken zelf (§ 10.5).", "Vaste zin over opleidingen in beide films: diëtist is een beschermde titel (hbo Voeding en Diëtetiek, bijvoorbeeld HAN Nijmegen); met Voeding en Gezondheid in Wageningen word je geen diëtist."]}, {"id": "vd2", "titel": "Waarom afvallen zo moeilijk is: energiebalans, honger en verzadiging", "puzzel": "Je eet een tijd minder. Waarom gaat je gewicht daarna toch weer omhoog?", "haak": "Joost, de cliënt uit film 1, zet zijn riem een gaatje strakker; maanden later zit hij weer in het oude gaatje, terwijl hij zich aan zijn plan houdt.", "duur": "± 900 gesproken woorden, ± 6,4 minuten; 6 vragen (script v2 volgt na de feitenreview die nu loopt)", "hoofdstukken": "Cold open · 1 Energiebalans · 2 Wanneer is het te veel? (BMI, middelomtrek, overgewicht) · 3 Honger, verzadiging en een lichaam dat zich verzet · 4 Wat wel helpt · Recap", "keuzes": ["Drie scriptvarianten bij een blinde beoordelaar: 57, 56, 51, nipt. Gecombineerd: de riem als haak en het tempo van de winnaar, de vraag 'twee mensen met index 26' en de buurmanvraag uit de tijdlijnvariant, de slaapvraag en een stem zonder afkortingen uit de klassieke variant. Tweede ronde: de combinatie wint duidelijk (60).", "De grote mutatie 'wedstrijd' heb ik bij de trekking geschrapt: een afvalwedstrijd botst met de toonregels bij gewicht. Herloting: tijdlijn van ontdekkingen (verloor, te zwaar voor havo).", "Toon: geen weegschaal, geen getal bij Joost, geen 'wilskracht'; 'Joost dacht dat het aan hem lag. Hanneke zegt: nee, dit is biologie.'", "Overgewicht in Nederland: ongeveer de helft van de volwassenen, een op de zes obesitas (CBS, 2025)."]}], "scenes": [{"id": "c0", "film": "reeks", "hoofdstuk": "Beide films · cast", "img": "k1", "look": "Cast", "tekst": "Diëtist Hanneke is de vakpersoon in beide films. Joost (figurant uit het castboek, 55) is de cliënt; voor deze reeks krijgt hij de outfit 'spreekuur' met een iets vollere romp.", "twijfel": "Welk uiterlijk krijgt Hanneke (A, B of C; ik kies A: valt het best op tussen de andere vrouwen in het castboek)? En is Joosts vollere romp genoeg zonder karikatuur?", "waarom": "Een nieuw personage keur jij goed. En gewicht in beeld is gevoelig: ik wil het niet aandikken."}, {"id": "v1a", "film": "vd1", "hoofdstuk": "Film 1 · Bij de diëtist", "img": "k2", "look": "Schema + decor", "tekst": "Hanneke is diëtist. Vandaag komt Joost, vijfenvijftig, op verwijzing van zijn huisarts. Joost vindt het goed dat Noor meekijkt.", "beweging": "Snelle zwenking over de tafel; het eetdagboek vult zich, daarna zakt de camera door de pagina de Schijf van Vijf in.", "twijfel": "Noor loopt een dag mee (stond niet in je akkoord). En één ElevenLabs-decor 'praktijk van de diëtist' achter de tafel, voor beide films (één variant, ± 240 tot 430 credits).", "waarom": "Een nieuwe rol voor een castpersonage en credits zijn jouw keuze."}, {"id": "v1b", "film": "vd1", "hoofdstuk": "Film 1 · Bij de diëtist", "img": "k3", "look": "Schema + decor", "tekst": "Joost pakt zijn telefoon en laat een foto zien van zijn kleindochter op de fiets. Hij wil haar kunnen bijhouden, zonder uit te puffen.", "twijfel": "A: castboek Fleur (± 10) als kleindochter op de foto. B: alleen het fietsje, geen kind.", "waarom": "Fleur krijgt dan een familieband met een figurant; dat is een smaakkeuze die bij jou ligt."}, {"id": "v1c", "film": "vd1", "hoofdstuk": "Film 1 · Bij de diëtist", "img": "k4", "look": "Schema", "tekst": "De Schijf van Vijf is in april tweeduizendzesentwintig vernieuwd. Hij heeft vijf vakken. Groente en fruit, zoals tomaat en appel …", "beweging": "Elk vak licht op als het genoemd wordt; de naam staat in gewone letters naast het vak.", "twijfel": "Een eigen schema in de filmkleuren, geen logo en geen nummers. Voor twee vakken (vetten en oliën, dranken) noemt het Voedingscentrum geen officiële naam, dus de film gebruikt beschrijvende namen.", "waarom": "Een nieuwe tekening voor de bibliotheek. En jullie boek toont mogelijk nog de schijf van 2016 (andere vaknamen, meer vlees): leerlingen zien dan een verschil."}, {"id": "v2a", "film": "vd2", "hoofdstuk": "Film 2 · Waarom afvallen zo moeilijk is", "img": "k5", "look": "Schema + decor", "tekst": "Joost eet een tijd wat minder. Zijn riem gaat een gaatje strakker: een paar kilo eraf. Maanden later zit hij weer in het oude gaatje.", "beweging": "Zoomcirkel naar de riem; de gewichtscurve (zonder getallen, 'model') daalt en komt weer omhoog.", "twijfel": "De riem als haak in plaats van een weegschaal: geen getal, geen buikclose-up.", "waarom": "Gewicht in beeld is gevoelig; ik wil zeker weten dat dit voor jou goed voelt in de klas."}, {"id": "v2b", "film": "vd2", "hoofdstuk": "Film 2 · Waarom afvallen zo moeilijk is", "img": "k6", "look": "Schema + Micro", "tekst": "Twee volwassenen hebben allebei een index van zesentwintig. De een traint veel, de ander niet. Wat weet je dan zeker?", "beweging": "Na het antwoord: zoomcirkel naar spieren bij de sporter, en naar vet rond de organen bij de ander.", "twijfel": "Figuranten Dennis (sportkleding) en Erik als de twee volwassenen; bij Erik vet rond de organen in de zoomcirkel.", "waarom": "Dennis is ook de vader uit gezin De Wit, en buikvet koppelen aan een figurant is gevoelig. Rollen voor castpersonages keur jij."}, {"id": "v2c", "film": "vd2", "hoofdstuk": "Film 2 · Waarom afvallen zo moeilijk is", "img": "k7", "look": "Schema", "tekst": "Joost is afgevallen tot het gewicht van zijn buurman. Wie verbruikt in rust meer energie?", "beweging": "Na het antwoord: het blokje rustverbruik van Joost blijft onder de stippellijn 'verwacht' ('model').", "twijfel": "Erik als buurman van Joost (Joost staat in het castboek zelf als 'buurman'); Erik komt dan twee keer voor in film 2.", "waarom": "Een rol voor een castpersonage; misschien wil je liever iemand anders."}, {"id": "v2d", "film": "vd2", "hoofdstuk": "Film 2 · Waarom afvallen zo moeilijk is", "img": "k8", "look": "Schema + Micro", "tekst": "Een lege maag maakt ghreline … Vetcellen maken leptine … De hypothalamus, samen met de hersenstam, verwerkt al die signalen.", "beweging": "Paarse hormoonpuntjes uit maag en vetcel; teal signaal naar de hersenen; de hypothalamus licht goud op.", "twijfel": "De hersenen als anatomische doorsnede van een hoofd, in een zoomcirkel náást Joost (niet over zijn gezicht).", "waarom": "Je vond organen over een gezicht 'creepy'; ik wil zeker weten dat een losse hoofddoorsnede in een cirkel wel goed is."}]};
+let keur = {}, db = null; const wacht = {}, timers = {};
+const $ = (s) => document.querySelector(s);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+function telling() { const v = FILM.scenes.map(s => (keur[s.id] || {}).status || ''); return { ok: v.filter(x => x === 'ok').length, opm: v.filter(x => x === 'opm').length, open: v.filter(x => !x).length, n: v.length }; }
+function tel() { const t = telling(); $('#nOk').textContent = t.ok; $('#nOpm').textContent = t.opm; $('#nOpen').textContent = t.open; $('#totaal').textContent = 'van ' + t.n + ' twijfelpunten'; }
+function algVak(id) { const k = keur[id] || {}; const l = el('label', 'alg'); const c = el('input'); c.type = 'checkbox'; c.id = 'alg-' + id; c.checked = !!k.algemeen;
+  c.onchange = async () => { const w = { ...(keur[id] || { status: '', tekst: '' }), algemeen: c.checked }; delete w.t; keur[id] = w; await opslaan(id, w); };
+  l.append(c, document.createTextNode('geldt voor alle films')); return l; }
+function kop() { const K = $('#filmkop'); K.textContent = ''; FILM.films.forEach((F, i) => { const box = el('div', 'filmkop'); const l = el('div'); l.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0';
+  l.append(el('span', 'meta', 'Film ' + (i + 1) + ' van 2'), el('h2', null, F.titel)); const dl = el('dl');
+  [['Puzzel', F.puzzel], ['Haak', F.haak], ['Duur', F.duur], ['Hoofdstukken', F.hoofdstukken]].forEach(([k, v]) => dl.append(el('dt', null, k), el('dd', null, v))); l.append(dl);
+  const r = el('div'); r.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0'; const dt = el('details'); dt.append(el('summary', null, 'Keuzes die ik zelf maakte (' + F.keuzes.length + ')')); const ul = el('ul'); F.keuzes.forEach(k => ul.append(el('li', null, k))); dt.append(ul); r.append(dt);
+  const id = 'film-' + F.id; const k = keur[id] || {}; const ta = el('textarea'); ta.id = 'opm-' + id; ta.placeholder = 'Opmerking over deze film als geheel'; ta.setAttribute('aria-label', 'Opmerking over film ' + (i + 1)); ta.value = (id in wacht) ? wacht[id] : (k.tekst || '');
+  const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(id, ta.value, st, true); const rij = el('div'); rij.style.cssText = 'display:flex;gap:14px;align-items:center;flex-wrap:wrap'; rij.append(algVak(id), st); r.append(ta, rij); box.append(l, r); K.append(box); }); }
+function render() { kop(); const L = $('#lijst'); L.textContent = ''; let vorig = null;
+  for (const s of FILM.scenes) { const k = keur[s.id] || {}; const status = k.status || '';
+    if (s.hoofdstuk !== vorig) { L.append(el('h3', 'hst', s.hoofdstuk)); vorig = s.hoofdstuk; }
+    const art = el('article', 'sc' + (status === 'ok' ? ' ok' : status === 'opm' ? ' opm' : '')); art.id = s.id;
+    const img = el('img'); img.src = 'img/' + s.img + '.webp'; img.alt = 'Keyframe ' + s.id; img.loading = 'lazy';
+    const r = el('div', 'rechts'); const kp = el('div', 'kop'); kp.append(el('span', 'meta', s.id), el('span', 'chip', s.look)); r.append(kp, el('p', 'verteller', s.tekst));
+    if (s.beweging) r.append(el('p', 'bew', s.beweging));
+    const tw = el('div', 'twijfel'); const a = el('p'); a.append(el('strong', null, 'Twijfel: '), s.twijfel); const b = el('p'); b.append(el('strong', null, 'Waarom: '), s.waarom); tw.append(a, b); r.append(tw);
+    const kr = el('div', 'keur'); const ja = el('button', 'knop ja', status === 'ok' ? '✓ Goedgekeurd' : '✓ Goed zo'); ja.id = 'ok-' + s.id; ja.setAttribute('aria-pressed', status === 'ok');
+    ja.onclick = () => bewaar(s.id, status === 'ok' ? { status: '', tekst: '' } : { status: 'ok', tekst: '' });
+    const ta = el('textarea'); ta.id = 'opm-' + s.id; ta.placeholder = 'Opmerking (wat moet er anders?)'; ta.setAttribute('aria-label', 'Opmerking bij ' + s.id); ta.value = (s.id in wacht) ? wacht[s.id] : (k.tekst || '');
+    const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(s.id, ta.value, st, false);
+    const kn = el('div'); kn.style.cssText = 'display:flex;gap:10px;align-items:center;flex-wrap:wrap'; kn.append(ja, algVak(s.id), st); kr.append(ta, kn); r.append(kr); art.append(img, r); L.append(art); }
+  tel(); }
+function typ(id, waarde, st, isFilm) { wacht[id] = waarde; st.textContent = 'typen…'; clearTimeout(timers[id]);
+  timers[id] = setTimeout(async () => { const t = waarde.trim(); const vorige = keur[id] || {};
+    const w = isFilm ? { status: t ? 'opm' : '', tekst: t } : (t ? { status: 'opm', tekst: t } : { status: vorige.status === 'ok' ? 'ok' : '', tekst: '' });
+    w.algemeen = !!vorige.algemeen; keur[id] = w; const ok = await opslaan(id, w); if (ok) delete wacht[id]; st.textContent = ok ? (t ? 'bewaard' : '') : 'niet bewaard'; tel(); }, 700); }
+async function opslaan(id, w) { if (!db) { $('#opslag').textContent = 'Opslaan lukt hier niet: open het blad in claude.ai terwijl je bent ingelogd.'; return false; }
+  try { await db.doc('keuring/' + id).set({ ...w, t: Date.now() }); $('#opslag').textContent = ''; return true; }
+  catch (e) { $('#opslag').textContent = 'Niet bewaard: ' + (e && e.message ? e.message : 'onbekende fout') + '. Typ nog iets om het opnieuw te proberen.'; return false; } }
+async function bewaar(id, w) { w.algemeen = !!(keur[id] || {}).algemeen; keur[id] = w; delete wacht[id]; render(); await opslaan(id, w); }
+render();
+(async () => { try { db = await claude.use('db'); } catch (e) { db = null; }
+  if (!db) { $('#opslag').textContent = 'Keuringen worden niet bewaard in deze weergave.'; return; }
+  db.collection('keuring').onSnapshot(snap => { const n = {}; for (const d of snap.docs) n[d.id] = d.data(); const ae = document.activeElement && document.activeElement.id; keur = n;
+    if (ae && ae.startsWith('opm-')) { tel(); return; } render(); }, () => { $('#opslag').textContent = 'Kon de keuringen niet laden.'; });
+})();
+</script>

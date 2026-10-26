@@ -1,6 +1,6 @@
 # Overdracht — Wat word jij? · Voeding en diëtetiek (gestart 26 okt 2026)
 
-Stand: bronnenonderzoek loopt (26 okt 2026, avond).
+Stand (26 okt 2026, avond): beide scripts v2 klaar, twijfelblad bij Kamiel. Wacht op keuring vóór decor en inspreken.
 
 ## Planning (akkoord Kamiel 26 okt 2026)
 Doel: samen het gat in havo § 10.5 *Gezonde voeding* dichten (Schijf van Vijf, energiebalans en BMI, overgewicht; `jaarplanner-dekking.json`, `bvj-havo5` → `10.5`). Beide films zijn ook extra film bij het thema Voeding (zoals CRISPR): `HOOFDSTUKKEN.extra.komt` met `vervolg: 'voedingsleer'`, in `vervolg.html` met `extra: 'voeding'`.
@@ -15,3 +15,18 @@ Zoals Landbouw en Ecologie: per film `getallen.md` met bronnen → 3 scriptvaria
 Werkmap `/home/claude/hw/vd1`, `vd2`, gedeeld `hw/vd` (castvoorstel `cast_vd.js`, testvel-renderer `render.py`). Engine uit `landbouw-3-fokken/bron` (+ `maakinfo.py` uit landbouw-2).
 
 Werk in het andere account niet tegelijk aan deze reeks.
+
+## Stand (26 okt 2026, avond): wacht op keuring
+| Film | Winnaar (blind, fable) | Review | Woorden · vragen |
+|---|---|---|---|
+| 1 Bij de diëtist | combinatie (B tempo + camera als geraamte; ronde 1 57–55–53 nipt, ronde 2 62) | 15 MOET verwerkt | 927 · 7 (c a b c b a b) |
+| 2 Waarom afvallen zo moeilijk is | combinatie (B tempo + opening als geraamte; ronde 1 57–56–51 nipt, ronde 2 60) | 17 MOET verwerkt | 942 · 6 (b c c b b a) |
+
+Bronmappen staan al in de repo (`voedingsleer-1-…/bron/`, `voedingsleer-2-…/bron/`): brief, getallen, script v1 en v2, reviews met verwerking, varianten en blind oordeel in `werk/`. Gedeelde reeksbibliotheek en castvoorstel: `werk-voeding/` (`teken_vd.js`, `cast_vd.js`, keyframe-renderer `render.py`, keyframes in `testvel/`, twijfelblad-bron in `twijfelblad/`).
+
+**Twijfelblad:** https://claude.ai/artifact/Ho6n6QjG74TB7BBhniZXeg (dit account; db-collectie `keuring`, doc-id `c0` cast, `v1a`–`v1c` film 1, `v2a`–`v2d` film 2, `film-vd1`/`film-vd2` voor de films als geheel). Lees terug, verwerk, dan decor + inspreken.
+
+Belangrijke vondsten: de Schijf van Vijf is op 9 april 2026 vernieuwd (film volgt de nieuwe versie; het boek kan nog die van 2016 tonen); 'bijna niemand eet genoeg groente' klopt alleen voor jongeren (volwassenen 29 % haalt 200 g); metabole adaptatie is omstreden in grootte (geen kcal-getal in de stem).
+
+## Daarna
+Decor praktijk (ElevenLabs, één variant, alleen na akkoord) → castvoorstel in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md → inspreken (Roos, eleven_v4) → bouwen (engine uit landbouw-3, werkmappen `hw/vd1`, `hw/vd2`) → frisse beeldreview → repo (vervolg.html: van planobject naar [titel, href] met `extra: 'voeding'`; index.html: HOOFDSTUKKEN.extra.komt → films met `thema: 'voeding'`, FILMKUNST; films.json) → als laatste, na `git pull`, `jaarplanner-dekking.json` (§ 10.5 havo 5).

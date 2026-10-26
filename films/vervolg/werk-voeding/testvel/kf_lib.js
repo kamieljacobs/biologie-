@@ -1,0 +1,9 @@
+const KF = {
+ eten(c){ bg(c,'schema'); ['tomaat','tomaatjes','appel','ei','eiGebakken','olie','water','thee','rijst','boterham','pizza','koekje','chips','croissant','bonenblik','koffie','vis','noten','bonen','kaas','melk'].forEach((k,i)=>{ const x=140+(i%7)*260, y=200+Math.floor(i/7)*280; eten(c,k,x,y,1.2); text(c,k,x,y+110,fTekst(28),C.text2,'center'); }); },
+ schijf(c){ bg(c,'schema'); schijf(c, 600, 480, 330, {namen:1, lit:[1,0,0,0,0], dim:0.5}); schijf(c, 1500, 480, 220, {inhoud:0, lit:[0,0,1,0,0]}); },
+ praktijk(c){ bg(c,'schema'); persoon(c,'hanneke',640,880,470,{pose:'zit',stoel:true,kijk:1,uit:'blij',t:0}); persoon(c,'joost',1280,880,480,{pose:'zit',stoel:true,kijk:-1,outfit:'spreekuur'}); tafel(c, 960, 700, 1000); persoon(c,'noor',1720,880,440,{kijk:-1}); eetdagboek(c,960,668,0.55,{iconen:1}); telefoonFoto(c, 300, 400, 1, {kind:'fleur'}); telefoonFoto(c, 1600, 360, 1, {}); },
+ meten(c){ bg(c,'schema'); balkPaar(c, 200, 700, 300, 400, {l1:'OPGESCHREVEN', l2:'WAT JE ECHT EET|VOORBEELD', verschil:1}); glasZwaarWater(c, 800, 600, 1.4); meetlint(c, 1000, 400, 600, {}); weegschaalVloer(c, 1300, 700, 1.5); weekbord(c, 1000, 520, 760, {status:[1,1,1,2,2,2,1]}); },
+ curve(c){ bg(c,'schema'); gewoonteCurve(c, 200, 200, 700, 500, {u:1}); gewichtCurve(c, 1100, 200, 640, 400, {}); },
+ f2(c){ bg(c,'schema'); riem(c, 100, 200, 800, {gat:2}); energieBalans(c, 1350, 300, {tilt:0.12, in:[[150,C.oker,'',1]], uit:[[60,C.koraal,'BEWEGEN',1],[20,C.koraal,'',1],[100,C.koraal,'RUST',1]]}); bmiBalk(c, 120, 640, 900, {waarde:27.8}); telpoppetjes(c, 1200, 620, 100, 20, 34, i=> i<16? C.koraal : (i<51? C.oker : '#5A6478')); },
+ f2b(c){ bg(c,'schema'); maagGhreline(c, 360, 420, 1.2, {ghreline:1, t:1}); vetcelLeptine(c, 900, 420, 130, {leptine:1, t:1}); zoomCircle(c, 1460, 420, 260, 1460, 420, 'HERSENEN · HYPOTHALAMUS', 1, ()=>hersenenHth(c, 1420, 380, 0.55, {hth:1})); }
+};

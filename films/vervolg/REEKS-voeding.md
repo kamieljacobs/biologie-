@@ -44,7 +44,7 @@ Wat eet iemand, wat is gezond en hoe help je iemand veranderen (film 1) → waar
 - **goud**: focus.
 
 ## Gedeelde begrippen (één definitie in beide films)
-- **Schijf van Vijf**: het voorlichtingsmodel van het Voedingscentrum (vernieuwd op 9 april 2026; gebaseerd op de Richtlijnen goede voeding van de Gezondheidsraad, 2015, eiwitbronnen herzien in 2025) met vijf vakken; wat binnen de schijf valt, eet je dagelijks, wat erbuiten valt beperk je. Vaknamen in de film beschrijvend (zie `vd1/getallen.md` bewering 7): groente en fruit · brood, graanproducten en aardappelen · peulvruchten, noten, vis, ei, vlees en zuivel · vetten en oliën · dranken.
+- **Schijf van Vijf**: het voorlichtingsmodel van het Voedingscentrum (vernieuwd op 9 april 2026; gebaseerd op de Richtlijnen goede voeding van de Gezondheidsraad, 2015, eiwitbronnen herzien in 2025) met vijf vakken; uit de schijf haal je elke dag het meeste van wat je eet, wat erbuiten valt beperk je. Vaknamen in de film beschrijvend (zie `vd1/getallen.md` bewering 7): groente en fruit · brood, graanproducten en aardappelen · peulvruchten, noten, vis, ei, vlees en zuivel · vetten en oliën · dranken.
 - **energiebalans**: de verhouding tussen de energie die je binnenkrijgt met voedsel en de energie die je verbruikt.
 - **ruststofwisseling** (basaal metabolisme): de energie die je lichaam in rust verbruikt om in leven te blijven.
 - **BMI**: lichaamsgewicht in kilogram gedeeld door de lengte in meter in het kwadraat.
@@ -67,4 +67,7 @@ Wat eet iemand, wat is gezond en hoe help je iemand veranderen (film 1) → waar
 Alle getallen (aandeel volwassenen met overgewicht in Nederland en het jaar, BMI-grenzen, middelomtrekgrenzen, richtlijnen groente en fruit, aandeel mensen dat genoeg groente eet, onderrapportage bij eetdagboeken, aandeel ruststofwisseling in het energieverbruik, hoeveel mensen na afvallen weer aankomen), wat ghreline, leptine en de hypothalamus doen, 'altijd/nooit/alleen'-zinnen, en namen en eisen van opleidingen (dicht bij Nijmegen eerst: HAN Voeding en Diëtetiek, Wageningen Voeding en Gezondheid).
 
 ## Recap en opleidingen
-Elke recap noemt kort waar je dit werk kunt leren en wat je dan doet (hbo Voeding en Diëtetiek, beschermde titel diëtist; wo Voeding en Gezondheid in Wageningen). Feiten opzoeken, jaartal erbij. Eén vaste reekszin, in beide films gelijk, door de feitenreview vastgesteld.
+Elke recap noemt kort waar je dit werk kunt leren en wat je dan doet (hbo Voeding en Diëtetiek, beschermde titel diëtist; wo Voeding en Gezondheid in Wageningen). Feiten opzoeken, jaartal erbij. Vaste reekszin (feitenreview film 1, 26 okt 2026, ✓: Stb. 1997/523 art. 2, NVD, OER HAN 2025-26, Studiekeuze123, WUR), in beide films gelijk:
+> Diëtist is een beschermde titel. Alleen met een diploma Voeding en Diëtetiek van het hbo mag je jezelf diëtist noemen. Bijvoorbeeld van de HAN in Nijmegen. In Wageningen kun je aan de universiteit Voeding en Gezondheid studeren, maar daarmee word je geen diëtist: na een master word je bijvoorbeeld onderzoeker.
+
+In beeld: 'HBO · VOEDING EN DIËTETIEK · HAN · NIJMEGEN · 4 JAAR' en 'WO · VOEDING EN GEZONDHEID · WAGENINGEN · 3 JAAR'. 'HAN' uitspreken als het woord 'Han'.
