@@ -55,6 +55,9 @@ Decor praktijk (ElevenLabs, één variant, alleen na akkoord) → castvoorstel i
 - Stem-invoer: `segments.json` uit `script_opname.md` (script v2 zonder Keuzes/Twijfels); film 2 heeft `uitspraak_film.json` (ghreline → 'greline', op de wachtlijst).
 - Bouwen loopt intussen op geschatte woordtijden (`fakewords.py`); na het inspreken `silalign.py`, cues nalopen en opnieuw bouwen.
 
+## Decor (26 okt 2026, 22:35)
+Praktijk van de diëtist: ElevenLabs flow `cMT4epIEjMJi0sraRQzk`, generatie `s0eAnLAY1QeIeVA4F7SD` (gpt-image-2.5-sunburst, stijlreferentie stal uit Fokken, één variant, ±433 credits). Bestand `werk-voeding/decor/praktijk.webp`, ingebouwd als `werk-voeding/decor_vd.js` (`vdDecor(ctx, a)`, sterkte 0,6; in de bundel vóór `teken_vd.js`). Muur/vloer op ± 66 %, voeten op ± 860. Aandachtspunt: grafieken die vóór het raam staan (vd2 s30) zijn wat druk.
+
 ## Bouwen (26 okt 2026, 21:30–22:00): beide films gebouwd op geschatte woordtijden
 - vd1: `hw/vd1/film/voedingsleer-1-bij-de-dietist.html`, 23 scènes; nieuw in `src/teken_vd1.js` (praktijk, balkjes, oorzaakkaartjes, pijlparen, advieskaart, tv/tomaatjes, gewoontecurve).
 - vd2: `hw/vd2/film/voedingsleer-2-waarom-afvallen-zo-moeilijk-is.html`, 25 scènes; nieuw in `src/teken_vd2.js` (riem met hand, balans met groeiende lagen, BMI-balk, zoomcirkels spieren/buikvet, maag/darm, hersenen met hypothalamus en hersenstam, ghreline-dagcurve, verbruik per dag, bed, straat).

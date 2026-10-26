@@ -6,7 +6,7 @@
 const GROND = 860; // vloerlijn ± 80 % van de hoogte (decor praktijk volgt later)
 
 // ---------- decor ----------
-function praktijkDecor(ctx, a = 1) { bg(ctx, 'schema'); /* decor praktijk volgt */ }
+function praktijkDecor(ctx, a = 0.6) { vdDecor(ctx, a); }
 
 // ---------- hulpjes (zoals l1 en lb3) ----------
 function antwoord(ctx, s2, a = 1) { regel(ctx, s2, 120, 150, a, C.groen, 40, 'left', 700); }

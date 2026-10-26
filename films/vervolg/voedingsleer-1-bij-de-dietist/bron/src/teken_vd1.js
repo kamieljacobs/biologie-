@@ -15,7 +15,7 @@ function cirkelOpen(ctx, cx, cy, r, fn) { ctx.save(); ctx.beginPath(); ctx.arc(c
 
 // ---------- de praktijk ----------
 // decor praktijk volgt (ElevenLabs, credits op): tekent nu niets, het navy blijft
-function praktijkDecor(ctx, a = 0.6) { bg(ctx, 'schema'); }
+function praktijkDecor(ctx, a = 0.6) { vdDecor(ctx, a); }
 const VLOER = 870, TAFEL_Y = 700;
 // Noor met haar schrift (ze loopt een dag mee)
 function schriftHold(c, x, y) { c.save(); c.translate(x, y); c.rotate(-0.15); roundRect(c, -6, -44, 58, 46, 4); shape(c, '#E8E2D2', '#C8C0AC', 1.5); c.strokeStyle = rgba(VD.inkt, 0.5); c.lineWidth = 1.5; for (let k = 0; k < 3; k++) { c.beginPath(); c.moveTo(4, -32 + k * 11); c.lineTo(42, -32 + k * 11); c.stroke(); } c.restore(); }
