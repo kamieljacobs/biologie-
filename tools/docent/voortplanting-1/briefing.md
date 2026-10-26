@@ -137,3 +137,23 @@ Bronnen: [Uenoyama e.a. 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6600864) 
 *Niet met een bron gecontroleerd: het koelmechanisme (tegenstroom in de plexus pampiniformis, cremaster- en dartosspier).*
 
 Bronnen: [Frontiers 2022: temperatuur van de testis](https://public-pages-files-2025.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2022.1104326/text) · [BioNumbers: duur spermatogenese](https://bionumbers.hms.harvard.edu/bionumber.aspx?id=110319) · [UNSW Embryology](https://embryology.med.unsw.edu.au/embryology/index.php/Template_talk:Human_Spermatozoa_Statistics_table) · [StatPearls: spermatogenese](https://www.ncbi.nlm.nih.gov/books/NBK553142/) · [Britannica: semen](https://www.britannica.com/topic/semen) · [MSD Manual: eicelaantallen](https://www.msdmanuals.com/home/multimedia/table/how-many-eggs)
+
+### Vragen bij de start (scherm 2)
+
+Twaalf vakjes met vragen die leerlingen vaak hebben. De meeste getallen staan al onder de andere onderwerpen van deze briefing (zaadcellen, eicellen, temperatuur, 2²³). Hieronder wat er nieuw bij komt.
+
+**Begin van de puberteit.** Bij meisjes meestal tussen 8 en 13 jaar, bij jongens tussen 9 en 14. Het startsein is GnRH uit de hypothalamus, via LH en FSH uit de hypofyse naar de geslachtsklieren. Wat de timing vervroegt of vertraagt: erfelijke aanleg, ondervoeding (ook door eetstoornissen), hormonen uit de omgeving, en zelden een tumor of een erfelijke aandoening.
+
+**Eicel en zaadcel op schaal.** Een eicel is ± 120 µm (0,12 mm) breed en voor wie scherp ziet net met het blote oog te zien. Een zaadcel is in totaal ± 60 µm lang, met een kop van ± 5 µm. In de animatie staan ze op schaal.
+
+**Eeneiige tweelingen** komen uit één bevruchte eicel die zich splitst, en zijn dus natuurlijke klonen. Helemaal gelijk zijn ze niet: ze verschillen gemiddeld in ± 5 mutaties, die vlak vóór of vlak na de splitsing ontstaan (IJslandse studie, Jonsson e.a. 2021).
+
+**Puistjes.** Androgenen (eerst uit de bijnier, vanaf ± 8 jaar, later testosteron uit de geslachtsklieren) laten talgklieren groeien en meer talg maken. Ook gaan cellen in de haarzakjes aan elkaar plakken, zodat het haarzakje verstopt raakt (mee-eter). Daarin groeit de huidbacterie *Cutibacterium acnes*; de ontsteking is de afweerreactie daarop. Acne komt bij 12- tot 17-jarigen even vaak voor bij meisjes als bij jongens (± 70% en ± 66% in de onderzochte groep). Meisjes beginnen iets eerder, jongens hebben het vaker heftig.
+
+**Misvatting:** "Puistjes komen van vies zijn." De oorzaak is vooral hormonaal; hoe gevoelig de huid op androgenen reageert, verschilt per persoon.
+
+**Als een leerling vraagt** "is de zaadcel echt de kleinste cel?": die wordt vaak zo genoemd, en de eicel de grootste. Beide kloppen grofweg; daarom staat er 'een van de grootste'.
+
+*Niet met een bron gecontroleerd: het SRY-gen als schakelaar voor de aanleg van zaadballen (in de docentregel van vraag 3) en het weetje dat mitochondriaal DNA alleen van de moeder komt (vraag 4).*
+
+Bronnen: [Cleveland Clinic: puberty](https://my.clevelandclinic.org/health/articles/22192-puberty) · [Africa Check: grootte van eicel en zaadcel](https://africacheck.org/fact-checks/meta-programme-fact-checks/yes-ovum-largest-cell-humans-and-sperm-cell-smallest) · [Science News over Jonsson e.a. 2021, Nature Genetics](https://www.sciencenews.org/article/some-identical-twins-dont-have-identical-dna-genetics) · [Bergfeld 2004, Cutis: pathofysiologie van acne](https://cdn.mdedge.com/files/s3fs-public/Document/September-2017/074020092.pdf)
