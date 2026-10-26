@@ -1,0 +1,103 @@
+<title>Storyboard Boterham</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Lay-out: keuringsblad — kop met puzzel en keuzes, dan per twijfelscène keyframe links en vertelling + twijfel + keuring rechts */
+:root{--bg:#121A26;--vlak:#1A2740;--vlak2:#22314C;--fg:#F2F2EE;--fg2:#9AA3B2;--lijn:#33445F;--goud:#E0B64A;--groen:#7FC48F;--paars:#8C7BBF;
+--titel:"Fraunces",Georgia,serif;--tekst:"Source Sans 3",system-ui,sans-serif;--meta:"IBM Plex Mono",ui-monospace,monospace;color-scheme:dark}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--paars:#5E4E9A;color-scheme:light}}
+:root[data-theme="light"]{--bg:#EEF1F5;--vlak:#FFFFFF;--vlak2:#F4F6FA;--fg:#18202E;--fg2:#56627A;--lijn:#D4DAE4;--goud:#8A6510;--groen:#2E7D46;--paars:#5E4E9A;color-scheme:light}
+body{background:var(--bg);color:var(--fg);font-family:var(--tekst);font-size:17px;line-height:1.5;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--titel);font-size:clamp(30px,5vw,46px);margin:0;text-wrap:balance}
+h2{font-family:var(--titel);font-size:clamp(24px,4vw,32px);margin:0;text-wrap:balance}
+.intro{color:var(--fg2);max-width:72ch;margin:0}
+.meta{font-family:var(--meta);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg2)}
+.balk{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;border-bottom:1px solid var(--lijn)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.tel{font-variant-numeric:tabular-nums;font-weight:700}.tel b{font-family:var(--meta);font-size:13px;letter-spacing:.08em}
+.filmkop{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:18px}
+.filmkop dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0}.filmkop dt{font-family:var(--meta);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg2);padding-top:3px}.filmkop dd{margin:0}
+.filmkop ul{margin:6px 0 0;padding-left:20px;color:var(--fg2)}.filmkop li{margin-bottom:4px}
+details summary{cursor:pointer;font-weight:600}
+.hst{font-family:var(--titel);font-size:24px;margin:14px 0 0}
+.sc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;background:var(--vlak);border:1px solid var(--lijn);border-radius:14px;padding:16px}
+.sc.ok{border-color:color-mix(in srgb,var(--groen) 70%,transparent)}.sc.opm{border-color:color-mix(in srgb,var(--goud) 80%,transparent)}
+.sc img{width:100%;max-width:100%;border-radius:8px;display:block;background:#121A26}
+.rechts{display:flex;flex-direction:column;gap:10px;min-width:0}
+.kop{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{font-family:var(--meta);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:2px 9px;color:var(--fg2)}
+.verteller{margin:0;font-size:18px}
+.bew{margin:0;color:var(--fg2);font-size:15px}.bew::before{content:"Beweging · ";font-family:var(--meta);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--goud)}
+.twijfel{border-left:3px solid var(--goud);padding:6px 0 6px 12px;display:grid;gap:4px}.twijfel p{margin:0}
+.keur{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.knop{font:600 15px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:999px;padding:6px 14px;cursor:pointer}
+.knop.ja[aria-pressed="true"]{background:var(--groen);color:#0E1A12;border-color:var(--groen)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+textarea{font:16px var(--tekst);color:var(--fg);background:var(--vlak2);border:1px solid var(--lijn);border-radius:10px;padding:8px 10px;min-height:60px;resize:vertical;width:100%;box-sizing:border-box}
+.status{font-size:13px;color:var(--fg2);min-height:1.2em}
+.bewaard{font:500 12px var(--meta);color:var(--fg2);letter-spacing:.05em}
+.alg{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--fg2);cursor:pointer}.alg input{width:18px;height:18px;accent-color:var(--goud)}
+@media (max-width:760px){.sc,.filmkop{grid-template-columns:1fr}}
+</style>
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:8px">
+    <span class="meta">Cellen · Bacteriën, virussen en schimmels · havo 4 · alleen de scènes waar ik over twijfel</span>
+    <h1>Storyboard · Wat groeit er op je boterham?</h1>
+    <p class="intro">Hieronder staan alleen de scènes waar ik over twijfel: nieuwe tekeningen, het kweekpracticum, een afwijking van het gekozen plan, een feit met een zwakke bron en een handeling die de cast niet goed kan. De rest gaat zonder keuring de productie in; die zie je straks in de gebouwde film. Zet een vinkje als een scène goed is, of typ wat er anders moet. Alles wordt meteen bewaard. Geldt een opmerking voor al je films, vink dan <b>geldt voor alle films</b> aan.</p>
+  </header>
+  <div class="balk" role="region" aria-label="Voortgang">
+    <span class="tel"><b style="color:var(--groen)">✓</b> <span id="nOk">0</span></span>
+    <span class="tel"><b style="color:var(--goud)">opmerking</b> <span id="nOpm">0</span></span>
+    <span class="tel"><b style="color:var(--fg2)">open</b> <span id="nOpen">0</span></span>
+    <span class="meta" id="totaal"></span>
+  </div>
+  <section id="filmkop"></section>
+  <div id="lijst" style="display:flex;flex-direction:column;gap:16px"></div>
+  <p class="status" id="opslag"></p>
+</div>
+<script>
+const FILM = {"titel": "Wat groeit er op je boterham?", "slug": "cellen/microben", "puzzel": "Een boterham ligt een week vergeten in Noors trommel. Wat groeit erop, en waar komt het vandaan?", "haak": "Bacteriën, virussen en schimmels · havo 4 · Biologie voor jou § 4.2", "duur": "± 7:45 gesproken (1087 woorden), 9 vragen, ± 9:45 in totaal", "hoofdstukken": "1 Drie zakjes · 2 Draden in het brood · 3 Puntjes op de voedingsbodem · 4 Een nies? Liever niet · 5 Wie leeft waarvan? · Recap", "keuzes": ["Vertelvorm: één proef draagt de film. Mevrouw Visser zet drie dichte zakjes brood en drie dichte schaaltjes klaar; elk hoofdstuk is een uitkomst. Die variant won van de klassieke en van een variant met de microscoop als perspectief, maar nipt (49 tegen 47 en 44). Daarom eerst gecombineerd met de sterke stukken van de andere twee (Teuns 'Er groeit een plantje!', de kier-vraag, de wegsnijdvraag, 'Bah, bacteriën!'). De combinatie won duidelijk (51).", "Alle vier de misvattingen uit de brief hebben een eigen vraag. Er zijn 9 vragen; de film is daardoor ± 9:45 in plaats van ± 9 minuten. Zeg het als hij korter moet, dan haal ik de kern-vraag bij de bacterie eruit (die kan ook als checkvraag op de pagina).", "Frisse feitenreview: 26 punten verwerkt. Onder meer: 'symbiose' is nu het overkoepelende woord, met mutualisme (+/+) en parasitisme (+/−), zoals elders op je site; 'cellen in een hyfe' werd 'kernen in de hyfen' (broodschimmel heeft geen tussenwanden); antibiotica werken op onderdelen die bij bacteriën anders zijn, niet op 'alleen bij bacteriën'.", "Geen aantal dagen tot je schimmel ziet: daar is geen betrouwbare bron voor. De proef heeft een tijdbalk 'later · nog later' met het label 'in deze proef'.", "Darmbacteriën worden niet als voorbeeld van nut genoemd: daar vond ik maar één bron. Wel: ongeveer evenveel bacteriën als eigen cellen (schatting 2016), en lang niet alle maken je ziek.", "Hyfe, mycelium en spore staan niet in de CE-syllabus; de film gebruikt 'schimmeldraden: hyfen' zoals de brief vraagt. Termen zijn niet gecontroleerd tegen de tekst van Biologie voor jou (die kon ik niet openen).", "Een griepvirus heet hier 'tientallen keren' kleiner dan E. coli (± 2 µm tegen ± 100 nm). Van molecuul tot biosfeer zegt 'zo'n tien keer kleiner dan een bacterie'; beide zijn te verdedigen, maar bij een volgende ronde van die film trek ik het gelijk."], "scenes": [{"id": "mi-testvel", "hoofdstuk": "Nieuwe tekeningen", "look": "testvel", "img": "testvel", "tekst": "Trommel (dicht en open), boterham op dag 0 en later, twee soorten schimmelplekken, virusdeeltjes, mycelium met sporendragers in het kruim, tweedeling, bacterie, gistcel, kiemende spore.", "beweging": "Hyfen groeien aan de top en vertakken (ook onder het oppervlak), sporenzakjes zwellen en barsten, bacterie groeit en snoert in.", "twijfel": "Deze tekeningen zijn nieuw en gaan daarna de bibliotheek in. De schimmelplekken zijn grijs-teal en niet groen, omdat groen in de films 'plant' betekent.", "waarom": "Ik heb ze getekend uit beschrijvingen en maten (hyfe 5–10 µm, sporenzakje een paar tiende millimeter, griepvirus ± 100 nm), zonder referentieplaat. Of de schimmelkleur zo herkenbaar genoeg is als 'groene schimmel op brood', is een smaakkeuze."}, {"id": "mi-s18", "hoofdstuk": "Hoofdstuk 3 — Puntjes op de voedingsbodem", "look": "Schema", "img": "t2schalen", "tekst": "Dan drie schaaltjes met een voedingsbodem. Het eerste blijft dicht. Op het tweede drukt Noor haar ongewassen vingers. Het derde staat tien minuten open in het lokaal.", "beweging": "Noor drukt haar vingertoppen op schaal 2, Visser legt meteen het deksel erop; vier stukjes plakband, schalen omgekeerd, label 'kamertemperatuur'; later kolonies.", "twijfel": "Een kweekpracticum met eigen vingers en een luchtschaaltje in beeld, zodat leerlingen het kunnen nadoen.", "waarom": "Britse schoolrichtlijnen (MISAC, Practical Biology) staan vingers en lucht toe bij kamertemperatuur, dicht en daarna verhit. Een Nederlandse richtlijn vond ik niet. Of dit bij jullie mag (en of de TOA kan autoclaveren), weet jij of de TOA. Alternatief: alleen het luchtschaaltje."}, {"id": "mi-s26", "hoofdstuk": "Hoofdstuk 4 — Een nies? Liever niet", "look": "Schema", "img": "t5nies", "tekst": "Noor is verkouden, en verkoudheid komt door virussen. 'Niezen op een schaaltje doen we niet,' zegt mevrouw Visser. 'In een nies kunnen ziekteverwekkers zitten.' Stel dat ze het toch deed. Groeien haar virussen dan op de voedingsbodem? Wat denk je?", "beweging": "Leeg schaaltje met een koraal kruis 'niet op school'; zoomcirkel met griepvirus en verkoudheidsvirus op schaal.", "twijfel": "In de winnende variant niesde Noor echt op een schaaltje. Ik heb dat vervangen door een gedachte-experiment.", "waarom": "De richtlijnen verbieden kweken van een nies (mogelijke ziekteverwekkers), en de film zou het voordoen. Het is een afwijking van het gekozen plan, dus jouw akkoord. Voordeel: Visser krijgt een eigen beurt en de virusvraag blijft hetzelfde."}, {"id": "mi-s08", "hoofdstuk": "Hoofdstuk 1 — Drie zakjes", "look": "Schema", "img": "t4oven", "tekst": "Alle zakjes waren vanaf het begin dicht. Toch schimmelen ze. De sporen zaten er al op. De meeste sporen komen pas ná het bakken op het brood: bij afkoelen, snijden of inpakken.", "beweging": "Terugblik: brood uit de oven, sporen (vergroot) dwarrelen neer bij afkoelen en snijden, zakje gaat dicht.", "twijfel": "Dat de meeste sporen pas ná het bakken op het brood komen.", "waarom": "Dit is de sleutel van het raadsel ('hoe kwam het in een dichte trommel?'), maar ik vond het alleen bij een beroepsvereniging van bakkers (niveau B), niet in een leerboek of bij een overheid. Alternatief: 'De sporen kwamen op het brood vóór het zakje dichtging', zonder het moment te noemen."}, {"id": "mi-s15", "hoofdstuk": "Hoofdstuk 2 — Draden in het brood", "look": "Macro-dag", "img": "t3tuin", "tekst": "Teun dacht aan een plantje. In de tuin staat een paddenstoel, en Teun tekent hem. Wat is dat eigenlijk? Wat denk je?", "beweging": "Teun naast de paddenstoel met een tekenblok; daarna wordt de grond doorsnede en zie je het mycelium veel verder reiken dan de paddenstoel. In de recap houdt hij zijn tekening omhoog.", "twijfel": "Teun (6) tekent: het castboek kan hem een tekenblok laten vasthouden, maar niet echt laten tekenen.", "waarom": "Een handeling die de cast niet goed kan tekenen (B7). Hij staat dus stil met het blok; het tekenen zelf zie je niet. Alternatief: Teun wijst alleen naar de paddenstoel en de tekening vervalt."}]};
+let keur = {}, db = null; const wacht = {}, timers = {};
+const $ = (s) => document.querySelector(s);
+const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+function telling() { const v = FILM.scenes.map(s => (keur[s.id] || {}).status || ''); return { ok: v.filter(x => x === 'ok').length, opm: v.filter(x => x === 'opm').length, open: v.filter(x => !x).length, n: v.length }; }
+function tel() { const t = telling(); $('#nOk').textContent = t.ok; $('#nOpm').textContent = t.opm; $('#nOpen').textContent = t.open; $('#totaal').textContent = 'van ' + t.n + ' twijfelpunten'; }
+function algVak(id) { const k = keur[id] || {}; const l = el('label', 'alg'); const c = el('input'); c.type = 'checkbox'; c.id = 'alg-' + id; c.checked = !!k.algemeen;
+  c.onchange = async () => { const w = { ...(keur[id] || { status: '', tekst: '' }), algemeen: c.checked }; delete w.t; keur[id] = w; await opslaan(id, w); };
+  l.append(c, document.createTextNode('geldt voor alle films')); return l; }
+function kop() { const K = $('#filmkop'); K.textContent = ''; const box = el('div', 'filmkop'); const l = el('div'); l.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0';
+  l.append(el('span', 'meta', 'Thema Cellen · ' + FILM.slug), el('h2', null, FILM.titel)); const dl = el('dl');
+  [['Puzzel', FILM.puzzel], ['Haak', FILM.haak], ['Duur', FILM.duur], ['Hoofdstukken', FILM.hoofdstukken]].forEach(([k, v]) => dl.append(el('dt', null, k), el('dd', null, v))); l.append(dl);
+  const r = el('div'); r.style.cssText = 'display:flex;flex-direction:column;gap:10px;min-width:0'; const dt = el('details'); dt.open = true; dt.append(el('summary', null, 'Keuzes die ik zelf maakte (' + FILM.keuzes.length + ')')); const ul = el('ul'); FILM.keuzes.forEach(k => ul.append(el('li', null, k))); dt.append(ul); r.append(dt);
+  const id = 'film-mi'; const k = keur[id] || {}; const ta = el('textarea'); ta.id = 'opm-' + id; ta.placeholder = 'Opmerking over de film als geheel'; ta.setAttribute('aria-label', 'Opmerking over de film'); ta.value = (id in wacht) ? wacht[id] : (k.tekst || '');
+  const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(id, ta.value, st, true); const rij = el('div'); rij.style.cssText = 'display:flex;gap:14px;align-items:center;flex-wrap:wrap'; rij.append(algVak(id), st); r.append(ta, rij); box.append(l, r); K.append(box); }
+function render() { kop(); const L = $('#lijst'); L.textContent = ''; let vorig = null;
+  for (const s of FILM.scenes) { const k = keur[s.id] || {}; const status = k.status || '';
+    if (s.hoofdstuk !== vorig) { L.append(el('h3', 'hst', s.hoofdstuk)); vorig = s.hoofdstuk; }
+    const art = el('article', 'sc' + (status === 'ok' ? ' ok' : status === 'opm' ? ' opm' : '')); art.id = s.id;
+    const img = el('img'); img.src = 'img/' + s.img + '.webp'; img.alt = 'Keyframe ' + s.id; img.loading = 'lazy';
+    const r = el('div', 'rechts'); const kp = el('div', 'kop'); kp.append(el('span', 'meta', s.id), el('span', 'chip', s.look)); r.append(kp, el('p', 'verteller', s.tekst));
+    if (s.beweging) r.append(el('p', 'bew', s.beweging));
+    const tw = el('div', 'twijfel'); const a = el('p'); a.append(el('strong', null, 'Twijfel: '), s.twijfel); const b = el('p'); b.append(el('strong', null, 'Waarom: '), s.waarom); tw.append(a, b); r.append(tw);
+    const kr = el('div', 'keur'); const ja = el('button', 'knop ja', status === 'ok' ? '✓ Goedgekeurd' : '✓ Goed zo'); ja.id = 'ok-' + s.id; ja.setAttribute('aria-pressed', status === 'ok');
+    ja.onclick = () => bewaar(s.id, status === 'ok' ? { status: '', tekst: '' } : { status: 'ok', tekst: '' });
+    const ta = el('textarea'); ta.id = 'opm-' + s.id; ta.placeholder = 'Opmerking (wat moet er anders?)'; ta.setAttribute('aria-label', 'Opmerking bij ' + s.id); ta.value = (s.id in wacht) ? wacht[s.id] : (k.tekst || '');
+    const st = el('span', 'bewaard', k.tekst ? 'bewaard' : ''); ta.oninput = () => typ(s.id, ta.value, st, false);
+    const kn = el('div'); kn.style.cssText = 'display:flex;gap:10px;align-items:center;flex-wrap:wrap'; kn.append(ja, algVak(s.id), st); kr.append(ta, kn); r.append(kr); art.append(img, r); L.append(art); }
+  tel(); }
+function typ(id, waarde, st, isFilm) { wacht[id] = waarde; st.textContent = 'typen…'; clearTimeout(timers[id]);
+  timers[id] = setTimeout(async () => { const t = waarde.trim(); const vorige = keur[id] || {};
+    const w = isFilm ? { status: t ? 'opm' : '', tekst: t } : (t ? { status: 'opm', tekst: t } : { status: vorige.status === 'ok' ? 'ok' : '', tekst: '' });
+    w.algemeen = !!vorige.algemeen; keur[id] = w; const ok = await opslaan(id, w); if (ok) delete wacht[id]; st.textContent = ok ? (t ? 'bewaard' : '') : 'niet bewaard'; tel(); }, 700); }
+async function opslaan(id, w) { if (!db) { $('#opslag').textContent = 'Opslaan lukt hier niet: open het blad in claude.ai terwijl je bent ingelogd.'; return false; }
+  try { await db.doc('keuring/' + id).set({ ...w, t: Date.now() }); $('#opslag').textContent = ''; return true; }
+  catch (e) { $('#opslag').textContent = 'Niet bewaard: ' + (e && e.message ? e.message : 'onbekende fout') + '. Typ nog iets om het opnieuw te proberen.'; return false; } }
+async function bewaar(id, w) { w.algemeen = !!(keur[id] || {}).algemeen; keur[id] = w; delete wacht[id]; render(); await opslaan(id, w); }
+render();
+(async () => { try { db = await claude.use('db'); } catch (e) { db = null; }
+  if (!db) { $('#opslag').textContent = 'Keuringen worden niet bewaard in deze weergave.'; return; }
+  db.collection('keuring').onSnapshot(snap => { const n = {}; for (const d of snap.docs) n[d.id] = d.data(); const ae = document.activeElement && document.activeElement.id; keur = n;
+    if (ae && ae.startsWith('opm-')) { tel(); return; } render(); }, () => { $('#opslag').textContent = 'Kon de keuringen niet laden.'; });
+})();
+</script>

@@ -1,6 +1,6 @@
 # Filmbrief · Bacteriën, virussen en schimmels (werktitel *Wat groeit er op je boterham?*)
 
-Status: **specificatie in bespreking** (26 okt 2026). Bouwen volgens `films/PROMPT_v10.md` (Part B + C), pas na Kamiels akkoord. Plaats: thema Cellen (`films/cellen/`); in de jaarplanner bij havo 4 § 4.2 (week van 4 jan 2027).
+Status (26 okt 2026, avond): **storyboard klaar, wacht op keuring twijfelscènes** (blad https://claude.ai/artifact/8BmLhCo7ufjEUFa1s8yhTK, db-collectie `keuring`). Kamiel koos raadsel B en gaf opdracht te bouwen. Gedaan: bronnen (`bron/getallen.md`, `bron/bronnen.md`), drie varianten + blinde beoordelaar (nipt → combinatie, duidelijk), frisse review, `bron/script_v2.md` (1087 woorden, 9 vragen), `bron/storyboard.md`, nieuwe tekeningen in `bron/src/teken_mi.js` (testvel `bron/werk/kf/`). Volgende stap: keuring verwerken → inspreken (Roos, eleven_v4) → bouwen in de FILMDATA-straat (`films/vervolg/BOUWEN.md`, engine uit landbouw-3-fokken) → QA → op de site (thema Cellen, jaarplanner havo 4 § 4.2, `jaarplanner-dekking.json`). Bouwen volgens `films/PROMPT_v10.md` (Part B + C). Plaats: thema Cellen (`films/cellen/`); in de jaarplanner bij havo 4 § 4.2 (week van 4 jan 2027).
 
 Aanleiding: dekkingscheck jaarplanner: havo § 4.2 Bacteriën, virussen en schimmels (Biologie voor jou) staat op 'deels'; schimmels en bouw/voortplanting van bacteriën ontbreken. De onderbouwfilm *Microben: vriend en vijand* (32C) telt niet mee voor de bovenbouw.
 
