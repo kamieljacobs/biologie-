@@ -183,8 +183,8 @@ function miGist(ctx, x, y, r, o = {}) { const { a = 1, knop = 0.4 } = o; if (a <
 function miLadder(ctx, x, y, w, items, o = {}) { const { a = 1, k = 1 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   const lo = -8, hi = -4, X = (m) => x + (Math.log10(m) - lo) / (hi - lo) * w;
   ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
-  [['10 nm', 1e-8], ['100 nm', 1e-7], ['1 µm', 1e-6], ['10 µm', 1e-5], ['100 µm', 1e-4]].forEach(([s, m]) => { const px = X(m); ctx.beginPath(); ctx.moveTo(px, y - 8); ctx.lineTo(px, y + 8); ctx.stroke(); metaText(ctx, s, px, y + 44, C.text2, 'center', 28); });
-  items.forEach((it, i) => { const u = clamp(k * items.length - i, 0, 1); if (u <= 0) return; const px = X(it.m); ctx.save(); ctx.globalAlpha *= u; if (it.teken) it.teken(ctx, px, y - 70); naamBij(ctx, it.naam, it.sub || '', px, y - 150, 1, 'center'); ctx.restore(); });
+  [['10 nm', 1e-8], ['100 nm', 1e-7], ['1 µm', 1e-6], ['10 µm', 1e-5], ['100 µm', 1e-4]].forEach(([s, m]) => { const px = X(m); ctx.beginPath(); ctx.moveTo(px, y - 8); ctx.lineTo(px, y + 8); ctx.stroke(); ctx.save(); ctx.font = fMeta(28); ctx.fillStyle = C.text2; ctx.textAlign = 'center'; ctx.fillText(s, px, y + 44); ctx.restore(); });
+  items.forEach((it, i) => { const u = clamp(k * items.length - i, 0, 1); if (u <= 0) return; const px = X(it.m); ctx.save(); ctx.globalAlpha *= u; if (it.teken) it.teken(ctx, px, y - 70); naamBij(ctx, it.naam, '', px, y - 160, 1, 'center'); if (it.sub) { ctx.save(); ctx.font = fMeta(24); ctx.fillStyle = C.grain; ctx.textAlign = 'center'; ctx.fillText(it.sub, px, y - 126); ctx.restore(); } ctx.restore(); });
   ctx.restore(); }
 
 // PETRISCHAAL (bovenaanzicht, Schema-lab). Recept: Ø ± 9 cm, deksel iets groter, voedingsbodem als vlak (oker-licht),
