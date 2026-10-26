@@ -6,13 +6,13 @@
 
 **Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol.
 
-**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
+**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
 **Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen. Gebeurd: Linda was 28 bij de geboorte van Noor; de eisprong van de eicel waaruit Noor groeide, was op haar 27e: die eicel stond ruim 27 jaar stil in meiose I, sinds oma Ria zwanger was van Linda (Celdeling 2.0, extra uitdaging x01/x02, Kamiel akkoord 25 okt 2026).
 
-**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Grenzen: Bilal blijft hbo-stagiair in dat vak.
+**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
 **Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2). Grenzen: geen dader of patiënt.
 
@@ -32,7 +32,7 @@
 
 **Mevrouw Jansen** (`buurvrouw`, 72) · vast: buurvrouw. Gebeurd: Forensisch onderzoek 3; vrijwillige vlinderteller in Ecologie 1. Grenzen: staat los van Noors familie.
 
-**Lieke** (36), **Jesse**, **Femke**, **Ravi**, **Mirjam**, **Mila**, **Wouter**, **Ilse**, **Veehouder Gerrit** · vast: vakpersonen. Grenzen: alleen in hun eigen vak.
+**Lieke** (36), **Jesse**, **Femke**, **Ravi**, **Mirjam**, **Mila**, **Wouter**, **Ilse**, **Veehouder Gerrit** · vast: vakpersonen. Gebeurd (Gerrit): melkveehouder van Yasmins snuffelstage, neemt haren uit de staart van een stierkalf voor de DNA-test en kiest op zijn tablet een stier die geen familie is (Landbouw 3 Fokken, 26 okt 2026). Grenzen: alleen in hun eigen vak.
 
 **Lotte** (16) · vast: jij in de onderbouwreeks (32A en verder), de hele reeks door.
 
@@ -91,21 +91,21 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: biomedisch-4-toeval-of-echt, ecologie-1-tellen-in-het-veld, ecologie-2-stikstof, ecologie-3-een-plan-voor-de-natuur, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-2-brein-en-computer, pedagogiek-1-een-brein-in-aanbouw, psychologie-6-kun-je-je-geheugen-vertrouwen, psychologie-7-waarom-raakt-de-een-opgebrand
 - `voortplanting`: 2-geslachtsorganen-puberteit
 
-### Yasmin (`yasmin`) — 20 films
+### Yasmin (`yasmin`) — 21 films
 - `evolutie`: 1-wat-is-evolutie
 - `gedrag`: 10-helpen, 12-psychologie-experimenten
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk, 6-dna-en-overerving
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, fysiotherapie-4-welke-oefening-helpt, labtechniek-1-preparaat-en-microscoop, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, leraar-2-een-practicum-dat-werkt, neurowetenschappen-1-je-brein-vult-het-in, neurowetenschappen-3-als-hersencellen-uitvallen, psychologie-2-kijken-in-een-denkend-brein, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 
-### Bilal (`bilal`) — 19 films
+### Bilal (`bilal`) — 20 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
 - `evolutie`: 1-wat-is-evolutie
 - `examens`: vwo-2018-2
 - `gedrag`: 11-slimme-dieren, 5-emotieregulatie
 - `onderbouw/32b`: 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
-- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
+- `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
 - `zenuwstelsel`: 7-slaap
 
 ### Dr. Kim (`kim`) — 48 films
@@ -155,7 +155,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
 
-### Opa Henk (`henk`) — 40 films
+### Opa Henk (`henk`) — 41 films
 - `afweer`: 3-t-cellen-en-virussen
 - `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
 - `evolutie`: 4-de-mens-als-selectiefactor, x2-het-ontstaan-van-het-leven
@@ -165,7 +165,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 2-geslachtelijk-en-ongeslachtelijk
 - `onderbouw/32c`: 1-voeding-en-beweging
 - `onderbouw/33c`: 3-wie-eet-wie, 4-uit-balans
-- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
+- `vervolg`: biomedisch-1-signalen-in-de-cel, biomedisch-2-crispr-wat-doet-dit-gen, biomedisch-3-van-lab-tot-patient, biomedisch-4-toeval-of-echt, diergeneeskunde-3-van-dier-naar-mens, farmacie-1-van-pil-tot-plek, farmacie-3-achter-de-balie, fysiotherapie-2-opnieuw-leren-bewegen, geneeskunde-1-van-klacht-naar-diagnose, labtechniek-2-van-buisje-tot-uitslag, labtechniek-3-wat-staat-er-op-je-bloeduitslag, labtechniek-4-antibioticaresistentie, landbouw-1-meer-oogst, landbouw-2-wat-zit-er-in-de-bodem, landbouw-3-fokken, mbrt-1-in-het-lichaam-kijken, mbrt-2-bestraling, neurowetenschappen-3-als-hersencellen-uitvallen, pedagogiek-1-een-brein-in-aanbouw, pedagogiek-2-opgroeien-onder-druk, psychologie-1-welke-therapie-werkt, psychologie-2-kijken-in-een-denkend-brein, psychologie-7-waarom-raakt-de-een-opgebrand, tandheelkunde-3-bloedend-tandvlees, verpleegkunde-1-bel-je-de-arts, verpleegkunde-2-hoe-weefsel-herstelt
 - `voeding`: 6-je-darmbewoners, 7-supplementen-en-superfoods
 
 ### Verpleegkundige Jesse (`jesse`) — 4 films
@@ -190,9 +190,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `evolutie`: 4-de-mens-als-selectiefactor
 - `vervolg`: diergeneeskunde-1-hond-koe-paard, diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten
 
-### Veehouder Gerrit (`gerrit`) — 4 films
+### Veehouder Gerrit (`gerrit`) — 5 films
 - `evolutie`: 4-de-mens-als-selectiefactor, 6-hoe-een-soort-er-twee-wordt
-- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten
+- `vervolg`: diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, landbouw-3-fokken
 
 ### Tandarts Wouter (`wouter`) — 4 films
 - `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-2-van-glazuur-tot-zenuw, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot

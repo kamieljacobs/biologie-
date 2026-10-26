@@ -1,11 +1,11 @@
 # Overdracht — Wat word jij? · Landbouw en dierhouderij
 
-Stand: film 2 op de site (25 okt 2026, avond). Film 3 (Fokken) in de maak.
+Stand: alle drie de films op de site (26 okt 2026). Reeks af; patroonronde gedaan (WERKWIJZE-LESSEN).
 
 ## Planning
 1. **Meer oogst** — af (24 okt 2026), `landbouw-1-meer-oogst.html`.
 2. **Wat zit er in de bodem?** — af (25 okt 2026), `landbouw-2-wat-zit-er-in-de-bodem.html`, ook bij Tuin- en landschapsinrichting. Gedeelde film met *Tuin- en landschapsinrichting* (id `bodem` in vervolg.html).
-3. **Fokken: selecteren, inteelt en de fokwaarde** — in de maak (werkmap `lb3`, bron in `landbouw-3-fokken/bron/`).
+3. **Fokken: selecteren, inteelt en de fokwaarde** — af (26 okt 2026), `landbouw-3-fokken.html`.
 
 ## Werkwijze
 Zoals Biotechnologie: bronnen en getallen → 3 scriptvarianten + blinde beoordelaar → frisse feitenreview → storyboard, twijfelscènes op een blad voor Kamiel → inspreken (Roos, eleven_v4) → bouwen → frisse beeldreview → repo. Reeksbrief: `REEKS-landbouw.md` (nog niet gekeurd).
@@ -25,3 +25,6 @@ Zoals Biotechnologie: bronnen en getallen → 3 scriptvarianten + blinde beoorde
 - Twijfelblad (10 scènes): https://claude.ai/artifact/M8NUtQjKBGr6Ju64AcwhtR (db-collectie `keuring`, account van 25/26 okt). Keuring Kamiel 26 okt: d3, d4, d5 ok; Gerrit wordt de veehouder ('geldt voor alle films' → les in WERKWIJZE-LESSEN); geen stiernaam in beeld; tabletscène blijft scène; d7-metafoor prima; d2 mag iets aangedikt; d1/d8 zonder opmerking (voorstel gevolgd). Open vragen: veehouder = Veehouder Gerrit of nieuwe veehoudster (bij Gerrit: 'haar/ze' → 'zijn/hij' in s-tabletscène vóór inspreken), Bilal in beeld, echte stiernaam in beeld, tabletscène als scène of 7e vraag, tweede titelregel, staldecor (± 240–430 credits).
 - Daarna: decor stal, inspreken (Roos, eleven_v4; risicowoorden in script_v2 'Keuzes en twijfels'), bouwen, frisse beeldreview, repo; en de **patroonronde** van de reeks (B15).
 - 26 okt: script v2 aangepast (Gerrit, geen naam), staldecor gemaakt (`bron/decor/stal.webp`, flow cMT4epIEjMJi0sraRQzk, ±433 credits); inspreken en docentdeel lopen.
+- 26 okt: ingesproken (Roos, eleven_v4, 24 takes, 6:17 spraak, 5.702 credits, flow xtKR8odqcnyIRua0arIz), gebouwd, frisse beeldreview (`bron/reviews/review_beeld.md`: 21 MOET, alle verwerkt) → op de site (vervolg.html, films.json, FILMKUNST), REVIEW = nog bekijken. LEVENSLOOP bijgewerkt (Yasmin, Henk, Bilal, Gerrit). Patroonronde reeks in WERKWIJZE-LESSEN.
+- Open film 3: Kamiel keurt nog de nieuwe silhouetten van stier en dubbeldoelkoe (aangepast na de beeldreview) en de film zelf in de reviewstand; uitspraakwachtlijst (`bron/uitspraak.md`) niet beluisterd; filmmedaillon nog niet gemaakt (lijntekening in FILMKUNST); `engine/player.js` kreeg een fix voor te lange titels/eindkaart (alleen in deze bronmap); steekproef bronnen door Kamiel; nieuwe tekeningen (runderen, keuzebord, DNA-chip, stamboom) nog naar `bibliotheek/`.
+
