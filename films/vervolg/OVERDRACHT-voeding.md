@@ -1,6 +1,6 @@
 # Overdracht — Wat word jij? · Voeding en diëtetiek (gestart 26 okt 2026)
 
-Stand (26 okt 2026, 21:00): keuring verwerkt; scènes worden gebouwd op geschatte woordtijden. **Inspreken staat stil: ElevenLabs-credits op** (80 over; nodig ± 10.600 voor beide films + ± 240–430 voor het decor).
+Stand (26 okt 2026, ± 23:30): **beide films staan op de site** (`films/vervolg/voedingsleer-1-bij-de-dietist.html`, `…-2-waarom-afvallen-zo-moeilijk-is.html`), in `vervolg.html` als `[titel, href]` (volgorde ongewijzigd, voorstel 1–4 hieronder staat nog open), in `index.html` `HOOFDSTUKKEN.extra.films` met `thema: 'voeding'`, `vervolg: 'voedingsleer'`, FILMKUNST, `films.json` (8 min elk). REVIEW: nog bekijken. Laatste stap: `jaarplanner-dekking.json` § 10.5.
 
 ## PAUZE (Kamiel, 26 okt 2026, 20:56) — bijgesteld 22:30
 **Kamiel 26 okt 2026, 22:30: de twee films Bij de diëtist en Waarom afvallen zo moeilijk is mogen nu ingesproken en afgemaakt worden ('Nu inspreken'). De pauze geldt nog wel voor de herindeling van de rest van het gebied (voorstel 3 en 4 hieronder).**
@@ -64,3 +64,9 @@ Praktijk van de diëtist: ElevenLabs flow `cMT4epIEjMJi0sraRQzk`, generatie `s0e
 - Bouwbronnen staan in de bronmappen (`film.py`, `sections.html`, `segments.json`, `script_opname.md`, `bouw.sh`, `src/`); de werkmappen zelf zijn `hw/vd1`, `hw/vd2` (engine uit landbouw-3, lib_cast.js = actueel castboek).
 - Bekende punten voor de beeldreview: vd1 hand bij de handdruk achter het dagboek, Joost in 'denk'-pose aan de telefoon stijf, label 'bruine bonen' over een vaknaam, balklabels in H1 overlappen; vd2 bed = gedraaide staande figuur (bril lijkt open ogen), meetlint breed, riem op tafel over Hannekes handen, label 'OUD' klein, ± 0,4 s leeg navy bij een paar overgangen, 12 jonge mannen naast Joost (55) kan verwarren.
 - **Na het inspreken**: `silalign.py`, `antwoordletter.py`, cues nalopen (`cuecheck.py`, `cuecheck3.py`), opnieuw bouwen, frisse beeldreview (C10.7), `?vragen=uit` per vraag.
+
+## Afgerond (26 okt 2026, avond)
+- Stem: vd1 flow `5ypdRQlzSB5Hv3tLbLEx`, 23 takes, 5:51, 5290 credits; vd2 flow `fSF7UuMpBLlIQmf0gzjb`, 25 takes, 6:16, 5557 credits. Blinde transcriptie (Scribe) van HAN, body mass index, leptine, ghreline, Hanneke: goed (`bron/uitspraak.md`).
+- Frisse beeldreview 1 per film (`bron/reviews/beeldreview_1.md`), verwerkt door een bouwhelper; reviewpunten in `films/logboek/fouten.jsonl`. Eindkaart film 2 bewust zes regels gelaten (gelijk aan de reeks).
+- Bronnenlogboeken `bron/bronnen.md`: film 1 20 ✓ · 18 ≈ · 3 ?; film 2 25 ✓ · 16 ≈ · 0 ?. Open punten voor Kamiel staan onderaan elk logboek (o.a. 'uit de schijf haal je het meeste van wat je eet' is advies, geen feit).
+- Nog open voor Kamiel: Dennis in outfit `sporter` (korte broek, rugnummer 7) is in film 2 afgeleid van `sport`, nog niet in het castboek; uitspraakwachtlijsten; vervolg.html-voorstel 1–4 (pauze herindeling).
