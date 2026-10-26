@@ -1,6 +1,6 @@
 # Filmbrief · Bacteriën, virussen en schimmels (werktitel *Wat groeit er op je boterham?*)
 
-Status (26 okt 2026, 21:30): **twijfelscènes gekeurd** (4 ✓; kweekpracticum: Kamiel weet niet hoe de school het doet → in de film gehouden, in het docentdeel 'alleen volgens het practicumreglement van de school, vraag de TOA'; testvel ✓ met 'geldt voor alle films'). Scènes gebouwd met voorlopige woordtijden (`bron/src/scenes_mi.js`, `teken_mi.js`; bouwen met `bron/bouw.sh` vanuit hw/ zoals films/vervolg/BOUWEN.md, engine in `bron/src` + `bron/bouw`). **Geblokkeerd: ElevenLabs-tegoed op** (80 credits; nodig ± 6.000 voor 29 alinea's, flow 'Microben · stem Roos' 72BpB2IW9VtNVwssrRto staat klaar, leeg). Daarna: inspreken (één take per alinea), silalign, opnieuw bouwen, Vragen-uit-scripts, frisse beeldreview, op de site (thema Cellen, jaarplanner havo 4 § 4.2 Nijmegen + Groesbeek, `jaarplanner-dekking.json`).
+Status (26 okt 2026): **gebouwd en online** — `films/cellen/microben.html` (versie 1.0, prompt v10, spraak 7:12), in HOOFDSTUKKEN.cellen, jaarplanner havo 4 § 4.1+4.2 (Nijmegen + Groesbeek) en `jaarplanner-dekking.json`. Nog bekijken door Kamiel (reviewpagina); uitspraak hyfen (s10) en 'DNA' (s22) nog na te luisteren (`bron/uitspraak.md`). Bronmap: `films/cellen/microben/bron/`.
 
 Aanleiding: dekkingscheck jaarplanner: havo § 4.2 Bacteriën, virussen en schimmels (Biologie voor jou) staat op 'deels'; schimmels en bouw/voortplanting van bacteriën ontbreken. De onderbouwfilm *Microben: vriend en vijand* (32C) telt niet mee voor de bovenbouw.
 

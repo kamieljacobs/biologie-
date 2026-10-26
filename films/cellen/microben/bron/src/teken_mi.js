@@ -118,11 +118,16 @@ function miSpore(ctx, x, y, r, o = {}) { const { a = 1, kiem = 0, an = 0.6 } = o
 // ---------------------------------------------------------------------------------------------
 function miVirus(ctx, x, y, r, o = {}) { const { a = 1, t = 0, envelop = 0, open = 0, rot = 0, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot);
   const rc = envelop > 0.5 ? r * 0.72 : r;
+  const griep = envelop > 0.5; // griepvirus: geen twintigvlakkige mantel, maar een matrixlaag onder de envelop met 8 RNA-segmenten (RNP, helisch)
   if (envelop > 0.01) { ctx.save(); ctx.globalAlpha *= envelop; const n = 26; ctx.lineCap = 'round';
     for (let i = 0; i < n; i++) { const an = i / n * 6.283 + 0.05 * Math.sin(i * 3.1); const c = Math.cos(an), s = Math.sin(an), L = r * (i % 3 === 0 ? 0.24 : 0.2);
       ctx.strokeStyle = i % 3 === 0 ? '#C9B896' : MI.mantelR; ctx.lineWidth = Math.max(2, r * 0.05); ctx.beginPath(); ctx.moveTo(c * r, s * r); ctx.lineTo(c * (r + L), s * (r + L)); ctx.stroke();
       circ(ctx, c * (r + L), s * (r + L), Math.max(2.2, r * (i % 3 === 0 ? 0.055 : 0.045)), i % 3 === 0 ? '#C9B896' : MI.mantelR); }
     ctx.beginPath(); ctx.arc(0, 0, r, 0, 6.283); shape(ctx, rgba('#E0C07A', 0.18), '#E8D29A', Math.max(2, r * 0.05)); ctx.beginPath(); ctx.arc(0, 0, r * 0.93, 0, 6.283); ctx.strokeStyle = rgba('#E8D29A', 0.6); ctx.lineWidth = Math.max(1.5, r * 0.03); ctx.stroke(); ctx.restore(); }
+  if (griep) { ctx.beginPath(); ctx.arc(0, 0, r * 0.86, 0, 6.283); ctx.strokeStyle = rgba(MI.mantelR, 0.8); ctx.lineWidth = Math.max(2, r * 0.05); ctx.stroke();
+    const seg = [[-0.35, -0.3, 0.3], [0, -0.42, 0], [0.35, -0.28, -0.3], [-0.42, 0.05, 0.1], [0, -0.05, 0], [0.4, 0.08, -0.1], [-0.2, 0.38, 0.4], [0.22, 0.4, -0.4]];
+    seg.forEach(([sx, sy, rot2], i) => { ctx.save(); ctx.translate(sx * r, sy * r); ctx.rotate(Math.PI / 2 + rot2); ctx.beginPath(); const L = r * (0.26 + 0.04 * (i % 3)); for (let k = 0; k <= 24; k++) { const u = k / 24; const px = -L / 2 + u * L, py = Math.sin(u * 6.283 * 2.5) * r * 0.045; k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.strokeStyle = MI.rna; ctx.lineWidth = Math.max(2, r * 0.05); ctx.lineCap = 'round'; ctx.stroke(); ctx.restore(); });
+    ctx.restore(); return; }
   // erfelijk materiaal (RNA of DNA, paars)
   ctx.save(); ctx.strokeStyle = MI.rna; ctx.lineWidth = Math.max(1.6, rc * 0.045); ctx.lineCap = 'round'; ctx.beginPath(); for (let i = 0; i <= 160; i++) { const u = i / 160 * 6.283 * 3; const rr = rc * (0.18 + 0.42 * Math.abs(Math.sin(u * 0.53 + 0.4))); const px = Math.cos(u * 1.7) * rr, py = Math.sin(u * 2.3) * rr * 0.9; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.stroke(); ctx.restore();
   // eiwitmantel: zeshoek met capsomeren
@@ -184,7 +189,7 @@ function miLadder(ctx, x, y, w, items, o = {}) { const { a = 1, k = 1 } = o; if 
   const lo = -8, hi = -4, X = (m) => x + (Math.log10(m) - lo) / (hi - lo) * w;
   ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + w, y); ctx.stroke();
   [['10 nm', 1e-8], ['100 nm', 1e-7], ['1 µm', 1e-6], ['10 µm', 1e-5], ['100 µm', 1e-4]].forEach(([s, m]) => { const px = X(m); ctx.beginPath(); ctx.moveTo(px, y - 8); ctx.lineTo(px, y + 8); ctx.stroke(); ctx.save(); ctx.font = fMeta(28); ctx.fillStyle = C.text2; ctx.textAlign = 'center'; ctx.fillText(s, px, y + 44); ctx.restore(); });
-  items.forEach((it, i) => { const u = clamp(k * items.length - i, 0, 1); if (u <= 0) return; const px = X(it.m); ctx.save(); ctx.globalAlpha *= u; if (it.teken) it.teken(ctx, px, y - 70); naamBij(ctx, it.naam, '', px, y - 160, 1, 'center'); if (it.sub) { ctx.save(); ctx.font = fMeta(24); ctx.fillStyle = C.grain; ctx.textAlign = 'center'; ctx.fillText(it.sub, px, y - 126); ctx.restore(); } ctx.restore(); });
+  items.forEach((it, i) => { const u = clamp(k * items.length - i, 0, 1); if (u <= 0) return; const px = X(it.m); ctx.save(); ctx.globalAlpha *= u; if (it.teken) it.teken(ctx, px, y - 70); const dy = (i % 2) * 70; naamBij(ctx, it.naam, '', px, y - 160 - dy, 1, 'center'); if (it.sub) { ctx.save(); ctx.font = fMeta(24); ctx.fillStyle = C.grain; ctx.textAlign = 'center'; ctx.fillText(it.sub, px, y - 126 - dy); ctx.restore(); } ctx.restore(); });
   ctx.restore(); }
 
 // PETRISCHAAL (bovenaanzicht, Schema-lab). Recept: Ø ± 9 cm, deksel iets groter, voedingsbodem als vlak (oker-licht),
