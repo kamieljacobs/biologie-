@@ -2,7 +2,9 @@
 
 Stand (26 okt 2026, 21:00): keuring verwerkt; scènes worden gebouwd op geschatte woordtijden. **Inspreken staat stil: ElevenLabs-credits op** (80 over; nodig ± 10.600 voor beide films + ± 240–430 voor het decor).
 
-## PAUZE (Kamiel, 26 okt 2026, 20:56)
+## PAUZE (Kamiel, 26 okt 2026, 20:56) — bijgesteld 22:30
+**Kamiel 26 okt 2026, 22:30: de twee films Bij de diëtist en Waarom afvallen zo moeilijk is mogen nu ingesproken en afgemaakt worden ('Nu inspreken'). De pauze geldt nog wel voor de herindeling van de rest van het gebied (voorstel 3 en 4 hieronder).**
+
 Niet verder werken aan deze reeks (ook niet inspreken als er weer credits zijn) tot de Voeding-film die nu in een andere chat wordt gemaakt klaar is. Daarna eerst de indeling van het hele gebied opnieuw bekijken tegen die film.
 
 Openstaand voorstel (nog niet goedgekeurd, wacht op die film):
