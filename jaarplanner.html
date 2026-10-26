@@ -129,6 +129,10 @@ a.chip.les:hover{background:var(--paars);color:var(--bg)}
 .ms li.les-li{padding-left:22px}
 .chip .fmed{width:18px;height:18px;border-radius:50%;vertical-align:-4px;margin:0 5px 0 -4px}
 .chip.vid.heeftmed::before{content:none}
+/* Leerdoelen */
+td.doel{color:var(--text2);font-size:14px}
+.doelen{margin:0;padding-left:16px;display:flex;flex-direction:column;gap:3px}
+.doelen li::marker{color:var(--goud)}
 /* Films per paragraaf */
 .dk{margin-top:6px;font-size:13px}
 .dk summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:4px;color:var(--text3);font:600 10.5px/1 var(--meta);letter-spacing:.08em;text-transform:uppercase;padding:3px 0}
@@ -173,11 +177,12 @@ td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
 td.wk{font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted);width:92px}
 td.wk b{color:var(--fg);font-weight:600}
-td.par{width:27%}
-td.mid{width:30%}
+td.par{width:21%}
+td.doel{width:20%}
+td.mid{width:24%}
 td.mid.gu{width:19%}
-td.hw{width:22%}
-td.opm{width:12%}
+td.hw{width:19%}
+td.opm{width:9%}
 td.opm{color:var(--muted)}
 tr.off td{background:var(--off);color:var(--off-fg)}
 tr.act td{background:repeating-linear-gradient(135deg,var(--off) 0 8px,var(--row) 8px 12px);color:var(--off-fg)}
@@ -565,7 +570,8 @@ a.chip:hover{background:var(--accent);color:var(--row)}
   .tw td.par{font-weight:600}
   .tw td.mid::before,.tw td.hw::before,.tw td.opm::before{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:4px 0 3px}
   .tw td.mid::before{content:"Eigen films en tools"}
-  .tw td.mid.gu::before{content:"Extra · Gewoon Uitgelegd"}
+  .tw td.doel::before{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:4px 0 3px;content:"Leerdoelen"}
+  .tw td.doel:has(>.leeg:only-child){display:none}
   .tw td.hw::before{content:"Huiswerk"}
   .tw td.opm::before{content:"Opmerkingen"}
   .tw td.mid:has(>.leeg:only-child),.tw td.opm:empty{display:none}
@@ -1113,6 +1119,10 @@ function dekkingHtml(level,par){
       +(DOCENT&&x.mist?`<div class="dk-mist">Mist: ${esc(x.mist)}</div>`:"")+`</li>`};
   return `<details class="dk"><summary>${ps.map(p=>stip(bron[p].dekking)).join("")}<span>Films per paragraaf</span></summary><ul class="dk-lijst">${ps.map(rij).join("")}</ul></details>`;
 }
+// ---------- Leerdoelen per week (Kamiel 26 okt 2026: kolom nu, doelen vullen we later) ----------
+// Veld "doelen" in een rij: lijst zinnen ("Je kunt ..."). Leeg = streepje (op de telefoon verborgen).
+function doelHtml(r){const d=Array.isArray(r.doelen)?r.doelen:(r.doelen?[r.doelen]:[]);
+  return d.length?`<ul class="doelen">${d.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:`<span class="leeg">—</span>`}
 // ---------- Deze week (Kamiel 26 okt 2026) ----------
 // Maandag van de lopende week; te testen met ?vandaag=2026-11-09
 const NU=(function(){let d=new Date();try{const q=new URLSearchParams(location.search).get("vandaag");if(q&&/^\d{4}-\d{2}-\d{2}$/.test(q)){const [y,m,dd]=q.split("-").map(Number);d=new Date(y,m-1,dd)}}catch(e){}
@@ -1170,7 +1180,7 @@ function render(level){
   const ro=rooster(level);
   P.blokken.forEach((b,bi)=>{
     const rows=ro.filter(x=>x.bi===bi); if(!rows.length) return;
-    out+=`<section class="blok"><h2>${blokMed(b.titel)}${esc(b.titel)} <small>${esc(blokSub(b,rows))}</small></h2><div class="tw"><table><thead><tr><th>Week</th><th>Paragrafen / les</th><th>Eigen films en tools</th><th>Huiswerk</th><th>Opmerkingen</th></tr></thead><tbody>`;
+    out+=`<section class="blok"><h2>${blokMed(b.titel)}${esc(b.titel)} <small>${esc(blokSub(b,rows))}</small></h2><div class="tw"><table><thead><tr><th>Week</th><th>Paragrafen / les</th><th>Leerdoelen</th><th>Eigen films en tools</th><th>Huiswerk</th><th>Opmerkingen</th></tr></thead><tbody>`;
     for(const x of rows){
       const r=x.r, d=x.d;
       const dat=`${String(d.getDate()).padStart(2,"0")}-${String(d.getMonth()+1).padStart(2,"0")}`;
@@ -1178,7 +1188,7 @@ function render(level){
       const wk=`<td class="wk"><b>wk ${isoWeek(d)}</b><br>ma ${dat}${isNu?'<br><span class="nu-tag">deze week</span>':""}</td>`;
       if(r.type==="off"){
         const act=/activiteitenweek/i.test(r.opm);
-        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="4"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
+        out+=`<tr class="${act?"act":"off"}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td colspan="5"><span class="tag">${act?"Activiteitenweek":"Vakantie"}</span>${esc(r.opm)} · geen les</td></tr>`}
       else{
         const day=iso(d);
         const isGU=m=>/gewoonuitgelegd/.test(m[2]||""); const rk=m=>(isGU(m)?2:0)+(m[0]==="tool"?1:0);
@@ -1200,7 +1210,7 @@ function render(level){
         const hw=(hwParts.length?`<label class="tick"><input type="checkbox" class="pl-it" data-key="${esc(hk)}" ${PL.get(hk)?"checked":""}><span>${hwParts.map(esc).join("<br>")}</span></label>`:`<span class="leeg">nog invullen</span>`)+(r.split?`<div class="split">${r.split.split(" · ").map(x=>{const m=x.match(/^(Les|Zelf): (.*)$/);return m?`<span><b>${m[1]==="Les"?"In de les":"Zelf"}</b> ${esc(m[2])}</span>`:esc(x)}).join("")}</div>`:"");
         const par=r.par||`<span class="leeg">nog invullen</span>`;
         const w=weeks.find(x=>iso(x.d)===day), req=w?w.its.filter(i=>!i.extra):[], alles=req.length&&req.every(i=>PL.get(i.k));
-        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="mid">${midHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
+        out+=`<tr class="${r.type||""}${alles?" klaar":""}${isNu?" nu":""}"${isNu?' id="dezeweek"':""}>${wk}<td class="par">${r.par?esc(r.par):par}${dekkingHtml(level,r.par)}</td><td class="doel">${doelHtml(r)}</td><td class="mid">${midHtml}</td><td class="hw">${hw}</td><td class="opm">${esc(r.opm)}</td></tr>`;
       }
     }
     out+=`</tbody></table></div></section>`;
