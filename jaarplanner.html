@@ -494,6 +494,15 @@ const SITE = ".";
 const KORT=n=>String(n).replace(/^(Zenuwstelsel|Hormonen|Evolutie|Voeding) \d+ · /,"$1 · ").replace(/^(Erfelijkheid|DNA|Transport|Gaswisseling|Afweer|Cel) \d+ · /,"").replace(/ \((eigen|\d+ min)\)$/,"").replace(/ · (kringlopen|de wolf op de Veluwe|enzymen|dissimilatie|fotosynthese|voortplanting|DNA \d|PCR|gel-elektroforese|gelelektroforese|hart|bloedvaten|bloed|xyleem en floëem)$/,"").replace(/^(.+?) · (Voeding|DNA) \d+$/,"$1").replace("Overerving via X-chromosomen en mitochondriën","X-chromosomen en mitochondriën").replace("Dihybride kruising en gekoppelde overerving","Dihybride kruising").replace("Onderzoek doen in de biologie","Onderzoek doen").replace("Vaccins, allergie en bloedgroepen","Vaccins en allergie").replace("De genetische code lezen","Genetische code").replace("Supplementen en superfoods","Supplementen").replace(" (vwo)","");
 
 const GU="https://gewoonuitgelegd.nl/biologie/";
+// Kamiel 26 okt 2026: alleen deze tools staan (even) in de planner; de rest is verborgen.
+// Weer tonen = het pad hier toevoegen. Lessen (tools/docent) staan niet in de planner.
+const TOOL_ZICHTBAAR=u=>/schaallab|examenatlas/.test(u||"");
+function verbergTools(o){
+  if(Array.isArray(o)){
+    for(let i=o.length-1;i>=0;i--){const x=o[i];
+      if(Array.isArray(x)&&x[0]==="tool"&&!TOOL_ZICHTBAAR(x[2])) o.splice(i,1); else verbergTools(x);}
+  } else if(o&&typeof o==="object") for(const k in o) verbergTools(o[k]);
+}
 const START = new Date(2026, 7, 31);
 
 // ---------- Kalender (één bron voor alle tabbladen) ----------
@@ -559,6 +568,7 @@ const PLANNERS = {
   ],
  },
 };
+verbergTools(PLANNERS);
 const COMMON_NOTES = [
  'Eigen films staan op <a href="index.html#home">Biologie bij Kamiel</a>; aanvullende films komen van <a href="https://gewoonuitgelegd.nl/biologie/" target="_blank" rel="noopener">Gewoon Uitgelegd</a>. Alle links openen in een nieuw tabblad.',
  "Waar twee paragrafen in één week staan, behandelt de les de kern en is de rest huiswerk.",
@@ -737,6 +747,7 @@ const DATA = {
   ],
  },
 };
+verbergTools(DATA);
   // ---- PTA-route: weergave, afvinken per onderdeel en mentoroverzicht ----
   // Afvinken wordt alleen in de eigen browser bewaard (localStorage).
   // Het coachoverzicht maakt daarvan een tekst die de leerling kan kopiëren (Teams) of afdrukken.

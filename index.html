@@ -2183,6 +2183,10 @@ const HOOFDSTUKKEN = {
   ]
  }
 };
+/* Kamiel 26 okt 2026: andere tools even verborgen; zichtbaar blijven het Schaallab (oppervlakte/inhoud) en de oefenexamens.
+   Lessen (lestools, HOOFDSTUKKEN.<id>.lessen) staan los hiervan en blijven gewoon staan. Weer tonen = het pad toevoegen aan TOOL_ZICHTBAAR. */
+const TOOL_ZICHTBAAR=href=>/schaallab|tools\/examen-/.test(href||'');
+for(const h of Object.values(HOOFDSTUKKEN)) if(Array.isArray(h.tools)) h.tools=h.tools.filter(t=>TOOL_ZICHTBAAR(t.href));
 const NIVEAUS_STAND=()=>window.__niveau||'havo';
 const NIVEAUS = {
  "havo": {

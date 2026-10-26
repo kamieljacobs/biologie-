@@ -190,3 +190,5 @@ Klik je terug (browserknop of een '←'-link, bv. '← Terug naar Voeding' in ee
 ## Site-icoon (favicon, Kamiel 25 okt 2026)
 
 Logo in tabblad en bookmarkbalk: het blaadje-in-een-cirkel uit de kopbalk (`.merk`), goud op navy, in `img/icoon/` (`favicon.svg` = bron, `favicon-32.png`, `apple-touch-icon.png` 180 px, `icoon-192/512.png`, `favicon.ico` 16/32/48, die ook in de root staat). `scripts/teller.py` zet de `<link rel="icon">`-regels direct onder de tellertag van elke pagina die er nog geen heeft, dus een nieuwe pagina krijgt hem vanzelf. Na een wijziging aan het icoon de png's en de ico opnieuw maken uit favicon.svg (cairosvg + Pillow).
+
+Tools tijdelijk verborgen (Kamiel 26 okt 2026): op de site en in de jaarplanner staan alleen nog het Schaallab (oppervlakte/inhoud), de oefenexamens en (planner) de Examenatlas; alle andere tools zijn verborgen, de lestools (`HOOFDSTUKKEN.<id>.lessen`, `#lessen`) blijven staan. De data staat er nog; het filter is `TOOL_ZICHTBAAR` in `index.html` (na `HOOFDSTUKKEN`) en in `jaarplanner.html` (met `verbergTools()` op `PLANNERS` en de PTA-route-`DATA`). Een tool weer tonen = het pad aan `TOOL_ZICHTBAAR` toevoegen.
