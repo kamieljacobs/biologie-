@@ -40,7 +40,7 @@ Kritische check akkoord Kamiel (26 okt 2026): **film 1 Hoe een epidemie groeit e
 ## Gedeelde begrippen (één definitie in de hele reeks)
 - **epidemiologie**: het vak dat onderzoekt hoe vaak een ziekte voorkomt in een bevolking, bij wie, en waardoor.
 - **reproductiegetal R**: het gemiddelde aantal mensen dat één besmettelijk persoon besmet. **R₀** (basisreproductiegetal): hetzelfde, in een bevolking waar nog niemand immuun is en niemand maatregelen neemt.
-- **groepsimmuniteit**: zoveel mensen zijn immuun dat het virus te weinig nieuwe vatbare mensen vindt en de uitbraak uitdooft; ook wie niet immuun is, is dan beschermd.
+- **groepsimmuniteit**: zoveel mensen zijn immuun dat het virus te weinig nieuwe vatbare mensen vindt en de uitbraak uitdooft; ook wie niet immuun is, loopt dan veel minder kans.
 
 ## Grenzen met bestaande films
 - *Vaccins, allergie en bloedgroepen* (Afweer 4): hoe een vaccin werkt, actieve/passieve immunisatie, groepsimmuniteit als plaatje (95 %). Niet opnieuw uitleggen hoe een vaccin werkt.
