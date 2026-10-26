@@ -1,6 +1,6 @@
 # Overdracht — Wat word jij? · Voeding en diëtetiek (gestart 26 okt 2026)
 
-Stand (26 okt 2026, avond): beide scripts v2 klaar, twijfelblad bij Kamiel. Wacht op keuring vóór decor en inspreken.
+Stand (26 okt 2026, 21:00): keuring verwerkt; scènes worden gebouwd op geschatte woordtijden. **Inspreken staat stil: ElevenLabs-credits op** (80 over; nodig ± 10.600 voor beide films + ± 240–430 voor het decor).
 
 ## Planning (akkoord Kamiel 26 okt 2026)
 Doel: samen het gat in havo § 10.5 *Gezonde voeding* dichten (Schijf van Vijf, energiebalans en BMI, overgewicht; `jaarplanner-dekking.json`, `bvj-havo5` → `10.5`). Beide films zijn ook extra film bij het thema Voeding (zoals CRISPR): `HOOFDSTUKKEN.extra.komt` met `vervolg: 'voedingsleer'`, in `vervolg.html` met `extra: 'voeding'`.
@@ -30,3 +30,16 @@ Belangrijke vondsten: de Schijf van Vijf is op 9 april 2026 vernieuwd (film volg
 
 ## Daarna
 Decor praktijk (ElevenLabs, één variant, alleen na akkoord) → castvoorstel in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md → inspreken (Roos, eleven_v4) → bouwen (engine uit landbouw-3, werkmappen `hw/vd1`, `hw/vd2`) → frisse beeldreview → repo (vervolg.html: van planobject naar [titel, href] met `extra: 'voeding'`; index.html: HOOFDSTUKKEN.extra.komt → films met `thema: 'voeding'`, FILMKUNST; films.json) → als laatste, na `git pull`, `jaarplanner-dekking.json` (§ 10.5 havo 5).
+
+## Keuring Kamiel (26 okt 2026, 20:39)
+- c0 Hanneke: **A** (krullen, groen vest) → in `personages/lib_cast.js` (`hanneke`), ROLLEN.md, LEVENSLOOP.md, castboek. Joost outfit `spreekuur` en Dennis outfit `sport` erbij.
+- v1a Noor als meeloopster: ok ('meer cast is ok'). Decor: geen reactie → voorstel geldt (één ElevenLabs-decor praktijk voor beide films), maar wacht op credits.
+- v1b foto: **A**, Fleur als kleindochter van Joost (in LEVENSLOOP).
+- v1c, v2a, v2b, v2c: ok. v2d (hersenen als doorsnede in een zoomcirkel náást Joost): ok, aangevinkt 'geldt voor alle films' → toegevoegd aan BEELDAFSPRAKEN.
+
+## Inspreken (onderbroken door credits)
+- Brief: `werk-voeding/HELPER-inspreken.md` (in hw: `vd/HELPER-inspreken.md`).
+- vd1: flow `5ypdRQlzSB5Hv3tLbLEx` ('Voeding vd1 · stem'), 0 takes (s01 en s04 geweigerd, niets gerekend). Opnieuw starten vanaf s01.
+- vd2: flow `fSF7UuMpBLlIQmf0gzjb` ('Voeding vd2 · stem'), 1 take: s01 (253 credits, `raw/s01.mp3` + `audio/s01.mp3` in hw/vd2, nog niet in de repo). Verder vanaf s04.
+- Stem-invoer: `segments.json` uit `script_opname.md` (script v2 zonder Keuzes/Twijfels); film 2 heeft `uitspraak_film.json` (ghreline → 'greline', op de wachtlijst).
+- Bouwen loopt intussen op geschatte woordtijden (`fakewords.py`); na het inspreken `silalign.py`, cues nalopen en opnieuw bouwen.
