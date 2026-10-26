@@ -5,7 +5,7 @@ Gemaakt met `python3 scripts/bronnencheck.py --md`. Werkwijze: `films/BRONNEN.md
 | Stand | Aantal films |
 |---|---|
 | geen logboek | 166 |
-| in controle | 8 |
+| in controle | 9 |
 | wacht op steekproef | 13 |
 
 | Film | Stand | ✓ | ≈ | ! | ? | Steekproef |
@@ -29,7 +29,8 @@ Gemaakt met `python3 scripts/bronnencheck.py --md`. Werkwijze: `films/BRONNEN.md
 | `films/vervolg/forensisch-2-hoe-zeker-is-een-match` | wacht op steekproef | 13 | 11 | 0 | 0 | 0 |
 | `films/vervolg/forensisch-3-hoe-lang-al-dood` | wacht op steekproef | 21 | 15 | 0 | 0 | 0 |
 | `films/vervolg/landbouw-2-wat-zit-er-in-de-bodem` | in controle | 32 | 17 | 0 | 4 | 0 |
+| `films/vervolg/landbouw-3-fokken` | in controle | 40 | 28 | 0 | 3 | 0 |
 | `films/voortplanting/2-geslachtsorganen-puberteit` | wacht op steekproef | 34 | 10 | 0 | 0 | 0 |
 | `films/voortplanting/celdeling` | in controle | 28 | 6 | 0 | 1 | 0 |
 
-Beweringen totaal: 471 ✓ · 235 ≈ · 7 ! · 15 ?
+Beweringen totaal: 511 ✓ · 263 ≈ · 7 ! · 18 ?
