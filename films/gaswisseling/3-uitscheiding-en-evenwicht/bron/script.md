@@ -46,7 +46,41 @@ Antwoord aa. Misschien dacht je: minder ademen. Maar zuurder bloed prikkelt de c
 
 Voor vwo gaan we hier nog een stap verder. Je kent de reactie uit de vorige film. Koolstofdioxide en water vormen koolzuur, en dat splitst in een waterstofion en waterstofcarbonaat. Al die stoffen staan met elkaar in evenwicht. Komt er meer koolstofdioxide bij, dan schuift het evenwicht naar rechts: meer waterstofionen, en de pH daalt. Komen er extra waterstofionen bij, zoals bij de diabetespatiënt, dan schuift het naar links. Er ontstaat koolstofdioxide, en dat ademt hij uit. Cellen van de nierbuisjes scheiden actief waterstofionen uit naar de voorurine, en geven waterstofcarbonaat terug aan het bloed. Terug naar de basis.
 
-## Hoofdstuk 3 — Als de nieren stoppen
+## Hoofdstuk 3 — De huid
+
+Nieuw in de gerichte ronde van 26 okt 2026 (nummers h.. zodat de rest van de film zijn nummers houdt). Stem-invoer met respellings staat in `segments.json` (`voice`); hier de gesproken tekst.
+
+**h01** · 18.0 s · `audio/h01.mp3`
+
+Ook de temperatuur binnen in je lichaam moet binnen grenzen blijven: rond de zevenendertig graden. Daarbij helpt je huid. Noor rent een rondje. Haar spieren maken veel warmte. Haar gezicht wordt rood, en ze gaat zweten. Op een koude dag is haar huid juist bleek, en krijgt ze kippenvel.
+
+**h02** · 17.3 s · `audio/h02.mp3`
+
+Zo ziet je huid eruit in doorsnede. Bovenaan ligt de opperhuid. De buitenste laag is de hoornlaag: dode, platte cellen. Die beschermen je, en slijten steeds af. Onderin ligt de kiemlaag. Daar delen cellen zich, en de nieuwe cellen schuiven langzaam omhoog.
+
+**h03** · 24.6 s · `audio/h03.mp3`
+
+Daaronder ligt de lederhuid, met bloedvaten, zweetklieren, talgklieren en haarzakjes. Ook liggen daar zintuigen voor tast, druk, warmte, koude en pijn. Helemaal onderin ligt onderhuids bindweefsel, met vet. Je huid beschermt je dus, voelt, scheidt zweet uit, en helpt je temperatuur regelen. Zweet koelt je af. Maar hoe? Wat denk je?
+
+**hq04** (vraag): het zweet verdampt, en dat kost warmte · door het zweten gaat er minder bloed naar je huid · het warme zweet neemt warmte mee naar buiten
+
+**h05** · 11.7 s · `audio/h05.mp3`
+
+Antwoord aa. Zweet koelt je af doordat het verdampt. Om te verdampen heeft water veel warmte nodig, en die haalt het uit je huid. Druipt het zweet eraf, dan koelt het niet.
+
+**h06** · 27.3 s · `audio/h06.mp3`
+
+Zintuigen in je huid en in je hersenen meten hoe warm het is. Het regelcentrum is de hypothalamus, in je hersenen. Wordt je bloed te warm, dan stuurt hij zenuwimpulsen naar je huid. De bloedvaten in je huid worden wijder. Er stroomt meer warm bloed vlak onder het oppervlak, en dat geeft warmte af. Daarom word je rood. En je zweetklieren maken meer zweet. Zo daalt je temperatuur weer: negatieve terugkoppeling, net als bij de pH.
+
+**h07** · 26.7 s · `audio/h07.mp3`
+
+Heb je het koud, dan gebeurt het omgekeerde. De bloedvaten in je huid worden nauwer. Er stroomt minder warm bloed langs het oppervlak, dus je verliest minder warmte, en je huid wordt bleek. Kleine spiertjes zetten je haren rechtop: kippenvel. Bij dieren met een vacht houdt dat een laag lucht vast. Bij jou helpt het nauwelijks. Wat wel isoleert, is het vet onder je huid. En als je gaat rillen, maken je spieren extra warmte.
+
+**h08** · 8.8 s · `audio/h08.mp3`
+
+Je huid scheidt dus een beetje uit, maar helpt vooral je temperatuur regelen. Ureum gaat vooral via je nieren. En wat als die het niet meer doen?
+
+## Hoofdstuk 4 — Als de nieren stoppen
 
 **s12** · 43.0 s · `audio/s12.mp3`
 

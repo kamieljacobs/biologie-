@@ -9,9 +9,14 @@ src = open(os.path.join(fdir, sname), encoding='utf-8').read()
 body = src.split('\n---', 1)[1]
 secs = re.split(r'\n## ', '\n' + body)
 segments = []
-n = 0
+n = 0; eigen = {}; pref = None
 def nid(prefix):
+    # Een hoofdstuk met {id:x} in de kop krijgt eigen nummers (x01, xq02, ...), zodat de nummers van de rest
+    # van de film niet verschuiven als er later een hoofdstuk tussen komt (De huid, 26 okt 2026).
     global n
+    if pref:
+        eigen[pref] = eigen.get(pref, 0) + 1
+        return f'{pref}{"q" if prefix == "q" else ""}{eigen[pref]:02d}'
     n += 1
     return f'{prefix}{n:02d}'
 for s in secs:
@@ -19,6 +24,8 @@ for s in secs:
     if not s.strip():
         continue
     head, _, rest = s.partition('\n')
+    pm = re.search(r'\s*\{id:([a-z]+)\}', head); pref = pm[1] if pm else None
+    if pm: head = head.replace(pm[0], '')
     chapter = re.sub(r'\s*\[.*?\]\s*$', '', head).strip()
     look = (re.search(r'\[(.*?)\]\s*$', head) or [None, ''])[1]
     if chapter == 'Titel':

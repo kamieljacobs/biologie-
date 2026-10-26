@@ -3095,3 +3095,127 @@ function cdTeller(ctx, regels, a = 1, x = 1480, y = 150) { if (a <= 0.01) return
   regels.forEach(([lab, val, kl], i) => { metaText(ctx, lab, x, y + i * 44, C.text2, 'left', 22); text(ctx, val, x + 320, y + 4 + i * 44, fTekst(34, 700), kl || C.text, 'right'); }); ctx.restore(); }
 // maximale zwaai zodat de armen van een losse chromatide de middellijn niet kruisen (afstand = centromeer tot middellijn)
 function cdZwaaiMax(afstand, armLen, w) { return Math.asin(clamp((afstand - w * 0.75) / Math.max(1, armLen), 0, 1)) / 1.15; }
+
+function _huidCirc(ctx, x, y, r, fill) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.283); ctx.fillStyle = fill; ctx.fill(); }
+// ===================================================================================================
+// HUID IN DOORSNEDE als blok (opperhuid, lederhuid, onderhuids bindweefsel), schematisch, niet op schaal.
+// Eerst gebruikt: Uitscheiding en evenwicht 1.1, hoofdstuk De huid (26 okt 2026), door Kamiel gekeurd op het twijfelblad.
+// Gebruik: huidBlok(ctx, X, Y, breedte, { t, vat, zweet, kip, focus, volg, isoleer, rood, bleek }) — hoogte = 0,875 × breedte.
+// Vereist ook blob() uit lib.js.
+// Recept (bronnen in bron/bronnen.md): opperhuid dun (dunne huid ± 0,1 mm), lederhuid 1–2 mm, onderhuids
+// bindweefsel wisselend dik; hier vereenvoudigd tot ± 1 : 4 : 3,5 zodat de opperhuid zichtbaar blijft.
+//  - opperhuid: hoornlaag = platte dode cellen zonder kern (bovenaan schilferend); daaronder levende lagen die
+//    naar boven platter worden; kiemlaag = één rij cellen met kern op een golvende grens (lederhuidpapillen).
+//    De opperhuid heeft geen bloedvaten: haarvatlussen stoppen in de papillen.
+//  - lederhuid: bindweefsel (collageen golvend), oppervlakkig en diep vaatnet met haarvatlussen in de papillen;
+//    haarzakje schuin, met talgklier aan de kant van het haarspiertje; haarspiertje van het haarzakje naar de
+//    papillaire laag; zweetklier = kluwen diep in de lederhuid, buis kronkelt naar een porie; zintuigen:
+//    vrije zenuwuiteinden (pijn, warmte, koude) tot in de opperhuid, tastlichaampje in een papil, druklichaampje diep.
+//  - onderhuids bindweefsel: vetcellen als veelhoeken van wisselende grootte (geen raster van gelijke rondjes).
+//  Bekende fouten: bloedvaten in de opperhuid; zweetklier die in het vet 'zwemt' zonder buis; talgklier los
+//  van het haarzakje; haar dat recht omhoog uit een recht gat steekt; vet als effen gele laag.
+// Ontwerpmaat 800 × 700; o.vat −1 (nauw) … 0 … 1 (wijd), o.zweet 0..1, o.kip 0..1 (kippenvel),
+// o.focus = 'hoorn'|'kiem'|'opper'|'leder'|'vat'|'zweet'|'talg'|'haar'|'zin'|'vet'|null (de rest gaat naar 35 %).
+// Geeft ankerpunten terug (schermcoördinaten) voor namen.
+// ===================================================================================================
+const HUIDK = { hoorn: '#E6CDB4', levend: '#C99A80', levendR: '#DDB59C', leder: '#5E4652', lederL: '#6E5260', collageen: '#B88A92',
+  vet: '#CDBB86', vetR: '#DCCB9A', vetGrond: '#6B4B3E', slag: '#D9483E', ader: '#8E3A40', haar: '#3A2418', haarZak: '#A07862',
+  talg: '#D9C27A', spier: '#B36A5E', buis: '#AFC0D0', zenuw: '#C9D2DE' };
+function huidMix(a, b, u) { const p = (h) => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * clamp(u, 0, 1)).toString(16).padStart(2, '0')).join(''); }
+const _huidVet = (() => { const out = []; let k = 0; for (let r = 0; r < 5; r++) for (let c = 0; c < 9; c++) { k++; const jx = (hash(k * 3.1) - 0.5) * 40, jy = (hash(k * 5.3) - 0.5) * 22;
+  out.push([c * 92 + (r % 2) * 46 + 10 + jx, 492 + r * 50 + jy, 30 + hash(k * 7.7) * 16]); } return out; })();
+function huidBlok(ctx, X, Y, w, o = {}) {
+  const { a = 1, t = 0, vat = 0, zweet = 0, kip = 0, focus = null, rood = 0, bleek = 0, deel = 1, volg = 0, isoleer = 0 } = o; if (a <= 0.01) return {};
+  const s = w / 800, D = (k) => (focus && focus !== k ? 0.35 : 1);
+  ctx.save(); ctx.translate(X, Y); ctx.scale(s, s); ctx.globalAlpha *= a;
+  const bump = (x) => kip * 9 * Math.exp(-Math.pow((x - 262) / 34, 2));            // kippenvel: bultje rond de haaropening
+  const top = (x) => 60 + Math.sin(x * 0.02) * 2 - bump(x);
+  const bm = (x) => 150 - 16 * Math.pow(0.5 + 0.5 * Math.cos((x - 70) / 110 * 6.283), 2);   // grens opperhuid/lederhuid (papillen)
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, 800, 700); ctx.clip();
+  // ---- onderhuids bindweefsel met vet ----
+  ctx.save(); ctx.globalAlpha *= D('vet'); ctx.fillStyle = HUIDK.vetGrond; ctx.fillRect(0, 470, 800, 230);
+  for (const [cx, cy, r] of _huidVet) { blob(ctx, cx, cy, r * 1.1, r * 0.82, 0.08, cx * 0.1, 0); shape(ctx, HUIDK.vet, HUIDK.vetR, 2); }
+  if (isoleer > 0.01) { ctx.globalAlpha *= isoleer; ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.strokeRect(3, 472, 794, 225); }
+  ctx.restore();
+  // ---- lederhuid ----
+  ctx.save(); ctx.globalAlpha *= D('leder') === 1 || ['vat', 'zweet', 'talg', 'haar', 'zin'].includes(focus) ? 1 : 0.35;
+  ctx.beginPath(); ctx.moveTo(0, 470); for (let x = 0; x <= 800; x += 4) ctx.lineTo(x, bm(x)); ctx.lineTo(800, 470); ctx.closePath(); ctx.fillStyle = HUIDK.leder; ctx.fill();
+  ctx.save(); ctx.clip(); ctx.fillStyle = HUIDK.lederL; ctx.beginPath(); ctx.moveTo(0, 230); for (let x = 0; x <= 800; x += 4) ctx.lineTo(x, bm(x)); ctx.lineTo(800, 230); ctx.closePath(); ctx.fill();
+  for (let i = 0; i < 12; i++) { const yy = 190 + i * 24, ph = hash(i * 7.1) * 6.28; ctx.strokeStyle = rgba(HUIDK.collageen, 0.22); ctx.lineWidth = 3; ctx.beginPath();
+    for (let x = -10; x <= 810; x += 10) { const py = yy + Math.sin(x / 40 + ph) * 6; x === -10 ? ctx.moveTo(x, py) : ctx.lineTo(x, py); } ctx.stroke(); }
+  ctx.restore(); ctx.restore();
+  // bloedvaten: diep vaatnet (y 430), oppervlakkig vaatnet (y 205) en haarvatlussen in elke papil
+  const vr = vat >= 0 ? 1 + 1.3 * vat : 1 - 0.65 * -vat, flow = vat >= 0 ? 1 + vat : 1 + 0.7 * vat;
+  ctx.save(); ctx.globalAlpha *= D('vat');
+  const buis = (pts, r, col, n, sp) => { ctx.strokeStyle = col; ctx.lineWidth = 2 * r; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+    ctx.strokeStyle = rgba('#000000', 0.18); ctx.lineWidth = Math.max(1, 2 * r - 5); ctx.stroke();
+    let L = 0; const seg = []; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; }
+    for (let j = 0; j < n; j++) { let u = ((j / n + t * sp / L * 60) % 1) * L, i = 0; while (i < seg.length - 1 && u > seg[i]) { u -= seg[i]; i++; } const f = u / seg[i], px = lerp(pts[i][0], pts[i + 1][0], f), py = lerp(pts[i][1], pts[i + 1][1], f);
+      ctx.beginPath(); ctx.ellipse(px, py, Math.min(r * 0.8, 6), Math.min(r * 0.5, 4), 0.4, 0, 6.283); ctx.fillStyle = '#E07A6A'; ctx.fill(); } };
+  buis([[-10, 432], [800 + 10, 438]], 11, HUIDK.slag, 14, 1.2); buis([[810, 452], [-10, 455]], 13, HUIDK.ader, 12, 0.8);
+  buis([[150, 440], [158, 330], [150, 212]], 6 * Math.sqrt(vr), HUIDK.slag, 4, 1.2 * flow); buis([[690, 212], [702, 330], [694, 448]], 7 * Math.sqrt(vr), HUIDK.ader, 4, 0.9 * flow);
+  buis([[-10, 205], [810, 210]], 6 * vr, HUIDK.slag, Math.round(10 * Math.max(0.4, flow)), 1.3 * flow);
+  for (let k = 0; k < 8; k++) { const px = 70 + k * 110; if (px > 800) break; const tp = bm(px) + 10, dx = 6; ctx.strokeStyle = huidMix(HUIDK.ader, HUIDK.slag, 0.5); ctx.lineWidth = 2 * Math.max(1.6, 3.4 * vr); ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(px - dx, 210); ctx.lineTo(px - dx, tp + dx); ctx.arc(px, tp + dx, dx, Math.PI, 0); ctx.lineTo(px + dx, 210); ctx.stroke(); }
+  ctx.restore();
+  // zweetklier: kluwen diep in de lederhuid, buis kronkelt naar een porie
+  ctx.save(); ctx.globalAlpha *= D('zweet');
+  const kluwen = []; for (let i = 0; i <= 60; i++) { const u = i / 60, an = u * 6.283 * 3.2; kluwen.push([600 + Math.cos(an) * (16 + 12 * Math.sin(u * 9)), 452 + Math.sin(an) * (12 + 6 * Math.cos(u * 7)) - u * 6]); }
+  const gang = [[600, 440], [592, 380], [606, 320], [596, 260], [608, 200], [600, bm(600) + 4]]; for (let yy = bm(600); yy >= top(612); yy -= 10) gang.push([606 + Math.sin(yy * 0.25) * 7, yy]); gang.push([610, top(610)]);
+  const pad = kluwen.concat(gang); ctx.strokeStyle = HUIDK.buis; ctx.lineWidth = 9; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); pad.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke();
+  ctx.strokeStyle = rgba(C.teal, 0.25 + 0.6 * zweet); ctx.lineWidth = 4; ctx.stroke();
+  if (zweet > 0.01) { for (let j = 0; j < 7; j++) { const u = (j / 7 + t * 0.12) % 1, i = Math.floor(u * (pad.length - 1)); _huidCirc(ctx, pad[i][0], pad[i][1], 3.2, rgba(C.teal, zweet)); }
+    const dr = 4 + 10 * zweet; ctx.beginPath(); ctx.ellipse(610, top(610) - dr * 0.55, dr, dr * 0.65, 0, 0, 6.283); shape(ctx, rgba(C.teal, 0.75), lighten(C.teal, 0.3), 1.5); }
+  ctx.restore();
+  // haarzakje met haar, talgklier en haarspiertje
+  const oX = 262, oY = top(262), bX = 340, bY = 468; const ang = lerp(0.42, 1.25, kip);   // hoek van het haar boven de huid t.o.v. het oppervlak
+  ctx.save(); ctx.globalAlpha *= D('haar');
+  ctx.strokeStyle = HUIDK.haarZak; ctx.lineWidth = 30; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(oX + 4, oY + 14); ctx.lineTo(bX, bY - 14); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(bX + 2, bY - 4, 22, 18, 0.2, 0, 6.283); ctx.fillStyle = HUIDK.haarZak; ctx.fill();
+  ctx.strokeStyle = HUIDK.haar; ctx.lineWidth = 8; ctx.beginPath(); ctx.moveTo(bX, bY - 8); ctx.lineTo(oX, oY); ctx.lineTo(oX - Math.cos(ang) * 120, oY - Math.sin(ang) * 120); ctx.stroke();
+  ctx.restore();
+  ctx.save(); ctx.globalAlpha *= D('talg'); for (const [dx, dy, r] of [[34, 150, 17], [44, 172, 15], [30, 190, 13]]) { blob(ctx, oX + dx + 10, oY + dy - 40, r, r * 0.8, 0.1, dx, 0); shape(ctx, HUIDK.talg, lighten(HUIDK.talg, 0.25), 1.5); } ctx.restore();
+  ctx.save(); ctx.globalAlpha *= D('haar'); const mA = [lerp(oX, bX, 0.55) + 10, lerp(oY, bY, 0.55)], mB = [372, bm(372) + 6];
+  ctx.strokeStyle = huidMix(HUIDK.spier, '#E8A090', kip); ctx.lineWidth = 11 + 9 * kip; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(mA[0], mA[1]); ctx.quadraticCurveTo(lerp(mA[0], mB[0], 0.5) + 12 * (1 - kip), lerp(mA[1], mB[1], 0.5), mB[0], mB[1]); ctx.stroke(); ctx.restore();
+  // zintuigen: vrije zenuwuiteinden, tastlichaampje (papil), druklichaampje (diep)
+  const zc = focus === 'zin' ? C.teal : HUIDK.zenuw;
+  ctx.save(); ctx.globalAlpha *= D('zin'); ctx.strokeStyle = zc; ctx.lineWidth = 3; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(470, 470); ctx.bezierCurveTo(480, 360, 460, 260, 476, 170); ctx.stroke();
+  for (const [ex, ey] of [[452, 112], [478, 104], [500, 118]]) { ctx.beginPath(); ctx.moveTo(476, 170); ctx.quadraticCurveTo((476 + ex) / 2 + 6, (170 + ey) / 2, ex, ey); ctx.stroke(); }
+  const mx = 510, my = bm(510) + 12; ctx.beginPath(); ctx.moveTo(476, 230); ctx.quadraticCurveTo(500, 200, mx, my + 10); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(mx, my, 7, 13, 0, 0, 6.283); shape(ctx, rgba(zc, 0.35), zc, 2); for (let k = -1; k <= 1; k++) { ctx.beginPath(); ctx.moveTo(mx - 6, my + k * 6); ctx.lineTo(mx + 6, my + k * 6); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(470, 450); ctx.quadraticCurveTo(640, 470, 720, 420); ctx.stroke();
+  for (let k = 0; k < 4; k++) { ctx.beginPath(); ctx.ellipse(738, 410, 26 - k * 6, 15 - k * 3.4, -0.4, 0, 6.283); shape(ctx, k === 0 ? rgba(zc, 0.18) : 'rgba(0,0,0,0)', zc, 2); }
+  ctx.restore();
+  // ---- opperhuid ----
+  ctx.save(); const fo = (focus === 'opper' || focus === 'hoorn' || focus === 'kiem' || !focus) ? 1 : 0.35;
+  ctx.beginPath(); ctx.moveTo(0, top(0)); for (let x = 0; x <= 800; x += 4) ctx.lineTo(x, top(x)); for (let x = 800; x >= 0; x -= 4) ctx.lineTo(x, bm(x)); ctx.closePath();
+  ctx.save(); ctx.globalAlpha *= fo; ctx.fillStyle = huidMix(huidMix(HUIDK.levend, '#E07A5F', 0.45 * rood), '#D8D2CC', 0.5 * bleek); ctx.fill(); ctx.clip();
+  // levende lagen: cellen in rijen, naar boven platter; kiemlaag = onderste rij met kern
+  const kiemF = focus === 'kiem' ? 1 : (focus === 'hoorn' ? 0.35 : 1), hoornF = focus === 'kiem' ? 0.35 : 1;
+  for (let r = 0; r < 5; r++) { const hgt = [13, 12, 11, 9, 7][r], wid = [15, 18, 21, 25, 30][r];
+    ctx.save(); ctx.globalAlpha *= r === 0 ? kiemF : (focus === 'hoorn' || focus === 'kiem' ? 0.5 : 1);
+    for (let x = -10 + (r % 2) * wid / 2; x < 810; x += wid) { const yb = bm(x) - 8 - r * (hgt + 4) * lerp(1, 0.75, r / 4); if (yb < top(x) + 26) continue;
+      roundRect(ctx, x - wid / 2 + 1.5, yb - hgt / 2, wid - 3, hgt, 4); shape(ctx, huidMix(huidMix(HUIDK.levend, '#E07A5F', 0.45 * rood), '#D8D2CC', 0.5 * bleek), HUIDK.levendR, 1.2);
+      if (r < 3) { ctx.beginPath(); ctx.ellipse(x, yb, Math.min(4.5, wid * 0.22), Math.min(4, hgt * 0.3), 0, 0, 6.283); ctx.fillStyle = r === 0 ? C.kern : rgba(C.kern, 0.6); ctx.fill(); } }
+    ctx.restore(); }
+  // één cel volgen (goud): ontstaat in de kiemlaag door deling, schuift omhoog, wordt plat en verliest de kern
+  if (volg > 0.01) { const vx = 400, u = (t * 0.07) % 1, y0 = bm(vx) - 8, y1 = top(vx) + 8, yy = lerp(y0, y1, ease(u)); const fl = lerp(1, 0.25, u), wd = lerp(16, 34, u);
+    ctx.save(); ctx.globalAlpha *= volg; roundRect(ctx, vx - wd / 2, yy - 7 * fl - 2, wd, 14 * fl + 4, 4); shape(ctx, u > 0.8 ? HUIDK.hoorn : HUIDK.levend, C.goud, 2.5);
+    if (u < 0.65) { ctx.beginPath(); ctx.ellipse(vx, yy, 4.5, 4 * fl + 0.5, 0, 0, 6.283); ctx.fillStyle = rgba(C.kern, 1 - u / 0.65); ctx.fill(); }
+    const dv = clamp((u - 0.0) / 0.12, 0, 1); if (dv < 1) { ctx.globalAlpha *= 1 - dv; roundRect(ctx, vx - 8 + dv * 16, y0 - 7, 16, 14, 4); shape(ctx, HUIDK.levend, C.goud, 2); ctx.beginPath(); ctx.ellipse(vx + dv * 16, y0, 4.5, 4, 0, 0, 6.283); ctx.fillStyle = C.kern; ctx.fill(); }
+    ctx.restore(); }
+  ctx.restore();
+  // hoornlaag: platte dode cellen zonder kern, bovenste schilferen af
+  ctx.save(); ctx.globalAlpha *= fo * hoornF; for (let r = 0; r < 4; r++) for (let x = -20 + r * 13; x < 820; x += 46) { const yy = top(x) + 3 + r * 5.5; roundRect(ctx, x, yy, 40, 4.5, 2.2); shape(ctx, HUIDK.hoorn, lighten(HUIDK.hoorn, 0.2), 1); }
+  for (let k = 0; k < 3; k++) { const u = (t * 0.05 + k / 3) % 1, fx = 120 + k * 250 + u * 30, fy = top(fx) + 2 - u * 34; ctx.save(); ctx.globalAlpha *= (1 - u) * 0.9; ctx.translate(fx, fy); ctx.rotate(-0.3 * u); roundRect(ctx, -20, -2, 40, 4.5, 2.2); shape(ctx, HUIDK.hoorn, null); ctx.restore(); }
+  ctx.restore();
+  ctx.restore();
+  ctx.restore();
+  // rand van het blok
+  ctx.strokeStyle = rgba(C.line, 0.5); ctx.lineWidth = 1.5 / s; ctx.beginPath(); ctx.moveTo(0, 60); ctx.lineTo(0, 700); ctx.lineTo(800, 700); ctx.lineTo(800, 60); ctx.stroke();
+  ctx.restore();
+  const P = (x, y) => [X + x * s, Y + y * s];
+  return { X, Y, P, s, oppTop: Y + 60 * s, oppBot: Y + 150 * s, lederBot: Y + 470 * s, bot: Y + 700 * s, right: X + w, hoorn: P(40, 66), kiem: P(40, 140), vat: P(150, 330), vatOpp: P(20, 205), zweet: P(600, 452), porie: P(610, 50),
+    talg: P(305, 170), haar: P(338, 470), haarTop: P(262, 40), spier: P(372, 220), tast: P(510, 140), vrij: P(478, 104), druk: P(738, 410), vet: P(400, 590) };
+}

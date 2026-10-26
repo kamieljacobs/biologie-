@@ -1236,7 +1236,7 @@ document.querySelectorAll("#locatie button").forEach(b=>b.addEventListener("clic
 let start="havo4";
 try{const h=location.hash.replace("#","");if(PLANNERS[h])start=h;else{const s=localStorage.getItem("planner-tab");if(PLANNERS[s])start=s}}catch(e){}
 render(start);
-fetch("jaarplanner-dekking.json?v=3").then(r=>r.ok?r.json():null).then(d=>{if(!d)return;DEKKING=d;const cur=location.hash.replace("#","");if(PLANNERS[cur]){const y=scrollY;render(cur);scrollTo(0,y)}}).catch(()=>{});
+fetch("jaarplanner-dekking.json?v=4").then(r=>r.ok?r.json():null).then(d=>{if(!d)return;DEKKING=d;const cur=location.hash.replace("#","");if(PLANNERS[cur]){const y=scrollY;render(cur);scrollTo(0,y)}}).catch(()=>{});
 window.addEventListener("hashchange",()=>{const h=location.hash.replace("#","");if(PLANNERS[h])render(h)});
 // Bij openen meteen naar deze week (niet bij terug/vooruit: dan zet js/terug.js de oude hoogte terug)
 try{const nav=performance.getEntriesByType("navigation")[0];if(!nav||nav.type==="navigate"||nav.type==="reload"&&!sessionStorage.getItem("bk-scroll"))requestAnimationFrame(()=>naarDezeWeek("auto"))}catch(e){}

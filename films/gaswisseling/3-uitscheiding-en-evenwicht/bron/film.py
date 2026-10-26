@@ -5,15 +5,16 @@ film = {
  "puzzle": "Ruud zit drie keer per week vier uur aan een dialysemachine. In de dialysevloeistof zit wel glucose, maar geen ureum. Waarom?",
  "meta": "gaswisseling 3/3", "version": "1.0 · oktober 2026", "titleLook": "schema",
  "seriesline": "Biologie bij Kamiel · reeks Gaswisseling en uitscheiding · film 3 van 3",
- "lead": "Uitscheiden is afval van je eigen stofwisseling en een overschot aan water en zouten kwijtraken: longen (koolstofdioxide), huid (zweet), lever (galkleurstof via de gal) en nieren (urine met ureum). De lever maakt ureum uit de stikstofgroep van aminozuren. Buffers, longen en nieren houden de pH van het bloed tussen 7,35 en 7,45. Bij nierfalen maakt dialyse het bloed schoon door diffusie door een vlies: geen ureum in de vloeistof, glucose en natrium ongeveer even veel als in gezond bloed.",
+ "lead": "Uitscheiden is afval van je eigen stofwisseling en een overschot aan water en zouten kwijtraken: longen (koolstofdioxide), huid (zweet), lever (galkleurstof via de gal) en nieren (urine met ureum). De lever maakt ureum uit de stikstofgroep van aminozuren. Buffers, longen en nieren houden de pH van het bloed tussen 7,35 en 7,45. De huid (opperhuid, lederhuid, onderhuids bindweefsel) beschermt, voelt, scheidt zweet uit en helpt de temperatuur regelen: bij warmte wijdere bloedvaten en zweet dat verdampt, bij kou nauwere bloedvaten, kippenvel en isolerend vet, met de hypothalamus als regelcentrum. Bij nierfalen maakt dialyse het bloed schoon door diffusie door een vlies: geen ureum in de vloeistof, glucose en natrium ongeveer even veel als in gezond bloed.",
  "endHaak": "van hoog naar laag, door een dun vlies",
- "minis": {"Hoofdstuk 1": "Wat is uitscheiden, en wie maakt het ureum?", "Hoofdstuk 2": "Hoe blijft de pH van je bloed rond 7,4?", "Hoofdstuk 3": "Hoe maakt een machine je bloed schoon?", "Recap": "Waarom wel glucose, maar geen ureum?"},
+ "minis": {"Hoofdstuk 1": "Wat is uitscheiden, en wie maakt het ureum?", "Hoofdstuk 2": "Hoe blijft de pH van je bloed rond 7,4?", "Hoofdstuk 3": "Waarom word je rood als je hardloopt?", "Hoofdstuk 4": "Hoe maakt een machine je bloed schoon?", "Recap": "Waarom wel glucose, maar geen ureum?"},
  "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Stijl: Stijlkaart biologiefilms (Part C). Versie 1.0 · oktober 2026.",
  "questions": {
-  "q02": {"q": "In de dialysevloeistof van Ruud zit wel glucose, maar geen ureum. Waarom?", "correct": 0, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 3 en aan het eind."},
+  "q02": {"q": "In de dialysevloeistof van Ruud zit wel glucose, maar geen ureum. Waarom?", "correct": 0, "explain": "Onthoud je keuze. Het antwoord zie je in hoofdstuk 4 en aan het eind."},
   "q05": {"q": "Je nieren maken urine met ureum. Welk orgaan maakt eigenlijk het ureum?", "correct": 1, "explain": "De lever. Overtollige aminozuren worden in de lever afgebroken; de stikstofgroep wordt ammoniak (giftig), en de lever zet die meteen om in ureum. De nieren scheiden het alleen uit."},
   "q09": {"q": "Bij een tekort aan insuline kan het bloed sterk verzuren. Hoe gaat zo iemand ademen?", "correct": 0, "explain": "Sneller en dieper. Zuurder bloed prikkelt de chemoreceptoren; het ademcentrum laat je meer koolstofdioxide uitademen, waardoor er ook zuur uit het bloed verdwijnt (negatieve terugkoppeling)."},
   "q16": {"q": "Wat werkt in een dialysefilter beter: bloed en vloeistof dezelfde kant op laten stromen, of tegen elkaar in?", "correct": 1, "explain": "Tegen elkaar in (tegenstroom). Dan is er over de hele lengte van de filter een concentratieverschil. Bij meestroom wordt het verschil onderweg steeds kleiner."},
+  "hq04": {"q": "Zweet koelt je af. Hoe?", "correct": 0, "explain": "Het zweet verdampt. Om te verdampen heeft water veel warmte nodig, en die haalt het uit je huid. Zweet dat van je huid druipt, koelt niet."},
   "q19": {"q": "Wie is meestal de beste levende donor voor een nier?", "correct": 1, "explain": "Een broer of zus. De eiwitten op de cellen (weefseleigenschappen) lijken bij familie vaker op die van jou, zodat de kans op afstoting kleiner is. Toch zijn levenslang afweerremmers nodig."}
  },
  "glossary": [
@@ -25,6 +26,10 @@ film = {
   {"t": "homeostase", "d": "Het binnen nauwe grenzen houden van het inwendig milieu, vaak met negatieve terugkoppeling."},
   {"t": "pH", "d": "Maat voor de zuurgraad: hoe zuurder, hoe lager. Bloed: 7,35 tot 7,45."},
   {"t": "buffer", "d": "Stof die waterstofionen opvangt (bijvoorbeeld waterstofcarbonaat en hemoglobine), zodat de pH bijna gelijk blijft."},
+  {"t": "opperhuid", "d": "Buitenste laag van de huid: bovenaan de hoornlaag van dode, platte cellen die beschermen en afslijten, onderaan de kiemlaag waar cellen delen en langzaam omhoog schuiven. Er lopen geen bloedvaten in."},
+  {"t": "lederhuid", "d": "Laag onder de opperhuid met bloedvaten, zweetklieren, talgklieren, haarzakjes met haarspiertjes en zintuigen voor tast, druk, warmte, koude en pijn."},
+  {"t": "onderhuids bindweefsel", "d": "Laag onder de lederhuid met veel vetcellen; het vet isoleert en is een energievoorraad."},
+  {"t": "temperatuurregeling", "d": "Het binnen grenzen houden van de lichaamstemperatuur (rond 37 °C) met een regelkring: zintuigen in huid en hersenen, de hypothalamus als regelcentrum, en als effectoren de bloedvaten en zweetklieren in de huid (en bij kou de spieren: rillen)."},
   {"t": "nierfalen", "d": "De nieren werken voor minder dan ongeveer 15 %; ureum, kalium, zuur en water hopen zich op."},
   {"t": "hemodialyse", "d": "Bloed stroomt door een filter met holle vezels; stoffen diffunderen door het vlies naar de dialysevloeistof. Bloed komt uit een shunt in de arm."},
   {"t": "ultrafiltratie", "d": "Water door een vlies persen met een drukverschil; zo haalt de dialyse het teveel aan water weg."},
@@ -59,6 +64,9 @@ film = {
       <p>Bij peritoneale dialyse laat de patiënt 2 liter dialysevloeistof in zijn buikholte lopen en vervangt die na vier uur. De vloeistof bevat geen ureum, maar wel 75 mmol/L glucose (bloed ongeveer 5,5 mmol/L). Er wordt geen druk op de vloeistof gezet.</p>
       <p>d. Leg uit hoe bij peritoneale dialyse overtollig water uit het bloed wordt verwijderd, en waarom dat na een paar uur steeds minder wordt. (2p)<br>e. Leg uit waarom de vloeistof na vier uur moet worden vervangen. (1p)</p>
       <details><summary>Antwoord</summary><p>a. Bloed: 0,300 × (25,0 − 8,0) = 5,1 mmol/min; vloeistof: 0,500 × (10,2 − 0) = 5,1 mmol/min (1). b. Bij meestroom verlaten bloed en vloeistof de filter aan dezelfde kant en diffundeert ureum alleen van hoog naar laag, dus kan het bloed er nooit met een lagere concentratie uitkomen dan de vloeistof (1); hier komt het bloed eruit met 8,0 mmol/L, lager dan de vloeistof (10,2 mmol/L): dat kan alleen bij tegenstroom (1). c. Aan het eind zijn de concentraties gelijk (c): 0,300 × 25,0 = 0,300c + 0,500c (1); c = 7,5 / 0,800 = 9,4 mmol/L (1). d. Door de hoge glucoseconcentratie is de osmotische waarde van de vloeistof hoger dan die van het bloed, dus gaat er water door osmose uit het bloed naar de buikholte (1); glucose diffundeert langzaam het bloed in, waardoor het verschil kleiner wordt en er steeds minder water bij komt (1). e. De ureumconcentratie in de vloeistof stijgt tot bijna die van het bloed; het verschil verdwijnt en de diffusie stopt; verse vloeistof maakt het verschil weer groot (1).</p></details></div>
+    <div class="q"><b>5. Warm en koud</b> <span class="pts">6 punten</span><p>Een hardloper loopt op een warme dag een halve marathon. Zijn spieren maken veel warmte. Na een paar kilometer is zijn gezicht rood en zweet hij.</p>
+      <p>a. Noem drie onderdelen in de lederhuid of het onderhuids bindweefsel die helpen bij het regelen van de lichaamstemperatuur, en geef bij elk wat het doet. (3p)<br>b. Leg uit hoe een rode huid de loper helpt om af te koelen. (1p)<br>c. Op een benauwde dag druipt het zweet van zijn lichaam. Leg uit waarom dat zweet hem niet afkoelt. (1p)<br>d. Welk deel van de hersenen is het regelcentrum van de temperatuur, en is dit een regelkring met positieve of met negatieve terugkoppeling? (1p)</p>
+      <details><summary>Antwoord</summary><p>a. Drie van: bloedvaten (wijder of nauwer: meer of minder warmteafgifte via de huid); zweetklieren (zweet verdampt en dat kost warmte); haarspiertjes (kippenvel; bij mensen weinig effect); vet in het onderhuids bindweefsel (isoleert) (3). b. De bloedvaten in de huid zijn wijder, waardoor er meer warm bloed vlak onder het oppervlak stroomt en de huid meer warmte afgeeft (1). c. Zweet koelt alleen als het verdampt; het verdampen kost warmte die uit de huid komt. Zweet dat eraf druipt, verdampt niet op de huid (1). d. De hypothalamus; negatieve terugkoppeling (1).</p></details></div>
   </section>
   <section><h2>Voor de docent</h2>
     <h3>Hoe de film het uitlegt</h3>
@@ -66,28 +74,39 @@ film = {
       <tr><td>Cold open</td><td>I · Macro</td><td>Ruud aan de dialysemachine; inzoom op het vlies met ureum en glucose; vraag q02</td></tr>
       <tr><td>1 Wat moet eruit?</td><td>B · Schema</td><td>Lichaam met darm (ontlasting), longen, huid, lever (galkleurstof) en nieren; vraag q05; levercel: aminozuur → stikstofgroep eraf → ammoniak → ureum → nieren</td></tr>
       <tr><td>2 Alles binnen grenzen</td><td>B + D · Schema</td><td>Cel in weefselvloeistof met vijf meters; pH-schaal met 7,35–7,45; zuurbronnen, H⁺ en buffers; vraag q09 (verzuring bij insulinetekort); regelkring pH; longen snel, nieren langzaam. Vwo: evenwicht CO₂/H₂CO₃/HCO₃⁻ en cel van een nierbuisje</td></tr>
-      <tr><td>3 Als de nieren stoppen</td><td>I · Schema</td><td>Nierfalen; arm met shunt, filter, doorsnede met holle vezels, vlies met poriën; concentratiebalken bloed/vloeistof per stof met diffusierichting; drinkbeperking; ultrafiltratie. Vwo: vraag q16, concentratieprofielen tegenstroom/meestroom, peritoneale dialyse. Transplantatie: vraag q19, afstoting en afweerremmers</td></tr>
+      <tr><td>3 De huid</td><td>B + D · Macro, Schema</td><td>Noor rent (rood, zweet) en staat op een koude dag (bleek, kippenvel in een zoomcirkel); huid in doorsnede met zoom naar hoornlaag en kiemlaag (één cel schuift omhoog); lederhuid met bloedvaten, zweetklier, talgklier, haarzakje met haarspiertje, zintuigen; onderhuids bindweefsel met vet; functies; vraag hq04 (hoe koelt zweet?); verdampende zweetdruppel; regelkring temperatuur met hypothalamus bij warmte en bij kou; vacht tegenover mensenhuid; rillen</td></tr>
+      <tr><td>4 Als de nieren stoppen</td><td>I · Schema</td><td>Nierfalen; arm met shunt, filter, doorsnede met holle vezels, vlies met poriën; concentratiebalken bloed/vloeistof per stof met diffusierichting; drinkbeperking; ultrafiltratie. Vwo: vraag q16, concentratieprofielen tegenstroom/meestroom, peritoneale dialyse. Transplantatie: vraag q19, afstoting en afweerremmers</td></tr>
       <tr><td>Recap</td><td>Macro</td><td>Ruud aan de machine met de antwoordketen</td></tr>
     </table>
     <h3>Vereenvoudigingen</h3>
     <ul>
       <li>De ureumvorming (ornithinecyclus, vwo: Binas) is in de film één stap: ammoniak → ureum. Twee ammoniak en één CO₂ worden met energie omgezet in één ureum.</li>
-      <li>De concentratiebalken in hoofdstuk 3 zijn schematisch; de echte waarden staan in checkvraag 2.</li>
+      <li>De concentratiebalken in hoofdstuk 4 zijn schematisch; de echte waarden staan in checkvraag 2.</li>
       <li>"Even veel glucose als in gezond bloed": in de praktijk ongeveer 5,5 mmol/L; bij een hogere bloedglucose diffundeert er netto een beetje glucose weg (checkvraag 2d).</li>
       <li>Bij hemodialyse ontstaat het drukverschil voor ultrafiltratie in de praktijk meestal door onderdruk aan de kant van de vloeistof.</li>
       <li>Ketonen ontstaan bij insulinetekort in de lever uit de afbraak van vetzuren; de film zegt alleen dat cellen vet verbranden en dat er zure stoffen ontstaan.</li>
       <li>Vochtbeperking hangt af van de eigen urineproductie; "een halve tot een hele liter" is een gangbare richtlijn.</li>
+    </ul>
+    <h3>Hoofdstuk 3 (De huid): vereenvoudigingen</h3>
+    <ul>
+      <li>De doorsnede is schematisch: de opperhuid is veel dikker getekend dan in het echt (dunne huid ongeveer 0,1 mm, lederhuid 1 tot 2 mm).</li>
+      <li>'Kiemlaag' is de naam uit de lesmethodes; in de literatuur heet de delende laag de basale laag (stratum basale). De opperhuid vernieuwt zich in ongeveer vier weken.</li>
+      <li>Warmte, koude en pijn worden waargenomen door vrije zenuwuiteinden; tast en druk door tastlichaampjes en druklichaampjes.</li>
+      <li>De film noemt de hypothalamus het regelcentrum dat vergelijkt met een normwaarde. Hoe vast die 'normwaarde' is, is in de fysiologie onderwerp van discussie; voor het examen is het regelkringmodel leidend.</li>
+      <li>Rood worden is op een lichte huid beter te zien dan op een donkere; het mechanisme (wijdere bloedvaten, meer bloed vlak onder de huid) is hetzelfde.</li>
+      <li>In rust gaat de meeste warmte via straling weg; bij inspanning is verdampen van zweet de belangrijkste weg. Rillen staat ook in De eerste verdediging (bij koorts).</li>
     </ul>
     <h3>Leerdoelen en waar ze zitten</h3>
     <table><tr><th>Leerdoel</th><th>Niveau</th><th>Waar</th></tr>
       <tr><td>Uitscheiding tegenover ontlasting; uitscheidingsorganen</td><td>basis</td><td>H1, checkvraag 1a</td></tr>
       <tr><td>Ureumvorming in de lever</td><td>basis</td><td>H1, vraag q05, checkvraag 1b–d</td></tr>
       <tr><td>Homeostase, pH, buffers, longen en nieren</td><td>basis</td><td>H2, vraag q09, checkvraag 3a–c</td></tr>
-      <tr><td>Nierfalen, hemodialyse, drinkbeperking, transplantatie</td><td>basis</td><td>H3, vragen q02 en q19, checkvraag 2</td></tr>
-      <tr><td>Evenwicht CO₂/HCO₃⁻; tegenstroom; peritoneale dialyse</td><td>vwo</td><td>vwo-blokken H2 en H3, vraag q16, checkvragen 3d–e en 4</td></tr>
+      <tr><td>Bouw en functies van de huid; temperatuurregeling met de huid als effector en de hypothalamus als regelcentrum; huidzintuigen</td><td>basis</td><td>H3, vraag hq04, checkvraag 5</td></tr>
+      <tr><td>Nierfalen, hemodialyse, drinkbeperking, transplantatie</td><td>basis</td><td>H4, vragen q02 en q19, checkvraag 2</td></tr>
+      <tr><td>Evenwicht CO₂/HCO₃⁻; tegenstroom; peritoneale dialyse</td><td>vwo</td><td>vwo-blokken H2 en H4, vraag q16, checkvragen 3d–e en 4</td></tr>
     </table>
     <h3>Pauzemomenten in de klas</h3>
-    <ul><li>Na H1: laat leerlingen per orgaan opschrijven wat het uitscheidt, en waarom poep (bijna) geen uitscheiding is.</li><li>Na H2: laat ze de regelkring voor de pH tekenen, naast die voor CO₂ uit de vorige film.</li><li>Na H3: laat ze de concentratiebalken voor een "dialysevloeistof van gewoon water" voorspellen.</li></ul>
+    <ul><li>Na H1: laat leerlingen per orgaan opschrijven wat het uitscheidt, en waarom poep (bijna) geen uitscheiding is.</li><li>Na H2: laat ze de regelkring voor de pH tekenen, naast die voor CO₂ uit de vorige film.</li><li>Na H3: laat ze de regelkring voor de temperatuur bij warmte en bij kou naast elkaar tekenen, met de huid als effector.</li><li>Na H4: laat ze de concentratiebalken voor een "dialysevloeistof van gewoon water" voorspellen.</li></ul>
   </section>
 """
 }
