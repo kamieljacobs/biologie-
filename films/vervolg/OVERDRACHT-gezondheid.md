@@ -34,5 +34,11 @@ Belangrijke vondsten: RIVM zei op 10 maart 2020 zelf nog R 1,5–2 (later 2,3–
 ## Inspreken en bouwen (26 okt 2026, avond)
 - Stem-invoer: `script_opname.md` (script v2 zonder Keuzes/Twijfels) → `segments.json`; film-eigen respellings in `uitspraak_film.json`: R → 'èr', R-nul → 'èr-nul', ic → 'ie-cee' (op de wachtlijst, nog niet getest). Brieven: `werk-gezondheid/HELPER-inspreken.md`, `HELPER-bouwen.md`.
 
-## Daarna
+## Stand (27 okt 2026): film 1 op de site
+- Ingesproken: flow oQbgMSfw8ZMWF5bd6VZn ('Gezondheid gz1 · stem'), 23 takes, 6:37, 5812 credits. Uitspraakcheck met eleven_scribe: èr, èr-nul en ie-cee kwamen herkenbaar uit (s04, s12, s19); Kamiel luistert in de reviewstand.
+- Gebouwd (werkmap `hw/gz1`, engine uit landbouw-3), frisse beeldreview 17 MOET verwerkt (`bron/reviews/review_beeld.md`), daarna in de repo met pak.py: `films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html` + bronmap; in vervolg.html als [titel, href]; films.json; FILMKUNST; scripts gedraaid.
+- Nog open: filmmedaillon (gloedstijl, volgend vel), `jaarplanner-dekking.json` (extra film bij Afweer § immuniteit, na git pull, als laatste), Kamiels review, startmomenten VU en Maastricht nagaan.
+- Volgende films van dit gebied: 2 Screenen of niet? (nieuwe kern darmkanker) en 3 Roken en longkanker — nog niet begonnen.
+
+## Daarna (film 1, oorspronkelijk plan)
 Keuring verwerken → Farid in `personages/lib_cast.js`, ROLLEN.md, LEVENSLOOP.md, castboek → decor (alleen na akkoord en credits) → script_opname.md + segments.json → inspreken (Roos, eleven_v4; uitspraak-wachtlijst: R-nul, epidemioloog, groepsimmuniteit, ic, RIVM, Enschede) → bouwen (FILMDATA-straat, de dossierlagen als eigen tekenfuncties) → frisse beeldreview → repo (vervolg.html: planobject → [titel, href]; films.json; FILMKUNST; medaillon) → als laatste, na `git pull`, `jaarplanner-dekking.json`.
