@@ -7,9 +7,9 @@ Versie 2.0 is een lichte remake (prompt v10 B16) in de FILMDATA-straat, zoals Ch
 | Bestand | films/dna/2-dna-kopieren.html (audio in `2-dna-kopieren/audio/`) |
 | Reeks / nummer | DNA · film 2 van 8 |
 | Doelgroep / niveau | havo + vwo; hoofdstuk 4 is een vwo-blok (Havo/Vwo-schakelaar, `?niveau=havo`) |
-| Versie / datum | 2.0 · 26 okt 2026 |
+| Versie / datum | 2.1 · 27 okt 2026 |
 | Prompt | v10 |
-| Voldoet aan | prompt v10 (26 okt 2026) |
+| Voldoet aan | prompt v13 (27 okt 2026), alleen de basevorm opgewaardeerd (B14); overige v11–v13-punten niet nagelopen |
 | Herkomst | lichte remake (B16), keuring twijfelscènes 25 okt 2026 (`../../../verbeterbladen/remake-2026-10/besluiten.md`: alle voorstellen, T4 = alternatief, basen in de ringvorm van DNA 1); fase 1 in `remake-2026-10/` |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (24 takes, 6.583 credits); flow `iDUu8zKxPqYHfp5p5N4J`; blinde transcriptie van de risicotakes (741 credits): `stem/blind.md` |
 | Duur | spraak 431 s (basis 282 s); speeltijd met vragen en kaarten ± 8:30 vwo, ± 6:00 havo; `duur: 9` in HOOFDSTUKKEN |
@@ -63,5 +63,6 @@ Werkmap buiten de repo: kopieer `bron/` erheen, zet `src/*` en `bouw/*` samen in
 - **Vraag aan Kamiel (KAN 10):** RNA (U, primer, mRNA) is teal, terwijl prompt C1 'DNA en RNA paars' vastlegt. Binnen deze film helpt het onderscheid (primer ≠ DNA). Kiezen en dan vastleggen in de bibliotheek (`RNA_BASE`, `D2.rna`). Nu ongewijzigd.
 
 ## Wijzigingen
+- 27 okt 2026 — 2.1: basen als staafje met puzzelrand in plaats van de ringvorm (besluit Kamiel: overal simpele nucleotiden, dezelfde vorm als DNA 3–8). Alleen de tekeningen in `src/lib_bio.js` en `src/teken_dna2.js` (baseRing, baseBruggen, d2Base, baseRingRNA; vaste lengte `DNA_BASE.len`) en één regel in `scenes_dna2.js` (s14) veranderd; scènes met basen: s07, s08, s10, s11, s12, s14, s16, s21, s26–s29. Gesproken tekst ongewijzigd. Pagina: 'basen in ringvorm' → 'als staafje met puzzelrand'. `bouw.sh` hersteld: teken_dna2.js niet meer los erbij (zit al in lib_bio.js; los gaf een dubbele const). In de gepubliceerde HTML alleen het SCENES-blok en die zin vervangen.
 - 26 okt 2026 — 2.0, herstel na frisse review: oud/nieuw-kleurcode vanaf het origineel (s07, s15, s22, s29 met labels oud/nieuw); s26 opnieuw (open matrijs, polymerase kan niet beginnen, primase legt de primer aan de 5'-kant); s10 vingers sluiten zichtbaar + flits bij 'koppelt vast'; s11 richtingspijlen op de oude strengen; s28 echte reparatie (koraal G eruit, A erin); s01/s29 kader 'vergroot' met ring op Noors eigen arm; schaalbalken s07/s08 herrekend; letters rechtop (d2Base); s25 legenda op bandhoogte; s19 genen groen, startpunten gedimd, niet-coderend gestippeld; labels van de rand; s27 ligaselabel boven de ligase, vertrekkende polymerase gedimd, naden zichtbaar. Bibliotheek (DNA 2-deel): d2Base letter rechtop, polymerase-vingers ruimer, ligase groter, `lagA`, zichtbare naden.
 - 26 okt 2026 — Versie 2.0: lichte remake. Nieuw script (vakfouten hersteld: 'het enzym zoekt niets uit', 'foutloos', 'duizenden' startpunten, ACGT-vraag; basisbeeld met beide strengen dezelfde kant op), nieuwe stem (eleven_v4), FILMDATA-straat, replicatievork als simulatie, basen in de ringvorm van de DNA-reeks, Noor met schaafwond, bronnenlogboek, nieuwe bibliotheekobjecten (vork, polymerase, helicase, primase, ligase, vrije nucleotide, baseRingRNA, schaafwond).

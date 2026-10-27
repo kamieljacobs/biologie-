@@ -117,7 +117,7 @@ function draw(page){ const t=page*0.37+1.3; ctx.fillStyle=C.bgSchema; ctx.fillRe
 // ===== DNA-reeks: basevorm (ringvorm), nucleotide, ladder ↔ helix (gekeurd 25 okt 2026; lessen_dna.md)
 window.dnaVel=function(){ ctx.fillStyle=C.bgMicro; ctx.fillRect(0,0,W,H);
  text(ctx,'DNA-reeks · baseRing · nucleotideRing · dnaLadderHelix',60,64,fTitel(40),C.text,'left');
- text(ctx,'purine (A, G) = twee ringen, pyrimidine (T, C) = één ring; paar = groot + klein; stippen = bindingsplekken (model), goud = waterstofbruggen',60,98,fTekst(22,500),C.text2,'left');
+ text(ctx,'basen als staafje met puzzelrand (27 okt): A punt ↔ T inkeping, C nok ↔ G sleuf; stippen = bindingsplekken (model), goud = waterstofbruggen',60,98,fTekst(22,500),C.text2,'left');
  ['A','G','T','C'].forEach((b,i)=>{ baseRing(ctx,110+i*120,170,b,1,{s:1,plekA:1}); });
  [['A','T'],['G','C']].forEach(([b,c],i)=>{ const x=640+i*160, s=1; ctx.strokeStyle=DNA_BASE.rugR; ctx.lineWidth=12; ctx.lineCap='round'; ctx.beginPath(); ctx.moveTo(x-60,160); ctx.lineTo(x+60,160); ctx.moveTo(x-60,160+200); ctx.lineTo(x+60,160+200); ctx.stroke();
   baseRing(ctx,x,168,b,1,{s,plekA:1,bindA:1}); baseRing(ctx,x,352,c,-1,{s,plekA:1,bindA:1}); baseBruggen(ctx,x,168+(DNA_BASE.purine[b]?112:72)*s,352-(DNA_BASE.purine[c]?112:72)*s,b,s,1); });

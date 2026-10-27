@@ -89,7 +89,7 @@ function stukLadder(ctx, x0, y, dx, seq, o = {}) { const { s = 0.9, pa = () => 1
   for (let i = 0; i < n; i++) { const b = seq[i], c = DNA_BASE.comp[b], x = x0 + i * dx, p = pa(i);
     baseRing(ctx, x, yT + 8 * s, b, 1, { s, rand: i === hl ? C.goud : null });
     if (p > 0.01) { baseRing(ctx, x, yB - 8 * s + (1 - p) * 120, c, -1, { s, a: p });
-      if (p > 0.98 && sep < 0.05) baseBruggen(ctx, x, yT + 8 * s + (DNA_BASE.purine[b] ? 112 : 72) * s, yB - 8 * s - (DNA_BASE.purine[c] ? 112 : 72) * s, b, s, bruggenA); } }
+      if (p > 0.98 && sep < 0.05) baseBruggen(ctx, x, yT + 8 * s + DNA_BASE.len * s, yB - 8 * s - DNA_BASE.len * s, b, s, bruggenA); } }
   ctx.restore(); return { yT, yB, span }; }
 
 // kralenketting van nucleosomen die opvouwt (MOET 4 frisse review): op 0 = losse kralenketting langs een golf, op 1 = kralen dicht

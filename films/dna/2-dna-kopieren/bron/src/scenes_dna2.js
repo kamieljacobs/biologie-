@@ -208,7 +208,7 @@ Object.assign(SCENES, {
     text(ctx, 'oude streng', 330, 270, fTekst(34, 600), C.kernR, 'right'); text(ctx, 'nieuwe streng', 330, 590, fTekst(34, 600), D2.nieuwR, 'right');
     ctx.strokeStyle = DNA_BASE.rugR; ctx.lineWidth = 18; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(430, 230); ctx.lineTo(1390, 230); ctx.stroke();
     const S = 1.7, Y2 = 240 + 200 * S; seq.split('').forEach((b, i) => { const x = 520 + i * 260, p = ramp(t, tt[i] + 0.4, 0.8), c = DNA_BASE.comp[b];
-      baseRing(ctx, x, 240, b, 1, { s: S, plekA: 1, bindA: p }); if (p > 0.01) { baseRing(ctx, x, Y2 + (1 - ease(p)) * 120, c, -1, { s: S, plekA: 1, bindA: p, a: p }); if (p > 0.95) baseBruggen(ctx, x, 240 + (DNA_BASE.purine[b] ? 112 : 72) * S + 10 * S, Y2 - (DNA_BASE.purine[c] ? 112 : 72) * S - 10 * S, b, S, 1); } });
+      baseRing(ctx, x, 240, b, 1, { s: S, plekA: 1, bindA: p }); if (p > 0.01) { baseRing(ctx, x, Y2 + (1 - ease(p)) * 120, c, -1, { s: S, plekA: 1, bindA: p, a: p }); if (p > 0.95) baseBruggen(ctx, x, 240 + DNA_BASE.len * S + 10 * S, Y2 - DNA_BASE.len * S - 10 * S, b, S, 1); } });
     const nw = ramp(t, tt[3] + 0.6, 0.5); if (nw > 0.01) { ctx.save(); ctx.globalAlpha *= nw; ctx.strokeStyle = D2.nieuw; ctx.lineWidth = 18; ctx.beginPath(); ctx.moveTo(430, Y2 + 10); ctx.lineTo(1390, Y2 + 10); ctx.stroke(); ctx.restore(); }
     const ghost = fade(t, q.at('kopie'), q.at('spiegelbeeld') + 0.6); if (ghost > 0.01) { ctx.save(); ctx.globalAlpha *= ghost; text(ctx, 'A T G C ?', 1640, 760, fTekst(44, 700), C.koraal, 'center'); ctx.strokeStyle = C.koraal; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(1520, 745); ctx.lineTo(1760, 745); ctx.stroke(); ctx.restore(); }
     nb(ctx, 'de partner', 'geen kopie', 1600, 520, ramp(t, q.at('partner'), 0.5), 'center', C.goud);

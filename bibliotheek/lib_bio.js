@@ -2431,7 +2431,7 @@ function onderarm(ctx, x, y, s, o = {}) {
 }
 
 // =====================================================================================
-// DNA-REEKS · BASEVORM (ringvorm). Gekeurd door Kamiel 25 okt 2026 (remake DNA 1, twijfel t2/t3): dé basevorm van de hele
+// DNA-REEKS · BASEVORM (puzzelstaaf sinds 27 okt 2026; ringvorm afgekeurd). Eerder: ringvorm gekeurd 25 okt 2026 (remake DNA 1, twijfel t2/t3): dé basevorm van de hele
 // DNA-reeks (DNA 1–8). Eerst gebruikt in Wat is DNA? 3.0. Registratie: lessen_dna.md.
 // Aanroep:  baseRing(ctx, x, y, 'A', dir, {s, a, rot, rand, bindA, plekA})
 //           baseBruggen(ctx, x, y1, y2, 'A', s, a)            // waterstofbruggen tussen de paarranden
@@ -2446,41 +2446,45 @@ const DNA_BASE = {
   comp: { A: 'T', T: 'A', C: 'G', G: 'C' },
   purine: { A: true, G: true, T: false, C: false },
   // bindingsplekken (model): hoogte langs de paarrand, 0..1. A–T twee, G–C drie; ze liggen alleen bij het juiste paar recht tegenover elkaar.
-  plek: { A: [0.33, 0.67], T: [0.33, 0.67], G: [0.2, 0.5, 0.8], C: [0.2, 0.5, 0.8] }
+  plek: { A: [0.33, 0.67], T: [0.33, 0.67], G: [0.2, 0.5, 0.8], C: [0.2, 0.5, 0.8] },
+  // puzzelstaaf (27 okt 2026): lengte tot de paarlijn en hoogte van de letter, in eenheden van s
+  len: 80, letterY: 40
 };
 
 // -------------------------------------------------------------------------------------
-// BASE ALS RINGVORM. Recept (bron: OpenStax Biology 2e § 14.2 / Lumen 'Structure of DNA'; NPTEL mol. celbiologie lec 26):
-//  - purines (A, G) = zesring + vijfring aan elkaar (breed), pyrimidines (C, T) = één zesring (smal).
-//  - een paar is altijd purine + pyrimidine, daardoor is elke sport even lang (helix overal 2 nm breed).
-//  - A–T houden elkaar vast met twee waterstofbruggen, G–C met drie (stippen op de paarrand, goud als ze verbonden zijn).
-//  - 'past' = samen precies de breedte van de sport én de bindingsplekken recht tegenover elkaar (model; in het echt het
-//    patroon van donor- en acceptorplekken).
-// (x, y) = aanhechting aan de suiker; dir = +1 (base wijst omlaag) of −1 (omhoog); s = schaal (1 → sport van 200 px).
-// Bekende fouten: alle basen even groot (dan zie je niet waarom A niet tegenover G past); letters zonder vorm.
+// BASE ALS STAAFJE MET PUZZELRAND (besluit Kamiel 27 okt 2026: geen ringen meer, overal simpele nucleotiden;
+// dezelfde vorm als DNA 3–8, dnalib basePath). Recept: één staafje per base, alle basen even lang; de paarrand laat
+// zien wie bij wie past (model): A punt ↔ T inkeping, C nok ↔ G sleuf. Daardoor is elke sport even lang (helix 2 nm breed).
+// Bindingsplekken (stippen op de paarrand) en waterstofbruggen: A–T twee, G–C drie (goud als ze verbonden zijn).
+// (x, y) = aanhechting aan de suiker; dir = +1 (base wijst omlaag) of −1 (omhoog); s = schaal (sport = 184·s, twee basen
+// van DNA_BASE.len·s met een spleet ertussen). De naam baseRing blijft voor bestaande aanroepen.
+// Bekende fouten: ringen (afgekeurd 27 okt 2026); basen van ongelijke lengte; randen die niet op elkaar passen.
 // -------------------------------------------------------------------------------------
+function _baseRand(b, px, s) { const L = DNA_BASE.len * s, hw = 22 * s, d = 11 * s, tw = hw * 0.5, f = 1 - Math.min(Math.abs(px) / hw, 1);
+  if (b === 'A') return L - d + 2 * d * f; if (b === 'T' || b === 'U') return L + d - 2 * d * f;
+  if (b === 'C') return Math.abs(px) <= tw ? L + d : L - d; return Math.abs(px) <= tw ? L - d : L + d; }
+function basePuzzelPad(ctx, b, s) { const L = DNA_BASE.len * s, hw = 22 * s, d = 11 * s, tw = hw * 0.5, y0 = 8 * s;
+  ctx.beginPath(); ctx.moveTo(-hw, y0); ctx.lineTo(hw, y0);
+  if (b === 'A') { ctx.lineTo(hw, L - d); ctx.lineTo(0, L + d); ctx.lineTo(-hw, L - d); }
+  else if (b === 'T' || b === 'U') { ctx.lineTo(hw, L + d); ctx.lineTo(0, L - d); ctx.lineTo(-hw, L + d); }
+  else if (b === 'C') { ctx.lineTo(hw, L - d); ctx.lineTo(tw, L - d); ctx.lineTo(tw, L + d); ctx.lineTo(-tw, L + d); ctx.lineTo(-tw, L - d); ctx.lineTo(-hw, L - d); }
+  else { ctx.lineTo(hw, L + d); ctx.lineTo(tw, L + d); ctx.lineTo(tw, L - d); ctx.lineTo(-tw, L - d); ctx.lineTo(-tw, L + d); ctx.lineTo(-hw, L + d); }
+  ctx.closePath(); }
 function baseRing(ctx, x, y, b, dir = 1, o = {}) {
   const { s = 1, a = 1, rot = 0, rand = null, bindA = 0, plekA = 1 } = o; if (a <= 0.01) return;
-  const pur = DNA_BASE.purine[b], L = (pur ? 112 : 72) * s, w = 52 * s, kl = DNA_BASE.base[b];
+  const L = DNA_BASE.len * s, w = 52 * s, kl = DNA_BASE.base[b];
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir);
-  // steeltje naar de suiker
-  ctx.strokeStyle = lighten(kl, 0.25); ctx.lineWidth = 4 * s; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 10 * s); ctx.stroke();
-  const hex = (cy, r) => { ctx.beginPath(); for (let k = 0; k < 6; k++) { const an = Math.PI / 6 + k * Math.PI / 3; const px = r * Math.cos(an), py = cy + r * Math.sin(an); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); };
-  const r6 = w * 0.56;
-  if (pur) { // vijfring bij de suiker, zesring naar de partner
-    const r5 = w * 0.47, c5 = 10 * s + r5 * 0.95; ctx.beginPath(); for (let k = 0; k < 5; k++) { const an = -Math.PI / 2 + Math.PI + k * 2 * Math.PI / 5; const px = r5 * Math.cos(an), py = c5 + r5 * Math.sin(an); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, _mixHex(kl, '#121A26', 0.12), lighten(kl, 0.35), 1.5);
-    hex(L - r6 * 0.95, r6); shape(ctx, kl, lighten(kl, 0.35), 1.5);
-  } else { hex(10 * s + (L - 10 * s) / 2 + 2 * s, r6 * 1.02); shape(ctx, kl, lighten(kl, 0.35), 1.5); }
-  // letter (rechtop, ook als dir = −1)
-  ctx.save(); ctx.translate(0, pur ? L - r6 * 0.95 : 10 * s + (L - 10 * s) / 2 + 2 * s); ctx.scale(1, dir); ctx.rotate(-rot * 0); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), DNA_BASE.letter[b], 'center'); ctx.restore();
-  // bindingsplekken op de paarrand (dwars op de as, bij y = L)
-  if (plekA > 0.01) { ctx.save(); ctx.globalAlpha *= plekA; DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * w * 1.1; _bioCirc(ctx, px, L + 1 * s, 4.2 * s, bindA > 0.5 ? C.goud : '#121A26', bindA > 0.5 ? null : lighten(kl, 0.5), 1.5); }); ctx.restore(); }
-  if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; roundRect(ctx, -w * 0.75, -4 * s, w * 1.5, L + 14 * s, 14 * s); ctx.stroke(); }
+  ctx.strokeStyle = lighten(kl, 0.25); ctx.lineWidth = 4 * s; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 10 * s); ctx.stroke(); // steeltje naar de suiker
+  basePuzzelPad(ctx, b, s); shape(ctx, kl, lighten(kl, 0.35), 1.5);
+  ctx.save(); ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), DNA_BASE.letter[b], 'center'); ctx.restore(); // letter rechtop
+  if (plekA > 0.01) { ctx.save(); ctx.globalAlpha *= plekA; DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * w * 0.9; _bioCirc(ctx, px, _baseRand(b, px, s), 4.2 * s, bindA > 0.5 ? C.goud : '#121A26', bindA > 0.5 ? null : lighten(kl, 0.5), 1.5); }); ctx.restore(); }
+  if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; roundRect(ctx, -w * 0.7, -4 * s, w * 1.4, L + 11 * s + 14 * s, 14 * s); ctx.stroke(); }
   ctx.restore();
 }
-// waterstofbruggen tussen twee basen van een sport (x, y1 = paarrand boven, y2 = paarrand onder)
-function baseBruggen(ctx, x, y1, y2, b, s = 1, a = 1) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.2 * s; ctx.setLineDash([5 * s, 4 * s]);
-  DNA_BASE.plek[b].forEach(h => { const px = x + (h - 0.5) * 52 * s * 1.1; ctx.beginPath(); ctx.moveTo(px, y1 + 4 * s); ctx.lineTo(px, y2 - 4 * s); ctx.stroke(); }); ctx.setLineDash([]); ctx.restore(); }
+// waterstofbruggen tussen twee basen van een sport: y1 = paarlijn van base b (attach + DNA_BASE.len·s), y2 = paarlijn van de partner
+function baseBruggen(ctx, x, y1, y2, b, s = 1, a = 1) { if (a <= 0.01) return; const c = DNA_BASE.comp[b], sg = Math.sign(y2 - y1) || 1, L = DNA_BASE.len * s;
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.2 * s; ctx.setLineDash([5 * s, 4 * s]);
+  DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * 52 * s * 0.9, ya = y1 + sg * (_baseRand(b, px, s) - L), yb = y2 - sg * (_baseRand(c, px, s) - L); ctx.beginPath(); ctx.moveTo(x + px, ya + sg * 4 * s); ctx.lineTo(x + px, yb - sg * 4 * s); ctx.stroke(); }); ctx.setLineDash([]); ctx.restore(); }
 
 // -------------------------------------------------------------------------------------
 // NUCLEOTIDE. Recept (OpenStax Biology 2e § 14.2; Lodish 8e § 5.1): fosfaatgroep aan koolstof 5' van de suiker
@@ -2533,8 +2537,8 @@ function dnaLadderHelix(ctx, x0, y, dx, seq, o = {}) {
   if (toonBasen > 0.01) order.forEach(i => { const A = P(i, 0), B = P(i, 1), b = seq[i], c = DNA_BASE.comp[b]; const depth = (A.z + B.z) / 2; const dirAB = Math.sign(B.y - A.y) || 1;
     ctx.save(); ctx.globalAlpha *= toonBasen * (e > 0.05 ? (0.55 + 0.45 * (depth + 1) / 2) : 1);
     if (e < 0.5) { const k = sc * (1 - e * 0.6); baseRing(ctx, A.x, A.y + dirAB * 8 * s, b, dirAB, { s: k, plekA, rand: i === hl ? C.goud : null }); baseRing(ctx, B.x, B.y - dirAB * 8 * s, c, -dirAB, { s: k, plekA });
-      if (sp < 1) baseBruggen(ctx, A.x, A.y + dirAB * (8 * s + (DNA_BASE.purine[b] ? 112 : 72) * k), B.y - dirAB * (8 * s + (DNA_BASE.purine[c] ? 112 : 72) * k), b, k, bruggenA * (1 - e * 2)); }
-    else { const mid = A.y + (B.y - A.y) * (DNA_BASE.purine[b] ? 0.6 : 0.4); ctx.lineWidth = 11 * s; ctx.strokeStyle = DNA_BASE.base[b]; ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(A.x, mid); ctx.stroke(); ctx.strokeStyle = DNA_BASE.base[c]; ctx.beginPath(); ctx.moveTo(A.x, mid); ctx.lineTo(B.x, B.y); ctx.stroke(); }
+      if (sp < 1) baseBruggen(ctx, A.x, A.y + dirAB * (8 * s + DNA_BASE.len * k), B.y - dirAB * (8 * s + DNA_BASE.len * k), b, k, bruggenA * (1 - e * 2)); }
+    else { const mid = A.y + (B.y - A.y) * 0.5; ctx.lineWidth = 11 * s; ctx.strokeStyle = DNA_BASE.base[b]; ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(A.x, mid); ctx.stroke(); ctx.strokeStyle = DNA_BASE.base[c]; ctx.beginPath(); ctx.moveTo(A.x, mid); ctx.lineTo(B.x, B.y); ctx.stroke(); }
     ctx.restore(); });
   rail(0, true); rail(1, true);
   ctx.restore();
@@ -2585,12 +2589,12 @@ function baseRingRNA(ctx, x, y, b, dir = 1, o = {}) {
   DNA_BASE.base[k] = kl; DNA_BASE.letter[k] = o.geenLetter ? 'rgba(0,0,0,0)' : b === 'U' ? kl : RNA_BASE.letter[b]; // bij U: letter T onzichtbaar, U eroverheen
   try { baseRing(ctx, x, y, k, dir, o); } finally { DNA_BASE.base[k] = oudB; DNA_BASE.letter[k] = oudL; }
   if (b === 'U' && !o.geenLetter) { const s = o.s || 1, rot = o.rot || 0; ctx.save(); ctx.globalAlpha *= (o.a == null ? 1 : o.a); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir);
-    ctx.translate(0, 43 * s); ctx.scale(1, dir); text(ctx, 'U', 0, 13 * s, fTekst(38 * s, 700), RNA_BASE.letter.U, 'center'); ctx.restore(); }
+    ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, 'U', 0, 13 * s, fTekst(38 * s, 700), RNA_BASE.letter.U, 'center'); ctx.restore(); }
 }
 // d2Base: base met voet op (x, y), wijst in richting ang; L = halve sport. Schaal zo dat purine + pyrimidine = 2L (één sport).
 // Kleine basen (breedte < 9 px) als staafje in dezelfde tint (lessen_dna: ringen bij verkorting niet leesbaar).
 function d2Base(ctx, x, y, ang, b, L, hw, o = {}) { const { rna = false, a = 1, rand = null, vorm = true } = o; if (a <= 0.01) return;
-  const s = 2 * L / 184, pur = (b === 'A' || b === 'G'), len = (pur ? 112 : 72) * s;
+  const s = 2 * L / 184, pur = (b === 'A' || b === 'G'), len = DNA_BASE.len * s;
   if (!vorm || 52 * s < 9) { const fill = (rna ? RNA_BASE.base : DNA_BASE.base)[b] || '#888'; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang - Math.PI / 2);
     ctx.beginPath(); ctx.rect(-hw, 0, hw * 2, len); ctx.fillStyle = fill; ctx.fill(); if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; ctx.stroke(); } ctx.restore(); return; }
   const op = Math.sin(ang) < 0; // wijst omhoog: dir −1
@@ -2600,7 +2604,7 @@ function d2Base(ctx, x, y, ang, b, L, hw, o = {}) { const { rna = false, a = 1, 
   try { (rna ? baseRingRNA : baseRing)(ctx, 0, 0, b, op ? -1 : 1, { s, plekA: o.plekA || 0, bindA: o.bindA || 0, rand, geenLetter: true }); } finally { DNA_BASE.letter[k] = oudL; }
   ctx.restore();
   if (o.letter === false) return;
-  const r6 = 52 * s * 0.56, cpos = pur ? len - r6 * 0.95 : 10 * s + (len - 10 * s) / 2 + 2 * s, lx = x + Math.cos(ang) * cpos, ly = y + Math.sin(ang) * cpos;
+  const cpos = DNA_BASE.letterY * s, lx = x + Math.cos(ang) * cpos, ly = y + Math.sin(ang) * cpos;
   const m = ctx.getTransform(), wx = m.a * lx + m.c * ly + m.e, wy = m.b * lx + m.d * ly + m.f, sc = Math.hypot(m.a, m.b);
   ctx.save(); ctx.globalAlpha *= a; ctx.setTransform(sc, 0, 0, sc, wx, wy); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), LB[b] || '#121A26', 'center'); ctx.restore(); }
 

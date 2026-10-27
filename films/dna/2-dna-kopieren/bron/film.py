@@ -19,7 +19,7 @@ film = {
   "Hoofdstuk 4 — Richting en halfnieuw": "Wat zit er in de nieuwe moleculen, en in welke richting wordt gebouwd?",
   "Samenvatting — Terug naar de schaafwond": "Hoe kreeg elke huidcel een complete kopie?"
  },
- "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Noor uit het castboek. Tekeningen: gedeelde bibliotheek (huid, celkern, chromatine, DNA rond eiwitten, basen in ringvorm, replicatievork). Stijl: Part C van de filmprompt (v10). Versie 2.0 · oktober 2026.",
+ "footer": "Stem: Roos (ElevenLabs, model eleven_v4). Script, animatie en speler: Kamiel met Claude. Personage: Noor uit het castboek. Tekeningen: gedeelde bibliotheek (huid, celkern, chromatine, DNA rond eiwitten, basen als staafje met puzzelrand, replicatievork). Stijl: Part C van de filmprompt (v10). Versie 2.1 · oktober 2026.",
  "heleVraag": ["s04", "s12", "s17", "s23"],
  "questions": {
   "q05": {"q": "In welke fase kopieert de cel haar DNA?", "correct": 1,
