@@ -257,3 +257,20 @@ Alleen de delta v5 → v10 (B14); stem, script, vragen en timings zijn gebleven,
 - 1.2 · `h3v`, `h4a`, `h4b`, `h4v`, `recap`: tweeling als castfiguranten; zoomcirkel naar de longen van de zus die rookt (was buikhoogte).
 - 1.2 · castboek (`lib_cast.js`) als eigen kopie in de film; korrel staat nergens aan.
 - Controles: spelerfix, antwoordtekst, kortantwoord, antwoordletter `--check` in orde; Vragen uit vwo en havo zonder fouten (`_bouw/vragenuit.js`); contactbladen vwo en havo bekeken, geen JS-fouten. Reviewstatus: nog bekijken. Bronnenlogboek: `bron/bronnen.md` (eerste, gedeeltelijke ronde).
+
+### Frisse review 27 okt 2026 verwerkt (versie blijft 1.2)
+- Tweeling: beide zussen hetzelfde grijzend bruine haar (± 55, even oud); de rookster houdt de sigaret omlaag in de hangende hand (wees eerst recht vooruit, in de recap het lijf van haar zus in).
+- `recap`: elke regel van de lijst licht op bij zijn eigen woord ('differentiatie' bij 'Zo worden', lf 0,384 van regel 1); liep een regel achter.
+- `h4v` histonen: DNA gewikkeld om de histonen; links los met acetylgroepen en ruimte voor de polymerase, rechts strak opgerold in een dikke vezel.
+- `h4b`: epigenetica-kaart vanaf het eerste woord; `h4b` regel 0, `open` regel 0, `h1a`, `h3v` (eerste rij) en de enhancer in `h2v` staan er nu vanaf t = 0.
+- `h4a`: 'methylgroep' en 'chemisch slotje op het DNA' links van de pin, ≥ 60 px van de rand (gen 140 px naar rechts).
+- `h2op`: lactose boven '(melksuiker)' in plaats van erover.
+- `h3v`: slotjes vervangen gouden balken (toti 7, pluri 5, multi 2 open) en de balken staan vrij van de tekst.
+- `redCell`: biconcaaf schijfje met licht midden (het donkere midden leek een kern).
+- `h4c`: kop 'Proef met ratten: vader op een vetrijk dieet' staat altijd, zodat de proef ook bij Vragen uit is ingeleid; de CvTE-bronregel verdwijnt bij Vragen uit; panel breder en grotere tekst, van de rand.
+- `h2b`: panel van de rand, 'eiwit' binnen de cel, 'oestradiol' alleen bij het molecuul.
+- `h1c`: water in de navy-tint van het palet; genotypepaneel breder.
+- `h3b` apoptose: links 'embryo: vliezen', rechts verdwijnen de vliezen zichtbaar ('vliezen sterven af' → 'losse vingers').
+- `h3v` slot: eerst de tabel weg, dan de tweeling (geen overvloeier over de tabel).
+- Speler (alleen deze film): `korteAntwCuts` kijkt ook naar de zin ná 'Antwoord X.', zodat bij Vragen uit 'Differentiatie, door genexpressie.' (n15) wegvalt. Kandidaat voor `scripts/kortantwoord.py` (gedeeld, niet aangepast).
+- Controles opnieuw: antwoordtekst, antwoordletter, spelerfix, kortantwoord in orde; Vragen uit vwo en havo zonder fouten; stills van alle gewijzigde momenten bekeken.
