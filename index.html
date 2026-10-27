@@ -1101,6 +1101,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/dna/2-dna-kopieren.html",
+    "uitleg": "tools/docent/dna-2/index.html#3",
     "titel": "DNA kopiëren",
     "vraag": "Twee meter DNA, bijna zonder fouten gekopieerd in een paar uur. Hoe?",
     "tekst": "Van één DNA-molecuul twee: semiconservatieve replicatie en de enzymen die het doen",
@@ -1109,6 +1110,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/dna/3-van-dna-naar-eiwit.html",
+    "uitleg": "tools/docent/dna-2/index.html#4",
     "titel": "Van DNA naar eiwit",
     "vraag": "Hoe wordt een gen een eiwit?",
     "tekst": "Hoe een mRNA-vaccin werkt: transcriptie, translatie, codons en tRNA",
@@ -1117,6 +1119,7 @@ const HOOFDSTUKKEN = {
    },
    {
     "href": "films/dna/4-de-genetische-code-lezen.html",
+    "uitleg": "tools/docent/dna-2/index.html#8",
     "titel": "De genetische code lezen",
     "vraag": "Hoe leest een bacterie het recept van een mens?",
     "tekst": "tRNA als werktuig, de codontabel en terugredeneren met echte examenvragen",
@@ -1192,6 +1195,24 @@ const HOOFDSTUKKEN = {
     "href": "tools/eiwitfabriek.html",
     "naam": "De Eiwitfabriek",
     "tekst": "Oefen transcriptie en translatie: kies de matrijsstreng, bouw het mRNA, lees de codontabel en maak het eiwit"
+   }
+  ],
+  "lessen": [
+   {
+    "href": "tools/dna-bouw/index.html",
+    "nr": 1,
+    "titel": "De bouw van DNA",
+    "tekst": "Doorklikken door de nucleotide, 5' en 3', de dubbele streng, DNA-polymerase, het gen, RNA en splicing",
+    "films": ["films/dna/1-wat-is-dna.html", "films/dna/2-dna-kopieren.html"],
+    "niveau": "havo + vwo"
+   },
+   {
+    "href": "tools/docent/dna-2/index.html",
+    "nr": 2,
+    "titel": "Van gen tot eiwit",
+    "tekst": "De prik als opening, DNA kopiëren (vwo: Okazaki-fragmenten, Meselson en Stahl), transcriptie, het mRNA naar buiten, translatie, tRNA als werktuig, de codontabel lezen, terugredeneren en van keten naar eiwit",
+    "films": ["films/dna/2-dna-kopieren.html", "films/dna/3-van-dna-naar-eiwit.html", "films/dna/4-de-genetische-code-lezen.html"],
+    "niveau": "havo + vwo"
    }
   ],
   "oefenen": [
@@ -3304,7 +3325,7 @@ function examKolommen(h,id){
 
 /* medaillons voor tools en lessen (Kamiel 22 okt 2026: oude lijntekeningen vervangen), img/kunst/tools/<id>.webp; niet in de lijst = lijntekening uit TOOLPLAAT */
 const TICOON={'Kruisingslab':'kruisingslab','Bloedgroepenlab':'bloedgroepenlab','Aardappellab':'aardappellab','Schaallab':'schaallab','De bouw van DNA':'dna-bouw','DNA-profielen vergelijken':'dna-profielen','Waarom U in RNA':'waarom-u-in-rna','De Eiwitfabriek':'eiwitfabriek','Regelkring':'regelkring','Celbouwer':'celbouwer','Virtuele microscoop':'virtuele-microscoop','Microscoop: echte preparaten':'microscoop-echt','Onderzoekskeuring':'onderzoekskeuring','Resistentielab':'resistentielab','Muizensimulatie':'muizensimulatie','Examen havo 2026-I doorklikken':'../iconen/examens'};
-const LICOON={'tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
+const LICOON={'tools/dna-bouw/index.html':'tools/dna-bouw','tools/docent/dna-2/index.html':'films/3-van-dna-naar-eiwit','tools/docent/voortplanting-1/index.html':'tools/les-voortplanting-1','tools/docent/voortplanting-2/index.html':'films/1-precies-op-tijd','tools/docent/voortplanting-3/index.html':'tools/les-voortplanting-3'};
 const tmed=pad=>`<img class="tmed" src="img/kunst/${pad}.webp?v=1" alt="" width="150" height="150" loading="lazy" decoding="async">`;
 function toolRij(t){
   const fig=toolFig(t.naam), nr=TOOLPLAAT.findIndex(([re])=>re.test(t.naam))+1, tm=TICOON[t.naam];
