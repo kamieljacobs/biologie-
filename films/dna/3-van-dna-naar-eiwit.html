@@ -1433,8 +1433,8 @@ SCENES.h1a=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const L=microCell(ctx,820,470,330,1
   if(li===0){ const p=ease(lf*1.5); const P=[[1000,290],[1170,470],[1075,615],[1040,560],[560,600],[860,250]]; /* 27 okt 2026: niet over membraan of mitochondriën */ P.forEach((q,i)=>eiwit(ctx,q[0],q[1],24,clamp(p*3-i*0.4,0,1),i+2));
     naamBij(ctx,'eiwitten','enzymen · receptoren · antistoffen',1460,250,p,'center',C.text); }
   if(li>=1){ const p=li===1?ease(lf*2):1; ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.goud; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(k.x-16,k.y-8); ctx.lineTo(k.x+16,k.y-8); ctx.stroke(); ctx.restore();
-    naamBij(ctx,'gen','een recept voor een eiwit',k.x,140,p,'center',C.goud); }
-  if(li>=2){ const p=li===2?ease(lf*2):1; naamBij(ctx,'kern','hier ligt het dna',k.x,k.y+k.r+38,p,'center',C.text);
+    naamBij(ctx,'gen','een recept voor een eiwit',k.x,k.y-k.r-62,p,'center',C.goud); }
+  if(li>=2){ const p=li===2?ease(lf*2):1; naamBij(ctx,'kern','hier ligt het dna',k.x-45,k.y+k.r+38,p,'center',C.text);
     naamBij(ctx,'ribosomen','in het cytoplasma',1270,505,p,'left',C.text); ctx.save(); ctx.globalAlpha*=p; circ(ctx,1150,500,30,null,C.goud,2); ctx.restore(); }
   if(li===3){ const p=ease(lf*2); ctx.save(); ctx.globalAlpha*=p; ctx.setLineDash([10,8]); circ(ctx,k.x,k.y,k.r+20,null,C.koraal,3); ctx.restore(); M(ctx,'het dna blijft in de kern',820,860,{align:'center',color:C.koraal,alpha:p}); }
   speed(ctx,'schematisch · niet op schaal');
@@ -1465,33 +1465,44 @@ SCENES.h1b=(ctx,li,lf,t)=>{
 // ---- H2 transcription ----
 // DNA: coding strand on top, template strand at the bottom; inside the bubble the coding strand lifts and mRNA pairs with the template
 function txScene(ctx,prog,t,o={}){ const seq='GCATACTTAGGCTAAT', x0=150, dx=110, n=seq.length, s=0.85, Yb=640, Yt=376;
-  const c0=o.c0||4; const b0=4, b1=Math.min(n,4+Math.round(prog*8)); // bubble from c0 to b1; mRNA built from b0 up to b1-1; DNA closes again before c0
-  const lift=i=> (i>=c0&&i<b1)? 170 : (i===c0-1||i===b1)? 60 : 0;
+  const c0=o.c0||4; const b0=4, b1=Math.max(o.b1min||0,Math.min(n,4+Math.round(prog*8))); const OP=o.open==null?1:o.open;
+  const EP=o.enz||[x0+b1*dx+20,Yt+40]; enzyme(ctx,EP[0],EP[1],1.05,o.enzA==null?1:o.enzA); // enzym achter het DNA: basen blijven zichtbaar (review 27 okt) // bubble from c0 to b1; mRNA built from b0 up to b1-1; DNA closes again before c0
+  const lift=i=> OP*((i>=c0&&i<b1)? 170 : (i===c0-1||i===b1)? 60 : 0);
   ctx.save(); ctx.globalAlpha*=0.55; ctx.beginPath(); ctx.moveTo(x0-dx/2,Yt-lift(0)); for(let i=0;i<n;i++) ctx.lineTo(x0+i*dx,Yt-lift(i)); ctx.lineTo(x0+(n-0.5)*dx,Yt); ctx.lineCap='round'; ctx.lineJoin='round'; ctx.strokeStyle=BBR; ctx.lineWidth=40; ctx.stroke(); ctx.strokeStyle=BB; ctx.lineWidth=37; ctx.stroke();
   for(let i=0;i<n;i++) base(ctx,x0+i*dx,Yt-lift(i)+20,COMP[seq[i]],1,{s}); ctx.restore();
   backbone(ctx,x0-dx/2,Yb,n*dx,{dx}); for(let i=0;i<n;i++){ base(ctx,x0+i*dx,Yb-20,seq[i],-1,{s}); if(lift(i)===0) hbonds(ctx,x0+i*dx,Yb-20-111,Yt+20+111,(seq[i]==='A'||seq[i]==='T')?2:3); }
+  if(o.noRna) return {x0,dx,Yt,Yb,b0,b1};
   const m0=Math.max(b0,c0), m=[]; for(let i=m0;i<b1;i++) m.push(RCOMP[seq[i]]);
   if(m.length){ mrna(ctx,x0+m0*dx,Yt,m.join(''),{dx,s,dir:1,marks:o.markU?m.map(c=>c==='U'?C.goud:null):null}); for(let i=m0;i<b1;i++) hbonds(ctx,x0+i*dx,Yt+16+111,Yb-20-111,(seq[i]==='A'||seq[i]==='T')?2:3); }
   const rel=[]; for(let i=b0;i<Math.min(c0,b1);i++) rel.push(RCOMP[seq[i]]); const YR=Yt-215;
   if(rel.length){ mrna(ctx,x0+b0*dx,YR,rel.join(''),{dx,s,dir:1}); ctx.save(); ctx.lineCap='round'; ln(ctx,x0+(b0+rel.length-0.5)*dx,YR,x0+(m0-0.5)*dx,Yt,RBBR,10); ctx.restore(); }
-  if(b1>b0){ ctx.save(); ctx.lineCap='round'; const yy=rel.length?YR:Yt; ln(ctx,x0+(b0-0.5)*dx,yy,x0+(b0-1.4)*dx,yy-(rel.length?70:110),RBBR,10); ctx.restore(); }
-  enzyme(ctx,x0+b1*dx+20,Yt+40,1.05,1); return {x0,dx,Yt,Yb,b0,b1};
+  return {x0,dx,Yt,Yb,b0,b1};
 }
 function freeRna(ctx,x0,y0,T,alpha=1){ const R=seeded(91); for(let k=0;k<4;k++){ const bx=x0+k*100+R()*20, by=y0+R()*60; const ph=R()*6.28, sp=0.6+R()*0.6; const xx=bx+Math.sin(T*sp+ph)*22, yy=by+Math.cos(T*sp*0.8+ph)*16;
   ctx.save(); ctx.translate(xx,yy); ctx.rotate(Math.sin(T*0.5+ph)*0.4); base(ctx,0,-50,'AUCG'[k],1,{alpha:alpha*0.85,s:0.75,rna:true}); circ(ctx,0,-60,8,RBBR,null); ctx.restore(); } }
 SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'micro');
+  // review 27 okt 2026: li1 enzym landt op gesloten DNA bij de promotor; li2 pas strengen uit elkaar; promotor en gen gemarkeerd; mRNA-naam zonder lijn
   const prog=li<=3?0: li===4? ease(lf)*0.6 : li===5? 0.6+ease(lf)*0.3 : 1;
   const c0=li===6?4+Math.round(ease(lf)*5):4;
-  const g=txScene(ctx,prog,t,{markU:li===5,c0});
+  const x0=150, dx=110, Yt=376, Yb=640, PX=x0+2*dx, PY=Yt+30, BX=x0+5*dx+20, BY=Yt+40;
+  const land=li===1?ease(clamp(lf*1.8,0,1)):1, mv=li===2?ease(lf):1;
+  let o={markU:li===5,c0};
+  if(li<=1) o=Object.assign(o,{open:0,noRna:true,enz:[PX,lerp(-260,PY,land)],enzA:li===0?0:clamp(lf*4,0,1)});
+  else if(li<=3) o=Object.assign(o,{open:li===2?ease(lf):1,noRna:true,b1min:5,enz:[lerp(PX,BX,mv),lerp(PY,BY,mv)]});
+  else o.b1min=5;
+  const g=txScene(ctx,prog,t,o); const ex=o.enz?o.enz[0]:x0+g.b1*dx+20;
   T(ctx,'Transcriptie',80,800,44,{w:700,color:C.teal}); M(ctx,'één gen · één streng · in de kern',80,838,{color:C.teal,px:24});
-  if(li===1) M(ctx,'op de promotor · vlak vóór het gen',g.x0+4*g.dx,g.Yt-120,{align:'center',color:C.goud,alpha:ease(lf*2)});
-  naamBij(ctx,'RNA-polymerase','enzym',g.x0+g.b1*g.dx,g.Yb+80,li===1?ease(lf*2):1,'center',C.text);
-  if(li===2) M(ctx,'strengen uit elkaar',g.x0+4*g.dx,g.Yt-120,{align:'center',color:C.goud,alpha:ease(lf*2)});
-  if(li>=4) if(li===6) naamBij(ctx,'mRNA','laat los',420,175,1,'right',C.text); else naamBij(ctx,'mRNA','u in plaats van t',400,290,li===4?ease(lf*2):1,'right',C.text);
-  if(li>=3) naamBij(ctx,'afgelezen streng','',g.x0-20,g.Yb+80,li===3?ease(lf*2):1,'left',C.text);
+  if(li>=1&&li<=3){ const q=li===1?ease(lf*2):1, yb=Yt-232; ctx.save(); ctx.globalAlpha*=q; ctx.lineWidth=3;
+    ctx.strokeStyle=C.goud; ctx.beginPath(); ctx.moveTo(x0+0.55*dx,yb+14); ctx.lineTo(x0+0.55*dx,yb); ctx.lineTo(x0+3.45*dx,yb); ctx.lineTo(x0+3.45*dx,yb+14); ctx.stroke();
+    ctx.strokeStyle=C.paars; ctx.beginPath(); ctx.moveTo(x0+3.55*dx,yb+14); ctx.lineTo(x0+3.55*dx,yb); ctx.lineTo(x0+15.45*dx,yb); ctx.lineTo(x0+15.45*dx,yb+14); ctx.stroke(); ctx.restore();
+    M(ctx,'promotor',x0+2*dx,yb-18,{align:'center',color:C.goud,alpha:q}); M(ctx,'gen →',x0+9.5*dx,yb-18,{align:'center',color:C.paars,alpha:q}); }
+  if(li>=1) naamBij(ctx,'RNA-polymerase','enzym',ex,g.Yb+80,li===1?land:1,'center',C.text);
+  if(li===2) M(ctx,'strengen uit elkaar',x0+9*dx,Yt-110,{align:'center',color:C.goud,alpha:ease(lf*2)});
+  if(li>=4) if(li===6) naamBij(ctx,'mRNA','laat los',420,175,1,'right',C.text); else naamBij(ctx,'mRNA','u in plaats van t',x0+3.3*dx,Yt-140,li===4?ease(lf*2):1,'right',C.teal);
+  if(li>=3) naamBij(ctx,'afgelezen streng','',x0-20,g.Yb+80,li===3?ease(lf*2):1,'left',C.text);
   if(li===4){ freeRna(ctx,1520,190,t,ease(lf*2)); naamBij(ctx,'vrije RNA-nucleotiden','',1700,140,ease(lf*2),'center',C.text); }
   if(li===5) M(ctx,'a in het dna → u in het mrna',1180,830,{color:C.goud});
-  if(li===6) naamBij(ctx,'DNA weer dicht','achter het enzym',g.x0+5*g.dx,g.Yb+80,ease(lf*2),'center',C.goud);
+  if(li===6) naamBij(ctx,'DNA weer dicht','achter het enzym',x0+5*dx,g.Yb+80,ease(lf*2),'center',C.goud);
   speed(ctx,'schematisch · niet op schaal · vertraagd');
 };
 SCENES.h2b=(ctx,li,lf)=>{ bg(ctx,'micro'); const d='TAC', r='AUG', x0=700, dx=260;
@@ -1516,11 +1527,11 @@ SCENES.h2v=(ctx,li,lf,t)=>{ bg(ctx,'micro');
       naamBij(ctx,'TATA-box','hier binden transcriptiefactoren',300,y+130,q,'left',C.goud);
       const f=li===1?ease(clamp(lf*1.6-0.3,0,1)):1; kluwen(ctx,455,lerp(y-330,y-96,f),40,f,4,{ry:0.9}); kluwen(ctx,535,lerp(y-360,y-100,f),36,f,9,{ry:0.9});
       naamBij(ctx,'transcriptiefactoren','hulpeiwitten',405,y-110,f,'right',C.text); }
-    if(li===2){ const e=ease(lf*1.4); const ex=lerp(1250,700,e); enzyme(ctx,ex,y-215,0.75,clamp(lf*3,0,1)); naamBij(ctx,'RNA-polymerase','op zijn plek gezet',ex,y-275,clamp(lf*3,0,1),'center',C.text);
-      M(ctx,'begin van het gen →',780,y-100,{color:C.paars,alpha:ease(lf*2-1)}); }
+    if(li===2){ const e=ease(lf*1.4); const ex=lerp(1250,700,e), ey=lerp(y-260,y-95,e); enzyme(ctx,ex,ey,0.75,clamp(lf*3,0,1)); naamBij(ctx,'RNA-polymerase','op zijn plek gezet',ex+110,ey-20,clamp(lf*3,0,1),'left',C.text); /* landt óp het DNA (review 27 okt) */
+      M(ctx,'begin van het gen →',780,y-200,{color:C.paars,alpha:ease(lf*2-1)}); }
     speed(ctx,'schematisch · niet op schaal'); return; }
-  if(li===9){ T(ctx,'Kapje en staart',120,170,48,{w:700}); const y=470, x1=360; const parts=[['E1',260],['E2',220],['E3',200]]; let x=x1;
-    parts.forEach(([id,w])=>{ box(ctx,x,y-22,w,44,22,RBB,RBBR,1.5); T(ctx,id,x+w/2,y+12,32,{w:700,align:'center'}); x+=w+4; }); T(ctx,'mRNA',x1,y-60,40,{w:700});
+  if(li===9){ T(ctx,'Kapje en staart',120,170,48,{w:700}); const y=470, x1=360; const parts=[['E1',182],['',126],['E2',154],['',168],['E3',140]]; let x=x1; /* pre-mRNA met introns, zoals de stem zegt (review 27 okt) */
+    parts.forEach(([id,w])=>{ if(id) { box(ctx,x,y-22,w,44,22,RBB,RBBR,1.5); T(ctx,id,x+w/2,y+12,32,{w:700,align:'center'}); } else box(ctx,x,y-22,w,44,22,rgba('#8FA0B5',0.4),C.line,1.5); x+=w+4; }); T(ctx,'pre-mRNA',x1,y-60,40,{w:700});
     const c=ease(lf*2.2); ctx.save(); ctx.globalAlpha*=c; ctx.beginPath(); ctx.arc(x1-34,y,30,Math.PI*0.5,Math.PI*1.5); ctx.lineTo(x1-4,y-30); ctx.lineTo(x1-4,y+30); ctx.closePath(); ctx.fillStyle=C.goud; ctx.fill(); ctx.restore();
     naamBij(ctx,'kapje',"5'-uiteinde",x1-40,y+100,c,'center',C.goud);
     const a=ease(lf*2.2-0.9), nA=Math.round(a*9); for(let k=0;k<nA;k++) tile(ctx,x+30+k*58,y,'A',{w:50,h:56,px:32});
@@ -1556,14 +1567,14 @@ SCENES.h3a=(ctx,li,lf,t,inset)=>{ const label=inset===true?()=>{}:window.label, 
   if(li===0&&inset!==true){ bg(ctx,'micro'); const L=microCell(ctx,820,470,330,1,t,{showGolgi:true,showER:true}); const k=L.kern; chromatine(ctx,k.x,k.y,k.r);
     const P=wavePts(k.x+20,k.y-20,k.x+k.r+300,k.y+40,40,8,t*2); mrnaSquiggle(ctx,partPts(P,0.35+0.65*ease(lf)),1,4);
     const po=P.find(q=>Math.hypot(q[0]-k.x,(q[1]-k.y)/0.92)>=k.r+4)||P[10]; ctx.save(); ctx.beginPath(); ctx.arc(po[0],po[1],11,0,6.283); ctx.fillStyle=C.bgMicro; ctx.fill(); ctx.strokeStyle=C.goud; ctx.lineWidth=2.5; ctx.stroke(); ctx.restore(); mrnaSquiggle(ctx,partPts(P,0.35+0.65*ease(lf)),1,4);
-    naamBij(ctx,'kernporie','opening in het kernmembraan',po[0]-6,po[1]+62,ease(lf*2),'left',C.text); speed(ctx,'schematisch · niet op schaal'); return; }
+    naamBij(ctx,'kernporie','opening in het kernmembraan',po[0]+10,po[1]+100,ease(lf*2),'center',C.text); speed(ctx,'schematisch · niet op schaal'); return; }
   if(inset!==true) bg(ctx,'micro'); const codons=['AUG','GCU','UCA','GGA','UAA']; const seq=codons.join(''); const x0=180, dx=96, Ym=700;
   // step = codon in the A site; tRNA arriving at step, chain on the tRNA at step-1
   let step=0, arr=0; if(li<=6){ step=0; arr=0; } else if(li===7){ step=0; arr=ease(lf); } else if(li===8){ step=1; arr=ease(lf); } else if(li===9){ const u=0.33+lf*2.67; step=1+Math.min(2,Math.floor(u)); arr=step===1?1:ease(Math.min(1,(u-Math.floor(u))*1.6)); } else { step=4; arr=0; }
   // ribosome position in codons: A site over codon 'pos'
-  let pos; if(li<=1) pos=-2.5; else if(li===2) pos=-2.5+2.5*ease(lf); else if(li<=8) pos=0; else if(li===9) pos=step-1; else if(li===10) pos=2+ease(Math.min(1,lf*3)); else pos=3; // ribosome centred on codons pos and pos+1
+  let pos; if(li<=8) pos=0; else if(li===9) pos=step-1; else if(li===10) pos=2+ease(Math.min(1,lf*3)); else pos=3; // ribosome centred on codons pos and pos+1
   const rC=x0+(pos*3+1)*dx + dx*1.5;
-  ribosomeBig(ctx,rC,Ym-170,560,li===1?0.55*ease(lf*2):0.55);
+  const rY=li===1?Ym-170-230:li===2?Ym-170-230*(1-ease(clamp(lf*1.6,0,1))):Ym-170; /* in beeld, landt op het mRNA (review 27 okt) */ ribosomeBig(ctx,rC,rY,560,li===1?0.55*ease(lf*3):0.55);
   mrna(ctx,x0,Ym,seq,{dx,dir:-1,s:0.8});
   M(ctx,"5'",x0-70,Ym+10,{align:'right',color:C.text2}); M(ctx,"3'",x0+14*dx+60,Ym+10,{color:C.text2});
   const nBr=li<3?0: li===3? Math.ceil(ease(lf)*5) : 5;
@@ -1581,7 +1592,7 @@ SCENES.h3a=(ctx,li,lf,t,inset)=>{ const label=inset===true?()=>{}:window.label, 
     if(li<=8) label(ctx,'tRNA',li===8?'past op het codon':'brengt een aminozuur',aX+150,TY-60,aX+330,200,li>=7&&li<=8?ease(lf*2):1,C.text,'left'); }
   if(li===10) naamBij(ctx,'stopcodon','geen trna · keten laat los',W-60,120,ease(lf*2),'right',C.goud);
   if(li===11){ const p=ease(lf*2); panel(ctx,1300,110,540,220,p); T(ctx,'translatie',1570,200,48,{w:700,align:'center',alpha:p}); M(ctx,'mrna → aminozuren',1570,250,{align:'center',alpha:p}); M(ctx,'in het ribosoom',1570,290,{align:'center',alpha:p,color:C.text2}); }
-  if(li>=1&&li<=7) naamBij(ctx,'ribosoom','sterk vergroot',Math.max(360,rC+320),Ym-210,li===1?ease(lf*2):1,'left',C.text);
+  if(li>=1&&li<=7) naamBij(ctx,'ribosoom','sterk vergroot',Math.max(360,rC+320),rY-40,li===1?ease(lf*3):1,'left',C.text);
   if(inset!==true) M(ctx,'schematisch · niet op schaal',W-60,60,{align:'right',color:C.text2,px:22});
 };
 SCENES.h3b=(ctx,li,lf)=>{ bg(ctx,'schema'); T(ctx,'17 aminozuren',120,160,52,{w:700}); const x0=120, y0=250, w=96, g=10;
@@ -1605,13 +1616,13 @@ SCENES.h3v=(ctx,li,lf,t)=>{
   speed(ctx,'schematisch · niet op schaal');
 };
 SCENES.h3w=(ctx,li,lf,t)=>{ bg(ctx,'schema');
-  if(li<=2){ const p0=li===0?ease(lf*2):1; T(ctx,'61 codons → 20 aminozuren',120,160,52,{w:700,alpha:p0}); M(ctx,'+ 3 stopcodons',120,215,{alpha:p0});
-    if(li===0){ for(let k=0;k<64;k++){ const st=k===48||k===50||k===56; const x=1180+(k%8)*76, y=260+Math.floor(k/8)*66; ctx.save(); ctx.globalAlpha*=clamp(lf*4-k/40,0,1); box(ctx,x,y,62,52,8,st?rgba(C.koraal,0.6):rgba(C.teal,0.55),st?C.koraal:lighten(C.teal,0.2),1); ctx.restore(); } M(ctx,'64 codons · 3 stop',1180+300,840,{align:'center',alpha:p0}); }
+  if(li<=2){ const p0=1; T(ctx,'61 codons → 20 aminozuren',120,160,52,{w:700,alpha:p0}); M(ctx,'+ 3 stopcodons',120,215,{alpha:p0});
+    if(li===0){ for(let k=0;k<64;k++){ const st=k===48||k===50||k===56; const x=1180+(k%8)*76, y=260+Math.floor(k/8)*66; ctx.save(); ctx.globalAlpha*=1; box(ctx,x,y,62,52,8,st&&lf>0.15?rgba(C.koraal,0.6):rgba(C.teal,0.55),st?C.koraal:lighten(C.teal,0.2),1); ctx.restore(); } M(ctx,'64 codons · 3 stop',1180+300,840,{align:'center',alpha:p0}); }
     if(li>=1){ const p=li===1?ease(lf*2):1; ['GGU','GGC','GGA','GGG'].forEach((c,i)=>{ const y=330+i*125; for(let j=0;j<3;j++) tile(ctx,520+j*104,y,c[j],{alpha:p,w:88,h:100,px:56,mark:li===2&&j===2?C.goud:null}); arrow(ctx,860,y,1040,y,C.line,1.5,p); aa(ctx,1110,y,46,3,'Gly',p); });
       M(ctx,'vier codons · één aminozuur',1200,530,{alpha:p}); }
     if(li===2) M(ctx,'verschil: alleen de derde base',470,840,{color:C.goud,alpha:ease(lf*2)});
     return; }
-  if(li===5){ const p=ease(lf*2); T(ctx,'terug naar de keten',120,160,52,{w:700,alpha:p}); for(let k=0;k<8;k++){ const x=300+k*150, y=470+Math.sin(k*0.9)*40; if(k){ ctx.save(); ctx.globalAlpha*=p; ln(ctx,x-150,470+Math.sin((k-1)*0.9)*40,x,y,C.oker,4); ctx.restore(); } aa(ctx,x,y,44,k,'',p); } return; }
+  if(li===5){ const p=ease(lf*2); T(ctx,'Terug naar de keten',120,160,52,{w:700,alpha:p}); for(let k=0;k<8;k++){ const x=300+k*150, y=470+Math.sin(k*0.9)*40; if(k){ ctx.save(); ctx.globalAlpha*=p; ln(ctx,x-150,470+Math.sin((k-1)*0.9)*40,x,y,C.oker,4); ctx.restore(); } aa(ctx,x,y,44,k,'',p); } return; }
   T(ctx,'De wiebelbase',120,160,52,{w:700}); M(ctx,"codon 5' → 3' · anticodon eronder",120,215);
   const cols=[['GGA','CCU'],['GGG','CCU']]; cols.forEach(([cod,anti],k)=>{ const x=380+k*700; const show=k===0||li>=4; const a=k===0?1:(li===4?ease(lf*2):1); if(!show) return;
     for(let j=0;j<3;j++){ tile(ctx,x+j*120,370,cod[j],{alpha:a,w:96,h:104,px:56,mark:j===2&&li>=3?C.goud:null}); tile(ctx,x+j*120,580,anti[j],{alpha:a,w:96,h:104,px:56}); if(j<2) ln(ctx,x+j*120,424,x+j*120,526,C.line,2); else ln(ctx,x+j*120,424,x+j*120,526,C.goud,3,[8,8]); }
@@ -1636,7 +1647,7 @@ SCENES.h4a=(ctx,li,lf,t)=>{ bg(ctx,'micro');
     ctx.save(); ctx.globalAlpha*=q; ctx.beginPath(); ctx.moveTo(1300,280+q*130); ctx.lineTo(1380,280+q*130); ctx.lineTo(1340,340+q*130); ctx.closePath(); ctx.fillStyle=C.teal; ctx.fill(); ctx.restore(); naamBij(ctx,'receptor','past op zijn signaalstof',1340,720,q,'center',C.text);
     speed(ctx,'schematisch · niet op schaal'); return; }
   if(li===3){ const p=ease(lf); ctx.save(); ctx.translate(-380,0); chain(ctx,1,1); ctx.restore(); M(ctx,'origineel',580,780,{align:'center'});
-    ctx.save(); ctx.translate(420,0); const P=[]; for(let k=0;k<12;k++){ const b=chainPos(k,1); const d=k>=4&&k<=8?p*60:0; P.push([b[0]+d*Math.cos(k),b[1]+d*Math.sin(k*1.3)]); } for(let k=1;k<12;k++) ln(ctx,P[k-1][0],P[k-1][1],P[k][0],P[k][1],C.oker,5); for(let k=0;k<12;k++) aa(ctx,P[k][0],P[k][1],36,k,'',1); circ(ctx,P[6][0],P[6][1],36,C.koraal,lighten(C.koraal,0.3),2); ctx.restore();
+    ctx.save(); ctx.translate(420,0); const P=[]; for(let k=0;k<12;k++){ const b=chainPos(k,1); const d=k>=4&&k<=8?p*(k===6?150:k===5||k===7?100:45):0; const c=chainPos(6,1); const ang=Math.atan2(c[1]-470,c[0]-960)||-1.2; P.push([b[0]+d*Math.cos(ang-0.5),b[1]+d*Math.sin(ang-0.5)]); /* duidelijke vormverandering (review 27 okt) */ } for(let k=1;k<12;k++) ln(ctx,P[k-1][0],P[k-1][1],P[k][0],P[k][1],C.oker,5); for(let k=0;k<12;k++) aa(ctx,P[k][0],P[k][1],36,k,'',1); circ(ctx,P[6][0],P[6][1],36,C.koraal,lighten(C.koraal,0.3),2); ctx.restore();
     M(ctx,'één ander aminozuur',1380,780,{align:'center',color:C.koraal}); M(ctx,'→ aflevering 5',1380,830,{align:'center',color:C.text2,alpha:ease(lf*2-1)}); return; }
   // li 4: the chain of cause
   bg(ctx,'schema'); const items=[['volgorde nucleotiden',C.teal],['volgorde aminozuren',C.oker],['vorm van het eiwit',C.oker],['werking',C.goud]];
@@ -1653,7 +1664,7 @@ SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   cell(); ctx.fillStyle=rgba('#3A4A66',0.85); ctx.fill(); ctx.strokeStyle=C.er; ctx.lineWidth=3; ctx.stroke();
   ctx.save(); cell(); ctx.clip(); ctx.globalAlpha*=0.22; for(let x=cx-rx+30;x<cx+rx;x+=30) ln(ctx,x,cy-ry,x,cy+ry,'#D88E7A',3); ctx.restore(); // dwarsstreping, binnen het membraan
   // kern
-  const KX=360, KY=640; ctx.beginPath(); ctx.ellipse(KX,KY,110,68,0,0,6.283); ctx.fillStyle=C.kern; ctx.fill(); ctx.strokeStyle=C.kernR; ctx.lineWidth=1.5; ctx.stroke(); chromatine(ctx,KX,KY,62,0.8,8);
+  const KX=420, KY=600; ctx.beginPath(); ctx.ellipse(KX,KY,110,68,0,0,6.283); ctx.fillStyle=C.kern; ctx.fill(); ctx.strokeStyle=C.kernR; ctx.lineWidth=1.5; ctx.stroke(); chromatine(ctx,KX,KY,62,0.8,8);
   naamBij(ctx,'kern','',KX,KY+110,li===0?ease(lf*2):1,'center',C.text);
   // ER: gebogen band (lumen tussen twee membranen); ribosomen op de buitenkant
   const erA=li<2?0.45:(li===2?0.45+0.55*ease(lf*4):1); const ey=x=>610+26*Math.sin((x-620)/500*Math.PI*1.3);
@@ -1661,7 +1672,7 @@ SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   const RX=[700,800,900,1000]; const rY=x=>ey(x)-26-15;
   const P=[]; for(let x=600;x<=1090;x+=8) P.push([x,rY(x)+Math.sin(x*0.05+t*1.5)*3]); mrnaSquiggle(ctx,P,1-gone,3);
   RX.forEach(x=>{ ctx.save(); ctx.globalAlpha*=1-gone*0.7; ctx.beginPath(); ctx.ellipse(x,rY(x)-4,20,13,0,0,6.283); ctx.fillStyle=C.ribo; ctx.fill(); ctx.beginPath(); ctx.ellipse(x,rY(x)+9,14,8,0,0,6.283); ctx.fillStyle=lighten(C.ribo,0.2); ctx.fill(); ctx.restore(); });
-  naamBij(ctx,'vaccin-mRNA','in het cytoplasma',580,rY(600)-40,(li===0?ease(lf*2):1)*(1-gone),'right',C.text);
+  naamBij(ctx,'vaccin-mRNA','in het cytoplasma',600,rY(640)-100,(li===0?ease(lf*2):1)*(1-gone),'center',C.text);
   if(li===0) naamBij(ctx,'ribosomen','lezen het recept',1110,rY(1000)-30,ease(lf*2),'left',C.text);
   // keten groeit door het ER-membraan het lumen in en vouwt zich daar op (spiraal → kluwen)
   if(li>=1){ const g=li===1?ease(lf*1.4):1; RX.forEach((x,k)=>{ const n=Math.max(1,Math.round(g*10)); const pts=[]; const y0=rY(x)+12;
@@ -1682,8 +1693,8 @@ SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   const SX=[760,880,1000,1120,1230,1340,1450];
   if(li>=3){ SX.forEach((x,k)=>sp(x,li===3?clamp(ease(lf*2)*3-k*0.3,0,1):1)); naamBij(ctx,'eiwit van het virus','op het celmembraan',1520,memPt(1450).y-80,1,'left',C.text); }
   if(li>=3){ const p=li===3?ease(lf):1; ctx.save(); ctx.globalAlpha*=p; blob(ctx,1090,90+p*40,100,52,0.12,4); shape(ctx,rgba(C.groen,0.85),lighten(C.groen,0.3),1.5); ctx.restore(); naamBij(ctx,'afweercel','leert het eiwit herkennen',960,118,p,'right',C.text); }
-  if(li>=4){ const p=li===4?ease(lf*2):1; ctx.save(); ctx.globalAlpha*=p*(1-gone*0.6); ctx.setLineDash([10,8]); ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(KX,KY,138,94,0,0,6.283); ctx.stroke(); ctx.restore();
-    naamBij(ctx,'niet in de kern','wordt geen dna · geen reverse transcriptase',KX-140,KY+170,p*(1-gone*0.6),'left',C.koraal); }
+  if(li>=4){ const p=li===4?ease(lf*8):1; ctx.save(); ctx.globalAlpha*=p*(1-gone*0.6); ctx.setLineDash([10,8]); ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.ellipse(KX,KY,138,94,0,0,6.283); ctx.stroke(); ctx.restore();
+    naamBij(ctx,'niet in de kern','wordt geen dna · geen reverse transcriptase',90,842,p*(1-gone*0.6),'left',C.koraal); /* buiten de cel, vrije ruimte (review 27 okt) */ }
   if(li===5) naamBij(ctx,'mRNA afgebroken','na een tijdje',850,rY(850)-60,ease(lf*2-0.3),'center',C.text);
   speed(ctx,'schematisch · niet op schaal');
 };
