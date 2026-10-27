@@ -61,9 +61,11 @@ Een gen kan ook uit staan omdat er een eiwit in de weg zit: een repressor. Dat z
 > heropname 20-10-2026 (uitspraaktest): E. coli als `E. kóólie`, operator als `operaator`; Roos, eleven_v3, 1 take, nieuwe woordtijden (Scribe). Duur 56,3 → 58,7 s.
 
 ## n11 · Hoofdstuk 2 — Hoe zet een cel een gen aan? · vwo
-*begin 4:51 / — · 25.0 s*
+*begin 4:51 / — · 22.2 s*
 
-Voor vwo gaan we hier nog een stap verder. Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit. Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt.
+Er zijn twee soorten transcriptiefactoren. Een activator helpt de polymerase binden. Een repressor zit in de weg en houdt het gen uit. Het koppel van oestradiol en zijn receptor is een activator. Het bindt aan een enhancer: een stuk DNA, soms ver van het gen, dat de transcriptie versterkt.
+
+> 27-10-2026 (versie 1.2): de aankondiging 'Voor vwo gaan we hier nog een stap verder.' is uit de audio geknipt (geen nieuwe opname); de stem-invoer hieronder is die van de oorspronkelijke take.
 
 > 16-10-2026: take ingekort na "…versterkt." (24,95 s); de slotzin "Nu: waar komen al die verschillende cellen vandaan?" staat nu aan het eind van n11b. De speler slaat "Voor vwo gaan we hier nog een stap verder." zelf over.
 
@@ -94,9 +96,11 @@ Antwoord C. Differentiatie, door genexpressie. Het DNA verandert niet. Er gaan a
 > stem-invoer: Antwoord C. Differentiatie, door genexpressie. Het deeënaa verandert niet. Er gaan alleen andere genen aan. In een cel die rode bloedcel wordt, gaat het gen voor hemoglobienuh aan. In een cel die afweercel wordt, blijft dat gen uit. Ook celdood hoort erbij. Sommige cellen krijgen het signaal om zichzelf op te ruimen: aapoptoze. Zo verdwijnen de vliezen tussen je vingers vóór je geboorte. In je lichaam gaat een gespecialiseerde cel normaal niet terug. Niet omdat ze genen kwijt is: alle genen zitten er nog, ze staan alleen op slot. In het lab lukt het wel: zet een paar regulatorgenen aan in een huidcel, en ze wordt weer een stamcel. Daar hopen onderzoekers beschadigd weefsel mee te repareren.
 
 ## n16 · Hoofdstuk 3 — Stamcellen · vwo
-*begin 8:36 / — · 35.0 s*
+*begin 8:36 / — · 32.3 s*
 
-Voor vwo gaan we hier nog een stap verder. Niet elke stamcel kan alles. De bevruchte eicel en de eerste cellen daarna zijn totipotent: ze kunnen alles worden, ook de placenta. Embryonale stamcellen zijn pluripotent: alle cellen van het lichaam, maar geen placenta. De bloedstamcellen in je beenmerg zijn multipotent: alleen nog de verschillende bloedcellen. Hoe verder een cel is gedifferentieerd, hoe minder soorten cel ze nog kan worden. Steeds meer genen gaan op slot. Terug naar de tweeling.
+Niet elke stamcel kan alles. De bevruchte eicel en de eerste cellen daarna zijn totipotent: ze kunnen alles worden, ook de placenta. Embryonale stamcellen zijn pluripotent: alle cellen van het lichaam, maar geen placenta. De bloedstamcellen in je beenmerg zijn multipotent: alleen nog de verschillende bloedcellen. Hoe verder een cel is gedifferentieerd, hoe minder soorten cel ze nog kan worden. Steeds meer genen gaan op slot. Terug naar de tweeling.
+
+> 27-10-2026 (versie 1.2): de aankondiging 'Voor vwo gaan we hier nog een stap verder.' is uit de audio geknipt (geen nieuwe opname); de stem-invoer hieronder is die van de oorspronkelijke take.
 
 ## n18 · Hoofdstuk 4 — Slotjes op het DNA · basis
 *begin 9:11 / 6:52 · 44.9 s*
@@ -123,9 +127,11 @@ Vaderratten kregen een vetrijk dieet; de moeders aten gewoon. De dochters hadden
 Antwoord C. De baarmoeder valt af: de moeders aten gewoon. Een mutatie is onwaarschijnlijk: mutaties zijn toeval, dan zouden niet álle dochters hetzelfde hebben. Het dieet van de vader zette slotjes op genen in zijn zaadcellen. En die slotjes gingen mee naar de dochters. Dat gebeurt niet vaak. De meeste slotjes worden gewist bij de vorming van zaadcellen en eicellen, en nog eens vlak na de bevruchting. Maar sommige blijven zitten. Bij ratten werkt wat de vader eet dus een klein beetje door in zijn jongen, zonder dat er één base verandert. Of dat bij mensen ook zo gaat, wordt nog onderzocht.
 
 ## n22 · Hoofdstuk 4 — Slotjes op het DNA · vwo
-*begin 11:55 / — · 64.2 s*
+*begin 11:55 / — · 61.4 s*
 
-Voor vwo gaan we hier nog een stap verder. Zo'n slotje heet methylering. Maar er is nog een manier. Het DNA zit om histonen gewikkeld, zag je in aflevering één. Zitten er acetylgroepen op die histonen, dan zit het DNA los en kan de polymerase erbij: open. Zonder die groepen zit het strak opgerold: dicht. Een beroemd voorbeeld is de lapjeskat. Een poes heeft twee X-chromosomen. In elke cel wordt vroeg in het embryo één willekeurig uitgeschakeld, en alle nakomelingen van die cel houden datzelfde X uit. Op het X-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Heeft een poes op het ene X oranje en op het andere zwart, dan krijg je plukjes oranje en plukjes zwart: in elk plukje staat een ander X aan. Een kater heeft één X, dus hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes. Terug naar de tweeling.
+Zo'n slotje heet methylering. Maar er is nog een manier. Het DNA zit om histonen gewikkeld, zag je in aflevering één. Zitten er acetylgroepen op die histonen, dan zit het DNA los en kan de polymerase erbij: open. Zonder die groepen zit het strak opgerold: dicht. Een beroemd voorbeeld is de lapjeskat. Een poes heeft twee X-chromosomen. In elke cel wordt vroeg in het embryo één willekeurig uitgeschakeld, en alle nakomelingen van die cel houden datzelfde X uit. Op het X-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Heeft een poes op het ene X oranje en op het andere zwart, dan krijg je plukjes oranje en plukjes zwart: in elk plukje staat een ander X aan. Een kater heeft één X, dus hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes. Terug naar de tweeling.
+
+> 27-10-2026 (versie 1.2): de aankondiging 'Voor vwo gaan we hier nog een stap verder.' is uit de audio geknipt (geen nieuwe opname); de stem-invoer hieronder is die van de oorspronkelijke take.
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. Zo'n slotje heet metielering. Maar er is nog een manier. Het deeënaa zit om histonen gewikkeld, zag je in aflevering één. Zitten er acetielgroepen op die histonen, dan zit het deeënaa los en kan de polymerase erbij: open. Zonder die groepen zit het strak opgerold: dicht. Een beroemd voorbeeld is de lapjeskat. Een poes heeft twee iks-chromosomen. In elke cel wordt vroeg in het embryo één willekeurig uitgeschakeld, en alle nakomelingen van die cel houden datzelfde iks uit. Op het iks-chromosoom ligt een gen voor vachtkleur, met de allelen oranje en zwart. Heeft een poes op het ene iks oranje en op het andere zwart, dan krijg je plukjes oranje en plukjes zwart: in elk plukje staat een ander iks aan. Een kater heeft één iks, dus hij is óf oranje óf zwart. Daarom zijn lapjeskatten bijna altijd vrouwtjes. Terug naar de tweeling.
 

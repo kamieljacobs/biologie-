@@ -5,11 +5,12 @@
 | Bestand | films/dna/6-genen-aan-en-uit.html (één zelfstandig bestand; audio en lettertypen ingebed) |
 | Reeks / nummer | DNA, film 6 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; het lac-operon in hoofdstuk 2 (n10b) is basis (havo-toets). Vwo-blokken na hoofdstuk 2 (activator, repressor, enhancer; RNA-interferentie), hoofdstuk 3 (totipotent, pluripotent, multipotent) en hoofdstuk 4 (methylering, histonen, X-inactivatie en de lapjeskat) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 1.1 · 16 oktober 2026 — lac-operon (basis, n10b) en RNA-interferentie (vwo, n11b) toegevoegd; alleen die stukken ingesproken. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf |
-| Prompt | v5 |
+| Versie / datum | 1.2 · 27 oktober 2026 — opgewaardeerd naar prompt v10 (beeld, castpersonages, vwo-aankondiging uit de audio; stem en script ongewijzigd). 1.1 · 16 oktober 2026 — lac-operon (basis, n10b) en RNA-interferentie (vwo, n11b) toegevoegd; alleen die stukken ingesproken. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf |
+| Prompt | v10 |
+| Voldoet aan | prompt v10 (27 okt 2026), zie 'Opwaardering prompt v10' onderaan |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
-| Duur | gesproken vwo 12:33, havo 9:06; speeltijd in de speler (met denktijd bij vragen) vwo 13:47, havo 10:26 |
-| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
+| Duur | gesproken vwo ± 12:25, havo 9:06; speeltijd in de speler (met denktijd bij vragen) vwo 13:45, havo 10:24 (sinds 1.2: drie vwo-aankondigingen van ± 2,7 s uit de audio) |
+| Beeldstijl | Part C (sinds 1.2 zonder korrel; geen scène gebruikt nog de Micro-achtergrond): Micro (#121A26) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
 | Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
 | Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–6, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md`. Sinds 1.1: bouwen met `patch6.py` (zie Zo pas je deze film aan) |
 
@@ -77,10 +78,11 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 
 ## Techniek: waar zit wat in de HTML
 Regelnummers in 6-genen-aan-en-uit.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
-- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 144. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
-- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 145 (`naamBij` regel 207); **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 336.
-- **Scènes**: regel 566 (lac-operon `SCENES.h2op` regel 702 met hulpfuncties `protChain` (eiwit als keten), `slier` (dun mRNA), `lactose`, `bacterie`, `operonRow` vanaf regel 678; RNA-interferentie `SCENES.h2ri` regel 724 met `dsRNA`, `risc`); één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 847. **Speler**: regel 848 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
+- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 148. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
+- **Part C-bibliotheek** (`C`-tokens, korrel (ongebruikt), labels, zoomcirkel, cel, kern): regel 149 (`naamBij` ± regel 211); **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, oud `personReal` (niet meer gebruikt), klok): ± regel 340.
+- **Castboek** (kopie van `personages/lib_cast.js`, 27 okt 2026): regel 568–1379. De twee tweelingzussen (`zusA`, `zusB`, met outfit `kleuter`) en `zusRookt()` staan bovenin de scènes (regel 1381–1397), niet in het castboek.
+- **Scènes**: regel 1381 (`tf` als eiwitketen regel 1408, `rat` 1428, `cat` (lapjeskat) 1438; `open` 1467, `h1b` 1487, `h2a` 1505, `h2b` 1513, `h2v` 1528, lac-operon `SCENES.h2op` regel 1561 met hulpfuncties `protChain` (eiwit als keten, regel 1537), `slier` (dun mRNA), `lactose`, `bacterie`, `operonRow`; RNA-interferentie `SCENES.h2ri` regel 1583 met `dsRNA`, `risc`; `h3v` 1649, `h4a` 1657, `h4b` 1666, `h4c` 1677, `h4v` 1687, `recap` 1699). **Let op**: `h2v`, `h3v` en `h4v` krijgen `li0` en rekenen intern met `li = li0 + 1`, omdat de eerste regel (de vwo-aankondiging) uit de audio is geknipt; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
+- **Begrippen**: `const GLOSSARY` regel 1706. **Speler**: regel 1707 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
 - **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl6_docent.htmlfrag`.
 
 ## Zo pas je deze film aan
@@ -231,3 +233,27 @@ Regelnummers in 6-genen-aan-en-uit.html (de base64-audio staat binnen FILMDATA o
 
 Na de uitspraaktest (19 okt, ronde 2 en 4): in de stem-invoer van **n10b** (lac-operon) is `ee-koolie` → `E. kóólie` (nadruk op kóólie) en `operator` → `operaator` (4×). n10b opnieuw ingesproken: Roos, eleven_v3, 1 take, flow zr2qkaksoeBJF36MJyiz; 763 credits TTS + Scribe voor de woordtijden; genormaliseerd met `_bouw/norm16.sh` (−16 LUFS, −1 dBTP). In de gepubliceerde film is alleen het segment n10b in `window.FILMDATA` vervangen (audio als data-URI, woordtijden, regelgrenzen `bounds` [4,73; 17,0; 30,78; 41,56; 53,587], `dur` 56,319 → 58,749 s); speler, beeld en de andere segmenten zijn ongewijzigd. Ook bijgewerkt: `_bouw/data/afl6_stem.json` en `afl6_words.json`. Getest (Playwright): vwo/havo, Vragen aan/uit, n10b speelt de nieuwe audio, geen JS-fouten.
 - 20 okt 2026: in de HTML is 'E.' (E. coli) handmatig 'E.' + zero-width space geworden, zodat de ondertitel niet na 'E.' afbreekt; doe dat opnieuw na een herbouw.
+
+## Opwaardering prompt v10 (versie 1.2, 27 okt 2026)
+
+Alleen de delta v5 → v10 (B14); stem, script, vragen en timings zijn gebleven, behalve de geknipte vwo-aankondigingen. Oude versie: `bron/oud/6-genen-aan-en-uit-v1.1.html`. Werkmap met knipscript (`knip.py`) en patchscripts: buiten de repo (scratchpad `dna_upgrade/dna6/`).
+
+**Voldoet aan: prompt v10 (27 okt 2026).** Bewust niet gevolgd:
+- RNA-polymerase blijft de klodder `enzyme()` uit de DNA-bibliotheek (vaste look van de reeks; alleen in een reeksbrede ronde aanpassen).
+- Cellen in h1a/h3a/h3b (huidcel als afgeronde rechthoek, levercel als zeshoek, klievingsdelingen als losse bolletjes) en de hand met vliezen zijn schematisch gebleven: geen fout, wel kandidaat voor een volgende ronde.
+- De tweeling is geen vast castpaar: ROLLEN.md noemt Daan en Thijs (15), maar de stem zegt 'twee zussen', 'vijftig jaar later', 'haar hart', 'tweelingzus'. Zonder nieuwe opname kan dat niet. Daarom twee figuranten in castboekstijl, alleen in deze film (`zusA`, `zusB`), **ter keuring door Kamiel**; bij goedkeuring in `personages/lib_cast.js` en ROLLEN.md zetten (rol 'eeneiige tweeling, volwassen vrouwen'), of later n0/n18/n19/n24 opnieuw inspreken met Daan en Thijs.
+- Lichte stand: de film heeft (net als de andere DNA-films) geen lichte stand van het canvas; ongewijzigd.
+
+## Wijzigingen
+- 1.2 · 27 okt 2026 · **audio n11, n16, n22**: 'Voor vwo gaan we hier nog een stap verder.' uit de audio geknipt (vaste knip in de stilte na 'verder.': 2,80 / 2,72 / 2,80 s, fade-in 20 ms, 96 kbit/s mono); woordtijden, `bounds` en `dur` mee verschoven; scènes h2v/h3v/h4v rekenen met `li0 + 1`.
+- 1.2 · `open`: tweeling als castfiguranten (kleuters met outfit `kleuter`; vijftig jaar later de hardloopster in zijaanzicht met echte rengang en meelopende grond, de zus die rookt met sigaret in de hand en hartje op de borst); labels niet meer over de schoenen.
+- 1.2 · `h1b`: mRNA als dunne sliert (was een rij basentegels), eiwit als keten die zich opvouwt (was een rechte kralenrij), label 'mRNA' niet meer in kapitalen.
+- 1.2 · `h2a`: mRNA uit de polymerase als sliert; geen dubbele naam 'promotor' meer onder de promotor in regel 0 en 1.
+- 1.2 · `h2b`: borstcel opnieuw ingedeeld: ribosoom, mRNA en eiwit nu binnen het celmembraan (stonden erbuiten), kern groter met gen + regelgebied erin, mRNA als sliert, eiwit als vouwende keten; slotzin rechtsboven in plaats van over de cel.
+- 1.2 · `tf()` (transcriptiefactor, receptor, activator, repressor): gevouwen eiwitketens in plaats van een klodder (geldt in h2a, h2b, h2v, h4a en het titelinzetje).
+- 1.2 · `h2v`, `h3v`, `h4v`: titel 'Voor vwo: een stap verder' vervangen door de inhoud ('Activator, repressor, enhancer' · 'Niet elke stamcel kan alles' · 'Methylering, histonen, X-inactivatie'); h4v toont de methylering nu tijdens 'Zo'n slotje heet methylering' (eerste 21,5 % van de regel), daarna de histonen.
+- 1.2 · `h4v` lapjeskat en kater: echte kat (oren met roze binnenkant, ogen met spleetpupil, neus, snorharen, staart) met onregelmatige oranje en zwarte vlekken op wit; kater helemaal oranje of helemaal zwart (met rand, zodat de zwarte kat op navy zichtbaar is).
+- 1.2 · `h4c`: ratten herkenbaar getekend (snuit, oor, oog, pootjes, roze staart).
+- 1.2 · `h3v`, `h4a`, `h4b`, `h4v`, `recap`: tweeling als castfiguranten; zoomcirkel naar de longen van de zus die rookt (was buikhoogte).
+- 1.2 · castboek (`lib_cast.js`) als eigen kopie in de film; korrel staat nergens aan.
+- Controles: spelerfix, antwoordtekst, kortantwoord, antwoordletter `--check` in orde; Vragen uit vwo en havo zonder fouten (`_bouw/vragenuit.js`); contactbladen vwo en havo bekeken, geen JS-fouten. Reviewstatus: nog bekijken. Bronnenlogboek: `bron/bronnen.md` (eerste, gedeeltelijke ronde).
