@@ -9,7 +9,7 @@
 | Prompt | v10 |
 | Voldoet aan | prompt v10 (27 okt 2026). Bewust niet gevolgd: (1) mRNA blijft in de leeshoofdstukken een rij basetegels op een ruggengraat (codons moeten leesbaar zijn; het sliertige mRNA staat in h1b en de samenvatting); (2) de nieuwe caststijl met contourlijnen nog niet (castvel nog niet gekeurd); (3) geen lichte stand (de DNA-speler heeft er geen); (4) geen verbeterblad vooraf: de brief van 27 okt vroeg om zelfstandig werken, Kamiel keurt de film in de reviewstand; (5) ribosoom blijft het eenvoudige twee-delen-silhouet uit de DNA-reeks. |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
-| Duur | speeltijd met vragen vwo 9:41, havo 8:03; met Vragen uit vwo 7:42, havo 6:03 (versie 1.2) |
+| Duur | speeltijd met vragen vwo 9:41, havo 8:03; met Vragen uit vwo 7:36, havo 5:58 (versie 1.2, na de frisse review) |
 | Beeldstijl | Part C: Micro (#121A26, sinds 1.2 zonder korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
 | Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
 | Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–4, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
@@ -70,8 +70,8 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 Regelnummers in 4-de-genetische-code-lezen.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
 - **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 135. **Castboek** (kopie van `personages/lib_cast.js`, 27 okt 2026): regel 136–948. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
 - **Part C-bibliotheek** (`C`-tokens, labels, zoomcirkel, cel, kern; `grain()` bestaat nog maar wordt niet meer aangeroepen): regel 949; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, klok): regel 1140. Nieuw in 1.2: `penEcht` (insulinepen, regel 1377), `klaverPad`/`herbemonster`/`rnaVouw` (tRNA als gevouwen RNA-streng, regel 1415–1428).
-- **Scènes**: regel 1392 (`open` 1395, `h1b` 1429, `h4c` 1585, `recap` 1598); één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 1626. **Speler**: regel 1627 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
+- **Scènes**: regel 1392 (`open` 1395, `h1b` 1438, `h4c` 1594, `recap` 1607); `bioPad`/`enzymKluwen` (kopie uit `bibliotheek/lib_bio.js`) regel 1429–1437; één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
+- **Begrippen**: `const GLOSSARY` regel 1635. **Speler**: regel 1636 (`VU_KNIP`/`vuKnip` regel 1680: zinnen die bij Vragen uit wegvallen) (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
 - **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl4_docent.htmlfrag`.
 
 ## Zo pas je deze film aan
@@ -105,6 +105,19 @@ Regelnummers in 4-de-genetische-code-lezen.html (de base64-audio staat binnen FI
   - `recap` li 2 (n23): ribosomen ín de bacterie op het mRNA, vergroot in een zoomcirkel met tRNA (stonden los naast de bacterie, groter dan de bacterie).
   - Paginatekst: checkvraag 4 en de verantwoording zeggen nu dat de antwoorden kloppen met het correctievoorschrift; footer versie 1.2.
   - Bronnenlogboek `bron/bronnen.md` toegevoegd.
+  - **Frisse review 27 okt verwerkt** (zelfde versie 1.2):
+    - `h1b` li 5 (n5, 'Bij C A C hoort altijd valine'): tekst links nu 'tRNA-kant: C A C · past op codon G U G · → altijd valine', zodat C A C duidelijk het anticodon is (botste met 'histidine is C A U of C A C' in n19).
+    - `h4b` (n19): 'codons in het mRNA' boven leucine en histidine; de zes leucinecodons staan er al bij 'Leucine heeft zes codons' (li 1).
+    - `recap` li 3–5 (n23): tRNA's tonen het anticodon C A C (mRNA eerst getekend, labels 'tRNA: C A C' en 'mRNA: G U G'); stonden met G U G op de pootjes.
+    - `h3v` li 6–7 (n15): bij 'Staat hij andersom' draait de coderende streng mee (3′-TTTGTA-5′, complementair aan 5′-AAACAT-3′); stond er A tegenover A.
+    - Speler, Vragen uit: 'Antwoord B, methionine.' (n10) en 'Maar die keuze stond er niet bij.' (n21) worden geknipt via `VU_KNIP`; beeldtekst 'stond niet bij de antwoorden' (`h4c`) verborgen bij Vragen uit.
+    - `recap` li 0–2 (n23): mRNA en ribosomen helemaal binnen het membraan; label "tRNA's" boven de zoomcirkel.
+    - `h1v` li 2 (n6): enzym als eiwitkluwen met actieve plek (`enzymKluwen`) in plaats van een blauwe bol; caption 'ribosoom · vergroot' (li 5–6) onder de kleine subeenheid.
+    - Beeld op t = 0: `h2a` (n8) basetegels direct zichtbaar, `h4a` (n17) 'aminozuur veranderd' direct zichtbaar.
+    - `open` (n0): fabriekstank groter dan Opa Henk (300 × 690 px), zoomcirkel naar rechts; label 'insuline' ≥ 60 px van de rand (rechtsboven).
+    - `h2b` (n10): 'minstens 303 nucleotiden in het mRNA' (zoals de stem).
+    - Vraagkaart: hint 'tik of druk A, B, C(, D)' volgt het aantal keuzes (q20 heeft er vier).
+    - Gemeld, niet veranderd: bij Vragen uit leunen n14 ('Daarna pak je pas de codontabel', na het weggeknipte 'A U G en U U U') en n15 ('In de vraag van net …') op de vraag; vraagt een nieuwe opname. mRNA in de leeshoofdstukken blijft een rij tegels (te groot voor deze ronde).
 - 1.1 · 12 okt 2026 — tRNA-kringloop (h1b) opnieuw: één tRNA gaat zichtbaar de kring rond (pakt valine, klikt op G-U-G, valine gaat naar de keten, het tRNA vertrekt leeg met een gestippeld leeg haakje); “vaste combinatie” anticodon C A C → valine plus een rijtje anticodon → aminozuur (h1b li 5–6), met een nieuwe gesproken zin in n5 (“Welk aminozuur erbij hoort, hangt af van die drie basen. Bij C A C hoort altijd valine.”); tRNA overal dezelfde opname; anticodon en codon grijpen nu precies in elkaar (`trnaY()`).; alle 20 takes opnieuw ingesproken met eleven_v3 en Nederlandse uitspraak van de aminozuren (na 9 uitspraakrondes met Kamiel); woordtijden opnieuw berekend; spraak nu ≈ 505 s (vwo).
 - 1.0 · 12 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (13 punten, o.a. stopcodon telt mee in het mRNA; A G U als tweede mogelijkheid) en een didactiek/taal-review (15 punten, o.a. "Antwoord C." vooraf, hergebruik van tRNA als werktuig). Beelden nagekeken op contactsheets vwo en havo.
 

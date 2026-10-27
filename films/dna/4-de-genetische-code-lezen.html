@@ -1396,11 +1396,11 @@ SCENES.open=(ctx,li,lf,t)=>{ macroBg(ctx); const pa=li===0?ease(lf*2):1;
   // Opa Henk (vaste rol patiënt) prikt insuline in zijn buik; pen ongeveer op ware grootte (± 9 % van zijn lengte)
   const ph=640, PL=ph*0.092; let hp=null; persoon(ctx,'henk',420,880,ph,{zij:true,kijk:1,arm:[-0.35,2.05],uit:'neutraal',t,hold:(c,hx,hy)=>{ hp={x:hx,y:hy}; penEcht(c,hx-PL*0.3,hy+4,Math.PI-0.1,PL,1); }});
   if(li===0&&hp) naamBij(ctx,'insulinepen','',hp.x+60,hp.y-10,pa,'left',C.text);
-  if(li>=1){ const p=li===1?ease(lf*1.6):1; tank(ctx,900,330,200,420,p); M(ctx,'fabriekstank',1000,790,{align:'center',color:C.text2,alpha:p});
-    zoomCircle(ctx,1420,420,290,1000,560,'bacteriën · vergroot',p,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1120,120,600,600);
-      const R=seeded(5); for(let k=0;k<9;k++){ const bx=1230+R()*380, by=240+R()*360; const bxx=bx+Math.sin(t*0.6+k)*8, rr=R()*3; bacterium(ctx,bxx,by,1,rr,1); if(li>=3){ ctx.save(); ctx.translate(bxx,by); ctx.rotate(rr); insulin(ctx,20,-6,0.6,li===3?ease(lf*2):1); ctx.restore(); } } }); }
-  if(li>=2) naamBij(ctx,'menselijk insulinegen','in de bacterie',1421,95,li===2?ease(lf*2):1,'center',C.text);
-  if(li>=3) naamBij(ctx,'insuline','keten van aminozuren',1640,680,li===3?ease(lf*2):1,'left',C.text);
+  if(li>=1){ const p=li===1?ease(lf*1.6):1; tank(ctx,860,130,300,690,p); M(ctx,'fabriekstank',1010,862,{align:'center',color:C.text2,alpha:p});
+    zoomCircle(ctx,1520,480,260,1010,520,'bacteriën · vergroot',p,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1250,210,540,540);
+      const R=seeded(5); for(let k=0;k<9;k++){ const bx=1350+R()*340, by=330+R()*300; const bxx=bx+Math.sin(t*0.6+k)*8, rr=R()*3; bacterium(ctx,bxx,by,1,rr,1); if(li>=3){ ctx.save(); ctx.translate(bxx,by); ctx.rotate(rr); insulin(ctx,20,-6,0.6,li===3?ease(lf*2):1); ctx.restore(); } } }); }
+  if(li>=2) naamBij(ctx,'menselijk insulinegen','in de bacterie',1520,110,li===2?ease(lf*2):1,'center',C.text);
+  if(li>=3) naamBij(ctx,'insuline','keten van aminozuren',1860,182,li===3?ease(lf*2):1,'right',C.text);
   if(li>=4) T(ctx,'Hoe leest een bacterie',100,110,52,{titel:true,alpha:ease(lf*2)}), T(ctx,'het recept van een mens?',100,172,52,{titel:true,alpha:ease(lf*2)});
 };
 
@@ -1425,6 +1425,15 @@ function rnaVouw(ctx,x,y,u,alpha=1,o={}){ if(alpha<=0.01) return; const N=_KLAVE
   if(uu>0.9){ const a=(uu-0.9)/0.1; const lp=pts[Math.round(N*0.5)]; // anticodonlus onderaan
     T(ctx,'C A C',lp[0]-70,lp[1]+8,30,{w:700,align:'right',color:C.goud,alpha:a}); M(ctx,'anticodon',lp[0]-70,lp[1]+40,{align:'right',color:C.goud,alpha:a}); const e=pts[N-1]; aa(ctx,e[0],e[1]-26,24,1,'',a); T(ctx,'Val',e[0]+38,e[1]-18,26,{w:700,color:C.goud,alpha:a}); }
   ctx.restore(); }
+// enzym als eiwitkluwen met actieve plek (kopie van enzymKluwen + bioPad uit bibliotheek/lib_bio.js, 27 okt 2026)
+function bioPad(ctx, pts, closed = false) { const n = pts.length; if (n < 2) return; ctx.moveTo(pts[0][0], pts[0][1]); const N = closed ? n : n - 1;
+  for (let i = 0; i < N; i++) { const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n]; const q0 = closed || i > 0 ? p0 : p1, q3 = closed || i < n - 2 ? p3 : p2;
+    ctx.bezierCurveTo(p1[0] + (p2[0] - q0[0]) / 6, p1[1] + (p2[1] - q0[1]) / 6, p2[0] - (q3[0] - p1[0]) / 6, p2[1] - (q3[1] - p1[1]) / 6, p2[0], p2[1]); } if (closed) ctx.closePath(); }
+function enzymKluwen(ctx, x, y, r, o = {}) { const { a = 1, an = 0, sluit = 0, col = C.enzym, seed = 4 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an);
+  const pts = []; for (let k = 0; k < 28; k++) { const u = k / 28 * 6.283; let rr = r * (1 + 0.08 * Math.sin(u * 5 + seed) + 0.05 * Math.sin(u * 9)); const d = Math.abs(((u + Math.PI) % 6.283) - Math.PI); if (d < 0.5) rr *= lerp(0.45, 0.62, sluit) + (d / 0.5) * lerp(0.55, 0.38, sluit); pts.push([Math.cos(u) * rr, Math.sin(u) * rr]); }
+  ctx.beginPath(); bioPad(ctx, pts, true); shape(ctx, col, lighten(col, 0.3), 1.5);
+  ctx.strokeStyle = rgba(lighten(col, 0.35), 0.55); ctx.lineWidth = 2; ctx.beginPath(); bioPad(ctx, [[-r * 0.6, -r * 0.2], [-r * 0.2, -r * 0.55], [r * 0.1, -r * 0.2], [-r * 0.25, r * 0.15], [-r * 0.1, r * 0.5]], false); ctx.stroke();
+  ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(r * 0.62, 0, r * 0.28, Math.PI * 0.55, Math.PI * 1.45); ctx.stroke(); ctx.restore(); }
 // ---- H1: the tRNA as a tool ----
 SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
   const cx=760, Ya=500, MY=Ya+28+244*1.15; // anticodon backbone; mRNA backbone so the bases interlock
@@ -1442,8 +1451,8 @@ SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
     // li 5–6: the anticodon decides which amino acid hangs on top — a fixed pair
     if(li>=5){ const p=li===5?ease(lf*1.6):1; ctx.save(); ctx.globalAlpha*=p; ctx.strokeStyle=C.goud; ctx.lineWidth=3;
       roundRect(ctx,cx-200,Ya+4,400,170,18); ctx.stroke(); circ(ctx,cx,g.top,70,null,C.goud,3);
-      ctx.setLineDash([10,8]); ctx.beginPath(); ctx.moveTo(cx-200,Ya+90); ctx.bezierCurveTo(cx-420,Ya+40,cx-380,g.top,cx-72,g.top); ctx.stroke(); ctx.setLineDash([]); arrow(ctx,cx-110,g.top,cx-74,g.top,C.goud,3,1); ctx.restore();
-      T(ctx,'vaste combinatie',120,Ya-120,40,{w:700,color:C.goud,alpha:p}); T(ctx,'anticodon C A C',120,Ya-70,36,{alpha:p}); T(ctx,'→ altijd valine',120,Ya-25,36,{alpha:p}); }
+      ctx.setLineDash([10,8]); ctx.beginPath(); ctx.moveTo(cx-200,Ya+90); ctx.bezierCurveTo(cx-300,Ya+40,cx-290,g.top,cx-72,g.top); ctx.stroke(); ctx.setLineDash([]); arrow(ctx,cx-110,g.top,cx-74,g.top,C.goud,3,1); ctx.restore();
+      T(ctx,'vaste combinatie',90,Ya-120,40,{w:700,color:C.goud,alpha:p}); T(ctx,'tRNA-kant: C A C',90,Ya-70,36,{alpha:p,color:C.teal}); T(ctx,'past op codon G U G',90,Ya-25,36,{alpha:p}); T(ctx,'→ altijd valine',90,Ya+20,36,{alpha:p}); }
     if(li===4) label(ctx,'één soort aminozuur','valine',cx+60,g.top,1300,g.top-20,ease(lf*2),C.text,'left');
     if(li===6){ const p=ease(lf*1.3); M(ctx,'anticodon  →  aminozuur',1500,150,{align:'center',color:C.text2,alpha:p});
       [['CAC','Val',1],['CCA','Gly',3],['AAA','Phe',0],['UAC','Met',2]].forEach(([an,n,k],i)=>{ const a=clamp(p*4-i,0,1), y=250+i*150;
@@ -1484,7 +1493,7 @@ SCENES.h1b=(ctx,li,lf,t)=>{ bg(ctx,'micro');
 };
 
 // ---- H2: the codon table ----
-SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); if(li===0){ const sq='GCAUGUUUGUGAAC'; for(let i=0;i<sq.length;i++) tile(ctx,300+i*96,420,sq[i],{w:80,h:92,px:52,alpha:clamp(ease(lf*2)*14-i,0,1)}); T(ctx,'welke aminozuren?',W/2,620,52,{titel:true,align:'center',alpha:ease(lf*2-0.4)}); return; }
+SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); if(li===0){ const sq='GCAUGUUUGUGAAC'; for(let i=0;i<sq.length;i++) tile(ctx,300+i*96,420,sq[i],{w:80,h:92,px:52}); T(ctx,'welke aminozuren?',W/2,620,52,{titel:true,align:'center',alpha:ease(lf*2-0.4)}); return; }
   const hl={}; if(li>=3) hl.GUG=C.goud;
   codonTable(ctx,120,150,{cw:300,lh:40,hl,dimOthers:li>=3,keep:['Val']});
   if(li===4) T(ctx,'per drie',1540,700,48,{w:700,color:C.goud,alpha:ease(lf*2)});
@@ -1496,7 +1505,7 @@ SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); if(li===0){ const sq='GCAUGUUUGUGA
 SCENES.h4b=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie havo 2025, tijdvak 1',1800,80,{align:'right',color:C.text2});
   T(ctx,'leucine',420,180,48,{w:700,align:'center'}); T(ctx,'histidine',1240,180,48,{w:700,align:'center'});
   const leu=['UUA','UUG','CUU','CUC','CUA','CUG'], his=['CAU','CAC']; const pairs={CUU:'CAU',CUC:'CAC'};
-  const showL=li>=2, act=li>=2?(li===2?ease(lf):1):0;
+  const showL=li>=1, act=li>=1?(li===1?ease(lf*1.6):1):0; M(ctx,'codons in het mrna',420,128,{align:'center',color:C.text2}); M(ctx,'codons in het mrna',1240,128,{align:'center',color:C.text2});
   his.forEach((c,i)=>{ for(let j=0;j<3;j++) tile(ctx,1140+j*100,300+i*120+120,c[j],{w:84,h:92,px:52,mark:li>=3&&j===1?C.goud:null}); });
   if(showL) leu.forEach((c,i)=>{ const ok=c in pairs; const a=clamp(act*6-i,0,1)*(li>=3&&!ok?0.35:1); for(let j=0;j<3;j++) tile(ctx,320+j*100,260+i*105,c[j],{w:84,h:92,px:52,alpha:a,mark:li>=3&&ok&&j===1?C.goud:null}); });
   if(li>=3){ const p=li===3?ease(lf*2):1; [[2,0],[3,1]].forEach(([i,k])=>arrow(ctx,600,260+i*105+0,1110,300+k*120+120,C.goud,2,p)); T(ctx,'tweede base: U werd A',760,820,44,{w:700,color:C.goud,alpha:p}); }
@@ -1520,13 +1529,13 @@ SCENES.h1v=(ctx,li,lf,t)=>{ bg(ctx,'micro'); const cx=700, Ya=500, MY=Ya+28+244*
     if(li===1){ const p=ease(lf*2); naamBij(ctx,'anticodon',"3′ → 5′ · complementair",cx+315,Ya+106,p,'left',C.goud); naamBij(ctx,'codon',"5′ → 3′",cx+315,MY-48,p,'left',C.text); }
     speed(ctx,'schematisch · niet op schaal'); return; }
   if(li<=4){ const g=bigTrna(ctx,cx,Ya,'CAC',li===4?'Ala':'Val',{k:li===4?0:1});
-    if(li===2){ const p=ease(lf); enzyme(ctx,cx+250-p*80,g.top-40,0.9,1); label(ctx,'enzym','koppelt het juiste aminozuur',cx+330,g.top+80,1250,g.top+170,ease(lf*2),C.text,'left'); M(ctx,'één enzym per aminozuur',1250,820,{color:C.text2}); }
+    if(li===2){ const p=ease(lf); enzymKluwen(ctx,cx+270-p*80,g.top-20,80,{an:Math.PI,sluit:p}); label(ctx,'enzym','koppelt het juiste aminozuur',cx+330,g.top+80,1250,g.top+170,ease(lf*2),C.text,'left'); M(ctx,'één enzym per aminozuur',1250,820,{color:C.text2}); }
     if(li===3){ const p=ease(lf*2); T(ctx,'✓',cx+260,Ya+120,72,{w:700,color:C.groen,alpha:p}); M(ctx,'ribosoom controleert het anticodon',cx+340,Ya+110,{color:C.groen,alpha:p}); T(ctx,'?',cx+120,g.top+20,72,{w:700,color:C.text2,alpha:p}); M(ctx,'maar niet het aminozuur',cx+200,g.top+10,{color:C.text2,alpha:p}); }
     if(li===4){ const p=ease(lf*2); ctx.save(); ctx.globalAlpha*=p; circ(ctx,cx,g.top,62,null,C.koraal,4); ctx.restore(); label(ctx,'verkeerd aminozuur','komt gewoon in het eiwit',cx+60,g.top,1200,g.top-30,p,C.koraal,'left'); }
     speed(ctx,'schematisch · niet op schaal'); return; }
   // li 5–6: the ribosome is largely RNA too
   ribosomeBig(ctx,960,500,640,0.85); ctx.save(); ctx.globalAlpha*=ease(li===5?lf*2:1); ctx.strokeStyle=C.teal; ctx.lineWidth=5; ctx.lineCap='round'; for(let k=0;k<6;k++){ ctx.beginPath(); for(let i=0;i<=30;i++){ const u=i/30; const x=760+u*400, y=360+k*40+Math.sin(u*9+k)*14; i?ctx.lineTo(x,y):ctx.moveTo(x,y); } ctx.stroke(); } ctx.restore();
-  naamBij(ctx,'ribosomaal RNA','ook een werktuig',1345,420,li===5?ease(lf*2):1,'left',C.teal); M(ctx,'ribosoom · vergroot',960,820,{align:'center',color:C.text2}); speed(ctx,'schematisch · niet op schaal');
+  naamBij(ctx,'ribosomaal RNA','ook een werktuig',1345,420,li===5?ease(lf*2):1,'left',C.teal); M(ctx,'ribosoom · vergroot',960,866,{align:'center',color:C.text2}); speed(ctx,'schematisch · niet op schaal');
 };
 
 // ---- H2b: reading from AUG, stop, counting ----
@@ -1539,7 +1548,7 @@ SCENES.h2b=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const sq='GCAUGUUUGUGUAA', x0=260,
   T(ctx,'Rekenen',120,170,52,{w:700}); const p3=li===3?ease(lf*2):1;
   T(ctx,'100 aminozuren × 3 = 300 nucleotiden',120,330,52,{w:700,alpha:p3});
   for(let k=0;k<20;k++) box(ctx,120+k*84,390,72,40,8,RC['AUGC'[k%4]],null,0); 
-  if(li===4){ const p=ease(lf*2); box(ctx,120+20*84,390,72,40,8,rgba(C.koraal,0.6),C.koraal,2); T(ctx,'+ 3 (stopcodon) = 303 nucleotiden in het mRNA',120,540,48,{w:700,color:C.goud,alpha:p}); M(ctx,'het stopcodon zit wel in het mrna',120,600,{alpha:p}); }
+  if(li===4){ const p=ease(lf*2); box(ctx,120+20*84,390,72,40,8,rgba(C.koraal,0.6),C.koraal,2); T(ctx,'+ 3 (stopcodon) = minstens 303 nucleotiden in het mRNA',120,540,48,{w:700,color:C.goud,alpha:p}); M(ctx,'het stopcodon zit wel in het mrna',120,600,{alpha:p}); }
 };
 
 // ---- H3a/b: start from the DNA ----
@@ -1560,20 +1569,20 @@ SCENES.h3b=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const d='TACAAA', r='AUGUUU', x0=5
 SCENES.h3v=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const cod='ATGTTT', tem='TACAAA', x0=620, dx=110;
   if(li===0) return; // regel 0 ('Voor vwo …') is uit de audio geknipt (27 okt 2026)
   const rev=li>=6; const a6=li===6?ease(lf):(li>6?1:0);
-  M(ctx,'coderende streng',x0-90,230,{align:'right',color:li===2||li===3?C.goud:C.text}); tileRow(ctx,x0,230,cod,{dx,rna:false,alpha:1-a6*0.7});
+  M(ctx,'coderende streng',x0-90,230,{align:'right',color:li===2||li===3?C.goud:C.text}); tileRow(ctx,x0,230,rev?cod.split('').reverse().join(''):cod,{dx,rna:false,alpha:1-a6*0.7});
   M(ctx,'matrijsstreng',x0-90,370,{align:'right'}); tileRow(ctx,x0,370,rev?tem.split('').reverse().join(''):tem,{dx,rna:false}); for(let i=0;i<6;i++) ln(ctx,x0+i*dx,280,x0+i*dx,320,C.line,2,[4,5]);
   if(li>=2){ const p=li===2?ease(lf*2):1; M(ctx,'mrna',x0-90,560,{align:'right',color:C.teal,alpha:p}); tileRow(ctx,x0,560,rev?'UUUGUA':'AUGUUU',{dx,alpha:p,mark:i=>li===3&&!rev&&cod[i]==='T'?C.goud:null}); }
   if(li===2) M(ctx,'zelfde volgorde als de coderende streng',x0+2.5*dx,660,{align:'center',color:C.goud,alpha:ease(lf*2)});
   if(li===3) M(ctx,'t → u',x0+2.5*dx,660,{align:'center',color:C.goud,alpha:ease(lf*2)});
   const ends=(y,l,r)=>{ M(ctx,l,x0-55,y+50,{align:'right',color:C.text2}); M(ctx,r,x0+5*dx+55,y+50,{color:C.text2}); };
-  if(li>=4){ if(!rev){ ends(230,"5′","3′"); ends(370,"3′","5′"); ends(560,"5′","3′"); } else { ends(370,"5′","3′"); ends(560,"3′","5′"); }
+  if(li>=4){ if(!rev){ ends(230,"5′","3′"); ends(370,"3′","5′"); ends(560,"5′","3′"); } else { ends(230,"3′","5′"); ends(370,"5′","3′"); ends(560,"3′","5′"); }
     const p=li===4?ease(lf):1; arrow(ctx,rev?x0+5*dx:x0,700,rev?x0+5*dx-(5*dx)*p:x0+(5*dx)*p,700,C.goud,3,1); M(ctx,rev?'mrna nu van rechts naar links lezen':"mrna lezen: 5′ → 3′",x0+2.5*dx,760,{align:'center',color:C.goud}); }
   if(li===5) M(ctx,"matrijsstreng 3′ → 5′ getekend: mrna van links naar rechts",x0+2.5*dx,830,{align:'center',color:C.text2,alpha:ease(lf*2)});
 };
 
 // ---- H4a: the exam case ----
 SCENES.h4a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie havo 2025, tijdvak 1',1800,80,{align:'right',color:C.text2,alpha:li>=2?1:0});
-  if(li<=1){ T(ctx,'aminozuur veranderd',560,420,48,{w:700,align:'center',alpha:ease(li===0?lf*2:1)}); arrow(ctx,860,400,1060,400,C.goud,3,li===1?ease(lf*2):0); T(ctx,'welke base?',1340,420,48,{w:700,align:'center',color:C.goud,alpha:li===1?ease(lf*2):0}); return; }
+  if(li<=1){ T(ctx,'aminozuur veranderd',560,420,48,{w:700,align:'center'}); arrow(ctx,860,400,1060,400,C.goud,3,li===1?ease(lf*2):0); T(ctx,'welke base?',1340,420,48,{w:700,align:'center',color:C.goud,alpha:li===1?ease(lf*2):0}); return; }
   // petri dish with fungus and a capsule
   circ(ctx,520,460,260,rgba(C.fill,0.9),'#AFC0D0',2); const R=seeded(9); ctx.save(); ctx.strokeStyle=rgba('#D9DDE3',0.8); ctx.lineWidth=2; for(let k=0;k<40;k++){ const a=R()*6.28, r=R()*150; ctx.beginPath(); ctx.moveTo(520+Math.cos(a)*r*0.3,460+Math.sin(a)*r*0.3); ctx.quadraticCurveTo(520+Math.cos(a+0.4)*r*0.8,460+Math.sin(a+0.4)*r*0.8,520+Math.cos(a)*r,460+Math.sin(a)*r); ctx.stroke(); } ctx.restore();
   box(ctx,840,430,140,60,30,rgba(C.teal,0.5),C.teal,2); M(ctx,'medicijn',910,540,{align:'center',color:C.text2}); M(ctx,'schimmel · groeit door',520,770,{align:'center',color:C.text2});
@@ -1587,7 +1596,7 @@ SCENES.h4c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie 
     ['UGU','UGC'].forEach((c,i)=>{ for(let j=0;j<3;j++) tile(ctx,320+j*100,330+i*130,c[j],{w:84,h:92,px:52,mark:(li>=1&&li<=1&&j===1)||(li>=2&&i===0&&j===0)?C.goud:null}); });
     const ser=['UCU','UCC','UCA','UCG','AGU','AGC']; ser.forEach((c,i)=>{ const hot=(li<=1&&i<2)||(li>=2&&i===4); for(let j=0;j<3;j++) tile(ctx,1140+j*100,260+i*100,c[j],{w:84,h:88,px:50,alpha:hot?1:0.35,mark:hot&&((li<=1&&j===1)||(li>=2&&j===0))?C.goud:null}); });
     if(li<=1){ arrow(ctx,600,330,1110,260,C.goud,2,1); arrow(ctx,600,460,1110,360,C.goud,2,1); if(li===1) T(ctx,'G in het midden werd C',120,700,44,{w:700,color:C.goud,alpha:ease(lf*2)}); }
-    if(li>=2){ arrow(ctx,600,330,1110,660,C.goud,2,1); T(ctx,'ook mogelijk: eerste U werd A',120,700,44,{w:700,color:C.goud,alpha:li===2?ease(lf*2):1}); M(ctx,'stond niet bij de antwoorden',120,742,{color:C.text2,alpha:li===2?ease(lf*2-0.8):1}); }
+    if(li>=2){ arrow(ctx,600,330,1110,660,C.goud,2,1); T(ctx,'ook mogelijk: eerste U werd A',120,700,44,{w:700,color:C.goud,alpha:li===2?ease(lf*2):1}); if(state.vragen!=='uit') M(ctx,'stond niet bij de antwoorden',120,742,{color:C.text2,alpha:li===2?ease(lf*2-0.8):1}); }
     if(li===3) T(ctx,'elke plek kan: zoek zelf het paar',120,830,40,{w:700,alpha:ease(lf*2)});
     return; }
   T(ctx,'valine',W/2,200,48,{w:700,align:'center'}); ['GUU','GUC','GUA','GUG'].forEach((c,i)=>{ for(let j=0;j<3;j++) tile(ctx,560+i*240+j*70,380,c[j],{w:60,h:76,px:42,mark:j===2?C.goud:null}); });
@@ -1598,15 +1607,15 @@ SCENES.h4c=(ctx,li,lf,t)=>{ bg(ctx,'schema'); M(ctx,'naar cvte, examen biologie 
 SCENES.recap=(ctx,li,lf,t)=>{
   if(li===0){ macroBg(ctx); tank(ctx,500,300,240,480,1); zoomCircle(ctx,1300,440,300,620,560,'bacterie · vergroot',ease(lf*2),()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1000,140,600,600); bacterium(ctx,1300,440,3.2,0,1); }); return; }
   bg(ctx,'micro');
-  if(li<=2){ bacterium(ctx,560,460,5.2,0,1); const P=wavePts(520,470,820,560,30,8,t*2); mrnaSquiggle(ctx,partPts(P,li===1?0.2+0.8*ease(lf):1),1,7);
-    naamBij(ctx,'insulinegen','in de bacterie',470,268,1,'center',C.text); if(li>=1) label(ctx,'mRNA','',800,560,900,760,li===1?ease(lf*2):1,C.text,'left');
-    if(li===2){ const p=ease(lf*2); const Pm=wavePts(520,470,820,560,30,8,t*2); // kleine ribosomen op het mRNA in de bacterie
+  if(li<=2){ bacterium(ctx,560,460,5.2,0,1); const P=wavePts(450,455,730,515,30,8,t*2); mrnaSquiggle(ctx,partPts(P,li===1?0.2+0.8*ease(lf):1),1,7);
+    naamBij(ctx,'insulinegen','in de bacterie',470,268,1,'center',C.text); if(li>=1) label(ctx,'mRNA','',600,540,620,640,li===1?ease(lf*2):1,C.text,'left');
+    if(li===2){ const p=ease(lf*2); const Pm=wavePts(450,455,730,515,30,8,t*2); // kleine ribosomen op het mRNA in de bacterie
       for(const k of [12,24]){ const q=Pm[k]; ctx.save(); ctx.globalAlpha*=p; blob(ctx,q[0],q[1]-7,15,10,0.04,3); shape(ctx,rgba('#C9B896',0.95),null); blob(ctx,q[0],q[1]+7,12,6,0.04,7); shape(ctx,rgba('#C9B896',0.8),null); ctx.restore(); }
       zoomCircle(ctx,1400,470,250,Pm[24][0],Pm[24][1],'ribosoom · vergroot',p,()=>{ ctx.fillStyle=C.bgMicro; ctx.fillRect(1140,210,520,520); ribosomeBig(ctx,1400,560,300,0.7); mrna(ctx,1400-56,630,'GUG',{dx:56,dir:-1,s:0.5}); ctx.save(); ctx.translate(1400,630-16-122-6); ctx.scale(0.5,0.5); trna(ctx,0,0,'CAC',{dx:112,bs:1.0,aa:'Val',k:1}); ctx.restore(); });
-      naamBij(ctx,"tRNA's",'brengen aminozuren',1400,180,p,'center',C.text); }
+      naamBij(ctx,"tRNA's",'brengen aminozuren',1400,150,p,'center',C.text); }
     speed(ctx,'schematisch · niet op schaal'); return; }
   // li 3..5: same code in bacterium and human cell
-  const cols=[[520,'bacterie'],[1400,'jouw cel']]; cols.forEach(([x,n],i)=>{ M(ctx,n,x,180,{align:'center',color:C.text2}); ctx.save(); ctx.translate(x,560); ctx.scale(0.6,0.6); trna(ctx,0,0,'CAC',{dx:130,bs:1.15,aa:'Val',k:1}); ctx.restore(); mrna(ctx,x-78,610,'GUG',{dx:78,dir:-1,s:0.7}); });
+  const cols=[[520,'bacterie'],[1400,'jouw cel']]; cols.forEach(([x,n],i)=>{ M(ctx,n,x,180,{align:'center',color:C.text2}); mrna(ctx,x-78,610,'GUG',{dx:78,dir:-1,s:0.7}); ctx.save(); ctx.translate(x,560); ctx.scale(0.6,0.6); trna(ctx,0,0,'CAC',{dx:130,bs:1.15,aa:'Val',k:1}); ctx.restore(); M(ctx,'trna: c a c',x,370,{align:'center',color:C.teal}); M(ctx,'mrna: g u g',x,690,{align:'center',color:C.teal}); });
   T(ctx,'=',960,520,96,{titel:true,align:'center',color:C.goud,alpha:ease(li===3?lf*2:1)}); M(ctx,'bijna precies dezelfde code',960,600,{align:'center',color:C.goud,alpha:ease(li===3?lf*2:1)});
   if(li>=4){ const p=li===4?ease(lf*2):1; for(const [x] of cols){ for(let k=0;k<5;k++){ const bx=x-200+k*100; if(k) ln(ctx,bx-100,790,bx,790,C.oker,4); aa(ctx,bx,790,30,k,'',p); } } M(ctx,'zelfde volgorde van aminozuren',960,860,{align:'center',alpha:p}); }
   if(li===5){ const p=ease(lf*2); panel(ctx,700,260,520,170,p); T(ctx,'recept: mRNA',740,330,40,{w:700,color:C.teal,alpha:p}); T(ctx,'werktuig: tRNA',740,390,40,{w:700,color:C.goud,alpha:p}); }
@@ -1662,11 +1671,17 @@ function vwoCuts(seg){ const w=seg.words||[], cuts=[]; let i=0;
     if(seg.kind==='title'){ items.push({type:'title',seg,dur:TITLE_DUR,level:'basis',chapter:seg.chapter}); prevChapter=seg.chapter; continue; }
     if(seg.kind==='end'){ items.push({type:'end',seg,dur:END_DUR,level:'basis',chapter:seg.chapter}); continue; }
     if(seg.chapter!==prevChapter && seg.chapter!=='Opening'){ items.push({type:'card',chapter:seg.chapter,dur:CARD_DUR,level:seg.level}); prevChapter=seg.chapter; }
-    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg).concat(korteAntwCuts(seg,naQQ)):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'))); knipMarge(seg,cuts); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
+    if(seg.kind==='speech'){ if(naQ&&(seg.chapter!==naQ||(seg.words||[]).some(w=>/^begin/i.test(w.t))||(window.ANTW_HOUD||[]).includes(seg.id))) naQ=false; const nx=SEGS[si+1]; const vq=(state.vragen==='uit'&&nx&&nx.kind==='question')?vraagCuts(seg):[]; const cuts=knipSamen((naQ?antwCuts(seg).concat(korteAntwCuts(seg,naQQ)):[]).concat(vwoCuts(seg),vq,naKop?antwKopCuts(seg):[],losAntwCuts(seg,state.vragen==='uit'),vuKnip(seg))); knipMarge(seg,cuts); naKop=false; items.push({type:'speech',seg,dur:seg.dur-cuts.reduce((a,c)=>a+c[1]-c[0],0),cuts,level:seg.level,chapter:seg.chapter}); }
     else if(seg.kind==='question' && state.vragen==='uit'){ if(seg.chapter==='Cold open') naKop=true; else { naQ=seg.chapter; naQQ=seg; } } else if(seg.kind==='question') items.push({type:'question',seg,dur:(seg.adur||0)+CD(seg)+revealDur(seg),level:seg.level,chapter:seg.chapter});
   }
   let t=0; for(const it of items){ it.start=t; t+=it.dur; } state.items=items; state.total=t;
 }
+// Vragen uit (27 okt 2026, frisse review): zinnen die alleen bij de vraag horen
+const VU_KNIP={n10:['Antwoord B, methionine.'],n21:['Maar die keuze stond er niet bij.']};
+function vuKnip(seg){ if(state.vragen!=='uit'||!VU_KNIP[seg.id]) return []; const w=seg.words||[], cuts=[]; let i=0;
+  while(i<w.length){ let j=i; while(j<w.length&&!/[.?!]$/.test(w[j].t)) j++; const txt=w.slice(i,j+1).map(x=>x.t).join(' ');
+    if(VU_KNIP[seg.id].includes(txt)){ const nx=w[j+1]; cuts.push([Math.max(0,w[i].s-0.05), nx?nx.s-0.03:(seg.dur||w[j].e+0.3)]); if(nx&&!nx._hoofd){ nx.t=nx.t.charAt(0).toUpperCase()+nx.t.slice(1); nx._hoofd=1; } }
+    i=j+1; } return cuts; }
 function makeQ(seg){
   const words=seg.words||[]; const norm=s=>s.toLowerCase().replace(/[^a-zà-ÿ0-9]/g,''); const cache={};
   return { at(w,n=1){ const key=w+'|'+n; if(key in cache) return cache[key]; let c=0; const nw=norm(w); for(const x of words){ if(norm(x.t).includes(nw)){ c++; if(c===n){ cache[key]=x.s; return x.s; } } } cache[key]=Infinity; return Infinity; },
@@ -1719,7 +1734,7 @@ function drawQuestion(ctx,it,t){
   });
   const yb=y0+n*gap+10;
   if(ph.phase==='ask'){ metaText(ctx,'luister…',120,yb+30,C.grain,'left',28); }
-  else if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/CD(seg),0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,yb+40); ctx.lineTo(120+1680*(1-u),yb+40); ctx.stroke(); metaText(ctx,'denk na · tik of druk A, B, C',120,yb+20,C.grain,'left',28); }
+  else if(ph.phase==='countdown'){ const u=clamp((t-ph.start)/CD(seg),0,1); ctx.strokeStyle=C.goud; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(120,yb+40); ctx.lineTo(120+1680*(1-u),yb+40); ctx.stroke(); metaText(ctx,'denk na · tik of druk '+'ABCD'.slice(0,(seg.options||[]).length||3).split('').join(', '),120,yb+20,C.grain,'left',28); }
   else if(ph.phase==='wait'){ metaText(ctx, state.modus==='klas'?'klas: druk op verder (enter)':'tik op een antwoord',120,yb+30,C.goud,'left',28); }
   else if(seg.explain){ roundRect(ctx,120,yb,1680,110,14); shape(ctx,rgba(C.groen,0.12),C.groen,1.5); ctx.font=fTekst(36); ctx.fillStyle=C.text; wrapText(ctx,seg.explain,150,yb+48,1620,44); }
   else { const mine=ph.chosen; metaText(ctx, mine==null?'het antwoord volgt':(mine===seg.correct?'goed!':'niet goed: het antwoord volgt'),120,yb+30,mine===seg.correct?C.groen:C.grain,'left',28); }
