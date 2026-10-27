@@ -7,6 +7,8 @@ Tekenrecepten volgens prompt uitlegfilms v8, C9: elk object is eerst opgezocht (
 - **Gebruik in een film:** kopieer `lib_bio.js` naar `bron/src/` en plak hem na `lib_cast.js` in de pagina (in `bouw/build.py` bij `/*LIBSERIES*/`). Vereist uit lib.js: `C`, `rgba`, `lighten`, `hash`, `clamp`, `lerp`, `ease`, `shape`, `roundRect`, `text`; de molecuulfuncties ook `V`, `hexagon`, `bead`, `wander` (lib_voeding.js) en `nucleus`/`mitochondrion` (lib.js).
 - **Testvel:** `testvel.html` (niet gelinkt, noindex) tekent alle objecten naast elkaar. Nieuwe objecten eerst hier samen bekijken (C9).
 - **Bijwerken:** pas het bestand hier aan en kopieer het naar de films die het gebruiken; noteer de wijziging in hun `bron/info.md`.
+- **Oude versies altijd bewaren** (Kamiel 27 okt 2026: 'voor als de nieuwe slechter zijn'): vóór een verbeterronde gaat een kopie van de bibliotheken en de stills naar `oud/<datum>/` (eerste: `oud/2026-10-27/`, zie LEESMIJ daar). Een object terugzetten = de functie uit die kopie terugplakken.
+- **Verbeterronde** (Kamiel 27 okt 2026): per object varianten A/B (twee echt verschillende aanpakken), een blinde beoordelaar die oud, A en B als X/Y/Z ziet zonder te weten welke welke is, combineren als de winnaar nipt wint, en daarna kiest Kamiel zelf tussen alle opties (keuringsblad); pas zijn keuze gaat de bibliotheek in.
 
 | Functie | Wat | Eerst gebruikt |
 |---|---|---|
