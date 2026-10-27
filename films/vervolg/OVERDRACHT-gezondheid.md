@@ -37,7 +37,7 @@ Belangrijke vondsten: RIVM zei op 10 maart 2020 zelf nog R 1,5–2 (later 2,3–
 ## Stand (27 okt 2026): film 1 op de site
 - Ingesproken: flow oQbgMSfw8ZMWF5bd6VZn ('Gezondheid gz1 · stem'), 23 takes, 6:37, 5812 credits. Uitspraakcheck met eleven_scribe: èr, èr-nul en ie-cee kwamen herkenbaar uit (s04, s12, s19); Kamiel luistert in de reviewstand.
 - Gebouwd (werkmap `hw/gz1`, engine uit landbouw-3), frisse beeldreview 17 MOET verwerkt (`bron/reviews/review_beeld.md`), daarna in de repo met pak.py: `films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html` + bronmap; in vervolg.html als [titel, href]; films.json; FILMKUNST; scripts gedraaid.
-- Nog open: filmmedaillon (gloedstijl, volgend vel), `jaarplanner-dekking.json` (extra film bij Afweer § immuniteit, na git pull, als laatste), Kamiels review, startmomenten VU en Maastricht nagaan.
+- `jaarplanner-dekking.json`: als extra film bij havo 5 § 13.3 en Nectar 16.4 (27 okt 2026, ?v=8). Nog open: filmmedaillon (gloedstijl, volgend vel), chip in een planner-week (Kamiel kiest de week), Kamiels review, startmomenten VU en Maastricht nagaan.
 - Volgende films van dit gebied: 2 Screenen of niet? (nieuwe kern darmkanker) en 3 Roken en longkanker — nog niet begonnen.
 
 ## Daarna (film 1, oorspronkelijk plan)
