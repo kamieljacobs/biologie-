@@ -6,8 +6,8 @@
 | Reeks / nummer | DNA, film 6 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; het lac-operon in hoofdstuk 2 (n10b) is basis (havo-toets). Vwo-blokken na hoofdstuk 2 (activator, repressor, enhancer; RNA-interferentie), hoofdstuk 3 (totipotent, pluripotent, multipotent) en hoofdstuk 4 (methylering, histonen, X-inactivatie en de lapjeskat) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
 | Versie / datum | 1.2 · 27 oktober 2026 — opgewaardeerd naar prompt v10 (beeld, castpersonages, vwo-aankondiging uit de audio; stem en script ongewijzigd). 1.1 · 16 oktober 2026 — lac-operon (basis, n10b) en RNA-interferentie (vwo, n11b) toegevoegd; alleen die stukken ingesproken. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5), gemaakt in reeksmodus (Part E); opening = puzzel A (eeneiige tweeling); stem eleven_v3 zonder uitspraaktest vooraf |
-| Prompt | v10 |
-| Voldoet aan | prompt v10 (27 okt 2026), zie 'Opwaardering prompt v10' onderaan |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (27 okt 2026; v11–v13 nagelopen: zonder keuring, takes behouden, geen namen van castpersonages in stem of beeld), zie 'Opwaardering prompt v10' onderaan |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken vwo ± 12:25, havo 9:06; speeltijd in de speler (met denktijd bij vragen) vwo 13:45, havo 10:24 (sinds 1.2: drie vwo-aankondigingen van ± 2,7 s uit de audio) |
 | Beeldstijl | Part C (sinds 1.2 zonder korrel; geen scène gebruikt nog de Micro-achtergrond): Micro (#121A26) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
@@ -238,7 +238,7 @@ Na de uitspraaktest (19 okt, ronde 2 en 4): in de stem-invoer van **n10b** (lac-
 
 Alleen de delta v5 → v10 (B14); stem, script, vragen en timings zijn gebleven, behalve de geknipte vwo-aankondigingen. Oude versie: `bron/oud/6-genen-aan-en-uit-v1.1.html`. Werkmap met knipscript (`knip.py`) en patchscripts: buiten de repo (scratchpad `dna_upgrade/dna6/`).
 
-**Voldoet aan: prompt v10 (27 okt 2026).** Bewust niet gevolgd:
+**Voldoet aan: prompt v13 (27 okt 2026; v11–v13 nagelopen: opwaardering zonder keuring, takes behouden, geen namen van castpersonages in stem of beeld).** Bewust niet gevolgd:
 - RNA-polymerase blijft de klodder `enzyme()` uit de DNA-bibliotheek (vaste look van de reeks; alleen in een reeksbrede ronde aanpassen).
 - Cellen in h1a/h3a/h3b (huidcel als afgeronde rechthoek, levercel als zeshoek, klievingsdelingen als losse bolletjes) en de hand met vliezen zijn schematisch gebleven: geen fout, wel kandidaat voor een volgende ronde.
 - De tweeling is geen vast castpaar: ROLLEN.md noemt Daan en Thijs (15), maar de stem zegt 'twee zussen', 'vijftig jaar later', 'haar hart', 'tweelingzus'. Zonder nieuwe opname kan dat niet. Daarom twee figuranten in castboekstijl, alleen in deze film (`zusA`, `zusB`), **ter keuring door Kamiel**; bij goedkeuring in `personages/lib_cast.js` en ROLLEN.md zetten (rol 'eeneiige tweeling, volwassen vrouwen'), of later n0/n18/n19/n24 opnieuw inspreken met Daan en Thijs.
