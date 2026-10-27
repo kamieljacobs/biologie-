@@ -1,6 +1,6 @@
 # Mutaties — script
 
-Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026); zonder uitspraaktest vooraf (afspraak Kamiel 13 okt: uitspraak later per verzameltest over meerdere films); spellingen volgens de uitspraaklijst: deeënaa, uu-vee, histiedine, vaaline, codons met streepjes (G-U-G), 'vijf en zeventig duizend', 'chromosomen een-en-twintig', 'pee-drie-en-vijftig'; glutamine, glutaminezuur, tryptofaan, mutagene, röntgenstraling, substitutie/insertie/deletie, leesraamverschuiving, proto-oncogenen, tumorsuppressorgenen zoals geschreven. Tijden: begin in de speler (vwo / havo; vanaf n24b bijgewerkt op 16 oktober 2026, ervoor ongewijzigd uit versie 1.0). Aanvulling 16 oktober 2026: n24b en n24c (eigen takes, stem-invoer zoals geschreven; apoptose, telomeren, telomerase op de uitspraak-wachtlijst). Audio: `FILMDATA.segments[<id>].audio`.
+Stem: Roos, eleven_v3 · stem-invoer: letterlijke stem-invoer van de opname (13 oktober 2026); zonder uitspraaktest vooraf (afspraak Kamiel 13 okt: uitspraak later per verzameltest over meerdere films); spellingen volgens de uitspraaklijst: deeënaa, uu-vee, histiedine, vaaline, codons met streepjes (G-U-G), 'vijf en zeventig duizend', 'chromosomen een-en-twintig', 'pee-drie-en-vijftig'; glutamine, glutaminezuur, tryptofaan, mutagene, röntgenstraling, substitutie/insertie/deletie, leesraamverschuiving, proto-oncogenen, tumorsuppressorgenen zoals geschreven. Tijden: begin in de speler (vwo / havo; vanaf n24b bijgewerkt op 16 oktober 2026, ervoor ongewijzigd uit versie 1.0). Aanvulling 16 oktober 2026: n24b en n24c (eigen takes, stem-invoer zoals geschreven; apoptose, telomeren, telomerase op de uitspraak-wachtlijst). Audio: `FILMDATA.segments[<id>].audio`. 27 oktober 2026 (versie 1.2): de vwo-aankondigingen in n12, n20, n25 en n28 zijn uit de audio geknipt (doorgestreept hieronder; de stem-invoer blijft zoals opgenomen); die takes zijn 3,0 / 1,7 / 3,2 / 1,1 s korter, de begintijden in de speler veranderen niet (de speler knipte ze al).
 
 ## n0 · Opening · basis
 *begin 0:00 / 0:00 · 28.9 s*
@@ -64,7 +64,7 @@ Een base erbij of eraf is meestal erger. Het ribosoom leest per drie, zonder spa
 ## n12 · Hoofdstuk 2 — Wat doet één andere base? · vwo
 *begin 4:53 / — · 32.4 s*
 
-Voor vwo gaan we hier nog een stap verder. Vanaf het startcodon leest het ribosoom steeds drie basen tegelijk. Die indeling in drietallen heet het leesraam. Eén base erbij of eraf verschuift het: een leesraamverschuiving. Een mutatie buiten een exon kan ook gevolgen hebben. In een promotor verandert hoeveel mRNA er wordt gemaakt. In een intron meestal niets, behalve als het wegknippen van dat intron erdoor misgaat. Terug naar het eiwit.
+~~Voor vwo gaan we hier nog een stap verder.~~ (geknipt 27-10-2026) Vanaf het startcodon leest het ribosoom steeds drie basen tegelijk. Die indeling in drietallen heet het leesraam. Eén base erbij of eraf verschuift het: een leesraamverschuiving. Een mutatie buiten een exon kan ook gevolgen hebben. In een promotor verandert hoeveel mRNA er wordt gemaakt. In een intron meestal niets, behalve als het wegknippen van dat intron erdoor misgaat. Terug naar het eiwit.
 
 ## n14 · Hoofdstuk 3 — Van één base naar een ziek mens · basis
 *begin 5:29 / 4:56 · 18.2 s*
@@ -100,7 +100,7 @@ Niet elke mutatie is zo klein. Bij de meiose kunnen twee chromosomen van een paa
 ## n20 · Hoofdstuk 4 — Erfelijk of niet? · vwo
 *begin 7:30 / — · 16.4 s*
 
-Voor vwo: tussen één base en een heel chromosoom zit nog een maat. Een stuk chromosoom dat wegvalt, verdubbelt, of op een ander chromosoom terechtkomt. Dat heet een chromosoommutatie. Terug naar de geslachtscel.
+~~Voor vwo:~~ (geknipt 27-10-2026) Tussen één base en een heel chromosoom zit nog een maat. Een stuk chromosoom dat wegvalt, verdubbelt, of op een ander chromosoom terechtkomt. Dat heet een chromosoommutatie. Terug naar de geslachtscel.
 
 ## n21 · Hoofdstuk 4 — Erfelijk of niet? · basis
 *begin 7:46 / 6:58 · 12.4 s*
@@ -141,7 +141,7 @@ Waarom zijn er meerdere mutaties nodig? Een cel heeft meer dan één rem. De eer
 ## n25 · Hoofdstuk 4 — Erfelijk of niet? · vwo
 *begin 10:40 / — · 55.8 s*
 
-Voor vwo gaan we hier nog een stap verder. Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg. Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is. Zo'n tumorsuppressorgen is het gen voor p53. Dat eiwit stopt een cel met DNA-schade, of laat die cel zichzelf opruimen. Zonder p53 blijven beschadigde cellen delen en stapelen ze nog meer mutaties op. Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit. Terug naar het strand.
+~~Voor vwo gaan we hier nog een stap verder.~~ (geknipt 27-10-2026) Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg. Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is. Zo'n tumorsuppressorgen is het gen voor p53. Dat eiwit stopt een cel met DNA-schade, of laat die cel zichzelf opruimen. Zonder p53 blijven beschadigde cellen delen en stapelen ze nog meer mutaties op. Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit. Terug naar het strand.
 
 > stem-invoer: Voor vwo gaan we hier nog een stap verder. Genen die de deling aanzetten, heten proto-oncogenen. Door een mutatie kan zo'n gen blijven aanstaan: een gaspedaal dat vastzit. Eén kapot allel is dan genoeg. Genen die de deling remmen, heten tumorsuppressorgenen. Daar moeten beide allelen uitvallen voordat de rem weg is. Zo'n tumorsuppressorgen is het gen voor pee-drie-en-vijftig. Dat eiwit stopt een cel met deeënaa-schade, of laat die cel zichzelf opruimen. Zonder pee-drie-en-vijftig blijven beschadigde cellen delen en stapelen ze nog meer mutaties op. Bij een erfelijke vorm van kanker zit het eerste kapotte allel al in elke cel. Ergens in je miljarden cellen valt het tweede vroeg of laat ook uit. Terug naar het strand.
 
@@ -155,7 +155,7 @@ Een middag in de zon: UV plakt basen aan elkaar. Herstelenzymen repareren het me
 ## n28 · Samenvatting — Terug naar het strand · vwo
 *begin 12:25 / — · 10.1 s*
 
-Voor vwo, tot slot: zonder mutaties geen nieuwe allelen, en zonder nieuwe allelen geen evolutie. Daar komen we op terug.
+~~Voor vwo,~~ (geknipt 27-10-2026) Tot slot: zonder mutaties geen nieuwe allelen, en zonder nieuwe allelen geen evolutie. Daar komen we op terug.
 
 ## n29 · Samenvatting — Terug naar het strand · basis
 *begin 12:35 / 10:41 · 11.3 s*

@@ -5,11 +5,12 @@
 | Bestand | films/dna/5-mutaties.html (één zelfstandig bestand; audio en lettertypen ingebed) |
 | Reeks / nummer | DNA, film 5 van 8 (seriebrief DNA in “Seriebriefs uitlegfilms biologie”) |
 | Doelgroep / niveau | havo + vwo; vwo-blokken in hoofdstuk 2 (leesraam, promotor/intron), hoofdstuk 4 (chromosoommutatie; proto-oncogen, tumorsuppressorgen, p53) en de samenvatting (evolutie) (`level:'vwo'`), Havo/Vwo-schakelaar, `?niveau=havo`, `?modus=klas` |
-| Versie / datum | 1.1 · 16 oktober 2026 — aanvulling toetsonderwerpen: goedaardig/kwaadaardig (n24b) en apoptose + telomeren (n24c), basis. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf |
-| Prompt | v5 |
+| Versie / datum | 1.2 · 27 oktober 2026 — opwaardering naar prompt v10 (beeld, geknipte vwo-aankondigingen, bronnenlogboek; stem en script ongewijzigd). 1.1 · 16 oktober 2026 — aanvulling toetsonderwerpen: goedaardig/kwaadaardig (n24b) en apoptose + telomeren (n24c), basis. 1.0 · 13 oktober 2026 — eerste versie, Part C (prompt v5); opening = puzzel B (zonnebrand); stem eleven_v3 zonder uitspraaktest vooraf |
+| Prompt | v10 |
+| Voldoet aan | prompt v10 (27 okt 2026). Bewust niet: geen nieuwe caststijl met contourlijnen (nog niet gekeurd); lever, kip en kuiken blijven eenvoudige Schema-tekeningen (niet nodig voor de uitleg); de schaalbalk '1 nanometer' geldt voor de breedte van de ladder, de afstand tussen basen is vergroot (vereenvoudigd); geen nieuwe opnames, dus 'kapot allel' bij het proto-oncogen blijft in de stem (zie Wachtlijst opnieuw inspreken) |
 | Stem / model | Roos (ElevenLabs, voice 7qdUFMklKPaaAVMsBTBt, model eleven_v3); één take per alinea of vraag |
 | Duur | gesproken vwo 11:42, havo 9:47 (1.0: 10:25 / 8:31; +1:16 door n24b en n24c); speeltijd in de speler met vragen vwo 12:48, havo 11:01; met Vragen uit vwo 11:23, havo 9:36 |
-| Beeldstijl | Part C: Micro (#121A26 met korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
+| Beeldstijl | Part C: Micro (#121A26, sinds 1.2 zonder korrel) voor molecuul en cel, Schema (#1A2740) voor klok, getallen, tabellen, vragen en kaarten, Macro alleen voor de mens in opening en samenvatting (overgang via zoomcirkel). Mensen sinds 1.2 uit het castboek: Noor (jij, zomeroutfit, huid kleurt rood met de zonnebrand via `noorZon()`) en Erik (patiënt in het Wilson-voorbeeld). Vaste UI-laag: ondertitelkast, labels met aanwijslijn, paarse vwo-balk, vraagkaart. Lettertypen Fraunces, Source Sans 3, IBM Plex Mono ingebed |
 | Audio-opslag | base64 in `FILMDATA.segments[].audio` (data-URI per segment); woordtijden in `words` |
 | Bouwstraat | `films/dna/_bouw/` (gedeeld door de DNA-reeks): `src/` (lib, dnalib, scenes1–5, player, page), `build.py`, `films.py`, `data/` (script, woordtijden, stem-invoer, docentdeel). Zie `_bouw/README.md` |
 
@@ -18,7 +19,7 @@ Begintijden in de speler (hoofdstukkaart), vwo en havo.
 
 | Begin vwo | Begin havo | Hoofdstuk | Segmenten | Type · look | Kernbeeld |
 |---|---|---|---|---|---|
-| 0:00 | 0:00 | Opening | n0 | I toepassing · Macro (strand) | figuur met rode huid, het plekje, het getal 75 000 |
+| 0:00 | 0:00 | Opening | n0 | I toepassing · Macro (strand) | Noor met rode huid, het plekje, het getal 75 000 |
 | 0:33 | 0:33 | Hoofdstuk 1 — Hoe ontstaat een mutatie? | n3, q4, n5, n6 | A mechanisme · Micro | UV-straal plakt twee T's aan elkaar (koraal klem); herstelenzym; cellen die zichzelf opruimen; polymerase zet een verkeerde base tegenover de schade; dochtercellen |
 | 2:45 | 2:45 | Hoofdstuk 2 — Wat doet één andere base? | n8, q9, n10, n11, n12 | G redeneerstappen + B structuur · Schema | substitutie/insertie/deletie op een tegelrij; codontabel met stil, ander aminozuur, stop; EEN KAT EET VIS per drie / leesraamhaken; genlineaal promotor · exon · intron · exon |
 | 5:25 | 4:53 | Hoofdstuk 3 — Van één base naar een ziek mens | n14, q15, n16, n17 | G + organisatieniveaus · Schema | DNA → mRNA → codon → aminozuur; histidine- en glutaminecodons; vier kaarten molecuul → cel → orgaan → organisme |
@@ -79,13 +80,15 @@ De vraag wordt ingesproken (eigen take), daarna 8 s denktijd en 2,5 s onthulling
 
 ## Techniek: waar zit wat in de HTML
 Regelnummers in 5-mutaties.html (de base64-audio staat binnen FILMDATA op één regel, dus `filmbron.py uitpakken` verandert de regels niet).
-- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 144. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
-- **Part C-bibliotheek** (`C`-tokens, korrel, labels, zoomcirkel, cel, kern): regel 145; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, persoon, klok): regel 336.
-- **Scènes**: regel 564 (nieuw 16 okt: `SCENES.h4k` regel 756, `SCENES.h4r` regel 788); één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
-- **Begrippen**: `const GLOSSARY` regel 820. **Speler**: regel 821 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
+- **FILMDATA** (segmenten, woordtijden, regelgrenzen `bounds`, audio, filmtitel/eindkaart/hoofdstukvragen): regel 148. Speech-segment: `id`, `kind:'speech'`, `level`, `chapter`, `scene`, `audio`, `dur` (take + 0,6 s), `bounds` (regelgrenzen in s), `words` (`t,s,e`). Vraag: `q`, `options`, `correct` (0-based), `audio`, `adur`.
+- **Part C-bibliotheek** (`C`-tokens, labels, zoomcirkel, cel, kern; `grain()` bestaat nog maar wordt niet meer aangeroepen): regel 149; **DNA-bibliotheek** (basen met paarrand, ruggengraat, ladder, helix, nucleotide, enzym, oude `personReal` (niet meer gebruikt), klok): regel ± 340.
+- **Castboek** (`personages/lib_cast.js`, kopie van 27 okt 2026): eigen `<script>` vanaf regel 568.
+- **Scènes**: regel 1381 (`noorZon`, `eiwitKeten` bovenin; `SCENES.h4k` regel 1583, `SCENES.h4r` regel 1615); één functie per scènenaam (`SCENES.h2a=(ctx,li,lf,t,q)`), `li` = regelnummer binnen het segment, `lf` = 0..1 binnen die regel (uit `bounds`). Beeldwissels hangen dus aan de gesproken regels.
+- **Begrippen**: `const GLOSSARY` regel 1647. **Speler**: regel 1648 (tijdlijn, vraagfasen ask → countdown → wait/reveal, Havo/Vwo, Leerling/Klas, toetsen, ondertitels uit `words`).
 - **Paginatekst** (kop, checkvragen, docentdeel, footer): statische HTML in de pagina; komt uit `_bouw/films.py` en `_bouw/data/afl5_docent.htmlfrag`.
 
 ## Zo pas je deze film aan
+0. **Sinds 1.2 (27 okt 2026)** is de gepubliceerde film direct bewerkt (scèneblok, castboek, FILMDATA); `_bouw/src/scenes5.js` loopt dus achter. Pas een scène aan in het scèneblok van de HTML zelf, op dezelfde regelnummers (`li`); de scripts van de opwaardering staan in `bron/opwaardering-v10/` (`scenes_edits.py` = alle vervangingen oud → nieuw), de film van vóór 1.2 in `bron/oud/5-mutaties-v1.1.html`.
 1. Werk in `films/dna/_bouw/` (kopieer de map naar een werkmap buiten de repo). Haal eerst de audio terug: `python3 haal_audio.py 5 ../5-mutaties.html`.
    **Let op (16 okt 2026):** de gepubliceerde film heeft latere aanpassingen die niet in `_bouw/src/lib.js`, `player.js` en `page.tpl` staan (naamBij zonder wijslijnen, Vragen uit, afspeelsnelheid, teller, licentie). `build.py 5` alleen zou die terugdraaien. Bouw daarom met `build.py 5` en zet het resultaat in de gepubliceerde film met `python3 afl5/aanvulling_16okt/patch5.py ../5-mutaties.html <oude bouw zonder jouw wijziging>` (vervangt FILMDATA, GLOSSARY en het scèneblok, en past de paginatekst aan via het verschil oude → nieuwe bouw) → `out/5-mutaties.patched.html`. `src/scenes5.js` is gelijk aan het scèneblok van de gepubliceerde film.
 2. **Beeld**: pas `src/scenes5.js` aan (zoek de scènenaam uit de tabel Opbouw, bijv. `SCENES.h2a`), daarna `python3 build.py 5` → `out/5-mutaties.html`. Controleer met `node grab.js <pad>/out/5-mutaties.standalone.html qa/x 6` en `python3 sheet.py qa/x qa/x.png 7`.
@@ -171,10 +174,27 @@ Regelnummers in 5-mutaties.html (de base64-audio staat binnen FILMDATA op één 
 - Denktijd 12 s bij V2 en V3 (`think`).
 
 ## Wijzigingen
+- 1.2 · 27 okt 2026 — opwaardering prompt v5 → v10 (B14). Stem, script, vragen en timing ongewijzigd, op de vwo-aankondigingen na. Oude versie: `bron/oud/5-mutaties-v1.1.html`. Per scène:
+  - **audio n12, n20, n25, n28 (vwo)**: 'Voor vwo gaan we hier nog een stap verder.' (n12, n25), 'Voor vwo:' (n20) en 'Voor vwo,' (n28) uit de mp3 geknipt op de echte stilte (energie-omhullende; fade-in 12 ms), woordtijden, `bounds` (eerste regel van n12/n25 nu lengte 0) en `dur` mee geschoven; eerste woord met hoofdletter ('Tussen', 'Tot'). Log: `bron/opwaardering-v10/knip_log.json`. Totale duur verandert niet (de speler knipte deze zinnen al).
+  - **open**: Noor (castboek, zomeroutfit) in plaats van het poppetje, huid kleurt rood met de zonnebrand; plekje op haar onderarm; getallenpaneel niet meer over de zon; slotvraag in een eigen paneel (liep tot de rand).
+  - **h1a, h1b**: geen korrel; schaalbalk '1 nanometer' (eenheid voluit).
+  - **h2b**: tekst naast de codontabel 60 px van de rand.
+  - **h2c**: afdekvlak bij 'drie weg' dekkend (oude rijen schemerden erdoor).
+  - **h2v, h4v1, h4v, recapv (vwo)**: titel 'Voor vwo …' vervangen door de inhoud ('Leesraam, promotor en intron', 'Chromosoommutatie', 'Gaspedaal en rem: twee soorten genen', 'Mutaties en evolutie').
+  - **h3a, h3c**: eiwit als gevouwen keten met de afwijkende kraal (glutamine) in koraal, naam ernaast; patiënt op organismeniveau = Erik (figurant) in plaats van het poppetje.
+  - **h4a**: namen naast de cellen in plaats van over de celranden; bij 'drie chromosomen 21' staan er meteen twee, het derde (koraal) komt erbij.
+  - **h4b**: Noor (huid nog wat rood), geen korrel in de zoomcirkel.
+  - **h4c**: naam 'huidcellen' boven de kip, zon naar links.
+  - **h4v**: pedalen staan er vanaf het begin (gedimd); 'één gemuteerd allel is genoeg' (was 'kapot', zie bronnen.md); ring om de cel waar het tweede allel uitvalt, naam onder het raster.
+  - **h4r**: telomerase iets verder van het telomeerkapje.
+  - **recap**: Noor in plaats van het poppetje.
+  - **recapv**: chromosomen staan er gedimd vanaf t = 0.
+  - Bronnenlogboek `bron/bronnen.md` (22 beweringen: 12 ✓, 8 ≈, 2 ?). Controles: spelerfix, antwoordtekst, kortantwoord, antwoordletter OK; Vragen uit vwo en havo zonder JS-fouten; contactbladen vwo, havo en lichte stand bekeken.
 - 1.1 · 16 okt 2026 — aanvulling toetsonderwerpen (basis, havo + vwo), twee nieuwe segmenten na n24, bestaande takes ongemoeid: **n24b** (23,9 s, scène `h4k`) goedaardige tegenover kwaadaardige tumor, uitzaaien, 'alleen een kwaadaardige tumor heet kanker'; **n24c** (51,5 s, scène `h4r`) een cel heeft meer dan één rem: apoptose (geprogrammeerde celdood; bij kanker vaak uit) en telomeren (korter per deling, beperkt aantal delingen; telomerase in stamcellen en cellen die geslachtscellen maken; kankercellen zetten het aan). Roos, eleven_v3, één take per segment (1090 credits). Vijf nieuwe begrippen, twee checkvragen (nu 7 en 8; vwo-checkvragen 9–11), docentdeel aangevuld. Duur op de site 10 → 12 min. Beeld nagekeken op stills (vwo, havo, Vragen aan/uit zonder JS-fouten).
 - 1.0 · 13 okt 2026 — eerste versie. Script nagekeken door een vakinhoudelijke review (15 punten, o.a. stille mutatie in de Wilson-vraag, variatie voor havo, leesraamdefinitie, asbest eruit) en een didactiek/taal-review (15 punten, o.a. afleiders V1/V2/V4, NF2-vraag naar de pagina, genoommutatie naar hoofdstuk 4). Beelden nagekeken op contactsheets vwo en havo.
 
 ## Wachtlijst opnieuw inspreken
+- **Voorstel 27-10-2026 (n25, vwo)**: 'Eén kapot allel is dan genoeg.' → 'Eén gemuteerd allel is dan genoeg.' Een proto-oncogen wordt door de mutatie niet kapot maar overactief (oncogen, gain of function); 'kapot' past bij het tumorsuppressorgen. Bronnen: Pierce, Genetics Essentials hfst. 16; Cooper, The Cell (zie bronnen.md B7, B8). Beeld is al aangepast. Alleen opnieuw inspreken als Kamiel dat wil (kleine nuance).
 - **Afgehandeld 16-10-2026**: de klaargezette zin over goedaardig/kwaadaardig is niet in n24 ingevoegd maar als eigen segment **n24b** ingesproken (n24 blijft de goedgekeurde opname), uitgebreid tot een leerbaar begrip; het gevraagde beeld (twee panelen, uitzaaien via een bloedvat) staat in `SCENES.h4k`. De oorspronkelijke notitie hieronder blijft ter informatie.
 - ~~**n24 (basis, hoofdstuk 4), 15-10-2026: goedaardig/kwaadaardig toegevoegd**~~ (aanvulling na vergelijking met Gewoon Uitgelegd). Eén [nieuw]-zin tussen "Zo ontstaat een klomp cellen: een tumor." en "Daarvoor zijn meerdere mutaties nodig, in dezelfde cel.": een tumor is pas kanker als hij kwaadaardig is (weefsel ingroeien, uitzaaien); een goedaardige blijft op zijn plek.
   - Opname: hele take n24 opnieuw, Roos, eleven_v3, één take; n24 had geen respellings, de stem-invoer is gelijk aan de tekst in script.md met de nieuwe zin op de aangegeven plek. Vervang `data/afl5_audio/n24.mp3` (−16 LUFS, −1 dBTP), nieuwe woordtijden (Scribe) en `bounds` in `data/afl5_words.json`, tekst in `data/afl5_script.json` (scène `h4d`, regel 3 eindigt op "…een tumor.": nieuwe zin als eigen regel erna, zodat de regelnummers `li` van de latere beeldwissels in `SCENES.h4d` één opschuiven) en `data/afl5_stem.json`. Take wordt ca. 8 s langer; vwo en havo schuiven vanaf 8:46 / 7:58 ca. 8 s op.
