@@ -60,3 +60,61 @@ rep("M(ctx,'erfelijk: het eerste kapotte allel in elke cel',960,720,{align:'cent
     "M(ctx,'erfelijk: het eerste kapotte allel in elke cel',960,700,{align:'center',color:C.text2}); ctx.save(); ctx.globalAlpha*=p; circ(ctx,360+3*130,330+2*100,50,null,C.koraal,4); ctx.restore(); naamBij(ctx,'tweede allel valt uit','in één cel',960,790,p,'center',C.koraal);")
 rep("chromo(ctx,500+k*230,460,150,clamp(p*5-k,0,1),k===2?C.koraal:C.paars);","chromo(ctx,500+k*230,460,150,clamp(0.3+p*5-k,0.3,1),k===2?C.koraal:C.paars);")
 rep("const ex=x1+cap+80; enzyme(ctx,ex,y-50,0.7,1);","const ex=x1+cap+120; enzyme(ctx,ex,y-60,0.7,1);")
+# ===== frisse review 27 okt 2026 =====
+# MOET 4: 'rood en warm' vrij van Noor
+rep("if(li===1) naamBij(ctx,'rood en warm','zonnebrand',380,520,ease(lf*2),'right',C.koraal);","if(li===1) naamBij(ctx,'rood en warm','zonnebrand',660,420,ease(lf*2),'left',C.koraal);")
+# MOET 2: DNA (twee strengen) boven, rijen = mRNA
+rep("""SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const sq='AUGGUGGCU', x0=330, dx=96, y=250; M(ctx,'puntmutatie · één nucleotidepaar',960,y-90,{align:'center',color:C.text2,alpha:P(li,0,lf)});
+  tileRow(ctx,x0,y,sq,{});
+  const rows=[['substitutie','AUGGAGGCU',1,i=>i===4],['insertie','AUGGUAGGCU',2,i=>i===5],['deletie','AUGGGGCU',3,null]];
+  rows.forEach(([n,s,L,mk],r)=>{ const p=P(li,L,lf); if(p<=0.01) return; const yy=y+140+r*140;""",
+"""SCENES.h2a=(ctx,li,lf,t)=>{ bg(ctx,'schema'); const sq='AUGGUGGCU', x0=330, dx=96, y=370; M(ctx,'puntmutatie · één nucleotidepaar in het dna',960,110,{align:'center',color:C.text2});
+  // 1.2 review: het gen als DNA (twee strengen), daaronder het mRNA; de mutatierijen tonen het mRNA na de mutatie
+  T(ctx,'DNA',x0-60,212,36,{w:600,align:'right',color:C.text2}); tileRow(ctx,x0,170,'ATGGTGGCT',{rna:false,h:64,px:36}); tileRow(ctx,x0,240,'TACCACCGA',{rna:false,h:64,px:36});
+  T(ctx,'mRNA',x0-60,y+12,36,{w:600,align:'right',color:C.text2}); tileRow(ctx,x0,y,sq,{h:84}); M(ctx,'mrna na de mutatie',x0+10*dx-20,y+122,{color:C.text2,alpha:P(li,1,lf)});
+  const rows=[['substitutie','AUGGAGGCU',1,i=>i===4],['insertie','AUGGUAGGCU',2,i=>i===5],['deletie','AUGGGGCU',3,null]];
+  rows.forEach(([n,s,L,mk],r)=>{ const p=P(li,L,lf); if(p<=0.01) return; const yy=y+120+r*110;""")
+rep("tileRow(ctx,x0,yy,s,{mark:mk?i=>mk(i)?C.koraal:null:null,dx}); if(n==='deletie'){ ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x0+4*dx-30,yy+62); ctx.lineTo(x0+4*dx+30,yy+62); ctx.stroke(); M(ctx,'weg',x0+4*dx+60,yy+72,{color:C.koraal}); }",
+    "tileRow(ctx,x0,yy,s,{mark:mk?i=>mk(i)?C.koraal:null:null,dx,h:84}); if(n==='deletie'){ ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x0+4*dx-30,yy+52); ctx.lineTo(x0+4*dx+30,yy+52); ctx.stroke(); M(ctx,'weg',x0+4*dx+60,yy+62,{color:C.koraal}); }")
+# KAN havo 284: na de deletie volgt echt een stopcodon
+rep("const m='AUGGUGGCUUCA', m1='AUGGUGCUUCA';","const m='AUGGUGGUAAGC', m1='AUGGUGUAAGC';")
+rep("for(let g=0;g<3;g++) bracket(ctx,x0+g*3*80-34,x0+(g*3+2)*80+34,y0+548,g>=2?C.koraal:C.line,'',1);","for(let g=0;g<3;g++) bracket(ctx,x0+g*3*80-34,x0+(g*3+2)*80+34,y0+548,g>=2?C.koraal:C.line,g===2?'stop':'',1);")
+rep("M(ctx,'vanaf de deletie klopt geen codon meer',x0,y0+600,{color:C.koraal});","M(ctx,'vanaf de deletie klopt geen codon meer · al snel een stopcodon',x0+300,y0+600,{color:C.koraal});")
+# MOET 1: normaal en mutant naast elkaar, DNA als basenpaar
+rep("""  if(li===0){ const p=ease(lf*1.5); const steps=[['DNA',BC,'GTA',false],['mRNA',RC,'CAU',true],['codon → aminozuur',null,'his',null]]; let x=320; steps.forEach(([n,_,s,rna],i)=>{ ctx.save(); ctx.globalAlpha*=clamp(p*3-i,0,1); M(ctx,n,x+100,300,{align:'center',color:C.text2}); if(rna!==null) tileRow(ctx,x,420,s,{dx:72,w:62,h:72,px:40,rna,mark:j=>j===2?C.koraal:null}); else aaBead(ctx,x+100,420,s==='his'?'His':'',4,1); if(i<2) arrow(ctx,x+230,420,x+330,420,C.line,2,1); ctx.restore(); x+=430; }); M(ctx,'één basenpaar anders → één base anders in het mRNA → één ander codon',960,600,{align:'center',color:C.text2,alpha:p}); return; }""",
+"""  if(li===0){ const p=ease(lf*1.5); // 1.2 review: normaal en mutant onder elkaar; DNA als basenpaar (coderende + matrijsstreng)
+    [['DNA (basenparen)',470],['mRNA',990],['aminozuur',1420]].forEach(([n,x])=>M(ctx,n,x,215,{align:'center',color:C.text2}));
+    const rij=(y,cod,mat,rna,aa,lab,mut,a)=>{ ctx.save(); ctx.globalAlpha*=a; T(ctx,lab,150,y+12,34,{w:700,color:mut?C.koraal:C.text}); const mk=j=>(mut&&j===2)?C.koraal:null;
+      tileRow(ctx,400,y-40,cod,{rna:false,dx:72,w:62,h:62,px:36,mark:mk}); tileRow(ctx,400,y+30,mat,{rna:false,dx:72,w:62,h:62,px:36,mark:mk});
+      arrow(ctx,610,y,780,y,C.line,2,1); tileRow(ctx,920,y,rna,{dx:72,w:62,h:72,px:40,mark:mk}); arrow(ctx,1130,y,1300,y,C.line,2,1); aaBead(ctx,1420,y,aa,mut?1:4,1,mut?C.koraal:null); ctx.restore(); };
+    rij(330,'CAT','GTA','CAU','His','normaal',false,1); rij(580,'CAA','GTT','CAA','Gln','mutatie',true,p);
+    M(ctx,'één basenpaar anders → één base anders in het mRNA → één ander codon',960,780,{align:'center',color:C.text2,alpha:p}); return; }""")
+# MOET 3: realistische maten; bevruchte eicel als cel
+rep("egg(ctx,330,400,1.6,1,true); arrow(ctx,420,400,560,400,C.line,2,1);","cellS(ctx,330,400,62,1,true); M(ctx,'bevruchte eicel',330,500,{align:'center',color:C.text2}); arrow(ctx,420,400,560,400,C.line,2,1);")
+rep("chick(ctx,1180,420,1.4,1,true);","chick(ctx,1160,440,0.7,1,true); M(ctx,'kuiken',1170,520,{align:'center',color:C.text2});")
+rep("sun(ctx,1330,250,50,1,t); hen(ctx,1560,470,1.1,1); for(let k=0;k<5;k++) circ(ctx,1500+k*26,430,5,C.koraal); egg(ctx,1700,560,1,1,false); naamBij(ctx,'huidcellen','niet de eicel',1600,330,p,'center',C.text);",
+    "sun(ctx,1290,230,46,1,t); hen(ctx,1540,470,1.6,1); for(let k=0;k<5;k++) circ(ctx,1470+k*26,440,5,C.koraal); egg(ctx,1730,575,0.7,1,false); naamBij(ctx,'huidcellen','niet de eicel',1560,285,p,'center',C.text);")
+# KAN: inhoud op t = 0 (n24, n24c, n20)
+rep("const p=li===0?clamp(ease(lf*1.3)*4-i,0,1):1;","const p=li===0?clamp(1+ease(lf*1.3)*3-i,0,1):1;")
+rep("if(li===0){ const p=ease(lf*1.5); T(ctx,'een cel heeft meer dan één rem',960,250,44,{w:700,align:'center',alpha:p});","if(li===0){ const p=0.45+0.55*ease(lf*1.5); T(ctx,'een cel heeft meer dan één rem',960,250,44,{w:700,align:'center',alpha:p});")
+# n20: centromeer, echt gat bij 'weg', verdubbeling naast het origineel; eerste chromosoom meteen in beeld
+rep("""const p=ease(li===0?lf*1.5:1);
+  const kinds=[['weg',i=>i!==2],['verdubbeld',null],['verplaatst',null]]; kinds.forEach(([n,_],i)=>{ const x=420+i*520; ctx.save(); ctx.globalAlpha*=clamp(p*3-i,0,1); for(let s=0;s<5;s++){ const seg=i===0&&s===2; box(ctx,x-30,300+s*56,60,48,10,seg?rgba(C.koraal,0.2):C.paars,seg?C.koraal:null,seg?2:0); if(seg){ ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x-30,300+s*56); ctx.lineTo(x+30,348+s*56); ctx.stroke(); } }
+    if(i===1) box(ctx,x-30,300+5*56,60,48,10,C.koraal); if(i===2){""",
+"""const p=ease(li===0?lf*1.5:1);
+  const cen=(x,y)=>{ ctx.fillStyle=C.bgSchema; ctx.fillRect(x-34,y-5,10,10); ctx.fillRect(x+24,y-5,10,10); circ(ctx,x,y,7,lighten(C.paars,0.4)); }; // centromeer: insnoering
+  const kinds=[['weg',null],['verdubbeld',null],['verplaatst',null]]; kinds.forEach(([n,_],i)=>{ const x=420+i*520; ctx.save(); ctx.globalAlpha*=clamp(1+p*2-i,0,1);
+    if(i===0){ [0,1,3,4].forEach((s,k)=>box(ctx,x-30,300+k*56,60,48,10,C.paars)); cen(x,300+56-4); ctx.strokeStyle=C.koraal; ctx.lineWidth=3; ctx.beginPath(); ctx.moveTo(x+44,300+2*56-30); ctx.lineTo(x+60,300+2*56-30); ctx.stroke(); M(ctx,'stuk ontbreekt',x+70,300+2*56-20,{color:C.koraal}); box(ctx,x+90,520,60,48,10,rgba(C.koraal,0.25),C.koraal,2); }
+    else { const ns=i===1?6:5; for(let s=0;s<ns;s++){ const dup=i===1&&s===3; box(ctx,x-30,300+s*56,60,48,10,dup?C.koraal:C.paars); } cen(x,300+56-4); }
+    if(i===2){""")
+# KAN n25 p53: pijl van p53 naar de cel, tekst vrij van de cel, 'zonder p53' in beeld
+rep("M(ctx,'stopt de cel · of laat haar zichzelf opruimen',1150,620,{align:'center',color:C.text2,alpha:p}); arrow(ctx,850,470,1040,470,C.koraal,2,p); return; }",
+    "M(ctx,'stopt de cel',1060,610,{color:C.text2,alpha:p}); M(ctx,'of laat haar zichzelf opruimen',1060,650,{color:C.text2,alpha:p}); arrow(ctx,1040,470,850,470,C.koraal,2,p); M(ctx,'zonder p53: beschadigde cellen blijven delen',960,780,{align:'center',color:C.koraal,alpha:ease((lf-0.55)*3)}); return; }")
+# KAN n14: labels niet in elkaar
+rep("M(ctx,'eiwit voor koperuitscheiding · gevouwen keten',bx,by+230,{align:'center',color:C.text2});","M(ctx,'eiwit voor koperuitscheiding',bx,by+210,{align:'center',color:C.text2});")
+# KAN n28: nieuw allel = stukje op het chromosoom
+rep("for(let k=0;k<5;k++){ chromo(ctx,500+k*230,460,150,clamp(0.3+p*5-k,0.3,1),k===2?C.koraal:C.paars); }",
+    "for(let k=0;k<5;k++){ chromo(ctx,500+k*230,460,150,clamp(0.3+p*5-k,0.3,1),C.paars); } { const a=clamp(p*5-2,0,1), x=960, h=150; ctx.save(); ctx.globalAlpha*=a; ctx.strokeStyle=C.koraal; ctx.lineWidth=h*0.17; ctx.lineCap='butt'; ctx.beginPath(); ctx.moveTo(x-h*0.22*0.5,460-h*0.5*0.5); ctx.lineTo(x-h*0.22*0.72,460-h*0.5*0.72); ctx.stroke(); ctx.restore(); naamBij(ctx,'nieuw allel','',x-30,350,a,'center',C.koraal); }")
+rep("y0+548,g>=2?C.koraal:C.line,g===2?'stop':'',1);","y0+548,g>=2?C.koraal:C.line,'',1);")
+rep("M(ctx,'vanaf de deletie klopt geen codon meer · al snel een stopcodon',x0+300,y0+600,{color:C.koraal});","M(ctx,'vanaf de deletie klopt geen codon meer · u a a = stop',x0,y0+600,{color:C.koraal});")
+rep(" M(ctx,'stuk ontbreekt',x+70,300+2*56-20,{color:C.koraal}); box(ctx,x+90,520,60,48,10,rgba(C.koraal,0.25),C.koraal,2); }"," M(ctx,'stuk ontbreekt',x+70,300+2*56-20,{color:C.koraal}); }")

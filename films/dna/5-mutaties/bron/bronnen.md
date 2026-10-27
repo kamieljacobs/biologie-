@@ -58,12 +58,12 @@ Niet meegeteld (alleen wegwijzer of geen bruikbare tekst): Oncologie Up-to-date 
 | 18 | n24b | Goedaardige tumor blijft op zijn plek; kwaadaardige groeit in en zaait uit via het bloed; alleen kwaadaardig = kanker | B12 | ? | Eén bron (B); niveau A-bron (NCI) niet bereikbaar. Klopt volgens leerboeken. |
 | 19 | n24c | Apoptose: cel valt uiteen in blaasjes die worden opgeruimd; in kankercellen vaak uit | B11, B7 | ✓ | |
 | 20 | n24c | Telomeren korter per deling; te kort → stop; telomerase in stamcellen en cellen die geslachtscellen maken; kankercellen zetten het aan | B10 | ≈ | Eén bron (review, A). 'Kankercellen zetten het aan' geldt voor 85–95 %; een deel gebruikt ALT. |
-| 21 | n25 | Proto-oncogen: één gemuteerd allel genoeg; tumorsuppressorgen: beide allelen; erfelijk = eerste kapotte allel in elke cel | B7, B8 | ✓ | |
+| 21 | n25 | Proto-oncogen: één gemuteerd allel genoeg (stem sinds 27-10-2026; was 'kapot'); tumorsuppressorgen: beide allelen; erfelijk = eerste kapotte allel in elke cel | B7, B8 | ✓ | |
 | 22 | n25 | p53 is een tumorsuppressorgen; het eiwit stopt een cel met DNA-schade of laat haar zichzelf opruimen | B7, B9 | ✓ | |
 
 ## Aanpassingen
 
-- **Beeld h4v (vwo)**: was 'één kapot allel is genoeg' (proto-oncogen) → nu 'één gemuteerd allel is genoeg'. Een oncogen is niet kapot maar overactief (B8, B7). De gesproken zin 'Eén kapot allel is dan genoeg' (n25) blijft staan: voorstel aan Kamiel (zie info.md, Wachtlijst opnieuw inspreken).
+- **Beeld h4v (vwo)**: was 'één kapot allel is genoeg' (proto-oncogen) → nu 'één gemuteerd allel is genoeg'. Een oncogen is niet kapot maar overactief (B8, B7). Ook de gesproken zin (n25) is op 27-10-2026 aangepast: was 'Eén kapot allel is dan genoeg.' → nu 'Eén gemuteerd allel is dan genoeg.' (nieuwe opname ingeplakt) → bronnen B7, B8. Bewering 21 blijft ✓.
 
 ## Menselijke steekproef
 
