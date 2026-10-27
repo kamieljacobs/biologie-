@@ -69,12 +69,14 @@ Opties: 17 · **51** · 54
 
 B. Eenenvijftig. Drie nucleotiden per aminozuur, dus drie keer zeventien. Antwoord C telt het stopcodon mee. Maar dat codeert niet voor een aminozuur.
 
-## n15 · Hoofdstuk 3 — Translatie: het recept lezen · vwo
-*begin 5:26 / — · 24.8 s*
+## n15 · Hoofdstuk 3 — Translatie: het recept lezen · vwo · **geknipt 27 okt 2026 (1.2)**
+*begin 5:26 / — · 22.7 s (was 24.8 s)*
 
-Voor vwo nog een stap verder: hoe komt het juiste tRNA bij het juiste codon? Het ribosoom leest het mRNA van 5' naar 3'. Elk tRNA heeft aan één kant drie basen: het anticodon. Die passen tegenover het codon. Tegenover het codon A U G staat het anticodon U A C. Er zijn vierenzestig codons, en maar twintig aminozuren.
+> 1.2: de aankondiging ‘Voor vwo nog een stap verder:’ (0–2,14 s) is uit de take geknipt; geen nieuwe opname. Oude take: `bron/oud/3-van-dna-naar-eiwit-v1.1.html`.
 
-> stem-invoer: Voor vwo nog een stap verder: hoe komt het juiste tee-er-en-aa bij het juiste codon? Het ribosoom leest het mRNA van vijf-accent naar drie-accent. Elk tee-er-en-aa heeft aan één kant drie basen: het anticodon. Die passen tegenover het codon. Tegenover het codon A U G staat het anticodon U A C. Er zijn vierenzestig codons, en maar twintig aminozuren.
+Hoe komt het juiste tRNA bij het juiste codon? Het ribosoom leest het mRNA van 5' naar 3'. Elk tRNA heeft aan één kant drie basen: het anticodon. Die passen tegenover het codon. Tegenover het codon A U G staat het anticodon U A C. Er zijn vierenzestig codons, en maar twintig aminozuren.
+
+> stem-invoer (oorspronkelijke take; eerste vier woorden en ‘verder:’ geknipt): Voor vwo nog een stap verder: hoe komt het juiste tee-er-en-aa bij het juiste codon? Het ribosoom leest het mRNA van vijf-accent naar drie-accent. Elk tee-er-en-aa heeft aan één kant drie basen: het anticodon. Die passen tegenover het codon. Tegenover het codon A U G staat het anticodon U A C. Er zijn vierenzestig codons, en maar twintig aminozuren.
 
 ## q16 · Hoofdstuk 3 — Translatie: het recept lezen · vwo · vraag
 *begin 5:49 / — · 4.6 s*
