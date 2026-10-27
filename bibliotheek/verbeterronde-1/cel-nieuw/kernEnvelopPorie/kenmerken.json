@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "paarse schijf met stippels en een onderbroken ring"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "membranen lopen rond in elkaar over bij elke porie; mRNA schuift erdoor"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "bol met poriën als ringetjes in perspectief en uitgesneden part"
+ }
+}

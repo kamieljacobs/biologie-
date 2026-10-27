@@ -1,0 +1,3 @@
+# Bronnen stamboomSymbolen
+- **Switzerland Omics, 'Standardised pedigree notation'** (https://switzerlandomics.ch/technologies/pedigree/standards/), zelf geopend; vat Bennett e.a. 1995/2008/2022 (NSGC) samen: vierkant/cirkel/ruit, gevuld = aangedaan, stip = oudere notatie voor drager (2022: gedeeld vlak), schuine streep = overleden, pijl = proband, partnerlijn (dubbel = bloedverwant), broer-zuslijn, kinderen oud → jong links → rechts, generaties I, II, III, personen genummerd. Niveau B (samenvatting); de oorspronkelijke artikelen niet zelf geopend.
+- Familie en rollen: `personages/ROLLEN.md` (repo).

@@ -1,0 +1,4 @@
+- Nier in lengtedoorsnede (boonvorm), hilus naar het midden van het lichaam: schors buiten, merg met piramides (basis naar de schors, punt naar binnen) en schorsuitlopers ertussen.
+- Elke piramidepunt mondt uit in een kelkje dat naar het nierbekken loopt; urineleider naar beneden; nierslagader en nierader bij de hilus.
+- Bijnier als kapje op de bovenpool: schors buiten, merg binnen.
+- Standen: bijnier oplichtend (schors en/of merg), urine die door de urineleider loopt.

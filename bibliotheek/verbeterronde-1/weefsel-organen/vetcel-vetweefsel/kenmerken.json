@@ -1,0 +1,41 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "vondst": "onregelmatige cellen met mitochondriën; vul laat het weefsel slinken"
+ },
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "idle",
+  "opbouw": "in-een-keer",
+  "vondst": "verschoven rijen gaven een honingraat"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "vondst": "haarvat volgt middelloodlijnen tussen buurcellen, in stukjes"
+ }
+}

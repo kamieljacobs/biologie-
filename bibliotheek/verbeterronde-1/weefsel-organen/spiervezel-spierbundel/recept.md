@@ -1,0 +1,3 @@
+- Skeletspier: lange cilindrische vezels met dwarsstrepen (donkere A-band, lichte I-band met Z-lijn) en veel platte kernen aan de rand.
+- Een bundel vezels ligt in een bindweefselvlies, met dun bindweefsel en een haarvat tussen de vezels; de vezels lopen door buiten beeld (centimeters lang).
+- Stand: samentrekken: alleen de lichte banden worden smaller, de vezel korter en dikker.

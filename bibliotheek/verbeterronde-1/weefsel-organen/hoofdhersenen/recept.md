@@ -1,0 +1,4 @@
+- Hoofd in mediane doorsnede, gezicht naar rechts: grote hersenen met windingen, hersenbalk, thalamus, kleine hersenen met 'levensboom', hersenstam naar het ruggenmerg.
+- Hypothalamus onder de thalamus, hypofyse aan een steeltje in het Turkse zadel boven de neusholte.
+- Op het middenvlak van de grote hersenen: gordelgroeve evenwijdig boven de hersenbalk, groeve tussen wand- en achterhoofdskwab die samenkomt met de vogelspoorgroeve naar de achterhoofdspool.
+- Standen: hypothalamus en/of hypofyse oplichtend. Klein (± 80 px) moet de klier nog vindbaar zijn.

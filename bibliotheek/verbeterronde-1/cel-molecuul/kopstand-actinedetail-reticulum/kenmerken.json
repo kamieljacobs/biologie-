@@ -1,0 +1,41 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-stappen",
+  "vondst": "actine als één rij bolletjes; reticulum als lijnen"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "dubbele actinestreng; buisnet met triaden om de fibril"
+ },
+ "B": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "vondst": "actine als gedraaid touw; reticulum als kous, achterkant gedimd"
+ }
+}

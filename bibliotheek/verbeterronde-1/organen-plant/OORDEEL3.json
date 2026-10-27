@@ -1,0 +1,152 @@
+[
+ {
+  "obj": "bladDoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Grotere cellen, nerf met hout boven en bast onder; gasmoleculen zonder richting",
+   "Q": "Bovenvlak neemt veel ruimte, cellen klein; pijlen tonen richting duidelijk"
+  },
+  "overnemen": "Richtingspijlen voor CO2 in en O2/waterdamp uit",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "bloemDoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Kelkbladen lopen vóór het vruchtbeginsel langs; stuifmeelbuis bijna onzichtbaar; bij wat cartoonachtig",
+   "Q": "Stuifmeelbuis naar zaadbeginsel gemarkeerd, kelkbladen onder aan de bloembodem, bij met stuifmeelkorf"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "hartDoorsnede",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Onderste holle ader eindigt in de kamerwand in plaats van in de rechterboezem; geen cyclus of stroming",
+   "Q": "Onderste holle ader komt in de rechterboezem; pijlen en open kleppen tonen de cyclus"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "longblaasje",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Trosje met luchtweg als overzicht; rode bloedcellen op schaal (ca. 1/27 blaasje)",
+   "Q": "Geen overzicht; rode bloedcellen te groot, wand dik"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Septum rond het blaasje is in beide aan de dikke kant voor een dunne wand"
+ },
+ {
+  "obj": "nefron",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Eerste deel nauwelijks kronkelend; glomerulus eenvoudige krul",
+   "Q": "Kronkelend eerste deel, glomerulus met filtratiedeeltjes, verzamelbuis met zijtakken"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Het tweede kronkelende deel is in beide een glad boogje, niet kronkelend"
+ }
+]

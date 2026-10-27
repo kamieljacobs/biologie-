@@ -1,0 +1,4 @@
+- Darmwand in lengtedoorsnede (buis met holte), van binnen naar buiten: slijmvlies, bindweefsel, kringspier, lengtespier, buitenvlies.
+- Dunne darm: vingervormige vlokken die de holte in steken, elk met een haarvatlus en een lymfevaatje (chylvat) in het midden; tussen de vlokken klierbuisjes. Dikke darm: geen vlokken.
+- Peristaltiek: de kringspier knijpt op één plek (wand dikker, holte smaller) en die golf loopt door.
+- Standen: dunne darm met knijpgolf, dikke darm zonder.

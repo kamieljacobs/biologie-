@@ -1,0 +1,3 @@
+- Rechterarm van opzij op maat (opperarmbeen ± 31 cm, ellepijp ± 26, spaakbeen ± 24): schouderblad, biceps vóór (pees op het spaakbeen vóór de elleboog), triceps achter (pees op het olecranon).
+- Bij buigen wordt de biceps korter en dikker, bij strekken de triceps.
+- Hand ± 19 cm van pols tot vingertop; huid als silhouet. Standen: gestrekt, half gebogen, gebogen.

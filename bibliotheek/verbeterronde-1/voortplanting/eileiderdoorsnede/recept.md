@@ -1,0 +1,4 @@
+- Eileider in lengtedoorsnede: trechter met franjes (vast aan de trechter) bij de eierstok, wijde ampulla met veel hoge slijmvliesplooien, smalle isthmus met dikke spierwand naar de baarmoeder.
+- Op de plooien trilharen die snel naar de baarmoeder slaan en langzaam terug; een golf loopt over het oppervlak.
+- Ontsteking: wand en plooien rood en gezwollen. Litteken: bindweefsel waarin de plooien samengroeien, het lumen wordt nauw of dicht.
+- Niet: een kam van honderden streepjes; littekens als losse blokjes; franjes als losse slierten.

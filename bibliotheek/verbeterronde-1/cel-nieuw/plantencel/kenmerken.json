@@ -1,0 +1,58 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dik",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "rechthoek met kleine vacuole, korrels los in het cytoplasma"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "kern in de rand deukt de vacuole; protoplast rondt af bij plasmolyse"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "kern hangt in cytoplasmadraden; buurcellen met gedeelde wanden rondom"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "plasmodesmata met membraan en desmotubulus; draadjes bij plasmolyse"
+ }
+}

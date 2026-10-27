@@ -1,0 +1,58 @@
+{
+ "oud": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "RNA-A bijna wit; kleine basen kale streepjes"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "gelijkmatig verdeelde teal-tinten; staafjes ≥ 3 px met rand"
+ },
+ "B": {
+  "detail": "veel",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-stappen",
+  "referentie": "geen",
+  "vondst": "trifosfaat dat als pyrofosfaat afbreekt; mini-puzzelranden"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "standen",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "oude tinten + trifosfaat waarvan pyrofosfaat afbreekt"
+ }
+}

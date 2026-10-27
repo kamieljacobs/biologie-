@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>jachtluipaard(c,x,y,s,o), groot: {"houding": "staan"}, ijkOok: ["A"], standen: [{"houding": "lopen", "t": 0.3}, {"houding": "galop", "t": 0.15}, {"houding": "galop", "t": 0.6}], klein: {"houding": "staan"}  };

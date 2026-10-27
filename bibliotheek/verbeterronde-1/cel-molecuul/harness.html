@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#1A2740}canvas{display:block}</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script src="repo/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
+<script src="repo/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
+<script src="repo/films/voortplanting/2-geslachtsorganen-puberteit/bron/src/lib_hormonen.js"></script>
+<script src="repo/bibliotheek/lib_bio.js"></script>
+<script>
+function tag(ctx, s, x, y, col, a = 1, align = 'center', px = 32) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.font = fTekst(px, 600); const w = ctx.measureText(s).width + 40; const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; roundRect(ctx, x0, y - px - 6, w, px + 22, (px + 22) / 2); shape(ctx, rgba(col, 0.16), col, 1.5); text(ctx, s, x0 + w / 2, y, fTekst(px, 600), C.text, 'center'); ctx.restore(); }
+const Q=new URLSearchParams(location.search); const OBJ=Q.get('obj'), VER=Q.get('v')||'oud', TAG=Q.get('tag')!=='0';
+function laad(src){ return new Promise((r,f)=>{ const e=document.createElement('script'); e.src=src+'?'+Date.now(); e.onload=r; e.onerror=()=>f(src); document.head.appendChild(e); }); }
+(async()=>{ try{
+  if(Q.get('notag')) window.tag=undefined;
+  if(VER!=='oud') await laad(OBJ+'/'+VER+'.js');
+  await laad(OBJ+'/'+(Q.get('scene')||'scene.js'));
+  const ctx=document.getElementById('c').getContext('2d'); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,1280,720);
+  scene(ctx); window.KLAAR=true; }catch(e){ window.FOUT=String(e&&e.stack||e); window.KLAAR=true; } })();
+</script></body></html>

@@ -1,0 +1,4 @@
+- Bloedvaten in lengtedoorsnede met stroom. Rode bloedcellen zijn ingedeukte schijfjes (± 7–8 µm) die kantelen in de stroom.
+- Slagader: dikke wand met een dikke laag glad spierweefsel; ader: dunne wand, grotere holte; haarvat: wand van één laag platte cellen, net breed genoeg voor één rode bloedcel.
+- In het haarvat gaan de rode bloedcellen één voor één en vervormen ze.
+- Standen: slagader, ader (met meestromende stoffen), haarvat.

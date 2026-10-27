@@ -1,0 +1,422 @@
+[
+ {
+  "obj": "bioreactor",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Toont alleen het vat; geen bacterie, plasmide, ribosoom of eiwitketen, dus de biologie van de recept ontbreekt; stappen verschillen alleen in vloeistofniveau.",
+   "Y": "Vat sterk vereenvoudigd (geen keerschotten, sparger, sensoren), geen mens ter vergelijking van de maat; eiwitketen in stap 1 een kralenketting; losse flow-opstelling leest als storyboard, klein onleesbaar."
+  },
+  "overnemen": "Het zoomcirkeltje met de bacterie (plasmide, mRNA, ribosoom, keten die vouwt) uit Y onder of naast het vat van X, plus kolom en flesje voor zuiveren.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "crisprCas9",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Cas9 is een trosje bolletjes met staafjes (netwerk), leest als moleculenmodel/kooi, niet als gevouwen keten; geen lobben herkenbaar.",
+   "Y": "Lobben liggen los boven en onder het DNA in plaats van er omheen te klemmen; gids-RNA is een kale lijn."
+  },
+  "overnemen": "Niets nodig uit X; eventueel gids-RNA met basetekens.",
+  "combineren": false,
+  "fout": "Cas9 klemt in geen enkele versie om het DNA heen (lobben hangen erboven en eronder) en het gids-RNA toont geen paring met de doelstreng; DNA is een platte ladder."
+ },
+ {
+  "obj": "gelElektroforese",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "De twee standen zijn bijna gelijk (DNA-stipjes verschuiven nauwelijks); bakmaat groot vergeleken met de hand tenzij je het kleine schaalbakje leest.",
+   "Y": "Gel staat verticaal in een hoge bak (agarose ligt horizontaal in een bak; dit lijkt een eiwitgel); schaalbakje te klein naast de hand; verder duidelijke drie stappen."
+  },
+  "overnemen": "Horizontale gelbak, UV-kastje met gekleurde banden en de ware verhouding (tank ≈ 1,3 × hand) uit X; Y's drie duidelijke stappen behouden.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "injectiespuit",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 23
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Geen weefsel of prikplek: de spuit hangt los, het depot en de diepte (huid, vet, spier) ontbreken.",
+   "Y": "Schaalspuit bij de hand overlapt het onderste weefselblok; spuit loodrecht erboven is groot ten opzichte van het weefsel."
+  },
+  "overnemen": "Schaalspuit naast de hand zoals in X, maar niet overlappend met de weefselblokken.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "insulinePen",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 2,
+    "totaal": 12
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Dosisvenster staat in alle drie de standen op 10 en de knop schuift niet uit, dus het instellen en inspuiten is niet te zien.",
+   "Y": "Geen huid of vetlaag, de pen op ware maat naast de hand klein en los; opstelling met dop los/verschoven is verwarrend, 0 en 12 zonder uitgeschoven knop."
+  },
+  "overnemen": "Dosis die van 0 naar 12 loopt en knop die uitschuift (idee uit Y), maar dan in X's opstelling met buikhuid.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "micropipet",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 2,
+    "totaal": 12
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Duim en vingers zijn blokachtig; het buisje in stap 2 is alleen een omtrek.",
+   "Y": "Pipet staat los van de hand; de hand is veel groter getekend dan de pipet zou passen (pipet lijkt ± 12 cm), vloeistof maar in één stand zichtbaar, geen buisje."
+  },
+  "overnemen": "Niets noemenswaardigs.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "microscoop",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Lijntekening zonder vulling, leest als schema; derde stand is gespiegeld (statief rechts), wat verwart; lichtweg wel zichtbaar.",
+   "Y": "Geen lichtweg door condensor, preparaat en objectief; tafel met brede donkere zuil oogt ongewoon."
+  },
+  "overnemen": "De lichtbundel van lamp naar objectief uit X.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "pcrBuisje",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Dop is een zwevende ellips/schijf zonder scharnierstrip; geen herkenbaar PCR-buisje; strip van 12 buisjes op de hand te klein.",
+   "Y": "Vloeistof reikt in de derde stand tot halverwege, terwijl de mix alleen in de punt hoort."
+  },
+  "overnemen": "Niets.",
+  "combineren": false,
+  "fout": "In beide versies staat de mix in de derde stand halfvol; volgens het recept alleen in de punt."
+ },
+ {
+  "obj": "petrischaal",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "Perspectief met zwevend deksel en dunne dubbele rand; kolonies klein, minder duidelijk; het deksel verschuift tussen standen zonder duidelijke betekenis.",
+   "Y": "Bovenaanzicht zonder rand, deksel of agardikte, dus het is een cirkel met stippen; geen beweging buiten groei."
+  },
+  "overnemen": "Zijaanzicht met wand en deksel van X (agardikte van 4 mm).",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "plasmideKnipPlak",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 14
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Het plasmide is getekend als lineaire stukken (geen ring), het enzym is een klein blobje, laatste stap met een afgezwakt strookje buiten de bacterie.",
+   "Y": "Het insert-gen is een gouden boog zonder duidelijke naam; enzymen zijn kleine blobjes (geen duidelijke gevouwen keten); AATT/TTAA nog klein."
+  },
+  "overnemen": "Leesbare sticky-end-letters (AATT/TTAA) groter en het basenpuzzelvlak uit X om het uitstekende deel te laten zien.",
+  "combineren": true,
+  "fout": "Het restrictie-enzym is in beide versies een klein blobje naast het DNA in plaats van een herkenbaar gevouwen eiwit; ligase ontbreekt als eigen beeld."
+ },
+ {
+  "obj": "primerStuk",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 24
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Primer zweeft golvend boven de matrijs, geen polymerase, dus de bouw 5′ → 3′ ontbreekt.",
+   "Y": "Polymerase is een gevulde blob met ring (geen keten); ligt in stap 3 over het 5′-label."
+  },
+  "overnemen": "Niets noemenswaardigs; golvende naderingsbeweging van X is een bruikbare eerste stap.",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "restrictieEnzym",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 2,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 12
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "De twee helften liggen boven en onder het DNA, niet er omheen geklemd; het zigzagknippen is alleen een gouden haakje; DNA is een platte ladder.",
+   "Y": "Enzymhelften zijn netwerken van bolletjes met staafjes: een trosje bolletjes, geen gevouwen keten."
+  },
+  "overnemen": "Niets.",
+  "combineren": false,
+  "fout": "In geen enkele versie klemt het enzym zichtbaar om het DNA en is het verspringende knippen (zigzag) en het uitstekende AATT duidelijk uitgewerkt."
+ },
+ {
+  "obj": "sequencer",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 15
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Geen laser/detector zichtbaar en geen NGS; het apparaat is een kale capillair.",
+   "Y": "Apparaat is een kale doos; variant (gouden kolom) is niet te onderscheiden van referentie: welke afwijkende base?; geen beweging; Sanger ontbreekt."
+  },
+  "overnemen": "Het NGS-paneel met reads op een referentie en de gemarkeerde variant uit Y erbij.",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "thermocycler",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "Toont alleen het apparaat; de cyclus (95-55-72) en de verdubbeling ontbreken; blok met 12×8 gaatjes nauwelijks te zien.",
+   "Y": "Blok met 12×8 gaatjes, gaatjes en buisjes ontbreken; de dubbele strengen zijn kleine lijntjes."
+  },
+  "overnemen": "Het open deksel met het blok en de buisjes uit X.",
+  "combineren": true,
+  "fout": ""
+ }
+]

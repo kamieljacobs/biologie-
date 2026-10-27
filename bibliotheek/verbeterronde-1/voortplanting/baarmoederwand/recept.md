@@ -1,0 +1,4 @@
+- Uitsnede van de baarmoederwand, holte boven: spierlaag, basale laag en de functionele laag die groeit (1 → 7 mm).
+- Klieren zijn buisjes met een holte die op het oppervlak openen, later kronkelend; spiraalslagaders kronkelen omhoog.
+- Menstruatie: de functionele laag brokkelt/scheurt los met bloed en schuift weg; de basale laag blijft.
+- Niet: losse ballonnen die boven de wand zweven.

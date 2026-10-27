@@ -1,0 +1,599 @@
+[
+ {
+  "obj": "ambulocetus",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "geen zichtbaar klein oor (recept)",
+   "Y": "oortje erg klein; voorpoten niet tegen het lijf in de zwemstanden"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "bacterie-plasmide",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "flagellen lopen als losse lussen langs de wand, begin in de wand (basaal lichaam, haak) niet te zien",
+   "Y": "basale lichamen/haken klein; flagellen nog druk, plasmide-ringen met oranje streep niet erg ringvormig"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "basilosaurus",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "vergrotingscirkel rommelig (poot weinig leesbaar), rugvin-achtige knik in de cirkel",
+   "Y": "geen vergrotingscirkel: het pootje is als gewone vin getekend, niet 'bijna onzichtbaar'"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Achterpootje is op het grote exemplaar een flipper-achtige lap; moet een klein pootje zijn"
+ },
+ {
+  "obj": "bultrug",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 23
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 23
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "staart eindigt als spies zonder fluke-aanzet; staartslag weinig zichtbaar",
+   "Y": "idem, slag iets groter maar zelfde spiesvormige staart"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Staartvin (fluke) ontbreekt in beide: staart eindigt als puntige spies, bultrug moet een duidelijke horizontale staartvin hebben (ook van opzij zichtbaar als dunne boog bij kantelen)"
+ },
+ {
+  "obj": "chromosoompaar",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 22
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 24
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "geen verdubbelde (X-vorm) optie; zusterchromatiden ontbreken",
+   "Y": "zusterchromatiden liggen als twee parallelle staven, niet als X met gezamenlijk centromeer"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Verdubbeld chromosoom heeft geen echte X-vorm: de chromatiden hangen niet samen op één centromeer"
+ },
+ {
+  "obj": "dolfijn",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 24
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "staartvin is een dunne spies, geen vin",
+   "Y": "staartvin van opzij breder dan realistisch, kantelt maar weinig"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "griepvirus",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 23
+   },
+   "Y": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "stekels bijna identiek (recept: niet allemaal gelijk), NA-kubusjes sterk gegroepeerd",
+   "Y": "RNA-segmenten overlappen, niet te tellen tot 8; ziet eruit als slordige bundel"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "grondvink",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Z": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Z",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "vlekken zijn losse ovaaltjes, tenen ontbreken (platte plank), staart te lang, bij pikken staart omhoog (lijf blijft niet liggen)",
+   "Y": "streepjes grof en donker, staart nog iets lang",
+   "Z": "streping nog wat dik; staart vlak boven de vleugel te kort aangezet"
+  },
+  "overnemen": "Z: fijnere lengtestreping en kortere staart (kort ten opzichte van Y)",
+  "combineren": false,
+  "fout": "Tenen drie voor/een achter kloppen in Y en Z; in alle versies is de snavel vrij groot voor 12,5 cm vink maar acceptabel"
+ },
+ {
+  "obj": "hagedis",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "vijf tenen/klauwtjes niet zichtbaar, poten niet zijwaarts gespreid; op 80 px poten klein",
+   "Y": "dijen als dikke worstvormen, tenen niet zichtbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Poten staan onder het lijf als bij zoogdier, niet zijwaarts met elleboog/knie naar buiten; tenen niet te onderscheiden (vijf met klauwtjes)"
+ },
+ {
+  "obj": "koolmees",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "brede witte vlek aan het eind van de hele staart (recept zegt juist niet), tenen ontbreken",
+   "Y": "staartrand rondom wit omlijnd, ook aan het uiteinde"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "merel",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "voeten als platte plank zonder tenen; bij pikken staart sterk omhoog",
+   "Y": "tenen enigszins stokkerig"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "nijlpaard",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 5,
+    "totaal": 24
+   },
+   "Z": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 13
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "huidplooien als donkere losse vlakken i.p.v. lijn, geen roze onderkant",
+   "Y": "neusgat als los stipje voorbij de snuit; plooilijnen erg dun",
+   "Z": "gerafelde 'harige' omtrek, roze banden als losse vlakken"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Neusgat staat als los stipje buiten de snuit (X en Y); poten tonen geen goed te tellen vier tenen met nagels"
+ },
+ {
+  "obj": "pakicetus",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "hoekige knik waar staart aan romp zit, oog met zware wenkbrauwrand",
+   "Y": "oog hoog op kop maar nauwelijks hoger dan bij X; staart niet echt 'dik'"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "pauw",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 15
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "tussenstanden knippen af bovenaan beeld en lijken platte wiggen; waaier niet als smalle bundel",
+   "Y": "tussenstanden zijn kleinere schijven in plaats van smalle bundel; zijaanzicht-voet zonder tenen"
+  },
+  "overnemen": "Tenen met hielgewricht in het zijaanzicht uit X",
+  "combineren": true,
+  "fout": "Waaier groeit als schaal van volle schijf en niet vanuit een smalle bundel met spreidende veren"
+ },
+ {
+  "obj": "pauwin",
+  "scores": {
+   "X": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Y": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Z": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "X",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "groene keelvlek hoekig; vlekjes op de rug klein",
+   "Y": "lange groene reigerhals: precies de fout uit het recept",
+   "Z": "hals-patches blokkerig bruin/groen, lichte vlekjes ontbreken"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "rode-bloedcel-sikkelcel",
+  "scores": {
+   "X": {
+    "klopt": 2,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "midden van de schijf donkerder terwijl het lichter hoort; van opzij een lijn in plaats van dunne delling",
+   "Y": "gradiënt wat vaag; sikkelcel met strepen gelijk aan X"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "rodhocetus",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "achterpoot ziet eruit als dun stokje met kleine voet, voorpoot nauwelijks zichtbaar",
+   "Y": "klein naadje in de rug bij de staart; staart zonder echte roervorm"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "schimmelGist",
+  "scores": {
+   "X": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "broodschimmel alleen als vlekken, geen zichtbare sporangia; hyfen zonder substraat",
+   "Y": "gistcellen erg klein, kern/vacuole bij kleine formaat niet leesbaar"
+  },
+  "overnemen": "X: grote gistcel en knopstanden (begin/eind) duidelijk gescheiden in Y overnemen",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "zaadkraker",
+  "scores": {
+   "X": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Y": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "voeten zonder tenen; bij pikken staart omhoog en lijf draait",
+   "Y": "rode borst ontbreekt: rood zit alleen op kop/keel"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Borst moet rood zijn (recept), in beide versies is de borst zwart; alleen kop, keel en staart rood"
+ }
+]

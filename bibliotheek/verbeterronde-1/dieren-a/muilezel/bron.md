@@ -1,0 +1,1 @@
+- Geen nieuwe bron; Donkey Sanctuary zoals in lessen_pop_hoef.md (kop ezel, extremiteiten meer paard). Oorfactor 0,8 is een keuze, geen meting.

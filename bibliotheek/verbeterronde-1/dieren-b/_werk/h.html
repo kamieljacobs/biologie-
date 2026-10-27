@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>const R='/home/claude/biologie-/bibliotheek/dieren/';const P=new URLSearchParams(location.search);
+window.FOUTEN=[];window.addEventListener('error',e=>FOUTEN.push(String(e.message)));
+const L=['lib.js','lib_cast.js','lib_bio.js','lib_evo.js','lib_dieren.js','lib_micro_evo.js'].map(f=>R+f);
+if(P.get('v')) L.push(P.get('v')); L.push(P.get('s'));
+(function laad(i){ if(i>=L.length){ try{ start(); }catch(e){ FOUTEN.push('start: '+e.message+' '+e.stack); } window.KLAAR=1; return; }
+ const s=document.createElement('script'); s.src=L[i]+'?r='+Math.random(); s.onload=()=>laad(i+1); s.onerror=()=>{FOUTEN.push('laad '+L[i]); laad(i+1);}; document.body.append(s); })(0);
+function meet(fn){ const cv=document.createElement('canvas'); cv.width=3200; cv.height=2200; const c=cv.getContext('2d'); c.translate(1600,1100); fn(c);
+ const d=c.getImageData(0,0,3200,2200).data; let x0=1e9,y0=1e9,x1=-1,y1=-1; for(let y=0;y<2200;y+=2) for(let x=0;x<3200;x+=2){ if(d[(y*3200+x)*4+3]>20){ if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y; } }
+ return [x0-1600,y0-1100,x1-x0,y1-y0]; }
+function start(){ const ctx=c.getContext('2d'); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,1280,720);
+ const items=SCENE(); let fits=P.get('fit')?JSON.parse(P.get('fit')):null; const nieuw=[];
+ items.forEach((it,i)=>{ let f=fits&&fits[i]; if(!f){ const [bx,by,bw,bh]=meet(it.meet||it.fn); const [X,Y,W,H]=it.box; const k=Math.min(W/bw,H/bh); f=[k, X+W/2-(bx+bw/2)*k, Y+H/2-(by+bh/2)*k]; }
+  nieuw.push(f); ctx.save(); ctx.translate(f[1],f[2]); ctx.scale(f[0],f[0]); it.fn(ctx); ctx.restore(); });
+ window.FITS=nieuw; }
+</script></body></html>

@@ -1,0 +1,422 @@
+[
+ {
+  "obj": "bioreactor",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Alleen vat met zoomcirkel; kleine verhoudingen ok",
+   "Q": "Geen cel, plasmide, eiwitketen of oogsten: mist de kern van het recept"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "crisprCas9",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Lobben als gevouwen lint (pijlen en helices), herkenbaar als eiwit; DNA-letters erg klein",
+   "Q": "Lobben als warrige strengen in donkere wolk, minder herkenbaar als twee lobben"
+  },
+  "overnemen": "Eventueel de donkere eiwitwolk niet; niets nodig",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "gelElektroforese",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Alleen bovenaanzicht van de bak, geen buffer of gelbak met elektrodes; putjes aan minkant onduidelijk",
+   "Q": "Zijaanzicht bak met buffer, elektrodes, UV-kastje met ladder in laan 1; hand klopt ongeveer"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "injectiespuit",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Spuit ligt netjes op de hand voor de maat",
+   "Q": "Spuit overlapt duim en zweeft boven de hand, rommeliger"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "insulinePen",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Dosisvenster staat in alle drie de standen op 10: stand instellen en inspuiten niet zichtbaar",
+   "Q": "Dosis 0 -> 12 -> 0 klopt met uitschuiven en terugdrukken"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Referentiepen naast de hand lijkt te klein (ca. 7 cm in plaats van 16 cm); controleer verhouding in beide"
+ },
+ {
+  "obj": "micropipet",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Buisje met scharnierdopje, vloeistof zichtbaar in beide buisstanden",
+   "Q": "Buisje zonder dopje, iets minder herkenbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "microscoop",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Lichtweg van lamp via condensor, preparaat en objectief naar oculair getekend",
+   "Q": "Geen lichtbundel: het recept (licht gaat omhoog) is niet te zien"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "pcrBuisje",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Vloeistof blijft in de punt in alle standen",
+   "Q": "Bij open dop stijgt de vloeistof tot halfvol: onjuist en inconsistent"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "petrischaal",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 5,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Geen zijaanzicht; agardikte en deksel niet zichtbaar; referentieschijf klein (ca. 6 cm)",
+   "Q": "Zijaanzicht met deksel en agarlaag is nuttig, maar geen groeistappen van kolonie naar gazon"
+  },
+  "overnemen": "Zijaanzicht met deksel en 4 mm agar als extra stand",
+  "combineren": true,
+  "fout": "Referentieschaal naast de hand lijkt te klein (schijfje ca. 4-6 cm, moet 9-10 cm); in beide"
+ },
+ {
+  "obj": "plasmideKnipPlak",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Inzet met zigzagknip en plakkerige uiteinden, enzym en ligase als gevouwen ketens",
+   "Q": "Enzym ontbreekt, ligase als blobjes, geen inzet"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "primerStuk",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Polymerase als vormloze blob met ring: geen gevouwen keten; kleine reservevorm overlapt het enzym",
+   "Q": "Polymerase als gevouwen lint met helices en pijlen; kleine reservevorm afgesneden onderaan"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "restrictieEnzym",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Twee helften als warrige knoop, niet als gevouwen keten",
+   "Q": "Twee gelijke helften als gevouwen lint, boven en onder elke streng"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "sequencer",
+  "scores": {
+   "P": {
+    "klopt": 5,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Complete keten: lengtesortering, capillair, laser/detector, chromatogram, apparaat naast persoon en NGS-reads met variant",
+   "Q": "Alleen Sanger in twee standen; geen apparaat, geen NGS, geen maat"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "thermocycler",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 5,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 22
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Frontaal blokje, het blok met gaatjes en het deksel zijn niet te zien",
+   "Q": "Schuin aanzicht met open deksel en blok met buisjes; display per cyclusstap"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]

@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>kipEcht(c,x,y,s,o), groot: {"t": 0}, standen: [{"houding": "lopen", "t": 0}, {"houding": "lopen", "t": 0.5}, {"houding": "pikken", "t": 0.35}], ijkOok: ["A"], klein: {"t": 0}  };

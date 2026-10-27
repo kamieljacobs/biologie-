@@ -1,0 +1,182 @@
+[
+ {
+  "obj": "basilosaurus",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 3,
+    "totaal": 12
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Pootje een vormeloze klodder; vergroting toont alleen een golflijn, niet wat het is",
+   "Q": "Pootje is in de grote versie nog wat te groot voor een minuscuul pootje"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "bultrug",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Slagstanden verschillen weinig",
+   "Q": "Staart is een scherpe spits zonder staartvin (fluke)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "chromosoompaar",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 14
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Verdubbeld chromosoom als twee strak tegen elkaar geplakte strengen, geen centromeer en geen X",
+   "Q": "Centromeer is een losse cirkel op het kruispunt; banden in de lange armen lopen niet door tot het centromeer"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "nijlpaard",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Grote roze vlek naast het oog leest als kaak of wang; huidplooi over de romp lijkt een grijns",
+   "Q": "Losse neusgatstip buiten de snuit"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Grote roze vlek bij het oog (de oor is eigenlijk het kleine roze vlekje erboven) en een lange gebogen plooi als grijns over de flank; tenen als stippen i.p.v. nagels"
+ },
+ {
+  "obj": "pauw",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Zijaanzicht: voeten een warrige kluwen van tenen",
+   "Q": "Tussenstanden zijn gewoon kleinere cirkels in plaats van waaier die uit een smalle bundel opengaat"
+  },
+  "overnemen": "Nette voeten (kale loopbeen met tenen) uit Q",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "schimmelGist",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Maar twee knopstanden; kern deelt niet zichtbaar (alleen een kern in de dochtercel)",
+   "Q": "Cellen zijn klein, details (kern/vacuole) verdwijnen op klein formaat; ogen onrustig door veel cellen"
+  },
+  "overnemen": "Kern die zich uitrekt door de knophals (deling) uit Q",
+  "combineren": true,
+  "fout": ""
+ }
+]

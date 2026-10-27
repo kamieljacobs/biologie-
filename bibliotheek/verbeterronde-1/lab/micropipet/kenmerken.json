@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "knopstand 0/1/2 met verschillende slaglengte"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "accent",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "hand met duim op de knop, punt in buisje of gelputje"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "accent",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "echt reactiebuisje met vloeistof en open dop"
+ }
+}

@@ -1,0 +1,58 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "losse golflijnen met stippen, niet aan de kern"
+ },
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "lumen loopt door van kernenvelop naar bladen en glad ER"
+ },
+ "B": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "druk",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "bladen als schuine vlakken bezaaid met ribosomen en polysoomspiralen"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "ribosomen als koepeltjes vast op het membraan; halsjes naar kernenvelop"
+ }
+}

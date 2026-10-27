@@ -1,0 +1,4 @@
+- Lever van voren: grote rechterkwab (links op het scherm), smallere linkerkwab die naar rechts uitloopt; bolle bovenkant tegen het middenrif, scherpe onderrand.
+- Sikkelvormig band tussen de kwabben, met in de onderrand een inkeping voor de ronde leverband.
+- De bodem van de galblaas steekt net onder de onderrand van de rechterkwab uit.
+- Standen: gewoon en oplichtend (gloed).

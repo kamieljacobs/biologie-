@@ -1,0 +1,3 @@
+- Zaadbal in doorsnede: stevig kapsel, tussenschotten, vol zaadbuisjes (wand met zaadcellen in wording, staartjes in de holte), Leydigcellen ertussen.
+- Aan de achterkant de bijbal als gekronkelde buis; uit de staart vertrekt de zaadleider omhoog.
+- De buisjes horen in dezelfde stijl als het weefselbeeld.

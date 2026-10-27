@@ -1,0 +1,3 @@
+- Spier in dwarsdoorsnede: bundels van vezels, elk omgeven door bindweefsel, en een vlies om de hele spier; vezels van één motorische eenheid liggen verspreid en lichten samen op.
+- Spierspoeltje: een klein kapsel met dunne vezeltjes, evenwijdig tussen de gewone spiervezels; een sensorisch zenuwuiteinde wikkelt in een spiraal om het midden.
+- Standen: spier in rust/gerekt; bij rek vuurt de zenuwvezel sneller.

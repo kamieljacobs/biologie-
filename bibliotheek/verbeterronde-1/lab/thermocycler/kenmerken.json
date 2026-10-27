@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "schuine projectie met deksel dat echt om de achterrand draait"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "temperatuurcurve gekoppeld aan wat de strengen op dat moment doen"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "open apparaat met strip in het blok naast lopend profiel en strengen"
+ }
+}

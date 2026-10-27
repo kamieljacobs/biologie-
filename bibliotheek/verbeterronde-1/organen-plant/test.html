@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script src="/home/claude/biologie-/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
+<script src="/home/claude/biologie-/films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
+<script src="/home/claude/biologie-/films/voeding/1-wat-zit-er-in-je-eten/bron/src/cast_hulp.js"></script>
+<script src="/home/claude/biologie-/personages/lib_cast.js"></script>
+<script src="/home/claude/biologie-/bibliotheek/lib_bio.js"></script>
+<script>const Q=new URLSearchParams(location.search);document.write((Q.get("extra")?`<script src="${Q.get("extra")}"><\/script>`:"")+`<script src="${Q.get("obj")}/${Q.get("v")}.js"><\/script><script src="${Q.get('obj')}/scene.js"><\/script>`);</script>
+<script>
+window.addEventListener('load',()=>{ try{
+ const cv=document.getElementById('c'), ctx=cv.getContext('2d');
+ ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,1280,720);
+ const S=SCENE, fn=window[S.fn], H0=S.H0, base=S.opts||{};
+ fn(ctx, S.bigX||380, S.bigY||360, 432/H0, Object.assign({},base,S.big||{}));
+ const st=S.states||[]; const n=st.length; const sh=S.stateH||210;
+ const xs = n===3?[790,990,1170]:n===2?[850,1100]:[980];
+ st.forEach((o,i)=>fn(ctx, xs[i], S.stateY||250, sh/H0, Object.assign({},base,o)));
+ fn(ctx, 1200, 650, 80/H0, Object.assign({},base,S.small||{}));
+ document.title='OK';
+}catch(e){document.title='ERR '+e.message; console.error(e);} });
+</script></body></html>

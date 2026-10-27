@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "midden",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "lichtbundel van lamp door condensor tot objectief"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "gedempt",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "beeldcirkel met wangcellen: wazig ↔ scherp"
+ },
+ "C": {
+  "detail": "midden",
+  "vorm": "realistisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "gedempt",
+  "diepte": "schaduw",
+  "textuur": "geen",
+  "context": "met-schaal",
+  "beweging": "standen",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "lichtweg van lamp tot oculair door het volume-model"
+ }
+}

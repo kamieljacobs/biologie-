@@ -1,0 +1,182 @@
+[
+ {
+  "obj": "lacOperon",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 14
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Repressor zweeft boven de operator in plaats van erop te zitten; geen labels",
+   "Q": "Repressor is een bol van losse bolletjes (trosje) "
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "In alle versies zweeft de repressor boven de operator in plaats van er op te binden (zonder lactose); niets benoemd"
+ },
+ {
+  "obj": "methylgroep",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Eiwit is ver van het DNA geplaatst (zweeft los); kader rond DNA zwaar",
+   "Q": "Transcriptiefactor is een gladde grijze bol met een krabbel (geen gevouwen keten)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "nucleosoomAcetyl",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Histonkern als vier gladde ovalen; staarten als gladde buisjes",
+   "Q": "Transcriptiefactor is een gladde bol met krabbel; staarten wel als kralenketting"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "De histonkern toont vier schijven in plaats van acht histonen; het openen is drie losse standen"
+ },
+ {
+  "obj": "rnaInterferentie",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 13
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Dicer en RISC zijn wolkjes van bolletjes (trosjes); siRNA als lege ladders zonder basen",
+   "Q": "Op klein formaat zijn de letters in siRNA/gids onleesbaar; Dicer en RISC lijken op elkaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "transcriptiefactor",
+  "scores": {
+   "P": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 14
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Eiwitten zijn bolletjeswolken (trosjes); herkenningshelix niet te zien",
+   "Q": "Op klein formaat verdwijnt de herkenningshelix in de groef; remmer en activator hebben dezelfde vorm"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "RNA-polymerase is in alle versies een gladde bol met een krabbel in plaats van een gevouwen keten"
+ },
+ {
+  "obj": "uvSchade",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Knipcomplex en ligase zijn alleen als vervaagd silhouet aanwezig",
+   "Q": "Knipcomplex is een wolk van bolletjes (trosje)"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "DNA-polymerase in het onderste paneel is in beide versies een gladde bol met krabbel, geen gevouwen keten"
+ }
+]

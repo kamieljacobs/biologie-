@@ -1,0 +1,167 @@
+<title>Beeldbank: jouw keuze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{--bg:#F4F2EC;--surface:#FFF;--surface2:#ECE8DF;--line:#D5CFC2;--text:#121C2E;--text2:#4E5A6C;--text3:#7A8494;--goud:#A87A12;--goud-soft:rgba(201,150,31,.16);--goed:#2F8A47;--mis:#B4452E;--plaat:#1A2740;
+--f-titel:"Fraunces",Georgia,serif;--f-tekst:"Source Sans 3",system-ui,sans-serif;--f-meta:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1828;--surface:#16213A;--surface2:#1D2A46;--line:#2C3B5A;--text:#F2F2EE;--text2:#A9B2C1;--text3:#7F8AA0;--goud:#E0B64A;--goud-soft:rgba(224,182,74,.14);--goed:#7FC48F;--mis:#E07A5F;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1828;--surface:#16213A;--surface2:#1D2A46;--line:#2C3B5A;--text:#F2F2EE;--text2:#A9B2C1;--text3:#7F8AA0;--goud:#E0B64A;--goud-soft:rgba(224,182,74,.14);--goed:#7FC48F;--mis:#E07A5F;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:16px/1.5 var(--f-tekst);margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding:28px max(16px,env(safe-area-inset-right,0px)) 60px max(16px,env(safe-area-inset-left,0px))}
+h1{font:700 clamp(30px,4vw,44px)/1.1 var(--f-titel);margin:0 0 8px}
+h2{font:700 26px/1.2 var(--f-titel);margin:34px 0 8px}
+h3{font:700 20px/1.2 var(--f-titel);margin:0}
+.mono{font:600 12px/1.3 var(--f-meta);letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
+.intro{color:var(--text2);max-width:72ch;margin:6px 0 16px}
+.balk{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 0;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.vg{display:flex;align-items:center;gap:10px;min-width:220px;flex:1}.vg .s{flex:1;height:8px;border-radius:4px;background:var(--surface2);overflow:hidden}.vg .v{height:100%;background:var(--goud);width:0;transition:width .3s}
+.vg span{font:600 13px var(--f-meta);color:var(--text2);white-space:nowrap;font-variant-numeric:tabular-nums}
+select,button,textarea{font:inherit;color:inherit}
+select{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-height:36px}
+.schak{display:inline-flex;gap:6px;align-items:center;font-size:14px;color:var(--text2)}
+.kaart{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:14px}
+.kaart.klaar{border-color:color-mix(in srgb,var(--goud) 50%,var(--line))}
+.kop{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:baseline}
+.chip{font:600 11px/1 var(--f-meta);letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:999px;border:1px solid var(--line);color:var(--text2)}
+.chip.nieuw{border-color:var(--goud);color:var(--goud)}
+.recept{color:var(--text2);font-size:14.5px;margin:6px 0 0;white-space:pre-line;max-width:110ch}
+.opties{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:12px;margin-top:12px}
+.optie{border:2px solid transparent;border-radius:12px;background:var(--surface2);padding:8px;display:flex;flex-direction:column;gap:8px}
+.optie.gekozen{border-color:var(--goud)}
+.plaat{background:var(--plaat);border-radius:8px;aspect-ratio:16/9;overflow:hidden}
+.plaat img{width:100%;height:100%;object-fit:contain;cursor:zoom-in;display:block}
+.orij{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.olab{font:700 15px var(--f-meta)}
+.ochip{font:600 11px var(--f-meta);padding:3px 7px;border-radius:6px;background:var(--goud-soft);color:var(--goud)}
+.kies{margin-left:auto;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;min-height:36px;cursor:pointer}
+.kies[aria-pressed="true"]{background:var(--goud);color:#1A1406;border-color:var(--goud);font-weight:700}
+.kies:disabled{opacity:.5;cursor:default}
+.extra{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.geen{border:1px dashed var(--line);background:none;border-radius:999px;padding:6px 14px;min-height:36px;cursor:pointer;color:var(--text2)}
+.geen[aria-pressed="true"]{border-style:solid;border-color:var(--mis);color:var(--mis);font-weight:700}
+textarea{width:100%;min-height:52px;resize:vertical;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-top:10px}
+.onthul{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--surface2);font-size:14.5px;color:var(--text2)}
+.onthul b{color:var(--text)} .onthul p{margin:4px 0}
+.vondst{font-size:13.5px;color:var(--text2)}
+button:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--goud);outline-offset:2px}
+.melding{padding:10px 12px;border-radius:10px;background:var(--surface2);color:var(--text2);font-size:14px;margin:10px 0}
+.vraag{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;margin-top:12px}
+.vraag p{margin:4px 0 10px;color:var(--text2)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:8px}
+.seg button{border:1px solid var(--line);background:var(--surface2);border-radius:999px;padding:6px 14px;min-height:36px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goud);color:#1A1406;border-color:var(--goud);font-weight:700}
+dialog{border:0;border-radius:12px;padding:0;background:var(--plaat);max-width:96vw}
+dialog img{display:block;max-width:96vw;max-height:90vh}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+</style>
+
+<div class="wrap">
+  <div class="mono">Biologie bij Kamiel · beeldbank · verbeterronde 27 okt 2026</div>
+  <h1>Beeldbank: jouw keuze</h1>
+  <p class="intro">Per object zie je alle versies naast elkaar, genummerd en in willekeurige volgorde: soms de huidige versie, varianten A en B, en een C (de winnaar van de blinde beoordelaar, verbeterd of gecombineerd). Kies de beste, of 'geen van alle' als het opnieuw moet. Pas na je keuze zie je welke versie welke was en wat de blinde beoordelaars vonden. Alleen wat jij kiest gaat de beeldbank in; de oude versies blijven bewaard.</p>
+  <div id="melding" class="melding" hidden></div>
+
+  <h2>Eerst een paar losse vragen</h2>
+  <div id="vragen"></div>
+
+  <h2>Per object</h2>
+  <div class="balk">
+    <div class="vg"><div class="s"><div class="v" id="vul"></div></div><span id="telling"></span></div>
+    <label class="mono" for="fGroep">Groep</label><select id="fGroep"><option value="">alle</option></select>
+    <label class="schak"><input type="checkbox" id="fOpen"> alleen nog niet gekozen</label>
+    <label class="schak"><input type="checkbox" id="fBlind" checked> blind kiezen</label>
+  </div>
+  <div id="lijst"><p class="intro">Laden…</p></div>
+</div>
+<dialog id="groot"><img id="grootImg" alt=""></dialog>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let D=[],K={},V={},db=null,mag=true;
+const VRAGEN=[
+ {id:'eiwitstijl',titel:'Welke taal voor alle eiwitten?',tekst:'Er zijn twee stijlen ontstaan. Wat je kiest, trekken we door naar alle eiwitten in de beeldbank (polymerase, ribosoom, enzymen, receptoren, Cas9 …).',beelden:[['Kralenketen die vouwt','img/cel-molecuul__eiwitvouw__A.webp'],['Lintmodel: buis met helices en β-pijlen','img/genregulatie__transcriptiefactor__C.webp']],opties:[['kralen','Kralenketen'],['lint','Lintmodel'],['beide','Kralen bij vouwen, lint als eindvorm']]},
+ {id:'zaadkraker',titel:'Zaadkraker: borst rood of zwart?',tekst:'Bij de zwartbuikzaadkraker is het mannetje volgens de beoordelaar (en zwakkere bronnen) rood aan kop én borst; eBird noemt alleen kop en staart rood. In de tekening die je eerder goedkeurde is de borst zwart.',opties:[['rood','Borst rood maken'],['zwart','Zo laten (zwart)']]},
+ {id:'muilezel',titel:'Muilezel: volle, paardachtige staart?',tekst:'Een muilezel heeft volgens The Donkey Sanctuary een vollere staart dan een ezel (meer als een paard). Maar één bron gevonden.',opties:[['vol','Vollere staart'],['laten','Zo laten']]},
+ {id:'hagedis',titel:'Hagedis: zijwaartse poten met tenen en klauwtjes?',tekst:'De beoordelaar wil gespreide poten met zichtbare tenen; daarvoor moet de pop worden omgebouwd. Weinig sterke bronnen gevonden.',opties:[['ja','Ja, ombouwen'],['nee','Zo laten']]},
+ {id:'eileider',titel:'Twee eileiders: allebei houden?',tekst:'Er zijn twee eileiderobjecten (lengtedoorsnede en dwarsdoorsnede). Een beoordelaar stelde voor er één te schrappen.',opties:[['beide','Allebei houden'],['langs','Alleen lengtedoorsnede'],['dwars','Alleen dwarsdoorsnede']]},
+ {id:'referentie',titel:'ElevenLabs-referentieplaten',tekst:'Voor de dierlijke cel, het hart, het nefron en de bloem is eerst een ElevenLabs-plaat gemaakt (± 190 credits per stuk) en daarna in code nagetekend. Wil je dat vaker?',opties:[['vaak','Ja, bij elk lastig nieuw object'],['soms','Alleen als het echt moeilijk is'],['niet','Liever niet']]}
+];
+function hashStr(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
+function volgorde(o){const a=[...o.opties];let h=hashStr(o.id);for(let i=a.length-1;i>0;i--){h=Math.imul(h^(h>>>13),1103515245)>>>0;const j=h%(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;}
+function meld(t){const m=$('#melding');m.textContent=t;m.hidden=!t;}
+
+async function laad(){
+  try{D=await (await fetch('data.json')).json();}catch(e){$('#lijst').innerHTML='<p>De gegevens konden niet worden geladen.</p>';return;}
+  const gs=[...new Map(D.map(o=>[o.groep,o.groepNaam]))];
+  $('#fGroep').insertAdjacentHTML('beforeend',gs.map(([g,n])=>`<option value="${esc(g)}">${esc(n)}</option>`).join(''));
+  tekenVragen();teken();
+  try{db=await window.claude?.use?.('db');}catch(e){db=null;}
+  if(!db){mag=false;meld('Opslaan werkt alleen als je bent ingelogd op claude.ai. Je kunt wel kijken.');tekenVragen();teken();return;}
+  try{const u=await window.claude.use('user');if(u&&u.can&&u.can('data.write')===false){mag=false;meld('Je kunt kijken maar niet opslaan.');}}catch(e){}
+  db.collection('keuze').onSnapshot(s=>{K={};s.docs.forEach(d=>K[d.id]=d.data());teken();},()=>{});
+  db.collection('vragen').onSnapshot(s=>{V={};s.docs.forEach(d=>V[d.id]=d.data());tekenVragen();},()=>{});
+}
+async function bewaar(col,id,patch){
+  const map=col==='keuze'?K:V;map[id]=Object.assign({},map[id],patch,{tijd:new Date().toISOString()});
+  col==='keuze'?teken():tekenVragen();
+  if(!db||!mag)return;
+  try{await db.collection(col).doc(id).set(map[id]);meld('');}catch(e){meld('Opslaan lukte niet ('+(e&&e.code||'fout')+'). Probeer het zo nog eens.');}
+}
+function tekenVragen(){
+  $('#vragen').innerHTML=VRAGEN.map(v=>{const k=V[v.id]||{};
+    return `<div class="vraag" data-v="${v.id}"><h3>${esc(v.titel)}</h3><p>${esc(v.tekst)}</p>
+    ${v.beelden?`<div class="opties">${v.beelden.map(([t,src])=>`<div class="optie"><div class="plaat"><img src="${src}" alt="${esc(t)}" loading="lazy"></div><span class="olab" style="font-size:14px">${esc(t)}</span></div>`).join('')}</div><br>`:''}
+    <div class="seg">${v.opties.map(([w,t])=>`<button type="button" data-w="${w}" aria-pressed="${k.antwoord===w}" ${mag?'':'disabled'}>${esc(t)}</button>`).join('')}</div>
+    <textarea data-vop placeholder="Toelichting (optioneel)" ${mag?'':'disabled'} aria-label="Toelichting">${esc(k.opmerking||'')}</textarea></div>`;}).join('');
+}
+function onthul(o,k){
+  const b1=o.blind1,b3=o.blind3;const r=[];
+  const sc=s=>s?Object.entries(s).filter(([,v])=>v!=null).map(([a,v])=>`${a} ${v}`).join(' · '):'';
+  if(b1)r.push(`<p><b>Blinde beoordelaar ronde 1:</b> winnaar ${esc(b1.winnaar)} (${esc(b1.marge||'')}) · ${esc(sc(b1.scores))}</p>`+(b1.fout?`<p><b>Fout in alle versies:</b> ${esc(b1.fout)}</p>`:'')+(b1.overnemen?`<p><b>Overnemen:</b> ${esc(b1.overnemen)}</p>`:''));
+  if(b3)r.push(`<p><b>Blinde beoordelaar laatste ronde:</b> winnaar ${esc(b3.winnaar)} (${esc(b3.marge||'')}) · ${esc(sc(b3.scores))}</p>`+(b3.fout?`<p><b>Nog fout:</b> ${esc(b3.fout)}</p>`:''));
+  const zw=Object.assign({},b1&&b1.zwak,b3&&b3.zwak);
+  const z=Object.entries(zw).filter(([,v])=>v).map(([a,v])=>`<p><b>Zwak ${esc(a)}:</b> ${esc(v)}</p>`).join('');
+  if(!b1&&!b3)r.push('<p>Nog geen blind oordeel.</p>');
+  const eens=k.keuze&&(b3||b1)?((b3||b1).winnaar===k.keuze?'Je koos hetzelfde als de beoordelaar.':'Je koos iets anders dan de beoordelaar.'):'';
+  return `<div class="onthul">${eens?`<p><b>${eens}</b></p>`:''}${r.join('')}${z}</div>`;
+}
+function kaart(o){
+  const k=K[o.id]||{};const gekozen=!!k.keuze;const blind=$('#fBlind').checked&&!gekozen;
+  const opts=volgorde(o);
+  return `<article class="kaart${gekozen?' klaar':''}" data-id="${esc(o.id)}">
+   <div class="kop"><h3>${esc(o.obj)}</h3><span class="chip">${esc(o.groepNaam)}</span>${o.nieuw?'<span class="chip nieuw">nieuw object</span>':''}</div>
+   ${o.recept?`<p class="recept">${esc(o.recept.replace(/^#.*\n?/gm,'').trim())}</p>`:''}
+   <div class="opties">${opts.map((p,i)=>`<div class="optie${k.keuze===p.label?' gekozen':''}">
+     <div class="plaat"><img src="${esc(p.img)}" alt="Versie ${i+1}" loading="lazy"></div>
+     <div class="orij"><span class="olab">${i+1}</span>${blind?'':`<span class="ochip">${p.label==='oud'?'huidige versie':'variant '+esc(p.label)}</span>`}
+      <button type="button" class="kies" data-k="${esc(p.label)}" aria-pressed="${k.keuze===p.label}" ${mag?'':'disabled'}>Kies ${i+1}</button></div>
+     ${!blind&&p.vondst?`<div class="vondst">${esc(p.vondst)}</div>`:''}</div>`).join('')}</div>
+   <div class="extra"><button type="button" class="geen" data-k="geen" aria-pressed="${k.keuze==='geen'}" ${mag?'':'disabled'}>Geen van alle: opnieuw</button></div>
+   <textarea data-op placeholder="Waarom deze? Wat moet er nog anders? (optioneel, helpt de patronen)" ${mag?'':'disabled'} aria-label="Opmerking">${esc(k.opmerking||'')}</textarea>
+   ${gekozen?onthul(o,k):''}</article>`;
+}
+function teken(){
+  const g=$('#fGroep').value,open=$('#fOpen').checked;
+  const l=D.filter(o=>(!g||o.groep===g)&&(!open||!(K[o.id]&&K[o.id].keuze)));
+  const act=document.activeElement,aid=act&&act.matches&&act.matches('textarea[data-op]')?act.closest('[data-id]').dataset.id:null,aval=aid?act.value:null;
+  $('#lijst').innerHTML=l.length?l.map(kaart).join(''):'<p class="intro">Niets te tonen met dit filter.</p>';
+  if(aid){const t=document.querySelector(`[data-id="${CSS.escape(aid)}"] textarea`);if(t){t.value=aval;t.focus();}}
+  const n=D.filter(o=>K[o.id]&&K[o.id].keuze).length;$('#telling').textContent=`${n} van ${D.length} gekozen`;$('#vul').style.width=(D.length?n/D.length*100:0)+'%';
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.kies,.geen');if(b){const id=b.closest('[data-id]').dataset.id;bewaar('keuze',id,{keuze:b.dataset.k});return;}
+  const v=e.target.closest('.seg button');if(v){bewaar('vragen',v.closest('[data-v]').dataset.v,{antwoord:v.dataset.w});return;}
+  const im=e.target.closest('.plaat img');if(im){$('#grootImg').src=im.src;$('#grootImg').alt=im.alt;$('#groot').showModal();}
+});
+$('#groot').addEventListener('click',()=>$('#groot').close());
+document.addEventListener('change',e=>{
+  if(e.target.matches('textarea[data-op]'))bewaar('keuze',e.target.closest('[data-id]').dataset.id,{opmerking:e.target.value.slice(0,2000)});
+  if(e.target.matches('textarea[data-vop]'))bewaar('vragen',e.target.closest('[data-v]').dataset.v,{opmerking:e.target.value.slice(0,2000)});
+});
+['#fGroep','#fOpen','#fBlind'].forEach(s=>$(s).addEventListener('change',teken));
+laad();
+</script>

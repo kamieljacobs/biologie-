@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>leeuw(c,x,y,s,o), groot: {"houding": "staan"}, ijkOok: ["A"], standen: [{"houding": "lopen", "t": 0.3}, {"houding": "lopen", "t": 0.6}, {"houding": "liggen"}], klein: {"houding": "staan"}  };

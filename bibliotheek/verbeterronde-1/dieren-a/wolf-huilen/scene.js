@@ -1,0 +1,1 @@
+SCENE = { s0: 3, f: (c,x,y,s,o)=>wolf(c,x,y,s,o), groot: {"houding": "huilen"}, ijkOok: ["A"], standen: [{"houding": "lopen", "t": 0.3}, {"houding": "draven", "t": 0.4}, {"houding": "galop", "t": 0.3}], klein: {"houding": "staan"}  };

@@ -1,0 +1,44 @@
+{
+ "oud": {
+  "detail": "weinig",
+  "vorm": "schematisch",
+  "vulling": "vlak",
+  "contour": "geen",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "geen",
+  "opbouw": "in-een-keer",
+  "referentie": "geen",
+  "vondst": "vijf gebogen sikkels zonder richting of blaasjes"
+ },
+ "A": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "plat",
+  "textuur": "geen",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "cis lichter met ER-kleur, opgezwollen randen, afsnoerend blaasje met suikerketen"
+ },
+ "B": {
+  "detail": "midden",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "gedempt",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "los",
+  "beweging": "proces",
+  "opbouw": "in-een-keer",
+  "referentie": "bron",
+  "vondst": "stapel holle schijven met zijkant en gaatjes aan de trans-kant"
+ }
+}

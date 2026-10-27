@@ -1,0 +1,1 @@
+SCENE = { s0: 1, f: (c,x,y,s,o)=>zeehond(c,x,y,s,o), groot: {"houding":"liggen"}, ijkOok: ["A"], standen: [{"houding":"liggen"}, {"houding":"rupsen","t":0.5}, {"houding":"zwemmen","t":0.3}], klein: {"houding":"liggen"} };

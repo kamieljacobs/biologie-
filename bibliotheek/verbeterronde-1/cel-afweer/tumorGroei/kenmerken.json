@@ -1,0 +1,44 @@
+{
+ "A": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "zijaanzicht: kluwen stapelt op en breekt door basaalmembraan"
+ },
+ "B": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "plat",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "bovenaanzicht als Voronoi-weefsel; kluwen duwt buren opzij"
+ },
+ "C": {
+  "detail": "veel",
+  "vorm": "semi",
+  "vulling": "vlak",
+  "contour": "dun",
+  "kleur": "accent",
+  "diepte": "doorsnede-3d",
+  "textuur": "rustig",
+  "context": "in-omgeving",
+  "beweging": "proces",
+  "opbouw": "in-stappen",
+  "referentie": "bron",
+  "vondst": "Voronoi-tumorcellen zonder overlap; basaalmembraan met omgekrulde breukranden"
+ }
+}

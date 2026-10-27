@@ -1,0 +1,452 @@
+[
+ {
+  "obj": "basering-basebruggen-nucleotidering",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 5,
+    "totaal": 17
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Label 4' staat groot en raakt de rand van de vijfhoek; verder gelijk aan Q",
+   "Q": "Bij kleine maten (rechtsonder) zijn de koolstofnummers niet leesbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "cdcel-cdpool-cdkernmembraan-cddraad",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 2,
+    "bruikbaar": 4,
+    "totaal": 14
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Kernmembraan in metafase alleen als gestippelde ring; weinig organellen",
+   "Q": "Rechtsboven (anafase) staan de chromosomen nog als metafaseplaat op de spoelfiguur in een al uitgerekte cel: anafase ontbreekt; zichtbare korreltjes in het cytoplasma"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "cdchromosoom-cdchromatide-cdeen-cdkluwen",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 19
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Tussenstadium van de condensatie is een dikke band met streepjes: leest meer als ketting dan als opgerolde draad",
+   "Q": "Tussenstadium als druk gekrulde schroef-krabbel; rommelig en slecht leesbaar op filmgrootte"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "chromatidex",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Beide versies zijn pixel-identiek (geen verschil gevonden); winnaar arbitrair",
+   "Q": "Idem, identiek aan P"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "dnaladderhelix",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Op kruispunten van de ruggengraat zijn kleine basen deels bedekt/onleesbaar; groeven niet zichtbaar ongelijk",
+   "Q": "Grote weergave toont alleen kleurblokken zonder puzzelranden of letters: de morph 'ladder met puzzelbasen' ontbreekt in het hoofdbeeld"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Grote en kleine groef zijn in de lange helix in alle versies nauwelijks ongelijk (recept: ongelijk)"
+ },
+ {
+  "obj": "helicasering-primase-ligase",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 2,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 2,
+    "totaal": 13
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Ring bestaat uit gladde taartpunten, geen gevouwen ketens; de streng loopt als balk over de ring heen in plaats van door het gat",
+   "Q": "Zes subeenheden als transparante schijven over elkaar met losse helix-krabbels: ring niet te lezen, klein onleesbaar, ligase/primase vloeien samen"
+  },
+  "overnemen": "Gevouwen-keten/helixtextuur uit Q in de zes segmenten van P leggen, ringvorm van P houden",
+  "combineren": true,
+  "fout": "In beide loopt de DNA-streng als platte balk over de ring in plaats van door het gat (geen voor-/achterkant)"
+ },
+ {
+  "obj": "kernchromatine",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Kernporiën en kernlichaampje nauwelijks zichtbaar; dubbel kernmembraan niet als twee lagen herkenbaar",
+   "Q": "Chromatinedraden dicht op elkaar, een enkel chromosoom is niet te volgen"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Chromosomen in de gecondenseerde stand zijn in beide even lang; het recept vraagt verschil in lengte"
+ },
+ {
+  "obj": "mrnaSliert",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 5,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 21
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Lus bovenaan raakt de paneelrand; codonbogen overlappen de streng op scherpe bochten",
+   "Q": "Te regelmatig golvend: leest als touw, niet als slappe sliert; geen duidelijke 5'/3'-aanduiding"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "nucleosoomdraad",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 2,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 16
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Histonenschijf bestaat uit vier gladde bolletjes (trosje bolletjes); geen histonstaarten",
+   "Q": "Octameer-kern blijft schijf; staarten zijn dun maar herkenbaar"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "polymeraseachter-polymerasevoor",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 5,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 5,
+    "totaal": 20
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 16
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Het eiwit is een gladde, massieve handvorm zonder zichtbare keten/vouwing",
+   "Q": "Gevouwen keten zichtbaar, maar de hand (palm, duim, vingers) en de schuifklem zijn rommelig; klein formaat wordt een klont"
+  },
+  "overnemen": "Ketentextuur (helices en strengen) van Q als laag op de duidelijke handsilhouet van P",
+  "combineren": true,
+  "fout": ""
+ },
+ {
+  "obj": "ribosoomEcht",
+  "scores": {
+   "P": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 3,
+    "totaal": 19
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 3,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Gevouwen eiwit steekt bovenin door de paneelrand; E-, P- en A-plek zijn drie identieke grijze vakken zonder tRNA",
+   "Q": "Groeiende keten is een kralenketting die alleen verlengt en niet vouwt; in de polysoomstrook steekt de keten door de rechterrand"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "De drie tRNA-plekken E, P en A zijn in beide versies lege grijze vakken, niet te onderscheiden en zonder tRNA"
+ },
+ {
+  "obj": "rnaPolymerase",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 17
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 20
+   }
+  },
+  "winnaar": "Q",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "RNA-polymerase is een gladde blob; de basen in de bel zijn gewone staafjes zonder puzzelrand, U/A-paring niet af te lezen",
+   "Q": "Het eiwit is een transparante laag over de DNA-helix heen waardoor de ruggengraat van het DNA achter de ribbons vervaagt"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": "Het enzym loopt in alle versies over de onderrand van het hoofdpaneel"
+ },
+ {
+  "obj": "trnaKlaverblad",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 3,
+    "herkenbaar": 3,
+    "stijl": 3,
+    "beweging": 4,
+    "bruikbaar": 4,
+    "totaal": 17
+   }
+  },
+  "winnaar": "P",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Lussen zijn los kransje van bolletjes (kralenlus) en het aminozuur is een gladde bol zonder zijketen; klaverblad is eigenlijk een kruis",
+   "Q": "Lussen als tandwielen/ringen met streepjes: leest niet als RNA-lus"
+  },
+  "overnemen": "Aminozuur met zijketen (twee bolletjes) uit Q; lus van P houden",
+  "combineren": true,
+  "fout": "Het klaverblad is een kruis met vier gelijke armen; 5'- en 3'-uiteinde (ACC) en D-/T-lus zijn niet te onderscheiden"
+ },
+ {
+  "obj": "vork",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": 3,
+    "bruikbaar": 4,
+    "totaal": 18
+   },
+   "Q": {
+    "klopt": 2,
+    "herkenbaar": 3,
+    "stijl": 2,
+    "beweging": 2,
+    "bruikbaar": 3,
+    "totaal": 12
+   }
+  },
+  "winnaar": "P",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "P": "Enzymen zijn klein en op klein formaat nauwelijks te onderscheiden; ligase niet herkenbaar",
+   "Q": "Primase als trosje bolletjes; schuifklem als losse brokstukken; polymerase een klont"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ },
+ {
+  "obj": "vrijnucleotide-d2base-baseringrna",
+  "scores": {
+   "P": {
+    "klopt": 3,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 15
+   },
+   "Q": {
+    "klopt": 4,
+    "herkenbaar": 4,
+    "stijl": 4,
+    "beweging": null,
+    "bruikbaar": 4,
+    "totaal": 16
+   }
+  },
+  "winnaar": "Q",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "P": "Maar één fosfaat; een vrije nucleotide voor replicatie is een trifosfaat",
+   "Q": "Drie fosfaten als even grote losse bolletjes; letter P ontbreekt in beide"
+  },
+  "overnemen": "",
+  "combineren": false,
+  "fout": ""
+ }
+]
