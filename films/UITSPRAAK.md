@@ -136,3 +136,17 @@ Ronde 2 (19 okt 2026), gekozen stem-invoer:
 Ronde 4 (19 okt 2026): **E. coli** (eleven_v3) → stem-invoer "E. kóólie" (nadruk op kóólie); **gibberelline** → "giebereliene". Hiermee zijn alle woorden uit de test van 18 okt vastgelegd.
 
 Let op: "E. coli" bestaat uit twee tokens; vervang in de tekst zelf "E. coli" door "E. kóólie" (geen regel in uitspraak.json).
+
+
+## Uitspraaktest erfelijkheid (28 okt 2026, eleven_v4, Roos)
+
+Luisterpagina https://claude.ai/artifact/K3YNurbu7mGVzPFfqt33Ra (collectie `keuzes`), flow https://elevenlabs.io/app/flows/aErfIyThMXUDp4fcy7At. Aanleiding: 'allel' klonk fout in de oude erfelijkheidsfilms 2–6 (oud model) en één keer in Chromosomen 2.1. Kamiel koos:
+
+| Woord | Stem-invoer | Afgewezen |
+|---|---|---|
+| allel | allel (gewoon) | al-LEL, allèl, a-lel |
+| allelen | allelen (gewoon) | al-LEE-len, alleelen |
+| gameet / gameten | ga-MEET / ga-MEE-ten | gameet/gameten (klonk Engels), gaméét/gaméten |
+| Iᴬ, Iᴮ, i (bloedgroep) | I-A, I-B, i (dus IᴬIᴮ = 'I-A I-B', Iᴬi = 'I-A i', ii = 'i i') | ie-aa ie-bee / kleine ie; grote I A / kleine i |
+
+Les: bij eleven_v4 is 'allel' met de gewone spelling goed; een losse misser in één take = die alinea opnieuw (één take), geen respelling.

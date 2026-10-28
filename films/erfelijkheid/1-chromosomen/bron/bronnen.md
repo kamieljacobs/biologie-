@@ -37,6 +37,8 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | B19 | B | Malmquist, S. & Prescott, K., *Human Biology* 2e, § 5.2 Meiosis (open leerboek, bewerking van OpenStax) | https://open.lib.umn.edu/humanbiology2e/chapter/5-2-meiosis/ |
 | B20 | A | Sanders, J.R. & Jones, K.T. (2018). *Regulation of the meiotic divisions of mammalian oocytes and eggs*. Biochemical Society Transactions 46(4): 797–806, doi 10.1042/BST20170493 (versie van de uitgever, eprints Southampton) | https://eprints.soton.ac.uk/422026/2/BST_2017_0493C_VoR.pdf |
 | B21 | A | Sen, A. & Caiazza, F. (2013). *Oocyte maturation: a story of arrest and release*. Frontiers in Bioscience-Scholar 5(2): 451–477 (samenvatting) | https://www.imrpress.com/journal/fbs/5/2/10.2741/S383 |
+| B22 | A | MedlinePlus Genetics (NIH/NLM), *TYR gene* (OCA1A: tyrosinase-activiteit weg; OCA1B: verlaagd, wat melanine) | https://medlineplus.gov/genetics/gene/tyr |
+| B23 | A | Lin, S. e.a. (2022). *Evidence that the Ser192Tyr/Arg402Gln in cis Tyrosinase gene haplotype is a disease-causing allele in OCA1B*. npj Genomic Medicine ('residual catalytic activity' bij OCA1B, 'complete abolition' bij OCA1A) | https://www.nature.com/articles/s41525-021-00275-9.pdf |
 
 ## Beweringen
 
@@ -72,6 +74,7 @@ Alle bronnen op 25 okt 2026 zelf geopend. NCBI (PubMed, PMC, GeneReviews, NCBI G
 | 28 | s31 | Dominant betekent niet sterker en niet vaker voorkomend | B16, B8 | ✓ | B16: een dominant allel 'determines the phenotype of the heterozygote', niet het meest voorkomende; B8: een variant 'may be recessive or dominant to the wild-type allele' |
 | 29 | s32 | Homozygoot = twee dezelfde, heterozygoot = twee verschillende allelen; hoofdletter dominant, kleine letter recessief | B8, B1 | ✓ | B8: 'two identical alleles'; 'uppercase and lowercase letters to represent dominant and recessive alleles' |
 | 30 | s33–s34 | UV-licht zet pigmentcellen aan om meer melanine te maken; fenotype = genotype + milieu; bij aa geen werkend enzym, dus ook met zon geen pigment | B7, B15, B1, B4 | ≈ | B7: UV stimuleert de melanineaanmaak, piek na ± 10 dagen; B15: UV 'main physiological stimulus', meer tyrosinase-activiteit; B1: 'fenotype ontstaat onder invloed van een combinatie van genotype en milieufactoren'. 'Geen pigment' geldt voor OCA1A; bij OCA1B kan wat pigment ontstaan (B4). De cold open zegt 'bijna geen' |
+| 31 | s34 | Een recessief allel betekent niet altijd een eiwit dat helemaal niet werkt: soms werkt het alleen minder goed of anders (nieuw in 2.2) | B22, B23 | ✓ | Bij hetzelfde gen (TYR): OCA1A geen activiteit, OCA1B restactiviteit (B22, B23) |
 
 ## Aanpassingen
 

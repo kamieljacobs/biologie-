@@ -1,4 +1,4 @@
-# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.1 · oktober 2026)
+# Chromosomen en de taal van erfelijkheid — gesproken tekst (versie 2.2 · oktober 2026)
 
 Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow oAnn8B6fDC6LBw9fFw28. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (A/a als 'grote A'/'kleine a', X/Y, n/2n). Oude versie: `oud/script-v1.md`.
 
@@ -121,7 +121,7 @@ Er is een allel dat een werkend enzym oplevert. Dat noemen we A. En er is een al
 
 _Stem-invoer:_ Er is een allel dat een werkend enzym oplevert. Dat noemen we grote A. En er is een allel met een fout, waardoor het enzym niet werkt. Dat noemen we kleine a.
 
-**s26** · audio `s26.mp3` · 16.6 s · generation `i0EUXtuAcHnGXuUveMGN`
+**s26** · audio `s26.mp3` · 16.2 s · generation `xUnCFtF3Oc6NIgTa5jT6`
 
 De combinatie van allelen die iemand heeft, heet het genotype. Er zijn drie mogelijkheden: AA, Aa, en aa. Iemand met Aa heeft maar één werkend allel.
 
@@ -168,11 +168,11 @@ _Stem-invoer:_ Nog twee woorden. Twee dezelfde allelen, grote A grote A of klein
 
 Toch ligt je fenotype niet helemaal vast in je genen. Hier twee keer hetzelfde genotype. Deze arm is in de zon geweest. UV-licht zet de pigmentcellen aan om méér melanine te maken. De huid wordt bruiner.
 
-**s34** · audio `s34.mp3` · 17.2 s · generation `25vtjYQ5uIy837JudKHv`
+**s34** · audio `s34.mp3` · 23.8 s · generation `lnzVtZdkjcmGbvWcDsJJ`
 
-Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.
+Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment. Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt. 
 
-_Stem-invoer:_ Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij kleine a kleine a is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.
+_Stem-invoer:_ Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij kleine a kleine a is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment. Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt.
 
 ## Hoofdstuk 6 — Terug naar de familie
 

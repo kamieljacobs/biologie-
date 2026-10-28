@@ -7,7 +7,7 @@ Versie 2.0 is een herbouw in de FILMDATA-straat (25 okt 2026); versie 2.1 verwer
 | Bestand | films/erfelijkheid/1-chromosomen.html (audio in `1-chromosomen/audio/`) |
 | Reeks / nummer | Erfelijkheid · film 1 van 6 (§ 3.1 – 3.2) |
 | Doelgroep / niveau | havo en vwo bovenbouw, één niveau (geen vwo-blokken) |
-| Versie / datum | 2.1 · 25 okt 2026 |
+| Versie / datum | 2.2 · 28 okt 2026 (gerichte ronde 28 okt 2026) |
 | Prompt | v10 |
 | Voldoet aan | prompt v10 (25 okt 2026); bewust niet: één voorspelvraag per hoofdstuk (B4) in hoofdstuk 1, 3 en 5 (Kamiel 25 okt: geen extra vragen) |
 | Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (s30, s35 en s15 later opnieuw); flow `oAnn8B6fDC6LBw9fFw28` |
@@ -61,5 +61,6 @@ Werkmap buiten de repo (bv. `hw/chr1`), met de bestanden uit deze bronmap: `segm
 - Klemtoon van DNA, allel en genotype staat op de wachtlijst voor Kamiels oor (`uitspraak.md`).
 
 ## Wijzigingen
+- 28 okt 2026 — Versie 2.2 (gerichte ronde na Kamiels review in de reviewstand): s26 opnieuw ingesproken ('allelen' klonk fout; uitspraaktest 28 okt: gewone spelling blijft), s34 opnieuw ingesproken met de nuance 'Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt.' plus een label in beeld (cue 'geldt'); bronnen B22, B23, bewering 31. 205 + 357 credits.
 - 25 okt 2026 — Versie 2.1: frisse beeldreview verwerkt. s06 labels (celkern bij de goede kern, onderschriften leesbaar), s08 kopiëren zichtbaar (één chromatide → X), s15 opnieuw ingesproken en eicel genuanceerd (zaadcel één chromatide, eicel maakt laatste deling af na binnendringen zaadcel; Kamiel 25 okt), s15/s16 eicel met X'en, q14-uitleg, s21 en s41 vanaf t = 0 gevuld, s26 zonder '?' bij Vragen uit, s33 duidelijk meer melanine, s38 chromosomen 11 die van de ouders naar Levi gaan, plus kleine KAN-punten.
 - 25 okt 2026 — Versie 2.0: herbouw in de FILMDATA-straat volgens het verbeterblad (chr-1 t/m chr-12) en prompt v10; nieuwe stem (37 takes, s30 en s35 na de keuring opnieuw), gezin De Wit, nieuwe gedeelde tekeningen (huid, kern, DNA rond eiwitten, onderarm), karyogram en simulatie opnieuw gebouwd, huidige speler (snelheid, Vragen aan/uit), donker standaard, bronnenlogboek. De oude film staat in `oud/`.

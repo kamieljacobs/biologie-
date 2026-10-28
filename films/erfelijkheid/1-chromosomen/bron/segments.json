@@ -1416,10 +1416,10 @@
   "look": "Schema",
   "level": "basis",
   "lines": [
-   "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment."
+   "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment. Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt."
   ],
-  "display": "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.",
-  "voice": "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij kleine a kleine a is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment.",
+  "display": "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij aa is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment. Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt. ",
+  "voice": "Het fenotype ontstaat dus uit het genotype én invloeden uit de omgeving: het milieu. Maar het milieu kan alleen werken met wat de genen mogelijk maken. Bij kleine a kleine a is er geen werkend enzym. Hoeveel zon er ook komt: er komt geen pigment. Dat geldt niet voor elk recessief allel: soms maakt het een eiwit dat alleen minder goed, of net anders werkt.",
   "vmap": [
    0,
    1,
@@ -1465,7 +1465,27 @@
    38,
    39,
    40,
-   41
+   41,
+   42,
+   43,
+   44,
+   45,
+   46,
+   47,
+   48,
+   49,
+   50,
+   51,
+   52,
+   53,
+   54,
+   55,
+   56,
+   57,
+   58,
+   59,
+   60,
+   61
   ]
  },
  {

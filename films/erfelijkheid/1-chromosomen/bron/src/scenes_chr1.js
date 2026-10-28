@@ -232,7 +232,8 @@ Object.assign(SCENES, {
     onderarm(ctx, 120, 260, 9, { id: 'marieke' }); onderarm(ctx, 120, 460, 9, { id: 'marieke', bruin: 0.9, mouwOp: 2 }); onderarm(ctx, 120, 660, 9, { id: 'levi', a: bij });
     allelChip(ctx, 'Aa', 600, 260, 1, { px: 30 }); allelChip(ctx, 'Aa', 600, 460, 1, { px: 30 }); allelChip(ctx, 'aa', 600, 660, bij, { px: 30 }); zon(ctx, 480, 380, 18, 1, t); zon(ctx, 480, 580, 18, zo, t);
     termKaart(ctx, 'fenotype = genotype + milieu', 'milieu: invloeden uit de omgeving, zoals zonlicht', 1240, 170, mi, C.goud, 1000);
-    if (bij > 0.01) { zoomCircle(ctx, 1240, 620, 150, 480, 660, null, bij, () => { chMicro(ctx); huidDoorsnede(ctx, 1080, 320, 320, 420, { um: 70, seed: 11, mel: 0, t, huidTint: '#EED8CE' }); }); _vR(ctx, 'geen werkend enzym', 'zon helpt niet: geen pigment', 1240, 830, q.on('Hoeveel', 1, 0.5), 'center', C.goud); } },
+    if (bij > 0.01) { zoomCircle(ctx, 1240, 620, 150, 480, 660, null, bij, () => { chMicro(ctx); huidDoorsnede(ctx, 1080, 320, 320, 420, { um: 70, seed: 11, mel: 0, t, huidTint: '#EED8CE' }); }); _vR(ctx, 'geen werkend enzym', 'zon helpt niet: geen pigment', 1240, 830, q.on('Hoeveel', 1, 0.5), 'center', C.goud); }
+    _vR(ctx, 'niet bij elk gen zo', 'soms werkt het eiwit alleen minder goed of anders', 1240, 375, q.on('geldt', 1, 0.5), 'center'); },
 
   // ---------------- Hoofdstuk 6 — Terug naar de familie (Macro)
   s35(ctx, t, q) { kamer(ctx); const ch = q.on('allebei', 2, 0.5), w = q.on('wel', 1, 0.5);
