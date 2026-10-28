@@ -8,6 +8,12 @@ Per object (map `<groep>/<obj>/`): lees `recept.md` (wat het object biologisch m
 
 Scoor elke still 1–5 op: **klopt** (biologisch juist: vorm, verhouding, onderdelen, plaats) · **herkenbaar** (een leerling van 15 herkent het meteen, ook klein) · **stijl** (rustig, fijne lijnen, past bij Part C: geen korrel, geen bolletjes-eiwitten, gebogen membranen, niets buiten het membraan, realistische maten) · **beweging** (zijn de getoonde standen/animatie duidelijk en kloppend; n.v.t. als er geen beweging is) · **bruikbaar** (werkt het klein en groot, ruimte voor namen). Totaal = som.
 
+**Rust en eenvoud wegen zwaar** (ijking 28 okt 2026). Kamiel koos maar 56% van de keren hetzelfde als deze beoordelaar, ook bij 'duidelijke' winnaars (59%). Het verschil: de beoordelaar beloonde volledigheid en extra detail, Kamiel kiest helderheid. Zijn woorden: 'te druk', 'het mag simpeler', 'minimalistisch, want DNA is al moeilijk genoeg voor de leerlingen', 'de organellen leiden af'. Hij koos elf keer de huidige, eenvoudigere versie boven een rijkere variant. Dus:
+- Tel een onderdeel alleen als plus als het recept het vraagt. Extra details, labels, korrels of decor die niet in het recept staan, zijn een **minpunt bij stijl**.
+- Vraag je per still af: ziet een leerling van 15 in twee seconden waar het om gaat? Zo niet, dan maximaal 3 op herkenbaar, hoe juist het ook is.
+- Paars alleen waar het een betekenis heeft (zie 'Minder paars, meer contrast' in BEELDAFSPRAKEN); onderdelen die je uit elkaar moet houden in vergelijkbare tinten is een minpunt bij herkenbaar.
+- Bij gelijke stand wint de rustigste versie.
+
 Schrijf `<groep>/OORDEEL.json`: lijst van
 `{"obj": "...", "scores": {"X": {"klopt":n,...,"totaal":n}, "Y": {...}, "Z": {...}}, "winnaar": "X|Y|Z", "marge": "duidelijk|nipt", "zwakste_plek": {"X": "...", "Y": "...", "Z": "..."}, "overnemen": "wat uit de verliezer(s) in de winnaar moet (concreet), of leeg", "combineren": true|false, "fout": "biologische fout die in alle versies zit, of leeg"}`
 Nipt = je zou de nummer twee ook kunnen verdedigen (marge ≤ 1 punt of zo voelt het). Zet `combineren: true` als een combinatie van winnaar + iets uit een verliezer duidelijk beter zou zijn.
