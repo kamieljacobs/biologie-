@@ -1,0 +1,32 @@
+# Overdracht: opwaardering Regeling + beeldbank (nacht 28–29 okt 2026)
+
+Lees dit in een nieuwe chat om verder te gaan. Brief van de nacht: `films/OPWAARDEREN-REGELING.md`. Details per film: `films/<map>/<film>/bron/opwaardering-v13.md` (wat veranderde, herinspreeklijst, vragen) en `bron/bronnen.md`.
+
+## Wat er gebeurd is
+- **Beeldbank** (28 okt, drie keuringsrondes met Kamiel): keuzes ingebouwd in `bibliotheek/lib_bio.js`; DNA-palet B (A rood, T geel, C lichtblauw, G donkerblauw, ruggengraat grijs; RNA zelfde basen, teal ruggengraat); eiwitten als kralenketen; navelstreng: kleur volgt zuurstof. Overeenstemming Kamiel ↔ blinde beoordelaar: ronde 1 56%, ronde 2 67% (brief `bibliotheek/verbeterronde-1/BLIND.md` aangepast: eenvoud weegt zwaar). Besluiten: `bibliotheek/verbeterronde-2/uitslag/BESLUITEN.md`, `verbeterronde-3/uitslag/BESLUITEN.md`, README-secties Verbeterronde 1–3.
+- **Regeling**: alle 13 films (Zenuwstelsel 1–8, Hormonen 1–5) zijn naar prompt v13 opgewaardeerd **zonder keuring**, getest (B11-scripts, elke vraag met Vragen uit, contactvel van de gewijzigde scènes) en gepusht. Stem, script, vragen, timings en datum bleven; niets ingesproken, 0 credits. Hoofdpunten: grijze poppetjes → castpersonages (Noor, Daan, Teun, Linda, Erik); realistisch lichaam (`lib_anatomie.js`) met organen op hun plek en zoomcirkel náást het hoofd; beeldbankobjecten (hoofd/hersenen, nier/bijnier, membraan, receptor, lever, spier, witte bloedcellen); geen korrel buiten cellen; gebogen membranen; minder paars; gesproken 'voor vwo'-aankondigingen geknipt; bij Vragen uit geen 'Het goede antwoord is …' meer in de ondertitel; bronnenlogboek per film.
+- Alle 13 staan op 'nog bekijken' (index.html REVIEW). Had een film in de reviewpagina al status 'bekeken/goed': daar op 'Opnieuw bekijken' zetten.
+
+## Open voor Kamiel
+**Polymerase** (beeldbank): 'geen duidelijke winnaar'; voorstel = de kralenlus van de beoordelaar (verbeterronde-3/dna/polymeraseachter-polymerasevoor, W.js). Wacht op ja/nee.
+
+**Herinspreeklijst (niets opgenomen; totaal ± 5.000–8.500 credits, afhankelijk van keuzes):**
+- Uitgesproken personagenamen (regel B4): Slaap s01/s12/s19 'Bilal en Sam' → 'twee vrienden' (± 1.550; s12 meteen 'alleen' → 'vooral opgeruimd'); Zintuigen s01/s12/s20 'Noor' (± 2.000, of s12 deels gratis knippen); Suiker in balans 'Sanne' (alleen als zij een castpersonage wordt; ± 2.200).
+- 'Voorspel.' → 'Wat denk je?' in Zenuwstelsel 1 q1–q6 en 2 q1–q5 (± 1.650, of 0 als we het woord wegknippen).
+- Inhoud: Zenuwstelsel 2 q5 'Alleen op druk?' (± 200); Zenuwstelsel 1 a3 reactietijd 0,2 s (± 450, zie vraag); Zenuwstelsel 4 a4 'binnen tien seconden' → 'binnen een paar seconden' (optioneel ± 1.000); Zenuwstelsel 5 a5 temperatuurregeling (wachtlijst 15 okt, ± 1.500 + nieuw beeld); Hormonen 1 s20 'ongeveer' → 'minder dan een tienmiljoenste gram' (± 480) en s15 G-eiwit/cAMP (wachtlijst, ± 710).
+
+**Vragen (keuzes van Kamiel):**
+- Zenuwstelsel 1–6 hebben nog het lichte ontwerp van vóór Part C. Hele reeks naar de donkere stijl = lichte remake. Doen?
+- Zenuwstelsel 1: '0,2 s van bal tot remmen' geldt voor een verwachte prikkel; bij een onverwachte bal eerder ± 1 s (`!` in bronnenlogboek).
+- Kleuren in de reeks: zenuwen/neurotransmitter paars terwijl Part C zenuwsignaal teal zegt; cortisol teal; REM-slaap paars. Gelijktrekken in beide reeksen?
+- Suiker in balans: welk castpersonage krijgt diabetes type 1 (bv. Yasmin), of een nieuwe figurant?
+- Stress: cold open speelt in een klas, de stem zegt 's avonds thuis. Decor aanpassen?
+- Knoeien met de synaps: Linda met wijn in de 'je'-scène goed? Eigen synaps → `synapsEcht` uit de beeldbank? Beloningssysteem (wolk) → hersendoorsnede?
+- Zintuigen: 'oudziend vanaf je veertigste' (NEI: meestal na 45)?
+- Nieuwe beeldbankobjecten voorgesteld: oog, oor, evenwichtsorgaan, hersenen zijaanzicht met echte plooien, insulinereceptor, eilandje van Langerhans, cytotoxische T-cel, kinderbot met groeischijven, antistof, kleine membraanreceptor; castboek: pose 'fiets', Noor op ±6 jaar.
+- Hormonen 1/3: docentdeel-aanvullingen (o.a. Cohen 1991 ging over langere stress; lisvan Henle-lengte kangoeroerat is een vereenvoudiging).
+
+## Ook nog (zonder keuring, kan meteen)
+- Griepvirus en chromosomen in `bibliotheek/dieren/lib_micro_evo.js` nog paars → palet B.
+- Eigen kopieën van beeldbankobjecten in `tools/docent/dna-3/beeldbank.js` en Transport 6 bijwerken bij hun volgende opwaardering.
+- Volgende thema's opwaarderen in de volgorde van de jaarplanner, op dezelfde manier (brief hergebruiken).

@@ -55,7 +55,7 @@
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 70 films
+### Noor (`noor`) — 74 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, microben, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren
@@ -66,6 +66,7 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `extra`: geschiedenis-van-de-biologie
 - `gaswisseling`: 3-uitscheiding-en-evenwicht
 - `gedrag`: 2-inprenting-en-de-sensitieve-periode, 6-attributie, 8-honingbij
+- `hormonen`: 1-post-voor-iedereen, 2-suiker-in-balans, 4-stress, 5-water-in-balans
 - `onderbouw/32a`: 2-van-cel-tot-lichaam, 2b-rondleiding-door-je-lichaam, 4-ademhaling-en-bloedsomloop, 7-zenuw-en-hormoonstelsel
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
 - `onderbouw/32c`: 1-voeding-en-beweging, 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
@@ -141,14 +142,16 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: diergeneeskunde-2-bronst-dekken-kalven, diergeneeskunde-3-van-dier-naar-mens, diergeneeskunde-4-welzijn-meten, fysiotherapie-1-wat-is-er-met-die-knie, leraar-2-een-practicum-dat-werkt, mbrt-1-in-het-lichaam-kijken, neurowetenschappen-1-je-brein-vult-het-in, psychologie-1-welke-therapie-werkt, psychologie-4-meten-wat-je-niet-kunt-zien, tandheelkunde-2-van-glazuur-tot-zenuw, verpleegkunde-2-hoe-weefsel-herstelt
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
-### Teun (`kind`) — 14 films
+### Teun (`kind`) — 17 films
 - `afweer`: 2-antistoffen-op-maat
 - `cellen`: microben
 - `examens`: vwo-2018-2
+- `hormonen`: 1-post-voor-iedereen
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 4-ziek-worden-en-beter-worden
 - `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen, neurowetenschappen-2-brein-en-computer, psychologie-3-aanleg-of-opvoeding, psychologie-6-kun-je-je-geheugen-vertrouwen
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
+- `zenuwstelsel`: 1-een-seconde, 3-de-spleet
 
 ### Baby (`baby`) — 15 films
 - `afweer`: 4-vaccins-allergie-en-bloedgroepen
@@ -214,10 +217,11 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Mondhygiënist Ilse (`ilse`) — 3 films
 - `vervolg`: tandheelkunde-1-zuur-in-je-mond, tandheelkunde-3-bloedend-tandvlees, tandheelkunde-4-een-tand-door-bot
 
-### Linda (`linda`) — 3 films
+### Linda (`linda`) — 4 films
 - `evolutie`: x2-het-ontstaan-van-het-leven
 - `vervolg`: biomedisch-2-crispr-wat-doet-dit-gen
 - `voortplanting`: celdeling
+- `zenuwstelsel`: 8-zintuigen
 
 ### Rachid (`rachid`) — 2 films
 - `evolutie`: x2-het-ontstaan-van-het-leven
@@ -240,8 +244,9 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Thijs (`thijs`) — 1 films
 - `evolutie`: 1-wat-is-evolutie
 
-### Erik (`erik`) — 4 films
+### Erik (`erik`) — 5 films
 - `evolutie`: 4-de-mens-als-selectiefactor
+- `hormonen`: 3-de-baas-van-de-klieren
 - `vervolg`: biomedisch-3-van-lab-tot-patient, forensisch-2-hoe-zeker-is-een-match
 - `voortplanting`: 3-anticonceptie-soa-voortplantingstechniek
 
@@ -315,6 +320,6 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Wilma (`wilma`) — 0 films
 - (geen films gevonden)
 
-### Voorbijganger (`passant`) — 0 films
-- (geen films gevonden)
+### Voorbijganger (`passant`) — 1 films
+- `hormonen`: 3-de-baas-van-de-klieren
 <!-- AUTO:end -->
