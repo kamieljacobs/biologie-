@@ -4916,7 +4916,7 @@ function tumorGroei(ctx, x, y, s = 1, o = {}) {
   ctx.strokeStyle = rgba('#C9A890', 0.3); ctx.lineWidth = Math.max(0.8, s); for (let i = 0; i < 9; i++) { const yy = y + (40 + i * 12) * s; ctx.beginPath(); ctx.moveTo(x - W / 2, yy + 10 * s * Math.sin(i)); ctx.bezierCurveTo(x - W / 6, yy - 12 * s, x + W / 6, yy + 14 * s, x + W / 2, yy - 6 * s); ctx.stroke(); }
   bloedvat(ctx, [[x - W / 2, y + 105 * s], [x - W / 6, y + 95 * s], [x + W / 5, y + 112 * s], [x + W / 2, y + 100 * s]], 13 * s, t, { n: 7, cel: 9 * s });
   // basaalmembraan (gaat open waar de tumor doorbreekt)
-  ctx.strokeStyle = _TG.bm; ctx.lineWidth = Math.max(1.5, 3 * s); const gap0 = tumX - cw * 0.9 * inval, gap1 = tumX + cw * 0.9 * inval;
+  ctx.strokeStyle = _TG.bm; ctx.lineWidth = Math.max(1.5, 3 * s); const gap0 = tumX - cw * 1.2 * inval, gap1 = tumX + cw * 1.2 * inval;
   for (const [p0, p1] of (inval > 0.02 ? [[x - W / 2, gap0], [gap1, x + W / 2]] : [[x - W / 2, x + W / 2]])) { ctx.beginPath(); for (let i = 0; i <= 30; i++) { const px = lerp(p0, p1, i / 30); i ? ctx.lineTo(px, by(px) + 2 * s) : ctx.moveTo(px, by(px) + 2 * s); } ctx.stroke(); }
   // gewone cellen: cilindrisch, één laag, kern onderin
   for (let i = 0; i < N; i++) { const cx = x + (i - N / 2 + 0.5) * cw; const b0 = by(cx); if (i === mid && n > 0) continue;
@@ -4935,6 +4935,11 @@ function tumorGroei(ctx, x, y, s = 1, o = {}) {
       if (hash(i * 9.7) < 0.22 && rr > 6) _tgDeling(ctx, px + jx, py + jy, rr * 0.7, lw);
       else _tgBlob(ctx, px + jx + rr * 0.05, py + jy, rr * (0.42 + 0.15 * hash(i * 4)), rr * (0.38 + 0.12 * hash(i * 6)), i * 5 + 1, _TG.tumK, _TG.kernR, lw, 0.25); });
     ret.tumor = [tumX, Math.min(...top.map(p => p[1])) - sp * 0.2]; }
+  // gescheurde randen van het basaalmembraan bovenop de tumor, zodat het gat zichtbaar blijft (invasie; Kamiel 28 okt 2026)
+  if (inval > 0.02) { ctx.strokeStyle = _TG.bm; ctx.lineWidth = Math.max(1.5, 3 * s); ctx.lineCap = 'round';
+    for (const [g0, dir] of [[gap0, -1], [gap1, 1]]) { const L = cw * 0.9; ctx.beginPath(); ctx.moveTo(g0 + dir * L, by(g0 + dir * L) + 2 * s);
+      for (let i = 1; i <= 12; i++) { const px = lerp(g0 + dir * L, g0, i / 12); ctx.lineTo(px, by(px) + 2 * s); }
+      ctx.quadraticCurveTo(g0 - dir * cw * 0.12, by(g0) + 6 * s * inval, g0 - dir * cw * 0.08, by(g0) + 16 * s * inval); ctx.stroke(); } }
   ctx.restore(); return ret;
 }
 
