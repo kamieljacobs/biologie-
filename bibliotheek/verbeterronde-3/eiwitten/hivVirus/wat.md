@@ -1,0 +1,1 @@
+De Env-spikes: gp41 is een steeltje van drie kleine kralen door de envelop, gp120 een trimeer van drie lobben die elk een kluwentje van drie kralen zijn (bij kleine spikes, ks < 3 px, één kraal per lob zoals nu). Envelop, capside, RNA, fusie en ankerpunten ongewijzigd.
