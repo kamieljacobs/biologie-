@@ -99,6 +99,9 @@ Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen. `la
 
 Uitspraak na de uitspraaktest van 18 okt: stem-invoer rodopsinuh → rodopsine (s13, vwo), Eu-staagie-jus → Eustachius (s15), baazie-lèr → basilair (s19, vwo); regels uit `bouw/uitspraak_film.json` gehaald. Deze drie alinea's opnieuw ingesproken (Roos, eleven_v4, 1 take per alinea, flow jwxXn0Jgpax90BkTRIQ3; nodes in `stem/takes.json`; 1.497 credits TTS + Scribe voor de woordtijden). Alleen de mp3's in `audio/` en de woordtijden in `window.FILMDATA` zijn vervangen; beeld en speler ongewijzigd. Duur vrijwel gelijk (spraak 8:08 → 8:07).
 
+## Wijzigingen na 1.1
+- 29 okt 2026 — nacontrole 29 okt: s18 de labels 'stop je: vloeistof stroomt nog even door' en 'hersenen: "ik draai nog" → duizelig' boven Noors hoofd lopen nu na elkaar (eerste weg in de eerste helft van de overgang, tweede komt in de tweede helft) in plaats van over elkaar heen. Alleen `s18` in `src/scenes.js`, ingebouwd met `bouw/inbouw.py`.
+
 ## Wijzigingen 1.1 (28 okt 2026, opwaardering naar prompt v13, zonder keuring)
 
 Stem, script, vragen, timing en speler ongewijzigd. Per scène:

@@ -2377,7 +2377,7 @@ const SCENES = {
       const fl = q.on('stroomt', 1) * (dr * (1 - st) * Math.sin(t * 2) + st * (1 - q.on('duizelig', 1) * 0.3) * 0.8); for (let k = 0; k < 6; k++) { const an = 3.5 + ((k / 6 + t * fl * 0.3) % 1) * 2.4; if (i === 0) circ(ctx, cx + r * Math.cos(an), cy + r * Math.sin(an), 5, rgba('#F2F2EE', 0.6 * Math.abs(fl))); } ctx.restore(); });
     regel(ctx, 'drie kanalen vol vloeistof, elk in een andere richting', 1300, 820, q.on('vloeistof', 1), C.text2, 26, 'center', 700);
     zoomCircle(ctx, 1700, 280, 130, 1200, 330, 'haarcellen', q.on('buigen', 1), () => { haarcel(ctx, 1700, 330, 1, dr * (1 - st) * Math.sin(t * 2) + st * 0.8, 1, 0, C.teal); });
-    tag(ctx, 'stop je: vloeistof stroomt nog even door', 560, 262, C.goud, st * (1 - q.on('duizelig', 1))); tag(ctx, 'hersenen: "ik draai nog" → duizelig', 560, 262, C.koraal, q.on('duizelig', 1));
+    { const dz = q.on('duizelig', 1); tag(ctx, 'stop je: vloeistof stroomt nog even door', 560, 262, C.goud, st * Math.max(0, 1 - 2 * dz)); tag(ctx, 'hersenen: "ik draai nog" → duizelig', 560, 262, C.koraal, Math.max(0, 2 * dz - 1)); } // nacontrole 29 okt 2026: na elkaar, niet over elkaar
     if (q.on('duizelig', 1) > 0.01) { ctx.save(); ctx.globalAlpha *= q.on('duizelig', 1); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); for (let i = 0; i < 60; i++) { const an = i * 0.35 + t * 3, r = i * 1.6; i ? ctx.lineTo(560 + r * Math.cos(an), 335 + r * 0.4 * Math.sin(an)) : ctx.moveTo(560, 335); } ctx.stroke(); ctx.restore(); }
     ctx.restore();
     if (bl > 0.01) { ctx.save(); ctx.globalAlpha *= bl; const tilt = q.on('staat', 1) * 0.35 * Math.sin(t * 1.2);

@@ -63,7 +63,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Zenuwstelsel 8 · Zintuigen
 
-1. s18 ± 467 s: twee labels boven Noors hoofd liggen precies over elkaar ('stop je …' en '… → duizelig'). Onleesbaar. **hoog**
+1. s18 ± 467 s: twee labels boven Noors hoofd liggen precies over elkaar ('stop je …' en '… → duizelig'). Onleesbaar. **hoog** — hersteld
 2. s10/s11: 'holle lens' is erg klein. 'gele vlek / VEEL KEGELTJES' ligt over de oogrand. **laag**
 3. Vragen uit: de pil 'antwoord b' in s12 en s17 is weg ✓. Noor in s01 (maat en kleur jas) ✓.
 
