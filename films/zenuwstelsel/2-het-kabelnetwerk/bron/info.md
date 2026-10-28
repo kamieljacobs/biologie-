@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/2-het-kabelnetwerk.html |
 | Reeks / nummer | Zenuwstelsel, film 2 (pagina: “hoe een zenuwcel een bericht verstuurt · 5 vwo · film 2 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 2 van 6”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | 1.0 · 4 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 4 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): gebogen membraan, nuance bij de adequate prikkel; 1.0 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes, script, vragen, timings en speler behouden). Bewust niet: (1) de film blijft in het eigen lichte reeksontwerp van vóór Part C (lichte schema-scènes, Inter, eigen ionkleuren oranje/blauw); omzetten naar donker navy met de beeldbank is een nieuwe stijl → vraag aan Kamiel; (2) het neuron in a1 blijft de eigen vlakke tekening (geen `zenuwcel` uit de beeldbank: die is voor de donkere motor gemaakt); (3) de cold open toont alleen een been met blote voet tegen de tafelpoot, geen heel castpersonage (close-up van een lichaamsdeel, geen grijs poppetje; vervangen = andere aanpak van de scène → vraag); (4) de gesproken optie 'Alleen op druk?' in q5 blijft (opgelost in beeld, zie Wijzigingen); (5) 'Voorspel.' in de gesproken vragen blijft (geen nieuwe opnames) |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:10 gesproken (som van 14 mp3’s, 310,2 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:20 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (keuken ’s nachts, been tegen de tafelpoot) en lichte schema-scènes (#EEF1F7) met vectortekeningen en berekende simulaties (ionenbeweging, voltmeter, actiepotentiaal-grafiek, race); Inter-systeemfont |
@@ -199,6 +200,12 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *alles of niets* — staat al in de film (a3), geen nieuw risico. *refractaire*, *natriumkanalen*, *vuren* staan al in de film.
 
 ## Wijzigingen
+- 28 okt 2026 — Opwaardering prompt v13 (versie 1.1), oude versie in `bron/oud/2-het-kabelnetwerk-v1.0.html`:
+  - Membraan (s21, a2, s31): de rechte band is nu een stuk van een ronde cel (gebogen, binnen = onder; `#m-band` als polygoon, lipidekoppen langs `yc(x) = 600 − 60·(1 − ((x−610)/510)²)`); natriumkanaal, kaliumkanaal, pomp en lekkanaal schuiven mee omhoog (transform op `#m-nach`, `#m-kch`, `#m-pump`, `#m-leak`); de labels '3 Na⁺ naar buiten · 2 K⁺ naar binnen' en 'pomp stil' staan nu onder de pomp, 'kaliumlekkanaal' op de oude hoogte, zodat ze niet over ionen of de pomp vallen.
+  - a5: het kader 'adequate prikkel' heeft twee regels erbij: 'daar reageert hij het makkelijkst op; een heel sterke andere prikkel kan het ook (druk op je oog → licht)'. De vraag zei 'alleen op druk'; dat botste met film 1 vraag 2 (bronnenlogboek bewering 21).
+  - Speler: bij Vragen uit verschijnt de ondertitel van het weggeknipte 'Het goede antwoord is …' niet meer (`renderCaption` filtert frasen die vóór `antwCut` eindigen).
+  - Docentdeel, tabel 'De getallen': Wikipedia-links vervangen door OpenStax Biology 2e en Kiernan (vezeltypen); credits: versie 1.1.
+  - Nieuw: `bron/bronnen.md` en `bron/opwaardering-v13.md`.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
