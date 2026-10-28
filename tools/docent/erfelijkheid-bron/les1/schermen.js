@@ -320,17 +320,17 @@ SCHERMEN.push({ titel: 'Eén set of twee', kop: 'Eicel, zaadcel, bevruchting', d
 // ---------- 7 · geslachtschromosomen ----------
 SCHERMEN.push({ titel: 'X en Y', kop: 'Autosomen en geslachtschromosomen', deel: 'Chromosomen',
   stappen: [
-    { t: 'Paar 1 tot en met 22 heten <b>autosomen</b>. Die zijn bij mannen en vrouwen hetzelfde.', n: 'Ook de volgorde van de genen op de autosomen is bij iedereen gelijk.' },
+    { t: 'Paar 1 tot en met 22 heten <b>autosomen</b>. Die zijn bij mannen en vrouwen hetzelfde.', n: 'Ook de volgorde van de genen op de autosomen is bij iedereen gelijk. Hier getekend als enkele chromosomen (niet gekopieerd): het gaat om welke chromosomen je hebt, niet om de deling; in het karyogram (vlak voor de deling) zijn ze dubbel.' },
     { t: 'Paar 23 zijn de <b>geslachtschromosomen</b>. Een vrouw heeft er twee <b>X</b>.', n: 'Een X van haar vader, een X van haar moeder.' },
     { t: 'Een man heeft één <b>X</b> en één veel kleiner <b>Y</b>-chromosoom.', n: 'De X van zijn moeder, de Y van zijn vader. Y: ruim 59 miljoen basenparen, X: ± 155 miljoen. Op de Y ligt SRY, het gen dat de aanleg van teelballen start. Er zijn ook mensen met een andere combinatie of ontwikkeling (film Sekse en gender).' },
     { t: 'Mannen hebben dus <b>óók</b> een X-chromosoom, maar maar één.', n: 'Belangrijk voor les 2 (kleurenblindheid): een man heeft van de genen op de X maar één allel.' }
   ],
   teken(ctx, S) {
     const s0 = S.on(0, 1.2), s1 = S.on(1, 0.9), s2 = S.on(2, 0.9), s3 = S.on(3, 0.9);
-    for (let nr = 1; nr <= 22; nr++) { const x = 150 + (nr - 1) * 77.5, a = s0 * S.on(0, 0.4, nr * 0.03); [0, 1].forEach(k => chromosoom(ctx, x + (k ? 13 : -13), 290, L1_MB[nr - 1] * 0.38, { kl: CH.neutraal, w: 10, cen: L1_CEN[nr - 1], a })); regel(ctx, String(nr), x, 392, a, C.text2, 26, 'center', 600); }
+    for (let nr = 1; nr <= 22; nr++) { const x = 150 + (nr - 1) * 77.5, a = s0 * S.on(0, 0.4, nr * 0.03); [0, 1].forEach(k => chromosoom(ctx, x + (k ? 12 : -12), 290, L1_MB[nr - 1] * 0.38, { kl: CH.neutraal, w: 12, dubbel: 0, cen: L1_CEN[nr - 1], a })); regel(ctx, String(nr), x, 392, a, C.text2, 26, 'center', 600); }
     naam(ctx, 'autosomen', 960, 440, s0, 'center', C.text, 34);
     const pan = (x0, a, id, kop, Y) => { if (a <= 0.01) return; paneel(ctx, x0, 470, 780, 360, a); pers(ctx, id, x0 + 130, 805, 310, { uit: 'blij', a });
-      chromosoom(ctx, x0 + 380, 640, 156 * 1.45, { kl: CH.moeder, w: 38, cen: 0.39, a }); if (Y) chromosoom(ctx, x0 + 500, 640, 59 * 1.45, { kl: CH.vader, w: 38, cen: 0.18, a }); else chromosoom(ctx, x0 + 500, 640, 156 * 1.45, { kl: CH.vader, w: 38, cen: 0.39, a });
+      chromosoom(ctx, x0 + 380, 640, 156 * 1.45, { kl: CH.moeder, w: 40, dubbel: 0, cen: 0.39, a }); if (Y) chromosoom(ctx, x0 + 500, 640, 59 * 1.45, { kl: CH.vader, w: 40, dubbel: 0, cen: 0.18, a }); else chromosoom(ctx, x0 + 500, 640, 156 * 1.45, { kl: CH.vader, w: 40, dubbel: 0, cen: 0.39, a });
       regel(ctx, kop, x0 + 665, 665, a, C.text, 76, 'center', 700); naam(ctx, 'X', x0 + 380, 818, a, 'center', C.oker, 32); naam(ctx, Y ? 'Y' : 'X', x0 + 500, 818, a, 'center', C.teal, 32); };
     pan(130, s1, 'marieke', 'XX', false); pan(1010, s2, 'dennis', 'XY', true);
     misvatting(ctx, 'mannen hebben geen X', 'mannen hebben ook een X, maar één', 960, 848, 1000, s3, S.on(3, 0.6, 0.4));
