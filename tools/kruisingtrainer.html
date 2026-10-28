@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<script src="../js/teller.js" data-root="../"></script>
+<link rel="icon" href="../img/icoon/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../img/icoon/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kruisingtrainer · Biologie bij Kamiel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="huisstijl.css">
+<script src="huisstijl.js"></script>
+<style>
+/* Kruisingtrainer · huisstijl van de site (tools/huisstijl.css).
+   Twee delen: 'Snel oefenen' (kale kruisingen, eindeloos gegenereerd) en 'Opgaven met context' (vaste bank, meerdere deelvragen).
+   Eén rekenkern (KRUIS) maakt kruisingsschema's en rekent alle antwoorden uit. */
+.gt{font-family:var(--meta);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.gt sup{font-size:.68em}
+.balk{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;justify-content:space-between;margin:6px 0 18px}
+.score{font:600 13px/1 var(--meta);letter-spacing:.06em;color:var(--text2)}
+.score b{color:var(--goud-text);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line2);background:none;border-radius:999px;padding:6px 13px;font-size:14px;font-weight:600;color:var(--text2);min-height:36px}
+.chip[aria-pressed="true"]{background:var(--goud-soft);border-color:var(--goud);color:var(--text)}
+.chip .vwo-label{margin-left:6px;padding:2px 6px;font-size:9px}
+.kaart{max-width:900px}
+.typelabel{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text)}
+.kruising{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:14px 0 10px;font-size:20px}
+.ouder{background:var(--surface2);border:1px solid var(--line2);border-radius:12px;padding:8px 14px;display:flex;flex-direction:column;gap:2px}
+.ouder small{font:600 11px/1.2 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.ouder .fen{font-size:14px;color:var(--text2)}
+.maal{font-size:24px;color:var(--text3)}
+.regels{margin:6px 0 0;padding-left:20px;color:var(--text2);font-size:16px}
+.regels li{margin:2px 0}
+.vraag{font-size:18px;font-weight:600;margin:16px 0 10px}
+.antw{display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
+.rij{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rij label{min-width:150px}
+.rij input[type=text]{width:110px;min-height:40px;text-align:center;font-family:var(--meta)}
+.kansveld{width:170px!important}
+.opties{display:flex;flex-direction:column;gap:8px}
+.optie{display:flex;gap:10px;align-items:flex-start;text-align:left;border:1px solid var(--line2);border-radius:12px;padding:10px 12px;background:var(--bg);font-size:16px;line-height:1.4}
+.optie[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+.optie .bol{flex:0 0 18px;height:18px;border-radius:50%;border:2px solid var(--line2);margin-top:2px}
+.optie[aria-pressed="true"] .bol{border-color:var(--goud);background:var(--goud)}
+.gamchips{display:flex;flex-wrap:wrap;gap:8px}
+.gam{min-width:64px;min-height:44px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);font-size:17px;padding:4px 12px}
+.gam[aria-pressed="true"]{border-color:var(--goud);background:var(--goud-soft)}
+.knoppen{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.uitwerking{margin-top:14px;border-top:1px dashed var(--line2);padding-top:14px}
+.uitwerking h4{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:14px 0 8px}
+.uitwerking p{margin:6px 0}
+.punnett{border-collapse:separate;border-spacing:3px;font-size:15px;margin:4px 0}
+.punnett th{font-family:var(--meta);font-weight:600;padding:6px 8px;color:var(--text2);background:var(--surface2);border-radius:8px;white-space:nowrap}
+.punnett th.hoek{background:none;font:600 10px/1.2 var(--meta);letter-spacing:.06em;text-transform:uppercase;color:var(--text3)}
+.punnett td{padding:6px 8px;border-radius:8px;text-align:center;min-width:64px;border:1px solid var(--line)}
+.punnett td .g{display:block}
+.punnett td .f{display:block;font-size:12px;color:var(--text2);line-height:1.2;margin-top:2px}
+.punnett td.dood{opacity:.55;text-decoration:line-through}
+.k0{background:var(--groen-soft)}.k1{background:var(--teal-soft)}.k2{background:var(--paars-soft)}.k3{background:var(--koraal-soft)}.k4{background:var(--goud-soft)}.k5{background:var(--surface2)}
+.telling{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:15px;margin-top:6px}
+.telling span{display:inline-flex;align-items:center;gap:6px}
+.telling i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1px solid var(--line2)}
+.feedback{margin-top:10px}
+/* Contextopgaven */
+.filter{margin-bottom:14px}
+.groep h2{font-size:22px;margin:24px 0 10px}
+.lijst{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.opg{text-align:left;background:var(--surface);border:1px solid var(--line2);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:6px;color:var(--text);position:relative}
+.opg:hover{border-color:var(--text3)}
+.opg b{font-family:var(--titel);font-size:18px;line-height:1.2}
+.opg .meta{font:600 11px/1.3 var(--meta);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.opg .sterren{color:var(--goud-text);letter-spacing:2px}
+.opg .klaar{position:absolute;top:12px;right:14px;color:var(--groen);font-weight:700}
+.opgave .intro{font-size:17px;max-width:70ch}
+.opgave .intro p{margin:8px 0}
+.deel{border-top:1px solid var(--line);margin-top:20px;padding-top:14px}
+.deel .nr{font:600 12px/1 var(--meta);letter-spacing:.1em;text-transform:uppercase;color:var(--goud-text)}
+details.notatie{margin:0 0 18px}
+details.notatie summary{cursor:pointer;font-weight:600;color:var(--goud-text)}
+details.notatie ul{margin:8px 0;padding-left:20px;color:var(--text2)}
+@media (max-width:600px){.rij label{min-width:100%}.kruising{font-size:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site"><a class="merk" href="../index.html#home">Biologie bij Kamiel</a><a class="terug" href="../index.html#erfelijkheid">← Terug naar Erfelijkheid</a><span class="rechts"><button class="icoon" type="button" data-thema-knop aria-label="Wissel licht en donker"></button></span></nav>
+
+  <header class="tool-kop">
+    <div class="mono">Tool · Erfelijkheid · havo/vwo bovenbouw · bij film 2 t/m 6</div>
+    <h1>Kruisingtrainer</h1>
+    <p>Oefen alle soorten kruisingen. Snel oefenen geeft eindeloos kale kruisingen; de opgaven met context zijn langer en lijken op toetsvragen.</p>
+  </header>
+
+  <div class="balk">
+    <div class="seg" role="tablist" aria-label="Onderdeel">
+      <button type="button" role="tab" aria-selected="true" data-tab="snel">Snel oefenen</button>
+      <button type="button" role="tab" aria-selected="false" data-tab="context">Opgaven met context</button>
+    </div>
+    <div class="score" id="score"></div>
+  </div>
+
+  <details class="notatie">
+    <summary>Hoe schrijf je de antwoorden op?</summary>
+    <ul>
+      <li><b>Verhouding:</b> vul bij elk fenotype een getal in, bijvoorbeeld 3 en 1. Komt een fenotype niet voor, vul dan 0 in. Aantallen als 75 en 25 rekent de trainer ook goed.</li>
+      <li><b>Kans:</b> als percentage (25%), breuk (1/4) of kommagetal (0,25). Afronden op één decimaal mag.</li>
+      <li><b>Gameten:</b> klik alle gameten aan die de ouder kan maken, en alleen die.</li>
+      <li><b>Notatie:</b> X<sup>A</sup> is een X-chromosoom met allel A. <span class="gt">AB/ab</span> betekent: A en B liggen samen op één chromosoom, a en b op het andere (gekoppeld).</li>
+    </ul>
+  </details>
+
+  <main>
+    <section id="snel">
+      <div class="paneel filter">
+        <h2>Welke kruisingen wil je oefenen?</h2>
+        <p class="sub">Kies één of meer soorten. Elke nieuwe kruising komt uit jouw keuze.</p>
+        <div class="chips" id="typechips"></div>
+      </div>
+      <div class="paneel kaart" id="snelkaart" aria-live="polite"></div>
+    </section>
+
+    <section id="context" hidden>
+      <div id="contextlijst"></div>
+      <div id="contextopgave" class="paneel kaart opgave" hidden></div>
+    </section>
+  </main>
+
+  <footer class="tool-voet">Biologie bij Kamiel · Kruisingtrainer · versie 1.0 · oktober 2026 · past bij de films over erfelijkheid. Bij gekoppelde genen gaan we uit van geen crossing-over. Je voortgang blijft alleen in deze browser.<span data-licentie style="flex-basis:100%;width:100%;display:block;font-size:13px;opacity:.75;margin-top:6px">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></span></footer>
+</div>
+
+<script>
+/* ============================================================
+   REKENKERN
+   Een model = {loci:[locus], sekse:'XY'|'ZW', lab, sep}
+   locus = {id, allelen:[...dominantste eerst], toon:{allel:html}, reeks:[naam per allel] (dominantiereeks)
+            of tabel:{'x/y':naam, 'x':naam (hemizygoot)}, namen:[volgorde], pre:'bloedgroep ', gesl:true (op X/Z), letaal:['x/x']}
+   Een individu schrijf je als tekst: paren gescheiden door spaties, de twee chromosomen door '/',
+   gekoppelde allelen door ',', geslachtschromosomen met X:, Z:, Y: of W:.
+   Voorbeelden: 'A/a B/b' · 'A,B/a,b' · 'X:R/X:r' · 'X:R/Y:' · 'IA/i D/d' · 'Z:B/W:'
+   ============================================================ */
+const KRUIS=(()=>{
+  function bouw(model){
+    const idx={};
+    model.loci.forEach((l,li)=>l.allelen.forEach((a,ai)=>{idx[a]={l,li,ai}}));
+    model._idx=idx; model.sekse=model.sekse||'XY';
+    return model;
+  }
+  function hap(s){
+    s=s.trim();
+    if(s==='Y:'||s==='W:') return {chr:s[0],al:[]};
+    if(/^[XZ]:/.test(s)) return {chr:s[0],al:s.slice(2).split(',').filter(Boolean)};
+    return {chr:'A',al:s.split(',')};
+  }
+  function geslPaar(p){return p[0].chr!=='A'}
+  function lees(model,str){
+    const paren=str.trim().split(/\s+/).map(t=>{const [a,b]=t.split('/');return [hap(a),hap(b)]});
+    const sleutel=p=>geslPaar(p)?999:Math.min(...p[0].al.map(a=>model._idx[a].li));
+    return paren.sort((x,y)=>sleutel(x)-sleutel(y));
+  }
+  function hapKey(h){return h.chr+':'+h.al.join(',')}
+  function vergelijk(model,h1,h2){
+    if(h1.chr!==h2.chr){const o={A:0,X:1,Z:1,Y:2,W:2};return o[h1.chr]-o[h2.chr]}
+    for(let i=0;i<Math.max(h1.al.length,h2.al.length);i++){
+      const a=h1.al[i],b=h2.al[i]; if(a===b) continue;
+      return model._idx[a].ai-model._idx[b].ai;
+    }
+    return 0;
+  }
+  function gameten(model,paren){
+    let uit=[[]];
+    paren.forEach(p=>{
+      const uniek=[];const gezien=new Set();
+      p.forEach(h=>{const k=hapKey(h);if(!gezien.has(k)){gezien.add(k);uniek.push(h)}});
+      uniek.sort((a,b)=>vergelijk(model,a,b));
+      const n=[];uit.forEach(g=>uniek.forEach(h=>n.push(g.concat([h]))));uit=n;
+    });
+    return uit;
+  }
+  // analyse van een paar-lijst (ouder of kind)
+  function analyse(model,paren){
+    const per={};model.loci.forEach(l=>per[l.id]=[]);
+    let gesl=null;
+    paren.forEach(p=>{
+      if(geslPaar(p)){
+        const c=p.map(h=>h.chr).sort().join('');
+        gesl=model.sekse==='ZW'?(c==='ZZ'?'m':'v'):(c==='XX'?'v':'m');
+      }
+      p.forEach(h=>h.al.forEach(a=>per[model._idx[a].l.id].push(a)));
+    });
+    const sleutels={},fen={};let dood=false;
+    model.loci.forEach(l=>{
+      const al=per[l.id].slice().sort((a,b)=>model._idx[a].ai-model._idx[b].ai);
+      const k=al.join('/');sleutels[l.id]=k;
+      if(!al.length){fen[l.id]='';return}
+      if(l.tabel) fen[l.id]=l.tabel[k];
+      else fen[l.id]=l.reeks[model._idx[al[0]].ai];
+      if(l.letaal&&l.letaal.includes(k)) dood=true;
+    });
+    return {gesl,sleutels,fen,dood};
+  }
+  function kruis(model,s1,s2){
+    const p1=lees(model,s1),p2=lees(model,s2);
+    const g1=gameten(model,p1),g2=gameten(model,p2);
+    const cellen=g1.map(a=>g2.map(b=>{
+      const paren=a.map((h,i)=>[h,b[i]].sort((x,y)=>vergelijk(model,x,y)));
+      return Object.assign({paren},analyse(model,paren));
+    }));
+    return {p1,p2,g1,g2,cellen,alle:cellen.flat(),levend:cellen.flat().filter(c=>!c.dood)};
+  }
+  // ---- weergave ----
+  function toonAllel(model,a){const l=model._idx[a].l;return (l.toon&&l.toon[a])||a}
+  function toonHap(model,h){
+    if(h.chr==='Y'||h.chr==='W') return h.chr;
+    const s=h.al.map(a=>toonAllel(model,a)).join('');
+    return h.chr==='A'?s:h.chr+'<sup>'+s+'</sup>';
+  }
+  function toonPaar(model,p){
+    if(geslPaar(p)) return toonHap(model,p[0])+toonHap(model,p[1]);
+    if(p[0].al.length>1) return toonHap(model,p[0])+'/'+toonHap(model,p[1]);
+    return toonHap(model,p[0])+toonHap(model,p[1]);
+  }
+  function compact(model,paren){return paren.every(p=>!geslPaar(p)&&p[0].al.length===1&&p.every(h=>h.al.every(a=>a.length===1)))}
+  function toonGenotype(model,paren){
+    const z=paren.map(p=>p.slice().sort((x,y)=>vergelijk(model,x,y)));
+    return '<span class="gt">'+z.map(p=>toonPaar(model,p)).join(compact(model,z)?'':' ')+'</span>';
+  }
+  function toonGameet(model,g){return '<span class="gt">'+g.map(h=>toonHap(model,h)).join('')+'</span>'}
+  function geslTeken(g){return g==='v'?'♀':g==='m'?'♂':''}
+  function fenLabel(model,r,metGesl){
+    const t=model.loci.filter(l=>r.fen[l.id]!=='').map(l=>(l.pre||'')+r.fen[l.id]).join(model.sep===undefined?' · ':model.sep);
+    return (metGesl&&r.gesl?geslTeken(r.gesl)+' ':'')+(model.lab||'')+t;
+  }
+  // alle mogelijke fenotypeklassen (in vaste volgorde)
+  function namenVan(l,hemi){
+    let n;
+    if(l.reeks) n=l.reeks.slice();
+    else n=[...new Set(Object.entries(l.tabel).filter(([k])=>hemi?!k.includes('/'):k.includes('/')).map(([,v])=>v))];
+    if(l.namen) n=l.namen.filter(x=>n.includes(x));
+    return n;
+  }
+  function klassen(model,metGesl){
+    const uit=[];
+    const sexes=metGesl?(model.sekse==='ZW'?['m','v']:['v','m']):[null];
+    const homo=model.sekse==='ZW'?'m':'v';
+    sexes.forEach(sx=>{
+      let combis=[{fen:{},gesl:sx}];
+      model.loci.forEach(l=>{
+        const hemi=l.gesl&&sx&&sx!==homo;
+        let namen=l.gesl&&!sx?[...new Set([...namenVan(l,false),...namenVan(l,true)])]:namenVan(l,hemi);
+        if(l.namen) namen=l.namen.filter(x=>namen.includes(x));
+        const n=[];combis.forEach(c=>namen.forEach(nm=>n.push({fen:Object.assign({},c.fen,{[l.id]:nm}),gesl:sx})));combis=n;
+      });
+      uit.push(...combis);
+    });
+    return uit.map(c=>({fen:c.fen,gesl:c.gesl,label:fenLabel(model,c,metGesl)}));
+  }
+  function past(r,doel){
+    if(!doel) return true;
+    if(doel.gesl&&r.gesl!==doel.gesl) return false;
+    if(doel.fen) for(const k in doel.fen) if(r.fen[k]!==doel.fen[k]) return false;
+    if(doel.gen) for(const k in doel.gen) if(r.sleutels[k]!==doel.gen[k]) return false;
+    return true;
+  }
+  function kans(res,doel,binnen){
+    const noemer=res.levend.filter(r=>past(r,binnen));
+    return noemer.filter(r=>past(r,doel)).length/noemer.length;
+  }
+  function verdeling(model,res,metGesl,binnen){
+    const kl=klassen(model,metGesl).filter(k=>!binnen||!binnen.gesl||k.gesl===binnen.gesl||!metGesl);
+    return kl.map(k=>({label:k.label,n:res.levend.filter(r=>past(r,binnen)&&past(r,{fen:k.fen,gesl:metGesl?k.gesl:null})).length,k}));
+  }
+  return {bouw,lees,gameten,analyse,kruis,toonGenotype,toonGameet,toonAllel,fenLabel,klassen,kans,verdeling,past,geslTeken};
+})();
+
+/* ============================================================
+   HULPJES
+   ============================================================ */
+const $=s=>document.querySelector(s);
+const kies=a=>a[Math.floor(Math.random()*a.length)];
+const schud=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const ggd=(a,b)=>b?ggd(b,a%b):a;
+function breuk(t,n){if(t===0)return '0';const g=ggd(t,n);return (t/g)+'/'+(n/g)}
+function pct(p){const v=Math.round(p*10000)/100;return (Number.isInteger(v)?v:v.toFixed(v*10%1===0?1:2).replace(/0$/,'')).toString().replace('.',',')+'%'}
+function kansTekst(t,n){return t===0?'0%':t===n?'100% (1/1)':pct(t/n)+' ('+breuk(t,n)+')'}
+function leesKans(s){
+  s=(s||'').trim().replace(/\s/g,'').replace(',', '.');
+  if(!s) return null;
+  if(s.includes('/')){const [a,b]=s.split('/').map(Number);return b?a/b:null}
+  const proc=s.endsWith('%');const v=parseFloat(s);if(isNaN(v))return null;
+  if(proc||v>1) return v/100;
+  return v;
+}
+function kansGoed(invoer,exact){const p=leesKans(invoer);if(p===null)return null;const marge=exact===0?0.0005:Math.min(0.006,Math.max(0.0005,exact*0.08));return Math.abs(p-exact)<=marge}
+function verhoudingGoed(invoer,verwacht){
+  const v=invoer.map(s=>parseFloat((s||'').replace(',','.')));
+  if(v.some(x=>isNaN(x)||x<0))return null;
+  const s1=v.reduce((a,b)=>a+b,0),s2=verwacht.reduce((a,b)=>a+b,0);if(!s1)return false;
+  return v.every((x,i)=>Math.abs(x/s1-verwacht[i]/s2)<0.004);
+}
+function verhoudingTekst(n){const nz=n.filter(x=>x>0);const g=nz.reduce((a,b)=>ggd(a,b),nz[0]||1);return n.map(x=>x/g).join(' : ')}
+
+let OPSLAG={snel:{goed:0,totaal:0},klaar:{}};
+try{const o=JSON.parse(localStorage.getItem('kruisingtrainer')||'null');if(o&&o.klaar)OPSLAG=Object.assign(OPSLAG,o)}catch(e){}
+function bewaar(){try{localStorage.setItem('kruisingtrainer',JSON.stringify(OPSLAG))}catch(e){}}
+function toonScore(){
+  const n=Object.keys(OPSLAG.klaar).length;
+  $('#score').innerHTML=`Snel oefenen <b>${OPSLAG.snel.goed}</b> / ${OPSLAG.snel.totaal} goed · opgaven af <b>${n}</b> / ${OPGAVEN.length}`;
+}
+
+/* ============================================================
+   KRUISINGSSCHEMA (uitwerking)
+   ============================================================ */
+function schema(model,res,metGesl){
+  const kl=KRUIS.klassen(model,metGesl);
+  const kIdx=r=>kl.findIndex(k=>KRUIS.past(r,{fen:k.fen,gesl:metGesl?k.gesl:null}));
+  let h=`<div class="tabel-wrap"><table class="punnett"><tr><th class="hoek">gameten<br>ouder 1 ↓ · ouder 2 →</th>${res.g2.map(g=>`<th>${KRUIS.toonGameet(model,g)}</th>`).join('')}</tr>`;
+  res.g1.forEach((g,i)=>{
+    h+=`<tr><th>${KRUIS.toonGameet(model,g)}</th>`+res.cellen[i].map(c=>`<td class="k${Math.min(5,kIdx(c))}${c.dood?' dood':''}"><span class="g">${KRUIS.toonGenotype(model,c.paren)}</span><span class="f">${c.dood?'† sterft':KRUIS.fenLabel(model,c,metGesl)}</span></td>`).join('')+'</tr>';
+  });
+  h+='</table></div>';
+  const v=KRUIS.verdeling(model,res,metGesl);
+  const tot=res.alle.length,lev=res.levend.length;
+  h+=`<div class="telling">${v.filter(x=>x.n).map(x=>`<span><i class="k${Math.min(5,kl.findIndex(k=>k.label===x.label))}"></i>${x.label}: ${x.n} van ${lev}</span>`).join('')}${tot>lev?`<span>† ${tot-lev} van ${tot} vakjes sterven</span>`:''}</div>`;
+  return h;
+}
+function gametenUitleg(model,res){
+  return `<p>Ouder 1 (${KRUIS.toonGenotype(model,res.p1)}) maakt: ${res.g1.map(g=>KRUIS.toonGameet(model,g)).join(', ')}<br>Ouder 2 (${KRUIS.toonGenotype(model,res.p2)}) maakt: ${res.g2.map(g=>KRUIS.toonGameet(model,g)).join(', ')}</p>`;
+}
+
+/* ============================================================
+   ANTWOORD-ONDERDELEN (gedeeld door beide delen)
+   Elk onderdeel geeft {html, init(el), check(el) → true/false/null}
+   ============================================================ */
+let UID=0;
+function invoerKans(){
+  const id='k'+(++UID);
+  return {html:`<div class="rij"><label for="${id}">Kans:</label><input type="text" id="${id}" class="kansveld" inputmode="decimal" placeholder="25% of 1/4" autocomplete="off"></div>`,
+    lees:el=>el.querySelector('input').value};
+}
+function invoerVerhouding(labels){
+  return {html:labels.map((l,i)=>{const id='v'+(++UID);return `<div class="rij"><label for="${id}">${l}</label><input type="text" id="${id}" inputmode="decimal" autocomplete="off" data-i="${i}"></div>`}).join(''),
+    lees:el=>[...el.querySelectorAll('input')].map(x=>x.value)};
+}
+function invoerKeuze(opties){
+  return {html:`<div class="opties">${opties.map((o,i)=>`<button type="button" class="optie" aria-pressed="false" data-i="${i}"><span class="bol"></span><span>${o}</span></button>`).join('')}</div>`,
+    init:el=>el.querySelectorAll('.optie').forEach(b=>b.onclick=()=>{el.querySelectorAll('.optie').forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true')}),
+    lees:el=>{const b=el.querySelector('.optie[aria-pressed="true"]');return b?+b.dataset.i:null}};
+}
+function invoerGameten(kandidaten){
+  return {html:`<div class="gamchips">${kandidaten.map((k,i)=>`<button type="button" class="gam" aria-pressed="false" data-i="${i}">${k}</button>`).join('')}</div>`,
+    init:el=>el.querySelectorAll('.gam').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true')),
+    lees:el=>[...el.querySelectorAll('.gam')].filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>+b.dataset.i)};
+}
+function invoerGetal(){
+  const id='n'+(++UID);
+  return {html:`<div class="rij"><label for="${id}">Antwoord:</label><input type="text" id="${id}" inputmode="decimal" autocomplete="off"></div>`,lees:el=>el.querySelector('input').value};
+}
+function invoerTerug(model,opties1,opties2){
+  const sel=(o,n)=>o.length===1?`<span class="gt">${KRUIS.toonGenotype(model,KRUIS.lees(model,o[0]))}</span>`:`<select data-o="${n}"><option value="">kies…</option>${o.map((s,i)=>`<option value="${i}">${KRUIS.toonGenotype(model,KRUIS.lees(model,s)).replace(/<[^>]+>/g,m=>m==='<sup>'?'^':'')}</option>`).join('')}</select>`;
+  return {html:`<div class="rij"><label>Genotype ouder 1:</label>${sel(opties1,1)}</div><div class="rij"><label>Genotype ouder 2:</label>${sel(opties2,2)}</div>`,
+    lees:el=>{const a=el.querySelector('[data-o="1"]'),b=el.querySelector('[data-o="2"]');
+      const i1=a?(a.value===''?null:+a.value):0,i2=b?(b.value===''?null:+b.value):0;
+      return i1===null||i2===null?null:[opties1[i1],opties2[i2]]}};
+}
+function selectStijl(){} // selects gebruiken de huisstijl
+
+/* ============================================================
+   DEEL 1 · SNEL OEFENEN (kale kruisingen, gegenereerd)
+   ============================================================ */
+const TYPES=[
+  {id:'mono',naam:'Monohybride'},
+  {id:'test',naam:'Testkruising'},
+  {id:'inter',naam:'Intermediair'},
+  {id:'multi',naam:'Multipele allelen'},
+  {id:'di',naam:'Dihybride'},
+  {id:'x',naam:'X-chromosomaal'},
+  {id:'letaal',naam:'Letaal'},
+  {id:'gek',naam:'Gekoppelde genen',vwo:true},
+  {id:'terug',naam:'Terugredeneren'}
+];
+let gekozen=new Set(['mono','test','inter','multi','di','x','letaal','terug']);
+try{const g=JSON.parse(localStorage.getItem('kruisingtrainer-types')||'null');if(Array.isArray(g)&&g.length)gekozen=new Set(g)}catch(e){}
+
+const LETTERS=['A','B','D','E','F','G','H','N','R','T'];
+function domLocus(L){const l=L.toLowerCase();return {id:L,allelen:[L,l],reeks:[L,l]}}
+function regelDom(L){return `<span class="gt">${L}</span> is dominant over <span class="gt">${L.toLowerCase()}</span>.`}
+function mono(L,g){return g.split('').map(c=>c==='D'?L:L.toLowerCase()).join('/')} // 'DD','Dr','rr'
+const MONO={DD:'D/D',Dr:'D/r',rr:'r/r'};
+function monoG(L,code){return code==='DD'?`${L}/${L}`:code==='Dr'?`${L}/${L.toLowerCase()}`:`${L.toLowerCase()}/${L.toLowerCase()}`}
+
+// alle genotypen van een model (voor terugredeneren), per geslacht
+function alleGenotypen(model,gesl){
+  let lijst=[''];
+  model.loci.forEach(l=>{
+    let opties=[];
+    if(l.gesl){
+      const X=model.sekse==='ZW'?'Z':'X',ander=model.sekse==='ZW'?'W':'Y',homo=model.sekse==='ZW'?'m':'v';
+      if(gesl===homo){for(let i=0;i<l.allelen.length;i++)for(let j=i;j<l.allelen.length;j++)opties.push(`${X}:${l.allelen[i]}/${X}:${l.allelen[j]}`)}
+      else l.allelen.forEach(a=>opties.push(`${X}:${a}/${ander}:`));
+    } else for(let i=0;i<l.allelen.length;i++)for(let j=i;j<l.allelen.length;j++)opties.push(`${l.allelen[i]}/${l.allelen[j]}`);
+    const n=[];lijst.forEach(s=>opties.forEach(o=>n.push((s?s+' ':'')+o)));lijst=n;
+  });
+  return lijst.filter(s=>!KRUIS.analyse(model,KRUIS.lees(model,s)).dood);
+}
+function vingerafdruk(model,s1,s2,metGesl){const r=KRUIS.kruis(model,s1,s2);return KRUIS.verdeling(model,r,metGesl).map(x=>x.n/r.levend.length).map(x=>x.toFixed(4)).join('|')}
+function fenOuder(model,s,metGesl){const a=KRUIS.analyse(model,KRUIS.lees(model,s));return KRUIS.fenLabel(model,a,metGesl)}
+
+function maakKruising(type){
+  const L=kies(LETTERS),l=L.toLowerCase();
+  let model,o1,o2,regels=[],metGesl=false,gesl1=null,gesl2=null,naam=TYPES.find(t=>t.id===type).naam;
+  switch(type){
+    case 'mono':{
+      model={loci:[domLocus(L)],lab:'fenotype ',sep:''};regels=[regelDom(L)];
+      [o1,o2]=kies([['Dr','Dr'],['Dr','Dr'],['Dr','rr'],['DD','rr'],['DD','Dr'],['Dr','rr'],['DD','DD'],['rr','rr']]).map(c=>monoG(L,c));break}
+    case 'test':{
+      model={loci:[domLocus(L)],lab:'fenotype ',sep:''};regels=[regelDom(L),'Ouder 1 heeft het dominante fenotype; ouder 2 is homozygoot recessief.'];
+      o1=monoG(L,kies(['DD','Dr','Dr']));o2=monoG(L,'rr');break}
+    case 'inter':{
+      model={loci:[{id:'R',allelen:['R','W'],tabel:{'R/R':'rood','R/W':'roze','W/W':'wit'},namen:['rood','roze','wit']}],sep:''};
+      regels=['De allelen <span class="gt">R</span> (rood) en <span class="gt">W</span> (wit) zijn intermediair: <span class="gt">RW</span> geeft een tussenvorm, roze.'];
+      [o1,o2]=kies([['R/W','R/W'],['R/W','R/W'],['R/R','W/W'],['R/W','W/W'],['R/W','R/R'],['R/R','R/W']]);break}
+    case 'multi':{
+      model={loci:[{id:'AB0',allelen:['IA','IB','i'],toon:{IA:'I<sup>A</sup>',IB:'I<sup>B</sup>'},tabel:{'IA/IA':'A','IA/IB':'AB','IA/i':'A','IB/IB':'B','IB/i':'B','i/i':'0'},namen:['A','B','AB','0'],pre:'bloedgroep '}]};
+      regels=['Bloedgroepen: <span class="gt">I<sup>A</sup></span> en <span class="gt">I<sup>B</sup></span> zijn codominant, <span class="gt">i</span> is recessief.'];
+      const g=['IA/IA','IA/i','IB/IB','IB/i','IA/IB','i/i'];
+      do{o1=kies(g);o2=kies(g)}while(o1===o2&&o1.includes('/i')===false&&Math.random()<.7);break}
+    case 'di':{
+      const L2=kies(LETTERS.filter(x=>x!==L)),[a,b]=[L,L2].sort();
+      model={loci:[domLocus(a),domLocus(b)],lab:'fenotype ',sep:''};regels=[regelDom(a),regelDom(b),'De genen liggen op verschillende chromosomen.'];
+      const m={DD:x=>`${x}/${x}`,Dr:x=>`${x}/${x.toLowerCase()}`,rr:x=>`${x.toLowerCase()}/${x.toLowerCase()}`};
+      const paar=kies([['DrDr','DrDr'],['DrDr','DrDr'],['DrDr','rrrr'],['DrDr','Drrr'],['DrDr','rrDr'],['DrDD','Drrr'],['Drrr','rrDr'],['DDDr','rrDr'],['DrDr','DDrr']]);
+      const z=c=>m[c.slice(0,2)](a)+' '+m[c.slice(2)](b);
+      [o1,o2]=Math.random()<.5?[z(paar[0]),z(paar[1])]:[z(paar[1]),z(paar[0])];break}
+    case 'x':{
+      model={loci:Object.assign({},{0:null})&&[Object.assign(domLocus(L),{gesl:true})],lab:'fenotype ',sep:''};metGesl=true;
+      regels=[regelDom(L),'Het gen ligt op het X-chromosoom. Ouder 1 is het vrouwtje (XX), ouder 2 het mannetje (XY).'];
+      o1=kies([`X:${L}/X:${l}`,`X:${L}/X:${l}`,`X:${L}/X:${L}`,`X:${l}/X:${l}`]);o2=kies([`X:${L}/Y:`,`X:${l}/Y:`]);gesl1='v';gesl2='m';break}
+    case 'letaal':{
+      model={loci:[Object.assign(domLocus(L),{letaal:[`${L}/${L}`]})],lab:'fenotype ',sep:''};
+      regels=[regelDom(L),`Het genotype <span class="gt">${L}${L}</span> is letaal: zo'n embryo sterft vóór de geboorte.`];
+      [o1,o2]=kies([[`${L}/${l}`,`${L}/${l}`],[`${L}/${l}`,`${L}/${l}`],[`${L}/${l}`,`${l}/${l}`]]);break}
+    case 'gek':{
+      const L2=kies(LETTERS.filter(x=>x!==L)),[a,b]=[L,L2].sort(),A=a,B=b,ab=a.toLowerCase(),bb=b.toLowerCase();
+      model={loci:[domLocus(a),domLocus(b)],lab:'fenotype ',sep:''};
+      regels=[regelDom(a),regelDom(b),'De genen liggen op hetzelfde chromosoom (gekoppeld). Er is geen crossing-over.'];
+      const cis=`${A},${B}/${ab},${bb}`,trans=`${A},${bb}/${ab},${B}`,rec=`${ab},${bb}/${ab},${bb}`;
+      [o1,o2]=kies([[cis,rec],[trans,rec],[cis,cis],[cis,trans],[trans,trans],[cis,rec]]);break}
+  }
+  KRUIS.bouw(model);
+  return {type,naam,model,o1,o2,regels,metGesl,gesl1,gesl2};
+}
+
+function kandidaatGameten(model,s){
+  const paren=KRUIS.lees(model,s);
+  // alle combinaties van één allel per locus (+ Y/W bij geslachtschromosoom)
+  let combis=[[]];
+  const X=model.sekse==='ZW'?'Z':'X';
+  model.loci.forEach(l=>{
+    const opties=l.gesl?l.allelen.map(a=>({chr:X,al:[a]})):l.allelen.map(a=>({chr:'A',al:[a]}));
+    const n=[];combis.forEach(c=>opties.forEach(o=>n.push(c.concat([o]))));combis=n;
+  });
+  let html=combis.map(c=>{
+    const auto=c.filter(h=>h.chr==='A').map(h=>KRUIS.toonAllel(model,h.al[0])).join('');
+    const sex=c.filter(h=>h.chr!=='A').map(h=>h.chr+'<sup>'+KRUIS.toonAllel(model,h.al[0])+'</sup>').join('');
+    return '<span class="gt">'+auto+sex+'</span>';
+  });
+  if(model.loci.some(l=>l.gesl)) html.push('<span class="gt">'+(model.sekse==='ZW'?'W':'Y')+'</span>');
+  // misvatting: beide allelen van één gen in één gameet
+  if(model.loci.length===1&&!model.loci[0].gesl&&paren[0][0].al[0]!==paren[0][1].al[0]) html.push(KRUIS.toonGenotype(model,paren));
+  const goed=KRUIS.gameten(model,paren).map(g=>KRUIS.toonGameet(model,g));
+  html=[...new Set(html.concat(goed))];
+  return {kandidaten:html,goed};
+}
+
+function maakVraag(k){
+  const res=KRUIS.kruis(k.model,k.o1,k.o2);
+  const soorten=[];
+  if(k.type==='terug') return null;
+  soorten.push('verhouding','verhouding','kans');
+  if(k.type!=='multi'||Math.random()<.5) soorten.push('gameten');
+  if(['mono','inter','letaal'].includes(k.type)) soorten.push('genverhouding');
+  let soort=kies(soorten);
+  if(k.type==='gek') soort=kies(['gameten','gameten','verhouding','kans']);
+  if(k.type==='test') soort=kies(['verhouding','terug']);
+  return soort;
+}
+
+let HUIDIG=null;
+function nieuweSnel(){
+  const lijst=[...gekozen];if(!lijst.length){$('#snelkaart').innerHTML='<p class="sub">Kies hierboven minstens één soort kruising.</p>';return}
+  let type=kies(lijst),soort;
+  let k;
+  if(type==='terug'){
+    const basis=kies(['mono','mono','test','inter','multi','di','di','x','letaal']);
+    k=maakKruising(basis);k.naam='Terugredeneren · '+TYPES.find(t=>t.id===basis).naam;soort='terug';
+  } else {k=maakKruising(type);soort=maakVraag(k)}
+  HUIDIG={k,soort,res:KRUIS.kruis(k.model,k.o1,k.o2),pogingen:0,klaar:false};
+  tekenSnel();
+}
+
+function ouderBlok(model,s,nr,metGesl,verberg){
+  const a=KRUIS.analyse(model,KRUIS.lees(model,s));
+  return `<div class="ouder"><small>ouder ${nr}${a.gesl?' · '+(a.gesl==='v'?'vrouwtje ♀':'mannetje ♂'):''}</small>${verberg?'<span class="gt">?</span>':KRUIS.toonGenotype(model,KRUIS.lees(model,s))}<span class="fen">${KRUIS.fenLabel(model,a,false)}</span></div>`;
+}
+
+function tekenSnel(){
+  const {k,soort,res}=HUIDIG,m=k.model;
+  const lev=res.levend.length;
+  let vraag='',inv,check,antwoordTekst;
+  const verbergOuders=soort==='terug';
+  let kruisHtml=`<div class="kruising">${ouderBlok(m,k.o1,1,k.metGesl,verbergOuders)}<span class="maal">×</span>${ouderBlok(m,k.o2,2,k.metGesl,verbergOuders)}</div>`;
+  if(soort==='verhouding'){
+    const v=KRUIS.verdeling(m,res,k.metGesl);
+    vraag=k.metGesl?'Geef de fenotypeverhouding van de nakomelingen, uitgesplitst naar geslacht.':(k.type==='letaal'?'Geef de fenotypeverhouding bij de levend geboren nakomelingen.':'Geef de fenotypeverhouding van de nakomelingen.');
+    inv=invoerVerhouding(v.map(x=>x.label));
+    check=el=>verhoudingGoed(inv.lees(el),v.map(x=>x.n));
+    antwoordTekst=v.map(x=>x.label).join(' : ')+' = <b>'+verhoudingTekst(v.map(x=>x.n))+'</b>';
+  } else if(soort==='genverhouding'){
+    const keys=[...new Set(res.alle.map(r=>r.sleutels[m.loci[0].id]))].sort();
+    const alle=[];const l=m.loci[0];for(let i=0;i<l.allelen.length;i++)for(let j=i;j<l.allelen.length;j++)alle.push(l.allelen[i]+'/'+l.allelen[j]);
+    const lab=s=>KRUIS.toonGenotype(m,KRUIS.lees(m,s));
+    const n=alle.map(s=>res.levend.filter(r=>r.sleutels[l.id]===s).length);
+    vraag=k.type==='letaal'?'Geef de genotypeverhouding bij de levend geboren nakomelingen.':'Geef de genotypeverhouding van de nakomelingen.';
+    inv=invoerVerhouding(alle.map(lab));check=el=>verhoudingGoed(inv.lees(el),n);
+    antwoordTekst=alle.map(lab).join(' : ')+' = <b>'+verhoudingTekst(n)+'</b>';
+  } else if(soort==='kans'){
+    const kl=KRUIS.klassen(m,k.metGesl);
+    let doel,binnen=null,zin;
+    const kanGen=['mono','letaal'].includes(k.type)&&Math.random()<.35;
+    if(kanGen){
+      const l=m.loci[0];const s=kies([...new Set(res.levend.map(r=>r.sleutels[l.id]))]);
+      doel={gen:{[l.id]:s}};zin=`een nakomeling genotype ${KRUIS.toonGenotype(m,KRUIS.lees(m,s))} heeft`;
+    } else {
+      // kies vaak een klasse die voorkomt, soms een die niet voorkomt
+      const komtVoor=kl.filter(c=>res.levend.some(r=>KRUIS.past(r,{fen:c.fen,gesl:c.gesl})));
+      const c=Math.random()<.85?kies(komtVoor):kies(kl);
+      const fenTxt=KRUIS.fenLabel(m,{fen:c.fen},false);
+      if(k.metGesl){
+        if(Math.random()<.5){doel={fen:c.fen,gesl:c.gesl};zin=`een nakomeling een ${c.gesl==='v'?'vrouwtje':'mannetje'} met ${fenTxt} is`}
+        else {doel={fen:c.fen};binnen={gesl:c.gesl};zin=`een ${c.gesl==='v'?'vrouwelijke':'mannelijke'} nakomeling ${fenTxt} heeft`}
+      } else {doel={fen:c.fen};zin=`een nakomeling ${fenTxt} heeft`}
+    }
+    const p=KRUIS.kans(res,doel,binnen);
+    const noemer=res.levend.filter(r=>KRUIS.past(r,binnen));const teller=noemer.filter(r=>KRUIS.past(r,doel)).length;
+    vraag=`Hoe groot is de kans dat ${zin}?${k.type==='letaal'?' (Reken met de levend geboren nakomelingen.)':''}`;
+    inv=invoerKans();check=el=>kansGoed(inv.lees(el),p);
+    antwoordTekst=`<b>${kansTekst(teller,noemer.length)}</b>: ${teller} van de ${noemer.length} ${binnen?(binnen.gesl==='v'?'vrouwelijke ':'mannelijke '):''}${k.type==='letaal'?'levende ':''}vakjes.`;
+  } else if(soort==='gameten'){
+    const welke=KRUIS.lees(m,k.o1).some(p=>p[0].al.join()!==p[1].al.join()||p[0].chr!==p[1].chr)?1:2;
+    const s=welke===1?k.o1:k.o2;const kg=kandidaatGameten(m,s);
+    const kand=schud(kg.kandidaten);
+    vraag=`Welke gameten kan ouder ${welke} (${KRUIS.toonGenotype(m,KRUIS.lees(m,s))}) maken? Klik ze allemaal aan.`;
+    inv=invoerGameten(kand);
+    check=el=>{const sel=inv.lees(el).map(i=>kand[i]);return sel.length===kg.goed.length&&kg.goed.every(g=>sel.includes(g))};
+    antwoordTekst='<b>'+kg.goed.join(', ')+'</b>'+(k.type==='gek'?' · de gekoppelde allelen blijven samen op één chromosoom, dus maar twee soorten gameten.':'');
+  } else if(soort==='terug'){
+    const g1=alleGenotypen(m,k.gesl1),g2=alleGenotypen(m,k.gesl2);
+    const f1=fenOuder(m,k.o1),f2=fenOuder(m,k.o2);
+    const o1=g1.filter(s=>fenOuder(m,s)===f1),o2=g2.filter(s=>fenOuder(m,s)===f2);
+    const v=KRUIS.verdeling(m,res,k.metGesl);
+    const fac=Math.floor(Math.random()*10)+5;
+    const tel=v.filter(x=>x.n).map(x=>`${x.label}: <b>${x.n*fac*(4/Math.max(1,ggd(lev,4))) /* altijd heel */}</b>`);
+    kruisHtml=`<div class="kruising"><div class="ouder"><small>ouder 1${k.gesl1?' · vrouwtje ♀':''}</small><span class="gt">?</span><span class="fen">${f1}</span></div><span class="maal">×</span><div class="ouder"><small>ouder 2${k.gesl2?' · mannetje ♂':''}</small><span class="gt">?</span><span class="fen">${f2}</span></div></div>`;
+    vraag=`De nakomelingen: ${v.filter(x=>x.n).map(x=>`${x.label} <b>${x.n*fac}</b>`).join(' · ')}${v.some(x=>!x.n)?' (andere fenotypen kwamen niet voor)':''}${k.type==='letaal'?' (alleen levend geboren jongen geteld)':''}. Wat zijn de genotypen van de ouders?`;
+    inv=invoerTerug(m,o1,o2);
+    const echte=vingerafdruk(m,k.o1,k.o2,k.metGesl);
+    check=el=>{const k2=inv.lees(el);if(!k2)return null;return vingerafdruk(m,k2[0],k2[1],k.metGesl)===echte};
+    antwoordTekst=`Ouder 1: <b>${KRUIS.toonGenotype(m,KRUIS.lees(m,k.o1))}</b> · ouder 2: <b>${KRUIS.toonGenotype(m,KRUIS.lees(m,k.o2))}</b>. De verhouding ${verhoudingTekst(v.filter(x=>x.n).map(x=>x.n))} past alleen bij deze ouders.`;
+  }
+  HUIDIG.check=check;HUIDIG.antw=antwoordTekst;
+  $('#snelkaart').innerHTML=`<div class="typelabel">${k.naam}${k.type==='gek'?' <span class="vwo-label">vwo</span>':''}</div>
+    ${kruisHtml}
+    <ul class="regels">${k.regels.map(r=>`<li>${r}</li>`).join('')}</ul>
+    <p class="vraag">${vraag}</p>
+    <div class="antw" id="antw">${inv.html}</div>
+    <div class="knoppen"><button class="knop" type="button" id="controleer">Controleer</button><button class="knop stil" type="button" id="uitwerk">Toon uitwerking</button><button class="knop stil" type="button" id="volgende">Nieuwe kruising →</button></div>
+    <div id="fb"></div><div id="uw"></div>`;
+  const el=$('#antw');if(inv.init)inv.init(el);
+  el.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')controleerSnel()}));
+  $('#controleer').onclick=controleerSnel;$('#uitwerk').onclick=()=>uitwerkingSnel(false);$('#volgende').onclick=nieuweSnel;
+}
+function controleerSnel(){
+  const r=HUIDIG.check($('#antw'));
+  if(r===null){$('#fb').innerHTML='<div class="feedback tip"><b>Nog niet compleet</b>Vul alle vakjes in (of maak een keuze) en controleer opnieuw.</div>';return}
+  HUIDIG.pogingen++;
+  if(!HUIDIG.geteld){HUIDIG.geteld=true;OPSLAG.snel.totaal++;if(r)OPSLAG.snel.goed++;bewaar();toonScore()}
+  if(r){$('#fb').innerHTML=`<div class="feedback ok"><b>Goed!</b>${HUIDIG.antw}</div>`;uitwerkingSnel(true)}
+  else $('#fb').innerHTML=`<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>`;
+}
+function uitwerkingSnel(naGoed){
+  const {k,res}=HUIDIG,m=k.model;
+  if(!naGoed&&!HUIDIG.geteld){HUIDIG.geteld=true;OPSLAG.snel.totaal++;bewaar();toonScore()}
+  $('#uw').innerHTML=`<div class="uitwerking">${naGoed?'':`<p>Antwoord: ${HUIDIG.antw}</p>`}
+    <h4>Stap 1 · gameten</h4>${gametenUitleg(m,res)}
+    <h4>Stap 2 · kruisingsschema</h4>${schema(m,res,k.metGesl)}
+    ${k.type==='gek'?'<p>Bij gekoppelde genen (zonder crossing-over) gaan de allelen die samen op één chromosoom liggen ook samen in één gameet.</p>':''}</div>`;
+}
+function tekenChips(){
+  $('#typechips').innerHTML=TYPES.map(t=>`<button type="button" class="chip" data-t="${t.id}" aria-pressed="${gekozen.has(t.id)}">${t.naam}${t.vwo?'<span class="vwo-label">vwo</span>':''}</button>`).join('');
+  document.querySelectorAll('#typechips .chip').forEach(b=>b.onclick=()=>{
+    const t=b.dataset.t;gekozen.has(t)?gekozen.delete(t):gekozen.add(t);
+    b.setAttribute('aria-pressed',gekozen.has(t));
+    try{localStorage.setItem('kruisingtrainer-types',JSON.stringify([...gekozen]))}catch(e){}
+    nieuweSnel();
+  });
+}
+
+/* ============================================================
+   DEEL 2 · OPGAVEN MET CONTEXT
+   Deelvraag-soorten:
+   keuze {opties, goed}
+   kans  {antw} of {kruis:[o1,o2], doel, binnen}
+   verhouding {kruis, metGesl, binnen}
+   getal {antw, marge}
+   gameten {ouder}
+   Elke deelvraag heeft 'uitleg' (html); met 'kruis' komt er automatisch een kruisingsschema bij.
+   ============================================================ */
+const X=s=>`X<sup>${s}</sup>`, Z=s=>`Z<sup>${s}</sup>`, gt=s=>`<span class="gt">${s}</span>`;
+const BLOED={id:'AB0',allelen:['IA','IB','i'],toon:{IA:'I<sup>A</sup>',IB:'I<sup>B</sup>'},tabel:{'IA/IA':'A','IA/IB':'AB','IA/i':'A','IB/IB':'B','IB/i':'B','i/i':'0'},namen:['A','B','AB','0'],pre:'bloedgroep '};
+const TAGS={mono:'Monohybride',test:'Testkruising',inter:'Intermediair / codominant',multi:'Multipele allelen',di:'Dihybride',x:'Geslachtsgebonden',letaal:'Letaal',gek:'Gekoppelde genen',terug:'Terugredeneren',kans:'Kansen in families'};
+
+const OPGAVEN=[
+/* ---------- MONOHYBRIDE ---------- */
+{id:'erwt-kleur',titel:'Mendels gele en groene erwten',tags:['mono'],niveau:1,
+ loci:[{id:'G',allelen:['G','g'],reeks:['geel','groen']}],
+ intro:`<p>Gregor Mendel kruiste erwtenplanten. Het allel voor gele zaden (${gt('G')}) is dominant over het allel voor groene zaden (${gt('g')}). Hij kruiste een plant uit een zuivere lijn met gele zaden met een plant met groene zaden. Alle zaden in de F1 waren geel. Daarna liet hij de F1-planten zichzelf bestuiven.</p>`,
+ delen:[
+  {v:'Wat is het genotype van de F1-planten?',soort:'keuze',opties:[gt('GG'),gt('Gg'),gt('gg')],goed:1,uitleg:`De ene ouder is ${gt('GG')} (zuivere lijn), de andere ${gt('gg')}. Elke F1-plant krijgt een ${gt('G')} en een ${gt('g')}: ${gt('Gg')}.`},
+  {v:'Geef de fenotypeverhouding in de F2.',soort:'verhouding',kruis:['G/g','G/g'],uitleg:`${gt('Gg × Gg')}: drie van de vier vakjes hebben minstens één ${gt('G')}.`},
+  {v:'Welk deel van de gele F2-erwten is heterozygoot? Geef je antwoord als kans.',soort:'kans',antw:2/3,uitleg:`Van de vier vakjes zijn er drie geel: ${gt('GG')}, ${gt('Gg')} en ${gt('Gg')}. Twee van die drie zijn heterozygoot: 2/3.`,kruis:['G/g','G/g']},
+  {v:'Mendel telde in de F2 6022 gele en 2001 groene erwten. Hoeveel van de gele erwten verwacht je dat heterozygoot zijn?',soort:'getal',antw:4015,marge:20,uitleg:'2/3 × 6022 ≈ 4015 erwten.'}
+ ]},
+{id:'cavia-test',titel:'De zwarte cavia: rasecht of niet?',tags:['test','terug'],niveau:1,
+ loci:[{id:'B',allelen:['B','b'],reeks:['zwart','wit']}],
+ intro:`<p>Bij cavia's is het allel voor een zwarte vacht (${gt('B')}) dominant over het allel voor een witte vacht (${gt('b')}). Een fokker wil weten of zijn zwarte cavia-mannetje homozygoot is. Hij laat hem paren met een wit vrouwtje.</p>`,
+ delen:[
+  {v:'Waarom kiest de fokker juist een wit vrouwtje?',soort:'keuze',opties:['Een wit vrouwtje geeft altijd het allel b door. Zo zie je aan de jongen welk allel het mannetje doorgeeft.','Witte cavia\'s krijgen grotere worpen.','Een wit vrouwtje is heterozygoot, dus dan zie je beide allelen.','Wit is dominant, dus de jongen worden altijd wit.'],goed:0,uitleg:'Dit heet een testkruising: je kruist met een homozygoot recessief individu. Dat geeft alleen b door, dus het fenotype van elk jong laat zien welk allel de andere ouder doorgaf.'},
+  {v:'In de worp zitten 3 zwarte en 3 witte jongen. Wat is het genotype van het mannetje?',soort:'keuze',opties:[gt('BB'),gt('Bb'),gt('bb')],goed:1,kruis:['B/b','b/b'],uitleg:`Witte jongen zijn ${gt('bb')}: ze kregen ook van hun vader een ${gt('b')}. Het mannetje is dus ${gt('Bb')}. Dit geeft verwacht 1 : 1.`},
+  {v:'Een ander zwart mannetje krijgt met een wit vrouwtje 7 jongen, allemaal zwart. Weet je nu zeker dat hij BB is?',soort:'keuze',opties:['Ja, want er is geen enkel wit jong.','Nee, ook een Bb-mannetje kan toevallig 7 zwarte jongen krijgen. Hoe meer jongen, hoe zekerder je bent.','Nee, want zwart is recessief.'],goed:1,uitleg:'Bij elke geboorte is de kans op een zwart jong bij een Bb-vader 1/2. Zeven keer zwart achter elkaar is onwaarschijnlijk, maar niet onmogelijk.'},
+  {v:'Bereken de kans dat een Bb-mannetje met een wit vrouwtje 7 jongen krijgt die allemaal zwart zijn.',soort:'kans',antw:1/128,uitleg:'Per jong 1/2, dus (1/2)<sup>7</sup> = 1/128 ≈ 0,8%.'}
+ ]},
+{id:'erwt-zelf',titel:'Zelfbestuiving bij de erwtenplant',tags:['mono','terug'],niveau:2,
+ loci:[{id:'L',allelen:['L','l'],reeks:['lang','kort']}],
+ intro:`<p>Bij erwten is lange stengel (${gt('L')}) dominant over korte stengel (${gt('l')}). Een leerling heeft een lange plant en laat die zichzelf bestuiven. Van de 80 nakomelingen zijn er 61 lang en 19 kort.</p>`,
+ delen:[
+  {v:'Wat is het genotype van de lange plant?',soort:'keuze',opties:[gt('LL'),gt('Ll'),gt('ll')],goed:1,kruis:['L/l','L/l'],uitleg:'Er zijn korte nakomelingen (ll), dus de plant heeft een l. Het fenotype lang zegt: er is ook een L. 61 : 19 is ongeveer 3 : 1.'},
+  {v:'De leerling kiest een lange nakomeling en wil weten of die homozygoot is. Hoe groot is de kans daarop?',soort:'kans',antw:1/3,uitleg:'Van de lange nakomelingen is 1/3 LL en 2/3 Ll.'},
+  {v:'Welke kruising laat het snelst zien of die lange nakomeling LL of Ll is?',soort:'keuze',opties:['Kruisen met een korte plant (ll)','Kruisen met een andere lange plant','Kruisen met een LL-plant','De plant langer laten groeien'],goed:0,uitleg:'Een testkruising met ll: komt er één korte nakomeling, dan is de plant Ll.'}
+ ]},
+
+/* ---------- INTERMEDIAIR / CODOMINANT ---------- */
+{id:'leeuwenbek',titel:'Roze leeuwenbekjes',tags:['inter'],niveau:1,
+ loci:[{id:'R',allelen:['R','W'],tabel:{'R/R':'rood','R/W':'roze','W/W':'wit'},namen:['rood','roze','wit']}],
+ intro:`<p>Bij de leeuwenbek (<i>Antirrhinum</i>) is de bloemkleur intermediair. Planten met ${gt('RR')} bloeien rood, ${gt('WW')} wit en ${gt('RW')} roze.</p>`,
+ delen:[
+  {v:'Een kweker kruist twee roze planten. Geef de fenotypeverhouding van de nakomelingen.',soort:'verhouding',kruis:['R/W','R/W'],uitleg:'Bij intermediaire overerving zie je elk genotype terug als eigen fenotype: 1 : 2 : 1.'},
+  {v:'Hoe groot is de kans dat een nakomeling van roze × wit roze bloeit?',soort:'kans',kruis:['R/W','W/W'],doel:{fen:{R:'roze'}},uitleg:'RW × WW geeft RW en WW, elk de helft.'},
+  {v:'De kweker wil een partij zaad waaruit alléén roze planten groeien. Welke ouders kiest hij?',soort:'keuze',opties:['roze × roze','rood × wit','roze × rood','roze × wit'],goed:1,kruis:['R/R','W/W'],uitleg:'RR × WW geeft alleen RW: 100% roze.'}
+ ]},
+{id:'shorthorn',titel:'Roan-runderen',tags:['inter'],niveau:2,
+ loci:[{id:'R',allelen:['R','W'],tabel:{'R/R':'rood','R/W':'roan','W/W':'wit'},namen:['rood','roan','wit']}],
+ intro:`<p>Bij Shorthorn-runderen zijn er rode, witte en roan dieren. Een roan rund heeft rode én witte haren door elkaar. Het genotype ${gt('RR')} geeft rood, ${gt('WW')} wit en ${gt('RW')} roan.</p>`,
+ delen:[
+  {v:'Is dit intermediair of codominant?',soort:'keuze',opties:['Codominant: beide allelen komen naast elkaar tot uiting (rode én witte haren).','Intermediair: de haren hebben een mengkleur.','Dominant-recessief: roan is dominant.'],goed:0,uitleg:'Bij intermediair ontstaat een tussenvorm (zoals roze). Bij codominant zie je beide kenmerken naast elkaar, hier rode en witte haren.'},
+  {v:'Een boer laat een roan stier paren met roan koeien. Hoe groot is de kans op een roan kalf?',soort:'kans',kruis:['R/W','R/W'],doel:{fen:{R:'roan'}},uitleg:'RW × RW: 2 van de 4 vakjes zijn RW.'},
+  {v:'De boer heeft alleen rode koeien en wil alleen roan kalveren. Welke stier kiest hij?',soort:'keuze',opties:['een rode stier','een roan stier','een witte stier'],goed:2,kruis:['R/R','W/W'],uitleg:'RR × WW geeft alleen RW.'}
+ ]},
+{id:'palomino',titel:'Een palominoveulen',tags:['inter'],niveau:2,
+ loci:[{id:'C',allelen:['C','Cr'],toon:{Cr:'C<sup>cr</sup>'},tabel:{'C/C':'vos','C/Cr':'palomino','Cr/Cr':'cremello'},namen:['vos','palomino','cremello']}],
+ intro:`<p>Bij paarden geeft één crème-allel (${gt('C<sup>cr</sup>')}) bij een vos (rood paard) een goudgele palomino met lichte manen. Met twee crème-allelen wordt het paard bijna wit: cremello. Een vos is ${gt('CC')}.</p>`,
+ delen:[
+  {v:'Een fokker kruist twee palomino\'s. Geef de fenotypeverhouding van de veulens.',soort:'verhouding',kruis:['C/Cr','C/Cr'],uitleg:'CC<sup>cr</sup> × CC<sup>cr</sup> geeft 1 vos : 2 palomino : 1 cremello.'},
+  {v:'Hoe groot is de kans op een palomino als je een palomino met een vos kruist?',soort:'kans',kruis:['C/Cr','C/C'],doel:{fen:{C:'palomino'}},uitleg:'De helft van de veulens krijgt het crème-allel.'},
+  {v:'Welke kruising geeft gegarandeerd een palominoveulen?',soort:'keuze',opties:['palomino × palomino','vos × cremello','palomino × cremello','vos × vos'],goed:1,kruis:['C/C','Cr/Cr'],uitleg:'Elk veulen krijgt een C van de vos en een C<sup>cr</sup> van de cremello.'}
+ ]},
+
+/* ---------- MULTIPELE ALLELEN ---------- */
+{id:'konijn',titel:'De vachtkleur van konijnen',tags:['multi'],niveau:2,
+ loci:[{id:'C',allelen:['C','cch','ch','c'],toon:{cch:'c<sup>ch</sup>',ch:'c<sup>h</sup>'},reeks:['wildkleur','chinchilla','himalaya','albino']}],
+ intro:`<p>Bij konijnen bepaalt één gen met vier allelen de vachtkleur. De dominantievolgorde is: ${gt('C')} (wildkleur) &gt; ${gt('c<sup>ch</sup>')} (chinchilla) &gt; ${gt('c<sup>h</sup>')} (himalaya) &gt; ${gt('c')} (albino).</p>`,
+ delen:[
+  {v:'Hoeveel verschillende genotypen zijn er voor dit gen?',soort:'getal',antw:10,marge:0,uitleg:'Vier homozygote genotypen (CC, c<sup>ch</sup>c<sup>ch</sup>, …) en zes heterozygote combinaties: 4 + 6 = 10.'},
+  {v:`Een chinchilla (${gt('c<sup>ch</sup>c<sup>h</sup>')}) wordt gekruist met een himalaya (${gt('c<sup>h</sup>c')}). Geef de fenotypeverhouding.`,soort:'verhouding',kruis:['cch/ch','ch/c'],uitleg:'De jongen zijn c<sup>ch</sup>c<sup>h</sup>, c<sup>ch</sup>c, c<sup>h</sup>c<sup>h</sup> en c<sup>h</sup>c: twee chinchilla en twee himalaya.'},
+  {v:'Een wildkleur konijn krijgt met een albino jongen: de helft wildkleur, de helft himalaya. Wat is het genotype van het wildkleur konijn?',soort:'keuze',opties:[gt('CC'),gt('Cc<sup>ch</sup>'),gt('Cc<sup>h</sup>'),gt('Cc')],goed:2,kruis:['C/ch','c/c'],uitleg:'De albino geeft alleen c. Himalaya-jongen zijn dus c<sup>h</sup>c: het c<sup>h</sup>-allel kwam van het wildkleur konijn.'},
+  {v:`Twee himalaya-konijnen (allebei ${gt('c<sup>h</sup>c')}) krijgen jongen. Hoe groot is de kans op een albino?`,soort:'kans',kruis:['ch/c','ch/c'],doel:{fen:{C:'albino'}},uitleg:'Net als bij een gewone monohybride kruising: 1/4 cc.'}
+ ]},
+{id:'bloed-vader',titel:'Wie is de vader?',tags:['multi','terug'],niveau:2,
+ loci:[BLOED],
+ intro:`<p>Bij de AB0-bloedgroepen zijn ${gt('I<sup>A</sup>')} en ${gt('I<sup>B</sup>')} codominant en is ${gt('i')} recessief. Een vrouw met bloedgroep A heeft een kind met bloedgroep 0. Over de vader is onduidelijkheid.</p>`,
+ delen:[
+  {v:'Wat is het genotype van de moeder?',soort:'keuze',opties:[gt('I<sup>A</sup>I<sup>A</sup>'),gt('I<sup>A</sup>i'),gt('I<sup>A</sup>I<sup>B</sup>'),gt('ii')],goed:1,uitleg:'Het kind (0) is ii en kreeg een i van de moeder. Zij heeft bloedgroep A, dus I<sup>A</sup>i.'},
+  {v:'Welke man kan zeker niet de vader zijn?',soort:'keuze',opties:['een man met bloedgroep 0','een man met bloedgroep A','een man met bloedgroep B','een man met bloedgroep AB'],goed:3,uitleg:'Het kind heeft van beide ouders een i gekregen. Een man met bloedgroep AB (I<sup>A</sup>I<sup>B</sup>) heeft geen i.'},
+  {v:`De echte vader blijkt ${gt('I<sup>B</sup>i')} te zijn. Geef de verhouding van de bloedgroepen die hun kinderen kunnen krijgen.`,soort:'verhouding',kruis:['IA/i','IB/i'],uitleg:'I<sup>A</sup>i × I<sup>B</sup>i geeft alle vier de bloedgroepen, elk met kans 1/4.'}
+ ]},
+{id:'bloed-gezin',titel:'Vier kinderen, vier bloedgroepen',tags:['multi','terug'],niveau:2,
+ loci:[BLOED],
+ intro:'<p>In een gezin hebben de vier kinderen allemaal een andere bloedgroep: A, B, AB en 0.</p>',
+ delen:[
+  {v:'Wat zijn de genotypen van de ouders?',soort:'keuze',opties:[`${gt('I<sup>A</sup>I<sup>B</sup>')} × ${gt('ii')}`,`${gt('I<sup>A</sup>i')} × ${gt('I<sup>B</sup>i')}`,`${gt('I<sup>A</sup>I<sup>A</sup>')} × ${gt('I<sup>B</sup>I<sup>B</sup>')}`,`${gt('I<sup>A</sup>I<sup>B</sup>')} × ${gt('I<sup>A</sup>I<sup>B</sup>')}`],goed:1,kruis:['IA/i','IB/i'],uitleg:'Kind 0 (ii) betekent: beide ouders hebben een i. Kind AB betekent: de een heeft I<sup>A</sup>, de ander I<sup>B</sup>.'},
+  {v:'Hoe groot is de kans dat hun volgende kind bloedgroep AB heeft?',soort:'kans',kruis:['IA/i','IB/i'],doel:{fen:{AB0:'AB'}},uitleg:'1 van de 4 vakjes.'}
+ ]},
+
+/* ---------- DIHYBRIDE ---------- */
+{id:'mais',titel:'Een maiskolf vol korrels',tags:['di'],niveau:2,
+ loci:[{id:'A',allelen:['A','a'],reeks:['paars','geel']},{id:'G',allelen:['G','g'],reeks:['glad','gerimpeld']}],
+ intro:`<p>Bij mais zijn paarse korrels (${gt('A')}) dominant over gele (${gt('a')}) en gladde korrels (${gt('G')}) dominant over gerimpelde (${gt('g')}). De genen liggen op verschillende chromosomen. Een plant die voor beide genen heterozygoot is, wordt bestoven door een plant met hetzelfde genotype.</p>`,
+ delen:[
+  {v:`Welke gameten maakt een ${gt('AaGg')}-plant?`,soort:'gameten',ouder:'A/a G/g',uitleg:'Elke gameet krijgt één allel van elk gen: AG, Ag, aG en ag.'},
+  {v:'Geef de fenotypeverhouding van de korrels aan de kolf.',soort:'verhouding',kruis:['A/a G/g','A/a G/g'],uitleg:'De bekende 9 : 3 : 3 : 1.'},
+  {v:'Aan de kolf zitten 384 korrels. Hoeveel gele, gladde korrels verwacht je?',soort:'getal',antw:72,marge:2,uitleg:'Geel en glad = 3/16. 3/16 × 384 = 72.'},
+  {v:`Een ${gt('AaGg')}-plant wordt gekruist met een ${gt('aagg')}-plant. Hoe groot is de kans op een paarse, gerimpelde korrel?`,soort:'kans',kruis:['A/a G/g','a/a g/g'],doel:{fen:{A:'paars',G:'gerimpeld'}},uitleg:'Testkruising van een dubbel heterozygoot: 1 : 1 : 1 : 1, dus 1/4.'}
+ ]},
+{id:'tomaat',titel:'De kweker wil rode dwergtomaten',tags:['di'],niveau:3,
+ loci:[{id:'R',allelen:['R','r'],reeks:['rood','geel']},{id:'H',allelen:['H','h'],reeks:['hoog','dwerg']}],
+ intro:`<p>Bij tomaten is rood vruchtvlees (${gt('R')}) dominant over geel (${gt('r')}) en een hoge plant (${gt('H')}) dominant over een dwergplant (${gt('h')}). Een kweker kruist een rasechte rode dwergplant met een rasechte gele hoge plant. Alle F1-planten zijn rood en hoog. De F1-planten worden onderling gekruist.</p>`,
+ delen:[
+  {v:'Wat zijn de genotypen van de twee ouderplanten?',soort:'keuze',opties:[`${gt('RRhh')} × ${gt('rrHH')}`,`${gt('Rrhh')} × ${gt('rrHh')}`,`${gt('RRHH')} × ${gt('rrhh')}`,`${gt('RrHh')} × ${gt('rrhh')}`],goed:0,uitleg:'Rasecht betekent homozygoot. Rood dwerg = RRhh, geel hoog = rrHH.'},
+  {v:'Hoe groot is de kans dat een F2-plant rood én dwerg is?',soort:'kans',kruis:['R/r H/h','R/r H/h'],doel:{fen:{R:'rood',H:'dwerg'}},uitleg:'Rood: 3/4, dwerg: 1/4. Samen 3/4 × 1/4 = 3/16.'},
+  {v:'Welk deel van de rode dwergplanten in de F2 is rasecht (RRhh)?',soort:'kans',antw:1/3,uitleg:'Rode dwergen zijn RRhh (1 vakje) of Rrhh (2 vakjes). Dus 1 van de 3.'},
+  {v:'Hoe vindt de kweker de rasechte rode dwergplanten?',soort:'keuze',opties:['Kruisen met een gele dwergplant (rrhh): alleen als er nooit gele tomaten komen, is de plant RRhh.','Kruisen met een rode hoge plant.','Kijken welke planten de grootste tomaten hebben.','Kruisen met een F1-plant.'],goed:0,uitleg:'Een testkruising met rrhh. Een Rrhh-plant geeft dan voor de helft gele nakomelingen.'}
+ ]},
+{id:'cavia-di',titel:'Cavia\'s met ruw en glad haar',tags:['di','terug'],niveau:2,
+ loci:[{id:'B',allelen:['B','b'],reeks:['zwart','wit']},{id:'R',allelen:['R','r'],reeks:['ruw','glad']}],
+ intro:`<p>Bij cavia's is zwart (${gt('B')}) dominant over wit (${gt('b')}) en ruw haar (${gt('R')}) dominant over glad haar (${gt('r')}). De genen liggen op verschillende chromosomen. Een zwart, ruwharig mannetje paart met een wit, gladharig vrouwtje. Over een paar worpen krijgen ze 11 zwart-ruwe, 9 zwart-gladde, 10 wit-ruwe en 12 wit-gladde jongen.</p>`,
+ delen:[
+  {v:'Wat is het genotype van het mannetje?',soort:'keuze',opties:[gt('BBRR'),gt('BbRR'),gt('BBRr'),gt('BbRr')],goed:3,kruis:['B/b R/r','b/b r/r'],uitleg:'Er zijn witte jongen (dus vader Bb) en gladde jongen (dus vader Rr). De verhouding is ongeveer 1 : 1 : 1 : 1.'},
+  {v:'Een ander zwart, ruwharig mannetje krijgt met hetzelfde vrouwtje 18 zwart-ruwe en 17 wit-ruwe jongen. Wat is zijn genotype?',soort:'keuze',opties:[gt('BBRR'),gt('BbRR'),gt('BBRr'),gt('BbRr')],goed:1,kruis:['B/b R/R','b/b r/r'],uitleg:'Witte jongen: het mannetje is Bb. Geen enkel glad jong uit 35: hij is (zeer waarschijnlijk) RR.'}
+ ]},
+
+/* ---------- BLOEDGROEP + RESUS (dihybride) ---------- */
+{id:'bloed-resus',titel:'Bloedgroep én resusfactor',tags:['di','multi'],niveau:3,
+ loci:[BLOED,{id:'D',allelen:['D','d'],reeks:['resus-positief','resus-negatief']}],
+ intro:`<p>Naast de AB0-bloedgroep heb je een resusfactor. Het allel ${gt('D')} (resus-positief) is dominant over ${gt('d')} (resus-negatief). De genen liggen op verschillende chromosomen. Een vrouw met genotype ${gt('I<sup>A</sup>i Dd')} krijgt kinderen met een man met genotype ${gt('I<sup>B</sup>i Dd')}.</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat een kind bloedgroep 0 heeft en resus-negatief is?',soort:'kans',kruis:['IA/i D/d','IB/i D/d'],doel:{fen:{AB0:'0',D:'resus-negatief'}},uitleg:'Bloedgroep 0: 1/4. Resus-negatief: 1/4. Samen 1/4 × 1/4 = 1/16.'},
+  {v:'Hoe groot is de kans op een kind met bloedgroep AB dat resus-positief is?',soort:'kans',kruis:['IA/i D/d','IB/i D/d'],doel:{fen:{AB0:'AB',D:'resus-positief'}},uitleg:'1/4 × 3/4 = 3/16.'}
+ ]},
+
+/* ---------- LETAAL ---------- */
+{id:'gele-muis',titel:'Gele muizen die nooit zuiver fokken',tags:['letaal','mono'],niveau:2,
+ loci:[{id:'A',allelen:['Ay','A'],toon:{Ay:'A<sup>Y</sup>'},reeks:['geel','agouti'],letaal:['Ay/Ay']}],
+ intro:`<p>Bij muizen geeft het allel ${gt('A<sup>Y</sup>')} een gele vacht. Het is dominant over ${gt('A')} (agouti, de grijsbruine wildkleur). Embryo's met ${gt('A<sup>Y</sup>A<sup>Y</sup>')} sterven al in de baarmoeder.</p>`,
+ delen:[
+  {v:'Twee gele muizen krijgen jongen. Geef de fenotypeverhouding van de levend geboren jongen.',soort:'verhouding',kruis:['Ay/A','Ay/A'],uitleg:'Van de vier vakjes sterft er één (A<sup>Y</sup>A<sup>Y</sup>). Over blijven 2 geel : 1 agouti.'},
+  {v:'Gele × gele muizen hebben gemiddeld kleinere worpen dan gele × agouti muizen. Hoe komt dat?',soort:'keuze',opties:['Ongeveer een kwart van de embryo\'s is A<sup>Y</sup>A<sup>Y</sup> en sterft.','Gele muizen zijn minder vruchtbaar.','Het geel-allel is recessief.','De helft van de embryo\'s sterft.'],goed:0,uitleg:'Bij geel × agouti (A<sup>Y</sup>A × AA) ontstaan geen A<sup>Y</sup>A<sup>Y</sup>-embryo\'s.'},
+  {v:'Kan een fokker een lijn gele muizen maken waarin alle jongen geel zijn?',soort:'keuze',opties:['Ja, door steeds de gele jongen te kiezen.','Nee, want elke levende gele muis is heterozygoot.','Ja, met homozygote gele muizen.'],goed:1,uitleg:'Homozygote gele muizen bestaan niet. Twee gele ouders geven dus altijd ook agouti jongen.'}
+ ]},
+{id:'manx',titel:'De staartloze Manx-kat',tags:['letaal'],niveau:2,
+ loci:[{id:'M',allelen:['M','m'],reeks:['staartloos','met staart'],letaal:['M/M']}],
+ intro:`<p>Manx-katten hebben geen staart door het dominante allel ${gt('M')}. Embryo's met ${gt('MM')} ontwikkelen zich niet. Katten met ${gt('mm')} hebben een normale staart.</p>`,
+ delen:[
+  {v:'Een Manx-poes krijgt kittens van een kater met staart. Geef de fenotypeverhouding.',soort:'verhouding',kruis:['M/m','m/m'],uitleg:'Mm × mm: de helft Mm (staartloos), de helft mm. Hier sterft niemand.'},
+  {v:'Twee Manx-katten krijgen kittens. Hoe groot is de kans dat een levend geboren kitten staartloos is?',soort:'kans',kruis:['M/m','M/m'],doel:{fen:{M:'staartloos'}},uitleg:'Van de drie levende vakjes zijn er twee Mm: 2/3.'}
+ ]},
+{id:'achondroplasie',titel:'Achondroplasie in een gezin',tags:['letaal','kans'],niveau:3,
+ loci:[{id:'A',allelen:['A','a'],reeks:['achondroplasie','gemiddelde lengte'],letaal:['A/A']}],
+ intro:`<p>Achondroplasie is een vorm van dwerggroei. Het allel ${gt('A')} is dominant. Ga ervan uit dat een kind met ${gt('AA')} vóór of rond de geboorte overlijdt. Twee ouders hebben allebei achondroplasie.</p>`,
+ delen:[
+  {v:'Geef de verhouding achondroplasie : gemiddelde lengte bij hun levend geboren kinderen.',soort:'verhouding',kruis:['A/a','A/a'],uitleg:'Aa × Aa: AA overlijdt, dus 2 Aa : 1 aa.'},
+  {v:'Hoe groot is de kans dat een levend geboren kind van dit stel een gemiddelde lengte heeft?',soort:'kans',kruis:['A/a','A/a'],doel:{fen:{A:'gemiddelde lengte'}},uitleg:'1 van de 3 levende vakjes.'},
+  {v:'Waarom zie je bij een letaal allel zoals hier geen 3 : 1, maar 2 : 1?',soort:'keuze',opties:['Omdat de homozygote dominante nakomelingen ontbreken.','Omdat het allel recessief is.','Omdat er crossing-over optreedt.'],goed:0,uitleg:'Het vakje AA telt niet mee: van 1 : 2 : 1 blijft 2 : 1 over.'}
+ ]},
+
+/* ---------- GESLACHTSGEBONDEN ---------- */
+{id:'kleurenblind',titel:'Kleurenblindheid in de familie',tags:['x'],niveau:1,
+ loci:[{id:'N',allelen:['N','n'],reeks:['normaal kleurenzien','kleurenblind'],gesl:true}],
+ intro:`<p>Rood-groenkleurenblindheid is X-chromosomaal recessief. ${gt(X('N'))} geeft normaal kleurenzien, ${gt(X('n'))} kleurenblindheid. Een vrouw die draagster is (${gt(X('N')+X('n'))}) krijgt kinderen met een man die normaal ziet (${gt(X('N')+'Y')}).</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat een zoon van dit stel kleurenblind is?',soort:'kans',kruis:['X:N/X:n','X:N/Y:'],doel:{fen:{N:'kleurenblind'}},binnen:{gesl:'m'},uitleg:'Zonen krijgen hun X van de moeder: de helft krijgt X<sup>n</sup>.'},
+  {v:'Hoe groot is de kans dat hun volgende kind een kleurenblinde zoon is?',soort:'kans',kruis:['X:N/X:n','X:N/Y:'],doel:{fen:{N:'kleurenblind'},gesl:'m'},uitleg:'Kans op een zoon is 1/2, kans dat die kleurenblind is 1/2: samen 1/4. Let op het verschil met de vorige vraag.'},
+  {v:'Hoe groot is de kans dat een dochter van dit stel kleurenblind is?',soort:'kans',kruis:['X:N/X:n','X:N/Y:'],doel:{fen:{N:'kleurenblind'}},binnen:{gesl:'v'},uitleg:'Elke dochter krijgt van haar vader X<sup>N</sup>. Ze ziet dus altijd normaal.'},
+  {v:'Waarom is kleurenblindheid veel vaker bij mannen dan bij vrouwen?',soort:'keuze',opties:['Mannen hebben maar één X-chromosoom; één X<sup>n</sup> is genoeg om kleurenblind te zijn.','Het allel ligt op het Y-chromosoom.','Vrouwen hebben het allel nooit.','Het allel is dominant bij mannen en recessief bij vrouwen.'],goed:0,uitleg:'Een vrouw is alleen kleurenblind met twee X<sup>n</sup>-chromosomen.'}
+ ]},
+{id:'victoria',titel:'Hemofilie bij koningin Victoria',tags:['x','kans'],niveau:2,
+ loci:[{id:'H',allelen:['H','h'],reeks:['gezond','hemofilie'],gesl:true}],
+ intro:`<p>Hemofilie (bloederziekte) is X-chromosomaal recessief. Koningin Victoria van Engeland was draagster (${gt(X('H')+X('h'))}). Haar man Albert had geen hemofilie. Hun zoon Leopold had hemofilie.</p>`,
+ delen:[
+  {v:'Van wie kreeg Leopold het allel voor hemofilie?',soort:'keuze',opties:['van zijn moeder Victoria','van zijn vader Albert','van allebei'],goed:0,uitleg:'Een zoon krijgt zijn X van zijn moeder en zijn Y van zijn vader.'},
+  {v:'Hoe groot was voor elke dochter van Victoria en Albert de kans dat zij draagster was?',soort:'kans',kruis:['X:H/X:h','X:H/Y:'],doel:{gen:{H:'H/h'}},binnen:{gesl:'v'},uitleg:'Dochters krijgen X<sup>H</sup> van Albert en X<sup>H</sup> of X<sup>h</sup> van Victoria: kans 1/2 op draagster.'},
+  {v:'Leopold krijgt kinderen met een vrouw die geen draagster is. Hoe groot is de kans dat een zoon van Leopold hemofilie heeft?',soort:'kans',kruis:['X:H/X:H','X:h/Y:'],doel:{fen:{H:'hemofilie'}},binnen:{gesl:'m'},uitleg:'Zonen krijgen de Y van Leopold en een X<sup>H</sup> van hun moeder: 0%. Al zijn dochters zijn wel draagster.'}
+ ]},
+{id:'morgan',titel:'Morgans fruitvliegen met witte ogen',tags:['x'],niveau:2,
+ loci:[{id:'R',allelen:['R','r'],reeks:['rode ogen','witte ogen'],gesl:true}],
+ intro:`<p>Bij fruitvliegen ligt een gen voor oogkleur op het X-chromosoom. Rode ogen (${gt(X('R'))}) zijn dominant over witte ogen (${gt(X('r'))}). Thomas Morgan vond in 1910 een mannetje met witte ogen.</p>`,
+ delen:[
+  {v:'Een vrouwtje met witte ogen paart met een mannetje met rode ogen. Geef de fenotypeverhouding, uitgesplitst naar geslacht.',soort:'verhouding',kruis:['X:r/X:r','X:R/Y:'],metGesl:true,uitleg:'Alle dochters krijgen X<sup>R</sup> van hun vader (rode ogen). Alle zonen krijgen X<sup>r</sup> van hun moeder (witte ogen).'},
+  {v:'Morgan kruiste een (homozygoot) roodogig vrouwtje met een witogig mannetje. De F1 had allemaal rode ogen. Geef de fenotypeverhouding in de F2 (F1 × F1), uitgesplitst naar geslacht.',soort:'verhouding',kruis:['X:R/X:r','X:R/Y:'],metGesl:true,uitleg:'F1: X<sup>R</sup>X<sup>r</sup> × X<sup>R</sup>Y. Alle vrouwtjes hebben rode ogen, de helft van de mannetjes witte.'},
+  {v:'Waaraan zag Morgan in de F2 dat het gen op het X-chromosoom ligt?',soort:'keuze',opties:['Witte ogen kwamen in de F2 alleen bij mannetjes voor.','De verhouding was 9 : 3 : 3 : 1.','Alle vliegen hadden rode ogen.','Er kwamen vliegen met roze ogen voor.'],goed:0,uitleg:'Bij een gen op een autosoom zou je witte ogen bij beide geslachten even vaak zien.'}
+ ]},
+{id:'schildpadkat',titel:'Een schildpadpoes',tags:['x','inter'],niveau:3,
+ loci:[{id:'O',allelen:['O','Z'],tabel:{'O/O':'oranje','O/Z':'schildpad','Z/Z':'zwart','O':'oranje','Z':'zwart'},namen:['oranje','zwart','schildpad'],gesl:true}],
+ intro:`<p>Bij katten ligt een gen voor vachtkleur op het X-chromosoom. ${gt(X('O'))} geeft oranje, ${gt(X('Z'))} zwart. Een poes met ${gt(X('O')+X('Z'))} heeft een gevlekte zwart-oranje vacht: een schildpadpoes. In elke cel is één van haar twee X-chromosomen uitgeschakeld, en dat verschilt per plek in de huid.</p>`,
+ delen:[
+  {v:'Een schildpadpoes krijgt kittens van een zwarte kater. Geef de fenotypeverhouding, uitgesplitst naar geslacht.',soort:'verhouding',kruis:['X:O/X:Z','X:Z/Y:'],metGesl:true,uitleg:'Poesjes: X<sup>O</sup>X<sup>Z</sup> (schildpad) of X<sup>Z</sup>X<sup>Z</sup> (zwart). Katers: X<sup>O</sup>Y (oranje) of X<sup>Z</sup>Y (zwart).'},
+  {v:'Hoe groot is de kans dat een kitten van een schildpadpoes en een oranje kater een schildpadkitten is?',soort:'kans',kruis:['X:O/X:Z','X:O/Y:'],doel:{fen:{O:'schildpad'}},uitleg:'Alleen poesjes met X<sup>O</sup>X<sup>Z</sup>: 1 van de 4 vakjes.'},
+  {v:'Een schildpadkater is heel zeldzaam. Welk genotype heeft zo\'n kater?',soort:'keuze',opties:[`${gt(X('O')+'Y')}`,`${gt(X('O')+X('Z')+'Y')}`,`${gt(X('Z')+'Y')}`,`${gt(X('O')+X('O'))}`],goed:1,uitleg:'Voor schildpad zijn twee X-chromosomen nodig. Een kater met XXY (een fout bij de meiose) kan dat hebben.'}
+ ]},
+{id:'kuikens',titel:'Kuikens sorteren op geslacht',tags:['x'],niveau:3,vwo:true,
+ sekse:'ZW',
+ loci:[{id:'B',allelen:['B','b'],reeks:['gestreept','ongestreept'],gesl:true}],
+ intro:`<p>Bij vogels is het andersom dan bij zoogdieren: een haan heeft twee gelijke geslachtschromosomen (ZZ), een hen heeft ZW. Bij kippen ligt een gen voor gestreepte veren op het Z-chromosoom. Gestreept (${gt(Z('B'))}) is dominant over ongestreept (${gt(Z('b'))}). Pluimveehouders kruisen een ongestreepte haan (${gt(Z('b')+Z('b'))}) met een gestreepte hen (${gt(Z('B')+'W')}).</p>`,
+ delen:[
+  {v:'Geef de fenotypeverhouding van de kuikens, uitgesplitst naar geslacht.',soort:'verhouding',kruis:['Z:b/Z:b','Z:B/W:'],metGesl:true,uitleg:'Haantjes krijgen Z<sup>B</sup> van hun moeder: gestreept. Hennetjes krijgen de W van hun moeder en Z<sup>b</sup> van hun vader: ongestreept.'},
+  {v:'Waarom is deze kruising handig voor een pluimveehouder?',soort:'keuze',opties:['Hij ziet direct na het uitkomen welke kuikens hennen zijn.','Alle kuikens worden hennen.','Gestreepte kippen leggen meer eieren.','De kuikens zijn allemaal homozygoot.'],goed:0,uitleg:'Gestreepte kuikens zijn haantjes, ongestreepte hennetjes. Zo kun je ze sorteren zonder ze te onderzoeken.'},
+  {v:`Een homozygote gestreepte haan (${gt(Z('B')+Z('B'))}) paart met een ongestreepte hen. Hoe groot is de kans dat een hennetje gestreept is?`,soort:'kans',kruis:['Z:B/Z:B','Z:b/W:'],doel:{fen:{B:'gestreept'}},binnen:{gesl:'v'},uitleg:'Een hennetje krijgt haar Z van haar vader: altijd Z<sup>B</sup>. Bij deze kruising kun je het geslacht dus niet aan de streping zien.'}
+ ]},
+{id:'rachitis',titel:'Een X-chromosomaal dominante ziekte',tags:['x'],niveau:3,
+ loci:[{id:'R',allelen:['R','r'],reeks:['ziek','gezond'],gesl:true}],
+ intro:`<p>Hypofosfatemische rachitis is een erfelijke botziekte die X-chromosomaal <b>dominant</b> overerft: ${gt(X('R'))} geeft de ziekte, ${gt(X('r'))} niet. Een man met de ziekte (${gt(X('R')+'Y')}) krijgt kinderen met een gezonde vrouw.</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat een dochter van dit stel de ziekte heeft?',soort:'kans',kruis:['X:r/X:r','X:R/Y:'],doel:{fen:{R:'ziek'}},binnen:{gesl:'v'},uitleg:'Elke dochter krijgt het X-chromosoom van haar vader: X<sup>R</sup>.'},
+  {v:'Hoe groot is de kans dat een zoon van dit stel de ziekte heeft?',soort:'kans',kruis:['X:r/X:r','X:R/Y:'],doel:{fen:{R:'ziek'}},binnen:{gesl:'m'},uitleg:'Zonen krijgen de Y van hun vader en een X<sup>r</sup> van hun moeder.'},
+  {v:'Welk kenmerk in een stamboom past bij X-chromosomaal dominant?',soort:'keuze',opties:['Een zieke vader heeft alleen zieke dochters en nooit zieke zonen.','Alleen mannen zijn ziek.','De ziekte slaat altijd een generatie over.','Twee gezonde ouders krijgen vaak een ziek kind.'],goed:0,uitleg:'Precies wat je in de eerste twee vragen uitrekende.'}
+ ]},
+
+/* ---------- GEKOPPELDE GENEN (vwo) ---------- */
+{id:'vlieg-gekoppeld',titel:'Fruitvliegen met stompe vleugels',tags:['gek'],niveau:3,vwo:true,
+ loci:[{id:'G',allelen:['G','g'],reeks:['grijs','zwart']},{id:'V',allelen:['V','v'],reeks:['normale vleugels','stompe vleugels']}],
+ intro:`<p>Bij fruitvliegen liggen het gen voor lichaamskleur (grijs ${gt('G')} &gt; zwart ${gt('g')}) en het gen voor vleugelvorm (normaal ${gt('V')} &gt; stomp ${gt('v')}) op hetzelfde chromosoom. Bij mannetjes-fruitvliegen treedt geen crossing-over op. Een mannetje met ${gt('GV/gv')} paart met een zwart vrouwtje met stompe vleugels (${gt('gv/gv')}).</p>`,
+ delen:[
+  {v:`Welke gameten maakt het mannetje (${gt('GV/gv')})?`,soort:'gameten',ouder:'G,V/g,v',uitleg:'Zonder crossing-over gaan de allelen op één chromosoom samen: alleen GV en gv.'},
+  {v:'Geef de fenotypeverhouding van de nakomelingen.',soort:'verhouding',kruis:['G,V/g,v','g,v/g,v'],uitleg:'Alleen de oudercombinaties komen terug: 1 : 0 : 0 : 1.'},
+  {v:'Welke verhouding had je verwacht als de genen op verschillende chromosomen lagen?',soort:'keuze',opties:['1 : 1 : 1 : 1','9 : 3 : 3 : 1','3 : 1','1 : 0 : 0 : 1'],goed:0,uitleg:'Dan is het een gewone testkruising van een dubbel heterozygoot.'},
+  {v:`Een ander mannetje heeft ${gt('Gv/gV')}. Hoe groot is de kans dat een nakomeling (met hetzelfde vrouwtje) grijs is en normale vleugels heeft?`,soort:'kans',kruis:['G,v/g,V','g,v/g,v'],doel:{fen:{G:'grijs',V:'normale vleugels'}},uitleg:'Dit mannetje maakt alleen Gv- en gV-gameten. Een nakomeling met G én V kan dus niet ontstaan.'}
+ ]},
+{id:'gekoppeld-f2',titel:'Gekoppeld: wat gebeurt er in de F2?',tags:['gek','di'],niveau:3,vwo:true,
+ loci:[{id:'A',allelen:['A','a'],reeks:['A','a']},{id:'B',allelen:['B','b'],reeks:['B','b']}],
+ intro:`<p>Twee genen liggen op hetzelfde chromosoom. ${gt('A')} is dominant over ${gt('a')}, ${gt('B')} over ${gt('b')}. Neem aan dat er geen crossing-over optreedt. Twee individuen met ${gt('AB/ab')} worden gekruist. (Fenotype AB betekent: dominant voor beide kenmerken.)</p>`,
+ delen:[
+  {v:'Geef de fenotypeverhouding van de nakomelingen.',soort:'verhouding',kruis:['A,B/a,b','A,B/a,b'],uitleg:'Elke ouder maakt alleen AB en ab. Dat geeft 3 met fenotype AB en 1 met ab, net als bij een monohybride kruising.'},
+  {v:`En als je ${gt('AB/ab')} kruist met ${gt('Ab/aB')}? Hoe groot is de kans op fenotype ab?`,soort:'kans',kruis:['A,B/a,b','A,b/a,B'],doel:{fen:{A:'a',B:'b'}},uitleg:'Ab/aB maakt geen ab-gameten. Een ab/ab-nakomeling kan dus niet ontstaan.'},
+  {v:'Een onderzoeker vindt bij een dubbel heterozygoot × dubbel homozygoot recessief toch een paar nakomelingen met nieuwe combinaties. Wat is de beste verklaring?',soort:'keuze',opties:['Er is toch crossing-over opgetreden.','De genen liggen op het X-chromosoom.','Een van de allelen is letaal.','De genen zijn intermediair.'],goed:0,uitleg:'Door crossing-over kunnen gekoppelde allelen toch van chromosoom wisselen. Hoe verder de genen uit elkaar liggen, hoe vaker.'}
+ ]},
+
+/* ---------- KANSEN IN FAMILIES ---------- */
+{id:'taaislijm',titel:'Taaislijmziekte bij een broer',tags:['kans','mono'],niveau:3,
+ loci:[{id:'F',allelen:['F','f'],reeks:['gezond','taaislijmziekte']}],
+ intro:`<p>Taaislijmziekte (cystic fibrosis) is autosomaal recessief: ${gt('F')} is gezond, ${gt('ff')} geeft de ziekte. Twee gezonde ouders krijgen een kind met taaislijmziekte.</p>`,
+ delen:[
+  {v:'Wat zijn de genotypen van de ouders?',soort:'keuze',opties:[`${gt('FF')} × ${gt('Ff')}`,`${gt('Ff')} × ${gt('Ff')}`,`${gt('Ff')} × ${gt('ff')}`,`${gt('FF')} × ${gt('ff')}`],goed:1,kruis:['F/f','F/f'],uitleg:'Het zieke kind is ff en kreeg van beide ouders een f. De ouders zijn gezond, dus allebei Ff.'},
+  {v:'Hoe groot is de kans dat hun volgende kind ook taaislijmziekte heeft?',soort:'kans',kruis:['F/f','F/f'],doel:{fen:{F:'taaislijmziekte'}},uitleg:'1 van de 4 vakjes. Elke zwangerschap opnieuw.'},
+  {v:'Het zieke kind heeft een gezonde broer. Hoe groot is de kans dat hij drager is?',soort:'kans',antw:2/3,uitleg:'We weten dat hij gezond is: hij is FF of Ff. Van de drie gezonde vakjes zijn er twee Ff.'},
+  {v:'Die broer krijgt later kinderen met een vrouw die zeker drager is. Hoe groot is de kans dat hun eerste kind taaislijmziekte heeft?',soort:'kans',antw:1/6,uitleg:'Kans dat de broer drager is: 2/3. Als beide ouders drager zijn, is de kans op een ziek kind 1/4. Samen: 2/3 × 1/4 = 1/6 ≈ 16,7%.'}
+ ]},
+{id:'albinisme',titel:'Albinisme aan twee kanten van de familie',tags:['kans'],niveau:3,
+ loci:[{id:'A',allelen:['A','a'],reeks:['normale pigmentatie','albinisme']}],
+ intro:`<p>Albinisme is autosomaal recessief (${gt('aa')}). Een man en een vrouw zien er allebei normaal uit. Ze hebben allebei een broer of zus met albinisme, en hun eigen ouders hebben geen albinisme.</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat de vrouw draagster is?',soort:'kans',antw:2/3,uitleg:'Haar ouders zijn allebei Aa (ze hebben een kind met albinisme). Zij is niet aa, dus 2/3 kans op Aa.'},
+  {v:'Hoe groot is de kans dat hun eerste kind albinisme heeft?',soort:'kans',antw:1/9,uitleg:'Allebei drager: 2/3 × 2/3 = 4/9. Dan kans 1/4 op aa. Samen 4/9 × 1/4 = 1/9 ≈ 11,1%.'},
+  {v:'Hun eerste kind blijkt albinisme te hebben. Hoe groot is de kans dat het tweede kind ook albinisme heeft?',soort:'kans',kruis:['A/a','A/a'],doel:{fen:{A:'albinisme'}},uitleg:'Nu weet je zeker dat beide ouders Aa zijn. De kans per kind is dan gewoon 1/4.'}
+ ]},
+{id:'huntington',titel:'De ziekte van Huntington',tags:['kans','mono'],niveau:2,
+ loci:[{id:'H',allelen:['H','h'],reeks:['Huntington','gezond']}],
+ intro:`<p>De ziekte van Huntington is autosomaal dominant (${gt('H')}). De eerste verschijnselen komen meestal pas tussen het 30e en 50e levensjaar. Een man met Huntington (${gt('Hh')}) heeft kinderen met een gezonde vrouw (${gt('hh')}).</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat een kind de ziekte erft?',soort:'kans',kruis:['H/h','h/h'],doel:{fen:{H:'Huntington'}},uitleg:'Hh × hh: de helft van de kinderen krijgt H.'},
+  {v:'Ze krijgen twee kinderen. Hoe groot is de kans dat géén van beide de ziekte erft?',soort:'kans',antw:1/4,uitleg:'Per kind 1/2 kans om gezond te blijven: 1/2 × 1/2 = 1/4.'},
+  {v:'Hoe kan een dominante, ernstige ziekte als Huntington toch in de bevolking blijven?',soort:'keuze',opties:['De ziekte begint vaak pas als iemand al kinderen heeft gekregen.','Het allel is eigenlijk recessief.','Het allel ligt op het Y-chromosoom.','Dragers worden nooit ziek.'],goed:0,uitleg:'Natuurlijke selectie werkt nauwelijks tegen een allel dat pas na de voortplanting schade doet.'}
+ ]},
+{id:'combi-xa',titel:'Twee ziektes tegelijk',tags:['kans','x','di'],niveau:3,
+ loci:[{id:'A',allelen:['A','a'],reeks:['normaal','albinisme']},{id:'N',allelen:['N','n'],reeks:['normaal kleurenzien','kleurenblind'],gesl:true}],
+ intro:`<p>Albinisme is autosomaal recessief (${gt('aa')}). Kleurenblindheid is X-chromosomaal recessief (${gt(X('n'))}). Een vrouw is drager van albinisme en draagster van kleurenblindheid: ${gt('Aa '+X('N')+X('n'))}. Haar man is drager van albinisme en ziet normaal: ${gt('Aa '+X('N')+'Y')}.</p>`,
+ delen:[
+  {v:'Hoe groot is de kans dat hun volgende kind een zoon is die zowel albinisme heeft als kleurenblind is?',soort:'kans',kruis:['A/a X:N/X:n','A/a X:N/Y:'],doel:{fen:{A:'albinisme',N:'kleurenblind'},gesl:'m'},uitleg:'Albinisme: 1/4. Kleurenblinde zoon (van alle kinderen): 1/4. Samen 1/16.'},
+  {v:'Hoe groot is de kans dat een dochter van dit stel géén van beide aandoeningen heeft?',soort:'kans',kruis:['A/a X:N/X:n','A/a X:N/Y:'],doel:{fen:{A:'normaal',N:'normaal kleurenzien'}},binnen:{gesl:'v'},uitleg:'Dochters zien altijd normaal (X<sup>N</sup> van vader). Geen albinisme: 3/4. Samen 3/4.'}
+ ]}
+];
+
+let filterTag=null, open=null;
+function tekenContextLijst(){
+  const tags=Object.keys(TAGS).filter(t=>OPGAVEN.some(o=>o.tags.includes(t)));
+  let h=`<div class="paneel filter"><h2>Kies een opgave</h2><p class="sub">Elke opgave heeft een korte context en meerdere deelvragen. Sterren geven de moeilijkheid aan.</p><div class="chips">
+    <button type="button" class="chip" data-tag="" aria-pressed="${!filterTag}">Alles</button>${tags.map(t=>`<button type="button" class="chip" data-tag="${t}" aria-pressed="${filterTag===t}">${TAGS[t]}</button>`).join('')}</div></div>`;
+  const lijst=OPGAVEN.filter(o=>!filterTag||o.tags.includes(filterTag));
+  [1,2,3].forEach(n=>{
+    const o=lijst.filter(x=>x.niveau===n);if(!o.length)return;
+    h+=`<div class="groep"><h2>${['','Instap','Gemiddeld','Uitdagend'][n]} <span class="sterren" style="color:var(--goud-text)">${'★'.repeat(n)}</span></h2><div class="lijst">${o.map(x=>`<button type="button" class="opg" data-id="${x.id}">${OPSLAG.klaar[x.id]?'<span class="klaar" aria-label="af">✓</span>':''}<span class="meta">${x.tags.map(t=>TAGS[t]).join(' · ')}</span><b>${x.titel}</b><span class="meta">${x.delen.length} vragen${x.vwo?' · <span class="vwo-label">vwo</span>':''}</span></button>`).join('')}</div></div>`;
+  });
+  $('#contextlijst').innerHTML=h;
+  document.querySelectorAll('#contextlijst .chip').forEach(b=>b.onclick=()=>{filterTag=b.dataset.tag||null;tekenContextLijst()});
+  document.querySelectorAll('#contextlijst .opg').forEach(b=>b.onclick=()=>openOpgave(b.dataset.id));
+}
+function modelVan(o){return KRUIS.bouw({loci:o.loci.map(l=>Object.assign({},l)),sekse:o.sekse||'XY'})}
+function openOpgave(id){
+  const o=OPGAVEN.find(x=>x.id===id);open=o;
+  const m=modelVan(o);
+  $('#contextlijst').hidden=true;const box=$('#contextopgave');box.hidden=false;
+  const delen=o.delen.map((d,i)=>{
+    let inv;
+    if(d.soort==='keuze') inv=invoerKeuze(d.opties);
+    else if(d.soort==='kans') inv=invoerKans();
+    else if(d.soort==='getal') inv=invoerGetal();
+    else if(d.soort==='gameten'){const kg=kandidaatGameten(m,d.ouder);d._kg=kg;d._kand=schud(kg.kandidaten);inv=invoerGameten(d._kand)}
+    else if(d.soort==='verhouding'){const res=KRUIS.kruis(m,d.kruis[0],d.kruis[1]);d._v=KRUIS.verdeling(m,res,d.metGesl,d.binnen);inv=invoerVerhouding(d._v.map(x=>x.label))}
+    d._inv=inv;
+    return `<div class="deel" data-i="${i}"><div class="nr">Vraag ${i+1}</div><p class="vraag">${d.v}</p><div class="antw">${inv.html}</div>
+      <div class="knoppen"><button class="knop klein" type="button" data-act="check">Controleer</button><button class="knop stil klein" type="button" data-act="uitw">Toon uitwerking</button></div><div class="fb"></div><div class="uw"></div></div>`;
+  }).join('');
+  const idx=OPGAVEN.indexOf(o);
+  box.innerHTML=`<div class="knoppen" style="margin-top:0"><button class="knop stil klein" type="button" id="terugLijst">← Alle opgaven</button></div>
+    <div class="typelabel" style="margin-top:14px">${o.tags.map(t=>TAGS[t]).join(' · ')} · <span style="letter-spacing:2px">${'★'.repeat(o.niveau)}</span>${o.vwo?' <span class="vwo-label">vwo</span>':''}</div>
+    <h2 style="font-size:28px;margin:6px 0 4px">${o.titel}</h2><div class="intro">${o.intro}</div>${delen}
+    <div class="knoppen" style="margin-top:24px"><button class="knop stil" type="button" id="terugLijst2">← Alle opgaven</button>${idx<OPGAVEN.length-1?'<button class="knop" type="button" id="volgendeOpg">Volgende opgave →</button>':''}</div>`;
+  box.querySelectorAll('.deel').forEach(el=>{
+    const d=o.delen[+el.dataset.i];if(d._inv.init)d._inv.init(el.querySelector('.antw'));
+    el.querySelector('[data-act="check"]').onclick=()=>checkDeel(o,m,d,el);
+    el.querySelector('[data-act="uitw"]').onclick=()=>uitwDeel(o,m,d,el,false);
+    el.querySelectorAll('input').forEach(i=>i.addEventListener('keydown',e=>{if(e.key==='Enter')checkDeel(o,m,d,el)}));
+  });
+  $('#terugLijst').onclick=$('#terugLijst2').onclick=sluitOpgave;
+  if($('#volgendeOpg'))$('#volgendeOpg').onclick=()=>openOpgave(OPGAVEN[idx+1].id);
+  box.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function sluitOpgave(){$('#contextopgave').hidden=true;$('#contextlijst').hidden=false;tekenContextLijst()}
+function juistAntwoord(m,d){
+  if(d.soort==='kans'){
+    if(d.antw!==undefined) return d.antw;
+    return KRUIS.kans(KRUIS.kruis(m,d.kruis[0],d.kruis[1]),d.doel,d.binnen);
+  }
+  return null;
+}
+function antwoordHtml(m,d){
+  if(d.soort==='keuze') return d.opties[d.goed];
+  if(d.soort==='kans'){const p=juistAntwoord(m,d);
+    if(d.kruis&&d.antw===undefined){const r=KRUIS.kruis(m,d.kruis[0],d.kruis[1]);const n=r.levend.filter(x=>KRUIS.past(x,d.binnen));return kansTekst(n.filter(x=>KRUIS.past(x,d.doel)).length,n.length)}
+    const fr={0.5:'1/2'};return pct(p)+(p===2/3?' (2/3)':p===1/3?' (1/3)':p===1/6?' (1/6)':p===1/9?' (1/9)':p===1/4?' (1/4)':p===1/128?' (1/128)':'')}
+  if(d.soort==='getal') return String(d.antw);
+  if(d.soort==='verhouding') return d._v.map(x=>x.label).join(' : ')+' = '+verhoudingTekst(d._v.map(x=>x.n));
+  if(d.soort==='gameten') return d._kg.goed.join(', ');
+}
+function checkDeel(o,m,d,el){
+  const a=el.querySelector('.antw');let r;
+  if(d.soort==='keuze'){const k=d._inv.lees(a);r=k===null?null:k===d.goed}
+  else if(d.soort==='kans') r=kansGoed(d._inv.lees(a),juistAntwoord(m,d));
+  else if(d.soort==='getal'){const v=parseFloat((d._inv.lees(a)||'').replace(',','.'));r=isNaN(v)?null:Math.abs(v-d.antw)<=d.marge}
+  else if(d.soort==='verhouding') r=verhoudingGoed(d._inv.lees(a),d._v.map(x=>x.n));
+  else if(d.soort==='gameten'){const sel=d._inv.lees(a).map(i=>d._kand[i]);r=sel.length?(sel.length===d._kg.goed.length&&d._kg.goed.every(g=>sel.includes(g))):null}
+  const fb=el.querySelector('.fb');
+  if(r===null){fb.innerHTML='<div class="feedback tip"><b>Nog niet compleet</b>Vul je antwoord in en controleer opnieuw.</div>';return}
+  d._goed=d._goed||r;
+  if(r){fb.innerHTML=`<div class="feedback ok"><b>Goed!</b>${antwoordHtml(m,d)}</div>`;uitwDeel(o,m,d,el,true)}
+  else fb.innerHTML='<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>';
+  if(o.delen.every(x=>x._goed||x._gezien)){OPSLAG.klaar[o.id]=1;bewaar();toonScore()}
+}
+function uitwDeel(o,m,d,el,naGoed){
+  d._gezien=true;
+  let h=`<div class="uitwerking">${naGoed?'':`<p><b>Antwoord:</b> ${antwoordHtml(m,d)}</p>`}<p>${d.uitleg||''}</p>`;
+  const kr=d.kruis;
+  if(kr){const res=KRUIS.kruis(m,kr[0],kr[1]);const metG=!!d.metGesl||m.loci.some(l=>l.gesl);h+=`<h4>Kruisingsschema</h4>${gametenUitleg(m,res)}${schema(m,res,metG)}`}
+  else if(d.soort==='gameten'){h+=`<h4>Gameten</h4><p>${d._kg.goed.join(', ')}</p>`}
+  el.querySelector('.uw').innerHTML=h+'</div>';
+  if(o.delen.every(x=>x._goed||x._gezien)){OPSLAG.klaar[o.id]=1;bewaar();toonScore()}
+}
+
+/* ============================================================
+   START
+   ============================================================ */
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('[data-tab]').forEach(x=>x.setAttribute('aria-selected',x===b));
+  $('#snel').hidden=b.dataset.tab!=='snel';$('#context').hidden=b.dataset.tab!=='context';
+});
+tekenChips();nieuweSnel();tekenContextLijst();toonScore();
+</script>
+</body>
+</html>
