@@ -492,7 +492,21 @@ function maakVraag(k){
   return soort;
 }
 
-let HUIDIG=null;
+let HUIDIG=null,HUIDIG_TIP=null;
+/* Gerichte tip bij de bekendste denkfout bij geslachtsgebonden kansen: kans van álle nakomelingen verward met kans binnen één geslacht (of andersom). */
+function geslTip(res,doel,binnen,invoer,exact){
+  if(kansGoed(invoer,exact)!==false) return null;
+  const naam=g=>g==='v'?'vrouwelijke':'mannelijke';
+  if(doel&&doel.gesl&&!(binnen&&binnen.gesl)){
+    const alt=KRUIS.kans(res,{fen:doel.fen,gen:doel.gen},{gesl:doel.gesl});
+    if(Math.abs(alt-exact)>1e-9&&kansGoed(invoer,alt)) return `Je rekende alleen met de ${naam(doel.gesl)} nakomelingen. De vraag gaat over <b>álle</b> nakomelingen: de nakomeling moet eerst ${doel.gesl==='v'?'een vrouwtje':'een mannetje'} zijn (de helft), én dan ook nog dit fenotype hebben. Tel in het schema de vakjes van álle nakomelingen.`;
+  }
+  if(binnen&&binnen.gesl){
+    const alt=KRUIS.kans(res,Object.assign({},doel,{gesl:binnen.gesl}),null);
+    if(Math.abs(alt-exact)>1e-9&&kansGoed(invoer,alt)) return `Je rekende met álle nakomelingen. De vraag gaat alleen over de <b>${naam(binnen.gesl)}</b> nakomelingen: tel alleen de vakjes ${binnen.gesl==='v'?'met twee X-chromosomen':'met een Y'} (bij vogels andersom), en kijk welk deel daarvan het fenotype heeft.`;
+  }
+  return null;
+}
 function nieuweSnel(){
   const lijst=[...gekozen];if(!lijst.length){$('#snelkaart').innerHTML='<p class="sub">Kies hierboven minstens één soort kruising.</p>';return}
   let type=kies(lijst),soort;
@@ -543,14 +557,15 @@ function tekenSnel(){
       const c=Math.random()<.85?kies(komtVoor):kies(kl);
       const fenTxt=KRUIS.fenLabel(m,{fen:c.fen},false);
       if(k.metGesl){
-        if(Math.random()<.5){doel={fen:c.fen,gesl:c.gesl};zin=`een nakomeling een ${c.gesl==='v'?'vrouwtje':'mannetje'} met ${fenTxt} is`}
-        else {doel={fen:c.fen};binnen={gesl:c.gesl};zin=`een ${c.gesl==='v'?'vrouwelijke':'mannelijke'} nakomeling ${fenTxt} heeft`}
+        const wie=c.gesl==='v'?'vrouwtje':'mannetje';
+        if(Math.random()<.5){doel={fen:c.fen,gesl:c.gesl};zin=`een nakomeling een ${wie} is én ${fenTxt} heeft (reken met álle nakomelingen)`}
+        else {doel={fen:c.fen};binnen={gesl:c.gesl};zin=`een ${wie} uit deze kruising ${fenTxt} heeft (kijk alleen naar de ${c.gesl==='v'?'vrouwtjes':'mannetjes'})`}
       } else {doel={fen:c.fen};zin=`een nakomeling ${fenTxt} heeft`}
     }
     const p=KRUIS.kans(res,doel,binnen);
     const noemer=res.levend.filter(r=>KRUIS.past(r,binnen));const teller=noemer.filter(r=>KRUIS.past(r,doel)).length;
     vraag=`Hoe groot is de kans dat ${zin}?${k.type==='letaal'?' (Reken met de levend geboren nakomelingen.)':''}`;
-    inv=invoerKans();check=el=>kansGoed(inv.lees(el),p);
+    inv=invoerKans();check=el=>kansGoed(inv.lees(el),p);HUIDIG_TIP=el=>geslTip(res,doel,binnen,inv.lees(el),p);
     antwoordTekst=`<b>${kansTekst(teller,noemer.length)}</b>: ${teller} van de ${noemer.length} ${binnen?(binnen.gesl==='v'?'vrouwelijke ':'mannelijke '):''}${k.type==='letaal'?'levende ':''}vakjes.`;
   } else if(soort==='gameten'){
     const welke=KRUIS.lees(m,k.o1).some(p=>p[0].al.join()!==p[1].al.join()||p[0].chr!==p[1].chr)?1:2;
@@ -574,7 +589,7 @@ function tekenSnel(){
     check=el=>{const k2=inv.lees(el);if(!k2)return null;return vingerafdruk(m,k2[0],k2[1],k.metGesl)===echte};
     antwoordTekst=`Ouder 1: <b>${KRUIS.toonGenotype(m,KRUIS.lees(m,k.o1))}</b> · ouder 2: <b>${KRUIS.toonGenotype(m,KRUIS.lees(m,k.o2))}</b>. De verhouding ${verhoudingTekst(v.filter(x=>x.n).map(x=>x.n))} past alleen bij deze ouders.`;
   }
-  HUIDIG.check=check;HUIDIG.antw=antwoordTekst;
+  HUIDIG.check=check;HUIDIG.antw=antwoordTekst;HUIDIG.tip=HUIDIG_TIP;HUIDIG_TIP=null;
   $('#snelkaart').innerHTML=`<div class="typelabel">${k.naam}${k.type==='gek'?' <span class="vwo-label">vwo</span>':''}</div>
     ${kruisHtml}
     <ul class="regels">${k.regels.map(r=>`<li>${r}</li>`).join('')}</ul>
@@ -592,7 +607,7 @@ function controleerSnel(){
   HUIDIG.pogingen++;
   if(!HUIDIG.geteld){HUIDIG.geteld=true;OPSLAG.snel.totaal++;if(r)OPSLAG.snel.goed++;bewaar();toonScore()}
   if(r){HUIDIG.goedGezien=true;$('#fb').innerHTML=`<div class="feedback ok"><b>Goed!</b>${HUIDIG.antw}<br><span style="font-size:14px;opacity:.75">Druk op Enter of N voor een nieuwe kruising.</span></div>`;uitwerkingSnel(true)}
-  else $('#fb').innerHTML=`<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>`;
+  else {const t=HUIDIG.tip&&HUIDIG.tip($('#antw'));$('#fb').innerHTML=t?`<div class="feedback tip"><b>Bijna: let op wie je meetelt</b>${t}</div>`:`<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>`}
 }
 function uitwerkingSnel(naGoed){
   const {k,res}=HUIDIG,m=k.model;
@@ -947,7 +962,8 @@ function checkDeel(o,m,d,el){
   if(r===null){fb.innerHTML='<div class="feedback tip"><b>Nog niet compleet</b>Vul je antwoord in en controleer opnieuw.</div>';return}
   d._goed=d._goed||r;
   if(r){fb.innerHTML=`<div class="feedback ok"><b>Goed!</b>${antwoordHtml(m,d)}</div>`;uitwDeel(o,m,d,el,true)}
-  else fb.innerHTML='<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>';
+  else {let t=null;if(d.soort==='kans'&&d.kruis&&d.antw===undefined)t=geslTip(KRUIS.kruis(m,d.kruis[0],d.kruis[1]),d.doel,d.binnen,d._inv.lees(a),juistAntwoord(m,d));
+    fb.innerHTML=t?`<div class="feedback tip"><b>Bijna: let op wie je meetelt</b>${t}</div>`:'<div class="feedback no"><b>Nog niet goed</b>Probeer het nog eens, of bekijk de uitwerking.</div>';}
   if(o.delen.every(x=>x._goed||x._gezien)){OPSLAG.klaar[o.id]=1;bewaar();toonScore()}
 }
 function uitwDeel(o,m,d,el,naGoed){
