@@ -19,7 +19,7 @@ Centrale lijst van uitspraken die Kamiel heeft goedgekeurd. Gebruik deze bij **e
 | jaartallen | "het jaar 1977" (cijfers) | 13 okt |
 | open voorspelvraag | "Wat denk je?" (niet "Voorspel.") | 13 okt |
 | muilezel | muil-eezel | 13 okt |
-| erwten | erten | |
+| erwt, erwten, erwtenbloem, erwtenplant (alle samenstellingen) | ert, erten, ertenbloem … (regel `^([Ee])rwt` in uitspraak.json, 28 okt 2026) | |
 | vetoplosbaar | korte e | |
 | Y-chromosoom | ei-chromosoom | |
 | oxytocine | niet eindigend op -nee | |

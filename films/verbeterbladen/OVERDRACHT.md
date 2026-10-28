@@ -32,3 +32,13 @@ Status: **Kamiel akkoord met alle voorstellen** (25 okt 2026, 'de voorstellen vo
 - Fase 1 in `films/zenuwstelsel/9-spieren-en-beweging/bron/fase1/` (script v3, storyboard, keyframes, twijfel.md, uitspraak.md), bronnenlogboek `bron/bronnen.md`, B15-werk en reviews in `bron/werk/`.
 - Keuringsblad (alleen twijfelscènes): https://claude.ai/artifact/Q2bq5R2XhPoAB7fPv8HmAV (db-collectie `besluit`, doc-id `spieren__<id>`, ids t1–t10 en script; doen = voorstel, niet = alternatief, anders = opmerking). Opnieuw bouwen: `python3 films/verbeterbladen/spieren-2026-10/bouw_blad.py`.
 - Daarna fase 2 (zie `bron/STAND.md`); `jaarplanner-dekking.json` pas als laatste stap, na `git pull`.
+
+## Ronde 28 okt 2026: Erfelijkheid (Kamiels review van de hele reeks)
+
+- Opmerkingen: 35 in de reviewstand (`films/verbeterbladen/erfelijkheid-2026-10/opmerkingen.json`; film 1: 14 al verwerkt in 2.0/2.1). Uitspraaktest 28 okt verwerkt (allel gewoon, ga-MEET, I-A/I-B/i; zie `films/UITSPRAAK.md`).
+- Film 1 Chromosomen: **gerichte ronde, versie 2.2 online** (s26 en s34 opnieuw, nuance recessief allel). REVIEW: opnieuw bekijken.
+- Films 2–6: Kamiel koos **lichte remake**. Fase 1 klaar per film in `<film>/bron/remake-2026-10/` (brief: `erfelijkheid-2026-10/BRIEF.md`; werkmappen `/home/claude/hw/erf2..erf6/`, buiten de repo).
+- Keuringsblad: https://claude.ai/artifact/V2v9wu53hawnx695KFQWg2 (db-collectie `besluit`, doc-id `<sleutel>__<id>`, sleutels erf2–erf6; doen = voorstel, niet = alternatief, anders = opmerking). Opnieuw bouwen: `python3 films/verbeterbladen/erfelijkheid-2026-10/bouw_blad.py`.
+- Daarna fase 2: stem ± 24.200 credits samen (erf2 4.200, erf3 4.900, erf4 5.600, erf5 5.000, erf6 4.500), bouwen in de FILMDATA-straat (engine van Chromosomen 2.2), frisse beeldreview, oude film naar `bron/oud/`, datum = dag van de remake, REVIEW nog bekijken, de 33 opmerkingen-ids in `films/review-claude.json` → `verwerkt`.
+- Reeksafspraken uit fase 1: kruisingsschema vader/stuifmeel boven (teal), moeder/eicellen links (oker), zoals film 1; notatie A/a (X: Xᴬ/Xᵃ); gezin De Wit terug in film 2, 3 en 5 (ter keuring); geen namen in de stem.
+- Les: geen `git stash -u` terwijl helpers in de repo schrijven (het script van film 3 verdween even).
