@@ -1,97 +1,81 @@
 # Monohybride kruisingen — bronmap
 
+Versie 2.0 is een lichte remake (prompt v13 B16) in de FILMDATA-straat, net als Chromosomen 2.2 (28 okt 2026). De oude versie (eigen engine, één doorlopende take, 11–12 okt 2026) staat in `oud/` (`2-monohybride-kruisingen-v1.html`, `script-v1.md`, `info-v1.md`). Voorbereiding (fase 1: script v2, storyboard, keyframes, twijfels, eerste bronnenlogboek) in `remake-2026-10/`.
+
 | Veld | Waarde |
 |---|---|
-| Bestand | films/erfelijkheid/2-monohybride-kruisingen.html |
-| Reeks / nummer | Erfelijkheid · film 2 van 6 (op de site: § 3.3) |
-| Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
-| Versie / datum | onbekend (niet in de HTML) |
-| Prompt | onbekend |
-| Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
-| Duur | 4:31 (006.mp3 = 271,36 s; `TL.total` = 271,320 s). De kop zegt "± 4,5 minuten". |
-| Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look met macro-scènes: erwtenplanten met paarse/witte bloemen op een donkergroene achtergrond (#1B2D2B) voor Mendel en de terugkruising; navy (#1E2B3C) voor meiose, kruisingsschema, kansen en stappenplan. UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |
-| Audio-opslag | 1 doorlopende take (15 alinea's p01–p13) als base64 in de HTML (blob 006.mp3, `window.__AUDIO_B64__`); 5 fonts als data-URI (blobs 001–005.woff2) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Bestand | films/erfelijkheid/2-monohybride-kruisingen.html (audio in `2-monohybride-kruisingen/audio/`) |
+| Reeks / nummer | Erfelijkheid · film 2 van 6 (§ 3.3) |
+| Doelgroep / niveau | havo en vwo bovenbouw, één niveau (geen vwo-blokken) |
+| Versie / datum | 2.0 · 28 okt 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026) |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (30 takes, geen enkele opnieuw), 5141 credits; flow `nHz0kyvEKO5yTdZxbMk0` |
+| Duur | ± 7:27 met Vragen aan (446,6 s met titel- en hoofdstukkaarten en drie vragen; 374 s spraak), ± 6:31 met Vragen uit (391,2 s); `duur: 7` in HOOFDSTUKKEN |
+| Beeldstijl | Part C: Macro (kamer met gezin De Wit, tuin met erwtenplanten, labmuizen), Schema (generatieladder P → F1 → F2, meiose Aa, kruisingsschema, simulatie, stappenplan); geen Micro, dus geen korrel |
+| Audio-opslag | 30 losse mp3's (`../audio/sNN.mp3`, loudnorm −16 LUFS / −1 dBTP; ongenormaliseerde originelen niet bewaard), woordtijden `stem/woordtijden/` (silalign + vmap, lokaal) |
+| Herkomst | opmerkingen van Kamiel in de reviewstand (-P52tYimczZuV-BIkQJ6 P/F1/F2 en F1 × F1 uitleggen, ook bij dieren; -P52twO_f_UxdxqYw4zB gameet klonk Engels, 'óók'; -P52uA6vAQkJcKapQ4o9 klemtoon allel), keuringsblad Erfelijkheid 28 okt 2026 (t1–t6 en script goedgekeurd, `films/verbeterbladen/erfelijkheid-2026-10/`), uitspraaktest 28 okt 2026 |
 
 ## Opbouw
-Hoofdstuktypes A–I uit de prompt: niet vastgesteld (de typedefinities staan niet in de HTML); de functie staat erbij.
-
-| Begin | Hoofdstuk | Functie / kernbeeld | Scène |
+| Hoofdstuk | Segmenten | Type · look | Kernbeeld |
 |---|---|---|---|
-| 0:00 | Twee puzzels | haak / twee puzzels | `s1` |
-| 0:21 | Mendels proef | historisch experiment (Mendel P → F1 → F2, 705 : 224) | `s2` |
-| 1:16 | Meiose: gameten | mechanisme (meiose in de meeldraad, gameten ½) | `s3` |
-| 1:47 | Het kruisingsschema | schema (kruisingsschema 2×2, 1 : 2 : 1 en 3 : 1) | `s4` |
-| 2:16 | Kansen | kansen + simulatie (productregel, 400 bevruchtingen) | `s5` |
-| 2:57 | Stappenplan | stappenplan in vier stappen | `s6` |
-| 3:17 | De terugkruising | toepassing (terugkruising) | `s7` |
-| 4:06 | Samenvatting | samenvatting + vooruitblik op film 3 | `s8` |
+| Opening | s01–s02 | haak · Macro | gezin De Wit in de kamer (ouders Aa, Levi aa), vraag 'hoe groot is de kans?'; overgang naar Mendel met erwten |
+| Titel | s03 | — | titelkaart met erwtenbloemen |
+| 1. Van P naar F1 | s04–s08 | A · Macro → Schema | erwtenplant in de tuin, bloem in doorsnede (kiel, meeldraden, stamper, zelfbestuiving vóór de bloem opengaat); raszuiver paars AA en wit aa; Mendel (castpersonage) kruist met pincet; generatieladder P → F1 met uitleg van de letters; alle F1 paars, Aa; begrip monohybride |
+| 2. De F2 | s09–s14 | B · Schema/Macro | F1 × F1 via zelfbestuiving (lus op de ladder), bij dieren: zwarte en albino labmuizen, F1 zwart, broer × zus (inteelt); vraag q13; F2-veld 705 paars : 224 wit ≈ 3 : 1, a zat verborgen |
+| 3. Waarom drie op één? | s15–s20 | B · Schema | chromosoompaar met A en a, meiose Aa ('vereenvoudigd'), gameet; stuifmeel en eicellen elk ½ A, ½ a; kruisingsschema (stuifmeel boven teal, eicellen links oker), vakjes vullen, 1 AA : 2 Aa : 1 aa en 3 : 1 |
+| 4. Kansen, geen aantallen | s21–s25 | C · Schema | productregel ½ × ½ = ¼; vier zaden uit één F1-plant, vraag q24; simulatie (400 zaden, vaste seed, eindigt op 301 : 99) |
+| 5. Stappenplan | s26 | F · Schema | vier stappen voor elke kruisingsvraag |
+| 6. De terugkruising | s27–s31 | B · Schema | paarse plant A?, kruising met aa = terugkruising, twee schema's AA × aa en Aa × aa; vraag q30; één witte nakomeling bewijst Aa |
+| Recap | s32–s34 | E · Macro/Schema | terug naar gezin De Wit: Aa × Aa zoals Mendels F1, ¼ per kind, drie kinderen AA, Aa, aa ≠ 3 : 1; samenvatting en vooruitblik ('niet altijd drie op één') |
+| Eindkaart | s35 | — | kernpunten en link naar film 3 |
 
 ## Vragen
-| Plek | Vraag (zoals op het scherm) | Opties | Juiste antwoord | Vorm |
-|---|---|---|---|---|
-| 0:54–1:03 (r. 329) | VOORSPEL: Wat krijg je als je twee F1-planten met elkaar kruist? | open | 3 paars : 1 wit (in de F2 komt wit terug) | aftelklok 5 s in een stilte van 6 s |
-| 2:32–2:42 (r. 388) | VOORSPEL: 4 nakomelingen: precies 3 paars en 1 wit? | open (ja/nee) | niet per se; in de simulatie 2 paars en 2 wit na 4 | aftelklok 5 s in een stilte van 6 s |
-| 3:38–3:48 (r. 420) | VOORSPEL: half paars, half wit: AA of Aa? | AA / Aa | Aa | aftelklok 5 s in een stilte van 6 s |
+| Segment | Vraag | Opties | Juist |
+|---|---|---|---|
+| q13 | Twee F1-planten (Aa) worden met elkaar gekruist. Hoe zien hun nakomelingen eruit, de F2? | a allemaal paars, net als de F1 · b allemaal lichtpaars: een mengkleur · c vooral paars, maar ook een deel wit | c |
+| q24 | Je zaait vier zaden uit één F1-plant (Aa, zelfbestuiving). Hoeveel van die vier planten bloeien wit? | a precies één: een kwart van vier · b nul, één, twee of meer: dat verschilt · c geen: wit is recessief | b |
+| q30 | Een paarse plant × witte (aa): de helft paars, de helft wit. Welk genotype had de paarse plant? | a Aa · b AA · c dat kun je hieruit niet afleiden | a |
 
-Alle vragen: niveau vwo bovenbouw. Het antwoord wordt steeds in de eerstvolgende alinea gesproken.
-
-Misvattingkaarten in beeld: De 4 vakjes zijn 4 kinderen → Elk vakje is een kans van ¼ (r. 399).
+Vragen uit: de vraagzinnen staan in eigen alinea's (s12, s23, s29, elk 'Wat denk je? …') en vallen bij Vragen uit helemaal weg (duur 0); de alinea's erna (s14, s25, s31) beginnen met een eigen uitlegzin en leunen niet op de vraag. Gecontroleerd door af te spelen met `?vragen=uit` rond elke vraagplek (Playwright, 28 okt 2026): geen vraagtekst, geen antwoordletter, geen paginafouten.
 
 ## Begrippen
-Zoals op de pagina (geen vwo-markering; de hele film is vwo):
-- P, F1, F2 — oudergeneratie, eerste en tweede nakomelingengeneratie
-- raszuiver — homozygoot: geeft generaties lang dezelfde nakomelingen
-- gameet — geslachtscel met van elk chromosoompaar één chromosoom, dus van elk gen één allel
-- kruisingsschema — tabel met de gameten van beide ouders; elk vakje is één mogelijke bevruchting
-- productregel — kansen die allebei moeten gebeuren vermenigvuldig je (½ × ½ = ¼)
-- terugkruising — kruising met een homozygoot recessief individu (aa) om het genotype van een dominant fenotype te achterhalen
+P, F1 en F2; raszuiver; zelfbestuiving; monohybride kruising; gameet; kruisingsschema; productregel; terugkruising (`film.py`, `glossary`). Notatie en overige begrippen (allel, genotype, fenotype, dominant/recessief, homo-/heterozygoot) als in Chromosomen 2.2.
 
 ## Docentdeel
-Inklapbaar blok "Voor de docent" met:
-- **Hoe de film het uitlegt**: De film volgt Mendels proef met paarse en witte erwten (P → F1 → F2, met zijn echte tellingen 705 : 224). De meiose in een Aa-plant laat zien waarom elke gameet één allel krijgt, met kans ½. Het kruisingsschema wordt opgebouwd uit echte bevruchtingen; een simulatie met 400 nakomelingen laat zien dat 3 : 1 pas bij grote aantallen verschijnt.
-- **Misvattingen**: De vier vakjes zijn vier kinderen; Vier nakomelingen geven precies 3 : 1; Het recessieve allel is in de F1 verdwenen
-- **Pauzemomenten**: Wat krijg je als je twee F1-planten kruist? (3 paars : 1 wit); Vier nakomelingen: precies 3 : 1? (niet per se); Half paars, half wit na terugkruising: AA of Aa? (Aa)
-- **Getallen** (overgenomen):
+In `sections.html`: checkvragen (6), hoe de film het uitlegt, misvattingen, getallen en bronnen (705 : 224, Mendels gen A), keuzes en vereenvoudigingen (meiose bij planten via sporen, 'terugkruising' voor de kruising met aa, muizenachtergrond), plaats in de reeks, lessuggesties. Alle beweringen met bronnen: `bronnen.md`.
 
-| Wat | Waarde |
-|---|---|
-| Mendel, bloemkleur F2 | 705 paars : 224 wit = 3,15 : 1 |
-| Simulatie | 400 willekeurige bevruchtingen, vaste startwaarde |
-
-- **Suggesties**: Kralen- of muntproef: twee munten per ouder, 40 worpen per tweetal, klassikaal optellen tot 3 : 1; Kruisingsvragen met het stappenplan in vier stappen
-
-## Techniek: waar zit wat in de HTML
-Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Films 2–6 delen dezelfde bouwvorm: de regels 73–285 (kern, tekenhulpen, "shared library for films 2-6" r. 153, ongebruikte enzymsimulatie `runSim` r. 227) zijn in alle vijf identiek, net als de speler na `FILM`. Alleen het filmspecifieke blok vanaf r. 286 verschilt. Film 1 heeft een eigen, oudere opbouw.
-
-- **Pagina**: kop r. 49 (h1 "Monohybride kruisingen" + "± 4,5 minuten"), `<title>` r. 2 ("Monohybride kruisingen"), begrippen r. 66, docentdeel r. 68, credits "Stem: Roos (ElevenLabs)" r. 69.
-- **Script, ondertitels en timing**: één regel, r. 71: `window.__TIMELINE__={"total","paras":[{"key","start","dur","words":[{"w","s","e"}]}]}` + `window.__AUDIO_B64__="@@BLOB:006.mp3@@"`. Woordtijden zijn absolute seconden in de ene take. Ondertitels worden hieruit gebouwd met `SENT`/`setCap` (r. 470).
-- **Cues**: `Q(key,woord,n)` / `QE` r. 93 (zoekt het n-de woord, leestekens genegeerd, terugval 'begint met'); `PS`/`PE` = begin/eind van een alinea. Alle tijden in `initCues()` r. 288 → object `K` (scènestarts `K.s2…`, vragen `K.q1`, aftelklok `K.cd1a`/`K.cd1b` = `PE+0,3` … `+5`).
-- **Scènes**: `s1` r. 308, `s2` r. 317, `s3` r. 341, `s4` r. 369, `s5` r. 378, `s6` r. 402, `s7` r. 412, `s8` r. 432. `FILM` r. 436: `title`, `sub`, `levels`, `scenes()` (start = `K.sN`, eind = volgende start + 0,9 s, `fade` 0,9 s), `levelAt`, `repAt`, `legend`, `note`, `chapters()`.
-- **Gedeelde helpers** (r. 153–223): o.a. `plant`, `chipG` (allelchips), `grid`, `meiosis`, `dotColumns`/`spawnTimes` (stippen-simulaties), `ratioText`, `frac`, `sceneTitle`, `legendBox`, stamboomsymbolen `pedSym`/`pedCouple`/`pedKids`; kaarten `card`, `termCard`, `misc` (r. 145), `countdown` (r. 142).
-- **Simulatie**: simulatie van 400 bevruchtingen (`mkOffs()` r. 304: zoekt een seed waarbij de eerste 4 nakomelingen 2 wit bevatten en het totaal 97–103 wit is; `dotColumns`), F2-veld van 929 stippen (r. 332). Deterministisch via `mulberry32(seed)`: bij elke weergave dezelfde uitkomst.
-- **Vragen**: VOORSPEL-kaarten r. 329, 388, 420.
-- **Hoofdstukken**: `FILM.chapters()` → `CHAP` r. 513.
-- **Audio en speler**: r. 477 base64 → Blob-URL (terugval data-URI); eigen klok die de audio volgt; `render()` r. 456 (kruimelpaden, legenda, titelkaart eerste 1,6 s). Toetsen r. 510: spatie, ←/→ 5 s (shift 30 s), ↑/↓ hoofdstuk. Geen Leerling/Klas- of Havo/Vwo-schakelaar, geen toetsfunctie.
+## Waar wat in de HTML zit
+Regelnummers in `../../2-monohybride-kruisingen.html` (versie 2.0, vóór de repo-scripts van de hoofdsessie; die schuiven de regels iets op):
+- r. 103 begrippen (`#glossary`), r. 105 checkvragen, r. 114 docentdeel.
+- r. 4988 muizenpop (`HondPop` + `MUIS_DEF`, uit `bibliotheek/dieren/lib_dieren.js`).
+- r. 5455 `erwtBloem`, r. 5513 `erwtenplant`, r. 5539 `plantje`, r. 5562 `labmuis`, r. 5566 `generatieLadder`, r. 5571 `zelfLus`, r. 5577 `meioseAa`, r. 5585 `staafAllelK`, r. 5591 `kruisSchema`, r. 5606 `f2Veld`, r. 5614 `CAST.mendel`, r. 5619 `tuin`, r. 5626 `pincet`, r. 5633 `muisMet`, r. 5636 `SIM2` (simulatie, vaste seed), r. 5642 `simKolommen`, r. 5656 `LAD` (plek van de ladder).
+- r. 5667 `Object.assign(SCENES, …)`: één functie per alinea (bron: `src/scenes_erf2.js`).
+- r. 5837 `const DATA` (filmdata: segmenten, woordtijden, vragen).
 
 ## Zo pas je deze film aan
-1. **Tekst op het scherm**: zoek de letterlijke string in het filmblok (`card(`, `termCard(`, `T('…'`, `sceneTitle(`) en pas hem aan. Daarna `python3 scripts/filmbron.py inpakken <map> <film.html>`. Wijzigingen in de gedeelde bibliotheek (r. 73–285) moet je zelf in alle vijf films (2–6) doorvoeren.
-2. **Ondertitel wijzigen zonder nieuwe opname**: pas alleen de `w`-waarde in `__TIMELINE__` aan. Let op: de stem zegt dan nog het oude woord, en als het woord een cue-woord is (zie script.md), verschuift de animatie.
-3. **Eén alinea opnieuw opnemen**: de audio is één bestand (blob 006.mp3). Vervang het stuk `start…start+dur` van die alinea in de mp3 en houd de stiltes ertussen gelijk (6,0 s na een voorspelvraag!). Laat woordtijden maken (forced alignment) en zet ze in de `paras`-entry. Bij een andere lengte verschuif je `start` en alle `s`/`e` van alle latere alinea's en `total`. Scènes en cues lopen via `Q()`/`PS()` vanzelf mee.
-4. **Vraag aanpassen**: kaarttekst op de genoemde regel. Het antwoord zit in de gesproken tekst van de volgende alinea, dus een andere vraag betekent ook een nieuwe opname.
-5. **Let op cue-woorden**: haal je een woord weg dat in `initCues` staat, dan valt `Q()` stil terug op het begin van de alinea (alleen `console.warn`). Bij woorden die vaker voorkomen telt het volgnummer (`Q(key,'drie',2)`).
+Werkmap buiten de repo (bv. `hw/erf2/w`, engine in `hw/erf2/eng`), met de bestanden uit deze bronmap: `segments.json`, `film.py`, `sections.html`, `uitspraak_film.json`, `script_bouw.md`, `src/teken_erf2.js`, `src/scenes_erf2.js`, audio als `audio/` en woordtijden als `words/`; engine = `src/` + `bouw/` (`src/scenes_kop.js` = de regels 1–32 van de engine-scenes, `src/teken_chr1.js` en `src/muis_pop.js` worden meegeplakt). Bouwen: `bouw.sh` (zet `scenes.js` = kop + `lib_bio.js` + `lib_micro_evo.js` + `teken_chr1.js` + `muis_pop.js` + teken + scenes, dan `film.py`, `build_data.py`, `build.py`), stills met `bouw/stills.py <map> qa contact`, inpakken met `bouw/pak.py`. Daarna in de repo `spelerfix`, `antwoordtekst`, `kortantwoord`, `antwoordletter`, `flipkaarten`, `teller`, `licentie_noot`, `oefenen`, `reviewlijst`, `nieuwste_films` draaien.
+- Beeld wijzigen: alleen in `scenes_erf2.js` (zelfde cue-woorden; `q.on`/`q.at` zoeken op een stukje van een woord, dus nooit cuen op 'a', 'aa' of 'Aa'). Gedeelde tekeningen in `bibliotheek/`, niet hier.
+- Tekst wijzigen = die alinea opnieuw inspreken (één take, stem-invoer uit `segments.json` na `make_segments.py` met `uitspraak_subs.json` + `uitspraak_film.json`), loudnorm −16 LUFS / −1 dBTP, woordtijden met `bouw/silalign_vmap.py` (silalign op de stem-tokens, terug naar de ondertitelwoorden via `vmap`; gewone `silalign.py` loopt mis bij 'A' → 'grote A').
+
+## Kandidaten voor de bibliotheek
+Naar `bibliotheek/lib_bio.js` (met testvel), allemaal in `src/teken_erf2.js`:
+- `erwtBloem` (vlinderbloem met vlag, vleugels en kiel; open, doorsnede met meeldraden/stamper, stuifmeel, knop) en `erwtenplant` (steunbladeren, ranken, peulen) — ook bruikbaar in Voortplanting bij planten en in film 3.
+- `plantje` en `bloemIcoon` (klein symbool voor schema's en tellingen).
+- `labmuis` (zwart en albino op de gekeurde muizenpop; nodig: `muis_pop.js` = HondPop + MUIS_DEF uit `lib_dieren.js`) en `muisMet`.
+- `kruisSchema` (gameten boven teal / links oker, vakjes vullen, hl, fenotypekleur) — gedeeld met de Erfelijkheid-lessen (`erf_lib.js` heeft een eigen versie: gelijktrekken).
+- `generatieLadder` + `zelfLus` (P → F1 → F2 met uitleg van de letters).
+- `meioseAa` (vereenvoudigde meiose van één paar met A en a) en `staafAllelK`.
+- `f2Veld` (929 stippen, 224 wit) en `SIM2`/`simKolommen` (toevalssimulatie met vaste seed).
+- `pincet`; `CAST.mendel` hoort in `personages/lib_cast.js` (castboek).
 
 ## Aandachtspunten
-- De kop zegt "± 4,5 minuten"; de werkelijke duur is 4:31.
-- Cue-fout in het stappenplan: `K.st4=Q('p09b','vier:')` (r. 298) vindt al het woord "vier" in "in vier stappen" (180,2 s), omdat de dubbele punt uit het zoekwoord wordt weggehaald. Kaart 4 'verhoudingen aflezen' verschijnt daardoor vóór kaart 1 in plaats van bij "Vier:" (188,6 s). Oplossing: `Q('p09b','vier',2)`.
-- `K.eenv=Q('p06','vakje',3)`: "vakje" komt maar twee keer letterlijk voor, dus `Q()` valt terug op 'begint met' (vakje, vakjes, vakje) en vindt zo toevallig het juiste moment "Eén vakje is aa" (126,7 s). Het werkt, maar breekt snel bij een tekstwijziging.
-- In de samenvattingskaart staat 'terugkruising: 1 : 1'. Dat klopt alleen als de paarse plant Aa is.
-- In de gedeelde bibliotheek staat de enzymsimulatie uit film 1 (`runSim`, `drawSimPanel`, r. 224–285), maar deze film gebruikt die niet: dode code.
-- De stem-invoer en uitspraaklijst staan niet in de HTML. Er zijn geen versie/datum, geen vwo-blokken en geen Havo/Vwo-schakelaar.
-- Verbeterd 12-10-2026: cue stappenkaart 4 is nu `Q('p09b','vier',2)` (188,6 s); de vier kaarten verschijnen in volgorde op 181,1 · 183,4 · 186,4 · 188,6 s.
+- Frisse beeldreview (prompt v13 C10) op 28 okt 2026, contactvel per hoofdstuk: alle MOET-punten hersteld (ladder onder de kopregel, generaties met pijlen in s05/s08, letters bleven staan, inzet en lus botsten niet meer, labels niet afgesneden, gameetkaart en productregelkaart op tijd en binnen beeld, teller in s25 niet te vroeg, kaart in s27 niet over de plant, '?' niet over de kopregel, titelbloemen, losse kaart in s31, vooruitblik in s34).
+- KAN, bewust open: binnenkant van de bloem in s04 klein; lege onderhelft in s27 en s34; kleine tekst op de kaarten; het vullen van de schemavakjes in s19 volgt de geschatte woordtijden (silalign).
+- 'Terugkruising' voor de kruising met aa: zo in de methode en de syllabus; strikt is dat een testkruising (bronnen.md, twijfel T6).
+- Gezin De Wit zonder namen in beeld; genotypen zoals vastgelegd in Chromosomen (ouders Aa, Sara AA, Levi aa, Jens Aa).
+- Uitspraak: geen blinde transcriptie gedaan; wachtlijst in `uitspraak.md` (F1/F2, P-generatie, monohybride, inteelt).
+- `oefenen.json` nagekeken (geen namen): in `volgorde-mendel` stap 3 zonder chromatiden en stap 4 'laat ze zichzelf bestuiven', zoals in de film.
 
 ## Wijzigingen
-- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Deze film heeft geen hoofdstukkaarten, dus geen hoofdstukpauze om in te korten.
-
-## Wijziging 16 okt 2026: begrippen als kaartjesraster
-Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+- 28 okt 2026 — Versie 2.0: lichte remake. Nieuw script op het oude geraamte (opening met gezin De Wit, uitleg P/F1/F2 met de herkomst van de letters, zelfbestuiving van de erwt en F1 × F1, bij dieren broer × zus, gameet, productregel, kansen ≠ aantallen met simulatie, stappenplan, terugkruising, recap bij het gezin), nieuwe stem (30 takes), nieuwe tekeningen (erwtenbloem, erwtenplant, labmuizen, Mendel, generatieladder, meiose Aa, kruisingsschema), huidige speler (snelheid, Vragen aan/uit), donker standaard, bronnenlogboek. Meiose bij de erwt vereenvoudigd en zo benoemd (oude film: 'vier gameten'). De oude film staat in `oud/`.

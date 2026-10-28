@@ -37,7 +37,8 @@ Tekens: `=` ongewijzigd · `~` aangepast (waarom) · `+` nieuw · `−` geschrap
 Antwoord b.
 > + nieuwe voorspelvraag (B4: elk hoofdstuk een vraag; dit is de sleutel van de hele film). Afleiders: (a) 'de vader levert het geslacht, dus ook de X' en (c) 'het is toeval, zoals bij autosomen'. Optie (c) is langer dan het goede antwoord: geen raadhulp.
 
-+ (s07) Een jongen krijgt zijn X altijd van zijn moeder. Van zijn vader krijgt hij de Y. Een meisje krijgt één X van haar moeder en één X van haar vader.
++ (s07) Een zoon krijgt zijn X-chromosoom altijd van zijn moeder. Van zijn vader krijgt hij het Y-chromosoom. Een dochter krijgt één X-chromosoom van elke ouder.
+> Fase 2 (28 okt 2026): zo ingesproken (segment s08 in de film). De eerste versie met jongen/meisje werd door het ElevenLabs-filter geweigerd; herschreven met zoon/dochter.
 > + staat op zichzelf met Vragen uit (B9). Vaste kleurcode in beeld: X van moeder oker, X of Y van vader teal (= film 1). 'altijd' ✓ (B6 B24).
 
 ## Hoofdstuk 2 — De X en kleurzien [Schema → zoomcirkel → Micro]

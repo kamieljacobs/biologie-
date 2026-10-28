@@ -1,188 +1,212 @@
-# Overerving via het X-chromosoom en mitochondriën — script
+# Overerving via het X-chromosoom — gesproken tekst (versie 2.0 · oktober 2026)
 
-Bron: gereconstrueerd uit de ondertitels/scriptdata (`window.__TIMELINE__`, woordtijden) in de gepubliceerde HTML (2026-10-12). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
+Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow GdHrddvvf18QZtimpz9y. Audio: `../audio/<id>.mp3` (loudnorm −16 LUFS / −1 dBTP); woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). De stem-invoer staat erbij waar die afwijkt van de ondertitel (genotypen als 'iks grote A', Y als 'ei'). Oude versie: `oud/script-v1.md`.
 
-Audio: één doorlopende take, blob `006.mp3` (in de HTML als `window.__AUDIO_B64__`). Elke alinea hieronder is één `paras`-item met eigen sleutel (p01, p02b, …); de tijden zijn posities in die ene take. Tussen alinea's zitten vaste stiltes (1,0–2,8 s; 6,0 s na een voorspelvraag; 1,5 s aan het begin, 5,0 s aan het eind). Elke regel = één ondertitelzin zoals de speler hem toont, met de begintijd van het eerste woord.
-Niveau: de hele film is vwo bovenbouw; er zijn geen havo-/vwo-blokken.
+## Cold open
 
-## 1. p01 · Het raadsel
-Audio: blob 006.mp3 (doorlopende take) · 0:01–0:16 (15,5 s)
+**s01** · audio `s01.mp3` · 9.5 s · generation `OB3ZTf1hxGCU46UlsBew`
 
-[0:01.5] Ongeveer acht procent van de mannen is rood-groen kleurenblind.
-[0:05.0] Bij vrouwen is dat maar ongeveer een half procent.
-[0:07.7] Hoe kan een eigenschap zo verschillen tussen mannen en vrouwen?
-[0:10.4] En nog een raadsel: via je mitochondriën kun je je oer-oermoeder terugvinden, maar niet je oer-oervader.
-[0:16.4] Waarom?
+Kijk weer naar deze familie. Opa sorteert aardbeien, maar hij gooit de rijpe en de groene door elkaar. Rood en groen lijken voor hem op elkaar.
 
-> Beeld: Iconen '100 mannen' en '200 vrouwen' met '± 8 % kleurenblind' en '± 0,5 % kleurenblind'; 'Waarom zo’n verschil?'; 'Terug in de tijd via je mitochondriën' met 'moederlijn' en 'mitochondriën van vader: niet doorgegeven'.
-> Cue-woorden (initCues): acht, vrouwen, hoe, raadsel:, oer-oermoeder, oer-oervader
+**s02** · audio `s02.mp3` · 14.1 s · generation `MOvKGkYjM7179AAyBvhx`
 
-## 2. p02 · Jongen of meisje?
-Audio: blob 006.mp3 (doorlopende take) · 0:19–0:33 (13,9 s)
+Zo'n één op de twaalf mannen is rood-groen kleurenblind. Bij vrouwen één op de tweehonderd. De dochter van opa ziet gewoon, toch kan haar zoon het hebben. Waarom vooral mannen? En hoe slaat het een generatie over?
 
-[0:19.4] Eerst: jongen of meisje.
-[0:20.7] Een vrouw is XX.
-[0:22.3] Elke eicel krijgt dus een X.
-[0:23.9] Een man is XY.
-[0:25.1] Bij de meiose krijgt de helft van de zaadcellen een X, de andere helft een Y.
-[0:29.3] De zaadcel bepaalt dus het geslacht.
-[0:31.4] De kans op een jongen is een half.
+## Titel
 
-> Beeld: Vrouw/man; 'eicellen: altijd X', 'zaadcellen: helft X, helft Y'; 'eicel X + zaadcel X → XX meisje', 'eicel X + zaadcel Y → XY jongen'; 'kans op jongen' (titel 'Jongen of meisje?').
-> Cue-woorden (initCues): xx, eicel, man, meiose, helft (#2), zaadcel, kans (ook begin/eind van de alinea via PS/PE)
+**s03** · titelkaart: Overerving via het X-chromosoom
 
-## 3. p03 · X, Y en kleurzien
-Audio: blob 006.mp3 (doorlopende take) · 0:35–0:52 (16,9 s)
+## Hoofdstuk 1 — Jongen of meisje?
 
-[0:35.7] Het X-chromosoom is groot.
-[0:37.4] Er liggen zo'n achthonderd genen op, waaronder genen voor de lichtgevoelige eiwitten in de kegeltjes van je netvlies.
-[0:43.3] Het Y-chromosoom is klein en heeft die genen niet.
-[0:46.3] Een man heeft dus van elk gen op zijn X maar één allel.
-[0:49.6] Er is geen tweede exemplaar dat een fout kan opvangen.
+**s04** · audio `s04.mp3` · 17.8 s · generation `SZEVlESfhUF9e3w7Pe2S`
 
-> Beeld: Groot X ('± 800 genen', 'genen voor kleurzien') naast klein Y ('klein, weinig genen'); netvlies met kegeltjes; kaart 'MAN: XY · van elk X-gen maar één allel' (titel 'Het X- en het Y-chromosoom').
-> Cue-woorden (initCues): x-chromosoom, achthonderd, kegeltjes, y-chromosoom, man, geen (ook begin/eind van de alinea via PS/PE)
+Eerst de geslachtschromosomen. Een vrouw heeft twee X-chromosomen: XX. Een man heeft één X en één Y: XY. Bij de meiose krijgt elke eicel één X. Van de zaadcellen krijgt de helft een X, de andere helft een Y.
 
-## 4. p03b · X, Y en kleurzien
-Audio: blob 006.mp3 (doorlopende take) · 0:53–1:07 (13,5 s)
+_Stem-invoer:_ Eerst de geslachtschromosomen. Een vrouw heeft twee iks-chromosomen: iks iks. Een man heeft één iks en één ei: iks ei. Bij de meiose krijgt elke eicel één iks. Van de zaadcellen krijgt de helft een iks, de andere helft een ei.
 
-[0:53.8] In de kegeltjes zitten drie soorten lichtgevoelige eiwitten: voor blauw, groen en rood licht.
-[0:58.9] De genen voor het rode en het groene eiwit liggen naast elkaar op het X-chromosoom.
-[1:03.2] Werkt een van die twee niet goed, dan lijken rood en groen voor je hersenen op elkaar.
+**s05** · audio `s05.mp3` · 16.8 s · generation `ArtJCAFWDmnK0kOmSgfQ`
 
-> Beeld: Grafiek 'gevoeligheid van de drie eiwitten' tegen 'golflengte licht (nm)'; 'rood-eiwit werkt anders → rood en groen lijken op elkaar'; rood- en groen-gen 'naast elkaar op X' '(blauw-gen ligt op chromosoom 7)'.
-> Cue-woorden (initCues): drie, blauw,, groen, rood, genen, naast, werkt, lijken (ook begin/eind van de alinea via PS/PE)
+Een eicel en een zaadcel met een X worden samen een meisje: XX. Met een zaadcel met een Y wordt het een jongen: XY. Welk geslachtschromosoom de zaadcel meebrengt, bepaalt dus meestal het geslacht. De kans op een jongen is ongeveer een half.
 
-## 5. p04 · Notatie en kruising
-Audio: blob 006.mp3 (doorlopende take) · 1:09–1:25 (16,3 s)
+_Stem-invoer:_ Een eicel en een zaadcel met een iks worden samen een meisje: iks iks. Met een zaadcel met een ei wordt het een jongen: iks ei. Welk geslachtschromosoom de zaadcel meebrengt, bepaalt dus meestal het geslacht. De kans op een jongen is ongeveer een half.
 
-[1:09.7] Daarom schrijven we het allel als letter bij de X.
-[1:12.6] Normaal kleuren zien: Xᴺ.
-[1:14.9] Kleurenblind: Xⁿ.
-[1:16.8] Een vrouw kan XᴺXⁿ zijn: ze ziet normaal, maar ze is draagster.
-[1:21.7] Een man is XᴺY, of XⁿY: dan is hij kleurenblind.
+**s06** · audio `s06.mp3` · 3.6 s · generation `UygkNmBbpw9LxN8RlD6q`
 
-> Beeld: Notatie 'Xᴺ normaal kleuren zien', 'Xⁿ kleurenblind'; kleurcode 'eerste X van moeder (oranje), tweede X of Y van vader (blauw)'; XᴺXⁿ 'draagster', XᴺY 'normaal' (titel 'Notatie: het allel bij de X').
-> Cue-woorden (initCues): letter, normaal, kleurenblind:, vrouw, draagster, man, kleurenblind (#2) (ook begin/eind van de alinea via PS/PE)
+Wat denk je? Van wie krijgt een jongen zijn X-chromosoom?
 
-## 6. p05 · Notatie en kruising
-Audio: blob 006.mp3 (doorlopende take) · 1:27–1:32 (5,6 s)
+_Stem-invoer:_ Wat denk je? Van wie krijgt een jongen zijn iks-chromosoom?
 
-[1:27.4] Een draagster krijgt kinderen met een man die normaal ziet.
-[1:30.3] Hoe groot is de kans dat een zoon kleurenblind is?
+**q07** · vraag: Van wie krijgt een jongen zijn X-chromosoom?
+- a) Van zijn vader
+- b) Van zijn moeder  ✓
+- c) De ene keer van zijn vader, de andere keer van zijn moeder
+- uitleg: Van zijn moeder. Van zijn vader krijgt een jongen het Y-chromosoom.
 
-> Beeld: Ouders XᴺXⁿ × XᴺY.
-> Vraag: VOORSPEL-kaart 'Kans dat een zoon kleurenblind is?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**s08** · audio `s08.mp3` · 9.9 s · generation `jFTpHndNg1gnk3ztPx7Z`
 
-## 7. p06 · Notatie en kruising
-Audio: blob 006.mp3 (doorlopende take) · 1:38–1:52 (13,6 s)
+Een zoon krijgt zijn X-chromosoom altijd van zijn moeder. Van zijn vader krijgt hij het Y-chromosoom. Een dochter krijgt één X-chromosoom van elke ouder.
 
-[1:38.9] Een half.
-[1:39.7] Elke zoon krijgt de Y van zijn vader, en een X van zijn moeder.
-[1:43.5] Krijgt hij haar Xⁿ, dan is hij kleurenblind.
-[1:46.6] De dochters krijgen van hun vader altijd Xᴺ.
-[1:49.6] Ze zien dus normaal, maar de helft van hen is draagster.
+_Stem-invoer:_ Een zoon krijgt zijn iks-chromosoom altijd van zijn moeder. Van zijn vader krijgt hij het ei-chromosoom. Een dochter krijgt één iks-chromosoom van elke ouder.
 
-> Beeld: 2×2-schema; kaart 'ANTWOORD ½ van de zonen: kleurenblind …'.
-> Cue-woorden (initCues): zoon, krijgt (#2), dochters, helft (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 2 — De X en kleurzien
 
-## 8. p06b · Notatie en kruising
-Audio: blob 006.mp3 (doorlopende take) · 1:53–2:03 (9,5 s)
+**s09** · audio `s09.mp3` · 11.4 s · generation `MfSidZ2AU0nwSIodd9Wz`
 
-[1:53.9] Laten we dat tellen.
-[1:54.9] Tweehonderd kinderen van deze ouders.
-[1:56.8] Ongeveer de helft is een zoon.
-[1:58.4] Van die zonen is ongeveer de helft kleurenblind.
-[2:00.6] Van de dochters niemand, maar de helft is draagster.
+Het X-chromosoom is groot. Er liggen zo'n duizend genen op. Het Y-chromosoom is veel kleiner en heeft veel minder genen. De meeste genen van de X liggen niet op de Y.
 
-> Beeld: Simulatie '200 kinderen' gesorteerd in zonen/dochters.
-> Cue-woorden (initCues): tweehonderd, zonen, dochters (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Het iks-chromosoom is groot. Er liggen zo'n duizend genen op. Het ei-chromosoom is veel kleiner en heeft veel minder genen. De meeste genen van de iks liggen niet op de ei.
 
-## 9. p07 · Mannen vaker · koningshuizen
-Audio: blob 006.mp3 (doorlopende take) · 2:05–2:19 (13,9 s)
+**s10** · audio `s10.mp3` · 13.6 s · generation `pviDzSQ3KVTfyXsxq7Rn`
 
-[2:05.8] Nu zie je waarom mannen het vaker hebben.
-[2:07.8] Een man is kleurenblind met één afwijkend allel.
-[2:10.4] Een vrouw pas met twee: één van haar moeder én één van haar vader.
-[2:14.0] Dat is veel zeldzamer, maar het kan wel.
-[2:16.1] Hemofilie, een stoornis in de bloedstolling, erft op dezelfde manier.
+Een paar van die genen gaan over kleur zien. In je netvlies zitten kegeltjes: zintuigcellen voor kleur. Er zijn drie soorten, elk met een eigen lichtgevoelig eiwit: voor blauw, groen en rood licht.
 
-> Beeld: 'man: één allel Xⁿ is genoeg, kans ≈ 8 %' tegenover 'vrouw: twee keer Xⁿ nodig, kans ≈ 8 % × 8 % ≈ 0,6 %'; kaart HEMOFILIE (titel 'Waarom vooral mannen?').
-> Cue-woorden (initCues): man, vrouw, zeldzamer,, hemofilie, (ook begin/eind van de alinea via PS/PE)
+**s11** · audio `s11.mp3` · 17.6 s · generation `G0qhlMs8KQx92LZrT5G7`
 
-## 10. p07b · Mannen vaker · koningshuizen
-Audio: blob 006.mp3 (doorlopende take) · 2:21–2:36 (15,7 s)
+De genen voor het groene en het rode eiwit liggen naast elkaar op de X. Het gen voor het blauwe eiwit ligt op een ander chromosoom. Werkt het gen voor het rode of het groene eiwit niet goed, dan reageren twee soorten kegeltjes bijna hetzelfde. Rood en groen lijken dan op elkaar.
 
-[2:21.1] Een beroemd voorbeeld is hemofilie in de Europese koningshuizen.
-[2:25.0] Koningin Victoria van Engeland was draagster.
-[2:27.6] Haar zoon Leopold had hemofilie.
-[2:29.8] Via twee van haar dochters kwam het allel in de koningshuizen van Rusland en Spanje terecht, waar ook weer prinsen hemofilie kregen.
+_Stem-invoer:_ De genen voor het groene en het rode eiwit liggen naast elkaar op de iks. Het gen voor het blauwe eiwit ligt op een ander chromosoom. Werkt het gen voor het rode of het groene eiwit niet goed, dan reageren twee soorten kegeltjes bijna hetzelfde. Rood en groen lijken dan op elkaar.
 
-> Beeld: Ingekorte stamboom van koningin Victoria met Engeland, Rusland, Spanje (titel 'Hemofilie in Europese koningshuizen').
-> Cue-woorden (initCues): victoria, leopold, dochters, rusland, spanje, prinsen (ook begin/eind van de alinea via PS/PE)
+**s12** · audio `s12.mp3` · 10.3 s · generation `xP14K3nvTbitRUHaDkmG`
 
-## 11. p08 · Mannen vaker · koningshuizen
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
-Audio: blob 006.mp3 (doorlopende take) · 2:38–2:46 (7,3 s)
+Een vrouw heeft van elk gen op de X twee allelen. Een man heeft van de meeste genen op zijn X er maar één. Er is geen tweede allel dat een fout kan opvangen.
 
-[2:38.8] En let op: een vader geeft zijn X nooit aan een zoon.
-[2:41.7] Een zoon krijgt een aandoening op het X-chromosoom dus altijd via zijn moeder.
-[nieuw] Er zijn ook aandoeningen waarbij het afwijkende allel op de X dominant is: X-chromosomaal dominante overerving.
-[nieuw] Een vader met zo'n aandoening geeft zijn X aan al zijn dochters: zij krijgen het allemaal, en zijn zonen geen van allen.
-[nieuw] Een moeder met de aandoening is meestal heterozygoot: zij geeft het aan de helft van haar kinderen, zonen en dochters.
-[nieuw] En omdat een vrouw twee X-chromosomen heeft, en één afwijkend allel al genoeg is, komt het vaker voor bij vrouwen dan bij mannen.
+_Stem-invoer:_ Een vrouw heeft van elk gen op de iks twee allelen. Een man heeft van de meeste genen op zijn iks er maar één. Er is geen tweede allel dat een fout kan opvangen.
 
-> Beeld: 'X van vader → alleen naar dochters'; 'X van zoon: altijd van moeder'.
-> Cue-woorden (initCues): nooit, via (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 3 — Notatie en kruisingsschema
 
-## 12. p09 · Mitochondriaal DNA
-Audio: blob 006.mp3 (doorlopende take) · 2:48–3:03 (15,1 s)
+**s13** · audio `s13.mp3` · 18.1 s · generation `7dtak7CtKjQbEpuN3eUC`
 
-[2:48.9] Dan de mitochondriën.
-[2:50.0] Die hebben hun eigen, kleine, ronde DNA, met zevenendertig genen.
-[2:54.4] Een eicel bevat meer dan honderdduizend mitochondriën.
-[2:57.3] Een zaadcel heeft er maar een paar tientallen, en die worden na de bevruchting afgebroken.
-[3:01.7] Al jouw mitochondriën komen dus van je moeder.
+Daarom schrijf je het allel als letter bij de X. Het allel dat werkt, krijgt een hoofdletter: Xᴬ, normaal kleuren zien. Het allel dat niet goed werkt, krijgt dezelfde letter klein: Xᵃ, kleurenblind. Bij de Y schrijf je geen letter.
 
-> Beeld: 'mitochondrion' met 'eigen, rond DNA', '37 genen'; 'eicel: > 100 000 mitochondriën' tegenover 'zaadcel: paar tientallen', 'afgebroken na bevruchting'; 'al je mitochondriën: van je moeder' (titel 'Mitochondriaal DNA').
-> Cue-woorden (initCues): ronde, zevenendertig, eicel, zaadcel, bevruchting, afgebroken, al (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Daarom schrijf je het allel als letter bij de iks. Het allel dat werkt, krijgt een hoofdletter: iks grote A, normaal kleuren zien. Het allel dat niet goed werkt, krijgt dezelfde letter klein: iks kleine a, kleurenblind. Bij de ei schrijf je geen letter.
 
-## 13. p10 · Mitochondriaal DNA
-Audio: blob 006.mp3 (doorlopende take) · 3:05–3:10 (5,4 s)
+**s14** · audio `s14.mp3` · 28.5 s · generation `g3A48pm5opHHYxxXKSd7`
 
-[3:05.4] Een man heeft een aandoening door een fout in zijn mitochondriaal DNA.
-[3:09.4] Krijgen zijn kinderen die ook?
+Een vrouw is XᴬXᴬ, XᴬXᵃ of XᵃXᵃ. Met XᴬXᵃ ziet ze normaal, want A is dominant. Maar ze kan a wel doorgeven: ze is draagster. Een man is XᴬY of XᵃY. Met XᵃY is hij kleurenblind.
 
-> Beeld: Man met aandoening.
-> Vraag: VOORSPEL-kaart 'Krijgen de kinderen van deze man de aandoening ook?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Een vrouw is iks grote A iks grote A, iks grote A iks kleine a of iks kleine a iks kleine a. Met iks grote A iks kleine a ziet ze normaal, want grote A is dominant. Maar ze kan kleine a wel doorgeven: ze is draagster. Een man is iks grote A ei of iks kleine a ei. Met iks kleine a ei is hij kleurenblind.
 
-## 14. p11 · Mitochondriaal DNA
-Audio: blob 006.mp3 (doorlopende take) · 3:16–3:33 (17,0 s)
+**s15** · audio `s15.mp3` · 9.9 s · generation `5tLIO0IXwGYq57sIuM04`
 
-[3:16.8] Nee.
-[3:17.3] Hij geeft geen mitochondriën door.
-[3:19.1] Een vrouw met zo'n aandoening geeft haar mitochondriën wél door, aan al haar kinderen: zonen én dochters.
-[3:25.1] Dat is dus iets anders dan overerving via het X-chromosoom.
-[3:28.8] Daar gaat het om een gen op een chromosoom in de kern.
-[3:31.9] Hier om DNA buiten de kern.
+Stel: een draagster krijgt kinderen met een man die normaal ziet. Zij is XᴬXᵃ, hij is XᴬY.
 
-> Beeld: 'man met aandoening → geen enkel kind', 'vrouw met aandoening → alle kinderen: zonen én dochters'; 'X-chromosomaal: gen op een chromosoom in de kern' tegenover 'mitochondriaal: DNA buiten de kern'.
-> Cue-woorden (initCues): vrouw, kinderen:, anders, kern, buiten (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Stel: een draagster krijgt kinderen met een man die normaal ziet. Zij is iks grote A iks kleine a, hij is iks grote A ei.
 
-## 15. p12 · Samenvatting
-Audio: blob 006.mp3 (doorlopende take) · 3:36–3:55 (18,7 s)
+**s16** · audio `s16.mp3` · 5.1 s · generation `N62idVXkOoZyy10nI480`
 
-[3:36.5] Samengevat.
-[3:37.3] Genen op het X-chromosoom hebben bij mannen maar één allel.
-[3:40.9] Daarom komen aandoeningen die X-chromosomaal recessief erven vaker voor bij mannen, en krijgt een zoon ze altijd van zijn moeder.
-[3:47.7] Mitochondriaal DNA erf je alleen van je moeder, via de eicel.
-[3:51.9] Zo kun je langs de moederlijn heel ver terug in de tijd kijken.
+Wat denk je? Ze krijgen een zoon. Hoe groot is de kans dat hij kleurenblind is?
 
-> Beeld: 'Samengevat' met vier regels.
-> Cue-woorden (initCues): genen, daarom, mitochondriaal, zo (ook begin/eind van de alinea via PS/PE)
+**q17** · vraag: Een draagster (XᴬXᵃ) en een man die normaal ziet (XᴬY) krijgen een zoon. Hoe groot is de kans dat hij kleurenblind is?
+- a) Een kwart
+- b) De helft  ✓
+- c) Nul, want de vader ziet normaal
+- uitleg: Een zoon krijgt de Y van zijn vader en een X van zijn moeder: Xᴬ of Xᵃ, elk met een kans van ½. Een kwart is de kans dat een willekeurig kind een kleurenblinde zoon is.
 
-## Controle
-- 15 alinea's (segmenten) in 1 audiofragment (blob 006.mp3): de film is als één take opgeslagen, dus het aantal segmenten wijkt bewust af van het aantal audiobestanden.
-- Spreektijd alinea's samen 197,8 s + stiltes 42,3 s = 240,13 s (`TL.total`); ffprobe op 006.mp3 geeft 240,17 s (4:00).
+**s18** · audio `s18.mp3` · 12.5 s · generation `TyfoOFQCHGjFV6jMUZT6`
+
+Elke zoon krijgt de Y van zijn vader en een X van zijn moeder: haar Xᴬ of haar Xᵃ, met elk een kans van een half. Krijgt hij haar Xᵃ, dan is hij kleurenblind.
+
+_Stem-invoer:_ Elke zoon krijgt de ei van zijn vader en een iks van zijn moeder: haar iks grote A of haar iks kleine a, met elk een kans van een half. Krijgt hij haar iks kleine a, dan is hij kleurenblind.
+
+**s19** · audio `s19.mp3` · 21.9 s · generation `rDe58HiZvCSpe9TEhbl7`
+
+Zet het in een kruisingsschema. Boven staan de gameten van de vader: Xᴬ en Y. Links die van de moeder: Xᴬ en Xᵃ. De helft van de zonen is kleurenblind. De dochters krijgen van hun vader altijd Xᴬ. Ze zien dus normaal, maar de helft van hen is draagster.
+
+_Stem-invoer:_ Zet het in een kruisingsschema. Boven staan de ga-MEE-ten van de vader: iks grote A en ei. Links die van de moeder: iks grote A en iks kleine a. De helft van de zonen is kleurenblind. De dochters krijgen van hun vader altijd iks grote A. Ze zien dus normaal, maar de helft van hen is draagster.
+
+**s20** · audio `s20.mp3` · 16.9 s · generation `sktXShjWwxoZR3hFnKMm`
+
+Tel het na met tweehonderd kinderen van zulke ouders. Ongeveer de helft is een zoon. Van die zonen is ongeveer de helft kleurenblind. Van álle kinderen is dat dus maar zo'n kwart. Let dus op wat een vraag bedoelt: de kans voor een zoon, of voor een kind.
+
+## Hoofdstuk 4 — Waarom vooral mannen?
+
+**s21** · audio `s21.mp3` · 13.9 s · generation `T4TIIsc9TW83o6D8rq2c`
+
+Nu zie je waarom mannen het vaker hebben. Een man is kleurenblind met één allel a. Een vrouw pas met twee: één van haar moeder én één van haar vader. De kans daarop is veel kleiner, maar het kan wel.
+
+_Stem-invoer:_ Nu zie je waarom mannen het vaker hebben. Een man is kleurenblind met één allel kleine a. Een vrouw pas met twee: één van haar moeder én één van haar vader. De kans daarop is veel kleiner, maar het kan wel.
+
+**s22** · audio `s22.mp3` · 6.2 s · generation `j0lPpy7yCnrQlDD1Yfok`
+
+En let op: een vader geeft zijn X nooit aan een zoon. Hij geeft hem wel aan elke dochter.
+
+_Stem-invoer:_ En let op: een vader geeft zijn iks nooit aan een zoon. Hij geeft hem wel aan elke dochter.
+
+**s23** · audio `s23.mp3` · 7.3 s · generation `qqMZfIblpcdtA4fsfhNt`
+
+Wat denk je? Opa is kleurenblind. Oma heeft geen allel a. Is hun dochter draagster?
+
+_Stem-invoer:_ Wat denk je? Opa is kleurenblind. Oma heeft geen allel kleine a. Is hun dochter draagster?
+
+**q24** · vraag: Opa is kleurenblind (XᵃY). Oma heeft geen allel a. Is hun dochter draagster?
+- a) Nee, want ze ziet zelf normaal
+- b) Misschien: de kans is een half
+- c) Ja, zeker  ✓
+- uitleg: Ja, zeker. Een vader geeft zijn enige X aan elke dochter, en bij opa is dat Xᵃ. Van oma krijgt ze Xᴬ: ze is XᴬXᵃ.
+
+**s25** · audio `s25.mp3` · 15.7 s · generation `wGqfWy9a33bxYEmss7R2`
+
+Opa heeft maar één X, en dat is Xᵃ. Die geeft hij aan elke dochter. Zijn dochter is dus zeker draagster: XᴬXᵃ. Elke zoon van haar heeft een kans van een half om kleurenblind te zijn, net als opa.
+
+_Stem-invoer:_ Opa heeft maar één iks, en dat is iks kleine a. Die geeft hij aan elke dochter. Zijn dochter is dus zeker draagster: iks grote A iks kleine a. Elke zoon van haar heeft een kans van een half om kleurenblind te zijn, net als opa.
+
+**s26** · audio `s26.mp3` · 17.9 s · generation `XOgmg7JOea9qpfns6RlC`
+
+Hemofilie, een stoornis in de bloedstolling, erft op dezelfde manier. Koningin Victoria van Engeland was draagster. Haar zoon Leopold had hemofilie. Via twee van haar dochters kwam het allel in de koningshuizen van Rusland en Spanje terecht. Daar kregen weer prinsen hemofilie.
+
+**s27** · audio `s27.mp3` · 20.0 s · generation `G39rpkJjv3uSYPU4To5J`
+
+Er bestaan ook zeldzame aandoeningen waarbij het afwijkende allel op de X dominant is. Een vader met zo'n aandoening geeft het allel aan al zijn dochters, en aan geen van zijn zonen. Een moeder met één zo'n allel geeft het aan de helft van haar kinderen. Omdat vrouwen twee X-chromosomen hebben, komt het vaker voor bij vrouwen.
+
+_Stem-invoer:_ Er bestaan ook zeldzame aandoeningen waarbij het afwijkende allel op de iks dominant is. Een vader met zo'n aandoening geeft het allel aan al zijn dochters, en aan geen van zijn zonen. Een moeder met één zo'n allel geeft het aan de helft van haar kinderen. Omdat vrouwen twee iks-chromosomen hebben, komt het vaker voor bij vrouwen.
+
+## Hoofdstuk 5 — Mitochondriaal DNA
+
+**s28** · vwo · audio `s28.mp3` · 7.6 s · generation `UGhxvsHUWS0kdlMRXOWG`
+
+Er is ook DNA buiten de kern. Mitochondriën hebben hun eigen DNA: een klein ringetje met zevenendertig genen.
+
+**s29** · vwo · audio `s29.mp3` · 11.5 s · generation `Z8YRoecWgq7OCswDJ40Y`
+
+Een eicel heeft zo'n honderdduizend mitochondriën. Een zaadcel heeft er hooguit zo'n honderd, en die worden na de bevruchting afgebroken. Al jouw mitochondriën komen dus van je moeder.
+
+**s30** · vwo · audio `s30.mp3` · 8.0 s · generation `alZt3DMIgxbcMOb4YMlo`
+
+Wat denk je? Een man heeft een aandoening door een fout in zijn mitochondriaal DNA. Wie van zijn kinderen krijgt die aandoening?
+
+**q31** · vwo · vraag: Een man heeft een aandoening door een fout in zijn mitochondriaal DNA. Wie van zijn kinderen krijgt die aandoening?
+- a) Geen van zijn kinderen  ✓
+- b) Alleen zijn zonen
+- c) Al zijn kinderen
+- uitleg: Geen van zijn kinderen. Mitochondriën komen via de eicel; de mitochondriën van een zaadcel worden na de bevruchting afgebroken.
+
+**s32** · vwo · audio `s32.mp3` · 16.9 s · generation `tW3vtNTRbAAt1XOTfPYg`
+
+Een vader geeft geen mitochondriën door, dus zijn kinderen krijgen zijn fout niet. Een moeder met zo'n fout geeft haar mitochondriën aan al haar kinderen, zonen en dochters. Hoe ziek een kind wordt, kan wel verschillen: niet elk kind krijgt evenveel mitochondriën met de fout.
+
+**s33** · vwo · audio `s33.mp3` · 19.6 s · generation `l6KwCAuk9l6Fbd55sCE7`
+
+Dat is dus anders dan overerving via het X-chromosoom. Daar gaat het om een gen in de kern, en verschillen zonen en dochters. Bij mitochondriën gaat het om DNA buiten de kern, dat alleen via de moeder gaat. Zo kun je langs de moederlijn heel ver terug in de tijd: van moeder naar oma naar overgrootmoeder.
+
+_Stem-invoer:_ Dat is dus anders dan overerving via het iks-chromosoom. Daar gaat het om een gen in de kern, en verschillen zonen en dochters. Bij mitochondriën gaat het om DNA buiten de kern, dat alleen via de moeder gaat. Zo kun je langs de moederlijn heel ver terug in de tijd: van moeder naar oma naar overgrootmoeder.
+
+## Recap
+
+**s34** · audio `s34.mp3` · 16.2 s · generation `q8G05uIN74lXr3Xkz5K9`
+
+Terug naar opa en zijn aardbeien. De genen voor het rode en het groene eiwit liggen op de X. Een man heeft daarvan maar één allel: met Xᵃ is hij kleurenblind. Een vrouw heeft twee keer Xᵃ nodig, en dat is veel zeldzamer.
+
+_Stem-invoer:_ Terug naar opa en zijn aardbeien. De genen voor het rode en het groene eiwit liggen op de iks. Een man heeft daarvan maar één allel: met iks kleine a is hij kleurenblind. Een vrouw heeft twee keer iks kleine a nodig, en dat is veel zeldzamer.
+
+**s35** · audio `s35.mp3` · 15.6 s · generation `0qnlUrCqy7RCeU5yapEa`
+
+Opa gaf zijn Xᵃ aan zijn dochter. Zij ziet normaal, maar ze is draagster. Elke zoon van haar krijgt haar Xᴬ of haar Xᵃ. Zo kan een eigenschap van opa, via zijn dochter, terugkomen bij een kleinzoon.
+
+_Stem-invoer:_ Opa gaf zijn iks kleine a aan zijn dochter. Zij ziet normaal, maar ze is draagster. Elke zoon van haar krijgt haar iks grote A of haar iks kleine a. Zo kan een eigenschap van opa, via zijn dochter, terugkomen bij een kleinzoon.
+
+## Eindkaart
+
+**s36** · eindkaart:
+- Een man heeft van zijn X-genen maar één allel: één Xᵃ is genoeg.
+- Een vader geeft zijn X aan elke dochter, nooit aan een zoon.
+- Een draagster (XᴬXᵃ) ziet normaal; elke zoon heeft een kans van ½.

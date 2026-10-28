@@ -1400,45 +1400,45 @@
   "json": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving/oefenen.json",
   "oef": [
    [
+    "puzzel-gameten",
+    "Welke gameten?",
+    "puzzel",
+    0
+   ],
+   [
     "volgorde-dihybride-schema",
     "Een dihybride kruising uitwerken",
     "volgorde",
-    0
-   ],
-   [
-    "volgorde-recombinatiepercentage",
-    "Van crossing-over tot recombinatiepercentage",
-    "volgorde",
-    0
-   ],
-   [
-    "schema-crossing-over",
-    "Oude combinaties en recombinanten",
-    "schema",
-    0
+    1
    ],
    [
     "uitleg-9331",
     "Waarom 9 : 3 : 3 : 1?",
     "uitleg",
-    0
+    1
+   ],
+   [
+    "schema-crossing-over",
+    "Oude combinaties en recombinanten",
+    "schema",
+    1
+   ],
+   [
+    "volgorde-crossing-over",
+    "Hoe ontstaan recombinanten?",
+    "volgorde",
+    1
    ],
    [
     "uitleg-gekoppeld",
     "Geen 1 : 1 : 1 : 1",
     "uitleg",
-    0
-   ],
-   [
-    "uitleg-genkaart",
-    "Een genkaart lezen",
-    "uitleg",
-    0
+    1
    ]
   ]
  },
  "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html": {
-  "titel": "Overerving via X-chromosomen en mitochondriën",
+  "titel": "Overerving via het X-chromosoom",
   "hoofdstuk": "erfelijkheid",
   "htitel": "Erfelijkheid",
   "json": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien/oefenen.json",
@@ -1453,7 +1453,7 @@
     "indelen-x-of-mito",
     "X-chromosoom of mitochondriën?",
     "indelen",
-    0
+    1
    ],
    [
     "indelen-zeker-of-kans",
@@ -1471,7 +1471,7 @@
     "uitleg-moederlijn",
     "Je oer-oermoeder terugvinden",
     "uitleg",
-    0
+    1
    ]
   ]
  },
@@ -1501,7 +1501,7 @@
    ],
    [
     "puzzel-sanne-tom",
-    "Puzzel: het kind van Sanne en Tom",
+    "Puzzel: het kind van de vrouw en haar partner",
     "puzzel",
     0
    ],

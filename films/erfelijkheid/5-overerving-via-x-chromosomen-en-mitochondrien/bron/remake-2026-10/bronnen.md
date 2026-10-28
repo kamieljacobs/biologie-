@@ -5,14 +5,14 @@ Werkwijze en criteria: `films/BRONNEN.md`. Dit logboek hoort bij `script_v2.md` 
 | Veld | Waarde |
 |---|---|
 | Gecontroleerde versie | script v2 (remake, fase 1, 28 okt 2026); vergeleken met de oude film (`bron/script.md`, reconstructie 12 okt 2026, + wachtlijst 15 okt) |
-| Eerste ronde | Claude, 28 okt 2026: 31 beweringen, 25 bronnen zelf geopend |
+| Eerste ronde | Claude, 28 okt 2026: 31 beweringen, 26 bronnen zelf geopend (B20 en B26 in fase 2) |
 | Steekproef | nog niet gedaan |
 | Vakexpert | geen |
 | Stand | 22 ✓ · 9 ≈ · 0 ! · 0 ? (vier `!` uit de oude film meteen aangepast, zie Aanpassingen) |
 
 ## Bronnen
 
-Alle bronnen op 28 okt 2026 zelf geopend. Niet bereikbaar vanuit deze sessie: pmc.ncbi.nlm.nih.gov (browsercontrole), de PubMed-pagina's van Ross 2005 en Bowmaker & Dartnall 1980 (lege pagina), nl.wiktionary.org (niet geprobeerd, zie uitspraak.md), en de vwo-syllabus 2026 op examenblad.nl (niet toegestaan vanuit deze sessie; daarom de syllabus 2025, versie 4, met dezelfde M7.1-tekst als in de verantwoording van 2026 genoemd wordt: te controleren).
+Alle bronnen op 28 okt 2026 zelf geopend. Niet bereikbaar vanuit deze sessie: pmc.ncbi.nlm.nih.gov (browsercontrole), de PubMed-pagina's van Ross 2005 en Bowmaker & Dartnall 1980 (lege pagina), nl.wiktionary.org (niet geprobeerd, zie uitspraak.md), De vwo-syllabus 2026 (versie 2) is in fase 2 alsnog geopend (B20).
 
 | Nr | Niveau | Bron | Link |
 |---|---|---|---|
@@ -35,11 +35,12 @@ Alle bronnen op 28 okt 2026 zelf geopend. Niet bereikbaar vanuit deze sessie: pm
 | B17 | A | Sutovsky, P. e.a. (1999). *Ubiquitin tag for sperm mitochondria*. Nature 402: 371–372 (zaadcel brengt bijna honderd mitochondriën mee; ze zijn gemerkt met ubiquitine en worden in de eicel afgebroken) | https://ideas.repec.org/a/nat/nature/v402y1999i6760d10.1038_46466.html |
 | B18 | A | Skaletsky, H. e.a. (2003). *The male-specific region of the human Y chromosome is a mosaic of discrete sequence classes*. Nature 423: 825–837 (78 eiwitcoderende genen, samen 27 verschillende eiwitten) | https://profiles.wustl.edu/en/publications/the-male-specific-region-of-the-human-y-chromosome-is-a-mosaic-of/ |
 | B19 | A | CvTE, *Syllabus biologie havo 2026* (M7.1: genen verdeeld over autosomen en geslachtschromosomen; geslachtschromosomen bepalen (meestal) het geslacht; deelconcept 'X-chromosomaal'; geen mitochondriale overerving) | https://examenblad.nl/2026/havo/documenten/syllabus-biologie-havo |
-| B20 | A | CvTE, *Syllabus biologie vwo* (CE 2025, versie 4): M7.1 spec. 3 (meestal het geslacht), deelconcepten 'X-chromosomaal', 'mitochondriaal DNA'; spec. 5 'verklaren dat mitochondriale overerving en epigenetica kunnen leiden tot een ander overervingspatroon'; context MERRF | https://examenblad.nl/2025/vwo/documenten/syllabus-biologie-vwo |
+| B20 | A | CvTE, *Syllabus biologie vwo, CE 2026*, versie 2 (juli 2024): M7.1 spec. 3 'toelichten dat bij de mens de geslachtschromosomen (meestal) het geslacht bepalen'; spec. 4 deelconcepten o.a. 'X-chromosomaal'; spec. 5 'verklaren dat mitochondriale overerving en epigenetica kunnen leiden tot een ander overervingspatroon (dan volgens de wetten van Mendel)', deelconcepten 'mitochondriaal DNA, epigenetica' (opgezocht 28 okt 2026, fase 2) | https://www.examenblad.nl/2026/vwo/documenten/syllabus-biologie-vwo-2026 |
 | B21 | A | Cann, R.L., Stoneking, M. & Wilson, A.C. (1987). *Mitochondrial DNA and human evolution*. Nature 325: 31–36 (abstract via NASA ADS: al het onderzochte mtDNA stamt van één vrouw, ± 200 000 jaar geleden) | https://ui.adsabs.harvard.edu/abs/1987Natur.325...31C/abstract |
 | B22 | B | ASU Embryo Project Encyclopedia, *'Mitochondrial DNA and Human Evolution' (1987)* (mtDNA klein en circulair, 16 569 bp, 37 genen; gaat helemaal van moeder op kind; uitgangspunt van het moederlijnonderzoek) | https://embryo.asu.edu/pages/mitochondrial-dna-and-human-evolution-1987-rebecca-louise-cann-mark-stoneking-and-allan |
 | B23 | A | Ross, M.T. e.a. (2005). *The DNA sequence of the human X chromosome*. Nature 434: 325–337 (abstract via Penn State: 1 098 genen; onevenredig veel mendelische ziekten op de X) | https://pure.psu.edu/en/publications/the-dna-sequence-of-the-human-x-chromosome/ |
 | B24 | B | *General Biology II* (CUNY, naar OpenStax Biology, CC BY), 12.8 *Sex-linked traits* (vrouw XX, man XY; man hemizygoot; zonen krijgen de Y van hun vader; een draagster geeft het aan de helft van haar zonen en draagsterschap aan de helft van haar dochters) | https://cuny.manifoldapp.org/read/49ca2a41-d3e6-4354-ad08-52f4a9a0911e/section/f070d255-8e5c-4c5b-95f9-718941c51544 |
+| B26 | A | Viénot, F., Brettel, H. & Mollon, J.D. (1999). *Digital video colourmaps for checking the legibility of displays by dichromats*. Color Research and Application 24: 243–252 (simulatie deuteranoop: lineariseren γ 2,2, schalen, RGB → LMS, M vervangen door 0,494207 L + 1,24827 S, terug; geldt voor dichromaten, niet voor afwijkende trichromaten; 'waarschuwingsinstrument', geen precies beeld van één persoon) | https://vision.psychol.campsych.vs.mythic-beasts.com/jdmollon/papers/colourmaps.pdf |
 | B25 | A | Health Education England, Genomics Education Programme, glossary *Mitochondria* (± 16 000 basen, 37 genen; alleen van de moeder geërfd) | https://www.genomicseducation.hee.nhs.uk/glossary/mitochondria/ |
 
 ## Beweringen
@@ -59,7 +60,7 @@ Alle bronnen op 28 okt 2026 zelf geopend. Niet bereikbaar vanuit deze sessie: pm
 | 11 | s10 | De genen voor het groene en het rode eiwit liggen naast elkaar op de X | B3, B7 | ✓ | |
 | 12 | s10 | Het gen voor het blauwe eiwit ligt op een ander chromosoom (in beeld: chromosoom 7) | B3, B1 | ✓ | B3 7q22-qter; B1 noemt OPN1SW niet op de X. |
 | 13 | s10 | Werkt het gen voor het rode of groene eiwit niet goed, dan reageren twee soorten kegeltjes bijna hetzelfde; rood en groen lijken dan op elkaar | B3, B7, B1 | ≈ | Vereenvoudigd: één mechanisme (hybride gen of gemis van één gen). Bij de vaakst voorkomende vorm (deuteranomalie) schuift de kromme alleen (B3: 'tussen de normale rood- en groencurve'). |
-| 14 | s10 (beeld) | 'Zo ziet hij het': de aardbeien in een kleurmodel voor rood-groenkleurenblindheid | — | ≈ | Label 'model' in beeld; simulatie met een gangbare benadering voor dichromaten (projectie in lineaire RGB); de oorspronkelijke publicatie is nog niet zelf geopend, dus hier geen bron. Vóór de bouw opzoeken en toevoegen. Zie twijfel T3. |
+| 14 | s01, s10 (beeld) | 'Zo ziet hij het': de aardbeien in een kleurmodel voor rood-groenkleurenblindheid | B26, B1 | ≈ | Label 'model' in beeld; simulatie volgens B26 (deuteranoop). Vereenvoudigd: de meeste kleurenblinden zijn afwijkende trichromaten en zien het verschil iets beter dan het model (B26 noemt dat zelf). Fase 2: bron opgezocht. |
 | 15 | s11 | Een vrouw heeft van elk gen op de X twee allelen; een man van de meeste genen op zijn X maar één | B4, B5, B24 | ✓ | 'van de meeste': pseudoautosomale genen heeft hij twee keer. |
 | 16 | s13 | XᴬXᵃ ziet normaal (A dominant) en kan a doorgeven: draagster | B24, B6 | ✓ | |
 | 17 | q15, s16, s17 | Draagster × man die normaal ziet: de helft van de zonen kleurenblind; dochters zien normaal, de helft is draagster | B24 | ✓ | Rekensom uit het kruisingsschema (B24 zegt het letterlijk); tweede onafhankelijke bron niet nodig voor een uitkomst die de film zelf afleidt. |
@@ -78,7 +79,7 @@ Alle bronnen op 28 okt 2026 zelf geopend. Niet bereikbaar vanuit deze sessie: pm
 | 30 | v28 | Hoe ziek een kind wordt kan verschillen: niet elk kind krijgt evenveel mitochondriën met de fout | B13, B14 | ✓ | Heteroplasmie en flessenhals; nieuw t.o.v. de oude film. |
 | 31 | v29 | Langs de moederlijn kun je met mitochondriaal DNA heel ver terug in de tijd | B21, B22 | ≈ | Klopt als methode; de film noemt geen jaartal of 'Eva' (B21 ± 200 000 jaar, latere schattingen wijken af). |
 
-Stand per status: ✓ 22 (1–4, 6–12, 15–18, 20, 23–25, 27, 28, 30) · ≈ 9 (5, 13, 14, 19, 21, 22, 26, 29, 31). Rij 14 en 18 hebben geen bron: een model met label in beeld en een rekensom die de film zelf laat zien.
+Stand per status: ✓ 22 (1–4, 6–12, 15–18, 20, 23–25, 27, 28, 30) · ≈ 9 (5, 13, 14, 19, 21, 22, 26, 29, 31). Rij 18 heeft geen bron: een rekensom die de film zelf laat zien.
 
 ## Aanpassingen (meteen doorgevoerd, ≥ 2 bronnen met ≥ 1 niveau A)
 
@@ -98,4 +99,4 @@ Ook aangepast, maar zonder `!` (stelligheid of vereenvoudiging): 'De zaadcel bep
 - **Victoria**: haar ouders hadden geen hemofilie; vermoedelijk een nieuwe mutatie (B11). Hemofilie B, gen F9 (B10).
 
 ## Menselijke controle
-Nog te doen door Kamiel (≥ 3 bronnen; altijd alle `≈`). Voorstel: B1 (prevalentie), B16 of B17 (aantal mitochondriën in een zaadcel), B11 (Leopold en de Spaanse lijn), en de vwo-syllabus 2026 (B20 is de versie van 2025).
+Nog te doen door Kamiel (≥ 3 bronnen; altijd alle `≈`). Voorstel: B1 (prevalentie), B16 of B17 (aantal mitochondriën in een zaadcel), B11 (Leopold en de Spaanse lijn), en B26 (kleurmodel).

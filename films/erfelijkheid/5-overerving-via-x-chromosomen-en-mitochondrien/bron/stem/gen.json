@@ -1,0 +1,197 @@
+{
+ "flow": "GdHrddvvf18QZtimpz9y",
+ "stem": "Roos 7qdUFMklKPaaAVMsBTBt",
+ "model": "eleven_v4",
+ "takes": {
+  "s01": {
+   "session_id": "fDo6Ng8wPjeKV8wi2R00",
+   "generation_id": "OB3ZTf1hxGCU46UlsBew",
+   "credits": 143,
+   "dur": 9.48
+  },
+  "s02": {
+   "session_id": "urSk28uqAZAetdQhKhB5",
+   "generation_id": "MOvKGkYjM7179AAyBvhx",
+   "credits": 213,
+   "dur": 14.11
+  },
+  "s04": {
+   "session_id": "h0CQGpRFZmI6bx950rpx",
+   "generation_id": "SZEVlESfhUF9e3w7Pe2S",
+   "credits": 226,
+   "dur": 17.79
+  },
+  "s05": {
+   "session_id": "bDDjOghrYdhcTj8TM68j",
+   "generation_id": "ArtJCAFWDmnK0kOmSgfQ",
+   "credits": 252,
+   "dur": 16.77
+  },
+  "s06": {
+   "session_id": "nxh28wWge3zxT7ag1HVg",
+   "generation_id": "UygkNmBbpw9LxN8RlD6q",
+   "credits": 59,
+   "dur": 3.63
+  },
+  "s08": {
+   "session_id": "93KD738t4TdLRR9DOMmb",
+   "generation_id": "jFTpHndNg1gnk3ztPx7Z",
+   "credits": 158,
+   "dur": 9.87
+  },
+  "s09": {
+   "session_id": "BZy9hbz89MD85JUbvoLl",
+   "generation_id": "MfSidZ2AU0nwSIodd9Wz",
+   "credits": 172,
+   "dur": 11.39
+  },
+  "s10": {
+   "session_id": "AOabZkBXlWiSPB6JU39I",
+   "generation_id": "pviDzSQ3KVTfyXsxq7Rn",
+   "credits": 197,
+   "dur": 13.64
+  },
+  "s11": {
+   "session_id": "M18s3iYBuCTaTtvRQWlq",
+   "generation_id": "G0qhlMs8KQx92LZrT5G7",
+   "credits": 281,
+   "dur": 17.55
+  },
+  "s12": {
+   "session_id": "V51E1MF3KhsabG84q02z",
+   "generation_id": "xP14K3nvTbitRUHaDkmG",
+   "credits": 161,
+   "dur": 10.27
+  },
+  "s13": {
+   "session_id": "JRP2tn9Y0wxGfCYJbhSs",
+   "generation_id": "7dtak7CtKjQbEpuN3eUC",
+   "credits": 253,
+   "dur": 18.05
+  },
+  "s14": {
+   "session_id": "PxImn28HMctTtGhkviMc",
+   "generation_id": "g3A48pm5opHHYxxXKSd7",
+   "credits": 304,
+   "dur": 28.53
+  },
+  "s15": {
+   "session_id": "u2CwRh3Y7hsKXq3Q2llA",
+   "generation_id": "5tLIO0IXwGYq57sIuM04",
+   "credits": 121,
+   "dur": 9.95
+  },
+  "s16": {
+   "session_id": "2CPa8u1b2htlUzFmIJ9l",
+   "generation_id": "N62idVXkOoZyy10nI480",
+   "credits": 79,
+   "dur": 5.07
+  },
+  "s18": {
+   "session_id": "M1gM0SJorGzcBEDTxmFk",
+   "generation_id": "TyfoOFQCHGjFV6jMUZT6",
+   "credits": 190,
+   "dur": 12.51
+  },
+  "s19": {
+   "session_id": "zVm9bBnta9eLfzRHll52",
+   "generation_id": "rDe58HiZvCSpe9TEhbl7",
+   "credits": 294,
+   "dur": 21.89
+  },
+  "s20": {
+   "session_id": "vmD1od8H7bZ8RoDK8HNj",
+   "generation_id": "sktXShjWwxoZR3hFnKMm",
+   "credits": 254,
+   "dur": 16.85
+  },
+  "s21": {
+   "session_id": "3vhwHzO0bgOzjhHeM9UU",
+   "generation_id": "T4TIIsc9TW83o6D8rq2c",
+   "credits": 206,
+   "dur": 13.87
+  },
+  "s22": {
+   "session_id": "rRFGC2e9BZpGHbLcxp8D",
+   "generation_id": "j0lPpy7yCnrQlDD1Yfok",
+   "credits": 91,
+   "dur": 6.19
+  },
+  "s23": {
+   "session_id": "G3hFfoVNU7Poj736f7zE",
+   "generation_id": "qqMZfIblpcdtA4fsfhNt",
+   "credits": 90,
+   "dur": 7.31
+  },
+  "s25": {
+   "session_id": "fCVNoxJnyw10BMIKirtn",
+   "generation_id": "wGqfWy9a33bxYEmss7R2",
+   "credits": 227,
+   "dur": 15.65
+  },
+  "s26": {
+   "session_id": "6K5WOTHdLY8HXaFQZC9r",
+   "generation_id": "XOgmg7JOea9qpfns6RlC",
+   "credits": 277,
+   "dur": 17.95
+  },
+  "s27": {
+   "session_id": "NQCtqGEeEvQYXTCahvPY",
+   "generation_id": "G39rpkJjv3uSYPU4To5J",
+   "credits": 332,
+   "dur": 20.04
+  },
+  "s28": {
+   "session_id": "iLPnBrZ4Zy8WUSjp2h3J",
+   "generation_id": "UGhxvsHUWS0kdlMRXOWG",
+   "credits": 109,
+   "dur": 7.63
+  },
+  "s29": {
+   "session_id": "Io5iPS58wHST2UntC6Rh",
+   "generation_id": "Z8YRoecWgq7OCswDJ40Y",
+   "credits": 184,
+   "dur": 11.47
+  },
+  "s30": {
+   "session_id": "ZUI18x4WJKGaizMeWhXU",
+   "generation_id": "alZt3DMIgxbcMOb4YMlo",
+   "credits": 128,
+   "dur": 7.97
+  },
+  "s32": {
+   "session_id": "TdVRjbe9jHoTEYzovU5g",
+   "generation_id": "tW3vtNTRbAAt1XOTfPYg",
+   "credits": 276,
+   "dur": 16.93
+  },
+  "s33": {
+   "session_id": "T5D47B19RsZGGV9Wbe83",
+   "generation_id": "l6KwCAuk9l6Fbd55sCE7",
+   "credits": 307,
+   "dur": 19.57
+  },
+  "s34": {
+   "session_id": "NasQP8ZSKZOBnlsbLksx",
+   "generation_id": "q8G05uIN74lXr3Xkz5K9",
+   "credits": 242,
+   "dur": 16.2
+  },
+  "s35": {
+   "session_id": "ofq6BBH7Xyk1Khj2hNWZ",
+   "generation_id": "0qnlUrCqy7RCeU5yapEa",
+   "credits": 227,
+   "dur": 15.57
+  }
+ },
+ "geblokkeerd": {
+  "s08_geblokkeerd": {
+   "session_id": "uOkst8wamyvUqV8i6N5c",
+   "generation_id": "k8uvGVq3MEbwyqJXBWXw",
+   "credits": 152,
+   "noot": "filter: 'may violate our Terms of Service', gedeeltelijk terugbetaald; tekst herschreven (zoon/dochter)"
+  }
+ },
+ "credits_totaal": 6205,
+ "credits_takes": 6053
+}

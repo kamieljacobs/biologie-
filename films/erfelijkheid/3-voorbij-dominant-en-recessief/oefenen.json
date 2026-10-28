@@ -28,7 +28,7 @@
     {
      "tekst": "Rode × witte leeuwenbek geeft alleen roze nakomelingen.",
      "bak": 0,
-     "uitleg": "RW maakt half zoveel pigment: roze ligt tussen rood en wit."
+     "uitleg": "Bij RW maakt maar één allel kleurstof: roze ligt tussen rood en wit."
     },
     {
      "tekst": "Roze × roze geeft 1 rood : 2 roze : 1 wit.",
@@ -48,7 +48,7 @@
     {
      "tekst": "Twee gele muizen krijgen 2 gele op 1 grijze jongen.",
      "bak": 2,
-     "uitleg": "YY-embryo's ontwikkelen zich niet: 3 : 1 wordt 2 : 1."
+     "uitleg": "GG-embryo's ontwikkelen zich niet: 3 : 1 wordt 2 : 1."
     },
     {
      "tekst": "Twee katten zonder staart krijgen 2 jongen zonder staart op 1 met staart.",
@@ -156,7 +156,7 @@
    "id": "puzzel-leeuwenbek",
    "soort": "puzzel",
    "titel": "Puzzel: roze leeuwenbekken",
-   "opdracht": "Bij de leeuwenbek levert allel R een enzym voor rood pigment, allel W een enzym dat niet werkt. Je kruist twee roze planten en krijgt 200 nakomelingen.",
+   "opdracht": "Bij de leeuwenbek levert allel R een enzym voor rode kleurstof, allel W een enzym dat niet werkt. Je kruist twee roze planten en krijgt 200 nakomelingen.",
    "stappen": [
     {
      "vraag": "Wat is het genotype van een roze plant?",
@@ -227,7 +227,7 @@
     {
      "naam": "homozygoot",
      "varianten": [
-      "YY",
+      "GG",
       "twee gele allelen"
      ]
     },
@@ -247,15 +247,15 @@
     }
    ],
    "checklist": [
-    "Ik leg uit dat gele muizen heterozygoot zijn (Yy), want ze krijgen grijze jongen.",
-    "Ik leg uit dat het gele allel voor de kleur dominant is, maar ook een gen beschadigt dat een embryo nodig heeft.",
-    "Ik leg uit dat YY-embryo's zich niet ontwikkelen, zodat één vakje uit het schema wegvalt.",
+    "Ik leg uit dat gele muizen heterozygoot zijn (Gg), want ze krijgen grijze jongen.",
+    "Ik leg uit dat het gele allel voor de kleur dominant is, maar dat er bij het ontstaan ervan ook een buurgen verdween dat een embryo nodig heeft.",
+    "Ik leg uit dat GG-embryo's zich niet ontwikkelen, zodat één vakje uit het schema wegvalt.",
     "Ik concludeer dat van de drie overgebleven vakjes er twee geel zijn en één grijs: 2 : 1."
    ],
    "model": [
-    "Twee gele muizen krijgen ook grijze jongen, dus ze zijn allebei heterozygoot: Yy. Volgens het kruisingsschema verwacht je 1 YY : 2 Yy : 1 yy, dus 3 geel : 1 grijs.",
-    "Het gele allel doet twee dingen. Voor de kleur is het dominant. Maar het beschadigt ook een gen dat een embryo nodig heeft om te groeien. Met één geel allel gaat dat goed, met twee niet: YY-embryo's ontwikkelen zich niet.",
-    "Het vakje YY valt dus weg. Van de drie vakjes die overblijven zijn er twee Yy (geel) en één yy (grijs): 2 : 1. Zo'n allel heet een letale factor."
+    "Twee gele muizen krijgen ook grijze jongen, dus ze zijn allebei heterozygoot: Gg. Volgens het kruisingsschema verwacht je 1 GG : 2 Gg : 1 gg, dus 3 geel : 1 grijs.",
+    "Voor de kleur is het gele allel dominant. Maar het is ontstaan doordat er een stuk DNA ontbreekt, en daarbij verdween ook een buurgen dat een embryo nodig heeft. Met één geel allel is er nog een werkend exemplaar van dat gen, met twee niet: GG-embryo's stoppen al in de eerste dagen met groeien.",
+    "Het vakje GG valt dus weg. Van de drie vakjes die overblijven zijn er twee Gg (geel) en één gg (grijs): 2 : 1. Zo'n allel heet een letale factor."
    ]
   },
   {

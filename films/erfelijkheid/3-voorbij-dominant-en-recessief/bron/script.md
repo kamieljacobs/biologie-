@@ -1,192 +1,126 @@
-# Voorbij dominant en recessief — script
+# Voorbij dominant en recessief — script (versie 2.0, 28 okt 2026)
 
-Bron: gereconstrueerd uit de ondertitels/scriptdata (`window.__TIMELINE__`, woordtijden) in de gepubliceerde HTML (2026-10-12). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
+Lichte remake (prompt v13). Bron van de tekst: `remake-2026-10/script_v2.md` (Kamiel keurde fase 1 goed op 28 okt 2026). Bouwscript: `script_bouw.md` → `segments.json` (`bouw/make_segments.py`, met `films/uitspraak.json` + `uitspraak_film.json`).
+Stem: Roos (`7qdUFMklKPaaAVMsBTBt`), eleven_v4, één take per alinea, flow https://elevenlabs.io/app/flows/K5Sq7KlMGV6DjeL0eEPD. Audio per alinea in `../3-voorbij-dominant-en-recessief/audio/<id>.mp3` (loudnorm −16 LUFS / −1 dBTP), woordtijden in `stem/woordtijden/` (silalign.py, lokaal).
+Tijden = begin in de film met Vragen aan (havo en vwo gelijk: één niveau). Stem-invoer alleen vermeld waar die afwijkt van de ondertitel.
 
-Audio: één doorlopende take, blob `006.mp3` (in de HTML als `window.__AUDIO_B64__`). Elke alinea hieronder is één `paras`-item met eigen sleutel (p01, p02b, …); de tijden zijn posities in die ene take. Tussen alinea's zitten vaste stiltes (1,0–2,8 s; 6,0 s na een voorspelvraag; 1,5 s aan het begin, 5,0 s aan het eind). Elke regel = één ondertitelzin zoals de speler hem toont, met de begintijd van het eerste woord.
-Niveau: de hele film is vwo bovenbouw; er zijn geen havo-/vwo-blokken.
+## Cold open · 0:00.0
+**s01** · 0:00.0 · audio/s01.mp3 (16.59 s, generation jjK1WcdMpJxyjg1bKUzt)  
+Een kweker kruist een rode leeuwenbek met een witte. Alle nakomelingen bloeien roze. Zijn de allelen dan gemengd, zoals rode en witte verf? In deze film zie je vier manieren waarop allelen samen een eigenschap maken. En je ontdekt dat ze nooit mengen.
 
-## 1. p01 · Mengen allelen?
-Audio: blob 006.mp3 (doorlopende take) · 0:01–0:19 (17,6 s)
+## Titel · 0:16.8
+Voorbij dominant en recessief — intermediair, codominant, letaal en polygeen
 
-[0:01.5] In de vorige films zag je dat één werkend allel vaak genoeg is.
-[0:05.1] Maar niet altijd.
-[0:06.2] Kruis een rode leeuwenbek met een witte, en alle nakomelingen zijn roze.
-[0:10.1] Mengen de allelen dan, zoals verf?
-[0:11.9] In deze film zie je vier soorten overerving die niet netjes dominant en recessief zijn.
-[0:16.8] En je ontdekt dat allelen nooit mengen.
+## Hoofdstuk 1 — Intermediair  ·  0:21.8
+Hoofdstukkaart: *Hoe kan rood × wit roze geven?*
 
-> Beeld: Rode × witte leeuwenbek → roze nakomelingen; 'mengen, zoals verf?'; kaart IN DEZE FILM (intermediair · codominant · …).
-> Cue-woorden (initCues): rode, roze, mengen, vier (ook begin/eind van de alinea via PS/PE)
+**s03** · 0:23.1 · audio/s03.mp3 (10.84 s, generation beiipUajBSlw3boMtRRv)  
+In de eerste film zag je: bij pigment in je huid is één werkend allel genoeg. Daarom is dat allel dominant. Bij de bloemkleur van de leeuwenbek gaat het anders.
 
-## 2. p02 · Intermediair
-Audio: blob 006.mp3 (doorlopende take) · 0:20–0:46 (25,7 s)
+**s04** · 0:34.2 · audio/s04.mp3 (26.36 s, generation fo9vER7zhAn0HTaEbUjv)  
+Het allel R levert een enzym dat rode kleurstof maakt. Het allel W levert een enzym dat niet werkt. Een plant met RR heeft twee werkende allelen: veel kleurstof, rood. Een plant met WW maakt geen kleurstof: wit. En een plant met RW heeft één werkend allel. Bij de leeuwenbek is dat niet genoeg voor volledig rood. Er komt minder kleurstof: roze.
+> Stem-invoer: Het allel R levert een enzym dat rode kleurstof maakt. Het allel W levert een enzym dat niet werkt. Een plant met R R heeft twee werkende allelen: veel kleurstof, rood. Een plant met W W maakt geen kleurstof: wit. En een plant met R W heeft één werkend allel. Bij de leeuwenbek is dat niet genoeg voor volledig rood. Er komt minder kleurstof: roze.
 
-[0:20.9] Bij de leeuwenbek maakt het allel R een enzym voor rood pigment.
-[0:24.5] Het allel W levert een enzym dat niet werkt.
-[0:27.1] Bij RR maken beide allelen enzym: veel pigment, rood.
-[0:30.4] Bij WW is er geen pigment: wit.
-[0:32.5] Bij RW maakt maar één allel enzym.
-[0:34.5] Bij de leeuwenbek is dat níet genoeg voor volledig rood.
-[0:37.1] Er komt ongeveer half zoveel pigment: roze.
-[0:39.7] Dat heet intermediair, of onvolledig dominant.
-[0:42.4] Het fenotype van de heterozygoot ligt tussen dat van de twee homozygoten in.
+**s05** · 1:00.8 · audio/s05.mp3 (16.12 s, generation ylijAJtKwKW10bVJAf0s)  
+Het fenotype van de heterozygoot ligt tussen dat van de twee homozygoten in. Dat heet intermediair, of onvolledig dominant. Geen van beide allelen is dominant. Daarom krijgen ze hier vaak twee verschillende hoofdletters, zoals R en W.
 
-> Beeld: Allel R → werkend enzym, W → geen werkend enzym; pigmentmeters bij RR, RW, WW (titel 'Intermediair'); termkaart 'intermediair (onvolledig dominant)'.
-> Cue-woorden (initCues): R, W, bij (#2), bij (#3), bij (#4), half, intermediair (ook begin/eind van de alinea via PS/PE)
+**s06** · 1:17.1 · audio/s06.mp3 (3.24 s, generation AgNA4bKLXYeB7GK1VK6u)  
+Je kruist twee roze planten. Wat denk je?
 
-## 3. p03 · Intermediair
-Audio: blob 006.mp3 (doorlopende take) · 0:47–0:52 (5,1 s)
+**q07** (vraagkaart, 1:20.6): Je kruist twee roze leeuwenbekken (RW × RW). Wat verwacht je bij de nakomelingen?
+Opties: (a) alleen roze, want de allelen zijn gemengd · (b) 3 rood : 1 wit · (c) 1 rood : 2 roze : 1 wit — juist c
 
-[0:47.8] Je kruist twee roze bloemen.
-[0:49.3] Als de allelen gemengd zijn, is alles weer roze.
-[0:51.9] Wat verwacht jij?
+**s08** · 1:34.6 · audio/s08.mp3 (22.99 s, generation ORgl9Xf9YPAa97Rzne9U)  
+Twee roze planten zijn allebei RW. Elke plant maakt gameten met R en gameten met W, elk met een kans van een half. In het kruisingsschema is één vakje RR, twee vakjes RW en één vakje WW. Rood, roze en wit komen terug, in de verhouding één staat tot twee staat tot één.
+> Stem-invoer: Twee roze planten zijn allebei R W. Elke plant maakt ga-MEE-ten met R en ga-MEE-ten met W, elk met een kans van een half. In het kruisingsschema is één vakje R R, twee vakjes R W en één vakje W W. Rood, roze en wit komen terug, in de verhouding één staat tot twee staat tot één.
 
-> Beeld: Roze bloemen.
-> Vraag: VOORSPEL-kaart 'Roze × roze: wat verwacht jij?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**s09** · 1:57.9 · audio/s09.mp3 (17.71 s, generation VPpEdPV5uj6Y8J7Tczkh)  
+Waren rood en wit gemengd, dan kwamen rood en wit nooit meer terug. De allelen blijven dus los, en worden los doorgegeven, net als bij Mendel. Alleen het fenotype van de heterozygoot zit ertussenin. Daarom zie je bij intermediair het genotype direct aan het fenotype.
 
-## 4. p04 · Intermediair
-Audio: blob 006.mp3 (doorlopende take) · 0:58–1:18 (19,3 s)
+## Hoofdstuk 2 — Bloedgroepen  ·  2:15.8
+Hoofdstukkaart: *Kan een kind een bloedgroep hebben die geen van de ouders heeft?*
 
-[0:58.9] Rood, roze en wit komen terug, in de verhouding één staat tot twee staat tot één.
-[1:05.0] De allelen zijn dus niet gemengd: ze worden los doorgegeven, precies zoals bij Mendel.
-[1:09.7] Alleen het fenotype van de heterozygoot zit ertussenin.
-[1:13.4] Bij intermediaire overerving zie je het genotype daarom direct aan het fenotype.
+**s10** · 2:17.1 · audio/s10.mp3 (25.0 s, generation ky7doxIN7LeDgp4jrHWb)  
+Nu je bloed. Op je rode bloedcellen zitten korte ketens van suikers. Het allel Iᴬ levert een enzym dat er nog één suiker aan zet: zo ontstaat antigeen A. Het allel Iᴮ levert een iets ander enzym, dat er een andere suiker aan zet: antigeen B. En het allel i levert een enzym dat niet werkt. Dan komt er geen A en geen B op de keten.
+> Stem-invoer: Nu je bloed. Op je rode bloedcellen zitten korte ketens van suikers. Het allel I-A levert een enzym dat er nog één suiker aan zet: zo ontstaat antigeen A. Het allel I-B levert een iets ander enzym, dat er een andere suiker aan zet: antigeen B. En het allel i levert een enzym dat niet werkt. Dan komt er geen A en geen B op de keten.
 
-> Beeld: Kruisingsschema roze × roze; kaart 'VERHOUDING 1 rood : 2 roze : 1 wit'; misvatting 'Allelen mengen → Ze worden los doorgegeven'; kaart 'genotype zie je direct'.
-> Cue-woorden (initCues): los, direct, één (ook begin/eind van de alinea via PS/PE)
+**s11** · 2:42.3 · audio/s11.mp3 (12.51 s, generation 6rxJTZcsQqjgpgucEnzq)  
+Dit gen heeft dus drie allelen: Iᴬ, Iᴮ en i. Dat heet multipele allelen. Maar iedereen heeft er maar twee: één van zijn vader en één van zijn moeder.
+> Stem-invoer: Dit gen heeft dus drie allelen: I-A, I-B en i. Dat heet multipele allelen. Maar iedereen heeft er maar twee: één van zijn vader en één van zijn moeder.
 
-## 5. p05 · Bloedgroepen: multipele allelen en codominantie
-Audio: blob 006.mp3 (doorlopende take) · 1:20–1:43 (22,9 s)
+**s12** · 2:55.0 · audio/s12.mp3 (17.55 s, generation WiiTridiI5txp6HTOO4x)  
+Iᴬ en Iᴮ zijn allebei dominant over i. IᴬIᴬ en Iᴬi geven dus bloedgroep A. IᴮIᴮ en Iᴮi geven bloedgroep B. En met ii heb je bloedgroep O: geen antigeen A en geen antigeen B.
+> Stem-invoer: I-A en I-B zijn allebei dominant over i. I-A I-A en I-A i geven dus bloedgroep A. I-B I-B en I-B i geven bloedgroep B. En met i i heb je bloedgroep O: geen antigeen A en geen antigeen B.
 
-[1:20.4] Nu je bloed.
-[1:21.2] Op je rode bloedcellen zitten ketens van suikers: antigenen.
-[1:24.6] Het allel Iᴬ levert een enzym dat antigeen A bouwt.
-[1:28.2] Het allel Iᴮ levert een iets ander enzym, dat antigeen B bouwt.
-[1:32.1] En het allel i levert een enzym dat niet werkt: dan komt er geen A of B op.
-[1:36.8] Er zijn dus drie allelen voor één gen.
-[1:38.9] Dat heet multipele allelen.
-[1:40.6] Maar iedereen heeft er maar twee: één van elke ouder.
+**s13** · 3:12.8 · audio/s13.mp3 (17.79 s, generation BoAyaW5KTkPjjNlb2gGG)  
+Heb je Iᴬ én Iᴮ, dan werken beide enzymen. Je rode bloedcellen dragen antigeen A én antigeen B: bloedgroep AB. Dat is niet iets ertussenin, zoals roze bij de leeuwenbek. Beide allelen komen volledig tot uiting. Dat heet codominant.
+> Stem-invoer: Heb je I-A én I-B, dan werken beide enzymen. Je rode bloedcellen dragen antigeen A én antigeen B: bloedgroep A B. Dat is niet iets ertussenin, zoals roze bij de leeuwenbek. Beide allelen komen volledig tot uiting. Dat heet codominant.
 
-> Beeld: Rode bloedcel met 'antigenen (ketens van suikers)'; allelen Iᴬ, Iᴮ, i → enzymen; termkaart multipele allelen (titel 'Bloedgroepen').
-> Cue-woorden (initCues): antigenen, Iᴬ, Iᴮ, i, multipele, twee: (ook begin/eind van de alinea via PS/PE)
+**s14** · 3:30.8 · audio/s14.mp3 (6.92 s, generation YEISpla8BRmhdZwsRdEL)  
+Een moeder heeft bloedgroep A, de vader bloedgroep B. Kan hun kind bloedgroep O hebben? Wat denk je?
 
-## 6. p06 · Bloedgroepen: multipele allelen en codominantie
-Audio: blob 006.mp3 (doorlopende take) · 1:44–2:17 (32,6 s)
+**q15** (vraagkaart, 3:38.0): Een moeder heeft bloedgroep A, de vader bloedgroep B. Kan hun kind bloedgroep O hebben?
+Opties: (a) nee, dan moet een van de ouders bloedgroep O hebben · (b) ja, als allebei de ouders ook een i hebben · (c) alleen als een van de ouders AB heeft — juist b
 
-[1:44.7] Heb je Iᴬ en Iᴮ, dan werken beide enzymen.
-[1:49.5] Je cellen dragen antigeen A én antigeen B: bloedgroep AB.
-[1:55.3] Beide allelen komen volledig tot uiting.
-[1:57.7] Dat heet codominantie.
-[1:59.9] Iᴬ en Iᴮ zijn wel allebei dominant over i.
-[2:04.8] Iᴬi geeft bloedgroep A.
-[2:08.0] Iᴮi geeft bloedgroep B.
-[2:11.5] En ii geeft bloedgroep O: geen antigeen A en geen antigeen B.
+**s16** · 3:52.0 · audio/s16.mp3 (23.33 s, generation 6U64iRJcfZzE50iiE1kY)  
+Een moeder met bloedgroep A kan Iᴬi zijn, en een vader met B kan Iᴮi zijn. Allebei dragen ze dan een i, zonder dat je het ziet. Krijgt een kind van allebei de i, dan is het ii: bloedgroep O. De kans daarop is een kwart. En in de andere vakjes zie je: dit stel kan kinderen krijgen met elk van de vier bloedgroepen.
+> Stem-invoer: Een moeder met bloedgroep A kan I-A i zijn, en een vader met B kan I-B i zijn. Allebei dragen ze dan een i, zonder dat je het ziet. Krijgt een kind van allebei de i, dan is het i i: bloedgroep O. De kans daarop is een kwart. En in de andere vakjes zie je: dit stel kan kinderen krijgen met elk van de vier bloedgroepen.
 
-> Beeld: Genotypen naar bloedgroep; termkaart codominant; kaart 'Iᴬ en Iᴮ dominant over i'.
-> Cue-woorden (initCues): AB., codominantie, dominant, Iᴬi, Iᴮi, ii (ook begin/eind van de alinea via PS/PE)
+**s17** · 4:15.5 · audio/s17.mp3 (10.37 s, generation t1arxN4ePUQ9wXSM2Z5q)  
+Bloedgroep O is dus geen eigen stof. Het is juist het ontbreken van antigeen A en B. Wat dat betekent als je bloed krijgt, zie je in de film over afweer.
 
-## 7. p07 · Bloedgroepen: multipele allelen en codominantie
-Audio: blob 006.mp3 (doorlopende take) · 2:18–2:23 (4,9 s)
+## Hoofdstuk 3 — Een letale factor  ·  4:26.1
+Hoofdstukkaart: *Waar blijven de ontbrekende muizen?*
 
-[2:18.6] Een moeder heeft bloedgroep A, de vader bloedgroep B.
-[2:21.8] Kan hun kind bloedgroep O hebben?
+**s18** · 4:27.4 · audio/s18.mp3 (19.23 s, generation ouhqgXjssDl12NaDCYgW)  
+Bij muizen bestaat een allel dat de vacht geel maakt. Het is dominant over het allel voor een grijze vacht. Noem ze G en g. Kruis je twee gele muizen, dan verwacht je drie gele jongen op één grijze. Maar wie de jongen telt, vindt steeds ongeveer twee gele op één grijze.
+> Stem-invoer: Bij muizen bestaat een allel dat de vacht geel maakt. Het is dominant over het allel voor een grijze vacht. Noem ze grote G en kleine g. Kruis je twee gele muizen, dan verwacht je drie gele jongen op één grijze. Maar wie de jongen telt, vindt steeds ongeveer twee gele op één grijze.
 
-> Beeld: Bloedgroepenbeeld.
-> Vraag: VOORSPEL-kaart 'moeder bloedgroep A, vader B: kan hun kind bloedgroep O hebben?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**s19** · 4:46.8 · audio/s19.mp3 (2.77 s, generation s27aE0a5CRstRPwLPkOc)  
+Waar is de rest gebleven? Wat denk je?
 
-## 8. p08 · Bloedgroepen: multipele allelen en codominantie
-Audio: blob 006.mp3 (doorlopende take) · 2:29–2:44 (14,6 s)
+**q20** (vraagkaart, 4:49.8): Twee gele muizen geven steeds ongeveer 2 gele op 1 grijze jongen in plaats van 3 : 1. Waar is de rest gebleven?
+Opties: (a) muizen met GG ontwikkelen zich niet · (b) de grijze jongen gaan vaker dood · (c) bij muizen gelden de regels van Mendel niet — juist a
 
-[2:29.5] Ja, dat kan.
-[2:30.5] Als de moeder Iᴬi is, en de vader Iᴮi, dan kan het kind van allebei een i krijgen.
-[2:37.0] De kans daarop is een kwart.
-[2:38.8] Bloedgroep O is dus geen eigen stof.
-[2:40.9] Het is juist het ontbreken van antigeen A en B.
+**s21** · 5:03.8 · audio/s21.mp3 (23.56 s, generation 57ggwBZdmBQTRScT0qrw)  
+De gele muizen zijn allemaal Gg. Het gele allel is ontstaan doordat er een stuk DNA ontbreekt. Daarbij is ook een gen naast het kleurgen verdwenen, en dat gen heeft een embryo nodig. Met één geel allel is er nog een werkend exemplaar van dat gen. Met twee gele allelen niet: zo'n embryo stopt al in de eerste dagen met groeien.
+> Stem-invoer: De gele muizen zijn allemaal grote G kleine g. Het gele allel is ontstaan doordat er een stuk DNA ontbreekt. Daarbij is ook een gen naast het kleurgen verdwenen, en dat gen heeft een embryo nodig. Met één geel allel is er nog een werkend exemplaar van dat gen. Met twee gele allelen niet: zo'n embryo stopt al in de eerste dagen met groeien.
 
-> Beeld: Schema moeder Iᴬi × vader Iᴮi; kaart 'kans op bloedgroep O: ¼'; misvatting 'Bloedgroep O is een eigen stof → O = geen antigeen A en B'.
-> Cue-woorden (initCues): kwart, bloedgroep, i (ook begin/eind van de alinea via PS/PE)
+**s22** · 5:27.6 · audio/s22.mp3 (21.0 s, generation z2D7xdhIUyVQ9w7iv8Tq)  
+In het kruisingsschema valt het vakje GG dus weg. Van de drie vakjes die overblijven, zijn er twee geel en één grijs: twee op één. Zo'n allel heet een letale factor: in dubbele dosis is het dodelijk. Voor de vachtkleur is het gele allel dominant. Voor overleven is het recessief.
+> Stem-invoer: In het kruisingsschema valt het vakje grote G grote G dus weg. Van de drie vakjes die overblijven, zijn er twee geel en één grijs: twee op één. Zo'n allel heet een letale factor: in dubbele dosis is het dodelijk. Voor de vachtkleur is het gele allel dominant. Voor overleven is het recessief.
 
-## 9. p09 · Letale factor
-Audio: blob 006.mp3 (doorlopende take) · 2:46–3:01 (15,5 s)
+## Hoofdstuk 4 — Polygene overerving  ·  5:48.8
+Hoofdstukkaart: *Waarom is lengte geen kwestie van lang of kort?*
 
-[2:46.3] Dan een vreemde verhouding.
-[2:47.9] Bij muizen bestaat een allel dat de vacht geel maakt.
-[2:50.9] Het is dominant over het allel voor een grijze vacht.
-[2:54.2] Kruis je twee gele muizen, dan verwacht je drie gele op één grijze.
-[2:57.8] Maar je telt steeds twee gele op één grijze.
-[3:00.5] Waar is de rest gebleven?
+**s23** · 5:50.1 · audio/s23.mp3 (15.96 s, generation Aarf1NH4fjMQvvJ1s6qQ)  
+Tot slot lengte. Zet een klas op volgorde van lengte. Je ziet geen groepjes lang en kort, maar een vloeiende reeks. Dat komt doordat lengte niet door één gen wordt bepaald, maar door heel veel genen tegelijk: duizenden plekken in je DNA.
 
-> Beeld: Gele en grijze muizen; kaarten 'VERWACHT 3 geel : 1 grijs' en 'GETELD 2 geel : 1 grijs'; 'Y: geel (dominant)', 'y: grijs' (titel 'Een letale factor').
-> Cue-woorden (initCues): verwacht, telt (ook begin/eind van de alinea via PS/PE)
+**s24** · 6:06.3 · audio/s24.mp3 (20.11 s, generation LlP0rvFgNQUCy1TulzMS)  
+Kijk naar een model. Elk allel voor lang voegt een stukje lengte toe. Met één gen zijn er dan drie groepen. Met twee genen vijf. Met drie al zeven. Met heel veel genen, en wat invloed van voeding en gezondheid, ontstaat een klokvorm: een normale verdeling. Dat heet polygene overerving.
 
-## 10. p10 · Letale factor
-Audio: blob 006.mp3 (doorlopende take) · 3:03–3:23 (20,2 s)
+**s25** · 6:26.7 · audio/s25.mp3 (5.64 s, generation vHLzyKaO01pWw1hCT8b4)  
+Bij lengte zie je geen duidelijke groepen. Is lengte dan niet erfelijk? Wat denk je?
 
-[3:03.3] Het gele allel doet twee dingen.
-[3:05.3] Voor de kleur is het dominant.
-[3:07.1] Maar het beschadigt ook een gen dat een embryo nodig heeft om te groeien.
-[3:11.0] Met één geel allel gaat het goed.
-[3:13.1] Met twee niet: die embryo's ontwikkelen zich niet.
-[3:15.8] Uit het schema valt dus één vakje weg.
-[3:18.1] Van de drie die overblijven zijn er twee geel en één grijs.
-[3:21.5] Zo'n allel heet een letale factor.
+**q26** (vraagkaart, 6:32.5): Bij lengte zie je geen duidelijke groepen. Is lengte dan niet erfelijk?
+Opties: (a) nee, lengte komt vooral door voeding · (b) ja, elk gen erft los en de effecten tellen op · (c) ja, maar bij lengte mengen de allelen wel — juist b
 
-> Beeld: Kaarten 'Y beschadigt ook een gen …' en 'YY valt weg → 2 geel : 1 grijs'; termkaart letale factor.
-> Cue-woorden (initCues): embryo, twee, weg, letale (ook begin/eind van de alinea via PS/PE)
+**s27** · 6:46.5 · audio/s27.mp3 (14.03 s, generation 8kEpy8mMCBAEnv0vUeHF)  
+Lengte is voor een groot deel erfelijk. Elk van die genen erft gewoon volgens Mendel. Alleen tellen hun effecten bij elkaar op, en het milieu doet er nog iets bij. Daarom hebben lange ouders vaak lange kinderen, maar niet altijd.
 
-## 11. p11 · Polygene overerving
-Audio: blob 006.mp3 (doorlopende take) · 3:25–3:49 (24,1 s)
+## Recap  ·  7:00.8
+Hoofdstukkaart: *Mengen allelen nu wel of niet?*
 
-[3:25.8] Tot slot lengte.
-[3:27.0] Mensen zijn niet óf lang óf kort: er is een vloeiende reeks.
-[3:30.7] Dat komt doordat lengte door heel veel genen tegelijk wordt beïnvloed.
-[3:34.5] Kijk wat er gebeurt als je genen toevoegt.
-[3:36.6] Met één gen zie je drie groepen.
-[3:38.6] Met twee genen vijf.
-[3:40.0] Met drie al zeven.
-[3:41.2] Met veel genen, en wat invloed van voeding en gezondheid, ontstaat een klokvormige verdeling: een normale verdeling.
-[3:47.6] Dat heet polygene overerving.
+**s28** · 7:02.1 · audio/s28.mp3 (19.07 s, generation pzxtE6xREvEcVcDseBfc)  
+Terug naar de roze leeuwenbek. Roze lijkt een mengsel, maar dat is het niet. Kruis je twee roze planten, dan komen rood en wit gewoon terug. Dat geldt in elke film van deze reeks: allelen mengen nooit. Ze worden los doorgegeven. Wat verschilt, is hoe ze samen het fenotype maken.
 
-> Beeld: 'lengte: een vloeiende reeks'; histogrammen met 1, 2 en 3 genen (3, 5, 7 groepen) en daarna veel genen + milieu → klokvorm; termkaarten normale verdeling en polygene overerving (titel 'Polygene overerving').
-> Cue-woorden (initCues): gen, twee, drie, veel (#2), normale, polygene (ook begin/eind van de alinea via PS/PE)
+**s29** · 7:21.5 · audio/s29.mp3 (26.51 s, generation Y6Vm51nSv0D6BMaUKZWR)  
+Kort samengevat. Intermediair: de heterozygoot zit ertussenin. Codominant: beide allelen helemaal zichtbaar, zoals bij bloedgroep AB. Multipele allelen: meer dan twee in de bevolking, maar per persoon twee. Letale factor: één genotype valt weg. Polygeen: veel genen samen geven een vloeiende reeks. In de volgende film kijk je naar twee genen tegelijk.
+> Stem-invoer: Kort samengevat. Intermediair: de heterozygoot zit ertussenin. Codominant: beide allelen helemaal zichtbaar, zoals bij bloedgroep A B. Multipele allelen: meer dan twee in de bevolking, maar per persoon twee. Letale factor: één genotype valt weg. Polygeen: veel genen samen geven een vloeiende reeks. In de volgende film kijk je naar twee genen tegelijk.
 
-## 12. p12 · Polygene overerving
-Audio: blob 006.mp3 (doorlopende take) · 3:51–3:54 (3,3 s)
+## Eindkaart · 7:48.2
+- Allelen mengen nooit: ze worden los doorgegeven.
+- Intermediair: ertussenin (1 : 2 : 1). Codominant: allebei volledig (AB).
+- Multipele allelen: Iᴬ, Iᴮ, i. Letale factor: GG valt weg (2 : 1).
 
-[3:51.2] Is lengte dan niet erfelijk, omdat je geen duidelijke groepen ziet?
-
-> Beeld: Histogram met normale verdeling.
-> Vraag: VOORSPEL-kaart 'Geen groepen: is lengte dan niet erfelijk?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
-
-## 13. p13 · Polygene overerving
-Audio: blob 006.mp3 (doorlopende take) · 4:00–4:11 (10,6 s)
-
-[4:00.6] Wel degelijk.
-[4:01.5] Elk van die genen erft gewoon volgens Mendel.
-[4:03.9] Alleen tellen hun effecten bij elkaar op, en het milieu doet er nog iets bij.
-[4:07.7] Daarom hebben lange ouders vaak lange kinderen, maar niet altijd.
-
-> Beeld: Kaart 'WEL ERFELIJK: elk gen erft volgens Mendel; …'.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
-
-## 14. p14 · Samenvatting
-Audio: blob 006.mp3 (doorlopende take) · 4:13–4:38 (25,5 s)
-
-[4:13.2] Samengevat.
-[4:14.1] Intermediair: de heterozygoot zit ertussenin, één staat tot twee staat tot één.
-[4:19.4] Codominant: beide allelen zichtbaar, zoals bij bloedgroep AB.
-[4:23.6] Multipele allelen: meer dan twee versies van een gen, maar per persoon twee.
-[4:28.1] Letaal: één genotype valt weg, en drie op één wordt twee op één.
-[4:32.1] Polygeen: veel genen samen geven een vloeiende reeks.
-[4:35.1] En steeds geldt: allelen mengen niet.
-[4:37.2] Ze worden los doorgegeven.
-
-> Beeld: 'Samengevat' met vijf regels (intermediair, codominant, multipele allelen, letaal, polygeen) en kaart 'ALTIJD: allelen mengen niet'.
-> Cue-woorden (initCues): intermediair, codominant, multipele, letaal, polygeen, steeds (ook begin/eind van de alinea via PS/PE)
-
-## Controle
-- 14 alinea's (segmenten) in 1 audiofragment (blob 006.mp3): de film is als één take opgeslagen, dus het aantal segmenten wijkt bewust af van het aantal audiobestanden.
-- Spreektijd alinea's samen 241,8 s + stiltes 41,9 s = 283,71 s (`TL.total`); ffprobe op 006.mp3 geeft 283,74 s (4:43).
+Totale duur met Vragen aan: 7:57.2; met Vragen uit ± 6:50. Spraak 401 s in 24 takes, 5477 credits.

@@ -60,15 +60,14 @@ function aardbeienBak(ctx, x, y, w, rijpLijst, a = 1) { if (a <= 0.01) return; c
   ctx.restore(); }
 
 // -------------------------------------------------------------------------------------
-// KLEURMODEL ROOD-GROEN (deuteranoop). Rekent een stuk van het canvas om met de gangbare benadering voor dichromaten
-// (lineaire RGB → LMS → M-kegeltje uit L en S voorspeld → terug). Alleen voor 'zo ziet hij het', altijd met label 'model'.
+// KLEURMODEL ROOD-GROEN (deuteranoop), volgens Viénot, Brettel & Mollon 1999 (B26). Alleen voor 'zo ziet hij het', altijd met
+// label 'model'. Werkt op het canvas zelf: in de film alleen op een stil deel van het beeld (niet per frame op het hele beeld).
 // -------------------------------------------------------------------------------------
-function kleurModelDeutan(ctx, x, y, w, h) {
-  const im = ctx.getImageData(x, y, w, h), d = im.data; const lin = v => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }, gam = v => { v = Math.max(0, Math.min(1, v)); return 255 * (v <= 0.0031308 ? v * 12.92 : 1.055 * Math.pow(v, 1 / 2.4) - 0.055); };
-  for (let i = 0; i < d.length; i += 4) { const R = lin(d[i]), Gg = lin(d[i + 1]), B = lin(d[i + 2]);
-    // projectie voor een deuteranoop in lineaire RGB (gangbare benadering; bron nog niet zelf geopend → label 'model')
-    const r2 = 0.29275 * R + 0.70725 * Gg, g2 = 0.29275 * R + 0.70725 * Gg, b2 = -0.02234 * R + 0.02234 * Gg + B;
-    d[i] = gam(r2); d[i + 1] = gam(g2); d[i + 2] = gam(b2); }
+function kleurModelDeutan(ctx, x, y, w, h) { // Viénot, Brettel & Mollon (1999), deuteranoop (B26): γ 2,2 → schalen → LMS → M uit L en S → terug
+  const im = ctx.getImageData(x, y, w, h), d = im.data, lin = v => Math.pow(v / 255, 2.2), enc = v => 255 * Math.pow(Math.max(0, Math.min(1, v)), 1 / 2.2);
+  for (let i = 0; i < d.length; i += 4) { const R = 0.957237 * lin(d[i]) + 0.0213814, G = 0.957237 * lin(d[i + 1]) + 0.0213814, B = 0.957237 * lin(d[i + 2]) + 0.0213814;
+    const L = 17.8824 * R + 43.5161 * G + 4.11935 * B, S = 0.0299566 * R + 0.184309 * G + 1.46709 * B, M = 0.494207 * L + 1.24827 * S;
+    d[i] = enc(0.080944 * L - 0.130504 * M + 0.116721 * S); d[i + 1] = enc(-0.0102485 * L + 0.0540194 * M - 0.113615 * S); d[i + 2] = enc(-0.000365294 * L - 0.00412163 * M + 0.693513 * S); }
   ctx.putImageData(im, x, y); }
 
 // -------------------------------------------------------------------------------------

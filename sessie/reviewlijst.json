@@ -14,37 +14,37 @@
     {
      "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
      "titel": "Monohybride kruisingen",
-     "duur": 5,
-     "vraag": "Hoe weet je welke allelen een plant heeft, zonder DNA-test?",
-     "prompt": "onbekend"
+     "duur": 7,
+     "vraag": "Hoe groot is de kans op aa, en hoe weet je welke allelen een plant heeft?",
+     "prompt": "v13"
     },
     {
      "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
      "titel": "Voorbij dominant en recessief",
-     "duur": 5,
-     "vraag": "Mengen allelen zich, zoals verf?",
-     "prompt": "onbekend"
+     "duur": 8,
+     "vraag": "Rood × wit geeft roze. Mengen allelen dan, zoals verf?",
+     "prompt": "v13"
     },
     {
      "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
      "titel": "Dihybride kruising en gekoppelde overerving",
-     "duur": 4,
-     "vraag": "Twee planten met gele, ronde erwten krijgen gele, gerimpelde nakomelingen. Waar komt die nieuwe combinatie vandaan?",
-     "prompt": "onbekend"
+     "duur": 9,
+     "vraag": "Hoe kan een erwtenplant gele, gerimpelde erwten hebben als de grootouders alleen geel-rond en groen-gerimpeld waren?",
+     "prompt": "v13"
     },
     {
      "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
-     "titel": "Overerving via X-chromosomen en mitochondriën",
-     "duur": 4,
-     "vraag": "Acht procent van de mannen is kleurenblind, van de vrouwen maar een half procent. Waarom?",
-     "prompt": "onbekend"
+     "titel": "Overerving via het X-chromosoom",
+     "duur": 8,
+     "vraag": "Waarom zijn vooral mannen kleurenblind? En hoe kan een eigenschap een generatie overslaan?",
+     "prompt": "v13"
     },
     {
      "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
      "titel": "Stambomen en kansrekenen",
-     "duur": 4,
+     "duur": 7,
      "vraag": "Je broer heeft taaislijmziekte, jij en je ouders niet. Hoe groot is de kans dat jij drager bent?",
-     "prompt": "onbekend"
+     "prompt": "v13"
     }
    ]
   },
@@ -307,28 +307,28 @@
      "titel": "Van DNA naar eiwit",
      "duur": 8,
      "vraag": "Na een mRNA-prik maken je eigen spiercellen een eiwit van een virus. Hoe kan dat?",
-     "prompt": "v5"
+     "prompt": "v13"
     },
     {
      "href": "films/dna/4-de-genetische-code-lezen.html",
      "titel": "De genetische code lezen",
      "duur": 8,
      "vraag": "Hoe leest een bacterie het recept van een mens?",
-     "prompt": "v5"
+     "prompt": "v13"
     },
     {
      "href": "films/dna/5-mutaties.html",
      "titel": "Mutaties",
      "duur": 12,
      "vraag": "Hoe kan zonlicht je DNA veranderen, en waarom erven je kinderen dat niet?",
-     "prompt": "v5"
+     "prompt": "v13"
     },
     {
      "href": "films/dna/6-genen-aan-en-uit.html",
      "titel": "Genen aan en uit",
      "duur": 12,
      "vraag": "Hetzelfde DNA, en toch een huidcel, een levercel en twee verschillende tweelingzussen?",
-     "prompt": "v5"
+     "prompt": "v13"
     },
     {
      "href": "films/dna/7-dna-lezen.html",
@@ -844,49 +844,49 @@
      "href": "films/voeding/1-wat-zit-er-in-je-eten.html",
      "titel": "Wat zit er in je eten?",
      "duur": 9,
-     "vraag": "",
+     "vraag": "Twee leerlingen eten allebei zestig gram eiwit per dag. Waarom moet alleen de vegan extra opletten?",
      "prompt": "v8"
     },
     {
      "href": "films/voeding/2-de-reis-door-je-buik.html",
      "titel": "De reis door je buik",
      "duur": 10,
-     "vraag": "",
+     "vraag": "Na een maagomleiding slaat het eten de maag over. Toch wordt bijna al het eiwit verteerd. Hoe kan dat?",
      "prompt": "onbekend · gemaakt 12 okt"
     },
     {
      "href": "films/voeding/test-reis-hybride.html",
      "titel": "De reis door je buik (versie 3, met stills)",
      "duur": 10,
-     "vraag": "",
+     "vraag": "Na een maagomleiding slaat het eten de maag over. Toch wordt bijna al het eiwit verteerd. Hoe kan dat?",
      "prompt": "onbekend"
     },
     {
      "href": "films/voeding/3-knippen-op-maat.html",
      "titel": "Knippen op maat",
      "duur": 12,
-     "vraag": "",
+     "vraag": "Een cracker wordt zoet als je erop kauwt. Waarom stopt dat zodra je hem doorslikt?",
      "prompt": "onbekend · gemaakt 13 okt"
     },
     {
      "href": "films/voeding/4-van-darm-naar-bloed.html",
      "titel": "Van darm naar bloed",
      "duur": 10,
-     "vraag": "",
+     "vraag": "Uitgevouwen is de binnenkant van je dunne darm een half klaslokaal. Hoe past dat in je buik?",
      "prompt": "onbekend · gemaakt 13 okt"
     },
     {
      "href": "films/voeding/5-de-lever-als-fabriek.html",
      "titel": "De lever als fabriek",
      "duur": 12,
-     "vraag": "",
+     "vraag": "Veel baby's worden een paar dagen na de geboorte geel. Waar komt die kleur vandaan?",
      "prompt": "onbekend · gemaakt 13 okt"
     },
     {
      "href": "films/voeding/6-je-darmbewoners.html",
      "titel": "Je darmbewoners",
      "duur": 13,
-     "vraag": "",
+     "vraag": "Na een antibioticakuur blijft iemand diarree houden. Poep van een gezonde donor geneest hem. Hoe kan dat?",
      "prompt": "onbekend · gemaakt 14 okt"
     },
     {

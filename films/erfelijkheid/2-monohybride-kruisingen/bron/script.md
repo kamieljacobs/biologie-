@@ -1,197 +1,217 @@
-# Monohybride kruisingen — script
+# Monohybride kruisingen P, F1, F2 en het kruisingsschema — gesproken tekst (versie 2.0 · oktober 2026)
 
-Bron: gereconstrueerd uit de ondertitels/scriptdata (`window.__TIMELINE__`, woordtijden) in de gepubliceerde HTML (2026-10-12). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
+Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow nHz0kyvEKO5yTdZxbMk0. Audio: `../audio/<id>.mp3`; woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (A/a als 'grote A'/'kleine a', F1/F2 als 'F-één'/'F-twee', erwt als 'ert', gameet 'ga-MEET'). Oude versie: `oud/script-v1.md`.
 
-Audio: één doorlopende take, blob `006.mp3` (in de HTML als `window.__AUDIO_B64__`). Elke alinea hieronder is één `paras`-item met eigen sleutel (p01, p02b, …); de tijden zijn posities in die ene take. Tussen alinea's zitten vaste stiltes (1,0–2,8 s; 6,0 s na een voorspelvraag; 1,5 s aan het begin, 5,0 s aan het eind). Elke regel = één ondertitelzin zoals de speler hem toont, met de begintijd van het eerste woord.
-Niveau: de hele film is vwo bovenbouw; er zijn geen havo-/vwo-blokken.
+## Cold open
 
-## 1. p01 · Twee puzzels
-Audio: blob 006.mp3 (doorlopende take) · 0:01–0:20 (19,0 s)
+**s01** · audio `s01.mp3` · 9.6 s · generation `xjmutEsK1PzE2YBCxKTh`
 
-[0:01.5] Mendel kweekte erwtenplanten.
-[0:03.2] Sommige hadden paarse bloemen, andere witte.
-[0:05.5] Hij kruiste twee paarse planten, en tussen de nakomelingen zaten ineens witte.
-[0:10.0] Hoe kan dat?
-[0:10.8] En een tweede puzzel: je hebt een paarse plant.
-[0:13.4] Hoe kom je erachter welke allelen erin zitten, zonder DNA-test?
-[0:17.1] In deze film lossen we ze allebei op, met het kruisingsschema.
+Twee ouders zonder albinisme, en toch een kind met albinisme. Je weet al hoe dat kan: allebei dragen ze een verborgen allel a.
 
-> Beeld: Twee paarse erwtenplanten gekruist; rij nakomelingen, waarvan er twee wit worden; kaarten PUZZEL 1 'Twee paarse ouders, witte nakomelingen?' en PUZZEL 2 'Welke allelen zitten in een paarse plant?'.
-> Cue-woorden (initCues): witte (#2), hoe, puzzel, nakomelingen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Twee ouders zonder albinisme, en toch een kind met albinisme. Je weet al hoe dat kan: allebei dragen ze een verborgen allel kleine a.
 
-## 2. p02 · Mendels proef
-Audio: blob 006.mp3 (doorlopende take) · 0:21–0:36 (14,9 s)
+**s02** · audio `s02.mp3` · 7.9 s · generation `zpWHv83L31TrIDE2JNtF`
 
-[0:21.9] Eerst Mendels proef.
-[0:23.2] Hij begon met planten die al generaties lang alleen paarse, of alleen witte nakomelingen gaven.
-[0:28.3] Dat is de oudergeneratie: P.
-[0:30.3] Hij kruiste een paarse met een witte plant.
-[0:32.5] Alle nakomelingen waren paars.
-[0:34.3] Die eerste generatie heet F1.
+Maar hoe groot is de kans daarop? Bij mensen kun je dat niet uitproberen. Gregor Mendel kon het wel, met erwten.
 
-> Beeld: P: paarse × witte plant; F1: zes paarse planten.
-> Cue-woorden (initCues): oudergeneratie, kruiste, waren (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Maar hoe groot is de kans daarop? Bij mensen kun je dat niet uitproberen. Gregor Mendel kon het wel, met erten.
 
-## 3. p02b · Mendels proef
-Audio: blob 006.mp3 (doorlopende take) · 0:37–0:53 (16,0 s)
+## Titel
 
-[0:37.8] Die raszuivere planten zijn homozygoot: de paarse is AA, de witte aa.
-[0:44.0] Elke plant uit de F1 kreeg van de ene ouder een A, en van de andere een a.
-[0:49.0] Ze zijn dus allemaal Aa.
-[0:51.2] En paars, want A is dominant.
+**s03** · titelkaart: Monohybride kruisingen
 
-> Beeld: Genotypechips AA en aa bij de ouders; een F1-plant krijgt A en a → 'Aa'; termkaart 'A is dominant: Aa ziet eruit als AA'.
-> Cue-woorden (initCues): elke, paars, andere (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 1 — Van P naar F1
 
-## 4. p03 · Mendels proef
-Audio: blob 006.mp3 (doorlopende take) · 0:54–0:58 (3,5 s)
+**s04** · audio `s04.mp3` · 10.8 s · generation `seFRy9uozSKcpp6duwLg`
 
-[0:54.7] Wat verwacht je als je twee planten uit de F1 met elkaar kruist?
+Een erwtenbloem bestuift zichzelf. Meeldraden en stamper zitten samen ingesloten in de kiel. Het stuifmeel komt zo op de eigen stamper, nog voordat de bloem opengaat.
 
-> Beeld: P- en F1-beeld blijft staan.
-> Vraag: VOORSPEL-kaart 'Wat krijg je als je twee F1-planten met elkaar kruist?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Een ertenbloem bestuift zichzelf. Meeldraden en stamper zitten samen ingesloten in de kiel. Het stuifmeel komt zo op de eigen stamper, nog voordat de bloem opengaat.
 
-## 5. p04 · Mendels proef
-Audio: blob 006.mp3 (doorlopende take) · 1:04–1:15 (11,4 s)
+**s05** · audio `s05.mp3` · 14.8 s · generation `kb4QUdmlZcL83y9atePa`
 
-[1:04.2] In de F2 kwam wit terug.
-[1:06.0] Mendel telde zevenhonderdvijf paarse en tweehonderdvierentwintig witte planten.
-[1:10.0] Dat is ongeveer drie op één.
-[1:11.6] Het allel voor wit was in de F1 dus niet verdwenen.
-[1:14.5] Het zat verborgen.
+Mendel begon met raszuivere planten: generatie na generatie alleen paars, of alleen wit. Zulke planten zijn homozygoot. De paarse is AA, de witte aa.
 
-> Beeld: F2-veld van 929 stippen (705 paars, 224 wit) verschijnt; telkaart 'paars: 705 · wit: 224', '705 : 224 = 3,15 : 1 ≈ 3 : 1'; kaart 'het allel voor wit zat verborgen in de F1'.
-> Cue-woorden (initCues): mendel, ongeveer, verborgen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Mendel begon met raszuivere planten: generatie na generatie alleen paars, of alleen wit. Zulke planten zijn homozygoot. De paarse is grote A grote A, de witte kleine a kleine a.
 
-## 6. p05 · Meiose: gameten
-Audio: blob 006.mp3 (doorlopende take) · 1:17–1:46 (28,9 s)
+**s06** · audio `s06.mp3` · 9.2 s · generation `Um0fWpjzlQUu3XtCxUEj`
 
-[1:17.4] Hoe werkt dat?
-[1:18.3] Kijk in een meeldraad van een plant uit de F1.
-[1:21.3] Die plant heeft genotype Aa: op het ene chromosoom het allel voor paars, op het andere het allel voor wit.
-[1:29.2] Bij de meiose gaan de chromosomen van het paar eerst uit elkaar.
-[1:32.9] Daarna ook de chromatiden.
-[1:34.6] Zo ontstaan vier gameten, met elk één allel.
-[1:37.9] Twee met A, twee met a.
-[1:40.8] De kans op elk is dus een half.
-[1:43.0] In de eicellen van de andere plant gebeurt precies hetzelfde.
+Hij kruiste ze met de hand. Uit een jonge paarse bloem haalde hij de meeldraden weg. Daarna bracht hij stuifmeel van een witte bloem op de stamper.
 
-> Beeld: Plant met meeldraad; meiose in een Aa-cel (titel 'Meiose in de F1-plant') → vier gameten met A of a; 'A: 2 van de 4 = ½', 'a: 2 van de 4 = ½'; kaart 'EICELLEN (ook Aa): A ½ a ½'.
-> Cue-woorden (initCues): meeldraad, genotype, meiose, chromatiden, vier, kans, eicellen, twee (ook begin/eind van de alinea via PS/PE)
+**s07** · audio `s07.mp3` · 11.6 s · generation `muoRqqmL1wRWH4bLAIre`
 
-## 7. p06 · Het kruisingsschema
-Audio: blob 006.mp3 (doorlopende take) · 1:48–2:15 (27,2 s)
+Die ouders heten de P-generatie, van het Latijnse woord voor ouders. Hun nakomelingen heten de F1, van het woord voor kinderen. Alle F1-planten bloeiden paars.
 
-[1:48.1] Nu het kruisingsschema.
-[1:49.6] Links staan de gameten van de ene ouder, boven de gameten van de andere.
-[1:53.6] Elk vakje is één mogelijke bevruchting.
-[1:55.8] A met A geeft AA.
-[1:59.0] A met a geeft Aa.
-[2:02.2] En zo verder.
-[2:03.0] Drie van de vier vakjes hebben minstens één A: paars.
-[2:06.5] Eén vakje is aa: wit.
-[2:09.1] De genotypen verhouden zich als één staat tot twee staat tot één.
-[2:12.7] De fenotypen als drie staat tot één.
+_Stem-invoer:_ Die ouders heten de P-generatie, van het Latijnse woord voor ouders. Hun nakomelingen heten de F-één, van het woord voor kinderen. Alle F-één-planten bloeiden paars.
 
-> Beeld: Kruisingsschema 2×2 wordt opgebouwd (gameten vader links, moeder boven), vakje voor vakje; kaarten 'elk vakje = één mogelijke bevruchting', 'GENOTYPEN 1 AA : 2 Aa : 1 aa', 'FENOTYPEN 3 paars : 1 wit'.
-> Cue-woorden (initCues): links, boven, vakje, aa, aa (#2), zo, drie, vakje (#3), genotypen, fenotypen (ook begin/eind van de alinea via PS/PE)
+**s08** · audio `s08.mp3` · 16.9 s · generation `xZDo8hmOWvVr4lNBgpaU`
 
-## 8. p07 · Kansen
-Audio: blob 006.mp3 (doorlopende take) · 2:17–2:30 (13,6 s)
+Elke F1-plant kreeg een A van de ene ouder en een a van de andere. Ze zijn dus allemaal Aa, en paars: A is dominant. Je let hier op één eigenschap, de bloemkleur. Dat heet een monohybride kruising.
 
-[2:17.1] Waarom is de kans op wit een kwart?
-[2:18.8] Voor aa moet de ene gameet een a hebben, en de andere óók.
-[2:23.3] De kans is een half keer een half: een kwart.
-[2:25.9] Dat heet de productregel: kansen die allebei moeten gebeuren, vermenigvuldig je.
+_Stem-invoer:_ Elke F-één-plant kreeg een grote A van de ene ouder en een kleine a van de andere. Ze zijn dus allemaal grote A kleine a, en paars: grote A is dominant. Je let hier op één eigenschap, de bloemkleur. Dat heet een monohybride kruising.
 
-> Beeld: Formule 'kans op aa': ½ × ½ = ¼; termkaart productregel.
-> Cue-woorden (initCues): half, productregel, voor, ene, andere (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 2 — De F2
 
-## 9. p08 · Kansen
-Audio: blob 006.mp3 (doorlopende take) · 2:32–2:36 (4,6 s)
+**s09** · audio `s09.mp3` · 13.6 s · generation `csRx9brCusmIVndipxN4`
 
-[2:32.2] Deze twee planten krijgen vier nakomelingen.
-[2:34.6] Zijn dat er precies drie paars en één wit?
+Dan de stap die het verschil maakt: Mendel kruiste de F1-planten met elkaar. Bij erwten is dat makkelijk. Hij liet ze zichzelf bestuiven: stuifmeel en eicel komen allebei van een plant met Aa.
 
-> Beeld: Schema blijft in beeld.
-> Vraag: VOORSPEL-kaart '4 nakomelingen: precies 3 paars en 1 wit?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Dan de stap die het verschil maakt: Mendel kruiste de F-één-planten met elkaar. Bij erten is dat makkelijk. Hij liet ze zichzelf bestuiven: stuifmeel en eicel komen allebei van een plant met grote A kleine a.
 
-## 10. p09 · Kansen
-Audio: blob 006.mp3 (doorlopende take) · 2:42–2:56 (13,2 s)
+**s10** · audio `s10.mp3` · 10.4 s · generation `oJyjcKtVMpehwjZfRhkl`
 
-[2:42.8] Niet per se.
-[2:43.7] Elke bevruchting is toeval.
-[2:45.1] Bij vier nakomelingen kan het best twee paars en twee wit zijn.
-[2:48.2] Pas bij heel veel nakomelingen kom je dicht bij drie op één.
-[2:51.0] Het kruisingsschema geeft dus kansen, geen aantallen.
-[2:53.8] En de vier vakjes zijn geen vier kinderen.
+Hun nakomelingen zijn de tweede generatie: de F2. Dus: P zijn de ouders, F1 hun kinderen, en F2 de kinderen van de F1.
 
-> Beeld: Simulatie van 400 bevruchtingen: stippen vliegen uit de vakjes naar twee kolommen (paars/wit) met lopende verhouding; kaart 'na 4: 2 paars, 2 wit · geen 3 : 1!'; kaart 'het schema geeft kansen, geen aantallen'; misvatting 'De 4 vakjes zijn 4 kinderen'.
-> Cue-woorden (initCues): heel, kansen, vakjes (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Hun nakomelingen zijn de tweede generatie: de F-twee. Dus: P zijn de ouders, F-één hun kinderen, en F-twee de kinderen van de F-één.
 
-## 11. p09b · Stappenplan
-Audio: blob 006.mp3 (doorlopende take) · 2:57–3:16 (18,2 s)
+**s11** · audio `s11.mp3` · 15.5 s · generation `smMfWFJp7nwPztIdGEFp`
 
-[2:57.9] Zo los je elke kruisingsvraag op, in vier stappen.
-[3:01.1] Eén: schrijf de genotypen van de ouders op.
-[3:03.4] Twee: bepaal welke gameten elke ouder kan maken.
-[3:06.4] Drie: zet ze in een kruisingsschema.
-[3:08.6] Vier: lees de verhoudingen af, eerst van de genotypen, dan van de fenotypen.
-[3:12.9] Dat stappenplan gebruik je in de rest van deze reeks steeds opnieuw.
+Bij dieren gaat dat niet: een muis bevrucht zichzelf niet. Dan kruis je twee F1-muizen met elkaar, broer met zus. Een fokker vermijdt zulke inteelt. Maar in een proef weet je zo zeker: beide ouders zijn Aa.
 
-> Beeld: Titel 'Stappenplan kruisingsvraag' met vier kaarten: genotypen ouders, gameten per ouder, kruisingsschema, verhoudingen aflezen.
-> Cue-woorden (initCues): eén:, twee:, drie:, vier: (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Bij dieren gaat dat niet: een muis bevrucht zichzelf niet. Dan kruis je twee F-één-muizen met elkaar, broer met zus. Een fokker vermijdt zulke inteelt. Maar in een proef weet je zo zeker: beide ouders zijn grote A kleine a.
 
-## 12. p10 · De terugkruising
-Audio: blob 006.mp3 (doorlopende take) · 3:18–3:36 (18,5 s)
+**s12** · audio `s12.mp3` · 5.4 s · generation `C09XUOFkmClXATTiJCLG`
 
-[3:18.1] Nu de tweede puzzel.
-[3:19.1] Deze paarse plant kan AA zijn, of Aa.
-[3:23.6] Van buiten zie je het verschil niet.
-[3:25.3] De truc: kruis hem met een witte plant, aa.
-[3:29.2] Dat heet een terugkruising.
-[3:30.6] De witte plant geeft altijd een a door.
-[3:32.8] Dus het allel uit de paarse plant bepaalt meteen de kleur van elk kind.
+Wat denk je? Hoe zien de nakomelingen van twee F1-planten eruit, de F2?
 
-> Beeld: Paarse plant 'A?' × witte plant aa; kaart TERUGKRUISING 'kruisen met aa (homozygoot recessief)'; 'geeft altijd a'.
-> Cue-woorden (initCues): truc, terugkruising, altijd (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Wat denk je? Hoe zien de nakomelingen van twee F-één-planten eruit, de F-twee?
 
-## 13. p11 · De terugkruising
-Audio: blob 006.mp3 (doorlopende take) · 3:38–3:42 (4,7 s)
+**q13** · vraag: Twee F1-planten (Aa) worden met elkaar gekruist. Hoe zien hun nakomelingen eruit, de F2?
+- a) Allemaal paars, net als de F1
+- b) Allemaal lichtpaars: een mengkleur
+- c) Vooral paars, maar ook een deel wit  ✓
 
-[3:38.0] De helft van de nakomelingen is paars, de helft wit.
-[3:40.8] Welk genotype had de paarse plant?
+**s14** · audio `s14.mp3` · 14.5 s · generation `nC7dydvv2S41tEmB2adX`
 
-> Beeld: Nakomelingen: half paars, half wit.
-> Vraag: VOORSPEL-kaart 'half paars, half wit: AA of Aa?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+In de F2 kwam wit terug. Mendel telde zevenhonderdvijf paarse en tweehonderdvierentwintig witte planten. Dat is ongeveer drie op één. Het allel a was in de F1 dus niet verdwenen. Het zat verborgen.
 
-## 14. p12 · De terugkruising
-Audio: blob 006.mp3 (doorlopende take) · 3:48–4:04 (16,1 s)
+_Stem-invoer:_ In de F-twee kwam wit terug. Mendel telde zevenhonderdvijf paarse en tweehonderdvierentwintig witte planten. Dat is ongeveer drie op één. Het allel kleine a was in de F-één dus niet verdwenen. Het zat verborgen.
 
-[3:48.7] Aa.
-[3:50.4] Is de paarse plant AA, dan krijgt elk kind een A: allemaal paars.
-[3:55.4] Is hij Aa, dan krijgt de helft een a: één staat tot één.
-[3:59.8] Zie je ook maar één witte nakomeling, dan weet je het zeker: de paarse ouder had een a.
+## Hoofdstuk 3 — Waarom drie op één?
 
-> Beeld: Twee kaders 'als de plant AA is' (alles paars) en 'als de plant Aa is' (1 paars : 1 wit); kaart 'één witte nakomeling = bewijs dat de paarse ouder een a had'.
-> Cue-woorden (initCues): is, is (#2), zie (ook begin/eind van de alinea via PS/PE)
+**s15** · audio `s15.mp3` · 10.6 s · generation `ITT2Tqktbdt9PwRXLqUJ`
 
-## 15. p13 · Samenvatting
-Audio: blob 006.mp3 (doorlopende take) · 4:06–4:26 (19,5 s)
+Die drie op één kun je verklaren. Neem een F1-plant met Aa. Op het ene chromosoom van het paar ligt A, op het andere a.
 
-[4:06.8] Samengevat.
-[4:07.8] Elke ouder geeft per gen één allel door, elk met een kans van een half.
-[4:12.1] Het kruisingsschema zet alle combinaties op een rij.
-[4:15.2] Drie op één in de F2, één op één bij een terugkruising.
-[4:18.6] En het zijn kansen: bij weinig nakomelingen wijkt het vaak af.
-[4:22.3] In de volgende film zie je dat het ook helemaal niet altijd drie op één is.
+_Stem-invoer:_ Die drie op één kun je verklaren. Neem een F-één-plant met grote A kleine a. Op het ene chromosoom van het paar ligt grote A, op het andere kleine a.
 
-> Beeld: 'Samengevat' met vier kaarten; onderaan 'Volgende film: voorbij dominant en recessief'.
-> Cue-woorden (initCues): elke, kruisingsschema, drie, kansen, volgende (ook begin/eind van de alinea via PS/PE)
+**s16** · audio `s16.mp3` · 12.1 s · generation `qOeNp4o902qCzHH2dtdl`
 
-## Controle
-- 15 alinea's (segmenten) in 1 audiofragment (blob 006.mp3): de film is als één take opgeslagen, dus het aantal segmenten wijkt bewust af van het aantal audiobestanden.
-- Spreektijd alinea's samen 229,3 s + stiltes 42,0 s = 271,32 s (`TL.total`); ffprobe op 006.mp3 geeft 271,36 s (4:31).
+Bij het maken van geslachtscellen, de meiose, gaan de twee chromosomen van een paar uit elkaar. Elke geslachtscel krijgt er één, dus één allel. Zo'n geslachtscel heet een gameet.
+
+_Stem-invoer:_ Bij het maken van geslachtscellen, de meiose, gaan de twee chromosomen van een paar uit elkaar. Elke geslachtscel krijgt er één, dus één allel. Zo'n geslachtscel heet een ga-MEET.
+
+**s17** · audio `s17.mp3` · 10.4 s · generation `Qrhn9cW1HaP5nWCwy7FM`
+
+De helft van de gameten krijgt A, de andere helft a. De kans op elk is dus een half. Dat geldt voor het stuifmeel, en ook voor de eicellen.
+
+_Stem-invoer:_ De helft van de ga-MEE-ten krijgt grote A, de andere helft kleine a. De kans op elk is dus een half. Dat geldt voor het stuifmeel, en ook voor de eicellen.
+
+**s18** · audio `s18.mp3` · 9.7 s · generation `FSAq1B7kAAd99o7xFhxK`
+
+Nu het kruisingsschema. Boven zet je de gameten van de ene ouder, links die van de andere. Elk vakje is één mogelijke bevruchting.
+
+_Stem-invoer:_ Nu het kruisingsschema. Boven zet je de ga-MEE-ten van de ene ouder, links die van de andere. Elk vakje is één mogelijke bevruchting.
+
+**s19** · audio `s19.mp3` · 14.4 s · generation `RWBHOmQqfsBS0O7qnGQW`
+
+A met A geeft AA. A met a geeft Aa, en a met A ook. a met a geeft aa.
+
+_Stem-invoer:_ Grote A met grote A geeft grote A grote A. Grote A met kleine a geeft grote A kleine a, en kleine a met grote A ook. Kleine a met kleine a geeft kleine a kleine a.
+
+**s20** · audio `s20.mp3` · 16.6 s · generation `TwGl9vbCwlMRf02O8mAM`
+
+Drie van de vier vakjes hebben minstens één A: paars. Eén vakje is aa: wit. De genotypen verhouden zich als één staat tot twee staat tot één. De fenotypen als drie staat tot één.
+
+_Stem-invoer:_ Drie van de vier vakjes hebben minstens één grote A: paars. Eén vakje is kleine a kleine a: wit. De genotypen verhouden zich als één staat tot twee staat tot één. De fenotypen als drie staat tot één.
+
+## Hoofdstuk 4 — Kansen, geen aantallen
+
+**s21** · audio `s21.mp3` · 15.7 s · generation `JHSuKfn78xoGz2zuJQ4u`
+
+Elk vakje heeft een kans van een kwart. Voor aa moet het stuifmeel een a hebben, en de eicel ook. Een half keer een half is een kwart. Dat heet de productregel: kansen die allebei moeten gebeuren, vermenigvuldig je.
+
+_Stem-invoer:_ Elk vakje heeft een kans van een kwart. Voor kleine a kleine a moet het stuifmeel een kleine a hebben, en de eicel ook. Een half keer een half is een kwart. Dat heet de productregel: kansen die allebei moeten gebeuren, vermenigvuldig je.
+
+**s22** · audio `s22.mp3` · 4.1 s · generation `1XpjuD1aYm3S1sqOJvyx`
+
+Stel: je zaait vier zaden uit één F1-plant.
+
+_Stem-invoer:_ Stel: je zaait vier zaden uit één F-één-plant.
+
+**s23** · audio `s23.mp3` · 3.6 s · generation `g9Omt44yG537EOPQy6lp`
+
+Wat denk je? Hoeveel van die vier planten bloeien wit?
+
+**q24** · vraag: Je zaait vier zaden uit één F1-plant (Aa, zelfbestuiving). Hoeveel van die vier planten bloeien wit?
+- a) Precies één: een kwart van vier
+- b) Nul, één, twee of meer: dat verschilt  ✓
+- c) Geen: wit is recessief, dus het blijft weg
+
+**s25** · audio `s25.mp3` · 15.6 s · generation `2SzF9VOKUJLLslGyYifI`
+
+Elke bevruchting is toeval. Bij vier zaden kan het best twee paars en twee wit zijn. Pas bij heel veel nakomelingen kom je dicht bij drie op één. Het schema geeft dus kansen, geen aantallen. De vier vakjes zijn geen vier kinderen.
+
+## Hoofdstuk 5 — Stappenplan
+
+**s26** · audio `s26.mp3` · 20.0 s · generation `zirhN9BF5pQFI2SfcbDX`
+
+Zo los je elke kruisingsvraag op, in vier stappen. Eén: schrijf de genotypen van de ouders op. Twee: bepaal welke gameten elke ouder kan maken. Drie: zet ze in een kruisingsschema. Vier: lees de verhoudingen af, eerst van de genotypen, dan van de fenotypen.
+
+_Stem-invoer:_ Zo los je elke kruisingsvraag op, in vier stappen. Eén: schrijf de genotypen van de ouders op. Twee: bepaal welke ga-MEE-ten elke ouder kan maken. Drie: zet ze in een kruisingsschema. Vier: lees de verhoudingen af, eerst van de genotypen, dan van de fenotypen.
+
+## Hoofdstuk 6 — De terugkruising
+
+**s27** · audio `s27.mp3` · 19.6 s · generation `9LSFg3lB6hYijKmCt9Yd`
+
+Dan de tweede vraag. Deze paarse plant kan AA zijn, of Aa. Van buiten zie je dat niet. De truc: kruis hem met een witte plant, aa. Zo'n kruising met een homozygoot recessieve plant heet een terugkruising.
+
+_Stem-invoer:_ Dan de tweede vraag. Deze paarse plant kan grote A grote A zijn, of grote A kleine a. Van buiten zie je dat niet. De truc: kruis hem met een witte plant, kleine a kleine a. Zo'n kruising met een homozygoot recessieve plant heet een terugkruising.
+
+**s28** · audio `s28.mp3` · 11.9 s · generation `KZNt5AqRzzGJtcByxmCn`
+
+De witte plant geeft altijd een a door. Dus bepaalt het allel uit de paarse plant de kleur van elk kind. Stel: de helft van de nakomelingen bloeit paars, de helft wit.
+
+_Stem-invoer:_ De witte plant geeft altijd een kleine a door. Dus bepaalt het allel uit de paarse plant de kleur van elk kind. Stel: de helft van de nakomelingen bloeit paars, de helft wit.
+
+**s29** · audio `s29.mp3` · 3.4 s · generation `cvSIuruvff3YfSfXqhvI`
+
+Wat denk je? Welk genotype had de paarse plant?
+
+**q30** · vraag: Een paarse plant wordt gekruist met een witte (aa). De helft van de nakomelingen bloeit paars, de helft wit. Welk genotype had de paarse plant?
+- a) Aa  ✓
+- b) AA
+- c) Dat kun je hieruit niet afleiden
+
+**s31** · audio `s31.mp3` · 18.9 s · generation `94sFgeRms0wfJYEiFo6k`
+
+Was de paarse plant AA, dan kreeg elk kind een A: allemaal paars. Hij was dus Aa: de helft van de kinderen kreeg een a. Eén op één. En zie je ook maar één witte nakomeling, dan weet je het zeker: de paarse ouder had een a.
+
+_Stem-invoer:_ Was de paarse plant grote A grote A, dan kreeg elk kind een grote A: allemaal paars. Hij was dus grote A kleine a: de helft van de kinderen kreeg een kleine a. Eén op één. En zie je ook maar één witte nakomeling, dan weet je het zeker: de paarse ouder had een kleine a.
+
+## Recap
+
+**s32** · audio `s32.mp3` · 11.9 s · generation `nSBFUde8jlolHWmVRD8s`
+
+Terug naar het gezin. Twee ouders met Aa: precies zoals de F1 van Mendel. Bij elk kind is de kans op aa een kwart, steeds opnieuw.
+
+_Stem-invoer:_ Terug naar het gezin. Twee ouders met grote A kleine a: precies zoals de F-één van Mendel. Bij elk kind is de kans op kleine a kleine a een kwart, steeds opnieuw.
+
+**s33** · audio `s33.mp3` · 13.1 s · generation `SbHM0wyaCRxEycI734S5`
+
+Dit gezin heeft drie kinderen: AA, Aa en aa. Dat is geen drie op één. Bij zo weinig kinderen wijkt het vaak af.
+
+_Stem-invoer:_ Dit gezin heeft drie kinderen: grote A grote A, grote A kleine a en kleine a kleine a. Dat is geen drie op één. Bij zo weinig kinderen wijkt het vaak af.
+
+**s34** · audio `s34.mp3` · 22.5 s · generation `RcpsS0pFWvki9upfBC21`
+
+Samengevat. Elke ouder geeft per gen één allel door, elk met een kans van een half. Het kruisingsschema zet alle combinaties op een rij. Twee keer Aa geeft drie op één. Aa met aa geeft één op één. In de volgende film zie je dat het niet altijd drie op één is.
+
+_Stem-invoer:_ Samengevat. Elke ouder geeft per gen één allel door, elk met een kans van een half. Het kruisingsschema zet alle combinaties op een rij. Twee keer grote A kleine a geeft drie op één. Grote A kleine a met kleine a kleine a geeft één op één. In de volgende film zie je dat het niet altijd drie op één is.
+
+## Eindkaart
+
+**s35** · eindkaart:
+- P = ouders, F1 = hun kinderen, F2 = de kinderen van de F1 (erwt: zelfbestuiving; dier: broer × zus).
+- Aa × Aa geeft 1 AA : 2 Aa : 1 aa, dus 3 paars : 1 wit. Elke gameet krijgt één allel, met kans ½.
+- Terugkruising met aa: alles dominant → AA; ook maar één recessieve nakomeling → Aa.

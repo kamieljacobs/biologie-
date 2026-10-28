@@ -1,88 +1,69 @@
-# Stambomen lezen en kansen berekenen — bronmap
+# Stambomen en kansrekenen — bronmap
+
+Versie 2.0 is een lichte remake in de FILMDATA-straat (28 okt 2026, prompt v13 B16), gebouwd zoals Chromosomen 2.2. De oude versie (eigen engine, één take, 4:05) staat in `oud/` (`6-stambomen-en-kansrekenen-v1.html`, `script-v1.md`, `info-v1.md`). Fase 1 (script, storyboard, keyframes, twijfelscènes, keuring) staat in `remake-2026-10/`.
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/erfelijkheid/6-stambomen-en-kansrekenen.html |
-| Reeks / nummer | Erfelijkheid · film 6 van 6 (op de site: § 3.5) |
-| Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
-| Versie / datum | onbekend (niet in de HTML) |
-| Prompt | onbekend |
-| Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
-| Duur | 4:05 (006.mp3 = 245,66 s; `TL.total` = 245,604 s). De kop zegt "± 4 minuten". |
-| Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look (navy) met stambomen (vierkant/rondje, ingekleurd = aangedaan), mini-stambomen per stap, kansbalken en een 4×4-oppervlaktemodel; NIVEAU-kruimelpad hier familie › persoon › allel (in plaats van organisme › cel › chromosoom). UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |
-| Audio-opslag | 1 doorlopende take (15 alinea's p01–p13) als base64 in de HTML (blob 006.mp3, `window.__AUDIO_B64__`); 5 fonts als data-URI (blobs 001–005.woff2) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Bestand | films/erfelijkheid/6-stambomen-en-kansrekenen.html (audio in `6-stambomen-en-kansrekenen/audio/`) |
+| Reeks / nummer | Erfelijkheid · film 6 van 6 (§ 3.5) |
+| Doelgroep / niveau | havo en vwo bovenbouw, één niveau (geen vwo-blokken): stambomen en kansen staan in beide syllabi (M7.1) |
+| Versie / datum | 2.0 · 2026-10-28 (lichte remake) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026); frisse beeldreview door de maker zelf gedaan (geen aparte reviewer beschikbaar in deze helperronde), zie Aandachtspunten |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (23 takes, 5 312 credits); flow `wrxM7cKAWDBF2BY7lEF4` |
+| Duur | Vragen aan ± 7:27 (447 s), Vragen uit ± 6:15 (375 s); 368 s spraak; `duur: 7` in HOOFDSTUKKEN |
+| Beeldstijl | Part C: Schema (stambomen, simulatie, rekenregels) met cast in de spreekkamer (Sanne als 'de vrouw', Dr. Kim als klinisch geneticus, beide zonder naam); stambomen getekend met `stamboom()` (vaste uitlijnregels) |
+| Audio-opslag | 23 losse mp3's (`../audio/sNN.mp3`, loudnorm −16 LUFS / −1 dBTP, 96 kbps mono), woordtijden `stem/woordtijden/` (silalign op de stem-invoer + vmap, lokaal) |
+| Herkomst | opmerkingen van Kamiel op de oude film (28 okt 2026: allel-uitspraak, stamboom niet uitgelijnd bij 1:14, 'kan dominant toch overslaan?' bij 1:17); keuring fase 1 (28 okt 2026: alle voorstellen goedgekeurd, t1–t5 en script) |
 
 ## Opbouw
-Hoofdstuktypes A–I uit de prompt: niet vastgesteld (de typedefinities staan niet in de HTML); de functie staat erbij.
-
-| Begin | Hoofdstuk | Functie / kernbeeld | Scène |
+| Hoofdstuk | Segmenten | Type · look | Kernbeeld |
 |---|---|---|---|
-| 0:00 | Is Sanne drager? | haak (Is Sanne drager? 'niet ½') | `s1` |
-| 0:17 | De taal van een stamboom | notatie (symbolen en generaties, stamboom van Sanne) | `s2` |
-| 0:46 | Stap 1: dominant of recessief | stappenplan stap 1 (dominant of recessief; Huntington als dominant patroon) | `s3` |
-| 1:17 | Stap 2 en 3 | stappenplan stap 2 en 3 (autosomaal of X; genotypen invullen, A_) | `s4` |
-| 1:57 | Twee derde, niet een half | simulatie (300 kinderen van twee dragers → ⅔) | `s5` |
-| 2:29 | Product- en somregel | rekenregels (productregel, somregel, toeval heeft geen geheugen) | `s6` |
-| 3:04 | Sanne en Tom | toepassing (Sanne × Tom = ⅙, dragerschapstest) | `s7` |
-| 3:42 | Stappenplan | stappenplan als samenvatting | `s8` |
+| Cold open | s01 | haak · Schema met cast | de vrouw bij de klinisch geneticus; de stamboom groeit op het wandbord |
+| 1. De taal van een stamboom | s03–s04 | E · Schema | symbolen, partnerlijn, kinderen aan één lijn, generaties op één hoogte (gouden hulplijnen, Romeinse cijfers); de familie van de vrouw |
+| 2. Stap 1: dominant of recessief? | s05–s10, q08 | E · Schema | mini-stambomen recessief/dominant; Huntington-stamboom; vraag 'kan zijn kind het krijgen?'; de a van de vader reist naar de zoon, in die tak is het allel weg; recessief lijkt over te slaan |
+| 3. Stap 2 en 3 | s11–s14 | E · Schema | X-recessief (Xᵃ van vader naar dochter); 'niet te bepalen' + chromosoom 7; genotypen terugwerken (a-chips naar de ouders), drager, A_ |
+| 4. Twee derde, niet een half | s15–s17, q16 | E · Schema (simulatie) | 300 echte trekkingen (seed 11: 81 AA, 162 Aa, 57 aa); aa weg, sorteren, 162 van 243 ≈ ⅔ |
+| 5. Twee rekenregels | s18–s22, q21 | E · Schema | oppervlaktemodel ¼ × ¼; kansbalk ¼ + ½; drie trekkingen, 'toeval heeft geen geheugen' |
+| 6. Terug naar de spreekkamer | s23–s27, q25 | E/I · Schema met cast | partner getest (Aa, buisje); kansboom ⅔ × ½ × ½ = ⅙; spreekkamer met formulier, bord ¼ of 0 |
+| Recap | s28 | Schema | vier stappenkaarten; de familie met ⅔ en ⅙ |
 
 ## Vragen
-| Plek | Vraag (zoals op het scherm) | Opties | Juiste antwoord | Vorm |
-|---|---|---|---|---|
-| 1:58–2:09 (r. 400) | VOORSPEL: Sanne is gezond. Kans dat zij drager (Aa) is? | open | ⅔ | aftelklok 5 s in een stilte van 6 s |
-| 3:05–3:16 (r. 449) | VOORSPEL: Kans dat het kind van Sanne en Tom taaislijmziekte heeft? | open | ⅙ (⅔ × ½ × ½) | aftelklok 5 s in een stilte van 6 s |
+| Segment | Vraag | Opties | Juist |
+|---|---|---|---|
+| q08 | Deze man heeft de ziekte van Huntington niet, maar zijn vader wel. Kan zijn kind de ziekte krijgen? | a ja, kan een generatie overslaan · b nee, geen A om door te geven · c alleen als het een zoon is | b |
+| q16 | Haar ouders zijn allebei Aa. De vrouw is gezond. Kans dat zij drager is? | a een derde · b een half · c twee derde | c |
+| q21 | Twee dragers hebben al een kind met taaislijmziekte. Kans dat het volgende kind het ook krijgt? | a kleiner dan een kwart · b een kwart · c groter dan een kwart | b |
+| q25 | Kans dat het kind van de vrouw en haar partner taaislijmziekte krijgt? | a een zesde · b een achtste · c een kwart | a |
 
-Alle vragen: niveau vwo bovenbouw. Het antwoord wordt steeds in de eerstvolgende alinea gesproken.
+Vragen uit: de speler knipt de vraagzinnen in s07 (vanaf 'Kan zijn kind', 4,3 s), s15 (vanaf 'Hoe groot', 5,4 s), s20 (vanaf 'Hoe groot', 3,2 s) en s24 helemaal; wat overblijft is een gewone uitlegzin. De vraagbeelden (vraagteken-ruit, '?' onder de vrouw, het volgende kind) verschijnen pas op die geknipte woorden, dus niet bij Vragen uit. De alinea na elke vraag begint met een eigen stelling (geen kort antwoord). Gecontroleerd met de tijdlijn van de speler (`?vragen=uit`, 375 s); `antwoordtekst.py --check` en `kortantwoord.py --check` nog draaien in de repo (hoofdsessie).
 
 ## Begrippen
-Zoals op de pagina (geen vwo-markering; de hele film is vwo):
-- stamboom — schema van een familie; vierkant = man, rondje = vrouw, ingekleurd = heeft de eigenschap
-- drager — persoon met één recessief allel (Aa) die de eigenschap zelf niet heeft
-- A_ — notatie voor een gezond persoon van wie je alleen weet dat er minstens één A is (AA of Aa)
-- autosomaal — het gen ligt op een van de chromosomen 1–22, niet op X of Y
-- productregel — kans dat onafhankelijke gebeurtenissen allemaal gebeuren = product van de kansen
-- somregel — kans dat de ene óf de andere (elkaar uitsluitende) gebeurtenis gebeurt = som van de kansen
-- voorwaardelijke kans — kans als je al iets weet; een gezond kind van twee dragers is met kans ⅔ drager
+stamboom, generatie, drager, A_, autosoom, productregel, somregel (`film.py`, `glossary`). 'Voorwaardelijke kans' (oud) is weg: werd niet gesproken en staat niet in de syllabus.
 
 ## Docentdeel
-Inklapbaar blok "Voor de docent" met:
-- **Hoe de film het uitlegt**: De film start met Sanne, gezond, met een broer met taaislijmziekte. De misvatting 'kans op drager is ½' wordt meteen benoemd. Daarna de symbolen, een stappenplan (1 dominant/recessief, 2 autosomaal/X, 3 genotypen, 4 kans) en een simulatie van 300 kinderen van twee dragers: door de zieke kinderen weg te halen, zie je dat ⅔ van de gezonde kinderen drager is. De product- en somregel worden met een oppervlaktemodel (4×4-raster) en een staafverdeling getoond. Tot slot Sanne × Tom (drager): ⅔ × ½ × ½ = ⅙, en wat een dragerschapstest verandert (¼ of 0).
-- **Misvattingen**: Een gezond kind van twee dragers is met kans ½ drager (het is ⅔); Na een ziek kind is de kans voor het volgende kind kleiner (toeval heeft geen geheugen); Een eigenschap die een generatie overslaat, is dominant
-- **Pauzemomenten**: Kans dat Sanne drager is? (⅔); Kans dat het kind van Sanne en Tom ziek is? (⅙)
-- **Vereenvoudigd**: Dat de grootouders geen genotype krijgen dan A_ is correct: je weet alleen dat één grootouder aan elke kant het allel doorgaf; Stap 2 laat alleen het X-recessieve criterium zien; bij dominant X-chromosomaal geldt: een aangedane vader heeft alleen aangedane dochters
+In `sections.html`: checkvragen (5), hoe de film het uitlegt, misvattingen, getallen en bronnen, keuzes en vereenvoudigingen (volledige penetrantie, laat begin en nieuwe mutatie bij Huntington; X-dominant; 'niet te bepalen'; partner getest; negatieve test en de familievariant; dragers niet half ingekleurd), plaats in de reeks, lessuggesties. Alle beweringen met bronnen: `bronnen.md` (27 beweringen, 18 bronnen: 17 ✓, 10 ≈).
 
-## Techniek: waar zit wat in de HTML
-Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Films 2–6 delen dezelfde bouwvorm: de regels 73–285 (kern, tekenhulpen, "shared library for films 2-6" r. 153, ongebruikte enzymsimulatie `runSim` r. 227) zijn in alle vijf identiek, net als de speler na `FILM`. Alleen het filmspecifieke blok vanaf r. 286 verschilt. Film 1 heeft een eigen, oudere opbouw.
-
-- **Pagina**: kop r. 49 (h1 "Stambomen lezen en kansen berekenen" + "± 4 minuten"), `<title>` r. 2 ("Stambomen en kansrekening"), begrippen r. 66, docentdeel r. 68, credits "Stem: Roos (ElevenLabs)" r. 69.
-- **Script, ondertitels en timing**: één regel, r. 71: `window.__TIMELINE__={"total","paras":[{"key","start","dur","words":[{"w","s","e"}]}]}` + `window.__AUDIO_B64__="@@BLOB:006.mp3@@"`. Woordtijden zijn absolute seconden in de ene take. Ondertitels worden hieruit gebouwd met `SENT`/`setCap` (r. 502).
-- **Cues**: `Q(key,woord,n)` / `QE` r. 93 (zoekt het n-de woord, leestekens genegeerd, terugval 'begint met'); `PS`/`PE` = begin/eind van een alinea. Alle tijden in `initCues()` r. 288 → object `K` (scènestarts `K.s2…`, vragen `K.q1`, aftelklok `K.cd1a`/`K.cd1b` = `PE+0,3` … `+5`).
-- **Scènes**: `s1` r. 317, `s2` r. 331, `s3` r. 350, `s4` r. 370, `s5` r. 387, `s6` r. 419, `s7` r. 440, `s8` r. 466. `FILM` r. 469: `title`, `sub`, `levels`, `scenes()` (start = `K.sN`, eind = volgende start + 0,9 s, `fade` 0,9 s), `levelAt`, `repAt`, `legend`, `note`, `chapters()`.
-- **Gedeelde helpers** (r. 153–223): o.a. `plant`, `chipG` (allelchips), `grid`, `meiosis`, `dotColumns`/`spawnTimes` (stippen-simulaties), `ratioText`, `frac`, `sceneTitle`, `legendBox`, stamboomsymbolen `pedSym`/`pedCouple`/`pedKids`; kaarten `card`, `termCard`, `misc` (r. 145), `countdown` (r. 142).
-- **Simulatie**: simulatie van 300 kinderen van twee dragers in s5 (r. 403–409). Deterministisch via `mulberry32(seed)`: bij elke weergave dezelfde uitkomst.
-- **Vragen**: VOORSPEL-kaarten r. 400, 449.
-- **Hoofdstukken**: `FILM.chapters()` → `CHAP` r. 545.
-- **Audio en speler**: r. 509 base64 → Blob-URL (terugval data-URI); eigen klok die de audio volgt; `render()` r. 488 (kruimelpaden, legenda, titelkaart eerste 1,6 s). Toetsen r. 542: spatie, ←/→ 5 s (shift 30 s), ↑/↓ hoofdstuk. Geen Leerling/Klas- of Havo/Vwo-schakelaar, geen toetsfunctie.
+## Waar wat in de HTML zit
+Regelnummers in `../../6-stambomen-en-kansrekenen.html` (versie 2.0, vóór de repo-brede scripts van de hoofdsessie; die verschuiven de regels een paar plaatsen):
+- r. 99 begrippen (`#glossary`), r. 109 docentdeel.
+- r. 5011 `stamboom` (tekening met uitlijnregels), r. 5055 simulatie (`_mb`, `kinderen300`, r. 5060 `simRaster`), r. 5086 `kansBoom`; daarna de hulpjes van fase 2 (`reisChip`, `letterChip`, `genLijnen`, `termKaartE`, `formulier`, `buisje`, `chrom7`, `stapKaart`).
+- r. 5154 `spreekkamerScene`, r. 5164 `Object.assign(SCENES, …)`: één functie per alinea (s09 r. 5210, s17 r. 5258).
+- r. 5316 filmdata (`window.FILMDATA`: segmenten, woordtijden, vragen).
 
 ## Zo pas je deze film aan
-1. **Tekst op het scherm**: zoek de letterlijke string in het filmblok (`card(`, `termCard(`, `T('…'`, `sceneTitle(`) en pas hem aan. Daarna `python3 scripts/filmbron.py inpakken <map> <film.html>`. Wijzigingen in de gedeelde bibliotheek (r. 73–285) moet je zelf in alle vijf films (2–6) doorvoeren.
-2. **Ondertitel wijzigen zonder nieuwe opname**: pas alleen de `w`-waarde in `__TIMELINE__` aan. Let op: de stem zegt dan nog het oude woord, en als het woord een cue-woord is (zie script.md), verschuift de animatie.
-3. **Eén alinea opnieuw opnemen**: de audio is één bestand (blob 006.mp3). Vervang het stuk `start…start+dur` van die alinea in de mp3 en houd de stiltes ertussen gelijk (6,0 s na een voorspelvraag!). Laat woordtijden maken (forced alignment) en zet ze in de `paras`-entry. Bij een andere lengte verschuif je `start` en alle `s`/`e` van alle latere alinea's en `total`. Scènes en cues lopen via `Q()`/`PS()` vanzelf mee.
-4. **Vraag aanpassen**: kaarttekst op de genoemde regel. Het antwoord zit in de gesproken tekst van de volgende alinea, dus een andere vraag betekent ook een nieuwe opname.
-5. **Let op cue-woorden**: haal je een woord weg dat in `initCues` staat, dan valt `Q()` stil terug op het begin van de alinea (alleen `console.warn`). Bij woorden die vaker voorkomen telt het volgnummer (`Q(key,'drie',2)`).
+Werkmap buiten de repo (bv. `hw/erf6`), met de bestanden uit deze bronmap: `segments.json`, `film.py`, `sections.html`, `uitspraak_film.json`, `script_opname.md`, `src/teken_erf6.js`, `src/scenes_erf6.js`, audio als `audio/` (en de ruwe takes als `raw/` voor silalign; de genormaliseerde mp3's werken ook) en woordtijden als `words/`; engine = `src/` + `bouw/` in één map `eng/` (`src/scenes_kop.js` = de engine-kop; regels 1–32 worden gebruikt). Bouwen: `bouw.sh` (zet `scenes.js` = kop + `lib_bio.js` + `lib_micro_evo.js` + `teken_chr1.js` + `teken_erf6.js` + `scenes_erf6.js`, dan `film.py`, `build_data.py`, `build.py`), stills met `bouw/stills.py <map> qa contact`, in de repo zetten met `pak_repo.py`. Daarna in de repo `spelerfix`, `antwoordtekst`, `kortantwoord`, `antwoordletter`, `flipkaarten`, `oefenen`, `teller`, `licentie_noot`, `tabel_mobiel`, `reviewlijst` draaien.
+- Beeld wijzigen: alleen in `scenes_erf6.js` (zelfde cue-woorden; `q.at` zoekt een stukje van een woord, dus nooit op 'aa' cuen). Een stamboom wijzig je in de data (`SB_CF`, `SB_HD`, `SB_HDQ`, `SB_REC`, `SB_DR` in `teken_erf6.js`): vaste x per persoon, `gen` bepaalt de hoogte.
+- Tekst wijzigen = die alinea opnieuw inspreken (één take, stem-invoer uit `segments.json` na `make_segments.py script_opname.md`), woordtijden met `bouw/silalign_v.py <map>` (silalign op de stem-invoer, terug naar de ondertitelwoorden via `vmap`).
+
+## Kandidaten voor de bibliotheek
+Uit `src/teken_erf6.js`, voor `bibliotheek/lib_bio.js` (hoofdsessie): `stamboom` + `sbSymbool` + `miniStamboom` (met het recept en de bekende fouten bovenin; ook bruikbaar voor films 2–5 en de docentenlessen), `simRaster` + `simLegenda` + `kinderen300` (echte trekkingen), `oppModel` (productregel), `kansBalk` (somregel), `kansBoom`, `reisChip`/`letterChip` (allel van vader teal / moeder oker dat reist), `buisje`, `formulier`, `wandbord` + `spreekkamerE6` (overgenomen uit Bio-informatica 2).
 
 ## Aandachtspunten
-- De kop zegt "± 4 minuten"; de werkelijke duur is 4:05.
-- "Voorwaardelijke kans" staat in de begrippenlijst, maar wordt niet uitgesproken. De film zegt "haal weg wat je al weet".
-- Er staan geen misvattingkaarten (`misc(`) in het beeld; de misvatting '½' wordt alleen gesproken en staat als tekst 'dus niet ½' in beeld.
-- Het docentdeel zegt zelf dat stap 2 alleen het X-recessieve criterium laat zien.
-- In de gedeelde bibliotheek staat de enzymsimulatie uit film 1 (`runSim`, `drawSimPanel`, r. 224–285), maar deze film gebruikt die niet: dode code.
-- De stem-invoer en uitspraaklijst staan niet in de HTML. Er zijn geen versie/datum, geen vwo-blokken en geen Havo/Vwo-schakelaar.
-- `<title>` ("Stambomen en kansrekening") wijkt af van de h1 ("Stambomen lezen en kansen berekenen").
+- Frisse beeldreview (C10): één ronde door de maker op contactvellen (82 stills); hersteld: labels over symbolen (s01, s07, s09, s10, s20, s23), titelstamboom buiten beeld, termkaarten in de ondertitelzone (s13, s14), leeg wandbord (s27), broer-zuslijn die doorliep naar nog onzichtbare kinderen (s04), vraagbeelden die bij Vragen uit bleven staan (s07, s15, s20). Een review door iemand anders dan de maker staat nog open.
+- Uitspraak: wachtlijst in `uitspraak.md` (Huntington, A_ als 'grote A streepje', klinisch geneticus, dragerschapstest); geen blinde transcriptie gedaan (brief fase 2).
+- De oefening `puzzel-sanne-tom` (id ongewijzigd) is gelijkgetrokken met de film (keuring t2): geen namen, de ouders van de partner zijn weg, de partner is getest; nieuwe laatste stap 'de test zegt drager → ¼'. `scripts/oefenen.py` moet nog draaien.
+- De HTML heeft nog geen teller-, flipkaart-, oefen- en licentietags: die zet de hoofdsessie met de repo-scripts.
 
 ## Wijzigingen
-- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Deze film heeft geen hoofdstukkaarten, dus geen hoofdstukpauze om in te korten.
-
-## Wijziging 16 okt 2026: begrippen als kaartjesraster
-Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+- 28 okt 2026 — Versie 2.0: lichte remake. Nieuw script (dominant slaat geen generatie over, nu expliciet uitgelegd met vraag q08 en s09; 'niet te bepalen' bij stap 2; drager uitgelegd; vier meerkeuzevragen), geen namen, opening in de spreekkamer, nieuwe stamboomtekening met uitlijnregels, simulatie met echte trekkingen, nieuwe stem (eleven_v4, 23 takes), huidige speler (snelheid, Vragen aan/uit), donker standaard, bronnenlogboek.

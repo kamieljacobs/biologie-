@@ -1,5 +1,55 @@
 [
  {
+  "href": "films/erfelijkheid/2-monohybride-kruisingen.html",
+  "titel": "Monohybride kruisingen",
+  "thema": "erfelijkheid",
+  "themaTitel": "Erfelijkheid",
+  "duur": 7,
+  "vraag": "Hoe groot is de kans op aa, en hoe weet je welke allelen een plant heeft?",
+  "extra": false,
+  "datum": "2026-10-28"
+ },
+ {
+  "href": "films/erfelijkheid/3-voorbij-dominant-en-recessief.html",
+  "titel": "Voorbij dominant en recessief",
+  "thema": "erfelijkheid",
+  "themaTitel": "Erfelijkheid",
+  "duur": 8,
+  "vraag": "Rood × wit geeft roze. Mengen allelen dan, zoals verf?",
+  "extra": false,
+  "datum": "2026-10-28"
+ },
+ {
+  "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
+  "titel": "Dihybride kruising en gekoppelde overerving",
+  "thema": "erfelijkheid",
+  "themaTitel": "Erfelijkheid",
+  "duur": 9,
+  "vraag": "Hoe kan een erwtenplant gele, gerimpelde erwten hebben als de grootouders alleen geel-rond en groen-gerimpeld waren?",
+  "extra": false,
+  "datum": "2026-10-28"
+ },
+ {
+  "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
+  "titel": "Overerving via het X-chromosoom",
+  "thema": "erfelijkheid",
+  "themaTitel": "Erfelijkheid",
+  "duur": 8,
+  "vraag": "Waarom zijn vooral mannen kleurenblind? En hoe kan een eigenschap een generatie overslaan?",
+  "extra": false,
+  "datum": "2026-10-28"
+ },
+ {
+  "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
+  "titel": "Stambomen en kansrekenen",
+  "thema": "erfelijkheid",
+  "themaTitel": "Erfelijkheid",
+  "duur": 7,
+  "vraag": "Je broer heeft taaislijmziekte, jij en je ouders niet. Hoe groot is de kans dat jij drager bent?",
+  "extra": false,
+  "datum": "2026-10-28"
+ },
+ {
   "href": "films/vervolg/gezondheidswetenschappen-1-hoe-een-epidemie-groeit.html",
   "titel": "Hoe een epidemie groeit en stopt",
   "thema": "vervolg",
@@ -48,55 +98,5 @@
   "vraag": "Na een mRNA-prik maken je eigen spiercellen een eiwit van een virus. Hoe kan dat?",
   "extra": false,
   "datum": "2026-10-27"
- },
- {
-  "href": "films/vervolg/voedingsleer-1-bij-de-dietist.html",
-  "titel": "Bij de diëtist: van eetdagboek tot nieuwe gewoonte",
-  "thema": "voeding",
-  "themaTitel": "Voeding",
-  "duur": 8,
-  "vraag": "Iedereen weet dat groente gezond is. Waarom eten de meeste mensen er toch te weinig van?",
-  "extra": true,
-  "datum": "2026-10-26"
- },
- {
-  "href": "films/vervolg/voedingsleer-2-waarom-afvallen-zo-moeilijk-is.html",
-  "titel": "Waarom afvallen zo moeilijk is: energiebalans, honger en verzadiging",
-  "thema": "voeding",
-  "themaTitel": "Voeding",
-  "duur": 8,
-  "vraag": "Je eet een tijd minder. Waarom gaat je gewicht daarna toch weer omhoog?",
-  "extra": true,
-  "datum": "2026-10-26"
- },
- {
-  "href": "films/cellen/microben.html",
-  "titel": "Wat groeit er op je boterham?",
-  "thema": "cellen",
-  "themaTitel": "Cellen",
-  "duur": 10,
-  "vraag": "Een boterham ligt een week vergeten in je trommel. Wat groeit erop, en waar komt het vandaan?",
-  "extra": false,
-  "datum": "2026-10-26"
- },
- {
-  "href": "films/zenuwstelsel/9-spieren-en-beweging.html",
-  "titel": "Spieren en beweging",
-  "thema": "regeling",
-  "themaTitel": "Regeling",
-  "duur": 11,
-  "vraag": "Hoe tilt dezelfde biceps een veertje én een volle tas?",
-  "extra": false,
-  "datum": "2026-10-26"
- },
- {
-  "href": "films/vervolg/landbouw-3-fokken.html",
-  "titel": "Fokken: selecteren, inteelt en de fokwaarde",
-  "thema": "vervolg",
-  "themaTitel": "Wat word jij?",
-  "duur": 8,
-  "vraag": "Hoe kan een koe nu twee keer zoveel melk geven als in 1970?",
-  "extra": true,
-  "datum": "2026-10-26"
  }
 ]

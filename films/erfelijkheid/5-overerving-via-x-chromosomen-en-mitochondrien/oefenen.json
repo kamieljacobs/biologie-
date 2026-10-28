@@ -5,7 +5,7 @@
    "id": "puzzel-kleurenblind",
    "soort": "puzzel",
    "titel": "Puzzel: een draagster en een man die normaal ziet",
-   "opdracht": "Een vrouw is draagster van kleurenblindheid. Haar partner ziet normaal. Typ Xᴺ als XN en Xⁿ als Xn.",
+   "opdracht": "Een vrouw is draagster van kleurenblindheid. Haar partner ziet normaal. Typ Xᴬ als XA en Xᵃ als Xa.",
    "stappen": [
     {
      "vraag": "Wat zijn de genotypen van de moeder en de vader?",
@@ -13,20 +13,20 @@
       {
        "label": "moeder:",
        "antwoord": [
-        "XNXn",
-        "XnXN"
+        "XAXa",
+        "XaXA"
        ],
        "hoofdletters": true
       },
       {
        "label": "vader:",
        "antwoord": [
-        "XNY"
+        "XAY"
        ],
        "hoofdletters": true
       }
      ],
-     "uitleg": "Een draagster ziet normaal maar heeft één afwijkend allel: XᴺXⁿ. Een man die normaal ziet heeft op zijn enige X het allel Xᴺ: XᴺY."
+     "uitleg": "Een draagster ziet normaal maar heeft één afwijkend allel: XᴬXᵃ. Een man die normaal ziet heeft op zijn enige X het allel Xᴬ: XᴬY."
     },
     {
      "vraag": "Welk chromosoom krijgt een zoon altijd van zijn vader?",
@@ -51,7 +51,7 @@
        "marge": 0.01
       }
      ],
-     "uitleg": "De zoon krijgt met kans ½ de Xⁿ van zijn moeder. Dan is hij XⁿY en kleurenblind.",
+     "uitleg": "De zoon krijgt met kans ½ de Xᵃ van zijn moeder. Dan is hij XᵃY en kleurenblind.",
      "tip": "Je mag een breuk typen, zoals 1/2."
     },
     {
@@ -62,7 +62,7 @@
        "antwoord": 0
       }
      ],
-     "uitleg": "Een dochter krijgt van haar vader altijd Xᴺ. Ze ziet dus normaal."
+     "uitleg": "Een dochter krijgt van haar vader altijd Xᴬ. Ze ziet dus normaal."
     },
     {
      "vraag": "Hoe groot is de kans dat een dochter draagster is?",
@@ -73,7 +73,7 @@
        "marge": 0.01
       }
      ],
-     "uitleg": "Ze krijgt Xᴺ van vader en met kans ½ de Xⁿ van moeder: XᴺXⁿ, draagster."
+     "uitleg": "Ze krijgt Xᴬ van vader en met kans ½ de Xᵃ van moeder: XᴬXᵃ, draagster."
     },
     {
      "vraag": "Hoe groot is de kans dat het volgende kind van dit paar een kleurenblinde zoon is?",
@@ -126,12 +126,12 @@
     {
      "tekst": "Een vader geeft hem nooit door aan zijn kinderen, ook niet aan dochters.",
      "bak": 1,
-     "uitleg": "De paar tientallen mitochondriën uit de zaadcel worden na de bevruchting afgebroken."
+     "uitleg": "De mitochondriën uit de zaadcel (hooguit zo'n honderd) worden na de bevruchting afgebroken."
     },
     {
      "tekst": "Een vrouw kan draagster zijn zonder het kenmerk te hebben.",
      "bak": 0,
-     "uitleg": "XᴺXⁿ: haar tweede X vangt de fout op."
+     "uitleg": "XᴬXᵃ: haar tweede X vangt de fout op."
     },
     {
      "tekst": "Het gaat om een gen op een chromosoom in de kern.",
@@ -148,7 +148,8 @@
      "bak": 0,
      "uitleg": "Hemofilie erft net als kleurenblindheid X-chromosomaal recessief."
     }
-   ]
+   ],
+   "vwo": true
   },
   {
    "id": "indelen-zeker-of-kans",
@@ -169,44 +170,44 @@
    ],
    "kaartjes": [
     {
-     "tekst": "Een zoon van een kleurenblinde vader en een moeder met XᴺXᴺ.",
+     "tekst": "Een zoon van een kleurenblinde vader en een moeder met XᴬXᴬ.",
      "bak": 0,
-     "uitleg": "Een zoon krijgt de Y van zijn vader en een X van zijn moeder. Die X is altijd Xᴺ: XᴺY."
+     "uitleg": "Een zoon krijgt de Y van zijn vader en een X van zijn moeder. Die X is altijd Xᴬ: XᴬY."
     },
     {
-     "tekst": "Een dochter van een kleurenblinde vader en een moeder met XᴺXᴺ.",
+     "tekst": "Een dochter van een kleurenblinde vader en een moeder met XᴬXᴬ.",
      "bak": 0,
-     "uitleg": "Ze krijgt Xⁿ van vader en Xᴺ van moeder: XᴺXⁿ. Ze is draagster, maar ziet normaal."
+     "uitleg": "Ze krijgt Xᵃ van vader en Xᴬ van moeder: XᴬXᵃ. Ze is draagster, maar ziet normaal."
     },
     {
-     "tekst": "Een vrouw met XᴺXⁿ.",
+     "tekst": "Een vrouw met XᴬXᵃ.",
      "bak": 0,
-     "uitleg": "Eén Xᴺ is genoeg om normaal te zien. Een draagster ziet dus normaal; ze kan Xⁿ wel doorgeven."
+     "uitleg": "Eén Xᴬ is genoeg om normaal te zien. Een draagster ziet dus normaal; ze kan Xᵃ wel doorgeven."
     },
     {
      "tekst": "Een zoon van een draagster en een vader die normaal ziet.",
      "bak": 1,
-     "uitleg": "Hij krijgt met kans ½ de Xⁿ van zijn moeder: dan is hij XⁿY."
+     "uitleg": "Hij krijgt met kans ½ de Xᵃ van zijn moeder: dan is hij XᵃY."
     },
     {
      "tekst": "Een dochter van een draagster en een kleurenblinde vader.",
      "bak": 1,
-     "uitleg": "Van vader krijgt ze zeker Xⁿ. Van moeder met kans ½ ook Xⁿ: dan is ze XⁿXⁿ."
+     "uitleg": "Van vader krijgt ze zeker Xᵃ. Van moeder met kans ½ ook Xᵃ: dan is ze XᵃXᵃ."
     },
     {
      "tekst": "Een zoon van een draagster en een kleurenblinde vader.",
      "bak": 1,
-     "uitleg": "De vader doet er voor een zoon niet toe: die geeft de Y. Van moeder krijgt hij met kans ½ Xⁿ."
+     "uitleg": "De vader doet er voor een zoon niet toe: die geeft de Y. Van moeder krijgt hij met kans ½ Xᵃ."
     },
     {
      "tekst": "Een zoon van een kleurenblinde moeder en een vader die normaal ziet.",
      "bak": 2,
-     "uitleg": "Moeder is XⁿXⁿ en heeft alleen Xⁿ om door te geven. Elke zoon is XⁿY."
+     "uitleg": "Moeder is XᵃXᵃ en heeft alleen Xᵃ om door te geven. Elke zoon is XᵃY."
     },
     {
      "tekst": "Een dochter van een kleurenblinde moeder en een kleurenblinde vader.",
      "bak": 2,
-     "uitleg": "Ze krijgt Xⁿ van moeder én Xⁿ van vader: XⁿXⁿ."
+     "uitleg": "Ze krijgt Xᵃ van moeder én Xᵃ van vader: XᵃXᵃ."
     }
    ]
   },
@@ -231,8 +232,8 @@
     {
      "naam": "draagster",
      "varianten": [
-      "XᴺXⁿ",
-      "XNXn"
+      "XᴬXᵃ",
+      "XAXa"
      ]
     },
     {
@@ -248,14 +249,14 @@
    ],
    "checklist": [
     "Ik leg uit dat de genen voor het rode en groene eiwit op het X-chromosoom liggen en niet op het Y.",
-    "Ik leg uit dat een zoon zijn X van zijn moeder krijgt en dus met kans ½ haar Xⁿ.",
+    "Ik leg uit dat een zoon zijn X van zijn moeder krijgt en dus met kans ½ haar Xᵃ.",
     "Ik leg uit dat een zoon geen tweede X heeft die de fout opvangt.",
-    "Ik leg uit dat een dochter van haar vader altijd Xᴺ krijgt en dus normaal ziet, maar met kans ½ draagster is."
+    "Ik leg uit dat een dochter van haar vader altijd Xᴬ krijgt en dus normaal ziet, maar met kans ½ draagster is."
    ],
    "model": [
     "De genen voor het rode en het groene eiwit in de kegeltjes liggen op het X-chromosoom. Het Y-chromosoom heeft die genen niet.",
-    "Een zoon krijgt de Y van zijn vader en een X van zijn moeder. Met kans ½ is dat haar Xⁿ. Omdat hij geen tweede X heeft die de fout opvangt, is hij dan kleurenblind.",
-    "Een dochter krijgt van haar vader altijd Xᴺ. Het allel voor kleurenblindheid is recessief, dus ze ziet normaal. Wel is ze met kans ½ draagster, net als haar moeder."
+    "Een zoon krijgt de Y van zijn vader en een X van zijn moeder. Met kans ½ is dat haar Xᵃ. Omdat hij geen tweede X heeft die de fout opvangt, is hij dan kleurenblind.",
+    "Een dochter krijgt van haar vader altijd Xᴬ. Het allel voor kleurenblindheid is recessief, dus ze ziet normaal. Wel is ze met kans ½ draagster, net als haar moeder."
    ]
   },
   {
@@ -301,9 +302,10 @@
    ],
    "model": [
     "Mitochondriën hebben hun eigen kleine, ronde DNA, buiten de kern. Dat erft niet zoals een gen op een chromosoom, half van vader en half van moeder.",
-    "Een eicel bevat meer dan honderdduizend mitochondriën. Een zaadcel heeft er maar een paar tientallen, en die worden na de bevruchting afgebroken. Al je mitochondriën komen dus van je moeder.",
+    "Een eicel bevat zo'n honderdduizend mitochondriën. Een zaadcel heeft er hooguit zo'n honderd, en die worden na de bevruchting afgebroken. Al je mitochondriën komen dus van je moeder.",
     "Zij kreeg ze weer van haar moeder, en zo verder. Langs die moederlijn kun je heel ver terug in de tijd kijken. Een vader geeft geen mitochondriën door, dus je oer-oervader vind je zo niet."
-   ]
+   ],
+   "vwo": true
   }
  ]
 }

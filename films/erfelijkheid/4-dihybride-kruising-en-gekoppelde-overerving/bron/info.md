@@ -1,103 +1,82 @@
-# Dihybride kruisingen en gekoppelde genen — bronmap
+# Dihybride kruising en gekoppelde overerving — bronmap
+
+Versie 2.0 is een lichte remake in de FILMDATA-straat (28 okt 2026), na Kamiels review van de oude film (`../../../verbeterbladen/erfelijkheid-2026-10/opmerkingen.json`, sleutel erf4) en zijn keuring van script en twijfelscènes in fase 1 (`remake-2026-10/`). De oude versie (één doorlopende take, eigen engine, 12 okt 2026) staat in `oud/` (`4-dihybride-kruising-en-gekoppelde-overerving-v1.html`, `script-v1.md`, `info-v1.md`, `oefenen-v1.json`).
 
 | Veld | Waarde |
 |---|---|
-| Bestand | films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html |
-| Reeks / nummer | Erfelijkheid · film 4 van 6 (op de site: § 3.5) |
-| Doelgroep / niveau | vwo bovenbouw (geen havo-/vwo-blokken) |
-| Versie / datum | onbekend (niet in de HTML) |
-| Prompt | onbekend |
-| Stem / model | Roos (ElevenLabs); model onbekend (niet in de HTML) |
-| Duur | 4:22 (006.mp3 = 262,16 s; `TL.total` = 262,132 s). De kop zegt "± 4,5 minuten". |
-| Beeldstijl | Volgens codecommentaar "stijlkaart biologiefilms, look Schema": navy, gedempte vullingen, lichte randen, goud = focus; fonts Fraunces / Source Sans 3 / IBM Plex Mono. Schema-look (navy) met macro-elementen: erwten (geel/groen, rond/gerimpeld) en fruitvliegen; chromosoomparen in meiose I, 4×4-schema, genkaart. UI-laag: kruimelpaden NIVEAU en WEERGAVE (echt › symbool › schema), legenda, scènetitels linksboven. |
-| Audio-opslag | 1 doorlopende take (15 alinea's p01–p15) als base64 in de HTML (blob 006.mp3, `window.__AUDIO_B64__`); 5 fonts als data-URI (blobs 001–005.woff2) |
-| Reconstructie | 2026-10-12, uit de gepubliceerde HTML |
+| Bestand | films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html (audio in `4-dihybride-kruising-en-gekoppelde-overerving/audio/`) |
+| Reeks / nummer | Erfelijkheid · film 4 van 6 |
+| Doelgroep / niveau | havo en vwo bovenbouw; vwo-blokken: hoofdstuk 2, 4, 5 en de recapzin s36 |
+| Versie / datum | 2.0 · 28 okt 2026 |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026) |
+| Stem / model | Roos (`7qdUFMklKPaaAVMsBTBt`), ElevenLabs eleven_v4, één take per alinea (32 takes, geen herkansingen); flow `BoM0xdy9b0irXSLoumNl`, 6886 credits |
+| Duur | havo ± 4:55 (293 s; 257 s met Vragen uit), vwo ± 9:25 (563 s; 491 s met Vragen uit); 485 s spraak, waarvan 247 s basis. `duur: 9` in HOOFDSTUKKEN (havo 5) |
+| Beeldstijl | Part C: Macro (moestuin, decor hergebruikt uit Landbouw 2, Opa Henk zonder naam), Micro (celkern, meiose, chromatiden), Schema (allelchips, chromosoomparen, kruisingsschema's, simulatie) |
+| Audio-opslag | 32 losse mp3's (`../audio/sNN.mp3`, loudnorm −16 LUFS / −1 dBTP), woordtijden `stem/woordtijden/` (silalign, lokaal), generation-id's en credits in `stem/gen.json` en `stem/sessions.json` |
+| Herkomst | opmerkingen Kamiel (erf4), fase 1 (`remake-2026-10/`: script_v2, storyboard, keyframes, twijfelscènes T1–T4, bronnen, uitspraak); Kamiel keurde script en T2–T4 goed, bij T1 (havo/vwo-verdeling) is het voorstel uitgevoerd: verdeling volgens de syllabi 2026 |
 
 ## Opbouw
-Hoofdstuktypes A–I uit de prompt: niet vastgesteld (de typedefinities staan niet in de HTML); de functie staat erbij.
-
-| Begin | Hoofdstuk | Functie / kernbeeld | Scène |
+| Hoofdstuk | Segmenten | Niveau · look | Kernbeeld |
 |---|---|---|---|
-| 0:00 | Twee eigenschappen tegelijk | haak (nieuwe combinaties in de F2) | `s1` |
-| 0:21 | Onafhankelijke verdeling | notatie + mechanisme + simulatie (GgRr op twee chromosoomparen; twee liggingen in meiose I, honderden cellen → 4 gametsoorten van elk ¼; onafhankelijke overerving) | `s2` |
-| 1:10 | 9 : 3 : 3 : 1 | schema + echte data (4×4, 9 : 3 : 3 : 1, Mendels 315/101/108/32), productregel, terugkruising 1 : 1 : 1 : 1 | `s3` |
-| 2:15 | Gekoppelde genen en crossing-over | mechanisme (koppeling en crossing-over bij de fruitvlieg, 17 %) | `s4` |
-| 3:27 | Genkaart | toepassing (genkaart A–B 10 %, A–C 30 %) | `s5` |
-| 3:52 | Samenvatting | samenvatting | `s6` |
+| Opening | s01–s02 | basis · Macro | Opa Henk opent erwtenpeulen in de moestuin; zoomcirkel met geel-rond, groen-gerimpeld en de nieuwe combinaties (puzzel) |
+| Titel | s03 | — | erwtjes met gameetletters |
+| 1. Twee genen, twee chromosoomparen | s04–s11 (vraag q08) | basis · Schema/Micro | letters G/g, R/r; P GGRR × ggrr → F1 GgRr; twee paren in de kern (teal = van de ene ouder, oker = van de andere); meiose I met twee liggingen; simulatie van 400 cellen: vier soorten gameten, elk ± ¼; antwoord op de puzzel |
+| 2. Het kruisingsschema met twee genen | s12–s17 (vraag q13) | vwo · Schema | zelfbestuiving, 4 × 4-schema, 9 : 3 : 3 : 1, Mendels tellingen 315/101/108/32, productregel ¾ × ¾, terugkruising 1 : 1 : 1 : 1 |
+| 3. Gekoppelde genen | s18–s24 (vraag q21) | basis · Schema | fruitvlieg grijs/zwart (G/g) en normale/stompe vleugels (V/v) op één chromosoom; twee soorten gameten; ligging aflezen aan de ouders (GV/gv tegenover Gv/gV); vergelijking met de erwt |
+| 4. Kruisingsschema's met gekoppelde genen | s25–s30 (vraag q29) | vwo · Schema | terugkruising 1 : 1 naast 1 : 1 : 1 : 1; F2 als 2 × 2-schema (3 : 1) in plaats van 9 : 3 : 3 : 1; productregel per gen werkt niet; Gv/gV × gv/gv. Model zonder crossing-over (staat in beeld) |
+| 5. Crossing-over | s31–s34 | vwo · Micro/Schema | echte terugkruising: veel oude, weinig nieuwe combinaties (zonder getallen); crossing-over tussen chromatiden van homologe chromosomen in meiose I; één cel geeft twee oude en twee nieuwe gameten; gametenkolom met grote en kleine kans |
+| Recap + vooruitblik | s35–s37 | basis (s36 vwo) · Macro | terug naar de peul; vier gameten tegenover twee; volgende film: een gen op het X-chromosoom |
+
+Bewust weggelaten (Kamiel): recombinatiepercentage, genkaart en afstand tussen genen. Crossing-over alleen kwalitatief (syllabus vwo).
 
 ## Vragen
-| Plek | Vraag (zoals op het scherm) | Opties | Juiste antwoord | Vorm |
-|---|---|---|---|---|
-| 1:11–1:21 (r. 350) | VOORSPEL: Hoeveel vakjes krijgt het schema? | open | 16 (4 × 4) | aftelklok 5 s in een stilte van 6 s |
-| 2:16–2:26 (r. 380) | VOORSPEL: Twee genen op hetzelfde chromosoom: hoeveel soorten gameten? | open | 2 (zonder crossing-over) | aftelklok 5 s in een stilte van 6 s |
-| 3:27–3:40 (r. 420) | VOORSPEL: Welk gen ligt het dichtst bij A? | B / C | gen B | aftelklok 5 s in een stilte van 6 s |
+| Segment | Vraag | Opties | Juist |
+|---|---|---|---|
+| q08 | Gg en Rr op verschillende chromosomen: hoeveel soorten gameten? | twee · vier · zestien | vier (b) |
+| q13 (vwo) | Beide ouders vier soorten gameten: hoeveel vakjes? | vier · acht · zestien | zestien (c) |
+| q21 | G naast V, g naast v, chromosoom in zijn geheel naar een gameet: hoeveel soorten gameten? | vier · één · twee | twee (c) |
+| q29 (vwo) | Gv/gV × gv/gv zonder crossing-over: welke nakomelingen? | grijs-normaal en zwart-stomp · grijs-stomp en zwart-normaal · alle vier, even vaak | b |
 
-Alle vragen: niveau vwo bovenbouw. Het antwoord wordt steeds in de eerstvolgende alinea gesproken.
+Precieze opties: `film.py` en `segments.json`. Vragen uit: de speler knipt in s07 [2,8–6,88 s], s12 [8,11–11,76], s20 [4,8–8,92] en s28 [8,01–11,31]; de alinea's s09, s14, s22 en s30 beginnen met een eigen uitlegzin. Gecontroleerd door af te spelen met `?vragen=uit` rond elke vraagplek (`bouw/vu.py`, contactvel `review_fris/vu.webp`). Na het inbouwen nog `antwoordtekst.py --check`, `kortantwoord.py --check` en `antwoordletter.py --check` (hoofdsessie).
 
 ## Begrippen
-Zoals op de pagina (geen vwo-markering; de hele film is vwo):
-- dihybride kruising — kruising waarbij je twee genen tegelijk volgt
-- onafhankelijke overerving — genen op verschillende chromosomen worden los van elkaar over de gameten verdeeld; GgRr maakt 4 soorten gameten, elk ¼
-- 9 : 3 : 3 : 1 — fenotypeverhouding in de F2 van een dihybride kruising met onafhankelijke genen
-- gekoppelde genen — genen op hetzelfde chromosoom; ze gaan meestal samen naar dezelfde gameet
-- crossing-over — uitwisseling van een stuk tussen niet-zuster-chromatiden van homologe chromosomen tijdens meiose I
-- recombinant — nakomeling (of gameet) met een nieuwe combinatie van allelen
-- recombinatiepercentage — percentage recombinanten; maat voor de afstand tussen twee genen (max. 50%)
+dihybride kruising (vwo), onafhankelijke overerving, gekoppelde genen, 9 : 3 : 3 : 1 (vwo), productregel (vwo), crossing-over (vwo), recombinant (vwo) (`film.py`, `glossary`; vwo-begrippen verborgen in de havo-stand). 'Recombinatiepercentage' en 'genkaart' zijn eruit.
 
 ## Docentdeel
-Inklapbaar blok "Voor de docent" met:
-- **Hoe de film het uitlegt**: De film laat de twee mogelijke liggingen van twee chromosoomparen in meiose I naast elkaar zien, en telt daarna de gameten van 400 cellen: vier soorten van elk 25%. Het 4×4-schema levert 9 : 3 : 3 : 1, dat met Mendels echte tellingen (315/101/108/32) wordt vergeleken en met de productregel (¾ × ¾) wordt uitgerekend. Bij gekoppelde genen (fruitvlieg, grijs/zwart lijf en normale vleugels/stompjes) laat een animatie crossing-over tussen niet-zuster-chromatiden zien.
-- **Misvattingen**: Twee genen geven altijd 9 : 3 : 3 : 1; Gekoppelde genen gaan altijd samen; Crossing-over gebeurt bij de mitose of tussen zusterchromatiden
-- **Pauzemomenten**: Hoeveel vakjes? (16); Hoeveel soorten gameten bij gekoppelde genen zonder crossing-over? (2); A–B 10%, A–C 30%: welk gen ligt het dichtst bij A? (B)
-- **Getallen** (overgenomen):
+In `sections.html`: 6 checkvragen (4–6 vwo), hoe de film het uitlegt, misvattingen, getallen en bronnen (Mendel 1866; Morgan via OpenStax), keuzes en vereenvoudigingen (niveauverdeling volgens de syllabi, model zonder crossing-over in hoofdstuk 4, fruitvliegmannetjes zonder crossing-over, één uitwisseling per cel, letters als de Kruisingtrainer), plaats in de reeks, lessuggesties. Alle beweringen met bronnen: `bronnen.md` (13 bronnen, 28 beweringen: 20 ✓ · 8 ≈).
 
-| Wat | Waarde |
-|---|---|
-| Mendel dihybride F2 | 315 : 101 : 108 : 32 |
-| Fruitvlieg lichaamskleur–vleugels | ± 17% recombinatie (vereenvoudigd voorbeeld) |
+## Oefenen
+`../oefenen.json` is herschreven (oude versie `oud/oefenen-v1.json`): `puzzel-gameten` (basis, nieuw), `volgorde-dihybride-schema` (vwo), `uitleg-9331` (vwo), `schema-crossing-over` (vwo, letters G/V zoals de film), `volgorde-crossing-over` (vwo, nieuw, zonder percentage), `uitleg-gekoppeld` (vwo, zonder 17 % en recombinatiepercentage). Weg: `uitleg-genkaart` en `volgorde-recombinatiepercentage`. `scripts/oefenen.py` draait de hoofdsessie.
 
-- **Notatie**: Voor de fruitvlieg gebruikt de film B/b (grijs/zwart) en V/v (normaal/stompjes). In methodes zie je ook b⁺/b en vg⁺/vg.
-
-## Techniek: waar zit wat in de HTML
-Regelnummers in `film.src.html` (uitgepakt met `scripts/filmbron.py`). Films 2–6 delen dezelfde bouwvorm: de regels 73–285 (kern, tekenhulpen, "shared library for films 2-6" r. 153, ongebruikte enzymsimulatie `runSim` r. 227) zijn in alle vijf identiek, net als de speler na `FILM`. Alleen het filmspecifieke blok vanaf r. 286 verschilt. Film 1 heeft een eigen, oudere opbouw.
-
-- **Pagina**: kop r. 49 (h1 "Dihybride kruisingen en gekoppelde genen" + "± 4,5 minuten"), `<title>` r. 2 ("Dihybride kruisingen en gekoppelde genen"), begrippen r. 66, docentdeel r. 68, credits "Stem: Roos (ElevenLabs)" r. 69.
-- **Script, ondertitels en timing**: één regel, r. 71: `window.__TIMELINE__={"total","paras":[{"key","start","dur","words":[{"w","s","e"}]}]}` + `window.__AUDIO_B64__="@@BLOB:006.mp3@@"`. Woordtijden zijn absolute seconden in de ene take. Ondertitels worden hieruit gebouwd met `SENT`/`setCap` (r. 459).
-- **Cues**: `Q(key,woord,n)` / `QE` r. 93 (zoekt het n-de woord, leestekens genegeerd, terugval 'begint met'); `PS`/`PE` = begin/eind van een alinea. Alle tijden in `initCues()` r. 288 → object `K` (scènestarts `K.s2…`, vragen `K.q1`, aftelklok `K.cd1a`/`K.cd1b` = `PE+0,3` … `+5`).
-- **Scènes**: `s1` r. 314, `s2` r. 323, `s3` r. 349, `s4` r. 379, `s5` r. 413, `s6` r. 423. `FILM` r. 426: `title`, `sub`, `levels`, `scenes()` (start = `K.sN`, eind = volgende start + 0,9 s, `fade` 0,9 s), `levelAt`, `repAt`, `legend`, `note`, `chapters()`.
-- **Gedeelde helpers** (r. 153–223): o.a. `plant`, `chipG` (allelchips), `grid`, `meiosis`, `dotColumns`/`spawnTimes` (stippen-simulaties), `ratioText`, `frac`, `sceneTitle`, `legendBox`, stamboomsymbolen `pedSym`/`pedCouple`/`pedKids`; kaarten `card`, `termCard`, `misc` (r. 145), `countdown` (r. 142).
-- **Simulatie**: tellen van gameten uit honderden cellen in s2 (`dotColumns`/`spawnTimes` uit de gedeelde bibliotheek). Deterministisch via `mulberry32(seed)`: bij elke weergave dezelfde uitkomst.
-- **Vragen**: VOORSPEL-kaarten r. 350, 380, 420.
-- **Hoofdstukken**: `FILM.chapters()` → `CHAP` r. 502.
-- **Audio en speler**: r. 466 base64 → Blob-URL (terugval data-URI); eigen klok die de audio volgt; `render()` r. 445 (kruimelpaden, legenda, titelkaart eerste 1,6 s). Toetsen r. 499: spatie, ←/→ 5 s (shift 30 s), ↑/↓ hoofdstuk. Geen Leerling/Klas- of Havo/Vwo-schakelaar, geen toetsfunctie.
+## Waar wat in de HTML zit
+Regelnummers in `../../4-dihybride-kruising-en-gekoppelde-overerving.html` (versie 2.0, vóór de repo-scripts van de hoofdsessie; die schuiven ze een paar regels op):
+- r. 99 begrippen (`#glossary`), r. 110 docentdeel, r. 147 `window.FILMDATA` (segmenten, woordtijden, vragen).
+- r. 10514 eigen tekeningen uit `src/nieuw_erf4.js`: `erwt`, `peul`, `erwtenplant`, r. 10579 `fruitvlieg`, `staafGenen`, `paarGenen`, `gameetCel`, r. 10648 `kruisSchema`, `gameetChip`.
+- r. 10661 `E4_DECOR` (moestuin als base64-webp).
+- r. 10669 hulpjes uit `src/scenes_erf4.js` (`e4Schema`, `e4Tuin`, `e4Meta`, `e4Chip`, `e4Paren`, `e4MetaCel`, r. 10706 `e4Sim`, `e4Schema16`, `e4VliegSchema`).
+- r. 10726 `Object.assign(SCENES, …)`: `title` r. 10728, één functie per alinea (s01 r. 10732, s04 r. 10750, s12 r. 10787, s18 r. 10815, s25 r. 10851, s31 r. 10877, s35 r. 10914).
+- r. 10934 speler (`const DATA = window.FILMDATA`).
 
 ## Zo pas je deze film aan
-1. **Tekst op het scherm**: zoek de letterlijke string in het filmblok (`card(`, `termCard(`, `T('…'`, `sceneTitle(`) en pas hem aan. Daarna `python3 scripts/filmbron.py inpakken <map> <film.html>`. Wijzigingen in de gedeelde bibliotheek (r. 73–285) moet je zelf in alle vijf films (2–6) doorvoeren.
-2. **Ondertitel wijzigen zonder nieuwe opname**: pas alleen de `w`-waarde in `__TIMELINE__` aan. Let op: de stem zegt dan nog het oude woord, en als het woord een cue-woord is (zie script.md), verschuift de animatie.
-3. **Eén alinea opnieuw opnemen**: de audio is één bestand (blob 006.mp3). Vervang het stuk `start…start+dur` van die alinea in de mp3 en houd de stiltes ertussen gelijk (6,0 s na een voorspelvraag!). Laat woordtijden maken (forced alignment) en zet ze in de `paras`-entry. Bij een andere lengte verschuif je `start` en alle `s`/`e` van alle latere alinea's en `total`. Scènes en cues lopen via `Q()`/`PS()` vanzelf mee.
-4. **Vraag aanpassen**: kaarttekst op de genoemde regel. Het antwoord zit in de gesproken tekst van de volgende alinea, dus een andere vraag betekent ook een nieuwe opname.
-5. **Let op cue-woorden**: haal je een woord weg dat in `initCues` staat, dan valt `Q()` stil terug op het begin van de alinea (alleen `console.warn`). Bij woorden die vaker voorkomen telt het volgnummer (`Q(key,'drie',2)`).
+Werkmap buiten de repo (bv. `hw/erf4`) met de bestanden uit deze bronmap: `segments.json`, `film.py`, `sections.html`, `uitspraak_film.json`, `script_opname.md`, `src/nieuw_erf4.js`, `src/decor_erf4.js`, `src/scenes_erf4.js` (`teken_erf4.js` = nieuw + decor), audio als `audio/`, woordtijden als `words/`; engine = `src/` (lib.js, lib_bio.js, lib_cast.js, player.js, page.html, fonts.css, scenes_kop.js) + `bouw/` als `engbouw/`. Bouwen: `bouw.sh` (zet `scenes.js` = kop + `lib_bio.js` + teken + scenes, dan `film.py`, `build_data.py`, `build.py`); stills met `bouw/stills.py`, cue-controle met `bouw/cuecheck.py`, Vragen uit met `bouw/vu.py`, duur met `bouw/dur.py`, inpakken met `bouw/pak_erf4.py`. Daarna in de repo: `spelerfix`, `antwoordtekst`, `kortantwoord`, `antwoordletter`, `flipkaarten`, `teller`, `licentie_noot`, `oefenen`, `reviewlijst`, `nieuwste_films`.
+- Beeld wijzigen: alleen in `scenes_erf4.js` met dezelfde cue-woorden. `q.on`/`q.at` zoeken op een stukje van het genormaliseerde woord: cue niet op 'zo' (zit in heterozygoot) en let op 'Eén' ≠ 'één'. Genotypen nooit via `metaText` (die zet alles in hoofdletters), maar via `text`/`e4Tekst`.
+- Tekst wijzigen = die alinea opnieuw inspreken (één take, stem-invoer uit `segments.json` na `make_segments.py` met `uitspraak_subs.json` + `uitspraak_film.json`), woordtijden met `silalign.py`.
+- Kleuren: herkomst teal (ene ouder) / oker (andere ouder), gen goud, zoals Chromosomen 2.2.
 
 ## Aandachtspunten
-- De kop zegt "± 4,5 minuten"; de werkelijke duur is 4:22.
-- Er staan geen misvattingkaarten (`misc(`) in het beeld, terwijl het docentdeel er drie noemt.
-- Het begrip "dihybride" wordt niet uitgesproken. Het staat alleen in de titel en de begrippenlijst.
-- Bij "Mendel telde …" zegt de stem de getallen in woorden (driehonderdvijftien enz.); de ondertitel volgt dat.
-- In de gedeelde bibliotheek staat de enzymsimulatie uit film 1 (`runSim`, `drawSimPanel`, r. 224–285), maar deze film gebruikt die niet: dode code.
-- De stem-invoer en uitspraaklijst staan niet in de HTML. Er zijn geen versie/datum, geen vwo-blokken en geen Havo/Vwo-schakelaar.
+- Beeldreview: `review_fris_2026-10-28.md` (contactvellen in `review_fris/`). Alle MOET-punten hersteld; KAN open: kleine vliegjes in de schemavakjes (s26/s30), chiasma in s32 niet als echte kruising getekend, 4 × 4-raster klein op de telefoon (s14), letters G/V niet op de linkerchromosomen in s33. De review is door de bouwer zelf gedaan; een onafhankelijke blik (Kamiel in de reviewstand) is nog nodig.
+- Geen blinde transcriptie van de takes gedaan (geen Scribe van hele films); de risicowoorden staan in `uitspraak.md` voor Kamiels luisterbeurt.
+- In hoofdstuk 5 is de dubbel heterozygote ouder van de terugkruising bewust een vrouwtje: bij fruitvliegmannetjes treedt geen crossing-over op.
+- De productregel staat alleen in vwo (havo-syllabus kent geen dihybride kruising).
 
-## Wachtlijst opnieuw inspreken
-- **p10 (Gekoppelde genen en crossing-over), 15-10-2026: koppeling afleiden uit de ouders** (aanvulling na vergelijking met Gewoon Uitgelegd; examenvaardigheid). Vier [nieuw]-zinnen tussen "Op het homologe chromosoom ligt zwart lijf naast vleugelstompjes." en "Zonder uitwisseling ontstaan maar twee soorten gameten.": uit P BBVV × bbvv ligt B samen met V (en b met v); uit P BBvv × bbVV ligt B samen met v (en b met V).
-  - Opname: alinea p10 opnieuw inspreken (hele alinea, Roos), daarna in blob 006.mp3 het stuk `start…start+dur` van p10 (2:27–2:44) vervangen; stiltes eromheen gelijk houden. Woordtijden (forced alignment) in de `paras`-entry van p10; omdat p10 ca. 22 s langer wordt, `start` en alle `s`/`e` van p11–p15 en `TL.total` met dat verschil verschuiven. Cue-woorden van p10 (fruitvliegje, homologe, maar, gekoppeld, chromosoom) blijven staan; "chromosoom" komt in de nieuwe zinnen vaker voor, maar `Q()` pakt het eerste voorkomen (in de bestaande zin), dus dat klopt nog. Kop "± 4,5 minuten" wordt ± 4,75 minuten (4:44).
-  - **Beeld nodig**: in scène `s4` een klein paneel met twee P-kruisingen naast elkaar, met chromosoomstaafjes in de vaste allelchips (`chipG`): links 'P: BBVV × bbvv → F1: B naast V' en rechts 'P: BBvv × bbVV → F1: B naast v', met de F1 telkens als BbVv; kop 'Welke allelen liggen samen?'. Cues aan nieuwe woorden ("ouders", "andersom") toevoegen in `initCues` (`Q('p10','ouders')`, `Q('p10','andersom')`).
-  - **Risicowoorden (uitspraaktest)**: geen nieuwe; raszuivere, genotype, chromosoom en vleugelstompjes zitten al in de reeks (raszuiver in film 2, genotype in films 1–3 en 6). Bij de verzameltest alleen controleren dat "BbVv" niet wordt uitgesproken (staat alleen in beeld, niet in de stem).
+## Kandidaten voor de bibliotheek
+Nu alleen in `src/nieuw_erf4.js` (niet in `bibliotheek/`, volgens de brief):
+- `erwt` (geel/groen, rond/gerimpeld), `peul` (open, met erwten), `erwtenplant`.
+- `fruitvlieg` (grijs/zwart, normale/stompe vleugels).
+- `staafGenen` / `paarGenen` (chromosoom of homoloog paar met genbanden en allelletters, herkomstkleur).
+- `gameetCel` en `gameetChip` (gameet met inhoud, chip met allelcombinatie).
+- `kruisSchema` (n × m-raster met kop, zij en celfunctie), past bij de Kruisingtrainer en Erfelijkheid 2.
 
 ## Wijzigingen
-- 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Deze film heeft geen hoofdstukkaarten, dus geen hoofdstukpauze om in te korten.
-
-## Wijziging 15 okt 2026: geen wijslijnen meer, namen direct bij de onderdelen
-
-'chromosoompaar met kleurgen' en 'ander paar: vormgen' (er was geen lijn, maar ze stonden los ver links) staan nu in twee regels direct links naast hun chromosoompaar (Kamiel: "die lijntjes naar begrippen moeten sowieso weg"; zie `films/BEELDAFSPRAKEN.md`). Gecontroleerd op contactbladen. Regelnummers elders in dit bestand kunnen een paar regels verschoven zijn.
-
-## Wijziging 16 okt 2026: begrippen als kaartjesraster
-Het begrippenblok ziet er nu uit als in de hoofdengine (bv. `films/cellen/van-molecuul-tot-biosfeer.html`): onder de kop "Begrippen" een `<div id="glossary">` met per begrip een kaartje `<div class="term"><b>begrip</b><p>uitleg</p></div>` (raster `repeat(auto-fill,minmax(260px,1fr))`). Volgorde en tekst van de begrippen zijn ongewijzigd; extra kolommen (bron, hoofdstuknummer) staan klein onder de uitleg in `<p class="gl-meta">`. De opmaak staat in `<style id="glossary-stijl">` vlak voor `</head>` (kleuren via de variabelen van deze pagina). Nieuw begrip: voeg een kaartje toe in `#glossary`. Omgezet met een script; regelnummers verderop in dit bestand kunnen enkele regels verschoven zijn. De kop "Begrippen" is een `<h2 class="gl-kop">` met dezelfde opmaak als op de voorbeeldpagina (Fraunces 700, 30px, regelhoogte 1,5, marge 0 0 12px; het lettertype zit als `@font-face` 'Fraunces Begrippen' in `#glossary-stijl`, kleur = tekstkleur van deze pagina).
+- 28 okt 2026 — Versie 2.0: lichte remake op prompt v13. Nieuw script (fase 1, goedgekeurd), gekoppelde overerving uitgelegd met kruisingsschema's (gameten van een gekoppeld paar, terugkruising, F2, vergelijking met onafhankelijke overerving); recombinatiepercentage, genkaart en afstand tussen genen eruit; crossing-over kwalitatief; havo/vwo-verdeling volgens de syllabi; 'erwten' als 'erten', 'gameten' als 'ga-MEE-ten'; nieuwe stem (32 takes), Opa Henk in de moestuin, nieuwe tekeningen, huidige speler (snelheid, Vragen aan/uit), donker standaard, bronnenlogboek, oefeningen herschreven. De oude film staat in `oud/`.

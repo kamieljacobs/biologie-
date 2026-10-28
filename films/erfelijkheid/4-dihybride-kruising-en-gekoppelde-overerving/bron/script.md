@@ -1,183 +1,222 @@
-# Dihybride kruisingen en gekoppelde genen — script
+# Dihybride kruising en gekoppelde overerving — gesproken tekst (versie 2.0 · oktober 2026)
 
-Bron: gereconstrueerd uit de ondertitels/scriptdata (`window.__TIMELINE__`, woordtijden) in de gepubliceerde HTML (2026-10-12). Stem-invoer met respellings (uitspraaklijst) staat niet in de HTML; de tekst hieronder is de ondertiteltekst.
+Stem Roos (7qdUFMklKPaaAVMsBTBt), ElevenLabs eleven_v4, één take per alinea, flow BoM0xdy9b0irXSLoumNl (6886 credits). Audio: `../audio/<id>.mp3` (loudnorm −16 LUFS / −1 dBTP); woordtijden: `stem/woordtijden/<id>.json` (silalign, lokaal). Stem-invoer staat erbij waar die afwijkt van de ondertitel (G/g/R/r als 'grote G'/'kleine g', erwt → ert, gameten → ga-MEE-ten, X → iks). Vwo-blokken: hoofdstuk 2, 4, 5 en s36. Waarom elke zin zo is: `remake-2026-10/script_v2.md`. Oude versie: `oud/script-v1.md`.
 
-Audio: één doorlopende take, blob `006.mp3` (in de HTML als `window.__AUDIO_B64__`). Elke alinea hieronder is één `paras`-item met eigen sleutel (p01, p02b, …); de tijden zijn posities in die ene take. Tussen alinea's zitten vaste stiltes (1,0–2,8 s; 6,0 s na een voorspelvraag; 1,5 s aan het begin, 5,0 s aan het eind). Elke regel = één ondertitelzin zoals de speler hem toont, met de begintijd van het eerste woord.
-Niveau: de hele film is vwo bovenbouw; er zijn geen havo-/vwo-blokken.
+## Cold open
 
-## 1. p01 · Twee eigenschappen tegelijk
-Audio: blob 006.mp3 (doorlopende take) · 0:01–0:20 (19,1 s)
+**s01** · audio `s01.mp3` · 11.1 s · generation `JvJmjB8gAIrC73qnC05U`
 
-[0:01.5] Mendel keek ook naar twee eigenschappen tegelijk: de kleur van de erwt, geel of groen, en de vorm, rond of gerimpeld.
-[0:08.5] Geel en rond zijn dominant.
-[0:10.3] Hij kruiste planten uit de F1 die geel en rond waren.
-[0:13.7] Tussen de nakomelingen zaten ook gele gerimpelde en groene ronde erwten: combinaties die geen van de ouders had.
-[0:19.9] Hoe kan dat?
+Een erwtenplant. Hij groeide uit een gele, ronde erwt. Zijn ouders hadden gele, ronde of groene, gerimpelde erwten. Open een paar peulen, en je vindt dit.
 
-> Beeld: Erwten geel/groen en rond/gerimpeld; 'F1: geel en rond'; nakomelingen met 'nieuwe combinaties!'.
-> Cue-woorden (initCues): geel, kruiste, nakomelingen, combinaties
+_Stem-invoer:_ Een ertenplant. Hij groeide uit een gele, ronde ert. Zijn ouders hadden gele, ronde of groene, gerimpelde erten. Open een paar peulen, en je vindt dit.
 
-## 2. p02 · Onafhankelijke verdeling
-Audio: blob 006.mp3 (doorlopende take) · 0:22–0:38 (16,6 s)
+**s02** · audio `s02.mp3` · 10.7 s · generation `TTb3wOL1pdpjEhhf5KaH`
 
-[0:22.2] We noemen het allel voor geel G, voor groen g, voor rond R en voor gerimpeld r.
-[0:29.0] De ouderplanten zijn GgRr.
-[0:33.0] Het gen voor kleur ligt op een ander chromosoom dan het gen voor vorm.
-[0:36.7] We volgen dus twee chromosoomparen.
+Gele, ronde erwten. Groene, gerimpelde. Maar ook gele, gerimpelde en groene, ronde. Die combinaties hadden de grootouders niet. Hoe kan dat?
 
-> Beeld: 'GgRr'; twee chromosoomparen: 'chromosoompaar met kleurgen' en 'ander paar: vormgen' (titel 'Twee genen, twee chromosoomparen').
-> Cue-woorden (initCues): G,, R, ouderplanten, ander, chromosoomparen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Gele, ronde erten. Groene, gerimpelde. Maar ook gele, gerimpelde en groene, ronde. Die combinaties hadden de grootouders niet. Hoe kan dat?
 
-## 3. p03 · Onafhankelijke verdeling
-Audio: blob 006.mp3 (doorlopende take) · 0:40–1:03 (22,9 s)
+## Titel
 
-[0:40.2] Bij de meiose gaan de paren in het midden van de cel liggen.
-[0:43.3] Hoe elk paar ligt, is toeval.
-[0:45.4] Ligt het zo, dan ontstaan gameten met GR en met gr.
-[0:50.9] Ligt het andersom, dan ontstaan gameten met Gr en met gR.
-[0:56.2] Beide liggingen zijn even waarschijnlijk.
-[0:58.1] Kijk maar wat er gebeurt bij honderden cellen: vier soorten gameten, elk ongeveer een kwart.
+**s03** · titelkaart: Dihybride kruising en gekoppelde overerving
 
-> Beeld: Meiose I met de twee liggingen naast elkaar ('andersom', 'elk 50% kans'); daarna gameten van honderden cellen geteld: vier soorten, elk ± ¼.
-> Cue-woorden (initCues): toeval, zo,, andersom, beide, honderden, kwart (ook begin/eind van de alinea via PS/PE)
+## Hoofdstuk 1 — Twee genen, twee chromosoomparen
 
-## 4. p04 · Onafhankelijke verdeling
-Audio: blob 006.mp3 (doorlopende take) · 1:04–1:09 (5,7 s)
+**s04** · audio `s04.mp3` · 13.2 s · generation `o5Fg3aHL8dNc6qgsTXz9`
 
-[1:04.1] Dat heet onafhankelijke overerving: de allelen voor kleur en vorm worden los van elkaar verdeeld.
+Eerst de letters. Het allel voor geel noem je G, voor groen g. Rond is R, gerimpeld r. Geel en rond zijn dominant.
 
-> Beeld: Termkaart 'onafhankelijke overerving: kleur en vorm worden los van elkaar verdeeld'.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Eerst de letters. Het allel voor geel noem je grote G, voor groen kleine g. Rond is grote R, gerimpeld kleine r. Geel en rond zijn dominant.
 
-## 5. p05 · 9 : 3 : 3 : 1
-Audio: blob 006.mp3 (doorlopende take) · 1:11–1:15 (4,6 s)
+**s05** · audio `s05.mp3` · 14.0 s · generation `BIPC6JUC5sXsmw2jMjoi`
 
-[1:11.2] Hoeveel vakjes krijgt het kruisingsschema als beide ouders vier soorten gameten maken?
+De ouders waren raszuiver. De gele, ronde ouder gaf G en R door, de groene, gerimpelde g en r. Deze erwtenplant is dus heterozygoot voor allebei de genen.
 
-> Beeld: Vier soorten gameten per ouder.
-> Vraag: VOORSPEL-kaart 'Hoeveel vakjes krijgt het schema?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ De ouders waren raszuiver. De gele, ronde ouder gaf grote G en grote R door, de groene, gerimpelde kleine g en kleine r. Deze ertenplant is dus heterozygoot voor allebei de genen.
 
-## 6. p06 · 9 : 3 : 3 : 1
-Audio: blob 006.mp3 (doorlopende take) · 1:21–1:43 (21,8 s)
+**s06** · audio `s06.mp3` · 11.6 s · generation `VGqLtXaZpByNVr19ms63`
 
-[1:21.8] Vier keer vier: zestien vakjes.
-[1:23.9] Tel de fenotypen.
-[1:25.1] Negen geel en rond.
-[1:26.5] Drie geel en gerimpeld.
-[1:27.8] Drie groen en rond.
-[1:28.9] Eén groen en gerimpeld.
-[1:30.3] Negen staat tot drie staat tot drie staat tot één.
-[1:33.6] Mendel telde driehonderdvijftien gele ronde, honderdeen gele gerimpelde, honderdacht groene ronde en tweeëndertig groene gerimpelde erwten.
-[1:41.1] Heel dicht bij negen, drie, drie, één.
+Het gen voor kleur ligt op een ander chromosoom dan het gen voor vorm. In elke cel van de plant volgen we dus twee chromosoomparen: een paar met het kleurgen, en een paar met het vormgen.
 
-> Beeld: 4×4-schema met erwtjes per vakje; kaarten 'FENOTYPEN 9 : 3 : 3 : 1' en 'MENDEL TELDE 315 geel rond …' (titel 'Negen, drie, drie, één').
-> Cue-woorden (initCues): tel, negen, negen (#2), mendel, drie, drie (#2), eén (ook begin/eind van de alinea via PS/PE)
+**s07** · audio `s07.mp3` · 6.7 s · generation `wZ0hW0MJWW9PfHob4pZT`
 
-## 7. p07 · 9 : 3 : 3 : 1
-Audio: blob 006.mp3 (doorlopende take) · 1:45–2:00 (14,8 s)
+Bij de meiose maakt de plant gameten. Hoeveel soorten gameten kan deze plant maken? Wat denk je?
 
-[1:45.4] Je kunt het ook uitrekenen, zonder schema.
-[1:47.9] De kans op geel is drie kwart.
-[1:49.7] De kans op rond is ook drie kwart.
-[1:51.5] Omdat de genen onafhankelijk zijn, vermenigvuldig je: drie kwart keer drie kwart is negen zestiende.
-[1:56.7] Groen en gerimpeld: een kwart keer een kwart is één zestiende.
+_Stem-invoer:_ Bij de meiose maakt de plant ga-MEE-ten. Hoeveel soorten ga-MEE-ten kan deze plant maken? Wat denk je?
 
-> Beeld: 'uitrekenen met de productregel': kans op geel ¾ × kans op rond ¾ = 9/16; groen en gerimpeld ¼ × ¼ = 1/16.
-> Cue-woorden (initCues): geel, rond, vermenigvuldig, gerimpeld: (ook begin/eind van de alinea via PS/PE)
+**q08** · vraag: Een erwtenplant is heterozygoot voor kleur (Gg) en voor vorm (Rr); de genen liggen op verschillende chromosomen. Hoeveel soorten gameten kan hij maken?
+- a) twee soorten
+- b) vier soorten  ✓
+- c) zestien soorten
 
-## 8. p08 · 9 : 3 : 3 : 1
-Audio: blob 006.mp3 (doorlopende take) · 2:01–2:14 (12,7 s)
+**s09** · audio `s09.mp3` · 25.0 s · generation `XGBO5V9Ob4l7JmAiXudU`
 
-[2:01.9] En bij een terugkruising met een groene gerimpelde plant, ggrr, zie je de vier soorten gameten van de andere ouder direct terug: één staat tot één staat tot één staat tot één.
+Een plant die voor twee genen heterozygoot is, maakt vier soorten gameten. Bij de meiose gaan de chromosoomparen in het midden van de cel liggen. Hoe elk paar ligt, is toeval. Ligt het zo, dan krijgen de gameten G met R, of g met r. Ligt het andersom, dan G met r, of g met R.
 
-> Beeld: 'terugkruising: GgRr × ggrr' → gameten GR, Gr, gR + gr → '1 : 1 : 1 : 1'.
-> Cue-woorden (initCues): terug: (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Een plant die voor twee genen heterozygoot is, maakt vier soorten ga-MEE-ten. Bij de meiose gaan de chromosoomparen in het midden van de cel liggen. Hoe elk paar ligt, is toeval. Ligt het zo, dan krijgen de ga-MEE-ten grote G met grote R, of kleine g met kleine r. Ligt het andersom, dan grote G met kleine r, of kleine g met grote R.
 
-## 9. p09 · Gekoppelde genen en crossing-over
-Audio: blob 006.mp3 (doorlopende take) · 2:16–2:21 (4,8 s)
+**s10** · audio `s10.mp3` · 15.6 s · generation `m6In4pOzRroLPv2GvmqX`
 
-[2:16.5] Wat als twee genen op hetzelfde chromosoom liggen?
-[2:19.1] Hoeveel soorten gameten verwacht je dan?
+Beide liggingen zijn even waarschijnlijk. Kijk wat er gebeurt bij honderden cellen: vier soorten gameten, elk ongeveer een kwart. Dat heet onafhankelijke overerving: de allelen voor kleur en vorm worden los van elkaar over de gameten verdeeld.
 
-> Beeld: Overgang naar gekoppelde genen.
-> Vraag: VOORSPEL-kaart 'Twee genen op hetzelfde chromosoom: hoeveel soorten gameten?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Beide liggingen zijn even waarschijnlijk. Kijk wat er gebeurt bij honderden cellen: vier soorten ga-MEE-ten, elk ongeveer een kwart. Dat heet onafhankelijke overerving: de allelen voor kleur en vorm worden los van elkaar over de ga-MEE-ten verdeeld.
 
-## 10. p10 · Gekoppelde genen en crossing-over
-> **Opnieuw inspreken (15-10-2026)**: [nieuw]-regels toegevoegd (aanvulling na vergelijking met Gewoon Uitgelegd). Tijden kloppen pas weer na de nieuwe opname.
-Audio: blob 006.mp3 (doorlopende take) · 2:27–2:44 (17,1 s)
+**s11** · audio `s11.mp3` · 15.7 s · generation `tlJzNvuOHdwxKbebcd21`
 
-[2:27.3] Dan gaan ze samen mee.
-[2:28.9] Bij dit fruitvliegje ligt op het ene chromosoom het allel voor een grijs lijf naast het allel voor normale vleugels.
-[2:35.8] Op het homologe chromosoom ligt zwart lijf naast vleugelstompjes.
-[nieuw] Hoe weet je welke allelen samen op één chromosoom liggen? Dat lees je af aan de ouders.
-[nieuw] Kwam dit vliegje uit een raszuivere grijze vlieg met normale vleugels en een zwarte met stompjes, dan kreeg het van de ene ouder grijs en normaal samen op één chromosoom, en van de andere zwart en stompjes.
-[nieuw] Waren de ouders grijs met stompjes en zwart met normale vleugels, dan is het precies andersom: grijs ligt naast stompjes, en zwart naast normale vleugels.
-[nieuw] Hetzelfde genotype, alleen een andere verdeling over de chromosomen.
-[2:39.7] Zonder uitwisseling ontstaan maar twee soorten gameten.
-[2:42.7] Zulke genen heten gekoppeld.
+Daar zit het antwoord op de puzzel. Gameten met G en r, of met g en R, maakten de grootouders niet. Deze plant maakt ze wel. Zo ontstaan gele, gerimpelde en groene, ronde erwten.
 
-> Beeld: Fruitvliegen 'grijs lijf, normale vleugels' en 'zwart lijf, vleugelstompjes'; legenda 'B: grijs · b: zwart · V: normaal · v: stompjes'; 'maar 2 soorten gameten'; termkaart gekoppeld (titel 'Gekoppelde genen').
-> Cue-woorden (initCues): fruitvliegje, homologe, maar, gekoppeld, chromosoom (ook begin/eind van de alinea via PS/PE)
+_Stem-invoer:_ Daar zit het antwoord op de puzzel. Ga-MEE-ten met grote G en kleine r, of met kleine g en grote R, maakten de grootouders niet. Deze plant maakt ze wel. Zo ontstaan gele, gerimpelde en groene, ronde erten.
 
-## 11. p11 · Gekoppelde genen en crossing-over
-Audio: blob 006.mp3 (doorlopende take) · 2:46–3:03 (17,1 s)
+## Hoofdstuk 2 — Het kruisingsschema met twee genen
 
-[2:46.0] Maar tijdens de meiose liggen de homologe chromosomen dicht tegen elkaar.
-[2:50.4] Soms breken ze op dezelfde plek, en wisselen ze een stuk uit.
-[2:53.5] Dat heet crossing-over.
-[2:55.0] Valt die tussen de twee genen, dan ontstaan nieuwe combinaties: grijs met vleugelstompjes, en zwart met normale vleugels.
-[3:01.4] Die heten recombinanten.
+**s12** · vwo · audio `s12.mp3` · 11.5 s · generation `3gC7pIE175VVutfObqn8`
 
-> Beeld: Animatie crossing-over tussen niet-zuster-chromatiden; gameten 'oud' en 'recombinant' ('grijs + stompjes', 'zwart + normaal').
-> Cue-woorden (initCues): breken, crossing-over., nieuwe, recombinanten (ook begin/eind van de alinea via PS/PE)
+De plant bestuift zichzelf. In het stuifmeel zitten dus vier soorten gameten, en er zijn vier soorten eicellen. Hoeveel vakjes krijgt het kruisingsschema? Wat denk je?
 
-## 12. p12 · Gekoppelde genen en crossing-over
-Audio: blob 006.mp3 (doorlopende take) · 3:04–3:26 (21,5 s)
+_Stem-invoer:_ De plant bestuift zichzelf. In het stuifmeel zitten dus vier soorten ga-MEE-ten, en er zijn vier soorten eicellen. Hoeveel vakjes krijgt het kruisingsschema? Wat denk je?
 
-[3:04.7] Hoe vaak gebeurt dat?
-[3:05.9] Bij een terugkruising met een zwarte vlieg met vleugelstompjes tel je de nakomelingen.
-[3:10.5] Van de duizend zijn er honderdzeventig recombinant.
-[3:13.2] Dat is zeventien procent: het recombinatiepercentage.
-[3:16.4] Hoe verder twee genen uit elkaar liggen, hoe groter de kans dat er een crossing-over tussen valt.
-[3:21.4] Zo kun je met recombinatiepercentages de volgorde van genen op een chromosoom bepalen.
+**q13** · vwo · vraag: Beide ouders maken vier soorten gameten. Hoeveel vakjes krijgt het kruisingsschema?
+- a) vier vakjes
+- b) acht vakjes
+- c) zestien vakjes  ✓
 
-> Beeld: 'terugkruising BbVv × bbvv: 1000 nakomelingen'; kaart 'RECOMBINATIEPERCENTAGE 170 / 1000 = 17%'; 'hoe verder uit elkaar, hoe vaker een crossing-over ertussen'.
-> Cue-woorden (initCues): tel, honderdzeventig, recombinatiepercentage, verder, volgorde (ook begin/eind van de alinea via PS/PE)
+**s14** · vwo · audio `s14.mp3` · 16.4 s · generation `Uoyc2I7fsW5jqlZhvmFV`
 
-## 13. p13 · Genkaart
-Audio: blob 006.mp3 (doorlopende take) · 3:27–3:35 (7,5 s)
+Vier keer vier: zestien vakjes. Elk vakje is één bevruchting, en elk vakje heeft dezelfde kans. Tel de erwten. Negen geel en rond. Drie geel en gerimpeld. Drie groen en rond. Eén groen en gerimpeld.
 
-[3:27.8] Gen A en gen B geven tien procent recombinanten.
-[3:31.1] Gen A en gen C dertig procent.
-[3:33.4] Welk gen ligt het dichtst bij gen A?
+_Stem-invoer:_ Vier keer vier: zestien vakjes. Elk vakje is één bevruchting, en elk vakje heeft dezelfde kans. Tel de erten. Negen geel en rond. Drie geel en gerimpeld. Drie groen en rond. Eén groen en gerimpeld.
 
-> Beeld: 'A–B: 10%', 'A–C: 30%' (titel 'Genkaart').
-> Vraag: VOORSPEL-kaart 'Welk gen ligt het dichtst bij A?' met aftelklok 5 s.
-> Cue-woorden (initCues): geen (ook begin/eind van de alinea via PS/PE)
+**s15** · vwo · audio `s15.mp3` · 19.1 s · generation `kGLMCZaXMRO3RijmkWfl`
 
-## 14. p14 · Genkaart
-Audio: blob 006.mp3 (doorlopende take) · 3:41–3:51 (10,1 s)
+Negen staat tot drie staat tot drie staat tot één. Mendel telde driehonderdvijftien gele ronde erwten, honderdeen gele gerimpelde, honderdacht groene ronde en tweeëndertig groene gerimpelde. Heel dicht bij negen, drie, drie, één.
 
-[3:41.3] Gen B.
-[3:42.1] Minder recombinatie betekent dat de genen dichter bij elkaar liggen.
-[3:45.7] Het maximum is overigens vijftig procent: dan gedragen de genen zich alsof ze onafhankelijk zijn.
+_Stem-invoer:_ Negen staat tot drie staat tot drie staat tot één. Mendel telde driehonderdvijftien gele ronde erten, honderdeen gele gerimpelde, honderdacht groene ronde en tweeëndertig groene gerimpelde. Heel dicht bij negen, drie, drie, één.
 
-> Beeld: Genkaart met A, B, C; kaart 'maximaal 50% recombinatie: …'.
-> Cue-woorden (initCues): maximum (ook begin/eind van de alinea via PS/PE)
+**s16** · vwo · audio `s16.mp3` · 13.9 s · generation `4FKq9rWD7iYZ5AhFVZkX`
 
-## 15. p15 · Samenvatting
-Audio: blob 006.mp3 (doorlopende take) · 3:53–4:17 (23,7 s)
+Omdat de genen onafhankelijk zijn, kun je het ook uitrekenen. Geel heeft een kans van drie kwart, rond ook. Allebei: drie kwart keer drie kwart is negen zestiende. Dat is de productregel uit de vorige film.
 
-[3:53.4] Samengevat.
-[3:54.4] Genen op verschillende chromosomen erven onafhankelijk: vier soorten gameten, negen staat tot drie staat tot drie staat tot één, en bij een terugkruising één staat tot één staat tot één staat tot één.
-[4:06.6] Genen op hetzelfde chromosoom zijn gekoppeld: je ziet vooral de oude combinaties.
-[4:11.3] Crossing-over maakt recombinanten, en het recombinatiepercentage zegt iets over de afstand tussen de genen.
+**s17** · vwo · audio `s17.mp3` · 14.7 s · generation `2FI6fupcE2QEtP9qjCI6`
 
-> Beeld: 'Samengevat' met vier regels.
-> Cue-woorden (initCues): verschillende, hetzelfde, recombinanten, recombinatiepercentage (ook begin/eind van de alinea via PS/PE)
+Bij een terugkruising met een groene, gerimpelde plant, die alleen g en r doorgeeft, zie je de vier soorten gameten van de andere ouder direct terug: één staat tot één staat tot één staat tot één.
 
-## Controle
-- 15 alinea's (segmenten) in 1 audiofragment (blob 006.mp3): de film is als één take opgeslagen, dus het aantal segmenten wijkt bewust af van het aantal audiobestanden.
-- Spreektijd alinea's samen 220,0 s + stiltes 42,1 s = 262,13 s (`TL.total`); ffprobe op 006.mp3 geeft 262,16 s (4:22).
+_Stem-invoer:_ Bij een terugkruising met een groene, gerimpelde plant, die alleen kleine g en kleine r doorgeeft, zie je de vier soorten ga-MEE-ten van de andere ouder direct terug: één staat tot één staat tot één staat tot één.
+
+## Hoofdstuk 3 — Gekoppelde genen
+
+**s18** · audio `s18.mp3` · 18.4 s · generation `YSTBY2oNyJVnZ4jm4Iob`
+
+Nu een fruitvliegje. Ook bij hem volg je twee genen tegelijk: de kleur van het lijf, grijs of zwart, en de vleugels, normaal of stomp. Grijs en normaal zijn dominant. Kruis je zulke vliegjes, dan zie je veel minder nieuwe combinaties dan bij de erwten. Hoe kan dat?
+
+_Stem-invoer:_ Nu een fruitvliegje. Ook bij hem volg je twee genen tegelijk: de kleur van het lijf, grijs of zwart, en de vleugels, normaal of stomp. Grijs en normaal zijn dominant. Kruis je zulke vliegjes, dan zie je veel minder nieuwe combinaties dan bij de erten. Hoe kan dat?
+
+**s19** · audio `s19.mp3` · 13.3 s · generation `XzEOmbxqUiFW5dmkMKpA`
+
+Deze twee genen liggen op hetzelfde chromosoom. Bij dit vliegje ligt op het ene chromosoom het allel voor grijs naast het allel voor normale vleugels. Op het homologe chromosoom ligt zwart naast stomp.
+
+**s20** · audio `s20.mp3` · 8.7 s · generation `xbmgnAJFJevWu1NNMrDF`
+
+Bij de meiose gaat elk chromosoom in zijn geheel naar een gameet. Hoeveel soorten gameten maakt dit vliegje dan? Wat denk je?
+
+_Stem-invoer:_ Bij de meiose gaat elk chromosoom in zijn geheel naar een ga-MEET. Hoeveel soorten ga-MEE-ten maakt dit vliegje dan? Wat denk je?
+
+**q21** · vraag: Twee genen liggen op hetzelfde chromosoom (G naast V, g naast v) en elk chromosoom gaat in zijn geheel naar een gameet. Hoeveel soorten gameten?
+- a) vier soorten
+- b) één soort
+- c) twee soorten  ✓
+
+**s22** · audio `s22.mp3` · 14.7 s · generation `M04KRhIwRlvtXclYo9lk`
+
+Twee soorten: gameten met grijs en normaal, en gameten met zwart en stomp, elk de helft. De allelen die samen op één chromosoom liggen, gaan meestal samen mee. Zulke genen heten gekoppelde genen.
+
+_Stem-invoer:_ Twee soorten: ga-MEE-ten met grijs en normaal, en ga-MEE-ten met zwart en stomp, elk de helft. De allelen die samen op één chromosoom liggen, gaan meestal samen mee. Zulke genen heten gekoppelde genen.
+
+**s23** · audio `s23.mp3` · 20.0 s · generation `E2ucMnFC6NuKhqYJg829`
+
+Welke allelen samen liggen, lees je af aan de ouders. Waren die raszuiver grijs met normale vleugels en zwart met stompe, dan liggen grijs en normaal samen. Waren ze grijs met stompe vleugels en zwart met normale, dan precies andersom. Hetzelfde genotype, een andere verdeling over de chromosomen.
+
+**s24** · audio `s24.mp3` · 15.7 s · generation `lFkWAgzz1Hr1lKupdSew`
+
+Vergelijk de twee. Genen op verschillende chromosomen: vier soorten gameten, elk een kwart. Gekoppelde genen: vooral de twee combinaties die al op de chromosomen lagen. Daarom zie je bij het fruitvliegje veel minder nieuwe combinaties.
+
+_Stem-invoer:_ Vergelijk de twee. Genen op verschillende chromosomen: vier soorten ga-MEE-ten, elk een kwart. Gekoppelde genen: vooral de twee combinaties die al op de chromosomen lagen. Daarom zie je bij het fruitvliegje veel minder nieuwe combinaties.
+
+## Hoofdstuk 4 — Kruisingsschema's met gekoppelde genen
+
+**s25** · vwo · audio `s25.mp3` · 16.8 s · generation `7UYH4Y8bqEfgjAh4bzog`
+
+Een kruisingsschema maakt het verschil zichtbaar. Kruis het vliegje met een zwart vliegje met stompe vleugels, dat alleen zwart en stomp doorgeeft. Er komen twee soorten nakomelingen: grijs met normale vleugels, en zwart met stompe. Eén staat tot één.
+
+**s26** · vwo · audio `s26.mp3` · 13.1 s · generation `Y4awsfhearkKcb2P7Grr`
+
+Bij genen op verschillende chromosomen kreeg je vier soorten: één staat tot één staat tot één staat tot één, zoals bij de erwten. Twee soorten in plaats van vier: zo herken je gekoppelde genen.
+
+_Stem-invoer:_ Bij genen op verschillende chromosomen kreeg je vier soorten: één staat tot één staat tot één staat tot één, zoals bij de erten. Twee soorten in plaats van vier: zo herken je gekoppelde genen.
+
+**s27** · vwo · audio `s27.mp3` · 19.9 s · generation `N8cqGWsPmlMDmGtFc2aB`
+
+Kruis je twee van die vliegjes met elkaar, dan maakt elk maar twee soorten gameten. Het schema heeft vier vakjes, geen zestien: drie keer grijs met normale vleugels, één keer zwart met stompe. Drie staat tot één. De productregel per gen werkt hier niet: die geldt alleen voor onafhankelijke genen.
+
+_Stem-invoer:_ Kruis je twee van die vliegjes met elkaar, dan maakt elk maar twee soorten ga-MEE-ten. Het schema heeft vier vakjes, geen zestien: drie keer grijs met normale vleugels, één keer zwart met stompe. Drie staat tot één. De productregel per gen werkt hier niet: die geldt alleen voor onafhankelijke genen.
+
+**s28** · vwo · audio `s28.mp3` · 11.1 s · generation `PqbMnQmQt7S3qDXQV8Nh`
+
+Nu een vliegje met grijs naast stomp, en zwart naast normaal. Je kruist het met een zwart vliegje met stompe vleugels. Welke nakomelingen krijg je? Wat denk je?
+
+**q29** · vwo · vraag: Een vliegje met G naast v en g naast V (Gv/gV) wordt gekruist met gv/gv. Welke nakomelingen krijg je (zonder crossing-over)?
+- a) grijs-normaal en zwart-stomp
+- b) grijs-stomp en zwart-normaal  ✓
+- c) alle vier, even vaak
+
+**s30** · vwo · audio `s30.mp3` · 16.6 s · generation `LAUyT59AxTs7bk5f7b1D`
+
+Grijs met stompe vleugels, en zwart met normale. Dit vliegje maakt alleen gameten met grijs en stomp, of met zwart en normaal. Bij gekoppelde genen kijk je dus eerst welke allelen samen op één chromosoom liggen. Die gaan samen naar een gameet.
+
+_Stem-invoer:_ Grijs met stompe vleugels, en zwart met normale. Dit vliegje maakt alleen ga-MEE-ten met grijs en stomp, of met zwart en normaal. Bij gekoppelde genen kijk je dus eerst welke allelen samen op één chromosoom liggen. Die gaan samen naar een ga-MEET.
+
+## Hoofdstuk 5 — Crossing-over
+
+**s31** · vwo · audio `s31.mp3` · 16.4 s · generation `MxwT2KaQ7Pd9EnIKWwVj`
+
+Toch zie je bij echte fruitvliegjes soms nieuwe combinaties. Kruis zo'n vrouwtje met een zwart mannetje met stompe vleugels. De meeste jongen zijn grijs met normale vleugels, of zwart met stompe. Maar een paar zijn grijs met stompe, of zwart met normale.
+
+**s32** · vwo · audio `s32.mp3` · 16.8 s · generation `qmKmmaSM766qX1ng8JfJ`
+
+Dat komt door crossing-over. Bij de meiose liggen de homologe chromosomen dicht tegen elkaar. Elk bestaat dan uit twee chromatiden. Een chromatide van het ene chromosoom en een chromatide van het andere kunnen op dezelfde plek breken, en een stuk uitwisselen.
+
+**s33** · vwo · audio `s33.mp3` · 20.2 s · generation `avhXYGsiPefTTa3rPSCB`
+
+Valt die uitwisseling tussen de twee genen, dan ontstaan twee nieuwe chromatiden: één met grijs naast stomp, en één met zwart naast normaal. Uit zo'n cel komen vier gameten: twee met de oude combinatie, twee met een nieuwe. Gameten en nakomelingen met een nieuwe combinatie heten recombinanten.
+
+_Stem-invoer:_ Valt die uitwisseling tussen de twee genen, dan ontstaan twee nieuwe chromatiden: één met grijs naast stomp, en één met zwart naast normaal. Uit zo'n cel komen vier ga-MEE-ten: twee met de oude combinatie, twee met een nieuwe. Ga-MEE-ten en nakomelingen met een nieuwe combinatie heten recombinanten.
+
+**s34** · vwo · audio `s34.mp3` · 14.8 s · generation `q1LsGramN6lKBdpZgsQJ`
+
+Niet in elke cel valt zo'n uitwisseling tussen deze twee genen. Daarom blijven de recombinanten in de minderheid. In het kruisingsschema krijgen de gameten met een nieuwe combinatie een kleinere kans. Crossing-over verbreekt de koppeling dus af en toe.
+
+_Stem-invoer:_ Niet in elke cel valt zo'n uitwisseling tussen deze twee genen. Daarom blijven de recombinanten in de minderheid. In het kruisingsschema krijgen de ga-MEE-ten met een nieuwe combinatie een kleinere kans. Crossing-over verbreekt de koppeling dus af en toe.
+
+## Recap
+
+**s35** · audio `s35.mp3` · 23.7 s · generation `f1bXhi1ATQo66UWsUt5P`
+
+Terug naar de peul. Genen op verschillende chromosomen worden onafhankelijk verdeeld. Een plant die voor twee genen heterozygoot is, maakt dan vier soorten gameten. Zo ontstaan gele, gerimpelde en groene, ronde erwten. Genen op hetzelfde chromosoom zijn gekoppeld. Ze gaan meestal samen mee, en je ziet vooral de combinaties terug die op de chromosomen lagen.
+
+_Stem-invoer:_ Terug naar de peul. Genen op verschillende chromosomen worden onafhankelijk verdeeld. Een plant die voor twee genen heterozygoot is, maakt dan vier soorten ga-MEE-ten. Zo ontstaan gele, gerimpelde en groene, ronde erten. Genen op hetzelfde chromosoom zijn gekoppeld. Ze gaan meestal samen mee, en je ziet vooral de combinaties terug die op de chromosomen lagen.
+
+**s36** · vwo · audio `s36.mp3` · 13.2 s · generation `LzhXup3zSnjU4atUcntV`
+
+Bij onafhankelijke genen geeft het kruisingsschema negen staat tot drie staat tot drie staat tot één. Bij gekoppelde genen zie je vooral de oude combinaties, en de paar nieuwe komen door crossing-over.
+
+**s37** · audio `s37.mp3` · 4.9 s · generation `311MabTAtkPYNquG9OhF`
+
+In de volgende film: wat er gebeurt als een gen op het X-chromosoom ligt.
+
+_Stem-invoer:_ In de volgende film: wat er gebeurt als een gen op het iks-chromosoom ligt.
+
+## Eindkaart
+
+**s38** · eindkaart:
+- Genen op verschillende chromosomen worden onafhankelijk verdeeld: vier soorten gameten, elk een kwart.
+- Gekoppelde genen liggen op hetzelfde chromosoom en gaan meestal samen naar een gameet.
+- vwo: crossing-over tussen de genen maakt af en toe recombinanten, nieuwe combinaties van allelen.

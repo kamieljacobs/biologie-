@@ -6,15 +6,15 @@
 
 **Noor** (16) · vast: leerling, stelt de vragen, familie van Linda en Rachid, broertje Teun (`kind`). Gebeurd: Doet bij mevrouw Visser een EMG-practicum met plakkers op biceps en triceps (zomeroutfit): tilt een veertje, boeken en haar volle schooltas, probeert een tafel op te tillen; Sam laat onverwacht een boek in haar tas vallen terwijl ze haar ogen dicht heeft (Zenuwstelsel 9 Spieren en beweging, okt 2026). Haalt in een schoolpracticum haar eigen DNA uit wangcellen (zout spoelwater, afwasmiddel, alcohol: witte draadjes), labjas `practicum` (DNA 1 Wat is DNA? 3.0, okt 2026). Heeft een schaafwond op haar onderarm die in een week heelt (DNA 2 DNA kopiëren 2.0, okt 2026). Krijgt een mRNA-vaccin in haar bovenarm (DNA 3 Van DNA naar eiwit 1.2, 27 okt 2026). Staat op zaterdagochtend in de keuken bij de radio: herkent haar nummer na twee tonen, tikt met haar voet mee, zingt het refrein en krijgt kippenvel, zomeroutfit (Zenuwstelsel 5 Het hoofdkantoor 1.2, 28 okt 2026; zonder keuring). Verbrandt in de zon op het strand, met een plekje op haar onderarm (DNA 5 Mutaties 1.2, 27 okt 2026). Rent een rondje in het park (rood en bezweet) en staat op een koude dag bleek met kippenvel, sportoutfit (Uitscheiding en evenwicht 1.1, hoofdstuk De huid, 26 okt 2026). Grenzen: familie blijft heel; niet in een beroepsrol. Vindt een week vergeten broodtrommel met beschimmelde boterham terug; doet met mevrouw Visser de proef met drie zakjes brood en kweekschaaltjes (vingers, lucht); wil een antibioticum tegen haar verkoudheid (Wat groeit er op je boterham?, Cellen). Leert in de toetsweek elke avond tot laat aan de schoolbank en zit de dag na de laatste toets verkouden rechtop in bed met tissues (Hormonen 4 Stress 1.1, 28 okt 2026). Sport twee uur op een warme dag (sportoutfit, moe, zweet) en drinkt op een rustige dag binnen zittend een hele fles water (Hormonen 5 Water in balans 1.1, 28 okt 2026).
 
-**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
+**Opa Henk** (71) · vast: opa van Noor, man van Oma Ria, vader van Linda en Petra, tuiniert, af en toe patiënt. Gebeurd: patiënt (etiket H. de Vries) in Laboratoriumtechniek 2, 3 en 4. Spuit insuline met een pen in de opening van DNA 4 De genetische code lezen 1.2 (27 okt 2026; ter keuring). Opent erwtenpeulen in zijn moestuin en vindt gele gerimpelde en groene ronde erwten, zonder naam (Erfelijkheid 4 Dihybride kruising en gekoppelde overerving 2.0, 28 okt 2026). Doet met Yasmin vier bodemproefjes in zijn moestuin (Landbouw 2, 25 okt 2026). Kijkt over het hek mee op het melkveebedrijf; vroeger hield je zwartbonte koeien voor melk én vlees (Landbouw 3 Fokken, 26 okt 2026). Grenzen: Opa Henk en Oma Ria overlijden niet in een film; hij is geen arts of onderzoeker.
 
 **Oma Ria** (69) · vast: vrouw van Henk, moeder van Linda en Petra; outfit `vroeger` = jong, zwanger van Linda. Grenzen: overlijdt niet in een film.
 
 **Linda** (44), **Rachid** (47), **Tante Petra** (41), **Opa Ahmed** / **Oma Malika**: vast: de familie van Noor (`CAST_FAMILIE`); Linda outfit `zwanger` = 16 jaar geleden. Grenzen: familieverhoudingen niet wijzigen. Gebeurd: Linda was 28 bij de geboorte van Noor; de eisprong van de eicel waaruit Noor groeide, was op haar 27e: die eicel stond ruim 27 jaar stil in meiose I, sinds oma Ria zwanger was van Linda (Celdeling 2.0, extra uitdaging x01/x02, Kamiel akkoord 25 okt 2026). Linda drinkt 's ochtends koffie (staand aan tafel, eerst moe, dan wakker) en zit 's avonds met een glas wijn op de bank, als 'je' in de cold open (Zenuwstelsel 4 Knoeien met de synaps 1.1, 28 okt 2026; zonder keuring).
 
-**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). Grenzen: Bilal blijft hbo-stagiair in dat vak.
+**Yasmin** (16) en **Bilal** (17) · vast: broer en zus; Yasmin wil arts worden. Gebeurd: Yasmin stagiair-analist in Laboratoriumtechniek; Yasmin snuffelstage landbouw met Opa Henk in zijn moestuin (Landbouw 2, Wat zit er in de bodem?, 25 okt 2026); Yasmin snuffelstage op het melkveebedrijf van Veehouder Gerrit, houdt een stierkalfje vast voor de DNA-test; Bilal kort in beeld naast Yasmin bij 'zelfde ouders, toch verschillend' (Landbouw 3 Fokken, 26 okt 2026); Bilal stagiair forensisch onderzoek (hbo) in alle drie de films van Forensisch onderzoek, outfit `plaatsdelict` op de plaats delict, `practicum` in het lab. Yasmin snuffelstage bij de GGD (afdeling infectieziektebestrijding) met Epidemioloog Farid; herinnering aan maart 2020: Yasmin en Bilal thuis aan de keukentafel, ouders thuiswerkend (Gezondheidswetenschappen 1, Hoe een epidemie groeit en stopt, 26 okt 2026). In Erfelijkheid 3 (2.0, 28 okt 2026) staan de zes castleerlingen op volgorde van lengte: Yasmin 1,63 · Noor 1,68 · Daan 1,72 · Lotte 1,75 · Sam 1,79 · Bilal 1,86 m. Grenzen: Bilal blijft hbo-stagiair in dat vak.
 
-**Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2). Grenzen: geen dader of patiënt.
+**Dr. Kim** (42) · vast: arts en onderzoeker, klinisch geneticus. Gebeurd: in Forensisch onderzoek forensisch arts (film 3) en DNA-deskundige (film 2); in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026) als klinisch geneticus: tekent een stamboom op het bord en bespreekt een dragerschapstest met Sanne. Grenzen: geen dader of patiënt.
 
 **Mevrouw Visser** (38) · vast: docent biologie. Grenzen: alleen docent.
 
@@ -42,23 +42,25 @@
 
 **Lotte** (16) · vast: jij in de onderbouwreeks (32A en verder), de hele reeks door.
 
-**Gezin De Wit** (Dennis, Marieke, Sara, Levi, Jens en grootouders): vast: ouders Dennis en Marieke (allebei Aa), kinderen Sara (AA), Levi (10, albinisme, aa) en Jens (Aa); bruine huid (variant A, gekeurd 25 okt 2026). Gebeurd: Erfelijkheid 1 Chromosomen (2.1). Grenzen: genotypen voor albinisme liggen vast (ook in de volgende erfelijkheidsfilms); Levi heeft geen rode zonnebrand in beeld, alleen geen pigment.
+**Gezin De Wit** (Dennis, Marieke, Sara, Levi, Jens en grootouders): vast: ouders Dennis en Marieke (allebei Aa), kinderen Sara (AA), Levi (10, albinisme, aa) en Jens (Aa); bruine huid (variant A, gekeurd 25 okt 2026). Gebeurd: Erfelijkheid 1 Chromosomen (2.1); Erfelijkheid 2 Monohybride kruisingen (2.0, 28 okt 2026): in opening en recap als voorbeeld van Aa × Aa, kinderen AA, Aa, aa zonder namen in beeld; Erfelijkheid 3 Voorbij dominant en recessief (2.0, 28 okt 2026): moeder Marieke bloedgroep A, vader Dennis bloedgroep B (in de uitleg Iᴬi en Iᴮi), de kinderen krijgen geen bloedgroep in beeld. Erfelijkheid 5 Overerving via het X-chromosoom (2.0, 28 okt 2026, Kamiel keurde dit): opa aan moederskant (`opabos`) is rood-groen kleurenblind (XᵃY) en sorteert aardbeien met Jens; Marieke is dus zeker draagster (XᴬXᵃ); Levi en Jens hebben elk kans ½, zonder vaste status; oma staat in de moederlijn (vwo). Grenzen: genotypen voor albinisme en Mariekes dragerschap van kleurenblindheid liggen vast (ook in de volgende erfelijkheidsfilms); Levi heeft geen rode zonnebrand in beeld, alleen geen pigment.
+
+**Gregor Mendel** (historisch) · vast: monnik en onderzoeker, zwart pak en bril, geen portret; alleen in historische scènes. Gebeurd: Erfelijkheid 2 Monohybride kruisingen (2.0, 28 okt 2026), kruist erwten met een pincet (eigen `CAST.mendel` in `films/erfelijkheid/2-monohybride-kruisingen/bron/src/teken_erf2.js`, nog niet in lib_cast.js). Grenzen: geen gesproken naam als castpersonage nodig; hij is een historisch persoon.
 
 **Anouk** (34) en **Milan** (36) · vast: figuranten, moeder en vader van een meisje van 4 met een zeldzame aandoening (het meisje komt nooit in beeld); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: uitslaggesprek bij Dr. Kim in Wat word jij? · Bio-informatica 2 (variant met onbekende betekenis; Milan vraagt 'Is dit het nu?', Anouk legt haar hand op de zijne). Grenzen: blijven figuranten in dit verhaal (geen beroepsrol, geen andere films zonder reden); de uitslag van hun dochter blijft 'nog niet bekend', niet later alsnog 'niets'.
 
-**Sanne** (34), **Bram** (46), **Wilma** (63) en de **Voorbijganger** · vast: figuranten in het bedachte uitbraakvoorbeeld van Wat word jij? · Bio-informatica 3; Sanne is verpleegkundige op dezelfde afdeling als Jesse, Bram zorgmedewerker in een ander ziekenhuis, Wilma zit als patiënt in gewone kleding op een stoel, de Voorbijganger heeft geen naam en geen rol (zoals Erik en Joost); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: Bio-informatica 3 (nog onder de tijdelijke sleutels `zorgc`, `zorgb`, `patiente`). Grenzen: blijven figuranten; geen ziekte of schuld als vast kenmerk (wie in dat voorbeeld besmet raakt of de bron is, ligt aan dat verhaal, niet aan de persoon; geen gezichtsuitdrukking die schuld of ziekte suggereert); de Voorbijganger krijgt geen naam of verhaal.
+**Sanne** (34), **Bram** (46), **Wilma** (63) en de **Voorbijganger** · vast: figuranten in het bedachte uitbraakvoorbeeld van Wat word jij? · Bio-informatica 3; Sanne is verpleegkundige op dezelfde afdeling als Jesse, Bram zorgmedewerker in een ander ziekenhuis, Wilma zit als patiënt in gewone kleding op een stoel, de Voorbijganger heeft geen naam en geen rol (zoals Erik en Joost); los van Noors familie, gezin De Wit en alle andere families; ter keuring (25 okt 2026). Gebeurd: Bio-informatica 3 (nog onder de tijdelijke sleutels `zorgc`, `zorgb`, `patiente`); Sanne in Erfelijkheid 6 Stambomen en kansrekenen 2.0 (28 okt 2026, Kamiel keurde dit): zit als 'de vrouw' (niet bij naam) bij Dr. Kim voor erfelijkheidsadvies, haar jongste broer heeft taaislijmziekte, haar ouders en zij niet; haar partner is getest en drager (alleen als symbool); ze krijgt een formulier voor een dragerschapstest. Grenzen: blijven figuranten; geen ziekte of schuld als vast kenmerk (wie in dat voorbeeld besmet raakt of de bron is, ligt aan dat verhaal, niet aan de persoon; geen gezichtsuitdrukking die schuld of ziekte suggereert); de Voorbijganger krijgt geen naam of verhaal.
 
 ## Automatisch: waar komt wie voor
 
 Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `films/**/bron/**/*.js` en de naam in `bron/script.md`; films die een personage alleen via een variabele aanroepen ontbreken mogelijk).
 
 <!-- AUTO:start -->
-### Noor (`noor`) — 66 films
+### Noor (`noor`) — 70 films
 - `afweer`: 1-de-eerste-verdediging, 2-antistoffen-op-maat, 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `cellen`: celorganellen, diffusie-osmose, microben, van-molecuul-tot-biosfeer
 - `dna`: 1-wat-is-dna, 2-dna-kopieren
 - `ecologie`: 3-een-aarde, 4-ingrijpen-of-laten-gaan
-- `erfelijkheid`: 1-chromosomen
+- `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat, 8-stambomen-lezen, x2-het-ontstaan-van-het-leven, x3-van-eerste-cel-tot-nu, x4-hoe-werden-we-mens
 - `examens`: vwo-2018-2
 - `extra`: geschiedenis-van-de-biologie
@@ -115,9 +117,10 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `vervolg`: farmacie-2-sleutel-slot-en-dosis, forensisch-1-sporen, forensisch-2-hoe-zeker-is-een-match, forensisch-3-hoe-lang-al-dood, fysiotherapie-3-trainen, fysiotherapie-4-welke-oefening-helpt, geneeskunde-2-als-regelkringen-ontsporen, gezondheidswetenschappen-1-hoe-een-epidemie-groeit, landbouw-3-fokken, pedagogiek-1-een-brein-in-aanbouw, psychologie-3-aanleg-of-opvoeding, tandheelkunde-1-zuur-in-je-mond
 - `zenuwstelsel`: 7-slaap
 
-### Dr. Kim (`kim`) — 48 films
+### Dr. Kim (`kim`) — 49 films
 - `afweer`: 3-t-cellen-en-virussen, 4-vaccins-allergie-en-bloedgroepen
 - `ecologie`: 5-binnen-de-grenzen
+- `erfelijkheid`: 6-stambomen-en-kansrekenen
 - `evolutie`: 4-de-mens-als-selectiefactor, 7-hoe-weten-we-dat
 - `onderbouw/32b`: 1-levenscyclus-genen-en-milieu, 4-door-de-mens-gekozen
 - `onderbouw/32c`: 2-slaap-natuur-en-hygiene, 3-microben-vriend-en-vijand, 4-ziek-worden-en-beter-worden
@@ -156,18 +159,19 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 - `voeding`: 1-wat-zit-er-in-je-eten, 4-van-darm-naar-bloed, 5-de-lever-als-fabriek, 6-je-darmbewoners
 - `voortplanting`: 4-sekse-gender-diversiteit
 
-### Mevrouw Visser (`visser`) — 9 films
+### Mevrouw Visser (`visser`) — 13 films
 - `cellen`: microben
 - `dna`: 2-dna-kopieren
-- `erfelijkheid`: 1-chromosomen
+- `erfelijkheid`: 1-chromosomen, 2-monohybride-kruisingen, 4-dihybride-kruising-en-gekoppelde-overerving, 5-overerving-via-x-chromosomen-en-mitochondrien, 6-stambomen-en-kansrekenen
 - `evolutie`: 8-stambomen-lezen
 - `onderbouw/32a`: 2-van-cel-tot-lichaam
 - `vervolg`: geneeskunde-4-wat-de-patholoog-ziet, leraar-1-waar-blijft-je-vet, leraar-2-een-practicum-dat-werkt
 - `zenuwstelsel`: 9-spieren-en-beweging
 
-### Opa Henk (`henk`) — 41 films
+### Opa Henk (`henk`) — 42 films
 - `afweer`: 3-t-cellen-en-virussen
 - `ecologie`: 4-ingrijpen-of-laten-gaan, 5-binnen-de-grenzen
+- `erfelijkheid`: 4-dihybride-kruising-en-gekoppelde-overerving
 - `evolutie`: 4-de-mens-als-selectiefactor, x2-het-ontstaan-van-het-leven
 - `examens`: vwo-2018-2
 - `gedrag`: 8-honingbij
@@ -280,8 +284,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Levi (`levi`) — 0 films
 - (geen films gevonden)
 
-### Jens (`jens`) — 0 films
-- (geen films gevonden)
+### Jens (`jens`) — 1 films
+- `erfelijkheid`: 5-overerving-via-x-chromosomen-en-mitochondrien
 
 ### Opa Frank (`opawit`) — 0 films
 - (geen films gevonden)
@@ -289,8 +293,8 @@ Gemaakt door `scripts/levensloop.py` (zoekt `persoon(ctx,'id'`/`pers('id'` in `f
 ### Oma Lucia (`omawit`) — 0 films
 - (geen films gevonden)
 
-### Opa Wim (`opabos`) — 0 films
-- (geen films gevonden)
+### Opa Wim (`opabos`) — 1 films
+- `erfelijkheid`: 5-overerving-via-x-chromosomen-en-mitochondrien
 
 ### Oma Anja (`omabos`) — 0 films
 - (geen films gevonden)
