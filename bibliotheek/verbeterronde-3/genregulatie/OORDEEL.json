@@ -1,0 +1,16 @@
+[
+ {"obj": "methylgroep",
+  "scores": {
+   "X": {"klopt":3,"herkenbaar":3,"stijl":3,"beweging":4,"bruikbaar":3,"totaal":16},
+   "Y": {"klopt":4,"herkenbaar":4,"stijl":5,"beweging":4,"bruikbaar":4,"totaal":21},
+   "Z": {"klopt":5,"herkenbaar":4,"stijl":3,"beweging":4,"bruikbaar":4,"totaal":20}},
+  "winnaar": "Y",
+  "marge": "nipt",
+  "zwakste_plek": {
+   "X": "A- en T-basen zijn grauw bruin/donkerrood en zonder letter: wijkt af van de vaste basekleuren uit de DNA-ladder",
+   "Y": "promotor is niet gemarkeerd (geen haak of kader vóór het gen); koraalkleurige methylgroep lijkt op de rode A",
+   "Z": "tien basenparen in volle kleur plus kader en haak: druk, de groene CH3 moet je zoeken tussen de kleuren"},
+  "overnemen": "In Y de promotor markeren met de gouden haak uit X/Z (geen kader) en de methylgroep een kleur geven die niet op A lijkt (groen zoals in X/Z; dan de transcriptiefactor van Y grijs maken zoals in X/Z, zodat factor en CH3 niet dezelfde tint hebben).",
+  "combineren": true,
+  "fout": ""}
+]

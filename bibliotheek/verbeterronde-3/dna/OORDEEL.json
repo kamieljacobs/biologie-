@@ -1,0 +1,16 @@
+[
+ {"obj": "polymeraseachter-polymerasevoor",
+  "scores": {
+   "X": {"klopt":4,"herkenbaar":3,"stijl":2,"beweging":3,"bruikbaar":3,"totaal":15},
+   "Y": {"klopt":4,"herkenbaar":4,"stijl":4,"beweging":3,"bruikbaar":4,"totaal":19},
+   "Z": {"klopt":3,"herkenbaar":3,"stijl":2,"beweging":3,"bruikbaar":3,"totaal":14}},
+  "winnaar": "Y",
+  "marge": "duidelijk",
+  "zwakste_plek": {
+   "X": "twee dichte kluwens van bolletjes boven en onder het DNA: druk, oogt als bolletjes-eiwit en trekt de aandacht weg van de nieuwe streng",
+   "Y": "keten is één eenvoudige lus en daardoor nauwelijks 'gevouwen'; rechts loopt de keten over de gele T van de matrijs heen",
+   "Z": "enzym valt uiteen in drie losse kluwens met een dun draadje ertussen; leest niet als één enzym, zeker klein niet"},
+  "overnemen": "Uit X alleen een kleine extra plooi in de keten bij de nucleotide (vingers), zodat de lus van Y iets gevouwen oogt zonder drukker te worden; keten in Y net achter of buiten de matrijsbasen rechts leggen.",
+  "combineren": false,
+  "fout": "In alle drie zijn de 'vingers' een losse gouden boog boven de inkomende nucleotide, geen deel van de aminozuurketen; basenparen en kleuren (A rood, T geel, C lichtblauw, G donkerblauw) kloppen overal, alle staafjes even dik."}
+]
