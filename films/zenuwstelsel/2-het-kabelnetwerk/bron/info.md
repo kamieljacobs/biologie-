@@ -200,6 +200,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
   - *alles of niets* — staat al in de film (a3), geen nieuw risico. *refractaire*, *natriumkanalen*, *vuren* staan al in de film.
 
 ## Wijzigingen
+- 29 okt 2026 — nacontrole 29 okt: s21 het label 'natrium-kaliumpomp' (en '3 Na⁺ … / pomp stil') staat 22 px lager (y 752/793 in `#m-pump`) en de pompionen (`pumpRender`) lopen binnen tot y 640 i.p.v. 700, zodat ionen en ATP-chip het label niet meer bedekken.
 - 28 okt 2026 — Opwaardering prompt v13 (versie 1.1), oude versie in `bron/oud/2-het-kabelnetwerk-v1.0.html`:
   - Membraan (s21, a2, s31): de rechte band is nu een stuk van een ronde cel (gebogen, binnen = onder; `#m-band` als polygoon, lipidekoppen langs `yc(x) = 600 − 60·(1 − ((x−610)/510)²)`); natriumkanaal, kaliumkanaal, pomp en lekkanaal schuiven mee omhoog (transform op `#m-nach`, `#m-kch`, `#m-pump`, `#m-leak`); de labels '3 Na⁺ naar buiten · 2 K⁺ naar binnen' en 'pomp stil' staan nu onder de pomp, 'kaliumlekkanaal' op de oude hoogte, zodat ze niet over ionen of de pomp vallen.
   - a5: het kader 'adequate prikkel' heeft twee regels erbij: 'daar reageert hij het makkelijkst op; een heel sterke andere prikkel kan het ook (druk op je oog → licht)'. De vraag zei 'alleen op druk'; dat botste met film 1 vraag 2 (bronnenlogboek bewering 21).

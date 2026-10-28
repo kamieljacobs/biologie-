@@ -225,10 +225,10 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
           <g id="m-kch" transform="translate(0 -49.8)"><rect x="365" y="548" width="70" height="104" rx="14" fill="#BFD7FA" stroke="#1D4ED8" stroke-width="4"/><rect id="m-kgate" x="375" y="590" width="50" height="22" fill="#1D4ED8"/><text id="l-kch" x="365" y="705" class="t-label" opacity="0">kaliumkanaal</text></g>
           <!-- pomp -->
           <g id="m-pump" transform="translate(0 -59.5)" opacity="0"><rect x="590" y="520" width="130" height="160" rx="26" fill="#5F7797" stroke="#2B3A55" stroke-width="4"/><path d="M620,560 L690,560 M690,560 L672,545 M690,560 L672,575 M690,640 L620,640 M620,640 L638,625 M620,640 L638,655" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
-            <text id="l-pump" x="655" y="730" text-anchor="middle" class="t-label" opacity="0">natrium-kaliumpomp</text>
-            <text id="l-pumpn" x="655" y="771.5" text-anchor="middle" class="t-sub" opacity="0">3 Na⁺ naar buiten · 2 K⁺ naar binnen</text>
+            <text id="l-pump" x="655" y="752" text-anchor="middle" class="t-label" opacity="0">natrium-kaliumpomp</text>
+            <text id="l-pumpn" x="655" y="793" text-anchor="middle" class="t-sub" opacity="0">3 Na⁺ naar buiten · 2 K⁺ naar binnen</text>
             <g id="l-atp" opacity="0"><rect x="730" y="640" width="110" height="52" rx="14" fill="#FFB400"/><text x="785" y="677" text-anchor="middle" class="t-label">ATP</text></g>
-            <g id="m-pumpx" opacity="0"><line x1="590" y1="520" x2="720" y2="680" stroke="#C62A55" stroke-width="12"/><line x1="720" y1="520" x2="590" y2="680" stroke="#C62A55" stroke-width="12"/><text x="655" y="771.5" text-anchor="middle" class="t-label" fill="#C62A55">pomp stil</text></g>
+            <g id="m-pumpx" opacity="0"><line x1="590" y1="520" x2="720" y2="680" stroke="#C62A55" stroke-width="12"/><line x1="720" y1="520" x2="590" y2="680" stroke="#C62A55" stroke-width="12"/><text x="655" y="793" text-anchor="middle" class="t-label" fill="#C62A55">pomp stil</text></g>
           </g>
           <!-- lekkanaal -->
           <g id="m-leak" transform="translate(0 -36.4)" opacity="0"><rect x="900" y="548" width="60" height="104" rx="14" fill="#BFD7FA" stroke="#1D4ED8" stroke-width="4"/><rect x="920" y="548" width="20" height="104" fill="#EEF1F7"/><text id="l-leak" x="900" y="536.4" class="t-label" opacity="0">kaliumlekkanaal</text></g>
@@ -714,8 +714,8 @@ function ionsRender(t,opts){
 }
 function pumpRender(t,on,t0){
   PD.forEach((c,i)=>{ if(!on){vis(c,false);return;} const ph=((t-t0)/2.2+ (i<3?i*0.08:0.5+(i-3)*0.08))%1; // 2,2 s per slag
-    if(i<3){ const y=kf(ph,[[0,700],[0.45,600],[0.6,520],[1,440]]); attr(c,'cx',655+(i-1)*28); attr(c,'cy',y); op(c,ph<0.1||ph>0.9?0:1); }
-    else { const y=kf(ph,[[0,440],[0.45,600],[0.6,660],[1,700]]); attr(c,'cx',655+(i-3.5)*36); attr(c,'cy',y); op(c,ph<0.1||ph>0.9?0:1); }
+    if(i<3){ const y=kf(ph,[[0,640],[0.45,590],[0.6,520],[1,440]]); attr(c,'cx',655+(i-1)*28); attr(c,'cy',y); op(c,ph<0.1||ph>0.9?0:1); }
+    else { const y=kf(ph,[[0,440],[0.45,560],[0.6,610],[1,640]]); attr(c,'cx',655+(i-3.5)*36); attr(c,'cy',y); op(c,ph<0.1||ph>0.9?0:1); }
     vis(c,true); });
 }
 function leakRender(t,on,t0){ LD.forEach((c,i)=>{ if(!on){vis(c,false);return;} const ph=((t-t0)/2.6+i/3)%1; attr(c,'cx',930+6*Math.sin(ph*9)); attr(c,'cy',kf(ph,[[0,780],[1,420]])); op(c,ph<0.08||ph>0.92?0:1); vis(c,true); }); }

@@ -22,7 +22,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Zenuwstelsel 2 · Het kabelnetwerk
 
-1. s21 ± 87 s en ± 100 s: het label 'natrium-kaliumpomp' wordt bedekt door ionen ('natrium‑●●umpomp') en daarna door de ATP-chip ('Natrium-K[ATP]mpomp'). Onleesbaar. **hoog**
+1. s21 ± 87 s en ± 100 s: het label 'natrium-kaliumpomp' wordt bedekt door ionen ('natrium‑●●umpomp') en daarna door de ATP-chip ('Natrium-K[ATP]mpomp'). Onleesbaar. **hoog** — hersteld
 2. s21/a2/s31 (100–172 s): 'kaliumlekkanaal' en 'natriumkanaal' worden bedekt door een K⁺- of Na⁺-ion dat erop ligt. In de grafiek loopt de curve door 'drempelwaarde −55 mV' en 'tijd →'. **laag**
 3. a2 ± 133 s: het batterijpictogram in het vak 'membraanpotentiaal' ligt over de tekst 'binnen t.o.v. buiten'. **laag**
 4. s31 ± 172 s: 'dit duurt ≈ 1–2 ms' valt op de onderrand van het grafiekpaneel. **laag**
