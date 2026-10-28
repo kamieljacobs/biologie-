@@ -99,7 +99,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Hormonen 5 · Water in balans
 
-1. s04 ± 57 s: het label 'lever' is half verdwenen achter de arm, precies terwijl de stem 'Ureum komt uit je lever' zegt. 'nieren / ACHTER IN JE BUIK' ligt over het lichaam. **hoog**
+1. s04 ± 57 s: het label 'lever' is half verdwenen achter de arm, precies terwijl de stem 'Ureum komt uit je lever' zegt. 'nieren / ACHTER IN JE BUIK' ligt over het lichaam. **hoog** — hersteld
 2. s04 ± 79 s: bij de urineleider staat een vage, half doorzichtige tekst over de nier. **laag**
 3. s15 (vwo) ± 395 s: 'pompt zout naar buiten / laat geen water door' wordt doorsneden door de lijn van de verzamelbuis. **laag**
 4. s15 ± 376 s: de cel van de verzamelbuis is een afgeronde rechthoek met vrijwel rechte zijden, en de kern is fel paars. **laag**

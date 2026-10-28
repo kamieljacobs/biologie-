@@ -2855,8 +2855,8 @@ const SCENES = {
     // 1.1: realistisch lichaam uit personages/lib_anatomie.js (nieren, urineleiders en blaas op hun echte plek; lever rechts in het lichaam = links in beeld) i.p.v. het grijze silhouet
     const bodyA = 1 - Math.max(cut, q.on('nierslagader', 1)); if (bodyA > 0.01) { ctx.save(); ctx.globalAlpha *= bodyA; BODY = S4_BODY; const ul = q.on('nieren', 1);
       bodyOrgans({ sil: 1, uitsch: 0.55 + 0.45 * ul, t, urine: ul });
-      { const lv = q.on('lever', 1) * (1 - q.on('nierslagader', 1)); liver(lv, 0); naamBij(ctx, 'lever', '', AP(-0.75, 2.35)[0], AP(0, 2.35)[1], lv, 'right', '#C98A7E'); }
-      const nk = AP(0.37, 2.84); naamBij(ctx, 'nieren', 'achter in je buik', nk[0] + 40, nk[1] + 8, ul, 'left', '#C98A7E'); ctx.restore(); }
+      { /* nacontrole 29 okt 2026: namen lever en nieren náást de armen */ const lv = q.on('lever', 1) * (1 - q.on('nierslagader', 1)); liver(lv, 0); naamBij(ctx, 'lever', '', S4_BODY.cx - 170, AP(0, 2.35)[1], lv, 'right', '#C98A7E'); }
+      const nk = AP(0.37, 2.84); naamBij(ctx, 'nieren', 'achter in je buik', S4_BODY.cx + 160, nk[1] + 8, ul, 'left', '#C98A7E'); ctx.restore(); }
     const tk = [['afvalstoffen eruit, zoals ureum', 'afvalstoffen'], ['water en zout regelen', 'regelen']]; tk.forEach(([s, w], i) => tag(ctx, s, 1420, 250 + i * 90, C.goud, q.on(w, 1) * (1 - Math.max(cut, q.on('nierslagader', 1)))));
     tag(ctx, 'ureum: uit de lever (afbraak aminozuren)', 1420, 160, UREUM, q.on('lever', 1) * (1 - q.on('nierslagader', 1)));
     // 1.1: nier uit de beeldbank (nierBijnier); de namen staan direct naast het deel

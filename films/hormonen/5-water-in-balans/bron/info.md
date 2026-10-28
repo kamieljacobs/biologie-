@@ -119,6 +119,7 @@ Kamiel koos in de uitspraaktest (18–19 okt, 4 rondes) hoe de risicowoorden moe
 
 
 ## Wijzigingen
+- 29 okt 2026 — nacontrole 29 okt: s04 de namen 'lever' en 'nieren / achter in je buik' staan náást de armen (x = lichaamsmidden − 170 en + 160) in plaats van half achter de arm en op het lichaam. Alleen `s04` in `src/scenes.js`, ingebouwd met `films/zenuwstelsel/7-slaap/bron/bouw/inbouw.py <film.html> src/scenes.js "// Hormonen 5 · Water in balans — scènes"`.
 
 - **1.1 · 28 okt 2026** — opwaardering prompt v2–v5 → v13 (B14, zonder keuring). Stem, script, vragen en timings gelijk, behalve de knip in s15. Ingebouwd met `bouw/splice.py`; daarna spelerfix, antwoordtekst, kortantwoord, antwoordletter (alle `--check` in orde), flipkaarten, licentie_noot, teller. Elke vraag met `?vragen=uit` afgespeeld (vwo en havo).
   - *s15 (vwo):* ‘Voor vwo gaan we hier nog een stap verder.’ uit de take geknipt (0–3,02 s weg, 80 ms stilte + 20 ms fade-in; woordtijden −2,94 s, dur 45,97 → 43,03 s; audio `?v=3`). Ook uit `script_v2.md`, `script.md` en `segments.json` (display).
