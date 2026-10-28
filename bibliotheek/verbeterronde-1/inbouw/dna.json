@@ -1,0 +1,167 @@
+[
+ {
+  "id": "dna__basering-basebruggen-nucleotidering",
+  "obj": "basering-basebruggen-nucleotidering",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "de plaatsing van de stikstofbase aan de suyiker is beetje druk en dicht op elkaar. ",
+  "fout_ronde1": "Waterstofbruggen: A-T en C-G zijn verticaal getekend in de staafjes zelf, maar de lengtes van de sporten zijn onderling iets verschillend getekend (C-G drie stippellijnen dicht op elkaar); verder geen biologische fout",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dna__cdcel-cdpool-cdkernmembraan-cddraad",
+  "obj": "cdcel-cdpool-cdkernmembraan-cddraad",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "het is lekker simpel de huidige variant. de organellen leiden een beetje af",
+  "fout_ronde1": "In alle versies zit geen duidelijke anafase met uit elkaar getrokken chromatiden (middenpaneel blijft metafaseachtig)",
+  "fout_laatste": "",
+  "zwak_gekozen": "Cytoplasma bijna leeg met korreltjes (korrel verboden, geen organellen), dunne enkelvoudige trekdraden, celrand dubbel en niet strak"
+ },
+ {
+  "id": "dna__cdchromosoom-cdchromatide-cdeen-cdkluwen",
+  "obj": "cdchromosoom-cdchromatide-cdeen-cdkluwen",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Centromeer zit in alle versies vrij dicht bij het midden; kort-arm/lang-arm verschil is klein",
+  "fout_laatste": "",
+  "zwak_gekozen": "Tussenstadium van de condensatie is een dikke band met streepjes: leest meer als ketting dan als opgerolde draad"
+ },
+ {
+  "id": "dna__chromatidex",
+  "obj": "chromatidex",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Zusterchromatiden kruisen elkaar bij het centromeer als een X; dat leest als twee armenparen, niet als twee identieke parallelle kopieën; in beide gelijk",
+  "fout_laatste": "",
+  "zwak_gekozen": "Idem, identiek aan P"
+ },
+ {
+  "id": "dna__dnaladderhelix",
+  "obj": "dnaladderhelix",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "de nucleotide letters in de spiraal is goed, maar is heel druk nu. ik vind de paarse kleur sowieso niet zo mooi. maak meer gebruik van andere kleuren. en zorg dat het minimalistisch en simpel is vormgegeven, want dna is al moeillijk genoeg voor de leerlingen.",
+  "fout_ronde1": "Alle versies draaien linksom: de voorste streng loopt van linksboven naar rechtsonder (\\), een rechtsdraaiende helix loopt voorlangs van linksonder naar rechtsboven (/). Ook geen duidelijk verschil tussen grote en kleine groef.",
+  "fout_laatste": "Grote en kleine groef zijn in de lange helix in alle versies nauwelijks ongelijk (recept: ongelijk)",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dna__helicasering-primase-ligase",
+  "obj": "helicasering-primase-ligase",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Primase is in alle versies een klont met kronkellijntje, geen duidelijk gevouwen keten",
+  "fout_laatste": "In beide loopt de DNA-streng als platte balk over de ring in plaats van door het gat (geen voor-/achterkant)",
+  "zwak_gekozen": "Zes subeenheden als transparante schijven over elkaar met losse helix-krabbels: ring niet te lezen, klein onleesbaar, ligase/primase vloeien samen"
+ },
+ {
+  "id": "dna__kernchromatine",
+  "obj": "kernchromatine",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Draadlengtes verschillen nauwelijks (niet naar baseparen) en de poriën in het kernmembraan zijn alleen kleine stipjes",
+  "fout_laatste": "Chromosomen in de gecondenseerde stand zijn in beide even lang; het recept vraagt verschil in lengte",
+  "zwak_gekozen": "Kernporiën en kernlichaampje nauwelijks zichtbaar; dubbel kernmembraan niet als twee lagen herkenbaar"
+ },
+ {
+  "id": "dna__mrnaSliert",
+  "obj": "mrnaSliert",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "mRNA golft slechts rustig in alle versies en kronkelt niet; leesrichting 5'→3' en poly-A staan er niet duidelijk in",
+  "fout_laatste": "",
+  "zwak_gekozen": "Lus bovenaan raakt de paneelrand; codonbogen overlappen de streng op scherpe bochten"
+ },
+ {
+  "id": "dna__nucleosoomdraad",
+  "obj": "nucleosoomdraad",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Histonen zijn als schijf met vier bolletjes getekend in alle versies, niet als eiwitketens die opvouwen; DNA windt iets minder dan 1,65 keer (zichtbaar ~1,5)",
+  "fout_laatste": "",
+  "zwak_gekozen": "Octameer-kern blijft schijf; staarten zijn dun maar herkenbaar"
+ },
+ {
+  "id": "dna__polymeraseachter-polymerasevoor",
+  "obj": "polymeraseachter-polymerasevoor",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "het is erg druk. het moet duidelijker en simpeler. je mag ook andere kleuren voor dna gebruiken. ",
+  "fout_ronde1": "In geen enkele versie is de polymerase echt een gevouwen keten; het is vlak getekend als vorm",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dna__ribosoomEcht",
+  "obj": "ribosoomEcht",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "De eiwitketen is een kralenslinger die niet buiten het ribosoom vouwt (recept: vouwt erbuiten); mRNA ligt als stekelstreng tussen de subeenheden maar zonder zichtbare codons of tRNA",
+  "fout_laatste": "De drie tRNA-plekken E, P en A zijn in beide versies lege grijze vakken, niet te onderscheiden en zonder tRNA",
+  "zwak_gekozen": "Groeiende keten is een kralenketting die alleen verlengt en niet vouwt; in de polysoomstrook steekt de keten door de rechterrand"
+ },
+ {
+  "id": "dna__rnaPolymerase",
+  "obj": "rnaPolymerase",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "het mag iets simpeler. zonder essentiele dingen te verliezen.",
+  "fout_ronde1": "Hybride van het mRNA met de matrijs is niet te zien en het enzym is geen gevouwen keten; replicatie en transcriptie zijn wel goed te onderscheiden (geen vork, één dunne mRNA-streng)",
+  "fout_laatste": "Het enzym loopt in alle versies over de onderrand van het hoofdpaneel",
+  "zwak_gekozen": "RNA-polymerase is een gladde blob; de basen in de bel zijn gewone staafjes zonder puzzelrand, U/A-paring niet af te lezen"
+ },
+ {
+  "id": "dna__trnaKlaverblad",
+  "obj": "trnaKlaverblad",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "L-vormige vouwing is in de kleine panelen als een rechte hoek met een staafje getekend, niet als compacte L met twee helices",
+  "fout_laatste": "Het klaverblad is een kruis met vier gelijke armen; 5'- en 3'-uiteinde (ACC) en D-/T-lus zijn niet te onderscheiden",
+  "zwak_gekozen": "Lussen zijn los kransje van bolletjes (kralenlus) en het aminozuur is een gladde bol zonder zijketen; klaverblad is eigenlijk een kruis"
+ },
+ {
+  "id": "dna__vork",
+  "obj": "vork",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Helicase is een trosje bolletjes en geen ring van zes eiwitten om één streng; polymerase en ligase zijn klonten zonder gevouwen keten, niet los herkenbaar; leidende/volgende streng en primers kloppen wel",
+  "fout_laatste": "",
+  "zwak_gekozen": "Helicase is een hoopje ovalen naast de vork in plaats van een ring om één streng; polymerase is een klont"
+ },
+ {
+  "id": "dna__vrijnucleotide-d2base-baseringrna",
+  "obj": "vrijnucleotide-d2base-baseringrna",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ }
+]

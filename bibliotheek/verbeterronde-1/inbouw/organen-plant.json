@@ -1,0 +1,90 @@
+[
+ {
+  "id": "organen-plant__bladDoorsnede",
+  "obj": "bladDoorsnede",
+  "nieuw": true,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "In beide versies is in de doorsnede geen duidelijke open spleet tussen twee sluitcellen met bladgroen te zien; CO2 in en O2 uit zijn niet herkenbaar onderscheiden.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "organen-plant__bloemDoorsnede",
+  "obj": "bloemDoorsnede",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Bij in beide versies: slechts drie poten en twee vleugels getekend (moet zes poten, twee paar vleugels); stuifmeelbuis komt in geen van beide bij een zaadbeginsel.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Kelkbladen lopen vóór het vruchtbeginsel langs; stuifmeelbuis bijna onzichtbaar; bij wat cartoonachtig"
+ },
+ {
+  "id": "organen-plant__hartDoorsnede",
+  "obj": "hartDoorsnede",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "In beide versies loopt de onderste holle ader als balk dwars door/onder de rechterkamer in plaats van aan de onderkant van de rechterboezem aan te sluiten; AV-kleppen hebben geen herkenbare klepslippen (alleen peesdraden/papillairspieren); open/dicht van de kleppen per fase is klein niet te zien.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Onderste holle ader eindigt in de kamerwand in plaats van in de rechterboezem; geen cyclus of stroming"
+ },
+ {
+  "id": "organen-plant__longblaasje",
+  "obj": "longblaasje",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Wand in X is veel dikker dan de haarvaten en de blaaswand, terwijl gaswisseling juist over een zeer dunne wand gaat.",
+  "fout_laatste": "Septum rond het blaasje is in beide aan de dikke kant voor een dunne wand",
+  "zwak_gekozen": "Haarvatennet als dicht kluwen/visnet, rode bloedcellen als zwarte stippen, geen zichtbare gaswisseling of enkele-bloedcelrij, blaasjes lijken platte bollen"
+ },
+ {
+  "id": "organen-plant__nefron",
+  "obj": "nefron",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "klopt het dat er een miniatuur niertje naast moet staan. ",
+  "fout_ronde1": "",
+  "fout_laatste": "Het tweede kronkelende deel is in beide een glad boogje, niet kronkelend",
+  "zwak_gekozen": "Kronkelend eerste deel, glomerulus met filtratiedeeltjes, verzamelbuis met zijtakken"
+ },
+ {
+  "id": "organen-plant__stamboomSymbolen",
+  "obj": "stamboomSymbolen",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Portretjes in vierkant/cirkel zijn geen standaardsymbolen; aanwijzing drager/aangedaan alleen via kleine badge of achtergrondkleur; geen generatienummers; nauwelijks bruikbaar klein of in examenstijl"
+ },
+ {
+  "id": "organen-plant__synapsEcht",
+  "obj": "synapsEcht",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Postsynaptisch neuron vlak en vaag; geen context van het hele neuron"
+ },
+ {
+  "id": "organen-plant__wortelHaren",
+  "obj": "wortelHaren",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Wortelharen op het overzicht piepklein; uitvergroting laat maar één cel zien; vaatbundel ontbreekt in de uitsnede"
+ }
+]

@@ -1,0 +1,178 @@
+[
+ {
+  "id": "voortplanting__aanleggeslacht",
+  "obj": "aanleggeslacht",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Alle versies: het gonaadstadium is al sterk gedifferentieerd (eierstok met follikels, bijbal met kronkelbuis), dus niet echt 'aanleg week 6-7' maar al de eindvorm; de vloeiende overgang van een indifferente aanleg ontbreekt. Ook zijn de gonaden niet verbonden met de buizen in de indifferente fase.",
+  "fout_laatste": "",
+  "zwak_gekozen": "sinus blauwgrijs en iets groot; kleur wijkt af van de rest, vrijwel identiek aan X"
+ },
+ {
+  "id": "voortplanting__baarmoederwand",
+  "obj": "baarmoederwand",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Alle versies tonen de functionele laag steeds als een egaal vlak; de dikte 1 tot 7 mm is niet als schaal of getal aangeduid, en de spiraalslagaders reiken niet echt tot onder het oppervlak (X) / lopen los van de klieren.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__blastocyste",
+  "obj": "blastocyste",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "uitgekomen blastocyste is erg ingedeukt en de lege zona is een dunne ring zonder dikte"
+ },
+ {
+  "id": "voortplanting__echobeeld",
+  "obj": "echobeeld",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "",
+  "fout_ronde1": "Beide: het hart is een cirkel met kruis; wervelkolom als twee gestippelde lijnen; romp eindigt abrupt zonder bekken of benen; vooral getekend met lijnen i.p.v. echoweefsel.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__eicelecht-follikel",
+  "obj": "eicelecht-follikel",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "stralenkrans als losse cellen met losse grijze bolletjes eromheen; de kringen sluiten niet aan"
+ },
+ {
+  "id": "voortplanting__eierstokdoorsnede",
+  "obj": "eierstokdoorsnede",
+  "nieuw": false,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "alle stadia staan tegelijk in één doorsnede: het is niet meteen duidelijk dat het om een tijdreeks gaat; gele cirkels voor focus zijn druk"
+ },
+ {
+  "id": "voortplanting__eileiderdoorsnede",
+  "obj": "eileiderdoorsnede",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Franjes als dunne losse slierten/haren die niet bij de trechter lijken te horen"
+ },
+ {
+  "id": "voortplanting__eileiderlangs",
+  "obj": "eileiderlangs",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Plooien dicht op elkaar, vertakt en over elkaar heen: een kluwen, onleesbaar klein"
+ },
+ {
+  "id": "voortplanting__embryoecht",
+  "obj": "embryoecht",
+  "nieuw": false,
+  "keuze": "geen",
+  "actie": "OVERSLAAN (komt in een nieuwe ronde)",
+  "opmerking": "",
+  "fout_ronde1": "Beide: de grote kromming onderaan (navelstreng/staart) is onduidelijk; het hart ligt niet in een echte bult maar als rode schijf op het oppervlak; het hoofd mist een verschil tussen voorhersenen en rest.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__mandoorsnede-penisdoorsnede",
+  "obj": "mandoorsnede-penisdoorsnede",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Zijdoorsnede: penis is een klein rood staafje op te kleine schaal en de urineleider/zaadleider-lussen zijn moeilijk te volgen in alle versies",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__placentadoorsnede-vlokvergroot",
+  "obj": "placentadoorsnede-vlokvergroot",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Alle versies: septa als scherpe spitse stalagmieten (uitgesloten fout); moederbloed 'spuit' niet zichtbaar omhoog, alleen losse cellen.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__vulvaschema",
+  "obj": "vulvaschema",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__zaadbaldoorsnede",
+  "obj": "zaadbaldoorsnede",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Beide: zaadbuisjes zijn identieke, regelmatig verdeelde ronde dwarsdoorsneden met een stervormig 'wieltje'; echte buisjes zijn kronkelend en dus in allerlei hoeken doorgesneden. Leydigcellen vrijwel niet zichtbaar tussen de buisjes.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__zaadbalweefsel",
+  "obj": "zaadbalweefsel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "voortplanting__zaadcelecht",
+  "obj": "zaadcelecht",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Alle versies: de lichte kap (acrosoom) zit aan de achterkant van de kop (bij het middenstuk) terwijl de cel met de kop vooruit zwemt; die hoort vooraan.",
+  "fout_laatste": "",
+  "zwak_gekozen": "geen herkenbaar middenstuk of kap; middenstuk is witte dikke streep zonder mitochondria; staart lijkt kikkervisje"
+ },
+ {
+  "id": "voortplanting__zwangerschapstest",
+  "obj": "zwangerschapstest",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ }
+]

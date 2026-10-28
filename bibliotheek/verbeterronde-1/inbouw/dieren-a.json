@@ -1,0 +1,222 @@
+[
+ {
+  "id": "dieren-a__edelhert",
+  "obj": "edelhert",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Poten nog erg dun en staan star; manen weinig zichtbaar",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__ezel",
+  "obj": "ezel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Ezelstaart nog te dik en te donker over de volle lengte; kwast moet duidelijker een kwast zijn",
+  "fout_laatste": "Poten in alle versies stijf: geen hak- of kniebuiging in de stap",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__grutto",
+  "obj": "grutto",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Snavel te kort en niet duidelijk tweekleurig; poten zijn dunne lijnen die ver achter de staart steken",
+  "fout_laatste": "",
+  "zwak_gekozen": "Poten als dunne donkere strepen achter de staart, nauwelijks herkenbaar op klein formaat"
+ },
+ {
+  "id": "dieren-a__hond-chihuahua",
+  "obj": "hond-chihuahua",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__hond-mops",
+  "obj": "hond-mops",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__hond-teckel",
+  "obj": "hond-teckel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__insecten",
+  "obj": "insecten",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Dagpauwoog toont geen vier poten; stuifmeelkorfje niet herkenbaar",
+  "fout_laatste": "Dagpauwoog heeft in alle versies geen poten (recept: vier volwaardige); poten zijn dunne lijnen zonder echte leden",
+  "zwak_gekozen": "Poten als dunne lijnen met stippen, bijenpoot en mier kriebelig; vlinder zonder poten"
+ },
+ {
+  "id": "dieren-a__jachtluipaard",
+  "obj": "jachtluipaard",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Galopposes: gewrichten leesbaar maar geen echte zweeffase met gestrekte rug",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__kipecht",
+  "obj": "kipecht",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Poten erg dun en lang, kam geen 5 duidelijke punten bij klein formaat",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__koe",
+  "obj": "koe",
+  "nieuw": false,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Hoornstompjes nauwelijks zichtbaar (klein puntje)",
+  "fout_laatste": "Achterpoot is in alle versies een rechte zuil zonder hak, staart is een bruine strook die aan de bil lijkt te plakken",
+  "zwak_gekozen": "Poten recht, achterpoot zonder hakgewricht"
+ },
+ {
+  "id": "dieren-a__krokodilecht",
+  "obj": "krokodilecht",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Poten staan onder het lijf in plaats van zijwaarts gespreid; staart niet duidelijk zijdelings plat",
+  "fout_laatste": "Kop+snuit is ca. 27% van de lengte in plaats van ca. 1/7, in alle versies te groot/lang",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__leeuw",
+  "obj": "leeuw",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__leeuw-galop",
+  "obj": "leeuw-galop",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Gestrekte galopfase: achterpoten nauwelijks als poten te herkennen, romp lijkt te zweven",
+  "zwak_gekozen": "In gestrekte fase zijn de achterpoten samengeklonterd tot bijna onleesbare blokken"
+ },
+ {
+  "id": "dieren-a__muilezel",
+  "obj": "muilezel",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Staart is dun als ezelstaart in plaats van vol (paard); lijf en poten lijken meer ezel dan paard",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__muis",
+  "obj": "muis",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Zittende muis zonder zichtbare achterpoot: alleen een roze stompje onder de romp",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__paard",
+  "obj": "paard",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Staart dik en blokkig; poten recht en stijf",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__tijger",
+  "obj": "tijger",
+  "nieuw": false,
+  "keuze": "oud",
+  "actie": "huidige versie houden + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Overlappende poten bestaan uit platte hoekige vlakken zonder duidelijke gewrichten",
+  "zwak_gekozen": "Geen galop maar stap; staart hangt door de poten heen en maakt het beeld onrustig"
+ },
+ {
+  "id": "dieren-a__wolf-huilen",
+  "obj": "wolf-huilen",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Galop is geen echte galop (geen zweeffase met gestrekt lijf)",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__zeehond",
+  "obj": "zeehond",
+  "nieuw": false,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "De buik is in alle versies recht afgesneden (vlakke onderlijn), ook in de kleine versies",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "dieren-a__zeeschildpad-schildpadnest",
+  "obj": "zeeschildpad-schildpadnest",
+  "nieuw": false,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "nestvlak is een rechthoek met een rechte bovenrand, eieren liggen nogal netjes gestapeld"
+ }
+]

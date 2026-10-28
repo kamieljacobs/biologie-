@@ -1,0 +1,90 @@
+[
+ {
+  "id": "genregulatie__codonTabel",
+  "obj": "codonTabel",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Klein is de tekst onleesbaar; leespad alleen als rij/kolom-highlight"
+ },
+ {
+  "id": "genregulatie__genOpbouw",
+  "obj": "genOpbouw",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "de spiraal laten zien maar niet binnen de blokken. dat leidt af.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "DNA als twee rechte lijnen i.p.v. helix: minder herkenbaar als DNA; splicing slecht leesbaar (kruisjes, losse stukjes)"
+ },
+ {
+  "id": "genregulatie__lacOperon",
+  "obj": "lacOperon",
+  "nieuw": true,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept.",
+  "fout_laatste": "In alle versies zweeft de repressor boven de operator in plaats van er op te binden (zonder lactose); niets benoemd",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "genregulatie__methylgroep",
+  "obj": "methylgroep",
+  "nieuw": true,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "andere opbouw qua kleuren en de nucleotiden moeten simpeler.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "genregulatie__nucleosoomAcetyl",
+  "obj": "nucleosoomAcetyl",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "beetje druk",
+  "fout_ronde1": "",
+  "fout_laatste": "De histonkern toont vier schijven in plaats van acht histonen; het openen is drie losse standen",
+  "zwak_gekozen": "Transcriptiefactor is een gladde bol met krabbel; staarten wel als kralenketting"
+ },
+ {
+  "id": "genregulatie__rnaInterferentie",
+  "obj": "rnaInterferentie",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Op klein formaat zijn de letters in siRNA/gids onleesbaar; Dicer en RISC lijken op elkaar"
+ },
+ {
+  "id": "genregulatie__transcriptiefactor",
+  "obj": "transcriptiefactor",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept.",
+  "fout_laatste": "RNA-polymerase is in alle versies een gladde bol met een krabbel in plaats van een gevouwen keten",
+  "zwak_gekozen": "Twee clusters + polymerase plakken tegen elkaar: druk; bolletjes; dimeer-contact met streepjes onduidelijk"
+ },
+ {
+  "id": "genregulatie__uvSchade",
+  "obj": "uvSchade",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Eiwit(ten) als bolletjescluster (kralen), geen gevouwen keten; botst met beeldafspraak en recept.",
+  "fout_laatste": "DNA-polymerase in het onderste paneel is in beide versies een gladde bol met krabbel, geen gevouwen keten",
+  "zwak_gekozen": "Knipcomplex en ligase zijn alleen als vervaagd silhouet aanwezig"
+ }
+]

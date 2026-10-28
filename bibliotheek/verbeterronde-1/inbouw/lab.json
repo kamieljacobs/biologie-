@@ -1,0 +1,156 @@
+[
+ {
+  "id": "lab__bioreactor",
+  "obj": "bioreactor",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Alleen vat met zoomcirkel; kleine verhoudingen ok"
+ },
+ {
+  "id": "lab__crisprCas9",
+  "obj": "crisprCas9",
+  "nieuw": true,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "Cas9 klemt in geen enkele versie om het DNA heen (lobben hangen erboven en eronder) en het gids-RNA toont geen paring met de doelstreng; DNA is een platte ladder.",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "lab__gelElektroforese",
+  "obj": "gelElektroforese",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Zijaanzicht bak met buffer, elektrodes, UV-kastje met ladder in laan 1; hand klopt ongeveer"
+ },
+ {
+  "id": "lab__injectiespuit",
+  "obj": "injectiespuit",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "wel erg druk. de hand zit er erg dicht op. de huid weergave en de hand zijn heel dicht bij elkaar.",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Spuit overlapt duim en zweeft boven de hand, rommeliger"
+ },
+ {
+  "id": "lab__insulinePen",
+  "obj": "insulinePen",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Referentiepen naast de hand lijkt te klein (ca. 7 cm in plaats van 16 cm); controleer verhouding in beide",
+  "zwak_gekozen": "Dosis 0 -> 12 -> 0 klopt met uitschuiven en terugdrukken"
+ },
+ {
+  "id": "lab__micropipet",
+  "obj": "micropipet",
+  "nieuw": true,
+  "keuze": "gelijk",
+  "actie": "houden (huidige versie blijft; alleen een fout herstellen als die met 2 bronnen bevestigd is)",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": ""
+ },
+ {
+  "id": "lab__microscoop",
+  "obj": "microscoop",
+  "nieuw": true,
+  "keuze": "A",
+  "actie": "variant A inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Lijntekening zonder vulling, leest als schema; derde stand is gespiegeld (statief rechts), wat verwart; lichtweg wel zichtbaar."
+ },
+ {
+  "id": "lab__pcrBuisje",
+  "obj": "pcrBuisje",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "In beide versies staat de mix in de derde stand halfvol; volgens het recept alleen in de punt.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Vloeistof blijft in de punt in alle standen"
+ },
+ {
+  "id": "lab__petrischaal",
+  "obj": "petrischaal",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "Referentieschaal naast de hand lijkt te klein (schijfje ca. 4-6 cm, moet 9-10 cm); in beide",
+  "zwak_gekozen": "Perspectief met zwevend deksel en dunne dubbele rand; kolonies klein, minder duidelijk; het deksel verschuift tussen standen zonder duidelijke betekenis."
+ },
+ {
+  "id": "lab__plasmideKnipPlak",
+  "obj": "plasmideKnipPlak",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "Het restrictie-enzym is in beide versies een klein blobje naast het DNA in plaats van een herkenbaar gevouwen eiwit; ligase ontbreekt als eigen beeld.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Inzet met zigzagknip en plakkerige uiteinden, enzym en ligase als gevouwen ketens"
+ },
+ {
+  "id": "lab__primerStuk",
+  "obj": "primerStuk",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Polymerase als vormloze blob met ring: geen gevouwen keten; kleine reservevorm overlapt het enzym"
+ },
+ {
+  "id": "lab__restrictieEnzym",
+  "obj": "restrictieEnzym",
+  "nieuw": true,
+  "keuze": "B",
+  "actie": "variant B inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "In geen enkele versie klemt het enzym zichtbaar om het DNA en is het verspringende knippen (zigzag) en het uitstekende AATT duidelijk uitgewerkt.",
+  "fout_laatste": "",
+  "zwak_gekozen": "Twee helften als warrige knoop, niet als gevouwen keten"
+ },
+ {
+  "id": "lab__sequencer",
+  "obj": "sequencer",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Complete keten: lengtesortering, capillair, laser/detector, chromatogram, apparaat naast persoon en NGS-reads met variant"
+ },
+ {
+  "id": "lab__thermocycler",
+  "obj": "thermocycler",
+  "nieuw": true,
+  "keuze": "C",
+  "actie": "variant C inbouwen + bevestigde fouten herstellen + opmerking verwerken",
+  "opmerking": "",
+  "fout_ronde1": "",
+  "fout_laatste": "",
+  "zwak_gekozen": "Schuin aanzicht met open deksel en blok met buisjes; display per cyclusstap"
+ }
+]
