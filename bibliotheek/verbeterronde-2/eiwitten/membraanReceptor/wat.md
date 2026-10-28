@@ -1,0 +1,1 @@
+De receptor was al een kralenketen en blijft gelijk. Nieuw als kralen: G-β (was een vlakke vlek), G-γ (was een dikke lijn) en de twee DNA-bindende vingers van de intracellulaire receptor; G-α en de intracellulaire receptor volgen via enzymKluwen.
