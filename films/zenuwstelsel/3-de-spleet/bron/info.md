@@ -5,8 +5,9 @@
 | Bestand | films/zenuwstelsel/3-de-spleet.html |
 | Reeks / nummer | Zenuwstelsel, film 3 (pagina: “hoe het bericht van cel naar cel springt · 5 vwo · film 3 van de reeks Zenuwstelsel”; `plan.series`: “Het zenuwstelsel · film 3 van 6”) |
 | Doelgroep / niveau | 5 vwo, één niveau (geen havo/vwo-schakelaar) |
-| Versie / datum | 1.0 · 4 oktober 2026 (credits op de pagina) |
-| Prompt | onbekend · gemaakt 4 okt |
+| Versie / datum | **1.1 · 28 oktober 2026** — opwaardering naar prompt v13 (B14, zonder keuring): fietser is castpersonage; 1.0 · 4 oktober 2026 (credits op de pagina) |
+| Prompt | v13 |
+| Voldoet aan | prompt v13 (28 okt 2026, zonder keuring; takes, script, vragen, timings en speler behouden; geen namen van castpersonages in stem of beeld). Bewust niet: (1) de film blijft in het eigen lichte reeksontwerp van vóór Part C (lichte schema-scènes, wereld met verlopen in de lucht, Inter); omzetten naar donker navy is een nieuwe stijl → vraag aan Kamiel; (2) neurotransmitter en de volgende cel blijven paars ('minder paars' gaat geleidelijk; de kleur moet gelijk blijven met Knoeien met de spleet, dus een keuze voor de reeks → vraag); (3) de synaps blijft de eigen vlakke tekening, niet `synapsEcht` uit de beeldbank (die vraagt de donkere lib.js-motor); (4) 'Wat denk je?' staat al in de takes; geen nieuwe opnames |
 | Stem / model | Roos (ElevenLabs, eleven_multilingual_v2) |
 | Duur | 5:05 gesproken (som van 13 mp3’s, 305,4 s); speler-totaal incl. titel-, hoofdstuk- en eindkaarten en 5 aftellingen van 8 s: 6:15 |
 | Beeldstijl | Eigen reeksontwerp van vóór de Part C-stijlkaart: warme vlakke ‘wereld’ (straat met bakker, dezelfde fietser als film 1, geurspoor met lens naar neus en hersenen) en lichte schema-scènes met de synaps als dwarsdoorsnede (eindknopje met blaasjes, spleet, receptoren), deeltjes, voltmeter en optelbalk; Inter-systeemfont |
@@ -164,6 +165,11 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`; "film 3 van 7".
 
 ## Wijzigingen
+- 28 okt 2026 — Opwaardering prompt v13 (versie 1.1), oude versie in `bron/oud/3-de-spleet-v1.0.html`:
+  - Wereld s00 en de samenvatting s70 (achter het kader): de zelfgetekende fietser zonder gezicht is nu castpersonage **Daan**, dezelfde als in film 1 (zijaanzicht op de fiets; `#w-cast-fiets`, één keer getekend). Code: `bron/src/cast_svg.js` + kopie van `personages/lib_cast.js` (28 okt 2026) als `<script id="lib-cast">` / `<script id="cast-svg">` vóór `window.FILM_AUDIO`. Geurspoor en lens op het hoofd vallen nog op neus en hoofd.
+  - Speler: bij Vragen uit verschijnt de ondertitel van het weggeknipte 'Het goede antwoord is …' niet meer (`renderCaption`).
+  - Docentdeel, tabel 'De getallen': Wikipedia-links vervangen door de bronnen uit `bron/bronnen.md`; credits: versie 1.1.
+  - Nieuw: `bron/bronnen.md` en `bron/opwaardering-v13.md`.
 - 15 okt 2026 — Speler: de knop Vragen aan/uit (onthouden in `bk-vragen`, ook `?vragen=uit`) werkt nu altijd, ook na spoelen, in pauze en als je hem halverwege omzet. Bij Vragen uit vallen weg: de vraag zelf, de gesproken vraagzin(nen) ervoor (zinnen op '?', 'Wat denk je?', 'Denk even na.', 'Eerst een voorspelling.') en een los antwoord direct erna ('Antwoord B.', 'Ja.', 'Nee.', 'Precies.'); gewone uitlegzinnen blijven staan. De tijdbalk, tijd en hoofdstuktijden tonen de ingekorte duur. Code: `bkBouw()` maakt `BK.k` (stukken die de speler overslaat); regelnummers in de spelercode zijn daardoor een paar regels verschoven. Hoofdstukkaart 2,2 s in plaats van 3,0 s (duur van de `card`-stukken in `SEGS`).
 
 ## Wijziging 16 okt 2026: begrippen als kaartjesraster
