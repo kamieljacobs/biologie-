@@ -165,6 +165,7 @@ Regelnummers gelden voor `film.src.html` (uitgepakt met `scripts/filmbron.py`; z
 - Verbeterd 12-10-2026: dode link `reeks.html` → `../../index.html#regeling`; "film 3 van 7".
 
 ## Wijzigingen
+- 29 okt 2026 — nacontrole 29 okt: s00 de lens (neus → hersenen) ligt niet meer over Daans gezicht: zoomcirkel náást het hoofd (midden 1440, 380; r 290; keten in een wrapper op schaal 0,92), met een ring om het hoofd en twee lijnen ernaartoe (`#w-lenslijn`, `lensLijnen()`, zoals film 5).
 - 28 okt 2026 — Opwaardering prompt v13 (versie 1.1), oude versie in `bron/oud/3-de-spleet-v1.0.html`:
   - Wereld s00 en de samenvatting s70 (achter het kader): de zelfgetekende fietser zonder gezicht is nu castpersonage **Daan**, dezelfde als in film 1 (zijaanzicht op de fiets; `#w-cast-fiets`, één keer getekend). Code: `bron/src/cast_svg.js` + kopie van `personages/lib_cast.js` (28 okt 2026) als `<script id="lib-cast">` / `<script id="cast-svg">` vóór `window.FILM_AUDIO`. Geurspoor en lens op het hoofd vallen nog op neus en hoofd.
   - Speler: bij Vragen uit verschijnt de ondertitel van het weggeknipte 'Het goede antwoord is …' niet meer (`renderCaption`).

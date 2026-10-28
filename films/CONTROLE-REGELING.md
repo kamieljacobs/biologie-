@@ -30,7 +30,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Zenuwstelsel 3 · De spleet
 
-1. s00 ± 7–15 s: de lens (neus → hersenen) valt helemaal over Daan, ook over zijn gezicht. Dit is hetzelfde probleem dat in film 5 is opgelost (zoomcirkel náást het hoofd). **hoog**
+1. s00 ± 7–15 s: de lens (neus → hersenen) valt helemaal over Daan, ook over zijn gezicht. Dit is hetzelfde probleem dat in film 5 is opgelost (zoomcirkel náást het hoofd). **hoog** — hersteld
 2. a1 ± 60 s (niet gewijzigd): het dendrietvoetje heeft aan de spleetkant een rechte wand en is fel paars. Dat botst met 'membraan gebogen' en 'minder paars', en film 4 heeft dit wel aangepast. **laag**
 3. Vragen uit ✓.
 

@@ -144,7 +144,7 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FB3D9"/><stop offset="1" stop-color="#E8D9BE"/></linearGradient>
           <radialGradient id="warm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFD98A" stop-opacity=".85"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient>
-          <clipPath id="wlens"><circle id="wlens-c" cx="455" cy="590" r="0"/></clipPath>
+          <clipPath id="wlens"><circle id="wlens-c" cx="1440" cy="380" r="0"/></clipPath>
         </defs>
         <rect width="1920" height="1080" fill="url(#sky)"/>
         <circle cx="1600" cy="180" r="120" fill="#FFF1C9" opacity=".8"/>
@@ -175,19 +175,20 @@ h2.gl-kop{font:700 30px/1.5 "Fraunces Begrippen","Fraunces","Playfair Display",G
         <image id="w-cast-fiets" x="100" y="380" width="620" height="560"/><!-- fietser = Daan (castboek, zelfde als film 1), 28 okt 2026 -->
         <!-- geurspoor -->
         <path id="w-smell" d="M770,600 C700,560 640,640 580,600 C520,560 500,620 470,590" fill="none" stroke="#FFB400" stroke-width="10" stroke-linecap="round" stroke-dasharray="22 18" opacity="0"/>
-        <!-- lens op het hoofd: neus -> keten -> hersenen -->
+        <!-- zoomcirkel naast het hoofd (nacontrole 29 okt 2026): neus -> keten -> hersenen -->
+        <g id="w-lenslijn" opacity="0" stroke="#0F1A33" stroke-width="4" fill="none"><circle id="w-lenshoofd" cx="432" cy="598" r="72"/><line id="w-ll1" x1="0" y1="0" x2="0" y2="0"/><line id="w-ll2" x1="0" y1="0" x2="0" y2="0"/></g>
         <g id="w-lensg" clip-path="url(#wlens)" opacity="0">
           <rect width="1920" height="1080" fill="#F4F6FA"/>
-          <g id="w-chain">
+          <g transform="translate(1440 380) scale(0.92) translate(-455 -590)"><g id="w-chain">
             <circle cx="300" cy="590" r="34" fill="#F1C6A0" stroke="#D9A57F" stroke-width="4"/><text id="w-lneus" x="300" y="690" text-anchor="middle" class="t-label">neus</text>
             <g id="w-n1"><path d="M334,590 L470,590" stroke="#17B8A4" stroke-width="12" stroke-linecap="round"/><circle cx="480" cy="590" r="16" fill="#17B8A4"/></g>
             <g id="w-n2"><path d="M516,590 L650,590" stroke="#17B8A4" stroke-width="12" stroke-linecap="round"/><circle cx="660" cy="590" r="16" fill="#17B8A4"/></g>
             <g id="w-n3"><path d="M696,590 L820,590" stroke="#17B8A4" stroke-width="12" stroke-linecap="round"/></g>
             <ellipse cx="870" cy="590" rx="60" ry="44" fill="#BFD0F5" stroke="#2F5FC7" stroke-width="5"/><text id="w-lhers" x="870" y="690" text-anchor="middle" class="t-label">hersenen</text>
             <g id="w-gaps" opacity="0"><rect x="496" y="560" width="20" height="60" fill="#FFB400" opacity=".8"/><rect x="676" y="560" width="20" height="60" fill="#FFB400" opacity=".8"/><text x="590" y="520" text-anchor="middle" class="t-label" fill="#8A5600">spleet</text></g>
-          </g>
+          </g></g>
         </g>
-        <circle id="w-lensring" cx="455" cy="590" r="0" fill="none" stroke="#0F1A33" stroke-width="10"/>
+        <circle id="w-lensring" cx="1440" cy="380" r="0" fill="none" stroke="#0F1A33" stroke-width="10"/>
         <rect id="w-dim" width="1920" height="1080" fill="#0B1020" opacity="0"/>
         <g id="w-puzzle" style="visibility:hidden"><rect x="260" y="330" width="1400" height="230" rx="28" fill="rgba(5,7,15,.72)"/><text x="960" y="425" text-anchor="middle" class="t-q">Een impuls is elektrisch. Ertussen zit een spleet.</text><text x="960" y="510" text-anchor="middle" class="t-q">Hoe komt het bericht daaroverheen?</text></g>
       </svg>
@@ -1486,12 +1487,18 @@ function ionsRender(t,t0,on){ IONS.forEach((c,i)=>{ if(!on){vis(c,false);return;
 
 /* ---------- WORLD ---------- */
 const Wd={ smell:$('#w-smell'), warm:$('#w-warm'), lensg:$('#w-lensg'), lensc:$('#wlens-c'), ring:$('#w-lensring'), gaps:$('#w-gaps'), n1:$('#w-n1'), n2:$('#w-n2'), n3:$('#w-n3'), dim:$('#w-dim'), puzzle:$('#w-puzzle') };
-function worldReset(){ $('#w-sign').style.visibility='hidden'; op(Wd.smell,0); op(Wd.warm,0); op(Wd.lensg,0); attr(Wd.lensc,'r',0); attr(Wd.ring,'r',0); op(Wd.gaps,0); op(Wd.dim,0); vis(Wd.puzzle,false); [Wd.n1,Wd.n2,Wd.n3].forEach(n=>op(n,1)); }
+function worldReset(){ $('#w-sign').style.visibility='hidden'; op(Wd.smell,0); op(Wd.warm,0); op(Wd.lensg,0); attr(Wd.lensc,'r',0); attr(Wd.ring,'r',0); op(Wd.gaps,0); op($('#w-lenslijn'),0); op(Wd.dim,0); vis(Wd.puzzle,false); [Wd.n1,Wd.n2,Wd.n3].forEach(n=>op(n,1)); }
+function lensLijnen(r){ const L=document.getElementById('w-lenslijn'); if(!L) return; L.style.opacity=(r>20?1:0);
+  const cx=1440, cy=380, H=document.getElementById('w-lenshoofd'), hx=+H.getAttribute('cx'), hy=+H.getAttribute('cy'), hr=+H.getAttribute('r');
+  const d=Math.hypot(hx-cx,hy-cy), ux=(hx-cx)/d, uy=(hy-cy)/d, nx=-uy, ny=ux, k=0.55, c=Math.sqrt(1-k*k);
+  [[1,'w-ll1'],[-1,'w-ll2']].forEach(([s,id])=>{ const l=document.getElementById(id);
+    l.setAttribute('x1',(cx+r*(ux*c+s*nx*k)).toFixed(1)); l.setAttribute('y1',(cy+r*(uy*c+s*ny*k)).toFixed(1));
+    l.setAttribute('x2',(hx+hr*(-ux*c+s*nx*k)).toFixed(1)); l.setAttribute('y2',(hy+hr*(-uy*c+s*ny*k)).toFixed(1)); }); }
 function sceneWorld(seg,tl){
   show(layers.world,true); worldReset();
   const tBak=wt('s00','bakker'), tGeur=wt('s00','geur'), tBer=wt('s00','bericht'), tNeus=wt('s00','neus'), tHers=wt('s00','hersenen'), tSpl=wt('s00','spleet'), tHoe=wt('s00','Hoe');
   $('#w-sign').style.visibility=tl<tHoe-0.3?'visible':'hidden'; fade(Wd.warm,tl,tBak); fade(Wd.smell,tl,tGeur-0.2,0.8); attr(Wd.smell,'stroke-dashoffset',String(-tl*60));
-  const r=kf(tl,[[tBer,0],[tBer+0.8,330]],true); attr(Wd.lensc,'r',r); attr(Wd.ring,'r',r); op(Wd.lensg,tl>=tBer?1:0);
+  const r=kf(tl,[[tBer,0],[tBer+0.8,290]],true); attr(Wd.lensc,'r',r); attr(Wd.ring,'r',r); op(Wd.lensg,tl>=tBer?1:0); lensLijnen(r);
   { const s=kf(tl,[[tSpl-0.2,0.8],[tSpl+0.6,1.6]],true), px=kf(tl,[[tSpl-0.2,615],[tSpl+0.6,590]],true); $('#w-chain').setAttribute('transform',`translate(${(455-px*s).toFixed(1)} ${(590-590*s).toFixed(1)}) scale(${s.toFixed(3)})`); op($('#w-lneus'),s>1.1?0:1); op($('#w-lhers'),s>1.1?0:1); }
   // keten licht op van neus naar hersenen
   [Wd.n1,Wd.n2,Wd.n3].forEach((n,i)=>op(n,kf(tl,[[tNeus+i*0.5,0.25],[tNeus+i*0.5+0.4,1]])));
