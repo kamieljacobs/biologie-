@@ -1,0 +1,514 @@
+{
+ "datum": "2026-10-28",
+ "toelichting": "Objecten die na Kamiels keuze nog aangepast zijn (aangepast: true in de manifesten), ingebouwd in lib_bio.js / dieren/lib_dieren.js. voor.png = gekozen versie zoals gekozen, na.png = met de aanpassing.",
+ "objecten": [
+  {
+   "groep": "cel-afweer",
+   "obj": "gedifferentieerdeCellen",
+   "keuze": "B",
+   "functies": [
+    "gedifferentieerdeCellen",
+    "_gdbRond",
+    "_GD",
+    "_GD_GEN",
+    "_gdKern",
+    "_gdPoly",
+    "_gdCel",
+    "_gdStrip"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/gedifferentieerdeCellen/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/gedifferentieerdeCellen/na.png",
+   "wat": "Nu één van boven (ingedeukte schijf, bleek midden) en één los ernaast van opzij (plat), zonder overlap."
+  },
+  {
+   "groep": "cel-afweer",
+   "obj": "lipideNanodeeltje",
+   "keuze": "B",
+   "functies": [
+    "lipideNanodeeltje",
+    "_LN",
+    "_lnDeeltje",
+    "_lnMRNA"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/lipideNanodeeltje/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/lipideNanodeeltje/na.png",
+   "wat": "Het bolletje uit B is rustiger gemaakt: 9 omgekeerde micellen i.p.v. 26, 4 cholesterolstaafjes i.p.v. 10, één mRNA-streng die langs de micellen slingert."
+  },
+  {
+   "groep": "cel-afweer",
+   "obj": "membraanReceptor",
+   "keuze": "C",
+   "functies": [
+    "membraanReceptor",
+    "_mrbKralen",
+    "_mrbLigand",
+    "_mrSteroid",
+    "_mrIntern"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/membraanReceptor/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/membraanReceptor/na.png",
+   "wat": "Rustiger gemaakt (Kamiel: 'balans tussen details en helderheid'): kralen verder uit elkaar (2,4–2,6 r i.p.v. 1,9 r), membraanhelices golven zachter, de β-propeller zonder spaken."
+  },
+  {
+   "groep": "cel-afweer",
+   "obj": "tumorGroei",
+   "keuze": "A",
+   "functies": [
+    "tumorGroei",
+    "_TG",
+    "_tgBlob",
+    "_tgDeling",
+    "_tgApoptose",
+    "_tgbVoronoi",
+    "_tgbVorm"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/tumorGroei/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/tumorGroei/na.png",
+   "wat": "Fout ronde 1 ('basaalmembraan niet zichtbaar doorbroken') hersteld: bij g > 0,75 een duidelijke opening in het basaalmembraan waar de kluwen doorheen groeit."
+  },
+  {
+   "groep": "cel-afweer",
+   "obj": "witteBloedcellen",
+   "keuze": "B",
+   "functies": [
+    "witteBloedcellen",
+    "_WBB_O",
+    "_WB",
+    "_WB_MAAT",
+    "_wbContour",
+    "_wbKernLobben",
+    "_wbGolgi"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/witteBloedcellen/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-afweer/witteBloedcellen/na.png",
+   "wat": "Golgi beter geplaatst (Kamiel: 'niet altijd goed geplaatst'): in de macrofaag stond hij los in het cytoplasma onder de kern; nu direct in de inham van de boonvormige kern, bolle kant naar de kern."
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "cellulosebundel",
+   "keuze": "A",
+   "functies": [
+    "celluloseBundel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/cellulosebundel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/cellulosebundel/na.png",
+   "wat": "Aangepast (Kamiels wens): (1) het groene vak om de vezel is weg; in het echt zit er geen omhulsel om."
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "kopstand-actinedetail-reticulum",
+   "keuze": "B",
+   "functies": [
+    "_spA_chip",
+    "_spA_actine",
+    "kopStand",
+    "actineDetail",
+    "reticulum"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/kopstand-actinedetail-reticulum/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/kopstand-actinedetail-reticulum/na.png",
+   "wat": "Aangepast (Kamiels combinatie): de actine is nu de dubbele bolletjesstreng van A (`_spA_actine` uit A: twee strengen G-actine die om elkaar draaien, achterste bolletjes donkerder), zowel in actineDetail als in kopStand."
+  },
+  {
+   "groep": "cel-molecuul",
+   "obj": "thelpercel-hivvirus",
+   "keuze": "A",
+   "functies": [
+    "tHelperCel",
+    "hivVirus"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/thelpercel-hivvirus/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-molecuul/thelpercel-hivvirus/na.png",
+   "wat": "Aangepast: het T-celmembraan is een dubbellaag (twee lijnen) vanaf r ≥ 50; op klein formaat blijft het één lijn."
+  },
+  {
+   "groep": "cel-nieuw",
+   "obj": "kernEnvelopPorie",
+   "keuze": "A",
+   "functies": [
+    "kernEnvelopPorie"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-nieuw/kernEnvelopPorie/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-nieuw/kernEnvelopPorie/na.png",
+   "wat": "Enige aanpassing: optie `tusKleur` (kleur van de ruimte tussen de kernmembranen) uit C overgenomen, omdat celDier (C) en de aansluiting op het ruw ER die nodig hebben."
+  },
+  {
+   "groep": "cel-nieuw",
+   "obj": "plantencel",
+   "keuze": "A",
+   "functies": [
+    "_PC_HOEK",
+    "_pcVorm",
+    "_pcNormaal",
+    "plantencel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/cel-nieuw/plantencel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/cel-nieuw/plantencel/na.png",
+   "wat": "Aangepast: plasmodesmata."
+  },
+  {
+   "groep": "dieren-a",
+   "obj": "ezel",
+   "keuze": "gelijk",
+   "functies": [
+    "_hoefEzelStaartC",
+    "HOEF_EZEL_C",
+    "ezel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-a/ezel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-a/ezel/na.png",
+   "wat": "Fout hersteld: de staart was over de hele lengte dik en donker."
+  },
+  {
+   "groep": "dieren-a",
+   "obj": "grutto",
+   "keuze": "C",
+   "functies": [
+    "grutto"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-a/grutto/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-a/grutto/na.png",
+   "wat": "Nu: twee taps toelopende loopbenen onder de staart (de verre poot donkerder) met drie korte tenen net achter de staartpunt."
+  },
+  {
+   "groep": "dieren-a",
+   "obj": "krokodilecht",
+   "keuze": "gelijk",
+   "functies": [
+    "krokodilEcht"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-a/krokodilecht/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-a/krokodilecht/na.png",
+   "wat": "Alles vóór het oog is in de lengte samengedrukt (×0,38); de kop is nu ± 15 % van de lengte."
+  },
+  {
+   "groep": "dieren-a",
+   "obj": "muilezel",
+   "keuze": "gelijk",
+   "functies": [
+    "_hoefMuilStaart",
+    "HOEF_MUIL_STAART",
+    "muilezel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-a/muilezel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-a/muilezel/na.png",
+   "wat": "Het lange haar begint al bij de kruis (geen losse ezelstaart met kwast), wordt naar onderen ± 3× zo breed, valt iets verder (tot ± de hak) en heeft een rafelige punt."
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "basilosaurus",
+   "keuze": "gelijk",
+   "functies": [
+    "_basiPootje",
+    "basilosaurus"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-b/basilosaurus/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-b/basilosaurus/na.png",
+   "wat": "Het pootje uit C (dij, knie, onderbeen, voet, 3 teentjes) zit nu op de huidige versie."
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "bultrug",
+   "keuze": "gelijk",
+   "functies": [
+    "ZW_DEF.bultrug (patch-blok, IIFE)"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-b/bultrug/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-b/bultrug/na.png",
+   "wat": "Nu is er een horizontale staartvin, van opzij verkort: twee puntige lobben met een gekartelde achterrand (Oceanic Society; NOAA/Coastal Review; NRCM)."
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "hagedis",
+   "keuze": "gelijk",
+   "functies": [
+    "_HAG_ZAK",
+    "REPT_HAG2_DEF",
+    "REPT_HAG2",
+    "HAG_SCHUIN",
+    "_hagSchuin",
+    "hagedis"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-b/hagedis/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-b/hagedis/na.png",
+   "wat": "De tenen waaieren uit (vijf, met klauwtjes), het lijf ligt ± 4 mm lager en de voeten staan iets verder opzij."
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "nijlpaard",
+   "keuze": "gelijk",
+   "functies": [
+    "_nijlTenen",
+    "HOEF_NIJL_TEEN_DEF",
+    "HOEF.nijlpaard",
+    "nijlpaard"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-b/nijlpaard/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-b/nijlpaard/na.png",
+   "wat": "Nu zijn er vier korte ronde nagels in een lichte hoorntint met een donkere naad, de achterste half verscholen."
+  },
+  {
+   "groep": "dieren-b",
+   "obj": "zaadkraker",
+   "keuze": "A",
+   "functies": [
+    "VogelPop-patch (IIFE, VOGELVOET met poot.vork)",
+    "_vzNek",
+    "_vzTeken",
+    "VogelZang.DEFS.zaadkraker (patch, IIFE)",
+    "zaadkraker"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dieren-b/zaadkraker/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dieren-b/zaadkraker/na.png",
+   "wat": "Nu krijgt alleen een soort met `poot.vork = true` de vorkvoet (hier de zaadkraker); de rest tekent precies als voorheen (gecontroleerd: merel-render identiek)."
+  },
+  {
+   "groep": "dna",
+   "obj": "cdcel-cdpool-cdkernmembraan-cddraad",
+   "keuze": "oud",
+   "functies": [
+    "cdAnafaseCel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/cdcel-cdpool-cdkernmembraan-cddraad/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/cdcel-cdpool-cdkernmembraan-cddraad/na.png",
+   "wat": "Toegevoegd: alleen `cdAnafaseCel` (uit C), want de gemelde fout 'geen echte anafase' is bevestigd: zusterchromatiden gaan uit elkaar en worden naar tegenovergestelde polen getrokken, in een V/Y-vorm (Wikipedia 'Anaphase'; Digital Histology 'Mitosis overview 7')."
+  },
+  {
+   "groep": "dna",
+   "obj": "kernchromatine",
+   "keuze": "A",
+   "functies": [
+    "_bioL",
+    "_bioCR",
+    "_bioGelijk",
+    "dnaDraad",
+    "_chromDraad",
+    "_chromHer",
+    "_chromDoelA",
+    "kernChromatine"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/kernchromatine/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/kernchromatine/na.png",
+   "wat": "Aangepast: de interfasedraad van elk chromosoom is nu even lang als zijn aantal baseparen (CHROM_MB): chr 1 is ± 3× zo lang als chr 21."
+  },
+  {
+   "groep": "dna",
+   "obj": "mrnaSliert",
+   "keuze": "C",
+   "functies": [
+    "MRNA_SEQ",
+    "_mrnaPad",
+    "_mrnaPunt",
+    "mrnaSliert"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/mrnaSliert/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/mrnaSliert/na.png",
+   "wat": "Aangepast: de kronkelhoogte is begrensd op 12 % van de lengte (was 16 %)."
+  },
+  {
+   "groep": "dna",
+   "obj": "ribosoomEcht",
+   "keuze": "A",
+   "functies": [
+    "_riboKeten",
+    "ribosoomEcht",
+    "polysoom"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/ribosoomEcht/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/ribosoomEcht/na.png",
+   "wat": "Aangepast: de kralenketen vouwt buiten de tunnel tot een compacte kluwen (eerst ± 3 kralen recht uit de tunnel)."
+  },
+  {
+   "groep": "dna",
+   "obj": "rnaPolymerase",
+   "keuze": "A",
+   "functies": [
+    "_rnapDNA",
+    "_rnapStrengen",
+    "rnaPolymerase"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/rnaPolymerase/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/rnaPolymerase/na.png",
+   "wat": "Simpeler gemaakt (Kamiels opmerking): de klep rechtsboven is weg, de onderkaak is smaller en het hele enzym is 20 % minder hoog."
+  },
+  {
+   "groep": "dna",
+   "obj": "trnaKlaverblad",
+   "keuze": "A",
+   "functies": [
+    "_TRNA_K",
+    "_TRNA_L",
+    "_trnaArm",
+    "trnaKlaverblad"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/trnaKlaverblad/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/trnaKlaverblad/na.png",
+   "wat": "Aangepast: het klaverblad is geen kruis met vier gelijke armen meer."
+  },
+  {
+   "groep": "dna",
+   "obj": "vork",
+   "keuze": "oud",
+   "functies": [
+    "_vorkYtop",
+    "vorkEnzymen",
+    "vorkAchter"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/dna/vork/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/dna/vork/na.png",
+   "wat": "Aangepast: alleen de plek van de helicase."
+  },
+  {
+   "groep": "genregulatie",
+   "obj": "genOpbouw",
+   "keuze": "A",
+   "functies": [
+    "genOpbouw",
+    "_goIndeling",
+    "_goSlier"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/genregulatie/genOpbouw/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/genregulatie/genOpbouw/na.png",
+   "wat": "De blokken (promotor, exonen, intronen, terminator) zijn nu dicht gevuld, zodat de spiraal alleen tussen de blokken en aan de uiteinden te zien is; tussen de gebieden een kleine kier (1,6 % van w) waar de helix doorloopt."
+  },
+  {
+   "groep": "genregulatie",
+   "obj": "nucleosoomAcetyl",
+   "keuze": "B",
+   "functies": [
+    "nucleosoomAcetyl",
+    "_naAcetyl"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/genregulatie/nucleosoomAcetyl/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/genregulatie/nucleosoomAcetyl/na.png",
+   "wat": "Rustiger: het DNA om de histonkern is een gladde band (helix alleen in het linker-DNA), staarten met 4 kralen i.p.v. 6, acetylgroep als één groen bolletje (C=O en CH3 niet apart)."
+  },
+  {
+   "groep": "lab",
+   "obj": "injectiespuit",
+   "keuze": "B",
+   "functies": [
+    "injectiespuit"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/lab/injectiespuit/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/lab/injectiespuit/na.png",
+   "wat": "Kamiels opmerking ('wel erg druk, hand zit er erg dicht op, huid en hand heel dicht bij elkaar'): in de functie de vetkwabjes van 14 naar 7 en de spiervezellijnen van 7 naar 4, allebei zachter."
+  },
+  {
+   "groep": "lab",
+   "obj": "restrictieEnzym",
+   "keuze": "B",
+   "functies": [
+    "_reePad",
+    "_reeKralen",
+    "_reeLint",
+    "restrictieEnzym"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/lab/restrictieEnzym/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/lab/restrictieEnzym/na.png",
+   "wat": "Fout hersteld (3 bronnen, zie lab/restrictieEnzym/bron.md): de knip stond één base te vroeg (C|GAATTC, overhang GAAT); nu G↓AATTC met overhang AATT/TTAA (iSite 10 → 11)."
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "bloemDoorsnede",
+   "keuze": "A",
+   "functies": [
+    "bloemDoorsnede"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/organen-plant/bloemDoorsnede/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/organen-plant/bloemDoorsnede/na.png",
+   "wat": "Aangepast (gemelde fout, twee bronnen): de bij had drie poten en één paar vleugels zichtbaar; nu zes poten aan het borststuk (drie aan de verre kant gedempt) en twee paar vleugels (grote voorvleugel, kleinere achtervleugel apart)."
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "hartDoorsnede",
+   "keuze": "A",
+   "functies": [
+    "hartDoorsnedeFase",
+    "hartDoorsnede"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/organen-plant/hartDoorsnede/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/organen-plant/hartDoorsnede/na.png",
+   "wat": "De AV-kleppen hadden geen herkenbare klepslippen; nu echte slippen met peesdraden aan de vrije rand (Elsevier Anatomy 'Right atrioventricular valve', anatomyzone 'tricuspid valve')."
+  },
+  {
+   "groep": "organen-plant",
+   "obj": "nefron",
+   "keuze": "C",
+   "functies": [
+    "nefron"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/organen-plant/nefron/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/organen-plant/nefron/na.png",
+   "wat": "(1) gemelde fout 'tweede kronkelende deel is een glad boogje': het distale deel kronkelt nu echt, eerst bij de lis en dan vlak bij de eigen glomerulus, en loopt daarna als verbindingsstukje naar de verzamelbuis"
+  },
+  {
+   "groep": "voortplanting",
+   "obj": "zaadbaldoorsnede",
+   "keuze": "gelijk",
+   "functies": [
+    "_zaadbuisPos",
+    "zaadbalDoorsnede"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/voortplanting/zaadbaldoorsnede/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/voortplanting/zaadbaldoorsnede/na.png",
+   "wat": "Ongeveer 45 % van de profielen is nu ovaal en willekeurig gedraaid."
+  },
+  {
+   "groep": "voortplanting",
+   "obj": "zaadcelecht",
+   "keuze": "oud",
+   "functies": [
+    "zaadcelEcht"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/voortplanting/zaadcelecht/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/voortplanting/zaadcelecht/na.png",
+   "wat": "Aangepast: de kap bedekt nu alleen de voorste ± 60 % van de kop (MeSH/DeCS + Wikipedia 'Acrosome'), zodat de lichte kern erachter zichtbaar is."
+  },
+  {
+   "groep": "weefsel-organen",
+   "obj": "huiddoorsnede",
+   "keuze": "gelijk",
+   "functies": [
+    "huidDoorsnede"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/huiddoorsnede/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/huiddoorsnede/na.png",
+   "wat": "Nu: basale laag donkerder met hogere kern (kubisch tot cilindrisch), korrellaag lichter met iets grotere donkere korrels (plat)."
+  },
+  {
+   "groep": "weefsel-organen",
+   "obj": "nierbijnier",
+   "keuze": "A",
+   "functies": [
+    "nierBijnier"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/nierbijnier/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/nierbijnier/na.png",
+   "wat": "Nu verzadigd geel met een donkere rand, ze faden in/uit aan de uiteinden, en het nierbekken kleurt mee bij o.urine."
+  },
+  {
+   "groep": "weefsel-organen",
+   "obj": "spiervezel-spierbundel",
+   "keuze": "oud",
+   "functies": [
+    "spierVezel",
+    "spierBundel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/spiervezel-spierbundel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/spiervezel-spierbundel/na.png",
+   "wat": "Aangepast (gemelde fout 'stand samentrekken ontbreekt', twee bronnen): nieuwe optie o.c 0..1 op spierVezel en spierBundel: de vezel wordt ± 15 % korter, de sarcomeren korter; de donkere A-band blijft even breed, de lichte I-band wordt smaller."
+  },
+  {
+   "groep": "weefsel-organen",
+   "obj": "vetcel-vetweefsel",
+   "keuze": "oud",
+   "functies": [
+    "vetweefsel"
+   ],
+   "voor": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/vetcel-vetweefsel/voor.png",
+   "na": "bibliotheek/verbeterronde-1/inbouw/weefsel-organen/vetcel-vetweefsel/na.png",
+   "wat": "Aangepast (gemelde fout, twee bronnen): het haarvat liep dwars over de vetcellen; nu loopt één doorlopend vat over de grenzen tussen de cellen (in het bindweefsel)."
+  }
+ ]
+}

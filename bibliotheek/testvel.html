@@ -4,7 +4,7 @@
 <link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button> <button onclick="spierVel()">Spieren en beweging</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button> <button onclick="spierVel()">Spieren en beweging</button> · Verbeterronde 1 (ingebouwd 28 okt 2026): <button onclick="vr1(1)">cel 1</button><button onclick="vr1(2)">cel 2</button><button onclick="vr1(3)">cel 3 · DNA</button><button onclick="vr1(4)">DNA · genregulatie</button><button onclick="vr1(5)">lab</button><button onclick="vr1(6)">organen · voortplanting</button><button onclick="vr1(7)">weefsel</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -12,9 +12,9 @@
 <script>const ctx=document.getElementById('c').getContext('2d');
 function lab(s,x,y){ text(ctx,s,x,y,fMeta(22),C.text2,'center'); }
 
-// ===== vel 5 · Chromosomen (Erfelijkheid 1, ter keuring 25 okt 2026). Laadt lib_cast.js en lib_micro_evo.js (dnaDraad) pas als je dit vel opent.
+// ===== vel 5 · Chromosomen (Erfelijkheid 1, ter keuring 25 okt 2026). Laadt lib_cast.js pas als je dit vel opent (dnaDraad staat sinds 28 okt 2026 in lib_bio.js).
 function laad(src){ return new Promise(r=>{ const e=document.createElement('script'); e.src=src; e.onload=r; document.head.appendChild(e); }); }
-let chrKlaar=null; function chrLibs(){ return chrKlaar || (chrKlaar = laad('../personages/lib_cast.js').then(()=>laad('../films/evolutie/8-stambomen-lezen/bron/src/lib_micro_evo.js'))); }
+let chrKlaar=null; function chrLibs(){ return chrKlaar || (chrKlaar = laad('../personages/lib_cast.js')); }
 function kop(s,sub){ text(ctx,s,60,64,fTitel(40),C.text,'left'); if(sub) text(ctx,sub,60,98,fTekst(22,500),C.text2,'left'); }
 function balk(x,y,px,lab){ ctx.fillStyle=C.text; ctx.fillRect(x,y,px,5); text(ctx,lab,x+px/2,y+32,fMeta(22),C.text2,'center'); }
 if(typeof circ==='undefined') window.circ=function(ctx,x,y,r,fill,stroke,lw=1.5){ ctx.beginPath(); ctx.arc(x,y,Math.max(0.1,r),0,6.2832); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=lw; ctx.stroke(); } };
@@ -176,6 +176,113 @@ window.spierVel=function(){ ctx.fillStyle=C.bg; ctx.fillRect(0,0,W,H); const t=1
   spierDwars(ctx,1200,800,140,{n:90,eenheden:[{n:8,kleur:C.goud}],aan:1}); lab('spierDwars',1150,1000);
   spierspoeltje(ctx,1600,820,320,{rek:0.5,vuur:0.6,t}); lab('spierspoeltje',1600,1000); };
 if(location.hash==='#spieren') setTimeout(()=>spierVel(),300);
+
+// ===== Verbeterronde 1 (Kamiels keuzes, ingebouwd 28 okt 2026): elk nieuw of vervangen object in een tegel. Per tegel een uitsnede
+// [x, y, b, h] van het testbeeld van de helper (1280×720, lab en DNA 1920×1080); stills voor/na: verbeterronde-1/inbouw/<groep>/<obj>/.
+window.FOUTEN=window.FOUTEN||[];
+function vr1Tegel(i,cols,rows,naam,reg,fn){ const top=112, tw=(1920-40)/cols, th=(1080-top-14)/rows, x=20+(i%cols)*tw, y=top+Math.floor(i/cols)*th;
+ const bx=x+5, by=y+5, bw=tw-10, bh=th-36; ctx.fillStyle=C.bgMicro; ctx.fillRect(bx,by,bw,bh);
+ const [rx,ry,rw,rh]=reg, k=Math.min(bw/rw,bh/rh); ctx.save(); ctx.beginPath(); ctx.rect(bx,by,bw,bh); ctx.clip();
+ ctx.translate(bx+(bw-rw*k)/2,by+(bh-rh*k)/2); ctx.scale(k,k); ctx.translate(-rx,-ry);
+ try{ fn(ctx); }catch(e){ FOUTEN.push(naam+': '+e.message); console.error('vr1 '+naam+': '+(e.stack||e)); ctx.restore(); ctx.save(); text(ctx,'FOUT: '+e.message,bx+12,by+30,fMeta(16),C.koraal||'#E0503F','left'); }
+ ctx.restore(); text(ctx,naam,x+tw/2,y+th-12,fMeta(17),C.text2,'center'); }
+const VR1=(()=>{ const t=1.3, kinds=Array.from({length:44},(_,i)=>Math.floor(hash(i*13+5)*20));
+ const st={i0:20,i1:110,X0:60,cy:330,g:64,dx:20,Dmax:200,Lsplit:9,Ltw:10,Lf:26,pl:4,p1:30,lead:4,startLead:0,vlag:1.4,t:0.7};
+ const org=(fn,o)=>c=>window[fn](c,640,360,432/620,Object.assign({t},o));
+ return {
+ 1:['Cel 1 · cel-afweer en cel-molecuul',[
+  ['gedifferentieerdeCellen (B)',[20,20,740,680],c=>gedifferentieerdeCellen(c,380,360,1.05,{genen:1,d:1})],
+  ['lipideNanodeeltje (B)',[100,80,540,560],c=>lipideNanodeeltje(c,370,340,190,{f:0,membraan:false})],
+  ['membraanReceptor (C)',[20,40,740,620],c=>membraanReceptor(c,380,330,2.3,{bind:1,signaal:0,breed:360})],
+  ['stamcelDeling (B)',[20,20,1240,680],c=>stamcelDeling(c,200,260,64,{f:0.8})],
+  ['tumorGroei (A)',[20,40,740,660],c=>tumorGroei(c,380,470,1.15,{g:0.85,apoptose:0.55})],
+  ['witteBloedcellen (B)',[60,80,560,560],c=>witteBloedcellen(c,330,360,190,{soort:'macrofaag',eet:0.35,t:0})],
+  ['bacterieCel (B, via bacterieEcht)',[40,180,680,360],c=>bacterieCel(c,380,360,600,{t,flagel:true,rot:-0.12})],
+  ['bacterieGroot (B) · wandKapot 0 / 0,6',[720,120,360,380],c=>{ bacterieGroot(c,900,200,260,104,{t,wandKapot:0}); bacterieGroot(c,900,400,260,104,{t,wandKapot:0.6}); }],
+  ['celluloseBundel (A)',[60,140,700,320],c=>celluloseBundel(c,110,250,10,28,{ketens:3,t})],
+  ['celRond (A)',[140,120,480,480],c=>celRond(c,380,360,215,{t})],
+  ['eiwitVouw (B)',[120,140,560,480],c=>eiwitVouw(c,400,380,1.35,1,kinds,{t,kleur:'eiwit'})],
+  ['enzymKluwen (C)',[120,120,480,480],c=>enzymKluwen(c,360,360,200,{t})] ]],
+ 2:['Cel 2 · cel-molecuul en cel-nieuw',[
+  ['gonokok · chlamydiaCel · spirocheet (A)',[60,100,1180,560],c=>{ for(let k=0;k<3;k++) gonokok(c,700+k*110,260,2.4,k*0.7); chlamydiaCel(c,300,340,220,{t,groei:0.9}); spirocheet(c,820,420,420,{t}); }],
+  ['hormDeeltje (C)',[60,160,1180,400],c=>{ ['gnrh','fsh','lh','testo','oestro'].forEach((k,i)=>{ hormDeeltje(c,150+i*240,250,k,58,1,false); hormDeeltje(c,330+i*150,500,k,18,1,i===2); }); }],
+  ['kopStand (B)',[160,360,880,320],c=>{ kopStand(c,300,560,26,{hoek:0,vast:0,chip:'ADP+P'}); kopStand(c,880,560,26,{hoek:1,vast:1,actX:-1.4*26}); }],
+  ['actineDetail · reticulum (B)',[60,100,1160,380],c=>{ reticulum(c,90,150,1100,120,{ca:0.7,t}); actineDetail(c,90,360,1100,52,{ca:1,schuif:0.6}); }],
+  ['membraanBoog (A)',[0,180,1280,420],c=>membraanBoog(c,640,1500,1250,-1.95,-1.19,{s:1.6,t,eiwitten:[-1.67,{an:-1.47,soort:'kanaal',open:1}]})],
+  ['tHelperCel · hivVirus (A)',[20,20,740,680],c=>{ tHelperCel(c,300,340,200,{t,bindAn:-0.6}); hivVirus(c,300+Math.cos(-0.6)*290,340+Math.sin(-0.6)*290,60,{t,rot:0.3}); }],
+  ['vetcel (A)',[100,130,460,460],c=>vetcel(c,330,360,215,{})],
+  ['zenuwcel (A)',[80,40,1100,440],c=>zenuwcel(c,270,230,{naar:[1080,280],col:C.paars,seed:2,puls:0.45,myeline:true,s:1.3})],
+  ['mitochondrionEcht (B)',[-120,-60,240,120],c=>mitochondrionEcht(c,0,0,1,{t,deling:0,rot:0})],
+  ['ruwER (C)',[-260,-120,520,260],c=>ruwER(c,-50,150,1,{t,r0:120,a0:-2.25,a1:-0.9,glad:1,keten:0.8,kern:true})],
+  ['kernEnvelopPorie (A)',[-190,-190,380,380],c=>kernEnvelopPorie(c,0,0,1,{t,mrna:0.5})],
+  ['golgiStapel (A)',[-180,-130,360,260],c=>golgiStapel(c,0,0,1,{t:3})] ]],
+ 3:['Cel 3 en DNA · cel-nieuw en dna',[
+  ['blaasjeVersmelt (C)',[-110,-80,220,160],c=>blaasjeVersmelt(c,0,-40,1,{f:0.7,R:520,t})],
+  ['chloroplastEcht (B)',[-120,-60,240,120],c=>chloroplastEcht(c,0,0,1,{t})],
+  ['celDier (C)',[-620,-470,1240,940],c=>celDier(c,0,0,1,{t:4})],
+  ['plantencel (A)',[-420,-300,840,600],c=>plantencel(c,0,0,1,{t,plasmolyse:0})],
+  ['cdAnafaseCel (oud + aanpassing)',[600,560,720,500],c=>cdAnafaseCel(c,960,810,300,200,{f:0.6,insnoer:0.3,len:80,w:10,t:1})],
+  ['cdChromosoom · cdEen (A)',[100,60,1760,760],c=>{ cdChromosoom(c,470,470,620,{w:62,kin:true,ringen:1,xv:0.25}); cdChromosoom(c,1080,280,300,{w:26,kl:CD.vader,segsR:[[0,0.55,CD.vader],[0.55,1,CD.moeder]]}); cdEen(c,1480,280,300,{w:24,zwaai:0.7,kant:1,kin:true}); cdEen(c,1700,280,300,{w:24,zwaai:0.7,kant:-1,kin:true,kl:CD.moeder}); }],
+  ['cdKluwen c = 0 · 0,5 · 1 (A)',[100,560,1500,480],c=>[0,0.5,1].forEach((cc,i)=>cdKluwen(c,300+i*500,800,280,{c:cc,w:26,seed:3}))],
+  ['chromatideX (A)',[160,120,1300,860],c=>{ chromatideX(c,560,560,640,0.12,{w:100}); chromatideX(c,1240,340,380,0,{w:58}); }],
+  ['helicaseRing · primase · ligase (C)',[-140,-120,620,240],c=>{ helicaseRing(c,0,0,90,{laag:'achter'}); helicaseRing(c,0,0,90,{laag:'voor'}); primase(c,220,0,70,{an:1.57}); ligase(c,390,0,62,{an:1.57,sluit:1}); }],
+  ['kernChromatine c = 0 (A)',[60,170,740,740],c=>kernChromatine(c,430,540,340,{c:0,seed:4,t})],
+  ['mrnaSliert (C)',[80,180,1760,280],c=>mrnaSliert(c,120,300,1680,{t,basen:1,codons:1,cap:1,polyA:1,slap:0.8})],
+  ['nucleosoomDraad (C)',[60,120,1800,420],c=>nucleosoomDraad(c,90,330,1830,330,{n:3,R:150,t})] ]],
+ 4:['DNA en genregulatie · dna, genregulatie, dieren in lib_bio',[
+  ['ribosoomEcht · polysoom (A)',[160,160,1720,800],c=>{ ribosoomEcht(c,590,640,2.4,{keten:14,sites:1,t}); polysoom(c,1250,820,600,5,{s:0.55,t}); }],
+  ['rnaPolymerase (A)',[40,120,1840,520],c=>rnaPolymerase(c,1000,380,2.6,{stand:'lees',mrna:420,x0:60,x1:1860,t})],
+  ['trnaKlaverblad (A)',[160,60,800,820],c=>trnaKlaverblad(c,560,470,2.3,{vorm:0,anti:'UAC',aa:1,t})],
+  ['vork() (oud + aanpassing)',[40,40,1840,600],c=>vork(c,Object.assign({},st,{f:80}))],
+  ['codonTabel (A)',[20,120,840,820],c=>codonTabel(c,40,140,1,{codon:'AUG',pad:1})],
+  ['genOpbouw (A)',[40,120,780,560],c=>{ genOpbouw(c,70,200,720,{splice:1}); genOpbouw(c,70,520,720,{modus:'strip',aan:[1,0,0,1,0,1,0,0,0,1,0,0,1,0]}); }],
+  ['nucleosoomAcetyl (B)',[20,180,860,400],c=>nucleosoomAcetyl(c,40,380,820,380,{n:4,R:62,open:1,tf:1})],
+  ['rnaInterferentie (C)',[80,100,700,560],c=>rnaInterferentie(c,430,380,0.84,{f:0.72})],
+  ['transcriptiefactor (B)',[20,60,740,640],c=>transcriptiefactor(c,380,440,1.25,{dna:true,gebonden:1,soort:'activator',polymerase:1})],
+  ['uvSchade (C)',[20,60,800,660],c=>uvSchade(c,420,420,0.85,{f:0.45})],
+  ['grutto (C)',[80,820,360,220],c=>grutto(c,250,980,1.6,0.3)],
+  ['krokodilEcht · zeeschildpad · nest',[500,700,1100,340],c=>{ krokodilEcht(c,1350,880,1.15,{t}); zeeschildpad(c,650,850,0.9,{vin:0.5}); schildpadNest(c,900,960,0.8); }] ]],
+ 5:['Lab · nieuwe objecten (1920×1080-coördinaten)',[
+  ['bioreactor (C)',[40,180,640,880],c=>bioreactor(c,300,1000,1.8,{t:1,keten:{x:260,y:900,s:0.75,fase:0.85}})],
+  ['crisprCas9 (C)',[60,40,920,520],c=>crisprCas9(c,520,290,2.4,{stap:0.4,t:1})],
+  ['gelElektroforese (C)',[40,40,960,560],c=>gelElektroforese(c,520,300,2.6,{loop:0.6})],
+  ['injectiespuit (B)',[20,160,640,700],c=>injectiespuit(c,330,560,4.4,{arm:true,prik:1,druk:0.5})],
+  ['insulinePen (C)',[20,420,640,620],c=>insulinePen(c,330,800,4.0,{prik:1,druk:0.5,dosis:4})],
+  ['micropipet (C)',[60,80,520,960],c=>micropipet(c,300,880,2.2,{knop:0.2,vol:400,in:'buisje'})],
+  ['microscoop (A)',[260,40,720,700],c=>microscoop(c,620,660,1.4,{licht:true,scherp:1,beeld:true,kijk:1})],
+  ['pcrBuisje (C)',[300,180,600,860],c=>pcrBuisje(c,600,260,26,{open:0,vol:25,dna:30,t:1})],
+  ['petrischaal (B)',[40,180,1100,500],c=>{ petrischaal(c,300,430,3.4,{gazon:false,schijf:false,groei:0.4}); petrischaal(c,860,430,3.4,{groei:1}); }],
+  ['plasmideKnipPlak (C)',[40,340,1240,520],c=>{ plasmideKnipPlak(c,300,600,200,{stap:1}); plasmideKnipPlak(c,1000,600,170,{stap:2.5}); }],
+  ['primerStuk (B)',[40,40,1200,640],c=>{ primerStuk(c,230,200,1.6,{bind:1,bouw:0}); primerStuk(c,230,540,1.6,{bind:1,bouw:0.45}); }],
+  ['restrictieEnzym (B)',[60,20,880,520],c=>restrictieEnzym(c,500,270,3.2,{stap:0.4,t:1})],
+  ['sequencer (C)',[40,0,1000,820],c=>sequencer(c,80,30,0.9,{fase:0.85})],
+  ['thermocycler (C)',[20,300,1800,760],c=>{ thermocycler(c,60,480,0.88,{fase:1.15}); thermocycler(c,1000,480,0.88,{fase:1.42}); }] ],4,4],
+ 6:['Organen en voortplanting',[
+  ['bloemDoorsnede (A)',[300,30,680,660],org('bloemDoorsnede',{bij:1,stuif:1,buis:1})],
+  ['hartDoorsnede (A)',[300,30,680,660],org('hartDoorsnede',{u:0.3,stroom:0})],
+  ['longblaasje (A)',[300,30,680,660],org('longblaasje',{adem:0.6,gas:1})],
+  ['nefron (C)',[200,30,880,660],org('nefron',{filtratie:1,terug:1,stroom:1,water:1})],
+  ['stamboomSymbolen (B)',[200,60,880,620],c=>stamboomSymbolen(c,640,360,432/560,{t:0.5,opbouw:1,proband:9})],
+  ['synapsEcht (A)',[300,30,680,660],org('synapsEcht',{fase:0.62})],
+  ['wortelHaren (A)',[300,30,680,660],org('wortelHaren',{water:1,groei:1})],
+  ['blastocyste (A) · gat 1',[60,100,840,460],c=>{ blastocyste(c,300,330,200,{}); blastocyste(c,720,330,100,{gat:1}); }],
+  ['eicelEcht (B)',[40,60,460,480],c=>eicelEcht(c,270,300,120,1,true)],
+  ['eierstokDoorsnede (B)',[20,80,700,460],c=>eierstokDoorsnede(c,340,300,300,200,{groei:1,eis:0,t:1})],
+  ['zaadbalDoorsnede (gelijk + herstel)',[140,40,520,640],c=>zaadbalDoorsnede(c,400,360,230,300,{t:1})],
+  ['zaadcelEcht (oud + herstel)',[40,120,1240,440],c=>{ zaadcelEcht(c,1000,200,0,0.1,6.5); for(let i=0;i<3;i++) zaadcelEcht(c,330+i*330,470,0,t+i*0.2,2.2); }] ]],
+ 7:['Weefsel en organen',[
+  ['armAnatomie (A)',[100,-160,760,880],c=>armAnatomie(c,300,110,8.6,{u:0.08,e:1.5,huid:1,hl:{biceps:1},romp:1})],
+  ['darmwand (A)',[20,100,1240,300],c=>darmwand(c,40,1240,240,110,(x)=>Math.exp(-((x-700)**2)/30000),{dikte:62,vlokken:true,t})],
+  ['huidDoorsnede (gelijk + herstel)',[30,30,780,450],c=>huidDoorsnede(c,40,40,760,430,{um:250,mel:1,deling:1,t})],
+  ['hypofysePoort (A)',[60,20,700,680],c=>hypofysePoort(c,400,330,0.56,{puls:0.55,aan:1,uit:1,t,volgLH:0.5})],
+  ['nierBijnier (A)',[120,40,560,680],c=>nierBijnier(c,400,390,1.45,{t})],
+  ['spierDwars · spierspoeltje (C)',[40,60,1220,560],c=>{ spierDwars(c,300,330,230,{n:150,eenheden:[{n:9,kleur:C.goud},{n:9,kleur:C.teal}],aan:1}); spierspoeltje(c,900,330,340,{rek:0.5,vuur:0.6,t}); }],
+  ['spierBundel · spierVezel (oud + herstel)',[40,-20,820,720],c=>{ spierBundel(c,70,250,760,{n:5,h:58}); spierVezel(c,70,560,760,90,{seed:2}); }],
+  ['vetweefsel (oud + herstel)',[40,110,680,460],c=>vetweefsel(c,380,340,660,440,{t,d:120})] ],3,3] }; })();
+window.vr1=async function(p){ await chrLibs(); await gpLibs(); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H);
+ const [titel,L,cols=4,rows=3]=VR1[p]; kop('Verbeterronde 1 · '+titel,'Kamiels keuzes, ingebouwd 28 okt 2026; tussen haakjes de gekozen versie');
+ L.forEach(([n,reg,fn],i)=>vr1Tegel(i,cols,rows,n,reg,fn)); };
+if(location.hash.startsWith('#vr1-')) setTimeout(()=>vr1(+location.hash.slice(5)),300);
 
 draw(1);</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>
