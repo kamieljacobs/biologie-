@@ -1,0 +1,174 @@
+[
+ {
+  "obj": "bacteriecel",
+  "keuze": "B",
+  "functies": [
+   "bacterie",
+   "bacterieCel",
+   "bacterieGroot"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "cellulosebundel",
+  "keuze": "A",
+  "functies": [
+   "celluloseBundel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "celrond",
+  "keuze": "A",
+  "functies": [
+   "celRond"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Cel voller maken (meer organellen, ER rondom de kern zoals celDier)? Nu niets toegevoegd."
+ },
+ {
+  "obj": "eiwitvouw",
+  "keuze": "B",
+  "functies": [
+   "_eiwitB_soort",
+   "_eiwitB_pad",
+   "eiwitVouw"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "enzymkluwen",
+  "keuze": "C",
+  "functies": [
+   "_ekC_rand",
+   "enzymKluwen"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": ""
+ },
+ {
+  "obj": "gonokok-chlamydiacel-spirocheet",
+  "keuze": "A",
+  "functies": [
+   "gonokok",
+   "chlamydiaCel",
+   "spirocheet"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hormdeeltje",
+  "keuze": "C",
+  "functies": [
+   "HORM_A",
+   "_hormA_ring",
+   "_hormA_steroid",
+   "_hormC_vorm",
+   "_hormC_keten",
+   "_hormA_suiker",
+   "hormDeeltje"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "In C is FSH-β langer getekend dan LH-β, maar in het echt is LH-β iets langer (121 vs 111 aminozuren). Kloppend maken (dan verschillen de vormen minder), of zo laten?"
+ },
+ {
+  "obj": "kopstand-actinedetail-reticulum",
+  "keuze": "B",
+  "functies": [
+   "_spA_chip",
+   "_spA_actine",
+   "kopStand",
+   "actineDetail",
+   "reticulum"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "membraanboog",
+  "keuze": "A",
+  "functies": [
+   "membraanBoog"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": ""
+ },
+ {
+  "obj": "rodebloedcel",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "thelpercel-hivvirus",
+  "keuze": "A",
+  "functies": [
+   "tHelperCel",
+   "hivVirus"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "vetcel",
+  "keuze": "A",
+  "functies": [
+   "vetcel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "zenuwcel",
+  "keuze": "A",
+  "functies": [
+   "zenuwcel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

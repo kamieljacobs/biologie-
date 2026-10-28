@@ -1,0 +1,4 @@
+# Bronnen inbouw 28 okt 2026 (zelf geopend)
+- Deranged Physiology, 'Distal tubule and collecting duct', https://derangedphysiology.com/main/cicm-primary-exam/required-reading/renal-system/Chapter%200063/distal-tubule-and-collecting-duct: distaal deel 'though convoluted, is quite short' (± 1 mm); begint vlak na de macula densa, bij de eigen glomerulus.
+- Macmillan Life 11e, 'Regulation of GFR…', https://digfir-published.macmillanusa.com/life11e/life11e_ch51_40.html: waar het buisje distaal wordt 'makes contact with the afferent and efferent arterioles of its glomerulus'.
+- Digital Histology, 'Tubules and collecting system 3', https://digitalhistology.org/organs-systems/urinary/tubules-and-collecting-system/tubules-and-collecting-system-3/: distale kronkelbuizen in de schors; verbindingsbuisjes naar de verzamelbuis.

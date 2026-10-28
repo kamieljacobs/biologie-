@@ -1,0 +1,173 @@
+[
+ {
+  "obj": "aanleggeslacht",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk: huidige versie houden. De gemelde fout (aanleg al gedifferentieerd) klopt volgens de maker niet: stand 0 ís de indifferente aanleg (Sadler h. 16). Zwak: de sinus is blauwgrijs en iets groot. Wil je die in de weefselkleur (zoals variant A)?"
+ },
+ {
+  "obj": "baarmoederwand",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk: de dikte (1–7 mm) en de spiraalslagaders zijn niet als fout bevestigd."
+ },
+ {
+  "obj": "blastocyste",
+  "keuze": "A",
+  "functies": [
+   "blastocyste"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Wil je de lege zona na het uitkomen iets dikker?"
+ },
+ {
+  "obj": "echobeeld",
+  "keuze": "geen",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Komt in een nieuwe ronde."
+ },
+ {
+  "obj": "eicelecht-follikel",
+  "keuze": "B",
+  "functies": [
+   "eicelEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "follikel() is in B gelijk aan de bibliotheek, dus wordt niet vervangen."
+ },
+ {
+  "obj": "eierstokdoorsnede",
+  "keuze": "B",
+  "functies": [
+   "eierstokDoorsnede"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Gouden focuscirkels standaard uit? (De beoordelaar vond ze druk.)"
+ },
+ {
+  "obj": "eileiderdoorsnede",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk; beide eileiderobjecten blijven (Kamiel: allebei houden)."
+ },
+ {
+  "obj": "eileiderlangs",
+  "keuze": "oud",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk; beide eileiderobjecten blijven. Zwak: plooien als kluwen. Wil je die ooit rustiger (zoals variant A)?"
+ },
+ {
+  "obj": "embryoecht",
+  "keuze": "geen",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Komt in een nieuwe ronde."
+ },
+ {
+  "obj": "mandoorsnede-penisdoorsnede",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Geen werk: \"penis te klein / lussen moeilijk te volgen\" is leesbaarheid, geen bevestigde fout."
+ },
+ {
+  "obj": "placentadoorsnede-vlokvergroot",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Niet aangepast: dat de septa niet tot de chorionplaat reiken, bevestigen embryology.ch, LifeMap, WikiLectures en TeachMePhysiology; dat klopt in de huidige versie al. Dat ze \"spits\" zijn, noemt geen bron een fout. Wil je ze toch afgerond (zoals variant C)?"
+ },
+ {
+  "obj": "vulvaschema",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "zaadbaldoorsnede",
+  "keuze": "gelijk",
+  "functies": [
+   "_zaadbuisPos",
+   "zaadbalDoorsnede"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "_zaadbuisPos is ongewijzigd meegeleverd. Standaard leydig = 0,6: films die leydig niet meegeven, tonen nu kleine gouden groepjes (celdeling-film, film 4 sekse). Goed zo?"
+ },
+ {
+  "obj": "zaadbalweefsel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "zaadcelecht",
+  "keuze": "oud",
+  "functies": [
+   "zaadcelEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "zwangerschapstest",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

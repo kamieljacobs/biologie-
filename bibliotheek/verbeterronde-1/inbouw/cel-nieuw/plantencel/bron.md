@@ -1,0 +1,5 @@
+# Bronnen (zelf geopend, 28 okt 2026)
+- FSU Molecular Expressions, 'Plasmodesmata' (https://micro.magnet.fsu.edu/cells/plants/plasmodesmata.html): "small channels that directly connect the cytoplasm of neighboring plant cells", "lined with the plasma membrane", desmotubulus "derived from the smooth endoplasmic reticulum".
+- Bayer & Benitez-Alfonso, Annu. Rev. Plant Biol. 2024 (https://eprints.whiterose.ac.uk/id/eprint/216714/1/annurev-arplant-070623-093110.pdf): "nanoscopic membrane-lined conduits" in de celwand; PM- en ER-continuïteit tussen de cellen; desmotubulus ± 15 nm; wanden dun ± 100 nm of dik ± 200 nm.
+- Megías e.a., Atlas of plant and animal histology, 'Cell wall' (https://mmegias.webs.uvigo.es/02-english/5-celulas/ampliaciones/2-pared-celular.php?tema=w): primaire wand "around 0.1 µm thick", secundaire wand 2–10 µm.
+Plasmodesmata als membraanbeklede kanaaltjes met desmotubulus: bevestigd (twee bronnen) → aangepast. Wanddikte: geen fout (een primaire wand is dun) → vraag aan Kamiel.

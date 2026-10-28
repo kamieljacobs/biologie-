@@ -1,0 +1,2 @@
+- Kamiel koos 'geen duidelijke winnaar'. Er is nog geen huidige versie in de bibliotheek (nieuw object), dus 'huidige versie houden' kan niet. Daarom variant C genomen: de winnaar van de laatste blinde ronde (nipt, 20-20). Dat is B plus een gevuld reactiebuisje met scharnierdop. Geen fouten gemeld.
+- Vraag aan Kamiel: is C goed, of wil je B (zonder dopje)?

@@ -1,0 +1,215 @@
+[
+ {
+  "obj": "ambulocetus",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "bacterie-plasmide",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_micro_evo.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "basilosaurus",
+  "keuze": "gelijk",
+  "functies": [
+   "_basiPootje",
+   "basilosaurus"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Aantal teentjes (3) staat in geen bron. Plak na ZW_DEF.basilosaurus; vervangt de wrapper basilosaurus en verwijdert de vin \"poot\" uit ZW_DEF.basilosaurus.achter/voor."
+ },
+ {
+  "obj": "bultrug",
+  "keuze": "gelijk",
+  "functies": [
+   "ZW_DEF.bultrug (patch-blok, IIFE)"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Plak na ZW_DEF.bultrug; het blok patcht extraVin en voorTeken."
+ },
+ {
+  "obj": "chromosoompaar",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_micro_evo.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Niet aangepast: de X-vorm-optie bestaat in de huidige versie niet (de fout ging over de nieuwe optie uit A/C)."
+ },
+ {
+  "obj": "dolfijn",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "griepvirus",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_micro_evo.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "grondvink",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "hagedis",
+  "keuze": "gelijk",
+  "functies": [
+   "_HAG_ZAK",
+   "REPT_HAG2_DEF",
+   "REPT_HAG2",
+   "HAG_SCHUIN",
+   "_hagSchuin",
+   "hagedis"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Plak na REPT_HAG_DEF/REPT en de oude hagedis()-wrapper (nieuwe wrapper overschrijft). Ombouw volgens Kamiels antwoord."
+ },
+ {
+  "obj": "koolmees",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "merel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "nijlpaard",
+  "keuze": "gelijk",
+  "functies": [
+   "_nijlTenen",
+   "HOEF_NIJL_TEEN_DEF",
+   "HOEF.nijlpaard",
+   "nijlpaard"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "De roze wangvlek en de flankplooi als \"grijns\" (fout bij C) zitten niet in de huidige versie. Neusgat buiten de snuit: in de huidige versie niet gezien."
+ },
+ {
+  "obj": "pakicetus",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "pauw",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Niet aangepast: dat de waaier uit een smalle bundel opengaat, bevestigde geen geopende bron (alleen \"raise into an upright fan\")."
+ },
+ {
+  "obj": "pauwin",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "rode-bloedcel-sikkelcel",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_micro_evo.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "rodhocetus",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "schimmelGist",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "—",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "LET OP: nieuw object met keuze \"gelijk\", maar er bestaat geen huidige versie (schimmelGist komt nergens in de repo voor). Kies A, B of C (de beoordelaar koos C), anders komt er niets in de beeldbank."
+ },
+ {
+  "obj": "zaadkraker",
+  "keuze": "A",
+  "functies": [
+   "VogelPop-patch (IIFE, VOGELVOET met poot.vork)",
+   "_vzNek",
+   "_vzTeken",
+   "VogelZang.DEFS.zaadkraker (patch, IIFE)",
+   "zaadkraker"
+  ],
+  "bestand": "dieren/lib_dieren.js",
+  "nieuw": false,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Borst blijft zwart (Kamiels antwoord). Vorkvoet nu alleen voor de zaadkraker; de andere vogels blijven gelijk."
+ }
+]

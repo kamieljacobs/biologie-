@@ -1,0 +1,4 @@
+- Basis: variant B (doorsnede bovenarm met prik en depot, drie standen).
+- Kamiels opmerking ('wel erg druk, hand zit er erg dicht op, huid en hand heel dicht bij elkaar'): in de functie de vetkwabjes van 14 naar 7 en de spiervezellijnen van 7 naar 4, allebei zachter. In de scène (demo.js hier) staan de drie doorsneden hoger en iets kleiner (4,0 px/mm), de hand van Noor staat kleiner (1,6 px/mm) helemaal onderaan met ± 60 px lucht tot de weefselblokken, en de maatspuit ligt náást de vingertoppen in plaats van op de duim.
+- Geen fouten gemeld, inhoud (lagen, naald 25 mm, depot in de spier) ongewijzigd.
+- Voor de integrator: de functie vervangen; de nieuwe opstelling staat in inbouw/lab/injectiespuit/demo.js (voor testvel/films als voorbeeld).

@@ -1,0 +1,2 @@
+- Basis: variant C (pen loodrecht op de buik, doorsnede huid/vet/spier, dosis 0 → 12 → 0).
+- Gemelde fout 'referentiepen te klein (± 7 cm)' nagemeten in de render: pen 106 px tegen de hand (19 cm) van 10 px/cm × 2/3 → 15,9 cm. Klopt met het recept (± 16 cm); niet aangepast.

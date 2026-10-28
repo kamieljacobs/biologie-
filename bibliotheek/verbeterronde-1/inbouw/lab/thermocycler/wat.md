@@ -1,0 +1,1 @@
+- Basis: variant C (schuin apparaat met open deksel en blok, profiel met lopende stip, strengen, display per stap; Sam ernaast). Geen fouten gemeld, geen opmerking: ongewijzigd overgenomen.

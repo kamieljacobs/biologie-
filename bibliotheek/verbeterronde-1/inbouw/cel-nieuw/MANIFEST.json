@@ -1,0 +1,101 @@
+[
+ {
+  "obj": "blaasjeVersmelt",
+  "keuze": "C",
+  "functies": [
+   "blaasjeVersmelt"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "celDier",
+  "keuze": "C",
+  "functies": [
+   "celDier"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Vereist mitochondrionEcht, ruwER, kernEnvelopPorie (met tusKleur), golgiStapel, blaasjeVersmelt uit deze groep."
+ },
+ {
+  "obj": "chloroplastEcht",
+  "keuze": "B",
+  "functies": [
+   "chloroplastEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "golgiStapel",
+  "keuze": "A",
+  "functies": [
+   "golgiStapel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "kernEnvelopPorie",
+  "keuze": "A",
+  "functies": [
+   "kernEnvelopPorie"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Alleen optie tusKleur uit C toegevoegd (nodig voor celDier C); bol-stand van C niet meegenomen."
+ },
+ {
+  "obj": "mitochondrionEcht",
+  "keuze": "B",
+  "functies": [
+   "mitochondrionEcht"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "plantencel",
+  "keuze": "A",
+  "functies": [
+   "_PC_HOEK",
+   "_pcVorm",
+   "_pcNormaal",
+   "plantencel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Celwand dikker tekenen voor de leesbaarheid (een primaire wand is in het echt dun, ± 0,1–0,2 µm), of zo laten?"
+ },
+ {
+  "obj": "ruwER",
+  "keuze": "C",
+  "functies": [
+   "ruwER"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

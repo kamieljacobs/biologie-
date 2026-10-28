@@ -1,0 +1,5 @@
+# Bronnen (zelf geopend, 28 okt 2026)
+- biotopics.co.uk, 'The cellulose molecule in 3-D' (https://biotopics.co.uk/jsmol/cellulose.html): "Every other glucose unit is effectively the opposite way up"; vlakke lintvormige streng; waterstofbruggen "extend sideways between strands"; "microfibrils with many such strands running parallel".
+- Pearson Channels Biochemistry, 'Cellulose: structure, properties and biological function' (https://www.pearson.com/channels/biochemistry/study-guides/cellulose-structure-properties-and-biological-function): β(1→4), "each glucose unit to be rotated 180° relative to its neighbor", lineaire ketens die "align parallel ... forming microfibrils through extensive hydrogen bonding".
+- (ronde 1) WOU Chemistry 'Carbohydrates part 4'.
+Conclusie: de weergave klopt (afwisselend omgekeerde glucose, evenwijdige ketens, waterstofbruggen). Geen bron noemt een omhulsel om de microfibril; in de celwand liggen microfibrillen in een matrix (hemicellulose, pectine), niet in een eigen vak.

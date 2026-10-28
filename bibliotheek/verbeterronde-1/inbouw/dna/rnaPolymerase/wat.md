@@ -1,0 +1,3 @@
+Basis: variant A. Simpeler gemaakt (Kamiels opmerking): de klep rechtsboven is weg, de onderkaak is smaller en het hele enzym is 20 % minder hoog. Daardoor loopt het niet meer over de onderrand van het vak (gemelde fout). Het mRNA verlaat het hybride nu zonder knik.
+Behouden (essentieel): lokale bel met dichte helix ervoor en erachter, matrijsstreng onder, 8-bp RNA-DNA-hybride (bevestigd: Proteopedia 1H38 'an 8-base-pair RNA-DNA hybrid'; Martin lab UMass 'an 8 base RNA-DNA hybrid'), goud actief centrum, één dunne teal mRNA, standen bind/open/lees/los.
+Enzym blijft een gladde vorm (geen lint), want Kamiel koos A. De omzetting naar de kralenketen komt later, samen met de andere eiwitten.

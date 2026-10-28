@@ -1,0 +1,3 @@
+- Kamiel koos 'geen duidelijke winnaar'. Er is nog geen huidige versie in de bibliotheek, dus genomen: variant C, de winnaar van de laatste blinde ronde (nipt, 19-17).
+- De gemelde fout uit ronde 1 (Cas9 klemt niet, gids-RNA paart niet) is in C al hersteld: de lobben liggen achter het DNA met het PAM-domein als brug ervoor, en de 20 gids-basen paren op de doelstreng in de R-lus. Geen nieuwe aanpassing.
+- Vraag aan Kamiel: akkoord met C, of liever A/B?

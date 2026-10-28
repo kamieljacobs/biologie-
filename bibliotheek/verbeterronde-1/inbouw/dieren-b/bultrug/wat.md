@@ -1,0 +1,2 @@
+Basis: huidige versie (keuze 'gelijk'). Fout hersteld (≥ 2 bronnen): de staart eindigde als spies zonder staartvin. Nu is er een horizontale staartvin, van opzij verkort: twee puntige lobben met een gekartelde achterrand (Oceanic Society; NOAA/Coastal Review; NRCM).
+Het staartvin-blok komt uit C. De grotere staartuitslag en de zwaaiende borstvinnen uit A zijn níet overgenomen (geen fout); de slag is gelijk aan de huidige.

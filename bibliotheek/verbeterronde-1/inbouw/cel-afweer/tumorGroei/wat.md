@@ -1,0 +1,3 @@
+Basis: variant A (zijaanzicht: eenvoudige cilindrische cellen, basaalmembraan, bindweefsel met bloedvat), met het ronde ontwerp van B voor de tumor zelf, zoals Kamiel vroeg: een ronde kluwen van veelhoekige cellen die zonder overlap tegen elkaar liggen. De gewone cellen worden opzij geduwd en niet meer overlapt.
+Fout ronde 1 ('basaalmembraan niet zichtbaar doorbroken') hersteld: bij g > 0,75 een duidelijke opening in het basaalmembraan waar de kluwen doorheen groeit. Twee bronnen (J Clin Pathol 2023 76(1):11; MeSH 'Carcinoma in situ'), al geopend in ronde 2, zie ../../../cel-afweer/tumorGroei/bron.md.
+Geen vragen.

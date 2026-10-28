@@ -1,0 +1,3 @@
+Basis: huidige versie (Kamiel koos oud). Functie: alleen vetweefsel(); vetcel() en _bioCellen() blijven zoals ze zijn.
+Aangepast (gemelde fout, twee bronnen): het haarvat liep dwars over de vetcellen; nu loopt één doorlopend vat over de grenzen tussen de cellen (in het bindweefsel). Rustiger dan variant C (die knipte het vat in losse stukjes en had er twee). Bronnen: Digital Histology 'Adipose 1' / 'White adipose connective tissue', Mustansiriyah-college 'Adipose tissue'.
+Niet aangepast: de zwakte 'gevuld en geslonken zijn identiek' (de oude versie heeft geen o.vul; nieuw detail, niet gevraagd).

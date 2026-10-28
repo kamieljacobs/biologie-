@@ -1,0 +1,117 @@
+[
+ {
+  "obj": "codonTabel",
+  "keuze": "A",
+  "functies": [
+   "codonTabel",
+   "CODE_B",
+   "CODE_AA",
+   "_cdRNA",
+   "_cdRNAL",
+   "_cdTegel"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "genOpbouw",
+  "keuze": "A",
+  "functies": [
+   "genOpbouw",
+   "_goIndeling",
+   "_goSlier"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Vereist nu dnaDraad (dieren/lib_micro_evo.js) op elke pagina die genOpbouw gebruikt."
+ },
+ {
+  "obj": "lacOperon",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "'gelijk' bij een nieuw object: er is geen huidige versie in lib_bio.js, dus er gaat niets in. Welke variant wil je (A, B of C)? Let op: de gemelde fout (repressor zweeft boven de operator i.p.v. erop te binden) is met twee bronnen bevestigd (Sinauer Life 11e animatiescript lac operon; ODU Genetics 'lac operon') en moet in de gekozen variant worden hersteld."
+ },
+ {
+  "obj": "methylgroep",
+  "keuze": "gelijk",
+  "functies": [],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "'gelijk' bij een nieuw object: er is geen huidige versie. Je opmerking ('andere opbouw qua kleuren, nucleotiden simpeler') vraagt om een nieuwe variant; zet ik hem op 'geen' (nieuwe ronde)?"
+ },
+ {
+  "obj": "nucleosoomAcetyl",
+  "keuze": "B",
+  "functies": [
+   "nucleosoomAcetyl",
+   "_naAcetyl"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Transcriptiefactor is nog een enzymKluwen-blob. Vereist dnaDraad (lib_micro_evo.js)."
+ },
+ {
+  "obj": "rnaInterferentie",
+  "keuze": "C",
+  "functies": [
+   "rnaInterferentie",
+   "_riStreng",
+   "_riDuplex",
+   "_grKluwen",
+   "_grKluwenVorm",
+   "_grKluwenCache"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "_grKluwen/_grKluwenVorm/_grKluwenCache staan in genregulatie/_hulp.js (gelijk aan dna/_kluwen2.js): één keer plakken."
+ },
+ {
+  "obj": "transcriptiefactor",
+  "keuze": "B",
+  "functies": [
+   "transcriptiefactor",
+   "_grKralen",
+   "_grKralenCache",
+   "_tfSteroid",
+   "_tfDNA",
+   "_tfPolymerase",
+   "TF_KLEUR"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Kralen-hulpje hernoemd naar _grKralen (botste met lint-_grKluwen). RNA-polymerase is nog een enzymKluwen-blob: rnaPolymerase uit de dna-groep gebruiken?"
+ },
+ {
+  "obj": "uvSchade",
+  "keuze": "C",
+  "functies": [
+   "uvSchade",
+   "_uvGolf",
+   "_grKluwen",
+   "_grKluwenVorm",
+   "_grKluwenCache"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "DNA-polymerase in het onderste paneel is nog een enzymKluwen-blob. _grKluwen staat in genregulatie/_hulp.js."
+ }
+]

@@ -1,0 +1,213 @@
+[
+ {
+  "obj": "bioreactor",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "_bioKeten",
+   "bioreactor"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "crisprCas9",
+  "keuze": "gelijk",
+  "basis": "C",
+  "functies": [
+   "crisprCas9"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "'Geen duidelijke winnaar' en er is geen huidige versie: C (winnaar laatste ronde) genomen. Akkoord?",
+  "hulp": {
+   "bestand": "inbouw/lab/_hulp.js",
+   "functies": [
+    "_grKluwenCache",
+    "_grKluwenVorm",
+    "_grKluwen"
+   ]
+  }
+ },
+ {
+  "obj": "gelElektroforese",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "gelElektroforese"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "injectiespuit",
+  "keuze": "B",
+  "basis": "B",
+  "functies": [
+   "injectiespuit"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": false,
+  "vragen": "Is het zo rustig genoeg (hand kleiner en los onderaan, minder vetkwabjes/spiervezels)?"
+ },
+ {
+  "obj": "insulinePen",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "_penTeken",
+   "insulinePen"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Gemelde maatfout nagemeten: pen is 15,9 cm, klopt; niets aangepast."
+ },
+ {
+  "obj": "micropipet",
+  "keuze": "gelijk",
+  "basis": "C",
+  "functies": [
+   "micropipet"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "'Geen duidelijke winnaar' en er is geen huidige versie: C (winnaar laatste ronde) genomen. Akkoord of liever B?"
+ },
+ {
+  "obj": "microscoop",
+  "keuze": "A",
+  "basis": "A",
+  "functies": [
+   "microscoop"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Derde stand gespiegeld (statief rechts): in de scène gelijk trekken?"
+ },
+ {
+  "obj": "pcrBuisje",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "_pcrProfiel",
+   "_pcrNiveau",
+   "pcrBuisje"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "petrischaal",
+  "keuze": "B",
+  "basis": "B",
+  "functies": [
+   "_PS_SCHIJF",
+   "_psInhoud",
+   "petrischaal"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Zwevend deksel van B houden, of het recht opgetilde deksel uit C? Gemelde maatfout nagemeten: schaal ± 9,5 cm, klopt."
+ },
+ {
+  "obj": "plasmideKnipPlak",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "plasmideKnipPlak"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": true,
+  "vragen": "",
+  "hulp": {
+   "bestand": "inbouw/lab/_hulp.js",
+   "functies": [
+    "_grKluwenCache",
+    "_grKluwenVorm",
+    "_grKluwen"
+   ]
+  }
+ },
+ {
+  "obj": "primerStuk",
+  "keuze": "B",
+  "basis": "B",
+  "functies": [
+   "primerStuk"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": "Polymerase is de vlakke bibliotheek-blob (polymeraseAchter/Voor), geen keten; meenemen in de eiwitomzet?"
+ },
+ {
+  "obj": "restrictieEnzym",
+  "keuze": "B",
+  "basis": "B",
+  "functies": [
+   "_reePad",
+   "_reeKralen",
+   "_reeLint",
+   "restrictieEnzym"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": true,
+  "lint_eiwit": true,
+  "vragen": "Armen om het DNA (klem) toegevoegd na bronnen; rustig genoeg of liever zonder?"
+ },
+ {
+  "obj": "sequencer",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "SEQ_KLEUR",
+   "_seqNgs",
+   "sequencer"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ },
+ {
+  "obj": "thermocycler",
+  "keuze": "C",
+  "basis": "C",
+  "functies": [
+   "_tcTemp",
+   "_tcKast",
+   "thermocycler"
+  ],
+  "bestand": "lib_bio.js",
+  "nieuw": true,
+  "aangepast": false,
+  "lint_eiwit": false,
+  "vragen": ""
+ }
+]

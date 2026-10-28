@@ -1,0 +1,2 @@
+Basis: variant C (Kamiels keuze). Fout hersteld: de poten waren twee dunne zwarte lijnen die ver voorbij de staart staken. Bij de rosse grutto steken in vlucht alleen de tenen nét voorbij de staart (BirdGuides; Carolina Bird Club). Zie bron.md.
+Nu: twee taps toelopende loopbenen onder de staart (de verre poot donkerder) met drie korte tenen net achter de staartpunt. Snavel, kleed en vleugelslag zijn ongewijzigd.

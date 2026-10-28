@@ -1,0 +1,4 @@
+- Basis: variant B (twee helften als lint in een doorschijnend oppervlak).
+- Fout hersteld (3 bronnen, zie lab/restrictieEnzym/bron.md): de knip stond één base te vroeg (C|GAATTC, overhang GAAT); nu G↓AATTC met overhang AATT/TTAA (iSite 10 → 11).
+- Fout hersteld (2 bronnen: Wikipedia EcoRI, Kim e.a. 1986): het enzym klemt nu zichtbaar: na herkenning slaat elke helft een smalle lintarm vóór het DNA langs; bij loslaten trekken de armen terug. Verder niets toegevoegd.
+- Vraag aan Kamiel: de armen maken stap 2 iets voller. Vind je dat nog rustig genoeg, of liever zonder armen?
