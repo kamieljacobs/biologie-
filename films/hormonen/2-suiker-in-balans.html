@@ -10786,15 +10786,18 @@ const SCENES = {
   title(ctx, t) { eilandje(ctx, 1450, 560, 220, { beta: 0.6 + 0.3 * Math.sin(t), alfa: 0.4, t }); for (let i = 0; i < 6; i++) { const w2 = wander(i, t, 30, 0.6); glucoseDeeltje(ctx, 1250 + i * 70 + w2.x, 330 + w2.y, 13, 0.9); hormoonVorm(ctx, 1300 + i * 60 + w2.y, 800 + w2.x, 10, i % 3 ? 'insuline' : 'glucagon', 0.9); } },
 
   // ---------- Cold open ----------
-  s01(ctx, t, q) { klasAchtergrond(ctx);
-    const pS = person(ctx, 760, 900, 560, 1, Object.assign({ armR: { a1: 0.5, a2: 1.2 }, armL: { a1: 0.5, a2: 1.2 } }, SANNE));
+  s01(ctx, t, q) { klasAchtergrond(ctx); // nacontrole 29 okt 2026: Sanne staat naast de bank met de voeten op de vloer, armen natuurlijk; telefoon op echte maat in haar hand, de waarde in een zoomcirkel
+    const tl = q.on('telefoon', 1) * (1 - q.on('jou', 1)), SX = 600, SY = 930, SH = 560;
+    const kleinTel = (ctx2, hx, hy) => { ctx2.save(); ctx2.translate(hx - 4, hy - 30); ctx2.rotate(-0.12); roundRect(ctx2, -15, -26, 30, 54, 6); shape(ctx2, '#0D1420', '#5B6B88', 2); roundRect(ctx2, -11, -20, 22, 40, 3); ctx2.fillStyle = rgba(C.teal, 0.35 + 0.4 * tl); ctx2.fill(); ctx2.restore(); };
     persoon(ctx, 'noor', 1180, 840, 580, { pose: 'zit', tafel: 650, t }); // jij = Noor (castboek, ROLLEN.md); geen naam in beeld of stem
-    schoolbank(ctx, 970, 640, 900);
-    const se = q.on('sensortje', 1); sensor(ctx, 760 - 78, 900 - 560 + 560 / 6.6 * 1.9, 16, se); if (se > 0.01) { ctx.save(); ctx.globalAlpha *= se * (1 - q.on('jou', 1)); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(760 - 78, 900 - 560 + 560 / 6.6 * 1.9, 34, 0, 6.283); ctx.stroke(); ctx.restore(); }
-    const tl = q.on('telefoon', 1) * (1 - q.on('jou', 1)); telefoon(ctx, 280, 300, 280, 520, { a: tl, val: 5.6 + 0.4 * Math.sin(t * 0.5), curve: u => 5.5 + 1.8 * Math.exp(-Math.pow((u - 0.35) / 0.12, 2)) + 0.4 * Math.sin(u * 9), t });
-    tag(ctx, 'Sanne · diabetes type 1', 760, 300, C.text2, q.on('type', 1) * (1 - q.on('jou', 1)));
+    schoolbank(ctx, 1180, 640, 560);
+    person(ctx, SX, SY, SH, 1, Object.assign({ armR: { a1: 0.18, a2: -2.35, hold: (c2, hx, hy) => kleinTel(c2, hx, hy) }, armL: { a1: 0.1, a2: 0.05 } }, SANNE));
+    const sx0 = SX - 78, sy0 = SY - SH + SH / 6.6 * 1.9;
+    const se = q.on('sensortje', 1); sensor(ctx, sx0, sy0, 12, se); if (se > 0.01) { ctx.save(); ctx.globalAlpha *= se * (1 - q.on('jou', 1)); ctx.strokeStyle = C.goud; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(sx0, sy0, 28, 0, 6.283); ctx.stroke(); ctx.restore(); }
+    zoomCircle(ctx, 250, 420, 170, SX + 4, SY - SH + 175, null, tl, () => { ctx.fillStyle = '#1B2638'; ctx.fillRect(80, 250, 340, 340); ctx.save(); ctx.translate(250, 420); ctx.scale(0.55, 0.55); telefoon(ctx, -140, -260, 280, 520, { a: 1, val: 5.6 + 0.4 * Math.sin(t * 0.5), curve: u => 5.5 + 1.8 * Math.exp(-Math.pow((u - 0.35) / 0.12, 2)) + 0.4 * Math.sin(u * 9), t }); ctx.restore(); });
+    tag(ctx, 'Sanne · diabetes type 1', SX + 70, 300, C.text2, q.on('type', 1) * (1 - q.on('jou', 1)));
     tag(ctx, 'jij: niemand meet iets', 1180, 300, C.text2, q.on('jou', 1));
-    vraagteken(ctx, 960, 560, q.on('Hoe', 1), 130);
+    vraagteken(ctx, 900, 560, q.on('Hoe', 1), 130);
   },
 
   // ---------- H1 ----------

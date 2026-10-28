@@ -81,6 +81,9 @@ Checkvragen: 1 Regelkring aanvullen · 2 Glucosetolerantietest (tabel P, Q, R) �
 - In de recap (s24) de zin 'In de Regelkring-tool op de site kun je de kring zelf verstoren, en kijken hoe hij zich herstelt.' uit de audio geknipt (fragment eindigt na 'gym.') en het label 'Regelkring-tool op de site' weggehaald. Reden: prompt v10 aanvulling, geen verwijzingen naar tools in de film, vooral niet uitgesproken (Kamiel 25 okt 2026). De bron (scenes, filmdata, script.md) is op dezelfde manier aangepast.
 
 
+## Wijzigingen na 1.1
+- 29 okt 2026 — nacontrole 29 okt: s01 Sanne staat naast de schoolbank met de voeten op de vloer en de armen natuurlijk (rechterhand houdt de telefoon voor de borst, links langs het lichaam); de telefoon is op echte maat (≈ 30 × 54 px) in haar hand, de waarde en grafiek staan in een zoomcirkel links (de grote telefoon op schaal 0,55); de bank staat alleen nog voor Noor. Alleen `s01` in `src/scenes.js`, ingebouwd met `films/zenuwstelsel/7-slaap/bron/bouw/inbouw.py <film.html> src/scenes.js "// Hormonen 2 · Suiker in balans — scènes"`.
+
 ## Wijzigingen 1.1 (28 okt 2026): opwaardering naar prompt v13 (zonder keuring)
 
 Alleen beeld; stem, script, vragen, tijden en speler ongewijzigd. Site-HTML bijgewerkt door alleen de drie scriptblokken (lib, seriebibliotheken + `lib_cast.js`, `lib_anatomie.js`, `lib_bio.js`, scènes) te vervangen; `bouw/build.py` plakt die bibliotheken nu ook. Contactvel van de gewijzigde scènes bekeken; alle beelden in vwo en havo doorgelopen zonder JS-fouten; vragen afgespeeld met `?vragen=uit`.

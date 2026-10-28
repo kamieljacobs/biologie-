@@ -76,7 +76,7 @@ Ernst: **hoog** = fout of lelijk zichtbaar voor leerlingen, **laag** = detail. T
 
 ## Hormonen 2 · Suiker in balans
 
-1. s01 ± 15 s: de glucosemeter (telefoon) is bijna zo groot als Sanne en ligt over haar arm. Sanne staat met wijd gespreide armen, en haar voeten zweven onder het bureau. Dit botst met de afspraak over realistische maten. **hoog**
+1. s01 ± 15 s: de glucosemeter (telefoon) is bijna zo groot als Sanne en ligt over haar arm. Sanne staat met wijd gespreide armen, en haar voeten zweven onder het bureau. Dit botst met de afspraak over realistische maten. **hoog** — hersteld
 2. s09 ± 190 s: insulinereceptoren of insulinemoleculen zweven los linksboven de cellen, niet op het membraan. De vetcel is niet te onderscheiden van de lever- en spiercel (geen vetdruppel). **laag**
 3. s22 ± 517 s: Noor loopt zonder grond los onder de grafiek. **laag**
 4. s06/s16: 'SENSOR + REGELCENTRUM' en 'EFFECTOR' worden doorsneden door de pijlen. **laag**
