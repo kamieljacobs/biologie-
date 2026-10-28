@@ -579,17 +579,19 @@ function eiwitVouw(ctx, cx, cy, s, fold, kinds, o = {}) {
     else { ctx.save(); ctx.globalAlpha *= 0.65 + 0.35 * z; bead(ctx, p[0], p[1], rr, kinds[it.i], { ess }); ctx.restore(); } });
   ctx.restore(); pts.plek = [cx + Rv(0) * R0 + r, cy]; return pts;
 }
-// DEFINITIEF (inbouw 28 okt 2026): variant A, ongewijzigd overgenomen. Recept hieronder.
-// MEMBRAAN — variant A 'vloeiend membraan met helixbundel-eiwitten en kanaal' (27 okt 2026).
+// MEMBRAAN — variant A, verbeterronde 2 eiwitten (28 okt 2026): de eiwitten in het membraan als kralenketen. Zelfde
+// fosfolipiden, boog, golving, plaats en grootte van de eiwitten en zelfde aanroep als variant A; alleen de staafjes met
+// streepjes en de vlakke kapjes zijn vervangen door één doorlopende kralenketen: elke α-helix is een kolom kralen in een
+// golf (3,6 per winding, voor licht, achter donker), verbonden door korte lussen buiten en binnen.
 // Recept (C9; OpenStax Biology 2e 5.1): dubbele laag fosfolipiden langs een boog (een cel is rond); kop (rond)
 // + twee staarten ± 2× de kopdiameter, staarten naar binnen, in vetkleur. Membraan 5–10 nm dik. Vloeibaar
 // mozaïek: de lipiden schuiven los langs elkaar (o.t: koppen wiebelen zijwaarts, de laag golft licht).
-// Een transmembraaneiwit steekt aan beide kanten uit en is een bundel α-helices (staafjes) die de laag
-// overspannen, geen kale capsule; een kanaaleiwit heeft een porie in het midden die open/dicht gaat.
+// Een transmembraaneiwit is één keten die de laag een paar keer oversteekt: elke oversteek is een α-helix (± 20
+// aminozuren), lussen steken aan beide kanten uit. Een kanaaleiwit heeft een porie in het midden die open/dicht gaat.
 // eiwitten: lijst hoeken (oud) of objecten {an, soort: 'eiwit'|'kanaal', open 0..1}.
-// Bekende fouten: rechte lijn; losse rijtjes bolletjes zonder staarten; eiwit als gladde pil; kanaal zonder porie.
-// Aanroep zoals voorheen: membraanBoog(ctx, cx, cy, R, a0, a1, {a, s, kop, staart, eiwitten, eiwitCol}); nieuw: t, golf.
-// Geeft terug: {eiwit: [[x, y, an], ...], punt(an)}.
+// Bekende fouten: rechte lijn; losse rijtjes bolletjes zonder staarten; eiwit als gladde pil of lint; kanaal zonder porie.
+// Aanroep zoals voorheen: membraanBoog(ctx, cx, cy, R, a0, a1, {a, s, kop, staart, eiwitten, eiwitCol, t, golf}).
+// Geeft terug: {eiwit: [[x, y, an], ...], punt(an)}. Vereist _kkHelix/_kkPad (eiwitten/_hulp.js).
 function membraanBoog(ctx, cx, cy, R, a0, a1, o = {}) {
   const { a = 1, s = 1, t = 0, golf = 1, kop = C.er, staart = (typeof V !== 'undefined' ? V.vt : C.oker), eiwitten = [], eiwitCol = C.enzym } = o;
   const E = eiwitten.map(e => typeof e === 'number' ? { an: e, soort: 'eiwit', open: 0 } : Object.assign({ soort: 'eiwit', open: 0 }, e));
@@ -606,12 +608,19 @@ function membraanBoog(ctx, cx, cy, R, a0, a1, o = {}) {
   // eiwitten: bundel helices die de laag overspannen; kanaal = twee helften met porie
   E.forEach(e => { const p = ret.punt(e.an); ctx.save(); ctx.translate(p[0], p[1]); ctx.rotate(e.an + Math.PI / 2); // lokaal: x langs de laag, y loodrecht (−y = buiten)
     const H = sl * 2 + kr * 2 + gap * 2 + kr * 2.4, hw = kr * 1.7; const licht = _mixHex(eiwitCol, '#FFFFFF', 0.3), donker = _mixHex(eiwitCol, '#1A2740', 0.3);
-    const staaf = (x0, h, sch) => { ctx.save(); ctx.translate(x0, 0); ctx.rotate(sch); roundRect(ctx, -hw / 2, -h / 2, hw, h, hw / 2); shape(ctx, eiwitCol, licht, 1.2); ctx.strokeStyle = rgba(donker, 0.6); ctx.lineWidth = 1; for (let q = -h / 2 + hw * 0.6; q < h / 2 - hw * 0.4; q += hw * 0.55) { ctx.beginPath(); ctx.moveTo(-hw / 2 + 1, q); ctx.lineTo(hw / 2 - 1, q + hw * 0.3); ctx.stroke(); } ctx.restore(); };
+    // α-helix als kralen (verbeterronde 2): van boven (−y, buiten) naar onder of omgekeerd; ends = [boven, onder] in lokale maat
+    const kb = Math.max(hw * 0.34, 2.2), kst = hw < 12 ? 1.6 : 0.95, helix = (x0, h, sch, omlaag, fase) => { const c2 = Math.cos(sch), s2 = Math.sin(sch), P = (yy) => [x0 - yy * s2, yy * c2];
+      const A = P(-h / 2), B = P(h / 2); _kkHelix(ctx, omlaag ? A : B, omlaag ? B : A, kb, eiwitCol, { fase, amp: 0.55, stap: kst }); return [A, B]; };
+    const lus = (p, q, buiten) => { const m = [(p[0] + q[0]) / 2, (buiten ? Math.min(p[1], q[1]) : Math.max(p[1], q[1])) + (buiten ? -1 : 1) * hw * 0.9]; _kkPad(ctx, [p, m, q], kb, eiwitCol, { stap: 2.1 }); };
     if (e.soort === 'kanaal') { const op = clamp(e.open, 0, 1); const sp = kr * (0.25 + 1.2 * op);
-      for (const sd of [-1, 1]) { ctx.save(); ctx.translate(sd * sp, 0); staaf(sd * hw * 0.55, H * 0.92, sd * 0.06 * (1 - op)); staaf(sd * hw * 1.65, H * 0.8, -sd * 0.08); ctx.beginPath(); ctx.ellipse(sd * hw * 1.1, -H * 0.5, hw * 1.2, hw * 0.55, 0, 0, 6.283); shape(ctx, donker, licht, 1); ctx.restore(); }
+      for (const sd of [-1, 1]) { ctx.save(); ctx.translate(sd * sp, 0);
+        const h1 = helix(sd * hw * 0.55, H * 0.92, sd * 0.06 * (1 - op), true, 0), h2 = helix(sd * hw * 1.65, H * 0.8, -sd * 0.08, false, 2);
+        lus(h1[1], h2[1], false); lus(h2[0], [h2[0][0] + sd * hw * 1.2, h2[0][1] - hw * 0.6], true); _kkPad(ctx, [[h1[0][0] - sd * hw * 0.5, h1[0][1] - hw * 1.1], h1[0]], kb, eiwitCol, { stap: 2.1 }); ctx.restore(); }
       if (op > 0.05) { ctx.save(); ctx.globalAlpha *= op; for (let q = 0; q < 3; q++) { ctx.beginPath(); ctx.arc(0, -H * 0.3 + q * H * 0.3 + Math.sin(t * 3 + q) * kr * 0.3, kr * 0.35, 0, 6.283); ctx.fillStyle = C.teal; ctx.fill(); } ctx.restore(); } }
-    else { for (let k = 0; k < 4; k++) staaf((k - 1.5) * hw * 1.05, H * (0.86 + 0.08 * Math.sin(k * 2.1)), (k % 2 ? 1 : -1) * 0.12);
-      ctx.beginPath(); ctx.ellipse(0, -H * 0.5, hw * 2.3, hw * 0.75, 0, 0, 6.283); shape(ctx, donker, licht, 1); ctx.beginPath(); ctx.ellipse(hw * 0.4, H * 0.48, hw * 1.6, hw * 0.6, 0, 0, 6.283); shape(ctx, donker, licht, 1); }
+    else { const E4 = []; for (let k = 0; k < 4; k++) E4.push(helix((k - 1.5) * hw * 1.05, H * (0.86 + 0.08 * Math.sin(k * 2.1)), (k % 2 ? 1 : -1) * 0.12, k % 2 === 0, k * 1.3));
+      for (let k = 0; k < 3; k++) lus(k % 2 === 0 ? E4[k][1] : E4[k][0], k % 2 === 0 ? E4[k + 1][1] : E4[k + 1][0], k % 2 === 1);
+      _kkPad(ctx, [[E4[0][0][0] - hw * 0.9, E4[0][0][1] - hw * 1.2], [E4[0][0][0] - hw * 0.2, E4[0][0][1] - hw * 0.9], E4[0][0]], kb, eiwitCol, { stap: 2.1 }); // N-staart buiten
+      _kkPad(ctx, [E4[3][0], [E4[3][0][0] + hw * 0.5, E4[3][0][1] - hw * 1.0], [E4[3][0][0] + hw * 1.3, E4[3][0][1] - hw * 0.9]], kb, eiwitCol, { stap: 2.1 }); }
     ctx.restore(); });
   ctx.restore(); return ret;
 }
@@ -875,6 +884,21 @@ function _ekC_rand(r, seed, sluit) { // straal per hoek; holte rond hoek 0; lipp
     else if (ad < w + 0.35) rr *= 1 + 0.14 * sluit * Math.sin((ad - w) / 0.35 * Math.PI); // lip buigt om het substraat
     return rr; };
 }
+// ENZYM met actieve plek (goud) — verbeterronde 2 eiwitten (28 okt 2026): variant C als kralenketen. Zelfde omtrek, holte,
+// induced fit, substraat, aanroep en teruggave als variant C; alleen de keten zelf is nu overal kralen (Kamiel koos de
+// kralenketen voor alle eiwitten): geen spiraalveren en β-pijlen meer, en ook klein (r < 20) een keten in plaats van een
+// vlakke vlek met een kralenrand.
+// Recept (C9, BEELDAFSPRAKEN; OpenStax Biology 2e 3.4): een enzym is één gevouwen keten van aminozuren (kralen, zelfde
+// taal als eiwitVouw en transcriptiefactor), die in lussen door een compacte kluwen loopt. Twee stukken van de buitenste
+// lus zijn α-helix (kralen ± 2,3× dichter op elkaar in een golf, 3,6 per winding, voorkant licht, achterkant donker), en
+// twee stukken liggen als gestrekte β-strengen naast elkaar met waterstofbruggen (teal stippels). Aan één kant een ronde
+// holte (actieve plek, goud) die past bij één substraat (hier twee glucoseringen, V.kh).
+// Induced fit: open (sluit 0, holte wijd) → het substraat schuift in de holte (bind 0 → 1) en de twee lippen draaien
+// er ± 20° omheen dicht → het enzym knipt de binding (knip 0 → 0,5: de stukken wijken) → de holte gaat weer open en
+// de stukken laten los (knip 0,5 → 1). sluit volgt standaard uit bind en knip; o.sluit kan het overschrijven.
+// Bekende fouten: gladde bol met krabbel; holte die niet van vorm verandert; substraat dat in het eiwit verdwijnt; lint of veer.
+// Aanroep zoals voorheen: enzymKluwen(ctx, x, y, r, {a, an, sluit, col, seed, bind, knip, sub}). Geeft terug: {plek:[x,y], lip:[x,y], rand(u)}.
+// (_ekC_rand blijft ongewijzigd in lib_bio.js)
 function enzymKluwen(ctx, x, y, r, o = {}) {
   const { a = 1, an = 0, col = C.enzym, seed = 4, bind = 0, knip = 0, sub = (typeof V !== 'undefined' ? V.kh : C.oker) } = o;
   const b = ease(clamp(bind, 0, 1)), kn = clamp(knip, 0, 1), kn1 = ease(clamp(kn / 0.5, 0, 1)), kn2 = ease(clamp((kn - 0.5) / 0.5, 0, 1));
@@ -887,38 +911,27 @@ function enzymKluwen(ctx, x, y, r, o = {}) {
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const om = []; for (let k = 0; k < 72; k++) { const u = k / 72 * 6.283, rr = R(u) * 1.04; om.push([Math.cos(u) * rr, Math.sin(u) * rr]); }
   ctx.beginPath(); bioPad(ctx, om, true); shape(ctx, rgba(donker, 0.92), _mixHex(col, '#FFFFFF', 0.2), Math.max(1, r * 0.02));
-  if (r < 20) { ctx.fillStyle = _mixHex(col, '#FFFFFF', 0.15); for (let k = 0; k < 14; k++) { const u = 0.75 + k / 13 * (6.283 - 1.5); const rr = R(u) * 0.84; ctx.beginPath(); ctx.arc(Math.cos(u) * rr, Math.sin(u) * rr, r * 0.15, 0, 6.283); ctx.fill(); } }
-  else {
-    const kr = r * 0.075, stap = kr * 1.75, gw = lerp(0.62, 0.3, sluit) + 0.2;
-    // serpentine: buitenring → middenring → binnenring; per kraal ring en hoek bewaren
-    const pad = []; [[0.82, 1], [0.56, -1], [0.3, 1]].forEach(([k, dir], ri) => { const b0 = gw + ri * 0.12, b1 = 6.283 - gw - ri * 0.08;
+  // één kralenketen (verbeterronde 2: geen lint, geen helixveren of β-pijlen meer): serpentine buitenring → middenring →
+  // binnenring; klein (r < 20) twee ringen met grotere kralen. Helixstukken = kralen dichter op elkaar in een golf (3,6 per
+  // winding, voor licht, achter donker); de twee strengen liggen naast elkaar met waterstofbruggen (teal stippels).
+  { const klein = r < 20, kr = klein ? Math.max(r * 0.16, 1.8) : r * 0.075, gw = lerp(0.62, 0.3, sluit) + 0.2;
+    const ringen = klein ? [[0.74, 1], [0.38, -1]] : [[0.82, 1], [0.56, -1], [0.3, 1]];
+    const pad = []; ringen.forEach(([k, dir], ri) => { const b0 = gw + ri * 0.12, b1 = 6.283 - gw - ri * 0.08;
       for (let i = 0; i <= 60; i++) { const u = dir > 0 ? lerp(b0, b1, i / 60) : lerp(b1, b0, i / 60); pad.push([Math.cos(u) * R(u) * k, Math.sin(u) * R(u) * k, ri, u]); } });
-    const K = []; let acc = stap; for (let i = 1; i < pad.length; i++) { const p = pad[i - 1], q = pad[i]; const L = Math.hypot(q[0] - p[0], q[1] - p[1]); let d = 0;
-      while (acc <= L - d) { d += acc; const f = d / L; K.push({ x: lerp(p[0], q[0], f), y: lerp(p[1], q[1], f), ri: q[2], u: q[3] }); acc = stap; } acc -= (L - d); }
-    const soort = K.map(k => (k.ri === 0 && ((k.u > 1.05 && k.u < 2.15) || (k.u > 4.25 && k.u < 5.3))) ? 'h' : ((k.ri === 0 || k.ri === 1) && k.u > 2.5 && k.u < 3.85) ? 's' : 'l');
-    const runs = []; soort.forEach((s2, i) => { if (s2 === 'l') return; const lr = runs[runs.length - 1]; if (lr && lr.s === s2 && lr.i1 === i - 1) lr.i1 = i; else runs.push({ s: s2, i0: i, i1: i }); });
-    // lussen: kralenketting (alleen waar geen helix/streng ligt)
-    ctx.strokeStyle = rgba(licht, 0.8); ctx.lineWidth = kr * 0.5; ctx.beginPath(); let pen = false;
-    K.forEach((k, i) => { const vrij = soort[i] === 'l' || (runs.some(rn => rn.i0 === i || rn.i1 === i)); if (vrij) { pen ? ctx.lineTo(k.x, k.y) : ctx.moveTo(k.x, k.y); pen = true; } else pen = false; }); ctx.stroke();
-    // doorverbinding over helix/streng heen gebeurt door het element zelf
-    K.forEach((k, i) => { if (soort[i] !== 'l') return; ctx.beginPath(); ctx.arc(k.x, k.y, kr * 0.85, 0, 6.283); shape(ctx, _mixHex(donker, col, 0.75), licht, Math.max(0.8, r * 0.011)); });
-    // β-strengen: brede pijlen langs de keten, buren tegengesteld
-    runs.filter(rn => rn.s === 's' && rn.i1 - rn.i0 >= 2).forEach(rn => { const Q = K.slice(rn.i0, rn.i1 + 1).map(k => [k.x, k.y]); const hw = kr * 0.95; const n2 = Q.length;
-      const nrm = j => { const p = Q[Math.max(0, j - 1)], q = Q[Math.min(n2 - 1, j + 1)]; const dx = q[0] - p[0], dy = q[1] - p[1], L = Math.hypot(dx, dy) || 1; return [-dy / L, dx / L, dx / L, dy / L]; };
-      const kop = Math.max(1, Math.round(n2 * 0.3)); const L1 = [], L2 = []; for (let j = 0; j < n2 - kop; j++) { const [nx, ny] = nrm(j); L1.push([Q[j][0] + nx * hw, Q[j][1] + ny * hw]); L2.push([Q[j][0] - nx * hw, Q[j][1] - ny * hw]); }
-      const j0 = n2 - kop, [nx, ny] = nrm(j0); const pb = Q[j0], tip = Q[n2 - 1]; const [, , tx, ty] = nrm(n2 - 1);
-      ctx.beginPath(); L1.forEach((p, j) => j ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.lineTo(pb[0] + nx * hw * 1.8, pb[1] + ny * hw * 1.8); ctx.lineTo(tip[0] + tx * kr * 0.6, tip[1] + ty * kr * 0.6); ctx.lineTo(pb[0] - nx * hw * 1.8, pb[1] - ny * hw * 1.8); L2.reverse().forEach(p => ctx.lineTo(p[0], p[1])); ctx.closePath();
-      shape(ctx, _mixHex(col, '#FFFFFF', 0.12), licht, Math.max(1, r * 0.012)); });
-    // waterstofbruggen tussen de twee strengen
-    const s1 = runs.find(rn => rn.s === 's'), s2 = runs.filter(rn => rn.s === 's')[1];
-    if (s1 && s2) { ctx.save(); ctx.strokeStyle = rgba(C.teal, 0.75); ctx.lineWidth = Math.max(1, r * 0.012); ctx.setLineDash([r * 0.02, r * 0.02]); for (let j = s1.i0 + 1; j < s1.i1; j += 2) { const p = K[j]; let best = null, bd = 1e9; for (let q = s2.i0; q <= s2.i1; q++) { const d = Math.hypot(K[q].x - p.x, K[q].y - p.y); if (d < bd) { bd = d; best = K[q]; } } if (best && bd < r * 0.4) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(best.x, best.y); ctx.stroke(); } } ctx.restore(); }
-    // α-helices: spiraalveer tussen begin en eind van het stuk (achterkant donker, voorkant licht)
-    runs.filter(rn => rn.s === 'h' && rn.i1 - rn.i0 >= 3).forEach(rn => { const A = K[rn.i0], B = K[rn.i1]; const dx = B.x - A.x, dy = B.y - A.y, L = Math.hypot(dx, dy), ux = dx / L, uy = dy / L, nx = -uy, ny = ux;
-      const amp = kr * 1.45, tw = Math.max(2, Math.round((rn.i1 - rn.i0) / 3.6)), N = tw * 24; const pt = j => { const u = j / N, ph = u * tw * 6.283; return [A.x + ux * (L * u + Math.cos(ph) * amp * 0.45), A.y + uy * (L * u + Math.cos(ph) * amp * 0.45), Math.cos(ph), Math.sin(ph)]; };
-      const P2 = Array.from({ length: N + 1 }, (_, j) => { const p = pt(j); return [p[0] + nx * p[3] * amp, p[1] + ny * p[3] * amp, p[2]]; });
-      for (const voor of [false, true]) { ctx.strokeStyle = voor ? licht : _mixHex(col, '#1A2740', 0.2); ctx.lineWidth = kr * (voor ? 1.15 : 0.85); let open = false;
-        P2.forEach(p => { if ((p[2] < 0) === voor) { if (open) { ctx.stroke(); open = false; } return; } if (!open) { ctx.beginPath(); ctx.moveTo(p[0], p[1]); open = true; } else ctx.lineTo(p[0], p[1]); }); if (open) ctx.stroke(); } });
-  }
+    const soortVan = (ri, u) => klein ? 'l' : (ri === 0 && ((u > 1.05 && u < 2.15) || (u > 4.25 && u < 5.3))) ? 'h' : ((ri === 0 || ri === 1) && u > 2.5 && u < 3.85) ? 's' : 'l';
+    const K = []; let acc = 0, hp = 0;
+    for (let i = 1; i < pad.length; i++) { const p = pad[i - 1], q = pad[i]; const L = Math.hypot(q[0] - p[0], q[1] - p[1]); if (L < 1e-6) continue; let d = 0;
+      while (true) { const sr = soortVan(q[2], q[3]), stap = sr === 'h' ? kr * 0.85 : kr * 1.9; if (acc + (L - d) < stap) { acc += L - d; break; } d += stap - acc; acc = 0;
+        const f = d / L, x0 = lerp(p[0], q[0], f), y0 = lerp(p[1], q[1], f), nx = -(q[1] - p[1]) / L, ny = (q[0] - p[0]) / L;
+        if (sr === 'h') { const ph = hp / 3.6 * 6.283; hp++; K.push({ x: x0 + nx * Math.sin(ph) * kr * 1.1, y: y0 + ny * Math.sin(ph) * kr * 1.1, z: Math.cos(ph), s: sr, ri: q[2] }); }
+        else { hp = 0; K.push({ x: x0, y: y0, z: 0, s: sr, ri: q[2] }); } } }
+    ctx.strokeStyle = rgba(licht, 0.75); ctx.lineWidth = Math.max(1, kr * 0.45); ctx.beginPath(); bioPad(ctx, K.map(k => [k.x, k.y]), false); ctx.stroke();
+    // waterstofbruggen tussen de twee strengen (buitenring ↔ middenring)
+    const s1 = K.filter(k => k.s === 's' && k.ri === 0), s2 = K.filter(k => k.s === 's' && k.ri === 1);
+    if (s1.length && s2.length) { ctx.save(); ctx.strokeStyle = rgba(C.teal, 0.7); ctx.lineWidth = Math.max(1, r * 0.01); ctx.setLineDash([r * 0.02, r * 0.02]);
+      s1.forEach((p, j) => { if (j % 2) return; let best = null, bd = 1e9; s2.forEach(q => { const dd = Math.hypot(q.x - p.x, q.y - p.y); if (dd < bd) { bd = dd; best = q; } }); if (best && bd < r * 0.4) { ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(best.x, best.y); ctx.stroke(); } }); ctx.restore(); }
+    K.map((k, i) => i).sort((i, j) => K[i].z - K[j].z).forEach(i => { const k = K[i], z = k.z;
+      ctx.beginPath(); ctx.arc(k.x, k.y, kr * (0.85 + 0.12 * z), 0, 6.283); shape(ctx, z > 0 ? _mixHex(col, '#FFFFFF', 0.06 + 0.1 * z) : _mixHex(_mixHex(donker, col, 0.75), '#000000', -0.15 * z), licht, Math.max(0.8, r * 0.011)); }); }
   // actieve plek: gouden rand van de holte
   ctx.strokeStyle = C.goud; ctx.lineWidth = Math.max(2, r * 0.05); const w = lerp(0.62, 0.3, sluit) + 0.04; const hp = []; for (let k = -12; k <= 12; k++) { const u = k / 12 * w; hp.push([Math.cos(u) * R(u), Math.sin(u) * R(u)]); } ctx.beginPath(); bioPad(ctx, hp, false); ctx.stroke();
   // substraat: twee glucoseringen; schuift de holte in, wordt geknipt en laat los
@@ -930,92 +943,214 @@ function enzymKluwen(ctx, x, y, r, o = {}) {
 }
 
 // =====================================================================================
-// ===== Toegevoegd 22 okt 2026 voor Sekse, gender en diversiteit 1.1 =====
-// ==============================================================================
-// ECHO van ± 20 weken (2D, sagittaal profiel). Recept: waaiervormig beeld (sector ± 70°), zwart = vocht
-// (vruchtwater), grijs korrelig = weke delen, helder wit = bot en grensvlakken. Bij 20 weken: schedel als heldere
-// ring, profiel (voorhoofd, neusbotje, lippen, kin), wervelkolom als dubbele rij heldere kraaltjes langs de rug,
-// ribben als korte heldere streepjes, hart in de borst (± 2 cm) dat zichtbaar klopt (± 140/min), armpje met
-// handje vaak bij het gezicht. Baarmoederwand als heldere band aan de rand. Bron: ISUOG-richtlijn 20-wekenecho;
-// RIVM 'Het 20 wekenonderzoek'. Bekende fouten: losse ellipsen; kind 'getekend' met lijnen i.p.v. echo-korrel.
-// (x, y) = top van de waaier (transducer); R = diepte; o.hl = {hoofd, armen, hart} 0..1 oplichten; t = tijd.
-function _echoKorrel(ctx, pts, n, seed, helder, r = 1.6) { for (let i = 0; i < n; i++) { const p = pts(hash(seed + i * 3), hash(seed + i * 3 + 1)); if (!p) continue; const v = hash(seed + i * 3 + 2); ctx.fillStyle = `rgba(${helder},${helder},${helder + 6},${0.18 + 0.5 * v})`; ctx.fillRect(p[0], p[1], r + v * 1.6, r * 0.7 + v); } }
+// ECHO van ± 20 weken (2D, sagittaal profiel) — variant A 'echoweefsel' (verbeterronde 2, 28 okt 2026).
+// Recept (bronnen in bron.md: ISUOG '20 planes approach to the routine mid-trimester scan'; Univ. of Saskatchewan,
+// 'Undergraduate Diagnostic Imaging Fundamentals', hoofdstuk echografie):
+// - waaiervormig beeld (sector), de transducer bovenaan in de punt. Vocht (vruchtwater, maag, blaas) is zwart
+//   (geen echo), weke delen grijs en licht gevlekt, bot helder wit (veel echo). Dieper wordt het beeld iets donkerder.
+// - alles is ECHOWEEFSEL: zachte grijze vlakken met zachte randen en een rustige vlekking, géén lijnen of symbolen.
+// - kind in profiel, op de rug: hoofd links, gezicht schuin omhoog naar de transducer (voorhoofd–neusbotje–lippen–kin
+//   tegen het zwarte vruchtwater), heldere schedelrand; romp naar rechts met de rug onder;
+//   wervelkolom = twee rijen heldere kraaltjes (twee botkernen per wervel) die de rug volgen, onder de huid, en naar
+//   het heiligbeen toe naar elkaar toe lopen; hart in de borst = grijze vlek met donkere kamers die klopt (± 140/min);
+//   maag als zwart blaasje in de bovenbuik; bekken met de blaas; benen opgetrokken (dijbeen als helder streepje);
+//   armpje met vuistje bij het gezicht. Bovenaan buikwand en placenta, onderaan de baarmoederwand.
+// Bekende fouten: hart als cirkel met kruis; wervelkolom als stippellijnen; romp die abrupt eindigt zonder bekken of
+// benen; kind getekend met lijnen; drukke korrel (Kamiel: rustig houden).
+// Aanroep zoals voorheen: echoBeeld(ctx, x, y, R, {a, t, hl: {hoofd, armen, hart}, s, open}); (x, y) = top van de
+// waaier, R = diepte, s = grootte van het kind, open = openingshoek (rad). Het stilstaande deel wordt per maat één
+// keer opgebouwd en bewaard (snel in een film); alleen het hart en het oplichten worden elke frame getekend.
+// Geeft ankerpunten terug: { hart, hoofd, arm }.
+// =====================================================================================
+const _ECHO_A = { cache: {}, vlak: false, min: false, rot: 0 }; // rot = extra draaiing van het kind (rad)
+function _echoAHoofd() { // omtrek van het hoofd met profiel; het gezicht kijkt schuin omhoog (naar de transducer)
+  const c = [-120, 0], pts = []; const bult = (th, m, w, h) => h * Math.exp(-((((th - m + 540) % 360 - 180) / w) ** 2));
+  for (let th = -40; th <= 318; th += 2) { // graden, 0 = rechts, 90 = onder, 270 = boven (schermassen)
+    const r = 82 + bult(th, 236, 14, 4) + bult(th, 259, 9, 22) + bult(th, 273, 5, 11) - bult(th, 278, 3, 4) + bult(th, 283, 5, 9) + bult(th, 296, 8, 7) - bult(th, 312, 9, 12);
+    pts.push([c[0] + Math.cos(th * Math.PI / 180) * r, c[1] + Math.sin(th * Math.PI / 180) * r]); }
+  return pts;
+}
+function _echoAVorm() { // vormen in kind-eenheden (R = 520), oorsprong = midden van het kind; buik boven, rug onder
+  return {
+    hoofd: _echoAHoofd(),
+    schedel: [[-54, 56], [-90, 78], [-140, 82], [-184, 56], [-202, 10], [-196, -36], [-170, -68]], // achterhoofd-kruin-voorhoofd
+    romp: [[-80, -56], [-20, -66], [40, -66], [100, -56], [140, -36], [164, -6], [166, 28], [146, 54], [100, 68], [40, 72], [-20, 68], [-56, 52], [-70, 20], [-66, -24]],
+    dij: [[132, -6], [120, -40], [100, -66]], onderbeen: [[100, -66], [128, -80], [156, -80]],
+    arm: [[-50, -46], [-52, -80], [-70, -98]],
+    rug: [[-50, 40], [0, 52], [60, 54], [110, 44], [142, 24], [154, -2]],
+    hart: [-26, -18], maag: [70, -18], blaas: [136, 4]
+  };
+}
+function _echoAKorrel(w, h, sd) { // rustige vlekking: ruis op lage resolutie, zacht opgeschaald
+  const f = 4, cw = Math.ceil(w / f), ch = Math.ceil(h / f); const c = document.createElement('canvas'); c.width = cw; c.height = ch; const g = c.getContext('2d'); const im = g.createImageData(cw, ch);
+  for (let i = 0; i < cw * ch; i++) { const v = 200 + Math.floor(hash(sd + i * 1.37) * 55); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = v; im.data[i * 4 + 3] = 255; }
+  g.putImageData(im, 0, 0); const o = document.createElement('canvas'); o.width = w; o.height = h; const og = o.getContext('2d'); og.imageSmoothingEnabled = true; og.filter = 'blur(1.5px)'; og.drawImage(c, 0, 0, w, h); return o;
+}
+function _echoABouw(R, s, open, vlak, min) {
+  const key = [Math.round(R), s.toFixed(2), open.toFixed(2), vlak ? 1 : 0, min ? 1 : 0].join('_'); if (_ECHO_A.cache[key]) return _ECHO_A.cache[key];
+  const half = Math.sin(open / 2) * R, W = Math.ceil(half * 2 + 4), H = Math.ceil(R + 2), ox = W / 2; // apex op (ox, 0)
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
+  const k = R / 520 * s * 0.8, cx = ox + R * 0.04, cy = R * 0.6, rot = _ECHO_A.rot; const F = _echoAVorm();
+  const grijs = (v, al = 1) => `rgba(${v},${v},${v + 4},${al})`;
+  g.fillStyle = '#000'; g.fillRect(0, 0, W, H);
+  // moeder: buikwand (helder, gelaagd) en placenta bovenaan; baarmoederwand onderaan
+  const boog = (r0, r1, v) => { g.beginPath(); g.arc(ox, 0, r1, 0, Math.PI); g.arc(ox, 0, r0, Math.PI, 0, true); g.closePath(); g.fillStyle = grijs(v); g.fill(); };
+  boog(R * 0.02, R * 0.06, 150); boog(R * 0.06, R * 0.075, 90); boog(R * 0.075, R * 0.1, 135); boog(R * 0.12, R * 0.22, 105); boog(R * 0.215, R * 0.228, 150);
+  boog(R * 0.9, R * 0.935, 120); boog(R * 0.935, R * 1.0, 85);
+  g.save(); g.translate(cx, cy); g.rotate(rot); g.scale(k, k); g.lineJoin = 'round'; g.lineCap = 'round';
+  const vul = (pts, v, dicht = true) => { g.beginPath(); bioPad(g, pts, dicht); g.fillStyle = grijs(v); g.fill(); };
+  const lijn = (pts, v, w) => { g.beginPath(); bioPad(g, pts, false); g.strokeStyle = grijs(v); g.lineWidth = w; g.stroke(); };
+  // weke delen
+  lijn(F.dij, 94, 46); lijn(F.onderbeen, 94, 34); g.beginPath(); g.ellipse(166, -80, 16, 10, 0.2, 0, 6.283); g.fillStyle = grijs(94); g.fill(); vul(F.romp, 92); vul(F.hoofd, 88);
+  g.beginPath(); g.ellipse(-62, -40, 26, 26, 0.4, 0, 6.283); g.fillStyle = grijs(92); g.fill(); // hals/schouder
+  // huidrand iets helderder
+  for (const [v, h] of [[F.romp, 140], [F.hoofd, 170]]) { g.beginPath(); bioPad(g, v, true); g.strokeStyle = grijs(h, 0.85); g.lineWidth = 5; g.stroke(); } // huid geeft een heldere grens met het vruchtwater
+  // hersenen: donkerder binnen de schedel
+  g.beginPath(); g.ellipse(-118, 18, 54, 50, 0.1, 0, 6.283); g.fillStyle = grijs(76); g.fill();
+  // vochtholtes: maag en blaas zwart
+  g.beginPath(); g.ellipse(F.maag[0], F.maag[1], 20, 14, -0.2, 0, 6.283); g.fillStyle = grijs(6); g.fill();
+  if (!min) { g.beginPath(); g.ellipse(F.blaas[0], F.blaas[1], 13, 11, 0.3, 0, 6.283); g.fillStyle = grijs(8); g.fill(); }
+  // lever iets helderder onder het hart
+  if (!min) { g.beginPath(); g.ellipse(18, -36, 36, 18, 0.1, 0, 6.283); g.fillStyle = grijs(106, 0.8); g.fill(); }
+  // longen rond het hart iets helderder
+  if (!min) { g.beginPath(); g.ellipse(-22, -4, 40, 36, 0, 0, 6.283); g.fillStyle = grijs(112, 0.7); g.fill(); }
+  // bot: schedel, neusbotje, kaak, wervels, ribben, arm- en beenbotjes
+  lijn(F.schedel, 235, 11); // schedelrand (achter het gezicht open: daar zit het aangezicht)
+  lijn([[-142, -80], [-145, -91]], 245, 6); // neusbotje
+  if (!min) { lijn([[-88, -70], [-100, -50], [-112, -40]], 185, 6); } // onderkaak
+  const rug = (() => { const D = bioDicht(F.rug, 20), out = [D[0]]; let acc = 0; for (let i = 1; i < D.length; i++) { acc += Math.hypot(D[i][0] - D[i - 1][0], D[i][1] - D[i - 1][1]); if (acc >= 13) { out.push(D[i]); acc = 0; } } return out; })(); rug.forEach((p, i) => { const q = rug[Math.min(rug.length - 1, i + 1)], pp = rug[Math.max(0, i - 1)], an = Math.atan2(q[1] - pp[1], q[0] - pp[0]); const nx = -Math.sin(an), ny = Math.cos(an); const d = lerp(8, 3, i / (rug.length - 1));
+    for (const sd of [-1, 1]) { g.beginPath(); g.ellipse(p[0] + nx * d * sd, p[1] + ny * d * sd, 4, 3.4, an, 0, 6.283); g.fillStyle = grijs(sd < 0 ? 245 : 215); g.fill(); } });
+  if (!min) { for (let i = 0; i < 4; i++) lijn([[-44 + i * 18, 38], [-50 + i * 18, 8], [-42 + i * 18, -22]], 118, 3); } // ribben, zwak
+  if (!min) { lijn([[126, -14], [106, -58]], 200, 7); lijn([[112, -72], [150, -78]], 185, 5); } // dijbeen, scheenbeen
+  if (!min) { for (const [px, py] of [[146, 8], [140, 22]]) { g.beginPath(); g.arc(px, py, 6, 0, 6.283); g.fillStyle = grijs(190); g.fill(); } } // bekkenbotje
+  // arm en vuistje (zacht weefsel over de botjes)
+  lijn(F.arm, 100, 26); g.beginPath(); g.ellipse(-82, -104, 15, 12, 0.3, 0, 6.283); g.fillStyle = grijs(100); g.fill();
+  if (!min) { lijn([[-50, -52], [-52, -78]], 190, 5); lijn([[-56, -88], [-72, -100]], 180, 4); for (let f = 0; f < 4; f++) { g.beginPath(); g.arc(-90 + f * 3, -112 + f * 3, 2.4, 0, 6.283); g.fillStyle = grijs(225); g.fill(); } }
+  // hart in rust: grijze vlek; kamers worden per frame getekend
+  g.beginPath(); g.ellipse(F.hart[0], F.hart[1], 30, 25, -0.4, 0, 6.283); g.fillStyle = grijs(96); g.fill();
+  g.restore();
+  // zachte randen
+  const b = document.createElement('canvas'); b.width = W; b.height = H; const bg = b.getContext('2d'); bg.filter = `blur(${Math.max(0.8, R / (vlak ? 320 : 240))}px)`; bg.drawImage(c, 0, 0); bg.filter = 'none';
+  if (!vlak) { bg.globalCompositeOperation = 'multiply'; bg.drawImage(_echoAKorrel(W, H, 7 + Math.round(R)), 0, 0); bg.globalCompositeOperation = 'source-over'; }
+  // diepteverloop
+  const dg = bg.createRadialGradient(ox, 0, R * 0.3, ox, 0, R); dg.addColorStop(0, 'rgba(0,0,0,0)'); dg.addColorStop(1, 'rgba(0,0,0,0.35)'); bg.fillStyle = dg; bg.fillRect(0, 0, W, H);
+  return (_ECHO_A.cache[key] = { img: b, W, H, ox, k, cx, cy, rot });
+}
 function echoBeeld(ctx, x, y, R, o = {}) {
-  const { a = 1, t = 0, hl = {}, s = 1, open = 1.22 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
+  const { a = 1, t = 0, hl = {}, s = 1, open = 1.22 } = o;
+  const B = _echoABouw(R, s, open, _ECHO_A.vlak, _ECHO_A.min); const F = _echoAVorm(); const k = B.k, bx = x - B.ox;
+  const cr = Math.cos(_ECHO_A.rot), sr = Math.sin(_ECHO_A.rot); const P = (px, py) => [bx + B.cx + (px * cr - py * sr) * k, y + B.cy + (px * sr + py * cr) * k];
+  const ret = { hart: P(F.hart[0], F.hart[1]), hoofd: P(-118, 18), arm: P(-62, -92) };
+  if (a <= 0.01) return ret;
   const a0 = Math.PI / 2 - open / 2, a1 = Math.PI / 2 + open / 2;
-  ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.fillStyle = '#050608'; ctx.fill(); ctx.save(); ctx.clip();
-  // baarmoederwand: heldere korrelige band onderaan en bovenaan
-  const band = (r0, r1, n, sd) => _echoKorrel(ctx, (u, v) => { const an = lerp(a0, a1, u), rr = lerp(r0, r1, v); return [x + Math.cos(an) * rr, y + Math.sin(an) * rr]; }, n, sd, 150);
-  band(R * 0.06, R * 0.16, 500, 11); band(R * 0.86, R * 0.99, 700, 17);
-  // kind: lokaal stelsel, midden (cx, cy), schaal k; hoofd links, rug boven, gezicht naar links-onder
-  const cx = x + R * 0.04, cy = y + R * 0.52, k = R / 520 * s; const P = (px, py) => [cx + px * k, cy + py * k];
-  ctx.save(); ctx.translate(cx, cy); ctx.scale(k, k);
-  const romp = [[-40, -62], [60, -74], [170, -60], [250, -20], [262, 40], [215, 88], [120, 98], [20, 92], [-40, 70]];
-  const hoofd = [[-100, -100], [-30, -86], [-10, -30], [-30, 40], [-80, 78], [-128, 84], [-150, 70], [-170, 52], [-176, 34], [-196, 22], [-188, 4], [-200, -6], [-206, -30], [-196, -66], [-160, -96]];
-  for (const [vorm, dicht] of [[romp, 900], [hoofd, 800]]) { ctx.beginPath(); bioPad(ctx, vorm, true); ctx.fillStyle = 'rgba(70,74,80,0.55)'; ctx.fill(); ctx.save(); ctx.clip(); const xs = vorm.map(p => p[0]), ys = vorm.map(p => p[1]), mx = Math.min(...xs), Mx = Math.max(...xs), my = Math.min(...ys), My = Math.max(...ys);
-    _echoKorrel(ctx, (u, v) => [lerp(mx, Mx, u), lerp(my, My, v)], dicht, vorm === romp ? 31 : 37, 120, 2.2); ctx.restore(); }
-  const bot = (pts, w, al) => { ctx.strokeStyle = `rgba(236,238,242,${al})`; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.beginPath(); bioPad(ctx, pts, false); ctx.stroke(); };
-  const lh = (n) => 0.75 + 0.25 * (hl[n] || 0);
-  // schedel (heldere ring) + profiel
-  ctx.save(); ctx.globalAlpha *= lh('hoofd'); bot([[-196, -66], [-160, -96], [-100, -100], [-40, -80], [-18, -30], [-34, 30], [-80, 70]], 7, 0.9);
-  bot([[-206, -30], [-200, -8], [-188, 4], [-196, 22], [-176, 34], [-170, 52], [-150, 70]], 4, 0.75); bot([[-196, 12], [-186, 6]], 5, 0.95); // neusbotje
-  ctx.beginPath(); ctx.ellipse(-150, -20, 13, 10, 0, 0, 6.283); ctx.fillStyle = 'rgba(10,10,12,0.9)'; ctx.fill(); bot([[-118, 40], [-90, 60], [-60, 66]], 5, 0.7); // oogkas, kaak
-  if ((hl.hoofd || 0) > 0.01) { ctx.save(); ctx.globalAlpha *= hl.hoofd * 0.45; ctx.beginPath(); bioPad(ctx, hoofd, true); ctx.strokeStyle = C.goud; ctx.lineWidth = 4; ctx.stroke(); ctx.restore(); } ctx.restore();
-  // wervelkolom en ribben
-  for (let i = 0; i < 20; i++) { const u = i / 19, px = lerp(-24, 236, u), py = -58 - 16 * Math.sin(u * 3) + u * 40; for (const d of [0, 12]) { ctx.fillStyle = 'rgba(236,238,242,0.85)'; ctx.fillRect(px - 4, py + d, 8, 6); } }
-  for (let i = 0; i < 6; i++) bot([[20 + i * 22, -48], [12 + i * 22, 0], [22 + i * 22, 50]], 3, 0.35);
-  // hart: kloppende vierkamer-vorm in de borst
-  const slag = Math.max(0, Math.sin(t * 2 * Math.PI * 2.3)) ** 2, hh = 1 + 0.12 * slag;
-  ctx.save(); ctx.translate(70, 22); ctx.scale(hh, hh); ctx.globalAlpha *= lh('hart'); ctx.beginPath(); ctx.ellipse(0, 0, 30, 24, -0.4, 0, 6.283); ctx.fillStyle = 'rgba(8,8,10,0.95)'; ctx.fill(); ctx.strokeStyle = 'rgba(220,222,228,0.9)'; ctx.lineWidth = 4; ctx.stroke();
-  ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(-26, 4); ctx.lineTo(26, -6); ctx.moveTo(0, -22); ctx.lineTo(4, 22); ctx.stroke();
-  if ((hl.hart || 0) > 0.01) { ctx.globalAlpha *= hl.hart; ctx.beginPath(); ctx.ellipse(0, 0, 40, 34, -0.4, 0, 6.283); ctx.strokeStyle = C.koraal; ctx.lineWidth = 4; ctx.stroke(); } ctx.restore();
-  // armpje met handje bij het gezicht
-  ctx.save(); ctx.globalAlpha *= lh('armen'); const arm = [[-20, 46], [-60, 104], [-120, 108], [-160, 92]]; ctx.beginPath(); bioPad(ctx, arm, false); ctx.strokeStyle = 'rgba(80,84,92,0.9)'; ctx.lineWidth = 26; ctx.lineCap = 'round'; ctx.stroke();
-  bot([[-22, 50], [-58, 100]], 5, 0.85); bot([[-64, 104], [-118, 106]], 4, 0.8); for (let f = 0; f < 4; f++) bot([[-156, 86 + f * 5], [-176, 80 + f * 7]], 3, 0.7);
-  if ((hl.armen || 0) > 0.01) { ctx.globalAlpha *= hl.armen * 0.6; ctx.beginPath(); bioPad(ctx, arm, false); ctx.strokeStyle = C.goud; ctx.lineWidth = 36; ctx.globalAlpha *= 0.35; ctx.stroke(); } ctx.restore();
-  bot([[200, 70], [270, 110], [300, 90]], 5, 0.6); // dijbeen/been aan de rand
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.fillStyle = '#000'; ctx.fill(); ctx.save(); ctx.clip();
+  ctx.drawImage(B.img, bx, y);
+  // kloppend hart: twee donkere kamers die samentrekken (± 140 slagen per minuut)
+  const slag = Math.max(0, Math.sin(t * 2 * Math.PI * 2.3)) ** 2; const [hx, hy] = P(F.hart[0], F.hart[1]);
+  ctx.save(); ctx.translate(hx, hy); ctx.rotate(-0.4); ctx.filter = `blur(${Math.max(0.6, R / 260)}px)`;
+  for (const [dx, dy, rx, ry] of [[-6, -2, 9, 8], [7, 3, 8, 7]]) { ctx.beginPath(); ctx.ellipse(dx * k, dy * k, rx * k * (1 - 0.3 * slag), ry * k * (1 - 0.3 * slag), 0, 0, 6.283); ctx.fillStyle = 'rgba(30,30,34,0.7)'; ctx.fill(); }
+  ctx.filter = 'none'; ctx.restore();
+  // oplichten (alleen als het gevraagd wordt)
+  const hlv = (n) => clamp(hl[n] || 0, 0, 1);
+  if (hlv('hoofd') > 0.01) { ctx.save(); ctx.globalAlpha *= hlv('hoofd') * 0.8; ctx.beginPath(); bioPad(ctx, F.hoofd.map(p => P(p[0], p[1])), true); ctx.strokeStyle = C.goud; ctx.lineWidth = Math.max(2, 5 * k); ctx.setLineDash([10 * k, 8 * k]); ctx.stroke(); ctx.restore(); }
+  if (hlv('armen') > 0.01) { ctx.save(); ctx.globalAlpha *= hlv('armen') * 0.35; ctx.beginPath(); bioPad(ctx, F.arm.map(p => P(p[0], p[1])), false); ctx.strokeStyle = C.goud; ctx.lineWidth = 40 * k; ctx.lineCap = 'round'; ctx.stroke(); ctx.restore(); }
+  if (hlv('hart') > 0.01) { ctx.save(); ctx.globalAlpha *= hlv('hart'); ctx.beginPath(); ctx.ellipse(hx, hy, 44 * k * (1 + 0.06 * slag), 38 * k * (1 + 0.06 * slag), -0.4, 0, 6.283); ctx.strokeStyle = C.koraal; ctx.lineWidth = Math.max(2, 4 * k); ctx.stroke(); ctx.restore(); }
   ctx.restore();
-  // schaduw en diepteverloop
-  const g = ctx.createRadialGradient(x, y, R * 0.2, x, y, R); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.45)'); ctx.fillStyle = g; ctx.fillRect(x - R, y, 2 * R, R);
-  ctx.restore(); ctx.strokeStyle = 'rgba(120,128,140,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.stroke();
-  ctx.restore(); return { hart: P(70, 22), hoofd: P(-110, -10), arm: P(-120, 106) };
+  ctx.strokeStyle = 'rgba(120,128,140,0.5)'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(x, y); ctx.arc(x, y, R, a0, a1); ctx.closePath(); ctx.stroke();
+  ctx.restore(); return ret;
 }
 
-// EMBRYO van ± 6 weken na de bevruchting (Carnegie-stadium 15–17, kop-romplengte ± 7–12 mm), zijaanzicht.
-// Recept: C-vormig; groot hoofd (± de helft van de lengte) met voorhersenblaas; oog als donker pigmentringetje met
-// lens; oorputje achter de kieuwbogen; 3 kieuwboogjes onder het hoofd; grote hartbult en daaronder de leverbult;
-// armknop (al een peddel) ter hoogte van het hart, kleinere beenknop lager; rij somieten (blokjes) langs de rug;
-// staartje dat naar binnen krult. Huid doorzichtig, roze. De aanleg van de geslachtsklieren ligt binnenin tegen de
-// achterwand van de buikholte (genitale lijst, naast de oernier). Bron: Sadler, Langman's Embryology h. 6 en 16;
-// Virtual Human Embryo (Carnegie 16). Bekende fouten: kommavorm met een stip; ledematen als vingers; aanleg buiten op het lijf.
-// Oorsprong = midden; ± 300 × 400 bij s = 1. o.glow = aanleg laten oplichten.
+// =====================================================================================
+// EMBRYO van ± 6 weken na de bevruchting — variant A 'doorschijnend' (verbeterronde 2, 28 okt 2026).
+// Recept (bronnen in bron.md: UNSW Embryology 'Carnegie stage 16'; embryology.ch 'Carnegie stages 14–16';
+// National Museum of Health and Medicine, Human Developmental Anatomy Center 'Stage 16'):
+// - Carnegie-stadium 15–16, ± 37–42 dagen, ± 8–11 mm; zijaanzicht, C-vormig, gezicht naar links, rug rechts.
+// - HOOFD (± de helft van de lengte) met zichtbare hersenblaasjes: voorhersenen (telencephalon) vóór als ronde bult,
+//   tussenhersenen met het oog (donker pigmentringetje), middenhersenen als hoogste koepel (bovenaan de kromming),
+//   achterhersenen met het dunne, ruitvormige dak van de vierde ventrikel aan de achterkant. Oorputje achter de
+//   kieuwbogen; 1e–3e kieuwboog als drie richels onder het hoofd.
+// - HARTBULT: het hart ligt in een echte uitbolling van de buikwand onder de kieuwbogen ('heart prominence') en
+//   klopt; daaronder de kleinere leverbult.
+// - NAVELSTRENG: dikke streng die uit de buik komt tussen leverbult en beenknop (fysiologische navelbreuk) en
+//   naar links-onder het beeld uit loopt; in de doorsnede twee slagaders en één ader.
+// - STAART: kort, spits staartje onderaan dat naar de navelstreng toe krult (los van de streng te zien).
+// - armknop met handplaat ter hoogte van het hart, kleinere beenknop met voetplaat lager; somieten (blokjes) langs de rug.
+// - aanleg geslachtsklier (genitale lijst) binnenin tegen de achterwand van de buikholte (o.glow laat hem oplichten).
+// Bekende fouten: kommavorm met een stip; hart als rode schijf zonder bult; onduidelijke kromming onderaan
+// (staart en navelstreng door elkaar); hoofd zonder verschil tussen de hersenblaasjes; ledematen als vingers.
+// Aanroep zoals voorheen: embryoEcht(ctx, x, y, s, {a, glow, t}); oorsprong = midden, ± 300 × 440 bij s = 1
+// (inclusief het stuk navelstreng). Geeft ankerpunten terug (schermcoördinaten): hoofd, oog, hart, lever, arm, been,
+// staart, navelstreng, aanleg, voorhersenen, middenhersenen, achterhersenen.
+// =====================================================================================
+function _embAVorm() { // omtrek (met de klok mee vanaf de koepel van de middenhersenen)
+  return {
+    lijf: [[18, -206], [76, -192], [116, -160], [124, -128], [118, -104], [142, -64], [160, -8], [160, 52], [144, 108], [114, 152], [78, 182], [46, 196],
+      [16, 192], [-6, 172], [-20, 150], [-40, 132], [-66, 124], [-82, 104], [-82, 80], [-74, 64], [-98, 56], [-122, 34], [-130, 2], [-120, -28], [-96, -44],
+      [-92, -58], [-104, -72], [-112, -88], [-136, -108], [-146, -140], [-136, -174], [-104, -200], [-52, -212]],
+    staart: [[44, 194], [34, 214], [12, 228], [-10, 226], [-22, 212]],
+    streng: [[-36, 136], [-62, 170], [-96, 206], [-138, 236]],
+    hartC: [-82, 8], leverC: [-52, 92], oog: [-82, -122], oor: [-6, -92],
+    voor: [-96, -160, 46, 40], tussen: [-42, -176, 36, 30], midden: [24, -178, 42, 32], achter: [84, -150, 34, 30],
+    rug: [[108, -118], [138, -60], [148, 0], [146, 56], [130, 108], [100, 150], [66, 178]],
+    arm: [[50, -20], [-8, 22]], been: [[80, 132], [36, 166]],
+    aanleg: [[96, 40], [104, 76], [96, 112]]
+  };
+}
 function embryoEcht(ctx, x, y, s = 1, o = {}) {
-  const { a = 1, glow = 0, t = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-  const huid = '#EDB9A4', rand = '#C9877A', diep = '#D69A8A';
-  const lijf = [[-70, -170], [20, -208], [104, -182], [150, -112], [160, -24], [150, 58], [118, 124], [72, 166], [28, 182], [-8, 166], [-34, 128], [-52, 78], [-70, 30], [-98, -14], [-90, -52], [-108, -72], [-124, -112], [-112, -152]];
-  // staart
-  ctx.strokeStyle = huid; ctx.lineWidth = 26; ctx.beginPath(); bioPad(ctx, [[30, 176], [-14, 196], [-44, 182], [-50, 156]], false); ctx.stroke(); ctx.lineWidth = 12; ctx.beginPath(); bioPad(ctx, [[-44, 182], [-56, 156], [-46, 136]], false); ctx.stroke();
-  ctx.beginPath(); bioPad(ctx, lijf, true); shape(ctx, rgba(huid, 0.96), rand, 2.5);
-  ctx.save(); ctx.beginPath(); bioPad(ctx, lijf, true); ctx.clip();
-  // voorhersenblaas en hersenblazen als zachtere vlakken
-  ctx.fillStyle = rgba('#F6CDBC', 0.8); ctx.beginPath(); ctx.ellipse(-30, -150, 70, 50, -0.3, 0, 6.283); ctx.fill(); ctx.beginPath(); ctx.ellipse(70, -150, 52, 44, 0.4, 0, 6.283); ctx.fill();
-  // hart (klopt) en lever door de huid
-  const slag = Math.max(0, Math.sin(t * 2 * Math.PI * 2.4)) ** 2; ctx.fillStyle = rgba('#C8463C', 0.55 + 0.2 * slag); ctx.beginPath(); ctx.ellipse(-62, -18, 34 + 3 * slag, 30 + 3 * slag, 0.3, 0, 6.283); ctx.fill();
-  ctx.fillStyle = rgba('#9A3E36', 0.4); ctx.beginPath(); ctx.ellipse(-44, 46, 34, 36, 0, 0, 6.283); ctx.fill();
+  const { a = 1, glow = 0, t = 0 } = o; const F = _embAVorm(); const P = (p) => [x + p[0] * s, y + p[1] * s];
+  const ret = { hoofd: P([-30, -160]), oog: P(F.oog), hart: P(F.hartC), lever: P(F.leverC), arm: P(F.arm[1]), been: P(F.been[1]), staart: P(F.staart[4]),
+    navelstreng: P(F.streng[2]), aanleg: P(F.aanleg[1]), voorhersenen: P(F.voor), middenhersenen: P(F.midden), achterhersenen: P(F.achter) };
+  if (a <= 0.01) return ret;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const huid = '#EDB9A4', rand = '#B97A6C', licht = '#F7D3C3', diep = '#D49A8A';
+  const detail = s > 0.3;
+  // navelstreng (achter het lijf): dikke streng met afgesneden eind waarin 2 slagaders + 1 ader
+  ctx.strokeStyle = rand; ctx.lineWidth = 40; ctx.beginPath(); bioPad(ctx, F.streng, false); ctx.stroke();
+  ctx.strokeStyle = '#EACBB8'; ctx.lineWidth = 35; ctx.beginPath(); bioPad(ctx, F.streng, false); ctx.stroke();
+  const e = F.streng[3], an = Math.atan2(e[1] - F.streng[2][1], e[0] - F.streng[2][0]);
+  ctx.save(); ctx.translate(e[0], e[1]); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, 0, 7, 19, 0, 0, 6.283); shape(ctx, '#F3DCCD', rand, 2);
+  if (detail) { _bioCirc(ctx, 0, -9, 3.6, '#C8463C'); _bioCirc(ctx, 0, 9, 3.6, '#C8463C'); _bioCirc(ctx, 0, 0, 4.6, '#4A6CA8'); } ctx.restore();
+  // staart: spits, krult naar de streng toe
+  ctx.strokeStyle = rand; ctx.lineWidth = 2.5; const st = bioDicht(F.staart, 10);
+  for (let i = 0; i < st.length - 1; i++) { const u = i / (st.length - 1); ctx.strokeStyle = rand; ctx.lineWidth = lerp(30, 6, u) + 3; ctx.beginPath(); ctx.moveTo(st[i][0], st[i][1]); ctx.lineTo(st[i + 1][0], st[i + 1][1]); ctx.stroke(); }
+  for (let i = 0; i < st.length - 1; i++) { const u = i / (st.length - 1); ctx.strokeStyle = huid; ctx.lineWidth = lerp(30, 6, u) - 2; ctx.beginPath(); ctx.moveTo(st[i][0], st[i][1]); ctx.lineTo(st[i + 1][0], st[i + 1][1]); ctx.stroke(); }
+  // lijf
+  ctx.beginPath(); bioPad(ctx, F.lijf, true); const gr = ctx.createLinearGradient(-140, 0, 160, 0); gr.addColorStop(0, rgba(huid, 0.96)); gr.addColorStop(1, rgba(_mixHex(huid, rand, 0.25), 0.96)); shape(ctx, gr, rand, 2.5);
+  ctx.save(); ctx.beginPath(); bioPad(ctx, F.lijf, true); ctx.clip();
+  // hersenblaasjes: elk een eigen licht vlak met een zachte grens
+  for (const [bx, by, rx, ry] of [F.voor, F.tussen, F.midden, F.achter]) { ctx.beginPath(); ctx.ellipse(bx, by, rx, ry, 0, 0, 6.283); shape(ctx, rgba(licht, 0.55), rgba(rand, 0.25), 1.5); }
+  // dak van de vierde ventrikel: dun, ruitvormig, donkerder
+  ctx.beginPath(); ctx.moveTo(62, -168); ctx.lineTo(106, -148); ctx.lineTo(96, -122); ctx.lineTo(66, -134); ctx.closePath(); ctx.fillStyle = rgba(rand, 0.35); ctx.fill();
+  // lever (donker, in de leverbult) en hart (in de hartbult, klopt): S-vormige hartbuis met kamer en boezem
+  ctx.beginPath(); ctx.ellipse(F.leverC[0], F.leverC[1], 34, 26, -0.3, 0, 6.283); ctx.fillStyle = rgba('#9A3E36', 0.55); ctx.fill();
+  const slag = Math.max(0, Math.sin(t * 2 * Math.PI * 2.4)) ** 2, hs = 1 + 0.07 * slag;
+  ctx.save(); ctx.translate(F.hartC[0], F.hartC[1]); ctx.scale(hs, hs);
+  ctx.beginPath(); ctx.ellipse(-6, 10, 26, 22, 0.4, 0, 6.283); ctx.fillStyle = rgba('#B83A34', 0.85); ctx.fill(); // kamer
+  ctx.beginPath(); ctx.ellipse(14, -16, 18, 14, -0.3, 0, 6.283); ctx.fillStyle = rgba('#8E2E2A', 0.8); ctx.fill(); // boezem (achter-boven)
+  ctx.strokeStyle = rgba('#B83A34', 0.85); ctx.lineWidth = 9; ctx.beginPath(); ctx.moveTo(-22, -6); ctx.quadraticCurveTo(-30, -26, -14, -36); ctx.stroke(); // uitstroombaan omhoog
+  ctx.restore();
   // somieten langs de rug
-  const rug = bioDicht([[96, -150], [138, -80], [146, 0], [132, 74], [100, 136], [56, 168]], 26); rug.forEach((p, i) => { if (i % 1) return; const q = rug[Math.min(rug.length - 1, i + 1)], an = Math.atan2(q[1] - p[1], q[0] - p[0]); ctx.save(); ctx.translate(p[0] - Math.sin(an) * 14, p[1] + Math.cos(an) * 14); ctx.rotate(an); roundRect(ctx, -5, -9, 10, 18, 4); shape(ctx, rgba(diep, 0.6), null); ctx.restore(); });
-  // aanleg geslachtsklier: langwerpige lijst tegen de achterwand van de buik
-  const gp = [[86, 30], [96, 70], [90, 108]]; ctx.strokeStyle = rgba(C.oker, 0.7); ctx.lineWidth = 10; ctx.beginPath(); bioPad(ctx, gp, false); ctx.stroke();
-  if (glow > 0.01) { ctx.save(); ctx.globalAlpha *= glow; ctx.strokeStyle = rgba(C.goud, 0.45 + 0.15 * Math.sin(t * 3)); ctx.lineWidth = 26; ctx.beginPath(); bioPad(ctx, gp, false); ctx.stroke(); ctx.strokeStyle = C.goud; ctx.lineWidth = 9; ctx.beginPath(); bioPad(ctx, gp, false); ctx.stroke(); ctx.restore(); }
+  if (detail) { const rug = bioDicht(F.rug, 6); rug.forEach((p, i) => { if (i % 2) return; const q = rug[Math.min(rug.length - 1, i + 1)], an2 = Math.atan2(q[1] - p[1], q[0] - p[0]); ctx.save(); ctx.translate(p[0] - Math.sin(an2) * 12, p[1] + Math.cos(an2) * 12); ctx.rotate(an2); roundRect(ctx, -5, -9, 10, 18, 4); shape(ctx, rgba(diep, 0.55), null); ctx.restore(); }); }
+  // aanleg geslachtsklier tegen de achterwand
+  ctx.strokeStyle = rgba(C.oker, 0.6); ctx.lineWidth = 9; ctx.beginPath(); bioPad(ctx, F.aanleg, false); ctx.stroke();
+  if (glow > 0.01) { ctx.save(); ctx.globalAlpha *= glow; ctx.strokeStyle = rgba(C.goud, 0.45 + 0.15 * Math.sin(t * 3)); ctx.lineWidth = 24; ctx.beginPath(); bioPad(ctx, F.aanleg, false); ctx.stroke(); ctx.strokeStyle = C.goud; ctx.lineWidth = 9; ctx.stroke(); ctx.restore(); }
   ctx.restore();
-  // kieuwboogjes
-  ctx.strokeStyle = rand; ctx.lineWidth = 3; [[-112, -96, 26], [-104, -74, 22], [-94, -56, 17]].forEach(([bx, by, r]) => { ctx.beginPath(); ctx.arc(bx + 24, by, r, 2.4, 3.9); ctx.stroke(); });
+  // kieuwbogen: drie richels onder het hoofd
+  ctx.strokeStyle = rand; ctx.lineWidth = 2.5; [[-104, -84, 30], [-92, -62, 24], [-76, -44, 17]].forEach(([bx, by, r]) => { ctx.beginPath(); ctx.arc(bx + r, by - 4, r, 2.5, 3.75); ctx.stroke(); });
   // oog en oorputje
-  _bioCirc(ctx, -66, -128, 15, rgba('#5A3A34', 0.85)); _bioCirc(ctx, -66, -128, 7, rgba('#F6E6DC', 0.9)); ctx.beginPath(); ctx.arc(-6, -96, 7, 0, 6.283); ctx.strokeStyle = rand; ctx.lineWidth = 2.5; ctx.stroke();
-  // armknop (peddel) en beenknop
-  ctx.save(); ctx.translate(14, 12); ctx.rotate(1.9); ctx.beginPath(); ctx.ellipse(28, 0, 40, 22, 0, 0, 6.283); shape(ctx, huid, rand, 2.5); ctx.restore();
-  ctx.save(); ctx.translate(58, 128); ctx.rotate(2.3); ctx.beginPath(); ctx.ellipse(22, 0, 30, 17, 0, 0, 6.283); shape(ctx, huid, rand, 2.5); ctx.restore();
-  ctx.restore();
+  _bioCirc(ctx, F.oog[0], F.oog[1], 14, rgba('#4E2E2A', 0.85)); _bioCirc(ctx, F.oog[0] - 2, F.oog[1], 6.5, rgba('#F6E6DC', 0.9));
+  ctx.beginPath(); ctx.arc(F.oor[0], F.oor[1], 6, 0, 6.283); ctx.strokeStyle = rand; ctx.lineWidth = 2.2; ctx.stroke();
+  // armknop met handplaat en beenknop met voetplaat
+  // knop = brede, platte peddel die direct aan het lijf vastzit; de hand-/voetplaat is het verbrede eind (lichte insnoering)
+  const knop = (pts, L, B) => { const p0 = pts[0], p1 = pts[pts.length - 1], an = Math.atan2(p1[1] - p0[1], p1[0] - p0[0]);
+    ctx.save(); ctx.translate(p0[0], p0[1]); ctx.rotate(an);
+    ctx.beginPath(); ctx.ellipse(L * 0.5, 0, L * 0.58, B * 0.5, 0, 0, 6.283); ctx.fillStyle = _mixHex(huid, '#FFFFFF', 0.1); ctx.fill(); // knop
+    ctx.beginPath(); ctx.ellipse(L * 0.5, 0, L * 0.58, B * 0.5, 0, -1.9, 1.9); ctx.strokeStyle = rand; ctx.lineWidth = 2.5; ctx.stroke(); // rand alleen aan de vrije kant
+    ctx.beginPath(); ctx.ellipse(L * 0.5, 0, L * 0.58, B * 0.5, 0, 0, 6.283); const gz = ctx.createLinearGradient(-L * 0.08, 0, L * 0.35, 0); gz.addColorStop(0, rgba(huid, 1)); gz.addColorStop(1, rgba(huid, 0)); ctx.fillStyle = gz; ctx.fill(); // loopt over in het lijf
+    ctx.beginPath(); ctx.ellipse(L * 0.5, 0, L * 0.22, B * 0.44, 0, -1.2, 1.2); ctx.strokeStyle = rgba(rand, 0.45); ctx.lineWidth = 1.8; ctx.stroke(); // grens hand-/voetplaat
+    ctx.restore(); };
+  knop(F.arm, 70, 38); knop(F.been, 56, 30);
+  ctx.restore(); return ret;
 }
 
 // ZAADBAL in doorsnede. Recept: stevig kapsel (tunica albuginea); vanuit het mediastinum (één zijde) lopen tussen-
@@ -2510,7 +2645,7 @@ function spirocheet(ctx, x, y, len, o = {}) {
 // Recept (C9; OpenStax Microbiology 3.3; Brock h. 2): staafje ± 1 µm breed × 2–3 µm lang, uiteinden halfrond.
 // Celwand (peptidoglycaan) als dikke laag buiten het dunne celmembraan, met een smalle spleet ertussen (twee
 // lagen). Geen kern: het DNA is één ringvormig chromosoom, sterk opgekruld als losse kronkellus in het midden
-// (nucleoïde, paars zoals alle DNA, C1); plasmide = klein los ringetje DNA (paars, dunner). Ribosomen (70S,
+// (nucleoïde, grijs zoals alle DNA, palet B 28 okt 2026); plasmide = klein los ringetje DNA (grijs, dunner). Ribosomen (70S,
 // ± 20 nm) als veel kleine stipjes in C.ribo buiten de nucleoïde. Flagel ± 20 nm dik, 2–4× de cellengte,
 // schroefvormig, verankerd met een basaal lichaam in wand + membraan aan een pool.
 // Antibiotica (o.antibiotica 0..1, bv. penicilline): gaten in de wand, het membraan puilt door een gat naar
@@ -2518,7 +2653,7 @@ function spirocheet(ctx, x, y, len, o = {}) {
 // antibiotica), o.hlWand 0..1 = wand licht op (goud, geen gloed).
 // Eén wandkleur (o.col, standaard gedempt oker: organisme, C1); cytoplasma neutraal.
 // Aanpak B (naar EM-doorsneden, Brock fig. 2.x): de nucleoïde is een lichter, vezelig gebied zonder rand (vele
-// korte DNA-lussen, paars) in plaats van één lijn; ribosomen liggen als korte kralensnoertjes (polysomen) en
+// korte DNA-lussen, grijs) in plaats van één lijn; ribosomen liggen als korte kralensnoertjes (polysomen) en
 // losse korrels; fimbriae als korte rechte haartjes rondom (o.fimbriae, standaard aan); flagel met haak.
 // Bekende fouten: bacterie met kern; wand en membraan als één lijn; DNA als strakke spiraalveer; ribosomen
 // als grote bollen; twee verschillende bacteriën in één reeks.
@@ -2556,14 +2691,14 @@ function bacterieEcht(ctx, x, y, L, o = {}) {
   for (let i = 0; i < nr; i++) { const px = (hash(i * 2.7 + seed) - 0.5) * (L + bul), py = (hash(i * 3.9 + 2 + seed) - 0.5) * (2 * hw + 2 * bul) - bul * 0.4; if (!vrij(px, py)) continue;
     const poly = hash(i * 5.5) > 0.55 ? 5 : 1; const an = hash(i * 8.1) * 6.283; for (let k = 0; k < poly; k++) { const qx = px + Math.cos(an + Math.sin(k) * 0.5) * k * rr * 2.4, qy = py + Math.sin(an + Math.sin(k) * 0.5) * k * rr * 2.4; if (!vrij(qx, qy)) break;
       ctx.beginPath(); ctx.arc(qx, qy, rr * (1 + 0.5 * riboHl), 0, 6.283); ctx.fillStyle = riboHl > 0.01 ? _mixHex(C.ribo, C.goud, riboHl) : rgba(C.ribo, 0.8); ctx.fill(); } }
-  // nucleoïde: vezelig gebied zonder rand: licht vlak + veel korte kronkellussen DNA (paars)
-  ctx.beginPath(); ctx.ellipse(kx, ky, half * 0.78 + hw * 0.15, hw * 0.5, 0, 0, 6.283); ctx.fillStyle = rgba(C.paars, 0.12); ctx.fill();
-  ctx.strokeStyle = rgba(C.paars, 0.95); ctx.lineWidth = Math.max(0.9, hw * 0.028);
+  // nucleoïde: vezelig gebied zonder rand: licht vlak + veel korte kronkellussen DNA (grijs, palet B)
+  ctx.beginPath(); ctx.ellipse(kx, ky, half * 0.78 + hw * 0.15, hw * 0.5, 0, 0, 6.283); ctx.fillStyle = rgba(DNA_BASE.rugR, 0.12); ctx.fill();
+  ctx.strokeStyle = rgba(DNA_BASE.rugR, 0.95); ctx.lineWidth = Math.max(0.9, hw * 0.028);
   const nl = Math.round(10 + L / 12); for (let i = 0; i < nl; i++) { const u = hash(i * 4.1 + seed) * 6.283, d = Math.sqrt(hash(i * 2.3 + seed)); const bx = kx + Math.cos(u) * d * (half * 0.72), by = ky + Math.sin(u) * d * hw * 0.38;
     const lr = hw * (0.07 + 0.06 * hash(i)); const Q = []; for (let k = 0; k < 6; k++) { const v = k / 6 * 6.283 + i; Q.push([bx + Math.cos(v) * lr * (1 + 0.5 * hash(i * 9 + k)), by + Math.sin(v) * lr * 0.8 * (1 + 0.5 * hash(i * 5 + k))]); } ctx.beginPath(); bioPad(ctx, Q, true); ctx.stroke(); }
   // plasmide: klein ringetje, licht gedraaid
   if (plasmide) { const pr = hw * 0.15; const Q = []; for (let i = 0; i < 12; i++) { const u = i / 12 * 6.283; Q.push([plx + Math.cos(u) * pr * (1 + 0.15 * Math.sin(u * 3)), ply + Math.sin(u) * pr * 0.75]); }
-    ctx.beginPath(); bioPad(ctx, Q, true); ctx.strokeStyle = _mixHex(C.paars, '#FFFFFF', 0.25); ctx.lineWidth = Math.max(1, hw * 0.035); ctx.stroke(); }
+    ctx.beginPath(); bioPad(ctx, Q, true); ctx.strokeStyle = _mixHex(DNA_BASE.rugR, '#FFFFFF', 0.25); ctx.lineWidth = Math.max(1, hw * 0.035); ctx.stroke(); }
   ctx.restore();
   // celmembraan (scheurt bovenin het blaasje)
   ctx.strokeStyle = C.er; ctx.lineWidth = Math.max(1.1, hw * 0.035);
@@ -2811,7 +2946,7 @@ function _chromDoel(P, s, w, coils) { // punt op de opgerolde X: s 0..0.5 = chro
 // x, y = centromeer; len = lengte; rot = draaiing; o.w, o.kleur, o.donker, o.cen, o.uiteen 0..1, o.coils (0 = egaal).
 // =====================================================================================
 function chromatideX(ctx, x, y, len, rot, o = {}) {
-  const { a = 1, w = len * 0.16, kleur = C.kernR, donker = C.kern, cen = 0.38, uiteen = 0, coils = 9 } = o; if (a <= 0.01) return;
+  const { a = 1, w = len * 0.16, kleur = CD.std, donker = DNA_BASE.rug, cen = 0.38, uiteen = 0, coils = 9 } = o; if (a <= 0.01) return; // palet B: grijs, was paars
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const q = (p0, p1, p2, t) => [(1 - t) * (1 - t) * p0[0] + 2 * (1 - t) * t * p1[0] + t * t * p2[0], (1 - t) * (1 - t) * p0[1] + 2 * (1 - t) * t * p1[1] + t * t * p2[1]];
   const qd = (p0, p1, p2, t) => [2 * (1 - t) * (p1[0] - p0[0]) + 2 * t * (p2[0] - p1[0]), 2 * (1 - t) * (p1[1] - p0[1]) + 2 * t * (p2[1] - p1[1])];
@@ -2852,7 +2987,7 @@ function _bioGelijk(P, step, closed) { // punten op gelijke booglengte (+ normaa
 // P = punten van het pad; o.w = breedte in px; o.dicht = ring (plasmide, bacteriechromosoom).
 // =====================================================================================
 function dnaDraad(ctx, P, o = {}) {
-  const { w = 4, kleur = C.kernR, donker = C.kern, a = 1, dicht = false, helix = 'auto', fase = 0, glad = true } = o; if (a <= 0.01 || P.length < 2) return;
+  const { w = 4, kleur = DNA_BASE.rugR, donker = DNA_BASE.rug, a = 1, dicht = false, helix = 'auto', fase = 0, glad = true } = o; if (a <= 0.01 || P.length < 2) return; // palet B (28 okt 2026): DNA grijs, was paars
   const pts = glad ? _bioCR(P, dicht, 8) : P.slice();
   ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const metHelix = helix === true || (helix === 'auto' && w >= 6);
@@ -2918,7 +3053,7 @@ function kernChromatine(ctx, cx, cy, r, o = {}) {
   if (e < 0.95) { ctx.beginPath(); ctx.ellipse(cx + r * 0.22, cy - r * 0.12, r * 0.17, r * 0.14, 0.4, 0, 6.283); shape(ctx, rgba('#4E3A6A', 0.75 * (1 - e)), null); }
   ctx.save(); ctx.beginPath(); ctx.ellipse(cx, cy, r * 0.965, r * 0.9, 0, 0, 6.283); ctx.clip();
   const N = 80, out = [];
-  pos.forEach((P, i) => { const kl = kleuren ? kleuren(i) : C.kernR, dk = kleuren ? _mixHex(kl, '#000000', 0.35) : C.kern; const w = P.ln * 0.17;
+  pos.forEach((P, i) => { const kl = kleuren ? kleuren(i) : CD.std, dk = kleuren ? _mixHex(kl, '#000000', 0.35) : DNA_BASE.rug; const w = P.ln * 0.17; // palet B: chromatine grijs (kern blijft paars)
     const Nd = Math.max(8, Math.round((8 + 30 * CHROM_MB[P.nr] / 249) * 0.8 * dichtheid)); // draadlengte naar baseparen (chr 1 ± 249 Mb, chr 21 ± 47 Mb)
     const D = _chromHer(_chromDraad(i, P, r, seed, Nd, r * 0.05), N); const amp = e * e;
     const pts = D.map((p, k) => { const q = _chromDoelA(P, k / (N - 1), w, 7 + Math.round(P.ln / r * 12), amp); return [cx + lerp(p[0], q[0], e), cy + lerp(p[1], q[1], e)]; });
@@ -2928,21 +3063,18 @@ function kernChromatine(ctx, cx, cy, r, o = {}) {
   ctx.restore(); ctx.restore(); return out;
 }
 
-// =====================================================================================
-// DNA ROND EIWITTEN (nucleosomen), variant C (beeldbank ronde 2, 27 okt 2026): A (winnaar) met histonen als gevouwen ketens. Recept (bron: Utah Build-a-Chromosome; OpenStax Biology 2e
-// § 10.1; afwikkelen en samenschuiven zijn een model, bron nog niet geopend in deze ronde):
+// DNA ROND EIWITTEN (nucleosomen), variant C, verbeterronde 2 eiwitten (28 okt 2026): de histonen en hun staarten als
+// kralenketen (_kkKluwen/_kkPad uit eiwitten/_hulp.js) in plaats van het lintmodel; ook bij een kleine schijf (R < 34)
+// kralen in plaats van vlakke ellipsjes. DNA, schijf, wikkeling, los, compact en aanroep ongewijzigd.
+// Recept (bron: Utah Build-a-Chromosome; OpenStax Biology 2e § 10.1; Luger e.a. 1997 Nature 389:251):
 //  - DNA-dubbelhelix 2 nm breed windt ± 1,65 keer (147 bp) om een kern van acht histonen (schijf ± 11 nm breed, ± 6 nm hoog);
-//    linker-DNA ertussen. Eiwit grijsblauw (#7A8BA8), DNA paars; de wikkeling is 3D (achterkant donkerder, eerst getekend).
-//  - NIEUW o.los 0..1: het DNA wikkelt vanaf beide uiteinden af (wikkeling 1,65 → 0 keer) en wordt linker-DNA; de histonschijf
-//    blijft liggen en wordt iets lichter (gen 'aan', DNA 6). o.compact 0..1: nucleosomen schuiven samen tot een zigzag-stapel
-//    (± 30-nm-vezel, model): kortere linkers, schijven om en om boven/onder en licht gekanteld.
-//  - C: de histonkern is geen schijf met bolletjes meer: op het bovenvlak liggen de histonen als gevouwen ketens (lintmodel
-//    _grKluwen, per histon een histonvouw met α-helices) en uit de rand steken dunne, slappe staarten (N-terminale staarten) die
-//    over en tussen de DNA-windingen lopen (Luger e.a. 1997 Nature 389:251: histonvouw = drie α-helices met twee lussen;
-//    'amino-terminal tails pass over and between the gyres of the DNA superhelix'; 146 bp in 1,65 linksdraaiende superhelixwindingen).
-//  Bekende fouten: golflijn met losse bolletjes; DNA door de schijf heen; rechte linker; afwikkelen als vervagen.
+//    linker-DNA ertussen. Eiwit grijsblauw (#7A8BA8), DNA grijs (palet B, was paars); de wikkeling is 3D (achterkant donkerder, eerst getekend).
+//  - o.los 0..1: het DNA wikkelt vanaf beide uiteinden af en wordt linker-DNA; de histonschijf blijft liggen en wordt iets
+//    lichter (gen 'aan'). o.compact 0..1: nucleosomen schuiven samen tot een zigzag-stapel (± 30-nm-vezel, model).
+//  - op het bovenvlak liggen de histonen als vier gevouwen kralenketens (histonvouw = drie α-helices met twee lussen) en uit
+//    de rand steken slappe staarten (N-terminale staarten, rijtje kralen) die over en tussen de DNA-windingen lopen.
+//  Bekende fouten: golflijn met losse bolletjes; DNA door de schijf heen; rechte linker; afwikkelen als vervagen; lint.
 // Van (x0,y0) naar (x1,y1); o.n nucleosomen; o.R = straal van de schijf in px (DNA-breedte volgt). Geeft de centra terug (lokaal, zoals v1).
-// =====================================================================================
 function nucleosoomDraad(ctx, x0, y0, x1, y1, o = {}) {
   const { a = 1, n = 4, R = 60, tilt = 1.05, t = 0, seed = 2, label = false, los = 0, compact = 0 } = o; if (a <= 0.01) return [];
   const dw = Math.max(6, R * 0.34), H = R * 6 / 11, ang = Math.atan2(y1 - y0, x1 - x0), L = Math.hypot(x1 - x0, y1 - y0);
@@ -2962,23 +3094,22 @@ function nucleosoomDraad(ctx, x0, y0, x1, y1, o = {}) {
   for (let i = 0; i < n - 1; i++) { const A = W[i].P[W[i].P.length - 1], B = W[i + 1].P[0]; linkers.push([A, [(A[0] + B[0]) / 2, (A[1] + B[1]) / 2 + (i % 2 ? -1 : 1) * R * 0.5 * kr], B]); }
   linkers.push([W[n - 1].P[W[n - 1].P.length - 1], [centra[n - 1][0] + sp * 0.5 + 30, centra[n - 1][1] - R * 0.8 * kr]]);
   const deel = (w, voor) => { const segs = []; let cur = null; w.P.forEach((p, k) => { const v = w.Z[k] >= 0; if (v === voor) { if (!cur) { cur = []; segs.push(cur); } cur.push(p); } else cur = null; }); return segs.filter(sg => sg.length > 2); };
-  W.forEach(w => deel(w, false).forEach(sg => dnaDraad(ctx, sg, { w: dw, kleur: _mixHex(C.kernR, '#000000', 0.3), donker: _mixHex(C.kern, '#000000', 0.35), helix: true, glad: false, fase: t * 0.2 })));
+  W.forEach(w => deel(w, false).forEach(sg => dnaDraad(ctx, sg, { w: dw, kleur: _mixHex(DNA_BASE.rugR, '#000000', 0.15), donker: _mixHex(DNA_BASE.rug, '#000000', 0.3), helix: true, glad: false, fase: t * 0.2 })));
   centra.forEach((c, i) => { const ry = R * cs, hz = H * sn, l = lo(i); ctx.save(); ctx.globalAlpha *= 1 - 0.25 * l;
     ctx.beginPath(); ctx.ellipse(c[0], c[1] + hz / 2, R, ry, 0, 0, Math.PI); ctx.lineTo(c[0] - R, c[1] - hz / 2); ctx.ellipse(c[0], c[1] - hz / 2, R, ry, 0, Math.PI, 0, true); ctx.closePath(); shape(ctx, '#5E6E8A', '#8E9EBA', 1.5);
     ctx.beginPath(); ctx.ellipse(c[0], c[1] - hz / 2, R, ry, 0, 0, 6.283); shape(ctx, '#7A8BA8', '#9AAAC4', 1.5);
-    if (R >= 34) { ctx.save(); ctx.beginPath(); ctx.ellipse(c[0], c[1] - hz / 2, R * 0.97, ry * 0.97, 0, 0, 6.283); ctx.clip(); ctx.translate(c[0], c[1] - hz / 2); ctx.scale(1, ry / R);
+    { ctx.save(); ctx.beginPath(); ctx.ellipse(c[0], c[1] - hz / 2, R * 0.97, ry * 0.97, 0, 0, 6.283); ctx.clip(); ctx.translate(c[0], c[1] - hz / 2); ctx.scale(1, ry / R);
       const E = _ellips(46, 40), kl = ['#8E9CB8', '#7F8FAD', '#9AA8C2', '#8696B2'];
-      for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.6 + i; _grKluwen(ctx, Math.cos(an) * R * 0.45, Math.sin(an) * R * 0.45, E.binnen, { bbox: E.bbox, sc: R / 120, r: 7, col: kl[k], seed: 4 + k, rot: an + 1.2, key: 'hist' + k }); }
+      for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.6 + i; _kkKluwen(ctx, Math.cos(an) * R * 0.45, Math.sin(an) * R * 0.45, E.binnen, { bbox: E.bbox, sc: R / 120, r: 10, col: kl[k], seed: 4 + k, rot: an + 1.2, key: 'hist' + k }); }
       ctx.restore(); }
-    else for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.6 + i; ctx.beginPath(); ctx.ellipse(c[0] + Math.cos(an) * R * 0.42, c[1] - hz / 2 + Math.sin(an) * ry * 0.42, R * 0.34, ry * 0.34, 0, 0, 6.283); shape(ctx, '#8696B2', '#A4B2CA', 1.2); }
     ctx.restore(); });
   // linker + afgewikkeld DNA als één doorlopende draad (zelfde helixfase over de naad)
   linkers.forEach((pl, i) => dnaDraad(ctx, pl, { w: dw, helix: true, fase: t * 0.2 }));
   W.forEach(w => deel(w, true).forEach(sg => dnaDraad(ctx, sg, { w: dw, helix: true, glad: false, fase: t * 0.2 })));
-  // histonstaarten: dunne slappe uitlopers vanuit de kern over en tussen de windingen
+  // histonstaarten: dunne slappe uitlopers als een rijtje kleine kralen vanuit de kern over en tussen de windingen
   centra.forEach((c, i) => { const ry = R * cs; for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.3 + i * 0.9, P = []; let px = c[0] + Math.cos(an) * R * 0.85, py = c[1] - H * sn / 2 + Math.sin(an) * ry * 0.85, a2 = an;
       for (let q = 0; q < 9; q++) { a2 += Math.sin(q * 1.3 + k + i + t * 0.5) * 0.35; px += Math.cos(a2) * R * 0.09; py += Math.sin(a2) * R * 0.09; P.push([px, py]); }
-      ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); bioPad(ctx, P, false); ctx.strokeStyle = '#B4C0D4'; ctx.lineWidth = Math.max(1.5, R * 0.05) + 1.5; ctx.stroke(); ctx.strokeStyle = '#7A8BA8'; ctx.lineWidth = Math.max(1.5, R * 0.05); ctx.stroke(); ctx.restore(); } });
+      _kkPad(ctx, P, Math.max(1.8, R * 0.04), '#8696B2', { stap: 2.2 }); } });
   ctx.restore(); return centra; // lokaal (as van x0,y0 langs de draad), zoals v1
 }
 
@@ -3034,15 +3165,20 @@ function onderarm(ctx, x, y, s, o = {}) {
 //           nucleotideRing(ctx, x, y, 'G', {s, a, explode, nummers, hl, dir, plekA})  → {p, su, b, c3, c5}
 //           dnaLadderHelix(ctx, x0, y, dx, 'ATGC…', {draai, R, s, sep, hl, bruggenA, plekA, fase, toonBasen, a}) → {klein(m), groot(m), top}
 // =====================================================================================
-// Vaste DNA-kleuren (C1: DNA paars). Zelfde tinten als de DNA-reeks (dnalib BC), zodat oude en nieuwe films samengaan.
+// Vaste DNA-kleuren: PALET B 'paren als families' (Kamiel 28 okt 2026, verbeterronde 2; bron en kleurenblindheidstest in
+// verbeterronde-2/dna/kleuren/palet.md). Ruggengraat neutraal grijs (niet meer paars); A–T warm (A koraalrood, T zandgeel),
+// C–G koel (C lichtblauw, G donkerblauw); binnen elk paar een groot verschil in lichtheid. Letter donker op A, T, C; licht op G.
+// RNA (RNA_BASE) heeft dezelfde basekleuren, U = de kleur van T; alleen de RNA-ruggengraat is anders (teal).
+// Paars blijft voor de kern, erfelijkheid, hormonen en de vwo-balk, niet voor DNA. (Tot 28 okt 2026: vier tinten paars.)
 const DNA_BASE = {
-  base: { A: '#C9BEEB', T: '#9F90D4', C: '#6C5BA8', G: '#4F3F86' },
-  letter: { A: '#121A26', T: '#121A26', C: '#F2F2EE', G: '#F2F2EE' },
-  rug: '#3E3366', rugR: '#8C7BBF', fosfaat: '#5E4E96', suiker: '#7A68B8',
+  base: { A: '#D8604A', T: '#F2CF7A', C: '#86C3E8', G: '#34609A' },
+  letter: { A: '#121A26', T: '#121A26', C: '#121A26', G: '#F2F2EE' },
+  rug: '#5E6A80', rugR: '#97A3B6', fosfaat: '#7D899E', suiker: '#B4BECD',
   comp: { A: 'T', T: 'A', C: 'G', G: 'C' },
   purine: { A: true, G: true, T: false, C: false },
   // bindingsplekken (model): hoogte langs de paarrand, 0..1. A–T twee, G–C drie; ze liggen alleen bij het juiste paar recht tegenover elkaar.
-  plek: { A: [0.33, 0.67], T: [0.33, 0.67], G: [0.2, 0.5, 0.8], C: [0.2, 0.5, 0.8] },
+  // verbeterronde 2 (variant B): bruggen verdeeld over de hele breedte
+  plek: { A: [0.27, 0.73], T: [0.27, 0.73], G: [0.15, 0.5, 0.85], C: [0.15, 0.5, 0.85] },
   // puzzelstaaf (27 okt 2026): lengte tot de paarlijn en hoogte van de letter, in eenheden van s
   len: 80, letterY: 40
 };
@@ -3066,80 +3202,112 @@ function basePuzzelPad(ctx, b, s) { const L = DNA_BASE.len * s, hw = 22 * s, d =
   else if (b === 'C') { ctx.lineTo(hw, L - d); ctx.lineTo(tw, L - d); ctx.lineTo(tw, L + d); ctx.lineTo(-tw, L + d); ctx.lineTo(-tw, L - d); ctx.lineTo(-hw, L - d); }
   else { ctx.lineTo(hw, L + d); ctx.lineTo(tw, L + d); ctx.lineTo(tw, L - d); ctx.lineTo(-tw, L - d); ctx.lineTo(-tw, L + d); ctx.lineTo(-hw, L + d); }
   ctx.closePath(); }
+
+// -------------------------------------------------------------------------------------
+// BASE ALS STAAFJE MET PUZZELRAND — variant B 'zonder stippen' (verbeterronde 2, 28 okt 2026).
+// Recept (ongewijzigd, besluit Kamiel 27 okt 2026): één staafje per base, alle basen even lang; A punt ↔ T inkeping, C nok ↔ G
+// sleuf; A–T twee, C–G drie waterstofbruggen (OpenStax Biology 2e § 14.2).
+// Zo kaal mogelijk: geen bindingsstippen meer (de puzzelrand zegt al wie past); waterstofbruggen als rijtjes van drie gouden
+// puntjes in de spleet, verdeeld over de hele breedte (0,15 / 0,5 / 0,85 bij C–G, 0,27 / 0,73 bij A–T); geen steeltje, de base
+// begint direct aan de suiker. Aanroepen gelijk (plekA en bindA worden genegeerd).
+// Bekende fouten: ringen; basen van ongelijke lengte; randen die niet passen; bruggen die tegen elkaar plakken.
+// -------------------------------------------------------------------------------------
 function baseRing(ctx, x, y, b, dir = 1, o = {}) {
-  const { s = 1, a = 1, rot = 0, rand = null, bindA = 0, plekA = 1 } = o; if (a <= 0.01) return;
+  const { s = 1, a = 1, rot = 0, rand = null } = o; if (a <= 0.01) return;
   const L = DNA_BASE.len * s, w = 52 * s, kl = DNA_BASE.base[b];
-  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir);
-  ctx.strokeStyle = lighten(kl, 0.25); ctx.lineWidth = 4 * s; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 10 * s); ctx.stroke(); // steeltje naar de suiker
-  basePuzzelPad(ctx, b, s); shape(ctx, kl, lighten(kl, 0.35), 1.5);
-  ctx.save(); ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), DNA_BASE.letter[b], 'center'); ctx.restore(); // letter rechtop
-  if (plekA > 0.01) { ctx.save(); ctx.globalAlpha *= plekA; DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * w * 0.9; _bioCirc(ctx, px, _baseRand(b, px, s), 4.2 * s, bindA > 0.5 ? C.goud : '#121A26', bindA > 0.5 ? null : lighten(kl, 0.5), 1.5); }); ctx.restore(); }
-  if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; roundRect(ctx, -w * 0.7, -4 * s, w * 1.4, L + 11 * s + 14 * s, 14 * s); ctx.stroke(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir); ctx.translate(0, -6 * s);
+  basePuzzelPad(ctx, b, s); ctx.fillStyle = kl; ctx.fill();
+  if (DNA_BASE.letter[b] && DNA_BASE.letter[b] !== 'rgba(0,0,0,0)') { ctx.save(); ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), DNA_BASE.letter[b], 'center'); ctx.restore(); }
+  if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; roundRect(ctx, -w * 0.7, 2 * s, w * 1.4, L + 19 * s, 14 * s); ctx.stroke(); }
   ctx.restore();
 }
-// waterstofbruggen tussen twee basen van een sport: y1 = paarlijn van base b (attach + DNA_BASE.len·s), y2 = paarlijn van de partner
 function baseBruggen(ctx, x, y1, y2, b, s = 1, a = 1) { if (a <= 0.01) return; const c = DNA_BASE.comp[b], sg = Math.sign(y2 - y1) || 1, L = DNA_BASE.len * s;
-  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.goud; ctx.lineWidth = 2.2 * s; ctx.setLineDash([5 * s, 4 * s]);
-  DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * 52 * s * 0.9, ya = y1 + sg * (_baseRand(b, px, s) - L), yb = y2 - sg * (_baseRand(c, px, s) - L); ctx.beginPath(); ctx.moveTo(x + px, ya + sg * 4 * s); ctx.lineTo(x + px, yb - sg * 4 * s); ctx.stroke(); }); ctx.setLineDash([]); ctx.restore(); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = C.goud;
+  DNA_BASE.plek[b].forEach(h => { const px = (h - 0.5) * 52 * s * 0.9, ya = y1 + sg * (_baseRand(b, px, s) - L - 6 * s), yb = y2 - sg * (_baseRand(c, px, s) - L - 6 * s);
+    for (let k = 1; k <= 3; k++) _bioCirc(ctx, x + px, lerp(ya, yb, k / 4), Math.max(1, 2.4 * s), C.goud); }); ctx.restore(); }
 
 // -------------------------------------------------------------------------------------
-// NUCLEOTIDE. Recept (OpenStax Biology 2e § 14.2; Lodish 8e § 5.1): fosfaatgroep aan koolstof 5' van de suiker
-// desoxyribose (vijfhoek met zuurstof in de ring), base aan koolstof 1'. Volgende nucleotide hecht met zijn fosfaat aan 3'.
-// Fosfaat = rondje met P (donkerpaars), suiker = vijfhoek (paars), base = baseRing. o.explode 0..1 trekt de drie delen uit elkaar.
-// o.nummers 0..1 toont 1'–5'. Geeft posities terug {p, su, b, c3, c5}.
+// NUCLEOTIDE — variant B 'staand, zoals in de streng' (verbeterronde 2, 28 okt 2026; Kamiel: 'de plaatsing van de stikstofbase aan
+// de suiker is een beetje druk en dicht op elkaar').
+// Recept (OpenStax Biology 2e § 14.2: fosfaat aan 5', base aan 1', OH aan 3'): dezelfde stand als in de ladder: fosfaat links-
+// boven aan C5', suiker in het midden, de base hangt omlaag (dir 1) of staat omhoog (dir −1) zoals in de streng, maar los van de
+// ring: een schuin bindingsstreepje van C1' naar rechts (± 1 × suikerstraal), daarna de staaf loodrecht. Zo ligt de base naast
+// C2' in plaats van er tegenaan. Nummers buiten de ring, op plekken waar geen binding loopt.
+// Aanroep gelijk: nucleotideRing(ctx, x, y, b, {s, a, explode, nummers, hl, dir, oh}) → {p, su, b, c3, c5, c1}.
+// Bekende fouten: base die tegen of over de suiker ligt; fosfaat aan C3'; nummers op een binding.
 // -------------------------------------------------------------------------------------
-function nucleotideRing(ctx, x, y, b, o = {}) { // v2 (26 okt 2026, frisse review DNA 1): base aan C1', C5' als knooppunt naar het fosfaat, optioneel OH aan C3'
+function nucleotideRing(ctx, x, y, b, o = {}) {
   const { s = 1, a = 1, explode = 0, nummers = 0, hl = null, dir = 1, oh = 0 } = o; if (a <= 0.01) return {};
-  const e = ease(explode), R = 34 * s, sx = x, sy = y;
-  const pt = []; for (let k = 0; k < 5; k++) { const an = -Math.PI / 2 + k * 2 * Math.PI / 5; pt.push([sx + R * Math.cos(an), sy + R * Math.sin(an)]); } // 0 = ring-O, 1 = C1', 2 = C2', 3 = C3', 4 = C4'
-  const c5 = [pt[4][0] - R * 0.75, pt[4][1] - R * 0.7]; // C5' (buiten de ring, aan C4')
-  const px = c5[0] - R * 0.9 - e * 60 * s, py = c5[1] - R * 0.2 - e * 20 * s; // fosfaat aan C5'
-  const bx = pt[1][0] + 16 * s + e * 30 * s, by = pt[1][1] + 6 * s + e * 50 * s; // base aan C1'
-  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
-  ctx.strokeStyle = DNA_BASE.rugR; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.moveTo(pt[4][0], pt[4][1]); ctx.lineTo(c5[0], c5[1]); ctx.stroke();
-  if (e < 0.9) { ctx.save(); ctx.globalAlpha *= 1 - e; ctx.beginPath(); ctx.moveTo(c5[0], c5[1]); ctx.lineTo(px, py); ctx.moveTo(pt[1][0], pt[1][1]); ctx.lineTo(bx, by + 4 * s); ctx.stroke(); ctx.restore(); }
-  ctx.beginPath(); pt.forEach((p, k) => k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); shape(ctx, DNA_BASE.suiker, lighten(DNA_BASE.suiker, 0.35), 1.5);
-  _bioCirc(ctx, pt[0][0], pt[0][1], 5 * s, '#C9B896'); _bioCirc(ctx, c5[0], c5[1], 4.5 * s, lighten(DNA_BASE.suiker, 0.2)); // ring-O, C5'
+  const e = ease(explode), R = 34 * s;
+  const pt = []; for (let k = 0; k < 5; k++) { const an = -Math.PI / 2 + k * 2 * Math.PI / 5; pt.push([x + R * Math.cos(an), y + R * Math.sin(an)]); }
+  const c5 = [pt[4][0] - 17 * s, pt[4][1] - 25 * s];
+  const px = c5[0] - 40 * s - e * 60 * s, py = c5[1] - 16 * s - e * 20 * s;
+  const kx = pt[1][0] + 42 * s, ky = pt[1][1] + 14 * s * dir; // knik: hier begint de staaf
+  const bx = kx + e * 40 * s, by = ky + e * 40 * s * dir;
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const bond = DNA_BASE.rugR; ctx.strokeStyle = bond; ctx.lineWidth = 3 * s;
+  ctx.beginPath(); ctx.moveTo(pt[4][0], pt[4][1]); ctx.lineTo(c5[0], c5[1]); ctx.stroke();
+  if (e < 0.95) { ctx.save(); ctx.globalAlpha *= 1 - e; ctx.beginPath(); ctx.moveTo(c5[0], c5[1]); ctx.lineTo(px, py); ctx.moveTo(pt[1][0], pt[1][1]); ctx.lineTo(kx, ky); ctx.stroke(); ctx.restore(); }
+  ctx.beginPath(); pt.forEach((p, k) => k ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); shape(ctx, DNA_BASE.suiker, lighten(DNA_BASE.suiker, 0.3), 1.5);
+  _bioCirc(ctx, pt[0][0], pt[0][1], 4.5 * s, '#C9B896');
   baseRing(ctx, bx, by, b, dir, { s: s * 0.9, plekA: o.plekA ?? 0 });
-  _bioCirc(ctx, px, py, 20 * s, DNA_BASE.fosfaat, lighten(DNA_BASE.fosfaat, 0.4), 1.5); text(ctx, 'P', px, py + 9 * s, fTekst(26 * s, 700), C.text, 'center');
-  if (oh > 0.01) { ctx.save(); ctx.globalAlpha *= oh; const ox = pt[3][0] - R * 0.35, oy = pt[3][1] + R * 1.35; ctx.strokeStyle = DNA_BASE.rugR; ctx.lineWidth = 2.5 * s; ctx.beginPath(); ctx.moveTo(pt[3][0], pt[3][1]); ctx.lineTo(ox + 8 * s, oy - 8 * s); ctx.stroke(); text(ctx, 'OH', ox - 6 * s, oy + 12 * s, fTekst(24 * s, 700), hl === "3'" ? C.goud : C.text, 'center'); ctx.restore(); }
+  _bioCirc(ctx, px, py, 20 * s, DNA_BASE.fosfaat, lighten(DNA_BASE.fosfaat, 0.35), 1.5); text(ctx, 'P', px, py + 9 * s, fTekst(26 * s, 700), C.text, 'center');
+  const lab = (l, X, Y) => text(ctx, l, X, Y + 9 * s, fTekst(24 * s, 700), hl === l ? C.goud : C.text, 'center');
+  if (oh > 0.01) { ctx.save(); ctx.globalAlpha *= oh; const ox = pt[3][0] - 28 * s, oy = pt[3][1] + 12 * s; ctx.strokeStyle = bond; ctx.lineWidth = 2.5 * s; ctx.beginPath(); ctx.moveTo(pt[3][0], pt[3][1]); ctx.lineTo(ox + 8 * s, oy - 3 * s); ctx.stroke(); lab('OH', ox - 14 * s, oy + 4 * s); ctx.restore(); }
   if (nummers > 0.01) { ctx.save(); ctx.globalAlpha *= nummers;
-    [[1, "1'"], [2, "2'"], [3, "3'"], [4, "4'"]].forEach(([k, l]) => { const dx = pt[k][0] - sx, dy = pt[k][1] - sy, d = Math.hypot(dx, dy), off = k === 1 ? -22 : 26; text(ctx, l, pt[k][0] + dx / d * 26 * s - (k === 2 ? 22 * s : 0), pt[k][1] + dy / d * 26 * s + 9 * s + (k === 1 ? off * s * 0.6 : 0), fTekst(26 * s, 700), hl === l ? C.goud : C.text, 'center'); });
-    text(ctx, "5'", c5[0] + 4 * s, c5[1] - 16 * s, fTekst(26 * s, 700), hl === "5'" ? C.goud : C.text, 'center'); ctx.restore(); }
+    lab("1'", pt[1][0] + 8 * s, pt[1][1] - 22 * s * dir); lab("2'", pt[2][0] - 2 * s, pt[2][1] + 30 * s); lab("3'", pt[3][0] - 6 * s, pt[3][1] + 30 * s);
+    lab("4'", pt[4][0] - 24 * s, pt[4][1] + 14 * s); lab("5'", c5[0] + 20 * s, c5[1] - 14 * s); ctx.restore(); }
   ctx.restore();
-  return { p: [px, py], su: [sx, sy], b: [bx, by + 60 * s], c3: pt[3], c5, c1: pt[1] };
+  return { p: [px, py], su: [x, y], b: [bx, by + 60 * s * dir], c3: pt[3], c5, c1: pt[1] };
 }
 
 // -------------------------------------------------------------------------------------
-// DNA: LADDER ↔ RECHTSDRAAIENDE HELIX (één functie, morph met o.draai 0..1).
-// Recept (OpenStax Biology 2e § 14.2): helix 2 nm breed, 10 baseparen per winding (0,34 nm per paar, 3,4 nm per winding),
-// rechtsdraaiend, grote en kleine groef ongelijk (hier: de tweede streng loopt 140° i.p.v. 180° achter de eerste).
-// Ruggengraat (suiker-fosfaat) buiten, basen binnen. Bij draai = 0 een platte ladder met de echte ringvormen.
-// x0,y = begin van de as; dx = afstand per basepaar langs de as; seq = volgorde van de bovenste streng.
-// o.open (array per sport 0..1) trekt sporten los; o.hl = index die goud omrand wordt. Achterkant donkerder (diepte).
-// Bekende fouten: linksdraaiend; even brede groeven; basen die door de ruggengraat steken.
+// DNA: LADDER ↔ RECHTSDRAAIENDE HELIX — variant B 'voorkant telt' (verbeterronde 2, 28 okt 2026; Kamiel: 'de letters in de spiraal
+// zijn goed, maar het is heel druk; minimalistisch en simpel').
+// Recept (OpenStax Biology 2e § 14.2: 2 nm breed, 0,34 nm/bp, 10 bp per winding, rechtsdraaiend, ruggengraat buiten, basen binnen;
+// OpenStax Organic Chemistry § 28.2: grote groef 12 Å, kleine 6 Å → tweede streng 120° achter de eerste, groeven 1 : 2).
+// Rust door diepte, niet door weglaten: alles wat achter ligt (achterkant van de ruggengraat én de sporten waarvan het midden
+// achter ligt) is een dunne, vage schaduw (30 %) zonder letter; vooraan staan de puzzelbasen zoals in de ladder (A punt ↔ T
+// inkeping, C nok ↔ G sleuf), verkort tot de sport, met de letter rechtop. Zo blijft de puzzel die leerlingen uit de ladder kennen
+// ook in de helix zichtbaar. Geen stippen of bruggen in de helix. Klein (sport < 14 px breed): egale staafjes.
+// Aanroep gelijk: dnaLadderHelix(ctx, x0, y, dx, seq, {draai, R, s, sep, hl, bruggenA, plekA, fase, toonBasen, a}) → {klein(m), groot(m), top}.
+// Bekende fouten: linksdraaiend; even brede groeven; basen die door de ruggengraat steken; achterkant even fel als de voorkant.
 // -------------------------------------------------------------------------------------
+function _dhPuzzel(ctx, x, y0, y1, hw, b) { // staaf van voet y0 tot paarlijn y1 (rand rond y1), halve breedte hw
+  const sg = Math.sign(y1 - y0) || 1, L = Math.abs(y1 - y0), d = Math.min(hw * 0.5, L * 0.18), tw = hw * 0.5;
+  ctx.save(); ctx.translate(x, y0); ctx.scale(1, sg); ctx.beginPath(); ctx.moveTo(-hw, 0); ctx.lineTo(hw, 0);
+  if (b === 'A') { ctx.lineTo(hw, L - d); ctx.lineTo(0, L + d); ctx.lineTo(-hw, L - d); }
+  else if (b === 'T' || b === 'U') { ctx.lineTo(hw, L + d); ctx.lineTo(0, L - d); ctx.lineTo(-hw, L + d); }
+  else if (b === 'C') { ctx.lineTo(hw, L - d); ctx.lineTo(tw, L - d); ctx.lineTo(tw, L + d); ctx.lineTo(-tw, L + d); ctx.lineTo(-tw, L - d); ctx.lineTo(-hw, L - d); }
+  else { ctx.lineTo(hw, L + d); ctx.lineTo(tw, L + d); ctx.lineTo(tw, L - d); ctx.lineTo(-tw, L - d); ctx.lineTo(-tw, L + d); ctx.lineTo(-hw, L + d); }
+  ctx.closePath(); ctx.restore(); }
 function dnaLadderHelix(ctx, x0, y, dx, seq, o = {}) {
   const { draai = 0, R = 110, a = 1, s = 0.62, sep = 0, hl = -1, bruggenA = 1, plekA = 0, fase = 0, toonBasen = 1 } = o; if (a <= 0.01) return;
-  const n = seq.length, e = ease(draai), off = lerp(Math.PI, Math.PI * 140 / 180, e), sp = ease(sep) * R * 0.9;
-  const sc = (2 * R - 16 * s - 8) / 184; // sport = purine + pyrimidine vult precies de afstand tussen de ruggen
-  const th = (i) => e * (i * 2 * Math.PI / 10) + fase * e; // rechtsdraaiend: as naar rechts, bovenkant draait naar je toe
+  const OFF = 120, n = seq.length, e = ease(draai), off = lerp(Math.PI, Math.PI * OFF / 180, e), sp = ease(sep) * R * 0.9;
+  const sc = (2 * R - 16 * s - 8) / 184;
+  const th = (i) => e * (i * 2 * Math.PI / 10) + fase * e;
   const P = (i, k) => { const t = th(i) + (k ? off : 0); return { x: x0 + i * dx, y: y - R * Math.cos(t) + (k ? sp : -sp), z: Math.sin(t) }; };
-  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
+  const bw = Math.max(2, 12 * s);
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
   const rail = (k, voor) => { ctx.beginPath(); let aan = false; for (let q = 0; q <= (n - 1) * 8; q++) { const i = q / 8, t = th(i) + (k ? off : 0), X = x0 + i * dx, Y = y - R * Math.cos(t) + (k ? sp : -sp), Z = Math.sin(t); const zij = e < 0.05 ? voor : (voor ? Z >= -0.05 : Z < 0.05); if (zij) { aan ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); aan = true; } else aan = false; }
-    ctx.strokeStyle = voor ? DNA_BASE.rugR : _mixHex(DNA_BASE.rugR, '#121A26', 0.5); ctx.lineWidth = voor ? 16 * s : 13 * s; ctx.stroke(); ctx.strokeStyle = voor ? DNA_BASE.rug : _mixHex(DNA_BASE.rug, '#121A26', 0.4); ctx.lineWidth = voor ? 9 * s : 7 * s; ctx.stroke(); };
+    ctx.save(); if (!voor && e >= 0.05) ctx.globalAlpha *= 0.35 + 0.65 * (1 - e); ctx.strokeStyle = DNA_BASE.rugR; ctx.lineWidth = voor || e < 0.05 ? bw : bw * 0.55; ctx.stroke(); ctx.restore(); };
   rail(0, false); rail(1, false);
   const order = [...Array(n).keys()].sort((i, j) => (P(i, 0).z + P(i, 1).z) - (P(j, 0).z + P(j, 1).z));
   if (toonBasen > 0.01) order.forEach(i => { const A = P(i, 0), B = P(i, 1), b = seq[i], c = DNA_BASE.comp[b]; const depth = (A.z + B.z) / 2; const dirAB = Math.sign(B.y - A.y) || 1;
-    ctx.save(); ctx.globalAlpha *= toonBasen * (e > 0.05 ? (0.55 + 0.45 * (depth + 1) / 2) : 1);
+    ctx.save(); ctx.globalAlpha *= toonBasen;
     if (e < 0.5) { const k = sc * (1 - e * 0.6); baseRing(ctx, A.x, A.y + dirAB * 8 * s, b, dirAB, { s: k, plekA, rand: i === hl ? C.goud : null }); baseRing(ctx, B.x, B.y - dirAB * 8 * s, c, -dirAB, { s: k, plekA });
       if (sp < 1) baseBruggen(ctx, A.x, A.y + dirAB * (8 * s + DNA_BASE.len * k), B.y - dirAB * (8 * s + DNA_BASE.len * k), b, k, bruggenA * (1 - e * 2)); }
-    else { const mid = A.y + (B.y - A.y) * 0.5; ctx.lineWidth = 11 * s; ctx.strokeStyle = DNA_BASE.base[b]; ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(A.x, mid); ctx.stroke(); ctx.strokeStyle = DNA_BASE.base[c]; ctx.beginPath(); ctx.moveTo(A.x, mid); ctx.lineTo(B.x, B.y); ctx.stroke(); }
+    else { const achter = depth < -0.05; if (achter) ctx.globalAlpha *= 0.22; const hw = Math.min(dx * 0.22, 15 * s), mid = (A.y + B.y) / 2;
+      if (hw * 2 < 12 || achter) { const g = Math.min(1.5, hw * 0.15) * dirAB; ctx.fillStyle = DNA_BASE.base[b]; ctx.fillRect(A.x - hw, Math.min(A.y, mid - g), hw * 2, Math.abs(mid - g - A.y)); ctx.fillStyle = DNA_BASE.base[c]; ctx.fillRect(B.x - hw, Math.min(B.y, mid + g), hw * 2, Math.abs(B.y - mid - g)); }
+      else { _dhPuzzel(ctx, A.x, A.y, mid, hw, b); ctx.fillStyle = DNA_BASE.base[b]; ctx.fill(); _dhPuzzel(ctx, B.x, B.y, mid, hw, c); ctx.fillStyle = DNA_BASE.base[c]; ctx.fill();
+        const fs = Math.min(hw * 1.6, 40 * s), half = Math.abs(B.y - A.y) / 2;
+        if (fs >= 16 && half >= fs * 2) { const q = half * 0.45; text(ctx, b, A.x, A.y + dirAB * q + fs * 0.36, fTekst(fs, 700), DNA_BASE.letter[b], 'center'); text(ctx, c, B.x, B.y - dirAB * q + fs * 0.36, fTekst(fs, 700), DNA_BASE.letter[c], 'center'); } }
+      if (i === hl) { ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.strokeRect(A.x - hw - 3, Math.min(A.y, B.y), hw * 2 + 6, Math.abs(B.y - A.y)); } }
     ctx.restore(); });
   rail(0, true); rail(1, true);
   ctx.restore();
-  // plekken van de groeven langs de bovenrand (voor labels): kleine groef tussen de toppen die 140° uit elkaar liggen
-  return { klein: (m) => x0 + (10 * m - 140 / 36 / 2) * dx, groot: (m) => x0 + (10 * m + 5 - 140 / 36 / 2) * dx, top: y - R };
+  const di = -fase * 10 / (2 * Math.PI);
+  return { klein: (m) => x0 + (10 * m - OFF / 72 + di) * dx, groot: (m) => x0 + (10 * m + 5 - OFF / 72 + di) * dx, top: y - R };
 }
 
 
@@ -3161,48 +3329,26 @@ function dnaLadderHelix(ctx, x0, y, dx, seq, o = {}) {
 //    (±10 nt, teal) van primase vlak achter de helicase, polymerase bouwt van de vork af tot het vorige fragment, vervangt die
 //    primer door DNA, ligase sluit de knip. Okazaki-fragmenten bij eukaryoten 100–200 nt (hier korter getekend: 'niet op schaal').
 //  - Helicase (eukaryoot: CMG) is een ring van zes eiwitten om de matrijs van de leidende streng en schuift 3' → 5' over die streng.
-//  - Kleurbetekenis in deze film: oude (zware) streng = donker paars C.kern, nieuwe (lichte) streng = licht paars; RNA-primer teal;
-//    enzymen grijsblauw #7A8BA8 met actief centrum goud (C9). Basen: de vier paarse reekstinten (A licht … G donker).
+//  - Kleurbetekenis (palet B sinds 28 okt 2026; was paars): oude streng = grijs D2.oud, nieuwe streng = bijna wit D2.nieuw; RNA-primer teal;
+//    enzymen grijsblauw #7A8BA8 met actief centrum goud (C9). Basen: palet B (DNA_BASE).
 //  Bekende fouten: polymerase die 3' → 5' bouwt; Okazaki-fragmenten die naar de vork toe groeien; vork zonder primers;
 //  een platte ladder vóór de vork; nucleotiden die al op de matrijs 'vastzitten' voordat het enzym er is.
 
-const D2 = {
-  oud: '#6E5A9E', oudR: '#A392D6', nieuw: '#B9ACE6', nieuwR: '#DCD4F5',
+const D2 = { // palet B (28 okt 2026): oude streng grijs, nieuwe streng bijna wit; basen = DNA_BASE, RNA-basen = RNA_BASE
+  oud: '#7D899E', oudR: '#AEB8C8', nieuw: '#DCE3EC', nieuwR: '#F0F3F7',
   rna: '#3E86AE', rnaR: '#8CC6E1', enz: '#7A8BA8', enzR: '#A4B2CA', enzD: '#56667F', enzDD: '#44536A',
-  base: { A: '#C9BEEB', T: '#9F90D4', C: '#6C5BA8', G: '#4F3F86' },
-  rbase: { A: '#BFE0EF', U: '#8CC6E1', C: '#4E93B9', G: '#356F91' },
+  base: { A: '#D8604A', T: '#F2CF7A', C: '#86C3E8', G: '#34609A' },
+  rbase: { A: '#D8604A', U: '#F2CF7A', C: '#86C3E8', G: '#34609A' },
   comp: { A: 'T', T: 'A', C: 'G', G: 'C' }, rcomp: { A: 'U', T: 'A', C: 'G', G: 'C' },
-  letter: { A: '#121A26', T: '#121A26', C: '#F2F2EE', G: '#F2F2EE', U: '#121A26' },
+  letter: { A: '#121A26', T: '#121A26', C: '#121A26', G: '#F2F2EE', U: '#121A26' },
 };
 const D2SEQ = 'ATGCGTACCTTAGCAGTCCATGGATCTGACTAGGCTTACGATCGGATCCATTGCAGTTACGGACTAGCTAGGATCCGTATGCAAGTCGTAGCTTAGCCGATCGTAGGCTAAGTCGATCGGATTAGC';
 const d2seq = (i) => D2SEQ[((Math.floor(i) % D2SEQ.length) + D2SEQ.length) % D2SEQ.length];
 
 // ---------- basen: de ringvorm van de DNA-reeks (baseRing uit lib_bio.js, besluit DNA 1 t2, 25 okt 2026) ----------
 // RNA-base in dezelfde vorm (U = pyrimidine, zoals T), in de teal RNA-tinten (C1: RNA teal). Kandidaat voor lib_bio.js.
-const RNA_BASE = { base: { A: '#BFE0EF', U: '#8CC6E1', C: '#4E93B9', G: '#356F91' }, letter: { A: '#121A26', U: '#121A26', C: '#F2F2EE', G: '#F2F2EE' } };
-function baseRingRNA(ctx, x, y, b, dir = 1, o = {}) {
-  const k = b === 'U' ? 'T' : b, oudB = DNA_BASE.base[k], oudL = DNA_BASE.letter[k], kl = RNA_BASE.base[b];
-  DNA_BASE.base[k] = kl; DNA_BASE.letter[k] = o.geenLetter ? 'rgba(0,0,0,0)' : b === 'U' ? kl : RNA_BASE.letter[b]; // bij U: letter T onzichtbaar, U eroverheen
-  try { baseRing(ctx, x, y, k, dir, o); } finally { DNA_BASE.base[k] = oudB; DNA_BASE.letter[k] = oudL; }
-  if (b === 'U' && !o.geenLetter) { const s = o.s || 1, rot = o.rot || 0; ctx.save(); ctx.globalAlpha *= (o.a == null ? 1 : o.a); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir);
-    ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, 'U', 0, 13 * s, fTekst(38 * s, 700), RNA_BASE.letter.U, 'center'); ctx.restore(); }
-}
-// d2Base: base met voet op (x, y), wijst in richting ang; L = halve sport. Schaal zo dat purine + pyrimidine = 2L (één sport).
-// Kleine basen (breedte < 9 px) als staafje in dezelfde tint (lessen_dna: ringen bij verkorting niet leesbaar).
-function d2Base(ctx, x, y, ang, b, L, hw, o = {}) { const { rna = false, a = 1, rand = null, vorm = true } = o; if (a <= 0.01) return;
-  const s = 2 * L / 184, pur = (b === 'A' || b === 'G'), len = DNA_BASE.len * s;
-  if (!vorm || 52 * s < 9) { const fill = (rna ? RNA_BASE.base : DNA_BASE.base)[b] || '#888'; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang - Math.PI / 2);
-    ctx.beginPath(); ctx.rect(-hw, 0, hw * 2, len); ctx.fillStyle = fill; ctx.fill(); if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; ctx.stroke(); } ctx.restore(); return; }
-  const op = Math.sin(ang) < 0; // wijst omhoog: dir −1
-  // letter niet met de ring meedraaien: ring zonder letter tekenen, letter daarna rechtop in beeldcoördinaten (frisse review DNA 2, MOET 4)
-  const k = (rna && b === 'U') ? 'T' : b, LB = rna ? RNA_BASE.letter : DNA_BASE.letter, oudL = DNA_BASE.letter[k]; DNA_BASE.letter[k] = 'rgba(0,0,0,0)';
-  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(op ? ang + Math.PI / 2 : ang - Math.PI / 2);
-  try { (rna ? baseRingRNA : baseRing)(ctx, 0, 0, b, op ? -1 : 1, { s, plekA: o.plekA || 0, bindA: o.bindA || 0, rand, geenLetter: true }); } finally { DNA_BASE.letter[k] = oudL; }
-  ctx.restore();
-  if (o.letter === false) return;
-  const cpos = DNA_BASE.letterY * s, lx = x + Math.cos(ang) * cpos, ly = y + Math.sin(ang) * cpos;
-  const m = ctx.getTransform(), wx = m.a * lx + m.c * ly + m.e, wy = m.b * lx + m.d * ly + m.f, sc = Math.hypot(m.a, m.b);
-  ctx.save(); ctx.globalAlpha *= a; ctx.setTransform(sc, 0, 0, sc, wx, wy); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), LB[b] || '#121A26', 'center'); ctx.restore(); }
+// Palet B (Kamiel 28 okt 2026): RNA-basen in dezelfde kleuren als DNA, U = de kleur van T; de RNA-ruggengraat blijft teal.
+const RNA_BASE = { base: { A: '#D8604A', U: '#F2CF7A', C: '#86C3E8', G: '#34609A' }, letter: { A: '#121A26', U: '#121A26', C: '#121A26', G: '#F2F2EE' } };
 
 // suiker-fosfaatruggengraat langs punten P (array [x,y]); o.kleur, o.bw, o.dots = indices waar een fosfaat staat
 function d2Rug(ctx, P, o = {}) { const { kleur = D2.oud, bw = 10, a = 1, rand = null } = o; if (a <= 0.01 || P.length < 2) return;
@@ -3241,16 +3387,17 @@ function polymeraseVoor(ctx, x, y, g, o = {}) { const { dir = 1, up = 1, a = 1, 
   if (klem) { ctx.beginPath(); ctx.ellipse(-1.45 * g, 0, 0.22 * g, 0.9 * g, 0, -Math.PI * 0.5, Math.PI * 0.5); ctx.strokeStyle = '#A4B2CA'; ctx.lineWidth = 0.2 * g; ctx.stroke(); }
   ctx.restore(); }
 
-// ---------- HELICASE, PRIMASE, LIGASE (variant C, beeldbank ronde 2, 27 okt 2026) ----------
-// Winnaar B (donut met gat) gecombineerd met A (schuin gezette ring met diepte, ligase als boog over de dubbele streng), alle
-// eiwitten als gevouwen keten (lintmodel _grKluwen). Recept (OpenStax Biology 2e § 14.4 (Open Oregon): helicase ontwindt het DNA,
-// primase maakt een RNA-primer van ± 5–10 nucleotiden, ligase maakt de fosfodiësterbinding; Leman & Noguchi 2013 (bestaand recept):
-// eukaryote helicase = ring van zes Mcm-eiwitten om één streng; Pascal e.a. 2004: ligase I omringt het DNA en zet de katalytische kern op de knip):
-//  - helicase: zes subeenheden, elk een klein gevouwen lint, op een ring loodrecht op de streng, 40° schuin gezien; achter de
-//    streng donkerder (laag 'achter'), ervoor licht (laag 'voor'); de streng gaat zichtbaar door het gat; fase = draaien.
-//  - primase: één gevouwen lint met een kort teal RNA-stukje aan het actieve centrum (goud).
-//  - ligase: hoefijzervormig lint dat over de naad grijpt; sluit 0 → 1 = kaken dicht en gouden flits op de naad.
-// Onder ± 26 px valt het lint weg (vlak silhouet). Aanroepen gelijk aan v2.
+// ---------- HELICASE (helicaseRing; ook de helicase in vork()) (verbeterronde 2 eiwitten, 28 okt 2026: kralenketen) ----------
+// Zelfde vorm, plaats, grootte en aanroep als variant C (donut met gat, schuin gezette ring, ligase als hoefijzer over de naad);
+// alleen de eiwitten zijn nu een kralenketen (_kkKluwen, zie eiwitten/_hulp.js) in plaats van het lintmodel (_grKluwen).
+// Recept (OpenStax Biology 2e § 14.4 (Open Oregon): helicase ontwindt het DNA, primase maakt een RNA-primer van ± 5–10
+// nucleotiden, ligase maakt de fosfodiësterbinding; Leman & Noguchi 2013: eukaryote helicase = ring van zes Mcm-eiwitten om
+// één streng; Pascal e.a. 2004: ligase I omringt het DNA en zet de katalytische kern op de knip):
+//  - helicase: zes subeenheden, elk een kleine gevouwen kralenketen, op een ring loodrecht op de streng, 40° schuin gezien;
+//    achter de streng donkerder (laag 'achter'), ervoor licht (laag 'voor'); de streng gaat zichtbaar door het gat; fase = draaien.
+//  - primase: één gevouwen kralenketen met een kort teal RNA-stukje aan het actieve centrum (goud).
+//  - ligase: hoefijzervormige kralenketen die over de naad grijpt; sluit 0 → 1 = kaken dicht en gouden flits op de naad.
+// Klein (r < 26–30): dezelfde keten met minder, grotere kralen (geen vlakke vlek meer). Aanroepen gelijk aan v2.
 function helicaseRing(ctx, x, y, r, o = {}) { const { a = 1, fase = 0, laag = 'beide', hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a;
   const sb = Math.sin(0.7), L = [];
   for (let k = 0; k < 6; k++) { const ph = k / 6 * 6.283 + fase; L.push({ x: x + Math.sin(ph) * r * 0.78 * sb, y: y + Math.cos(ph) * r * 0.78, z: Math.sin(ph), ph, k }); }
@@ -3261,37 +3408,94 @@ function helicaseRing(ctx, x, y, r, o = {}) { const { a = 1, fase = 0, laag = 'b
   L.forEach(p => { const voor = p.z >= 0; if (laag === 'achter' && voor) return; if (laag === 'voor' && !voor) return;
     const col = _mixHex('#8E9CB8', '#2A3448', 0.55 * (1 - (p.z + 1) / 2)), cc = hl > 0.01 && voor ? _mixHex(col, C.goud, hl * 0.6) : col;
     const an = Math.atan2(p.y - y, (p.x - x) / sb), rx = r * 0.36, ry = r * 0.3 * (0.75 + 0.25 * Math.abs(Math.cos(p.ph)));
-    if (r < 30) { ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, 6.283); shape(ctx, cc, lighten(cc, 0.3), 1.2); ctx.restore(); return; }
-    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, 6.283); ctx.fillStyle = rgba(_mixHex(cc, '#121A26', 0.4), 0.8); ctx.fill();
-    const E = _ellips(40, 32); _grKluwen(ctx, 0, 0, E.binnen, { bbox: E.bbox, sc: rx / 42, r: 7, col: cc, seed: 3 + p.k, key: 'heli' + p.k }); ctx.restore(); });
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(an); ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, 6.283); ctx.fillStyle = rgba(_mixHex(cc, '#121A26', 0.45), 0.7); ctx.fill();
+    const E = _ellips(40, 32); _kkKluwen(ctx, 0, 0, E.binnen, { bbox: E.bbox, sc: rx / 42, r: 7, col: cc, seed: 3 + p.k, key: 'heli' + p.k }); ctx.restore(); });
   ctx.restore(); }
 const _PRIM = (() => { const P = []; for (let k = 0; k < 24; k++) { const u = k / 24 * 6.283, d = Math.abs(((u + Math.PI) % 6.283) - Math.PI), rr = 50 * (1 + 0.08 * Math.sin(u * 5 + 2)) * (d < 0.5 ? 0.55 + d * 0.9 : 1); P.push([Math.cos(u) * rr, Math.sin(u) * rr]); } return P; })();
+// ---------- PRIMASE (verbeterronde 2 eiwitten, 28 okt 2026: kralenketen) ----------
+// Zelfde vorm, plaats, grootte en aanroep als variant C (donut met gat, schuin gezette ring, ligase als hoefijzer over de naad);
+// alleen de eiwitten zijn nu een kralenketen (_kkKluwen, zie eiwitten/_hulp.js) in plaats van het lintmodel (_grKluwen).
+// Recept (OpenStax Biology 2e § 14.4 (Open Oregon): helicase ontwindt het DNA, primase maakt een RNA-primer van ± 5–10
+// nucleotiden, ligase maakt de fosfodiësterbinding; Leman & Noguchi 2013: eukaryote helicase = ring van zes Mcm-eiwitten om
+// één streng; Pascal e.a. 2004: ligase I omringt het DNA en zet de katalytische kern op de knip):
+//  - helicase: zes subeenheden, elk een kleine gevouwen kralenketen, op een ring loodrecht op de streng, 40° schuin gezien;
+//    achter de streng donkerder (laag 'achter'), ervoor licht (laag 'voor'); de streng gaat zichtbaar door het gat; fase = draaien.
+//  - primase: één gevouwen kralenketen met een kort teal RNA-stukje aan het actieve centrum (goud).
+//  - ligase: hoefijzervormige kralenketen die over de naad grijpt; sluit 0 → 1 = kaken dicht en gouden flits op de naad.
+// Klein (r < 26–30): dezelfde keten met minder, grotere kralen (geen vlakke vlek meer). Aanroepen gelijk aan v2.
+// (_PRIM blijft ongewijzigd in lib_bio.js)
 function primase(ctx, x, y, r, o = {}) { const { a = 1, an = 0, rna = 1, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an);
   const col = hl > 0.01 ? _mixHex('#6F86A0', C.goud, hl * 0.6) : '#6F86A0';
   ctx.beginPath(); bioPad(ctx, _PRIM.map(([px, py]) => [px * r / 50, py * r / 50]), true);
-  if (r < 26) shape(ctx, col, lighten(col, 0.3), 1.2); else { ctx.fillStyle = rgba(_mixHex(col, '#121A26', 0.4), 0.8); ctx.fill(); const V = _lintVorm(_PRIM); _grKluwen(ctx, 0, 0, V.binnen, { bbox: V.bbox, sc: r / 52, r: 7, col, seed: 2, key: 'prim' }); }
+  { ctx.fillStyle = rgba(_mixHex(col, '#121A26', 0.45), 0.7); ctx.fill(); const V = _lintVorm(_PRIM); _kkKluwen(ctx, 0, 0, V.binnen, { bbox: V.bbox, sc: r / 52, r: 7, col, seed: 2, key: 'prim' }); }
   ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(r * 0.62, 0, r * 0.22, Math.PI * 0.55, Math.PI * 1.45); ctx.stroke();
   if (rna > 0.01) { ctx.globalAlpha *= rna; const n = 4, st = r * 0.3, x0 = r * 1.0; for (let i = 0; i < n; i++) { ctx.fillStyle = Object.values(RNA_BASE.base)[i % 4]; ctx.fillRect(x0, -i * st - st * 0.36, st * 0.7, st * 0.72); }
     ctx.strokeStyle = D2.rna; ctx.lineWidth = Math.max(3, r * 0.13); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0, st * 0.3); ctx.lineTo(x0, -(n - 0.6) * st); ctx.stroke(); }
   ctx.restore(); }
 function _ligVorm(k) { const kaak = lerp(0.62, 0.36, k); return [[-0.9, 0], [-0.6, -0.75], [0.2, -0.95], [1.05, -kaak - 0.25], [1.15, -kaak], [0.45, -0.5], [0.3, 0], [0.45, 0.5], [1.15, kaak], [1.05, kaak + 0.25], [0.2, 0.95], [-0.6, 0.75]]; }
+// ---------- LIGASE (verbeterronde 2 eiwitten, 28 okt 2026: kralenketen) ----------
+// Zelfde vorm, plaats, grootte en aanroep als variant C (donut met gat, schuin gezette ring, ligase als hoefijzer over de naad);
+// alleen de eiwitten zijn nu een kralenketen (_kkKluwen, zie eiwitten/_hulp.js) in plaats van het lintmodel (_grKluwen).
+// Recept (OpenStax Biology 2e § 14.4 (Open Oregon): helicase ontwindt het DNA, primase maakt een RNA-primer van ± 5–10
+// nucleotiden, ligase maakt de fosfodiësterbinding; Leman & Noguchi 2013: eukaryote helicase = ring van zes Mcm-eiwitten om
+// één streng; Pascal e.a. 2004: ligase I omringt het DNA en zet de katalytische kern op de knip):
+//  - helicase: zes subeenheden, elk een kleine gevouwen kralenketen, op een ring loodrecht op de streng, 40° schuin gezien;
+//    achter de streng donkerder (laag 'achter'), ervoor licht (laag 'voor'); de streng gaat zichtbaar door het gat; fase = draaien.
+//  - primase: één gevouwen kralenketen met een kort teal RNA-stukje aan het actieve centrum (goud).
+//  - ligase: hoefijzervormige kralenketen die over de naad grijpt; sluit 0 → 1 = kaken dicht en gouden flits op de naad.
+// Klein (r < 26–30): dezelfde keten met minder, grotere kralen (geen vlakke vlek meer). Aanroepen gelijk aan v2.
+// (_ligVorm blijft ongewijzigd in lib_bio.js)
 function ligase(ctx, x, y, r, o = {}) { const { a = 1, an = 0, sluit = 0, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an);
   const k = ease(sluit), col = hl > 0.01 ? _mixHex('#8392AE', C.goud, hl * 0.6) : '#8392AE', V0 = _ligVorm(k);
   ctx.beginPath(); bioPad(ctx, V0.map(([px, py]) => [px * r, py * r]), true);
-  if (r < 26) shape(ctx, col, lighten(col, 0.3), 1.2); else { ctx.fillStyle = rgba(_mixHex(col, '#121A26', 0.4), 0.8); ctx.fill(); const V = _lintVorm(V0.map(([px, py]) => [py * 100, -px * 100])); // rijen langs de boog
-    _grKluwen(ctx, 0, 0, V.binnen, { bbox: V.bbox, sc: r / 100, r: 7, col, seed: 7, rot: Math.PI / 2, key: 'lig' + Math.round(k * 4) }); }
+  { ctx.fillStyle = rgba(_mixHex(col, '#121A26', 0.45), 0.7); ctx.fill(); const V = _lintVorm(V0.map(([px, py]) => [px * 100, py * 100])); // rijen dwars op de opening: elke rij is één stuk, ook de kaken vullen zich
+    _kkKluwen(ctx, 0, 0, V.binnen, { bbox: V.bbox, sc: r / 100, r: 7, col, seed: 7, key: 'lig' + Math.round(k * 4) }); }
   ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(r * 0.62, 0, r * 0.18, Math.PI * 0.6, Math.PI * 1.4); ctx.stroke();
   if (k > 0.7) { ctx.globalAlpha *= (k - 0.7) / 0.3; _bioCirc(ctx, r * 1.05, 0, r * 0.16, rgba(C.goud, 0.55), C.goud, 2); }
   ctx.restore(); }
 
-// vrije DNA-nucleotide: fosfaat + suiker (vijfhoek) + base; vereenvoudigd (in het kernplasma eigenlijk met drie fosfaatgroepen)
-function vrijNucleotide(ctx, x, y, b, ang, s, o = {}) { const { a = 1, rand = null } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang);
-  // suiker in de oorsprong, fosfaat links, base wijst omhoog (-y)
+// -------------------------------------------------------------------------------------
+// VRIJE NUCLEOTIDE, KLEINE BASEN, RNA-BASE — variant B 'met fosfaatstaartje' (verbeterronde 2, 28 okt 2026; afgekeurd zonder
+// opmerking: 'eenvoudiger en rustiger').
+// Recept (OpenStax Biology 2e § 14.4: 'this energy is obtained from the nucleoside triphosphates dATP, dGTP, dTTP and dCTP';
+// Open Oregon (OpenStax-afgeleid): 'breaking off the third phosphate releases energy'; § 14.2: fosfaat aan 5', base aan 1'):
+//  - vrijNucleotide: base (puzzelstaaf) – suiker (vijfhoek) – een staartje van drie kleine fosfaatkralen. Zo zie je het verschil
+//    met een nucleotide in de streng (één fosfaat). Optie o.pp 0..1: de twee buitenste fosfaten laten samen los (pyrofosfaat) en
+//    vervagen vlak naast de nucleotide (geven de energie voor de binding). Geen randen, geen letter onder s 1.
+//  - d2Base: alleen de puzzelstaaf als hij groot genoeg is (staafbreedte ≥ 18 px); anders een egaal staafje met een smalle
+//    donkere voeg naar het volgende staafje (1 px), zodat losse basen ook klein te tellen zijn.
+//  - baseRingRNA: RNA-basen in dezelfde vorm (U met de rand van T) in de RNA-tinten; letter U direct.
+// Aanroepen gelijk; nieuw: vrijNucleotide(…, {pp, tri}) (tri standaard true).
+// Bekende fouten: base die tegen de suiker plakt; vier bijna gelijke tinten; pyrofosfaat dat uit beeld drijft.
+// -------------------------------------------------------------------------------------
+function baseRingRNA(ctx, x, y, b, dir = 1, o = {}) {
+  const k = b === 'U' ? 'T' : b, oudB = DNA_BASE.base[k], oudL = DNA_BASE.letter[k];
+  DNA_BASE.base[k] = RNA_BASE.base[b]; DNA_BASE.letter[k] = 'rgba(0,0,0,0)';
+  try { baseRing(ctx, x, y, k, dir, o); } finally { DNA_BASE.base[k] = oudB; DNA_BASE.letter[k] = oudL; }
+  if (o.geenLetter) return; const s = o.s || 1, rot = o.rot || 0; ctx.save(); ctx.globalAlpha *= (o.a == null ? 1 : o.a); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(1, dir);
+  ctx.translate(0, DNA_BASE.letterY * s); ctx.scale(1, dir); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), RNA_BASE.letter[b], 'center'); ctx.restore(); }
+function d2Base(ctx, x, y, ang, b, L, hw, o = {}) { const { rna = false, a = 1, rand = null, vorm = true } = o; if (a <= 0.01) return;
+  const s = 2 * L / 184, len = DNA_BASE.len * s;
+  if (!vorm || 44 * s < 18) { const fill = (rna ? RNA_BASE.base : DNA_BASE.base)[b] || '#888'; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang - Math.PI / 2);
+    const v = hw > 2.5 ? 0.5 : 0; ctx.fillStyle = fill; ctx.fillRect(-hw + v, 0, hw * 2 - 2 * v, len); if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; ctx.strokeRect(-hw, 0, hw * 2, len); } ctx.restore(); return; }
+  const op = Math.sin(ang) < 0, k = (rna && b === 'U') ? 'T' : b, oudL = DNA_BASE.letter[k]; DNA_BASE.letter[k] = 'rgba(0,0,0,0)';
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(op ? ang + Math.PI / 2 : ang - Math.PI / 2);
+  try { (rna ? baseRingRNA : baseRing)(ctx, 0, 0, b, op ? -1 : 1, { s, plekA: o.plekA || 0, bindA: o.bindA || 0, rand, geenLetter: true }); } finally { DNA_BASE.letter[k] = oudL; }
+  ctx.restore(); if (o.letter === false) return;
+  const cpos = DNA_BASE.letterY * s, lx = x + Math.cos(ang) * cpos, ly = y + Math.sin(ang) * cpos, m = ctx.getTransform(), wx = m.a * lx + m.c * ly + m.e, wy = m.b * lx + m.d * ly + m.f, sc = Math.hypot(m.a, m.b);
+  ctx.save(); ctx.globalAlpha *= a; ctx.setTransform(sc, 0, 0, sc, wx, wy); text(ctx, b, 0, 13 * s, fTekst(38 * s, 700), (rna ? RNA_BASE.letter : DNA_BASE.letter)[b] || '#121A26', 'center'); ctx.restore(); }
+function vrijNucleotide(ctx, x, y, b, ang, s, o = {}) { const { a = 1, rand = null, pp = 0, tri = true } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang);
+  const e = ease(clamp(pp, 0, 1)), r = 6.5 * s, kl = DNA_BASE.fosfaat;
+  // staartje: fosfaat 1 aan C5', fosfaat 2 en 3 erachter (bij pp los als pyrofosfaat)
+  ctx.strokeStyle = D2.oudR; ctx.lineWidth = Math.max(1.5, 2.5 * s); ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-10 * s, -2 * s); ctx.lineTo(-24 * s, -2 * s); ctx.moveTo(0, -12 * s); ctx.lineTo(0, -20 * s); ctx.stroke();
+  _bioCirc(ctx, -28 * s, -2 * s, r, kl, rand, 3);
+  if (tri && e < 0.99) { ctx.save(); ctx.globalAlpha *= 1 - e * 0.85; const dx = -e * 14 * s, dy = e * 16 * s;
+    ctx.beginPath(); ctx.moveTo(-28 * s - r + dx, -2 * s + dy); ctx.lineTo(-54 * s + dx, -2 * s + dy); ctx.stroke(); if (e < 0.05) { ctx.beginPath(); ctx.moveTo(-28 * s - r, -2 * s); ctx.lineTo(-28 * s - r - 4 * s, -2 * s); ctx.stroke(); }
+    _bioCirc(ctx, -42 * s + dx, -2 * s + dy, r, kl); _bioCirc(ctx, -56 * s + dx, -2 * s + dy, r, kl); ctx.restore(); }
   ctx.beginPath(); for (let k = 0; k < 5; k++) { const an = -Math.PI / 2 + k * 1.2566; const X = Math.cos(an) * 13 * s, Y = Math.sin(an) * 13 * s; k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); } ctx.closePath();
-  shape(ctx, D2.oud, rand || D2.oudR, rand ? 3 : 1.5);
-  ctx.strokeStyle = D2.oudR; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.moveTo(-12 * s, 4 * s); ctx.lineTo(-24 * s, 8 * s); ctx.stroke();
-  _bioCirc(ctx, -30 * s, 9 * s, 9 * s, D2.oudR, rand || '#D8CFF2', rand ? 3 : 1.2);
-  ctx.restore(); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); d2Base(ctx, 0, -10 * s, -Math.PI / 2, b, 56 * s, 13 * s, { letter: s >= 0.9, rand }); ctx.restore(); }
+  ctx.fillStyle = DNA_BASE.suiker; ctx.fill(); if (rand) { ctx.strokeStyle = rand; ctx.lineWidth = 3; ctx.stroke(); }
+  ctx.restore(); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(ang); d2Base(ctx, 0, -20 * s, -Math.PI / 2, b, 56 * s, 13 * s, { letter: s >= 1, rand }); ctx.restore(); }
 
 // ---------- REPLICATIEVORK ----------
 // st = { f: vorkpositie (bp), i0, i1: zichtbaar bereik (bp), X0: x van bp i0, cy, g: breedte (px), dx (px per bp; standaard 0,17 g),
@@ -3747,7 +3951,7 @@ function schaalStreep(ctx, x, y, px, lab, a = 1) { if (a <= 0.01) return; ctx.sa
 //  Bekende fouten: X die als één staaf beweegt; chromatiden die in de anafase met de armen vóórop gaan; crossing-over
 //  tussen zusterchromatiden; alle vier de chromatiden gemengd.
 // =====================================================================================
-const CD = { std: C.kernR, vader: '#C3B8EE', moeder: '#5E4C94', draad: '#8FA0B5', pool: '#B8C4D6' }; // verbeterronde 1 (variant A, 28 okt 2026): CD.std paars, vader licht- en moeder donkerpaars
+const CD = { std: '#AEB8C8', vader: '#34609A', moeder: '#F2CF7A', draad: '#8FA0B5', pool: '#B8C4D6' }; // palet B (verbeterronde 2, 28 okt 2026): chromosoom lichtgrijs, herkomst vader donkerblauw / moeder zandgeel (was paars)
 const _cdk = (h, k = 0.4) => _mixHex(h, '#000000', k);
 
 // delende cel (Micro): rond/ovaal membraan dat in het midden insnoert; spoelfiguur met polen; rustige textuur
@@ -3772,12 +3976,12 @@ const MODEL4 = [{ p: 'L', k: 'vader' }, { p: 'L', k: 'moeder' }, { p: 'K', k: 'v
 const cdLen = (p, L) => (p === 'L' ? L : L * 0.62), cdCen = (p) => (p === 'L' ? 0.38 : 0.30);
 
 // =====================================================================================
-// CHROMATIDE MET ARMEN — variant A (beeldbank 27 okt 2026): één chromosoomtaal in paars.
+// CHROMATIDE MET ARMEN — variant A (beeldbank 27 okt 2026): één chromosoomtaal (sinds 28 okt 2026 in palet B: grijs).
 // Recept ongewijzigd (OpenStax Biology 2e § 10.2 en 11.1): zusterchromatiden vast bij het centromeer (cen ≈ 0,38 lang paar,
 // 0,30 kort paar), kinetochoor aan de buitenkant, in de anafase centromeer vóórop en armen slepend; crossing-over tussen
 // niet-zusterchromatiden. Wijzigingen:
-//  - kleur: standaard paars (C.kernR, zoals kernChromatine/chromatideX: DNA = paars, C1). Teal en oker hebben in C1 een andere
-//    betekenis (informatie/water, voedsel); herkomst daarom als licht en donker paars: CD.vader licht, CD.moeder donker.
+//  - kleur (palet B, 28 okt 2026; was paars): standaard lichtgrijs (CD.std, zoals de DNA-ruggengraat), herkomst vader
+//    donkerblauw (CD.vader), moeder zandgeel (CD.moeder): ook bij rood-groen-kleurenblindheid goed uit elkaar.
 //    Alleen kleuren op herkomst waar die ertoe doet (crossing-over, meiose); anders kl weglaten → CD.std.
 //  - cdKluwen c = 0 begint als losse, zacht kronkelende draad zoals kernChromatine c = 0 (dun, lang, draaiing ≤ 0,8 rad, 64 punten), niet als lusje.
 function cdPad(cx, cy, len, rot, o = {}) {
@@ -4741,6 +4945,20 @@ function _mrbLigand(ctx, vorm, w, col) { ctx.beginPath();
   else if (vorm === 'vier') { roundRect(ctx, -w * 0.45, -w * 0.45, w * 0.9, w * 0.9, w * 0.12); }
   else ctx.arc(0, 0, w * 0.48, 0, 6.283);
   shape(ctx, col, lighten(col, 0.4), Math.max(1, w * 0.08)); }
+// --- intracellulaire receptor (steroïdhormoon): ligand gaat door het membraan, bindt de receptor in het cytoplasma,
+// het complex gaat de kern in en bindt het DNA. f: 0–0,3 door het membraan · 0,3–0,5 binden · 0,5–1 naar de kern.
+function _mrSteroid(ctx, x, y, w, col, an = 0) { // vier gekoppelde ringen (3 zeshoeken + vijfhoek), herkenbaar als steroïd
+  ctx.save(); ctx.translate(x, y); ctx.rotate(an); const r = w / 4.6; const C6 = [[-1.73 * r, 0.5 * r], [0, -0.5 * r], [1.73 * r, 0.5 * r]];
+  const ring = (cx, cy, n, rr) => { ctx.beginPath(); for (let i = 0; i < n; i++) { const a2 = -Math.PI / 2 + i * 6.283 / n + (n === 6 ? Math.PI / 6 : 0); const px = cx + Math.cos(a2) * rr, py = cy + Math.sin(a2) * rr; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(col, 0.85), lighten(col, 0.4), Math.max(1, r * 0.18)); };
+  C6.forEach(p => ring(p[0], p[1], 6, r)); ring(3.25 * r, -0.2 * r, 5, r * 0.88); ctx.restore();
+}
+// MEMBRAANRECEPTOR, verbeterronde 2 eiwitten (28 okt 2026). De receptor zelf was al een kralenketen (zeven helices door het
+// membraan, twee lobben buiten) en blijft ongewijzigd. Nieuw als kralen: G-β (was een vlakke vlek; nu een kleine kralenkluwen
+// op een zacht silhouet), G-γ (was een dikke lijn; nu een kort rijtje kralen), en bij de intracellulaire receptor de twee
+// DNA-bindende vingers (rijtje kralen). G-α en de intracellulaire receptor zijn enzymKluwen, dat nu ook een kralenketen is.
+// Recept: zie het receptcommentaar boven membraanReceptor in lib_bio.js (OpenStax Biology 2e § 9.1; G-eiwit α, β, γ; GDP →
+// GTP; ligand past in de pasvorm). Aanroep en teruggave ongewijzigd. Vereist _kkKluwen/_kkPad (eiwitten/_hulp.js).
+// (_mrbKralen, _mrbLigand en _mrSteroid blijven ongewijzigd in lib_bio.js)
 function membraanReceptor(ctx, x, y, s = 1, o = {}) {
   const { a = 1, ang = -Math.PI / 2, R = 900 * s, membraan = true, breed = 170 * s, bind = 0, signaal = 0, ligCol = C.paars, vorm = 'drie', soort = 'oppervlak', t = 0 } = o;
   const rot = ang + Math.PI / 2; const cr = Math.cos(rot), sr = Math.sin(rot); const P = (px, py) => [x + px * cr - py * sr, y + px * sr + py * cr];
@@ -4775,9 +4993,10 @@ function membraanReceptor(ctx, x, y, s = 1, o = {}) {
   const gy = half + 44 * s;
   const sep = clamp((sig - 0.35) / 0.65, 0, 1);
   { const bx = -24 * s, by = gy + 6 * s, br = 17 * s; const pts = []; for (let k = 0; k < 24; k++) { const u = k / 24 * 6.283; const rr = br * (1 + 0.1 * Math.sin(u * 4 + 1) + 0.05 * Math.sin(u * 7)); pts.push([bx + Math.cos(u) * rr, by + Math.sin(u) * rr]); }
-    ctx.beginPath(); bioPad(ctx, pts, true); shape(ctx, '#7E8CA4', lighten('#7E8CA4', 0.3), Math.max(1, 1.5 * s)); // β: zevenbladig propeller, hier als gevouwen keten met bladen
-    } // β (rustig: alleen de omtrek)
-  ctx.save(); ctx.strokeStyle = '#A9B5C8'; ctx.lineWidth = Math.max(1.5, 5 * s); ctx.beginPath(); ctx.moveTo(-42 * s, gy - 10 * s); ctx.quadraticCurveTo(-34 * s, gy - 24 * s, -22 * s, gy - 22 * s); ctx.stroke(); ctx.restore(); // γ met vetanker richting membraan
+    ctx.beginPath(); bioPad(ctx, pts, true); ctx.fillStyle = rgba('#7E8CA4', 0.25); ctx.fill(); // β: zevenbladig propeller; zacht silhouet …
+    _kkKluwen(ctx, bx, by, (qx, qy) => qx * qx + qy * qy < 17 * 17, { bbox: [-17, -17, 17, 17], sc: s, r: 3, col: '#7E8CA4', seed: 8, key: 'mrGb' }); // … met de keten als kralen
+    } // β (rustig: één kleine kralenkluwen)
+  _kkPad(ctx, [[-42 * s, gy - 10 * s], [-36 * s, gy - 21 * s], [-22 * s, gy - 22 * s]], Math.max(1.8, 2.6 * s), '#A9B5C8', { stap: 2 }); // γ (kort, rijtje kralen) met vetanker richting membraan
   const ax = lerp(16 * s, 58 * s, ease(sep)), ay = lerp(gy, gy + 46 * s, ease(sep)); const lit = sig > 0.3 ? clamp((sig - 0.3) / 0.3, 0, 1) : 0;
   enzymKluwen(ctx, ax, ay, 19 * s, { col: lit > 0 ? (lit > 0.5 ? '#9FB0C8' : '#8C9AB0') : '#8C9AB0', an: -0.6 + sep * 0.8, seed: 5 });
   if (lit > 0.01) { ctx.save(); ctx.globalAlpha *= lit; ctx.beginPath(); ctx.arc(ax, ay, 25 * s, 0, 6.283); ctx.strokeStyle = C.goud; ctx.lineWidth = Math.max(1.5, 3 * s); ctx.stroke(); ctx.restore(); }
@@ -4790,13 +5009,6 @@ function membraanReceptor(ctx, x, y, s = 1, o = {}) {
   ret.ligand = P(0, zy);
   ctx.restore(); return ret;
 }
-// --- intracellulaire receptor (steroïdhormoon): ligand gaat door het membraan, bindt de receptor in het cytoplasma,
-// het complex gaat de kern in en bindt het DNA. f: 0–0,3 door het membraan · 0,3–0,5 binden · 0,5–1 naar de kern.
-function _mrSteroid(ctx, x, y, w, col, an = 0) { // vier gekoppelde ringen (3 zeshoeken + vijfhoek), herkenbaar als steroïd
-  ctx.save(); ctx.translate(x, y); ctx.rotate(an); const r = w / 4.6; const C6 = [[-1.73 * r, 0.5 * r], [0, -0.5 * r], [1.73 * r, 0.5 * r]];
-  const ring = (cx, cy, n, rr) => { ctx.beginPath(); for (let i = 0; i < n; i++) { const a2 = -Math.PI / 2 + i * 6.283 / n + (n === 6 ? Math.PI / 6 : 0); const px = cx + Math.cos(a2) * rr, py = cy + Math.sin(a2) * rr; i ? ctx.lineTo(px, py) : ctx.moveTo(px, py); } ctx.closePath(); shape(ctx, rgba(col, 0.85), lighten(col, 0.4), Math.max(1, r * 0.18)); };
-  C6.forEach(p => ring(p[0], p[1], 6, r)); ring(3.25 * r, -0.2 * r, 5, r * 0.88); ctx.restore();
-}
 function _mrIntern(ctx, x, y, s, o) {
   const { f = 0, ligCol = C.paars, kern = [0, 260], recCol = C.enzym, t = 0 } = o;
   const kx = kern[0] * s, ky = kern[1] * s; // kernrand (lokaal), membraan op y = 0, cytoplasma bij +y
@@ -4806,8 +5018,7 @@ function _mrIntern(ctx, x, y, s, o) {
   // receptor: gevouwen keten met een DNA-bindend deel (twee 'vingers') en een hormoonzak
   ctx.save(); ctx.translate(rp[0], rp[1]); const b = clamp((f - 0.3) / 0.2, 0, 1);
   enzymKluwen(ctx, 0, 0, 24 * s, { col: recCol, an: -Math.PI / 2, sluit: b, seed: 7 });
-  ctx.strokeStyle = lighten(recCol, 0.3); ctx.lineWidth = Math.max(1.5, 4 * s); ctx.lineCap = 'round';
-  for (const sd of [-1, 1]) { ctx.beginPath(); ctx.moveTo(sd * 8 * s, 20 * s); ctx.quadraticCurveTo(sd * 14 * s, 32 * s, sd * 6 * s, 40 * s + b * 4 * s); ctx.stroke(); }
+  for (const sd of [-1, 1]) _kkPad(ctx, [[sd * 8 * s, 20 * s], [sd * 13 * s, 30 * s], [sd * 6 * s, 40 * s + b * 4 * s]], Math.max(2, 2.8 * s), _mixHex(recCol, '#FFFFFF', 0.3), { stap: 1.9 }); // twee DNA-bindende 'vingers' als kralen
   if (b > 0.01) _mrSteroid(ctx, 0, -20 * s + (1 - b) * -30 * s, 22 * s, ligCol);
   ctx.restore();
   if (lig) _mrSteroid(ctx, lig[0], lig[1], 22 * s, ligCol, 0.4);
@@ -5697,7 +5908,7 @@ function ruwER(ctx, x, y, s, o = {}) {
 // getrokken; bestaand recept cdEen: centromeer vóórop, armen slepen erachteraan): delende cel met polen; per chromosoom twee
 // chromatiden die f (0 = metafaseplaat, 1 = bij de polen) uit elkaar zijn, elk aan een bundel trekdraden vanaf zijn eigen pool.
 // cdAnafaseCel(ctx, cx, cy, rx, ry, {f, insnoer, n, len, w, kl, t, a})
-function cdAnafaseCel(ctx, cx, cy, rx, ry, o = {}) { const { f = 0.5, insnoer = 0.15, n = 4, len = ry * 0.36, w = Math.max(5, ry * 0.05), kl = C.kernR, t = 0, a = 1 } = o; if (a <= 0.01) return;
+function cdAnafaseCel(ctx, cx, cy, rx, ry, o = {}) { const { f = 0.5, insnoer = 0.15, n = 4, len = ry * 0.36, w = Math.max(5, ry * 0.05), kl = CD.std, t = 0, a = 1 } = o; if (a <= 0.01) return;
   ctx.save(); ctx.globalAlpha *= a; cdCel(ctx, cx, cy, rx, ry, { insnoer, t });
   const pl = cx - rx * 0.8, pr = cx + rx * 0.8, e = ease(clamp(f, 0, 1)), d = lerp(w * 0.7, rx * 0.55, e), zw = 0.2 + e * 0.95; // rustige V: armen slepen, maar overlappen de buren niet
   cdPool(ctx, pl, cy); cdPool(ctx, pr, cy);
@@ -5935,7 +6146,7 @@ function trnaKlaverblad(ctx, x, y, s = 1, o = {}) {
 const CODE_B = 'UCAG';
 const CODE_AA = (() => { const s = 'FFLLSSSSYY**CC*WLLLLPPPPHHQQRRRRIIIMTTTTNNKKSSRRVVVVAAAADDEEGGGG', d = { F: 'Phe', L: 'Leu', S: 'Ser', Y: 'Tyr', '*': 'stop', C: 'Cys', W: 'Trp', P: 'Pro', H: 'His', Q: 'Gln', R: 'Arg', I: 'Ile', M: 'Met', T: 'Thr', N: 'Asn', K: 'Lys', V: 'Val', A: 'Ala', D: 'Asp', E: 'Glu', G: 'Gly' };
   const m = {}; let i = 0; for (const a of CODE_B) for (const b of CODE_B) for (const c of CODE_B) m[a + b + c] = d[s[i++]]; return m; })();
-const _cdRNA = { A: '#BFE0EF', U: '#8CC6E1', C: '#4E93B9', G: '#356F91' }, _cdRNAL = { A: '#121A26', U: '#121A26', C: '#F2F2EE', G: '#F2F2EE' };
+const _cdRNA = { A: '#D8604A', U: '#F2CF7A', C: '#86C3E8', G: '#34609A' }, _cdRNAL = { A: '#121A26', U: '#121A26', C: '#121A26', G: '#F2F2EE' }; // palet B: zelfde basekleuren als DNA
 function _cdTegel(ctx, x, y, b, w, h, s, a = 1, rand = null) { if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; roundRect(ctx, x - w / 2, y - h / 2, w, h, 7 * s); shape(ctx, _cdRNA[b], rand || lighten(_cdRNA[b], 0.3), rand ? 3 : 1.2);
   text(ctx, b, x, y + h * 0.27, fTekst(h * 0.74, 700), _cdRNAL[b], 'center'); ctx.restore(); }
 function codonTabel(ctx, x, y, s = 1, o = {}) {
@@ -6040,6 +6251,20 @@ function genOpbouw(ctx, x, y, w, o = {}) {
 function _naAcetyl(ctx, x, y, rr, an, a = 1) { // acetylgroep: één groen bolletje aan een kort steeltje (rustig; C=O en CH3 niet apart)
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.rotate(an); ctx.strokeStyle = lighten(C.groen, 0.3); ctx.lineWidth = rr * 0.4;
   ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(rr * 1.4, 0); ctx.stroke(); _bioCirc(ctx, rr * 2.1, 0, rr * 0.9, C.groen, lighten(C.groen, 0.35), 1); ctx.restore(); }
+// NUCLEOSOMEN DICHT ↔ OPEN (vooraanzicht met ladingen), verbeterronde 2 eiwitten (28 okt 2026): de acht histonen zijn nu
+// elk een kleine gevouwen kralenketen (_kkKluwen, eiwitten/_hulp.js) in plaats van een vlak rondje; vier vooraan, vier
+// donkerder erachter. Plaats, maat, staarten (al kralen), ladingen, acetylgroepen, DNA, transcriptiefactor en aanroep ongewijzigd.
+// Recept (OpenStax Biology 2e § 16.3; Alberts 6e hfst. 4):
+//  - elk nucleosoom = kern van acht histonen, twee lagen van vier (H2A, H2B, H3, H4 elk twee keer; schijf ± 11 nm) met het DNA
+//    (2 nm) er ± 1,65 keer omheen; recht van voren gezien een schijf met een ring DNA langs de rand, linker-DNA naar de volgende.
+//  - histonstaarten zijn positief geladen (+), het DNA negatief (−): ze trekken elkaar aan. Dicht (o.open 0): nucleosomen
+//    pakken zich in een zigzag-vezel tegen elkaar, de promotor zit ertussen verstopt, een transcriptiefactor kan er niet bij.
+//  - acetylgroepen (groen) op de staarten maken ze minder positief ('the charge becomes less positive, and the binding of DNA
+//    to the histones is relaxed', OpenStax): de + verdwijnen, de vezel valt open tot een kralensnoer, de promotor (goud)
+//    ligt vrij en een transcriptiefactor kan binden (o.tf; getekend met enzymKluwen, dat nu ook een kralenketen is).
+// Bekende fouten: vier histonen in plaats van acht; open = minder nucleosomen; lading op de verkeerde plek; DNA door de schijf.
+// Vereist dnaDraad. Zelfde aanroep: van (x0,y0) naar (x1,y1); o.n, o.R, o.open 0..1, o.tf 0..1, o.t. Geeft {promotor, centra, tf} terug.
+// (_naAcetyl blijft ongewijzigd in lib_bio.js)
 function nucleosoomAcetyl(ctx, x0, y0, x1, y1, o = {}) {
   const { a = 1, n = 4, R = 60, open = 0, tf = 0, t = 0 } = o; if (a <= 0.01) return {};
   const ac = ease(clamp(open / 0.35, 0, 1)), schuif = ease(clamp((open - 0.3) / 0.7, 0, 1));
@@ -6061,9 +6286,9 @@ function nucleosoomAcetyl(ctx, x0, y0, x1, y1, o = {}) {
   linkers.forEach(P => dnaDraad(ctx, P, { w: dw, helix: true, fase: t * 0.2 }));
   // schijven met DNA-ring (achterste rij eerst)
   const volg = [...C2.keys()].sort((i, j) => C2[i][1] - C2[j][1]);
-  volg.forEach(i => { const c = C2[i]; _bioCirc(ctx, c[0], c[1], Rs, '#6E7F9C', '#9AAAC4', 1.5);
-    for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.8 + 0.785; _bioCirc(ctx, c[0] + Math.cos(an) * Rs * 0.5, c[1] + Math.sin(an) * Rs * 0.5, Rs * 0.32, '#5E6E8A', '#8494B0', 1); } // achterste laag: vier histonen
-    for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.8; _bioCirc(ctx, c[0] + Math.cos(an) * Rs * 0.4, c[1] + Math.sin(an) * Rs * 0.4, Rs * 0.36, '#7A8BA8', '#A4B2CA', 1); } // voorste laag: vier histonen
+  volg.forEach(i => { const c = C2[i]; _bioCirc(ctx, c[0], c[1], Rs, '#465572', '#8E9EBA', 1.5); // schijf donkerder dan voorheen, zodat de kralen van de histonen afsteken
+    const Eh = _ellips(34, 34); // iets kleiner dan het oude rondje, zodat de acht histonen los van elkaar te zien zijn for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.8 + 0.785; _kkKluwen(ctx, c[0] + Math.cos(an) * Rs * 0.5, c[1] + Math.sin(an) * Rs * 0.5, Eh.binnen, { bbox: Eh.bbox, sc: Rs * 0.32 / 40, r: 11, col: '#6A7B9A', seed: 11 + k, rot: an, key: 'naA' + k, a: 0.85 }); } // achterste laag: vier histonen (kralenketen, donker)
+    for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.8; _kkKluwen(ctx, c[0] + Math.cos(an) * Rs * 0.4, c[1] + Math.sin(an) * Rs * 0.4, Eh.binnen, { bbox: Eh.bbox, sc: Rs * 0.36 / 40, r: 11, col: '#93A3BF', seed: 3 + k, rot: an + 1.1, key: 'naV' + k }); } // voorste laag: vier histonen (kralenketen)
     dnaDraad(ctx, R2[i], { w: dw * 0.75, helix: false, glad: false, fase: t * 0.2 }); // DNA om de kern als rustige band (de helix zit in het linker-DNA)
     // staarten: dicht = tegen het DNA van de buren met +; open = naar buiten met acetylgroepen
     const rr = R * 0.075; for (let k = 0; k < 4; k++) { const an = k / 4 * 6.283 + 0.4 + i, P = [];
@@ -6110,6 +6335,22 @@ function _riDuplex(ctx, x, y, len, s, rot = 0, a = 1, gids = 1, pass = 1, passOf
   if (pass > 0.01) { ctx.save(); ctx.globalAlpha *= pass; reeks.forEach((b, j) => baseRingRNA(ctx, x0 + (j + 0.5) * bdx, h + passOff, comp[b], -1, { s: bs, plekA: 0 })); _riStreng(ctx, [[-len / 2 + ov, h + passOff], [len / 2, h + passOff]], lighten(C.teal, 0.4), 3.2 * s); ctx.restore(); }
   if (gids > 0.01) { ctx.save(); ctx.globalAlpha *= gids; reeks.forEach((b, j) => baseRingRNA(ctx, x0 + (j + 0.5) * bdx, -h, b, 1, { s: bs, plekA: 0 })); _riStreng(ctx, [[-len / 2, -h], [len / 2 - ov, -h]], C.teal, 3.2 * s); ctx.restore(); }
   ctx.restore(); }
+// RNA-INTERFERENTIE (overzicht van het hele proces in één beeld), ronde 2 + verbeterronde 2 eiwitten (28 okt 2026): Dicer en
+// RISC (Argonaute) zijn nu een gevouwen kralenketen (_kkKluwen, eiwitten/_hulp.js) in plaats van het lintmodel; omtrek,
+// plaats, grootte, stappen en aanroep ongewijzigd. Recept (OpenStax Biology 2e § 16.5; zie bron.md van ronde 2: Dicer knipt
+// dubbelstrengs RNA in stukjes van ± 21 nt met 2 nt overhang aan 3'; het duplex gaat van Dicer naar Argonaute (RISC), de
+// gidsstreng blijft, de passagiersstreng verdwijnt; bij volledige passing knipt Argonaute het doel-mRNA tegenover nucleotide
+// 10–11 van de gids; miRNA's zijn 21–24 nt):
+//  - dubbelstrengs RNA = twee dunne teal strengen met korte sporten (basenparen); Dicer = enzym (kralenketen) dat er
+//    stukjes van gelijke lengte af knipt.
+//  - RISC (Argonaute + één streng, de gids; kralenketen met twee lobben) zoekt een mRNA met de passende volgorde, bindt en
+//    knipt het in het midden van de gids; de twee stukken mRNA worden afgebroken. RISC gaat door naar het volgende mRNA.
+//  - mRNA blijft dun en sliertig (kapje aan 5', poly-A-staart aan 3').
+//  - o.f 0..1: 0–0.2 Dicer knipt · 0.2–0.45 RISC houdt de gids, passagier weg · 0.45–0.7 RISC bindt het mRNA · 0.7–0.85 knip ·
+//    0.85–1 stukken vallen uiteen.
+// Bekende fouten: RISC dat DNA knipt; beide strengen in RISC; mRNA als balk; knip zonder passende volgorde; eiwit als lint.
+// (x, y) = midden; s = schaal (± 1000 × 520 px bij s = 1). o.f, o.t. Geeft {dsRNA, dicer, risc, mrna, knip} terug.
+// (_riStreng en _riDuplex blijven ongewijzigd in lib_bio.js)
 function rnaInterferentie(ctx, x, y, s = 1, o = {}) {
   const { a = 1, f = 0, t = 0 } = o; if (a <= 0.01) return {};
   const p1 = ease(clamp(f / 0.2, 0, 1)), p2 = ease(clamp((f - 0.2) / 0.25, 0, 1)), p3 = ease(clamp((f - 0.45) / 0.25, 0, 1)), p4 = ease(clamp((f - 0.7) / 0.15, 0, 1)), p5 = ease(clamp((f - 0.85) / 0.15, 0, 1)), uit = {};
@@ -6122,10 +6363,10 @@ function rnaInterferentie(ctx, x, y, s = 1, o = {}) {
   for (let k = 0; k < 3; k++) { if (k >= nKnip) break; const isGids = k === 0, px = X(x1 - (k + 0.5) * dl + 20 + k * 30), py = Y(yd + 95 + (k % 2) * 40);
     if (isGids && p2 > 0.01) continue; _riDuplex(ctx, px, py, (dl - 6) * s, s, (k % 2 ? 0.2 : -0.15), 1 - p5 * 0.5, 1, 1, 0, k + 2); }
   const dxD = X(rest + 10), dyD = Y(yd - 46); const binD = (qx, qy) => { const ex = qx / 58, ey = qy / 40; return ex * ex + ey * ey < 1 && Math.hypot(qx, qy - 46) > 16; };
-  _grKluwen(ctx, dxD, dyD, binD, { r: 6, sc: s, col: '#7A8BA8', seed: 13, bbox: [-60, -42, 60, 42], key: 'dicer', a: 1 - p3 * 0.6 }); uit.dicer = [dxD, dyD - 50 * s]; uit.dsRNA = [X((x0 + rest) / 2), Y(yd)];
+  _kkKluwen(ctx, dxD, dyD, binD, { r: 6, sc: s, col: '#7A8BA8', seed: 13, bbox: [-60, -42, 60, 42], key: 'dicer', a: 1 - p3 * 0.6 }); uit.dicer = [dxD, dyD - 50 * s]; uit.dsRNA = [X((x0 + rest) / 2), Y(yd)];
   // 2) RISC (Argonaute, twee lobben) pakt het eerste stukje; de passagiersstreng gaat weg
   const rx = lerp(X(-150), X(60), p3), ry = lerp(Y(-40), Y(132), p3); const binR = (qx, qy) => { const ex = qx / 70, ey = qy / 50; return ex * ex + ey * ey < 1 && !(Math.abs(qy - 12) < 9 && qx > -60); };
-  _grKluwen(ctx, rx, ry, binR, { r: 6, sc: s, col: '#8C9AB4', seed: 17, bbox: [-72, -52, 72, 52], key: 'risc', a: Math.min(1, f * 6) });
+  _kkKluwen(ctx, rx, ry, binR, { r: 6, sc: s, col: '#8C9AB4', seed: 17, bbox: [-72, -52, 72, 52], key: 'risc', a: Math.min(1, f * 6) });
   if (p2 > 0.01) { const gx = lerp(X(x1 - dl / 2 + 20), rx, p2), gy = lerp(Y(yd + 95), ry + 4 * s, p2); _riDuplex(ctx, gx, gy, (dl - 6) * s, s, 0, 1, 1, 1 - ease(clamp(p2 * 1.6 - 0.6, 0, 1)), p2 * 60 * s, 2);
     // gidsstreng goud omrand zodra hij alleen in RISC zit
     if (p2 > 0.8) { ctx.save(); ctx.globalAlpha *= (p2 - 0.8) / 0.2 * (1 - p4); ctx.strokeStyle = rgba(C.goud, 0.8); ctx.lineWidth = 1.5 * s; roundRect(ctx, gx - dl / 2 * s - 4 * s, gy - 34 * s, (dl - 6) * s + 8 * s, 40 * s, 8 * s); ctx.stroke(); ctx.restore(); } }
@@ -6189,6 +6430,47 @@ function _grKralen(ctx, cx, cy, binnen, o = {}) {
   order.forEach(i => { const p = pts[i], z = p[2], t = tint[(i * 7 + seed) % 3]; const h = hl ? hl(i, n) : 0;
     const fill = h > 0.5 ? C.goud : (t >= 0 ? lighten(col, t + 0.08 * z) : _mixHex(col, '#000000', -t)); ctx.beginPath(); ctx.arc(p[0], p[1], r * sc * (0.84 + 0.14 * z), 0, 6.283); shape(ctx, fill, h > 0.5 ? lighten(C.goud, 0.35) : lighten(col, 0.3), 1); });
   ctx.restore(); return pts;
+}
+// -------------------------------------------------------------------------------------
+// GEDEELDE HULPJES (verbeterronde 2, eiwitten als kralenketen, 28 okt 2026). Eén keer in lib_bio.js plakken, ná _grKralen
+// (dat al in lib_bio.js staat, groep genregulatie). Kamiel koos voor ALLE eiwitten de kralenketen: één keten van
+// aminozuren (bolletjes) die vouwt, zoals eiwitVouw() en transcriptiefactor(); geen lintmodel (buis met helixveren en
+// β-pijlen, _grKluwen) en geen vlakke vlek.
+// Recept (C9, BEELDAFSPRAKEN; OpenStax Biology 2e § 3.4): de keten loopt in rijen heen en weer door de omtrek van het
+// eiwit (compacte kluwen, nooit een bol); een paar rijen zijn α-helix (kralen dichter op elkaar in een golf, 3,6 per
+// winding, voorkant licht); de rest is gestrekt of lus. Kleur: enzymen/regeleiwitten grijsblauw, actieve plek goud.
+// -------------------------------------------------------------------------------------
+const KK_R = 1.1; // kraalstraal t.o.v. de oude lint-buismaat o.r (zelfde rijdichtheid, iets voller dan de buis)
+// Drop-in voor _grKluwen: zelfde aanroep (ctx, cx, cy, binnen, {r, sc, col, seed, a, rot, bbox, fold, key, hl}).
+// Kraalmaat: kralen tussen ± 4,5 en 14 px straal in beeld (een klein eiwit krijgt minder, grotere kralen; een groot getekend
+// eiwit wordt geen handvol dikke knikkers), en hooguit ± 35–40 kralen per kluwen (rustig, niet drukker dan het oude lint).
+function _kkKluwen(ctx, cx, cy, binnen, o = {}) {
+  const sc = o.sc || 1, bb = o.bbox || [-60, -50, 60, 50], opp = Math.PI / 4 * (bb[2] - bb[0]) * (bb[3] - bb[1]);
+  const r = Math.max(Math.min(Math.max((o.r || 7) * KK_R, Math.sqrt(opp / 120)), 14 / sc), 4.5 / sc);
+  return _grKralen(ctx, cx, cy, binnen, Object.assign({}, o, { r, key: 'kk|' + (o.key || 'k') + '|' + r.toFixed(2) }));
+}
+// kleur als '#rrggbb' (lighten() geeft 'rgb(...)' terug; lighten/_mixHex rekenen alleen goed met hex)
+function _kkHex(c) { const m = /^rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(c); return m ? '#' + [m[1], m[2], m[3]].map(v => (+v).toString(16).padStart(2, '0')).join('') : c; }
+// Kralen langs een pad (staart, arm, lus); pts in beeld; r = kraalstraal in px; o.stap = afstand in r; o.a; o.z (0..1 diepte, donkerder).
+function _kkPad(ctx, pts, r, col, o = {}) {
+  const { stap = 1.9, a = 1, z = 1, lijn = true } = o; if (a <= 0.01 || pts.length < 2) return []; col = _kkHex(col); const P = bioDicht(pts, 40); let acc = 0; const k = [P[0]];
+  for (let i = 1; i < P.length; i++) { acc += Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); if (acc >= r * stap) { k.push(P[i]); acc = 0; } }
+  const kl = z >= 1 ? col : _mixHex(col, '#121A26', 0.35 * (1 - z));
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (lijn) { ctx.strokeStyle = lighten(kl, 0.35); ctx.lineWidth = Math.max(1, r * 0.38); ctx.beginPath(); bioPad(ctx, pts, false); ctx.stroke(); }
+  k.forEach((p, i) => { ctx.beginPath(); ctx.arc(p[0], p[1], r * 0.84, 0, 6.283); shape(ctx, i % 3 === 1 ? lighten(kl, 0.1) : kl, lighten(kl, 0.3), 1); });
+  ctx.restore(); return k;
+}
+// α-helix als kralen van A naar B (bv. een helix die door het membraan gaat): kralen ± 2,3× dichter dan gestrekt, in een
+// golf met 3,6 kralen per winding; voorkant licht, achterkant donker. r = kraalstraal in px; o.amp (golf, in r), o.stap (afstand, in r). Geeft de kralen terug ([x, y, z]).
+function _kkHelix(ctx, A, B, r, col, o = {}) {
+  const { a = 1, fase = 0, amp = 0.9, stap = 0.95 } = o; if (a <= 0.01) return []; col = _kkHex(col); const dx = B[0] - A[0], dy = B[1] - A[1], L = Math.hypot(dx, dy) || 1, ux = dx / L, uy = dy / L, nx = -uy, ny = ux;
+  const n = Math.max(3, Math.round(L / (r * stap))), P = [];
+  for (let i = 0; i <= n; i++) { const u = i / n, ph = i / 3.6 * 6.283 + fase; P.push([A[0] + ux * L * u + nx * Math.sin(ph) * r * amp, A[1] + uy * L * u + ny * Math.sin(ph) * r * amp, Math.cos(ph)]); }
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = lighten(col, 0.35); ctx.lineWidth = Math.max(1, r * 0.38); ctx.beginPath(); bioPad(ctx, P, false); ctx.stroke();
+  P.map((p, i) => i).sort((i, j) => P[i][2] - P[j][2]).forEach(i => { const p = P[i], z = p[2]; ctx.beginPath(); ctx.arc(p[0], p[1], r * (0.84 + 0.14 * z), 0, 6.283);
+    shape(ctx, z >= 0 ? lighten(col, 0.06 + 0.08 * z) : _mixHex(col, '#000000', -0.18 * z), lighten(col, 0.3), 1); });
+  ctx.restore(); return P;
 }
 function _tfSteroid(ctx, x, y, r, a = 1) { // oestradiol: drie zesringen en een vijfring, met OH aan beide uiteinden (paars: hormoon, C1)
   if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = '#B9ACE6'; ctx.fillStyle = rgba('#8C7BBF', 0.45); ctx.lineWidth = Math.max(1.2, r * 0.16); ctx.lineJoin = 'round';
@@ -6255,6 +6537,21 @@ function transcriptiefactor(ctx, x, y, s = 1, o = {}) {
 function _uvGolf(ctx, x0, y0, x1, y1, s, a = 1, fase = 0) { if (a <= 0.01) return; const L = Math.hypot(x1 - x0, y1 - y0), an = Math.atan2(y1 - y0, x1 - x0); ctx.save(); ctx.globalAlpha *= a; ctx.translate(x0, y0); ctx.rotate(an);
   ctx.strokeStyle = '#C8B4F0'; ctx.lineWidth = 3 * s; ctx.lineCap = 'round'; ctx.beginPath(); for (let u = 0; u <= L; u += 3 * s) { const Y = Math.sin(u / (9 * s) - fase) * 9 * s * clamp(u / (40 * s), 0, 1); u ? ctx.lineTo(u, Y) : ctx.moveTo(u, Y); } ctx.stroke();
   ctx.fillStyle = '#C8B4F0'; ctx.beginPath(); ctx.moveTo(L + 12 * s, 0); ctx.lineTo(L - 6 * s, -10 * s); ctx.lineTo(L - 6 * s, 10 * s); ctx.closePath(); ctx.fill(); ctx.restore(); }
+// UV-SCHADE EN HERSTEL (basenniveau), verbeterronde 2 eiwitten (28 okt 2026): het herstelenzym is nu een gevouwen
+// kralenketen (_kkKluwen, eiwitten/_hulp.js) in plaats van het lintmodel; de polymerase-plaatshouder is enzymKluwen (ook
+// kralen). Alles verder ongewijzigd. Recept (Lodish 8e § 5.6 'Nucleotide excision repair' (fig. 5-38); OpenStax Biology 2e
+// § 14.6; LibreTexts Microbiology (Liu e.a.) § 13.2):
+//  - UV-licht laat twee T's die naast elkaar op dezelfde streng liggen aan elkaar vastgaan (thymine-dimeer, koraal klem);
+//    de helix vervormt (knik), daardoor kunnen replicatie en transcriptie er niet langs.
+//  - herstel door uitsnijden: een enzymcomplex herkent de vervorming, knipt de beschadigde streng aan beide kanten van de
+//    dimeer (bij de mens komt een stuk van ± 24–32 nucleotiden vrij; hier korter: 'schematisch'), het stuk gaat weg,
+//    DNA-polymerase vult het gat met de juiste nucleotiden (de andere streng is de mal) en DNA-ligase sluit de laatste naad.
+//  - o.f 0..1: 0–0.15 UV-straal · 0.15–0.3 dimeer + knik · 0.3–0.5 enzym knipt · 0.5–0.65 stuk eruit · 0.65–0.85 aanvullen ·
+//    0.85–1 ligase sluit.
+// Bekende fouten: T's op tegenover elkaar liggende strengen die vastgaan; alleen de twee T's eruit; beide strengen geknipt;
+// gat dat zonder mal wordt gevuld.
+// (x, y) = midden; s = schaal (± 900 × 420 px bij s = 1). o.f, o.t. Geeft {dimeer, knip:[[x,y],[x,y]], enzym, gat} terug.
+// (_uvGolf blijft ongewijzigd in lib_bio.js)
 function uvSchade(ctx, x, y, s = 1, o = {}) {
   const { a = 1, f = 0, t = 0, seq = 'GCAGCTTACGAGC' } = o; if (a <= 0.01) return {};
   const p1 = ease(clamp(f / 0.15, 0, 1)), p2 = ease(clamp((f - 0.15) / 0.15, 0, 1)), p3 = ease(clamp((f - 0.3) / 0.2, 0, 1)), p4 = ease(clamp((f - 0.5) / 0.15, 0, 1)), p5 = ease(clamp((f - 0.65) / 0.2, 0, 1)), p6 = ease(clamp((f - 0.85) / 0.15, 0, 1));
@@ -6268,11 +6565,11 @@ function uvSchade(ctx, x, y, s = 1, o = {}) {
   // bovenstreng: oud deel, weggeknipt stuk (gaat omhoog weg), nieuw deel (licht) dat de polymerase aanvult
   const weg = p4 * 140 * s, nieuwTot = c0 + (c1 - c0 + 1) * p5; // index tot waar het nieuwe stuk is aangevuld
   const tekenBoven = (i, dy, alpha, nieuw) => { const xx = x0 + i * dx, tilt = (i === i1 ? 1 : i === i2 ? -1 : 0) * 0.32 * knik; baseRing(ctx, xx, yT(i) + 8 * s - dy, seq[i], 1, { s: k, plekA: 0, a: alpha, rot: tilt });
-    if (nieuw) { roundRect(ctx, xx - 26 * k, yT(i) + 4 * s, 52 * k, 6 * s, 3 * s); ctx.fillStyle = '#DCD4F5'; ctx.fill(); } };
+    if (nieuw) { roundRect(ctx, xx - 26 * k, yT(i) + 4 * s, 52 * k, 6 * s, 3 * s); ctx.fillStyle = D2.nieuwR; ctx.fill(); } };
   for (let i = 0; i < n; i++) { const inStuk = i >= c0 && i <= c1; if (!inStuk) tekenBoven(i, 0, 1, false); else { if (p4 < 1) tekenBoven(i, weg, 1 - p4, false); if (p5 > 0.01 && i < nieuwTot) tekenBoven(i, 0, clamp(nieuwTot - i, 0, 1), true); } }
   const rail = (ia, ib, dy, kl1, kl2, al) => { if (al <= 0.01 || ib < ia) return; const P = []; for (let q = ia; q <= ib; q += 0.25) P.push([x0 + q * dx, yT(q) - dy]); ctx.save(); ctx.globalAlpha *= al; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = kl1; ctx.lineWidth = 15 * s; ctx.beginPath(); bioPad(ctx, P, false); ctx.stroke(); ctx.strokeStyle = kl2; ctx.lineWidth = 8 * s; ctx.stroke(); ctx.restore(); };
   rail(-0.35, c0 - 0.5, 0, DNA_BASE.rugR, DNA_BASE.rug, 1); rail(c1 + 0.5, n - 0.65, 0, DNA_BASE.rugR, DNA_BASE.rug, 1);
-  rail(c0 - 0.5, c1 + 0.5, weg, DNA_BASE.rugR, DNA_BASE.rug, 1 - p4); if (p5 > 0.01) rail(c0 - 0.5, Math.min(c1 + 0.5, nieuwTot - 0.5), 0, '#DCD4F5', '#B9ACE6', 1);
+  rail(c0 - 0.5, c1 + 0.5, weg, DNA_BASE.rugR, DNA_BASE.rug, 1 - p4); if (p5 > 0.01) rail(c0 - 0.5, Math.min(c1 + 0.5, nieuwTot - 0.5), 0, D2.nieuwR, D2.nieuw, 1);
   // dimeer: koraal klem tussen de twee T's
   if (p2 > 0.01 && p4 < 1) { const xa = x0 + i1 * dx, xb = x0 + i2 * dx, yy = (yT(i1) + yT(i2)) / 2 + DNA_BASE.len * k * 0.45 - weg; ctx.save(); ctx.globalAlpha *= p2 * (1 - p4); ctx.strokeStyle = C.koraal; ctx.lineWidth = 7 * s; ctx.lineCap = 'round';
     ctx.beginPath(); ctx.moveTo(xa + 12 * s, yy); ctx.lineTo(xb - 12 * s, yy); ctx.stroke(); _bioCirc(ctx, xa + 12 * s, yy, 6 * s, C.koraal); _bioCirc(ctx, xb - 12 * s, yy, 6 * s, C.koraal); ctx.restore(); uit.dimeer = [(xa + xb) / 2, yy]; }
@@ -6280,7 +6577,7 @@ function uvSchade(ctx, x, y, s = 1, o = {}) {
   if (f < 0.35) _uvGolf(ctx, x0 + i1 * dx + 260 * s, y - H - 260 * s, x0 + (i1 + 0.5) * dx + 14 * s, y - H - 30 * s, s, Math.min(p1 * 3, 1) * (1 - ease(clamp((f - 0.22) / 0.1, 0, 1))), t * 6 + f * 40);
   // herstelenzym (plaatshouder): komt aan, knipt links en rechts, neemt het stuk mee
   const ex = x0 + (i1 + 0.5) * dx, ey = lerp(y - H - 260 * s, y - H - 62 * s, p3) - weg; const binE = (qx, qy) => { const e1 = qx / 110, e2 = qy / 55; return e1 * e1 + e2 * e2 < 1; };
-  if (p3 > 0.01 && p4 < 1) { _grKluwen(ctx, ex, ey, binE, { r: 6, sc: s, col: '#7A8BA8', seed: 29, bbox: [-112, -56, 112, 56], key: 'uvE', a: Math.min(1, p3 * 2) * (1 - p4) }); uit.enzym = [ex, ey - 60 * s]; }
+  if (p3 > 0.01 && p4 < 1) { _kkKluwen(ctx, ex, ey, binE, { r: 6, sc: s, col: '#7A8BA8', seed: 29, bbox: [-112, -56, 112, 56], key: 'uvE', a: Math.min(1, p3 * 2) * (1 - p4) }); uit.enzym = [ex, ey - 60 * s]; }
   uit.knip = [[x0 + (c0 - 0.5) * dx, yT(c0 - 0.5)], [x0 + (c1 + 0.5) * dx, yT(c1 + 0.5)]];
   if (p3 > 0.7 && p4 < 0.6) { ctx.save(); ctx.globalAlpha *= (p3 - 0.7) / 0.3; ctx.strokeStyle = C.goud; ctx.lineWidth = 3 * s; uit.knip.forEach(([kx, ky]) => { ctx.beginPath(); ctx.moveTo(kx - 10 * s, ky - 12 * s); ctx.lineTo(kx + 10 * s, ky + 12 * s); ctx.moveTo(kx + 10 * s, ky - 12 * s); ctx.lineTo(kx - 10 * s, ky + 12 * s); ctx.stroke(); }); ctx.restore(); }
   // polymerase (plaatshouder) loopt over het gat; ligase sluit de laatste naad (gouden flits)
@@ -6388,25 +6685,16 @@ function bioreactor(ctx, x, y, s, o = {}) {
   return ret;
 }
 
-// =====================================================================================
-// CRISPR-CAS9 (lintmodel) met gids-RNA dat een doelplek in het DNA zoekt, opent en beide strengen knipt; daarna reparatie.
-// Recept (RCSB PDB 4OO8: Cas9 van Streptococcus pyogenes, 1 372 aminozuren, 'bilobed architecture': een
-//  herkenningslob en een nucleaselob; het gids-RNA–DNA-duplex ligt in een geladen groef tussen de twee lobben;
-//  HNH knipt de streng die met de gids paart, RuvC de andere; een domein aan de C-kant herkent de PAM;
-//  Jinek e.a. 2012: PAM = NGG, stompe knip 3 bp vóór de PAM). Maten: Cas9 ± 10 nm, DNA 2 nm breed, 0,34 nm per
-//  basepaar, dus het eiwit omvat ± 30 bp; de spacer van het gids-RNA is 20 nt. Stappen: o.stap 0–1 zoeken (schuift
-//  langs het DNA), 1–2 PAM (goud omrand), 2–3 openen (R-lus: gids paart vanaf de PAM met de doelstreng, de andere
-//  streng buigt weg) en knippen (2,75–3), 3–4 Cas9 laat los, reparatie: 'uit' = kleine fout bij het plakken
-//  (koraal, gen kapot) of 'nieuw' = een nieuw stuk (goud) ertussen.
-//  Eiwit = één gevouwen keten in het gedeelde lintmodel (_grKluwen: buis, helices als spiraal, β-strengen als pijl).
-//  Cas9 KLEMT om het DNA: de herkenningslob ligt achter/boven, de nucleaselob achter/onder, en het PAM-domein loopt
-//  vóór het DNA langs naast de PAM (brug). Gids-RNA in teal: los als slap draadje in de herkenningslob; in de R-lus
-//  liggen zijn 20 basen (puzzelvorm, U in plaats van T) precies op de doelstreng, de andere streng buigt omhoog weg.
-//  Bekende fouten: Cas9 als schaar; één streng geknipt; knip in de PAM; gids-RNA dat paart met beide strengen.
-// x, y = midden van de doelplek op het DNA; s = px per 0,1 nm (DNA-breedte = 20 · s px). o.stap 0..4, o.reparatie,
-// o.t, o.a. Geeft { cas9, pam, knip, gids, rec, nuc } terug.
-// =====================================================================================
-// (gebruikt _grKluwen uit inbouw/lab/_hulp.js: één keer in lib_bio.js)
+// CRISPR-CAS9, verbeterronde 2 eiwitten (28 okt 2026): Cas9 (herkenningslob, nucleaselob en PAM-domein) is nu een gevouwen
+// kralenketen (_kkKluwen, eiwitten/_hulp.js) in plaats van het lintmodel; vorm, plaats, grootte, stappen, DNA, gids-RNA en
+// aanroep ongewijzigd. Recept (zie het receptcommentaar in lib_bio.js, ronde 2: Jinek e.a. 2012; Nishimasu e.a. 2014):
+//  Cas9 ± 10 nm, DNA 2 nm breed, 0,34 nm per basepaar; spacer van het gids-RNA 20 nt; PAM = NGG, stompe knip 3 bp vóór de PAM.
+//  Stappen: o.stap 0–1 zoeken, 1–2 PAM (goud omrand), 2–3 openen (R-lus) en knippen (2,75–3), 3–4 loslaten en reparatie
+//  ('uit' = kleine fout bij het plakken, koraal; 'nieuw' = nieuw stuk, goud).
+//  Eiwit = één gevouwen keten als kralen. Cas9 KLEMT om het DNA: herkenningslob achter/boven, nucleaselob achter/onder,
+//  PAM-domein vóór het DNA langs naast de PAM (brug). Gids-RNA teal.
+//  Bekende fouten: Cas9 als schaar; één streng geknipt; knip in de PAM; gids-RNA dat paart met beide strengen; lint.
+// x, y = midden van de doelplek op het DNA; s = px per 0,1 nm. o.stap 0..4, o.reparatie, o.t, o.a. Geeft { cas9, pam, knip, gids, rec, nuc } terug.
 function crisprCas9(ctx, x, y, s, o = {}) {
   const { a = 1, stap = 0, t = 0, reparatie = 'uit' } = o; const st = clamp(stap, 0, 4);
   const zoek = clamp(st, 0, 1), pam = clamp(st - 1, 0, 1), open = clamp(st - 2, 0, 1), knip = clamp((st - 2.75) / 0.25, 0, 1), rep = clamp(st - 3, 0, 1);
@@ -6420,7 +6708,7 @@ function crisprCas9(ctx, x, y, s, o = {}) {
   if (a <= 0.01) return ret;
   ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
   // Cas9 achter het DNA: herkenningslob (boven) en nucleaselob (onder) als gevouwen keten; de groef ertussen blijft vrij
-  const lob = (bb, ry, kl, seed, key) => _grKluwen(ctx, casX, casY, (px, py) => (px / 64) * (px / 64) + (py / ry) * (py / ry) < 1 && (py < -52 || py > 17), { r: 3.2, sc: s, col: kl, seed, bbox: bb, key, a: casA * 0.95 });
+  const lob = (bb, ry, kl, seed, key) => _kkKluwen(ctx, casX, casY, (px, py) => (px / 64) * (px / 64) + (py / ry) * (py / ry) < 1 && (py < -52 || py > 17), { r: 3.2, sc: s, col: kl, seed, bbox: bb, key, a: casA * 0.95 });
   lob([-64, -96, 64, -52], 96, '#8E9FBC', 3, 'casREC'); lob([-64, 17, 64, 58], 58, C.enzym, 5, 'casNUC');
   const hw = bp * s * 0.34, ruggW = Math.max(2.5, bp * s * 0.35);
   // DNA: bovenstreng (5′→3′, met PAM) en doelstreng. In de open stand buigt de bovenstreng omhoog weg (R-lus).
@@ -6450,7 +6738,7 @@ function crisprCas9(ctx, x, y, s, o = {}) {
   const e = gp[19]; ctx.strokeStyle = rnaK; ctx.lineWidth = Math.max(1.5, ruggW * 0.7); ctx.beginPath(); bioPad(ctx, [[e[0], e[1]], [e[0] + 10 * s, e[1] - 16 * s], [e[0] + 2 * s, casY - 66 * s], [e[0] - 20 * s, casY - 76 * s], [e[0] - 6 * s, casY - 88 * s], [e[0] + 18 * s, casY - 80 * s], [e[0] + 24 * s, casY - 60 * s]], false); ctx.stroke(); // steiger met haarspelden
   ctx.restore();
   // PAM-domein vóór het DNA langs (brug die de klem sluit), naast de PAM; actieve plekken HNH (onder) en RuvC (boven) goud
-  _grKluwen(ctx, casX, casY, (px, py) => ((px - 57) / 13) ** 2 + ((py + 12) / 50) ** 2 < 1, { r: 3.2, sc: s, col: '#6E8FA8', seed: 7, bbox: [44, -62, 70, 38], key: 'casPI', a: casA * 0.9 });
+  _kkKluwen(ctx, casX, casY, (px, py) => ((px - 57) / 13) ** 2 + ((py + 12) / 50) ** 2 < 1, { r: 3.2, sc: s, col: '#6E8FA8', seed: 7, bbox: [44, -62, 70, 38], key: 'casPI', a: casA * 0.9 });
   [[casX + (knipI - 10) * bp * s, casY + 22 * s], [casX + (knipI - 10) * bp * s, casY - 56 * s]].forEach(p => { ctx.save(); ctx.globalAlpha *= casA; ctx.fillStyle = C.goud; ctx.beginPath(); ctx.arc(p[0], p[1], 3.5 * s, 0, 6.283); ctx.fill(); ctx.restore(); });
   ctx.restore(); return ret;
 }
@@ -6731,7 +7019,7 @@ function microscoop(ctx, x, y, s, o = {}) {
 //  - binnenvolume ± 250 µl (dus 0,2 ml + kopruimte); een PCR-mix is meestal 20–50 µl: dan staat de vloeistof alleen
 //    in de punt (onderste ± 6–9 mm); o.vol wordt daarom begrensd op 50 µl. Het niveau wordt uitgerekend uit het binnenprofiel (µl = mm³).
 //  - polypropyleen is doorschijnend: lijntekening in C.er (#AFC0D0), vloeistof als vlak in een betekeniskleur
-//    (standaard teal = water/mix), DNA desgewenst als paarse streepjes (o.dna).
+//    (standaard teal = water/mix), DNA desgewenst als grijze streepjes (o.dna; palet B, was paars).
 //  Bekende fouten: buisje als reageerbuis met ronde bodem; vloeistof halfvol bij 25 µl; dop los zonder scharnier;
 //  buisje even groot als een vinger (een vingertop is ± 15 mm breed: het buisje is smaller dan een vinger).
 // x, y = midden van de bovenrand (kraag); s = px per mm. o.open 0 dicht … 1 open (dop klapt naar rechts om),
@@ -6760,7 +7048,7 @@ function pcrBuisje(ctx, x, y, s, o = {}) {
     ctx.quadraticCurveTo(0, 20.7, 0.45, 20.1); for (let yy = 20.1; yy >= yN; yy -= 0.4) ctx.lineTo(_pcrProfiel(yy), yy); ctx.closePath();
     ctx.fillStyle = rgba(kleur, 0.42); ctx.fill(); ctx.clip();
     ctx.strokeStyle = lighten(kleur, 0.4); ctx.lineWidth = lw * 1.2; ctx.beginPath(); const rN = _pcrProfiel(yN); ctx.moveTo(-rN, yN - 0.25); ctx.quadraticCurveTo(0, yN + 0.25, rN, yN - 0.25); ctx.stroke();
-    if (dna > 0 && !klein) { ctx.strokeStyle = C.paars; ctx.lineWidth = 0.22; for (let i = 0; i < dna; i++) { const u = hash(i * 7 + 3), v = hash(i * 7 + 4); const yy = lerp(yN + 0.6, 19.3, v); const rr = _pcrProfiel(yy) * 0.8; const xx = (u * 2 - 1) * rr, an = hash(i * 7 + 5) * 3.14 + Math.sin(t + i) * 0.2;
+    if (dna > 0 && !klein) { ctx.strokeStyle = DNA_BASE.rugR; ctx.lineWidth = 0.22; for (let i = 0; i < dna; i++) { const u = hash(i * 7 + 3), v = hash(i * 7 + 4); const yy = lerp(yN + 0.6, 19.3, v); const rr = _pcrProfiel(yy) * 0.8; const xx = (u * 2 - 1) * rr, an = hash(i * 7 + 5) * 3.14 + Math.sin(t + i) * 0.2;
       ctx.beginPath(); ctx.moveTo(xx - Math.cos(an) * 0.45, yy - Math.sin(an) * 0.45); ctx.lineTo(xx + Math.cos(an) * 0.45, yy + Math.sin(an) * 0.45); ctx.stroke(); } }
     ctx.restore(); }
   buiten(); ctx.strokeStyle = hl > 0.01 ? C.goud : lijn; ctx.lineWidth = hl > 0.01 ? lw * 1.8 : lw; ctx.stroke();
@@ -6827,27 +7115,14 @@ function petrischaal(ctx, x, y, s, o = {}) {
   ctx.restore(); return ret;
 }
 
-// =====================================================================================
-// PLASMIDE KNIPPEN EN PLAKKEN (recombinant DNA), ringaanzicht. Uitbreiding van plasmideRing (lib_micro_evo.js):
-// zelfde ring van dubbelstrengs DNA met een resistentiegen in oker, maar nu als proces in vier stappen.
-// Recept (OpenStax Biology 2e § 17.1; EcoRI: herkenningsplek G↓AATTC, homodimeer, 5′-overhang AATT):
-//  stap 0 → 1 knippen: het restrictie-enzym knipt beide strengen verspringend (zigzag), de ring gaat open; aan elk
-//    uiteinde steekt één streng 4 basen uit (plakkerig uiteinde, AATT);
-//  stap 1 → 2 plakken: het gen (goud, met dezelfde plakkerige uiteinden want met hetzelfde enzym geknipt) schuift
-//    in de opening; de uitstekende basen passen op elkaar;
-//  stap 2 → 3 ligase: twee kleine eiwitkluwens sluiten de naden in de ruggengraat (fosfodiësterbinding);
-//  stap 3 → 4 terug in de bacterie: de ring krimpt tot ± 1/4 van de bacteriebreedte en ligt helemaal binnen het
-//    membraan (Beeldafspraken: niets steekt buiten het celmembraan).
-//  Het resistentiegen (oker) blijft op de ring: daarmee selecteer je de bacteriën die het plasmide opnamen.
-//  Echte maat: plasmide 2–200 kb; een bacterie ± 2 µm lang. Altijd 'vergroot'.
-//  Enzymen in het gedeelde lintmodel (_grKluwen): EcoRI als twee gelijke helften op de knipplek, ligase (groengrijs) op
-//  elke naad; een vergrootcirkel toont dan de basen in puzzelvorm met de uitstekende AATT en TTAA (goud omrand).
-//  Bekende fouten: recht knippen (stompe uiteinden) bij EcoRI; gen met andere uiteinden dan de opening;
-//  plasmide dat buiten de bacterie uitsteekt; schaar-icoon in plaats van een enzym.
-// x, y = midden; r = straal van de ring in px. o.stap 0..4, o.letters (AATT bij grote ring, standaard aan als r ≥ 110),
-// o.a, o.t. Geeft { knip, gen, resistentie, naden:[[x,y],[x,y]], bacterie } terug.
-// =====================================================================================
-// (gebruikt _grKluwen uit inbouw/lab/_hulp.js: één keer in lib_bio.js)
+// PLASMIDE KNIPPEN EN PLAKKEN, verbeterronde 2 eiwitten (28 okt 2026): EcoRI (twee gelijke helften) en ligase zijn nu
+// gevouwen kralenketens (_kkKluwen, eiwitten/_hulp.js) in plaats van het lintmodel; ring, gen, vergrootcirkel, bacterie,
+// stappen en aanroep ongewijzigd. Recept (OpenStax Biology 2e § 17.1; zie het receptcommentaar in lib_bio.js, ronde 2):
+//  stap 0 → 1 EcoRI knipt de ring verspringend (G↓AATTC, plakkerige uiteinden AATT); stap 1 → 2 het gen met dezelfde
+//  uiteinden daalt in de opening; stap 2 → 3 ligase sluit de naden (fosfodiësterbinding); stap 3 → 4 terug in de bacterie
+//  (ring ± 1/4 van de bacteriebreedte, helemaal binnen het membraan). Resistentiegen oker. Altijd 'vergroot'.
+//  Bekende fouten: recht knippen bij EcoRI; gen met andere uiteinden; plasmide buiten de bacterie; schaar-icoon; lint.
+// x, y = midden; r = straal van de ring in px. o.stap 0..4, o.letters, o.a, o.t. Geeft { knip, gen, resistentie, naden, bacterie } terug.
 function plasmideKnipPlak(ctx, x, y, r, o = {}) {
   const { a = 1, stap = 0, t = 0 } = o; const st = clamp(stap, 0, 4);
   const knip = clamp(st, 0, 1), plak = clamp(st - 1, 0, 1), lig = clamp(st - 2, 0, 1), terug = clamp(st - 3, 0, 1);
@@ -6862,7 +7137,7 @@ function plasmideKnipPlak(ctx, x, y, r, o = {}) {
   if (terug > 0.01) { ctx.save(); ctx.globalAlpha *= ease(terug); const bl = r * 2.6, bh = r * 1.25;
     const caps = (ww, hh) => { ctx.beginPath(); roundRect(ctx, x - ww / 2, cy - hh / 2, ww, hh, hh / 2); };
     caps(bl + 14, bh + 14); shape(ctx, rgba(C.oker, 0.22), rgba(C.oker, 0.8), 3); caps(bl, bh); shape(ctx, '#22314D', rgba('#D8C9A8', 0.75), 2);
-    ctx.strokeStyle = rgba(C.paars, 0.45); ctx.lineWidth = 2; const ch = []; for (let k = 0; k < 14; k++) { const u = k / 14 * 6.283; ch.push([x - bl * 0.28 + Math.cos(u) * bl * 0.12 + (hash(k + 5) - 0.5) * bl * 0.07, cy + Math.sin(u) * bh * 0.26 + (hash(k + 11) - 0.5) * bh * 0.12]); } ctx.beginPath(); bioPad(ctx, ch, true); ctx.stroke(); // chromosoom (losse lus, ingekort)
+    ctx.strokeStyle = rgba(DNA_BASE.rugR, 0.55); ctx.lineWidth = 2; const ch = []; for (let k = 0; k < 14; k++) { const u = k / 14 * 6.283; ch.push([x - bl * 0.28 + Math.cos(u) * bl * 0.12 + (hash(k + 5) - 0.5) * bl * 0.07, cy + Math.sin(u) * bh * 0.26 + (hash(k + 11) - 0.5) * bh * 0.12]); } ctx.beginPath(); bioPad(ctx, ch, true); ctx.stroke(); // chromosoom (losse lus, ingekort)
     ctx.restore(); }
   const strengArc = (rr, a0, a1, kleur, bw) => { if (a1 <= a0) return; ctx.strokeStyle = kleur; ctx.lineWidth = bw; ctx.beginPath(); ctx.arc(x, cy, rr, a0, a1); ctx.stroke(); };
   const sporten = (a0, a1, kleur) => { ctx.strokeStyle = kleur; ctx.lineWidth = Math.max(1.5, w * 0.35); for (let th = a0 + stapR / 2; th < a1; th += stapR) { ctx.beginPath(); ctx.moveTo(x + Math.cos(th) * (R - w * 1.2), cy + Math.sin(th) * (R - w * 1.2)); ctx.lineTo(x + Math.cos(th) * (R + w * 1.2), cy + Math.sin(th) * (R + w * 1.2)); ctx.stroke(); } };
@@ -6891,10 +7166,10 @@ function plasmideKnipPlak(ctx, x, y, r, o = {}) {
   // EcoRI (lintmodel, twee gelijke helften aan weerszijden van de dubbelstreng) op de knipplek tijdens het knippen
   const top0 = [x, cy - R];
   if (st > 0.02 && st < 1.25) { const ea = st < 1 ? 0.35 + 0.65 * Math.sin(Math.min(1, knip * 1.4) * Math.PI / 2) : 1 - (st - 1) / 0.25;
-    [[1, C.enzym, 0], [-1, '#8A7FA8', Math.PI]].forEach(([sg, kl2, rot]) => _grKluwen(ctx, top0[0], top0[1] - sg * (w * 2.4 + 22 * ksc), (px, py) => (px / 40) ** 2 + (py / 17) ** 2 < 1, { r: 2.8, sc: ksc, col: kl2, seed: 4, bbox: [-40, -17, 40, 17], key: 'pkEco', rot, a: clamp(ea, 0, 1) })); }
+    [[1, C.enzym, 0], [-1, '#8A7FA8', Math.PI]].forEach(([sg, kl2, rot]) => _kkKluwen(ctx, top0[0], top0[1] - sg * (w * 2.4 + 22 * ksc), (px, py) => (px / 40) ** 2 + (py / 17) ** 2 < 1, { r: 2.8, sc: ksc, col: kl2, seed: 4, bbox: [-40, -17, 40, 17], key: 'pkEco', rot, a: clamp(ea, 0, 1) })); }
   // ligase (lintmodel, eigen tint) komt bij het plakken op elk van de twee naden en sluit de ruggengraat
   if (st >= 1.7 && st < 3.4) { const la = st < 2 ? (st - 1.7) / 0.3 : st < 3 ? 1 : 1 - (st - 3) / 0.4; [top - genHoek / 2, top + genHoek / 2].forEach((th, i) => { const px = x + Math.cos(th) * (R + w * 2.6 + 20 * ksc), py = cy + Math.sin(th) * (R + w * 2.6 + 20 * ksc); ret.naden.push([px, py]);
-      _grKluwen(ctx, px, py, (qx, qy) => (qx / 26) ** 2 + (qy / 19) ** 2 < 1, { r: 2.8, sc: ksc, col: '#6E9A8C', seed: 6 + i, bbox: [-26, -19, 26, 19], key: 'pkLig', rot: th + Math.PI / 2, a: clamp(la, 0, 1), fold: st < 2 ? 0.6 + 0.4 * clamp((st - 1.7) / 0.3, 0, 1) : 1 });
+      _kkKluwen(ctx, px, py, (qx, qy) => (qx / 26) ** 2 + (qy / 19) ** 2 < 1, { r: 2.8, sc: ksc, col: '#6E9A8C', seed: 6 + i, bbox: [-26, -19, 26, 19], key: 'pkLig', rot: th + Math.PI / 2, a: clamp(la, 0, 1), fold: st < 2 ? 0.6 + 0.4 * clamp((st - 1.7) / 0.3, 0, 1) : 1 });
       if (lig > 0.05 && lig < 0.95) { ctx.save(); ctx.globalAlpha *= Math.sin(lig * Math.PI); circ(ctx, x + Math.cos(th) * R, cy + Math.sin(th) * R, w * 2.2, null, C.goud, 2); ctx.restore(); } }); }
   // vergrootcirkel met de basen in puzzelvorm op het moment dat de uitsteeksels zichtbaar zijn
   const zA = st < 0.6 ? 0 : st < 0.75 ? (st - 0.6) / 0.15 : st < 1.5 ? 1 : st < 1.7 ? (1.7 - st) / 0.2 : 0;
@@ -6912,21 +7187,38 @@ function plasmideKnipPlak(ctx, x, y, r, o = {}) {
   ctx.restore(); return ret;
 }
 
-// =====================================================================================
-// PRIMER MET POLYMERASE: kort enkelstrengs stukje DNA (20 nt, goud) gebonden op de matrijs; DNA-polymerase
-// (polymeraseAchter/-Voor uit deze bibliotheek) gaat op het 3′-uiteinde zitten en bouwt de nieuwe streng (lichtpaars).
-// Recept: OpenStax Biology 2e § 17.1 (PCR: primers zijn korte stukjes DNA die complementair zijn aan de uiteinden
-//  van het doelstuk) en § 14.3 (polymerase kan alleen verlengen aan een vrij 3′-uiteinde, dus het heeft een
-//  primer nodig). Een PCR-primer is ± 18–25 nt; hij ligt antiparallel op de matrijs, met zijn 3′-kant naar het
-//  doelstuk toe. Basen in de puzzelvorm van de DNA-reeks (d2Base: A punt ↔ T inkeping, C nok ↔ G sleuf), alle sporten
-//  even lang; ruggengraat van de primer goud, van de matrijs paars.
-//  Stand o.bouw 0..1: de polymerase klemt zich op het 3′-uiteinde van de primer en voegt nucleotiden toe die passen
-//  bij de matrijs, alleen in de richting 5′ → 3′ (naar rechts); de primer blijft het begin van de nieuwe streng.
-//  Los (o.bind < 1) ritst de primer eerst vast zoals in de basisversie.
-//  Bekende fouten: primer zo lang als het gen; primer parallel (5′ op 5′); basen die niet passen; primer als staafje.
-// x, y = 5′-uiteinde van de primer als hij gebonden is (voet van de eerste base); s = schaal (1 = 34 px per base).
-// o.bind 0..1, o.bouw 0..1 (± 7 nieuwe nucleotiden), o.seq, o.t, o.a. Geeft { vijf, drie, matrijs3, polymerase } terug.
-// =====================================================================================
+// PRIMER MET POLYMERASE, verbeterronde 2 eiwitten (28 okt 2026): de DNA-polymerase is nu een kralenketen (_psPolAchter /
+// _psPolVoor hieronder, zelfde vorm, plaats en maat als polymeraseAchter/-Voor) in plaats van vlakke vormen. Primer, matrijs,
+// basen, stappen en aanroep ongewijzigd. Zodra polymeraseAchter/-Voor in hun eigen ronde opnieuw ontworpen zijn, kan primerStuk
+// weer die aanroepen (dan _psPolAchter/_psPolVoor schrappen).
+// Recept: OpenStax Biology 2e § 17.1 (PCR: primers zijn korte stukjes DNA die complementair zijn aan de uiteinden van het
+//  doelstuk) en § 14.3 (polymerase kan alleen verlengen aan een vrij 3′-uiteinde, dus het heeft een primer nodig). Een
+//  PCR-primer is ± 18–25 nt; hij ligt antiparallel op de matrijs, met zijn 3′-kant naar het doelstuk toe. Basen in
+//  puzzelvorm (d2Base), ruggengraat van de primer goud, van de matrijs grijs (palet B). o.bouw 0..1: de polymerase klemt zich op het
+//  3′-uiteinde van de primer en voegt nucleotiden toe die passen bij de matrijs, alleen 5′ → 3′ (naar rechts).
+//  Bekende fouten: primer zo lang als het gen; primer parallel (5′ op 5′); basen die niet passen; primer als staafje; eiwit als vlek.
+// x, y = 5′-uiteinde van de primer als hij gebonden is; s = schaal (1 = 34 px per base). o.bind 0..1, o.bouw 0..1, o.seq,
+// o.t, o.a. Geeft { vijf, drie, matrijs3, polymerase } terug.
+// --- polymerase voor primerStuk als kralenketen (alleen voor dit object; polymeraseAchter/-Voor zelf worden in een andere ronde
+// opnieuw ontworpen). Zelfde 'rechterhand' als polymeraseAchter/-Voor (handpalm achter het DNA, duim, vingers die sluiten,
+// onderkaak, schuifklem), zelfde plaats en maat (g = DNA-breedte), maar elk deel is een gevouwen kralenketen (_kkKluwen) op
+// een zacht silhouet; de klem is een boog van kralen. Actief centrum goud.
+function _psDeel(ctx, poly, g, col, seed, key, a = 1) { // poly in eenheden van g; kralen binnen de omtrek
+  ctx.save(); ctx.globalAlpha *= a; ctx.beginPath(); bioPad(ctx, poly.map(([px, py]) => [px * g, py * g]), true); ctx.fillStyle = rgba(_mixHex(col, '#121A26', 0.45), 0.55); ctx.fill();
+  const V = _lintVorm(poly.map(([px, py]) => [px * 100, py * 100])); _kkKluwen(ctx, 0, 0, V.binnen, { bbox: V.bbox, sc: g / 100, r: 7, col, seed, key }); ctx.restore(); }
+function _psKlem(ctx, g, a0, a1, col) { const P = []; for (let k = 0; k <= 12; k++) { const u = lerp(a0, a1, k / 12); P.push([-1.45 * g + Math.cos(u) * 0.22 * g, Math.sin(u) * 0.9 * g]); } _kkPad(ctx, P, Math.max(2, g * 0.075), col, { stap: 2 }); }
+function _psPolAchter(ctx, x, y, g, o = {}) { const { dir = 1, up = 1, a = 1, rot = 0, klem = true } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; _polyT(ctx, x, y, g, dir, up, rot);
+  _psDeel(ctx, [[-1.15, -0.2], [-0.95, 0.95], [-0.1, 1.25], [0.85, 1.05], [1.2, 0.2], [0.95, -0.95], [0.0, -1.2], [-0.9, -0.95]], g, D2.enzD, 3, 'psPalm', 0.6); // handpalm achter het DNA (donker)
+  if (klem) _psKlem(ctx, g, Math.PI * 0.5, Math.PI * 1.5, '#8796B0');
+  ctx.restore(); }
+function _psPolVoor(ctx, x, y, g, o = {}) { const { dir = 1, up = 1, a = 1, rot = 0, sluit = 0, klem = true, hl = 0 } = o; if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; _polyT(ctx, x, y, g, dir, up, rot);
+  const col = hl > 0.01 ? _mixHex(D2.enz, C.goud, hl * 0.6) : D2.enz;
+  _psDeel(ctx, [[-1.05, 0.75], [-0.75, 1.22], [-0.2, 1.28], [0.05, 1.0], [-0.35, 0.78], [-0.8, 0.68]], g, col, 5, 'psDuim'); // duim
+  ctx.save(); ctx.translate(0.3 * g, 1.0 * g); ctx.rotate(lerp(0.62, -0.06, ease(sluit))); _psDeel(ctx, [[0.0, 0.0], [0.2, 0.32], [0.75, 0.3], [1.0, 0.0], [0.85, -0.22], [0.35, -0.12]], g, col, 7, 'psVinger'); ctx.restore(); // vingers
+  _psDeel(ctx, [[-0.9, -0.72], [-0.6, -1.18], [0.3, -1.22], [0.95, -0.95], [1.05, -0.68], [0.2, -0.74]], g, col, 9, 'psKaak'); // onderkaak
+  const pk = lerp(0.3, 0.18, ease(sluit)); ctx.strokeStyle = C.goud; ctx.lineWidth = Math.max(3, g * 0.06) * (1 + 0.5 * ease(sluit)); ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(0.32 * g, 0.62 * g, pk * g, Math.PI * 1.05, Math.PI * 1.95, true); ctx.stroke();
+  if (klem) _psKlem(ctx, g, -Math.PI * 0.5, Math.PI * 0.5, '#A4B2CA');
+  ctx.restore(); }
 function primerStuk(ctx, x, y, s, o = {}) {
   const { a = 1, bind = 1, matrijs = true, t = 0, bouw = 0 } = o;
   const seq = (o.seq || 'GACCTGAAGTCCATGGCTAC').slice(0, 30), n = seq.length, comp = { A: 'T', T: 'A', C: 'G', G: 'C' };
@@ -6936,7 +7228,7 @@ function primerStuk(ctx, x, y, s, o = {}) {
   if (a <= 0.01) return ret;
   ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
   const nNieuw = bind >= 1 ? Math.floor(clamp(bouw, 0, 1) * 7.999) : 0, xA = x + (n - 1 + nNieuw) * bp + bp * 0.5; ret.polymerase = [xA, y + L];
-  if (bind >= 1 && bouw > 0.001) polymeraseAchter(ctx, xA, y + L, 2 * L, { dir: 1, up: 1 });
+  if (bind >= 1 && bouw > 0.001) _psPolAchter(ctx, xA, y + L, 2 * L, { dir: 1, up: 1 });
   if (matrijs) { const mseq = 'TAC' + seq.split('').map(b => comp[b]).join('') + 'GTACCGA'; const P = [];
     for (let i = -voor; i < n + na; i++) P.push([x + i * bp, yM]);
     ctx.strokeStyle = D2.oud; ctx.lineWidth = Math.max(3, bp * 0.3); ctx.beginPath(); ctx.moveTo(P[0][0] - bp * 0.4, yM); ctx.lineTo(P[P.length - 1][0] + bp * 0.4, yM); ctx.stroke();
@@ -6950,7 +7242,7 @@ function primerStuk(ctx, x, y, s, o = {}) {
   pts.forEach((p, i) => { const vrij = 1 - p[2]; const ang = Math.PI / 2 + vrij * (Math.sin(i * 1.3 + t) * 0.5); d2Base(ctx, p[0], p[1], ang, seq[i], L, hw, { plekA: 0 }); });
   if (nNieuw > 0) { const mseq = 'TAC' + seq.split('').map(b => comp[b]).join('') + 'GTACCGA'; ctx.strokeStyle = D2.nieuw; ctx.lineWidth = Math.max(3, bp * 0.3); ctx.beginPath(); ctx.moveTo(x + (n - 1) * bp, y); ctx.lineTo(x + (n - 1 + nNieuw) * bp + bp * 0.3, y); ctx.stroke();
     for (let j = 0; j < nNieuw; j++) d2Base(ctx, x + (n + j) * bp, y, Math.PI / 2, comp[mseq[voor + n + j]], L, hw); }
-  if (bind >= 1 && bouw > 0.001) polymeraseVoor(ctx, xA, y + L, 2 * L, { dir: 1, up: 1, sluit: (bouw * 8) % 1 });
+  if (bind >= 1 && bouw > 0.001) _psPolVoor(ctx, xA, y + L, 2 * L, { dir: 1, up: 1, sluit: (bouw * 8) % 1 });
   if (s > 0.5) { const e0 = pts[0], e1 = pts[n - 1]; text(ctx, "5′", e0[0] - bp * 0.8, e0[1] - 4 * s, fMeta(Math.max(14, 24 * s)), C.goud, 'right'); const xe = e1[0] + nNieuw * bp; if (!(bouw > 0.001)) text(ctx, "3′", xe + bp * 0.8, e1[1] - 4 * s, fMeta(Math.max(14, 24 * s)), C.goud, 'left'); }
   ctx.restore(); return ret;
 }
@@ -6985,6 +7277,20 @@ function _reeLint(ctx, P, w, kleur, o = {}) { // cartoon: achterste stukken smal
   const seg = (voor) => { for (let i = 1; i < P.length; i++) { const z = (P[i][2] + P[i - 1][2]) / 2; if ((z >= 0) !== voor) continue; ctx.strokeStyle = voor ? lighten(kleur, 0.18 + 0.2 * z) : _mixHex(kleur, '#121A26', 0.35); ctx.lineWidth = voor ? w * (0.75 + 0.35 * z) : w * 0.5;
       ctx.beginPath(); const a0 = P[Math.max(0, i - 2)], a1 = P[i - 1], b1 = P[i]; ctx.moveTo((a0[0] + a1[0]) / 2, (a0[1] + a1[1]) / 2); ctx.quadraticCurveTo(a1[0], a1[1], (a1[0] + b1[0]) / 2, (a1[1] + b1[1]) / 2); ctx.stroke(); } };
   ctx.lineCap = 'round'; seg(false); seg(true); }
+// RESTRICTIE-ENZYM (EcoRI), verbeterronde 2 eiwitten (28 okt 2026): de twee domeinen van elke helft zijn nu een compacte
+// gevouwen kralenketen (_kkKluwen, eiwitten/_hulp.js) in hetzelfde doorschijnende oppervlak, in plaats van het lint
+// (_reeLint/_reePad, een lus die zichzelf vaak kruist); de klem-armen zijn een rijtje kralen (_kkPad). Vorm, plaats,
+// grootte, stappen, DNA en aanroep ongewijzigd.
+// Recept (OpenStax Biology 2e § 17.1: restrictie-enzymen herkennen een vaste volgorde en knippen voorspelbaar, vaak
+//  verspringend → plakkerige uiteinden; EcoRI: G↓AATTC, homodimeer van twee gelijke ketens van ± 31 kDa, 5′-overhang AATT).
+//  De plek is een palindroom: één symmetrisch dimeer, elke helft knipt één streng op dezelfde plek in zijn eigen
+//  leesrichting. Maten: elk eiwitdeel ± 5 nm, DNA 2 nm breed, 0,34 nm per basepaar.
+//  Stappen: o.stap 0–1 glijden, 1–2 herkennen en klemmen (plek goud omrand), 2–2,5 knippen (zigzag), 2,5–3 loslaten.
+//  Eiwit = gevouwen keten van kralen (BEELDAFSPRAKEN), géén schaar-icoon. Klem: na herkenning slaat elke helft een smalle
+//  arm vóór het DNA langs (Kim e.a. 1986; Wikipedia EcoRI).
+//  Bekende fouten: rechte knip; één streng geknipt; enzym als schaar; uitsteeksels die niet AATT/TTAA zijn; lint.
+// x, y = midden van de herkenningsplek op het DNA; s = px per 0,1 nm. o.stap 0..3, o.t, o.a. Geeft { enzym, site, knipBoven, knipOnder } terug.
+// (_reePad, _reeKralen en _reeLint worden niet meer gebruikt; mogen uit lib_bio.js als niets anders ze aanroept)
 function restrictieEnzym(ctx, x, y, s, o = {}) {
   const { a = 1, stap = 1, t = 0 } = o; const st = clamp(stap, 0, 3);
   const glij = clamp(st, 0, 1), klem = clamp(st - 1, 0, 1), knip = clamp((st - 2) / 0.5, 0, 1), los = clamp((st - 2.5) / 0.5, 0, 1);
@@ -7006,11 +7312,11 @@ function restrictieEnzym(ctx, x, y, s, o = {}) {
   // homodimeer: twee gelijke ketens, puntgespiegeld om het midden van de herkenningsplek; elk knipt één streng
   ctx.save(); ctx.globalAlpha *= ea * 0.93;
   for (const [sg, kl] of [[1, C.enzym], [-1, '#8A7FA8']]) { const cx2 = ex, cy2 = ey + sg * (-27 * s - dicht - weg); ctx.beginPath(); const hp = []; for (let k = 0; k < 14; k++) { const u = k / 14 * 6.283; hp.push([cx2 + Math.cos(u) * 40 * s, cy2 + Math.sin(u) * 22 * s * (1 + 0.1 * Math.sin(u * 3))]); } bioPad(ctx, hp, true); ctx.fillStyle = rgba(kl, 0.22); ctx.fill(); ctx.strokeStyle = rgba(lighten(kl, 0.3), 0.5); ctx.lineWidth = 1.5; ctx.stroke();
-    [[-14, -24, 15, 0.8], [14, -30, 14, 2.4]].forEach(([dx2, dy2, r2, sd]) => _reeLint(ctx, _reePad(ex + sg * dx2 * s, ey + sg * (dy2 * s - dicht - weg), r2 * s, r2 * 0.8 * s, 28, sd, sg < 0 ? Math.PI : 0), Math.max(1.5, 3 * s), kl)); }
+    [[-14, -24, 15, 0.8], [14, -30, 14, 2.4]].forEach(([dx2, dy2, r2, sd]) => { const E = _ellips(r2, r2 * 0.8); _kkKluwen(ctx, ex + sg * dx2 * s, ey + sg * (dy2 * s - dicht - weg), E.binnen, { bbox: E.bbox, sc: s, r: 2.4, col: kl, seed: Math.round(sd * 10) + (sg > 0 ? 0 : 5), rot: sg < 0 ? Math.PI : 0, key: 'ree' + dx2 }); }); }
   // klem (herstel 28 okt 2026; Kim e.a. 1986 Science + Wikipedia EcoRI: elke helft slaat een 'arm' om het DNA): na herkenning
-  // steekt elke helft één smalle lintarm vóór het DNA langs naar de overkant; bij loslaten trekken de armen terug
+  // steekt elke helft één smalle arm (rijtje kralen) vóór het DNA langs naar de overkant; bij loslaten trekken de armen terug
   const armA = ease(clamp(klem * 1.5, 0, 1)) * (1 - ease(los));
-  if (armA > 0.01) { ctx.save(); ctx.globalAlpha *= armA; for (const [sg, kl] of [[1, C.enzym], [-1, '#8A7FA8']]) _reeLint(ctx, _reePad(ex - sg * 30 * s, ey - sg * 4 * s, 5 * s, 24 * s, 22, sg > 0 ? 1.3 : 3.1, sg < 0 ? Math.PI : 0), Math.max(1.5, 2.6 * s), kl); ctx.restore(); }
+  if (armA > 0.01) { ctx.save(); ctx.globalAlpha *= armA; for (const [sg, kl] of [[1, C.enzym], [-1, '#8A7FA8']]) { const ax = ex - sg * 30 * s, ay = ey - sg * 4 * s; _kkPad(ctx, [[ax + sg * 3 * s, ay + sg * 26 * s], [ax - sg * 3 * s, ay + sg * 8 * s], [ax + sg * 3 * s, ay - sg * 10 * s], [ax, ay - sg * 26 * s]], Math.max(2, 2.4 * s), kl, { stap: 2 }); }; ctx.restore(); }
   if (herken) { ctx.fillStyle = C.goud; for (const [px, py] of [[X(iSite + 0.5), yT - 8 * s], [X(iSite + 4.5), yB + 8 * s]]) { ctx.beginPath(); ctx.arc(px + (ex - x), py + (py < y ? -1 : 1) * weg, 3.5 * s, 0, 6.283); ctx.fill(); } }
   ctx.restore();
   ctx.restore(); return ret;
@@ -7067,7 +7373,7 @@ function sequencer(ctx, x, y, s, o = {}) {
   const ret = { kopieen: P(230, 280), capillair: P(760, 280), laser: P(760, 470), chromatogram: P(1200, 300) };
   if (a <= 0.01) return ret;
   ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round';
-  // 1. kopieën van elke lengte (matrijs paars, nieuwe streng lichtpaars, gekleurde stopbase)
+  // 1. kopieën van elke lengte (nieuwe streng D2.nieuw, gekleurde stopbase)
   const nt = 26, y0 = 40;
   for (let i = 0; i < n; i++) { const al = clamp(maakF * n - i, 0, 1); if (al <= 0) continue; const yy = y0 + i * 36;
     ctx.save(); ctx.globalAlpha *= al * (1 - 0.7 * loopF); ctx.strokeStyle = D2.nieuw; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(20, yy); ctx.lineTo(20 + (i + 1) * nt, yy); ctx.stroke();
@@ -7096,7 +7402,7 @@ function sequencer(ctx, x, y, s, o = {}) {
 //  strengen gaan los; 50–65 °C (hier 55, ± 30 s) korte primers binden aan het 3′-uiteinde van elke streng; 72 °C
 //  (± 60 s) Taq-polymerase bouwt vanaf de primer een nieuwe streng (5′ → 3′). Elke cyclus verdubbelt het aantal
 //  kopieën (n cycli → 2ⁿ); 25–35 cycli. De opwarm- en afkoelflanken zijn kort maar zichtbaar (geen sprong).
-//  Kleuren: oude streng paars, nieuwe streng lichtpaars, primer goud; lijn van het profiel koraal bij opwarmen,
+//  Kleuren (palet B, 28 okt 2026): oude streng grijs, nieuwe streng bijna wit, primer goud; lijn van het profiel koraal bij opwarmen,
 //  teal bij afkoelen. Apparaat ± 25 cm breed (≈).
 //  Bekende fouten: primers binden bij 95 °C; nieuwe streng groeit in beide richtingen tegelijk vanaf het midden;
 //  na één cyclus vier kopieën.
@@ -7172,15 +7478,15 @@ function thermocycler(ctx, x, y, s, o = {}) {
   const sx = gx + 40 * s, sw = gw - 80 * s, sy = y - 120 * s, N = 20, st = sw / N, open = stap === 'los' ? clamp(u / 0.2, 0, 1) : stap === 'af' || stap === 'binden' || stap === 'bouwen' ? 1 : (u >= 0.5 ? 1 : 0);
   const gap = lerp(28, 90, open) * s, yT = sy - gap / 2, yB = sy + gap / 2, rung = 13 * s;
   const streng = (yy, kl, i0, i1, dir) => { ctx.strokeStyle = kl; ctx.lineWidth = 9 * s; ctx.beginPath(); ctx.moveTo(sx + i0 * st, yy); ctx.lineTo(sx + i1 * st, yy); ctx.stroke(); ctx.lineWidth = 5 * s; for (let i = i0; i < i1; i++) { ctx.beginPath(); ctx.moveTo(sx + (i + 0.5) * st, yy); ctx.lineTo(sx + (i + 0.5) * st, yy + dir * rung); ctx.stroke(); } };
-  streng(yT, C.paars, 0, N, 1); streng(yB, C.paars, 0, N, -1);
-  if (open < 0.3) { ctx.strokeStyle = rgba(C.paars, 0.6); ctx.lineWidth = 3 * s; for (let i = 0; i < N; i++) { ctx.beginPath(); ctx.moveTo(sx + (i + 0.5) * st, yT + rung); ctx.lineTo(sx + (i + 0.5) * st, yB - rung); ctx.stroke(); } }
+  streng(yT, D2.oud, 0, N, 1); streng(yB, D2.oud, 0, N, -1);
+  if (open < 0.3) { ctx.strokeStyle = rgba(D2.oud, 0.6); ctx.lineWidth = 3 * s; for (let i = 0; i < N; i++) { ctx.beginPath(); ctx.moveTo(sx + (i + 0.5) * st, yT + rung); ctx.lineTo(sx + (i + 0.5) * st, yB - rung); ctx.stroke(); } }
   const prim = (stap === 'binden' && u > 0.36) || stap === 'bouwen' || (u >= 0.5); const pa = stap === 'binden' ? clamp((u - 0.36) / 0.1, 0, 1) : 1;
   if (prim && open > 0.9) { ctx.save(); ctx.globalAlpha *= pa; streng(yT + 2 * rung + 4 * s, C.goud, N - 3, N, -1); streng(yB - 2 * rung - 4 * s, C.goud, 0, 3, 1); ctx.restore();
     if (stap === 'bouwen') { const g = clamp((u - 0.55) / 0.4, 0, 1), n = Math.round(g * (N - 3)); streng(yT + 2 * rung + 4 * s, D2.nieuw, N - 3 - n, N - 3, -1); streng(yB - 2 * rung - 4 * s, D2.nieuw, 3, 3 + n, 1); } }
   text(ctx, "5′", sx - 14 * s, yT + 8 * s, fMeta(Math.max(10, 22 * s)), C.text2, 'right'); text(ctx, "3′", sx + sw + 14 * s, yT + 8 * s, fMeta(Math.max(10, 22 * s)), C.text2, 'left');
   // --- teller: aantal kopieën als kleine dubbelstrengen
   const n = Math.pow(2, c) * (stap === 'bouwen' && u > 0.97 ? 2 : 1), toonN = Math.min(n, 16);
-  for (let i = 0; i < toonN; i++) { const px = x + (10 + (i % 8) * 30) * s, py = y + (40 + Math.floor(i / 8) * 26) * s; ctx.strokeStyle = C.paars; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 22 * s, py); ctx.moveTo(px, py + 9 * s); ctx.lineTo(px + 22 * s, py + 9 * s); ctx.stroke(); }
+  for (let i = 0; i < toonN; i++) { const px = x + (10 + (i % 8) * 30) * s, py = y + (40 + Math.floor(i / 8) * 26) * s; ctx.strokeStyle = D2.oud; ctx.lineWidth = 3 * s; ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(px + 22 * s, py); ctx.moveTo(px, py + 9 * s); ctx.lineTo(px + 22 * s, py + 9 * s); ctx.stroke(); }
   text(ctx, '× ' + n, x + 260 * s, y + 56 * s, fMeta(Math.max(10, 28 * s)), C.text, 'left');
   ctx.restore(); return ret;
 }
@@ -7704,4 +8010,249 @@ function wortelHaren(ctx, x, y, s = 1, o = {}) {
       for (let k = 0; k < 6; k++) { const v = (t * 0.25 + k / 6) % 1; ctx.fillStyle = C.teal; ctx.beginPath(); ctx.arc(lerp(ZX - 90, ZX - ZR - 20, v), ZY + Math.sin(k * 3) * 12, 3.4, 0, 6.283); ctx.fill(); } ctx.restore(); }
     ctx.restore(); ctx.strokeStyle = C.goud; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(ZX, ZY, ZR, 0, 6.283); ctx.stroke(); ctx.restore(); }
   ctx.restore(); return anker;
+}
+
+// =====================================================================================
+// VERBETERRONDE 2 · nieuwe objecten (Kamiels keuzes op het keuringsblad, ingebouwd 28 okt 2026). Per groep; recept en bron
+// boven elke functie. Varianten en stills: verbeterronde-2/<groep>/<obj>/; besluiten: verbeterronde-2/uitslag/BESLUITEN.md.
+// =====================================================================================
+
+// =====================================================================================
+// groep organen-plant
+// =====================================================================================
+
+// =====================================================================================
+// BLAD IN DOORSNEDE — variant A (verbeterronde 2): PLATTE DOORSNEDE MET ÉÉN GROOT HUIDMONDJE. Geen blokje: alleen het snijvlak,
+// zoals de leerboekfoto onder de microscoop. Rustig: weinig cellen, weinig bladgroenkorrels, veel lucht in het sponsweefsel.
+// Recept (LibreTexts Botany, Ha/Morrow/Algiers 3.4.2 'Internal Leaf Structure'; UF/IFAS 'Stomate'):
+//  - boven → onder: cuticula (doorzichtig laagje) – bovenopperhuid (doorzichtige cellen, geen bladgroen) – palissadeweefsel
+//    (cellen in kolommen, veel bladgroen) – sponsweefsel (losse cellen, luchtholtes) – onderopperhuid – cuticula.
+//  - nerf: hout (xyleem, grotere cellen, teal = water) boven, bast (floëem, kleinere cellen, oker = suikers) onder, met een
+//    ring schedecellen eromheen.
+//  - huidmondje in de onderopperhuid (daar zitten de meeste): TWEE SLUITCELLEN (de enige opperhuidcellen met bladgroen) rond een
+//    spleet; erboven een grote luchtholte. o.open 0..1: dicht → de sluitcellen liggen tegen elkaar · open → ze bollen op en
+//    tussen hen ligt een duidelijke open spleet.
+//  - gaswisseling (o.gas 0..1, alleen als de spleet open is): CO2 (grijs, drie bolletjes O–C–O op een rij, grijze pijl)
+//    gaat door de spleet naar binnen; O2 (teal, twee bolletjes, teal pijl, vaste molecuulkleur) gaat naar buiten. Twee
+//    verschillende vormen, kleuren én pijlrichtingen, zodat je ze ook zonder kleur uit elkaar houdt.
+// Bekende fouten: huidmondje aan de bovenkant; sluitcellen zonder bladgroen; spleet die niet te zien is; palissade en spons
+// omgedraaid; hout onder de bast.
+// Aanroep (zelfde als ronde 1): bladDoorsnede(ctx, x, y, s, {a, t, open, gas, hi}); ontwerp ± 700 × 470 (met gas ± 560 hoog),
+// oorsprong = midden; o.hi = 'palissade' | 'spons' | 'nerf' | 'huidmondje' | 'opperhuid' dimt de rest.
+// Geeft ankers terug {palissade, spons, nerf, huidmondje, opperhuid, bovenkant, co2, o2}.
+// =====================================================================================
+const BLAD2 = { cut: '#E6EDD3', huid: '#CFDDBE', pal: '#8DBB7A', palR: '#B5D6A2', spons: '#9CC489', korrel: '#4F8F5A', lucht: '#22324A', sluit: '#6FAE68', hout: '#5BA4C9', bast: '#C9A35C', schede: '#B9CFA6', co2: '#AEB6C2', co2c: '#4A5260', o2: '#5BA4C9' };
+function _bladCO2(ctx, x, y, r, an = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(an); [[-1.55, BLAD2.co2], [1.55, BLAD2.co2], [0, BLAD2.co2c]].forEach(([dx, kl]) => { ctx.beginPath(); ctx.arc(dx * r, 0, r * (dx ? 0.9 : 0.8), 0, 6.283); shape(ctx, kl, lighten(BLAD2.co2, 0.4), Math.max(0.8, r * 0.12)); }); ctx.restore(); }
+function _bladO2(ctx, x, y, r, an = 0) { ctx.save(); ctx.translate(x, y); ctx.rotate(an); [-0.75, 0.75].forEach(dx => { ctx.beginPath(); ctx.arc(dx * r, 0, r * 0.9, 0, 6.283); shape(ctx, BLAD2.o2, lighten(BLAD2.o2, 0.45), Math.max(0.8, r * 0.12)); }); ctx.restore(); }
+function _bladPijl(ctx, P, kl, w) { // gebogen pijl langs punten P (laatste punt = punt van de pijl)
+  ctx.save(); ctx.strokeStyle = kl; ctx.fillStyle = kl; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.beginPath(); bioPad(ctx, P.slice(0, -1).concat([P[P.length - 1]]), false); ctx.stroke();
+  const a = P[P.length - 2], b = P[P.length - 1], an = Math.atan2(b[1] - a[1], b[0] - a[0]), L = w * 3.6; ctx.beginPath(); ctx.moveTo(b[0] + Math.cos(an) * L * 0.5, b[1] + Math.sin(an) * L * 0.5);
+  ctx.lineTo(b[0] + Math.cos(an + 2.5) * L, b[1] + Math.sin(an + 2.5) * L); ctx.lineTo(b[0] + Math.cos(an - 2.5) * L, b[1] + Math.sin(an - 2.5) * L); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function bladDoorsnede(ctx, x, y, s = 1, o = {}) {
+  const { a = 1, t = 0, open = 1, gas = 0, hi = null } = o;
+  const W = (px, py) => [x + px * s, y + py * s], SX = -150; // SX = plek van het huidmondje
+  const anker = { palissade: W(-300, -100), spons: W(-300, 60), nerf: W(150, 50), huidmondje: W(SX, 172), opperhuid: W(-300, -178), bovenkant: W(0, -205), co2: W(SX - 60, 250), o2: W(SX + 60, 250) };
+  if (a <= 0.01) return anker;
+  const dim = k => (hi && hi !== k) ? 0.35 : 1, op = ease(clamp(open, 0, 1)), g = gas * op;
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineJoin = 'round';
+  const L = -350, R = 350, Y = { cut: -204, hb: -198, pal: -164, sp: -44, ho: 140, onder: 172 };
+  ctx.save(); ctx.beginPath(); ctx.rect(L, -210, R - L, 390); ctx.clip();
+  // achtergrond = lucht in het blad
+  ctx.fillStyle = BLAD2.lucht; ctx.fillRect(L, Y.pal, R - L, Y.ho - Y.pal);
+  // sponsweefsel: losse, ronde cellen (vast patroon), vrij gehouden: luchtholte boven het huidmondje en de nerf
+  ctx.save(); ctx.globalAlpha *= dim('spons');
+  for (let r = 0; r < 4; r++) for (let c = 0; c < 13; c++) { const cx = L + 22 + c * 56 + (r % 2) * 26 + (hash(r * 13 + c) - 0.5) * 14, cy = Y.sp + 26 + r * 42 + (hash(r * 7 + c * 3) - 0.5) * 10;
+    if (Math.hypot(cx - SX, (cy - 112) * 0.9) < 62) continue; if (Math.hypot((cx - 150) * 0.85, cy - 50) < 82) continue;
+    const rx = 23 + hash(c * 5 + r) * 5, ry = 16 + hash(c + r * 9) * 5; ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, (hash(c * 2 + r) - 0.5) * 0.8, 0, 6.283); shape(ctx, BLAD2.spons, BLAD2.palR, 1.5);
+    for (let k = 0; k < 2; k++) { ctx.beginPath(); ctx.ellipse(cx + (k ? 8 : -8), cy + (k ? 3 : -3), 4.5, 3, 0.3, 0, 6.283); ctx.fillStyle = BLAD2.korrel; ctx.fill(); } }
+  ctx.restore();
+  // nerf: schede, hout boven (teal), bast onder (oker)
+  ctx.save(); ctx.globalAlpha *= dim('nerf'); ctx.beginPath(); ctx.ellipse(150, 50, 70, 62, 0, 0, 6.283); shape(ctx, BLAD2.schede, lighten(BLAD2.schede, 0.3), 1.5);
+  ctx.beginPath(); ctx.ellipse(150, 50, 54, 46, 0, 0, 6.283); ctx.fillStyle = '#2E3F55'; ctx.fill();
+  [[-26, 28, 13], [0, 22, 15], [26, 28, 13], [-12, 46, 10], [14, 46, 10]].forEach(([dx, dy, rr]) => { ctx.beginPath(); ctx.arc(150 + dx, 50 - 52 + dy, rr, 0, 6.283); shape(ctx, rgba(BLAD2.hout, 0.35), BLAD2.hout, 3); });
+  for (let k = 0; k < 7; k++) { const dx = -30 + k * 10, dy = 66 + (k % 2) * 9; ctx.beginPath(); ctx.arc(150 + dx, dy, 6, 0, 6.283); shape(ctx, rgba(BLAD2.bast, 0.55), BLAD2.bast, 1.5); }
+  ctx.restore();
+  // palissadeweefsel: kolommen met bladgroen
+  ctx.save(); ctx.globalAlpha *= dim('palissade');
+  for (let c = 0; c < 20; c++) { const cx = L + 18 + c * 35.5; roundRect(ctx, cx - 15, Y.pal + 4, 30, Y.sp - Y.pal - 8, 13); shape(ctx, BLAD2.pal, BLAD2.palR, 1.5);
+    for (let k = 0; k < 4; k++) { ctx.beginPath(); ctx.ellipse(cx + (k % 2 ? 6 : -6), Y.pal + 22 + k * 24, 5.5, 3.5, 0.2, 0, 6.283); ctx.fillStyle = BLAD2.korrel; ctx.fill(); } }
+  ctx.restore();
+  // bovenopperhuid + cuticula
+  ctx.save(); ctx.globalAlpha *= dim('opperhuid');
+  for (let c = 0; c < 12; c++) { roundRect(ctx, L + 2 + c * 59, Y.hb + 2, 56, Y.pal - Y.hb - 3, 8); shape(ctx, rgba(BLAD2.huid, 0.28), BLAD2.huid, 1.5); }
+  ctx.fillStyle = BLAD2.cut; ctx.fillRect(L, Y.cut, R - L, 5);
+  // onderopperhuid (vaste opening SX ± 60 voor het huidmondje) + cuticula
+  const rij = (u0, u1) => { const n = Math.max(1, Math.round((u1 - u0) / 58)), w = (u1 - u0) / n; for (let c = 0; c < n; c++) { roundRect(ctx, u0 + c * w + 1, Y.ho + 2, w - 2, Y.onder - Y.ho - 3, 8); shape(ctx, rgba(BLAD2.huid, 0.28), BLAD2.huid, 1.5); } };
+  rij(L - 20, SX - 60); rij(SX + 60, R + 20);
+  ctx.fillStyle = BLAD2.cut; ctx.fillRect(L, Y.onder, SX - 60 - L, 5); ctx.fillRect(SX + 60, Y.onder, R - SX - 60, 5);
+  ctx.restore();
+  // huidmondje: twee sluitcellen (met bladgroen) rond de spleet; open = ze bollen op en wijken, dicht = ze raken elkaar
+  ctx.save(); ctx.globalAlpha *= dim('huidmondje'); const half = lerp(0.5, 17, op), rx = (60 - half) / 2;
+  [-1, 1].forEach(k => { const cx = SX + k * (half + rx), cy = Y.ho + 16; ctx.beginPath(); ctx.ellipse(cx, cy, rx, 19 + op * 4, 0, 0, 6.283); shape(ctx, BLAD2.sluit, BLAD2.palR, 2);
+    for (let q = 0; q < 3; q++) { ctx.beginPath(); ctx.ellipse(cx + (q - 1) * rx * 0.42, cy + (q % 2 ? 5 : -5), 4, 2.8, 0.3, 0, 6.283); ctx.fillStyle = BLAD2.korrel; ctx.fill(); } });
+  ctx.restore();
+  ctx.restore(); // clip
+  // gaswisseling: CO2 naar binnen (grijs, links), O2 naar buiten (teal, rechts)
+  if (g > 0.01) { ctx.save(); ctx.globalAlpha *= g;
+    _bladPijl(ctx, [[SX - 70, 270], [SX - 30, 220], [SX - 6, 160], [SX - 8, 100]], BLAD2.co2, 5);
+    _bladPijl(ctx, [[SX + 8, 95], [SX + 6, 160], [SX + 30, 220], [SX + 70, 268]], BLAD2.o2, 5);
+    const f = (t * 0.25) % 1; _bladCO2(ctx, lerp(SX - 92, SX - 40, f), lerp(292, 230, f), 8, -0.9); _bladCO2(ctx, SX - 34, 112, 8, 1.4);
+    _bladO2(ctx, lerp(SX + 30, SX + 80, f), lerp(220, 286, f), 9, 0.8); _bladO2(ctx, SX + 32, 96, 9, 0.3);
+    ctx.restore(); }
+  ctx.restore(); return anker;
+}
+
+// =====================================================================================
+// groep dieren-b
+// =====================================================================================
+
+// =====================================================================================
+// SCHIMMEL EN GIST. Recept (OpenStax Microbiology § 5.3; OpenStax Biology 2e § 24.1): schimmels zijn eukaryoten met een
+// celwand. GIST = eencellige schimmel (bakkersgist, ovale cel ± 5–10 µm) die zich ongeslachtelijk vermeerdert door
+// KNOPPEN: aan de moedercel groeit een kleinere dochtercel, de kern deelt en één kern schuift door de hals de knop in;
+// soms blijven cellen als een kort kettinkje aan elkaar (pseudohyfe); op de moedercel blijft een knoplitteken.
+// DRAADSCHIMMEL = vertakte draden (HYFEN), bij veel soorten met dwarswanden (septa); samen een netwerk (MYCELIUM).
+// Rhizopus (soort 'schimmel' en de loep bij 'brood') heeft GEEN dwarswanden: één doorlopende draad met veel kernen
+// (coenocytisch; Briggs, Inanimate Life 2.43; OpenStax Microbiology § 5.3). Inbouw 28 okt 2026: septa uit ronde 1 weggehaald.
+// Broodschimmel (Rhizopus): aan het eind van rechtopstaande draden zitten bolletjes vol sporen (SPORANGIA): het witte
+// pluis met zwarte stipjes op beschimmeld brood. Kleuren: celwand ivoor, cytoplasma licht, kern paars (Part C), sporen donker.
+// Bekende fouten: dwarswanden in de draden van Rhizopus; gist als bacterie (zonder kern); hyfen als massieve takjes; knop los naast de cel; schimmel als groene vlek zonder draden.
+// Aanroep: schimmelGist(ctx, x, y, s, { soort: 'gist' | 'schimmel' | 'brood', t, a, seed }) — s = schaal (gistcel ± 60·s px,
+// schimmel ± 300·s px hoog, broodplak ± 360·s px breed); t (0–1): gist = knoppen (0 geen knop … 1 knop bijna los),
+// schimmel = groei van het mycelium en rijpen van de sporangia, brood = groei van de plekken. Geeft ankerpunten terug.
+// Variant B: in de omgeving. Schimmel groeit OP en IN een broodkruim (hyfen dringen het kruim in, rhizoïden), rijpe
+// sporangia laten sporen los die wegzweven (t); gist als één grote, duidelijke cel waarvan de knopstadia (t) los te tonen zijn
+// (variant C: B + de gistcel uit A); brood met een vergrotingscirkel die van de plek naar de draden inzoomt.
+// =====================================================================================
+function schimmelGist(ctx, x, y, s = 1, o = {}) {
+  const { soort = 'gist', t = 1, a = 1, seed = 1 } = o; if (a <= 0.01) return {};
+  const WAND = '#D9CFB6', CYT = '#2E3A4E', KERN = C.kern || '#5B4A8C', KERNR = C.kernR || '#9C86D8', VAC = '#4A5C78', SPOOR = '#2A2A30';
+  const ss = (u) => { u = Math.max(0, Math.min(1, u)); return u * u * (3 - 2 * u); };
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s, s); ctx.lineCap = 'round'; ctx.lineJoin = 'round'; const R = {};
+  const T = (px, py) => [x + px * s, y + py * s];
+  if (soort === 'gist') { // moedercel (ovaal) + knop die groeit aan de rechterpool
+    const r = 30, ry = 25, k = ss(t / 0.85), rb = r * 0.72 * Math.max(0.12, k), bx = r * 0.86 + rb * 0.82, by = -3;
+    const vormen = (d) => { ctx.beginPath(); ctx.ellipse(0, 0, r + d, ry + d, 0, 0, 6.283); if (t > 0.04) { ctx.moveTo(bx + rb * 0.92 + d, by); ctx.ellipse(bx, by, rb * 0.92 + d, rb * 0.82 + d, 0, 0, 6.283); } };
+    vormen(3); ctx.fillStyle = WAND; ctx.fill(); // celwand (samen: hals sluit vanzelf)
+    if (t > 0.04) { ctx.fillStyle = WAND; ctx.fillRect(r * 0.6, by - rb * 0.45, bx - r * 0.6, rb * 0.9); } // hals
+    vormen(0); ctx.fillStyle = CYT; ctx.fill(); if (t > 0.04) { ctx.fillStyle = CYT; ctx.fillRect(r * 0.6, by - rb * 0.32, bx - r * 0.6, rb * 0.64); }
+    if (t > 0.97) { ctx.strokeStyle = WAND; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(r * 0.98, by - rb * 0.5); ctx.lineTo(r * 0.98, by + rb * 0.5); ctx.stroke(); } // nieuwe wand: knop snoert af
+    // vacuole en kern(en)
+    ctx.beginPath(); ctx.ellipse(-10, 4, 11, 9, 0, 0, 6.283); ctx.fillStyle = VAC; ctx.fill(); ctx.strokeStyle = rgba('#A9C0D8', 0.55); ctx.lineWidth = 1; ctx.stroke();
+    const kd = Math.max(0, Math.min(1, (t - 0.45) / 0.4)); // kern rekt door de hals en deelt
+    if (kd < 0.75) { const lx = 8 + kd * (bx - 8) * 0.5, w = 7 + kd * (bx - 8) * 0.55; ctx.beginPath(); ctx.ellipse(lx, -3, w, 6.5 - kd * 2, 0, 0, 6.283); ctx.fillStyle = KERN; ctx.fill(); ctx.strokeStyle = KERNR; ctx.lineWidth = 1.4; ctx.stroke(); R.kern = T(lx, -3); }
+    else { for (const px of [10, bx]) { ctx.beginPath(); ctx.ellipse(px, -3, 6.5, 5.5, 0, 0, 6.283); ctx.fillStyle = KERN; ctx.fill(); ctx.strokeStyle = KERNR; ctx.lineWidth = 1.4; ctx.stroke(); } R.kern = T(10, -3); R.kernKnop = T(bx, -3); }
+    // knoplitteken van een eerdere knop
+    ctx.strokeStyle = rgba(WAND, 0.9); ctx.lineWidth = 1.6; ctx.beginPath(); ctx.ellipse(-r * 0.7, -ry * 0.72, 4, 2.4, -0.7, 0, 6.283); ctx.stroke();
+    R.cel = T(-r * 0.2, ry + 3); R.wand = T(-r - 3, 0); if (t > 0.04) R.knop = T(bx, by - rb * 0.82 - 3); R.vacuole = T(-10, 4);
+  } else if (soort === 'schimmel') { // mycelium op een ondergrond, sporangiofoor met sporangia (Rhizopus)
+    const g = ss(t / 0.7), rijp = ss((t - 0.55) / 0.45);
+    const buis = (P, w) => { ctx.strokeStyle = WAND; ctx.lineWidth = w + 3; ctx.beginPath(); P.forEach((p, i) => i ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.stroke(); ctx.strokeStyle = CYT; ctx.lineWidth = w - 1; ctx.stroke(); };
+    const lijn = (x0, y0, an, L, buig, n = 8) => { const P = []; for (let i = 0; i <= n; i++) { const u = i / n, a2 = an + buig * u; P.push([x0 + Math.cos(an + buig * u * 0.5) * L * u, y0 + Math.sin(an + buig * u * 0.5) * L * u]); } return P; };
+    // ondergrond
+    ctx.fillStyle = '#C9AE78'; ctx.beginPath(); ctx.moveTo(-230, 2); for (let i = 0; i <= 23; i++) ctx.lineTo(-230 + i * 20, (hash(i * 1.7) - 0.5) * 6); ctx.lineTo(230, 70); ctx.lineTo(-230, 70); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = rgba('#8E7448', 0.6); for (let i = 0; i < 26; i++) { ctx.beginPath(); ctx.ellipse(-220 + hash(i * 2.9) * 440, 12 + hash(i * 6.1) * 50, 4 + hash(i) * 6, 2.5 + hash(i * 3) * 3, 0, 0, 6.283); ctx.fill(); } // kruim met gaatjes
+    // liggende hyfen (stolonen) en vertakkingen
+    const H = []; const tak = (x0, y0, an, L, d) => { if (d > 2) return; const P = lijn(x0, y0, an, L * g, (hash(seed + x0 * 0.1 + d) - 0.5) * 0.5); H.push([P, 6 - d]); const e = P[P.length - 1];
+      if (g > 0.3) { tak(...P[4], an + (d % 2 ? 0.7 : -0.7), L * 0.55, d + 1); if (d < 1) tak(...e, an + 0.35, L * 0.5, d + 1); } };
+    tak(-10, 4, 2.95, 170, 0); tak(10, 4, 0.2, 170, 0); tak(-30, 6, 2.3, 60, 1); tak(40, 6, 0.9, 60, 1); // groeit het kruim in
+    for (const [P, w] of H) buis(P, w); // Rhizopus: géén dwarswanden (coenocytisch), zie verbeterronde-2/dieren-b/schimmelGist/bron.md
+    // sporangiofoor(en): rechtop, met sporangium
+    const voet = [[-60, -2], [0, -4], [55, -2]]; R.sporangium = null;
+    voet.forEach(([fx, fy], i) => { const h = (190 - i * 30 - (i === 1 ? -30 : 0)) * g; const P = lijn(fx, fy, -1.57 + (i - 1) * 0.12, h, (i - 1) * -0.1); buis(P, 5); const top = P[P.length - 1];
+      if (g > 0.5) { const rs = 20 * rijp + 6; ctx.beginPath(); ctx.arc(top[0], top[1] - rs * 0.75, rs, 0, 6.283); ctx.fillStyle = rijp > 0.5 ? SPOOR : '#8A8678'; ctx.fill(); ctx.strokeStyle = WAND; ctx.lineWidth = 2; ctx.stroke();
+        ctx.fillStyle = rgba('#B8B4A8', 0.75); for (let k = 0; k < 18 * rijp; k++) { const an = hash(k * 3.1 + i) * 6.283, d = Math.sqrt(hash(k * 5.7 + i)) * rs * 0.82; ctx.beginPath(); ctx.arc(top[0] + Math.cos(an) * d, top[1] - rs * 0.75 + Math.sin(an) * d, 1.8, 0, 6.283); ctx.fill(); }
+        if (i === 1) { R.sporangium = T(top[0] + rs + 4, top[1] - rs * 0.75); R.sporen = T(top[0], top[1] - rs * 1.75); R.drager = T(P[4][0] + 6, P[4][1]); } } });
+    // wortelachtige rhizoïden de ondergrond in
+    for (const [fx] of voet) for (let k = 0; k < 3; k++) { const P = lijn(fx, 0, 1.57 + (k - 1) * 0.6, 12 * g, 0.4, 3); ctx.strokeStyle = WAND; ctx.lineWidth = 1.6; ctx.beginPath(); P.forEach((p, j) => j ? ctx.lineTo(...p) : ctx.moveTo(...p)); ctx.stroke(); }
+    // losgelaten sporen zweven weg
+    if (rijp > 0.6) { ctx.fillStyle = rgba(SPOOR, 0.9); ctx.strokeStyle = rgba('#B8B4A8', 0.8); ctx.lineWidth = 0.8; for (let k = 0; k < 16; k++) { const u = (t * 1.0 + hash(k * 4.3)) % 1, px = (hash(k * 1.9) - 0.5) * 200 + Math.sin(u * 6 + k) * 10, py = -200 - u * 90; ctx.globalAlpha = a * (1 - u) * (rijp - 0.6) / 0.4; ctx.beginPath(); ctx.arc(px, py, 2.4, 0, 6.283); ctx.fill(); ctx.stroke(); } ctx.globalAlpha = a; }
+    R.hyfe = T(-120 * g, 14); R.mycelium = T(0, 22);
+  } else { // brood: plak met schimmelplekken (wit pluis, donkere sporenstipjes)
+    const kor = '#A8743E', krui = '#E6CF9C';
+    const plak = () => { ctx.beginPath(); ctx.moveTo(-170, 90); ctx.lineTo(-170, -40); ctx.bezierCurveTo(-190, -120, -110, -150, -60, -120); ctx.bezierCurveTo(-30, -160, 30, -160, 60, -120); ctx.bezierCurveTo(110, -150, 190, -120, 170, -40); ctx.lineTo(170, 90); ctx.quadraticCurveTo(170, 100, 160, 100); ctx.lineTo(-160, 100); ctx.quadraticCurveTo(-170, 100, -170, 90); ctx.closePath(); };
+    plak(); ctx.fillStyle = kor; ctx.fill(); ctx.save(); ctx.translate(0, 4); ctx.scale(0.92, 0.9); plak(); ctx.restore(); ctx.fillStyle = krui; ctx.fill();
+    ctx.fillStyle = rgba('#B89A62', 0.55); for (let i = 0; i < 22; i++) { ctx.beginPath(); ctx.ellipse(-130 + hash(i * 2.3) * 260, -90 + hash(i * 4.1) * 170, 3 + hash(i) * 4, 2 + hash(i * 7) * 2.5, hash(i * 3) * 3, 0, 6.283); ctx.fill(); } // gaatjes in het kruim
+    const plek = (px, py, rr, k) => { const r2 = rr * ss(t * 1.2 - k * 0.15); if (r2 < 1) return; ctx.beginPath(); ctx.arc(px, py, r2 * 1.15, 0, 6.283); ctx.fillStyle = rgba('#F2EFE6', 0.55); ctx.fill();
+      ctx.beginPath(); ctx.arc(px, py, r2, 0, 6.283); ctx.fillStyle = '#E9E6DC'; ctx.fill(); ctx.beginPath(); ctx.arc(px, py, r2 * 0.6, 0, 6.283); ctx.fillStyle = '#7E8C7A'; ctx.fill();
+      ctx.fillStyle = SPOOR; for (let j = 0; j < 14; j++) { const an = hash(j * 3.3 + k) * 6.283, d = Math.sqrt(hash(j * 5.1 + k)) * r2 * 0.8; ctx.beginPath(); ctx.arc(px + Math.cos(an) * d, py + Math.sin(an) * d, Math.max(1, r2 * 0.06), 0, 6.283); ctx.fill(); } };
+    plek(-60, -40, 34, 0); plek(40, 20, 24, 1); plek(85, -70, 14, 2);
+    // vergrotingscirkel: van de grootste plek naar de draden
+    if (t > 0.3) { const z = ss((t - 0.3) / 0.4), cx = 120, cy = -175, rz = 62; ctx.globalAlpha = a * z; ctx.strokeStyle = C.goud || '#E2B33C'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.arc(-60, -40, 40, 0, 6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(-25, -60); ctx.lineTo(cx - rz * 0.86, cy + rz * 0.5); ctx.stroke();
+      ctx.beginPath(); ctx.arc(cx, cy, rz, 0, 6.283); ctx.fillStyle = C.bgSchema; ctx.fill(); ctx.save(); ctx.clip(); ctx.translate(cx, cy + 40); ctx.scale(0.32, 0.32);
+      ctx.fillStyle = '#C9AE78'; ctx.fillRect(-250, 0, 500, 200);
+      for (let i = 0; i < 9; i++) { const fx = -160 + i * 40, h = 90 + hash(i * 3.3) * 120; ctx.strokeStyle = WAND; ctx.lineWidth = 7; ctx.beginPath(); ctx.moveTo(fx, 0); ctx.quadraticCurveTo(fx + 10, -h * 0.5, fx + (hash(i) - 0.5) * 30, -h); ctx.stroke(); ctx.beginPath(); ctx.arc(fx + (hash(i) - 0.5) * 30, -h - 14, 16, 0, 6.283); ctx.fillStyle = SPOOR; ctx.fill(); ctx.strokeStyle = WAND; ctx.lineWidth = 3; ctx.stroke(); }
+      ctx.restore(); ctx.beginPath(); ctx.arc(cx, cy, rz, 0, 6.283); ctx.stroke(); ctx.globalAlpha = a; R.zoom = T(cx, cy - rz); }
+    R.plek = T(-60, -40 - 40); R.brood = T(0, 100);
+  }
+  ctx.restore(); return R; }
+
+// =====================================================================================
+// groep genregulatie
+// =====================================================================================
+
+// =====================================================================================
+// LAC-OPERON — variant B (verbeterronde 2): DE HELIX DOOR DE KLEM. Het DNA is de echte helix (dnaDraad); de gebieden staan als
+// gekleurde balkjes direct onder de helix (geen mouwen eromheen, zodat het DNA zelf rustig blijft). De eiwitten OMKLEMMEN
+// het DNA: achterste helft van het eiwit → DNA → voorste lip, zodat je ziet dat de helix dóór het eiwit loopt.
+// Recept (Pierce, Genetics Essentials 3e § 12.8; BioNumbers 102084, Müller-Hill 1996):
+//  - volgorde: regulatorgen lacI (eigen promotor) … promotor → operator → lacZ → lacY → lacA; één promotor, één mRNA voor drie
+//    genen; lacZ is het langste gen (3075 bp), lacY en lacA korter (verhouding bij benadering).
+//  - ZONDER lactose zit de repressor ÓP de operator en omklemt het DNA (bindingsconstante ± 10^9 M⁻¹); RNA-polymerase zit op de
+//    promotor en kan niet verder. (Fout ronde 1, twee bronnen: de repressor zweefde bóven de operator.)
+//  - MET lactose: allolactose (oker, twee zesringen) bindt in de repressor, de klem gaat open (de lip zwaait weg) en de
+//    repressor laat los; RNA-polymerase schuift over lacZ, lacY, lacA en laat één dunne mRNA-sliert achter (teal).
+//  - kleuren: promotor goud, operator koraal, genen groen (voller als ze worden afgelezen), lacI grijsblauw; repressor
+//    koraal kralenketen (remmer), polymerase grijsblauw kralenketen (C2); DNA grijs (dnaDraad, palet B).
+//  - o.lactose 0..1: 0–0,3 allolactose komt aan · 0,3–0,5 klem open, repressor weg · 0,5–1 polymerase loopt, mRNA groeit.
+// Bekende fouten: repressor die boven de operator zweeft; eiwit als bol; operator vóór de promotor; drie promotors.
+// Aanroep (zelfde als ronde 1): lacOperon(ctx, x0, y, w, {a, lactose, lacI, t}); (x0, y) = begin van lacI op de DNA-as,
+// w = lengte t/m lacA. Geeft {lacI, promotor, operator, genen: [[x, y] ×3], repressor, polymerase, mrna} terug.
+// Vereist dnaDraad, _grKralen (lib_bio.js).
+// =====================================================================================
+function _lacSuiker(ctx, x, y, r, a = 1) { // (allo)lactose: twee zesringen (galactose + glucose) met een brug; oker = voedingsmolecuul (C1)
+  if (a <= 0.01) return; ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = lighten(C.oker, 0.35); ctx.fillStyle = rgba(C.oker, 0.6); ctx.lineWidth = Math.max(1.2, r * 0.18); ctx.lineJoin = 'round';
+  const ring = (cx, cy) => { ctx.beginPath(); for (let k = 0; k < 6; k++) { const an = k / 6 * 6.283 + Math.PI / 6, X = cx + Math.cos(an) * r, Y = cy + Math.sin(an) * r * 0.62; k ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); } ctx.closePath(); ctx.fill(); ctx.stroke(); };
+  ring(x - r * 1.25, y); ring(x + r * 1.25, y + r * 0.35); ctx.beginPath(); ctx.moveTo(x - r * 0.3, y + r * 0.2); ctx.lineTo(x + r * 0.3, y + r * 0.3); ctx.stroke(); ctx.restore(); }
+function _lacSliert(ctx, xa, ya, xb, yb, s, t = 0) { // dunne mRNA-sliert (± half zo dik als DNA), 5' = (xa, ya) → 3' = (xb, yb)
+  if (xb - xa < 4) return; ctx.save(); ctx.strokeStyle = C.teal; ctx.lineWidth = Math.max(1.4, 5 * s); ctx.lineCap = 'round'; ctx.beginPath();
+  const n = 60; for (let i = 0; i <= n; i++) { const u = i / n, X = lerp(xa, xb, u), Y = lerp(ya, yb, u * u) + Math.sin(u * 9 + t) * 14 * s * (1 - u * 0.6) + Math.sin(u * 23 + 1) * 4 * s; i ? ctx.lineTo(X, Y) : ctx.moveTo(X, Y); }
+  ctx.stroke(); ctx.restore(); }
+function lacOperon(ctx, x0, y, w, o = {}) {
+  const { a = 1, lactose = 0, lacI = true, t = 0 } = o; if (a <= 0.01) return {};
+  const s = w / 1600, uit = { genen: [] }, X = (u) => x0 + u * s, dw = Math.max(5, 46 * s);
+  const R = { I: [0, 210], p: [300, 430], o: [436, 500], Z: [510, 1070], Y: [1080, 1308], A: [1318, 1430] };
+  const kom = ease(clamp(lactose / 0.3, 0, 1)), los = ease(clamp((lactose - 0.3) / 0.2, 0, 1)), loop = ease(clamp((lactose - 0.5) / 0.5, 0, 1));
+  ctx.save(); ctx.globalAlpha *= a; ctx.lineCap = 'round';
+  // 1) gebieden als balkjes direct onder de helix
+  const by = y + dw * 0.5 + 10 * s, bh = Math.max(3, 18 * s);
+  const balk = (r, kl, al = 1) => { roundRect(ctx, X(r[0]) + 2 * s, by, X(r[1]) - X(r[0]) - 4 * s, bh, bh / 2); ctx.globalAlpha *= al; ctx.fillStyle = kl; ctx.fill(); ctx.globalAlpha /= al; };
+  if (lacI) balk(R.I, C.enzym); balk(R.p, C.goud); balk(R.o, C.koraal);
+  ['Z', 'Y', 'A'].forEach(g => { balk(R[g], C.groen, 0.55 + 0.45 * loop); uit.genen.push([(X(R[g][0]) + X(R[g][1])) / 2, y]); });
+  const xs = X(R.p[1]); ctx.strokeStyle = C.goud; ctx.fillStyle = C.goud; ctx.lineWidth = Math.max(1.2, 4 * s); ctx.beginPath(); ctx.moveTo(xs, by + bh); ctx.lineTo(xs, by + bh + 26 * s); ctx.lineTo(xs + 38 * s, by + bh + 26 * s); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(xs + 50 * s, by + bh + 26 * s); ctx.lineTo(xs + 36 * s, by + bh + 18 * s); ctx.lineTo(xs + 36 * s, by + bh + 34 * s); ctx.closePath(); ctx.fill();
+  uit.lacI = [(X(R.I[0]) + X(R.I[1])) / 2, y]; uit.promotor = [(X(R.p[0]) + X(R.p[1])) / 2, y]; uit.operator = [(X(R.o[0]) + X(R.o[1])) / 2, y];
+  // eiwitvormen (ontwerpeenheden; oorsprong = DNA-as): lijf boven het DNA, holte waar de helix doorheen loopt, lip ervóór
+  const px = lerp(X(R.p[0]) + 30 * s, X(R.A[1]) - 40 * s, loop);
+  const polLijf = (qx, qy) => { const ex = qx / 64, ey = (qy + 34) / 74; return ex * ex + ey * ey < 1; };
+  const polLip = (qx, qy) => { const ex = qx / 50, ey = (qy - 8) / 30; return ex * ex + ey * ey < 1; };
+  const ox = uit.operator[0] + 10 * s, rx = ox + los * 150 * s, ry = y - los * 240 * s, rot = los * 0.35, lipA = 1 - ease(clamp((lactose - 0.25) / 0.12, 0, 1));
+  const repLijf = (qx, qy) => { const ex = qx / 60, ey = (qy + 46) / 58; return (ex * ex + ey * ey < 1 || (qy > -10 && qy < 30 && Math.abs(qx) < 44)) && !(Math.hypot(qx - 26, qy + 86) < 14) && !(Math.hypot(qx + 26, qy + 86) < 14); };
+  const repLip = (qx, qy) => { const ex = qx / 44, ey = (qy - 8) / 28; return ex * ex + ey * ey < 1; };
+  // 2) achterkant van de eiwitten
+  _grKralen(ctx, px, y, polLijf, { r: 13, sc: s, col: _mixHex(C.enzym, '#1A2740', 0.25), seed: 5, bbox: [-66, -110, 66, 42], key: 'lacBpol' });
+  _grKralen(ctx, rx, ry, repLijf, { r: 11, sc: s, col: _mixHex('#C9826F', '#1A2740', 0.2), seed: 8, rot, bbox: [-62, -104, 62, 32], key: 'lacBrep' });
+  // 3) het DNA (helix) loopt dóór de eiwitten
+  dnaDraad(ctx, [[X(-40), y], [X(1500), y]], { w: dw, helix: true, glad: false, fase: t * 0.05 });
+  // 4) voorste lippen: de klem om het DNA (repressorlip zwaait weg zodra allolactose bindt)
+  _grKralen(ctx, px, y, polLip, { r: 12, sc: s, col: C.enzym, seed: 2, bbox: [-52, -24, 52, 40], key: 'lacBpolLip' });
+  if (lipA > 0.01) _grKralen(ctx, ox, y + (1 - lipA) * 40 * s, repLip, { r: 10, sc: s, col: '#C9826F', seed: 3, a: lipA, bbox: [-46, -22, 46, 38], key: 'lacBrepLip' });
+  uit.polymerase = [px, y - 90 * s]; uit.repressor = [rx, ry - 70 * s];
+  // 5) allolactose in de twee holtes bovenop de repressor
+  [-1, 1].forEach(k => { const lx = 26 * k * s, ly = -86 * s, dX = rx + lx * Math.cos(rot) - ly * Math.sin(rot), dY = ry + lx * Math.sin(rot) + ly * Math.cos(rot);
+    if (lactose > 0.01) _lacSuiker(ctx, lerp(ox + k * 260 * s + 120 * s, dX, kom), lerp(y - 330 * s, dY, kom), 12 * s, Math.min(1, lactose * 6)); });
+  // 6) mRNA: 5' vrij boven lacZ, 3' in de polymerase
+  if (loop > 0.02 && px - X(R.Z[0]) > 60 * s) { const x5 = X(R.Z[0]) + 20 * s, ym = y - 170 * s; _lacSliert(ctx, x5, ym, px - 50 * s, y - 100 * s, s, t); uit.mrna = [(x5 + px) / 2, ym]; }
+  ctx.restore(); return uit;
 }

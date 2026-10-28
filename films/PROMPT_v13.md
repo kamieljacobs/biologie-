@@ -74,7 +74,7 @@ Filled in once per series; every film brief inherits it. Filled-in series briefs
 | FILMS | numbered list with working titles |
 | AUDIENCE + NIVEAU |  |
 | METHODS | per level |
-| SERIES COLOURS | which objects of this series get which of the six betekeniskleuren from Part C, fixed in film 1 and reused; a series never adds a seventh colour, it may add tints of one colour for a family of objects (e.g. the four basen as four tints of paars) |
+| SERIES COLOURS | which objects of this series get which of the six betekeniskleuren from Part C, fixed in film 1 and reused; a series never adds a seventh colour, it may add tints of one colour for a family of objects (e.g. the four basen in palet B, see Part C) |
 | SERIES LIBRARY | the recurring objects of this series (molecules, organelles, organisms, lab objects) that must look identical in every film; the first film that draws one fixes it |
 | NIVEAU LABEL | as in Part C (paarse balk + VWO); only note here if a series needs it announced differently in the narration |
 | PLAYER | reuse the series player; list the switches it must have |
@@ -442,10 +442,12 @@ Betekeniskleuren: colour carries meaning, never decoration. Six colours, fixed f
 | Koraal | #E07A5F | energie, warmte, bloed, mitochondriën, ATP |
 | Groen | #7FC48F | leven, plant, fotosynthese, positief resultaat, conclusies |
 | Teal | #5BA4C9 | water, zuurstof, informatie, koud, zenuwsignalen |
-| Paars | #8C7BBF | kern, DNA, erfelijkheid, hormonen; the vwo marker |
+| Paars | #8C7BBF | kern, erfelijkheid, hormonen; the vwo marker (not DNA any more since 28 okt 2026: see the DNA colours below) |
 | Oker | #C9A35C | voedsel, bodem, organismen, vesikels |
 
-Vaste moleculekleuren: every recurring molecule or particle type gets one colour from this table, the same in every film of every series (DNA and RNA paars, ATP koraal, glucose and other food molecules oker, O₂ and water teal). The first film that draws a type records its colour in the shared library (C7); later films never change it.
+Vaste moleculekleuren: every recurring molecule or particle type gets one colour from this table, the same in every film of every series (ATP koraal, glucose and other food molecules oker, O₂ and water teal).
+
+DNA and RNA colours (palet B, Kamiel 28 okt 2026, beeldbank verbeterronde 2; replaces 'DNA paars'): the DNA backbone (ruggengraat, rails, a DNA thread, chromatine and chromosomes in their standard colour) is neutral grey (rug #5E6A80, light #97A3B6; chromosome #AEB8C8); the bases are four families of colour, warm A–T and cool C–G, each pair with a big step in lightness: A koraalrood #D8604A, T zandgeel #F2CF7A, C lichtblauw #86C3E8, G donkerblauw #34609A (letter dark on A, T, C, light on G). RNA uses the same base colours, U takes the colour of T; only the RNA backbone keeps its own colour (teal). Old and new strand at replication: grey #7D899E and near-white #DCE3EC. Chromosome origin (crossing-over, meiose): father donkerblauw #34609A, mother zandgeel #F2CF7A. These values live in `DNA_BASE`, `RNA_BASE`, `D2` and `CD` in `bibliotheek/lib_bio.js`; use those, never own tints. Paars stays for the kern, erfelijkheid, hormonen and the vwo bar. The first film that draws a type records its colour in the shared library (C7); later films never change it.
 
 Neutrals: text #F2F2EE, secondary text #9AA3B2, lines and borders #8FA0B5, dimmed context at 35% opacity.
 
@@ -484,7 +486,7 @@ Tekenregels:
 
 Organellenbibliotheek: every organelle looks in film 1 exactly as in film 12. Their colours are tokens in lib.js (C.mito, C.golgi, C.er, C.lyso, C.ves, C.kern …) and their drawings live in the shared library (bibliotheek/lib\_bio.js, testvel.html); reuse them, never redraw.
 
-Moleculen: rounded shapes with the same border-and-fill rule, in the betekeniskleur of their function: ATP koraal, glucose oker, zuurstof teal, DNA paars, enzymes grey-blue (#7A8BA8) with the active site in goud. Atoms and bonds only in vwo blocks, as simple ball-and-stick in neutrals.
+Moleculen: rounded shapes with the same border-and-fill rule, in the betekeniskleur of their function: ATP koraal, glucose oker, zuurstof teal, DNA grey backbone with palet-B bases (see above), enzymes grey-blue (#7A8BA8) with the active site in goud. Atoms and bonds only in vwo blocks, as simple ball-and-stick in neutrals.
 
 ### C3. Look 2: Macro
 

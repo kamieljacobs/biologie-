@@ -4,7 +4,7 @@
 <link rel="apple-touch-icon" href="../img/icoon/apple-touch-icon.png">
 <meta name="robots" content="noindex"><title>Testvel tekenbibliotheek</title>
 <style>body{margin:0;background:#121A26;color:#F2F2EE;font:16px system-ui}nav{padding:10px 16px}button{margin-right:8px}canvas{width:100%;height:auto;display:block}</style></head><body>
-<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button> <button onclick="spierVel()">Spieren en beweging</button> · Verbeterronde 1 (ingebouwd 28 okt 2026): <button onclick="vr1(1)">cel 1</button><button onclick="vr1(2)">cel 2</button><button onclick="vr1(3)">cel 3 · DNA</button><button onclick="vr1(4)">DNA · genregulatie</button><button onclick="vr1(5)">lab</button><button onclick="vr1(6)">organen · voortplanting</button><button onclick="vr1(7)">weefsel</button></nav>
+<nav>Testvel lib_bio.js (prompt v8, C9) · <button onclick="draw(1)">vel 1</button><button onclick="draw(3)">vel 2</button><button onclick="draw(5)">vel 2 · eisprong en menstruatie</button><button onclick="draw(7)">vel 3 · sekse en gender</button><button onclick="draw(9)">vel 4 · Van bevruchting tot baby</button><button onclick="draw(11)">vel 4 · soa's, eileider, blastocyste</button> · Chromosomen (gekeurd 25 okt): <button onclick="chr(1)">huid</button><button onclick="chr(2)">kern en chromosomen</button><button onclick="chr(3)">DNA rond eiwitten</button><button onclick="chr(4)">onderarmen</button> · DNA-reeks (gekeurd 25 okt): <button onclick="dnaVel()">basen, nucleotide, ladder/helix</button> · DNA kopiëren (ronde 2): <button onclick="replVel()">replicatievork, enzymen, schaafwond</button><button onclick="gpVel()">Geslachtsorganen 2.0</button> <button onclick="cdVel()">Celdeling 2.0</button> <button onclick="spierVel()">Spieren en beweging</button> · Verbeterronde 1 (ingebouwd 28 okt 2026): <button onclick="vr1(1)">cel 1</button><button onclick="vr1(2)">cel 2</button><button onclick="vr1(3)">cel 3 · DNA</button><button onclick="vr1(4)">DNA · genregulatie</button><button onclick="vr1(5)">lab</button><button onclick="vr1(6)">organen · voortplanting</button><button onclick="vr1(7)">weefsel</button> · Verbeterronde 2 (ingebouwd 28 okt 2026): <button onclick="vr2(1)">DNA · palet B</button><button onclick="vr2(2)">blad · echo · embryo · schimmel · lac</button><button onclick="vr2(3)">eiwitten</button></nav>
 <canvas id="c" width="1920" height="1080"></canvas>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib.js"></script>
 <script src="../films/voeding/1-wat-zit-er-in-je-eten/bron/src/lib_voeding.js"></script>
@@ -283,6 +283,54 @@ window.vr1=async function(p){ await chrLibs(); await gpLibs(); ctx.fillStyle=C.b
  const [titel,L,cols=4,rows=3]=VR1[p]; kop('Verbeterronde 1 · '+titel,'Kamiels keuzes, ingebouwd 28 okt 2026; tussen haakjes de gekozen versie');
  L.forEach(([n,reg,fn],i)=>vr1Tegel(i,cols,rows,n,reg,fn)); };
 if(location.hash.startsWith('#vr1-')) setTimeout(()=>vr1(+location.hash.slice(5)),300);
+// ===== Verbeterronde 2 (ingebouwd 28 okt 2026): palet B voor DNA/RNA, gekozen DNA-varianten, nieuwe objecten, eiwitten als kralenketen
+const VR2=(()=>{ const t=1.3, seq='ATGCGTACCTTAGCAGTCCAT';
+ const st={i0:20,i1:110,X0:60,cy:330,g:64,dx:20,Dmax:200,Lsplit:9,Ltw:10,Lf:26,pl:4,p1:30,lead:4,startLead:0,vlag:1.4,t:0.7};
+ return {
+ 1:['DNA in palet B · dnaladderhelix, basering, vrije nucleotide (B)',[
+  ['dnaLadderHelix helix (B)',[40,120,1840,420],c=>dnaLadderHelix(c,140,330,84,seq,{draai:1,R:190,s:1})],
+  ['dnaLadderHelix ladder · halverwege (B)',[40,620,1240,420],c=>{ dnaLadderHelix(c,110,840,66,seq.slice(0,8),{draai:0,R:120,s:0.6}); dnaLadderHelix(c,710,840,34,seq.slice(0,16),{draai:0.5,R:110,s:0.55}); }],
+  ['nucleotideRing (B)',[40,40,900,1000],c=>nucleotideRing(c,400,430,'G',{s:3.0,nummers:1,oh:1})],
+  ['baseRing · baseBruggen (B)',[980,40,900,560],c=>{ const s=1.15; 'ATCG'.split('').forEach((b,i)=>{ const x=1130+i*200, y1=110, y2=y1+184*s+16*s; baseRing(c,x,y1,b,1,{s}); baseRing(c,x,y2,DNA_BASE.comp[b],-1,{s}); baseBruggen(c,x,y1+DNA_BASE.len*s,y2-DNA_BASE.len*s,b,s,1); }); }],
+  ['vrijNucleotide: drie fosfaten · pp 1 (B)',[40,560,1100,480],c=>{ vrijNucleotide(c,420,900,'G',0,3.2,{}); vrijNucleotide(c,900,900,'A',0,3.2,{pp:1}); }],
+  ['baseRingRNA A U C G (B)',[980,40,900,420],c=>'AUCG'.split('').forEach((b,i)=>baseRingRNA(c,1110+i*210,90,b,1,{s:2.6}))],
+  ['d2Base klein: DNA en RNA (B)',[980,520,900,300],c=>[[600,5,false],[680,5,true],[760,3,false]].forEach(([y,hw,rna])=>{ d2Rug(c,[[1010,y],[1850,y]],{kleur:rna?D2.rna:D2.oud,bw:Math.max(4,hw*2)}); for(let i=0;i<Math.floor(820/(hw*3.2));i++){ const b=rna?'AUCG'[(i*7+3)%4]:d2seq(i); d2Base(c,1020+i*hw*3.2,y,-Math.PI/2,b,hw*4,hw,{rna,letter:false}); } })],
+  ['cdChromosoom std · vader/moeder (palet B)',[100,60,1760,760],c=>{ cdChromosoom(c,470,470,620,{w:62,kin:true,ringen:1}); cdChromosoom(c,1080,280,300,{w:26,kl:CD.vader,segsR:[[0,0.55,CD.vader],[0.55,1,CD.moeder]]}); cdChromosoom(c,1500,280,300,{w:26,kl:CD.moeder}); }],
+  ['kernChromatine · dnaDraad (palet B)',[60,170,1400,740],c=>{ kernChromatine(c,430,540,340,{c:0,seed:4,t}); dnaDraad(c,[[860,300],[1100,420],[1380,360]],{w:22,helix:true}); }],
+  ['nucleosoomDraad · uvSchade (palet B)',[20,60,1840,700],c=>{ nucleosoomDraad(c,90,200,1830,200,{n:3,R:110,t}); uvSchade(c,700,560,0.6,{f:0.9}); }],
+  ['vork() (palet B)',[40,40,1840,600],c=>vork(c,Object.assign({},st,{f:80}))],
+  ['thermocycler · pcrBuisje (palet B)',[20,300,1800,760],c=>{ thermocycler(c,60,480,0.88,{fase:1.15}); pcrBuisje(c,1500,600,20,{open:0,vol:25,dna:30,t:1}); }] ]],
+ 2:['Nieuw en gekozen · blad, echo, embryo, schimmel, lac-operon',[
+  ['bladDoorsnede (A) · open, gas',[-380,-300,760,600],c=>bladDoorsnede(c,0,0,1,{t,open:1,gas:1})],
+  ['bladDoorsnede (A) · dicht',[-380,-300,760,600],c=>bladDoorsnede(c,0,0,1,{t,open:0,gas:0})],
+  ['echoBeeld (A)',[0,0,900,700],c=>{ echoBeeld(c,450,30,650,{t:0.3}); }],
+  ['echoBeeld klein · hl hart (A)',[700,0,600,720],c=>{ echoBeeld(c,1000,60,300,{t:0.5,hl:{hart:1}}); echoBeeld(c,1100,470,110,{t:0.3}); }],
+  ['embryoEcht (A)',[80,40,560,640],c=>embryoEcht(c,330,350,1.3,{t:0.2})],
+  ['embryoEcht · glow · klein (A)',[560,60,720,600],c=>{ embryoEcht(c,820,330,0.72,{t:0,glow:1}); embryoEcht(c,1150,500,0.3,{t:0.2}); }],
+  ['schimmelGist gist t 0,3 · 0,7 · 1 (R1)',[-60,-60,560,120],c=>[0.3,0.7,1].forEach((tt,i)=>schimmelGist(c,i*200,0,1.2,{soort:'gist',t:tt}))],
+  ['schimmelGist schimmel, zonder septa (R1)',[-260,-320,520,420],c=>schimmelGist(c,0,0,1,{soort:'schimmel',t:1})],
+  ['schimmelGist brood (R1)',[-220,-260,460,380],c=>schimmelGist(c,0,0,1,{soort:'brood',t:1})],
+  ['lacOperon zonder lactose (B)',[0,180,1700,340],c=>lacOperon(c,60,330,1600,{lactose:0})],
+  ['lacOperon met lactose (B)',[0,100,1700,420],c=>lacOperon(c,60,330,1600,{lactose:1,t:2})] ],4,3],
+ 3:['Eiwitten als kralenketen (Kamiel: alle 15 goed zo)',[
+  ['helicaseRing · primase · ligase',[-140,-120,620,240],c=>{ helicaseRing(c,0,0,90,{laag:'achter'}); helicaseRing(c,0,0,90,{laag:'voor'}); primase(c,220,0,70,{an:1.57}); ligase(c,390,0,62,{an:1.57,sluit:1}); }],
+  ['enzymKluwen',[120,120,480,480],c=>enzymKluwen(c,360,360,200,{t})],
+  ['membraanBoog met kanaal',[0,180,1280,420],c=>membraanBoog(c,640,1500,1250,-1.95,-1.19,{s:1.6,t,eiwitten:[-1.67,{an:-1.47,soort:'kanaal',open:1}]})],
+  ['membraanReceptor',[20,40,740,620],c=>membraanReceptor(c,380,330,2.3,{bind:1,signaal:0,breed:360})],
+  ['nucleosoomDraad',[60,120,1800,420],c=>nucleosoomDraad(c,90,330,1830,330,{n:3,R:150,t})],
+  ['nucleosoomAcetyl',[20,180,860,400],c=>nucleosoomAcetyl(c,40,380,820,380,{n:4,R:62,open:1,tf:1})],
+  ['crisprCas9',[60,40,920,520],c=>crisprCas9(c,520,290,2.4,{stap:0.4,t:1})],
+  ['plasmideKnipPlak',[40,340,1240,520],c=>{ plasmideKnipPlak(c,300,600,200,{stap:1}); plasmideKnipPlak(c,1000,600,170,{stap:2.5}); }],
+  ['restrictieEnzym',[60,20,880,520],c=>restrictieEnzym(c,500,270,3.2,{stap:0.4,t:1})],
+  ['rnaInterferentie',[80,100,700,560],c=>rnaInterferentie(c,430,380,0.84,{f:0.72})],
+  ['uvSchade',[20,60,800,660],c=>uvSchade(c,420,420,0.85,{f:0.45})],
+  ['primerStuk',[40,40,1200,640],c=>{ primerStuk(c,230,200,1.6,{bind:1,bouw:0}); primerStuk(c,230,540,1.6,{bind:1,bouw:0.45}); }],
+  ['vork() met kralen-helicase/primase/ligase',[40,40,1840,600],c=>vork(c,Object.assign({},st,{f:80}))],
+  ['transcriptiefactor (via enzymKluwen)',[20,60,740,640],c=>transcriptiefactor(c,380,440,1.25,{dna:true,gebonden:1,soort:'activator',polymerase:1})] ],4,4] }; })();
+window.vr2=async function(p){ await chrLibs(); await gpLibs(); ctx.fillStyle=C.bgSchema; ctx.fillRect(0,0,W,H);
+ const [titel,L,cols=4,rows=3]=VR2[p]; kop('Verbeterronde 2 · '+titel,'Kamiels keuzes, ingebouwd 28 okt 2026; tussen haakjes de gekozen versie');
+ L.forEach(([n,reg,fn],i)=>vr1Tegel(i,cols,rows,n,reg,fn)); };
+if(location.hash.startsWith('#vr2-')) setTimeout(()=>vr2(+location.hash.slice(5)),300);
 
 draw(1);</script><p data-licentie style="max-width:1080px;margin:28px auto 22px;padding:0 24px;font:13px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;opacity:.6;text-align:center">© 2026 Kamiel Jacobs · Biologie bij Kamiel · <a href="../gebruik.html" rel="license" style="color:inherit;text-decoration:underline;text-underline-offset:2px">CC BY-NC-SA 4.0</a></p>
 </body></html>

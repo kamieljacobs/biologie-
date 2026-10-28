@@ -1,0 +1,43 @@
+{
+ "datum": "2026-10-28",
+ "toelichting": "Objecten die na Kamiels keuze (verbeterronde 2) nog zijn aangepast, ingebouwd in lib_bio.js. voor.png = de gekozen versie zoals gekozen, na.png = met de aanpassing (1280×720).",
+ "objecten": [
+  {
+   "groep": "dieren-b",
+   "obj": "schimmelGist",
+   "keuze": "R1",
+   "functies": [
+    "schimmelGist"
+   ],
+   "voor": "bibliotheek/verbeterronde-2/dieren-b/schimmelGist/voor.png",
+   "na": "bibliotheek/verbeterronde-2/dieren-b/schimmelGist/na.png",
+   "wat": "Bevestigde fout eruit: de draden van Rhizopus (soort 'schimmel') hebben geen dwarswanden (septa) meer; Rhizopus is coenocytisch (Briggs, Inanimate Life 2.43; OpenStax Microbiology § 5.3; zie bron.md). Het anker R.septum vervalt; verder ongewijzigd."
+  },
+  {
+   "groep": "dna",
+   "obj": "kleuren",
+   "keuze": "B",
+   "functies": [
+    "DNA_BASE",
+    "D2",
+    "RNA_BASE",
+    "_cdRNA",
+    "_cdRNAL",
+    "CD",
+    "dnaDraad",
+    "chromatideX",
+    "kernChromatine",
+    "nucleosoomDraad",
+    "cdAnafaseCel",
+    "bacterieEcht",
+    "uvSchade",
+    "pcrBuisje",
+    "plasmideKnipPlak",
+    "thermocycler"
+   ],
+   "voor": "bibliotheek/verbeterronde-2/dna/kleuren/voor.png",
+   "na": "bibliotheek/verbeterronde-2/dna/kleuren/na.png",
+   "wat": "Palet B overal in lib_bio.js. Twee dingen anders dan het voorgestelde palet: (1) U heeft de kleur van T (zandgeel) in plaats van perzik, omdat Kamiel koos dat RNA dezelfde basekleuren krijgt; (2) ook functies die DNA met een eigen paarse tint tekenden, volgen het palet: DNA-draad, chromatine, chromosomen (std grijs, vader donkerblauw, moeder zandgeel), nucleoïde en plasmide in de bacterie, de nieuwe streng in uvSchade, de strengen in thermocycler en pcrBuisje. De kern zelf blijft paars."
+  }
+ ]
+}

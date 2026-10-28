@@ -1,39 +1,41 @@
 # Beeldpatronen (gegenereerd door scripts/beeldpatronen.py; niet met de hand bewerken)
 
-90 keuzes in het logboek. Patroon = ≥ 3 vergelijkingen in ≥ 2 groepen en winkans ≥ 65 % (doen) of ≤ 35 % (vermijden).
+118 keuzes in het logboek. Patroon = ≥ 3 vergelijkingen in ≥ 2 groepen en winkans ≥ 65 % (doen) of ≤ 35 % (vermijden).
 
 ## Kamiel
 
 | Kenmerk | Winkans | Vergelijkingen | Groepen | Oordeel |
 |---|---|---|---|---|
-| kleur: verzadigd | 0% | 7 | 5 | **vermijden** |
-| referentie: geen | 10% | 20 | 4 | **vermijden** |
-| textuur: druk | 12% | 8 | 5 | **vermijden** |
-| beweging: geen | 14% | 7 | 3 | **vermijden** |
-| detail: weinig | 15% | 20 | 6 | **vermijden** |
-| contour: geen | 20% | 10 | 4 | **vermijden** |
+| textuur: druk | 10% | 10 | 5 | **vermijden** |
+| beweging: geen | 11% | 9 | 4 | **vermijden** |
+| referentie: geen | 13% | 23 | 6 | **vermijden** |
+| vulling: vlak | 17% | 6 | 2 | **vermijden** |
+| kleur: gedempt | 20% | 20 | 7 | **vermijden** |
+| detail: weinig | 21% | 29 | 7 | **vermijden** |
 | opbouw: in-een-keer | 21% | 24 | 7 | **vermijden** |
-| detail: midden | 21% | 57 | 9 | **vermijden** |
+| kleur: verzadigd | 21% | 14 | 6 | **vermijden** |
+| detail: midden | 22% | 64 | 10 | **vermijden** |
+| textuur: geen | 24% | 38 | 10 | **vermijden** |
+| vorm: schematisch | 24% | 46 | 9 | **vermijden** |
 | beweging: standen | 24% | 25 | 7 | **vermijden** |
-| diepte: schaduw | 25% | 20 | 6 | **vermijden** |
-| kleur: gedempt | 25% | 16 | 6 | **vermijden** |
-| textuur: geen | 25% | 32 | 8 | **vermijden** |
-| vorm: schematisch | 26% | 43 | 9 | **vermijden** |
 | context: los | 26% | 19 | 7 | **vermijden** |
-| diepte: plat | 30% | 47 | 9 | **vermijden** |
+| diepte: schaduw | 29% | 21 | 7 | **vermijden** |
+| diepte: plat | 29% | 51 | 10 | **vermijden** |
 | context: in-omgeving | 32% | 25 | 7 | **vermijden** |
-| contour: dik | 33% | 3 | 2 | **vermijden** |
+| contour: dun | 32% | 28 | 7 | **vermijden** |
+| contour: dik | 33% | 6 | 4 | **vermijden** |
+| contour: geen | 33% | 18 | 6 | **vermijden** |
 | referentie: elevenlabs | 33% | 9 | 3 | **vermijden** |
-| vorm: semi | 36% | 67 | 9 | – |
-| contour: dun | 38% | 21 | 5 | – |
-| textuur: rustig | 40% | 48 | 9 | – |
+| vulling: verloop | 67% | 3 | 2 | **doen** |
+| vorm: semi | 37% | 73 | 9 | – |
 | beweging: idle | 40% | 5 | 4 | – |
-| diepte: doorsnede-3d | 41% | 29 | 7 | – |
-| kleur: accent | 43% | 28 | 6 | – |
-| referentie: bron | 43% | 37 | 5 | – |
-| beweging: proces | 44% | 34 | 7 | – |
+| diepte: doorsnede-3d | 40% | 30 | 8 | – |
+| referentie: bron | 42% | 43 | 7 | – |
+| textuur: rustig | 42% | 52 | 10 | – |
+| kleur: accent | 44% | 32 | 7 | – |
 | opbouw: in-stappen | 45% | 22 | 7 | – |
-| detail: veel | 52% | 56 | 9 | – |
+| beweging: proces | 46% | 35 | 7 | – |
+| detail: veel | 52% | 58 | 10 | – |
 | context: met-schaal | 50% | 10 | 3 | – |
 | vorm: realistisch | 50% | 12 | 3 | – |
 
@@ -41,34 +43,36 @@
 
 | Kenmerk | Winkans | Vergelijkingen | Groepen | Oordeel |
 |---|---|---|---|---|
-| beweging: geen | 0% | 7 | 3 | **vermijden** |
+| beweging: geen | 0% | 9 | 4 | **vermijden** |
 | beweging: idle | 0% | 6 | 5 | **vermijden** |
-| contour: dik | 0% | 4 | 3 | **vermijden** |
-| kleur: verzadigd | 0% | 7 | 5 | **vermijden** |
-| referentie: geen | 0% | 22 | 4 | **vermijden** |
-| detail: weinig | 5% | 20 | 6 | **vermijden** |
-| textuur: druk | 10% | 10 | 6 | **vermijden** |
+| referentie: geen | 0% | 25 | 6 | **vermijden** |
+| textuur: druk | 8% | 12 | 6 | **vermijden** |
+| contour: dik | 14% | 7 | 4 | **vermijden** |
 | opbouw: in-een-keer | 17% | 24 | 7 | **vermijden** |
-| vorm: schematisch | 18% | 44 | 9 | **vermijden** |
+| vorm: schematisch | 17% | 48 | 9 | **vermijden** |
+| vulling: vlak | 17% | 6 | 2 | **vermijden** |
+| detail: weinig | 19% | 31 | 9 | **vermijden** |
 | referentie: elevenlabs | 20% | 15 | 4 | **vermijden** |
+| kleur: verzadigd | 21% | 14 | 6 | **vermijden** |
+| kleur: gedempt | 22% | 23 | 8 | **vermijden** |
 | context: los | 24% | 21 | 9 | **vermijden** |
-| diepte: plat | 25% | 48 | 9 | **vermijden** |
-| detail: midden | 26% | 57 | 9 | **vermijden** |
-| kleur: gedempt | 26% | 19 | 7 | **vermijden** |
-| textuur: geen | 28% | 32 | 8 | **vermijden** |
+| diepte: plat | 25% | 53 | 10 | **vermijden** |
+| detail: midden | 27% | 67 | 10 | **vermijden** |
+| textuur: geen | 28% | 39 | 10 | **vermijden** |
 | beweging: standen | 29% | 28 | 8 | **vermijden** |
-| contour: geen | 31% | 13 | 5 | **vermijden** |
+| contour: geen | 33% | 21 | 7 | **vermijden** |
+| vulling: verloop | 67% | 3 | 2 | **doen** |
 | context: met-schaal | 36% | 11 | 3 | – |
-| diepte: doorsnede-3d | 38% | 29 | 7 | – |
-| contour: dun | 38% | 26 | 6 | – |
+| contour: dun | 36% | 33 | 8 | – |
+| diepte: doorsnede-3d | 37% | 30 | 8 | – |
 | context: in-omgeving | 39% | 31 | 9 | – |
-| textuur: rustig | 39% | 49 | 9 | – |
-| vorm: semi | 40% | 70 | 9 | – |
-| kleur: accent | 41% | 32 | 7 | – |
-| diepte: schaduw | 41% | 22 | 6 | – |
-| referentie: bron | 52% | 42 | 6 | – |
-| beweging: proces | 50% | 36 | 7 | – |
-| detail: veel | 50% | 56 | 9 | – |
+| textuur: rustig | 40% | 55 | 10 | – |
+| vorm: semi | 41% | 78 | 9 | – |
+| kleur: accent | 42% | 36 | 8 | – |
+| diepte: schaduw | 44% | 25 | 7 | – |
+| referentie: bron | 52% | 48 | 8 | – |
+| detail: veel | 48% | 58 | 10 | – |
+| beweging: proces | 51% | 37 | 7 | – |
 | opbouw: in-stappen | 50% | 22 | 7 | – |
 | vorm: realistisch | 50% | 14 | 3 | – |
 
@@ -117,8 +121,13 @@
 - nierbijnier (weefsel-organen): beoordelaar C, Kamiel A — Basis: variant A (Kamiels keuze). Aangepast (gemelde fout 'urinestand ontbreekt', bevestigd): de urinedruppels waren bleek op een bleke urineleider. Nu verzadigd geel met een donkere rand, ze faden in/uit aan de uiteinden, en het nierbekken kleurt mee bij o.urine. Urine: nierbekken → urineleider → blaas (LibreTexts Human Anatomy Lab 21.3; WikiVet 'Ureters'). Rustiger dan C: geen dikkere donkere holte in de urineleider, geen sterkere merg-gloed. Let op: nefron (organen-plant) gebruikt nierBijnier als oriëntatie-icoontje; getest met deze versie.
 - spiervezel-spierbundel (weefsel-organen): beoordelaar C, Kamiel oud — Basis: huidige versie (Kamiel koos oud). Aangepast (gemelde fout 'stand samentrekken ontbreekt', twee bronnen): nieuwe optie o.c 0..1 op spierVezel en spierBundel: de vezel wordt ± 15 % korter, de sarcomeren korter; de donkere A-band blijft even breed, de lichte I-band wordt smaller. Zonder o.c tekent alles precies als voorheen (films die spierVezel/spierBundel gebruiken veranderen niet). Niet aangepast: 'vezel wordt dikker' en de zwakte 'geen bindweefselvlies/haarvat in de bundel' (nieuw detail). Vraag aan Kamiel: moet de vezel bij samentrekken ook zichtbaar dikker worden? Ik vond zelf maar één indirecte bron (volume blijft gelijk), dus nog niet gedaan.
 - vetcel-vetweefsel (weefsel-organen): beoordelaar A, Kamiel oud — Basis: huidige versie (Kamiel koos oud). Functie: alleen vetweefsel(); vetcel() en _bioCellen() blijven zoals ze zijn. Aangepast (gemelde fout, twee bronnen): het haarvat liep dwars over de vetcellen; nu loopt één doorlopend vat over de grenzen tussen de cellen (in het bindweefsel). Rustiger dan variant C (die knipte het vat in losse stukjes en had er twee). Bronnen: Digital Histology 'Adipose 1' / 'White adipose connective tissue', Mustansiriyah-college 'Adipose tissue'. Niet aangepast: de zwakte 'gevuld en geslonken zijn identiek' (de oude versie heeft geen o.vul; nieuw detail, niet gevraagd).
+- basering-basebruggen-nucleotidering (dna): beoordelaar A, Kamiel B — Variant B ongewijzigd: base na een schuine knik naast C2', geen bindingsstippen, bruggen als gouden puntjes over de hele breedte (DNA_BASE.plek nu in de const zelf). Kleuren palet B.
+- schimmelGist (dieren-b): beoordelaar A, Kamiel R1 — Ronde-1-winnaar (C) met de bevestigde fout eruit: de draden van Rhizopus (soort 'schimmel') hebben geen dwarswanden meer (coenocytisch; Briggs, Inanimate Life 2.43, en OpenStax Microbiology § 5.3, zie dieren-b/schimmelGist/bron.md); anker R.septum vervallen. Staat in lib_bio.js (er is geen versie in lib_dieren.js).
+- lacOperon (genregulatie): beoordelaar B, Kamiel gelijk — 'Gelijk' zonder huidige versie → winnaar van de beoordelaar (B, de helix door de klem). De repressor ligt al óp de operator (gecontroleerd in de still); niets aangepast. DNA via dnaDraad, dus grijs (palet B).
+- zetmeelspiraal (cel-molecuul): beoordelaar A, Kamiel oud — Huidige versie blijft (Kamiel: oud). Extra stand amylopectine volgt in ronde 3.
+- antistofY (cel-afweer): beoordelaar A, Kamiel gelijk — Huidige versie blijft (Kamiel: gelijk).
 
-Overeenstemming: 47 van 90 (52%).
+Overeenstemming: 53 van 101 (52%).
 
 ## Vondsten in Kamiels keuzes
 
@@ -201,3 +210,11 @@ Overeenstemming: 47 van 90 (52%).
 - spierdwars-eenheidzenuw-spierspoeltje (C): convexe omhullende per bundel als licht perimysium
 - spiervezel-spierbundel (oud): losse worsten met gelijke strepen
 - vetcel-vetweefsel (oud): verschoven rijen gaven een honingraat
+- dnaladderhelix (B): alleen voorkant vol, achterkant 22 %; puzzelrand blijft in de helix
+- basering-basebruggen-nucleotidering (B): base hangt na een schuine knik, bruggen als gouden puntjes
+- vrijnucleotide-d2base-baseringrna (B): staartje van drie fosfaatkralen dat als pyrofosfaat loslaat
+- bladDoorsnede (A): alleen het snijvlak, één groot huidmondje, CO2/O2 als gekruiste pijlen
+- echobeeld (A): alles als zacht echoweefsel, wervels als twee kraaltjesrijen
+- embryoecht (A): hart in echte hartbult; navelstreng met doorsnede los van spits staartje
+- schimmelGist (R1): hyfen in broodkruim plus één grote gistcel met losse knopstadia
+- zetmeelspiraal (oud): zeshoeken op een golf; achterkant donkerder, leest als zigzag
