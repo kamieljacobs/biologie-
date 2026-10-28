@@ -8,7 +8,7 @@
      "href": "films/erfelijkheid/1-chromosomen.html",
      "titel": "Chromosomen",
      "duur": 9,
-     "vraag": "Hoeveel chromosomen zitten er in één cel, en waarom in paren?",
+     "vraag": "Geen van de ouders of grootouders heeft albinisme. Hoe kan hun kind het dan hebben?",
      "prompt": "v10"
     },
     {
@@ -29,21 +29,21 @@
      "href": "films/erfelijkheid/4-dihybride-kruising-en-gekoppelde-overerving.html",
      "titel": "Dihybride kruising en gekoppelde overerving",
      "duur": 4,
-     "vraag": "Wat gebeurt er als je op twee eigenschappen tegelijk kruist?",
+     "vraag": "Twee planten met gele, ronde erwten krijgen gele, gerimpelde nakomelingen. Waar komt die nieuwe combinatie vandaan?",
      "prompt": "onbekend"
     },
     {
      "href": "films/erfelijkheid/5-overerving-via-x-chromosomen-en-mitochondrien.html",
      "titel": "Overerving via X-chromosomen en mitochondriën",
      "duur": 4,
-     "vraag": "Hoe kan een eigenschap zo verschillen tussen mannen en vrouwen?",
+     "vraag": "Acht procent van de mannen is kleurenblind, van de vrouwen maar een half procent. Waarom?",
      "prompt": "onbekend"
     },
     {
      "href": "films/erfelijkheid/6-stambomen-en-kansrekenen.html",
      "titel": "Stambomen en kansrekenen",
      "duur": 4,
-     "vraag": "Is zij drager? Wat een stamboom je vertelt.",
+     "vraag": "Je broer heeft taaislijmziekte, jij en je ouders niet. Hoe groot is de kans dat jij drager bent?",
      "prompt": "onbekend"
     }
    ]
@@ -83,35 +83,35 @@
      "href": "films/voortplanting/celdeling/index.html",
      "titel": "Celdeling",
      "duur": 14,
-     "vraag": "Hoe krijgen twee nieuwe cellen precies hetzelfde DNA?",
+     "vraag": "In elke cel zit twee meter DNA. Hoe deelt een cel dat eerlijk in tweeën?",
      "prompt": "v10"
     },
     {
      "href": "films/voortplanting/2-geslachtsorganen-puberteit.html",
      "titel": "Geslachtsorganen en puberteit",
      "duur": 9,
-     "vraag": "Wat verandert er in je lichaam, en wie geeft het startsein?",
+     "vraag": "Twee klasgenoten zijn even oud, maar één is ineens een kop groter. Wie bepaalt wanneer dat begint?",
      "prompt": "v10"
     },
     {
      "href": "films/voortplanting/1-precies-op-tijd.html",
      "titel": "Van bevruchting tot baby",
      "duur": 20,
-     "vraag": "Hoe regelt je lichaam dat alles precies op tijd gebeurt?",
+     "vraag": "De eicel waaruit jij bent ontstaan, bestond al toen je oma zwanger was. Hoe kan dat?",
      "prompt": "v8"
     },
     {
      "href": "films/voortplanting/4-sekse-gender-diversiteit.html",
      "titel": "Sekse, gender en diversiteit",
      "duur": 8,
-     "vraag": "Hoe bepaalt je lichaam of je een jongen of een meisje wordt?",
+     "vraag": "Tot week zes is de aanleg van de geslachtsorganen bij elk embryo gelijk. Wat maakt daarna het verschil?",
      "prompt": "v8"
     },
     {
      "href": "films/voortplanting/3-anticonceptie-soa-voortplantingstechniek.html",
      "titel": "Anticonceptie, soa's en voortplantingstechniek",
      "duur": 8,
-     "vraag": "Hoe voorkom je een zwangerschap, en hoe help je er een op weg?",
+     "vraag": "Van honderd vrouwen die een jaar de pil slikken, worden er zo'n zeven zwanger. Hoe kan dat?",
      "prompt": "v8"
     }
    ]
@@ -131,7 +131,7 @@
      "href": "films/cellen/celorganellen/index.html",
      "titel": "Celorganellen",
      "duur": 11,
-     "vraag": "Hoe krijgt één cel dat allemaal voor elkaar?",
+     "vraag": "Je alvleesklier maakt enzymen die buiten zijn cellen werken. Hoe komen ze de cel uit?",
      "prompt": "onbekend · gemaakt 22 okt"
     },
     {
@@ -210,7 +210,7 @@
      "href": "films/evolutie/5-toeval-en-uitwisseling.html",
      "titel": "Toeval en uitwisseling",
      "duur": 9,
-     "vraag": "Kan een allel vaak worden zonder dat het iets oplevert?",
+     "vraag": "Op één eilandje ziet een op de twintig mensen helemaal geen kleur. Hoe kan dat?",
      "prompt": "v9"
     },
     {
@@ -224,7 +224,7 @@
      "href": "films/evolutie/7-hoe-weten-we-dat.html",
      "titel": "Hoe weten we dat?",
      "duur": 8,
-     "vraag": "Hoe weet je welke laag in de grond het oudst is?",
+     "vraag": "Een walvis heeft heupbotjes, maar geen poten. Waarom?",
      "prompt": "v9"
     },
     {
@@ -238,7 +238,7 @@
      "href": "films/evolutie/x1-de-reis-van-darwin.html",
      "titel": "De reis van Darwin",
      "duur": 8,
-     "vraag": "Wat zag Darwin onderweg, en waarom duurde het twintig jaar voor hij het opschreef?",
+     "vraag": "Darwin had zijn idee al in 1838. Waarom verscheen zijn boek pas in 1859?",
      "prompt": "v10",
      "extra": true
     },
@@ -246,7 +246,7 @@
      "href": "films/evolutie/x2-het-ontstaan-van-het-leven.html",
      "titel": "Het ontstaan van het leven",
      "duur": 8,
-     "vraag": "Hoe word je van losse moleculen een cel die zichzelf kopieert?",
+     "vraag": "DNA heeft eiwitten nodig, en eiwitten hebben DNA nodig. Wat kwam er dan eerst?",
      "prompt": "v10",
      "extra": true
     },
@@ -254,7 +254,7 @@
      "href": "films/evolutie/x3-van-eerste-cel-tot-nu.html",
      "titel": "Van eerste cel tot nu",
      "duur": 8,
-     "vraag": "Vier miljard jaar leven: wanneer verschijnt wat?",
+     "vraag": "Stel dat de hele geschiedenis van de aarde in één dag past. Hoe laat verschijnt de mens?",
      "prompt": "v10",
      "extra": true
     },
@@ -262,7 +262,7 @@
      "href": "films/evolutie/x4-hoe-werden-we-mens.html",
      "titel": "Hoe werden we mens?",
      "duur": 8,
-     "vraag": "Waarom zijn wij nu de enige mensensoort? Over Lucy, Homo erectus en vooral de neanderthaler, met wie we nog samenleefden.",
+     "vraag": "Neanderthalers zijn uitgestorven. Waarom heb jij dan misschien toch een stukje van hun DNA?",
      "prompt": "v10",
      "extra": true
     },
@@ -306,7 +306,7 @@
      "href": "films/dna/3-van-dna-naar-eiwit.html",
      "titel": "Van DNA naar eiwit",
      "duur": 8,
-     "vraag": "Hoe wordt een gen een eiwit?",
+     "vraag": "Na een mRNA-prik maken je eigen spiercellen een eiwit van een virus. Hoe kan dat?",
      "prompt": "v5"
     },
     {
@@ -341,21 +341,21 @@
      "href": "films/dna/8-wat-heb-jij-aan-dna.html",
      "titel": "Wat heb jij aan DNA?",
      "duur": 12,
-     "vraag": "Een doosje van internet, de hielprik, een variant in de familie, een test vóór je medicijn: wil je het weten?",
+     "vraag": "Een DNA-test van internet geeft je 1,3 keer zoveel kans op diabetes. Wat betekent dat?",
      "prompt": "v5"
     },
     {
      "href": "films/dna-technieken/1-op-maat-gekopieerd/index.html",
      "titel": "Op maat gekopieerd · PCR",
      "duur": 10,
-     "vraag": "Hoe maak je van een spoortje DNA genoeg om te onderzoeken?",
+     "vraag": "Hoe maak je met alleen warm en koud van één stukje DNA er een miljard?",
      "prompt": "onbekend"
     },
     {
      "href": "films/dna-technieken/2-op-lengte-gesorteerd/index.html",
      "titel": "Op lengte gesorteerd · gelelektroforese",
      "duur": 4,
-     "vraag": "Hoe lees je een DNA-profiel, en kun je het vertrouwen?",
+     "vraag": "Alle banden van de verdachte passen bij het spoor. Is hij dan zeker de dader?",
      "prompt": "onbekend"
     },
     {
@@ -420,7 +420,7 @@
      "href": "films/gedrag/4-hechting.html",
      "titel": "Hechting: van baby tot verliefd",
      "duur": 7,
-     "vraag": "Waarom huilt een veilig gehechte baby wél als zijn moeder weggaat?",
+     "vraag": "Een baby die niet huilt als zijn moeder weggaat: is dat een goed teken?",
      "prompt": "onbekend · gemaakt 15 okt",
      "repo": "ok"
     },
@@ -428,14 +428,14 @@
      "href": "films/gedrag/5-emotieregulatie.html",
      "titel": "Emotieregulatie",
      "duur": 8,
-     "vraag": "Wat doe je als een emotie je overspoelt?",
+     "vraag": "Je doet alsof je niet boos bent. Wordt het gevoel daardoor kleiner?",
      "prompt": "onbekend · gemaakt 20 okt"
     },
     {
      "href": "films/gedrag/6-attributie.html",
      "titel": "Wiens schuld is het? Interne en externe attributie",
      "duur": 5,
-     "vraag": "Je haalt een 4. Lag het aan jou of aan de toets?",
+     "vraag": "Je haalt een 4. Welke gedachte helpt je het meest bij de volgende toets?",
      "prompt": "onbekend · gemaakt 15 okt",
      "repo": "ok"
     },
@@ -451,7 +451,7 @@
      "href": "films/gedrag/8-honingbij.html",
      "titel": "De dans van de honingbij",
      "duur": 7,
-     "vraag": "Hoe vertelt een bij de andere bijen waar de bloemen staan?",
+     "vraag": "Eén bij vindt suikerwater een kilometer verderop. Hoe vinden tientallen anderen het daarna?",
      "prompt": "onbekend · gemaakt 15 okt",
      "repo": "ok"
     },
@@ -475,7 +475,7 @@
      "href": "films/gedrag/11-slimme-dieren.html",
      "titel": "Slimme dieren",
      "duur": 7,
-     "vraag": "Kon het paard Hans rekenen, en herkent een ekster zichzelf in de spiegel?",
+     "vraag": "Een paard tikt sommen goed met zijn hoef. Hoe weet het het antwoord?",
      "prompt": "onbekend · gemaakt 15 okt",
      "repo": "ok"
     },
@@ -483,7 +483,7 @@
      "href": "films/gedrag/12-psychologie-experimenten.html",
      "titel": "Beroemde psychologie-experimenten",
      "duur": 7,
-     "vraag": "Asch, Milgram en de marshmallowtest: wat lieten ze zien, en wat bleek later niet te kloppen?",
+     "vraag": "Zes anderen noemen hardop het foute antwoord. Zeg jij dan nog het goede?",
      "prompt": "onbekend · gemaakt 15 okt",
      "repo": "ok"
     }
@@ -554,7 +554,7 @@
      "href": "films/zenuwstelsel/4-knoeien-met-de-spleet.html",
      "titel": "Knoeien met de synaps",
      "duur": 5,
-     "vraag": "Hoe kan dezelfde spleet zo verschillend reageren?",
+     "vraag": "Koffie maakt je wakker, wijn maakt je trager. Wat doen ze in je hersenen?",
      "prompt": "onbekend · gemaakt 4 okt"
     },
     {
@@ -568,14 +568,14 @@
      "href": "films/zenuwstelsel/6-leren-en-onthouden.html",
      "titel": "Leren en onthouden",
      "duur": 6,
-     "vraag": "Wat verandert er in je hoofd als je iets leert?",
+     "vraag": "Hij vergat elk gesprek binnen een halve minuut, maar werd wel beter in tekenen. Hoe kan dat?",
      "prompt": "onbekend · gemaakt 6 okt"
     },
     {
      "href": "films/zenuwstelsel/7-slaap.html",
      "titel": "Slaap",
      "duur": 8,
-     "vraag": "Waarom moet je eigenlijk slapen?",
+     "vraag": "Na een nacht doorhalen voel je je om acht uur wakkerder dan om vier uur. Hoe kan dat?",
      "prompt": "onbekend · gemaakt 16 okt"
     },
     {
@@ -602,7 +602,7 @@
      "href": "films/examens/vwo-2018-2.html",
      "titel": "Examenbespreking vwo 2018-II",
      "duur": 35,
-     "vraag": "Hoe haal je alle punten uit een examenvraag?",
+     "vraag": "Alles wat je opschrijft klopt, toch krijg je maar de helft van de punten. Hoe kan dat?",
      "prompt": "onbekend · gemaakt 21 okt"
     }
    ]
@@ -684,21 +684,21 @@
      "href": "films/onderbouw/32a/4-ademhaling-en-bloedsomloop/index.html",
      "titel": "Ademhaling en bloedsomloop",
      "duur": 6,
-     "vraag": "Hoe komt zuurstof bij elke cel?",
+     "vraag": "Je houdt onder water je adem in. Waarom moet je na een halve minuut omhoog?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32a/5-uitscheiding/index.html",
      "titel": "Uitscheiding",
      "duur": 6,
-     "vraag": "Waar blijft het afval van je cellen?",
+     "vraag": "Na een dag voetballen in de zon is je plas donkergeel. Hoe komt dat?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32a/6-skelet-en-spieren/index.html",
      "titel": "Skelet en spieren",
      "duur": 5,
-     "vraag": "Hoe beweeg je eigenlijk?",
+     "vraag": "Een spier kan alleen trekken, nooit duwen. Hoe strek je dan je arm?",
      "prompt": "v6"
     },
     {
@@ -740,42 +740,42 @@
      "href": "films/onderbouw/32b/3-waarom-zoveel-soorten/index.html",
      "titel": "Waarom zoveel soorten?",
      "duur": 4,
-     "vraag": "Hoe ontstaat een nieuwe soort?",
+     "vraag": "Al het leven stamt af van een paar eenvoudige cellen. Hoe werden dat miljoenen soorten?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32b/4-door-de-mens-gekozen/index.html",
      "titel": "Door de mens gekozen",
      "duur": 4,
-     "vraag": "Hoe maak je een betere tomaat?",
+     "vraag": "De wilde tomaat is zo klein als een erwt. Hoe werd hij zo groot?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32b/5-celdeling/index.html",
      "titel": "Celdeling",
      "duur": 4,
-     "vraag": "Hoe wordt één cel er twee?",
+     "vraag": "Je schaaft je knie. Een week later zit er gewoon nieuwe huid. Waar komt die vandaan?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32b/6-dna-en-overerving/index.html",
      "titel": "DNA en overerving",
      "duur": 4,
-     "vraag": "Hoe geef je een eigenschap door?",
+     "vraag": "Twee zwarte cavia's krijgen een wit jong. Hoe kan dat?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32b/7-stambomen-en-de-grote-stappen/index.html",
      "titel": "Stambomen en de grote stappen in de evolutie",
      "duur": 4,
-     "vraag": "Hoe lees je een stamboom?",
+     "vraag": "Een vleermuis kan vliegen, net als een vogel. Is hij familie van de vogel of van de muis?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32c/1-voeding-en-beweging/index.html",
      "titel": "Voeding en beweging",
      "duur": 5,
-     "vraag": "Wat heeft je lichaam echt nodig?",
+     "vraag": "Zeelui hadden maanden genoeg eten aan boord. Toch werden ze ziek. Wat ontbrak er?",
      "prompt": "v6"
     },
     {
@@ -789,14 +789,14 @@
      "href": "films/onderbouw/32c/3-microben-vriend-en-vijand/index.html",
      "titel": "Microben: vriend en vijand",
      "duur": 5,
-     "vraag": "Zijn alle bacteriën slecht?",
+     "vraag": "In en op je lichaam wonen ongeveer evenveel bacteriën als je eigen cellen. Moet je ze kwijt?",
      "prompt": "v6"
     },
     {
      "href": "films/onderbouw/32c/4-ziek-worden-en-beter-worden/index.html",
      "titel": "Ziek worden en beter worden",
      "duur": 4,
-     "vraag": "Wat doet een vaccin?",
+     "vraag": "Hoe kan een prik je beschermen tegen een ziekte die je nog nooit hebt gehad?",
      "prompt": "v6"
     },
     {
@@ -831,7 +831,7 @@
      "href": "films/onderbouw/33c/5-wij-hebben-de-natuur-nodig/index.html",
      "titel": "Wij hebben de natuur nodig",
      "duur": 4,
-     "vraag": "Wat levert de natuur ons gratis?",
+     "vraag": "In een streek in China bestoven mensen appelbloesem met een kwastje. Waarom?",
      "prompt": "v6"
     }
    ]
@@ -900,7 +900,7 @@
      "href": "films/vervolg/voedingsleer-1-bij-de-dietist.html",
      "titel": "Bij de diëtist: van eetdagboek tot nieuwe gewoonte",
      "duur": 8,
-     "vraag": "Iedereen weet dat groente gezond is. Waarom eet bijna niemand genoeg?",
+     "vraag": "Iedereen weet dat groente gezond is. Waarom eten de meeste mensen er toch te weinig van?",
      "prompt": "onbekend · gemaakt 20 okt",
      "extra": true
     },
